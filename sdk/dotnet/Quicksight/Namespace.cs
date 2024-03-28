@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Quicksight
     /// Resource for managing an AWS QuickSight Namespace.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,13 +32,14 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import QuickSight Namespace using the AWS account ID and namespace separated by commas (`,`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:quicksight/namespace:Namespace example 123456789012,example
+    /// $ pulumi import aws:quicksight/namespace:Namespace example 123456789012,example
     /// ```
     /// </summary>
     [AwsResourceType("aws:quicksight/namespace:Namespace")]
@@ -118,10 +121,6 @@ namespace Pulumi.Aws.Quicksight
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -248,11 +247,7 @@ namespace Pulumi.Aws.Quicksight
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("timeouts")]

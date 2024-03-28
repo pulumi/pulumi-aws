@@ -44,13 +44,14 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsKendraSettings {
 
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         public DomainDefaultUserSettingsCanvasAppSettingsKendraSettings build() {
-            final var o = new DomainDefaultUserSettingsCanvasAppSettingsKendraSettings();
-            o.status = status;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettingsCanvasAppSettingsKendraSettings();
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

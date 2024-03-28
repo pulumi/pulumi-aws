@@ -4,6 +4,7 @@
 package com.pulumi.aws.redshiftserverless.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -161,27 +162,42 @@ public final class GetNamespaceResult {
 
         @CustomType.Setter
         public Builder adminUsername(String adminUsername) {
-            this.adminUsername = Objects.requireNonNull(adminUsername);
+            if (adminUsername == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceResult", "adminUsername");
+            }
+            this.adminUsername = adminUsername;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder dbName(String dbName) {
-            this.dbName = Objects.requireNonNull(dbName);
+            if (dbName == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceResult", "dbName");
+            }
+            this.dbName = dbName;
             return this;
         }
         @CustomType.Setter
         public Builder defaultIamRoleArn(String defaultIamRoleArn) {
-            this.defaultIamRoleArn = Objects.requireNonNull(defaultIamRoleArn);
+            if (defaultIamRoleArn == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceResult", "defaultIamRoleArn");
+            }
+            this.defaultIamRoleArn = defaultIamRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder iamRoles(List<String> iamRoles) {
-            this.iamRoles = Objects.requireNonNull(iamRoles);
+            if (iamRoles == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceResult", "iamRoles");
+            }
+            this.iamRoles = iamRoles;
             return this;
         }
         public Builder iamRoles(String... iamRoles) {
@@ -189,17 +205,26 @@ public final class GetNamespaceResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+            if (kmsKeyId == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceResult", "kmsKeyId");
+            }
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder logExports(List<String> logExports) {
-            this.logExports = Objects.requireNonNull(logExports);
+            if (logExports == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceResult", "logExports");
+            }
+            this.logExports = logExports;
             return this;
         }
         public Builder logExports(String... logExports) {
@@ -207,27 +232,33 @@ public final class GetNamespaceResult {
         }
         @CustomType.Setter
         public Builder namespaceId(String namespaceId) {
-            this.namespaceId = Objects.requireNonNull(namespaceId);
+            if (namespaceId == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceResult", "namespaceId");
+            }
+            this.namespaceId = namespaceId;
             return this;
         }
         @CustomType.Setter
         public Builder namespaceName(String namespaceName) {
-            this.namespaceName = Objects.requireNonNull(namespaceName);
+            if (namespaceName == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceResult", "namespaceName");
+            }
+            this.namespaceName = namespaceName;
             return this;
         }
         public GetNamespaceResult build() {
-            final var o = new GetNamespaceResult();
-            o.adminUsername = adminUsername;
-            o.arn = arn;
-            o.dbName = dbName;
-            o.defaultIamRoleArn = defaultIamRoleArn;
-            o.iamRoles = iamRoles;
-            o.id = id;
-            o.kmsKeyId = kmsKeyId;
-            o.logExports = logExports;
-            o.namespaceId = namespaceId;
-            o.namespaceName = namespaceName;
-            return o;
+            final var _resultValue = new GetNamespaceResult();
+            _resultValue.adminUsername = adminUsername;
+            _resultValue.arn = arn;
+            _resultValue.dbName = dbName;
+            _resultValue.defaultIamRoleArn = defaultIamRoleArn;
+            _resultValue.iamRoles = iamRoles;
+            _resultValue.id = id;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.logExports = logExports;
+            _resultValue.namespaceId = namespaceId;
+            _resultValue.namespaceName = namespaceName;
+            return _resultValue;
         }
     }
 }

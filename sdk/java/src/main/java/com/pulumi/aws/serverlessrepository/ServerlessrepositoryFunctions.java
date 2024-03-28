@@ -18,6 +18,8 @@ public final class ServerlessrepositoryFunctions {
      * Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -41,19 +43,21 @@ public final class ServerlessrepositoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleApplication = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
+     *         final var example = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
      *             .applicationId(&#34;arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication&#34;)
      *             .build());
      * 
      *         var exampleCloudFormationStack = new CloudFormationStack(&#34;exampleCloudFormationStack&#34;, CloudFormationStackArgs.builder()        
-     *             .applicationId(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
-     *             .semanticVersion(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
-     *             .capabilities(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
+     *             .name(&#34;Example&#34;)
+     *             .applicationId(example.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
+     *             .semanticVersion(example.applyValue(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
+     *             .capabilities(example.applyValue(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApplicationResult> getApplication(GetApplicationArgs args) {
@@ -63,6 +67,8 @@ public final class ServerlessrepositoryFunctions {
      * Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -86,19 +92,21 @@ public final class ServerlessrepositoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleApplication = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
+     *         final var example = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
      *             .applicationId(&#34;arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication&#34;)
      *             .build());
      * 
      *         var exampleCloudFormationStack = new CloudFormationStack(&#34;exampleCloudFormationStack&#34;, CloudFormationStackArgs.builder()        
-     *             .applicationId(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
-     *             .semanticVersion(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
-     *             .capabilities(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
+     *             .name(&#34;Example&#34;)
+     *             .applicationId(example.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
+     *             .semanticVersion(example.applyValue(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
+     *             .capabilities(example.applyValue(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApplicationResult> getApplicationPlain(GetApplicationPlainArgs args) {
@@ -108,6 +116,8 @@ public final class ServerlessrepositoryFunctions {
      * Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -131,19 +141,21 @@ public final class ServerlessrepositoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleApplication = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
+     *         final var example = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
      *             .applicationId(&#34;arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication&#34;)
      *             .build());
      * 
      *         var exampleCloudFormationStack = new CloudFormationStack(&#34;exampleCloudFormationStack&#34;, CloudFormationStackArgs.builder()        
-     *             .applicationId(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
-     *             .semanticVersion(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
-     *             .capabilities(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
+     *             .name(&#34;Example&#34;)
+     *             .applicationId(example.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
+     *             .semanticVersion(example.applyValue(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
+     *             .capabilities(example.applyValue(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApplicationResult> getApplication(GetApplicationArgs args, InvokeOptions options) {
@@ -153,6 +165,8 @@ public final class ServerlessrepositoryFunctions {
      * Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -176,19 +190,21 @@ public final class ServerlessrepositoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleApplication = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
+     *         final var example = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
      *             .applicationId(&#34;arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication&#34;)
      *             .build());
      * 
      *         var exampleCloudFormationStack = new CloudFormationStack(&#34;exampleCloudFormationStack&#34;, CloudFormationStackArgs.builder()        
-     *             .applicationId(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
-     *             .semanticVersion(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
-     *             .capabilities(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
+     *             .name(&#34;Example&#34;)
+     *             .applicationId(example.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
+     *             .semanticVersion(example.applyValue(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
+     *             .capabilities(example.applyValue(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApplicationResult> getApplicationPlain(GetApplicationPlainArgs args, InvokeOptions options) {

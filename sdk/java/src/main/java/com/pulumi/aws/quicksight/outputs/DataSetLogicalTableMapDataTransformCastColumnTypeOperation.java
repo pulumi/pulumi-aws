@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,32 @@ public final class DataSetLogicalTableMapDataTransformCastColumnTypeOperation {
 
         @CustomType.Setter
         public Builder columnName(String columnName) {
-            this.columnName = Objects.requireNonNull(columnName);
+            if (columnName == null) {
+              throw new MissingRequiredPropertyException("DataSetLogicalTableMapDataTransformCastColumnTypeOperation", "columnName");
+            }
+            this.columnName = columnName;
             return this;
         }
         @CustomType.Setter
         public Builder format(@Nullable String format) {
+
             this.format = format;
             return this;
         }
         @CustomType.Setter
         public Builder newColumnType(String newColumnType) {
-            this.newColumnType = Objects.requireNonNull(newColumnType);
+            if (newColumnType == null) {
+              throw new MissingRequiredPropertyException("DataSetLogicalTableMapDataTransformCastColumnTypeOperation", "newColumnType");
+            }
+            this.newColumnType = newColumnType;
             return this;
         }
         public DataSetLogicalTableMapDataTransformCastColumnTypeOperation build() {
-            final var o = new DataSetLogicalTableMapDataTransformCastColumnTypeOperation();
-            o.columnName = columnName;
-            o.format = format;
-            o.newColumnType = newColumnType;
-            return o;
+            final var _resultValue = new DataSetLogicalTableMapDataTransformCastColumnTypeOperation();
+            _resultValue.columnName = columnName;
+            _resultValue.format = format;
+            _resultValue.newColumnType = newColumnType;
+            return _resultValue;
         }
     }
 }

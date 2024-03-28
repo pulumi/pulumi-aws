@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,14 +30,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleEndpoint, err := ec2clientvpn.NewEndpoint(ctx, "exampleEndpoint", &ec2clientvpn.EndpointArgs{
+//			exampleEndpoint, err := ec2clientvpn.NewEndpoint(ctx, "example", &ec2clientvpn.EndpointArgs{
 //				Description:          pulumi.String("Example Client VPN endpoint"),
-//				ServerCertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
+//				ServerCertificateArn: pulumi.Any(exampleAwsAcmCertificate.Arn),
 //				ClientCidrBlock:      pulumi.String("10.0.0.0/16"),
 //				AuthenticationOptions: ec2clientvpn.EndpointAuthenticationOptionArray{
 //					&ec2clientvpn.EndpointAuthenticationOptionArgs{
 //						Type:                    pulumi.String("certificate-authentication"),
-//						RootCertificateChainArn: pulumi.Any(aws_acm_certificate.Example.Arn),
+//						RootCertificateChainArn: pulumi.Any(exampleAwsAcmCertificate.Arn),
 //					},
 //				},
 //				ConnectionLogOptions: &ec2clientvpn.EndpointConnectionLogOptionsArgs{
@@ -46,14 +47,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetworkAssociation, err := ec2clientvpn.NewNetworkAssociation(ctx, "exampleNetworkAssociation", &ec2clientvpn.NetworkAssociationArgs{
+//			exampleNetworkAssociation, err := ec2clientvpn.NewNetworkAssociation(ctx, "example", &ec2clientvpn.NetworkAssociationArgs{
 //				ClientVpnEndpointId: exampleEndpoint.ID(),
-//				SubnetId:            pulumi.Any(aws_subnet.Example.Id),
+//				SubnetId:            pulumi.Any(exampleAwsSubnet.Id),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2clientvpn.NewRoute(ctx, "exampleRoute", &ec2clientvpn.RouteArgs{
+//			_, err = ec2clientvpn.NewRoute(ctx, "example", &ec2clientvpn.RouteArgs{
 //				ClientVpnEndpointId:  exampleEndpoint.ID(),
 //				DestinationCidrBlock: pulumi.String("0.0.0.0/0"),
 //				TargetVpcSubnetId:    exampleNetworkAssociation.SubnetId,
@@ -66,15 +67,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AWS Client VPN routes using the endpoint ID, target subnet ID, and destination CIDR block. All values are separated by a `,`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
-//
+// $ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
 // ```
 type Route struct {
 	pulumi.CustomResourceState

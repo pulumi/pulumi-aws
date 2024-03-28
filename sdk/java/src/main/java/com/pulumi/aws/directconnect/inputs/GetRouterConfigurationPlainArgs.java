@@ -4,6 +4,7 @@
 package com.pulumi.aws.directconnect.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -16,28 +17,6 @@ public final class GetRouterConfigurationPlainArgs extends com.pulumi.resources.
      * ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
      * 
      * There is currently no AWS API to retrieve the full list of `router_type_identifier` values. Here is a list of known `RouterType` objects that can be used:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     @Import(name="routerTypeIdentifier", required=true)
@@ -47,28 +26,6 @@ public final class GetRouterConfigurationPlainArgs extends com.pulumi.resources.
      * @return ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
      * 
      * There is currently no AWS API to retrieve the full list of `router_type_identifier` values. Here is a list of known `RouterType` objects that can be used:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     public String routerTypeIdentifier() {
@@ -119,28 +76,6 @@ public final class GetRouterConfigurationPlainArgs extends com.pulumi.resources.
          * @param routerTypeIdentifier ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
          * 
          * There is currently no AWS API to retrieve the full list of `router_type_identifier` values. Here is a list of known `RouterType` objects that can be used:
-         * ```java
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *     }
-         * }
-         * ```
          * 
          * @return builder
          * 
@@ -162,8 +97,12 @@ public final class GetRouterConfigurationPlainArgs extends com.pulumi.resources.
         }
 
         public GetRouterConfigurationPlainArgs build() {
-            $.routerTypeIdentifier = Objects.requireNonNull($.routerTypeIdentifier, "expected parameter 'routerTypeIdentifier' to be non-null");
-            $.virtualInterfaceId = Objects.requireNonNull($.virtualInterfaceId, "expected parameter 'virtualInterfaceId' to be non-null");
+            if ($.routerTypeIdentifier == null) {
+                throw new MissingRequiredPropertyException("GetRouterConfigurationPlainArgs", "routerTypeIdentifier");
+            }
+            if ($.virtualInterfaceId == null) {
+                throw new MissingRequiredPropertyException("GetRouterConfigurationPlainArgs", "virtualInterfaceId");
+            }
             return $;
         }
     }

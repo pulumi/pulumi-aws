@@ -4,6 +4,7 @@
 package com.pulumi.aws.cognito.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -43,16 +44,19 @@ public final class UserPoolUserAttributeUpdateSettings {
 
         @CustomType.Setter
         public Builder attributesRequireVerificationBeforeUpdates(List<String> attributesRequireVerificationBeforeUpdates) {
-            this.attributesRequireVerificationBeforeUpdates = Objects.requireNonNull(attributesRequireVerificationBeforeUpdates);
+            if (attributesRequireVerificationBeforeUpdates == null) {
+              throw new MissingRequiredPropertyException("UserPoolUserAttributeUpdateSettings", "attributesRequireVerificationBeforeUpdates");
+            }
+            this.attributesRequireVerificationBeforeUpdates = attributesRequireVerificationBeforeUpdates;
             return this;
         }
         public Builder attributesRequireVerificationBeforeUpdates(String... attributesRequireVerificationBeforeUpdates) {
             return attributesRequireVerificationBeforeUpdates(List.of(attributesRequireVerificationBeforeUpdates));
         }
         public UserPoolUserAttributeUpdateSettings build() {
-            final var o = new UserPoolUserAttributeUpdateSettings();
-            o.attributesRequireVerificationBeforeUpdates = attributesRequireVerificationBeforeUpdates;
-            return o;
+            final var _resultValue = new UserPoolUserAttributeUpdateSettings();
+            _resultValue.attributesRequireVerificationBeforeUpdates = attributesRequireVerificationBeforeUpdates;
+            return _resultValue;
         }
     }
 }

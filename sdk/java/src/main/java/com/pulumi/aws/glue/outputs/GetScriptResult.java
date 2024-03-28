@@ -6,6 +6,7 @@ package com.pulumi.aws.glue.outputs;
 import com.pulumi.aws.glue.outputs.GetScriptDagEdge;
 import com.pulumi.aws.glue.outputs.GetScriptDagNode;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -93,7 +94,10 @@ public final class GetScriptResult {
 
         @CustomType.Setter
         public Builder dagEdges(List<GetScriptDagEdge> dagEdges) {
-            this.dagEdges = Objects.requireNonNull(dagEdges);
+            if (dagEdges == null) {
+              throw new MissingRequiredPropertyException("GetScriptResult", "dagEdges");
+            }
+            this.dagEdges = dagEdges;
             return this;
         }
         public Builder dagEdges(GetScriptDagEdge... dagEdges) {
@@ -101,7 +105,10 @@ public final class GetScriptResult {
         }
         @CustomType.Setter
         public Builder dagNodes(List<GetScriptDagNode> dagNodes) {
-            this.dagNodes = Objects.requireNonNull(dagNodes);
+            if (dagNodes == null) {
+              throw new MissingRequiredPropertyException("GetScriptResult", "dagNodes");
+            }
+            this.dagNodes = dagNodes;
             return this;
         }
         public Builder dagNodes(GetScriptDagNode... dagNodes) {
@@ -109,33 +116,43 @@ public final class GetScriptResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetScriptResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder language(@Nullable String language) {
+
             this.language = language;
             return this;
         }
         @CustomType.Setter
         public Builder pythonScript(String pythonScript) {
-            this.pythonScript = Objects.requireNonNull(pythonScript);
+            if (pythonScript == null) {
+              throw new MissingRequiredPropertyException("GetScriptResult", "pythonScript");
+            }
+            this.pythonScript = pythonScript;
             return this;
         }
         @CustomType.Setter
         public Builder scalaCode(String scalaCode) {
-            this.scalaCode = Objects.requireNonNull(scalaCode);
+            if (scalaCode == null) {
+              throw new MissingRequiredPropertyException("GetScriptResult", "scalaCode");
+            }
+            this.scalaCode = scalaCode;
             return this;
         }
         public GetScriptResult build() {
-            final var o = new GetScriptResult();
-            o.dagEdges = dagEdges;
-            o.dagNodes = dagNodes;
-            o.id = id;
-            o.language = language;
-            o.pythonScript = pythonScript;
-            o.scalaCode = scalaCode;
-            return o;
+            final var _resultValue = new GetScriptResult();
+            _resultValue.dagEdges = dagEdges;
+            _resultValue.dagNodes = dagNodes;
+            _resultValue.id = id;
+            _resultValue.language = language;
+            _resultValue.pythonScript = pythonScript;
+            _resultValue.scalaCode = scalaCode;
+            return _resultValue;
         }
     }
 }

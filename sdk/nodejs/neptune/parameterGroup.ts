@@ -12,25 +12,28 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.neptune.ParameterGroup("example", {
  *     family: "neptune1",
+ *     name: "example",
  *     parameters: [{
  *         name: "neptune_query_timeout",
  *         value: "25",
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Neptune Parameter Groups using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
+ * $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
  * ```
  */
 export class ParameterGroup extends pulumi.CustomResource {
@@ -78,6 +81,10 @@ export class ParameterGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
+    public readonly namePrefix!: pulumi.Output<string>;
+    /**
      * A list of Neptune parameters to apply.
      */
     public readonly parameters!: pulumi.Output<outputs.neptune.ParameterGroupParameter[] | undefined>;
@@ -109,6 +116,7 @@ export class ParameterGroup extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["family"] = state ? state.family : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -120,14 +128,13 @@ export class ParameterGroup extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["family"] = args ? args.family : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ParameterGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -152,6 +159,10 @@ export interface ParameterGroupState {
      * The name of the Neptune parameter.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
+    namePrefix?: pulumi.Input<string>;
     /**
      * A list of Neptune parameters to apply.
      */
@@ -184,6 +195,10 @@ export interface ParameterGroupArgs {
      * The name of the Neptune parameter.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
+    namePrefix?: pulumi.Input<string>;
     /**
      * A list of Neptune parameters to apply.
      */

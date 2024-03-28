@@ -52,11 +52,13 @@ public final class CustomLayerCloudwatchConfiguration {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder logStreams(@Nullable List<CustomLayerCloudwatchConfigurationLogStream> logStreams) {
+
             this.logStreams = logStreams;
             return this;
         }
@@ -64,10 +66,10 @@ public final class CustomLayerCloudwatchConfiguration {
             return logStreams(List.of(logStreams));
         }
         public CustomLayerCloudwatchConfiguration build() {
-            final var o = new CustomLayerCloudwatchConfiguration();
-            o.enabled = enabled;
-            o.logStreams = logStreams;
-            return o;
+            final var _resultValue = new CustomLayerCloudwatchConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.logStreams = logStreams;
+            return _resultValue;
         }
     }
 }

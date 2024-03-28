@@ -12,35 +12,40 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const awsGlueCatalogDatabase = new aws.glue.CatalogDatabase("awsGlueCatalogDatabase", {name: "MyCatalogDatabase"});
+ * const example = new aws.glue.CatalogDatabase("example", {name: "MyCatalogDatabase"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Create Table Default Permissions
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const awsGlueCatalogDatabase = new aws.glue.CatalogDatabase("awsGlueCatalogDatabase", {
+ * const example = new aws.glue.CatalogDatabase("example", {
+ *     name: "MyCatalogDatabase",
  *     createTableDefaultPermissions: [{
  *         permissions: ["SELECT"],
  *         principal: {
  *             dataLakePrincipalIdentifier: "IAM_ALLOWED_PRINCIPALS",
  *         },
  *     }],
- *     name: "MyCatalogDatabase",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Glue Catalog Databases using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
  *
  * ```sh
- *  $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
+ * $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
  * ```
  */
 export class CatalogDatabase extends pulumi.CustomResource {
@@ -88,6 +93,10 @@ export class CatalogDatabase extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+     */
+    public readonly federatedDatabase!: pulumi.Output<outputs.glue.CatalogDatabaseFederatedDatabase | undefined>;
+    /**
      * Location of the database (for example, an HDFS path).
      */
     public readonly locationUri!: pulumi.Output<string>;
@@ -131,6 +140,7 @@ export class CatalogDatabase extends pulumi.CustomResource {
             resourceInputs["catalogId"] = state ? state.catalogId : undefined;
             resourceInputs["createTableDefaultPermissions"] = state ? state.createTableDefaultPermissions : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["federatedDatabase"] = state ? state.federatedDatabase : undefined;
             resourceInputs["locationUri"] = state ? state.locationUri : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
@@ -142,6 +152,7 @@ export class CatalogDatabase extends pulumi.CustomResource {
             resourceInputs["catalogId"] = args ? args.catalogId : undefined;
             resourceInputs["createTableDefaultPermissions"] = args ? args.createTableDefaultPermissions : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["federatedDatabase"] = args ? args.federatedDatabase : undefined;
             resourceInputs["locationUri"] = args ? args.locationUri : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
@@ -151,8 +162,6 @@ export class CatalogDatabase extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(CatalogDatabase.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -177,6 +186,10 @@ export interface CatalogDatabaseState {
      * Description of the database.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+     */
+    federatedDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseFederatedDatabase>;
     /**
      * Location of the database (for example, an HDFS path).
      */
@@ -221,6 +234,10 @@ export interface CatalogDatabaseArgs {
      * Description of the database.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+     */
+    federatedDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseFederatedDatabase>;
     /**
      * Location of the database (for example, an HDFS path).
      */

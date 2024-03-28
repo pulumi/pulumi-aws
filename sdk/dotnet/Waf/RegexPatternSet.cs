@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Waf
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,6 +25,7 @@ namespace Pulumi.Aws.Waf
     /// {
     ///     var example = new Aws.Waf.RegexPatternSet("example", new()
     ///     {
+    ///         Name = "my_waf_regex_pattern_set",
     ///         RegexPatternStrings = new[]
     ///         {
     ///             "one",
@@ -33,13 +35,14 @@ namespace Pulumi.Aws.Waf
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS WAF Regex Pattern Set using their ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:waf/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+    /// $ pulumi import aws:waf/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
     /// ```
     /// </summary>
     [AwsResourceType("aws:waf/regexPatternSet:RegexPatternSet")]

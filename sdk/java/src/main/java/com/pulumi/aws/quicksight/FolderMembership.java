@@ -17,7 +17,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS QuickSight Folder Membership.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -40,21 +43,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FolderMembership(&#34;example&#34;, FolderMembershipArgs.builder()        
- *             .folderId(aws_quicksight_folder.example().folder_id())
+ *             .folderId(exampleAwsQuicksightFolder.folderId())
  *             .memberType(&#34;DATASET&#34;)
- *             .memberId(aws_quicksight_data_set.example().data_set_id())
+ *             .memberId(exampleAwsQuicksightDataSet.dataSetId())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import QuickSight Folder Membership using the AWS account ID, folder ID, member type, and member ID separated by commas (`,`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:quicksight/folderMembership:FolderMembership example 123456789012,example-folder,DATASET,example-dataset
+ * $ pulumi import aws:quicksight/folderMembership:FolderMembership example 123456789012,example-folder,DATASET,example-dataset
  * ```
  * 
  */

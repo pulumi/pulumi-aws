@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,25 +71,34 @@ public final class GetCatalogTablePartitionKey {
 
         @CustomType.Setter
         public Builder comment(String comment) {
-            this.comment = Objects.requireNonNull(comment);
+            if (comment == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTablePartitionKey", "comment");
+            }
+            this.comment = comment;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTablePartitionKey", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTablePartitionKey", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetCatalogTablePartitionKey build() {
-            final var o = new GetCatalogTablePartitionKey();
-            o.comment = comment;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetCatalogTablePartitionKey();
+            _resultValue.comment = comment;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

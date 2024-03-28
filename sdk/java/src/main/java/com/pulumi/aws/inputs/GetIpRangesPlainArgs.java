@@ -4,6 +4,7 @@
 package com.pulumi.aws.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -189,7 +190,9 @@ public final class GetIpRangesPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         public GetIpRangesPlainArgs build() {
-            $.services = Objects.requireNonNull($.services, "expected parameter 'services' to be non-null");
+            if ($.services == null) {
+                throw new MissingRequiredPropertyException("GetIpRangesPlainArgs", "services");
+            }
             return $;
         }
     }

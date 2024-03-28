@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * Creates and manages an AWS IoT CA Certificate.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -60,7 +62,7 @@ import javax.annotation.Nullable;
  *             .algorithm(&#34;RSA&#34;)
  *             .build());
  * 
- *         var caSelfSignedCert = new SelfSignedCert(&#34;caSelfSignedCert&#34;, SelfSignedCertArgs.builder()        
+ *         var ca = new SelfSignedCert(&#34;ca&#34;, SelfSignedCertArgs.builder()        
  *             .privateKeyPem(caPrivateKey.privateKeyPem())
  *             .subject(SelfSignedCertSubjectArgs.builder()
  *                 .commonName(&#34;example.com&#34;)
@@ -78,19 +80,19 @@ import javax.annotation.Nullable;
  *             .algorithm(&#34;RSA&#34;)
  *             .build());
  * 
- *         final var exampleRegistrationCode = IotFunctions.getRegistrationCode();
+ *         final var example = IotFunctions.getRegistrationCode();
  * 
- *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
+ *         var verification = new CertRequest(&#34;verification&#34;, CertRequestArgs.builder()        
  *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
  *             .subject(CertRequestSubjectArgs.builder()
- *                 .commonName(exampleRegistrationCode.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
+ *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
  *                 .build())
  *             .build());
  * 
  *         var verificationLocallySignedCert = new LocallySignedCert(&#34;verificationLocallySignedCert&#34;, LocallySignedCertArgs.builder()        
- *             .certRequestPem(verificationCertRequest.certRequestPem())
+ *             .certRequestPem(verification.certRequestPem())
  *             .caPrivateKeyPem(caPrivateKey.privateKeyPem())
- *             .caCertPem(caSelfSignedCert.certPem())
+ *             .caCertPem(ca.certPem())
  *             .validityPeriodHours(12)
  *             .allowedUses(            
  *                 &#34;key_encipherment&#34;,
@@ -100,7 +102,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCaCertificate = new CaCertificate(&#34;exampleCaCertificate&#34;, CaCertificateArgs.builder()        
  *             .active(true)
- *             .caCertificatePem(caSelfSignedCert.certPem())
+ *             .caCertificatePem(ca.certPem())
  *             .verificationCertificatePem(verificationLocallySignedCert.certPem())
  *             .allowAutoRegistration(true)
  *             .build());
@@ -108,6 +110,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:iot/caCertificate:CaCertificate")
@@ -321,7 +324,6 @@ public class CaCertificate extends com.pulumi.resources.CustomResource {
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
                 "caCertificatePem",
-                "tagsAll",
                 "verificationCertificatePem"
             ))
             .build();

@@ -166,29 +166,33 @@ class UsagePlanKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.apigateway.RestApi("test")
+        test = aws.apigateway.RestApi("test", name="MyDemoAPI")
         # ...
-        myusageplan = aws.apigateway.UsagePlan("myusageplan", api_stages=[aws.apigateway.UsagePlanApiStageArgs(
-            api_id=test.id,
-            stage=aws_api_gateway_stage["foo"]["stage_name"],
-        )])
-        mykey = aws.apigateway.ApiKey("mykey")
+        myusageplan = aws.apigateway.UsagePlan("myusageplan",
+            name="my_usage_plan",
+            api_stages=[aws.apigateway.UsagePlanApiStageArgs(
+                api_id=test.id,
+                stage=foo["stageName"],
+            )])
+        mykey = aws.apigateway.ApiKey("mykey", name="my_key")
         main = aws.apigateway.UsagePlanKey("main",
             key_id=mykey.id,
             key_type="API_KEY",
             usage_plan_id=myusageplan.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS API Gateway Usage Plan Key using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
+        $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
         ```
 
         :param str resource_name: The name of the resource.
@@ -208,29 +212,33 @@ class UsagePlanKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.apigateway.RestApi("test")
+        test = aws.apigateway.RestApi("test", name="MyDemoAPI")
         # ...
-        myusageplan = aws.apigateway.UsagePlan("myusageplan", api_stages=[aws.apigateway.UsagePlanApiStageArgs(
-            api_id=test.id,
-            stage=aws_api_gateway_stage["foo"]["stage_name"],
-        )])
-        mykey = aws.apigateway.ApiKey("mykey")
+        myusageplan = aws.apigateway.UsagePlan("myusageplan",
+            name="my_usage_plan",
+            api_stages=[aws.apigateway.UsagePlanApiStageArgs(
+                api_id=test.id,
+                stage=foo["stageName"],
+            )])
+        mykey = aws.apigateway.ApiKey("mykey", name="my_key")
         main = aws.apigateway.UsagePlanKey("main",
             key_id=mykey.id,
             key_type="API_KEY",
             usage_plan_id=myusageplan.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS API Gateway Usage Plan Key using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
+        $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
         ```
 
         :param str resource_name: The name of the resource.

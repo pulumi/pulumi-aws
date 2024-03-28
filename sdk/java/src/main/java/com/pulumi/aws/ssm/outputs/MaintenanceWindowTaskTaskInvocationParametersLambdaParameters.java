@@ -72,25 +72,28 @@ public final class MaintenanceWindowTaskTaskInvocationParametersLambdaParameters
 
         @CustomType.Setter
         public Builder clientContext(@Nullable String clientContext) {
+
             this.clientContext = clientContext;
             return this;
         }
         @CustomType.Setter
         public Builder payload(@Nullable String payload) {
+
             this.payload = payload;
             return this;
         }
         @CustomType.Setter
         public Builder qualifier(@Nullable String qualifier) {
+
             this.qualifier = qualifier;
             return this;
         }
         public MaintenanceWindowTaskTaskInvocationParametersLambdaParameters build() {
-            final var o = new MaintenanceWindowTaskTaskInvocationParametersLambdaParameters();
-            o.clientContext = clientContext;
-            o.payload = payload;
-            o.qualifier = qualifier;
-            return o;
+            final var _resultValue = new MaintenanceWindowTaskTaskInvocationParametersLambdaParameters();
+            _resultValue.clientContext = clientContext;
+            _resultValue.payload = payload;
+            _resultValue.qualifier = qualifier;
+            return _resultValue;
         }
     }
 }

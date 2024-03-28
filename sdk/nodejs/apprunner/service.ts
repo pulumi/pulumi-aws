@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Manages an App Runner Service.
  *
  * ## Example Usage
+ *
  * ### Service with a Code Repository Source
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +23,7 @@ import * as utilities from "../utilities";
  *     serviceName: "example",
  *     sourceConfiguration: {
  *         authenticationConfiguration: {
- *             connectionArn: aws_apprunner_connection.example.arn,
+ *             connectionArn: exampleAwsApprunnerConnection.arn,
  *         },
  *         codeRepository: {
  *             codeConfiguration: {
@@ -43,7 +45,7 @@ import * as utilities from "../utilities";
  *     networkConfiguration: {
  *         egressConfiguration: {
  *             egressType: "VPC",
- *             vpcConnectorArn: aws_apprunner_vpc_connector.connector.arn,
+ *             vpcConnectorArn: connector.arn,
  *         },
  *     },
  *     tags: {
@@ -51,8 +53,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Service with an Image Repository Source
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -60,7 +65,6 @@ import * as utilities from "../utilities";
  * const example = new aws.apprunner.Service("example", {
  *     serviceName: "example",
  *     sourceConfiguration: {
- *         autoDeploymentsEnabled: false,
  *         imageRepository: {
  *             imageConfiguration: {
  *                 port: "8000",
@@ -68,25 +72,29 @@ import * as utilities from "../utilities";
  *             imageIdentifier: "public.ecr.aws/aws-containers/hello-app-runner:latest",
  *             imageRepositoryType: "ECR_PUBLIC",
  *         },
+ *         autoDeploymentsEnabled: false,
  *     },
  *     tags: {
  *         Name: "example-apprunner-service",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Service with Observability Configuration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleObservabilityConfiguration = new aws.apprunner.ObservabilityConfiguration("exampleObservabilityConfiguration", {
+ * const exampleObservabilityConfiguration = new aws.apprunner.ObservabilityConfiguration("example", {
  *     observabilityConfigurationName: "example",
  *     traceConfiguration: {
  *         vendor: "AWSXRAY",
  *     },
  * });
- * const exampleService = new aws.apprunner.Service("exampleService", {
+ * const example = new aws.apprunner.Service("example", {
  *     serviceName: "example",
  *     observabilityConfiguration: {
  *         observabilityConfigurationArn: exampleObservabilityConfiguration.arn,
@@ -107,13 +115,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import App Runner Services using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:apprunner/service:Service example arn:aws:apprunner:us-east-1:1234567890:service/example/0a03292a89764e5882c41d8f991c82fe
+ * $ pulumi import aws:apprunner/service:Service example arn:aws:apprunner:us-east-1:1234567890:service/example/0a03292a89764e5882c41d8f991c82fe
  * ```
  */
 export class Service extends pulumi.CustomResource {
@@ -256,8 +265,6 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }
 }

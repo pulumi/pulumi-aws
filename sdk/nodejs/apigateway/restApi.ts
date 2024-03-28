@@ -15,56 +15,201 @@ import * as utilities from "../utilities";
  * !> **WARN:** When importing Open API Specifications with the `body` argument, by default the API Gateway REST API will be replaced with the Open API Specification thus removing any existing methods, resources, integrations, or endpoints. Endpoint mutations are asynchronous operations, and race conditions with DNS are possible. To overcome this limitation, use the `putRestApiMode` attribute and set it to `merge`.
  *
  * ## Example Usage
- * ### Resources
  *
+ * ### OpenAPI Specification
+ *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as crypto from "crypto";
+ * import * as std from "@pulumi/std";
  *
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {});
- * const exampleResource = new aws.apigateway.Resource("exampleResource", {
- *     parentId: exampleRestApi.rootResourceId,
- *     pathPart: "example",
- *     restApi: exampleRestApi.id,
- * });
- * const exampleMethod = new aws.apigateway.Method("exampleMethod", {
- *     authorization: "NONE",
- *     httpMethod: "GET",
- *     resourceId: exampleResource.id,
- *     restApi: exampleRestApi.id,
- * });
- * const exampleIntegration = new aws.apigateway.Integration("exampleIntegration", {
- *     httpMethod: exampleMethod.httpMethod,
- *     resourceId: exampleResource.id,
- *     restApi: exampleRestApi.id,
- *     type: "MOCK",
- * });
- * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
- *     restApi: exampleRestApi.id,
- *     triggers: {
- *         redeployment: pulumi.all([exampleResource.id, exampleMethod.id, exampleIntegration.id]).apply(([exampleResourceId, exampleMethodId, exampleIntegrationId]) => JSON.stringify([
- *             exampleResourceId,
- *             exampleMethodId,
- *             exampleIntegrationId,
- *         ])).apply(toJSON => crypto.createHash('sha1').update(toJSON).digest('hex')),
+ * const example = new aws.apigateway.RestApi("example", {
+ *     body: JSON.stringify({
+ *         openapi: "3.0.1",
+ *         info: {
+ *             title: "example",
+ *             version: "1.0",
+ *         },
+ *         paths: {
+ *             "/path1": {
+ *                 get: {
+ *                     "x-amazon-apigateway-integration": {
+ *                         httpMethod: "GET",
+ *                         payloadFormatVersion: "1.0",
+ *                         type: "HTTP_PROXY",
+ *                         uri: "https://ip-ranges.amazonaws.com/ip-ranges.json",
+ *                     },
+ *                 },
+ *             },
+ *         },
+ *     }),
+ *     name: "example",
+ *     endpointConfiguration: {
+ *         types: "REGIONAL",
  *     },
  * });
- * const exampleStage = new aws.apigateway.Stage("exampleStage", {
+ * const exampleDeployment = new aws.apigateway.Deployment("example", {
+ *     restApi: example.id,
+ *     triggers: {
+ *         redeployment: std.sha1Output({
+ *             input: pulumi.jsonStringify(example.body),
+ *         }).apply(invoke => invoke.result),
+ *     },
+ * });
+ * const exampleStage = new aws.apigateway.Stage("example", {
+ *     deployment: exampleDeployment.id,
+ *     restApi: example.id,
+ *     stageName: "example",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### OpenAPI Specification with Private Endpoints
+ *
+ * Using `putRestApiMode` = `merge` when importing the OpenAPI Specification, the AWS control plane will not delete all existing literal properties that are not explicitly set in the OpenAPI definition. Impacted API Gateway properties: ApiKeySourceType, BinaryMediaTypes, Description, EndpointConfiguration, MinimumCompressionSize, Name, Policy).
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const available = aws.getAvailabilityZones({
+ *     state: "available",
+ *     filters: [{
+ *         name: "opt-in-status",
+ *         values: ["opt-in-not-required"],
+ *     }],
+ * });
+ * const current = aws.getRegion({});
+ * const example = new aws.ec2.Vpc("example", {
+ *     cidrBlock: "10.0.0.0/16",
+ *     enableDnsSupport: true,
+ *     enableDnsHostnames: true,
+ * });
+ * const exampleDefaultSecurityGroup = new aws.ec2.DefaultSecurityGroup("example", {vpcId: example.id});
+ * const exampleSubnet = new aws.ec2.Subnet("example", {
+ *     availabilityZone: available.then(available => available.names?.[0]),
+ *     cidrBlock: example.cidrBlock.apply(cidrBlock => std.cidrsubnetOutput({
+ *         input: cidrBlock,
+ *         newbits: 8,
+ *         netnum: 0,
+ *     })).apply(invoke => invoke.result),
+ *     vpcId: example.id,
+ * });
+ * const exampleVpcEndpoint: aws.ec2.VpcEndpoint[] = [];
+ * for (const range = {value: 0}; range.value < 3; range.value++) {
+ *     exampleVpcEndpoint.push(new aws.ec2.VpcEndpoint(`example-${range.value}`, {
+ *         privateDnsEnabled: false,
+ *         securityGroupIds: [exampleDefaultSecurityGroup.id],
+ *         serviceName: current.then(current => `com.amazonaws.${current.name}.execute-api`),
+ *         subnetIds: [exampleSubnet.id],
+ *         vpcEndpointType: "Interface",
+ *         vpcId: example.id,
+ *     }));
+ * }
+ * const exampleRestApi = new aws.apigateway.RestApi("example", {
+ *     body: JSON.stringify({
+ *         openapi: "3.0.1",
+ *         info: {
+ *             title: "example",
+ *             version: "1.0",
+ *         },
+ *         paths: {
+ *             "/path1": {
+ *                 get: {
+ *                     "x-amazon-apigateway-integration": {
+ *                         httpMethod: "GET",
+ *                         payloadFormatVersion: "1.0",
+ *                         type: "HTTP_PROXY",
+ *                         uri: "https://ip-ranges.amazonaws.com/ip-ranges.json",
+ *                     },
+ *                 },
+ *             },
+ *         },
+ *     }),
+ *     name: "example",
+ *     putRestApiMode: "merge",
+ *     endpointConfiguration: {
+ *         types: "PRIVATE",
+ *         vpcEndpointIds: [
+ *             exampleVpcEndpoint[0].id,
+ *             exampleVpcEndpoint[1].id,
+ *             exampleVpcEndpoint[2].id,
+ *         ],
+ *     },
+ * });
+ * const exampleDeployment = new aws.apigateway.Deployment("example", {
+ *     restApi: exampleRestApi.id,
+ *     triggers: {
+ *         redeployment: std.sha1Output({
+ *             input: pulumi.jsonStringify(exampleRestApi.body),
+ *         }).apply(invoke => invoke.result),
+ *     },
+ * });
+ * const exampleStage = new aws.apigateway.Stage("example", {
  *     deployment: exampleDeployment.id,
  *     restApi: exampleRestApi.id,
  *     stageName: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Resources
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new aws.apigateway.RestApi("example", {name: "example"});
+ * const exampleResource = new aws.apigateway.Resource("example", {
+ *     parentId: example.rootResourceId,
+ *     pathPart: "example",
+ *     restApi: example.id,
+ * });
+ * const exampleMethod = new aws.apigateway.Method("example", {
+ *     authorization: "NONE",
+ *     httpMethod: "GET",
+ *     resourceId: exampleResource.id,
+ *     restApi: example.id,
+ * });
+ * const exampleIntegration = new aws.apigateway.Integration("example", {
+ *     httpMethod: exampleMethod.httpMethod,
+ *     resourceId: exampleResource.id,
+ *     restApi: example.id,
+ *     type: "MOCK",
+ * });
+ * const exampleDeployment = new aws.apigateway.Deployment("example", {
+ *     restApi: example.id,
+ *     triggers: {
+ *         redeployment: std.sha1Output({
+ *             input: pulumi.jsonStringify([
+ *                 exampleResource.id,
+ *                 exampleMethod.id,
+ *                 exampleIntegration.id,
+ *             ]),
+ *         }).apply(invoke => invoke.result),
+ *     },
+ * });
+ * const exampleStage = new aws.apigateway.Stage("example", {
+ *     deployment: exampleDeployment.id,
+ *     restApi: example.id,
+ *     stageName: "example",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_api_gateway_rest_api` using the REST API ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
+ * $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
  * ```
- *  ~> __NOTE:__ Resource import does not currently support the `body` attribute.
+ * ~> __NOTE:__ Resource import does not currently support the `body` attribute.
  */
 export class RestApi extends pulumi.CustomResource {
     /**
@@ -224,8 +369,6 @@ export class RestApi extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(RestApi.__pulumiType, name, resourceInputs, opts);
     }
 }

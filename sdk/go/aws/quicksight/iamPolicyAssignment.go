@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS QuickSight IAM Policy Assignment.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,10 +34,10 @@ import (
 //			_, err := quicksight.NewIamPolicyAssignment(ctx, "example", &quicksight.IamPolicyAssignmentArgs{
 //				AssignmentName:   pulumi.String("example"),
 //				AssignmentStatus: pulumi.String("ENABLED"),
-//				PolicyArn:        pulumi.Any(aws_iam_policy.Example.Arn),
+//				PolicyArn:        pulumi.Any(exampleAwsIamPolicy.Arn),
 //				Identities: &quicksight.IamPolicyAssignmentIdentitiesArgs{
 //					Users: pulumi.StringArray{
-//						aws_quicksight_user.Example.User_name,
+//						exampleAwsQuicksightUser.UserName,
 //					},
 //				},
 //			})
@@ -47,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import QuickSight IAM Policy Assignment using the AWS account ID, namespace, and assignment name separated by commas (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
-//
+// $ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
 // ```
 type IamPolicyAssignment struct {
 	pulumi.CustomResourceState
@@ -70,7 +71,7 @@ type IamPolicyAssignment struct {
 	AssignmentStatus pulumi.StringOutput `pulumi:"assignmentStatus"`
 	// AWS account ID.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
 	Identities IamPolicyAssignmentIdentitiesPtrOutput `pulumi:"identities"`
 	// Namespace that contains the assignment. Defaults to `default`.
 	Namespace pulumi.StringOutput `pulumi:"namespace"`
@@ -124,7 +125,7 @@ type iamPolicyAssignmentState struct {
 	AssignmentStatus *string `pulumi:"assignmentStatus"`
 	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
 	Identities *IamPolicyAssignmentIdentities `pulumi:"identities"`
 	// Namespace that contains the assignment. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
@@ -143,7 +144,7 @@ type IamPolicyAssignmentState struct {
 	AssignmentStatus pulumi.StringPtrInput
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput
-	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
 	Identities IamPolicyAssignmentIdentitiesPtrInput
 	// Namespace that contains the assignment. Defaults to `default`.
 	Namespace pulumi.StringPtrInput
@@ -164,7 +165,7 @@ type iamPolicyAssignmentArgs struct {
 	AssignmentStatus string `pulumi:"assignmentStatus"`
 	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
 	Identities *IamPolicyAssignmentIdentities `pulumi:"identities"`
 	// Namespace that contains the assignment. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
@@ -182,7 +183,7 @@ type IamPolicyAssignmentArgs struct {
 	AssignmentStatus pulumi.StringInput
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput
-	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
 	Identities IamPolicyAssignmentIdentitiesPtrInput
 	// Namespace that contains the assignment. Defaults to `default`.
 	Namespace pulumi.StringPtrInput
@@ -299,7 +300,7 @@ func (o IamPolicyAssignmentOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IamPolicyAssignment) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
 func (o IamPolicyAssignmentOutput) Identities() IamPolicyAssignmentIdentitiesPtrOutput {
 	return o.ApplyT(func(v *IamPolicyAssignment) IamPolicyAssignmentIdentitiesPtrOutput { return v.Identities }).(IamPolicyAssignmentIdentitiesPtrOutput)
 }

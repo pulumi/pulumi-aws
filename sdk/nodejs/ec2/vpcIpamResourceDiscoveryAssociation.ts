@@ -13,25 +13,27 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.ec2.VpcIpamResourceDiscoveryAssociation("test", {
- *     ipamId: aws_vpc_ipam.test.id,
- *     ipamResourceDiscoveryId: aws_vpc_ipam_resource_discovery.test.id,
+ *     ipamId: testAwsVpcIpam.id,
+ *     ipamResourceDiscoveryId: testAwsVpcIpamResourceDiscovery.id,
  *     tags: {
  *         Name: "test",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IPAMs using the IPAM resource discovery association `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation example ipam-res-disco-assoc-0178368ad2146a492
+ * $ pulumi import aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation example ipam-res-disco-assoc-0178368ad2146a492
  * ```
  */
 export class VpcIpamResourceDiscoveryAssociation extends pulumi.CustomResource {
@@ -148,8 +150,6 @@ export class VpcIpamResourceDiscoveryAssociation extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VpcIpamResourceDiscoveryAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

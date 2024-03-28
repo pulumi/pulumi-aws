@@ -4,6 +4,7 @@
 package com.pulumi.aws.appsync.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,31 +87,39 @@ public final class GraphQLApiUserPoolConfig {
 
         @CustomType.Setter
         public Builder appIdClientRegex(@Nullable String appIdClientRegex) {
+
             this.appIdClientRegex = appIdClientRegex;
             return this;
         }
         @CustomType.Setter
         public Builder awsRegion(@Nullable String awsRegion) {
+
             this.awsRegion = awsRegion;
             return this;
         }
         @CustomType.Setter
         public Builder defaultAction(String defaultAction) {
-            this.defaultAction = Objects.requireNonNull(defaultAction);
+            if (defaultAction == null) {
+              throw new MissingRequiredPropertyException("GraphQLApiUserPoolConfig", "defaultAction");
+            }
+            this.defaultAction = defaultAction;
             return this;
         }
         @CustomType.Setter
         public Builder userPoolId(String userPoolId) {
-            this.userPoolId = Objects.requireNonNull(userPoolId);
+            if (userPoolId == null) {
+              throw new MissingRequiredPropertyException("GraphQLApiUserPoolConfig", "userPoolId");
+            }
+            this.userPoolId = userPoolId;
             return this;
         }
         public GraphQLApiUserPoolConfig build() {
-            final var o = new GraphQLApiUserPoolConfig();
-            o.appIdClientRegex = appIdClientRegex;
-            o.awsRegion = awsRegion;
-            o.defaultAction = defaultAction;
-            o.userPoolId = userPoolId;
-            return o;
+            final var _resultValue = new GraphQLApiUserPoolConfig();
+            _resultValue.appIdClientRegex = appIdClientRegex;
+            _resultValue.awsRegion = awsRegion;
+            _resultValue.defaultAction = defaultAction;
+            _resultValue.userPoolId = userPoolId;
+            return _resultValue;
         }
     }
 }

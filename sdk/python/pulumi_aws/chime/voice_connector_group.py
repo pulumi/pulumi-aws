@@ -108,34 +108,40 @@ class VoiceConnectorGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         vc1 = aws.chime.VoiceConnector("vc1",
+            name="connector-test-1",
             require_encryption=True,
             aws_region="us-east-1")
         vc2 = aws.chime.VoiceConnector("vc2",
+            name="connector-test-2",
             require_encryption=True,
             aws_region="us-west-2")
-        group = aws.chime.VoiceConnectorGroup("group", connectors=[
-            aws.chime.VoiceConnectorGroupConnectorArgs(
-                voice_connector_id=vc1.id,
-                priority=1,
-            ),
-            aws.chime.VoiceConnectorGroupConnectorArgs(
-                voice_connector_id=vc2.id,
-                priority=3,
-            ),
-        ])
+        group = aws.chime.VoiceConnectorGroup("group",
+            name="test-group",
+            connectors=[
+                aws.chime.VoiceConnectorGroupConnectorArgs(
+                    voice_connector_id=vc1.id,
+                    priority=1,
+                ),
+                aws.chime.VoiceConnectorGroupConnectorArgs(
+                    voice_connector_id=vc2.id,
+                    priority=3,
+                ),
+            ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Configuration Recorder using the name. For example:
 
         ```sh
-         $ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
+        $ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
         ```
 
         :param str resource_name: The name of the resource.
@@ -156,34 +162,40 @@ class VoiceConnectorGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         vc1 = aws.chime.VoiceConnector("vc1",
+            name="connector-test-1",
             require_encryption=True,
             aws_region="us-east-1")
         vc2 = aws.chime.VoiceConnector("vc2",
+            name="connector-test-2",
             require_encryption=True,
             aws_region="us-west-2")
-        group = aws.chime.VoiceConnectorGroup("group", connectors=[
-            aws.chime.VoiceConnectorGroupConnectorArgs(
-                voice_connector_id=vc1.id,
-                priority=1,
-            ),
-            aws.chime.VoiceConnectorGroupConnectorArgs(
-                voice_connector_id=vc2.id,
-                priority=3,
-            ),
-        ])
+        group = aws.chime.VoiceConnectorGroup("group",
+            name="test-group",
+            connectors=[
+                aws.chime.VoiceConnectorGroupConnectorArgs(
+                    voice_connector_id=vc1.id,
+                    priority=1,
+                ),
+                aws.chime.VoiceConnectorGroupConnectorArgs(
+                    voice_connector_id=vc2.id,
+                    priority=3,
+                ),
+            ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Configuration Recorder using the name. For example:
 
         ```sh
-         $ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
+        $ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
         ```
 
         :param str resource_name: The name of the resource.

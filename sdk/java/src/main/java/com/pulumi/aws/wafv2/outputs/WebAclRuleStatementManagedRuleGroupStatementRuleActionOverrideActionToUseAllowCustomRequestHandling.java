@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,16 +44,19 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
 
         @CustomType.Setter
         public Builder insertHeaders(List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader> insertHeaders) {
-            this.insertHeaders = Objects.requireNonNull(insertHeaders);
+            if (insertHeaders == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandling", "insertHeaders");
+            }
+            this.insertHeaders = insertHeaders;
             return this;
         }
         public Builder insertHeaders(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader... insertHeaders) {
             return insertHeaders(List.of(insertHeaders));
         }
         public WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandling build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandling();
-            o.insertHeaders = insertHeaders;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandling();
+            _resultValue.insertHeaders = insertHeaders;
+            return _resultValue;
         }
     }
 }

@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.outputs;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -75,28 +76,35 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
 
         @CustomType.Setter
         public Builder fieldToMatch(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch fieldToMatch) {
+
             this.fieldToMatch = fieldToMatch;
             return this;
         }
         @CustomType.Setter
         public Builder regexString(String regexString) {
-            this.regexString = Objects.requireNonNull(regexString);
+            if (regexString == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement", "regexString");
+            }
+            this.regexString = regexString;
             return this;
         }
         @CustomType.Setter
         public Builder textTransformations(List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformation> textTransformations) {
-            this.textTransformations = Objects.requireNonNull(textTransformations);
+            if (textTransformations == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement", "textTransformations");
+            }
+            this.textTransformations = textTransformations;
             return this;
         }
         public Builder textTransformations(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformation... textTransformations) {
             return textTransformations(List.of(textTransformations));
         }
         public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement();
-            o.fieldToMatch = fieldToMatch;
-            o.regexString = regexString;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement();
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.regexString = regexString;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

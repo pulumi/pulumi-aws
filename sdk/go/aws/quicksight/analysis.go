@@ -15,8 +15,10 @@ import (
 // Resource for managing a QuickSight Analysis.
 //
 // ## Example Usage
+//
 // ### From Source Template
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,12 +33,13 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewAnalysis(ctx, "example", &quicksight.AnalysisArgs{
 //				AnalysisId: pulumi.String("example-id"),
+//				Name:       pulumi.String("example-name"),
 //				SourceEntity: &quicksight.AnalysisSourceEntityArgs{
 //					SourceTemplate: &quicksight.AnalysisSourceEntitySourceTemplateArgs{
-//						Arn: pulumi.Any(aws_quicksight_template.Source.Arn),
+//						Arn: pulumi.Any(source.Arn),
 //						DataSetReferences: quicksight.AnalysisSourceEntitySourceTemplateDataSetReferenceArray{
 //							&quicksight.AnalysisSourceEntitySourceTemplateDataSetReferenceArgs{
-//								DataSetArn:         pulumi.Any(aws_quicksight_data_set.Dataset.Arn),
+//								DataSetArn:         pulumi.Any(dataset.Arn),
 //								DataSetPlaceholder: pulumi.String("1"),
 //							},
 //						},
@@ -51,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
-//
+// $ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
 // ```
 type Analysis struct {
 	pulumi.CustomResourceState
@@ -109,10 +111,6 @@ func NewAnalysis(ctx *pulumi.Context,
 	if args.AnalysisId == nil {
 		return nil, errors.New("invalid value for required argument 'AnalysisId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Analysis
 	err := ctx.RegisterResource("aws:quicksight/analysis:Analysis", name, args, &resource, opts...)

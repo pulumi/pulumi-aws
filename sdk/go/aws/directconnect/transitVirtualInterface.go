@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,15 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGateway, err := directconnect.NewGateway(ctx, "exampleGateway", &directconnect.GatewayArgs{
+//			example, err := directconnect.NewGateway(ctx, "example", &directconnect.GatewayArgs{
+//				Name:          pulumi.String("tf-dxg-example"),
 //				AmazonSideAsn: pulumi.String("64512"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = directconnect.NewTransitVirtualInterface(ctx, "exampleTransitVirtualInterface", &directconnect.TransitVirtualInterfaceArgs{
-//				ConnectionId:  pulumi.Any(aws_dx_connection.Example.Id),
-//				DxGatewayId:   exampleGateway.ID(),
+//			_, err = directconnect.NewTransitVirtualInterface(ctx, "example", &directconnect.TransitVirtualInterfaceArgs{
+//				ConnectionId:  pulumi.Any(exampleAwsDxConnection.Id),
+//				DxGatewayId:   example.ID(),
+//				Name:          pulumi.String("tf-transit-vif-example"),
 //				Vlan:          pulumi.Int(4094),
 //				AddressFamily: pulumi.String("ipv4"),
 //				BgpAsn:        pulumi.Int(65352),
@@ -50,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Direct Connect transit virtual interfaces using the VIF `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
-//
+// $ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
 // ```
 type TransitVirtualInterface struct {
 	pulumi.CustomResourceState
@@ -123,10 +125,6 @@ func NewTransitVirtualInterface(ctx *pulumi.Context,
 	if args.Vlan == nil {
 		return nil, errors.New("invalid value for required argument 'Vlan'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitVirtualInterface
 	err := ctx.RegisterResource("aws:directconnect/transitVirtualInterface:TransitVirtualInterface", name, args, &resource, opts...)

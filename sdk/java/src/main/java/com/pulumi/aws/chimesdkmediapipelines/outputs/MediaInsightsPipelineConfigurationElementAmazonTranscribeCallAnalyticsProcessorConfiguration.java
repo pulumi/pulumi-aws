@@ -5,6 +5,7 @@ package com.pulumi.aws.chimesdkmediapipelines.outputs;
 
 import com.pulumi.aws.chimesdkmediapipelines.outputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -215,6 +216,7 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
 
         @CustomType.Setter
         public Builder callAnalyticsStreamCategories(@Nullable List<String> callAnalyticsStreamCategories) {
+
             this.callAnalyticsStreamCategories = callAnalyticsStreamCategories;
             return this;
         }
@@ -223,80 +225,94 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
         }
         @CustomType.Setter
         public Builder contentIdentificationType(@Nullable String contentIdentificationType) {
+
             this.contentIdentificationType = contentIdentificationType;
             return this;
         }
         @CustomType.Setter
         public Builder contentRedactionType(@Nullable String contentRedactionType) {
+
             this.contentRedactionType = contentRedactionType;
             return this;
         }
         @CustomType.Setter
         public Builder enablePartialResultsStabilization(@Nullable Boolean enablePartialResultsStabilization) {
+
             this.enablePartialResultsStabilization = enablePartialResultsStabilization;
             return this;
         }
         @CustomType.Setter
         public Builder filterPartialResults(@Nullable Boolean filterPartialResults) {
+
             this.filterPartialResults = filterPartialResults;
             return this;
         }
         @CustomType.Setter
         public Builder languageCode(String languageCode) {
-            this.languageCode = Objects.requireNonNull(languageCode);
+            if (languageCode == null) {
+              throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration", "languageCode");
+            }
+            this.languageCode = languageCode;
             return this;
         }
         @CustomType.Setter
         public Builder languageModelName(@Nullable String languageModelName) {
+
             this.languageModelName = languageModelName;
             return this;
         }
         @CustomType.Setter
         public Builder partialResultsStability(@Nullable String partialResultsStability) {
+
             this.partialResultsStability = partialResultsStability;
             return this;
         }
         @CustomType.Setter
         public Builder piiEntityTypes(@Nullable String piiEntityTypes) {
+
             this.piiEntityTypes = piiEntityTypes;
             return this;
         }
         @CustomType.Setter
         public Builder postCallAnalyticsSettings(@Nullable MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings postCallAnalyticsSettings) {
+
             this.postCallAnalyticsSettings = postCallAnalyticsSettings;
             return this;
         }
         @CustomType.Setter
         public Builder vocabularyFilterMethod(@Nullable String vocabularyFilterMethod) {
+
             this.vocabularyFilterMethod = vocabularyFilterMethod;
             return this;
         }
         @CustomType.Setter
         public Builder vocabularyFilterName(@Nullable String vocabularyFilterName) {
+
             this.vocabularyFilterName = vocabularyFilterName;
             return this;
         }
         @CustomType.Setter
         public Builder vocabularyName(@Nullable String vocabularyName) {
+
             this.vocabularyName = vocabularyName;
             return this;
         }
         public MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration build() {
-            final var o = new MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration();
-            o.callAnalyticsStreamCategories = callAnalyticsStreamCategories;
-            o.contentIdentificationType = contentIdentificationType;
-            o.contentRedactionType = contentRedactionType;
-            o.enablePartialResultsStabilization = enablePartialResultsStabilization;
-            o.filterPartialResults = filterPartialResults;
-            o.languageCode = languageCode;
-            o.languageModelName = languageModelName;
-            o.partialResultsStability = partialResultsStability;
-            o.piiEntityTypes = piiEntityTypes;
-            o.postCallAnalyticsSettings = postCallAnalyticsSettings;
-            o.vocabularyFilterMethod = vocabularyFilterMethod;
-            o.vocabularyFilterName = vocabularyFilterName;
-            o.vocabularyName = vocabularyName;
-            return o;
+            final var _resultValue = new MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration();
+            _resultValue.callAnalyticsStreamCategories = callAnalyticsStreamCategories;
+            _resultValue.contentIdentificationType = contentIdentificationType;
+            _resultValue.contentRedactionType = contentRedactionType;
+            _resultValue.enablePartialResultsStabilization = enablePartialResultsStabilization;
+            _resultValue.filterPartialResults = filterPartialResults;
+            _resultValue.languageCode = languageCode;
+            _resultValue.languageModelName = languageModelName;
+            _resultValue.partialResultsStability = partialResultsStability;
+            _resultValue.piiEntityTypes = piiEntityTypes;
+            _resultValue.postCallAnalyticsSettings = postCallAnalyticsSettings;
+            _resultValue.vocabularyFilterMethod = vocabularyFilterMethod;
+            _resultValue.vocabularyFilterName = vocabularyFilterName;
+            _resultValue.vocabularyName = vocabularyName;
+            return _resultValue;
         }
     }
 }

@@ -12,12 +12,13 @@ import {PolicyDocument} from "../iam";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const queue = new aws.sqs.Queue("queue", {});
- * const testPolicyDocument = queue.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
+ * const q = new aws.sqs.Queue("q", {name: "examplequeue"});
+ * const test = q.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         sid: "First",
  *         effect: "Allow",
@@ -30,22 +31,23 @@ import {PolicyDocument} from "../iam";
  *         conditions: [{
  *             test: "ArnEquals",
  *             variable: "aws:SourceArn",
- *             values: [aws_sns_topic.example.arn],
+ *             values: [example.arn],
  *         }],
  *     }],
  * }));
- * const testQueuePolicy = new aws.sqs.QueuePolicy("testQueuePolicy", {
- *     queueUrl: queue.id,
- *     policy: testPolicyDocument.apply(testPolicyDocument => testPolicyDocument.json),
+ * const testQueuePolicy = new aws.sqs.QueuePolicy("test", {
+ *     queueUrl: q.id,
+ *     policy: test.apply(test => test.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SQS Queue Policies using the queue URL. For example:
  *
  * ```sh
- *  $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
+ * $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
  * ```
  */
 export class QueuePolicy extends pulumi.CustomResource {

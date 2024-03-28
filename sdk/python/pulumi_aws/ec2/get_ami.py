@@ -511,11 +511,15 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ec2.get_ami(executable_users=["self"],
+        most_recent=True,
+        name_regex="^myami-\\\\d{3}",
+        owners=["self"],
         filters=[
             aws.ec2.GetAmiFilterArgs(
                 name="name",
@@ -529,11 +533,9 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
                 name="virtualization-type",
                 values=["hvm"],
             ),
-        ],
-        most_recent=True,
-        name_regex="^myami-\\\\d{3}",
-        owners=["self"])
+        ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] executable_users: Limit search to users with *explicit* launch permission on
@@ -627,11 +629,15 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ec2.get_ami(executable_users=["self"],
+        most_recent=True,
+        name_regex="^myami-\\\\d{3}",
+        owners=["self"],
         filters=[
             aws.ec2.GetAmiFilterArgs(
                 name="name",
@@ -645,11 +651,9 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str
                 name="virtualization-type",
                 values=["hvm"],
             ),
-        ],
-        most_recent=True,
-        name_regex="^myami-\\\\d{3}",
-        owners=["self"])
+        ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] executable_users: Limit search to users with *explicit* launch permission on

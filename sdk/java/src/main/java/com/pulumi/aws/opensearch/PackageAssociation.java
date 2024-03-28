@@ -17,7 +17,10 @@ import javax.annotation.Nullable;
  * Manages an AWS Opensearch Package Association.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,29 +49,31 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myDomain = new Domain(&#34;myDomain&#34;, DomainArgs.builder()        
+ *             .domainName(&#34;my-opensearch-domain&#34;)
  *             .engineVersion(&#34;Elasticsearch_7.10&#34;)
  *             .clusterConfig(DomainClusterConfigArgs.builder()
  *                 .instanceType(&#34;r4.large.search&#34;)
  *                 .build())
  *             .build());
  * 
- *         var examplePackage = new Package(&#34;examplePackage&#34;, PackageArgs.builder()        
+ *         var example = new Package(&#34;example&#34;, PackageArgs.builder()        
  *             .packageName(&#34;example-txt&#34;)
  *             .packageSource(PackagePackageSourceArgs.builder()
- *                 .s3BucketName(aws_s3_bucket.my_opensearch_packages().bucket())
- *                 .s3Key(aws_s3_object.example().key())
+ *                 .s3BucketName(myOpensearchPackages.bucket())
+ *                 .s3Key(exampleAwsS3Object.key())
  *                 .build())
  *             .packageType(&#34;TXT-DICTIONARY&#34;)
  *             .build());
  * 
  *         var examplePackageAssociation = new PackageAssociation(&#34;examplePackageAssociation&#34;, PackageAssociationArgs.builder()        
- *             .packageId(examplePackage.id())
+ *             .packageId(example.id())
  *             .domainName(myDomain.domainName())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:opensearch/packageAssociation:PackageAssociation")

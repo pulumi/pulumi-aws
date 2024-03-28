@@ -86,31 +86,35 @@ public final class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLoc
 
         @CustomType.Setter
         public Builder bucketName(@Nullable String bucketName) {
+
             this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionOption(@Nullable String encryptionOption) {
+
             this.encryptionOption = encryptionOption;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder objectKeyPrefix(@Nullable String objectKeyPrefix) {
+
             this.objectKeyPrefix = objectKeyPrefix;
             return this;
         }
         public TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration build() {
-            final var o = new TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration();
-            o.bucketName = bucketName;
-            o.encryptionOption = encryptionOption;
-            o.kmsKeyId = kmsKeyId;
-            o.objectKeyPrefix = objectKeyPrefix;
-            return o;
+            final var _resultValue = new TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration();
+            _resultValue.bucketName = bucketName;
+            _resultValue.encryptionOption = encryptionOption;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.objectKeyPrefix = objectKeyPrefix;
+            return _resultValue;
         }
     }
 }

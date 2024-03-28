@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2transitgateway.NewRouteTable(ctx, "example", &ec2transitgateway.RouteTableArgs{
-//				TransitGatewayId: pulumi.Any(aws_ec2_transit_gateway.Example.Id),
+//				TransitGatewayId: pulumi.Any(exampleAwsEc2TransitGateway.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_ec2_transit_gateway_route_table` using the EC2 Transit Gateway Route Table identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2transitgateway/routeTable:RouteTable example tgw-rtb-12345678
-//
+// $ pulumi import aws:ec2transitgateway/routeTable:RouteTable example tgw-rtb-12345678
 // ```
 type RouteTable struct {
 	pulumi.CustomResourceState
@@ -78,10 +78,6 @@ func NewRouteTable(ctx *pulumi.Context,
 	if args.TransitGatewayId == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RouteTable
 	err := ctx.RegisterResource("aws:ec2transitgateway/routeTable:RouteTable", name, args, &resource, opts...)

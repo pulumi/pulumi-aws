@@ -25,8 +25,8 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll();
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll();
+            return _resultValue;
         }
     }
 }

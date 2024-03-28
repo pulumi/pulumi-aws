@@ -39,7 +39,7 @@ class FlowLogArgs:
         :param pulumi.Input[str] iam_role_arn: The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         :param pulumi.Input[str] log_destination: The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
         :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
-        :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
+        :param pulumi.Input[str] log_format: The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         :param pulumi.Input[str] log_group_name: **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
                during which a flow of packets is captured and aggregated into a flow
@@ -162,7 +162,7 @@ class FlowLogArgs:
     @pulumi.getter(name="logFormat")
     def log_format(self) -> Optional[pulumi.Input[str]]:
         """
-        The fields to include in the flow log record, in the order in which they should appear.
+        The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         """
         return pulumi.get(self, "log_format")
 
@@ -302,7 +302,7 @@ class _FlowLogState:
         :param pulumi.Input[str] iam_role_arn: The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         :param pulumi.Input[str] log_destination: The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
         :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
-        :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
+        :param pulumi.Input[str] log_format: The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         :param pulumi.Input[str] log_group_name: **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
                during which a flow of packets is captured and aggregated into a flow
@@ -445,7 +445,7 @@ class _FlowLogState:
     @pulumi.getter(name="logFormat")
     def log_format(self) -> Optional[pulumi.Input[str]]:
         """
-        The fields to include in the flow log record, in the order in which they should appear.
+        The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         """
         return pulumi.get(self, "log_format")
 
@@ -597,13 +597,15 @@ class FlowLog(pulumi.CustomResource):
         interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
 
         ## Example Usage
+
         ### CloudWatch Logging
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
+        example_log_group = aws.cloudwatch.LogGroup("example", name="example")
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -612,13 +614,15 @@ class FlowLog(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
+        example_role = aws.iam.Role("example",
+            name="example",
+            assume_role_policy=assume_role.json)
+        example_flow_log = aws.ec2.FlowLog("example",
             iam_role_arn=example_role.arn,
             log_destination=example_log_group.arn,
             traffic_type="ALL",
-            vpc_id=aws_vpc["example"]["id"])
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            vpc_id=example_aws_vpc["id"])
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=[
                 "logs:CreateLogGroup",
@@ -629,47 +633,55 @@ class FlowLog(pulumi.CustomResource):
             ],
             resources=["*"],
         )])
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
+        example_role_policy = aws.iam.RolePolicy("example",
+            name="example",
             role=example_role.id,
-            policy=example_policy_document.json)
+            policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### S3 Logging
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
+        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example = aws.ec2.FlowLog("example",
             log_destination=example_bucket_v2.arn,
             log_destination_type="s3",
             traffic_type="ALL",
-            vpc_id=aws_vpc["example"]["id"])
+            vpc_id=example_aws_vpc["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### S3 Logging in Apache Parquet format with per-hour partitions
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
+        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example = aws.ec2.FlowLog("example",
             log_destination=example_bucket_v2.arn,
             log_destination_type="s3",
             traffic_type="ALL",
-            vpc_id=aws_vpc["example"]["id"],
+            vpc_id=example_aws_vpc["id"],
             destination_options=aws.ec2.FlowLogDestinationOptionsArgs(
                 file_format="parquet",
                 per_hour_partition=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Flow Logs using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
+        $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
         ```
 
         :param str resource_name: The name of the resource.
@@ -680,7 +692,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[str] iam_role_arn: The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         :param pulumi.Input[str] log_destination: The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
         :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
-        :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
+        :param pulumi.Input[str] log_format: The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         :param pulumi.Input[str] log_group_name: **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
                during which a flow of packets is captured and aggregated into a flow
@@ -704,13 +716,15 @@ class FlowLog(pulumi.CustomResource):
         interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
 
         ## Example Usage
+
         ### CloudWatch Logging
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
+        example_log_group = aws.cloudwatch.LogGroup("example", name="example")
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -719,13 +733,15 @@ class FlowLog(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
+        example_role = aws.iam.Role("example",
+            name="example",
+            assume_role_policy=assume_role.json)
+        example_flow_log = aws.ec2.FlowLog("example",
             iam_role_arn=example_role.arn,
             log_destination=example_log_group.arn,
             traffic_type="ALL",
-            vpc_id=aws_vpc["example"]["id"])
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            vpc_id=example_aws_vpc["id"])
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=[
                 "logs:CreateLogGroup",
@@ -736,47 +752,55 @@ class FlowLog(pulumi.CustomResource):
             ],
             resources=["*"],
         )])
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
+        example_role_policy = aws.iam.RolePolicy("example",
+            name="example",
             role=example_role.id,
-            policy=example_policy_document.json)
+            policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### S3 Logging
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
+        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example = aws.ec2.FlowLog("example",
             log_destination=example_bucket_v2.arn,
             log_destination_type="s3",
             traffic_type="ALL",
-            vpc_id=aws_vpc["example"]["id"])
+            vpc_id=example_aws_vpc["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### S3 Logging in Apache Parquet format with per-hour partitions
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
+        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example = aws.ec2.FlowLog("example",
             log_destination=example_bucket_v2.arn,
             log_destination_type="s3",
             traffic_type="ALL",
-            vpc_id=aws_vpc["example"]["id"],
+            vpc_id=example_aws_vpc["id"],
             destination_options=aws.ec2.FlowLogDestinationOptionsArgs(
                 file_format="parquet",
                 per_hour_partition=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Flow Logs using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
+        $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
         ```
 
         :param str resource_name: The name of the resource.
@@ -835,8 +859,6 @@ class FlowLog(pulumi.CustomResource):
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(FlowLog, __self__).__init__(
             'aws:ec2/flowLog:FlowLog',
             resource_name,
@@ -878,7 +900,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[str] iam_role_arn: The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         :param pulumi.Input[str] log_destination: The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
         :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
-        :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
+        :param pulumi.Input[str] log_format: The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         :param pulumi.Input[str] log_group_name: **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
                during which a flow of packets is captured and aggregated into a flow
@@ -975,7 +997,7 @@ class FlowLog(pulumi.CustomResource):
     @pulumi.getter(name="logFormat")
     def log_format(self) -> pulumi.Output[str]:
         """
-        The fields to include in the flow log record, in the order in which they should appear.
+        The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         """
         return pulumi.get(self, "log_format")
 

@@ -11,36 +11,45 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const orderEventBus = new aws.cloudwatch.EventBus("orderEventBus", {});
- * const orderEventArchive = new aws.cloudwatch.EventArchive("orderEventArchive", {eventSourceArn: orderEventBus.arn});
+ * const order = new aws.cloudwatch.EventBus("order", {name: "orders"});
+ * const orderEventArchive = new aws.cloudwatch.EventArchive("order", {
+ *     name: "order-archive",
+ *     eventSourceArn: order.arn,
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Example all optional arguments
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const orderEventBus = new aws.cloudwatch.EventBus("orderEventBus", {});
- * const orderEventArchive = new aws.cloudwatch.EventArchive("orderEventArchive", {
+ * const order = new aws.cloudwatch.EventBus("order", {name: "orders"});
+ * const orderEventArchive = new aws.cloudwatch.EventArchive("order", {
+ *     name: "order-archive",
  *     description: "Archived events from order service",
- *     eventSourceArn: orderEventBus.arn,
+ *     eventSourceArn: order.arn,
  *     retentionDays: 7,
  *     eventPattern: JSON.stringify({
  *         source: ["company.team.order"],
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import an EventBridge archive using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
+ * $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
  * ```
  */
 export class EventArchive extends pulumi.CustomResource {

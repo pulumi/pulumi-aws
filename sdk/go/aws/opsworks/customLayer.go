@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsworks.NewCustomLayer(ctx, "custlayer", &opsworks.CustomLayerArgs{
+//				Name:      pulumi.String("My Awesome Custom Layer"),
 //				ShortName: pulumi.String("awesome"),
-//				StackId:   pulumi.Any(aws_opsworks_stack.Main.Id),
+//				StackId:   pulumi.Any(main.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -40,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import OpsWorks Custom Layers using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:opsworks/customLayer:CustomLayer bar 00000000-0000-0000-0000-000000000000
-//
+// $ pulumi import aws:opsworks/customLayer:CustomLayer bar 00000000-0000-0000-0000-000000000000
 // ```
 type CustomLayer struct {
 	pulumi.CustomResourceState
@@ -121,10 +122,6 @@ func NewCustomLayer(ctx *pulumi.Context,
 	if args.StackId == nil {
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomLayer
 	err := ctx.RegisterResource("aws:opsworks/customLayer:CustomLayer", name, args, &resource, opts...)

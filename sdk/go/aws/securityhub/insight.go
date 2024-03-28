@@ -15,8 +15,10 @@ import (
 // Provides a Security Hub custom insight resource. See the [Managing custom insights section](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-custom-insights.html) of the AWS User Guide for more information.
 //
 // ## Example Usage
+//
 // ### Filter by AWS account ID
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,11 +31,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			_, err := securityhub.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securityhub.NewInsight(ctx, "exampleInsight", &securityhub.InsightArgs{
+//			_, err = securityhub.NewInsight(ctx, "example", &securityhub.InsightArgs{
 //				Filters: &securityhub.InsightFiltersArgs{
 //					AwsAccountIds: securityhub.InsightFiltersAwsAccountIdArray{
 //						&securityhub.InsightFiltersAwsAccountIdArgs{
@@ -47,9 +49,8 @@ import (
 //					},
 //				},
 //				GroupByAttribute: pulumi.String("AwsAccountId"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
+//				Name:             pulumi.String("example-insight"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -58,8 +59,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Filter by date range
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -72,11 +76,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			_, err := securityhub.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securityhub.NewInsight(ctx, "exampleInsight", &securityhub.InsightArgs{
+//			_, err = securityhub.NewInsight(ctx, "example", &securityhub.InsightArgs{
 //				Filters: &securityhub.InsightFiltersArgs{
 //					CreatedAts: securityhub.InsightFiltersCreatedAtArray{
 //						&securityhub.InsightFiltersCreatedAtArgs{
@@ -88,9 +92,8 @@ import (
 //					},
 //				},
 //				GroupByAttribute: pulumi.String("CreatedAt"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
+//				Name:             pulumi.String("example-insight"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -99,8 +102,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Filter by destination IPv4 address
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -113,11 +119,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			_, err := securityhub.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securityhub.NewInsight(ctx, "exampleInsight", &securityhub.InsightArgs{
+//			_, err = securityhub.NewInsight(ctx, "example", &securityhub.InsightArgs{
 //				Filters: &securityhub.InsightFiltersArgs{
 //					NetworkDestinationIpv4s: securityhub.InsightFiltersNetworkDestinationIpv4Array{
 //						&securityhub.InsightFiltersNetworkDestinationIpv4Args{
@@ -126,9 +132,8 @@ import (
 //					},
 //				},
 //				GroupByAttribute: pulumi.String("NetworkDestinationIpV4"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
+//				Name:             pulumi.String("example-insight"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -137,8 +142,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Filter by finding's confidence
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -151,11 +159,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			_, err := securityhub.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securityhub.NewInsight(ctx, "exampleInsight", &securityhub.InsightArgs{
+//			_, err = securityhub.NewInsight(ctx, "example", &securityhub.InsightArgs{
 //				Filters: &securityhub.InsightFiltersArgs{
 //					Confidences: securityhub.InsightFiltersConfidenceArray{
 //						&securityhub.InsightFiltersConfidenceArgs{
@@ -164,9 +172,8 @@ import (
 //					},
 //				},
 //				GroupByAttribute: pulumi.String("Confidence"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
+//				Name:             pulumi.String("example-insight"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -175,8 +182,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Filter by resource tags
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -189,11 +199,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			_, err := securityhub.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securityhub.NewInsight(ctx, "exampleInsight", &securityhub.InsightArgs{
+//			_, err = securityhub.NewInsight(ctx, "example", &securityhub.InsightArgs{
 //				Filters: &securityhub.InsightFiltersArgs{
 //					ResourceTags: securityhub.InsightFiltersResourceTagArray{
 //						&securityhub.InsightFiltersResourceTagArgs{
@@ -204,9 +214,8 @@ import (
 //					},
 //				},
 //				GroupByAttribute: pulumi.String("ResourceTags"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
+//				Name:             pulumi.String("example-insight"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -215,15 +224,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Security Hub insights using the ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:securityhub/insight:Insight example arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a
-//
+// $ pulumi import aws:securityhub/insight:Insight example arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a
 // ```
 type Insight struct {
 	pulumi.CustomResourceState

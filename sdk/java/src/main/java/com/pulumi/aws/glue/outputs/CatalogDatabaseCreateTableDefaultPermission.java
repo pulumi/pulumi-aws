@@ -60,6 +60,7 @@ public final class CatalogDatabaseCreateTableDefaultPermission {
 
         @CustomType.Setter
         public Builder permissions(@Nullable List<String> permissions) {
+
             this.permissions = permissions;
             return this;
         }
@@ -68,14 +69,15 @@ public final class CatalogDatabaseCreateTableDefaultPermission {
         }
         @CustomType.Setter
         public Builder principal(@Nullable CatalogDatabaseCreateTableDefaultPermissionPrincipal principal) {
+
             this.principal = principal;
             return this;
         }
         public CatalogDatabaseCreateTableDefaultPermission build() {
-            final var o = new CatalogDatabaseCreateTableDefaultPermission();
-            o.permissions = permissions;
-            o.principal = principal;
-            return o;
+            final var _resultValue = new CatalogDatabaseCreateTableDefaultPermission();
+            _resultValue.permissions = permissions;
+            _resultValue.principal = principal;
+            return _resultValue;
         }
     }
 }

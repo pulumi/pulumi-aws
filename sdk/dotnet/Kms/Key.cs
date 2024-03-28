@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Kms
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,21 +27,22 @@ namespace Pulumi.Aws.Kms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var key = new Aws.Kms.Key("key", new()
+    ///     var a = new Aws.Kms.Key("a", new()
     ///     {
-    ///         DeletionWindowInDays = 10,
     ///         Description = "KMS key 1",
+    ///         DeletionWindowInDays = 10,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import KMS Keys using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:kms/key:Key a 1234abcd-12ab-34cd-56ef-1234567890ab
+    /// $ pulumi import aws:kms/key:Key a 1234abcd-12ab-34cd-56ef-1234567890ab
     /// ```
     /// </summary>
     [AwsResourceType("aws:kms/key:Key")]
@@ -139,6 +141,12 @@ namespace Pulumi.Aws.Kms
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// Identifies the external key that serves as key material for the KMS key in an external key store.
+        /// </summary>
+        [Output("xksKeyId")]
+        public Output<string?> XksKeyId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Key resource with the given unique name, arguments, and options.
@@ -162,10 +170,6 @@ namespace Pulumi.Aws.Kms
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -269,6 +273,12 @@ namespace Pulumi.Aws.Kms
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Identifies the external key that serves as key material for the KMS key in an external key store.
+        /// </summary>
+        [Input("xksKeyId")]
+        public Input<string>? XksKeyId { get; set; }
 
         public KeyArgs()
         {
@@ -381,12 +391,14 @@ namespace Pulumi.Aws.Kms
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// Identifies the external key that serves as key material for the KMS key in an external key store.
+        /// </summary>
+        [Input("xksKeyId")]
+        public Input<string>? XksKeyId { get; set; }
 
         public KeyState()
         {

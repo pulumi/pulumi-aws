@@ -4,6 +4,7 @@
 package com.pulumi.aws.redshift.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -82,7 +83,10 @@ public final class GetOrderableClusterResult {
 
         @CustomType.Setter
         public Builder availabilityZones(List<String> availabilityZones) {
-            this.availabilityZones = Objects.requireNonNull(availabilityZones);
+            if (availabilityZones == null) {
+              throw new MissingRequiredPropertyException("GetOrderableClusterResult", "availabilityZones");
+            }
+            this.availabilityZones = availabilityZones;
             return this;
         }
         public Builder availabilityZones(String... availabilityZones) {
@@ -90,26 +94,39 @@ public final class GetOrderableClusterResult {
         }
         @CustomType.Setter
         public Builder clusterType(String clusterType) {
-            this.clusterType = Objects.requireNonNull(clusterType);
+            if (clusterType == null) {
+              throw new MissingRequiredPropertyException("GetOrderableClusterResult", "clusterType");
+            }
+            this.clusterType = clusterType;
             return this;
         }
         @CustomType.Setter
         public Builder clusterVersion(String clusterVersion) {
-            this.clusterVersion = Objects.requireNonNull(clusterVersion);
+            if (clusterVersion == null) {
+              throw new MissingRequiredPropertyException("GetOrderableClusterResult", "clusterVersion");
+            }
+            this.clusterVersion = clusterVersion;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetOrderableClusterResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder nodeType(String nodeType) {
-            this.nodeType = Objects.requireNonNull(nodeType);
+            if (nodeType == null) {
+              throw new MissingRequiredPropertyException("GetOrderableClusterResult", "nodeType");
+            }
+            this.nodeType = nodeType;
             return this;
         }
         @CustomType.Setter
         public Builder preferredNodeTypes(@Nullable List<String> preferredNodeTypes) {
+
             this.preferredNodeTypes = preferredNodeTypes;
             return this;
         }
@@ -117,14 +134,14 @@ public final class GetOrderableClusterResult {
             return preferredNodeTypes(List.of(preferredNodeTypes));
         }
         public GetOrderableClusterResult build() {
-            final var o = new GetOrderableClusterResult();
-            o.availabilityZones = availabilityZones;
-            o.clusterType = clusterType;
-            o.clusterVersion = clusterVersion;
-            o.id = id;
-            o.nodeType = nodeType;
-            o.preferredNodeTypes = preferredNodeTypes;
-            return o;
+            final var _resultValue = new GetOrderableClusterResult();
+            _resultValue.availabilityZones = availabilityZones;
+            _resultValue.clusterType = clusterType;
+            _resultValue.clusterVersion = clusterVersion;
+            _resultValue.id = id;
+            _resultValue.nodeType = nodeType;
+            _resultValue.preferredNodeTypes = preferredNodeTypes;
+            return _resultValue;
         }
     }
 }

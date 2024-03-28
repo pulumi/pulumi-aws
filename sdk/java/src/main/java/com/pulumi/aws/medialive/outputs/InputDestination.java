@@ -4,6 +4,7 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class InputDestination {
 
         @CustomType.Setter
         public Builder streamName(String streamName) {
-            this.streamName = Objects.requireNonNull(streamName);
+            if (streamName == null) {
+              throw new MissingRequiredPropertyException("InputDestination", "streamName");
+            }
+            this.streamName = streamName;
             return this;
         }
         public InputDestination build() {
-            final var o = new InputDestination();
-            o.streamName = streamName;
-            return o;
+            final var _resultValue = new InputDestination();
+            _resultValue.streamName = streamName;
+            return _resultValue;
         }
     }
 }

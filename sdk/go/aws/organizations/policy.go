@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Effect: pulumi.StringRef("Allow"),
@@ -45,8 +46,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = organizations.NewPolicy(ctx, "examplePolicy", &organizations.PolicyArgs{
-//				Content: *pulumi.String(examplePolicyDocument.Json),
+//			_, err = organizations.NewPolicy(ctx, "example", &organizations.PolicyArgs{
+//				Name:    pulumi.String("example"),
+//				Content: pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -56,15 +58,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_organizations_policy` using the policy ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:organizations/policy:Policy example p-12345678
-//
+// $ pulumi import aws:organizations/policy:Policy example p-12345678
 // ```
 type Policy struct {
 	pulumi.CustomResourceState
@@ -99,10 +100,6 @@ func NewPolicy(ctx *pulumi.Context,
 	if args.Content == nil {
 		return nil, errors.New("invalid value for required argument 'Content'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Policy
 	err := ctx.RegisterResource("aws:organizations/policy:Policy", name, args, &resource, opts...)

@@ -19,8 +19,10 @@ import (
 // > **Note:** To manage Amazon Kinesis Data Analytics for Apache Flink applications, use the `kinesisanalyticsv2.Application` resource.
 //
 // ## Example Usage
+//
 // ### Kinesis Stream Input
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,18 +35,20 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testStream, err := kinesis.NewStream(ctx, "testStream", &kinesis.StreamArgs{
+//			testStream, err := kinesis.NewStream(ctx, "test_stream", &kinesis.StreamArgs{
+//				Name:       pulumi.String("kinesis-test"),
 //				ShardCount: pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = kinesis.NewAnalyticsApplication(ctx, "testApplication", &kinesis.AnalyticsApplicationArgs{
+//			_, err = kinesis.NewAnalyticsApplication(ctx, "test_application", &kinesis.AnalyticsApplicationArgs{
+//				Name: pulumi.String("kinesis-analytics-application-test"),
 //				Inputs: &kinesis.AnalyticsApplicationInputsArgs{
 //					NamePrefix: pulumi.String("test_prefix"),
 //					KinesisStream: &kinesis.AnalyticsApplicationInputsKinesisStreamArgs{
 //						ResourceArn: testStream.Arn,
-//						RoleArn:     pulumi.Any(aws_iam_role.Test.Arn),
+//						RoleArn:     pulumi.Any(test.Arn),
 //					},
 //					Parallelism: &kinesis.AnalyticsApplicationInputsParallelismArgs{
 //						Count: pulumi.Int(1),
@@ -76,8 +80,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Starting An Application
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -91,36 +98,42 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleLogStream, err := cloudwatch.NewLogStream(ctx, "exampleLogStream", &cloudwatch.LogStreamArgs{
-//				LogGroupName: exampleLogGroup.Name,
+//			example, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
+//				Name: pulumi.String("analytics"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleStream, err := kinesis.NewStream(ctx, "exampleStream", &kinesis.StreamArgs{
+//			exampleLogStream, err := cloudwatch.NewLogStream(ctx, "example", &cloudwatch.LogStreamArgs{
+//				Name:         pulumi.String("example-kinesis-application"),
+//				LogGroupName: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleStream, err := kinesis.NewStream(ctx, "example", &kinesis.StreamArgs{
+//				Name:       pulumi.String("example-kinesis-stream"),
 //				ShardCount: pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFirehoseDeliveryStream, err := kinesis.NewFirehoseDeliveryStream(ctx, "exampleFirehoseDeliveryStream", &kinesis.FirehoseDeliveryStreamArgs{
+//			exampleFirehoseDeliveryStream, err := kinesis.NewFirehoseDeliveryStream(ctx, "example", &kinesis.FirehoseDeliveryStreamArgs{
+//				Name:        pulumi.String("example-kinesis-delivery-stream"),
 //				Destination: pulumi.String("extended_s3"),
 //				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
-//					BucketArn: pulumi.Any(aws_s3_bucket.Example.Arn),
-//					RoleArn:   pulumi.Any(aws_iam_role.Example.Arn),
+//					BucketArn: pulumi.Any(exampleAwsS3Bucket.Arn),
+//					RoleArn:   pulumi.Any(exampleAwsIamRole.Arn),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = kinesis.NewAnalyticsApplication(ctx, "test", &kinesis.AnalyticsApplicationArgs{
+//				Name: pulumi.String("example-application"),
 //				CloudwatchLoggingOptions: &kinesis.AnalyticsApplicationCloudwatchLoggingOptionsArgs{
 //					LogStreamArn: exampleLogStream.Arn,
-//					RoleArn:      pulumi.Any(aws_iam_role.Example.Arn),
+//					RoleArn:      pulumi.Any(exampleAwsIamRole.Arn),
 //				},
 //				Inputs: &kinesis.AnalyticsApplicationInputsArgs{
 //					NamePrefix: pulumi.String("example_prefix"),
@@ -142,7 +155,7 @@ import (
 //					},
 //					KinesisStream: &kinesis.AnalyticsApplicationInputsKinesisStreamArgs{
 //						ResourceArn: exampleStream.Arn,
-//						RoleArn:     pulumi.Any(aws_iam_role.Example.Arn),
+//						RoleArn:     pulumi.Any(exampleAwsIamRole.Arn),
 //					},
 //					StartingPositionConfigurations: kinesis.AnalyticsApplicationInputsStartingPositionConfigurationArray{
 //						&kinesis.AnalyticsApplicationInputsStartingPositionConfigurationArgs{
@@ -158,7 +171,7 @@ import (
 //						},
 //						KinesisFirehose: &kinesis.AnalyticsApplicationOutputKinesisFirehoseArgs{
 //							ResourceArn: exampleFirehoseDeliveryStream.Arn,
-//							RoleArn:     pulumi.Any(aws_iam_role.Example.Arn),
+//							RoleArn:     pulumi.Any(exampleAwsIamRole.Arn),
 //						},
 //					},
 //				},
@@ -172,15 +185,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Kinesis Analytics Application using ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:kinesis/analyticsApplication:AnalyticsApplication example arn:aws:kinesisanalytics:us-west-2:1234567890:application/example
-//
+// $ pulumi import aws:kinesis/analyticsApplication:AnalyticsApplication example arn:aws:kinesisanalytics:us-west-2:1234567890:application/example
 // ```
 type AnalyticsApplication struct {
 	pulumi.CustomResourceState
@@ -229,10 +241,6 @@ func NewAnalyticsApplication(ctx *pulumi.Context,
 		args = &AnalyticsApplicationArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AnalyticsApplication
 	err := ctx.RegisterResource("aws:kinesis/analyticsApplication:AnalyticsApplication", name, args, &resource, opts...)

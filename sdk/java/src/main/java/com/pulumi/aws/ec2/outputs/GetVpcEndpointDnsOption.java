@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -57,19 +58,25 @@ public final class GetVpcEndpointDnsOption {
 
         @CustomType.Setter
         public Builder dnsRecordIpType(String dnsRecordIpType) {
-            this.dnsRecordIpType = Objects.requireNonNull(dnsRecordIpType);
+            if (dnsRecordIpType == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointDnsOption", "dnsRecordIpType");
+            }
+            this.dnsRecordIpType = dnsRecordIpType;
             return this;
         }
         @CustomType.Setter
         public Builder privateDnsOnlyForInboundResolverEndpoint(Boolean privateDnsOnlyForInboundResolverEndpoint) {
-            this.privateDnsOnlyForInboundResolverEndpoint = Objects.requireNonNull(privateDnsOnlyForInboundResolverEndpoint);
+            if (privateDnsOnlyForInboundResolverEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointDnsOption", "privateDnsOnlyForInboundResolverEndpoint");
+            }
+            this.privateDnsOnlyForInboundResolverEndpoint = privateDnsOnlyForInboundResolverEndpoint;
             return this;
         }
         public GetVpcEndpointDnsOption build() {
-            final var o = new GetVpcEndpointDnsOption();
-            o.dnsRecordIpType = dnsRecordIpType;
-            o.privateDnsOnlyForInboundResolverEndpoint = privateDnsOnlyForInboundResolverEndpoint;
-            return o;
+            final var _resultValue = new GetVpcEndpointDnsOption();
+            _resultValue.dnsRecordIpType = dnsRecordIpType;
+            _resultValue.privateDnsOnlyForInboundResolverEndpoint = privateDnsOnlyForInboundResolverEndpoint;
+            return _resultValue;
         }
     }
 }

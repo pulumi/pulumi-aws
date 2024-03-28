@@ -257,25 +257,30 @@ class RecordingConfiguration(pulumi.CustomResource):
         Resource for managing an AWS IVS (Interactive Video) Recording Configuration.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ivs.RecordingConfiguration("example", destination_configuration=aws.ivs.RecordingConfigurationDestinationConfigurationArgs(
-            s3=aws.ivs.RecordingConfigurationDestinationConfigurationS3Args(
-                bucket_name="ivs-stream-archive",
-            ),
-        ))
+        example = aws.ivs.RecordingConfiguration("example",
+            name="recording_configuration-1",
+            destination_configuration=aws.ivs.RecordingConfigurationDestinationConfigurationArgs(
+                s3=aws.ivs.RecordingConfigurationDestinationConfigurationS3Args(
+                    bucket_name="ivs-stream-archive",
+                ),
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IVS (Interactive Video) Recording Configuration using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
+        $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
         ```
 
         :param str resource_name: The name of the resource.
@@ -296,25 +301,30 @@ class RecordingConfiguration(pulumi.CustomResource):
         Resource for managing an AWS IVS (Interactive Video) Recording Configuration.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ivs.RecordingConfiguration("example", destination_configuration=aws.ivs.RecordingConfigurationDestinationConfigurationArgs(
-            s3=aws.ivs.RecordingConfigurationDestinationConfigurationS3Args(
-                bucket_name="ivs-stream-archive",
-            ),
-        ))
+        example = aws.ivs.RecordingConfiguration("example",
+            name="recording_configuration-1",
+            destination_configuration=aws.ivs.RecordingConfigurationDestinationConfigurationArgs(
+                s3=aws.ivs.RecordingConfigurationDestinationConfigurationS3Args(
+                    bucket_name="ivs-stream-archive",
+                ),
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IVS (Interactive Video) Recording Configuration using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
+        $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
         ```
 
         :param str resource_name: The name of the resource.
@@ -356,8 +366,6 @@ class RecordingConfiguration(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(RecordingConfiguration, __self__).__init__(
             'aws:ivs/recordingConfiguration:RecordingConfiguration',
             resource_name,

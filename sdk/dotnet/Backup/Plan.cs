@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,12 +25,13 @@ namespace Pulumi.Aws.Backup
     /// {
     ///     var example = new Aws.Backup.Plan("example", new()
     ///     {
+    ///         Name = "my_example_backup_plan",
     ///         Rules = new[]
     ///         {
     ///             new Aws.Backup.Inputs.PlanRuleArgs
     ///             {
     ///                 RuleName = "my_example_backup_rule",
-    ///                 TargetVaultName = aws_backup_vault.Test.Name,
+    ///                 TargetVaultName = test.Name,
     ///                 Schedule = "cron(0 12 * * ? *)",
     ///                 Lifecycle = new Aws.Backup.Inputs.PlanRuleLifecycleArgs
     ///                 {
@@ -52,13 +54,14 @@ namespace Pulumi.Aws.Backup
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Backup Plan using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:backup/plan:Plan test &lt;id&gt;
+    /// $ pulumi import aws:backup/plan:Plan test &lt;id&gt;
     /// ```
     /// </summary>
     [AwsResourceType("aws:backup/plan:Plan")]
@@ -129,10 +132,6 @@ namespace Pulumi.Aws.Backup
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -264,11 +263,7 @@ namespace Pulumi.Aws.Backup
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

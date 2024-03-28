@@ -135,21 +135,23 @@ class ResolverRuleAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.route53.ResolverRuleAssociation("example",
-            resolver_rule_id=aws_route53_resolver_rule["sys"]["id"],
-            vpc_id=aws_vpc["foo"]["id"])
+            resolver_rule_id=sys["id"],
+            vpc_id=foo["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 Resolver rule associations using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:route53/resolverRuleAssociation:ResolverRuleAssociation example rslvr-rrassoc-97242eaf88example
+        $ pulumi import aws:route53/resolverRuleAssociation:ResolverRuleAssociation example rslvr-rrassoc-97242eaf88example
         ```
 
         :param str resource_name: The name of the resource.
@@ -169,21 +171,23 @@ class ResolverRuleAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.route53.ResolverRuleAssociation("example",
-            resolver_rule_id=aws_route53_resolver_rule["sys"]["id"],
-            vpc_id=aws_vpc["foo"]["id"])
+            resolver_rule_id=sys["id"],
+            vpc_id=foo["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 Resolver rule associations using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:route53/resolverRuleAssociation:ResolverRuleAssociation example rslvr-rrassoc-97242eaf88example
+        $ pulumi import aws:route53/resolverRuleAssociation:ResolverRuleAssociation example rslvr-rrassoc-97242eaf88example
         ```
 
         :param str resource_name: The name of the resource.

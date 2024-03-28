@@ -100,37 +100,42 @@ public final class ProjectFileSystemLocation {
 
         @CustomType.Setter
         public Builder identifier(@Nullable String identifier) {
+
             this.identifier = identifier;
             return this;
         }
         @CustomType.Setter
         public Builder location(@Nullable String location) {
+
             this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder mountOptions(@Nullable String mountOptions) {
+
             this.mountOptions = mountOptions;
             return this;
         }
         @CustomType.Setter
         public Builder mountPoint(@Nullable String mountPoint) {
+
             this.mountPoint = mountPoint;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         public ProjectFileSystemLocation build() {
-            final var o = new ProjectFileSystemLocation();
-            o.identifier = identifier;
-            o.location = location;
-            o.mountOptions = mountOptions;
-            o.mountPoint = mountPoint;
-            o.type = type;
-            return o;
+            final var _resultValue = new ProjectFileSystemLocation();
+            _resultValue.identifier = identifier;
+            _resultValue.location = location;
+            _resultValue.mountOptions = mountOptions;
+            _resultValue.mountPoint = mountPoint;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

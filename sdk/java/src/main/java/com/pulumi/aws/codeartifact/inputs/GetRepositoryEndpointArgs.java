@@ -5,6 +5,7 @@ package com.pulumi.aws.codeartifact.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class GetRepositoryEndpointArgs extends com.pulumi.resources.Invoke
         }
 
         public GetRepositoryEndpointArgs build() {
-            $.domain = Objects.requireNonNull($.domain, "expected parameter 'domain' to be non-null");
-            $.format = Objects.requireNonNull($.format, "expected parameter 'format' to be non-null");
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
+            if ($.domain == null) {
+                throw new MissingRequiredPropertyException("GetRepositoryEndpointArgs", "domain");
+            }
+            if ($.format == null) {
+                throw new MissingRequiredPropertyException("GetRepositoryEndpointArgs", "format");
+            }
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("GetRepositoryEndpointArgs", "repository");
+            }
             return $;
         }
     }

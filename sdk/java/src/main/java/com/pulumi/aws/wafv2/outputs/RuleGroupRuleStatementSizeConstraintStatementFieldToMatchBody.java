@@ -44,13 +44,14 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBody
 
         @CustomType.Setter
         public Builder oversizeHandling(@Nullable String oversizeHandling) {
+
             this.oversizeHandling = oversizeHandling;
             return this;
         }
         public RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBody build() {
-            final var o = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBody();
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBody();
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,13 +32,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewEventEndpoint(ctx, "this", &cloudwatch.EventEndpointArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.Replication.Arn),
+//				Name:    pulumi.String("global-endpoint"),
+//				RoleArn: pulumi.Any(replication.Arn),
 //				EventBuses: cloudwatch.EventEndpointEventBusArray{
 //					&cloudwatch.EventEndpointEventBusArgs{
-//						EventBusArn: pulumi.Any(aws_cloudwatch_event_bus.Primary.Arn),
+//						EventBusArn: pulumi.Any(primary.Arn),
 //					},
 //					&cloudwatch.EventEndpointEventBusArgs{
-//						EventBusArn: pulumi.Any(aws_cloudwatch_event_bus.Secondary.Arn),
+//						EventBusArn: pulumi.Any(secondary.Arn),
 //					},
 //				},
 //				ReplicationConfig: &cloudwatch.EventEndpointReplicationConfigArgs{
@@ -46,7 +48,7 @@ import (
 //				RoutingConfig: &cloudwatch.EventEndpointRoutingConfigArgs{
 //					FailoverConfig: &cloudwatch.EventEndpointRoutingConfigFailoverConfigArgs{
 //						Primary: &cloudwatch.EventEndpointRoutingConfigFailoverConfigPrimaryArgs{
-//							HealthCheck: pulumi.Any(aws_route53_health_check.Primary.Arn),
+//							HealthCheck: pulumi.Any(primaryAwsRoute53HealthCheck.Arn),
 //						},
 //						Secondary: &cloudwatch.EventEndpointRoutingConfigFailoverConfigSecondaryArgs{
 //							Route: pulumi.String("us-east-2"),
@@ -62,15 +64,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EventBridge Global Endpoints using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint
-//
+// $ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint
 // ```
 type EventEndpoint struct {
 	pulumi.CustomResourceState

@@ -101,19 +101,21 @@ class Policy(pulumi.CustomResource):
         Attaches a resource based policy to a private CA.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_policy_document = aws.iam.get_policy_document(statements=[
+        example = aws.iam.get_policy_document(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="1",
                 effect="Allow",
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="AWS",
-                    identifiers=[data["aws_caller_identity"]["current"]["account_id"]],
+                    identifiers=[current["accountId"]],
                 )],
                 actions=[
                     "acm-pca:DescribeCertificateAuthority",
@@ -122,17 +124,17 @@ class Policy(pulumi.CustomResource):
                     "acm-pca:ListPermissions",
                     "acm-pca:ListTags",
                 ],
-                resources=[aws_acmpca_certificate_authority["example"]["arn"]],
+                resources=[example_aws_acmpca_certificate_authority["arn"]],
             ),
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="2",
                 effect=allow,
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="AWS",
-                    identifiers=[data["aws_caller_identity"]["current"]["account_id"]],
+                    identifiers=[current["accountId"]],
                 )],
                 actions=["acm-pca:IssueCertificate"],
-                resources=[aws_acmpca_certificate_authority["example"]["arn"]],
+                resources=[example_aws_acmpca_certificate_authority["arn"]],
                 conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                     test="StringEquals",
                     variable="acm-pca:TemplateArn",
@@ -140,17 +142,18 @@ class Policy(pulumi.CustomResource):
                 )],
             ),
         ])
-        example_policy = aws.acmpca.Policy("examplePolicy",
-            resource_arn=aws_acmpca_certificate_authority["example"]["arn"],
-            policy=example_policy_document.json)
+        example_policy = aws.acmpca.Policy("example",
+            resource_arn=example_aws_acmpca_certificate_authority["arn"],
+            policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_acmpca_policy` using the `resource_arn` value. For example:
 
         ```sh
-         $ pulumi import aws:acmpca/policy:Policy example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
+        $ pulumi import aws:acmpca/policy:Policy example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -168,19 +171,21 @@ class Policy(pulumi.CustomResource):
         Attaches a resource based policy to a private CA.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_policy_document = aws.iam.get_policy_document(statements=[
+        example = aws.iam.get_policy_document(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="1",
                 effect="Allow",
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="AWS",
-                    identifiers=[data["aws_caller_identity"]["current"]["account_id"]],
+                    identifiers=[current["accountId"]],
                 )],
                 actions=[
                     "acm-pca:DescribeCertificateAuthority",
@@ -189,17 +194,17 @@ class Policy(pulumi.CustomResource):
                     "acm-pca:ListPermissions",
                     "acm-pca:ListTags",
                 ],
-                resources=[aws_acmpca_certificate_authority["example"]["arn"]],
+                resources=[example_aws_acmpca_certificate_authority["arn"]],
             ),
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="2",
                 effect=allow,
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="AWS",
-                    identifiers=[data["aws_caller_identity"]["current"]["account_id"]],
+                    identifiers=[current["accountId"]],
                 )],
                 actions=["acm-pca:IssueCertificate"],
-                resources=[aws_acmpca_certificate_authority["example"]["arn"]],
+                resources=[example_aws_acmpca_certificate_authority["arn"]],
                 conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                     test="StringEquals",
                     variable="acm-pca:TemplateArn",
@@ -207,17 +212,18 @@ class Policy(pulumi.CustomResource):
                 )],
             ),
         ])
-        example_policy = aws.acmpca.Policy("examplePolicy",
-            resource_arn=aws_acmpca_certificate_authority["example"]["arn"],
-            policy=example_policy_document.json)
+        example_policy = aws.acmpca.Policy("example",
+            resource_arn=example_aws_acmpca_certificate_authority["arn"],
+            policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_acmpca_policy` using the `resource_arn` value. For example:
 
         ```sh
-         $ pulumi import aws:acmpca/policy:Policy example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
+        $ pulumi import aws:acmpca/policy:Policy example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
         ```
 
         :param str resource_name: The name of the resource.

@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigatewayv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -121,43 +122,51 @@ public final class StageRouteSetting {
 
         @CustomType.Setter
         public Builder dataTraceEnabled(@Nullable Boolean dataTraceEnabled) {
+
             this.dataTraceEnabled = dataTraceEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder detailedMetricsEnabled(@Nullable Boolean detailedMetricsEnabled) {
+
             this.detailedMetricsEnabled = detailedMetricsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder loggingLevel(@Nullable String loggingLevel) {
+
             this.loggingLevel = loggingLevel;
             return this;
         }
         @CustomType.Setter
         public Builder routeKey(String routeKey) {
-            this.routeKey = Objects.requireNonNull(routeKey);
+            if (routeKey == null) {
+              throw new MissingRequiredPropertyException("StageRouteSetting", "routeKey");
+            }
+            this.routeKey = routeKey;
             return this;
         }
         @CustomType.Setter
         public Builder throttlingBurstLimit(@Nullable Integer throttlingBurstLimit) {
+
             this.throttlingBurstLimit = throttlingBurstLimit;
             return this;
         }
         @CustomType.Setter
         public Builder throttlingRateLimit(@Nullable Double throttlingRateLimit) {
+
             this.throttlingRateLimit = throttlingRateLimit;
             return this;
         }
         public StageRouteSetting build() {
-            final var o = new StageRouteSetting();
-            o.dataTraceEnabled = dataTraceEnabled;
-            o.detailedMetricsEnabled = detailedMetricsEnabled;
-            o.loggingLevel = loggingLevel;
-            o.routeKey = routeKey;
-            o.throttlingBurstLimit = throttlingBurstLimit;
-            o.throttlingRateLimit = throttlingRateLimit;
-            return o;
+            final var _resultValue = new StageRouteSetting();
+            _resultValue.dataTraceEnabled = dataTraceEnabled;
+            _resultValue.detailedMetricsEnabled = detailedMetricsEnabled;
+            _resultValue.loggingLevel = loggingLevel;
+            _resultValue.routeKey = routeKey;
+            _resultValue.throttlingBurstLimit = throttlingBurstLimit;
+            _resultValue.throttlingRateLimit = throttlingRateLimit;
+            return _resultValue;
         }
     }
 }

@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudfront.inputs;
 import com.pulumi.aws.cloudfront.inputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -59,7 +60,9 @@ public final class FieldLevelEncryptionConfigContentTypeProfileConfigContentType
         }
 
         public FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs build() {
-            $.items = Objects.requireNonNull($.items, "expected parameter 'items' to be non-null");
+            if ($.items == null) {
+                throw new MissingRequiredPropertyException("FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs", "items");
+            }
             return $;
         }
     }

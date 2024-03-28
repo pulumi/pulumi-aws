@@ -5,6 +5,7 @@ package com.pulumi.aws.ecs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,14 +17,14 @@ public final class AccountSettingDefaultArgs extends com.pulumi.resources.Resour
     public static final AccountSettingDefaultArgs Empty = new AccountSettingDefaultArgs();
 
     /**
-     * Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+     * Name of the account setting to set.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+     * @return Name of the account setting to set.
      * 
      */
     public Optional<Output<String>> name() {
@@ -31,14 +32,14 @@ public final class AccountSettingDefaultArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * State of the setting. Valid values are `enabled` and `disabled`.
+     * State of the setting.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return State of the setting. Valid values are `enabled` and `disabled`.
+     * @return State of the setting.
      * 
      */
     public Output<String> value() {
@@ -71,7 +72,7 @@ public final class AccountSettingDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+         * @param name Name of the account setting to set.
          * 
          * @return builder
          * 
@@ -82,7 +83,7 @@ public final class AccountSettingDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+         * @param name Name of the account setting to set.
          * 
          * @return builder
          * 
@@ -92,7 +93,7 @@ public final class AccountSettingDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param value State of the setting. Valid values are `enabled` and `disabled`.
+         * @param value State of the setting.
          * 
          * @return builder
          * 
@@ -103,7 +104,7 @@ public final class AccountSettingDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param value State of the setting. Valid values are `enabled` and `disabled`.
+         * @param value State of the setting.
          * 
          * @return builder
          * 
@@ -113,7 +114,9 @@ public final class AccountSettingDefaultArgs extends com.pulumi.resources.Resour
         }
 
         public AccountSettingDefaultArgs build() {
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("AccountSettingDefaultArgs", "value");
+            }
             return $;
         }
     }

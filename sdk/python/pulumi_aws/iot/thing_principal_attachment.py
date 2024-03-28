@@ -102,18 +102,21 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        example = aws.iot.Thing("example")
+        example = aws.iot.Thing("example", name="example")
         cert = aws.iot.Certificate("cert",
-            csr=(lambda path: open(path).read())("csr.pem"),
+            csr=std.file(input="csr.pem").result,
             active=True)
         att = aws.iot.ThingPrincipalAttachment("att",
             principal=cert.arn,
             thing=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,18 +134,21 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        example = aws.iot.Thing("example")
+        example = aws.iot.Thing("example", name="example")
         cert = aws.iot.Certificate("cert",
-            csr=(lambda path: open(path).read())("csr.pem"),
+            csr=std.file(input="csr.pem").result,
             active=True)
         att = aws.iot.ThingPrincipalAttachment("att",
             principal=cert.arn,
             thing=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param ThingPrincipalAttachmentArgs args: The arguments to use to populate this resource's properties.

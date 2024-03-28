@@ -74,25 +74,28 @@ public final class CostCategoryRuleRuleOr {
 
         @CustomType.Setter
         public Builder costCategory(@Nullable CostCategoryRuleRuleOrCostCategory costCategory) {
+
             this.costCategory = costCategory;
             return this;
         }
         @CustomType.Setter
         public Builder dimension(@Nullable CostCategoryRuleRuleOrDimension dimension) {
+
             this.dimension = dimension;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable CostCategoryRuleRuleOrTags tags) {
+
             this.tags = tags;
             return this;
         }
         public CostCategoryRuleRuleOr build() {
-            final var o = new CostCategoryRuleRuleOr();
-            o.costCategory = costCategory;
-            o.dimension = dimension;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new CostCategoryRuleRuleOr();
+            _resultValue.costCategory = costCategory;
+            _resultValue.dimension = dimension;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

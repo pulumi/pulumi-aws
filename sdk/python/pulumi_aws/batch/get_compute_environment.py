@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetComputeEnvironmentResult',
@@ -21,7 +22,7 @@ class GetComputeEnvironmentResult:
     """
     A collection of values returned by getComputeEnvironment.
     """
-    def __init__(__self__, arn=None, compute_environment_name=None, ecs_cluster_arn=None, id=None, service_role=None, state=None, status=None, status_reason=None, tags=None, type=None):
+    def __init__(__self__, arn=None, compute_environment_name=None, ecs_cluster_arn=None, id=None, service_role=None, state=None, status=None, status_reason=None, tags=None, type=None, update_policies=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -52,6 +53,9 @@ class GetComputeEnvironmentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if update_policies and not isinstance(update_policies, list):
+            raise TypeError("Expected argument 'update_policies' to be a list")
+        pulumi.set(__self__, "update_policies", update_policies)
 
     @property
     @pulumi.getter
@@ -130,6 +134,14 @@ class GetComputeEnvironmentResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="updatePolicies")
+    def update_policies(self) -> Sequence['outputs.GetComputeEnvironmentUpdatePolicyResult']:
+        """
+        Specifies the infrastructure update policy for the compute environment.
+        """
+        return pulumi.get(self, "update_policies")
+
 
 class AwaitableGetComputeEnvironmentResult(GetComputeEnvironmentResult):
     # pylint: disable=using-constant-test
@@ -146,7 +158,8 @@ class AwaitableGetComputeEnvironmentResult(GetComputeEnvironmentResult):
             status=self.status,
             status_reason=self.status_reason,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            update_policies=self.update_policies)
 
 
 def get_compute_environment(compute_environment_name: Optional[str] = None,
@@ -158,12 +171,14 @@ def get_compute_environment(compute_environment_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     batch_mongo = aws.batch.get_compute_environment(compute_environment_name="batch-mongo-production")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str compute_environment_name: Name of the Batch Compute Environment
@@ -185,7 +200,8 @@ def get_compute_environment(compute_environment_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         status_reason=pulumi.get(__ret__, 'status_reason'),
         tags=pulumi.get(__ret__, 'tags'),
-        type=pulumi.get(__ret__, 'type'))
+        type=pulumi.get(__ret__, 'type'),
+        update_policies=pulumi.get(__ret__, 'update_policies'))
 
 
 @_utilities.lift_output_func(get_compute_environment)
@@ -198,12 +214,14 @@ def get_compute_environment_output(compute_environment_name: Optional[pulumi.Inp
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     batch_mongo = aws.batch.get_compute_environment(compute_environment_name="batch-mongo-production")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str compute_environment_name: Name of the Batch Compute Environment

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appconfig.NewApplication(ctx, "example", &appconfig.ApplicationArgs{
+//				Name:        pulumi.String("example-application-tf"),
 //				Description: pulumi.String("Example AppConfig Application"),
 //				Tags: pulumi.StringMap{
 //					"Type": pulumi.String("AppConfig Application"),
@@ -41,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AppConfig Applications using their application ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appconfig/application:Application example 71rxuzt
-//
+// $ pulumi import aws:appconfig/application:Application example 71rxuzt
 // ```
 type Application struct {
 	pulumi.CustomResourceState
@@ -75,10 +76,6 @@ func NewApplication(ctx *pulumi.Context,
 		args = &ApplicationArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Application
 	err := ctx.RegisterResource("aws:appconfig/application:Application", name, args, &resource, opts...)

@@ -11,23 +11,25 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datasync.LocationObjectStorage("example", {
- *     agentArns: [aws_datasync_agent.example.arn],
+ *     agentArns: [exampleAwsDatasyncAgent.arn],
  *     serverHostname: "example",
  *     bucketName: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_datasync_location_object_storage` using the Amazon Resource Name (ARN). For example:
  *
  * ```sh
- *  $ pulumi import aws:datasync/locationObjectStorage:LocationObjectStorage example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+ * $ pulumi import aws:datasync/locationObjectStorage:LocationObjectStorage example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
  * ```
  */
 export class LocationObjectStorage extends pulumi.CustomResource {
@@ -165,7 +167,7 @@ export class LocationObjectStorage extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["secretKey", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["secretKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(LocationObjectStorage.__pulumiType, name, resourceInputs, opts);
     }

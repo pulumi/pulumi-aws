@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementXssMatchStatementFieldT
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchBodyArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOrderArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3FingerprintArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchMethodArgs;
@@ -69,6 +70,21 @@ public final class RuleGroupRuleStatementXssMatchStatementFieldToMatchArgs exten
      */
     public Optional<Output<RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesArgs>> cookies() {
         return Optional.ofNullable(this.cookies);
+    }
+
+    /**
+     * Inspect the request headers. See Header Order below for details.
+     * 
+     */
+    @Import(name="headerOrders")
+    private @Nullable Output<List<RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOrderArgs>> headerOrders;
+
+    /**
+     * @return Inspect the request headers. See Header Order below for details.
+     * 
+     */
+    public Optional<Output<List<RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOrderArgs>>> headerOrders() {
+        return Optional.ofNullable(this.headerOrders);
     }
 
     /**
@@ -189,6 +205,7 @@ public final class RuleGroupRuleStatementXssMatchStatementFieldToMatchArgs exten
         this.allQueryArguments = $.allQueryArguments;
         this.body = $.body;
         this.cookies = $.cookies;
+        this.headerOrders = $.headerOrders;
         this.headers = $.headers;
         this.ja3Fingerprint = $.ja3Fingerprint;
         this.jsonBody = $.jsonBody;
@@ -278,6 +295,37 @@ public final class RuleGroupRuleStatementXssMatchStatementFieldToMatchArgs exten
          */
         public Builder cookies(RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesArgs cookies) {
             return cookies(Output.of(cookies));
+        }
+
+        /**
+         * @param headerOrders Inspect the request headers. See Header Order below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder headerOrders(@Nullable Output<List<RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOrderArgs>> headerOrders) {
+            $.headerOrders = headerOrders;
+            return this;
+        }
+
+        /**
+         * @param headerOrders Inspect the request headers. See Header Order below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder headerOrders(List<RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOrderArgs> headerOrders) {
+            return headerOrders(Output.of(headerOrders));
+        }
+
+        /**
+         * @param headerOrders Inspect the request headers. See Header Order below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder headerOrders(RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOrderArgs... headerOrders) {
+            return headerOrders(List.of(headerOrders));
         }
 
         /**

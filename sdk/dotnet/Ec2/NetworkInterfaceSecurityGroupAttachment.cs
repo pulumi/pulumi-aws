@@ -29,6 +29,7 @@ namespace Pulumi.Aws.Ec2
     /// primary network interface via the `aws.ec2.NetworkInterfaceSecurityGroupAttachment` resource,
     /// named `sg_attachment`:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -59,7 +60,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var instance = new Aws.Ec2.Instance("instance", new()
     ///     {
-    ///         InstanceType = "t2.micro",
+    ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
     ///         Ami = ami.Apply(getAmiResult =&gt; getAmiResult.Id),
     ///         Tags = 
     ///         {
@@ -75,7 +76,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var sgAttachment = new Aws.Ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", new()
+    ///     var sgAttachment = new Aws.Ec2.NetworkInterfaceSecurityGroupAttachment("sg_attachment", new()
     ///     {
     ///         SecurityGroupId = sg.Id,
     ///         NetworkInterfaceId = instance.PrimaryNetworkInterfaceId,
@@ -83,11 +84,13 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// In this example, `instance` is provided by the `aws.ec2.Instance` data source,
     /// fetching an external instance, possibly not managed by this provider.
     /// `sg_attachment` then attaches to the output instance's `network_interface_id`:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -109,7 +112,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var sgAttachment = new Aws.Ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", new()
+    ///     var sgAttachment = new Aws.Ec2.NetworkInterfaceSecurityGroupAttachment("sg_attachment", new()
     ///     {
     ///         SecurityGroupId = sg.Id,
     ///         NetworkInterfaceId = instance.Apply(getInstanceResult =&gt; getInstanceResult.NetworkInterfaceId),
@@ -117,13 +120,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Network Interface Security Group attachments using the associated network interface ID and security group ID, separated by an underscore (`_`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment sg_attachment eni-1234567890abcdef0_sg-1234567890abcdef0
+    /// $ pulumi import aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment sg_attachment eni-1234567890abcdef0_sg-1234567890abcdef0
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment")]

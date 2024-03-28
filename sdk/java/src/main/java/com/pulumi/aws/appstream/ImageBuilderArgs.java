@@ -8,6 +8,7 @@ import com.pulumi.aws.appstream.inputs.ImageBuilderDomainJoinInfoArgs;
 import com.pulumi.aws.appstream.inputs.ImageBuilderVpcConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -544,7 +545,9 @@ public final class ImageBuilderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ImageBuilderArgs build() {
-            $.instanceType = Objects.requireNonNull($.instanceType, "expected parameter 'instanceType' to be non-null");
+            if ($.instanceType == null) {
+                throw new MissingRequiredPropertyException("ImageBuilderArgs", "instanceType");
+            }
             return $;
         }
     }

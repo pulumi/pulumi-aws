@@ -58,19 +58,21 @@ public final class MLTransformSchema {
 
         @CustomType.Setter
         public Builder dataType(@Nullable String dataType) {
+
             this.dataType = dataType;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         public MLTransformSchema build() {
-            final var o = new MLTransformSchema();
-            o.dataType = dataType;
-            o.name = name;
-            return o;
+            final var _resultValue = new MLTransformSchema();
+            _resultValue.dataType = dataType;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

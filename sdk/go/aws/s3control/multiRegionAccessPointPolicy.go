@@ -15,97 +15,13 @@ import (
 // Provides a resource to manage an S3 Multi-Region Access Point access control policy.
 //
 // ## Example Usage
-// ### Basic Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentPartition, err := aws.GetPartition(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			fooBucket, err := s3.NewBucketV2(ctx, "fooBucket", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleMultiRegionAccessPoint, err := s3control.NewMultiRegionAccessPoint(ctx, "exampleMultiRegionAccessPoint", &s3control.MultiRegionAccessPointArgs{
-//				Details: &s3control.MultiRegionAccessPointDetailsArgs{
-//					Name: pulumi.String("example"),
-//					Regions: s3control.MultiRegionAccessPointDetailsRegionArray{
-//						&s3control.MultiRegionAccessPointDetailsRegionArgs{
-//							Bucket: fooBucket.ID(),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3control.NewMultiRegionAccessPointPolicy(ctx, "exampleMultiRegionAccessPointPolicy", &s3control.MultiRegionAccessPointPolicyArgs{
-//				Details: &s3control.MultiRegionAccessPointPolicyDetailsArgs{
-//					Name: "TODO: element",
-//					Policy: exampleMultiRegionAccessPoint.Alias.ApplyT(func(alias string) (pulumi.String, error) {
-//						var _zero pulumi.String
-//						tmpJSON0, err := json.Marshal(map[string]interface{}{
-//							"Version": "2012-10-17",
-//							"Statement": []map[string]interface{}{
-//								map[string]interface{}{
-//									"Sid":    "Example",
-//									"Effect": "Allow",
-//									"Principal": map[string]interface{}{
-//										"AWS": currentCallerIdentity.AccountId,
-//									},
-//									"Action": []string{
-//										"s3:GetObject",
-//										"s3:PutObject",
-//									},
-//									"Resource": fmt.Sprintf("arn:%v:s3::%v:accesspoint/%v/object/*", currentPartition.Partition, currentCallerIdentity.AccountId, alias),
-//								},
-//							},
-//						})
-//						if err != nil {
-//							return _zero, err
-//						}
-//						json0 := string(tmpJSON0)
-//						return pulumi.String(json0), nil
-//					}).(pulumi.StringOutput),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
 // Using `pulumi import`, import Multi-Region Access Point Policies using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy example 123456789012:example
-//
+// $ pulumi import aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy example 123456789012:example
 // ```
 type MultiRegionAccessPointPolicy struct {
 	pulumi.CustomResourceState

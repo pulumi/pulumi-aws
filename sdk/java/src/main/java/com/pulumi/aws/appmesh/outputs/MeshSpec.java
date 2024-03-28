@@ -44,13 +44,14 @@ public final class MeshSpec {
 
         @CustomType.Setter
         public Builder egressFilter(@Nullable MeshSpecEgressFilter egressFilter) {
+
             this.egressFilter = egressFilter;
             return this;
         }
         public MeshSpec build() {
-            final var o = new MeshSpec();
-            o.egressFilter = egressFilter;
-            return o;
+            final var _resultValue = new MeshSpec();
+            _resultValue.egressFilter = egressFilter;
+            return _resultValue;
         }
     }
 }

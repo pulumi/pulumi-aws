@@ -4,6 +4,7 @@
 package com.pulumi.aws.servicecatalog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -100,37 +101,46 @@ public final class ServiceActionDefinition {
 
         @CustomType.Setter
         public Builder assumeRole(@Nullable String assumeRole) {
+
             this.assumeRole = assumeRole;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ServiceActionDefinition", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable String parameters) {
+
             this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("ServiceActionDefinition", "version");
+            }
+            this.version = version;
             return this;
         }
         public ServiceActionDefinition build() {
-            final var o = new ServiceActionDefinition();
-            o.assumeRole = assumeRole;
-            o.name = name;
-            o.parameters = parameters;
-            o.type = type;
-            o.version = version;
-            return o;
+            final var _resultValue = new ServiceActionDefinition();
+            _resultValue.assumeRole = assumeRole;
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.type = type;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

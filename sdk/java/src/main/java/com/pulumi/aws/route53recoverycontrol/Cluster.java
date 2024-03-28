@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides an AWS Route 53 Recovery Control Config Cluster.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -26,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.route53recoverycontrol.Cluster;
+ * import com.pulumi.aws.route53recoverycontrol.ClusterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -39,18 +42,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster(&#34;example&#34;);
+ *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
+ *             .name(&#34;georgefitzgerald&#34;)
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Route53 Recovery Control Config cluster using the cluster ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:route53recoverycontrol/cluster:Cluster mycluster arn:aws:route53-recovery-control::313517334327:cluster/f9ae13be-a11e-4ec7-8522-94a70468e6ea
+ * $ pulumi import aws:route53recoverycontrol/cluster:Cluster mycluster arn:aws:route53-recovery-control::313517334327:cluster/f9ae13be-a11e-4ec7-8522-94a70468e6ea
  * ```
  * 
  */

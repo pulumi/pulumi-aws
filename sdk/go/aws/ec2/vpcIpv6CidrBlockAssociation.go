@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,15 +31,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testVpc, err := ec2.NewVpc(ctx, "testVpc", &ec2.VpcArgs{
+//			test, err := ec2.NewVpc(ctx, "test", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("10.0.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewVpcIpv6CidrBlockAssociation(ctx, "testVpcIpv6CidrBlockAssociation", &ec2.VpcIpv6CidrBlockAssociationArgs{
-//				Ipv6IpamPoolId: pulumi.Any(aws_vpc_ipam_pool.Test.Id),
-//				VpcId:          testVpc.ID(),
+//			_, err = ec2.NewVpcIpv6CidrBlockAssociation(ctx, "test", &ec2.VpcIpv6CidrBlockAssociationArgs{
+//				Ipv6IpamPoolId: pulumi.Any(testAwsVpcIpamPool.Id),
+//				VpcId:          test.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -48,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_vpc_ipv6_cidr_block_association` using the VPC CIDR Association ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
-//
+// $ pulumi import aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
 // ```
 type VpcIpv6CidrBlockAssociation struct {
 	pulumi.CustomResourceState

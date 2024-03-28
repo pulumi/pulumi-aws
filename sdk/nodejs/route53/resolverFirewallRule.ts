@@ -9,35 +9,40 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleResolverFirewallDomainList = new aws.route53.ResolverFirewallDomainList("exampleResolverFirewallDomainList", {
+ * const example = new aws.route53.ResolverFirewallDomainList("example", {
+ *     name: "example",
  *     domains: ["example.com"],
  *     tags: {},
  * });
- * const exampleResolverFirewallRuleGroup = new aws.route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", {tags: {}});
- * const exampleResolverFirewallRule = new aws.route53.ResolverFirewallRule("exampleResolverFirewallRule", {
+ * const exampleResolverFirewallRuleGroup = new aws.route53.ResolverFirewallRuleGroup("example", {
+ *     name: "example",
+ *     tags: {},
+ * });
+ * const exampleResolverFirewallRule = new aws.route53.ResolverFirewallRule("example", {
+ *     name: "example",
  *     action: "BLOCK",
  *     blockOverrideDnsType: "CNAME",
  *     blockOverrideDomain: "example.com",
  *     blockOverrideTtl: 1,
  *     blockResponse: "OVERRIDE",
- *     firewallDomainListId: exampleResolverFirewallDomainList.id,
+ *     firewallDomainListId: example.id,
  *     firewallRuleGroupId: exampleResolverFirewallRuleGroup.id,
  *     priority: 100,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Using `pulumi import`, import
- *
- * Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':'. For example:
+ * Using `pulumi import`, import  Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':'. For example:
  *
  * ```sh
- *  $ pulumi import aws:route53/resolverFirewallRule:ResolverFirewallRule example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
+ * $ pulumi import aws:route53/resolverFirewallRule:ResolverFirewallRule example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
  * ```
  */
 export class ResolverFirewallRule extends pulumi.CustomResource {

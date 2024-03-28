@@ -125,22 +125,25 @@ class Resource(pulumi.CustomResource):
         Resource for managing an AWS Resource Groups Resource.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_dedicated_host = aws.ec2.DedicatedHost("exampleDedicatedHost",
+        example = aws.ec2.DedicatedHost("example",
             instance_family="t3",
             availability_zone="us-east-1a",
             host_recovery="off",
             auto_placement="on")
-        example_group = aws.resourcegroups.Group("exampleGroup")
-        example_resource = aws.resourcegroups.Resource("exampleResource",
+        example_group = aws.resourcegroups.Group("example", name="example")
+        example_resource = aws.resourcegroups.Resource("example",
             group_arn=example_group.arn,
-            resource_arn=example_dedicated_host.arn)
+            resource_arn=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,22 +162,25 @@ class Resource(pulumi.CustomResource):
         Resource for managing an AWS Resource Groups Resource.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_dedicated_host = aws.ec2.DedicatedHost("exampleDedicatedHost",
+        example = aws.ec2.DedicatedHost("example",
             instance_family="t3",
             availability_zone="us-east-1a",
             host_recovery="off",
             auto_placement="on")
-        example_group = aws.resourcegroups.Group("exampleGroup")
-        example_resource = aws.resourcegroups.Resource("exampleResource",
+        example_group = aws.resourcegroups.Group("example", name="example")
+        example_resource = aws.resourcegroups.Resource("example",
             group_arn=example_group.arn,
-            resource_arn=example_dedicated_host.arn)
+            resource_arn=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param ResourceArgs args: The arguments to use to populate this resource's properties.

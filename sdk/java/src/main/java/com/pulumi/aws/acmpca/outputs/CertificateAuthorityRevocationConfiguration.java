@@ -61,19 +61,21 @@ public final class CertificateAuthorityRevocationConfiguration {
 
         @CustomType.Setter
         public Builder crlConfiguration(@Nullable CertificateAuthorityRevocationConfigurationCrlConfiguration crlConfiguration) {
+
             this.crlConfiguration = crlConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder ocspConfiguration(@Nullable CertificateAuthorityRevocationConfigurationOcspConfiguration ocspConfiguration) {
+
             this.ocspConfiguration = ocspConfiguration;
             return this;
         }
         public CertificateAuthorityRevocationConfiguration build() {
-            final var o = new CertificateAuthorityRevocationConfiguration();
-            o.crlConfiguration = crlConfiguration;
-            o.ocspConfiguration = ocspConfiguration;
-            return o;
+            final var _resultValue = new CertificateAuthorityRevocationConfiguration();
+            _resultValue.crlConfiguration = crlConfiguration;
+            _resultValue.ocspConfiguration = ocspConfiguration;
+            return _resultValue;
         }
     }
 }

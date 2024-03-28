@@ -275,25 +275,28 @@ class ClusterParameterGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.neptune.ClusterParameterGroup("example",
-            description="neptune cluster parameter group",
             family="neptune1",
+            name="example",
+            description="neptune cluster parameter group",
             parameters=[aws.neptune.ClusterParameterGroupParameterArgs(
                 name="neptune_enable_audit_log",
                 value="1",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Neptune Cluster Parameter Groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:neptune/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
+        $ pulumi import aws:neptune/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
         ```
 
         :param str resource_name: The name of the resource.
@@ -316,25 +319,28 @@ class ClusterParameterGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.neptune.ClusterParameterGroup("example",
-            description="neptune cluster parameter group",
             family="neptune1",
+            name="example",
+            description="neptune cluster parameter group",
             parameters=[aws.neptune.ClusterParameterGroupParameterArgs(
                 name="neptune_enable_audit_log",
                 value="1",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Neptune Cluster Parameter Groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:neptune/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
+        $ pulumi import aws:neptune/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
         ```
 
         :param str resource_name: The name of the resource.
@@ -377,8 +383,6 @@ class ClusterParameterGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ClusterParameterGroup, __self__).__init__(
             'aws:neptune/clusterParameterGroup:ClusterParameterGroup',
             resource_name,

@@ -142,14 +142,16 @@ class SecretPolicy(pulumi.CustomResource):
         Provides a resource to manage AWS Secrets Manager secret policy.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_secret = aws.secretsmanager.Secret("exampleSecret")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_secret = aws.secretsmanager.Secret("example", name="example")
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="EnableAnotherAWSAccountToReadTheSecret",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -159,17 +161,18 @@ class SecretPolicy(pulumi.CustomResource):
             actions=["secretsmanager:GetSecretValue"],
             resources=["*"],
         )])
-        example_secret_policy = aws.secretsmanager.SecretPolicy("exampleSecretPolicy",
+        example_secret_policy = aws.secretsmanager.SecretPolicy("example",
             secret_arn=example_secret.arn,
-            policy=example_policy_document.json)
+            policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_secretsmanager_secret_policy` using the secret Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:secretsmanager/secretPolicy:SecretPolicy example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
+        $ pulumi import aws:secretsmanager/secretPolicy:SecretPolicy example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
         ```
 
         :param str resource_name: The name of the resource.
@@ -190,14 +193,16 @@ class SecretPolicy(pulumi.CustomResource):
         Provides a resource to manage AWS Secrets Manager secret policy.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_secret = aws.secretsmanager.Secret("exampleSecret")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_secret = aws.secretsmanager.Secret("example", name="example")
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="EnableAnotherAWSAccountToReadTheSecret",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -207,17 +212,18 @@ class SecretPolicy(pulumi.CustomResource):
             actions=["secretsmanager:GetSecretValue"],
             resources=["*"],
         )])
-        example_secret_policy = aws.secretsmanager.SecretPolicy("exampleSecretPolicy",
+        example_secret_policy = aws.secretsmanager.SecretPolicy("example",
             secret_arn=example_secret.arn,
-            policy=example_policy_document.json)
+            policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_secretsmanager_secret_policy` using the secret Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:secretsmanager/secretPolicy:SecretPolicy example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
+        $ pulumi import aws:secretsmanager/secretPolicy:SecretPolicy example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
         ```
 
         :param str resource_name: The name of the resource.

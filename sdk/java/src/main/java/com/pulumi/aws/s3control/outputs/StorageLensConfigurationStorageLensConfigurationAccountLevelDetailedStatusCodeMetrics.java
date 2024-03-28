@@ -44,13 +44,14 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelD
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         public StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics build() {
-            final var o = new StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

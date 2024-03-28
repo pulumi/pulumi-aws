@@ -4,6 +4,7 @@
 package com.pulumi.aws.synthetics.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -59,19 +60,23 @@ public final class CanarySchedule {
 
         @CustomType.Setter
         public Builder durationInSeconds(@Nullable Integer durationInSeconds) {
+
             this.durationInSeconds = durationInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder expression(String expression) {
-            this.expression = Objects.requireNonNull(expression);
+            if (expression == null) {
+              throw new MissingRequiredPropertyException("CanarySchedule", "expression");
+            }
+            this.expression = expression;
             return this;
         }
         public CanarySchedule build() {
-            final var o = new CanarySchedule();
-            o.durationInSeconds = durationInSeconds;
-            o.expression = expression;
-            return o;
+            final var _resultValue = new CanarySchedule();
+            _resultValue.durationInSeconds = durationInSeconds;
+            _resultValue.expression = expression;
+            return _resultValue;
         }
     }
 }

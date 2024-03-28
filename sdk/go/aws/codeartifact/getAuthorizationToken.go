@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codeartifact.GetAuthorizationToken(ctx, &codeartifact.GetAuthorizationTokenArgs{
-//				Domain: aws_codeartifact_domain.Test.Domain,
+//				Domain: testAwsCodeartifactDomain.Domain,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetAuthorizationToken(ctx *pulumi.Context, args *GetAuthorizationTokenArgs, opts ...pulumi.InvokeOption) (*GetAuthorizationTokenResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAuthorizationTokenResult

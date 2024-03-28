@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppFlow
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,9 +23,12 @@ namespace Pulumi.Aws.AppFlow
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleSourceBucketV2 = new Aws.S3.BucketV2("exampleSourceBucketV2");
+    ///     var exampleSourceBucketV2 = new Aws.S3.BucketV2("example_source", new()
+    ///     {
+    ///         Bucket = "example-source",
+    ///     });
     /// 
-    ///     var exampleSourcePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var exampleSource = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -57,22 +61,25 @@ namespace Pulumi.Aws.AppFlow
     ///         },
     ///     });
     /// 
-    ///     var exampleSourceBucketPolicy = new Aws.S3.BucketPolicy("exampleSourceBucketPolicy", new()
+    ///     var exampleSourceBucketPolicy = new Aws.S3.BucketPolicy("example_source", new()
     ///     {
     ///         Bucket = exampleSourceBucketV2.Id,
-    ///         Policy = exampleSourcePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = exampleSource.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
+    ///     var example = new Aws.S3.BucketObjectv2("example", new()
     ///     {
     ///         Bucket = exampleSourceBucketV2.Id,
     ///         Key = "example_source.csv",
     ///         Source = new FileAsset("example_source.csv"),
     ///     });
     /// 
-    ///     var exampleDestinationBucketV2 = new Aws.S3.BucketV2("exampleDestinationBucketV2");
+    ///     var exampleDestinationBucketV2 = new Aws.S3.BucketV2("example_destination", new()
+    ///     {
+    ///         Bucket = "example-destination",
+    ///     });
     /// 
-    ///     var exampleDestinationPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var exampleDestination = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -109,14 +116,15 @@ namespace Pulumi.Aws.AppFlow
     ///         },
     ///     });
     /// 
-    ///     var exampleDestinationBucketPolicy = new Aws.S3.BucketPolicy("exampleDestinationBucketPolicy", new()
+    ///     var exampleDestinationBucketPolicy = new Aws.S3.BucketPolicy("example_destination", new()
     ///     {
     ///         Bucket = exampleDestinationBucketV2.Id,
-    ///         Policy = exampleDestinationPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = exampleDestination.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleFlow = new Aws.AppFlow.Flow("exampleFlow", new()
+    ///     var exampleFlow = new Aws.AppFlow.Flow("example", new()
     ///     {
+    ///         Name = "example",
     ///         SourceFlowConfig = new Aws.AppFlow.Inputs.FlowSourceFlowConfigArgs
     ///         {
     ///             ConnectorType = "S3",
@@ -177,13 +185,14 @@ namespace Pulumi.Aws.AppFlow
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AppFlow flows using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appflow/flow:Flow example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
+    /// $ pulumi import aws:appflow/flow:Flow example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
     /// ```
     /// </summary>
     [AwsResourceType("aws:appflow/flow:Flow")]
@@ -206,6 +215,12 @@ namespace Pulumi.Aws.AppFlow
         /// </summary>
         [Output("destinationFlowConfigs")]
         public Output<ImmutableArray<Outputs.FlowDestinationFlowConfig>> DestinationFlowConfigs { get; private set; } = null!;
+
+        /// <summary>
+        /// The current status of the flow.
+        /// </summary>
+        [Output("flowStatus")]
+        public Output<string> FlowStatus { get; private set; } = null!;
 
         /// <summary>
         /// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
@@ -272,10 +287,6 @@ namespace Pulumi.Aws.AppFlow
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -398,6 +409,12 @@ namespace Pulumi.Aws.AppFlow
         }
 
         /// <summary>
+        /// The current status of the flow.
+        /// </summary>
+        [Input("flowStatus")]
+        public Input<string>? FlowStatus { get; set; }
+
+        /// <summary>
         /// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         /// </summary>
         [Input("kmsArn")]
@@ -437,11 +454,7 @@ namespace Pulumi.Aws.AppFlow
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("tasks")]

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,9 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewFsxOpenZfsFileSystem(ctx, "example", &datasync.FsxOpenZfsFileSystemArgs{
-//				FsxFilesystemArn: pulumi.Any(aws_fsx_openzfs_file_system.Example.Arn),
+//				FsxFilesystemArn: pulumi.Any(exampleAwsFsxOpenzfsFileSystem.Arn),
 //				SecurityGroupArns: pulumi.StringArray{
-//					aws_security_group.Example.Arn,
+//					exampleAwsSecurityGroup.Arn,
 //				},
 //				Protocol: &datasync.FsxOpenZfsFileSystemProtocolArgs{
 //					Nfs: &datasync.FsxOpenZfsFileSystemProtocolNfsArgs{
@@ -49,15 +50,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_datasync_location_fsx_openzfs_file_system` using the `DataSync-ARN#FSx-openzfs-ARN`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:file-system/fs-08e04cd442c1bb94a
-//
+// $ pulumi import aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:file-system/fs-08e04cd442c1bb94a
 // ```
 type FsxOpenZfsFileSystem struct {
 	pulumi.CustomResourceState
@@ -100,10 +100,6 @@ func NewFsxOpenZfsFileSystem(ctx *pulumi.Context,
 	if args.SecurityGroupArns == nil {
 		return nil, errors.New("invalid value for required argument 'SecurityGroupArns'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FsxOpenZfsFileSystem
 	err := ctx.RegisterResource("aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem", name, args, &resource, opts...)

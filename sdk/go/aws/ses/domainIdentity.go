@@ -15,8 +15,10 @@ import (
 // Provides an SES domain identity resource
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,8 +42,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Route53 Record
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,10 +66,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = route53.NewRecord(ctx, "exampleAmazonsesVerificationRecord", &route53.RecordArgs{
+//			_, err = route53.NewRecord(ctx, "example_amazonses_verification_record", &route53.RecordArgs{
 //				ZoneId: pulumi.String("ABCDEFGHIJ123"),
 //				Name:   pulumi.String("_amazonses.example.com"),
-//				Type:   pulumi.String("TXT"),
+//				Type:   pulumi.String(route53.RecordTypeTXT),
 //				Ttl:    pulumi.Int(600),
 //				Records: pulumi.StringArray{
 //					example.VerificationToken,
@@ -78,15 +83,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SES domain identities using the domain name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
-//
+// $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
 // ```
 type DomainIdentity struct {
 	pulumi.CustomResourceState

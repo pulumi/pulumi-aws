@@ -104,31 +104,35 @@ class Association(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_ami = aws.ec2.get_ami(most_recent=True,
+        example = aws.ec2.get_ami(most_recent=True,
             owners=["amazon"],
             filters=[aws.ec2.GetAmiFilterArgs(
                 name="name",
                 values=["amzn-ami-vpc-nat*"],
             )])
-        example_instance = aws.ec2.Instance("exampleInstance",
-            ami=example_ami.id,
-            instance_type="t2.micro")
-        example_license_configuration = aws.licensemanager.LicenseConfiguration("exampleLicenseConfiguration", license_counting_type="Instance")
-        example_association = aws.licensemanager.Association("exampleAssociation",
+        example_instance = aws.ec2.Instance("example",
+            ami=example.id,
+            instance_type=aws.ec2.InstanceType.T2_MICRO)
+        example_license_configuration = aws.licensemanager.LicenseConfiguration("example",
+            name="Example",
+            license_counting_type="Instance")
+        example_association = aws.licensemanager.Association("example",
             license_configuration_arn=example_license_configuration.arn,
             resource_arn=example_instance.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import license configurations using `resource_arn,license_configuration_arn`. For example:
 
         ```sh
-         $ pulumi import aws:licensemanager/association:Association example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+        $ pulumi import aws:licensemanager/association:Association example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
         ```
 
         :param str resource_name: The name of the resource.
@@ -149,31 +153,35 @@ class Association(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_ami = aws.ec2.get_ami(most_recent=True,
+        example = aws.ec2.get_ami(most_recent=True,
             owners=["amazon"],
             filters=[aws.ec2.GetAmiFilterArgs(
                 name="name",
                 values=["amzn-ami-vpc-nat*"],
             )])
-        example_instance = aws.ec2.Instance("exampleInstance",
-            ami=example_ami.id,
-            instance_type="t2.micro")
-        example_license_configuration = aws.licensemanager.LicenseConfiguration("exampleLicenseConfiguration", license_counting_type="Instance")
-        example_association = aws.licensemanager.Association("exampleAssociation",
+        example_instance = aws.ec2.Instance("example",
+            ami=example.id,
+            instance_type=aws.ec2.InstanceType.T2_MICRO)
+        example_license_configuration = aws.licensemanager.LicenseConfiguration("example",
+            name="Example",
+            license_counting_type="Instance")
+        example_association = aws.licensemanager.Association("example",
             license_configuration_arn=example_license_configuration.arn,
             resource_arn=example_instance.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import license configurations using `resource_arn,license_configuration_arn`. For example:
 
         ```sh
-         $ pulumi import aws:licensemanager/association:Association example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+        $ pulumi import aws:licensemanager/association:Association example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
         ```
 
         :param str resource_name: The name of the resource.

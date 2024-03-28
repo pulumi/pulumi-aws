@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
  *
  * ## Example Usage
+ *
  * ### ARN
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,8 +20,11 @@ import * as utilities from "../utilities";
  *     arn: "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Name
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,6 +33,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSecret(args?: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
     args = args || {};
@@ -36,6 +42,7 @@ export function getSecret(args?: GetSecretArgs, opts?: pulumi.InvokeOptions): Pr
     return pulumi.runtime.invoke("aws:secretsmanager/getSecret:getSecret", {
         "arn": args.arn,
         "name": args.name,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -51,6 +58,10 @@ export interface GetSecretArgs {
      * Name of the secret to retrieve.
      */
     name?: string;
+    /**
+     * Tags of the secret.
+     */
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -61,6 +72,10 @@ export interface GetSecretResult {
      * ARN of the secret.
      */
     readonly arn: string;
+    /**
+     * Created date of the secret in UTC.
+     */
+    readonly createdDate: string;
     /**
      * Description of the secret.
      */
@@ -73,6 +88,10 @@ export interface GetSecretResult {
      * Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
      */
     readonly kmsKeyId: string;
+    /**
+     * Last updated date of the secret in UTC.
+     */
+    readonly lastChangedDate: string;
     readonly name: string;
     /**
      * Resource-based policy document that's attached to the secret.
@@ -87,8 +106,10 @@ export interface GetSecretResult {
  * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
  *
  * ## Example Usage
+ *
  * ### ARN
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -97,8 +118,11 @@ export interface GetSecretResult {
  *     arn: "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Name
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -107,6 +131,7 @@ export interface GetSecretResult {
  *     name: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSecretOutput(args?: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
     return pulumi.output(args).apply((a: any) => getSecret(a, opts))
@@ -124,4 +149,8 @@ export interface GetSecretOutputArgs {
      * Name of the secret to retrieve.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Tags of the secret.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

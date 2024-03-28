@@ -19,7 +19,10 @@ import javax.annotation.Nullable;
  * Provides an SNS platform application resource
  * 
  * ## Example Usage
+ * 
  * ### Apple Push Notification Service (APNS) using certificate-based authentication
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,6 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var apnsApplication = new PlatformApplication(&#34;apnsApplication&#34;, PlatformApplicationArgs.builder()        
+ *             .name(&#34;apns_application&#34;)
  *             .platform(&#34;APNS&#34;)
  *             .platformCredential(&#34;&lt;APNS PRIVATE KEY&gt;&#34;)
  *             .platformPrincipal(&#34;&lt;APNS CERTIFICATE&gt;&#34;)
@@ -50,7 +54,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Apple Push Notification Service (APNS) using token-based authentication
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -73,17 +81,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var apnsApplication = new PlatformApplication(&#34;apnsApplication&#34;, PlatformApplicationArgs.builder()        
- *             .applePlatformBundleId(&#34;&lt;APPLE BUNDLE ID&gt;&#34;)
- *             .applePlatformTeamId(&#34;&lt;APPLE TEAM ID&gt;&#34;)
+ *             .name(&#34;apns_application&#34;)
  *             .platform(&#34;APNS&#34;)
  *             .platformCredential(&#34;&lt;APNS SIGNING KEY&gt;&#34;)
  *             .platformPrincipal(&#34;&lt;APNS SIGNING KEY ID&gt;&#34;)
+ *             .applePlatformTeamId(&#34;&lt;APPLE TEAM ID&gt;&#34;)
+ *             .applePlatformBundleId(&#34;&lt;APPLE BUNDLE ID&gt;&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Google Cloud Messaging (GCM)
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -106,6 +119,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var gcmApplication = new PlatformApplication(&#34;gcmApplication&#34;, PlatformApplicationArgs.builder()        
+ *             .name(&#34;gcm_application&#34;)
  *             .platform(&#34;GCM&#34;)
  *             .platformCredential(&#34;&lt;GCM API KEY&gt;&#34;)
  *             .build());
@@ -113,13 +127,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SNS platform applications using the ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
+ * $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
  * ```
  * 
  */

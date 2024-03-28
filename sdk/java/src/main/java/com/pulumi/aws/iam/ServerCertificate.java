@@ -31,6 +31,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * **Using certs on file:**
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,15 +55,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testCert = new ServerCertificate(&#34;testCert&#34;, ServerCertificateArgs.builder()        
- *             .certificateBody(Files.readString(Paths.get(&#34;self-ca-cert.pem&#34;)))
- *             .privateKey(Files.readString(Paths.get(&#34;test-key.pem&#34;)))
+ *             .name(&#34;some_test_cert&#34;)
+ *             .certificateBody(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;self-ca-cert.pem&#34;)
+ *                 .build()).result())
+ *             .privateKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;test-key.pem&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * **Example with cert in-line:**
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -84,23 +94,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testCertAlt = new ServerCertificate(&#34;testCertAlt&#34;, ServerCertificateArgs.builder()        
+ *             .name(&#34;alt_test_cert&#34;)
  *             .certificateBody(&#34;&#34;&#34;
  * -----BEGIN CERTIFICATE-----
  * [......] # cert contents
  * -----END CERTIFICATE-----
- * 
  *             &#34;&#34;&#34;)
  *             .privateKey(&#34;&#34;&#34;
  * -----BEGIN RSA PRIVATE KEY-----
  * [......] # cert contents
  * -----END RSA PRIVATE KEY-----
- * 
  *             &#34;&#34;&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * **Use in combination with an AWS ELB resource:**
  * 
@@ -110,6 +120,8 @@ import javax.annotation.Nullable;
  * `create_before_destroy`. This will allow this provider
  * to create a new, updated `aws.iam.ServerCertificate` resource and replace it in
  * dependant resources before attempting to destroy the old version.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -136,11 +148,16 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var testCert = new ServerCertificate(&#34;testCert&#34;, ServerCertificateArgs.builder()        
  *             .namePrefix(&#34;example-cert&#34;)
- *             .certificateBody(Files.readString(Paths.get(&#34;self-ca-cert.pem&#34;)))
- *             .privateKey(Files.readString(Paths.get(&#34;test-key.pem&#34;)))
+ *             .certificateBody(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;self-ca-cert.pem&#34;)
+ *                 .build()).result())
+ *             .privateKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;test-key.pem&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *         var ourapp = new LoadBalancer(&#34;ourapp&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;asg-deployment-example&#34;)
  *             .availabilityZones(&#34;us-west-2a&#34;)
  *             .crossZoneLoadBalancing(true)
  *             .listeners(LoadBalancerListenerArgs.builder()
@@ -155,13 +172,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IAM Server Certificates using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
+ * $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
  * ```
  * 
  */
@@ -379,8 +397,7 @@ public class ServerCertificate extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "privateKey",
-                "tagsAll"
+                "privateKey"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

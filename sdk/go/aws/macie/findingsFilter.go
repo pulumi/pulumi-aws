@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,6 +35,7 @@ import (
 //				return err
 //			}
 //			_, err = macie.NewFindingsFilter(ctx, "test", &macie.FindingsFilterArgs{
+//				Name:        pulumi.String("NAME OF THE FINDINGS FILTER"),
 //				Description: pulumi.String("DESCRIPTION"),
 //				Position:    pulumi.Int(1),
 //				Action:      pulumi.String("ARCHIVE"),
@@ -42,14 +44,12 @@ import (
 //						&macie.FindingsFilterFindingCriteriaCriterionArgs{
 //							Field: pulumi.String("region"),
 //							Eqs: pulumi.StringArray{
-//								data.Aws_region.Current.Name,
+//								current.Name,
 //							},
 //						},
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_macie2_account.Test,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -58,15 +58,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_macie2_findings_filter` using the id. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
-//
+// $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
 // ```
 type FindingsFilter struct {
 	pulumi.CustomResourceState
@@ -104,10 +103,6 @@ func NewFindingsFilter(ctx *pulumi.Context,
 	if args.FindingCriteria == nil {
 		return nil, errors.New("invalid value for required argument 'FindingCriteria'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FindingsFilter
 	err := ctx.RegisterResource("aws:macie/findingsFilter:FindingsFilter", name, args, &resource, opts...)

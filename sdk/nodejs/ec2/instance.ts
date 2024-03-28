@@ -13,8 +13,10 @@ import {InstanceProfile} from "../iam";
  * Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
  *
  * ## Example Usage
+ *
  * ### Basic example using AMI lookup
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,7 +26,7 @@ import {InstanceProfile} from "../iam";
  *     filters: [
  *         {
  *             name: "name",
- *             values: ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"],
+ *             values: ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"],
  *         },
  *         {
  *             name: "virtualization-type",
@@ -35,19 +37,22 @@ import {InstanceProfile} from "../iam";
  * });
  * const web = new aws.ec2.Instance("web", {
  *     ami: ubuntu.then(ubuntu => ubuntu.id),
- *     instanceType: "t3.micro",
+ *     instanceType: aws.ec2.InstanceType.T3_Micro,
  *     tags: {
  *         Name: "HelloWorld",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Spot instance example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const thisAmi = aws.ec2.getAmi({
+ * const this = aws.ec2.getAmi({
  *     mostRecent: true,
  *     owners: ["amazon"],
  *     filters: [
@@ -61,32 +66,35 @@ import {InstanceProfile} from "../iam";
  *         },
  *     ],
  * });
- * const thisInstance = new aws.ec2.Instance("thisInstance", {
- *     ami: thisAmi.then(thisAmi => thisAmi.id),
+ * const thisInstance = new aws.ec2.Instance("this", {
+ *     ami: _this.then(_this => _this.id),
  *     instanceMarketOptions: {
  *         spotOptions: {
  *             maxPrice: "0.0031",
  *         },
  *     },
- *     instanceType: "t4g.nano",
+ *     instanceType: aws.ec2.InstanceType.T4g_Nano,
  *     tags: {
  *         Name: "test-spot",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Network and credit specification example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myVpc = new aws.ec2.Vpc("myVpc", {
+ * const myVpc = new aws.ec2.Vpc("my_vpc", {
  *     cidrBlock: "172.16.0.0/16",
  *     tags: {
  *         Name: "tf-example",
  *     },
  * });
- * const mySubnet = new aws.ec2.Subnet("mySubnet", {
+ * const mySubnet = new aws.ec2.Subnet("my_subnet", {
  *     vpcId: myVpc.id,
  *     cidrBlock: "172.16.10.0/24",
  *     availabilityZone: "us-west-2a",
@@ -94,18 +102,18 @@ import {InstanceProfile} from "../iam";
  *         Name: "tf-example",
  *     },
  * });
- * const fooNetworkInterface = new aws.ec2.NetworkInterface("fooNetworkInterface", {
+ * const foo = new aws.ec2.NetworkInterface("foo", {
  *     subnetId: mySubnet.id,
  *     privateIps: ["172.16.10.100"],
  *     tags: {
  *         Name: "primary_network_interface",
  *     },
  * });
- * const fooInstance = new aws.ec2.Instance("fooInstance", {
+ * const fooInstance = new aws.ec2.Instance("foo", {
  *     ami: "ami-005e54dee72cc1d00",
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     networkInterfaces: [{
- *         networkInterfaceId: fooNetworkInterface.id,
+ *         networkInterfaceId: foo.id,
  *         deviceIndex: 0,
  *     }],
  *     creditSpecification: {
@@ -113,20 +121,23 @@ import {InstanceProfile} from "../iam";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### CPU options example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {
+ * const example = new aws.ec2.Vpc("example", {
  *     cidrBlock: "172.16.0.0/16",
  *     tags: {
  *         Name: "tf-example",
  *     },
  * });
- * const exampleSubnet = new aws.ec2.Subnet("exampleSubnet", {
- *     vpcId: exampleVpc.id,
+ * const exampleSubnet = new aws.ec2.Subnet("example", {
+ *     vpcId: example.id,
  *     cidrBlock: "172.16.10.0/24",
  *     availabilityZone: "us-east-2a",
  *     tags: {
@@ -141,9 +152,9 @@ import {InstanceProfile} from "../iam";
  *         values: ["al2023-ami-2023.*-x86_64"],
  *     }],
  * });
- * const exampleInstance = new aws.ec2.Instance("exampleInstance", {
+ * const exampleInstance = new aws.ec2.Instance("example", {
  *     ami: amzn_linux_2023_ami.then(amzn_linux_2023_ami => amzn_linux_2023_ami.id),
- *     instanceType: "c6a.2xlarge",
+ *     instanceType: aws.ec2.InstanceType.C6a_2XLarge,
  *     subnetId: exampleSubnet.id,
  *     cpuOptions: {
  *         coreCount: 2,
@@ -154,30 +165,46 @@ import {InstanceProfile} from "../iam";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Host resource group or Licence Manager registered AMI example
  *
  * A host resource group is a collection of Dedicated Hosts that you can manage as a single entity. As you launch instances, License Manager allocates the hosts and launches instances on them based on the settings that you configured. You can add existing Dedicated Hosts to a host resource group and take advantage of automated host management through License Manager.
  *
  * > **NOTE:** A dedicated host is automatically associated with a License Manager host resource group if **Allocate hosts automatically** is enabled. Otherwise, use the `hostResourceGroupArn` argument to explicitly associate the instance with the host resource group.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const _this = new aws.ec2.Instance("this", {
  *     ami: "ami-0dcc1e21636832c5d",
+ *     instanceType: aws.ec2.InstanceType.M5_Large,
  *     hostResourceGroupArn: "arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
- *     instanceType: "m5.large",
  *     tenancy: "host",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ## Tag Guide
+ *
+ * These are the five types of tags you might encounter relative to an `aws.ec2.Instance`:
+ *
+ * 1. **Instance tags**: Applied to instances but not to `ebsBlockDevice` and `rootBlockDevice` volumes.
+ * 2. **Default tags**: Applied to the instance and to `ebsBlockDevice` and `rootBlockDevice` volumes.
+ * 3. **Volume tags**: Applied during creation to `ebsBlockDevice` and `rootBlockDevice` volumes.
+ * 4. **Root block device tags**: Applied only to the `rootBlockDevice` volume. These conflict with `volumeTags`.
+ * 5. **EBS block device tags**: Applied only to the specific `ebsBlockDevice` volume you configure them for and cannot be updated. These conflict with `volumeTags`.
+ *
+ * Do not use `volumeTags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
  *
  * ## Import
  *
  * Using `pulumi import`, import instances using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/instance:Instance web i-12345678
+ * $ pulumi import aws:ec2/instance:Instance web i-12345678
  * ```
  */
 export class Instance extends pulumi.CustomResource {
@@ -582,8 +609,6 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Instance.__pulumiType, name, resourceInputs, opts);
     }
 }

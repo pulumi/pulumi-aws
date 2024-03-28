@@ -20,12 +20,62 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
  * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.dynamodb.Table;
+ * import com.pulumi.aws.dynamodb.TableArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableReplicaArgs;
+ * import com.pulumi.aws.dynamodb.Tag;
+ * import com.pulumi.aws.dynamodb.TagArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var replica = AwsFunctions.getRegion();
+ * 
+ *         final var current = AwsFunctions.getRegion();
+ * 
+ *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
+ *             .replicas(TableReplicaArgs.builder()
+ *                 .regionName(replica.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *                 .build())
+ *             .build());
+ * 
+ *         var test = new Tag(&#34;test&#34;, TagArgs.builder()        
+ *             .resourceArn(example.arn().applyValue(arn -&gt; StdFunctions.replace()).applyValue(invoke -&gt; invoke.result()))
+ *             .key(&#34;testkey&#34;)
+ *             .value(&#34;testvalue&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_dynamodb_tag` using the DynamoDB resource identifier and key, separated by a comma (`,`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:dynamodb/tag:Tag example arn:aws:dynamodb:us-east-1:123456789012:table/example,Name
+ * $ pulumi import aws:dynamodb/tag:Tag example arn:aws:dynamodb:us-east-1:123456789012:table/example,Name
  * ```
  * 
  */

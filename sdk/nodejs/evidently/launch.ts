@@ -11,16 +11,19 @@ import * as utilities from "../utilities";
  * Provides a CloudWatch Evidently Launch resource.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Launch("example", {
- *     project: aws_evidently_project.example.name,
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
  *     groups: [{
- *         feature: aws_evidently_feature.example.name,
+ *         feature: exampleAwsEvidentlyFeature.name,
  *         name: "Variation1",
  *         variation: "Variation1",
  *     }],
@@ -34,17 +37,21 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With description
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Launch("example", {
- *     project: aws_evidently_project.example.name,
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
  *     description: "example description",
  *     groups: [{
- *         feature: aws_evidently_feature.example.name,
+ *         feature: exampleAwsEvidentlyFeature.name,
  *         name: "Variation1",
  *         variation: "Variation1",
  *     }],
@@ -58,23 +65,27 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With multiple groups
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Launch("example", {
- *     project: aws_evidently_project.example.name,
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
  *     groups: [
  *         {
- *             feature: aws_evidently_feature.example.name,
+ *             feature: exampleAwsEvidentlyFeature.name,
  *             name: "Variation1",
  *             variation: "Variation1",
  *             description: "first-group",
  *         },
  *         {
- *             feature: aws_evidently_feature.example.name,
+ *             feature: exampleAwsEvidentlyFeature.name,
  *             name: "Variation2",
  *             variation: "Variation2",
  *             description: "second-group",
@@ -91,16 +102,20 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With metricMonitors
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Launch("example", {
- *     project: aws_evidently_project.example.name,
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
  *     groups: [{
- *         feature: aws_evidently_feature.example.name,
+ *         feature: exampleAwsEvidentlyFeature.name,
  *         name: "Variation1",
  *         variation: "Variation1",
  *     }],
@@ -134,17 +149,21 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With randomizationSalt
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Launch("example", {
- *     project: aws_evidently_project.example.name,
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
  *     randomizationSalt: "example randomization salt",
  *     groups: [{
- *         feature: aws_evidently_feature.example.name,
+ *         feature: exampleAwsEvidentlyFeature.name,
  *         name: "Variation1",
  *         variation: "Variation1",
  *     }],
@@ -158,22 +177,26 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With multiple steps
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Launch("example", {
- *     project: aws_evidently_project.example.name,
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
  *     groups: [
  *         {
- *             feature: aws_evidently_feature.example.name,
+ *             feature: exampleAwsEvidentlyFeature.name,
  *             name: "Variation1",
  *             variation: "Variation1",
  *         },
  *         {
- *             feature: aws_evidently_feature.example.name,
+ *             feature: exampleAwsEvidentlyFeature.name,
  *             name: "Variation2",
  *             variation: "Variation2",
  *         },
@@ -198,22 +221,26 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With segment overrides
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Launch("example", {
- *     project: aws_evidently_project.example.name,
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
  *     groups: [
  *         {
- *             feature: aws_evidently_feature.example.name,
+ *             feature: exampleAwsEvidentlyFeature.name,
  *             name: "Variation1",
  *             variation: "Variation1",
  *         },
  *         {
- *             feature: aws_evidently_feature.example.name,
+ *             feature: exampleAwsEvidentlyFeature.name,
  *             name: "Variation2",
  *             variation: "Variation2",
  *         },
@@ -227,14 +254,14 @@ import * as utilities from "../utilities";
  *             segmentOverrides: [
  *                 {
  *                     evaluationOrder: 1,
- *                     segment: aws_evidently_segment.example.name,
+ *                     segment: exampleAwsEvidentlySegment.name,
  *                     weights: {
  *                         Variation2: 10000,
  *                     },
  *                 },
  *                 {
  *                     evaluationOrder: 2,
- *                     segment: aws_evidently_segment.example.name,
+ *                     segment: exampleAwsEvidentlySegment.name,
  *                     weights: {
  *                         Variation1: 40000,
  *                         Variation2: 30000,
@@ -246,6 +273,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -256,12 +284,12 @@ import * as utilities from "../utilities";
  * Import using the `name` of the launch and `name` of the project separated by a `:`:
  *
  * ```sh
- *  $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:exampleProjectName
+ * $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:exampleProjectName
  * ```
- *  Import using the `name` of the launch and `arn` of the project separated by a `:`:
+ * Import using the `name` of the launch and `arn` of the project separated by a `:`:
  *
  * ```sh
- *  $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
+ * $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
  * ```
  */
 export class Launch extends pulumi.CustomResource {
@@ -414,8 +442,6 @@ export class Launch extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Launch.__pulumiType, name, resourceInputs, opts);
     }
 }

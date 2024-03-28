@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFiel
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrder;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethod;
@@ -37,6 +38,11 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatch {
      * 
      */
     private @Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies cookies;
+    /**
+     * @return Inspect the request headers. See Header Order below for details.
+     * 
+     */
+    private @Nullable List<RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrder> headerOrders;
     /**
      * @return Inspect the request headers. See Headers below for details.
      * 
@@ -95,6 +101,13 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatch {
      */
     public Optional<RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies> cookies() {
         return Optional.ofNullable(this.cookies);
+    }
+    /**
+     * @return Inspect the request headers. See Header Order below for details.
+     * 
+     */
+    public List<RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrder> headerOrders() {
+        return this.headerOrders == null ? List.of() : this.headerOrders;
     }
     /**
      * @return Inspect the request headers. See Headers below for details.
@@ -161,6 +174,7 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatch {
         private @Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments allQueryArguments;
         private @Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody body;
         private @Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies cookies;
+        private @Nullable List<RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrder> headerOrders;
         private @Nullable List<RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader> headers;
         private @Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
         private @Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody jsonBody;
@@ -175,6 +189,7 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatch {
     	      this.allQueryArguments = defaults.allQueryArguments;
     	      this.body = defaults.body;
     	      this.cookies = defaults.cookies;
+    	      this.headerOrders = defaults.headerOrders;
     	      this.headers = defaults.headers;
     	      this.ja3Fingerprint = defaults.ja3Fingerprint;
     	      this.jsonBody = defaults.jsonBody;
@@ -187,21 +202,34 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatch {
 
         @CustomType.Setter
         public Builder allQueryArguments(@Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments allQueryArguments) {
+
             this.allQueryArguments = allQueryArguments;
             return this;
         }
         @CustomType.Setter
         public Builder body(@Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody body) {
+
             this.body = body;
             return this;
         }
         @CustomType.Setter
         public Builder cookies(@Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies cookies) {
+
             this.cookies = cookies;
             return this;
         }
         @CustomType.Setter
+        public Builder headerOrders(@Nullable List<RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrder> headerOrders) {
+
+            this.headerOrders = headerOrders;
+            return this;
+        }
+        public Builder headerOrders(RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrder... headerOrders) {
+            return headerOrders(List.of(headerOrders));
+        }
+        @CustomType.Setter
         public Builder headers(@Nullable List<RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -210,53 +238,61 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatch {
         }
         @CustomType.Setter
         public Builder ja3Fingerprint(@Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint) {
+
             this.ja3Fingerprint = ja3Fingerprint;
             return this;
         }
         @CustomType.Setter
         public Builder jsonBody(@Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody jsonBody) {
+
             this.jsonBody = jsonBody;
             return this;
         }
         @CustomType.Setter
         public Builder method(@Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethod method) {
+
             this.method = method;
             return this;
         }
         @CustomType.Setter
         public Builder queryString(@Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchQueryString queryString) {
+
             this.queryString = queryString;
             return this;
         }
         @CustomType.Setter
         public Builder singleHeader(@Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader singleHeader) {
+
             this.singleHeader = singleHeader;
             return this;
         }
         @CustomType.Setter
         public Builder singleQueryArgument(@Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument singleQueryArgument) {
+
             this.singleQueryArgument = singleQueryArgument;
             return this;
         }
         @CustomType.Setter
         public Builder uriPath(@Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath uriPath) {
+
             this.uriPath = uriPath;
             return this;
         }
         public RuleGroupRuleStatementSqliMatchStatementFieldToMatch build() {
-            final var o = new RuleGroupRuleStatementSqliMatchStatementFieldToMatch();
-            o.allQueryArguments = allQueryArguments;
-            o.body = body;
-            o.cookies = cookies;
-            o.headers = headers;
-            o.ja3Fingerprint = ja3Fingerprint;
-            o.jsonBody = jsonBody;
-            o.method = method;
-            o.queryString = queryString;
-            o.singleHeader = singleHeader;
-            o.singleQueryArgument = singleQueryArgument;
-            o.uriPath = uriPath;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSqliMatchStatementFieldToMatch();
+            _resultValue.allQueryArguments = allQueryArguments;
+            _resultValue.body = body;
+            _resultValue.cookies = cookies;
+            _resultValue.headerOrders = headerOrders;
+            _resultValue.headers = headers;
+            _resultValue.ja3Fingerprint = ja3Fingerprint;
+            _resultValue.jsonBody = jsonBody;
+            _resultValue.method = method;
+            _resultValue.queryString = queryString;
+            _resultValue.singleHeader = singleHeader;
+            _resultValue.singleQueryArgument = singleQueryArgument;
+            _resultValue.uriPath = uriPath;
+            return _resultValue;
         }
     }
 }

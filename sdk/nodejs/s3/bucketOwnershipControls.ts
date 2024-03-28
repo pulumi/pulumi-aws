@@ -10,27 +10,31 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage S3 Bucket Ownership Controls. For more information, see the [S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
  *
+ * > This resource cannot be used with S3 directory buckets.
+ *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls", {
- *     bucket: exampleBucketV2.id,
+ * const example = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
+ *     bucket: example.id,
  *     rule: {
  *         objectOwnership: "BucketOwnerPreferred",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For example:
  *
  * ```sh
- *  $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
+ * $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
  * ```
  */
 export class BucketOwnershipControls extends pulumi.CustomResource {

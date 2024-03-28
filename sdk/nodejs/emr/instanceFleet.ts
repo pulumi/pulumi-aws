@@ -17,12 +17,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const task = new aws.emr.InstanceFleet("task", {
- *     clusterId: aws_emr_cluster.cluster.id,
+ *     clusterId: cluster.id,
  *     instanceTypeConfigs: [
  *         {
  *             bidPriceAsPercentageOfOnDemandPrice: 100,
@@ -53,17 +54,19 @@ import * as utilities from "../utilities";
  *             timeoutDurationMinutes: 10,
  *         }],
  *     },
+ *     name: "task fleet",
  *     targetOnDemandCapacity: 1,
  *     targetSpotCapacity: 1,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EMR Instance Fleet using the EMR Cluster identifier and Instance Fleet identifier separated by a forward slash (`/`). For example:
  *
  * ```sh
- *  $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
+ * $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
  * ```
  */
 export class InstanceFleet extends pulumi.CustomResource {

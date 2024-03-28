@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a WAF Regional Geo Match Set Resource
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,6 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var geoMatchSet = new GeoMatchSet(&#34;geoMatchSet&#34;, GeoMatchSetArgs.builder()        
+ *             .name(&#34;geo_match_set&#34;)
  *             .geoMatchConstraints(            
  *                 GeoMatchSetGeoMatchConstraintArgs.builder()
  *                     .type(&#34;Country&#34;)
@@ -57,13 +60,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import WAF Regional Geo Match Set using the id. For example:
  * 
  * ```sh
- *  $ pulumi import aws:wafregional/geoMatchSet:GeoMatchSet geo_match_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * $ pulumi import aws:wafregional/geoMatchSet:GeoMatchSet geo_match_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
  * ```
  * 
  */

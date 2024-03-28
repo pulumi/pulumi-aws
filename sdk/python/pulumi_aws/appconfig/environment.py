@@ -276,33 +276,37 @@ class Environment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_application = aws.appconfig.Application("exampleApplication",
+        example_application = aws.appconfig.Application("example",
+            name="example-application-tf",
             description="Example AppConfig Application",
             tags={
                 "Type": "AppConfig Application",
             })
-        example_environment = aws.appconfig.Environment("exampleEnvironment",
+        example = aws.appconfig.Environment("example",
+            name="example-environment-tf",
             description="Example AppConfig Environment",
             application_id=example_application.id,
             monitors=[aws.appconfig.EnvironmentMonitorArgs(
-                alarm_arn=aws_cloudwatch_metric_alarm["example"]["arn"],
-                alarm_role_arn=aws_iam_role["example"]["arn"],
+                alarm_arn=example_aws_cloudwatch_metric_alarm["arn"],
+                alarm_role_arn=example_aws_iam_role["arn"],
             )],
             tags={
                 "Type": "AppConfig Environment",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AppConfig Environments using the environment ID and application ID separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
+        $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
         ```
 
         :param str resource_name: The name of the resource.
@@ -324,33 +328,37 @@ class Environment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_application = aws.appconfig.Application("exampleApplication",
+        example_application = aws.appconfig.Application("example",
+            name="example-application-tf",
             description="Example AppConfig Application",
             tags={
                 "Type": "AppConfig Application",
             })
-        example_environment = aws.appconfig.Environment("exampleEnvironment",
+        example = aws.appconfig.Environment("example",
+            name="example-environment-tf",
             description="Example AppConfig Environment",
             application_id=example_application.id,
             monitors=[aws.appconfig.EnvironmentMonitorArgs(
-                alarm_arn=aws_cloudwatch_metric_alarm["example"]["arn"],
-                alarm_role_arn=aws_iam_role["example"]["arn"],
+                alarm_arn=example_aws_cloudwatch_metric_alarm["arn"],
+                alarm_role_arn=example_aws_iam_role["arn"],
             )],
             tags={
                 "Type": "AppConfig Environment",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AppConfig Environments using the environment ID and application ID separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
+        $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
         ```
 
         :param str resource_name: The name of the resource.
@@ -393,8 +401,6 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["environment_id"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Environment, __self__).__init__(
             'aws:appconfig/environment:Environment',
             resource_name,

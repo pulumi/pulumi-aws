@@ -15,20 +15,31 @@ import * as utilities from "../utilities";
  * > **Tip:** For an organization trail, this resource must be in the master account of the organization.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
  * Enable CloudTrail to capture all compatible management events in region.
  * For capturing events from services like IAM, `includeGlobalServiceEvents` must be enabled.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {forceDestroy: true});
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentPartition = aws.getPartition({});
- * const currentRegion = aws.getRegion({});
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const exampleBucketV2 = new aws.s3.BucketV2("example", {
+ *     bucket: "my-test-trail",
+ *     forceDestroy: true,
+ * });
+ * const exampleTrail = new aws.cloudtrail.Trail("example", {
+ *     name: "example",
+ *     s3BucketName: exampleBucketV2.id,
+ *     s3KeyPrefix: "prefix",
+ *     includeGlobalServiceEvents: false,
+ * });
+ * const current = aws.getCallerIdentity({});
+ * const currentGetPartition = aws.getPartition({});
+ * const currentGetRegion = aws.getRegion({});
+ * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             sid: "AWSCloudTrailAclCheck",
@@ -42,7 +53,7 @@ import * as utilities from "../utilities";
  *             conditions: [{
  *                 test: "StringEquals",
  *                 variable: "aws:SourceArn",
- *                 values: [Promise.all([currentPartition, currentRegion, currentCallerIdentity]).then(([currentPartition, currentRegion, currentCallerIdentity]) => `arn:${currentPartition.partition}:cloudtrail:${currentRegion.name}:${currentCallerIdentity.accountId}:trail/example`)],
+ *                 values: [Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:cloudtrail:${currentGetRegion.name}:${current.accountId}:trail/example`)],
  *             }],
  *         },
  *         {
@@ -53,7 +64,7 @@ import * as utilities from "../utilities";
  *                 identifiers: ["cloudtrail.amazonaws.com"],
  *             }],
  *             actions: ["s3:PutObject"],
- *             resources: [pulumi.all([exampleBucketV2.arn, currentCallerIdentity]).apply(([arn, currentCallerIdentity]) => `${arn}/prefix/AWSLogs/${currentCallerIdentity.accountId}/*`)],
+ *             resources: [pulumi.all([exampleBucketV2.arn, current]).apply(([arn, current]) => `${arn}/prefix/AWSLogs/${current.accountId}/*`)],
  *             conditions: [
  *                 {
  *                     test: "StringEquals",
@@ -63,62 +74,65 @@ import * as utilities from "../utilities";
  *                 {
  *                     test: "StringEquals",
  *                     variable: "aws:SourceArn",
- *                     values: [Promise.all([currentPartition, currentRegion, currentCallerIdentity]).then(([currentPartition, currentRegion, currentCallerIdentity]) => `arn:${currentPartition.partition}:cloudtrail:${currentRegion.name}:${currentCallerIdentity.accountId}:trail/example`)],
+ *                     values: [Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:cloudtrail:${currentGetRegion.name}:${current.accountId}:trail/example`)],
  *                 },
  *             ],
  *         },
  *     ],
  * });
- * const exampleBucketPolicy = new aws.s3.BucketPolicy("exampleBucketPolicy", {
+ * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
  *     bucket: exampleBucketV2.id,
- *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
- * });
- * const exampleTrail = new aws.cloudtrail.Trail("exampleTrail", {
- *     s3BucketName: exampleBucketV2.id,
- *     s3KeyPrefix: "prefix",
- *     includeGlobalServiceEvents: false,
- * }, {
- *     dependsOn: [exampleBucketPolicy],
+ *     policy: example.apply(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Data Event Logging
  *
  * CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
  *
  * * [CloudTrail API DataResource documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DataResource.html) (for basic event selector).
  * * [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) (for advanced event selector).
+ *
  * ### Logging All Lambda Function Invocations By Using Basic Event Selectors
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudtrail.Trail("example", {eventSelectors: [{
+ *     readWriteType: "All",
+ *     includeManagementEvents: true,
  *     dataResources: [{
  *         type: "AWS::Lambda::Function",
  *         values: ["arn:aws:lambda"],
  *     }],
- *     includeManagementEvents: true,
- *     readWriteType: "All",
  * }]});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Logging All S3 Object Events By Using Basic Event Selectors
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudtrail.Trail("example", {eventSelectors: [{
+ *     readWriteType: "All",
+ *     includeManagementEvents: true,
  *     dataResources: [{
  *         type: "AWS::S3::Object",
  *         values: ["arn:aws:s3"],
  *     }],
- *     includeManagementEvents: true,
- *     readWriteType: "All",
  * }]});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Logging Individual S3 Bucket Events By Using Basic Event Selectors
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -127,31 +141,156 @@ import * as utilities from "../utilities";
  *     bucket: "important-bucket",
  * });
  * const example = new aws.cloudtrail.Trail("example", {eventSelectors: [{
+ *     readWriteType: "All",
+ *     includeManagementEvents: true,
  *     dataResources: [{
  *         type: "AWS::S3::Object",
  *         values: [important_bucket.then(important_bucket => `${important_bucket.arn}/`)],
  *     }],
- *     includeManagementEvents: true,
- *     readWriteType: "All",
  * }]});
  * ```
- * ### Sending Events to CloudWatch Logs
+ * <!--End PulumiCodeChooser -->
  *
+ * ### Logging All S3 Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
+ *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const exampleTrail = new aws.cloudtrail.Trail("exampleTrail", {cloudWatchLogsGroupArn: pulumi.interpolate`${exampleLogGroup.arn}:*`});
- * // CloudTrail requires the Log Stream wildcard
+ * const not-important-bucket-1 = aws.s3.getBucket({
+ *     bucket: "not-important-bucket-1",
+ * });
+ * const not-important-bucket-2 = aws.s3.getBucket({
+ *     bucket: "not-important-bucket-2",
+ * });
+ * const example = new aws.cloudtrail.Trail("example", {advancedEventSelectors: [
+ *     {
+ *         name: "Log all S3 objects events except for two S3 buckets",
+ *         fieldSelectors: [
+ *             {
+ *                 field: "eventCategory",
+ *                 equals: ["Data"],
+ *             },
+ *             {
+ *                 field: "resources.ARN",
+ *                 notStartsWiths: [
+ *                     not_important_bucket_1.then(not_important_bucket_1 => `${not_important_bucket_1.arn}/`),
+ *                     not_important_bucket_2.then(not_important_bucket_2 => `${not_important_bucket_2.arn}/`),
+ *                 ],
+ *             },
+ *             {
+ *                 field: "resources.type",
+ *                 equals: ["AWS::S3::Object"],
+ *             },
+ *         ],
+ *     },
+ *     {
+ *         name: "Log readOnly and writeOnly management events",
+ *         fieldSelectors: [{
+ *             field: "eventCategory",
+ *             equals: ["Management"],
+ *         }],
+ *     },
+ * ]});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Logging Individual S3 Buckets And Specific Event Names By Using Advanced Event Selectors
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const important-bucket-1 = aws.s3.getBucket({
+ *     bucket: "important-bucket-1",
+ * });
+ * const important-bucket-2 = aws.s3.getBucket({
+ *     bucket: "important-bucket-2",
+ * });
+ * const important-bucket-3 = aws.s3.getBucket({
+ *     bucket: "important-bucket-3",
+ * });
+ * const example = new aws.cloudtrail.Trail("example", {advancedEventSelectors: [
+ *     {
+ *         name: "Log PutObject and DeleteObject events for two S3 buckets",
+ *         fieldSelectors: [
+ *             {
+ *                 field: "eventCategory",
+ *                 equals: ["Data"],
+ *             },
+ *             {
+ *                 field: "eventName",
+ *                 equals: [
+ *                     "PutObject",
+ *                     "DeleteObject",
+ *                 ],
+ *             },
+ *             {
+ *                 field: "resources.ARN",
+ *                 startsWiths: [
+ *                     important_bucket_1.then(important_bucket_1 => `${important_bucket_1.arn}/`),
+ *                     important_bucket_2.then(important_bucket_2 => `${important_bucket_2.arn}/`),
+ *                 ],
+ *             },
+ *             {
+ *                 field: "readOnly",
+ *                 equals: ["false"],
+ *             },
+ *             {
+ *                 field: "resources.type",
+ *                 equals: ["AWS::S3::Object"],
+ *             },
+ *         ],
+ *     },
+ *     {
+ *         name: "Log Delete* events for one S3 bucket",
+ *         fieldSelectors: [
+ *             {
+ *                 field: "eventCategory",
+ *                 equals: ["Data"],
+ *             },
+ *             {
+ *                 field: "eventName",
+ *                 startsWiths: ["Delete"],
+ *             },
+ *             {
+ *                 field: "resources.ARN",
+ *                 equals: [important_bucket_3.then(important_bucket_3 => `${important_bucket_3.arn}/important-prefix`)],
+ *             },
+ *             {
+ *                 field: "readOnly",
+ *                 equals: ["false"],
+ *             },
+ *             {
+ *                 field: "resources.type",
+ *                 equals: ["AWS::S3::Object"],
+ *             },
+ *         ],
+ *     },
+ * ]});
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Sending Events to CloudWatch Logs
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.cloudwatch.LogGroup("example", {name: "Example"});
+ * const exampleTrail = new aws.cloudtrail.Trail("example", {cloudWatchLogsGroupArn: pulumi.interpolate`${example.arn}:*`});
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Cloudtrails using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudtrail/trail:Trail sample arn:aws:cloudtrail:us-east-1:123456789012:trail/my-sample-trail
+ * $ pulumi import aws:cloudtrail/trail:Trail sample arn:aws:cloudtrail:us-east-1:123456789012:trail/my-sample-trail
  * ```
  */
 export class Trail extends pulumi.CustomResource {
@@ -321,8 +460,6 @@ export class Trail extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Trail.__pulumiType, name, resourceInputs, opts);
     }
 }

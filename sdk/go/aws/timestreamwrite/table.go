@@ -15,8 +15,10 @@ import (
 // Provides a Timestream table resource.
 //
 // ## Example Usage
+//
 // ### Basic usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := timestreamwrite.NewTable(ctx, "example", &timestreamwrite.TableArgs{
-//				DatabaseName: pulumi.Any(aws_timestreamwrite_database.Example.Database_name),
+//				DatabaseName: pulumi.Any(exampleAwsTimestreamwriteDatabase.DatabaseName),
 //				TableName:    pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -41,8 +43,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Full usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,7 +61,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := timestreamwrite.NewTable(ctx, "example", &timestreamwrite.TableArgs{
-//				DatabaseName: pulumi.Any(aws_timestreamwrite_database.Example.Database_name),
+//				DatabaseName: pulumi.Any(exampleAwsTimestreamwriteDatabase.DatabaseName),
 //				TableName:    pulumi.String("example"),
 //				RetentionProperties: &timestreamwrite.TableRetentionPropertiesArgs{
 //					MagneticStoreRetentionPeriodInDays: pulumi.Int(30),
@@ -74,8 +79,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Customer-defined Partition Key
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -89,7 +97,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := timestreamwrite.NewTable(ctx, "example", &timestreamwrite.TableArgs{
-//				DatabaseName: pulumi.Any(aws_timestreamwrite_database.Example.Database_name),
+//				DatabaseName: pulumi.Any(exampleAwsTimestreamwriteDatabase.DatabaseName),
 //				TableName:    pulumi.String("example"),
 //				Schema: &timestreamwrite.TableSchemaArgs{
 //					CompositePartitionKey: &timestreamwrite.TableSchemaCompositePartitionKeyArgs{
@@ -107,15 +115,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Timestream tables using the `table_name` and `database_name` separate by a colon (`:`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
-//
+// $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
 // ```
 type Table struct {
 	pulumi.CustomResourceState
@@ -153,10 +160,6 @@ func NewTable(ctx *pulumi.Context,
 	if args.TableName == nil {
 		return nil, errors.New("invalid value for required argument 'TableName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Table
 	err := ctx.RegisterResource("aws:timestreamwrite/table:Table", name, args, &resource, opts...)

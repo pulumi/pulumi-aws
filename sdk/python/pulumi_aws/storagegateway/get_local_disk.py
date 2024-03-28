@@ -92,13 +92,15 @@ def get_local_disk(disk_node: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.storagegateway.get_local_disk(disk_path=aws_volume_attachment["test"]["device_name"],
-        gateway_arn=aws_storagegateway_gateway["test"]["arn"])
+    test = aws.storagegateway.get_local_disk(disk_path=test_aws_volume_attachment["deviceName"],
+        gateway_arn=test_aws_storagegateway_gateway["arn"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str disk_node: Device node of the local disk to retrieve. For example, `/dev/sdb`.
@@ -130,13 +132,15 @@ def get_local_disk_output(disk_node: Optional[pulumi.Input[Optional[str]]] = Non
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.storagegateway.get_local_disk(disk_path=aws_volume_attachment["test"]["device_name"],
-        gateway_arn=aws_storagegateway_gateway["test"]["arn"])
+    test = aws.storagegateway.get_local_disk(disk_path=test_aws_volume_attachment["deviceName"],
+        gateway_arn=test_aws_storagegateway_gateway["arn"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str disk_node: Device node of the local disk to retrieve. For example, `/dev/sdb`.

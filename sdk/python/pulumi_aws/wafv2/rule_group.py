@@ -443,8 +443,6 @@ class RuleGroup(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["lock_token"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(RuleGroup, __self__).__init__(
             'aws:wafv2/ruleGroup:RuleGroup',
             resource_name,

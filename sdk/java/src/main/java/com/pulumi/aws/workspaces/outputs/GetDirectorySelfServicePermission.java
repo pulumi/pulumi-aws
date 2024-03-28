@@ -4,6 +4,7 @@
 package com.pulumi.aws.workspaces.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -98,37 +99,52 @@ public final class GetDirectorySelfServicePermission {
 
         @CustomType.Setter
         public Builder changeComputeType(Boolean changeComputeType) {
-            this.changeComputeType = Objects.requireNonNull(changeComputeType);
+            if (changeComputeType == null) {
+              throw new MissingRequiredPropertyException("GetDirectorySelfServicePermission", "changeComputeType");
+            }
+            this.changeComputeType = changeComputeType;
             return this;
         }
         @CustomType.Setter
         public Builder increaseVolumeSize(Boolean increaseVolumeSize) {
-            this.increaseVolumeSize = Objects.requireNonNull(increaseVolumeSize);
+            if (increaseVolumeSize == null) {
+              throw new MissingRequiredPropertyException("GetDirectorySelfServicePermission", "increaseVolumeSize");
+            }
+            this.increaseVolumeSize = increaseVolumeSize;
             return this;
         }
         @CustomType.Setter
         public Builder rebuildWorkspace(Boolean rebuildWorkspace) {
-            this.rebuildWorkspace = Objects.requireNonNull(rebuildWorkspace);
+            if (rebuildWorkspace == null) {
+              throw new MissingRequiredPropertyException("GetDirectorySelfServicePermission", "rebuildWorkspace");
+            }
+            this.rebuildWorkspace = rebuildWorkspace;
             return this;
         }
         @CustomType.Setter
         public Builder restartWorkspace(Boolean restartWorkspace) {
-            this.restartWorkspace = Objects.requireNonNull(restartWorkspace);
+            if (restartWorkspace == null) {
+              throw new MissingRequiredPropertyException("GetDirectorySelfServicePermission", "restartWorkspace");
+            }
+            this.restartWorkspace = restartWorkspace;
             return this;
         }
         @CustomType.Setter
         public Builder switchRunningMode(Boolean switchRunningMode) {
-            this.switchRunningMode = Objects.requireNonNull(switchRunningMode);
+            if (switchRunningMode == null) {
+              throw new MissingRequiredPropertyException("GetDirectorySelfServicePermission", "switchRunningMode");
+            }
+            this.switchRunningMode = switchRunningMode;
             return this;
         }
         public GetDirectorySelfServicePermission build() {
-            final var o = new GetDirectorySelfServicePermission();
-            o.changeComputeType = changeComputeType;
-            o.increaseVolumeSize = increaseVolumeSize;
-            o.rebuildWorkspace = rebuildWorkspace;
-            o.restartWorkspace = restartWorkspace;
-            o.switchRunningMode = switchRunningMode;
-            return o;
+            final var _resultValue = new GetDirectorySelfServicePermission();
+            _resultValue.changeComputeType = changeComputeType;
+            _resultValue.increaseVolumeSize = increaseVolumeSize;
+            _resultValue.rebuildWorkspace = rebuildWorkspace;
+            _resultValue.restartWorkspace = restartWorkspace;
+            _resultValue.switchRunningMode = switchRunningMode;
+            return _resultValue;
         }
     }
 }

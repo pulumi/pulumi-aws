@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,8 +37,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = guardduty.NewOrganizationConfigurationFeature(ctx, "eksRuntimeMonitoring", &guardduty.OrganizationConfigurationFeatureArgs{
+//			_, err = guardduty.NewOrganizationConfigurationFeature(ctx, "eks_runtime_monitoring", &guardduty.OrganizationConfigurationFeatureArgs{
 //				DetectorId: example.ID(),
+//				Name:       pulumi.String("EKS_RUNTIME_MONITORING"),
 //				AutoEnable: pulumi.String("ALL"),
 //				AdditionalConfigurations: guardduty.OrganizationConfigurationFeatureAdditionalConfigurationArray{
 //					&guardduty.OrganizationConfigurationFeatureAdditionalConfigurationArgs{
@@ -54,6 +56,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type OrganizationConfigurationFeature struct {
 	pulumi.CustomResourceState
 

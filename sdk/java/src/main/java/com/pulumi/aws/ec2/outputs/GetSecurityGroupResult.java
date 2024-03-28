@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetSecurityGroupFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -90,16 +91,23 @@ public final class GetSecurityGroupResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetSecurityGroupFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -108,34 +116,46 @@ public final class GetSecurityGroupResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupResult", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public GetSecurityGroupResult build() {
-            final var o = new GetSecurityGroupResult();
-            o.arn = arn;
-            o.description = description;
-            o.filters = filters;
-            o.id = id;
-            o.name = name;
-            o.tags = tags;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetSecurityGroupResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

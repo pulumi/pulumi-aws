@@ -6,6 +6,7 @@ package com.pulumi.aws.appflow.inputs;
 import com.pulumi.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -237,7 +238,9 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
         }
 
         public FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs build() {
-            $.entityName = Objects.requireNonNull($.entityName, "expected parameter 'entityName' to be non-null");
+            if ($.entityName == null) {
+                throw new MissingRequiredPropertyException("FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs", "entityName");
+            }
             return $;
         }
     }

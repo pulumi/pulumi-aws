@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,20 +25,21 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var test = new Aws.Ec2.NetworkInsightsPath("test", new()
     ///     {
-    ///         Source = aws_network_interface.Source.Id,
-    ///         Destination = aws_network_interface.Destination.Id,
+    ///         Source = source.Id,
+    ///         Destination = destination.Id,
     ///         Protocol = "tcp",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Network Insights Paths using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/networkInsightsPath:NetworkInsightsPath test nip-00edfba169923aefd
+    /// $ pulumi import aws:ec2/networkInsightsPath:NetworkInsightsPath test nip-00edfba169923aefd
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/networkInsightsPath:NetworkInsightsPath")]
@@ -134,10 +136,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -297,11 +295,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public NetworkInsightsPathState()

@@ -285,24 +285,27 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.memorydb.ParameterGroup("example",
+            name="my-parameter-group",
             family="memorydb_redis6",
             parameters=[aws.memorydb.ParameterGroupParameterArgs(
                 name="activedefrag",
                 value="yes",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a parameter group using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
+        $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
         ```
 
         :param str resource_name: The name of the resource.
@@ -329,24 +332,27 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.memorydb.ParameterGroup("example",
+            name="my-parameter-group",
             family="memorydb_redis6",
             parameters=[aws.memorydb.ParameterGroupParameterArgs(
                 name="activedefrag",
                 value="yes",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a parameter group using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
+        $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
         ```
 
         :param str resource_name: The name of the resource.
@@ -389,8 +395,6 @@ class ParameterGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ParameterGroup, __self__).__init__(
             'aws:memorydb/parameterGroup:ParameterGroup',
             resource_name,

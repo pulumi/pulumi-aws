@@ -19,8 +19,10 @@ import (
 // > A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,14 +36,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := servicecatalog.NewProduct(ctx, "example", &servicecatalog.ProductArgs{
+//				Name:  pulumi.String("example"),
 //				Owner: pulumi.String("example-owner"),
+//				Type:  pulumi.String("CLOUD_FORMATION_TEMPLATE"),
 //				ProvisioningArtifactParameters: &servicecatalog.ProductProvisioningArtifactParametersArgs{
 //					TemplateUrl: pulumi.String("https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json"),
 //				},
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),
 //				},
-//				Type: pulumi.String("CLOUD_FORMATION_TEMPLATE"),
 //			})
 //			if err != nil {
 //				return err
@@ -51,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_servicecatalog_product` using the product ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
-//
+// $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
 // ```
 type Product struct {
 	pulumi.CustomResourceState
@@ -118,10 +120,6 @@ func NewProduct(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Product
 	err := ctx.RegisterResource("aws:servicecatalog/product:Product", name, args, &resource, opts...)

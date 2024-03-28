@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,9 +29,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsworks.NewRdsDbInstance(ctx, "myInstance", &opsworks.RdsDbInstanceArgs{
-//				StackId:          pulumi.Any(aws_opsworks_stack.My_stack.Id),
-//				RdsDbInstanceArn: pulumi.Any(aws_db_instance.My_instance.Arn),
+//			_, err := opsworks.NewRdsDbInstance(ctx, "my_instance", &opsworks.RdsDbInstanceArgs{
+//				StackId:          pulumi.Any(myStack.Id),
+//				RdsDbInstanceArn: pulumi.Any(myInstanceAwsDbInstance.Arn),
 //				DbUser:           pulumi.String("someUser"),
 //				DbPassword:       pulumi.String("somePass"),
 //			})
@@ -42,6 +43,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type RdsDbInstance struct {
 	pulumi.CustomResourceState
 

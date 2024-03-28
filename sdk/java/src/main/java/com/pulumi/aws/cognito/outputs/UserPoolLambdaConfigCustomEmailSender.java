@@ -4,6 +4,7 @@
 package com.pulumi.aws.cognito.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class UserPoolLambdaConfigCustomEmailSender {
 
         @CustomType.Setter
         public Builder lambdaArn(String lambdaArn) {
-            this.lambdaArn = Objects.requireNonNull(lambdaArn);
+            if (lambdaArn == null) {
+              throw new MissingRequiredPropertyException("UserPoolLambdaConfigCustomEmailSender", "lambdaArn");
+            }
+            this.lambdaArn = lambdaArn;
             return this;
         }
         @CustomType.Setter
         public Builder lambdaVersion(String lambdaVersion) {
-            this.lambdaVersion = Objects.requireNonNull(lambdaVersion);
+            if (lambdaVersion == null) {
+              throw new MissingRequiredPropertyException("UserPoolLambdaConfigCustomEmailSender", "lambdaVersion");
+            }
+            this.lambdaVersion = lambdaVersion;
             return this;
         }
         public UserPoolLambdaConfigCustomEmailSender build() {
-            final var o = new UserPoolLambdaConfigCustomEmailSender();
-            o.lambdaArn = lambdaArn;
-            o.lambdaVersion = lambdaVersion;
-            return o;
+            final var _resultValue = new UserPoolLambdaConfigCustomEmailSender();
+            _resultValue.lambdaArn = lambdaArn;
+            _resultValue.lambdaVersion = lambdaVersion;
+            return _resultValue;
         }
     }
 }

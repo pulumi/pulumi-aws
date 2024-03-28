@@ -70,23 +70,24 @@ class OrganizationAdminAccount(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_organization = aws.organizations.Organization("exampleOrganization",
+        example = aws.organizations.Organization("example",
             aws_service_access_principals=["detective.amazonaws.com"],
             feature_set="ALL")
-        example_organization_admin_account = aws.detective.OrganizationAdminAccount("exampleOrganizationAdminAccount", account_id="123456789012",
-        opts=pulumi.ResourceOptions(depends_on=[example_organization]))
+        example_organization_admin_account = aws.detective.OrganizationAdminAccount("example", account_id="123456789012")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_detective_organization_admin_account` using `account_id`. For example:
 
         ```sh
-         $ pulumi import aws:detective/organizationAdminAccount:OrganizationAdminAccount example 123456789012
+        $ pulumi import aws:detective/organizationAdminAccount:OrganizationAdminAccount example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -104,23 +105,24 @@ class OrganizationAdminAccount(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_organization = aws.organizations.Organization("exampleOrganization",
+        example = aws.organizations.Organization("example",
             aws_service_access_principals=["detective.amazonaws.com"],
             feature_set="ALL")
-        example_organization_admin_account = aws.detective.OrganizationAdminAccount("exampleOrganizationAdminAccount", account_id="123456789012",
-        opts=pulumi.ResourceOptions(depends_on=[example_organization]))
+        example_organization_admin_account = aws.detective.OrganizationAdminAccount("example", account_id="123456789012")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_detective_organization_admin_account` using `account_id`. For example:
 
         ```sh
-         $ pulumi import aws:detective/organizationAdminAccount:OrganizationAdminAccount example 123456789012
+        $ pulumi import aws:detective/organizationAdminAccount:OrganizationAdminAccount example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

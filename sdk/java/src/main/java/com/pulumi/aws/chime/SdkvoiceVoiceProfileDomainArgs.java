@@ -6,6 +6,7 @@ package com.pulumi.aws.chime;
 import com.pulumi.aws.chime.inputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -169,7 +170,9 @@ public final class SdkvoiceVoiceProfileDomainArgs extends com.pulumi.resources.R
         }
 
         public SdkvoiceVoiceProfileDomainArgs build() {
-            $.serverSideEncryptionConfiguration = Objects.requireNonNull($.serverSideEncryptionConfiguration, "expected parameter 'serverSideEncryptionConfiguration' to be non-null");
+            if ($.serverSideEncryptionConfiguration == null) {
+                throw new MissingRequiredPropertyException("SdkvoiceVoiceProfileDomainArgs", "serverSideEncryptionConfiguration");
+            }
             return $;
         }
     }

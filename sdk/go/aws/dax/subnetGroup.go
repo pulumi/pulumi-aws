@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,9 +30,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dax.NewSubnetGroup(ctx, "example", &dax.SubnetGroupArgs{
+//				Name: pulumi.String("example"),
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Example1.Id,
-//					aws_subnet.Example2.Id,
+//					example1.Id,
+//					example2.Id,
 //				},
 //			})
 //			if err != nil {
@@ -42,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DAX Subnet Group using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
-//
+// $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
 // ```
 type SubnetGroup struct {
 	pulumi.CustomResourceState

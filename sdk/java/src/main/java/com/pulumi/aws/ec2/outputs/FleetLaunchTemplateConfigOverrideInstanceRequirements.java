@@ -13,6 +13,7 @@ import com.pulumi.aws.ec2.outputs.FleetLaunchTemplateConfigOverrideInstanceRequi
 import com.pulumi.aws.ec2.outputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb;
 import com.pulumi.aws.ec2.outputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -382,11 +383,13 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
 
         @CustomType.Setter
         public Builder acceleratorCount(@Nullable FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount acceleratorCount) {
+
             this.acceleratorCount = acceleratorCount;
             return this;
         }
         @CustomType.Setter
         public Builder acceleratorManufacturers(@Nullable List<String> acceleratorManufacturers) {
+
             this.acceleratorManufacturers = acceleratorManufacturers;
             return this;
         }
@@ -395,6 +398,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
         }
         @CustomType.Setter
         public Builder acceleratorNames(@Nullable List<String> acceleratorNames) {
+
             this.acceleratorNames = acceleratorNames;
             return this;
         }
@@ -403,11 +407,13 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
         }
         @CustomType.Setter
         public Builder acceleratorTotalMemoryMib(@Nullable FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib acceleratorTotalMemoryMib) {
+
             this.acceleratorTotalMemoryMib = acceleratorTotalMemoryMib;
             return this;
         }
         @CustomType.Setter
         public Builder acceleratorTypes(@Nullable List<String> acceleratorTypes) {
+
             this.acceleratorTypes = acceleratorTypes;
             return this;
         }
@@ -416,6 +422,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
         }
         @CustomType.Setter
         public Builder allowedInstanceTypes(@Nullable List<String> allowedInstanceTypes) {
+
             this.allowedInstanceTypes = allowedInstanceTypes;
             return this;
         }
@@ -424,21 +431,25 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
         }
         @CustomType.Setter
         public Builder bareMetal(@Nullable String bareMetal) {
+
             this.bareMetal = bareMetal;
             return this;
         }
         @CustomType.Setter
         public Builder baselineEbsBandwidthMbps(@Nullable FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps baselineEbsBandwidthMbps) {
+
             this.baselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
             return this;
         }
         @CustomType.Setter
         public Builder burstablePerformance(@Nullable String burstablePerformance) {
+
             this.burstablePerformance = burstablePerformance;
             return this;
         }
         @CustomType.Setter
         public Builder cpuManufacturers(@Nullable List<String> cpuManufacturers) {
+
             this.cpuManufacturers = cpuManufacturers;
             return this;
         }
@@ -447,6 +458,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
         }
         @CustomType.Setter
         public Builder excludedInstanceTypes(@Nullable List<String> excludedInstanceTypes) {
+
             this.excludedInstanceTypes = excludedInstanceTypes;
             return this;
         }
@@ -455,6 +467,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
         }
         @CustomType.Setter
         public Builder instanceGenerations(@Nullable List<String> instanceGenerations) {
+
             this.instanceGenerations = instanceGenerations;
             return this;
         }
@@ -463,11 +476,13 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
         }
         @CustomType.Setter
         public Builder localStorage(@Nullable String localStorage) {
+
             this.localStorage = localStorage;
             return this;
         }
         @CustomType.Setter
         public Builder localStorageTypes(@Nullable List<String> localStorageTypes) {
+
             this.localStorageTypes = localStorageTypes;
             return this;
         }
@@ -476,75 +491,88 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
         }
         @CustomType.Setter
         public Builder memoryGibPerVcpu(@Nullable FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu memoryGibPerVcpu) {
+
             this.memoryGibPerVcpu = memoryGibPerVcpu;
             return this;
         }
         @CustomType.Setter
         public Builder memoryMib(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib memoryMib) {
-            this.memoryMib = Objects.requireNonNull(memoryMib);
+            if (memoryMib == null) {
+              throw new MissingRequiredPropertyException("FleetLaunchTemplateConfigOverrideInstanceRequirements", "memoryMib");
+            }
+            this.memoryMib = memoryMib;
             return this;
         }
         @CustomType.Setter
         public Builder networkBandwidthGbps(@Nullable FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps networkBandwidthGbps) {
+
             this.networkBandwidthGbps = networkBandwidthGbps;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaceCount(@Nullable FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount networkInterfaceCount) {
+
             this.networkInterfaceCount = networkInterfaceCount;
             return this;
         }
         @CustomType.Setter
         public Builder onDemandMaxPricePercentageOverLowestPrice(@Nullable Integer onDemandMaxPricePercentageOverLowestPrice) {
+
             this.onDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
             return this;
         }
         @CustomType.Setter
         public Builder requireHibernateSupport(@Nullable Boolean requireHibernateSupport) {
+
             this.requireHibernateSupport = requireHibernateSupport;
             return this;
         }
         @CustomType.Setter
         public Builder spotMaxPricePercentageOverLowestPrice(@Nullable Integer spotMaxPricePercentageOverLowestPrice) {
+
             this.spotMaxPricePercentageOverLowestPrice = spotMaxPricePercentageOverLowestPrice;
             return this;
         }
         @CustomType.Setter
         public Builder totalLocalStorageGb(@Nullable FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb totalLocalStorageGb) {
+
             this.totalLocalStorageGb = totalLocalStorageGb;
             return this;
         }
         @CustomType.Setter
         public Builder vcpuCount(FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount vcpuCount) {
-            this.vcpuCount = Objects.requireNonNull(vcpuCount);
+            if (vcpuCount == null) {
+              throw new MissingRequiredPropertyException("FleetLaunchTemplateConfigOverrideInstanceRequirements", "vcpuCount");
+            }
+            this.vcpuCount = vcpuCount;
             return this;
         }
         public FleetLaunchTemplateConfigOverrideInstanceRequirements build() {
-            final var o = new FleetLaunchTemplateConfigOverrideInstanceRequirements();
-            o.acceleratorCount = acceleratorCount;
-            o.acceleratorManufacturers = acceleratorManufacturers;
-            o.acceleratorNames = acceleratorNames;
-            o.acceleratorTotalMemoryMib = acceleratorTotalMemoryMib;
-            o.acceleratorTypes = acceleratorTypes;
-            o.allowedInstanceTypes = allowedInstanceTypes;
-            o.bareMetal = bareMetal;
-            o.baselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
-            o.burstablePerformance = burstablePerformance;
-            o.cpuManufacturers = cpuManufacturers;
-            o.excludedInstanceTypes = excludedInstanceTypes;
-            o.instanceGenerations = instanceGenerations;
-            o.localStorage = localStorage;
-            o.localStorageTypes = localStorageTypes;
-            o.memoryGibPerVcpu = memoryGibPerVcpu;
-            o.memoryMib = memoryMib;
-            o.networkBandwidthGbps = networkBandwidthGbps;
-            o.networkInterfaceCount = networkInterfaceCount;
-            o.onDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
-            o.requireHibernateSupport = requireHibernateSupport;
-            o.spotMaxPricePercentageOverLowestPrice = spotMaxPricePercentageOverLowestPrice;
-            o.totalLocalStorageGb = totalLocalStorageGb;
-            o.vcpuCount = vcpuCount;
-            return o;
+            final var _resultValue = new FleetLaunchTemplateConfigOverrideInstanceRequirements();
+            _resultValue.acceleratorCount = acceleratorCount;
+            _resultValue.acceleratorManufacturers = acceleratorManufacturers;
+            _resultValue.acceleratorNames = acceleratorNames;
+            _resultValue.acceleratorTotalMemoryMib = acceleratorTotalMemoryMib;
+            _resultValue.acceleratorTypes = acceleratorTypes;
+            _resultValue.allowedInstanceTypes = allowedInstanceTypes;
+            _resultValue.bareMetal = bareMetal;
+            _resultValue.baselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
+            _resultValue.burstablePerformance = burstablePerformance;
+            _resultValue.cpuManufacturers = cpuManufacturers;
+            _resultValue.excludedInstanceTypes = excludedInstanceTypes;
+            _resultValue.instanceGenerations = instanceGenerations;
+            _resultValue.localStorage = localStorage;
+            _resultValue.localStorageTypes = localStorageTypes;
+            _resultValue.memoryGibPerVcpu = memoryGibPerVcpu;
+            _resultValue.memoryMib = memoryMib;
+            _resultValue.networkBandwidthGbps = networkBandwidthGbps;
+            _resultValue.networkInterfaceCount = networkInterfaceCount;
+            _resultValue.onDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
+            _resultValue.requireHibernateSupport = requireHibernateSupport;
+            _resultValue.spotMaxPricePercentageOverLowestPrice = spotMaxPricePercentageOverLowestPrice;
+            _resultValue.totalLocalStorageGb = totalLocalStorageGb;
+            _resultValue.vcpuCount = vcpuCount;
+            return _resultValue;
         }
     }
 }

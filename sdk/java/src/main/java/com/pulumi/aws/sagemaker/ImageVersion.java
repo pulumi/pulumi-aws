@@ -18,7 +18,10 @@ import javax.annotation.Nullable;
  * Provides a SageMaker Image Version resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -41,20 +44,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ImageVersion(&#34;test&#34;, ImageVersionArgs.builder()        
- *             .imageName(aws_sagemaker_image.test().id())
+ *             .imageName(testAwsSagemakerImage.id())
  *             .baseImage(&#34;012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SageMaker Image Versions using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
+ * $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
  * ```
  * 
  */

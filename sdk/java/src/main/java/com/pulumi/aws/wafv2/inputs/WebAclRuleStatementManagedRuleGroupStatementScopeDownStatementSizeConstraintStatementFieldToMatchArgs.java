@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementS
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchBodyArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethodArgs;
@@ -69,6 +70,21 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesArgs>> cookies() {
         return Optional.ofNullable(this.cookies);
+    }
+
+    /**
+     * Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+     * 
+     */
+    @Import(name="headerOrders")
+    private @Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs>> headerOrders;
+
+    /**
+     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+     * 
+     */
+    public Optional<Output<List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs>>> headerOrders() {
+        return Optional.ofNullable(this.headerOrders);
     }
 
     /**
@@ -197,6 +213,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         this.allQueryArguments = $.allQueryArguments;
         this.body = $.body;
         this.cookies = $.cookies;
+        this.headerOrders = $.headerOrders;
         this.headers = $.headers;
         this.ja3Fingerprint = $.ja3Fingerprint;
         this.jsonBody = $.jsonBody;
@@ -286,6 +303,37 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
          */
         public Builder cookies(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesArgs cookies) {
             return cookies(Output.of(cookies));
+        }
+
+        /**
+         * @param headerOrders Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder headerOrders(@Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs>> headerOrders) {
+            $.headerOrders = headerOrders;
+            return this;
+        }
+
+        /**
+         * @param headerOrders Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder headerOrders(List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs> headerOrders) {
+            return headerOrders(Output.of(headerOrders));
+        }
+
+        /**
+         * @param headerOrders Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder headerOrders(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs... headerOrders) {
+            return headerOrders(List.of(headerOrders));
         }
 
         /**

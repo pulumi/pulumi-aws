@@ -420,36 +420,39 @@ class Proxy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.rds.Proxy("example",
+            name="example",
             debug_logging=False,
             engine_family="MYSQL",
             idle_client_timeout=1800,
             require_tls=True,
-            role_arn=aws_iam_role["example"]["arn"],
-            vpc_security_group_ids=[aws_security_group["example"]["id"]],
-            vpc_subnet_ids=[aws_subnet["example"]["id"]],
+            role_arn=example_aws_iam_role["arn"],
+            vpc_security_group_ids=[example_aws_security_group["id"]],
+            vpc_subnet_ids=[example_aws_subnet["id"]],
             auths=[aws.rds.ProxyAuthArgs(
                 auth_scheme="SECRETS",
                 description="example",
                 iam_auth="DISABLED",
-                secret_arn=aws_secretsmanager_secret["example"]["arn"],
+                secret_arn=example_aws_secretsmanager_secret["arn"],
             )],
             tags={
                 "Name": "example",
                 "Key": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DB proxies using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:rds/proxy:Proxy example example
+        $ pulumi import aws:rds/proxy:Proxy example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -476,36 +479,39 @@ class Proxy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.rds.Proxy("example",
+            name="example",
             debug_logging=False,
             engine_family="MYSQL",
             idle_client_timeout=1800,
             require_tls=True,
-            role_arn=aws_iam_role["example"]["arn"],
-            vpc_security_group_ids=[aws_security_group["example"]["id"]],
-            vpc_subnet_ids=[aws_subnet["example"]["id"]],
+            role_arn=example_aws_iam_role["arn"],
+            vpc_security_group_ids=[example_aws_security_group["id"]],
+            vpc_subnet_ids=[example_aws_subnet["id"]],
             auths=[aws.rds.ProxyAuthArgs(
                 auth_scheme="SECRETS",
                 description="example",
                 iam_auth="DISABLED",
-                secret_arn=aws_secretsmanager_secret["example"]["arn"],
+                secret_arn=example_aws_secretsmanager_secret["arn"],
             )],
             tags={
                 "Name": "example",
                 "Key": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DB proxies using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:rds/proxy:Proxy example example
+        $ pulumi import aws:rds/proxy:Proxy example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -563,8 +569,6 @@ class Proxy(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Proxy, __self__).__init__(
             'aws:rds/proxy:Proxy',
             resource_name,

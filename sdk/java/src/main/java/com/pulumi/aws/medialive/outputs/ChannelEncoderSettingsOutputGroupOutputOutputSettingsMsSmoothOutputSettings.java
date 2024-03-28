@@ -50,19 +50,21 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmooth
 
         @CustomType.Setter
         public Builder h265PackagingType(@Nullable String h265PackagingType) {
+
             this.h265PackagingType = h265PackagingType;
             return this;
         }
         @CustomType.Setter
         public Builder nameModifier(@Nullable String nameModifier) {
+
             this.nameModifier = nameModifier;
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings();
-            o.h265PackagingType = h265PackagingType;
-            o.nameModifier = nameModifier;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings();
+            _resultValue.h265PackagingType = h265PackagingType;
+            _resultValue.nameModifier = nameModifier;
+            return _resultValue;
         }
     }
 }

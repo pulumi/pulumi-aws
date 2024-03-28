@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * a conflict of rule settings and will overwrite rules.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,17 +51,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var barNetworkAcl = new NetworkAcl(&#34;barNetworkAcl&#34;, NetworkAclArgs.builder()        
- *             .vpcId(aws_vpc.foo().id())
+ *         var bar = new NetworkAcl(&#34;bar&#34;, NetworkAclArgs.builder()        
+ *             .vpcId(foo.id())
  *             .build());
  * 
  *         var barNetworkAclRule = new NetworkAclRule(&#34;barNetworkAclRule&#34;, NetworkAclRuleArgs.builder()        
- *             .networkAclId(barNetworkAcl.id())
+ *             .networkAclId(bar.id())
  *             .ruleNumber(200)
  *             .egress(false)
  *             .protocol(&#34;tcp&#34;)
  *             .ruleAction(&#34;allow&#34;)
- *             .cidrBlock(aws_vpc.foo().cidr_block())
+ *             .cidrBlock(foo.cidrBlock())
  *             .fromPort(22)
  *             .toPort(22)
  *             .build());
@@ -67,6 +69,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.
  * 
@@ -79,12 +82,12 @@ import javax.annotation.Nullable;
  * Using the procotol&#39;s string value:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
+ * $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
  * ```
- *  Using the procotol&#39;s decimal value:
+ * Using the procotol&#39;s decimal value:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
+ * $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
  * ```
  * 
  */

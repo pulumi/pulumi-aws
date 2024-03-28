@@ -209,24 +209,27 @@ class Alias(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.gamelift.Alias("example",
+            name="example-alias",
             description="Example Description",
             routing_strategy=aws.gamelift.AliasRoutingStrategyArgs(
                 message="Example Message",
                 type="TERMINAL",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GameLift Aliases using the ID. For example:
 
         ```sh
-         $ pulumi import aws:gamelift/alias:Alias example <alias-id>
+        $ pulumi import aws:gamelift/alias:Alias example <alias-id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -247,24 +250,27 @@ class Alias(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.gamelift.Alias("example",
+            name="example-alias",
             description="Example Description",
             routing_strategy=aws.gamelift.AliasRoutingStrategyArgs(
                 message="Example Message",
                 type="TERMINAL",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GameLift Aliases using the ID. For example:
 
         ```sh
-         $ pulumi import aws:gamelift/alias:Alias example <alias-id>
+        $ pulumi import aws:gamelift/alias:Alias example <alias-id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -303,8 +309,6 @@ class Alias(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Alias, __self__).__init__(
             'aws:gamelift/alias:Alias',
             resource_name,

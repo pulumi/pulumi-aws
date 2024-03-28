@@ -12,6 +12,7 @@ namespace Pulumi.Aws.Glue
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -20,15 +21,15 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCatalogDatabase = new Aws.Glue.CatalogDatabase("exampleCatalogDatabase", new()
+    ///     var example = new Aws.Glue.CatalogDatabase("example", new()
     ///     {
     ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleCatalogTable = new Aws.Glue.CatalogTable("exampleCatalogTable", new()
+    ///     var exampleCatalogTable = new Aws.Glue.CatalogTable("example", new()
     ///     {
     ///         Name = "example",
-    ///         DatabaseName = exampleCatalogDatabase.Name,
+    ///         DatabaseName = example.Name,
     ///         Owner = "my_owner",
     ///         Retention = 1,
     ///         TableType = "VIRTUAL_VIEW",
@@ -119,9 +120,9 @@ namespace Pulumi.Aws.Glue
     ///         },
     ///     });
     /// 
-    ///     var examplePartitionIndex = new Aws.Glue.PartitionIndex("examplePartitionIndex", new()
+    ///     var examplePartitionIndex = new Aws.Glue.PartitionIndex("example", new()
     ///     {
-    ///         DatabaseName = exampleCatalogDatabase.Name,
+    ///         DatabaseName = example.Name,
     ///         TableName = exampleCatalogTable.Name,
     ///         PartitionIndexConfig = new Aws.Glue.Inputs.PartitionIndexPartitionIndexArgs
     ///         {
@@ -136,13 +137,14 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Partition Indexes using the catalog ID (usually AWS account ID), database name, table name, and index name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:glue/partitionIndex:PartitionIndex example 123456789012:MyDatabase:MyTable:index-name
+    /// $ pulumi import aws:glue/partitionIndex:PartitionIndex example 123456789012:MyDatabase:MyTable:index-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/partitionIndex:PartitionIndex")]

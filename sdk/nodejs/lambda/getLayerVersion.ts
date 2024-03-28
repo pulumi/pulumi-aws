@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  *     layerName: layerName,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLayerVersion(args: GetLayerVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetLayerVersionResult> {
 
@@ -118,6 +120,7 @@ export interface GetLayerVersionResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -128,6 +131,7 @@ export interface GetLayerVersionResult {
  *     layerName: layerName,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLayerVersionOutput(args: GetLayerVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLayerVersionResult> {
     return pulumi.output(args).apply((a: any) => getLayerVersion(a, opts))

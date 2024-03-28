@@ -284,26 +284,29 @@ class DeviceFleet(pulumi.CustomResource):
         Provides a SageMaker Device Fleet resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sagemaker.DeviceFleet("example",
             device_fleet_name="example",
-            role_arn=aws_iam_role["test"]["arn"],
+            role_arn=test["arn"],
             output_config=aws.sagemaker.DeviceFleetOutputConfigArgs(
-                s3_output_location=f"s3://{aws_s3_bucket['example']['bucket']}/prefix/",
+                s3_output_location=f"s3://{example_aws_s3_bucket['bucket']}/prefix/",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Device Fleets using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
+        $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
         ```
 
         :param str resource_name: The name of the resource.
@@ -325,26 +328,29 @@ class DeviceFleet(pulumi.CustomResource):
         Provides a SageMaker Device Fleet resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sagemaker.DeviceFleet("example",
             device_fleet_name="example",
-            role_arn=aws_iam_role["test"]["arn"],
+            role_arn=test["arn"],
             output_config=aws.sagemaker.DeviceFleetOutputConfigArgs(
-                s3_output_location=f"s3://{aws_s3_bucket['example']['bucket']}/prefix/",
+                s3_output_location=f"s3://{example_aws_s3_bucket['bucket']}/prefix/",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Device Fleets using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
+        $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
         ```
 
         :param str resource_name: The name of the resource.
@@ -392,8 +398,6 @@ class DeviceFleet(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["iot_role_alias"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(DeviceFleet, __self__).__init__(
             'aws:sagemaker/deviceFleet:DeviceFleet',
             resource_name,

@@ -19,6 +19,7 @@ env:
   NODEVERSION: 20.x
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   NUGET_PUBLISH_KEY: ${{ secrets.NUGET_PUBLISH_KEY }}
+  OIDC_ROLE_ARN: ${{ secrets.OIDC_ROLE_ARN }}
   PUBLISH_REPO_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
   PUBLISH_REPO_USERNAME: ${{ secrets.OSSRH_USERNAME }}
   PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
@@ -26,8 +27,9 @@ env:
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
   PULUMI_MISSING_DOCS_ERROR: true
-  PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-  PYTHONVERSION: "3.9"
+  PYPI_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+  PYPI_USERNAME: __token__
+  PYTHONVERSION: "3.11"
   SIGNING_KEY: ${{ secrets.JAVA_SIGNING_KEY }}
   SIGNING_KEY_ID: ${{ secrets.JAVA_SIGNING_KEY_ID }}
   SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
@@ -41,11 +43,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         submodules: true
     - name: Install go
-      uses: actions/setup-go@v4
+      uses: actions/setup-go@v5
       with:
         # The versions of golangci-lint and setup-go here cross-depend and need to update together.
         go-version: 1.21
@@ -59,9 +61,9 @@ jobs:
       continue-on-error: true
       run: make upstream
     - name: golangci-lint
-      uses: golangci/golangci-lint-action@v3
+      uses: golangci/golangci-lint-action@v4
       with:
-        version: v1.54.1
+        version: v1.55.2
         working-directory: provider
     - if: failure() && github.event_name == 'push'
       name: Notify Slack

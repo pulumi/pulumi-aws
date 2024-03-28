@@ -26,7 +26,10 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * A MWAA Environment requires an IAM role (`aws.iam.Role`), two subnets in the private zone (`aws.ec2.Subnet`) and a versioned S3 bucket (`aws.s3.BucketV2`).
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,18 +54,23 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Environment(&#34;example&#34;, EnvironmentArgs.builder()        
  *             .dagS3Path(&#34;dags/&#34;)
- *             .executionRoleArn(aws_iam_role.example().arn())
+ *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .name(&#34;example&#34;)
  *             .networkConfiguration(EnvironmentNetworkConfigurationArgs.builder()
- *                 .securityGroupIds(aws_security_group.example().id())
- *                 .subnetIds(aws_subnet.private().stream().map(element -&gt; element.id()).collect(toList()))
+ *                 .securityGroupIds(exampleAwsSecurityGroup.id())
+ *                 .subnetIds(private_.stream().map(element -&gt; element.id()).collect(toList()))
  *                 .build())
- *             .sourceBucketArn(aws_s3_bucket.example().arn())
+ *             .sourceBucketArn(exampleAwsS3Bucket.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Example with Airflow configuration options
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -91,20 +99,25 @@ import javax.annotation.Nullable;
  *                 Map.entry(&#34;core.parallelism&#34;, 1)
  *             ))
  *             .dagS3Path(&#34;dags/&#34;)
- *             .executionRoleArn(aws_iam_role.example().arn())
+ *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .name(&#34;example&#34;)
  *             .networkConfiguration(EnvironmentNetworkConfigurationArgs.builder()
- *                 .securityGroupIds(aws_security_group.example().id())
- *                 .subnetIds(aws_subnet.private().stream().map(element -&gt; element.id()).collect(toList()))
+ *                 .securityGroupIds(exampleAwsSecurityGroup.id())
+ *                 .subnetIds(private_.stream().map(element -&gt; element.id()).collect(toList()))
  *                 .build())
- *             .sourceBucketArn(aws_s3_bucket.example().arn())
+ *             .sourceBucketArn(exampleAwsS3Bucket.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Example with logging configurations
  * 
  * Note that Airflow task logs are enabled by default with the `INFO` log level.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -135,7 +148,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Environment(&#34;example&#34;, EnvironmentArgs.builder()        
  *             .dagS3Path(&#34;dags/&#34;)
- *             .executionRoleArn(aws_iam_role.example().arn())
+ *             .executionRoleArn(exampleAwsIamRole.arn())
  *             .loggingConfiguration(EnvironmentLoggingConfigurationArgs.builder()
  *                 .dagProcessingLogs(EnvironmentLoggingConfigurationDagProcessingLogsArgs.builder()
  *                     .enabled(true)
@@ -158,17 +171,22 @@ import javax.annotation.Nullable;
  *                     .logLevel(&#34;CRITICAL&#34;)
  *                     .build())
  *                 .build())
+ *             .name(&#34;example&#34;)
  *             .networkConfiguration(EnvironmentNetworkConfigurationArgs.builder()
- *                 .securityGroupIds(aws_security_group.example().id())
- *                 .subnetIds(aws_subnet.private().stream().map(element -&gt; element.id()).collect(toList()))
+ *                 .securityGroupIds(exampleAwsSecurityGroup.id())
+ *                 .subnetIds(private_.stream().map(element -&gt; element.id()).collect(toList()))
  *                 .build())
- *             .sourceBucketArn(aws_s3_bucket.example().arn())
+ *             .sourceBucketArn(exampleAwsS3Bucket.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Example with tags
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -193,12 +211,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Environment(&#34;example&#34;, EnvironmentArgs.builder()        
  *             .dagS3Path(&#34;dags/&#34;)
- *             .executionRoleArn(aws_iam_role.example().arn())
+ *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .name(&#34;example&#34;)
  *             .networkConfiguration(EnvironmentNetworkConfigurationArgs.builder()
- *                 .securityGroupIds(aws_security_group.example().id())
- *                 .subnetIds(aws_subnet.private().stream().map(element -&gt; element.id()).collect(toList()))
+ *                 .securityGroupIds(exampleAwsSecurityGroup.id())
+ *                 .subnetIds(private_.stream().map(element -&gt; element.id()).collect(toList()))
  *                 .build())
- *             .sourceBucketArn(aws_s3_bucket.example().arn())
+ *             .sourceBucketArn(exampleAwsS3Bucket.arn())
  *             .tags(Map.ofEntries(
  *                 Map.entry(&#34;Name&#34;, &#34;example&#34;),
  *                 Map.entry(&#34;Environment&#34;, &#34;production&#34;)
@@ -208,13 +227,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import MWAA Environment using `Name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:mwaa/environment:Environment example MyAirflowEnvironment
+ * $ pulumi import aws:mwaa/environment:Environment example MyAirflowEnvironment
  * ```
  * 
  */
@@ -291,6 +311,12 @@ public class Environment extends com.pulumi.resources.CustomResource {
      */
     public Output<String> dagS3Path() {
         return this.dagS3Path;
+    }
+    @Export(name="endpointManagement", refs={String.class}, tree="[0]")
+    private Output<String> endpointManagement;
+
+    public Output<String> endpointManagement() {
+        return this.endpointManagement;
     }
     /**
      * Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
@@ -658,8 +684,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "airflowConfigurationOptions",
-                "tagsAll"
+                "airflowConfigurationOptions"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

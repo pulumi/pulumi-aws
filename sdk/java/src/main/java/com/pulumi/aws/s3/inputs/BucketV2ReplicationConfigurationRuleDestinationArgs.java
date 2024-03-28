@@ -8,6 +8,7 @@ import com.pulumi.aws.s3.inputs.BucketV2ReplicationConfigurationRuleDestinationM
 import com.pulumi.aws.s3.inputs.BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -20,14 +21,14 @@ public final class BucketV2ReplicationConfigurationRuleDestinationArgs extends c
     public static final BucketV2ReplicationConfigurationRuleDestinationArgs Empty = new BucketV2ReplicationConfigurationRuleDestinationArgs();
 
     /**
-     * Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
+     * Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
      * 
      */
     @Import(name="accessControlTranslations")
     private @Nullable Output<List<BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs>> accessControlTranslations;
 
     /**
-     * @return Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
+     * @return Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
      * 
      */
     public Optional<Output<List<BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs>>> accessControlTranslations() {
@@ -157,7 +158,7 @@ public final class BucketV2ReplicationConfigurationRuleDestinationArgs extends c
         }
 
         /**
-         * @param accessControlTranslations Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
+         * @param accessControlTranslations Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
          * 
          * @return builder
          * 
@@ -168,7 +169,7 @@ public final class BucketV2ReplicationConfigurationRuleDestinationArgs extends c
         }
 
         /**
-         * @param accessControlTranslations Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
+         * @param accessControlTranslations Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
          * 
          * @return builder
          * 
@@ -178,7 +179,7 @@ public final class BucketV2ReplicationConfigurationRuleDestinationArgs extends c
         }
 
         /**
-         * @param accessControlTranslations Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
+         * @param accessControlTranslations Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
          * 
          * @return builder
          * 
@@ -336,7 +337,9 @@ public final class BucketV2ReplicationConfigurationRuleDestinationArgs extends c
         }
 
         public BucketV2ReplicationConfigurationRuleDestinationArgs build() {
-            $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
+            if ($.bucket == null) {
+                throw new MissingRequiredPropertyException("BucketV2ReplicationConfigurationRuleDestinationArgs", "bucket");
+            }
             return $;
         }
     }

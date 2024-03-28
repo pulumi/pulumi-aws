@@ -201,16 +201,21 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
         """
         Provides an [S3 Intelligent-Tiering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html) configuration resource.
 
+        > This resource cannot be used with S3 directory buckets.
+
         ## Example Usage
+
         ### Add intelligent tiering configuration for entire S3 bucket
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
+        example = aws.s3.BucketV2("example", bucket="example")
         example_entire_bucket = aws.s3.BucketIntelligentTieringConfiguration("example-entire-bucket",
             bucket=example.id,
+            name="EntireBucket",
             tierings=[
                 aws.s3.BucketIntelligentTieringConfigurationTieringArgs(
                     access_tier="DEEP_ARCHIVE_ACCESS",
@@ -222,15 +227,19 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Add intelligent tiering configuration with S3 object filter
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
+        example = aws.s3.BucketV2("example", bucket="example")
         example_filtered = aws.s3.BucketIntelligentTieringConfiguration("example-filtered",
             bucket=example.id,
+            name="ImportantBlueDocuments",
             status="Disabled",
             filter=aws.s3.BucketIntelligentTieringConfigurationFilterArgs(
                 prefix="documents/",
@@ -244,13 +253,14 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
                 days=125,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 bucket intelligent tiering configurations using `bucket:name`. For example:
 
         ```sh
-         $ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
+        $ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
         ```
 
         :param str resource_name: The name of the resource.
@@ -270,16 +280,21 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
         """
         Provides an [S3 Intelligent-Tiering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html) configuration resource.
 
+        > This resource cannot be used with S3 directory buckets.
+
         ## Example Usage
+
         ### Add intelligent tiering configuration for entire S3 bucket
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
+        example = aws.s3.BucketV2("example", bucket="example")
         example_entire_bucket = aws.s3.BucketIntelligentTieringConfiguration("example-entire-bucket",
             bucket=example.id,
+            name="EntireBucket",
             tierings=[
                 aws.s3.BucketIntelligentTieringConfigurationTieringArgs(
                     access_tier="DEEP_ARCHIVE_ACCESS",
@@ -291,15 +306,19 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Add intelligent tiering configuration with S3 object filter
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
+        example = aws.s3.BucketV2("example", bucket="example")
         example_filtered = aws.s3.BucketIntelligentTieringConfiguration("example-filtered",
             bucket=example.id,
+            name="ImportantBlueDocuments",
             status="Disabled",
             filter=aws.s3.BucketIntelligentTieringConfigurationFilterArgs(
                 prefix="documents/",
@@ -313,13 +332,14 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
                 days=125,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 bucket intelligent tiering configurations using `bucket:name`. For example:
 
         ```sh
-         $ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
+        $ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
         ```
 
         :param str resource_name: The name of the resource.

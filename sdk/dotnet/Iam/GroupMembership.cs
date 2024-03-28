@@ -21,6 +21,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,14 +30,24 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @group = new Aws.Iam.Group("group");
+    ///     var @group = new Aws.Iam.Group("group", new()
+    ///     {
+    ///         Name = "test-group",
+    ///     });
     /// 
-    ///     var userOne = new Aws.Iam.User("userOne");
+    ///     var userOne = new Aws.Iam.User("user_one", new()
+    ///     {
+    ///         Name = "test-user",
+    ///     });
     /// 
-    ///     var userTwo = new Aws.Iam.User("userTwo");
+    ///     var userTwo = new Aws.Iam.User("user_two", new()
+    ///     {
+    ///         Name = "test-user-two",
+    ///     });
     /// 
     ///     var team = new Aws.Iam.GroupMembership("team", new()
     ///     {
+    ///         Name = "tf-testing-group-membership",
     ///         Users = new[]
     ///         {
     ///             userOne.Name,
@@ -47,6 +58,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:iam/groupMembership:GroupMembership")]
     public partial class GroupMembership : global::Pulumi.CustomResource

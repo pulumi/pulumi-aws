@@ -16,8 +16,10 @@ import (
 // > **NOTE:** Lake Formation introduces fine-grained access control for data in your data lake. Part of the changes include the `IAMAllowedPrincipals` principal in order to make Lake Formation backwards compatible with existing IAM and Glue permissions. For more information, see [Changing the Default Security Settings for Your Data Lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html) and [Upgrading AWS Glue Data Permissions to the AWS Lake Formation Model](https://docs.aws.amazon.com/lake-formation/latest/dg/upgrade-glue-lake-formation.html).
 //
 // ## Example Usage
+//
 // ### Data Lake Admins
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,8 +34,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewDataLakeSettings(ctx, "example", &lakeformation.DataLakeSettingsArgs{
 //				Admins: pulumi.StringArray{
-//					aws_iam_user.Test.Arn,
-//					aws_iam_role.Test.Arn,
+//					test.Arn,
+//					testAwsIamRole.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -44,8 +46,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Create Default Permissions
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,8 +65,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewDataLakeSettings(ctx, "example", &lakeformation.DataLakeSettingsArgs{
 //				Admins: pulumi.StringArray{
-//					aws_iam_user.Test.Arn,
-//					aws_iam_role.Test.Arn,
+//					test.Arn,
+//					testAwsIamRole.Arn,
 //				},
 //				CreateDatabaseDefaultPermissions: lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArray{
 //					&lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArgs{
@@ -70,7 +75,7 @@ import (
 //							pulumi.String("ALTER"),
 //							pulumi.String("DROP"),
 //						},
-//						Principal: pulumi.Any(aws_iam_user.Test.Arn),
+//						Principal: pulumi.Any(test.Arn),
 //					},
 //				},
 //				CreateTableDefaultPermissions: lakeformation.DataLakeSettingsCreateTableDefaultPermissionArray{
@@ -78,7 +83,7 @@ import (
 //						Permissions: pulumi.StringArray{
 //							pulumi.String("ALL"),
 //						},
-//						Principal: pulumi.Any(aws_iam_role.Test.Arn),
+//						Principal: pulumi.Any(testAwsIamRole.Arn),
 //					},
 //				},
 //			})
@@ -90,8 +95,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Enable EMR access to LakeFormation resources
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -106,8 +114,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewDataLakeSettings(ctx, "example", &lakeformation.DataLakeSettingsArgs{
 //				Admins: pulumi.StringArray{
-//					aws_iam_user.Test.Arn,
-//					aws_iam_role.Test.Arn,
+//					test.Arn,
+//					testAwsIamRole.Arn,
 //				},
 //				CreateDatabaseDefaultPermissions: lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArray{
 //					&lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArgs{
@@ -116,7 +124,7 @@ import (
 //							pulumi.String("ALTER"),
 //							pulumi.String("DROP"),
 //						},
-//						Principal: pulumi.Any(aws_iam_user.Test.Arn),
+//						Principal: pulumi.Any(test.Arn),
 //					},
 //				},
 //				CreateTableDefaultPermissions: lakeformation.DataLakeSettingsCreateTableDefaultPermissionArray{
@@ -124,13 +132,13 @@ import (
 //						Permissions: pulumi.StringArray{
 //							pulumi.String("ALL"),
 //						},
-//						Principal: pulumi.Any(aws_iam_role.Test.Arn),
+//						Principal: pulumi.Any(testAwsIamRole.Arn),
 //					},
 //				},
 //				AllowExternalDataFiltering: pulumi.Bool(true),
 //				ExternalDataFilteringAllowLists: pulumi.StringArray{
-//					data.Aws_caller_identity.Current.Account_id,
-//					data.Aws_caller_identity.Third_party.Account_id,
+//					current.AccountId,
+//					thirdParty.AccountId,
 //				},
 //				AuthorizedSessionTagValueLists: pulumi.StringArray{
 //					pulumi.String("Amazon EMR"),
@@ -144,6 +152,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type DataLakeSettings struct {
 	pulumi.CustomResourceState
 

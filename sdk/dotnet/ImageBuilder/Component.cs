@@ -13,8 +13,10 @@ namespace Pulumi.Aws.ImageBuilder
     /// Manages an Image Builder Component.
     /// 
     /// ## Example Usage
+    /// 
     /// ### URI Document
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,22 +27,24 @@ namespace Pulumi.Aws.ImageBuilder
     /// {
     ///     var example = new Aws.ImageBuilder.Component("example", new()
     ///     {
+    ///         Name = "example",
     ///         Platform = "Linux",
-    ///         Uri = $"s3://{aws_s3_object.Example.Bucket}/{aws_s3_object.Example.Key}",
+    ///         Uri = $"s3://{exampleAwsS3Object.Bucket}/{exampleAwsS3Object.Key}",
     ///         Version = "1.0.0",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_imagebuilder_components` resources using the Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
+    /// $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
     /// ```
-    ///  Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
+    /// Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
     /// </summary>
     [AwsResourceType("aws:imagebuilder/component:Component")]
     public partial class Component : global::Pulumi.CustomResource
@@ -174,10 +178,6 @@ namespace Pulumi.Aws.ImageBuilder
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -391,11 +391,7 @@ namespace Pulumi.Aws.ImageBuilder
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

@@ -12,11 +12,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const oauthConfig = new aws.kms.Key("oauthConfig", {
+ * const oauthConfig = new aws.kms.Key("oauth_config", {
  *     description: "oauth config",
  *     isEnabled: true,
  * });
@@ -29,6 +30,7 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class Ciphertext extends pulumi.CustomResource {
     /**

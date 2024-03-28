@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,11 +30,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := glue.NewWorkflow(ctx, "example", nil)
+//			example, err := glue.NewWorkflow(ctx, "example", &glue.WorkflowArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = glue.NewTrigger(ctx, "example-start", &glue.TriggerArgs{
+//				Name:         pulumi.String("trigger-start"),
 //				Type:         pulumi.String("ON_DEMAND"),
 //				WorkflowName: example.Name,
 //				Actions: glue.TriggerActionArray{
@@ -46,6 +50,7 @@ import (
 //				return err
 //			}
 //			_, err = glue.NewTrigger(ctx, "example-inner", &glue.TriggerArgs{
+//				Name:         pulumi.String("trigger-inner"),
 //				Type:         pulumi.String("CONDITIONAL"),
 //				WorkflowName: example.Name,
 //				Predicate: &glue.TriggerPredicateArgs{
@@ -70,15 +75,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glue Workflows using `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
-//
+// $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
 // ```
 type Workflow struct {
 	pulumi.CustomResourceState
@@ -108,10 +112,6 @@ func NewWorkflow(ctx *pulumi.Context,
 		args = &WorkflowArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workflow
 	err := ctx.RegisterResource("aws:glue/workflow:Workflow", name, args, &resource, opts...)

@@ -4,6 +4,7 @@
 package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -57,19 +58,25 @@ public final class GetRoutingProfileMediaConcurrency {
 
         @CustomType.Setter
         public Builder channel(String channel) {
-            this.channel = Objects.requireNonNull(channel);
+            if (channel == null) {
+              throw new MissingRequiredPropertyException("GetRoutingProfileMediaConcurrency", "channel");
+            }
+            this.channel = channel;
             return this;
         }
         @CustomType.Setter
         public Builder concurrency(Integer concurrency) {
-            this.concurrency = Objects.requireNonNull(concurrency);
+            if (concurrency == null) {
+              throw new MissingRequiredPropertyException("GetRoutingProfileMediaConcurrency", "concurrency");
+            }
+            this.concurrency = concurrency;
             return this;
         }
         public GetRoutingProfileMediaConcurrency build() {
-            final var o = new GetRoutingProfileMediaConcurrency();
-            o.channel = channel;
-            o.concurrency = concurrency;
-            return o;
+            final var _resultValue = new GetRoutingProfileMediaConcurrency();
+            _resultValue.channel = channel;
+            _resultValue.concurrency = concurrency;
+            return _resultValue;
         }
     }
 }

@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * Basic usage.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,13 +50,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ManagedPrefixList(&#34;example&#34;, ManagedPrefixListArgs.builder()        
+ *             .name(&#34;All VPC CIDR-s&#34;)
  *             .addressFamily(&#34;IPv4&#34;)
  *             .maxEntries(5)
  *             .tags(Map.of(&#34;Env&#34;, &#34;live&#34;))
  *             .build());
  * 
  *         var entry1 = new ManagedPrefixListEntry(&#34;entry1&#34;, ManagedPrefixListEntryArgs.builder()        
- *             .cidr(aws_vpc.example().cidr_block())
+ *             .cidr(exampleAwsVpc.cidrBlock())
  *             .description(&#34;Primary&#34;)
  *             .prefixListId(example.id())
  *             .build());
@@ -62,13 +65,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import prefix list entries using `prefix_list_id` and `cidr` separated by a comma (`,`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
+ * $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
  * ```
  * 
  */
@@ -103,14 +107,14 @@ public class ManagedPrefixListEntry extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.description);
     }
     /**
-     * CIDR block of this entry.
+     * The ID of the prefix list.
      * 
      */
     @Export(name="prefixListId", refs={String.class}, tree="[0]")
     private Output<String> prefixListId;
 
     /**
-     * @return CIDR block of this entry.
+     * @return The ID of the prefix list.
      * 
      */
     public Output<String> prefixListId() {

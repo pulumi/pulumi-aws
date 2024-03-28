@@ -5,6 +5,7 @@ package com.pulumi.aws.autoscaling.outputs;
 
 import com.pulumi.aws.autoscaling.outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,16 +44,19 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
 
         @CustomType.Setter
         public Builder metricDataQueries(List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery> metricDataQueries) {
-            this.metricDataQueries = Objects.requireNonNull(metricDataQueries);
+            if (metricDataQueries == null) {
+              throw new MissingRequiredPropertyException("PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification", "metricDataQueries");
+            }
+            this.metricDataQueries = metricDataQueries;
             return this;
         }
         public Builder metricDataQueries(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery... metricDataQueries) {
             return metricDataQueries(List.of(metricDataQueries));
         }
         public PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification build() {
-            final var o = new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification();
-            o.metricDataQueries = metricDataQueries;
-            return o;
+            final var _resultValue = new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification();
+            _resultValue.metricDataQueries = metricDataQueries;
+            return _resultValue;
         }
     }
 }

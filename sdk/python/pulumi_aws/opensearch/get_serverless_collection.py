@@ -21,7 +21,7 @@ class GetServerlessCollectionResult:
     """
     A collection of values returned by getServerlessCollection.
     """
-    def __init__(__self__, arn=None, collection_endpoint=None, created_date=None, dashboard_endpoint=None, description=None, id=None, kms_key_arn=None, last_modified_date=None, name=None, tags=None, type=None):
+    def __init__(__self__, arn=None, collection_endpoint=None, created_date=None, dashboard_endpoint=None, description=None, id=None, kms_key_arn=None, last_modified_date=None, name=None, standby_replicas=None, tags=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -49,6 +49,9 @@ class GetServerlessCollectionResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if standby_replicas and not isinstance(standby_replicas, str):
+            raise TypeError("Expected argument 'standby_replicas' to be a str")
+        pulumi.set(__self__, "standby_replicas", standby_replicas)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -123,6 +126,14 @@ class GetServerlessCollectionResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="standbyReplicas")
+    def standby_replicas(self) -> str:
+        """
+        Indicates whether standby replicas should be used for a collection.
+        """
+        return pulumi.get(self, "standby_replicas")
+
+    @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
@@ -154,6 +165,7 @@ class AwaitableGetServerlessCollectionResult(GetServerlessCollectionResult):
             kms_key_arn=self.kms_key_arn,
             last_modified_date=self.last_modified_date,
             name=self.name,
+            standby_replicas=self.standby_replicas,
             tags=self.tags,
             type=self.type)
 
@@ -165,14 +177,17 @@ def get_serverless_collection(id: Optional[str] = None,
     Data source for managing an AWS OpenSearch Serverless Collection.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.opensearch.get_serverless_collection(name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: ID of the collection. Either `id` or `name` must be provided.
@@ -194,6 +209,7 @@ def get_serverless_collection(id: Optional[str] = None,
         kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         last_modified_date=pulumi.get(__ret__, 'last_modified_date'),
         name=pulumi.get(__ret__, 'name'),
+        standby_replicas=pulumi.get(__ret__, 'standby_replicas'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 
@@ -206,14 +222,17 @@ def get_serverless_collection_output(id: Optional[pulumi.Input[Optional[str]]] =
     Data source for managing an AWS OpenSearch Serverless Collection.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.opensearch.get_serverless_collection(name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: ID of the collection. Either `id` or `name` must be provided.

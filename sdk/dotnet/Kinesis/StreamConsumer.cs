@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,25 +27,28 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleStream = new Aws.Kinesis.Stream("exampleStream", new()
+    ///     var example = new Aws.Kinesis.Stream("example", new()
     ///     {
+    ///         Name = "example-stream",
     ///         ShardCount = 1,
     ///     });
     /// 
-    ///     var exampleStreamConsumer = new Aws.Kinesis.StreamConsumer("exampleStreamConsumer", new()
+    ///     var exampleStreamConsumer = new Aws.Kinesis.StreamConsumer("example", new()
     ///     {
-    ///         StreamArn = exampleStream.Arn,
+    ///         Name = "example-consumer",
+    ///         StreamArn = example.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Kinesis Stream Consumers using the Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:kinesis/streamConsumer:StreamConsumer example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553
+    /// $ pulumi import aws:kinesis/streamConsumer:StreamConsumer example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553
     /// ```
     /// </summary>
     [AwsResourceType("aws:kinesis/streamConsumer:StreamConsumer")]

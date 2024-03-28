@@ -5,6 +5,7 @@ package com.pulumi.aws.rds.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -224,11 +225,21 @@ public final class GetReservedInstanceOfferingArgs extends com.pulumi.resources.
         }
 
         public GetReservedInstanceOfferingArgs build() {
-            $.dbInstanceClass = Objects.requireNonNull($.dbInstanceClass, "expected parameter 'dbInstanceClass' to be non-null");
-            $.duration = Objects.requireNonNull($.duration, "expected parameter 'duration' to be non-null");
-            $.multiAz = Objects.requireNonNull($.multiAz, "expected parameter 'multiAz' to be non-null");
-            $.offeringType = Objects.requireNonNull($.offeringType, "expected parameter 'offeringType' to be non-null");
-            $.productDescription = Objects.requireNonNull($.productDescription, "expected parameter 'productDescription' to be non-null");
+            if ($.dbInstanceClass == null) {
+                throw new MissingRequiredPropertyException("GetReservedInstanceOfferingArgs", "dbInstanceClass");
+            }
+            if ($.duration == null) {
+                throw new MissingRequiredPropertyException("GetReservedInstanceOfferingArgs", "duration");
+            }
+            if ($.multiAz == null) {
+                throw new MissingRequiredPropertyException("GetReservedInstanceOfferingArgs", "multiAz");
+            }
+            if ($.offeringType == null) {
+                throw new MissingRequiredPropertyException("GetReservedInstanceOfferingArgs", "offeringType");
+            }
+            if ($.productDescription == null) {
+                throw new MissingRequiredPropertyException("GetReservedInstanceOfferingArgs", "productDescription");
+            }
             return $;
         }
     }

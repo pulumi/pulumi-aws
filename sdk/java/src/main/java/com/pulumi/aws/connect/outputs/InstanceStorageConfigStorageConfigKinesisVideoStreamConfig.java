@@ -5,6 +5,7 @@ package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.aws.connect.outputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -72,25 +73,34 @@ public final class InstanceStorageConfigStorageConfigKinesisVideoStreamConfig {
 
         @CustomType.Setter
         public Builder encryptionConfig(InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig encryptionConfig) {
-            this.encryptionConfig = Objects.requireNonNull(encryptionConfig);
+            if (encryptionConfig == null) {
+              throw new MissingRequiredPropertyException("InstanceStorageConfigStorageConfigKinesisVideoStreamConfig", "encryptionConfig");
+            }
+            this.encryptionConfig = encryptionConfig;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(String prefix) {
-            this.prefix = Objects.requireNonNull(prefix);
+            if (prefix == null) {
+              throw new MissingRequiredPropertyException("InstanceStorageConfigStorageConfigKinesisVideoStreamConfig", "prefix");
+            }
+            this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder retentionPeriodHours(Integer retentionPeriodHours) {
-            this.retentionPeriodHours = Objects.requireNonNull(retentionPeriodHours);
+            if (retentionPeriodHours == null) {
+              throw new MissingRequiredPropertyException("InstanceStorageConfigStorageConfigKinesisVideoStreamConfig", "retentionPeriodHours");
+            }
+            this.retentionPeriodHours = retentionPeriodHours;
             return this;
         }
         public InstanceStorageConfigStorageConfigKinesisVideoStreamConfig build() {
-            final var o = new InstanceStorageConfigStorageConfigKinesisVideoStreamConfig();
-            o.encryptionConfig = encryptionConfig;
-            o.prefix = prefix;
-            o.retentionPeriodHours = retentionPeriodHours;
-            return o;
+            final var _resultValue = new InstanceStorageConfigStorageConfigKinesisVideoStreamConfig();
+            _resultValue.encryptionConfig = encryptionConfig;
+            _resultValue.prefix = prefix;
+            _resultValue.retentionPeriodHours = retentionPeriodHours;
+            return _resultValue;
         }
     }
 }

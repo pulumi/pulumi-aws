@@ -98,22 +98,26 @@ def get_workspaces(alias_prefix: Optional[str] = None,
 
     The following example returns all of the workspaces in a region:
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.amp.get_workspaces()
     ```
+    <!--End PulumiCodeChooser -->
 
     The following example filters the workspaces by alias. Only the workspaces with
     aliases that begin with the value of `alias_prefix` will be returned:
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.amp.get_workspaces(alias_prefix="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str alias_prefix: Limits results to workspaces with aliases that begin with this value.
@@ -141,22 +145,26 @@ def get_workspaces_output(alias_prefix: Optional[pulumi.Input[Optional[str]]] = 
 
     The following example returns all of the workspaces in a region:
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.amp.get_workspaces()
     ```
+    <!--End PulumiCodeChooser -->
 
     The following example filters the workspaces by alias. Only the workspaces with
     aliases that begin with the value of `alias_prefix` will be returned:
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.amp.get_workspaces(alias_prefix="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str alias_prefix: Limits results to workspaces with aliases that begin with this value.

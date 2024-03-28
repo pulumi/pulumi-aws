@@ -19,7 +19,7 @@ public final class DomainDomainSettings {
      */
     private @Nullable String executionRoleIdentityConfig;
     /**
-     * @return A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+     * @return A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
      * 
      */
     private @Nullable DomainDomainSettingsRStudioServerProDomainSettings rStudioServerProDomainSettings;
@@ -38,7 +38,7 @@ public final class DomainDomainSettings {
         return Optional.ofNullable(this.executionRoleIdentityConfig);
     }
     /**
-     * @return A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+     * @return A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
      * 
      */
     public Optional<DomainDomainSettingsRStudioServerProDomainSettings> rStudioServerProDomainSettings() {
@@ -74,16 +74,19 @@ public final class DomainDomainSettings {
 
         @CustomType.Setter
         public Builder executionRoleIdentityConfig(@Nullable String executionRoleIdentityConfig) {
+
             this.executionRoleIdentityConfig = executionRoleIdentityConfig;
             return this;
         }
         @CustomType.Setter
         public Builder rStudioServerProDomainSettings(@Nullable DomainDomainSettingsRStudioServerProDomainSettings rStudioServerProDomainSettings) {
+
             this.rStudioServerProDomainSettings = rStudioServerProDomainSettings;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
+
             this.securityGroupIds = securityGroupIds;
             return this;
         }
@@ -91,11 +94,11 @@ public final class DomainDomainSettings {
             return securityGroupIds(List.of(securityGroupIds));
         }
         public DomainDomainSettings build() {
-            final var o = new DomainDomainSettings();
-            o.executionRoleIdentityConfig = executionRoleIdentityConfig;
-            o.rStudioServerProDomainSettings = rStudioServerProDomainSettings;
-            o.securityGroupIds = securityGroupIds;
-            return o;
+            final var _resultValue = new DomainDomainSettings();
+            _resultValue.executionRoleIdentityConfig = executionRoleIdentityConfig;
+            _resultValue.rStudioServerProDomainSettings = rStudioServerProDomainSettings;
+            _resultValue.securityGroupIds = securityGroupIds;
+            return _resultValue;
         }
     }
 }

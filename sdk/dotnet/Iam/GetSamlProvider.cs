@@ -16,10 +16,9 @@ namespace Pulumi.Aws.Iam
         /// IAM SAML provider. This will allow you to easily retrieve the metadata
         /// document of an existing SAML provider.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,8 +34,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSamlProviderResult> InvokeAsync(GetSamlProviderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSamlProviderResult>("aws:iam/getSamlProvider:getSamlProvider", args ?? new GetSamlProviderArgs(), options.WithDefaults());
@@ -46,10 +44,9 @@ namespace Pulumi.Aws.Iam
         /// IAM SAML provider. This will allow you to easily retrieve the metadata
         /// document of an existing SAML provider.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,8 +62,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSamlProviderResult> Invoke(GetSamlProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSamlProviderResult>("aws:iam/getSamlProvider:getSamlProvider", args ?? new GetSamlProviderInvokeArgs(), options.WithDefaults());

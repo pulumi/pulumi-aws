@@ -212,85 +212,98 @@ public final class PresetVideo {
 
         @CustomType.Setter
         public Builder aspectRatio(@Nullable String aspectRatio) {
+
             this.aspectRatio = aspectRatio;
             return this;
         }
         @CustomType.Setter
         public Builder bitRate(@Nullable String bitRate) {
+
             this.bitRate = bitRate;
             return this;
         }
         @CustomType.Setter
         public Builder codec(@Nullable String codec) {
+
             this.codec = codec;
             return this;
         }
         @CustomType.Setter
         public Builder displayAspectRatio(@Nullable String displayAspectRatio) {
+
             this.displayAspectRatio = displayAspectRatio;
             return this;
         }
         @CustomType.Setter
         public Builder fixedGop(@Nullable String fixedGop) {
+
             this.fixedGop = fixedGop;
             return this;
         }
         @CustomType.Setter
         public Builder frameRate(@Nullable String frameRate) {
+
             this.frameRate = frameRate;
             return this;
         }
         @CustomType.Setter
         public Builder keyframesMaxDist(@Nullable String keyframesMaxDist) {
+
             this.keyframesMaxDist = keyframesMaxDist;
             return this;
         }
         @CustomType.Setter
         public Builder maxFrameRate(@Nullable String maxFrameRate) {
+
             this.maxFrameRate = maxFrameRate;
             return this;
         }
         @CustomType.Setter
         public Builder maxHeight(@Nullable String maxHeight) {
+
             this.maxHeight = maxHeight;
             return this;
         }
         @CustomType.Setter
         public Builder maxWidth(@Nullable String maxWidth) {
+
             this.maxWidth = maxWidth;
             return this;
         }
         @CustomType.Setter
         public Builder paddingPolicy(@Nullable String paddingPolicy) {
+
             this.paddingPolicy = paddingPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder resolution(@Nullable String resolution) {
+
             this.resolution = resolution;
             return this;
         }
         @CustomType.Setter
         public Builder sizingPolicy(@Nullable String sizingPolicy) {
+
             this.sizingPolicy = sizingPolicy;
             return this;
         }
         public PresetVideo build() {
-            final var o = new PresetVideo();
-            o.aspectRatio = aspectRatio;
-            o.bitRate = bitRate;
-            o.codec = codec;
-            o.displayAspectRatio = displayAspectRatio;
-            o.fixedGop = fixedGop;
-            o.frameRate = frameRate;
-            o.keyframesMaxDist = keyframesMaxDist;
-            o.maxFrameRate = maxFrameRate;
-            o.maxHeight = maxHeight;
-            o.maxWidth = maxWidth;
-            o.paddingPolicy = paddingPolicy;
-            o.resolution = resolution;
-            o.sizingPolicy = sizingPolicy;
-            return o;
+            final var _resultValue = new PresetVideo();
+            _resultValue.aspectRatio = aspectRatio;
+            _resultValue.bitRate = bitRate;
+            _resultValue.codec = codec;
+            _resultValue.displayAspectRatio = displayAspectRatio;
+            _resultValue.fixedGop = fixedGop;
+            _resultValue.frameRate = frameRate;
+            _resultValue.keyframesMaxDist = keyframesMaxDist;
+            _resultValue.maxFrameRate = maxFrameRate;
+            _resultValue.maxHeight = maxHeight;
+            _resultValue.maxWidth = maxWidth;
+            _resultValue.paddingPolicy = paddingPolicy;
+            _resultValue.resolution = resolution;
+            _resultValue.sizingPolicy = sizingPolicy;
+            return _resultValue;
         }
     }
 }

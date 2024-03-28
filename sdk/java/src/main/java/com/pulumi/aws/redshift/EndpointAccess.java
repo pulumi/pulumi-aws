@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Creates a new Amazon Redshift endpoint access.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,20 +45,21 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new EndpointAccess(&#34;example&#34;, EndpointAccessArgs.builder()        
  *             .endpointName(&#34;example&#34;)
- *             .subnetGroupName(aws_redshift_subnet_group.example().id())
- *             .clusterIdentifier(aws_redshift_cluster.example().cluster_identifier())
+ *             .subnetGroupName(exampleAwsRedshiftSubnetGroup.id())
+ *             .clusterIdentifier(exampleAwsRedshiftCluster.clusterIdentifier())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift endpoint access using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshift/endpointAccess:EndpointAccess example example
+ * $ pulumi import aws:redshift/endpointAccess:EndpointAccess example example
  * ```
  * 
  */

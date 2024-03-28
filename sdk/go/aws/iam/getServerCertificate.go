@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,13 +37,14 @@ import (
 //				return err
 //			}
 //			_, err = elb.NewLoadBalancer(ctx, "elb", &elb.LoadBalancerArgs{
+//				Name: pulumi.String("my-domain-elb"),
 //				Listeners: elb.LoadBalancerListenerArray{
 //					&elb.LoadBalancerListenerArgs{
 //						InstancePort:     pulumi.Int(8000),
 //						InstanceProtocol: pulumi.String("https"),
 //						LbPort:           pulumi.Int(443),
 //						LbProtocol:       pulumi.String("https"),
-//						SslCertificateId: *pulumi.String(my_domain.Arn),
+//						SslCertificateId: pulumi.String(my_domain.Arn),
 //					},
 //				},
 //			})
@@ -54,6 +56,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupServerCertificate(ctx *pulumi.Context, args *LookupServerCertificateArgs, opts ...pulumi.InvokeOption) (*LookupServerCertificateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerCertificateResult

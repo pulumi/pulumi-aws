@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkmanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,25 +71,34 @@ public final class GetDeviceLocation {
 
         @CustomType.Setter
         public Builder address(String address) {
-            this.address = Objects.requireNonNull(address);
+            if (address == null) {
+              throw new MissingRequiredPropertyException("GetDeviceLocation", "address");
+            }
+            this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder latitude(String latitude) {
-            this.latitude = Objects.requireNonNull(latitude);
+            if (latitude == null) {
+              throw new MissingRequiredPropertyException("GetDeviceLocation", "latitude");
+            }
+            this.latitude = latitude;
             return this;
         }
         @CustomType.Setter
         public Builder longitude(String longitude) {
-            this.longitude = Objects.requireNonNull(longitude);
+            if (longitude == null) {
+              throw new MissingRequiredPropertyException("GetDeviceLocation", "longitude");
+            }
+            this.longitude = longitude;
             return this;
         }
         public GetDeviceLocation build() {
-            final var o = new GetDeviceLocation();
-            o.address = address;
-            o.latitude = latitude;
-            o.longitude = longitude;
-            return o;
+            final var _resultValue = new GetDeviceLocation();
+            _resultValue.address = address;
+            _resultValue.latitude = latitude;
+            _resultValue.longitude = longitude;
+            return _resultValue;
         }
     }
 }

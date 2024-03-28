@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Ec2
     /// Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic example using AMI lookup
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,7 +35,7 @@ namespace Pulumi.Aws.Ec2
     ///                 Name = "name",
     ///                 Values = new[]
     ///                 {
-    ///                     "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*",
+    ///                     "ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*",
     ///                 },
     ///             },
     ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
@@ -54,7 +56,7 @@ namespace Pulumi.Aws.Ec2
     ///     var web = new Aws.Ec2.Instance("web", new()
     ///     {
     ///         Ami = ubuntu.Apply(getAmiResult =&gt; getAmiResult.Id),
-    ///         InstanceType = "t3.micro",
+    ///         InstanceType = Aws.Ec2.InstanceType.T3_Micro,
     ///         Tags = 
     ///         {
     ///             { "Name", "HelloWorld" },
@@ -63,8 +65,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Spot instance example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -73,7 +78,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var thisAmi = Aws.Ec2.GetAmi.Invoke(new()
+    ///     var @this = Aws.Ec2.GetAmi.Invoke(new()
     ///     {
     ///         MostRecent = true,
     ///         Owners = new[]
@@ -101,9 +106,9 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var thisInstance = new Aws.Ec2.Instance("thisInstance", new()
+    ///     var thisInstance = new Aws.Ec2.Instance("this", new()
     ///     {
-    ///         Ami = thisAmi.Apply(getAmiResult =&gt; getAmiResult.Id),
+    ///         Ami = @this.Apply(@this =&gt; @this.Apply(getAmiResult =&gt; getAmiResult.Id)),
     ///         InstanceMarketOptions = new Aws.Ec2.Inputs.InstanceInstanceMarketOptionsArgs
     ///         {
     ///             SpotOptions = new Aws.Ec2.Inputs.InstanceInstanceMarketOptionsSpotOptionsArgs
@@ -111,7 +116,7 @@ namespace Pulumi.Aws.Ec2
     ///                 MaxPrice = "0.0031",
     ///             },
     ///         },
-    ///         InstanceType = "t4g.nano",
+    ///         InstanceType = Aws.Ec2.InstanceType.T4g_Nano,
     ///         Tags = 
     ///         {
     ///             { "Name", "test-spot" },
@@ -120,8 +125,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Network and credit specification example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -130,7 +138,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myVpc = new Aws.Ec2.Vpc("myVpc", new()
+    ///     var myVpc = new Aws.Ec2.Vpc("my_vpc", new()
     ///     {
     ///         CidrBlock = "172.16.0.0/16",
     ///         Tags = 
@@ -139,7 +147,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var mySubnet = new Aws.Ec2.Subnet("mySubnet", new()
+    ///     var mySubnet = new Aws.Ec2.Subnet("my_subnet", new()
     ///     {
     ///         VpcId = myVpc.Id,
     ///         CidrBlock = "172.16.10.0/24",
@@ -150,7 +158,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var fooNetworkInterface = new Aws.Ec2.NetworkInterface("fooNetworkInterface", new()
+    ///     var foo = new Aws.Ec2.NetworkInterface("foo", new()
     ///     {
     ///         SubnetId = mySubnet.Id,
     ///         PrivateIps = new[]
@@ -163,15 +171,15 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var fooInstance = new Aws.Ec2.Instance("fooInstance", new()
+    ///     var fooInstance = new Aws.Ec2.Instance("foo", new()
     ///     {
     ///         Ami = "ami-005e54dee72cc1d00",
-    ///         InstanceType = "t2.micro",
+    ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
     ///         NetworkInterfaces = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.InstanceNetworkInterfaceArgs
     ///             {
-    ///                 NetworkInterfaceId = fooNetworkInterface.Id,
+    ///                 NetworkInterfaceId = foo.Id,
     ///                 DeviceIndex = 0,
     ///             },
     ///         },
@@ -183,8 +191,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### CPU options example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -193,7 +204,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var example = new Aws.Ec2.Vpc("example", new()
     ///     {
     ///         CidrBlock = "172.16.0.0/16",
     ///         Tags = 
@@ -202,9 +213,9 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Aws.Ec2.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Aws.Ec2.Subnet("example", new()
     ///     {
-    ///         VpcId = exampleVpc.Id,
+    ///         VpcId = example.Id,
     ///         CidrBlock = "172.16.10.0/24",
     ///         AvailabilityZone = "us-east-2a",
     ///         Tags = 
@@ -233,10 +244,10 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var exampleInstance = new Aws.Ec2.Instance("exampleInstance", new()
+    ///     var exampleInstance = new Aws.Ec2.Instance("example", new()
     ///     {
     ///         Ami = amzn_linux_2023_ami.Apply(amzn_linux_2023_ami =&gt; amzn_linux_2023_ami.Apply(getAmiResult =&gt; getAmiResult.Id)),
-    ///         InstanceType = "c6a.2xlarge",
+    ///         InstanceType = Aws.Ec2.InstanceType.C6a_2XLarge,
     ///         SubnetId = exampleSubnet.Id,
     ///         CpuOptions = new Aws.Ec2.Inputs.InstanceCpuOptionsArgs
     ///         {
@@ -251,12 +262,15 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Host resource group or Licence Manager registered AMI example
     /// 
     /// A host resource group is a collection of Dedicated Hosts that you can manage as a single entity. As you launch instances, License Manager allocates the hosts and launches instances on them based on the settings that you configured. You can add existing Dedicated Hosts to a host resource group and take advantage of automated host management through License Manager.
     /// 
     /// &gt; **NOTE:** A dedicated host is automatically associated with a License Manager host resource group if **Allocate hosts automatically** is enabled. Otherwise, use the `host_resource_group_arn` argument to explicitly associate the instance with the host resource group.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -268,20 +282,33 @@ namespace Pulumi.Aws.Ec2
     ///     var @this = new Aws.Ec2.Instance("this", new()
     ///     {
     ///         Ami = "ami-0dcc1e21636832c5d",
+    ///         InstanceType = Aws.Ec2.InstanceType.M5_Large,
     ///         HostResourceGroupArn = "arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
-    ///         InstanceType = "m5.large",
     ///         Tenancy = "host",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ## Tag Guide
+    /// 
+    /// These are the five types of tags you might encounter relative to an `aws.ec2.Instance`:
+    /// 
+    /// 1. **Instance tags**: Applied to instances but not to `ebs_block_device` and `root_block_device` volumes.
+    /// 2. **Default tags**: Applied to the instance and to `ebs_block_device` and `root_block_device` volumes.
+    /// 3. **Volume tags**: Applied during creation to `ebs_block_device` and `root_block_device` volumes.
+    /// 4. **Root block device tags**: Applied only to the `root_block_device` volume. These conflict with `volume_tags`.
+    /// 5. **EBS block device tags**: Applied only to the specific `ebs_block_device` volume you configure them for and cannot be updated. These conflict with `volume_tags`.
+    /// 
+    /// Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import instances using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/instance:Instance web i-12345678
+    /// $ pulumi import aws:ec2/instance:Instance web i-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/instance:Instance")]
@@ -658,10 +685,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -1387,11 +1410,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

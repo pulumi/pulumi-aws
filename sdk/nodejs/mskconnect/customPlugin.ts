@@ -11,35 +11,39 @@ import * as utilities from "../utilities";
  * Provides an Amazon MSK Connect Custom Plugin Resource.
  *
  * ## Example Usage
+ *
  * ### Basic configuration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
- *     bucket: exampleBucketV2.id,
+ * const example = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("example", {
+ *     bucket: example.id,
  *     key: "debezium.zip",
  *     source: new pulumi.asset.FileAsset("debezium.zip"),
  * });
- * const exampleCustomPlugin = new aws.mskconnect.CustomPlugin("exampleCustomPlugin", {
+ * const exampleCustomPlugin = new aws.mskconnect.CustomPlugin("example", {
+ *     name: "debezium-example",
  *     contentType: "ZIP",
  *     location: {
  *         s3: {
- *             bucketArn: exampleBucketV2.arn,
+ *             bucketArn: example.arn,
  *             fileKey: exampleBucketObjectv2.key,
  *         },
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import MSK Connect Custom Plugin using the plugin's `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example 'arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4'
+ * $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example 'arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4'
  * ```
  */
 export class CustomPlugin extends pulumi.CustomResource {

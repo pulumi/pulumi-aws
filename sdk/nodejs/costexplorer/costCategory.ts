@@ -12,53 +12,56 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.costexplorer.CostCategory("test", {
+ *     name: "NAME",
+ *     ruleVersion: "CostCategoryExpression.v1",
  *     rules: [
  *         {
- *             rule: {
- *                 dimension: {
- *                     key: "LINKED_ACCOUNT_NAME",
- *                     matchOptions: ["ENDS_WITH"],
- *                     values: ["-prod"],
- *                 },
- *             },
  *             value: "production",
- *         },
- *         {
  *             rule: {
  *                 dimension: {
  *                     key: "LINKED_ACCOUNT_NAME",
+ *                     values: ["-prod"],
  *                     matchOptions: ["ENDS_WITH"],
- *                     values: ["-stg"],
  *                 },
  *             },
+ *         },
+ *         {
  *             value: "staging",
- *         },
- *         {
  *             rule: {
  *                 dimension: {
  *                     key: "LINKED_ACCOUNT_NAME",
+ *                     values: ["-stg"],
  *                     matchOptions: ["ENDS_WITH"],
- *                     values: ["-dev"],
  *                 },
  *             },
+ *         },
+ *         {
  *             value: "testing",
+ *             rule: {
+ *                 dimension: {
+ *                     key: "LINKED_ACCOUNT_NAME",
+ *                     values: ["-dev"],
+ *                     matchOptions: ["ENDS_WITH"],
+ *                 },
+ *             },
  *         },
  *     ],
- *     ruleVersion: "CostCategoryExpression.v1",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
  *
  * ```sh
- *  $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
+ * $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
  * ```
  */
 export class CostCategory extends pulumi.CustomResource {
@@ -177,8 +180,6 @@ export class CostCategory extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(CostCategory.__pulumiType, name, resourceInputs, opts);
     }
 }

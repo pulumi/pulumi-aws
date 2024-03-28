@@ -5,6 +5,7 @@ package com.pulumi.aws.sesv2.outputs;
 
 import com.pulumi.aws.sesv2.outputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,16 +44,19 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
 
         @CustomType.Setter
         public Builder dimensionConfigurations(List<ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration> dimensionConfigurations) {
-            this.dimensionConfigurations = Objects.requireNonNull(dimensionConfigurations);
+            if (dimensionConfigurations == null) {
+              throw new MissingRequiredPropertyException("ConfigurationSetEventDestinationEventDestinationCloudWatchDestination", "dimensionConfigurations");
+            }
+            this.dimensionConfigurations = dimensionConfigurations;
             return this;
         }
         public Builder dimensionConfigurations(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration... dimensionConfigurations) {
             return dimensionConfigurations(List.of(dimensionConfigurations));
         }
         public ConfigurationSetEventDestinationEventDestinationCloudWatchDestination build() {
-            final var o = new ConfigurationSetEventDestinationEventDestinationCloudWatchDestination();
-            o.dimensionConfigurations = dimensionConfigurations;
-            return o;
+            final var _resultValue = new ConfigurationSetEventDestinationEventDestinationCloudWatchDestination();
+            _resultValue.dimensionConfigurations = dimensionConfigurations;
+            return _resultValue;
         }
     }
 }

@@ -315,26 +315,13 @@ class Certificate(pulumi.CustomResource):
         Provides a AWS Transfer AS2 Certificate resource.
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.transfer.Certificate("example",
-            certificate=(lambda path: open(path).read())(f"{path['module']}/example.com/example.crt"),
-            certificate_chain=(lambda path: open(path).read())(f"{path['module']}/example.com/ca.crt"),
-            private_key=(lambda path: open(path).read())(f"{path['module']}/example.com/example.key"),
-            description="example",
-            usage="SIGNING")
-        ```
 
         ## Import
 
         Using `pulumi import`, import Transfer AS2 Certificate using the `certificate_id`. For example:
 
         ```sh
-         $ pulumi import aws:transfer/certificate:Certificate example c-4221a88afd5f4362a
+        $ pulumi import aws:transfer/certificate:Certificate example c-4221a88afd5f4362a
         ```
 
         :param str resource_name: The name of the resource.
@@ -356,26 +343,13 @@ class Certificate(pulumi.CustomResource):
         Provides a AWS Transfer AS2 Certificate resource.
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.transfer.Certificate("example",
-            certificate=(lambda path: open(path).read())(f"{path['module']}/example.com/example.crt"),
-            certificate_chain=(lambda path: open(path).read())(f"{path['module']}/example.com/ca.crt"),
-            private_key=(lambda path: open(path).read())(f"{path['module']}/example.com/example.key"),
-            description="example",
-            usage="SIGNING")
-        ```
 
         ## Import
 
         Using `pulumi import`, import Transfer AS2 Certificate using the `certificate_id`. For example:
 
         ```sh
-         $ pulumi import aws:transfer/certificate:Certificate example c-4221a88afd5f4362a
+        $ pulumi import aws:transfer/certificate:Certificate example c-4221a88afd5f4362a
         ```
 
         :param str resource_name: The name of the resource.
@@ -423,7 +397,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["certificate_id"] = None
             __props__.__dict__["inactive_date"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["certificate", "certificateChain", "privateKey", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["certificate", "certificateChain", "privateKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Certificate, __self__).__init__(
             'aws:transfer/certificate:Certificate',

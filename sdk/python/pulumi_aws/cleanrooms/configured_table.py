@@ -308,20 +308,23 @@ class ConfiguredTable(pulumi.CustomResource):
         Provides a AWS Clean Rooms configured table. Configured tables are used to represent references to existing tables in the AWS Glue Data Catalog.
 
         ## Example Usage
+
         ### Configured table with tags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_configured_table = aws.cleanrooms.ConfiguredTable("testConfiguredTable",
+        test_configured_table = aws.cleanrooms.ConfiguredTable("test_configured_table",
+            name="pulumi-example-table",
+            description="I made this table with Pulumi!",
+            analysis_method="DIRECT_QUERY",
             allowed_columns=[
                 "column1",
                 "column2",
                 "column3",
             ],
-            analysis_method="DIRECT_QUERY",
-            description="I made this table with Pulumi!",
             table_reference=aws.cleanrooms.ConfiguredTableTableReferenceArgs(
                 database_name="example_database",
                 table_name="example_table",
@@ -330,13 +333,14 @@ class ConfiguredTable(pulumi.CustomResource):
                 "Project": "Pulumi",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_cleanrooms_configured_table` using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cleanrooms/configuredTable:ConfiguredTable table 1234abcd-12ab-34cd-56ef-1234567890ab
+        $ pulumi import aws:cleanrooms/configuredTable:ConfiguredTable table 1234abcd-12ab-34cd-56ef-1234567890ab
         ```
 
         :param str resource_name: The name of the resource.
@@ -360,20 +364,23 @@ class ConfiguredTable(pulumi.CustomResource):
         Provides a AWS Clean Rooms configured table. Configured tables are used to represent references to existing tables in the AWS Glue Data Catalog.
 
         ## Example Usage
+
         ### Configured table with tags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_configured_table = aws.cleanrooms.ConfiguredTable("testConfiguredTable",
+        test_configured_table = aws.cleanrooms.ConfiguredTable("test_configured_table",
+            name="pulumi-example-table",
+            description="I made this table with Pulumi!",
+            analysis_method="DIRECT_QUERY",
             allowed_columns=[
                 "column1",
                 "column2",
                 "column3",
             ],
-            analysis_method="DIRECT_QUERY",
-            description="I made this table with Pulumi!",
             table_reference=aws.cleanrooms.ConfiguredTableTableReferenceArgs(
                 database_name="example_database",
                 table_name="example_table",
@@ -382,13 +389,14 @@ class ConfiguredTable(pulumi.CustomResource):
                 "Project": "Pulumi",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_cleanrooms_configured_table` using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cleanrooms/configuredTable:ConfiguredTable table 1234abcd-12ab-34cd-56ef-1234567890ab
+        $ pulumi import aws:cleanrooms/configuredTable:ConfiguredTable table 1234abcd-12ab-34cd-56ef-1234567890ab
         ```
 
         :param str resource_name: The name of the resource.
@@ -437,8 +445,6 @@ class ConfiguredTable(pulumi.CustomResource):
             __props__.__dict__["create_time"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["update_time"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ConfiguredTable, __self__).__init__(
             'aws:cleanrooms/configuredTable:ConfiguredTable',
             resource_name,

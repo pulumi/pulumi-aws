@@ -58,19 +58,21 @@ public final class DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
 
         @CustomType.Setter
         public Builder hours(@Nullable Integer hours) {
+
             this.hours = hours;
             return this;
         }
         @CustomType.Setter
         public Builder minutes(@Nullable Integer minutes) {
+
             this.minutes = minutes;
             return this;
         }
         public DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime build() {
-            final var o = new DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime();
-            o.hours = hours;
-            o.minutes = minutes;
-            return o;
+            final var _resultValue = new DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime();
+            _resultValue.hours = hours;
+            _resultValue.minutes = minutes;
+            return _resultValue;
         }
     }
 }

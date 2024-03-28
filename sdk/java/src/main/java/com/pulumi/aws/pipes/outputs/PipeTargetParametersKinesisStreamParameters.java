@@ -4,6 +4,7 @@
 package com.pulumi.aws.pipes.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class PipeTargetParametersKinesisStreamParameters {
 
         @CustomType.Setter
         public Builder partitionKey(String partitionKey) {
-            this.partitionKey = Objects.requireNonNull(partitionKey);
+            if (partitionKey == null) {
+              throw new MissingRequiredPropertyException("PipeTargetParametersKinesisStreamParameters", "partitionKey");
+            }
+            this.partitionKey = partitionKey;
             return this;
         }
         public PipeTargetParametersKinesisStreamParameters build() {
-            final var o = new PipeTargetParametersKinesisStreamParameters();
-            o.partitionKey = partitionKey;
-            return o;
+            final var _resultValue = new PipeTargetParametersKinesisStreamParameters();
+            _resultValue.partitionKey = partitionKey;
+            return _resultValue;
         }
     }
 }

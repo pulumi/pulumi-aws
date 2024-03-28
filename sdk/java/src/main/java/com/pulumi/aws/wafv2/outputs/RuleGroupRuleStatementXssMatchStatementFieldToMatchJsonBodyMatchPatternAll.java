@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMa
         }
 
         public RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll build() {
-            final var o = new RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll();
+            return _resultValue;
         }
     }
 }

@@ -5,6 +5,7 @@ package com.pulumi.aws.elasticbeanstalk.outputs;
 
 import com.pulumi.aws.elasticbeanstalk.outputs.GetApplicationAppversionLifecycle;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -83,37 +84,52 @@ public final class GetApplicationResult {
 
         @CustomType.Setter
         public Builder appversionLifecycle(GetApplicationAppversionLifecycle appversionLifecycle) {
-            this.appversionLifecycle = Objects.requireNonNull(appversionLifecycle);
+            if (appversionLifecycle == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "appversionLifecycle");
+            }
+            this.appversionLifecycle = appversionLifecycle;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetApplicationResult build() {
-            final var o = new GetApplicationResult();
-            o.appversionLifecycle = appversionLifecycle;
-            o.arn = arn;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetApplicationResult();
+            _resultValue.appversionLifecycle = appversionLifecycle;
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

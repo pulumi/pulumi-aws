@@ -33,6 +33,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TargetGroup{}
 	case "aws:lb/targetGroupAttachment:TargetGroupAttachment":
 		r = &TargetGroupAttachment{}
+	case "aws:lb/trustStore:TrustStore":
+		r = &TrustStore{}
+	case "aws:lb/trustStoreRevocation:TrustStoreRevocation":
+		r = &TrustStoreRevocation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -74,6 +78,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lb/targetGroupAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lb/trustStore",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lb/trustStoreRevocation",
 		&module{version},
 	)
 }

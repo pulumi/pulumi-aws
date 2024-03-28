@@ -24,7 +24,10 @@ import javax.annotation.Nullable;
  * Provides a SageMaker Domain resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(&#34;sts:AssumeRole&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -62,15 +65,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .path(&#34;/&#34;)
- *             .assumeRolePolicy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
  *             .domainName(&#34;example&#34;)
  *             .authMode(&#34;IAM&#34;)
- *             .vpcId(aws_vpc.example().id())
- *             .subnetIds(aws_subnet.example().id())
+ *             .vpcId(exampleAwsVpc.id())
+ *             .subnetIds(exampleAwsSubnet.id())
  *             .defaultUserSettings(DomainDefaultUserSettingsArgs.builder()
  *                 .executionRole(exampleRole.arn())
  *                 .build())
@@ -79,7 +83,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Using Custom Images
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -111,9 +119,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleImage = new Image(&#34;exampleImage&#34;, ImageArgs.builder()        
+ *         var example = new Image(&#34;example&#34;, ImageArgs.builder()        
  *             .imageName(&#34;example&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *         var exampleAppImageConfig = new AppImageConfig(&#34;exampleAppImageConfig&#34;, AppImageConfigArgs.builder()        
@@ -126,17 +134,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleImageVersion = new ImageVersion(&#34;exampleImageVersion&#34;, ImageVersionArgs.builder()        
- *             .imageName(exampleImage.id())
+ *             .imageName(example.id())
  *             .baseImage(&#34;base-image&#34;)
  *             .build());
  * 
  *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
  *             .domainName(&#34;example&#34;)
  *             .authMode(&#34;IAM&#34;)
- *             .vpcId(aws_vpc.example().id())
- *             .subnetIds(aws_subnet.example().id())
+ *             .vpcId(exampleAwsVpc.id())
+ *             .subnetIds(exampleAwsSubnet.id())
  *             .defaultUserSettings(DomainDefaultUserSettingsArgs.builder()
- *                 .executionRole(aws_iam_role.example().arn())
+ *                 .executionRole(exampleAwsIamRole.arn())
  *                 .kernelGatewayAppSettings(DomainDefaultUserSettingsKernelGatewayAppSettingsArgs.builder()
  *                     .customImages(DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs.builder()
  *                         .appImageConfigName(exampleAppImageConfig.appImageConfigName())
@@ -149,13 +157,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SageMaker Domains using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
+ * $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
  * ```
  * 
  */
@@ -218,48 +227,56 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.authMode;
     }
     /**
-     * The default space settings. See Default Space Settings below.
+     * The default space settings. See `default_space_settings` Block below.
      * 
      */
     @Export(name="defaultSpaceSettings", refs={DomainDefaultSpaceSettings.class}, tree="[0]")
     private Output</* @Nullable */ DomainDefaultSpaceSettings> defaultSpaceSettings;
 
     /**
-     * @return The default space settings. See Default Space Settings below.
+     * @return The default space settings. See `default_space_settings` Block below.
      * 
      */
     public Output<Optional<DomainDefaultSpaceSettings>> defaultSpaceSettings() {
         return Codegen.optional(this.defaultSpaceSettings);
     }
     /**
-     * The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+     * The default user settings. See `default_user_settings` Block below.
      * 
      */
     @Export(name="defaultUserSettings", refs={DomainDefaultUserSettings.class}, tree="[0]")
     private Output<DomainDefaultUserSettings> defaultUserSettings;
 
     /**
-     * @return The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+     * @return The default user settings. See `default_user_settings` Block below.
      * 
      */
     public Output<DomainDefaultUserSettings> defaultUserSettings() {
         return this.defaultUserSettings;
     }
+    /**
+     * The domain name.
+     * 
+     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
+    /**
+     * @return The domain name.
+     * 
+     */
     public Output<String> domainName() {
         return this.domainName;
     }
     /**
-     * The domain&#39;s settings.
+     * The domain settings. See `domain_settings` Block below.
      * 
      */
     @Export(name="domainSettings", refs={DomainDomainSettings.class}, tree="[0]")
     private Output</* @Nullable */ DomainDomainSettings> domainSettings;
 
     /**
-     * @return The domain&#39;s settings.
+     * @return The domain settings. See `domain_settings` Block below.
      * 
      */
     public Output<Optional<DomainDomainSettings>> domainSettings() {
@@ -294,14 +311,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kmsKeyId);
     }
     /**
-     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
      * 
      */
     @Export(name="retentionPolicy", refs={DomainRetentionPolicy.class}, tree="[0]")
     private Output</* @Nullable */ DomainRetentionPolicy> retentionPolicy;
 
     /**
-     * @return The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+     * @return The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
      * 
      */
     public Output<Optional<DomainRetentionPolicy>> retentionPolicy() {
@@ -320,6 +337,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
      */
     public Output<String> securityGroupIdForDomainBoundary() {
         return this.securityGroupIdForDomainBoundary;
+    }
+    /**
+     * The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+     * 
+     */
+    @Export(name="singleSignOnApplicationArn", refs={String.class}, tree="[0]")
+    private Output<String> singleSignOnApplicationArn;
+
+    /**
+     * @return The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+     * 
+     */
+    public Output<String> singleSignOnApplicationArn() {
+        return this.singleSignOnApplicationArn;
     }
     /**
      * The SSO managed application instance ID.
@@ -446,9 +477,6 @@ public class Domain extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -14,38 +14,78 @@ import java.util.StringJoiner;
      */
     @EnumType
     public enum Runtime {
-        /**
-         * @deprecated
-         * This runtime is now deprecated
-         */
-        @Deprecated /* This runtime is now deprecated */
-        DotnetCore2d1("dotnetcore2.1"),
-        DotnetCore3d1("dotnetcore3.1"),
-        Dotnet5d0("dotnet5.0"),
         Dotnet6("dotnet6"),
-        Go1dx("go1.x"),
-        Java8("java8"),
-        Java8AL2("java8.al2"),
+        Dotnet7("dotnet7"),
+        Dotnet8("dotnet8"),
         Java11("java11"),
         Java17("java17"),
-        /**
-         * @deprecated
-         * This runtime is now deprecated
-         */
-        @Deprecated /* This runtime is now deprecated */
-        Ruby2d5("ruby2.5"),
-        Ruby2d7("ruby2.7"),
+        Java21("java21"),
+        Java8AL2("java8.al2"),
+        NodeJS16dX("nodejs16.x"),
+        NodeJS18dX("nodejs18.x"),
+        NodeJS20dX("nodejs20.x"),
+        CustomAL2("provided.al2"),
+        CustomAL2023("provided.al2023"),
+        Python3d10("python3.10"),
+        Python3d11("python3.11"),
+        Python3d12("python3.12"),
+        Python3d8("python3.8"),
+        Python3d9("python3.9"),
         Ruby3d2("ruby3.2"),
         /**
          * @deprecated
          * This runtime is now deprecated
          */
         @Deprecated /* This runtime is now deprecated */
+        Dotnet5d0("dotnet5.0"),
+        /**
+         * @deprecated
+         * This runtime is now deprecated
+         */
+        @Deprecated /* This runtime is now deprecated */
+        DotnetCore2d1("dotnetcore2.1"),
+        /**
+         * @deprecated
+         * This runtime is now deprecated
+         */
+        @Deprecated /* This runtime is now deprecated */
+        DotnetCore3d1("dotnetcore3.1"),
+        /**
+         * @deprecated
+         * This runtime is now deprecated
+         */
+        @Deprecated /* This runtime is now deprecated */
+        Go1dx("go1.x"),
+        /**
+         * @deprecated
+         * This runtime is now deprecated
+         */
+        @Deprecated /* This runtime is now deprecated */
+        Java8("java8"),
+        /**
+         * @deprecated
+         * This runtime is now deprecated
+         */
+        @Deprecated /* This runtime is now deprecated */
         NodeJS10dX("nodejs10.x"),
+        /**
+         * @deprecated
+         * This runtime is now deprecated
+         */
+        @Deprecated /* This runtime is now deprecated */
         NodeJS12dX("nodejs12.x"),
+        /**
+         * @deprecated
+         * This runtime is now deprecated
+         */
+        @Deprecated /* This runtime is now deprecated */
         NodeJS14dX("nodejs14.x"),
-        NodeJS16dX("nodejs16.x"),
-        NodeJS18dX("nodejs18.x"),
+        /**
+         * @deprecated
+         * This runtime is now deprecated
+         */
+        @Deprecated /* This runtime is now deprecated */
+        Custom("provided"),
         /**
          * @deprecated
          * This runtime is now deprecated
@@ -58,13 +98,24 @@ import java.util.StringJoiner;
          */
         @Deprecated /* This runtime is now deprecated */
         Python3d6("python3.6"),
+        /**
+         * @deprecated
+         * This runtime is now deprecated
+         */
+        @Deprecated /* This runtime is now deprecated */
         Python3d7("python3.7"),
-        Python3d8("python3.8"),
-        Python3d9("python3.9"),
-        Python3d10("python3.10"),
-        Python3d11("python3.11"),
-        Custom("provided"),
-        CustomAL2("provided.al2");
+        /**
+         * @deprecated
+         * This runtime is now deprecated
+         */
+        @Deprecated /* This runtime is now deprecated */
+        Ruby2d5("ruby2.5"),
+        /**
+         * @deprecated
+         * This runtime is now deprecated
+         */
+        @Deprecated /* This runtime is now deprecated */
+        Ruby2d7("ruby2.7");
 
         private final String value;
 

@@ -8,37 +8,42 @@ import * as utilities from "../utilities";
  * Provides a Cognito User Pool Domain resource.
  *
  * ## Example Usage
+ *
  * ### Amazon Cognito domain
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cognito.UserPool("example", {});
+ * const example = new aws.cognito.UserPool("example", {name: "example-pool"});
  * const main = new aws.cognito.UserPoolDomain("main", {
  *     domain: "example-domain",
  *     userPoolId: example.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Custom Cognito domain
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {});
+ * const exampleUserPool = new aws.cognito.UserPool("example", {name: "example-pool"});
  * const main = new aws.cognito.UserPoolDomain("main", {
  *     domain: "example-domain",
- *     certificateArn: aws_acm_certificate.cert.arn,
+ *     certificateArn: cert.arn,
  *     userPoolId: exampleUserPool.id,
  * });
- * const exampleZone = aws.route53.getZone({
+ * const example = aws.route53.getZone({
  *     name: "example.com",
  * });
  * const auth_cognito_A = new aws.route53.Record("auth-cognito-A", {
  *     name: main.domain,
- *     type: "A",
- *     zoneId: exampleZone.then(exampleZone => exampleZone.zoneId),
+ *     type: aws.route53.RecordType.A,
+ *     zoneId: example.then(example => example.zoneId),
  *     aliases: [{
  *         evaluateTargetHealth: false,
  *         name: main.cloudfrontDistribution,
@@ -46,13 +51,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Cognito User Pool Domains using the `domain`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
+ * $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
  * ```
  */
 export class UserPoolDomain extends pulumi.CustomResource {

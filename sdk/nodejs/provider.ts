@@ -137,6 +137,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["skipRequestingAccountId"] = pulumi.output(args ? args.skipRequestingAccountId : undefined).apply(JSON.stringify);
             resourceInputs["stsRegion"] = args ? args.stsRegion : undefined;
             resourceInputs["token"] = args ? args.token : undefined;
+            resourceInputs["tokenBucketRateLimiterCapacity"] = pulumi.output(args ? args.tokenBucketRateLimiterCapacity : undefined).apply(JSON.stringify);
             resourceInputs["useDualstackEndpoint"] = pulumi.output(args ? args.useDualstackEndpoint : undefined).apply(JSON.stringify);
             resourceInputs["useFipsEndpoint"] = pulumi.output(args ? args.useFipsEndpoint : undefined).apply(JSON.stringify);
         }
@@ -267,6 +268,10 @@ export interface ProviderArgs {
      * session token. A session token is only required if you are using temporary security credentials.
      */
     token?: pulumi.Input<string>;
+    /**
+     * The capacity of the AWS SDK's token bucket rate limiter.
+     */
+    tokenBucketRateLimiterCapacity?: pulumi.Input<number>;
     /**
      * Resolve an endpoint with DualStack capability
      */

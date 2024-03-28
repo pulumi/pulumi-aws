@@ -27,7 +27,10 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** A Redshift cluster&#39;s default IAM role can be managed both by this resource&#39;s `default_iam_role_arn` argument and the `aws.redshift.ClusterIamRoles` resource&#39;s `default_iam_role_arn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,17 +54,21 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
  *             .clusterIdentifier(&#34;tf-redshift-cluster&#34;)
- *             .clusterType(&#34;single-node&#34;)
  *             .databaseName(&#34;mydb&#34;)
+ *             .masterUsername(&#34;exampleuser&#34;)
  *             .masterPassword(&#34;Mustbe8characters&#34;)
- *             .masterUsername(&#34;exampleuser&#34;)
  *             .nodeType(&#34;dc1.large&#34;)
+ *             .clusterType(&#34;single-node&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With Managed Credentials
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -85,23 +92,24 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
  *             .clusterIdentifier(&#34;tf-redshift-cluster&#34;)
- *             .clusterType(&#34;single-node&#34;)
  *             .databaseName(&#34;mydb&#34;)
- *             .manageMasterPassword(true)
  *             .masterUsername(&#34;exampleuser&#34;)
  *             .nodeType(&#34;dc1.large&#34;)
+ *             .clusterType(&#34;single-node&#34;)
+ *             .manageMasterPassword(true)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift Clusters using the `cluster_identifier`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
+ * $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
  * ```
  * 
  */
@@ -608,6 +616,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.masterUsername);
     }
     /**
+     * Specifies if the Redshift cluster is multi-AZ.
+     * 
+     */
+    @Export(name="multiAz", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> multiAz;
+
+    /**
+     * @return Specifies if the Redshift cluster is multi-AZ.
+     * 
+     */
+    public Output<Optional<Boolean>> multiAz() {
+        return Codegen.optional(this.multiAz);
+    }
+    /**
      * The node type to be provisioned for the cluster.
      * 
      */
@@ -849,8 +871,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "masterPassword",
-                "tagsAll"
+                "masterPassword"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

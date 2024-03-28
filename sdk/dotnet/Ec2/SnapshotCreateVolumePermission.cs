@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,12 +29,12 @@ namespace Pulumi.Aws.Ec2
     ///         Size = 40,
     ///     });
     /// 
-    ///     var exampleSnapshot = new Aws.Ebs.Snapshot("exampleSnapshot", new()
+    ///     var exampleSnapshot = new Aws.Ebs.Snapshot("example_snapshot", new()
     ///     {
     ///         VolumeId = example.Id,
     ///     });
     /// 
-    ///     var examplePerm = new Aws.Ec2.SnapshotCreateVolumePermission("examplePerm", new()
+    ///     var examplePerm = new Aws.Ec2.SnapshotCreateVolumePermission("example_perm", new()
     ///     {
     ///         SnapshotId = exampleSnapshot.Id,
     ///         AccountId = "12345678",
@@ -41,6 +42,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission")]
     public partial class SnapshotCreateVolumePermission : global::Pulumi.CustomResource

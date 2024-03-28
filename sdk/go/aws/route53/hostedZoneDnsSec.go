@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,38 +43,38 @@ import (
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Statement": []interface{}{
+//				"statement": []interface{}{
 //					map[string]interface{}{
-//						"Action": []string{
+//						"action": []string{
 //							"kms:DescribeKey",
 //							"kms:GetPublicKey",
 //							"kms:Sign",
 //							"kms:Verify",
 //						},
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "dnssec-route53.amazonaws.com",
+//						"effect": "Allow",
+//						"principal": map[string]interface{}{
+//							"service": "dnssec-route53.amazonaws.com",
 //						},
-//						"Resource": "*",
-//						"Sid":      "Allow Route 53 DNSSEC Service",
+//						"resource": "*",
+//						"sid":      "Allow Route 53 DNSSEC Service",
 //					},
 //					map[string]interface{}{
-//						"Action": "kms:*",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"action": "kms:*",
+//						"effect": "Allow",
+//						"principal": map[string]interface{}{
 //							"AWS": fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
 //						},
-//						"Resource": "*",
-//						"Sid":      "Enable IAM User Permissions",
+//						"resource": "*",
+//						"sid":      "Enable IAM User Permissions",
 //					},
 //				},
-//				"Version": "2012-10-17",
+//				"version": "2012-10-17",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				CustomerMasterKeySpec: pulumi.String("ECC_NIST_P256"),
 //				DeletionWindowInDays:  pulumi.Int(7),
 //				KeyUsage:              pulumi.String("SIGN_VERIFY"),
@@ -82,22 +83,23 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleZone, err := route53.NewZone(ctx, "exampleZone", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleKeySigningKey, err := route53.NewKeySigningKey(ctx, "exampleKeySigningKey", &route53.KeySigningKeyArgs{
-//				HostedZoneId:            exampleZone.ID(),
-//				KeyManagementServiceArn: exampleKey.Arn,
+//			exampleZone, err := route53.NewZone(ctx, "example", &route53.ZoneArgs{
+//				Name: pulumi.String("example.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = route53.NewHostedZoneDnsSec(ctx, "exampleHostedZoneDnsSec", &route53.HostedZoneDnsSecArgs{
+//			exampleKeySigningKey, err := route53.NewKeySigningKey(ctx, "example", &route53.KeySigningKeyArgs{
+//				HostedZoneId:            exampleZone.ID(),
+//				KeyManagementServiceArn: example.Arn,
+//				Name:                    pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewHostedZoneDnsSec(ctx, "example", &route53.HostedZoneDnsSecArgs{
 //				HostedZoneId: exampleKeySigningKey.HostedZoneId,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleKeySigningKey,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -106,15 +108,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_route53_hosted_zone_dnssec` resources using the Route 53 Hosted Zone identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53/hostedZoneDnsSec:HostedZoneDnsSec example Z1D633PJN98FT9
-//
+// $ pulumi import aws:route53/hostedZoneDnsSec:HostedZoneDnsSec example Z1D633PJN98FT9
 // ```
 type HostedZoneDnsSec struct {
 	pulumi.CustomResourceState

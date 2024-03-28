@@ -257,24 +257,26 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.ec2.VpcIpamResourceDiscoveryAssociation("test",
-            ipam_id=aws_vpc_ipam["test"]["id"],
-            ipam_resource_discovery_id=aws_vpc_ipam_resource_discovery["test"]["id"],
+            ipam_id=test_aws_vpc_ipam["id"],
+            ipam_resource_discovery_id=test_aws_vpc_ipam_resource_discovery["id"],
             tags={
                 "Name": "test",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IPAMs using the IPAM resource discovery association `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation example ipam-res-disco-assoc-0178368ad2146a492
+        $ pulumi import aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation example ipam-res-disco-assoc-0178368ad2146a492
         ```
 
         :param str resource_name: The name of the resource.
@@ -298,24 +300,26 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.ec2.VpcIpamResourceDiscoveryAssociation("test",
-            ipam_id=aws_vpc_ipam["test"]["id"],
-            ipam_resource_discovery_id=aws_vpc_ipam_resource_discovery["test"]["id"],
+            ipam_id=test_aws_vpc_ipam["id"],
+            ipam_resource_discovery_id=test_aws_vpc_ipam_resource_discovery["id"],
             tags={
                 "Name": "test",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IPAMs using the IPAM resource discovery association `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation example ipam-res-disco-assoc-0178368ad2146a492
+        $ pulumi import aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation example ipam-res-disco-assoc-0178368ad2146a492
         ```
 
         :param str resource_name: The name of the resource.
@@ -359,8 +363,6 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VpcIpamResourceDiscoveryAssociation, __self__).__init__(
             'aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation',
             resource_name,

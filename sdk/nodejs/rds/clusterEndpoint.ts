@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -31,7 +32,7 @@ import * as utilities from "../utilities";
  *     applyImmediately: true,
  *     clusterIdentifier: _default.id,
  *     identifier: "test1",
- *     instanceClass: "db.t2.small",
+ *     instanceClass: aws.rds.InstanceType.T2_Small,
  *     engine: _default.engine,
  *     engineVersion: _default.engineVersion,
  * });
@@ -39,7 +40,7 @@ import * as utilities from "../utilities";
  *     applyImmediately: true,
  *     clusterIdentifier: _default.id,
  *     identifier: "test2",
- *     instanceClass: "db.t2.small",
+ *     instanceClass: aws.rds.InstanceType.T2_Small,
  *     engine: _default.engine,
  *     engineVersion: _default.engineVersion,
  * });
@@ -47,7 +48,7 @@ import * as utilities from "../utilities";
  *     applyImmediately: true,
  *     clusterIdentifier: _default.id,
  *     identifier: "test3",
- *     instanceClass: "db.t2.small",
+ *     instanceClass: aws.rds.InstanceType.T2_Small,
  *     engine: _default.engine,
  *     engineVersion: _default.engineVersion,
  * });
@@ -70,13 +71,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import RDS Clusters Endpoint using the `cluster_endpoint_identifier`. For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/clusterEndpoint:ClusterEndpoint custom_reader aurora-prod-cluster-custom-reader
+ * $ pulumi import aws:rds/clusterEndpoint:ClusterEndpoint custom_reader aurora-prod-cluster-custom-reader
  * ```
  */
 export class ClusterEndpoint extends pulumi.CustomResource {
@@ -190,8 +192,6 @@ export class ClusterEndpoint extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ClusterEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -5,6 +5,7 @@ package com.pulumi.aws.sesv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,14 +17,14 @@ public final class ContactListTopicArgs extends com.pulumi.resources.ResourceArg
     public static final ContactListTopicArgs Empty = new ContactListTopicArgs();
 
     /**
-     * The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+     * Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
      * 
      */
     @Import(name="defaultSubscriptionStatus", required=true)
     private Output<String> defaultSubscriptionStatus;
 
     /**
-     * @return The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+     * @return Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
      * 
      */
     public Output<String> defaultSubscriptionStatus() {
@@ -31,14 +32,14 @@ public final class ContactListTopicArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A description of what the topic is about, which the contact will see.
+     * Description of what the topic is about, which the contact will see.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of what the topic is about, which the contact will see.
+     * @return Description of what the topic is about, which the contact will see.
      * 
      */
     public Optional<Output<String>> description() {
@@ -46,14 +47,14 @@ public final class ContactListTopicArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of the topic the contact will see.
+     * Name of the topic the contact will see.
      * 
      */
     @Import(name="displayName", required=true)
     private Output<String> displayName;
 
     /**
-     * @return The name of the topic the contact will see.
+     * @return Name of the topic the contact will see.
      * 
      */
     public Output<String> displayName() {
@@ -61,7 +62,7 @@ public final class ContactListTopicArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of the topic.
+     * Name of the topic.
      * 
      * The following arguments are optional:
      * 
@@ -70,7 +71,7 @@ public final class ContactListTopicArgs extends com.pulumi.resources.ResourceArg
     private Output<String> topicName;
 
     /**
-     * @return The name of the topic.
+     * @return Name of the topic.
      * 
      * The following arguments are optional:
      * 
@@ -107,7 +108,7 @@ public final class ContactListTopicArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param defaultSubscriptionStatus The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+         * @param defaultSubscriptionStatus Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
          * 
          * @return builder
          * 
@@ -118,7 +119,7 @@ public final class ContactListTopicArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param defaultSubscriptionStatus The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+         * @param defaultSubscriptionStatus Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
          * 
          * @return builder
          * 
@@ -128,7 +129,7 @@ public final class ContactListTopicArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param description A description of what the topic is about, which the contact will see.
+         * @param description Description of what the topic is about, which the contact will see.
          * 
          * @return builder
          * 
@@ -139,7 +140,7 @@ public final class ContactListTopicArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param description A description of what the topic is about, which the contact will see.
+         * @param description Description of what the topic is about, which the contact will see.
          * 
          * @return builder
          * 
@@ -149,7 +150,7 @@ public final class ContactListTopicArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param displayName The name of the topic the contact will see.
+         * @param displayName Name of the topic the contact will see.
          * 
          * @return builder
          * 
@@ -160,7 +161,7 @@ public final class ContactListTopicArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param displayName The name of the topic the contact will see.
+         * @param displayName Name of the topic the contact will see.
          * 
          * @return builder
          * 
@@ -170,7 +171,7 @@ public final class ContactListTopicArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param topicName The name of the topic.
+         * @param topicName Name of the topic.
          * 
          * The following arguments are optional:
          * 
@@ -183,7 +184,7 @@ public final class ContactListTopicArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param topicName The name of the topic.
+         * @param topicName Name of the topic.
          * 
          * The following arguments are optional:
          * 
@@ -195,9 +196,15 @@ public final class ContactListTopicArgs extends com.pulumi.resources.ResourceArg
         }
 
         public ContactListTopicArgs build() {
-            $.defaultSubscriptionStatus = Objects.requireNonNull($.defaultSubscriptionStatus, "expected parameter 'defaultSubscriptionStatus' to be non-null");
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.topicName = Objects.requireNonNull($.topicName, "expected parameter 'topicName' to be non-null");
+            if ($.defaultSubscriptionStatus == null) {
+                throw new MissingRequiredPropertyException("ContactListTopicArgs", "defaultSubscriptionStatus");
+            }
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("ContactListTopicArgs", "displayName");
+            }
+            if ($.topicName == null) {
+                throw new MissingRequiredPropertyException("ContactListTopicArgs", "topicName");
+            }
             return $;
         }
     }

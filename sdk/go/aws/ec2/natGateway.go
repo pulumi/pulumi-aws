@@ -15,8 +15,10 @@ import (
 // Provides a resource to create a VPC NAT Gateway.
 //
 // ## Example Usage
+//
 // ### Public NAT
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,14 +32,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewNatGateway(ctx, "example", &ec2.NatGatewayArgs{
-//				AllocationId: pulumi.Any(aws_eip.Example.Id),
-//				SubnetId:     pulumi.Any(aws_subnet.Example.Id),
+//				AllocationId: pulumi.Any(exampleAwsEip.Id),
+//				SubnetId:     pulumi.Any(exampleAwsSubnet.Id),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("gw NAT"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_internet_gateway.Example,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -46,8 +46,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Public NAT with Secondary Private IP Addresses
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,10 +64,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewNatGateway(ctx, "example", &ec2.NatGatewayArgs{
-//				AllocationId: pulumi.Any(aws_eip.Example.Id),
-//				SubnetId:     pulumi.Any(aws_subnet.Example.Id),
+//				AllocationId: pulumi.Any(exampleAwsEip.Id),
+//				SubnetId:     pulumi.Any(exampleAwsSubnet.Id),
 //				SecondaryAllocationIds: pulumi.StringArray{
-//					aws_eip.Secondary.Id,
+//					secondary.Id,
 //				},
 //				SecondaryPrivateIpAddresses: pulumi.StringArray{
 //					pulumi.String("10.0.1.5"),
@@ -78,8 +81,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Private NAT
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -94,7 +100,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewNatGateway(ctx, "example", &ec2.NatGatewayArgs{
 //				ConnectivityType: pulumi.String("private"),
-//				SubnetId:         pulumi.Any(aws_subnet.Example.Id),
+//				SubnetId:         pulumi.Any(exampleAwsSubnet.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -104,8 +110,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Private NAT with Secondary Private IP Addresses
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -120,7 +129,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewNatGateway(ctx, "example", &ec2.NatGatewayArgs{
 //				ConnectivityType:               pulumi.String("private"),
-//				SubnetId:                       pulumi.Any(aws_subnet.Example.Id),
+//				SubnetId:                       pulumi.Any(exampleAwsSubnet.Id),
 //				SecondaryPrivateIpAddressCount: pulumi.Int(7),
 //			})
 //			if err != nil {
@@ -131,15 +140,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import NAT Gateways using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
-//
+// $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
 // ```
 type NatGateway struct {
 	pulumi.CustomResourceState
@@ -182,10 +190,6 @@ func NewNatGateway(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NatGateway
 	err := ctx.RegisterResource("aws:ec2/natGateway:NatGateway", name, args, &resource, opts...)

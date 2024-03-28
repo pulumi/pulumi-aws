@@ -225,12 +225,15 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[pulumi.InputType['GetVpc
     can be specified when creating a VPC endpoint within the region configured in the provider.
 
     ## Example Usage
+
     ### AWS Service
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
+    # Declare the data source
     s3 = aws.ec2.get_vpc_endpoint_service(service="s3",
         service_type="Gateway")
     # Create a VPC
@@ -240,16 +243,22 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[pulumi.InputType['GetVpc
         vpc_id=foo.id,
         service_name=s3.service_name)
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Non-AWS Service
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     custome = aws.ec2.get_vpc_endpoint_service(service_name="com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Filter
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -259,6 +268,7 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[pulumi.InputType['GetVpc
         values=["some-service"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetVpcEndpointServiceFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
@@ -309,12 +319,15 @@ def get_vpc_endpoint_service_output(filters: Optional[pulumi.Input[Optional[Sequ
     can be specified when creating a VPC endpoint within the region configured in the provider.
 
     ## Example Usage
+
     ### AWS Service
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
+    # Declare the data source
     s3 = aws.ec2.get_vpc_endpoint_service(service="s3",
         service_type="Gateway")
     # Create a VPC
@@ -324,16 +337,22 @@ def get_vpc_endpoint_service_output(filters: Optional[pulumi.Input[Optional[Sequ
         vpc_id=foo.id,
         service_name=s3.service_name)
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Non-AWS Service
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     custome = aws.ec2.get_vpc_endpoint_service(service_name="com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Filter
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -343,6 +362,7 @@ def get_vpc_endpoint_service_output(filters: Optional[pulumi.Input[Optional[Sequ
         values=["some-service"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetVpcEndpointServiceFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

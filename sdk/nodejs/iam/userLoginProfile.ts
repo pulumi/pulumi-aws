@@ -11,29 +11,32 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleUser = new aws.iam.User("exampleUser", {
+ * const example = new aws.iam.User("example", {
+ *     name: "example",
  *     path: "/",
  *     forceDestroy: true,
  * });
- * const exampleUserLoginProfile = new aws.iam.UserLoginProfile("exampleUserLoginProfile", {
- *     user: exampleUser.name,
+ * const exampleUserLoginProfile = new aws.iam.UserLoginProfile("example", {
+ *     user: example.name,
  *     pgpKey: "keybase:some_person_that_exists",
  * });
  * export const password = exampleUserLoginProfile.encryptedPassword;
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IAM User Login Profiles without password information via the IAM User name. For example:
  *
  * ```sh
- *  $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
+ * $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
  * ```
- *  Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
+ * Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
  */
 export class UserLoginProfile extends pulumi.CustomResource {
     /**

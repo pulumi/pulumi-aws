@@ -44,13 +44,14 @@ public final class ScheduleTargetSqsParameters {
 
         @CustomType.Setter
         public Builder messageGroupId(@Nullable String messageGroupId) {
+
             this.messageGroupId = messageGroupId;
             return this;
         }
         public ScheduleTargetSqsParameters build() {
-            final var o = new ScheduleTargetSqsParameters();
-            o.messageGroupId = messageGroupId;
-            return o;
+            final var _resultValue = new ScheduleTargetSqsParameters();
+            _resultValue.messageGroupId = messageGroupId;
+            return _resultValue;
         }
     }
 }

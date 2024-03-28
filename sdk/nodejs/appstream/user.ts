@@ -9,24 +9,26 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appstream.User("example", {
  *     authenticationType: "USERPOOL",
+ *     userName: "EMAIL",
  *     firstName: "FIRST NAME",
  *     lastName: "LAST NAME",
- *     userName: "EMAIL",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_appstream_user` using the `user_name` and `authentication_type` separated by a slash (`/`). For example:
  *
  * ```sh
- *  $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
+ * $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
  * ```
  */
 export class User extends pulumi.CustomResource {

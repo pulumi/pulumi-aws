@@ -4,6 +4,7 @@
 package com.pulumi.aws.eks.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -62,19 +63,23 @@ public final class FargateProfileSelector {
 
         @CustomType.Setter
         public Builder labels(@Nullable Map<String,String> labels) {
+
             this.labels = labels;
             return this;
         }
         @CustomType.Setter
         public Builder namespace(String namespace) {
-            this.namespace = Objects.requireNonNull(namespace);
+            if (namespace == null) {
+              throw new MissingRequiredPropertyException("FargateProfileSelector", "namespace");
+            }
+            this.namespace = namespace;
             return this;
         }
         public FargateProfileSelector build() {
-            final var o = new FargateProfileSelector();
-            o.labels = labels;
-            o.namespace = namespace;
-            return o;
+            final var _resultValue = new FargateProfileSelector();
+            _resultValue.labels = labels;
+            _resultValue.namespace = namespace;
+            return _resultValue;
         }
     }
 }

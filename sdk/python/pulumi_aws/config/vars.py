@@ -225,6 +225,13 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('token')
 
     @property
+    def token_bucket_rate_limiter_capacity(self) -> Optional[int]:
+        """
+        The capacity of the AWS SDK's token bucket rate limiter.
+        """
+        return __config__.get_int('tokenBucketRateLimiterCapacity')
+
+    @property
     def use_dualstack_endpoint(self) -> Optional[bool]:
         """
         Resolve an endpoint with DualStack capability

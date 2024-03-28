@@ -4,6 +4,7 @@
 package com.pulumi.aws.eks.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,25 +71,34 @@ public final class GetClusterKubernetesNetworkConfig {
 
         @CustomType.Setter
         public Builder ipFamily(String ipFamily) {
-            this.ipFamily = Objects.requireNonNull(ipFamily);
+            if (ipFamily == null) {
+              throw new MissingRequiredPropertyException("GetClusterKubernetesNetworkConfig", "ipFamily");
+            }
+            this.ipFamily = ipFamily;
             return this;
         }
         @CustomType.Setter
         public Builder serviceIpv4Cidr(String serviceIpv4Cidr) {
-            this.serviceIpv4Cidr = Objects.requireNonNull(serviceIpv4Cidr);
+            if (serviceIpv4Cidr == null) {
+              throw new MissingRequiredPropertyException("GetClusterKubernetesNetworkConfig", "serviceIpv4Cidr");
+            }
+            this.serviceIpv4Cidr = serviceIpv4Cidr;
             return this;
         }
         @CustomType.Setter
         public Builder serviceIpv6Cidr(String serviceIpv6Cidr) {
-            this.serviceIpv6Cidr = Objects.requireNonNull(serviceIpv6Cidr);
+            if (serviceIpv6Cidr == null) {
+              throw new MissingRequiredPropertyException("GetClusterKubernetesNetworkConfig", "serviceIpv6Cidr");
+            }
+            this.serviceIpv6Cidr = serviceIpv6Cidr;
             return this;
         }
         public GetClusterKubernetesNetworkConfig build() {
-            final var o = new GetClusterKubernetesNetworkConfig();
-            o.ipFamily = ipFamily;
-            o.serviceIpv4Cidr = serviceIpv4Cidr;
-            o.serviceIpv6Cidr = serviceIpv6Cidr;
-            return o;
+            final var _resultValue = new GetClusterKubernetesNetworkConfig();
+            _resultValue.ipFamily = ipFamily;
+            _resultValue.serviceIpv4Cidr = serviceIpv4Cidr;
+            _resultValue.serviceIpv6Cidr = serviceIpv6Cidr;
+            return _resultValue;
         }
     }
 }

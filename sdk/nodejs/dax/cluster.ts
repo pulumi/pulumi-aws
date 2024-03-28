@@ -12,24 +12,26 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const bar = new aws.dax.Cluster("bar", {
  *     clusterName: "cluster-example",
- *     iamRoleArn: data.aws_iam_role.example.arn,
+ *     iamRoleArn: example.arn,
  *     nodeType: "dax.r4.large",
  *     replicationFactor: 1,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import DAX Clusters using the `cluster_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
+ * $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
  * ```
  */
 export class Cluster extends pulumi.CustomResource {
@@ -232,8 +234,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }

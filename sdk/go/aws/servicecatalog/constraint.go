@@ -17,8 +17,10 @@ import (
 // > **NOTE:** This resource does not associate a Service Catalog product and portfolio. However, the product and portfolio must be associated (see the `servicecatalog.ProductPortfolioAssociation` resource) prior to creating a constraint or you will receive an error.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,8 +44,8 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = servicecatalog.NewConstraint(ctx, "example", &servicecatalog.ConstraintArgs{
 //				Description: pulumi.String("Back off, man. I'm a scientist."),
-//				PortfolioId: pulumi.Any(aws_servicecatalog_portfolio.Example.Id),
-//				ProductId:   pulumi.Any(aws_servicecatalog_product.Example.Id),
+//				PortfolioId: pulumi.Any(exampleAwsServicecatalogPortfolio.Id),
+//				ProductId:   pulumi.Any(exampleAwsServicecatalogProduct.Id),
 //				Type:        pulumi.String("LAUNCH"),
 //				Parameters:  pulumi.String(json0),
 //			})
@@ -55,15 +57,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_servicecatalog_constraint` using the constraint ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
-//
+// $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
 // ```
 type Constraint struct {
 	pulumi.CustomResourceState

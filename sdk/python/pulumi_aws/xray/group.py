@@ -208,25 +208,27 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.xray.Group("example",
-            filter_expression="responsetime > 5",
             group_name="example",
+            filter_expression="responsetime > 5",
             insights_configuration=aws.xray.GroupInsightsConfigurationArgs(
                 insights_enabled=True,
                 notifications_enabled=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import XRay Groups using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:xray/group:Group example arn:aws:xray:us-west-2:1234567890:group/example-group/TNGX7SW5U6QY36T4ZMOUA3HVLBYCZTWDIOOXY3CJAXTHSS3YCWUA
+        $ pulumi import aws:xray/group:Group example arn:aws:xray:us-west-2:1234567890:group/example-group/TNGX7SW5U6QY36T4ZMOUA3HVLBYCZTWDIOOXY3CJAXTHSS3YCWUA
         ```
 
         :param str resource_name: The name of the resource.
@@ -247,25 +249,27 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.xray.Group("example",
-            filter_expression="responsetime > 5",
             group_name="example",
+            filter_expression="responsetime > 5",
             insights_configuration=aws.xray.GroupInsightsConfigurationArgs(
                 insights_enabled=True,
                 notifications_enabled=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import XRay Groups using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:xray/group:Group example arn:aws:xray:us-west-2:1234567890:group/example-group/TNGX7SW5U6QY36T4ZMOUA3HVLBYCZTWDIOOXY3CJAXTHSS3YCWUA
+        $ pulumi import aws:xray/group:Group example arn:aws:xray:us-west-2:1234567890:group/example-group/TNGX7SW5U6QY36T4ZMOUA3HVLBYCZTWDIOOXY3CJAXTHSS3YCWUA
         ```
 
         :param str resource_name: The name of the resource.
@@ -306,8 +310,6 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Group, __self__).__init__(
             'aws:xray/group:Group',
             resource_name,

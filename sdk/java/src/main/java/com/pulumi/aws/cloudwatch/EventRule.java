@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,6 +22,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -32,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudwatch.EventRule;
  * import com.pulumi.aws.cloudwatch.EventRuleArgs;
  * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.cloudwatch.EventTarget;
  * import com.pulumi.aws.cloudwatch.EventTargetArgs;
  * import com.pulumi.aws.iam.IamFunctions;
@@ -53,6 +55,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var console = new EventRule(&#34;console&#34;, EventRuleArgs.builder()        
+ *             .name(&#34;capture-aws-sign-in&#34;)
  *             .description(&#34;Capture each AWS Console Sign In&#34;)
  *             .eventPattern(serializeJson(
  *                 jsonObject(
@@ -60,10 +63,13 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var awsLogins = new Topic(&#34;awsLogins&#34;);
+ *         var awsLogins = new Topic(&#34;awsLogins&#34;, TopicArgs.builder()        
+ *             .name(&#34;aws-console-logins&#34;)
+ *             .build());
  * 
  *         var sns = new EventTarget(&#34;sns&#34;, EventTargetArgs.builder()        
  *             .rule(console.name())
+ *             .targetId(&#34;SendToSNS&#34;)
  *             .arn(awsLogins.arn())
  *             .build());
  * 
@@ -87,13 +93,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
+ * $ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
  * ```
  * 
  */
@@ -158,14 +165,22 @@ public class EventRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.eventPattern);
     }
     /**
-     * Whether the rule should be enabled (defaults to `true`).
+     * Whether the rule should be enabled.
+     * Defaults to `true`.
+     * Conflicts with `state`.
+     * 
+     * @deprecated
+     * Use &#34;state&#34; instead
      * 
      */
+    @Deprecated /* Use ""state"" instead */
     @Export(name="isEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isEnabled;
 
     /**
-     * @return Whether the rule should be enabled (defaults to `true`).
+     * @return Whether the rule should be enabled.
+     * Defaults to `true`.
+     * Conflicts with `state`.
      * 
      */
     public Output<Optional<Boolean>> isEnabled() {
@@ -226,6 +241,34 @@ public class EventRule extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> scheduleExpression() {
         return Codegen.optional(this.scheduleExpression);
+    }
+    /**
+     * State of the rule.
+     * Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+     * When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+     * To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+     * Defaults to `ENABLED`.
+     * Conflicts with `is_enabled`.
+     * 
+     * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
+     * 
+     */
+    @Export(name="state", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> state;
+
+    /**
+     * @return State of the rule.
+     * Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+     * When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+     * To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+     * Defaults to `ENABLED`.
+     * Conflicts with `is_enabled`.
+     * 
+     * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
+     * 
+     */
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -292,9 +335,6 @@ public class EventRule extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

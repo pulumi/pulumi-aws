@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,9 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshift.NewPartner(ctx, "example", &redshift.PartnerArgs{
-//				ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Id),
+//				ClusterIdentifier: pulumi.Any(exampleAwsRedshiftCluster.Id),
 //				AccountId:         pulumi.String("1234567910"),
-//				DatabaseName:      pulumi.Any(aws_redshift_cluster.Example.Database_name),
+//				DatabaseName:      pulumi.Any(exampleAwsRedshiftCluster.DatabaseName),
 //				PartnerName:       pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -42,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift usage limits using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshift/partner:Partner example 01234567910:cluster-example-id:example:example
-//
+// $ pulumi import aws:redshift/partner:Partner example 01234567910:cluster-example-id:example:example
 // ```
 type Partner struct {
 	pulumi.CustomResourceState

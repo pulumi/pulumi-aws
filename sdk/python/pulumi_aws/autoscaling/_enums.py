@@ -28,6 +28,13 @@ class Metric(str, Enum):
     GROUP_TERMINATING_CAPACITY = "GroupTerminatingCapacity"
     GROUP_TOTAL_INSTANCES = "GroupTotalInstances"
     GROUP_TOTAL_CAPACITY = "GroupTotalCapacity"
+    WARM_POOL_DESIRED_CAPACITY = "WarmPoolDesiredCapacity"
+    WARM_POOL_WARMED_CAPACITY = "WarmPoolWarmedCapacity"
+    WARM_POOL_PENDING_CAPACITY = "WarmPoolPendingCapacity"
+    WARM_POOL_TERMINATING_CAPACITY = "WarmPoolTerminatingCapacity"
+    WARM_POOL_TOTAL_CAPACITY = "WarmPoolTotalCapacity"
+    GROUP_AND_WARM_POOL_DESIRED_CAPACITY = "GroupAndWarmPoolDesiredCapacity"
+    GROUP_AND_WARM_POOL_TOTAL_CAPACITY = "GroupAndWarmPoolTotalCapacity"
 
 
 class MetricsGranularity(str, Enum):

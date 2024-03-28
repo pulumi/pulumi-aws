@@ -268,27 +268,29 @@ class TrafficMirrorTarget(pulumi.CustomResource):
 
         To create a basic traffic mirror session
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         nlb = aws.ec2.TrafficMirrorTarget("nlb",
             description="NLB target",
-            network_load_balancer_arn=aws_lb["lb"]["arn"])
+            network_load_balancer_arn=lb["arn"])
         eni = aws.ec2.TrafficMirrorTarget("eni",
             description="ENI target",
-            network_interface_id=aws_instance["test"]["primary_network_interface_id"])
+            network_interface_id=test["primaryNetworkInterfaceId"])
         gwlb = aws.ec2.TrafficMirrorTarget("gwlb",
             description="GWLB target",
-            gateway_load_balancer_endpoint_id=aws_vpc_endpoint["example"]["id"])
+            gateway_load_balancer_endpoint_id=example["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import traffic mirror targets using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
+        $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
         ```
 
         :param str resource_name: The name of the resource.
@@ -315,27 +317,29 @@ class TrafficMirrorTarget(pulumi.CustomResource):
 
         To create a basic traffic mirror session
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         nlb = aws.ec2.TrafficMirrorTarget("nlb",
             description="NLB target",
-            network_load_balancer_arn=aws_lb["lb"]["arn"])
+            network_load_balancer_arn=lb["arn"])
         eni = aws.ec2.TrafficMirrorTarget("eni",
             description="ENI target",
-            network_interface_id=aws_instance["test"]["primary_network_interface_id"])
+            network_interface_id=test["primaryNetworkInterfaceId"])
         gwlb = aws.ec2.TrafficMirrorTarget("gwlb",
             description="GWLB target",
-            gateway_load_balancer_endpoint_id=aws_vpc_endpoint["example"]["id"])
+            gateway_load_balancer_endpoint_id=example["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import traffic mirror targets using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
+        $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
         ```
 
         :param str resource_name: The name of the resource.
@@ -375,8 +379,6 @@ class TrafficMirrorTarget(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(TrafficMirrorTarget, __self__).__init__(
             'aws:ec2/trafficMirrorTarget:TrafficMirrorTarget',
             resource_name,

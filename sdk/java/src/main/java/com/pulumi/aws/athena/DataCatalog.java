@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -24,6 +23,8 @@ import javax.annotation.Nullable;
  * &gt; **Tip:** for a more detailed explanation on the usage of `parameters`, see the [DataCatalog API documentation](https://docs.aws.amazon.com/athena/latest/APIReference/API_DataCatalog.html)
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,16 +47,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataCatalog(&#34;example&#34;, DataCatalogArgs.builder()        
+ *             .name(&#34;athena-data-catalog&#34;)
  *             .description(&#34;Example Athena data catalog&#34;)
+ *             .type(&#34;LAMBDA&#34;)
  *             .parameters(Map.of(&#34;function&#34;, &#34;arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function&#34;))
  *             .tags(Map.of(&#34;Name&#34;, &#34;example-athena-data-catalog&#34;))
- *             .type(&#34;LAMBDA&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Hive based Data Catalog
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -78,15 +84,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataCatalog(&#34;example&#34;, DataCatalogArgs.builder()        
+ *             .name(&#34;hive-data-catalog&#34;)
  *             .description(&#34;Hive based Data Catalog&#34;)
- *             .parameters(Map.of(&#34;metadata-function&#34;, &#34;arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function&#34;))
  *             .type(&#34;HIVE&#34;)
+ *             .parameters(Map.of(&#34;metadata-function&#34;, &#34;arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Glue based Data Catalog
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -109,15 +120,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataCatalog(&#34;example&#34;, DataCatalogArgs.builder()        
+ *             .name(&#34;glue-data-catalog&#34;)
  *             .description(&#34;Glue based Data Catalog&#34;)
- *             .parameters(Map.of(&#34;catalog-id&#34;, &#34;123456789012&#34;))
  *             .type(&#34;GLUE&#34;)
+ *             .parameters(Map.of(&#34;catalog-id&#34;, &#34;123456789012&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Lambda based Data Catalog
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -140,24 +156,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataCatalog(&#34;example&#34;, DataCatalogArgs.builder()        
+ *             .name(&#34;lambda-data-catalog&#34;)
  *             .description(&#34;Lambda based Data Catalog&#34;)
+ *             .type(&#34;LAMBDA&#34;)
  *             .parameters(Map.ofEntries(
  *                 Map.entry(&#34;metadata-function&#34;, &#34;arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1&#34;),
  *                 Map.entry(&#34;record-function&#34;, &#34;arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2&#34;)
  *             ))
- *             .type(&#34;LAMBDA&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import data catalogs using their `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
+ * $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
  * ```
  * 
  */
@@ -298,9 +316,6 @@ public class DataCatalog extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

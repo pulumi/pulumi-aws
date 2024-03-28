@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Route53
     /// Provides a Route53 Resolver rule.
     /// 
     /// ## Example Usage
+    /// 
     /// ### System rule
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,8 +33,11 @@ namespace Pulumi.Aws.Route53
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Forward rule
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,8 +49,9 @@ namespace Pulumi.Aws.Route53
     ///     var fwd = new Aws.Route53.ResolverRule("fwd", new()
     ///     {
     ///         DomainName = "example.com",
+    ///         Name = "example",
     ///         RuleType = "FORWARD",
-    ///         ResolverEndpointId = aws_route53_resolver_endpoint.Foo.Id,
+    ///         ResolverEndpointId = foo.Id,
     ///         TargetIps = new[]
     ///         {
     ///             new Aws.Route53.Inputs.ResolverRuleTargetIpArgs
@@ -61,13 +67,14 @@ namespace Pulumi.Aws.Route53
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route53 Resolver rules using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
+    /// $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverRule:ResolverRule")]
@@ -159,10 +166,6 @@ namespace Pulumi.Aws.Route53
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -310,11 +313,7 @@ namespace Pulumi.Aws.Route53
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("targetIps")]

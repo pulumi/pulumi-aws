@@ -58,19 +58,21 @@ public final class PipeTargetParametersSqsQueueParameters {
 
         @CustomType.Setter
         public Builder messageDeduplicationId(@Nullable String messageDeduplicationId) {
+
             this.messageDeduplicationId = messageDeduplicationId;
             return this;
         }
         @CustomType.Setter
         public Builder messageGroupId(@Nullable String messageGroupId) {
+
             this.messageGroupId = messageGroupId;
             return this;
         }
         public PipeTargetParametersSqsQueueParameters build() {
-            final var o = new PipeTargetParametersSqsQueueParameters();
-            o.messageDeduplicationId = messageDeduplicationId;
-            o.messageGroupId = messageGroupId;
-            return o;
+            final var _resultValue = new PipeTargetParametersSqsQueueParameters();
+            _resultValue.messageDeduplicationId = messageDeduplicationId;
+            _resultValue.messageGroupId = messageGroupId;
+            return _resultValue;
         }
     }
 }

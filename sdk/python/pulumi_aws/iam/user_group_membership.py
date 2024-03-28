@@ -107,31 +107,33 @@ class UserGroupMembership(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        user1 = aws.iam.User("user1")
-        group1 = aws.iam.Group("group1")
-        group2 = aws.iam.Group("group2")
+        user1 = aws.iam.User("user1", name="user1")
+        group1 = aws.iam.Group("group1", name="group1")
+        group2 = aws.iam.Group("group2", name="group2")
         example1 = aws.iam.UserGroupMembership("example1",
             user=user1.name,
             groups=[
                 group1.name,
                 group2.name,
             ])
-        group3 = aws.iam.Group("group3")
+        group3 = aws.iam.Group("group3", name="group3")
         example2 = aws.iam.UserGroupMembership("example2",
             user=user1.name,
             groups=[group3.name])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
+        $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
         ```
 
         :param str resource_name: The name of the resource.
@@ -155,31 +157,33 @@ class UserGroupMembership(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        user1 = aws.iam.User("user1")
-        group1 = aws.iam.Group("group1")
-        group2 = aws.iam.Group("group2")
+        user1 = aws.iam.User("user1", name="user1")
+        group1 = aws.iam.Group("group1", name="group1")
+        group2 = aws.iam.Group("group2", name="group2")
         example1 = aws.iam.UserGroupMembership("example1",
             user=user1.name,
             groups=[
                 group1.name,
                 group2.name,
             ])
-        group3 = aws.iam.Group("group3")
+        group3 = aws.iam.Group("group3", name="group3")
         example2 = aws.iam.UserGroupMembership("example2",
             user=user1.name,
             groups=[group3.name])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
+        $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
         ```
 
         :param str resource_name: The name of the resource.

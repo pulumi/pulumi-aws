@@ -14,6 +14,7 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,14 +23,15 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myProfile = new Aws.OpsWorks.UserProfile("myProfile", new()
+    ///     var myProfile = new Aws.OpsWorks.UserProfile("my_profile", new()
     ///     {
-    ///         UserArn = aws_iam_user.User.Arn,
+    ///         UserArn = user.Arn,
     ///         SshUsername = "my_user",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:opsworks/userProfile:UserProfile")]
     public partial class UserProfile : global::Pulumi.CustomResource

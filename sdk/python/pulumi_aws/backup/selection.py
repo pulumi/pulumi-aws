@@ -268,12 +268,14 @@ class Selection(pulumi.CustomResource):
         Manages selection conditions for AWS Backup plan resources.
 
         ## Example Usage
+
         ### IAM Role
 
         > For more information about creating and managing IAM Roles for backups and restores, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/iam-service-roles.html).
 
         The below example creates an IAM role with the default managed IAM Policy for allowing AWS Backup to create backups.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -286,37 +288,46 @@ class Selection(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
+        example = aws.iam.Role("example",
+            name="example",
+            assume_role_policy=assume_role.json)
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup",
-            role=example_role.name)
-        # ... other configuration ...
-        example_selection = aws.backup.Selection("exampleSelection", iam_role_arn=example_role.arn)
+            role=example.name)
+        example_selection = aws.backup.Selection("example", iam_role_arn=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Selecting Backups By Tag
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.backup.Selection("example",
-            iam_role_arn=aws_iam_role["example"]["arn"],
-            plan_id=aws_backup_plan["example"]["id"],
+            iam_role_arn=example_aws_iam_role["arn"],
+            name="my_example_backup_selection",
+            plan_id=example_aws_backup_plan["id"],
             selection_tags=[aws.backup.SelectionSelectionTagArgs(
                 type="STRINGEQUALS",
                 key="foo",
                 value="bar",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Selecting Backups By Conditions
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.backup.Selection("example",
-            iam_role_arn=aws_iam_role["example"]["arn"],
-            plan_id=aws_backup_plan["example"]["id"],
+            iam_role_arn=example_aws_iam_role["arn"],
+            name="my_example_backup_selection",
+            plan_id=example_aws_backup_plan["id"],
             resources=["*"],
             conditions=[aws.backup.SelectionConditionArgs(
                 string_equals=[aws.backup.SelectionConditionStringEqualArgs(
@@ -337,43 +348,52 @@ class Selection(pulumi.CustomResource):
                 )],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Selecting Backups By Resource
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.backup.Selection("example",
-            iam_role_arn=aws_iam_role["example"]["arn"],
-            plan_id=aws_backup_plan["example"]["id"],
+            iam_role_arn=example_aws_iam_role["arn"],
+            name="my_example_backup_selection",
+            plan_id=example_aws_backup_plan["id"],
             resources=[
-                aws_db_instance["example"]["arn"],
-                aws_ebs_volume["example"]["arn"],
-                aws_efs_file_system["example"]["arn"],
+                example_aws_db_instance["arn"],
+                example_aws_ebs_volume["arn"],
+                example_aws_efs_file_system["arn"],
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Selecting Backups By Not Resource
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.backup.Selection("example",
-            iam_role_arn=aws_iam_role["example"]["arn"],
-            plan_id=aws_backup_plan["example"]["id"],
+            iam_role_arn=example_aws_iam_role["arn"],
+            name="my_example_backup_selection",
+            plan_id=example_aws_backup_plan["id"],
             not_resources=[
-                aws_db_instance["example"]["arn"],
-                aws_ebs_volume["example"]["arn"],
-                aws_efs_file_system["example"]["arn"],
+                example_aws_db_instance["arn"],
+                example_aws_ebs_volume["arn"],
+                example_aws_efs_file_system["arn"],
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup selection using the role plan_id and id separated by `|`. For example:
 
         ```sh
-         $ pulumi import aws:backup/selection:Selection example plan-id|selection-id
+        $ pulumi import aws:backup/selection:Selection example plan-id|selection-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -396,12 +416,14 @@ class Selection(pulumi.CustomResource):
         Manages selection conditions for AWS Backup plan resources.
 
         ## Example Usage
+
         ### IAM Role
 
         > For more information about creating and managing IAM Roles for backups and restores, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/iam-service-roles.html).
 
         The below example creates an IAM role with the default managed IAM Policy for allowing AWS Backup to create backups.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -414,37 +436,46 @@ class Selection(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
+        example = aws.iam.Role("example",
+            name="example",
+            assume_role_policy=assume_role.json)
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup",
-            role=example_role.name)
-        # ... other configuration ...
-        example_selection = aws.backup.Selection("exampleSelection", iam_role_arn=example_role.arn)
+            role=example.name)
+        example_selection = aws.backup.Selection("example", iam_role_arn=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Selecting Backups By Tag
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.backup.Selection("example",
-            iam_role_arn=aws_iam_role["example"]["arn"],
-            plan_id=aws_backup_plan["example"]["id"],
+            iam_role_arn=example_aws_iam_role["arn"],
+            name="my_example_backup_selection",
+            plan_id=example_aws_backup_plan["id"],
             selection_tags=[aws.backup.SelectionSelectionTagArgs(
                 type="STRINGEQUALS",
                 key="foo",
                 value="bar",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Selecting Backups By Conditions
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.backup.Selection("example",
-            iam_role_arn=aws_iam_role["example"]["arn"],
-            plan_id=aws_backup_plan["example"]["id"],
+            iam_role_arn=example_aws_iam_role["arn"],
+            name="my_example_backup_selection",
+            plan_id=example_aws_backup_plan["id"],
             resources=["*"],
             conditions=[aws.backup.SelectionConditionArgs(
                 string_equals=[aws.backup.SelectionConditionStringEqualArgs(
@@ -465,43 +496,52 @@ class Selection(pulumi.CustomResource):
                 )],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Selecting Backups By Resource
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.backup.Selection("example",
-            iam_role_arn=aws_iam_role["example"]["arn"],
-            plan_id=aws_backup_plan["example"]["id"],
+            iam_role_arn=example_aws_iam_role["arn"],
+            name="my_example_backup_selection",
+            plan_id=example_aws_backup_plan["id"],
             resources=[
-                aws_db_instance["example"]["arn"],
-                aws_ebs_volume["example"]["arn"],
-                aws_efs_file_system["example"]["arn"],
+                example_aws_db_instance["arn"],
+                example_aws_ebs_volume["arn"],
+                example_aws_efs_file_system["arn"],
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Selecting Backups By Not Resource
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.backup.Selection("example",
-            iam_role_arn=aws_iam_role["example"]["arn"],
-            plan_id=aws_backup_plan["example"]["id"],
+            iam_role_arn=example_aws_iam_role["arn"],
+            name="my_example_backup_selection",
+            plan_id=example_aws_backup_plan["id"],
             not_resources=[
-                aws_db_instance["example"]["arn"],
-                aws_ebs_volume["example"]["arn"],
-                aws_efs_file_system["example"]["arn"],
+                example_aws_db_instance["arn"],
+                example_aws_ebs_volume["arn"],
+                example_aws_efs_file_system["arn"],
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup selection using the role plan_id and id separated by `|`. For example:
 
         ```sh
-         $ pulumi import aws:backup/selection:Selection example plan-id|selection-id
+        $ pulumi import aws:backup/selection:Selection example plan-id|selection-id
         ```
 
         :param str resource_name: The name of the resource.

@@ -77,25 +77,28 @@ public final class AppImageConfigKernelGatewayImageConfigFileSystemConfig {
 
         @CustomType.Setter
         public Builder defaultGid(@Nullable Integer defaultGid) {
+
             this.defaultGid = defaultGid;
             return this;
         }
         @CustomType.Setter
         public Builder defaultUid(@Nullable Integer defaultUid) {
+
             this.defaultUid = defaultUid;
             return this;
         }
         @CustomType.Setter
         public Builder mountPath(@Nullable String mountPath) {
+
             this.mountPath = mountPath;
             return this;
         }
         public AppImageConfigKernelGatewayImageConfigFileSystemConfig build() {
-            final var o = new AppImageConfigKernelGatewayImageConfigFileSystemConfig();
-            o.defaultGid = defaultGid;
-            o.defaultUid = defaultUid;
-            o.mountPath = mountPath;
-            return o;
+            final var _resultValue = new AppImageConfigKernelGatewayImageConfigFileSystemConfig();
+            _resultValue.defaultGid = defaultGid;
+            _resultValue.defaultUid = defaultUid;
+            _resultValue.mountPath = mountPath;
+            return _resultValue;
         }
     }
 }

@@ -16,8 +16,11 @@ import (
 //
 // > **NOTE:** Destroying an `s3.BucketRequestPaymentConfigurationV2` resource resets the bucket's `payer` to the S3 default: the bucket owner.
 //
+// > This resource cannot be used with S3 directory buckets.
+//
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,7 +34,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewBucketRequestPaymentConfigurationV2(ctx, "example", &s3.BucketRequestPaymentConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
+//				Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
 //				Payer:  pulumi.String("Requester"),
 //			})
 //			if err != nil {
@@ -42,6 +45,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -52,17 +56,12 @@ import (
 // If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name
-//
+// $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name
 // ```
-//
-//	If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name,123456789012
-//
+// $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name,123456789012
 // ```
 type BucketRequestPaymentConfigurationV2 struct {
 	pulumi.CustomResourceState

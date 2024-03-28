@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,24 +30,24 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codecatalyst.NewDevEnvironment(ctx, "test", &codecatalyst.DevEnvironmentArgs{
-//				Alias: pulumi.String("devenv"),
+//				Alias:        pulumi.String("devenv"),
+//				SpaceName:    pulumi.String("myspace"),
+//				ProjectName:  pulumi.String("myproject"),
+//				InstanceType: pulumi.String("dev.standard1.small"),
+//				PersistentStorage: &codecatalyst.DevEnvironmentPersistentStorageArgs{
+//					Size: pulumi.Int(16),
+//				},
 //				Ides: &codecatalyst.DevEnvironmentIdesArgs{
 //					Name:    pulumi.String("PyCharm"),
 //					Runtime: pulumi.String("public.ecr.aws/jetbrains/py"),
 //				},
 //				InactivityTimeoutMinutes: pulumi.Int(40),
-//				InstanceType:             pulumi.String("dev.standard1.small"),
-//				PersistentStorage: &codecatalyst.DevEnvironmentPersistentStorageArgs{
-//					Size: pulumi.Int(16),
-//				},
-//				ProjectName: pulumi.String("myproject"),
 //				Repositories: codecatalyst.DevEnvironmentRepositoryArray{
 //					&codecatalyst.DevEnvironmentRepositoryArgs{
-//						BranchName:     pulumi.String("main"),
 //						RepositoryName: pulumi.String("pulumi-provider-aws"),
+//						BranchName:     pulumi.String("main"),
 //					},
 //				},
-//				SpaceName: pulumi.String("myspace"),
 //			})
 //			if err != nil {
 //				return err
@@ -56,6 +57,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type DevEnvironment struct {
 	pulumi.CustomResourceState
 

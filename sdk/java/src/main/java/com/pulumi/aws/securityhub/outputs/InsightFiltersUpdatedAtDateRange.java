@@ -4,6 +4,7 @@
 package com.pulumi.aws.securityhub.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -57,19 +58,25 @@ public final class InsightFiltersUpdatedAtDateRange {
 
         @CustomType.Setter
         public Builder unit(String unit) {
-            this.unit = Objects.requireNonNull(unit);
+            if (unit == null) {
+              throw new MissingRequiredPropertyException("InsightFiltersUpdatedAtDateRange", "unit");
+            }
+            this.unit = unit;
             return this;
         }
         @CustomType.Setter
         public Builder value(Integer value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("InsightFiltersUpdatedAtDateRange", "value");
+            }
+            this.value = value;
             return this;
         }
         public InsightFiltersUpdatedAtDateRange build() {
-            final var o = new InsightFiltersUpdatedAtDateRange();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersUpdatedAtDateRange();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

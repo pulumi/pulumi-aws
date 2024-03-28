@@ -4,6 +4,7 @@
 package com.pulumi.aws.fsx.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class GetOntapStorageVirtualMachineLifecycleTransitionReason {
 
         @CustomType.Setter
         public Builder message(String message) {
-            this.message = Objects.requireNonNull(message);
+            if (message == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineLifecycleTransitionReason", "message");
+            }
+            this.message = message;
             return this;
         }
         public GetOntapStorageVirtualMachineLifecycleTransitionReason build() {
-            final var o = new GetOntapStorageVirtualMachineLifecycleTransitionReason();
-            o.message = message;
-            return o;
+            final var _resultValue = new GetOntapStorageVirtualMachineLifecycleTransitionReason();
+            _resultValue.message = message;
+            return _resultValue;
         }
     }
 }

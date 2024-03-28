@@ -15,8 +15,10 @@ import (
 // Manages an EMR Serverless Application.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
+//				Name:         pulumi.String("example"),
 //				ReleaseLabel: pulumi.String("emr-6.6.0"),
 //				Type:         pulumi.String("hive"),
 //			})
@@ -41,8 +44,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Initial Capacity Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,20 +62,21 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
+//				Name:         pulumi.String("example"),
+//				ReleaseLabel: pulumi.String("emr-6.6.0"),
+//				Type:         pulumi.String("hive"),
 //				InitialCapacities: emrserverless.ApplicationInitialCapacityArray{
 //					&emrserverless.ApplicationInitialCapacityArgs{
+//						InitialCapacityType: pulumi.String("HiveDriver"),
 //						InitialCapacityConfig: &emrserverless.ApplicationInitialCapacityInitialCapacityConfigArgs{
+//							WorkerCount: pulumi.Int(1),
 //							WorkerConfiguration: &emrserverless.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs{
 //								Cpu:    pulumi.String("2 vCPU"),
 //								Memory: pulumi.String("10 GB"),
 //							},
-//							WorkerCount: pulumi.Int(1),
 //						},
-//						InitialCapacityType: pulumi.String("HiveDriver"),
 //					},
 //				},
-//				ReleaseLabel: pulumi.String("emr-6.6.0"),
-//				Type:         pulumi.String("hive"),
 //			})
 //			if err != nil {
 //				return err
@@ -79,8 +86,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Maximum Capacity Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -94,12 +104,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
+//				Name:         pulumi.String("example"),
+//				ReleaseLabel: pulumi.String("emr-6.6.0"),
+//				Type:         pulumi.String("hive"),
 //				MaximumCapacity: &emrserverless.ApplicationMaximumCapacityArgs{
 //					Cpu:    pulumi.String("2 vCPU"),
 //					Memory: pulumi.String("10 GB"),
 //				},
-//				ReleaseLabel: pulumi.String("emr-6.6.0"),
-//				Type:         pulumi.String("hive"),
 //			})
 //			if err != nil {
 //				return err
@@ -109,15 +120,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EMR Severless applications using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:emrserverless/application:Application example id
-//
+// $ pulumi import aws:emrserverless/application:Application example id
 // ```
 type Application struct {
 	pulumi.CustomResourceState
@@ -165,10 +175,6 @@ func NewApplication(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Application
 	err := ctx.RegisterResource("aws:emrserverless/application:Application", name, args, &resource, opts...)

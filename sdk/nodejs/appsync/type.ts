@@ -9,13 +9,17 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGraphQLApi = new aws.appsync.GraphQLApi("exampleGraphQLApi", {authenticationType: "API_KEY"});
- * const exampleType = new aws.appsync.Type("exampleType", {
- *     apiId: exampleGraphQLApi.id,
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "API_KEY",
+ *     name: "example",
+ * });
+ * const exampleType = new aws.appsync.Type("example", {
+ *     apiId: example.id,
  *     format: "SDL",
  *     definition: `type Mutation
  *
@@ -26,13 +30,14 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Appsync Types using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:appsync/type:Type example api-id:format:name
+ * $ pulumi import aws:appsync/type:Type example api-id:format:name
  * ```
  */
 export class Type extends pulumi.CustomResource {

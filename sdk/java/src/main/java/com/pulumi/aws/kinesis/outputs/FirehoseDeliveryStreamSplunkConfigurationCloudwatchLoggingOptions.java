@@ -73,25 +73,28 @@ public final class FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOpt
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder logGroupName(@Nullable String logGroupName) {
+
             this.logGroupName = logGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder logStreamName(@Nullable String logStreamName) {
+
             this.logStreamName = logStreamName;
             return this;
         }
         public FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions build() {
-            final var o = new FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions();
-            o.enabled = enabled;
-            o.logGroupName = logGroupName;
-            o.logStreamName = logStreamName;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions();
+            _resultValue.enabled = enabled;
+            _resultValue.logGroupName = logGroupName;
+            _resultValue.logStreamName = logStreamName;
+            return _resultValue;
         }
     }
 }

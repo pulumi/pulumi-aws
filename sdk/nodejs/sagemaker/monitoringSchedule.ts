@@ -14,22 +14,27 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.sagemaker.MonitoringSchedule("test", {monitoringScheduleConfig: {
- *     monitoringJobDefinitionName: aws_sagemaker_data_quality_job_definition.test.name,
- *     monitoringType: "DataQuality",
- * }});
+ * const test = new aws.sagemaker.MonitoringSchedule("test", {
+ *     name: "my-monitoring-schedule",
+ *     monitoringScheduleConfig: {
+ *         monitoringJobDefinitionName: testAwsSagemakerDataQualityJobDefinition.name,
+ *         monitoringType: "DataQuality",
+ *     },
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import monitoring schedules using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo
+ * $ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo
  * ```
  */
 export class MonitoringSchedule extends pulumi.CustomResource {
@@ -113,8 +118,6 @@ export class MonitoringSchedule extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(MonitoringSchedule.__pulumiType, name, resourceInputs, opts);
     }
 }

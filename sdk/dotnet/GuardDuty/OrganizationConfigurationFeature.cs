@@ -16,6 +16,7 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,9 +30,10 @@ namespace Pulumi.Aws.GuardDuty
     ///         Enable = true,
     ///     });
     /// 
-    ///     var eksRuntimeMonitoring = new Aws.GuardDuty.OrganizationConfigurationFeature("eksRuntimeMonitoring", new()
+    ///     var eksRuntimeMonitoring = new Aws.GuardDuty.OrganizationConfigurationFeature("eks_runtime_monitoring", new()
     ///     {
     ///         DetectorId = example.Id,
+    ///         Name = "EKS_RUNTIME_MONITORING",
     ///         AutoEnable = "ALL",
     ///         AdditionalConfigurations = new[]
     ///         {
@@ -45,6 +47,7 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature")]
     public partial class OrganizationConfigurationFeature : global::Pulumi.CustomResource

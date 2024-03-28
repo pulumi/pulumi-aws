@@ -327,12 +327,13 @@ class RadiusSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.directoryservice.RadiusSettings("example",
-            directory_id=aws_directory_service_directory["example"]["id"],
+            directory_id=example_aws_directory_service_directory["id"],
             authentication_protocol="PAP",
             display_label="example",
             radius_port=1812,
@@ -341,13 +342,14 @@ class RadiusSettings(pulumi.CustomResource):
             radius_timeout=1,
             shared_secret="12345678")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import RADIUS settings using the directory ID. For example:
 
         ```sh
-         $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
+        $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
         ```
 
         :param str resource_name: The name of the resource.
@@ -373,12 +375,13 @@ class RadiusSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.directoryservice.RadiusSettings("example",
-            directory_id=aws_directory_service_directory["example"]["id"],
+            directory_id=example_aws_directory_service_directory["id"],
             authentication_protocol="PAP",
             display_label="example",
             radius_port=1812,
@@ -387,13 +390,14 @@ class RadiusSettings(pulumi.CustomResource):
             radius_timeout=1,
             shared_secret="12345678")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import RADIUS settings using the directory ID. For example:
 
         ```sh
-         $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
+        $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
         ```
 
         :param str resource_name: The name of the resource.

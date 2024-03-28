@@ -12,12 +12,11 @@ namespace Pulumi.Aws.Rds
     public static class GetEventCategories
     {
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// List the event categories of all the RDS resources.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -26,17 +25,19 @@ namespace Pulumi.Aws.Rds
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleEventCategories = Aws.Rds.GetEventCategories.Invoke();
+        ///     var example = Aws.Rds.GetEventCategories.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleEventCategories.Apply(getEventCategoriesResult =&gt; getEventCategoriesResult.EventCategories),
+        ///         ["example"] = example.Apply(getEventCategoriesResult =&gt; getEventCategoriesResult.EventCategories),
         ///     };
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// List the event categories specific to the RDS resource `db-snapshot`.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -45,30 +46,28 @@ namespace Pulumi.Aws.Rds
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleEventCategories = Aws.Rds.GetEventCategories.Invoke(new()
+        ///     var example = Aws.Rds.GetEventCategories.Invoke(new()
         ///     {
         ///         SourceType = "db-snapshot",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleEventCategories.Apply(getEventCategoriesResult =&gt; getEventCategoriesResult.EventCategories),
+        ///         ["example"] = example.Apply(getEventCategoriesResult =&gt; getEventCategoriesResult.EventCategories),
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEventCategoriesResult> InvokeAsync(GetEventCategoriesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventCategoriesResult>("aws:rds/getEventCategories:getEventCategories", args ?? new GetEventCategoriesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// List the event categories of all the RDS resources.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -77,17 +76,19 @@ namespace Pulumi.Aws.Rds
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleEventCategories = Aws.Rds.GetEventCategories.Invoke();
+        ///     var example = Aws.Rds.GetEventCategories.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleEventCategories.Apply(getEventCategoriesResult =&gt; getEventCategoriesResult.EventCategories),
+        ///         ["example"] = example.Apply(getEventCategoriesResult =&gt; getEventCategoriesResult.EventCategories),
         ///     };
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// List the event categories specific to the RDS resource `db-snapshot`.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -96,19 +97,18 @@ namespace Pulumi.Aws.Rds
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleEventCategories = Aws.Rds.GetEventCategories.Invoke(new()
+        ///     var example = Aws.Rds.GetEventCategories.Invoke(new()
         ///     {
         ///         SourceType = "db-snapshot",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleEventCategories.Apply(getEventCategoriesResult =&gt; getEventCategoriesResult.EventCategories),
+        ///         ["example"] = example.Apply(getEventCategoriesResult =&gt; getEventCategoriesResult.EventCategories),
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEventCategoriesResult> Invoke(GetEventCategoriesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventCategoriesResult>("aws:rds/getEventCategories:getEventCategories", args ?? new GetEventCategoriesInvokeArgs(), options.WithDefaults());

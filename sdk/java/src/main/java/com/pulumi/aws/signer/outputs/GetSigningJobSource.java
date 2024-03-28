@@ -5,6 +5,7 @@ package com.pulumi.aws.signer.outputs;
 
 import com.pulumi.aws.signer.outputs.GetSigningJobSourceS3;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,16 +36,19 @@ public final class GetSigningJobSource {
 
         @CustomType.Setter
         public Builder s3s(List<GetSigningJobSourceS3> s3s) {
-            this.s3s = Objects.requireNonNull(s3s);
+            if (s3s == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobSource", "s3s");
+            }
+            this.s3s = s3s;
             return this;
         }
         public Builder s3s(GetSigningJobSourceS3... s3s) {
             return s3s(List.of(s3s));
         }
         public GetSigningJobSource build() {
-            final var o = new GetSigningJobSource();
-            o.s3s = s3s;
-            return o;
+            final var _resultValue = new GetSigningJobSource();
+            _resultValue.s3s = s3s;
+            return _resultValue;
         }
     }
 }

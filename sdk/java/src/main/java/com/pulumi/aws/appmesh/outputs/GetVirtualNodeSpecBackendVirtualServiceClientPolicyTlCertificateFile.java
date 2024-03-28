@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,19 +41,25 @@ public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertific
 
         @CustomType.Setter
         public Builder certificateChain(String certificateChain) {
-            this.certificateChain = Objects.requireNonNull(certificateChain);
+            if (certificateChain == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile", "certificateChain");
+            }
+            this.certificateChain = certificateChain;
             return this;
         }
         @CustomType.Setter
         public Builder privateKey(String privateKey) {
-            this.privateKey = Objects.requireNonNull(privateKey);
+            if (privateKey == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile", "privateKey");
+            }
+            this.privateKey = privateKey;
             return this;
         }
         public GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile build() {
-            final var o = new GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile();
-            o.certificateChain = certificateChain;
-            o.privateKey = privateKey;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile();
+            _resultValue.certificateChain = certificateChain;
+            _resultValue.privateKey = privateKey;
+            return _resultValue;
         }
     }
 }

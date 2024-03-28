@@ -23,7 +23,15 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS EC2 (Elastic Compute Cloud) Verified Access Endpoint.
  * 
  * ## Example Usage
+ * 
+ * ### ALB Example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Network Interface Example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,30 +58,29 @@ import javax.annotation.Nullable;
  *             .applicationDomain(&#34;example.com&#34;)
  *             .attachmentType(&#34;vpc&#34;)
  *             .description(&#34;example&#34;)
- *             .domainCertificateArn(aws_acm_certificate.example().arn())
+ *             .domainCertificateArn(exampleAwsAcmCertificate.arn())
  *             .endpointDomainPrefix(&#34;example&#34;)
  *             .endpointType(&#34;network-interface&#34;)
  *             .networkInterfaceOptions(EndpointNetworkInterfaceOptionsArgs.builder()
- *                 .networkInterfaceId(aws_network_interface.example().id())
+ *                 .networkInterfaceId(exampleAwsNetworkInterface.id())
  *                 .port(443)
  *                 .protocol(&#34;https&#34;)
  *                 .build())
- *             .securityGroupIds(aws_security_group.example().id())
- *             .verifiedAccessGroupId(aws_verifiedaccess_group.example().id())
+ *             .securityGroupIds(exampleAwsSecurityGroup.id())
+ *             .verifiedAccessGroupId(exampleAwsVerifiedaccessGroup.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Verified Access Instances using the
- * 
- * `id`. For example:
+ * Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:verifiedaccess/endpoint:Endpoint example vae-8012925589
+ * $ pulumi import aws:verifiedaccess/endpoint:Endpoint example vae-8012925589
  * ```
  * 
  */
@@ -220,6 +227,20 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.networkInterfaceOptions);
     }
     /**
+     * The policy document that is associated with this resource.
+     * 
+     */
+    @Export(name="policyDocument", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> policyDocument;
+
+    /**
+     * @return The policy document that is associated with this resource.
+     * 
+     */
+    public Output<Optional<String>> policyDocument() {
+        return Codegen.optional(this.policyDocument);
+    }
+    /**
      * List of the the security groups IDs to associate with the Verified Access endpoint.
      * 
      */
@@ -330,9 +351,6 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

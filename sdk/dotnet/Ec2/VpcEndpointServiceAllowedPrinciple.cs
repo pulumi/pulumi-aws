@@ -22,6 +22,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// Basic usage:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,14 +33,15 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var allowMeToFoo = new Aws.Ec2.VpcEndpointServiceAllowedPrinciple("allowMeToFoo", new()
+    ///     var allowMeToFoo = new Aws.Ec2.VpcEndpointServiceAllowedPrinciple("allow_me_to_foo", new()
     ///     {
-    ///         VpcEndpointServiceId = aws_vpc_endpoint_service.Foo.Id,
+    ///         VpcEndpointServiceId = foo.Id,
     ///         PrincipalArn = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.Arn),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple")]
     public partial class VpcEndpointServiceAllowedPrinciple : global::Pulumi.CustomResource

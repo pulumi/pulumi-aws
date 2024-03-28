@@ -5,6 +5,7 @@ package com.pulumi.aws.finspace.outputs;
 
 import com.pulumi.aws.finspace.outputs.KxClusterDatabaseCacheConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -28,6 +29,11 @@ public final class KxClusterDatabase {
      * 
      */
     private String databaseName;
+    /**
+     * @return The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignore_changes` for database to prevent any undesirable behaviors.
+     * 
+     */
+    private @Nullable String dataviewName;
 
     private KxClusterDatabase() {}
     /**
@@ -51,6 +57,13 @@ public final class KxClusterDatabase {
     public String databaseName() {
         return this.databaseName;
     }
+    /**
+     * @return The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignore_changes` for database to prevent any undesirable behaviors.
+     * 
+     */
+    public Optional<String> dataviewName() {
+        return Optional.ofNullable(this.dataviewName);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -64,16 +77,19 @@ public final class KxClusterDatabase {
         private @Nullable List<KxClusterDatabaseCacheConfiguration> cacheConfigurations;
         private @Nullable String changesetId;
         private String databaseName;
+        private @Nullable String dataviewName;
         public Builder() {}
         public Builder(KxClusterDatabase defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cacheConfigurations = defaults.cacheConfigurations;
     	      this.changesetId = defaults.changesetId;
     	      this.databaseName = defaults.databaseName;
+    	      this.dataviewName = defaults.dataviewName;
         }
 
         @CustomType.Setter
         public Builder cacheConfigurations(@Nullable List<KxClusterDatabaseCacheConfiguration> cacheConfigurations) {
+
             this.cacheConfigurations = cacheConfigurations;
             return this;
         }
@@ -82,20 +98,31 @@ public final class KxClusterDatabase {
         }
         @CustomType.Setter
         public Builder changesetId(@Nullable String changesetId) {
+
             this.changesetId = changesetId;
             return this;
         }
         @CustomType.Setter
         public Builder databaseName(String databaseName) {
-            this.databaseName = Objects.requireNonNull(databaseName);
+            if (databaseName == null) {
+              throw new MissingRequiredPropertyException("KxClusterDatabase", "databaseName");
+            }
+            this.databaseName = databaseName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dataviewName(@Nullable String dataviewName) {
+
+            this.dataviewName = dataviewName;
             return this;
         }
         public KxClusterDatabase build() {
-            final var o = new KxClusterDatabase();
-            o.cacheConfigurations = cacheConfigurations;
-            o.changesetId = changesetId;
-            o.databaseName = databaseName;
-            return o;
+            final var _resultValue = new KxClusterDatabase();
+            _resultValue.cacheConfigurations = cacheConfigurations;
+            _resultValue.changesetId = changesetId;
+            _resultValue.databaseName = databaseName;
+            _resultValue.dataviewName = dataviewName;
+            return _resultValue;
         }
     }
 }

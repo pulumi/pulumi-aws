@@ -15,8 +15,10 @@ import (
 // Provides a Step Function State Machine resource
 //
 // ## Example Usage
+//
 // ### Basic (Standard Workflow)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,8 +33,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sfn.NewStateMachine(ctx, "sfnStateMachine", &sfn.StateMachineArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
+//			// ...
+//			_, err := sfn.NewStateMachine(ctx, "sfn_state_machine", &sfn.StateMachineArgs{
+//				Name:    pulumi.String("my-state-machine"),
+//				RoleArn: pulumi.Any(iamForSfn.Arn),
 //				Definition: pulumi.String(fmt.Sprintf(`{
 //	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
 //	  "StartAt": "HelloWorld",
@@ -45,7 +49,7 @@ import (
 //	  }
 //	}
 //
-// `, aws_lambda_function.Lambda.Arn)),
+// `, lambda.Arn)),
 //
 //			})
 //			if err != nil {
@@ -56,8 +60,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Basic (Express Workflow)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -72,8 +79,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sfn.NewStateMachine(ctx, "sfnStateMachine", &sfn.StateMachineArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
+//			// ...
+//			_, err := sfn.NewStateMachine(ctx, "sfn_state_machine", &sfn.StateMachineArgs{
+//				Name:    pulumi.String("my-state-machine"),
+//				RoleArn: pulumi.Any(iamForSfn.Arn),
 //				Type:    pulumi.String("EXPRESS"),
 //				Definition: pulumi.String(fmt.Sprintf(`{
 //	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
@@ -87,7 +96,7 @@ import (
 //	  }
 //	}
 //
-// `, aws_lambda_function.Lambda.Arn)),
+// `, lambda.Arn)),
 //
 //			})
 //			if err != nil {
@@ -98,8 +107,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Publish (Publish SFN version)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -114,8 +126,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sfn.NewStateMachine(ctx, "sfnStateMachine", &sfn.StateMachineArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
+//			// ...
+//			_, err := sfn.NewStateMachine(ctx, "sfn_state_machine", &sfn.StateMachineArgs{
+//				Name:    pulumi.String("my-state-machine"),
+//				RoleArn: pulumi.Any(iamForSfn.Arn),
 //				Publish: pulumi.Bool(true),
 //				Type:    pulumi.String("EXPRESS"),
 //				Definition: pulumi.String(fmt.Sprintf(`{
@@ -130,7 +144,7 @@ import (
 //	  }
 //	}
 //
-// `, aws_lambda_function.Lambda.Arn)),
+// `, lambda.Arn)),
 //
 //			})
 //			if err != nil {
@@ -141,10 +155,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Logging
 //
 // > *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -159,8 +176,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sfn.NewStateMachine(ctx, "sfnStateMachine", &sfn.StateMachineArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
+//			// ...
+//			_, err := sfn.NewStateMachine(ctx, "sfn_state_machine", &sfn.StateMachineArgs{
+//				Name:    pulumi.String("my-state-machine"),
+//				RoleArn: pulumi.Any(iamForSfn.Arn),
 //				Definition: pulumi.String(fmt.Sprintf(`{
 //	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
 //	  "StartAt": "HelloWorld",
@@ -173,10 +192,10 @@ import (
 //	  }
 //	}
 //
-// `, aws_lambda_function.Lambda.Arn)),
+// `, lambda.Arn)),
 //
 //				LoggingConfiguration: &sfn.StateMachineLoggingConfigurationArgs{
-//					LogDestination:       pulumi.String(fmt.Sprintf("%v:*", aws_cloudwatch_log_group.Log_group_for_sfn.Arn)),
+//					LogDestination:       pulumi.String(fmt.Sprintf("%v:*", logGroupForSfn.Arn)),
 //					IncludeExecutionData: pulumi.Bool(true),
 //					Level:                pulumi.String("ERROR"),
 //				},
@@ -189,15 +208,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import State Machines using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
-//
+// $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
 // ```
 type StateMachine struct {
 	pulumi.CustomResourceState
@@ -219,7 +237,8 @@ type StateMachine struct {
 	Publish    pulumi.BoolPtrOutput `pulumi:"publish"`
 	RevisionId pulumi.StringOutput  `pulumi:"revisionId"`
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-	RoleArn                pulumi.StringOutput `pulumi:"roleArn"`
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// The ARN of the state machine version.
 	StateMachineVersionArn pulumi.StringOutput `pulumi:"stateMachineVersionArn"`
 	// The current status of the state machine. Either `ACTIVE` or `DELETING`.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -249,10 +268,6 @@ func NewStateMachine(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StateMachine
 	err := ctx.RegisterResource("aws:sfn/stateMachine:StateMachine", name, args, &resource, opts...)
@@ -293,7 +308,8 @@ type stateMachineState struct {
 	Publish    *bool   `pulumi:"publish"`
 	RevisionId *string `pulumi:"revisionId"`
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-	RoleArn                *string `pulumi:"roleArn"`
+	RoleArn *string `pulumi:"roleArn"`
+	// The ARN of the state machine version.
 	StateMachineVersionArn *string `pulumi:"stateMachineVersionArn"`
 	// The current status of the state machine. Either `ACTIVE` or `DELETING`.
 	Status *string `pulumi:"status"`
@@ -328,7 +344,8 @@ type StateMachineState struct {
 	Publish    pulumi.BoolPtrInput
 	RevisionId pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-	RoleArn                pulumi.StringPtrInput
+	RoleArn pulumi.StringPtrInput
+	// The ARN of the state machine version.
 	StateMachineVersionArn pulumi.StringPtrInput
 	// The current status of the state machine. Either `ACTIVE` or `DELETING`.
 	Status pulumi.StringPtrInput
@@ -527,6 +544,7 @@ func (o StateMachineOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StateMachine) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The ARN of the state machine version.
 func (o StateMachineOutput) StateMachineVersionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StateMachine) pulumi.StringOutput { return v.StateMachineVersionArn }).(pulumi.StringOutput)
 }

@@ -44,13 +44,14 @@ public final class RuleGroupRuleActionChallenge {
 
         @CustomType.Setter
         public Builder customRequestHandling(@Nullable RuleGroupRuleActionChallengeCustomRequestHandling customRequestHandling) {
+
             this.customRequestHandling = customRequestHandling;
             return this;
         }
         public RuleGroupRuleActionChallenge build() {
-            final var o = new RuleGroupRuleActionChallenge();
-            o.customRequestHandling = customRequestHandling;
-            return o;
+            final var _resultValue = new RuleGroupRuleActionChallenge();
+            _resultValue.customRequestHandling = customRequestHandling;
+            return _resultValue;
         }
     }
 }

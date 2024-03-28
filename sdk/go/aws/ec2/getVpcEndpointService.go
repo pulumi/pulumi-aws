@@ -15,8 +15,10 @@ import (
 // can be specified when creating a VPC endpoint within the region configured in the provider.
 //
 // ## Example Usage
+//
 // ### AWS Service
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Declare the data source
 //			s3, err := ec2.LookupVpcEndpointService(ctx, &ec2.LookupVpcEndpointServiceArgs{
 //				Service:     pulumi.StringRef("s3"),
 //				ServiceType: pulumi.StringRef("Gateway"),
@@ -36,15 +39,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Create a VPC
 //			foo, err := ec2.NewVpc(ctx, "foo", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("10.0.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
 //			}
+//			// Create a VPC endpoint
 //			_, err = ec2.NewVpcEndpoint(ctx, "ep", &ec2.VpcEndpointArgs{
 //				VpcId:       foo.ID(),
-//				ServiceName: *pulumi.String(s3.ServiceName),
+//				ServiceName: pulumi.String(s3.ServiceName),
 //			})
 //			if err != nil {
 //				return err
@@ -54,8 +59,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Non-AWS Service
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -79,8 +87,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Filter
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -111,6 +122,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupVpcEndpointService(ctx *pulumi.Context, args *LookupVpcEndpointServiceArgs, opts ...pulumi.InvokeOption) (*LookupVpcEndpointServiceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcEndpointServiceResult

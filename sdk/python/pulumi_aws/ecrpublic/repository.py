@@ -235,34 +235,34 @@ class Repository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
-        import base64
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        us_east1 = aws.Provider("usEast1", region="us-east-1")
         foo = aws.ecrpublic.Repository("foo",
             repository_name="bar",
             catalog_data=aws.ecrpublic.RepositoryCatalogDataArgs(
                 about_text="About Text",
                 architectures=["ARM"],
                 description="Description",
-                logo_image_blob=(lambda path: base64.b64encode(open(path).read().encode()).decode())(image["png"]),
+                logo_image_blob=std.filebase64(input=png).result,
                 operating_systems=["Linux"],
                 usage_text="Usage Text",
             ),
             tags={
                 "env": "production",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["us_east_1"]))
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECR Public Repositories using the `repository_name`. For example:
 
         ```sh
-         $ pulumi import aws:ecrpublic/repository:Repository example example
+        $ pulumi import aws:ecrpublic/repository:Repository example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -284,34 +284,34 @@ class Repository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
-        import base64
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        us_east1 = aws.Provider("usEast1", region="us-east-1")
         foo = aws.ecrpublic.Repository("foo",
             repository_name="bar",
             catalog_data=aws.ecrpublic.RepositoryCatalogDataArgs(
                 about_text="About Text",
                 architectures=["ARM"],
                 description="Description",
-                logo_image_blob=(lambda path: base64.b64encode(open(path).read().encode()).decode())(image["png"]),
+                logo_image_blob=std.filebase64(input=png).result,
                 operating_systems=["Linux"],
                 usage_text="Usage Text",
             ),
             tags={
                 "env": "production",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["us_east_1"]))
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECR Public Repositories using the `repository_name`. For example:
 
         ```sh
-         $ pulumi import aws:ecrpublic/repository:Repository example example
+        $ pulumi import aws:ecrpublic/repository:Repository example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -352,8 +352,6 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["registry_id"] = None
             __props__.__dict__["repository_uri"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Repository, __self__).__init__(
             'aws:ecrpublic/repository:Repository',
             resource_name,

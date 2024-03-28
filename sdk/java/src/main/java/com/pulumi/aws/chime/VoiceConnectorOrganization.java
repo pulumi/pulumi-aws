@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Enable origination settings to control inbound calling to your SIP infrastructure.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,13 +47,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var defaultVoiceConnector = new VoiceConnector(&#34;defaultVoiceConnector&#34;, VoiceConnectorArgs.builder()        
+ *         var default_ = new VoiceConnector(&#34;default&#34;, VoiceConnectorArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .requireEncryption(true)
  *             .build());
  * 
  *         var defaultVoiceConnectorOrganization = new VoiceConnectorOrganization(&#34;defaultVoiceConnectorOrganization&#34;, VoiceConnectorOrganizationArgs.builder()        
  *             .disabled(false)
- *             .voiceConnectorId(defaultVoiceConnector.id())
+ *             .voiceConnectorId(default_.id())
  *             .routes(            
  *                 VoiceConnectorOrganizationRouteArgs.builder()
  *                     .host(&#34;127.0.0.1&#34;)
@@ -72,13 +75,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Chime Voice Connector Origination using the `voice_connector_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization default abcdef1ghij2klmno3pqr4
+ * $ pulumi import aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization default abcdef1ghij2klmno3pqr4
  * ```
  * 
  */

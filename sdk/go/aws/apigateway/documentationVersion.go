@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,11 +29,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", nil)
+//			exampleRestApi, err := apigateway.NewRestApi(ctx, "example", &apigateway.RestApiArgs{
+//				Name: pulumi.String("example_api"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDocumentationPart, err := apigateway.NewDocumentationPart(ctx, "exampleDocumentationPart", &apigateway.DocumentationPartArgs{
+//			_, err = apigateway.NewDocumentationVersion(ctx, "example", &apigateway.DocumentationVersionArgs{
+//				Version:     pulumi.String("example_version"),
+//				RestApiId:   exampleRestApi.ID(),
+//				Description: pulumi.String("Example description"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewDocumentationPart(ctx, "example", &apigateway.DocumentationPartArgs{
 //				Location: &apigateway.DocumentationPartLocationArgs{
 //					Type: pulumi.String("API"),
 //				},
@@ -42,30 +53,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigateway.NewDocumentationVersion(ctx, "exampleDocumentationVersion", &apigateway.DocumentationVersionArgs{
-//				Version:     pulumi.String("example_version"),
-//				RestApiId:   exampleRestApi.ID(),
-//				Description: pulumi.String("Example description"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleDocumentationPart,
-//			}))
-//			if err != nil {
-//				return err
-//			}
 //			return nil
 //		})
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import API Gateway documentation versions using `REST-API-ID/VERSION`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
-//
+// $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
 // ```
 type DocumentationVersion struct {
 	pulumi.CustomResourceState

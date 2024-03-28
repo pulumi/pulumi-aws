@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,7 +25,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// {
     ///     var example = new Aws.Ec2TransitGateway.PeeringAttachmentAccepter("example", new()
     ///     {
-    ///         TransitGatewayAttachmentId = aws_ec2_transit_gateway_peering_attachment.Example.Id,
+    ///         TransitGatewayAttachmentId = exampleAwsEc2TransitGatewayPeeringAttachment.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "Example cross-account attachment" },
@@ -33,13 +34,14 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment_accepter` using the EC2 Transit Gateway Attachment identifier. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter example tgw-attach-12345678
+    /// $ pulumi import aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter example tgw-attach-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter")]
@@ -109,11 +111,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter"},
-                },
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
+                    new global::Pulumi.Alias { Type = "aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -201,11 +199,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

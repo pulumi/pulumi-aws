@@ -22,7 +22,10 @@ import javax.annotation.Nullable;
  * Provides a SageMaker Workforce resource.
  * 
  * ## Example Usage
+ * 
  * ### Cognito Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -30,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cognito.UserPool;
+ * import com.pulumi.aws.cognito.UserPoolArgs;
  * import com.pulumi.aws.cognito.UserPoolClient;
  * import com.pulumi.aws.cognito.UserPoolClientArgs;
  * import com.pulumi.aws.cognito.UserPoolDomain;
@@ -50,9 +54,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleUserPool = new UserPool(&#34;exampleUserPool&#34;);
+ *         var exampleUserPool = new UserPool(&#34;exampleUserPool&#34;, UserPoolArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleUserPoolClient = new UserPoolClient(&#34;exampleUserPoolClient&#34;, UserPoolClientArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .generateSecret(true)
  *             .userPoolId(exampleUserPool.id())
  *             .build());
@@ -62,7 +69,7 @@ import javax.annotation.Nullable;
  *             .userPoolId(exampleUserPool.id())
  *             .build());
  * 
- *         var exampleWorkforce = new Workforce(&#34;exampleWorkforce&#34;, WorkforceArgs.builder()        
+ *         var example = new Workforce(&#34;example&#34;, WorkforceArgs.builder()        
  *             .workforceName(&#34;example&#34;)
  *             .cognitoConfig(WorkforceCognitoConfigArgs.builder()
  *                 .clientId(exampleUserPoolClient.id())
@@ -73,7 +80,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Oidc Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -97,6 +108,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Workforce(&#34;example&#34;, WorkforceArgs.builder()        
+ *             .workforceName(&#34;example&#34;)
  *             .oidcConfig(WorkforceOidcConfigArgs.builder()
  *                 .authorizationEndpoint(&#34;https://example.com&#34;)
  *                 .clientId(&#34;example&#34;)
@@ -107,19 +119,19 @@ import javax.annotation.Nullable;
  *                 .tokenEndpoint(&#34;https://example.com&#34;)
  *                 .userInfoEndpoint(&#34;https://example.com&#34;)
  *                 .build())
- *             .workforceName(&#34;example&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SageMaker Workforces using the `workforce_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sagemaker/workforce:Workforce example example
+ * $ pulumi import aws:sagemaker/workforce:Workforce example example
  * ```
  * 
  */

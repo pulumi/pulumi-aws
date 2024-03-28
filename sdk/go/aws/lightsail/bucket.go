@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lightsail.NewBucket(ctx, "test", &lightsail.BucketArgs{
+//				Name:     pulumi.String("mytestbucket"),
 //				BundleId: pulumi.String("small_1_0"),
 //			})
 //			if err != nil {
@@ -39,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lightsail/bucket:Bucket test example-bucket
-//
+// $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
 // ```
 type Bucket struct {
 	pulumi.CustomResourceState
@@ -87,10 +88,6 @@ func NewBucket(ctx *pulumi.Context,
 	if args.BundleId == nil {
 		return nil, errors.New("invalid value for required argument 'BundleId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Bucket
 	err := ctx.RegisterResource("aws:lightsail/bucket:Bucket", name, args, &resource, opts...)

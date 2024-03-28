@@ -166,16 +166,18 @@ class RdsDbInstance(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        my_instance = aws.opsworks.RdsDbInstance("myInstance",
-            stack_id=aws_opsworks_stack["my_stack"]["id"],
-            rds_db_instance_arn=aws_db_instance["my_instance"]["arn"],
+        my_instance = aws.opsworks.RdsDbInstance("my_instance",
+            stack_id=my_stack["id"],
+            rds_db_instance_arn=my_instance_aws_db_instance["arn"],
             db_user="someUser",
             db_password="somePass")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,16 +197,18 @@ class RdsDbInstance(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        my_instance = aws.opsworks.RdsDbInstance("myInstance",
-            stack_id=aws_opsworks_stack["my_stack"]["id"],
-            rds_db_instance_arn=aws_db_instance["my_instance"]["arn"],
+        my_instance = aws.opsworks.RdsDbInstance("my_instance",
+            stack_id=my_stack["id"],
+            rds_db_instance_arn=my_instance_aws_db_instance["arn"],
             db_user="someUser",
             db_password="somePass")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param RdsDbInstanceArgs args: The arguments to use to populate this resource's properties.

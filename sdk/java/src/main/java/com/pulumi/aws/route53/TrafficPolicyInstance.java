@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides a Route53 traffic policy instance resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -40,22 +42,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new TrafficPolicyInstance(&#34;test&#34;, TrafficPolicyInstanceArgs.builder()        
- *             .hostedZoneId(&#34;Z033120931TAQO548OGJC&#34;)
+ *             .name(&#34;test.example.com&#34;)
  *             .trafficPolicyId(&#34;b3gb108f-ea6f-45a5-baab-9d112d8b4037&#34;)
  *             .trafficPolicyVersion(1)
+ *             .hostedZoneId(&#34;Z033120931TAQO548OGJC&#34;)
  *             .ttl(360)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Route53 traffic policy instance using its id. For example:
  * 
  * ```sh
- *  $ pulumi import aws:route53/trafficPolicyInstance:TrafficPolicyInstance test df579d9a-6396-410e-ac22-e7ad60cf9e7e
+ * $ pulumi import aws:route53/trafficPolicyInstance:TrafficPolicyInstance test df579d9a-6396-410e-ac22-e7ad60cf9e7e
  * ```
  * 
  */

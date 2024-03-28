@@ -14,8 +14,10 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) for [WebSocket](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-develop-routes.html) and [HTTP](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html) APIs.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,22 +26,26 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleApi = new Aws.ApiGatewayV2.Api("exampleApi", new()
+    ///     var example = new Aws.ApiGatewayV2.Api("example", new()
     ///     {
+    ///         Name = "example-websocket-api",
     ///         ProtocolType = "WEBSOCKET",
     ///         RouteSelectionExpression = "$request.body.action",
     ///     });
     /// 
-    ///     var exampleRoute = new Aws.ApiGatewayV2.Route("exampleRoute", new()
+    ///     var exampleRoute = new Aws.ApiGatewayV2.Route("example", new()
     ///     {
-    ///         ApiId = exampleApi.Id,
+    ///         ApiId = example.Id,
     ///         RouteKey = "$default",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### HTTP Proxy Integration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,37 +54,39 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleApi = new Aws.ApiGatewayV2.Api("exampleApi", new()
+    ///     var example = new Aws.ApiGatewayV2.Api("example", new()
     ///     {
+    ///         Name = "example-http-api",
     ///         ProtocolType = "HTTP",
     ///     });
     /// 
-    ///     var exampleIntegration = new Aws.ApiGatewayV2.Integration("exampleIntegration", new()
+    ///     var exampleIntegration = new Aws.ApiGatewayV2.Integration("example", new()
     ///     {
-    ///         ApiId = exampleApi.Id,
+    ///         ApiId = example.Id,
     ///         IntegrationType = "HTTP_PROXY",
     ///         IntegrationMethod = "ANY",
     ///         IntegrationUri = "https://example.com/{proxy}",
     ///     });
     /// 
-    ///     var exampleRoute = new Aws.ApiGatewayV2.Route("exampleRoute", new()
+    ///     var exampleRoute = new Aws.ApiGatewayV2.Route("example", new()
     ///     {
-    ///         ApiId = exampleApi.Id,
+    ///         ApiId = example.Id,
     ///         RouteKey = "ANY /example/{proxy+}",
     ///         Target = exampleIntegration.Id.Apply(id =&gt; $"integrations/{id}"),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_apigatewayv2_route` using the API identifier and route identifier. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigatewayv2/route:Route example aabbccddee/1122334
+    /// $ pulumi import aws:apigatewayv2/route:Route example aabbccddee/1122334
     /// ```
-    ///  -&gt; __Note:__ The API Gateway managed route created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
+    /// -&gt; __Note:__ The API Gateway managed route created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/route:Route")]
     public partial class Route : global::Pulumi.CustomResource

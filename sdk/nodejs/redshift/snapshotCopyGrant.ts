@@ -11,23 +11,25 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testSnapshotCopyGrant = new aws.redshift.SnapshotCopyGrant("testSnapshotCopyGrant", {snapshotCopyGrantName: "my-grant"});
- * const testCluster = new aws.redshift.Cluster("testCluster", {snapshotCopy: {
+ * const test = new aws.redshift.SnapshotCopyGrant("test", {snapshotCopyGrantName: "my-grant"});
+ * const testCluster = new aws.redshift.Cluster("test", {snapshotCopy: {
  *     destinationRegion: "us-east-2",
- *     grantName: testSnapshotCopyGrant.snapshotCopyGrantName,
+ *     grantName: test.snapshotCopyGrantName,
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
+ * $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
  * ```
  */
 export class SnapshotCopyGrant extends pulumi.CustomResource {
@@ -111,8 +113,6 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SnapshotCopyGrant.__pulumiType, name, resourceInputs, opts);
     }
 }

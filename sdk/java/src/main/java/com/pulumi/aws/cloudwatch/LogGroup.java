@@ -13,7 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides a CloudWatch Log Group resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,22 +45,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var yada = new LogGroup(&#34;yada&#34;, LogGroupArgs.builder()        
+ *             .name(&#34;Yada&#34;)
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Application&#34;, &#34;serviceA&#34;),
- *                 Map.entry(&#34;Environment&#34;, &#34;production&#34;)
+ *                 Map.entry(&#34;Environment&#34;, &#34;production&#34;),
+ *                 Map.entry(&#34;Application&#34;, &#34;serviceA&#34;)
  *             ))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada
+ * $ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada
  * ```
  * 
  */
@@ -96,6 +99,20 @@ public class LogGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> kmsKeyId() {
         return Codegen.optional(this.kmsKeyId);
+    }
+    /**
+     * Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+     * 
+     */
+    @Export(name="logGroupClass", refs={String.class}, tree="[0]")
+    private Output<String> logGroupClass;
+
+    /**
+     * @return Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+     * 
+     */
+    public Output<String> logGroupClass() {
+        return this.logGroupClass;
     }
     /**
      * The name of the log group. If omitted, this provider will assign a random, unique name.
@@ -222,9 +239,6 @@ public class LogGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

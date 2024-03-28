@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,8 +53,8 @@ import (
 //							Enabled: pulumi.Bool(true),
 //						},
 //						S3BucketDestination: &s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs{
-//							AccountId:           *pulumi.String(current.AccountId),
-//							Arn:                 pulumi.Any(aws_s3_bucket.Target.Arn),
+//							AccountId:           pulumi.String(current.AccountId),
+//							Arn:                 pulumi.Any(target.Arn),
 //							Format:              pulumi.String("CSV"),
 //							OutputSchemaVersion: pulumi.String("V_1"),
 //							Encryption: &s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs{
@@ -65,8 +66,8 @@ import (
 //					},
 //					Exclude: &s3control.StorageLensConfigurationStorageLensConfigurationExcludeArgs{
 //						Buckets: pulumi.StringArray{
-//							aws_s3_bucket.B1.Arn,
-//							aws_s3_bucket.B2.Arn,
+//							b1.Arn,
+//							b2.Arn,
 //						},
 //						Regions: pulumi.StringArray{
 //							pulumi.String("us-east-2"),
@@ -82,15 +83,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import S3 Storage Lens configurations using the `account_id` and `config_id`, separated by a colon (`:`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1
-//
+// $ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1
 // ```
 type StorageLensConfiguration struct {
 	pulumi.CustomResourceState
@@ -124,10 +124,6 @@ func NewStorageLensConfiguration(ctx *pulumi.Context,
 	if args.StorageLensConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'StorageLensConfiguration'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StorageLensConfiguration
 	err := ctx.RegisterResource("aws:s3control/storageLensConfiguration:StorageLensConfiguration", name, args, &resource, opts...)

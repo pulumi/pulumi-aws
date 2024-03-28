@@ -14,6 +14,7 @@ namespace Pulumi.Aws.RolesAnywhere
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,7 +23,7 @@ namespace Pulumi.Aws.RolesAnywhere
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority("exampleCertificateAuthority", new()
+    ///     var example = new Aws.Acmpca.CertificateAuthority("example", new()
     ///     {
     ///         PermanentDeletionTimeInDays = 7,
     ///         Type = "ROOT",
@@ -39,10 +40,10 @@ namespace Pulumi.Aws.RolesAnywhere
     /// 
     ///     var current = Aws.GetPartition.Invoke();
     /// 
-    ///     var testCertificate = new Aws.Acmpca.Certificate("testCertificate", new()
+    ///     var test = new Aws.Acmpca.Certificate("test", new()
     ///     {
-    ///         CertificateAuthorityArn = exampleCertificateAuthority.Arn,
-    ///         CertificateSigningRequest = exampleCertificateAuthority.CertificateSigningRequest,
+    ///         CertificateAuthorityArn = example.Arn,
+    ///         CertificateSigningRequest = example.CertificateSigningRequest,
     ///         SigningAlgorithm = "SHA512WITHRSA",
     ///         TemplateArn = $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:acm-pca:::template/RootCACertificate/V1",
     ///         Validity = new Aws.Acmpca.Inputs.CertificateValidityArgs
@@ -52,40 +53,36 @@ namespace Pulumi.Aws.RolesAnywhere
     ///         },
     ///     });
     /// 
-    ///     var exampleCertificateAuthorityCertificate = new Aws.Acmpca.CertificateAuthorityCertificate("exampleCertificateAuthorityCertificate", new()
+    ///     var exampleCertificateAuthorityCertificate = new Aws.Acmpca.CertificateAuthorityCertificate("example", new()
     ///     {
-    ///         CertificateAuthorityArn = exampleCertificateAuthority.Arn,
-    ///         Certificate = aws_acmpca_certificate.Example.Certificate,
-    ///         CertificateChain = aws_acmpca_certificate.Example.Certificate_chain,
+    ///         CertificateAuthorityArn = example.Arn,
+    ///         Certificate = exampleAwsAcmpcaCertificate.Certificate,
+    ///         CertificateChain = exampleAwsAcmpcaCertificate.CertificateChain,
     ///     });
     /// 
-    ///     var testTrustAnchor = new Aws.RolesAnywhere.TrustAnchor("testTrustAnchor", new()
+    ///     var testTrustAnchor = new Aws.RolesAnywhere.TrustAnchor("test", new()
     ///     {
+    ///         Name = "example",
     ///         Source = new Aws.RolesAnywhere.Inputs.TrustAnchorSourceArgs
     ///         {
     ///             SourceData = new Aws.RolesAnywhere.Inputs.TrustAnchorSourceSourceDataArgs
     ///             {
-    ///                 AcmPcaArn = exampleCertificateAuthority.Arn,
+    ///                 AcmPcaArn = example.Arn,
     ///             },
     ///             SourceType = "AWS_ACM_PCA",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleCertificateAuthorityCertificate,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_rolesanywhere_trust_anchor` using its `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rolesanywhere/trustAnchor:TrustAnchor example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1
+    /// $ pulumi import aws:rolesanywhere/trustAnchor:TrustAnchor example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1
     /// ```
     /// </summary>
     [AwsResourceType("aws:rolesanywhere/trustAnchor:TrustAnchor")]
@@ -150,10 +147,6 @@ namespace Pulumi.Aws.RolesAnywhere
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -261,11 +254,7 @@ namespace Pulumi.Aws.RolesAnywhere
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public TrustAnchorState()

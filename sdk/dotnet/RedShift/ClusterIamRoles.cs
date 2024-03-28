@@ -16,6 +16,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,22 +27,23 @@ namespace Pulumi.Aws.RedShift
     /// {
     ///     var example = new Aws.RedShift.ClusterIamRoles("example", new()
     ///     {
-    ///         ClusterIdentifier = aws_redshift_cluster.Example.Cluster_identifier,
+    ///         ClusterIdentifier = exampleAwsRedshiftCluster.ClusterIdentifier,
     ///         IamRoleArns = new[]
     ///         {
-    ///             aws_iam_role.Example.Arn,
+    ///             exampleAwsIamRole.Arn,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Cluster IAM Roless using the `cluster_identifier`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
+    /// $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/clusterIamRoles:ClusterIamRoles")]

@@ -12,15 +12,20 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ipset = new aws.wafregional.IpSet("ipset", {ipSetDescriptors: [{
- *     type: "IPV4",
- *     value: "192.0.7.0/24",
- * }]});
+ * const ipset = new aws.wafregional.IpSet("ipset", {
+ *     name: "tfIPSet",
+ *     ipSetDescriptors: [{
+ *         type: "IPV4",
+ *         value: "192.0.7.0/24",
+ *     }],
+ * });
  * const wafrule = new aws.wafregional.RateBasedRule("wafrule", {
+ *     name: "tfWAFRule",
  *     metricName: "tfWAFRule",
  *     rateKey: "IP",
  *     rateLimit: 100,
@@ -29,17 +34,16 @@ import * as utilities from "../utilities";
  *         negated: false,
  *         type: "IPMatch",
  *     }],
- * }, {
- *     dependsOn: [ipset],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import WAF Regional Rate Based Rule using the id. For example:
  *
  * ```sh
- *  $ pulumi import aws:wafregional/rateBasedRule:RateBasedRule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * $ pulumi import aws:wafregional/rateBasedRule:RateBasedRule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
  * ```
  */
 export class RateBasedRule extends pulumi.CustomResource {
@@ -147,8 +151,6 @@ export class RateBasedRule extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(RateBasedRule.__pulumiType, name, resourceInputs, opts);
     }
 }

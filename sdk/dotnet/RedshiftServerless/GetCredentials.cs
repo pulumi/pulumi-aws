@@ -14,10 +14,9 @@ namespace Pulumi.Aws.RedshiftServerless
         /// <summary>
         /// Provides redshift serverless temporary credentials for a workgroup.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,13 +27,12 @@ namespace Pulumi.Aws.RedshiftServerless
         /// {
         ///     var example = Aws.RedshiftServerless.GetCredentials.Invoke(new()
         ///     {
-        ///         WorkgroupName = aws_redshiftserverless_workgroup.Example.Workgroup_name,
+        ///         WorkgroupName = exampleAwsRedshiftserverlessWorkgroup.WorkgroupName,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetCredentialsResult> InvokeAsync(GetCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCredentialsResult>("aws:redshiftserverless/getCredentials:getCredentials", args ?? new GetCredentialsArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.RedshiftServerless
         /// <summary>
         /// Provides redshift serverless temporary credentials for a workgroup.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -56,13 +53,12 @@ namespace Pulumi.Aws.RedshiftServerless
         /// {
         ///     var example = Aws.RedshiftServerless.GetCredentials.Invoke(new()
         ///     {
-        ///         WorkgroupName = aws_redshiftserverless_workgroup.Example.Workgroup_name,
+        ///         WorkgroupName = exampleAwsRedshiftserverlessWorkgroup.WorkgroupName,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetCredentialsResult> Invoke(GetCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCredentialsResult>("aws:redshiftserverless/getCredentials:getCredentials", args ?? new GetCredentialsInvokeArgs(), options.WithDefaults());

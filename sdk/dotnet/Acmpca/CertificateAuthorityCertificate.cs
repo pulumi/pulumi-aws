@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Acmpca
     /// Associates a certificate with an AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority). An ACM PCA Certificate Authority is unable to issue certificates until it has a certificate associated with it. A root level ACM PCA Certificate Authority is able to self-sign its own root certificate.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Self-Signed Root Certificate Authority Certificate
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,7 +25,7 @@ namespace Pulumi.Aws.Acmpca
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority("exampleCertificateAuthority", new()
+    ///     var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority("example", new()
     ///     {
     ///         Type = "ROOT",
     ///         CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
@@ -39,7 +41,7 @@ namespace Pulumi.Aws.Acmpca
     /// 
     ///     var current = Aws.GetPartition.Invoke();
     /// 
-    ///     var exampleCertificate = new Aws.Acmpca.Certificate("exampleCertificate", new()
+    ///     var exampleCertificate = new Aws.Acmpca.Certificate("example", new()
     ///     {
     ///         CertificateAuthorityArn = exampleCertificateAuthority.Arn,
     ///         CertificateSigningRequest = exampleCertificateAuthority.CertificateSigningRequest,
@@ -52,7 +54,7 @@ namespace Pulumi.Aws.Acmpca
     ///         },
     ///     });
     /// 
-    ///     var exampleCertificateAuthorityCertificate = new Aws.Acmpca.CertificateAuthorityCertificate("exampleCertificateAuthorityCertificate", new()
+    ///     var example = new Aws.Acmpca.CertificateAuthorityCertificate("example", new()
     ///     {
     ///         CertificateAuthorityArn = exampleCertificateAuthority.Arn,
     ///         Certificate = exampleCertificate.Certificate,
@@ -61,10 +63,13 @@ namespace Pulumi.Aws.Acmpca
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Certificate for Subordinate Certificate Authority
     /// 
     /// Note that the certificate for the subordinate certificate authority must be issued by the root certificate authority using a signing request from the subordinate certificate authority.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -73,7 +78,7 @@ namespace Pulumi.Aws.Acmpca
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var subordinateCertificateAuthority = new Aws.Acmpca.CertificateAuthority("subordinateCertificateAuthority", new()
+    ///     var subordinateCertificateAuthority = new Aws.Acmpca.CertificateAuthority("subordinate", new()
     ///     {
     ///         Type = "SUBORDINATE",
     ///         CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
@@ -87,14 +92,13 @@ namespace Pulumi.Aws.Acmpca
     ///         },
     ///     });
     /// 
-    ///     var rootCertificateAuthority = new Aws.Acmpca.CertificateAuthority("rootCertificateAuthority");
+    ///     var root = new Aws.Acmpca.CertificateAuthority("root");
     /// 
-    ///     // ...
     ///     var current = Aws.GetPartition.Invoke();
     /// 
-    ///     var subordinateCertificate = new Aws.Acmpca.Certificate("subordinateCertificate", new()
+    ///     var subordinateCertificate = new Aws.Acmpca.Certificate("subordinate", new()
     ///     {
-    ///         CertificateAuthorityArn = rootCertificateAuthority.Arn,
+    ///         CertificateAuthorityArn = root.Arn,
     ///         CertificateSigningRequest = subordinateCertificateAuthority.CertificateSigningRequest,
     ///         SigningAlgorithm = "SHA512WITHRSA",
     ///         TemplateArn = $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:acm-pca:::template/SubordinateCACertificate_PathLen0/V1",
@@ -105,21 +109,20 @@ namespace Pulumi.Aws.Acmpca
     ///         },
     ///     });
     /// 
-    ///     var subordinateCertificateAuthorityCertificate = new Aws.Acmpca.CertificateAuthorityCertificate("subordinateCertificateAuthorityCertificate", new()
+    ///     var subordinate = new Aws.Acmpca.CertificateAuthorityCertificate("subordinate", new()
     ///     {
     ///         CertificateAuthorityArn = subordinateCertificateAuthority.Arn,
     ///         Certificate = subordinateCertificate.Certificate,
     ///         CertificateChain = subordinateCertificate.CertificateChain,
     ///     });
     /// 
-    ///     var rootCertificateAuthorityCertificate = new Aws.Acmpca.CertificateAuthorityCertificate("rootCertificateAuthorityCertificate");
+    ///     var rootCertificateAuthorityCertificate = new Aws.Acmpca.CertificateAuthorityCertificate("root");
     /// 
-    ///     // ...
-    ///     var rootCertificate = new Aws.Acmpca.Certificate("rootCertificate");
+    ///     var rootCertificate = new Aws.Acmpca.Certificate("root");
     /// 
-    ///     // ...
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:acmpca/certificateAuthorityCertificate:CertificateAuthorityCertificate")]
     public partial class CertificateAuthorityCertificate : global::Pulumi.CustomResource

@@ -15,8 +15,10 @@ import (
 // Provides an SSM Maintenance Window Target resource
 //
 // ## Example Usage
+//
 // ### Instance Target
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			window, err := ssm.NewMaintenanceWindow(ctx, "window", &ssm.MaintenanceWindowArgs{
+//				Name:     pulumi.String("maintenance-window-webapp"),
 //				Schedule: pulumi.String("cron(0 16 ? * TUE *)"),
 //				Duration: pulumi.Int(3),
 //				Cutoff:   pulumi.Int(1),
@@ -39,6 +42,7 @@ import (
 //			}
 //			_, err = ssm.NewMaintenanceWindowTarget(ctx, "target1", &ssm.MaintenanceWindowTargetArgs{
 //				WindowId:     window.ID(),
+//				Name:         pulumi.String("maintenance-window-target"),
 //				Description:  pulumi.String("This is a maintenance window target"),
 //				ResourceType: pulumi.String("INSTANCE"),
 //				Targets: ssm.MaintenanceWindowTargetTargetArray{
@@ -58,8 +62,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Resource Group Target
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -73,6 +80,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			window, err := ssm.NewMaintenanceWindow(ctx, "window", &ssm.MaintenanceWindowArgs{
+//				Name:     pulumi.String("maintenance-window-webapp"),
 //				Schedule: pulumi.String("cron(0 16 ? * TUE *)"),
 //				Duration: pulumi.Int(3),
 //				Cutoff:   pulumi.Int(1),
@@ -82,6 +90,7 @@ import (
 //			}
 //			_, err = ssm.NewMaintenanceWindowTarget(ctx, "target1", &ssm.MaintenanceWindowTargetArgs{
 //				WindowId:     window.ID(),
+//				Name:         pulumi.String("maintenance-window-target"),
 //				Description:  pulumi.String("This is a maintenance window target"),
 //				ResourceType: pulumi.String("RESOURCE_GROUP"),
 //				Targets: ssm.MaintenanceWindowTargetTargetArray{
@@ -101,15 +110,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SSM Maintenance Window targets using `WINDOW_ID/WINDOW_TARGET_ID`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
-//
+// $ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
 // ```
 type MaintenanceWindowTarget struct {
 	pulumi.CustomResourceState

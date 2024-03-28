@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -259,115 +260,169 @@ public final class GetVpcIamPoolsIpamPool {
 
         @CustomType.Setter
         public Builder addressFamily(String addressFamily) {
-            this.addressFamily = Objects.requireNonNull(addressFamily);
+            if (addressFamily == null) {
+              throw new MissingRequiredPropertyException("GetVpcIamPoolsIpamPool", "addressFamily");
+            }
+            this.addressFamily = addressFamily;
             return this;
         }
         @CustomType.Setter
         public Builder allocationDefaultNetmaskLength(Integer allocationDefaultNetmaskLength) {
-            this.allocationDefaultNetmaskLength = Objects.requireNonNull(allocationDefaultNetmaskLength);
+            if (allocationDefaultNetmaskLength == null) {
+              throw new MissingRequiredPropertyException("GetVpcIamPoolsIpamPool", "allocationDefaultNetmaskLength");
+            }
+            this.allocationDefaultNetmaskLength = allocationDefaultNetmaskLength;
             return this;
         }
         @CustomType.Setter
         public Builder allocationMaxNetmaskLength(Integer allocationMaxNetmaskLength) {
-            this.allocationMaxNetmaskLength = Objects.requireNonNull(allocationMaxNetmaskLength);
+            if (allocationMaxNetmaskLength == null) {
+              throw new MissingRequiredPropertyException("GetVpcIamPoolsIpamPool", "allocationMaxNetmaskLength");
+            }
+            this.allocationMaxNetmaskLength = allocationMaxNetmaskLength;
             return this;
         }
         @CustomType.Setter
         public Builder allocationMinNetmaskLength(Integer allocationMinNetmaskLength) {
-            this.allocationMinNetmaskLength = Objects.requireNonNull(allocationMinNetmaskLength);
+            if (allocationMinNetmaskLength == null) {
+              throw new MissingRequiredPropertyException("GetVpcIamPoolsIpamPool", "allocationMinNetmaskLength");
+            }
+            this.allocationMinNetmaskLength = allocationMinNetmaskLength;
             return this;
         }
         @CustomType.Setter
         public Builder allocationResourceTags(Map<String,String> allocationResourceTags) {
-            this.allocationResourceTags = Objects.requireNonNull(allocationResourceTags);
+            if (allocationResourceTags == null) {
+              throw new MissingRequiredPropertyException("GetVpcIamPoolsIpamPool", "allocationResourceTags");
+            }
+            this.allocationResourceTags = allocationResourceTags;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetVpcIamPoolsIpamPool", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder autoImport(Boolean autoImport) {
-            this.autoImport = Objects.requireNonNull(autoImport);
+            if (autoImport == null) {
+              throw new MissingRequiredPropertyException("GetVpcIamPoolsIpamPool", "autoImport");
+            }
+            this.autoImport = autoImport;
             return this;
         }
         @CustomType.Setter
         public Builder awsService(String awsService) {
-            this.awsService = Objects.requireNonNull(awsService);
+            if (awsService == null) {
+              throw new MissingRequiredPropertyException("GetVpcIamPoolsIpamPool", "awsService");
+            }
+            this.awsService = awsService;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetVpcIamPoolsIpamPool", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVpcIamPoolsIpamPool", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipamScopeId(String ipamScopeId) {
-            this.ipamScopeId = Objects.requireNonNull(ipamScopeId);
+            if (ipamScopeId == null) {
+              throw new MissingRequiredPropertyException("GetVpcIamPoolsIpamPool", "ipamScopeId");
+            }
+            this.ipamScopeId = ipamScopeId;
             return this;
         }
         @CustomType.Setter
         public Builder ipamScopeType(String ipamScopeType) {
-            this.ipamScopeType = Objects.requireNonNull(ipamScopeType);
+            if (ipamScopeType == null) {
+              throw new MissingRequiredPropertyException("GetVpcIamPoolsIpamPool", "ipamScopeType");
+            }
+            this.ipamScopeType = ipamScopeType;
             return this;
         }
         @CustomType.Setter
         public Builder locale(String locale) {
-            this.locale = Objects.requireNonNull(locale);
+            if (locale == null) {
+              throw new MissingRequiredPropertyException("GetVpcIamPoolsIpamPool", "locale");
+            }
+            this.locale = locale;
             return this;
         }
         @CustomType.Setter
         public Builder poolDepth(Integer poolDepth) {
-            this.poolDepth = Objects.requireNonNull(poolDepth);
+            if (poolDepth == null) {
+              throw new MissingRequiredPropertyException("GetVpcIamPoolsIpamPool", "poolDepth");
+            }
+            this.poolDepth = poolDepth;
             return this;
         }
         @CustomType.Setter
         public Builder publiclyAdvertisable(Boolean publiclyAdvertisable) {
-            this.publiclyAdvertisable = Objects.requireNonNull(publiclyAdvertisable);
+            if (publiclyAdvertisable == null) {
+              throw new MissingRequiredPropertyException("GetVpcIamPoolsIpamPool", "publiclyAdvertisable");
+            }
+            this.publiclyAdvertisable = publiclyAdvertisable;
             return this;
         }
         @CustomType.Setter
         public Builder sourceIpamPoolId(String sourceIpamPoolId) {
-            this.sourceIpamPoolId = Objects.requireNonNull(sourceIpamPoolId);
+            if (sourceIpamPoolId == null) {
+              throw new MissingRequiredPropertyException("GetVpcIamPoolsIpamPool", "sourceIpamPoolId");
+            }
+            this.sourceIpamPoolId = sourceIpamPoolId;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetVpcIamPoolsIpamPool", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetVpcIamPoolsIpamPool", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetVpcIamPoolsIpamPool build() {
-            final var o = new GetVpcIamPoolsIpamPool();
-            o.addressFamily = addressFamily;
-            o.allocationDefaultNetmaskLength = allocationDefaultNetmaskLength;
-            o.allocationMaxNetmaskLength = allocationMaxNetmaskLength;
-            o.allocationMinNetmaskLength = allocationMinNetmaskLength;
-            o.allocationResourceTags = allocationResourceTags;
-            o.arn = arn;
-            o.autoImport = autoImport;
-            o.awsService = awsService;
-            o.description = description;
-            o.id = id;
-            o.ipamScopeId = ipamScopeId;
-            o.ipamScopeType = ipamScopeType;
-            o.locale = locale;
-            o.poolDepth = poolDepth;
-            o.publiclyAdvertisable = publiclyAdvertisable;
-            o.sourceIpamPoolId = sourceIpamPoolId;
-            o.state = state;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetVpcIamPoolsIpamPool();
+            _resultValue.addressFamily = addressFamily;
+            _resultValue.allocationDefaultNetmaskLength = allocationDefaultNetmaskLength;
+            _resultValue.allocationMaxNetmaskLength = allocationMaxNetmaskLength;
+            _resultValue.allocationMinNetmaskLength = allocationMinNetmaskLength;
+            _resultValue.allocationResourceTags = allocationResourceTags;
+            _resultValue.arn = arn;
+            _resultValue.autoImport = autoImport;
+            _resultValue.awsService = awsService;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.ipamScopeId = ipamScopeId;
+            _resultValue.ipamScopeType = ipamScopeType;
+            _resultValue.locale = locale;
+            _resultValue.poolDepth = poolDepth;
+            _resultValue.publiclyAdvertisable = publiclyAdvertisable;
+            _resultValue.sourceIpamPoolId = sourceIpamPoolId;
+            _resultValue.state = state;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

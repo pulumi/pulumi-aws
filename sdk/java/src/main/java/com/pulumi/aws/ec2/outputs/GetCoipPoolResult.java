@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetCoipPoolFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -98,11 +99,15 @@ public final class GetCoipPoolResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetCoipPoolResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetCoipPoolFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -111,17 +116,26 @@ public final class GetCoipPoolResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCoipPoolResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder localGatewayRouteTableId(String localGatewayRouteTableId) {
-            this.localGatewayRouteTableId = Objects.requireNonNull(localGatewayRouteTableId);
+            if (localGatewayRouteTableId == null) {
+              throw new MissingRequiredPropertyException("GetCoipPoolResult", "localGatewayRouteTableId");
+            }
+            this.localGatewayRouteTableId = localGatewayRouteTableId;
             return this;
         }
         @CustomType.Setter
         public Builder poolCidrs(List<String> poolCidrs) {
-            this.poolCidrs = Objects.requireNonNull(poolCidrs);
+            if (poolCidrs == null) {
+              throw new MissingRequiredPropertyException("GetCoipPoolResult", "poolCidrs");
+            }
+            this.poolCidrs = poolCidrs;
             return this;
         }
         public Builder poolCidrs(String... poolCidrs) {
@@ -129,24 +143,30 @@ public final class GetCoipPoolResult {
         }
         @CustomType.Setter
         public Builder poolId(String poolId) {
-            this.poolId = Objects.requireNonNull(poolId);
+            if (poolId == null) {
+              throw new MissingRequiredPropertyException("GetCoipPoolResult", "poolId");
+            }
+            this.poolId = poolId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetCoipPoolResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetCoipPoolResult build() {
-            final var o = new GetCoipPoolResult();
-            o.arn = arn;
-            o.filters = filters;
-            o.id = id;
-            o.localGatewayRouteTableId = localGatewayRouteTableId;
-            o.poolCidrs = poolCidrs;
-            o.poolId = poolId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetCoipPoolResult();
+            _resultValue.arn = arn;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.localGatewayRouteTableId = localGatewayRouteTableId;
+            _resultValue.poolCidrs = poolCidrs;
+            _resultValue.poolId = poolId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

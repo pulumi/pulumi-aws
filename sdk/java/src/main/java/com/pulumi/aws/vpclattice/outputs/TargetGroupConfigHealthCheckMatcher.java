@@ -44,13 +44,14 @@ public final class TargetGroupConfigHealthCheckMatcher {
 
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }
         public TargetGroupConfigHealthCheckMatcher build() {
-            final var o = new TargetGroupConfigHealthCheckMatcher();
-            o.value = value;
-            return o;
+            final var _resultValue = new TargetGroupConfigHealthCheckMatcher();
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

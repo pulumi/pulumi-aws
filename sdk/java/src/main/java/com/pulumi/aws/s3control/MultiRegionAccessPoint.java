@@ -17,22 +17,24 @@ import javax.annotation.Nullable;
 /**
  * Provides a resource to manage an S3 Multi-Region Access Point associated with specified buckets.
  * 
+ * &gt; This resource cannot be used with S3 directory buckets.
+ * 
  * ## Example Usage
+ * 
  * ### Multiple AWS Buckets in Different Regions
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3control.MultiRegionAccessPoint;
  * import com.pulumi.aws.s3control.MultiRegionAccessPointArgs;
  * import com.pulumi.aws.s3control.inputs.MultiRegionAccessPointDetailsArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,20 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primaryRegion = new Provider(&#34;primaryRegion&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-east-1&#34;)
+ *         var fooBucket = new BucketV2(&#34;fooBucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example-bucket-foo&#34;)
  *             .build());
  * 
- *         var secondaryRegion = new Provider(&#34;secondaryRegion&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-west-2&#34;)
- *             .build());
- * 
- *         var fooBucket = new BucketV2(&#34;fooBucket&#34;, BucketV2Args.Empty, CustomResourceOptions.builder()
- *             .provider(aws.primary_region())
- *             .build());
- * 
- *         var barBucket = new BucketV2(&#34;barBucket&#34;, BucketV2Args.Empty, CustomResourceOptions.builder()
- *             .provider(aws.secondary_region())
+ *         var barBucket = new BucketV2(&#34;barBucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example-bucket-bar&#34;)
  *             .build());
  * 
  *         var example = new MultiRegionAccessPoint(&#34;example&#34;, MultiRegionAccessPointArgs.builder()        
@@ -78,13 +72,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Multi-Region Access Points using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint example 123456789012:example
+ * $ pulumi import aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint example 123456789012:example
  * ```
  * 
  */

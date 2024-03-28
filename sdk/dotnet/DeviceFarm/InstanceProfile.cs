@@ -16,6 +16,7 @@ namespace Pulumi.Aws.DeviceFarm
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,17 +25,21 @@ namespace Pulumi.Aws.DeviceFarm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DeviceFarm.InstanceProfile("example");
+    ///     var example = new Aws.DeviceFarm.InstanceProfile("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DeviceFarm Instance Profiles using their ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:devicefarm/instanceProfile:InstanceProfile example arn:aws:devicefarm:us-west-2:123456789012:instanceprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+    /// $ pulumi import aws:devicefarm/instanceProfile:InstanceProfile example arn:aws:devicefarm:us-west-2:123456789012:instanceprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
     /// ```
     /// </summary>
     [AwsResourceType("aws:devicefarm/instanceProfile:InstanceProfile")]
@@ -111,10 +116,6 @@ namespace Pulumi.Aws.DeviceFarm
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -258,11 +259,7 @@ namespace Pulumi.Aws.DeviceFarm
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public InstanceProfileState()

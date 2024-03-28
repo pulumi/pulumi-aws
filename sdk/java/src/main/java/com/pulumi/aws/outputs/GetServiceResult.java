@@ -4,6 +4,7 @@
 package com.pulumi.aws.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -85,55 +86,79 @@ public final class GetServiceResult {
 
         @CustomType.Setter
         public Builder dnsName(String dnsName) {
-            this.dnsName = Objects.requireNonNull(dnsName);
+            if (dnsName == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "dnsName");
+            }
+            this.dnsName = dnsName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder partition(String partition) {
-            this.partition = Objects.requireNonNull(partition);
+            if (partition == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "partition");
+            }
+            this.partition = partition;
             return this;
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder reverseDnsName(String reverseDnsName) {
-            this.reverseDnsName = Objects.requireNonNull(reverseDnsName);
+            if (reverseDnsName == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "reverseDnsName");
+            }
+            this.reverseDnsName = reverseDnsName;
             return this;
         }
         @CustomType.Setter
         public Builder reverseDnsPrefix(String reverseDnsPrefix) {
-            this.reverseDnsPrefix = Objects.requireNonNull(reverseDnsPrefix);
+            if (reverseDnsPrefix == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "reverseDnsPrefix");
+            }
+            this.reverseDnsPrefix = reverseDnsPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder serviceId(String serviceId) {
-            this.serviceId = Objects.requireNonNull(serviceId);
+            if (serviceId == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "serviceId");
+            }
+            this.serviceId = serviceId;
             return this;
         }
         @CustomType.Setter
         public Builder supported(Boolean supported) {
-            this.supported = Objects.requireNonNull(supported);
+            if (supported == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "supported");
+            }
+            this.supported = supported;
             return this;
         }
         public GetServiceResult build() {
-            final var o = new GetServiceResult();
-            o.dnsName = dnsName;
-            o.id = id;
-            o.partition = partition;
-            o.region = region;
-            o.reverseDnsName = reverseDnsName;
-            o.reverseDnsPrefix = reverseDnsPrefix;
-            o.serviceId = serviceId;
-            o.supported = supported;
-            return o;
+            final var _resultValue = new GetServiceResult();
+            _resultValue.dnsName = dnsName;
+            _resultValue.id = id;
+            _resultValue.partition = partition;
+            _resultValue.region = region;
+            _resultValue.reverseDnsName = reverseDnsName;
+            _resultValue.reverseDnsPrefix = reverseDnsPrefix;
+            _resultValue.serviceId = serviceId;
+            _resultValue.supported = supported;
+            return _resultValue;
         }
     }
 }

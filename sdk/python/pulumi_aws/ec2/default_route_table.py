@@ -255,47 +255,51 @@ class DefaultRouteTable(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2.DefaultRouteTable("example",
-            default_route_table_id=aws_vpc["example"]["default_route_table_id"],
+            default_route_table_id=example_aws_vpc["defaultRouteTableId"],
             routes=[
                 aws.ec2.DefaultRouteTableRouteArgs(
                     cidr_block="10.0.1.0/24",
-                    gateway_id=aws_internet_gateway["example"]["id"],
+                    gateway_id=example_aws_internet_gateway["id"],
                 ),
                 aws.ec2.DefaultRouteTableRouteArgs(
                     ipv6_cidr_block="::/0",
-                    egress_only_gateway_id=aws_egress_only_internet_gateway["example"]["id"],
+                    egress_only_gateway_id=example_aws_egress_only_internet_gateway["id"],
                 ),
             ],
             tags={
                 "Name": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         To subsequently remove all managed routes:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2.DefaultRouteTable("example",
-            default_route_table_id=aws_vpc["example"]["default_route_table_id"],
+            default_route_table_id=example_aws_vpc["defaultRouteTableId"],
             routes=[],
             tags={
                 "Name": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
+        $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
         ```
 
         :param str resource_name: The name of the resource.
@@ -324,47 +328,51 @@ class DefaultRouteTable(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2.DefaultRouteTable("example",
-            default_route_table_id=aws_vpc["example"]["default_route_table_id"],
+            default_route_table_id=example_aws_vpc["defaultRouteTableId"],
             routes=[
                 aws.ec2.DefaultRouteTableRouteArgs(
                     cidr_block="10.0.1.0/24",
-                    gateway_id=aws_internet_gateway["example"]["id"],
+                    gateway_id=example_aws_internet_gateway["id"],
                 ),
                 aws.ec2.DefaultRouteTableRouteArgs(
                     ipv6_cidr_block="::/0",
-                    egress_only_gateway_id=aws_egress_only_internet_gateway["example"]["id"],
+                    egress_only_gateway_id=example_aws_egress_only_internet_gateway["id"],
                 ),
             ],
             tags={
                 "Name": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         To subsequently remove all managed routes:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2.DefaultRouteTable("example",
-            default_route_table_id=aws_vpc["example"]["default_route_table_id"],
+            default_route_table_id=example_aws_vpc["defaultRouteTableId"],
             routes=[],
             tags={
                 "Name": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
+        $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
         ```
 
         :param str resource_name: The name of the resource.
@@ -405,8 +413,6 @@ class DefaultRouteTable(pulumi.CustomResource):
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(DefaultRouteTable, __self__).__init__(
             'aws:ec2/defaultRouteTable:DefaultRouteTable',
             resource_name,

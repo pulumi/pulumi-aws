@@ -15,8 +15,10 @@ import (
 // Manages an EC2 Transit Gateway Route.
 //
 // ## Example Usage
+//
 // ### Standard usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,8 +33,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2transitgateway.NewRoute(ctx, "example", &ec2transitgateway.RouteArgs{
 //				DestinationCidrBlock:       pulumi.String("0.0.0.0/0"),
-//				TransitGatewayAttachmentId: pulumi.Any(aws_ec2_transit_gateway_vpc_attachment.Example.Id),
-//				TransitGatewayRouteTableId: pulumi.Any(aws_ec2_transit_gateway.Example.Association_default_route_table_id),
+//				TransitGatewayAttachmentId: pulumi.Any(exampleAwsEc2TransitGatewayVpcAttachment.Id),
+//				TransitGatewayRouteTableId: pulumi.Any(exampleAwsEc2TransitGateway.AssociationDefaultRouteTableId),
 //			})
 //			if err != nil {
 //				return err
@@ -42,8 +44,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Blackhole route
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,7 +64,7 @@ import (
 //			_, err := ec2transitgateway.NewRoute(ctx, "example", &ec2transitgateway.RouteArgs{
 //				DestinationCidrBlock:       pulumi.String("0.0.0.0/0"),
 //				Blackhole:                  pulumi.Bool(true),
-//				TransitGatewayRouteTableId: pulumi.Any(aws_ec2_transit_gateway.Example.Association_default_route_table_id),
+//				TransitGatewayRouteTableId: pulumi.Any(exampleAwsEc2TransitGateway.AssociationDefaultRouteTableId),
 //			})
 //			if err != nil {
 //				return err
@@ -69,15 +74,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_ec2_transit_gateway_route` using the EC2 Transit Gateway Route Table, an underscore, and the destination. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2transitgateway/route:Route example tgw-rtb-12345678_0.0.0.0/0
-//
+// $ pulumi import aws:ec2transitgateway/route:Route example tgw-rtb-12345678_0.0.0.0/0
 // ```
 type Route struct {
 	pulumi.CustomResourceState

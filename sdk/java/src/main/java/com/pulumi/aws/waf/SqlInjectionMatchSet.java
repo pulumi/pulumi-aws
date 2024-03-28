@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a WAF SQL Injection Match Set Resource
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,24 +46,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sqlInjectionMatchSet = new SqlInjectionMatchSet(&#34;sqlInjectionMatchSet&#34;, SqlInjectionMatchSetArgs.builder()        
+ *             .name(&#34;tf-sql_injection_match_set&#34;)
  *             .sqlInjectionMatchTuples(SqlInjectionMatchSetSqlInjectionMatchTupleArgs.builder()
+ *                 .textTransformation(&#34;URL_DECODE&#34;)
  *                 .fieldToMatch(SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs.builder()
  *                     .type(&#34;QUERY_STRING&#34;)
  *                     .build())
- *                 .textTransformation(&#34;URL_DECODE&#34;)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AWS WAF SQL Injection Match Set using their ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * $ pulumi import aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
  * ```
  * 
  */

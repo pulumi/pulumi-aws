@@ -153,6 +153,7 @@ def get_resource_share(filters: Optional[Sequence[pulumi.InputType['GetResourceS
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -160,19 +161,22 @@ def get_resource_share(filters: Optional[Sequence[pulumi.InputType['GetResourceS
     example = aws.ram.get_resource_share(name="example",
         resource_owner="SELF")
     ```
+    <!--End PulumiCodeChooser -->
+
     ## Search by filters
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    tag_filter = aws.ram.get_resource_share(filters=[aws.ram.GetResourceShareFilterArgs(
+    tag_filter = aws.ram.get_resource_share(resource_owner="SELF",
+        filters=[aws.ram.GetResourceShareFilterArgs(
             name="NameOfTag",
             values=["exampleNameTagValue"],
-        )],
-        name="MyResourceName",
-        resource_owner="SELF")
+        )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetResourceShareFilterArgs']] filters: Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
@@ -205,7 +209,7 @@ def get_resource_share(filters: Optional[Sequence[pulumi.InputType['GetResourceS
 
 @_utilities.lift_output_func(get_resource_share)
 def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetResourceShareFilterArgs']]]]] = None,
-                              name: Optional[pulumi.Input[str]] = None,
+                              name: Optional[pulumi.Input[Optional[str]]] = None,
                               resource_owner: Optional[pulumi.Input[str]] = None,
                               resource_share_status: Optional[pulumi.Input[Optional[str]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -215,6 +219,7 @@ def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[p
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -222,19 +227,22 @@ def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     example = aws.ram.get_resource_share(name="example",
         resource_owner="SELF")
     ```
+    <!--End PulumiCodeChooser -->
+
     ## Search by filters
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    tag_filter = aws.ram.get_resource_share(filters=[aws.ram.GetResourceShareFilterArgs(
+    tag_filter = aws.ram.get_resource_share(resource_owner="SELF",
+        filters=[aws.ram.GetResourceShareFilterArgs(
             name="NameOfTag",
             values=["exampleNameTagValue"],
-        )],
-        name="MyResourceName",
-        resource_owner="SELF")
+        )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetResourceShareFilterArgs']] filters: Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).

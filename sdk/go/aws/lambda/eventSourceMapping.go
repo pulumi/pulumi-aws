@@ -18,8 +18,10 @@ import (
 // For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
 //
 // ## Example Usage
+//
 // ### DynamoDB
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,8 +35,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-//				EventSourceArn:   pulumi.Any(aws_dynamodb_table.Example.Stream_arn),
-//				FunctionName:     pulumi.Any(aws_lambda_function.Example.Arn),
+//				EventSourceArn:   pulumi.Any(exampleAwsDynamodbTable.StreamArn),
+//				FunctionName:     pulumi.Any(exampleAwsLambdaFunction.Arn),
 //				StartingPosition: pulumi.String("LATEST"),
 //			})
 //			if err != nil {
@@ -45,8 +47,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Kinesis
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,8 +65,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-//				EventSourceArn:   pulumi.Any(aws_kinesis_stream.Example.Arn),
-//				FunctionName:     pulumi.Any(aws_lambda_function.Example.Arn),
+//				EventSourceArn:   pulumi.Any(exampleAwsKinesisStream.Arn),
+//				FunctionName:     pulumi.Any(exampleAwsLambdaFunction.Arn),
 //				StartingPosition: pulumi.String("LATEST"),
 //			})
 //			if err != nil {
@@ -72,8 +77,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Managed Streaming for Apache Kafka (MSK)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -87,8 +95,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-//				EventSourceArn: pulumi.Any(aws_msk_cluster.Example.Arn),
-//				FunctionName:   pulumi.Any(aws_lambda_function.Example.Arn),
+//				EventSourceArn: pulumi.Any(exampleAwsMskCluster.Arn),
+//				FunctionName:   pulumi.Any(exampleAwsLambdaFunction.Arn),
 //				Topics: pulumi.StringArray{
 //					pulumi.String("Example"),
 //				},
@@ -102,8 +110,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Self Managed Apache Kafka
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -117,7 +128,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-//				FunctionName: pulumi.Any(aws_lambda_function.Example.Arn),
+//				FunctionName: pulumi.Any(exampleAwsLambdaFunction.Arn),
 //				Topics: pulumi.StringArray{
 //					pulumi.String("Example"),
 //				},
@@ -150,8 +161,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### SQS
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -165,8 +179,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-//				EventSourceArn: pulumi.Any(aws_sqs_queue.Sqs_queue_test.Arn),
-//				FunctionName:   pulumi.Any(aws_lambda_function.Example.Arn),
+//				EventSourceArn: pulumi.Any(sqsQueueTest.Arn),
+//				FunctionName:   pulumi.Any(exampleAwsLambdaFunction.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -176,8 +190,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### SQS with event filter
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -194,7 +211,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
 //				"body": map[string]interface{}{
-//					"Temperature": []map[string]interface{}{
+//					"temperature": []map[string]interface{}{
 //						map[string]interface{}{
 //							"numeric": []interface{}{
 //								">",
@@ -204,7 +221,7 @@ import (
 //							},
 //						},
 //					},
-//					"Location": []string{
+//					"location": []string{
 //						"New York",
 //					},
 //				},
@@ -214,8 +231,8 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-//				EventSourceArn: pulumi.Any(aws_sqs_queue.Sqs_queue_test.Arn),
-//				FunctionName:   pulumi.Any(aws_lambda_function.Example.Arn),
+//				EventSourceArn: pulumi.Any(sqsQueueTest.Arn),
+//				FunctionName:   pulumi.Any(exampleAwsLambdaFunction.Arn),
 //				FilterCriteria: &lambda.EventSourceMappingFilterCriteriaArgs{
 //					Filters: lambda.EventSourceMappingFilterCriteriaFilterArray{
 //						&lambda.EventSourceMappingFilterCriteriaFilterArgs{
@@ -232,15 +249,94 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Amazon MQ (ActiveMQ)
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
+//				BatchSize:      pulumi.Int(10),
+//				EventSourceArn: pulumi.Any(exampleAwsMqBroker.Arn),
+//				Enabled:        pulumi.Bool(true),
+//				FunctionName:   pulumi.Any(exampleAwsLambdaFunction.Arn),
+//				Queues:         pulumi.String("example"),
+//				SourceAccessConfigurations: lambda.EventSourceMappingSourceAccessConfigurationArray{
+//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
+//						Type: pulumi.String("BASIC_AUTH"),
+//						Uri:  pulumi.Any(exampleAwsSecretsmanagerSecretVersion.Arn),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Amazon MQ (RabbitMQ)
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
+//				BatchSize:      pulumi.Int(1),
+//				EventSourceArn: pulumi.Any(exampleAwsMqBroker.Arn),
+//				Enabled:        pulumi.Bool(true),
+//				FunctionName:   pulumi.Any(exampleAwsLambdaFunction.Arn),
+//				Queues:         pulumi.String("example"),
+//				SourceAccessConfigurations: lambda.EventSourceMappingSourceAccessConfigurationArray{
+//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
+//						Type: pulumi.String("VIRTUAL_HOST"),
+//						Uri:  pulumi.String("/example"),
+//					},
+//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
+//						Type: pulumi.String("BASIC_AUTH"),
+//						Uri:  pulumi.Any(exampleAwsSecretsmanagerSecretVersion.Arn),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Lambda event source mappings using the `UUID` (event source mapping identifier). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
-//
+// $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
 // ```
 type EventSourceMapping struct {
 	pulumi.CustomResourceState
@@ -251,7 +347,7 @@ type EventSourceMapping struct {
 	BatchSize pulumi.IntPtrOutput `pulumi:"batchSize"`
 	// - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
 	BisectBatchOnFunctionError pulumi.BoolPtrOutput `pulumi:"bisectBatchOnFunctionError"`
-	// - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+	// - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
 	DestinationConfig EventSourceMappingDestinationConfigPtrOutput `pulumi:"destinationConfig"`
 	// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
 	DocumentDbEventSourceConfig EventSourceMappingDocumentDbEventSourceConfigPtrOutput `pulumi:"documentDbEventSourceConfig"`
@@ -344,7 +440,7 @@ type eventSourceMappingState struct {
 	BatchSize *int `pulumi:"batchSize"`
 	// - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
 	BisectBatchOnFunctionError *bool `pulumi:"bisectBatchOnFunctionError"`
-	// - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+	// - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
 	DestinationConfig *EventSourceMappingDestinationConfig `pulumi:"destinationConfig"`
 	// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
 	DocumentDbEventSourceConfig *EventSourceMappingDocumentDbEventSourceConfig `pulumi:"documentDbEventSourceConfig"`
@@ -405,7 +501,7 @@ type EventSourceMappingState struct {
 	BatchSize pulumi.IntPtrInput
 	// - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
 	BisectBatchOnFunctionError pulumi.BoolPtrInput
-	// - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+	// - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
 	DestinationConfig EventSourceMappingDestinationConfigPtrInput
 	// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
 	DocumentDbEventSourceConfig EventSourceMappingDocumentDbEventSourceConfigPtrInput
@@ -470,7 +566,7 @@ type eventSourceMappingArgs struct {
 	BatchSize *int `pulumi:"batchSize"`
 	// - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
 	BisectBatchOnFunctionError *bool `pulumi:"bisectBatchOnFunctionError"`
-	// - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+	// - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
 	DestinationConfig *EventSourceMappingDestinationConfig `pulumi:"destinationConfig"`
 	// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
 	DocumentDbEventSourceConfig *EventSourceMappingDocumentDbEventSourceConfig `pulumi:"documentDbEventSourceConfig"`
@@ -520,7 +616,7 @@ type EventSourceMappingArgs struct {
 	BatchSize pulumi.IntPtrInput
 	// - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
 	BisectBatchOnFunctionError pulumi.BoolPtrInput
-	// - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+	// - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
 	DestinationConfig EventSourceMappingDestinationConfigPtrInput
 	// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
 	DocumentDbEventSourceConfig EventSourceMappingDocumentDbEventSourceConfigPtrInput
@@ -666,7 +762,7 @@ func (o EventSourceMappingOutput) BisectBatchOnFunctionError() pulumi.BoolPtrOut
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.BoolPtrOutput { return v.BisectBatchOnFunctionError }).(pulumi.BoolPtrOutput)
 }
 
-// - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+// - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
 func (o EventSourceMappingOutput) DestinationConfig() EventSourceMappingDestinationConfigPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingDestinationConfigPtrOutput { return v.DestinationConfig }).(EventSourceMappingDestinationConfigPtrOutput)
 }

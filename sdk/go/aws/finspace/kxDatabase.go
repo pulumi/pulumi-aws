@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS FinSpace Kx Database.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,21 +32,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				Description:          pulumi.String("Example KMS Key"),
 //				DeletionWindowInDays: pulumi.Int(7),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKxEnvironment, err := finspace.NewKxEnvironment(ctx, "exampleKxEnvironment", &finspace.KxEnvironmentArgs{
-//				KmsKeyId: exampleKey.Arn,
+//			exampleKxEnvironment, err := finspace.NewKxEnvironment(ctx, "example", &finspace.KxEnvironmentArgs{
+//				Name:     pulumi.String("my-tf-kx-environment"),
+//				KmsKeyId: example.Arn,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = finspace.NewKxDatabase(ctx, "exampleKxDatabase", &finspace.KxDatabaseArgs{
+//			_, err = finspace.NewKxDatabase(ctx, "example", &finspace.KxDatabaseArgs{
 //				EnvironmentId: exampleKxEnvironment.ID(),
+//				Name:          pulumi.String("my-tf-kx-database"),
 //				Description:   pulumi.String("Example database description"),
 //			})
 //			if err != nil {
@@ -55,15 +59,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import an AWS FinSpace Kx Database using the `id` (environment ID and database name, comma-delimited). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:finspace/kxDatabase:KxDatabase example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database
-//
+// $ pulumi import aws:finspace/kxDatabase:KxDatabase example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database
 // ```
 type KxDatabase struct {
 	pulumi.CustomResourceState
@@ -100,10 +103,6 @@ func NewKxDatabase(ctx *pulumi.Context,
 	if args.EnvironmentId == nil {
 		return nil, errors.New("invalid value for required argument 'EnvironmentId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KxDatabase
 	err := ctx.RegisterResource("aws:finspace/kxDatabase:KxDatabase", name, args, &resource, opts...)

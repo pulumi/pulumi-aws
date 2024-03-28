@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -32,7 +31,10 @@ import javax.annotation.Nullable;
  * The state associated with existing resources will automatically be migrated.
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -58,7 +60,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceb1 = new VirtualNode(&#34;serviceb1&#34;, VirtualNodeArgs.builder()        
- *             .meshName(aws_appmesh_mesh.simple().id())
+ *             .name(&#34;serviceBv1&#34;)
+ *             .meshName(simple.id())
  *             .spec(VirtualNodeSpecArgs.builder()
  *                 .backends(VirtualNodeSpecBackendArgs.builder()
  *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()
@@ -82,7 +85,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### AWS Cloud Map Service Discovery
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -90,6 +97,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.servicediscovery.HttpNamespace;
+ * import com.pulumi.aws.servicediscovery.HttpNamespaceArgs;
  * import com.pulumi.aws.appmesh.VirtualNode;
  * import com.pulumi.aws.appmesh.VirtualNodeArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
@@ -108,10 +116,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new HttpNamespace(&#34;example&#34;);
+ *         var example = new HttpNamespace(&#34;example&#34;, HttpNamespaceArgs.builder()        
+ *             .name(&#34;example-ns&#34;)
+ *             .build());
  * 
  *         var serviceb1 = new VirtualNode(&#34;serviceb1&#34;, VirtualNodeArgs.builder()        
- *             .meshName(aws_appmesh_mesh.simple().id())
+ *             .name(&#34;serviceBv1&#34;)
+ *             .meshName(simple.id())
  *             .spec(VirtualNodeSpecArgs.builder()
  *                 .backends(VirtualNodeSpecBackendArgs.builder()
  *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()
@@ -137,7 +148,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Listener Health Check
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -163,7 +178,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceb1 = new VirtualNode(&#34;serviceb1&#34;, VirtualNodeArgs.builder()        
- *             .meshName(aws_appmesh_mesh.simple().id())
+ *             .name(&#34;serviceBv1&#34;)
+ *             .meshName(simple.id())
  *             .spec(VirtualNodeSpecArgs.builder()
  *                 .backends(VirtualNodeSpecBackendArgs.builder()
  *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()
@@ -195,7 +211,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Logging
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -224,7 +244,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceb1 = new VirtualNode(&#34;serviceb1&#34;, VirtualNodeArgs.builder()        
- *             .meshName(aws_appmesh_mesh.simple().id())
+ *             .name(&#34;serviceBv1&#34;)
+ *             .meshName(simple.id())
  *             .spec(VirtualNodeSpecArgs.builder()
  *                 .backends(VirtualNodeSpecBackendArgs.builder()
  *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()
@@ -255,13 +276,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import App Mesh virtual nodes using `mesh_name` together with the virtual node&#39;s `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
+ * $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
  * ```
  * 
  */
@@ -444,9 +466,6 @@ public class VirtualNode extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

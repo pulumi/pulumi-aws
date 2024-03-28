@@ -303,30 +303,32 @@ class FindingsFilter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.macie2.Account("example")
         test = aws.macie.FindingsFilter("test",
+            name="NAME OF THE FINDINGS FILTER",
             description="DESCRIPTION",
             position=1,
             action="ARCHIVE",
             finding_criteria=aws.macie.FindingsFilterFindingCriteriaArgs(
                 criterions=[aws.macie.FindingsFilterFindingCriteriaCriterionArgs(
                     field="region",
-                    eqs=[data["aws_region"]["current"]["name"]],
+                    eqs=[current["name"]],
                 )],
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[aws_macie2_account["test"]]))
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_macie2_findings_filter` using the id. For example:
 
         ```sh
-         $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
+        $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
         ```
 
         :param str resource_name: The name of the resource.
@@ -350,30 +352,32 @@ class FindingsFilter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.macie2.Account("example")
         test = aws.macie.FindingsFilter("test",
+            name="NAME OF THE FINDINGS FILTER",
             description="DESCRIPTION",
             position=1,
             action="ARCHIVE",
             finding_criteria=aws.macie.FindingsFilterFindingCriteriaArgs(
                 criterions=[aws.macie.FindingsFilterFindingCriteriaCriterionArgs(
                     field="region",
-                    eqs=[data["aws_region"]["current"]["name"]],
+                    eqs=[current["name"]],
                 )],
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[aws_macie2_account["test"]]))
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_macie2_findings_filter` using the id. For example:
 
         ```sh
-         $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
+        $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
         ```
 
         :param str resource_name: The name of the resource.
@@ -420,8 +424,6 @@ class FindingsFilter(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(FindingsFilter, __self__).__init__(
             'aws:macie/findingsFilter:FindingsFilter',
             resource_name,

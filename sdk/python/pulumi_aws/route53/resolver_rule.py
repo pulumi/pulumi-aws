@@ -315,8 +315,10 @@ class ResolverRule(pulumi.CustomResource):
         Provides a Route53 Resolver rule.
 
         ## Example Usage
+
         ### System rule
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -325,16 +327,20 @@ class ResolverRule(pulumi.CustomResource):
             domain_name="subdomain.example.com",
             rule_type="SYSTEM")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Forward rule
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         fwd = aws.route53.ResolverRule("fwd",
             domain_name="example.com",
+            name="example",
             rule_type="FORWARD",
-            resolver_endpoint_id=aws_route53_resolver_endpoint["foo"]["id"],
+            resolver_endpoint_id=foo["id"],
             target_ips=[aws.route53.ResolverRuleTargetIpArgs(
                 ip="123.45.67.89",
             )],
@@ -342,13 +348,14 @@ class ResolverRule(pulumi.CustomResource):
                 "Environment": "Prod",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 Resolver rules using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
+        $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
         ```
 
         :param str resource_name: The name of the resource.
@@ -372,8 +379,10 @@ class ResolverRule(pulumi.CustomResource):
         Provides a Route53 Resolver rule.
 
         ## Example Usage
+
         ### System rule
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -382,16 +391,20 @@ class ResolverRule(pulumi.CustomResource):
             domain_name="subdomain.example.com",
             rule_type="SYSTEM")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Forward rule
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         fwd = aws.route53.ResolverRule("fwd",
             domain_name="example.com",
+            name="example",
             rule_type="FORWARD",
-            resolver_endpoint_id=aws_route53_resolver_endpoint["foo"]["id"],
+            resolver_endpoint_id=foo["id"],
             target_ips=[aws.route53.ResolverRuleTargetIpArgs(
                 ip="123.45.67.89",
             )],
@@ -399,13 +412,14 @@ class ResolverRule(pulumi.CustomResource):
                 "Environment": "Prod",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 Resolver rules using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
+        $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
         ```
 
         :param str resource_name: The name of the resource.
@@ -452,8 +466,6 @@ class ResolverRule(pulumi.CustomResource):
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["share_status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ResolverRule, __self__).__init__(
             'aws:route53/resolverRule:ResolverRule',
             resource_name,

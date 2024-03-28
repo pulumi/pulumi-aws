@@ -6,6 +6,7 @@ package com.pulumi.aws.costexplorer.outputs;
 import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRule;
 import com.pulumi.aws.costexplorer.outputs.GetCostCategorySplitChargeRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -156,42 +157,66 @@ public final class GetCostCategoryResult {
 
         @CustomType.Setter
         public Builder costCategoryArn(String costCategoryArn) {
-            this.costCategoryArn = Objects.requireNonNull(costCategoryArn);
+            if (costCategoryArn == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryResult", "costCategoryArn");
+            }
+            this.costCategoryArn = costCategoryArn;
             return this;
         }
         @CustomType.Setter
         public Builder defaultValue(String defaultValue) {
-            this.defaultValue = Objects.requireNonNull(defaultValue);
+            if (defaultValue == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryResult", "defaultValue");
+            }
+            this.defaultValue = defaultValue;
             return this;
         }
         @CustomType.Setter
         public Builder effectiveEnd(String effectiveEnd) {
-            this.effectiveEnd = Objects.requireNonNull(effectiveEnd);
+            if (effectiveEnd == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryResult", "effectiveEnd");
+            }
+            this.effectiveEnd = effectiveEnd;
             return this;
         }
         @CustomType.Setter
         public Builder effectiveStart(String effectiveStart) {
-            this.effectiveStart = Objects.requireNonNull(effectiveStart);
+            if (effectiveStart == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryResult", "effectiveStart");
+            }
+            this.effectiveStart = effectiveStart;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder ruleVersion(String ruleVersion) {
-            this.ruleVersion = Objects.requireNonNull(ruleVersion);
+            if (ruleVersion == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryResult", "ruleVersion");
+            }
+            this.ruleVersion = ruleVersion;
             return this;
         }
         @CustomType.Setter
         public Builder rules(List<GetCostCategoryRule> rules) {
-            this.rules = Objects.requireNonNull(rules);
+            if (rules == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryResult", "rules");
+            }
+            this.rules = rules;
             return this;
         }
         public Builder rules(GetCostCategoryRule... rules) {
@@ -199,7 +224,10 @@ public final class GetCostCategoryResult {
         }
         @CustomType.Setter
         public Builder splitChargeRules(List<GetCostCategorySplitChargeRule> splitChargeRules) {
-            this.splitChargeRules = Objects.requireNonNull(splitChargeRules);
+            if (splitChargeRules == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryResult", "splitChargeRules");
+            }
+            this.splitChargeRules = splitChargeRules;
             return this;
         }
         public Builder splitChargeRules(GetCostCategorySplitChargeRule... splitChargeRules) {
@@ -207,22 +235,25 @@ public final class GetCostCategoryResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetCostCategoryResult build() {
-            final var o = new GetCostCategoryResult();
-            o.costCategoryArn = costCategoryArn;
-            o.defaultValue = defaultValue;
-            o.effectiveEnd = effectiveEnd;
-            o.effectiveStart = effectiveStart;
-            o.id = id;
-            o.name = name;
-            o.ruleVersion = ruleVersion;
-            o.rules = rules;
-            o.splitChargeRules = splitChargeRules;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetCostCategoryResult();
+            _resultValue.costCategoryArn = costCategoryArn;
+            _resultValue.defaultValue = defaultValue;
+            _resultValue.effectiveEnd = effectiveEnd;
+            _resultValue.effectiveStart = effectiveStart;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.ruleVersion = ruleVersion;
+            _resultValue.rules = rules;
+            _resultValue.splitChargeRules = splitChargeRules;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

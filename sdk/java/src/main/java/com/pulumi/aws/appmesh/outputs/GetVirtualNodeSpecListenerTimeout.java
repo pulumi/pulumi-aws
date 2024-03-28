@@ -8,6 +8,7 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTimeoutHttp2;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTimeoutHttp;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTimeoutTcp;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -56,7 +57,10 @@ public final class GetVirtualNodeSpecListenerTimeout {
 
         @CustomType.Setter
         public Builder grpcs(List<GetVirtualNodeSpecListenerTimeoutGrpc> grpcs) {
-            this.grpcs = Objects.requireNonNull(grpcs);
+            if (grpcs == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerTimeout", "grpcs");
+            }
+            this.grpcs = grpcs;
             return this;
         }
         public Builder grpcs(GetVirtualNodeSpecListenerTimeoutGrpc... grpcs) {
@@ -64,7 +68,10 @@ public final class GetVirtualNodeSpecListenerTimeout {
         }
         @CustomType.Setter
         public Builder http2s(List<GetVirtualNodeSpecListenerTimeoutHttp2> http2s) {
-            this.http2s = Objects.requireNonNull(http2s);
+            if (http2s == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerTimeout", "http2s");
+            }
+            this.http2s = http2s;
             return this;
         }
         public Builder http2s(GetVirtualNodeSpecListenerTimeoutHttp2... http2s) {
@@ -72,7 +79,10 @@ public final class GetVirtualNodeSpecListenerTimeout {
         }
         @CustomType.Setter
         public Builder https(List<GetVirtualNodeSpecListenerTimeoutHttp> https) {
-            this.https = Objects.requireNonNull(https);
+            if (https == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerTimeout", "https");
+            }
+            this.https = https;
             return this;
         }
         public Builder https(GetVirtualNodeSpecListenerTimeoutHttp... https) {
@@ -80,19 +90,22 @@ public final class GetVirtualNodeSpecListenerTimeout {
         }
         @CustomType.Setter
         public Builder tcps(List<GetVirtualNodeSpecListenerTimeoutTcp> tcps) {
-            this.tcps = Objects.requireNonNull(tcps);
+            if (tcps == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerTimeout", "tcps");
+            }
+            this.tcps = tcps;
             return this;
         }
         public Builder tcps(GetVirtualNodeSpecListenerTimeoutTcp... tcps) {
             return tcps(List.of(tcps));
         }
         public GetVirtualNodeSpecListenerTimeout build() {
-            final var o = new GetVirtualNodeSpecListenerTimeout();
-            o.grpcs = grpcs;
-            o.http2s = http2s;
-            o.https = https;
-            o.tcps = tcps;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListenerTimeout();
+            _resultValue.grpcs = grpcs;
+            _resultValue.http2s = http2s;
+            _resultValue.https = https;
+            _resultValue.tcps = tcps;
+            return _resultValue;
         }
     }
 }

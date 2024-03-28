@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,8 +46,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Existing Active Directory
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,7 +64,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewInstance(ctx, "test", &connect.InstanceArgs{
-//				DirectoryId:            pulumi.Any(aws_directory_service_directory.Test.Id),
+//				DirectoryId:            pulumi.Any(testAwsDirectoryServiceDirectory.Id),
 //				IdentityManagementType: pulumi.String("EXISTING_DIRECTORY"),
 //				InboundCallsEnabled:    pulumi.Bool(true),
 //				InstanceAlias:          pulumi.String("friendly-name-connect"),
@@ -74,8 +78,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With SAML
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -102,15 +109,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Connect instances using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:connect/instance:Instance example f1288a1f-6193-445a-b47e-af739b2
-//
+// $ pulumi import aws:connect/instance:Instance example f1288a1f-6193-445a-b47e-af739b2
 // ```
 type Instance struct {
 	pulumi.CustomResourceState

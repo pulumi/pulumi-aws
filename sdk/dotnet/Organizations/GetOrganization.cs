@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// Get information about the organization that the user's account belongs to
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### List all account IDs for the organization
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,10 +35,11 @@ namespace Pulumi.Aws.Organizations
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### SNS topic that can be interacted by the organization only
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -49,9 +50,12 @@ namespace Pulumi.Aws.Organizations
         /// {
         ///     var example = Aws.Organizations.GetOrganization.Invoke();
         /// 
-        ///     var snsTopic = new Aws.Sns.Topic("snsTopic");
+        ///     var snsTopic = new Aws.Sns.Topic("sns_topic", new()
+        ///     {
+        ///         Name = "my-sns-topic",
+        ///     });
         /// 
-        ///     var snsTopicPolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     var snsTopicPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
         ///     {
         ///         Statements = new[]
         ///         {
@@ -94,16 +98,15 @@ namespace Pulumi.Aws.Organizations
         ///         },
         ///     });
         /// 
-        ///     var snsTopicPolicyTopicPolicy = new Aws.Sns.TopicPolicy("snsTopicPolicyTopicPolicy", new()
+        ///     var snsTopicPolicyTopicPolicy = new Aws.Sns.TopicPolicy("sns_topic_policy", new()
         ///     {
         ///         Arn = snsTopic.Arn,
-        ///         Policy = snsTopicPolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///         Policy = snsTopicPolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetOrganizationResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("aws:organizations/getOrganization:getOrganization", InvokeArgs.Empty, options.WithDefaults());
@@ -111,11 +114,11 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// Get information about the organization that the user's account belongs to
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### List all account IDs for the organization
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -132,10 +135,11 @@ namespace Pulumi.Aws.Organizations
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### SNS topic that can be interacted by the organization only
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -146,9 +150,12 @@ namespace Pulumi.Aws.Organizations
         /// {
         ///     var example = Aws.Organizations.GetOrganization.Invoke();
         /// 
-        ///     var snsTopic = new Aws.Sns.Topic("snsTopic");
+        ///     var snsTopic = new Aws.Sns.Topic("sns_topic", new()
+        ///     {
+        ///         Name = "my-sns-topic",
+        ///     });
         /// 
-        ///     var snsTopicPolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     var snsTopicPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
         ///     {
         ///         Statements = new[]
         ///         {
@@ -191,16 +198,15 @@ namespace Pulumi.Aws.Organizations
         ///         },
         ///     });
         /// 
-        ///     var snsTopicPolicyTopicPolicy = new Aws.Sns.TopicPolicy("snsTopicPolicyTopicPolicy", new()
+        ///     var snsTopicPolicyTopicPolicy = new Aws.Sns.TopicPolicy("sns_topic_policy", new()
         ///     {
         ///         Arn = snsTopic.Arn,
-        ///         Policy = snsTopicPolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///         Policy = snsTopicPolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetOrganizationResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("aws:organizations/getOrganization:getOrganization", InvokeArgs.Empty, options.WithDefaults());

@@ -26,148 +26,152 @@ import * as utilities from "../utilities";
  * for more information.
  *
  * ## Example Usage
+ *
  * ### Aurora MySQL 2.x (MySQL 5.7)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.rds.Cluster("default", {
+ *     clusterIdentifier: "aurora-cluster-demo",
+ *     engine: aws.rds.EngineType.AuroraMysql,
+ *     engineVersion: "5.7.mysql_aurora.2.03.2",
  *     availabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",
  *         "us-west-2c",
  *     ],
- *     backupRetentionPeriod: 5,
- *     clusterIdentifier: "aurora-cluster-demo",
  *     databaseName: "mydb",
- *     engine: "aurora-mysql",
- *     engineVersion: "5.7.mysql_aurora.2.03.2",
- *     masterPassword: "bar",
  *     masterUsername: "foo",
+ *     masterPassword: "bar",
+ *     backupRetentionPeriod: 5,
  *     preferredBackupWindow: "07:00-09:00",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Aurora MySQL 1.x (MySQL 5.6)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.rds.Cluster("default", {
+ *     clusterIdentifier: "aurora-cluster-demo",
  *     availabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",
  *         "us-west-2c",
  *     ],
- *     backupRetentionPeriod: 5,
- *     clusterIdentifier: "aurora-cluster-demo",
  *     databaseName: "mydb",
- *     masterPassword: "bar",
  *     masterUsername: "foo",
+ *     masterPassword: "bar",
+ *     backupRetentionPeriod: 5,
  *     preferredBackupWindow: "07:00-09:00",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Aurora with PostgreSQL engine
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const postgresql = new aws.rds.Cluster("postgresql", {
+ *     clusterIdentifier: "aurora-cluster-demo",
+ *     engine: aws.rds.EngineType.AuroraPostgresql,
  *     availabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",
  *         "us-west-2c",
  *     ],
- *     backupRetentionPeriod: 5,
- *     clusterIdentifier: "aurora-cluster-demo",
  *     databaseName: "mydb",
- *     engine: "aurora-postgresql",
- *     masterPassword: "bar",
  *     masterUsername: "foo",
+ *     masterPassword: "bar",
+ *     backupRetentionPeriod: 5,
  *     preferredBackupWindow: "07:00-09:00",
  * });
  * ```
- * ### Aurora Multi-Master Cluster
+ * <!--End PulumiCodeChooser -->
  *
- * > More information about Aurora Multi-Master Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html).
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.rds.Cluster("example", {
- *     clusterIdentifier: "example",
- *     dbSubnetGroupName: aws_db_subnet_group.example.name,
- *     engineMode: "multimaster",
- *     masterPassword: "barbarbarbar",
- *     masterUsername: "foo",
- *     skipFinalSnapshot: true,
- * });
- * ```
  * ### RDS Multi-AZ Cluster
  *
  * > More information about RDS Multi-AZ Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html).
  *
  * To create a Multi-AZ RDS cluster, you must additionally specify the `engine`, `storageType`, `allocatedStorage`, `iops` and `dbClusterInstanceClass` attributes.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rds.Cluster("example", {
- *     allocatedStorage: 100,
+ *     clusterIdentifier: "example",
  *     availabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",
  *         "us-west-2c",
  *     ],
- *     clusterIdentifier: "example",
- *     dbClusterInstanceClass: "db.r6gd.xlarge",
  *     engine: "mysql",
- *     iops: 1000,
- *     masterPassword: "mustbeeightcharaters",
- *     masterUsername: "test",
+ *     dbClusterInstanceClass: "db.r6gd.xlarge",
  *     storageType: "io1",
+ *     allocatedStorage: 100,
+ *     iops: 1000,
+ *     masterUsername: "test",
+ *     masterPassword: "mustbeeightcharaters",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### RDS Serverless v2 Cluster
  *
  * > More information about RDS Serverless v2 Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html).
  *
+ * > **Note:** Unlike Serverless v1, in Serverless v2 the `storageEncrypted` value is set to `false` by default.
+ * This is because Serverless v1 uses the `serverless` `engineMode`, but Serverless v2 uses the `provisioned` `engineMode`.
+ *
  * To create a Serverless v2 RDS cluster, you must additionally specify the `engineMode` and `serverlessv2ScalingConfiguration` attributes. An `aws.rds.ClusterInstance` resource must also be added to the cluster with the `instanceClass` attribute specified.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleCluster = new aws.rds.Cluster("exampleCluster", {
+ * const example = new aws.rds.Cluster("example", {
  *     clusterIdentifier: "example",
- *     engine: "aurora-postgresql",
- *     engineMode: "provisioned",
+ *     engine: aws.rds.EngineType.AuroraPostgresql,
+ *     engineMode: aws.rds.EngineMode.Provisioned,
  *     engineVersion: "13.6",
  *     databaseName: "test",
  *     masterUsername: "test",
  *     masterPassword: "must_be_eight_characters",
+ *     storageEncrypted: true,
  *     serverlessv2ScalingConfiguration: {
  *         maxCapacity: 1,
  *         minCapacity: 0.5,
  *     },
  * });
- * const exampleClusterInstance = new aws.rds.ClusterInstance("exampleClusterInstance", {
- *     clusterIdentifier: exampleCluster.id,
+ * const exampleClusterInstance = new aws.rds.ClusterInstance("example", {
+ *     clusterIdentifier: example.id,
  *     instanceClass: "db.serverless",
- *     engine: exampleCluster.engine,
- *     engineVersion: exampleCluster.engineVersion,
+ *     engine: example.engine,
+ *     engineVersion: example.engineVersion,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### RDS/Aurora Managed Master Passwords via Secrets Manager, default KMS Key
  *
  * > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
  *
  * You can specify the `manageMasterUserPassword` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manageMasterUserPassword` attribute and removing the `masterPassword` attribute (removal is required).
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -179,12 +183,15 @@ import * as utilities from "../utilities";
  *     masterUsername: "test",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### RDS/Aurora Managed Master Passwords via Secrets Manager, specific KMS Key
  *
  * > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
  *
  * You can specify the `masterUserSecretKmsKeyId` attribute to specify a specific KMS Key.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -198,35 +205,39 @@ import * as utilities from "../utilities";
  *     masterUserSecretKmsKeyId: example.keyId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Global Cluster Restored From Snapshot
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleClusterSnapshot = aws.rds.getClusterSnapshot({
+ * const example = aws.rds.getClusterSnapshot({
  *     dbClusterIdentifier: "example-original-cluster",
  *     mostRecent: true,
  * });
- * const exampleCluster = new aws.rds.Cluster("exampleCluster", {
- *     engine: "aurora",
+ * const exampleCluster = new aws.rds.Cluster("example", {
+ *     engine: aws.rds.EngineType.Aurora,
  *     engineVersion: "5.6.mysql_aurora.1.22.4",
  *     clusterIdentifier: "example",
- *     snapshotIdentifier: exampleClusterSnapshot.then(exampleClusterSnapshot => exampleClusterSnapshot.id),
+ *     snapshotIdentifier: example.then(example => example.id),
  * });
- * const exampleGlobalCluster = new aws.rds.GlobalCluster("exampleGlobalCluster", {
+ * const exampleGlobalCluster = new aws.rds.GlobalCluster("example", {
  *     globalClusterIdentifier: "example",
  *     sourceDbClusterIdentifier: exampleCluster.arn,
  *     forceDestroy: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import RDS Clusters using the `cluster_identifier`. For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/cluster:Cluster aurora_cluster aurora-prod-cluster
+ * $ pulumi import aws:rds/cluster:Cluster aurora_cluster aurora-prod-cluster
  * ```
  */
 export class Cluster extends pulumi.CustomResource {
@@ -344,13 +355,25 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
     /**
-     * Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+     * The ID of the Directory Service Active Directory domain to create the cluster in.
+     */
+    public readonly domain!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the IAM role to be used when making API calls to the Directory Service.
+     */
+    public readonly domainIamRoleName!: pulumi.Output<string | undefined>;
+    /**
+     * Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
      */
     public readonly enableGlobalWriteForwarding!: pulumi.Output<boolean | undefined>;
     /**
      * Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
      */
     public readonly enableHttpEndpoint!: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
+     */
+    public readonly enableLocalWriteForwarding!: pulumi.Output<boolean | undefined>;
     /**
      * Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
      */
@@ -364,7 +387,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly engine!: pulumi.Output<string>;
     /**
-     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     public readonly engineMode!: pulumi.Output<string | undefined>;
     /**
@@ -478,7 +501,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly storageEncrypted!: pulumi.Output<boolean>;
     /**
-     * (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storageType` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+     * (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storageType` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
      */
     public readonly storageType!: pulumi.Output<string>;
     /**
@@ -529,8 +552,11 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["dbSystemId"] = state ? state.dbSystemId : undefined;
             resourceInputs["deleteAutomatedBackups"] = state ? state.deleteAutomatedBackups : undefined;
             resourceInputs["deletionProtection"] = state ? state.deletionProtection : undefined;
+            resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["domainIamRoleName"] = state ? state.domainIamRoleName : undefined;
             resourceInputs["enableGlobalWriteForwarding"] = state ? state.enableGlobalWriteForwarding : undefined;
             resourceInputs["enableHttpEndpoint"] = state ? state.enableHttpEndpoint : undefined;
+            resourceInputs["enableLocalWriteForwarding"] = state ? state.enableLocalWriteForwarding : undefined;
             resourceInputs["enabledCloudwatchLogsExports"] = state ? state.enabledCloudwatchLogsExports : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
             resourceInputs["engine"] = state ? state.engine : undefined;
@@ -590,8 +616,11 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["dbSystemId"] = args ? args.dbSystemId : undefined;
             resourceInputs["deleteAutomatedBackups"] = args ? args.deleteAutomatedBackups : undefined;
             resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["domainIamRoleName"] = args ? args.domainIamRoleName : undefined;
             resourceInputs["enableGlobalWriteForwarding"] = args ? args.enableGlobalWriteForwarding : undefined;
             resourceInputs["enableHttpEndpoint"] = args ? args.enableHttpEndpoint : undefined;
+            resourceInputs["enableLocalWriteForwarding"] = args ? args.enableLocalWriteForwarding : undefined;
             resourceInputs["enabledCloudwatchLogsExports"] = args ? args.enabledCloudwatchLogsExports : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["engineMode"] = args ? args.engineMode : undefined;
@@ -632,7 +661,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["masterPassword", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["masterPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -729,13 +758,25 @@ export interface ClusterState {
      */
     deletionProtection?: pulumi.Input<boolean>;
     /**
-     * Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+     * The ID of the Directory Service Active Directory domain to create the cluster in.
+     */
+    domain?: pulumi.Input<string>;
+    /**
+     * The name of the IAM role to be used when making API calls to the Directory Service.
+     */
+    domainIamRoleName?: pulumi.Input<string>;
+    /**
+     * Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
      */
     enableGlobalWriteForwarding?: pulumi.Input<boolean>;
     /**
      * Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
      */
     enableHttpEndpoint?: pulumi.Input<boolean>;
+    /**
+     * Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
+     */
+    enableLocalWriteForwarding?: pulumi.Input<boolean>;
     /**
      * Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
      */
@@ -749,7 +790,7 @@ export interface ClusterState {
      */
     engine?: pulumi.Input<string | enums.rds.EngineType>;
     /**
-     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     engineMode?: pulumi.Input<string | enums.rds.EngineMode>;
     /**
@@ -863,7 +904,7 @@ export interface ClusterState {
      */
     storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storageType` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+     * (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storageType` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
      */
     storageType?: pulumi.Input<string>;
     /**
@@ -965,13 +1006,25 @@ export interface ClusterArgs {
      */
     deletionProtection?: pulumi.Input<boolean>;
     /**
-     * Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+     * The ID of the Directory Service Active Directory domain to create the cluster in.
+     */
+    domain?: pulumi.Input<string>;
+    /**
+     * The name of the IAM role to be used when making API calls to the Directory Service.
+     */
+    domainIamRoleName?: pulumi.Input<string>;
+    /**
+     * Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
      */
     enableGlobalWriteForwarding?: pulumi.Input<boolean>;
     /**
      * Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
      */
     enableHttpEndpoint?: pulumi.Input<boolean>;
+    /**
+     * Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
+     */
+    enableLocalWriteForwarding?: pulumi.Input<boolean>;
     /**
      * Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
      */
@@ -981,7 +1034,7 @@ export interface ClusterArgs {
      */
     engine: pulumi.Input<string | enums.rds.EngineType>;
     /**
-     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     engineMode?: pulumi.Input<string | enums.rds.EngineMode>;
     /**
@@ -1078,7 +1131,7 @@ export interface ClusterArgs {
      */
     storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storageType` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+     * (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storageType` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
      */
     storageType?: pulumi.Input<string>;
     /**

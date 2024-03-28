@@ -6,13 +6,13 @@ package com.pulumi.aws.sagemaker;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.sagemaker.AppImageConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.AppImageConfigState;
+import com.pulumi.aws.sagemaker.outputs.AppImageConfigJupyterLabImageConfig;
 import com.pulumi.aws.sagemaker.outputs.AppImageConfigKernelGatewayImageConfig;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Provides a SageMaker App Image Config resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -57,7 +60,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Default File System Config
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -67,8 +74,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.sagemaker.AppImageConfig;
  * import com.pulumi.aws.sagemaker.AppImageConfigArgs;
  * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigArgs;
- * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs;
  * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs;
+ * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -85,23 +92,24 @@ import javax.annotation.Nullable;
  *         var test = new AppImageConfig(&#34;test&#34;, AppImageConfigArgs.builder()        
  *             .appImageConfigName(&#34;example&#34;)
  *             .kernelGatewayImageConfig(AppImageConfigKernelGatewayImageConfigArgs.builder()
- *                 .fileSystemConfig()
  *                 .kernelSpec(AppImageConfigKernelGatewayImageConfigKernelSpecArgs.builder()
  *                     .name(&#34;example&#34;)
  *                     .build())
+ *                 .fileSystemConfig()
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SageMaker App Image Configs using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
+ * $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
  * ```
  * 
  */
@@ -134,6 +142,12 @@ public class AppImageConfig extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    @Export(name="jupyterLabImageConfig", refs={AppImageConfigJupyterLabImageConfig.class}, tree="[0]")
+    private Output</* @Nullable */ AppImageConfigJupyterLabImageConfig> jupyterLabImageConfig;
+
+    public Output<Optional<AppImageConfigJupyterLabImageConfig>> jupyterLabImageConfig() {
+        return Codegen.optional(this.jupyterLabImageConfig);
     }
     /**
      * The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
@@ -214,9 +228,6 @@ public class AppImageConfig extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

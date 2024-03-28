@@ -197,21 +197,25 @@ class PlaybackKeyPair(pulumi.CustomResource):
         Resource for managing an AWS IVS (Interactive Video) Playback Key Pair.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        example = aws.ivs.PlaybackKeyPair("example", public_key=(lambda path: open(path).read())("./public-key.pem"))
+        example = aws.ivs.PlaybackKeyPair("example", public_key=std.file(input="./public-key.pem").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IVS (Interactive Video) Playback Key Pair using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
+        $ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
         ```
 
         :param str resource_name: The name of the resource.
@@ -232,21 +236,25 @@ class PlaybackKeyPair(pulumi.CustomResource):
         Resource for managing an AWS IVS (Interactive Video) Playback Key Pair.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        example = aws.ivs.PlaybackKeyPair("example", public_key=(lambda path: open(path).read())("./public-key.pem"))
+        example = aws.ivs.PlaybackKeyPair("example", public_key=std.file(input="./public-key.pem").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IVS (Interactive Video) Playback Key Pair using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
+        $ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
         ```
 
         :param str resource_name: The name of the resource.
@@ -284,8 +292,6 @@ class PlaybackKeyPair(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["fingerprint"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(PlaybackKeyPair, __self__).__init__(
             'aws:ivs/playbackKeyPair:PlaybackKeyPair',
             resource_name,

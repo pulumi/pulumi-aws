@@ -73,25 +73,28 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
 
         @CustomType.Setter
         public Builder containerSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings containerSettings) {
+
             this.containerSettings = containerSettings;
             return this;
         }
         @CustomType.Setter
         public Builder extension(@Nullable String extension) {
+
             this.extension = extension;
             return this;
         }
         @CustomType.Setter
         public Builder nameModifier(@Nullable String nameModifier) {
+
             this.nameModifier = nameModifier;
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings();
-            o.containerSettings = containerSettings;
-            o.extension = extension;
-            o.nameModifier = nameModifier;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings();
+            _resultValue.containerSettings = containerSettings;
+            _resultValue.extension = extension;
+            _resultValue.nameModifier = nameModifier;
+            return _resultValue;
         }
     }
 }

@@ -321,14 +321,16 @@ class Schema(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        test_registry = aws.schemas.Registry("testRegistry")
-        test_schema = aws.schemas.Schema("testSchema",
-            registry_name=test_registry.name,
+        test = aws.schemas.Registry("test", name="my_own_registry")
+        test_schema = aws.schemas.Schema("test",
+            name="my_schema",
+            registry_name=test.name,
             type="OpenApi3",
             description="The schema definition for my event",
             content=json.dumps({
@@ -352,13 +354,14 @@ class Schema(pulumi.CustomResource):
                 },
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge schema using the `name` and `registry_name`. For example:
 
         ```sh
-         $ pulumi import aws:schemas/schema:Schema test name/registry
+        $ pulumi import aws:schemas/schema:Schema test name/registry
         ```
 
         :param str resource_name: The name of the resource.
@@ -383,14 +386,16 @@ class Schema(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        test_registry = aws.schemas.Registry("testRegistry")
-        test_schema = aws.schemas.Schema("testSchema",
-            registry_name=test_registry.name,
+        test = aws.schemas.Registry("test", name="my_own_registry")
+        test_schema = aws.schemas.Schema("test",
+            name="my_schema",
+            registry_name=test.name,
             type="OpenApi3",
             description="The schema definition for my event",
             content=json.dumps({
@@ -414,13 +419,14 @@ class Schema(pulumi.CustomResource):
                 },
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge schema using the `name` and `registry_name`. For example:
 
         ```sh
-         $ pulumi import aws:schemas/schema:Schema test name/registry
+        $ pulumi import aws:schemas/schema:Schema test name/registry
         ```
 
         :param str resource_name: The name of the resource.
@@ -470,8 +476,6 @@ class Schema(pulumi.CustomResource):
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["version"] = None
             __props__.__dict__["version_created_date"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Schema, __self__).__init__(
             'aws:schemas/schema:Schema',
             resource_name,

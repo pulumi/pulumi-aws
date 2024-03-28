@@ -8,28 +8,13 @@ import * as utilities from "../utilities";
  * Provides a AWS Transfer AS2 Certificate resource.
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- *
- * const example = new aws.transfer.Certificate("example", {
- *     certificate: fs.readFileSync(`${path.module}/example.com/example.crt`),
- *     certificateChain: fs.readFileSync(`${path.module}/example.com/ca.crt`),
- *     privateKey: fs.readFileSync(`${path.module}/example.com/example.key`),
- *     description: "example",
- *     usage: "SIGNING",
- * });
- * ```
  *
  * ## Import
  *
  * Using `pulumi import`, import Transfer AS2 Certificate using the `certificate_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:transfer/certificate:Certificate example c-4221a88afd5f4362a
+ * $ pulumi import aws:transfer/certificate:Certificate example c-4221a88afd5f4362a
  * ```
  */
 export class Certificate extends pulumi.CustomResource {
@@ -150,7 +135,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["certificate", "certificateChain", "privateKey", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["certificate", "certificateChain", "privateKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }

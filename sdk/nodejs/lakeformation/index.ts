@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { DataCellsFilterArgs, DataCellsFilterState } from "./dataCellsFilter";
+export type DataCellsFilter = import("./dataCellsFilter").DataCellsFilter;
+export const DataCellsFilter: typeof import("./dataCellsFilter").DataCellsFilter = null as any;
+utilities.lazyLoad(exports, ["DataCellsFilter"], () => require("./dataCellsFilter"));
+
 export { DataLakeSettingsArgs, DataLakeSettingsState } from "./dataLakeSettings";
 export type DataLakeSettings = import("./dataLakeSettings").DataLakeSettings;
 export const DataLakeSettings: typeof import("./dataLakeSettings").DataLakeSettings = null as any;
@@ -50,6 +55,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:lakeformation/dataCellsFilter:DataCellsFilter":
+                return new DataCellsFilter(name, <any>undefined, { urn })
             case "aws:lakeformation/dataLakeSettings:DataLakeSettings":
                 return new DataLakeSettings(name, <any>undefined, { urn })
             case "aws:lakeformation/lfTag:LfTag":
@@ -65,6 +72,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "lakeformation/dataCellsFilter", _module)
 pulumi.runtime.registerResourceModule("aws", "lakeformation/dataLakeSettings", _module)
 pulumi.runtime.registerResourceModule("aws", "lakeformation/lfTag", _module)
 pulumi.runtime.registerResourceModule("aws", "lakeformation/permissions", _module)

@@ -4,6 +4,7 @@
 package com.pulumi.aws.codeartifact.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -56,25 +57,30 @@ public final class RepositoryExternalConnections {
 
         @CustomType.Setter
         public Builder externalConnectionName(String externalConnectionName) {
-            this.externalConnectionName = Objects.requireNonNull(externalConnectionName);
+            if (externalConnectionName == null) {
+              throw new MissingRequiredPropertyException("RepositoryExternalConnections", "externalConnectionName");
+            }
+            this.externalConnectionName = externalConnectionName;
             return this;
         }
         @CustomType.Setter
         public Builder packageFormat(@Nullable String packageFormat) {
+
             this.packageFormat = packageFormat;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         public RepositoryExternalConnections build() {
-            final var o = new RepositoryExternalConnections();
-            o.externalConnectionName = externalConnectionName;
-            o.packageFormat = packageFormat;
-            o.status = status;
-            return o;
+            final var _resultValue = new RepositoryExternalConnections();
+            _resultValue.externalConnectionName = externalConnectionName;
+            _resultValue.packageFormat = packageFormat;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

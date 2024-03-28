@@ -561,24 +561,29 @@ class Eip(pulumi.CustomResource):
         > **Note:** Do not use `network_interface` to associate the EIP to `lb.LoadBalancer` or `ec2.NatGateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
 
         ## Example Usage
+
         ### Single EIP associated with an instance
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         lb = aws.ec2.Eip("lb",
-            instance=aws_instance["web"]["id"],
+            instance=web["id"],
             domain="vpc")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Multiple EIPs associated with a single network interface
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         multi_ip = aws.ec2.NetworkInterface("multi-ip",
-            subnet_id=aws_subnet["main"]["id"],
+            subnet_id=main["id"],
             private_ips=[
                 "10.0.0.10",
                 "10.0.0.11",
@@ -592,8 +597,11 @@ class Eip(pulumi.CustomResource):
             network_interface=multi_ip.id,
             associate_with_private_ip="10.0.0.11")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -602,24 +610,25 @@ class Eip(pulumi.CustomResource):
             cidr_block="10.0.0.0/16",
             enable_dns_hostnames=True)
         gw = aws.ec2.InternetGateway("gw", vpc_id=default.id)
-        my_test_subnet = aws.ec2.Subnet("myTestSubnet",
+        my_test_subnet = aws.ec2.Subnet("my_test_subnet",
             vpc_id=default.id,
             cidr_block="10.0.0.0/24",
-            map_public_ip_on_launch=True,
-            opts=pulumi.ResourceOptions(depends_on=[gw]))
+            map_public_ip_on_launch=True)
         foo = aws.ec2.Instance("foo",
             ami="ami-5189a661",
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             private_ip="10.0.0.12",
             subnet_id=my_test_subnet.id)
         bar = aws.ec2.Eip("bar",
             domain="vpc",
             instance=foo.id,
-            associate_with_private_ip="10.0.0.12",
-            opts=pulumi.ResourceOptions(depends_on=[gw]))
+            associate_with_private_ip="10.0.0.12")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Allocating EIP from the BYOIP pool
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -628,13 +637,14 @@ class Eip(pulumi.CustomResource):
             domain="vpc",
             public_ipv4_pool="ipv4pool-ec2-012345")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For example:
 
         ```sh
-         $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
+        $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
         ```
 
         :param str resource_name: The name of the resource.
@@ -671,24 +681,29 @@ class Eip(pulumi.CustomResource):
         > **Note:** Do not use `network_interface` to associate the EIP to `lb.LoadBalancer` or `ec2.NatGateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
 
         ## Example Usage
+
         ### Single EIP associated with an instance
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         lb = aws.ec2.Eip("lb",
-            instance=aws_instance["web"]["id"],
+            instance=web["id"],
             domain="vpc")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Multiple EIPs associated with a single network interface
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         multi_ip = aws.ec2.NetworkInterface("multi-ip",
-            subnet_id=aws_subnet["main"]["id"],
+            subnet_id=main["id"],
             private_ips=[
                 "10.0.0.10",
                 "10.0.0.11",
@@ -702,8 +717,11 @@ class Eip(pulumi.CustomResource):
             network_interface=multi_ip.id,
             associate_with_private_ip="10.0.0.11")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -712,24 +730,25 @@ class Eip(pulumi.CustomResource):
             cidr_block="10.0.0.0/16",
             enable_dns_hostnames=True)
         gw = aws.ec2.InternetGateway("gw", vpc_id=default.id)
-        my_test_subnet = aws.ec2.Subnet("myTestSubnet",
+        my_test_subnet = aws.ec2.Subnet("my_test_subnet",
             vpc_id=default.id,
             cidr_block="10.0.0.0/24",
-            map_public_ip_on_launch=True,
-            opts=pulumi.ResourceOptions(depends_on=[gw]))
+            map_public_ip_on_launch=True)
         foo = aws.ec2.Instance("foo",
             ami="ami-5189a661",
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             private_ip="10.0.0.12",
             subnet_id=my_test_subnet.id)
         bar = aws.ec2.Eip("bar",
             domain="vpc",
             instance=foo.id,
-            associate_with_private_ip="10.0.0.12",
-            opts=pulumi.ResourceOptions(depends_on=[gw]))
+            associate_with_private_ip="10.0.0.12")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Allocating EIP from the BYOIP pool
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -738,13 +757,14 @@ class Eip(pulumi.CustomResource):
             domain="vpc",
             public_ipv4_pool="ipv4pool-ec2-012345")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For example:
 
         ```sh
-         $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
+        $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
         ```
 
         :param str resource_name: The name of the resource.
@@ -800,8 +820,6 @@ class Eip(pulumi.CustomResource):
             __props__.__dict__["public_dns"] = None
             __props__.__dict__["public_ip"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Eip, __self__).__init__(
             'aws:ec2/eip:Eip',
             resource_name,

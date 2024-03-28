@@ -18,20 +18,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.DefaultRouteTable("example", {
- *     defaultRouteTableId: aws_vpc.example.default_route_table_id,
+ *     defaultRouteTableId: exampleAwsVpc.defaultRouteTableId,
  *     routes: [
  *         {
  *             cidrBlock: "10.0.1.0/24",
- *             gatewayId: aws_internet_gateway.example.id,
+ *             gatewayId: exampleAwsInternetGateway.id,
  *         },
  *         {
  *             ipv6CidrBlock: "::/0",
- *             egressOnlyGatewayId: aws_egress_only_internet_gateway.example.id,
+ *             egressOnlyGatewayId: exampleAwsEgressOnlyInternetGateway.id,
  *         },
  *     ],
  *     tags: {
@@ -39,28 +40,31 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * To subsequently remove all managed routes:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.DefaultRouteTable("example", {
- *     defaultRouteTableId: aws_vpc.example.default_route_table_id,
+ *     defaultRouteTableId: exampleAwsVpc.defaultRouteTableId,
  *     routes: [],
  *     tags: {
  *         Name: "example",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
+ * $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
  * ```
  */
 export class DefaultRouteTable extends pulumi.CustomResource {
@@ -164,8 +168,6 @@ export class DefaultRouteTable extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(DefaultRouteTable.__pulumiType, name, resourceInputs, opts);
     }
 }

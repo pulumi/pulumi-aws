@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Get information on an EC2 Transit Gateway Peering Attachment.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### By Filter
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -44,10 +44,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### By Identifier
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +64,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPeeringAttachmentResult> InvokeAsync(GetPeeringAttachmentArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPeeringAttachmentResult>("aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment", args ?? new GetPeeringAttachmentArgs(), options.WithDefaults());
@@ -72,11 +72,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Get information on an EC2 Transit Gateway Peering Attachment.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### By Filter
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -102,10 +102,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### By Identifier
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -121,8 +122,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPeeringAttachmentResult> Invoke(GetPeeringAttachmentInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPeeringAttachmentResult>("aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment", args ?? new GetPeeringAttachmentInvokeArgs(), options.WithDefaults());
@@ -231,6 +231,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Identifier of the peer EC2 Transit Gateway
         /// </summary>
         public readonly string PeerTransitGatewayId;
+        public readonly string State;
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// Identifier of the local EC2 Transit Gateway
@@ -249,6 +250,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             string peerTransitGatewayId,
 
+            string state,
+
             ImmutableDictionary<string, string> tags,
 
             string transitGatewayId)
@@ -258,6 +261,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
             PeerAccountId = peerAccountId;
             PeerRegion = peerRegion;
             PeerTransitGatewayId = peerTransitGatewayId;
+            State = state;
             Tags = tags;
             TransitGatewayId = transitGatewayId;
         }

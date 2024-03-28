@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS QuickSight Folder Membership.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,9 +32,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewFolderMembership(ctx, "example", &quicksight.FolderMembershipArgs{
-//				FolderId:   pulumi.Any(aws_quicksight_folder.Example.Folder_id),
+//				FolderId:   pulumi.Any(exampleAwsQuicksightFolder.FolderId),
 //				MemberType: pulumi.String("DATASET"),
-//				MemberId:   pulumi.Any(aws_quicksight_data_set.Example.Data_set_id),
+//				MemberId:   pulumi.Any(exampleAwsQuicksightDataSet.DataSetId),
 //			})
 //			if err != nil {
 //				return err
@@ -42,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import QuickSight Folder Membership using the AWS account ID, folder ID, member type, and member ID separated by commas (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:quicksight/folderMembership:FolderMembership example 123456789012,example-folder,DATASET,example-dataset
-//
+// $ pulumi import aws:quicksight/folderMembership:FolderMembership example 123456789012,example-folder,DATASET,example-dataset
 // ```
 type FolderMembership struct {
 	pulumi.CustomResourceState

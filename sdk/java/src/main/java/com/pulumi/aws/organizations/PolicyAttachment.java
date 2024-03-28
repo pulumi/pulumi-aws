@@ -19,7 +19,10 @@ import javax.annotation.Nullable;
  * Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
  * 
  * ## Example Usage
+ * 
  * ### Organization Account
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,14 +45,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var account = new PolicyAttachment(&#34;account&#34;, PolicyAttachmentArgs.builder()        
- *             .policyId(aws_organizations_policy.example().id())
+ *             .policyId(example.id())
  *             .targetId(&#34;123456789012&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Organization Root
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -72,14 +79,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var root = new PolicyAttachment(&#34;root&#34;, PolicyAttachmentArgs.builder()        
- *             .policyId(aws_organizations_policy.example().id())
- *             .targetId(aws_organizations_organization.example().roots()[0].id())
+ *             .policyId(example.id())
+ *             .targetId(exampleAwsOrganizationsOrganization.roots()[0].id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Organization Unit
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -102,13 +113,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var unit = new PolicyAttachment(&#34;unit&#34;, PolicyAttachmentArgs.builder()        
- *             .policyId(aws_organizations_policy.example().id())
- *             .targetId(aws_organizations_organizational_unit.example().id())
+ *             .policyId(example.id())
+ *             .targetId(exampleAwsOrganizationsOrganizationalUnit.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -117,7 +129,7 @@ import javax.annotation.Nullable;
  * With an account target:
  * 
  * ```sh
- *  $ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
+ * $ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
  * ```
  * 
  */

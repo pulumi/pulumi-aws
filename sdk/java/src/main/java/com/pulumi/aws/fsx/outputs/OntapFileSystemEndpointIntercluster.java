@@ -59,11 +59,13 @@ public final class OntapFileSystemEndpointIntercluster {
 
         @CustomType.Setter
         public Builder dnsName(@Nullable String dnsName) {
+
             this.dnsName = dnsName;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddresses(@Nullable List<String> ipAddresses) {
+
             this.ipAddresses = ipAddresses;
             return this;
         }
@@ -71,10 +73,10 @@ public final class OntapFileSystemEndpointIntercluster {
             return ipAddresses(List.of(ipAddresses));
         }
         public OntapFileSystemEndpointIntercluster build() {
-            final var o = new OntapFileSystemEndpointIntercluster();
-            o.dnsName = dnsName;
-            o.ipAddresses = ipAddresses;
-            return o;
+            final var _resultValue = new OntapFileSystemEndpointIntercluster();
+            _resultValue.dnsName = dnsName;
+            _resultValue.ipAddresses = ipAddresses;
+            return _resultValue;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,22 +23,27 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var yada = new Aws.CloudWatch.LogGroup("yada");
+    ///     var yada = new Aws.CloudWatch.LogGroup("yada", new()
+    ///     {
+    ///         Name = "Yada",
+    ///     });
     /// 
     ///     var foo = new Aws.CloudWatch.LogStream("foo", new()
     ///     {
+    ///         Name = "SampleLogStream1234",
     ///         LogGroupName = yada.Name,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cloudwatch Log Stream using the stream's `log_group_name` and `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
+    /// $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/logStream:LogStream")]

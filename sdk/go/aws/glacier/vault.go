@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,11 +32,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			awsSnsTopic, err := sns.NewTopic(ctx, "awsSnsTopic", nil)
+//			awsSnsTopic, err := sns.NewTopic(ctx, "aws_sns_topic", &sns.TopicArgs{
+//				Name: pulumi.String("glacier-sns-topic"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			myArchivePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			myArchive, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Sid:    pulumi.StringRef("add-read-only-perm"),
@@ -61,7 +64,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = glacier.NewVault(ctx, "myArchiveVault", &glacier.VaultArgs{
+//			_, err = glacier.NewVault(ctx, "my_archive", &glacier.VaultArgs{
+//				Name: pulumi.String("MyArchive"),
 //				Notification: &glacier.VaultNotificationArgs{
 //					SnsTopic: awsSnsTopic.Arn,
 //					Events: pulumi.StringArray{
@@ -69,7 +73,7 @@ import (
 //						pulumi.String("InventoryRetrievalCompleted"),
 //					},
 //				},
-//				AccessPolicy: *pulumi.String(myArchivePolicyDocument.Json),
+//				AccessPolicy: pulumi.String(myArchive.Json),
 //				Tags: pulumi.StringMap{
 //					"Test": pulumi.String("MyArchive"),
 //				},
@@ -82,15 +86,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glacier Vaults using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glacier/vault:Vault archive my_archive
-//
+// $ pulumi import aws:glacier/vault:Vault archive my_archive
 // ```
 type Vault struct {
 	pulumi.CustomResourceState
@@ -121,10 +124,6 @@ func NewVault(ctx *pulumi.Context,
 		args = &VaultArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Vault
 	err := ctx.RegisterResource("aws:glacier/vault:Vault", name, args, &resource, opts...)

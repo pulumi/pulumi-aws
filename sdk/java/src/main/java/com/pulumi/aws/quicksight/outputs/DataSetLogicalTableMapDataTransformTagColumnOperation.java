@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.aws.quicksight.outputs.DataSetLogicalTableMapDataTransformTagColumnOperationTag;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,22 +59,28 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperation {
 
         @CustomType.Setter
         public Builder columnName(String columnName) {
-            this.columnName = Objects.requireNonNull(columnName);
+            if (columnName == null) {
+              throw new MissingRequiredPropertyException("DataSetLogicalTableMapDataTransformTagColumnOperation", "columnName");
+            }
+            this.columnName = columnName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(List<DataSetLogicalTableMapDataTransformTagColumnOperationTag> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("DataSetLogicalTableMapDataTransformTagColumnOperation", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public Builder tags(DataSetLogicalTableMapDataTransformTagColumnOperationTag... tags) {
             return tags(List.of(tags));
         }
         public DataSetLogicalTableMapDataTransformTagColumnOperation build() {
-            final var o = new DataSetLogicalTableMapDataTransformTagColumnOperation();
-            o.columnName = columnName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new DataSetLogicalTableMapDataTransformTagColumnOperation();
+            _resultValue.columnName = columnName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

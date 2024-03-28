@@ -9,23 +9,25 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.iam.OpenIdConnectProvider("default", {
+ *     url: "https://accounts.google.com",
  *     clientIdLists: ["266362248691-342342xasdasdasda-apps.googleusercontent.com"],
  *     thumbprintLists: ["cf23df2207d99a74fbe169e3eba035e633b65d94"],
- *     url: "https://accounts.google.com",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IAM OpenID Connect Providers using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:iam/openIdConnectProvider:OpenIdConnectProvider default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
+ * $ pulumi import aws:iam/openIdConnectProvider:OpenIdConnectProvider default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
  * ```
  */
 export class OpenIdConnectProvider extends pulumi.CustomResource {
@@ -121,8 +123,6 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(OpenIdConnectProvider.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// To create a basic traffic mirror session
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,30 +29,31 @@ namespace Pulumi.Aws.Ec2
     ///     var nlb = new Aws.Ec2.TrafficMirrorTarget("nlb", new()
     ///     {
     ///         Description = "NLB target",
-    ///         NetworkLoadBalancerArn = aws_lb.Lb.Arn,
+    ///         NetworkLoadBalancerArn = lb.Arn,
     ///     });
     /// 
     ///     var eni = new Aws.Ec2.TrafficMirrorTarget("eni", new()
     ///     {
     ///         Description = "ENI target",
-    ///         NetworkInterfaceId = aws_instance.Test.Primary_network_interface_id,
+    ///         NetworkInterfaceId = test.PrimaryNetworkInterfaceId,
     ///     });
     /// 
     ///     var gwlb = new Aws.Ec2.TrafficMirrorTarget("gwlb", new()
     ///     {
     ///         Description = "GWLB target",
-    ///         GatewayLoadBalancerEndpointId = aws_vpc_endpoint.Example.Id,
+    ///         GatewayLoadBalancerEndpointId = example.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import traffic mirror targets using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
+    /// $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/trafficMirrorTarget:TrafficMirrorTarget")]
@@ -130,10 +132,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -263,11 +261,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public TrafficMirrorTargetState()

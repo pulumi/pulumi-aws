@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,22 +30,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultCluster, err := redshift.NewCluster(ctx, "defaultCluster", &redshift.ClusterArgs{
+//			_, err := redshift.NewCluster(ctx, "default", &redshift.ClusterArgs{
 //				ClusterIdentifier: pulumi.String("default"),
 //				DatabaseName:      pulumi.String("default"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			defaultTopic, err := sns.NewTopic(ctx, "defaultTopic", nil)
+//			defaultTopic, err := sns.NewTopic(ctx, "default", &sns.TopicArgs{
+//				Name: pulumi.String("redshift-events"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = redshift.NewEventSubscription(ctx, "defaultEventSubscription", &redshift.EventSubscriptionArgs{
+//			_, err = redshift.NewEventSubscription(ctx, "default", &redshift.EventSubscriptionArgs{
+//				Name:        pulumi.String("redshift-event-sub"),
 //				SnsTopicArn: defaultTopic.Arn,
 //				SourceType:  pulumi.String("cluster"),
 //				SourceIds: pulumi.StringArray{
-//					defaultCluster.ID(),
+//					_default.ID(),
 //				},
 //				Severity: pulumi.String("INFO"),
 //				EventCategories: pulumi.StringArray{
@@ -65,15 +69,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift Event Subscriptions using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub
-//
+// $ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub
 // ```
 type EventSubscription struct {
 	pulumi.CustomResourceState
@@ -115,10 +118,6 @@ func NewEventSubscription(ctx *pulumi.Context,
 	if args.SnsTopicArn == nil {
 		return nil, errors.New("invalid value for required argument 'SnsTopicArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventSubscription
 	err := ctx.RegisterResource("aws:redshift/eventSubscription:EventSubscription", name, args, &resource, opts...)

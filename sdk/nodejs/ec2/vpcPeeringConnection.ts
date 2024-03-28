@@ -26,27 +26,30 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.ec2.VpcPeeringConnection("foo", {
- *     peerOwnerId: _var.peer_owner_id,
- *     peerVpcId: aws_vpc.bar.id,
- *     vpcId: aws_vpc.foo.id,
+ *     peerOwnerId: peerOwnerId,
+ *     peerVpcId: bar.id,
+ *     vpcId: fooAwsVpc.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Basic usage with connection options:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.ec2.VpcPeeringConnection("foo", {
- *     peerOwnerId: _var.peer_owner_id,
- *     peerVpcId: aws_vpc.bar.id,
- *     vpcId: aws_vpc.foo.id,
+ *     peerOwnerId: peerOwnerId,
+ *     peerVpcId: bar.id,
+ *     vpcId: fooAwsVpc.id,
  *     accepter: {
  *         allowRemoteVpcDnsResolution: true,
  *     },
@@ -55,17 +58,19 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Basic usage with tags:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooVpc = new aws.ec2.Vpc("fooVpc", {cidrBlock: "10.1.0.0/16"});
+ * const fooVpc = new aws.ec2.Vpc("foo", {cidrBlock: "10.1.0.0/16"});
  * const bar = new aws.ec2.Vpc("bar", {cidrBlock: "10.2.0.0/16"});
- * const fooVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("fooVpcPeeringConnection", {
- *     peerOwnerId: _var.peer_owner_id,
+ * const foo = new aws.ec2.VpcPeeringConnection("foo", {
+ *     peerOwnerId: peerOwnerId,
  *     peerVpcId: bar.id,
  *     vpcId: fooVpc.id,
  *     autoAccept: true,
@@ -74,26 +79,26 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Basic usage with region:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooVpc = new aws.ec2.Vpc("fooVpc", {cidrBlock: "10.1.0.0/16"}, {
- *     provider: aws["us-west-2"],
- * });
- * const bar = new aws.ec2.Vpc("bar", {cidrBlock: "10.2.0.0/16"}, {
- *     provider: aws["us-east-1"],
- * });
- * const fooVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("fooVpcPeeringConnection", {
- *     peerOwnerId: _var.peer_owner_id,
+ * const fooVpc = new aws.ec2.Vpc("foo", {cidrBlock: "10.1.0.0/16"});
+ * const bar = new aws.ec2.Vpc("bar", {cidrBlock: "10.2.0.0/16"});
+ * const foo = new aws.ec2.VpcPeeringConnection("foo", {
+ *     peerOwnerId: peerOwnerId,
  *     peerVpcId: bar.id,
  *     vpcId: fooVpc.id,
  *     peerRegion: "us-east-1",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Notes
  *
  * If both VPCs are not in the same AWS account and region do not enable the `autoAccept` attribute.
@@ -105,7 +110,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import VPC Peering resources using the VPC peering `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
+ * $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
  * ```
  */
 export class VpcPeeringConnection extends pulumi.CustomResource {
@@ -150,8 +155,8 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
      */
     public readonly autoAccept!: pulumi.Output<boolean | undefined>;
     /**
-     * The AWS account ID of the owner of the peer VPC.
-     * Defaults to the account ID the AWS provider is currently connected to.
+     * The AWS account ID of the target peer VPC.
+     * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
      */
     public readonly peerOwnerId!: pulumi.Output<string>;
     /**
@@ -160,7 +165,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
      */
     public readonly peerRegion!: pulumi.Output<string>;
     /**
-     * The ID of the VPC with which you are creating the VPC Peering Connection.
+     * The ID of the target VPC with which you are creating the VPC Peering Connection.
      */
     public readonly peerVpcId!: pulumi.Output<string>;
     /**
@@ -226,8 +231,6 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VpcPeeringConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -250,8 +253,8 @@ export interface VpcPeeringConnectionState {
      */
     autoAccept?: pulumi.Input<boolean>;
     /**
-     * The AWS account ID of the owner of the peer VPC.
-     * Defaults to the account ID the AWS provider is currently connected to.
+     * The AWS account ID of the target peer VPC.
+     * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
      */
     peerOwnerId?: pulumi.Input<string>;
     /**
@@ -260,7 +263,7 @@ export interface VpcPeeringConnectionState {
      */
     peerRegion?: pulumi.Input<string>;
     /**
-     * The ID of the VPC with which you are creating the VPC Peering Connection.
+     * The ID of the target VPC with which you are creating the VPC Peering Connection.
      */
     peerVpcId?: pulumi.Input<string>;
     /**
@@ -298,8 +301,8 @@ export interface VpcPeeringConnectionArgs {
      */
     autoAccept?: pulumi.Input<boolean>;
     /**
-     * The AWS account ID of the owner of the peer VPC.
-     * Defaults to the account ID the AWS provider is currently connected to.
+     * The AWS account ID of the target peer VPC.
+     * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
      */
     peerOwnerId?: pulumi.Input<string>;
     /**
@@ -308,7 +311,7 @@ export interface VpcPeeringConnectionArgs {
      */
     peerRegion?: pulumi.Input<string>;
     /**
-     * The ID of the VPC with which you are creating the VPC Peering Connection.
+     * The ID of the target VPC with which you are creating the VPC Peering Connection.
      */
     peerVpcId: pulumi.Input<string>;
     /**

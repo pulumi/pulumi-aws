@@ -5,6 +5,7 @@ package com.pulumi.aws.ssmincidents.outputs;
 
 import com.pulumi.aws.ssmincidents.outputs.ResponsePlanIncidentTemplateNotificationTarget;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -118,21 +119,27 @@ public final class ResponsePlanIncidentTemplate {
 
         @CustomType.Setter
         public Builder dedupeString(@Nullable String dedupeString) {
+
             this.dedupeString = dedupeString;
             return this;
         }
         @CustomType.Setter
         public Builder impact(Integer impact) {
-            this.impact = Objects.requireNonNull(impact);
+            if (impact == null) {
+              throw new MissingRequiredPropertyException("ResponsePlanIncidentTemplate", "impact");
+            }
+            this.impact = impact;
             return this;
         }
         @CustomType.Setter
         public Builder incidentTags(@Nullable Map<String,String> incidentTags) {
+
             this.incidentTags = incidentTags;
             return this;
         }
         @CustomType.Setter
         public Builder notificationTargets(@Nullable List<ResponsePlanIncidentTemplateNotificationTarget> notificationTargets) {
+
             this.notificationTargets = notificationTargets;
             return this;
         }
@@ -141,23 +148,27 @@ public final class ResponsePlanIncidentTemplate {
         }
         @CustomType.Setter
         public Builder summary(@Nullable String summary) {
+
             this.summary = summary;
             return this;
         }
         @CustomType.Setter
         public Builder title(String title) {
-            this.title = Objects.requireNonNull(title);
+            if (title == null) {
+              throw new MissingRequiredPropertyException("ResponsePlanIncidentTemplate", "title");
+            }
+            this.title = title;
             return this;
         }
         public ResponsePlanIncidentTemplate build() {
-            final var o = new ResponsePlanIncidentTemplate();
-            o.dedupeString = dedupeString;
-            o.impact = impact;
-            o.incidentTags = incidentTags;
-            o.notificationTargets = notificationTargets;
-            o.summary = summary;
-            o.title = title;
-            return o;
+            final var _resultValue = new ResponsePlanIncidentTemplate();
+            _resultValue.dedupeString = dedupeString;
+            _resultValue.impact = impact;
+            _resultValue.incidentTags = incidentTags;
+            _resultValue.notificationTargets = notificationTargets;
+            _resultValue.summary = summary;
+            _resultValue.title = title;
+            return _resultValue;
         }
     }
 }

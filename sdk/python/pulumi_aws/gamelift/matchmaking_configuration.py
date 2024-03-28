@@ -597,53 +597,12 @@ class MatchmakingConfiguration(pulumi.CustomResource):
         """
         Provides a GameLift Alias resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_game_session_queue = aws.gamelift.GameSessionQueue("exampleGameSessionQueue",
-            destinations=[],
-            player_latency_policies=[
-                aws.gamelift.GameSessionQueuePlayerLatencyPolicyArgs(
-                    maximum_individual_player_latency_milliseconds=3,
-                    policy_duration_seconds=7,
-                ),
-                aws.gamelift.GameSessionQueuePlayerLatencyPolicyArgs(
-                    maximum_individual_player_latency_milliseconds=10,
-                ),
-            ],
-            timeout_in_seconds=25)
-        example_matchmaking_rule_set = aws.gamelift.MatchmakingRuleSet("exampleMatchmakingRuleSet", rule_set_body=json.dumps({
-            "name": "test",
-            "ruleLanguageVersion": "1.0",
-            "teams": [{
-                "name": "alpha",
-                "minPlayers": 1,
-                "maxPlayers": 5,
-            }],
-        }))
-        example_matchmaking_configuration = aws.gamelift.MatchmakingConfiguration("exampleMatchmakingConfiguration",
-            acceptance_required=False,
-            custom_event_data="pvp",
-            game_session_data="game_session_data",
-            backfill_mode="MANUAL",
-            request_timeout_seconds=30,
-            rule_set_name=aws_gamelift_matchmaking_rule_set["test"]["name"],
-            game_session_queue_arns=[aws_gamelift_game_session_queue["test"]["arn"]],
-            tags={
-                "key1": "value1",
-            })
-        ```
-
         ## Import
 
         GameLift Matchmaking Configurations can be imported using the ID, e.g.,
 
         ```sh
-         $ pulumi import aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration example <matchmakingconfiguration-id>
+        $ pulumi import aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration example <matchmakingconfiguration-id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -673,53 +632,12 @@ class MatchmakingConfiguration(pulumi.CustomResource):
         """
         Provides a GameLift Alias resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_game_session_queue = aws.gamelift.GameSessionQueue("exampleGameSessionQueue",
-            destinations=[],
-            player_latency_policies=[
-                aws.gamelift.GameSessionQueuePlayerLatencyPolicyArgs(
-                    maximum_individual_player_latency_milliseconds=3,
-                    policy_duration_seconds=7,
-                ),
-                aws.gamelift.GameSessionQueuePlayerLatencyPolicyArgs(
-                    maximum_individual_player_latency_milliseconds=10,
-                ),
-            ],
-            timeout_in_seconds=25)
-        example_matchmaking_rule_set = aws.gamelift.MatchmakingRuleSet("exampleMatchmakingRuleSet", rule_set_body=json.dumps({
-            "name": "test",
-            "ruleLanguageVersion": "1.0",
-            "teams": [{
-                "name": "alpha",
-                "minPlayers": 1,
-                "maxPlayers": 5,
-            }],
-        }))
-        example_matchmaking_configuration = aws.gamelift.MatchmakingConfiguration("exampleMatchmakingConfiguration",
-            acceptance_required=False,
-            custom_event_data="pvp",
-            game_session_data="game_session_data",
-            backfill_mode="MANUAL",
-            request_timeout_seconds=30,
-            rule_set_name=aws_gamelift_matchmaking_rule_set["test"]["name"],
-            game_session_queue_arns=[aws_gamelift_game_session_queue["test"]["arn"]],
-            tags={
-                "key1": "value1",
-            })
-        ```
-
         ## Import
 
         GameLift Matchmaking Configurations can be imported using the ID, e.g.,
 
         ```sh
-         $ pulumi import aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration example <matchmakingconfiguration-id>
+        $ pulumi import aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration example <matchmakingconfiguration-id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -784,8 +702,6 @@ class MatchmakingConfiguration(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["rule_set_arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(MatchmakingConfiguration, __self__).__init__(
             'aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration',
             resource_name,

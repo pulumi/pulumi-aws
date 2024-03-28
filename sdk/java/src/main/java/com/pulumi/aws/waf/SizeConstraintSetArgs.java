@@ -18,14 +18,14 @@ public final class SizeConstraintSetArgs extends com.pulumi.resources.ResourceAr
     public static final SizeConstraintSetArgs Empty = new SizeConstraintSetArgs();
 
     /**
-     * The name or description of the Size Constraint Set.
+     * Name or description of the Size Constraint Set.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name or description of the Size Constraint Set.
+     * @return Name or description of the Size Constraint Set.
      * 
      */
     public Optional<Output<String>> name() {
@@ -33,14 +33,14 @@ public final class SizeConstraintSetArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the parts of web requests that you want to inspect the size of.
+     * Parts of web requests that you want to inspect the size of.
      * 
      */
     @Import(name="sizeConstraints")
     private @Nullable Output<List<SizeConstraintSetSizeConstraintArgs>> sizeConstraints;
 
     /**
-     * @return Specifies the parts of web requests that you want to inspect the size of.
+     * @return Parts of web requests that you want to inspect the size of.
      * 
      */
     public Optional<Output<List<SizeConstraintSetSizeConstraintArgs>>> sizeConstraints() {
@@ -73,7 +73,7 @@ public final class SizeConstraintSetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name The name or description of the Size Constraint Set.
+         * @param name Name or description of the Size Constraint Set.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class SizeConstraintSetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name The name or description of the Size Constraint Set.
+         * @param name Name or description of the Size Constraint Set.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class SizeConstraintSetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sizeConstraints Specifies the parts of web requests that you want to inspect the size of.
+         * @param sizeConstraints Parts of web requests that you want to inspect the size of.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class SizeConstraintSetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sizeConstraints Specifies the parts of web requests that you want to inspect the size of.
+         * @param sizeConstraints Parts of web requests that you want to inspect the size of.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class SizeConstraintSetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sizeConstraints Specifies the parts of web requests that you want to inspect the size of.
+         * @param sizeConstraints Parts of web requests that you want to inspect the size of.
          * 
          * @return builder
          * 

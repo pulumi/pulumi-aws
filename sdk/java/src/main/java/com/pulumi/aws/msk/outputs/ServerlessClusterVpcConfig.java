@@ -4,6 +4,7 @@
 package com.pulumi.aws.msk.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,6 +59,7 @@ public final class ServerlessClusterVpcConfig {
 
         @CustomType.Setter
         public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
+
             this.securityGroupIds = securityGroupIds;
             return this;
         }
@@ -66,17 +68,20 @@ public final class ServerlessClusterVpcConfig {
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("ServerlessClusterVpcConfig", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
         public ServerlessClusterVpcConfig build() {
-            final var o = new ServerlessClusterVpcConfig();
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            return o;
+            final var _resultValue = new ServerlessClusterVpcConfig();
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            return _resultValue;
         }
     }
 }

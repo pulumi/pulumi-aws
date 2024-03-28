@@ -19,8 +19,10 @@ import (
 // > **NOTE:** If you use this resource's `managedPolicyArns` argument or `inlinePolicy` configuration blocks, this resource will take over exclusive management of the role's respective policy types (e.g., both policy types if both arguments are used). These arguments are incompatible with other ways of managing a role's policies, such as `iam.PolicyAttachment`, `iam.RolePolicyAttachment`, and `iam.RolePolicy`. If you attempt to manage a role's policies by multiple means, you will get resource cycling and/or errors.
 //
 // ## Example Usage
+//
 // ### Basic Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,14 +38,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Sid":    "",
-//						"Principal": map[string]interface{}{
-//							"Service": "ec2.amazonaws.com",
+//						"action": "sts:AssumeRole",
+//						"effect": "Allow",
+//						"sid":    "",
+//						"principal": map[string]interface{}{
+//							"service": "ec2.amazonaws.com",
 //						},
 //					},
 //				},
@@ -52,7 +54,8 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = iam.NewRole(ctx, "testRole", &iam.RoleArgs{
+//			_, err = iam.NewRole(ctx, "test_role", &iam.RoleArgs{
+//				Name:             pulumi.String("test_role"),
 //				AssumeRolePolicy: pulumi.String(json0),
 //				Tags: pulumi.StringMap{
 //					"tag-key": pulumi.String("tag-value"),
@@ -66,8 +69,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example of Using Data Source for Assume Role Policy
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -101,8 +107,9 @@ import (
 //				return err
 //			}
 //			_, err = iam.NewRole(ctx, "instance", &iam.RoleArgs{
+//				Name:             pulumi.String("instance_role"),
 //				Path:             pulumi.String("/system/"),
-//				AssumeRolePolicy: *pulumi.String(instanceAssumeRolePolicy.Json),
+//				AssumeRolePolicy: pulumi.String(instanceAssumeRolePolicy.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -112,10 +119,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example of Exclusive Inline Policies
 //
 // This example creates an IAM role with two inline IAM policies. If someone adds another inline policy out-of-band, on the next apply, this provider will remove that policy. If someone deletes these policies out-of-band, this provider will recreate them.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -146,14 +156,14 @@ import (
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": []string{
+//						"action": []string{
 //							"ec2:Describe*",
 //						},
-//						"Effect":   "Allow",
-//						"Resource": "*",
+//						"effect":   "Allow",
+//						"resource": "*",
 //					},
 //				},
 //			})
@@ -162,7 +172,8 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(data.Aws_iam_policy_document.Instance_assume_role_policy.Json),
+//				Name:             pulumi.String("yak_role"),
+//				AssumeRolePolicy: pulumi.Any(instanceAssumeRolePolicy.Json),
 //				InlinePolicies: iam.RoleInlinePolicyArray{
 //					&iam.RoleInlinePolicyArgs{
 //						Name:   pulumi.String("my_inline_policy"),
@@ -170,7 +181,7 @@ import (
 //					},
 //					&iam.RoleInlinePolicyArgs{
 //						Name:   pulumi.String("policy-8675309"),
-//						Policy: *pulumi.String(inlinePolicy.Json),
+//						Policy: pulumi.String(inlinePolicy.Json),
 //					},
 //				},
 //			})
@@ -182,10 +193,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example of Removing Inline Policies
 //
 // This example creates an IAM role with what appears to be empty IAM `inlinePolicy` argument instead of using `inlinePolicy` as a configuration block. The result is that if someone were to add an inline policy out-of-band, on the next apply, this provider will remove that policy.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -199,10 +213,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(data.Aws_iam_policy_document.Instance_assume_role_policy.Json),
 //				InlinePolicies: iam.RoleInlinePolicyArray{
 //					nil,
 //				},
+//				Name:             pulumi.String("yak_role"),
+//				AssumeRolePolicy: pulumi.Any(instanceAssumeRolePolicy.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -212,10 +227,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example of Exclusive Managed Policies
 //
 // This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, this provider will detach that policy. If someone detaches these policies out-of-band, this provider will attach them again.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -231,14 +249,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": []string{
+//						"action": []string{
 //							"ec2:Describe*",
 //						},
-//						"Effect":   "Allow",
-//						"Resource": "*",
+//						"effect":   "Allow",
+//						"resource": "*",
 //					},
 //				},
 //			})
@@ -246,23 +264,24 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			policyOne, err := iam.NewPolicy(ctx, "policyOne", &iam.PolicyArgs{
+//			policyOne, err := iam.NewPolicy(ctx, "policy_one", &iam.PolicyArgs{
+//				Name:   pulumi.String("policy-618033"),
 //				Policy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			tmpJSON1, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": []string{
+//						"action": []string{
 //							"s3:ListAllMyBuckets",
 //							"s3:ListBucket",
 //							"s3:HeadBucket",
 //						},
-//						"Effect":   "Allow",
-//						"Resource": "*",
+//						"effect":   "Allow",
+//						"resource": "*",
 //					},
 //				},
 //			})
@@ -270,14 +289,16 @@ import (
 //				return err
 //			}
 //			json1 := string(tmpJSON1)
-//			policyTwo, err := iam.NewPolicy(ctx, "policyTwo", &iam.PolicyArgs{
+//			policyTwo, err := iam.NewPolicy(ctx, "policy_two", &iam.PolicyArgs{
+//				Name:   pulumi.String("policy-381966"),
 //				Policy: pulumi.String(json1),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(data.Aws_iam_policy_document.Instance_assume_role_policy.Json),
+//				Name:             pulumi.String("yak_role"),
+//				AssumeRolePolicy: pulumi.Any(instanceAssumeRolePolicy.Json),
 //				ManagedPolicyArns: pulumi.StringArray{
 //					policyOne.Arn,
 //					policyTwo.Arn,
@@ -291,10 +312,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example of Removing Managed Policies
 //
 // This example creates an IAM role with an empty `managedPolicyArns` argument. If someone attaches a policy out-of-band, on the next apply, this provider will detach that policy.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -308,7 +332,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				AssumeRolePolicy:  pulumi.Any(data.Aws_iam_policy_document.Instance_assume_role_policy.Json),
+//				Name:              pulumi.String("yak_role"),
+//				AssumeRolePolicy:  pulumi.Any(instanceAssumeRolePolicy.Json),
 //				ManagedPolicyArns: pulumi.StringArray{},
 //			})
 //			if err != nil {
@@ -319,15 +344,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IAM Roles using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iam/role:Role developer developer_name
-//
+// $ pulumi import aws:iam/role:Role developer developer_name
 // ```
 type Role struct {
 	pulumi.CustomResourceState
@@ -379,10 +403,6 @@ func NewRole(ctx *pulumi.Context,
 	if args.AssumeRolePolicy == nil {
 		return nil, errors.New("invalid value for required argument 'AssumeRolePolicy'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Role
 	err := ctx.RegisterResource("aws:iam/role:Role", name, args, &resource, opts...)

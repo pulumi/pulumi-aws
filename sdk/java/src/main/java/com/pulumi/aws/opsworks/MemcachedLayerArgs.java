@@ -8,6 +8,7 @@ import com.pulumi.aws.opsworks.inputs.MemcachedLayerEbsVolumeArgs;
 import com.pulumi.aws.opsworks.inputs.MemcachedLayerLoadBasedAutoScalingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -860,7 +861,9 @@ public final class MemcachedLayerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public MemcachedLayerArgs build() {
-            $.stackId = Objects.requireNonNull($.stackId, "expected parameter 'stackId' to be non-null");
+            if ($.stackId == null) {
+                throw new MissingRequiredPropertyException("MemcachedLayerArgs", "stackId");
+            }
             return $;
         }
     }

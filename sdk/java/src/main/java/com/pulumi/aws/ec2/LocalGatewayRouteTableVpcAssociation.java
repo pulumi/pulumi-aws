@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,6 +19,8 @@ import javax.annotation.Nullable;
  * Manages an EC2 Local Gateway Route Table VPC Association. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-local-gateways.html#vpc-associations).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleLocalGatewayRouteTable = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
+ *         final var example = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
  *             .outpostArn(&#34;arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef&#34;)
  *             .build());
  * 
@@ -54,20 +55,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLocalGatewayRouteTableVpcAssociation = new LocalGatewayRouteTableVpcAssociation(&#34;exampleLocalGatewayRouteTableVpcAssociation&#34;, LocalGatewayRouteTableVpcAssociationArgs.builder()        
- *             .localGatewayRouteTableId(exampleLocalGatewayRouteTable.applyValue(getLocalGatewayRouteTableResult -&gt; getLocalGatewayRouteTableResult.id()))
+ *             .localGatewayRouteTableId(example.applyValue(getLocalGatewayRouteTableResult -&gt; getLocalGatewayRouteTableResult.id()))
  *             .vpcId(exampleVpc.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_ec2_local_gateway_route_table_vpc_association` using the Local Gateway Route Table VPC Association identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation example lgw-vpc-assoc-1234567890abcdef
+ * $ pulumi import aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation example lgw-vpc-assoc-1234567890abcdef
  * ```
  * 
  */
@@ -176,9 +178,6 @@ public class LocalGatewayRouteTableVpcAssociation extends com.pulumi.resources.C
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

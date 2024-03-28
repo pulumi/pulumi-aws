@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,21 +31,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cur.NewReportDefinition(ctx, "exampleCurReportDefinition", &cur.ReportDefinitionArgs{
-//				AdditionalArtifacts: pulumi.StringArray{
-//					pulumi.String("REDSHIFT"),
-//					pulumi.String("QUICKSIGHT"),
-//				},
+//			_, err := cur.NewReportDefinition(ctx, "example_cur_report_definition", &cur.ReportDefinitionArgs{
+//				ReportName:  pulumi.String("example-cur-report-definition"),
+//				TimeUnit:    pulumi.String("HOURLY"),
+//				Format:      pulumi.String("textORcsv"),
+//				Compression: pulumi.String("GZIP"),
 //				AdditionalSchemaElements: pulumi.StringArray{
 //					pulumi.String("RESOURCES"),
 //					pulumi.String("SPLIT_COST_ALLOCATION_DATA"),
 //				},
-//				Compression: pulumi.String("GZIP"),
-//				Format:      pulumi.String("textORcsv"),
-//				ReportName:  pulumi.String("example-cur-report-definition"),
-//				S3Bucket:    pulumi.String("example-bucket-name"),
-//				S3Region:    pulumi.String("us-east-1"),
-//				TimeUnit:    pulumi.String("HOURLY"),
+//				S3Bucket: pulumi.String("example-bucket-name"),
+//				S3Region: pulumi.String("us-east-1"),
+//				AdditionalArtifacts: pulumi.StringArray{
+//					pulumi.String("REDSHIFT"),
+//					pulumi.String("QUICKSIGHT"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -54,15 +55,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Report Definitions using the `report_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
-//
+// $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
 // ```
 type ReportDefinition struct {
 	pulumi.CustomResourceState

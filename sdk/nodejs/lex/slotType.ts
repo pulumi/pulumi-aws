@@ -13,11 +13,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const flowerTypes = new aws.lex.SlotType("flowerTypes", {
+ * const flowerTypes = new aws.lex.SlotType("flower_types", {
  *     createVersion: true,
  *     description: "Types of flowers to order",
  *     enumerationValues: [
@@ -40,13 +41,14 @@ import * as utilities from "../utilities";
  *     valueSelectionStrategy: "ORIGINAL_VALUE",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import slot types using their name. For example:
  *
  * ```sh
- *  $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
+ * $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
  * ```
  */
 export class SlotType extends pulumi.CustomResource {

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,8 +31,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewLocalGatewayRoute(ctx, "example", &ec2.LocalGatewayRouteArgs{
 //				DestinationCidrBlock:                pulumi.String("172.16.0.0/16"),
-//				LocalGatewayRouteTableId:            pulumi.Any(data.Aws_ec2_local_gateway_route_table.Example.Id),
-//				LocalGatewayVirtualInterfaceGroupId: pulumi.Any(data.Aws_ec2_local_gateway_virtual_interface_group.Example.Id),
+//				LocalGatewayRouteTableId:            pulumi.Any(exampleAwsEc2LocalGatewayRouteTable.Id),
+//				LocalGatewayVirtualInterfaceGroupId: pulumi.Any(exampleAwsEc2LocalGatewayVirtualInterfaceGroup.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -41,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_ec2_local_gateway_route` using the EC2 Local Gateway Route Table identifier and destination CIDR block separated by underscores (`_`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/localGatewayRoute:LocalGatewayRoute example lgw-rtb-12345678_172.16.0.0/16
-//
+// $ pulumi import aws:ec2/localGatewayRoute:LocalGatewayRoute example lgw-rtb-12345678_172.16.0.0/16
 // ```
 type LocalGatewayRoute struct {
 	pulumi.CustomResourceState

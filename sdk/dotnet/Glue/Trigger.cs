@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Glue
     /// Manages a Glue Trigger resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Conditional Trigger
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,12 +27,13 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Trigger("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "CONDITIONAL",
     ///         Actions = new[]
     ///         {
     ///             new Aws.Glue.Inputs.TriggerActionArgs
     ///             {
-    ///                 JobName = aws_glue_job.Example1.Name,
+    ///                 JobName = example1.Name,
     ///             },
     ///         },
     ///         Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
@@ -39,7 +42,7 @@ namespace Pulumi.Aws.Glue
     ///             {
     ///                 new Aws.Glue.Inputs.TriggerPredicateConditionArgs
     ///                 {
-    ///                     JobName = aws_glue_job.Example2.Name,
+    ///                     JobName = example2.Name,
     ///                     State = "SUCCEEDED",
     ///                 },
     ///             },
@@ -48,8 +51,11 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### On-Demand Trigger
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -60,20 +66,24 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Trigger("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "ON_DEMAND",
     ///         Actions = new[]
     ///         {
     ///             new Aws.Glue.Inputs.TriggerActionArgs
     ///             {
-    ///                 JobName = aws_glue_job.Example.Name,
+    ///                 JobName = exampleAwsGlueJob.Name,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Scheduled Trigger
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -84,23 +94,27 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Trigger("example", new()
     ///     {
+    ///         Name = "example",
     ///         Schedule = "cron(15 12 * * ? *)",
     ///         Type = "SCHEDULED",
     ///         Actions = new[]
     ///         {
     ///             new Aws.Glue.Inputs.TriggerActionArgs
     ///             {
-    ///                 JobName = aws_glue_job.Example.Name,
+    ///                 JobName = exampleAwsGlueJob.Name,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Conditional Trigger with Crawler Action
     /// 
     /// **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -111,12 +125,13 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Trigger("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "CONDITIONAL",
     ///         Actions = new[]
     ///         {
     ///             new Aws.Glue.Inputs.TriggerActionArgs
     ///             {
-    ///                 CrawlerName = aws_glue_crawler.Example1.Name,
+    ///                 CrawlerName = example1.Name,
     ///             },
     ///         },
     ///         Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
@@ -125,7 +140,7 @@ namespace Pulumi.Aws.Glue
     ///             {
     ///                 new Aws.Glue.Inputs.TriggerPredicateConditionArgs
     ///                 {
-    ///                     JobName = aws_glue_job.Example2.Name,
+    ///                     JobName = example2.Name,
     ///                     State = "SUCCEEDED",
     ///                 },
     ///             },
@@ -134,10 +149,13 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Conditional Trigger with Crawler Condition
     /// 
     /// **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -148,12 +166,13 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Trigger("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "CONDITIONAL",
     ///         Actions = new[]
     ///         {
     ///             new Aws.Glue.Inputs.TriggerActionArgs
     ///             {
-    ///                 JobName = aws_glue_job.Example1.Name,
+    ///                 JobName = example1.Name,
     ///             },
     ///         },
     ///         Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
@@ -162,7 +181,7 @@ namespace Pulumi.Aws.Glue
     ///             {
     ///                 new Aws.Glue.Inputs.TriggerPredicateConditionArgs
     ///                 {
-    ///                     CrawlerName = aws_glue_crawler.Example2.Name,
+    ///                     CrawlerName = example2.Name,
     ///                     CrawlState = "SUCCEEDED",
     ///                 },
     ///             },
@@ -171,13 +190,14 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Triggers using `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
+    /// $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/trigger:Trigger")]
@@ -290,10 +310,6 @@ namespace Pulumi.Aws.Glue
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -503,11 +519,7 @@ namespace Pulumi.Aws.Glue
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

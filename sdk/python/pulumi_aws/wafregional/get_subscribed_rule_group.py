@@ -70,13 +70,13 @@ def get_subscribed_rule_group(metric_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     by_name = aws.wafregional.get_subscribed_rule_group(name="F5 Bot Detection Signatures For AWS WAF")
     by_metric_name = aws.wafregional.get_subscribed_rule_group(metric_name="F5BotDetectionSignatures")
-    # ...
     acl = aws.wafregional.WebAcl("acl", rules=[
         aws.wafregional.WebAclRuleArgs(
             priority=1,
@@ -90,6 +90,7 @@ def get_subscribed_rule_group(metric_name: Optional[str] = None,
         ),
     ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str metric_name: Name of the WAF rule group.
@@ -116,13 +117,13 @@ def get_subscribed_rule_group_output(metric_name: Optional[pulumi.Input[Optional
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     by_name = aws.wafregional.get_subscribed_rule_group(name="F5 Bot Detection Signatures For AWS WAF")
     by_metric_name = aws.wafregional.get_subscribed_rule_group(metric_name="F5BotDetectionSignatures")
-    # ...
     acl = aws.wafregional.WebAcl("acl", rules=[
         aws.wafregional.WebAclRuleArgs(
             priority=1,
@@ -136,6 +137,7 @@ def get_subscribed_rule_group_output(metric_name: Optional[pulumi.Input[Optional
         ),
     ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str metric_name: Name of the WAF rule group.

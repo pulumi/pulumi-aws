@@ -9,22 +9,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkmanager.TransitGatewayRouteTableAttachment("example", {
- *     peeringId: aws_networkmanager_transit_gateway_peering.example.id,
- *     transitGatewayRouteTableArn: aws_ec2_transit_gateway_route_table.example.arn,
+ *     peeringId: exampleAwsNetworkmanagerTransitGatewayPeering.id,
+ *     transitGatewayRouteTableArn: exampleAwsEc2TransitGatewayRouteTable.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_networkmanager_transit_gateway_route_table_attachment` using the attachment ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8
+ * $ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8
  * ```
  */
 export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
@@ -165,8 +167,6 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(TransitGatewayRouteTableAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }

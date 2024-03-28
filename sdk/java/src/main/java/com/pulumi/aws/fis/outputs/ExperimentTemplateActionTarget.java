@@ -4,13 +4,14 @@
 package com.pulumi.aws.fis.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class ExperimentTemplateActionTarget {
     /**
-     * @return Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Volumes` (EBS Volumes) , `Pods` (EKS Pods), `Tasks` (ECS Tasks). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
+     * @return Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
      * 
      */
     private String key;
@@ -22,7 +23,7 @@ public final class ExperimentTemplateActionTarget {
 
     private ExperimentTemplateActionTarget() {}
     /**
-     * @return Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Volumes` (EBS Volumes) , `Pods` (EKS Pods), `Tasks` (ECS Tasks). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
+     * @return Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
      * 
      */
     public String key() {
@@ -56,19 +57,25 @@ public final class ExperimentTemplateActionTarget {
 
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("ExperimentTemplateActionTarget", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("ExperimentTemplateActionTarget", "value");
+            }
+            this.value = value;
             return this;
         }
         public ExperimentTemplateActionTarget build() {
-            final var o = new ExperimentTemplateActionTarget();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new ExperimentTemplateActionTarget();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

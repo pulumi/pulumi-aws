@@ -19,31 +19,29 @@ import (
 //
 // **Using certs on file:**
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.NewSigningCertificate(ctx, "testCert", &iam.SigningCertificateArgs{
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "self-ca-cert.pem",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewSigningCertificate(ctx, "test_cert", &iam.SigningCertificateArgs{
 //				Username:        pulumi.String("some_test_cert"),
-//				CertificateBody: readFileOrPanic("self-ca-cert.pem"),
+//				CertificateBody: invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err
@@ -53,9 +51,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // **Example with cert in-line:**
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,9 +68,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.NewSigningCertificate(ctx, "testCertAlt", &iam.SigningCertificateArgs{
-//				CertificateBody: pulumi.String("-----BEGIN CERTIFICATE-----\n[......] # cert contents\n-----END CERTIFICATE-----\n\n"),
+//			_, err := iam.NewSigningCertificate(ctx, "test_cert_alt", &iam.SigningCertificateArgs{
 //				Username:        pulumi.String("some_test_cert"),
+//				CertificateBody: pulumi.String("-----BEGIN CERTIFICATE-----\n[......] # cert contents\n-----END CERTIFICATE-----\n"),
 //			})
 //			if err != nil {
 //				return err
@@ -80,15 +80,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IAM Signing Certificates using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
-//
+// $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
 // ```
 type SigningCertificate struct {
 	pulumi.CustomResourceState

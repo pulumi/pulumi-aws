@@ -106,22 +106,24 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        default_bucket_v2 = aws.s3.BucketV2("defaultBucketV2")
-        default_spot_datafeed_subscription = aws.ec2.SpotDatafeedSubscription("defaultSpotDatafeedSubscription",
-            bucket=default_bucket_v2.id,
+        default = aws.s3.BucketV2("default", bucket="tf-spot-datafeed")
+        default_spot_datafeed_subscription = aws.ec2.SpotDatafeedSubscription("default",
+            bucket=default.id,
             prefix="my_subdirectory")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a Spot Datafeed Subscription using the word `spot-datafeed-subscription`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
+        $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
         ```
 
         :param str resource_name: The name of the resource.
@@ -143,22 +145,24 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        default_bucket_v2 = aws.s3.BucketV2("defaultBucketV2")
-        default_spot_datafeed_subscription = aws.ec2.SpotDatafeedSubscription("defaultSpotDatafeedSubscription",
-            bucket=default_bucket_v2.id,
+        default = aws.s3.BucketV2("default", bucket="tf-spot-datafeed")
+        default_spot_datafeed_subscription = aws.ec2.SpotDatafeedSubscription("default",
+            bucket=default.id,
             prefix="my_subdirectory")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a Spot Datafeed Subscription using the word `spot-datafeed-subscription`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
+        $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
         ```
 
         :param str resource_name: The name of the resource.

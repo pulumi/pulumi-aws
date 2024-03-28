@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Signer
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,19 +23,19 @@ namespace Pulumi.Aws.Signer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testSp = new Aws.Signer.SigningProfile("testSp", new()
+    ///     var testSp = new Aws.Signer.SigningProfile("test_sp", new()
     ///     {
     ///         PlatformId = "AWSLambda-SHA384-ECDSA",
     ///     });
     /// 
-    ///     var prodSp = new Aws.Signer.SigningProfile("prodSp", new()
+    ///     var prodSp = new Aws.Signer.SigningProfile("prod_sp", new()
     ///     {
-    ///         NamePrefix = "prod_sp_",
     ///         PlatformId = "AWSLambda-SHA384-ECDSA",
+    ///         NamePrefix = "prod_sp_",
     ///         SignatureValidityPeriod = new Aws.Signer.Inputs.SigningProfileSignatureValidityPeriodArgs
     ///         {
-    ///             Type = "YEARS",
     ///             Value = 5,
+    ///             Type = "YEARS",
     ///         },
     ///         Tags = 
     ///         {
@@ -45,13 +46,14 @@ namespace Pulumi.Aws.Signer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Signer signing profiles using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
+    /// $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
     /// ```
     /// </summary>
     [AwsResourceType("aws:signer/signingProfile:SigningProfile")]
@@ -155,10 +157,6 @@ namespace Pulumi.Aws.Signer
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -308,11 +306,7 @@ namespace Pulumi.Aws.Signer
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

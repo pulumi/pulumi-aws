@@ -9,12 +9,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.opensearch.Domain("example", {engineVersion: "OpenSearch_1.1"});
- * const mainPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const example = new aws.opensearch.Domain("example", {
+ *     domainName: "tf-test",
+ *     engineVersion: "OpenSearch_1.1",
+ * });
+ * const main = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -30,11 +34,12 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const mainDomainPolicy = new aws.opensearch.DomainPolicy("mainDomainPolicy", {
+ * const mainDomainPolicy = new aws.opensearch.DomainPolicy("main", {
  *     domainName: example.domainName,
- *     accessPolicies: mainPolicyDocument.apply(mainPolicyDocument => mainPolicyDocument.json),
+ *     accessPolicies: main.apply(main => main.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class DomainPolicy extends pulumi.CustomResource {
     /**

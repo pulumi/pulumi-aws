@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,7 +47,7 @@ import (
 //					QueryArgProfiles: &cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs{
 //						Items: cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArray{
 //							&cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs{
-//								ProfileId: pulumi.Any(aws_cloudfront_field_level_encryption_profile.Test.Id),
+//								ProfileId: pulumi.Any(testAwsCloudfrontFieldLevelEncryptionProfile.Id),
 //								QueryArg:  pulumi.String("Arg1"),
 //							},
 //						},
@@ -61,15 +62,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Cloudfront Field Level Encryption Config using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
-//
+// $ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
 // ```
 type FieldLevelEncryptionConfig struct {
 	pulumi.CustomResourceState

@@ -70,21 +70,22 @@ class OrganizationAdminAccount(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.macie2.Account("exampleAccount")
-        example_organization_admin_account = aws.macie2.OrganizationAdminAccount("exampleOrganizationAdminAccount", admin_account_id="ID OF THE ADMIN ACCOUNT",
-        opts=pulumi.ResourceOptions(depends_on=[example_account]))
+        example = aws.macie2.Account("example")
+        example_organization_admin_account = aws.macie2.OrganizationAdminAccount("example", admin_account_id="ID OF THE ADMIN ACCOUNT")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_macie2_organization_admin_account` using the id. For example:
 
         ```sh
-         $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
+        $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
         ```
 
         :param str resource_name: The name of the resource.
@@ -102,21 +103,22 @@ class OrganizationAdminAccount(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.macie2.Account("exampleAccount")
-        example_organization_admin_account = aws.macie2.OrganizationAdminAccount("exampleOrganizationAdminAccount", admin_account_id="ID OF THE ADMIN ACCOUNT",
-        opts=pulumi.ResourceOptions(depends_on=[example_account]))
+        example = aws.macie2.Account("example")
+        example_organization_admin_account = aws.macie2.OrganizationAdminAccount("example", admin_account_id="ID OF THE ADMIN ACCOUNT")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_macie2_organization_admin_account` using the id. For example:
 
         ```sh
-         $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
+        $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
         ```
 
         :param str resource_name: The name of the resource.

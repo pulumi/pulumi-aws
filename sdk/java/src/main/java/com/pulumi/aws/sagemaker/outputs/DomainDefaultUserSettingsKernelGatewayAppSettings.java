@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainDefaultUserSettingsKernelGatewayAppSettings {
     /**
-     * @return A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+     * @return A list of custom SageMaker images that are configured to run as a KernelGateway app. see `custom_image` Block below.
      * 
      */
     private @Nullable List<DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage> customImages;
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec;
@@ -32,14 +32,14 @@ public final class DomainDefaultUserSettingsKernelGatewayAppSettings {
 
     private DomainDefaultUserSettingsKernelGatewayAppSettings() {}
     /**
-     * @return A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+     * @return A list of custom SageMaker images that are configured to run as a KernelGateway app. see `custom_image` Block below.
      * 
      */
     public List<DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage> customImages() {
         return this.customImages == null ? List.of() : this.customImages;
     }
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec> defaultResourceSpec() {
@@ -75,6 +75,7 @@ public final class DomainDefaultUserSettingsKernelGatewayAppSettings {
 
         @CustomType.Setter
         public Builder customImages(@Nullable List<DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage> customImages) {
+
             this.customImages = customImages;
             return this;
         }
@@ -83,11 +84,13 @@ public final class DomainDefaultUserSettingsKernelGatewayAppSettings {
         }
         @CustomType.Setter
         public Builder defaultResourceSpec(@Nullable DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec) {
+
             this.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
         @CustomType.Setter
         public Builder lifecycleConfigArns(@Nullable List<String> lifecycleConfigArns) {
+
             this.lifecycleConfigArns = lifecycleConfigArns;
             return this;
         }
@@ -95,11 +98,11 @@ public final class DomainDefaultUserSettingsKernelGatewayAppSettings {
             return lifecycleConfigArns(List.of(lifecycleConfigArns));
         }
         public DomainDefaultUserSettingsKernelGatewayAppSettings build() {
-            final var o = new DomainDefaultUserSettingsKernelGatewayAppSettings();
-            o.customImages = customImages;
-            o.defaultResourceSpec = defaultResourceSpec;
-            o.lifecycleConfigArns = lifecycleConfigArns;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettingsKernelGatewayAppSettings();
+            _resultValue.customImages = customImages;
+            _resultValue.defaultResourceSpec = defaultResourceSpec;
+            _resultValue.lifecycleConfigArns = lifecycleConfigArns;
+            return _resultValue;
         }
     }
 }

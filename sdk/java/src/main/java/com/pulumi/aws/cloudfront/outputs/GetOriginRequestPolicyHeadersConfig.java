@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.aws.cloudfront.outputs.GetOriginRequestPolicyHeadersConfigHeader;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -42,22 +43,28 @@ public final class GetOriginRequestPolicyHeadersConfig {
 
         @CustomType.Setter
         public Builder headerBehavior(String headerBehavior) {
-            this.headerBehavior = Objects.requireNonNull(headerBehavior);
+            if (headerBehavior == null) {
+              throw new MissingRequiredPropertyException("GetOriginRequestPolicyHeadersConfig", "headerBehavior");
+            }
+            this.headerBehavior = headerBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder headers(List<GetOriginRequestPolicyHeadersConfigHeader> headers) {
-            this.headers = Objects.requireNonNull(headers);
+            if (headers == null) {
+              throw new MissingRequiredPropertyException("GetOriginRequestPolicyHeadersConfig", "headers");
+            }
+            this.headers = headers;
             return this;
         }
         public Builder headers(GetOriginRequestPolicyHeadersConfigHeader... headers) {
             return headers(List.of(headers));
         }
         public GetOriginRequestPolicyHeadersConfig build() {
-            final var o = new GetOriginRequestPolicyHeadersConfig();
-            o.headerBehavior = headerBehavior;
-            o.headers = headers;
-            return o;
+            final var _resultValue = new GetOriginRequestPolicyHeadersConfig();
+            _resultValue.headerBehavior = headerBehavior;
+            _resultValue.headers = headers;
+            return _resultValue;
         }
     }
 }

@@ -102,39 +102,41 @@ class ContainerPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        example_container = aws.mediastore.Container("exampleContainer")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        current = aws.get_region()
+        current_get_caller_identity = aws.get_caller_identity()
+        example_container = aws.mediastore.Container("example", name="example")
+        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="MediaStoreFullAccess",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="AWS",
-                identifiers=[f"arn:aws:iam::{current_caller_identity.account_id}:root"],
+                identifiers=[f"arn:aws:iam::{current_get_caller_identity.account_id}:root"],
             )],
             actions=["mediastore:*"],
-            resources=[example_container.name.apply(lambda name: f"arn:aws:mediastore:{current_region.name}:{current_caller_identity.account_id}:container/{name}/*")],
+            resources=[example_container.name.apply(lambda name: f"arn:aws:mediastore:{current.name}:{current_get_caller_identity.account_id}:container/{name}/*")],
             conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                 test="Bool",
                 variable="aws:SecureTransport",
                 values=["true"],
             )],
         )])
-        example_container_policy = aws.mediastore.ContainerPolicy("exampleContainerPolicy",
+        example_container_policy = aws.mediastore.ContainerPolicy("example",
             container_name=example_container.name,
-            policy=example_policy_document.json)
+            policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MediaStore Container Policy using the MediaStore Container Name. For example:
 
         ```sh
-         $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
+        $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -153,39 +155,41 @@ class ContainerPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        example_container = aws.mediastore.Container("exampleContainer")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        current = aws.get_region()
+        current_get_caller_identity = aws.get_caller_identity()
+        example_container = aws.mediastore.Container("example", name="example")
+        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="MediaStoreFullAccess",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="AWS",
-                identifiers=[f"arn:aws:iam::{current_caller_identity.account_id}:root"],
+                identifiers=[f"arn:aws:iam::{current_get_caller_identity.account_id}:root"],
             )],
             actions=["mediastore:*"],
-            resources=[example_container.name.apply(lambda name: f"arn:aws:mediastore:{current_region.name}:{current_caller_identity.account_id}:container/{name}/*")],
+            resources=[example_container.name.apply(lambda name: f"arn:aws:mediastore:{current.name}:{current_get_caller_identity.account_id}:container/{name}/*")],
             conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                 test="Bool",
                 variable="aws:SecureTransport",
                 values=["true"],
             )],
         )])
-        example_container_policy = aws.mediastore.ContainerPolicy("exampleContainerPolicy",
+        example_container_policy = aws.mediastore.ContainerPolicy("example",
             container_name=example_container.name,
-            policy=example_policy_document.json)
+            policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MediaStore Container Policy using the MediaStore Container Name. For example:
 
         ```sh
-         $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
+        $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
         ```
 
         :param str resource_name: The name of the resource.

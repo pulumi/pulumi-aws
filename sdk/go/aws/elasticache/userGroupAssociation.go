@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,7 +43,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleUserGroup, err := elasticache.NewUserGroup(ctx, "exampleUserGroup", &elasticache.UserGroupArgs{
+//			example, err := elasticache.NewUserGroup(ctx, "example", &elasticache.UserGroupArgs{
 //				Engine:      pulumi.String("REDIS"),
 //				UserGroupId: pulumi.String("userGroupId"),
 //				UserIds: pulumi.StringArray{
@@ -52,7 +53,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleUser, err := elasticache.NewUser(ctx, "exampleUser", &elasticache.UserArgs{
+//			exampleUser, err := elasticache.NewUser(ctx, "example", &elasticache.UserArgs{
 //				UserId:       pulumi.String("exampleUserID"),
 //				UserName:     pulumi.String("exampleuser"),
 //				AccessString: pulumi.String("on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember"),
@@ -64,8 +65,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = elasticache.NewUserGroupAssociation(ctx, "exampleUserGroupAssociation", &elasticache.UserGroupAssociationArgs{
-//				UserGroupId: exampleUserGroup.UserGroupId,
+//			_, err = elasticache.NewUserGroupAssociation(ctx, "example", &elasticache.UserGroupAssociationArgs{
+//				UserGroupId: example.UserGroupId,
 //				UserId:      exampleUser.UserId,
 //			})
 //			if err != nil {
@@ -76,15 +77,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
-//
+// $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
 // ```
 type UserGroupAssociation struct {
 	pulumi.CustomResourceState

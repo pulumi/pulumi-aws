@@ -126,6 +126,11 @@ export const BucketWebsiteConfigurationV2: typeof import("./bucketWebsiteConfigu
 utilities.lazyLoad(exports, ["BucketWebsiteConfigurationV2"], () => require("./bucketWebsiteConfigurationV2"));
 
 export * from "./cannedAcl";
+export { DirectoryBucketArgs, DirectoryBucketState } from "./directoryBucket";
+export type DirectoryBucket = import("./directoryBucket").DirectoryBucket;
+export const DirectoryBucket: typeof import("./directoryBucket").DirectoryBucket = null as any;
+utilities.lazyLoad(exports, ["DirectoryBucket"], () => require("./directoryBucket"));
+
 export { GetAccountPublicAccessBlockArgs, GetAccountPublicAccessBlockResult, GetAccountPublicAccessBlockOutputArgs } from "./getAccountPublicAccessBlock";
 export const getAccountPublicAccessBlock: typeof import("./getAccountPublicAccessBlock").getAccountPublicAccessBlock = null as any;
 export const getAccountPublicAccessBlockOutput: typeof import("./getAccountPublicAccessBlock").getAccountPublicAccessBlockOutput = null as any;
@@ -155,6 +160,11 @@ export { GetCanonicalUserIdResult } from "./getCanonicalUserId";
 export const getCanonicalUserId: typeof import("./getCanonicalUserId").getCanonicalUserId = null as any;
 export const getCanonicalUserIdOutput: typeof import("./getCanonicalUserId").getCanonicalUserIdOutput = null as any;
 utilities.lazyLoad(exports, ["getCanonicalUserId","getCanonicalUserIdOutput"], () => require("./getCanonicalUserId"));
+
+export { GetDirectoryBucketsResult } from "./getDirectoryBuckets";
+export const getDirectoryBuckets: typeof import("./getDirectoryBuckets").getDirectoryBuckets = null as any;
+export const getDirectoryBucketsOutput: typeof import("./getDirectoryBuckets").getDirectoryBucketsOutput = null as any;
+utilities.lazyLoad(exports, ["getDirectoryBuckets","getDirectoryBucketsOutput"], () => require("./getDirectoryBuckets"));
 
 export { GetObjectArgs, GetObjectResult, GetObjectOutputArgs } from "./getObject";
 export const getObject: typeof import("./getObject").getObject = null as any;
@@ -234,6 +244,8 @@ const _module = {
                 return new BucketVersioningV2(name, <any>undefined, { urn })
             case "aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2":
                 return new BucketWebsiteConfigurationV2(name, <any>undefined, { urn })
+            case "aws:s3/directoryBucket:DirectoryBucket":
+                return new DirectoryBucket(name, <any>undefined, { urn })
             case "aws:s3/inventory:Inventory":
                 return new Inventory(name, <any>undefined, { urn })
             case "aws:s3/objectCopy:ObjectCopy":
@@ -267,5 +279,6 @@ pulumi.runtime.registerResourceModule("aws", "s3/bucketServerSideEncryptionConfi
 pulumi.runtime.registerResourceModule("aws", "s3/bucketV2", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketVersioningV2", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketWebsiteConfigurationV2", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/directoryBucket", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/inventory", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/objectCopy", _module)

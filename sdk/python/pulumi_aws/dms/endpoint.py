@@ -30,6 +30,7 @@ class EndpointArgs:
                  password: Optional[pulumi.Input[str]] = None,
                  pause_replication_tasks: Optional[pulumi.Input[bool]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 postgres_settings: Optional[pulumi.Input['EndpointPostgresSettingsArgs']] = None,
                  redis_settings: Optional[pulumi.Input['EndpointRedisSettingsArgs']] = None,
                  redshift_settings: Optional[pulumi.Input['EndpointRedshiftSettingsArgs']] = None,
                  s3_settings: Optional[pulumi.Input['EndpointS3SettingsArgs']] = None,
@@ -57,10 +58,13 @@ class EndpointArgs:
         :param pulumi.Input['EndpointMongodbSettingsArgs'] mongodb_settings: Configuration block for MongoDB settings. See below.
         :param pulumi.Input[str] password: Password to be used to login to the endpoint database.
         :param pulumi.Input[int] port: Port used by the endpoint database.
+        :param pulumi.Input['EndpointPostgresSettingsArgs'] postgres_settings: Configuration block for Postgres settings. See below.
         :param pulumi.Input['EndpointRedshiftSettingsArgs'] redshift_settings: Configuration block for Redshift settings. See below.
         :param pulumi.Input['EndpointS3SettingsArgs'] s3_settings: (**Deprecated**, use the `dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
-        :param pulumi.Input[str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
-        :param pulumi.Input[str] secrets_manager_arn: Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+        :param pulumi.Input[str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
+               
+               > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
+        :param pulumi.Input[str] secrets_manager_arn: Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
         :param pulumi.Input[str] server_name: Host name of the server.
         :param pulumi.Input[str] service_access_role: ARN used by the service access IAM role for dynamodb endpoints.
         :param pulumi.Input[str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
@@ -92,6 +96,8 @@ class EndpointArgs:
             pulumi.set(__self__, "pause_replication_tasks", pause_replication_tasks)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if postgres_settings is not None:
+            pulumi.set(__self__, "postgres_settings", postgres_settings)
         if redis_settings is not None:
             pulumi.set(__self__, "redis_settings", redis_settings)
         if redshift_settings is not None:
@@ -281,6 +287,18 @@ class EndpointArgs:
         pulumi.set(self, "port", value)
 
     @property
+    @pulumi.getter(name="postgresSettings")
+    def postgres_settings(self) -> Optional[pulumi.Input['EndpointPostgresSettingsArgs']]:
+        """
+        Configuration block for Postgres settings. See below.
+        """
+        return pulumi.get(self, "postgres_settings")
+
+    @postgres_settings.setter
+    def postgres_settings(self, value: Optional[pulumi.Input['EndpointPostgresSettingsArgs']]):
+        pulumi.set(self, "postgres_settings", value)
+
+    @property
     @pulumi.getter(name="redisSettings")
     def redis_settings(self) -> Optional[pulumi.Input['EndpointRedisSettingsArgs']]:
         return pulumi.get(self, "redis_settings")
@@ -317,7 +335,9 @@ class EndpointArgs:
     @pulumi.getter(name="secretsManagerAccessRoleArn")
     def secrets_manager_access_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+        ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
+
+        > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
         """
         return pulumi.get(self, "secrets_manager_access_role_arn")
 
@@ -329,7 +349,7 @@ class EndpointArgs:
     @pulumi.getter(name="secretsManagerArn")
     def secrets_manager_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+        Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
         """
         return pulumi.get(self, "secrets_manager_arn")
 
@@ -416,6 +436,7 @@ class _EndpointState:
                  password: Optional[pulumi.Input[str]] = None,
                  pause_replication_tasks: Optional[pulumi.Input[bool]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 postgres_settings: Optional[pulumi.Input['EndpointPostgresSettingsArgs']] = None,
                  redis_settings: Optional[pulumi.Input['EndpointRedisSettingsArgs']] = None,
                  redshift_settings: Optional[pulumi.Input['EndpointRedshiftSettingsArgs']] = None,
                  s3_settings: Optional[pulumi.Input['EndpointS3SettingsArgs']] = None,
@@ -445,10 +466,13 @@ class _EndpointState:
         :param pulumi.Input['EndpointMongodbSettingsArgs'] mongodb_settings: Configuration block for MongoDB settings. See below.
         :param pulumi.Input[str] password: Password to be used to login to the endpoint database.
         :param pulumi.Input[int] port: Port used by the endpoint database.
+        :param pulumi.Input['EndpointPostgresSettingsArgs'] postgres_settings: Configuration block for Postgres settings. See below.
         :param pulumi.Input['EndpointRedshiftSettingsArgs'] redshift_settings: Configuration block for Redshift settings. See below.
         :param pulumi.Input['EndpointS3SettingsArgs'] s3_settings: (**Deprecated**, use the `dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
-        :param pulumi.Input[str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
-        :param pulumi.Input[str] secrets_manager_arn: Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+        :param pulumi.Input[str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
+               
+               > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
+        :param pulumi.Input[str] secrets_manager_arn: Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
         :param pulumi.Input[str] server_name: Host name of the server.
         :param pulumi.Input[str] service_access_role: ARN used by the service access IAM role for dynamodb endpoints.
         :param pulumi.Input[str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
@@ -486,6 +510,8 @@ class _EndpointState:
             pulumi.set(__self__, "pause_replication_tasks", pause_replication_tasks)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if postgres_settings is not None:
+            pulumi.set(__self__, "postgres_settings", postgres_settings)
         if redis_settings is not None:
             pulumi.set(__self__, "redis_settings", redis_settings)
         if redshift_settings is not None:
@@ -692,6 +718,18 @@ class _EndpointState:
         pulumi.set(self, "port", value)
 
     @property
+    @pulumi.getter(name="postgresSettings")
+    def postgres_settings(self) -> Optional[pulumi.Input['EndpointPostgresSettingsArgs']]:
+        """
+        Configuration block for Postgres settings. See below.
+        """
+        return pulumi.get(self, "postgres_settings")
+
+    @postgres_settings.setter
+    def postgres_settings(self, value: Optional[pulumi.Input['EndpointPostgresSettingsArgs']]):
+        pulumi.set(self, "postgres_settings", value)
+
+    @property
     @pulumi.getter(name="redisSettings")
     def redis_settings(self) -> Optional[pulumi.Input['EndpointRedisSettingsArgs']]:
         return pulumi.get(self, "redis_settings")
@@ -728,7 +766,9 @@ class _EndpointState:
     @pulumi.getter(name="secretsManagerAccessRoleArn")
     def secrets_manager_access_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+        ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
+
+        > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
         """
         return pulumi.get(self, "secrets_manager_access_role_arn")
 
@@ -740,7 +780,7 @@ class _EndpointState:
     @pulumi.getter(name="secretsManagerArn")
     def secrets_manager_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+        Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
         """
         return pulumi.get(self, "secrets_manager_arn")
 
@@ -843,6 +883,7 @@ class Endpoint(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  pause_replication_tasks: Optional[pulumi.Input[bool]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 postgres_settings: Optional[pulumi.Input[pulumi.InputType['EndpointPostgresSettingsArgs']]] = None,
                  redis_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedisSettingsArgs']]] = None,
                  redshift_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']]] = None,
                  s3_settings: Optional[pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']]] = None,
@@ -861,6 +902,7 @@ class Endpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -883,13 +925,14 @@ class Endpoint(pulumi.CustomResource):
             },
             username="test")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
 
         ```sh
-         $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
+        $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
         ```
 
         :param str resource_name: The name of the resource.
@@ -909,10 +952,13 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']] mongodb_settings: Configuration block for MongoDB settings. See below.
         :param pulumi.Input[str] password: Password to be used to login to the endpoint database.
         :param pulumi.Input[int] port: Port used by the endpoint database.
+        :param pulumi.Input[pulumi.InputType['EndpointPostgresSettingsArgs']] postgres_settings: Configuration block for Postgres settings. See below.
         :param pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']] redshift_settings: Configuration block for Redshift settings. See below.
         :param pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']] s3_settings: (**Deprecated**, use the `dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
-        :param pulumi.Input[str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
-        :param pulumi.Input[str] secrets_manager_arn: Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+        :param pulumi.Input[str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
+               
+               > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
+        :param pulumi.Input[str] secrets_manager_arn: Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
         :param pulumi.Input[str] server_name: Host name of the server.
         :param pulumi.Input[str] service_access_role: ARN used by the service access IAM role for dynamodb endpoints.
         :param pulumi.Input[str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
@@ -932,6 +978,7 @@ class Endpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -954,13 +1001,14 @@ class Endpoint(pulumi.CustomResource):
             },
             username="test")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
 
         ```sh
-         $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
+        $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
         ```
 
         :param str resource_name: The name of the resource.
@@ -992,6 +1040,7 @@ class Endpoint(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  pause_replication_tasks: Optional[pulumi.Input[bool]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 postgres_settings: Optional[pulumi.Input[pulumi.InputType['EndpointPostgresSettingsArgs']]] = None,
                  redis_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedisSettingsArgs']]] = None,
                  redshift_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']]] = None,
                  s3_settings: Optional[pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']]] = None,
@@ -1031,6 +1080,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             __props__.__dict__["pause_replication_tasks"] = pause_replication_tasks
             __props__.__dict__["port"] = port
+            __props__.__dict__["postgres_settings"] = postgres_settings
             __props__.__dict__["redis_settings"] = redis_settings
             __props__.__dict__["redshift_settings"] = redshift_settings
             __props__.__dict__["s3_settings"] = s3_settings
@@ -1043,7 +1093,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["username"] = username
             __props__.__dict__["endpoint_arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Endpoint, __self__).__init__(
             'aws:dms/endpoint:Endpoint',
@@ -1070,6 +1120,7 @@ class Endpoint(pulumi.CustomResource):
             password: Optional[pulumi.Input[str]] = None,
             pause_replication_tasks: Optional[pulumi.Input[bool]] = None,
             port: Optional[pulumi.Input[int]] = None,
+            postgres_settings: Optional[pulumi.Input[pulumi.InputType['EndpointPostgresSettingsArgs']]] = None,
             redis_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedisSettingsArgs']]] = None,
             redshift_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']]] = None,
             s3_settings: Optional[pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']]] = None,
@@ -1104,10 +1155,13 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']] mongodb_settings: Configuration block for MongoDB settings. See below.
         :param pulumi.Input[str] password: Password to be used to login to the endpoint database.
         :param pulumi.Input[int] port: Port used by the endpoint database.
+        :param pulumi.Input[pulumi.InputType['EndpointPostgresSettingsArgs']] postgres_settings: Configuration block for Postgres settings. See below.
         :param pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']] redshift_settings: Configuration block for Redshift settings. See below.
         :param pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']] s3_settings: (**Deprecated**, use the `dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
-        :param pulumi.Input[str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
-        :param pulumi.Input[str] secrets_manager_arn: Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+        :param pulumi.Input[str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
+               
+               > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
+        :param pulumi.Input[str] secrets_manager_arn: Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
         :param pulumi.Input[str] server_name: Host name of the server.
         :param pulumi.Input[str] service_access_role: ARN used by the service access IAM role for dynamodb endpoints.
         :param pulumi.Input[str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
@@ -1134,6 +1188,7 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["password"] = password
         __props__.__dict__["pause_replication_tasks"] = pause_replication_tasks
         __props__.__dict__["port"] = port
+        __props__.__dict__["postgres_settings"] = postgres_settings
         __props__.__dict__["redis_settings"] = redis_settings
         __props__.__dict__["redshift_settings"] = redshift_settings
         __props__.__dict__["s3_settings"] = s3_settings
@@ -1267,6 +1322,14 @@ class Endpoint(pulumi.CustomResource):
         return pulumi.get(self, "port")
 
     @property
+    @pulumi.getter(name="postgresSettings")
+    def postgres_settings(self) -> pulumi.Output[Optional['outputs.EndpointPostgresSettings']]:
+        """
+        Configuration block for Postgres settings. See below.
+        """
+        return pulumi.get(self, "postgres_settings")
+
+    @property
     @pulumi.getter(name="redisSettings")
     def redis_settings(self) -> pulumi.Output[Optional['outputs.EndpointRedisSettings']]:
         return pulumi.get(self, "redis_settings")
@@ -1291,7 +1354,9 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="secretsManagerAccessRoleArn")
     def secrets_manager_access_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+        ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
+
+        > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
         """
         return pulumi.get(self, "secrets_manager_access_role_arn")
 
@@ -1299,7 +1364,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="secretsManagerArn")
     def secrets_manager_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+        Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
         """
         return pulumi.get(self, "secrets_manager_arn")
 

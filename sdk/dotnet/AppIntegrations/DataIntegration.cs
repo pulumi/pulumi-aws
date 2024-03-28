@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppIntegrations
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,8 +25,9 @@ namespace Pulumi.Aws.AppIntegrations
     /// {
     ///     var example = new Aws.AppIntegrations.DataIntegration("example", new()
     ///     {
+    ///         Name = "example",
     ///         Description = "example",
-    ///         KmsKey = aws_kms_key.Test.Arn,
+    ///         KmsKey = test.Arn,
     ///         SourceUri = "Salesforce://AppFlow/example",
     ///         ScheduleConfig = new Aws.AppIntegrations.Inputs.DataIntegrationScheduleConfigArgs
     ///         {
@@ -41,13 +43,14 @@ namespace Pulumi.Aws.AppIntegrations
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon AppIntegrations Data Integrations using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appintegrations/dataIntegration:DataIntegration example 12345678-1234-1234-1234-123456789123
+    /// $ pulumi import aws:appintegrations/dataIntegration:DataIntegration example 12345678-1234-1234-1234-123456789123
     /// ```
     /// </summary>
     [AwsResourceType("aws:appintegrations/dataIntegration:DataIntegration")]
@@ -124,10 +127,6 @@ namespace Pulumi.Aws.AppIntegrations
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -259,11 +258,7 @@ namespace Pulumi.Aws.AppIntegrations
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public DataIntegrationState()

@@ -28,9 +28,12 @@ import javax.annotation.Nullable;
  * of them is specified.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
  * 
  * Using `approved_patches` only.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,13 +56,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var production = new PatchBaseline(&#34;production&#34;, PatchBaselineArgs.builder()        
+ *             .name(&#34;patch-baseline&#34;)
  *             .approvedPatches(&#34;KB123456&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Advanced Usage, specifying patch filters
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -68,8 +76,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssm.PatchBaseline;
  * import com.pulumi.aws.ssm.PatchBaselineArgs;
- * import com.pulumi.aws.ssm.inputs.PatchBaselineApprovalRuleArgs;
  * import com.pulumi.aws.ssm.inputs.PatchBaselineGlobalFilterArgs;
+ * import com.pulumi.aws.ssm.inputs.PatchBaselineApprovalRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -84,6 +92,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var production = new PatchBaseline(&#34;production&#34;, PatchBaselineArgs.builder()        
+ *             .name(&#34;patch-baseline&#34;)
+ *             .description(&#34;Patch Baseline Description&#34;)
+ *             .approvedPatches(            
+ *                 &#34;KB123456&#34;,
+ *                 &#34;KB456789&#34;)
+ *             .rejectedPatches(&#34;KB987654&#34;)
+ *             .globalFilters(            
+ *                 PatchBaselineGlobalFilterArgs.builder()
+ *                     .key(&#34;PRODUCT&#34;)
+ *                     .values(&#34;WindowsServer2008&#34;)
+ *                     .build(),
+ *                 PatchBaselineGlobalFilterArgs.builder()
+ *                     .key(&#34;CLASSIFICATION&#34;)
+ *                     .values(&#34;ServicePacks&#34;)
+ *                     .build(),
+ *                 PatchBaselineGlobalFilterArgs.builder()
+ *                     .key(&#34;MSRC_SEVERITY&#34;)
+ *                     .values(&#34;Low&#34;)
+ *                     .build())
  *             .approvalRules(            
  *                 PatchBaselineApprovalRuleArgs.builder()
  *                     .approveAfterDays(7)
@@ -115,30 +142,16 @@ import javax.annotation.Nullable;
  *                         .values(&#34;WindowsServer2012&#34;)
  *                         .build())
  *                     .build())
- *             .approvedPatches(            
- *                 &#34;KB123456&#34;,
- *                 &#34;KB456789&#34;)
- *             .description(&#34;Patch Baseline Description&#34;)
- *             .globalFilters(            
- *                 PatchBaselineGlobalFilterArgs.builder()
- *                     .key(&#34;PRODUCT&#34;)
- *                     .values(&#34;WindowsServer2008&#34;)
- *                     .build(),
- *                 PatchBaselineGlobalFilterArgs.builder()
- *                     .key(&#34;CLASSIFICATION&#34;)
- *                     .values(&#34;ServicePacks&#34;)
- *                     .build(),
- *                 PatchBaselineGlobalFilterArgs.builder()
- *                     .key(&#34;MSRC_SEVERITY&#34;)
- *                     .values(&#34;Low&#34;)
- *                     .build())
- *             .rejectedPatches(&#34;KB987654&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Advanced usage, specifying Microsoft application and Windows patch rules
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -162,6 +175,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var windowsOsApps = new PatchBaseline(&#34;windowsOsApps&#34;, PatchBaselineArgs.builder()        
+ *             .name(&#34;WindowsOSAndMicrosoftApps&#34;)
+ *             .description(&#34;Patch both Windows and Microsoft apps&#34;)
+ *             .operatingSystem(&#34;WINDOWS&#34;)
  *             .approvalRules(            
  *                 PatchBaselineApprovalRuleArgs.builder()
  *                     .approveAfterDays(7)
@@ -193,14 +209,16 @@ import javax.annotation.Nullable;
  *                                 &#34;Office 2016&#34;)
  *                             .build())
  *                     .build())
- *             .description(&#34;Patch both Windows and Microsoft apps&#34;)
- *             .operatingSystem(&#34;WINDOWS&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Advanced usage, specifying alternate patch source repository
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -226,9 +244,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var al201709 = new PatchBaseline(&#34;al201709&#34;, PatchBaselineArgs.builder()        
  *             .approvalRules()
+ *             .name(&#34;Amazon-Linux-2017.09&#34;)
  *             .description(&#34;My patch repository for Amazon Linux 2017.09&#34;)
  *             .operatingSystem(&#34;AMAZON_LINUX&#34;)
  *             .sources(PatchBaselineSourceArgs.builder()
+ *                 .name(&#34;My-AL2017.09&#34;)
+ *                 .products(&#34;AmazonLinux2017.09&#34;)
  *                 .configuration(&#34;&#34;&#34;
  * [amzn-main]
  * name=amzn-main-Base
@@ -244,270 +265,228 @@ import javax.annotation.Nullable;
  * retries=3
  * timeout=5
  * report_instanceid=yes
- * 
  *                 &#34;&#34;&#34;)
- *                 .name(&#34;My-AL2017.09&#34;)
- *                 .products(&#34;AmazonLinux2017.09&#34;)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SSM Patch Baselines using their baseline ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
+ * $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
  * ```
  * 
  */
 @ResourceType(type="aws:ssm/patchBaseline:PatchBaseline")
 public class PatchBaseline extends com.pulumi.resources.CustomResource {
     /**
-     * A set of rules used to include patches in the baseline.
-     * Up to 10 approval rules can be specified.
-     * See `approval_rule` below.
+     * Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
      * 
      */
     @Export(name="approvalRules", refs={List.class,PatchBaselineApprovalRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PatchBaselineApprovalRule>> approvalRules;
 
     /**
-     * @return A set of rules used to include patches in the baseline.
-     * Up to 10 approval rules can be specified.
-     * See `approval_rule` below.
+     * @return Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
      * 
      */
     public Output<Optional<List<PatchBaselineApprovalRule>>> approvalRules() {
         return Codegen.optional(this.approvalRules);
     }
     /**
-     * A list of explicitly approved patches for the baseline.
-     * Cannot be specified with `approval_rule`.
+     * List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
      * 
      */
     @Export(name="approvedPatches", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> approvedPatches;
 
     /**
-     * @return A list of explicitly approved patches for the baseline.
-     * Cannot be specified with `approval_rule`.
+     * @return List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
      * 
      */
     public Output<Optional<List<String>>> approvedPatches() {
         return Codegen.optional(this.approvedPatches);
     }
     /**
-     * The compliance level for approved patches.
-     * This means that if an approved patch is reported as missing, this is the severity of the compliance violation.
-     * Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`.
-     * The default value is `UNSPECIFIED`.
+     * Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
      * 
      */
     @Export(name="approvedPatchesComplianceLevel", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> approvedPatchesComplianceLevel;
 
     /**
-     * @return The compliance level for approved patches.
-     * This means that if an approved patch is reported as missing, this is the severity of the compliance violation.
-     * Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`.
-     * The default value is `UNSPECIFIED`.
+     * @return Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
      * 
      */
     public Output<Optional<String>> approvedPatchesComplianceLevel() {
         return Codegen.optional(this.approvedPatchesComplianceLevel);
     }
     /**
-     * Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
-     * Applies to Linux instances only.
+     * Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
      * 
      */
     @Export(name="approvedPatchesEnableNonSecurity", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> approvedPatchesEnableNonSecurity;
 
     /**
-     * @return Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
-     * Applies to Linux instances only.
+     * @return Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
      * 
      */
     public Output<Optional<Boolean>> approvedPatchesEnableNonSecurity() {
         return Codegen.optional(this.approvedPatchesEnableNonSecurity);
     }
     /**
-     * The ARN of the patch baseline.
+     * ARN of the baseline.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the patch baseline.
+     * @return ARN of the baseline.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The description of the patch baseline.
+     * Description of the patch baseline.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the patch baseline.
+     * @return Description of the patch baseline.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * A set of global filters used to exclude patches from the baseline.
-     * Up to 4 global filters can be specified using Key/Value pairs.
-     * Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
+     * Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
      * 
      */
     @Export(name="globalFilters", refs={List.class,PatchBaselineGlobalFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PatchBaselineGlobalFilter>> globalFilters;
 
     /**
-     * @return A set of global filters used to exclude patches from the baseline.
-     * Up to 4 global filters can be specified using Key/Value pairs.
-     * Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
+     * @return Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
      * 
      */
     public Output<Optional<List<PatchBaselineGlobalFilter>>> globalFilters() {
         return Codegen.optional(this.globalFilters);
     }
     /**
-     * The name of the patch baseline.
+     * JSON definition of the baseline.
+     * 
+     */
+    @Export(name="json", refs={String.class}, tree="[0]")
+    private Output<String> json;
+
+    /**
+     * @return JSON definition of the baseline.
+     * 
+     */
+    public Output<String> json() {
+        return this.json;
+    }
+    /**
+     * Name of the patch baseline.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the patch baseline.
+     * @return Name of the patch baseline.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The operating system the patch baseline applies to.
-     * Valid values are
-     * `ALMA_LINUX`,
-     * `AMAZON_LINUX`,
-     * `AMAZON_LINUX_2`,
-     * `AMAZON_LINUX_2022`,
-     * `AMAZON_LINUX_2023`,
-     * `CENTOS`,
-     * `DEBIAN`,
-     * `MACOS`,
-     * `ORACLE_LINUX`,
-     * `RASPBIAN`,
-     * `REDHAT_ENTERPRISE_LINUX`,
-     * `ROCKY_LINUX`,
-     * `SUSE`,
-     * `UBUNTU`, and
-     * `WINDOWS`.
-     * The default value is `WINDOWS`.
+     * Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
      * 
      */
     @Export(name="operatingSystem", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> operatingSystem;
 
     /**
-     * @return The operating system the patch baseline applies to.
-     * Valid values are
-     * `ALMA_LINUX`,
-     * `AMAZON_LINUX`,
-     * `AMAZON_LINUX_2`,
-     * `AMAZON_LINUX_2022`,
-     * `AMAZON_LINUX_2023`,
-     * `CENTOS`,
-     * `DEBIAN`,
-     * `MACOS`,
-     * `ORACLE_LINUX`,
-     * `RASPBIAN`,
-     * `REDHAT_ENTERPRISE_LINUX`,
-     * `ROCKY_LINUX`,
-     * `SUSE`,
-     * `UBUNTU`, and
-     * `WINDOWS`.
-     * The default value is `WINDOWS`.
+     * @return Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
      * 
      */
     public Output<Optional<String>> operatingSystem() {
         return Codegen.optional(this.operatingSystem);
     }
     /**
-     * A list of rejected patches.
+     * List of rejected patches.
      * 
      */
     @Export(name="rejectedPatches", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> rejectedPatches;
 
     /**
-     * @return A list of rejected patches.
+     * @return List of rejected patches.
      * 
      */
     public Output<Optional<List<String>>> rejectedPatches() {
         return Codegen.optional(this.rejectedPatches);
     }
     /**
-     * The action for Patch Manager to take on patches included in the `rejected_patches` list.
-     * Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+     * Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
      * 
      */
     @Export(name="rejectedPatchesAction", refs={String.class}, tree="[0]")
     private Output<String> rejectedPatchesAction;
 
     /**
-     * @return The action for Patch Manager to take on patches included in the `rejected_patches` list.
-     * Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+     * @return Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
      * 
      */
     public Output<String> rejectedPatchesAction() {
         return this.rejectedPatchesAction;
     }
     /**
-     * Configuration block with alternate sources for patches.
-     * Applies to Linux instances only.
-     * See `source` below.
+     * Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
      * 
      */
     @Export(name="sources", refs={List.class,PatchBaselineSource.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PatchBaselineSource>> sources;
 
     /**
-     * @return Configuration block with alternate sources for patches.
-     * Applies to Linux instances only.
-     * See `source` below.
+     * @return Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
      * 
      */
     public Output<Optional<List<PatchBaselineSource>>> sources() {
         return Codegen.optional(this.sources);
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      * @deprecated
      * Please use `tags` instead.
@@ -518,7 +497,7 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -557,9 +536,6 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

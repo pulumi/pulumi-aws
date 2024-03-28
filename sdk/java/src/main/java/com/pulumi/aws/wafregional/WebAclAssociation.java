@@ -19,7 +19,10 @@ import javax.annotation.Nullable;
  * &gt; **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
  * 
  * ## Example Usage
+ * 
  * ### Application Load Balancer Association
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -61,13 +64,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ipset = new IpSet(&#34;ipset&#34;, IpSetArgs.builder()        
+ *             .name(&#34;tfIPSet&#34;)
  *             .ipSetDescriptors(IpSetIpSetDescriptorArgs.builder()
  *                 .type(&#34;IPV4&#34;)
  *                 .value(&#34;192.0.7.0/24&#34;)
  *                 .build())
  *             .build());
  * 
- *         var fooRule = new Rule(&#34;fooRule&#34;, RuleArgs.builder()        
+ *         var foo = new Rule(&#34;foo&#34;, RuleArgs.builder()        
+ *             .name(&#34;tfWAFRule&#34;)
  *             .metricName(&#34;tfWAFRule&#34;)
  *             .predicates(RulePredicateArgs.builder()
  *                 .dataId(ipset.id())
@@ -77,6 +82,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var fooWebAcl = new WebAcl(&#34;fooWebAcl&#34;, WebAclArgs.builder()        
+ *             .name(&#34;foo&#34;)
  *             .metricName(&#34;foo&#34;)
  *             .defaultAction(WebAclDefaultActionArgs.builder()
  *                 .type(&#34;ALLOW&#34;)
@@ -86,7 +92,7 @@ import javax.annotation.Nullable;
  *                     .type(&#34;BLOCK&#34;)
  *                     .build())
  *                 .priority(1)
- *                 .ruleId(fooRule.id())
+ *                 .ruleId(foo.id())
  *                 .build())
  *             .build());
  * 
@@ -123,7 +129,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### API Gateway Association
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -164,13 +174,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ipset = new IpSet(&#34;ipset&#34;, IpSetArgs.builder()        
+ *             .name(&#34;tfIPSet&#34;)
  *             .ipSetDescriptors(IpSetIpSetDescriptorArgs.builder()
  *                 .type(&#34;IPV4&#34;)
  *                 .value(&#34;192.0.7.0/24&#34;)
  *                 .build())
  *             .build());
  * 
- *         var fooRule = new Rule(&#34;fooRule&#34;, RuleArgs.builder()        
+ *         var foo = new Rule(&#34;foo&#34;, RuleArgs.builder()        
+ *             .name(&#34;tfWAFRule&#34;)
  *             .metricName(&#34;tfWAFRule&#34;)
  *             .predicates(RulePredicateArgs.builder()
  *                 .dataId(ipset.id())
@@ -180,6 +192,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var fooWebAcl = new WebAcl(&#34;fooWebAcl&#34;, WebAclArgs.builder()        
+ *             .name(&#34;foo&#34;)
  *             .metricName(&#34;foo&#34;)
  *             .defaultAction(WebAclDefaultActionArgs.builder()
  *                 .type(&#34;ALLOW&#34;)
@@ -189,11 +202,11 @@ import javax.annotation.Nullable;
  *                     .type(&#34;BLOCK&#34;)
  *                     .build())
  *                 .priority(1)
- *                 .ruleId(fooRule.id())
+ *                 .ruleId(foo.id())
  *                 .build())
  *             .build());
  * 
- *         var exampleRestApi = new RestApi(&#34;exampleRestApi&#34;, RestApiArgs.builder()        
+ *         var example = new RestApi(&#34;example&#34;, RestApiArgs.builder()        
  *             .body(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;openapi&#34;, &#34;3.0.1&#34;),
@@ -214,17 +227,17 @@ import javax.annotation.Nullable;
  *                         ))
  *                     ))
  *                 )))
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
- *             .restApi(exampleRestApi.id())
- *             .triggers(Map.of(&#34;redeployment&#34;, exampleRestApi.body().applyValue(body -&gt; serializeJson(
- *                 body)).applyValue(toJSON -&gt; computeSHA1(toJSON))))
+ *             .restApi(example.id())
+ *             .triggers(Map.of(&#34;redeployment&#34;, StdFunctions.sha1().applyValue(invoke -&gt; invoke.result())))
  *             .build());
  * 
  *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
  *             .deployment(exampleDeployment.id())
- *             .restApi(exampleRestApi.id())
+ *             .restApi(example.id())
  *             .stageName(&#34;example&#34;)
  *             .build());
  * 
@@ -236,13 +249,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import WAF Regional Web ACL Association using their `web_acl_id:resource_arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
+ * $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
  * ```
  * 
  */

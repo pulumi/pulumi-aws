@@ -58,19 +58,21 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagC
 
         @CustomType.Setter
         public Builder key(@Nullable String key) {
+
             this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }
         public ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue build() {
-            final var o = new ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

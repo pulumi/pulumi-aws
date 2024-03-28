@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,12 +31,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			key, err := kms.NewKey(ctx, "key", nil)
+//			a, err := kms.NewKey(ctx, "a", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = kms.NewAlias(ctx, "alias", &kms.AliasArgs{
-//				TargetKeyId: key.KeyId,
+//			_, err = kms.NewAlias(ctx, "a", &kms.AliasArgs{
+//				Name:        pulumi.String("alias/my-key-alias"),
+//				TargetKeyId: a.KeyId,
 //			})
 //			if err != nil {
 //				return err
@@ -45,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import KMS aliases using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:kms/alias:Alias a alias/my-key-alias
-//
+// $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
 // ```
 type Alias struct {
 	pulumi.CustomResourceState

@@ -7,6 +7,7 @@ import com.pulumi.aws.ssmincidents.outputs.GetResponsePlanAction;
 import com.pulumi.aws.ssmincidents.outputs.GetResponsePlanIncidentTemplate;
 import com.pulumi.aws.ssmincidents.outputs.GetResponsePlanIntegration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -157,7 +158,10 @@ public final class GetResponsePlanResult {
 
         @CustomType.Setter
         public Builder actions(List<GetResponsePlanAction> actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanResult", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         public Builder actions(GetResponsePlanAction... actions) {
@@ -165,12 +169,18 @@ public final class GetResponsePlanResult {
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder chatChannels(List<String> chatChannels) {
-            this.chatChannels = Objects.requireNonNull(chatChannels);
+            if (chatChannels == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanResult", "chatChannels");
+            }
+            this.chatChannels = chatChannels;
             return this;
         }
         public Builder chatChannels(String... chatChannels) {
@@ -178,12 +188,18 @@ public final class GetResponsePlanResult {
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder engagements(List<String> engagements) {
-            this.engagements = Objects.requireNonNull(engagements);
+            if (engagements == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanResult", "engagements");
+            }
+            this.engagements = engagements;
             return this;
         }
         public Builder engagements(String... engagements) {
@@ -191,12 +207,18 @@ public final class GetResponsePlanResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder incidentTemplates(List<GetResponsePlanIncidentTemplate> incidentTemplates) {
-            this.incidentTemplates = Objects.requireNonNull(incidentTemplates);
+            if (incidentTemplates == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanResult", "incidentTemplates");
+            }
+            this.incidentTemplates = incidentTemplates;
             return this;
         }
         public Builder incidentTemplates(GetResponsePlanIncidentTemplate... incidentTemplates) {
@@ -204,7 +226,10 @@ public final class GetResponsePlanResult {
         }
         @CustomType.Setter
         public Builder integrations(List<GetResponsePlanIntegration> integrations) {
-            this.integrations = Objects.requireNonNull(integrations);
+            if (integrations == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanResult", "integrations");
+            }
+            this.integrations = integrations;
             return this;
         }
         public Builder integrations(GetResponsePlanIntegration... integrations) {
@@ -212,27 +237,33 @@ public final class GetResponsePlanResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetResponsePlanResult build() {
-            final var o = new GetResponsePlanResult();
-            o.actions = actions;
-            o.arn = arn;
-            o.chatChannels = chatChannels;
-            o.displayName = displayName;
-            o.engagements = engagements;
-            o.id = id;
-            o.incidentTemplates = incidentTemplates;
-            o.integrations = integrations;
-            o.name = name;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetResponsePlanResult();
+            _resultValue.actions = actions;
+            _resultValue.arn = arn;
+            _resultValue.chatChannels = chatChannels;
+            _resultValue.displayName = displayName;
+            _resultValue.engagements = engagements;
+            _resultValue.id = id;
+            _resultValue.incidentTemplates = incidentTemplates;
+            _resultValue.integrations = integrations;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

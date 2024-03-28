@@ -201,6 +201,7 @@ def get_zone(name: Optional[str] = None,
 
     The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -210,10 +211,11 @@ def get_zone(name: Optional[str] = None,
     www = aws.route53.Record("www",
         zone_id=selected.zone_id,
         name=f"www.{selected.name}",
-        type="A",
+        type=aws.route53.RecordType.A,
         ttl=300,
         records=["10.0.0.1"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Hosted Zone name of the desired Hosted Zone.
@@ -267,6 +269,7 @@ def get_zone_output(name: Optional[pulumi.Input[Optional[str]]] = None,
 
     The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -276,10 +279,11 @@ def get_zone_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     www = aws.route53.Record("www",
         zone_id=selected.zone_id,
         name=f"www.{selected.name}",
-        type="A",
+        type=aws.route53.RecordType.A,
         ttl=300,
         records=["10.0.0.1"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Hosted Zone name of the desired Hosted Zone.

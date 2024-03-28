@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Manages an EC2 Instance Connect Endpoint.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,19 +46,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new InstanceConnectEndpoint(&#34;example&#34;, InstanceConnectEndpointArgs.builder()        
- *             .subnetId(aws_subnet.example().id())
+ *             .subnetId(exampleAwsSubnet.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import EC2 Instance Connect Endpoints using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint example eice-012345678
+ * $ pulumi import aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint example eice-012345678
  * ```
  * 
  */
@@ -273,9 +276,6 @@ public class InstanceConnectEndpoint extends com.pulumi.resources.CustomResource
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

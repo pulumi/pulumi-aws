@@ -201,17 +201,19 @@ class Permission(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        my_stack_permission = aws.opsworks.Permission("myStackPermission",
+        my_stack_permission = aws.opsworks.Permission("my_stack_permission",
             allow_ssh=True,
             allow_sudo=True,
             level="iam_only",
-            user_arn=aws_iam_user["user"]["arn"],
-            stack_id=aws_opsworks_stack["stack"]["id"])
+            user_arn=user["arn"],
+            stack_id=stack["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -232,17 +234,19 @@ class Permission(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        my_stack_permission = aws.opsworks.Permission("myStackPermission",
+        my_stack_permission = aws.opsworks.Permission("my_stack_permission",
             allow_ssh=True,
             allow_sudo=True,
             level="iam_only",
-            user_arn=aws_iam_user["user"]["arn"],
-            stack_id=aws_opsworks_stack["stack"]["id"])
+            user_arn=user["arn"],
+            stack_id=stack["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param PermissionArgs args: The arguments to use to populate this resource's properties.

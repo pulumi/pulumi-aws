@@ -6,6 +6,7 @@ package com.pulumi.aws.dynamodb.outputs;
 import com.pulumi.aws.dynamodb.outputs.TableImportTableInputFormatOptions;
 import com.pulumi.aws.dynamodb.outputs.TableImportTableS3BucketSource;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,50 +15,60 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TableImportTable {
     /**
-     * @return Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
+     * @return Type of compression to be used on the input coming from the imported table.
+     * Valid values are `GZIP`, `ZSTD` and `NONE`.
      * 
      */
     private @Nullable String inputCompressionType;
     /**
-     * @return The format of the source data. Valid values are `CSV`, `DYNAMODB_JSON` and `ION`.
+     * @return The format of the source data.
+     * Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
      * 
      */
     private String inputFormat;
     /**
-     * @return Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
+     * @return Describe the format options for the data that was imported into the target table.
+     * There is one value, `csv`.
+     * See below.
      * 
      */
     private @Nullable TableImportTableInputFormatOptions inputFormatOptions;
     /**
-     * @return Values for the S3 bucket the source file is imported from. See below.
+     * @return Values for the S3 bucket the source file is imported from.
+     * See below.
      * 
      */
     private TableImportTableS3BucketSource s3BucketSource;
 
     private TableImportTable() {}
     /**
-     * @return Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
+     * @return Type of compression to be used on the input coming from the imported table.
+     * Valid values are `GZIP`, `ZSTD` and `NONE`.
      * 
      */
     public Optional<String> inputCompressionType() {
         return Optional.ofNullable(this.inputCompressionType);
     }
     /**
-     * @return The format of the source data. Valid values are `CSV`, `DYNAMODB_JSON` and `ION`.
+     * @return The format of the source data.
+     * Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
      * 
      */
     public String inputFormat() {
         return this.inputFormat;
     }
     /**
-     * @return Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
+     * @return Describe the format options for the data that was imported into the target table.
+     * There is one value, `csv`.
+     * See below.
      * 
      */
     public Optional<TableImportTableInputFormatOptions> inputFormatOptions() {
         return Optional.ofNullable(this.inputFormatOptions);
     }
     /**
-     * @return Values for the S3 bucket the source file is imported from. See below.
+     * @return Values for the S3 bucket the source file is imported from.
+     * See below.
      * 
      */
     public TableImportTableS3BucketSource s3BucketSource() {
@@ -88,31 +99,39 @@ public final class TableImportTable {
 
         @CustomType.Setter
         public Builder inputCompressionType(@Nullable String inputCompressionType) {
+
             this.inputCompressionType = inputCompressionType;
             return this;
         }
         @CustomType.Setter
         public Builder inputFormat(String inputFormat) {
-            this.inputFormat = Objects.requireNonNull(inputFormat);
+            if (inputFormat == null) {
+              throw new MissingRequiredPropertyException("TableImportTable", "inputFormat");
+            }
+            this.inputFormat = inputFormat;
             return this;
         }
         @CustomType.Setter
         public Builder inputFormatOptions(@Nullable TableImportTableInputFormatOptions inputFormatOptions) {
+
             this.inputFormatOptions = inputFormatOptions;
             return this;
         }
         @CustomType.Setter
         public Builder s3BucketSource(TableImportTableS3BucketSource s3BucketSource) {
-            this.s3BucketSource = Objects.requireNonNull(s3BucketSource);
+            if (s3BucketSource == null) {
+              throw new MissingRequiredPropertyException("TableImportTable", "s3BucketSource");
+            }
+            this.s3BucketSource = s3BucketSource;
             return this;
         }
         public TableImportTable build() {
-            final var o = new TableImportTable();
-            o.inputCompressionType = inputCompressionType;
-            o.inputFormat = inputFormat;
-            o.inputFormatOptions = inputFormatOptions;
-            o.s3BucketSource = s3BucketSource;
-            return o;
+            final var _resultValue = new TableImportTable();
+            _resultValue.inputCompressionType = inputCompressionType;
+            _resultValue.inputFormat = inputFormat;
+            _resultValue.inputFormatOptions = inputFormatOptions;
+            _resultValue.s3BucketSource = s3BucketSource;
+            return _resultValue;
         }
     }
 }

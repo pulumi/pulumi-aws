@@ -5,6 +5,7 @@ package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.aws.iot.outputs.TopicRuleKafkaHeader;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -117,16 +118,23 @@ public final class TopicRuleKafka {
 
         @CustomType.Setter
         public Builder clientProperties(Map<String,String> clientProperties) {
-            this.clientProperties = Objects.requireNonNull(clientProperties);
+            if (clientProperties == null) {
+              throw new MissingRequiredPropertyException("TopicRuleKafka", "clientProperties");
+            }
+            this.clientProperties = clientProperties;
             return this;
         }
         @CustomType.Setter
         public Builder destinationArn(String destinationArn) {
-            this.destinationArn = Objects.requireNonNull(destinationArn);
+            if (destinationArn == null) {
+              throw new MissingRequiredPropertyException("TopicRuleKafka", "destinationArn");
+            }
+            this.destinationArn = destinationArn;
             return this;
         }
         @CustomType.Setter
         public Builder headers(@Nullable List<TopicRuleKafkaHeader> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -135,28 +143,33 @@ public final class TopicRuleKafka {
         }
         @CustomType.Setter
         public Builder key(@Nullable String key) {
+
             this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder partition(@Nullable String partition) {
+
             this.partition = partition;
             return this;
         }
         @CustomType.Setter
         public Builder topic(String topic) {
-            this.topic = Objects.requireNonNull(topic);
+            if (topic == null) {
+              throw new MissingRequiredPropertyException("TopicRuleKafka", "topic");
+            }
+            this.topic = topic;
             return this;
         }
         public TopicRuleKafka build() {
-            final var o = new TopicRuleKafka();
-            o.clientProperties = clientProperties;
-            o.destinationArn = destinationArn;
-            o.headers = headers;
-            o.key = key;
-            o.partition = partition;
-            o.topic = topic;
-            return o;
+            final var _resultValue = new TopicRuleKafka();
+            _resultValue.clientProperties = clientProperties;
+            _resultValue.destinationArn = destinationArn;
+            _resultValue.headers = headers;
+            _resultValue.key = key;
+            _resultValue.partition = partition;
+            _resultValue.topic = topic;
+            return _resultValue;
         }
     }
 }

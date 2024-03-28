@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -115,43 +116,53 @@ public final class ChannelEncoderSettingsCaptionDescription {
 
         @CustomType.Setter
         public Builder accessibility(@Nullable String accessibility) {
+
             this.accessibility = accessibility;
             return this;
         }
         @CustomType.Setter
         public Builder captionSelectorName(String captionSelectorName) {
-            this.captionSelectorName = Objects.requireNonNull(captionSelectorName);
+            if (captionSelectorName == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsCaptionDescription", "captionSelectorName");
+            }
+            this.captionSelectorName = captionSelectorName;
             return this;
         }
         @CustomType.Setter
         public Builder destinationSettings(@Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettings destinationSettings) {
+
             this.destinationSettings = destinationSettings;
             return this;
         }
         @CustomType.Setter
         public Builder languageCode(@Nullable String languageCode) {
+
             this.languageCode = languageCode;
             return this;
         }
         @CustomType.Setter
         public Builder languageDescription(@Nullable String languageDescription) {
+
             this.languageDescription = languageDescription;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsCaptionDescription", "name");
+            }
+            this.name = name;
             return this;
         }
         public ChannelEncoderSettingsCaptionDescription build() {
-            final var o = new ChannelEncoderSettingsCaptionDescription();
-            o.accessibility = accessibility;
-            o.captionSelectorName = captionSelectorName;
-            o.destinationSettings = destinationSettings;
-            o.languageCode = languageCode;
-            o.languageDescription = languageDescription;
-            o.name = name;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsCaptionDescription();
+            _resultValue.accessibility = accessibility;
+            _resultValue.captionSelectorName = captionSelectorName;
+            _resultValue.destinationSettings = destinationSettings;
+            _resultValue.languageCode = languageCode;
+            _resultValue.languageDescription = languageDescription;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

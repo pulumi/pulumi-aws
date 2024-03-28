@@ -635,31 +635,33 @@ class Endpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2clientvpn.Endpoint("example",
             description="clientvpn-example",
-            server_certificate_arn=aws_acm_certificate["cert"]["arn"],
+            server_certificate_arn=cert["arn"],
             client_cidr_block="10.0.0.0/16",
             authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArgs(
                 type="certificate-authentication",
-                root_certificate_chain_arn=aws_acm_certificate["root_cert"]["arn"],
+                root_certificate_chain_arn=root_cert["arn"],
             )],
             connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArgs(
                 enabled=True,
-                cloudwatch_log_group=aws_cloudwatch_log_group["lg"]["name"],
-                cloudwatch_log_stream=aws_cloudwatch_log_stream["ls"]["name"],
+                cloudwatch_log_group=lg["name"],
+                cloudwatch_log_stream=ls["name"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS Client VPN endpoints using the `id` value found via `aws ec2 describe-client-vpn-endpoints`. For example:
 
         ```sh
-         $ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
+        $ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
         ```
 
         :param str resource_name: The name of the resource.
@@ -693,31 +695,33 @@ class Endpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2clientvpn.Endpoint("example",
             description="clientvpn-example",
-            server_certificate_arn=aws_acm_certificate["cert"]["arn"],
+            server_certificate_arn=cert["arn"],
             client_cidr_block="10.0.0.0/16",
             authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArgs(
                 type="certificate-authentication",
-                root_certificate_chain_arn=aws_acm_certificate["root_cert"]["arn"],
+                root_certificate_chain_arn=root_cert["arn"],
             )],
             connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArgs(
                 enabled=True,
-                cloudwatch_log_group=aws_cloudwatch_log_group["lg"]["name"],
-                cloudwatch_log_stream=aws_cloudwatch_log_stream["ls"]["name"],
+                cloudwatch_log_group=lg["name"],
+                cloudwatch_log_stream=ls["name"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS Client VPN endpoints using the `id` value found via `aws ec2 describe-client-vpn-endpoints`. For example:
 
         ```sh
-         $ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
+        $ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
         ```
 
         :param str resource_name: The name of the resource.
@@ -788,8 +792,6 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["dns_name"] = None
             __props__.__dict__["self_service_portal_url"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Endpoint, __self__).__init__(
             'aws:ec2clientvpn/endpoint:Endpoint',
             resource_name,

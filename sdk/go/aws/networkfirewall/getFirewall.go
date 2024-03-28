@@ -14,8 +14,10 @@ import (
 // Retrieve information about a firewall.
 //
 // ## Example Usage
+//
 // ### Find firewall policy by ARN
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.LookupFirewall(ctx, &networkfirewall.LookupFirewallArgs{
-//				Arn: pulumi.StringRef(aws_networkfirewall_firewall.Arn),
+//				Arn: pulumi.StringRef(arn),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -39,8 +41,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Find firewall policy by Name
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,8 +69,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Find firewall policy by ARN and Name
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -79,7 +87,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.LookupFirewall(ctx, &networkfirewall.LookupFirewallArgs{
-//				Arn:  pulumi.StringRef(aws_networkfirewall_firewall.Arn),
+//				Arn:  pulumi.StringRef(arn),
 //				Name: pulumi.StringRef("Test"),
 //			}, nil)
 //			if err != nil {
@@ -90,6 +98,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupFirewall(ctx *pulumi.Context, args *LookupFirewallArgs, opts ...pulumi.InvokeOption) (*LookupFirewallResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFirewallResult
@@ -114,7 +123,7 @@ type LookupFirewallArgs struct {
 type LookupFirewallResult struct {
 	// ARN of the firewall.
 	Arn string `pulumi:"arn"`
-	// Boolean flag indicating whether it is possible to delete the firewall.
+	// A flag indicating whether the firewall is protected against deletion.
 	DeleteProtection bool `pulumi:"deleteProtection"`
 	// Description of the firewall.
 	Description string `pulumi:"description"`
@@ -122,7 +131,7 @@ type LookupFirewallResult struct {
 	EncryptionConfigurations []GetFirewallEncryptionConfiguration `pulumi:"encryptionConfigurations"`
 	// ARN of the VPC Firewall policy.
 	FirewallPolicyArn string `pulumi:"firewallPolicyArn"`
-	// A boolean flag indicating whether it is possible to change the associated firewall policy.
+	// A flag indicating whether the firewall is protected against a change to the firewall policy association.
 	FirewallPolicyChangeProtection bool `pulumi:"firewallPolicyChangeProtection"`
 	// Nested list of information about the current status of the firewall.
 	FirewallStatuses []GetFirewallFirewallStatus `pulumi:"firewallStatuses"`
@@ -130,7 +139,7 @@ type LookupFirewallResult struct {
 	Id string `pulumi:"id"`
 	// Descriptive name of the firewall.
 	Name string `pulumi:"name"`
-	// A boolean flag indicating whether it is possible to change the associated subnet(s).
+	// A flag indicating whether the firewall is protected against changes to the subnet associations.
 	SubnetChangeProtection bool `pulumi:"subnetChangeProtection"`
 	// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.
 	SubnetMappings []GetFirewallSubnetMapping `pulumi:"subnetMappings"`
@@ -189,7 +198,7 @@ func (o LookupFirewallResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Boolean flag indicating whether it is possible to delete the firewall.
+// A flag indicating whether the firewall is protected against deletion.
 func (o LookupFirewallResultOutput) DeleteProtection() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupFirewallResult) bool { return v.DeleteProtection }).(pulumi.BoolOutput)
 }
@@ -209,7 +218,7 @@ func (o LookupFirewallResultOutput) FirewallPolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.FirewallPolicyArn }).(pulumi.StringOutput)
 }
 
-// A boolean flag indicating whether it is possible to change the associated firewall policy.
+// A flag indicating whether the firewall is protected against a change to the firewall policy association.
 func (o LookupFirewallResultOutput) FirewallPolicyChangeProtection() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupFirewallResult) bool { return v.FirewallPolicyChangeProtection }).(pulumi.BoolOutput)
 }
@@ -229,7 +238,7 @@ func (o LookupFirewallResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A boolean flag indicating whether it is possible to change the associated subnet(s).
+// A flag indicating whether the firewall is protected against changes to the subnet associations.
 func (o LookupFirewallResultOutput) SubnetChangeProtection() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupFirewallResult) bool { return v.SubnetChangeProtection }).(pulumi.BoolOutput)
 }

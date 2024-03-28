@@ -58,19 +58,21 @@ public final class PhoneNumberStatus {
 
         @CustomType.Setter
         public Builder message(@Nullable String message) {
+
             this.message = message;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         public PhoneNumberStatus build() {
-            final var o = new PhoneNumberStatus();
-            o.message = message;
-            o.status = status;
-            return o;
+            final var _resultValue = new PhoneNumberStatus();
+            _resultValue.message = message;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

@@ -18,6 +18,7 @@ class ServerlessCollectionArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 standby_replicas: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeouts: Optional[pulumi.Input['ServerlessCollectionTimeoutsArgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
@@ -27,6 +28,7 @@ class ServerlessCollectionArgs:
         :param pulumi.Input[str] name: Name of the collection.
                
                The following arguments are optional:
+        :param pulumi.Input[str] standby_replicas: Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         """
@@ -34,6 +36,8 @@ class ServerlessCollectionArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if standby_replicas is not None:
+            pulumi.set(__self__, "standby_replicas", standby_replicas)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -66,6 +70,18 @@ class ServerlessCollectionArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="standbyReplicas")
+    def standby_replicas(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+        """
+        return pulumi.get(self, "standby_replicas")
+
+    @standby_replicas.setter
+    def standby_replicas(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "standby_replicas", value)
 
     @property
     @pulumi.getter
@@ -110,6 +126,7 @@ class _ServerlessCollectionState:
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 standby_replicas: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeouts: Optional[pulumi.Input['ServerlessCollectionTimeoutsArgs']] = None,
@@ -124,6 +141,7 @@ class _ServerlessCollectionState:
         :param pulumi.Input[str] name: Name of the collection.
                
                The following arguments are optional:
+        :param pulumi.Input[str] standby_replicas: Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         """
@@ -139,6 +157,8 @@ class _ServerlessCollectionState:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if standby_replicas is not None:
+            pulumi.set(__self__, "standby_replicas", standby_replicas)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -226,6 +246,18 @@ class _ServerlessCollectionState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="standbyReplicas")
+    def standby_replicas(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+        """
+        return pulumi.get(self, "standby_replicas")
+
+    @standby_replicas.setter
+    def standby_replicas(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "standby_replicas", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -278,6 +310,7 @@ class ServerlessCollection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 standby_replicas: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeouts: Optional[pulumi.Input[pulumi.InputType['ServerlessCollectionTimeoutsArgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -290,14 +323,17 @@ class ServerlessCollection(pulumi.CustomResource):
         > **NOTE:** An `opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        example_serverless_security_policy = aws.opensearch.ServerlessSecurityPolicy("exampleServerlessSecurityPolicy",
+        example = aws.opensearch.ServerlessSecurityPolicy("example",
+            name="example",
             type="encryption",
             policy=json.dumps({
                 "Rules": [{
@@ -306,15 +342,16 @@ class ServerlessCollection(pulumi.CustomResource):
                 }],
                 "AWSOwnedKey": True,
             }))
-        example_serverless_collection = aws.opensearch.ServerlessCollection("exampleServerlessCollection", opts=pulumi.ResourceOptions(depends_on=[example_serverless_security_policy]))
+        example_serverless_collection = aws.opensearch.ServerlessCollection("example", name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
+        $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -323,6 +360,7 @@ class ServerlessCollection(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the collection.
                
                The following arguments are optional:
+        :param pulumi.Input[str] standby_replicas: Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         """
@@ -340,14 +378,17 @@ class ServerlessCollection(pulumi.CustomResource):
         > **NOTE:** An `opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        example_serverless_security_policy = aws.opensearch.ServerlessSecurityPolicy("exampleServerlessSecurityPolicy",
+        example = aws.opensearch.ServerlessSecurityPolicy("example",
+            name="example",
             type="encryption",
             policy=json.dumps({
                 "Rules": [{
@@ -356,15 +397,16 @@ class ServerlessCollection(pulumi.CustomResource):
                 }],
                 "AWSOwnedKey": True,
             }))
-        example_serverless_collection = aws.opensearch.ServerlessCollection("exampleServerlessCollection", opts=pulumi.ResourceOptions(depends_on=[example_serverless_security_policy]))
+        example_serverless_collection = aws.opensearch.ServerlessCollection("example", name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
+        $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -384,6 +426,7 @@ class ServerlessCollection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 standby_replicas: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeouts: Optional[pulumi.Input[pulumi.InputType['ServerlessCollectionTimeoutsArgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -398,6 +441,7 @@ class ServerlessCollection(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["standby_replicas"] = standby_replicas
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["type"] = type
@@ -406,8 +450,6 @@ class ServerlessCollection(pulumi.CustomResource):
             __props__.__dict__["dashboard_endpoint"] = None
             __props__.__dict__["kms_key_arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServerlessCollection, __self__).__init__(
             'aws:opensearch/serverlessCollection:ServerlessCollection',
             resource_name,
@@ -424,6 +466,7 @@ class ServerlessCollection(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             kms_key_arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            standby_replicas: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             timeouts: Optional[pulumi.Input[pulumi.InputType['ServerlessCollectionTimeoutsArgs']]] = None,
@@ -443,6 +486,7 @@ class ServerlessCollection(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the collection.
                
                The following arguments are optional:
+        :param pulumi.Input[str] standby_replicas: Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         """
@@ -456,6 +500,7 @@ class ServerlessCollection(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["kms_key_arn"] = kms_key_arn
         __props__.__dict__["name"] = name
+        __props__.__dict__["standby_replicas"] = standby_replicas
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
@@ -511,6 +556,14 @@ class ServerlessCollection(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="standbyReplicas")
+    def standby_replicas(self) -> pulumi.Output[str]:
+        """
+        Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+        """
+        return pulumi.get(self, "standby_replicas")
 
     @property
     @pulumi.getter

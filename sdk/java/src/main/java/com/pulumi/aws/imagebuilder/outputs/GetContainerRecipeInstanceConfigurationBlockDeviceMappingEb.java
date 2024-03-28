@@ -4,6 +4,7 @@
 package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -142,55 +143,79 @@ public final class GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb {
 
         @CustomType.Setter
         public Builder deleteOnTermination(Boolean deleteOnTermination) {
-            this.deleteOnTermination = Objects.requireNonNull(deleteOnTermination);
+            if (deleteOnTermination == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb", "deleteOnTermination");
+            }
+            this.deleteOnTermination = deleteOnTermination;
             return this;
         }
         @CustomType.Setter
         public Builder encrypted(Boolean encrypted) {
-            this.encrypted = Objects.requireNonNull(encrypted);
+            if (encrypted == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb", "encrypted");
+            }
+            this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
         public Builder iops(Integer iops) {
-            this.iops = Objects.requireNonNull(iops);
+            if (iops == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb", "iops");
+            }
+            this.iops = iops;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+            if (kmsKeyId == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb", "kmsKeyId");
+            }
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotId(String snapshotId) {
-            this.snapshotId = Objects.requireNonNull(snapshotId);
+            if (snapshotId == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb", "snapshotId");
+            }
+            this.snapshotId = snapshotId;
             return this;
         }
         @CustomType.Setter
         public Builder throughput(Integer throughput) {
-            this.throughput = Objects.requireNonNull(throughput);
+            if (throughput == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb", "throughput");
+            }
+            this.throughput = throughput;
             return this;
         }
         @CustomType.Setter
         public Builder volumeSize(Integer volumeSize) {
-            this.volumeSize = Objects.requireNonNull(volumeSize);
+            if (volumeSize == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb", "volumeSize");
+            }
+            this.volumeSize = volumeSize;
             return this;
         }
         @CustomType.Setter
         public Builder volumeType(String volumeType) {
-            this.volumeType = Objects.requireNonNull(volumeType);
+            if (volumeType == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb", "volumeType");
+            }
+            this.volumeType = volumeType;
             return this;
         }
         public GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb build() {
-            final var o = new GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb();
-            o.deleteOnTermination = deleteOnTermination;
-            o.encrypted = encrypted;
-            o.iops = iops;
-            o.kmsKeyId = kmsKeyId;
-            o.snapshotId = snapshotId;
-            o.throughput = throughput;
-            o.volumeSize = volumeSize;
-            o.volumeType = volumeType;
-            return o;
+            final var _resultValue = new GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb();
+            _resultValue.deleteOnTermination = deleteOnTermination;
+            _resultValue.encrypted = encrypted;
+            _resultValue.iops = iops;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.snapshotId = snapshotId;
+            _resultValue.throughput = throughput;
+            _resultValue.volumeSize = volumeSize;
+            _resultValue.volumeType = volumeType;
+            return _resultValue;
         }
     }
 }

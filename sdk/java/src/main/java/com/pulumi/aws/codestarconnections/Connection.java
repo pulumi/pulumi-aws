@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +21,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** The `aws.codestarconnections.Connection` resource is created in the state `PENDING`. Authentication with the connection provider must be completed in the AWS Console. See the [AWS documentation](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-update.html) for details.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,12 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleConnection = new Connection(&#34;exampleConnection&#34;, ConnectionArgs.builder()        
+ *         var example = new Connection(&#34;example&#34;, ConnectionArgs.builder()        
+ *             .name(&#34;example-connection&#34;)
  *             .providerType(&#34;Bitbucket&#34;)
  *             .build());
  * 
  *         var examplePipeline = new Pipeline(&#34;examplePipeline&#34;, PipelineArgs.builder()        
- *             .roleArn(aws_iam_role.codepipeline_role().arn())
  *             .artifactStores()
  *             .stages(            
  *                 PipelineStageArgs.builder()
@@ -65,32 +66,35 @@ import javax.annotation.Nullable;
  *                         .version(&#34;1&#34;)
  *                         .outputArtifacts(&#34;source_output&#34;)
  *                         .configuration(Map.ofEntries(
- *                             Map.entry(&#34;ConnectionArn&#34;, exampleConnection.arn()),
+ *                             Map.entry(&#34;ConnectionArn&#34;, example.arn()),
  *                             Map.entry(&#34;FullRepositoryId&#34;, &#34;my-organization/test&#34;),
  *                             Map.entry(&#34;BranchName&#34;, &#34;main&#34;)
  *                         ))
  *                         .build())
  *                     .build(),
  *                 PipelineStageArgs.builder()
- *                     .name(&#34;Build&#34;)
  *                     .actions()
+ *                     .name(&#34;Build&#34;)
  *                     .build(),
  *                 PipelineStageArgs.builder()
- *                     .name(&#34;Deploy&#34;)
  *                     .actions()
+ *                     .name(&#34;Deploy&#34;)
  *                     .build())
+ *             .name(&#34;tf-test-pipeline&#34;)
+ *             .roleArn(codepipelineRole.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CodeStar connections using the ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:codestarconnections/connection:Connection test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
+ * $ pulumi import aws:codestarconnections/connection:Connection test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
  * ```
  * 
  */
@@ -153,14 +157,14 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
+     * The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
      * 
      */
     @Export(name="providerType", refs={String.class}, tree="[0]")
     private Output<String> providerType;
 
     /**
-     * @return The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
+     * @return The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
      * 
      */
     public Output<String> providerType() {
@@ -231,9 +235,6 @@ public class Connection extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

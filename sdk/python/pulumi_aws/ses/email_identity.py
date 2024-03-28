@@ -86,19 +86,21 @@ class EmailIdentity(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ses.EmailIdentity("example", email="email@example.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SES email identities using the email address. For example:
 
         ```sh
-         $ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
+        $ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -116,19 +118,21 @@ class EmailIdentity(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ses.EmailIdentity("example", email="email@example.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SES email identities using the email address. For example:
 
         ```sh
-         $ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
+        $ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
         ```
 
         :param str resource_name: The name of the resource.

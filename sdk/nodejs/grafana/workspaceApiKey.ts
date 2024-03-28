@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Provides an Amazon Managed Grafana workspace API Key resource.
  *
  * ## Example Usage
+ *
  * ### Basic configuration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,9 +20,10 @@ import * as utilities from "../utilities";
  *     keyName: "test-key",
  *     keyRole: "VIEWER",
  *     secondsToLive: 3600,
- *     workspaceId: aws_grafana_workspace.test.id,
+ *     workspaceId: test.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class WorkspaceApiKey extends pulumi.CustomResource {
     /**

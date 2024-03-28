@@ -14,13 +14,15 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.guardduty.Detector("example", {enable: true});
- * const eksRuntimeMonitoring = new aws.guardduty.DetectorFeature("eksRuntimeMonitoring", {
+ * const eksRuntimeMonitoring = new aws.guardduty.DetectorFeature("eks_runtime_monitoring", {
  *     detectorId: example.id,
+ *     name: "EKS_RUNTIME_MONITORING",
  *     status: "ENABLED",
  *     additionalConfigurations: [{
  *         name: "EKS_ADDON_MANAGEMENT",
@@ -28,6 +30,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class DetectorFeature extends pulumi.CustomResource {
     /**
@@ -66,7 +69,7 @@ export class DetectorFeature extends pulumi.CustomResource {
      */
     public readonly detectorId!: pulumi.Output<string>;
     /**
-     * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+     * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -122,7 +125,7 @@ export interface DetectorFeatureState {
      */
     detectorId?: pulumi.Input<string>;
     /**
-     * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+     * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -144,7 +147,7 @@ export interface DetectorFeatureArgs {
      */
     detectorId: pulumi.Input<string>;
     /**
-     * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+     * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
      */
     name?: pulumi.Input<string>;
     /**

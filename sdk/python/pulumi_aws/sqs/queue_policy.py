@@ -103,12 +103,13 @@ class QueuePolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        queue = aws.sqs.Queue("queue")
-        test_policy_document = queue.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        q = aws.sqs.Queue("q", name="examplequeue")
+        test = q.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="First",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -120,20 +121,21 @@ class QueuePolicy(pulumi.CustomResource):
             conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                 test="ArnEquals",
                 variable="aws:SourceArn",
-                values=[aws_sns_topic["example"]["arn"]],
+                values=[example["arn"]],
             )],
         )]))
-        test_queue_policy = aws.sqs.QueuePolicy("testQueuePolicy",
-            queue_url=queue.id,
-            policy=test_policy_document.json)
+        test_queue_policy = aws.sqs.QueuePolicy("test",
+            queue_url=q.id,
+            policy=test.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SQS Queue Policies using the queue URL. For example:
 
         ```sh
-         $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
+        $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
         ```
 
         :param str resource_name: The name of the resource.
@@ -153,12 +155,13 @@ class QueuePolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        queue = aws.sqs.Queue("queue")
-        test_policy_document = queue.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        q = aws.sqs.Queue("q", name="examplequeue")
+        test = q.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="First",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -170,20 +173,21 @@ class QueuePolicy(pulumi.CustomResource):
             conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                 test="ArnEquals",
                 variable="aws:SourceArn",
-                values=[aws_sns_topic["example"]["arn"]],
+                values=[example["arn"]],
             )],
         )]))
-        test_queue_policy = aws.sqs.QueuePolicy("testQueuePolicy",
-            queue_url=queue.id,
-            policy=test_policy_document.json)
+        test_queue_policy = aws.sqs.QueuePolicy("test",
+            queue_url=q.id,
+            policy=test.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SQS Queue Policies using the queue URL. For example:
 
         ```sh
-         $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
+        $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
         ```
 
         :param str resource_name: The name of the resource.

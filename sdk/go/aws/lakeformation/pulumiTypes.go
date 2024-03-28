@@ -13,6 +13,822 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DataCellsFilterTableData struct {
+	// A list of column names and/or nested column attributes.
+	ColumnNames    []string                                `pulumi:"columnNames"`
+	ColumnWildcard *DataCellsFilterTableDataColumnWildcard `pulumi:"columnWildcard"`
+	// The name of the database.
+	DatabaseName string `pulumi:"databaseName"`
+	// The name of the data cells filter.
+	Name string `pulumi:"name"`
+	// A PartiQL predicate. See Row Filter below for details.
+	RowFilter *DataCellsFilterTableDataRowFilter `pulumi:"rowFilter"`
+	// The ID of the Data Catalog.
+	TableCatalogId string `pulumi:"tableCatalogId"`
+	// The name of the table.
+	TableName string `pulumi:"tableName"`
+	// ID of the data cells filter version.
+	VersionId *string `pulumi:"versionId"`
+}
+
+// DataCellsFilterTableDataInput is an input type that accepts DataCellsFilterTableDataArgs and DataCellsFilterTableDataOutput values.
+// You can construct a concrete instance of `DataCellsFilterTableDataInput` via:
+//
+//	DataCellsFilterTableDataArgs{...}
+type DataCellsFilterTableDataInput interface {
+	pulumi.Input
+
+	ToDataCellsFilterTableDataOutput() DataCellsFilterTableDataOutput
+	ToDataCellsFilterTableDataOutputWithContext(context.Context) DataCellsFilterTableDataOutput
+}
+
+type DataCellsFilterTableDataArgs struct {
+	// A list of column names and/or nested column attributes.
+	ColumnNames    pulumi.StringArrayInput                        `pulumi:"columnNames"`
+	ColumnWildcard DataCellsFilterTableDataColumnWildcardPtrInput `pulumi:"columnWildcard"`
+	// The name of the database.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the data cells filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A PartiQL predicate. See Row Filter below for details.
+	RowFilter DataCellsFilterTableDataRowFilterPtrInput `pulumi:"rowFilter"`
+	// The ID of the Data Catalog.
+	TableCatalogId pulumi.StringInput `pulumi:"tableCatalogId"`
+	// The name of the table.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+	// ID of the data cells filter version.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+}
+
+func (DataCellsFilterTableDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCellsFilterTableData)(nil)).Elem()
+}
+
+func (i DataCellsFilterTableDataArgs) ToDataCellsFilterTableDataOutput() DataCellsFilterTableDataOutput {
+	return i.ToDataCellsFilterTableDataOutputWithContext(context.Background())
+}
+
+func (i DataCellsFilterTableDataArgs) ToDataCellsFilterTableDataOutputWithContext(ctx context.Context) DataCellsFilterTableDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterTableDataOutput)
+}
+
+func (i DataCellsFilterTableDataArgs) ToDataCellsFilterTableDataPtrOutput() DataCellsFilterTableDataPtrOutput {
+	return i.ToDataCellsFilterTableDataPtrOutputWithContext(context.Background())
+}
+
+func (i DataCellsFilterTableDataArgs) ToDataCellsFilterTableDataPtrOutputWithContext(ctx context.Context) DataCellsFilterTableDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterTableDataOutput).ToDataCellsFilterTableDataPtrOutputWithContext(ctx)
+}
+
+// DataCellsFilterTableDataPtrInput is an input type that accepts DataCellsFilterTableDataArgs, DataCellsFilterTableDataPtr and DataCellsFilterTableDataPtrOutput values.
+// You can construct a concrete instance of `DataCellsFilterTableDataPtrInput` via:
+//
+//	        DataCellsFilterTableDataArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataCellsFilterTableDataPtrInput interface {
+	pulumi.Input
+
+	ToDataCellsFilterTableDataPtrOutput() DataCellsFilterTableDataPtrOutput
+	ToDataCellsFilterTableDataPtrOutputWithContext(context.Context) DataCellsFilterTableDataPtrOutput
+}
+
+type dataCellsFilterTableDataPtrType DataCellsFilterTableDataArgs
+
+func DataCellsFilterTableDataPtr(v *DataCellsFilterTableDataArgs) DataCellsFilterTableDataPtrInput {
+	return (*dataCellsFilterTableDataPtrType)(v)
+}
+
+func (*dataCellsFilterTableDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCellsFilterTableData)(nil)).Elem()
+}
+
+func (i *dataCellsFilterTableDataPtrType) ToDataCellsFilterTableDataPtrOutput() DataCellsFilterTableDataPtrOutput {
+	return i.ToDataCellsFilterTableDataPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCellsFilterTableDataPtrType) ToDataCellsFilterTableDataPtrOutputWithContext(ctx context.Context) DataCellsFilterTableDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterTableDataPtrOutput)
+}
+
+type DataCellsFilterTableDataOutput struct{ *pulumi.OutputState }
+
+func (DataCellsFilterTableDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCellsFilterTableData)(nil)).Elem()
+}
+
+func (o DataCellsFilterTableDataOutput) ToDataCellsFilterTableDataOutput() DataCellsFilterTableDataOutput {
+	return o
+}
+
+func (o DataCellsFilterTableDataOutput) ToDataCellsFilterTableDataOutputWithContext(ctx context.Context) DataCellsFilterTableDataOutput {
+	return o
+}
+
+func (o DataCellsFilterTableDataOutput) ToDataCellsFilterTableDataPtrOutput() DataCellsFilterTableDataPtrOutput {
+	return o.ToDataCellsFilterTableDataPtrOutputWithContext(context.Background())
+}
+
+func (o DataCellsFilterTableDataOutput) ToDataCellsFilterTableDataPtrOutputWithContext(ctx context.Context) DataCellsFilterTableDataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCellsFilterTableData) *DataCellsFilterTableData {
+		return &v
+	}).(DataCellsFilterTableDataPtrOutput)
+}
+
+// A list of column names and/or nested column attributes.
+func (o DataCellsFilterTableDataOutput) ColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataCellsFilterTableData) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
+}
+
+func (o DataCellsFilterTableDataOutput) ColumnWildcard() DataCellsFilterTableDataColumnWildcardPtrOutput {
+	return o.ApplyT(func(v DataCellsFilterTableData) *DataCellsFilterTableDataColumnWildcard { return v.ColumnWildcard }).(DataCellsFilterTableDataColumnWildcardPtrOutput)
+}
+
+// The name of the database.
+func (o DataCellsFilterTableDataOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataCellsFilterTableData) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The name of the data cells filter.
+func (o DataCellsFilterTableDataOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataCellsFilterTableData) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A PartiQL predicate. See Row Filter below for details.
+func (o DataCellsFilterTableDataOutput) RowFilter() DataCellsFilterTableDataRowFilterPtrOutput {
+	return o.ApplyT(func(v DataCellsFilterTableData) *DataCellsFilterTableDataRowFilter { return v.RowFilter }).(DataCellsFilterTableDataRowFilterPtrOutput)
+}
+
+// The ID of the Data Catalog.
+func (o DataCellsFilterTableDataOutput) TableCatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v DataCellsFilterTableData) string { return v.TableCatalogId }).(pulumi.StringOutput)
+}
+
+// The name of the table.
+func (o DataCellsFilterTableDataOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataCellsFilterTableData) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+// ID of the data cells filter version.
+func (o DataCellsFilterTableDataOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCellsFilterTableData) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+type DataCellsFilterTableDataPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCellsFilterTableDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCellsFilterTableData)(nil)).Elem()
+}
+
+func (o DataCellsFilterTableDataPtrOutput) ToDataCellsFilterTableDataPtrOutput() DataCellsFilterTableDataPtrOutput {
+	return o
+}
+
+func (o DataCellsFilterTableDataPtrOutput) ToDataCellsFilterTableDataPtrOutputWithContext(ctx context.Context) DataCellsFilterTableDataPtrOutput {
+	return o
+}
+
+func (o DataCellsFilterTableDataPtrOutput) Elem() DataCellsFilterTableDataOutput {
+	return o.ApplyT(func(v *DataCellsFilterTableData) DataCellsFilterTableData {
+		if v != nil {
+			return *v
+		}
+		var ret DataCellsFilterTableData
+		return ret
+	}).(DataCellsFilterTableDataOutput)
+}
+
+// A list of column names and/or nested column attributes.
+func (o DataCellsFilterTableDataPtrOutput) ColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataCellsFilterTableData) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ColumnNames
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DataCellsFilterTableDataPtrOutput) ColumnWildcard() DataCellsFilterTableDataColumnWildcardPtrOutput {
+	return o.ApplyT(func(v *DataCellsFilterTableData) *DataCellsFilterTableDataColumnWildcard {
+		if v == nil {
+			return nil
+		}
+		return v.ColumnWildcard
+	}).(DataCellsFilterTableDataColumnWildcardPtrOutput)
+}
+
+// The name of the database.
+func (o DataCellsFilterTableDataPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCellsFilterTableData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the data cells filter.
+func (o DataCellsFilterTableDataPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCellsFilterTableData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A PartiQL predicate. See Row Filter below for details.
+func (o DataCellsFilterTableDataPtrOutput) RowFilter() DataCellsFilterTableDataRowFilterPtrOutput {
+	return o.ApplyT(func(v *DataCellsFilterTableData) *DataCellsFilterTableDataRowFilter {
+		if v == nil {
+			return nil
+		}
+		return v.RowFilter
+	}).(DataCellsFilterTableDataRowFilterPtrOutput)
+}
+
+// The ID of the Data Catalog.
+func (o DataCellsFilterTableDataPtrOutput) TableCatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCellsFilterTableData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableCatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the table.
+func (o DataCellsFilterTableDataPtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCellsFilterTableData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of the data cells filter version.
+func (o DataCellsFilterTableDataPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCellsFilterTableData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataCellsFilterTableDataColumnWildcard struct {
+	// (Optional) Excludes column names. Any column with this name will be excluded.
+	ExcludedColumnNames []string `pulumi:"excludedColumnNames"`
+}
+
+// DataCellsFilterTableDataColumnWildcardInput is an input type that accepts DataCellsFilterTableDataColumnWildcardArgs and DataCellsFilterTableDataColumnWildcardOutput values.
+// You can construct a concrete instance of `DataCellsFilterTableDataColumnWildcardInput` via:
+//
+//	DataCellsFilterTableDataColumnWildcardArgs{...}
+type DataCellsFilterTableDataColumnWildcardInput interface {
+	pulumi.Input
+
+	ToDataCellsFilterTableDataColumnWildcardOutput() DataCellsFilterTableDataColumnWildcardOutput
+	ToDataCellsFilterTableDataColumnWildcardOutputWithContext(context.Context) DataCellsFilterTableDataColumnWildcardOutput
+}
+
+type DataCellsFilterTableDataColumnWildcardArgs struct {
+	// (Optional) Excludes column names. Any column with this name will be excluded.
+	ExcludedColumnNames pulumi.StringArrayInput `pulumi:"excludedColumnNames"`
+}
+
+func (DataCellsFilterTableDataColumnWildcardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCellsFilterTableDataColumnWildcard)(nil)).Elem()
+}
+
+func (i DataCellsFilterTableDataColumnWildcardArgs) ToDataCellsFilterTableDataColumnWildcardOutput() DataCellsFilterTableDataColumnWildcardOutput {
+	return i.ToDataCellsFilterTableDataColumnWildcardOutputWithContext(context.Background())
+}
+
+func (i DataCellsFilterTableDataColumnWildcardArgs) ToDataCellsFilterTableDataColumnWildcardOutputWithContext(ctx context.Context) DataCellsFilterTableDataColumnWildcardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterTableDataColumnWildcardOutput)
+}
+
+func (i DataCellsFilterTableDataColumnWildcardArgs) ToDataCellsFilterTableDataColumnWildcardPtrOutput() DataCellsFilterTableDataColumnWildcardPtrOutput {
+	return i.ToDataCellsFilterTableDataColumnWildcardPtrOutputWithContext(context.Background())
+}
+
+func (i DataCellsFilterTableDataColumnWildcardArgs) ToDataCellsFilterTableDataColumnWildcardPtrOutputWithContext(ctx context.Context) DataCellsFilterTableDataColumnWildcardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterTableDataColumnWildcardOutput).ToDataCellsFilterTableDataColumnWildcardPtrOutputWithContext(ctx)
+}
+
+// DataCellsFilterTableDataColumnWildcardPtrInput is an input type that accepts DataCellsFilterTableDataColumnWildcardArgs, DataCellsFilterTableDataColumnWildcardPtr and DataCellsFilterTableDataColumnWildcardPtrOutput values.
+// You can construct a concrete instance of `DataCellsFilterTableDataColumnWildcardPtrInput` via:
+//
+//	        DataCellsFilterTableDataColumnWildcardArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataCellsFilterTableDataColumnWildcardPtrInput interface {
+	pulumi.Input
+
+	ToDataCellsFilterTableDataColumnWildcardPtrOutput() DataCellsFilterTableDataColumnWildcardPtrOutput
+	ToDataCellsFilterTableDataColumnWildcardPtrOutputWithContext(context.Context) DataCellsFilterTableDataColumnWildcardPtrOutput
+}
+
+type dataCellsFilterTableDataColumnWildcardPtrType DataCellsFilterTableDataColumnWildcardArgs
+
+func DataCellsFilterTableDataColumnWildcardPtr(v *DataCellsFilterTableDataColumnWildcardArgs) DataCellsFilterTableDataColumnWildcardPtrInput {
+	return (*dataCellsFilterTableDataColumnWildcardPtrType)(v)
+}
+
+func (*dataCellsFilterTableDataColumnWildcardPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCellsFilterTableDataColumnWildcard)(nil)).Elem()
+}
+
+func (i *dataCellsFilterTableDataColumnWildcardPtrType) ToDataCellsFilterTableDataColumnWildcardPtrOutput() DataCellsFilterTableDataColumnWildcardPtrOutput {
+	return i.ToDataCellsFilterTableDataColumnWildcardPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCellsFilterTableDataColumnWildcardPtrType) ToDataCellsFilterTableDataColumnWildcardPtrOutputWithContext(ctx context.Context) DataCellsFilterTableDataColumnWildcardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterTableDataColumnWildcardPtrOutput)
+}
+
+type DataCellsFilterTableDataColumnWildcardOutput struct{ *pulumi.OutputState }
+
+func (DataCellsFilterTableDataColumnWildcardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCellsFilterTableDataColumnWildcard)(nil)).Elem()
+}
+
+func (o DataCellsFilterTableDataColumnWildcardOutput) ToDataCellsFilterTableDataColumnWildcardOutput() DataCellsFilterTableDataColumnWildcardOutput {
+	return o
+}
+
+func (o DataCellsFilterTableDataColumnWildcardOutput) ToDataCellsFilterTableDataColumnWildcardOutputWithContext(ctx context.Context) DataCellsFilterTableDataColumnWildcardOutput {
+	return o
+}
+
+func (o DataCellsFilterTableDataColumnWildcardOutput) ToDataCellsFilterTableDataColumnWildcardPtrOutput() DataCellsFilterTableDataColumnWildcardPtrOutput {
+	return o.ToDataCellsFilterTableDataColumnWildcardPtrOutputWithContext(context.Background())
+}
+
+func (o DataCellsFilterTableDataColumnWildcardOutput) ToDataCellsFilterTableDataColumnWildcardPtrOutputWithContext(ctx context.Context) DataCellsFilterTableDataColumnWildcardPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCellsFilterTableDataColumnWildcard) *DataCellsFilterTableDataColumnWildcard {
+		return &v
+	}).(DataCellsFilterTableDataColumnWildcardPtrOutput)
+}
+
+// (Optional) Excludes column names. Any column with this name will be excluded.
+func (o DataCellsFilterTableDataColumnWildcardOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataCellsFilterTableDataColumnWildcard) []string { return v.ExcludedColumnNames }).(pulumi.StringArrayOutput)
+}
+
+type DataCellsFilterTableDataColumnWildcardPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCellsFilterTableDataColumnWildcardPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCellsFilterTableDataColumnWildcard)(nil)).Elem()
+}
+
+func (o DataCellsFilterTableDataColumnWildcardPtrOutput) ToDataCellsFilterTableDataColumnWildcardPtrOutput() DataCellsFilterTableDataColumnWildcardPtrOutput {
+	return o
+}
+
+func (o DataCellsFilterTableDataColumnWildcardPtrOutput) ToDataCellsFilterTableDataColumnWildcardPtrOutputWithContext(ctx context.Context) DataCellsFilterTableDataColumnWildcardPtrOutput {
+	return o
+}
+
+func (o DataCellsFilterTableDataColumnWildcardPtrOutput) Elem() DataCellsFilterTableDataColumnWildcardOutput {
+	return o.ApplyT(func(v *DataCellsFilterTableDataColumnWildcard) DataCellsFilterTableDataColumnWildcard {
+		if v != nil {
+			return *v
+		}
+		var ret DataCellsFilterTableDataColumnWildcard
+		return ret
+	}).(DataCellsFilterTableDataColumnWildcardOutput)
+}
+
+// (Optional) Excludes column names. Any column with this name will be excluded.
+func (o DataCellsFilterTableDataColumnWildcardPtrOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataCellsFilterTableDataColumnWildcard) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedColumnNames
+	}).(pulumi.StringArrayOutput)
+}
+
+type DataCellsFilterTableDataRowFilter struct {
+	// (Optional) A wildcard that matches all rows.
+	AllRowsWildcard *DataCellsFilterTableDataRowFilterAllRowsWildcard `pulumi:"allRowsWildcard"`
+	// (Optional) A filter expression.
+	FilterExpression *string `pulumi:"filterExpression"`
+}
+
+// DataCellsFilterTableDataRowFilterInput is an input type that accepts DataCellsFilterTableDataRowFilterArgs and DataCellsFilterTableDataRowFilterOutput values.
+// You can construct a concrete instance of `DataCellsFilterTableDataRowFilterInput` via:
+//
+//	DataCellsFilterTableDataRowFilterArgs{...}
+type DataCellsFilterTableDataRowFilterInput interface {
+	pulumi.Input
+
+	ToDataCellsFilterTableDataRowFilterOutput() DataCellsFilterTableDataRowFilterOutput
+	ToDataCellsFilterTableDataRowFilterOutputWithContext(context.Context) DataCellsFilterTableDataRowFilterOutput
+}
+
+type DataCellsFilterTableDataRowFilterArgs struct {
+	// (Optional) A wildcard that matches all rows.
+	AllRowsWildcard DataCellsFilterTableDataRowFilterAllRowsWildcardPtrInput `pulumi:"allRowsWildcard"`
+	// (Optional) A filter expression.
+	FilterExpression pulumi.StringPtrInput `pulumi:"filterExpression"`
+}
+
+func (DataCellsFilterTableDataRowFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCellsFilterTableDataRowFilter)(nil)).Elem()
+}
+
+func (i DataCellsFilterTableDataRowFilterArgs) ToDataCellsFilterTableDataRowFilterOutput() DataCellsFilterTableDataRowFilterOutput {
+	return i.ToDataCellsFilterTableDataRowFilterOutputWithContext(context.Background())
+}
+
+func (i DataCellsFilterTableDataRowFilterArgs) ToDataCellsFilterTableDataRowFilterOutputWithContext(ctx context.Context) DataCellsFilterTableDataRowFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterTableDataRowFilterOutput)
+}
+
+func (i DataCellsFilterTableDataRowFilterArgs) ToDataCellsFilterTableDataRowFilterPtrOutput() DataCellsFilterTableDataRowFilterPtrOutput {
+	return i.ToDataCellsFilterTableDataRowFilterPtrOutputWithContext(context.Background())
+}
+
+func (i DataCellsFilterTableDataRowFilterArgs) ToDataCellsFilterTableDataRowFilterPtrOutputWithContext(ctx context.Context) DataCellsFilterTableDataRowFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterTableDataRowFilterOutput).ToDataCellsFilterTableDataRowFilterPtrOutputWithContext(ctx)
+}
+
+// DataCellsFilterTableDataRowFilterPtrInput is an input type that accepts DataCellsFilterTableDataRowFilterArgs, DataCellsFilterTableDataRowFilterPtr and DataCellsFilterTableDataRowFilterPtrOutput values.
+// You can construct a concrete instance of `DataCellsFilterTableDataRowFilterPtrInput` via:
+//
+//	        DataCellsFilterTableDataRowFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataCellsFilterTableDataRowFilterPtrInput interface {
+	pulumi.Input
+
+	ToDataCellsFilterTableDataRowFilterPtrOutput() DataCellsFilterTableDataRowFilterPtrOutput
+	ToDataCellsFilterTableDataRowFilterPtrOutputWithContext(context.Context) DataCellsFilterTableDataRowFilterPtrOutput
+}
+
+type dataCellsFilterTableDataRowFilterPtrType DataCellsFilterTableDataRowFilterArgs
+
+func DataCellsFilterTableDataRowFilterPtr(v *DataCellsFilterTableDataRowFilterArgs) DataCellsFilterTableDataRowFilterPtrInput {
+	return (*dataCellsFilterTableDataRowFilterPtrType)(v)
+}
+
+func (*dataCellsFilterTableDataRowFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCellsFilterTableDataRowFilter)(nil)).Elem()
+}
+
+func (i *dataCellsFilterTableDataRowFilterPtrType) ToDataCellsFilterTableDataRowFilterPtrOutput() DataCellsFilterTableDataRowFilterPtrOutput {
+	return i.ToDataCellsFilterTableDataRowFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCellsFilterTableDataRowFilterPtrType) ToDataCellsFilterTableDataRowFilterPtrOutputWithContext(ctx context.Context) DataCellsFilterTableDataRowFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterTableDataRowFilterPtrOutput)
+}
+
+type DataCellsFilterTableDataRowFilterOutput struct{ *pulumi.OutputState }
+
+func (DataCellsFilterTableDataRowFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCellsFilterTableDataRowFilter)(nil)).Elem()
+}
+
+func (o DataCellsFilterTableDataRowFilterOutput) ToDataCellsFilterTableDataRowFilterOutput() DataCellsFilterTableDataRowFilterOutput {
+	return o
+}
+
+func (o DataCellsFilterTableDataRowFilterOutput) ToDataCellsFilterTableDataRowFilterOutputWithContext(ctx context.Context) DataCellsFilterTableDataRowFilterOutput {
+	return o
+}
+
+func (o DataCellsFilterTableDataRowFilterOutput) ToDataCellsFilterTableDataRowFilterPtrOutput() DataCellsFilterTableDataRowFilterPtrOutput {
+	return o.ToDataCellsFilterTableDataRowFilterPtrOutputWithContext(context.Background())
+}
+
+func (o DataCellsFilterTableDataRowFilterOutput) ToDataCellsFilterTableDataRowFilterPtrOutputWithContext(ctx context.Context) DataCellsFilterTableDataRowFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCellsFilterTableDataRowFilter) *DataCellsFilterTableDataRowFilter {
+		return &v
+	}).(DataCellsFilterTableDataRowFilterPtrOutput)
+}
+
+// (Optional) A wildcard that matches all rows.
+func (o DataCellsFilterTableDataRowFilterOutput) AllRowsWildcard() DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput {
+	return o.ApplyT(func(v DataCellsFilterTableDataRowFilter) *DataCellsFilterTableDataRowFilterAllRowsWildcard {
+		return v.AllRowsWildcard
+	}).(DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput)
+}
+
+// (Optional) A filter expression.
+func (o DataCellsFilterTableDataRowFilterOutput) FilterExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCellsFilterTableDataRowFilter) *string { return v.FilterExpression }).(pulumi.StringPtrOutput)
+}
+
+type DataCellsFilterTableDataRowFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCellsFilterTableDataRowFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCellsFilterTableDataRowFilter)(nil)).Elem()
+}
+
+func (o DataCellsFilterTableDataRowFilterPtrOutput) ToDataCellsFilterTableDataRowFilterPtrOutput() DataCellsFilterTableDataRowFilterPtrOutput {
+	return o
+}
+
+func (o DataCellsFilterTableDataRowFilterPtrOutput) ToDataCellsFilterTableDataRowFilterPtrOutputWithContext(ctx context.Context) DataCellsFilterTableDataRowFilterPtrOutput {
+	return o
+}
+
+func (o DataCellsFilterTableDataRowFilterPtrOutput) Elem() DataCellsFilterTableDataRowFilterOutput {
+	return o.ApplyT(func(v *DataCellsFilterTableDataRowFilter) DataCellsFilterTableDataRowFilter {
+		if v != nil {
+			return *v
+		}
+		var ret DataCellsFilterTableDataRowFilter
+		return ret
+	}).(DataCellsFilterTableDataRowFilterOutput)
+}
+
+// (Optional) A wildcard that matches all rows.
+func (o DataCellsFilterTableDataRowFilterPtrOutput) AllRowsWildcard() DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput {
+	return o.ApplyT(func(v *DataCellsFilterTableDataRowFilter) *DataCellsFilterTableDataRowFilterAllRowsWildcard {
+		if v == nil {
+			return nil
+		}
+		return v.AllRowsWildcard
+	}).(DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput)
+}
+
+// (Optional) A filter expression.
+func (o DataCellsFilterTableDataRowFilterPtrOutput) FilterExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCellsFilterTableDataRowFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FilterExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataCellsFilterTableDataRowFilterAllRowsWildcard struct {
+}
+
+// DataCellsFilterTableDataRowFilterAllRowsWildcardInput is an input type that accepts DataCellsFilterTableDataRowFilterAllRowsWildcardArgs and DataCellsFilterTableDataRowFilterAllRowsWildcardOutput values.
+// You can construct a concrete instance of `DataCellsFilterTableDataRowFilterAllRowsWildcardInput` via:
+//
+//	DataCellsFilterTableDataRowFilterAllRowsWildcardArgs{...}
+type DataCellsFilterTableDataRowFilterAllRowsWildcardInput interface {
+	pulumi.Input
+
+	ToDataCellsFilterTableDataRowFilterAllRowsWildcardOutput() DataCellsFilterTableDataRowFilterAllRowsWildcardOutput
+	ToDataCellsFilterTableDataRowFilterAllRowsWildcardOutputWithContext(context.Context) DataCellsFilterTableDataRowFilterAllRowsWildcardOutput
+}
+
+type DataCellsFilterTableDataRowFilterAllRowsWildcardArgs struct {
+}
+
+func (DataCellsFilterTableDataRowFilterAllRowsWildcardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCellsFilterTableDataRowFilterAllRowsWildcard)(nil)).Elem()
+}
+
+func (i DataCellsFilterTableDataRowFilterAllRowsWildcardArgs) ToDataCellsFilterTableDataRowFilterAllRowsWildcardOutput() DataCellsFilterTableDataRowFilterAllRowsWildcardOutput {
+	return i.ToDataCellsFilterTableDataRowFilterAllRowsWildcardOutputWithContext(context.Background())
+}
+
+func (i DataCellsFilterTableDataRowFilterAllRowsWildcardArgs) ToDataCellsFilterTableDataRowFilterAllRowsWildcardOutputWithContext(ctx context.Context) DataCellsFilterTableDataRowFilterAllRowsWildcardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterTableDataRowFilterAllRowsWildcardOutput)
+}
+
+func (i DataCellsFilterTableDataRowFilterAllRowsWildcardArgs) ToDataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput() DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput {
+	return i.ToDataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutputWithContext(context.Background())
+}
+
+func (i DataCellsFilterTableDataRowFilterAllRowsWildcardArgs) ToDataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutputWithContext(ctx context.Context) DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterTableDataRowFilterAllRowsWildcardOutput).ToDataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutputWithContext(ctx)
+}
+
+// DataCellsFilterTableDataRowFilterAllRowsWildcardPtrInput is an input type that accepts DataCellsFilterTableDataRowFilterAllRowsWildcardArgs, DataCellsFilterTableDataRowFilterAllRowsWildcardPtr and DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput values.
+// You can construct a concrete instance of `DataCellsFilterTableDataRowFilterAllRowsWildcardPtrInput` via:
+//
+//	        DataCellsFilterTableDataRowFilterAllRowsWildcardArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataCellsFilterTableDataRowFilterAllRowsWildcardPtrInput interface {
+	pulumi.Input
+
+	ToDataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput() DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput
+	ToDataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutputWithContext(context.Context) DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput
+}
+
+type dataCellsFilterTableDataRowFilterAllRowsWildcardPtrType DataCellsFilterTableDataRowFilterAllRowsWildcardArgs
+
+func DataCellsFilterTableDataRowFilterAllRowsWildcardPtr(v *DataCellsFilterTableDataRowFilterAllRowsWildcardArgs) DataCellsFilterTableDataRowFilterAllRowsWildcardPtrInput {
+	return (*dataCellsFilterTableDataRowFilterAllRowsWildcardPtrType)(v)
+}
+
+func (*dataCellsFilterTableDataRowFilterAllRowsWildcardPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCellsFilterTableDataRowFilterAllRowsWildcard)(nil)).Elem()
+}
+
+func (i *dataCellsFilterTableDataRowFilterAllRowsWildcardPtrType) ToDataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput() DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput {
+	return i.ToDataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCellsFilterTableDataRowFilterAllRowsWildcardPtrType) ToDataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutputWithContext(ctx context.Context) DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput)
+}
+
+type DataCellsFilterTableDataRowFilterAllRowsWildcardOutput struct{ *pulumi.OutputState }
+
+func (DataCellsFilterTableDataRowFilterAllRowsWildcardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCellsFilterTableDataRowFilterAllRowsWildcard)(nil)).Elem()
+}
+
+func (o DataCellsFilterTableDataRowFilterAllRowsWildcardOutput) ToDataCellsFilterTableDataRowFilterAllRowsWildcardOutput() DataCellsFilterTableDataRowFilterAllRowsWildcardOutput {
+	return o
+}
+
+func (o DataCellsFilterTableDataRowFilterAllRowsWildcardOutput) ToDataCellsFilterTableDataRowFilterAllRowsWildcardOutputWithContext(ctx context.Context) DataCellsFilterTableDataRowFilterAllRowsWildcardOutput {
+	return o
+}
+
+func (o DataCellsFilterTableDataRowFilterAllRowsWildcardOutput) ToDataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput() DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput {
+	return o.ToDataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutputWithContext(context.Background())
+}
+
+func (o DataCellsFilterTableDataRowFilterAllRowsWildcardOutput) ToDataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutputWithContext(ctx context.Context) DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCellsFilterTableDataRowFilterAllRowsWildcard) *DataCellsFilterTableDataRowFilterAllRowsWildcard {
+		return &v
+	}).(DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput)
+}
+
+type DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCellsFilterTableDataRowFilterAllRowsWildcard)(nil)).Elem()
+}
+
+func (o DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput) ToDataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput() DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput {
+	return o
+}
+
+func (o DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput) ToDataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutputWithContext(ctx context.Context) DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput {
+	return o
+}
+
+func (o DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput) Elem() DataCellsFilterTableDataRowFilterAllRowsWildcardOutput {
+	return o.ApplyT(func(v *DataCellsFilterTableDataRowFilterAllRowsWildcard) DataCellsFilterTableDataRowFilterAllRowsWildcard {
+		if v != nil {
+			return *v
+		}
+		var ret DataCellsFilterTableDataRowFilterAllRowsWildcard
+		return ret
+	}).(DataCellsFilterTableDataRowFilterAllRowsWildcardOutput)
+}
+
+type DataCellsFilterTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+}
+
+// DataCellsFilterTimeoutsInput is an input type that accepts DataCellsFilterTimeoutsArgs and DataCellsFilterTimeoutsOutput values.
+// You can construct a concrete instance of `DataCellsFilterTimeoutsInput` via:
+//
+//	DataCellsFilterTimeoutsArgs{...}
+type DataCellsFilterTimeoutsInput interface {
+	pulumi.Input
+
+	ToDataCellsFilterTimeoutsOutput() DataCellsFilterTimeoutsOutput
+	ToDataCellsFilterTimeoutsOutputWithContext(context.Context) DataCellsFilterTimeoutsOutput
+}
+
+type DataCellsFilterTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+}
+
+func (DataCellsFilterTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCellsFilterTimeouts)(nil)).Elem()
+}
+
+func (i DataCellsFilterTimeoutsArgs) ToDataCellsFilterTimeoutsOutput() DataCellsFilterTimeoutsOutput {
+	return i.ToDataCellsFilterTimeoutsOutputWithContext(context.Background())
+}
+
+func (i DataCellsFilterTimeoutsArgs) ToDataCellsFilterTimeoutsOutputWithContext(ctx context.Context) DataCellsFilterTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterTimeoutsOutput)
+}
+
+func (i DataCellsFilterTimeoutsArgs) ToDataCellsFilterTimeoutsPtrOutput() DataCellsFilterTimeoutsPtrOutput {
+	return i.ToDataCellsFilterTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i DataCellsFilterTimeoutsArgs) ToDataCellsFilterTimeoutsPtrOutputWithContext(ctx context.Context) DataCellsFilterTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterTimeoutsOutput).ToDataCellsFilterTimeoutsPtrOutputWithContext(ctx)
+}
+
+// DataCellsFilterTimeoutsPtrInput is an input type that accepts DataCellsFilterTimeoutsArgs, DataCellsFilterTimeoutsPtr and DataCellsFilterTimeoutsPtrOutput values.
+// You can construct a concrete instance of `DataCellsFilterTimeoutsPtrInput` via:
+//
+//	        DataCellsFilterTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataCellsFilterTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToDataCellsFilterTimeoutsPtrOutput() DataCellsFilterTimeoutsPtrOutput
+	ToDataCellsFilterTimeoutsPtrOutputWithContext(context.Context) DataCellsFilterTimeoutsPtrOutput
+}
+
+type dataCellsFilterTimeoutsPtrType DataCellsFilterTimeoutsArgs
+
+func DataCellsFilterTimeoutsPtr(v *DataCellsFilterTimeoutsArgs) DataCellsFilterTimeoutsPtrInput {
+	return (*dataCellsFilterTimeoutsPtrType)(v)
+}
+
+func (*dataCellsFilterTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCellsFilterTimeouts)(nil)).Elem()
+}
+
+func (i *dataCellsFilterTimeoutsPtrType) ToDataCellsFilterTimeoutsPtrOutput() DataCellsFilterTimeoutsPtrOutput {
+	return i.ToDataCellsFilterTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCellsFilterTimeoutsPtrType) ToDataCellsFilterTimeoutsPtrOutputWithContext(ctx context.Context) DataCellsFilterTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterTimeoutsPtrOutput)
+}
+
+type DataCellsFilterTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (DataCellsFilterTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCellsFilterTimeouts)(nil)).Elem()
+}
+
+func (o DataCellsFilterTimeoutsOutput) ToDataCellsFilterTimeoutsOutput() DataCellsFilterTimeoutsOutput {
+	return o
+}
+
+func (o DataCellsFilterTimeoutsOutput) ToDataCellsFilterTimeoutsOutputWithContext(ctx context.Context) DataCellsFilterTimeoutsOutput {
+	return o
+}
+
+func (o DataCellsFilterTimeoutsOutput) ToDataCellsFilterTimeoutsPtrOutput() DataCellsFilterTimeoutsPtrOutput {
+	return o.ToDataCellsFilterTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o DataCellsFilterTimeoutsOutput) ToDataCellsFilterTimeoutsPtrOutputWithContext(ctx context.Context) DataCellsFilterTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCellsFilterTimeouts) *DataCellsFilterTimeouts {
+		return &v
+	}).(DataCellsFilterTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DataCellsFilterTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCellsFilterTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+type DataCellsFilterTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCellsFilterTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCellsFilterTimeouts)(nil)).Elem()
+}
+
+func (o DataCellsFilterTimeoutsPtrOutput) ToDataCellsFilterTimeoutsPtrOutput() DataCellsFilterTimeoutsPtrOutput {
+	return o
+}
+
+func (o DataCellsFilterTimeoutsPtrOutput) ToDataCellsFilterTimeoutsPtrOutputWithContext(ctx context.Context) DataCellsFilterTimeoutsPtrOutput {
+	return o
+}
+
+func (o DataCellsFilterTimeoutsPtrOutput) Elem() DataCellsFilterTimeoutsOutput {
+	return o.ApplyT(func(v *DataCellsFilterTimeouts) DataCellsFilterTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret DataCellsFilterTimeouts
+		return ret
+	}).(DataCellsFilterTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DataCellsFilterTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCellsFilterTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
 type DataLakeSettingsCreateDatabaseDefaultPermission struct {
 	// List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `DESCRIBE`, and `CREATE_TABLE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
 	Permissions []string `pulumi:"permissions"`
@@ -223,6 +1039,200 @@ func (o DataLakeSettingsCreateTableDefaultPermissionArrayOutput) Index(i pulumi.
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataLakeSettingsCreateTableDefaultPermission {
 		return vs[0].([]DataLakeSettingsCreateTableDefaultPermission)[vs[1].(int)]
 	}).(DataLakeSettingsCreateTableDefaultPermissionOutput)
+}
+
+type PermissionsDataCellsFilter struct {
+	// The name of the database.
+	DatabaseName string `pulumi:"databaseName"`
+	// The name of the data cells filter.
+	Name string `pulumi:"name"`
+	// The ID of the Data Catalog.
+	TableCatalogId string `pulumi:"tableCatalogId"`
+	// The name of the table.
+	TableName string `pulumi:"tableName"`
+}
+
+// PermissionsDataCellsFilterInput is an input type that accepts PermissionsDataCellsFilterArgs and PermissionsDataCellsFilterOutput values.
+// You can construct a concrete instance of `PermissionsDataCellsFilterInput` via:
+//
+//	PermissionsDataCellsFilterArgs{...}
+type PermissionsDataCellsFilterInput interface {
+	pulumi.Input
+
+	ToPermissionsDataCellsFilterOutput() PermissionsDataCellsFilterOutput
+	ToPermissionsDataCellsFilterOutputWithContext(context.Context) PermissionsDataCellsFilterOutput
+}
+
+type PermissionsDataCellsFilterArgs struct {
+	// The name of the database.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the data cells filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The ID of the Data Catalog.
+	TableCatalogId pulumi.StringInput `pulumi:"tableCatalogId"`
+	// The name of the table.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (PermissionsDataCellsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionsDataCellsFilter)(nil)).Elem()
+}
+
+func (i PermissionsDataCellsFilterArgs) ToPermissionsDataCellsFilterOutput() PermissionsDataCellsFilterOutput {
+	return i.ToPermissionsDataCellsFilterOutputWithContext(context.Background())
+}
+
+func (i PermissionsDataCellsFilterArgs) ToPermissionsDataCellsFilterOutputWithContext(ctx context.Context) PermissionsDataCellsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionsDataCellsFilterOutput)
+}
+
+func (i PermissionsDataCellsFilterArgs) ToPermissionsDataCellsFilterPtrOutput() PermissionsDataCellsFilterPtrOutput {
+	return i.ToPermissionsDataCellsFilterPtrOutputWithContext(context.Background())
+}
+
+func (i PermissionsDataCellsFilterArgs) ToPermissionsDataCellsFilterPtrOutputWithContext(ctx context.Context) PermissionsDataCellsFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionsDataCellsFilterOutput).ToPermissionsDataCellsFilterPtrOutputWithContext(ctx)
+}
+
+// PermissionsDataCellsFilterPtrInput is an input type that accepts PermissionsDataCellsFilterArgs, PermissionsDataCellsFilterPtr and PermissionsDataCellsFilterPtrOutput values.
+// You can construct a concrete instance of `PermissionsDataCellsFilterPtrInput` via:
+//
+//	        PermissionsDataCellsFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type PermissionsDataCellsFilterPtrInput interface {
+	pulumi.Input
+
+	ToPermissionsDataCellsFilterPtrOutput() PermissionsDataCellsFilterPtrOutput
+	ToPermissionsDataCellsFilterPtrOutputWithContext(context.Context) PermissionsDataCellsFilterPtrOutput
+}
+
+type permissionsDataCellsFilterPtrType PermissionsDataCellsFilterArgs
+
+func PermissionsDataCellsFilterPtr(v *PermissionsDataCellsFilterArgs) PermissionsDataCellsFilterPtrInput {
+	return (*permissionsDataCellsFilterPtrType)(v)
+}
+
+func (*permissionsDataCellsFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionsDataCellsFilter)(nil)).Elem()
+}
+
+func (i *permissionsDataCellsFilterPtrType) ToPermissionsDataCellsFilterPtrOutput() PermissionsDataCellsFilterPtrOutput {
+	return i.ToPermissionsDataCellsFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *permissionsDataCellsFilterPtrType) ToPermissionsDataCellsFilterPtrOutputWithContext(ctx context.Context) PermissionsDataCellsFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionsDataCellsFilterPtrOutput)
+}
+
+type PermissionsDataCellsFilterOutput struct{ *pulumi.OutputState }
+
+func (PermissionsDataCellsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionsDataCellsFilter)(nil)).Elem()
+}
+
+func (o PermissionsDataCellsFilterOutput) ToPermissionsDataCellsFilterOutput() PermissionsDataCellsFilterOutput {
+	return o
+}
+
+func (o PermissionsDataCellsFilterOutput) ToPermissionsDataCellsFilterOutputWithContext(ctx context.Context) PermissionsDataCellsFilterOutput {
+	return o
+}
+
+func (o PermissionsDataCellsFilterOutput) ToPermissionsDataCellsFilterPtrOutput() PermissionsDataCellsFilterPtrOutput {
+	return o.ToPermissionsDataCellsFilterPtrOutputWithContext(context.Background())
+}
+
+func (o PermissionsDataCellsFilterOutput) ToPermissionsDataCellsFilterPtrOutputWithContext(ctx context.Context) PermissionsDataCellsFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionsDataCellsFilter) *PermissionsDataCellsFilter {
+		return &v
+	}).(PermissionsDataCellsFilterPtrOutput)
+}
+
+// The name of the database.
+func (o PermissionsDataCellsFilterOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v PermissionsDataCellsFilter) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The name of the data cells filter.
+func (o PermissionsDataCellsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PermissionsDataCellsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the Data Catalog.
+func (o PermissionsDataCellsFilterOutput) TableCatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v PermissionsDataCellsFilter) string { return v.TableCatalogId }).(pulumi.StringOutput)
+}
+
+// The name of the table.
+func (o PermissionsDataCellsFilterOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v PermissionsDataCellsFilter) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+type PermissionsDataCellsFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (PermissionsDataCellsFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionsDataCellsFilter)(nil)).Elem()
+}
+
+func (o PermissionsDataCellsFilterPtrOutput) ToPermissionsDataCellsFilterPtrOutput() PermissionsDataCellsFilterPtrOutput {
+	return o
+}
+
+func (o PermissionsDataCellsFilterPtrOutput) ToPermissionsDataCellsFilterPtrOutputWithContext(ctx context.Context) PermissionsDataCellsFilterPtrOutput {
+	return o
+}
+
+func (o PermissionsDataCellsFilterPtrOutput) Elem() PermissionsDataCellsFilterOutput {
+	return o.ApplyT(func(v *PermissionsDataCellsFilter) PermissionsDataCellsFilter {
+		if v != nil {
+			return *v
+		}
+		var ret PermissionsDataCellsFilter
+		return ret
+	}).(PermissionsDataCellsFilterOutput)
+}
+
+// The name of the database.
+func (o PermissionsDataCellsFilterPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PermissionsDataCellsFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the data cells filter.
+func (o PermissionsDataCellsFilterPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PermissionsDataCellsFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Data Catalog.
+func (o PermissionsDataCellsFilterPtrOutput) TableCatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PermissionsDataCellsFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableCatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the table.
+func (o PermissionsDataCellsFilterPtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PermissionsDataCellsFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
+	}).(pulumi.StringPtrOutput)
 }
 
 type PermissionsDataLocation struct {
@@ -2406,6 +3416,200 @@ func (o GetDataLakeSettingsCreateTableDefaultPermissionArrayOutput) Index(i pulu
 	}).(GetDataLakeSettingsCreateTableDefaultPermissionOutput)
 }
 
+type GetPermissionsDataCellsFilter struct {
+	// The name of the database.
+	DatabaseName string `pulumi:"databaseName"`
+	// The name of the data cells filter.
+	Name string `pulumi:"name"`
+	// The ID of the Data Catalog.
+	TableCatalogId string `pulumi:"tableCatalogId"`
+	// The name of the table.
+	TableName string `pulumi:"tableName"`
+}
+
+// GetPermissionsDataCellsFilterInput is an input type that accepts GetPermissionsDataCellsFilterArgs and GetPermissionsDataCellsFilterOutput values.
+// You can construct a concrete instance of `GetPermissionsDataCellsFilterInput` via:
+//
+//	GetPermissionsDataCellsFilterArgs{...}
+type GetPermissionsDataCellsFilterInput interface {
+	pulumi.Input
+
+	ToGetPermissionsDataCellsFilterOutput() GetPermissionsDataCellsFilterOutput
+	ToGetPermissionsDataCellsFilterOutputWithContext(context.Context) GetPermissionsDataCellsFilterOutput
+}
+
+type GetPermissionsDataCellsFilterArgs struct {
+	// The name of the database.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the data cells filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The ID of the Data Catalog.
+	TableCatalogId pulumi.StringInput `pulumi:"tableCatalogId"`
+	// The name of the table.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (GetPermissionsDataCellsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionsDataCellsFilter)(nil)).Elem()
+}
+
+func (i GetPermissionsDataCellsFilterArgs) ToGetPermissionsDataCellsFilterOutput() GetPermissionsDataCellsFilterOutput {
+	return i.ToGetPermissionsDataCellsFilterOutputWithContext(context.Background())
+}
+
+func (i GetPermissionsDataCellsFilterArgs) ToGetPermissionsDataCellsFilterOutputWithContext(ctx context.Context) GetPermissionsDataCellsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsDataCellsFilterOutput)
+}
+
+func (i GetPermissionsDataCellsFilterArgs) ToGetPermissionsDataCellsFilterPtrOutput() GetPermissionsDataCellsFilterPtrOutput {
+	return i.ToGetPermissionsDataCellsFilterPtrOutputWithContext(context.Background())
+}
+
+func (i GetPermissionsDataCellsFilterArgs) ToGetPermissionsDataCellsFilterPtrOutputWithContext(ctx context.Context) GetPermissionsDataCellsFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsDataCellsFilterOutput).ToGetPermissionsDataCellsFilterPtrOutputWithContext(ctx)
+}
+
+// GetPermissionsDataCellsFilterPtrInput is an input type that accepts GetPermissionsDataCellsFilterArgs, GetPermissionsDataCellsFilterPtr and GetPermissionsDataCellsFilterPtrOutput values.
+// You can construct a concrete instance of `GetPermissionsDataCellsFilterPtrInput` via:
+//
+//	        GetPermissionsDataCellsFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetPermissionsDataCellsFilterPtrInput interface {
+	pulumi.Input
+
+	ToGetPermissionsDataCellsFilterPtrOutput() GetPermissionsDataCellsFilterPtrOutput
+	ToGetPermissionsDataCellsFilterPtrOutputWithContext(context.Context) GetPermissionsDataCellsFilterPtrOutput
+}
+
+type getPermissionsDataCellsFilterPtrType GetPermissionsDataCellsFilterArgs
+
+func GetPermissionsDataCellsFilterPtr(v *GetPermissionsDataCellsFilterArgs) GetPermissionsDataCellsFilterPtrInput {
+	return (*getPermissionsDataCellsFilterPtrType)(v)
+}
+
+func (*getPermissionsDataCellsFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionsDataCellsFilter)(nil)).Elem()
+}
+
+func (i *getPermissionsDataCellsFilterPtrType) ToGetPermissionsDataCellsFilterPtrOutput() GetPermissionsDataCellsFilterPtrOutput {
+	return i.ToGetPermissionsDataCellsFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *getPermissionsDataCellsFilterPtrType) ToGetPermissionsDataCellsFilterPtrOutputWithContext(ctx context.Context) GetPermissionsDataCellsFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsDataCellsFilterPtrOutput)
+}
+
+type GetPermissionsDataCellsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionsDataCellsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionsDataCellsFilter)(nil)).Elem()
+}
+
+func (o GetPermissionsDataCellsFilterOutput) ToGetPermissionsDataCellsFilterOutput() GetPermissionsDataCellsFilterOutput {
+	return o
+}
+
+func (o GetPermissionsDataCellsFilterOutput) ToGetPermissionsDataCellsFilterOutputWithContext(ctx context.Context) GetPermissionsDataCellsFilterOutput {
+	return o
+}
+
+func (o GetPermissionsDataCellsFilterOutput) ToGetPermissionsDataCellsFilterPtrOutput() GetPermissionsDataCellsFilterPtrOutput {
+	return o.ToGetPermissionsDataCellsFilterPtrOutputWithContext(context.Background())
+}
+
+func (o GetPermissionsDataCellsFilterOutput) ToGetPermissionsDataCellsFilterPtrOutputWithContext(ctx context.Context) GetPermissionsDataCellsFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetPermissionsDataCellsFilter) *GetPermissionsDataCellsFilter {
+		return &v
+	}).(GetPermissionsDataCellsFilterPtrOutput)
+}
+
+// The name of the database.
+func (o GetPermissionsDataCellsFilterOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPermissionsDataCellsFilter) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The name of the data cells filter.
+func (o GetPermissionsDataCellsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPermissionsDataCellsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the Data Catalog.
+func (o GetPermissionsDataCellsFilterOutput) TableCatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPermissionsDataCellsFilter) string { return v.TableCatalogId }).(pulumi.StringOutput)
+}
+
+// The name of the table.
+func (o GetPermissionsDataCellsFilterOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPermissionsDataCellsFilter) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+type GetPermissionsDataCellsFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionsDataCellsFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionsDataCellsFilter)(nil)).Elem()
+}
+
+func (o GetPermissionsDataCellsFilterPtrOutput) ToGetPermissionsDataCellsFilterPtrOutput() GetPermissionsDataCellsFilterPtrOutput {
+	return o
+}
+
+func (o GetPermissionsDataCellsFilterPtrOutput) ToGetPermissionsDataCellsFilterPtrOutputWithContext(ctx context.Context) GetPermissionsDataCellsFilterPtrOutput {
+	return o
+}
+
+func (o GetPermissionsDataCellsFilterPtrOutput) Elem() GetPermissionsDataCellsFilterOutput {
+	return o.ApplyT(func(v *GetPermissionsDataCellsFilter) GetPermissionsDataCellsFilter {
+		if v != nil {
+			return *v
+		}
+		var ret GetPermissionsDataCellsFilter
+		return ret
+	}).(GetPermissionsDataCellsFilterOutput)
+}
+
+// The name of the database.
+func (o GetPermissionsDataCellsFilterPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPermissionsDataCellsFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the data cells filter.
+func (o GetPermissionsDataCellsFilterPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPermissionsDataCellsFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Data Catalog.
+func (o GetPermissionsDataCellsFilterPtrOutput) TableCatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPermissionsDataCellsFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableCatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the table.
+func (o GetPermissionsDataCellsFilterPtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPermissionsDataCellsFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetPermissionsDataLocation struct {
 	// ARN that uniquely identifies the data location resource.
 	//
@@ -3649,10 +4853,22 @@ func (o GetPermissionsTableWithColumnsPtrOutput) Wildcard() pulumi.BoolPtrOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCellsFilterTableDataInput)(nil)).Elem(), DataCellsFilterTableDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCellsFilterTableDataPtrInput)(nil)).Elem(), DataCellsFilterTableDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCellsFilterTableDataColumnWildcardInput)(nil)).Elem(), DataCellsFilterTableDataColumnWildcardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCellsFilterTableDataColumnWildcardPtrInput)(nil)).Elem(), DataCellsFilterTableDataColumnWildcardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCellsFilterTableDataRowFilterInput)(nil)).Elem(), DataCellsFilterTableDataRowFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCellsFilterTableDataRowFilterPtrInput)(nil)).Elem(), DataCellsFilterTableDataRowFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCellsFilterTableDataRowFilterAllRowsWildcardInput)(nil)).Elem(), DataCellsFilterTableDataRowFilterAllRowsWildcardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCellsFilterTableDataRowFilterAllRowsWildcardPtrInput)(nil)).Elem(), DataCellsFilterTableDataRowFilterAllRowsWildcardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCellsFilterTimeoutsInput)(nil)).Elem(), DataCellsFilterTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCellsFilterTimeoutsPtrInput)(nil)).Elem(), DataCellsFilterTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsCreateDatabaseDefaultPermissionInput)(nil)).Elem(), DataLakeSettingsCreateDatabaseDefaultPermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsCreateDatabaseDefaultPermissionArrayInput)(nil)).Elem(), DataLakeSettingsCreateDatabaseDefaultPermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsCreateTableDefaultPermissionInput)(nil)).Elem(), DataLakeSettingsCreateTableDefaultPermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsCreateTableDefaultPermissionArrayInput)(nil)).Elem(), DataLakeSettingsCreateTableDefaultPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsDataCellsFilterInput)(nil)).Elem(), PermissionsDataCellsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsDataCellsFilterPtrInput)(nil)).Elem(), PermissionsDataCellsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsDataLocationInput)(nil)).Elem(), PermissionsDataLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsDataLocationPtrInput)(nil)).Elem(), PermissionsDataLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsDatabaseInput)(nil)).Elem(), PermissionsDatabaseArgs{})
@@ -3679,6 +4895,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayInput)(nil)).Elem(), GetDataLakeSettingsCreateDatabaseDefaultPermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataLakeSettingsCreateTableDefaultPermissionInput)(nil)).Elem(), GetDataLakeSettingsCreateTableDefaultPermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataLakeSettingsCreateTableDefaultPermissionArrayInput)(nil)).Elem(), GetDataLakeSettingsCreateTableDefaultPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionsDataCellsFilterInput)(nil)).Elem(), GetPermissionsDataCellsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionsDataCellsFilterPtrInput)(nil)).Elem(), GetPermissionsDataCellsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionsDataLocationInput)(nil)).Elem(), GetPermissionsDataLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionsDataLocationPtrInput)(nil)).Elem(), GetPermissionsDataLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionsDatabaseInput)(nil)).Elem(), GetPermissionsDatabaseArgs{})
@@ -3693,10 +4911,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionsTablePtrInput)(nil)).Elem(), GetPermissionsTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionsTableWithColumnsInput)(nil)).Elem(), GetPermissionsTableWithColumnsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionsTableWithColumnsPtrInput)(nil)).Elem(), GetPermissionsTableWithColumnsArgs{})
+	pulumi.RegisterOutputType(DataCellsFilterTableDataOutput{})
+	pulumi.RegisterOutputType(DataCellsFilterTableDataPtrOutput{})
+	pulumi.RegisterOutputType(DataCellsFilterTableDataColumnWildcardOutput{})
+	pulumi.RegisterOutputType(DataCellsFilterTableDataColumnWildcardPtrOutput{})
+	pulumi.RegisterOutputType(DataCellsFilterTableDataRowFilterOutput{})
+	pulumi.RegisterOutputType(DataCellsFilterTableDataRowFilterPtrOutput{})
+	pulumi.RegisterOutputType(DataCellsFilterTableDataRowFilterAllRowsWildcardOutput{})
+	pulumi.RegisterOutputType(DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput{})
+	pulumi.RegisterOutputType(DataCellsFilterTimeoutsOutput{})
+	pulumi.RegisterOutputType(DataCellsFilterTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(DataLakeSettingsCreateDatabaseDefaultPermissionOutput{})
 	pulumi.RegisterOutputType(DataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput{})
 	pulumi.RegisterOutputType(DataLakeSettingsCreateTableDefaultPermissionOutput{})
 	pulumi.RegisterOutputType(DataLakeSettingsCreateTableDefaultPermissionArrayOutput{})
+	pulumi.RegisterOutputType(PermissionsDataCellsFilterOutput{})
+	pulumi.RegisterOutputType(PermissionsDataCellsFilterPtrOutput{})
 	pulumi.RegisterOutputType(PermissionsDataLocationOutput{})
 	pulumi.RegisterOutputType(PermissionsDataLocationPtrOutput{})
 	pulumi.RegisterOutputType(PermissionsDatabaseOutput{})
@@ -3723,6 +4953,8 @@ func init() {
 	pulumi.RegisterOutputType(GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput{})
 	pulumi.RegisterOutputType(GetDataLakeSettingsCreateTableDefaultPermissionOutput{})
 	pulumi.RegisterOutputType(GetDataLakeSettingsCreateTableDefaultPermissionArrayOutput{})
+	pulumi.RegisterOutputType(GetPermissionsDataCellsFilterOutput{})
+	pulumi.RegisterOutputType(GetPermissionsDataCellsFilterPtrOutput{})
 	pulumi.RegisterOutputType(GetPermissionsDataLocationOutput{})
 	pulumi.RegisterOutputType(GetPermissionsDataLocationPtrOutput{})
 	pulumi.RegisterOutputType(GetPermissionsDatabaseOutput{})

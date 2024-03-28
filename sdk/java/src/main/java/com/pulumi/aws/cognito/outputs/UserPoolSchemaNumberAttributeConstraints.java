@@ -58,19 +58,21 @@ public final class UserPoolSchemaNumberAttributeConstraints {
 
         @CustomType.Setter
         public Builder maxValue(@Nullable String maxValue) {
+
             this.maxValue = maxValue;
             return this;
         }
         @CustomType.Setter
         public Builder minValue(@Nullable String minValue) {
+
             this.minValue = minValue;
             return this;
         }
         public UserPoolSchemaNumberAttributeConstraints build() {
-            final var o = new UserPoolSchemaNumberAttributeConstraints();
-            o.maxValue = maxValue;
-            o.minValue = minValue;
-            return o;
+            final var _resultValue = new UserPoolSchemaNumberAttributeConstraints();
+            _resultValue.maxValue = maxValue;
+            _resultValue.minValue = minValue;
+            return _resultValue;
         }
     }
 }

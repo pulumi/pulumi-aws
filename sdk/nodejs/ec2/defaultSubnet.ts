@@ -16,24 +16,26 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultAz1 = new aws.ec2.DefaultSubnet("defaultAz1", {
+ * const defaultAz1 = new aws.ec2.DefaultSubnet("default_az1", {
  *     availabilityZone: "us-west-2a",
  *     tags: {
  *         Name: "Default subnet for us-west-2a",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import subnets using the subnet `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
+ * $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
  * ```
  */
 export class DefaultSubnet extends pulumi.CustomResource {
@@ -176,8 +178,6 @@ export class DefaultSubnet extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(DefaultSubnet.__pulumiType, name, resourceInputs, opts);
     }
 }

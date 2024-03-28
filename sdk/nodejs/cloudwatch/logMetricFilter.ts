@@ -12,12 +12,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const dada = new aws.cloudwatch.LogGroup("dada", {});
+ * const dada = new aws.cloudwatch.LogGroup("dada", {name: "MyApp/access.log"});
  * const yada = new aws.cloudwatch.LogMetricFilter("yada", {
+ *     name: "MyAppAccessCount",
  *     pattern: "",
  *     logGroupName: dada.name,
  *     metricTransformation: {
@@ -27,13 +29,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CloudWatch Log Metric Filter using the `log_group_name:name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
+ * $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
  * ```
  */
 export class LogMetricFilter extends pulumi.CustomResource {

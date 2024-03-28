@@ -72,25 +72,28 @@ public final class CatalogTableStorageDescriptorSchemaReferenceSchemaId {
 
         @CustomType.Setter
         public Builder registryName(@Nullable String registryName) {
+
             this.registryName = registryName;
             return this;
         }
         @CustomType.Setter
         public Builder schemaArn(@Nullable String schemaArn) {
+
             this.schemaArn = schemaArn;
             return this;
         }
         @CustomType.Setter
         public Builder schemaName(@Nullable String schemaName) {
+
             this.schemaName = schemaName;
             return this;
         }
         public CatalogTableStorageDescriptorSchemaReferenceSchemaId build() {
-            final var o = new CatalogTableStorageDescriptorSchemaReferenceSchemaId();
-            o.registryName = registryName;
-            o.schemaArn = schemaArn;
-            o.schemaName = schemaName;
-            return o;
+            final var _resultValue = new CatalogTableStorageDescriptorSchemaReferenceSchemaId();
+            _resultValue.registryName = registryName;
+            _resultValue.schemaArn = schemaArn;
+            _resultValue.schemaName = schemaName;
+            return _resultValue;
         }
     }
 }

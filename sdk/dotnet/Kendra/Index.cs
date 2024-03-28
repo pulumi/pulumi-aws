@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Kendra
     /// Provides an Amazon Kendra Index resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,9 +27,10 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Index("example", new()
     ///     {
+    ///         Name = "example",
     ///         Description = "example",
     ///         Edition = "DEVELOPER_EDITION",
-    ///         RoleArn = aws_iam_role.This.Arn,
+    ///         RoleArn = @this.Arn,
     ///         Tags = 
     ///         {
     ///             { "Key1", "Value1" },
@@ -36,8 +39,11 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With capacity units
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,8 +54,9 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Index("example", new()
     ///     {
+    ///         Name = "example",
     ///         Edition = "DEVELOPER_EDITION",
-    ///         RoleArn = aws_iam_role.This.Arn,
+    ///         RoleArn = @this.Arn,
     ///         CapacityUnits = new Aws.Kendra.Inputs.IndexCapacityUnitsArgs
     ///         {
     ///             QueryCapacityUnits = 2,
@@ -59,8 +66,11 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With server side encryption configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -71,17 +81,21 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Index("example", new()
     ///     {
-    ///         RoleArn = aws_iam_role.This.Arn,
+    ///         Name = "example",
+    ///         RoleArn = thisAwsIamRole.Arn,
     ///         ServerSideEncryptionConfiguration = new Aws.Kendra.Inputs.IndexServerSideEncryptionConfigurationArgs
     ///         {
-    ///             KmsKeyId = data.Aws_kms_key.This.Arn,
+    ///             KmsKeyId = @this.Arn,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With user group resolution configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -92,7 +106,8 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Index("example", new()
     ///     {
-    ///         RoleArn = aws_iam_role.This.Arn,
+    ///         Name = "example",
+    ///         RoleArn = @this.Arn,
     ///         UserGroupResolutionConfiguration = new Aws.Kendra.Inputs.IndexUserGroupResolutionConfigurationArgs
     ///         {
     ///             UserGroupResolutionMode = "AWS_SSO",
@@ -101,11 +116,15 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Document Metadata Configuration Updates
+    /// 
     /// ### Specifying the predefined elements
     /// 
     /// Refer to [Amazon Kendra documentation on built-in document fields](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html#index-reserved-fields) for more information.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -116,7 +135,8 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Index("example", new()
     ///     {
-    ///         RoleArn = aws_iam_role.This.Arn,
+    ///         Name = "example",
+    ///         RoleArn = @this.Arn,
     ///         DocumentMetadataConfigurationUpdates = new[]
     ///         {
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
@@ -365,10 +385,13 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Appending additional elements
     /// 
     /// The example below shows additional elements with names, `example-string-value`, `example-long-value`, `example-string-list-value`, `example-date-value` representing the 4 types of `STRING_VALUE`, `LONG_VALUE`, `STRING_LIST_VALUE`, `DATE_VALUE` respectively.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -379,7 +402,8 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Index("example", new()
     ///     {
-    ///         RoleArn = aws_iam_role.This.Arn,
+    ///         Name = "example",
+    ///         RoleArn = @this.Arn,
     ///         DocumentMetadataConfigurationUpdates = new[]
     ///         {
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
@@ -697,8 +721,11 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With JSON token type configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -709,7 +736,8 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Index("example", new()
     ///     {
-    ///         RoleArn = aws_iam_role.This.Arn,
+    ///         Name = "example",
+    ///         RoleArn = @this.Arn,
     ///         UserTokenConfigurations = new Aws.Kendra.Inputs.IndexUserTokenConfigurationsArgs
     ///         {
     ///             JsonTokenTypeConfiguration = new Aws.Kendra.Inputs.IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs
@@ -722,13 +750,14 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon Kendra Indexes using its `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123
+    /// $ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123
     /// ```
     /// </summary>
     [AwsResourceType("aws:kendra/index:Index")]
@@ -866,10 +895,6 @@ namespace Pulumi.Aws.Kendra
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -1087,11 +1112,7 @@ namespace Pulumi.Aws.Kendra
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

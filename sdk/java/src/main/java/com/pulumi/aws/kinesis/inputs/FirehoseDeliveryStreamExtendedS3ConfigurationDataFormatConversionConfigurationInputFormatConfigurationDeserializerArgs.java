@@ -17,14 +17,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
     public static final FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs Empty = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs();
 
     /**
-     * Nested argument that specifies the native Hive / HCatalog JsonSerDe. More details below.
+     * Specifies the native Hive / HCatalog JsonSerDe. More details below. See `hive_json_ser_de` block below for details.
      * 
      */
     @Import(name="hiveJsonSerDe")
     private @Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeArgs> hiveJsonSerDe;
 
     /**
-     * @return Nested argument that specifies the native Hive / HCatalog JsonSerDe. More details below.
+     * @return Specifies the native Hive / HCatalog JsonSerDe. More details below. See `hive_json_ser_de` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeArgs>> hiveJsonSerDe() {
@@ -32,14 +32,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
     }
 
     /**
-     * Nested argument that specifies the OpenX SerDe. More details below.
+     * Specifies the OpenX SerDe. See `open_x_json_ser_de` block below for details.
      * 
      */
     @Import(name="openXJsonSerDe")
     private @Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeArgs> openXJsonSerDe;
 
     /**
-     * @return Nested argument that specifies the OpenX SerDe. More details below.
+     * @return Specifies the OpenX SerDe. See `open_x_json_ser_de` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeArgs>> openXJsonSerDe() {
@@ -72,7 +72,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param hiveJsonSerDe Nested argument that specifies the native Hive / HCatalog JsonSerDe. More details below.
+         * @param hiveJsonSerDe Specifies the native Hive / HCatalog JsonSerDe. More details below. See `hive_json_ser_de` block below for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param hiveJsonSerDe Nested argument that specifies the native Hive / HCatalog JsonSerDe. More details below.
+         * @param hiveJsonSerDe Specifies the native Hive / HCatalog JsonSerDe. More details below. See `hive_json_ser_de` block below for details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param openXJsonSerDe Nested argument that specifies the OpenX SerDe. More details below.
+         * @param openXJsonSerDe Specifies the OpenX SerDe. See `open_x_json_ser_de` block below for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param openXJsonSerDe Nested argument that specifies the OpenX SerDe. More details below.
+         * @param openXJsonSerDe Specifies the OpenX SerDe. See `open_x_json_ser_de` block below for details.
          * 
          * @return builder
          * 

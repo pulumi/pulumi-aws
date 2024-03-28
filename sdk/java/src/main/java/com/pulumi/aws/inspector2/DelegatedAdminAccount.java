@@ -17,7 +17,10 @@ import javax.annotation.Nullable;
  * Resource for managing an Amazon Inspector Delegated Admin Account.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,13 +53,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Inspector Delegated Admin Account using the `account_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 012345678901
+ * $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 012345678901
  * ```
  * 
  */

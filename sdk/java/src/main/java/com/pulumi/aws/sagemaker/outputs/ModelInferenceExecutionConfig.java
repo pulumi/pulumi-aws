@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class ModelInferenceExecutionConfig {
 
         @CustomType.Setter
         public Builder mode(String mode) {
-            this.mode = Objects.requireNonNull(mode);
+            if (mode == null) {
+              throw new MissingRequiredPropertyException("ModelInferenceExecutionConfig", "mode");
+            }
+            this.mode = mode;
             return this;
         }
         public ModelInferenceExecutionConfig build() {
-            final var o = new ModelInferenceExecutionConfig();
-            o.mode = mode;
-            return o;
+            final var _resultValue = new ModelInferenceExecutionConfig();
+            _resultValue.mode = mode;
+            return _resultValue;
         }
     }
 }

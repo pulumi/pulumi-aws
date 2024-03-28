@@ -15,8 +15,10 @@ namespace Pulumi.Aws.CloudFront
     /// Read more about Origin Access Control in the [CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,6 +29,7 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.OriginAccessControl("example", new()
     ///     {
+    ///         Name = "example",
     ///         Description = "Example Policy",
     ///         OriginAccessControlOriginType = "s3",
     ///         SigningBehavior = "always",
@@ -35,13 +38,14 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudFront Origin Access Control using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudfront/originAccessControl:OriginAccessControl example E327GJI25M56DG
+    /// $ pulumi import aws:cloudfront/originAccessControl:OriginAccessControl example E327GJI25M56DG
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/originAccessControl:OriginAccessControl")]

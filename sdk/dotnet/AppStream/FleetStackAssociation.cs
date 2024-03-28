@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,8 +23,9 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleFleet = new Aws.AppStream.Fleet("exampleFleet", new()
+    ///     var example = new Aws.AppStream.Fleet("example", new()
     ///     {
+    ///         Name = "NAME",
     ///         ImageName = "Amazon-AppStream2-Sample-Image-03-11-2023",
     ///         InstanceType = "stream.standard.small",
     ///         ComputeCapacity = new Aws.AppStream.Inputs.FleetComputeCapacityArgs
@@ -32,23 +34,27 @@ namespace Pulumi.Aws.AppStream
     ///         },
     ///     });
     /// 
-    ///     var exampleStack = new Aws.AppStream.Stack("exampleStack");
-    /// 
-    ///     var exampleFleetStackAssociation = new Aws.AppStream.FleetStackAssociation("exampleFleetStackAssociation", new()
+    ///     var exampleStack = new Aws.AppStream.Stack("example", new()
     ///     {
-    ///         FleetName = exampleFleet.Name,
+    ///         Name = "STACK NAME",
+    ///     });
+    /// 
+    ///     var exampleFleetStackAssociation = new Aws.AppStream.FleetStackAssociation("example", new()
+    ///     {
+    ///         FleetName = example.Name,
     ///         StackName = exampleStack.Name,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
+    /// $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
     /// ```
     /// </summary>
     [AwsResourceType("aws:appstream/fleetStackAssociation:FleetStackAssociation")]

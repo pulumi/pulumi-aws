@@ -9,21 +9,29 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const main = new aws.route53.DelegationSet("main", {referenceName: "DynDNS"});
- * const primary = new aws.route53.Zone("primary", {delegationSetId: main.id});
- * const secondary = new aws.route53.Zone("secondary", {delegationSetId: main.id});
+ * const primary = new aws.route53.Zone("primary", {
+ *     name: "mydomain.com",
+ *     delegationSetId: main.id,
+ * });
+ * const secondary = new aws.route53.Zone("secondary", {
+ *     name: "coolcompany.io",
+ *     delegationSetId: main.id,
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Route53 Delegation Sets using the delegation set `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
+ * $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
  * ```
  */
 export class DelegationSet extends pulumi.CustomResource {

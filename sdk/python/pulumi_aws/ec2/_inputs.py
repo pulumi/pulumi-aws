@@ -3278,6 +3278,7 @@ class InstanceEbsBlockDeviceArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
                  volume_id: Optional[pulumi.Input[str]] = None,
                  volume_size: Optional[pulumi.Input[int]] = None,
@@ -3290,6 +3291,7 @@ class InstanceEbsBlockDeviceArgs:
         :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param pulumi.Input[str] snapshot_id: Snapshot ID to mount.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the device.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] throughput: Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
         :param pulumi.Input[str] volume_id: ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
         :param pulumi.Input[int] volume_size: Size of the volume in gibibytes (GiB).
@@ -3310,6 +3312,8 @@ class InstanceEbsBlockDeviceArgs:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if throughput is not None:
             pulumi.set(__self__, "throughput", throughput)
         if volume_id is not None:
@@ -3402,6 +3406,18 @@ class InstanceEbsBlockDeviceArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -3545,7 +3561,7 @@ class InstanceInstanceMarketOptionsArgs:
                  market_type: Optional[pulumi.Input[str]] = None,
                  spot_options: Optional[pulumi.Input['InstanceInstanceMarketOptionsSpotOptionsArgs']] = None):
         """
-        :param pulumi.Input[str] market_type: Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+        :param pulumi.Input[str] market_type: Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spot_options` is specified.
         :param pulumi.Input['InstanceInstanceMarketOptionsSpotOptionsArgs'] spot_options: Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
         """
         if market_type is not None:
@@ -3557,7 +3573,7 @@ class InstanceInstanceMarketOptionsArgs:
     @pulumi.getter(name="marketType")
     def market_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+        Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spot_options` is specified.
         """
         return pulumi.get(self, "market_type")
 
@@ -3951,6 +3967,7 @@ class InstanceRootBlockDeviceArgs:
                  iops: Optional[pulumi.Input[int]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
                  volume_id: Optional[pulumi.Input[str]] = None,
                  volume_size: Optional[pulumi.Input[int]] = None,
@@ -3962,6 +3979,7 @@ class InstanceRootBlockDeviceArgs:
         :param pulumi.Input[int] iops: Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
         :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the device.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] throughput: Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
         :param pulumi.Input[str] volume_id: ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
         :param pulumi.Input[int] volume_size: Size of the volume in gibibytes (GiB).
@@ -3981,6 +3999,8 @@ class InstanceRootBlockDeviceArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if throughput is not None:
             pulumi.set(__self__, "throughput", throughput)
         if volume_id is not None:
@@ -4061,6 +4081,18 @@ class InstanceRootBlockDeviceArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -5078,21 +5110,9 @@ class LaunchTemplateInstanceRequirementsArgs:
         :param pulumi.Input['LaunchTemplateInstanceRequirementsVcpuCountArgs'] vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
         :param pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorCountArgs'] accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_names: List of accelerator names. Default is any acclerator.
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs'] accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_types: List of accelerator types. Default is any accelerator type.
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_instance_types: List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
                
                > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
@@ -5102,24 +5122,12 @@ class LaunchTemplateInstanceRequirementsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
                
                > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_instance_types: List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
                
                > **NOTE:** If you specify `excluded_instance_types`, you can't specify `allowed_instance_types`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_generations: List of instance generation names. Default is any generation.
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[str] local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] local_storage_types: List of local storage type names. Default any storage type.
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input['LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs'] memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
         :param pulumi.Input['LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs'] network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
         :param pulumi.Input['LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs'] network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
@@ -5218,10 +5226,6 @@ class LaunchTemplateInstanceRequirementsArgs:
     def accelerator_manufacturers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of accelerator manufacturer names. Default is any manufacturer.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "accelerator_manufacturers")
 
@@ -5234,10 +5238,6 @@ class LaunchTemplateInstanceRequirementsArgs:
     def accelerator_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of accelerator names. Default is any acclerator.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "accelerator_names")
 
@@ -5262,10 +5262,6 @@ class LaunchTemplateInstanceRequirementsArgs:
     def accelerator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of accelerator types. Default is any accelerator type.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "accelerator_types")
 
@@ -5330,10 +5326,6 @@ class LaunchTemplateInstanceRequirementsArgs:
         List of CPU manufacturer names. Default is any manufacturer.
 
         > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "cpu_manufacturers")
 
@@ -5360,10 +5352,6 @@ class LaunchTemplateInstanceRequirementsArgs:
     def instance_generations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of instance generation names. Default is any generation.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "instance_generations")
 
@@ -5388,10 +5376,6 @@ class LaunchTemplateInstanceRequirementsArgs:
     def local_storage_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of local storage type names. Default any storage type.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "local_storage_types")
 
@@ -12238,7 +12222,7 @@ class SecurityGroupEgressArgs:
                  self: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[int] from_port: Start port (or ICMP type number if protocol is `icmp`)
-        :param pulumi.Input[str] protocol: Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+        :param pulumi.Input[str] protocol: Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
         :param pulumi.Input[int] to_port: End range port (or ICMP code if protocol is `icmp`).
                
                The following arguments are optional:
@@ -12283,7 +12267,7 @@ class SecurityGroupEgressArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
         """
-        Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+        Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
         """
         return pulumi.get(self, "protocol")
 
@@ -12394,7 +12378,7 @@ class SecurityGroupIngressArgs:
                  self: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[int] from_port: Start port (or ICMP type number if protocol is `icmp` or `icmpv6`).
-        :param pulumi.Input[str] protocol: Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+        :param pulumi.Input[str] protocol: Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
                
                The following arguments are optional:
                
@@ -12439,7 +12423,7 @@ class SecurityGroupIngressArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
         """
-        Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+        Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
 
         The following arguments are optional:
 
@@ -13282,21 +13266,9 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
         """
         :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs'] accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_names: List of accelerator names. Default is any acclerator.
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs'] accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_types: List of accelerator types. Default is any accelerator type.
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_instance_types: List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
                
                > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
@@ -13306,24 +13278,12 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
                
                > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_instance_types: List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
                
                > **NOTE:** If you specify `excluded_instance_types`, you can't specify `allowed_instance_types`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_generations: List of instance generation names. Default is any generation.
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[str] local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] local_storage_types: List of local storage type names. Default any storage type.
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs'] memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
         :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs'] memory_mib: Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
         :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs'] network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
@@ -13402,10 +13362,6 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     def accelerator_manufacturers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of accelerator manufacturer names. Default is any manufacturer.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "accelerator_manufacturers")
 
@@ -13418,10 +13374,6 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     def accelerator_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of accelerator names. Default is any acclerator.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "accelerator_names")
 
@@ -13446,10 +13398,6 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     def accelerator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of accelerator types. Default is any accelerator type.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "accelerator_types")
 
@@ -13514,10 +13462,6 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
         List of CPU manufacturer names. Default is any manufacturer.
 
         > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "cpu_manufacturers")
 
@@ -13544,10 +13488,6 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     def instance_generations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of instance generation names. Default is any generation.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "instance_generations")
 
@@ -13572,10 +13512,6 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     def local_storage_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of local storage type names. Default any storage type.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "local_storage_types")
 
@@ -14267,6 +14203,7 @@ class SpotInstanceRequestEbsBlockDeviceArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
                  volume_id: Optional[pulumi.Input[str]] = None,
                  volume_size: Optional[pulumi.Input[int]] = None,
@@ -14279,6 +14216,7 @@ class SpotInstanceRequestEbsBlockDeviceArgs:
         :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param pulumi.Input[str] snapshot_id: Snapshot ID to mount.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the device.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] throughput: Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
         :param pulumi.Input[int] volume_size: Size of the volume in gibibytes (GiB).
         :param pulumi.Input[str] volume_type: Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
@@ -14298,6 +14236,8 @@ class SpotInstanceRequestEbsBlockDeviceArgs:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if throughput is not None:
             pulumi.set(__self__, "throughput", throughput)
         if volume_id is not None:
@@ -14390,6 +14330,18 @@ class SpotInstanceRequestEbsBlockDeviceArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -14826,6 +14778,7 @@ class SpotInstanceRequestRootBlockDeviceArgs:
                  iops: Optional[pulumi.Input[int]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
                  volume_id: Optional[pulumi.Input[str]] = None,
                  volume_size: Optional[pulumi.Input[int]] = None,
@@ -14837,6 +14790,7 @@ class SpotInstanceRequestRootBlockDeviceArgs:
         :param pulumi.Input[int] iops: Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
         :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the device.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] throughput: Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
         :param pulumi.Input[int] volume_size: Size of the volume in gibibytes (GiB).
         :param pulumi.Input[str] volume_type: Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
@@ -14855,6 +14809,8 @@ class SpotInstanceRequestRootBlockDeviceArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if throughput is not None:
             pulumi.set(__self__, "throughput", throughput)
         if volume_id is not None:
@@ -14935,6 +14891,18 @@ class SpotInstanceRequestRootBlockDeviceArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -17180,6 +17148,7 @@ class GetSubnetsFilterArgs:
                [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
                For example, if matching against tag `Name`, use:
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -17189,6 +17158,7 @@ class GetSubnetsFilterArgs:
                    values=[""],
                )])
                ```
+               <!--End PulumiCodeChooser -->
         :param Sequence[str] values: Set of values that are accepted for the given field.
                Subnet IDs will be selected if any one of the given values match.
         """
@@ -17203,6 +17173,7 @@ class GetSubnetsFilterArgs:
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
         For example, if matching against tag `Name`, use:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -17212,6 +17183,7 @@ class GetSubnetsFilterArgs:
             values=[""],
         )])
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "name")
 

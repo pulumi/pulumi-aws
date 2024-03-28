@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,8 +29,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testGraphQLApi, err := appsync.NewGraphQLApi(ctx, "testGraphQLApi", &appsync.GraphQLApiArgs{
+//			test, err := appsync.NewGraphQLApi(ctx, "test", &appsync.GraphQLApiArgs{
 //				AuthenticationType: pulumi.String("API_KEY"),
+//				Name:               pulumi.String("tf-example"),
 //				Schema: pulumi.String(`type Mutation {
 //		putPost(id: ID!, title: String!): Post
 //	}
@@ -54,8 +56,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testDataSource, err := appsync.NewDataSource(ctx, "testDataSource", &appsync.DataSourceArgs{
-//				ApiId: testGraphQLApi.ID(),
+//			testDataSource, err := appsync.NewDataSource(ctx, "test", &appsync.DataSourceArgs{
+//				ApiId: test.ID(),
 //				Name:  pulumi.String("my_example"),
 //				Type:  pulumi.String("HTTP"),
 //				HttpConfig: &appsync.DataSourceHttpConfigArgs{
@@ -65,8 +67,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appsync.NewResolver(ctx, "testResolver", &appsync.ResolverArgs{
-//				ApiId:      testGraphQLApi.ID(),
+//			// UNIT type resolver (default)
+//			_, err = appsync.NewResolver(ctx, "test", &appsync.ResolverArgs{
+//				ApiId:      test.ID(),
 //				Field:      pulumi.String("singlePost"),
 //				Type:       pulumi.String("Query"),
 //				DataSource: testDataSource.Name,
@@ -102,18 +105,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appsync.NewResolver(ctx, "mutationPipelineTest", &appsync.ResolverArgs{
+//			// PIPELINE type resolver
+//			_, err = appsync.NewResolver(ctx, "Mutation_pipelineTest", &appsync.ResolverArgs{
 //				Type:             pulumi.String("Mutation"),
-//				ApiId:            testGraphQLApi.ID(),
+//				ApiId:            test.ID(),
 //				Field:            pulumi.String("pipelineTest"),
 //				RequestTemplate:  pulumi.String("{}"),
 //				ResponseTemplate: pulumi.String("$util.toJson($ctx.result)"),
 //				Kind:             pulumi.String("PIPELINE"),
 //				PipelineConfig: &appsync.ResolverPipelineConfigArgs{
 //					Functions: pulumi.StringArray{
-//						aws_appsync_function.Test1.Function_id,
-//						aws_appsync_function.Test2.Function_id,
-//						aws_appsync_function.Test3.Function_id,
+//						test1.FunctionId,
+//						test2.FunctionId,
+//						test3.FunctionId,
 //					},
 //				},
 //			})
@@ -125,43 +129,43 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### JS
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewResolver(ctx, "example", &appsync.ResolverArgs{
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "some-code-dir",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appsync.NewResolver(ctx, "example", &appsync.ResolverArgs{
 //				Type:  pulumi.String("Query"),
-//				ApiId: pulumi.Any(aws_appsync_graphql_api.Test.Id),
+//				ApiId: pulumi.Any(testAwsAppsyncGraphqlApi.Id),
 //				Field: pulumi.String("pipelineTest"),
 //				Kind:  pulumi.String("PIPELINE"),
-//				Code:  readFileOrPanic("some-code-dir"),
+//				Code:  invokeFile.Result,
 //				Runtime: &appsync.ResolverRuntimeArgs{
 //					Name:           pulumi.String("APPSYNC_JS"),
 //					RuntimeVersion: pulumi.String("1.0.0"),
 //				},
 //				PipelineConfig: &appsync.ResolverPipelineConfigArgs{
 //					Functions: pulumi.StringArray{
-//						aws_appsync_function.Test.Function_id,
+//						test.FunctionId,
 //					},
 //				},
 //			})
@@ -173,15 +177,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
-//
+// $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
 // ```
 type Resolver struct {
 	pulumi.CustomResourceState

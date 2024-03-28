@@ -46,13 +46,14 @@ public final class BucketReplicationConfigurationRuleSourceSelectionCriteria {
 
         @CustomType.Setter
         public Builder sseKmsEncryptedObjects(@Nullable BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects sseKmsEncryptedObjects) {
+
             this.sseKmsEncryptedObjects = sseKmsEncryptedObjects;
             return this;
         }
         public BucketReplicationConfigurationRuleSourceSelectionCriteria build() {
-            final var o = new BucketReplicationConfigurationRuleSourceSelectionCriteria();
-            o.sseKmsEncryptedObjects = sseKmsEncryptedObjects;
-            return o;
+            final var _resultValue = new BucketReplicationConfigurationRuleSourceSelectionCriteria();
+            _resultValue.sseKmsEncryptedObjects = sseKmsEncryptedObjects;
+            return _resultValue;
         }
     }
 }

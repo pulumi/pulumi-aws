@@ -73,25 +73,28 @@ public final class InsightFiltersFirstObservedAt {
 
         @CustomType.Setter
         public Builder dateRange(@Nullable InsightFiltersFirstObservedAtDateRange dateRange) {
+
             this.dateRange = dateRange;
             return this;
         }
         @CustomType.Setter
         public Builder end(@Nullable String end) {
+
             this.end = end;
             return this;
         }
         @CustomType.Setter
         public Builder start(@Nullable String start) {
+
             this.start = start;
             return this;
         }
         public InsightFiltersFirstObservedAt build() {
-            final var o = new InsightFiltersFirstObservedAt();
-            o.dateRange = dateRange;
-            o.end = end;
-            o.start = start;
-            return o;
+            final var _resultValue = new InsightFiltersFirstObservedAt();
+            _resultValue.dateRange = dateRange;
+            _resultValue.end = end;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate;
 import com.pulumi.aws.appmesh.outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.List;
@@ -90,16 +91,19 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTls {
 
         @CustomType.Setter
         public Builder certificate(@Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate certificate) {
+
             this.certificate = certificate;
             return this;
         }
         @CustomType.Setter
         public Builder enforce(@Nullable Boolean enforce) {
+
             this.enforce = enforce;
             return this;
         }
         @CustomType.Setter
         public Builder ports(@Nullable List<Integer> ports) {
+
             this.ports = ports;
             return this;
         }
@@ -108,16 +112,19 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTls {
         }
         @CustomType.Setter
         public Builder validation(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation validation) {
-            this.validation = Objects.requireNonNull(validation);
+            if (validation == null) {
+              throw new MissingRequiredPropertyException("VirtualGatewaySpecBackendDefaultsClientPolicyTls", "validation");
+            }
+            this.validation = validation;
             return this;
         }
         public VirtualGatewaySpecBackendDefaultsClientPolicyTls build() {
-            final var o = new VirtualGatewaySpecBackendDefaultsClientPolicyTls();
-            o.certificate = certificate;
-            o.enforce = enforce;
-            o.ports = ports;
-            o.validation = validation;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecBackendDefaultsClientPolicyTls();
+            _resultValue.certificate = certificate;
+            _resultValue.enforce = enforce;
+            _resultValue.ports = ports;
+            _resultValue.validation = validation;
+            return _resultValue;
         }
     }
 }

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := neptune.NewClusterParameterGroup(ctx, "example", &neptune.ClusterParameterGroupArgs{
-//				Description: pulumi.String("neptune cluster parameter group"),
 //				Family:      pulumi.String("neptune1"),
+//				Name:        pulumi.String("example"),
+//				Description: pulumi.String("neptune cluster parameter group"),
 //				Parameters: neptune.ClusterParameterGroupParameterArray{
 //					&neptune.ClusterParameterGroupParameterArgs{
 //						Name:  pulumi.String("neptune_enable_audit_log"),
@@ -46,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Neptune Cluster Parameter Groups using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:neptune/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
-//
+// $ pulumi import aws:neptune/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
 // ```
 type ClusterParameterGroup struct {
 	pulumi.CustomResourceState
@@ -89,10 +90,6 @@ func NewClusterParameterGroup(ctx *pulumi.Context,
 	if args.Family == nil {
 		return nil, errors.New("invalid value for required argument 'Family'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterParameterGroup
 	err := ctx.RegisterResource("aws:neptune/clusterParameterGroup:ClusterParameterGroup", name, args, &resource, opts...)

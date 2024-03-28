@@ -8,37 +8,43 @@ import * as utilities from "../utilities";
  * Manages an EC2 Transit Gateway Prefix List Reference.
  *
  * ## Example Usage
+ *
  * ### Attachment Routing
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2transitgateway.PrefixListReference("example", {
- *     prefixListId: aws_ec2_managed_prefix_list.example.id,
- *     transitGatewayAttachmentId: aws_ec2_transit_gateway_vpc_attachment.example.id,
- *     transitGatewayRouteTableId: aws_ec2_transit_gateway.example.association_default_route_table_id,
+ *     prefixListId: exampleAwsEc2ManagedPrefixList.id,
+ *     transitGatewayAttachmentId: exampleAwsEc2TransitGatewayVpcAttachment.id,
+ *     transitGatewayRouteTableId: exampleAwsEc2TransitGateway.associationDefaultRouteTableId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Blackhole Routing
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2transitgateway.PrefixListReference("example", {
  *     blackhole: true,
- *     prefixListId: aws_ec2_managed_prefix_list.example.id,
- *     transitGatewayRouteTableId: aws_ec2_transit_gateway.example.association_default_route_table_id,
+ *     prefixListId: exampleAwsEc2ManagedPrefixList.id,
+ *     transitGatewayRouteTableId: exampleAwsEc2TransitGateway.associationDefaultRouteTableId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ec2_transit_gateway_prefix_list_reference` using the EC2 Transit Gateway Route Table identifier and EC2 Prefix List identifier, separated by an underscore (`_`). For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2transitgateway/prefixListReference:PrefixListReference example tgw-rtb-12345678_pl-12345678
+ * $ pulumi import aws:ec2transitgateway/prefixListReference:PrefixListReference example tgw-rtb-12345678_pl-12345678
  * ```
  */
 export class PrefixListReference extends pulumi.CustomResource {

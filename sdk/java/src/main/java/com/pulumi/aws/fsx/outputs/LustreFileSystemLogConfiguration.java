@@ -58,19 +58,21 @@ public final class LustreFileSystemLogConfiguration {
 
         @CustomType.Setter
         public Builder destination(@Nullable String destination) {
+
             this.destination = destination;
             return this;
         }
         @CustomType.Setter
         public Builder level(@Nullable String level) {
+
             this.level = level;
             return this;
         }
         public LustreFileSystemLogConfiguration build() {
-            final var o = new LustreFileSystemLogConfiguration();
-            o.destination = destination;
-            o.level = level;
-            return o;
+            final var _resultValue = new LustreFileSystemLogConfiguration();
+            _resultValue.destination = destination;
+            _resultValue.level = level;
+            return _resultValue;
         }
     }
 }

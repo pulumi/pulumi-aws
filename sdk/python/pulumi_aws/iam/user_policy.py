@@ -168,31 +168,36 @@ class UserPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        lb_user = aws.iam.User("lbUser", path="/system/")
-        lb_ro = aws.iam.UserPolicy("lbRo",
-            user=lb_user.name,
+        lb = aws.iam.User("lb",
+            name="loadbalancer",
+            path="/system/")
+        lb_ro = aws.iam.UserPolicy("lb_ro",
+            name="test",
+            user=lb.name,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": ["ec2:Describe*"],
+                    "effect": "Allow",
+                    "resource": "*",
                 }],
             }))
-        lb_access_key = aws.iam.AccessKey("lbAccessKey", user=lb_user.name)
+        lb_access_key = aws.iam.AccessKey("lb", user=lb.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM User Policies using the `user_name:user_policy_name`. For example:
 
         ```sh
-         $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
+        $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
         ```
 
         :param str resource_name: The name of the resource.
@@ -213,31 +218,36 @@ class UserPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        lb_user = aws.iam.User("lbUser", path="/system/")
-        lb_ro = aws.iam.UserPolicy("lbRo",
-            user=lb_user.name,
+        lb = aws.iam.User("lb",
+            name="loadbalancer",
+            path="/system/")
+        lb_ro = aws.iam.UserPolicy("lb_ro",
+            name="test",
+            user=lb.name,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": ["ec2:Describe*"],
+                    "effect": "Allow",
+                    "resource": "*",
                 }],
             }))
-        lb_access_key = aws.iam.AccessKey("lbAccessKey", user=lb_user.name)
+        lb_access_key = aws.iam.AccessKey("lb", user=lb.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM User Policies using the `user_name:user_policy_name`. For example:
 
         ```sh
-         $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
+        $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
         ```
 
         :param str resource_name: The name of the resource.

@@ -13,19 +13,22 @@ namespace Pulumi.Aws.ElasticSearch
     /// Manages SAML authentication options for an AWS Elasticsearch Domain.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleDomain = new Aws.ElasticSearch.Domain("exampleDomain", new()
+    ///     var example = new Aws.ElasticSearch.Domain("example", new()
     ///     {
+    ///         DomainName = "example",
     ///         ElasticsearchVersion = "1.5",
     ///         ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
     ///         {
@@ -41,29 +44,33 @@ namespace Pulumi.Aws.ElasticSearch
     ///         },
     ///     });
     /// 
-    ///     var exampleDomainSamlOptions = new Aws.ElasticSearch.DomainSamlOptions("exampleDomainSamlOptions", new()
+    ///     var exampleDomainSamlOptions = new Aws.ElasticSearch.DomainSamlOptions("example", new()
     ///     {
-    ///         DomainName = exampleDomain.DomainName,
+    ///         DomainName = example.DomainName,
     ///         SamlOptions = new Aws.ElasticSearch.Inputs.DomainSamlOptionsSamlOptionsArgs
     ///         {
     ///             Enabled = true,
     ///             Idp = new Aws.ElasticSearch.Inputs.DomainSamlOptionsSamlOptionsIdpArgs
     ///             {
     ///                 EntityId = "https://example.com",
-    ///                 MetadataContent = File.ReadAllText("./saml-metadata.xml"),
+    ///                 MetadataContent = Std.File.Invoke(new()
+    ///                 {
+    ///                     Input = "./saml-metadata.xml",
+    ///                 }).Apply(invoke =&gt; invoke.Result),
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:elasticsearch/domainSamlOptions:DomainSamlOptions example domain_name
+    /// $ pulumi import aws:elasticsearch/domainSamlOptions:DomainSamlOptions example domain_name
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticsearch/domainSamlOptions:DomainSamlOptions")]

@@ -215,6 +215,7 @@ class ResourceSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -223,16 +224,17 @@ class ResourceSet(pulumi.CustomResource):
             resource_set_name=my_cw_alarm_set,
             resource_set_type="AWS::CloudWatch::Alarm",
             resources=[aws.route53recoveryreadiness.ResourceSetResourceArgs(
-                resource_arn=aws_cloudwatch_metric_alarm["example"]["arn"],
+                resource_arn=example_aws_cloudwatch_metric_alarm["arn"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 Recovery Readiness resource set name using the resource set name. For example:
 
         ```sh
-         $ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set example
+        $ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set example
         ```
 
         :param str resource_name: The name of the resource.
@@ -255,6 +257,7 @@ class ResourceSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -263,16 +266,17 @@ class ResourceSet(pulumi.CustomResource):
             resource_set_name=my_cw_alarm_set,
             resource_set_type="AWS::CloudWatch::Alarm",
             resources=[aws.route53recoveryreadiness.ResourceSetResourceArgs(
-                resource_arn=aws_cloudwatch_metric_alarm["example"]["arn"],
+                resource_arn=example_aws_cloudwatch_metric_alarm["arn"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 Recovery Readiness resource set name using the resource set name. For example:
 
         ```sh
-         $ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set example
+        $ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set example
         ```
 
         :param str resource_name: The name of the resource.
@@ -315,8 +319,6 @@ class ResourceSet(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ResourceSet, __self__).__init__(
             'aws:route53recoveryreadiness/resourceSet:ResourceSet',
             resource_name,

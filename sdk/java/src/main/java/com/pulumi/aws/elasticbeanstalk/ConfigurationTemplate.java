@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * application with the same configuration settings.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,10 +48,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var tftest = new Application(&#34;tftest&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;tf-test-name&#34;)
  *             .description(&#34;tf-test-desc&#34;)
  *             .build());
  * 
  *         var myTemplate = new ConfigurationTemplate(&#34;myTemplate&#34;, ConfigurationTemplateArgs.builder()        
+ *             .name(&#34;tf-test-template-config&#34;)
  *             .application(tftest.name())
  *             .solutionStackName(&#34;64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4&#34;)
  *             .build());
@@ -57,6 +61,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Option Settings
  * 
  * The `setting` field supports the following format:

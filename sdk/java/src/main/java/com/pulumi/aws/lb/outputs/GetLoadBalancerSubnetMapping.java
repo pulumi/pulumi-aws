@@ -4,6 +4,7 @@
 package com.pulumi.aws.lb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -58,37 +59,52 @@ public final class GetLoadBalancerSubnetMapping {
 
         @CustomType.Setter
         public Builder allocationId(String allocationId) {
-            this.allocationId = Objects.requireNonNull(allocationId);
+            if (allocationId == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerSubnetMapping", "allocationId");
+            }
+            this.allocationId = allocationId;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6Address(String ipv6Address) {
-            this.ipv6Address = Objects.requireNonNull(ipv6Address);
+            if (ipv6Address == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerSubnetMapping", "ipv6Address");
+            }
+            this.ipv6Address = ipv6Address;
             return this;
         }
         @CustomType.Setter
         public Builder outpostId(String outpostId) {
-            this.outpostId = Objects.requireNonNull(outpostId);
+            if (outpostId == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerSubnetMapping", "outpostId");
+            }
+            this.outpostId = outpostId;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpv4Address(String privateIpv4Address) {
-            this.privateIpv4Address = Objects.requireNonNull(privateIpv4Address);
+            if (privateIpv4Address == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerSubnetMapping", "privateIpv4Address");
+            }
+            this.privateIpv4Address = privateIpv4Address;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerSubnetMapping", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         public GetLoadBalancerSubnetMapping build() {
-            final var o = new GetLoadBalancerSubnetMapping();
-            o.allocationId = allocationId;
-            o.ipv6Address = ipv6Address;
-            o.outpostId = outpostId;
-            o.privateIpv4Address = privateIpv4Address;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new GetLoadBalancerSubnetMapping();
+            _resultValue.allocationId = allocationId;
+            _resultValue.ipv6Address = ipv6Address;
+            _resultValue.outpostId = outpostId;
+            _resultValue.privateIpv4Address = privateIpv4Address;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

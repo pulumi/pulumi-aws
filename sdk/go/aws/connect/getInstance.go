@@ -17,6 +17,7 @@ import (
 //
 // # By instanceAlias
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,9 +41,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // # By instanceId
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,6 +69,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupInstance(ctx *pulumi.Context, args *LookupInstanceArgs, opts ...pulumi.InvokeOption) (*LookupInstanceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInstanceResult

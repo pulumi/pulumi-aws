@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,12 +33,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultBucketV2, err := s3.NewBucketV2(ctx, "defaultBucketV2", nil)
+//			_, err := s3.NewBucketV2(ctx, "default", &s3.BucketV2Args{
+//				Bucket: pulumi.String("tf-spot-datafeed"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewSpotDatafeedSubscription(ctx, "defaultSpotDatafeedSubscription", &ec2.SpotDatafeedSubscriptionArgs{
-//				Bucket: defaultBucketV2.ID(),
+//			_, err = ec2.NewSpotDatafeedSubscription(ctx, "default", &ec2.SpotDatafeedSubscriptionArgs{
+//				Bucket: _default.ID(),
 //				Prefix: pulumi.String("my_subdirectory"),
 //			})
 //			if err != nil {
@@ -48,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a Spot Datafeed Subscription using the word `spot-datafeed-subscription`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
-//
+// $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
 // ```
 type SpotDatafeedSubscription struct {
 	pulumi.CustomResourceState

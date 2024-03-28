@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** This resource can only be used in the `us-east-1` region.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,7 +52,7 @@ import javax.annotation.Nullable;
  *             .repositoryName(&#34;example&#34;)
  *             .build());
  * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;new policy&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -78,19 +80,20 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRepositoryPolicy = new RepositoryPolicy(&#34;exampleRepositoryPolicy&#34;, RepositoryPolicyArgs.builder()        
  *             .repositoryName(exampleRepository.repositoryName())
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import ECR Public Repository Policy using the repository name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
+ * $ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
  * ```
  * 
  */

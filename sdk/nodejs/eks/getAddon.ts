@@ -9,16 +9,18 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.eks.getAddon({
  *     addonName: "vpc-cni",
- *     clusterName: aws_eks_cluster.example.name,
+ *     clusterName: exampleAwsEksCluster.name,
  * });
- * export const eksAddonOutputs = aws_eks_addon.example;
+ * export const eksAddonOutputs = exampleAwsEksAddon;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonResult> {
 
@@ -40,7 +42,7 @@ export interface GetAddonArgs {
      */
     addonName: string;
     /**
-     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the EKS Cluster.
      */
     clusterName: string;
     tags?: {[key: string]: string};
@@ -88,16 +90,18 @@ export interface GetAddonResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.eks.getAddon({
  *     addonName: "vpc-cni",
- *     clusterName: aws_eks_cluster.example.name,
+ *     clusterName: exampleAwsEksCluster.name,
  * });
- * export const eksAddonOutputs = aws_eks_addon.example;
+ * export const eksAddonOutputs = exampleAwsEksAddon;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonResult> {
     return pulumi.output(args).apply((a: any) => getAddon(a, opts))
@@ -113,7 +117,7 @@ export interface GetAddonOutputArgs {
      */
     addonName: pulumi.Input<string>;
     /**
-     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the EKS Cluster.
      */
     clusterName: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

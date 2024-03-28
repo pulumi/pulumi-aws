@@ -18,8 +18,10 @@ namespace Pulumi.Aws.LightSail
     /// see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,11 +30,12 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myContainerService = new Aws.LightSail.ContainerService("myContainerService", new()
+    ///     var myContainerService = new Aws.LightSail.ContainerService("my_container_service", new()
     ///     {
-    ///         IsDisabled = false,
+    ///         Name = "container-service-1",
     ///         Power = "nano",
     ///         Scale = 1,
+    ///         IsDisabled = false,
     ///         Tags = 
     ///         {
     ///             { "foo1", "bar1" },
@@ -42,8 +45,11 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Public Domain Names
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,7 +58,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myContainerService = new Aws.LightSail.ContainerService("myContainerService", new()
+    ///     var myContainerService = new Aws.LightSail.ContainerService("my_container_service", new()
     ///     {
     ///         PublicDomainNames = new Aws.LightSail.Inputs.ContainerServicePublicDomainNamesArgs
     ///         {
@@ -72,8 +78,11 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Private Registry Access
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -82,8 +91,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // ... other configuration ...
-    ///     var defaultContainerService = new Aws.LightSail.ContainerService("defaultContainerService", new()
+    ///     var defaultContainerService = new Aws.LightSail.ContainerService("default", new()
     ///     {
     ///         PrivateRegistryAccess = new Aws.LightSail.Inputs.ContainerServicePrivateRegistryAccessArgs
     ///         {
@@ -94,7 +102,7 @@ namespace Pulumi.Aws.LightSail
     ///         },
     ///     });
     /// 
-    ///     var defaultPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var @default = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -121,21 +129,22 @@ namespace Pulumi.Aws.LightSail
     ///         },
     ///     });
     /// 
-    ///     var defaultRepositoryPolicy = new Aws.Ecr.RepositoryPolicy("defaultRepositoryPolicy", new()
+    ///     var defaultRepositoryPolicy = new Aws.Ecr.RepositoryPolicy("default", new()
     ///     {
-    ///         Repository = aws_ecr_repository.Default.Name,
-    ///         Policy = defaultPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Repository = defaultAwsEcrRepository.Name,
+    ///         Policy = @default.Apply(@default =&gt; @default.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Lightsail Container Service using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lightsail/containerService:ContainerService my_container_service container-service-1
+    /// $ pulumi import aws:lightsail/containerService:ContainerService my_container_service container-service-1
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/containerService:ContainerService")]
@@ -279,10 +288,6 @@ namespace Pulumi.Aws.LightSail
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -491,11 +496,7 @@ namespace Pulumi.Aws.LightSail
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

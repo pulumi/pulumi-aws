@@ -250,53 +250,65 @@ class EmailIdentity(pulumi.CustomResource):
         ## Example Usage
 
         ### Basic Usage
+
         ### Email Address Identity
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sesv2.EmailIdentity("example", email_identity="testing@example.com")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Domain Identity
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sesv2.EmailIdentity("example", email_identity="example.com")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Configuration Set
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_configuration_set = aws.sesv2.ConfigurationSet("exampleConfigurationSet", configuration_set_name="example")
-        example_email_identity = aws.sesv2.EmailIdentity("exampleEmailIdentity",
+        example = aws.sesv2.ConfigurationSet("example", configuration_set_name="example")
+        example_email_identity = aws.sesv2.EmailIdentity("example",
             email_identity="example.com",
-            configuration_set_name=example_configuration_set.configuration_set_name)
+            configuration_set_name=example.configuration_set_name)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### DKIM Signing Attributes (BYODKIM)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sesv2.EmailIdentity("example",
+            email_identity="example.com",
             dkim_signing_attributes=aws.sesv2.EmailIdentityDkimSigningAttributesArgs(
                 domain_signing_private_key="MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...",
                 domain_signing_selector="example",
-            ),
-            email_identity="example.com")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity using the `email_identity`. For example:
 
         ```sh
-         $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
+        $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -320,53 +332,65 @@ class EmailIdentity(pulumi.CustomResource):
         ## Example Usage
 
         ### Basic Usage
+
         ### Email Address Identity
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sesv2.EmailIdentity("example", email_identity="testing@example.com")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Domain Identity
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sesv2.EmailIdentity("example", email_identity="example.com")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Configuration Set
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_configuration_set = aws.sesv2.ConfigurationSet("exampleConfigurationSet", configuration_set_name="example")
-        example_email_identity = aws.sesv2.EmailIdentity("exampleEmailIdentity",
+        example = aws.sesv2.ConfigurationSet("example", configuration_set_name="example")
+        example_email_identity = aws.sesv2.EmailIdentity("example",
             email_identity="example.com",
-            configuration_set_name=example_configuration_set.configuration_set_name)
+            configuration_set_name=example.configuration_set_name)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### DKIM Signing Attributes (BYODKIM)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sesv2.EmailIdentity("example",
+            email_identity="example.com",
             dkim_signing_attributes=aws.sesv2.EmailIdentityDkimSigningAttributesArgs(
                 domain_signing_private_key="MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...",
                 domain_signing_selector="example",
-            ),
-            email_identity="example.com")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity using the `email_identity`. For example:
 
         ```sh
-         $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
+        $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -407,8 +431,6 @@ class EmailIdentity(pulumi.CustomResource):
             __props__.__dict__["identity_type"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["verified_for_sending_status"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EmailIdentity, __self__).__init__(
             'aws:sesv2/emailIdentity:EmailIdentity',
             resource_name,

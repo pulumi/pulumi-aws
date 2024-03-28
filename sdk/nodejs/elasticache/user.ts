@@ -13,59 +13,65 @@ import * as utilities from "../utilities";
  * > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.elasticache.User("test", {
+ *     userId: "testUserId",
+ *     userName: "testUserName",
  *     accessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
  *     engine: "REDIS",
  *     passwords: ["password123456789"],
- *     userId: "testUserId",
- *     userName: "testUserName",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.elasticache.User("test", {
+ *     userId: "testUserId",
+ *     userName: "testUserName",
  *     accessString: "on ~* +@all",
+ *     engine: "REDIS",
  *     authenticationMode: {
  *         type: "iam",
  *     },
- *     engine: "REDIS",
- *     userId: "testUserId",
- *     userName: "testUserName",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.elasticache.User("test", {
+ *     userId: "testUserId",
+ *     userName: "testUserName",
  *     accessString: "on ~* +@all",
+ *     engine: "REDIS",
  *     authenticationMode: {
+ *         type: "password",
  *         passwords: [
  *             "password1",
  *             "password2",
  *         ],
- *         type: "password",
  *     },
- *     engine: "REDIS",
- *     userId: "testUserId",
- *     userName: "testUserName",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ElastiCache users using the `user_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:elasticache/user:User my_user userId1
+ * $ pulumi import aws:elasticache/user:User my_user userId1
  * ```
  */
 export class User extends pulumi.CustomResource {
@@ -188,7 +194,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["passwords", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["passwords"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(User.__pulumiType, name, resourceInputs, opts);
     }

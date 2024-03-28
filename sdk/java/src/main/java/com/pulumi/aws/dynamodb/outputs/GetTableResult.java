@@ -11,6 +11,7 @@ import com.pulumi.aws.dynamodb.outputs.GetTableReplica;
 import com.pulumi.aws.dynamodb.outputs.GetTableServerSideEncryption;
 import com.pulumi.aws.dynamodb.outputs.GetTableTtl;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -179,12 +180,18 @@ public final class GetTableResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder attributes(List<GetTableAttribute> attributes) {
-            this.attributes = Objects.requireNonNull(attributes);
+            if (attributes == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "attributes");
+            }
+            this.attributes = attributes;
             return this;
         }
         public Builder attributes(GetTableAttribute... attributes) {
@@ -192,17 +199,26 @@ public final class GetTableResult {
         }
         @CustomType.Setter
         public Builder billingMode(String billingMode) {
-            this.billingMode = Objects.requireNonNull(billingMode);
+            if (billingMode == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "billingMode");
+            }
+            this.billingMode = billingMode;
             return this;
         }
         @CustomType.Setter
         public Builder deletionProtectionEnabled(Boolean deletionProtectionEnabled) {
-            this.deletionProtectionEnabled = Objects.requireNonNull(deletionProtectionEnabled);
+            if (deletionProtectionEnabled == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "deletionProtectionEnabled");
+            }
+            this.deletionProtectionEnabled = deletionProtectionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder globalSecondaryIndexes(List<GetTableGlobalSecondaryIndex> globalSecondaryIndexes) {
-            this.globalSecondaryIndexes = Objects.requireNonNull(globalSecondaryIndexes);
+            if (globalSecondaryIndexes == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "globalSecondaryIndexes");
+            }
+            this.globalSecondaryIndexes = globalSecondaryIndexes;
             return this;
         }
         public Builder globalSecondaryIndexes(GetTableGlobalSecondaryIndex... globalSecondaryIndexes) {
@@ -210,17 +226,26 @@ public final class GetTableResult {
         }
         @CustomType.Setter
         public Builder hashKey(String hashKey) {
-            this.hashKey = Objects.requireNonNull(hashKey);
+            if (hashKey == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "hashKey");
+            }
+            this.hashKey = hashKey;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder localSecondaryIndexes(List<GetTableLocalSecondaryIndex> localSecondaryIndexes) {
-            this.localSecondaryIndexes = Objects.requireNonNull(localSecondaryIndexes);
+            if (localSecondaryIndexes == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "localSecondaryIndexes");
+            }
+            this.localSecondaryIndexes = localSecondaryIndexes;
             return this;
         }
         public Builder localSecondaryIndexes(GetTableLocalSecondaryIndex... localSecondaryIndexes) {
@@ -228,27 +253,42 @@ public final class GetTableResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder pointInTimeRecovery(GetTablePointInTimeRecovery pointInTimeRecovery) {
-            this.pointInTimeRecovery = Objects.requireNonNull(pointInTimeRecovery);
+            if (pointInTimeRecovery == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "pointInTimeRecovery");
+            }
+            this.pointInTimeRecovery = pointInTimeRecovery;
             return this;
         }
         @CustomType.Setter
         public Builder rangeKey(String rangeKey) {
-            this.rangeKey = Objects.requireNonNull(rangeKey);
+            if (rangeKey == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "rangeKey");
+            }
+            this.rangeKey = rangeKey;
             return this;
         }
         @CustomType.Setter
         public Builder readCapacity(Integer readCapacity) {
-            this.readCapacity = Objects.requireNonNull(readCapacity);
+            if (readCapacity == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "readCapacity");
+            }
+            this.readCapacity = readCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder replicas(List<GetTableReplica> replicas) {
-            this.replicas = Objects.requireNonNull(replicas);
+            if (replicas == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "replicas");
+            }
+            this.replicas = replicas;
             return this;
         }
         public Builder replicas(GetTableReplica... replicas) {
@@ -256,74 +296,101 @@ public final class GetTableResult {
         }
         @CustomType.Setter
         public Builder serverSideEncryption(GetTableServerSideEncryption serverSideEncryption) {
-            this.serverSideEncryption = Objects.requireNonNull(serverSideEncryption);
+            if (serverSideEncryption == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "serverSideEncryption");
+            }
+            this.serverSideEncryption = serverSideEncryption;
             return this;
         }
         @CustomType.Setter
         public Builder streamArn(String streamArn) {
-            this.streamArn = Objects.requireNonNull(streamArn);
+            if (streamArn == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "streamArn");
+            }
+            this.streamArn = streamArn;
             return this;
         }
         @CustomType.Setter
         public Builder streamEnabled(Boolean streamEnabled) {
-            this.streamEnabled = Objects.requireNonNull(streamEnabled);
+            if (streamEnabled == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "streamEnabled");
+            }
+            this.streamEnabled = streamEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder streamLabel(String streamLabel) {
-            this.streamLabel = Objects.requireNonNull(streamLabel);
+            if (streamLabel == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "streamLabel");
+            }
+            this.streamLabel = streamLabel;
             return this;
         }
         @CustomType.Setter
         public Builder streamViewType(String streamViewType) {
-            this.streamViewType = Objects.requireNonNull(streamViewType);
+            if (streamViewType == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "streamViewType");
+            }
+            this.streamViewType = streamViewType;
             return this;
         }
         @CustomType.Setter
         public Builder tableClass(String tableClass) {
-            this.tableClass = Objects.requireNonNull(tableClass);
+            if (tableClass == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "tableClass");
+            }
+            this.tableClass = tableClass;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder ttl(GetTableTtl ttl) {
-            this.ttl = Objects.requireNonNull(ttl);
+            if (ttl == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "ttl");
+            }
+            this.ttl = ttl;
             return this;
         }
         @CustomType.Setter
         public Builder writeCapacity(Integer writeCapacity) {
-            this.writeCapacity = Objects.requireNonNull(writeCapacity);
+            if (writeCapacity == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "writeCapacity");
+            }
+            this.writeCapacity = writeCapacity;
             return this;
         }
         public GetTableResult build() {
-            final var o = new GetTableResult();
-            o.arn = arn;
-            o.attributes = attributes;
-            o.billingMode = billingMode;
-            o.deletionProtectionEnabled = deletionProtectionEnabled;
-            o.globalSecondaryIndexes = globalSecondaryIndexes;
-            o.hashKey = hashKey;
-            o.id = id;
-            o.localSecondaryIndexes = localSecondaryIndexes;
-            o.name = name;
-            o.pointInTimeRecovery = pointInTimeRecovery;
-            o.rangeKey = rangeKey;
-            o.readCapacity = readCapacity;
-            o.replicas = replicas;
-            o.serverSideEncryption = serverSideEncryption;
-            o.streamArn = streamArn;
-            o.streamEnabled = streamEnabled;
-            o.streamLabel = streamLabel;
-            o.streamViewType = streamViewType;
-            o.tableClass = tableClass;
-            o.tags = tags;
-            o.ttl = ttl;
-            o.writeCapacity = writeCapacity;
-            return o;
+            final var _resultValue = new GetTableResult();
+            _resultValue.arn = arn;
+            _resultValue.attributes = attributes;
+            _resultValue.billingMode = billingMode;
+            _resultValue.deletionProtectionEnabled = deletionProtectionEnabled;
+            _resultValue.globalSecondaryIndexes = globalSecondaryIndexes;
+            _resultValue.hashKey = hashKey;
+            _resultValue.id = id;
+            _resultValue.localSecondaryIndexes = localSecondaryIndexes;
+            _resultValue.name = name;
+            _resultValue.pointInTimeRecovery = pointInTimeRecovery;
+            _resultValue.rangeKey = rangeKey;
+            _resultValue.readCapacity = readCapacity;
+            _resultValue.replicas = replicas;
+            _resultValue.serverSideEncryption = serverSideEncryption;
+            _resultValue.streamArn = streamArn;
+            _resultValue.streamEnabled = streamEnabled;
+            _resultValue.streamLabel = streamLabel;
+            _resultValue.streamViewType = streamViewType;
+            _resultValue.tableClass = tableClass;
+            _resultValue.tags = tags;
+            _resultValue.ttl = ttl;
+            _resultValue.writeCapacity = writeCapacity;
+            return _resultValue;
         }
     }
 }

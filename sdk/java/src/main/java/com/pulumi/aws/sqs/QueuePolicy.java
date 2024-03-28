@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * while referencing ARN of the queue within the policy.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -25,6 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sqs.Queue;
+ * import com.pulumi.aws.sqs.QueueArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.sqs.QueuePolicy;
@@ -42,9 +45,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var queue = new Queue(&#34;queue&#34;);
+ *         var q = new Queue(&#34;q&#34;, QueueArgs.builder()        
+ *             .name(&#34;examplequeue&#34;)
+ *             .build());
  * 
- *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;First&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -53,30 +58,31 @@ import javax.annotation.Nullable;
  *                     .identifiers(&#34;*&#34;)
  *                     .build())
  *                 .actions(&#34;sqs:SendMessage&#34;)
- *                 .resources(queue.arn())
+ *                 .resources(q.arn())
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test(&#34;ArnEquals&#34;)
  *                     .variable(&#34;aws:SourceArn&#34;)
- *                     .values(aws_sns_topic.example().arn())
+ *                     .values(example.arn())
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *         var testQueuePolicy = new QueuePolicy(&#34;testQueuePolicy&#34;, QueuePolicyArgs.builder()        
- *             .queueUrl(queue.id())
- *             .policy(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(testPolicyDocument -&gt; testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .queueUrl(q.id())
+ *             .policy(test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(test -&gt; test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SQS Queue Policies using the queue URL. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
+ * $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
  * ```
  * 
  */

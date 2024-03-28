@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,6 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var lb = new LoadBalancer(&#34;lb&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;test-lb&#34;)
  *             .availabilityZones(&#34;us-east-1a&#34;)
  *             .listeners(LoadBalancerListenerArgs.builder()
  *                 .instancePort(8000)
@@ -60,6 +63,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var foo = new SslNegotiationPolicy(&#34;foo&#34;, SslNegotiationPolicyArgs.builder()        
+ *             .name(&#34;foo-policy&#34;)
  *             .loadBalancer(lb.id())
  *             .lbPort(443)
  *             .attributes(            
@@ -96,6 +100,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:elb/sslNegotiationPolicy:SslNegotiationPolicy")

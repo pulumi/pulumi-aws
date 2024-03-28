@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,12 +29,13 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // var splat0 []interface{}
-// for _, val0 := range aws_subnet.Example {
+// for _, val0 := range exampleAwsSubnet {
 // splat0 = append(splat0, val0.Id)
 // }
 // _, err := eks.NewNodeGroup(ctx, "example", &eks.NodeGroupArgs{
-// ClusterName: pulumi.Any(aws_eks_cluster.Example.Name),
-// NodeRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+// ClusterName: pulumi.Any(exampleAwsEksCluster.Name),
+// NodeGroupName: pulumi.String("example"),
+// NodeRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 // SubnetIds: toPulumiArray(splat0),
 // ScalingConfig: &eks.NodeGroupScalingConfigArgs{
 // DesiredSize: pulumi.Int(1),
@@ -43,11 +45,7 @@ import (
 // UpdateConfig: &eks.NodeGroupUpdateConfigArgs{
 // MaxUnavailable: pulumi.Int(1),
 // },
-// }, pulumi.DependsOn([]pulumi.Resource{
-// aws_iam_role_policy_attachment.ExampleAmazonEKSWorkerNodePolicy,
-// aws_iam_role_policy_attachment.ExampleAmazonEKS_CNI_Policy,
-// aws_iam_role_policy_attachment.ExampleAmazonEC2ContainerRegistryReadOnly,
-// }))
+// })
 // if err != nil {
 // return err
 // }
@@ -62,10 +60,13 @@ import (
 // return pulumiArr
 // }
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Ignoring Changes to Desired Size
 //
 // You can utilize [ignoreChanges](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -91,8 +92,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example IAM Role for EKS Node Group
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -108,22 +112,23 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Statement": []map[string]interface{}{
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "ec2.amazonaws.com",
+//						"action": "sts:AssumeRole",
+//						"effect": "Allow",
+//						"principal": map[string]interface{}{
+//							"service": "ec2.amazonaws.com",
 //						},
 //					},
 //				},
-//				"Version": "2012-10-17",
+//				"version": "2012-10-17",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
 //			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("eks-node-group-example"),
 //				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -136,7 +141,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "example-AmazonEKSCNIPolicy", &iam.RolePolicyAttachmentArgs{
+//			_, err = iam.NewRolePolicyAttachment(ctx, "example-AmazonEKS_CNI_Policy", &iam.RolePolicyAttachmentArgs{
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"),
 //				Role:      example.Name,
 //			})
@@ -155,15 +160,66 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Example Subnets for EKS Node Group
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
+//				State: pulumi.StringRef("available"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeCidrsubnet, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
+//				Input:   exampleAwsVpc.CidrBlock,
+//				Newbits: 8,
+//				Netnum:  val0,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			var example []*ec2.Subnet
+//			for index := 0; index < 2; index++ {
+//				key0 := index
+//				val0 := index
+//				__res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-%v", key0), &ec2.SubnetArgs{
+//					AvailabilityZone: available.Names[val0],
+//					CidrBlock:        invokeCidrsubnet.Result,
+//					VpcId:            pulumi.Any(exampleAwsVpc.Id),
+//				})
+//				if err != nil {
+//					return err
+//				}
+//				example = append(example, __res)
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
-//
+// $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
 // ```
 type NodeGroup struct {
 	pulumi.CustomResourceState
@@ -174,7 +230,7 @@ type NodeGroup struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
 	CapacityType pulumi.StringOutput `pulumi:"capacityType"`
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
 	DiskSize pulumi.IntOutput `pulumi:"diskSize"`
@@ -184,7 +240,7 @@ type NodeGroup struct {
 	InstanceTypes pulumi.StringArrayOutput `pulumi:"instanceTypes"`
 	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels pulumi.StringMapOutput `pulumi:"labels"`
-	// Configuration block with Launch Template settings. See `launchTemplate` below for details.
+	// Configuration block with Launch Template settings. See `launchTemplate` below for details. Conflicts with `remoteAccess`.
 	LaunchTemplate NodeGroupLaunchTemplatePtrOutput `pulumi:"launchTemplate"`
 	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
 	NodeGroupName pulumi.StringOutput `pulumi:"nodeGroupName"`
@@ -194,7 +250,7 @@ type NodeGroup struct {
 	NodeRoleArn pulumi.StringOutput `pulumi:"nodeRoleArn"`
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
 	ReleaseVersion pulumi.StringOutput `pulumi:"releaseVersion"`
-	// Configuration block with remote access settings. See `remoteAccess` below for details.
+	// Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
 	RemoteAccess NodeGroupRemoteAccessPtrOutput `pulumi:"remoteAccess"`
 	// List of objects containing information about underlying resources.
 	Resources NodeGroupResourceArrayOutput `pulumi:"resources"`
@@ -239,10 +295,6 @@ func NewNodeGroup(ctx *pulumi.Context,
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NodeGroup
 	err := ctx.RegisterResource("aws:eks/nodeGroup:NodeGroup", name, args, &resource, opts...)
@@ -272,7 +324,7 @@ type nodeGroupState struct {
 	Arn *string `pulumi:"arn"`
 	// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
 	CapacityType *string `pulumi:"capacityType"`
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName *string `pulumi:"clusterName"`
 	// Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
 	DiskSize *int `pulumi:"diskSize"`
@@ -282,7 +334,7 @@ type nodeGroupState struct {
 	InstanceTypes []string `pulumi:"instanceTypes"`
 	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels map[string]string `pulumi:"labels"`
-	// Configuration block with Launch Template settings. See `launchTemplate` below for details.
+	// Configuration block with Launch Template settings. See `launchTemplate` below for details. Conflicts with `remoteAccess`.
 	LaunchTemplate *NodeGroupLaunchTemplate `pulumi:"launchTemplate"`
 	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
 	NodeGroupName *string `pulumi:"nodeGroupName"`
@@ -292,7 +344,7 @@ type nodeGroupState struct {
 	NodeRoleArn *string `pulumi:"nodeRoleArn"`
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
 	ReleaseVersion *string `pulumi:"releaseVersion"`
-	// Configuration block with remote access settings. See `remoteAccess` below for details.
+	// Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
 	RemoteAccess *NodeGroupRemoteAccess `pulumi:"remoteAccess"`
 	// List of objects containing information about underlying resources.
 	Resources []NodeGroupResource `pulumi:"resources"`
@@ -325,7 +377,7 @@ type NodeGroupState struct {
 	Arn pulumi.StringPtrInput
 	// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
 	CapacityType pulumi.StringPtrInput
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName pulumi.StringPtrInput
 	// Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
 	DiskSize pulumi.IntPtrInput
@@ -335,7 +387,7 @@ type NodeGroupState struct {
 	InstanceTypes pulumi.StringArrayInput
 	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels pulumi.StringMapInput
-	// Configuration block with Launch Template settings. See `launchTemplate` below for details.
+	// Configuration block with Launch Template settings. See `launchTemplate` below for details. Conflicts with `remoteAccess`.
 	LaunchTemplate NodeGroupLaunchTemplatePtrInput
 	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
 	NodeGroupName pulumi.StringPtrInput
@@ -345,7 +397,7 @@ type NodeGroupState struct {
 	NodeRoleArn pulumi.StringPtrInput
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
 	ReleaseVersion pulumi.StringPtrInput
-	// Configuration block with remote access settings. See `remoteAccess` below for details.
+	// Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
 	RemoteAccess NodeGroupRemoteAccessPtrInput
 	// List of objects containing information about underlying resources.
 	Resources NodeGroupResourceArrayInput
@@ -380,7 +432,7 @@ type nodeGroupArgs struct {
 	AmiType *string `pulumi:"amiType"`
 	// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
 	CapacityType *string `pulumi:"capacityType"`
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
 	DiskSize *int `pulumi:"diskSize"`
@@ -390,7 +442,7 @@ type nodeGroupArgs struct {
 	InstanceTypes []string `pulumi:"instanceTypes"`
 	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels map[string]string `pulumi:"labels"`
-	// Configuration block with Launch Template settings. See `launchTemplate` below for details.
+	// Configuration block with Launch Template settings. See `launchTemplate` below for details. Conflicts with `remoteAccess`.
 	LaunchTemplate *NodeGroupLaunchTemplate `pulumi:"launchTemplate"`
 	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
 	NodeGroupName *string `pulumi:"nodeGroupName"`
@@ -400,7 +452,7 @@ type nodeGroupArgs struct {
 	NodeRoleArn string `pulumi:"nodeRoleArn"`
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
 	ReleaseVersion *string `pulumi:"releaseVersion"`
-	// Configuration block with remote access settings. See `remoteAccess` below for details.
+	// Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
 	RemoteAccess *NodeGroupRemoteAccess `pulumi:"remoteAccess"`
 	// Configuration block with scaling settings. See `scalingConfig` below for details.
 	ScalingConfig NodeGroupScalingConfig `pulumi:"scalingConfig"`
@@ -424,7 +476,7 @@ type NodeGroupArgs struct {
 	AmiType pulumi.StringPtrInput
 	// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
 	CapacityType pulumi.StringPtrInput
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName pulumi.StringInput
 	// Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
 	DiskSize pulumi.IntPtrInput
@@ -434,7 +486,7 @@ type NodeGroupArgs struct {
 	InstanceTypes pulumi.StringArrayInput
 	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels pulumi.StringMapInput
-	// Configuration block with Launch Template settings. See `launchTemplate` below for details.
+	// Configuration block with Launch Template settings. See `launchTemplate` below for details. Conflicts with `remoteAccess`.
 	LaunchTemplate NodeGroupLaunchTemplatePtrInput
 	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
 	NodeGroupName pulumi.StringPtrInput
@@ -444,7 +496,7 @@ type NodeGroupArgs struct {
 	NodeRoleArn pulumi.StringInput
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
 	ReleaseVersion pulumi.StringPtrInput
-	// Configuration block with remote access settings. See `remoteAccess` below for details.
+	// Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
 	RemoteAccess NodeGroupRemoteAccessPtrInput
 	// Configuration block with scaling settings. See `scalingConfig` below for details.
 	ScalingConfig NodeGroupScalingConfigInput
@@ -564,7 +616,7 @@ func (o NodeGroupOutput) CapacityType() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.CapacityType }).(pulumi.StringOutput)
 }
 
-// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+// Name of the EKS Cluster.
 func (o NodeGroupOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
 }
@@ -589,7 +641,7 @@ func (o NodeGroupOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringMapOutput { return v.Labels }).(pulumi.StringMapOutput)
 }
 
-// Configuration block with Launch Template settings. See `launchTemplate` below for details.
+// Configuration block with Launch Template settings. See `launchTemplate` below for details. Conflicts with `remoteAccess`.
 func (o NodeGroupOutput) LaunchTemplate() NodeGroupLaunchTemplatePtrOutput {
 	return o.ApplyT(func(v *NodeGroup) NodeGroupLaunchTemplatePtrOutput { return v.LaunchTemplate }).(NodeGroupLaunchTemplatePtrOutput)
 }
@@ -614,7 +666,7 @@ func (o NodeGroupOutput) ReleaseVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.ReleaseVersion }).(pulumi.StringOutput)
 }
 
-// Configuration block with remote access settings. See `remoteAccess` below for details.
+// Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
 func (o NodeGroupOutput) RemoteAccess() NodeGroupRemoteAccessPtrOutput {
 	return o.ApplyT(func(v *NodeGroup) NodeGroupRemoteAccessPtrOutput { return v.RemoteAccess }).(NodeGroupRemoteAccessPtrOutput)
 }

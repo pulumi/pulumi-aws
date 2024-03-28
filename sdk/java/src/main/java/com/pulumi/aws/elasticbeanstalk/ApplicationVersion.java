@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -31,6 +30,8 @@ import javax.annotation.Nullable;
  * To work around this you can either create each environment in a separate AWS account or create your `aws.elasticbeanstalk.ApplicationVersion` resources with a unique names in your Elastic Beanstalk Application. For example &amp;lt;revision&amp;gt;-&amp;lt;environment&amp;gt;.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -38,6 +39,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.aws.elasticbeanstalk.Application;
@@ -58,28 +60,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var defaultBucketV2 = new BucketV2(&#34;defaultBucketV2&#34;);
+ *         var default_ = new BucketV2(&#34;default&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;tftest.applicationversion.bucket&#34;)
+ *             .build());
  * 
  *         var defaultBucketObjectv2 = new BucketObjectv2(&#34;defaultBucketObjectv2&#34;, BucketObjectv2Args.builder()        
- *             .bucket(defaultBucketV2.id())
+ *             .bucket(default_.id())
  *             .key(&#34;beanstalk/go-v1.zip&#34;)
  *             .source(new FileAsset(&#34;go-v1.zip&#34;))
  *             .build());
  * 
  *         var defaultApplication = new Application(&#34;defaultApplication&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;tf-test-name&#34;)
  *             .description(&#34;tf-test-desc&#34;)
  *             .build());
  * 
  *         var defaultApplicationVersion = new ApplicationVersion(&#34;defaultApplicationVersion&#34;, ApplicationVersionArgs.builder()        
+ *             .name(&#34;tf-test-version-label&#34;)
  *             .application(&#34;tf-test-name&#34;)
  *             .description(&#34;application version&#34;)
- *             .bucket(defaultBucketV2.id())
+ *             .bucket(default_.id())
  *             .key(defaultBucketObjectv2.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:elasticbeanstalk/applicationVersion:ApplicationVersion")
@@ -251,9 +258,6 @@ public class ApplicationVersion extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

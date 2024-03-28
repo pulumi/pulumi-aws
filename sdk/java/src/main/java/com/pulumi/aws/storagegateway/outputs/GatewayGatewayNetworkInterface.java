@@ -44,13 +44,14 @@ public final class GatewayGatewayNetworkInterface {
 
         @CustomType.Setter
         public Builder ipv4Address(@Nullable String ipv4Address) {
+
             this.ipv4Address = ipv4Address;
             return this;
         }
         public GatewayGatewayNetworkInterface build() {
-            final var o = new GatewayGatewayNetworkInterface();
-            o.ipv4Address = ipv4Address;
-            return o;
+            final var _resultValue = new GatewayGatewayNetworkInterface();
+            _resultValue.ipv4Address = ipv4Address;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.securityhub.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class InsightFiltersResourceAwsEc2InstanceIpv6Address {
 
         @CustomType.Setter
         public Builder cidr(String cidr) {
-            this.cidr = Objects.requireNonNull(cidr);
+            if (cidr == null) {
+              throw new MissingRequiredPropertyException("InsightFiltersResourceAwsEc2InstanceIpv6Address", "cidr");
+            }
+            this.cidr = cidr;
             return this;
         }
         public InsightFiltersResourceAwsEc2InstanceIpv6Address build() {
-            final var o = new InsightFiltersResourceAwsEc2InstanceIpv6Address();
-            o.cidr = cidr;
-            return o;
+            final var _resultValue = new InsightFiltersResourceAwsEc2InstanceIpv6Address();
+            _resultValue.cidr = cidr;
+            return _resultValue;
         }
     }
 }

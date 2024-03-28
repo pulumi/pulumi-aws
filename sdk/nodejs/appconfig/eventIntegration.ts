@@ -12,28 +12,31 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appconfig.EventIntegration("example", {
+ *     name: "example-name",
  *     description: "Example Description",
+ *     eventbridgeBus: "default",
  *     eventFilter: {
  *         source: "aws.partner/examplepartner.com",
  *     },
- *     eventbridgeBus: "default",
  *     tags: {
  *         Name: "Example Event Integration",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
+ * $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
  * ```
  */
 export class EventIntegration extends pulumi.CustomResource {
@@ -132,8 +135,6 @@ export class EventIntegration extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(EventIntegration.__pulumiType, name, resourceInputs, opts);
     }
 }

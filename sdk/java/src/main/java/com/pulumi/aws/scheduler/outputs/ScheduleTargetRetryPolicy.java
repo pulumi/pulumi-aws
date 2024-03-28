@@ -58,19 +58,21 @@ public final class ScheduleTargetRetryPolicy {
 
         @CustomType.Setter
         public Builder maximumEventAgeInSeconds(@Nullable Integer maximumEventAgeInSeconds) {
+
             this.maximumEventAgeInSeconds = maximumEventAgeInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder maximumRetryAttempts(@Nullable Integer maximumRetryAttempts) {
+
             this.maximumRetryAttempts = maximumRetryAttempts;
             return this;
         }
         public ScheduleTargetRetryPolicy build() {
-            final var o = new ScheduleTargetRetryPolicy();
-            o.maximumEventAgeInSeconds = maximumEventAgeInSeconds;
-            o.maximumRetryAttempts = maximumRetryAttempts;
-            return o;
+            final var _resultValue = new ScheduleTargetRetryPolicy();
+            _resultValue.maximumEventAgeInSeconds = maximumEventAgeInSeconds;
+            _resultValue.maximumRetryAttempts = maximumRetryAttempts;
+            return _resultValue;
         }
     }
 }

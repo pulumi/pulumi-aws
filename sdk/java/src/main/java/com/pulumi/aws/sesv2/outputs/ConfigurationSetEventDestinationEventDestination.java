@@ -8,6 +8,7 @@ import com.pulumi.aws.sesv2.outputs.ConfigurationSetEventDestinationEventDestina
 import com.pulumi.aws.sesv2.outputs.ConfigurationSetEventDestinationEventDestinationPinpointDestination;
 import com.pulumi.aws.sesv2.outputs.ConfigurationSetEventDestinationEventDestinationSnsDestination;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -124,22 +125,28 @@ public final class ConfigurationSetEventDestinationEventDestination {
 
         @CustomType.Setter
         public Builder cloudWatchDestination(@Nullable ConfigurationSetEventDestinationEventDestinationCloudWatchDestination cloudWatchDestination) {
+
             this.cloudWatchDestination = cloudWatchDestination;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder kinesisFirehoseDestination(@Nullable ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination kinesisFirehoseDestination) {
+
             this.kinesisFirehoseDestination = kinesisFirehoseDestination;
             return this;
         }
         @CustomType.Setter
         public Builder matchingEventTypes(List<String> matchingEventTypes) {
-            this.matchingEventTypes = Objects.requireNonNull(matchingEventTypes);
+            if (matchingEventTypes == null) {
+              throw new MissingRequiredPropertyException("ConfigurationSetEventDestinationEventDestination", "matchingEventTypes");
+            }
+            this.matchingEventTypes = matchingEventTypes;
             return this;
         }
         public Builder matchingEventTypes(String... matchingEventTypes) {
@@ -147,23 +154,25 @@ public final class ConfigurationSetEventDestinationEventDestination {
         }
         @CustomType.Setter
         public Builder pinpointDestination(@Nullable ConfigurationSetEventDestinationEventDestinationPinpointDestination pinpointDestination) {
+
             this.pinpointDestination = pinpointDestination;
             return this;
         }
         @CustomType.Setter
         public Builder snsDestination(@Nullable ConfigurationSetEventDestinationEventDestinationSnsDestination snsDestination) {
+
             this.snsDestination = snsDestination;
             return this;
         }
         public ConfigurationSetEventDestinationEventDestination build() {
-            final var o = new ConfigurationSetEventDestinationEventDestination();
-            o.cloudWatchDestination = cloudWatchDestination;
-            o.enabled = enabled;
-            o.kinesisFirehoseDestination = kinesisFirehoseDestination;
-            o.matchingEventTypes = matchingEventTypes;
-            o.pinpointDestination = pinpointDestination;
-            o.snsDestination = snsDestination;
-            return o;
+            final var _resultValue = new ConfigurationSetEventDestinationEventDestination();
+            _resultValue.cloudWatchDestination = cloudWatchDestination;
+            _resultValue.enabled = enabled;
+            _resultValue.kinesisFirehoseDestination = kinesisFirehoseDestination;
+            _resultValue.matchingEventTypes = matchingEventTypes;
+            _resultValue.pinpointDestination = pinpointDestination;
+            _resultValue.snsDestination = snsDestination;
+            return _resultValue;
         }
     }
 }

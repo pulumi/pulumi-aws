@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .default_kms_key import *
 from .encryption_by_default import *
+from .fast_snapshot_restore import *
 from .get_default_kms_key import *
 from .get_ebs_volumes import *
 from .get_encryption_by_default import *

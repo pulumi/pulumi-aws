@@ -44,13 +44,14 @@ public final class RuleGroupRuleActionBlock {
 
         @CustomType.Setter
         public Builder customResponse(@Nullable RuleGroupRuleActionBlockCustomResponse customResponse) {
+
             this.customResponse = customResponse;
             return this;
         }
         public RuleGroupRuleActionBlock build() {
-            final var o = new RuleGroupRuleActionBlock();
-            o.customResponse = customResponse;
-            return o;
+            final var _resultValue = new RuleGroupRuleActionBlock();
+            _resultValue.customResponse = customResponse;
+            return _resultValue;
         }
     }
 }

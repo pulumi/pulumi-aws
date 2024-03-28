@@ -15,8 +15,10 @@ namespace Pulumi.Aws.Rds
     /// More information about Aurora global databases can be found in the [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database-creating).
     /// 
     /// ## Example Usage
+    /// 
     /// ### New MySQL Global Cluster
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,7 +35,7 @@ namespace Pulumi.Aws.Rds
     ///         DatabaseName = "example_db",
     ///     });
     /// 
-    ///     var primaryCluster = new Aws.Rds.Cluster("primaryCluster", new()
+    ///     var primary = new Aws.Rds.Cluster("primary", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
@@ -43,57 +45,44 @@ namespace Pulumi.Aws.Rds
     ///         DatabaseName = "example_db",
     ///         GlobalClusterIdentifier = example.Id,
     ///         DbSubnetGroupName = "default",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Primary,
     ///     });
     /// 
-    ///     var primaryClusterInstance = new Aws.Rds.ClusterInstance("primaryClusterInstance", new()
+    ///     var primaryClusterInstance = new Aws.Rds.ClusterInstance("primary", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
     ///         Identifier = "test-primary-cluster-instance",
-    ///         ClusterIdentifier = primaryCluster.Id,
-    ///         InstanceClass = "db.r4.large",
+    ///         ClusterIdentifier = primary.Id,
+    ///         InstanceClass = Aws.Rds.InstanceType.R4_Large,
     ///         DbSubnetGroupName = "default",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Primary,
     ///     });
     /// 
-    ///     var secondaryCluster = new Aws.Rds.Cluster("secondaryCluster", new()
+    ///     var secondary = new Aws.Rds.Cluster("secondary", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
     ///         ClusterIdentifier = "test-secondary-cluster",
     ///         GlobalClusterIdentifier = example.Id,
     ///         DbSubnetGroupName = "default",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Secondary,
-    ///         DependsOn = new[]
-    ///         {
-    ///             primaryClusterInstance,
-    ///         },
     ///     });
     /// 
-    ///     var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondaryClusterInstance", new()
+    ///     var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondary", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
     ///         Identifier = "test-secondary-cluster-instance",
-    ///         ClusterIdentifier = secondaryCluster.Id,
-    ///         InstanceClass = "db.r4.large",
+    ///         ClusterIdentifier = secondary.Id,
+    ///         InstanceClass = Aws.Rds.InstanceType.R4_Large,
     ///         DbSubnetGroupName = "default",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Secondary,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### New PostgreSQL Global Cluster
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -102,16 +91,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary = new Aws.Provider("primary", new()
-    ///     {
-    ///         Region = "us-east-2",
-    ///     });
-    /// 
-    ///     var secondary = new Aws.Provider("secondary", new()
-    ///     {
-    ///         Region = "us-east-1",
-    ///     });
-    /// 
     ///     var example = new Aws.Rds.GlobalCluster("example", new()
     ///     {
     ///         GlobalClusterIdentifier = "global-test",
@@ -120,7 +99,7 @@ namespace Pulumi.Aws.Rds
     ///         DatabaseName = "example_db",
     ///     });
     /// 
-    ///     var primaryCluster = new Aws.Rds.Cluster("primaryCluster", new()
+    ///     var primary = new Aws.Rds.Cluster("primary", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
@@ -130,25 +109,19 @@ namespace Pulumi.Aws.Rds
     ///         DatabaseName = "example_db",
     ///         GlobalClusterIdentifier = example.Id,
     ///         DbSubnetGroupName = "default",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Primary,
     ///     });
     /// 
-    ///     var primaryClusterInstance = new Aws.Rds.ClusterInstance("primaryClusterInstance", new()
+    ///     var primaryClusterInstance = new Aws.Rds.ClusterInstance("primary", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
     ///         Identifier = "test-primary-cluster-instance",
-    ///         ClusterIdentifier = primaryCluster.Id,
-    ///         InstanceClass = "db.r4.large",
+    ///         ClusterIdentifier = primary.Id,
+    ///         InstanceClass = Aws.Rds.InstanceType.R4_Large,
     ///         DbSubnetGroupName = "default",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Primary,
     ///     });
     /// 
-    ///     var secondaryCluster = new Aws.Rds.Cluster("secondaryCluster", new()
+    ///     var secondary = new Aws.Rds.Cluster("secondary", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
@@ -156,32 +129,25 @@ namespace Pulumi.Aws.Rds
     ///         GlobalClusterIdentifier = example.Id,
     ///         SkipFinalSnapshot = true,
     ///         DbSubnetGroupName = "default",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Secondary,
-    ///         DependsOn = new[]
-    ///         {
-    ///             primaryClusterInstance,
-    ///         },
     ///     });
     /// 
-    ///     var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondaryClusterInstance", new()
+    ///     var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondary", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
     ///         Identifier = "test-secondary-cluster-instance",
-    ///         ClusterIdentifier = secondaryCluster.Id,
-    ///         InstanceClass = "db.r4.large",
+    ///         ClusterIdentifier = secondary.Id,
+    ///         InstanceClass = Aws.Rds.InstanceType.R4_Large,
     ///         DbSubnetGroupName = "default",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Secondary,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### New Global Cluster From Existing DB Cluster
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -190,22 +156,24 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // ... other configuration ...
-    ///     var exampleCluster = new Aws.Rds.Cluster("exampleCluster");
+    ///     var example = new Aws.Rds.Cluster("example");
     /// 
-    ///     var exampleGlobalCluster = new Aws.Rds.GlobalCluster("exampleGlobalCluster", new()
+    ///     var exampleGlobalCluster = new Aws.Rds.GlobalCluster("example", new()
     ///     {
     ///         ForceDestroy = true,
     ///         GlobalClusterIdentifier = "example",
-    ///         SourceDbClusterIdentifier = exampleCluster.Arn,
+    ///         SourceDbClusterIdentifier = example.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Upgrading Engine Versions
     /// 
     /// When you upgrade the version of an `aws.rds.GlobalCluster`, the provider will attempt to in-place upgrade the engine versions of all associated clusters. Since the `aws.rds.Cluster` resource is being updated through the `aws.rds.GlobalCluster`, you are likely to get an error (`Provider produced inconsistent final plan`). To avoid this, use the `lifecycle` `ignore_changes` meta argument as shown below on the `aws.rds.Cluster`.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -221,7 +189,7 @@ namespace Pulumi.Aws.Rds
     ///         EngineVersion = "5.7.mysql_aurora.2.07.5",
     ///     });
     /// 
-    ///     var primaryCluster = new Aws.Rds.Cluster("primaryCluster", new()
+    ///     var primary = new Aws.Rds.Cluster("primary", new()
     ///     {
     ///         AllowMajorVersionUpgrade = true,
     ///         ApplyImmediately = true,
@@ -235,27 +203,28 @@ namespace Pulumi.Aws.Rds
     ///         SkipFinalSnapshot = true,
     ///     });
     /// 
-    ///     var primaryClusterInstance = new Aws.Rds.ClusterInstance("primaryClusterInstance", new()
+    ///     var primaryClusterInstance = new Aws.Rds.ClusterInstance("primary", new()
     ///     {
     ///         ApplyImmediately = true,
-    ///         ClusterIdentifier = primaryCluster.Id,
-    ///         Engine = primaryCluster.Engine,
-    ///         EngineVersion = primaryCluster.EngineVersion,
+    ///         ClusterIdentifier = primary.Id,
+    ///         Engine = primary.Engine,
+    ///         EngineVersion = primary.EngineVersion,
     ///         Identifier = "donetsklviv",
-    ///         InstanceClass = "db.r4.large",
+    ///         InstanceClass = Aws.Rds.InstanceType.R4_Large,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_rds_global_cluster` using the RDS Global Cluster identifier. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rds/globalCluster:GlobalCluster example example
+    /// $ pulumi import aws:rds/globalCluster:GlobalCluster example example
     /// ```
-    ///  Certain resource arguments, like `force_destroy`, only exist within this provider. If the argument is set in the the provider configuration on an imported resource, This provider will show a difference on the first plan after import to update the state value. This change is safe to apply immediately so the state matches the desired configuration.
+    /// Certain resource arguments, like `force_destroy`, only exist within this provider. If the argument is set in the the provider configuration on an imported resource, This provider will show a difference on the first plan after import to update the state value. This change is safe to apply immediately so the state matches the desired configuration.
     /// 
     /// Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
     /// </summary>

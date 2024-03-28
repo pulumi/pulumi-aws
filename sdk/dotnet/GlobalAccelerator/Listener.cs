@@ -14,6 +14,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,8 +23,9 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccelerator = new Aws.GlobalAccelerator.Accelerator("exampleAccelerator", new()
+    ///     var example = new Aws.GlobalAccelerator.Accelerator("example", new()
     ///     {
+    ///         Name = "Example",
     ///         IpAddressType = "IPV4",
     ///         Enabled = true,
     ///         Attributes = new Aws.GlobalAccelerator.Inputs.AcceleratorAttributesArgs
@@ -34,9 +36,9 @@ namespace Pulumi.Aws.GlobalAccelerator
     ///         },
     ///     });
     /// 
-    ///     var exampleListener = new Aws.GlobalAccelerator.Listener("exampleListener", new()
+    ///     var exampleListener = new Aws.GlobalAccelerator.Listener("example", new()
     ///     {
-    ///         AcceleratorArn = exampleAccelerator.Id,
+    ///         AcceleratorArn = example.Id,
     ///         ClientAffinity = "SOURCE_IP",
     ///         Protocol = "TCP",
     ///         PortRanges = new[]
@@ -51,13 +53,14 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Global Accelerator listeners using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
+    /// $ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
     /// ```
     /// </summary>
     [AwsResourceType("aws:globalaccelerator/listener:Listener")]

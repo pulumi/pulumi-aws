@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,27 +31,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			exampleKey, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				Description: pulumi.String("domain key"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDomain, err := codeartifact.NewDomain(ctx, "exampleDomain", &codeartifact.DomainArgs{
+//			exampleDomain, err := codeartifact.NewDomain(ctx, "example", &codeartifact.DomainArgs{
 //				Domain:        pulumi.String("example"),
 //				EncryptionKey: exampleKey.Arn,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleRepository, err := codeartifact.NewRepository(ctx, "exampleRepository", &codeartifact.RepositoryArgs{
+//			exampleRepository, err := codeartifact.NewRepository(ctx, "example", &codeartifact.RepositoryArgs{
 //				Repository: pulumi.String("example"),
 //				Domain:     exampleDomain.Domain,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
 //						Effect: pulumi.String("Allow"),
@@ -71,11 +72,11 @@ import (
 //					},
 //				},
 //			}, nil)
-//			_, err = codeartifact.NewRepositoryPermissionsPolicy(ctx, "exampleRepositoryPermissionsPolicy", &codeartifact.RepositoryPermissionsPolicyArgs{
+//			_, err = codeartifact.NewRepositoryPermissionsPolicy(ctx, "example", &codeartifact.RepositoryPermissionsPolicyArgs{
 //				Repository: exampleRepository.Repository,
 //				Domain:     exampleDomain.Domain,
-//				PolicyDocument: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &examplePolicyDocument.Json, nil
+//				PolicyDocument: example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
+//					return &example.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
@@ -86,15 +87,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CodeArtifact Repository Permissions Policies using the CodeArtifact Repository ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
-//
+// $ pulumi import aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
 // ```
 type RepositoryPermissionsPolicy struct {
 	pulumi.CustomResourceState

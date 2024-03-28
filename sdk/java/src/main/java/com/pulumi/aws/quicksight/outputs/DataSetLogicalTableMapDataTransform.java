@@ -134,49 +134,56 @@ public final class DataSetLogicalTableMapDataTransform {
 
         @CustomType.Setter
         public Builder castColumnTypeOperation(@Nullable DataSetLogicalTableMapDataTransformCastColumnTypeOperation castColumnTypeOperation) {
+
             this.castColumnTypeOperation = castColumnTypeOperation;
             return this;
         }
         @CustomType.Setter
         public Builder createColumnsOperation(@Nullable DataSetLogicalTableMapDataTransformCreateColumnsOperation createColumnsOperation) {
+
             this.createColumnsOperation = createColumnsOperation;
             return this;
         }
         @CustomType.Setter
         public Builder filterOperation(@Nullable DataSetLogicalTableMapDataTransformFilterOperation filterOperation) {
+
             this.filterOperation = filterOperation;
             return this;
         }
         @CustomType.Setter
         public Builder projectOperation(@Nullable DataSetLogicalTableMapDataTransformProjectOperation projectOperation) {
+
             this.projectOperation = projectOperation;
             return this;
         }
         @CustomType.Setter
         public Builder renameColumnOperation(@Nullable DataSetLogicalTableMapDataTransformRenameColumnOperation renameColumnOperation) {
+
             this.renameColumnOperation = renameColumnOperation;
             return this;
         }
         @CustomType.Setter
         public Builder tagColumnOperation(@Nullable DataSetLogicalTableMapDataTransformTagColumnOperation tagColumnOperation) {
+
             this.tagColumnOperation = tagColumnOperation;
             return this;
         }
         @CustomType.Setter
         public Builder untagColumnOperation(@Nullable DataSetLogicalTableMapDataTransformUntagColumnOperation untagColumnOperation) {
+
             this.untagColumnOperation = untagColumnOperation;
             return this;
         }
         public DataSetLogicalTableMapDataTransform build() {
-            final var o = new DataSetLogicalTableMapDataTransform();
-            o.castColumnTypeOperation = castColumnTypeOperation;
-            o.createColumnsOperation = createColumnsOperation;
-            o.filterOperation = filterOperation;
-            o.projectOperation = projectOperation;
-            o.renameColumnOperation = renameColumnOperation;
-            o.tagColumnOperation = tagColumnOperation;
-            o.untagColumnOperation = untagColumnOperation;
-            return o;
+            final var _resultValue = new DataSetLogicalTableMapDataTransform();
+            _resultValue.castColumnTypeOperation = castColumnTypeOperation;
+            _resultValue.createColumnsOperation = createColumnsOperation;
+            _resultValue.filterOperation = filterOperation;
+            _resultValue.projectOperation = projectOperation;
+            _resultValue.renameColumnOperation = renameColumnOperation;
+            _resultValue.tagColumnOperation = tagColumnOperation;
+            _resultValue.untagColumnOperation = untagColumnOperation;
+            return _resultValue;
         }
     }
 }

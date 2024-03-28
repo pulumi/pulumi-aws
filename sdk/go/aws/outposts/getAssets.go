@@ -14,8 +14,10 @@ import (
 // Information about hardware assets in an Outpost.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := outposts.GetAssets(ctx, &outposts.GetAssetsArgs{
-//				Arn: data.Aws_outposts_outpost.Example.Arn,
+//				Arn: exampleAwsOutpostsOutpost.Arn,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -39,8 +41,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Host ID Filter
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,7 +59,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := outposts.GetAssets(ctx, &outposts.GetAssetsArgs{
-//				Arn: data.Aws_outposts_outpost.Example.Arn,
+//				Arn: exampleAwsOutpostsOutpost.Arn,
 //				HostIdFilters: []string{
 //					"h-x38g5n0yd2a0ueb61",
 //				},
@@ -67,8 +72,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Status ID Filter
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -82,7 +90,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := outposts.GetAssets(ctx, &outposts.GetAssetsArgs{
-//				Arn: data.Aws_outposts_outpost.Example.Arn,
+//				Arn: exampleAwsOutpostsOutpost.Arn,
 //				StatusIdFilters: []string{
 //					"ACTIVE",
 //				},
@@ -95,6 +103,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetAssets(ctx *pulumi.Context, args *GetAssetsArgs, opts ...pulumi.InvokeOption) (*GetAssetsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAssetsResult

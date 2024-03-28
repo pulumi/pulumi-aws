@@ -90,11 +90,13 @@ public final class VirtualNodeSpecListenerConnectionPool {
 
         @CustomType.Setter
         public Builder grpc(@Nullable VirtualNodeSpecListenerConnectionPoolGrpc grpc) {
+
             this.grpc = grpc;
             return this;
         }
         @CustomType.Setter
         public Builder http2s(@Nullable List<VirtualNodeSpecListenerConnectionPoolHttp2> http2s) {
+
             this.http2s = http2s;
             return this;
         }
@@ -103,6 +105,7 @@ public final class VirtualNodeSpecListenerConnectionPool {
         }
         @CustomType.Setter
         public Builder https(@Nullable List<VirtualNodeSpecListenerConnectionPoolHttp> https) {
+
             this.https = https;
             return this;
         }
@@ -111,6 +114,7 @@ public final class VirtualNodeSpecListenerConnectionPool {
         }
         @CustomType.Setter
         public Builder tcps(@Nullable List<VirtualNodeSpecListenerConnectionPoolTcp> tcps) {
+
             this.tcps = tcps;
             return this;
         }
@@ -118,12 +122,12 @@ public final class VirtualNodeSpecListenerConnectionPool {
             return tcps(List.of(tcps));
         }
         public VirtualNodeSpecListenerConnectionPool build() {
-            final var o = new VirtualNodeSpecListenerConnectionPool();
-            o.grpc = grpc;
-            o.http2s = http2s;
-            o.https = https;
-            o.tcps = tcps;
-            return o;
+            final var _resultValue = new VirtualNodeSpecListenerConnectionPool();
+            _resultValue.grpc = grpc;
+            _resultValue.http2s = http2s;
+            _resultValue.https = https;
+            _resultValue.tcps = tcps;
+            return _resultValue;
         }
     }
 }

@@ -304,41 +304,49 @@ public final class LaunchTemplateNetworkInterface {
 
         @CustomType.Setter
         public Builder associateCarrierIpAddress(@Nullable String associateCarrierIpAddress) {
+
             this.associateCarrierIpAddress = associateCarrierIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder associatePublicIpAddress(@Nullable String associatePublicIpAddress) {
+
             this.associatePublicIpAddress = associatePublicIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder deleteOnTermination(@Nullable String deleteOnTermination) {
+
             this.deleteOnTermination = deleteOnTermination;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder deviceIndex(@Nullable Integer deviceIndex) {
+
             this.deviceIndex = deviceIndex;
             return this;
         }
         @CustomType.Setter
         public Builder interfaceType(@Nullable String interfaceType) {
+
             this.interfaceType = interfaceType;
             return this;
         }
         @CustomType.Setter
         public Builder ipv4AddressCount(@Nullable Integer ipv4AddressCount) {
+
             this.ipv4AddressCount = ipv4AddressCount;
             return this;
         }
         @CustomType.Setter
         public Builder ipv4Addresses(@Nullable List<String> ipv4Addresses) {
+
             this.ipv4Addresses = ipv4Addresses;
             return this;
         }
@@ -347,11 +355,13 @@ public final class LaunchTemplateNetworkInterface {
         }
         @CustomType.Setter
         public Builder ipv4PrefixCount(@Nullable Integer ipv4PrefixCount) {
+
             this.ipv4PrefixCount = ipv4PrefixCount;
             return this;
         }
         @CustomType.Setter
         public Builder ipv4Prefixes(@Nullable List<String> ipv4Prefixes) {
+
             this.ipv4Prefixes = ipv4Prefixes;
             return this;
         }
@@ -360,11 +370,13 @@ public final class LaunchTemplateNetworkInterface {
         }
         @CustomType.Setter
         public Builder ipv6AddressCount(@Nullable Integer ipv6AddressCount) {
+
             this.ipv6AddressCount = ipv6AddressCount;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6Addresses(@Nullable List<String> ipv6Addresses) {
+
             this.ipv6Addresses = ipv6Addresses;
             return this;
         }
@@ -373,11 +385,13 @@ public final class LaunchTemplateNetworkInterface {
         }
         @CustomType.Setter
         public Builder ipv6PrefixCount(@Nullable Integer ipv6PrefixCount) {
+
             this.ipv6PrefixCount = ipv6PrefixCount;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6Prefixes(@Nullable List<String> ipv6Prefixes) {
+
             this.ipv6Prefixes = ipv6Prefixes;
             return this;
         }
@@ -386,21 +400,25 @@ public final class LaunchTemplateNetworkInterface {
         }
         @CustomType.Setter
         public Builder networkCardIndex(@Nullable Integer networkCardIndex) {
+
             this.networkCardIndex = networkCardIndex;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaceId(@Nullable String networkInterfaceId) {
+
             this.networkInterfaceId = networkInterfaceId;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddress(@Nullable String privateIpAddress) {
+
             this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroups(@Nullable List<String> securityGroups) {
+
             this.securityGroups = securityGroups;
             return this;
         }
@@ -409,31 +427,32 @@ public final class LaunchTemplateNetworkInterface {
         }
         @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
+
             this.subnetId = subnetId;
             return this;
         }
         public LaunchTemplateNetworkInterface build() {
-            final var o = new LaunchTemplateNetworkInterface();
-            o.associateCarrierIpAddress = associateCarrierIpAddress;
-            o.associatePublicIpAddress = associatePublicIpAddress;
-            o.deleteOnTermination = deleteOnTermination;
-            o.description = description;
-            o.deviceIndex = deviceIndex;
-            o.interfaceType = interfaceType;
-            o.ipv4AddressCount = ipv4AddressCount;
-            o.ipv4Addresses = ipv4Addresses;
-            o.ipv4PrefixCount = ipv4PrefixCount;
-            o.ipv4Prefixes = ipv4Prefixes;
-            o.ipv6AddressCount = ipv6AddressCount;
-            o.ipv6Addresses = ipv6Addresses;
-            o.ipv6PrefixCount = ipv6PrefixCount;
-            o.ipv6Prefixes = ipv6Prefixes;
-            o.networkCardIndex = networkCardIndex;
-            o.networkInterfaceId = networkInterfaceId;
-            o.privateIpAddress = privateIpAddress;
-            o.securityGroups = securityGroups;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new LaunchTemplateNetworkInterface();
+            _resultValue.associateCarrierIpAddress = associateCarrierIpAddress;
+            _resultValue.associatePublicIpAddress = associatePublicIpAddress;
+            _resultValue.deleteOnTermination = deleteOnTermination;
+            _resultValue.description = description;
+            _resultValue.deviceIndex = deviceIndex;
+            _resultValue.interfaceType = interfaceType;
+            _resultValue.ipv4AddressCount = ipv4AddressCount;
+            _resultValue.ipv4Addresses = ipv4Addresses;
+            _resultValue.ipv4PrefixCount = ipv4PrefixCount;
+            _resultValue.ipv4Prefixes = ipv4Prefixes;
+            _resultValue.ipv6AddressCount = ipv6AddressCount;
+            _resultValue.ipv6Addresses = ipv6Addresses;
+            _resultValue.ipv6PrefixCount = ipv6PrefixCount;
+            _resultValue.ipv6Prefixes = ipv6Prefixes;
+            _resultValue.networkCardIndex = networkCardIndex;
+            _resultValue.networkInterfaceId = networkInterfaceId;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

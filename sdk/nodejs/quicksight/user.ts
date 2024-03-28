@@ -9,19 +9,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.User("example", {
- *     email: "author@example.com",
- *     iamArn: "arn:aws:iam::123456789012:user/Example",
- *     identityType: "IAM",
- *     namespace: "foo",
  *     sessionName: "an-author",
+ *     email: "author@example.com",
+ *     namespace: "foo",
+ *     identityType: "IAM",
+ *     iamArn: "arn:aws:iam::123456789012:user/Example",
  *     userRole: "AUTHOR",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

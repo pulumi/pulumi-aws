@@ -25,8 +25,8 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroug
         }
 
         public ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings build() {
-            final var o = new ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings();
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings();
+            return _resultValue;
         }
     }
 }

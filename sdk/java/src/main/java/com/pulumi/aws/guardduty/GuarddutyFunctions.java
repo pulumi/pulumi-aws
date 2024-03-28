@@ -21,6 +21,8 @@ public final class GuarddutyFunctions {
      * Retrieve information about a GuardDuty detector.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -47,6 +49,7 @@ public final class GuarddutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDetectorResult> getDetector() {
@@ -56,6 +59,8 @@ public final class GuarddutyFunctions {
      * Retrieve information about a GuardDuty detector.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -82,6 +87,7 @@ public final class GuarddutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDetectorResult> getDetectorPlain() {
@@ -91,6 +97,8 @@ public final class GuarddutyFunctions {
      * Retrieve information about a GuardDuty detector.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -117,6 +125,7 @@ public final class GuarddutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDetectorResult> getDetector(GetDetectorArgs args) {
@@ -126,6 +135,8 @@ public final class GuarddutyFunctions {
      * Retrieve information about a GuardDuty detector.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -152,6 +163,7 @@ public final class GuarddutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDetectorResult> getDetectorPlain(GetDetectorPlainArgs args) {
@@ -161,6 +173,8 @@ public final class GuarddutyFunctions {
      * Retrieve information about a GuardDuty detector.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -187,6 +201,7 @@ public final class GuarddutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDetectorResult> getDetector(GetDetectorArgs args, InvokeOptions options) {
@@ -196,6 +211,8 @@ public final class GuarddutyFunctions {
      * Retrieve information about a GuardDuty detector.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -222,6 +239,7 @@ public final class GuarddutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDetectorResult> getDetectorPlain(GetDetectorPlainArgs args, InvokeOptions options) {
@@ -231,7 +249,10 @@ public final class GuarddutyFunctions {
      * Data source for managing an AWS GuardDuty Finding Ids.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -254,12 +275,13 @@ public final class GuarddutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GuarddutyFunctions.getFindingIds(GetFindingIdsArgs.builder()
-     *             .detectorId(aws_guardduty_detector.example().id())
+     *             .detectorId(exampleAwsGuarddutyDetector.id())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFindingIdsResult> getFindingIds(GetFindingIdsArgs args) {
@@ -269,7 +291,10 @@ public final class GuarddutyFunctions {
      * Data source for managing an AWS GuardDuty Finding Ids.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -292,12 +317,13 @@ public final class GuarddutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GuarddutyFunctions.getFindingIds(GetFindingIdsArgs.builder()
-     *             .detectorId(aws_guardduty_detector.example().id())
+     *             .detectorId(exampleAwsGuarddutyDetector.id())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFindingIdsResult> getFindingIdsPlain(GetFindingIdsPlainArgs args) {
@@ -307,7 +333,10 @@ public final class GuarddutyFunctions {
      * Data source for managing an AWS GuardDuty Finding Ids.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -330,12 +359,13 @@ public final class GuarddutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GuarddutyFunctions.getFindingIds(GetFindingIdsArgs.builder()
-     *             .detectorId(aws_guardduty_detector.example().id())
+     *             .detectorId(exampleAwsGuarddutyDetector.id())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFindingIdsResult> getFindingIds(GetFindingIdsArgs args, InvokeOptions options) {
@@ -345,7 +375,10 @@ public final class GuarddutyFunctions {
      * Data source for managing an AWS GuardDuty Finding Ids.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -368,12 +401,13 @@ public final class GuarddutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GuarddutyFunctions.getFindingIds(GetFindingIdsArgs.builder()
-     *             .detectorId(aws_guardduty_detector.example().id())
+     *             .detectorId(exampleAwsGuarddutyDetector.id())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFindingIdsResult> getFindingIdsPlain(GetFindingIdsPlainArgs args, InvokeOptions options) {

@@ -13,24 +13,26 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const orderFlowersProd = new aws.lex.BotAlias("orderFlowersProd", {
+ * const orderFlowersProd = new aws.lex.BotAlias("order_flowers_prod", {
  *     botName: "OrderFlowers",
  *     botVersion: "1",
  *     description: "Production Version of the OrderFlowers Bot.",
  *     name: "OrderFlowersProd",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import bot aliases using an ID with the format `bot_name:bot_alias_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
+ * $ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
  * ```
  */
 export class BotAlias extends pulumi.CustomResource {

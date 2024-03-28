@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ebs.GetSnapshotIds(ctx, &ebs.GetSnapshotIdsArgs{
+//				Owners: []string{
+//					"self",
+//				},
 //				Filters: []ebs.GetSnapshotIdsFilter{
 //					{
 //						Name: "volume-size",
@@ -43,9 +47,6 @@ import (
 //						},
 //					},
 //				},
-//				Owners: []string{
-//					"self",
-//				},
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -55,6 +56,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetSnapshotIds(ctx *pulumi.Context, args *GetSnapshotIdsArgs, opts ...pulumi.InvokeOption) (*GetSnapshotIdsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSnapshotIdsResult

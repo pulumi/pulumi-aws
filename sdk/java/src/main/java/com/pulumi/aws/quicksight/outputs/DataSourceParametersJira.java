@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class DataSourceParametersJira {
 
         @CustomType.Setter
         public Builder siteBaseUrl(String siteBaseUrl) {
-            this.siteBaseUrl = Objects.requireNonNull(siteBaseUrl);
+            if (siteBaseUrl == null) {
+              throw new MissingRequiredPropertyException("DataSourceParametersJira", "siteBaseUrl");
+            }
+            this.siteBaseUrl = siteBaseUrl;
             return this;
         }
         public DataSourceParametersJira build() {
-            final var o = new DataSourceParametersJira();
-            o.siteBaseUrl = siteBaseUrl;
-            return o;
+            final var _resultValue = new DataSourceParametersJira();
+            _resultValue.siteBaseUrl = siteBaseUrl;
+            return _resultValue;
         }
     }
 }

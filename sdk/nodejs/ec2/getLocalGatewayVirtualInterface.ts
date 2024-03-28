@@ -12,14 +12,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = .map(([, ]) => (aws.ec2.getLocalGatewayVirtualInterface({
+ * const example = .reduce((__obj, [, ]) => ({ ...__obj, [__key]: aws.ec2.getLocalGatewayVirtualInterface({
  *     id: __value,
- * })));
+ * }) }));
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalGatewayVirtualInterface(args?: GetLocalGatewayVirtualInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayVirtualInterfaceResult> {
     args = args || {};
@@ -88,14 +90,16 @@ export interface GetLocalGatewayVirtualInterfaceResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = .map(([, ]) => (aws.ec2.getLocalGatewayVirtualInterface({
+ * const example = .reduce((__obj, [, ]) => ({ ...__obj, [__key]: aws.ec2.getLocalGatewayVirtualInterface({
  *     id: __value,
- * })));
+ * }) }));
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalGatewayVirtualInterfaceOutput(args?: GetLocalGatewayVirtualInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayVirtualInterfaceResult> {
     return pulumi.output(args).apply((a: any) => getLocalGatewayVirtualInterface(a, opts))

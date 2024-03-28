@@ -12,12 +12,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const cache = new aws.opsworks.MemcachedLayer("cache", {stackId: aws_opsworks_stack.main.id});
+ * const cache = new aws.opsworks.MemcachedLayer("cache", {stackId: main.id});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class MemcachedLayer extends pulumi.CustomResource {
     /**
@@ -209,8 +211,6 @@ export class MemcachedLayer extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(MemcachedLayer.__pulumiType, name, resourceInputs, opts);
     }
 }

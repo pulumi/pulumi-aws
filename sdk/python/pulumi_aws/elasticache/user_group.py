@@ -214,28 +214,30 @@ class UserGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_user = aws.elasticache.User("testUser",
+        test = aws.elasticache.User("test",
             user_id="testUserId",
             user_name="default",
             access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
             engine="REDIS",
             passwords=["password123456789"])
-        test_user_group = aws.elasticache.UserGroup("testUserGroup",
+        test_user_group = aws.elasticache.UserGroup("test",
             engine="REDIS",
             user_group_id="userGroupId",
-            user_ids=[test_user.user_id])
+            user_ids=[test.user_id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ElastiCache user groups using the `user_group_id`. For example:
 
         ```sh
-         $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
+        $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
         ```
 
         :param str resource_name: The name of the resource.
@@ -258,28 +260,30 @@ class UserGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_user = aws.elasticache.User("testUser",
+        test = aws.elasticache.User("test",
             user_id="testUserId",
             user_name="default",
             access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
             engine="REDIS",
             passwords=["password123456789"])
-        test_user_group = aws.elasticache.UserGroup("testUserGroup",
+        test_user_group = aws.elasticache.UserGroup("test",
             engine="REDIS",
             user_group_id="userGroupId",
-            user_ids=[test_user.user_id])
+            user_ids=[test.user_id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ElastiCache user groups using the `user_group_id`. For example:
 
         ```sh
-         $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
+        $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
         ```
 
         :param str resource_name: The name of the resource.
@@ -320,8 +324,6 @@ class UserGroup(pulumi.CustomResource):
             __props__.__dict__["user_ids"] = user_ids
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(UserGroup, __self__).__init__(
             'aws:elasticache/userGroup:UserGroup',
             resource_name,

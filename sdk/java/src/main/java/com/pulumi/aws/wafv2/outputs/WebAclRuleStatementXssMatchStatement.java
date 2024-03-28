@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.outputs;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementXssMatchStatementFieldToMatch;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementXssMatchStatementTextTransformation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -60,22 +61,26 @@ public final class WebAclRuleStatementXssMatchStatement {
 
         @CustomType.Setter
         public Builder fieldToMatch(@Nullable WebAclRuleStatementXssMatchStatementFieldToMatch fieldToMatch) {
+
             this.fieldToMatch = fieldToMatch;
             return this;
         }
         @CustomType.Setter
         public Builder textTransformations(List<WebAclRuleStatementXssMatchStatementTextTransformation> textTransformations) {
-            this.textTransformations = Objects.requireNonNull(textTransformations);
+            if (textTransformations == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementXssMatchStatement", "textTransformations");
+            }
+            this.textTransformations = textTransformations;
             return this;
         }
         public Builder textTransformations(WebAclRuleStatementXssMatchStatementTextTransformation... textTransformations) {
             return textTransformations(List.of(textTransformations));
         }
         public WebAclRuleStatementXssMatchStatement build() {
-            final var o = new WebAclRuleStatementXssMatchStatement();
-            o.fieldToMatch = fieldToMatch;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new WebAclRuleStatementXssMatchStatement();
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

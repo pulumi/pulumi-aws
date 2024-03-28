@@ -230,16 +230,18 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         Provides an AppConfig Hosted Configuration Version resource.
 
         ## Example Usage
+
         ### Freeform
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         example = aws.appconfig.HostedConfigurationVersion("example",
-            application_id=aws_appconfig_application["example"]["id"],
-            configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
+            application_id=example_aws_appconfig_application["id"],
+            configuration_profile_id=example_aws_appconfig_configuration_profile["configurationProfileId"],
             description="Example Freeform Hosted Configuration Version",
             content_type="application/json",
             content=json.dumps({
@@ -252,16 +254,19 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                 "isThingEnabled": True,
             }))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Feature Flags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         example = aws.appconfig.HostedConfigurationVersion("example",
-            application_id=aws_appconfig_application["example"]["id"],
-            configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
+            application_id=example_aws_appconfig_application["id"],
+            configuration_profile_id=example_aws_appconfig_configuration_profile["configurationProfileId"],
             description="Example Feature Flag Configuration Version",
             content_type="application/json",
             content=json.dumps({
@@ -303,13 +308,14 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                 "version": "1",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AppConfig Hosted Configuration Versions using the application ID, configuration profile ID, and version number separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion example 71abcde/11xxxxx/2
+        $ pulumi import aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion example 71abcde/11xxxxx/2
         ```
 
         :param str resource_name: The name of the resource.
@@ -330,16 +336,18 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         Provides an AppConfig Hosted Configuration Version resource.
 
         ## Example Usage
+
         ### Freeform
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         example = aws.appconfig.HostedConfigurationVersion("example",
-            application_id=aws_appconfig_application["example"]["id"],
-            configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
+            application_id=example_aws_appconfig_application["id"],
+            configuration_profile_id=example_aws_appconfig_configuration_profile["configurationProfileId"],
             description="Example Freeform Hosted Configuration Version",
             content_type="application/json",
             content=json.dumps({
@@ -352,16 +360,19 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                 "isThingEnabled": True,
             }))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Feature Flags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         example = aws.appconfig.HostedConfigurationVersion("example",
-            application_id=aws_appconfig_application["example"]["id"],
-            configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
+            application_id=example_aws_appconfig_application["id"],
+            configuration_profile_id=example_aws_appconfig_configuration_profile["configurationProfileId"],
             description="Example Feature Flag Configuration Version",
             content_type="application/json",
             content=json.dumps({
@@ -403,13 +414,14 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                 "version": "1",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AppConfig Hosted Configuration Versions using the application ID, configuration profile ID, and version number separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion example 71abcde/11xxxxx/2
+        $ pulumi import aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion example 71abcde/11xxxxx/2
         ```
 
         :param str resource_name: The name of the resource.

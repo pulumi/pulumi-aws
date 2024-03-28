@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -57,19 +58,25 @@ public final class GetSerialConsoleAccessResult {
 
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetSerialConsoleAccessResult", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSerialConsoleAccessResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetSerialConsoleAccessResult build() {
-            final var o = new GetSerialConsoleAccessResult();
-            o.enabled = enabled;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetSerialConsoleAccessResult();
+            _resultValue.enabled = enabled;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

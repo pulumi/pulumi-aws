@@ -58,19 +58,21 @@ public final class FirewallFirewallStatusSyncStateAttachment {
 
         @CustomType.Setter
         public Builder endpointId(@Nullable String endpointId) {
+
             this.endpointId = endpointId;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
+
             this.subnetId = subnetId;
             return this;
         }
         public FirewallFirewallStatusSyncStateAttachment build() {
-            final var o = new FirewallFirewallStatusSyncStateAttachment();
-            o.endpointId = endpointId;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new FirewallFirewallStatusSyncStateAttachment();
+            _resultValue.endpointId = endpointId;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

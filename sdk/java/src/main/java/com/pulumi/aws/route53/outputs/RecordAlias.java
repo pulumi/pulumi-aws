@@ -4,6 +4,7 @@
 package com.pulumi.aws.route53.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -71,25 +72,34 @@ public final class RecordAlias {
 
         @CustomType.Setter
         public Builder evaluateTargetHealth(Boolean evaluateTargetHealth) {
-            this.evaluateTargetHealth = Objects.requireNonNull(evaluateTargetHealth);
+            if (evaluateTargetHealth == null) {
+              throw new MissingRequiredPropertyException("RecordAlias", "evaluateTargetHealth");
+            }
+            this.evaluateTargetHealth = evaluateTargetHealth;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("RecordAlias", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder zoneId(String zoneId) {
-            this.zoneId = Objects.requireNonNull(zoneId);
+            if (zoneId == null) {
+              throw new MissingRequiredPropertyException("RecordAlias", "zoneId");
+            }
+            this.zoneId = zoneId;
             return this;
         }
         public RecordAlias build() {
-            final var o = new RecordAlias();
-            o.evaluateTargetHealth = evaluateTargetHealth;
-            o.name = name;
-            o.zoneId = zoneId;
-            return o;
+            final var _resultValue = new RecordAlias();
+            _resultValue.evaluateTargetHealth = evaluateTargetHealth;
+            _resultValue.name = name;
+            _resultValue.zoneId = zoneId;
+            return _resultValue;
         }
     }
 }

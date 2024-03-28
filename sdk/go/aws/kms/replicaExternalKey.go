@@ -17,12 +17,12 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -30,26 +30,20 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "primary", &aws.ProviderArgs{
-//				Region: pulumi.String("us-east-1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kms.NewExternalKey(ctx, "primaryExternalKey", &kms.ExternalKeyArgs{
+//			_, err := kms.NewExternalKey(ctx, "primary", &kms.ExternalKeyArgs{
 //				Description:          pulumi.String("Multi-Region primary key"),
 //				DeletionWindowInDays: pulumi.Int(30),
 //				MultiRegion:          pulumi.Bool(true),
 //				Enabled:              pulumi.Bool(true),
 //				KeyMaterialBase64:    pulumi.String("..."),
-//			}, pulumi.Provider(aws.Primary))
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = kms.NewReplicaExternalKey(ctx, "replica", &kms.ReplicaExternalKeyArgs{
 //				Description:          pulumi.String("Multi-Region replica key"),
 //				DeletionWindowInDays: pulumi.Int(7),
-//				PrimaryKeyArn:        pulumi.Any(aws_kms_external.Primary.Arn),
+//				PrimaryKeyArn:        pulumi.Any(primaryAwsKmsExternal.Arn),
 //				KeyMaterialBase64:    pulumi.String("..."),
 //			})
 //			if err != nil {
@@ -60,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import KMS multi-Region replica keys using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:kms/replicaExternalKey:ReplicaExternalKey example 1234abcd-12ab-34cd-56ef-1234567890ab
-//
+// $ pulumi import aws:kms/replicaExternalKey:ReplicaExternalKey example 1234abcd-12ab-34cd-56ef-1234567890ab
 // ```
 type ReplicaExternalKey struct {
 	pulumi.CustomResourceState
@@ -126,7 +119,6 @@ func NewReplicaExternalKey(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"keyMaterialBase64",
-		"tagsAll",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)

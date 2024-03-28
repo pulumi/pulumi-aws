@@ -14,13 +14,15 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.guardduty.Detector("example", {enable: true});
- * const eksRuntimeMonitoring = new aws.guardduty.OrganizationConfigurationFeature("eksRuntimeMonitoring", {
+ * const eksRuntimeMonitoring = new aws.guardduty.OrganizationConfigurationFeature("eks_runtime_monitoring", {
  *     detectorId: example.id,
+ *     name: "EKS_RUNTIME_MONITORING",
  *     autoEnable: "ALL",
  *     additionalConfigurations: [{
  *         name: "EKS_ADDON_MANAGEMENT",
@@ -28,6 +30,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class OrganizationConfigurationFeature extends pulumi.CustomResource {
     /**

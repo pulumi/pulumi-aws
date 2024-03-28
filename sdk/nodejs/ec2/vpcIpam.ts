@@ -10,12 +10,36 @@ import * as utilities from "../utilities";
 /**
  * Provides an IPAM resource.
  *
+ * ## Example Usage
+ *
+ * Basic usage:
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getRegion({});
+ * const main = new aws.ec2.VpcIpam("main", {
+ *     description: "My IPAM",
+ *     operatingRegions: [{
+ *         regionName: current.then(current => current.name),
+ *     }],
+ *     tags: {
+ *         Test: "Main",
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * Shared with multiple operating_regions:
+ *
  * ## Import
  *
  * Using `pulumi import`, import IPAMs using the IPAM `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/vpcIpam:VpcIpam example ipam-0178368ad2146a492
+ * $ pulumi import aws:ec2/vpcIpam:VpcIpam example ipam-0178368ad2146a492
  * ```
  */
 export class VpcIpam extends pulumi.CustomResource {
@@ -136,8 +160,6 @@ export class VpcIpam extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VpcIpam.__pulumiType, name, resourceInputs, opts);
     }
 }

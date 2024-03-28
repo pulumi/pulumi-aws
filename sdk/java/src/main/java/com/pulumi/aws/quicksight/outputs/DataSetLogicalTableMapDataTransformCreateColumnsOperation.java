@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.aws.quicksight.outputs.DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,16 +44,19 @@ public final class DataSetLogicalTableMapDataTransformCreateColumnsOperation {
 
         @CustomType.Setter
         public Builder columns(List<DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn> columns) {
-            this.columns = Objects.requireNonNull(columns);
+            if (columns == null) {
+              throw new MissingRequiredPropertyException("DataSetLogicalTableMapDataTransformCreateColumnsOperation", "columns");
+            }
+            this.columns = columns;
             return this;
         }
         public Builder columns(DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn... columns) {
             return columns(List.of(columns));
         }
         public DataSetLogicalTableMapDataTransformCreateColumnsOperation build() {
-            final var o = new DataSetLogicalTableMapDataTransformCreateColumnsOperation();
-            o.columns = columns;
-            return o;
+            final var _resultValue = new DataSetLogicalTableMapDataTransformCreateColumnsOperation();
+            _resultValue.columns = columns;
+            return _resultValue;
         }
     }
 }

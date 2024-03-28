@@ -22,7 +22,10 @@ import javax.annotation.Nullable;
  * Attaches a load balancer policy to an ELB Listener.
  * 
  * ## Example Usage
+ * 
  * ### Custom Policy
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,6 +54,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var wu_tang = new LoadBalancer(&#34;wu-tang&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;wu-tang&#34;)
  *             .availabilityZones(&#34;us-east-1a&#34;)
  *             .listeners(LoadBalancerListenerArgs.builder()
  *                 .instancePort(443)
@@ -86,9 +90,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * This example shows how to customize the TLS settings of an HTTPS listener.
+ * 
  * ### AWS Predefined Security Policy
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -117,6 +125,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var wu_tang = new LoadBalancer(&#34;wu-tang&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;wu-tang&#34;)
  *             .availabilityZones(&#34;us-east-1a&#34;)
  *             .listeners(LoadBalancerListenerArgs.builder()
  *                 .instancePort(443)
@@ -147,6 +156,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * This example shows how to add a [Predefined Security Policy for ELBs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html)
  * 

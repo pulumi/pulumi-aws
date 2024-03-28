@@ -16,34 +16,34 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := iot.NewThing(ctx, "example", nil)
+//			example, err := iot.NewThing(ctx, "example", &iot.ThingArgs{
+//				Name: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "csr.pem",
+//			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			cert, err := iot.NewCertificate(ctx, "cert", &iot.CertificateArgs{
-//				Csr:    readFileOrPanic("csr.pem"),
+//				Csr:    invokeFile.Result,
 //				Active: pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -61,6 +61,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type ThingPrincipalAttachment struct {
 	pulumi.CustomResourceState
 

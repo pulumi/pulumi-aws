@@ -8,26 +8,31 @@ import * as utilities from "../utilities";
  * Provides a Route53 health check.
  *
  * ## Example Usage
+ *
  * ### Connectivity and HTTP Status Code Check
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.route53.HealthCheck("example", {
- *     failureThreshold: 5,
  *     fqdn: "example.com",
  *     port: 80,
- *     requestInterval: 30,
+ *     type: "HTTP",
  *     resourcePath: "/",
+ *     failureThreshold: 5,
+ *     requestInterval: 30,
  *     tags: {
  *         Name: "tf-test-health-check",
  *     },
- *     type: "HTTP",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Connectivity and String Matching Check
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -42,8 +47,11 @@ import * as utilities from "../utilities";
  *     type: "HTTPS_STR_MATCH",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Aggregate Check
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -51,19 +59,23 @@ import * as utilities from "../utilities";
  * const parent = new aws.route53.HealthCheck("parent", {
  *     type: "CALCULATED",
  *     childHealthThreshold: 1,
- *     childHealthchecks: [aws_route53_health_check.child.id],
+ *     childHealthchecks: [child.id],
  *     tags: {
  *         Name: "tf-test-calculated-health-check",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### CloudWatch Alarm Check
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const foobar = new aws.cloudwatch.MetricAlarm("foobar", {
+ *     name: "test-foobar5",
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
  *     evaluationPeriods: 2,
  *     metricName: "CPUUtilization",
@@ -80,13 +92,14 @@ import * as utilities from "../utilities";
  *     insufficientDataHealthStatus: "Healthy",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Route53 Health Checks using the health check `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
+ * $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
  * ```
  */
 export class HealthCheck extends pulumi.CustomResource {
@@ -284,8 +297,6 @@ export class HealthCheck extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(HealthCheck.__pulumiType, name, resourceInputs, opts);
     }
 }

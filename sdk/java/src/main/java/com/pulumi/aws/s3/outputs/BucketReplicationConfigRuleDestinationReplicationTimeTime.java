@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class BucketReplicationConfigRuleDestinationReplicationTimeTime {
 
         @CustomType.Setter
         public Builder minutes(Integer minutes) {
-            this.minutes = Objects.requireNonNull(minutes);
+            if (minutes == null) {
+              throw new MissingRequiredPropertyException("BucketReplicationConfigRuleDestinationReplicationTimeTime", "minutes");
+            }
+            this.minutes = minutes;
             return this;
         }
         public BucketReplicationConfigRuleDestinationReplicationTimeTime build() {
-            final var o = new BucketReplicationConfigRuleDestinationReplicationTimeTime();
-            o.minutes = minutes;
-            return o;
+            final var _resultValue = new BucketReplicationConfigRuleDestinationReplicationTimeTime();
+            _resultValue.minutes = minutes;
+            return _resultValue;
         }
     }
 }

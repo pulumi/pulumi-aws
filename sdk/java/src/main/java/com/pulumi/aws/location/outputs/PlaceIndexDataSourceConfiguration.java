@@ -44,13 +44,14 @@ public final class PlaceIndexDataSourceConfiguration {
 
         @CustomType.Setter
         public Builder intendedUse(@Nullable String intendedUse) {
+
             this.intendedUse = intendedUse;
             return this;
         }
         public PlaceIndexDataSourceConfiguration build() {
-            final var o = new PlaceIndexDataSourceConfiguration();
-            o.intendedUse = intendedUse;
-            return o;
+            final var _resultValue = new PlaceIndexDataSourceConfiguration();
+            _resultValue.intendedUse = intendedUse;
+            return _resultValue;
         }
     }
 }

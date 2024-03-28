@@ -44,13 +44,14 @@ public final class EventSourceMappingDestinationConfig {
 
         @CustomType.Setter
         public Builder onFailure(@Nullable EventSourceMappingDestinationConfigOnFailure onFailure) {
+
             this.onFailure = onFailure;
             return this;
         }
         public EventSourceMappingDestinationConfig build() {
-            final var o = new EventSourceMappingDestinationConfig();
-            o.onFailure = onFailure;
-            return o;
+            final var _resultValue = new EventSourceMappingDestinationConfig();
+            _resultValue.onFailure = onFailure;
+            return _resultValue;
         }
     }
 }

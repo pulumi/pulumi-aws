@@ -26,6 +26,8 @@ public final class KinesisFunctions {
      * For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -54,6 +56,7 @@ public final class KinesisFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFirehoseDeliveryStreamResult> getFirehoseDeliveryStream(GetFirehoseDeliveryStreamArgs args) {
@@ -65,6 +68,8 @@ public final class KinesisFunctions {
      * For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -93,6 +98,7 @@ public final class KinesisFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFirehoseDeliveryStreamResult> getFirehoseDeliveryStreamPlain(GetFirehoseDeliveryStreamPlainArgs args) {
@@ -104,6 +110,8 @@ public final class KinesisFunctions {
      * For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -132,6 +140,7 @@ public final class KinesisFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFirehoseDeliveryStreamResult> getFirehoseDeliveryStream(GetFirehoseDeliveryStreamArgs args, InvokeOptions options) {
@@ -143,6 +152,8 @@ public final class KinesisFunctions {
      * For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -171,6 +182,7 @@ public final class KinesisFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFirehoseDeliveryStreamResult> getFirehoseDeliveryStreamPlain(GetFirehoseDeliveryStreamPlainArgs args, InvokeOptions options) {
@@ -183,6 +195,8 @@ public final class KinesisFunctions {
      * For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -211,6 +225,7 @@ public final class KinesisFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStreamResult> getStream(GetStreamArgs args) {
@@ -223,6 +238,8 @@ public final class KinesisFunctions {
      * For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -251,6 +268,7 @@ public final class KinesisFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStreamResult> getStreamPlain(GetStreamPlainArgs args) {
@@ -263,6 +281,8 @@ public final class KinesisFunctions {
      * For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -291,6 +311,7 @@ public final class KinesisFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStreamResult> getStream(GetStreamArgs args, InvokeOptions options) {
@@ -303,6 +324,8 @@ public final class KinesisFunctions {
      * For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -331,6 +354,7 @@ public final class KinesisFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStreamResult> getStreamPlain(GetStreamPlainArgs args, InvokeOptions options) {
@@ -342,6 +366,8 @@ public final class KinesisFunctions {
      * For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -365,12 +391,13 @@ public final class KinesisFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KinesisFunctions.getStreamConsumer(GetStreamConsumerArgs.builder()
      *             .name(&#34;example-consumer&#34;)
-     *             .streamArn(aws_kinesis_stream.example().arn())
+     *             .streamArn(exampleAwsKinesisStream.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStreamConsumerResult> getStreamConsumer(GetStreamConsumerArgs args) {
@@ -382,6 +409,8 @@ public final class KinesisFunctions {
      * For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -405,12 +434,13 @@ public final class KinesisFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KinesisFunctions.getStreamConsumer(GetStreamConsumerArgs.builder()
      *             .name(&#34;example-consumer&#34;)
-     *             .streamArn(aws_kinesis_stream.example().arn())
+     *             .streamArn(exampleAwsKinesisStream.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStreamConsumerResult> getStreamConsumerPlain(GetStreamConsumerPlainArgs args) {
@@ -422,6 +452,8 @@ public final class KinesisFunctions {
      * For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -445,12 +477,13 @@ public final class KinesisFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KinesisFunctions.getStreamConsumer(GetStreamConsumerArgs.builder()
      *             .name(&#34;example-consumer&#34;)
-     *             .streamArn(aws_kinesis_stream.example().arn())
+     *             .streamArn(exampleAwsKinesisStream.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStreamConsumerResult> getStreamConsumer(GetStreamConsumerArgs args, InvokeOptions options) {
@@ -462,6 +495,8 @@ public final class KinesisFunctions {
      * For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -485,12 +520,13 @@ public final class KinesisFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KinesisFunctions.getStreamConsumer(GetStreamConsumerArgs.builder()
      *             .name(&#34;example-consumer&#34;)
-     *             .streamArn(aws_kinesis_stream.example().arn())
+     *             .streamArn(exampleAwsKinesisStream.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStreamConsumerResult> getStreamConsumerPlain(GetStreamConsumerPlainArgs args, InvokeOptions options) {

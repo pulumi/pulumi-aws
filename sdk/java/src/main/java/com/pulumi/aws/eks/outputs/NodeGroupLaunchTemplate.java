@@ -4,6 +4,7 @@
 package com.pulumi.aws.eks.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,30 @@ public final class NodeGroupLaunchTemplate {
 
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("NodeGroupLaunchTemplate", "version");
+            }
+            this.version = version;
             return this;
         }
         public NodeGroupLaunchTemplate build() {
-            final var o = new NodeGroupLaunchTemplate();
-            o.id = id;
-            o.name = name;
-            o.version = version;
-            return o;
+            final var _resultValue = new NodeGroupLaunchTemplate();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

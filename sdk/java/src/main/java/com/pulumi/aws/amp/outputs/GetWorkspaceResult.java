@@ -4,6 +4,7 @@
 package com.pulumi.aws.amp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -30,6 +31,11 @@ public final class GetWorkspaceResult {
      * 
      */
     private String id;
+    /**
+     * @return ARN of the KMS key used to encrypt data in the Prometheus workspace.
+     * 
+     */
+    private String kmsKeyArn;
     /**
      * @return Endpoint of the Prometheus workspace.
      * 
@@ -77,6 +83,13 @@ public final class GetWorkspaceResult {
         return this.id;
     }
     /**
+     * @return ARN of the KMS key used to encrypt data in the Prometheus workspace.
+     * 
+     */
+    public String kmsKeyArn() {
+        return this.kmsKeyArn;
+    }
+    /**
      * @return Endpoint of the Prometheus workspace.
      * 
      */
@@ -114,6 +127,7 @@ public final class GetWorkspaceResult {
         private String arn;
         private String createdDate;
         private String id;
+        private String kmsKeyArn;
         private String prometheusEndpoint;
         private String status;
         private Map<String,String> tags;
@@ -125,6 +139,7 @@ public final class GetWorkspaceResult {
     	      this.arn = defaults.arn;
     	      this.createdDate = defaults.createdDate;
     	      this.id = defaults.id;
+    	      this.kmsKeyArn = defaults.kmsKeyArn;
     	      this.prometheusEndpoint = defaults.prometheusEndpoint;
     	      this.status = defaults.status;
     	      this.tags = defaults.tags;
@@ -133,55 +148,88 @@ public final class GetWorkspaceResult {
 
         @CustomType.Setter
         public Builder alias(String alias) {
-            this.alias = Objects.requireNonNull(alias);
+            if (alias == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "alias");
+            }
+            this.alias = alias;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+            if (createdDate == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "createdDate");
+            }
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "id");
+            }
+            this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder kmsKeyArn(String kmsKeyArn) {
+            if (kmsKeyArn == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "kmsKeyArn");
+            }
+            this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         @CustomType.Setter
         public Builder prometheusEndpoint(String prometheusEndpoint) {
-            this.prometheusEndpoint = Objects.requireNonNull(prometheusEndpoint);
+            if (prometheusEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "prometheusEndpoint");
+            }
+            this.prometheusEndpoint = prometheusEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder workspaceId(String workspaceId) {
-            this.workspaceId = Objects.requireNonNull(workspaceId);
+            if (workspaceId == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "workspaceId");
+            }
+            this.workspaceId = workspaceId;
             return this;
         }
         public GetWorkspaceResult build() {
-            final var o = new GetWorkspaceResult();
-            o.alias = alias;
-            o.arn = arn;
-            o.createdDate = createdDate;
-            o.id = id;
-            o.prometheusEndpoint = prometheusEndpoint;
-            o.status = status;
-            o.tags = tags;
-            o.workspaceId = workspaceId;
-            return o;
+            final var _resultValue = new GetWorkspaceResult();
+            _resultValue.alias = alias;
+            _resultValue.arn = arn;
+            _resultValue.createdDate = createdDate;
+            _resultValue.id = id;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.prometheusEndpoint = prometheusEndpoint;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            _resultValue.workspaceId = workspaceId;
+            return _resultValue;
         }
     }
 }

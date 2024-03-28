@@ -336,79 +336,81 @@ class KeySigningKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        example_key = aws.kms.Key("exampleKey",
+        example = aws.kms.Key("example",
             customer_master_key_spec="ECC_NIST_P256",
             deletion_window_in_days=7,
             key_usage="SIGN_VERIFY",
             policy=json.dumps({
-                "Statement": [
+                "statement": [
                     {
-                        "Action": [
+                        "action": [
                             "kms:DescribeKey",
                             "kms:GetPublicKey",
                             "kms:Sign",
                         ],
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "dnssec-route53.amazonaws.com",
+                        "effect": "Allow",
+                        "principal": {
+                            "service": "dnssec-route53.amazonaws.com",
                         },
-                        "Sid": "Allow Route 53 DNSSEC Service",
-                        "Resource": "*",
-                        "Condition": {
-                            "StringEquals": {
+                        "sid": "Allow Route 53 DNSSEC Service",
+                        "resource": "*",
+                        "condition": {
+                            "stringEquals": {
                                 "aws:SourceAccount": current.account_id,
                             },
-                            "ArnLike": {
+                            "arnLike": {
                                 "aws:SourceArn": "arn:aws:route53:::hostedzone/*",
                             },
                         },
                     },
                     {
-                        "Action": "kms:CreateGrant",
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "dnssec-route53.amazonaws.com",
+                        "action": "kms:CreateGrant",
+                        "effect": "Allow",
+                        "principal": {
+                            "service": "dnssec-route53.amazonaws.com",
                         },
-                        "Sid": "Allow Route 53 DNSSEC Service to CreateGrant",
-                        "Resource": "*",
-                        "Condition": {
-                            "Bool": {
+                        "sid": "Allow Route 53 DNSSEC Service to CreateGrant",
+                        "resource": "*",
+                        "condition": {
+                            "bool": {
                                 "kms:GrantIsForAWSResource": "true",
                             },
                         },
                     },
                     {
-                        "Action": "kms:*",
-                        "Effect": "Allow",
-                        "Principal": {
+                        "action": "kms:*",
+                        "effect": "Allow",
+                        "principal": {
                             "AWS": f"arn:aws:iam::{current.account_id}:root",
                         },
-                        "Resource": "*",
-                        "Sid": "Enable IAM User Permissions",
+                        "resource": "*",
+                        "sid": "Enable IAM User Permissions",
                     },
                 ],
-                "Version": "2012-10-17",
+                "version": "2012-10-17",
             }))
-        example_zone = aws.route53.Zone("exampleZone")
-        example_key_signing_key = aws.route53.KeySigningKey("exampleKeySigningKey",
-            hosted_zone_id=aws_route53_zone["test"]["id"],
-            key_management_service_arn=aws_kms_key["test"]["arn"])
-        example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("exampleHostedZoneDnsSec", hosted_zone_id=example_key_signing_key.hosted_zone_id,
-        opts=pulumi.ResourceOptions(depends_on=[example_key_signing_key]))
+        example_zone = aws.route53.Zone("example", name="example.com")
+        example_key_signing_key = aws.route53.KeySigningKey("example",
+            hosted_zone_id=test["id"],
+            key_management_service_arn=test_aws_kms_key["arn"],
+            name="example")
+        example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("example", hosted_zone_id=example_key_signing_key.hosted_zone_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_route53_key_signing_key` resources using the Route 53 Hosted Zone identifier and KMS Key identifier, separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example
+        $ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example
         ```
 
         :param str resource_name: The name of the resource.
@@ -431,79 +433,81 @@ class KeySigningKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        example_key = aws.kms.Key("exampleKey",
+        example = aws.kms.Key("example",
             customer_master_key_spec="ECC_NIST_P256",
             deletion_window_in_days=7,
             key_usage="SIGN_VERIFY",
             policy=json.dumps({
-                "Statement": [
+                "statement": [
                     {
-                        "Action": [
+                        "action": [
                             "kms:DescribeKey",
                             "kms:GetPublicKey",
                             "kms:Sign",
                         ],
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "dnssec-route53.amazonaws.com",
+                        "effect": "Allow",
+                        "principal": {
+                            "service": "dnssec-route53.amazonaws.com",
                         },
-                        "Sid": "Allow Route 53 DNSSEC Service",
-                        "Resource": "*",
-                        "Condition": {
-                            "StringEquals": {
+                        "sid": "Allow Route 53 DNSSEC Service",
+                        "resource": "*",
+                        "condition": {
+                            "stringEquals": {
                                 "aws:SourceAccount": current.account_id,
                             },
-                            "ArnLike": {
+                            "arnLike": {
                                 "aws:SourceArn": "arn:aws:route53:::hostedzone/*",
                             },
                         },
                     },
                     {
-                        "Action": "kms:CreateGrant",
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "dnssec-route53.amazonaws.com",
+                        "action": "kms:CreateGrant",
+                        "effect": "Allow",
+                        "principal": {
+                            "service": "dnssec-route53.amazonaws.com",
                         },
-                        "Sid": "Allow Route 53 DNSSEC Service to CreateGrant",
-                        "Resource": "*",
-                        "Condition": {
-                            "Bool": {
+                        "sid": "Allow Route 53 DNSSEC Service to CreateGrant",
+                        "resource": "*",
+                        "condition": {
+                            "bool": {
                                 "kms:GrantIsForAWSResource": "true",
                             },
                         },
                     },
                     {
-                        "Action": "kms:*",
-                        "Effect": "Allow",
-                        "Principal": {
+                        "action": "kms:*",
+                        "effect": "Allow",
+                        "principal": {
                             "AWS": f"arn:aws:iam::{current.account_id}:root",
                         },
-                        "Resource": "*",
-                        "Sid": "Enable IAM User Permissions",
+                        "resource": "*",
+                        "sid": "Enable IAM User Permissions",
                     },
                 ],
-                "Version": "2012-10-17",
+                "version": "2012-10-17",
             }))
-        example_zone = aws.route53.Zone("exampleZone")
-        example_key_signing_key = aws.route53.KeySigningKey("exampleKeySigningKey",
-            hosted_zone_id=aws_route53_zone["test"]["id"],
-            key_management_service_arn=aws_kms_key["test"]["arn"])
-        example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("exampleHostedZoneDnsSec", hosted_zone_id=example_key_signing_key.hosted_zone_id,
-        opts=pulumi.ResourceOptions(depends_on=[example_key_signing_key]))
+        example_zone = aws.route53.Zone("example", name="example.com")
+        example_key_signing_key = aws.route53.KeySigningKey("example",
+            hosted_zone_id=test["id"],
+            key_management_service_arn=test_aws_kms_key["arn"],
+            name="example")
+        example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("example", hosted_zone_id=example_key_signing_key.hosted_zone_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_route53_key_signing_key` resources using the Route 53 Hosted Zone identifier and KMS Key identifier, separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example
+        $ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example
         ```
 
         :param str resource_name: The name of the resource.

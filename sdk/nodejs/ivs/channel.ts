@@ -8,21 +8,24 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS IVS (Interactive Video) Channel.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ivs.Channel("example", {});
+ * const example = new aws.ivs.Channel("example", {name: "channel-1"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IVS (Interactive Video) Channel using the ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:ivs/channel:Channel example arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5
+ * $ pulumi import aws:ivs/channel:Channel example arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5
  * ```
  */
 export class Channel extends pulumi.CustomResource {
@@ -133,8 +136,6 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Channel.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,6 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * To create a basic traffic mirror session
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,29 +47,30 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var nlb = new TrafficMirrorTarget(&#34;nlb&#34;, TrafficMirrorTargetArgs.builder()        
  *             .description(&#34;NLB target&#34;)
- *             .networkLoadBalancerArn(aws_lb.lb().arn())
+ *             .networkLoadBalancerArn(lb.arn())
  *             .build());
  * 
  *         var eni = new TrafficMirrorTarget(&#34;eni&#34;, TrafficMirrorTargetArgs.builder()        
  *             .description(&#34;ENI target&#34;)
- *             .networkInterfaceId(aws_instance.test().primary_network_interface_id())
+ *             .networkInterfaceId(test.primaryNetworkInterfaceId())
  *             .build());
  * 
  *         var gwlb = new TrafficMirrorTarget(&#34;gwlb&#34;, TrafficMirrorTargetArgs.builder()        
  *             .description(&#34;GWLB target&#34;)
- *             .gatewayLoadBalancerEndpointId(aws_vpc_endpoint.example().id())
+ *             .gatewayLoadBalancerEndpointId(example.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import traffic mirror targets using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
+ * $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
  * ```
  * 
  */
@@ -227,9 +229,6 @@ public class TrafficMirrorTarget extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

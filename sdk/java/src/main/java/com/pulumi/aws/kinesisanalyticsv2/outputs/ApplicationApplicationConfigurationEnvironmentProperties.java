@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesisanalyticsv2.outputs;
 
 import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,16 +44,19 @@ public final class ApplicationApplicationConfigurationEnvironmentProperties {
 
         @CustomType.Setter
         public Builder propertyGroups(List<ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup> propertyGroups) {
-            this.propertyGroups = Objects.requireNonNull(propertyGroups);
+            if (propertyGroups == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationEnvironmentProperties", "propertyGroups");
+            }
+            this.propertyGroups = propertyGroups;
             return this;
         }
         public Builder propertyGroups(ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup... propertyGroups) {
             return propertyGroups(List.of(propertyGroups));
         }
         public ApplicationApplicationConfigurationEnvironmentProperties build() {
-            final var o = new ApplicationApplicationConfigurationEnvironmentProperties();
-            o.propertyGroups = propertyGroups;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationEnvironmentProperties();
+            _resultValue.propertyGroups = propertyGroups;
+            return _resultValue;
         }
     }
 }

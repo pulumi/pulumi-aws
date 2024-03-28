@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,9 +33,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.NewClusterRoleAssociation(ctx, "example", &rds.ClusterRoleAssociationArgs{
-//				DbClusterIdentifier: pulumi.Any(aws_rds_cluster.Example.Id),
+//				DbClusterIdentifier: pulumi.Any(exampleAwsRdsCluster.Id),
 //				FeatureName:         pulumi.String("S3_INTEGRATION"),
-//				RoleArn:             pulumi.Any(aws_iam_role.Example.Arn),
+//				RoleArn:             pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -44,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_rds_cluster_role_association` using the DB Cluster Identifier and IAM Role ARN separated by a comma (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:rds/clusterRoleAssociation:ClusterRoleAssociation example my-db-cluster,arn:aws:iam::123456789012:role/my-role
-//
+// $ pulumi import aws:rds/clusterRoleAssociation:ClusterRoleAssociation example my-db-cluster,arn:aws:iam::123456789012:role/my-role
 // ```
 type ClusterRoleAssociation struct {
 	pulumi.CustomResourceState

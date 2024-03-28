@@ -9,31 +9,34 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.wafv2.IpSet("example", {
+ *     name: "example",
+ *     description: "Example IP set",
+ *     scope: "REGIONAL",
+ *     ipAddressVersion: "IPV4",
  *     addresses: [
  *         "1.2.3.4/32",
  *         "5.6.7.8/32",
  *     ],
- *     description: "Example IP set",
- *     ipAddressVersion: "IPV4",
- *     scope: "REGIONAL",
  *     tags: {
  *         Tag1: "Value1",
  *         Tag2: "Value2",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import WAFv2 IP Sets using `ID/name/scope`. For example:
  *
  * ```sh
- *  $ pulumi import aws:wafv2/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+ * $ pulumi import aws:wafv2/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
  * ```
  */
 export class IpSet extends pulumi.CustomResource {
@@ -141,8 +144,6 @@ export class IpSet extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(IpSet.__pulumiType, name, resourceInputs, opts);
     }
 }

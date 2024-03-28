@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -252,103 +253,151 @@ public final class GetThemeConfigurationUiColorPalette {
 
         @CustomType.Setter
         public Builder accent(String accent) {
-            this.accent = Objects.requireNonNull(accent);
+            if (accent == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationUiColorPalette", "accent");
+            }
+            this.accent = accent;
             return this;
         }
         @CustomType.Setter
         public Builder accentForeground(String accentForeground) {
-            this.accentForeground = Objects.requireNonNull(accentForeground);
+            if (accentForeground == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationUiColorPalette", "accentForeground");
+            }
+            this.accentForeground = accentForeground;
             return this;
         }
         @CustomType.Setter
         public Builder danger(String danger) {
-            this.danger = Objects.requireNonNull(danger);
+            if (danger == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationUiColorPalette", "danger");
+            }
+            this.danger = danger;
             return this;
         }
         @CustomType.Setter
         public Builder dangerForeground(String dangerForeground) {
-            this.dangerForeground = Objects.requireNonNull(dangerForeground);
+            if (dangerForeground == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationUiColorPalette", "dangerForeground");
+            }
+            this.dangerForeground = dangerForeground;
             return this;
         }
         @CustomType.Setter
         public Builder dimension(String dimension) {
-            this.dimension = Objects.requireNonNull(dimension);
+            if (dimension == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationUiColorPalette", "dimension");
+            }
+            this.dimension = dimension;
             return this;
         }
         @CustomType.Setter
         public Builder dimensionForeground(String dimensionForeground) {
-            this.dimensionForeground = Objects.requireNonNull(dimensionForeground);
+            if (dimensionForeground == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationUiColorPalette", "dimensionForeground");
+            }
+            this.dimensionForeground = dimensionForeground;
             return this;
         }
         @CustomType.Setter
         public Builder measure(String measure) {
-            this.measure = Objects.requireNonNull(measure);
+            if (measure == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationUiColorPalette", "measure");
+            }
+            this.measure = measure;
             return this;
         }
         @CustomType.Setter
         public Builder measureForeground(String measureForeground) {
-            this.measureForeground = Objects.requireNonNull(measureForeground);
+            if (measureForeground == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationUiColorPalette", "measureForeground");
+            }
+            this.measureForeground = measureForeground;
             return this;
         }
         @CustomType.Setter
         public Builder primaryBackground(String primaryBackground) {
-            this.primaryBackground = Objects.requireNonNull(primaryBackground);
+            if (primaryBackground == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationUiColorPalette", "primaryBackground");
+            }
+            this.primaryBackground = primaryBackground;
             return this;
         }
         @CustomType.Setter
         public Builder primaryForeground(String primaryForeground) {
-            this.primaryForeground = Objects.requireNonNull(primaryForeground);
+            if (primaryForeground == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationUiColorPalette", "primaryForeground");
+            }
+            this.primaryForeground = primaryForeground;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryBackground(String secondaryBackground) {
-            this.secondaryBackground = Objects.requireNonNull(secondaryBackground);
+            if (secondaryBackground == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationUiColorPalette", "secondaryBackground");
+            }
+            this.secondaryBackground = secondaryBackground;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryForeground(String secondaryForeground) {
-            this.secondaryForeground = Objects.requireNonNull(secondaryForeground);
+            if (secondaryForeground == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationUiColorPalette", "secondaryForeground");
+            }
+            this.secondaryForeground = secondaryForeground;
             return this;
         }
         @CustomType.Setter
         public Builder success(String success) {
-            this.success = Objects.requireNonNull(success);
+            if (success == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationUiColorPalette", "success");
+            }
+            this.success = success;
             return this;
         }
         @CustomType.Setter
         public Builder successForeground(String successForeground) {
-            this.successForeground = Objects.requireNonNull(successForeground);
+            if (successForeground == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationUiColorPalette", "successForeground");
+            }
+            this.successForeground = successForeground;
             return this;
         }
         @CustomType.Setter
         public Builder warning(String warning) {
-            this.warning = Objects.requireNonNull(warning);
+            if (warning == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationUiColorPalette", "warning");
+            }
+            this.warning = warning;
             return this;
         }
         @CustomType.Setter
         public Builder warningForeground(String warningForeground) {
-            this.warningForeground = Objects.requireNonNull(warningForeground);
+            if (warningForeground == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationUiColorPalette", "warningForeground");
+            }
+            this.warningForeground = warningForeground;
             return this;
         }
         public GetThemeConfigurationUiColorPalette build() {
-            final var o = new GetThemeConfigurationUiColorPalette();
-            o.accent = accent;
-            o.accentForeground = accentForeground;
-            o.danger = danger;
-            o.dangerForeground = dangerForeground;
-            o.dimension = dimension;
-            o.dimensionForeground = dimensionForeground;
-            o.measure = measure;
-            o.measureForeground = measureForeground;
-            o.primaryBackground = primaryBackground;
-            o.primaryForeground = primaryForeground;
-            o.secondaryBackground = secondaryBackground;
-            o.secondaryForeground = secondaryForeground;
-            o.success = success;
-            o.successForeground = successForeground;
-            o.warning = warning;
-            o.warningForeground = warningForeground;
-            return o;
+            final var _resultValue = new GetThemeConfigurationUiColorPalette();
+            _resultValue.accent = accent;
+            _resultValue.accentForeground = accentForeground;
+            _resultValue.danger = danger;
+            _resultValue.dangerForeground = dangerForeground;
+            _resultValue.dimension = dimension;
+            _resultValue.dimensionForeground = dimensionForeground;
+            _resultValue.measure = measure;
+            _resultValue.measureForeground = measureForeground;
+            _resultValue.primaryBackground = primaryBackground;
+            _resultValue.primaryForeground = primaryForeground;
+            _resultValue.secondaryBackground = secondaryBackground;
+            _resultValue.secondaryForeground = secondaryForeground;
+            _resultValue.success = success;
+            _resultValue.successForeground = successForeground;
+            _resultValue.warning = warning;
+            _resultValue.warningForeground = warningForeground;
+            return _resultValue;
         }
     }
 }

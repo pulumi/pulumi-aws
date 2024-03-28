@@ -51,19 +51,21 @@ public final class PolicySecurityServicePolicyDataPolicyOption {
 
         @CustomType.Setter
         public Builder networkFirewallPolicy(@Nullable PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy networkFirewallPolicy) {
+
             this.networkFirewallPolicy = networkFirewallPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder thirdPartyFirewallPolicy(@Nullable PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy thirdPartyFirewallPolicy) {
+
             this.thirdPartyFirewallPolicy = thirdPartyFirewallPolicy;
             return this;
         }
         public PolicySecurityServicePolicyDataPolicyOption build() {
-            final var o = new PolicySecurityServicePolicyDataPolicyOption();
-            o.networkFirewallPolicy = networkFirewallPolicy;
-            o.thirdPartyFirewallPolicy = thirdPartyFirewallPolicy;
-            return o;
+            final var _resultValue = new PolicySecurityServicePolicyDataPolicyOption();
+            _resultValue.networkFirewallPolicy = networkFirewallPolicy;
+            _resultValue.thirdPartyFirewallPolicy = thirdPartyFirewallPolicy;
+            return _resultValue;
         }
     }
 }

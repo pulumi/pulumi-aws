@@ -4,6 +4,7 @@
 package com.pulumi.aws.mskconnect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -57,19 +58,25 @@ public final class ConnectorPluginCustomPlugin {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("ConnectorPluginCustomPlugin", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder revision(Integer revision) {
-            this.revision = Objects.requireNonNull(revision);
+            if (revision == null) {
+              throw new MissingRequiredPropertyException("ConnectorPluginCustomPlugin", "revision");
+            }
+            this.revision = revision;
             return this;
         }
         public ConnectorPluginCustomPlugin build() {
-            final var o = new ConnectorPluginCustomPlugin();
-            o.arn = arn;
-            o.revision = revision;
-            return o;
+            final var _resultValue = new ConnectorPluginCustomPlugin();
+            _resultValue.arn = arn;
+            _resultValue.revision = revision;
+            return _resultValue;
         }
     }
 }

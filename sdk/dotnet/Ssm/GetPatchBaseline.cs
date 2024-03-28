@@ -14,12 +14,11 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// To retrieve a baseline provided by AWS:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -30,16 +29,18 @@ namespace Pulumi.Aws.Ssm
         /// {
         ///     var centos = Aws.Ssm.GetPatchBaseline.Invoke(new()
         ///     {
+        ///         Owner = "AWS",
         ///         NamePrefix = "AWS-",
         ///         OperatingSystem = "CENTOS",
-        ///         Owner = "AWS",
         ///     });
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// To retrieve a baseline on your account:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -50,16 +51,15 @@ namespace Pulumi.Aws.Ssm
         /// {
         ///     var defaultCustom = Aws.Ssm.GetPatchBaseline.Invoke(new()
         ///     {
-        ///         DefaultBaseline = true,
-        ///         NamePrefix = "MyCustomBaseline",
-        ///         OperatingSystem = "WINDOWS",
         ///         Owner = "Self",
+        ///         NamePrefix = "MyCustomBaseline",
+        ///         DefaultBaseline = true,
+        ///         OperatingSystem = "WINDOWS",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPatchBaselineResult> InvokeAsync(GetPatchBaselineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPatchBaselineResult>("aws:ssm/getPatchBaseline:getPatchBaseline", args ?? new GetPatchBaselineArgs(), options.WithDefaults());
@@ -67,12 +67,11 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// To retrieve a baseline provided by AWS:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -83,16 +82,18 @@ namespace Pulumi.Aws.Ssm
         /// {
         ///     var centos = Aws.Ssm.GetPatchBaseline.Invoke(new()
         ///     {
+        ///         Owner = "AWS",
         ///         NamePrefix = "AWS-",
         ///         OperatingSystem = "CENTOS",
-        ///         Owner = "AWS",
         ///     });
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// To retrieve a baseline on your account:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -103,16 +104,15 @@ namespace Pulumi.Aws.Ssm
         /// {
         ///     var defaultCustom = Aws.Ssm.GetPatchBaseline.Invoke(new()
         ///     {
-        ///         DefaultBaseline = true,
-        ///         NamePrefix = "MyCustomBaseline",
-        ///         OperatingSystem = "WINDOWS",
         ///         Owner = "Self",
+        ///         NamePrefix = "MyCustomBaseline",
+        ///         DefaultBaseline = true,
+        ///         OperatingSystem = "WINDOWS",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPatchBaselineResult> Invoke(GetPatchBaselineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPatchBaselineResult>("aws:ssm/getPatchBaseline:getPatchBaseline", args ?? new GetPatchBaselineInvokeArgs(), options.WithDefaults());
@@ -141,6 +141,8 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("owner", required: true)]
         public string Owner { get; set; } = null!;
@@ -173,6 +175,8 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("owner", required: true)]
         public Input<string> Owner { get; set; } = null!;
@@ -196,7 +200,7 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         public readonly ImmutableArray<string> ApprovedPatches;
         /// <summary>
-        /// The compliance level for approved patches.
+        /// Compliance level for approved patches.
         /// </summary>
         public readonly string ApprovedPatchesComplianceLevel;
         /// <summary>
@@ -217,7 +221,11 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name specified to identify the patch source.
+        /// JSON representation of the baseline.
+        /// </summary>
+        public readonly string Json;
+        /// <summary>
+        /// Name specified to identify the patch source.
         /// </summary>
         public readonly string Name;
         public readonly string? NamePrefix;
@@ -228,7 +236,7 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         public readonly ImmutableArray<string> RejectedPatches;
         /// <summary>
-        /// The action specified to take on patches included in the `rejected_patches` list.
+        /// Action specified to take on patches included in the `rejected_patches` list.
         /// </summary>
         public readonly string RejectedPatchesAction;
         /// <summary>
@@ -254,6 +262,8 @@ namespace Pulumi.Aws.Ssm
 
             string id,
 
+            string json,
+
             string name,
 
             string? namePrefix,
@@ -276,6 +286,7 @@ namespace Pulumi.Aws.Ssm
             Description = description;
             GlobalFilters = globalFilters;
             Id = id;
+            Json = json;
             Name = name;
             NamePrefix = namePrefix;
             OperatingSystem = operatingSystem;

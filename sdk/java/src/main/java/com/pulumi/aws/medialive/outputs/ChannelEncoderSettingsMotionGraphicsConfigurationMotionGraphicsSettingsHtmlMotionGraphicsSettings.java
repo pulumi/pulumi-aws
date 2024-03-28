@@ -25,8 +25,8 @@ public final class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphi
         }
 
         public ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings build() {
-            final var o = new ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings();
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings();
+            return _resultValue;
         }
     }
 }

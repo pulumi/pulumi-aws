@@ -375,18 +375,21 @@ class Service(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
+        example = aws.ec2.Vpc("example",
             cidr_block="10.0.0.0/16",
             enable_dns_support=True,
             enable_dns_hostnames=True)
-        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace",
+        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("example",
+            name="example.mydomain.local",
             description="example",
-            vpc=example_vpc.id)
-        example_service = aws.servicediscovery.Service("exampleService",
+            vpc=example.id)
+        example_service = aws.servicediscovery.Service("example",
+            name="example",
             dns_config=aws.servicediscovery.ServiceDnsConfigArgs(
                 namespace_id=example_private_dns_namespace.id,
                 dns_records=[aws.servicediscovery.ServiceDnsConfigDnsRecordArgs(
@@ -399,15 +402,20 @@ class Service(pulumi.CustomResource):
                 failure_threshold=1,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_public_dns_namespace = aws.servicediscovery.PublicDnsNamespace("examplePublicDnsNamespace", description="example")
-        example_service = aws.servicediscovery.Service("exampleService",
+        example = aws.servicediscovery.PublicDnsNamespace("example",
+            name="example.mydomain.com",
+            description="example")
+        example_service = aws.servicediscovery.Service("example",
+            name="example",
             dns_config=aws.servicediscovery.ServiceDnsConfigArgs(
-                namespace_id=example_public_dns_namespace.id,
+                namespace_id=example.id,
                 dns_records=[aws.servicediscovery.ServiceDnsConfigDnsRecordArgs(
                     ttl=10,
                     type="A",
@@ -419,13 +427,14 @@ class Service(pulumi.CustomResource):
                 type="HTTP",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Service Discovery Service using the service ID. For example:
 
         ```sh
-         $ pulumi import aws:servicediscovery/service:Service example 0123456789
+        $ pulumi import aws:servicediscovery/service:Service example 0123456789
         ```
 
         :param str resource_name: The name of the resource.
@@ -451,18 +460,21 @@ class Service(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
+        example = aws.ec2.Vpc("example",
             cidr_block="10.0.0.0/16",
             enable_dns_support=True,
             enable_dns_hostnames=True)
-        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace",
+        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("example",
+            name="example.mydomain.local",
             description="example",
-            vpc=example_vpc.id)
-        example_service = aws.servicediscovery.Service("exampleService",
+            vpc=example.id)
+        example_service = aws.servicediscovery.Service("example",
+            name="example",
             dns_config=aws.servicediscovery.ServiceDnsConfigArgs(
                 namespace_id=example_private_dns_namespace.id,
                 dns_records=[aws.servicediscovery.ServiceDnsConfigDnsRecordArgs(
@@ -475,15 +487,20 @@ class Service(pulumi.CustomResource):
                 failure_threshold=1,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_public_dns_namespace = aws.servicediscovery.PublicDnsNamespace("examplePublicDnsNamespace", description="example")
-        example_service = aws.servicediscovery.Service("exampleService",
+        example = aws.servicediscovery.PublicDnsNamespace("example",
+            name="example.mydomain.com",
+            description="example")
+        example_service = aws.servicediscovery.Service("example",
+            name="example",
             dns_config=aws.servicediscovery.ServiceDnsConfigArgs(
-                namespace_id=example_public_dns_namespace.id,
+                namespace_id=example.id,
                 dns_records=[aws.servicediscovery.ServiceDnsConfigDnsRecordArgs(
                     ttl=10,
                     type="A",
@@ -495,13 +512,14 @@ class Service(pulumi.CustomResource):
                 type="HTTP",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Service Discovery Service using the service ID. For example:
 
         ```sh
-         $ pulumi import aws:servicediscovery/service:Service example 0123456789
+        $ pulumi import aws:servicediscovery/service:Service example 0123456789
         ```
 
         :param str resource_name: The name of the resource.
@@ -548,8 +566,6 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Service, __self__).__init__(
             'aws:servicediscovery/service:Service',
             resource_name,

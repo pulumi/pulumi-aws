@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,12 +25,15 @@ namespace Pulumi.Aws.Backup
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Backup.Framework("example", new()
+    ///     var example = new Aws.Backup.Framework("Example", new()
     ///     {
+    ///         Name = "exampleFramework",
+    ///         Description = "this is an example framework",
     ///         Controls = new[]
     ///         {
     ///             new Aws.Backup.Inputs.FrameworkControlArgs
     ///             {
+    ///                 Name = "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
     ///                 InputParameters = new[]
     ///                 {
     ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
@@ -38,10 +42,10 @@ namespace Pulumi.Aws.Backup
     ///                         Value = "35",
     ///                     },
     ///                 },
-    ///                 Name = "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
     ///             },
     ///             new Aws.Backup.Inputs.FrameworkControlArgs
     ///             {
+    ///                 Name = "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
     ///                 InputParameters = new[]
     ///                 {
     ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
@@ -60,7 +64,6 @@ namespace Pulumi.Aws.Backup
     ///                         Value = "1",
     ///                     },
     ///                 },
-    ///                 Name = "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
     ///             },
     ///             new Aws.Backup.Inputs.FrameworkControlArgs
     ///             {
@@ -83,6 +86,7 @@ namespace Pulumi.Aws.Backup
     ///             },
     ///             new Aws.Backup.Inputs.FrameworkControlArgs
     ///             {
+    ///                 Name = "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
     ///                 InputParameters = new[]
     ///                 {
     ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
@@ -96,7 +100,6 @@ namespace Pulumi.Aws.Backup
     ///                         Value = "1",
     ///                     },
     ///                 },
-    ///                 Name = "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
     ///                 Scope = new Aws.Backup.Inputs.FrameworkControlScopeArgs
     ///                 {
     ///                     ComplianceResourceTypes = new[]
@@ -107,6 +110,7 @@ namespace Pulumi.Aws.Backup
     ///             },
     ///             new Aws.Backup.Inputs.FrameworkControlArgs
     ///             {
+    ///                 Name = "BACKUP_LAST_RECOVERY_POINT_CREATED",
     ///                 InputParameters = new[]
     ///                 {
     ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
@@ -120,7 +124,6 @@ namespace Pulumi.Aws.Backup
     ///                         Value = "1",
     ///                     },
     ///                 },
-    ///                 Name = "BACKUP_LAST_RECOVERY_POINT_CREATED",
     ///                 Scope = new Aws.Backup.Inputs.FrameworkControlScopeArgs
     ///                 {
     ///                     ComplianceResourceTypes = new[]
@@ -130,7 +133,6 @@ namespace Pulumi.Aws.Backup
     ///                 },
     ///             },
     ///         },
-    ///         Description = "this is an example framework",
     ///         Tags = 
     ///         {
     ///             { "Name", "Example Framework" },
@@ -139,13 +141,14 @@ namespace Pulumi.Aws.Backup
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Backup Framework using the `id` which corresponds to the name of the Backup Framework. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:backup/framework:Framework test &lt;id&gt;
+    /// $ pulumi import aws:backup/framework:Framework test &lt;id&gt;
     /// ```
     /// </summary>
     [AwsResourceType("aws:backup/framework:Framework")]
@@ -228,10 +231,6 @@ namespace Pulumi.Aws.Backup
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -369,11 +368,7 @@ namespace Pulumi.Aws.Backup
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public FrameworkState()

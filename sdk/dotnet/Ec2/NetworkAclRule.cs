@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,25 +29,26 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var barNetworkAcl = new Aws.Ec2.NetworkAcl("barNetworkAcl", new()
+    ///     var bar = new Aws.Ec2.NetworkAcl("bar", new()
     ///     {
-    ///         VpcId = aws_vpc.Foo.Id,
+    ///         VpcId = foo.Id,
     ///     });
     /// 
-    ///     var barNetworkAclRule = new Aws.Ec2.NetworkAclRule("barNetworkAclRule", new()
+    ///     var barNetworkAclRule = new Aws.Ec2.NetworkAclRule("bar", new()
     ///     {
-    ///         NetworkAclId = barNetworkAcl.Id,
+    ///         NetworkAclId = bar.Id,
     ///         RuleNumber = 200,
     ///         Egress = false,
     ///         Protocol = "tcp",
     ///         RuleAction = "allow",
-    ///         CidrBlock = aws_vpc.Foo.Cidr_block,
+    ///         CidrBlock = foo.CidrBlock,
     ///         FromPort = 22,
     ///         ToPort = 22,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// &gt; **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.
     /// 
@@ -59,12 +61,12 @@ namespace Pulumi.Aws.Ec2
     /// Using the procotol's string value:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
+    /// $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
     /// ```
-    ///  Using the procotol's decimal value:
+    /// Using the procotol's decimal value:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
+    /// $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/networkAclRule:NetworkAclRule")]

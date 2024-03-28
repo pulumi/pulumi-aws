@@ -4,6 +4,7 @@
 package com.pulumi.aws.kms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,37 +91,52 @@ public final class GetAliasResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetAliasResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAliasResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAliasResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder targetKeyArn(String targetKeyArn) {
-            this.targetKeyArn = Objects.requireNonNull(targetKeyArn);
+            if (targetKeyArn == null) {
+              throw new MissingRequiredPropertyException("GetAliasResult", "targetKeyArn");
+            }
+            this.targetKeyArn = targetKeyArn;
             return this;
         }
         @CustomType.Setter
         public Builder targetKeyId(String targetKeyId) {
-            this.targetKeyId = Objects.requireNonNull(targetKeyId);
+            if (targetKeyId == null) {
+              throw new MissingRequiredPropertyException("GetAliasResult", "targetKeyId");
+            }
+            this.targetKeyId = targetKeyId;
             return this;
         }
         public GetAliasResult build() {
-            final var o = new GetAliasResult();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            o.targetKeyArn = targetKeyArn;
-            o.targetKeyId = targetKeyId;
-            return o;
+            final var _resultValue = new GetAliasResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.targetKeyArn = targetKeyArn;
+            _resultValue.targetKeyId = targetKeyId;
+            return _resultValue;
         }
     }
 }

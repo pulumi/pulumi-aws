@@ -108,6 +108,21 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+     * 
+     */
+    @Import(name="vpcId")
+    private @Nullable Output<String> vpcId;
+
+    /**
+     * @return The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+     * 
+     */
+    public Optional<Output<String>> vpcId() {
+        return Optional.ofNullable(this.vpcId);
+    }
+
     private SubnetGroupState() {}
 
     private SubnetGroupState(SubnetGroupState $) {
@@ -117,6 +132,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.vpcId = $.vpcId;
     }
 
     public static Builder builder() {
@@ -267,6 +283,27 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param vpcId The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vpcId(@Nullable Output<String> vpcId) {
+            $.vpcId = vpcId;
+            return this;
+        }
+
+        /**
+         * @param vpcId The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vpcId(String vpcId) {
+            return vpcId(Output.of(vpcId));
         }
 
         public SubnetGroupState build() {

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,7 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			_, err := securityhub.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
@@ -39,11 +40,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securityhub.NewProductSubscription(ctx, "exampleProductSubscription", &securityhub.ProductSubscriptionArgs{
+//			_, err = securityhub.NewProductSubscription(ctx, "example", &securityhub.ProductSubscriptionArgs{
 //				ProductArn: pulumi.String(fmt.Sprintf("arn:aws:securityhub:%v:733251395267:product/alertlogic/althreatmanagement", current.Name)),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -52,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Security Hub product subscriptions using `product_arn,arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
-//
+// $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
 // ```
 type ProductSubscription struct {
 	pulumi.CustomResourceState

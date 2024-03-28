@@ -16,32 +16,35 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleSecurityGroup = new aws.ec2.SecurityGroup("exampleSecurityGroup", {
+ * const example = new aws.ec2.SecurityGroup("example", {
+ *     name: "example",
  *     description: "example",
- *     vpcId: aws_vpc.main.id,
+ *     vpcId: main.id,
  *     tags: {
  *         Name: "example",
  *     },
  * });
- * const exampleSecurityGroupIngressRule = new aws.vpc.SecurityGroupIngressRule("exampleSecurityGroupIngressRule", {
- *     securityGroupId: exampleSecurityGroup.id,
+ * const exampleSecurityGroupIngressRule = new aws.vpc.SecurityGroupIngressRule("example", {
+ *     securityGroupId: example.id,
  *     cidrIpv4: "10.0.0.0/8",
  *     fromPort: 80,
  *     ipProtocol: "tcp",
  *     toPort: 80,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import security group ingress rules using the `security_group_rule_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule example sgr-02108b27edd666983
+ * $ pulumi import aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule example sgr-02108b27edd666983
  * ```
  */
 export class SecurityGroupIngressRule extends pulumi.CustomResource {
@@ -176,8 +179,6 @@ export class SecurityGroupIngressRule extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SecurityGroupIngressRule.__pulumiType, name, resourceInputs, opts);
     }
 }

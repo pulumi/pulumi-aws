@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			ipset, err := wafregional.NewIpSet(ctx, "ipset", &wafregional.IpSetArgs{
+//				Name: pulumi.String("tfIPSet"),
 //				IpSetDescriptors: wafregional.IpSetIpSetDescriptorArray{
 //					&wafregional.IpSetIpSetDescriptorArgs{
 //						Type:  pulumi.String("IPV4"),
@@ -40,6 +42,7 @@ import (
 //				return err
 //			}
 //			_, err = wafregional.NewRule(ctx, "wafrule", &wafregional.RuleArgs{
+//				Name:       pulumi.String("tfWAFRule"),
 //				MetricName: pulumi.String("tfWAFRule"),
 //				Predicates: wafregional.RulePredicateArray{
 //					&wafregional.RulePredicateArgs{
@@ -57,6 +60,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Nested Fields
 //
 // ### `predicate`
@@ -74,9 +79,7 @@ import (
 // Using `pulumi import`, import WAF Regional Rule using the id. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:wafregional/rule:Rule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-//
+// $ pulumi import aws:wafregional/rule:Rule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 // ```
 type Rule struct {
 	pulumi.CustomResourceState
@@ -107,10 +110,6 @@ func NewRule(ctx *pulumi.Context,
 	if args.MetricName == nil {
 		return nil, errors.New("invalid value for required argument 'MetricName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Rule
 	err := ctx.RegisterResource("aws:wafregional/rule:Rule", name, args, &resource, opts...)

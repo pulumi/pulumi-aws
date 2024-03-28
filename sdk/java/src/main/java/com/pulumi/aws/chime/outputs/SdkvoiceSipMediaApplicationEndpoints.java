@@ -4,6 +4,7 @@
 package com.pulumi.aws.chime.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class SdkvoiceSipMediaApplicationEndpoints {
 
         @CustomType.Setter
         public Builder lambdaArn(String lambdaArn) {
-            this.lambdaArn = Objects.requireNonNull(lambdaArn);
+            if (lambdaArn == null) {
+              throw new MissingRequiredPropertyException("SdkvoiceSipMediaApplicationEndpoints", "lambdaArn");
+            }
+            this.lambdaArn = lambdaArn;
             return this;
         }
         public SdkvoiceSipMediaApplicationEndpoints build() {
-            final var o = new SdkvoiceSipMediaApplicationEndpoints();
-            o.lambdaArn = lambdaArn;
-            return o;
+            final var _resultValue = new SdkvoiceSipMediaApplicationEndpoints();
+            _resultValue.lambdaArn = lambdaArn;
+            return _resultValue;
         }
     }
 }

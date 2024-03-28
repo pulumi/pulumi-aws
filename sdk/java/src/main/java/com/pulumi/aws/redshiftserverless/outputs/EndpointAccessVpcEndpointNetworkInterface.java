@@ -86,31 +86,35 @@ public final class EndpointAccessVpcEndpointNetworkInterface {
 
         @CustomType.Setter
         public Builder availabilityZone(@Nullable String availabilityZone) {
+
             this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaceId(@Nullable String networkInterfaceId) {
+
             this.networkInterfaceId = networkInterfaceId;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddress(@Nullable String privateIpAddress) {
+
             this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
+
             this.subnetId = subnetId;
             return this;
         }
         public EndpointAccessVpcEndpointNetworkInterface build() {
-            final var o = new EndpointAccessVpcEndpointNetworkInterface();
-            o.availabilityZone = availabilityZone;
-            o.networkInterfaceId = networkInterfaceId;
-            o.privateIpAddress = privateIpAddress;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new EndpointAccessVpcEndpointNetworkInterface();
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.networkInterfaceId = networkInterfaceId;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

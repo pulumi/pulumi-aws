@@ -89,31 +89,35 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
         @CustomType.Setter
         public Builder bodyContains(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContains bodyContains) {
+
             this.bodyContains = bodyContains;
             return this;
         }
         @CustomType.Setter
         public Builder header(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeader header) {
+
             this.header = header;
             return this;
         }
         @CustomType.Setter
         public Builder json(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJson json) {
+
             this.json = json;
             return this;
         }
         @CustomType.Setter
         public Builder statusCode(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode statusCode) {
+
             this.statusCode = statusCode;
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection();
-            o.bodyContains = bodyContains;
-            o.header = header;
-            o.json = json;
-            o.statusCode = statusCode;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection();
+            _resultValue.bodyContains = bodyContains;
+            _resultValue.header = header;
+            _resultValue.json = json;
+            _resultValue.statusCode = statusCode;
+            return _resultValue;
         }
     }
 }

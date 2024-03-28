@@ -14,8 +14,10 @@ import (
 // Get information about the organization that the user's account belongs to
 //
 // ## Example Usage
+//
 // ### List all account IDs for the organization
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,8 +44,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### SNS topic that can be interacted by the organization only
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,11 +66,13 @@ import (
 // if err != nil {
 // return err
 // }
-// snsTopic, err := sns.NewTopic(ctx, "snsTopic", nil)
+// snsTopic, err := sns.NewTopic(ctx, "sns_topic", &sns.TopicArgs{
+// Name: pulumi.String("my-sns-topic"),
+// })
 // if err != nil {
 // return err
 // }
-// snsTopicPolicyPolicyDocument := snsTopic.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// snsTopicPolicy := snsTopic.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
 // return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
@@ -98,10 +105,10 @@ import (
 // },
 // }, nil), nil
 // }).(iam.GetPolicyDocumentResultOutput)
-// _, err = sns.NewTopicPolicy(ctx, "snsTopicPolicyTopicPolicy", &sns.TopicPolicyArgs{
+// _, err = sns.NewTopicPolicy(ctx, "sns_topic_policy", &sns.TopicPolicyArgs{
 // Arn: snsTopic.Arn,
-// Policy: snsTopicPolicyPolicyDocument.ApplyT(func(snsTopicPolicyPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-// return &snsTopicPolicyPolicyDocument.Json, nil
+// Policy: snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (*string, error) {
+// return &snsTopicPolicy.Json, nil
 // }).(pulumi.StringPtrOutput),
 // })
 // if err != nil {
@@ -111,6 +118,7 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupOrganization(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupOrganizationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOrganizationResult

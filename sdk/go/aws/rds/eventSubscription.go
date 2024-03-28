@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,11 +30,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultInstance, err := rds.NewInstance(ctx, "defaultInstance", &rds.InstanceArgs{
+//			_, err := rds.NewInstance(ctx, "default", &rds.InstanceArgs{
 //				AllocatedStorage:   pulumi.Int(10),
 //				Engine:             pulumi.String("mysql"),
 //				EngineVersion:      pulumi.String("5.6.17"),
-//				InstanceClass:      pulumi.String("db.t2.micro"),
+//				InstanceClass:      pulumi.String(rds.InstanceType_T2_Micro),
 //				DbName:             pulumi.String("mydb"),
 //				Username:           pulumi.String("foo"),
 //				Password:           pulumi.String("bar"),
@@ -43,15 +44,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			defaultTopic, err := sns.NewTopic(ctx, "defaultTopic", nil)
+//			defaultTopic, err := sns.NewTopic(ctx, "default", &sns.TopicArgs{
+//				Name: pulumi.String("rds-events"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = rds.NewEventSubscription(ctx, "defaultEventSubscription", &rds.EventSubscriptionArgs{
+//			_, err = rds.NewEventSubscription(ctx, "default", &rds.EventSubscriptionArgs{
+//				Name:       pulumi.String("rds-event-sub"),
 //				SnsTopic:   defaultTopic.Arn,
 //				SourceType: pulumi.String("db-instance"),
 //				SourceIds: pulumi.StringArray{
-//					defaultInstance.Identifier,
+//					_default.Identifier,
 //				},
 //				EventCategories: pulumi.StringArray{
 //					pulumi.String("availability"),
@@ -74,15 +78,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DB Event Subscriptions using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
-//
+// $ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
 // ```
 type EventSubscription struct {
 	pulumi.CustomResourceState
@@ -123,10 +126,6 @@ func NewEventSubscription(ctx *pulumi.Context,
 	if args.SnsTopic == nil {
 		return nil, errors.New("invalid value for required argument 'SnsTopic'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventSubscription
 	err := ctx.RegisterResource("aws:rds/eventSubscription:EventSubscription", name, args, &resource, opts...)

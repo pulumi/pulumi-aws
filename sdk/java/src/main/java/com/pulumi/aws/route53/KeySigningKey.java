@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Manages a Route 53 Key Signing Key. To manage Domain Name System Security Extensions (DNSSEC) for a Hosted Zone, see the `aws.route53.HostedZoneDnsSec` resource. For more information about managing DNSSEC in Route 53, see the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -30,12 +32,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.Key;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.route53.Zone;
+ * import com.pulumi.aws.route53.ZoneArgs;
  * import com.pulumi.aws.route53.KeySigningKey;
  * import com.pulumi.aws.route53.KeySigningKeyArgs;
  * import com.pulumi.aws.route53.HostedZoneDnsSec;
  * import com.pulumi.aws.route53.HostedZoneDnsSecArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,85 +53,87 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
  *             .customerMasterKeySpec(&#34;ECC_NIST_P256&#34;)
  *             .deletionWindowInDays(7)
  *             .keyUsage(&#34;SIGN_VERIFY&#34;)
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(
  *                         jsonObject(
- *                             jsonProperty(&#34;Action&#34;, jsonArray(
+ *                             jsonProperty(&#34;action&#34;, jsonArray(
  *                                 &#34;kms:DescribeKey&#34;, 
  *                                 &#34;kms:GetPublicKey&#34;, 
  *                                 &#34;kms:Sign&#34;
  *                             )),
- *                             jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                             jsonProperty(&#34;Principal&#34;, jsonObject(
- *                                 jsonProperty(&#34;Service&#34;, &#34;dnssec-route53.amazonaws.com&#34;)
+ *                             jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                             jsonProperty(&#34;principal&#34;, jsonObject(
+ *                                 jsonProperty(&#34;service&#34;, &#34;dnssec-route53.amazonaws.com&#34;)
  *                             )),
- *                             jsonProperty(&#34;Sid&#34;, &#34;Allow Route 53 DNSSEC Service&#34;),
- *                             jsonProperty(&#34;Resource&#34;, &#34;*&#34;),
- *                             jsonProperty(&#34;Condition&#34;, jsonObject(
- *                                 jsonProperty(&#34;StringEquals&#34;, jsonObject(
+ *                             jsonProperty(&#34;sid&#34;, &#34;Allow Route 53 DNSSEC Service&#34;),
+ *                             jsonProperty(&#34;resource&#34;, &#34;*&#34;),
+ *                             jsonProperty(&#34;condition&#34;, jsonObject(
+ *                                 jsonProperty(&#34;stringEquals&#34;, jsonObject(
  *                                     jsonProperty(&#34;aws:SourceAccount&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
  *                                 )),
- *                                 jsonProperty(&#34;ArnLike&#34;, jsonObject(
+ *                                 jsonProperty(&#34;arnLike&#34;, jsonObject(
  *                                     jsonProperty(&#34;aws:SourceArn&#34;, &#34;arn:aws:route53:::hostedzone/*&#34;)
  *                                 ))
  *                             ))
  *                         ), 
  *                         jsonObject(
- *                             jsonProperty(&#34;Action&#34;, &#34;kms:CreateGrant&#34;),
- *                             jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                             jsonProperty(&#34;Principal&#34;, jsonObject(
- *                                 jsonProperty(&#34;Service&#34;, &#34;dnssec-route53.amazonaws.com&#34;)
+ *                             jsonProperty(&#34;action&#34;, &#34;kms:CreateGrant&#34;),
+ *                             jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                             jsonProperty(&#34;principal&#34;, jsonObject(
+ *                                 jsonProperty(&#34;service&#34;, &#34;dnssec-route53.amazonaws.com&#34;)
  *                             )),
- *                             jsonProperty(&#34;Sid&#34;, &#34;Allow Route 53 DNSSEC Service to CreateGrant&#34;),
- *                             jsonProperty(&#34;Resource&#34;, &#34;*&#34;),
- *                             jsonProperty(&#34;Condition&#34;, jsonObject(
- *                                 jsonProperty(&#34;Bool&#34;, jsonObject(
+ *                             jsonProperty(&#34;sid&#34;, &#34;Allow Route 53 DNSSEC Service to CreateGrant&#34;),
+ *                             jsonProperty(&#34;resource&#34;, &#34;*&#34;),
+ *                             jsonProperty(&#34;condition&#34;, jsonObject(
+ *                                 jsonProperty(&#34;bool&#34;, jsonObject(
  *                                     jsonProperty(&#34;kms:GrantIsForAWSResource&#34;, &#34;true&#34;)
  *                                 ))
  *                             ))
  *                         ), 
  *                         jsonObject(
- *                             jsonProperty(&#34;Action&#34;, &#34;kms:*&#34;),
- *                             jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                             jsonProperty(&#34;Principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;action&#34;, &#34;kms:*&#34;),
+ *                             jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                             jsonProperty(&#34;principal&#34;, jsonObject(
  *                                 jsonProperty(&#34;AWS&#34;, String.format(&#34;arn:aws:iam::%s:root&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
  *                             )),
- *                             jsonProperty(&#34;Resource&#34;, &#34;*&#34;),
- *                             jsonProperty(&#34;Sid&#34;, &#34;Enable IAM User Permissions&#34;)
+ *                             jsonProperty(&#34;resource&#34;, &#34;*&#34;),
+ *                             jsonProperty(&#34;sid&#34;, &#34;Enable IAM User Permissions&#34;)
  *                         )
  *                     )),
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;)
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;)
  *                 )))
  *             .build());
  * 
- *         var exampleZone = new Zone(&#34;exampleZone&#34;);
+ *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
+ *             .name(&#34;example.com&#34;)
+ *             .build());
  * 
  *         var exampleKeySigningKey = new KeySigningKey(&#34;exampleKeySigningKey&#34;, KeySigningKeyArgs.builder()        
- *             .hostedZoneId(aws_route53_zone.test().id())
- *             .keyManagementServiceArn(aws_kms_key.test().arn())
+ *             .hostedZoneId(test.id())
+ *             .keyManagementServiceArn(testAwsKmsKey.arn())
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleHostedZoneDnsSec = new HostedZoneDnsSec(&#34;exampleHostedZoneDnsSec&#34;, HostedZoneDnsSecArgs.builder()        
  *             .hostedZoneId(exampleKeySigningKey.hostedZoneId())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleKeySigningKey)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_route53_key_signing_key` resources using the Route 53 Hosted Zone identifier and KMS Key identifier, separated by a comma (`,`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example
+ * $ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example
  * ```
  * 
  */

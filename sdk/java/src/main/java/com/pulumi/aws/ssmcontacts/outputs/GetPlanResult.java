@@ -5,6 +5,7 @@ package com.pulumi.aws.ssmcontacts.outputs;
 
 import com.pulumi.aws.ssmcontacts.outputs.GetPlanStage;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -64,28 +65,37 @@ public final class GetPlanResult {
 
         @CustomType.Setter
         public Builder contactId(String contactId) {
-            this.contactId = Objects.requireNonNull(contactId);
+            if (contactId == null) {
+              throw new MissingRequiredPropertyException("GetPlanResult", "contactId");
+            }
+            this.contactId = contactId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPlanResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder stages(List<GetPlanStage> stages) {
-            this.stages = Objects.requireNonNull(stages);
+            if (stages == null) {
+              throw new MissingRequiredPropertyException("GetPlanResult", "stages");
+            }
+            this.stages = stages;
             return this;
         }
         public Builder stages(GetPlanStage... stages) {
             return stages(List.of(stages));
         }
         public GetPlanResult build() {
-            final var o = new GetPlanResult();
-            o.contactId = contactId;
-            o.id = id;
-            o.stages = stages;
-            return o;
+            final var _resultValue = new GetPlanResult();
+            _resultValue.contactId = contactId;
+            _resultValue.id = id;
+            _resultValue.stages = stages;
+            return _resultValue;
         }
     }
 }

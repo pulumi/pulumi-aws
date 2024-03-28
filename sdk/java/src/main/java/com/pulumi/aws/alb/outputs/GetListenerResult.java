@@ -4,7 +4,9 @@
 package com.pulumi.aws.alb.outputs;
 
 import com.pulumi.aws.alb.outputs.GetListenerDefaultAction;
+import com.pulumi.aws.alb.outputs.GetListenerMutualAuthentication;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -23,6 +25,7 @@ public final class GetListenerResult {
      */
     private String id;
     private String loadBalancerArn;
+    private List<GetListenerMutualAuthentication> mutualAuthentications;
     private Integer port;
     private String protocol;
     private String sslPolicy;
@@ -50,6 +53,9 @@ public final class GetListenerResult {
     }
     public String loadBalancerArn() {
         return this.loadBalancerArn;
+    }
+    public List<GetListenerMutualAuthentication> mutualAuthentications() {
+        return this.mutualAuthentications;
     }
     public Integer port() {
         return this.port;
@@ -79,6 +85,7 @@ public final class GetListenerResult {
         private List<GetListenerDefaultAction> defaultActions;
         private String id;
         private String loadBalancerArn;
+        private List<GetListenerMutualAuthentication> mutualAuthentications;
         private Integer port;
         private String protocol;
         private String sslPolicy;
@@ -92,6 +99,7 @@ public final class GetListenerResult {
     	      this.defaultActions = defaults.defaultActions;
     	      this.id = defaults.id;
     	      this.loadBalancerArn = defaults.loadBalancerArn;
+    	      this.mutualAuthentications = defaults.mutualAuthentications;
     	      this.port = defaults.port;
     	      this.protocol = defaults.protocol;
     	      this.sslPolicy = defaults.sslPolicy;
@@ -100,22 +108,34 @@ public final class GetListenerResult {
 
         @CustomType.Setter
         public Builder alpnPolicy(String alpnPolicy) {
-            this.alpnPolicy = Objects.requireNonNull(alpnPolicy);
+            if (alpnPolicy == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "alpnPolicy");
+            }
+            this.alpnPolicy = alpnPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder certificateArn(String certificateArn) {
-            this.certificateArn = Objects.requireNonNull(certificateArn);
+            if (certificateArn == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "certificateArn");
+            }
+            this.certificateArn = certificateArn;
             return this;
         }
         @CustomType.Setter
         public Builder defaultActions(List<GetListenerDefaultAction> defaultActions) {
-            this.defaultActions = Objects.requireNonNull(defaultActions);
+            if (defaultActions == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "defaultActions");
+            }
+            this.defaultActions = defaultActions;
             return this;
         }
         public Builder defaultActions(GetListenerDefaultAction... defaultActions) {
@@ -123,47 +143,77 @@ public final class GetListenerResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder loadBalancerArn(String loadBalancerArn) {
-            this.loadBalancerArn = Objects.requireNonNull(loadBalancerArn);
+            if (loadBalancerArn == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "loadBalancerArn");
+            }
+            this.loadBalancerArn = loadBalancerArn;
             return this;
         }
         @CustomType.Setter
+        public Builder mutualAuthentications(List<GetListenerMutualAuthentication> mutualAuthentications) {
+            if (mutualAuthentications == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "mutualAuthentications");
+            }
+            this.mutualAuthentications = mutualAuthentications;
+            return this;
+        }
+        public Builder mutualAuthentications(GetListenerMutualAuthentication... mutualAuthentications) {
+            return mutualAuthentications(List.of(mutualAuthentications));
+        }
+        @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder sslPolicy(String sslPolicy) {
-            this.sslPolicy = Objects.requireNonNull(sslPolicy);
+            if (sslPolicy == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "sslPolicy");
+            }
+            this.sslPolicy = sslPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetListenerResult build() {
-            final var o = new GetListenerResult();
-            o.alpnPolicy = alpnPolicy;
-            o.arn = arn;
-            o.certificateArn = certificateArn;
-            o.defaultActions = defaultActions;
-            o.id = id;
-            o.loadBalancerArn = loadBalancerArn;
-            o.port = port;
-            o.protocol = protocol;
-            o.sslPolicy = sslPolicy;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetListenerResult();
+            _resultValue.alpnPolicy = alpnPolicy;
+            _resultValue.arn = arn;
+            _resultValue.certificateArn = certificateArn;
+            _resultValue.defaultActions = defaultActions;
+            _resultValue.id = id;
+            _resultValue.loadBalancerArn = loadBalancerArn;
+            _resultValue.mutualAuthentications = mutualAuthentications;
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            _resultValue.sslPolicy = sslPolicy;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

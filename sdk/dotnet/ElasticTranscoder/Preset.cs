@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ElasticTranscoder
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,6 +25,9 @@ namespace Pulumi.Aws.ElasticTranscoder
     /// {
     ///     var bar = new Aws.ElasticTranscoder.Preset("bar", new()
     ///     {
+    ///         Container = "mp4",
+    ///         Description = "Sample Preset",
+    ///         Name = "sample_preset",
     ///         Audio = new Aws.ElasticTranscoder.Inputs.PresetAudioArgs
     ///         {
     ///             AudioPackingMode = "SingleTrack",
@@ -36,17 +40,6 @@ namespace Pulumi.Aws.ElasticTranscoder
     ///         {
     ///             Profile = "AAC-LC",
     ///         },
-    ///         Container = "mp4",
-    ///         Description = "Sample Preset",
-    ///         Thumbnails = new Aws.ElasticTranscoder.Inputs.PresetThumbnailsArgs
-    ///         {
-    ///             Format = "png",
-    ///             Interval = "120",
-    ///             MaxHeight = "auto",
-    ///             MaxWidth = "auto",
-    ///             PaddingPolicy = "Pad",
-    ///             SizingPolicy = "Fit",
-    ///         },
     ///         Video = new Aws.ElasticTranscoder.Inputs.PresetVideoArgs
     ///         {
     ///             BitRate = "1600",
@@ -54,8 +47,8 @@ namespace Pulumi.Aws.ElasticTranscoder
     ///             DisplayAspectRatio = "16:9",
     ///             FixedGop = "false",
     ///             FrameRate = "auto",
-    ///             KeyframesMaxDist = "240",
     ///             MaxFrameRate = "60",
+    ///             KeyframesMaxDist = "240",
     ///             MaxHeight = "auto",
     ///             MaxWidth = "auto",
     ///             PaddingPolicy = "Pad",
@@ -63,39 +56,49 @@ namespace Pulumi.Aws.ElasticTranscoder
     ///         },
     ///         VideoCodecOptions = 
     ///         {
-    ///             { "ColorSpaceConversionMode", "None" },
-    ///             { "InterlacedMode", "Progressive" },
+    ///             { "Profile", "main" },
     ///             { "Level", "2.2" },
     ///             { "MaxReferenceFrames", "3" },
-    ///             { "Profile", "main" },
+    ///             { "InterlacedMode", "Progressive" },
+    ///             { "ColorSpaceConversionMode", "None" },
     ///         },
     ///         VideoWatermarks = new[]
     ///         {
     ///             new Aws.ElasticTranscoder.Inputs.PresetVideoWatermarkArgs
     ///             {
+    ///                 Id = "Test",
+    ///                 MaxWidth = "20%",
+    ///                 MaxHeight = "20%",
+    ///                 SizingPolicy = "ShrinkToFit",
     ///                 HorizontalAlign = "Right",
     ///                 HorizontalOffset = "10px",
-    ///                 Id = "Test",
-    ///                 MaxHeight = "20%",
-    ///                 MaxWidth = "20%",
-    ///                 Opacity = "55.5",
-    ///                 SizingPolicy = "ShrinkToFit",
-    ///                 Target = "Content",
     ///                 VerticalAlign = "Bottom",
     ///                 VerticalOffset = "10px",
+    ///                 Opacity = "55.5",
+    ///                 Target = "Content",
     ///             },
+    ///         },
+    ///         Thumbnails = new Aws.ElasticTranscoder.Inputs.PresetThumbnailsArgs
+    ///         {
+    ///             Format = "png",
+    ///             Interval = "120",
+    ///             MaxWidth = "auto",
+    ///             MaxHeight = "auto",
+    ///             PaddingPolicy = "Pad",
+    ///             SizingPolicy = "Fit",
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Elastic Transcoder presets using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
+    /// $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
     /// ```
     /// </summary>
     [AwsResourceType("aws:elastictranscoder/preset:Preset")]

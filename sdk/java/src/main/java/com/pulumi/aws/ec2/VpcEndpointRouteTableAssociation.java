@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Manages a VPC Endpoint Route Table Association
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -39,20 +41,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VpcEndpointRouteTableAssociation(&#34;example&#34;, VpcEndpointRouteTableAssociationArgs.builder()        
- *             .routeTableId(aws_route_table.example().id())
- *             .vpcEndpointId(aws_vpc_endpoint.example().id())
+ *             .routeTableId(exampleAwsRouteTable.id())
+ *             .vpcEndpointId(exampleAwsVpcEndpoint.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import VPC Endpoint Route Table Associations using `vpc_endpoint_id` together with `route_table_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation example vpce-aaaaaaaa/rtb-bbbbbbbb
+ * $ pulumi import aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation example vpce-aaaaaaaa/rtb-bbbbbbbb
  * ```
  * 
  */

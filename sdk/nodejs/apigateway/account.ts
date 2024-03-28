@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,9 +29,12 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const cloudwatchRole = new aws.iam.Role("cloudwatchRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const cloudwatchRole = new aws.iam.Role("cloudwatch", {
+ *     name: "api_gateway_cloudwatch_global",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
  * const demo = new aws.apigateway.Account("demo", {cloudwatchRoleArn: cloudwatchRole.arn});
- * const cloudwatchPolicyDocument = aws.iam.getPolicyDocument({
+ * const cloudwatch = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: [
@@ -45,18 +49,20 @@ import * as utilities from "../utilities";
  *         resources: ["*"],
  *     }],
  * });
- * const cloudwatchRolePolicy = new aws.iam.RolePolicy("cloudwatchRolePolicy", {
+ * const cloudwatchRolePolicy = new aws.iam.RolePolicy("cloudwatch", {
+ *     name: "default",
  *     role: cloudwatchRole.id,
- *     policy: cloudwatchPolicyDocument.then(cloudwatchPolicyDocument => cloudwatchPolicyDocument.json),
+ *     policy: cloudwatch.then(cloudwatch => cloudwatch.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import API Gateway Accounts using the word `api-gateway-account`. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigateway/account:Account demo api-gateway-account
+ * $ pulumi import aws:apigateway/account:Account demo api-gateway-account
  * ```
  */
 export class Account extends pulumi.CustomResource {

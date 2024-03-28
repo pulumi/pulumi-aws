@@ -14,16 +14,17 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pubsubPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var pubsub = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -42,14 +43,18 @@ namespace Pulumi.Aws.Iot
     ///         },
     ///     });
     /// 
-    ///     var pubsubPolicy = new Aws.Iot.Policy("pubsubPolicy", new()
+    ///     var pubsubPolicy = new Aws.Iot.Policy("pubsub", new()
     ///     {
-    ///         PolicyDocument = pubsubPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "PubSubToAnyTopic",
+    ///         PolicyDocument = pubsub.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var cert = new Aws.Iot.Certificate("cert", new()
     ///     {
-    ///         Csr = File.ReadAllText("csr.pem"),
+    ///         Csr = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "csr.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Active = true,
     ///     });
     /// 
@@ -61,6 +66,7 @@ namespace Pulumi.Aws.Iot
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:iot/policyAttachment:PolicyAttachment")]
     public partial class PolicyAttachment : global::Pulumi.CustomResource

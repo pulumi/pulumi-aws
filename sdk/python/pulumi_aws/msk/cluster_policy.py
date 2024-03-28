@@ -113,42 +113,45 @@ class ClusterPolicy(pulumi.CustomResource):
         Resource for managing an AWS Managed Streaming for Kafka Cluster Policy.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        current_caller_identity = aws.get_caller_identity()
-        current_partition = aws.get_partition()
+        current = aws.get_caller_identity()
+        current_get_partition = aws.get_partition()
         example = aws.msk.ClusterPolicy("example",
-            cluster_arn=aws_msk_cluster["example"]["arn"],
+            cluster_arn=example_aws_msk_cluster["arn"],
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "ExampleMskClusterPolicy",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
+                "version": "2012-10-17",
+                "statement": [{
+                    "sid": "ExampleMskClusterPolicy",
+                    "effect": "Allow",
+                    "principal": {
+                        "AWS": f"arn:{current_get_partition.partition}:iam::{current.account_id}:root",
                     },
-                    "Action": [
+                    "action": [
                         "kafka:Describe*",
                         "kafka:Get*",
                         "kafka:CreateVpcConnection",
                         "kafka:GetBootstrapBrokers",
                     ],
-                    "Resource": aws_msk_cluster["example"]["arn"],
+                    "resource": example_aws_msk_cluster["arn"],
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Managed Streaming for Kafka Cluster Policy using the `cluster_arn`. For example:
 
         ```sh
-         $ pulumi import aws:msk/clusterPolicy:ClusterPolicy example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+        $ pulumi import aws:msk/clusterPolicy:ClusterPolicy example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
         ```
 
         :param str resource_name: The name of the resource.
@@ -166,42 +169,45 @@ class ClusterPolicy(pulumi.CustomResource):
         Resource for managing an AWS Managed Streaming for Kafka Cluster Policy.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        current_caller_identity = aws.get_caller_identity()
-        current_partition = aws.get_partition()
+        current = aws.get_caller_identity()
+        current_get_partition = aws.get_partition()
         example = aws.msk.ClusterPolicy("example",
-            cluster_arn=aws_msk_cluster["example"]["arn"],
+            cluster_arn=example_aws_msk_cluster["arn"],
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "ExampleMskClusterPolicy",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
+                "version": "2012-10-17",
+                "statement": [{
+                    "sid": "ExampleMskClusterPolicy",
+                    "effect": "Allow",
+                    "principal": {
+                        "AWS": f"arn:{current_get_partition.partition}:iam::{current.account_id}:root",
                     },
-                    "Action": [
+                    "action": [
                         "kafka:Describe*",
                         "kafka:Get*",
                         "kafka:CreateVpcConnection",
                         "kafka:GetBootstrapBrokers",
                     ],
-                    "Resource": aws_msk_cluster["example"]["arn"],
+                    "resource": example_aws_msk_cluster["arn"],
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Managed Streaming for Kafka Cluster Policy using the `cluster_arn`. For example:
 
         ```sh
-         $ pulumi import aws:msk/clusterPolicy:ClusterPolicy example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+        $ pulumi import aws:msk/clusterPolicy:ClusterPolicy example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
         ```
 
         :param str resource_name: The name of the resource.

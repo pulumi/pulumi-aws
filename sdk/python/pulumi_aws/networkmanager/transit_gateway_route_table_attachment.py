@@ -317,21 +317,23 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.networkmanager.TransitGatewayRouteTableAttachment("example",
-            peering_id=aws_networkmanager_transit_gateway_peering["example"]["id"],
-            transit_gateway_route_table_arn=aws_ec2_transit_gateway_route_table["example"]["arn"])
+            peering_id=example_aws_networkmanager_transit_gateway_peering["id"],
+            transit_gateway_route_table_arn=example_aws_ec2_transit_gateway_route_table["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_transit_gateway_route_table_attachment` using the attachment ID. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8
+        $ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8
         ```
 
         :param str resource_name: The name of the resource.
@@ -351,21 +353,23 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.networkmanager.TransitGatewayRouteTableAttachment("example",
-            peering_id=aws_networkmanager_transit_gateway_peering["example"]["id"],
-            transit_gateway_route_table_arn=aws_ec2_transit_gateway_route_table["example"]["arn"])
+            peering_id=example_aws_networkmanager_transit_gateway_peering["id"],
+            transit_gateway_route_table_arn=example_aws_ec2_transit_gateway_route_table["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_transit_gateway_route_table_attachment` using the attachment ID. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8
+        $ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8
         ```
 
         :param str resource_name: The name of the resource.
@@ -413,8 +417,6 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
             __props__.__dict__["segment_name"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(TransitGatewayRouteTableAttachment, __self__).__init__(
             'aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment',
             resource_name,

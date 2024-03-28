@@ -4,6 +4,7 @@
 package com.pulumi.aws.appconfig.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class EventIntegrationEventFilter {
 
         @CustomType.Setter
         public Builder source(String source) {
-            this.source = Objects.requireNonNull(source);
+            if (source == null) {
+              throw new MissingRequiredPropertyException("EventIntegrationEventFilter", "source");
+            }
+            this.source = source;
             return this;
         }
         public EventIntegrationEventFilter build() {
-            final var o = new EventIntegrationEventFilter();
-            o.source = source;
-            return o;
+            final var _resultValue = new EventIntegrationEventFilter();
+            _resultValue.source = source;
+            return _resultValue;
         }
     }
 }

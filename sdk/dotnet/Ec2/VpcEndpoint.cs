@@ -21,8 +21,10 @@ namespace Pulumi.Aws.Ec2
     /// Doing so will cause a conflict of associations and will overwrite the association.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,14 +35,17 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var s3 = new Aws.Ec2.VpcEndpoint("s3", new()
     ///     {
-    ///         VpcId = aws_vpc.Main.Id,
+    ///         VpcId = main.Id,
     ///         ServiceName = "com.amazonaws.us-west-2.s3",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Basic w/ Tags
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,7 +56,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var s3 = new Aws.Ec2.VpcEndpoint("s3", new()
     ///     {
-    ///         VpcId = aws_vpc.Main.Id,
+    ///         VpcId = main.Id,
     ///         ServiceName = "com.amazonaws.us-west-2.s3",
     ///         Tags = 
     ///         {
@@ -61,8 +66,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Interface Endpoint Type
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -73,20 +81,23 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var ec2 = new Aws.Ec2.VpcEndpoint("ec2", new()
     ///     {
-    ///         VpcId = aws_vpc.Main.Id,
+    ///         VpcId = main.Id,
     ///         ServiceName = "com.amazonaws.us-west-2.ec2",
     ///         VpcEndpointType = "Interface",
     ///         SecurityGroupIds = new[]
     ///         {
-    ///             aws_security_group.Sg1.Id,
+    ///             sg1.Id,
     ///         },
     ///         PrivateDnsEnabled = true,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Gateway Load Balancer Endpoint Type
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -97,7 +108,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var exampleVpcEndpointService = new Aws.Ec2.VpcEndpointService("exampleVpcEndpointService", new()
+    ///     var example = new Aws.Ec2.VpcEndpointService("example", new()
     ///     {
     ///         AcceptanceRequired = false,
     ///         AllowedPrincipals = new[]
@@ -106,30 +117,31 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///         GatewayLoadBalancerArns = new[]
     ///         {
-    ///             aws_lb.Example.Arn,
+    ///             exampleAwsLb.Arn,
     ///         },
     ///     });
     /// 
-    ///     var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("exampleVpcEndpoint", new()
+    ///     var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("example", new()
     ///     {
-    ///         ServiceName = exampleVpcEndpointService.ServiceName,
+    ///         ServiceName = example.ServiceName,
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Example.Id,
+    ///             exampleAwsSubnet.Id,
     ///         },
-    ///         VpcEndpointType = exampleVpcEndpointService.ServiceType,
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         VpcEndpointType = example.ServiceType,
+    ///         VpcId = exampleAwsVpc.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint endpoint1 vpce-3ecf2a57
+    /// $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint endpoint1 vpce-3ecf2a57
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpoint:VpcEndpoint")]
@@ -286,10 +298,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -581,11 +589,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

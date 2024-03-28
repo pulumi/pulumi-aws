@@ -591,18 +591,21 @@ class Route(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        route = aws.ec2.Route("route",
-            route_table_id="rtb-4fbb3ac4",
+        r = aws.ec2.Route("r",
+            route_table_id=testing["id"],
             destination_cidr_block="10.0.1.0/22",
-            vpc_peering_connection_id="pcx-45ff3dc1",
-            opts=pulumi.ResourceOptions(depends_on=[aws_route_table["testing"]]))
+            vpc_peering_connection_id="pcx-45ff3dc1")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Example IPv6 Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -611,11 +614,12 @@ class Route(pulumi.CustomResource):
             cidr_block="10.1.0.0/16",
             assign_generated_ipv6_cidr_block=True)
         egress = aws.ec2.EgressOnlyInternetGateway("egress", vpc_id=vpc.id)
-        route = aws.ec2.Route("route",
+        r = aws.ec2.Route("r",
             route_table_id="rtb-4fbb3ac4",
             destination_ipv6_cidr_block="::/0",
             egress_only_gateway_id=egress.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -628,17 +632,17 @@ class Route(pulumi.CustomResource):
         Import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16`:
 
         ```sh
-         $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_10.42.0.0/16
+        $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_10.42.0.0/16
         ```
-         Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`:
+        Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`:
 
         ```sh
-         $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125
+        $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125
         ```
-         Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be`:
+        Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be`:
 
         ```sh
-         $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
+        $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
         ```
 
         :param str resource_name: The name of the resource.
@@ -679,18 +683,21 @@ class Route(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        route = aws.ec2.Route("route",
-            route_table_id="rtb-4fbb3ac4",
+        r = aws.ec2.Route("r",
+            route_table_id=testing["id"],
             destination_cidr_block="10.0.1.0/22",
-            vpc_peering_connection_id="pcx-45ff3dc1",
-            opts=pulumi.ResourceOptions(depends_on=[aws_route_table["testing"]]))
+            vpc_peering_connection_id="pcx-45ff3dc1")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Example IPv6 Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -699,11 +706,12 @@ class Route(pulumi.CustomResource):
             cidr_block="10.1.0.0/16",
             assign_generated_ipv6_cidr_block=True)
         egress = aws.ec2.EgressOnlyInternetGateway("egress", vpc_id=vpc.id)
-        route = aws.ec2.Route("route",
+        r = aws.ec2.Route("r",
             route_table_id="rtb-4fbb3ac4",
             destination_ipv6_cidr_block="::/0",
             egress_only_gateway_id=egress.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -716,17 +724,17 @@ class Route(pulumi.CustomResource):
         Import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16`:
 
         ```sh
-         $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_10.42.0.0/16
+        $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_10.42.0.0/16
         ```
-         Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`:
+        Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`:
 
         ```sh
-         $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125
+        $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125
         ```
-         Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be`:
+        Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be`:
 
         ```sh
-         $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
+        $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
         ```
 
         :param str resource_name: The name of the resource.

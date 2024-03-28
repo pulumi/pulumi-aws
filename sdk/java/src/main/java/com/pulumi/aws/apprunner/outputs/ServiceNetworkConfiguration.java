@@ -6,6 +6,7 @@ package com.pulumi.aws.apprunner.outputs;
 import com.pulumi.aws.apprunner.outputs.ServiceNetworkConfigurationEgressConfiguration;
 import com.pulumi.aws.apprunner.outputs.ServiceNetworkConfigurationIngressConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +23,11 @@ public final class ServiceNetworkConfiguration {
      * 
      */
     private @Nullable ServiceNetworkConfigurationIngressConfiguration ingressConfiguration;
+    /**
+     * @return App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
+     * 
+     */
+    private @Nullable String ipAddressType;
 
     private ServiceNetworkConfiguration() {}
     /**
@@ -38,6 +44,13 @@ public final class ServiceNetworkConfiguration {
     public Optional<ServiceNetworkConfigurationIngressConfiguration> ingressConfiguration() {
         return Optional.ofNullable(this.ingressConfiguration);
     }
+    /**
+     * @return App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
+     * 
+     */
+    public Optional<String> ipAddressType() {
+        return Optional.ofNullable(this.ipAddressType);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -50,28 +63,39 @@ public final class ServiceNetworkConfiguration {
     public static final class Builder {
         private @Nullable ServiceNetworkConfigurationEgressConfiguration egressConfiguration;
         private @Nullable ServiceNetworkConfigurationIngressConfiguration ingressConfiguration;
+        private @Nullable String ipAddressType;
         public Builder() {}
         public Builder(ServiceNetworkConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.egressConfiguration = defaults.egressConfiguration;
     	      this.ingressConfiguration = defaults.ingressConfiguration;
+    	      this.ipAddressType = defaults.ipAddressType;
         }
 
         @CustomType.Setter
         public Builder egressConfiguration(@Nullable ServiceNetworkConfigurationEgressConfiguration egressConfiguration) {
+
             this.egressConfiguration = egressConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder ingressConfiguration(@Nullable ServiceNetworkConfigurationIngressConfiguration ingressConfiguration) {
+
             this.ingressConfiguration = ingressConfiguration;
             return this;
         }
+        @CustomType.Setter
+        public Builder ipAddressType(@Nullable String ipAddressType) {
+
+            this.ipAddressType = ipAddressType;
+            return this;
+        }
         public ServiceNetworkConfiguration build() {
-            final var o = new ServiceNetworkConfiguration();
-            o.egressConfiguration = egressConfiguration;
-            o.ingressConfiguration = ingressConfiguration;
-            return o;
+            final var _resultValue = new ServiceNetworkConfiguration();
+            _resultValue.egressConfiguration = egressConfiguration;
+            _resultValue.ingressConfiguration = ingressConfiguration;
+            _resultValue.ipAddressType = ipAddressType;
+            return _resultValue;
         }
     }
 }

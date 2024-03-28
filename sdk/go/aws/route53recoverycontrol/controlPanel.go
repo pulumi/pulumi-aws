@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53recoverycontrol.NewControlPanel(ctx, "example", &route53recoverycontrol.ControlPanelArgs{
+//				Name:       pulumi.String("balmorhea"),
 //				ClusterArn: pulumi.String("arn:aws:route53-recovery-control::123456789012:cluster/8d47920e-d789-437d-803a-2dcc4b204393"),
 //			})
 //			if err != nil {
@@ -39,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Route53 Recovery Control Config Control Panel using the control panel arn. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53recoverycontrol/controlPanel:ControlPanel mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
-//
+// $ pulumi import aws:route53recoverycontrol/controlPanel:ControlPanel mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
 // ```
 type ControlPanel struct {
 	pulumi.CustomResourceState

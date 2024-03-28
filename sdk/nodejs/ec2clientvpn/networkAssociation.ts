@@ -10,22 +10,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2clientvpn.NetworkAssociation("example", {
- *     clientVpnEndpointId: aws_ec2_client_vpn_endpoint.example.id,
- *     subnetId: aws_subnet.example.id,
+ *     clientVpnEndpointId: exampleAwsEc2ClientVpnEndpoint.id,
+ *     subnetId: exampleAwsSubnet.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AWS Client VPN network associations using the endpoint ID and the association ID. Values are separated by a `,`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,vpn-assoc-0b8db902465d069ad
+ * $ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,cvpn-assoc-0b8db902465d069ad
  * ```
  */
 export class NetworkAssociation extends pulumi.CustomResource {

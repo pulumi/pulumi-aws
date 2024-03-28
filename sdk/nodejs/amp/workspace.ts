@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,24 +24,46 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### CloudWatch Logging
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const exampleWorkspace = new aws.amp.Workspace("exampleWorkspace", {loggingConfiguration: {
- *     logGroupArn: pulumi.interpolate`${exampleLogGroup.arn}:*`,
+ * const example = new aws.cloudwatch.LogGroup("example", {name: "example"});
+ * const exampleWorkspace = new aws.amp.Workspace("example", {loggingConfiguration: {
+ *     logGroupArn: pulumi.interpolate`${example.arn}:*`,
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### AWS KMS Customer Managed Keys (CMK)
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleKey = new aws.kms.Key("example", {
+ *     description: "example",
+ *     deletionWindowInDays: 7,
+ * });
+ * const example = new aws.amp.Workspace("example", {
+ *     alias: "example",
+ *     kmsKeyArn: exampleKey.arn,
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AMP Workspaces using the identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
+ * $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
  * ```
  */
 export class Workspace extends pulumi.CustomResource {
@@ -80,6 +103,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+     */
+    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
+    /**
      * Logging configuration for the workspace. See Logging Configuration below for details.
      */
     public readonly loggingConfiguration!: pulumi.Output<outputs.amp.WorkspaceLoggingConfiguration | undefined>;
@@ -113,6 +140,7 @@ export class Workspace extends pulumi.CustomResource {
             const state = argsOrState as WorkspaceState | undefined;
             resourceInputs["alias"] = state ? state.alias : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             resourceInputs["loggingConfiguration"] = state ? state.loggingConfiguration : undefined;
             resourceInputs["prometheusEndpoint"] = state ? state.prometheusEndpoint : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -120,6 +148,7 @@ export class Workspace extends pulumi.CustomResource {
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
             resourceInputs["alias"] = args ? args.alias : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -127,8 +156,6 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -145,6 +172,10 @@ export interface WorkspaceState {
      * Amazon Resource Name (ARN) of the workspace.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+     */
+    kmsKeyArn?: pulumi.Input<string>;
     /**
      * Logging configuration for the workspace. See Logging Configuration below for details.
      */
@@ -173,6 +204,10 @@ export interface WorkspaceArgs {
      * The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
      */
     alias?: pulumi.Input<string>;
+    /**
+     * The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+     */
+    kmsKeyArn?: pulumi.Input<string>;
     /**
      * Logging configuration for the workspace. See Logging Configuration below for details.
      */

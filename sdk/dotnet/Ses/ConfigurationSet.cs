@@ -14,20 +14,9 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Example Usage
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
+    /// ### Basic Example
     /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Ses.ConfigurationSet("test");
-    /// 
-    /// });
-    /// ```
-    /// ### Require TLS Connections
-    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,6 +27,27 @@ namespace Pulumi.Aws.Ses
     /// {
     ///     var test = new Aws.Ses.ConfigurationSet("test", new()
     ///     {
+    ///         Name = "some-configuration-set-test",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Require TLS Connections
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Ses.ConfigurationSet("test", new()
+    ///     {
+    ///         Name = "some-configuration-set-test",
     ///         DeliveryOptions = new Aws.Ses.Inputs.ConfigurationSetDeliveryOptionsArgs
     ///         {
     ///             TlsPolicy = "Require",
@@ -46,13 +56,38 @@ namespace Pulumi.Aws.Ses
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Tracking Options
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Ses.ConfigurationSet("test", new()
+    ///     {
+    ///         Name = "some-configuration-set-test",
+    ///         TrackingOptions = new Aws.Ses.Inputs.ConfigurationSetTrackingOptionsArgs
+    ///         {
+    ///             CustomRedirectDomain = "sub.example.com",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SES Configuration Sets using their `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
+    /// $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
     /// ```
     /// </summary>
     [AwsResourceType("aws:ses/configurationSet:ConfigurationSet")]
@@ -127,7 +162,7 @@ namespace Pulumi.Aws.Ses
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:ses/confgurationSet:ConfgurationSet"},
+                    new global::Pulumi.Alias { Type = "aws:ses/confgurationSet:ConfgurationSet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

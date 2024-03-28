@@ -21,8 +21,10 @@ import (
 // ## Example Usage
 //
 // > **NOTE:** These examples are referencing the `storagegateway.Cache` resource `gatewayArn` attribute to ensure this provider properly adds cache before creating the volume. If you are not using this method, you may need to declare an expicit dependency (e.g. via `dependsOn = [aws_storagegateway_cache.example]`) to ensure proper ordering.
+//
 // ### Create Empty Cached iSCSI Volume
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,8 +38,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := storagegateway.NewCachesIscsiVolume(ctx, "example", &storagegateway.CachesIscsiVolumeArgs{
-//				GatewayArn:         pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
-//				NetworkInterfaceId: pulumi.Any(aws_instance.Example.Private_ip),
+//				GatewayArn:         pulumi.Any(exampleAwsStoragegatewayCache.GatewayArn),
+//				NetworkInterfaceId: pulumi.Any(exampleAwsInstance.PrivateIp),
 //				TargetName:         pulumi.String("example"),
 //				VolumeSizeInBytes:  pulumi.Int(5368709120),
 //			})
@@ -49,8 +51,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Create Cached iSCSI Volume From Snapshot
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,11 +69,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := storagegateway.NewCachesIscsiVolume(ctx, "example", &storagegateway.CachesIscsiVolumeArgs{
-//				GatewayArn:         pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
-//				NetworkInterfaceId: pulumi.Any(aws_instance.Example.Private_ip),
-//				SnapshotId:         pulumi.Any(aws_ebs_snapshot.Example.Id),
+//				GatewayArn:         pulumi.Any(exampleAwsStoragegatewayCache.GatewayArn),
+//				NetworkInterfaceId: pulumi.Any(exampleAwsInstance.PrivateIp),
+//				SnapshotId:         pulumi.Any(exampleAwsEbsSnapshot.Id),
 //				TargetName:         pulumi.String("example"),
-//				VolumeSizeInBytes:  aws_ebs_snapshot.Example.Volume_size * 1024 * 1024 * 1024,
+//				VolumeSizeInBytes:  exampleAwsEbsSnapshot.VolumeSize * 1024 * 1024 * 1024,
 //			})
 //			if err != nil {
 //				return err
@@ -78,8 +83,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Create Cached iSCSI Volume From Source Volume
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -93,11 +101,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := storagegateway.NewCachesIscsiVolume(ctx, "example", &storagegateway.CachesIscsiVolumeArgs{
-//				GatewayArn:         pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
-//				NetworkInterfaceId: pulumi.Any(aws_instance.Example.Private_ip),
-//				SourceVolumeArn:    pulumi.Any(aws_storagegateway_cached_iscsi_volume.Existing.Arn),
+//				GatewayArn:         pulumi.Any(exampleAwsStoragegatewayCache.GatewayArn),
+//				NetworkInterfaceId: pulumi.Any(exampleAwsInstance.PrivateIp),
+//				SourceVolumeArn:    pulumi.Any(existing.Arn),
 //				TargetName:         pulumi.String("example"),
-//				VolumeSizeInBytes:  pulumi.Any(aws_storagegateway_cached_iscsi_volume.Existing.Volume_size_in_bytes),
+//				VolumeSizeInBytes:  pulumi.Any(existing.VolumeSizeInBytes),
 //			})
 //			if err != nil {
 //				return err
@@ -107,15 +115,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_storagegateway_cached_iscsi_volume` using the volume Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
-//
+// $ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
 // ```
 type CachesIscsiVolume struct {
 	pulumi.CustomResourceState
@@ -177,10 +184,6 @@ func NewCachesIscsiVolume(ctx *pulumi.Context,
 	if args.VolumeSizeInBytes == nil {
 		return nil, errors.New("invalid value for required argument 'VolumeSizeInBytes'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CachesIscsiVolume
 	err := ctx.RegisterResource("aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume", name, args, &resource, opts...)

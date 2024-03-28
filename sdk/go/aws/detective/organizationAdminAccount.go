@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
+//			_, err := organizations.NewOrganization(ctx, "example", &organizations.OrganizationArgs{
 //				AwsServiceAccessPrincipals: pulumi.StringArray{
 //					pulumi.String("detective.amazonaws.com"),
 //				},
@@ -38,11 +39,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = detective.NewOrganizationAdminAccount(ctx, "exampleOrganizationAdminAccount", &detective.OrganizationAdminAccountArgs{
+//			_, err = detective.NewOrganizationAdminAccount(ctx, "example", &detective.OrganizationAdminAccountArgs{
 //				AccountId: pulumi.String("123456789012"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleOrganization,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -51,15 +50,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_detective_organization_admin_account` using `account_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:detective/organizationAdminAccount:OrganizationAdminAccount example 123456789012
-//
+// $ pulumi import aws:detective/organizationAdminAccount:OrganizationAdminAccount example 123456789012
 // ```
 type OrganizationAdminAccount struct {
 	pulumi.CustomResourceState

@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,7 +20,10 @@ import javax.annotation.Nullable;
  * Provides an AWS App Mesh virtual gateway resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,6 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VirtualGateway(&#34;example&#34;, VirtualGatewayArgs.builder()        
+ *             .name(&#34;example-virtual-gateway&#34;)
  *             .meshName(&#34;example-service-mesh&#34;)
  *             .spec(VirtualGatewaySpecArgs.builder()
  *                 .listeners(VirtualGatewaySpecListenerArgs.builder()
@@ -60,7 +63,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Access Logs and TLS
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -87,6 +94,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VirtualGateway(&#34;example&#34;, VirtualGatewayArgs.builder()        
+ *             .name(&#34;example-virtual-gateway&#34;)
  *             .meshName(&#34;example-service-mesh&#34;)
  *             .spec(VirtualGatewaySpecArgs.builder()
  *                 .listeners(VirtualGatewaySpecListenerArgs.builder()
@@ -97,7 +105,7 @@ import javax.annotation.Nullable;
  *                     .tls(VirtualGatewaySpecListenerTlsArgs.builder()
  *                         .certificate(VirtualGatewaySpecListenerTlsCertificateArgs.builder()
  *                             .acm(VirtualGatewaySpecListenerTlsCertificateAcmArgs.builder()
- *                                 .certificateArn(aws_acm_certificate.example().arn())
+ *                                 .certificateArn(exampleAwsAcmCertificate.arn())
  *                                 .build())
  *                             .build())
  *                         .mode(&#34;STRICT&#34;)
@@ -116,13 +124,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import App Mesh virtual gateway using `mesh_name` together with the virtual gateway&#39;s `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
+ * $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
  * ```
  * 
  */
@@ -305,9 +314,6 @@ public class VirtualGateway extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

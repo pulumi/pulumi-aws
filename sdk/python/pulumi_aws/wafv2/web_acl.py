@@ -21,6 +21,7 @@ class WebAclArgs:
                  visibility_config: pulumi.Input['WebAclVisibilityConfigArgs'],
                  association_config: Optional[pulumi.Input['WebAclAssociationConfigArgs']] = None,
                  captcha_config: Optional[pulumi.Input['WebAclCaptchaConfigArgs']] = None,
+                 challenge_config: Optional[pulumi.Input['WebAclChallengeConfigArgs']] = None,
                  custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -33,7 +34,8 @@ class WebAclArgs:
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input['WebAclVisibilityConfigArgs'] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
         :param pulumi.Input['WebAclAssociationConfigArgs'] association_config: Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
-        :param pulumi.Input['WebAclCaptchaConfigArgs'] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        :param pulumi.Input['WebAclCaptchaConfigArgs'] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
+        :param pulumi.Input['WebAclChallengeConfigArgs'] challenge_config: Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
         :param pulumi.Input[str] description: Friendly description of the WebACL.
         :param pulumi.Input[str] name: Friendly name of the WebACL.
@@ -48,6 +50,8 @@ class WebAclArgs:
             pulumi.set(__self__, "association_config", association_config)
         if captcha_config is not None:
             pulumi.set(__self__, "captcha_config", captcha_config)
+        if challenge_config is not None:
+            pulumi.set(__self__, "challenge_config", challenge_config)
         if custom_response_bodies is not None:
             pulumi.set(__self__, "custom_response_bodies", custom_response_bodies)
         if description is not None:
@@ -113,13 +117,25 @@ class WebAclArgs:
     @pulumi.getter(name="captchaConfig")
     def captcha_config(self) -> Optional[pulumi.Input['WebAclCaptchaConfigArgs']]:
         """
-        Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
         """
         return pulumi.get(self, "captcha_config")
 
     @captcha_config.setter
     def captcha_config(self, value: Optional[pulumi.Input['WebAclCaptchaConfigArgs']]):
         pulumi.set(self, "captcha_config", value)
+
+    @property
+    @pulumi.getter(name="challengeConfig")
+    def challenge_config(self) -> Optional[pulumi.Input['WebAclChallengeConfigArgs']]:
+        """
+        Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
+        """
+        return pulumi.get(self, "challenge_config")
+
+    @challenge_config.setter
+    def challenge_config(self, value: Optional[pulumi.Input['WebAclChallengeConfigArgs']]):
+        pulumi.set(self, "challenge_config", value)
 
     @property
     @pulumi.getter(name="customResponseBodies")
@@ -197,10 +213,12 @@ class WebAclArgs:
 @pulumi.input_type
 class _WebAclState:
     def __init__(__self__, *,
+                 application_integration_url: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  association_config: Optional[pulumi.Input['WebAclAssociationConfigArgs']] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
                  captcha_config: Optional[pulumi.Input['WebAclCaptchaConfigArgs']] = None,
+                 challenge_config: Optional[pulumi.Input['WebAclChallengeConfigArgs']] = None,
                  custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]] = None,
                  default_action: Optional[pulumi.Input['WebAclDefaultActionArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -214,10 +232,12 @@ class _WebAclState:
                  visibility_config: Optional[pulumi.Input['WebAclVisibilityConfigArgs']] = None):
         """
         Input properties used for looking up and filtering WebAcl resources.
+        :param pulumi.Input[str] application_integration_url: The URL to use in SDK integrations with managed rule groups.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
         :param pulumi.Input['WebAclAssociationConfigArgs'] association_config: Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
         :param pulumi.Input[int] capacity: Web ACL capacity units (WCUs) currently being used by this web ACL.
-        :param pulumi.Input['WebAclCaptchaConfigArgs'] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        :param pulumi.Input['WebAclCaptchaConfigArgs'] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
+        :param pulumi.Input['WebAclChallengeConfigArgs'] challenge_config: Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
         :param pulumi.Input['WebAclDefaultActionArgs'] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         :param pulumi.Input[str] description: Friendly description of the WebACL.
@@ -229,6 +249,8 @@ class _WebAclState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] token_domains: Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
         :param pulumi.Input['WebAclVisibilityConfigArgs'] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
         """
+        if application_integration_url is not None:
+            pulumi.set(__self__, "application_integration_url", application_integration_url)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if association_config is not None:
@@ -237,6 +259,8 @@ class _WebAclState:
             pulumi.set(__self__, "capacity", capacity)
         if captcha_config is not None:
             pulumi.set(__self__, "captcha_config", captcha_config)
+        if challenge_config is not None:
+            pulumi.set(__self__, "challenge_config", challenge_config)
         if custom_response_bodies is not None:
             pulumi.set(__self__, "custom_response_bodies", custom_response_bodies)
         if default_action is not None:
@@ -262,6 +286,18 @@ class _WebAclState:
             pulumi.set(__self__, "token_domains", token_domains)
         if visibility_config is not None:
             pulumi.set(__self__, "visibility_config", visibility_config)
+
+    @property
+    @pulumi.getter(name="applicationIntegrationUrl")
+    def application_integration_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL to use in SDK integrations with managed rule groups.
+        """
+        return pulumi.get(self, "application_integration_url")
+
+    @application_integration_url.setter
+    def application_integration_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_integration_url", value)
 
     @property
     @pulumi.getter
@@ -303,13 +339,25 @@ class _WebAclState:
     @pulumi.getter(name="captchaConfig")
     def captcha_config(self) -> Optional[pulumi.Input['WebAclCaptchaConfigArgs']]:
         """
-        Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
         """
         return pulumi.get(self, "captcha_config")
 
     @captcha_config.setter
     def captcha_config(self, value: Optional[pulumi.Input['WebAclCaptchaConfigArgs']]):
         pulumi.set(self, "captcha_config", value)
+
+    @property
+    @pulumi.getter(name="challengeConfig")
+    def challenge_config(self) -> Optional[pulumi.Input['WebAclChallengeConfigArgs']]:
+        """
+        Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
+        """
+        return pulumi.get(self, "challenge_config")
+
+    @challenge_config.setter
+    def challenge_config(self, value: Optional[pulumi.Input['WebAclChallengeConfigArgs']]):
+        pulumi.set(self, "challenge_config", value)
 
     @property
     @pulumi.getter(name="customResponseBodies")
@@ -451,6 +499,7 @@ class WebAcl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  association_config: Optional[pulumi.Input[pulumi.InputType['WebAclAssociationConfigArgs']]] = None,
                  captcha_config: Optional[pulumi.Input[pulumi.InputType['WebAclCaptchaConfigArgs']]] = None,
+                 challenge_config: Optional[pulumi.Input[pulumi.InputType['WebAclChallengeConfigArgs']]] = None,
                  custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclCustomResponseBodyArgs']]]]] = None,
                  default_action: Optional[pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -466,7 +515,8 @@ class WebAcl(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['WebAclAssociationConfigArgs']] association_config: Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
-        :param pulumi.Input[pulumi.InputType['WebAclCaptchaConfigArgs']] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        :param pulumi.Input[pulumi.InputType['WebAclCaptchaConfigArgs']] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
+        :param pulumi.Input[pulumi.InputType['WebAclChallengeConfigArgs']] challenge_config: Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclCustomResponseBodyArgs']]]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
         :param pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         :param pulumi.Input[str] description: Friendly description of the WebACL.
@@ -502,6 +552,7 @@ class WebAcl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  association_config: Optional[pulumi.Input[pulumi.InputType['WebAclAssociationConfigArgs']]] = None,
                  captcha_config: Optional[pulumi.Input[pulumi.InputType['WebAclCaptchaConfigArgs']]] = None,
+                 challenge_config: Optional[pulumi.Input[pulumi.InputType['WebAclChallengeConfigArgs']]] = None,
                  custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclCustomResponseBodyArgs']]]]] = None,
                  default_action: Optional[pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -522,6 +573,7 @@ class WebAcl(pulumi.CustomResource):
 
             __props__.__dict__["association_config"] = association_config
             __props__.__dict__["captcha_config"] = captcha_config
+            __props__.__dict__["challenge_config"] = challenge_config
             __props__.__dict__["custom_response_bodies"] = custom_response_bodies
             if default_action is None and not opts.urn:
                 raise TypeError("Missing required property 'default_action'")
@@ -537,12 +589,11 @@ class WebAcl(pulumi.CustomResource):
             if visibility_config is None and not opts.urn:
                 raise TypeError("Missing required property 'visibility_config'")
             __props__.__dict__["visibility_config"] = visibility_config
+            __props__.__dict__["application_integration_url"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["capacity"] = None
             __props__.__dict__["lock_token"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(WebAcl, __self__).__init__(
             'aws:wafv2/webAcl:WebAcl',
             resource_name,
@@ -553,10 +604,12 @@ class WebAcl(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            application_integration_url: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             association_config: Optional[pulumi.Input[pulumi.InputType['WebAclAssociationConfigArgs']]] = None,
             capacity: Optional[pulumi.Input[int]] = None,
             captcha_config: Optional[pulumi.Input[pulumi.InputType['WebAclCaptchaConfigArgs']]] = None,
+            challenge_config: Optional[pulumi.Input[pulumi.InputType['WebAclChallengeConfigArgs']]] = None,
             custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclCustomResponseBodyArgs']]]]] = None,
             default_action: Optional[pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
@@ -575,10 +628,12 @@ class WebAcl(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_integration_url: The URL to use in SDK integrations with managed rule groups.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
         :param pulumi.Input[pulumi.InputType['WebAclAssociationConfigArgs']] association_config: Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
         :param pulumi.Input[int] capacity: Web ACL capacity units (WCUs) currently being used by this web ACL.
-        :param pulumi.Input[pulumi.InputType['WebAclCaptchaConfigArgs']] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        :param pulumi.Input[pulumi.InputType['WebAclCaptchaConfigArgs']] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
+        :param pulumi.Input[pulumi.InputType['WebAclChallengeConfigArgs']] challenge_config: Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclCustomResponseBodyArgs']]]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
         :param pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         :param pulumi.Input[str] description: Friendly description of the WebACL.
@@ -594,10 +649,12 @@ class WebAcl(pulumi.CustomResource):
 
         __props__ = _WebAclState.__new__(_WebAclState)
 
+        __props__.__dict__["application_integration_url"] = application_integration_url
         __props__.__dict__["arn"] = arn
         __props__.__dict__["association_config"] = association_config
         __props__.__dict__["capacity"] = capacity
         __props__.__dict__["captcha_config"] = captcha_config
+        __props__.__dict__["challenge_config"] = challenge_config
         __props__.__dict__["custom_response_bodies"] = custom_response_bodies
         __props__.__dict__["default_action"] = default_action
         __props__.__dict__["description"] = description
@@ -610,6 +667,14 @@ class WebAcl(pulumi.CustomResource):
         __props__.__dict__["token_domains"] = token_domains
         __props__.__dict__["visibility_config"] = visibility_config
         return WebAcl(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="applicationIntegrationUrl")
+    def application_integration_url(self) -> pulumi.Output[str]:
+        """
+        The URL to use in SDK integrations with managed rule groups.
+        """
+        return pulumi.get(self, "application_integration_url")
 
     @property
     @pulumi.getter
@@ -639,9 +704,17 @@ class WebAcl(pulumi.CustomResource):
     @pulumi.getter(name="captchaConfig")
     def captcha_config(self) -> pulumi.Output[Optional['outputs.WebAclCaptchaConfig']]:
         """
-        Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
         """
         return pulumi.get(self, "captcha_config")
+
+    @property
+    @pulumi.getter(name="challengeConfig")
+    def challenge_config(self) -> pulumi.Output[Optional['outputs.WebAclChallengeConfig']]:
+        """
+        Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
+        """
+        return pulumi.get(self, "challenge_config")
 
     @property
     @pulumi.getter(name="customResponseBodies")

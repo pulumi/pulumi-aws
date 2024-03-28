@@ -12,14 +12,45 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := iot.NewTopicRuleDestination(ctx, "example", &iot.TopicRuleDestinationArgs{
+// VpcConfiguration: &iot.TopicRuleDestinationVpcConfigurationArgs{
+// RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+// SecurityGroups: pulumi.StringArray{
+// exampleAwsSecurityGroup.Id,
+// },
+// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:4,22-44),
+// VpcId: pulumi.Any(exampleAwsVpc.Id),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Import
 //
 // Using `pulumi import`, import IoT topic rule destinations using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iot/topicRuleDestination:TopicRuleDestination example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
-//
+// $ pulumi import aws:iot/topicRuleDestination:TopicRuleDestination example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
 // ```
 type TopicRuleDestination struct {
 	pulumi.CustomResourceState

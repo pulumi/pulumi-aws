@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a Service Discovery Private DNS Namespace resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,25 +44,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+ *         var example = new Vpc(&#34;example&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.0.0.0/16&#34;)
  *             .build());
  * 
  *         var examplePrivateDnsNamespace = new PrivateDnsNamespace(&#34;examplePrivateDnsNamespace&#34;, PrivateDnsNamespaceArgs.builder()        
+ *             .name(&#34;hoge.example.local&#34;)
  *             .description(&#34;example&#34;)
- *             .vpc(exampleVpc.id())
+ *             .vpc(example.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Service Discovery Private DNS Namespace using the namespace ID and VPC ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345
+ * $ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345
  * ```
  * 
  */
@@ -202,9 +205,6 @@ public class PrivateDnsNamespace extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

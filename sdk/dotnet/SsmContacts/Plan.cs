@@ -13,8 +13,10 @@ namespace Pulumi.Aws.SsmContacts
     /// Resource for managing an AWS SSM Contact Plan.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,8 +39,11 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Usage with SSM Contact
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -67,8 +72,11 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Usage With All Fields
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -77,19 +85,19 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var escalationPlan = new Aws.SsmContacts.Contact("escalationPlan", new()
+    ///     var escalationPlan = new Aws.SsmContacts.Contact("escalation_plan", new()
     ///     {
     ///         Alias = "escalation-plan-alias",
     ///         Type = "ESCALATION",
     ///     });
     /// 
-    ///     var contactOne = new Aws.SsmContacts.Contact("contactOne", new()
+    ///     var contactOne = new Aws.SsmContacts.Contact("contact_one", new()
     ///     {
     ///         Alias = "alias",
     ///         Type = "PERSONAL",
     ///     });
     /// 
-    ///     var contactTwo = new Aws.SsmContacts.Contact("contactTwo", new()
+    ///     var contactTwo = new Aws.SsmContacts.Contact("contact_two", new()
     ///     {
     ///         Alias = "alias",
     ///         Type = "PERSONAL",
@@ -126,7 +134,7 @@ namespace Pulumi.Aws.SsmContacts
     ///                         ChannelTargetInfo = new Aws.SsmContacts.Inputs.PlanStageTargetChannelTargetInfoArgs
     ///                         {
     ///                             RetryIntervalInMinutes = 2,
-    ///                             ContactChannelId = aws_ssmcontacts_contact_channel.Channel.Arn,
+    ///                             ContactChannelId = channel.Arn,
     ///                         },
     ///                     },
     ///                 },
@@ -136,13 +144,14 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SSM Contact Plan using the Contact ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
+    /// $ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssmcontacts/plan:Plan")]

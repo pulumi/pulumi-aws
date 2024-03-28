@@ -18,6 +18,7 @@ import {InstanceProfile} from "../iam";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,11 +37,14 @@ import {InstanceProfile} from "../iam";
  *     ],
  *     owners: ["099720109477"],
  * });
- * const asConf = new aws.ec2.LaunchConfiguration("asConf", {
+ * const asConf = new aws.ec2.LaunchConfiguration("as_conf", {
+ *     name: "web_config",
  *     imageId: ubuntu.then(ubuntu => ubuntu.id),
  *     instanceType: "t2.micro",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Using with AutoScaling Groups
  *
  * Launch Configurations cannot be updated after creation with the Amazon
@@ -51,6 +55,7 @@ import {InstanceProfile} from "../iam";
  * Either omit the Launch Configuration `name` attribute, or specify a partial name
  * with `namePrefix`.  Example:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -69,17 +74,19 @@ import {InstanceProfile} from "../iam";
  *     ],
  *     owners: ["099720109477"],
  * });
- * const asConf = new aws.ec2.LaunchConfiguration("asConf", {
+ * const asConf = new aws.ec2.LaunchConfiguration("as_conf", {
  *     namePrefix: "lc-example-",
  *     imageId: ubuntu.then(ubuntu => ubuntu.id),
  *     instanceType: "t2.micro",
  * });
  * const bar = new aws.autoscaling.Group("bar", {
+ *     name: "asg-example",
  *     launchConfiguration: asConf.name,
  *     minSize: 1,
  *     maxSize: 2,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * With this setup this provider generates a unique name for your Launch
  * Configuration and can then update the AutoScaling Group without conflict before
@@ -94,6 +101,7 @@ import {InstanceProfile} from "../iam";
  * documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
  * for more information or how to launch [Spot Instances][3] with this provider.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -112,13 +120,17 @@ import {InstanceProfile} from "../iam";
  *     ],
  *     owners: ["099720109477"],
  * });
- * const asConf = new aws.ec2.LaunchConfiguration("asConf", {
+ * const asConf = new aws.ec2.LaunchConfiguration("as_conf", {
  *     imageId: ubuntu.then(ubuntu => ubuntu.id),
  *     instanceType: "m4.large",
  *     spotPrice: "0.001",
  * });
- * const bar = new aws.autoscaling.Group("bar", {launchConfiguration: asConf.name});
+ * const bar = new aws.autoscaling.Group("bar", {
+ *     name: "asg-example",
+ *     launchConfiguration: asConf.name,
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Block devices
  *
@@ -177,7 +189,7 @@ import {InstanceProfile} from "../iam";
  * Using `pulumi import`, import launch configurations using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf pulumi-lg-123456
+ * $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf pulumi-lg-123456
  * ```
  */
 export class LaunchConfiguration extends pulumi.CustomResource {

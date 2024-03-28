@@ -225,6 +225,7 @@ class Resource(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -233,13 +234,14 @@ class Resource(pulumi.CustomResource):
         example = aws.cloudcontrol.Resource("example",
             type_name="AWS::ECS::Cluster",
             desired_state=json.dumps({
-                "ClusterName": "example",
-                "Tags": [{
-                    "Key": "CostCenter",
-                    "Value": "IT",
+                "clusterName": "example",
+                "tags": [{
+                    "key": "CostCenter",
+                    "value": "IT",
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -262,6 +264,7 @@ class Resource(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -270,13 +273,14 @@ class Resource(pulumi.CustomResource):
         example = aws.cloudcontrol.Resource("example",
             type_name="AWS::ECS::Cluster",
             desired_state=json.dumps({
-                "ClusterName": "example",
-                "Tags": [{
-                    "Key": "CostCenter",
-                    "Value": "IT",
+                "clusterName": "example",
+                "tags": [{
+                    "key": "CostCenter",
+                    "value": "IT",
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param ResourceArgs args: The arguments to use to populate this resource's properties.

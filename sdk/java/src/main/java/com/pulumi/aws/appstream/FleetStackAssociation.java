@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Manages an AppStream Fleet Stack association.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -27,6 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appstream.FleetArgs;
  * import com.pulumi.aws.appstream.inputs.FleetComputeCapacityArgs;
  * import com.pulumi.aws.appstream.Stack;
+ * import com.pulumi.aws.appstream.StackArgs;
  * import com.pulumi.aws.appstream.FleetStackAssociation;
  * import com.pulumi.aws.appstream.FleetStackAssociationArgs;
  * import java.util.List;
@@ -42,7 +45,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleFleet = new Fleet(&#34;exampleFleet&#34;, FleetArgs.builder()        
+ *         var example = new Fleet(&#34;example&#34;, FleetArgs.builder()        
+ *             .name(&#34;NAME&#34;)
  *             .imageName(&#34;Amazon-AppStream2-Sample-Image-03-11-2023&#34;)
  *             .instanceType(&#34;stream.standard.small&#34;)
  *             .computeCapacity(FleetComputeCapacityArgs.builder()
@@ -50,23 +54,26 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleStack = new Stack(&#34;exampleStack&#34;);
+ *         var exampleStack = new Stack(&#34;exampleStack&#34;, StackArgs.builder()        
+ *             .name(&#34;STACK NAME&#34;)
+ *             .build());
  * 
  *         var exampleFleetStackAssociation = new FleetStackAssociation(&#34;exampleFleetStackAssociation&#34;, FleetStackAssociationArgs.builder()        
- *             .fleetName(exampleFleet.name())
+ *             .fleetName(example.name())
  *             .stackName(exampleStack.name())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
+ * $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
  * ```
  * 
  */

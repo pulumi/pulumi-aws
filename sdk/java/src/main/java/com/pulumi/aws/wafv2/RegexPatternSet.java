@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides an AWS WAFv2 Regex Pattern Set Resource
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,7 +46,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RegexPatternSet(&#34;example&#34;, RegexPatternSetArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .description(&#34;Example regex pattern set&#34;)
+ *             .scope(&#34;REGIONAL&#34;)
  *             .regularExpressions(            
  *                 RegexPatternSetRegularExpressionArgs.builder()
  *                     .regexString(&#34;one&#34;)
@@ -52,7 +56,6 @@ import javax.annotation.Nullable;
  *                 RegexPatternSetRegularExpressionArgs.builder()
  *                     .regexString(&#34;two&#34;)
  *                     .build())
- *             .scope(&#34;REGIONAL&#34;)
  *             .tags(Map.ofEntries(
  *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
  *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
@@ -62,13 +65,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import WAFv2 Regex Pattern Sets using `ID/name/scope`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:wafv2/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+ * $ pulumi import aws:wafv2/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
  * ```
  * 
  */
@@ -215,9 +219,6 @@ public class RegexPatternSet extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

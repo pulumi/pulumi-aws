@@ -9,32 +9,34 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.redshiftserverless.ResourcePolicy("example", {
- *     resourceArn: aws_redshiftserverless_snapshot.example.arn,
+ *     resourceArn: exampleAwsRedshiftserverlessSnapshot.arn,
  *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Principal: {
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             effect: "Allow",
+ *             principal: {
  *                 AWS: ["12345678901"],
  *             },
- *             Action: ["redshift-serverless:RestoreFromSnapshot"],
- *             Sid: "",
+ *             action: ["redshift-serverless:RestoreFromSnapshot"],
+ *             sid: "",
  *         }],
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Serverless Resource Policies using the `resource_arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshiftserverless/resourcePolicy:ResourcePolicy example example
+ * $ pulumi import aws:redshiftserverless/resourcePolicy:ResourcePolicy example example
  * ```
  */
 export class ResourcePolicy extends pulumi.CustomResource {

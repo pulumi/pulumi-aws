@@ -44,13 +44,14 @@ public final class TableSchema {
 
         @CustomType.Setter
         public Builder compositePartitionKey(@Nullable TableSchemaCompositePartitionKey compositePartitionKey) {
+
             this.compositePartitionKey = compositePartitionKey;
             return this;
         }
         public TableSchema build() {
-            final var o = new TableSchema();
-            o.compositePartitionKey = compositePartitionKey;
-            return o;
+            final var _resultValue = new TableSchema();
+            _resultValue.compositePartitionKey = compositePartitionKey;
+            return _resultValue;
         }
     }
 }

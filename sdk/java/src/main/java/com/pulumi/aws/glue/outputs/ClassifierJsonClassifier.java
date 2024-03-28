@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class ClassifierJsonClassifier {
 
         @CustomType.Setter
         public Builder jsonPath(String jsonPath) {
-            this.jsonPath = Objects.requireNonNull(jsonPath);
+            if (jsonPath == null) {
+              throw new MissingRequiredPropertyException("ClassifierJsonClassifier", "jsonPath");
+            }
+            this.jsonPath = jsonPath;
             return this;
         }
         public ClassifierJsonClassifier build() {
-            final var o = new ClassifierJsonClassifier();
-            o.jsonPath = jsonPath;
-            return o;
+            final var _resultValue = new ClassifierJsonClassifier();
+            _resultValue.jsonPath = jsonPath;
+            return _resultValue;
         }
     }
 }

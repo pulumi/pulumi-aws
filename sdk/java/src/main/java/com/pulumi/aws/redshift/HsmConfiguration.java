@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Creates an HSM configuration that contains the information required by an Amazon Redshift cluster to store and use database encryption keys in a Hardware Security Module (HSM).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,13 +55,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_configuration_identifier`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example
+ * $ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example
  * ```
  * 
  */
@@ -229,8 +232,7 @@ public class HsmConfiguration extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "hsmPartitionPassword",
-                "tagsAll"
+                "hsmPartitionPassword"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

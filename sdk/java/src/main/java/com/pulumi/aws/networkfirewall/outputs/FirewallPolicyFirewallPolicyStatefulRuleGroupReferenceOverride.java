@@ -44,13 +44,14 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrid
 
         @CustomType.Setter
         public Builder action(@Nullable String action) {
+
             this.action = action;
             return this;
         }
         public FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride build() {
-            final var o = new FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride();
-            o.action = action;
-            return o;
+            final var _resultValue = new FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride();
+            _resultValue.action = action;
+            return _resultValue;
         }
     }
 }

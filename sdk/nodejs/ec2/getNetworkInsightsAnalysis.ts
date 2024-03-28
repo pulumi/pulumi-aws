@@ -12,14 +12,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getNetworkInsightsAnalysis({
- *     networkInsightsAnalysisId: aws_ec2_network_insights_analysis.example.id,
+ *     networkInsightsAnalysisId: exampleAwsEc2NetworkInsightsAnalysis.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getNetworkInsightsAnalysis(args?: GetNetworkInsightsAnalysisArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInsightsAnalysisResult> {
     args = args || {};
@@ -112,14 +114,16 @@ export interface GetNetworkInsightsAnalysisResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getNetworkInsightsAnalysis({
- *     networkInsightsAnalysisId: aws_ec2_network_insights_analysis.example.id,
+ *     networkInsightsAnalysisId: exampleAwsEc2NetworkInsightsAnalysis.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getNetworkInsightsAnalysisOutput(args?: GetNetworkInsightsAnalysisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInsightsAnalysisResult> {
     return pulumi.output(args).apply((a: any) => getNetworkInsightsAnalysis(a, opts))

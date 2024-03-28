@@ -174,8 +174,10 @@ class CodeRepository(pulumi.CustomResource):
         Provides a SageMaker Code Repository resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -186,35 +188,38 @@ class CodeRepository(pulumi.CustomResource):
                 repository_url="https://github.com/github/docs.git",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example with Secret
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        example_secret = aws.secretsmanager.Secret("exampleSecret")
-        example_secret_version = aws.secretsmanager.SecretVersion("exampleSecretVersion",
-            secret_id=example_secret.id,
+        example = aws.secretsmanager.Secret("example", name="example")
+        example_secret_version = aws.secretsmanager.SecretVersion("example",
+            secret_id=example.id,
             secret_string=json.dumps({
                 "username": "example",
                 "password": "example",
             }))
-        example_code_repository = aws.sagemaker.CodeRepository("exampleCodeRepository",
+        example_code_repository = aws.sagemaker.CodeRepository("example",
             code_repository_name="example",
             git_config=aws.sagemaker.CodeRepositoryGitConfigArgs(
                 repository_url="https://github.com/github/docs.git",
-                secret_arn=example_secret.arn,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_secret_version]))
+                secret_arn=example.arn,
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Code Repositories using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
+        $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -233,8 +238,10 @@ class CodeRepository(pulumi.CustomResource):
         Provides a SageMaker Code Repository resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -245,35 +252,38 @@ class CodeRepository(pulumi.CustomResource):
                 repository_url="https://github.com/github/docs.git",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example with Secret
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        example_secret = aws.secretsmanager.Secret("exampleSecret")
-        example_secret_version = aws.secretsmanager.SecretVersion("exampleSecretVersion",
-            secret_id=example_secret.id,
+        example = aws.secretsmanager.Secret("example", name="example")
+        example_secret_version = aws.secretsmanager.SecretVersion("example",
+            secret_id=example.id,
             secret_string=json.dumps({
                 "username": "example",
                 "password": "example",
             }))
-        example_code_repository = aws.sagemaker.CodeRepository("exampleCodeRepository",
+        example_code_repository = aws.sagemaker.CodeRepository("example",
             code_repository_name="example",
             git_config=aws.sagemaker.CodeRepositoryGitConfigArgs(
                 repository_url="https://github.com/github/docs.git",
-                secret_arn=example_secret.arn,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_secret_version]))
+                secret_arn=example.arn,
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Code Repositories using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
+        $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -312,8 +322,6 @@ class CodeRepository(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(CodeRepository, __self__).__init__(
             'aws:sagemaker/codeRepository:CodeRepository',
             resource_name,

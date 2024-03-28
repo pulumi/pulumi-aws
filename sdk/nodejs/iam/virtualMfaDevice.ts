@@ -16,19 +16,21 @@ import * as utilities from "../utilities";
  *
  * **Using certs on file:**
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.iam.VirtualMfaDevice("example", {virtualMfaDeviceName: "example"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IAM Virtual MFA Devices using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:iam/virtualMfaDevice:VirtualMfaDevice example arn:aws:iam::123456789012:mfa/example
+ * $ pulumi import aws:iam/virtualMfaDevice:VirtualMfaDevice example arn:aws:iam::123456789012:mfa/example
  * ```
  */
 export class VirtualMfaDevice extends pulumi.CustomResource {
@@ -136,8 +138,6 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
             resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VirtualMfaDevice.__pulumiType, name, resourceInputs, opts);
     }
 }

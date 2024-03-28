@@ -44,13 +44,14 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
 
         @CustomType.Setter
         public Builder failoverConditionSettings(@Nullable ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings failoverConditionSettings) {
+
             this.failoverConditionSettings = failoverConditionSettings;
             return this;
         }
         public ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition build() {
-            final var o = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition();
-            o.failoverConditionSettings = failoverConditionSettings;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition();
+            _resultValue.failoverConditionSettings = failoverConditionSettings;
+            return _resultValue;
         }
     }
 }

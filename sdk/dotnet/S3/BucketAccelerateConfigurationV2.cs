@@ -12,8 +12,11 @@ namespace Pulumi.Aws.S3
     /// <summary>
     /// Provides an S3 bucket accelerate configuration resource. See the [Requirements for using Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration.html#transfer-acceleration-requirements) for more details.
     /// 
+    /// &gt; This resource cannot be used with S3 directory buckets.
+    /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,7 +25,10 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mybucket = new Aws.S3.BucketV2("mybucket");
+    ///     var mybucket = new Aws.S3.BucketV2("mybucket", new()
+    ///     {
+    ///         Bucket = "mybucket",
+    ///     });
     /// 
     ///     var example = new Aws.S3.BucketAccelerateConfigurationV2("example", new()
     ///     {
@@ -32,6 +38,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -42,12 +49,12 @@ namespace Pulumi.Aws.S3
     /// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name
+    /// $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name
     /// ```
-    ///  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+    /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name,123456789012
+    /// $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name,123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2")]

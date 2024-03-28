@@ -12,9 +12,13 @@ namespace Pulumi.Aws.S3
     /// <summary>
     /// Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
     /// 
+    /// &gt; This resource cannot be used with S3 directory buckets.
+    /// 
     /// ## Example Usage
+    /// 
     /// ### Add inventory configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,13 +27,20 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testBucketV2 = new Aws.S3.BucketV2("testBucketV2");
-    /// 
-    ///     var inventory = new Aws.S3.BucketV2("inventory");
-    /// 
-    ///     var testInventory = new Aws.S3.Inventory("testInventory", new()
+    ///     var test = new Aws.S3.BucketV2("test", new()
     ///     {
-    ///         Bucket = testBucketV2.Id,
+    ///         Bucket = "my-tf-test-bucket",
+    ///     });
+    /// 
+    ///     var inventory = new Aws.S3.BucketV2("inventory", new()
+    ///     {
+    ///         Bucket = "my-tf-inventory-bucket",
+    ///     });
+    /// 
+    ///     var testInventory = new Aws.S3.Inventory("test", new()
+    ///     {
+    ///         Bucket = test.Id,
+    ///         Name = "EntireBucketDaily",
     ///         IncludedObjectVersions = "All",
     ///         Schedule = new Aws.S3.Inputs.InventoryScheduleArgs
     ///         {
@@ -47,8 +58,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Add inventory configuration with S3 object prefix
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -57,13 +71,20 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.S3.BucketV2("test");
+    ///     var test = new Aws.S3.BucketV2("test", new()
+    ///     {
+    ///         Bucket = "my-tf-test-bucket",
+    ///     });
     /// 
-    ///     var inventory = new Aws.S3.BucketV2("inventory");
+    ///     var inventory = new Aws.S3.BucketV2("inventory", new()
+    ///     {
+    ///         Bucket = "my-tf-inventory-bucket",
+    ///     });
     /// 
     ///     var test_prefix = new Aws.S3.Inventory("test-prefix", new()
     ///     {
     ///         Bucket = test.Id,
+    ///         Name = "DocumentsWeekly",
     ///         IncludedObjectVersions = "All",
     ///         Schedule = new Aws.S3.Inputs.InventoryScheduleArgs
     ///         {
@@ -86,13 +107,14 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import S3 bucket inventory configurations using `bucket:inventory`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
+    /// $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/inventory:Inventory")]

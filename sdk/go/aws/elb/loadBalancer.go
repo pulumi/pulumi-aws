@@ -25,6 +25,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,7 +38,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new load balancer
 //			_, err := elb.NewLoadBalancer(ctx, "bar", &elb.LoadBalancerArgs{
+//				Name: pulumi.String("foobar-elb"),
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-west-2a"),
 //					pulumi.String("us-west-2b"),
@@ -71,7 +74,7 @@ import (
 //					Interval:           pulumi.Int(30),
 //				},
 //				Instances: pulumi.StringArray{
-//					aws_instance.Foo.Id,
+//					foo.Id,
 //				},
 //				CrossZoneLoadBalancing:    pulumi.Bool(true),
 //				IdleTimeout:               pulumi.Int(400),
@@ -89,6 +92,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Note on ECDSA Key Algorithm
 //
 // If the ARN of the `sslCertificateId` that is pointed to references a
@@ -102,9 +107,7 @@ import (
 // Using `pulumi import`, import ELBs using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
-//
+// $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
 // ```
 type LoadBalancer struct {
 	pulumi.CustomResourceState
@@ -182,10 +185,6 @@ func NewLoadBalancer(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LoadBalancer
 	err := ctx.RegisterResource("aws:elb/loadBalancer:LoadBalancer", name, args, &resource, opts...)

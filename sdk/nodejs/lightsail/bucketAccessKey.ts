@@ -7,12 +7,27 @@ import * as utilities from "../utilities";
 /**
  * Provides a lightsail bucket access key. This is a set of credentials that allow API requests to be made to the lightsail bucket.
  *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.lightsail.Bucket("test", {
+ *     name: "mytestbucket",
+ *     bundleId: "small_1_0",
+ * });
+ * const testLightsailBucketAccessKeyAccessKey = new aws.index.LightsailBucketAccessKeyAccessKey("test", {bucketName: testAwsLightsailBucketAccessKey.id});
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Import
  *
  * Using `pulumi import`, import `aws_lightsail_bucket_access_key` using the `id` attribute. For example:
  *
  * ```sh
- *  $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey test example-bucket,AKIAIOSFODNN7EXAMPLE
+ * $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey test example-bucket,AKIAIOSFODNN7EXAMPLE
  * ```
  */
 export class BucketAccessKey extends pulumi.CustomResource {

@@ -569,247 +569,287 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
 
         @CustomType.Setter
         public Builder adaptiveQuantization(@Nullable String adaptiveQuantization) {
+
             this.adaptiveQuantization = adaptiveQuantization;
             return this;
         }
         @CustomType.Setter
         public Builder afdSignaling(@Nullable String afdSignaling) {
+
             this.afdSignaling = afdSignaling;
             return this;
         }
         @CustomType.Setter
         public Builder bitrate(@Nullable Integer bitrate) {
+
             this.bitrate = bitrate;
             return this;
         }
         @CustomType.Setter
         public Builder bufFillPct(@Nullable Integer bufFillPct) {
+
             this.bufFillPct = bufFillPct;
             return this;
         }
         @CustomType.Setter
         public Builder bufSize(@Nullable Integer bufSize) {
+
             this.bufSize = bufSize;
             return this;
         }
         @CustomType.Setter
         public Builder colorMetadata(@Nullable String colorMetadata) {
+
             this.colorMetadata = colorMetadata;
             return this;
         }
         @CustomType.Setter
         public Builder entropyEncoding(@Nullable String entropyEncoding) {
+
             this.entropyEncoding = entropyEncoding;
             return this;
         }
         @CustomType.Setter
         public Builder filterSettings(@Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings filterSettings) {
+
             this.filterSettings = filterSettings;
             return this;
         }
         @CustomType.Setter
         public Builder fixedAfd(@Nullable String fixedAfd) {
+
             this.fixedAfd = fixedAfd;
             return this;
         }
         @CustomType.Setter
         public Builder flickerAq(@Nullable String flickerAq) {
+
             this.flickerAq = flickerAq;
             return this;
         }
         @CustomType.Setter
         public Builder forceFieldPictures(@Nullable String forceFieldPictures) {
+
             this.forceFieldPictures = forceFieldPictures;
             return this;
         }
         @CustomType.Setter
         public Builder framerateControl(@Nullable String framerateControl) {
+
             this.framerateControl = framerateControl;
             return this;
         }
         @CustomType.Setter
         public Builder framerateDenominator(@Nullable Integer framerateDenominator) {
+
             this.framerateDenominator = framerateDenominator;
             return this;
         }
         @CustomType.Setter
         public Builder framerateNumerator(@Nullable Integer framerateNumerator) {
+
             this.framerateNumerator = framerateNumerator;
             return this;
         }
         @CustomType.Setter
         public Builder gopBReference(@Nullable String gopBReference) {
+
             this.gopBReference = gopBReference;
             return this;
         }
         @CustomType.Setter
         public Builder gopClosedCadence(@Nullable Integer gopClosedCadence) {
+
             this.gopClosedCadence = gopClosedCadence;
             return this;
         }
         @CustomType.Setter
         public Builder gopNumBFrames(@Nullable Integer gopNumBFrames) {
+
             this.gopNumBFrames = gopNumBFrames;
             return this;
         }
         @CustomType.Setter
         public Builder gopSize(@Nullable Double gopSize) {
+
             this.gopSize = gopSize;
             return this;
         }
         @CustomType.Setter
         public Builder gopSizeUnits(@Nullable String gopSizeUnits) {
+
             this.gopSizeUnits = gopSizeUnits;
             return this;
         }
         @CustomType.Setter
         public Builder level(@Nullable String level) {
+
             this.level = level;
             return this;
         }
         @CustomType.Setter
         public Builder lookAheadRateControl(@Nullable String lookAheadRateControl) {
+
             this.lookAheadRateControl = lookAheadRateControl;
             return this;
         }
         @CustomType.Setter
         public Builder maxBitrate(@Nullable Integer maxBitrate) {
+
             this.maxBitrate = maxBitrate;
             return this;
         }
         @CustomType.Setter
         public Builder minIInterval(@Nullable Integer minIInterval) {
+
             this.minIInterval = minIInterval;
             return this;
         }
         @CustomType.Setter
         public Builder numRefFrames(@Nullable Integer numRefFrames) {
+
             this.numRefFrames = numRefFrames;
             return this;
         }
         @CustomType.Setter
         public Builder parControl(@Nullable String parControl) {
+
             this.parControl = parControl;
             return this;
         }
         @CustomType.Setter
         public Builder parDenominator(@Nullable Integer parDenominator) {
+
             this.parDenominator = parDenominator;
             return this;
         }
         @CustomType.Setter
         public Builder parNumerator(@Nullable Integer parNumerator) {
+
             this.parNumerator = parNumerator;
             return this;
         }
         @CustomType.Setter
         public Builder profile(@Nullable String profile) {
+
             this.profile = profile;
             return this;
         }
         @CustomType.Setter
         public Builder qualityLevel(@Nullable String qualityLevel) {
+
             this.qualityLevel = qualityLevel;
             return this;
         }
         @CustomType.Setter
         public Builder qvbrQualityLevel(@Nullable Integer qvbrQualityLevel) {
+
             this.qvbrQualityLevel = qvbrQualityLevel;
             return this;
         }
         @CustomType.Setter
         public Builder rateControlMode(@Nullable String rateControlMode) {
+
             this.rateControlMode = rateControlMode;
             return this;
         }
         @CustomType.Setter
         public Builder scanType(@Nullable String scanType) {
+
             this.scanType = scanType;
             return this;
         }
         @CustomType.Setter
         public Builder sceneChangeDetect(@Nullable String sceneChangeDetect) {
+
             this.sceneChangeDetect = sceneChangeDetect;
             return this;
         }
         @CustomType.Setter
         public Builder slices(@Nullable Integer slices) {
+
             this.slices = slices;
             return this;
         }
         @CustomType.Setter
         public Builder softness(@Nullable Integer softness) {
+
             this.softness = softness;
             return this;
         }
         @CustomType.Setter
         public Builder spatialAq(@Nullable String spatialAq) {
+
             this.spatialAq = spatialAq;
             return this;
         }
         @CustomType.Setter
         public Builder subgopLength(@Nullable String subgopLength) {
+
             this.subgopLength = subgopLength;
             return this;
         }
         @CustomType.Setter
         public Builder syntax(@Nullable String syntax) {
+
             this.syntax = syntax;
             return this;
         }
         @CustomType.Setter
         public Builder temporalAq(@Nullable String temporalAq) {
+
             this.temporalAq = temporalAq;
             return this;
         }
         @CustomType.Setter
         public Builder timecodeInsertion(@Nullable String timecodeInsertion) {
+
             this.timecodeInsertion = timecodeInsertion;
             return this;
         }
         public ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings build() {
-            final var o = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings();
-            o.adaptiveQuantization = adaptiveQuantization;
-            o.afdSignaling = afdSignaling;
-            o.bitrate = bitrate;
-            o.bufFillPct = bufFillPct;
-            o.bufSize = bufSize;
-            o.colorMetadata = colorMetadata;
-            o.entropyEncoding = entropyEncoding;
-            o.filterSettings = filterSettings;
-            o.fixedAfd = fixedAfd;
-            o.flickerAq = flickerAq;
-            o.forceFieldPictures = forceFieldPictures;
-            o.framerateControl = framerateControl;
-            o.framerateDenominator = framerateDenominator;
-            o.framerateNumerator = framerateNumerator;
-            o.gopBReference = gopBReference;
-            o.gopClosedCadence = gopClosedCadence;
-            o.gopNumBFrames = gopNumBFrames;
-            o.gopSize = gopSize;
-            o.gopSizeUnits = gopSizeUnits;
-            o.level = level;
-            o.lookAheadRateControl = lookAheadRateControl;
-            o.maxBitrate = maxBitrate;
-            o.minIInterval = minIInterval;
-            o.numRefFrames = numRefFrames;
-            o.parControl = parControl;
-            o.parDenominator = parDenominator;
-            o.parNumerator = parNumerator;
-            o.profile = profile;
-            o.qualityLevel = qualityLevel;
-            o.qvbrQualityLevel = qvbrQualityLevel;
-            o.rateControlMode = rateControlMode;
-            o.scanType = scanType;
-            o.sceneChangeDetect = sceneChangeDetect;
-            o.slices = slices;
-            o.softness = softness;
-            o.spatialAq = spatialAq;
-            o.subgopLength = subgopLength;
-            o.syntax = syntax;
-            o.temporalAq = temporalAq;
-            o.timecodeInsertion = timecodeInsertion;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings();
+            _resultValue.adaptiveQuantization = adaptiveQuantization;
+            _resultValue.afdSignaling = afdSignaling;
+            _resultValue.bitrate = bitrate;
+            _resultValue.bufFillPct = bufFillPct;
+            _resultValue.bufSize = bufSize;
+            _resultValue.colorMetadata = colorMetadata;
+            _resultValue.entropyEncoding = entropyEncoding;
+            _resultValue.filterSettings = filterSettings;
+            _resultValue.fixedAfd = fixedAfd;
+            _resultValue.flickerAq = flickerAq;
+            _resultValue.forceFieldPictures = forceFieldPictures;
+            _resultValue.framerateControl = framerateControl;
+            _resultValue.framerateDenominator = framerateDenominator;
+            _resultValue.framerateNumerator = framerateNumerator;
+            _resultValue.gopBReference = gopBReference;
+            _resultValue.gopClosedCadence = gopClosedCadence;
+            _resultValue.gopNumBFrames = gopNumBFrames;
+            _resultValue.gopSize = gopSize;
+            _resultValue.gopSizeUnits = gopSizeUnits;
+            _resultValue.level = level;
+            _resultValue.lookAheadRateControl = lookAheadRateControl;
+            _resultValue.maxBitrate = maxBitrate;
+            _resultValue.minIInterval = minIInterval;
+            _resultValue.numRefFrames = numRefFrames;
+            _resultValue.parControl = parControl;
+            _resultValue.parDenominator = parDenominator;
+            _resultValue.parNumerator = parNumerator;
+            _resultValue.profile = profile;
+            _resultValue.qualityLevel = qualityLevel;
+            _resultValue.qvbrQualityLevel = qvbrQualityLevel;
+            _resultValue.rateControlMode = rateControlMode;
+            _resultValue.scanType = scanType;
+            _resultValue.sceneChangeDetect = sceneChangeDetect;
+            _resultValue.slices = slices;
+            _resultValue.softness = softness;
+            _resultValue.spatialAq = spatialAq;
+            _resultValue.subgopLength = subgopLength;
+            _resultValue.syntax = syntax;
+            _resultValue.temporalAq = temporalAq;
+            _resultValue.timecodeInsertion = timecodeInsertion;
+            return _resultValue;
         }
     }
 }

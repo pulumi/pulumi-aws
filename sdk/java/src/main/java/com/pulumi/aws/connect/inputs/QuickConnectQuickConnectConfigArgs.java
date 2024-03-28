@@ -8,6 +8,7 @@ import com.pulumi.aws.connect.inputs.QuickConnectQuickConnectConfigQueueConfigAr
 import com.pulumi.aws.connect.inputs.QuickConnectQuickConnectConfigUserConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -221,7 +222,9 @@ public final class QuickConnectQuickConnectConfigArgs extends com.pulumi.resourc
         }
 
         public QuickConnectQuickConnectConfigArgs build() {
-            $.quickConnectType = Objects.requireNonNull($.quickConnectType, "expected parameter 'quickConnectType' to be non-null");
+            if ($.quickConnectType == null) {
+                throw new MissingRequiredPropertyException("QuickConnectQuickConnectConfigArgs", "quickConnectType");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.opensearch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class PackagePackageSourceArgs extends com.pulumi.resources.Resourc
         }
 
         public PackagePackageSourceArgs build() {
-            $.s3BucketName = Objects.requireNonNull($.s3BucketName, "expected parameter 's3BucketName' to be non-null");
-            $.s3Key = Objects.requireNonNull($.s3Key, "expected parameter 's3Key' to be non-null");
+            if ($.s3BucketName == null) {
+                throw new MissingRequiredPropertyException("PackagePackageSourceArgs", "s3BucketName");
+            }
+            if ($.s3Key == null) {
+                throw new MissingRequiredPropertyException("PackagePackageSourceArgs", "s3Key");
+            }
             return $;
         }
     }

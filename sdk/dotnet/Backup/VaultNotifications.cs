@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,9 +23,12 @@ namespace Pulumi.Aws.Backup
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testTopic = new Aws.Sns.Topic("testTopic");
+    ///     var testTopic = new Aws.Sns.Topic("test", new()
+    ///     {
+    ///         Name = "backup-vault-events",
+    ///     });
     /// 
-    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var test = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         PolicyId = "__default_policy_ID",
     ///         Statements = new[]
@@ -56,13 +60,13 @@ namespace Pulumi.Aws.Backup
     ///         },
     ///     });
     /// 
-    ///     var testTopicPolicy = new Aws.Sns.TopicPolicy("testTopicPolicy", new()
+    ///     var testTopicPolicy = new Aws.Sns.TopicPolicy("test", new()
     ///     {
     ///         Arn = testTopic.Arn,
-    ///         Policy = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = test.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var testVaultNotifications = new Aws.Backup.VaultNotifications("testVaultNotifications", new()
+    ///     var testVaultNotifications = new Aws.Backup.VaultNotifications("test", new()
     ///     {
     ///         BackupVaultName = "example_backup_vault",
     ///         SnsTopicArn = testTopic.Arn,
@@ -75,13 +79,14 @@ namespace Pulumi.Aws.Backup
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Backup vault notifications using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
+    /// $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
     /// ```
     /// </summary>
     [AwsResourceType("aws:backup/vaultNotifications:VaultNotifications")]

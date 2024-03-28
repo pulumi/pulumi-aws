@@ -5,6 +5,7 @@ package com.pulumi.aws.cognito.inputs;
 
 import com.pulumi.aws.cognito.inputs.UserPoolLambdaConfigCustomEmailSenderArgs;
 import com.pulumi.aws.cognito.inputs.UserPoolLambdaConfigCustomSmsSenderArgs;
+import com.pulumi.aws.cognito.inputs.UserPoolLambdaConfigPreTokenGenerationConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -168,18 +169,33 @@ public final class UserPoolLambdaConfigArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Allow to customize identity token claims before token generation.
+     * Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
      * 
      */
     @Import(name="preTokenGeneration")
     private @Nullable Output<String> preTokenGeneration;
 
     /**
-     * @return Allow to customize identity token claims before token generation.
+     * @return Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
      * 
      */
     public Optional<Output<String>> preTokenGeneration() {
         return Optional.ofNullable(this.preTokenGeneration);
+    }
+
+    /**
+     * Allow to customize access tokens. See pre_token_configuration_type
+     * 
+     */
+    @Import(name="preTokenGenerationConfig")
+    private @Nullable Output<UserPoolLambdaConfigPreTokenGenerationConfigArgs> preTokenGenerationConfig;
+
+    /**
+     * @return Allow to customize access tokens. See pre_token_configuration_type
+     * 
+     */
+    public Optional<Output<UserPoolLambdaConfigPreTokenGenerationConfigArgs>> preTokenGenerationConfig() {
+        return Optional.ofNullable(this.preTokenGenerationConfig);
     }
 
     /**
@@ -226,6 +242,7 @@ public final class UserPoolLambdaConfigArgs extends com.pulumi.resources.Resourc
         this.preAuthentication = $.preAuthentication;
         this.preSignUp = $.preSignUp;
         this.preTokenGeneration = $.preTokenGeneration;
+        this.preTokenGenerationConfig = $.preTokenGenerationConfig;
         this.userMigration = $.userMigration;
         this.verifyAuthChallengeResponse = $.verifyAuthChallengeResponse;
     }
@@ -459,7 +476,7 @@ public final class UserPoolLambdaConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param preTokenGeneration Allow to customize identity token claims before token generation.
+         * @param preTokenGeneration Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
          * 
          * @return builder
          * 
@@ -470,13 +487,34 @@ public final class UserPoolLambdaConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param preTokenGeneration Allow to customize identity token claims before token generation.
+         * @param preTokenGeneration Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
          * 
          * @return builder
          * 
          */
         public Builder preTokenGeneration(String preTokenGeneration) {
             return preTokenGeneration(Output.of(preTokenGeneration));
+        }
+
+        /**
+         * @param preTokenGenerationConfig Allow to customize access tokens. See pre_token_configuration_type
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preTokenGenerationConfig(@Nullable Output<UserPoolLambdaConfigPreTokenGenerationConfigArgs> preTokenGenerationConfig) {
+            $.preTokenGenerationConfig = preTokenGenerationConfig;
+            return this;
+        }
+
+        /**
+         * @param preTokenGenerationConfig Allow to customize access tokens. See pre_token_configuration_type
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preTokenGenerationConfig(UserPoolLambdaConfigPreTokenGenerationConfigArgs preTokenGenerationConfig) {
+            return preTokenGenerationConfig(Output.of(preTokenGenerationConfig));
         }
 
         /**

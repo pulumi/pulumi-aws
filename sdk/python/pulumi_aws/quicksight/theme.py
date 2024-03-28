@@ -412,12 +412,47 @@ class Theme(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.quicksight.Theme("example",
+            theme_id="example",
+            name="example",
+            base_theme_id="MIDNIGHT",
+            configuration=aws.quicksight.ThemeConfigurationArgs(
+                data_color_palette=aws.quicksight.ThemeConfigurationDataColorPaletteArgs(
+                    colors=[
+                        "#FFFFFF",
+                        "#111111",
+                        "#222222",
+                        "#333333",
+                        "#444444",
+                        "#555555",
+                        "#666666",
+                        "#777777",
+                        "#888888",
+                        "#999999",
+                    ],
+                    empty_fill_color="#FFFFFF",
+                    min_max_gradients=[
+                        "#FFFFFF",
+                        "#111111",
+                    ],
+                ),
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Using `pulumi import`, import a QuickSight Theme using the AWS account ID and theme ID separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
+        $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -444,12 +479,47 @@ class Theme(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.quicksight.Theme("example",
+            theme_id="example",
+            name="example",
+            base_theme_id="MIDNIGHT",
+            configuration=aws.quicksight.ThemeConfigurationArgs(
+                data_color_palette=aws.quicksight.ThemeConfigurationDataColorPaletteArgs(
+                    colors=[
+                        "#FFFFFF",
+                        "#111111",
+                        "#222222",
+                        "#333333",
+                        "#444444",
+                        "#555555",
+                        "#666666",
+                        "#777777",
+                        "#888888",
+                        "#999999",
+                    ],
+                    empty_fill_color="#FFFFFF",
+                    min_max_gradients=[
+                        "#FFFFFF",
+                        "#111111",
+                    ],
+                ),
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Using `pulumi import`, import a QuickSight Theme using the AWS account ID and theme ID separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
+        $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -502,8 +572,6 @@ class Theme(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["version_number"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Theme, __self__).__init__(
             'aws:quicksight/theme:Theme',
             resource_name,

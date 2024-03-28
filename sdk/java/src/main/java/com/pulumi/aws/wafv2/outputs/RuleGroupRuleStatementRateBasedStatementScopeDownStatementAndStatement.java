@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatement;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,16 +44,19 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementAnd
 
         @CustomType.Setter
         public Builder statements(List<RuleGroupRuleStatement> statements) {
-            this.statements = Objects.requireNonNull(statements);
+            if (statements == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement", "statements");
+            }
+            this.statements = statements;
             return this;
         }
         public Builder statements(RuleGroupRuleStatement... statements) {
             return statements(List.of(statements));
         }
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement();
-            o.statements = statements;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement();
+            _resultValue.statements = statements;
+            return _resultValue;
         }
     }
 }

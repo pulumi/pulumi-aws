@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,7 +20,7 @@ import * as utilities from "../utilities";
  * const web = new aws.ec2.Instance("web", {
  *     ami: "ami-21f78e11",
  *     availabilityZone: "us-west-2a",
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     tags: {
  *         Name: "HelloWorld",
  *     },
@@ -28,19 +29,20 @@ import * as utilities from "../utilities";
  *     availabilityZone: "us-west-2a",
  *     size: 1,
  * });
- * const ebsAtt = new aws.ec2.VolumeAttachment("ebsAtt", {
+ * const ebsAtt = new aws.ec2.VolumeAttachment("ebs_att", {
  *     deviceName: "/dev/sdh",
  *     volumeId: example.id,
  *     instanceId: web.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EBS Volume Attachments using `DEVICE_NAME:VOLUME_ID:INSTANCE_ID`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/volumeAttachment:VolumeAttachment example /dev/sdh:vol-049df61146c4d7901:i-12345678
+ * $ pulumi import aws:ec2/volumeAttachment:VolumeAttachment example /dev/sdh:vol-049df61146c4d7901:i-12345678
  * ```
  */
 export class VolumeAttachment extends pulumi.CustomResource {

@@ -36,13 +36,14 @@ public final class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOver
 
         @CustomType.Setter
         public Builder action(@Nullable String action) {
+
             this.action = action;
             return this;
         }
         public GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride build() {
-            final var o = new GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride();
-            o.action = action;
-            return o;
+            final var _resultValue = new GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride();
+            _resultValue.action = action;
+            return _resultValue;
         }
     }
 }

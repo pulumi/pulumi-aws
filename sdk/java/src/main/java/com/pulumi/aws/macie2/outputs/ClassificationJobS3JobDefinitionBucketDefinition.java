@@ -4,6 +4,7 @@
 package com.pulumi.aws.macie2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,22 +58,28 @@ public final class ClassificationJobS3JobDefinitionBucketDefinition {
 
         @CustomType.Setter
         public Builder accountId(String accountId) {
-            this.accountId = Objects.requireNonNull(accountId);
+            if (accountId == null) {
+              throw new MissingRequiredPropertyException("ClassificationJobS3JobDefinitionBucketDefinition", "accountId");
+            }
+            this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder buckets(List<String> buckets) {
-            this.buckets = Objects.requireNonNull(buckets);
+            if (buckets == null) {
+              throw new MissingRequiredPropertyException("ClassificationJobS3JobDefinitionBucketDefinition", "buckets");
+            }
+            this.buckets = buckets;
             return this;
         }
         public Builder buckets(String... buckets) {
             return buckets(List.of(buckets));
         }
         public ClassificationJobS3JobDefinitionBucketDefinition build() {
-            final var o = new ClassificationJobS3JobDefinitionBucketDefinition();
-            o.accountId = accountId;
-            o.buckets = buckets;
-            return o;
+            final var _resultValue = new ClassificationJobS3JobDefinitionBucketDefinition();
+            _resultValue.accountId = accountId;
+            _resultValue.buckets = buckets;
+            return _resultValue;
         }
     }
 }

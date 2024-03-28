@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS GuardDuty Finding Ids.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := guardduty.GetFindingIds(ctx, &guardduty.GetFindingIdsArgs{
-//				DetectorId: aws_guardduty_detector.Example.Id,
+//				DetectorId: exampleAwsGuarddutyDetector.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetFindingIds(ctx *pulumi.Context, args *GetFindingIdsArgs, opts ...pulumi.InvokeOption) (*GetFindingIdsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFindingIdsResult

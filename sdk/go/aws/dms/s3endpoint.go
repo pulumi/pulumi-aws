@@ -19,10 +19,12 @@ import (
 // > **Note:** Some of this resource's arguments have default values that come from the AWS Provider. Other default values are provided by AWS and subject to change without notice. When relying on AWS defaults, the provider state will often have a zero value. For example, the AWS Provider does not provide a default for `cdcMaxBatchInterval` but the AWS default is `60` (seconds). However, the provider state will show `0` since this is the value return by AWS when no value is present. Below, we aim to flag the defaults that come from AWS (_e.g._, "AWS default...").
 //
 // ## Example Usage
+//
 // ### Minimal Configuration
 //
 // This is the minimal configuration for an `dms.S3Endpoint`. This endpoint will rely on the AWS Provider and AWS defaults.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,10 +41,8 @@ import (
 //				EndpointId:           pulumi.String("donnedtipi"),
 //				EndpointType:         pulumi.String("target"),
 //				BucketName:           pulumi.String("beckut_name"),
-//				ServiceAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_role_policy.Example,
-//			}))
+//				ServiceAccessRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -51,8 +51,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Complete Configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -99,7 +102,7 @@ import (
 //				EnableStatistics:                     pulumi.Bool(false),
 //				EncodingType:                         pulumi.String("plain"),
 //				EncryptionMode:                       pulumi.String("SSE_S3"),
-//				ExpectedBucketOwner:                  pulumi.Any(data.Aws_caller_identity.Current.Account_id),
+//				ExpectedBucketOwner:                  pulumi.Any(current.AccountId),
 //				ExternalTableDefinition:              pulumi.String("etd"),
 //				IgnoreHeaderRows:                     pulumi.Int(1),
 //				IncludeOpForFullLoad:                 pulumi.Bool(true),
@@ -109,15 +112,13 @@ import (
 //				PreserveTransactions:                 pulumi.Bool(false),
 //				Rfc4180:                              pulumi.Bool(false),
 //				RowGroupLength:                       pulumi.Int(11000),
-//				ServerSideEncryptionKmsKeyId:         pulumi.Any(aws_kms_key.Example.Arn),
-//				ServiceAccessRoleArn:                 pulumi.Any(aws_iam_role.Example.Arn),
+//				ServerSideEncryptionKmsKeyId:         pulumi.Any(exampleAwsKmsKey.Arn),
+//				ServiceAccessRoleArn:                 pulumi.Any(exampleAwsIamRole.Arn),
 //				TimestampColumnName:                  pulumi.String("tx_commit_time"),
 //				UseCsvNoSupValue:                     pulumi.Bool(false),
 //				UseTaskStartTimeForFullLoadTimestamp: pulumi.Bool(true),
 //				GlueCatalogGeneration:                pulumi.Bool(true),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_role_policy.Example,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -126,15 +127,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
-//
+// $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
 // ```
 type S3Endpoint struct {
 	pulumi.CustomResourceState
@@ -270,10 +270,6 @@ func NewS3Endpoint(ctx *pulumi.Context,
 	if args.ServiceAccessRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceAccessRoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource S3Endpoint
 	err := ctx.RegisterResource("aws:dms/s3Endpoint:S3Endpoint", name, args, &resource, opts...)

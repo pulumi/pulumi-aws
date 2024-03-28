@@ -128,19 +128,6 @@ class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
         Resource for managing an AWS Shield Application Layer Automatic Response for automatic DDoS mitigation.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        current_partition = aws.get_partition()
-        example = aws.shield.ApplicationLayerAutomaticResponse("example",
-            action="COUNT",
-            resource_arn=f"arn:{current_partition.partition}:cloudfront:{current_caller_identity.account_id}:distribution/{var['distribution_id']}")
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,19 +144,6 @@ class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
         Resource for managing an AWS Shield Application Layer Automatic Response for automatic DDoS mitigation.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        current_partition = aws.get_partition()
-        example = aws.shield.ApplicationLayerAutomaticResponse("example",
-            action="COUNT",
-            resource_arn=f"arn:{current_partition.partition}:cloudfront:{current_caller_identity.account_id}:distribution/{var['distribution_id']}")
-        ```
 
         :param str resource_name: The name of the resource.
         :param ApplicationLayerAutomaticResponseArgs args: The arguments to use to populate this resource's properties.

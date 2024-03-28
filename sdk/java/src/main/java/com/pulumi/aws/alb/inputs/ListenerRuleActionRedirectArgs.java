@@ -5,6 +5,7 @@ package com.pulumi.aws.alb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,7 +262,9 @@ public final class ListenerRuleActionRedirectArgs extends com.pulumi.resources.R
         }
 
         public ListenerRuleActionRedirectArgs build() {
-            $.statusCode = Objects.requireNonNull($.statusCode, "expected parameter 'statusCode' to be non-null");
+            if ($.statusCode == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleActionRedirectArgs", "statusCode");
+            }
             return $;
         }
     }

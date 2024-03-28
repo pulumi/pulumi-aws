@@ -468,18 +468,19 @@ class EntityRecognizer(pulumi.CustomResource):
         Resource for managing an AWS Comprehend Entity Recognizer.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         documents = aws.s3.BucketObjectv2("documents")
-        # ...
         entities = aws.s3.BucketObjectv2("entities")
-        # ...
         example = aws.comprehend.EntityRecognizer("example",
-            data_access_role_arn=aws_iam_role["example"]["arn"],
+            name="example",
+            data_access_role_arn=example_aws_iam_role["arn"],
             language_code="en",
             input_data_config=aws.comprehend.EntityRecognizerInputDataConfigArgs(
                 entity_types=[
@@ -491,21 +492,21 @@ class EntityRecognizer(pulumi.CustomResource):
                     ),
                 ],
                 documents=aws.comprehend.EntityRecognizerInputDataConfigDocumentsArgs(
-                    s3_uri=documents.id.apply(lambda id: f"s3://{aws_s3_bucket['documents']['bucket']}/{id}"),
+                    s3_uri=documents.id.apply(lambda id: f"s3://{documents_aws_s3_bucket['bucket']}/{id}"),
                 ),
                 entity_list=aws.comprehend.EntityRecognizerInputDataConfigEntityListArgs(
-                    s3_uri=entities.id.apply(lambda id: f"s3://{aws_s3_bucket['entities']['bucket']}/{id}"),
+                    s3_uri=entities.id.apply(lambda id: f"s3://{entities_aws_s3_bucket['bucket']}/{id}"),
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["example"]]))
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
+        $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -547,18 +548,19 @@ class EntityRecognizer(pulumi.CustomResource):
         Resource for managing an AWS Comprehend Entity Recognizer.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         documents = aws.s3.BucketObjectv2("documents")
-        # ...
         entities = aws.s3.BucketObjectv2("entities")
-        # ...
         example = aws.comprehend.EntityRecognizer("example",
-            data_access_role_arn=aws_iam_role["example"]["arn"],
+            name="example",
+            data_access_role_arn=example_aws_iam_role["arn"],
             language_code="en",
             input_data_config=aws.comprehend.EntityRecognizerInputDataConfigArgs(
                 entity_types=[
@@ -570,21 +572,21 @@ class EntityRecognizer(pulumi.CustomResource):
                     ),
                 ],
                 documents=aws.comprehend.EntityRecognizerInputDataConfigDocumentsArgs(
-                    s3_uri=documents.id.apply(lambda id: f"s3://{aws_s3_bucket['documents']['bucket']}/{id}"),
+                    s3_uri=documents.id.apply(lambda id: f"s3://{documents_aws_s3_bucket['bucket']}/{id}"),
                 ),
                 entity_list=aws.comprehend.EntityRecognizerInputDataConfigEntityListArgs(
-                    s3_uri=entities.id.apply(lambda id: f"s3://{aws_s3_bucket['entities']['bucket']}/{id}"),
+                    s3_uri=entities.id.apply(lambda id: f"s3://{entities_aws_s3_bucket['bucket']}/{id}"),
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["example"]]))
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
+        $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -639,8 +641,6 @@ class EntityRecognizer(pulumi.CustomResource):
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EntityRecognizer, __self__).__init__(
             'aws:comprehend/entityRecognizer:EntityRecognizer',
             resource_name,

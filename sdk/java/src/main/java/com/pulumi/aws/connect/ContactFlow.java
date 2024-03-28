@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -27,7 +26,10 @@ import javax.annotation.Nullable;
  * See example below which uses `jq` to extract the `Content` attribute and saves it to a local file.
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,34 +54,35 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new ContactFlow(&#34;test&#34;, ContactFlowArgs.builder()        
  *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *             .name(&#34;Test&#34;)
  *             .description(&#34;Test Contact Flow Description&#34;)
  *             .type(&#34;CONTACT_FLOW&#34;)
  *             .content(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2019-10-30&#34;),
- *                     jsonProperty(&#34;StartAction&#34;, &#34;12345678-1234-1234-1234-123456789012&#34;),
- *                     jsonProperty(&#34;Actions&#34;, jsonArray(
+ *                     jsonProperty(&#34;version&#34;, &#34;2019-10-30&#34;),
+ *                     jsonProperty(&#34;startAction&#34;, &#34;12345678-1234-1234-1234-123456789012&#34;),
+ *                     jsonProperty(&#34;actions&#34;, jsonArray(
  *                         jsonObject(
- *                             jsonProperty(&#34;Identifier&#34;, &#34;12345678-1234-1234-1234-123456789012&#34;),
- *                             jsonProperty(&#34;Type&#34;, &#34;MessageParticipant&#34;),
- *                             jsonProperty(&#34;Transitions&#34;, jsonObject(
- *                                 jsonProperty(&#34;NextAction&#34;, &#34;abcdef-abcd-abcd-abcd-abcdefghijkl&#34;),
- *                                 jsonProperty(&#34;Errors&#34;, jsonArray(
+ *                             jsonProperty(&#34;identifier&#34;, &#34;12345678-1234-1234-1234-123456789012&#34;),
+ *                             jsonProperty(&#34;type&#34;, &#34;MessageParticipant&#34;),
+ *                             jsonProperty(&#34;transitions&#34;, jsonObject(
+ *                                 jsonProperty(&#34;nextAction&#34;, &#34;abcdef-abcd-abcd-abcd-abcdefghijkl&#34;),
+ *                                 jsonProperty(&#34;errors&#34;, jsonArray(
  *                                 )),
- *                                 jsonProperty(&#34;Conditions&#34;, jsonArray(
+ *                                 jsonProperty(&#34;conditions&#34;, jsonArray(
  *                                 ))
  *                             )),
- *                             jsonProperty(&#34;Parameters&#34;, jsonObject(
- *                                 jsonProperty(&#34;Text&#34;, &#34;Thanks for calling the sample flow!&#34;)
+ *                             jsonProperty(&#34;parameters&#34;, jsonObject(
+ *                                 jsonProperty(&#34;text&#34;, &#34;Thanks for calling the sample flow!&#34;)
  *                             ))
  *                         ), 
  *                         jsonObject(
- *                             jsonProperty(&#34;Identifier&#34;, &#34;abcdef-abcd-abcd-abcd-abcdefghijkl&#34;),
- *                             jsonProperty(&#34;Type&#34;, &#34;DisconnectParticipant&#34;),
- *                             jsonProperty(&#34;Transitions&#34;, jsonObject(
+ *                             jsonProperty(&#34;identifier&#34;, &#34;abcdef-abcd-abcd-abcd-abcdefghijkl&#34;),
+ *                             jsonProperty(&#34;type&#34;, &#34;DisconnectParticipant&#34;),
+ *                             jsonProperty(&#34;transitions&#34;, jsonObject(
  * 
  *                             )),
- *                             jsonProperty(&#34;Parameters&#34;, jsonObject(
+ *                             jsonProperty(&#34;parameters&#34;, jsonObject(
  * 
  *                             ))
  *                         )
@@ -95,13 +98,63 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### With External Content
+ * 
+ * Use the AWS CLI to extract Contact Flow Content:
+ * 
+ * Use the generated file as input:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.connect.ContactFlow;
+ * import com.pulumi.aws.connect.ContactFlowArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new ContactFlow(&#34;test&#34;, ContactFlowArgs.builder()        
+ *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *             .name(&#34;Test&#34;)
+ *             .description(&#34;Test Contact Flow Description&#34;)
+ *             .type(&#34;CONTACT_FLOW&#34;)
+ *             .filename(&#34;contact_flow.json&#34;)
+ *             .contentHash(StdFunctions.filebase64sha256(Filebase64sha256Args.builder()
+ *                 .input(&#34;contact_flow.json&#34;)
+ *                 .build()).result())
+ *             .tags(Map.ofEntries(
+ *                 Map.entry(&#34;Name&#34;, &#34;Test Contact Flow&#34;),
+ *                 Map.entry(&#34;Application&#34;, &#34;Example&#34;),
+ *                 Map.entry(&#34;Method&#34;, &#34;Create&#34;)
+ *             ))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Amazon Connect Contact Flows using the `instance_id` and `contact_flow_id` separated by a colon (`:`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:connect/contactFlow:ContactFlow example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+ * $ pulumi import aws:connect/contactFlow:ContactFlow example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
  * ```
  * 
  */
@@ -298,9 +351,6 @@ public class ContactFlow extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

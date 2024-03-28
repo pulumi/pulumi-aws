@@ -24,7 +24,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Audit Manager Assessment.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,18 +53,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Assessment(&#34;test&#34;, AssessmentArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .assessmentReportsDestination(AssessmentAssessmentReportsDestinationArgs.builder()
- *                 .destination(String.format(&#34;s3://%s&#34;, aws_s3_bucket.test().id()))
+ *                 .destination(String.format(&#34;s3://%s&#34;, testAwsS3Bucket.id()))
  *                 .destinationType(&#34;S3&#34;)
  *                 .build())
- *             .frameworkId(aws_auditmanager_framework.test().id())
+ *             .frameworkId(testAwsAuditmanagerFramework.id())
  *             .roles(AssessmentRoleArgs.builder()
- *                 .roleArn(aws_iam_role.test().arn())
+ *                 .roleArn(testAwsIamRole.arn())
  *                 .roleType(&#34;PROCESS_OWNER&#34;)
  *                 .build())
  *             .scope(AssessmentScopeArgs.builder()
  *                 .awsAccounts(AssessmentScopeAwsAccountArgs.builder()
- *                     .id(data.aws_caller_identity().current().account_id())
+ *                     .id(current.accountId())
  *                     .build())
  *                 .awsServices(AssessmentScopeAwsServiceArgs.builder()
  *                     .serviceName(&#34;S3&#34;)
@@ -72,13 +76,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Audit Manager Assessments using the assessment `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:auditmanager/assessment:Assessment example abc123-de45
+ * $ pulumi import aws:auditmanager/assessment:Assessment example abc123-de45
  * ```
  * 
  */
@@ -273,9 +278,6 @@ public class Assessment extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -13,51 +13,59 @@ import * as utilities from "../utilities";
  * > **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by the provider before. This argument has been deprecated and will be removed in v6.0.0 of the provider. For more information on how this affects the behavior of this resource, see this issue comment.
  *
  * ## Example Usage
+ *
  * ### Basic example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.ssm.Parameter("foo", {
- *     type: "String",
+ *     name: "foo",
+ *     type: aws.ssm.ParameterType.String,
  *     value: "bar",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Encrypted string using default SSM KMS key
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.rds.Instance("default", {
  *     allocatedStorage: 10,
- *     storageType: "gp2",
+ *     storageType: aws.rds.StorageType.GP2,
  *     engine: "mysql",
  *     engineVersion: "5.7.16",
- *     instanceClass: "db.t2.micro",
+ *     instanceClass: aws.rds.InstanceType.T2_Micro,
  *     dbName: "mydb",
  *     username: "foo",
- *     password: _var.database_master_password,
+ *     password: databaseMasterPassword,
  *     dbSubnetGroupName: "my_database_subnet_group",
  *     parameterGroupName: "default.mysql5.7",
  * });
  * const secret = new aws.ssm.Parameter("secret", {
+ *     name: "/production/database/password/master",
  *     description: "The parameter description",
- *     type: "SecureString",
- *     value: _var.database_master_password,
+ *     type: aws.ssm.ParameterType.SecureString,
+ *     value: databaseMasterPassword,
  *     tags: {
  *         environment: "production",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
+ * $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
  * ```
  */
 export class Parameter extends pulumi.CustomResource {
@@ -201,7 +209,7 @@ export class Parameter extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll", "value"] };
+        const secretOpts = { additionalSecretOutputs: ["value"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Parameter.__pulumiType, name, resourceInputs, opts);
     }

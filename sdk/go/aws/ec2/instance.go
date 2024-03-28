@@ -14,8 +14,10 @@ import (
 // Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
 //
 // ## Example Usage
+//
 // ### Basic example using AMI lookup
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,7 +36,7 @@ import (
 //					{
 //						Name: "name",
 //						Values: []string{
-//							"ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*",
+//							"ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*",
 //						},
 //					},
 //					{
@@ -52,8 +54,8 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
-//				Ami:          *pulumi.String(ubuntu.Id),
-//				InstanceType: pulumi.String("t3.micro"),
+//				Ami:          pulumi.String(ubuntu.Id),
+//				InstanceType: pulumi.String(ec2.InstanceType_T3_Micro),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("HelloWorld"),
 //				},
@@ -66,8 +68,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Spot instance example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -80,7 +85,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			thisAmi, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+//			this, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
 //				MostRecent: pulumi.BoolRef(true),
 //				Owners: []string{
 //					"amazon",
@@ -103,14 +108,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewInstance(ctx, "thisInstance", &ec2.InstanceArgs{
-//				Ami: *pulumi.String(thisAmi.Id),
+//			_, err = ec2.NewInstance(ctx, "this", &ec2.InstanceArgs{
+//				Ami: pulumi.String(this.Id),
 //				InstanceMarketOptions: &ec2.InstanceInstanceMarketOptionsArgs{
 //					SpotOptions: &ec2.InstanceInstanceMarketOptionsSpotOptionsArgs{
 //						MaxPrice: pulumi.String("0.0031"),
 //					},
 //				},
-//				InstanceType: pulumi.String("t4g.nano"),
+//				InstanceType: pulumi.String(ec2.InstanceType_T4g_Nano),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("test-spot"),
 //				},
@@ -123,8 +128,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Network and credit specification example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -137,7 +145,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myVpc, err := ec2.NewVpc(ctx, "myVpc", &ec2.VpcArgs{
+//			myVpc, err := ec2.NewVpc(ctx, "my_vpc", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("172.16.0.0/16"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("tf-example"),
@@ -146,7 +154,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			mySubnet, err := ec2.NewSubnet(ctx, "mySubnet", &ec2.SubnetArgs{
+//			mySubnet, err := ec2.NewSubnet(ctx, "my_subnet", &ec2.SubnetArgs{
 //				VpcId:            myVpc.ID(),
 //				CidrBlock:        pulumi.String("172.16.10.0/24"),
 //				AvailabilityZone: pulumi.String("us-west-2a"),
@@ -157,7 +165,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			fooNetworkInterface, err := ec2.NewNetworkInterface(ctx, "fooNetworkInterface", &ec2.NetworkInterfaceArgs{
+//			foo, err := ec2.NewNetworkInterface(ctx, "foo", &ec2.NetworkInterfaceArgs{
 //				SubnetId: mySubnet.ID(),
 //				PrivateIps: pulumi.StringArray{
 //					pulumi.String("172.16.10.100"),
@@ -169,12 +177,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewInstance(ctx, "fooInstance", &ec2.InstanceArgs{
+//			_, err = ec2.NewInstance(ctx, "foo", &ec2.InstanceArgs{
 //				Ami:          pulumi.String("ami-005e54dee72cc1d00"),
-//				InstanceType: pulumi.String("t2.micro"),
+//				InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
 //				NetworkInterfaces: ec2.InstanceNetworkInterfaceArray{
 //					&ec2.InstanceNetworkInterfaceArgs{
-//						NetworkInterfaceId: fooNetworkInterface.ID(),
+//						NetworkInterfaceId: foo.ID(),
 //						DeviceIndex:        pulumi.Int(0),
 //					},
 //				},
@@ -190,8 +198,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### CPU options example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -204,7 +215,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//			example, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("172.16.0.0/16"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("tf-example"),
@@ -213,8 +224,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := ec2.NewSubnet(ctx, "exampleSubnet", &ec2.SubnetArgs{
-//				VpcId:            exampleVpc.ID(),
+//			exampleSubnet, err := ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
+//				VpcId:            example.ID(),
 //				CidrBlock:        pulumi.String("172.16.10.0/24"),
 //				AvailabilityZone: pulumi.String("us-east-2a"),
 //				Tags: pulumi.StringMap{
@@ -241,9 +252,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewInstance(ctx, "exampleInstance", &ec2.InstanceArgs{
-//				Ami:          *pulumi.String(amzn_linux_2023_ami.Id),
-//				InstanceType: pulumi.String("c6a.2xlarge"),
+//			_, err = ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
+//				Ami:          pulumi.String(amzn_linux_2023_ami.Id),
+//				InstanceType: pulumi.String(ec2.InstanceType_C6a_2XLarge),
 //				SubnetId:     exampleSubnet.ID(),
 //				CpuOptions: &ec2.InstanceCpuOptionsArgs{
 //					CoreCount:      pulumi.Int(2),
@@ -261,12 +272,15 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Host resource group or Licence Manager registered AMI example
 //
 // A host resource group is a collection of Dedicated Hosts that you can manage as a single entity. As you launch instances, License Manager allocates the hosts and launches instances on them based on the settings that you configured. You can add existing Dedicated Hosts to a host resource group and take advantage of automated host management through License Manager.
 //
 // > **NOTE:** A dedicated host is automatically associated with a License Manager host resource group if **Allocate hosts automatically** is enabled. Otherwise, use the `hostResourceGroupArn` argument to explicitly associate the instance with the host resource group.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -281,8 +295,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewInstance(ctx, "this", &ec2.InstanceArgs{
 //				Ami:                  pulumi.String("ami-0dcc1e21636832c5d"),
+//				InstanceType:         pulumi.String(ec2.InstanceType_M5_Large),
 //				HostResourceGroupArn: pulumi.String("arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost"),
-//				InstanceType:         pulumi.String("m5.large"),
 //				Tenancy:              pulumi.String("host"),
 //			})
 //			if err != nil {
@@ -293,15 +307,26 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ## Tag Guide
+//
+// These are the five types of tags you might encounter relative to an `ec2.Instance`:
+//
+// 1. **Instance tags**: Applied to instances but not to `ebsBlockDevice` and `rootBlockDevice` volumes.
+// 2. **Default tags**: Applied to the instance and to `ebsBlockDevice` and `rootBlockDevice` volumes.
+// 3. **Volume tags**: Applied during creation to `ebsBlockDevice` and `rootBlockDevice` volumes.
+// 4. **Root block device tags**: Applied only to the `rootBlockDevice` volume. These conflict with `volumeTags`.
+// 5. **EBS block device tags**: Applied only to the specific `ebsBlockDevice` volume you configure them for and cannot be updated. These conflict with `volumeTags`.
+//
+// Do not use `volumeTags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
 //
 // ## Import
 //
 // Using `pulumi import`, import instances using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/instance:Instance web i-12345678
-//
+// $ pulumi import aws:ec2/instance:Instance web i-12345678
 // ```
 type Instance struct {
 	pulumi.CustomResourceState
@@ -443,10 +468,6 @@ func NewInstance(ctx *pulumi.Context,
 		args = &InstanceArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Instance
 	err := ctx.RegisterResource("aws:ec2/instance:Instance", name, args, &resource, opts...)

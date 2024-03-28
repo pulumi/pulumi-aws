@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatement
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod;
@@ -37,6 +38,11 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies cookies;
+    /**
+     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+     * 
+     */
+    private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder> headerOrders;
     /**
      * @return Inspect the request headers. See `headers` below for details.
      * 
@@ -99,6 +105,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies> cookies() {
         return Optional.ofNullable(this.cookies);
+    }
+    /**
+     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+     * 
+     */
+    public List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder> headerOrders() {
+        return this.headerOrders == null ? List.of() : this.headerOrders;
     }
     /**
      * @return Inspect the request headers. See `headers` below for details.
@@ -169,6 +182,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments allQueryArguments;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody body;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies cookies;
+        private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder> headerOrders;
         private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader> headers;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody jsonBody;
@@ -183,6 +197,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     	      this.allQueryArguments = defaults.allQueryArguments;
     	      this.body = defaults.body;
     	      this.cookies = defaults.cookies;
+    	      this.headerOrders = defaults.headerOrders;
     	      this.headers = defaults.headers;
     	      this.ja3Fingerprint = defaults.ja3Fingerprint;
     	      this.jsonBody = defaults.jsonBody;
@@ -195,21 +210,34 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
 
         @CustomType.Setter
         public Builder allQueryArguments(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments allQueryArguments) {
+
             this.allQueryArguments = allQueryArguments;
             return this;
         }
         @CustomType.Setter
         public Builder body(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody body) {
+
             this.body = body;
             return this;
         }
         @CustomType.Setter
         public Builder cookies(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies cookies) {
+
             this.cookies = cookies;
             return this;
         }
         @CustomType.Setter
+        public Builder headerOrders(@Nullable List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder> headerOrders) {
+
+            this.headerOrders = headerOrders;
+            return this;
+        }
+        public Builder headerOrders(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder... headerOrders) {
+            return headerOrders(List.of(headerOrders));
+        }
+        @CustomType.Setter
         public Builder headers(@Nullable List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -218,53 +246,61 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
         @CustomType.Setter
         public Builder ja3Fingerprint(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint ja3Fingerprint) {
+
             this.ja3Fingerprint = ja3Fingerprint;
             return this;
         }
         @CustomType.Setter
         public Builder jsonBody(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody jsonBody) {
+
             this.jsonBody = jsonBody;
             return this;
         }
         @CustomType.Setter
         public Builder method(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod method) {
+
             this.method = method;
             return this;
         }
         @CustomType.Setter
         public Builder queryString(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString queryString) {
+
             this.queryString = queryString;
             return this;
         }
         @CustomType.Setter
         public Builder singleHeader(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader singleHeader) {
+
             this.singleHeader = singleHeader;
             return this;
         }
         @CustomType.Setter
         public Builder singleQueryArgument(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument singleQueryArgument) {
+
             this.singleQueryArgument = singleQueryArgument;
             return this;
         }
         @CustomType.Setter
         public Builder uriPath(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath uriPath) {
+
             this.uriPath = uriPath;
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatch build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatch();
-            o.allQueryArguments = allQueryArguments;
-            o.body = body;
-            o.cookies = cookies;
-            o.headers = headers;
-            o.ja3Fingerprint = ja3Fingerprint;
-            o.jsonBody = jsonBody;
-            o.method = method;
-            o.queryString = queryString;
-            o.singleHeader = singleHeader;
-            o.singleQueryArgument = singleQueryArgument;
-            o.uriPath = uriPath;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatch();
+            _resultValue.allQueryArguments = allQueryArguments;
+            _resultValue.body = body;
+            _resultValue.cookies = cookies;
+            _resultValue.headerOrders = headerOrders;
+            _resultValue.headers = headers;
+            _resultValue.ja3Fingerprint = ja3Fingerprint;
+            _resultValue.jsonBody = jsonBody;
+            _resultValue.method = method;
+            _resultValue.queryString = queryString;
+            _resultValue.singleHeader = singleHeader;
+            _resultValue.singleQueryArgument = singleQueryArgument;
+            _resultValue.uriPath = uriPath;
+            return _resultValue;
         }
     }
 }

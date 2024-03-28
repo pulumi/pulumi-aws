@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Manages a Security Hub administrator account for an organization. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in Security Hub can be found in the [Security Hub User Guide](https://docs.aws.amazon.com/securityhub/latest/userguide/designate-orgs-admin-account.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -30,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.OrganizationAdminAccountArgs;
  * import com.pulumi.aws.securityhub.OrganizationConfiguration;
  * import com.pulumi.aws.securityhub.OrganizationConfigurationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleOrganization = new Organization(&#34;exampleOrganization&#34;, OrganizationArgs.builder()        
+ *         var example = new Organization(&#34;example&#34;, OrganizationArgs.builder()        
  *             .awsServiceAccessPrincipals(&#34;securityhub.amazonaws.com&#34;)
  *             .featureSet(&#34;ALL&#34;)
  *             .build());
@@ -53,9 +54,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleOrganizationAdminAccount = new OrganizationAdminAccount(&#34;exampleOrganizationAdminAccount&#34;, OrganizationAdminAccountArgs.builder()        
  *             .adminAccountId(&#34;123456789012&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleOrganization)
- *                 .build());
+ *             .build());
  * 
  *         var exampleOrganizationConfiguration = new OrganizationConfiguration(&#34;exampleOrganizationConfiguration&#34;, OrganizationConfigurationArgs.builder()        
  *             .autoEnable(true)
@@ -64,13 +63,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Security Hub Organization Admin Accounts using the AWS account ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:securityhub/organizationAdminAccount:OrganizationAdminAccount example 123456789012
+ * $ pulumi import aws:securityhub/organizationAdminAccount:OrganizationAdminAccount example 123456789012
  * ```
  * 
  */

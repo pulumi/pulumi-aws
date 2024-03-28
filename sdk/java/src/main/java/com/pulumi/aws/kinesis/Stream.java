@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,8 +51,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testStream = new Stream(&#34;testStream&#34;, StreamArgs.builder()        
- *             .retentionPeriod(48)
+ *             .name(&#34;kinesis-test&#34;)
  *             .shardCount(1)
+ *             .retentionPeriod(48)
  *             .shardLevelMetrics(            
  *                 &#34;IncomingBytes&#34;,
  *                 &#34;OutgoingBytes&#34;)
@@ -63,13 +66,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Kinesis Streams using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
+ * $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
  * ```
  * 
  */
@@ -268,9 +272,6 @@ public class Stream extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

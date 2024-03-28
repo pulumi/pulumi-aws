@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.outputs;
 import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationAsyncInferenceConfigClientConfig;
 import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationAsyncInferenceConfigOutputConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -59,19 +60,23 @@ public final class EndpointConfigurationAsyncInferenceConfig {
 
         @CustomType.Setter
         public Builder clientConfig(@Nullable EndpointConfigurationAsyncInferenceConfigClientConfig clientConfig) {
+
             this.clientConfig = clientConfig;
             return this;
         }
         @CustomType.Setter
         public Builder outputConfig(EndpointConfigurationAsyncInferenceConfigOutputConfig outputConfig) {
-            this.outputConfig = Objects.requireNonNull(outputConfig);
+            if (outputConfig == null) {
+              throw new MissingRequiredPropertyException("EndpointConfigurationAsyncInferenceConfig", "outputConfig");
+            }
+            this.outputConfig = outputConfig;
             return this;
         }
         public EndpointConfigurationAsyncInferenceConfig build() {
-            final var o = new EndpointConfigurationAsyncInferenceConfig();
-            o.clientConfig = clientConfig;
-            o.outputConfig = outputConfig;
-            return o;
+            final var _resultValue = new EndpointConfigurationAsyncInferenceConfig();
+            _resultValue.clientConfig = clientConfig;
+            _resultValue.outputConfig = outputConfig;
+            return _resultValue;
         }
     }
 }

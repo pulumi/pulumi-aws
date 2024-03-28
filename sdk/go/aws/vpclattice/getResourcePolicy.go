@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS VPC Lattice Resource Policy.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.LookupResourcePolicy(ctx, &vpclattice.LookupResourcePolicyArgs{
-//				ResourceArn: aws_vpclattice_service_network.Example.Arn,
+//				ResourceArn: exampleAwsVpclatticeServiceNetwork.Arn,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupResourcePolicy(ctx *pulumi.Context, args *LookupResourcePolicyArgs, opts ...pulumi.InvokeOption) (*LookupResourcePolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResourcePolicyResult

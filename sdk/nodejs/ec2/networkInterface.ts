@@ -12,20 +12,23 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.ec2.NetworkInterface("test", {
- *     subnetId: aws_subnet.public_a.id,
+ *     subnetId: publicA.id,
  *     privateIps: ["10.0.0.50"],
- *     securityGroups: [aws_security_group.web.id],
+ *     securityGroups: [web.id],
  *     attachments: [{
- *         instance: aws_instance.test.id,
+ *         instance: testAwsInstance.id,
  *         deviceIndex: 1,
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example of Managing Multiple IPs on a Network Interface
  *
  * By default, private IPs are managed through the `privateIps` and `privateIpsCount` arguments which manage IPs as a set of IPs that are configured without regard to order. For a new network interface, the same primary IP address is consistently selected from a given set of addresses, regardless of the order provided. However, modifications of the set of addresses of an existing interface will not alter the current primary IP address unless it has been removed from the set.
@@ -48,7 +51,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import Network Interfaces using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
+ * $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
  * ```
  */
 export class NetworkInterface extends pulumi.CustomResource {
@@ -254,8 +257,6 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(NetworkInterface.__pulumiType, name, resourceInputs, opts);
     }
 }

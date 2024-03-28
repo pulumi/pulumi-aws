@@ -73,6 +73,7 @@ public final class PartitionStorageDescriptorSkewedInfo {
 
         @CustomType.Setter
         public Builder skewedColumnNames(@Nullable List<String> skewedColumnNames) {
+
             this.skewedColumnNames = skewedColumnNames;
             return this;
         }
@@ -81,11 +82,13 @@ public final class PartitionStorageDescriptorSkewedInfo {
         }
         @CustomType.Setter
         public Builder skewedColumnValueLocationMaps(@Nullable Map<String,String> skewedColumnValueLocationMaps) {
+
             this.skewedColumnValueLocationMaps = skewedColumnValueLocationMaps;
             return this;
         }
         @CustomType.Setter
         public Builder skewedColumnValues(@Nullable List<String> skewedColumnValues) {
+
             this.skewedColumnValues = skewedColumnValues;
             return this;
         }
@@ -93,11 +96,11 @@ public final class PartitionStorageDescriptorSkewedInfo {
             return skewedColumnValues(List.of(skewedColumnValues));
         }
         public PartitionStorageDescriptorSkewedInfo build() {
-            final var o = new PartitionStorageDescriptorSkewedInfo();
-            o.skewedColumnNames = skewedColumnNames;
-            o.skewedColumnValueLocationMaps = skewedColumnValueLocationMaps;
-            o.skewedColumnValues = skewedColumnValues;
-            return o;
+            final var _resultValue = new PartitionStorageDescriptorSkewedInfo();
+            _resultValue.skewedColumnNames = skewedColumnNames;
+            _resultValue.skewedColumnValueLocationMaps = skewedColumnValueLocationMaps;
+            _resultValue.skewedColumnValues = skewedColumnValues;
+            return _resultValue;
         }
     }
 }

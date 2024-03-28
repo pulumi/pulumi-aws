@@ -174,11 +174,13 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
 
         @CustomType.Setter
         public Builder blockSizeBytes(@Nullable Integer blockSizeBytes) {
+
             this.blockSizeBytes = blockSizeBytes;
             return this;
         }
         @CustomType.Setter
         public Builder bloomFilterColumns(@Nullable List<String> bloomFilterColumns) {
+
             this.bloomFilterColumns = bloomFilterColumns;
             return this;
         }
@@ -187,57 +189,65 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
         @CustomType.Setter
         public Builder bloomFilterFalsePositiveProbability(@Nullable Double bloomFilterFalsePositiveProbability) {
+
             this.bloomFilterFalsePositiveProbability = bloomFilterFalsePositiveProbability;
             return this;
         }
         @CustomType.Setter
         public Builder compression(@Nullable String compression) {
+
             this.compression = compression;
             return this;
         }
         @CustomType.Setter
         public Builder dictionaryKeyThreshold(@Nullable Double dictionaryKeyThreshold) {
+
             this.dictionaryKeyThreshold = dictionaryKeyThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder enablePadding(@Nullable Boolean enablePadding) {
+
             this.enablePadding = enablePadding;
             return this;
         }
         @CustomType.Setter
         public Builder formatVersion(@Nullable String formatVersion) {
+
             this.formatVersion = formatVersion;
             return this;
         }
         @CustomType.Setter
         public Builder paddingTolerance(@Nullable Double paddingTolerance) {
+
             this.paddingTolerance = paddingTolerance;
             return this;
         }
         @CustomType.Setter
         public Builder rowIndexStride(@Nullable Integer rowIndexStride) {
+
             this.rowIndexStride = rowIndexStride;
             return this;
         }
         @CustomType.Setter
         public Builder stripeSizeBytes(@Nullable Integer stripeSizeBytes) {
+
             this.stripeSizeBytes = stripeSizeBytes;
             return this;
         }
         public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe build() {
-            final var o = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe();
-            o.blockSizeBytes = blockSizeBytes;
-            o.bloomFilterColumns = bloomFilterColumns;
-            o.bloomFilterFalsePositiveProbability = bloomFilterFalsePositiveProbability;
-            o.compression = compression;
-            o.dictionaryKeyThreshold = dictionaryKeyThreshold;
-            o.enablePadding = enablePadding;
-            o.formatVersion = formatVersion;
-            o.paddingTolerance = paddingTolerance;
-            o.rowIndexStride = rowIndexStride;
-            o.stripeSizeBytes = stripeSizeBytes;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe();
+            _resultValue.blockSizeBytes = blockSizeBytes;
+            _resultValue.bloomFilterColumns = bloomFilterColumns;
+            _resultValue.bloomFilterFalsePositiveProbability = bloomFilterFalsePositiveProbability;
+            _resultValue.compression = compression;
+            _resultValue.dictionaryKeyThreshold = dictionaryKeyThreshold;
+            _resultValue.enablePadding = enablePadding;
+            _resultValue.formatVersion = formatVersion;
+            _resultValue.paddingTolerance = paddingTolerance;
+            _resultValue.rowIndexStride = rowIndexStride;
+            _resultValue.stripeSizeBytes = stripeSizeBytes;
+            return _resultValue;
         }
     }
 }

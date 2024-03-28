@@ -15,8 +15,10 @@ namespace Pulumi.Aws.OpenSearch
     /// ## Example Usage
     /// 
     /// ### Encryption Security Policy
+    /// 
     /// ### Applies to a single collection
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,29 +30,33 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var example = new Aws.OpenSearch.ServerlessSecurityPolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "encryption",
     ///         Description = "encryption security policy for example-collection",
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Rules"] = new[]
+    ///             ["rules"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Resource"] = new[]
+    ///                     ["resource"] = new[]
     ///                     {
     ///                         "collection/example-collection",
     ///                     },
-    ///                     ["ResourceType"] = "collection",
+    ///                     ["resourceType"] = "collection",
     ///                 },
     ///             },
-    ///             ["AWSOwnedKey"] = true,
+    ///             ["aWSOwnedKey"] = true,
     ///         }),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Applies to multiple collections
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -62,29 +68,33 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var example = new Aws.OpenSearch.ServerlessSecurityPolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "encryption",
     ///         Description = "encryption security policy for collections that begin with \"example\"",
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Rules"] = new[]
+    ///             ["rules"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Resource"] = new[]
+    ///                     ["resource"] = new[]
     ///                     {
     ///                         "collection/example*",
     ///                     },
-    ///                     ["ResourceType"] = "collection",
+    ///                     ["resourceType"] = "collection",
     ///                 },
     ///             },
-    ///             ["AWSOwnedKey"] = true,
+    ///             ["aWSOwnedKey"] = true,
     ///         }),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Using a customer managed key
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -96,31 +106,36 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var example = new Aws.OpenSearch.ServerlessSecurityPolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "encryption",
     ///         Description = "encryption security policy using customer KMS key",
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Rules"] = new[]
+    ///             ["rules"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Resource"] = new[]
+    ///                     ["resource"] = new[]
     ///                     {
     ///                         "collection/customer-managed-key-collection",
     ///                     },
-    ///                     ["ResourceType"] = "collection",
+    ///                     ["resourceType"] = "collection",
     ///                 },
     ///             },
-    ///             ["AWSOwnedKey"] = false,
-    ///             ["KmsARN"] = "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
+    ///             ["aWSOwnedKey"] = false,
+    ///             ["kmsARN"] = "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
     ///         }),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Network Security Policy
+    /// 
     /// ### Allow public access to the collection endpoint and the Dashboards endpoint
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -132,41 +147,45 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var example = new Aws.OpenSearch.ServerlessSecurityPolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "network",
     ///         Description = "Public access",
     ///         Policy = JsonSerializer.Serialize(new[]
     ///         {
     ///             new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["Description"] = "Public access to collection and Dashboards endpoint for example collection",
-    ///                 ["Rules"] = new[]
+    ///                 ["description"] = "Public access to collection and Dashboards endpoint for example collection",
+    ///                 ["rules"] = new[]
     ///                 {
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["ResourceType"] = "collection",
-    ///                         ["Resource"] = new[]
+    ///                         ["resourceType"] = "collection",
+    ///                         ["resource"] = new[]
     ///                         {
     ///                             "collection/example-collection",
     ///                         },
     ///                     },
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["ResourceType"] = "dashboard",
-    ///                         ["Resource"] = new[]
+    ///                         ["resourceType"] = "dashboard",
+    ///                         ["resource"] = new[]
     ///                         {
     ///                             "collection/example-collection",
     ///                         },
     ///                     },
     ///                 },
-    ///                 ["AllowFromPublic"] = true,
+    ///                 ["allowFromPublic"] = true,
     ///             },
     ///         }),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Allow VPC access to the collection endpoint and the Dashboards endpoint
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -178,34 +197,35 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var example = new Aws.OpenSearch.ServerlessSecurityPolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "network",
     ///         Description = "VPC access",
     ///         Policy = JsonSerializer.Serialize(new[]
     ///         {
     ///             new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["Description"] = "VPC access to collection and Dashboards endpoint for example collection",
-    ///                 ["Rules"] = new[]
+    ///                 ["description"] = "VPC access to collection and Dashboards endpoint for example collection",
+    ///                 ["rules"] = new[]
     ///                 {
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["ResourceType"] = "collection",
-    ///                         ["Resource"] = new[]
+    ///                         ["resourceType"] = "collection",
+    ///                         ["resource"] = new[]
     ///                         {
     ///                             "collection/example-collection",
     ///                         },
     ///                     },
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["ResourceType"] = "dashboard",
-    ///                         ["Resource"] = new[]
+    ///                         ["resourceType"] = "dashboard",
+    ///                         ["resource"] = new[]
     ///                         {
     ///                             "collection/example-collection",
     ///                         },
     ///                     },
     ///                 },
-    ///                 ["AllowFromPublic"] = false,
-    ///                 ["SourceVPCEs"] = new[]
+    ///                 ["allowFromPublic"] = false,
+    ///                 ["sourceVPCEs"] = new[]
     ///                 {
     ///                     "vpce-050f79086ee71ac05",
     ///                 },
@@ -215,8 +235,11 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Mixed access for different collections
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -228,6 +251,7 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var example = new Aws.OpenSearch.ServerlessSecurityPolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "network",
     ///         Description = "Mixed access for marketing and sales",
     ///         Policy = JsonSerializer.Serialize(new[]
@@ -281,13 +305,14 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import OpenSearchServerless Security Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
+    /// $ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
     /// ```
     /// </summary>
     [AwsResourceType("aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy")]

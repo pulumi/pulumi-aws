@@ -156,22 +156,26 @@ class ApiKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
-        example_api_key = aws.appsync.ApiKey("exampleApiKey",
-            api_id=example_graph_ql_api.id,
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="API_KEY",
+            name="example")
+        example_api_key = aws.appsync.ApiKey("example",
+            api_id=example.id,
             expires="2018-05-03T04:00:00Z")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appsync_api_key` using the AppSync API ID and key separated by `:`. For example:
 
         ```sh
-         $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
+        $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
         ```
 
         :param str resource_name: The name of the resource.
@@ -191,22 +195,26 @@ class ApiKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
-        example_api_key = aws.appsync.ApiKey("exampleApiKey",
-            api_id=example_graph_ql_api.id,
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="API_KEY",
+            name="example")
+        example_api_key = aws.appsync.ApiKey("example",
+            api_id=example.id,
             expires="2018-05-03T04:00:00Z")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appsync_api_key` using the AppSync API ID and key separated by `:`. For example:
 
         ```sh
-         $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
+        $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
         ```
 
         :param str resource_name: The name of the resource.

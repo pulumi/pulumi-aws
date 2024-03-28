@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * For more information, see the Amazon VPC User Guide on [Route Tables][aws-route-tables]. For information about managing normal route tables in Pulumi, see [`aws.ec2.RouteTable`][tf-route-tables].
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -41,14 +43,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mainRouteTableAssociation = new MainRouteTableAssociation(&#34;mainRouteTableAssociation&#34;, MainRouteTableAssociationArgs.builder()        
- *             .vpcId(aws_vpc.foo().id())
- *             .routeTableId(aws_route_table.bar().id())
+ *         var a = new MainRouteTableAssociation(&#34;a&#34;, MainRouteTableAssociationArgs.builder()        
+ *             .vpcId(foo.id())
+ *             .routeTableId(bar.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Notes
  * 
  * On VPC creation, the AWS API always creates an initial Main Route Table. This

@@ -14,29 +14,35 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var @default = new Aws.Iam.SamlProvider("default", new()
     ///     {
-    ///         SamlMetadataDocument = File.ReadAllText("saml-metadata.xml"),
+    ///         Name = "myprovider",
+    ///         SamlMetadataDocument = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "saml-metadata.xml",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM SAML Providers using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iam/samlProvider:SamlProvider default arn:aws:iam::123456789012:saml-provider/SAMLADFS
+    /// $ pulumi import aws:iam/samlProvider:SamlProvider default arn:aws:iam::123456789012:saml-provider/SAMLADFS
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/samlProvider:SamlProvider")]
@@ -101,10 +107,6 @@ namespace Pulumi.Aws.Iam
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -200,11 +202,7 @@ namespace Pulumi.Aws.Iam
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

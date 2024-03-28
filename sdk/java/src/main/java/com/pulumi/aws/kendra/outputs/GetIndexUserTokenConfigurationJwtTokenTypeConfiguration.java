@@ -4,6 +4,7 @@
 package com.pulumi.aws.kendra.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -126,49 +127,70 @@ public final class GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
 
         @CustomType.Setter
         public Builder claimRegex(String claimRegex) {
-            this.claimRegex = Objects.requireNonNull(claimRegex);
+            if (claimRegex == null) {
+              throw new MissingRequiredPropertyException("GetIndexUserTokenConfigurationJwtTokenTypeConfiguration", "claimRegex");
+            }
+            this.claimRegex = claimRegex;
             return this;
         }
         @CustomType.Setter
         public Builder groupAttributeField(String groupAttributeField) {
-            this.groupAttributeField = Objects.requireNonNull(groupAttributeField);
+            if (groupAttributeField == null) {
+              throw new MissingRequiredPropertyException("GetIndexUserTokenConfigurationJwtTokenTypeConfiguration", "groupAttributeField");
+            }
+            this.groupAttributeField = groupAttributeField;
             return this;
         }
         @CustomType.Setter
         public Builder issuer(String issuer) {
-            this.issuer = Objects.requireNonNull(issuer);
+            if (issuer == null) {
+              throw new MissingRequiredPropertyException("GetIndexUserTokenConfigurationJwtTokenTypeConfiguration", "issuer");
+            }
+            this.issuer = issuer;
             return this;
         }
         @CustomType.Setter
         public Builder keyLocation(String keyLocation) {
-            this.keyLocation = Objects.requireNonNull(keyLocation);
+            if (keyLocation == null) {
+              throw new MissingRequiredPropertyException("GetIndexUserTokenConfigurationJwtTokenTypeConfiguration", "keyLocation");
+            }
+            this.keyLocation = keyLocation;
             return this;
         }
         @CustomType.Setter
         public Builder secretsManagerArn(String secretsManagerArn) {
-            this.secretsManagerArn = Objects.requireNonNull(secretsManagerArn);
+            if (secretsManagerArn == null) {
+              throw new MissingRequiredPropertyException("GetIndexUserTokenConfigurationJwtTokenTypeConfiguration", "secretsManagerArn");
+            }
+            this.secretsManagerArn = secretsManagerArn;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("GetIndexUserTokenConfigurationJwtTokenTypeConfiguration", "url");
+            }
+            this.url = url;
             return this;
         }
         @CustomType.Setter
         public Builder userNameAttributeField(String userNameAttributeField) {
-            this.userNameAttributeField = Objects.requireNonNull(userNameAttributeField);
+            if (userNameAttributeField == null) {
+              throw new MissingRequiredPropertyException("GetIndexUserTokenConfigurationJwtTokenTypeConfiguration", "userNameAttributeField");
+            }
+            this.userNameAttributeField = userNameAttributeField;
             return this;
         }
         public GetIndexUserTokenConfigurationJwtTokenTypeConfiguration build() {
-            final var o = new GetIndexUserTokenConfigurationJwtTokenTypeConfiguration();
-            o.claimRegex = claimRegex;
-            o.groupAttributeField = groupAttributeField;
-            o.issuer = issuer;
-            o.keyLocation = keyLocation;
-            o.secretsManagerArn = secretsManagerArn;
-            o.url = url;
-            o.userNameAttributeField = userNameAttributeField;
-            return o;
+            final var _resultValue = new GetIndexUserTokenConfigurationJwtTokenTypeConfiguration();
+            _resultValue.claimRegex = claimRegex;
+            _resultValue.groupAttributeField = groupAttributeField;
+            _resultValue.issuer = issuer;
+            _resultValue.keyLocation = keyLocation;
+            _resultValue.secretsManagerArn = secretsManagerArn;
+            _resultValue.url = url;
+            _resultValue.userNameAttributeField = userNameAttributeField;
+            return _resultValue;
         }
     }
 }

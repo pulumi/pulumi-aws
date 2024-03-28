@@ -210,38 +210,44 @@ class EventPermission(pulumi.CustomResource):
         > **Note:** The EventBridge bus policy resource  (`cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`cloudwatch.EventPermission`) and will overwrite permissions.
 
         ## Example Usage
+
         ### Account Access
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        dev_account_access = aws.cloudwatch.EventPermission("devAccountAccess",
+        dev_account_access = aws.cloudwatch.EventPermission("DevAccountAccess",
             principal="123456789012",
             statement_id="DevAccountAccess")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Organization Access
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        organization_access = aws.cloudwatch.EventPermission("organizationAccess",
+        organization_access = aws.cloudwatch.EventPermission("OrganizationAccess",
             principal="*",
             statement_id="OrganizationAccess",
             condition=aws.cloudwatch.EventPermissionConditionArgs(
                 key="aws:PrincipalOrgID",
                 type="StringEquals",
-                value=aws_organizations_organization["example"]["id"],
+                value=example["id"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge permissions using the `event_bus_name/statement_id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
+        $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
         ```
 
         :param str resource_name: The name of the resource.
@@ -267,38 +273,44 @@ class EventPermission(pulumi.CustomResource):
         > **Note:** The EventBridge bus policy resource  (`cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`cloudwatch.EventPermission`) and will overwrite permissions.
 
         ## Example Usage
+
         ### Account Access
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        dev_account_access = aws.cloudwatch.EventPermission("devAccountAccess",
+        dev_account_access = aws.cloudwatch.EventPermission("DevAccountAccess",
             principal="123456789012",
             statement_id="DevAccountAccess")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Organization Access
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        organization_access = aws.cloudwatch.EventPermission("organizationAccess",
+        organization_access = aws.cloudwatch.EventPermission("OrganizationAccess",
             principal="*",
             statement_id="OrganizationAccess",
             condition=aws.cloudwatch.EventPermissionConditionArgs(
                 key="aws:PrincipalOrgID",
                 type="StringEquals",
-                value=aws_organizations_organization["example"]["id"],
+                value=example["id"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge permissions using the `event_bus_name/statement_id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
+        $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
         ```
 
         :param str resource_name: The name of the resource.

@@ -2079,19 +2079,21 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # Request a spot instance at $0.03
-        cheap_worker = aws.ec2.SpotInstanceRequest("cheapWorker",
+        cheap_worker = aws.ec2.SpotInstanceRequest("cheap_worker",
             ami="ami-1234",
-            instance_type="c4.xlarge",
             spot_price="0.03",
+            instance_type="c4.xlarge",
             tags={
                 "Name": "CheapWorker",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -2196,19 +2198,21 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # Request a spot instance at $0.03
-        cheap_worker = aws.ec2.SpotInstanceRequest("cheapWorker",
+        cheap_worker = aws.ec2.SpotInstanceRequest("cheap_worker",
             ami="ami-1234",
-            instance_type="c4.xlarge",
             spot_price="0.03",
+            instance_type="c4.xlarge",
             tags={
                 "Name": "CheapWorker",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param SpotInstanceRequestArgs args: The arguments to use to populate this resource's properties.
@@ -2352,8 +2356,6 @@ class SpotInstanceRequest(pulumi.CustomResource):
             __props__.__dict__["spot_instance_id"] = None
             __props__.__dict__["spot_request_state"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SpotInstanceRequest, __self__).__init__(
             'aws:ec2/spotInstanceRequest:SpotInstanceRequest',
             resource_name,

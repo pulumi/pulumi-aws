@@ -16,12 +16,106 @@ namespace Pulumi.Aws.AppFlow
     /// For specific information about creating an AppFlow connector profile, see the
     /// [CreateConnectorProfile](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html) page in the Amazon AppFlow API Reference.
     /// 
+    /// ## Example Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Aws.Iam.GetPolicy.Invoke(new()
+    ///     {
+    ///         Name = "AmazonRedshiftAllCommandsFullAccess",
+    ///     });
+    /// 
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
+    ///     {
+    ///         Name = "example_role",
+    ///         ManagedPolicyArns = new[]
+    ///         {
+    ///             test.Arn,
+    ///         },
+    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["action"] = "sts:AssumeRole",
+    ///                     ["effect"] = "Allow",
+    ///                     ["sid"] = "",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["service"] = "ec2.amazonaws.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     {
+    ///         Bucket = "example_bucket",
+    ///     });
+    /// 
+    ///     var exampleCluster = new Aws.RedShift.Cluster("example", new()
+    ///     {
+    ///         ClusterIdentifier = "example_cluster",
+    ///         DatabaseName = "example_db",
+    ///         MasterUsername = "exampleuser",
+    ///         MasterPassword = "examplePassword123!",
+    ///         NodeType = "dc1.large",
+    ///         ClusterType = "single-node",
+    ///     });
+    /// 
+    ///     var exampleConnectorProfile = new Aws.AppFlow.ConnectorProfile("example", new()
+    ///     {
+    ///         Name = "example_profile",
+    ///         ConnectorType = "Redshift",
+    ///         ConnectionMode = "Public",
+    ///         ConnectorProfileConfig = new Aws.AppFlow.Inputs.ConnectorProfileConnectorProfileConfigArgs
+    ///         {
+    ///             ConnectorProfileCredentials = new Aws.AppFlow.Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs
+    ///             {
+    ///                 Redshift = new Aws.AppFlow.Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs
+    ///                 {
+    ///                     Password = exampleCluster.MasterPassword,
+    ///                     Username = exampleCluster.MasterUsername,
+    ///                 },
+    ///             },
+    ///             ConnectorProfileProperties = new Aws.AppFlow.Inputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs
+    ///             {
+    ///                 Redshift = new Aws.AppFlow.Inputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs
+    ///                 {
+    ///                     BucketName = exampleBucketV2.Name,
+    ///                     DatabaseUrl = Output.Tuple(exampleCluster.Endpoint, exampleCluster.DatabaseName).Apply(values =&gt;
+    ///                     {
+    ///                         var endpoint = values.Item1;
+    ///                         var databaseName = values.Item2;
+    ///                         return $"jdbc:redshift://{endpoint}/{databaseName}";
+    ///                     }),
+    ///                     RoleArn = exampleRole.Arn,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AppFlow Connector Profile using the connector profile `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
+    /// $ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
     /// ```
     /// </summary>
     [AwsResourceType("aws:appflow/connectorProfile:ConnectorProfile")]

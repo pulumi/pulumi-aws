@@ -9,28 +9,28 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccount = new aws.macie2.Account("exampleAccount", {});
- * const exampleMember = new aws.macie2.Member("exampleMember", {
+ * const example = new aws.macie2.Account("example", {});
+ * const exampleMember = new aws.macie2.Member("example", {
  *     accountId: "AWS ACCOUNT ID",
  *     email: "EMAIL",
  *     invite: true,
  *     invitationMessage: "Message of the invitation",
  *     invitationDisableEmailNotification: true,
- * }, {
- *     dependsOn: [exampleAccount],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_macie2_member` using the account ID of the member account. For example:
  *
  * ```sh
- *  $ pulumi import aws:macie2/member:Member example 123456789012
+ * $ pulumi import aws:macie2/member:Member example 123456789012
  * ```
  */
 export class Member extends pulumi.CustomResource {
@@ -166,8 +166,6 @@ export class Member extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Member.__pulumiType, name, resourceInputs, opts);
     }
 }

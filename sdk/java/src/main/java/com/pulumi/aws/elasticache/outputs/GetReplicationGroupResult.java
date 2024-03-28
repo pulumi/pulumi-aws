@@ -5,6 +5,7 @@ package com.pulumi.aws.elasticache.outputs;
 
 import com.pulumi.aws.elasticache.outputs.GetReplicationGroupLogDeliveryConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -290,37 +291,58 @@ public final class GetReplicationGroupResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder authTokenEnabled(Boolean authTokenEnabled) {
-            this.authTokenEnabled = Objects.requireNonNull(authTokenEnabled);
+            if (authTokenEnabled == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupResult", "authTokenEnabled");
+            }
+            this.authTokenEnabled = authTokenEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder automaticFailoverEnabled(Boolean automaticFailoverEnabled) {
-            this.automaticFailoverEnabled = Objects.requireNonNull(automaticFailoverEnabled);
+            if (automaticFailoverEnabled == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupResult", "automaticFailoverEnabled");
+            }
+            this.automaticFailoverEnabled = automaticFailoverEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder configurationEndpointAddress(String configurationEndpointAddress) {
-            this.configurationEndpointAddress = Objects.requireNonNull(configurationEndpointAddress);
+            if (configurationEndpointAddress == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupResult", "configurationEndpointAddress");
+            }
+            this.configurationEndpointAddress = configurationEndpointAddress;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder logDeliveryConfigurations(List<GetReplicationGroupLogDeliveryConfiguration> logDeliveryConfigurations) {
-            this.logDeliveryConfigurations = Objects.requireNonNull(logDeliveryConfigurations);
+            if (logDeliveryConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupResult", "logDeliveryConfigurations");
+            }
+            this.logDeliveryConfigurations = logDeliveryConfigurations;
             return this;
         }
         public Builder logDeliveryConfigurations(GetReplicationGroupLogDeliveryConfiguration... logDeliveryConfigurations) {
@@ -328,7 +350,10 @@ public final class GetReplicationGroupResult {
         }
         @CustomType.Setter
         public Builder memberClusters(List<String> memberClusters) {
-            this.memberClusters = Objects.requireNonNull(memberClusters);
+            if (memberClusters == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupResult", "memberClusters");
+            }
+            this.memberClusters = memberClusters;
             return this;
         }
         public Builder memberClusters(String... memberClusters) {
@@ -336,81 +361,114 @@ public final class GetReplicationGroupResult {
         }
         @CustomType.Setter
         public Builder multiAzEnabled(Boolean multiAzEnabled) {
-            this.multiAzEnabled = Objects.requireNonNull(multiAzEnabled);
+            if (multiAzEnabled == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupResult", "multiAzEnabled");
+            }
+            this.multiAzEnabled = multiAzEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder nodeType(String nodeType) {
-            this.nodeType = Objects.requireNonNull(nodeType);
+            if (nodeType == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupResult", "nodeType");
+            }
+            this.nodeType = nodeType;
             return this;
         }
         @CustomType.Setter
         public Builder numCacheClusters(Integer numCacheClusters) {
-            this.numCacheClusters = Objects.requireNonNull(numCacheClusters);
+            if (numCacheClusters == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupResult", "numCacheClusters");
+            }
+            this.numCacheClusters = numCacheClusters;
             return this;
         }
         @CustomType.Setter
         public Builder numNodeGroups(Integer numNodeGroups) {
-            this.numNodeGroups = Objects.requireNonNull(numNodeGroups);
+            if (numNodeGroups == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupResult", "numNodeGroups");
+            }
+            this.numNodeGroups = numNodeGroups;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupResult", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder primaryEndpointAddress(String primaryEndpointAddress) {
-            this.primaryEndpointAddress = Objects.requireNonNull(primaryEndpointAddress);
+            if (primaryEndpointAddress == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupResult", "primaryEndpointAddress");
+            }
+            this.primaryEndpointAddress = primaryEndpointAddress;
             return this;
         }
         @CustomType.Setter
         public Builder readerEndpointAddress(String readerEndpointAddress) {
-            this.readerEndpointAddress = Objects.requireNonNull(readerEndpointAddress);
+            if (readerEndpointAddress == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupResult", "readerEndpointAddress");
+            }
+            this.readerEndpointAddress = readerEndpointAddress;
             return this;
         }
         @CustomType.Setter
         public Builder replicasPerNodeGroup(Integer replicasPerNodeGroup) {
-            this.replicasPerNodeGroup = Objects.requireNonNull(replicasPerNodeGroup);
+            if (replicasPerNodeGroup == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupResult", "replicasPerNodeGroup");
+            }
+            this.replicasPerNodeGroup = replicasPerNodeGroup;
             return this;
         }
         @CustomType.Setter
         public Builder replicationGroupId(String replicationGroupId) {
-            this.replicationGroupId = Objects.requireNonNull(replicationGroupId);
+            if (replicationGroupId == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupResult", "replicationGroupId");
+            }
+            this.replicationGroupId = replicationGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotRetentionLimit(Integer snapshotRetentionLimit) {
-            this.snapshotRetentionLimit = Objects.requireNonNull(snapshotRetentionLimit);
+            if (snapshotRetentionLimit == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupResult", "snapshotRetentionLimit");
+            }
+            this.snapshotRetentionLimit = snapshotRetentionLimit;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotWindow(String snapshotWindow) {
-            this.snapshotWindow = Objects.requireNonNull(snapshotWindow);
+            if (snapshotWindow == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupResult", "snapshotWindow");
+            }
+            this.snapshotWindow = snapshotWindow;
             return this;
         }
         public GetReplicationGroupResult build() {
-            final var o = new GetReplicationGroupResult();
-            o.arn = arn;
-            o.authTokenEnabled = authTokenEnabled;
-            o.automaticFailoverEnabled = automaticFailoverEnabled;
-            o.configurationEndpointAddress = configurationEndpointAddress;
-            o.description = description;
-            o.id = id;
-            o.logDeliveryConfigurations = logDeliveryConfigurations;
-            o.memberClusters = memberClusters;
-            o.multiAzEnabled = multiAzEnabled;
-            o.nodeType = nodeType;
-            o.numCacheClusters = numCacheClusters;
-            o.numNodeGroups = numNodeGroups;
-            o.port = port;
-            o.primaryEndpointAddress = primaryEndpointAddress;
-            o.readerEndpointAddress = readerEndpointAddress;
-            o.replicasPerNodeGroup = replicasPerNodeGroup;
-            o.replicationGroupId = replicationGroupId;
-            o.snapshotRetentionLimit = snapshotRetentionLimit;
-            o.snapshotWindow = snapshotWindow;
-            return o;
+            final var _resultValue = new GetReplicationGroupResult();
+            _resultValue.arn = arn;
+            _resultValue.authTokenEnabled = authTokenEnabled;
+            _resultValue.automaticFailoverEnabled = automaticFailoverEnabled;
+            _resultValue.configurationEndpointAddress = configurationEndpointAddress;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.logDeliveryConfigurations = logDeliveryConfigurations;
+            _resultValue.memberClusters = memberClusters;
+            _resultValue.multiAzEnabled = multiAzEnabled;
+            _resultValue.nodeType = nodeType;
+            _resultValue.numCacheClusters = numCacheClusters;
+            _resultValue.numNodeGroups = numNodeGroups;
+            _resultValue.port = port;
+            _resultValue.primaryEndpointAddress = primaryEndpointAddress;
+            _resultValue.readerEndpointAddress = readerEndpointAddress;
+            _resultValue.replicasPerNodeGroup = replicasPerNodeGroup;
+            _resultValue.replicationGroupId = replicationGroupId;
+            _resultValue.snapshotRetentionLimit = snapshotRetentionLimit;
+            _resultValue.snapshotWindow = snapshotWindow;
+            return _resultValue;
         }
     }
 }

@@ -36,7 +36,10 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Geofence Collection.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -65,6 +68,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGeofenceCollectionResult> getGeofenceCollection(GetGeofenceCollectionArgs args) {
@@ -74,7 +78,10 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Geofence Collection.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -103,6 +110,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGeofenceCollectionResult> getGeofenceCollectionPlain(GetGeofenceCollectionPlainArgs args) {
@@ -112,7 +120,10 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Geofence Collection.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -141,6 +152,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGeofenceCollectionResult> getGeofenceCollection(GetGeofenceCollectionArgs args, InvokeOptions options) {
@@ -150,7 +162,10 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Geofence Collection.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -179,6 +194,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGeofenceCollectionResult> getGeofenceCollectionPlain(GetGeofenceCollectionPlainArgs args, InvokeOptions options) {
@@ -188,6 +204,8 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Map.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -216,6 +234,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMapResult> getMap(GetMapArgs args) {
@@ -225,6 +244,8 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Map.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -253,6 +274,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMapResult> getMapPlain(GetMapPlainArgs args) {
@@ -262,6 +284,8 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Map.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -290,6 +314,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMapResult> getMap(GetMapArgs args, InvokeOptions options) {
@@ -299,6 +324,8 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Map.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -327,6 +354,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMapResult> getMapPlain(GetMapPlainArgs args, InvokeOptions options) {
@@ -336,6 +364,8 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Place Index.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -364,6 +394,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPlaceIndexResult> getPlaceIndex(GetPlaceIndexArgs args) {
@@ -373,6 +404,8 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Place Index.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -401,6 +434,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPlaceIndexResult> getPlaceIndexPlain(GetPlaceIndexPlainArgs args) {
@@ -410,6 +444,8 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Place Index.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -438,6 +474,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPlaceIndexResult> getPlaceIndex(GetPlaceIndexArgs args, InvokeOptions options) {
@@ -447,6 +484,8 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Place Index.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -475,6 +514,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPlaceIndexResult> getPlaceIndexPlain(GetPlaceIndexPlainArgs args, InvokeOptions options) {
@@ -484,6 +524,8 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Route Calculator.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -512,6 +554,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRouteCalculatorResult> getRouteCalculator(GetRouteCalculatorArgs args) {
@@ -521,6 +564,8 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Route Calculator.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -549,6 +594,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRouteCalculatorResult> getRouteCalculatorPlain(GetRouteCalculatorPlainArgs args) {
@@ -558,6 +604,8 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Route Calculator.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -586,6 +634,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRouteCalculatorResult> getRouteCalculator(GetRouteCalculatorArgs args, InvokeOptions options) {
@@ -595,6 +644,8 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Route Calculator.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -623,6 +674,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRouteCalculatorResult> getRouteCalculatorPlain(GetRouteCalculatorPlainArgs args, InvokeOptions options) {
@@ -632,6 +684,8 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Tracker.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -660,6 +714,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTrackerResult> getTracker(GetTrackerArgs args) {
@@ -669,6 +724,8 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Tracker.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -697,6 +754,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTrackerResult> getTrackerPlain(GetTrackerPlainArgs args) {
@@ -706,6 +764,8 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Tracker.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -734,6 +794,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTrackerResult> getTracker(GetTrackerArgs args, InvokeOptions options) {
@@ -743,6 +804,8 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Tracker.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -771,6 +834,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTrackerResult> getTrackerPlain(GetTrackerPlainArgs args, InvokeOptions options) {
@@ -780,7 +844,10 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Tracker Association.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -810,6 +877,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTrackerAssociationResult> getTrackerAssociation(GetTrackerAssociationArgs args) {
@@ -819,7 +887,10 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Tracker Association.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -849,6 +920,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTrackerAssociationResult> getTrackerAssociationPlain(GetTrackerAssociationPlainArgs args) {
@@ -858,7 +930,10 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Tracker Association.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -888,6 +963,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTrackerAssociationResult> getTrackerAssociation(GetTrackerAssociationArgs args, InvokeOptions options) {
@@ -897,7 +973,10 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Tracker Association.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -927,6 +1006,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTrackerAssociationResult> getTrackerAssociationPlain(GetTrackerAssociationPlainArgs args, InvokeOptions options) {
@@ -936,7 +1016,10 @@ public final class LocationFunctions {
      * Retrieve information about Location Service Tracker Associations.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -965,6 +1048,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTrackerAssociationsResult> getTrackerAssociations(GetTrackerAssociationsArgs args) {
@@ -974,7 +1058,10 @@ public final class LocationFunctions {
      * Retrieve information about Location Service Tracker Associations.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1003,6 +1090,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTrackerAssociationsResult> getTrackerAssociationsPlain(GetTrackerAssociationsPlainArgs args) {
@@ -1012,7 +1100,10 @@ public final class LocationFunctions {
      * Retrieve information about Location Service Tracker Associations.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1041,6 +1132,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTrackerAssociationsResult> getTrackerAssociations(GetTrackerAssociationsArgs args, InvokeOptions options) {
@@ -1050,7 +1142,10 @@ public final class LocationFunctions {
      * Retrieve information about Location Service Tracker Associations.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1079,6 +1174,7 @@ public final class LocationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTrackerAssociationsResult> getTrackerAssociationsPlain(GetTrackerAssociationsPlainArgs args, InvokeOptions options) {

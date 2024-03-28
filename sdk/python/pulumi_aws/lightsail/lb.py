@@ -312,24 +312,27 @@ class Lb(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.lightsail.Lb("test",
+            name="test-load-balancer",
             health_check_path="/",
             instance_port=80,
             tags={
                 "foo": "bar",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_lb` using the name attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/lb:Lb test example-load-balancer
+        $ pulumi import aws:lightsail/lb:Lb test example-load-balancer
         ```
 
         :param str resource_name: The name of the resource.
@@ -350,24 +353,27 @@ class Lb(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.lightsail.Lb("test",
+            name="test-load-balancer",
             health_check_path="/",
             instance_port=80,
             tags={
                 "foo": "bar",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_lb` using the name attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/lb:Lb test example-load-balancer
+        $ pulumi import aws:lightsail/lb:Lb test example-load-balancer
         ```
 
         :param str resource_name: The name of the resource.
@@ -413,8 +419,6 @@ class Lb(pulumi.CustomResource):
             __props__.__dict__["public_ports"] = None
             __props__.__dict__["support_code"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Lb, __self__).__init__(
             'aws:lightsail/lb:Lb',
             resource_name,

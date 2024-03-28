@@ -89,31 +89,35 @@ public final class ThemeConfiguration {
 
         @CustomType.Setter
         public Builder dataColorPalette(@Nullable ThemeConfigurationDataColorPalette dataColorPalette) {
+
             this.dataColorPalette = dataColorPalette;
             return this;
         }
         @CustomType.Setter
         public Builder sheet(@Nullable ThemeConfigurationSheet sheet) {
+
             this.sheet = sheet;
             return this;
         }
         @CustomType.Setter
         public Builder typography(@Nullable ThemeConfigurationTypography typography) {
+
             this.typography = typography;
             return this;
         }
         @CustomType.Setter
         public Builder uiColorPalette(@Nullable ThemeConfigurationUiColorPalette uiColorPalette) {
+
             this.uiColorPalette = uiColorPalette;
             return this;
         }
         public ThemeConfiguration build() {
-            final var o = new ThemeConfiguration();
-            o.dataColorPalette = dataColorPalette;
-            o.sheet = sheet;
-            o.typography = typography;
-            o.uiColorPalette = uiColorPalette;
-            return o;
+            final var _resultValue = new ThemeConfiguration();
+            _resultValue.dataColorPalette = dataColorPalette;
+            _resultValue.sheet = sheet;
+            _resultValue.typography = typography;
+            _resultValue.uiColorPalette = uiColorPalette;
+            return _resultValue;
         }
     }
 }

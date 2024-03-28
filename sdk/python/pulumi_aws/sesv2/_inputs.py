@@ -570,12 +570,12 @@ class ContactListTopicArgs:
                  topic_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] default_subscription_status: The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
-        :param pulumi.Input[str] display_name: The name of the topic the contact will see.
-        :param pulumi.Input[str] topic_name: The name of the topic.
+        :param pulumi.Input[str] default_subscription_status: Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+        :param pulumi.Input[str] display_name: Name of the topic the contact will see.
+        :param pulumi.Input[str] topic_name: Name of the topic.
                
                The following arguments are optional:
-        :param pulumi.Input[str] description: A description of what the topic is about, which the contact will see.
+        :param pulumi.Input[str] description: Description of what the topic is about, which the contact will see.
         """
         pulumi.set(__self__, "default_subscription_status", default_subscription_status)
         pulumi.set(__self__, "display_name", display_name)
@@ -587,7 +587,7 @@ class ContactListTopicArgs:
     @pulumi.getter(name="defaultSubscriptionStatus")
     def default_subscription_status(self) -> pulumi.Input[str]:
         """
-        The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+        Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
         """
         return pulumi.get(self, "default_subscription_status")
 
@@ -599,7 +599,7 @@ class ContactListTopicArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
         """
-        The name of the topic the contact will see.
+        Name of the topic the contact will see.
         """
         return pulumi.get(self, "display_name")
 
@@ -611,7 +611,7 @@ class ContactListTopicArgs:
     @pulumi.getter(name="topicName")
     def topic_name(self) -> pulumi.Input[str]:
         """
-        The name of the topic.
+        Name of the topic.
 
         The following arguments are optional:
         """
@@ -625,7 +625,7 @@ class ContactListTopicArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A description of what the topic is about, which the contact will see.
+        Description of what the topic is about, which the contact will see.
         """
         return pulumi.get(self, "description")
 

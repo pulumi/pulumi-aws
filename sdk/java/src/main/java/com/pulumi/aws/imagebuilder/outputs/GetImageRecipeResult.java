@@ -6,6 +6,7 @@ package com.pulumi.aws.imagebuilder.outputs;
 import com.pulumi.aws.imagebuilder.outputs.GetImageRecipeBlockDeviceMapping;
 import com.pulumi.aws.imagebuilder.outputs.GetImageRecipeComponent;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -221,12 +222,18 @@ public final class GetImageRecipeResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetImageRecipeResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder blockDeviceMappings(List<GetImageRecipeBlockDeviceMapping> blockDeviceMappings) {
-            this.blockDeviceMappings = Objects.requireNonNull(blockDeviceMappings);
+            if (blockDeviceMappings == null) {
+              throw new MissingRequiredPropertyException("GetImageRecipeResult", "blockDeviceMappings");
+            }
+            this.blockDeviceMappings = blockDeviceMappings;
             return this;
         }
         public Builder blockDeviceMappings(GetImageRecipeBlockDeviceMapping... blockDeviceMappings) {
@@ -234,7 +241,10 @@ public final class GetImageRecipeResult {
         }
         @CustomType.Setter
         public Builder components(List<GetImageRecipeComponent> components) {
-            this.components = Objects.requireNonNull(components);
+            if (components == null) {
+              throw new MissingRequiredPropertyException("GetImageRecipeResult", "components");
+            }
+            this.components = components;
             return this;
         }
         public Builder components(GetImageRecipeComponent... components) {
@@ -242,76 +252,107 @@ public final class GetImageRecipeResult {
         }
         @CustomType.Setter
         public Builder dateCreated(String dateCreated) {
-            this.dateCreated = Objects.requireNonNull(dateCreated);
+            if (dateCreated == null) {
+              throw new MissingRequiredPropertyException("GetImageRecipeResult", "dateCreated");
+            }
+            this.dateCreated = dateCreated;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetImageRecipeResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetImageRecipeResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetImageRecipeResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+            if (owner == null) {
+              throw new MissingRequiredPropertyException("GetImageRecipeResult", "owner");
+            }
+            this.owner = owner;
             return this;
         }
         @CustomType.Setter
         public Builder parentImage(String parentImage) {
-            this.parentImage = Objects.requireNonNull(parentImage);
+            if (parentImage == null) {
+              throw new MissingRequiredPropertyException("GetImageRecipeResult", "parentImage");
+            }
+            this.parentImage = parentImage;
             return this;
         }
         @CustomType.Setter
         public Builder platform(String platform) {
-            this.platform = Objects.requireNonNull(platform);
+            if (platform == null) {
+              throw new MissingRequiredPropertyException("GetImageRecipeResult", "platform");
+            }
+            this.platform = platform;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder userDataBase64(String userDataBase64) {
-            this.userDataBase64 = Objects.requireNonNull(userDataBase64);
+            if (userDataBase64 == null) {
+              throw new MissingRequiredPropertyException("GetImageRecipeResult", "userDataBase64");
+            }
+            this.userDataBase64 = userDataBase64;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetImageRecipeResult", "version");
+            }
+            this.version = version;
             return this;
         }
         @CustomType.Setter
         public Builder workingDirectory(String workingDirectory) {
-            this.workingDirectory = Objects.requireNonNull(workingDirectory);
+            if (workingDirectory == null) {
+              throw new MissingRequiredPropertyException("GetImageRecipeResult", "workingDirectory");
+            }
+            this.workingDirectory = workingDirectory;
             return this;
         }
         public GetImageRecipeResult build() {
-            final var o = new GetImageRecipeResult();
-            o.arn = arn;
-            o.blockDeviceMappings = blockDeviceMappings;
-            o.components = components;
-            o.dateCreated = dateCreated;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.owner = owner;
-            o.parentImage = parentImage;
-            o.platform = platform;
-            o.tags = tags;
-            o.userDataBase64 = userDataBase64;
-            o.version = version;
-            o.workingDirectory = workingDirectory;
-            return o;
+            final var _resultValue = new GetImageRecipeResult();
+            _resultValue.arn = arn;
+            _resultValue.blockDeviceMappings = blockDeviceMappings;
+            _resultValue.components = components;
+            _resultValue.dateCreated = dateCreated;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.owner = owner;
+            _resultValue.parentImage = parentImage;
+            _resultValue.platform = platform;
+            _resultValue.tags = tags;
+            _resultValue.userDataBase64 = userDataBase64;
+            _resultValue.version = version;
+            _resultValue.workingDirectory = workingDirectory;
+            return _resultValue;
         }
     }
 }

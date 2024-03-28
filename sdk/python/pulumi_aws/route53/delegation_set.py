@@ -109,21 +109,27 @@ class DelegationSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         main = aws.route53.DelegationSet("main", reference_name="DynDNS")
-        primary = aws.route53.Zone("primary", delegation_set_id=main.id)
-        secondary = aws.route53.Zone("secondary", delegation_set_id=main.id)
+        primary = aws.route53.Zone("primary",
+            name="mydomain.com",
+            delegation_set_id=main.id)
+        secondary = aws.route53.Zone("secondary",
+            name="coolcompany.io",
+            delegation_set_id=main.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 Delegation Sets using the delegation set `id`. For example:
 
         ```sh
-         $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
+        $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
         ```
 
         :param str resource_name: The name of the resource.
@@ -142,21 +148,27 @@ class DelegationSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         main = aws.route53.DelegationSet("main", reference_name="DynDNS")
-        primary = aws.route53.Zone("primary", delegation_set_id=main.id)
-        secondary = aws.route53.Zone("secondary", delegation_set_id=main.id)
+        primary = aws.route53.Zone("primary",
+            name="mydomain.com",
+            delegation_set_id=main.id)
+        secondary = aws.route53.Zone("secondary",
+            name="coolcompany.io",
+            delegation_set_id=main.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 Delegation Sets using the delegation set `id`. For example:
 
         ```sh
-         $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
+        $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
         ```
 
         :param str resource_name: The name of the resource.

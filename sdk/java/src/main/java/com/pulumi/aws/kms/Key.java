@@ -13,7 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -26,6 +25,8 @@ import javax.annotation.Nullable;
  * Configuring with both will cause inconsistencies and may overwrite configuration.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,21 +48,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var key = new Key(&#34;key&#34;, KeyArgs.builder()        
- *             .deletionWindowInDays(10)
+ *         var a = new Key(&#34;a&#34;, KeyArgs.builder()        
  *             .description(&#34;KMS key 1&#34;)
+ *             .deletionWindowInDays(10)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import KMS Keys using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:kms/key:Key a 1234abcd-12ab-34cd-56ef-1234567890ab
+ * $ pulumi import aws:kms/key:Key a 1234abcd-12ab-34cd-56ef-1234567890ab
  * ```
  * 
  */
@@ -285,6 +287,20 @@ public class Key extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * Identifies the external key that serves as key material for the KMS key in an external key store.
+     * 
+     */
+    @Export(name="xksKeyId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> xksKeyId;
+
+    /**
+     * @return Identifies the external key that serves as key material for the KMS key in an external key store.
+     * 
+     */
+    public Output<Optional<String>> xksKeyId() {
+        return Codegen.optional(this.xksKeyId);
+    }
 
     /**
      *
@@ -318,9 +334,6 @@ public class Key extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

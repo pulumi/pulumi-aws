@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,12 +32,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewTaskSet(ctx, "example", &ecs.TaskSetArgs{
-//				Service:        pulumi.Any(aws_ecs_service.Example.Id),
-//				Cluster:        pulumi.Any(aws_ecs_cluster.Example.Id),
-//				TaskDefinition: pulumi.Any(aws_ecs_task_definition.Example.Arn),
+//				Service:        pulumi.Any(exampleAwsEcsService.Id),
+//				Cluster:        pulumi.Any(exampleAwsEcsCluster.Id),
+//				TaskDefinition: pulumi.Any(exampleAwsEcsTaskDefinition.Arn),
 //				LoadBalancers: ecs.TaskSetLoadBalancerArray{
 //					&ecs.TaskSetLoadBalancerArgs{
-//						TargetGroupArn: pulumi.Any(aws_lb_target_group.Example.Arn),
+//						TargetGroupArn: pulumi.Any(exampleAwsLbTargetGroup.Arn),
 //						ContainerName:  pulumi.String("mongo"),
 //						ContainerPort:  pulumi.Int(8080),
 //					},
@@ -50,15 +51,46 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Ignoring Changes to Scale
+//
+// You can utilize the generic resource lifecycle configuration block with `ignoreChanges` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecs.NewTaskSet(ctx, "example", &ecs.TaskSetArgs{
+//				Scale: &ecs.TaskSetScaleArgs{
+//					Value: pulumi.Float64(50),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ECS Task Sets using the `task_set_id`, `service`, and `cluster` separated by commas (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ecs/taskSet:TaskSet example ecs-svc/7177320696926227436,arn:aws:ecs:us-west-2:123456789101:service/example/example-1234567890,arn:aws:ecs:us-west-2:123456789101:cluster/example
-//
+// $ pulumi import aws:ecs/taskSet:TaskSet example ecs-svc/7177320696926227436,arn:aws:ecs:us-west-2:123456789101:service/example/example-1234567890,arn:aws:ecs:us-west-2:123456789101:cluster/example
 // ```
 type TaskSet struct {
 	pulumi.CustomResourceState
@@ -125,10 +157,6 @@ func NewTaskSet(ctx *pulumi.Context,
 	if args.TaskDefinition == nil {
 		return nil, errors.New("invalid value for required argument 'TaskDefinition'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TaskSet
 	err := ctx.RegisterResource("aws:ecs/taskSet:TaskSet", name, args, &resource, opts...)

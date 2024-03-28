@@ -514,15 +514,13 @@ class Stack(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.appstream.Stack("example",
-            application_settings=aws.appstream.StackApplicationSettingsArgs(
-                enabled=True,
-                settings_group="SettingsGroup",
-            ),
+            name="stack name",
             description="stack description",
             display_name="stack display name",
             feedback_url="http://your-domain/feedback",
@@ -530,9 +528,6 @@ class Stack(pulumi.CustomResource):
             storage_connectors=[aws.appstream.StackStorageConnectorArgs(
                 connector_type="HOMEFOLDERS",
             )],
-            tags={
-                "TagName": "TagValue",
-            },
             user_settings=[
                 aws.appstream.StackUserSettingArgs(
                     action="CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
@@ -562,15 +557,23 @@ class Stack(pulumi.CustomResource):
                     action="PRINTING_TO_LOCAL_DEVICE",
                     permission="ENABLED",
                 ),
-            ])
+            ],
+            application_settings=aws.appstream.StackApplicationSettingsArgs(
+                enabled=True,
+                settings_group="SettingsGroup",
+            ),
+            tags={
+                "TagName": "TagValue",
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appstream_stack` using the id. For example:
 
         ```sh
-         $ pulumi import aws:appstream/stack:Stack example stackID
+        $ pulumi import aws:appstream/stack:Stack example stackID
         ```
 
         :param str resource_name: The name of the resource.
@@ -606,15 +609,13 @@ class Stack(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.appstream.Stack("example",
-            application_settings=aws.appstream.StackApplicationSettingsArgs(
-                enabled=True,
-                settings_group="SettingsGroup",
-            ),
+            name="stack name",
             description="stack description",
             display_name="stack display name",
             feedback_url="http://your-domain/feedback",
@@ -622,9 +623,6 @@ class Stack(pulumi.CustomResource):
             storage_connectors=[aws.appstream.StackStorageConnectorArgs(
                 connector_type="HOMEFOLDERS",
             )],
-            tags={
-                "TagName": "TagValue",
-            },
             user_settings=[
                 aws.appstream.StackUserSettingArgs(
                     action="CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
@@ -654,15 +652,23 @@ class Stack(pulumi.CustomResource):
                     action="PRINTING_TO_LOCAL_DEVICE",
                     permission="ENABLED",
                 ),
-            ])
+            ],
+            application_settings=aws.appstream.StackApplicationSettingsArgs(
+                enabled=True,
+                settings_group="SettingsGroup",
+            ),
+            tags={
+                "TagName": "TagValue",
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appstream_stack` using the id. For example:
 
         ```sh
-         $ pulumi import aws:appstream/stack:Stack example stackID
+        $ pulumi import aws:appstream/stack:Stack example stackID
         ```
 
         :param str resource_name: The name of the resource.
@@ -716,8 +722,6 @@ class Stack(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Stack, __self__).__init__(
             'aws:appstream/stack:Stack',
             resource_name,

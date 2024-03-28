@@ -15,8 +15,10 @@ import (
 // Provides an Amazon Managed Grafana workspace resource.
 //
 // ## Example Usage
+//
 // ### Basic configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,14 +35,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Sid":    "",
-//						"Principal": map[string]interface{}{
-//							"Service": "grafana.amazonaws.com",
+//						"action": "sts:AssumeRole",
+//						"effect": "Allow",
+//						"sid":    "",
+//						"principal": map[string]interface{}{
+//							"service": "grafana.amazonaws.com",
 //						},
 //					},
 //				},
@@ -50,6 +52,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			assume, err := iam.NewRole(ctx, "assume", &iam.RoleArgs{
+//				Name:             pulumi.String("grafana-assume"),
 //				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -71,15 +74,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Grafana Workspace using the workspace's `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
-//
+// $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
 // ```
 type Workspace struct {
 	pulumi.CustomResourceState
@@ -145,10 +147,6 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args.PermissionType == nil {
 		return nil, errors.New("invalid value for required argument 'PermissionType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workspace
 	err := ctx.RegisterResource("aws:grafana/workspace:Workspace", name, args, &resource, opts...)

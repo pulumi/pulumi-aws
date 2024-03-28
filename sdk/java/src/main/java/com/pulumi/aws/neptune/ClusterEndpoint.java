@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides an Neptune Cluster Endpoint Resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,7 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ClusterEndpoint(&#34;example&#34;, ClusterEndpointArgs.builder()        
- *             .clusterIdentifier(aws_neptune_cluster.test().cluster_identifier())
+ *             .clusterIdentifier(test.clusterIdentifier())
  *             .clusterEndpointIdentifier(&#34;example&#34;)
  *             .endpointType(&#34;READER&#34;)
  *             .build());
@@ -50,13 +52,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_neptune_cluster_endpoint` using the `cluster-identifier:endpoint-identfier`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
+ * $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
  * ```
  * 
  */
@@ -225,9 +228,6 @@ public class ClusterEndpoint extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

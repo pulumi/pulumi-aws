@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,7 +28,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mediaconvert.NewQueue(ctx, "test", nil)
+//			_, err := mediaconvert.NewQueue(ctx, "test", &mediaconvert.QueueArgs{
+//				Name: pulumi.String("tf-test-queue"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -36,15 +39,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Media Convert Queue using the queue name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
-//
+// $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
 // ```
 type Queue struct {
 	pulumi.CustomResourceState
@@ -76,10 +78,6 @@ func NewQueue(ctx *pulumi.Context,
 		args = &QueueArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Queue
 	err := ctx.RegisterResource("aws:mediaconvert/queue:Queue", name, args, &resource, opts...)

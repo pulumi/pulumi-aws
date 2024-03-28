@@ -7,6 +7,7 @@ import com.pulumi.aws.appmesh.outputs.GetRouteSpecHttp2RouteMatchHeader;
 import com.pulumi.aws.appmesh.outputs.GetRouteSpecHttp2RouteMatchPath;
 import com.pulumi.aws.appmesh.outputs.GetRouteSpecHttp2RouteMatchQueryParameter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -75,7 +76,10 @@ public final class GetRouteSpecHttp2RouteMatch {
 
         @CustomType.Setter
         public Builder headers(List<GetRouteSpecHttp2RouteMatchHeader> headers) {
-            this.headers = Objects.requireNonNull(headers);
+            if (headers == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttp2RouteMatch", "headers");
+            }
+            this.headers = headers;
             return this;
         }
         public Builder headers(GetRouteSpecHttp2RouteMatchHeader... headers) {
@@ -83,12 +87,18 @@ public final class GetRouteSpecHttp2RouteMatch {
         }
         @CustomType.Setter
         public Builder method(String method) {
-            this.method = Objects.requireNonNull(method);
+            if (method == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttp2RouteMatch", "method");
+            }
+            this.method = method;
             return this;
         }
         @CustomType.Setter
         public Builder paths(List<GetRouteSpecHttp2RouteMatchPath> paths) {
-            this.paths = Objects.requireNonNull(paths);
+            if (paths == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttp2RouteMatch", "paths");
+            }
+            this.paths = paths;
             return this;
         }
         public Builder paths(GetRouteSpecHttp2RouteMatchPath... paths) {
@@ -96,17 +106,26 @@ public final class GetRouteSpecHttp2RouteMatch {
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttp2RouteMatch", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(String prefix) {
-            this.prefix = Objects.requireNonNull(prefix);
+            if (prefix == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttp2RouteMatch", "prefix");
+            }
+            this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder queryParameters(List<GetRouteSpecHttp2RouteMatchQueryParameter> queryParameters) {
-            this.queryParameters = Objects.requireNonNull(queryParameters);
+            if (queryParameters == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttp2RouteMatch", "queryParameters");
+            }
+            this.queryParameters = queryParameters;
             return this;
         }
         public Builder queryParameters(GetRouteSpecHttp2RouteMatchQueryParameter... queryParameters) {
@@ -114,19 +133,22 @@ public final class GetRouteSpecHttp2RouteMatch {
         }
         @CustomType.Setter
         public Builder scheme(String scheme) {
-            this.scheme = Objects.requireNonNull(scheme);
+            if (scheme == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttp2RouteMatch", "scheme");
+            }
+            this.scheme = scheme;
             return this;
         }
         public GetRouteSpecHttp2RouteMatch build() {
-            final var o = new GetRouteSpecHttp2RouteMatch();
-            o.headers = headers;
-            o.method = method;
-            o.paths = paths;
-            o.port = port;
-            o.prefix = prefix;
-            o.queryParameters = queryParameters;
-            o.scheme = scheme;
-            return o;
+            final var _resultValue = new GetRouteSpecHttp2RouteMatch();
+            _resultValue.headers = headers;
+            _resultValue.method = method;
+            _resultValue.paths = paths;
+            _resultValue.port = port;
+            _resultValue.prefix = prefix;
+            _resultValue.queryParameters = queryParameters;
+            _resultValue.scheme = scheme;
+            return _resultValue;
         }
     }
 }

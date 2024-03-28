@@ -14,10 +14,9 @@ namespace Pulumi.Aws.NetworkManager
         /// <summary>
         /// Retrieve information about a site.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,14 +27,13 @@ namespace Pulumi.Aws.NetworkManager
         /// {
         ///     var example = Aws.NetworkManager.GetSite.Invoke(new()
         ///     {
-        ///         GlobalNetworkId = @var.Global_network_id,
-        ///         SiteId = @var.Site_id,
+        ///         GlobalNetworkId = globalNetworkId,
+        ///         SiteId = siteId,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSiteResult> InvokeAsync(GetSiteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("aws:networkmanager/getSite:getSite", args ?? new GetSiteArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Aws.NetworkManager
         /// <summary>
         /// Retrieve information about a site.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -57,14 +54,13 @@ namespace Pulumi.Aws.NetworkManager
         /// {
         ///     var example = Aws.NetworkManager.GetSite.Invoke(new()
         ///     {
-        ///         GlobalNetworkId = @var.Global_network_id,
-        ///         SiteId = @var.Site_id,
+        ///         GlobalNetworkId = globalNetworkId,
+        ///         SiteId = siteId,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSiteResult>("aws:networkmanager/getSite:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());

@@ -273,13 +273,15 @@ class DataIntegration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.appintegrations.DataIntegration("example",
+            name="example",
             description="example",
-            kms_key=aws_kms_key["test"]["arn"],
+            kms_key=test["arn"],
             source_uri="Salesforce://AppFlow/example",
             schedule_config=aws.appintegrations.DataIntegrationScheduleConfigArgs(
                 first_execution_from="1439788442681",
@@ -290,13 +292,14 @@ class DataIntegration(pulumi.CustomResource):
                 "Key1": "Value1",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon AppIntegrations Data Integrations using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:appintegrations/dataIntegration:DataIntegration example 12345678-1234-1234-1234-123456789123
+        $ pulumi import aws:appintegrations/dataIntegration:DataIntegration example 12345678-1234-1234-1234-123456789123
         ```
 
         :param str resource_name: The name of the resource.
@@ -319,13 +322,15 @@ class DataIntegration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.appintegrations.DataIntegration("example",
+            name="example",
             description="example",
-            kms_key=aws_kms_key["test"]["arn"],
+            kms_key=test["arn"],
             source_uri="Salesforce://AppFlow/example",
             schedule_config=aws.appintegrations.DataIntegrationScheduleConfigArgs(
                 first_execution_from="1439788442681",
@@ -336,13 +341,14 @@ class DataIntegration(pulumi.CustomResource):
                 "Key1": "Value1",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon AppIntegrations Data Integrations using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:appintegrations/dataIntegration:DataIntegration example 12345678-1234-1234-1234-123456789123
+        $ pulumi import aws:appintegrations/dataIntegration:DataIntegration example 12345678-1234-1234-1234-123456789123
         ```
 
         :param str resource_name: The name of the resource.
@@ -389,8 +395,6 @@ class DataIntegration(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(DataIntegration, __self__).__init__(
             'aws:appintegrations/dataIntegration:DataIntegration',
             resource_name,

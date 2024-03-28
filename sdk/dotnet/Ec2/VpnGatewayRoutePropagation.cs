@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,12 +29,13 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.VpnGatewayRoutePropagation("example", new()
     ///     {
-    ///         VpnGatewayId = aws_vpn_gateway.Example.Id,
-    ///         RouteTableId = aws_route_table.Example.Id,
+    ///         VpnGatewayId = exampleAwsVpnGateway.Id,
+    ///         RouteTableId = exampleAwsRouteTable.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation")]
     public partial class VpnGatewayRoutePropagation : global::Pulumi.CustomResource

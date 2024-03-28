@@ -14,8 +14,10 @@ import (
 // Resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration.
 //
 // ## Example Usage
+//
 // ### Basic Usage - Logging to CloudWatch
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,14 +31,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
+//			example, err := cloudwatch.NewLogGroup(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ivschat.NewLoggingConfiguration(ctx, "exampleLoggingConfiguration", &ivschat.LoggingConfigurationArgs{
+//			_, err = ivschat.NewLoggingConfiguration(ctx, "example", &ivschat.LoggingConfigurationArgs{
 //				DestinationConfiguration: &ivschat.LoggingConfigurationDestinationConfigurationArgs{
 //					CloudwatchLogs: &ivschat.LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs{
-//						LogGroupName: exampleLogGroup.Name,
+//						LogGroupName: example.Name,
 //					},
 //				},
 //			})
@@ -48,8 +50,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Basic Usage - Logging to Kinesis Firehose with Extended S3
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -65,7 +70,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
 //				BucketPrefix: pulumi.String("tf-ivschat-logging-bucket"),
 //			})
 //			if err != nil {
@@ -92,13 +97,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("firehose_example_role"),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFirehoseDeliveryStream, err := kinesis.NewFirehoseDeliveryStream(ctx, "exampleFirehoseDeliveryStream", &kinesis.FirehoseDeliveryStreamArgs{
+//			example, err := kinesis.NewFirehoseDeliveryStream(ctx, "example", &kinesis.FirehoseDeliveryStreamArgs{
+//				Name:        pulumi.String("pulumi-kinesis-firehose-extended-s3-example-stream"),
 //				Destination: pulumi.String("extended_s3"),
 //				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
 //					RoleArn:   exampleRole.Arn,
@@ -111,17 +118,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
 //				Bucket: exampleBucketV2.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ivschat.NewLoggingConfiguration(ctx, "exampleLoggingConfiguration", &ivschat.LoggingConfigurationArgs{
+//			_, err = ivschat.NewLoggingConfiguration(ctx, "example", &ivschat.LoggingConfigurationArgs{
 //				DestinationConfiguration: &ivschat.LoggingConfigurationDestinationConfigurationArgs{
 //					Firehose: &ivschat.LoggingConfigurationDestinationConfigurationFirehoseArgs{
-//						DeliveryStreamName: exampleFirehoseDeliveryStream.Name,
+//						DeliveryStreamName: example.Name,
 //					},
 //				},
 //			})
@@ -133,15 +140,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ivschat/loggingConfiguration:LoggingConfiguration example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
-//
+// $ pulumi import aws:ivschat/loggingConfiguration:LoggingConfiguration example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
 // ```
 type LoggingConfiguration struct {
 	pulumi.CustomResourceState
@@ -169,10 +175,6 @@ func NewLoggingConfiguration(ctx *pulumi.Context,
 		args = &LoggingConfigurationArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LoggingConfiguration
 	err := ctx.RegisterResource("aws:ivschat/loggingConfiguration:LoggingConfiguration", name, args, &resource, opts...)

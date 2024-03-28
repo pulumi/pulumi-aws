@@ -73,16 +73,19 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimp
 
         @CustomType.Setter
         public Builder comparator(@Nullable String comparator) {
+
             this.comparator = comparator;
             return this;
         }
         @CustomType.Setter
         public Builder key(@Nullable String key) {
+
             this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder values(@Nullable List<String> values) {
+
             this.values = values;
             return this;
         }
@@ -90,11 +93,11 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimp
             return values(List.of(values));
         }
         public ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion build() {
-            final var o = new ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion();
-            o.comparator = comparator;
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion();
+            _resultValue.comparator = comparator;
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

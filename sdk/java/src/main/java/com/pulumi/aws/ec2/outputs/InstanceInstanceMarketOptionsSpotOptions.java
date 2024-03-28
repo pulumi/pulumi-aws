@@ -86,31 +86,35 @@ public final class InstanceInstanceMarketOptionsSpotOptions {
 
         @CustomType.Setter
         public Builder instanceInterruptionBehavior(@Nullable String instanceInterruptionBehavior) {
+
             this.instanceInterruptionBehavior = instanceInterruptionBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder maxPrice(@Nullable String maxPrice) {
+
             this.maxPrice = maxPrice;
             return this;
         }
         @CustomType.Setter
         public Builder spotInstanceType(@Nullable String spotInstanceType) {
+
             this.spotInstanceType = spotInstanceType;
             return this;
         }
         @CustomType.Setter
         public Builder validUntil(@Nullable String validUntil) {
+
             this.validUntil = validUntil;
             return this;
         }
         public InstanceInstanceMarketOptionsSpotOptions build() {
-            final var o = new InstanceInstanceMarketOptionsSpotOptions();
-            o.instanceInterruptionBehavior = instanceInterruptionBehavior;
-            o.maxPrice = maxPrice;
-            o.spotInstanceType = spotInstanceType;
-            o.validUntil = validUntil;
-            return o;
+            final var _resultValue = new InstanceInstanceMarketOptionsSpotOptions();
+            _resultValue.instanceInterruptionBehavior = instanceInterruptionBehavior;
+            _resultValue.maxPrice = maxPrice;
+            _resultValue.spotInstanceType = spotInstanceType;
+            _resultValue.validUntil = validUntil;
+            return _resultValue;
         }
     }
 }

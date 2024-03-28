@@ -13,8 +13,10 @@ namespace Pulumi.Aws.VpcLattice
     /// Resource for managing an AWS VPC Lattice Target Group.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,10 +27,11 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.TargetGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "INSTANCE",
     ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
     ///         {
-    ///             VpcIdentifier = aws_vpc.Example.Id,
+    ///             VpcIdentifier = exampleAwsVpc.Id,
     ///             Port = 443,
     ///             Protocol = "HTTPS",
     ///         },
@@ -36,8 +39,11 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Basic usage with Health check
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,10 +54,11 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.TargetGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "IP",
     ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
     ///         {
-    ///             VpcIdentifier = aws_vpc.Example.Id,
+    ///             VpcIdentifier = exampleAwsVpc.Id,
     ///             IpAddressType = "IPV4",
     ///             Port = 443,
     ///             Protocol = "HTTPS",
@@ -77,10 +84,13 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### ALB
     /// 
     /// If the type is ALB, `health_check` block is not supported.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -91,10 +101,11 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.TargetGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "ALB",
     ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
     ///         {
-    ///             VpcIdentifier = aws_vpc.Example.Id,
+    ///             VpcIdentifier = exampleAwsVpc.Id,
     ///             Port = 443,
     ///             Protocol = "HTTPS",
     ///             ProtocolVersion = "HTTP1",
@@ -103,10 +114,13 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Lambda
     /// 
     /// If the type is Lambda, `config` block is not supported.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -117,18 +131,20 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.TargetGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "LAMBDA",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import VPC Lattice Target Group using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:vpclattice/targetGroup:TargetGroup example tg-0c11d4dc16ed96bdb
+    /// $ pulumi import aws:vpclattice/targetGroup:TargetGroup example tg-0c11d4dc16ed96bdb
     /// ```
     /// </summary>
     [AwsResourceType("aws:vpclattice/targetGroup:TargetGroup")]
@@ -201,10 +217,6 @@ namespace Pulumi.Aws.VpcLattice
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -314,11 +326,7 @@ namespace Pulumi.Aws.VpcLattice
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

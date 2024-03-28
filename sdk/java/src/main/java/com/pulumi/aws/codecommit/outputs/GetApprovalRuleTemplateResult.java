@@ -4,6 +4,7 @@
 package com.pulumi.aws.codecommit.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -146,61 +147,88 @@ public final class GetApprovalRuleTemplateResult {
 
         @CustomType.Setter
         public Builder approvalRuleTemplateId(String approvalRuleTemplateId) {
-            this.approvalRuleTemplateId = Objects.requireNonNull(approvalRuleTemplateId);
+            if (approvalRuleTemplateId == null) {
+              throw new MissingRequiredPropertyException("GetApprovalRuleTemplateResult", "approvalRuleTemplateId");
+            }
+            this.approvalRuleTemplateId = approvalRuleTemplateId;
             return this;
         }
         @CustomType.Setter
         public Builder content(String content) {
-            this.content = Objects.requireNonNull(content);
+            if (content == null) {
+              throw new MissingRequiredPropertyException("GetApprovalRuleTemplateResult", "content");
+            }
+            this.content = content;
             return this;
         }
         @CustomType.Setter
         public Builder creationDate(String creationDate) {
-            this.creationDate = Objects.requireNonNull(creationDate);
+            if (creationDate == null) {
+              throw new MissingRequiredPropertyException("GetApprovalRuleTemplateResult", "creationDate");
+            }
+            this.creationDate = creationDate;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetApprovalRuleTemplateResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetApprovalRuleTemplateResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder lastModifiedDate(String lastModifiedDate) {
-            this.lastModifiedDate = Objects.requireNonNull(lastModifiedDate);
+            if (lastModifiedDate == null) {
+              throw new MissingRequiredPropertyException("GetApprovalRuleTemplateResult", "lastModifiedDate");
+            }
+            this.lastModifiedDate = lastModifiedDate;
             return this;
         }
         @CustomType.Setter
         public Builder lastModifiedUser(String lastModifiedUser) {
-            this.lastModifiedUser = Objects.requireNonNull(lastModifiedUser);
+            if (lastModifiedUser == null) {
+              throw new MissingRequiredPropertyException("GetApprovalRuleTemplateResult", "lastModifiedUser");
+            }
+            this.lastModifiedUser = lastModifiedUser;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetApprovalRuleTemplateResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder ruleContentSha256(String ruleContentSha256) {
-            this.ruleContentSha256 = Objects.requireNonNull(ruleContentSha256);
+            if (ruleContentSha256 == null) {
+              throw new MissingRequiredPropertyException("GetApprovalRuleTemplateResult", "ruleContentSha256");
+            }
+            this.ruleContentSha256 = ruleContentSha256;
             return this;
         }
         public GetApprovalRuleTemplateResult build() {
-            final var o = new GetApprovalRuleTemplateResult();
-            o.approvalRuleTemplateId = approvalRuleTemplateId;
-            o.content = content;
-            o.creationDate = creationDate;
-            o.description = description;
-            o.id = id;
-            o.lastModifiedDate = lastModifiedDate;
-            o.lastModifiedUser = lastModifiedUser;
-            o.name = name;
-            o.ruleContentSha256 = ruleContentSha256;
-            return o;
+            final var _resultValue = new GetApprovalRuleTemplateResult();
+            _resultValue.approvalRuleTemplateId = approvalRuleTemplateId;
+            _resultValue.content = content;
+            _resultValue.creationDate = creationDate;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.lastModifiedDate = lastModifiedDate;
+            _resultValue.lastModifiedUser = lastModifiedUser;
+            _resultValue.name = name;
+            _resultValue.ruleContentSha256 = ruleContentSha256;
+            return _resultValue;
         }
     }
 }

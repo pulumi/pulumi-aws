@@ -16,6 +16,7 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,8 +32,7 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     ///     var bucket = new Aws.S3.BucketV2("bucket");
     /// 
-    ///     // ... other configuration
-    ///     var myIPSet = new Aws.S3.BucketObjectv2("myIPSet", new()
+    ///     var myIPSet = new Aws.S3.BucketObjectv2("MyIPSet", new()
     ///     {
     ///         Content = @"10.0.0.0/8
     /// ",
@@ -51,9 +51,10 @@ namespace Pulumi.Aws.GuardDuty
     ///             var key = values.Item2;
     ///             return $"https://s3.amazonaws.com/{bucket}/{key}";
     ///         }),
+    ///         Name = "MyIPSet",
     ///     });
     /// 
-    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new()
+    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucket_acl", new()
     ///     {
     ///         Bucket = bucket.Id,
     ///         Acl = "private",
@@ -61,13 +62,14 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import GuardDuty IPSet using the primary GuardDuty detector ID and IPSet ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
+    /// $ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:guardduty/iPSet:IPSet")]
@@ -144,10 +146,6 @@ namespace Pulumi.Aws.GuardDuty
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -279,11 +277,7 @@ namespace Pulumi.Aws.GuardDuty
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public IPSetState()

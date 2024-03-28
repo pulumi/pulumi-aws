@@ -14,6 +14,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -26,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultCluster, err := redshift.NewCluster(ctx, "defaultCluster", &redshift.ClusterArgs{
+//			_, err := redshift.NewCluster(ctx, "default", &redshift.ClusterArgs{
 //				ClusterIdentifier: pulumi.String("tf-redshift-cluster"),
 //				DatabaseName:      pulumi.String("mydb"),
 //				MasterUsername:    pulumi.String("foo"),
@@ -37,7 +38,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			defaultSnapshotSchedule, err := redshift.NewSnapshotSchedule(ctx, "defaultSnapshotSchedule", &redshift.SnapshotScheduleArgs{
+//			defaultSnapshotSchedule, err := redshift.NewSnapshotSchedule(ctx, "default", &redshift.SnapshotScheduleArgs{
 //				Identifier: pulumi.String("tf-redshift-snapshot-schedule"),
 //				Definitions: pulumi.StringArray{
 //					pulumi.String("rate(12 hours)"),
@@ -46,8 +47,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = redshift.NewSnapshotScheduleAssociation(ctx, "defaultSnapshotScheduleAssociation", &redshift.SnapshotScheduleAssociationArgs{
-//				ClusterIdentifier:  defaultCluster.ID(),
+//			_, err = redshift.NewSnapshotScheduleAssociation(ctx, "default", &redshift.SnapshotScheduleAssociationArgs{
+//				ClusterIdentifier:  _default.ID(),
 //				ScheduleIdentifier: defaultSnapshotSchedule.ID(),
 //			})
 //			if err != nil {
@@ -58,15 +59,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift Snapshot Schedule Association using the `<cluster-identifier>/<schedule-identifier>`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
-//
+// $ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
 // ```
 type SnapshotScheduleAssociation struct {
 	pulumi.CustomResourceState

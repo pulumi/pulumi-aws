@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,10 +25,11 @@ namespace Pulumi.Aws.DocDB
     /// {
     ///     var @default = new Aws.DocDB.SubnetGroup("default", new()
     ///     {
+    ///         Name = "main",
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Frontend.Id,
-    ///             aws_subnet.Backend.Id,
+    ///             frontend.Id,
+    ///             backend.Id,
     ///         },
     ///         Tags = 
     ///         {
@@ -37,13 +39,14 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DocumentDB Subnet groups using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group
+    /// $ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group
     /// ```
     /// </summary>
     [AwsResourceType("aws:docdb/subnetGroup:SubnetGroup")]
@@ -114,10 +117,6 @@ namespace Pulumi.Aws.DocDB
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -250,11 +249,7 @@ namespace Pulumi.Aws.DocDB
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public SubnetGroupState()

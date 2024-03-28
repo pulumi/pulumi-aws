@@ -6,6 +6,7 @@ package com.pulumi.aws.msk.outputs;
 import com.pulumi.aws.msk.outputs.ClusterBrokerNodeGroupInfoConnectivityInfo;
 import com.pulumi.aws.msk.outputs.ClusterBrokerNodeGroupInfoStorageInfo;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -117,12 +118,16 @@ public final class ClusterBrokerNodeGroupInfo {
 
         @CustomType.Setter
         public Builder azDistribution(@Nullable String azDistribution) {
+
             this.azDistribution = azDistribution;
             return this;
         }
         @CustomType.Setter
         public Builder clientSubnets(List<String> clientSubnets) {
-            this.clientSubnets = Objects.requireNonNull(clientSubnets);
+            if (clientSubnets == null) {
+              throw new MissingRequiredPropertyException("ClusterBrokerNodeGroupInfo", "clientSubnets");
+            }
+            this.clientSubnets = clientSubnets;
             return this;
         }
         public Builder clientSubnets(String... clientSubnets) {
@@ -130,17 +135,24 @@ public final class ClusterBrokerNodeGroupInfo {
         }
         @CustomType.Setter
         public Builder connectivityInfo(@Nullable ClusterBrokerNodeGroupInfoConnectivityInfo connectivityInfo) {
+
             this.connectivityInfo = connectivityInfo;
             return this;
         }
         @CustomType.Setter
         public Builder instanceType(String instanceType) {
-            this.instanceType = Objects.requireNonNull(instanceType);
+            if (instanceType == null) {
+              throw new MissingRequiredPropertyException("ClusterBrokerNodeGroupInfo", "instanceType");
+            }
+            this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroups(List<String> securityGroups) {
-            this.securityGroups = Objects.requireNonNull(securityGroups);
+            if (securityGroups == null) {
+              throw new MissingRequiredPropertyException("ClusterBrokerNodeGroupInfo", "securityGroups");
+            }
+            this.securityGroups = securityGroups;
             return this;
         }
         public Builder securityGroups(String... securityGroups) {
@@ -148,18 +160,19 @@ public final class ClusterBrokerNodeGroupInfo {
         }
         @CustomType.Setter
         public Builder storageInfo(@Nullable ClusterBrokerNodeGroupInfoStorageInfo storageInfo) {
+
             this.storageInfo = storageInfo;
             return this;
         }
         public ClusterBrokerNodeGroupInfo build() {
-            final var o = new ClusterBrokerNodeGroupInfo();
-            o.azDistribution = azDistribution;
-            o.clientSubnets = clientSubnets;
-            o.connectivityInfo = connectivityInfo;
-            o.instanceType = instanceType;
-            o.securityGroups = securityGroups;
-            o.storageInfo = storageInfo;
-            return o;
+            final var _resultValue = new ClusterBrokerNodeGroupInfo();
+            _resultValue.azDistribution = azDistribution;
+            _resultValue.clientSubnets = clientSubnets;
+            _resultValue.connectivityInfo = connectivityInfo;
+            _resultValue.instanceType = instanceType;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.storageInfo = storageInfo;
+            return _resultValue;
         }
     }
 }

@@ -18,7 +18,10 @@ import javax.annotation.Nullable;
  * Provides a SageMaker Device resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Device(&#34;example&#34;, DeviceArgs.builder()        
- *             .deviceFleetName(aws_sagemaker_device_fleet.example().device_fleet_name())
+ *             .deviceFleetName(exampleAwsSagemakerDeviceFleet.deviceFleetName())
  *             .device(DeviceDeviceArgs.builder()
  *                 .deviceName(&#34;example&#34;)
  *                 .build())
@@ -51,13 +54,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SageMaker Devices using the `device-fleet-name/device-name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sagemaker/device:Device example my-fleet/my-device
+ * $ pulumi import aws:sagemaker/device:Device example my-fleet/my-device
  * ```
  * 
  */

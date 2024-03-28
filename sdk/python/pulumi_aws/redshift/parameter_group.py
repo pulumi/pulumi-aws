@@ -254,11 +254,13 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         bar = aws.redshift.ParameterGroup("bar",
+            name="parameter-group-test",
             family="redshift-1.0",
             parameters=[
                 aws.redshift.ParameterGroupParameterArgs(
@@ -275,13 +277,14 @@ class ParameterGroup(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Parameter Groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test-pulumi
+        $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test-pulumi
         ```
 
         :param str resource_name: The name of the resource.
@@ -305,11 +308,13 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         bar = aws.redshift.ParameterGroup("bar",
+            name="parameter-group-test",
             family="redshift-1.0",
             parameters=[
                 aws.redshift.ParameterGroupParameterArgs(
@@ -326,13 +331,14 @@ class ParameterGroup(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Parameter Groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test-pulumi
+        $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test-pulumi
         ```
 
         :param str resource_name: The name of the resource.
@@ -375,8 +381,6 @@ class ParameterGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ParameterGroup, __self__).__init__(
             'aws:redshift/parameterGroup:ParameterGroup',
             resource_name,

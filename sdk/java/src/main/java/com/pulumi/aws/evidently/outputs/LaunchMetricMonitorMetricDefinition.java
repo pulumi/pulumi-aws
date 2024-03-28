@@ -4,6 +4,7 @@
 package com.pulumi.aws.evidently.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -100,37 +101,48 @@ public final class LaunchMetricMonitorMetricDefinition {
 
         @CustomType.Setter
         public Builder entityIdKey(String entityIdKey) {
-            this.entityIdKey = Objects.requireNonNull(entityIdKey);
+            if (entityIdKey == null) {
+              throw new MissingRequiredPropertyException("LaunchMetricMonitorMetricDefinition", "entityIdKey");
+            }
+            this.entityIdKey = entityIdKey;
             return this;
         }
         @CustomType.Setter
         public Builder eventPattern(@Nullable String eventPattern) {
+
             this.eventPattern = eventPattern;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("LaunchMetricMonitorMetricDefinition", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder unitLabel(@Nullable String unitLabel) {
+
             this.unitLabel = unitLabel;
             return this;
         }
         @CustomType.Setter
         public Builder valueKey(String valueKey) {
-            this.valueKey = Objects.requireNonNull(valueKey);
+            if (valueKey == null) {
+              throw new MissingRequiredPropertyException("LaunchMetricMonitorMetricDefinition", "valueKey");
+            }
+            this.valueKey = valueKey;
             return this;
         }
         public LaunchMetricMonitorMetricDefinition build() {
-            final var o = new LaunchMetricMonitorMetricDefinition();
-            o.entityIdKey = entityIdKey;
-            o.eventPattern = eventPattern;
-            o.name = name;
-            o.unitLabel = unitLabel;
-            o.valueKey = valueKey;
-            return o;
+            final var _resultValue = new LaunchMetricMonitorMetricDefinition();
+            _resultValue.entityIdKey = entityIdKey;
+            _resultValue.eventPattern = eventPattern;
+            _resultValue.name = name;
+            _resultValue.unitLabel = unitLabel;
+            _resultValue.valueKey = valueKey;
+            return _resultValue;
         }
     }
 }

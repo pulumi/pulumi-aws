@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +31,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTopic, err := sns.NewTopic(ctx, "exampleTopic", nil)
+//			example, err := sns.NewTopic(ctx, "example", &sns.TopicArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -58,8 +61,8 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = sns.NewDataProtectionPolicy(ctx, "exampleDataProtectionPolicy", &sns.DataProtectionPolicyArgs{
-//				Arn:    exampleTopic.Arn,
+//			_, err = sns.NewDataProtectionPolicy(ctx, "example", &sns.DataProtectionPolicyArgs{
+//				Arn:    example.Arn,
 //				Policy: pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -70,15 +73,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SNS Data Protection Topic Policy using the topic ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sns/dataProtectionPolicy:DataProtectionPolicy example arn:aws:sns:us-west-2:0123456789012:example
-//
+// $ pulumi import aws:sns/dataProtectionPolicy:DataProtectionPolicy example arn:aws:sns:us-west-2:0123456789012:example
 // ```
 type DataProtectionPolicy struct {
 	pulumi.CustomResourceState

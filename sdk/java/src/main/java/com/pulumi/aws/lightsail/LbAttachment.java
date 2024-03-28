@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Attaches a Lightsail Instance to a Lightsail Load Balancer.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,33 +54,36 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testLb = new Lb(&#34;testLb&#34;, LbArgs.builder()        
+ *         var test = new Lb(&#34;test&#34;, LbArgs.builder()        
+ *             .name(&#34;test-load-balancer&#34;)
  *             .healthCheckPath(&#34;/&#34;)
  *             .instancePort(&#34;80&#34;)
  *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
  *             .build());
  * 
  *         var testInstance = new Instance(&#34;testInstance&#34;, InstanceArgs.builder()        
+ *             .name(&#34;test-instance&#34;)
  *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
  *             .blueprintId(&#34;amazon_linux_2&#34;)
  *             .bundleId(&#34;nano_1_0&#34;)
  *             .build());
  * 
  *         var testLbAttachment = new LbAttachment(&#34;testLbAttachment&#34;, LbAttachmentArgs.builder()        
- *             .lbName(testLb.name())
+ *             .lbName(test.name())
  *             .instanceName(testInstance.name())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
+ * $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
  * ```
  * 
  */

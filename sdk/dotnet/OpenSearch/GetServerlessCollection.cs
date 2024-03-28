@@ -14,11 +14,11 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Data source for managing an AWS OpenSearch Serverless Collection.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +34,7 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServerlessCollectionResult> InvokeAsync(GetServerlessCollectionArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerlessCollectionResult>("aws:opensearch/getServerlessCollection:getServerlessCollection", args ?? new GetServerlessCollectionArgs(), options.WithDefaults());
@@ -43,11 +42,11 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Data source for managing an AWS OpenSearch Serverless Collection.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +62,7 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServerlessCollectionResult> Invoke(GetServerlessCollectionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessCollectionResult>("aws:opensearch/getServerlessCollection:getServerlessCollection", args ?? new GetServerlessCollectionInvokeArgs(), options.WithDefaults());
@@ -146,6 +144,10 @@ namespace Pulumi.Aws.OpenSearch
         public readonly string LastModifiedDate;
         public readonly string Name;
         /// <summary>
+        /// Indicates whether standby replicas should be used for a collection.
+        /// </summary>
+        public readonly string StandbyReplicas;
+        /// <summary>
         /// A map of tags to assign to the collection.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -174,6 +176,8 @@ namespace Pulumi.Aws.OpenSearch
 
             string name,
 
+            string standbyReplicas,
+
             ImmutableDictionary<string, string> tags,
 
             string type)
@@ -187,6 +191,7 @@ namespace Pulumi.Aws.OpenSearch
             KmsKeyArn = kmsKeyArn;
             LastModifiedDate = lastModifiedDate;
             Name = name;
+            StandbyReplicas = standbyReplicas;
             Tags = tags;
             Type = type;
         }

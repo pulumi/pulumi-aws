@@ -79,6 +79,21 @@ public final class ConfigurationProfileState extends com.pulumi.resources.Resour
     }
 
     /**
+     * The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+     * 
+     */
+    @Import(name="kmsKeyIdentifier")
+    private @Nullable Output<String> kmsKeyIdentifier;
+
+    /**
+     * @return The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+     * 
+     */
+    public Optional<Output<String>> kmsKeyIdentifier() {
+        return Optional.ofNullable(this.kmsKeyIdentifier);
+    }
+
+    /**
      * URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://&lt;Document_name&gt;` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://&lt;Parameter_name&gt;` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://&lt;bucket&gt;/&lt;objectKey&gt;`.
      * 
      */
@@ -198,6 +213,7 @@ public final class ConfigurationProfileState extends com.pulumi.resources.Resour
         this.arn = $.arn;
         this.configurationProfileId = $.configurationProfileId;
         this.description = $.description;
+        this.kmsKeyIdentifier = $.kmsKeyIdentifier;
         this.locationUri = $.locationUri;
         this.name = $.name;
         this.retrievalRoleArn = $.retrievalRoleArn;
@@ -307,6 +323,27 @@ public final class ConfigurationProfileState extends com.pulumi.resources.Resour
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param kmsKeyIdentifier The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyIdentifier(@Nullable Output<String> kmsKeyIdentifier) {
+            $.kmsKeyIdentifier = kmsKeyIdentifier;
+            return this;
+        }
+
+        /**
+         * @param kmsKeyIdentifier The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyIdentifier(String kmsKeyIdentifier) {
+            return kmsKeyIdentifier(Output.of(kmsKeyIdentifier));
         }
 
         /**

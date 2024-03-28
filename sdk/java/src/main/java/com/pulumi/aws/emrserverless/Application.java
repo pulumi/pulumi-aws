@@ -26,7 +26,10 @@ import javax.annotation.Nullable;
  * Manages an EMR Serverless Application.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,6 +52,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Application(&#34;example&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .releaseLabel(&#34;emr-6.6.0&#34;)
  *             .type(&#34;hive&#34;)
  *             .build());
@@ -56,7 +60,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Initial Capacity Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -82,24 +90,29 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Application(&#34;example&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .releaseLabel(&#34;emr-6.6.0&#34;)
+ *             .type(&#34;hive&#34;)
  *             .initialCapacities(ApplicationInitialCapacityArgs.builder()
+ *                 .initialCapacityType(&#34;HiveDriver&#34;)
  *                 .initialCapacityConfig(ApplicationInitialCapacityInitialCapacityConfigArgs.builder()
+ *                     .workerCount(1)
  *                     .workerConfiguration(ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs.builder()
  *                         .cpu(&#34;2 vCPU&#34;)
  *                         .memory(&#34;10 GB&#34;)
  *                         .build())
- *                     .workerCount(1)
  *                     .build())
- *                 .initialCapacityType(&#34;HiveDriver&#34;)
  *                 .build())
- *             .releaseLabel(&#34;emr-6.6.0&#34;)
- *             .type(&#34;hive&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Maximum Capacity Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -123,24 +136,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Application(&#34;example&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .releaseLabel(&#34;emr-6.6.0&#34;)
+ *             .type(&#34;hive&#34;)
  *             .maximumCapacity(ApplicationMaximumCapacityArgs.builder()
  *                 .cpu(&#34;2 vCPU&#34;)
  *                 .memory(&#34;10 GB&#34;)
  *                 .build())
- *             .releaseLabel(&#34;emr-6.6.0&#34;)
- *             .type(&#34;hive&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import EMR Severless applications using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:emrserverless/application:Application example id
+ * $ pulumi import aws:emrserverless/application:Application example id
  * ```
  * 
  */
@@ -365,9 +380,6 @@ public class Application extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

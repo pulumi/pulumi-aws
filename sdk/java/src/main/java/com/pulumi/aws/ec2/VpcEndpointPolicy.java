@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a VPC Endpoint Policy resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleVpcEndpointService = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
+ *         final var example = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
  *             .service(&#34;dynamodb&#34;)
  *             .build());
  * 
@@ -54,7 +56,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVpcEndpoint = new VpcEndpoint(&#34;exampleVpcEndpoint&#34;, VpcEndpointArgs.builder()        
- *             .serviceName(exampleVpcEndpointService.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
+ *             .serviceName(example.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
  *             .vpcId(exampleVpc.id())
  *             .build());
  * 
@@ -78,13 +80,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import VPC Endpoint Policies using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy example vpce-3ecf2a57
+ * $ pulumi import aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy example vpce-3ecf2a57
  * ```
  * 
  */

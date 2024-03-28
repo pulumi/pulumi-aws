@@ -14,24 +14,27 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const endpoint = new aws.sagemaker.Endpoint("endpoint", {
- *     endpointConfigName: aws_sagemaker_endpoint_configuration.ec.name,
+ * const e = new aws.sagemaker.Endpoint("e", {
+ *     name: "my-endpoint",
+ *     endpointConfigName: ec.name,
  *     tags: {
  *         Name: "foo",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import endpoints using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
+ * $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
  * ```
  */
 export class Endpoint extends pulumi.CustomResource {
@@ -121,8 +124,6 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }
 }

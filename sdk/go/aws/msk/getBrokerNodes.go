@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := msk.GetBrokerNodes(ctx, &msk.GetBrokerNodesArgs{
-//				ClusterArn: aws_msk_cluster.Example.Arn,
+//				ClusterArn: exampleAwsMskCluster.Arn,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetBrokerNodes(ctx *pulumi.Context, args *GetBrokerNodesArgs, opts ...pulumi.InvokeOption) (*GetBrokerNodesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBrokerNodesResult

@@ -29,6 +29,8 @@ public final class TaskTaskReportConfigReportOverrides {
     /**
      * @return Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
      * 
+     * &gt; **NOTE:** If any `report_overrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
+     * 
      */
     private @Nullable String verifiedOverride;
 
@@ -56,6 +58,8 @@ public final class TaskTaskReportConfigReportOverrides {
     }
     /**
      * @return Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+     * 
+     * &gt; **NOTE:** If any `report_overrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
      * 
      */
     public Optional<String> verifiedOverride() {
@@ -86,31 +90,35 @@ public final class TaskTaskReportConfigReportOverrides {
 
         @CustomType.Setter
         public Builder deletedOverride(@Nullable String deletedOverride) {
+
             this.deletedOverride = deletedOverride;
             return this;
         }
         @CustomType.Setter
         public Builder skippedOverride(@Nullable String skippedOverride) {
+
             this.skippedOverride = skippedOverride;
             return this;
         }
         @CustomType.Setter
         public Builder transferredOverride(@Nullable String transferredOverride) {
+
             this.transferredOverride = transferredOverride;
             return this;
         }
         @CustomType.Setter
         public Builder verifiedOverride(@Nullable String verifiedOverride) {
+
             this.verifiedOverride = verifiedOverride;
             return this;
         }
         public TaskTaskReportConfigReportOverrides build() {
-            final var o = new TaskTaskReportConfigReportOverrides();
-            o.deletedOverride = deletedOverride;
-            o.skippedOverride = skippedOverride;
-            o.transferredOverride = transferredOverride;
-            o.verifiedOverride = verifiedOverride;
-            return o;
+            final var _resultValue = new TaskTaskReportConfigReportOverrides();
+            _resultValue.deletedOverride = deletedOverride;
+            _resultValue.skippedOverride = skippedOverride;
+            _resultValue.transferredOverride = transferredOverride;
+            _resultValue.verifiedOverride = verifiedOverride;
+            return _resultValue;
         }
     }
 }

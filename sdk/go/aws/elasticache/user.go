@@ -17,6 +17,7 @@ import (
 // > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,13 +31,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticache.NewUser(ctx, "test", &elasticache.UserArgs{
+//				UserId:       pulumi.String("testUserId"),
+//				UserName:     pulumi.String("testUserName"),
 //				AccessString: pulumi.String("on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember"),
 //				Engine:       pulumi.String("REDIS"),
 //				Passwords: pulumi.StringArray{
 //					pulumi.String("password123456789"),
 //				},
-//				UserId:   pulumi.String("testUserId"),
-//				UserName: pulumi.String("testUserName"),
 //			})
 //			if err != nil {
 //				return err
@@ -46,7 +47,9 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,13 +63,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticache.NewUser(ctx, "test", &elasticache.UserArgs{
+//				UserId:       pulumi.String("testUserId"),
+//				UserName:     pulumi.String("testUserName"),
 //				AccessString: pulumi.String("on ~* +@all"),
+//				Engine:       pulumi.String("REDIS"),
 //				AuthenticationMode: &elasticache.UserAuthenticationModeArgs{
 //					Type: pulumi.String("iam"),
 //				},
-//				Engine:   pulumi.String("REDIS"),
-//				UserId:   pulumi.String("testUserId"),
-//				UserName: pulumi.String("testUserName"),
 //			})
 //			if err != nil {
 //				return err
@@ -76,7 +79,9 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -90,17 +95,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticache.NewUser(ctx, "test", &elasticache.UserArgs{
+//				UserId:       pulumi.String("testUserId"),
+//				UserName:     pulumi.String("testUserName"),
 //				AccessString: pulumi.String("on ~* +@all"),
+//				Engine:       pulumi.String("REDIS"),
 //				AuthenticationMode: &elasticache.UserAuthenticationModeArgs{
+//					Type: pulumi.String("password"),
 //					Passwords: pulumi.StringArray{
 //						pulumi.String("password1"),
 //						pulumi.String("password2"),
 //					},
-//					Type: pulumi.String("password"),
 //				},
-//				Engine:   pulumi.String("REDIS"),
-//				UserId:   pulumi.String("testUserId"),
-//				UserName: pulumi.String("testUserName"),
 //			})
 //			if err != nil {
 //				return err
@@ -110,15 +115,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ElastiCache users using the `user_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:elasticache/user:User my_user userId1
-//
+// $ pulumi import aws:elasticache/user:User my_user userId1
 // ```
 type User struct {
 	pulumi.CustomResourceState
@@ -171,7 +175,6 @@ func NewUser(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"passwords",
-		"tagsAll",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  *     arn: "arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getImageRecipe(args: GetImageRecipeArgs, opts?: pulumi.InvokeOptions): Promise<GetImageRecipeResult> {
 
@@ -107,6 +109,7 @@ export interface GetImageRecipeResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -115,6 +118,7 @@ export interface GetImageRecipeResult {
  *     arn: "arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getImageRecipeOutput(args: GetImageRecipeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageRecipeResult> {
     return pulumi.output(args).apply((a: any) => getImageRecipe(a, opts))

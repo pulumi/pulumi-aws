@@ -11,34 +11,39 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Workteam resource.
  *
  * ## Example Usage
+ *
  * ### Cognito Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.Workteam("example", {
  *     workteamName: "example",
- *     workforceName: aws_sagemaker_workforce.example.id,
+ *     workforceName: exampleAwsSagemakerWorkforce.id,
  *     description: "example",
  *     memberDefinitions: [{
  *         cognitoMemberDefinition: {
- *             clientId: aws_cognito_user_pool_client.example.id,
- *             userPool: aws_cognito_user_pool_domain.example.user_pool_id,
- *             userGroup: aws_cognito_user_group.example.id,
+ *             clientId: exampleAwsCognitoUserPoolClient.id,
+ *             userPool: exampleAwsCognitoUserPoolDomain.userPoolId,
+ *             userGroup: exampleAwsCognitoUserGroup.id,
  *         },
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Oidc Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.Workteam("example", {
  *     workteamName: "example",
- *     workforceName: aws_sagemaker_workforce.example.id,
+ *     workforceName: exampleAwsSagemakerWorkforce.id,
  *     description: "example",
  *     memberDefinitions: [{
  *         oidcMemberDefinition: {
@@ -47,13 +52,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SageMaker Workteams using the `workteam_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/workteam:Workteam example example
+ * $ pulumi import aws:sagemaker/workteam:Workteam example example
  * ```
  */
 export class Workteam extends pulumi.CustomResource {
@@ -170,8 +176,6 @@ export class Workteam extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Workteam.__pulumiType, name, resourceInputs, opts);
     }
 }

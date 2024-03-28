@@ -4,6 +4,7 @@
 package com.pulumi.aws.redshift.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -102,37 +103,44 @@ public final class ScheduledActionTargetActionResizeCluster {
 
         @CustomType.Setter
         public Builder classic(@Nullable Boolean classic) {
+
             this.classic = classic;
             return this;
         }
         @CustomType.Setter
         public Builder clusterIdentifier(String clusterIdentifier) {
-            this.clusterIdentifier = Objects.requireNonNull(clusterIdentifier);
+            if (clusterIdentifier == null) {
+              throw new MissingRequiredPropertyException("ScheduledActionTargetActionResizeCluster", "clusterIdentifier");
+            }
+            this.clusterIdentifier = clusterIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder clusterType(@Nullable String clusterType) {
+
             this.clusterType = clusterType;
             return this;
         }
         @CustomType.Setter
         public Builder nodeType(@Nullable String nodeType) {
+
             this.nodeType = nodeType;
             return this;
         }
         @CustomType.Setter
         public Builder numberOfNodes(@Nullable Integer numberOfNodes) {
+
             this.numberOfNodes = numberOfNodes;
             return this;
         }
         public ScheduledActionTargetActionResizeCluster build() {
-            final var o = new ScheduledActionTargetActionResizeCluster();
-            o.classic = classic;
-            o.clusterIdentifier = clusterIdentifier;
-            o.clusterType = clusterType;
-            o.nodeType = nodeType;
-            o.numberOfNodes = numberOfNodes;
-            return o;
+            final var _resultValue = new ScheduledActionTargetActionResizeCluster();
+            _resultValue.classic = classic;
+            _resultValue.clusterIdentifier = clusterIdentifier;
+            _resultValue.clusterType = clusterType;
+            _resultValue.nodeType = nodeType;
+            _resultValue.numberOfNodes = numberOfNodes;
+            return _resultValue;
         }
     }
 }

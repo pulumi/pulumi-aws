@@ -638,37 +638,42 @@ class Workspace(pulumi.CustomResource):
         Provides an Amazon Managed Grafana workspace resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        assume = aws.iam.Role("assume", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "grafana.amazonaws.com",
-                },
-            }],
-        }))
+        assume = aws.iam.Role("assume",
+            name="grafana-assume",
+            assume_role_policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "grafana.amazonaws.com",
+                    },
+                }],
+            }))
         example = aws.grafana.Workspace("example",
             account_access_type="CURRENT_ACCOUNT",
             authentication_providers=["SAML"],
             permission_type="SERVICE_MANAGED",
             role_arn=assume.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Grafana Workspace using the workspace's `id`. For example:
 
         ```sh
-         $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
+        $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
         ```
 
         :param str resource_name: The name of the resource.
@@ -702,37 +707,42 @@ class Workspace(pulumi.CustomResource):
         Provides an Amazon Managed Grafana workspace resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        assume = aws.iam.Role("assume", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "grafana.amazonaws.com",
-                },
-            }],
-        }))
+        assume = aws.iam.Role("assume",
+            name="grafana-assume",
+            assume_role_policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "grafana.amazonaws.com",
+                    },
+                }],
+            }))
         example = aws.grafana.Workspace("example",
             account_access_type="CURRENT_ACCOUNT",
             authentication_providers=["SAML"],
             permission_type="SERVICE_MANAGED",
             role_arn=assume.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Grafana Workspace using the workspace's `id`. For example:
 
         ```sh
-         $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
+        $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
         ```
 
         :param str resource_name: The name of the resource.
@@ -801,8 +811,6 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["saml_configuration_status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Workspace, __self__).__init__(
             'aws:grafana/workspace:Workspace',
             resource_name,

@@ -427,30 +427,33 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_security_group = aws.ec2.SecurityGroup("exampleSecurityGroup",
+        example = aws.ec2.SecurityGroup("example",
+            name="example",
             description="example",
-            vpc_id=aws_vpc["main"]["id"],
+            vpc_id=main["id"],
             tags={
                 "Name": "example",
             })
-        example_security_group_ingress_rule = aws.vpc.SecurityGroupIngressRule("exampleSecurityGroupIngressRule",
-            security_group_id=example_security_group.id,
+        example_security_group_ingress_rule = aws.vpc.SecurityGroupIngressRule("example",
+            security_group_id=example.id,
             cidr_ipv4="10.0.0.0/8",
             from_port=80,
             ip_protocol="tcp",
             to_port=80)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import security group ingress rules using the `security_group_rule_id`. For example:
 
         ```sh
-         $ pulumi import aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule example sgr-02108b27edd666983
+        $ pulumi import aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule example sgr-02108b27edd666983
         ```
 
         :param str resource_name: The name of the resource.
@@ -484,30 +487,33 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_security_group = aws.ec2.SecurityGroup("exampleSecurityGroup",
+        example = aws.ec2.SecurityGroup("example",
+            name="example",
             description="example",
-            vpc_id=aws_vpc["main"]["id"],
+            vpc_id=main["id"],
             tags={
                 "Name": "example",
             })
-        example_security_group_ingress_rule = aws.vpc.SecurityGroupIngressRule("exampleSecurityGroupIngressRule",
-            security_group_id=example_security_group.id,
+        example_security_group_ingress_rule = aws.vpc.SecurityGroupIngressRule("example",
+            security_group_id=example.id,
             cidr_ipv4="10.0.0.0/8",
             from_port=80,
             ip_protocol="tcp",
             to_port=80)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import security group ingress rules using the `security_group_rule_id`. For example:
 
         ```sh
-         $ pulumi import aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule example sgr-02108b27edd666983
+        $ pulumi import aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule example sgr-02108b27edd666983
         ```
 
         :param str resource_name: The name of the resource.
@@ -561,8 +567,6 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["security_group_rule_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SecurityGroupIngressRule, __self__).__init__(
             'aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule',
             resource_name,

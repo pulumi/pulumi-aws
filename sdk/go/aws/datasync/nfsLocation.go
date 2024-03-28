@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -35,7 +36,7 @@ import (
 //				Subdirectory:   pulumi.String("/exported/path"),
 //				OnPremConfig: &datasync.NfsLocationOnPremConfigArgs{
 //					AgentArns: pulumi.StringArray{
-//						aws_datasync_agent.Example.Arn,
+//						exampleAwsDatasyncAgent.Arn,
 //					},
 //				},
 //			})
@@ -47,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_datasync_location_nfs` using the DataSync Task Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:datasync/nfsLocation:NfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-//
+// $ pulumi import aws:datasync/nfsLocation:NfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 // ```
 type NfsLocation struct {
 	pulumi.CustomResourceState
@@ -95,10 +95,6 @@ func NewNfsLocation(ctx *pulumi.Context,
 	if args.Subdirectory == nil {
 		return nil, errors.New("invalid value for required argument 'Subdirectory'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NfsLocation
 	err := ctx.RegisterResource("aws:datasync/nfsLocation:NfsLocation", name, args, &resource, opts...)

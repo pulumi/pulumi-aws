@@ -11,22 +11,28 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Notebook Instance resource.
  *
  * ## Example Usage
+ *
  * ### Basic usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const ni = new aws.sagemaker.NotebookInstance("ni", {
- *     roleArn: aws_iam_role.role.arn,
+ *     name: "my-notebook-instance",
+ *     roleArn: role.arn,
  *     instanceType: "ml.t2.medium",
  *     tags: {
  *         Name: "foo",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Code repository usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,7 +44,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const ni = new aws.sagemaker.NotebookInstance("ni", {
- *     roleArn: aws_iam_role.role.arn,
+ *     name: "my-notebook-instance",
+ *     roleArn: role.arn,
  *     instanceType: "ml.t2.medium",
  *     defaultCodeRepository: example.codeRepositoryName,
  *     tags: {
@@ -46,13 +53,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SageMaker Notebook Instances using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
+ * $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
  * ```
  */
 export class NotebookInstance extends pulumi.CustomResource {
@@ -230,8 +238,6 @@ export class NotebookInstance extends pulumi.CustomResource {
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(NotebookInstance.__pulumiType, name, resourceInputs, opts);
     }
 }

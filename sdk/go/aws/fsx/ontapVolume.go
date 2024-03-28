@@ -16,8 +16,10 @@ import (
 // See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html) for more information.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,10 +33,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewOntapVolume(ctx, "test", &fsx.OntapVolumeArgs{
+//				Name:                     pulumi.String("test"),
 //				JunctionPath:             pulumi.String("/test"),
 //				SizeInMegabytes:          pulumi.Int(1024),
 //				StorageEfficiencyEnabled: pulumi.Bool(true),
-//				StorageVirtualMachineId:  pulumi.Any(aws_fsx_ontap_storage_virtual_machine.Test.Id),
+//				StorageVirtualMachineId:  pulumi.Any(testAwsFsxOntapStorageVirtualMachine.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -44,10 +47,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Using Tiering Policy
 //
 // Additional information on tiering policy with ONTAP Volumes can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html).
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,10 +67,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewOntapVolume(ctx, "test", &fsx.OntapVolumeArgs{
+//				Name:                     pulumi.String("test"),
 //				JunctionPath:             pulumi.String("/test"),
 //				SizeInMegabytes:          pulumi.Int(1024),
 //				StorageEfficiencyEnabled: pulumi.Bool(true),
-//				StorageVirtualMachineId:  pulumi.Any(aws_fsx_ontap_storage_virtual_machine.Test.Id),
+//				StorageVirtualMachineId:  pulumi.Any(testAwsFsxOntapStorageVirtualMachine.Id),
 //				TieringPolicy: &fsx.OntapVolumeTieringPolicyArgs{
 //					Name:          pulumi.String("AUTO"),
 //					CoolingPeriod: pulumi.Int(31),
@@ -78,15 +85,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import FSx ONTAP volume using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
-//
+// $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
 // ```
 type OntapVolume struct {
 	pulumi.CustomResourceState
@@ -148,10 +154,6 @@ func NewOntapVolume(ctx *pulumi.Context,
 	if args.StorageVirtualMachineId == nil {
 		return nil, errors.New("invalid value for required argument 'StorageVirtualMachineId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OntapVolume
 	err := ctx.RegisterResource("aws:fsx/ontapVolume:OntapVolume", name, args, &resource, opts...)

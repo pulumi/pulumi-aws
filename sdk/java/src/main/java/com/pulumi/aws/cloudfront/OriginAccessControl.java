@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * Read more about Origin Access Control in the [CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html).
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,6 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new OriginAccessControl(&#34;example&#34;, OriginAccessControlArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .description(&#34;Example Policy&#34;)
  *             .originAccessControlOriginType(&#34;s3&#34;)
  *             .signingBehavior(&#34;always&#34;)
@@ -52,13 +56,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudFront Origin Access Control using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudfront/originAccessControl:OriginAccessControl example E327GJI25M56DG
+ * $ pulumi import aws:cloudfront/originAccessControl:OriginAccessControl example E327GJI25M56DG
  * ```
  * 
  */

@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Manages an App Runner VPC Connector.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,25 +45,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var connector = new VpcConnector(&#34;connector&#34;, VpcConnectorArgs.builder()        
- *             .securityGroups(            
- *                 &#34;sg1&#34;,
- *                 &#34;sg2&#34;)
+ *             .vpcConnectorName(&#34;name&#34;)
  *             .subnets(            
  *                 &#34;subnet1&#34;,
  *                 &#34;subnet2&#34;)
- *             .vpcConnectorName(&#34;name&#34;)
+ *             .securityGroups(            
+ *                 &#34;sg1&#34;,
+ *                 &#34;sg2&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import App Runner vpc connector using the `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apprunner/vpcConnector:VpcConnector example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
+ * $ pulumi import aws:apprunner/vpcConnector:VpcConnector example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
  * ```
  * 
  */
@@ -216,9 +219,6 @@ public class VpcConnector extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.aws.quicksight.outputs.RefreshScheduleScheduleScheduleFrequency;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -73,25 +74,30 @@ public final class RefreshScheduleSchedule {
 
         @CustomType.Setter
         public Builder refreshType(String refreshType) {
-            this.refreshType = Objects.requireNonNull(refreshType);
+            if (refreshType == null) {
+              throw new MissingRequiredPropertyException("RefreshScheduleSchedule", "refreshType");
+            }
+            this.refreshType = refreshType;
             return this;
         }
         @CustomType.Setter
         public Builder scheduleFrequency(@Nullable RefreshScheduleScheduleScheduleFrequency scheduleFrequency) {
+
             this.scheduleFrequency = scheduleFrequency;
             return this;
         }
         @CustomType.Setter
         public Builder startAfterDateTime(@Nullable String startAfterDateTime) {
+
             this.startAfterDateTime = startAfterDateTime;
             return this;
         }
         public RefreshScheduleSchedule build() {
-            final var o = new RefreshScheduleSchedule();
-            o.refreshType = refreshType;
-            o.scheduleFrequency = scheduleFrequency;
-            o.startAfterDateTime = startAfterDateTime;
-            return o;
+            final var _resultValue = new RefreshScheduleSchedule();
+            _resultValue.refreshType = refreshType;
+            _resultValue.scheduleFrequency = scheduleFrequency;
+            _resultValue.startAfterDateTime = startAfterDateTime;
+            return _resultValue;
         }
     }
 }

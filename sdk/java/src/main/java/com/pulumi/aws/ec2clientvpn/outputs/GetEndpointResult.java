@@ -9,6 +9,7 @@ import com.pulumi.aws.ec2clientvpn.outputs.GetEndpointClientLoginBannerOption;
 import com.pulumi.aws.ec2clientvpn.outputs.GetEndpointConnectionLogOption;
 import com.pulumi.aws.ec2clientvpn.outputs.GetEndpointFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -322,12 +323,18 @@ public final class GetEndpointResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder authenticationOptions(List<GetEndpointAuthenticationOption> authenticationOptions) {
-            this.authenticationOptions = Objects.requireNonNull(authenticationOptions);
+            if (authenticationOptions == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "authenticationOptions");
+            }
+            this.authenticationOptions = authenticationOptions;
             return this;
         }
         public Builder authenticationOptions(GetEndpointAuthenticationOption... authenticationOptions) {
@@ -335,12 +342,18 @@ public final class GetEndpointResult {
         }
         @CustomType.Setter
         public Builder clientCidrBlock(String clientCidrBlock) {
-            this.clientCidrBlock = Objects.requireNonNull(clientCidrBlock);
+            if (clientCidrBlock == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "clientCidrBlock");
+            }
+            this.clientCidrBlock = clientCidrBlock;
             return this;
         }
         @CustomType.Setter
         public Builder clientConnectOptions(List<GetEndpointClientConnectOption> clientConnectOptions) {
-            this.clientConnectOptions = Objects.requireNonNull(clientConnectOptions);
+            if (clientConnectOptions == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "clientConnectOptions");
+            }
+            this.clientConnectOptions = clientConnectOptions;
             return this;
         }
         public Builder clientConnectOptions(GetEndpointClientConnectOption... clientConnectOptions) {
@@ -348,7 +361,10 @@ public final class GetEndpointResult {
         }
         @CustomType.Setter
         public Builder clientLoginBannerOptions(List<GetEndpointClientLoginBannerOption> clientLoginBannerOptions) {
-            this.clientLoginBannerOptions = Objects.requireNonNull(clientLoginBannerOptions);
+            if (clientLoginBannerOptions == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "clientLoginBannerOptions");
+            }
+            this.clientLoginBannerOptions = clientLoginBannerOptions;
             return this;
         }
         public Builder clientLoginBannerOptions(GetEndpointClientLoginBannerOption... clientLoginBannerOptions) {
@@ -356,12 +372,18 @@ public final class GetEndpointResult {
         }
         @CustomType.Setter
         public Builder clientVpnEndpointId(String clientVpnEndpointId) {
-            this.clientVpnEndpointId = Objects.requireNonNull(clientVpnEndpointId);
+            if (clientVpnEndpointId == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "clientVpnEndpointId");
+            }
+            this.clientVpnEndpointId = clientVpnEndpointId;
             return this;
         }
         @CustomType.Setter
         public Builder connectionLogOptions(List<GetEndpointConnectionLogOption> connectionLogOptions) {
-            this.connectionLogOptions = Objects.requireNonNull(connectionLogOptions);
+            if (connectionLogOptions == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "connectionLogOptions");
+            }
+            this.connectionLogOptions = connectionLogOptions;
             return this;
         }
         public Builder connectionLogOptions(GetEndpointConnectionLogOption... connectionLogOptions) {
@@ -369,17 +391,26 @@ public final class GetEndpointResult {
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder dnsName(String dnsName) {
-            this.dnsName = Objects.requireNonNull(dnsName);
+            if (dnsName == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "dnsName");
+            }
+            this.dnsName = dnsName;
             return this;
         }
         @CustomType.Setter
         public Builder dnsServers(List<String> dnsServers) {
-            this.dnsServers = Objects.requireNonNull(dnsServers);
+            if (dnsServers == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "dnsServers");
+            }
+            this.dnsServers = dnsServers;
             return this;
         }
         public Builder dnsServers(String... dnsServers) {
@@ -387,6 +418,7 @@ public final class GetEndpointResult {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetEndpointFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -395,12 +427,18 @@ public final class GetEndpointResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+            if (securityGroupIds == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "securityGroupIds");
+            }
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {
@@ -408,74 +446,101 @@ public final class GetEndpointResult {
         }
         @CustomType.Setter
         public Builder selfServicePortal(String selfServicePortal) {
-            this.selfServicePortal = Objects.requireNonNull(selfServicePortal);
+            if (selfServicePortal == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "selfServicePortal");
+            }
+            this.selfServicePortal = selfServicePortal;
             return this;
         }
         @CustomType.Setter
         public Builder selfServicePortalUrl(String selfServicePortalUrl) {
-            this.selfServicePortalUrl = Objects.requireNonNull(selfServicePortalUrl);
+            if (selfServicePortalUrl == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "selfServicePortalUrl");
+            }
+            this.selfServicePortalUrl = selfServicePortalUrl;
             return this;
         }
         @CustomType.Setter
         public Builder serverCertificateArn(String serverCertificateArn) {
-            this.serverCertificateArn = Objects.requireNonNull(serverCertificateArn);
+            if (serverCertificateArn == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "serverCertificateArn");
+            }
+            this.serverCertificateArn = serverCertificateArn;
             return this;
         }
         @CustomType.Setter
         public Builder sessionTimeoutHours(Integer sessionTimeoutHours) {
-            this.sessionTimeoutHours = Objects.requireNonNull(sessionTimeoutHours);
+            if (sessionTimeoutHours == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "sessionTimeoutHours");
+            }
+            this.sessionTimeoutHours = sessionTimeoutHours;
             return this;
         }
         @CustomType.Setter
         public Builder splitTunnel(Boolean splitTunnel) {
-            this.splitTunnel = Objects.requireNonNull(splitTunnel);
+            if (splitTunnel == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "splitTunnel");
+            }
+            this.splitTunnel = splitTunnel;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder transportProtocol(String transportProtocol) {
-            this.transportProtocol = Objects.requireNonNull(transportProtocol);
+            if (transportProtocol == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "transportProtocol");
+            }
+            this.transportProtocol = transportProtocol;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         @CustomType.Setter
         public Builder vpnPort(Integer vpnPort) {
-            this.vpnPort = Objects.requireNonNull(vpnPort);
+            if (vpnPort == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "vpnPort");
+            }
+            this.vpnPort = vpnPort;
             return this;
         }
         public GetEndpointResult build() {
-            final var o = new GetEndpointResult();
-            o.arn = arn;
-            o.authenticationOptions = authenticationOptions;
-            o.clientCidrBlock = clientCidrBlock;
-            o.clientConnectOptions = clientConnectOptions;
-            o.clientLoginBannerOptions = clientLoginBannerOptions;
-            o.clientVpnEndpointId = clientVpnEndpointId;
-            o.connectionLogOptions = connectionLogOptions;
-            o.description = description;
-            o.dnsName = dnsName;
-            o.dnsServers = dnsServers;
-            o.filters = filters;
-            o.id = id;
-            o.securityGroupIds = securityGroupIds;
-            o.selfServicePortal = selfServicePortal;
-            o.selfServicePortalUrl = selfServicePortalUrl;
-            o.serverCertificateArn = serverCertificateArn;
-            o.sessionTimeoutHours = sessionTimeoutHours;
-            o.splitTunnel = splitTunnel;
-            o.tags = tags;
-            o.transportProtocol = transportProtocol;
-            o.vpcId = vpcId;
-            o.vpnPort = vpnPort;
-            return o;
+            final var _resultValue = new GetEndpointResult();
+            _resultValue.arn = arn;
+            _resultValue.authenticationOptions = authenticationOptions;
+            _resultValue.clientCidrBlock = clientCidrBlock;
+            _resultValue.clientConnectOptions = clientConnectOptions;
+            _resultValue.clientLoginBannerOptions = clientLoginBannerOptions;
+            _resultValue.clientVpnEndpointId = clientVpnEndpointId;
+            _resultValue.connectionLogOptions = connectionLogOptions;
+            _resultValue.description = description;
+            _resultValue.dnsName = dnsName;
+            _resultValue.dnsServers = dnsServers;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.selfServicePortal = selfServicePortal;
+            _resultValue.selfServicePortalUrl = selfServicePortalUrl;
+            _resultValue.serverCertificateArn = serverCertificateArn;
+            _resultValue.sessionTimeoutHours = sessionTimeoutHours;
+            _resultValue.splitTunnel = splitTunnel;
+            _resultValue.tags = tags;
+            _resultValue.transportProtocol = transportProtocol;
+            _resultValue.vpcId = vpcId;
+            _resultValue.vpnPort = vpnPort;
+            return _resultValue;
         }
     }
 }

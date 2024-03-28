@@ -11,32 +11,36 @@ import * as utilities from "../utilities";
  * Resource for managing a QuickSight Analysis.
  *
  * ## Example Usage
+ *
  * ### From Source Template
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.Analysis("example", {
  *     analysisId: "example-id",
+ *     name: "example-name",
  *     sourceEntity: {
  *         sourceTemplate: {
- *             arn: aws_quicksight_template.source.arn,
+ *             arn: source.arn,
  *             dataSetReferences: [{
- *                 dataSetArn: aws_quicksight_data_set.dataset.arn,
+ *                 dataSetArn: dataset.arn,
  *                 dataSetPlaceholder: "1",
  *             }],
  *         },
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
+ * $ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
  * ```
  */
 export class Analysis extends pulumi.CustomResource {
@@ -179,8 +183,6 @@ export class Analysis extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Analysis.__pulumiType, name, resourceInputs, opts);
     }
 }

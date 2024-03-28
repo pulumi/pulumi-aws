@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesis.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMap
 
         @CustomType.Setter
         public Builder recordColumnDelimiter(String recordColumnDelimiter) {
-            this.recordColumnDelimiter = Objects.requireNonNull(recordColumnDelimiter);
+            if (recordColumnDelimiter == null) {
+              throw new MissingRequiredPropertyException("AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv", "recordColumnDelimiter");
+            }
+            this.recordColumnDelimiter = recordColumnDelimiter;
             return this;
         }
         @CustomType.Setter
         public Builder recordRowDelimiter(String recordRowDelimiter) {
-            this.recordRowDelimiter = Objects.requireNonNull(recordRowDelimiter);
+            if (recordRowDelimiter == null) {
+              throw new MissingRequiredPropertyException("AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv", "recordRowDelimiter");
+            }
+            this.recordRowDelimiter = recordRowDelimiter;
             return this;
         }
         public AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv build() {
-            final var o = new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv();
-            o.recordColumnDelimiter = recordColumnDelimiter;
-            o.recordRowDelimiter = recordRowDelimiter;
-            return o;
+            final var _resultValue = new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv();
+            _resultValue.recordColumnDelimiter = recordColumnDelimiter;
+            _resultValue.recordRowDelimiter = recordRowDelimiter;
+            return _resultValue;
         }
     }
 }

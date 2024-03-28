@@ -11,33 +11,37 @@ import * as utilities from "../utilities";
  * Resource for managing a QuickSight Dashboard.
  *
  * ## Example Usage
+ *
  * ### From Source Template
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.Dashboard("example", {
  *     dashboardId: "example-id",
+ *     name: "example-name",
  *     versionDescription: "version",
  *     sourceEntity: {
  *         sourceTemplate: {
- *             arn: aws_quicksight_template.source.arn,
+ *             arn: source.arn,
  *             dataSetReferences: [{
- *                 dataSetArn: aws_quicksight_data_set.dataset.arn,
+ *                 dataSetArn: dataset.arn,
  *                 dataSetPlaceholder: "1",
  *             }],
  *         },
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a QuickSight Dashboard using the AWS account ID and dashboard ID separated by a comma (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:quicksight/dashboard:Dashboard example 123456789012,example-id
+ * $ pulumi import aws:quicksight/dashboard:Dashboard example 123456789012,example-id
  * ```
  */
 export class Dashboard extends pulumi.CustomResource {
@@ -201,8 +205,6 @@ export class Dashboard extends pulumi.CustomResource {
             resourceInputs["versionNumber"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Dashboard.__pulumiType, name, resourceInputs, opts);
     }
 }

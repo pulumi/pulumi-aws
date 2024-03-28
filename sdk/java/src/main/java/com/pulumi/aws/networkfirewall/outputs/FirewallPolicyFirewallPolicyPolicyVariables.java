@@ -36,6 +36,7 @@ public final class FirewallPolicyFirewallPolicyPolicyVariables {
 
         @CustomType.Setter
         public Builder ruleVariables(@Nullable List<FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable> ruleVariables) {
+
             this.ruleVariables = ruleVariables;
             return this;
         }
@@ -43,9 +44,9 @@ public final class FirewallPolicyFirewallPolicyPolicyVariables {
             return ruleVariables(List.of(ruleVariables));
         }
         public FirewallPolicyFirewallPolicyPolicyVariables build() {
-            final var o = new FirewallPolicyFirewallPolicyPolicyVariables();
-            o.ruleVariables = ruleVariables;
-            return o;
+            final var _resultValue = new FirewallPolicyFirewallPolicyPolicyVariables();
+            _resultValue.ruleVariables = ruleVariables;
+            return _resultValue;
         }
     }
 }

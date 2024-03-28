@@ -44,13 +44,14 @@ public final class ThemeConfigurationTypographyFontFamily {
 
         @CustomType.Setter
         public Builder fontFamily(@Nullable String fontFamily) {
+
             this.fontFamily = fontFamily;
             return this;
         }
         public ThemeConfigurationTypographyFontFamily build() {
-            final var o = new ThemeConfigurationTypographyFontFamily();
-            o.fontFamily = fontFamily;
-            return o;
+            final var _resultValue = new ThemeConfigurationTypographyFontFamily();
+            _resultValue.fontFamily = fontFamily;
+            return _resultValue;
         }
     }
 }

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,16 +29,16 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // var splat0 []interface{}
-// for _, val0 := range aws_subnet.Test {
+// for _, val0 := range testAwsSubnet {
 // splat0 = append(splat0, val0.Id)
 // }
 // _, err := msk.NewVpcConnection(ctx, "test", &msk.VpcConnectionArgs{
 // Authentication: pulumi.String("SASL_IAM"),
 // TargetClusterArn: pulumi.String("aws_msk_cluster.arn"),
-// VpcId: pulumi.Any(aws_vpc.Test.Id),
+// VpcId: pulumi.Any(testAwsVpc.Id),
 // ClientSubnets: toPulumiArray(splat0),
 // SecurityGroups: pulumi.StringArray{
-// aws_security_group.Test.Id,
+// testAwsSecurityGroup.Id,
 // },
 // })
 // if err != nil {
@@ -54,15 +55,14 @@ import (
 // return pulumiArr
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import MSK configurations using the configuration ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:msk/vpcConnection:VpcConnection example arn:aws:kafka:eu-west-2:123456789012:vpc-connection/123456789012/example/38173259-79cd-4ee8-87f3-682ea6023f48-2
-//
+// $ pulumi import aws:msk/vpcConnection:VpcConnection example arn:aws:kafka:eu-west-2:123456789012:vpc-connection/123456789012/example/38173259-79cd-4ee8-87f3-682ea6023f48-2
 // ```
 type VpcConnection struct {
 	pulumi.CustomResourceState
@@ -109,10 +109,6 @@ func NewVpcConnection(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcConnection
 	err := ctx.RegisterResource("aws:msk/vpcConnection:VpcConnection", name, args, &resource, opts...)

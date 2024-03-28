@@ -361,23 +361,25 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         path = aws.ec2.NetworkInsightsPath("path",
-            source=aws_network_interface["source"]["id"],
-            destination=aws_network_interface["destination"]["id"],
+            source=source["id"],
+            destination=destination["id"],
             protocol="tcp")
         analysis = aws.ec2.NetworkInsightsAnalysis("analysis", network_insights_path_id=path.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Network Insights Analyses using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis test nia-0462085c957f11a55
+        $ pulumi import aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis test nia-0462085c957f11a55
         ```
 
         :param str resource_name: The name of the resource.
@@ -400,23 +402,25 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         path = aws.ec2.NetworkInsightsPath("path",
-            source=aws_network_interface["source"]["id"],
-            destination=aws_network_interface["destination"]["id"],
+            source=source["id"],
+            destination=destination["id"],
             protocol="tcp")
         analysis = aws.ec2.NetworkInsightsAnalysis("analysis", network_insights_path_id=path.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Network Insights Analyses using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis test nia-0462085c957f11a55
+        $ pulumi import aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis test nia-0462085c957f11a55
         ```
 
         :param str resource_name: The name of the resource.
@@ -464,8 +468,6 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
             __props__.__dict__["status_message"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["warning_message"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(NetworkInsightsAnalysis, __self__).__init__(
             'aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis',
             resource_name,

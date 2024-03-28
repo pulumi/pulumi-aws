@@ -17,8 +17,10 @@ import (
 // > **Note:** Amazon API Gateway Version 2 resources are used for creating and deploying WebSocket and HTTP APIs. To create and deploy REST APIs, use Amazon API Gateway Version 1 resources.
 //
 // ## Example Usage
+//
 // ### Basic WebSocket API
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,6 +34,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigatewayv2.NewApi(ctx, "example", &apigatewayv2.ApiArgs{
+//				Name:                     pulumi.String("example-websocket-api"),
 //				ProtocolType:             pulumi.String("WEBSOCKET"),
 //				RouteSelectionExpression: pulumi.String("$request.body.action"),
 //			})
@@ -43,8 +46,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Basic HTTP API
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,6 +64,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigatewayv2.NewApi(ctx, "example", &apigatewayv2.ApiArgs{
+//				Name:         pulumi.String("example-http-api"),
 //				ProtocolType: pulumi.String("HTTP"),
 //			})
 //			if err != nil {
@@ -68,15 +75,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_apigatewayv2_api` using the API identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigatewayv2/api:Api example aabbccddee
-//
+// $ pulumi import aws:apigatewayv2/api:Api example aabbccddee
 // ```
 type Api struct {
 	pulumi.CustomResourceState
@@ -140,10 +146,6 @@ func NewApi(ctx *pulumi.Context,
 	if args.ProtocolType == nil {
 		return nil, errors.New("invalid value for required argument 'ProtocolType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Api
 	err := ctx.RegisterResource("aws:apigatewayv2/api:Api", name, args, &resource, opts...)

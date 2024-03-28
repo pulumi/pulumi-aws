@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     name: "my-subnet-group",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSubnetGroup(args: GetSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetGroupResult> {
 
@@ -76,6 +78,7 @@ export interface GetSubnetGroupResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -84,6 +87,7 @@ export interface GetSubnetGroupResult {
  *     name: "my-subnet-group",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSubnetGroupOutput(args: GetSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetGroupResult> {
     return pulumi.output(args).apply((a: any) => getSubnetGroup(a, opts))

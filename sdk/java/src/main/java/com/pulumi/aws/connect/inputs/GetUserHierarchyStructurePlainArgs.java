@@ -4,6 +4,7 @@
 package com.pulumi.aws.connect.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetUserHierarchyStructurePlainArgs extends com.pulumi.resourc
         }
 
         public GetUserHierarchyStructurePlainArgs build() {
-            $.instanceId = Objects.requireNonNull($.instanceId, "expected parameter 'instanceId' to be non-null");
+            if ($.instanceId == null) {
+                throw new MissingRequiredPropertyException("GetUserHierarchyStructurePlainArgs", "instanceId");
+            }
             return $;
         }
     }

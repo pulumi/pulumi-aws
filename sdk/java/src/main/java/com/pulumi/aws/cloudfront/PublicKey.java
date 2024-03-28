@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * The following example below creates a CloudFront public key.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -41,19 +43,23 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new PublicKey(&#34;example&#34;, PublicKeyArgs.builder()        
  *             .comment(&#34;test public key&#34;)
- *             .encodedKey(Files.readString(Paths.get(&#34;public_key.pem&#34;)))
+ *             .encodedKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;public_key.pem&#34;)
+ *                 .build()).result())
+ *             .name(&#34;test_key&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudFront Public Key using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON
+ * $ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON
  * ```
  * 
  */

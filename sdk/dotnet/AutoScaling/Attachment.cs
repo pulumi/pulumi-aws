@@ -16,6 +16,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,13 +28,15 @@ namespace Pulumi.Aws.AutoScaling
     ///     // Create a new load balancer attachment
     ///     var example = new Aws.AutoScaling.Attachment("example", new()
     ///     {
-    ///         AutoscalingGroupName = aws_autoscaling_group.Example.Id,
-    ///         Elb = aws_elb.Example.Id,
+    ///         AutoscalingGroupName = exampleAwsAutoscalingGroup.Id,
+    ///         Elb = exampleAwsElb.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,12 +48,13 @@ namespace Pulumi.Aws.AutoScaling
     ///     // Create a new ALB Target Group attachment
     ///     var example = new Aws.AutoScaling.Attachment("example", new()
     ///     {
-    ///         AutoscalingGroupName = aws_autoscaling_group.Example.Id,
-    ///         LbTargetGroupArn = aws_lb_target_group.Example.Arn,
+    ///         AutoscalingGroupName = exampleAwsAutoscalingGroup.Id,
+    ///         LbTargetGroupArn = exampleAwsLbTargetGroup.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:autoscaling/attachment:Attachment")]
     public partial class Attachment : global::Pulumi.CustomResource

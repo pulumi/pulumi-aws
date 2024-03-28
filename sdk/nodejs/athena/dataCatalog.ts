@@ -13,71 +13,86 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.athena.DataCatalog("example", {
+ *     name: "athena-data-catalog",
  *     description: "Example Athena data catalog",
+ *     type: "LAMBDA",
  *     parameters: {
  *         "function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function",
  *     },
  *     tags: {
  *         Name: "example-athena-data-catalog",
  *     },
- *     type: "LAMBDA",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Hive based Data Catalog
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.athena.DataCatalog("example", {
+ *     name: "hive-data-catalog",
  *     description: "Hive based Data Catalog",
+ *     type: "HIVE",
  *     parameters: {
  *         "metadata-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function",
  *     },
- *     type: "HIVE",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Glue based Data Catalog
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.athena.DataCatalog("example", {
+ *     name: "glue-data-catalog",
  *     description: "Glue based Data Catalog",
+ *     type: "GLUE",
  *     parameters: {
  *         "catalog-id": "123456789012",
  *     },
- *     type: "GLUE",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Lambda based Data Catalog
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.athena.DataCatalog("example", {
+ *     name: "lambda-data-catalog",
  *     description: "Lambda based Data Catalog",
+ *     type: "LAMBDA",
  *     parameters: {
  *         "metadata-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1",
  *         "record-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2",
  *     },
- *     type: "LAMBDA",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import data catalogs using their `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
+ * $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
  * ```
  */
 export class DataCatalog extends pulumi.CustomResource {
@@ -179,8 +194,6 @@ export class DataCatalog extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(DataCatalog.__pulumiType, name, resourceInputs, opts);
     }
 }

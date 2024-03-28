@@ -10,6 +10,7 @@ import (
 	"io"
 	"os"
 	"path/filepath"
+	"regexp"
 	"testing"
 	"time"
 
@@ -17,6 +18,8 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/lambda"
 	"github.com/aws/aws-sdk-go/service/s3"
+	"github.com/pulumi/providertest/pulumitest"
+	"github.com/pulumi/providertest/pulumitest/opttest"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -37,8 +40,7 @@ func TestAccDedicatedHosts(t *testing.T) {
 // This is a specific test to ensure that we are testing for a missing region and erroring
 func TestAccCredentialsConfigTest(t *testing.T) {
 	t.Skip("STACK72: Temp skip until we investigate the cause of https://github.com/pulumi/pulumi-aws/issues/1995")
-	base := getBaseOptions()
-	baseJS := base.With(integration.ProgramTestOptions{
+	baseJS := integration.ProgramTestOptions{
 		Config: map[string]string{
 			"aws:region": "INVALID_REGION",
 		},
@@ -47,7 +49,7 @@ func TestAccCredentialsConfigTest(t *testing.T) {
 		},
 		Dir:           filepath.Join(getCwd(t), "credentialsConfigTest"),
 		ExpectFailure: true,
-	})
+	}
 
 	integration.ProgramTest(t, &baseJS)
 }
@@ -67,7 +69,7 @@ func TestAccExpress(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "express"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -107,6 +109,7 @@ func TestAccBucket(t *testing.T) {
 			},
 		})
 
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -115,6 +118,20 @@ func TestAccCloudWatch(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			Dir:           filepath.Join(getCwd(t), "cloudwatch"),
 			RunUpdateTest: true,
+		})
+	skipRefresh(&test)
+	integration.ProgramTest(t, &test)
+}
+
+func TestAccCloudWatchOidcManual(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "cloudwatchOidcManual"),
+
+			// TODO[pulumi/pulumi-aws#3193] multiple issues with refreshing and updating cleanly.
+			SkipRefresh:              true,
+			AllowEmptyPreviewChanges: true,
+			AllowEmptyUpdateChanges:  true,
 		})
 
 	integration.ProgramTest(t, &test)
@@ -126,7 +143,7 @@ func TestAccLogGroup(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "logGroup"),
 			RunUpdateTest: false,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -136,7 +153,7 @@ func TestAccQueue(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "queue"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -145,7 +162,7 @@ func TestAccEventBus(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "eventbus"),
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -155,7 +172,7 @@ func TestAccStream(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "stream"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -165,7 +182,7 @@ func TestAccTable(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "table"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -175,7 +192,7 @@ func TestAccTopic(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "topic"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -190,7 +207,7 @@ func TestAccSecretCapture(t *testing.T) {
 				assert.NotContains(t, "s3cr3t", string(byts))
 			},
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -226,6 +243,7 @@ func TestAccCallbackFunction(t *testing.T) {
 				}
 			},
 		})
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -256,7 +274,7 @@ func TestAccRoute53(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "route53"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -266,7 +284,7 @@ func TestAccLambdaLayer(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "lambda-layer-old"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -276,7 +294,7 @@ func TestAccLambdaContainerImages(t *testing.T) {
 			RunUpdateTest: false, // new feature!
 			Dir:           filepath.Join(getCwd(t), "lambda-container-image"),
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -286,7 +304,7 @@ func TestAccLambdaLayerNewEnums(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "lambda-layer-new"),
 			RunUpdateTest: false,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -301,22 +319,23 @@ func TestAccEcr(t *testing.T) {
 }
 
 func TestAccDeleteBeforeCreate(t *testing.T) {
+	basePath := filepath.Join(getCwd(t), "delete_before_create", "mount_target")
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "delete_before_create", "mount_target", "step1"),
+			Dir:           filepath.Join(basePath, "step1"),
 			RunUpdateTest: true,
 			EditDirs: []integration.EditDir{
 				{
-					Dir:      "step2",
+					Dir:      filepath.Join(basePath, "step2"),
 					Additive: true,
 				},
 				{
-					Dir:      "step3",
+					Dir:      filepath.Join(basePath, "step3"),
 					Additive: true,
 				},
 			},
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -335,7 +354,8 @@ func TestAccIgnoreChanges(t *testing.T) {
 						assert.Equal(t, "foo", info.Deployment.Resources[2].Outputs["bucketPrefix"])
 					},
 				},
-			}})
+			},
+		})
 
 	integration.ProgramTest(t, &test)
 }
@@ -446,18 +466,23 @@ func TestAccWafV2(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "wafv2"),
 		})
+	skipRefresh(&test)
+
+	// TODO[pulumi/pulumi-aws#3190] there is a bug with non-empty diff after pulumi up.
+	test.AllowEmptyPreviewChanges = true
+	test.AllowEmptyUpdateChanges = true
+
 	integration.ProgramTest(t, &test)
 }
 
 func TestRegress1423Ts(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "regress-1423"),
-			RunUpdateTest: false,
+			Dir: filepath.Join(getCwd(t), "regress-1423"),
 		})
-	test.ExpectRefreshChanges = false
+	// TODO[pulumi/pulumi-aws#3361] similarly to upstream this currently has a non-empty refresh
+	test.SkipRefresh = true
 	test.Quick = false
-	test.SkipRefresh = false
 	integration.ProgramTest(t, &test)
 }
 
@@ -478,10 +503,71 @@ func TestRegress2818(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+// Checks aws.cognito.UserPool that had constant Diff issues.
+//
+// See https://github.com/pulumi/pulumi-aws/issues/2868
+func TestRegress2868(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "regress-2868"),
+
+			// TODO[pulumi/pulumi-aws#3303] does not refresh cleanly
+			SkipRefresh: true,
+		})
+	// Disable envRegion mangling
+	test.Config = nil
+	integration.ProgramTest(t, &test)
+}
+
+// Checks aws.ssm.Document that had constant Diff issues.
+//
+// See https://github.com/pulumi/pulumi-aws/issues/2555
+func TestRegress2555(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: "regress-2555",
+
+			// TODO does not refresh cleanly, actually following upstream: both in TF
+			// pure and in Pulumi refreshing replaces nil with empty map for tags and
+			// permissions properties.
+			SkipRefresh: true,
+
+			EditDirs: []integration.EditDir{{
+				Dir:      filepath.Join("regress-2555", "step1"),
+				Additive: true,
+			}},
+		})
+	// Disable envRegion mangling
+	test.Config = nil
+	integration.ProgramTest(t, &test)
+}
+
+func TestRegress3421(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:         "regress-3421",
+			SkipRefresh: true,
+		},
+		)
+	// Disable envRegion mangling
+	test.Config = nil
+	integration.ProgramTest(t, &test)
+}
+
+func TestRegress3421Update(t *testing.T) {
+	test := pulumitest.NewPulumiTest(t, "regress-3421",
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+	)
+
+	test.SetConfig("listenerPort", "80")
+	test.Up()
+	test.SetConfig("listenerPort", "81")
+	test.Up()
+}
+
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	envRegion := getEnvRegion(t)
-	base := getBaseOptions()
-	baseJS := base.With(integration.ProgramTestOptions{
+	baseJS := integration.ProgramTestOptions{
 		Config: map[string]string{
 			"aws:region":    "INVALID_REGION",
 			"aws:envRegion": envRegion,
@@ -489,7 +575,7 @@ func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 		Dependencies: []string{
 			"@pulumi/aws",
 		},
-	})
+	}
 
 	return baseJS
 }
@@ -505,4 +591,63 @@ func getAwsSession(t *testing.T) *session.Session {
 	})
 	require.NoError(t, err)
 	return sess
+}
+
+func TestUpdateImportedLambda(t *testing.T) {
+	test := pulumitest.NewPulumiTest(t, "lambda-import-ts",
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+	)
+
+	test.SetConfig("runtime", "nodejs18.x")
+	res := test.Up()
+	lambdaName := res.Outputs["lambda_name"]
+	lambdaRole := res.Outputs["lambda_role"]
+
+	secondStack := test.InstallStack("new_stack")
+
+	// Check that we can reimport the lambda.
+	secondStack.SetConfig("lambda_name", lambdaName.Value.(string))
+	secondStack.SetConfig("runtime", "nodejs18.x")
+	secondStack.SetConfig("lambda_role", lambdaRole.Value.(string))
+	secondStack.Up()
+
+	// Check that we can change a property on the lambda
+	secondStack.SetConfig("runtime", "nodejs16.x")
+	secondStack.Up()
+}
+
+func TestNoCodeLambda(t *testing.T) {
+	test := pulumitest.NewPulumiTest(t, "no-code-lambda",
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+	)
+	_, err := test.CurrentStack().Up(test.Context())
+	require.Error(t, err)
+	require.Contains(t, err.Error(), "ValidationException")
+}
+
+type InlinePolicy struct {
+	Name   string `json:"name"`
+	Policy string `json:"policy"`
+}
+
+func TestRoleInlinePolicyAutoName(t *testing.T) {
+	test := pulumitest.NewPulumiTest(t, "role-inline-policy-auto-name",
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+	)
+	res, err := test.CurrentStack().Up(test.Context())
+	require.NoError(t, err)
+
+	policy := res.Outputs["inlinePolicy"]
+	value, err := json.Marshal(policy.Value)
+	require.NoError(t, err)
+
+	var inlinePolicy InlinePolicy
+	err = json.Unmarshal(value, &inlinePolicy)
+	require.NoError(t, err)
+
+	policyEmpty := res.Outputs["inlinePolicyEmpty"]
+
+	require.Equal(t, policyEmpty.Value, []interface{}{})
+	require.Regexp(t, regexp.MustCompile("testrole-*"), inlinePolicy.Name)
+	require.JSONEq(t, `{"Version": "2012-10-17", "Statement": [{"Effect": "Allow", "Action": "s3:GetObject", "Resource": "*" }]}`, inlinePolicy.Policy)
 }

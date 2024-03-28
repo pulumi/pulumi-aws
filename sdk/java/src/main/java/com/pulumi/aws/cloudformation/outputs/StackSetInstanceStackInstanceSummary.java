@@ -72,25 +72,28 @@ public final class StackSetInstanceStackInstanceSummary {
 
         @CustomType.Setter
         public Builder accountId(@Nullable String accountId) {
+
             this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder organizationalUnitId(@Nullable String organizationalUnitId) {
+
             this.organizationalUnitId = organizationalUnitId;
             return this;
         }
         @CustomType.Setter
         public Builder stackId(@Nullable String stackId) {
+
             this.stackId = stackId;
             return this;
         }
         public StackSetInstanceStackInstanceSummary build() {
-            final var o = new StackSetInstanceStackInstanceSummary();
-            o.accountId = accountId;
-            o.organizationalUnitId = organizationalUnitId;
-            o.stackId = stackId;
-            return o;
+            final var _resultValue = new StackSetInstanceStackInstanceSummary();
+            _resultValue.accountId = accountId;
+            _resultValue.organizationalUnitId = organizationalUnitId;
+            _resultValue.stackId = stackId;
+            return _resultValue;
         }
     }
 }

@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * A SIP rule associates your SIP media application with a phone number or a Request URI hostname. You can associate a SIP rule with more than one SIP media application. Each application then runs only that rule.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,11 +48,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SdkvoiceSipRule(&#34;example&#34;, SdkvoiceSipRuleArgs.builder()        
+ *             .name(&#34;example-sip-rule&#34;)
  *             .triggerType(&#34;RequestUriHostname&#34;)
- *             .triggerValue(aws_chime_voice_connector.example-voice-connector().outbound_host_name())
+ *             .triggerValue(example_voice_connector.outboundHostName())
  *             .targetApplications(SdkvoiceSipRuleTargetApplicationArgs.builder()
  *                 .priority(1)
- *                 .sipMediaApplicationId(aws_chimesdkvoice_sip_media_application.example-sma().id())
+ *                 .sipMediaApplicationId(example_sma.id())
  *                 .awsRegion(&#34;us-east-1&#34;)
  *                 .build())
  *             .build());
@@ -57,13 +61,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a ChimeSDKVoice SIP Rule using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:chime/sdkvoiceSipRule:SdkvoiceSipRule example abcdef123456
+ * $ pulumi import aws:chime/sdkvoiceSipRule:SdkvoiceSipRule example abcdef123456
  * ```
  * 
  */

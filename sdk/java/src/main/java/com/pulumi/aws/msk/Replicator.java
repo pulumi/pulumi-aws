@@ -23,12 +23,81 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.msk.Replicator;
+ * import com.pulumi.aws.msk.ReplicatorArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterAmazonMskClusterArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterVpcConfigArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Replicator(&#34;test&#34;, ReplicatorArgs.builder()        
+ *             .replicatorName(&#34;test-name&#34;)
+ *             .description(&#34;test-description&#34;)
+ *             .serviceExecutionRoleArn(sourceAwsIamRole.arn())
+ *             .kafkaClusters(            
+ *                 ReplicatorKafkaClusterArgs.builder()
+ *                     .amazonMskCluster(ReplicatorKafkaClusterAmazonMskClusterArgs.builder()
+ *                         .mskClusterArn(source.arn())
+ *                         .build())
+ *                     .vpcConfig(ReplicatorKafkaClusterVpcConfigArgs.builder()
+ *                         .subnetIds(sourceAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+ *                         .securityGroupsIds(sourceAwsSecurityGroup.id())
+ *                         .build())
+ *                     .build(),
+ *                 ReplicatorKafkaClusterArgs.builder()
+ *                     .amazonMskCluster(ReplicatorKafkaClusterAmazonMskClusterArgs.builder()
+ *                         .mskClusterArn(target.arn())
+ *                         .build())
+ *                     .vpcConfig(ReplicatorKafkaClusterVpcConfigArgs.builder()
+ *                         .subnetIds(targetAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+ *                         .securityGroupsIds(targetAwsSecurityGroup.id())
+ *                         .build())
+ *                     .build())
+ *             .replicationInfoList(ReplicatorReplicationInfoListArgs.builder()
+ *                 .sourceKafkaClusterArn(source.arn())
+ *                 .targetKafkaClusterArn(target.arn())
+ *                 .targetCompressionType(&#34;NONE&#34;)
+ *                 .topicReplications(ReplicatorReplicationInfoListTopicReplicationArgs.builder()
+ *                     .topicsToReplicates(&#34;.*&#34;)
+ *                     .build())
+ *                 .consumerGroupReplications(ReplicatorReplicationInfoListConsumerGroupReplicationArgs.builder()
+ *                     .consumerGroupsToReplicates(&#34;.*&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import MSK replicators using the replicator ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:msk/replicator:Replicator example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+ * $ pulumi import aws:msk/replicator:Replicator example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
  * ```
  * 
  */
@@ -175,9 +244,6 @@ public class Replicator extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

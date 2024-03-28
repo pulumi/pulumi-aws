@@ -15,8 +15,10 @@ namespace Pulumi.Aws.Dms
     /// &gt; **Note:** AWS requires a special IAM role called `dms-vpc-role` when using this resource. See the example below to create it as part of your configuration.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,10 +45,13 @@ namespace Pulumi.Aws.Dms
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Creating special IAM role
     /// 
     /// If your account does not already include the `dms-vpc-role` IAM role, you will need to create it to allow DMS to manage subnets in the VPC.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,32 +63,33 @@ namespace Pulumi.Aws.Dms
     /// {
     ///     var dms_vpc_role = new Aws.Iam.Role("dms-vpc-role", new()
     ///     {
+    ///         Name = "dms-vpc-role",
     ///         Description = "Allows DMS to manage VPC",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "dms.amazonaws.com",
+    ///                         ["service"] = "dms.amazonaws.com",
     ///                     },
-    ///                     ["Action"] = "sts:AssumeRole",
+    ///                     ["action"] = "sts:AssumeRole",
     ///                 },
     ///             },
     ///         }),
     ///     });
     /// 
-    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new()
+    ///     var example = new Aws.Iam.RolePolicyAttachment("example", new()
     ///     {
     ///         Role = dms_vpc_role.Name,
     ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole",
     ///     });
     /// 
-    ///     var exampleReplicationSubnetGroup = new Aws.Dms.ReplicationSubnetGroup("exampleReplicationSubnetGroup", new()
+    ///     var exampleReplicationSubnetGroup = new Aws.Dms.ReplicationSubnetGroup("example", new()
     ///     {
     ///         ReplicationSubnetGroupDescription = "Example",
     ///         ReplicationSubnetGroupId = "example-id",
@@ -96,23 +102,18 @@ namespace Pulumi.Aws.Dms
     ///         {
     ///             { "Name", "example-id" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleRolePolicyAttachment,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import replication subnet groups using the `replication_subnet_group_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
+    /// $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
     /// ```
     /// </summary>
     [AwsResourceType("aws:dms/replicationSubnetGroup:ReplicationSubnetGroup")]
@@ -180,10 +181,6 @@ namespace Pulumi.Aws.Dms
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -300,11 +297,7 @@ namespace Pulumi.Aws.Dms
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

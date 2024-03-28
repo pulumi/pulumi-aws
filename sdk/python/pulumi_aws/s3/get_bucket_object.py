@@ -21,7 +21,10 @@ class GetBucketObjectResult:
     """
     A collection of values returned by getBucketObject.
     """
-    def __init__(__self__, body=None, bucket=None, bucket_key_enabled=None, cache_control=None, content_disposition=None, content_encoding=None, content_language=None, content_length=None, content_type=None, etag=None, expiration=None, expires=None, id=None, key=None, last_modified=None, metadata=None, object_lock_legal_hold_status=None, object_lock_mode=None, object_lock_retain_until_date=None, range=None, server_side_encryption=None, sse_kms_key_id=None, storage_class=None, tags=None, version_id=None, website_redirect_location=None):
+    def __init__(__self__, arn=None, body=None, bucket=None, bucket_key_enabled=None, cache_control=None, content_disposition=None, content_encoding=None, content_language=None, content_length=None, content_type=None, etag=None, expiration=None, expires=None, id=None, key=None, last_modified=None, metadata=None, object_lock_legal_hold_status=None, object_lock_mode=None, object_lock_retain_until_date=None, range=None, server_side_encryption=None, sse_kms_key_id=None, storage_class=None, tags=None, version_id=None, website_redirect_location=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if body and not isinstance(body, str):
             raise TypeError("Expected argument 'body' to be a str")
         pulumi.set(__self__, "body", body)
@@ -103,6 +106,11 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter
+    def arn(self) -> str:
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
     def body(self) -> str:
         """
         Object data (see **limitations above** to understand cases in which this field is actually available)
@@ -112,8 +120,8 @@ class GetBucketObjectResult:
     @property
     @pulumi.getter
     def bucket(self) -> str:
-        warnings.warn("""Use the aws_s3_object data source instead""", DeprecationWarning)
-        pulumi.log.warn("""bucket is deprecated: Use the aws_s3_object data source instead""")
+        warnings.warn("""Use the s3.BucketObjectv2 data source instead""", DeprecationWarning)
+        pulumi.log.warn("""bucket is deprecated: Use the s3.BucketObjectv2 data source instead""")
 
         return pulumi.get(self, "bucket")
 
@@ -310,6 +318,7 @@ class AwaitableGetBucketObjectResult(GetBucketObjectResult):
         if False:
             yield self
         return GetBucketObjectResult(
+            arn=self.arn,
             body=self.body,
             bucket=self.bucket,
             bucket_key_enabled=self.bucket_key_enabled,
@@ -357,6 +366,7 @@ def get_bucket_object(bucket: Optional[str] = None,
     The following example retrieves a text object (which must have a `Content-Type`
     value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -364,10 +374,11 @@ def get_bucket_object(bucket: Optional[str] = None,
     bootstrap_script = aws.s3.get_bucket_object(bucket="ourcorp-deploy-config",
         key="ec2-bootstrap-script.sh")
     example = aws.ec2.Instance("example",
-        instance_type="t2.micro",
+        instance_type=aws.ec2.InstanceType.T2_MICRO,
         ami="ami-2757f631",
         user_data=bootstrap_script.body)
     ```
+    <!--End PulumiCodeChooser -->
 
     The following, more-complex example retrieves only the metadata for a zip
     file stored in S3, which is then used to pass the most recent `version_id`
@@ -375,19 +386,22 @@ def get_bucket_object(bucket: Optional[str] = None,
     Lambda functions is available in the documentation for
     `lambda.Function`.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     lambda_ = aws.s3.get_bucket_object(bucket="ourcorp-lambda-functions",
         key="hello-world.zip")
-    test_lambda = aws.lambda_.Function("testLambda",
+    test_lambda = aws.lambda_.Function("test_lambda",
         s3_bucket=lambda_.id,
         s3_key=lambda_.key,
         s3_object_version=lambda_.version_id,
-        role=aws_iam_role["iam_for_lambda"]["arn"],
+        name="lambda_function_name",
+        role=iam_for_lambda["arn"],
         handler="exports.test")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str bucket: Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
@@ -405,6 +419,7 @@ def get_bucket_object(bucket: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:s3/getBucketObject:getBucketObject', __args__, opts=opts, typ=GetBucketObjectResult).value
 
     return AwaitableGetBucketObjectResult(
+        arn=pulumi.get(__ret__, 'arn'),
         body=pulumi.get(__ret__, 'body'),
         bucket=pulumi.get(__ret__, 'bucket'),
         bucket_key_enabled=pulumi.get(__ret__, 'bucket_key_enabled'),
@@ -453,6 +468,7 @@ def get_bucket_object_output(bucket: Optional[pulumi.Input[str]] = None,
     The following example retrieves a text object (which must have a `Content-Type`
     value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -460,10 +476,11 @@ def get_bucket_object_output(bucket: Optional[pulumi.Input[str]] = None,
     bootstrap_script = aws.s3.get_bucket_object(bucket="ourcorp-deploy-config",
         key="ec2-bootstrap-script.sh")
     example = aws.ec2.Instance("example",
-        instance_type="t2.micro",
+        instance_type=aws.ec2.InstanceType.T2_MICRO,
         ami="ami-2757f631",
         user_data=bootstrap_script.body)
     ```
+    <!--End PulumiCodeChooser -->
 
     The following, more-complex example retrieves only the metadata for a zip
     file stored in S3, which is then used to pass the most recent `version_id`
@@ -471,19 +488,22 @@ def get_bucket_object_output(bucket: Optional[pulumi.Input[str]] = None,
     Lambda functions is available in the documentation for
     `lambda.Function`.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     lambda_ = aws.s3.get_bucket_object(bucket="ourcorp-lambda-functions",
         key="hello-world.zip")
-    test_lambda = aws.lambda_.Function("testLambda",
+    test_lambda = aws.lambda_.Function("test_lambda",
         s3_bucket=lambda_.id,
         s3_key=lambda_.key,
         s3_object_version=lambda_.version_id,
-        role=aws_iam_role["iam_for_lambda"]["arn"],
+        name="lambda_function_name",
+        role=iam_for_lambda["arn"],
         handler="exports.test")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str bucket: Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified

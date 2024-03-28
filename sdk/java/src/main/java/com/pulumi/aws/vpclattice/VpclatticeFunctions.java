@@ -30,7 +30,10 @@ public final class VpclatticeFunctions {
      * Data source for managing an AWS VPC Lattice Auth Policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -53,12 +56,13 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = VpclatticeFunctions.getAuthPolicy(GetAuthPolicyArgs.builder()
-     *             .resourceIdentifier(aws_vpclattice_auth_policy.test().resource_identifier())
+     *             .resourceIdentifier(testAwsVpclatticeAuthPolicy.resourceIdentifier())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthPolicyResult> getAuthPolicy(GetAuthPolicyArgs args) {
@@ -68,7 +72,10 @@ public final class VpclatticeFunctions {
      * Data source for managing an AWS VPC Lattice Auth Policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -91,12 +98,13 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = VpclatticeFunctions.getAuthPolicy(GetAuthPolicyArgs.builder()
-     *             .resourceIdentifier(aws_vpclattice_auth_policy.test().resource_identifier())
+     *             .resourceIdentifier(testAwsVpclatticeAuthPolicy.resourceIdentifier())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthPolicyResult> getAuthPolicyPlain(GetAuthPolicyPlainArgs args) {
@@ -106,7 +114,10 @@ public final class VpclatticeFunctions {
      * Data source for managing an AWS VPC Lattice Auth Policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -129,12 +140,13 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = VpclatticeFunctions.getAuthPolicy(GetAuthPolicyArgs.builder()
-     *             .resourceIdentifier(aws_vpclattice_auth_policy.test().resource_identifier())
+     *             .resourceIdentifier(testAwsVpclatticeAuthPolicy.resourceIdentifier())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthPolicyResult> getAuthPolicy(GetAuthPolicyArgs args, InvokeOptions options) {
@@ -144,7 +156,10 @@ public final class VpclatticeFunctions {
      * Data source for managing an AWS VPC Lattice Auth Policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -167,12 +182,13 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = VpclatticeFunctions.getAuthPolicy(GetAuthPolicyArgs.builder()
-     *             .resourceIdentifier(aws_vpclattice_auth_policy.test().resource_identifier())
+     *             .resourceIdentifier(testAwsVpclatticeAuthPolicy.resourceIdentifier())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthPolicyResult> getAuthPolicyPlain(GetAuthPolicyPlainArgs args, InvokeOptions options) {
@@ -182,7 +198,10 @@ public final class VpclatticeFunctions {
      * Data source for managing an AWS VPC Lattice Listener.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -209,6 +228,7 @@ public final class VpclatticeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetListenerResult> getListener(GetListenerArgs args) {
@@ -218,7 +238,10 @@ public final class VpclatticeFunctions {
      * Data source for managing an AWS VPC Lattice Listener.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -245,6 +268,7 @@ public final class VpclatticeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetListenerResult> getListenerPlain(GetListenerPlainArgs args) {
@@ -254,7 +278,10 @@ public final class VpclatticeFunctions {
      * Data source for managing an AWS VPC Lattice Listener.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -281,6 +308,7 @@ public final class VpclatticeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetListenerResult> getListener(GetListenerArgs args, InvokeOptions options) {
@@ -290,7 +318,10 @@ public final class VpclatticeFunctions {
      * Data source for managing an AWS VPC Lattice Listener.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -317,6 +348,7 @@ public final class VpclatticeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetListenerResult> getListenerPlain(GetListenerPlainArgs args, InvokeOptions options) {
@@ -326,7 +358,10 @@ public final class VpclatticeFunctions {
      * Data source for managing an AWS VPC Lattice Resource Policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -349,12 +384,13 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
-     *             .resourceArn(aws_vpclattice_service_network.example().arn())
+     *             .resourceArn(exampleAwsVpclatticeServiceNetwork.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResourcePolicyResult> getResourcePolicy(GetResourcePolicyArgs args) {
@@ -364,7 +400,10 @@ public final class VpclatticeFunctions {
      * Data source for managing an AWS VPC Lattice Resource Policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -387,12 +426,13 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
-     *             .resourceArn(aws_vpclattice_service_network.example().arn())
+     *             .resourceArn(exampleAwsVpclatticeServiceNetwork.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResourcePolicyResult> getResourcePolicyPlain(GetResourcePolicyPlainArgs args) {
@@ -402,7 +442,10 @@ public final class VpclatticeFunctions {
      * Data source for managing an AWS VPC Lattice Resource Policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -425,12 +468,13 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
-     *             .resourceArn(aws_vpclattice_service_network.example().arn())
+     *             .resourceArn(exampleAwsVpclatticeServiceNetwork.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResourcePolicyResult> getResourcePolicy(GetResourcePolicyArgs args, InvokeOptions options) {
@@ -440,7 +484,10 @@ public final class VpclatticeFunctions {
      * Data source for managing an AWS VPC Lattice Resource Policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -463,12 +510,13 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
-     *             .resourceArn(aws_vpclattice_service_network.example().arn())
+     *             .resourceArn(exampleAwsVpclatticeServiceNetwork.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResourcePolicyResult> getResourcePolicyPlain(GetResourcePolicyPlainArgs args, InvokeOptions options) {
@@ -478,7 +526,10 @@ public final class VpclatticeFunctions {
      * Data source for managing an AWS VPC Lattice Service.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -507,6 +558,7 @@ public final class VpclatticeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceResult> getService() {
@@ -516,7 +568,10 @@ public final class VpclatticeFunctions {
      * Data source for managing an AWS VPC Lattice Service.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -545,6 +600,7 @@ public final class VpclatticeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain() {
@@ -554,7 +610,10 @@ public final class VpclatticeFunctions {
      * Data source for managing an AWS VPC Lattice Service.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -583,6 +642,7 @@ public final class VpclatticeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
@@ -592,7 +652,10 @@ public final class VpclatticeFunctions {
      * Data source for managing an AWS VPC Lattice Service.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -621,6 +684,7 @@ public final class VpclatticeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
@@ -630,7 +694,10 @@ public final class VpclatticeFunctions {
      * Data source for managing an AWS VPC Lattice Service.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -659,6 +726,7 @@ public final class VpclatticeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
@@ -668,7 +736,10 @@ public final class VpclatticeFunctions {
      * Data source for managing an AWS VPC Lattice Service.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -697,6 +768,7 @@ public final class VpclatticeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {
@@ -706,7 +778,10 @@ public final class VpclatticeFunctions {
      * Data source for managing an AWS VPC Lattice Service Network.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -735,6 +810,7 @@ public final class VpclatticeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceNetworkResult> getServiceNetwork(GetServiceNetworkArgs args) {
@@ -744,7 +820,10 @@ public final class VpclatticeFunctions {
      * Data source for managing an AWS VPC Lattice Service Network.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -773,6 +852,7 @@ public final class VpclatticeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceNetworkResult> getServiceNetworkPlain(GetServiceNetworkPlainArgs args) {
@@ -782,7 +862,10 @@ public final class VpclatticeFunctions {
      * Data source for managing an AWS VPC Lattice Service Network.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -811,6 +894,7 @@ public final class VpclatticeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceNetworkResult> getServiceNetwork(GetServiceNetworkArgs args, InvokeOptions options) {
@@ -820,7 +904,10 @@ public final class VpclatticeFunctions {
      * Data source for managing an AWS VPC Lattice Service Network.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -849,6 +936,7 @@ public final class VpclatticeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceNetworkResult> getServiceNetworkPlain(GetServiceNetworkPlainArgs args, InvokeOptions options) {

@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,10 +31,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewOpenZfsFileSystem(ctx, "test", &fsx.OpenZfsFileSystemArgs{
-//				StorageCapacity: pulumi.Int(64),
-//				SubnetIds: pulumi.String{
-//					aws_subnet.Test1.Id,
-//				},
+//				StorageCapacity:    pulumi.Int(64),
+//				SubnetIds:          pulumi.Any(test1.Id),
 //				DeploymentType:     pulumi.String("SINGLE_AZ_1"),
 //				ThroughputCapacity: pulumi.Int(64),
 //			})
@@ -45,18 +44,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import FSx File Systems using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:fsx/openZfsFileSystem:OpenZfsFileSystem example fs-543ab12b1ca672f33
-//
+// $ pulumi import aws:fsx/openZfsFileSystem:OpenZfsFileSystem example fs-543ab12b1ca672f33
 // ```
-//
-//	Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+// Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 type OpenZfsFileSystem struct {
 	pulumi.CustomResourceState
 
@@ -96,6 +93,8 @@ type OpenZfsFileSystem struct {
 	RouteTableIds pulumi.StringArrayOutput `pulumi:"routeTableIds"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
+	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+	SkipFinalBackup pulumi.BoolPtrOutput `pulumi:"skipFinalBackup"`
 	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
 	StorageCapacity pulumi.IntPtrOutput `pulumi:"storageCapacity"`
 	// The filesystem storage type. Only `SSD` is supported.
@@ -132,10 +131,6 @@ func NewOpenZfsFileSystem(ctx *pulumi.Context,
 	if args.ThroughputCapacity == nil {
 		return nil, errors.New("invalid value for required argument 'ThroughputCapacity'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OpenZfsFileSystem
 	err := ctx.RegisterResource("aws:fsx/openZfsFileSystem:OpenZfsFileSystem", name, args, &resource, opts...)
@@ -195,6 +190,8 @@ type openZfsFileSystemState struct {
 	RouteTableIds []string `pulumi:"routeTableIds"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+	SkipFinalBackup *bool `pulumi:"skipFinalBackup"`
 	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
 	StorageCapacity *int `pulumi:"storageCapacity"`
 	// The filesystem storage type. Only `SSD` is supported.
@@ -252,6 +249,8 @@ type OpenZfsFileSystemState struct {
 	RouteTableIds pulumi.StringArrayInput
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds pulumi.StringArrayInput
+	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+	SkipFinalBackup pulumi.BoolPtrInput
 	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
 	StorageCapacity pulumi.IntPtrInput
 	// The filesystem storage type. Only `SSD` is supported.
@@ -303,6 +302,8 @@ type openZfsFileSystemArgs struct {
 	RouteTableIds []string `pulumi:"routeTableIds"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+	SkipFinalBackup *bool `pulumi:"skipFinalBackup"`
 	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
 	StorageCapacity *int `pulumi:"storageCapacity"`
 	// The filesystem storage type. Only `SSD` is supported.
@@ -345,6 +346,8 @@ type OpenZfsFileSystemArgs struct {
 	RouteTableIds pulumi.StringArrayInput
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds pulumi.StringArrayInput
+	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+	SkipFinalBackup pulumi.BoolPtrInput
 	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
 	StorageCapacity pulumi.IntPtrInput
 	// The filesystem storage type. Only `SSD` is supported.
@@ -538,6 +541,11 @@ func (o OpenZfsFileSystemOutput) RouteTableIds() pulumi.StringArrayOutput {
 // A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 func (o OpenZfsFileSystemOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+func (o OpenZfsFileSystemOutput) SkipFinalBackup() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.BoolPtrOutput { return v.SkipFinalBackup }).(pulumi.BoolPtrOutput)
 }
 
 // The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.

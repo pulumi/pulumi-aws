@@ -7,6 +7,7 @@ import com.pulumi.aws.iot.inputs.IndexingConfigurationThingGroupIndexingConfigur
 import com.pulumi.aws.iot.inputs.IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -173,7 +174,9 @@ public final class IndexingConfigurationThingGroupIndexingConfigurationArgs exte
         }
 
         public IndexingConfigurationThingGroupIndexingConfigurationArgs build() {
-            $.thingGroupIndexingMode = Objects.requireNonNull($.thingGroupIndexingMode, "expected parameter 'thingGroupIndexingMode' to be non-null");
+            if ($.thingGroupIndexingMode == null) {
+                throw new MissingRequiredPropertyException("IndexingConfigurationThingGroupIndexingConfigurationArgs", "thingGroupIndexingMode");
+            }
             return $;
         }
     }

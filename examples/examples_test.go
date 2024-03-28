@@ -50,14 +50,6 @@ func getCwd(t *testing.T) string {
 	return cwd
 }
 
-func getBaseOptions() integration.ProgramTestOptions {
-	return integration.ProgramTestOptions{
-		ExpectRefreshChanges: true,
-		SkipRefresh:          true,
-		Quick:                true,
-	}
-}
-
 func validateAPITest(isValid func(body string)) func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
 	return func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
 		var resp *http.Response
@@ -422,10 +414,7 @@ func TestRegressUnknownTags(t *testing.T) {
 		"revokeRulesOnDelete": true,
 		"vpcId": "vpc-4b82e033",
 		"tags": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
-                "tagsAll": {
-                    "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-                    "value": "04da6b54-80e4-46f7-96ec-b56ff0331ba9"
-                }
+                "tagsAll": "04da6b54-80e4-46f7-96ec-b56ff0331ba9"
               }
             }
           }
@@ -519,4 +508,217 @@ func TestS3BucketObjectDeprecation(t *testing.T) {
 	w.Close()
 	out := <-outC
 	assert.NotContains(t, out, "aws_s3_object")
+}
+
+func TestWrongStateMaxItemOneDiffProduced(t *testing.T) {
+	repro := `
+	[
+    {
+      "method": "/pulumirpc.ResourceProvider/Diff",
+      "request": {
+          "id": "f8af893f-869e-4861-a403-1a4fe3509754",
+          "urn": "urn:pulumi:dev::aws_esm_py::aws:lambda/eventSourceMapping:EventSourceMapping::example",
+          "olds": {
+              "amazonManagedKafkaEventSourceConfig": null,
+              "batchSize": 10,
+              "bisectBatchOnFunctionError": false,
+              "destinationConfig": null,
+              "documentDbEventSourceConfig": null,
+              "enabled": true,
+              "eventSourceArn": "arn:aws:sqs:us-east-1:616138583583:queue-7798098",
+              "filterCriteria": null,
+              "functionArn": "arn:aws:lambda:us-east-1:616138583583:function:testLambda-74dac89",
+              "functionName": "arn:aws:lambda:us-east-1:616138583583:function:testLambda-74dac89",
+              "functionResponseTypes": [],
+              "id": "f8af893f-869e-4861-a403-1a4fe3509754",
+              "lastModified": "2023-12-08T16:02:48Z",
+              "lastProcessingResult": "",
+              "maximumBatchingWindowInSeconds": 0,
+              "maximumRecordAgeInSeconds": 0,
+              "maximumRetryAttempts": 0,
+              "parallelizationFactor": 0,
+              "queues": [],
+              "scalingConfig": null,
+              "selfManagedEventSource": null,
+              "selfManagedKafkaEventSourceConfig": null,
+              "sourceAccessConfigurations": [],
+              "startingPosition": "",
+              "startingPositionTimestamp": "",
+              "state": "Enabled",
+              "stateTransitionReason": "USER_INITIATED",
+              "topics": [],
+              "tumblingWindowInSeconds": 0,
+              "uuid": "f8af893f-869e-4861-a403-1a4fe3509754"
+          },
+          "news": {
+              "__defaults": [
+                  "enabled"
+              ],
+              "enabled": true,
+              "eventSourceArn": "arn:aws:sqs:us-east-1:616138583583:queue-7798098",
+              "functionName": "arn:aws:lambda:us-east-1:616138583583:function:testLambda-74dac89"
+          },
+          "oldInputs": {
+              "__defaults": [
+                  "enabled"
+              ],
+              "enabled": true,
+              "eventSourceArn": "arn:aws:sqs:us-east-1:616138583583:queue-7798098",
+              "functionName": "arn:aws:lambda:us-east-1:616138583583:function:testLambda-74dac89"
+          }
+      },
+      "response": {
+          "stables": "*",
+          "changes": "DIFF_SOME",
+          "hasDetailedDiff": true
+      },
+      "metadata": {
+          "kind": "resource",
+          "mode": "client",
+          "name": "aws"
+      }
+  }
+  ]
+	`
+	replay(t, repro)
+}
+
+func TestSourceCodeHashImportedLambdaChecksCleanly(t *testing.T) {
+	replay(t, `
+  [{
+    "method": "/pulumirpc.ResourceProvider/Check",
+    "request": {
+        "urn": "urn:pulumi:imported::repro_lambda::aws:lambda/function:Function::mylambda",
+        "olds": {
+            "__defaults": [],
+            "architectures": [
+                "x86_64"
+            ],
+            "environment": {
+                "__defaults": [],
+                "variables": {
+                    "__defaults": [],
+                    "foo": "bar"
+                }
+            },
+            "ephemeralStorage": {
+                "__defaults": [],
+                "size": 512
+            },
+            "handler": "index.test",
+            "loggingConfig": {
+                "__defaults": [],
+                "logFormat": "Text",
+                "logGroup": "/aws/lambda/testLambda-83906f2"
+            },
+            "name": "testLambda-83906f2",
+            "packageType": "Zip",
+            "role": "arn:aws:iam::616138583583:role/iamForLambda-d5757fe",
+            "runtime": "nodejs18.x",
+            "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
+            "tracingConfig": {
+                "__defaults": [],
+                "mode": "PassThrough"
+            }
+        },
+        "news": {
+            "__defaults": [],
+            "architectures": [
+                "x86_64"
+            ],
+            "environment": {
+                "__defaults": [],
+                "variables": {
+                    "__defaults": [],
+                    "foo": "bar"
+                }
+            },
+            "ephemeralStorage": {
+                "__defaults": [],
+                "size": 512
+            },
+            "handler": "index.test",
+            "loggingConfig": {
+                "__defaults": [],
+                "logFormat": "Text",
+                "logGroup": "/aws/lambda/testLambda-83906f2"
+            },
+            "name": "testLambda-83906f2",
+            "packageType": "Zip",
+            "role": "arn:aws:iam::616138583583:role/iamForLambda-d5757fe",
+            "runtime": "nodejs18.x",
+            "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
+            "tracingConfig": {
+                "__defaults": [],
+                "mode": "PassThrough"
+            }
+        },
+        "randomSeed": "MpcMRlpQV7R8mD8Nmx9KpLPPIyFTHsB8HA4kxXdWTfo="
+    },
+    "response": {
+        "inputs": {
+            "__defaults": [
+                "memorySize",
+                "publish",
+                "reservedConcurrentExecutions",
+                "skipDestroy",
+                "timeout"
+            ],
+            "architectures": [
+                "x86_64"
+            ],
+            "environment": {
+                "__defaults": [],
+                "variables": {
+                    "__defaults": [],
+                    "foo": "bar"
+                }
+            },
+            "ephemeralStorage": {
+                "__defaults": [],
+                "size": 512
+            },
+            "handler": "index.test",
+            "loggingConfig": {
+                "__defaults": [
+                    "applicationLogLevel",
+                    "systemLogLevel"
+                ],
+                "applicationLogLevel": "",
+                "logFormat": "Text",
+                "logGroup": "/aws/lambda/testLambda-83906f2",
+                "systemLogLevel": ""
+            },
+            "memorySize": 128,
+            "name": "testLambda-83906f2",
+            "packageType": "Zip",
+            "publish": false,
+            "reservedConcurrentExecutions": -1,
+            "role": "arn:aws:iam::616138583583:role/iamForLambda-d5757fe",
+            "runtime": "nodejs18.x",
+            "skipDestroy": false,
+            "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
+            "timeout": 3,
+            "tracingConfig": {
+                "__defaults": [],
+                "mode": "PassThrough"
+            }
+        }
+    },
+    "metadata": {
+        "kind": "resource",
+        "mode": "client",
+        "name": "aws"
+    }
+}]`)
+}
+
+// A lot of tests do not currently refresh cleanly. The work to root cause each tests has not been
+// done yet but the common causes are listed here:
+//
+// TODO[pulumi/pulumi-aws#2246] specifically affects overlays such as bucket.onObjectCreated; may be worked around
+// TODO[pulumi/pulumi#6235]
+// TODO[pulumi/pulumi-terraform-bridge#1595]
+func skipRefresh(opts *integration.ProgramTestOptions) {
+	opts.SkipRefresh = true
 }

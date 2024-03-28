@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Msk
     /// Resource for managing an AWS Managed Streaming for Kafka Cluster Policy.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,53 +26,54 @@ namespace Pulumi.Aws.Msk
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var currentPartition = Aws.GetPartition.Invoke();
+    ///     var currentGetPartition = Aws.GetPartition.Invoke();
     /// 
     ///     var example = new Aws.Msk.ClusterPolicy("example", new()
     ///     {
-    ///         ClusterArn = aws_msk_cluster.Example.Arn,
-    ///         Policy = Output.Tuple(currentPartition, currentCallerIdentity).Apply(values =&gt;
+    ///         ClusterArn = exampleAwsMskCluster.Arn,
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             var currentPartition = values.Item1;
-    ///             var currentCallerIdentity = values.Item2;
-    ///             return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
-    ///                 ["Version"] = "2012-10-17",
-    ///                 ["Statement"] = new[]
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     ["sid"] = "ExampleMskClusterPolicy",
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Sid"] = "ExampleMskClusterPolicy",
-    ///                         ["Effect"] = "Allow",
-    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                         ["AWS"] = Output.Tuple(currentGetPartition, current).Apply(values =&gt;
     ///                         {
-    ///                             ["AWS"] = $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
-    ///                         },
-    ///                         ["Action"] = new[]
-    ///                         {
-    ///                             "kafka:Describe*",
-    ///                             "kafka:Get*",
-    ///                             "kafka:CreateVpcConnection",
-    ///                             "kafka:GetBootstrapBrokers",
-    ///                         },
-    ///                         ["Resource"] = aws_msk_cluster.Example.Arn,
+    ///                             var currentGetPartition = values.Item1;
+    ///                             var current = values.Item2;
+    ///                             return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root";
+    ///                         }),
     ///                     },
+    ///                     ["action"] = new[]
+    ///                     {
+    ///                         "kafka:Describe*",
+    ///                         "kafka:Get*",
+    ///                         "kafka:CreateVpcConnection",
+    ///                         "kafka:GetBootstrapBrokers",
+    ///                     },
+    ///                     ["resource"] = exampleAwsMskCluster.Arn,
     ///                 },
-    ///             });
+    ///             },
     ///         }),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Managed Streaming for Kafka Cluster Policy using the `cluster_arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:msk/clusterPolicy:ClusterPolicy example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+    /// $ pulumi import aws:msk/clusterPolicy:ClusterPolicy example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
     /// ```
     /// </summary>
     [AwsResourceType("aws:msk/clusterPolicy:ClusterPolicy")]

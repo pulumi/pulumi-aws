@@ -59,19 +59,21 @@ public final class WebAclRuleOverrideAction {
 
         @CustomType.Setter
         public Builder count(@Nullable WebAclRuleOverrideActionCount count) {
+
             this.count = count;
             return this;
         }
         @CustomType.Setter
         public Builder none(@Nullable WebAclRuleOverrideActionNone none) {
+
             this.none = none;
             return this;
         }
         public WebAclRuleOverrideAction build() {
-            final var o = new WebAclRuleOverrideAction();
-            o.count = count;
-            o.none = none;
-            return o;
+            final var _resultValue = new WebAclRuleOverrideAction();
+            _resultValue.count = count;
+            _resultValue.none = none;
+            return _resultValue;
         }
     }
 }

@@ -6,6 +6,7 @@ package com.pulumi.aws.kendra.outputs;
 import com.pulumi.aws.kendra.outputs.GetIndexUserTokenConfigurationJsonTokenTypeConfiguration;
 import com.pulumi.aws.kendra.outputs.GetIndexUserTokenConfigurationJwtTokenTypeConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -58,7 +59,10 @@ public final class GetIndexUserTokenConfiguration {
 
         @CustomType.Setter
         public Builder jsonTokenTypeConfigurations(List<GetIndexUserTokenConfigurationJsonTokenTypeConfiguration> jsonTokenTypeConfigurations) {
-            this.jsonTokenTypeConfigurations = Objects.requireNonNull(jsonTokenTypeConfigurations);
+            if (jsonTokenTypeConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetIndexUserTokenConfiguration", "jsonTokenTypeConfigurations");
+            }
+            this.jsonTokenTypeConfigurations = jsonTokenTypeConfigurations;
             return this;
         }
         public Builder jsonTokenTypeConfigurations(GetIndexUserTokenConfigurationJsonTokenTypeConfiguration... jsonTokenTypeConfigurations) {
@@ -66,17 +70,20 @@ public final class GetIndexUserTokenConfiguration {
         }
         @CustomType.Setter
         public Builder jwtTokenTypeConfigurations(List<GetIndexUserTokenConfigurationJwtTokenTypeConfiguration> jwtTokenTypeConfigurations) {
-            this.jwtTokenTypeConfigurations = Objects.requireNonNull(jwtTokenTypeConfigurations);
+            if (jwtTokenTypeConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetIndexUserTokenConfiguration", "jwtTokenTypeConfigurations");
+            }
+            this.jwtTokenTypeConfigurations = jwtTokenTypeConfigurations;
             return this;
         }
         public Builder jwtTokenTypeConfigurations(GetIndexUserTokenConfigurationJwtTokenTypeConfiguration... jwtTokenTypeConfigurations) {
             return jwtTokenTypeConfigurations(List.of(jwtTokenTypeConfigurations));
         }
         public GetIndexUserTokenConfiguration build() {
-            final var o = new GetIndexUserTokenConfiguration();
-            o.jsonTokenTypeConfigurations = jsonTokenTypeConfigurations;
-            o.jwtTokenTypeConfigurations = jwtTokenTypeConfigurations;
-            return o;
+            final var _resultValue = new GetIndexUserTokenConfiguration();
+            _resultValue.jsonTokenTypeConfigurations = jsonTokenTypeConfigurations;
+            _resultValue.jwtTokenTypeConfigurations = jwtTokenTypeConfigurations;
+            return _resultValue;
         }
     }
 }

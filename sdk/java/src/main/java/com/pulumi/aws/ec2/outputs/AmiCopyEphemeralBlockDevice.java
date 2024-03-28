@@ -60,19 +60,21 @@ public final class AmiCopyEphemeralBlockDevice {
 
         @CustomType.Setter
         public Builder deviceName(@Nullable String deviceName) {
+
             this.deviceName = deviceName;
             return this;
         }
         @CustomType.Setter
         public Builder virtualName(@Nullable String virtualName) {
+
             this.virtualName = virtualName;
             return this;
         }
         public AmiCopyEphemeralBlockDevice build() {
-            final var o = new AmiCopyEphemeralBlockDevice();
-            o.deviceName = deviceName;
-            o.virtualName = virtualName;
-            return o;
+            final var _resultValue = new AmiCopyEphemeralBlockDevice();
+            _resultValue.deviceName = deviceName;
+            _resultValue.virtualName = virtualName;
+            return _resultValue;
         }
     }
 }

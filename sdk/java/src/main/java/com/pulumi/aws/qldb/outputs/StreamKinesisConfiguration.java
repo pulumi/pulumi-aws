@@ -4,6 +4,7 @@
 package com.pulumi.aws.qldb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -59,19 +60,23 @@ public final class StreamKinesisConfiguration {
 
         @CustomType.Setter
         public Builder aggregationEnabled(@Nullable Boolean aggregationEnabled) {
+
             this.aggregationEnabled = aggregationEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder streamArn(String streamArn) {
-            this.streamArn = Objects.requireNonNull(streamArn);
+            if (streamArn == null) {
+              throw new MissingRequiredPropertyException("StreamKinesisConfiguration", "streamArn");
+            }
+            this.streamArn = streamArn;
             return this;
         }
         public StreamKinesisConfiguration build() {
-            final var o = new StreamKinesisConfiguration();
-            o.aggregationEnabled = aggregationEnabled;
-            o.streamArn = streamArn;
-            return o;
+            final var _resultValue = new StreamKinesisConfiguration();
+            _resultValue.aggregationEnabled = aggregationEnabled;
+            _resultValue.streamArn = streamArn;
+            return _resultValue;
         }
     }
 }

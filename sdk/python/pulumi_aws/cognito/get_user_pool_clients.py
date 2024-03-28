@@ -84,12 +84,14 @@ def get_user_pool_clients(user_pool_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    main = aws.cognito.get_user_pool_clients(user_pool_id=aws_cognito_user_pool["main"]["id"])
+    main = aws.cognito.get_user_pool_clients(user_pool_id=main_aws_cognito_user_pool["id"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str user_pool_id: Cognito user pool ID.
@@ -114,12 +116,14 @@ def get_user_pool_clients_output(user_pool_id: Optional[pulumi.Input[str]] = Non
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    main = aws.cognito.get_user_pool_clients(user_pool_id=aws_cognito_user_pool["main"]["id"])
+    main = aws.cognito.get_user_pool_clients(user_pool_id=main_aws_cognito_user_pool["id"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str user_pool_id: Cognito user pool ID.

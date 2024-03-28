@@ -26,9 +26,12 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Lightsail Distribution.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
  * 
  * Below is a basic example with a bucket as an origin.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -58,15 +61,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testBucket = new Bucket(&#34;testBucket&#34;, BucketArgs.builder()        
+ *         var test = new Bucket(&#34;test&#34;, BucketArgs.builder()        
+ *             .name(&#34;test-bucket&#34;)
  *             .bundleId(&#34;small_1_0&#34;)
  *             .build());
  * 
  *         var testDistribution = new Distribution(&#34;testDistribution&#34;, DistributionArgs.builder()        
+ *             .name(&#34;test-distribution&#34;)
  *             .bundleId(&#34;small_1_0&#34;)
  *             .origin(DistributionOriginArgs.builder()
- *                 .name(testBucket.name())
- *                 .regionName(testBucket.region())
+ *                 .name(test.name())
+ *                 .regionName(test.region())
  *                 .build())
  *             .defaultCacheBehavior(DistributionDefaultCacheBehaviorArgs.builder()
  *                 .behavior(&#34;cache&#34;)
@@ -92,9 +97,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### instance origin example
  * 
  * Below is an example of an instance as the origin.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -104,6 +113,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
  * import com.pulumi.aws.lightsail.StaticIp;
+ * import com.pulumi.aws.lightsail.StaticIpArgs;
  * import com.pulumi.aws.lightsail.Instance;
  * import com.pulumi.aws.lightsail.InstanceArgs;
  * import com.pulumi.aws.lightsail.StaticIpAttachment;
@@ -112,7 +122,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lightsail.DistributionArgs;
  * import com.pulumi.aws.lightsail.inputs.DistributionOriginArgs;
  * import com.pulumi.aws.lightsail.inputs.DistributionDefaultCacheBehaviorArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -134,20 +143,24 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testStaticIp = new StaticIp(&#34;testStaticIp&#34;);
+ *         var testStaticIp = new StaticIp(&#34;testStaticIp&#34;, StaticIpArgs.builder()        
+ *             .name(&#34;test-static-ip&#34;)
+ *             .build());
  * 
  *         var testInstance = new Instance(&#34;testInstance&#34;, InstanceArgs.builder()        
+ *             .name(&#34;test-instance&#34;)
  *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
  *             .blueprintId(&#34;amazon_linux_2&#34;)
  *             .bundleId(&#34;micro_1_0&#34;)
  *             .build());
  * 
- *         var testStaticIpAttachment = new StaticIpAttachment(&#34;testStaticIpAttachment&#34;, StaticIpAttachmentArgs.builder()        
+ *         var test = new StaticIpAttachment(&#34;test&#34;, StaticIpAttachmentArgs.builder()        
  *             .staticIpName(testStaticIp.name())
  *             .instanceName(testInstance.name())
  *             .build());
  * 
  *         var testDistribution = new Distribution(&#34;testDistribution&#34;, DistributionArgs.builder()        
+ *             .name(&#34;test-distribution&#34;)
  *             .bundleId(&#34;small_1_0&#34;)
  *             .origin(DistributionOriginArgs.builder()
  *                 .name(testInstance.name())
@@ -156,16 +169,18 @@ import javax.annotation.Nullable;
  *             .defaultCacheBehavior(DistributionDefaultCacheBehaviorArgs.builder()
  *                 .behavior(&#34;cache&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(testStaticIpAttachment)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### lb origin example
  * 
  * Below is an example with a load balancer as an origin
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -184,7 +199,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lightsail.DistributionArgs;
  * import com.pulumi.aws.lightsail.inputs.DistributionOriginArgs;
  * import com.pulumi.aws.lightsail.inputs.DistributionDefaultCacheBehaviorArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -206,46 +220,48 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testLb = new Lb(&#34;testLb&#34;, LbArgs.builder()        
+ *         var test = new Lb(&#34;test&#34;, LbArgs.builder()        
+ *             .name(&#34;test-load-balancer&#34;)
  *             .healthCheckPath(&#34;/&#34;)
  *             .instancePort(&#34;80&#34;)
  *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
  *             .build());
  * 
  *         var testInstance = new Instance(&#34;testInstance&#34;, InstanceArgs.builder()        
+ *             .name(&#34;test-instance&#34;)
  *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
  *             .blueprintId(&#34;amazon_linux_2&#34;)
  *             .bundleId(&#34;nano_1_0&#34;)
  *             .build());
  * 
  *         var testLbAttachment = new LbAttachment(&#34;testLbAttachment&#34;, LbAttachmentArgs.builder()        
- *             .lbName(testLb.name())
+ *             .lbName(test.name())
  *             .instanceName(testInstance.name())
  *             .build());
  * 
  *         var testDistribution = new Distribution(&#34;testDistribution&#34;, DistributionArgs.builder()        
+ *             .name(&#34;test-distribution&#34;)
  *             .bundleId(&#34;small_1_0&#34;)
  *             .origin(DistributionOriginArgs.builder()
- *                 .name(testLb.name())
+ *                 .name(test.name())
  *                 .regionName(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.id()))
  *                 .build())
  *             .defaultCacheBehavior(DistributionDefaultCacheBehaviorArgs.builder()
  *                 .behavior(&#34;cache&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(testLbAttachment)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Lightsail Distribution using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
+ * $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
  * ```
  * 
  */
@@ -578,9 +594,6 @@ public class Distribution extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -52,11 +52,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
 
         @CustomType.Setter
         public Builder all(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll all) {
+
             this.all = all;
             return this;
         }
         @CustomType.Setter
         public Builder includedPaths(@Nullable List<String> includedPaths) {
+
             this.includedPaths = includedPaths;
             return this;
         }
@@ -64,10 +66,10 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
             return includedPaths(List.of(includedPaths));
         }
         public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern();
-            o.all = all;
-            o.includedPaths = includedPaths;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern();
+            _resultValue.all = all;
+            _resultValue.includedPaths = includedPaths;
+            return _resultValue;
         }
     }
 }

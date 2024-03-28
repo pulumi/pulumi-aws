@@ -5,6 +5,7 @@ package com.pulumi.aws.appflow.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -109,6 +110,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
     /**
      * Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -140,6 +142,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Import(name="timezone")
@@ -148,6 +151,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
     /**
      * @return Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -179,6 +183,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<Output<String>> timezone() {
@@ -344,6 +349,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
         /**
          * @param timezone Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
          * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -375,6 +381,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -387,6 +394,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
         /**
          * @param timezone Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
          * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -418,6 +426,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -427,7 +436,9 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
         }
 
         public FlowTriggerConfigTriggerPropertiesScheduledArgs build() {
-            $.scheduleExpression = Objects.requireNonNull($.scheduleExpression, "expected parameter 'scheduleExpression' to be non-null");
+            if ($.scheduleExpression == null) {
+                throw new MissingRequiredPropertyException("FlowTriggerConfigTriggerPropertiesScheduledArgs", "scheduleExpression");
+            }
             return $;
         }
     }

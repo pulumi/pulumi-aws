@@ -44,13 +44,14 @@ public final class SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance {
 
         @CustomType.Setter
         public Builder replacementStrategy(@Nullable String replacementStrategy) {
+
             this.replacementStrategy = replacementStrategy;
             return this;
         }
         public SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance build() {
-            final var o = new SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance();
-            o.replacementStrategy = replacementStrategy;
-            return o;
+            final var _resultValue = new SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance();
+            _resultValue.replacementStrategy = replacementStrategy;
+            return _resultValue;
         }
     }
 }

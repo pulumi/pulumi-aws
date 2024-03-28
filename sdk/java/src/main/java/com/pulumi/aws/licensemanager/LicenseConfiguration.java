@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Removing the `license_count` attribute is not supported by the License Manager API.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,6 +48,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LicenseConfiguration(&#34;example&#34;, LicenseConfigurationArgs.builder()        
+ *             .name(&#34;Example&#34;)
  *             .description(&#34;Example&#34;)
  *             .licenseCount(10)
  *             .licenseCountHardLimit(true)
@@ -57,6 +60,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Rules
  * 
  * License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:
@@ -74,7 +79,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import license configurations using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+ * $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
  * ```
  * 
  */
@@ -257,9 +262,6 @@ public class LicenseConfiguration extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

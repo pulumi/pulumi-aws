@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.GetLocalGatewayVirtualInterfaceGroup(ctx, &ec2.GetLocalGatewayVirtualInterfaceGroupArgs{
-//				LocalGatewayId: pulumi.StringRef(data.Aws_ec2_local_gateway.Example.Id),
+//				LocalGatewayId: pulumi.StringRef(exampleAwsEc2LocalGateway.Id),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetLocalGatewayVirtualInterfaceGroup(ctx *pulumi.Context, args *GetLocalGatewayVirtualInterfaceGroupArgs, opts ...pulumi.InvokeOption) (*GetLocalGatewayVirtualInterfaceGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalGatewayVirtualInterfaceGroupResult

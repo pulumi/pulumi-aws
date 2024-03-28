@@ -16,10 +16,9 @@ namespace Pulumi.Aws.Kms
         /// By using this data source, you can reference KMS custom key store
         /// without having to hard code the ID as input.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,8 +34,7 @@ namespace Pulumi.Aws.Kms
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetCustomKeyStoreResult> InvokeAsync(GetCustomKeyStoreArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomKeyStoreResult>("aws:kms/getCustomKeyStore:getCustomKeyStore", args ?? new GetCustomKeyStoreArgs(), options.WithDefaults());
@@ -46,10 +44,9 @@ namespace Pulumi.Aws.Kms
         /// By using this data source, you can reference KMS custom key store
         /// without having to hard code the ID as input.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,8 +62,7 @@ namespace Pulumi.Aws.Kms
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetCustomKeyStoreResult> Invoke(GetCustomKeyStoreInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomKeyStoreResult>("aws:kms/getCustomKeyStore:getCustomKeyStore", args ?? new GetCustomKeyStoreInvokeArgs(), options.WithDefaults());

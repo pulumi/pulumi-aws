@@ -5,6 +5,7 @@ package com.pulumi.aws.apigatewayv2.outputs;
 
 import com.pulumi.aws.apigatewayv2.outputs.GetApiCorsConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -228,27 +229,42 @@ public final class GetApiResult {
 
         @CustomType.Setter
         public Builder apiEndpoint(String apiEndpoint) {
-            this.apiEndpoint = Objects.requireNonNull(apiEndpoint);
+            if (apiEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "apiEndpoint");
+            }
+            this.apiEndpoint = apiEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder apiId(String apiId) {
-            this.apiId = Objects.requireNonNull(apiId);
+            if (apiId == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "apiId");
+            }
+            this.apiId = apiId;
             return this;
         }
         @CustomType.Setter
         public Builder apiKeySelectionExpression(String apiKeySelectionExpression) {
-            this.apiKeySelectionExpression = Objects.requireNonNull(apiKeySelectionExpression);
+            if (apiKeySelectionExpression == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "apiKeySelectionExpression");
+            }
+            this.apiKeySelectionExpression = apiKeySelectionExpression;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder corsConfigurations(List<GetApiCorsConfiguration> corsConfigurations) {
-            this.corsConfigurations = Objects.requireNonNull(corsConfigurations);
+            if (corsConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "corsConfigurations");
+            }
+            this.corsConfigurations = corsConfigurations;
             return this;
         }
         public Builder corsConfigurations(GetApiCorsConfiguration... corsConfigurations) {
@@ -256,66 +272,93 @@ public final class GetApiResult {
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder disableExecuteApiEndpoint(Boolean disableExecuteApiEndpoint) {
-            this.disableExecuteApiEndpoint = Objects.requireNonNull(disableExecuteApiEndpoint);
+            if (disableExecuteApiEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "disableExecuteApiEndpoint");
+            }
+            this.disableExecuteApiEndpoint = disableExecuteApiEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder executionArn(String executionArn) {
-            this.executionArn = Objects.requireNonNull(executionArn);
+            if (executionArn == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "executionArn");
+            }
+            this.executionArn = executionArn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder protocolType(String protocolType) {
-            this.protocolType = Objects.requireNonNull(protocolType);
+            if (protocolType == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "protocolType");
+            }
+            this.protocolType = protocolType;
             return this;
         }
         @CustomType.Setter
         public Builder routeSelectionExpression(String routeSelectionExpression) {
-            this.routeSelectionExpression = Objects.requireNonNull(routeSelectionExpression);
+            if (routeSelectionExpression == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "routeSelectionExpression");
+            }
+            this.routeSelectionExpression = routeSelectionExpression;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "version");
+            }
+            this.version = version;
             return this;
         }
         public GetApiResult build() {
-            final var o = new GetApiResult();
-            o.apiEndpoint = apiEndpoint;
-            o.apiId = apiId;
-            o.apiKeySelectionExpression = apiKeySelectionExpression;
-            o.arn = arn;
-            o.corsConfigurations = corsConfigurations;
-            o.description = description;
-            o.disableExecuteApiEndpoint = disableExecuteApiEndpoint;
-            o.executionArn = executionArn;
-            o.id = id;
-            o.name = name;
-            o.protocolType = protocolType;
-            o.routeSelectionExpression = routeSelectionExpression;
-            o.tags = tags;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetApiResult();
+            _resultValue.apiEndpoint = apiEndpoint;
+            _resultValue.apiId = apiId;
+            _resultValue.apiKeySelectionExpression = apiKeySelectionExpression;
+            _resultValue.arn = arn;
+            _resultValue.corsConfigurations = corsConfigurations;
+            _resultValue.description = description;
+            _resultValue.disableExecuteApiEndpoint = disableExecuteApiEndpoint;
+            _resultValue.executionArn = executionArn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.protocolType = protocolType;
+            _resultValue.routeSelectionExpression = routeSelectionExpression;
+            _resultValue.tags = tags;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

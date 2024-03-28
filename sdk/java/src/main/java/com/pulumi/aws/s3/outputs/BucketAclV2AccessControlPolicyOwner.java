@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,19 +59,23 @@ public final class BucketAclV2AccessControlPolicyOwner {
 
         @CustomType.Setter
         public Builder displayName(@Nullable String displayName) {
+
             this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("BucketAclV2AccessControlPolicyOwner", "id");
+            }
+            this.id = id;
             return this;
         }
         public BucketAclV2AccessControlPolicyOwner build() {
-            final var o = new BucketAclV2AccessControlPolicyOwner();
-            o.displayName = displayName;
-            o.id = id;
-            return o;
+            final var _resultValue = new BucketAclV2AccessControlPolicyOwner();
+            _resultValue.displayName = displayName;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

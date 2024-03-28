@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,12 +29,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsworks.NewPermission(ctx, "myStackPermission", &opsworks.PermissionArgs{
+//			_, err := opsworks.NewPermission(ctx, "my_stack_permission", &opsworks.PermissionArgs{
 //				AllowSsh:  pulumi.Bool(true),
 //				AllowSudo: pulumi.Bool(true),
 //				Level:     pulumi.String("iam_only"),
-//				UserArn:   pulumi.Any(aws_iam_user.User.Arn),
-//				StackId:   pulumi.Any(aws_opsworks_stack.Stack.Id),
+//				UserArn:   pulumi.Any(user.Arn),
+//				StackId:   pulumi.Any(stack.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -43,6 +44,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type Permission struct {
 	pulumi.CustomResourceState
 

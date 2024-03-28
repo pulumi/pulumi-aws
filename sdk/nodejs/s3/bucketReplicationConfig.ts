@@ -12,14 +12,17 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** S3 Buckets only support a single replication configuration. Declaring multiple `aws.s3.BucketReplicationConfig` resources to the same S3 Bucket will cause a perpetual difference in configuration.
  *
+ * > This resource cannot be used with S3 directory buckets.
+ *
  * ## Example Usage
+ *
  * ### Using replication configuration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const central = new aws.Provider("central", {region: "eu-central-1"});
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -30,12 +33,13 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const replicationRole = new aws.iam.Role("replicationRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const destinationBucketV2 = new aws.s3.BucketV2("destinationBucketV2", {});
- * const sourceBucketV2 = new aws.s3.BucketV2("sourceBucketV2", {}, {
- *     provider: aws.central,
+ * const replicationRole = new aws.iam.Role("replication", {
+ *     name: "tf-iam-role-replication-12345",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
- * const replicationPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const destination = new aws.s3.BucketV2("destination", {bucket: "tf-test-bucket-destination-12345"});
+ * const source = new aws.s3.BucketV2("source", {bucket: "tf-test-bucket-source-12345"});
+ * const replication = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             effect: "Allow",
@@ -43,7 +47,7 @@ import * as utilities from "../utilities";
  *                 "s3:GetReplicationConfiguration",
  *                 "s3:ListBucket",
  *             ],
- *             resources: [sourceBucketV2.arn],
+ *             resources: [source.arn],
  *         },
  *         {
  *             effect: "Allow",
@@ -52,7 +56,7 @@ import * as utilities from "../utilities";
  *                 "s3:GetObjectVersionAcl",
  *                 "s3:GetObjectVersionTagging",
  *             ],
- *             resources: [pulumi.interpolate`${sourceBucketV2.arn}/*`],
+ *             resources: [pulumi.interpolate`${source.arn}/*`],
  *         },
  *         {
  *             effect: "Allow",
@@ -61,38 +65,37 @@ import * as utilities from "../utilities";
  *                 "s3:ReplicateDelete",
  *                 "s3:ReplicateTags",
  *             ],
- *             resources: [pulumi.interpolate`${destinationBucketV2.arn}/*`],
+ *             resources: [pulumi.interpolate`${destination.arn}/*`],
  *         },
  *     ],
  * });
- * const replicationPolicy = new aws.iam.Policy("replicationPolicy", {policy: replicationPolicyDocument.apply(replicationPolicyDocument => replicationPolicyDocument.json)});
- * const replicationRolePolicyAttachment = new aws.iam.RolePolicyAttachment("replicationRolePolicyAttachment", {
+ * const replicationPolicy = new aws.iam.Policy("replication", {
+ *     name: "tf-iam-role-policy-replication-12345",
+ *     policy: replication.apply(replication => replication.json),
+ * });
+ * const replicationRolePolicyAttachment = new aws.iam.RolePolicyAttachment("replication", {
  *     role: replicationRole.name,
  *     policyArn: replicationPolicy.arn,
  * });
- * const destinationBucketVersioningV2 = new aws.s3.BucketVersioningV2("destinationBucketVersioningV2", {
- *     bucket: destinationBucketV2.id,
+ * const destinationBucketVersioningV2 = new aws.s3.BucketVersioningV2("destination", {
+ *     bucket: destination.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
  * });
- * const sourceBucketAcl = new aws.s3.BucketAclV2("sourceBucketAcl", {
- *     bucket: sourceBucketV2.id,
+ * const sourceBucketAcl = new aws.s3.BucketAclV2("source_bucket_acl", {
+ *     bucket: source.id,
  *     acl: "private",
- * }, {
- *     provider: aws.central,
  * });
- * const sourceBucketVersioningV2 = new aws.s3.BucketVersioningV2("sourceBucketVersioningV2", {
- *     bucket: sourceBucketV2.id,
+ * const sourceBucketVersioningV2 = new aws.s3.BucketVersioningV2("source", {
+ *     bucket: source.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
- * }, {
- *     provider: aws.central,
  * });
- * const replicationBucketReplicationConfig = new aws.s3.BucketReplicationConfig("replicationBucketReplicationConfig", {
+ * const replicationBucketReplicationConfig = new aws.s3.BucketReplicationConfig("replication", {
  *     role: replicationRole.arn,
- *     bucket: sourceBucketV2.id,
+ *     bucket: source.id,
  *     rules: [{
  *         id: "foobar",
  *         filter: {
@@ -100,43 +103,39 @@ import * as utilities from "../utilities";
  *         },
  *         status: "Enabled",
  *         destination: {
- *             bucket: destinationBucketV2.arn,
+ *             bucket: destination.arn,
  *             storageClass: "STANDARD",
  *         },
  *     }],
- * }, {
- *     provider: aws.central,
- *     dependsOn: [sourceBucketVersioningV2],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Bi-Directional Replication
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * // ... other configuration ...
- * const eastBucketV2 = new aws.s3.BucketV2("eastBucketV2", {});
- * const eastBucketVersioningV2 = new aws.s3.BucketVersioningV2("eastBucketVersioningV2", {
- *     bucket: eastBucketV2.id,
+ * const east = new aws.s3.BucketV2("east", {bucket: "tf-test-bucket-east-12345"});
+ * const eastBucketVersioningV2 = new aws.s3.BucketVersioningV2("east", {
+ *     bucket: east.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
  * });
- * const westBucketV2 = new aws.s3.BucketV2("westBucketV2", {}, {
- *     provider: aws.west,
- * });
- * const westBucketVersioningV2 = new aws.s3.BucketVersioningV2("westBucketVersioningV2", {
- *     bucket: westBucketV2.id,
+ * const west = new aws.s3.BucketV2("west", {bucket: "tf-test-bucket-west-12345"});
+ * const westBucketVersioningV2 = new aws.s3.BucketVersioningV2("west", {
+ *     bucket: west.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
- * }, {
- *     provider: aws.west,
  * });
- * const eastToWest = new aws.s3.BucketReplicationConfig("eastToWest", {
- *     role: aws_iam_role.east_replication.arn,
- *     bucket: eastBucketV2.id,
+ * const eastToWest = new aws.s3.BucketReplicationConfig("east_to_west", {
+ *     role: eastReplication.arn,
+ *     bucket: east.id,
  *     rules: [{
  *         id: "foobar",
  *         filter: {
@@ -144,16 +143,14 @@ import * as utilities from "../utilities";
  *         },
  *         status: "Enabled",
  *         destination: {
- *             bucket: westBucketV2.arn,
+ *             bucket: west.arn,
  *             storageClass: "STANDARD",
  *         },
  *     }],
- * }, {
- *     dependsOn: [eastBucketVersioningV2],
  * });
- * const westToEast = new aws.s3.BucketReplicationConfig("westToEast", {
- *     role: aws_iam_role.west_replication.arn,
- *     bucket: westBucketV2.id,
+ * const westToEast = new aws.s3.BucketReplicationConfig("west_to_east", {
+ *     role: westReplication.arn,
+ *     bucket: west.id,
  *     rules: [{
  *         id: "foobar",
  *         filter: {
@@ -161,22 +158,20 @@ import * as utilities from "../utilities";
  *         },
  *         status: "Enabled",
  *         destination: {
- *             bucket: eastBucketV2.arn,
+ *             bucket: east.arn,
  *             storageClass: "STANDARD",
  *         },
  *     }],
- * }, {
- *     provider: aws.west,
- *     dependsOn: [westBucketVersioningV2],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import S3 bucket replication configuration using the `bucket`. For example:
  *
  * ```sh
- *  $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
+ * $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
  * ```
  */
 export class BucketReplicationConfig extends pulumi.CustomResource {

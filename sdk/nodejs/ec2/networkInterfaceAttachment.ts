@@ -9,23 +9,25 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.ec2.NetworkInterfaceAttachment("test", {
- *     instanceId: aws_instance.test.id,
- *     networkInterfaceId: aws_network_interface.test.id,
+ *     instanceId: testAwsInstance.id,
+ *     networkInterfaceId: testAwsNetworkInterface.id,
  *     deviceIndex: 0,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Elastic network interface (ENI) Attachments using its Attachment ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
+ * $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
  * ```
  */
 export class NetworkInterfaceAttachment extends pulumi.CustomResource {

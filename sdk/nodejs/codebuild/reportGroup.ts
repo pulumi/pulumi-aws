@@ -12,12 +12,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getCallerIdentity({});
- * const examplePolicyDocument = current.then(current => aws.iam.getPolicyDocument({
+ * const example = current.then(current => aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "Enable IAM User Permissions",
  *         effect: "Allow",
@@ -29,13 +30,14 @@ import * as utilities from "../utilities";
  *         resources: ["*"],
  *     }],
  * }));
- * const exampleKey = new aws.kms.Key("exampleKey", {
+ * const exampleKey = new aws.kms.Key("example", {
  *     description: "my test kms key",
  *     deletionWindowInDays: 7,
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
+ *     policy: example.then(example => example.json),
  * });
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleReportGroup = new aws.codebuild.ReportGroup("exampleReportGroup", {
+ * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "my-test"});
+ * const exampleReportGroup = new aws.codebuild.ReportGroup("example", {
+ *     name: "my test report group",
  *     type: "TEST",
  *     exportConfig: {
  *         type: "S3",
@@ -49,13 +51,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For example:
  *
  * ```sh
- *  $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
+ * $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
  * ```
  */
 export class ReportGroup extends pulumi.CustomResource {
@@ -160,8 +163,6 @@ export class ReportGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ReportGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

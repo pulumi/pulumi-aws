@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * &gt; This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Policies in an AWS Partition, see the `aws.s3.BucketPolicy` resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,33 +44,34 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketPolicy(&#34;example&#34;, BucketPolicyArgs.builder()        
- *             .bucket(aws_s3control_bucket.example().arn())
+ *             .bucket(exampleAwsS3controlBucket.arn())
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Id&#34;, &#34;testBucketPolicy&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;s3-outposts:PutBucketLifecycleConfiguration&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Deny&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
+ *                     jsonProperty(&#34;id&#34;, &#34;testBucketPolicy&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;action&#34;, &#34;s3-outposts:PutBucketLifecycleConfiguration&#34;),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Deny&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
  *                             jsonProperty(&#34;AWS&#34;, &#34;*&#34;)
  *                         )),
- *                         jsonProperty(&#34;Resource&#34;, aws_s3control_bucket.example().arn()),
- *                         jsonProperty(&#34;Sid&#34;, &#34;statement1&#34;)
+ *                         jsonProperty(&#34;resource&#34;, exampleAwsS3controlBucket.arn()),
+ *                         jsonProperty(&#34;sid&#34;, &#34;statement1&#34;)
  *                     ))),
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;)
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;)
  *                 )))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import S3 Control Bucket Policies using the Amazon Resource Name (ARN). For example:
  * 
  * ```sh
- *  $ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+ * $ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
  * ```
  * 
  */

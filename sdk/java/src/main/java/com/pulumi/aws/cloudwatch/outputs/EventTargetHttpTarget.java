@@ -73,11 +73,13 @@ public final class EventTargetHttpTarget {
 
         @CustomType.Setter
         public Builder headerParameters(@Nullable Map<String,String> headerParameters) {
+
             this.headerParameters = headerParameters;
             return this;
         }
         @CustomType.Setter
         public Builder pathParameterValues(@Nullable List<String> pathParameterValues) {
+
             this.pathParameterValues = pathParameterValues;
             return this;
         }
@@ -86,15 +88,16 @@ public final class EventTargetHttpTarget {
         }
         @CustomType.Setter
         public Builder queryStringParameters(@Nullable Map<String,String> queryStringParameters) {
+
             this.queryStringParameters = queryStringParameters;
             return this;
         }
         public EventTargetHttpTarget build() {
-            final var o = new EventTargetHttpTarget();
-            o.headerParameters = headerParameters;
-            o.pathParameterValues = pathParameterValues;
-            o.queryStringParameters = queryStringParameters;
-            return o;
+            final var _resultValue = new EventTargetHttpTarget();
+            _resultValue.headerParameters = headerParameters;
+            _resultValue.pathParameterValues = pathParameterValues;
+            _resultValue.queryStringParameters = queryStringParameters;
+            return _resultValue;
         }
     }
 }

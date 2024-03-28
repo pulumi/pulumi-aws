@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,26 +23,28 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var example = new Aws.Ec2.Vpc("example", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var examplePrivateDnsNamespace = new Aws.ServiceDiscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", new()
+    ///     var examplePrivateDnsNamespace = new Aws.ServiceDiscovery.PrivateDnsNamespace("example", new()
     ///     {
+    ///         Name = "hoge.example.local",
     ///         Description = "example",
-    ///         Vpc = exampleVpc.Id,
+    ///         Vpc = example.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Service Discovery Private DNS Namespace using the namespace ID and VPC ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345
+    /// $ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace")]
@@ -112,10 +115,6 @@ namespace Pulumi.Aws.ServiceDiscovery
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -223,11 +222,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

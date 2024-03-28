@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,11 +25,6 @@ namespace Pulumi.Aws.Backup
     /// {
     ///     var test = new Aws.Backup.RegionSettings("test", new()
     ///     {
-    ///         ResourceTypeManagementPreference = 
-    ///         {
-    ///             { "DynamoDB", true },
-    ///             { "EFS", true },
-    ///         },
     ///         ResourceTypeOptInPreference = 
     ///         {
     ///             { "Aurora", true },
@@ -43,17 +39,23 @@ namespace Pulumi.Aws.Backup
     ///             { "Storage Gateway", true },
     ///             { "VirtualMachine", true },
     ///         },
+    ///         ResourceTypeManagementPreference = 
+    ///         {
+    ///             { "DynamoDB", true },
+    ///             { "EFS", true },
+    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Backup Region Settings using the `region`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
+    /// $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
     /// ```
     /// </summary>
     [AwsResourceType("aws:backup/regionSettings:RegionSettings")]

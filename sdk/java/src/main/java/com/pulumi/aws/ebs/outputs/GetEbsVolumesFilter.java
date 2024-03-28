@@ -4,6 +4,7 @@
 package com.pulumi.aws.ebs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -14,6 +15,8 @@ public final class GetEbsVolumesFilter {
      * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
      * For example, if matching against the `size` filter, use:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -47,6 +50,7 @@ public final class GetEbsVolumesFilter {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     private String name;
@@ -62,6 +66,8 @@ public final class GetEbsVolumesFilter {
      * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
      * For example, if matching against the `size` filter, use:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -95,6 +101,7 @@ public final class GetEbsVolumesFilter {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public String name() {
@@ -129,22 +136,28 @@ public final class GetEbsVolumesFilter {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetEbsVolumesFilter", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder values(List<String> values) {
-            this.values = Objects.requireNonNull(values);
+            if (values == null) {
+              throw new MissingRequiredPropertyException("GetEbsVolumesFilter", "values");
+            }
+            this.values = values;
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
         }
         public GetEbsVolumesFilter build() {
-            final var o = new GetEbsVolumesFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetEbsVolumesFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			path, err := ec2.NewNetworkInsightsPath(ctx, "path", &ec2.NetworkInsightsPathArgs{
-//				Source:      pulumi.Any(aws_network_interface.Source.Id),
-//				Destination: pulumi.Any(aws_network_interface.Destination.Id),
+//				Source:      pulumi.Any(source.Id),
+//				Destination: pulumi.Any(destination.Id),
 //				Protocol:    pulumi.String("tcp"),
 //			})
 //			if err != nil {
@@ -47,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Network Insights Analyses using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis test nia-0462085c957f11a55
-//
+// $ pulumi import aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis test nia-0462085c957f11a55
 // ```
 type NetworkInsightsAnalysis struct {
 	pulumi.CustomResourceState
@@ -106,10 +106,6 @@ func NewNetworkInsightsAnalysis(ctx *pulumi.Context,
 	if args.NetworkInsightsPathId == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkInsightsPathId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkInsightsAnalysis
 	err := ctx.RegisterResource("aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis", name, args, &resource, opts...)

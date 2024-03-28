@@ -6,6 +6,7 @@ package com.pulumi.aws.quicksight.outputs;
 import com.pulumi.aws.quicksight.outputs.DataSetPhysicalTableMapS3SourceInputColumn;
 import com.pulumi.aws.quicksight.outputs.DataSetPhysicalTableMapS3SourceUploadSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -73,12 +74,18 @@ public final class DataSetPhysicalTableMapS3Source {
 
         @CustomType.Setter
         public Builder dataSourceArn(String dataSourceArn) {
-            this.dataSourceArn = Objects.requireNonNull(dataSourceArn);
+            if (dataSourceArn == null) {
+              throw new MissingRequiredPropertyException("DataSetPhysicalTableMapS3Source", "dataSourceArn");
+            }
+            this.dataSourceArn = dataSourceArn;
             return this;
         }
         @CustomType.Setter
         public Builder inputColumns(List<DataSetPhysicalTableMapS3SourceInputColumn> inputColumns) {
-            this.inputColumns = Objects.requireNonNull(inputColumns);
+            if (inputColumns == null) {
+              throw new MissingRequiredPropertyException("DataSetPhysicalTableMapS3Source", "inputColumns");
+            }
+            this.inputColumns = inputColumns;
             return this;
         }
         public Builder inputColumns(DataSetPhysicalTableMapS3SourceInputColumn... inputColumns) {
@@ -86,15 +93,18 @@ public final class DataSetPhysicalTableMapS3Source {
         }
         @CustomType.Setter
         public Builder uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettings uploadSettings) {
-            this.uploadSettings = Objects.requireNonNull(uploadSettings);
+            if (uploadSettings == null) {
+              throw new MissingRequiredPropertyException("DataSetPhysicalTableMapS3Source", "uploadSettings");
+            }
+            this.uploadSettings = uploadSettings;
             return this;
         }
         public DataSetPhysicalTableMapS3Source build() {
-            final var o = new DataSetPhysicalTableMapS3Source();
-            o.dataSourceArn = dataSourceArn;
-            o.inputColumns = inputColumns;
-            o.uploadSettings = uploadSettings;
-            return o;
+            final var _resultValue = new DataSetPhysicalTableMapS3Source();
+            _resultValue.dataSourceArn = dataSourceArn;
+            _resultValue.inputColumns = inputColumns;
+            _resultValue.uploadSettings = uploadSettings;
+            return _resultValue;
         }
     }
 }

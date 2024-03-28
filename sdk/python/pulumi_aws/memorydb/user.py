@@ -234,29 +234,31 @@ class User(pulumi.CustomResource):
         > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
         import pulumi_random as random
 
-        example_random_password = random.RandomPassword("exampleRandomPassword", length=16)
-        example_user = aws.memorydb.User("exampleUser",
+        example = random.index.Password("example", length=16)
+        example_user = aws.memorydb.User("example",
             user_name="my-user",
             access_string="on ~* &* +@all",
             authentication_mode=aws.memorydb.UserAuthenticationModeArgs(
                 type="password",
-                passwords=[example_random_password.result],
+                passwords=[example["result"]],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a user using the `user_name`. For example:
 
         ```sh
-         $ pulumi import aws:memorydb/user:User example my-user
+        $ pulumi import aws:memorydb/user:User example my-user
         ```
-         The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
+        The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -281,29 +283,31 @@ class User(pulumi.CustomResource):
         > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
         import pulumi_random as random
 
-        example_random_password = random.RandomPassword("exampleRandomPassword", length=16)
-        example_user = aws.memorydb.User("exampleUser",
+        example = random.index.Password("example", length=16)
+        example_user = aws.memorydb.User("example",
             user_name="my-user",
             access_string="on ~* &* +@all",
             authentication_mode=aws.memorydb.UserAuthenticationModeArgs(
                 type="password",
-                passwords=[example_random_password.result],
+                passwords=[example["result"]],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a user using the `user_name`. For example:
 
         ```sh
-         $ pulumi import aws:memorydb/user:User example my-user
+        $ pulumi import aws:memorydb/user:User example my-user
         ```
-         The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
+        The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
@@ -346,8 +350,6 @@ class User(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["minimum_engine_version"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(User, __self__).__init__(
             'aws:memorydb/user:User',
             resource_name,

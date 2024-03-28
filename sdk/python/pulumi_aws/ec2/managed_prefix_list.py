@@ -287,20 +287,22 @@ class ManagedPrefixList(pulumi.CustomResource):
 
         Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2.ManagedPrefixList("example",
+            name="All VPC CIDR-s",
             address_family="IPv4",
             max_entries=5,
             entries=[
                 aws.ec2.ManagedPrefixListEntryArgs(
-                    cidr=aws_vpc["example"]["cidr_block"],
+                    cidr=example_aws_vpc["cidrBlock"],
                     description="Primary",
                 ),
                 aws.ec2.ManagedPrefixListEntryArgs(
-                    cidr=aws_vpc_ipv4_cidr_block_association["example"]["cidr_block"],
+                    cidr=example_aws_vpc_ipv4_cidr_block_association["cidrBlock"],
                     description="Secondary",
                 ),
             ],
@@ -308,13 +310,14 @@ class ManagedPrefixList(pulumi.CustomResource):
                 "Env": "live",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Prefix Lists using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
+        $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
         ```
 
         :param str resource_name: The name of the resource.
@@ -350,20 +353,22 @@ class ManagedPrefixList(pulumi.CustomResource):
 
         Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2.ManagedPrefixList("example",
+            name="All VPC CIDR-s",
             address_family="IPv4",
             max_entries=5,
             entries=[
                 aws.ec2.ManagedPrefixListEntryArgs(
-                    cidr=aws_vpc["example"]["cidr_block"],
+                    cidr=example_aws_vpc["cidrBlock"],
                     description="Primary",
                 ),
                 aws.ec2.ManagedPrefixListEntryArgs(
-                    cidr=aws_vpc_ipv4_cidr_block_association["example"]["cidr_block"],
+                    cidr=example_aws_vpc_ipv4_cidr_block_association["cidrBlock"],
                     description="Secondary",
                 ),
             ],
@@ -371,13 +376,14 @@ class ManagedPrefixList(pulumi.CustomResource):
                 "Env": "live",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Prefix Lists using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
+        $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
         ```
 
         :param str resource_name: The name of the resource.
@@ -422,8 +428,6 @@ class ManagedPrefixList(pulumi.CustomResource):
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["version"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ManagedPrefixList, __self__).__init__(
             'aws:ec2/managedPrefixList:ManagedPrefixList',
             resource_name,

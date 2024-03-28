@@ -11,19 +11,25 @@ import {ARN} from "..";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const userUpdates = new aws.sns.Topic("userUpdates", {});
+ * const userUpdates = new aws.sns.Topic("user_updates", {name: "user-updates-topic"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Example with Delivery Policy
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const userUpdates = new aws.sns.Topic("userUpdates", {deliveryPolicy: `{
+ * const userUpdates = new aws.sns.Topic("user_updates", {
+ *     name: "user-updates-topic",
+ *     deliveryPolicy: `{
  *   "http": {
  *     "defaultHealthyRetryPolicy": {
  *       "minDelayTarget": 20,
@@ -40,30 +46,39 @@ import {ARN} from "..";
  *     }
  *   }
  * }
- *
- * `});
+ * `,
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Example with Server-side encryption (SSE)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const userUpdates = new aws.sns.Topic("userUpdates", {kmsMasterKeyId: "alias/aws/sns"});
+ * const userUpdates = new aws.sns.Topic("user_updates", {
+ *     name: "user-updates-topic",
+ *     kmsMasterKeyId: "alias/aws/sns",
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Example with First-In-First-Out (FIFO)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const userUpdates = new aws.sns.Topic("userUpdates", {
- *     contentBasedDeduplication: true,
+ * const userUpdates = new aws.sns.Topic("user_updates", {
+ *     name: "user-updates-topic.fifo",
  *     fifoTopic: true,
+ *     contentBasedDeduplication: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Message Delivery Status Arguments
  *
@@ -74,7 +89,7 @@ import {ARN} from "..";
  * Using `pulumi import`, import SNS Topics using the topic `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
+ * $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
  * ```
  */
 export class Topic extends pulumi.CustomResource {
@@ -311,8 +326,6 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Topic.__pulumiType, name, resourceInputs, opts);
     }
 }

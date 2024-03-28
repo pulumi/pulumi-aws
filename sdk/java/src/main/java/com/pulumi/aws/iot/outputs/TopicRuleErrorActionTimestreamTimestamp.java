@@ -4,6 +4,7 @@
 package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class TopicRuleErrorActionTimestreamTimestamp {
 
         @CustomType.Setter
         public Builder unit(String unit) {
-            this.unit = Objects.requireNonNull(unit);
+            if (unit == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionTimestreamTimestamp", "unit");
+            }
+            this.unit = unit;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionTimestreamTimestamp", "value");
+            }
+            this.value = value;
             return this;
         }
         public TopicRuleErrorActionTimestreamTimestamp build() {
-            final var o = new TopicRuleErrorActionTimestreamTimestamp();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionTimestreamTimestamp();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

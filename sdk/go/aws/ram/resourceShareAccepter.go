@@ -20,6 +20,7 @@ import (
 //
 // This configuration provides an example of using multiple AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `ram.ResourceShare` and uses a data source in the _receiver_ account to create a `ram.PrincipalAssociation` resource with the _receiver's_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `ram.ResourceShareAccepter`.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,18 +34,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "alternate", &aws.ProviderArgs{
-//				Profile: pulumi.String("profile1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			senderShare, err := ram.NewResourceShare(ctx, "senderShare", &ram.ResourceShareArgs{
+//			senderShare, err := ram.NewResourceShare(ctx, "sender_share", &ram.ResourceShareArgs{
+//				Name:                    pulumi.String("tf-test-resource-share"),
 //				AllowExternalPrincipals: pulumi.Bool(true),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("tf-test-resource-share"),
 //				},
-//			}, pulumi.Provider(aws.Alternate))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -52,14 +48,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			senderInvite, err := ram.NewPrincipalAssociation(ctx, "senderInvite", &ram.PrincipalAssociationArgs{
-//				Principal:        *pulumi.String(receiver.AccountId),
+//			senderInvite, err := ram.NewPrincipalAssociation(ctx, "sender_invite", &ram.PrincipalAssociationArgs{
+//				Principal:        pulumi.String(receiver.AccountId),
 //				ResourceShareArn: senderShare.Arn,
-//			}, pulumi.Provider(aws.Alternate))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ram.NewResourceShareAccepter(ctx, "receiverAccept", &ram.ResourceShareAccepterArgs{
+//			_, err = ram.NewResourceShareAccepter(ctx, "receiver_accept", &ram.ResourceShareAccepterArgs{
 //				ShareArn: senderInvite.ResourceShareArn,
 //			})
 //			if err != nil {
@@ -70,15 +66,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import resource share accepters using the resource share ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
-//
+// $ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
 // ```
 type ResourceShareAccepter struct {
 	pulumi.CustomResourceState

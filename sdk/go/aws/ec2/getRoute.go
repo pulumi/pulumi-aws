@@ -19,6 +19,7 @@ import (
 //
 // The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +42,7 @@ import (
 //				return err
 //			}
 //			route, err := ec2.LookupRoute(ctx, &ec2.LookupRouteArgs{
-//				RouteTableId:         aws_route_table.Selected.Id,
+//				RouteTableId:         selectedAwsRouteTable.Id,
 //				DestinationCidrBlock: pulumi.StringRef("10.0.1.0/24"),
 //			}, nil)
 //			if err != nil {
@@ -58,6 +59,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.InvokeOption) (*LookupRouteResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRouteResult

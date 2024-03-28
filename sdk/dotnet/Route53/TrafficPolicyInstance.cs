@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,21 +25,23 @@ namespace Pulumi.Aws.Route53
     /// {
     ///     var test = new Aws.Route53.TrafficPolicyInstance("test", new()
     ///     {
-    ///         HostedZoneId = "Z033120931TAQO548OGJC",
+    ///         Name = "test.example.com",
     ///         TrafficPolicyId = "b3gb108f-ea6f-45a5-baab-9d112d8b4037",
     ///         TrafficPolicyVersion = 1,
+    ///         HostedZoneId = "Z033120931TAQO548OGJC",
     ///         Ttl = 360,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route53 traffic policy instance using its id. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53/trafficPolicyInstance:TrafficPolicyInstance test df579d9a-6396-410e-ac22-e7ad60cf9e7e
+    /// $ pulumi import aws:route53/trafficPolicyInstance:TrafficPolicyInstance test df579d9a-6396-410e-ac22-e7ad60cf9e7e
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/trafficPolicyInstance:TrafficPolicyInstance")]

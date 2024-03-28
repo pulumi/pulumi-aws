@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,14 +18,18 @@ import * as utilities from "../utilities";
  *     namePrefix: "my-domain.org",
  *     latest: true,
  * });
- * const elb = new aws.elb.LoadBalancer("elb", {listeners: [{
- *     instancePort: 8000,
- *     instanceProtocol: "https",
- *     lbPort: 443,
- *     lbProtocol: "https",
- *     sslCertificateId: my_domain.then(my_domain => my_domain.arn),
- * }]});
+ * const elb = new aws.elb.LoadBalancer("elb", {
+ *     name: "my-domain-elb",
+ *     listeners: [{
+ *         instancePort: 8000,
+ *         instanceProtocol: "https",
+ *         lbPort: 443,
+ *         lbProtocol: "https",
+ *         sslCertificateId: my_domain.then(my_domain => my_domain.arn),
+ *     }],
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServerCertificate(args?: GetServerCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetServerCertificateResult> {
     args = args || {};
@@ -102,6 +107,7 @@ export interface GetServerCertificateResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -110,14 +116,18 @@ export interface GetServerCertificateResult {
  *     namePrefix: "my-domain.org",
  *     latest: true,
  * });
- * const elb = new aws.elb.LoadBalancer("elb", {listeners: [{
- *     instancePort: 8000,
- *     instanceProtocol: "https",
- *     lbPort: 443,
- *     lbProtocol: "https",
- *     sslCertificateId: my_domain.then(my_domain => my_domain.arn),
- * }]});
+ * const elb = new aws.elb.LoadBalancer("elb", {
+ *     name: "my-domain-elb",
+ *     listeners: [{
+ *         instancePort: 8000,
+ *         instanceProtocol: "https",
+ *         lbPort: 443,
+ *         lbProtocol: "https",
+ *         sslCertificateId: my_domain.then(my_domain => my_domain.arn),
+ *     }],
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServerCertificateOutput(args?: GetServerCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerCertificateResult> {
     return pulumi.output(args).apply((a: any) => getServerCertificate(a, opts))

@@ -61,21 +61,23 @@ def get_hosted_zone_id(region: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     main = aws.elb.get_hosted_zone_id()
     www = aws.route53.Record("www",
-        zone_id=aws_route53_zone["primary"]["zone_id"],
+        zone_id=primary["zoneId"],
         name="example.com",
-        type="A",
+        type=aws.route53.RecordType.A,
         aliases=[aws.route53.RecordAliasArgs(
-            name=aws_elb["main"]["dns_name"],
+            name=main_aws_elb["dnsName"],
             zone_id=main.id,
             evaluate_target_health=True,
         )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str region: Name of the region whose AWS ELB HostedZoneId is desired.
@@ -100,21 +102,23 @@ def get_hosted_zone_id_output(region: Optional[pulumi.Input[Optional[str]]] = No
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     main = aws.elb.get_hosted_zone_id()
     www = aws.route53.Record("www",
-        zone_id=aws_route53_zone["primary"]["zone_id"],
+        zone_id=primary["zoneId"],
         name="example.com",
-        type="A",
+        type=aws.route53.RecordType.A,
         aliases=[aws.route53.RecordAliasArgs(
-            name=aws_elb["main"]["dns_name"],
+            name=main_aws_elb["dnsName"],
             zone_id=main.id,
             evaluate_target_health=True,
         )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str region: Name of the region whose AWS ELB HostedZoneId is desired.

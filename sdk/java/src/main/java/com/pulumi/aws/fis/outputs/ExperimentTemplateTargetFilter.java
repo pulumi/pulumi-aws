@@ -4,6 +4,7 @@
 package com.pulumi.aws.fis.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -61,22 +62,28 @@ public final class ExperimentTemplateTargetFilter {
 
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("ExperimentTemplateTargetFilter", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder values(List<String> values) {
-            this.values = Objects.requireNonNull(values);
+            if (values == null) {
+              throw new MissingRequiredPropertyException("ExperimentTemplateTargetFilter", "values");
+            }
+            this.values = values;
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
         }
         public ExperimentTemplateTargetFilter build() {
-            final var o = new ExperimentTemplateTargetFilter();
-            o.path = path;
-            o.values = values;
-            return o;
+            final var _resultValue = new ExperimentTemplateTargetFilter();
+            _resultValue.path = path;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

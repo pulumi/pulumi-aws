@@ -9,6 +9,7 @@ import com.pulumi.aws.ec2.outputs.GetNetworkInsightsAnalysisFilter;
 import com.pulumi.aws.ec2.outputs.GetNetworkInsightsAnalysisForwardPathComponent;
 import com.pulumi.aws.ec2.outputs.GetNetworkInsightsAnalysisReturnPathComponent;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -237,7 +238,10 @@ public final class GetNetworkInsightsAnalysisResult {
 
         @CustomType.Setter
         public Builder alternatePathHints(List<GetNetworkInsightsAnalysisAlternatePathHint> alternatePathHints) {
-            this.alternatePathHints = Objects.requireNonNull(alternatePathHints);
+            if (alternatePathHints == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisResult", "alternatePathHints");
+            }
+            this.alternatePathHints = alternatePathHints;
             return this;
         }
         public Builder alternatePathHints(GetNetworkInsightsAnalysisAlternatePathHint... alternatePathHints) {
@@ -245,12 +249,18 @@ public final class GetNetworkInsightsAnalysisResult {
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder explanations(List<GetNetworkInsightsAnalysisExplanation> explanations) {
-            this.explanations = Objects.requireNonNull(explanations);
+            if (explanations == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisResult", "explanations");
+            }
+            this.explanations = explanations;
             return this;
         }
         public Builder explanations(GetNetworkInsightsAnalysisExplanation... explanations) {
@@ -258,7 +268,10 @@ public final class GetNetworkInsightsAnalysisResult {
         }
         @CustomType.Setter
         public Builder filterInArns(List<String> filterInArns) {
-            this.filterInArns = Objects.requireNonNull(filterInArns);
+            if (filterInArns == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisResult", "filterInArns");
+            }
+            this.filterInArns = filterInArns;
             return this;
         }
         public Builder filterInArns(String... filterInArns) {
@@ -266,6 +279,7 @@ public final class GetNetworkInsightsAnalysisResult {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetNetworkInsightsAnalysisFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -274,7 +288,10 @@ public final class GetNetworkInsightsAnalysisResult {
         }
         @CustomType.Setter
         public Builder forwardPathComponents(List<GetNetworkInsightsAnalysisForwardPathComponent> forwardPathComponents) {
-            this.forwardPathComponents = Objects.requireNonNull(forwardPathComponents);
+            if (forwardPathComponents == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisResult", "forwardPathComponents");
+            }
+            this.forwardPathComponents = forwardPathComponents;
             return this;
         }
         public Builder forwardPathComponents(GetNetworkInsightsAnalysisForwardPathComponent... forwardPathComponents) {
@@ -282,27 +299,42 @@ public final class GetNetworkInsightsAnalysisResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder networkInsightsAnalysisId(String networkInsightsAnalysisId) {
-            this.networkInsightsAnalysisId = Objects.requireNonNull(networkInsightsAnalysisId);
+            if (networkInsightsAnalysisId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisResult", "networkInsightsAnalysisId");
+            }
+            this.networkInsightsAnalysisId = networkInsightsAnalysisId;
             return this;
         }
         @CustomType.Setter
         public Builder networkInsightsPathId(String networkInsightsPathId) {
-            this.networkInsightsPathId = Objects.requireNonNull(networkInsightsPathId);
+            if (networkInsightsPathId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisResult", "networkInsightsPathId");
+            }
+            this.networkInsightsPathId = networkInsightsPathId;
             return this;
         }
         @CustomType.Setter
         public Builder pathFound(Boolean pathFound) {
-            this.pathFound = Objects.requireNonNull(pathFound);
+            if (pathFound == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisResult", "pathFound");
+            }
+            this.pathFound = pathFound;
             return this;
         }
         @CustomType.Setter
         public Builder returnPathComponents(List<GetNetworkInsightsAnalysisReturnPathComponent> returnPathComponents) {
-            this.returnPathComponents = Objects.requireNonNull(returnPathComponents);
+            if (returnPathComponents == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisResult", "returnPathComponents");
+            }
+            this.returnPathComponents = returnPathComponents;
             return this;
         }
         public Builder returnPathComponents(GetNetworkInsightsAnalysisReturnPathComponent... returnPathComponents) {
@@ -310,48 +342,63 @@ public final class GetNetworkInsightsAnalysisResult {
         }
         @CustomType.Setter
         public Builder startDate(String startDate) {
-            this.startDate = Objects.requireNonNull(startDate);
+            if (startDate == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisResult", "startDate");
+            }
+            this.startDate = startDate;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder statusMessage(String statusMessage) {
-            this.statusMessage = Objects.requireNonNull(statusMessage);
+            if (statusMessage == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisResult", "statusMessage");
+            }
+            this.statusMessage = statusMessage;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder warningMessage(String warningMessage) {
-            this.warningMessage = Objects.requireNonNull(warningMessage);
+            if (warningMessage == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisResult", "warningMessage");
+            }
+            this.warningMessage = warningMessage;
             return this;
         }
         public GetNetworkInsightsAnalysisResult build() {
-            final var o = new GetNetworkInsightsAnalysisResult();
-            o.alternatePathHints = alternatePathHints;
-            o.arn = arn;
-            o.explanations = explanations;
-            o.filterInArns = filterInArns;
-            o.filters = filters;
-            o.forwardPathComponents = forwardPathComponents;
-            o.id = id;
-            o.networkInsightsAnalysisId = networkInsightsAnalysisId;
-            o.networkInsightsPathId = networkInsightsPathId;
-            o.pathFound = pathFound;
-            o.returnPathComponents = returnPathComponents;
-            o.startDate = startDate;
-            o.status = status;
-            o.statusMessage = statusMessage;
-            o.tags = tags;
-            o.warningMessage = warningMessage;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisResult();
+            _resultValue.alternatePathHints = alternatePathHints;
+            _resultValue.arn = arn;
+            _resultValue.explanations = explanations;
+            _resultValue.filterInArns = filterInArns;
+            _resultValue.filters = filters;
+            _resultValue.forwardPathComponents = forwardPathComponents;
+            _resultValue.id = id;
+            _resultValue.networkInsightsAnalysisId = networkInsightsAnalysisId;
+            _resultValue.networkInsightsPathId = networkInsightsPathId;
+            _resultValue.pathFound = pathFound;
+            _resultValue.returnPathComponents = returnPathComponents;
+            _resultValue.startDate = startDate;
+            _resultValue.status = status;
+            _resultValue.statusMessage = statusMessage;
+            _resultValue.tags = tags;
+            _resultValue.warningMessage = warningMessage;
+            return _resultValue;
         }
     }
 }

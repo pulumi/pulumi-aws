@@ -19,50 +19,66 @@ import * as utilities from "../utilities";
  * > **NOTE:** The `cidrBlocks` and `ipv6CidrBlocks` parameters are optional in the `ingress` and `egress` blocks. If nothing is specified, traffic will be blocked as described in _NOTE on Egress rules_ later.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const allowTls = new aws.ec2.SecurityGroup("allowTls", {
- *     description: "Allow TLS inbound traffic",
- *     vpcId: aws_vpc.main.id,
- *     ingress: [{
- *         description: "TLS from VPC",
- *         fromPort: 443,
- *         toPort: 443,
- *         protocol: "tcp",
- *         cidrBlocks: [aws_vpc.main.cidr_block],
- *         ipv6CidrBlocks: [aws_vpc.main.ipv6_cidr_block],
- *     }],
- *     egress: [{
- *         fromPort: 0,
- *         toPort: 0,
- *         protocol: "-1",
- *         cidrBlocks: ["0.0.0.0/0"],
- *         ipv6CidrBlocks: ["::/0"],
- *     }],
+ * const allowTls = new aws.ec2.SecurityGroup("allow_tls", {
+ *     name: "allow_tls",
+ *     description: "Allow TLS inbound traffic and all outbound traffic",
+ *     vpcId: main.id,
  *     tags: {
  *         Name: "allow_tls",
  *     },
  * });
+ * const allowTlsIpv4 = new aws.vpc.SecurityGroupIngressRule("allow_tls_ipv4", {
+ *     securityGroupId: allowTls.id,
+ *     cidrIpv4: main.cidrBlock,
+ *     fromPort: 443,
+ *     ipProtocol: "tcp",
+ *     toPort: 443,
+ * });
+ * const allowTlsIpv6 = new aws.vpc.SecurityGroupIngressRule("allow_tls_ipv6", {
+ *     securityGroupId: allowTls.id,
+ *     cidrIpv6: main.ipv6CidrBlock,
+ *     fromPort: 443,
+ *     ipProtocol: "tcp",
+ *     toPort: 443,
+ * });
+ * const allowAllTrafficIpv4 = new aws.vpc.SecurityGroupEgressRule("allow_all_traffic_ipv4", {
+ *     securityGroupId: allowTls.id,
+ *     cidrIpv4: "0.0.0.0/0",
+ *     ipProtocol: "-1",
+ * });
+ * const allowAllTrafficIpv6 = new aws.vpc.SecurityGroupEgressRule("allow_all_traffic_ipv6", {
+ *     securityGroupId: allowTls.id,
+ *     cidrIpv6: "::/0",
+ *     ipProtocol: "-1",
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * > **NOTE on Egress rules:** By default, AWS creates an `ALLOW ALL` egress rule when creating a new Security Group inside of a VPC. When creating a new Security Group inside a VPC, **this provider will remove this default rule**, and require you specifically re-create it if you desire that rule. We feel this leads to fewer surprises in terms of controlling your egress rules. If you desire this rule to be in place, you can use this `egress` block:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.SecurityGroup("example", {egress: [{
- *     cidrBlocks: ["0.0.0.0/0"],
  *     fromPort: 0,
- *     ipv6CidrBlocks: ["::/0"],
- *     protocol: "-1",
  *     toPort: 0,
+ *     protocol: "-1",
+ *     cidrBlocks: ["0.0.0.0/0"],
+ *     ipv6CidrBlocks: ["::/0"],
  * }]});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Usage With Prefix List IDs
  *
  * Prefix Lists are either managed by AWS internally, or created by the customer using a
@@ -70,13 +86,12 @@ import * as utilities from "../utilities";
  * AWS are associated with a prefix list name, or service name, that is linked to a specific region.
  * Prefix list IDs are exported on VPC Endpoints, so you can use this format:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myEndpoint = new aws.ec2.VpcEndpoint("myEndpoint", {});
- * // ... other configuration ...
- * // ... other configuration ...
+ * const myEndpoint = new aws.ec2.VpcEndpoint("my_endpoint", {});
  * const example = new aws.ec2.SecurityGroup("example", {egress: [{
  *     fromPort: 0,
  *     toPort: 0,
@@ -84,22 +99,28 @@ import * as utilities from "../utilities";
  *     prefixListIds: [myEndpoint.prefixListId],
  * }]});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * You can also find a specific Prefix List using the `aws.ec2.getPrefixList` data source.
+ *
  * ### Removing All Ingress and Egress Rules
  *
  * The `ingress` and `egress` arguments are processed in attributes-as-blocks mode. Due to this, removing these arguments from the configuration will **not** cause the provider to destroy the managed rules. To subsequently remove all managed ingress and egress rules:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.SecurityGroup("example", {
- *     vpcId: aws_vpc.example.id,
+ *     name: "sg",
+ *     vpcId: exampleAwsVpc.id,
  *     ingress: [],
  *     egress: [],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Recreating a Security Group
  *
  * A simple security group `name` change "forces new" the security group--the provider destroys the security group and creates a new one. (Likewise, `description`, `namePrefix`, or `vpcId` [cannot be changed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group).) Attempting to recreate the security group leads to a variety of complications depending on how it is used.
@@ -111,54 +132,108 @@ import * as utilities from "../utilities";
  * The provider does not model bi-directional dependencies like this, but, even if it did, simply knowing the dependency situation would not be enough to solve it. For example, some resources must always have an associated security group while others don't need to. In addition, when the `aws.ec2.SecurityGroup` resource attempts to recreate, it receives a dependent object error, which does not provide information on whether the dependent object is a security group rule or, for example, an associated EC2 instance. Within the provider, the associated resource (_e.g._, `aws.ec2.Instance`) does not receive an error when the `aws.ec2.SecurityGroup` is trying to recreate even though that is where changes to the associated resource would need to take place (_e.g._, removing the security group association).
  *
  * Despite these sticky problems, below are some ways to improve your experience when you find it necessary to recreate a security group.
+ *
  * ### `createBeforeDestroy`
  *
  * (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
  *
  * Normally, the provider first deletes the existing security group resource and then creates a new one. When a security group is associated with a resource, the delete won't succeed. You can invert the default behavior using the `createBeforeDestroy` meta argument:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.SecurityGroup("example", {});
+ * const example = new aws.ec2.SecurityGroup("example", {name: "changeable-name"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### `replaceTriggeredBy`
  *
  * (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
  *
  * To replace a resource when a security group changes, use the `replaceTriggeredBy` meta argument. Note that in this example, the `aws.ec2.Instance` will be destroyed and created again when the `aws.ec2.SecurityGroup` changes.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleSecurityGroup = new aws.ec2.SecurityGroup("exampleSecurityGroup", {});
- * // ... other configuration ...
- * const exampleInstance = new aws.ec2.Instance("exampleInstance", {
- *     instanceType: "t3.small",
- *     vpcSecurityGroupIds: [aws_security_group.test.id],
+ * const example = new aws.ec2.SecurityGroup("example", {name: "sg"});
+ * const exampleInstance = new aws.ec2.Instance("example", {
+ *     instanceType: aws.ec2.InstanceType.T3_Small,
+ *     vpcSecurityGroupIds: [test.id],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Shorter timeout
  *
  * (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
  *
  * If destroying a security group takes a long time, it may be because the provider cannot distinguish between a dependent object (_e.g._, a security group rule or EC2 instance) that is _in the process of being deleted_ and one that is not. In other words, it may be waiting for a train that isn't scheduled to arrive. To fail faster, shorten the `delete` timeout from the default timeout:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.SecurityGroup("example", {});
+ * const example = new aws.ec2.SecurityGroup("example", {name: "izizavle"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Provisioners
+ *
+ * (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
+ *
+ * **DISCLAIMER:** We **_HIGHLY_** recommend using one of the above approaches and _NOT_ using local provisioners. Provisioners, like the one shown below, should be considered a **last resort** since they are _not readable_, _require skills outside standard configuration_, are _error prone_ and _difficult to maintain_, are not compatible with cloud environments and upgrade tools, require AWS CLI installation, and are subject to changes outside the AWS Provider.
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as _null from "@pulumi/null";
+ * import * as aws from "@pulumi/aws";
+ * import * as command from "@pulumi/command";
+ * import * as std from "@pulumi/std";
+ *
+ * const default = aws.ec2.getSecurityGroup({
+ *     name: "default",
+ * });
+ * const example = new aws.ec2.SecurityGroup("example", {
+ *     name: "sg",
+ *     tags: {
+ *         workaround1: "tagged-name",
+ *         workaround2: _default.then(_default => _default.id),
+ *     },
+ * });
+ * const exampleProvisioner0 = new command.local.Command("exampleProvisioner0", {
+ *     create: "true",
+ *     update: "true",
+ *     "delete": `            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters "Name=tag:Name,Values=${tags.workaround1}" --query "VpcEndpoints[0].VpcEndpointId" --output text` &&
+ *             aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${ENDPOINT_ID} --add-security-group-ids ${tags.workaround2} --remove-security-group-ids ${id}
+ * `,
+ * }, {
+ *     dependsOn: [example],
+ * });
+ * const exampleResource = new _null.index.Resource("example", {triggers: {
+ *     rerunUponChangeOf: std.join({
+ *         separator: ",",
+ *         input: exampleAwsVpcEndpoint.securityGroupIds,
+ *     }).result,
+ * }});
+ * const exampleResourceProvisioner0 = new command.local.Command("exampleResourceProvisioner0", {create: `            aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${exampleAwsVpcEndpoint.id} --remove-security-group-ids ${_default.id}
+ * `}, {
+ *     dependsOn: [exampleResource],
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Security Groups using the security group `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/securityGroup:SecurityGroup elb_sg sg-903004f8
+ * $ pulumi import aws:ec2/securityGroup:SecurityGroup elb_sg sg-903004f8
  * ```
  */
 export class SecurityGroup extends pulumi.CustomResource {
@@ -199,10 +274,14 @@ export class SecurityGroup extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string>;
     /**
      * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+     *
+     * @deprecated Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
      */
     public readonly egress!: pulumi.Output<outputs.ec2.SecurityGroupEgress[]>;
     /**
      * Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+     *
+     * @deprecated Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
      */
     public readonly ingress!: pulumi.Output<outputs.ec2.SecurityGroupIngress[]>;
     /**
@@ -275,8 +354,6 @@ export class SecurityGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SecurityGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -295,10 +372,14 @@ export interface SecurityGroupState {
     description?: pulumi.Input<string>;
     /**
      * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+     *
+     * @deprecated Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
      */
     egress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupEgress>[]>;
     /**
      * Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+     *
+     * @deprecated Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
      */
     ingress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupIngress>[]>;
     /**
@@ -343,10 +424,14 @@ export interface SecurityGroupArgs {
     description?: pulumi.Input<string>;
     /**
      * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+     *
+     * @deprecated Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
      */
     egress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupEgress>[]>;
     /**
      * Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+     *
+     * @deprecated Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
      */
     ingress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupIngress>[]>;
     /**

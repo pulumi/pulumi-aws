@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -146,61 +147,88 @@ public final class GetBucketResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetBucketResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder bucket(String bucket) {
-            this.bucket = Objects.requireNonNull(bucket);
+            if (bucket == null) {
+              throw new MissingRequiredPropertyException("GetBucketResult", "bucket");
+            }
+            this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
         public Builder bucketDomainName(String bucketDomainName) {
-            this.bucketDomainName = Objects.requireNonNull(bucketDomainName);
+            if (bucketDomainName == null) {
+              throw new MissingRequiredPropertyException("GetBucketResult", "bucketDomainName");
+            }
+            this.bucketDomainName = bucketDomainName;
             return this;
         }
         @CustomType.Setter
         public Builder bucketRegionalDomainName(String bucketRegionalDomainName) {
-            this.bucketRegionalDomainName = Objects.requireNonNull(bucketRegionalDomainName);
+            if (bucketRegionalDomainName == null) {
+              throw new MissingRequiredPropertyException("GetBucketResult", "bucketRegionalDomainName");
+            }
+            this.bucketRegionalDomainName = bucketRegionalDomainName;
             return this;
         }
         @CustomType.Setter
         public Builder hostedZoneId(String hostedZoneId) {
-            this.hostedZoneId = Objects.requireNonNull(hostedZoneId);
+            if (hostedZoneId == null) {
+              throw new MissingRequiredPropertyException("GetBucketResult", "hostedZoneId");
+            }
+            this.hostedZoneId = hostedZoneId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetBucketResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetBucketResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder websiteDomain(String websiteDomain) {
-            this.websiteDomain = Objects.requireNonNull(websiteDomain);
+            if (websiteDomain == null) {
+              throw new MissingRequiredPropertyException("GetBucketResult", "websiteDomain");
+            }
+            this.websiteDomain = websiteDomain;
             return this;
         }
         @CustomType.Setter
         public Builder websiteEndpoint(String websiteEndpoint) {
-            this.websiteEndpoint = Objects.requireNonNull(websiteEndpoint);
+            if (websiteEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetBucketResult", "websiteEndpoint");
+            }
+            this.websiteEndpoint = websiteEndpoint;
             return this;
         }
         public GetBucketResult build() {
-            final var o = new GetBucketResult();
-            o.arn = arn;
-            o.bucket = bucket;
-            o.bucketDomainName = bucketDomainName;
-            o.bucketRegionalDomainName = bucketRegionalDomainName;
-            o.hostedZoneId = hostedZoneId;
-            o.id = id;
-            o.region = region;
-            o.websiteDomain = websiteDomain;
-            o.websiteEndpoint = websiteEndpoint;
-            return o;
+            final var _resultValue = new GetBucketResult();
+            _resultValue.arn = arn;
+            _resultValue.bucket = bucket;
+            _resultValue.bucketDomainName = bucketDomainName;
+            _resultValue.bucketRegionalDomainName = bucketRegionalDomainName;
+            _resultValue.hostedZoneId = hostedZoneId;
+            _resultValue.id = id;
+            _resultValue.region = region;
+            _resultValue.websiteDomain = websiteDomain;
+            _resultValue.websiteEndpoint = websiteEndpoint;
+            return _resultValue;
         }
     }
 }

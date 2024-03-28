@@ -175,29 +175,34 @@ class VirtualCluster(pulumi.CustomResource):
         Manages an EMR Containers (EMR on EKS) Virtual Cluster.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emrcontainers.VirtualCluster("example", container_provider=aws.emrcontainers.VirtualClusterContainerProviderArgs(
-            id=aws_eks_cluster["example"]["name"],
-            type="EKS",
-            info=aws.emrcontainers.VirtualClusterContainerProviderInfoArgs(
-                eks_info=aws.emrcontainers.VirtualClusterContainerProviderInfoEksInfoArgs(
-                    namespace="default",
+        example = aws.emrcontainers.VirtualCluster("example",
+            container_provider=aws.emrcontainers.VirtualClusterContainerProviderArgs(
+                id=example_aws_eks_cluster["name"],
+                type="EKS",
+                info=aws.emrcontainers.VirtualClusterContainerProviderInfoArgs(
+                    eks_info=aws.emrcontainers.VirtualClusterContainerProviderInfoEksInfoArgs(
+                        namespace="default",
+                    ),
                 ),
             ),
-        ))
+            name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EKS Clusters using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
+        $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
         ```
 
         :param str resource_name: The name of the resource.
@@ -216,29 +221,34 @@ class VirtualCluster(pulumi.CustomResource):
         Manages an EMR Containers (EMR on EKS) Virtual Cluster.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emrcontainers.VirtualCluster("example", container_provider=aws.emrcontainers.VirtualClusterContainerProviderArgs(
-            id=aws_eks_cluster["example"]["name"],
-            type="EKS",
-            info=aws.emrcontainers.VirtualClusterContainerProviderInfoArgs(
-                eks_info=aws.emrcontainers.VirtualClusterContainerProviderInfoEksInfoArgs(
-                    namespace="default",
+        example = aws.emrcontainers.VirtualCluster("example",
+            container_provider=aws.emrcontainers.VirtualClusterContainerProviderArgs(
+                id=example_aws_eks_cluster["name"],
+                type="EKS",
+                info=aws.emrcontainers.VirtualClusterContainerProviderInfoArgs(
+                    eks_info=aws.emrcontainers.VirtualClusterContainerProviderInfoEksInfoArgs(
+                        namespace="default",
+                    ),
                 ),
             ),
-        ))
+            name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EKS Clusters using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
+        $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
         ```
 
         :param str resource_name: The name of the resource.
@@ -275,8 +285,6 @@ class VirtualCluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VirtualCluster, __self__).__init__(
             'aws:emrcontainers/virtualCluster:VirtualCluster',
             resource_name,

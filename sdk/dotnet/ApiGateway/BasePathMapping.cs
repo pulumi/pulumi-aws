@@ -14,43 +14,6 @@ namespace Pulumi.Aws.ApiGateway
     /// with a deployed API so that its methods can be called via the
     /// custom domain name.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
-    ///     {
-    ///         Deployment = aws_api_gateway_deployment.Example.Id,
-    ///         RestApi = aws_api_gateway_rest_api.Example.Id,
-    ///         StageName = "example",
-    ///     });
-    /// 
-    ///     var exampleDomainName = new Aws.ApiGateway.DomainName("exampleDomainName", new()
-    ///     {
-    ///         Domain = "example.com",
-    ///         CertificateName = "example-api",
-    ///         CertificateBody = File.ReadAllText($"{path.Module}/example.com/example.crt"),
-    ///         CertificateChain = File.ReadAllText($"{path.Module}/example.com/ca.crt"),
-    ///         CertificatePrivateKey = File.ReadAllText($"{path.Module}/example.com/example.key"),
-    ///     });
-    /// 
-    ///     var exampleBasePathMapping = new Aws.ApiGateway.BasePathMapping("exampleBasePathMapping", new()
-    ///     {
-    ///         RestApi = aws_api_gateway_rest_api.Example.Id,
-    ///         StageName = exampleStage.StageName,
-    ///         DomainName = exampleDomainName.Domain,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// For a non-root `base_path`:
@@ -60,12 +23,12 @@ namespace Pulumi.Aws.ApiGateway
     /// For an empty `base_path` or, in other words, a root path (`/`):
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
+    /// $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
     /// ```
-    ///  For a non-root `base_path`:
+    /// For a non-root `base_path`:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
+    /// $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/basePathMapping:BasePathMapping")]

@@ -9,22 +9,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2transitgateway.RouteTablePropagation("example", {
- *     transitGatewayAttachmentId: aws_ec2_transit_gateway_vpc_attachment.example.id,
- *     transitGatewayRouteTableId: aws_ec2_transit_gateway_route_table.example.id,
+ *     transitGatewayAttachmentId: exampleAwsEc2TransitGatewayVpcAttachment.id,
+ *     transitGatewayRouteTableId: exampleAwsEc2TransitGatewayRouteTable.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ec2_transit_gateway_route_table_propagation` using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation example tgw-rtb-12345678_tgw-attach-87654321
+ * $ pulumi import aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation example tgw-rtb-12345678_tgw-attach-87654321
  * ```
  */
 export class RouteTablePropagation extends pulumi.CustomResource {

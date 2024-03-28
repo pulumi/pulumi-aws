@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshift.NewParameterGroup(ctx, "bar", &redshift.ParameterGroupArgs{
+//				Name:   pulumi.String("parameter-group-test"),
 //				Family: pulumi.String("redshift-1.0"),
 //				Parameters: redshift.ParameterGroupParameterArray{
 //					&redshift.ParameterGroupParameterArgs{
@@ -53,15 +55,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift Parameter Groups using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test-pulumi
-//
+// $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test-pulumi
 // ```
 type ParameterGroup struct {
 	pulumi.CustomResourceState
@@ -99,10 +100,6 @@ func NewParameterGroup(ctx *pulumi.Context,
 	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ParameterGroup
 	err := ctx.RegisterResource("aws:redshift/parameterGroup:ParameterGroup", name, args, &resource, opts...)

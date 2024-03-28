@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupPullThroughCacheRule(ctx *pulumi.Context, args *LookupPullThroughCacheRuleArgs, opts ...pulumi.InvokeOption) (*LookupPullThroughCacheRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPullThroughCacheRuleResult
@@ -56,6 +58,8 @@ type LookupPullThroughCacheRuleArgs struct {
 
 // A collection of values returned by getPullThroughCacheRule.
 type LookupPullThroughCacheRuleResult struct {
+	// ARN of the Secret which will be used to authenticate against the registry.
+	CredentialArn       string `pulumi:"credentialArn"`
 	EcrRepositoryPrefix string `pulumi:"ecrRepositoryPrefix"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -101,6 +105,11 @@ func (o LookupPullThroughCacheRuleResultOutput) ToLookupPullThroughCacheRuleResu
 
 func (o LookupPullThroughCacheRuleResultOutput) ToLookupPullThroughCacheRuleResultOutputWithContext(ctx context.Context) LookupPullThroughCacheRuleResultOutput {
 	return o
+}
+
+// ARN of the Secret which will be used to authenticate against the registry.
+func (o LookupPullThroughCacheRuleResultOutput) CredentialArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPullThroughCacheRuleResult) string { return v.CredentialArn }).(pulumi.StringOutput)
 }
 
 func (o LookupPullThroughCacheRuleResultOutput) EcrRepositoryPrefix() pulumi.StringOutput {

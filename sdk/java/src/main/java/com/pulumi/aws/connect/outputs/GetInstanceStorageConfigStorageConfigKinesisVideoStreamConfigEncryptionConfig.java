@@ -4,6 +4,7 @@
 package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig
 
         @CustomType.Setter
         public Builder encryptionType(String encryptionType) {
-            this.encryptionType = Objects.requireNonNull(encryptionType);
+            if (encryptionType == null) {
+              throw new MissingRequiredPropertyException("GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig", "encryptionType");
+            }
+            this.encryptionType = encryptionType;
             return this;
         }
         @CustomType.Setter
         public Builder keyId(String keyId) {
-            this.keyId = Objects.requireNonNull(keyId);
+            if (keyId == null) {
+              throw new MissingRequiredPropertyException("GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig", "keyId");
+            }
+            this.keyId = keyId;
             return this;
         }
         public GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig build() {
-            final var o = new GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig();
-            o.encryptionType = encryptionType;
-            o.keyId = keyId;
-            return o;
+            final var _resultValue = new GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig();
+            _resultValue.encryptionType = encryptionType;
+            _resultValue.keyId = keyId;
+            return _resultValue;
         }
     }
 }

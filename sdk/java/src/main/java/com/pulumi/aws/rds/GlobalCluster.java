@@ -23,7 +23,10 @@ import javax.annotation.Nullable;
  * More information about Aurora global databases can be found in the [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database-creating).
  * 
  * ## Example Usage
+ * 
  * ### New MySQL Global Cluster
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -36,7 +39,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.rds.ClusterArgs;
  * import com.pulumi.aws.rds.ClusterInstance;
  * import com.pulumi.aws.rds.ClusterInstanceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -57,7 +59,7 @@ import javax.annotation.Nullable;
  *             .databaseName(&#34;example_db&#34;)
  *             .build());
  * 
- *         var primaryCluster = new Cluster(&#34;primaryCluster&#34;, ClusterArgs.builder()        
+ *         var primary = new Cluster(&#34;primary&#34;, ClusterArgs.builder()        
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
  *             .clusterIdentifier(&#34;test-primary-cluster&#34;)
@@ -66,62 +68,54 @@ import javax.annotation.Nullable;
  *             .databaseName(&#34;example_db&#34;)
  *             .globalClusterIdentifier(example.id())
  *             .dbSubnetGroupName(&#34;default&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.primary())
- *                 .build());
+ *             .build());
  * 
  *         var primaryClusterInstance = new ClusterInstance(&#34;primaryClusterInstance&#34;, ClusterInstanceArgs.builder()        
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
  *             .identifier(&#34;test-primary-cluster-instance&#34;)
- *             .clusterIdentifier(primaryCluster.id())
+ *             .clusterIdentifier(primary.id())
  *             .instanceClass(&#34;db.r4.large&#34;)
  *             .dbSubnetGroupName(&#34;default&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.primary())
- *                 .build());
+ *             .build());
  * 
- *         var secondaryCluster = new Cluster(&#34;secondaryCluster&#34;, ClusterArgs.builder()        
+ *         var secondary = new Cluster(&#34;secondary&#34;, ClusterArgs.builder()        
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
  *             .clusterIdentifier(&#34;test-secondary-cluster&#34;)
  *             .globalClusterIdentifier(example.id())
  *             .dbSubnetGroupName(&#34;default&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.secondary())
- *                 .dependsOn(primaryClusterInstance)
- *                 .build());
+ *             .build());
  * 
  *         var secondaryClusterInstance = new ClusterInstance(&#34;secondaryClusterInstance&#34;, ClusterInstanceArgs.builder()        
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
  *             .identifier(&#34;test-secondary-cluster-instance&#34;)
- *             .clusterIdentifier(secondaryCluster.id())
+ *             .clusterIdentifier(secondary.id())
  *             .instanceClass(&#34;db.r4.large&#34;)
  *             .dbSubnetGroupName(&#34;default&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.secondary())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### New PostgreSQL Global Cluster
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
  * import com.pulumi.aws.rds.GlobalCluster;
  * import com.pulumi.aws.rds.GlobalClusterArgs;
  * import com.pulumi.aws.rds.Cluster;
  * import com.pulumi.aws.rds.ClusterArgs;
  * import com.pulumi.aws.rds.ClusterInstance;
  * import com.pulumi.aws.rds.ClusterInstanceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -135,14 +129,6 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new Provider(&#34;primary&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-east-2&#34;)
- *             .build());
- * 
- *         var secondary = new Provider(&#34;secondary&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-east-1&#34;)
- *             .build());
- * 
  *         var example = new GlobalCluster(&#34;example&#34;, GlobalClusterArgs.builder()        
  *             .globalClusterIdentifier(&#34;global-test&#34;)
  *             .engine(&#34;aurora-postgresql&#34;)
@@ -150,7 +136,7 @@ import javax.annotation.Nullable;
  *             .databaseName(&#34;example_db&#34;)
  *             .build());
  * 
- *         var primaryCluster = new Cluster(&#34;primaryCluster&#34;, ClusterArgs.builder()        
+ *         var primary = new Cluster(&#34;primary&#34;, ClusterArgs.builder()        
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
  *             .clusterIdentifier(&#34;test-primary-cluster&#34;)
@@ -159,48 +145,43 @@ import javax.annotation.Nullable;
  *             .databaseName(&#34;example_db&#34;)
  *             .globalClusterIdentifier(example.id())
  *             .dbSubnetGroupName(&#34;default&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.primary())
- *                 .build());
+ *             .build());
  * 
  *         var primaryClusterInstance = new ClusterInstance(&#34;primaryClusterInstance&#34;, ClusterInstanceArgs.builder()        
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
  *             .identifier(&#34;test-primary-cluster-instance&#34;)
- *             .clusterIdentifier(primaryCluster.id())
+ *             .clusterIdentifier(primary.id())
  *             .instanceClass(&#34;db.r4.large&#34;)
  *             .dbSubnetGroupName(&#34;default&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.primary())
- *                 .build());
+ *             .build());
  * 
- *         var secondaryCluster = new Cluster(&#34;secondaryCluster&#34;, ClusterArgs.builder()        
+ *         var secondary = new Cluster(&#34;secondary&#34;, ClusterArgs.builder()        
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
  *             .clusterIdentifier(&#34;test-secondary-cluster&#34;)
  *             .globalClusterIdentifier(example.id())
  *             .skipFinalSnapshot(true)
  *             .dbSubnetGroupName(&#34;default&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.secondary())
- *                 .dependsOn(primaryClusterInstance)
- *                 .build());
+ *             .build());
  * 
  *         var secondaryClusterInstance = new ClusterInstance(&#34;secondaryClusterInstance&#34;, ClusterInstanceArgs.builder()        
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
  *             .identifier(&#34;test-secondary-cluster-instance&#34;)
- *             .clusterIdentifier(secondaryCluster.id())
+ *             .clusterIdentifier(secondary.id())
  *             .instanceClass(&#34;db.r4.large&#34;)
  *             .dbSubnetGroupName(&#34;default&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.secondary())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### New Global Cluster From Existing DB Cluster
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -223,20 +204,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;);
+ *         var example = new Cluster(&#34;example&#34;);
  * 
  *         var exampleGlobalCluster = new GlobalCluster(&#34;exampleGlobalCluster&#34;, GlobalClusterArgs.builder()        
  *             .forceDestroy(true)
  *             .globalClusterIdentifier(&#34;example&#34;)
- *             .sourceDbClusterIdentifier(exampleCluster.arn())
+ *             .sourceDbClusterIdentifier(example.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Upgrading Engine Versions
  * 
  * When you upgrade the version of an `aws.rds.GlobalCluster`, the provider will attempt to in-place upgrade the engine versions of all associated clusters. Since the `aws.rds.Cluster` resource is being updated through the `aws.rds.GlobalCluster`, you are likely to get an error (`Provider produced inconsistent final plan`). To avoid this, use the `lifecycle` `ignore_changes` meta argument as shown below on the `aws.rds.Cluster`.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -268,7 +253,7 @@ import javax.annotation.Nullable;
  *             .engineVersion(&#34;5.7.mysql_aurora.2.07.5&#34;)
  *             .build());
  * 
- *         var primaryCluster = new Cluster(&#34;primaryCluster&#34;, ClusterArgs.builder()        
+ *         var primary = new Cluster(&#34;primary&#34;, ClusterArgs.builder()        
  *             .allowMajorVersionUpgrade(true)
  *             .applyImmediately(true)
  *             .clusterIdentifier(&#34;odessadnipro&#34;)
@@ -283,9 +268,9 @@ import javax.annotation.Nullable;
  * 
  *         var primaryClusterInstance = new ClusterInstance(&#34;primaryClusterInstance&#34;, ClusterInstanceArgs.builder()        
  *             .applyImmediately(true)
- *             .clusterIdentifier(primaryCluster.id())
- *             .engine(primaryCluster.engine())
- *             .engineVersion(primaryCluster.engineVersion())
+ *             .clusterIdentifier(primary.id())
+ *             .engine(primary.engine())
+ *             .engineVersion(primary.engineVersion())
  *             .identifier(&#34;donetsklviv&#34;)
  *             .instanceClass(&#34;db.r4.large&#34;)
  *             .build());
@@ -293,15 +278,16 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_rds_global_cluster` using the RDS Global Cluster identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rds/globalCluster:GlobalCluster example example
+ * $ pulumi import aws:rds/globalCluster:GlobalCluster example example
  * ```
- *  Certain resource arguments, like `force_destroy`, only exist within this provider. If the argument is set in the the provider configuration on an imported resource, This provider will show a difference on the first plan after import to update the state value. This change is safe to apply immediately so the state matches the desired configuration.
+ * Certain resource arguments, like `force_destroy`, only exist within this provider. If the argument is set in the the provider configuration on an imported resource, This provider will show a difference on the first plan after import to update the state value. This change is safe to apply immediately so the state matches the desired configuration.
  * 
  * Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
  * 

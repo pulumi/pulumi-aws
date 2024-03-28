@@ -34,7 +34,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import CloudHSM v2 Clusters using the cluster `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudhsmv2/cluster:Cluster test_cluster cluster-aeb282a201
+ * $ pulumi import aws:cloudhsmv2/cluster:Cluster test_cluster cluster-aeb282a201
  * ```
  * 
  */
@@ -227,9 +227,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

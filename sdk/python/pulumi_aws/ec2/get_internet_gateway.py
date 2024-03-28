@@ -115,6 +115,7 @@ def get_internet_gateway(filters: Optional[Sequence[pulumi.InputType['GetInterne
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -126,6 +127,7 @@ def get_internet_gateway(filters: Optional[Sequence[pulumi.InputType['GetInterne
         values=[vpc_id],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetInternetGatewayFilterArgs']] filters: Custom filter block as described below.
@@ -163,6 +165,7 @@ def get_internet_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -174,6 +177,7 @@ def get_internet_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
         values=[vpc_id],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetInternetGatewayFilterArgs']] filters: Custom filter block as described below.

@@ -21,6 +21,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,6 +35,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.NewOptionGroup(ctx, "example", &rds.OptionGroupArgs{
+//				Name:                   pulumi.String("option-group-test"),
 //				OptionGroupDescription: pulumi.String("Option Group"),
 //				EngineName:             pulumi.String("sqlserver-ee"),
 //				MajorEngineVersion:     pulumi.String("11.00"),
@@ -52,7 +54,7 @@ import (
 //						OptionSettings: rds.OptionGroupOptionOptionSettingArray{
 //							&rds.OptionGroupOptionOptionSettingArgs{
 //								Name:  pulumi.String("IAM_ROLE_ARN"),
-//								Value: pulumi.Any(aws_iam_role.Example.Arn),
+//								Value: pulumi.Any(exampleAwsIamRole.Arn),
 //							},
 //						},
 //					},
@@ -69,6 +71,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // > **Note:** Any modifications to the `rds.OptionGroup` are set to happen immediately as we default to applying immediately.
 //
@@ -85,9 +88,7 @@ import (
 // Using `pulumi import`, import DB option groups using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
-//
+// $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
 // ```
 type OptionGroup struct {
 	pulumi.CustomResourceState
@@ -104,7 +105,7 @@ type OptionGroup struct {
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Description of the option group.
 	OptionGroupDescription pulumi.StringOutput `pulumi:"optionGroupDescription"`
-	// List of options to apply.
+	// The options to apply. See `option` Block below for more details.
 	Options OptionGroupOptionArrayOutput `pulumi:"options"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -130,10 +131,6 @@ func NewOptionGroup(ctx *pulumi.Context,
 	if args.OptionGroupDescription == nil {
 		args.OptionGroupDescription = pulumi.StringPtr("Managed by Pulumi")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OptionGroup
 	err := ctx.RegisterResource("aws:rds/optionGroup:OptionGroup", name, args, &resource, opts...)
@@ -169,7 +166,7 @@ type optionGroupState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Description of the option group.
 	OptionGroupDescription *string `pulumi:"optionGroupDescription"`
-	// List of options to apply.
+	// The options to apply. See `option` Block below for more details.
 	Options []OptionGroupOption `pulumi:"options"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -192,7 +189,7 @@ type OptionGroupState struct {
 	NamePrefix pulumi.StringPtrInput
 	// Description of the option group.
 	OptionGroupDescription pulumi.StringPtrInput
-	// List of options to apply.
+	// The options to apply. See `option` Block below for more details.
 	Options OptionGroupOptionArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -217,7 +214,7 @@ type optionGroupArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Description of the option group.
 	OptionGroupDescription *string `pulumi:"optionGroupDescription"`
-	// List of options to apply.
+	// The options to apply. See `option` Block below for more details.
 	Options []OptionGroupOption `pulumi:"options"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -235,7 +232,7 @@ type OptionGroupArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// Description of the option group.
 	OptionGroupDescription pulumi.StringPtrInput
-	// List of options to apply.
+	// The options to apply. See `option` Block below for more details.
 	Options OptionGroupOptionArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -358,7 +355,7 @@ func (o OptionGroupOutput) OptionGroupDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.OptionGroupDescription }).(pulumi.StringOutput)
 }
 
-// List of options to apply.
+// The options to apply. See `option` Block below for more details.
 func (o OptionGroupOutput) Options() OptionGroupOptionArrayOutput {
 	return o.ApplyT(func(v *OptionGroup) OptionGroupOptionArrayOutput { return v.Options }).(OptionGroupOptionArrayOutput)
 }

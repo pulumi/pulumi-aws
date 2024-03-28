@@ -4,6 +4,7 @@
 package com.pulumi.aws.kendra.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class GetIndexIndexStatisticFaqStatistic {
 
         @CustomType.Setter
         public Builder indexedQuestionAnswersCount(Integer indexedQuestionAnswersCount) {
-            this.indexedQuestionAnswersCount = Objects.requireNonNull(indexedQuestionAnswersCount);
+            if (indexedQuestionAnswersCount == null) {
+              throw new MissingRequiredPropertyException("GetIndexIndexStatisticFaqStatistic", "indexedQuestionAnswersCount");
+            }
+            this.indexedQuestionAnswersCount = indexedQuestionAnswersCount;
             return this;
         }
         public GetIndexIndexStatisticFaqStatistic build() {
-            final var o = new GetIndexIndexStatisticFaqStatistic();
-            o.indexedQuestionAnswersCount = indexedQuestionAnswersCount;
-            return o;
+            final var _resultValue = new GetIndexIndexStatisticFaqStatistic();
+            _resultValue.indexedQuestionAnswersCount = indexedQuestionAnswersCount;
+            return _resultValue;
         }
     }
 }

@@ -254,20 +254,24 @@ class Extension(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_topic = aws.sns.Topic("testTopic")
-        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_topic = aws.sns.Topic("test", name="test")
+        test = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["sts:AssumeRole"],
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="Service",
                 identifiers=["appconfig.amazonaws.com"],
             )],
         )])
-        test_role = aws.iam.Role("testRole", assume_role_policy=test_policy_document.json)
-        test_extension = aws.appconfig.Extension("testExtension",
+        test_role = aws.iam.Role("test",
+            name="test",
+            assume_role_policy=test.json)
+        test_extension = aws.appconfig.Extension("test",
+            name="test",
             description="test description",
             action_points=[aws.appconfig.ExtensionActionPointArgs(
                 point="ON_DEPLOYMENT_COMPLETE",
@@ -281,13 +285,14 @@ class Extension(pulumi.CustomResource):
                 "Type": "AppConfig Extension",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AppConfig Extensions using their extension ID. For example:
 
         ```sh
-         $ pulumi import aws:appconfig/extension:Extension example 71rxuzt
+        $ pulumi import aws:appconfig/extension:Extension example 71rxuzt
         ```
 
         :param str resource_name: The name of the resource.
@@ -309,20 +314,24 @@ class Extension(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_topic = aws.sns.Topic("testTopic")
-        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_topic = aws.sns.Topic("test", name="test")
+        test = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["sts:AssumeRole"],
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="Service",
                 identifiers=["appconfig.amazonaws.com"],
             )],
         )])
-        test_role = aws.iam.Role("testRole", assume_role_policy=test_policy_document.json)
-        test_extension = aws.appconfig.Extension("testExtension",
+        test_role = aws.iam.Role("test",
+            name="test",
+            assume_role_policy=test.json)
+        test_extension = aws.appconfig.Extension("test",
+            name="test",
             description="test description",
             action_points=[aws.appconfig.ExtensionActionPointArgs(
                 point="ON_DEPLOYMENT_COMPLETE",
@@ -336,13 +345,14 @@ class Extension(pulumi.CustomResource):
                 "Type": "AppConfig Extension",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AppConfig Extensions using their extension ID. For example:
 
         ```sh
-         $ pulumi import aws:appconfig/extension:Extension example 71rxuzt
+        $ pulumi import aws:appconfig/extension:Extension example 71rxuzt
         ```
 
         :param str resource_name: The name of the resource.
@@ -384,8 +394,6 @@ class Extension(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["version"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Extension, __self__).__init__(
             'aws:appconfig/extension:Extension',
             resource_name,

@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Creates and manages an AWS IoT domain configuration.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,21 +46,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var iot = new DomainConfiguration(&#34;iot&#34;, DomainConfigurationArgs.builder()        
+ *             .name(&#34;iot-&#34;)
  *             .domainName(&#34;iot.example.com&#34;)
  *             .serviceType(&#34;DATA&#34;)
- *             .serverCertificateArns(aws_acm_certificate.cert().arn())
+ *             .serverCertificateArns(cert.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import domain configurations using the name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iot/domainConfiguration:DomainConfiguration example example
+ * $ pulumi import aws:iot/domainConfiguration:DomainConfiguration example example
  * ```
  * 
  */
@@ -79,14 +83,14 @@ public class DomainConfiguration extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * An object that specifies the authorization service for a domain. See below.
+     * An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
      * 
      */
     @Export(name="authorizerConfig", refs={DomainConfigurationAuthorizerConfig.class}, tree="[0]")
     private Output</* @Nullable */ DomainConfigurationAuthorizerConfig> authorizerConfig;
 
     /**
-     * @return An object that specifies the authorization service for a domain. See below.
+     * @return An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
      * 
      */
     public Output<Optional<DomainConfigurationAuthorizerConfig>> authorizerConfig() {
@@ -162,9 +166,17 @@ public class DomainConfiguration extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> serviceType() {
         return Codegen.optional(this.serviceType);
     }
+    /**
+     * The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
+    /**
+     * @return The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
+     * 
+     */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
@@ -201,14 +213,14 @@ public class DomainConfiguration extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * An object that specifies the TLS configuration for a domain. See below.
+     * An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
      * 
      */
     @Export(name="tlsConfig", refs={DomainConfigurationTlsConfig.class}, tree="[0]")
     private Output<DomainConfigurationTlsConfig> tlsConfig;
 
     /**
-     * @return An object that specifies the TLS configuration for a domain. See below.
+     * @return An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
      * 
      */
     public Output<DomainConfigurationTlsConfig> tlsConfig() {
@@ -261,9 +273,6 @@ public class DomainConfiguration extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

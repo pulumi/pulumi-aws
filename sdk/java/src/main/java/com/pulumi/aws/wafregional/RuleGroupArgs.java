@@ -6,6 +6,7 @@ package com.pulumi.aws.wafregional;
 import com.pulumi.aws.wafregional.inputs.RuleGroupActivatedRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -200,7 +201,9 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RuleGroupArgs build() {
-            $.metricName = Objects.requireNonNull($.metricName, "expected parameter 'metricName' to be non-null");
+            if ($.metricName == null) {
+                throw new MissingRequiredPropertyException("RuleGroupArgs", "metricName");
+            }
             return $;
         }
     }

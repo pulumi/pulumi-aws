@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +21,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -29,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.schemas.Registry;
+ * import com.pulumi.aws.schemas.RegistryArgs;
  * import com.pulumi.aws.schemas.Schema;
  * import com.pulumi.aws.schemas.SchemaArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
@@ -45,10 +47,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testRegistry = new Registry(&#34;testRegistry&#34;);
+ *         var test = new Registry(&#34;test&#34;, RegistryArgs.builder()        
+ *             .name(&#34;my_own_registry&#34;)
+ *             .build());
  * 
  *         var testSchema = new Schema(&#34;testSchema&#34;, SchemaArgs.builder()        
- *             .registryName(testRegistry.name())
+ *             .name(&#34;my_schema&#34;)
+ *             .registryName(test.name())
  *             .type(&#34;OpenApi3&#34;)
  *             .description(&#34;The schema definition for my event&#34;)
  *             .content(serializeJson(
@@ -79,13 +84,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import EventBridge schema using the `name` and `registry_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:schemas/schema:Schema test name/registry
+ * $ pulumi import aws:schemas/schema:Schema test name/registry
  * ```
  * 
  */
@@ -282,9 +288,6 @@ public class Schema extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see [&#34;Regions and Availability Zones in Amazon Lightsail&#34;](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,14 +49,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testInstance = new Instance(&#34;testInstance&#34;, InstanceArgs.builder()        
- *             .availabilityZone(data.aws_availability_zones().available().names()[0])
+ *         var test = new Instance(&#34;test&#34;, InstanceArgs.builder()        
+ *             .name(&#34;yak_sail&#34;)
+ *             .availabilityZone(available.names()[0])
  *             .blueprintId(&#34;amazon_linux_2&#34;)
  *             .bundleId(&#34;nano_1_0&#34;)
  *             .build());
  * 
  *         var testInstancePublicPorts = new InstancePublicPorts(&#34;testInstancePublicPorts&#34;, InstancePublicPortsArgs.builder()        
- *             .instanceName(testInstance.name())
+ *             .instanceName(test.name())
  *             .portInfos(InstancePublicPortsPortInfoArgs.builder()
  *                 .protocol(&#34;tcp&#34;)
  *                 .fromPort(80)
@@ -65,6 +68,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:lightsail/instancePublicPorts:InstancePublicPorts")

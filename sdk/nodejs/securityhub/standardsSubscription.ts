@@ -9,26 +9,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.securityhub.Account("example", {});
  * const current = aws.getRegion({});
- * const cis = new aws.securityhub.StandardsSubscription("cis", {standardsArn: "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"}, {
- *     dependsOn: [example],
- * });
- * const pci321 = new aws.securityhub.StandardsSubscription("pci321", {standardsArn: current.then(current => `arn:aws:securityhub:${current.name}::standards/pci-dss/v/3.2.1`)}, {
- *     dependsOn: [example],
- * });
+ * const cis = new aws.securityhub.StandardsSubscription("cis", {standardsArn: "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"});
+ * const pci321 = new aws.securityhub.StandardsSubscription("pci_321", {standardsArn: current.then(current => `arn:aws:securityhub:${current.name}::standards/pci-dss/v/3.2.1`)});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Security Hub standards subscriptions using the standards subscription ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
+ * $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
  * ```
  * ```sh
  * $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1

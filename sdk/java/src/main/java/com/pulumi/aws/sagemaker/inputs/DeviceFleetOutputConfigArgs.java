@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class DeviceFleetOutputConfigArgs extends com.pulumi.resources.Reso
         }
 
         public DeviceFleetOutputConfigArgs build() {
-            $.s3OutputLocation = Objects.requireNonNull($.s3OutputLocation, "expected parameter 's3OutputLocation' to be non-null");
+            if ($.s3OutputLocation == null) {
+                throw new MissingRequiredPropertyException("DeviceFleetOutputConfigArgs", "s3OutputLocation");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.lb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -46,25 +47,34 @@ public final class GetListenerDefaultActionFixedResponse {
 
         @CustomType.Setter
         public Builder contentType(String contentType) {
-            this.contentType = Objects.requireNonNull(contentType);
+            if (contentType == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultActionFixedResponse", "contentType");
+            }
+            this.contentType = contentType;
             return this;
         }
         @CustomType.Setter
         public Builder messageBody(String messageBody) {
-            this.messageBody = Objects.requireNonNull(messageBody);
+            if (messageBody == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultActionFixedResponse", "messageBody");
+            }
+            this.messageBody = messageBody;
             return this;
         }
         @CustomType.Setter
         public Builder statusCode(String statusCode) {
-            this.statusCode = Objects.requireNonNull(statusCode);
+            if (statusCode == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultActionFixedResponse", "statusCode");
+            }
+            this.statusCode = statusCode;
             return this;
         }
         public GetListenerDefaultActionFixedResponse build() {
-            final var o = new GetListenerDefaultActionFixedResponse();
-            o.contentType = contentType;
-            o.messageBody = messageBody;
-            o.statusCode = statusCode;
-            return o;
+            final var _resultValue = new GetListenerDefaultActionFixedResponse();
+            _resultValue.contentType = contentType;
+            _resultValue.messageBody = messageBody;
+            _resultValue.statusCode = statusCode;
+            return _resultValue;
         }
     }
 }

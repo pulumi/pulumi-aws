@@ -40,117 +40,12 @@ import javax.annotation.Nullable;
 /**
  * Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.LaunchTemplate;
- * import com.pulumi.aws.ec2.LaunchTemplateArgs;
- * import com.pulumi.aws.ec2.inputs.LaunchTemplateBlockDeviceMappingArgs;
- * import com.pulumi.aws.ec2.inputs.LaunchTemplateBlockDeviceMappingEbsArgs;
- * import com.pulumi.aws.ec2.inputs.LaunchTemplateCapacityReservationSpecificationArgs;
- * import com.pulumi.aws.ec2.inputs.LaunchTemplateCpuOptionsArgs;
- * import com.pulumi.aws.ec2.inputs.LaunchTemplateCreditSpecificationArgs;
- * import com.pulumi.aws.ec2.inputs.LaunchTemplateElasticGpuSpecificationArgs;
- * import com.pulumi.aws.ec2.inputs.LaunchTemplateElasticInferenceAcceleratorArgs;
- * import com.pulumi.aws.ec2.inputs.LaunchTemplateIamInstanceProfileArgs;
- * import com.pulumi.aws.ec2.inputs.LaunchTemplateInstanceMarketOptionsArgs;
- * import com.pulumi.aws.ec2.inputs.LaunchTemplateLicenseSpecificationArgs;
- * import com.pulumi.aws.ec2.inputs.LaunchTemplateMetadataOptionsArgs;
- * import com.pulumi.aws.ec2.inputs.LaunchTemplateMonitoringArgs;
- * import com.pulumi.aws.ec2.inputs.LaunchTemplateNetworkInterfaceArgs;
- * import com.pulumi.aws.ec2.inputs.LaunchTemplatePlacementArgs;
- * import com.pulumi.aws.ec2.inputs.LaunchTemplateTagSpecificationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new LaunchTemplate(&#34;foo&#34;, LaunchTemplateArgs.builder()        
- *             .blockDeviceMappings(LaunchTemplateBlockDeviceMappingArgs.builder()
- *                 .deviceName(&#34;/dev/sdf&#34;)
- *                 .ebs(LaunchTemplateBlockDeviceMappingEbsArgs.builder()
- *                     .volumeSize(20)
- *                     .build())
- *                 .build())
- *             .capacityReservationSpecification(LaunchTemplateCapacityReservationSpecificationArgs.builder()
- *                 .capacityReservationPreference(&#34;open&#34;)
- *                 .build())
- *             .cpuOptions(LaunchTemplateCpuOptionsArgs.builder()
- *                 .coreCount(4)
- *                 .threadsPerCore(2)
- *                 .build())
- *             .creditSpecification(LaunchTemplateCreditSpecificationArgs.builder()
- *                 .cpuCredits(&#34;standard&#34;)
- *                 .build())
- *             .disableApiStop(true)
- *             .disableApiTermination(true)
- *             .ebsOptimized(true)
- *             .elasticGpuSpecifications(LaunchTemplateElasticGpuSpecificationArgs.builder()
- *                 .type(&#34;test&#34;)
- *                 .build())
- *             .elasticInferenceAccelerator(LaunchTemplateElasticInferenceAcceleratorArgs.builder()
- *                 .type(&#34;eia1.medium&#34;)
- *                 .build())
- *             .iamInstanceProfile(LaunchTemplateIamInstanceProfileArgs.builder()
- *                 .name(&#34;test&#34;)
- *                 .build())
- *             .imageId(&#34;ami-test&#34;)
- *             .instanceInitiatedShutdownBehavior(&#34;terminate&#34;)
- *             .instanceMarketOptions(LaunchTemplateInstanceMarketOptionsArgs.builder()
- *                 .marketType(&#34;spot&#34;)
- *                 .build())
- *             .instanceType(&#34;t2.micro&#34;)
- *             .kernelId(&#34;test&#34;)
- *             .keyName(&#34;test&#34;)
- *             .licenseSpecifications(LaunchTemplateLicenseSpecificationArgs.builder()
- *                 .licenseConfigurationArn(&#34;arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef&#34;)
- *                 .build())
- *             .metadataOptions(LaunchTemplateMetadataOptionsArgs.builder()
- *                 .httpEndpoint(&#34;enabled&#34;)
- *                 .httpTokens(&#34;required&#34;)
- *                 .httpPutResponseHopLimit(1)
- *                 .instanceMetadataTags(&#34;enabled&#34;)
- *                 .build())
- *             .monitoring(LaunchTemplateMonitoringArgs.builder()
- *                 .enabled(true)
- *                 .build())
- *             .networkInterfaces(LaunchTemplateNetworkInterfaceArgs.builder()
- *                 .associatePublicIpAddress(true)
- *                 .build())
- *             .placement(LaunchTemplatePlacementArgs.builder()
- *                 .availabilityZone(&#34;us-west-2a&#34;)
- *                 .build())
- *             .ramDiskId(&#34;test&#34;)
- *             .vpcSecurityGroupIds(&#34;sg-12345678&#34;)
- *             .tagSpecifications(LaunchTemplateTagSpecificationArgs.builder()
- *                 .resourceType(&#34;instance&#34;)
- *                 .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
- *                 .build())
- *             .userData(Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get(String.format(&#34;%s/example.sh&#34;, path.module())))))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import Launch Templates using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/launchTemplate:LaunchTemplate web lt-12345678
+ * $ pulumi import aws:ec2/launchTemplate:LaunchTemplate web lt-12345678
  * ```
  * 
  */
@@ -771,9 +666,6 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

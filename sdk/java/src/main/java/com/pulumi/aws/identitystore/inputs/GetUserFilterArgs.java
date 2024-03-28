@@ -5,6 +5,7 @@ package com.pulumi.aws.identitystore.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class GetUserFilterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public GetUserFilterArgs build() {
-            $.attributePath = Objects.requireNonNull($.attributePath, "expected parameter 'attributePath' to be non-null");
-            $.attributeValue = Objects.requireNonNull($.attributeValue, "expected parameter 'attributeValue' to be non-null");
+            if ($.attributePath == null) {
+                throw new MissingRequiredPropertyException("GetUserFilterArgs", "attributePath");
+            }
+            if ($.attributeValue == null) {
+                throw new MissingRequiredPropertyException("GetUserFilterArgs", "attributeValue");
+            }
             return $;
         }
     }

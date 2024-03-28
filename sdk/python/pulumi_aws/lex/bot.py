@@ -616,11 +616,12 @@ class Bot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        order_flowers_bot = aws.lex.Bot("orderFlowersBot",
+        order_flowers_bot = aws.lex.Bot("order_flowers_bot",
             abort_statement=aws.lex.BotAbortStatementArgs(
                 messages=[aws.lex.BotAbortStatementMessageArgs(
                     content="Sorry, I am not able to assist at this time",
@@ -647,13 +648,14 @@ class Bot(pulumi.CustomResource):
             process_behavior="BUILD",
             voice_id="Salli")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import bots using their name. For example:
 
         ```sh
-         $ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
+        $ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
         ```
 
         :param str resource_name: The name of the resource.
@@ -685,11 +687,12 @@ class Bot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        order_flowers_bot = aws.lex.Bot("orderFlowersBot",
+        order_flowers_bot = aws.lex.Bot("order_flowers_bot",
             abort_statement=aws.lex.BotAbortStatementArgs(
                 messages=[aws.lex.BotAbortStatementMessageArgs(
                     content="Sorry, I am not able to assist at this time",
@@ -716,13 +719,14 @@ class Bot(pulumi.CustomResource):
             process_behavior="BUILD",
             voice_id="Salli")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import bots using their name. For example:
 
         ```sh
-         $ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
+        $ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
         ```
 
         :param str resource_name: The name of the resource.

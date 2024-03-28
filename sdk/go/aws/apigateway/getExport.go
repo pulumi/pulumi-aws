@@ -13,6 +13,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -26,8 +27,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigateway.GetExport(ctx, &apigateway.GetExportArgs{
-//				RestApiId:  aws_api_gateway_stage.Example.Rest_api_id,
-//				StageName:  aws_api_gateway_stage.Example.Stage_name,
+//				RestApiId:  exampleAwsApiGatewayStage.RestApiId,
+//				StageName:  exampleAwsApiGatewayStage.StageName,
 //				ExportType: "oas30",
 //			}, nil)
 //			if err != nil {
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetExport(ctx *pulumi.Context, args *GetExportArgs, opts ...pulumi.InvokeOption) (*GetExportResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetExportResult

@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.aws.ec2.outputs.GetManagedPrefixListEntry;
 import com.pulumi.aws.ec2.outputs.GetManagedPrefixListFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -158,17 +159,26 @@ public final class GetManagedPrefixListResult {
 
         @CustomType.Setter
         public Builder addressFamily(String addressFamily) {
-            this.addressFamily = Objects.requireNonNull(addressFamily);
+            if (addressFamily == null) {
+              throw new MissingRequiredPropertyException("GetManagedPrefixListResult", "addressFamily");
+            }
+            this.addressFamily = addressFamily;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetManagedPrefixListResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder entries(List<GetManagedPrefixListEntry> entries) {
-            this.entries = Objects.requireNonNull(entries);
+            if (entries == null) {
+              throw new MissingRequiredPropertyException("GetManagedPrefixListResult", "entries");
+            }
+            this.entries = entries;
             return this;
         }
         public Builder entries(GetManagedPrefixListEntry... entries) {
@@ -176,6 +186,7 @@ public final class GetManagedPrefixListResult {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetManagedPrefixListFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -184,47 +195,65 @@ public final class GetManagedPrefixListResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetManagedPrefixListResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder maxEntries(Integer maxEntries) {
-            this.maxEntries = Objects.requireNonNull(maxEntries);
+            if (maxEntries == null) {
+              throw new MissingRequiredPropertyException("GetManagedPrefixListResult", "maxEntries");
+            }
+            this.maxEntries = maxEntries;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetManagedPrefixListResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+            if (ownerId == null) {
+              throw new MissingRequiredPropertyException("GetManagedPrefixListResult", "ownerId");
+            }
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetManagedPrefixListResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder version(Integer version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetManagedPrefixListResult", "version");
+            }
+            this.version = version;
             return this;
         }
         public GetManagedPrefixListResult build() {
-            final var o = new GetManagedPrefixListResult();
-            o.addressFamily = addressFamily;
-            o.arn = arn;
-            o.entries = entries;
-            o.filters = filters;
-            o.id = id;
-            o.maxEntries = maxEntries;
-            o.name = name;
-            o.ownerId = ownerId;
-            o.tags = tags;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetManagedPrefixListResult();
+            _resultValue.addressFamily = addressFamily;
+            _resultValue.arn = arn;
+            _resultValue.entries = entries;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.maxEntries = maxEntries;
+            _resultValue.name = name;
+            _resultValue.ownerId = ownerId;
+            _resultValue.tags = tags;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

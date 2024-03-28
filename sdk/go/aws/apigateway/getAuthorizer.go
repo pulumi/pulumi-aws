@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigateway.LookupAuthorizer(ctx, &apigateway.LookupAuthorizerArgs{
-//				RestApiId:    aws_api_gateway_rest_api.Example.Id,
-//				AuthorizerId: data.Aws_api_gateway_authorizers.Example.Ids[0],
+//				RestApiId:    exampleAwsApiGatewayRestApi.Id,
+//				AuthorizerId: exampleAwsApiGatewayAuthorizers.Ids[0],
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupAuthorizer(ctx *pulumi.Context, args *LookupAuthorizerArgs, opts ...pulumi.InvokeOption) (*LookupAuthorizerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAuthorizerResult

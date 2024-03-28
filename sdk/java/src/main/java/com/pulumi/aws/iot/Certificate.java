@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * Creates and manages an AWS IoT certificate.
  * 
  * ## Example Usage
+ * 
  * ### With CSR
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,14 +46,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var cert = new Certificate(&#34;cert&#34;, CertificateArgs.builder()        
- *             .csr(Files.readString(Paths.get(&#34;/my/csr.pem&#34;)))
+ *             .csr(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;/my/csr.pem&#34;)
+ *                 .build()).result())
  *             .active(true)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Without CSR
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -79,7 +88,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### From existing certificate without a CA
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -102,13 +115,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var cert = new Certificate(&#34;cert&#34;, CertificateArgs.builder()        
- *             .certificatePem(Files.readString(Paths.get(&#34;/my/cert.pem&#34;)))
+ *             .certificatePem(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;/my/cert.pem&#34;)
+ *                 .build()).result())
  *             .active(true)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:iot/certificate:Certificate")

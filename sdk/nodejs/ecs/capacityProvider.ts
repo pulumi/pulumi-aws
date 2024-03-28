@@ -14,34 +14,38 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // ... other configuration, including potentially other tags ...
- * const testGroup = new aws.autoscaling.Group("testGroup", {tags: [{
+ * const test = new aws.autoscaling.Group("test", {tags: [{
  *     key: "AmazonECSManaged",
  *     value: "true",
  *     propagateAtLaunch: true,
  * }]});
- * const testCapacityProvider = new aws.ecs.CapacityProvider("testCapacityProvider", {autoScalingGroupProvider: {
- *     autoScalingGroupArn: testGroup.arn,
- *     managedTerminationProtection: "ENABLED",
- *     managedScaling: {
- *         maximumScalingStepSize: 1000,
- *         minimumScalingStepSize: 1,
- *         status: "ENABLED",
- *         targetCapacity: 10,
+ * const testCapacityProvider = new aws.ecs.CapacityProvider("test", {
+ *     name: "test",
+ *     autoScalingGroupProvider: {
+ *         autoScalingGroupArn: test.arn,
+ *         managedTerminationProtection: "ENABLED",
+ *         managedScaling: {
+ *             maximumScalingStepSize: 1000,
+ *             minimumScalingStepSize: 1,
+ *             status: "ENABLED",
+ *             targetCapacity: 10,
+ *         },
  *     },
- * }});
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ECS Capacity Providers using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
+ * $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
  * ```
  */
 export class CapacityProvider extends pulumi.CustomResource {
@@ -125,8 +129,6 @@ export class CapacityProvider extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(CapacityProvider.__pulumiType, name, resourceInputs, opts);
     }
 }

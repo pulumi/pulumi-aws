@@ -15,40 +15,46 @@ import * as utilities from "../utilities";
  * > **Note:** The EventBridge bus policy resource  (`aws.cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`aws.cloudwatch.EventPermission`) and will overwrite permissions.
  *
  * ## Example Usage
+ *
  * ### Account Access
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const devAccountAccess = new aws.cloudwatch.EventPermission("devAccountAccess", {
+ * const devAccountAccess = new aws.cloudwatch.EventPermission("DevAccountAccess", {
  *     principal: "123456789012",
  *     statementId: "DevAccountAccess",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Organization Access
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const organizationAccess = new aws.cloudwatch.EventPermission("organizationAccess", {
+ * const organizationAccess = new aws.cloudwatch.EventPermission("OrganizationAccess", {
  *     principal: "*",
  *     statementId: "OrganizationAccess",
  *     condition: {
  *         key: "aws:PrincipalOrgID",
  *         type: "StringEquals",
- *         value: aws_organizations_organization.example.id,
+ *         value: example.id,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EventBridge permissions using the `event_bus_name/statement_id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
+ * $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
  * ```
  */
 export class EventPermission extends pulumi.CustomResource {

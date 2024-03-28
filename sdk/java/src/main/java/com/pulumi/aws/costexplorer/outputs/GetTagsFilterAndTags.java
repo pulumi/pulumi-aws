@@ -73,11 +73,13 @@ public final class GetTagsFilterAndTags {
 
         @CustomType.Setter
         public Builder key(@Nullable String key) {
+
             this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder matchOptions(@Nullable List<String> matchOptions) {
+
             this.matchOptions = matchOptions;
             return this;
         }
@@ -86,6 +88,7 @@ public final class GetTagsFilterAndTags {
         }
         @CustomType.Setter
         public Builder values(@Nullable List<String> values) {
+
             this.values = values;
             return this;
         }
@@ -93,11 +96,11 @@ public final class GetTagsFilterAndTags {
             return values(List.of(values));
         }
         public GetTagsFilterAndTags build() {
-            final var o = new GetTagsFilterAndTags();
-            o.key = key;
-            o.matchOptions = matchOptions;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetTagsFilterAndTags();
+            _resultValue.key = key;
+            _resultValue.matchOptions = matchOptions;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -6,6 +6,7 @@ package com.pulumi.aws.fis.outputs;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateLogConfigurationS3Configuration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -74,25 +75,30 @@ public final class ExperimentTemplateLogConfiguration {
 
         @CustomType.Setter
         public Builder cloudwatchLogsConfiguration(@Nullable ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration cloudwatchLogsConfiguration) {
+
             this.cloudwatchLogsConfiguration = cloudwatchLogsConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder logSchemaVersion(Integer logSchemaVersion) {
-            this.logSchemaVersion = Objects.requireNonNull(logSchemaVersion);
+            if (logSchemaVersion == null) {
+              throw new MissingRequiredPropertyException("ExperimentTemplateLogConfiguration", "logSchemaVersion");
+            }
+            this.logSchemaVersion = logSchemaVersion;
             return this;
         }
         @CustomType.Setter
         public Builder s3Configuration(@Nullable ExperimentTemplateLogConfigurationS3Configuration s3Configuration) {
+
             this.s3Configuration = s3Configuration;
             return this;
         }
         public ExperimentTemplateLogConfiguration build() {
-            final var o = new ExperimentTemplateLogConfiguration();
-            o.cloudwatchLogsConfiguration = cloudwatchLogsConfiguration;
-            o.logSchemaVersion = logSchemaVersion;
-            o.s3Configuration = s3Configuration;
-            return o;
+            final var _resultValue = new ExperimentTemplateLogConfiguration();
+            _resultValue.cloudwatchLogsConfiguration = cloudwatchLogsConfiguration;
+            _resultValue.logSchemaVersion = logSchemaVersion;
+            _resultValue.s3Configuration = s3Configuration;
+            return _resultValue;
         }
     }
 }

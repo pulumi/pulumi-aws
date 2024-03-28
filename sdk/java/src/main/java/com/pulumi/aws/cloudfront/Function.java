@@ -23,45 +23,13 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** You cannot delete a function if it’s associated with a cache behavior. First, update your distributions to remove the function association from all cache behaviors, then delete the function.
  * 
  * ## Example Usage
- * ### Basic Example
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudfront.Function;
- * import com.pulumi.aws.cloudfront.FunctionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new Function(&#34;test&#34;, FunctionArgs.builder()        
- *             .runtime(&#34;cloudfront-js-1.0&#34;)
- *             .comment(&#34;my function&#34;)
- *             .publish(true)
- *             .code(Files.readString(Paths.get(String.format(&#34;%s/function.js&#34;, path.module()))))
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudFront Functions using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudfront/function:Function test my_test_function
+ * $ pulumi import aws:cloudfront/function:Function test my_test_function
  * ```
  * 
  */
@@ -166,7 +134,7 @@ public class Function extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.publish);
     }
     /**
-     * Identifier of the function&#39;s runtime. Currently only `cloudfront-js-1.0` is valid.
+     * Identifier of the function&#39;s runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
      * 
      * The following arguments are optional:
      * 
@@ -175,7 +143,7 @@ public class Function extends com.pulumi.resources.CustomResource {
     private Output<String> runtime;
 
     /**
-     * @return Identifier of the function&#39;s runtime. Currently only `cloudfront-js-1.0` is valid.
+     * @return Identifier of the function&#39;s runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
      * 
      * The following arguments are optional:
      * 

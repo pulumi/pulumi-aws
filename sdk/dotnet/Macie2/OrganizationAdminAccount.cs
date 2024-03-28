@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,28 +23,23 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = new Aws.Macie2.Account("exampleAccount");
+    ///     var example = new Aws.Macie2.Account("example");
     /// 
-    ///     var exampleOrganizationAdminAccount = new Aws.Macie2.OrganizationAdminAccount("exampleOrganizationAdminAccount", new()
+    ///     var exampleOrganizationAdminAccount = new Aws.Macie2.OrganizationAdminAccount("example", new()
     ///     {
     ///         AdminAccountId = "ID OF THE ADMIN ACCOUNT",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccount,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_macie2_organization_admin_account` using the id. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
+    /// $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
     /// ```
     /// </summary>
     [AwsResourceType("aws:macie2/organizationAdminAccount:OrganizationAdminAccount")]

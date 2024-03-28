@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -26,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.User;
+ * import com.pulumi.aws.iam.UserArgs;
  * import com.pulumi.aws.iam.Policy;
  * import com.pulumi.aws.iam.PolicyArgs;
  * import com.pulumi.aws.iam.UserPolicyAttachment;
@@ -43,9 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var user = new User(&#34;user&#34;);
+ *         var user = new User(&#34;user&#34;, UserArgs.builder()        
+ *             .name(&#34;test-user&#34;)
+ *             .build());
  * 
  *         var policy = new Policy(&#34;policy&#34;, PolicyArgs.builder()        
+ *             .name(&#34;test-policy&#34;)
  *             .description(&#34;A test policy&#34;)
  *             .policy(&#34;{ ... policy JSON ... }&#34;)
  *             .build());
@@ -58,13 +64,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IAM user policy attachments using the user name and policy arn separated by `/`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+ * $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
  * ```
  * 
  */

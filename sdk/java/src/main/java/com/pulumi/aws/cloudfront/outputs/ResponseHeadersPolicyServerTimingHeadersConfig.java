@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.util.Objects;
@@ -57,19 +58,25 @@ public final class ResponseHeadersPolicyServerTimingHeadersConfig {
 
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("ResponseHeadersPolicyServerTimingHeadersConfig", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder samplingRate(Double samplingRate) {
-            this.samplingRate = Objects.requireNonNull(samplingRate);
+            if (samplingRate == null) {
+              throw new MissingRequiredPropertyException("ResponseHeadersPolicyServerTimingHeadersConfig", "samplingRate");
+            }
+            this.samplingRate = samplingRate;
             return this;
         }
         public ResponseHeadersPolicyServerTimingHeadersConfig build() {
-            final var o = new ResponseHeadersPolicyServerTimingHeadersConfig();
-            o.enabled = enabled;
-            o.samplingRate = samplingRate;
-            return o;
+            final var _resultValue = new ResponseHeadersPolicyServerTimingHeadersConfig();
+            _resultValue.enabled = enabled;
+            _resultValue.samplingRate = samplingRate;
+            return _resultValue;
         }
     }
 }

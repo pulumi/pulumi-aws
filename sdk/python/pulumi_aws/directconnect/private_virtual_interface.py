@@ -549,23 +549,26 @@ class PrivateVirtualInterface(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         foo = aws.directconnect.PrivateVirtualInterface("foo",
-            address_family="ipv4",
-            bgp_asn=65352,
             connection_id="dxcon-zzzzzzzz",
-            vlan=4094)
+            name="vif-foo",
+            vlan=4094,
+            address_family="ipv4",
+            bgp_asn=65352)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Direct Connect private virtual interfaces using the VIF `id`. For example:
 
         ```sh
-         $ pulumi import aws:directconnect/privateVirtualInterface:PrivateVirtualInterface test dxvif-33cc44dd
+        $ pulumi import aws:directconnect/privateVirtualInterface:PrivateVirtualInterface test dxvif-33cc44dd
         ```
 
         :param str resource_name: The name of the resource.
@@ -596,23 +599,26 @@ class PrivateVirtualInterface(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         foo = aws.directconnect.PrivateVirtualInterface("foo",
-            address_family="ipv4",
-            bgp_asn=65352,
             connection_id="dxcon-zzzzzzzz",
-            vlan=4094)
+            name="vif-foo",
+            vlan=4094,
+            address_family="ipv4",
+            bgp_asn=65352)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Direct Connect private virtual interfaces using the VIF `id`. For example:
 
         ```sh
-         $ pulumi import aws:directconnect/privateVirtualInterface:PrivateVirtualInterface test dxvif-33cc44dd
+        $ pulumi import aws:directconnect/privateVirtualInterface:PrivateVirtualInterface test dxvif-33cc44dd
         ```
 
         :param str resource_name: The name of the resource.
@@ -678,8 +684,6 @@ class PrivateVirtualInterface(pulumi.CustomResource):
             __props__.__dict__["aws_device"] = None
             __props__.__dict__["jumbo_frame_capable"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(PrivateVirtualInterface, __self__).__init__(
             'aws:directconnect/privateVirtualInterface:PrivateVirtualInterface',
             resource_name,

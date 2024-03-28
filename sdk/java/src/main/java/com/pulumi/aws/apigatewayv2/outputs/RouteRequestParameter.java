@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigatewayv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -57,19 +58,25 @@ public final class RouteRequestParameter {
 
         @CustomType.Setter
         public Builder requestParameterKey(String requestParameterKey) {
-            this.requestParameterKey = Objects.requireNonNull(requestParameterKey);
+            if (requestParameterKey == null) {
+              throw new MissingRequiredPropertyException("RouteRequestParameter", "requestParameterKey");
+            }
+            this.requestParameterKey = requestParameterKey;
             return this;
         }
         @CustomType.Setter
         public Builder required(Boolean required) {
-            this.required = Objects.requireNonNull(required);
+            if (required == null) {
+              throw new MissingRequiredPropertyException("RouteRequestParameter", "required");
+            }
+            this.required = required;
             return this;
         }
         public RouteRequestParameter build() {
-            final var o = new RouteRequestParameter();
-            o.requestParameterKey = requestParameterKey;
-            o.required = required;
-            return o;
+            final var _resultValue = new RouteRequestParameter();
+            _resultValue.requestParameterKey = requestParameterKey;
+            _resultValue.required = required;
+            return _resultValue;
         }
     }
 }

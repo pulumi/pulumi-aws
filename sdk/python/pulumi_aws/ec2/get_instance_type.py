@@ -22,7 +22,7 @@ class GetInstanceTypeResult:
     """
     A collection of values returned by getInstanceType.
     """
-    def __init__(__self__, auto_recovery_supported=None, bare_metal=None, burstable_performance_supported=None, current_generation=None, dedicated_hosts_supported=None, default_cores=None, default_threads_per_core=None, default_vcpus=None, ebs_encryption_support=None, ebs_nvme_support=None, ebs_optimized_support=None, ebs_performance_baseline_bandwidth=None, ebs_performance_baseline_iops=None, ebs_performance_baseline_throughput=None, ebs_performance_maximum_bandwidth=None, ebs_performance_maximum_iops=None, ebs_performance_maximum_throughput=None, efa_supported=None, ena_support=None, encryption_in_transit_supported=None, fpgas=None, free_tier_eligible=None, gpuses=None, hibernation_supported=None, hypervisor=None, id=None, inference_accelerators=None, instance_disks=None, instance_storage_supported=None, instance_type=None, ipv6_supported=None, maximum_ipv4_addresses_per_interface=None, maximum_ipv6_addresses_per_interface=None, maximum_network_interfaces=None, memory_size=None, network_performance=None, supported_architectures=None, supported_placement_strategies=None, supported_root_device_types=None, supported_usages_classes=None, supported_virtualization_types=None, sustained_clock_speed=None, total_fpga_memory=None, total_gpu_memory=None, total_instance_storage=None, valid_cores=None, valid_threads_per_cores=None):
+    def __init__(__self__, auto_recovery_supported=None, bare_metal=None, burstable_performance_supported=None, current_generation=None, dedicated_hosts_supported=None, default_cores=None, default_threads_per_core=None, default_vcpus=None, ebs_encryption_support=None, ebs_nvme_support=None, ebs_optimized_support=None, ebs_performance_baseline_bandwidth=None, ebs_performance_baseline_iops=None, ebs_performance_baseline_throughput=None, ebs_performance_maximum_bandwidth=None, ebs_performance_maximum_iops=None, ebs_performance_maximum_throughput=None, efa_supported=None, ena_support=None, encryption_in_transit_supported=None, fpgas=None, free_tier_eligible=None, gpuses=None, hibernation_supported=None, hypervisor=None, id=None, inference_accelerators=None, instance_disks=None, instance_storage_supported=None, instance_type=None, ipv6_supported=None, maximum_ipv4_addresses_per_interface=None, maximum_ipv6_addresses_per_interface=None, maximum_network_cards=None, maximum_network_interfaces=None, memory_size=None, network_performance=None, supported_architectures=None, supported_placement_strategies=None, supported_root_device_types=None, supported_usages_classes=None, supported_virtualization_types=None, sustained_clock_speed=None, total_fpga_memory=None, total_gpu_memory=None, total_instance_storage=None, valid_cores=None, valid_threads_per_cores=None):
         if auto_recovery_supported and not isinstance(auto_recovery_supported, bool):
             raise TypeError("Expected argument 'auto_recovery_supported' to be a bool")
         pulumi.set(__self__, "auto_recovery_supported", auto_recovery_supported)
@@ -122,6 +122,9 @@ class GetInstanceTypeResult:
         if maximum_ipv6_addresses_per_interface and not isinstance(maximum_ipv6_addresses_per_interface, int):
             raise TypeError("Expected argument 'maximum_ipv6_addresses_per_interface' to be a int")
         pulumi.set(__self__, "maximum_ipv6_addresses_per_interface", maximum_ipv6_addresses_per_interface)
+        if maximum_network_cards and not isinstance(maximum_network_cards, int):
+            raise TypeError("Expected argument 'maximum_network_cards' to be a int")
+        pulumi.set(__self__, "maximum_network_cards", maximum_network_cards)
         if maximum_network_interfaces and not isinstance(maximum_network_interfaces, int):
             raise TypeError("Expected argument 'maximum_network_interfaces' to be a int")
         pulumi.set(__self__, "maximum_network_interfaces", maximum_network_interfaces)
@@ -441,6 +444,14 @@ class GetInstanceTypeResult:
         return pulumi.get(self, "maximum_ipv6_addresses_per_interface")
 
     @property
+    @pulumi.getter(name="maximumNetworkCards")
+    def maximum_network_cards(self) -> int:
+        """
+        The maximum number of physical network cards that can be allocated to the instance.
+        """
+        return pulumi.get(self, "maximum_network_cards")
+
+    @property
     @pulumi.getter(name="maximumNetworkInterfaces")
     def maximum_network_interfaces(self) -> int:
         """
@@ -592,6 +603,7 @@ class AwaitableGetInstanceTypeResult(GetInstanceTypeResult):
             ipv6_supported=self.ipv6_supported,
             maximum_ipv4_addresses_per_interface=self.maximum_ipv4_addresses_per_interface,
             maximum_ipv6_addresses_per_interface=self.maximum_ipv6_addresses_per_interface,
+            maximum_network_cards=self.maximum_network_cards,
             maximum_network_interfaces=self.maximum_network_interfaces,
             memory_size=self.memory_size,
             network_performance=self.network_performance,
@@ -615,12 +627,14 @@ def get_instance_type(instance_type: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ec2.get_instance_type(instance_type="t2.micro")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str instance_type: Instance
@@ -664,6 +678,7 @@ def get_instance_type(instance_type: Optional[str] = None,
         ipv6_supported=pulumi.get(__ret__, 'ipv6_supported'),
         maximum_ipv4_addresses_per_interface=pulumi.get(__ret__, 'maximum_ipv4_addresses_per_interface'),
         maximum_ipv6_addresses_per_interface=pulumi.get(__ret__, 'maximum_ipv6_addresses_per_interface'),
+        maximum_network_cards=pulumi.get(__ret__, 'maximum_network_cards'),
         maximum_network_interfaces=pulumi.get(__ret__, 'maximum_network_interfaces'),
         memory_size=pulumi.get(__ret__, 'memory_size'),
         network_performance=pulumi.get(__ret__, 'network_performance'),
@@ -688,12 +703,14 @@ def get_instance_type_output(instance_type: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ec2.get_instance_type(instance_type="t2.micro")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str instance_type: Instance

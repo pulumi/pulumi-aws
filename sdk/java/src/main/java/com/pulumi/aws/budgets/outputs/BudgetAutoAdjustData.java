@@ -5,6 +5,7 @@ package com.pulumi.aws.budgets.outputs;
 
 import com.pulumi.aws.budgets.outputs.BudgetAutoAdjustDataHistoricalOptions;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -49,25 +50,30 @@ public final class BudgetAutoAdjustData {
 
         @CustomType.Setter
         public Builder autoAdjustType(String autoAdjustType) {
-            this.autoAdjustType = Objects.requireNonNull(autoAdjustType);
+            if (autoAdjustType == null) {
+              throw new MissingRequiredPropertyException("BudgetAutoAdjustData", "autoAdjustType");
+            }
+            this.autoAdjustType = autoAdjustType;
             return this;
         }
         @CustomType.Setter
         public Builder historicalOptions(@Nullable BudgetAutoAdjustDataHistoricalOptions historicalOptions) {
+
             this.historicalOptions = historicalOptions;
             return this;
         }
         @CustomType.Setter
         public Builder lastAutoAdjustTime(@Nullable String lastAutoAdjustTime) {
+
             this.lastAutoAdjustTime = lastAutoAdjustTime;
             return this;
         }
         public BudgetAutoAdjustData build() {
-            final var o = new BudgetAutoAdjustData();
-            o.autoAdjustType = autoAdjustType;
-            o.historicalOptions = historicalOptions;
-            o.lastAutoAdjustTime = lastAutoAdjustTime;
-            return o;
+            final var _resultValue = new BudgetAutoAdjustData();
+            _resultValue.autoAdjustType = autoAdjustType;
+            _resultValue.historicalOptions = historicalOptions;
+            _resultValue.lastAutoAdjustTime = lastAutoAdjustTime;
+            return _resultValue;
         }
     }
 }

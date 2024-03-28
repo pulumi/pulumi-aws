@@ -5,6 +5,7 @@ package com.pulumi.aws.fsx.outputs;
 
 import com.pulumi.aws.fsx.outputs.GetOntapStorageVirtualMachinesFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -65,6 +66,7 @@ public final class GetOntapStorageVirtualMachinesResult {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<GetOntapStorageVirtualMachinesFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -73,23 +75,29 @@ public final class GetOntapStorageVirtualMachinesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachinesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+            if (ids == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachinesResult", "ids");
+            }
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
         public GetOntapStorageVirtualMachinesResult build() {
-            final var o = new GetOntapStorageVirtualMachinesResult();
-            o.filters = filters;
-            o.id = id;
-            o.ids = ids;
-            return o;
+            final var _resultValue = new GetOntapStorageVirtualMachinesResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            return _resultValue;
         }
     }
 }

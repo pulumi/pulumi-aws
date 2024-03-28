@@ -258,34 +258,38 @@ class Vocabulary(pulumi.CustomResource):
         Resource for managing an AWS Transcribe Vocabulary.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
+        example = aws.s3.BucketV2("example",
+            bucket="example-vocab-123",
+            force_destroy=True)
         object = aws.s3.BucketObjectv2("object",
-            bucket=example_bucket_v2.id,
+            bucket=example.id,
             key="transcribe/test1.txt",
             source=pulumi.FileAsset("test.txt"))
-        example_vocabulary = aws.transcribe.Vocabulary("exampleVocabulary",
+        example_vocabulary = aws.transcribe.Vocabulary("example",
             vocabulary_name="example",
             language_code="en-US",
-            vocabulary_file_uri=pulumi.Output.all(example_bucket_v2.id, object.key).apply(lambda id, key: f"s3://{id}/{key}"),
+            vocabulary_file_uri=pulumi.Output.all(example.id, object.key).apply(lambda id, key: f"s3://{id}/{key}"),
             tags={
                 "tag1": "value1",
                 "tag2": "value3",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[object]))
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transcribe Vocabulary using the `vocabulary_name`. For example:
 
         ```sh
-         $ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
+        $ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -308,34 +312,38 @@ class Vocabulary(pulumi.CustomResource):
         Resource for managing an AWS Transcribe Vocabulary.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
+        example = aws.s3.BucketV2("example",
+            bucket="example-vocab-123",
+            force_destroy=True)
         object = aws.s3.BucketObjectv2("object",
-            bucket=example_bucket_v2.id,
+            bucket=example.id,
             key="transcribe/test1.txt",
             source=pulumi.FileAsset("test.txt"))
-        example_vocabulary = aws.transcribe.Vocabulary("exampleVocabulary",
+        example_vocabulary = aws.transcribe.Vocabulary("example",
             vocabulary_name="example",
             language_code="en-US",
-            vocabulary_file_uri=pulumi.Output.all(example_bucket_v2.id, object.key).apply(lambda id, key: f"s3://{id}/{key}"),
+            vocabulary_file_uri=pulumi.Output.all(example.id, object.key).apply(lambda id, key: f"s3://{id}/{key}"),
             tags={
                 "tag1": "value1",
                 "tag2": "value3",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[object]))
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transcribe Vocabulary using the `vocabulary_name`. For example:
 
         ```sh
-         $ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
+        $ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -379,8 +387,6 @@ class Vocabulary(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["download_uri"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Vocabulary, __self__).__init__(
             'aws:transcribe/vocabulary:Vocabulary',
             resource_name,

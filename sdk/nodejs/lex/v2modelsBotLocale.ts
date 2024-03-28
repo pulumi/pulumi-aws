@@ -11,26 +11,49 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Lex V2 Models Bot Locale.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lex.V2modelsBotLocale("example", {
- *     botId: aws_lexv2models_bot.test.id,
+ *     botId: exampleAwsLexv2modelsBot.id,
  *     botVersion: "DRAFT",
  *     localeId: "en_US",
  *     nLuIntentConfidenceThreshold: 0.7,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Voice Settings
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lex.V2modelsBotLocale("example", {
+ *     botId: exampleAwsLexv2modelsBot.id,
+ *     botVersion: "DRAFT",
+ *     localeId: "en_US",
+ *     nLuIntentConfidenceThreshold: 0.7,
+ *     voiceSettings: {
+ *         voiceId: "Kendra",
+ *         engine: "standard",
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Lex V2 Models Bot Locale using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:lex/v2modelsBotLocale:V2modelsBotLocale example bot_locale-id-12345678
+ * $ pulumi import aws:lex/v2modelsBotLocale:V2modelsBotLocale example en_US,abcd-12345678,1
  * ```
  */
 export class V2modelsBotLocale extends pulumi.CustomResource {
@@ -89,7 +112,7 @@ export class V2modelsBotLocale extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public readonly timeouts!: pulumi.Output<outputs.lex.V2modelsBotLocaleTimeouts | undefined>;
     /**
-     * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+     * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
      */
     public readonly voiceSettings!: pulumi.Output<outputs.lex.V2modelsBotLocaleVoiceSettings | undefined>;
 
@@ -174,7 +197,7 @@ export interface V2modelsBotLocaleState {
     name?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsBotLocaleTimeouts>;
     /**
-     * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+     * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
      */
     voiceSettings?: pulumi.Input<inputs.lex.V2modelsBotLocaleVoiceSettings>;
 }
@@ -211,7 +234,7 @@ export interface V2modelsBotLocaleArgs {
     name?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsBotLocaleTimeouts>;
     /**
-     * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+     * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
      */
     voiceSettings?: pulumi.Input<inputs.lex.V2modelsBotLocaleVoiceSettings>;
 }

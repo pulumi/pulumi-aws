@@ -58,19 +58,21 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
 
         @CustomType.Setter
         public Builder prefixFormat(@Nullable String prefixFormat) {
+
             this.prefixFormat = prefixFormat;
             return this;
         }
         @CustomType.Setter
         public Builder prefixType(@Nullable String prefixType) {
+
             this.prefixType = prefixType;
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig();
-            o.prefixFormat = prefixFormat;
-            o.prefixType = prefixType;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig();
+            _resultValue.prefixFormat = prefixFormat;
+            _resultValue.prefixType = prefixType;
+            return _resultValue;
         }
     }
 }

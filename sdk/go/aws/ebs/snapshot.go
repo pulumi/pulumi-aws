@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,7 +39,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ebs.NewSnapshot(ctx, "exampleSnapshot", &ebs.SnapshotArgs{
+//			_, err = ebs.NewSnapshot(ctx, "example_snapshot", &ebs.SnapshotArgs{
 //				VolumeId: example.ID(),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("HelloWorld_snap"),
@@ -52,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EBS Snapshot using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
-//
+// $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
 // ```
 type Snapshot struct {
 	pulumi.CustomResourceState
@@ -109,10 +109,6 @@ func NewSnapshot(ctx *pulumi.Context,
 	if args.VolumeId == nil {
 		return nil, errors.New("invalid value for required argument 'VolumeId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Snapshot
 	err := ctx.RegisterResource("aws:ebs/snapshot:Snapshot", name, args, &resource, opts...)

@@ -4,6 +4,7 @@
 package com.pulumi.aws.iam.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -119,49 +120,70 @@ public final class GetSamlProviderResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetSamlProviderResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder createDate(String createDate) {
-            this.createDate = Objects.requireNonNull(createDate);
+            if (createDate == null) {
+              throw new MissingRequiredPropertyException("GetSamlProviderResult", "createDate");
+            }
+            this.createDate = createDate;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSamlProviderResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSamlProviderResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder samlMetadataDocument(String samlMetadataDocument) {
-            this.samlMetadataDocument = Objects.requireNonNull(samlMetadataDocument);
+            if (samlMetadataDocument == null) {
+              throw new MissingRequiredPropertyException("GetSamlProviderResult", "samlMetadataDocument");
+            }
+            this.samlMetadataDocument = samlMetadataDocument;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetSamlProviderResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder validUntil(String validUntil) {
-            this.validUntil = Objects.requireNonNull(validUntil);
+            if (validUntil == null) {
+              throw new MissingRequiredPropertyException("GetSamlProviderResult", "validUntil");
+            }
+            this.validUntil = validUntil;
             return this;
         }
         public GetSamlProviderResult build() {
-            final var o = new GetSamlProviderResult();
-            o.arn = arn;
-            o.createDate = createDate;
-            o.id = id;
-            o.name = name;
-            o.samlMetadataDocument = samlMetadataDocument;
-            o.tags = tags;
-            o.validUntil = validUntil;
-            return o;
+            final var _resultValue = new GetSamlProviderResult();
+            _resultValue.arn = arn;
+            _resultValue.createDate = createDate;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.samlMetadataDocument = samlMetadataDocument;
+            _resultValue.tags = tags;
+            _resultValue.validUntil = validUntil;
+            return _resultValue;
         }
     }
 }

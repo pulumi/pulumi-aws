@@ -15,8 +15,10 @@ import * as utilities from "../utilities";
  * > **NOTE:** To retain the Stack during resource destroy, ensure `retainStack` has been set to `true` in the state first. This must be completed _before_ a deployment that would destroy the resource.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,11 +26,14 @@ import * as utilities from "../utilities";
  * const example = new aws.cloudformation.StackSetInstance("example", {
  *     accountId: "123456789012",
  *     region: "us-east-1",
- *     stackSetName: aws_cloudformation_stack_set.example.name,
+ *     stackSetName: exampleAwsCloudformationStackSet.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example IAM Setup in Target Account
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,13 +43,18 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *         effect: "Allow",
  *         principals: [{
- *             identifiers: [aws_iam_role.AWSCloudFormationStackSetAdministrationRole.arn],
+ *             identifiers: [aWSCloudFormationStackSetAdministrationRole.arn],
  *             type: "AWS",
  *         }],
  *     }],
  * });
- * const aWSCloudFormationStackSetExecutionRole = new aws.iam.Role("aWSCloudFormationStackSetExecutionRole", {assumeRolePolicy: aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.then(aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy => aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.json)});
- * const aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument = aws.iam.getPolicyDocument({
+ * const aWSCloudFormationStackSetExecutionRole = new aws.iam.Role("AWSCloudFormationStackSetExecutionRole", {
+ *     assumeRolePolicy: aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.then(aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy => aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.json),
+ *     name: "AWSCloudFormationStackSetExecutionRole",
+ * });
+ * // Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html
+ * // Additional IAM permissions necessary depend on the resources defined in the StackSet template
+ * const aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
  *             "cloudformation:*",
@@ -55,25 +65,30 @@ import * as utilities from "../utilities";
  *         resources: ["*"],
  *     }],
  * });
- * const aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy = new aws.iam.RolePolicy("aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy", {
- *     policy: aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument.then(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument => aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument.json),
+ * const aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy = new aws.iam.RolePolicy("AWSCloudFormationStackSetExecutionRole_MinimumExecutionPolicy", {
+ *     name: "MinimumExecutionPolicy",
+ *     policy: aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy.then(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy => aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy.json),
  *     role: aWSCloudFormationStackSetExecutionRole.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example Deployment across Organizations account
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudformation.StackSetInstance("example", {
  *     deploymentTargets: {
- *         organizationalUnitIds: [aws_organizations_organization.example.roots[0].id],
+ *         organizationalUnitIds: [exampleAwsOrganizationsOrganization.roots[0].id],
  *     },
  *     region: "us-east-1",
- *     stackSetName: aws_cloudformation_stack_set.example.name,
+ *     stackSetName: exampleAwsCloudformationStackSet.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -84,17 +99,17 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS Region separated by commas (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,123456789012,us-east-1
+ * $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,123456789012,us-east-1
  * ```
- *  Using `pulumi import`, import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS Region separated by commas (`,`). For example:
+ * Using `pulumi import`, import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS Region separated by commas (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1
+ * $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1
  * ```
- *  Using `pulumi import`, import CloudFormation StackSet Instances when acting a delegated administrator in a member account using the StackSet name, target AWS account ID or slash (`/`) separated list of organizational unit IDs, target AWS Region and `call_as` value separated by commas (`,`). For example:
+ * Using `pulumi import`, import CloudFormation StackSet Instances when acting a delegated administrator in a member account using the StackSet name, target AWS account ID or slash (`/`) separated list of organizational unit IDs, target AWS Region and `call_as` value separated by commas (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1,DELEGATED_ADMIN
+ * $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1,DELEGATED_ADMIN
  * ```
  */
 export class StackSetInstance extends pulumi.CustomResource {

@@ -7,6 +7,7 @@ import com.pulumi.aws.fsx.inputs.OpenZfsFileSystemDiskIopsConfigurationArgs;
 import com.pulumi.aws.fsx.inputs.OpenZfsFileSystemRootVolumeConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -217,6 +218,21 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     * 
+     */
+    @Import(name="skipFinalBackup")
+    private @Nullable Output<Boolean> skipFinalBackup;
+
+    /**
+     * @return When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> skipFinalBackup() {
+        return Optional.ofNullable(this.skipFinalBackup);
+    }
+
+    /**
      * The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
      * 
      */
@@ -322,6 +338,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         this.rootVolumeConfiguration = $.rootVolumeConfiguration;
         this.routeTableIds = $.routeTableIds;
         this.securityGroupIds = $.securityGroupIds;
+        this.skipFinalBackup = $.skipFinalBackup;
         this.storageCapacity = $.storageCapacity;
         this.storageType = $.storageType;
         this.subnetIds = $.subnetIds;
@@ -642,6 +659,27 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
+         * @param skipFinalBackup When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipFinalBackup(@Nullable Output<Boolean> skipFinalBackup) {
+            $.skipFinalBackup = skipFinalBackup;
+            return this;
+        }
+
+        /**
+         * @param skipFinalBackup When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipFinalBackup(Boolean skipFinalBackup) {
+            return skipFinalBackup(Output.of(skipFinalBackup));
+        }
+
+        /**
          * @param storageCapacity The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
          * 
          * @return builder
@@ -768,9 +806,15 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         public OpenZfsFileSystemArgs build() {
-            $.deploymentType = Objects.requireNonNull($.deploymentType, "expected parameter 'deploymentType' to be non-null");
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
-            $.throughputCapacity = Objects.requireNonNull($.throughputCapacity, "expected parameter 'throughputCapacity' to be non-null");
+            if ($.deploymentType == null) {
+                throw new MissingRequiredPropertyException("OpenZfsFileSystemArgs", "deploymentType");
+            }
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("OpenZfsFileSystemArgs", "subnetIds");
+            }
+            if ($.throughputCapacity == null) {
+                throw new MissingRequiredPropertyException("OpenZfsFileSystemArgs", "throughputCapacity");
+            }
             return $;
         }
     }

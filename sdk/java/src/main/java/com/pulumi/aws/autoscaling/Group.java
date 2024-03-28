@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -62,10 +63,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new PlacementGroup(&#34;test&#34;, PlacementGroupArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .strategy(&#34;cluster&#34;)
  *             .build());
  * 
  *         var bar = new Group(&#34;bar&#34;, GroupArgs.builder()        
+ *             .name(&#34;foobar3-test&#34;)
  *             .maxSize(5)
  *             .minSize(2)
  *             .healthCheckGracePeriod(300)
@@ -73,10 +76,10 @@ import javax.annotation.Nullable;
  *             .desiredCapacity(4)
  *             .forceDelete(true)
  *             .placementGroup(test.id())
- *             .launchConfiguration(aws_launch_configuration.foobar().name())
+ *             .launchConfiguration(foobar.name())
  *             .vpcZoneIdentifiers(            
- *                 aws_subnet.example1().id(),
- *                 aws_subnet.example2().id())
+ *                 example1.id(),
+ *                 example2.id())
  *             .instanceMaintenancePolicy(GroupInstanceMaintenancePolicyArgs.builder()
  *                 .minHealthyPercentage(90)
  *                 .maxHealthyPercentage(120)
@@ -104,13 +107,16 @@ import javax.annotation.Nullable;
  *                     .value(&#34;ipsum&#34;)
  *                     .propagateAtLaunch(false)
  *                     .build())
- *             .timeouts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With Latest Version Of Launch Template
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -155,7 +161,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Mixed Instances Policy
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -182,9 +192,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLaunchTemplate = new LaunchTemplate(&#34;exampleLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
+ *         var example = new LaunchTemplate(&#34;example&#34;, LaunchTemplateArgs.builder()        
  *             .namePrefix(&#34;example&#34;)
- *             .imageId(data.aws_ami().example().id())
+ *             .imageId(exampleAwsAmi.id())
  *             .instanceType(&#34;c5.large&#34;)
  *             .build());
  * 
@@ -196,7 +206,7 @@ import javax.annotation.Nullable;
  *             .mixedInstancesPolicy(GroupMixedInstancesPolicyArgs.builder()
  *                 .launchTemplate(GroupMixedInstancesPolicyLaunchTemplateArgs.builder()
  *                     .launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.builder()
- *                         .launchTemplateId(exampleLaunchTemplate.id())
+ *                         .launchTemplateId(example.id())
  *                         .build())
  *                     .overrides(                    
  *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
@@ -214,7 +224,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Mixed Instances Policy with Spot Instances and Capacity Rebalance
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -242,9 +256,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLaunchTemplate = new LaunchTemplate(&#34;exampleLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
+ *         var example = new LaunchTemplate(&#34;example&#34;, LaunchTemplateArgs.builder()        
  *             .namePrefix(&#34;example&#34;)
- *             .imageId(data.aws_ami().example().id())
+ *             .imageId(exampleAwsAmi.id())
  *             .instanceType(&#34;c5.large&#34;)
  *             .build());
  * 
@@ -254,8 +268,8 @@ import javax.annotation.Nullable;
  *             .maxSize(15)
  *             .minSize(12)
  *             .vpcZoneIdentifiers(            
- *                 aws_subnet.example1().id(),
- *                 aws_subnet.example2().id())
+ *                 example1.id(),
+ *                 example2.id())
  *             .mixedInstancesPolicy(GroupMixedInstancesPolicyArgs.builder()
  *                 .instancesDistribution(GroupMixedInstancesPolicyInstancesDistributionArgs.builder()
  *                     .onDemandBaseCapacity(0)
@@ -264,7 +278,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .launchTemplate(GroupMixedInstancesPolicyLaunchTemplateArgs.builder()
  *                     .launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.builder()
- *                         .launchTemplateId(exampleLaunchTemplate.id())
+ *                         .launchTemplateId(example.id())
  *                         .build())
  *                     .overrides(                    
  *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
@@ -282,9 +296,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Mixed Instances Policy with Instance level LaunchTemplateSpecification Overrides
  * 
  * When using a diverse instance set, some instance types might require a launch template with configuration values unique to that instance type such as a different AMI (Graviton2), architecture specific user data script, different EBS configuration, or different networking configuration.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -311,15 +329,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLaunchTemplate = new LaunchTemplate(&#34;exampleLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
+ *         var example = new LaunchTemplate(&#34;example&#34;, LaunchTemplateArgs.builder()        
  *             .namePrefix(&#34;example&#34;)
- *             .imageId(data.aws_ami().example().id())
+ *             .imageId(exampleAwsAmi.id())
  *             .instanceType(&#34;c5.large&#34;)
  *             .build());
  * 
  *         var example2 = new LaunchTemplate(&#34;example2&#34;, LaunchTemplateArgs.builder()        
  *             .namePrefix(&#34;example2&#34;)
- *             .imageId(data.aws_ami().example2().id())
+ *             .imageId(example2AwsAmi.id())
  *             .build());
  * 
  *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
@@ -330,7 +348,7 @@ import javax.annotation.Nullable;
  *             .mixedInstancesPolicy(GroupMixedInstancesPolicyArgs.builder()
  *                 .launchTemplate(GroupMixedInstancesPolicyLaunchTemplateArgs.builder()
  *                     .launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.builder()
- *                         .launchTemplateId(exampleLaunchTemplate.id())
+ *                         .launchTemplateId(example.id())
  *                         .build())
  *                     .overrides(                    
  *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
@@ -351,9 +369,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Mixed Instances Policy with Attribute-based Instance Type Selection
  * 
  * As an alternative to manually choosing instance types when creating a mixed instances group, you can specify a set of instance attributes that describe your compute requirements.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -380,9 +402,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLaunchTemplate = new LaunchTemplate(&#34;exampleLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
+ *         var example = new LaunchTemplate(&#34;example&#34;, LaunchTemplateArgs.builder()        
  *             .namePrefix(&#34;example&#34;)
- *             .imageId(data.aws_ami().example().id())
+ *             .imageId(exampleAwsAmi.id())
  *             .instanceType(&#34;c5.large&#34;)
  *             .build());
  * 
@@ -394,7 +416,7 @@ import javax.annotation.Nullable;
  *             .mixedInstancesPolicy(GroupMixedInstancesPolicyArgs.builder()
  *                 .launchTemplate(GroupMixedInstancesPolicyLaunchTemplateArgs.builder()
  *                     .launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.builder()
- *                         .launchTemplateId(exampleLaunchTemplate.id())
+ *                         .launchTemplateId(example.id())
  *                         .build())
  *                     .overrides(GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
  *                         .instanceRequirements(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.builder()
@@ -413,8 +435,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Dynamic tagging
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -442,12 +467,6 @@ import javax.annotation.Nullable;
  *             %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
  *             %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
  *         var test = new Group(&#34;test&#34;, GroupArgs.builder()        
- *             .maxSize(5)
- *             .minSize(2)
- *             .launchConfiguration(aws_launch_configuration.foobar().name())
- *             .vpcZoneIdentifiers(            
- *                 aws_subnet.example1().id(),
- *                 aws_subnet.example2().id())
  *             .tags(            
  *                 GroupTagArgs.builder()
  *                     .key(&#34;explicit1&#34;)
@@ -459,13 +478,23 @@ import javax.annotation.Nullable;
  *                     .value(&#34;value2&#34;)
  *                     .propagateAtLaunch(true)
  *                     .build())
- *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .name(&#34;foobar3-test&#34;)
+ *             .maxSize(5)
+ *             .minSize(2)
+ *             .launchConfiguration(foobar.name())
+ *             .vpcZoneIdentifiers(            
+ *                 example1.id(),
+ *                 example2.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Automatically refresh all instances after the group is updated
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -495,7 +524,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleAmi = Ec2Functions.getAmi(GetAmiArgs.builder()
+ *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
  *             .mostRecent(true)
  *             .owners(&#34;amazon&#34;)
  *             .filters(GetAmiFilterArgs.builder()
@@ -505,7 +534,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLaunchTemplate = new LaunchTemplate(&#34;exampleLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
- *             .imageId(exampleAmi.applyValue(getAmiResult -&gt; getAmiResult.id()))
+ *             .imageId(example.applyValue(getAmiResult -&gt; getAmiResult.id()))
  *             .instanceType(&#34;t3.nano&#34;)
  *             .build());
  * 
@@ -535,7 +564,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Auto Scaling group with Warm Pool
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -561,9 +594,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLaunchTemplate = new LaunchTemplate(&#34;exampleLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
+ *         var example = new LaunchTemplate(&#34;example&#34;, LaunchTemplateArgs.builder()        
  *             .namePrefix(&#34;example&#34;)
- *             .imageId(data.aws_ami().example().id())
+ *             .imageId(exampleAwsAmi.id())
  *             .instanceType(&#34;c5.large&#34;)
  *             .build());
  * 
@@ -585,40 +618,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Auto Scaling group with Traffic Sources
  * 
- * ```java
- * package generated_program;
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.autoscaling.Group;
- * import com.pulumi.aws.autoscaling.GroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new Group(&#34;test&#34;, GroupArgs.builder()        
- *             .vpcZoneIdentifiers(aws_subnet.test().id())
- *             .maxSize(1)
- *             .minSize(1)
- *             .forceDelete(true)
- *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *             .build());
- * 
- *     }
- * }
- * ```
  * ## Waiting for Capacity
  * 
  * A newly-created ASG is initially empty and begins to scale to `min_size` (or
@@ -686,7 +692,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import Auto Scaling Groups using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:autoscaling/group:Group web web-asg
+ * $ pulumi import aws:autoscaling/group:Group web web-asg
  * ```
  * 
  */

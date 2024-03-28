@@ -44,13 +44,14 @@ public final class DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropert
 
         @CustomType.Setter
         public Builder uniqueKey(@Nullable Boolean uniqueKey) {
+
             this.uniqueKey = uniqueKey;
             return this;
         }
         public DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties build() {
-            final var o = new DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties();
-            o.uniqueKey = uniqueKey;
-            return o;
+            final var _resultValue = new DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties();
+            _resultValue.uniqueKey = uniqueKey;
+            return _resultValue;
         }
     }
 }

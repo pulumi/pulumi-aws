@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IgnoreTags {
+    /**
+     * @return Resource tag key prefixes to ignore across all resources.
+     * 
+     */
     private @Nullable List<String> keyPrefixes;
+    /**
+     * @return Resource tag keys to ignore across all resources.
+     * 
+     */
     private @Nullable List<String> keys;
 
     private IgnoreTags() {}
+    /**
+     * @return Resource tag key prefixes to ignore across all resources.
+     * 
+     */
     public List<String> keyPrefixes() {
         return this.keyPrefixes == null ? List.of() : this.keyPrefixes;
     }
+    /**
+     * @return Resource tag keys to ignore across all resources.
+     * 
+     */
     public List<String> keys() {
         return this.keys == null ? List.of() : this.keys;
     }
@@ -42,6 +58,7 @@ public final class IgnoreTags {
 
         @CustomType.Setter
         public Builder keyPrefixes(@Nullable List<String> keyPrefixes) {
+
             this.keyPrefixes = keyPrefixes;
             return this;
         }
@@ -50,6 +67,7 @@ public final class IgnoreTags {
         }
         @CustomType.Setter
         public Builder keys(@Nullable List<String> keys) {
+
             this.keys = keys;
             return this;
         }
@@ -57,10 +75,10 @@ public final class IgnoreTags {
             return keys(List.of(keys));
         }
         public IgnoreTags build() {
-            final var o = new IgnoreTags();
-            o.keyPrefixes = keyPrefixes;
-            o.keys = keys;
-            return o;
+            final var _resultValue = new IgnoreTags();
+            _resultValue.keyPrefixes = keyPrefixes;
+            _resultValue.keys = keys;
+            return _resultValue;
         }
     }
 }

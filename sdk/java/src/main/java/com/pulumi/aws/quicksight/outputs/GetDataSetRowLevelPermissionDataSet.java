@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -58,37 +59,52 @@ public final class GetDataSetRowLevelPermissionDataSet {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetDataSetRowLevelPermissionDataSet", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder formatVersion(String formatVersion) {
-            this.formatVersion = Objects.requireNonNull(formatVersion);
+            if (formatVersion == null) {
+              throw new MissingRequiredPropertyException("GetDataSetRowLevelPermissionDataSet", "formatVersion");
+            }
+            this.formatVersion = formatVersion;
             return this;
         }
         @CustomType.Setter
         public Builder namespace(String namespace) {
-            this.namespace = Objects.requireNonNull(namespace);
+            if (namespace == null) {
+              throw new MissingRequiredPropertyException("GetDataSetRowLevelPermissionDataSet", "namespace");
+            }
+            this.namespace = namespace;
             return this;
         }
         @CustomType.Setter
         public Builder permissionPolicy(String permissionPolicy) {
-            this.permissionPolicy = Objects.requireNonNull(permissionPolicy);
+            if (permissionPolicy == null) {
+              throw new MissingRequiredPropertyException("GetDataSetRowLevelPermissionDataSet", "permissionPolicy");
+            }
+            this.permissionPolicy = permissionPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetDataSetRowLevelPermissionDataSet", "status");
+            }
+            this.status = status;
             return this;
         }
         public GetDataSetRowLevelPermissionDataSet build() {
-            final var o = new GetDataSetRowLevelPermissionDataSet();
-            o.arn = arn;
-            o.formatVersion = formatVersion;
-            o.namespace = namespace;
-            o.permissionPolicy = permissionPolicy;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetDataSetRowLevelPermissionDataSet();
+            _resultValue.arn = arn;
+            _resultValue.formatVersion = formatVersion;
+            _resultValue.namespace = namespace;
+            _resultValue.permissionPolicy = permissionPolicy;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

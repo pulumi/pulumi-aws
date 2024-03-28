@@ -13,12 +13,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getAmi({
  *     executableUsers: ["self"],
+ *     mostRecent: true,
+ *     nameRegex: "^myami-\\d{3}",
+ *     owners: ["self"],
  *     filters: [
  *         {
  *             name: "name",
@@ -33,11 +37,9 @@ import * as utilities from "../utilities";
  *             values: ["hvm"],
  *         },
  *     ],
- *     mostRecent: true,
- *     nameRegex: "^myami-\\d{3}",
- *     owners: ["self"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAmi(args?: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiResult> {
     args = args || {};
@@ -265,12 +267,16 @@ export interface GetAmiResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getAmi({
  *     executableUsers: ["self"],
+ *     mostRecent: true,
+ *     nameRegex: "^myami-\\d{3}",
+ *     owners: ["self"],
  *     filters: [
  *         {
  *             name: "name",
@@ -285,11 +291,9 @@ export interface GetAmiResult {
  *             values: ["hvm"],
  *         },
  *     ],
- *     mostRecent: true,
- *     nameRegex: "^myami-\\d{3}",
- *     owners: ["self"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAmiOutput(args?: GetAmiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAmiResult> {
     return pulumi.output(args).apply((a: any) => getAmi(a, opts))

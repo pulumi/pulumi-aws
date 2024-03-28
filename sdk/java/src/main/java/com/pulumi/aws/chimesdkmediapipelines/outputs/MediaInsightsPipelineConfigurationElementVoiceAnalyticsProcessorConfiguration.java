@@ -4,6 +4,7 @@
 package com.pulumi.aws.chimesdkmediapipelines.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class MediaInsightsPipelineConfigurationElementVoiceAnalyticsProces
 
         @CustomType.Setter
         public Builder speakerSearchStatus(String speakerSearchStatus) {
-            this.speakerSearchStatus = Objects.requireNonNull(speakerSearchStatus);
+            if (speakerSearchStatus == null) {
+              throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration", "speakerSearchStatus");
+            }
+            this.speakerSearchStatus = speakerSearchStatus;
             return this;
         }
         @CustomType.Setter
         public Builder voiceToneAnalysisStatus(String voiceToneAnalysisStatus) {
-            this.voiceToneAnalysisStatus = Objects.requireNonNull(voiceToneAnalysisStatus);
+            if (voiceToneAnalysisStatus == null) {
+              throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration", "voiceToneAnalysisStatus");
+            }
+            this.voiceToneAnalysisStatus = voiceToneAnalysisStatus;
             return this;
         }
         public MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration build() {
-            final var o = new MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration();
-            o.speakerSearchStatus = speakerSearchStatus;
-            o.voiceToneAnalysisStatus = voiceToneAnalysisStatus;
-            return o;
+            final var _resultValue = new MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration();
+            _resultValue.speakerSearchStatus = speakerSearchStatus;
+            _resultValue.voiceToneAnalysisStatus = voiceToneAnalysisStatus;
+            return _resultValue;
         }
     }
 }

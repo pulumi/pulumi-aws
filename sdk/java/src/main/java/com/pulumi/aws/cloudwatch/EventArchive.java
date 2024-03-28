@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -28,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.EventBus;
+ * import com.pulumi.aws.cloudwatch.EventBusArgs;
  * import com.pulumi.aws.cloudwatch.EventArchive;
  * import com.pulumi.aws.cloudwatch.EventArchiveArgs;
  * import java.util.List;
@@ -43,16 +46,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var orderEventBus = new EventBus(&#34;orderEventBus&#34;);
+ *         var order = new EventBus(&#34;order&#34;, EventBusArgs.builder()        
+ *             .name(&#34;orders&#34;)
+ *             .build());
  * 
  *         var orderEventArchive = new EventArchive(&#34;orderEventArchive&#34;, EventArchiveArgs.builder()        
- *             .eventSourceArn(orderEventBus.arn())
+ *             .name(&#34;order-archive&#34;)
+ *             .eventSourceArn(order.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Example all optional arguments
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -60,6 +70,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.EventBus;
+ * import com.pulumi.aws.cloudwatch.EventBusArgs;
  * import com.pulumi.aws.cloudwatch.EventArchive;
  * import com.pulumi.aws.cloudwatch.EventArchiveArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
@@ -76,11 +87,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var orderEventBus = new EventBus(&#34;orderEventBus&#34;);
+ *         var order = new EventBus(&#34;order&#34;, EventBusArgs.builder()        
+ *             .name(&#34;orders&#34;)
+ *             .build());
  * 
  *         var orderEventArchive = new EventArchive(&#34;orderEventArchive&#34;, EventArchiveArgs.builder()        
+ *             .name(&#34;order-archive&#34;)
  *             .description(&#34;Archived events from order service&#34;)
- *             .eventSourceArn(orderEventBus.arn())
+ *             .eventSourceArn(order.arn())
  *             .retentionDays(7)
  *             .eventPattern(serializeJson(
  *                 jsonObject(
@@ -91,13 +105,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import an EventBridge archive using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
+ * $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
  * ```
  * 
  */

@@ -14,12 +14,38 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Sagemaker.StudioLifecycleConfig("example", new()
+    ///     {
+    ///         StudioLifecycleConfigName = "example",
+    ///         StudioLifecycleConfigAppType = "JupyterServer",
+    ///         StudioLifecycleConfigContent = Std.Base64encode.Invoke(new()
+    ///         {
+    ///             Input = "echo Hello",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SageMaker Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
+    /// $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig")]
@@ -32,7 +58,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+        /// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         /// </summary>
         [Output("studioLifecycleConfigAppType")]
         public Output<string> StudioLifecycleConfigAppType { get; private set; } = null!;
@@ -84,10 +110,6 @@ namespace Pulumi.Aws.Sagemaker
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -112,7 +134,7 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class StudioLifecycleConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+        /// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         /// </summary>
         [Input("studioLifecycleConfigAppType", required: true)]
         public Input<string> StudioLifecycleConfigAppType { get; set; } = null!;
@@ -156,7 +178,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+        /// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         /// </summary>
         [Input("studioLifecycleConfigAppType")]
         public Input<string>? StudioLifecycleConfigAppType { get; set; }
@@ -195,11 +217,7 @@ namespace Pulumi.Aws.Sagemaker
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public StudioLifecycleConfigState()

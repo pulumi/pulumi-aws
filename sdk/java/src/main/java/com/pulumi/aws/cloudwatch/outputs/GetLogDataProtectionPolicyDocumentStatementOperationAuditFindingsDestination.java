@@ -74,25 +74,28 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationAuditFind
 
         @CustomType.Setter
         public Builder cloudwatchLogs(@Nullable GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs cloudwatchLogs) {
+
             this.cloudwatchLogs = cloudwatchLogs;
             return this;
         }
         @CustomType.Setter
         public Builder firehose(@Nullable GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose firehose) {
+
             this.firehose = firehose;
             return this;
         }
         @CustomType.Setter
         public Builder s3(@Nullable GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3 s3) {
+
             this.s3 = s3;
             return this;
         }
         public GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination build() {
-            final var o = new GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination();
-            o.cloudwatchLogs = cloudwatchLogs;
-            o.firehose = firehose;
-            o.s3 = s3;
-            return o;
+            final var _resultValue = new GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination();
+            _resultValue.cloudwatchLogs = cloudwatchLogs;
+            _resultValue.firehose = firehose;
+            _resultValue.s3 = s3;
+            return _resultValue;
         }
     }
 }

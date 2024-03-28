@@ -224,127 +224,147 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
 
         @CustomType.Setter
         public Builder attenuationControl(@Nullable String attenuationControl) {
+
             this.attenuationControl = attenuationControl;
             return this;
         }
         @CustomType.Setter
         public Builder bitrate(@Nullable Double bitrate) {
+
             this.bitrate = bitrate;
             return this;
         }
         @CustomType.Setter
         public Builder bitstreamMode(@Nullable String bitstreamMode) {
+
             this.bitstreamMode = bitstreamMode;
             return this;
         }
         @CustomType.Setter
         public Builder codingMode(@Nullable String codingMode) {
+
             this.codingMode = codingMode;
             return this;
         }
         @CustomType.Setter
         public Builder dcFilter(@Nullable String dcFilter) {
+
             this.dcFilter = dcFilter;
             return this;
         }
         @CustomType.Setter
         public Builder dialnorm(@Nullable Integer dialnorm) {
+
             this.dialnorm = dialnorm;
             return this;
         }
         @CustomType.Setter
         public Builder drcLine(@Nullable String drcLine) {
+
             this.drcLine = drcLine;
             return this;
         }
         @CustomType.Setter
         public Builder drcRf(@Nullable String drcRf) {
+
             this.drcRf = drcRf;
             return this;
         }
         @CustomType.Setter
         public Builder lfeControl(@Nullable String lfeControl) {
+
             this.lfeControl = lfeControl;
             return this;
         }
         @CustomType.Setter
         public Builder lfeFilter(@Nullable String lfeFilter) {
+
             this.lfeFilter = lfeFilter;
             return this;
         }
         @CustomType.Setter
         public Builder loRoCenterMixLevel(@Nullable Double loRoCenterMixLevel) {
+
             this.loRoCenterMixLevel = loRoCenterMixLevel;
             return this;
         }
         @CustomType.Setter
         public Builder loRoSurroundMixLevel(@Nullable Double loRoSurroundMixLevel) {
+
             this.loRoSurroundMixLevel = loRoSurroundMixLevel;
             return this;
         }
         @CustomType.Setter
         public Builder ltRtCenterMixLevel(@Nullable Double ltRtCenterMixLevel) {
+
             this.ltRtCenterMixLevel = ltRtCenterMixLevel;
             return this;
         }
         @CustomType.Setter
         public Builder ltRtSurroundMixLevel(@Nullable Double ltRtSurroundMixLevel) {
+
             this.ltRtSurroundMixLevel = ltRtSurroundMixLevel;
             return this;
         }
         @CustomType.Setter
         public Builder metadataControl(@Nullable String metadataControl) {
+
             this.metadataControl = metadataControl;
             return this;
         }
         @CustomType.Setter
         public Builder passthroughControl(@Nullable String passthroughControl) {
+
             this.passthroughControl = passthroughControl;
             return this;
         }
         @CustomType.Setter
         public Builder phaseControl(@Nullable String phaseControl) {
+
             this.phaseControl = phaseControl;
             return this;
         }
         @CustomType.Setter
         public Builder stereoDownmix(@Nullable String stereoDownmix) {
+
             this.stereoDownmix = stereoDownmix;
             return this;
         }
         @CustomType.Setter
         public Builder surroundExMode(@Nullable String surroundExMode) {
+
             this.surroundExMode = surroundExMode;
             return this;
         }
         @CustomType.Setter
         public Builder surroundMode(@Nullable String surroundMode) {
+
             this.surroundMode = surroundMode;
             return this;
         }
         public ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings build() {
-            final var o = new ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings();
-            o.attenuationControl = attenuationControl;
-            o.bitrate = bitrate;
-            o.bitstreamMode = bitstreamMode;
-            o.codingMode = codingMode;
-            o.dcFilter = dcFilter;
-            o.dialnorm = dialnorm;
-            o.drcLine = drcLine;
-            o.drcRf = drcRf;
-            o.lfeControl = lfeControl;
-            o.lfeFilter = lfeFilter;
-            o.loRoCenterMixLevel = loRoCenterMixLevel;
-            o.loRoSurroundMixLevel = loRoSurroundMixLevel;
-            o.ltRtCenterMixLevel = ltRtCenterMixLevel;
-            o.ltRtSurroundMixLevel = ltRtSurroundMixLevel;
-            o.metadataControl = metadataControl;
-            o.passthroughControl = passthroughControl;
-            o.phaseControl = phaseControl;
-            o.stereoDownmix = stereoDownmix;
-            o.surroundExMode = surroundExMode;
-            o.surroundMode = surroundMode;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings();
+            _resultValue.attenuationControl = attenuationControl;
+            _resultValue.bitrate = bitrate;
+            _resultValue.bitstreamMode = bitstreamMode;
+            _resultValue.codingMode = codingMode;
+            _resultValue.dcFilter = dcFilter;
+            _resultValue.dialnorm = dialnorm;
+            _resultValue.drcLine = drcLine;
+            _resultValue.drcRf = drcRf;
+            _resultValue.lfeControl = lfeControl;
+            _resultValue.lfeFilter = lfeFilter;
+            _resultValue.loRoCenterMixLevel = loRoCenterMixLevel;
+            _resultValue.loRoSurroundMixLevel = loRoSurroundMixLevel;
+            _resultValue.ltRtCenterMixLevel = ltRtCenterMixLevel;
+            _resultValue.ltRtSurroundMixLevel = ltRtSurroundMixLevel;
+            _resultValue.metadataControl = metadataControl;
+            _resultValue.passthroughControl = passthroughControl;
+            _resultValue.phaseControl = phaseControl;
+            _resultValue.stereoDownmix = stereoDownmix;
+            _resultValue.surroundExMode = surroundExMode;
+            _resultValue.surroundMode = surroundMode;
+            return _resultValue;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,7 +23,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooVpc = new Aws.Ec2.Vpc("fooVpc", new()
+    ///     var foo = new Aws.Ec2.Vpc("foo", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///         Tags = 
@@ -31,9 +32,9 @@ namespace Pulumi.Aws.ElastiCache
     ///         },
     ///     });
     /// 
-    ///     var fooSubnet = new Aws.Ec2.Subnet("fooSubnet", new()
+    ///     var fooSubnet = new Aws.Ec2.Subnet("foo", new()
     ///     {
-    ///         VpcId = fooVpc.Id,
+    ///         VpcId = foo.Id,
     ///         CidrBlock = "10.0.0.0/24",
     ///         AvailabilityZone = "us-west-2a",
     ///         Tags = 
@@ -44,6 +45,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     ///     var bar = new Aws.ElastiCache.SubnetGroup("bar", new()
     ///     {
+    ///         Name = "tf-test-cache-subnet",
     ///         SubnetIds = new[]
     ///         {
     ///             fooSubnet.Id,
@@ -52,13 +54,14 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ElastiCache Subnet Groups using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
+    /// $ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticache/subnetGroup:SubnetGroup")]
@@ -97,6 +100,12 @@ namespace Pulumi.Aws.ElastiCache
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+        /// </summary>
+        [Output("vpcId")]
+        public Output<string> VpcId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a SubnetGroup resource with the given unique name, arguments, and options.
@@ -120,10 +129,6 @@ namespace Pulumi.Aws.ElastiCache
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -241,12 +246,14 @@ namespace Pulumi.Aws.ElastiCache
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+        /// </summary>
+        [Input("vpcId")]
+        public Input<string>? VpcId { get; set; }
 
         public SubnetGroupState()
         {

@@ -17,6 +17,7 @@ import (
 //
 // The following shows outputting all Transit Gateway Route Table Ids.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,16 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTransitGatewayRouteTables, err := ec2.GetTransitGatewayRouteTables(ctx, nil, nil)
+//			example, err := ec2.GetTransitGatewayRouteTables(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("example", exampleTransitGatewayRouteTables.Ids)
+//			ctx.Export("example", example.Ids)
 //			return nil
 //		})
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetTransitGatewayRouteTables(ctx *pulumi.Context, args *GetTransitGatewayRouteTablesArgs, opts ...pulumi.InvokeOption) (*GetTransitGatewayRouteTablesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTransitGatewayRouteTablesResult

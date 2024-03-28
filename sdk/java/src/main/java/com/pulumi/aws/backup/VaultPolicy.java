@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides an AWS Backup vault policy resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -24,6 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.backup.Vault;
+ * import com.pulumi.aws.backup.VaultArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.backup.VaultPolicy;
@@ -41,9 +44,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVault = new Vault(&#34;exampleVault&#34;);
+ *         var exampleVault = new Vault(&#34;exampleVault&#34;, VaultArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -65,19 +70,20 @@ import javax.annotation.Nullable;
  * 
  *         var exampleVaultPolicy = new VaultPolicy(&#34;exampleVaultPolicy&#34;, VaultPolicyArgs.builder()        
  *             .backupVaultName(exampleVault.name())
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(examplePolicyDocument -&gt; examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Backup vault policy using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
+ * $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
  * ```
  * 
  */

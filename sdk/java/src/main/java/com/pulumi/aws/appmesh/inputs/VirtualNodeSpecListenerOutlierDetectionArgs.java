@@ -7,6 +7,7 @@ import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerOutlierDetectionBase
 import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerOutlierDetectionIntervalArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -191,10 +192,18 @@ public final class VirtualNodeSpecListenerOutlierDetectionArgs extends com.pulum
         }
 
         public VirtualNodeSpecListenerOutlierDetectionArgs build() {
-            $.baseEjectionDuration = Objects.requireNonNull($.baseEjectionDuration, "expected parameter 'baseEjectionDuration' to be non-null");
-            $.interval = Objects.requireNonNull($.interval, "expected parameter 'interval' to be non-null");
-            $.maxEjectionPercent = Objects.requireNonNull($.maxEjectionPercent, "expected parameter 'maxEjectionPercent' to be non-null");
-            $.maxServerErrors = Objects.requireNonNull($.maxServerErrors, "expected parameter 'maxServerErrors' to be non-null");
+            if ($.baseEjectionDuration == null) {
+                throw new MissingRequiredPropertyException("VirtualNodeSpecListenerOutlierDetectionArgs", "baseEjectionDuration");
+            }
+            if ($.interval == null) {
+                throw new MissingRequiredPropertyException("VirtualNodeSpecListenerOutlierDetectionArgs", "interval");
+            }
+            if ($.maxEjectionPercent == null) {
+                throw new MissingRequiredPropertyException("VirtualNodeSpecListenerOutlierDetectionArgs", "maxEjectionPercent");
+            }
+            if ($.maxServerErrors == null) {
+                throw new MissingRequiredPropertyException("VirtualNodeSpecListenerOutlierDetectionArgs", "maxServerErrors");
+            }
             return $;
         }
     }

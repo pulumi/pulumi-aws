@@ -5,6 +5,7 @@ package com.pulumi.aws.opensearch.outputs;
 
 import com.pulumi.aws.opensearch.outputs.GetDomainOffPeakWindowOptionsOffPeakWindow;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -50,22 +51,28 @@ public final class GetDomainOffPeakWindowOptions {
 
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetDomainOffPeakWindowOptions", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder offPeakWindows(List<GetDomainOffPeakWindowOptionsOffPeakWindow> offPeakWindows) {
-            this.offPeakWindows = Objects.requireNonNull(offPeakWindows);
+            if (offPeakWindows == null) {
+              throw new MissingRequiredPropertyException("GetDomainOffPeakWindowOptions", "offPeakWindows");
+            }
+            this.offPeakWindows = offPeakWindows;
             return this;
         }
         public Builder offPeakWindows(GetDomainOffPeakWindowOptionsOffPeakWindow... offPeakWindows) {
             return offPeakWindows(List.of(offPeakWindows));
         }
         public GetDomainOffPeakWindowOptions build() {
-            final var o = new GetDomainOffPeakWindowOptions();
-            o.enabled = enabled;
-            o.offPeakWindows = offPeakWindows;
-            return o;
+            final var _resultValue = new GetDomainOffPeakWindowOptions();
+            _resultValue.enabled = enabled;
+            _resultValue.offPeakWindows = offPeakWindows;
+            return _resultValue;
         }
     }
 }

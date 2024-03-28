@@ -9,15 +9,17 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testDestination = new aws.cloudwatch.LogDestination("testDestination", {
- *     roleArn: aws_iam_role.iam_for_cloudwatch.arn,
- *     targetArn: aws_kinesis_stream.kinesis_for_cloudwatch.arn,
+ * const testDestination = new aws.cloudwatch.LogDestination("test_destination", {
+ *     name: "test_destination",
+ *     roleArn: iamForCloudwatch.arn,
+ *     targetArn: kinesisForCloudwatch.arn,
  * });
- * const testDestinationPolicyPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const testDestinationPolicy = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -28,18 +30,19 @@ import * as utilities from "../utilities";
  *         resources: [testDestination.arn],
  *     }],
  * });
- * const testDestinationPolicyLogDestinationPolicy = new aws.cloudwatch.LogDestinationPolicy("testDestinationPolicyLogDestinationPolicy", {
+ * const testDestinationPolicyLogDestinationPolicy = new aws.cloudwatch.LogDestinationPolicy("test_destination_policy", {
  *     destinationName: testDestination.name,
- *     accessPolicy: testDestinationPolicyPolicyDocument.apply(testDestinationPolicyPolicyDocument => testDestinationPolicyPolicyDocument.json),
+ *     accessPolicy: testDestinationPolicy.apply(testDestinationPolicy => testDestinationPolicy.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CloudWatch Logs destination policies using the `destination_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
+ * $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
  * ```
  */
 export class LogDestinationPolicy extends pulumi.CustomResource {

@@ -5,6 +5,7 @@ package com.pulumi.aws.dlm.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -122,7 +123,9 @@ public final class LifecyclePolicyPolicyDetailsScheduleShareRuleArgs extends com
         }
 
         public LifecyclePolicyPolicyDetailsScheduleShareRuleArgs build() {
-            $.targetAccounts = Objects.requireNonNull($.targetAccounts, "expected parameter 'targetAccounts' to be non-null");
+            if ($.targetAccounts == null) {
+                throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailsScheduleShareRuleArgs", "targetAccounts");
+            }
             return $;
         }
     }

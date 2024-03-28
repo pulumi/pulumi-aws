@@ -15,8 +15,10 @@ namespace Pulumi.Aws.Acmpca
     /// &gt; **NOTE:** Creating this resource will leave the certificate authority in a `PENDING_CERTIFICATE` status, which means it cannot yet issue certificates. To complete this setup, you must fully sign the certificate authority CSR available in the `certificate_signing_request` attribute. The `aws.acmpca.CertificateAuthorityCertificate` resource can be used for this purpose.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,8 +43,11 @@ namespace Pulumi.Aws.Acmpca
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Short-lived certificate
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,6 +58,7 @@ namespace Pulumi.Aws.Acmpca
     /// {
     ///     var example = new Aws.Acmpca.CertificateAuthority("example", new()
     ///     {
+    ///         UsageMode = "SHORT_LIVED_CERTIFICATE",
     ///         CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
     ///         {
     ///             KeyAlgorithm = "RSA_4096",
@@ -62,13 +68,15 @@ namespace Pulumi.Aws.Acmpca
     ///                 CommonName = "example.com",
     ///             },
     ///         },
-    ///         UsageMode = "SHORT_LIVED_CERTIFICATE",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Enable Certificate Revocation List
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -77,8 +85,9 @@ namespace Pulumi.Aws.Acmpca
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
+    ///     var example = new Aws.S3.BucketV2("example", new()
     ///     {
+    ///         Bucket = "example",
     ///         ForceDestroy = true,
     ///     });
     /// 
@@ -97,8 +106,8 @@ namespace Pulumi.Aws.Acmpca
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     exampleBucketV2.Arn,
-    ///                     $"{exampleBucketV2.Arn}/*",
+    ///                     example.Arn,
+    ///                     $"{example.Arn}/*",
     ///                 },
     ///                 Principals = new[]
     ///                 {
@@ -115,13 +124,13 @@ namespace Pulumi.Aws.Acmpca
     ///         },
     ///     });
     /// 
-    ///     var exampleBucketPolicy = new Aws.S3.BucketPolicy("exampleBucketPolicy", new()
+    ///     var exampleBucketPolicy = new Aws.S3.BucketPolicy("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = example.Id,
     ///         Policy = acmpcaBucketAccess.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority("exampleCertificateAuthority", new()
+    ///     var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority("example", new()
     ///     {
     ///         CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
     ///         {
@@ -139,27 +148,22 @@ namespace Pulumi.Aws.Acmpca
     ///                 CustomCname = "crl.example.com",
     ///                 Enabled = true,
     ///                 ExpirationInDays = 7,
-    ///                 S3BucketName = exampleBucketV2.Id,
+    ///                 S3BucketName = example.Id,
     ///                 S3ObjectAcl = "BUCKET_OWNER_FULL_CONTROL",
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleBucketPolicy,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_acmpca_certificate_authority` using the certificate authority ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:acmpca/certificateAuthority:CertificateAuthority example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
+    /// $ pulumi import aws:acmpca/certificateAuthority:CertificateAuthority example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:acmpca/certificateAuthority:CertificateAuthority")]
@@ -284,10 +288,6 @@ namespace Pulumi.Aws.Acmpca
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -467,11 +467,7 @@ namespace Pulumi.Aws.Acmpca
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

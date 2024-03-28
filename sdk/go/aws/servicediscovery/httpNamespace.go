@@ -13,6 +13,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -26,6 +27,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := servicediscovery.NewHttpNamespace(ctx, "example", &servicediscovery.HttpNamespaceArgs{
+//				Name:        pulumi.String("development"),
 //				Description: pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -36,15 +38,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Service Discovery HTTP Namespace using the namespace ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
-//
+// $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
 // ```
 type HttpNamespace struct {
 	pulumi.CustomResourceState
@@ -72,10 +73,6 @@ func NewHttpNamespace(ctx *pulumi.Context,
 		args = &HttpNamespaceArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HttpNamespace
 	err := ctx.RegisterResource("aws:servicediscovery/httpNamespace:HttpNamespace", name, args, &resource, opts...)

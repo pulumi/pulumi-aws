@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * Provides a budgets budget resource. Budgets use the cost visualisation provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,30 +50,34 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ec2 = new Budget(&#34;ec2&#34;, BudgetArgs.builder()        
+ *             .name(&#34;budget-ec2-monthly&#34;)
  *             .budgetType(&#34;COST&#34;)
+ *             .limitAmount(&#34;1200&#34;)
+ *             .limitUnit(&#34;USD&#34;)
+ *             .timePeriodEnd(&#34;2087-06-15_00:00&#34;)
+ *             .timePeriodStart(&#34;2017-07-01_00:00&#34;)
+ *             .timeUnit(&#34;MONTHLY&#34;)
  *             .costFilters(BudgetCostFilterArgs.builder()
  *                 .name(&#34;Service&#34;)
  *                 .values(&#34;Amazon Elastic Compute Cloud - Compute&#34;)
  *                 .build())
- *             .limitAmount(&#34;1200&#34;)
- *             .limitUnit(&#34;USD&#34;)
  *             .notifications(BudgetNotificationArgs.builder()
  *                 .comparisonOperator(&#34;GREATER_THAN&#34;)
- *                 .notificationType(&#34;FORECASTED&#34;)
- *                 .subscriberEmailAddresses(&#34;test@example.com&#34;)
  *                 .threshold(100)
  *                 .thresholdType(&#34;PERCENTAGE&#34;)
+ *                 .notificationType(&#34;FORECASTED&#34;)
+ *                 .subscriberEmailAddresses(&#34;test@example.com&#34;)
  *                 .build())
- *             .timePeriodEnd(&#34;2087-06-15_00:00&#34;)
- *             .timePeriodStart(&#34;2017-07-01_00:00&#34;)
- *             .timeUnit(&#34;MONTHLY&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Create a budget for *$100*.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -102,8 +108,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Create a budget with planned budget limits.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -129,13 +138,13 @@ import javax.annotation.Nullable;
  *         var cost = new Budget(&#34;cost&#34;, BudgetArgs.builder()        
  *             .plannedLimits(            
  *                 BudgetPlannedLimitArgs.builder()
- *                     .amount(&#34;100&#34;)
  *                     .startTime(&#34;2017-07-01_00:00&#34;)
+ *                     .amount(&#34;100&#34;)
  *                     .unit(&#34;USD&#34;)
  *                     .build(),
  *                 BudgetPlannedLimitArgs.builder()
- *                     .amount(&#34;200&#34;)
  *                     .startTime(&#34;2017-08-01_00:00&#34;)
+ *                     .amount(&#34;200&#34;)
  *                     .unit(&#34;USD&#34;)
  *                     .build())
  *             .build());
@@ -143,8 +152,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Create a budget for s3 with a limit of *3 GB* of storage.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -175,8 +187,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Create a Savings Plan Utilization Budget
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -201,6 +216,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var savingsPlanUtilization = new Budget(&#34;savingsPlanUtilization&#34;, BudgetArgs.builder()        
  *             .budgetType(&#34;SAVINGS_PLANS_UTILIZATION&#34;)
+ *             .limitAmount(&#34;100.0&#34;)
+ *             .limitUnit(&#34;PERCENTAGE&#34;)
  *             .costTypes(BudgetCostTypesArgs.builder()
  *                 .includeCredit(false)
  *                 .includeDiscount(false)
@@ -213,15 +230,16 @@ import javax.annotation.Nullable;
  *                 .includeUpfront(false)
  *                 .useBlended(false)
  *                 .build())
- *             .limitAmount(&#34;100.0&#34;)
- *             .limitUnit(&#34;PERCENTAGE&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Create a RI Utilization Budget
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -230,8 +248,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.budgets.Budget;
  * import com.pulumi.aws.budgets.BudgetArgs;
- * import com.pulumi.aws.budgets.inputs.BudgetCostFilterArgs;
  * import com.pulumi.aws.budgets.inputs.BudgetCostTypesArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetCostFilterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -247,10 +265,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var riUtilization = new Budget(&#34;riUtilization&#34;, BudgetArgs.builder()        
  *             .budgetType(&#34;RI_UTILIZATION&#34;)
- *             .costFilters(BudgetCostFilterArgs.builder()
- *                 .name(&#34;Service&#34;)
- *                 .values(&#34;Amazon Relational Database Service&#34;)
- *                 .build())
+ *             .limitAmount(&#34;100.0&#34;)
+ *             .limitUnit(&#34;PERCENTAGE&#34;)
  *             .costTypes(BudgetCostTypesArgs.builder()
  *                 .includeCredit(false)
  *                 .includeDiscount(false)
@@ -263,15 +279,20 @@ import javax.annotation.Nullable;
  *                 .includeUpfront(false)
  *                 .useBlended(false)
  *                 .build())
- *             .limitAmount(&#34;100.0&#34;)
- *             .limitUnit(&#34;PERCENTAGE&#34;)
+ *             .costFilters(BudgetCostFilterArgs.builder()
+ *                 .name(&#34;Service&#34;)
+ *                 .values(&#34;Amazon Relational Database Service&#34;)
+ *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Create a Cost Filter using Resource Tags
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -304,8 +325,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Create a cost_filter using resource tags, obtaining the tag value from a variable
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -331,20 +355,21 @@ import javax.annotation.Nullable;
  *         var cost = new Budget(&#34;cost&#34;, BudgetArgs.builder()        
  *             .costFilters(BudgetCostFilterArgs.builder()
  *                 .name(&#34;TagKeyValue&#34;)
- *                 .values(&#34;TagKey${var.TagValue}&#34;)
+ *                 .values(String.format(&#34;TagKey%s%s&#34;, &#34;$&#34;,tagValue))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import budgets using `AccountID:BudgetName`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget
+ * $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget
  * ```
  * 
  */

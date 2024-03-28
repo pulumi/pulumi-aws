@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -62,22 +63,28 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyHeader {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleStatementRateBasedStatementCustomKeyHeader", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder textTransformations(List<RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation> textTransformations) {
-            this.textTransformations = Objects.requireNonNull(textTransformations);
+            if (textTransformations == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleStatementRateBasedStatementCustomKeyHeader", "textTransformations");
+            }
+            this.textTransformations = textTransformations;
             return this;
         }
         public Builder textTransformations(RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation... textTransformations) {
             return textTransformations(List.of(textTransformations));
         }
         public RuleGroupRuleStatementRateBasedStatementCustomKeyHeader build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementCustomKeyHeader();
-            o.name = name;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementCustomKeyHeader();
+            _resultValue.name = name;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

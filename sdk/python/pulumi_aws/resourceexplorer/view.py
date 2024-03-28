@@ -243,27 +243,29 @@ class View(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_index = aws.resourceexplorer.Index("exampleIndex", type="LOCAL")
-        example_view = aws.resourceexplorer.View("exampleView",
+        example = aws.resourceexplorer.Index("example", type="LOCAL")
+        example_view = aws.resourceexplorer.View("example",
+            name="exampleview",
             filters=aws.resourceexplorer.ViewFiltersArgs(
                 filter_string="resourcetype:ec2:instance",
             ),
             included_properties=[aws.resourceexplorer.ViewIncludedPropertyArgs(
                 name="tags",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[example_index]))
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Resource Explorer views using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:resourceexplorer/view:View example arn:aws:resource-explorer-2:us-west-2:123456789012:view/exampleview/e0914f6c-6c27-4b47-b5d4-6b28381a2421
+        $ pulumi import aws:resourceexplorer/view:View example arn:aws:resource-explorer-2:us-west-2:123456789012:view/exampleview/e0914f6c-6c27-4b47-b5d4-6b28381a2421
         ```
 
         :param str resource_name: The name of the resource.
@@ -285,27 +287,29 @@ class View(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_index = aws.resourceexplorer.Index("exampleIndex", type="LOCAL")
-        example_view = aws.resourceexplorer.View("exampleView",
+        example = aws.resourceexplorer.Index("example", type="LOCAL")
+        example_view = aws.resourceexplorer.View("example",
+            name="exampleview",
             filters=aws.resourceexplorer.ViewFiltersArgs(
                 filter_string="resourcetype:ec2:instance",
             ),
             included_properties=[aws.resourceexplorer.ViewIncludedPropertyArgs(
                 name="tags",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[example_index]))
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Resource Explorer views using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:resourceexplorer/view:View example arn:aws:resource-explorer-2:us-west-2:123456789012:view/exampleview/e0914f6c-6c27-4b47-b5d4-6b28381a2421
+        $ pulumi import aws:resourceexplorer/view:View example arn:aws:resource-explorer-2:us-west-2:123456789012:view/exampleview/e0914f6c-6c27-4b47-b5d4-6b28381a2421
         ```
 
         :param str resource_name: The name of the resource.
@@ -344,8 +348,6 @@ class View(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(View, __self__).__init__(
             'aws:resourceexplorer/view:View',
             resource_name,

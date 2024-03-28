@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Grafana
     /// Provides an Amazon Managed Grafana workspace API Key resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,11 +30,12 @@ namespace Pulumi.Aws.Grafana
     ///         KeyName = "test-key",
     ///         KeyRole = "VIEWER",
     ///         SecondsToLive = 3600,
-    ///         WorkspaceId = aws_grafana_workspace.Test.Id,
+    ///         WorkspaceId = test.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:grafana/workspaceApiKey:WorkspaceApiKey")]
     public partial class WorkspaceApiKey : global::Pulumi.CustomResource

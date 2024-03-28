@@ -5,6 +5,7 @@ package com.pulumi.aws.wafregional.outputs;
 
 import com.pulumi.aws.wafregional.outputs.RuleGroupActivatedRuleAction;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -88,31 +89,41 @@ public final class RuleGroupActivatedRule {
 
         @CustomType.Setter
         public Builder action(RuleGroupActivatedRuleAction action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("RuleGroupActivatedRule", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("RuleGroupActivatedRule", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder ruleId(String ruleId) {
-            this.ruleId = Objects.requireNonNull(ruleId);
+            if (ruleId == null) {
+              throw new MissingRequiredPropertyException("RuleGroupActivatedRule", "ruleId");
+            }
+            this.ruleId = ruleId;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         public RuleGroupActivatedRule build() {
-            final var o = new RuleGroupActivatedRule();
-            o.action = action;
-            o.priority = priority;
-            o.ruleId = ruleId;
-            o.type = type;
-            return o;
+            final var _resultValue = new RuleGroupActivatedRule();
+            _resultValue.action = action;
+            _resultValue.priority = priority;
+            _resultValue.ruleId = ruleId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

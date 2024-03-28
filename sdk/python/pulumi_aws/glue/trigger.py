@@ -454,96 +454,116 @@ class Trigger(pulumi.CustomResource):
         Manages a Glue Trigger resource.
 
         ## Example Usage
+
         ### Conditional Trigger
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
+            name="example",
             type="CONDITIONAL",
             actions=[aws.glue.TriggerActionArgs(
-                job_name=aws_glue_job["example1"]["name"],
+                job_name=example1["name"],
             )],
             predicate=aws.glue.TriggerPredicateArgs(
                 conditions=[aws.glue.TriggerPredicateConditionArgs(
-                    job_name=aws_glue_job["example2"]["name"],
+                    job_name=example2["name"],
                     state="SUCCEEDED",
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### On-Demand Trigger
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
+            name="example",
             type="ON_DEMAND",
             actions=[aws.glue.TriggerActionArgs(
-                job_name=aws_glue_job["example"]["name"],
+                job_name=example_aws_glue_job["name"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Scheduled Trigger
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
+            name="example",
             schedule="cron(15 12 * * ? *)",
             type="SCHEDULED",
             actions=[aws.glue.TriggerActionArgs(
-                job_name=aws_glue_job["example"]["name"],
+                job_name=example_aws_glue_job["name"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Conditional Trigger with Crawler Action
 
         **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
+            name="example",
             type="CONDITIONAL",
             actions=[aws.glue.TriggerActionArgs(
-                crawler_name=aws_glue_crawler["example1"]["name"],
+                crawler_name=example1["name"],
             )],
             predicate=aws.glue.TriggerPredicateArgs(
                 conditions=[aws.glue.TriggerPredicateConditionArgs(
-                    job_name=aws_glue_job["example2"]["name"],
+                    job_name=example2["name"],
                     state="SUCCEEDED",
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Conditional Trigger with Crawler Condition
 
         **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
+            name="example",
             type="CONDITIONAL",
             actions=[aws.glue.TriggerActionArgs(
-                job_name=aws_glue_job["example1"]["name"],
+                job_name=example1["name"],
             )],
             predicate=aws.glue.TriggerPredicateArgs(
                 conditions=[aws.glue.TriggerPredicateConditionArgs(
-                    crawler_name=aws_glue_crawler["example2"]["name"],
+                    crawler_name=example2["name"],
                     crawl_state="SUCCEEDED",
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Triggers using `name`. For example:
 
         ```sh
-         $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
+        $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
         ```
 
         :param str resource_name: The name of the resource.
@@ -570,96 +590,116 @@ class Trigger(pulumi.CustomResource):
         Manages a Glue Trigger resource.
 
         ## Example Usage
+
         ### Conditional Trigger
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
+            name="example",
             type="CONDITIONAL",
             actions=[aws.glue.TriggerActionArgs(
-                job_name=aws_glue_job["example1"]["name"],
+                job_name=example1["name"],
             )],
             predicate=aws.glue.TriggerPredicateArgs(
                 conditions=[aws.glue.TriggerPredicateConditionArgs(
-                    job_name=aws_glue_job["example2"]["name"],
+                    job_name=example2["name"],
                     state="SUCCEEDED",
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### On-Demand Trigger
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
+            name="example",
             type="ON_DEMAND",
             actions=[aws.glue.TriggerActionArgs(
-                job_name=aws_glue_job["example"]["name"],
+                job_name=example_aws_glue_job["name"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Scheduled Trigger
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
+            name="example",
             schedule="cron(15 12 * * ? *)",
             type="SCHEDULED",
             actions=[aws.glue.TriggerActionArgs(
-                job_name=aws_glue_job["example"]["name"],
+                job_name=example_aws_glue_job["name"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Conditional Trigger with Crawler Action
 
         **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
+            name="example",
             type="CONDITIONAL",
             actions=[aws.glue.TriggerActionArgs(
-                crawler_name=aws_glue_crawler["example1"]["name"],
+                crawler_name=example1["name"],
             )],
             predicate=aws.glue.TriggerPredicateArgs(
                 conditions=[aws.glue.TriggerPredicateConditionArgs(
-                    job_name=aws_glue_job["example2"]["name"],
+                    job_name=example2["name"],
                     state="SUCCEEDED",
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Conditional Trigger with Crawler Condition
 
         **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
+            name="example",
             type="CONDITIONAL",
             actions=[aws.glue.TriggerActionArgs(
-                job_name=aws_glue_job["example1"]["name"],
+                job_name=example1["name"],
             )],
             predicate=aws.glue.TriggerPredicateArgs(
                 conditions=[aws.glue.TriggerPredicateConditionArgs(
-                    crawler_name=aws_glue_crawler["example2"]["name"],
+                    crawler_name=example2["name"],
                     crawl_state="SUCCEEDED",
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Triggers using `name`. For example:
 
         ```sh
-         $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
+        $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
         ```
 
         :param str resource_name: The name of the resource.
@@ -715,8 +755,6 @@ class Trigger(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Trigger, __self__).__init__(
             'aws:glue/trigger:Trigger',
             resource_name,

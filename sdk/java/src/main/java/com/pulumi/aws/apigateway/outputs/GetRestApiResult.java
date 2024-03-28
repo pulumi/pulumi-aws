@@ -5,6 +5,7 @@ package com.pulumi.aws.apigateway.outputs;
 
 import com.pulumi.aws.apigateway.outputs.GetRestApiEndpointConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -191,17 +192,26 @@ public final class GetRestApiResult {
 
         @CustomType.Setter
         public Builder apiKeySource(String apiKeySource) {
-            this.apiKeySource = Objects.requireNonNull(apiKeySource);
+            if (apiKeySource == null) {
+              throw new MissingRequiredPropertyException("GetRestApiResult", "apiKeySource");
+            }
+            this.apiKeySource = apiKeySource;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetRestApiResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder binaryMediaTypes(List<String> binaryMediaTypes) {
-            this.binaryMediaTypes = Objects.requireNonNull(binaryMediaTypes);
+            if (binaryMediaTypes == null) {
+              throw new MissingRequiredPropertyException("GetRestApiResult", "binaryMediaTypes");
+            }
+            this.binaryMediaTypes = binaryMediaTypes;
             return this;
         }
         public Builder binaryMediaTypes(String... binaryMediaTypes) {
@@ -209,12 +219,18 @@ public final class GetRestApiResult {
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetRestApiResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder endpointConfigurations(List<GetRestApiEndpointConfiguration> endpointConfigurations) {
-            this.endpointConfigurations = Objects.requireNonNull(endpointConfigurations);
+            if (endpointConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetRestApiResult", "endpointConfigurations");
+            }
+            this.endpointConfigurations = endpointConfigurations;
             return this;
         }
         public Builder endpointConfigurations(GetRestApiEndpointConfiguration... endpointConfigurations) {
@@ -222,54 +238,75 @@ public final class GetRestApiResult {
         }
         @CustomType.Setter
         public Builder executionArn(String executionArn) {
-            this.executionArn = Objects.requireNonNull(executionArn);
+            if (executionArn == null) {
+              throw new MissingRequiredPropertyException("GetRestApiResult", "executionArn");
+            }
+            this.executionArn = executionArn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRestApiResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder minimumCompressionSize(String minimumCompressionSize) {
-            this.minimumCompressionSize = Objects.requireNonNull(minimumCompressionSize);
+            if (minimumCompressionSize == null) {
+              throw new MissingRequiredPropertyException("GetRestApiResult", "minimumCompressionSize");
+            }
+            this.minimumCompressionSize = minimumCompressionSize;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetRestApiResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder policy(String policy) {
-            this.policy = Objects.requireNonNull(policy);
+            if (policy == null) {
+              throw new MissingRequiredPropertyException("GetRestApiResult", "policy");
+            }
+            this.policy = policy;
             return this;
         }
         @CustomType.Setter
         public Builder rootResourceId(String rootResourceId) {
-            this.rootResourceId = Objects.requireNonNull(rootResourceId);
+            if (rootResourceId == null) {
+              throw new MissingRequiredPropertyException("GetRestApiResult", "rootResourceId");
+            }
+            this.rootResourceId = rootResourceId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetRestApiResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetRestApiResult build() {
-            final var o = new GetRestApiResult();
-            o.apiKeySource = apiKeySource;
-            o.arn = arn;
-            o.binaryMediaTypes = binaryMediaTypes;
-            o.description = description;
-            o.endpointConfigurations = endpointConfigurations;
-            o.executionArn = executionArn;
-            o.id = id;
-            o.minimumCompressionSize = minimumCompressionSize;
-            o.name = name;
-            o.policy = policy;
-            o.rootResourceId = rootResourceId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetRestApiResult();
+            _resultValue.apiKeySource = apiKeySource;
+            _resultValue.arn = arn;
+            _resultValue.binaryMediaTypes = binaryMediaTypes;
+            _resultValue.description = description;
+            _resultValue.endpointConfigurations = endpointConfigurations;
+            _resultValue.executionArn = executionArn;
+            _resultValue.id = id;
+            _resultValue.minimumCompressionSize = minimumCompressionSize;
+            _resultValue.name = name;
+            _resultValue.policy = policy;
+            _resultValue.rootResourceId = rootResourceId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSizeConstraintStatementFi
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchMethod;
@@ -37,6 +38,11 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatch {
      * 
      */
     private @Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies cookies;
+    /**
+     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+     * 
+     */
+    private @Nullable List<WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder> headerOrders;
     /**
      * @return Inspect the request headers. See `headers` below for details.
      * 
@@ -99,6 +105,13 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatch {
      */
     public Optional<WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies> cookies() {
         return Optional.ofNullable(this.cookies);
+    }
+    /**
+     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+     * 
+     */
+    public List<WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder> headerOrders() {
+        return this.headerOrders == null ? List.of() : this.headerOrders;
     }
     /**
      * @return Inspect the request headers. See `headers` below for details.
@@ -169,6 +182,7 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatch {
         private @Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArguments allQueryArguments;
         private @Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchBody body;
         private @Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies cookies;
+        private @Nullable List<WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder> headerOrders;
         private @Nullable List<WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader> headers;
         private @Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
         private @Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody jsonBody;
@@ -183,6 +197,7 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatch {
     	      this.allQueryArguments = defaults.allQueryArguments;
     	      this.body = defaults.body;
     	      this.cookies = defaults.cookies;
+    	      this.headerOrders = defaults.headerOrders;
     	      this.headers = defaults.headers;
     	      this.ja3Fingerprint = defaults.ja3Fingerprint;
     	      this.jsonBody = defaults.jsonBody;
@@ -195,21 +210,34 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatch {
 
         @CustomType.Setter
         public Builder allQueryArguments(@Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArguments allQueryArguments) {
+
             this.allQueryArguments = allQueryArguments;
             return this;
         }
         @CustomType.Setter
         public Builder body(@Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchBody body) {
+
             this.body = body;
             return this;
         }
         @CustomType.Setter
         public Builder cookies(@Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies cookies) {
+
             this.cookies = cookies;
             return this;
         }
         @CustomType.Setter
+        public Builder headerOrders(@Nullable List<WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder> headerOrders) {
+
+            this.headerOrders = headerOrders;
+            return this;
+        }
+        public Builder headerOrders(WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder... headerOrders) {
+            return headerOrders(List.of(headerOrders));
+        }
+        @CustomType.Setter
         public Builder headers(@Nullable List<WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -218,53 +246,61 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatch {
         }
         @CustomType.Setter
         public Builder ja3Fingerprint(@Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint ja3Fingerprint) {
+
             this.ja3Fingerprint = ja3Fingerprint;
             return this;
         }
         @CustomType.Setter
         public Builder jsonBody(@Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody jsonBody) {
+
             this.jsonBody = jsonBody;
             return this;
         }
         @CustomType.Setter
         public Builder method(@Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchMethod method) {
+
             this.method = method;
             return this;
         }
         @CustomType.Setter
         public Builder queryString(@Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryString queryString) {
+
             this.queryString = queryString;
             return this;
         }
         @CustomType.Setter
         public Builder singleHeader(@Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeader singleHeader) {
+
             this.singleHeader = singleHeader;
             return this;
         }
         @CustomType.Setter
         public Builder singleQueryArgument(@Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument singleQueryArgument) {
+
             this.singleQueryArgument = singleQueryArgument;
             return this;
         }
         @CustomType.Setter
         public Builder uriPath(@Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPath uriPath) {
+
             this.uriPath = uriPath;
             return this;
         }
         public WebAclRuleStatementSizeConstraintStatementFieldToMatch build() {
-            final var o = new WebAclRuleStatementSizeConstraintStatementFieldToMatch();
-            o.allQueryArguments = allQueryArguments;
-            o.body = body;
-            o.cookies = cookies;
-            o.headers = headers;
-            o.ja3Fingerprint = ja3Fingerprint;
-            o.jsonBody = jsonBody;
-            o.method = method;
-            o.queryString = queryString;
-            o.singleHeader = singleHeader;
-            o.singleQueryArgument = singleQueryArgument;
-            o.uriPath = uriPath;
-            return o;
+            final var _resultValue = new WebAclRuleStatementSizeConstraintStatementFieldToMatch();
+            _resultValue.allQueryArguments = allQueryArguments;
+            _resultValue.body = body;
+            _resultValue.cookies = cookies;
+            _resultValue.headerOrders = headerOrders;
+            _resultValue.headers = headers;
+            _resultValue.ja3Fingerprint = ja3Fingerprint;
+            _resultValue.jsonBody = jsonBody;
+            _resultValue.method = method;
+            _resultValue.queryString = queryString;
+            _resultValue.singleHeader = singleHeader;
+            _resultValue.singleQueryArgument = singleQueryArgument;
+            _resultValue.uriPath = uriPath;
+            return _resultValue;
         }
     }
 }

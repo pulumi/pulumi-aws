@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
         }
 
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll();
+            return _resultValue;
         }
     }
 }

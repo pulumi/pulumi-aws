@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -66,37 +67,52 @@ public final class GetCredentialsResult {
 
         @CustomType.Setter
         public Builder authorizationToken(String authorizationToken) {
-            this.authorizationToken = Objects.requireNonNull(authorizationToken);
+            if (authorizationToken == null) {
+              throw new MissingRequiredPropertyException("GetCredentialsResult", "authorizationToken");
+            }
+            this.authorizationToken = authorizationToken;
             return this;
         }
         @CustomType.Setter
         public Builder expiresAt(String expiresAt) {
-            this.expiresAt = Objects.requireNonNull(expiresAt);
+            if (expiresAt == null) {
+              throw new MissingRequiredPropertyException("GetCredentialsResult", "expiresAt");
+            }
+            this.expiresAt = expiresAt;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCredentialsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder proxyEndpoint(String proxyEndpoint) {
-            this.proxyEndpoint = Objects.requireNonNull(proxyEndpoint);
+            if (proxyEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetCredentialsResult", "proxyEndpoint");
+            }
+            this.proxyEndpoint = proxyEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder registryId(String registryId) {
-            this.registryId = Objects.requireNonNull(registryId);
+            if (registryId == null) {
+              throw new MissingRequiredPropertyException("GetCredentialsResult", "registryId");
+            }
+            this.registryId = registryId;
             return this;
         }
         public GetCredentialsResult build() {
-            final var o = new GetCredentialsResult();
-            o.authorizationToken = authorizationToken;
-            o.expiresAt = expiresAt;
-            o.id = id;
-            o.proxyEndpoint = proxyEndpoint;
-            o.registryId = registryId;
-            return o;
+            final var _resultValue = new GetCredentialsResult();
+            _resultValue.authorizationToken = authorizationToken;
+            _resultValue.expiresAt = expiresAt;
+            _resultValue.id = id;
+            _resultValue.proxyEndpoint = proxyEndpoint;
+            _resultValue.registryId = registryId;
+            return _resultValue;
         }
     }
 }

@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +31,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewPlacementGroup(ctx, "web", &ec2.PlacementGroupArgs{
-//				Strategy: pulumi.String("cluster"),
+//				Name:     pulumi.String("hunky-dory-pg"),
+//				Strategy: pulumi.String(ec2.PlacementStrategyCluster),
 //			})
 //			if err != nil {
 //				return err
@@ -40,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import placement groups using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
-//
+// $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
 // ```
 type PlacementGroup struct {
 	pulumi.CustomResourceState
@@ -86,10 +87,6 @@ func NewPlacementGroup(ctx *pulumi.Context,
 	if args.Strategy == nil {
 		return nil, errors.New("invalid value for required argument 'Strategy'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PlacementGroup
 	err := ctx.RegisterResource("aws:ec2/placementGroup:PlacementGroup", name, args, &resource, opts...)

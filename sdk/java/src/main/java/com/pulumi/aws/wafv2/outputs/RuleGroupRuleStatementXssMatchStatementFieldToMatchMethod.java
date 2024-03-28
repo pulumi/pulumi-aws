@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementXssMatchStatementFieldToMatchMethod {
         }
 
         public RuleGroupRuleStatementXssMatchStatementFieldToMatchMethod build() {
-            final var o = new RuleGroupRuleStatementXssMatchStatementFieldToMatchMethod();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementXssMatchStatementFieldToMatchMethod();
+            return _resultValue;
         }
     }
 }

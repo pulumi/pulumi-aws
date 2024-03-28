@@ -355,25 +355,27 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        default_instance = aws.rds.Instance("defaultInstance",
+        default = aws.rds.Instance("default",
             allocated_storage=10,
             engine="mysql",
             engine_version="5.6.17",
-            instance_class="db.t2.micro",
+            instance_class=aws.rds.InstanceType.T2_MICRO,
             db_name="mydb",
             username="foo",
             password="bar",
             db_subnet_group_name="my_database_subnet_group",
             parameter_group_name="default.mysql5.6")
-        default_topic = aws.sns.Topic("defaultTopic")
-        default_event_subscription = aws.rds.EventSubscription("defaultEventSubscription",
+        default_topic = aws.sns.Topic("default", name="rds-events")
+        default_event_subscription = aws.rds.EventSubscription("default",
+            name="rds-event-sub",
             sns_topic=default_topic.arn,
             source_type="db-instance",
-            source_ids=[default_instance.identifier],
+            source_ids=[default.identifier],
             event_categories=[
                 "availability",
                 "deletion",
@@ -387,13 +389,14 @@ class EventSubscription(pulumi.CustomResource):
                 "restoration",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DB Event Subscriptions using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
+        $ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
         ```
 
         :param str resource_name: The name of the resource.
@@ -418,25 +421,27 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        default_instance = aws.rds.Instance("defaultInstance",
+        default = aws.rds.Instance("default",
             allocated_storage=10,
             engine="mysql",
             engine_version="5.6.17",
-            instance_class="db.t2.micro",
+            instance_class=aws.rds.InstanceType.T2_MICRO,
             db_name="mydb",
             username="foo",
             password="bar",
             db_subnet_group_name="my_database_subnet_group",
             parameter_group_name="default.mysql5.6")
-        default_topic = aws.sns.Topic("defaultTopic")
-        default_event_subscription = aws.rds.EventSubscription("defaultEventSubscription",
+        default_topic = aws.sns.Topic("default", name="rds-events")
+        default_event_subscription = aws.rds.EventSubscription("default",
+            name="rds-event-sub",
             sns_topic=default_topic.arn,
             source_type="db-instance",
-            source_ids=[default_instance.identifier],
+            source_ids=[default.identifier],
             event_categories=[
                 "availability",
                 "deletion",
@@ -450,13 +455,14 @@ class EventSubscription(pulumi.CustomResource):
                 "restoration",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DB Event Subscriptions using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
+        $ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
         ```
 
         :param str resource_name: The name of the resource.
@@ -504,8 +510,6 @@ class EventSubscription(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["customer_aws_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EventSubscription, __self__).__init__(
             'aws:rds/eventSubscription:EventSubscription',
             resource_name,

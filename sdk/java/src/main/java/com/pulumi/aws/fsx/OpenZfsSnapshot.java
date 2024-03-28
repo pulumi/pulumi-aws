@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,7 +20,10 @@ import javax.annotation.Nullable;
  * See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
  * 
  * ## Example Usage
+ * 
  * ### Root volume Example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,19 +49,24 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleOpenZfsFileSystem = new OpenZfsFileSystem(&#34;exampleOpenZfsFileSystem&#34;, OpenZfsFileSystemArgs.builder()        
  *             .storageCapacity(64)
- *             .subnetIds(aws_subnet.example().id())
+ *             .subnetIds(exampleAwsSubnet.id())
  *             .deploymentType(&#34;SINGLE_AZ_1&#34;)
  *             .throughputCapacity(64)
  *             .build());
  * 
- *         var exampleOpenZfsSnapshot = new OpenZfsSnapshot(&#34;exampleOpenZfsSnapshot&#34;, OpenZfsSnapshotArgs.builder()        
+ *         var example = new OpenZfsSnapshot(&#34;example&#34;, OpenZfsSnapshotArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .volumeId(exampleOpenZfsFileSystem.rootVolumeId())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Child volume Example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -87,29 +94,32 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleOpenZfsFileSystem = new OpenZfsFileSystem(&#34;exampleOpenZfsFileSystem&#34;, OpenZfsFileSystemArgs.builder()        
  *             .storageCapacity(64)
- *             .subnetIds(aws_subnet.example().id())
+ *             .subnetIds(exampleAwsSubnet.id())
  *             .deploymentType(&#34;SINGLE_AZ_1&#34;)
  *             .throughputCapacity(64)
  *             .build());
  * 
  *         var exampleOpenZfsVolume = new OpenZfsVolume(&#34;exampleOpenZfsVolume&#34;, OpenZfsVolumeArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .parentVolumeId(exampleOpenZfsFileSystem.rootVolumeId())
  *             .build());
  * 
- *         var exampleOpenZfsSnapshot = new OpenZfsSnapshot(&#34;exampleOpenZfsSnapshot&#34;, OpenZfsSnapshotArgs.builder()        
+ *         var example = new OpenZfsSnapshot(&#34;example&#34;, OpenZfsSnapshotArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .volumeId(exampleOpenZfsVolume.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import FSx OpenZFS snapshot using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:fsx/openZfsSnapshot:OpenZfsSnapshot example fs-543ab12b1ca672f33
+ * $ pulumi import aws:fsx/openZfsSnapshot:OpenZfsSnapshot example fs-543ab12b1ca672f33
  * ```
  * 
  */
@@ -228,9 +238,6 @@ public class OpenZfsSnapshot extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

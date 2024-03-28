@@ -209,11 +209,12 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        topic_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        topic = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="Service",
@@ -222,25 +223,28 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
             actions=["SNS:Publish"],
             resources=["arn:aws:sns:*:*:vpce-notification-topic"],
         )])
-        topic_topic = aws.sns.Topic("topicTopic", policy=topic_policy_document.json)
-        foo_vpc_endpoint_service = aws.ec2.VpcEndpointService("fooVpcEndpointService",
+        topic_topic = aws.sns.Topic("topic",
+            name="vpce-notification-topic",
+            policy=topic.json)
+        foo = aws.ec2.VpcEndpointService("foo",
             acceptance_required=False,
-            network_load_balancer_arns=[aws_lb["test"]["arn"]])
-        foo_vpc_endpoint_connection_notification = aws.ec2.VpcEndpointConnectionNotification("fooVpcEndpointConnectionNotification",
-            vpc_endpoint_service_id=foo_vpc_endpoint_service.id,
+            network_load_balancer_arns=[test["arn"]])
+        foo_vpc_endpoint_connection_notification = aws.ec2.VpcEndpointConnectionNotification("foo",
+            vpc_endpoint_service_id=foo.id,
             connection_notification_arn=topic_topic.arn,
             connection_events=[
                 "Accept",
                 "Reject",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Endpoint connection notifications using the VPC endpoint connection notification `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263
+        $ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263
         ```
 
         :param str resource_name: The name of the resource.
@@ -264,11 +268,12 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        topic_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        topic = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="Service",
@@ -277,25 +282,28 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
             actions=["SNS:Publish"],
             resources=["arn:aws:sns:*:*:vpce-notification-topic"],
         )])
-        topic_topic = aws.sns.Topic("topicTopic", policy=topic_policy_document.json)
-        foo_vpc_endpoint_service = aws.ec2.VpcEndpointService("fooVpcEndpointService",
+        topic_topic = aws.sns.Topic("topic",
+            name="vpce-notification-topic",
+            policy=topic.json)
+        foo = aws.ec2.VpcEndpointService("foo",
             acceptance_required=False,
-            network_load_balancer_arns=[aws_lb["test"]["arn"]])
-        foo_vpc_endpoint_connection_notification = aws.ec2.VpcEndpointConnectionNotification("fooVpcEndpointConnectionNotification",
-            vpc_endpoint_service_id=foo_vpc_endpoint_service.id,
+            network_load_balancer_arns=[test["arn"]])
+        foo_vpc_endpoint_connection_notification = aws.ec2.VpcEndpointConnectionNotification("foo",
+            vpc_endpoint_service_id=foo.id,
             connection_notification_arn=topic_topic.arn,
             connection_events=[
                 "Accept",
                 "Reject",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Endpoint connection notifications using the VPC endpoint connection notification `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263
+        $ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263
         ```
 
         :param str resource_name: The name of the resource.

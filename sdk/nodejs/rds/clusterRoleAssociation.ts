@@ -12,23 +12,25 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rds.ClusterRoleAssociation("example", {
- *     dbClusterIdentifier: aws_rds_cluster.example.id,
+ *     dbClusterIdentifier: exampleAwsRdsCluster.id,
  *     featureName: "S3_INTEGRATION",
- *     roleArn: aws_iam_role.example.arn,
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_rds_cluster_role_association` using the DB Cluster Identifier and IAM Role ARN separated by a comma (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/clusterRoleAssociation:ClusterRoleAssociation example my-db-cluster,arn:aws:iam::123456789012:role/my-role
+ * $ pulumi import aws:rds/clusterRoleAssociation:ClusterRoleAssociation example my-db-cluster,arn:aws:iam::123456789012:role/my-role
  * ```
  */
 export class ClusterRoleAssociation extends pulumi.CustomResource {

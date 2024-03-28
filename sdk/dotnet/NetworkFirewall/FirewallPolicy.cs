@@ -14,6 +14,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,6 +25,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.FirewallPolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         FirewallPolicyConfiguration = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyArgs
     ///         {
     ///             StatelessDefaultActions = new[]
@@ -39,9 +41,10 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                 new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs
     ///                 {
     ///                     Priority = 1,
-    ///                     ResourceArn = aws_networkfirewall_rule_group.Example.Arn,
+    ///                     ResourceArn = exampleAwsNetworkfirewallRuleGroup.Arn,
     ///                 },
     ///             },
+    ///             TlsInspectionConfigurationArn = "arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
     ///         },
     ///         Tags = 
     ///         {
@@ -52,8 +55,11 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Policy with a HOME_NET Override
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -64,6 +70,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.FirewallPolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         FirewallPolicyConfiguration = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyArgs
     ///         {
     ///             PolicyVariables = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyPolicyVariablesArgs
@@ -97,7 +104,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                 new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs
     ///                 {
     ///                     Priority = 1,
-    ///                     ResourceArn = aws_networkfirewall_rule_group.Example.Arn,
+    ///                     ResourceArn = exampleAwsNetworkfirewallRuleGroup.Arn,
     ///                 },
     ///             },
     ///         },
@@ -110,13 +117,66 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ## Policy with a Custom Action for Stateless Inspection
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.NetworkFirewall.FirewallPolicy("test", new()
+    ///     {
+    ///         Name = "example",
+    ///         FirewallPolicyConfiguration = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyArgs
+    ///         {
+    ///             StatelessDefaultActions = new[]
+    ///             {
+    ///                 "aws:pass",
+    ///                 "ExampleCustomAction",
+    ///             },
+    ///             StatelessFragmentDefaultActions = new[]
+    ///             {
+    ///                 "aws:drop",
+    ///             },
+    ///             StatelessCustomActions = new[]
+    ///             {
+    ///                 new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatelessCustomActionArgs
+    ///                 {
+    ///                     ActionDefinition = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs
+    ///                     {
+    ///                         PublishMetricAction = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs
+    ///                         {
+    ///                             Dimensions = new[]
+    ///                             {
+    ///                                 new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs
+    ///                                 {
+    ///                                     Value = "1",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     ActionName = "ExampleCustomAction",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Network Firewall Policies using their `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
+    /// $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkfirewall/firewallPolicy:FirewallPolicy")]
@@ -193,10 +253,6 @@ namespace Pulumi.Aws.NetworkFirewall
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -316,11 +372,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

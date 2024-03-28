@@ -21,6 +21,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -35,12 +36,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			queue, err := sqs.NewQueue(ctx, "queue", nil)
+//			q, err := sqs.NewQueue(ctx, "q", &sqs.QueueArgs{
+//				Name: pulumi.String("examplequeue"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			ddl, err := sqs.NewQueue(ctx, "ddl", &sqs.QueueArgs{
-//				RedriveAllowPolicy: queue.Arn.ApplyT(func(arn string) (pulumi.String, error) {
+//				Name: pulumi.String("examplequeue-ddl"),
+//				RedriveAllowPolicy: q.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
 //						"redrivePermission": "byQueue",
@@ -58,8 +62,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sqs.NewRedrivePolicy(ctx, "redrivePolicy", &sqs.RedrivePolicyArgs{
-//				QueueUrl: queue.ID(),
+//			_, err = sqs.NewRedrivePolicy(ctx, "q", &sqs.RedrivePolicyArgs{
+//				QueueUrl: q.ID(),
 //				RedrivePolicy: ddl.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON1, err := json.Marshal(map[string]interface{}{
@@ -81,15 +85,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SQS Queue Redrive Policies using the queue URL. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sqs/redrivePolicy:RedrivePolicy test https://queue.amazonaws.com/0123456789012/myqueue
-//
+// $ pulumi import aws:sqs/redrivePolicy:RedrivePolicy test https://queue.amazonaws.com/0123456789012/myqueue
 // ```
 type RedrivePolicy struct {
 	pulumi.CustomResourceState

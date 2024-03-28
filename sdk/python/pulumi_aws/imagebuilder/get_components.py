@@ -96,20 +96,22 @@ def get_components(filters: Optional[Sequence[pulumi.InputType['GetComponentsFil
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.imagebuilder.get_components(filters=[aws.imagebuilder.GetComponentsFilterArgs(
+    example = aws.imagebuilder.get_components(owner="Self",
+        filters=[aws.imagebuilder.GetComponentsFilterArgs(
             name="platform",
             values=["Linux"],
-        )],
-        owner="Self")
+        )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetComponentsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str owner: Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+    :param str owner: Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -134,19 +136,21 @@ def get_components_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.imagebuilder.get_components(filters=[aws.imagebuilder.GetComponentsFilterArgs(
+    example = aws.imagebuilder.get_components(owner="Self",
+        filters=[aws.imagebuilder.GetComponentsFilterArgs(
             name="platform",
             values=["Linux"],
-        )],
-        owner="Self")
+        )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetComponentsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str owner: Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+    :param str owner: Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
     """
     ...

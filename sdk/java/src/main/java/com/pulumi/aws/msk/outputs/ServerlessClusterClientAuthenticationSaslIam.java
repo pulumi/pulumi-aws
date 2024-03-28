@@ -4,6 +4,7 @@
 package com.pulumi.aws.msk.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class ServerlessClusterClientAuthenticationSaslIam {
 
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("ServerlessClusterClientAuthenticationSaslIam", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         public ServerlessClusterClientAuthenticationSaslIam build() {
-            final var o = new ServerlessClusterClientAuthenticationSaslIam();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new ServerlessClusterClientAuthenticationSaslIam();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

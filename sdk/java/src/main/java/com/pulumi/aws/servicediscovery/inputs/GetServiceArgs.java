@@ -5,6 +5,7 @@ package com.pulumi.aws.servicediscovery.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -204,8 +205,12 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetServiceArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.namespaceId = Objects.requireNonNull($.namespaceId, "expected parameter 'namespaceId' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetServiceArgs", "name");
+            }
+            if ($.namespaceId == null) {
+                throw new MissingRequiredPropertyException("GetServiceArgs", "namespaceId");
+            }
             return $;
         }
     }

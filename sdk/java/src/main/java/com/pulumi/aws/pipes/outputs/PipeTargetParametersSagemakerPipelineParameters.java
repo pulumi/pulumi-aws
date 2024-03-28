@@ -44,6 +44,7 @@ public final class PipeTargetParametersSagemakerPipelineParameters {
 
         @CustomType.Setter
         public Builder pipelineParameters(@Nullable List<PipeTargetParametersSagemakerPipelineParametersPipelineParameter> pipelineParameters) {
+
             this.pipelineParameters = pipelineParameters;
             return this;
         }
@@ -51,9 +52,9 @@ public final class PipeTargetParametersSagemakerPipelineParameters {
             return pipelineParameters(List.of(pipelineParameters));
         }
         public PipeTargetParametersSagemakerPipelineParameters build() {
-            final var o = new PipeTargetParametersSagemakerPipelineParameters();
-            o.pipelineParameters = pipelineParameters;
-            return o;
+            final var _resultValue = new PipeTargetParametersSagemakerPipelineParameters();
+            _resultValue.pipelineParameters = pipelineParameters;
+            return _resultValue;
         }
     }
 }

@@ -21,7 +21,7 @@ class GetWorkspaceResult:
     """
     A collection of values returned by getWorkspace.
     """
-    def __init__(__self__, alias=None, arn=None, created_date=None, id=None, prometheus_endpoint=None, status=None, tags=None, workspace_id=None):
+    def __init__(__self__, alias=None, arn=None, created_date=None, id=None, kms_key_arn=None, prometheus_endpoint=None, status=None, tags=None, workspace_id=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         pulumi.set(__self__, "alias", alias)
@@ -34,6 +34,9 @@ class GetWorkspaceResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kms_key_arn and not isinstance(kms_key_arn, str):
+            raise TypeError("Expected argument 'kms_key_arn' to be a str")
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if prometheus_endpoint and not isinstance(prometheus_endpoint, str):
             raise TypeError("Expected argument 'prometheus_endpoint' to be a str")
         pulumi.set(__self__, "prometheus_endpoint", prometheus_endpoint)
@@ -80,6 +83,14 @@ class GetWorkspaceResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> str:
+        """
+        ARN of the KMS key used to encrypt data in the Prometheus workspace.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @property
     @pulumi.getter(name="prometheusEndpoint")
     def prometheus_endpoint(self) -> str:
         """
@@ -119,6 +130,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             arn=self.arn,
             created_date=self.created_date,
             id=self.id,
+            kms_key_arn=self.kms_key_arn,
             prometheus_endpoint=self.prometheus_endpoint,
             status=self.status,
             tags=self.tags,
@@ -132,14 +144,17 @@ def get_workspace(tags: Optional[Mapping[str, str]] = None,
     Provides an Amazon Managed Prometheus workspace data source.
 
     ## Example Usage
+
     ### Basic configuration
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.amp.get_workspace(workspace_id="ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] tags: Tags assigned to the resource.
@@ -156,6 +171,7 @@ def get_workspace(tags: Optional[Mapping[str, str]] = None,
         arn=pulumi.get(__ret__, 'arn'),
         created_date=pulumi.get(__ret__, 'created_date'),
         id=pulumi.get(__ret__, 'id'),
+        kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         prometheus_endpoint=pulumi.get(__ret__, 'prometheus_endpoint'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -170,14 +186,17 @@ def get_workspace_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]
     Provides an Amazon Managed Prometheus workspace data source.
 
     ## Example Usage
+
     ### Basic configuration
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.amp.get_workspace(workspace_id="ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] tags: Tags assigned to the resource.

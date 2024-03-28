@@ -6,6 +6,7 @@ package com.pulumi.aws.cognito.outputs;
 import com.pulumi.aws.cognito.outputs.GetUserPoolClientAnalyticsConfiguration;
 import com.pulumi.aws.cognito.outputs.GetUserPoolClientTokenValidityUnit;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -337,12 +338,18 @@ public final class GetUserPoolClientResult {
 
         @CustomType.Setter
         public Builder accessTokenValidity(Integer accessTokenValidity) {
-            this.accessTokenValidity = Objects.requireNonNull(accessTokenValidity);
+            if (accessTokenValidity == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "accessTokenValidity");
+            }
+            this.accessTokenValidity = accessTokenValidity;
             return this;
         }
         @CustomType.Setter
         public Builder allowedOauthFlows(List<String> allowedOauthFlows) {
-            this.allowedOauthFlows = Objects.requireNonNull(allowedOauthFlows);
+            if (allowedOauthFlows == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "allowedOauthFlows");
+            }
+            this.allowedOauthFlows = allowedOauthFlows;
             return this;
         }
         public Builder allowedOauthFlows(String... allowedOauthFlows) {
@@ -350,12 +357,18 @@ public final class GetUserPoolClientResult {
         }
         @CustomType.Setter
         public Builder allowedOauthFlowsUserPoolClient(Boolean allowedOauthFlowsUserPoolClient) {
-            this.allowedOauthFlowsUserPoolClient = Objects.requireNonNull(allowedOauthFlowsUserPoolClient);
+            if (allowedOauthFlowsUserPoolClient == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "allowedOauthFlowsUserPoolClient");
+            }
+            this.allowedOauthFlowsUserPoolClient = allowedOauthFlowsUserPoolClient;
             return this;
         }
         @CustomType.Setter
         public Builder allowedOauthScopes(List<String> allowedOauthScopes) {
-            this.allowedOauthScopes = Objects.requireNonNull(allowedOauthScopes);
+            if (allowedOauthScopes == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "allowedOauthScopes");
+            }
+            this.allowedOauthScopes = allowedOauthScopes;
             return this;
         }
         public Builder allowedOauthScopes(String... allowedOauthScopes) {
@@ -363,7 +376,10 @@ public final class GetUserPoolClientResult {
         }
         @CustomType.Setter
         public Builder analyticsConfigurations(List<GetUserPoolClientAnalyticsConfiguration> analyticsConfigurations) {
-            this.analyticsConfigurations = Objects.requireNonNull(analyticsConfigurations);
+            if (analyticsConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "analyticsConfigurations");
+            }
+            this.analyticsConfigurations = analyticsConfigurations;
             return this;
         }
         public Builder analyticsConfigurations(GetUserPoolClientAnalyticsConfiguration... analyticsConfigurations) {
@@ -371,7 +387,10 @@ public final class GetUserPoolClientResult {
         }
         @CustomType.Setter
         public Builder callbackUrls(List<String> callbackUrls) {
-            this.callbackUrls = Objects.requireNonNull(callbackUrls);
+            if (callbackUrls == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "callbackUrls");
+            }
+            this.callbackUrls = callbackUrls;
             return this;
         }
         public Builder callbackUrls(String... callbackUrls) {
@@ -379,32 +398,50 @@ public final class GetUserPoolClientResult {
         }
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
-            this.clientSecret = Objects.requireNonNull(clientSecret);
+            if (clientSecret == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "clientSecret");
+            }
+            this.clientSecret = clientSecret;
             return this;
         }
         @CustomType.Setter
         public Builder defaultRedirectUri(String defaultRedirectUri) {
-            this.defaultRedirectUri = Objects.requireNonNull(defaultRedirectUri);
+            if (defaultRedirectUri == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "defaultRedirectUri");
+            }
+            this.defaultRedirectUri = defaultRedirectUri;
             return this;
         }
         @CustomType.Setter
         public Builder enablePropagateAdditionalUserContextData(Boolean enablePropagateAdditionalUserContextData) {
-            this.enablePropagateAdditionalUserContextData = Objects.requireNonNull(enablePropagateAdditionalUserContextData);
+            if (enablePropagateAdditionalUserContextData == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "enablePropagateAdditionalUserContextData");
+            }
+            this.enablePropagateAdditionalUserContextData = enablePropagateAdditionalUserContextData;
             return this;
         }
         @CustomType.Setter
         public Builder enableTokenRevocation(Boolean enableTokenRevocation) {
-            this.enableTokenRevocation = Objects.requireNonNull(enableTokenRevocation);
+            if (enableTokenRevocation == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "enableTokenRevocation");
+            }
+            this.enableTokenRevocation = enableTokenRevocation;
             return this;
         }
         @CustomType.Setter
         public Builder explicitAuthFlows(List<String> explicitAuthFlows) {
-            this.explicitAuthFlows = Objects.requireNonNull(explicitAuthFlows);
+            if (explicitAuthFlows == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "explicitAuthFlows");
+            }
+            this.explicitAuthFlows = explicitAuthFlows;
             return this;
         }
         public Builder explicitAuthFlows(String... explicitAuthFlows) {
@@ -412,22 +449,34 @@ public final class GetUserPoolClientResult {
         }
         @CustomType.Setter
         public Builder generateSecret(Boolean generateSecret) {
-            this.generateSecret = Objects.requireNonNull(generateSecret);
+            if (generateSecret == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "generateSecret");
+            }
+            this.generateSecret = generateSecret;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder idTokenValidity(Integer idTokenValidity) {
-            this.idTokenValidity = Objects.requireNonNull(idTokenValidity);
+            if (idTokenValidity == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "idTokenValidity");
+            }
+            this.idTokenValidity = idTokenValidity;
             return this;
         }
         @CustomType.Setter
         public Builder logoutUrls(List<String> logoutUrls) {
-            this.logoutUrls = Objects.requireNonNull(logoutUrls);
+            if (logoutUrls == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "logoutUrls");
+            }
+            this.logoutUrls = logoutUrls;
             return this;
         }
         public Builder logoutUrls(String... logoutUrls) {
@@ -435,17 +484,26 @@ public final class GetUserPoolClientResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder preventUserExistenceErrors(String preventUserExistenceErrors) {
-            this.preventUserExistenceErrors = Objects.requireNonNull(preventUserExistenceErrors);
+            if (preventUserExistenceErrors == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "preventUserExistenceErrors");
+            }
+            this.preventUserExistenceErrors = preventUserExistenceErrors;
             return this;
         }
         @CustomType.Setter
         public Builder readAttributes(List<String> readAttributes) {
-            this.readAttributes = Objects.requireNonNull(readAttributes);
+            if (readAttributes == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "readAttributes");
+            }
+            this.readAttributes = readAttributes;
             return this;
         }
         public Builder readAttributes(String... readAttributes) {
@@ -453,12 +511,18 @@ public final class GetUserPoolClientResult {
         }
         @CustomType.Setter
         public Builder refreshTokenValidity(Integer refreshTokenValidity) {
-            this.refreshTokenValidity = Objects.requireNonNull(refreshTokenValidity);
+            if (refreshTokenValidity == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "refreshTokenValidity");
+            }
+            this.refreshTokenValidity = refreshTokenValidity;
             return this;
         }
         @CustomType.Setter
         public Builder supportedIdentityProviders(List<String> supportedIdentityProviders) {
-            this.supportedIdentityProviders = Objects.requireNonNull(supportedIdentityProviders);
+            if (supportedIdentityProviders == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "supportedIdentityProviders");
+            }
+            this.supportedIdentityProviders = supportedIdentityProviders;
             return this;
         }
         public Builder supportedIdentityProviders(String... supportedIdentityProviders) {
@@ -466,7 +530,10 @@ public final class GetUserPoolClientResult {
         }
         @CustomType.Setter
         public Builder tokenValidityUnits(List<GetUserPoolClientTokenValidityUnit> tokenValidityUnits) {
-            this.tokenValidityUnits = Objects.requireNonNull(tokenValidityUnits);
+            if (tokenValidityUnits == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "tokenValidityUnits");
+            }
+            this.tokenValidityUnits = tokenValidityUnits;
             return this;
         }
         public Builder tokenValidityUnits(GetUserPoolClientTokenValidityUnit... tokenValidityUnits) {
@@ -474,44 +541,50 @@ public final class GetUserPoolClientResult {
         }
         @CustomType.Setter
         public Builder userPoolId(String userPoolId) {
-            this.userPoolId = Objects.requireNonNull(userPoolId);
+            if (userPoolId == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "userPoolId");
+            }
+            this.userPoolId = userPoolId;
             return this;
         }
         @CustomType.Setter
         public Builder writeAttributes(List<String> writeAttributes) {
-            this.writeAttributes = Objects.requireNonNull(writeAttributes);
+            if (writeAttributes == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "writeAttributes");
+            }
+            this.writeAttributes = writeAttributes;
             return this;
         }
         public Builder writeAttributes(String... writeAttributes) {
             return writeAttributes(List.of(writeAttributes));
         }
         public GetUserPoolClientResult build() {
-            final var o = new GetUserPoolClientResult();
-            o.accessTokenValidity = accessTokenValidity;
-            o.allowedOauthFlows = allowedOauthFlows;
-            o.allowedOauthFlowsUserPoolClient = allowedOauthFlowsUserPoolClient;
-            o.allowedOauthScopes = allowedOauthScopes;
-            o.analyticsConfigurations = analyticsConfigurations;
-            o.callbackUrls = callbackUrls;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.defaultRedirectUri = defaultRedirectUri;
-            o.enablePropagateAdditionalUserContextData = enablePropagateAdditionalUserContextData;
-            o.enableTokenRevocation = enableTokenRevocation;
-            o.explicitAuthFlows = explicitAuthFlows;
-            o.generateSecret = generateSecret;
-            o.id = id;
-            o.idTokenValidity = idTokenValidity;
-            o.logoutUrls = logoutUrls;
-            o.name = name;
-            o.preventUserExistenceErrors = preventUserExistenceErrors;
-            o.readAttributes = readAttributes;
-            o.refreshTokenValidity = refreshTokenValidity;
-            o.supportedIdentityProviders = supportedIdentityProviders;
-            o.tokenValidityUnits = tokenValidityUnits;
-            o.userPoolId = userPoolId;
-            o.writeAttributes = writeAttributes;
-            return o;
+            final var _resultValue = new GetUserPoolClientResult();
+            _resultValue.accessTokenValidity = accessTokenValidity;
+            _resultValue.allowedOauthFlows = allowedOauthFlows;
+            _resultValue.allowedOauthFlowsUserPoolClient = allowedOauthFlowsUserPoolClient;
+            _resultValue.allowedOauthScopes = allowedOauthScopes;
+            _resultValue.analyticsConfigurations = analyticsConfigurations;
+            _resultValue.callbackUrls = callbackUrls;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.defaultRedirectUri = defaultRedirectUri;
+            _resultValue.enablePropagateAdditionalUserContextData = enablePropagateAdditionalUserContextData;
+            _resultValue.enableTokenRevocation = enableTokenRevocation;
+            _resultValue.explicitAuthFlows = explicitAuthFlows;
+            _resultValue.generateSecret = generateSecret;
+            _resultValue.id = id;
+            _resultValue.idTokenValidity = idTokenValidity;
+            _resultValue.logoutUrls = logoutUrls;
+            _resultValue.name = name;
+            _resultValue.preventUserExistenceErrors = preventUserExistenceErrors;
+            _resultValue.readAttributes = readAttributes;
+            _resultValue.refreshTokenValidity = refreshTokenValidity;
+            _resultValue.supportedIdentityProviders = supportedIdentityProviders;
+            _resultValue.tokenValidityUnits = tokenValidityUnits;
+            _resultValue.userPoolId = userPoolId;
+            _resultValue.writeAttributes = writeAttributes;
+            return _resultValue;
         }
     }
 }

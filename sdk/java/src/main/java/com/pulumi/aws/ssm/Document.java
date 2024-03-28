@@ -25,7 +25,10 @@ import javax.annotation.Nullable;
  * or greater can update their content once created, see [SSM Schema Features](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html#document-schemas-features). To update a document with an older schema version you must recreate the resource. Not all document types support a schema version of 2.0 or greater. Refer to [SSM document schema features and examples](https://docs.aws.amazon.com/systems-manager/latest/userguide/document-schemas-features.html) for information about which schema versions are supported for the respective `document_type`.
  * 
  * ## Example Usage
+ * 
  * ### Create an ssm document in JSON format
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,6 +51,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Document(&#34;foo&#34;, DocumentArgs.builder()        
+ *             .name(&#34;test_document&#34;)
+ *             .documentType(&#34;Command&#34;)
  *             .content(&#34;&#34;&#34;
  *   {
  *     &#34;schemaVersion&#34;: &#34;1.2&#34;,
@@ -66,15 +71,17 @@ import javax.annotation.Nullable;
  *       }
  *     }
  *   }
- * 
  *             &#34;&#34;&#34;)
- *             .documentType(&#34;Command&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Create an ssm document in YAML format
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -97,6 +104,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Document(&#34;foo&#34;, DocumentArgs.builder()        
+ *             .name(&#34;test_document&#34;)
+ *             .documentFormat(&#34;YAML&#34;)
+ *             .documentType(&#34;Command&#34;)
  *             .content(&#34;&#34;&#34;
  * schemaVersion: &#39;1.2&#39;
  * description: Check ip configuration of a Linux instance.
@@ -107,15 +117,14 @@ import javax.annotation.Nullable;
  *       - id: &#39;0.aws:runShellScript&#39;
  *         runCommand:
  *           - ifconfig
- * 
  *             &#34;&#34;&#34;)
- *             .documentFormat(&#34;YAML&#34;)
- *             .documentType(&#34;Command&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Permissions
  * 
  * The permissions attribute specifies how you want to share the document. If you share a document privately,
@@ -132,9 +141,9 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import SSM Documents using the name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ssm/document:Document example example
+ * $ pulumi import aws:ssm/document:Document example example
  * ```
- *  The `attachments_source` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+ * The `attachments_source` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
  * 
  */
 @ResourceType(type="aws:ssm/document:Document")
@@ -490,9 +499,6 @@ public class Document extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

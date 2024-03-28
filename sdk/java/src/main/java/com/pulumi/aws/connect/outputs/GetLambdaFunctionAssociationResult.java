@@ -4,6 +4,7 @@
 package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -54,25 +55,34 @@ public final class GetLambdaFunctionAssociationResult {
 
         @CustomType.Setter
         public Builder functionArn(String functionArn) {
-            this.functionArn = Objects.requireNonNull(functionArn);
+            if (functionArn == null) {
+              throw new MissingRequiredPropertyException("GetLambdaFunctionAssociationResult", "functionArn");
+            }
+            this.functionArn = functionArn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLambdaFunctionAssociationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("GetLambdaFunctionAssociationResult", "instanceId");
+            }
+            this.instanceId = instanceId;
             return this;
         }
         public GetLambdaFunctionAssociationResult build() {
-            final var o = new GetLambdaFunctionAssociationResult();
-            o.functionArn = functionArn;
-            o.id = id;
-            o.instanceId = instanceId;
-            return o;
+            final var _resultValue = new GetLambdaFunctionAssociationResult();
+            _resultValue.functionArn = functionArn;
+            _resultValue.id = id;
+            _resultValue.instanceId = instanceId;
+            return _resultValue;
         }
     }
 }

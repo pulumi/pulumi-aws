@@ -104,53 +104,59 @@ class UserHierarchyStructure(pulumi.CustomResource):
         [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.UserHierarchyStructure("example",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             hierarchy_structure=aws.connect.UserHierarchyStructureHierarchyStructureArgs(
                 level_one=aws.connect.UserHierarchyStructureHierarchyStructureLevelOneArgs(
                     name="levelone",
                 ),
-            ),
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Five Levels
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.UserHierarchyStructure("example",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             hierarchy_structure=aws.connect.UserHierarchyStructureHierarchyStructureArgs(
-                level_five=aws.connect.UserHierarchyStructureHierarchyStructureLevelFiveArgs(
-                    name="levelfive",
-                ),
-                level_four=aws.connect.UserHierarchyStructureHierarchyStructureLevelFourArgs(
-                    name="levelfour",
-                ),
                 level_one=aws.connect.UserHierarchyStructureHierarchyStructureLevelOneArgs(
                     name="levelone",
-                ),
-                level_three=aws.connect.UserHierarchyStructureHierarchyStructureLevelThreeArgs(
-                    name="levelthree",
                 ),
                 level_two=aws.connect.UserHierarchyStructureHierarchyStructureLevelTwoArgs(
                     name="leveltwo",
                 ),
-            ),
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
+                level_three=aws.connect.UserHierarchyStructureHierarchyStructureLevelThreeArgs(
+                    name="levelthree",
+                ),
+                level_four=aws.connect.UserHierarchyStructureHierarchyStructureLevelFourArgs(
+                    name="levelfour",
+                ),
+                level_five=aws.connect.UserHierarchyStructureHierarchyStructureLevelFiveArgs(
+                    name="levelfive",
+                ),
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Connect User Hierarchy Structures using the `instance_id`. For example:
 
         ```sh
-         $ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
+        $ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
         ```
 
         :param str resource_name: The name of the resource.
@@ -169,53 +175,59 @@ class UserHierarchyStructure(pulumi.CustomResource):
         [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.UserHierarchyStructure("example",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             hierarchy_structure=aws.connect.UserHierarchyStructureHierarchyStructureArgs(
                 level_one=aws.connect.UserHierarchyStructureHierarchyStructureLevelOneArgs(
                     name="levelone",
                 ),
-            ),
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Five Levels
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.UserHierarchyStructure("example",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             hierarchy_structure=aws.connect.UserHierarchyStructureHierarchyStructureArgs(
-                level_five=aws.connect.UserHierarchyStructureHierarchyStructureLevelFiveArgs(
-                    name="levelfive",
-                ),
-                level_four=aws.connect.UserHierarchyStructureHierarchyStructureLevelFourArgs(
-                    name="levelfour",
-                ),
                 level_one=aws.connect.UserHierarchyStructureHierarchyStructureLevelOneArgs(
                     name="levelone",
-                ),
-                level_three=aws.connect.UserHierarchyStructureHierarchyStructureLevelThreeArgs(
-                    name="levelthree",
                 ),
                 level_two=aws.connect.UserHierarchyStructureHierarchyStructureLevelTwoArgs(
                     name="leveltwo",
                 ),
-            ),
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
+                level_three=aws.connect.UserHierarchyStructureHierarchyStructureLevelThreeArgs(
+                    name="levelthree",
+                ),
+                level_four=aws.connect.UserHierarchyStructureHierarchyStructureLevelFourArgs(
+                    name="levelfour",
+                ),
+                level_five=aws.connect.UserHierarchyStructureHierarchyStructureLevelFiveArgs(
+                    name="levelfive",
+                ),
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Connect User Hierarchy Structures using the `instance_id`. For example:
 
         ```sh
-         $ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
+        $ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
         ```
 
         :param str resource_name: The name of the resource.

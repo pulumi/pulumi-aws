@@ -14,10 +14,9 @@ namespace Pulumi.Aws.NetworkManager
         /// <summary>
         /// Retrieve information about a connection.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,14 +27,13 @@ namespace Pulumi.Aws.NetworkManager
         /// {
         ///     var example = Aws.NetworkManager.GetConnection.Invoke(new()
         ///     {
-        ///         GlobalNetworkId = @var.Global_network_id,
-        ///         ConnectionId = @var.Connection_id,
+        ///         GlobalNetworkId = globalNetworkId,
+        ///         ConnectionId = connectionId,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetConnectionResult> InvokeAsync(GetConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionResult>("aws:networkmanager/getConnection:getConnection", args ?? new GetConnectionArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Aws.NetworkManager
         /// <summary>
         /// Retrieve information about a connection.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -57,14 +54,13 @@ namespace Pulumi.Aws.NetworkManager
         /// {
         ///     var example = Aws.NetworkManager.GetConnection.Invoke(new()
         ///     {
-        ///         GlobalNetworkId = @var.Global_network_id,
-        ///         ConnectionId = @var.Connection_id,
+        ///         GlobalNetworkId = globalNetworkId,
+        ///         ConnectionId = connectionId,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("aws:networkmanager/getConnection:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());

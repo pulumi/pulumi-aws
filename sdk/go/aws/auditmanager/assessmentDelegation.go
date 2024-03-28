@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS Audit Manager Assessment Delegation.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,8 +32,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := auditmanager.NewAssessmentDelegation(ctx, "example", &auditmanager.AssessmentDelegationArgs{
-//				AssessmentId: pulumi.Any(aws_auditmanager_assessment.Example.Id),
-//				RoleArn:      pulumi.Any(aws_iam_role.Example.Arn),
+//				AssessmentId: pulumi.Any(exampleAwsAuditmanagerAssessment.Id),
+//				RoleArn:      pulumi.Any(exampleAwsIamRole.Arn),
 //				RoleType:     pulumi.String("RESOURCE_OWNER"),
 //				ControlSetId: pulumi.String("example"),
 //			})
@@ -43,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Audit Manager Assessment Delegation using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:auditmanager/assessmentDelegation:AssessmentDelegation example abcdef-123456,arn:aws:iam::012345678901:role/example,example
-//
+// $ pulumi import aws:auditmanager/assessmentDelegation:AssessmentDelegation example abcdef-123456,arn:aws:iam::012345678901:role/example,example
 // ```
 type AssessmentDelegation struct {
 	pulumi.CustomResourceState

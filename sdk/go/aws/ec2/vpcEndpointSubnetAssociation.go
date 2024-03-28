@@ -24,6 +24,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,9 +37,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpcEndpointSubnetAssociation(ctx, "snEc2", &ec2.VpcEndpointSubnetAssociationArgs{
-//				VpcEndpointId: pulumi.Any(aws_vpc_endpoint.Ec2.Id),
-//				SubnetId:      pulumi.Any(aws_subnet.Sn.Id),
+//			_, err := ec2.NewVpcEndpointSubnetAssociation(ctx, "sn_ec2", &ec2.VpcEndpointSubnetAssociationArgs{
+//				VpcEndpointId: pulumi.Any(ec2.Id),
+//				SubnetId:      pulumi.Any(sn.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -48,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import VPC Endpoint Subnet Associations using `vpc_endpoint_id` together with `subnet_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb
-//
+// $ pulumi import aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb
 // ```
 type VpcEndpointSubnetAssociation struct {
 	pulumi.CustomResourceState

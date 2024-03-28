@@ -4,6 +4,7 @@
 package com.pulumi.aws.dms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,49 +72,70 @@ public final class GetEndpointRedisSetting {
 
         @CustomType.Setter
         public Builder authPassword(String authPassword) {
-            this.authPassword = Objects.requireNonNull(authPassword);
+            if (authPassword == null) {
+              throw new MissingRequiredPropertyException("GetEndpointRedisSetting", "authPassword");
+            }
+            this.authPassword = authPassword;
             return this;
         }
         @CustomType.Setter
         public Builder authType(String authType) {
-            this.authType = Objects.requireNonNull(authType);
+            if (authType == null) {
+              throw new MissingRequiredPropertyException("GetEndpointRedisSetting", "authType");
+            }
+            this.authType = authType;
             return this;
         }
         @CustomType.Setter
         public Builder authUserName(String authUserName) {
-            this.authUserName = Objects.requireNonNull(authUserName);
+            if (authUserName == null) {
+              throw new MissingRequiredPropertyException("GetEndpointRedisSetting", "authUserName");
+            }
+            this.authUserName = authUserName;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetEndpointRedisSetting", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder serverName(String serverName) {
-            this.serverName = Objects.requireNonNull(serverName);
+            if (serverName == null) {
+              throw new MissingRequiredPropertyException("GetEndpointRedisSetting", "serverName");
+            }
+            this.serverName = serverName;
             return this;
         }
         @CustomType.Setter
         public Builder sslCaCertificateArn(String sslCaCertificateArn) {
-            this.sslCaCertificateArn = Objects.requireNonNull(sslCaCertificateArn);
+            if (sslCaCertificateArn == null) {
+              throw new MissingRequiredPropertyException("GetEndpointRedisSetting", "sslCaCertificateArn");
+            }
+            this.sslCaCertificateArn = sslCaCertificateArn;
             return this;
         }
         @CustomType.Setter
         public Builder sslSecurityProtocol(String sslSecurityProtocol) {
-            this.sslSecurityProtocol = Objects.requireNonNull(sslSecurityProtocol);
+            if (sslSecurityProtocol == null) {
+              throw new MissingRequiredPropertyException("GetEndpointRedisSetting", "sslSecurityProtocol");
+            }
+            this.sslSecurityProtocol = sslSecurityProtocol;
             return this;
         }
         public GetEndpointRedisSetting build() {
-            final var o = new GetEndpointRedisSetting();
-            o.authPassword = authPassword;
-            o.authType = authType;
-            o.authUserName = authUserName;
-            o.port = port;
-            o.serverName = serverName;
-            o.sslCaCertificateArn = sslCaCertificateArn;
-            o.sslSecurityProtocol = sslSecurityProtocol;
-            return o;
+            final var _resultValue = new GetEndpointRedisSetting();
+            _resultValue.authPassword = authPassword;
+            _resultValue.authType = authType;
+            _resultValue.authUserName = authUserName;
+            _resultValue.port = port;
+            _resultValue.serverName = serverName;
+            _resultValue.sslCaCertificateArn = sslCaCertificateArn;
+            _resultValue.sslSecurityProtocol = sslSecurityProtocol;
+            return _resultValue;
         }
     }
 }

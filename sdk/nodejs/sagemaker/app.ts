@@ -11,26 +11,29 @@ import * as utilities from "../utilities";
  * Provides a SageMaker App resource.
  *
  * ## Example Usage
+ *
  * ### Basic usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.App("example", {
- *     domainId: aws_sagemaker_domain.example.id,
- *     userProfileName: aws_sagemaker_user_profile.example.user_profile_name,
+ *     domainId: exampleAwsSagemakerDomain.id,
+ *     userProfileName: exampleAwsSagemakerUserProfile.userProfileName,
  *     appName: "example",
  *     appType: "JupyterServer",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SageMaker Apps using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
+ * $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
  * ```
  */
 export class App extends pulumi.CustomResource {
@@ -144,8 +147,6 @@ export class App extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(App.__pulumiType, name, resourceInputs, opts);
     }
 }

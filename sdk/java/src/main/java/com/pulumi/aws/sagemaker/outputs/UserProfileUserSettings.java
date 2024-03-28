@@ -4,13 +4,19 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsCanvasAppSettings;
+import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsCodeEditorAppSettings;
+import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsCustomFileSystemConfig;
+import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsCustomPosixUserConfig;
+import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsJupyterLabAppSettings;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsJupyterServerAppSettings;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsKernelGatewayAppSettings;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsRSessionAppSettings;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsRStudioServerProAppSettings;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsSharingSettings;
+import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsSpaceStorageSettings;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsTensorBoardAppSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -25,10 +31,35 @@ public final class UserProfileUserSettings {
      */
     private @Nullable UserProfileUserSettingsCanvasAppSettings canvasAppSettings;
     /**
+     * @return The Code Editor application settings. See Code Editor App Settings below.
+     * 
+     */
+    private @Nullable UserProfileUserSettingsCodeEditorAppSettings codeEditorAppSettings;
+    /**
+     * @return The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+     * 
+     */
+    private @Nullable List<UserProfileUserSettingsCustomFileSystemConfig> customFileSystemConfigs;
+    /**
+     * @return Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+     * 
+     */
+    private @Nullable UserProfileUserSettingsCustomPosixUserConfig customPosixUserConfig;
+    /**
+     * @return The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
+     * 
+     */
+    private @Nullable String defaultLandingUri;
+    /**
      * @return The execution role ARN for the user.
      * 
      */
     private String executionRole;
+    /**
+     * @return The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+     * 
+     */
+    private @Nullable UserProfileUserSettingsJupyterLabAppSettings jupyterLabAppSettings;
     /**
      * @return The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
      * 
@@ -45,12 +76,12 @@ public final class UserProfileUserSettings {
      */
     private @Nullable UserProfileUserSettingsRSessionAppSettings rSessionAppSettings;
     /**
-     * @return A collection of settings that configure user interaction with the RStudioServerPro app. See RStudio Server Pro App Settings below.
+     * @return A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
      * 
      */
     private @Nullable UserProfileUserSettingsRStudioServerProAppSettings rStudioServerProAppSettings;
     /**
-     * @return The security groups.
+     * @return A list of security group IDs that will be attached to the user.
      * 
      */
     private @Nullable List<String> securityGroups;
@@ -59,6 +90,16 @@ public final class UserProfileUserSettings {
      * 
      */
     private @Nullable UserProfileUserSettingsSharingSettings sharingSettings;
+    /**
+     * @return The storage settings for a private space. See Space Storage Settings below.
+     * 
+     */
+    private @Nullable UserProfileUserSettingsSpaceStorageSettings spaceStorageSettings;
+    /**
+     * @return Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
+     * 
+     */
+    private @Nullable String studioWebPortal;
     /**
      * @return The TensorBoard app settings. See TensorBoard App Settings below.
      * 
@@ -74,11 +115,46 @@ public final class UserProfileUserSettings {
         return Optional.ofNullable(this.canvasAppSettings);
     }
     /**
+     * @return The Code Editor application settings. See Code Editor App Settings below.
+     * 
+     */
+    public Optional<UserProfileUserSettingsCodeEditorAppSettings> codeEditorAppSettings() {
+        return Optional.ofNullable(this.codeEditorAppSettings);
+    }
+    /**
+     * @return The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+     * 
+     */
+    public List<UserProfileUserSettingsCustomFileSystemConfig> customFileSystemConfigs() {
+        return this.customFileSystemConfigs == null ? List.of() : this.customFileSystemConfigs;
+    }
+    /**
+     * @return Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+     * 
+     */
+    public Optional<UserProfileUserSettingsCustomPosixUserConfig> customPosixUserConfig() {
+        return Optional.ofNullable(this.customPosixUserConfig);
+    }
+    /**
+     * @return The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
+     * 
+     */
+    public Optional<String> defaultLandingUri() {
+        return Optional.ofNullable(this.defaultLandingUri);
+    }
+    /**
      * @return The execution role ARN for the user.
      * 
      */
     public String executionRole() {
         return this.executionRole;
+    }
+    /**
+     * @return The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+     * 
+     */
+    public Optional<UserProfileUserSettingsJupyterLabAppSettings> jupyterLabAppSettings() {
+        return Optional.ofNullable(this.jupyterLabAppSettings);
     }
     /**
      * @return The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
@@ -102,14 +178,14 @@ public final class UserProfileUserSettings {
         return Optional.ofNullable(this.rSessionAppSettings);
     }
     /**
-     * @return A collection of settings that configure user interaction with the RStudioServerPro app. See RStudio Server Pro App Settings below.
+     * @return A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
      * 
      */
     public Optional<UserProfileUserSettingsRStudioServerProAppSettings> rStudioServerProAppSettings() {
         return Optional.ofNullable(this.rStudioServerProAppSettings);
     }
     /**
-     * @return The security groups.
+     * @return A list of security group IDs that will be attached to the user.
      * 
      */
     public List<String> securityGroups() {
@@ -121,6 +197,20 @@ public final class UserProfileUserSettings {
      */
     public Optional<UserProfileUserSettingsSharingSettings> sharingSettings() {
         return Optional.ofNullable(this.sharingSettings);
+    }
+    /**
+     * @return The storage settings for a private space. See Space Storage Settings below.
+     * 
+     */
+    public Optional<UserProfileUserSettingsSpaceStorageSettings> spaceStorageSettings() {
+        return Optional.ofNullable(this.spaceStorageSettings);
+    }
+    /**
+     * @return Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
+     * 
+     */
+    public Optional<String> studioWebPortal() {
+        return Optional.ofNullable(this.studioWebPortal);
     }
     /**
      * @return The TensorBoard app settings. See TensorBoard App Settings below.
@@ -140,60 +230,116 @@ public final class UserProfileUserSettings {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable UserProfileUserSettingsCanvasAppSettings canvasAppSettings;
+        private @Nullable UserProfileUserSettingsCodeEditorAppSettings codeEditorAppSettings;
+        private @Nullable List<UserProfileUserSettingsCustomFileSystemConfig> customFileSystemConfigs;
+        private @Nullable UserProfileUserSettingsCustomPosixUserConfig customPosixUserConfig;
+        private @Nullable String defaultLandingUri;
         private String executionRole;
+        private @Nullable UserProfileUserSettingsJupyterLabAppSettings jupyterLabAppSettings;
         private @Nullable UserProfileUserSettingsJupyterServerAppSettings jupyterServerAppSettings;
         private @Nullable UserProfileUserSettingsKernelGatewayAppSettings kernelGatewayAppSettings;
         private @Nullable UserProfileUserSettingsRSessionAppSettings rSessionAppSettings;
         private @Nullable UserProfileUserSettingsRStudioServerProAppSettings rStudioServerProAppSettings;
         private @Nullable List<String> securityGroups;
         private @Nullable UserProfileUserSettingsSharingSettings sharingSettings;
+        private @Nullable UserProfileUserSettingsSpaceStorageSettings spaceStorageSettings;
+        private @Nullable String studioWebPortal;
         private @Nullable UserProfileUserSettingsTensorBoardAppSettings tensorBoardAppSettings;
         public Builder() {}
         public Builder(UserProfileUserSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.canvasAppSettings = defaults.canvasAppSettings;
+    	      this.codeEditorAppSettings = defaults.codeEditorAppSettings;
+    	      this.customFileSystemConfigs = defaults.customFileSystemConfigs;
+    	      this.customPosixUserConfig = defaults.customPosixUserConfig;
+    	      this.defaultLandingUri = defaults.defaultLandingUri;
     	      this.executionRole = defaults.executionRole;
+    	      this.jupyterLabAppSettings = defaults.jupyterLabAppSettings;
     	      this.jupyterServerAppSettings = defaults.jupyterServerAppSettings;
     	      this.kernelGatewayAppSettings = defaults.kernelGatewayAppSettings;
     	      this.rSessionAppSettings = defaults.rSessionAppSettings;
     	      this.rStudioServerProAppSettings = defaults.rStudioServerProAppSettings;
     	      this.securityGroups = defaults.securityGroups;
     	      this.sharingSettings = defaults.sharingSettings;
+    	      this.spaceStorageSettings = defaults.spaceStorageSettings;
+    	      this.studioWebPortal = defaults.studioWebPortal;
     	      this.tensorBoardAppSettings = defaults.tensorBoardAppSettings;
         }
 
         @CustomType.Setter
         public Builder canvasAppSettings(@Nullable UserProfileUserSettingsCanvasAppSettings canvasAppSettings) {
+
             this.canvasAppSettings = canvasAppSettings;
             return this;
         }
         @CustomType.Setter
+        public Builder codeEditorAppSettings(@Nullable UserProfileUserSettingsCodeEditorAppSettings codeEditorAppSettings) {
+
+            this.codeEditorAppSettings = codeEditorAppSettings;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder customFileSystemConfigs(@Nullable List<UserProfileUserSettingsCustomFileSystemConfig> customFileSystemConfigs) {
+
+            this.customFileSystemConfigs = customFileSystemConfigs;
+            return this;
+        }
+        public Builder customFileSystemConfigs(UserProfileUserSettingsCustomFileSystemConfig... customFileSystemConfigs) {
+            return customFileSystemConfigs(List.of(customFileSystemConfigs));
+        }
+        @CustomType.Setter
+        public Builder customPosixUserConfig(@Nullable UserProfileUserSettingsCustomPosixUserConfig customPosixUserConfig) {
+
+            this.customPosixUserConfig = customPosixUserConfig;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder defaultLandingUri(@Nullable String defaultLandingUri) {
+
+            this.defaultLandingUri = defaultLandingUri;
+            return this;
+        }
+        @CustomType.Setter
         public Builder executionRole(String executionRole) {
-            this.executionRole = Objects.requireNonNull(executionRole);
+            if (executionRole == null) {
+              throw new MissingRequiredPropertyException("UserProfileUserSettings", "executionRole");
+            }
+            this.executionRole = executionRole;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder jupyterLabAppSettings(@Nullable UserProfileUserSettingsJupyterLabAppSettings jupyterLabAppSettings) {
+
+            this.jupyterLabAppSettings = jupyterLabAppSettings;
             return this;
         }
         @CustomType.Setter
         public Builder jupyterServerAppSettings(@Nullable UserProfileUserSettingsJupyterServerAppSettings jupyterServerAppSettings) {
+
             this.jupyterServerAppSettings = jupyterServerAppSettings;
             return this;
         }
         @CustomType.Setter
         public Builder kernelGatewayAppSettings(@Nullable UserProfileUserSettingsKernelGatewayAppSettings kernelGatewayAppSettings) {
+
             this.kernelGatewayAppSettings = kernelGatewayAppSettings;
             return this;
         }
         @CustomType.Setter
         public Builder rSessionAppSettings(@Nullable UserProfileUserSettingsRSessionAppSettings rSessionAppSettings) {
+
             this.rSessionAppSettings = rSessionAppSettings;
             return this;
         }
         @CustomType.Setter
         public Builder rStudioServerProAppSettings(@Nullable UserProfileUserSettingsRStudioServerProAppSettings rStudioServerProAppSettings) {
+
             this.rStudioServerProAppSettings = rStudioServerProAppSettings;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroups(@Nullable List<String> securityGroups) {
+
             this.securityGroups = securityGroups;
             return this;
         }
@@ -202,26 +348,47 @@ public final class UserProfileUserSettings {
         }
         @CustomType.Setter
         public Builder sharingSettings(@Nullable UserProfileUserSettingsSharingSettings sharingSettings) {
+
             this.sharingSettings = sharingSettings;
             return this;
         }
         @CustomType.Setter
+        public Builder spaceStorageSettings(@Nullable UserProfileUserSettingsSpaceStorageSettings spaceStorageSettings) {
+
+            this.spaceStorageSettings = spaceStorageSettings;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder studioWebPortal(@Nullable String studioWebPortal) {
+
+            this.studioWebPortal = studioWebPortal;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tensorBoardAppSettings(@Nullable UserProfileUserSettingsTensorBoardAppSettings tensorBoardAppSettings) {
+
             this.tensorBoardAppSettings = tensorBoardAppSettings;
             return this;
         }
         public UserProfileUserSettings build() {
-            final var o = new UserProfileUserSettings();
-            o.canvasAppSettings = canvasAppSettings;
-            o.executionRole = executionRole;
-            o.jupyterServerAppSettings = jupyterServerAppSettings;
-            o.kernelGatewayAppSettings = kernelGatewayAppSettings;
-            o.rSessionAppSettings = rSessionAppSettings;
-            o.rStudioServerProAppSettings = rStudioServerProAppSettings;
-            o.securityGroups = securityGroups;
-            o.sharingSettings = sharingSettings;
-            o.tensorBoardAppSettings = tensorBoardAppSettings;
-            return o;
+            final var _resultValue = new UserProfileUserSettings();
+            _resultValue.canvasAppSettings = canvasAppSettings;
+            _resultValue.codeEditorAppSettings = codeEditorAppSettings;
+            _resultValue.customFileSystemConfigs = customFileSystemConfigs;
+            _resultValue.customPosixUserConfig = customPosixUserConfig;
+            _resultValue.defaultLandingUri = defaultLandingUri;
+            _resultValue.executionRole = executionRole;
+            _resultValue.jupyterLabAppSettings = jupyterLabAppSettings;
+            _resultValue.jupyterServerAppSettings = jupyterServerAppSettings;
+            _resultValue.kernelGatewayAppSettings = kernelGatewayAppSettings;
+            _resultValue.rSessionAppSettings = rSessionAppSettings;
+            _resultValue.rStudioServerProAppSettings = rStudioServerProAppSettings;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.sharingSettings = sharingSettings;
+            _resultValue.spaceStorageSettings = spaceStorageSettings;
+            _resultValue.studioWebPortal = studioWebPortal;
+            _resultValue.tensorBoardAppSettings = tensorBoardAppSettings;
+            return _resultValue;
         }
     }
 }

@@ -1659,6 +1659,181 @@ func (o ListenerDefaultActionRedirectPtrOutput) StatusCode() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+type ListenerMutualAuthentication struct {
+	// Whether client certificate expiry is ignored. Default is `false`.
+	IgnoreClientCertificateExpiry *bool `pulumi:"ignoreClientCertificateExpiry"`
+	// Valid values are `off`, `verify` and `passthrough`.
+	Mode string `pulumi:"mode"`
+	// ARN of the elbv2 Trust Store.
+	TrustStoreArn *string `pulumi:"trustStoreArn"`
+}
+
+// ListenerMutualAuthenticationInput is an input type that accepts ListenerMutualAuthenticationArgs and ListenerMutualAuthenticationOutput values.
+// You can construct a concrete instance of `ListenerMutualAuthenticationInput` via:
+//
+//	ListenerMutualAuthenticationArgs{...}
+type ListenerMutualAuthenticationInput interface {
+	pulumi.Input
+
+	ToListenerMutualAuthenticationOutput() ListenerMutualAuthenticationOutput
+	ToListenerMutualAuthenticationOutputWithContext(context.Context) ListenerMutualAuthenticationOutput
+}
+
+type ListenerMutualAuthenticationArgs struct {
+	// Whether client certificate expiry is ignored. Default is `false`.
+	IgnoreClientCertificateExpiry pulumi.BoolPtrInput `pulumi:"ignoreClientCertificateExpiry"`
+	// Valid values are `off`, `verify` and `passthrough`.
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// ARN of the elbv2 Trust Store.
+	TrustStoreArn pulumi.StringPtrInput `pulumi:"trustStoreArn"`
+}
+
+func (ListenerMutualAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerMutualAuthentication)(nil)).Elem()
+}
+
+func (i ListenerMutualAuthenticationArgs) ToListenerMutualAuthenticationOutput() ListenerMutualAuthenticationOutput {
+	return i.ToListenerMutualAuthenticationOutputWithContext(context.Background())
+}
+
+func (i ListenerMutualAuthenticationArgs) ToListenerMutualAuthenticationOutputWithContext(ctx context.Context) ListenerMutualAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerMutualAuthenticationOutput)
+}
+
+func (i ListenerMutualAuthenticationArgs) ToListenerMutualAuthenticationPtrOutput() ListenerMutualAuthenticationPtrOutput {
+	return i.ToListenerMutualAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i ListenerMutualAuthenticationArgs) ToListenerMutualAuthenticationPtrOutputWithContext(ctx context.Context) ListenerMutualAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerMutualAuthenticationOutput).ToListenerMutualAuthenticationPtrOutputWithContext(ctx)
+}
+
+// ListenerMutualAuthenticationPtrInput is an input type that accepts ListenerMutualAuthenticationArgs, ListenerMutualAuthenticationPtr and ListenerMutualAuthenticationPtrOutput values.
+// You can construct a concrete instance of `ListenerMutualAuthenticationPtrInput` via:
+//
+//	        ListenerMutualAuthenticationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ListenerMutualAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToListenerMutualAuthenticationPtrOutput() ListenerMutualAuthenticationPtrOutput
+	ToListenerMutualAuthenticationPtrOutputWithContext(context.Context) ListenerMutualAuthenticationPtrOutput
+}
+
+type listenerMutualAuthenticationPtrType ListenerMutualAuthenticationArgs
+
+func ListenerMutualAuthenticationPtr(v *ListenerMutualAuthenticationArgs) ListenerMutualAuthenticationPtrInput {
+	return (*listenerMutualAuthenticationPtrType)(v)
+}
+
+func (*listenerMutualAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerMutualAuthentication)(nil)).Elem()
+}
+
+func (i *listenerMutualAuthenticationPtrType) ToListenerMutualAuthenticationPtrOutput() ListenerMutualAuthenticationPtrOutput {
+	return i.ToListenerMutualAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *listenerMutualAuthenticationPtrType) ToListenerMutualAuthenticationPtrOutputWithContext(ctx context.Context) ListenerMutualAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerMutualAuthenticationPtrOutput)
+}
+
+type ListenerMutualAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (ListenerMutualAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerMutualAuthentication)(nil)).Elem()
+}
+
+func (o ListenerMutualAuthenticationOutput) ToListenerMutualAuthenticationOutput() ListenerMutualAuthenticationOutput {
+	return o
+}
+
+func (o ListenerMutualAuthenticationOutput) ToListenerMutualAuthenticationOutputWithContext(ctx context.Context) ListenerMutualAuthenticationOutput {
+	return o
+}
+
+func (o ListenerMutualAuthenticationOutput) ToListenerMutualAuthenticationPtrOutput() ListenerMutualAuthenticationPtrOutput {
+	return o.ToListenerMutualAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o ListenerMutualAuthenticationOutput) ToListenerMutualAuthenticationPtrOutputWithContext(ctx context.Context) ListenerMutualAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerMutualAuthentication) *ListenerMutualAuthentication {
+		return &v
+	}).(ListenerMutualAuthenticationPtrOutput)
+}
+
+// Whether client certificate expiry is ignored. Default is `false`.
+func (o ListenerMutualAuthenticationOutput) IgnoreClientCertificateExpiry() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ListenerMutualAuthentication) *bool { return v.IgnoreClientCertificateExpiry }).(pulumi.BoolPtrOutput)
+}
+
+// Valid values are `off`, `verify` and `passthrough`.
+func (o ListenerMutualAuthenticationOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v ListenerMutualAuthentication) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// ARN of the elbv2 Trust Store.
+func (o ListenerMutualAuthenticationOutput) TrustStoreArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerMutualAuthentication) *string { return v.TrustStoreArn }).(pulumi.StringPtrOutput)
+}
+
+type ListenerMutualAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerMutualAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerMutualAuthentication)(nil)).Elem()
+}
+
+func (o ListenerMutualAuthenticationPtrOutput) ToListenerMutualAuthenticationPtrOutput() ListenerMutualAuthenticationPtrOutput {
+	return o
+}
+
+func (o ListenerMutualAuthenticationPtrOutput) ToListenerMutualAuthenticationPtrOutputWithContext(ctx context.Context) ListenerMutualAuthenticationPtrOutput {
+	return o
+}
+
+func (o ListenerMutualAuthenticationPtrOutput) Elem() ListenerMutualAuthenticationOutput {
+	return o.ApplyT(func(v *ListenerMutualAuthentication) ListenerMutualAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerMutualAuthentication
+		return ret
+	}).(ListenerMutualAuthenticationOutput)
+}
+
+// Whether client certificate expiry is ignored. Default is `false`.
+func (o ListenerMutualAuthenticationPtrOutput) IgnoreClientCertificateExpiry() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ListenerMutualAuthentication) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreClientCertificateExpiry
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Valid values are `off`, `verify` and `passthrough`.
+func (o ListenerMutualAuthenticationPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerMutualAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the elbv2 Trust Store.
+func (o ListenerMutualAuthenticationPtrOutput) TrustStoreArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerMutualAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrustStoreArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type ListenerRuleAction struct {
 	// Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
 	AuthenticateCognito *ListenerRuleActionAuthenticateCognito `pulumi:"authenticateCognito"`
@@ -4375,6 +4550,181 @@ func (o LoadBalancerAccessLogsPtrOutput) Prefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type LoadBalancerConnectionLogs struct {
+	// The S3 bucket name to store the logs in.
+	Bucket string `pulumi:"bucket"`
+	// Boolean to enable / disable `connectionLogs`. Defaults to `false`, even when `bucket` is specified.
+	Enabled *bool `pulumi:"enabled"`
+	// The S3 bucket prefix. Logs are stored in the root if not configured.
+	Prefix *string `pulumi:"prefix"`
+}
+
+// LoadBalancerConnectionLogsInput is an input type that accepts LoadBalancerConnectionLogsArgs and LoadBalancerConnectionLogsOutput values.
+// You can construct a concrete instance of `LoadBalancerConnectionLogsInput` via:
+//
+//	LoadBalancerConnectionLogsArgs{...}
+type LoadBalancerConnectionLogsInput interface {
+	pulumi.Input
+
+	ToLoadBalancerConnectionLogsOutput() LoadBalancerConnectionLogsOutput
+	ToLoadBalancerConnectionLogsOutputWithContext(context.Context) LoadBalancerConnectionLogsOutput
+}
+
+type LoadBalancerConnectionLogsArgs struct {
+	// The S3 bucket name to store the logs in.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// Boolean to enable / disable `connectionLogs`. Defaults to `false`, even when `bucket` is specified.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The S3 bucket prefix. Logs are stored in the root if not configured.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (LoadBalancerConnectionLogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerConnectionLogs)(nil)).Elem()
+}
+
+func (i LoadBalancerConnectionLogsArgs) ToLoadBalancerConnectionLogsOutput() LoadBalancerConnectionLogsOutput {
+	return i.ToLoadBalancerConnectionLogsOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerConnectionLogsArgs) ToLoadBalancerConnectionLogsOutputWithContext(ctx context.Context) LoadBalancerConnectionLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConnectionLogsOutput)
+}
+
+func (i LoadBalancerConnectionLogsArgs) ToLoadBalancerConnectionLogsPtrOutput() LoadBalancerConnectionLogsPtrOutput {
+	return i.ToLoadBalancerConnectionLogsPtrOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerConnectionLogsArgs) ToLoadBalancerConnectionLogsPtrOutputWithContext(ctx context.Context) LoadBalancerConnectionLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConnectionLogsOutput).ToLoadBalancerConnectionLogsPtrOutputWithContext(ctx)
+}
+
+// LoadBalancerConnectionLogsPtrInput is an input type that accepts LoadBalancerConnectionLogsArgs, LoadBalancerConnectionLogsPtr and LoadBalancerConnectionLogsPtrOutput values.
+// You can construct a concrete instance of `LoadBalancerConnectionLogsPtrInput` via:
+//
+//	        LoadBalancerConnectionLogsArgs{...}
+//
+//	or:
+//
+//	        nil
+type LoadBalancerConnectionLogsPtrInput interface {
+	pulumi.Input
+
+	ToLoadBalancerConnectionLogsPtrOutput() LoadBalancerConnectionLogsPtrOutput
+	ToLoadBalancerConnectionLogsPtrOutputWithContext(context.Context) LoadBalancerConnectionLogsPtrOutput
+}
+
+type loadBalancerConnectionLogsPtrType LoadBalancerConnectionLogsArgs
+
+func LoadBalancerConnectionLogsPtr(v *LoadBalancerConnectionLogsArgs) LoadBalancerConnectionLogsPtrInput {
+	return (*loadBalancerConnectionLogsPtrType)(v)
+}
+
+func (*loadBalancerConnectionLogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerConnectionLogs)(nil)).Elem()
+}
+
+func (i *loadBalancerConnectionLogsPtrType) ToLoadBalancerConnectionLogsPtrOutput() LoadBalancerConnectionLogsPtrOutput {
+	return i.ToLoadBalancerConnectionLogsPtrOutputWithContext(context.Background())
+}
+
+func (i *loadBalancerConnectionLogsPtrType) ToLoadBalancerConnectionLogsPtrOutputWithContext(ctx context.Context) LoadBalancerConnectionLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConnectionLogsPtrOutput)
+}
+
+type LoadBalancerConnectionLogsOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerConnectionLogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerConnectionLogs)(nil)).Elem()
+}
+
+func (o LoadBalancerConnectionLogsOutput) ToLoadBalancerConnectionLogsOutput() LoadBalancerConnectionLogsOutput {
+	return o
+}
+
+func (o LoadBalancerConnectionLogsOutput) ToLoadBalancerConnectionLogsOutputWithContext(ctx context.Context) LoadBalancerConnectionLogsOutput {
+	return o
+}
+
+func (o LoadBalancerConnectionLogsOutput) ToLoadBalancerConnectionLogsPtrOutput() LoadBalancerConnectionLogsPtrOutput {
+	return o.ToLoadBalancerConnectionLogsPtrOutputWithContext(context.Background())
+}
+
+func (o LoadBalancerConnectionLogsOutput) ToLoadBalancerConnectionLogsPtrOutputWithContext(ctx context.Context) LoadBalancerConnectionLogsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerConnectionLogs) *LoadBalancerConnectionLogs {
+		return &v
+	}).(LoadBalancerConnectionLogsPtrOutput)
+}
+
+// The S3 bucket name to store the logs in.
+func (o LoadBalancerConnectionLogsOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadBalancerConnectionLogs) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// Boolean to enable / disable `connectionLogs`. Defaults to `false`, even when `bucket` is specified.
+func (o LoadBalancerConnectionLogsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LoadBalancerConnectionLogs) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The S3 bucket prefix. Logs are stored in the root if not configured.
+func (o LoadBalancerConnectionLogsOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerConnectionLogs) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type LoadBalancerConnectionLogsPtrOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerConnectionLogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerConnectionLogs)(nil)).Elem()
+}
+
+func (o LoadBalancerConnectionLogsPtrOutput) ToLoadBalancerConnectionLogsPtrOutput() LoadBalancerConnectionLogsPtrOutput {
+	return o
+}
+
+func (o LoadBalancerConnectionLogsPtrOutput) ToLoadBalancerConnectionLogsPtrOutputWithContext(ctx context.Context) LoadBalancerConnectionLogsPtrOutput {
+	return o
+}
+
+func (o LoadBalancerConnectionLogsPtrOutput) Elem() LoadBalancerConnectionLogsOutput {
+	return o.ApplyT(func(v *LoadBalancerConnectionLogs) LoadBalancerConnectionLogs {
+		if v != nil {
+			return *v
+		}
+		var ret LoadBalancerConnectionLogs
+		return ret
+	}).(LoadBalancerConnectionLogsOutput)
+}
+
+// The S3 bucket name to store the logs in.
+func (o LoadBalancerConnectionLogsPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerConnectionLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// Boolean to enable / disable `connectionLogs`. Defaults to `false`, even when `bucket` is specified.
+func (o LoadBalancerConnectionLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerConnectionLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The S3 bucket prefix. Logs are stored in the root if not configured.
+func (o LoadBalancerConnectionLogsPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerConnectionLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
 type LoadBalancerSubnetMapping struct {
 	// The allocation ID of the Elastic IP address for an internet-facing load balancer.
 	AllocationId *string `pulumi:"allocationId"`
@@ -4512,13 +4862,27 @@ type TargetGroupHealthCheck struct {
 	HealthyThreshold *int `pulumi:"healthyThreshold"`
 	// Approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300. For `lambda` target groups, it needs to be greater than the timeout of the underlying `lambda`. Defaults to 30.
 	Interval *int `pulumi:"interval"`
-	// Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+	// The HTTP or gRPC codes to use when checking for a successful response from a target.
+	// The `health_check.protocol` must be one of `HTTP` or `HTTPS` or the `targetType` must be `lambda`.
+	// Values can be comma-separated individual values (e.g., "200,202") or a range of values (e.g., "200-299").
+	// * For gRPC-based target groups (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is `GRPC`), values can be between `0` and `99`. The default is `12`.
+	// * When used with an Application Load Balancer (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is not `GRPC`), values can be between `200` and `499`. The default is `200`.
+	// * When used with a Network Load Balancer (i.e., the `protocol` is one of `TCP`, `TCP_UDP`, `UDP`, or `TLS`), values can be between `200` and `599`. The default is `200-399`.
+	// * When the `targetType` is `lambda`, values can be between `200` and `499`. The default is `200`.
 	Matcher *string `pulumi:"matcher"`
 	// Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+	// * For HTTP and HTTPS health checks, the default is `/`.
+	// * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
 	Path *string `pulumi:"path"`
-	// The port the load balancer uses when performing health checks on targets. Default is traffic-port.
+	// The port the load balancer uses when performing health checks on targets.
+	// Valid values are either `traffic-port`, to use the same port as the target group, or a valid port number between `1` and `65536`.
+	// Default is `traffic-port`.
 	Port *string `pulumi:"port"`
-	// Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
+	// Protocol the load balancer uses when performing health checks on targets.
+	// Must be one of `TCP`, `HTTP`, or `HTTPS`.
+	// The `TCP` protocol is not supported for health checks if the protocol of the target group is `HTTP` or `HTTPS`.
+	// Default is `HTTP`.
+	// Cannot be specified when the `targetType` is `lambda`.
 	Protocol *string `pulumi:"protocol"`
 	// Amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If the target type is lambda, the default is 30 seconds.
 	Timeout *int `pulumi:"timeout"`
@@ -4544,13 +4908,27 @@ type TargetGroupHealthCheckArgs struct {
 	HealthyThreshold pulumi.IntPtrInput `pulumi:"healthyThreshold"`
 	// Approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300. For `lambda` target groups, it needs to be greater than the timeout of the underlying `lambda`. Defaults to 30.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+	// The HTTP or gRPC codes to use when checking for a successful response from a target.
+	// The `health_check.protocol` must be one of `HTTP` or `HTTPS` or the `targetType` must be `lambda`.
+	// Values can be comma-separated individual values (e.g., "200,202") or a range of values (e.g., "200-299").
+	// * For gRPC-based target groups (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is `GRPC`), values can be between `0` and `99`. The default is `12`.
+	// * When used with an Application Load Balancer (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is not `GRPC`), values can be between `200` and `499`. The default is `200`.
+	// * When used with a Network Load Balancer (i.e., the `protocol` is one of `TCP`, `TCP_UDP`, `UDP`, or `TLS`), values can be between `200` and `599`. The default is `200-399`.
+	// * When the `targetType` is `lambda`, values can be between `200` and `499`. The default is `200`.
 	Matcher pulumi.StringPtrInput `pulumi:"matcher"`
 	// Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+	// * For HTTP and HTTPS health checks, the default is `/`.
+	// * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// The port the load balancer uses when performing health checks on targets. Default is traffic-port.
+	// The port the load balancer uses when performing health checks on targets.
+	// Valid values are either `traffic-port`, to use the same port as the target group, or a valid port number between `1` and `65536`.
+	// Default is `traffic-port`.
 	Port pulumi.StringPtrInput `pulumi:"port"`
-	// Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
+	// Protocol the load balancer uses when performing health checks on targets.
+	// Must be one of `TCP`, `HTTP`, or `HTTPS`.
+	// The `TCP` protocol is not supported for health checks if the protocol of the target group is `HTTP` or `HTTPS`.
+	// Default is `HTTP`.
+	// Cannot be specified when the `targetType` is `lambda`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 	// Amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If the target type is lambda, the default is 30 seconds.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
@@ -4650,22 +5028,36 @@ func (o TargetGroupHealthCheckOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+// The HTTP or gRPC codes to use when checking for a successful response from a target.
+// The `health_check.protocol` must be one of `HTTP` or `HTTPS` or the `targetType` must be `lambda`.
+// Values can be comma-separated individual values (e.g., "200,202") or a range of values (e.g., "200-299").
+// * For gRPC-based target groups (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is `GRPC`), values can be between `0` and `99`. The default is `12`.
+// * When used with an Application Load Balancer (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is not `GRPC`), values can be between `200` and `499`. The default is `200`.
+// * When used with a Network Load Balancer (i.e., the `protocol` is one of `TCP`, `TCP_UDP`, `UDP`, or `TLS`), values can be between `200` and `599`. The default is `200-399`.
+// * When the `targetType` is `lambda`, values can be between `200` and `499`. The default is `200`.
 func (o TargetGroupHealthCheckOutput) Matcher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *string { return v.Matcher }).(pulumi.StringPtrOutput)
 }
 
 // Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+// * For HTTP and HTTPS health checks, the default is `/`.
+// * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
 func (o TargetGroupHealthCheckOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// The port the load balancer uses when performing health checks on targets. Default is traffic-port.
+// The port the load balancer uses when performing health checks on targets.
+// Valid values are either `traffic-port`, to use the same port as the target group, or a valid port number between `1` and `65536`.
+// Default is `traffic-port`.
 func (o TargetGroupHealthCheckOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
-// Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
+// Protocol the load balancer uses when performing health checks on targets.
+// Must be one of `TCP`, `HTTP`, or `HTTPS`.
+// The `TCP` protocol is not supported for health checks if the protocol of the target group is `HTTP` or `HTTPS`.
+// Default is `HTTP`.
+// Cannot be specified when the `targetType` is `lambda`.
 func (o TargetGroupHealthCheckOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
@@ -4734,7 +5126,13 @@ func (o TargetGroupHealthCheckPtrOutput) Interval() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+// The HTTP or gRPC codes to use when checking for a successful response from a target.
+// The `health_check.protocol` must be one of `HTTP` or `HTTPS` or the `targetType` must be `lambda`.
+// Values can be comma-separated individual values (e.g., "200,202") or a range of values (e.g., "200-299").
+// * For gRPC-based target groups (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is `GRPC`), values can be between `0` and `99`. The default is `12`.
+// * When used with an Application Load Balancer (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is not `GRPC`), values can be between `200` and `499`. The default is `200`.
+// * When used with a Network Load Balancer (i.e., the `protocol` is one of `TCP`, `TCP_UDP`, `UDP`, or `TLS`), values can be between `200` and `599`. The default is `200-399`.
+// * When the `targetType` is `lambda`, values can be between `200` and `499`. The default is `200`.
 func (o TargetGroupHealthCheckPtrOutput) Matcher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) *string {
 		if v == nil {
@@ -4745,6 +5143,8 @@ func (o TargetGroupHealthCheckPtrOutput) Matcher() pulumi.StringPtrOutput {
 }
 
 // Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+// * For HTTP and HTTPS health checks, the default is `/`.
+// * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
 func (o TargetGroupHealthCheckPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) *string {
 		if v == nil {
@@ -4754,7 +5154,9 @@ func (o TargetGroupHealthCheckPtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port the load balancer uses when performing health checks on targets. Default is traffic-port.
+// The port the load balancer uses when performing health checks on targets.
+// Valid values are either `traffic-port`, to use the same port as the target group, or a valid port number between `1` and `65536`.
+// Default is `traffic-port`.
 func (o TargetGroupHealthCheckPtrOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) *string {
 		if v == nil {
@@ -4764,7 +5166,11 @@ func (o TargetGroupHealthCheckPtrOutput) Port() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
+// Protocol the load balancer uses when performing health checks on targets.
+// Must be one of `TCP`, `HTTP`, or `HTTPS`.
+// The `TCP` protocol is not supported for health checks if the protocol of the target group is `HTTP` or `HTTPS`.
+// Default is `HTTP`.
+// Cannot be specified when the `targetType` is `lambda`.
 func (o TargetGroupHealthCheckPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) *string {
 		if v == nil {
@@ -6165,6 +6571,112 @@ func (o GetListenerDefaultActionRedirectArrayOutput) Index(i pulumi.IntInput) Ge
 	}).(GetListenerDefaultActionRedirectOutput)
 }
 
+type GetListenerMutualAuthentication struct {
+	IgnoreClientCertificateExpiry bool   `pulumi:"ignoreClientCertificateExpiry"`
+	Mode                          string `pulumi:"mode"`
+	TrustStoreArn                 string `pulumi:"trustStoreArn"`
+}
+
+// GetListenerMutualAuthenticationInput is an input type that accepts GetListenerMutualAuthenticationArgs and GetListenerMutualAuthenticationOutput values.
+// You can construct a concrete instance of `GetListenerMutualAuthenticationInput` via:
+//
+//	GetListenerMutualAuthenticationArgs{...}
+type GetListenerMutualAuthenticationInput interface {
+	pulumi.Input
+
+	ToGetListenerMutualAuthenticationOutput() GetListenerMutualAuthenticationOutput
+	ToGetListenerMutualAuthenticationOutputWithContext(context.Context) GetListenerMutualAuthenticationOutput
+}
+
+type GetListenerMutualAuthenticationArgs struct {
+	IgnoreClientCertificateExpiry pulumi.BoolInput   `pulumi:"ignoreClientCertificateExpiry"`
+	Mode                          pulumi.StringInput `pulumi:"mode"`
+	TrustStoreArn                 pulumi.StringInput `pulumi:"trustStoreArn"`
+}
+
+func (GetListenerMutualAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerMutualAuthentication)(nil)).Elem()
+}
+
+func (i GetListenerMutualAuthenticationArgs) ToGetListenerMutualAuthenticationOutput() GetListenerMutualAuthenticationOutput {
+	return i.ToGetListenerMutualAuthenticationOutputWithContext(context.Background())
+}
+
+func (i GetListenerMutualAuthenticationArgs) ToGetListenerMutualAuthenticationOutputWithContext(ctx context.Context) GetListenerMutualAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerMutualAuthenticationOutput)
+}
+
+// GetListenerMutualAuthenticationArrayInput is an input type that accepts GetListenerMutualAuthenticationArray and GetListenerMutualAuthenticationArrayOutput values.
+// You can construct a concrete instance of `GetListenerMutualAuthenticationArrayInput` via:
+//
+//	GetListenerMutualAuthenticationArray{ GetListenerMutualAuthenticationArgs{...} }
+type GetListenerMutualAuthenticationArrayInput interface {
+	pulumi.Input
+
+	ToGetListenerMutualAuthenticationArrayOutput() GetListenerMutualAuthenticationArrayOutput
+	ToGetListenerMutualAuthenticationArrayOutputWithContext(context.Context) GetListenerMutualAuthenticationArrayOutput
+}
+
+type GetListenerMutualAuthenticationArray []GetListenerMutualAuthenticationInput
+
+func (GetListenerMutualAuthenticationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerMutualAuthentication)(nil)).Elem()
+}
+
+func (i GetListenerMutualAuthenticationArray) ToGetListenerMutualAuthenticationArrayOutput() GetListenerMutualAuthenticationArrayOutput {
+	return i.ToGetListenerMutualAuthenticationArrayOutputWithContext(context.Background())
+}
+
+func (i GetListenerMutualAuthenticationArray) ToGetListenerMutualAuthenticationArrayOutputWithContext(ctx context.Context) GetListenerMutualAuthenticationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerMutualAuthenticationArrayOutput)
+}
+
+type GetListenerMutualAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (GetListenerMutualAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerMutualAuthentication)(nil)).Elem()
+}
+
+func (o GetListenerMutualAuthenticationOutput) ToGetListenerMutualAuthenticationOutput() GetListenerMutualAuthenticationOutput {
+	return o
+}
+
+func (o GetListenerMutualAuthenticationOutput) ToGetListenerMutualAuthenticationOutputWithContext(ctx context.Context) GetListenerMutualAuthenticationOutput {
+	return o
+}
+
+func (o GetListenerMutualAuthenticationOutput) IgnoreClientCertificateExpiry() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetListenerMutualAuthentication) bool { return v.IgnoreClientCertificateExpiry }).(pulumi.BoolOutput)
+}
+
+func (o GetListenerMutualAuthenticationOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerMutualAuthentication) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+func (o GetListenerMutualAuthenticationOutput) TrustStoreArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerMutualAuthentication) string { return v.TrustStoreArn }).(pulumi.StringOutput)
+}
+
+type GetListenerMutualAuthenticationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetListenerMutualAuthenticationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerMutualAuthentication)(nil)).Elem()
+}
+
+func (o GetListenerMutualAuthenticationArrayOutput) ToGetListenerMutualAuthenticationArrayOutput() GetListenerMutualAuthenticationArrayOutput {
+	return o
+}
+
+func (o GetListenerMutualAuthenticationArrayOutput) ToGetListenerMutualAuthenticationArrayOutputWithContext(ctx context.Context) GetListenerMutualAuthenticationArrayOutput {
+	return o
+}
+
+func (o GetListenerMutualAuthenticationArrayOutput) Index(i pulumi.IntInput) GetListenerMutualAuthenticationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetListenerMutualAuthentication {
+		return vs[0].([]GetListenerMutualAuthentication)[vs[1].(int)]
+	}).(GetListenerMutualAuthenticationOutput)
+}
+
 type GetLoadBalancerAccessLogs struct {
 	Bucket  string `pulumi:"bucket"`
 	Enabled bool   `pulumi:"enabled"`
@@ -6224,6 +6736,112 @@ func (o GetLoadBalancerAccessLogsOutput) Enabled() pulumi.BoolOutput {
 
 func (o GetLoadBalancerAccessLogsOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancerAccessLogs) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+type GetLoadBalancerConnectionLog struct {
+	Bucket  string `pulumi:"bucket"`
+	Enabled bool   `pulumi:"enabled"`
+	Prefix  string `pulumi:"prefix"`
+}
+
+// GetLoadBalancerConnectionLogInput is an input type that accepts GetLoadBalancerConnectionLogArgs and GetLoadBalancerConnectionLogOutput values.
+// You can construct a concrete instance of `GetLoadBalancerConnectionLogInput` via:
+//
+//	GetLoadBalancerConnectionLogArgs{...}
+type GetLoadBalancerConnectionLogInput interface {
+	pulumi.Input
+
+	ToGetLoadBalancerConnectionLogOutput() GetLoadBalancerConnectionLogOutput
+	ToGetLoadBalancerConnectionLogOutputWithContext(context.Context) GetLoadBalancerConnectionLogOutput
+}
+
+type GetLoadBalancerConnectionLogArgs struct {
+	Bucket  pulumi.StringInput `pulumi:"bucket"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Prefix  pulumi.StringInput `pulumi:"prefix"`
+}
+
+func (GetLoadBalancerConnectionLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerConnectionLog)(nil)).Elem()
+}
+
+func (i GetLoadBalancerConnectionLogArgs) ToGetLoadBalancerConnectionLogOutput() GetLoadBalancerConnectionLogOutput {
+	return i.ToGetLoadBalancerConnectionLogOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerConnectionLogArgs) ToGetLoadBalancerConnectionLogOutputWithContext(ctx context.Context) GetLoadBalancerConnectionLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerConnectionLogOutput)
+}
+
+// GetLoadBalancerConnectionLogArrayInput is an input type that accepts GetLoadBalancerConnectionLogArray and GetLoadBalancerConnectionLogArrayOutput values.
+// You can construct a concrete instance of `GetLoadBalancerConnectionLogArrayInput` via:
+//
+//	GetLoadBalancerConnectionLogArray{ GetLoadBalancerConnectionLogArgs{...} }
+type GetLoadBalancerConnectionLogArrayInput interface {
+	pulumi.Input
+
+	ToGetLoadBalancerConnectionLogArrayOutput() GetLoadBalancerConnectionLogArrayOutput
+	ToGetLoadBalancerConnectionLogArrayOutputWithContext(context.Context) GetLoadBalancerConnectionLogArrayOutput
+}
+
+type GetLoadBalancerConnectionLogArray []GetLoadBalancerConnectionLogInput
+
+func (GetLoadBalancerConnectionLogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerConnectionLog)(nil)).Elem()
+}
+
+func (i GetLoadBalancerConnectionLogArray) ToGetLoadBalancerConnectionLogArrayOutput() GetLoadBalancerConnectionLogArrayOutput {
+	return i.ToGetLoadBalancerConnectionLogArrayOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerConnectionLogArray) ToGetLoadBalancerConnectionLogArrayOutputWithContext(ctx context.Context) GetLoadBalancerConnectionLogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerConnectionLogArrayOutput)
+}
+
+type GetLoadBalancerConnectionLogOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerConnectionLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerConnectionLog)(nil)).Elem()
+}
+
+func (o GetLoadBalancerConnectionLogOutput) ToGetLoadBalancerConnectionLogOutput() GetLoadBalancerConnectionLogOutput {
+	return o
+}
+
+func (o GetLoadBalancerConnectionLogOutput) ToGetLoadBalancerConnectionLogOutputWithContext(ctx context.Context) GetLoadBalancerConnectionLogOutput {
+	return o
+}
+
+func (o GetLoadBalancerConnectionLogOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerConnectionLog) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+func (o GetLoadBalancerConnectionLogOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLoadBalancerConnectionLog) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o GetLoadBalancerConnectionLogOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerConnectionLog) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+type GetLoadBalancerConnectionLogArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerConnectionLogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerConnectionLog)(nil)).Elem()
+}
+
+func (o GetLoadBalancerConnectionLogArrayOutput) ToGetLoadBalancerConnectionLogArrayOutput() GetLoadBalancerConnectionLogArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerConnectionLogArrayOutput) ToGetLoadBalancerConnectionLogArrayOutputWithContext(ctx context.Context) GetLoadBalancerConnectionLogArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerConnectionLogArrayOutput) Index(i pulumi.IntInput) GetLoadBalancerConnectionLogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLoadBalancerConnectionLog {
+		return vs[0].([]GetLoadBalancerConnectionLog)[vs[1].(int)]
+	}).(GetLoadBalancerConnectionLogOutput)
 }
 
 type GetLoadBalancerSubnetMapping struct {
@@ -6525,6 +7143,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionForwardTargetGroupArrayInput)(nil)).Elem(), ListenerDefaultActionForwardTargetGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionRedirectInput)(nil)).Elem(), ListenerDefaultActionRedirectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionRedirectPtrInput)(nil)).Elem(), ListenerDefaultActionRedirectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerMutualAuthenticationInput)(nil)).Elem(), ListenerMutualAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerMutualAuthenticationPtrInput)(nil)).Elem(), ListenerMutualAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleActionInput)(nil)).Elem(), ListenerRuleActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleActionArrayInput)(nil)).Elem(), ListenerRuleActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleActionAuthenticateCognitoInput)(nil)).Elem(), ListenerRuleActionAuthenticateCognitoArgs{})
@@ -6557,6 +7177,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleConditionSourceIpPtrInput)(nil)).Elem(), ListenerRuleConditionSourceIpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerAccessLogsInput)(nil)).Elem(), LoadBalancerAccessLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerAccessLogsPtrInput)(nil)).Elem(), LoadBalancerAccessLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerConnectionLogsInput)(nil)).Elem(), LoadBalancerConnectionLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerConnectionLogsPtrInput)(nil)).Elem(), LoadBalancerConnectionLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerSubnetMappingInput)(nil)).Elem(), LoadBalancerSubnetMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerSubnetMappingArrayInput)(nil)).Elem(), LoadBalancerSubnetMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupHealthCheckInput)(nil)).Elem(), TargetGroupHealthCheckArgs{})
@@ -6583,7 +7205,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionForwardTargetGroupArrayInput)(nil)).Elem(), GetListenerDefaultActionForwardTargetGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionRedirectInput)(nil)).Elem(), GetListenerDefaultActionRedirectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionRedirectArrayInput)(nil)).Elem(), GetListenerDefaultActionRedirectArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerMutualAuthenticationInput)(nil)).Elem(), GetListenerMutualAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerMutualAuthenticationArrayInput)(nil)).Elem(), GetListenerMutualAuthenticationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerAccessLogsInput)(nil)).Elem(), GetLoadBalancerAccessLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerConnectionLogInput)(nil)).Elem(), GetLoadBalancerConnectionLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerConnectionLogArrayInput)(nil)).Elem(), GetLoadBalancerConnectionLogArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerSubnetMappingInput)(nil)).Elem(), GetLoadBalancerSubnetMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerSubnetMappingArrayInput)(nil)).Elem(), GetLoadBalancerSubnetMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTargetGroupHealthCheckInput)(nil)).Elem(), GetTargetGroupHealthCheckArgs{})
@@ -6604,6 +7230,8 @@ func init() {
 	pulumi.RegisterOutputType(ListenerDefaultActionForwardTargetGroupArrayOutput{})
 	pulumi.RegisterOutputType(ListenerDefaultActionRedirectOutput{})
 	pulumi.RegisterOutputType(ListenerDefaultActionRedirectPtrOutput{})
+	pulumi.RegisterOutputType(ListenerMutualAuthenticationOutput{})
+	pulumi.RegisterOutputType(ListenerMutualAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(ListenerRuleActionOutput{})
 	pulumi.RegisterOutputType(ListenerRuleActionArrayOutput{})
 	pulumi.RegisterOutputType(ListenerRuleActionAuthenticateCognitoOutput{})
@@ -6636,6 +7264,8 @@ func init() {
 	pulumi.RegisterOutputType(ListenerRuleConditionSourceIpPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerAccessLogsOutput{})
 	pulumi.RegisterOutputType(LoadBalancerAccessLogsPtrOutput{})
+	pulumi.RegisterOutputType(LoadBalancerConnectionLogsOutput{})
+	pulumi.RegisterOutputType(LoadBalancerConnectionLogsPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerSubnetMappingOutput{})
 	pulumi.RegisterOutputType(LoadBalancerSubnetMappingArrayOutput{})
 	pulumi.RegisterOutputType(TargetGroupHealthCheckOutput{})
@@ -6662,7 +7292,11 @@ func init() {
 	pulumi.RegisterOutputType(GetListenerDefaultActionForwardTargetGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetListenerDefaultActionRedirectOutput{})
 	pulumi.RegisterOutputType(GetListenerDefaultActionRedirectArrayOutput{})
+	pulumi.RegisterOutputType(GetListenerMutualAuthenticationOutput{})
+	pulumi.RegisterOutputType(GetListenerMutualAuthenticationArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerAccessLogsOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerConnectionLogOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerConnectionLogArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerSubnetMappingOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerSubnetMappingArrayOutput{})
 	pulumi.RegisterOutputType(GetTargetGroupHealthCheckOutput{})

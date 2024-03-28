@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := msk.LookupVpcConnection(ctx, &msk.LookupVpcConnectionArgs{
-//				Arn: aws_msk_vpc_connection.Example.Arn,
+//				Arn: exampleAwsMskVpcConnection.Arn,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupVpcConnection(ctx *pulumi.Context, args *LookupVpcConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVpcConnectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcConnectionResult

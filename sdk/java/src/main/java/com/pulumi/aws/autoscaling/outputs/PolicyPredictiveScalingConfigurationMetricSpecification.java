@@ -10,6 +10,7 @@ import com.pulumi.aws.autoscaling.outputs.PolicyPredictiveScalingConfigurationMe
 import com.pulumi.aws.autoscaling.outputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification;
 import com.pulumi.aws.autoscaling.outputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.util.Objects;
 import java.util.Optional;
@@ -134,49 +135,58 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecification {
 
         @CustomType.Setter
         public Builder customizedCapacityMetricSpecification(@Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification customizedCapacityMetricSpecification) {
+
             this.customizedCapacityMetricSpecification = customizedCapacityMetricSpecification;
             return this;
         }
         @CustomType.Setter
         public Builder customizedLoadMetricSpecification(@Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification customizedLoadMetricSpecification) {
+
             this.customizedLoadMetricSpecification = customizedLoadMetricSpecification;
             return this;
         }
         @CustomType.Setter
         public Builder customizedScalingMetricSpecification(@Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification customizedScalingMetricSpecification) {
+
             this.customizedScalingMetricSpecification = customizedScalingMetricSpecification;
             return this;
         }
         @CustomType.Setter
         public Builder predefinedLoadMetricSpecification(@Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification predefinedLoadMetricSpecification) {
+
             this.predefinedLoadMetricSpecification = predefinedLoadMetricSpecification;
             return this;
         }
         @CustomType.Setter
         public Builder predefinedMetricPairSpecification(@Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification predefinedMetricPairSpecification) {
+
             this.predefinedMetricPairSpecification = predefinedMetricPairSpecification;
             return this;
         }
         @CustomType.Setter
         public Builder predefinedScalingMetricSpecification(@Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification predefinedScalingMetricSpecification) {
+
             this.predefinedScalingMetricSpecification = predefinedScalingMetricSpecification;
             return this;
         }
         @CustomType.Setter
         public Builder targetValue(Double targetValue) {
-            this.targetValue = Objects.requireNonNull(targetValue);
+            if (targetValue == null) {
+              throw new MissingRequiredPropertyException("PolicyPredictiveScalingConfigurationMetricSpecification", "targetValue");
+            }
+            this.targetValue = targetValue;
             return this;
         }
         public PolicyPredictiveScalingConfigurationMetricSpecification build() {
-            final var o = new PolicyPredictiveScalingConfigurationMetricSpecification();
-            o.customizedCapacityMetricSpecification = customizedCapacityMetricSpecification;
-            o.customizedLoadMetricSpecification = customizedLoadMetricSpecification;
-            o.customizedScalingMetricSpecification = customizedScalingMetricSpecification;
-            o.predefinedLoadMetricSpecification = predefinedLoadMetricSpecification;
-            o.predefinedMetricPairSpecification = predefinedMetricPairSpecification;
-            o.predefinedScalingMetricSpecification = predefinedScalingMetricSpecification;
-            o.targetValue = targetValue;
-            return o;
+            final var _resultValue = new PolicyPredictiveScalingConfigurationMetricSpecification();
+            _resultValue.customizedCapacityMetricSpecification = customizedCapacityMetricSpecification;
+            _resultValue.customizedLoadMetricSpecification = customizedLoadMetricSpecification;
+            _resultValue.customizedScalingMetricSpecification = customizedScalingMetricSpecification;
+            _resultValue.predefinedLoadMetricSpecification = predefinedLoadMetricSpecification;
+            _resultValue.predefinedMetricPairSpecification = predefinedMetricPairSpecification;
+            _resultValue.predefinedScalingMetricSpecification = predefinedScalingMetricSpecification;
+            _resultValue.targetValue = targetValue;
+            return _resultValue;
         }
     }
 }

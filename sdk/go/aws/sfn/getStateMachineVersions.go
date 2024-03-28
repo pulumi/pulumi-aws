@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS SFN (Step Functions) State Machine Versions.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sfn.GetStateMachineVersions(ctx, &sfn.GetStateMachineVersionsArgs{
-//				StatemachineArn: aws_sfn_state_machine.Test.Arn,
+//				StatemachineArn: testAwsSfnStateMachine.Arn,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetStateMachineVersions(ctx *pulumi.Context, args *GetStateMachineVersionsArgs, opts ...pulumi.InvokeOption) (*GetStateMachineVersionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetStateMachineVersionsResult

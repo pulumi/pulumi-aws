@@ -9,20 +9,27 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const _default = new aws.iam.SamlProvider("default", {samlMetadataDocument: fs.readFileSync("saml-metadata.xml")});
+ * const _default = new aws.iam.SamlProvider("default", {
+ *     name: "myprovider",
+ *     samlMetadataDocument: std.file({
+ *         input: "saml-metadata.xml",
+ *     }).then(invoke => invoke.result),
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IAM SAML Providers using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:iam/samlProvider:SamlProvider default arn:aws:iam::123456789012:saml-provider/SAMLADFS
+ * $ pulumi import aws:iam/samlProvider:SamlProvider default arn:aws:iam::123456789012:saml-provider/SAMLADFS
  * ```
  */
 export class SamlProvider extends pulumi.CustomResource {
@@ -112,8 +119,6 @@ export class SamlProvider extends pulumi.CustomResource {
             resourceInputs["validUntil"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SamlProvider.__pulumiType, name, resourceInputs, opts);
     }
 }

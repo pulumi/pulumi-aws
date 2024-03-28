@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Provides a resource to manage AWS Device Farm Device Pools.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,7 +47,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DevicePool(&#34;example&#34;, DevicePoolArgs.builder()        
- *             .projectArn(aws_devicefarm_project.example().arn())
+ *             .name(&#34;example&#34;)
+ *             .projectArn(exampleAwsDevicefarmProject.arn())
  *             .rules(DevicePoolRuleArgs.builder()
  *                 .attribute(&#34;OS_VERSION&#34;)
  *                 .operator(&#34;EQUALS&#34;)
@@ -56,13 +59,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import DeviceFarm Device Pools using their ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:devicefarm/devicePool:DevicePool example arn:aws:devicefarm:us-west-2:123456789012:devicepool:4fa784c7-ccb4-4dbf-ba4f-02198320daa1/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+ * $ pulumi import aws:devicefarm/devicePool:DevicePool example arn:aws:devicefarm:us-west-2:123456789012:devicepool:4fa784c7-ccb4-4dbf-ba4f-02198320daa1/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
  * ```
  * 
  */
@@ -223,9 +227,6 @@ public class DevicePool extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

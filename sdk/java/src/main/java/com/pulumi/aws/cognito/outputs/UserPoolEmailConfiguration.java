@@ -100,37 +100,42 @@ public final class UserPoolEmailConfiguration {
 
         @CustomType.Setter
         public Builder configurationSet(@Nullable String configurationSet) {
+
             this.configurationSet = configurationSet;
             return this;
         }
         @CustomType.Setter
         public Builder emailSendingAccount(@Nullable String emailSendingAccount) {
+
             this.emailSendingAccount = emailSendingAccount;
             return this;
         }
         @CustomType.Setter
         public Builder fromEmailAddress(@Nullable String fromEmailAddress) {
+
             this.fromEmailAddress = fromEmailAddress;
             return this;
         }
         @CustomType.Setter
         public Builder replyToEmailAddress(@Nullable String replyToEmailAddress) {
+
             this.replyToEmailAddress = replyToEmailAddress;
             return this;
         }
         @CustomType.Setter
         public Builder sourceArn(@Nullable String sourceArn) {
+
             this.sourceArn = sourceArn;
             return this;
         }
         public UserPoolEmailConfiguration build() {
-            final var o = new UserPoolEmailConfiguration();
-            o.configurationSet = configurationSet;
-            o.emailSendingAccount = emailSendingAccount;
-            o.fromEmailAddress = fromEmailAddress;
-            o.replyToEmailAddress = replyToEmailAddress;
-            o.sourceArn = sourceArn;
-            return o;
+            final var _resultValue = new UserPoolEmailConfiguration();
+            _resultValue.configurationSet = configurationSet;
+            _resultValue.emailSendingAccount = emailSendingAccount;
+            _resultValue.fromEmailAddress = fromEmailAddress;
+            _resultValue.replyToEmailAddress = replyToEmailAddress;
+            _resultValue.sourceArn = sourceArn;
+            return _resultValue;
         }
     }
 }

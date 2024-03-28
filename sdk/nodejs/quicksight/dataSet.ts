@@ -11,19 +11,22 @@ import * as utilities from "../utilities";
  * Resource for managing a QuickSight Data Set.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.DataSet("example", {
  *     dataSetId: "example-id",
+ *     name: "example-name",
  *     importMode: "SPICE",
  *     physicalTableMaps: [{
  *         physicalTableMapId: "example-id",
  *         s3Source: {
- *             dataSourceArn: aws_quicksight_data_source.example.arn,
+ *             dataSourceArn: exampleAwsQuicksightDataSource.arn,
  *             inputColumns: [{
  *                 name: "Column1",
  *                 type: "STRING",
@@ -35,19 +38,23 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Column Level Permission Rules
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.DataSet("example", {
  *     dataSetId: "example-id",
+ *     name: "example-name",
  *     importMode: "SPICE",
  *     physicalTableMaps: [{
  *         physicalTableMapId: "example-id",
  *         s3Source: {
- *             dataSourceArn: aws_quicksight_data_source.example.arn,
+ *             dataSourceArn: exampleAwsQuicksightDataSource.arn,
  *             inputColumns: [{
  *                 name: "Column1",
  *                 type: "STRING",
@@ -59,23 +66,27 @@ import * as utilities from "../utilities";
  *     }],
  *     columnLevelPermissionRules: [{
  *         columnNames: ["Column1"],
- *         principals: [aws_quicksight_user.example.arn],
+ *         principals: [exampleAwsQuicksightUser.arn],
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Field Folders
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.DataSet("example", {
  *     dataSetId: "example-id",
+ *     name: "example-name",
  *     importMode: "SPICE",
  *     physicalTableMaps: [{
  *         physicalTableMapId: "example-id",
  *         s3Source: {
- *             dataSourceArn: aws_quicksight_data_source.example.arn,
+ *             dataSourceArn: exampleAwsQuicksightDataSource.arn,
  *             inputColumns: [{
  *                 name: "Column1",
  *                 type: "STRING",
@@ -92,19 +103,23 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Permissions
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.DataSet("example", {
  *     dataSetId: "example-id",
+ *     name: "example-name",
  *     importMode: "SPICE",
  *     physicalTableMaps: [{
  *         physicalTableMapId: "example-id",
  *         s3Source: {
- *             dataSourceArn: aws_quicksight_data_source.example.arn,
+ *             dataSourceArn: exampleAwsQuicksightDataSource.arn,
  *             inputColumns: [{
  *                 name: "Column1",
  *                 type: "STRING",
@@ -122,23 +137,27 @@ import * as utilities from "../utilities";
  *             "quicksight:DescribeIngestion",
  *             "quicksight:ListIngestions",
  *         ],
- *         principal: aws_quicksight_user.example.arn,
+ *         principal: exampleAwsQuicksightUser.arn,
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Row Level Permission Tag Configuration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.DataSet("example", {
  *     dataSetId: "example-id",
+ *     name: "example-name",
  *     importMode: "SPICE",
  *     physicalTableMaps: [{
  *         physicalTableMapId: "example-id",
  *         s3Source: {
- *             dataSourceArn: aws_quicksight_data_source.example.arn,
+ *             dataSourceArn: exampleAwsQuicksightDataSource.arn,
  *             inputColumns: [{
  *                 name: "Column1",
  *                 type: "STRING",
@@ -159,13 +178,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a QuickSight Data Set using the AWS account ID and data set ID separated by a comma (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
+ * $ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
  * ```
  */
 export class DataSet extends pulumi.CustomResource {
@@ -329,8 +349,6 @@ export class DataSet extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(DataSet.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -27,6 +27,8 @@ public final class GlueFunctions {
      * This data source can be used to fetch information about an AWS Glue Data Catalog Table.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -49,13 +51,14 @@ public final class GlueFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GlueFunctions.getCatalogTable(GetCatalogTableArgs.builder()
-     *             .databaseName(&#34;MyCatalogDatabase&#34;)
      *             .name(&#34;MyCatalogTable&#34;)
+     *             .databaseName(&#34;MyCatalogDatabase&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCatalogTableResult> getCatalogTable(GetCatalogTableArgs args) {
@@ -65,6 +68,8 @@ public final class GlueFunctions {
      * This data source can be used to fetch information about an AWS Glue Data Catalog Table.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -87,13 +92,14 @@ public final class GlueFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GlueFunctions.getCatalogTable(GetCatalogTableArgs.builder()
-     *             .databaseName(&#34;MyCatalogDatabase&#34;)
      *             .name(&#34;MyCatalogTable&#34;)
+     *             .databaseName(&#34;MyCatalogDatabase&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCatalogTableResult> getCatalogTablePlain(GetCatalogTablePlainArgs args) {
@@ -103,6 +109,8 @@ public final class GlueFunctions {
      * This data source can be used to fetch information about an AWS Glue Data Catalog Table.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -125,13 +133,14 @@ public final class GlueFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GlueFunctions.getCatalogTable(GetCatalogTableArgs.builder()
-     *             .databaseName(&#34;MyCatalogDatabase&#34;)
      *             .name(&#34;MyCatalogTable&#34;)
+     *             .databaseName(&#34;MyCatalogDatabase&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCatalogTableResult> getCatalogTable(GetCatalogTableArgs args, InvokeOptions options) {
@@ -141,6 +150,8 @@ public final class GlueFunctions {
      * This data source can be used to fetch information about an AWS Glue Data Catalog Table.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -163,13 +174,14 @@ public final class GlueFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GlueFunctions.getCatalogTable(GetCatalogTableArgs.builder()
-     *             .databaseName(&#34;MyCatalogDatabase&#34;)
      *             .name(&#34;MyCatalogTable&#34;)
+     *             .databaseName(&#34;MyCatalogDatabase&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCatalogTableResult> getCatalogTablePlain(GetCatalogTablePlainArgs args, InvokeOptions options) {
@@ -179,6 +191,8 @@ public final class GlueFunctions {
      * This data source can be used to fetch information about a specific Glue Connection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -207,6 +221,7 @@ public final class GlueFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConnectionResult> getConnection(GetConnectionArgs args) {
@@ -216,6 +231,8 @@ public final class GlueFunctions {
      * This data source can be used to fetch information about a specific Glue Connection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -244,6 +261,7 @@ public final class GlueFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConnectionResult> getConnectionPlain(GetConnectionPlainArgs args) {
@@ -253,6 +271,8 @@ public final class GlueFunctions {
      * This data source can be used to fetch information about a specific Glue Connection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -281,6 +301,7 @@ public final class GlueFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConnectionResult> getConnection(GetConnectionArgs args, InvokeOptions options) {
@@ -290,6 +311,8 @@ public final class GlueFunctions {
      * This data source can be used to fetch information about a specific Glue Connection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -318,6 +341,7 @@ public final class GlueFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConnectionResult> getConnectionPlain(GetConnectionPlainArgs args, InvokeOptions options) {
@@ -328,6 +352,7 @@ public final class GlueFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -356,6 +381,7 @@ public final class GlueFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDataCatalogEncryptionSettingsResult> getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs args) {
@@ -366,6 +392,7 @@ public final class GlueFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -394,6 +421,7 @@ public final class GlueFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDataCatalogEncryptionSettingsResult> getDataCatalogEncryptionSettingsPlain(GetDataCatalogEncryptionSettingsPlainArgs args) {
@@ -404,6 +432,7 @@ public final class GlueFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -432,6 +461,7 @@ public final class GlueFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDataCatalogEncryptionSettingsResult> getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs args, InvokeOptions options) {
@@ -442,6 +472,7 @@ public final class GlueFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -470,6 +501,7 @@ public final class GlueFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDataCatalogEncryptionSettingsResult> getDataCatalogEncryptionSettingsPlain(GetDataCatalogEncryptionSettingsPlainArgs args, InvokeOptions options) {
@@ -479,7 +511,10 @@ public final class GlueFunctions {
      * Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
      * 
      * ## Example Usage
+     * 
      * ### Generate Python Script
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -527,11 +562,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_database.source().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, source.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.source().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, sourceAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
@@ -560,11 +595,11 @@ public final class GlueFunctions {
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_database.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
@@ -573,11 +608,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_database.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build())
      *             .build());
@@ -586,7 +621,11 @@ public final class GlueFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Generate Scala Code
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -634,11 +673,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_database.source().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, source.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.source().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, sourceAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
@@ -667,11 +706,11 @@ public final class GlueFunctions {
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_database.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
@@ -680,11 +719,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_database.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build())
      *             .build());
@@ -693,6 +732,7 @@ public final class GlueFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetScriptResult> getScript(GetScriptArgs args) {
@@ -702,7 +742,10 @@ public final class GlueFunctions {
      * Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
      * 
      * ## Example Usage
+     * 
      * ### Generate Python Script
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -750,11 +793,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_database.source().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, source.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.source().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, sourceAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
@@ -783,11 +826,11 @@ public final class GlueFunctions {
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_database.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
@@ -796,11 +839,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_database.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build())
      *             .build());
@@ -809,7 +852,11 @@ public final class GlueFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Generate Scala Code
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -857,11 +904,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_database.source().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, source.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.source().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, sourceAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
@@ -890,11 +937,11 @@ public final class GlueFunctions {
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_database.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
@@ -903,11 +950,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_database.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build())
      *             .build());
@@ -916,6 +963,7 @@ public final class GlueFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetScriptResult> getScriptPlain(GetScriptPlainArgs args) {
@@ -925,7 +973,10 @@ public final class GlueFunctions {
      * Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
      * 
      * ## Example Usage
+     * 
      * ### Generate Python Script
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -973,11 +1024,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_database.source().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, source.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.source().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, sourceAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
@@ -1006,11 +1057,11 @@ public final class GlueFunctions {
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_database.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
@@ -1019,11 +1070,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_database.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build())
      *             .build());
@@ -1032,7 +1083,11 @@ public final class GlueFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Generate Scala Code
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1080,11 +1135,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_database.source().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, source.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.source().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, sourceAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
@@ -1113,11 +1168,11 @@ public final class GlueFunctions {
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_database.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
@@ -1126,11 +1181,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_database.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build())
      *             .build());
@@ -1139,6 +1194,7 @@ public final class GlueFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetScriptResult> getScript(GetScriptArgs args, InvokeOptions options) {
@@ -1148,7 +1204,10 @@ public final class GlueFunctions {
      * Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
      * 
      * ## Example Usage
+     * 
      * ### Generate Python Script
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1196,11 +1255,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_database.source().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, source.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.source().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, sourceAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
@@ -1229,11 +1288,11 @@ public final class GlueFunctions {
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_database.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
@@ -1242,11 +1301,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_database.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build())
      *             .build());
@@ -1255,7 +1314,11 @@ public final class GlueFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Generate Scala Code
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1303,11 +1366,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_database.source().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, source.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.source().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, sourceAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
@@ -1336,11 +1399,11 @@ public final class GlueFunctions {
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_database.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build(),
      *                 GetScriptDagNodeArgs.builder()
@@ -1349,11 +1412,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;database&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_database.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destination.name()))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name(&#34;table_name&#34;)
-     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.destination().name()))
+     *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, destinationAwsGlueCatalogTable.name()))
      *                             .build())
      *                     .build())
      *             .build());
@@ -1362,6 +1425,7 @@ public final class GlueFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetScriptResult> getScriptPlain(GetScriptPlainArgs args, InvokeOptions options) {

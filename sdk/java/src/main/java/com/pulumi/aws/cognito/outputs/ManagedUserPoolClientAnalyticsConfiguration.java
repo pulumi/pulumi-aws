@@ -101,37 +101,42 @@ public final class ManagedUserPoolClientAnalyticsConfiguration {
 
         @CustomType.Setter
         public Builder applicationArn(@Nullable String applicationArn) {
+
             this.applicationArn = applicationArn;
             return this;
         }
         @CustomType.Setter
         public Builder applicationId(@Nullable String applicationId) {
+
             this.applicationId = applicationId;
             return this;
         }
         @CustomType.Setter
         public Builder externalId(@Nullable String externalId) {
+
             this.externalId = externalId;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(@Nullable String roleArn) {
+
             this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder userDataShared(@Nullable Boolean userDataShared) {
+
             this.userDataShared = userDataShared;
             return this;
         }
         public ManagedUserPoolClientAnalyticsConfiguration build() {
-            final var o = new ManagedUserPoolClientAnalyticsConfiguration();
-            o.applicationArn = applicationArn;
-            o.applicationId = applicationId;
-            o.externalId = externalId;
-            o.roleArn = roleArn;
-            o.userDataShared = userDataShared;
-            return o;
+            final var _resultValue = new ManagedUserPoolClientAnalyticsConfiguration();
+            _resultValue.applicationArn = applicationArn;
+            _resultValue.applicationId = applicationId;
+            _resultValue.externalId = externalId;
+            _resultValue.roleArn = roleArn;
+            _resultValue.userDataShared = userDataShared;
+            return _resultValue;
         }
     }
 }

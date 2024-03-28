@@ -22,19 +22,21 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** This resource must be created in the Organization master account or a delegated administrator account, and the Organization must have all features enabled. Every Organization account except those configured in the `excluded_accounts` argument must have a Configuration Recorder with proper IAM permissions before the Organization Conformance Pack will successfully create or update. See also the `aws.cfg.Recorder` resource.
  * 
  * ## Example Usage
+ * 
  * ### Using Template Body
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.organizations.Organization;
- * import com.pulumi.aws.organizations.OrganizationArgs;
  * import com.pulumi.aws.cfg.OrganizationConformancePack;
  * import com.pulumi.aws.cfg.OrganizationConformancePackArgs;
  * import com.pulumi.aws.cfg.inputs.OrganizationConformancePackInputParameterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.aws.organizations.Organization;
+ * import com.pulumi.aws.organizations.OrganizationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,12 +50,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleOrganization = new Organization(&#34;exampleOrganization&#34;, OrganizationArgs.builder()        
- *             .awsServiceAccessPrincipals(&#34;config-multiaccountsetup.amazonaws.com&#34;)
- *             .featureSet(&#34;ALL&#34;)
- *             .build());
- * 
- *         var exampleOrganizationConformancePack = new OrganizationConformancePack(&#34;exampleOrganizationConformancePack&#34;, OrganizationConformancePackArgs.builder()        
+ *         var example = new OrganizationConformancePack(&#34;example&#34;, OrganizationConformancePackArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .inputParameters(OrganizationConformancePackInputParameterArgs.builder()
  *                 .parameterName(&#34;AccessKeysRotatedParameterMaxAccessKeyAge&#34;)
  *                 .parameterValue(&#34;90&#34;)
@@ -71,30 +69,35 @@ import javax.annotation.Nullable;
  *         SourceIdentifier: IAM_PASSWORD_POLICY
  *     Type: AWS::Config::ConfigRule
  *             &#34;&#34;&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     aws_config_configuration_recorder.example(),
- *                     exampleOrganization)
- *                 .build());
+ *             .build());
+ * 
+ *         var exampleOrganization = new Organization(&#34;exampleOrganization&#34;, OrganizationArgs.builder()        
+ *             .awsServiceAccessPrincipals(&#34;config-multiaccountsetup.amazonaws.com&#34;)
+ *             .featureSet(&#34;ALL&#34;)
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Using Template S3 URI
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.organizations.Organization;
- * import com.pulumi.aws.organizations.OrganizationArgs;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.aws.cfg.OrganizationConformancePack;
  * import com.pulumi.aws.cfg.OrganizationConformancePackArgs;
- * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.aws.organizations.Organization;
+ * import com.pulumi.aws.organizations.OrganizationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -108,12 +111,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleOrganization = new Organization(&#34;exampleOrganization&#34;, OrganizationArgs.builder()        
- *             .awsServiceAccessPrincipals(&#34;config-multiaccountsetup.amazonaws.com&#34;)
- *             .featureSet(&#34;ALL&#34;)
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
  *             .build());
- * 
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
  * 
  *         var exampleBucketObjectv2 = new BucketObjectv2(&#34;exampleBucketObjectv2&#34;, BucketObjectv2Args.builder()        
  *             .bucket(exampleBucketV2.id())
@@ -130,28 +130,31 @@ import javax.annotation.Nullable;
  *             &#34;&#34;&#34;)
  *             .build());
  * 
- *         var exampleOrganizationConformancePack = new OrganizationConformancePack(&#34;exampleOrganizationConformancePack&#34;, OrganizationConformancePackArgs.builder()        
+ *         var example = new OrganizationConformancePack(&#34;example&#34;, OrganizationConformancePackArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .templateS3Uri(Output.tuple(exampleBucketV2.bucket(), exampleBucketObjectv2.key()).applyValue(values -&gt; {
  *                 var bucket = values.t1;
  *                 var key = values.t2;
  *                 return String.format(&#34;s3://%s/%s&#34;, bucket,key);
  *             }))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     aws_config_configuration_recorder.example(),
- *                     exampleOrganization)
- *                 .build());
+ *             .build());
+ * 
+ *         var exampleOrganization = new Organization(&#34;exampleOrganization&#34;, OrganizationArgs.builder()        
+ *             .awsServiceAccessPrincipals(&#34;config-multiaccountsetup.amazonaws.com&#34;)
+ *             .featureSet(&#34;ALL&#34;)
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Config Organization Conformance Packs using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
+ * $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
  * ```
  * 
  */

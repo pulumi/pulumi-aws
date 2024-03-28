@@ -20,12 +20,12 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dynamodb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -33,20 +33,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "us-east-1", &aws.ProviderArgs{
-//				Region: pulumi.String("us-east-1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = aws.NewProvider(ctx, "us-west-2", &aws.ProviderArgs{
-//				Region: pulumi.String("us-west-2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dynamodb.NewTable(ctx, "us-east-1Table", &dynamodb.TableArgs{
+//			_, err := dynamodb.NewTable(ctx, "us-east-1", &dynamodb.TableArgs{
 //				HashKey:        pulumi.String("myAttribute"),
+//				Name:           pulumi.String("myTable"),
 //				StreamEnabled:  pulumi.Bool(true),
 //				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
 //				ReadCapacity:   pulumi.Int(1),
@@ -57,12 +46,13 @@ import (
 //						Type: pulumi.String("S"),
 //					},
 //				},
-//			}, pulumi.Provider(aws.UsEast1))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = dynamodb.NewTable(ctx, "us-west-2Table", &dynamodb.TableArgs{
+//			_, err = dynamodb.NewTable(ctx, "us-west-2", &dynamodb.TableArgs{
 //				HashKey:        pulumi.String("myAttribute"),
+//				Name:           pulumi.String("myTable"),
 //				StreamEnabled:  pulumi.Bool(true),
 //				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
 //				ReadCapacity:   pulumi.Int(1),
@@ -73,11 +63,12 @@ import (
 //						Type: pulumi.String("S"),
 //					},
 //				},
-//			}, pulumi.Provider(aws.UsWest2))
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = dynamodb.NewGlobalTable(ctx, "myTable", &dynamodb.GlobalTableArgs{
+//				Name: pulumi.String("myTable"),
 //				Replicas: dynamodb.GlobalTableReplicaArray{
 //					&dynamodb.GlobalTableReplicaArgs{
 //						RegionName: pulumi.String("us-east-1"),
@@ -86,10 +77,7 @@ import (
 //						RegionName: pulumi.String("us-west-2"),
 //					},
 //				},
-//			}, pulumi.Provider(aws.UsEast1), pulumi.DependsOn([]pulumi.Resource{
-//				us_east_1Table,
-//				us_west_2Table,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -98,15 +86,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DynamoDB Global Tables using the global table name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
-//
+// $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
 // ```
 type GlobalTable struct {
 	pulumi.CustomResourceState

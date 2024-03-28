@@ -14,8 +14,10 @@ import (
 // Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `secretsmanager.Secret` data source. To retrieve a secret value, see the `secretsmanager.SecretVersion` data source.
 //
 // ## Example Usage
+//
 // ### Retrieve Secret Rotation Configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := secretsmanager.LookupSecretRotation(ctx, &secretsmanager.LookupSecretRotationArgs{
-//				SecretId: data.Aws_secretsmanager_secret.Example.Id,
+//				SecretId: exampleAwsSecretsmanagerSecret.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupSecretRotation(ctx *pulumi.Context, args *LookupSecretRotationArgs, opts ...pulumi.InvokeOption) (*LookupSecretRotationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecretRotationResult

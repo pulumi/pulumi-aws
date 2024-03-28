@@ -24,7 +24,10 @@ import javax.annotation.Nullable;
  * More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,14 +50,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Integration(&#34;example&#34;, IntegrationArgs.builder()        
- *             .apiId(aws_apigatewayv2_api.example().id())
+ *             .apiId(exampleAwsApigatewayv2Api.id())
  *             .integrationType(&#34;MOCK&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Lambda Integration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -79,28 +86,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleFunction = new Function(&#34;exampleFunction&#34;, FunctionArgs.builder()        
+ *         var example = new Function(&#34;example&#34;, FunctionArgs.builder()        
  *             .code(new FileArchive(&#34;example.zip&#34;))
- *             .role(aws_iam_role.example().arn())
+ *             .name(&#34;Example&#34;)
+ *             .role(exampleAwsIamRole.arn())
  *             .handler(&#34;index.handler&#34;)
  *             .runtime(&#34;nodejs16.x&#34;)
  *             .build());
  * 
  *         var exampleIntegration = new Integration(&#34;exampleIntegration&#34;, IntegrationArgs.builder()        
- *             .apiId(aws_apigatewayv2_api.example().id())
+ *             .apiId(exampleAwsApigatewayv2Api.id())
  *             .integrationType(&#34;AWS_PROXY&#34;)
  *             .connectionType(&#34;INTERNET&#34;)
  *             .contentHandlingStrategy(&#34;CONVERT_TO_TEXT&#34;)
  *             .description(&#34;Lambda example&#34;)
  *             .integrationMethod(&#34;POST&#34;)
- *             .integrationUri(exampleFunction.invokeArn())
+ *             .integrationUri(example.invokeArn())
  *             .passthroughBehavior(&#34;WHEN_NO_MATCH&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### AWS Service Integration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -123,8 +135,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Integration(&#34;example&#34;, IntegrationArgs.builder()        
- *             .apiId(aws_apigatewayv2_api.example().id())
- *             .credentialsArn(aws_iam_role.example().arn())
+ *             .apiId(exampleAwsApigatewayv2Api.id())
+ *             .credentialsArn(exampleAwsIamRole.arn())
  *             .description(&#34;SQS example&#34;)
  *             .integrationType(&#34;AWS_PROXY&#34;)
  *             .integrationSubtype(&#34;SQS-SendMessage&#34;)
@@ -137,7 +149,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Private Integration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -162,14 +178,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Integration(&#34;example&#34;, IntegrationArgs.builder()        
- *             .apiId(aws_apigatewayv2_api.example().id())
- *             .credentialsArn(aws_iam_role.example().arn())
+ *             .apiId(exampleAwsApigatewayv2Api.id())
+ *             .credentialsArn(exampleAwsIamRole.arn())
  *             .description(&#34;Example with a load balancer&#34;)
  *             .integrationType(&#34;HTTP_PROXY&#34;)
- *             .integrationUri(aws_lb_listener.example().arn())
+ *             .integrationUri(exampleAwsLbListener.arn())
  *             .integrationMethod(&#34;ANY&#34;)
  *             .connectionType(&#34;VPC_LINK&#34;)
- *             .connectionId(aws_apigatewayv2_vpc_link.example().id())
+ *             .connectionId(exampleAwsApigatewayv2VpcLink.id())
  *             .tlsConfig(IntegrationTlsConfigArgs.builder()
  *                 .serverNameToVerify(&#34;example.com&#34;)
  *                 .build())
@@ -191,15 +207,16 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_apigatewayv2_integration` using the API identifier and integration identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigatewayv2/integration:Integration example aabbccddee/1122334
+ * $ pulumi import aws:apigatewayv2/integration:Integration example aabbccddee/1122334
  * ```
- *  -&gt; __Note:__ The API Gateway managed integration created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
+ * -&gt; __Note:__ The API Gateway managed integration created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
  * 
  */
 @ResourceType(type="aws:apigatewayv2/integration:Integration")

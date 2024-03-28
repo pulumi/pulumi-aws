@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Kms
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,13 +31,14 @@ namespace Pulumi.Aws.Kms
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import KMS External Keys using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:kms/externalKey:ExternalKey a arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
+    /// $ pulumi import aws:kms/externalKey:ExternalKey a arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
     /// ```
     /// </summary>
     [AwsResourceType("aws:kms/externalKey:ExternalKey")]
@@ -152,7 +154,6 @@ namespace Pulumi.Aws.Kms
                 AdditionalSecretOutputs =
                 {
                     "keyMaterialBase64",
-                    "tagsAll",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -353,11 +354,7 @@ namespace Pulumi.Aws.Kms
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

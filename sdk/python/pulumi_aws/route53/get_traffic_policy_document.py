@@ -123,14 +123,16 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[pulumi.InputType['G
     Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `route53.TrafficPolicy`.
 
     ## Example Usage
+
     ### Basic Example
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     current = aws.get_region()
-    example_traffic_policy_document = aws.route53.get_traffic_policy_document(record_type="A",
+    example = aws.route53.get_traffic_policy_document(record_type="A",
         start_rule="site_switch",
         endpoints=[
             aws.route53.GetTrafficPolicyDocumentEndpointArgs(
@@ -155,19 +157,23 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[pulumi.InputType['G
                 endpoint_reference="site_down_banner",
             ),
         )])
-    example_traffic_policy = aws.route53.TrafficPolicy("exampleTrafficPolicy",
+    example_traffic_policy = aws.route53.TrafficPolicy("example",
+        name="example",
         comment="example comment",
-        document=example_traffic_policy_document.json)
+        document=example.json)
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Complex Example
 
     The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example_traffic_policy_document = aws.route53.get_traffic_policy_document(record_type="A",
+    example = aws.route53.get_traffic_policy_document(record_type="A",
         start_rule="geoproximity_rule",
         endpoints=[
             aws.route53.GetTrafficPolicyDocumentEndpointArgs(
@@ -227,10 +233,12 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[pulumi.InputType['G
                 ],
             ),
         ])
-    example_traffic_policy = aws.route53.TrafficPolicy("exampleTrafficPolicy",
+    example_traffic_policy = aws.route53.TrafficPolicy("example",
+        name="example",
         comment="example comment",
-        document=example_traffic_policy_document.json)
+        document=example.json)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetTrafficPolicyDocumentEndpointArgs']] endpoints: Configuration block for the definitions of the endpoints that you want to use in this traffic policy. See below
@@ -273,14 +281,16 @@ def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional
     Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `route53.TrafficPolicy`.
 
     ## Example Usage
+
     ### Basic Example
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     current = aws.get_region()
-    example_traffic_policy_document = aws.route53.get_traffic_policy_document(record_type="A",
+    example = aws.route53.get_traffic_policy_document(record_type="A",
         start_rule="site_switch",
         endpoints=[
             aws.route53.GetTrafficPolicyDocumentEndpointArgs(
@@ -305,19 +315,23 @@ def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional
                 endpoint_reference="site_down_banner",
             ),
         )])
-    example_traffic_policy = aws.route53.TrafficPolicy("exampleTrafficPolicy",
+    example_traffic_policy = aws.route53.TrafficPolicy("example",
+        name="example",
         comment="example comment",
-        document=example_traffic_policy_document.json)
+        document=example.json)
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Complex Example
 
     The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example_traffic_policy_document = aws.route53.get_traffic_policy_document(record_type="A",
+    example = aws.route53.get_traffic_policy_document(record_type="A",
         start_rule="geoproximity_rule",
         endpoints=[
             aws.route53.GetTrafficPolicyDocumentEndpointArgs(
@@ -377,10 +391,12 @@ def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional
                 ],
             ),
         ])
-    example_traffic_policy = aws.route53.TrafficPolicy("exampleTrafficPolicy",
+    example_traffic_policy = aws.route53.TrafficPolicy("example",
+        name="example",
         comment="example comment",
-        document=example_traffic_policy_document.json)
+        document=example.json)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetTrafficPolicyDocumentEndpointArgs']] endpoints: Configuration block for the definitions of the endpoints that you want to use in this traffic policy. See below

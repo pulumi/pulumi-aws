@@ -12,24 +12,26 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.ec2.CapacityReservation("default", {
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
+ *     instancePlatform: aws.ec2.InstancePlatform.LinuxUnix,
  *     availabilityZone: "eu-west-1a",
  *     instanceCount: 1,
- *     instancePlatform: "Linux/UNIX",
- *     instanceType: "t2.micro",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Capacity Reservations using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
+ * $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
  * ```
  */
 export class CapacityReservation extends pulumi.CustomResource {
@@ -188,8 +190,6 @@ export class CapacityReservation extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(CapacityReservation.__pulumiType, name, resourceInputs, opts);
     }
 }

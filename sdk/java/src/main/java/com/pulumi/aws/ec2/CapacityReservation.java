@@ -13,7 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides an EC2 Capacity Reservation. This allows you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,22 +45,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new CapacityReservation(&#34;default&#34;, CapacityReservationArgs.builder()        
+ *             .instanceType(&#34;t2.micro&#34;)
+ *             .instancePlatform(&#34;Linux/UNIX&#34;)
  *             .availabilityZone(&#34;eu-west-1a&#34;)
  *             .instanceCount(1)
- *             .instancePlatform(&#34;Linux/UNIX&#34;)
- *             .instanceType(&#34;t2.micro&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Capacity Reservations using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
+ * $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
  * ```
  * 
  */
@@ -326,9 +328,6 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

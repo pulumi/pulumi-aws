@@ -4,6 +4,7 @@
 package com.pulumi.aws.appstream.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -75,11 +76,15 @@ public final class StackStorageConnector {
 
         @CustomType.Setter
         public Builder connectorType(String connectorType) {
-            this.connectorType = Objects.requireNonNull(connectorType);
+            if (connectorType == null) {
+              throw new MissingRequiredPropertyException("StackStorageConnector", "connectorType");
+            }
+            this.connectorType = connectorType;
             return this;
         }
         @CustomType.Setter
         public Builder domains(@Nullable List<String> domains) {
+
             this.domains = domains;
             return this;
         }
@@ -88,15 +93,16 @@ public final class StackStorageConnector {
         }
         @CustomType.Setter
         public Builder resourceIdentifier(@Nullable String resourceIdentifier) {
+
             this.resourceIdentifier = resourceIdentifier;
             return this;
         }
         public StackStorageConnector build() {
-            final var o = new StackStorageConnector();
-            o.connectorType = connectorType;
-            o.domains = domains;
-            o.resourceIdentifier = resourceIdentifier;
-            return o;
+            final var _resultValue = new StackStorageConnector();
+            _resultValue.connectorType = connectorType;
+            _resultValue.domains = domains;
+            _resultValue.resourceIdentifier = resourceIdentifier;
+            return _resultValue;
         }
     }
 }

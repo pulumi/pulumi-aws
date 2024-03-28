@@ -15,8 +15,10 @@ import (
 // Provides an custom engine version (CEV) resource for Amazon RDS Custom. For additional information, see [Working with CEVs for RDS Custom for Oracle](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html) and [Working with CEVs for RDS Custom for SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev-sqlserver.html) in the the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html).
 //
 // ## Example Usage
+//
 // ### RDS Custom for Oracle Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,18 +32,18 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				Description: pulumi.String("KMS symmetric key for RDS Custom for Oracle"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = rds.NewCustomDbEngineVersion(ctx, "exampleCustomDbEngineVersion", &rds.CustomDbEngineVersionArgs{
+//			_, err = rds.NewCustomDbEngineVersion(ctx, "example", &rds.CustomDbEngineVersionArgs{
 //				DatabaseInstallationFilesS3BucketName: pulumi.String("DOC-EXAMPLE-BUCKET"),
 //				DatabaseInstallationFilesS3Prefix:     pulumi.String("1915_GI/"),
 //				Engine:                                pulumi.String("custom-oracle-ee-cdb"),
 //				EngineVersion:                         pulumi.String("19.cdb_cev1"),
-//				KmsKeyId:                              exampleKey.Arn,
+//				KmsKeyId:                              example.Arn,
 //				Manifest:                              pulumi.String("  {\n	\"databaseInstallationFileNames\":[\"V982063-01.zip\"]\n  }\n"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example"),
@@ -56,48 +58,45 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### RDS Custom for Oracle External Manifest Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"crypto/sha256"
-//	"fmt"
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func filebase64sha256OrPanic(path string) pulumi.StringPtrInput {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			hashedData := sha256.Sum256([]byte(fileData))
-//			return pulumi.String(base64.StdEncoding.EncodeToString(hashedData[:]))
-//		} else {
-//			panic(err.Error())
-//		}
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				Description: pulumi.String("KMS symmetric key for RDS Custom for Oracle"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = rds.NewCustomDbEngineVersion(ctx, "exampleCustomDbEngineVersion", &rds.CustomDbEngineVersionArgs{
+//			invokeFilebase64sha256, err := std.Filebase64sha256(ctx, &std.Filebase64sha256Args{
+//				Input: json,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = rds.NewCustomDbEngineVersion(ctx, "example", &rds.CustomDbEngineVersionArgs{
 //				DatabaseInstallationFilesS3BucketName: pulumi.String("DOC-EXAMPLE-BUCKET"),
 //				DatabaseInstallationFilesS3Prefix:     pulumi.String("1915_GI/"),
 //				Engine:                                pulumi.String("custom-oracle-ee-cdb"),
 //				EngineVersion:                         pulumi.String("19.cdb_cev1"),
-//				KmsKeyId:                              exampleKey.Arn,
+//				KmsKeyId:                              example.Arn,
 //				Filename:                              pulumi.String("manifest_1915_GI.json"),
-//				ManifestHash:                          filebase64sha256OrPanic(manifest_1915_GI.Json),
+//				ManifestHash:                          invokeFilebase64sha256.Result,
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example"),
 //					"Key":  pulumi.String("value"),
@@ -111,8 +110,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### RDS Custom for SQL Server Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -125,6 +127,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// CEV creation requires an AMI owned by the operator
 //			_, err := rds.NewCustomDbEngineVersion(ctx, "test", &rds.CustomDbEngineVersionArgs{
 //				Engine:        pulumi.String("custom-sqlserver-se"),
 //				EngineVersion: pulumi.String("15.00.4249.2.cev-1"),
@@ -138,8 +141,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### RDS Custom for SQL Server Usage with AMI from another region
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -154,6 +160,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := ec2.NewAmiCopy(ctx, "example", &ec2.AmiCopyArgs{
+//				Name:            pulumi.String("sqlserver-se-2019-15.00.4249.2"),
 //				Description:     pulumi.String("A copy of ami-xxxxxxxx"),
 //				SourceAmiId:     pulumi.String("ami-xxxxxxxx"),
 //				SourceAmiRegion: pulumi.String("us-east-1"),
@@ -161,6 +168,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// CEV creation requires an AMI owned by the operator
 //			_, err = rds.NewCustomDbEngineVersion(ctx, "test", &rds.CustomDbEngineVersionArgs{
 //				Engine:        pulumi.String("custom-sqlserver-se"),
 //				EngineVersion: pulumi.String("15.00.4249.2.cev-1"),
@@ -174,15 +182,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import custom engine versions for Amazon RDS custom using the `engine` and `engine_version` separated by a colon (`:`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:rds/customDbEngineVersion:CustomDbEngineVersion example custom-oracle-ee-cdb:19.cdb_cev1
-//
+// $ pulumi import aws:rds/customDbEngineVersion:CustomDbEngineVersion example custom-oracle-ee-cdb:19.cdb_cev1
 // ```
 type CustomDbEngineVersion struct {
 	pulumi.CustomResourceState
@@ -242,10 +249,6 @@ func NewCustomDbEngineVersion(ctx *pulumi.Context,
 	if args.EngineVersion == nil {
 		return nil, errors.New("invalid value for required argument 'EngineVersion'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomDbEngineVersion
 	err := ctx.RegisterResource("aws:rds/customDbEngineVersion:CustomDbEngineVersion", name, args, &resource, opts...)

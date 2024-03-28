@@ -13,6 +13,16 @@ from ._enums import *
 __all__ = [
     'AssociationOutputLocationArgs',
     'AssociationTargetArgs',
+    'ContactsRotationRecurrenceArgs',
+    'ContactsRotationRecurrenceDailySettingArgs',
+    'ContactsRotationRecurrenceMonthlySettingArgs',
+    'ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs',
+    'ContactsRotationRecurrenceShiftCoverageArgs',
+    'ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs',
+    'ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs',
+    'ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs',
+    'ContactsRotationRecurrenceWeeklySettingArgs',
+    'ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs',
     'DocumentAttachmentsSourceArgs',
     'DocumentParameterArgs',
     'MaintenanceWindowTargetTargetArgs',
@@ -128,6 +138,437 @@ class AssociationTargetArgs:
     @values.setter
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class ContactsRotationRecurrenceArgs:
+    def __init__(__self__, *,
+                 number_of_on_calls: pulumi.Input[int],
+                 recurrence_multiplier: pulumi.Input[int],
+                 daily_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceDailySettingArgs']]]] = None,
+                 monthly_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceMonthlySettingArgs']]]] = None,
+                 shift_coverages: Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageArgs']]]] = None,
+                 weekly_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceWeeklySettingArgs']]]] = None):
+        """
+        :param pulumi.Input[int] number_of_on_calls: (Required) The number of contacts, or shift team members designated to be on call concurrently during a shift.
+        :param pulumi.Input[int] recurrence_multiplier: (Required) The number of days, weeks, or months a single rotation lasts.
+        :param pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceMonthlySettingArgs']]] monthly_settings: (Optional) Information about on-call rotations that recur monthly. See Monthly Settings for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageArgs']]] shift_coverages: (Optional) Information about the days of the week that the on-call rotation coverage includes. See Shift Coverages for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceWeeklySettingArgs']]] weekly_settings: (Optional) Information about on-call rotations that recur weekly. See Weekly Settings for more details.
+        """
+        pulumi.set(__self__, "number_of_on_calls", number_of_on_calls)
+        pulumi.set(__self__, "recurrence_multiplier", recurrence_multiplier)
+        if daily_settings is not None:
+            pulumi.set(__self__, "daily_settings", daily_settings)
+        if monthly_settings is not None:
+            pulumi.set(__self__, "monthly_settings", monthly_settings)
+        if shift_coverages is not None:
+            pulumi.set(__self__, "shift_coverages", shift_coverages)
+        if weekly_settings is not None:
+            pulumi.set(__self__, "weekly_settings", weekly_settings)
+
+    @property
+    @pulumi.getter(name="numberOfOnCalls")
+    def number_of_on_calls(self) -> pulumi.Input[int]:
+        """
+        (Required) The number of contacts, or shift team members designated to be on call concurrently during a shift.
+        """
+        return pulumi.get(self, "number_of_on_calls")
+
+    @number_of_on_calls.setter
+    def number_of_on_calls(self, value: pulumi.Input[int]):
+        pulumi.set(self, "number_of_on_calls", value)
+
+    @property
+    @pulumi.getter(name="recurrenceMultiplier")
+    def recurrence_multiplier(self) -> pulumi.Input[int]:
+        """
+        (Required) The number of days, weeks, or months a single rotation lasts.
+        """
+        return pulumi.get(self, "recurrence_multiplier")
+
+    @recurrence_multiplier.setter
+    def recurrence_multiplier(self, value: pulumi.Input[int]):
+        pulumi.set(self, "recurrence_multiplier", value)
+
+    @property
+    @pulumi.getter(name="dailySettings")
+    def daily_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceDailySettingArgs']]]]:
+        return pulumi.get(self, "daily_settings")
+
+    @daily_settings.setter
+    def daily_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceDailySettingArgs']]]]):
+        pulumi.set(self, "daily_settings", value)
+
+    @property
+    @pulumi.getter(name="monthlySettings")
+    def monthly_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceMonthlySettingArgs']]]]:
+        """
+        (Optional) Information about on-call rotations that recur monthly. See Monthly Settings for more details.
+        """
+        return pulumi.get(self, "monthly_settings")
+
+    @monthly_settings.setter
+    def monthly_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceMonthlySettingArgs']]]]):
+        pulumi.set(self, "monthly_settings", value)
+
+    @property
+    @pulumi.getter(name="shiftCoverages")
+    def shift_coverages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageArgs']]]]:
+        """
+        (Optional) Information about the days of the week that the on-call rotation coverage includes. See Shift Coverages for more details.
+        """
+        return pulumi.get(self, "shift_coverages")
+
+    @shift_coverages.setter
+    def shift_coverages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageArgs']]]]):
+        pulumi.set(self, "shift_coverages", value)
+
+    @property
+    @pulumi.getter(name="weeklySettings")
+    def weekly_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceWeeklySettingArgs']]]]:
+        """
+        (Optional) Information about on-call rotations that recur weekly. See Weekly Settings for more details.
+        """
+        return pulumi.get(self, "weekly_settings")
+
+    @weekly_settings.setter
+    def weekly_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceWeeklySettingArgs']]]]):
+        pulumi.set(self, "weekly_settings", value)
+
+
+@pulumi.input_type
+class ContactsRotationRecurrenceDailySettingArgs:
+    def __init__(__self__, *,
+                 hour_of_day: pulumi.Input[int],
+                 minute_of_hour: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] hour_of_day: (Required) The hour of the day.
+        :param pulumi.Input[int] minute_of_hour: (Required) The minutes of the hour.
+        """
+        pulumi.set(__self__, "hour_of_day", hour_of_day)
+        pulumi.set(__self__, "minute_of_hour", minute_of_hour)
+
+    @property
+    @pulumi.getter(name="hourOfDay")
+    def hour_of_day(self) -> pulumi.Input[int]:
+        """
+        (Required) The hour of the day.
+        """
+        return pulumi.get(self, "hour_of_day")
+
+    @hour_of_day.setter
+    def hour_of_day(self, value: pulumi.Input[int]):
+        pulumi.set(self, "hour_of_day", value)
+
+    @property
+    @pulumi.getter(name="minuteOfHour")
+    def minute_of_hour(self) -> pulumi.Input[int]:
+        """
+        (Required) The minutes of the hour.
+        """
+        return pulumi.get(self, "minute_of_hour")
+
+    @minute_of_hour.setter
+    def minute_of_hour(self, value: pulumi.Input[int]):
+        pulumi.set(self, "minute_of_hour", value)
+
+
+@pulumi.input_type
+class ContactsRotationRecurrenceMonthlySettingArgs:
+    def __init__(__self__, *,
+                 day_of_month: pulumi.Input[int],
+                 hand_off_time: Optional[pulumi.Input['ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs']] = None):
+        """
+        :param pulumi.Input[int] day_of_month: (Required) The day of the month when monthly recurring on-call rotations begin.
+        :param pulumi.Input['ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs'] hand_off_time: (Required) The hand off time. See Hand Off Time for more details.
+        """
+        pulumi.set(__self__, "day_of_month", day_of_month)
+        if hand_off_time is not None:
+            pulumi.set(__self__, "hand_off_time", hand_off_time)
+
+    @property
+    @pulumi.getter(name="dayOfMonth")
+    def day_of_month(self) -> pulumi.Input[int]:
+        """
+        (Required) The day of the month when monthly recurring on-call rotations begin.
+        """
+        return pulumi.get(self, "day_of_month")
+
+    @day_of_month.setter
+    def day_of_month(self, value: pulumi.Input[int]):
+        pulumi.set(self, "day_of_month", value)
+
+    @property
+    @pulumi.getter(name="handOffTime")
+    def hand_off_time(self) -> Optional[pulumi.Input['ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs']]:
+        """
+        (Required) The hand off time. See Hand Off Time for more details.
+        """
+        return pulumi.get(self, "hand_off_time")
+
+    @hand_off_time.setter
+    def hand_off_time(self, value: Optional[pulumi.Input['ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs']]):
+        pulumi.set(self, "hand_off_time", value)
+
+
+@pulumi.input_type
+class ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs:
+    def __init__(__self__, *,
+                 hour_of_day: pulumi.Input[int],
+                 minute_of_hour: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] hour_of_day: (Required) The hour of the day.
+        :param pulumi.Input[int] minute_of_hour: (Required) The minutes of the hour.
+        """
+        pulumi.set(__self__, "hour_of_day", hour_of_day)
+        pulumi.set(__self__, "minute_of_hour", minute_of_hour)
+
+    @property
+    @pulumi.getter(name="hourOfDay")
+    def hour_of_day(self) -> pulumi.Input[int]:
+        """
+        (Required) The hour of the day.
+        """
+        return pulumi.get(self, "hour_of_day")
+
+    @hour_of_day.setter
+    def hour_of_day(self, value: pulumi.Input[int]):
+        pulumi.set(self, "hour_of_day", value)
+
+    @property
+    @pulumi.getter(name="minuteOfHour")
+    def minute_of_hour(self) -> pulumi.Input[int]:
+        """
+        (Required) The minutes of the hour.
+        """
+        return pulumi.get(self, "minute_of_hour")
+
+    @minute_of_hour.setter
+    def minute_of_hour(self, value: pulumi.Input[int]):
+        pulumi.set(self, "minute_of_hour", value)
+
+
+@pulumi.input_type
+class ContactsRotationRecurrenceShiftCoverageArgs:
+    def __init__(__self__, *,
+                 map_block_key: pulumi.Input[str],
+                 coverage_times: Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs']]] coverage_times: (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
+        """
+        pulumi.set(__self__, "map_block_key", map_block_key)
+        if coverage_times is not None:
+            pulumi.set(__self__, "coverage_times", coverage_times)
+
+    @property
+    @pulumi.getter(name="mapBlockKey")
+    def map_block_key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "map_block_key")
+
+    @map_block_key.setter
+    def map_block_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "map_block_key", value)
+
+    @property
+    @pulumi.getter(name="coverageTimes")
+    def coverage_times(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs']]]]:
+        """
+        (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
+        """
+        return pulumi.get(self, "coverage_times")
+
+    @coverage_times.setter
+    def coverage_times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs']]]]):
+        pulumi.set(self, "coverage_times", value)
+
+
+@pulumi.input_type
+class ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs:
+    def __init__(__self__, *,
+                 end: Optional[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs']] = None,
+                 start: Optional[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs']] = None):
+        """
+        :param pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs'] end: (Required) The end time of the on-call shift. See Hand Off Time for more details.
+        :param pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs'] start: (Required) The start time of the on-call shift. See Hand Off Time for more details.
+        """
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def end(self) -> Optional[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs']]:
+        """
+        (Required) The end time of the on-call shift. See Hand Off Time for more details.
+        """
+        return pulumi.get(self, "end")
+
+    @end.setter
+    def end(self, value: Optional[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs']]):
+        pulumi.set(self, "end", value)
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs']]:
+        """
+        (Required) The start time of the on-call shift. See Hand Off Time for more details.
+        """
+        return pulumi.get(self, "start")
+
+    @start.setter
+    def start(self, value: Optional[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs']]):
+        pulumi.set(self, "start", value)
+
+
+@pulumi.input_type
+class ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs:
+    def __init__(__self__, *,
+                 hour_of_day: pulumi.Input[int],
+                 minute_of_hour: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] hour_of_day: (Required) The hour of the day.
+        :param pulumi.Input[int] minute_of_hour: (Required) The minutes of the hour.
+        """
+        pulumi.set(__self__, "hour_of_day", hour_of_day)
+        pulumi.set(__self__, "minute_of_hour", minute_of_hour)
+
+    @property
+    @pulumi.getter(name="hourOfDay")
+    def hour_of_day(self) -> pulumi.Input[int]:
+        """
+        (Required) The hour of the day.
+        """
+        return pulumi.get(self, "hour_of_day")
+
+    @hour_of_day.setter
+    def hour_of_day(self, value: pulumi.Input[int]):
+        pulumi.set(self, "hour_of_day", value)
+
+    @property
+    @pulumi.getter(name="minuteOfHour")
+    def minute_of_hour(self) -> pulumi.Input[int]:
+        """
+        (Required) The minutes of the hour.
+        """
+        return pulumi.get(self, "minute_of_hour")
+
+    @minute_of_hour.setter
+    def minute_of_hour(self, value: pulumi.Input[int]):
+        pulumi.set(self, "minute_of_hour", value)
+
+
+@pulumi.input_type
+class ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs:
+    def __init__(__self__, *,
+                 hour_of_day: pulumi.Input[int],
+                 minute_of_hour: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] hour_of_day: (Required) The hour of the day.
+        :param pulumi.Input[int] minute_of_hour: (Required) The minutes of the hour.
+        """
+        pulumi.set(__self__, "hour_of_day", hour_of_day)
+        pulumi.set(__self__, "minute_of_hour", minute_of_hour)
+
+    @property
+    @pulumi.getter(name="hourOfDay")
+    def hour_of_day(self) -> pulumi.Input[int]:
+        """
+        (Required) The hour of the day.
+        """
+        return pulumi.get(self, "hour_of_day")
+
+    @hour_of_day.setter
+    def hour_of_day(self, value: pulumi.Input[int]):
+        pulumi.set(self, "hour_of_day", value)
+
+    @property
+    @pulumi.getter(name="minuteOfHour")
+    def minute_of_hour(self) -> pulumi.Input[int]:
+        """
+        (Required) The minutes of the hour.
+        """
+        return pulumi.get(self, "minute_of_hour")
+
+    @minute_of_hour.setter
+    def minute_of_hour(self, value: pulumi.Input[int]):
+        pulumi.set(self, "minute_of_hour", value)
+
+
+@pulumi.input_type
+class ContactsRotationRecurrenceWeeklySettingArgs:
+    def __init__(__self__, *,
+                 day_of_week: pulumi.Input[str],
+                 hand_off_time: Optional[pulumi.Input['ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs']] = None):
+        """
+        :param pulumi.Input[str] day_of_week: (Required) The day of the week when the shift coverage occurs.
+        :param pulumi.Input['ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs'] hand_off_time: (Required) The hand off time. See Hand Off Time for more details.
+        """
+        pulumi.set(__self__, "day_of_week", day_of_week)
+        if hand_off_time is not None:
+            pulumi.set(__self__, "hand_off_time", hand_off_time)
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> pulumi.Input[str]:
+        """
+        (Required) The day of the week when the shift coverage occurs.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @day_of_week.setter
+    def day_of_week(self, value: pulumi.Input[str]):
+        pulumi.set(self, "day_of_week", value)
+
+    @property
+    @pulumi.getter(name="handOffTime")
+    def hand_off_time(self) -> Optional[pulumi.Input['ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs']]:
+        """
+        (Required) The hand off time. See Hand Off Time for more details.
+        """
+        return pulumi.get(self, "hand_off_time")
+
+    @hand_off_time.setter
+    def hand_off_time(self, value: Optional[pulumi.Input['ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs']]):
+        pulumi.set(self, "hand_off_time", value)
+
+
+@pulumi.input_type
+class ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs:
+    def __init__(__self__, *,
+                 hour_of_day: pulumi.Input[int],
+                 minute_of_hour: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] hour_of_day: (Required) The hour of the day.
+        :param pulumi.Input[int] minute_of_hour: (Required) The minutes of the hour.
+        """
+        pulumi.set(__self__, "hour_of_day", hour_of_day)
+        pulumi.set(__self__, "minute_of_hour", minute_of_hour)
+
+    @property
+    @pulumi.getter(name="hourOfDay")
+    def hour_of_day(self) -> pulumi.Input[int]:
+        """
+        (Required) The hour of the day.
+        """
+        return pulumi.get(self, "hour_of_day")
+
+    @hour_of_day.setter
+    def hour_of_day(self, value: pulumi.Input[int]):
+        pulumi.set(self, "hour_of_day", value)
+
+    @property
+    @pulumi.getter(name="minuteOfHour")
+    def minute_of_hour(self) -> pulumi.Input[int]:
+        """
+        (Required) The minutes of the hour.
+        """
+        return pulumi.get(self, "minute_of_hour")
+
+    @minute_of_hour.setter
+    def minute_of_hour(self, value: pulumi.Input[int]):
+        pulumi.set(self, "minute_of_hour", value)
 
 
 @pulumi.input_type
@@ -870,23 +1311,11 @@ class PatchBaselineApprovalRuleArgs:
                  compliance_level: Optional[pulumi.Input[str]] = None,
                  enable_non_security: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRulePatchFilterArgs']]] patch_filters: The patch filter group that defines the criteria for the rule.
-               Up to 5 patch filters can be specified per approval rule using Key/Value pairs.
-               Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html).
-               Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
-        :param pulumi.Input[int] approve_after_days: The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
-               Valid Range: 0 to 100.
-               Conflicts with `approve_until_date`.
-        :param pulumi.Input[str] approve_until_date: The cutoff date for auto approval of released patches.
-               Any patches released on or before this date are installed automatically.
-               Date is formatted as `YYYY-MM-DD`.
-               Conflicts with `approve_after_days`
-        :param pulumi.Input[str] compliance_level: The compliance level for patches approved by this rule.
-               Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`.
-               The default value is `UNSPECIFIED`.
-        :param pulumi.Input[bool] enable_non_security: Boolean enabling the application of non-security updates.
-               The default value is `false`.
-               Valid for Linux instances only.
+        :param pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRulePatchFilterArgs']]] patch_filters: Patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values. `PATCH_SET` defaults to `OS` if unspecified
+        :param pulumi.Input[int] approve_after_days: Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`.
+        :param pulumi.Input[str] approve_until_date: Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
+        :param pulumi.Input[str] compliance_level: Compliance level for patches approved by this rule. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`. The default value is `UNSPECIFIED`.
+        :param pulumi.Input[bool] enable_non_security: Boolean enabling the application of non-security updates. The default value is `false`. Valid for Linux instances only.
         """
         pulumi.set(__self__, "patch_filters", patch_filters)
         if approve_after_days is not None:
@@ -902,10 +1331,7 @@ class PatchBaselineApprovalRuleArgs:
     @pulumi.getter(name="patchFilters")
     def patch_filters(self) -> pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRulePatchFilterArgs']]]:
         """
-        The patch filter group that defines the criteria for the rule.
-        Up to 5 patch filters can be specified per approval rule using Key/Value pairs.
-        Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html).
-        Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
+        Patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values. `PATCH_SET` defaults to `OS` if unspecified
         """
         return pulumi.get(self, "patch_filters")
 
@@ -917,9 +1343,7 @@ class PatchBaselineApprovalRuleArgs:
     @pulumi.getter(name="approveAfterDays")
     def approve_after_days(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
-        Valid Range: 0 to 100.
-        Conflicts with `approve_until_date`.
+        Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`.
         """
         return pulumi.get(self, "approve_after_days")
 
@@ -931,10 +1355,7 @@ class PatchBaselineApprovalRuleArgs:
     @pulumi.getter(name="approveUntilDate")
     def approve_until_date(self) -> Optional[pulumi.Input[str]]:
         """
-        The cutoff date for auto approval of released patches.
-        Any patches released on or before this date are installed automatically.
-        Date is formatted as `YYYY-MM-DD`.
-        Conflicts with `approve_after_days`
+        Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
         """
         return pulumi.get(self, "approve_until_date")
 
@@ -946,9 +1367,7 @@ class PatchBaselineApprovalRuleArgs:
     @pulumi.getter(name="complianceLevel")
     def compliance_level(self) -> Optional[pulumi.Input[str]]:
         """
-        The compliance level for patches approved by this rule.
-        Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`.
-        The default value is `UNSPECIFIED`.
+        Compliance level for patches approved by this rule. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`. The default value is `UNSPECIFIED`.
         """
         return pulumi.get(self, "compliance_level")
 
@@ -960,9 +1379,7 @@ class PatchBaselineApprovalRuleArgs:
     @pulumi.getter(name="enableNonSecurity")
     def enable_non_security(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean enabling the application of non-security updates.
-        The default value is `false`.
-        Valid for Linux instances only.
+        Boolean enabling the application of non-security updates. The default value is `false`. Valid for Linux instances only.
         """
         return pulumi.get(self, "enable_non_security")
 
@@ -1032,11 +1449,9 @@ class PatchBaselineSourceArgs:
                  name: pulumi.Input[str],
                  products: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        :param pulumi.Input[str] configuration: The value of the yum repo configuration.
-               For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
-        :param pulumi.Input[str] name: The name specified to identify the patch source.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] products: The specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`.
-               For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
+        :param pulumi.Input[str] configuration: Value of the yum repo configuration. For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
+        :param pulumi.Input[str] name: Name specified to identify the patch source.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] products: Specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`. For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
         """
         pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "name", name)
@@ -1046,8 +1461,7 @@ class PatchBaselineSourceArgs:
     @pulumi.getter
     def configuration(self) -> pulumi.Input[str]:
         """
-        The value of the yum repo configuration.
-        For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
+        Value of the yum repo configuration. For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
         """
         return pulumi.get(self, "configuration")
 
@@ -1059,7 +1473,7 @@ class PatchBaselineSourceArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name specified to identify the patch source.
+        Name specified to identify the patch source.
         """
         return pulumi.get(self, "name")
 
@@ -1071,8 +1485,7 @@ class PatchBaselineSourceArgs:
     @pulumi.getter
     def products(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        The specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`.
-        For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
+        Specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`. For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
         """
         return pulumi.get(self, "products")
 

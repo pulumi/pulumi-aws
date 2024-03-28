@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Synthetics
     /// Provides a Synthetics Group resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,17 +25,21 @@ namespace Pulumi.Aws.Synthetics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Synthetics.Group("example");
+    ///     var example = new Aws.Synthetics.Group("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudWatch Synthetics Group using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:synthetics/group:Group example example
+    /// $ pulumi import aws:synthetics/group:Group example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:synthetics/group:Group")]
@@ -94,10 +100,6 @@ namespace Pulumi.Aws.Synthetics
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -191,11 +193,7 @@ namespace Pulumi.Aws.Synthetics
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public GroupState()

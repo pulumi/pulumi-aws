@@ -22,6 +22,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -35,15 +36,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewDefaultRouteTable(ctx, "example", &ec2.DefaultRouteTableArgs{
-//				DefaultRouteTableId: pulumi.Any(aws_vpc.Example.Default_route_table_id),
+//				DefaultRouteTableId: pulumi.Any(exampleAwsVpc.DefaultRouteTableId),
 //				Routes: ec2.DefaultRouteTableRouteArray{
 //					&ec2.DefaultRouteTableRouteArgs{
 //						CidrBlock: pulumi.String("10.0.1.0/24"),
-//						GatewayId: pulumi.Any(aws_internet_gateway.Example.Id),
+//						GatewayId: pulumi.Any(exampleAwsInternetGateway.Id),
 //					},
 //					&ec2.DefaultRouteTableRouteArgs{
 //						Ipv6CidrBlock:       pulumi.String("::/0"),
-//						EgressOnlyGatewayId: pulumi.Any(aws_egress_only_internet_gateway.Example.Id),
+//						EgressOnlyGatewayId: pulumi.Any(exampleAwsEgressOnlyInternetGateway.Id),
 //					},
 //				},
 //				Tags: pulumi.StringMap{
@@ -58,9 +59,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // To subsequently remove all managed routes:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,7 +77,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewDefaultRouteTable(ctx, "example", &ec2.DefaultRouteTableArgs{
-//				DefaultRouteTableId: pulumi.Any(aws_vpc.Example.Default_route_table_id),
+//				DefaultRouteTableId: pulumi.Any(exampleAwsVpc.DefaultRouteTableId),
 //				Routes:              ec2.DefaultRouteTableRouteArray{},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example"),
@@ -88,15 +91,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
-//
+// $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
 // ```
 type DefaultRouteTable struct {
 	pulumi.CustomResourceState
@@ -133,10 +135,6 @@ func NewDefaultRouteTable(ctx *pulumi.Context,
 	if args.DefaultRouteTableId == nil {
 		return nil, errors.New("invalid value for required argument 'DefaultRouteTableId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DefaultRouteTable
 	err := ctx.RegisterResource("aws:ec2/defaultRouteTable:DefaultRouteTable", name, args, &resource, opts...)

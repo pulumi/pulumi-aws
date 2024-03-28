@@ -58,19 +58,21 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecasti
 
         @CustomType.Setter
         public Builder amazonForecastRoleArn(@Nullable String amazonForecastRoleArn) {
+
             this.amazonForecastRoleArn = amazonForecastRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         public DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings build() {
-            final var o = new DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings();
-            o.amazonForecastRoleArn = amazonForecastRoleArn;
-            o.status = status;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings();
+            _resultValue.amazonForecastRoleArn = amazonForecastRoleArn;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

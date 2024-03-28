@@ -46,13 +46,14 @@ public final class VpcPeeringConnectionRequester {
 
         @CustomType.Setter
         public Builder allowRemoteVpcDnsResolution(@Nullable Boolean allowRemoteVpcDnsResolution) {
+
             this.allowRemoteVpcDnsResolution = allowRemoteVpcDnsResolution;
             return this;
         }
         public VpcPeeringConnectionRequester build() {
-            final var o = new VpcPeeringConnectionRequester();
-            o.allowRemoteVpcDnsResolution = allowRemoteVpcDnsResolution;
-            return o;
+            final var _resultValue = new VpcPeeringConnectionRequester();
+            _resultValue.allowRemoteVpcDnsResolution = allowRemoteVpcDnsResolution;
+            return _resultValue;
         }
     }
 }

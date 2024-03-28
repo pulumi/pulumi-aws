@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.outputs;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -75,28 +76,35 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatement", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder fieldToMatch(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch fieldToMatch) {
+
             this.fieldToMatch = fieldToMatch;
             return this;
         }
         @CustomType.Setter
         public Builder textTransformations(List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation> textTransformations) {
-            this.textTransformations = Objects.requireNonNull(textTransformations);
+            if (textTransformations == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatement", "textTransformations");
+            }
+            this.textTransformations = textTransformations;
             return this;
         }
         public Builder textTransformations(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation... textTransformations) {
             return textTransformations(List.of(textTransformations));
         }
         public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatement build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatement();
-            o.arn = arn;
-            o.fieldToMatch = fieldToMatch;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatement();
+            _resultValue.arn = arn;
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

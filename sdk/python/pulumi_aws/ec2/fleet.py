@@ -637,6 +637,7 @@ class Fleet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -644,8 +645,8 @@ class Fleet(pulumi.CustomResource):
         example = aws.ec2.Fleet("example",
             launch_template_configs=[aws.ec2.FleetLaunchTemplateConfigArgs(
                 launch_template_specification=aws.ec2.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs(
-                    launch_template_id=aws_launch_template["example"]["id"],
-                    version=aws_launch_template["example"]["latest_version"],
+                    launch_template_id=example_aws_launch_template["id"],
+                    version=example_aws_launch_template["latestVersion"],
                 ),
             )],
             target_capacity_specification=aws.ec2.FleetTargetCapacitySpecificationArgs(
@@ -653,13 +654,14 @@ class Fleet(pulumi.CustomResource):
                 total_target_capacity=5,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_fleet` using the Fleet identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
+        $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
         ```
 
         :param str resource_name: The name of the resource.
@@ -693,6 +695,7 @@ class Fleet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -700,8 +703,8 @@ class Fleet(pulumi.CustomResource):
         example = aws.ec2.Fleet("example",
             launch_template_configs=[aws.ec2.FleetLaunchTemplateConfigArgs(
                 launch_template_specification=aws.ec2.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs(
-                    launch_template_id=aws_launch_template["example"]["id"],
-                    version=aws_launch_template["example"]["latest_version"],
+                    launch_template_id=example_aws_launch_template["id"],
+                    version=example_aws_launch_template["latestVersion"],
                 ),
             )],
             target_capacity_specification=aws.ec2.FleetTargetCapacitySpecificationArgs(
@@ -709,13 +712,14 @@ class Fleet(pulumi.CustomResource):
                 total_target_capacity=5,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_fleet` using the Fleet identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
+        $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
         ```
 
         :param str resource_name: The name of the resource.
@@ -782,8 +786,6 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["valid_until"] = valid_until
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Fleet, __self__).__init__(
             'aws:ec2/fleet:Fleet',
             resource_name,

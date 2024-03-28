@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a resource to manage an [AWS Organizations policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(&#34;*&#34;)
@@ -53,19 +54,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
- *             .content(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .name(&#34;example&#34;)
+ *             .content(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_organizations_policy` using the policy ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:organizations/policy:Policy example p-12345678
+ * $ pulumi import aws:organizations/policy:Policy example p-12345678
  * ```
  * 
  */
@@ -220,9 +223,6 @@ public class Policy extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

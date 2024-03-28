@@ -4,8 +4,10 @@
 package com.pulumi.aws.lb.outputs;
 
 import com.pulumi.aws.lb.outputs.GetLoadBalancerAccessLogs;
+import com.pulumi.aws.lb.outputs.GetLoadBalancerConnectionLog;
 import com.pulumi.aws.lb.outputs.GetLoadBalancerSubnetMapping;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,9 +20,11 @@ public final class GetLoadBalancerResult {
     private GetLoadBalancerAccessLogs accessLogs;
     private String arn;
     private String arnSuffix;
+    private List<GetLoadBalancerConnectionLog> connectionLogs;
     private String customerOwnedIpv4Pool;
     private String desyncMitigationMode;
     private String dnsName;
+    private String dnsRecordClientRoutingPolicy;
     private Boolean dropInvalidHeaderFields;
     private Boolean enableCrossZoneLoadBalancing;
     private Boolean enableDeletionProtection;
@@ -28,6 +32,7 @@ public final class GetLoadBalancerResult {
     private Boolean enableTlsVersionAndCipherSuiteHeaders;
     private Boolean enableWafFailOpen;
     private Boolean enableXffClientPort;
+    private String enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -57,6 +62,9 @@ public final class GetLoadBalancerResult {
     public String arnSuffix() {
         return this.arnSuffix;
     }
+    public List<GetLoadBalancerConnectionLog> connectionLogs() {
+        return this.connectionLogs;
+    }
     public String customerOwnedIpv4Pool() {
         return this.customerOwnedIpv4Pool;
     }
@@ -65,6 +73,9 @@ public final class GetLoadBalancerResult {
     }
     public String dnsName() {
         return this.dnsName;
+    }
+    public String dnsRecordClientRoutingPolicy() {
+        return this.dnsRecordClientRoutingPolicy;
     }
     public Boolean dropInvalidHeaderFields() {
         return this.dropInvalidHeaderFields;
@@ -86,6 +97,9 @@ public final class GetLoadBalancerResult {
     }
     public Boolean enableXffClientPort() {
         return this.enableXffClientPort;
+    }
+    public String enforceSecurityGroupInboundRulesOnPrivateLinkTraffic() {
+        return this.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -146,9 +160,11 @@ public final class GetLoadBalancerResult {
         private GetLoadBalancerAccessLogs accessLogs;
         private String arn;
         private String arnSuffix;
+        private List<GetLoadBalancerConnectionLog> connectionLogs;
         private String customerOwnedIpv4Pool;
         private String desyncMitigationMode;
         private String dnsName;
+        private String dnsRecordClientRoutingPolicy;
         private Boolean dropInvalidHeaderFields;
         private Boolean enableCrossZoneLoadBalancing;
         private Boolean enableDeletionProtection;
@@ -156,6 +172,7 @@ public final class GetLoadBalancerResult {
         private Boolean enableTlsVersionAndCipherSuiteHeaders;
         private Boolean enableWafFailOpen;
         private Boolean enableXffClientPort;
+        private String enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
         private String id;
         private Integer idleTimeout;
         private Boolean internal;
@@ -176,9 +193,11 @@ public final class GetLoadBalancerResult {
     	      this.accessLogs = defaults.accessLogs;
     	      this.arn = defaults.arn;
     	      this.arnSuffix = defaults.arnSuffix;
+    	      this.connectionLogs = defaults.connectionLogs;
     	      this.customerOwnedIpv4Pool = defaults.customerOwnedIpv4Pool;
     	      this.desyncMitigationMode = defaults.desyncMitigationMode;
     	      this.dnsName = defaults.dnsName;
+    	      this.dnsRecordClientRoutingPolicy = defaults.dnsRecordClientRoutingPolicy;
     	      this.dropInvalidHeaderFields = defaults.dropInvalidHeaderFields;
     	      this.enableCrossZoneLoadBalancing = defaults.enableCrossZoneLoadBalancing;
     	      this.enableDeletionProtection = defaults.enableDeletionProtection;
@@ -186,6 +205,7 @@ public final class GetLoadBalancerResult {
     	      this.enableTlsVersionAndCipherSuiteHeaders = defaults.enableTlsVersionAndCipherSuiteHeaders;
     	      this.enableWafFailOpen = defaults.enableWafFailOpen;
     	      this.enableXffClientPort = defaults.enableXffClientPort;
+    	      this.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic = defaults.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
     	      this.id = defaults.id;
     	      this.idleTimeout = defaults.idleTimeout;
     	      this.internal = defaults.internal;
@@ -204,107 +224,197 @@ public final class GetLoadBalancerResult {
 
         @CustomType.Setter
         public Builder accessLogs(GetLoadBalancerAccessLogs accessLogs) {
-            this.accessLogs = Objects.requireNonNull(accessLogs);
+            if (accessLogs == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "accessLogs");
+            }
+            this.accessLogs = accessLogs;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder arnSuffix(String arnSuffix) {
-            this.arnSuffix = Objects.requireNonNull(arnSuffix);
+            if (arnSuffix == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "arnSuffix");
+            }
+            this.arnSuffix = arnSuffix;
             return this;
         }
         @CustomType.Setter
+        public Builder connectionLogs(List<GetLoadBalancerConnectionLog> connectionLogs) {
+            if (connectionLogs == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "connectionLogs");
+            }
+            this.connectionLogs = connectionLogs;
+            return this;
+        }
+        public Builder connectionLogs(GetLoadBalancerConnectionLog... connectionLogs) {
+            return connectionLogs(List.of(connectionLogs));
+        }
+        @CustomType.Setter
         public Builder customerOwnedIpv4Pool(String customerOwnedIpv4Pool) {
-            this.customerOwnedIpv4Pool = Objects.requireNonNull(customerOwnedIpv4Pool);
+            if (customerOwnedIpv4Pool == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "customerOwnedIpv4Pool");
+            }
+            this.customerOwnedIpv4Pool = customerOwnedIpv4Pool;
             return this;
         }
         @CustomType.Setter
         public Builder desyncMitigationMode(String desyncMitigationMode) {
-            this.desyncMitigationMode = Objects.requireNonNull(desyncMitigationMode);
+            if (desyncMitigationMode == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "desyncMitigationMode");
+            }
+            this.desyncMitigationMode = desyncMitigationMode;
             return this;
         }
         @CustomType.Setter
         public Builder dnsName(String dnsName) {
-            this.dnsName = Objects.requireNonNull(dnsName);
+            if (dnsName == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "dnsName");
+            }
+            this.dnsName = dnsName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dnsRecordClientRoutingPolicy(String dnsRecordClientRoutingPolicy) {
+            if (dnsRecordClientRoutingPolicy == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "dnsRecordClientRoutingPolicy");
+            }
+            this.dnsRecordClientRoutingPolicy = dnsRecordClientRoutingPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder dropInvalidHeaderFields(Boolean dropInvalidHeaderFields) {
-            this.dropInvalidHeaderFields = Objects.requireNonNull(dropInvalidHeaderFields);
+            if (dropInvalidHeaderFields == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "dropInvalidHeaderFields");
+            }
+            this.dropInvalidHeaderFields = dropInvalidHeaderFields;
             return this;
         }
         @CustomType.Setter
         public Builder enableCrossZoneLoadBalancing(Boolean enableCrossZoneLoadBalancing) {
-            this.enableCrossZoneLoadBalancing = Objects.requireNonNull(enableCrossZoneLoadBalancing);
+            if (enableCrossZoneLoadBalancing == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "enableCrossZoneLoadBalancing");
+            }
+            this.enableCrossZoneLoadBalancing = enableCrossZoneLoadBalancing;
             return this;
         }
         @CustomType.Setter
         public Builder enableDeletionProtection(Boolean enableDeletionProtection) {
-            this.enableDeletionProtection = Objects.requireNonNull(enableDeletionProtection);
+            if (enableDeletionProtection == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "enableDeletionProtection");
+            }
+            this.enableDeletionProtection = enableDeletionProtection;
             return this;
         }
         @CustomType.Setter
         public Builder enableHttp2(Boolean enableHttp2) {
-            this.enableHttp2 = Objects.requireNonNull(enableHttp2);
+            if (enableHttp2 == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "enableHttp2");
+            }
+            this.enableHttp2 = enableHttp2;
             return this;
         }
         @CustomType.Setter
         public Builder enableTlsVersionAndCipherSuiteHeaders(Boolean enableTlsVersionAndCipherSuiteHeaders) {
-            this.enableTlsVersionAndCipherSuiteHeaders = Objects.requireNonNull(enableTlsVersionAndCipherSuiteHeaders);
+            if (enableTlsVersionAndCipherSuiteHeaders == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "enableTlsVersionAndCipherSuiteHeaders");
+            }
+            this.enableTlsVersionAndCipherSuiteHeaders = enableTlsVersionAndCipherSuiteHeaders;
             return this;
         }
         @CustomType.Setter
         public Builder enableWafFailOpen(Boolean enableWafFailOpen) {
-            this.enableWafFailOpen = Objects.requireNonNull(enableWafFailOpen);
+            if (enableWafFailOpen == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "enableWafFailOpen");
+            }
+            this.enableWafFailOpen = enableWafFailOpen;
             return this;
         }
         @CustomType.Setter
         public Builder enableXffClientPort(Boolean enableXffClientPort) {
-            this.enableXffClientPort = Objects.requireNonNull(enableXffClientPort);
+            if (enableXffClientPort == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "enableXffClientPort");
+            }
+            this.enableXffClientPort = enableXffClientPort;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder enforceSecurityGroupInboundRulesOnPrivateLinkTraffic(String enforceSecurityGroupInboundRulesOnPrivateLinkTraffic) {
+            if (enforceSecurityGroupInboundRulesOnPrivateLinkTraffic == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "enforceSecurityGroupInboundRulesOnPrivateLinkTraffic");
+            }
+            this.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic = enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder idleTimeout(Integer idleTimeout) {
-            this.idleTimeout = Objects.requireNonNull(idleTimeout);
+            if (idleTimeout == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "idleTimeout");
+            }
+            this.idleTimeout = idleTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder internal(Boolean internal) {
-            this.internal = Objects.requireNonNull(internal);
+            if (internal == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "internal");
+            }
+            this.internal = internal;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddressType(String ipAddressType) {
-            this.ipAddressType = Objects.requireNonNull(ipAddressType);
+            if (ipAddressType == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "ipAddressType");
+            }
+            this.ipAddressType = ipAddressType;
             return this;
         }
         @CustomType.Setter
         public Builder loadBalancerType(String loadBalancerType) {
-            this.loadBalancerType = Objects.requireNonNull(loadBalancerType);
+            if (loadBalancerType == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "loadBalancerType");
+            }
+            this.loadBalancerType = loadBalancerType;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder preserveHostHeader(Boolean preserveHostHeader) {
-            this.preserveHostHeader = Objects.requireNonNull(preserveHostHeader);
+            if (preserveHostHeader == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "preserveHostHeader");
+            }
+            this.preserveHostHeader = preserveHostHeader;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroups(List<String> securityGroups) {
-            this.securityGroups = Objects.requireNonNull(securityGroups);
+            if (securityGroups == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "securityGroups");
+            }
+            this.securityGroups = securityGroups;
             return this;
         }
         public Builder securityGroups(String... securityGroups) {
@@ -312,7 +422,10 @@ public final class GetLoadBalancerResult {
         }
         @CustomType.Setter
         public Builder subnetMappings(List<GetLoadBalancerSubnetMapping> subnetMappings) {
-            this.subnetMappings = Objects.requireNonNull(subnetMappings);
+            if (subnetMappings == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "subnetMappings");
+            }
+            this.subnetMappings = subnetMappings;
             return this;
         }
         public Builder subnetMappings(GetLoadBalancerSubnetMapping... subnetMappings) {
@@ -320,7 +433,10 @@ public final class GetLoadBalancerResult {
         }
         @CustomType.Setter
         public Builder subnets(List<String> subnets) {
-            this.subnets = Objects.requireNonNull(subnets);
+            if (subnets == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "subnets");
+            }
+            this.subnets = subnets;
             return this;
         }
         public Builder subnets(String... subnets) {
@@ -328,54 +444,69 @@ public final class GetLoadBalancerResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         @CustomType.Setter
         public Builder xffHeaderProcessingMode(String xffHeaderProcessingMode) {
-            this.xffHeaderProcessingMode = Objects.requireNonNull(xffHeaderProcessingMode);
+            if (xffHeaderProcessingMode == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "xffHeaderProcessingMode");
+            }
+            this.xffHeaderProcessingMode = xffHeaderProcessingMode;
             return this;
         }
         @CustomType.Setter
         public Builder zoneId(String zoneId) {
-            this.zoneId = Objects.requireNonNull(zoneId);
+            if (zoneId == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "zoneId");
+            }
+            this.zoneId = zoneId;
             return this;
         }
         public GetLoadBalancerResult build() {
-            final var o = new GetLoadBalancerResult();
-            o.accessLogs = accessLogs;
-            o.arn = arn;
-            o.arnSuffix = arnSuffix;
-            o.customerOwnedIpv4Pool = customerOwnedIpv4Pool;
-            o.desyncMitigationMode = desyncMitigationMode;
-            o.dnsName = dnsName;
-            o.dropInvalidHeaderFields = dropInvalidHeaderFields;
-            o.enableCrossZoneLoadBalancing = enableCrossZoneLoadBalancing;
-            o.enableDeletionProtection = enableDeletionProtection;
-            o.enableHttp2 = enableHttp2;
-            o.enableTlsVersionAndCipherSuiteHeaders = enableTlsVersionAndCipherSuiteHeaders;
-            o.enableWafFailOpen = enableWafFailOpen;
-            o.enableXffClientPort = enableXffClientPort;
-            o.id = id;
-            o.idleTimeout = idleTimeout;
-            o.internal = internal;
-            o.ipAddressType = ipAddressType;
-            o.loadBalancerType = loadBalancerType;
-            o.name = name;
-            o.preserveHostHeader = preserveHostHeader;
-            o.securityGroups = securityGroups;
-            o.subnetMappings = subnetMappings;
-            o.subnets = subnets;
-            o.tags = tags;
-            o.vpcId = vpcId;
-            o.xffHeaderProcessingMode = xffHeaderProcessingMode;
-            o.zoneId = zoneId;
-            return o;
+            final var _resultValue = new GetLoadBalancerResult();
+            _resultValue.accessLogs = accessLogs;
+            _resultValue.arn = arn;
+            _resultValue.arnSuffix = arnSuffix;
+            _resultValue.connectionLogs = connectionLogs;
+            _resultValue.customerOwnedIpv4Pool = customerOwnedIpv4Pool;
+            _resultValue.desyncMitigationMode = desyncMitigationMode;
+            _resultValue.dnsName = dnsName;
+            _resultValue.dnsRecordClientRoutingPolicy = dnsRecordClientRoutingPolicy;
+            _resultValue.dropInvalidHeaderFields = dropInvalidHeaderFields;
+            _resultValue.enableCrossZoneLoadBalancing = enableCrossZoneLoadBalancing;
+            _resultValue.enableDeletionProtection = enableDeletionProtection;
+            _resultValue.enableHttp2 = enableHttp2;
+            _resultValue.enableTlsVersionAndCipherSuiteHeaders = enableTlsVersionAndCipherSuiteHeaders;
+            _resultValue.enableWafFailOpen = enableWafFailOpen;
+            _resultValue.enableXffClientPort = enableXffClientPort;
+            _resultValue.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic = enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+            _resultValue.id = id;
+            _resultValue.idleTimeout = idleTimeout;
+            _resultValue.internal = internal;
+            _resultValue.ipAddressType = ipAddressType;
+            _resultValue.loadBalancerType = loadBalancerType;
+            _resultValue.name = name;
+            _resultValue.preserveHostHeader = preserveHostHeader;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.subnetMappings = subnetMappings;
+            _resultValue.subnets = subnets;
+            _resultValue.tags = tags;
+            _resultValue.vpcId = vpcId;
+            _resultValue.xffHeaderProcessingMode = xffHeaderProcessingMode;
+            _resultValue.zoneId = zoneId;
+            return _resultValue;
         }
     }
 }

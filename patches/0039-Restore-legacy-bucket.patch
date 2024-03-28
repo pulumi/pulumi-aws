@@ -1,0 +1,171 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Venelin <venelin@pulumi.com>
+Date: Wed, 28 Feb 2024 16:01:28 +0000
+Subject: [PATCH 39/46] Restore legacy bucket
+
+
+diff --git a/go.mod b/go.mod
+index 86b33715c9..48e10fce33 100644
+--- a/go.mod
++++ b/go.mod
+@@ -155,6 +155,7 @@ require (
+ 	github.com/gertd/go-pluralize v0.2.1
+ 	github.com/google/go-cmp v0.6.0
+ 	github.com/hashicorp/aws-cloudformation-resource-schema-sdk-go v0.21.0
++	github.com/hashicorp/aws-sdk-go-base v1.1.0
+ 	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.50
+ 	github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2 v2.0.0-beta.51
+ 	github.com/hashicorp/awspolicyequivalence v1.6.0
+diff --git a/go.sum b/go.sum
+index 8294cd4914..30ac51b2d6 100644
+--- a/go.sum
++++ b/go.sum
+@@ -22,6 +22,7 @@ github.com/apparentlymart/go-textseg/v15 v15.0.0 h1:uYvfpb3DyLSCGWnctWKGj857c6ew
+ github.com/apparentlymart/go-textseg/v15 v15.0.0/go.mod h1:K8XmNZdhEBkdlyDdvbmmsvpAG721bKi0joRfFdHIWJ4=
+ github.com/armon/go-radix v1.0.0 h1:F4z6KzEeeQIMeLFa97iZU6vupzoecKdU5TX24SNppXI=
+ github.com/armon/go-radix v1.0.0/go.mod h1:ufUuZ+zHj4x4TnLV4JWEpy2hxWSpsRywHrMgIH9cCH8=
++github.com/aws/aws-sdk-go v1.31.9/go.mod h1:5zCpMtNQVjRREroY7sYe8lOMRSxkhG6MZveU8YkpAk0=
+ github.com/aws/aws-sdk-go v1.51.4 h1:yOVfGhRJyReBrACK0alLosJl8iXhWkNY1vrePYmhHdw=
+ github.com/aws/aws-sdk-go v1.51.4/go.mod h1:LF8svs817+Nz+DmiMQKTO3ubZ/6IaTpq3TjupRn3Eqk=
+ github.com/aws/aws-sdk-go-v2 v1.26.0 h1:/Ce4OCiM3EkpW7Y+xUnfAFpchU78K7/Ug01sZni9PgA=
+@@ -379,6 +380,7 @@ github.com/go-logr/logr v1.4.1 h1:pKouT5E8xu9zeFC39JXRDukb6JFQPXM5p5I91188VAQ=
+ github.com/go-logr/logr v1.4.1/go.mod h1:9T104GzyrTigFIr8wt5mBrctHMim0Nb2HLGrmQ40KvY=
+ github.com/go-logr/stdr v1.2.2 h1:hSWxHoqTgW2S2qGc0LTAI563KZ5YKYRhT3MFKZMbjag=
+ github.com/go-logr/stdr v1.2.2/go.mod h1:mMo/vtBO5dYbehREoey6XUKy/eSumjCCveDpRre4VKE=
++github.com/go-sql-driver/mysql v1.5.0/go.mod h1:DCzpHaOWr8IXmIStZouvnhqoel9Qv2LBy8hT2VhHyBg=
+ github.com/go-test/deep v1.1.0 h1:WOcxcdHcvdgThNXjw0t76K42FXTU7HpNQWHpA2HHNlg=
+ github.com/go-test/deep v1.1.0/go.mod h1:5C2ZWiW0ErCdrYzpqxLbTX7MG14M9iiw8DgHncVwcsE=
+ github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da h1:oI5xCqsCo564l8iNU+DwB5epxmsaqB+rhGL0m5jtYqE=
+@@ -398,6 +400,8 @@ github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=
+ github.com/google/uuid v1.6.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
+ github.com/hashicorp/aws-cloudformation-resource-schema-sdk-go v0.21.0 h1:IUypt/TbXiJBkBbE3926CgnjD8IltAitdn7Yive61DY=
+ github.com/hashicorp/aws-cloudformation-resource-schema-sdk-go v0.21.0/go.mod h1:cdTE6F2pCKQobug+RqRaQp7Kz9hIEqiSvpPmb6E5G1w=
++github.com/hashicorp/aws-sdk-go-base v1.1.0 h1:27urM3JAp6v+Oj/Ea5ULZwuFPK9cO1RUdEpV+rNdSAc=
++github.com/hashicorp/aws-sdk-go-base v1.1.0/go.mod h1:2fRjWDv3jJBeN6mVWFHV6hFTNeFBx2gpDLQaZNxUVAY=
+ github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.50 h1:67mPiI02iDvz2dK77S04PV1Kt2XeBUlCEqhrJrpRAHM=
+ github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.50/go.mod h1:zEem8agp+ZViSr0jeSQTutVpkTl0CTZoO9DpJFPpUo0=
+ github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2 v2.0.0-beta.51 h1:o7czFuxYgfxKNdBXlOcIY+tmNJsy3xob/3aAeSdU9Wo=
+@@ -473,6 +477,7 @@ github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99/go.mod h1:1lJo3i
+ github.com/jessevdk/go-flags v1.4.0/go.mod h1:4FA24M0QyGHXBuZZK/XkWh8h0e1EYbRYJSGM75WSRxI=
+ github.com/jhump/protoreflect v1.15.1 h1:HUMERORf3I3ZdX05WaQ6MIpd/NJ434hTp5YiKgfCL6c=
+ github.com/jhump/protoreflect v1.15.1/go.mod h1:jD/2GMKKE6OqX8qTjhADU1e6DShO+gavG9e0Q693nKo=
++github.com/jmespath/go-jmespath v0.3.0/go.mod h1:9QtRXoHjLGCJ5IBSaohpXITPlowMeeYCZ7fLUTSywik=
+ github.com/jmespath/go-jmespath v0.4.0 h1:BEgLn5cpjn8UN1mAw4NjwDrS35OdebyEtFe+9YPoQUg=
+ github.com/jmespath/go-jmespath v0.4.0/go.mod h1:T8mJZnbsbmF+m6zOOFylbeCJqk5+pHWvzYPziyZiYoo=
+ github.com/jmespath/go-jmespath/internal/testify v1.5.1 h1:shLQSRRSCCPj3f2gpwzGwWFoC7ycTf1rcQZHOlsJ6N8=
+@@ -585,6 +590,7 @@ golang.org/x/mod v0.15.0 h1:SernR4v+D55NyBH2QiEQrlBAnj1ECL6AGrA5+dPaMY8=
+ golang.org/x/mod v0.15.0/go.mod h1:hTbmBsO62+eylJbnUtE2MGJUyE7QWk4xUqPFrRgJ+7c=
+ golang.org/x/net v0.0.0-20190404232315-eb5bcb51f2a3/go.mod h1:t9HGtf8HONx5eT2rtn7q6eTqICYqUVnKs3thJo3Qplg=
+ golang.org/x/net v0.0.0-20190620200207-3b0461eec859/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
++golang.org/x/net v0.0.0-20200202094626-16171245cfb2/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
+ golang.org/x/net v0.0.0-20210226172049-e18ecbb05110/go.mod h1:m0MpNAwzfU5UDzcl9v0D8zg8gWTRqZa9RBIspLL5mdg=
+ golang.org/x/net v0.0.0-20220722155237-a158d28d115b/go.mod h1:XRhObCWvk6IyKnWLug+ECip1KBveYUHfp+8e9klMJ9c=
+ golang.org/x/net v0.2.0/go.mod h1:KqCZLdyyvdV855qA2rE3GC2aiw5xGR5TEjj8smXukLY=
+diff --git a/internal/conns/awsclient.go b/internal/conns/awsclient.go
+index 4982003ad2..0d9fa4dd0a 100644
+--- a/internal/conns/awsclient.go
++++ b/internal/conns/awsclient.go
+@@ -16,7 +16,6 @@ import (
+ 	s3_sdkv2 "github.com/aws/aws-sdk-go-v2/service/s3"
+ 	session_sdkv1 "github.com/aws/aws-sdk-go/aws/session"
+ 	apigatewayv2_sdkv1 "github.com/aws/aws-sdk-go/service/apigatewayv2"
+-	mediaconvert_sdkv1 "github.com/aws/aws-sdk-go/service/mediaconvert"
+ 	s3_sdkv1 "github.com/aws/aws-sdk-go/service/s3"
+ 	baselogging "github.com/hashicorp/aws-sdk-go-base/v2/logging"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/errs"
+@@ -101,6 +100,10 @@ func (c *AWSClient) S3UsePathStyle(context.Context) bool {
+ 	return c.s3UsePathStyle
+ }
+ 
++func (c *AWSClient) S3Conn(ctx context.Context) *s3_sdkv1.S3 {
++	return errs.Must(conn[*s3_sdkv1.S3](ctx, c, names.S3, make(map[string]any)))
++}
++
+ func (client *AWSClient) S3ConnURICleaningDisabled(ctx context.Context) *s3_sdkv1.S3 {
+ 	config := client.S3Conn(ctx).Config
+ 	config.DisableRestProtocolURICleaning = aws_sdkv2.Bool(true)
+diff --git a/internal/service/s3/service_package_bwcompat.go b/internal/service/s3/service_package_bwcompat.go
+new file mode 100644
+index 0000000000..4278d1e70a
+--- /dev/null
++++ b/internal/service/s3/service_package_bwcompat.go
+@@ -0,0 +1,57 @@
++// Copyright (c) HashiCorp, Inc.
++// SPDX-License-Identifier: MPL-2.0
++
++package s3
++
++import (
++	"context"
++	"fmt"
++
++	aws_sdkv1 "github.com/aws/aws-sdk-go/aws"
++	endpoints_sdkv1 "github.com/aws/aws-sdk-go/aws/endpoints"
++	request_sdkv1 "github.com/aws/aws-sdk-go/aws/request"
++	session_sdkv1 "github.com/aws/aws-sdk-go/aws/session"
++	s3_sdkv1 "github.com/aws/aws-sdk-go/service/s3"
++	tfawserr_sdkv1 "github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2/tfawserr"
++)
++
++// NewConn returns a new AWS SDK for Go v1 client for this service package's AWS API.
++func (p *servicePackage) NewConn(ctx context.Context, m map[string]any) (*s3_sdkv1.S3, error) {
++	sess := m["session"].(*session_sdkv1.Session)
++	config := &aws_sdkv1.Config{
++		Endpoint:         aws_sdkv1.String(m["endpoint"].(string)),
++		S3ForcePathStyle: aws_sdkv1.Bool(m["s3_use_path_style"].(bool)),
++	}
++
++	if v, ok := m["s3_us_east_1_regional_endpoint"]; ok {
++		switch v := v.(type) {
++		case string:
++			if v == "" {
++				config.S3UsEast1RegionalEndpoint = endpoints_sdkv1.RegionalS3UsEast1Endpoint
++			} else {
++				e, err := endpoints_sdkv1.GetS3UsEast1RegionalEndpoint(v)
++				if err != nil {
++					return nil, err
++				}
++				config.S3UsEast1RegionalEndpoint = e
++			}
++		case endpoints_sdkv1.S3UsEast1RegionalEndpoint:
++			config.S3UsEast1RegionalEndpoint = v
++		default:
++			return nil, fmt.Errorf("Unexpected type of s3_us_east_1_regional_endpoint")
++		}
++	}
++
++	return s3_sdkv1.New(sess.Copy(config)), nil
++}
++
++// CustomizeConn customizes a new AWS SDK for Go v1 client for this service package's AWS API.
++func (p *servicePackage) CustomizeConn(ctx context.Context, conn *s3_sdkv1.S3) (*s3_sdkv1.S3, error) {
++	conn.Handlers.Retry.PushBack(func(r *request_sdkv1.Request) {
++		if tfawserr_sdkv1.ErrMessageContains(r.Error, errCodeOperationAborted, "A conflicting conditional operation is currently in progress against this resource. Please try again.") {
++			r.Retryable = aws_sdkv1.Bool(true)
++		}
++	})
++
++	return conn, nil
++}
+diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
+index 007c2f2dc1..5f64a814be 100644
+--- a/internal/service/s3legacy/bucket_legacy.go
++++ b/internal/service/s3legacy/bucket_legacy.go
+@@ -31,7 +31,7 @@ import (
+ 	"github.com/hashicorp/terraform-provider-aws/internal/flex"
+ 	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+-	"github.com/hashicorp/terraform-provider-aws/internal/types"
++	"github.com/hashicorp/terraform-provider-aws/internal/types/option"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/verify"
+ )
+ 
+@@ -1393,7 +1393,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
+ 	}
+ 
+ 	if inContext, ok := tftags.FromContext(ctx); ok {
+-		inContext.TagsOut = types.Some(tags)
++		inContext.TagsOut = option.Some(tags)
+ 	}
+ 
+ 	arn := arn.ARN{

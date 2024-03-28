@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -62,25 +63,34 @@ public final class GetNetworkInsightsAnalysisReturnPathComponentVpc {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentVpc", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentVpc", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentVpc", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetNetworkInsightsAnalysisReturnPathComponentVpc build() {
-            final var o = new GetNetworkInsightsAnalysisReturnPathComponentVpc();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisReturnPathComponentVpc();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

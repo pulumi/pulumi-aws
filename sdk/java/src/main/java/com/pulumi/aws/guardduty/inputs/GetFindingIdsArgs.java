@@ -5,6 +5,7 @@ package com.pulumi.aws.guardduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class GetFindingIdsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetFindingIdsArgs build() {
-            $.detectorId = Objects.requireNonNull($.detectorId, "expected parameter 'detectorId' to be non-null");
+            if ($.detectorId == null) {
+                throw new MissingRequiredPropertyException("GetFindingIdsArgs", "detectorId");
+            }
             return $;
         }
     }

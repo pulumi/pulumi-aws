@@ -999,19 +999,25 @@ class Topic(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates")
+        user_updates = aws.sns.Topic("user_updates", name="user-updates-topic")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Example with Delivery Policy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates", delivery_policy=\"\"\"{
+        user_updates = aws.sns.Topic("user_updates",
+            name="user-updates-topic",
+            delivery_policy=\"\"\"{
           "http": {
             "defaultHealthyRetryPolicy": {
               "minDelayTarget": 20,
@@ -1028,29 +1034,36 @@ class Topic(pulumi.CustomResource):
             }
           }
         }
-
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Example with Server-side encryption (SSE)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates", kms_master_key_id="alias/aws/sns")
+        user_updates = aws.sns.Topic("user_updates",
+            name="user-updates-topic",
+            kms_master_key_id="alias/aws/sns")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Example with First-In-First-Out (FIFO)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates",
-            content_based_deduplication=True,
-            fifo_topic=True)
+        user_updates = aws.sns.Topic("user_updates",
+            name="user-updates-topic.fifo",
+            fifo_topic=True,
+            content_based_deduplication=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Message Delivery Status Arguments
 
@@ -1061,7 +1074,7 @@ class Topic(pulumi.CustomResource):
         Using `pulumi import`, import SNS Topics using the topic `arn`. For example:
 
         ```sh
-         $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
+        $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
         ```
 
         :param str resource_name: The name of the resource.
@@ -1105,19 +1118,25 @@ class Topic(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates")
+        user_updates = aws.sns.Topic("user_updates", name="user-updates-topic")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Example with Delivery Policy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates", delivery_policy=\"\"\"{
+        user_updates = aws.sns.Topic("user_updates",
+            name="user-updates-topic",
+            delivery_policy=\"\"\"{
           "http": {
             "defaultHealthyRetryPolicy": {
               "minDelayTarget": 20,
@@ -1134,29 +1153,36 @@ class Topic(pulumi.CustomResource):
             }
           }
         }
-
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Example with Server-side encryption (SSE)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates", kms_master_key_id="alias/aws/sns")
+        user_updates = aws.sns.Topic("user_updates",
+            name="user-updates-topic",
+            kms_master_key_id="alias/aws/sns")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Example with First-In-First-Out (FIFO)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates",
-            content_based_deduplication=True,
-            fifo_topic=True)
+        user_updates = aws.sns.Topic("user_updates",
+            name="user-updates-topic.fifo",
+            fifo_topic=True,
+            content_based_deduplication=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Message Delivery Status Arguments
 
@@ -1167,7 +1193,7 @@ class Topic(pulumi.CustomResource):
         Using `pulumi import`, import SNS Topics using the topic `arn`. For example:
 
         ```sh
-         $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
+        $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
         ```
 
         :param str resource_name: The name of the resource.
@@ -1252,8 +1278,6 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["beginning_archive_time"] = None
             __props__.__dict__["owner"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Topic, __self__).__init__(
             'aws:sns/topic:Topic',
             resource_name,

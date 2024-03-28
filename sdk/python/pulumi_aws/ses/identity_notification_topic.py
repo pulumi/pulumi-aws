@@ -168,23 +168,25 @@ class IdentityNotificationTopic(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.ses.IdentityNotificationTopic("test",
-            topic_arn=aws_sns_topic["example"]["arn"],
+            topic_arn=example_aws_sns_topic["arn"],
             notification_type="Bounce",
-            identity=aws_ses_domain_identity["example"]["domain"],
+            identity=example["domain"],
             include_original_headers=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Identity Notification Topics using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type. For example:
 
         ```sh
-         $ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test 'example.com|Bounce'
+        $ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test 'example.com|Bounce'
         ```
 
         :param str resource_name: The name of the resource.
@@ -205,23 +207,25 @@ class IdentityNotificationTopic(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.ses.IdentityNotificationTopic("test",
-            topic_arn=aws_sns_topic["example"]["arn"],
+            topic_arn=example_aws_sns_topic["arn"],
             notification_type="Bounce",
-            identity=aws_ses_domain_identity["example"]["domain"],
+            identity=example["domain"],
             include_original_headers=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Identity Notification Topics using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type. For example:
 
         ```sh
-         $ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test 'example.com|Bounce'
+        $ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test 'example.com|Bounce'
         ```
 
         :param str resource_name: The name of the resource.

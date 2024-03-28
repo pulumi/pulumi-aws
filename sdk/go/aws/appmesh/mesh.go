@@ -14,31 +14,10 @@ import (
 // Provides an AWS App Mesh service mesh resource.
 //
 // ## Example Usage
+//
 // ### Basic
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appmesh.NewMesh(ctx, "simple", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Egress Filter
-//
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,6 +31,35 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewMesh(ctx, "simple", &appmesh.MeshArgs{
+//				Name: pulumi.String("simpleapp"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Egress Filter
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appmesh.NewMesh(ctx, "simple", &appmesh.MeshArgs{
+//				Name: pulumi.String("simpleapp"),
 //				Spec: &appmesh.MeshSpecArgs{
 //					EgressFilter: &appmesh.MeshSpecEgressFilterArgs{
 //						Type: pulumi.String("ALLOW_ALL"),
@@ -66,15 +74,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import App Mesh service meshes using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
-//
+// $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
 // ```
 type Mesh struct {
 	pulumi.CustomResourceState
@@ -108,10 +115,6 @@ func NewMesh(ctx *pulumi.Context,
 		args = &MeshArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Mesh
 	err := ctx.RegisterResource("aws:appmesh/mesh:Mesh", name, args, &resource, opts...)

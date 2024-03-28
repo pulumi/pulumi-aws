@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +31,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := iot.NewLoggingOptions(ctx, "example", &iot.LoggingOptionsArgs{
 //				DefaultLogLevel: pulumi.String("WARN"),
-//				RoleArn:         pulumi.Any(aws_iam_role.Example.Arn),
+//				RoleArn:         pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type LoggingOptions struct {
 	pulumi.CustomResourceState
 

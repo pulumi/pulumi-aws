@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides an OpsWorks permission resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,13 +45,14 @@ import javax.annotation.Nullable;
  *             .allowSsh(true)
  *             .allowSudo(true)
  *             .level(&#34;iam_only&#34;)
- *             .userArn(aws_iam_user.user().arn())
- *             .stackId(aws_opsworks_stack.stack().id())
+ *             .userArn(user.arn())
+ *             .stackId(stack.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:opsworks/permission:Permission")

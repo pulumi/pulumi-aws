@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.LookupVirtualService(ctx, &appmesh.LookupVirtualServiceArgs{
-//				MeshName: "example-mesh",
 //				Name:     "example.mesh.local",
+//				MeshName: "example-mesh",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -39,7 +40,9 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -70,6 +73,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupVirtualService(ctx *pulumi.Context, args *LookupVirtualServiceArgs, opts ...pulumi.InvokeOption) (*LookupVirtualServiceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualServiceResult

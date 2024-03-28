@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides a resource to manage an [Amazon Macie Findings Filter](https://docs.aws.amazon.com/macie/latest/APIReference/findingsfilters-id.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -32,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.macie.FindingsFilter;
  * import com.pulumi.aws.macie.FindingsFilterArgs;
  * import com.pulumi.aws.macie.inputs.FindingsFilterFindingCriteriaArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,29 +49,29 @@ import javax.annotation.Nullable;
  *         var example = new Account(&#34;example&#34;);
  * 
  *         var test = new FindingsFilter(&#34;test&#34;, FindingsFilterArgs.builder()        
+ *             .name(&#34;NAME OF THE FINDINGS FILTER&#34;)
  *             .description(&#34;DESCRIPTION&#34;)
  *             .position(1)
  *             .action(&#34;ARCHIVE&#34;)
  *             .findingCriteria(FindingsFilterFindingCriteriaArgs.builder()
  *                 .criterions(FindingsFilterFindingCriteriaCriterionArgs.builder()
  *                     .field(&#34;region&#34;)
- *                     .eqs(data.aws_region().current().name())
+ *                     .eqs(current.name())
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_macie2_account.test())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_macie2_findings_filter` using the id. For example:
  * 
  * ```sh
- *  $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
+ * $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
  * ```
  * 
  */
@@ -234,9 +234,6 @@ public class FindingsFilter extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

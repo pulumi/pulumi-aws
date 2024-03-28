@@ -421,67 +421,69 @@ class Trust(pulumi.CustomResource):
         Once the second Trust is created, the first will update to the correct state.
 
         ## Example Usage
+
         ### Two-Way Trust
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        one_directory = aws.directoryservice.Directory("oneDirectory",
+        one_directory = aws.directoryservice.Directory("one",
             name="one.example.com",
             type="MicrosoftAD")
-        # ...
-        two_directory = aws.directoryservice.Directory("twoDirectory",
+        two_directory = aws.directoryservice.Directory("two",
             name="two.example.com",
             type="MicrosoftAD")
-        # ...
-        one_trust = aws.directoryservice.Trust("oneTrust",
+        one = aws.directoryservice.Trust("one",
             directory_id=one_directory.id,
             remote_domain_name=two_directory.name,
             trust_direction="Two-Way",
             trust_password="Some0therPassword",
             conditional_forwarder_ip_addrs=two_directory.dns_ip_addresses)
-        two_trust = aws.directoryservice.Trust("twoTrust",
+        two = aws.directoryservice.Trust("two",
             directory_id=two_directory.id,
             remote_domain_name=one_directory.name,
             trust_direction="Two-Way",
             trust_password="Some0therPassword",
             conditional_forwarder_ip_addrs=one_directory.dns_ip_addresses)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### One-Way Trust
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        one_directory = aws.directoryservice.Directory("oneDirectory",
+        one_directory = aws.directoryservice.Directory("one",
             name="one.example.com",
             type="MicrosoftAD")
-        # ...
-        two_directory = aws.directoryservice.Directory("twoDirectory",
+        two_directory = aws.directoryservice.Directory("two",
             name="two.example.com",
             type="MicrosoftAD")
-        # ...
-        one_trust = aws.directoryservice.Trust("oneTrust",
+        one = aws.directoryservice.Trust("one",
             directory_id=one_directory.id,
             remote_domain_name=two_directory.name,
             trust_direction="One-Way: Incoming",
             trust_password="Some0therPassword",
             conditional_forwarder_ip_addrs=two_directory.dns_ip_addresses)
-        two_trust = aws.directoryservice.Trust("twoTrust",
+        two = aws.directoryservice.Trust("two",
             directory_id=two_directory.id,
             remote_domain_name=one_directory.name,
             trust_direction="One-Way: Outgoing",
             trust_password="Some0therPassword",
             conditional_forwarder_ip_addrs=one_directory.dns_ip_addresses)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the Trust relationship using the directory ID and remote domain name, separated by a `/`. For example:
 
         ```sh
-         $ pulumi import aws:directoryservice/trust:Trust example d-926724cf57/directory.example.com
+        $ pulumi import aws:directoryservice/trust:Trust example d-926724cf57/directory.example.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -520,67 +522,69 @@ class Trust(pulumi.CustomResource):
         Once the second Trust is created, the first will update to the correct state.
 
         ## Example Usage
+
         ### Two-Way Trust
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        one_directory = aws.directoryservice.Directory("oneDirectory",
+        one_directory = aws.directoryservice.Directory("one",
             name="one.example.com",
             type="MicrosoftAD")
-        # ...
-        two_directory = aws.directoryservice.Directory("twoDirectory",
+        two_directory = aws.directoryservice.Directory("two",
             name="two.example.com",
             type="MicrosoftAD")
-        # ...
-        one_trust = aws.directoryservice.Trust("oneTrust",
+        one = aws.directoryservice.Trust("one",
             directory_id=one_directory.id,
             remote_domain_name=two_directory.name,
             trust_direction="Two-Way",
             trust_password="Some0therPassword",
             conditional_forwarder_ip_addrs=two_directory.dns_ip_addresses)
-        two_trust = aws.directoryservice.Trust("twoTrust",
+        two = aws.directoryservice.Trust("two",
             directory_id=two_directory.id,
             remote_domain_name=one_directory.name,
             trust_direction="Two-Way",
             trust_password="Some0therPassword",
             conditional_forwarder_ip_addrs=one_directory.dns_ip_addresses)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### One-Way Trust
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        one_directory = aws.directoryservice.Directory("oneDirectory",
+        one_directory = aws.directoryservice.Directory("one",
             name="one.example.com",
             type="MicrosoftAD")
-        # ...
-        two_directory = aws.directoryservice.Directory("twoDirectory",
+        two_directory = aws.directoryservice.Directory("two",
             name="two.example.com",
             type="MicrosoftAD")
-        # ...
-        one_trust = aws.directoryservice.Trust("oneTrust",
+        one = aws.directoryservice.Trust("one",
             directory_id=one_directory.id,
             remote_domain_name=two_directory.name,
             trust_direction="One-Way: Incoming",
             trust_password="Some0therPassword",
             conditional_forwarder_ip_addrs=two_directory.dns_ip_addresses)
-        two_trust = aws.directoryservice.Trust("twoTrust",
+        two = aws.directoryservice.Trust("two",
             directory_id=two_directory.id,
             remote_domain_name=one_directory.name,
             trust_direction="One-Way: Outgoing",
             trust_password="Some0therPassword",
             conditional_forwarder_ip_addrs=one_directory.dns_ip_addresses)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the Trust relationship using the directory ID and remote domain name, separated by a `/`. For example:
 
         ```sh
-         $ pulumi import aws:directoryservice/trust:Trust example d-926724cf57/directory.example.com
+        $ pulumi import aws:directoryservice/trust:Trust example d-926724cf57/directory.example.com
         ```
 
         :param str resource_name: The name of the resource.

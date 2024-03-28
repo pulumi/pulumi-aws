@@ -44,13 +44,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
 
         @CustomType.Setter
         public Builder aggregationType(@Nullable String aggregationType) {
+
             this.aggregationType = aggregationType;
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig();
-            o.aggregationType = aggregationType;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig();
+            _resultValue.aggregationType = aggregationType;
+            return _resultValue;
         }
     }
 }

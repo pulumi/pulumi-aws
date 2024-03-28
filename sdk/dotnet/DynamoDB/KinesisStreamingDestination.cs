@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,8 +23,9 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleTable = new Aws.DynamoDB.Table("exampleTable", new()
+    ///     var example = new Aws.DynamoDB.Table("example", new()
     ///     {
+    ///         Name = "orders",
     ///         HashKey = "id",
     ///         Attributes = new[]
     ///         {
@@ -35,26 +37,28 @@ namespace Pulumi.Aws.DynamoDB
     ///         },
     ///     });
     /// 
-    ///     var exampleStream = new Aws.Kinesis.Stream("exampleStream", new()
+    ///     var exampleStream = new Aws.Kinesis.Stream("example", new()
     ///     {
+    ///         Name = "order_item_changes",
     ///         ShardCount = 1,
     ///     });
     /// 
-    ///     var exampleKinesisStreamingDestination = new Aws.DynamoDB.KinesisStreamingDestination("exampleKinesisStreamingDestination", new()
+    ///     var exampleKinesisStreamingDestination = new Aws.DynamoDB.KinesisStreamingDestination("example", new()
     ///     {
     ///         StreamArn = exampleStream.Arn,
-    ///         TableName = exampleTable.Name,
+    ///         TableName = example.Name,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DynamoDB Kinesis Streaming Destinations using the `table_name` and `stream_arn` separated by `,`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination example example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName
+    /// $ pulumi import aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination example example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName
     /// ```
     /// </summary>
     [AwsResourceType("aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination")]

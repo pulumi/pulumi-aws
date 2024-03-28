@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ResourceExplorer
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,13 +23,14 @@ namespace Pulumi.Aws.ResourceExplorer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleIndex = new Aws.ResourceExplorer.Index("exampleIndex", new()
+    ///     var example = new Aws.ResourceExplorer.Index("example", new()
     ///     {
     ///         Type = "LOCAL",
     ///     });
     /// 
-    ///     var exampleView = new Aws.ResourceExplorer.View("exampleView", new()
+    ///     var exampleView = new Aws.ResourceExplorer.View("example", new()
     ///     {
+    ///         Name = "exampleview",
     ///         Filters = new Aws.ResourceExplorer.Inputs.ViewFiltersArgs
     ///         {
     ///             FilterString = "resourcetype:ec2:instance",
@@ -40,23 +42,18 @@ namespace Pulumi.Aws.ResourceExplorer
     ///                 Name = "tags",
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleIndex,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Resource Explorer views using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:resourceexplorer/view:View example arn:aws:resource-explorer-2:us-west-2:123456789012:view/exampleview/e0914f6c-6c27-4b47-b5d4-6b28381a2421
+    /// $ pulumi import aws:resourceexplorer/view:View example arn:aws:resource-explorer-2:us-west-2:123456789012:view/exampleview/e0914f6c-6c27-4b47-b5d4-6b28381a2421
     /// ```
     /// </summary>
     [AwsResourceType("aws:resourceexplorer/view:View")]
@@ -127,10 +124,6 @@ namespace Pulumi.Aws.ResourceExplorer
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -262,11 +255,7 @@ namespace Pulumi.Aws.ResourceExplorer
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ViewState()

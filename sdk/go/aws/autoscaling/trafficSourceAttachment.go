@@ -17,8 +17,10 @@ import (
 // > **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `loadBalancers`, `targetGroupArns` and `trafficSource` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,9 +34,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := autoscaling.NewTrafficSourceAttachment(ctx, "example", &autoscaling.TrafficSourceAttachmentArgs{
-//				AutoscalingGroupName: pulumi.Any(aws_autoscaling_group.Example.Id),
+//				AutoscalingGroupName: pulumi.Any(exampleAwsAutoscalingGroup.Id),
 //				TrafficSource: &autoscaling.TrafficSourceAttachmentTrafficSourceArgs{
-//					Identifier: pulumi.Any(aws_lb_target_group.Example.Arn),
+//					Identifier: pulumi.Any(exampleAwsLbTargetGroup.Arn),
 //					Type:       pulumi.String("elbv2"),
 //				},
 //			})
@@ -46,6 +48,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type TrafficSourceAttachment struct {
 	pulumi.CustomResourceState
 

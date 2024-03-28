@@ -13,11 +13,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const orderFlowersBot = new aws.lex.Bot("orderFlowersBot", {
+ * const orderFlowersBot = new aws.lex.Bot("order_flowers_bot", {
  *     abortStatement: {
  *         messages: [{
  *             content: "Sorry, I am not able to assist at this time",
@@ -45,13 +46,14 @@ import * as utilities from "../utilities";
  *     voiceId: "Salli",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import bots using their name. For example:
  *
  * ```sh
- *  $ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
+ * $ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
  * ```
  */
 export class Bot extends pulumi.CustomResource {

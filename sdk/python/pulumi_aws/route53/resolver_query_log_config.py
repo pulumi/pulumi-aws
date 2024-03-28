@@ -214,25 +214,26 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.route53.ResolverQueryLogConfig("example",
-            destination_arn=aws_s3_bucket["example"]["arn"],
+            name="example",
+            destination_arn=example_aws_s3_bucket["arn"],
             tags={
                 "Environment": "Prod",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import
-
-        Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
+        Using `pulumi import`, import  Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
 
         ```sh
-         $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
+        $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
         ```
 
         :param str resource_name: The name of the resource.
@@ -253,25 +254,26 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.route53.ResolverQueryLogConfig("example",
-            destination_arn=aws_s3_bucket["example"]["arn"],
+            name="example",
+            destination_arn=example_aws_s3_bucket["arn"],
             tags={
                 "Environment": "Prod",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import
-
-        Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
+        Using `pulumi import`, import  Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
 
         ```sh
-         $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
+        $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
         ```
 
         :param str resource_name: The name of the resource.
@@ -310,8 +312,6 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["share_status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ResolverQueryLogConfig, __self__).__init__(
             'aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig',
             resource_name,

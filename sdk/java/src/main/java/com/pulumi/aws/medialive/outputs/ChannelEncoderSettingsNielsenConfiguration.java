@@ -58,19 +58,21 @@ public final class ChannelEncoderSettingsNielsenConfiguration {
 
         @CustomType.Setter
         public Builder distributorId(@Nullable String distributorId) {
+
             this.distributorId = distributorId;
             return this;
         }
         @CustomType.Setter
         public Builder nielsenPcmToId3Tagging(@Nullable String nielsenPcmToId3Tagging) {
+
             this.nielsenPcmToId3Tagging = nielsenPcmToId3Tagging;
             return this;
         }
         public ChannelEncoderSettingsNielsenConfiguration build() {
-            final var o = new ChannelEncoderSettingsNielsenConfiguration();
-            o.distributorId = distributorId;
-            o.nielsenPcmToId3Tagging = nielsenPcmToId3Tagging;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsNielsenConfiguration();
+            _resultValue.distributorId = distributorId;
+            _resultValue.nielsenPcmToId3Tagging = nielsenPcmToId3Tagging;
+            return _resultValue;
         }
     }
 }

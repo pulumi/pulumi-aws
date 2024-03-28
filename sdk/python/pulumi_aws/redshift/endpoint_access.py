@@ -250,22 +250,24 @@ class EndpointAccess(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.redshift.EndpointAccess("example",
             endpoint_name="example",
-            subnet_group_name=aws_redshift_subnet_group["example"]["id"],
-            cluster_identifier=aws_redshift_cluster["example"]["cluster_identifier"])
+            subnet_group_name=example_aws_redshift_subnet_group["id"],
+            cluster_identifier=example_aws_redshift_cluster["clusterIdentifier"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift endpoint access using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/endpointAccess:EndpointAccess example example
+        $ pulumi import aws:redshift/endpointAccess:EndpointAccess example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -287,22 +289,24 @@ class EndpointAccess(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.redshift.EndpointAccess("example",
             endpoint_name="example",
-            subnet_group_name=aws_redshift_subnet_group["example"]["id"],
-            cluster_identifier=aws_redshift_cluster["example"]["cluster_identifier"])
+            subnet_group_name=example_aws_redshift_subnet_group["id"],
+            cluster_identifier=example_aws_redshift_cluster["clusterIdentifier"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift endpoint access using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/endpointAccess:EndpointAccess example example
+        $ pulumi import aws:redshift/endpointAccess:EndpointAccess example example
         ```
 
         :param str resource_name: The name of the resource.

@@ -24,6 +24,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,6 +38,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewKeyPair(ctx, "deployer", &ec2.KeyPairArgs{
+//				KeyName:   pulumi.String("deployer-key"),
 //				PublicKey: pulumi.String("ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 email@example.com"),
 //			})
 //			if err != nil {
@@ -47,18 +49,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Key Pairs using the `key_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/keyPair:KeyPair deployer deployer-key
-//
+// $ pulumi import aws:ec2/keyPair:KeyPair deployer deployer-key
 // ```
-//
-//	~> __NOTE:__ The AWS API does not include the public key in the response, so `pulumi up` will attempt to replace the key pair. There is currently no supported workaround for this limitation.
+// ~> __NOTE:__ The AWS API does not include the public key in the response, so `pulumi up` will attempt to replace the key pair. There is currently no supported workaround for this limitation.
 type KeyPair struct {
 	pulumi.CustomResourceState
 
@@ -94,10 +94,6 @@ func NewKeyPair(ctx *pulumi.Context,
 	if args.PublicKey == nil {
 		return nil, errors.New("invalid value for required argument 'PublicKey'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KeyPair
 	err := ctx.RegisterResource("aws:ec2/keyPair:KeyPair", name, args, &resource, opts...)

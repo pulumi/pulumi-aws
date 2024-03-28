@@ -119,19 +119,23 @@ class Gateway(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.directconnect.Gateway("example", amazon_side_asn="64512")
+        example = aws.directconnect.Gateway("example",
+            name="tf-dxg-example",
+            amazon_side_asn="64512")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Direct Connect Gateways using the gateway `id`. For example:
 
         ```sh
-         $ pulumi import aws:directconnect/gateway:Gateway test abcd1234-dcba-5678-be23-cdef9876ab45
+        $ pulumi import aws:directconnect/gateway:Gateway test abcd1234-dcba-5678-be23-cdef9876ab45
         ```
 
         :param str resource_name: The name of the resource.
@@ -150,19 +154,23 @@ class Gateway(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.directconnect.Gateway("example", amazon_side_asn="64512")
+        example = aws.directconnect.Gateway("example",
+            name="tf-dxg-example",
+            amazon_side_asn="64512")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Direct Connect Gateways using the gateway `id`. For example:
 
         ```sh
-         $ pulumi import aws:directconnect/gateway:Gateway test abcd1234-dcba-5678-be23-cdef9876ab45
+        $ pulumi import aws:directconnect/gateway:Gateway test abcd1234-dcba-5678-be23-cdef9876ab45
         ```
 
         :param str resource_name: The name of the resource.

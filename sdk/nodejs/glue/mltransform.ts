@@ -12,12 +12,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testCatalogDatabase = new aws.glue.CatalogDatabase("testCatalogDatabase", {name: "example"});
- * const testCatalogTable = new aws.glue.CatalogTable("testCatalogTable", {
+ * const testCatalogDatabase = new aws.glue.CatalogDatabase("test", {name: "example"});
+ * const testCatalogTable = new aws.glue.CatalogTable("test", {
  *     name: "example",
  *     databaseName: testCatalogDatabase.name,
  *     owner: "my_owner",
@@ -83,8 +84,9 @@ import * as utilities from "../utilities";
  *         param1: "param1_val",
  *     },
  * });
- * const testMLTransform = new aws.glue.MLTransform("testMLTransform", {
- *     roleArn: aws_iam_role.test.arn,
+ * const test = new aws.glue.MLTransform("test", {
+ *     name: "example",
+ *     roleArn: testAwsIamRole.arn,
  *     inputRecordTables: [{
  *         databaseName: testCatalogTable.databaseName,
  *         tableName: testCatalogTable.name,
@@ -95,17 +97,16 @@ import * as utilities from "../utilities";
  *             primaryKeyColumnName: "my_column_1",
  *         },
  *     },
- * }, {
- *     dependsOn: [aws_iam_role_policy_attachment.test],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Glue ML Transforms using `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
+ * $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
  * ```
  */
 export class MLTransform extends pulumi.CustomResource {
@@ -261,8 +262,6 @@ export class MLTransform extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(MLTransform.__pulumiType, name, resourceInputs, opts);
     }
 }

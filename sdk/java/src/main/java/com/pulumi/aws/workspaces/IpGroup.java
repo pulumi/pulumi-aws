@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides an IP access control group in AWS WorkSpaces Service
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,32 +46,34 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var contractors = new IpGroup(&#34;contractors&#34;, IpGroupArgs.builder()        
+ *             .name(&#34;Contractors&#34;)
  *             .description(&#34;Contractors IP access control group&#34;)
  *             .rules(            
  *                 IpGroupRuleArgs.builder()
- *                     .description(&#34;NY&#34;)
  *                     .source(&#34;150.24.14.0/24&#34;)
+ *                     .description(&#34;NY&#34;)
  *                     .build(),
  *                 IpGroupRuleArgs.builder()
- *                     .description(&#34;LA&#34;)
  *                     .source(&#34;125.191.14.85/32&#34;)
+ *                     .description(&#34;LA&#34;)
  *                     .build(),
  *                 IpGroupRuleArgs.builder()
- *                     .description(&#34;STL&#34;)
  *                     .source(&#34;44.98.100.0/24&#34;)
+ *                     .description(&#34;STL&#34;)
  *                     .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import WorkSpaces IP groups using their GroupID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
+ * $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
  * ```
  * 
  */
@@ -182,9 +186,6 @@ public class IpGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

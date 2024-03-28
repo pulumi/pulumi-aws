@@ -9,24 +9,27 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appconfig.Application("example", {
+ *     name: "example-application-tf",
  *     description: "Example AppConfig Application",
  *     tags: {
  *         Type: "AppConfig Application",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AppConfig Applications using their application ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:appconfig/application:Application example 71rxuzt
+ * $ pulumi import aws:appconfig/application:Application example 71rxuzt
  * ```
  */
 export class Application extends pulumi.CustomResource {
@@ -107,8 +110,6 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }
 }

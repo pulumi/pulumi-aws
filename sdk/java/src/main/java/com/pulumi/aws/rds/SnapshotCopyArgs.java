@@ -5,6 +5,7 @@ package com.pulumi.aws.rds;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -374,8 +375,12 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SnapshotCopyArgs build() {
-            $.sourceDbSnapshotIdentifier = Objects.requireNonNull($.sourceDbSnapshotIdentifier, "expected parameter 'sourceDbSnapshotIdentifier' to be non-null");
-            $.targetDbSnapshotIdentifier = Objects.requireNonNull($.targetDbSnapshotIdentifier, "expected parameter 'targetDbSnapshotIdentifier' to be non-null");
+            if ($.sourceDbSnapshotIdentifier == null) {
+                throw new MissingRequiredPropertyException("SnapshotCopyArgs", "sourceDbSnapshotIdentifier");
+            }
+            if ($.targetDbSnapshotIdentifier == null) {
+                throw new MissingRequiredPropertyException("SnapshotCopyArgs", "targetDbSnapshotIdentifier");
+            }
             return $;
         }
     }

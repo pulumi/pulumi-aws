@@ -182,21 +182,26 @@ class ServiceNetwork(pulumi.CustomResource):
         Resource for managing an AWS VPC Lattice Service Network.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.vpclattice.ServiceNetwork("example", auth_type="AWS_IAM")
+        example = aws.vpclattice.ServiceNetwork("example",
+            name="example",
+            auth_type="AWS_IAM")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Lattice Service Network using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:vpclattice/serviceNetwork:ServiceNetwork example sn-0158f91c1e3358dba
+        $ pulumi import aws:vpclattice/serviceNetwork:ServiceNetwork example sn-0158f91c1e3358dba
         ```
 
         :param str resource_name: The name of the resource.
@@ -217,21 +222,26 @@ class ServiceNetwork(pulumi.CustomResource):
         Resource for managing an AWS VPC Lattice Service Network.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.vpclattice.ServiceNetwork("example", auth_type="AWS_IAM")
+        example = aws.vpclattice.ServiceNetwork("example",
+            name="example",
+            auth_type="AWS_IAM")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Lattice Service Network using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:vpclattice/serviceNetwork:ServiceNetwork example sn-0158f91c1e3358dba
+        $ pulumi import aws:vpclattice/serviceNetwork:ServiceNetwork example sn-0158f91c1e3358dba
         ```
 
         :param str resource_name: The name of the resource.
@@ -266,8 +276,6 @@ class ServiceNetwork(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceNetwork, __self__).__init__(
             'aws:vpclattice/serviceNetwork:ServiceNetwork',
             resource_name,

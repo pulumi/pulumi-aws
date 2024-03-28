@@ -278,12 +278,13 @@ class InstanceFleet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         task = aws.emr.InstanceFleet("task",
-            cluster_id=aws_emr_cluster["cluster"]["id"],
+            cluster_id=cluster["id"],
             instance_type_configs=[
                 aws.emr.InstanceFleetInstanceTypeConfigArgs(
                     bid_price_as_percentage_of_on_demand_price=100,
@@ -314,16 +315,18 @@ class InstanceFleet(pulumi.CustomResource):
                     timeout_duration_minutes=10,
                 )],
             ),
+            name="task fleet",
             target_on_demand_capacity=1,
             target_spot_capacity=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EMR Instance Fleet using the EMR Cluster identifier and Instance Fleet identifier separated by a forward slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
+        $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
         ```
 
         :param str resource_name: The name of the resource.
@@ -351,12 +354,13 @@ class InstanceFleet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         task = aws.emr.InstanceFleet("task",
-            cluster_id=aws_emr_cluster["cluster"]["id"],
+            cluster_id=cluster["id"],
             instance_type_configs=[
                 aws.emr.InstanceFleetInstanceTypeConfigArgs(
                     bid_price_as_percentage_of_on_demand_price=100,
@@ -387,16 +391,18 @@ class InstanceFleet(pulumi.CustomResource):
                     timeout_duration_minutes=10,
                 )],
             ),
+            name="task fleet",
             target_on_demand_capacity=1,
             target_spot_capacity=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EMR Instance Fleet using the EMR Cluster identifier and Instance Fleet identifier separated by a forward slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
+        $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
         ```
 
         :param str resource_name: The name of the resource.

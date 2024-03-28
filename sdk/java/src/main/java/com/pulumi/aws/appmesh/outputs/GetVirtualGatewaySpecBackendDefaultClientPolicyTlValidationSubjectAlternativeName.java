@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,16 +36,19 @@ public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSu
 
         @CustomType.Setter
         public Builder matches(List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch> matches) {
-            this.matches = Objects.requireNonNull(matches);
+            if (matches == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName", "matches");
+            }
+            this.matches = matches;
             return this;
         }
         public Builder matches(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch... matches) {
             return matches(List.of(matches));
         }
         public GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName build() {
-            final var o = new GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName();
-            o.matches = matches;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName();
+            _resultValue.matches = matches;
+            return _resultValue;
         }
     }
 }

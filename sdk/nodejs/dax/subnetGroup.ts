@@ -9,22 +9,27 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.dax.SubnetGroup("example", {subnetIds: [
- *     aws_subnet.example1.id,
- *     aws_subnet.example2.id,
- * ]});
+ * const example = new aws.dax.SubnetGroup("example", {
+ *     name: "example",
+ *     subnetIds: [
+ *         example1.id,
+ *         example2.id,
+ *     ],
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import DAX Subnet Group using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
+ * $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
  * ```
  */
 export class SubnetGroup extends pulumi.CustomResource {

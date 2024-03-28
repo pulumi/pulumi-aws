@@ -16,25 +16,16 @@ namespace Pulumi.Aws.EcrPublic
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
-    /// using System;
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	private static string ReadFileBase64(string path) {
-    /// 		return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(path)));
-    /// 	}
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var usEast1 = new Aws.Provider("usEast1", new()
-    ///     {
-    ///         Region = "us-east-1",
-    ///     });
-    /// 
     ///     var foo = new Aws.EcrPublic.Repository("foo", new()
     ///     {
     ///         RepositoryName = "bar",
@@ -46,7 +37,10 @@ namespace Pulumi.Aws.EcrPublic
     ///                 "ARM",
     ///             },
     ///             Description = "Description",
-    ///             LogoImageBlob = ReadFileBase64(image.Png),
+    ///             LogoImageBlob = Std.Filebase64.Invoke(new()
+    ///             {
+    ///                 Input = png,
+    ///             }).Apply(invoke =&gt; invoke.Result),
     ///             OperatingSystems = new[]
     ///             {
     ///                 "Linux",
@@ -57,20 +51,18 @@ namespace Pulumi.Aws.EcrPublic
     ///         {
     ///             { "env", "production" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Us_east_1,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ECR Public Repositories using the `repository_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ecrpublic/repository:Repository example example
+    /// $ pulumi import aws:ecrpublic/repository:Repository example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecrpublic/repository:Repository")]
@@ -144,10 +136,6 @@ namespace Pulumi.Aws.EcrPublic
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -261,11 +249,7 @@ namespace Pulumi.Aws.EcrPublic
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public RepositoryState()

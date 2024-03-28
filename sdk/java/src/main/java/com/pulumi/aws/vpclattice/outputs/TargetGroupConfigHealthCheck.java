@@ -167,67 +167,77 @@ public final class TargetGroupConfigHealthCheck {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder healthCheckIntervalSeconds(@Nullable Integer healthCheckIntervalSeconds) {
+
             this.healthCheckIntervalSeconds = healthCheckIntervalSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder healthCheckTimeoutSeconds(@Nullable Integer healthCheckTimeoutSeconds) {
+
             this.healthCheckTimeoutSeconds = healthCheckTimeoutSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder healthyThresholdCount(@Nullable Integer healthyThresholdCount) {
+
             this.healthyThresholdCount = healthyThresholdCount;
             return this;
         }
         @CustomType.Setter
         public Builder matcher(@Nullable TargetGroupConfigHealthCheckMatcher matcher) {
+
             this.matcher = matcher;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
+
             this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder protocolVersion(@Nullable String protocolVersion) {
+
             this.protocolVersion = protocolVersion;
             return this;
         }
         @CustomType.Setter
         public Builder unhealthyThresholdCount(@Nullable Integer unhealthyThresholdCount) {
+
             this.unhealthyThresholdCount = unhealthyThresholdCount;
             return this;
         }
         public TargetGroupConfigHealthCheck build() {
-            final var o = new TargetGroupConfigHealthCheck();
-            o.enabled = enabled;
-            o.healthCheckIntervalSeconds = healthCheckIntervalSeconds;
-            o.healthCheckTimeoutSeconds = healthCheckTimeoutSeconds;
-            o.healthyThresholdCount = healthyThresholdCount;
-            o.matcher = matcher;
-            o.path = path;
-            o.port = port;
-            o.protocol = protocol;
-            o.protocolVersion = protocolVersion;
-            o.unhealthyThresholdCount = unhealthyThresholdCount;
-            return o;
+            final var _resultValue = new TargetGroupConfigHealthCheck();
+            _resultValue.enabled = enabled;
+            _resultValue.healthCheckIntervalSeconds = healthCheckIntervalSeconds;
+            _resultValue.healthCheckTimeoutSeconds = healthCheckTimeoutSeconds;
+            _resultValue.healthyThresholdCount = healthyThresholdCount;
+            _resultValue.matcher = matcher;
+            _resultValue.path = path;
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            _resultValue.protocolVersion = protocolVersion;
+            _resultValue.unhealthyThresholdCount = unhealthyThresholdCount;
+            return _resultValue;
         }
     }
 }

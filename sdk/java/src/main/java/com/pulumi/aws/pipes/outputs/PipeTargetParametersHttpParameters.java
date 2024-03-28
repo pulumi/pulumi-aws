@@ -73,25 +73,28 @@ public final class PipeTargetParametersHttpParameters {
 
         @CustomType.Setter
         public Builder headerParameters(@Nullable Map<String,String> headerParameters) {
+
             this.headerParameters = headerParameters;
             return this;
         }
         @CustomType.Setter
         public Builder pathParameterValues(@Nullable String pathParameterValues) {
+
             this.pathParameterValues = pathParameterValues;
             return this;
         }
         @CustomType.Setter
         public Builder queryStringParameters(@Nullable Map<String,String> queryStringParameters) {
+
             this.queryStringParameters = queryStringParameters;
             return this;
         }
         public PipeTargetParametersHttpParameters build() {
-            final var o = new PipeTargetParametersHttpParameters();
-            o.headerParameters = headerParameters;
-            o.pathParameterValues = pathParameterValues;
-            o.queryStringParameters = queryStringParameters;
-            return o;
+            final var _resultValue = new PipeTargetParametersHttpParameters();
+            _resultValue.headerParameters = headerParameters;
+            _resultValue.pathParameterValues = pathParameterValues;
+            _resultValue.queryStringParameters = queryStringParameters;
+            return _resultValue;
         }
     }
 }

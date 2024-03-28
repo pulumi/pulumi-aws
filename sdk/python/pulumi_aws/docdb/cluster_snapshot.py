@@ -270,21 +270,23 @@ class ClusterSnapshot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.docdb.ClusterSnapshot("example",
-            db_cluster_identifier=aws_docdb_cluster["example"]["id"],
+            db_cluster_identifier=example_aws_docdb_cluster["id"],
             db_cluster_snapshot_identifier="resourcetestsnapshot1234")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_docdb_cluster_snapshot` using the cluster snapshot identifier. For example:
 
         ```sh
-         $ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+        $ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
         ```
 
         :param str resource_name: The name of the resource.
@@ -303,21 +305,23 @@ class ClusterSnapshot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.docdb.ClusterSnapshot("example",
-            db_cluster_identifier=aws_docdb_cluster["example"]["id"],
+            db_cluster_identifier=example_aws_docdb_cluster["id"],
             db_cluster_snapshot_identifier="resourcetestsnapshot1234")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_docdb_cluster_snapshot` using the cluster snapshot identifier. For example:
 
         ```sh
-         $ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+        $ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
         ```
 
         :param str resource_name: The name of the resource.

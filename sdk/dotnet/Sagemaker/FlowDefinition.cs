@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Sagemaker
     /// Provides a SageMaker Flow Definition resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,26 +28,29 @@ namespace Pulumi.Aws.Sagemaker
     ///     var example = new Aws.Sagemaker.FlowDefinition("example", new()
     ///     {
     ///         FlowDefinitionName = "example",
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         HumanLoopConfig = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopConfigArgs
     ///         {
-    ///             HumanTaskUiArn = aws_sagemaker_human_task_ui.Example.Arn,
+    ///             HumanTaskUiArn = exampleAwsSagemakerHumanTaskUi.Arn,
     ///             TaskAvailabilityLifetimeInSeconds = 1,
     ///             TaskCount = 1,
     ///             TaskDescription = "example",
     ///             TaskTitle = "example",
-    ///             WorkteamArn = aws_sagemaker_workteam.Example.Arn,
+    ///             WorkteamArn = exampleAwsSagemakerWorkteam.Arn,
     ///         },
     ///         OutputConfig = new Aws.Sagemaker.Inputs.FlowDefinitionOutputConfigArgs
     ///         {
-    ///             S3OutputPath = $"s3://{aws_s3_bucket.Example.Bucket}/",
+    ///             S3OutputPath = $"s3://{exampleAwsS3Bucket.Bucket}/",
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Public Workteam Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -57,15 +62,15 @@ namespace Pulumi.Aws.Sagemaker
     ///     var example = new Aws.Sagemaker.FlowDefinition("example", new()
     ///     {
     ///         FlowDefinitionName = "example",
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         HumanLoopConfig = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopConfigArgs
     ///         {
-    ///             HumanTaskUiArn = aws_sagemaker_human_task_ui.Example.Arn,
+    ///             HumanTaskUiArn = exampleAwsSagemakerHumanTaskUi.Arn,
     ///             TaskAvailabilityLifetimeInSeconds = 1,
     ///             TaskCount = 1,
     ///             TaskDescription = "example",
     ///             TaskTitle = "example",
-    ///             WorkteamArn = $"arn:aws:sagemaker:{data.Aws_region.Current.Name}:394669845002:workteam/public-crowd/default",
+    ///             WorkteamArn = $"arn:aws:sagemaker:{current.Name}:394669845002:workteam/public-crowd/default",
     ///             PublicWorkforceTaskPrice = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs
     ///             {
     ///                 AmountInUsd = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs
@@ -77,14 +82,17 @@ namespace Pulumi.Aws.Sagemaker
     ///         },
     ///         OutputConfig = new Aws.Sagemaker.Inputs.FlowDefinitionOutputConfigArgs
     ///         {
-    ///             S3OutputPath = $"s3://{aws_s3_bucket.Example.Bucket}/",
+    ///             S3OutputPath = $"s3://{exampleAwsS3Bucket.Bucket}/",
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Human Loop Activation Config Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -96,15 +104,15 @@ namespace Pulumi.Aws.Sagemaker
     ///     var example = new Aws.Sagemaker.FlowDefinition("example", new()
     ///     {
     ///         FlowDefinitionName = "example",
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         HumanLoopConfig = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopConfigArgs
     ///         {
-    ///             HumanTaskUiArn = aws_sagemaker_human_task_ui.Example.Arn,
+    ///             HumanTaskUiArn = exampleAwsSagemakerHumanTaskUi.Arn,
     ///             TaskAvailabilityLifetimeInSeconds = 1,
     ///             TaskCount = 1,
     ///             TaskDescription = "example",
     ///             TaskTitle = "example",
-    ///             WorkteamArn = aws_sagemaker_workteam.Example.Arn,
+    ///             WorkteamArn = exampleAwsSagemakerWorkteam.Arn,
     ///         },
     ///         HumanLoopRequestSource = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopRequestSourceArgs
     ///         {
@@ -129,19 +137,20 @@ namespace Pulumi.Aws.Sagemaker
     ///         },
     ///         OutputConfig = new Aws.Sagemaker.Inputs.FlowDefinitionOutputConfigArgs
     ///         {
-    ///             S3OutputPath = $"s3://{aws_s3_bucket.Example.Bucket}/",
+    ///             S3OutputPath = $"s3://{exampleAwsS3Bucket.Bucket}/",
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SageMaker Flow Definitions using the `flow_definition_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
+    /// $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/flowDefinition:FlowDefinition")]
@@ -224,10 +233,6 @@ namespace Pulumi.Aws.Sagemaker
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -371,11 +376,7 @@ namespace Pulumi.Aws.Sagemaker
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public FlowDefinitionState()

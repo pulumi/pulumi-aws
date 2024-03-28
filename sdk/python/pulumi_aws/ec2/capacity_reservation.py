@@ -518,23 +518,25 @@ class CapacityReservation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         default = aws.ec2.CapacityReservation("default",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
+            instance_platform=aws.ec2.InstancePlatform.LINUX_UNIX,
             availability_zone="eu-west-1a",
-            instance_count=1,
-            instance_platform="Linux/UNIX",
-            instance_type="t2.micro")
+            instance_count=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Capacity Reservations using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
+        $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
         ```
 
         :param str resource_name: The name of the resource.
@@ -564,23 +566,25 @@ class CapacityReservation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         default = aws.ec2.CapacityReservation("default",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
+            instance_platform=aws.ec2.InstancePlatform.LINUX_UNIX,
             availability_zone="eu-west-1a",
-            instance_count=1,
-            instance_platform="Linux/UNIX",
-            instance_type="t2.micro")
+            instance_count=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Capacity Reservations using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
+        $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
         ```
 
         :param str resource_name: The name of the resource.
@@ -644,8 +648,6 @@ class CapacityReservation(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(CapacityReservation, __self__).__init__(
             'aws:ec2/capacityReservation:CapacityReservation',
             resource_name,

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,14 +29,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGraphQLApi, err := appsync.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync.GraphQLApiArgs{
+//			example, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
 //				AuthenticationType: pulumi.String("API_KEY"),
+//				Name:               pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appsync.NewType(ctx, "exampleType", &appsync.TypeArgs{
-//				ApiId:  exampleGraphQLApi.ID(),
+//			_, err = appsync.NewType(ctx, "example", &appsync.TypeArgs{
+//				ApiId:  example.ID(),
 //				Format: pulumi.String("SDL"),
 //				Definition: pulumi.String(`type Mutation
 //
@@ -54,15 +56,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Appsync Types using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appsync/type:Type example api-id:format:name
-//
+// $ pulumi import aws:appsync/type:Type example api-id:format:name
 // ```
 type Type struct {
 	pulumi.CustomResourceState

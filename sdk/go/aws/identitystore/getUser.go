@@ -28,7 +28,7 @@ type LookupUserArgs struct {
 	AlternateIdentifier *GetUserAlternateIdentifier `pulumi:"alternateIdentifier"`
 	// Configuration block for filtering by a unique attribute of the user. Detailed below.
 	//
-	// Deprecated: Use the alternate_identifier attribute instead.
+	// Deprecated: Use the alternateIdentifier attribute instead.
 	Filter *GetUserFilter `pulumi:"filter"`
 	// Identity Store ID associated with the Single Sign-On Instance.
 	//
@@ -51,7 +51,7 @@ type LookupUserResult struct {
 	Emails []GetUserEmail `pulumi:"emails"`
 	// List of identifiers issued to this resource by an external identity provider.
 	ExternalIds []GetUserExternalId `pulumi:"externalIds"`
-	// Deprecated: Use the alternate_identifier attribute instead.
+	// Deprecated: Use the alternateIdentifier attribute instead.
 	Filter *GetUserFilter `pulumi:"filter"`
 	// The provider-assigned unique ID for this managed resource.
 	Id              string `pulumi:"id"`
@@ -98,7 +98,7 @@ type LookupUserOutputArgs struct {
 	AlternateIdentifier GetUserAlternateIdentifierPtrInput `pulumi:"alternateIdentifier"`
 	// Configuration block for filtering by a unique attribute of the user. Detailed below.
 	//
-	// Deprecated: Use the alternate_identifier attribute instead.
+	// Deprecated: Use the alternateIdentifier attribute instead.
 	Filter GetUserFilterPtrInput `pulumi:"filter"`
 	// Identity Store ID associated with the Single Sign-On Instance.
 	//
@@ -153,7 +153,7 @@ func (o LookupUserResultOutput) ExternalIds() GetUserExternalIdArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []GetUserExternalId { return v.ExternalIds }).(GetUserExternalIdArrayOutput)
 }
 
-// Deprecated: Use the alternate_identifier attribute instead.
+// Deprecated: Use the alternateIdentifier attribute instead.
 func (o LookupUserResultOutput) Filter() GetUserFilterPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *GetUserFilter { return v.Filter }).(GetUserFilterPtrOutput)
 }

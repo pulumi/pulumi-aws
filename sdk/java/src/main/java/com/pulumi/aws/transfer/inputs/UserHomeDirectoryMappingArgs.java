@@ -5,6 +5,7 @@ package com.pulumi.aws.transfer.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -32,28 +33,6 @@ public final class UserHomeDirectoryMappingArgs extends com.pulumi.resources.Res
      * Represents the map target.
      * 
      * The `Restricted` option is achieved using the following mapping:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     @Import(name="target", required=true)
@@ -63,28 +42,6 @@ public final class UserHomeDirectoryMappingArgs extends com.pulumi.resources.Res
      * @return Represents the map target.
      * 
      * The `Restricted` option is achieved using the following mapping:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     public Output<String> target() {
@@ -141,28 +98,6 @@ public final class UserHomeDirectoryMappingArgs extends com.pulumi.resources.Res
          * @param target Represents the map target.
          * 
          * The `Restricted` option is achieved using the following mapping:
-         * ```java
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *     }
-         * }
-         * ```
          * 
          * @return builder
          * 
@@ -176,28 +111,6 @@ public final class UserHomeDirectoryMappingArgs extends com.pulumi.resources.Res
          * @param target Represents the map target.
          * 
          * The `Restricted` option is achieved using the following mapping:
-         * ```java
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *     }
-         * }
-         * ```
          * 
          * @return builder
          * 
@@ -207,8 +120,12 @@ public final class UserHomeDirectoryMappingArgs extends com.pulumi.resources.Res
         }
 
         public UserHomeDirectoryMappingArgs build() {
-            $.entry = Objects.requireNonNull($.entry, "expected parameter 'entry' to be non-null");
-            $.target = Objects.requireNonNull($.target, "expected parameter 'target' to be non-null");
+            if ($.entry == null) {
+                throw new MissingRequiredPropertyException("UserHomeDirectoryMappingArgs", "entry");
+            }
+            if ($.target == null) {
+                throw new MissingRequiredPropertyException("UserHomeDirectoryMappingArgs", "target");
+            }
             return $;
         }
     }

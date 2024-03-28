@@ -101,37 +101,42 @@ public final class GetTrafficPolicyDocumentRuleRegion {
 
         @CustomType.Setter
         public Builder endpointReference(@Nullable String endpointReference) {
+
             this.endpointReference = endpointReference;
             return this;
         }
         @CustomType.Setter
         public Builder evaluateTargetHealth(@Nullable Boolean evaluateTargetHealth) {
+
             this.evaluateTargetHealth = evaluateTargetHealth;
             return this;
         }
         @CustomType.Setter
         public Builder healthCheck(@Nullable String healthCheck) {
+
             this.healthCheck = healthCheck;
             return this;
         }
         @CustomType.Setter
         public Builder region(@Nullable String region) {
+
             this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder ruleReference(@Nullable String ruleReference) {
+
             this.ruleReference = ruleReference;
             return this;
         }
         public GetTrafficPolicyDocumentRuleRegion build() {
-            final var o = new GetTrafficPolicyDocumentRuleRegion();
-            o.endpointReference = endpointReference;
-            o.evaluateTargetHealth = evaluateTargetHealth;
-            o.healthCheck = healthCheck;
-            o.region = region;
-            o.ruleReference = ruleReference;
-            return o;
+            final var _resultValue = new GetTrafficPolicyDocumentRuleRegion();
+            _resultValue.endpointReference = endpointReference;
+            _resultValue.evaluateTargetHealth = evaluateTargetHealth;
+            _resultValue.healthCheck = healthCheck;
+            _resultValue.region = region;
+            _resultValue.ruleReference = ruleReference;
+            return _resultValue;
         }
     }
 }

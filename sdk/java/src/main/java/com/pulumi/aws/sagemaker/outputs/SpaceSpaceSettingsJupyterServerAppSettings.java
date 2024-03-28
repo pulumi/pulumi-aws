@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.outputs;
 import com.pulumi.aws.sagemaker.outputs.SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository;
 import com.pulumi.aws.sagemaker.outputs.SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -74,6 +75,7 @@ public final class SpaceSpaceSettingsJupyterServerAppSettings {
 
         @CustomType.Setter
         public Builder codeRepositories(@Nullable List<SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository> codeRepositories) {
+
             this.codeRepositories = codeRepositories;
             return this;
         }
@@ -82,11 +84,15 @@ public final class SpaceSpaceSettingsJupyterServerAppSettings {
         }
         @CustomType.Setter
         public Builder defaultResourceSpec(SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec) {
-            this.defaultResourceSpec = Objects.requireNonNull(defaultResourceSpec);
+            if (defaultResourceSpec == null) {
+              throw new MissingRequiredPropertyException("SpaceSpaceSettingsJupyterServerAppSettings", "defaultResourceSpec");
+            }
+            this.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
         @CustomType.Setter
         public Builder lifecycleConfigArns(@Nullable List<String> lifecycleConfigArns) {
+
             this.lifecycleConfigArns = lifecycleConfigArns;
             return this;
         }
@@ -94,11 +100,11 @@ public final class SpaceSpaceSettingsJupyterServerAppSettings {
             return lifecycleConfigArns(List.of(lifecycleConfigArns));
         }
         public SpaceSpaceSettingsJupyterServerAppSettings build() {
-            final var o = new SpaceSpaceSettingsJupyterServerAppSettings();
-            o.codeRepositories = codeRepositories;
-            o.defaultResourceSpec = defaultResourceSpec;
-            o.lifecycleConfigArns = lifecycleConfigArns;
-            return o;
+            final var _resultValue = new SpaceSpaceSettingsJupyterServerAppSettings();
+            _resultValue.codeRepositories = codeRepositories;
+            _resultValue.defaultResourceSpec = defaultResourceSpec;
+            _resultValue.lifecycleConfigArns = lifecycleConfigArns;
+            return _resultValue;
         }
     }
 }

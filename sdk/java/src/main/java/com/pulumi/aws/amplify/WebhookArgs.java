@@ -5,6 +5,7 @@ package com.pulumi.aws.amplify;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WebhookArgs build() {
-            $.appId = Objects.requireNonNull($.appId, "expected parameter 'appId' to be non-null");
-            $.branchName = Objects.requireNonNull($.branchName, "expected parameter 'branchName' to be non-null");
+            if ($.appId == null) {
+                throw new MissingRequiredPropertyException("WebhookArgs", "appId");
+            }
+            if ($.branchName == null) {
+                throw new MissingRequiredPropertyException("WebhookArgs", "branchName");
+            }
             return $;
         }
     }

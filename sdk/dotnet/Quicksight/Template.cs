@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Quicksight
     /// Resource for managing a QuickSight Template.
     /// 
     /// ## Example Usage
+    /// 
     /// ### From Source Template
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,25 +28,27 @@ namespace Pulumi.Aws.Quicksight
     ///     var example = new Aws.Quicksight.Template("example", new()
     ///     {
     ///         TemplateId = "example-id",
+    ///         Name = "example-name",
     ///         VersionDescription = "version",
     ///         SourceEntity = new Aws.Quicksight.Inputs.TemplateSourceEntityArgs
     ///         {
     ///             SourceTemplate = new Aws.Quicksight.Inputs.TemplateSourceEntitySourceTemplateArgs
     ///             {
-    ///                 Arn = aws_quicksight_template.Source.Arn,
+    ///                 Arn = source.Arn,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
+    /// $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:quicksight/template:Template")]
@@ -159,10 +163,6 @@ namespace Pulumi.Aws.Quicksight
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -332,11 +332,7 @@ namespace Pulumi.Aws.Quicksight
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

@@ -174,61 +174,70 @@ public final class AmiFromInstanceEbsBlockDevice {
 
         @CustomType.Setter
         public Builder deleteOnTermination(@Nullable Boolean deleteOnTermination) {
+
             this.deleteOnTermination = deleteOnTermination;
             return this;
         }
         @CustomType.Setter
         public Builder deviceName(@Nullable String deviceName) {
+
             this.deviceName = deviceName;
             return this;
         }
         @CustomType.Setter
         public Builder encrypted(@Nullable Boolean encrypted) {
+
             this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
         public Builder iops(@Nullable Integer iops) {
+
             this.iops = iops;
             return this;
         }
         @CustomType.Setter
         public Builder outpostArn(@Nullable String outpostArn) {
+
             this.outpostArn = outpostArn;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotId(@Nullable String snapshotId) {
+
             this.snapshotId = snapshotId;
             return this;
         }
         @CustomType.Setter
         public Builder throughput(@Nullable Integer throughput) {
+
             this.throughput = throughput;
             return this;
         }
         @CustomType.Setter
         public Builder volumeSize(@Nullable Integer volumeSize) {
+
             this.volumeSize = volumeSize;
             return this;
         }
         @CustomType.Setter
         public Builder volumeType(@Nullable String volumeType) {
+
             this.volumeType = volumeType;
             return this;
         }
         public AmiFromInstanceEbsBlockDevice build() {
-            final var o = new AmiFromInstanceEbsBlockDevice();
-            o.deleteOnTermination = deleteOnTermination;
-            o.deviceName = deviceName;
-            o.encrypted = encrypted;
-            o.iops = iops;
-            o.outpostArn = outpostArn;
-            o.snapshotId = snapshotId;
-            o.throughput = throughput;
-            o.volumeSize = volumeSize;
-            o.volumeType = volumeType;
-            return o;
+            final var _resultValue = new AmiFromInstanceEbsBlockDevice();
+            _resultValue.deleteOnTermination = deleteOnTermination;
+            _resultValue.deviceName = deviceName;
+            _resultValue.encrypted = encrypted;
+            _resultValue.iops = iops;
+            _resultValue.outpostArn = outpostArn;
+            _resultValue.snapshotId = snapshotId;
+            _resultValue.throughput = throughput;
+            _resultValue.volumeSize = volumeSize;
+            _resultValue.volumeType = volumeType;
+            return _resultValue;
         }
     }
 }

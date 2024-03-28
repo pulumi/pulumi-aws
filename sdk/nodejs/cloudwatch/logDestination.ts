@@ -9,22 +9,25 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testDestination = new aws.cloudwatch.LogDestination("testDestination", {
- *     roleArn: aws_iam_role.iam_for_cloudwatch.arn,
- *     targetArn: aws_kinesis_stream.kinesis_for_cloudwatch.arn,
+ * const testDestination = new aws.cloudwatch.LogDestination("test_destination", {
+ *     name: "test_destination",
+ *     roleArn: iamForCloudwatch.arn,
+ *     targetArn: kinesisForCloudwatch.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CloudWatch Logs destinations using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
+ * $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
  * ```
  */
 export class LogDestination extends pulumi.CustomResource {
@@ -117,8 +120,6 @@ export class LogDestination extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LogDestination.__pulumiType, name, resourceInputs, opts);
     }
 }

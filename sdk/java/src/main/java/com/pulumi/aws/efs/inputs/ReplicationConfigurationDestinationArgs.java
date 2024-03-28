@@ -30,9 +30,17 @@ public final class ReplicationConfigurationDestinationArgs extends com.pulumi.re
         return Optional.ofNullable(this.availabilityZoneName);
     }
 
+    /**
+     * The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
+     * 
+     */
     @Import(name="fileSystemId")
     private @Nullable Output<String> fileSystemId;
 
+    /**
+     * @return The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
+     * 
+     */
     public Optional<Output<String>> fileSystemId() {
         return Optional.ofNullable(this.fileSystemId);
     }
@@ -123,11 +131,23 @@ public final class ReplicationConfigurationDestinationArgs extends com.pulumi.re
             return availabilityZoneName(Output.of(availabilityZoneName));
         }
 
+        /**
+         * @param fileSystemId The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileSystemId(@Nullable Output<String> fileSystemId) {
             $.fileSystemId = fileSystemId;
             return this;
         }
 
+        /**
+         * @param fileSystemId The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileSystemId(String fileSystemId) {
             return fileSystemId(Output.of(fileSystemId));
         }

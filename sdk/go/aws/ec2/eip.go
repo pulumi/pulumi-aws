@@ -18,8 +18,10 @@ import (
 // > **Note:** Do not use `networkInterface` to associate the EIP to `lb.LoadBalancer` or `ec2.NatGateway` resources. Instead use the `allocationId` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
 //
 // ## Example Usage
+//
 // ### Single EIP associated with an instance
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,7 +35,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewEip(ctx, "lb", &ec2.EipArgs{
-//				Instance: pulumi.Any(aws_instance.Web.Id),
+//				Instance: pulumi.Any(web.Id),
 //				Domain:   pulumi.String("vpc"),
 //			})
 //			if err != nil {
@@ -44,8 +46,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Multiple EIPs associated with a single network interface
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,7 +64,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewNetworkInterface(ctx, "multi-ip", &ec2.NetworkInterfaceArgs{
-//				SubnetId: pulumi.Any(aws_subnet.Main.Id),
+//				SubnetId: pulumi.Any(main.Id),
 //				PrivateIps: pulumi.StringArray{
 //					pulumi.String("10.0.0.10"),
 //					pulumi.String("10.0.0.11"),
@@ -89,8 +94,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -110,25 +118,23 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			gw, err := ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
+//			_, err = ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
 //				VpcId: _default.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			myTestSubnet, err := ec2.NewSubnet(ctx, "myTestSubnet", &ec2.SubnetArgs{
+//			myTestSubnet, err := ec2.NewSubnet(ctx, "my_test_subnet", &ec2.SubnetArgs{
 //				VpcId:               _default.ID(),
 //				CidrBlock:           pulumi.String("10.0.0.0/24"),
 //				MapPublicIpOnLaunch: pulumi.Bool(true),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				gw,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			foo, err := ec2.NewInstance(ctx, "foo", &ec2.InstanceArgs{
 //				Ami:          pulumi.String("ami-5189a661"),
-//				InstanceType: pulumi.String("t2.micro"),
+//				InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
 //				PrivateIp:    pulumi.String("10.0.0.12"),
 //				SubnetId:     myTestSubnet.ID(),
 //			})
@@ -139,9 +145,7 @@ import (
 //				Domain:                 pulumi.String("vpc"),
 //				Instance:               foo.ID(),
 //				AssociateWithPrivateIp: pulumi.String("10.0.0.12"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				gw,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -150,8 +154,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Allocating EIP from the BYOIP pool
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -176,15 +183,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
-//
+// $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
 // ```
 type Eip struct {
 	pulumi.CustomResourceState
@@ -247,10 +253,6 @@ func NewEip(ctx *pulumi.Context,
 		args = &EipArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Eip
 	err := ctx.RegisterResource("aws:ec2/eip:Eip", name, args, &resource, opts...)

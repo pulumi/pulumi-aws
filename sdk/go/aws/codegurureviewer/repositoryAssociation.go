@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,17 +31,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", nil)
+//			example, err := kms.NewKey(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleRepository, err := codecommit.NewRepository(ctx, "exampleRepository", &codecommit.RepositoryArgs{
+//			exampleRepository, err := codecommit.NewRepository(ctx, "example", &codecommit.RepositoryArgs{
 //				RepositoryName: pulumi.String("example-repo"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = codegurureviewer.NewRepositoryAssociation(ctx, "exampleRepositoryAssociation", &codegurureviewer.RepositoryAssociationArgs{
+//			_, err = codegurureviewer.NewRepositoryAssociation(ctx, "example", &codegurureviewer.RepositoryAssociationArgs{
 //				Repository: &codegurureviewer.RepositoryAssociationRepositoryArgs{
 //					Codecommit: &codegurureviewer.RepositoryAssociationRepositoryCodecommitArgs{
 //						Name: exampleRepository.RepositoryName,
@@ -48,7 +49,7 @@ import (
 //				},
 //				KmsKeyDetails: &codegurureviewer.RepositoryAssociationKmsKeyDetailsArgs{
 //					EncryptionOption: pulumi.String("CUSTOMER_MANAGED_CMK"),
-//					KmsKeyId:         exampleKey.KeyId,
+//					KmsKeyId:         example.KeyId,
 //				},
 //			})
 //			if err != nil {
@@ -59,6 +60,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type RepositoryAssociation struct {
 	pulumi.CustomResourceState
 
@@ -100,10 +102,6 @@ func NewRepositoryAssociation(ctx *pulumi.Context,
 	if args.Repository == nil {
 		return nil, errors.New("invalid value for required argument 'Repository'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RepositoryAssociation
 	err := ctx.RegisterResource("aws:codegurureviewer/repositoryAssociation:RepositoryAssociation", name, args, &resource, opts...)

@@ -299,115 +299,133 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
         @CustomType.Setter
         public Builder amplitude(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude amplitude) {
+
             this.amplitude = amplitude;
             return this;
         }
         @CustomType.Setter
         public Builder customConnector(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector customConnector) {
+
             this.customConnector = customConnector;
             return this;
         }
         @CustomType.Setter
         public Builder datadog(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog datadog) {
+
             this.datadog = datadog;
             return this;
         }
         @CustomType.Setter
         public Builder dynatrace(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace dynatrace) {
+
             this.dynatrace = dynatrace;
             return this;
         }
         @CustomType.Setter
         public Builder googleAnalytics(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics googleAnalytics) {
+
             this.googleAnalytics = googleAnalytics;
             return this;
         }
         @CustomType.Setter
         public Builder honeycode(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode honeycode) {
+
             this.honeycode = honeycode;
             return this;
         }
         @CustomType.Setter
         public Builder inforNexus(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus inforNexus) {
+
             this.inforNexus = inforNexus;
             return this;
         }
         @CustomType.Setter
         public Builder marketo(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo marketo) {
+
             this.marketo = marketo;
             return this;
         }
         @CustomType.Setter
         public Builder redshift(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift redshift) {
+
             this.redshift = redshift;
             return this;
         }
         @CustomType.Setter
         public Builder salesforce(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce salesforce) {
+
             this.salesforce = salesforce;
             return this;
         }
         @CustomType.Setter
         public Builder sapoData(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData sapoData) {
+
             this.sapoData = sapoData;
             return this;
         }
         @CustomType.Setter
         public Builder serviceNow(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow serviceNow) {
+
             this.serviceNow = serviceNow;
             return this;
         }
         @CustomType.Setter
         public Builder singular(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular singular) {
+
             this.singular = singular;
             return this;
         }
         @CustomType.Setter
         public Builder slack(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack slack) {
+
             this.slack = slack;
             return this;
         }
         @CustomType.Setter
         public Builder snowflake(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake snowflake) {
+
             this.snowflake = snowflake;
             return this;
         }
         @CustomType.Setter
         public Builder trendmicro(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro trendmicro) {
+
             this.trendmicro = trendmicro;
             return this;
         }
         @CustomType.Setter
         public Builder veeva(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva veeva) {
+
             this.veeva = veeva;
             return this;
         }
         @CustomType.Setter
         public Builder zendesk(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk zendesk) {
+
             this.zendesk = zendesk;
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentials build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentials();
-            o.amplitude = amplitude;
-            o.customConnector = customConnector;
-            o.datadog = datadog;
-            o.dynatrace = dynatrace;
-            o.googleAnalytics = googleAnalytics;
-            o.honeycode = honeycode;
-            o.inforNexus = inforNexus;
-            o.marketo = marketo;
-            o.redshift = redshift;
-            o.salesforce = salesforce;
-            o.sapoData = sapoData;
-            o.serviceNow = serviceNow;
-            o.singular = singular;
-            o.slack = slack;
-            o.snowflake = snowflake;
-            o.trendmicro = trendmicro;
-            o.veeva = veeva;
-            o.zendesk = zendesk;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentials();
+            _resultValue.amplitude = amplitude;
+            _resultValue.customConnector = customConnector;
+            _resultValue.datadog = datadog;
+            _resultValue.dynatrace = dynatrace;
+            _resultValue.googleAnalytics = googleAnalytics;
+            _resultValue.honeycode = honeycode;
+            _resultValue.inforNexus = inforNexus;
+            _resultValue.marketo = marketo;
+            _resultValue.redshift = redshift;
+            _resultValue.salesforce = salesforce;
+            _resultValue.sapoData = sapoData;
+            _resultValue.serviceNow = serviceNow;
+            _resultValue.singular = singular;
+            _resultValue.slack = slack;
+            _resultValue.snowflake = snowflake;
+            _resultValue.trendmicro = trendmicro;
+            _resultValue.veeva = veeva;
+            _resultValue.zendesk = zendesk;
+            return _resultValue;
         }
     }
 }

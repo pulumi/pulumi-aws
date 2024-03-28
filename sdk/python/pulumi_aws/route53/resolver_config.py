@@ -118,25 +118,27 @@ class ResolverConfig(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
+        example = aws.ec2.Vpc("example",
             cidr_block="10.0.0.0/16",
             enable_dns_support=True,
             enable_dns_hostnames=True)
-        example_resolver_config = aws.route53.ResolverConfig("exampleResolverConfig",
-            resource_id=example_vpc.id,
+        example_resolver_config = aws.route53.ResolverConfig("example",
+            resource_id=example.id,
             autodefined_reverse_flag="DISABLE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route 53 Resolver configs using the Route 53 Resolver config ID. For example:
 
         ```sh
-         $ pulumi import aws:route53/resolverConfig:ResolverConfig example rslvr-rc-715aa20c73a23da7
+        $ pulumi import aws:route53/resolverConfig:ResolverConfig example rslvr-rc-715aa20c73a23da7
         ```
 
         :param str resource_name: The name of the resource.
@@ -155,25 +157,27 @@ class ResolverConfig(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
+        example = aws.ec2.Vpc("example",
             cidr_block="10.0.0.0/16",
             enable_dns_support=True,
             enable_dns_hostnames=True)
-        example_resolver_config = aws.route53.ResolverConfig("exampleResolverConfig",
-            resource_id=example_vpc.id,
+        example_resolver_config = aws.route53.ResolverConfig("example",
+            resource_id=example.id,
             autodefined_reverse_flag="DISABLE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route 53 Resolver configs using the Route 53 Resolver config ID. For example:
 
         ```sh
-         $ pulumi import aws:route53/resolverConfig:ResolverConfig example rslvr-rc-715aa20c73a23da7
+        $ pulumi import aws:route53/resolverConfig:ResolverConfig example rslvr-rc-715aa20c73a23da7
         ```
 
         :param str resource_name: The name of the resource.

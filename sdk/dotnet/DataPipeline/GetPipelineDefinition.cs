@@ -14,10 +14,9 @@ namespace Pulumi.Aws.DataPipeline
         /// <summary>
         /// Provides details about a specific DataPipeline Pipeline Definition.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Aws.DataPipeline
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPipelineDefinitionResult> InvokeAsync(GetPipelineDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPipelineDefinitionResult>("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", args ?? new GetPipelineDefinitionArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.DataPipeline
         /// <summary>
         /// Provides details about a specific DataPipeline Pipeline Definition.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Aws.DataPipeline
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPipelineDefinitionResult> Invoke(GetPipelineDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPipelineDefinitionResult>("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", args ?? new GetPipelineDefinitionInvokeArgs(), options.WithDefaults());

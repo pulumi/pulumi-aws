@@ -25,8 +25,8 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         public WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll();
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll();
+            return _resultValue;
         }
     }
 }

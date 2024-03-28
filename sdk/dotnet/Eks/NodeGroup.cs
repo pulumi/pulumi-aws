@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Eks
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,9 +25,10 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Eks.NodeGroup("example", new()
     ///     {
-    ///         ClusterName = aws_eks_cluster.Example.Name,
-    ///         NodeRoleArn = aws_iam_role.Example.Arn,
-    ///         SubnetIds = aws_subnet.Example.Select(__item =&gt; __item.Id).ToList(),
+    ///         ClusterName = exampleAwsEksCluster.Name,
+    ///         NodeGroupName = "example",
+    ///         NodeRoleArn = exampleAwsIamRole.Arn,
+    ///         SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///         ScalingConfig = new Aws.Eks.Inputs.NodeGroupScalingConfigArgs
     ///         {
     ///             DesiredSize = 1,
@@ -37,22 +39,17 @@ namespace Pulumi.Aws.Eks
     ///         {
     ///             MaxUnavailable = 1,
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_iam_role_policy_attachment.Example_AmazonEKSWorkerNodePolicy,
-    ///             aws_iam_role_policy_attachment.Example_AmazonEKS_CNI_Policy,
-    ///             aws_iam_role_policy_attachment.Example_AmazonEC2ContainerRegistryReadOnly,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Ignoring Changes to Desired Size
     /// 
     /// You can utilize [ignoreChanges](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -61,7 +58,6 @@ namespace Pulumi.Aws.Eks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // ... other configurations ...
     ///     var example = new Aws.Eks.NodeGroup("example", new()
     ///     {
     ///         ScalingConfig = new Aws.Eks.Inputs.NodeGroupScalingConfigArgs
@@ -72,8 +68,11 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example IAM Role for EKS Node Group
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -85,21 +84,22 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "eks-node-group-example",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Statement"] = new[]
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["action"] = "sts:AssumeRole",
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "ec2.amazonaws.com",
+    ///                         ["service"] = "ec2.amazonaws.com",
     ///                     },
     ///                 },
     ///             },
-    ///             ["Version"] = "2012-10-17",
+    ///             ["version"] = "2012-10-17",
     ///         }),
     ///     });
     /// 
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Eks
     ///         Role = example.Name,
     ///     });
     /// 
-    ///     var example_AmazonEKSCNIPolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSCNIPolicy", new()
+    ///     var example_AmazonEKSCNIPolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKS_CNI_Policy", new()
     ///     {
     ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
     ///         Role = example.Name,
@@ -123,13 +123,51 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Example Subnets for EKS Node Group
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
+    ///     {
+    ///         State = "available",
+    ///     });
+    /// 
+    ///     var example = new List&lt;Aws.Ec2.Subnet&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         example.Add(new Aws.Ec2.Subnet($"example-{range.Value}", new()
+    ///         {
+    ///             AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names)[range.Value],
+    ///             CidrBlock = Std.Cidrsubnet.Invoke(new()
+    ///             {
+    ///                 Input = exampleAwsVpc.CidrBlock,
+    ///                 Newbits = 8,
+    ///                 Netnum = range.Value,
+    ///             }).Apply(invoke =&gt; invoke.Result),
+    ///             VpcId = exampleAwsVpc.Id,
+    ///         }));
+    ///     }
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
+    /// $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
     /// ```
     /// </summary>
     [AwsResourceType("aws:eks/nodeGroup:NodeGroup")]
@@ -154,7 +192,7 @@ namespace Pulumi.Aws.Eks
         public Output<string> CapacityType { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// Name of the EKS Cluster.
         /// </summary>
         [Output("clusterName")]
         public Output<string> ClusterName { get; private set; } = null!;
@@ -184,7 +222,7 @@ namespace Pulumi.Aws.Eks
         public Output<ImmutableDictionary<string, string>?> Labels { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with Launch Template settings. See `launch_template` below for details.
+        /// Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
         /// </summary>
         [Output("launchTemplate")]
         public Output<Outputs.NodeGroupLaunchTemplate?> LaunchTemplate { get; private set; } = null!;
@@ -214,7 +252,7 @@ namespace Pulumi.Aws.Eks
         public Output<string> ReleaseVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with remote access settings. See `remote_access` below for details.
+        /// Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
         /// </summary>
         [Output("remoteAccess")]
         public Output<Outputs.NodeGroupRemoteAccess?> RemoteAccess { get; private set; } = null!;
@@ -298,10 +336,6 @@ namespace Pulumi.Aws.Eks
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -338,7 +372,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? CapacityType { get; set; }
 
         /// <summary>
-        /// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// Name of the EKS Cluster.
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
@@ -380,7 +414,7 @@ namespace Pulumi.Aws.Eks
         }
 
         /// <summary>
-        /// Configuration block with Launch Template settings. See `launch_template` below for details.
+        /// Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
         /// </summary>
         [Input("launchTemplate")]
         public Input<Inputs.NodeGroupLaunchTemplateArgs>? LaunchTemplate { get; set; }
@@ -410,7 +444,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? ReleaseVersion { get; set; }
 
         /// <summary>
-        /// Configuration block with remote access settings. See `remote_access` below for details.
+        /// Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
         /// </summary>
         [Input("remoteAccess")]
         public Input<Inputs.NodeGroupRemoteAccessArgs>? RemoteAccess { get; set; }
@@ -498,7 +532,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? CapacityType { get; set; }
 
         /// <summary>
-        /// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// Name of the EKS Cluster.
         /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
@@ -540,7 +574,7 @@ namespace Pulumi.Aws.Eks
         }
 
         /// <summary>
-        /// Configuration block with Launch Template settings. See `launch_template` below for details.
+        /// Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
         /// </summary>
         [Input("launchTemplate")]
         public Input<Inputs.NodeGroupLaunchTemplateGetArgs>? LaunchTemplate { get; set; }
@@ -570,7 +604,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? ReleaseVersion { get; set; }
 
         /// <summary>
-        /// Configuration block with remote access settings. See `remote_access` below for details.
+        /// Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
         /// </summary>
         [Input("remoteAccess")]
         public Input<Inputs.NodeGroupRemoteAccessGetArgs>? RemoteAccess { get; set; }
@@ -635,11 +669,7 @@ namespace Pulumi.Aws.Eks
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("taints")]

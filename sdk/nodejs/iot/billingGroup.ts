@@ -12,11 +12,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.iot.BillingGroup("example", {
+ *     name: "example",
  *     properties: {
  *         description: "This is my billing group",
  *     },
@@ -25,13 +27,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IoT Billing Groups using the name. For example:
  *
  * ```sh
- *  $ pulumi import aws:iot/billingGroup:BillingGroup example example
+ * $ pulumi import aws:iot/billingGroup:BillingGroup example example
  * ```
  */
 export class BillingGroup extends pulumi.CustomResource {
@@ -119,8 +122,6 @@ export class BillingGroup extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(BillingGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

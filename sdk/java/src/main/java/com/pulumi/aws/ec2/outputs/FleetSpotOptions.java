@@ -88,31 +88,35 @@ public final class FleetSpotOptions {
 
         @CustomType.Setter
         public Builder allocationStrategy(@Nullable String allocationStrategy) {
+
             this.allocationStrategy = allocationStrategy;
             return this;
         }
         @CustomType.Setter
         public Builder instanceInterruptionBehavior(@Nullable String instanceInterruptionBehavior) {
+
             this.instanceInterruptionBehavior = instanceInterruptionBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder instancePoolsToUseCount(@Nullable Integer instancePoolsToUseCount) {
+
             this.instancePoolsToUseCount = instancePoolsToUseCount;
             return this;
         }
         @CustomType.Setter
         public Builder maintenanceStrategies(@Nullable FleetSpotOptionsMaintenanceStrategies maintenanceStrategies) {
+
             this.maintenanceStrategies = maintenanceStrategies;
             return this;
         }
         public FleetSpotOptions build() {
-            final var o = new FleetSpotOptions();
-            o.allocationStrategy = allocationStrategy;
-            o.instanceInterruptionBehavior = instanceInterruptionBehavior;
-            o.instancePoolsToUseCount = instancePoolsToUseCount;
-            o.maintenanceStrategies = maintenanceStrategies;
-            return o;
+            final var _resultValue = new FleetSpotOptions();
+            _resultValue.allocationStrategy = allocationStrategy;
+            _resultValue.instanceInterruptionBehavior = instanceInterruptionBehavior;
+            _resultValue.instancePoolsToUseCount = instancePoolsToUseCount;
+            _resultValue.maintenanceStrategies = maintenanceStrategies;
+            return _resultValue;
         }
     }
 }

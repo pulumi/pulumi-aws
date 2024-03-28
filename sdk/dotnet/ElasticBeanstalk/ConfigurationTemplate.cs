@@ -16,6 +16,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,17 +27,21 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// {
     ///     var tftest = new Aws.ElasticBeanstalk.Application("tftest", new()
     ///     {
+    ///         Name = "tf-test-name",
     ///         Description = "tf-test-desc",
     ///     });
     /// 
-    ///     var myTemplate = new Aws.ElasticBeanstalk.ConfigurationTemplate("myTemplate", new()
+    ///     var myTemplate = new Aws.ElasticBeanstalk.ConfigurationTemplate("my_template", new()
     ///     {
+    ///         Name = "tf-test-template-config",
     ///         Application = tftest.Name,
     ///         SolutionStackName = "64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Option Settings
     /// 
     /// The `setting` field supports the following format:

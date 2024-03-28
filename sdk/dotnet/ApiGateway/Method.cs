@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,19 +23,20 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new()
+    ///     var myDemoAPI = new Aws.ApiGateway.RestApi("MyDemoAPI", new()
     ///     {
+    ///         Name = "MyDemoAPI",
     ///         Description = "This is my API for demonstration purposes",
     ///     });
     /// 
-    ///     var myDemoResource = new Aws.ApiGateway.Resource("myDemoResource", new()
+    ///     var myDemoResource = new Aws.ApiGateway.Resource("MyDemoResource", new()
     ///     {
     ///         RestApi = myDemoAPI.Id,
     ///         ParentId = myDemoAPI.RootResourceId,
     ///         PathPart = "mydemoresource",
     ///     });
     /// 
-    ///     var myDemoMethod = new Aws.ApiGateway.Method("myDemoMethod", new()
+    ///     var myDemoMethod = new Aws.ApiGateway.Method("MyDemoMethod", new()
     ///     {
     ///         RestApi = myDemoAPI.Id,
     ///         ResourceId = myDemoResource.Id,
@@ -44,8 +46,11 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Usage with Cognito User Pool Authorizer
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -56,25 +61,29 @@ namespace Pulumi.Aws.ApiGateway
     /// {
     ///     var config = new Config();
     ///     var cognitoUserPoolName = config.RequireObject&lt;dynamic&gt;("cognitoUserPoolName");
-    ///     var thisUserPools = Aws.Cognito.GetUserPools.Invoke(new()
+    ///     var @this = Aws.Cognito.GetUserPools.Invoke(new()
     ///     {
     ///         Name = cognitoUserPoolName,
     ///     });
     /// 
-    ///     var thisRestApi = new Aws.ApiGateway.RestApi("thisRestApi");
+    ///     var thisRestApi = new Aws.ApiGateway.RestApi("this", new()
+    ///     {
+    ///         Name = "with-authorizer",
+    ///     });
     /// 
-    ///     var thisResource = new Aws.ApiGateway.Resource("thisResource", new()
+    ///     var thisResource = new Aws.ApiGateway.Resource("this", new()
     ///     {
     ///         RestApi = thisRestApi.Id,
     ///         ParentId = thisRestApi.RootResourceId,
     ///         PathPart = "{proxy+}",
     ///     });
     /// 
-    ///     var thisAuthorizer = new Aws.ApiGateway.Authorizer("thisAuthorizer", new()
+    ///     var thisAuthorizer = new Aws.ApiGateway.Authorizer("this", new()
     ///     {
+    ///         Name = "CognitoUserPoolAuthorizer",
     ///         Type = "COGNITO_USER_POOLS",
     ///         RestApi = thisRestApi.Id,
-    ///         ProviderArns = thisUserPools.Apply(getUserPoolsResult =&gt; getUserPoolsResult.Arns),
+    ///         ProviderArns = @this.Apply(@this =&gt; @this.Apply(getUserPoolsResult =&gt; getUserPoolsResult.Arns)),
     ///     });
     /// 
     ///     var any = new Aws.ApiGateway.Method("any", new()
@@ -92,13 +101,14 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_api_gateway_method` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
+    /// $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/method:Method")]

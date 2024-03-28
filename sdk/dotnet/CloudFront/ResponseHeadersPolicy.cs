@@ -19,6 +19,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// The example below creates a CloudFront response headers policy.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,6 +30,7 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.ResponseHeadersPolicy("example", new()
     ///     {
+    ///         Name = "example-policy",
     ///         Comment = "test comment",
     ///         CorsConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCorsConfigArgs
     ///         {
@@ -60,9 +62,11 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// The example below creates a CloudFront response headers policy with a custom headers config.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -73,6 +77,7 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.ResponseHeadersPolicy("example", new()
     ///     {
+    ///         Name = "example-headers-policy",
     ///         CustomHeadersConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigArgs
     ///         {
     ///             Items = new[]
@@ -95,9 +100,11 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -108,6 +115,7 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.ResponseHeadersPolicy("example", new()
     ///     {
+    ///         Name = "example-headers-policy",
     ///         CustomHeadersConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigArgs
     ///         {
     ///             Items = new[]
@@ -129,13 +137,14 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cloudfront Response Headers Policies using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f9
+    /// $ pulumi import aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f9
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy")]

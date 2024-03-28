@@ -12,18 +12,20 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.imagebuilder.getImageRecipes({
+ *     owner: "Self",
  *     filters: [{
  *         name: "platform",
  *         values: ["Linux"],
  *     }],
- *     owner: "Self",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getImageRecipes(args?: GetImageRecipesArgs, opts?: pulumi.InvokeOptions): Promise<GetImageRecipesResult> {
     args = args || {};
@@ -44,7 +46,7 @@ export interface GetImageRecipesArgs {
      */
     filters?: inputs.imagebuilder.GetImageRecipesFilter[];
     /**
-     * Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+     * Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
      */
     owner?: string;
 }
@@ -73,18 +75,20 @@ export interface GetImageRecipesResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.imagebuilder.getImageRecipes({
+ *     owner: "Self",
  *     filters: [{
  *         name: "platform",
  *         values: ["Linux"],
  *     }],
- *     owner: "Self",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getImageRecipesOutput(args?: GetImageRecipesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageRecipesResult> {
     return pulumi.output(args).apply((a: any) => getImageRecipes(a, opts))
@@ -99,7 +103,7 @@ export interface GetImageRecipesOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.imagebuilder.GetImageRecipesFilterArgs>[]>;
     /**
-     * Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+     * Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
      */
     owner?: pulumi.Input<string>;
 }

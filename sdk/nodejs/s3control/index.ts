@@ -5,6 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccessGrantArgs, AccessGrantState } from "./accessGrant";
+export type AccessGrant = import("./accessGrant").AccessGrant;
+export const AccessGrant: typeof import("./accessGrant").AccessGrant = null as any;
+utilities.lazyLoad(exports, ["AccessGrant"], () => require("./accessGrant"));
+
+export { AccessGrantsInstanceArgs, AccessGrantsInstanceState } from "./accessGrantsInstance";
+export type AccessGrantsInstance = import("./accessGrantsInstance").AccessGrantsInstance;
+export const AccessGrantsInstance: typeof import("./accessGrantsInstance").AccessGrantsInstance = null as any;
+utilities.lazyLoad(exports, ["AccessGrantsInstance"], () => require("./accessGrantsInstance"));
+
+export { AccessGrantsInstanceResourcePolicyArgs, AccessGrantsInstanceResourcePolicyState } from "./accessGrantsInstanceResourcePolicy";
+export type AccessGrantsInstanceResourcePolicy = import("./accessGrantsInstanceResourcePolicy").AccessGrantsInstanceResourcePolicy;
+export const AccessGrantsInstanceResourcePolicy: typeof import("./accessGrantsInstanceResourcePolicy").AccessGrantsInstanceResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["AccessGrantsInstanceResourcePolicy"], () => require("./accessGrantsInstanceResourcePolicy"));
+
+export { AccessGrantsLocationArgs, AccessGrantsLocationState } from "./accessGrantsLocation";
+export type AccessGrantsLocation = import("./accessGrantsLocation").AccessGrantsLocation;
+export const AccessGrantsLocation: typeof import("./accessGrantsLocation").AccessGrantsLocation = null as any;
+utilities.lazyLoad(exports, ["AccessGrantsLocation"], () => require("./accessGrantsLocation"));
+
 export { AccessPointPolicyArgs, AccessPointPolicyState } from "./accessPointPolicy";
 export type AccessPointPolicy = import("./accessPointPolicy").AccessPointPolicy;
 export const AccessPointPolicy: typeof import("./accessPointPolicy").AccessPointPolicy = null as any;
@@ -60,6 +80,14 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:s3control/accessGrant:AccessGrant":
+                return new AccessGrant(name, <any>undefined, { urn })
+            case "aws:s3control/accessGrantsInstance:AccessGrantsInstance":
+                return new AccessGrantsInstance(name, <any>undefined, { urn })
+            case "aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy":
+                return new AccessGrantsInstanceResourcePolicy(name, <any>undefined, { urn })
+            case "aws:s3control/accessGrantsLocation:AccessGrantsLocation":
+                return new AccessGrantsLocation(name, <any>undefined, { urn })
             case "aws:s3control/accessPointPolicy:AccessPointPolicy":
                 return new AccessPointPolicy(name, <any>undefined, { urn })
             case "aws:s3control/bucket:Bucket":
@@ -83,6 +111,10 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "s3control/accessGrant", _module)
+pulumi.runtime.registerResourceModule("aws", "s3control/accessGrantsInstance", _module)
+pulumi.runtime.registerResourceModule("aws", "s3control/accessGrantsInstanceResourcePolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "s3control/accessGrantsLocation", _module)
 pulumi.runtime.registerResourceModule("aws", "s3control/accessPointPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "s3control/bucket", _module)
 pulumi.runtime.registerResourceModule("aws", "s3control/bucketLifecycleConfiguration", _module)

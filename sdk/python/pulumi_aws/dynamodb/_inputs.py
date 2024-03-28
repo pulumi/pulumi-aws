@@ -208,10 +208,15 @@ class TableImportTableArgs:
                  input_compression_type: Optional[pulumi.Input[str]] = None,
                  input_format_options: Optional[pulumi.Input['TableImportTableInputFormatOptionsArgs']] = None):
         """
-        :param pulumi.Input[str] input_format: The format of the source data. Valid values are `CSV`, `DYNAMODB_JSON` and `ION`.
-        :param pulumi.Input['TableImportTableS3BucketSourceArgs'] s3_bucket_source: Values for the S3 bucket the source file is imported from. See below.
-        :param pulumi.Input[str] input_compression_type: Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
-        :param pulumi.Input['TableImportTableInputFormatOptionsArgs'] input_format_options: Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
+        :param pulumi.Input[str] input_format: The format of the source data.
+               Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
+        :param pulumi.Input['TableImportTableS3BucketSourceArgs'] s3_bucket_source: Values for the S3 bucket the source file is imported from.
+               See below.
+        :param pulumi.Input[str] input_compression_type: Type of compression to be used on the input coming from the imported table.
+               Valid values are `GZIP`, `ZSTD` and `NONE`.
+        :param pulumi.Input['TableImportTableInputFormatOptionsArgs'] input_format_options: Describe the format options for the data that was imported into the target table.
+               There is one value, `csv`.
+               See below.
         """
         pulumi.set(__self__, "input_format", input_format)
         pulumi.set(__self__, "s3_bucket_source", s3_bucket_source)
@@ -224,7 +229,8 @@ class TableImportTableArgs:
     @pulumi.getter(name="inputFormat")
     def input_format(self) -> pulumi.Input[str]:
         """
-        The format of the source data. Valid values are `CSV`, `DYNAMODB_JSON` and `ION`.
+        The format of the source data.
+        Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
         """
         return pulumi.get(self, "input_format")
 
@@ -236,7 +242,8 @@ class TableImportTableArgs:
     @pulumi.getter(name="s3BucketSource")
     def s3_bucket_source(self) -> pulumi.Input['TableImportTableS3BucketSourceArgs']:
         """
-        Values for the S3 bucket the source file is imported from. See below.
+        Values for the S3 bucket the source file is imported from.
+        See below.
         """
         return pulumi.get(self, "s3_bucket_source")
 
@@ -248,7 +255,8 @@ class TableImportTableArgs:
     @pulumi.getter(name="inputCompressionType")
     def input_compression_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
+        Type of compression to be used on the input coming from the imported table.
+        Valid values are `GZIP`, `ZSTD` and `NONE`.
         """
         return pulumi.get(self, "input_compression_type")
 
@@ -260,7 +268,9 @@ class TableImportTableArgs:
     @pulumi.getter(name="inputFormatOptions")
     def input_format_options(self) -> Optional[pulumi.Input['TableImportTableInputFormatOptionsArgs']]:
         """
-        Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
+        Describe the format options for the data that was imported into the target table.
+        There is one value, `csv`.
+        See below.
         """
         return pulumi.get(self, "input_format_options")
 

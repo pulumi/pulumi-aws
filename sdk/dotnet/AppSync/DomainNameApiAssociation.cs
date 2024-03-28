@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,19 +25,20 @@ namespace Pulumi.Aws.AppSync
     /// {
     ///     var example = new Aws.AppSync.DomainNameApiAssociation("example", new()
     ///     {
-    ///         ApiId = aws_appsync_graphql_api.Example.Id,
-    ///         DomainName = aws_appsync_domain_name.Example.Domain_name,
+    ///         ApiId = exampleAwsAppsyncGraphqlApi.Id,
+    ///         DomainName = exampleAwsAppsyncDomainName.DomainName,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_appsync_domain_name_api_association` using the AppSync domain name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com
+    /// $ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com
     /// ```
     /// </summary>
     [AwsResourceType("aws:appsync/domainNameApiAssociation:DomainNameApiAssociation")]

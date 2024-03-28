@@ -412,33 +412,35 @@ class ReportDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_cur_report_definition = aws.cur.ReportDefinition("exampleCurReportDefinition",
-            additional_artifacts=[
-                "REDSHIFT",
-                "QUICKSIGHT",
-            ],
+        example_cur_report_definition = aws.cur.ReportDefinition("example_cur_report_definition",
+            report_name="example-cur-report-definition",
+            time_unit="HOURLY",
+            format="textORcsv",
+            compression="GZIP",
             additional_schema_elements=[
                 "RESOURCES",
                 "SPLIT_COST_ALLOCATION_DATA",
             ],
-            compression="GZIP",
-            format="textORcsv",
-            report_name="example-cur-report-definition",
             s3_bucket="example-bucket-name",
             s3_region="us-east-1",
-            time_unit="HOURLY")
+            additional_artifacts=[
+                "REDSHIFT",
+                "QUICKSIGHT",
+            ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Report Definitions using the `report_name`. For example:
 
         ```sh
-         $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
+        $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
         ```
 
         :param str resource_name: The name of the resource.
@@ -468,33 +470,35 @@ class ReportDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_cur_report_definition = aws.cur.ReportDefinition("exampleCurReportDefinition",
-            additional_artifacts=[
-                "REDSHIFT",
-                "QUICKSIGHT",
-            ],
+        example_cur_report_definition = aws.cur.ReportDefinition("example_cur_report_definition",
+            report_name="example-cur-report-definition",
+            time_unit="HOURLY",
+            format="textORcsv",
+            compression="GZIP",
             additional_schema_elements=[
                 "RESOURCES",
                 "SPLIT_COST_ALLOCATION_DATA",
             ],
-            compression="GZIP",
-            format="textORcsv",
-            report_name="example-cur-report-definition",
             s3_bucket="example-bucket-name",
             s3_region="us-east-1",
-            time_unit="HOURLY")
+            additional_artifacts=[
+                "REDSHIFT",
+                "QUICKSIGHT",
+            ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Report Definitions using the `report_name`. For example:
 
         ```sh
-         $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
+        $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
         ```
 
         :param str resource_name: The name of the resource.

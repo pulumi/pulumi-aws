@@ -4,6 +4,7 @@
 package com.pulumi.aws.evidently.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -22,7 +23,7 @@ public final class LaunchScheduledSplitsConfigStepSegmentOverride {
      */
     private String segment;
     /**
-     * @return The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
+     * @return The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50%!o(MISSING)f traffic.
      * 
      */
     private Map<String,Integer> weights;
@@ -43,7 +44,7 @@ public final class LaunchScheduledSplitsConfigStepSegmentOverride {
         return this.segment;
     }
     /**
-     * @return The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
+     * @return The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50%!o(MISSING)f traffic.
      * 
      */
     public Map<String,Integer> weights() {
@@ -72,25 +73,34 @@ public final class LaunchScheduledSplitsConfigStepSegmentOverride {
 
         @CustomType.Setter
         public Builder evaluationOrder(Integer evaluationOrder) {
-            this.evaluationOrder = Objects.requireNonNull(evaluationOrder);
+            if (evaluationOrder == null) {
+              throw new MissingRequiredPropertyException("LaunchScheduledSplitsConfigStepSegmentOverride", "evaluationOrder");
+            }
+            this.evaluationOrder = evaluationOrder;
             return this;
         }
         @CustomType.Setter
         public Builder segment(String segment) {
-            this.segment = Objects.requireNonNull(segment);
+            if (segment == null) {
+              throw new MissingRequiredPropertyException("LaunchScheduledSplitsConfigStepSegmentOverride", "segment");
+            }
+            this.segment = segment;
             return this;
         }
         @CustomType.Setter
         public Builder weights(Map<String,Integer> weights) {
-            this.weights = Objects.requireNonNull(weights);
+            if (weights == null) {
+              throw new MissingRequiredPropertyException("LaunchScheduledSplitsConfigStepSegmentOverride", "weights");
+            }
+            this.weights = weights;
             return this;
         }
         public LaunchScheduledSplitsConfigStepSegmentOverride build() {
-            final var o = new LaunchScheduledSplitsConfigStepSegmentOverride();
-            o.evaluationOrder = evaluationOrder;
-            o.segment = segment;
-            o.weights = weights;
-            return o;
+            final var _resultValue = new LaunchScheduledSplitsConfigStepSegmentOverride();
+            _resultValue.evaluationOrder = evaluationOrder;
+            _resultValue.segment = segment;
+            _resultValue.weights = weights;
+            return _resultValue;
         }
     }
 }

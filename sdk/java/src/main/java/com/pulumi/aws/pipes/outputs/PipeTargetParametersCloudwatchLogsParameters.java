@@ -58,19 +58,21 @@ public final class PipeTargetParametersCloudwatchLogsParameters {
 
         @CustomType.Setter
         public Builder logStreamName(@Nullable String logStreamName) {
+
             this.logStreamName = logStreamName;
             return this;
         }
         @CustomType.Setter
         public Builder timestamp(@Nullable String timestamp) {
+
             this.timestamp = timestamp;
             return this;
         }
         public PipeTargetParametersCloudwatchLogsParameters build() {
-            final var o = new PipeTargetParametersCloudwatchLogsParameters();
-            o.logStreamName = logStreamName;
-            o.timestamp = timestamp;
-            return o;
+            final var _resultValue = new PipeTargetParametersCloudwatchLogsParameters();
+            _resultValue.logStreamName = logStreamName;
+            _resultValue.timestamp = timestamp;
+            return _resultValue;
         }
     }
 }

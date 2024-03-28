@@ -58,19 +58,21 @@ public final class WorkgroupConfigurationEngineVersion {
 
         @CustomType.Setter
         public Builder effectiveEngineVersion(@Nullable String effectiveEngineVersion) {
+
             this.effectiveEngineVersion = effectiveEngineVersion;
             return this;
         }
         @CustomType.Setter
         public Builder selectedEngineVersion(@Nullable String selectedEngineVersion) {
+
             this.selectedEngineVersion = selectedEngineVersion;
             return this;
         }
         public WorkgroupConfigurationEngineVersion build() {
-            final var o = new WorkgroupConfigurationEngineVersion();
-            o.effectiveEngineVersion = effectiveEngineVersion;
-            o.selectedEngineVersion = selectedEngineVersion;
-            return o;
+            final var _resultValue = new WorkgroupConfigurationEngineVersion();
+            _resultValue.effectiveEngineVersion = effectiveEngineVersion;
+            _resultValue.selectedEngineVersion = selectedEngineVersion;
+            return _resultValue;
         }
     }
 }

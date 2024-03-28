@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,15 +31,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewFunctionUrl(ctx, "testLatest", &lambda.FunctionUrlArgs{
-//				FunctionName:      pulumi.Any(aws_lambda_function.Test.Function_name),
+//			_, err := lambda.NewFunctionUrl(ctx, "test_latest", &lambda.FunctionUrlArgs{
+//				FunctionName:      pulumi.Any(test.FunctionName),
 //				AuthorizationType: pulumi.String("NONE"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lambda.NewFunctionUrl(ctx, "testLive", &lambda.FunctionUrlArgs{
-//				FunctionName:      pulumi.Any(aws_lambda_function.Test.Function_name),
+//			_, err = lambda.NewFunctionUrl(ctx, "test_live", &lambda.FunctionUrlArgs{
+//				FunctionName:      pulumi.Any(test.FunctionName),
 //				Qualifier:         pulumi.String("my_alias"),
 //				AuthorizationType: pulumi.String("AWS_IAM"),
 //				Cors: &lambda.FunctionUrlCorsArgs{
@@ -68,15 +69,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Lambda function URLs using the `function_name` or `function_name/qualifier`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
-//
+// $ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
 // ```
 type FunctionUrl struct {
 	pulumi.CustomResourceState
@@ -89,7 +89,7 @@ type FunctionUrl struct {
 	FunctionArn pulumi.StringOutput `pulumi:"functionArn"`
 	// The name (or ARN) of the Lambda function.
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
-	// The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
+	// The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
 	FunctionUrl pulumi.StringOutput `pulumi:"functionUrl"`
 	// Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
 	InvokeMode pulumi.StringPtrOutput `pulumi:"invokeMode"`
@@ -143,7 +143,7 @@ type functionUrlState struct {
 	FunctionArn *string `pulumi:"functionArn"`
 	// The name (or ARN) of the Lambda function.
 	FunctionName *string `pulumi:"functionName"`
-	// The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
+	// The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
 	FunctionUrl *string `pulumi:"functionUrl"`
 	// Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
 	InvokeMode *string `pulumi:"invokeMode"`
@@ -162,7 +162,7 @@ type FunctionUrlState struct {
 	FunctionArn pulumi.StringPtrInput
 	// The name (or ARN) of the Lambda function.
 	FunctionName pulumi.StringPtrInput
-	// The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
+	// The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
 	FunctionUrl pulumi.StringPtrInput
 	// Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
 	InvokeMode pulumi.StringPtrInput
@@ -310,7 +310,7 @@ func (o FunctionUrlOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionUrl) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
 }
 
-// The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
+// The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
 func (o FunctionUrlOutput) FunctionUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionUrl) pulumi.StringOutput { return v.FunctionUrl }).(pulumi.StringOutput)
 }

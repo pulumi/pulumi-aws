@@ -58,19 +58,21 @@ public final class GatewayRouteSpecHttpRouteActionRewritePrefix {
 
         @CustomType.Setter
         public Builder defaultPrefix(@Nullable String defaultPrefix) {
+
             this.defaultPrefix = defaultPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }
         public GatewayRouteSpecHttpRouteActionRewritePrefix build() {
-            final var o = new GatewayRouteSpecHttpRouteActionRewritePrefix();
-            o.defaultPrefix = defaultPrefix;
-            o.value = value;
-            return o;
+            final var _resultValue = new GatewayRouteSpecHttpRouteActionRewritePrefix();
+            _resultValue.defaultPrefix = defaultPrefix;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,9 +225,15 @@ public final class OriginAccessControlArgs extends com.pulumi.resources.Resource
         }
 
         public OriginAccessControlArgs build() {
-            $.originAccessControlOriginType = Objects.requireNonNull($.originAccessControlOriginType, "expected parameter 'originAccessControlOriginType' to be non-null");
-            $.signingBehavior = Objects.requireNonNull($.signingBehavior, "expected parameter 'signingBehavior' to be non-null");
-            $.signingProtocol = Objects.requireNonNull($.signingProtocol, "expected parameter 'signingProtocol' to be non-null");
+            if ($.originAccessControlOriginType == null) {
+                throw new MissingRequiredPropertyException("OriginAccessControlArgs", "originAccessControlOriginType");
+            }
+            if ($.signingBehavior == null) {
+                throw new MissingRequiredPropertyException("OriginAccessControlArgs", "signingBehavior");
+            }
+            if ($.signingProtocol == null) {
+                throw new MissingRequiredPropertyException("OriginAccessControlArgs", "signingProtocol");
+            }
             return $;
         }
     }

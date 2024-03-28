@@ -16,8 +16,10 @@ import (
 // With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetDefaultTags(ctx *pulumi.Context, args *GetDefaultTagsArgs, opts ...pulumi.InvokeOption) (*GetDefaultTagsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDefaultTagsResult

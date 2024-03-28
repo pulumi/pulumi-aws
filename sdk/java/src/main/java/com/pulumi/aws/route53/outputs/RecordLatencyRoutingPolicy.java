@@ -4,6 +4,7 @@
 package com.pulumi.aws.route53.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class RecordLatencyRoutingPolicy {
 
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("RecordLatencyRoutingPolicy", "region");
+            }
+            this.region = region;
             return this;
         }
         public RecordLatencyRoutingPolicy build() {
-            final var o = new RecordLatencyRoutingPolicy();
-            o.region = region;
-            return o;
+            final var _resultValue = new RecordLatencyRoutingPolicy();
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

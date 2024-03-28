@@ -14,8 +14,10 @@ import (
 // Data source for getting information about AWS EC2 Public IPv4 Pools.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,6 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Returns all public IPv4 pools.
 //			_, err := ec2.GetPublicIpv4Pools(ctx, nil, nil)
 //			if err != nil {
 //				return err
@@ -37,8 +40,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Usage with Filter
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -69,6 +75,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetPublicIpv4Pools(ctx *pulumi.Context, args *GetPublicIpv4PoolsArgs, opts ...pulumi.InvokeOption) (*GetPublicIpv4PoolsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPublicIpv4PoolsResult

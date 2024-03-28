@@ -9,26 +9,27 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.route53.ResolverQueryLogConfig("example", {
- *     destinationArn: aws_s3_bucket.example.arn,
+ *     name: "example",
+ *     destinationArn: exampleAwsS3Bucket.arn,
  *     tags: {
  *         Environment: "Prod",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Using `pulumi import`, import
- *
- * Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
+ * Using `pulumi import`, import  Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
+ * $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
  * ```
  */
 export class ResolverQueryLogConfig extends pulumi.CustomResource {
@@ -127,8 +128,6 @@ export class ResolverQueryLogConfig extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ResolverQueryLogConfig.__pulumiType, name, resourceInputs, opts);
     }
 }

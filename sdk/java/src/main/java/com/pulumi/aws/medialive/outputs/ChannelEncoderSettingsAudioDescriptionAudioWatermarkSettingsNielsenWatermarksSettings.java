@@ -75,16 +75,19 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsN
 
         @CustomType.Setter
         public Builder nielsenCbetSettings(@Nullable ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings nielsenCbetSettings) {
+
             this.nielsenCbetSettings = nielsenCbetSettings;
             return this;
         }
         @CustomType.Setter
         public Builder nielsenDistributionType(@Nullable String nielsenDistributionType) {
+
             this.nielsenDistributionType = nielsenDistributionType;
             return this;
         }
         @CustomType.Setter
         public Builder nielsenNaesIiNwSettings(@Nullable List<ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting> nielsenNaesIiNwSettings) {
+
             this.nielsenNaesIiNwSettings = nielsenNaesIiNwSettings;
             return this;
         }
@@ -92,11 +95,11 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsN
             return nielsenNaesIiNwSettings(List.of(nielsenNaesIiNwSettings));
         }
         public ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings build() {
-            final var o = new ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings();
-            o.nielsenCbetSettings = nielsenCbetSettings;
-            o.nielsenDistributionType = nielsenDistributionType;
-            o.nielsenNaesIiNwSettings = nielsenNaesIiNwSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings();
+            _resultValue.nielsenCbetSettings = nielsenCbetSettings;
+            _resultValue.nielsenDistributionType = nielsenDistributionType;
+            _resultValue.nielsenNaesIiNwSettings = nielsenNaesIiNwSettings;
+            return _resultValue;
         }
     }
 }

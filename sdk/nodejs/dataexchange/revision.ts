@@ -9,19 +9,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.dataexchange.Revision("example", {dataSetId: aws_dataexchange_data_set.example.id});
+ * const example = new aws.dataexchange.Revision("example", {dataSetId: exampleAwsDataexchangeDataSet.id});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import DataExchange Revisions using their `data-set-id:revision-id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:dataexchange/revision:Revision example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+ * $ pulumi import aws:dataexchange/revision:Revision example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
  * ```
  */
 export class Revision extends pulumi.CustomResource {
@@ -111,8 +113,6 @@ export class Revision extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Revision.__pulumiType, name, resourceInputs, opts);
     }
 }

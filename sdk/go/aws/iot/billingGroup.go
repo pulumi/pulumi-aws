@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := iot.NewBillingGroup(ctx, "example", &iot.BillingGroupArgs{
+//				Name: pulumi.String("example"),
 //				Properties: &iot.BillingGroupPropertiesArgs{
 //					Description: pulumi.String("This is my billing group"),
 //				},
@@ -43,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IoT Billing Groups using the name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iot/billingGroup:BillingGroup example example
-//
+// $ pulumi import aws:iot/billingGroup:BillingGroup example example
 // ```
 type BillingGroup struct {
 	pulumi.CustomResourceState
@@ -78,10 +79,6 @@ func NewBillingGroup(ctx *pulumi.Context,
 		args = &BillingGroupArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BillingGroup
 	err := ctx.RegisterResource("aws:iot/billingGroup:BillingGroup", name, args, &resource, opts...)

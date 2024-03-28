@@ -58,19 +58,21 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
         @CustomType.Setter
         public Builder authCode(@Nullable String authCode) {
+
             this.authCode = authCode;
             return this;
         }
         @CustomType.Setter
         public Builder redirectUri(@Nullable String redirectUri) {
+
             this.redirectUri = redirectUri;
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest();
-            o.authCode = authCode;
-            o.redirectUri = redirectUri;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest();
+            _resultValue.authCode = authCode;
+            _resultValue.redirectUri = redirectUri;
+            return _resultValue;
         }
     }
 }

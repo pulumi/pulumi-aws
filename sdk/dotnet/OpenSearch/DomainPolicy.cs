@@ -14,6 +14,7 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,10 +25,11 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var example = new Aws.OpenSearch.Domain("example", new()
     ///     {
+    ///         DomainName = "tf-test",
     ///         EngineVersion = "OpenSearch_1.1",
     ///     });
     /// 
-    ///     var mainPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var main = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -69,14 +71,15 @@ namespace Pulumi.Aws.OpenSearch
     ///         },
     ///     });
     /// 
-    ///     var mainDomainPolicy = new Aws.OpenSearch.DomainPolicy("mainDomainPolicy", new()
+    ///     var mainDomainPolicy = new Aws.OpenSearch.DomainPolicy("main", new()
     ///     {
     ///         DomainName = example.DomainName,
-    ///         AccessPolicies = mainPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         AccessPolicies = main.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:opensearch/domainPolicy:DomainPolicy")]
     public partial class DomainPolicy : global::Pulumi.CustomResource

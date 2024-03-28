@@ -58,19 +58,21 @@ public final class GetTrafficPolicyDocumentRuleItem {
 
         @CustomType.Setter
         public Builder endpointReference(@Nullable String endpointReference) {
+
             this.endpointReference = endpointReference;
             return this;
         }
         @CustomType.Setter
         public Builder healthCheck(@Nullable String healthCheck) {
+
             this.healthCheck = healthCheck;
             return this;
         }
         public GetTrafficPolicyDocumentRuleItem build() {
-            final var o = new GetTrafficPolicyDocumentRuleItem();
-            o.endpointReference = endpointReference;
-            o.healthCheck = healthCheck;
-            return o;
+            final var _resultValue = new GetTrafficPolicyDocumentRuleItem();
+            _resultValue.endpointReference = endpointReference;
+            _resultValue.healthCheck = healthCheck;
+            return _resultValue;
         }
     }
 }

@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * Provides an GameLift Game Server Group resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -34,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.gamelift.GameServerGroupArgs;
  * import com.pulumi.aws.gamelift.inputs.GameServerGroupInstanceDefinitionArgs;
  * import com.pulumi.aws.gamelift.inputs.GameServerGroupLaunchTemplateArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,20 +59,21 @@ import javax.annotation.Nullable;
  *                     .instanceType(&#34;c5a.large&#34;)
  *                     .build())
  *             .launchTemplate(GameServerGroupLaunchTemplateArgs.builder()
- *                 .id(aws_launch_template.example().id())
+ *                 .id(exampleAwsLaunchTemplate.id())
  *                 .build())
  *             .maxSize(1)
  *             .minSize(1)
- *             .roleArn(aws_iam_role.example().arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_iam_role_policy_attachment.example())
- *                 .build());
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Full usage:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -84,7 +86,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.gamelift.inputs.GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs;
  * import com.pulumi.aws.gamelift.inputs.GameServerGroupInstanceDefinitionArgs;
  * import com.pulumi.aws.gamelift.inputs.GameServerGroupLaunchTemplateArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -118,24 +119,26 @@ import javax.annotation.Nullable;
  *                     .weightedCapacity(&#34;2&#34;)
  *                     .build())
  *             .launchTemplate(GameServerGroupLaunchTemplateArgs.builder()
- *                 .id(aws_launch_template.example().id())
+ *                 .id(exampleAwsLaunchTemplate.id())
  *                 .version(&#34;1&#34;)
  *                 .build())
  *             .maxSize(1)
  *             .minSize(1)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
  *             .vpcSubnets(            
  *                 &#34;subnet-12345678&#34;,
  *                 &#34;subnet-23456789&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_iam_role_policy_attachment.example())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Example IAM Role for GameLift Game Server Group
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -178,25 +181,27 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .name(&#34;gamelift-game-server-group-example&#34;)
  *             .build());
  * 
  *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
  *             .policyArn(String.format(&#34;arn:%s:iam::aws:policy/GameLiftGameServerGroupPolicy&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
- *             .role(exampleRole.name())
+ *             .role(example.name())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import GameLift Game Server Group using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
+ * $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
  * ```
  * 
  */
@@ -425,9 +430,6 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

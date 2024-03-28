@@ -117,6 +117,7 @@ public final class GetTaskExecutionOverrides {
 
         @CustomType.Setter
         public Builder containerOverrides(@Nullable List<GetTaskExecutionOverridesContainerOverride> containerOverrides) {
+
             this.containerOverrides = containerOverrides;
             return this;
         }
@@ -125,16 +126,19 @@ public final class GetTaskExecutionOverrides {
         }
         @CustomType.Setter
         public Builder cpu(@Nullable String cpu) {
+
             this.cpu = cpu;
             return this;
         }
         @CustomType.Setter
         public Builder executionRoleArn(@Nullable String executionRoleArn) {
+
             this.executionRoleArn = executionRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder inferenceAcceleratorOverrides(@Nullable List<GetTaskExecutionOverridesInferenceAcceleratorOverride> inferenceAcceleratorOverrides) {
+
             this.inferenceAcceleratorOverrides = inferenceAcceleratorOverrides;
             return this;
         }
@@ -143,23 +147,25 @@ public final class GetTaskExecutionOverrides {
         }
         @CustomType.Setter
         public Builder memory(@Nullable String memory) {
+
             this.memory = memory;
             return this;
         }
         @CustomType.Setter
         public Builder taskRoleArn(@Nullable String taskRoleArn) {
+
             this.taskRoleArn = taskRoleArn;
             return this;
         }
         public GetTaskExecutionOverrides build() {
-            final var o = new GetTaskExecutionOverrides();
-            o.containerOverrides = containerOverrides;
-            o.cpu = cpu;
-            o.executionRoleArn = executionRoleArn;
-            o.inferenceAcceleratorOverrides = inferenceAcceleratorOverrides;
-            o.memory = memory;
-            o.taskRoleArn = taskRoleArn;
-            return o;
+            final var _resultValue = new GetTaskExecutionOverrides();
+            _resultValue.containerOverrides = containerOverrides;
+            _resultValue.cpu = cpu;
+            _resultValue.executionRoleArn = executionRoleArn;
+            _resultValue.inferenceAcceleratorOverrides = inferenceAcceleratorOverrides;
+            _resultValue.memory = memory;
+            _resultValue.taskRoleArn = taskRoleArn;
+            return _resultValue;
         }
     }
 }

@@ -12,12 +12,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const code = new aws.codecommit.Repository("code", {repositoryName: "example-code-repo"});
- * const notif = new aws.sns.Topic("notif", {});
+ * const notif = new aws.sns.Topic("notif", {name: "notification"});
  * const notifAccess = notif.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         actions: ["sns:Publish"],
@@ -35,19 +36,21 @@ import * as utilities from "../utilities";
  * const commits = new aws.codestarnotifications.NotificationRule("commits", {
  *     detailType: "BASIC",
  *     eventTypeIds: ["codecommit-repository-comments-on-commits"],
+ *     name: "example-code-repo-commits",
  *     resource: code.arn,
  *     targets: [{
  *         address: notif.arn,
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CodeStar notification rule using the ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
+ * $ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
  * ```
  */
 export class NotificationRule extends pulumi.CustomResource {
@@ -162,8 +165,6 @@ export class NotificationRule extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(NotificationRule.__pulumiType, name, resourceInputs, opts);
     }
 }

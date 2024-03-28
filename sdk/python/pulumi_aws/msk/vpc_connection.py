@@ -269,6 +269,7 @@ class VpcConnection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -276,17 +277,18 @@ class VpcConnection(pulumi.CustomResource):
         test = aws.msk.VpcConnection("test",
             authentication="SASL_IAM",
             target_cluster_arn="aws_msk_cluster.arn",
-            vpc_id=aws_vpc["test"]["id"],
-            client_subnets=[__item["id"] for __item in aws_subnet["test"]],
-            security_groups=[aws_security_group["test"]["id"]])
+            vpc_id=test_aws_vpc["id"],
+            client_subnets=[__item["id"] for __item in test_aws_subnet],
+            security_groups=[test_aws_security_group["id"]])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MSK configurations using the configuration ARN. For example:
 
         ```sh
-         $ pulumi import aws:msk/vpcConnection:VpcConnection example arn:aws:kafka:eu-west-2:123456789012:vpc-connection/123456789012/example/38173259-79cd-4ee8-87f3-682ea6023f48-2
+        $ pulumi import aws:msk/vpcConnection:VpcConnection example arn:aws:kafka:eu-west-2:123456789012:vpc-connection/123456789012/example/38173259-79cd-4ee8-87f3-682ea6023f48-2
         ```
 
         :param str resource_name: The name of the resource.
@@ -309,6 +311,7 @@ class VpcConnection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -316,17 +319,18 @@ class VpcConnection(pulumi.CustomResource):
         test = aws.msk.VpcConnection("test",
             authentication="SASL_IAM",
             target_cluster_arn="aws_msk_cluster.arn",
-            vpc_id=aws_vpc["test"]["id"],
-            client_subnets=[__item["id"] for __item in aws_subnet["test"]],
-            security_groups=[aws_security_group["test"]["id"]])
+            vpc_id=test_aws_vpc["id"],
+            client_subnets=[__item["id"] for __item in test_aws_subnet],
+            security_groups=[test_aws_security_group["id"]])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MSK configurations using the configuration ARN. For example:
 
         ```sh
-         $ pulumi import aws:msk/vpcConnection:VpcConnection example arn:aws:kafka:eu-west-2:123456789012:vpc-connection/123456789012/example/38173259-79cd-4ee8-87f3-682ea6023f48-2
+        $ pulumi import aws:msk/vpcConnection:VpcConnection example arn:aws:kafka:eu-west-2:123456789012:vpc-connection/123456789012/example/38173259-79cd-4ee8-87f3-682ea6023f48-2
         ```
 
         :param str resource_name: The name of the resource.
@@ -377,8 +381,6 @@ class VpcConnection(pulumi.CustomResource):
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VpcConnection, __self__).__init__(
             'aws:msk/vpcConnection:VpcConnection',
             resource_name,

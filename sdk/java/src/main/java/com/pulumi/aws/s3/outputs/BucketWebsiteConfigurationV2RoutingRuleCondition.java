@@ -58,19 +58,21 @@ public final class BucketWebsiteConfigurationV2RoutingRuleCondition {
 
         @CustomType.Setter
         public Builder httpErrorCodeReturnedEquals(@Nullable String httpErrorCodeReturnedEquals) {
+
             this.httpErrorCodeReturnedEquals = httpErrorCodeReturnedEquals;
             return this;
         }
         @CustomType.Setter
         public Builder keyPrefixEquals(@Nullable String keyPrefixEquals) {
+
             this.keyPrefixEquals = keyPrefixEquals;
             return this;
         }
         public BucketWebsiteConfigurationV2RoutingRuleCondition build() {
-            final var o = new BucketWebsiteConfigurationV2RoutingRuleCondition();
-            o.httpErrorCodeReturnedEquals = httpErrorCodeReturnedEquals;
-            o.keyPrefixEquals = keyPrefixEquals;
-            return o;
+            final var _resultValue = new BucketWebsiteConfigurationV2RoutingRuleCondition();
+            _resultValue.httpErrorCodeReturnedEquals = httpErrorCodeReturnedEquals;
+            _resultValue.keyPrefixEquals = keyPrefixEquals;
+            return _resultValue;
         }
     }
 }

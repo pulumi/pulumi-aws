@@ -73,25 +73,28 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
 
         @CustomType.Setter
         public Builder convert608To708(@Nullable String convert608To708) {
+
             this.convert608To708 = convert608To708;
             return this;
         }
         @CustomType.Setter
         public Builder scte20Detection(@Nullable String scte20Detection) {
+
             this.scte20Detection = scte20Detection;
             return this;
         }
         @CustomType.Setter
         public Builder source608ChannelNumber(@Nullable Integer source608ChannelNumber) {
+
             this.source608ChannelNumber = source608ChannelNumber;
             return this;
         }
         public ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings build() {
-            final var o = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings();
-            o.convert608To708 = convert608To708;
-            o.scte20Detection = scte20Detection;
-            o.source608ChannelNumber = source608ChannelNumber;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings();
+            _resultValue.convert608To708 = convert608To708;
+            _resultValue.scte20Detection = scte20Detection;
+            _resultValue.source608ChannelNumber = source608ChannelNumber;
+            return _resultValue;
         }
     }
 }

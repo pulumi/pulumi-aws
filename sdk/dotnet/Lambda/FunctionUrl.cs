@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,15 +25,15 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testLatest = new Aws.Lambda.FunctionUrl("testLatest", new()
+    ///     var testLatest = new Aws.Lambda.FunctionUrl("test_latest", new()
     ///     {
-    ///         FunctionName = aws_lambda_function.Test.Function_name,
+    ///         FunctionName = test.FunctionName,
     ///         AuthorizationType = "NONE",
     ///     });
     /// 
-    ///     var testLive = new Aws.Lambda.FunctionUrl("testLive", new()
+    ///     var testLive = new Aws.Lambda.FunctionUrl("test_live", new()
     ///     {
-    ///         FunctionName = aws_lambda_function.Test.Function_name,
+    ///         FunctionName = test.FunctionName,
     ///         Qualifier = "my_alias",
     ///         AuthorizationType = "AWS_IAM",
     ///         Cors = new Aws.Lambda.Inputs.FunctionUrlCorsArgs
@@ -62,13 +63,14 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Lambda function URLs using the `function_name` or `function_name/qualifier`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
+    /// $ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
     /// ```
     /// </summary>
     [AwsResourceType("aws:lambda/functionUrl:FunctionUrl")]
@@ -99,7 +101,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> FunctionName { get; private set; } = null!;
 
         /// <summary>
-        /// The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
+        /// The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
         /// </summary>
         [Output("functionUrl")]
         public Output<string> FunctionUrlResult { get; private set; } = null!;
@@ -231,7 +233,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? FunctionName { get; set; }
 
         /// <summary>
-        /// The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
+        /// The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
         /// </summary>
         [Input("functionUrl")]
         public Input<string>? FunctionUrlResult { get; set; }

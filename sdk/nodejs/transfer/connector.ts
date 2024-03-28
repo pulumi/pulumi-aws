@@ -11,49 +11,55 @@ import * as utilities from "../utilities";
  * Provides a AWS Transfer AS2 Connector resource.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.transfer.Connector("example", {
- *     accessRole: aws_iam_role.test.arn,
+ *     accessRole: test.arn,
  *     as2Config: {
  *         compression: "DISABLED",
  *         encryptionAlgorithm: "AWS128_CBC",
  *         messageSubject: "For Connector",
- *         localProfileId: aws_transfer_profile.local.profile_id,
+ *         localProfileId: local.profileId,
  *         mdnResponse: "NONE",
  *         mdnSigningAlgorithm: "NONE",
- *         partnerProfileId: aws_transfer_profile.partner.profile_id,
+ *         partnerProfileId: partner.profileId,
  *         signingAlgorithm: "NONE",
  *     },
  *     url: "http://www.test.com",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### SFTP Connector
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.transfer.Connector("example", {
- *     accessRole: aws_iam_role.test.arn,
+ *     accessRole: test.arn,
  *     sftpConfig: {
  *         trustedHostKeys: ["ssh-rsa AAAAB3NYourKeysHere"],
- *         userSecretId: aws_secretsmanager_secret.example.id,
+ *         userSecretId: exampleAwsSecretsmanagerSecret.id,
  *     },
  *     url: "sftp://test.com",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Transfer AS2 Connector using the `connector_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:transfer/connector:Connector example c-4221a88afd5f4362a
+ * $ pulumi import aws:transfer/connector:Connector example c-4221a88afd5f4362a
  * ```
  */
 export class Connector extends pulumi.CustomResource {
@@ -162,8 +168,6 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Connector.__pulumiType, name, resourceInputs, opts);
     }
 }

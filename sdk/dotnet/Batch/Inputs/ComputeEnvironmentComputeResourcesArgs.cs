@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Batch.Inputs
     public sealed class ComputeEnvironmentComputeResourcesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        /// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         [Input("allocationStrategy")]
         public Input<string>? AllocationStrategy { get; set; }
 
         /// <summary>
-        /// Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        /// Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20%!((MISSING)`20`), then the Spot price must be below 20%!o(MISSING)f the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100%!o(MISSING)f the On-Demand price. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         [Input("bidPercentage")]
         public Input<int>? BidPercentage { get; set; }

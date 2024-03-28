@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -17,14 +18,14 @@ public final class StudioLifecycleConfigArgs extends com.pulumi.resources.Resour
     public static final StudioLifecycleConfigArgs Empty = new StudioLifecycleConfigArgs();
 
     /**
-     * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+     * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
      * 
      */
     @Import(name="studioLifecycleConfigAppType", required=true)
     private Output<String> studioLifecycleConfigAppType;
 
     /**
-     * @return The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+     * @return The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
      * 
      */
     public Output<String> studioLifecycleConfigAppType() {
@@ -104,7 +105,7 @@ public final class StudioLifecycleConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param studioLifecycleConfigAppType The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+         * @param studioLifecycleConfigAppType The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
          * 
          * @return builder
          * 
@@ -115,7 +116,7 @@ public final class StudioLifecycleConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param studioLifecycleConfigAppType The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+         * @param studioLifecycleConfigAppType The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
          * 
          * @return builder
          * 
@@ -188,9 +189,15 @@ public final class StudioLifecycleConfigArgs extends com.pulumi.resources.Resour
         }
 
         public StudioLifecycleConfigArgs build() {
-            $.studioLifecycleConfigAppType = Objects.requireNonNull($.studioLifecycleConfigAppType, "expected parameter 'studioLifecycleConfigAppType' to be non-null");
-            $.studioLifecycleConfigContent = Objects.requireNonNull($.studioLifecycleConfigContent, "expected parameter 'studioLifecycleConfigContent' to be non-null");
-            $.studioLifecycleConfigName = Objects.requireNonNull($.studioLifecycleConfigName, "expected parameter 'studioLifecycleConfigName' to be non-null");
+            if ($.studioLifecycleConfigAppType == null) {
+                throw new MissingRequiredPropertyException("StudioLifecycleConfigArgs", "studioLifecycleConfigAppType");
+            }
+            if ($.studioLifecycleConfigContent == null) {
+                throw new MissingRequiredPropertyException("StudioLifecycleConfigArgs", "studioLifecycleConfigContent");
+            }
+            if ($.studioLifecycleConfigName == null) {
+                throw new MissingRequiredPropertyException("StudioLifecycleConfigArgs", "studioLifecycleConfigName");
+            }
             return $;
         }
     }

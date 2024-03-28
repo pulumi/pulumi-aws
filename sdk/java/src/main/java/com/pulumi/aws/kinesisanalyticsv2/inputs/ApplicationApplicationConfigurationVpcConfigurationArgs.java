@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesisanalyticsv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -168,8 +169,12 @@ public final class ApplicationApplicationConfigurationVpcConfigurationArgs exten
         }
 
         public ApplicationApplicationConfigurationVpcConfigurationArgs build() {
-            $.securityGroupIds = Objects.requireNonNull($.securityGroupIds, "expected parameter 'securityGroupIds' to be non-null");
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
+            if ($.securityGroupIds == null) {
+                throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationVpcConfigurationArgs", "securityGroupIds");
+            }
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationVpcConfigurationArgs", "subnetIds");
+            }
             return $;
         }
     }

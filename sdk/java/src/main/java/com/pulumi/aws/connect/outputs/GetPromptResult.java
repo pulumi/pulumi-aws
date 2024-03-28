@@ -4,6 +4,7 @@
 package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -82,37 +83,52 @@ public final class GetPromptResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetPromptResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPromptResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("GetPromptResult", "instanceId");
+            }
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetPromptResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder promptId(String promptId) {
-            this.promptId = Objects.requireNonNull(promptId);
+            if (promptId == null) {
+              throw new MissingRequiredPropertyException("GetPromptResult", "promptId");
+            }
+            this.promptId = promptId;
             return this;
         }
         public GetPromptResult build() {
-            final var o = new GetPromptResult();
-            o.arn = arn;
-            o.id = id;
-            o.instanceId = instanceId;
-            o.name = name;
-            o.promptId = promptId;
-            return o;
+            final var _resultValue = new GetPromptResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.instanceId = instanceId;
+            _resultValue.name = name;
+            _resultValue.promptId = promptId;
+            return _resultValue;
         }
     }
 }

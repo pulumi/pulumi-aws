@@ -13,7 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +21,8 @@ import javax.annotation.Nullable;
  * Creates and manages an AWS XRay Sampling Rule.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,30 +45,31 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SamplingRule(&#34;example&#34;, SamplingRuleArgs.builder()        
- *             .attributes(Map.of(&#34;Hello&#34;, &#34;Tris&#34;))
+ *             .ruleName(&#34;example&#34;)
+ *             .priority(9999)
+ *             .version(1)
+ *             .reservoirSize(1)
  *             .fixedRate(0.05)
+ *             .urlPath(&#34;*&#34;)
  *             .host(&#34;*&#34;)
  *             .httpMethod(&#34;*&#34;)
- *             .priority(9999)
- *             .reservoirSize(1)
- *             .resourceArn(&#34;*&#34;)
- *             .ruleName(&#34;example&#34;)
- *             .serviceName(&#34;*&#34;)
  *             .serviceType(&#34;*&#34;)
- *             .urlPath(&#34;*&#34;)
- *             .version(1)
+ *             .serviceName(&#34;*&#34;)
+ *             .resourceArn(&#34;*&#34;)
+ *             .attributes(Map.of(&#34;Hello&#34;, &#34;Tris&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import XRay Sampling Rules using the name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:xray/samplingRule:SamplingRule example example
+ * $ pulumi import aws:xray/samplingRule:SamplingRule example example
  * ```
  * 
  */
@@ -320,9 +322,6 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

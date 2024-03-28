@@ -17,8 +17,10 @@ namespace Pulumi.Aws.LightSail
     /// &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones"](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for more details
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic mysql blueprint
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,19 +31,22 @@ namespace Pulumi.Aws.LightSail
     /// {
     ///     var test = new Aws.LightSail.Database("test", new()
     ///     {
+    ///         RelationalDatabaseName = "test",
     ///         AvailabilityZone = "us-east-1a",
+    ///         MasterDatabaseName = "testdatabasename",
+    ///         MasterPassword = "testdatabasepassword",
+    ///         MasterUsername = "test",
     ///         BlueprintId = "mysql_8_0",
     ///         BundleId = "micro_1_0",
-    ///         MasterDatabaseName = "testdatabasename",
-    ///         MasterPassword = "testdatabasepassword",
-    ///         MasterUsername = "test",
-    ///         RelationalDatabaseName = "test",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Basic postrgres blueprint
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,21 +57,24 @@ namespace Pulumi.Aws.LightSail
     /// {
     ///     var test = new Aws.LightSail.Database("test", new()
     ///     {
+    ///         RelationalDatabaseName = "test",
     ///         AvailabilityZone = "us-east-1a",
-    ///         BlueprintId = "postgres_12",
-    ///         BundleId = "micro_1_0",
     ///         MasterDatabaseName = "testdatabasename",
     ///         MasterPassword = "testdatabasepassword",
     ///         MasterUsername = "test",
-    ///         RelationalDatabaseName = "test",
+    ///         BlueprintId = "postgres_12",
+    ///         BundleId = "micro_1_0",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Custom backup and maintenance windows
     /// 
     /// Below is an example that sets a custom backup and maintenance window. Times are specified in UTC. This example will allow daily backups to take place between 16:00 and 16:30 each day. This example also requires any maintiance tasks (anything that would cause an outage, including changing some attributes) to take place on Tuesdays between 17:00 and 17:30. An action taken against this database that would cause an outage will wait until this time window to make the requested changes.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -77,23 +85,26 @@ namespace Pulumi.Aws.LightSail
     /// {
     ///     var test = new Aws.LightSail.Database("test", new()
     ///     {
+    ///         RelationalDatabaseName = "test",
     ///         AvailabilityZone = "us-east-1a",
-    ///         BlueprintId = "postgres_12",
-    ///         BundleId = "micro_1_0",
     ///         MasterDatabaseName = "testdatabasename",
     ///         MasterPassword = "testdatabasepassword",
     ///         MasterUsername = "test",
+    ///         BlueprintId = "postgres_12",
+    ///         BundleId = "micro_1_0",
     ///         PreferredBackupWindow = "16:00-16:30",
     ///         PreferredMaintenanceWindow = "Tue:17:00-Tue:17:30",
-    ///         RelationalDatabaseName = "test",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Final Snapshots
     /// 
     /// To enable creating a final snapshot of your database on deletion, use the `final_snapshot_name` argument to provide a name to be used for the snapshot.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -104,24 +115,27 @@ namespace Pulumi.Aws.LightSail
     /// {
     ///     var test = new Aws.LightSail.Database("test", new()
     ///     {
+    ///         RelationalDatabaseName = "test",
     ///         AvailabilityZone = "us-east-1a",
-    ///         BlueprintId = "postgres_12",
-    ///         BundleId = "micro_1_0",
-    ///         FinalSnapshotName = "MyFinalSnapshot",
     ///         MasterDatabaseName = "testdatabasename",
     ///         MasterPassword = "testdatabasepassword",
     ///         MasterUsername = "test",
+    ///         BlueprintId = "postgres_12",
+    ///         BundleId = "micro_1_0",
     ///         PreferredBackupWindow = "16:00-16:30",
     ///         PreferredMaintenanceWindow = "Tue:17:00-Tue:17:30",
-    ///         RelationalDatabaseName = "test",
+    ///         FinalSnapshotName = "MyFinalSnapshot",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Apply Immediately
     /// 
     /// To enable applying changes immediately instead of waiting for a maintiance window, use the `apply_immediately` argument.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -132,18 +146,20 @@ namespace Pulumi.Aws.LightSail
     /// {
     ///     var test = new Aws.LightSail.Database("test", new()
     ///     {
-    ///         ApplyImmediately = true,
+    ///         RelationalDatabaseName = "test",
     ///         AvailabilityZone = "us-east-1a",
-    ///         BlueprintId = "postgres_12",
-    ///         BundleId = "micro_1_0",
     ///         MasterDatabaseName = "testdatabasename",
     ///         MasterPassword = "testdatabasepassword",
     ///         MasterUsername = "test",
-    ///         RelationalDatabaseName = "test",
+    ///         BlueprintId = "postgres_12",
+    ///         BundleId = "micro_1_0",
+    ///         ApplyImmediately = true,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Blueprint Ids
     /// 
     /// A list of all available Lightsail Blueprints for Relational Databases the [aws lightsail get-relational-database-blueprints](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-relational-database-blueprints.html) aws cli command.
@@ -196,7 +212,7 @@ namespace Pulumi.Aws.LightSail
     /// Using `pulumi import`, import Lightsail Databases using their name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lightsail/database:Database foo 'bar'
+    /// $ pulumi import aws:lightsail/database:Database foo 'bar'
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/database:Database")]
@@ -396,7 +412,6 @@ namespace Pulumi.Aws.LightSail
                 AdditionalSecretOutputs =
                 {
                     "masterPassword",
-                    "tagsAll",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -723,11 +738,7 @@ namespace Pulumi.Aws.LightSail
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public DatabaseState()

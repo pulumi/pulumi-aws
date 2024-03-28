@@ -11,25 +11,30 @@ import * as utilities from "../utilities";
  * Provides a Timestream table resource.
  *
  * ## Example Usage
+ *
  * ### Basic usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.timestreamwrite.Table("example", {
- *     databaseName: aws_timestreamwrite_database.example.database_name,
+ *     databaseName: exampleAwsTimestreamwriteDatabase.databaseName,
  *     tableName: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Full usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.timestreamwrite.Table("example", {
- *     databaseName: aws_timestreamwrite_database.example.database_name,
+ *     databaseName: exampleAwsTimestreamwriteDatabase.databaseName,
  *     tableName: "example",
  *     retentionProperties: {
  *         magneticStoreRetentionPeriodInDays: 30,
@@ -40,14 +45,17 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Customer-defined Partition Key
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.timestreamwrite.Table("example", {
- *     databaseName: aws_timestreamwrite_database.example.database_name,
+ *     databaseName: exampleAwsTimestreamwriteDatabase.databaseName,
  *     tableName: "example",
  *     schema: {
  *         compositePartitionKey: {
@@ -58,13 +66,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Timestream tables using the `table_name` and `database_name` separate by a colon (`:`). For example:
  *
  * ```sh
- *  $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
+ * $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
  * ```
  */
 export class Table extends pulumi.CustomResource {
@@ -169,8 +178,6 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Table.__pulumiType, name, resourceInputs, opts);
     }
 }

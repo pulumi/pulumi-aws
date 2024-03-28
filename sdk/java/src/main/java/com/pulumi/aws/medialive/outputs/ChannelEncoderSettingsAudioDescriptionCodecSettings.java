@@ -110,49 +110,56 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettings {
 
         @CustomType.Setter
         public Builder aacSettings(@Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings aacSettings) {
+
             this.aacSettings = aacSettings;
             return this;
         }
         @CustomType.Setter
         public Builder ac3Settings(@Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings ac3Settings) {
+
             this.ac3Settings = ac3Settings;
             return this;
         }
         @CustomType.Setter
         public Builder eac3AtmosSettings(@Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings eac3AtmosSettings) {
+
             this.eac3AtmosSettings = eac3AtmosSettings;
             return this;
         }
         @CustomType.Setter
         public Builder eac3Settings(@Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings eac3Settings) {
+
             this.eac3Settings = eac3Settings;
             return this;
         }
         @CustomType.Setter
         public Builder mp2Settings(@Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings mp2Settings) {
+
             this.mp2Settings = mp2Settings;
             return this;
         }
         @CustomType.Setter
         public Builder passThroughSettings(@Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings passThroughSettings) {
+
             this.passThroughSettings = passThroughSettings;
             return this;
         }
         @CustomType.Setter
         public Builder wavSettings(@Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings wavSettings) {
+
             this.wavSettings = wavSettings;
             return this;
         }
         public ChannelEncoderSettingsAudioDescriptionCodecSettings build() {
-            final var o = new ChannelEncoderSettingsAudioDescriptionCodecSettings();
-            o.aacSettings = aacSettings;
-            o.ac3Settings = ac3Settings;
-            o.eac3AtmosSettings = eac3AtmosSettings;
-            o.eac3Settings = eac3Settings;
-            o.mp2Settings = mp2Settings;
-            o.passThroughSettings = passThroughSettings;
-            o.wavSettings = wavSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsAudioDescriptionCodecSettings();
+            _resultValue.aacSettings = aacSettings;
+            _resultValue.ac3Settings = ac3Settings;
+            _resultValue.eac3AtmosSettings = eac3AtmosSettings;
+            _resultValue.eac3Settings = eac3Settings;
+            _resultValue.mp2Settings = mp2Settings;
+            _resultValue.passThroughSettings = passThroughSettings;
+            _resultValue.wavSettings = wavSettings;
+            return _resultValue;
         }
     }
 }

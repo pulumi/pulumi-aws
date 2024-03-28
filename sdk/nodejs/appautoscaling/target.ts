@@ -12,97 +12,115 @@ import * as utilities from "../utilities";
  * > **NOTE:** The [Application Auto Scaling service automatically attempts to manage IAM Service-Linked Roles](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) when registering certain service namespaces for the first time. To manually manage this role, see the `aws.iam.ServiceLinkedRole` resource.
  *
  * ## Example Usage
+ *
  * ### DynamoDB Table Autoscaling
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const dynamodbTableReadTarget = new aws.appautoscaling.Target("dynamodbTableReadTarget", {
+ * const dynamodbTableReadTarget = new aws.appautoscaling.Target("dynamodb_table_read_target", {
  *     maxCapacity: 100,
  *     minCapacity: 5,
- *     resourceId: `table/${aws_dynamodb_table.example.name}`,
+ *     resourceId: `table/${example.name}`,
  *     scalableDimension: "dynamodb:table:ReadCapacityUnits",
  *     serviceNamespace: "dynamodb",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### DynamoDB Index Autoscaling
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const dynamodbIndexReadTarget = new aws.appautoscaling.Target("dynamodbIndexReadTarget", {
+ * const dynamodbIndexReadTarget = new aws.appautoscaling.Target("dynamodb_index_read_target", {
  *     maxCapacity: 100,
  *     minCapacity: 5,
- *     resourceId: `table/${aws_dynamodb_table.example.name}/index/${_var.index_name}`,
+ *     resourceId: `table/${example.name}/index/${indexName}`,
  *     scalableDimension: "dynamodb:index:ReadCapacityUnits",
  *     serviceNamespace: "dynamodb",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### ECS Service Autoscaling
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ecsTarget = new aws.appautoscaling.Target("ecsTarget", {
+ * const ecsTarget = new aws.appautoscaling.Target("ecs_target", {
  *     maxCapacity: 4,
  *     minCapacity: 1,
- *     resourceId: `service/${aws_ecs_cluster.example.name}/${aws_ecs_service.example.name}`,
+ *     resourceId: `service/${example.name}/${exampleAwsEcsService.name}`,
  *     scalableDimension: "ecs:service:DesiredCount",
  *     serviceNamespace: "ecs",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Aurora Read Replica Autoscaling
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const replicas = new aws.appautoscaling.Target("replicas", {
- *     maxCapacity: 15,
- *     minCapacity: 1,
- *     resourceId: `cluster:${aws_rds_cluster.example.id}`,
- *     scalableDimension: "rds:cluster:ReadReplicaCount",
  *     serviceNamespace: "rds",
+ *     scalableDimension: "rds:cluster:ReadReplicaCount",
+ *     resourceId: `cluster:${example.id}`,
+ *     minCapacity: 1,
+ *     maxCapacity: 15,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Suppressing `tagsAll` Differences For Older Resources
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ecsTarget = new aws.appautoscaling.Target("ecsTarget", {
+ * const ecsTarget = new aws.appautoscaling.Target("ecs_target", {
  *     maxCapacity: 4,
  *     minCapacity: 1,
- *     resourceId: `service/${aws_ecs_cluster.example.name}/${aws_ecs_service.example.name}`,
+ *     resourceId: `service/${example.name}/${exampleAwsEcsService.name}`,
  *     scalableDimension: "ecs:service:DesiredCount",
  *     serviceNamespace: "ecs",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### MSK / Kafka Autoscaling
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const mskTarget = new aws.appautoscaling.Target("mskTarget", {
- *     maxCapacity: 8,
- *     minCapacity: 1,
- *     resourceId: aws_msk_cluster.example.arn,
- *     scalableDimension: "kafka:broker-storage:VolumeSize",
+ * const mskTarget = new aws.appautoscaling.Target("msk_target", {
  *     serviceNamespace: "kafka",
+ *     scalableDimension: "kafka:broker-storage:VolumeSize",
+ *     resourceId: example.arn,
+ *     minCapacity: 1,
+ *     maxCapacity: 8,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Application AutoScaling Target using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`. For example:
  *
  * ```sh
- *  $ pulumi import aws:appautoscaling/target:Target test-target service-namespace/resource-id/scalable-dimension
+ * $ pulumi import aws:appautoscaling/target:Target test-target service-namespace/resource-id/scalable-dimension
  * ```
  */
 export class Target extends pulumi.CustomResource {
@@ -222,8 +240,6 @@ export class Target extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Target.__pulumiType, name, resourceInputs, opts);
     }
 }

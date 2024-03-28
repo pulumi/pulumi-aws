@@ -7,6 +7,7 @@ import com.pulumi.aws.cognito.outputs.RiskConfigurationAccountTakeoverRiskConfig
 import com.pulumi.aws.cognito.outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail;
 import com.pulumi.aws.cognito.outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -117,43 +118,51 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
 
         @CustomType.Setter
         public Builder blockEmail(@Nullable RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail blockEmail) {
+
             this.blockEmail = blockEmail;
             return this;
         }
         @CustomType.Setter
         public Builder from(@Nullable String from) {
+
             this.from = from;
             return this;
         }
         @CustomType.Setter
         public Builder mfaEmail(@Nullable RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail mfaEmail) {
+
             this.mfaEmail = mfaEmail;
             return this;
         }
         @CustomType.Setter
         public Builder noActionEmail(@Nullable RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail noActionEmail) {
+
             this.noActionEmail = noActionEmail;
             return this;
         }
         @CustomType.Setter
         public Builder replyTo(@Nullable String replyTo) {
+
             this.replyTo = replyTo;
             return this;
         }
         @CustomType.Setter
         public Builder sourceArn(String sourceArn) {
-            this.sourceArn = Objects.requireNonNull(sourceArn);
+            if (sourceArn == null) {
+              throw new MissingRequiredPropertyException("RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration", "sourceArn");
+            }
+            this.sourceArn = sourceArn;
             return this;
         }
         public RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration build() {
-            final var o = new RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration();
-            o.blockEmail = blockEmail;
-            o.from = from;
-            o.mfaEmail = mfaEmail;
-            o.noActionEmail = noActionEmail;
-            o.replyTo = replyTo;
-            o.sourceArn = sourceArn;
-            return o;
+            final var _resultValue = new RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration();
+            _resultValue.blockEmail = blockEmail;
+            _resultValue.from = from;
+            _resultValue.mfaEmail = mfaEmail;
+            _resultValue.noActionEmail = noActionEmail;
+            _resultValue.replyTo = replyTo;
+            _resultValue.sourceArn = sourceArn;
+            return _resultValue;
         }
     }
 }

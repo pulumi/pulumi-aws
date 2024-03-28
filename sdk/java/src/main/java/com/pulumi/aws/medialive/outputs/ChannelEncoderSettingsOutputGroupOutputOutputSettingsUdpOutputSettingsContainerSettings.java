@@ -44,13 +44,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
 
         @CustomType.Setter
         public Builder m2tsSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings m2tsSettings) {
+
             this.m2tsSettings = m2tsSettings;
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings();
-            o.m2tsSettings = m2tsSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings();
+            _resultValue.m2tsSettings = m2tsSettings;
+            return _resultValue;
         }
     }
 }

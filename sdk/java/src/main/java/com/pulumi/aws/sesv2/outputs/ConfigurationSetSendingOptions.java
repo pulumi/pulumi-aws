@@ -44,13 +44,14 @@ public final class ConfigurationSetSendingOptions {
 
         @CustomType.Setter
         public Builder sendingEnabled(@Nullable Boolean sendingEnabled) {
+
             this.sendingEnabled = sendingEnabled;
             return this;
         }
         public ConfigurationSetSendingOptions build() {
-            final var o = new ConfigurationSetSendingOptions();
-            o.sendingEnabled = sendingEnabled;
-            return o;
+            final var _resultValue = new ConfigurationSetSendingOptions();
+            _resultValue.sendingEnabled = sendingEnabled;
+            return _resultValue;
         }
     }
 }

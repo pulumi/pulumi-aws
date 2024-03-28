@@ -5,6 +5,7 @@ package com.pulumi.aws.lambda.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -93,7 +94,9 @@ public final class FunctionSnapStartArgs extends com.pulumi.resources.ResourceAr
         }
 
         public FunctionSnapStartArgs build() {
-            $.applyOn = Objects.requireNonNull($.applyOn, "expected parameter 'applyOn' to be non-null");
+            if ($.applyOn == null) {
+                throw new MissingRequiredPropertyException("FunctionSnapStartArgs", "applyOn");
+            }
             return $;
         }
     }

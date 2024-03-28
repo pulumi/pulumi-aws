@@ -191,25 +191,27 @@ class IdentityProviderConfig(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.eks.IdentityProviderConfig("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
+            cluster_name=example_aws_eks_cluster["name"],
             oidc=aws.eks.IdentityProviderConfigOidcArgs(
                 client_id="your client_id",
                 identity_provider_config_name="example",
                 issuer_url="your issuer_url",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EKS Identity Provider Configurations using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
+        $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
         ```
 
         :param str resource_name: The name of the resource.
@@ -229,25 +231,27 @@ class IdentityProviderConfig(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.eks.IdentityProviderConfig("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
+            cluster_name=example_aws_eks_cluster["name"],
             oidc=aws.eks.IdentityProviderConfigOidcArgs(
                 client_id="your client_id",
                 identity_provider_config_name="example",
                 issuer_url="your issuer_url",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EKS Identity Provider Configurations using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
+        $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
         ```
 
         :param str resource_name: The name of the resource.
@@ -287,8 +291,6 @@ class IdentityProviderConfig(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(IdentityProviderConfig, __self__).__init__(
             'aws:eks/identityProviderConfig:IdentityProviderConfig',
             resource_name,

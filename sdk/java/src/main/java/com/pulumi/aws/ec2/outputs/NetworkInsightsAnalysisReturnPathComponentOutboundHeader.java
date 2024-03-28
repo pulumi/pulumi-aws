@@ -63,6 +63,7 @@ public final class NetworkInsightsAnalysisReturnPathComponentOutboundHeader {
 
         @CustomType.Setter
         public Builder destinationAddresses(@Nullable List<String> destinationAddresses) {
+
             this.destinationAddresses = destinationAddresses;
             return this;
         }
@@ -71,6 +72,7 @@ public final class NetworkInsightsAnalysisReturnPathComponentOutboundHeader {
         }
         @CustomType.Setter
         public Builder destinationPortRanges(@Nullable List<NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRange> destinationPortRanges) {
+
             this.destinationPortRanges = destinationPortRanges;
             return this;
         }
@@ -79,11 +81,13 @@ public final class NetworkInsightsAnalysisReturnPathComponentOutboundHeader {
         }
         @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
+
             this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder sourceAddresses(@Nullable List<String> sourceAddresses) {
+
             this.sourceAddresses = sourceAddresses;
             return this;
         }
@@ -92,6 +96,7 @@ public final class NetworkInsightsAnalysisReturnPathComponentOutboundHeader {
         }
         @CustomType.Setter
         public Builder sourcePortRanges(@Nullable List<NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRange> sourcePortRanges) {
+
             this.sourcePortRanges = sourcePortRanges;
             return this;
         }
@@ -99,13 +104,13 @@ public final class NetworkInsightsAnalysisReturnPathComponentOutboundHeader {
             return sourcePortRanges(List.of(sourcePortRanges));
         }
         public NetworkInsightsAnalysisReturnPathComponentOutboundHeader build() {
-            final var o = new NetworkInsightsAnalysisReturnPathComponentOutboundHeader();
-            o.destinationAddresses = destinationAddresses;
-            o.destinationPortRanges = destinationPortRanges;
-            o.protocol = protocol;
-            o.sourceAddresses = sourceAddresses;
-            o.sourcePortRanges = sourcePortRanges;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisReturnPathComponentOutboundHeader();
+            _resultValue.destinationAddresses = destinationAddresses;
+            _resultValue.destinationPortRanges = destinationPortRanges;
+            _resultValue.protocol = protocol;
+            _resultValue.sourceAddresses = sourceAddresses;
+            _resultValue.sourcePortRanges = sourcePortRanges;
+            return _resultValue;
         }
     }
 }

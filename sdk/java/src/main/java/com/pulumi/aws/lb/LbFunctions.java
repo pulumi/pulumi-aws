@@ -14,11 +14,14 @@ import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
 import com.pulumi.aws.lb.inputs.GetLoadBalancerPlainArgs;
 import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
 import com.pulumi.aws.lb.inputs.GetTargetGroupPlainArgs;
+import com.pulumi.aws.lb.inputs.GetTrustStoreArgs;
+import com.pulumi.aws.lb.inputs.GetTrustStorePlainArgs;
 import com.pulumi.aws.lb.outputs.GetHostedZoneIdResult;
 import com.pulumi.aws.lb.outputs.GetLbsResult;
 import com.pulumi.aws.lb.outputs.GetListenerResult;
 import com.pulumi.aws.lb.outputs.GetLoadBalancerResult;
 import com.pulumi.aws.lb.outputs.GetTargetGroupResult;
+import com.pulumi.aws.lb.outputs.GetTrustStoreResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -30,6 +33,8 @@ public final class LbFunctions {
      * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing (ELB) in a given region for the purpose of using in an AWS Route53 Alias. Specify the ELB type (`network` or `application`) to return the relevant the associated HostedZoneId. Ref: [ELB service endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html#elb_region)
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -57,11 +62,11 @@ public final class LbFunctions {
      *         final var main = LbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
+     *             .zoneId(primary.zoneId())
      *             .name(&#34;example.com&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_lb.main().dns_name())
+     *                 .name(mainAwsLb.dnsName())
      *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
@@ -70,6 +75,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetHostedZoneIdResult> getHostedZoneId() {
@@ -79,6 +85,8 @@ public final class LbFunctions {
      * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing (ELB) in a given region for the purpose of using in an AWS Route53 Alias. Specify the ELB type (`network` or `application`) to return the relevant the associated HostedZoneId. Ref: [ELB service endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html#elb_region)
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -106,11 +114,11 @@ public final class LbFunctions {
      *         final var main = LbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
+     *             .zoneId(primary.zoneId())
      *             .name(&#34;example.com&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_lb.main().dns_name())
+     *                 .name(mainAwsLb.dnsName())
      *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
@@ -119,6 +127,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetHostedZoneIdResult> getHostedZoneIdPlain() {
@@ -128,6 +137,8 @@ public final class LbFunctions {
      * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing (ELB) in a given region for the purpose of using in an AWS Route53 Alias. Specify the ELB type (`network` or `application`) to return the relevant the associated HostedZoneId. Ref: [ELB service endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html#elb_region)
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -155,11 +166,11 @@ public final class LbFunctions {
      *         final var main = LbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
+     *             .zoneId(primary.zoneId())
      *             .name(&#34;example.com&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_lb.main().dns_name())
+     *                 .name(mainAwsLb.dnsName())
      *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
@@ -168,6 +179,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetHostedZoneIdResult> getHostedZoneId(GetHostedZoneIdArgs args) {
@@ -177,6 +189,8 @@ public final class LbFunctions {
      * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing (ELB) in a given region for the purpose of using in an AWS Route53 Alias. Specify the ELB type (`network` or `application`) to return the relevant the associated HostedZoneId. Ref: [ELB service endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html#elb_region)
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -204,11 +218,11 @@ public final class LbFunctions {
      *         final var main = LbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
+     *             .zoneId(primary.zoneId())
      *             .name(&#34;example.com&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_lb.main().dns_name())
+     *                 .name(mainAwsLb.dnsName())
      *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
@@ -217,6 +231,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetHostedZoneIdResult> getHostedZoneIdPlain(GetHostedZoneIdPlainArgs args) {
@@ -226,6 +241,8 @@ public final class LbFunctions {
      * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing (ELB) in a given region for the purpose of using in an AWS Route53 Alias. Specify the ELB type (`network` or `application`) to return the relevant the associated HostedZoneId. Ref: [ELB service endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html#elb_region)
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -253,11 +270,11 @@ public final class LbFunctions {
      *         final var main = LbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
+     *             .zoneId(primary.zoneId())
      *             .name(&#34;example.com&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_lb.main().dns_name())
+     *                 .name(mainAwsLb.dnsName())
      *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
@@ -266,6 +283,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetHostedZoneIdResult> getHostedZoneId(GetHostedZoneIdArgs args, InvokeOptions options) {
@@ -275,6 +293,8 @@ public final class LbFunctions {
      * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing (ELB) in a given region for the purpose of using in an AWS Route53 Alias. Specify the ELB type (`network` or `application`) to return the relevant the associated HostedZoneId. Ref: [ELB service endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html#elb_region)
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -302,11 +322,11 @@ public final class LbFunctions {
      *         final var main = LbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
+     *             .zoneId(primary.zoneId())
      *             .name(&#34;example.com&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_lb.main().dns_name())
+     *                 .name(mainAwsLb.dnsName())
      *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
@@ -315,6 +335,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetHostedZoneIdResult> getHostedZoneIdPlain(GetHostedZoneIdPlainArgs args, InvokeOptions options) {
@@ -325,7 +346,10 @@ public final class LbFunctions {
      * resources.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -354,6 +378,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLbsResult> getLbs() {
@@ -364,7 +389,10 @@ public final class LbFunctions {
      * resources.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -393,6 +421,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLbsResult> getLbsPlain() {
@@ -403,7 +432,10 @@ public final class LbFunctions {
      * resources.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -432,6 +464,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLbsResult> getLbs(GetLbsArgs args) {
@@ -442,7 +475,10 @@ public final class LbFunctions {
      * resources.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -471,6 +507,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLbsResult> getLbsPlain(GetLbsPlainArgs args) {
@@ -481,7 +518,10 @@ public final class LbFunctions {
      * resources.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -510,6 +550,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLbsResult> getLbs(GetLbsArgs args, InvokeOptions options) {
@@ -520,7 +561,10 @@ public final class LbFunctions {
      * resources.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -549,6 +593,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLbsResult> getLbsPlain(GetLbsPlainArgs args, InvokeOptions options) {
@@ -562,6 +607,8 @@ public final class LbFunctions {
      * This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -602,6 +649,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetListenerResult> getListener() {
@@ -615,6 +663,8 @@ public final class LbFunctions {
      * This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -655,6 +705,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetListenerResult> getListenerPlain() {
@@ -668,6 +719,8 @@ public final class LbFunctions {
      * This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -708,6 +761,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetListenerResult> getListener(GetListenerArgs args) {
@@ -721,6 +775,8 @@ public final class LbFunctions {
      * This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -761,6 +817,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetListenerResult> getListenerPlain(GetListenerPlainArgs args) {
@@ -774,6 +831,8 @@ public final class LbFunctions {
      * This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -814,6 +873,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetListenerResult> getListener(GetListenerArgs args, InvokeOptions options) {
@@ -827,6 +887,8 @@ public final class LbFunctions {
      * This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -867,6 +929,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetListenerResult> getListenerPlain(GetListenerPlainArgs args, InvokeOptions options) {
@@ -882,6 +945,8 @@ public final class LbFunctions {
      * with it, etc.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -914,6 +979,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLoadBalancerResult> getLoadBalancer() {
@@ -929,6 +995,8 @@ public final class LbFunctions {
      * with it, etc.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -961,6 +1029,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLoadBalancerResult> getLoadBalancerPlain() {
@@ -976,6 +1045,8 @@ public final class LbFunctions {
      * with it, etc.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1008,6 +1079,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLoadBalancerResult> getLoadBalancer(GetLoadBalancerArgs args) {
@@ -1023,6 +1095,8 @@ public final class LbFunctions {
      * with it, etc.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1055,6 +1129,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLoadBalancerResult> getLoadBalancerPlain(GetLoadBalancerPlainArgs args) {
@@ -1070,6 +1145,8 @@ public final class LbFunctions {
      * with it, etc.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1102,6 +1179,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLoadBalancerResult> getLoadBalancer(GetLoadBalancerArgs args, InvokeOptions options) {
@@ -1117,6 +1195,8 @@ public final class LbFunctions {
      * with it, etc.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1149,6 +1229,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLoadBalancerResult> getLoadBalancerPlain(GetLoadBalancerPlainArgs args, InvokeOptions options) {
@@ -1164,6 +1245,8 @@ public final class LbFunctions {
      * an LB Target Group for use in other resources, given LB Target Group name.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1196,6 +1279,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTargetGroupResult> getTargetGroup() {
@@ -1211,6 +1295,8 @@ public final class LbFunctions {
      * an LB Target Group for use in other resources, given LB Target Group name.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1243,6 +1329,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTargetGroupResult> getTargetGroupPlain() {
@@ -1258,6 +1345,8 @@ public final class LbFunctions {
      * an LB Target Group for use in other resources, given LB Target Group name.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1290,6 +1379,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTargetGroupResult> getTargetGroup(GetTargetGroupArgs args) {
@@ -1305,6 +1395,8 @@ public final class LbFunctions {
      * an LB Target Group for use in other resources, given LB Target Group name.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1337,6 +1429,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTargetGroupResult> getTargetGroupPlain(GetTargetGroupPlainArgs args) {
@@ -1352,6 +1445,8 @@ public final class LbFunctions {
      * an LB Target Group for use in other resources, given LB Target Group name.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1384,6 +1479,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTargetGroupResult> getTargetGroup(GetTargetGroupArgs args, InvokeOptions options) {
@@ -1399,6 +1495,8 @@ public final class LbFunctions {
      * an LB Target Group for use in other resources, given LB Target Group name.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1431,9 +1529,310 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTargetGroupResult> getTargetGroupPlain(GetTargetGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:lb/getTargetGroup:getTargetGroup", TypeShape.of(GetTargetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Note:** `aws_alb_trust_store` is known as `aws.lb.TrustStore`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Trust Store.
+     * 
+     * This data source can prove useful when a module accepts an LB Trust Store as an
+     * input variable and needs to know its attributes. It can also be used to get the ARN of
+     * an LB Trust Store for use in other resources, given LB Trust Store name.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetTrustStoreArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbTsArn = config.get(&#34;lbTsArn&#34;).orElse(&#34;&#34;);
+     *         final var lbTsName = config.get(&#34;lbTsName&#34;).orElse(&#34;&#34;);
+     *         final var test = LbFunctions.getTrustStore(GetTrustStoreArgs.builder()
+     *             .arn(lbTsArn)
+     *             .name(lbTsName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTrustStoreResult> getTrustStore() {
+        return getTrustStore(GetTrustStoreArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Note:** `aws_alb_trust_store` is known as `aws.lb.TrustStore`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Trust Store.
+     * 
+     * This data source can prove useful when a module accepts an LB Trust Store as an
+     * input variable and needs to know its attributes. It can also be used to get the ARN of
+     * an LB Trust Store for use in other resources, given LB Trust Store name.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetTrustStoreArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbTsArn = config.get(&#34;lbTsArn&#34;).orElse(&#34;&#34;);
+     *         final var lbTsName = config.get(&#34;lbTsName&#34;).orElse(&#34;&#34;);
+     *         final var test = LbFunctions.getTrustStore(GetTrustStoreArgs.builder()
+     *             .arn(lbTsArn)
+     *             .name(lbTsName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetTrustStoreResult> getTrustStorePlain() {
+        return getTrustStorePlain(GetTrustStorePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Note:** `aws_alb_trust_store` is known as `aws.lb.TrustStore`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Trust Store.
+     * 
+     * This data source can prove useful when a module accepts an LB Trust Store as an
+     * input variable and needs to know its attributes. It can also be used to get the ARN of
+     * an LB Trust Store for use in other resources, given LB Trust Store name.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetTrustStoreArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbTsArn = config.get(&#34;lbTsArn&#34;).orElse(&#34;&#34;);
+     *         final var lbTsName = config.get(&#34;lbTsName&#34;).orElse(&#34;&#34;);
+     *         final var test = LbFunctions.getTrustStore(GetTrustStoreArgs.builder()
+     *             .arn(lbTsArn)
+     *             .name(lbTsName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTrustStoreResult> getTrustStore(GetTrustStoreArgs args) {
+        return getTrustStore(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Note:** `aws_alb_trust_store` is known as `aws.lb.TrustStore`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Trust Store.
+     * 
+     * This data source can prove useful when a module accepts an LB Trust Store as an
+     * input variable and needs to know its attributes. It can also be used to get the ARN of
+     * an LB Trust Store for use in other resources, given LB Trust Store name.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetTrustStoreArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbTsArn = config.get(&#34;lbTsArn&#34;).orElse(&#34;&#34;);
+     *         final var lbTsName = config.get(&#34;lbTsName&#34;).orElse(&#34;&#34;);
+     *         final var test = LbFunctions.getTrustStore(GetTrustStoreArgs.builder()
+     *             .arn(lbTsArn)
+     *             .name(lbTsName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetTrustStoreResult> getTrustStorePlain(GetTrustStorePlainArgs args) {
+        return getTrustStorePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Note:** `aws_alb_trust_store` is known as `aws.lb.TrustStore`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Trust Store.
+     * 
+     * This data source can prove useful when a module accepts an LB Trust Store as an
+     * input variable and needs to know its attributes. It can also be used to get the ARN of
+     * an LB Trust Store for use in other resources, given LB Trust Store name.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetTrustStoreArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbTsArn = config.get(&#34;lbTsArn&#34;).orElse(&#34;&#34;);
+     *         final var lbTsName = config.get(&#34;lbTsName&#34;).orElse(&#34;&#34;);
+     *         final var test = LbFunctions.getTrustStore(GetTrustStoreArgs.builder()
+     *             .arn(lbTsArn)
+     *             .name(lbTsName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTrustStoreResult> getTrustStore(GetTrustStoreArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:lb/getTrustStore:getTrustStore", TypeShape.of(GetTrustStoreResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Note:** `aws_alb_trust_store` is known as `aws.lb.TrustStore`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Trust Store.
+     * 
+     * This data source can prove useful when a module accepts an LB Trust Store as an
+     * input variable and needs to know its attributes. It can also be used to get the ARN of
+     * an LB Trust Store for use in other resources, given LB Trust Store name.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetTrustStoreArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbTsArn = config.get(&#34;lbTsArn&#34;).orElse(&#34;&#34;);
+     *         final var lbTsName = config.get(&#34;lbTsName&#34;).orElse(&#34;&#34;);
+     *         final var test = LbFunctions.getTrustStore(GetTrustStoreArgs.builder()
+     *             .arn(lbTsArn)
+     *             .name(lbTsName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetTrustStoreResult> getTrustStorePlain(GetTrustStorePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:lb/getTrustStore:getTrustStore", TypeShape.of(GetTrustStoreResult.class), args, Utilities.withVersion(options));
     }
 }

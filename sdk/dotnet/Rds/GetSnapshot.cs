@@ -17,10 +17,9 @@ namespace Pulumi.Aws.Rds
         /// &gt; **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
         /// See the `aws.rds.ClusterSnapshot` data source for DB Cluster snapshots.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,7 @@ namespace Pulumi.Aws.Rds
         ///         AllocatedStorage = 10,
         ///         Engine = "mysql",
         ///         EngineVersion = "5.6.17",
-        ///         InstanceClass = "db.t2.micro",
+        ///         InstanceClass = Aws.Rds.InstanceType.T2_Micro,
         ///         DbName = "mydb",
         ///         Username = "foo",
         ///         Password = "bar",
@@ -51,15 +50,14 @@ namespace Pulumi.Aws.Rds
         ///     // Use the latest production snapshot to create a dev instance.
         ///     var dev = new Aws.Rds.Instance("dev", new()
         ///     {
-        ///         InstanceClass = "db.t2.micro",
+        ///         InstanceClass = Aws.Rds.InstanceType.T2_Micro,
         ///         DbName = "mydbdev",
         ///         SnapshotIdentifier = latestProdSnapshot.Apply(getSnapshotResult =&gt; getSnapshotResult.Id),
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("aws:rds/getSnapshot:getSnapshot", args ?? new GetSnapshotArgs(), options.WithDefaults());
@@ -70,10 +68,9 @@ namespace Pulumi.Aws.Rds
         /// &gt; **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
         /// See the `aws.rds.ClusterSnapshot` data source for DB Cluster snapshots.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -87,7 +84,7 @@ namespace Pulumi.Aws.Rds
         ///         AllocatedStorage = 10,
         ///         Engine = "mysql",
         ///         EngineVersion = "5.6.17",
-        ///         InstanceClass = "db.t2.micro",
+        ///         InstanceClass = Aws.Rds.InstanceType.T2_Micro,
         ///         DbName = "mydb",
         ///         Username = "foo",
         ///         Password = "bar",
@@ -104,15 +101,14 @@ namespace Pulumi.Aws.Rds
         ///     // Use the latest production snapshot to create a dev instance.
         ///     var dev = new Aws.Rds.Instance("dev", new()
         ///     {
-        ///         InstanceClass = "db.t2.micro",
+        ///         InstanceClass = Aws.Rds.InstanceType.T2_Micro,
         ///         DbName = "mydbdev",
         ///         SnapshotIdentifier = latestProdSnapshot.Apply(getSnapshotResult =&gt; getSnapshotResult.Id),
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("aws:rds/getSnapshot:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());

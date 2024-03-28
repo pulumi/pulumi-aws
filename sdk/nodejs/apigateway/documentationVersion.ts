@@ -9,33 +9,33 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {});
- * const exampleDocumentationPart = new aws.apigateway.DocumentationPart("exampleDocumentationPart", {
+ * const exampleRestApi = new aws.apigateway.RestApi("example", {name: "example_api"});
+ * const example = new aws.apigateway.DocumentationVersion("example", {
+ *     version: "example_version",
+ *     restApiId: exampleRestApi.id,
+ *     description: "Example description",
+ * });
+ * const exampleDocumentationPart = new aws.apigateway.DocumentationPart("example", {
  *     location: {
  *         type: "API",
  *     },
  *     properties: "{\"description\":\"Example\"}",
  *     restApiId: exampleRestApi.id,
  * });
- * const exampleDocumentationVersion = new aws.apigateway.DocumentationVersion("exampleDocumentationVersion", {
- *     version: "example_version",
- *     restApiId: exampleRestApi.id,
- *     description: "Example description",
- * }, {
- *     dependsOn: [exampleDocumentationPart],
- * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import API Gateway documentation versions using `REST-API-ID/VERSION`. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
+ * $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
  * ```
  */
 export class DocumentationVersion extends pulumi.CustomResource {

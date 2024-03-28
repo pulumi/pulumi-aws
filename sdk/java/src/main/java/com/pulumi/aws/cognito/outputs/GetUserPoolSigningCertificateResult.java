@@ -4,6 +4,7 @@
 package com.pulumi.aws.cognito.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -62,25 +63,34 @@ public final class GetUserPoolSigningCertificateResult {
 
         @CustomType.Setter
         public Builder certificate(String certificate) {
-            this.certificate = Objects.requireNonNull(certificate);
+            if (certificate == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolSigningCertificateResult", "certificate");
+            }
+            this.certificate = certificate;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolSigningCertificateResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder userPoolId(String userPoolId) {
-            this.userPoolId = Objects.requireNonNull(userPoolId);
+            if (userPoolId == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolSigningCertificateResult", "userPoolId");
+            }
+            this.userPoolId = userPoolId;
             return this;
         }
         public GetUserPoolSigningCertificateResult build() {
-            final var o = new GetUserPoolSigningCertificateResult();
-            o.certificate = certificate;
-            o.id = id;
-            o.userPoolId = userPoolId;
-            return o;
+            final var _resultValue = new GetUserPoolSigningCertificateResult();
+            _resultValue.certificate = certificate;
+            _resultValue.id = id;
+            _resultValue.userPoolId = userPoolId;
+            return _resultValue;
         }
     }
 }

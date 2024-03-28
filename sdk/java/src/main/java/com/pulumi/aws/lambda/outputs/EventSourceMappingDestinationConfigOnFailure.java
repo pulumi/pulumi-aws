@@ -4,6 +4,7 @@
 package com.pulumi.aws.lambda.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class EventSourceMappingDestinationConfigOnFailure {
 
         @CustomType.Setter
         public Builder destinationArn(String destinationArn) {
-            this.destinationArn = Objects.requireNonNull(destinationArn);
+            if (destinationArn == null) {
+              throw new MissingRequiredPropertyException("EventSourceMappingDestinationConfigOnFailure", "destinationArn");
+            }
+            this.destinationArn = destinationArn;
             return this;
         }
         public EventSourceMappingDestinationConfigOnFailure build() {
-            final var o = new EventSourceMappingDestinationConfigOnFailure();
-            o.destinationArn = destinationArn;
-            return o;
+            final var _resultValue = new EventSourceMappingDestinationConfigOnFailure();
+            _resultValue.destinationArn = destinationArn;
+            return _resultValue;
         }
     }
 }

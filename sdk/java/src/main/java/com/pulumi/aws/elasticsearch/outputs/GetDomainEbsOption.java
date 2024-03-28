@@ -4,6 +4,7 @@
 package com.pulumi.aws.elasticsearch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -100,37 +101,52 @@ public final class GetDomainEbsOption {
 
         @CustomType.Setter
         public Builder ebsEnabled(Boolean ebsEnabled) {
-            this.ebsEnabled = Objects.requireNonNull(ebsEnabled);
+            if (ebsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetDomainEbsOption", "ebsEnabled");
+            }
+            this.ebsEnabled = ebsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder iops(Integer iops) {
-            this.iops = Objects.requireNonNull(iops);
+            if (iops == null) {
+              throw new MissingRequiredPropertyException("GetDomainEbsOption", "iops");
+            }
+            this.iops = iops;
             return this;
         }
         @CustomType.Setter
         public Builder throughput(Integer throughput) {
-            this.throughput = Objects.requireNonNull(throughput);
+            if (throughput == null) {
+              throw new MissingRequiredPropertyException("GetDomainEbsOption", "throughput");
+            }
+            this.throughput = throughput;
             return this;
         }
         @CustomType.Setter
         public Builder volumeSize(Integer volumeSize) {
-            this.volumeSize = Objects.requireNonNull(volumeSize);
+            if (volumeSize == null) {
+              throw new MissingRequiredPropertyException("GetDomainEbsOption", "volumeSize");
+            }
+            this.volumeSize = volumeSize;
             return this;
         }
         @CustomType.Setter
         public Builder volumeType(String volumeType) {
-            this.volumeType = Objects.requireNonNull(volumeType);
+            if (volumeType == null) {
+              throw new MissingRequiredPropertyException("GetDomainEbsOption", "volumeType");
+            }
+            this.volumeType = volumeType;
             return this;
         }
         public GetDomainEbsOption build() {
-            final var o = new GetDomainEbsOption();
-            o.ebsEnabled = ebsEnabled;
-            o.iops = iops;
-            o.throughput = throughput;
-            o.volumeSize = volumeSize;
-            o.volumeType = volumeType;
-            return o;
+            final var _resultValue = new GetDomainEbsOption();
+            _resultValue.ebsEnabled = ebsEnabled;
+            _resultValue.iops = iops;
+            _resultValue.throughput = throughput;
+            _resultValue.volumeSize = volumeSize;
+            _resultValue.volumeType = volumeType;
+            return _resultValue;
         }
     }
 }

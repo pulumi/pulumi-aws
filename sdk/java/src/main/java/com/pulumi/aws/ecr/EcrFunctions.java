@@ -18,11 +18,13 @@ import com.pulumi.aws.ecr.outputs.GetAuthorizationTokenResult;
 import com.pulumi.aws.ecr.outputs.GetCredentialsResult;
 import com.pulumi.aws.ecr.outputs.GetImageResult;
 import com.pulumi.aws.ecr.outputs.GetPullThroughCacheRuleResult;
+import com.pulumi.aws.ecr.outputs.GetRepositoriesResult;
 import com.pulumi.aws.ecr.outputs.GetRepositoryResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class EcrFunctions {
@@ -30,6 +32,8 @@ public final class EcrFunctions {
      * The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -56,6 +60,7 @@ public final class EcrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthorizationTokenResult> getAuthorizationToken() {
@@ -65,6 +70,8 @@ public final class EcrFunctions {
      * The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -91,6 +98,7 @@ public final class EcrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain() {
@@ -100,6 +108,8 @@ public final class EcrFunctions {
      * The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -126,6 +136,7 @@ public final class EcrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthorizationTokenResult> getAuthorizationToken(GetAuthorizationTokenArgs args) {
@@ -135,6 +146,8 @@ public final class EcrFunctions {
      * The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -161,6 +174,7 @@ public final class EcrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain(GetAuthorizationTokenPlainArgs args) {
@@ -170,6 +184,8 @@ public final class EcrFunctions {
      * The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -196,6 +212,7 @@ public final class EcrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthorizationTokenResult> getAuthorizationToken(GetAuthorizationTokenArgs args, InvokeOptions options) {
@@ -205,6 +222,8 @@ public final class EcrFunctions {
      * The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -231,6 +250,7 @@ public final class EcrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain(GetAuthorizationTokenPlainArgs args, InvokeOptions options) {
@@ -252,6 +272,8 @@ public final class EcrFunctions {
      * The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -274,13 +296,14 @@ public final class EcrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var serviceImage = EcrFunctions.getImage(GetImageArgs.builder()
-     *             .imageTag(&#34;latest&#34;)
      *             .repositoryName(&#34;my/service&#34;)
+     *             .imageTag(&#34;latest&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImageResult> getImage(GetImageArgs args) {
@@ -290,6 +313,8 @@ public final class EcrFunctions {
      * The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -312,13 +337,14 @@ public final class EcrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var serviceImage = EcrFunctions.getImage(GetImageArgs.builder()
-     *             .imageTag(&#34;latest&#34;)
      *             .repositoryName(&#34;my/service&#34;)
+     *             .imageTag(&#34;latest&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImageResult> getImagePlain(GetImagePlainArgs args) {
@@ -328,6 +354,8 @@ public final class EcrFunctions {
      * The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -350,13 +378,14 @@ public final class EcrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var serviceImage = EcrFunctions.getImage(GetImageArgs.builder()
-     *             .imageTag(&#34;latest&#34;)
      *             .repositoryName(&#34;my/service&#34;)
+     *             .imageTag(&#34;latest&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImageResult> getImage(GetImageArgs args, InvokeOptions options) {
@@ -366,6 +395,8 @@ public final class EcrFunctions {
      * The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -388,13 +419,14 @@ public final class EcrFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var serviceImage = EcrFunctions.getImage(GetImageArgs.builder()
-     *             .imageTag(&#34;latest&#34;)
      *             .repositoryName(&#34;my/service&#34;)
+     *             .imageTag(&#34;latest&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImageResult> getImagePlain(GetImagePlainArgs args, InvokeOptions options) {
@@ -404,6 +436,8 @@ public final class EcrFunctions {
      * The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -432,6 +466,7 @@ public final class EcrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPullThroughCacheRuleResult> getPullThroughCacheRule(GetPullThroughCacheRuleArgs args) {
@@ -441,6 +476,8 @@ public final class EcrFunctions {
      * The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -469,6 +506,7 @@ public final class EcrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPullThroughCacheRuleResult> getPullThroughCacheRulePlain(GetPullThroughCacheRulePlainArgs args) {
@@ -478,6 +516,8 @@ public final class EcrFunctions {
      * The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -506,6 +546,7 @@ public final class EcrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPullThroughCacheRuleResult> getPullThroughCacheRule(GetPullThroughCacheRuleArgs args, InvokeOptions options) {
@@ -515,6 +556,8 @@ public final class EcrFunctions {
      * The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -543,15 +586,252 @@ public final class EcrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPullThroughCacheRuleResult> getPullThroughCacheRulePlain(GetPullThroughCacheRulePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", TypeShape.of(GetPullThroughCacheRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EcrFunctions.getRepositories();
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRepositoriesResult> getRepositories() {
+        return getRepositories(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EcrFunctions.getRepositories();
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain() {
+        return getRepositoriesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EcrFunctions.getRepositories();
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRepositoriesResult> getRepositories(InvokeArgs args) {
+        return getRepositories(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EcrFunctions.getRepositories();
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain(InvokeArgs args) {
+        return getRepositoriesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EcrFunctions.getRepositories();
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRepositoriesResult> getRepositories(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ecr/getRepositories:getRepositories", TypeShape.of(GetRepositoriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EcrFunctions.getRepositories();
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ecr/getRepositories:getRepositories", TypeShape.of(GetRepositoriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -580,6 +860,7 @@ public final class EcrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryResult> getRepository(GetRepositoryArgs args) {
@@ -589,6 +870,8 @@ public final class EcrFunctions {
      * The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -617,6 +900,7 @@ public final class EcrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryResult> getRepositoryPlain(GetRepositoryPlainArgs args) {
@@ -626,6 +910,8 @@ public final class EcrFunctions {
      * The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -654,6 +940,7 @@ public final class EcrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryResult> getRepository(GetRepositoryArgs args, InvokeOptions options) {
@@ -663,6 +950,8 @@ public final class EcrFunctions {
      * The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -691,6 +980,7 @@ public final class EcrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryResult> getRepositoryPlain(GetRepositoryPlainArgs args, InvokeOptions options) {

@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.aws.imagebuilder.outputs.ImageRecipeComponentParameter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -59,11 +60,15 @@ public final class ImageRecipeComponent {
 
         @CustomType.Setter
         public Builder componentArn(String componentArn) {
-            this.componentArn = Objects.requireNonNull(componentArn);
+            if (componentArn == null) {
+              throw new MissingRequiredPropertyException("ImageRecipeComponent", "componentArn");
+            }
+            this.componentArn = componentArn;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable List<ImageRecipeComponentParameter> parameters) {
+
             this.parameters = parameters;
             return this;
         }
@@ -71,10 +76,10 @@ public final class ImageRecipeComponent {
             return parameters(List.of(parameters));
         }
         public ImageRecipeComponent build() {
-            final var o = new ImageRecipeComponent();
-            o.componentArn = componentArn;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new ImageRecipeComponent();
+            _resultValue.componentArn = componentArn;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

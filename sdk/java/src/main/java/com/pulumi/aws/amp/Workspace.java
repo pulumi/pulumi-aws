@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,6 +20,8 @@ import javax.annotation.Nullable;
  * Manages an Amazon Managed Service for Prometheus (AMP) Workspace.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,7 +51,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### CloudWatch Logging
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -58,6 +63,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
  * import com.pulumi.aws.amp.Workspace;
  * import com.pulumi.aws.amp.WorkspaceArgs;
  * import com.pulumi.aws.amp.inputs.WorkspaceLoggingConfigurationArgs;
@@ -74,24 +80,68 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
+ *         var example = new LogGroup(&#34;example&#34;, LogGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
  *             .loggingConfiguration(WorkspaceLoggingConfigurationArgs.builder()
- *                 .logGroupArn(exampleLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
+ *                 .logGroupArn(example.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### AWS KMS Customer Managed Keys (CMK)
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.amp.Workspace;
+ * import com.pulumi.aws.amp.WorkspaceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *             .description(&#34;example&#34;)
+ *             .deletionWindowInDays(7)
+ *             .build());
+ * 
+ *         var example = new Workspace(&#34;example&#34;, WorkspaceArgs.builder()        
+ *             .alias(&#34;example&#34;)
+ *             .kmsKeyArn(exampleKey.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AMP Workspaces using the identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
+ * $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
  * ```
  * 
  */
@@ -124,6 +174,20 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+     * 
+     */
+    @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> kmsKeyArn;
+
+    /**
+     * @return The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+     * 
+     */
+    public Output<Optional<String>> kmsKeyArn() {
+        return Codegen.optional(this.kmsKeyArn);
     }
     /**
      * Logging configuration for the workspace. See Logging Configuration below for details.
@@ -218,9 +282,6 @@ public class Workspace extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

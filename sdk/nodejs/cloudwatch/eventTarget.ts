@@ -13,13 +13,16 @@ import * as utilities from "../utilities";
  * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  *
  * ## Example Usage
+ *
  * ### Kinesis Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const console = new aws.cloudwatch.EventRule("console", {
+ *     name: "capture-ec2-scaling-events",
  *     description: "Capture all EC2 scaling events",
  *     eventPattern: JSON.stringify({
  *         source: ["aws.autoscaling"],
@@ -31,8 +34,12 @@ import * as utilities from "../utilities";
  *         ],
  *     }),
  * });
- * const testStream = new aws.kinesis.Stream("testStream", {shardCount: 1});
+ * const testStream = new aws.kinesis.Stream("test_stream", {
+ *     name: "kinesis-test",
+ *     shardCount: 1,
+ * });
  * const yada = new aws.cloudwatch.EventTarget("yada", {
+ *     targetId: "Yada",
  *     rule: console.name,
  *     arn: testStream.arn,
  *     runCommandTargets: [
@@ -47,8 +54,11 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### SSM Document Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -62,7 +72,8 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const stopInstance = new aws.ssm.Document("stopInstance", {
+ * const stopInstance = new aws.ssm.Document("stop_instance", {
+ *     name: "stop_instance",
  *     documentType: "Command",
  *     content: JSON.stringify({
  *         schemaVersion: "1.2",
@@ -78,7 +89,7 @@ import * as utilities from "../utilities";
  *         },
  *     }),
  * });
- * const ssmLifecyclePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const ssmLifecycle = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             effect: "Allow",
@@ -97,19 +108,27 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const ssmLifecycleRole = new aws.iam.Role("ssmLifecycleRole", {assumeRolePolicy: ssmLifecycleTrust.then(ssmLifecycleTrust => ssmLifecycleTrust.json)});
- * const ssmLifecyclePolicy = new aws.iam.Policy("ssmLifecyclePolicy", {policy: ssmLifecyclePolicyDocument.apply(ssmLifecyclePolicyDocument => ssmLifecyclePolicyDocument.json)});
- * const ssmLifecycleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("ssmLifecycleRolePolicyAttachment", {
+ * const ssmLifecycleRole = new aws.iam.Role("ssm_lifecycle", {
+ *     name: "SSMLifecycle",
+ *     assumeRolePolicy: ssmLifecycleTrust.then(ssmLifecycleTrust => ssmLifecycleTrust.json),
+ * });
+ * const ssmLifecyclePolicy = new aws.iam.Policy("ssm_lifecycle", {
+ *     name: "SSMLifecycle",
+ *     policy: ssmLifecycle.apply(ssmLifecycle => ssmLifecycle.json),
+ * });
+ * const ssmLifecycleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("ssm_lifecycle", {
  *     policyArn: ssmLifecyclePolicy.arn,
  *     role: ssmLifecycleRole.name,
  * });
- * const stopInstancesEventRule = new aws.cloudwatch.EventRule("stopInstancesEventRule", {
+ * const stopInstances = new aws.cloudwatch.EventRule("stop_instances", {
+ *     name: "StopInstance",
  *     description: "Stop instances nightly",
  *     scheduleExpression: "cron(0 0 * * ? *)",
  * });
- * const stopInstancesEventTarget = new aws.cloudwatch.EventTarget("stopInstancesEventTarget", {
+ * const stopInstancesEventTarget = new aws.cloudwatch.EventTarget("stop_instances", {
+ *     targetId: "StopInstance",
  *     arn: stopInstance.arn,
- *     rule: stopInstancesEventRule.name,
+ *     rule: stopInstances.name,
  *     roleArn: ssmLifecycleRole.arn,
  *     runCommandTargets: [{
  *         key: "tag:Terminate",
@@ -117,43 +136,115 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### RunCommand Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const stopInstancesEventRule = new aws.cloudwatch.EventRule("stopInstancesEventRule", {
+ * const stopInstances = new aws.cloudwatch.EventRule("stop_instances", {
+ *     name: "StopInstance",
  *     description: "Stop instances nightly",
  *     scheduleExpression: "cron(0 0 * * ? *)",
  * });
- * const stopInstancesEventTarget = new aws.cloudwatch.EventTarget("stopInstancesEventTarget", {
- *     arn: `arn:aws:ssm:${_var.aws_region}::document/AWS-RunShellScript`,
+ * const stopInstancesEventTarget = new aws.cloudwatch.EventTarget("stop_instances", {
+ *     targetId: "StopInstance",
+ *     arn: `arn:aws:ssm:${awsRegion}::document/AWS-RunShellScript`,
  *     input: "{\"commands\":[\"halt\"]}",
- *     rule: stopInstancesEventRule.name,
- *     roleArn: aws_iam_role.ssm_lifecycle.arn,
+ *     rule: stopInstances.name,
+ *     roleArn: ssmLifecycle.arn,
  *     runCommandTargets: [{
  *         key: "tag:Terminate",
  *         values: ["midnight"],
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### ECS Run Task with Role and Task Override Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["events.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const ecsEvents = new aws.iam.Role("ecs_events", {
+ *     name: "ecs_events",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const ecsEventsRunTaskWithAnyRole = std.replace({
+ *     text: taskName.arn,
+ *     search: "/:\\d+$/",
+ *     replace: ":*",
+ * }).then(invoke => aws.iam.getPolicyDocument({
+ *     statements: [
+ *         {
+ *             effect: "Allow",
+ *             actions: ["iam:PassRole"],
+ *             resources: ["*"],
+ *         },
+ *         {
+ *             effect: "Allow",
+ *             actions: ["ecs:RunTask"],
+ *             resources: [invoke.result],
+ *         },
+ *     ],
+ * }));
+ * const ecsEventsRunTaskWithAnyRoleRolePolicy = new aws.iam.RolePolicy("ecs_events_run_task_with_any_role", {
+ *     name: "ecs_events_run_task_with_any_role",
+ *     role: ecsEvents.id,
+ *     policy: ecsEventsRunTaskWithAnyRole.then(ecsEventsRunTaskWithAnyRole => ecsEventsRunTaskWithAnyRole.json),
+ * });
+ * const ecsScheduledTask = new aws.cloudwatch.EventTarget("ecs_scheduled_task", {
+ *     targetId: "run-scheduled-task-every-hour",
+ *     arn: clusterName.arn,
+ *     rule: everyHour.name,
+ *     roleArn: ecsEvents.arn,
+ *     ecsTarget: {
+ *         taskCount: 1,
+ *         taskDefinitionArn: taskName.arn,
+ *     },
+ *     input: JSON.stringify({
+ *         containerOverrides: [{
+ *             name: "name-of-container-to-override",
+ *             command: [
+ *                 "bin/console",
+ *                 "scheduled-task",
+ *             ],
+ *         }],
+ *     }),
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### API Gateway target
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleEventRule = new aws.cloudwatch.EventRule("exampleEventRule", {});
- * // ...
- * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {restApi: aws_api_gateway_rest_api.example.id});
- * // ...
- * const exampleStage = new aws.apigateway.Stage("exampleStage", {
- *     restApi: aws_api_gateway_rest_api.example.id,
+ * const exampleEventRule = new aws.cloudwatch.EventRule("example", {});
+ * const exampleDeployment = new aws.apigateway.Deployment("example", {restApi: exampleAwsApiGatewayRestApi.id});
+ * const exampleStage = new aws.apigateway.Stage("example", {
+ *     restApi: exampleAwsApiGatewayRestApi.id,
  *     deployment: exampleDeployment.id,
  * });
- * // ...
- * const exampleEventTarget = new aws.cloudwatch.EventTarget("exampleEventTarget", {
+ * const example = new aws.cloudwatch.EventTarget("example", {
  *     arn: pulumi.interpolate`${exampleStage.executionArn}/GET`,
  *     rule: exampleEventRule.id,
  *     httpTarget: {
@@ -166,8 +257,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Cross-Account Event Bus target
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -182,39 +276,49 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const eventBusInvokeRemoteEventBusRole = new aws.iam.Role("eventBusInvokeRemoteEventBusRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const eventBusInvokeRemoteEventBusPolicyDocument = aws.iam.getPolicyDocument({
+ * const eventBusInvokeRemoteEventBusRole = new aws.iam.Role("event_bus_invoke_remote_event_bus", {
+ *     name: "event-bus-invoke-remote-event-bus",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const eventBusInvokeRemoteEventBus = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: ["events:PutEvents"],
  *         resources: ["arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus"],
  *     }],
  * });
- * const eventBusInvokeRemoteEventBusPolicy = new aws.iam.Policy("eventBusInvokeRemoteEventBusPolicy", {policy: eventBusInvokeRemoteEventBusPolicyDocument.then(eventBusInvokeRemoteEventBusPolicyDocument => eventBusInvokeRemoteEventBusPolicyDocument.json)});
- * const eventBusInvokeRemoteEventBusRolePolicyAttachment = new aws.iam.RolePolicyAttachment("eventBusInvokeRemoteEventBusRolePolicyAttachment", {
+ * const eventBusInvokeRemoteEventBusPolicy = new aws.iam.Policy("event_bus_invoke_remote_event_bus", {
+ *     name: "event_bus_invoke_remote_event_bus",
+ *     policy: eventBusInvokeRemoteEventBus.then(eventBusInvokeRemoteEventBus => eventBusInvokeRemoteEventBus.json),
+ * });
+ * const eventBusInvokeRemoteEventBusRolePolicyAttachment = new aws.iam.RolePolicyAttachment("event_bus_invoke_remote_event_bus", {
  *     role: eventBusInvokeRemoteEventBusRole.name,
  *     policyArn: eventBusInvokeRemoteEventBusPolicy.arn,
  * });
- * const stopInstancesEventRule = new aws.cloudwatch.EventRule("stopInstancesEventRule", {
+ * const stopInstances = new aws.cloudwatch.EventRule("stop_instances", {
+ *     name: "StopInstance",
  *     description: "Stop instances nightly",
  *     scheduleExpression: "cron(0 0 * * ? *)",
  * });
- * const stopInstancesEventTarget = new aws.cloudwatch.EventTarget("stopInstancesEventTarget", {
+ * const stopInstancesEventTarget = new aws.cloudwatch.EventTarget("stop_instances", {
+ *     targetId: "StopInstance",
  *     arn: "arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
- *     rule: stopInstancesEventRule.name,
+ *     rule: stopInstances.name,
  *     roleArn: eventBusInvokeRemoteEventBusRole.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Input Transformer Usage - JSON Object
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleEventRule = new aws.cloudwatch.EventRule("exampleEventRule", {});
- * // ...
- * const exampleEventTarget = new aws.cloudwatch.EventTarget("exampleEventTarget", {
- *     arn: aws_lambda_function.example.arn,
+ * const exampleEventRule = new aws.cloudwatch.EventRule("example", {});
+ * const example = new aws.cloudwatch.EventTarget("example", {
+ *     arn: exampleAwsLambdaFunction.arn,
  *     rule: exampleEventRule.id,
  *     inputTransformer: {
  *         inputPaths: {
@@ -229,16 +333,18 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Input Transformer Usage - Simple String
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleEventRule = new aws.cloudwatch.EventRule("exampleEventRule", {});
- * // ...
- * const exampleEventTarget = new aws.cloudwatch.EventTarget("exampleEventTarget", {
- *     arn: aws_lambda_function.example.arn,
+ * const exampleEventRule = new aws.cloudwatch.EventRule("example", {});
+ * const example = new aws.cloudwatch.EventTarget("example", {
+ *     arn: exampleAwsLambdaFunction.arn,
  *     rule: exampleEventRule.id,
  *     inputTransformer: {
  *         inputPaths: {
@@ -249,14 +355,21 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Cloudwatch Log Group Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {retentionInDays: 1});
- * const exampleEventRule = new aws.cloudwatch.EventRule("exampleEventRule", {
+ * const example = new aws.cloudwatch.LogGroup("example", {
+ *     name: "/aws/events/guardduty/logs",
+ *     retentionInDays: 1,
+ * });
+ * const exampleEventRule = new aws.cloudwatch.EventRule("example", {
+ *     name: "guard-duty_event_rule",
  *     description: "GuardDuty Findings",
  *     eventPattern: JSON.stringify({
  *         source: ["aws.guardduty"],
@@ -270,7 +383,7 @@ import * as utilities from "../utilities";
  *         {
  *             effect: "Allow",
  *             actions: ["logs:CreateLogStream"],
- *             resources: [pulumi.interpolate`${exampleLogGroup.arn}:*`],
+ *             resources: [pulumi.interpolate`${example.arn}:*`],
  *             principals: [{
  *                 type: "Service",
  *                 identifiers: [
@@ -282,7 +395,7 @@ import * as utilities from "../utilities";
  *         {
  *             effect: "Allow",
  *             actions: ["logs:PutLogEvents"],
- *             resources: [pulumi.interpolate`${exampleLogGroup.arn}:*:*`],
+ *             resources: [pulumi.interpolate`${example.arn}:*:*`],
  *             principals: [{
  *                 type: "Service",
  *                 identifiers: [
@@ -298,22 +411,23 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy", {
+ * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("example", {
  *     policyDocument: exampleLogPolicy.apply(exampleLogPolicy => exampleLogPolicy.json),
  *     policyName: "guardduty-log-publishing-policy",
  * });
- * const exampleEventTarget = new aws.cloudwatch.EventTarget("exampleEventTarget", {
+ * const exampleEventTarget = new aws.cloudwatch.EventTarget("example", {
  *     rule: exampleEventRule.name,
- *     arn: exampleLogGroup.arn,
+ *     arn: example.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
+ * $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
  * ```
  */
 export class EventTarget extends pulumi.CustomResource {

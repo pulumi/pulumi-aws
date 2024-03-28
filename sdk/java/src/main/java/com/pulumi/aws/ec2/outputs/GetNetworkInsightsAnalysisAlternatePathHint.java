@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,19 +41,25 @@ public final class GetNetworkInsightsAnalysisAlternatePathHint {
 
         @CustomType.Setter
         public Builder componentArn(String componentArn) {
-            this.componentArn = Objects.requireNonNull(componentArn);
+            if (componentArn == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisAlternatePathHint", "componentArn");
+            }
+            this.componentArn = componentArn;
             return this;
         }
         @CustomType.Setter
         public Builder componentId(String componentId) {
-            this.componentId = Objects.requireNonNull(componentId);
+            if (componentId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisAlternatePathHint", "componentId");
+            }
+            this.componentId = componentId;
             return this;
         }
         public GetNetworkInsightsAnalysisAlternatePathHint build() {
-            final var o = new GetNetworkInsightsAnalysisAlternatePathHint();
-            o.componentArn = componentArn;
-            o.componentId = componentId;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisAlternatePathHint();
+            _resultValue.componentArn = componentArn;
+            _resultValue.componentId = componentId;
+            return _resultValue;
         }
     }
 }

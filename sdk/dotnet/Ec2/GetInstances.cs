@@ -24,10 +24,9 @@ namespace Pulumi.Aws.Ec2
         /// instances (e.g., managed via autoscaling group), as the output may change at any time
         /// and you'd need to re-run `apply` every time an instance comes up or dies.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,7 +36,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(async() =&gt; 
         /// {
-        ///     var testInstances = await Aws.Ec2.GetInstances.InvokeAsync(new()
+        ///     var test = await Aws.Ec2.GetInstances.InvokeAsync(new()
         ///     {
         ///         InstanceTags = 
         ///         {
@@ -62,18 +61,17 @@ namespace Pulumi.Aws.Ec2
         ///     });
         /// 
         ///     var testEip = new List&lt;Aws.Ec2.Eip&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; testInstances.Ids.Length; rangeIndex++)
+        ///     for (var rangeIndex = 0; rangeIndex &lt; test.Ids.Length; rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
-        ///         testEip.Add(new Aws.Ec2.Eip($"testEip-{range.Value}", new()
+        ///         testEip.Add(new Aws.Ec2.Eip($"test-{range.Value}", new()
         ///         {
-        ///             Instance = testInstances.Ids[range.Value],
+        ///             Instance = test.Ids[range.Value],
         ///         }));
         ///     }
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetInstancesResult> InvokeAsync(GetInstancesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstancesResult>("aws:ec2/getInstances:getInstances", args ?? new GetInstancesArgs(), options.WithDefaults());
@@ -91,10 +89,9 @@ namespace Pulumi.Aws.Ec2
         /// instances (e.g., managed via autoscaling group), as the output may change at any time
         /// and you'd need to re-run `apply` every time an instance comes up or dies.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -104,7 +101,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(async() =&gt; 
         /// {
-        ///     var testInstances = await Aws.Ec2.GetInstances.InvokeAsync(new()
+        ///     var test = await Aws.Ec2.GetInstances.InvokeAsync(new()
         ///     {
         ///         InstanceTags = 
         ///         {
@@ -129,18 +126,17 @@ namespace Pulumi.Aws.Ec2
         ///     });
         /// 
         ///     var testEip = new List&lt;Aws.Ec2.Eip&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; testInstances.Ids.Length; rangeIndex++)
+        ///     for (var rangeIndex = 0; rangeIndex &lt; test.Ids.Length; rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
-        ///         testEip.Add(new Aws.Ec2.Eip($"testEip-{range.Value}", new()
+        ///         testEip.Add(new Aws.Ec2.Eip($"test-{range.Value}", new()
         ///         {
-        ///             Instance = testInstances.Ids[range.Value],
+        ///             Instance = test.Ids[range.Value],
         ///         }));
         ///     }
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetInstancesResult> Invoke(GetInstancesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstancesResult>("aws:ec2/getInstances:getInstances", args ?? new GetInstancesInvokeArgs(), options.WithDefaults());

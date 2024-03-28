@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryA
         }
 
         public RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryArguments build() {
-            final var o = new RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryArguments();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryArguments();
+            return _resultValue;
         }
     }
 }

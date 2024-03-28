@@ -59,19 +59,21 @@ public final class LaunchTemplateCapacityReservationSpecification {
 
         @CustomType.Setter
         public Builder capacityReservationPreference(@Nullable String capacityReservationPreference) {
+
             this.capacityReservationPreference = capacityReservationPreference;
             return this;
         }
         @CustomType.Setter
         public Builder capacityReservationTarget(@Nullable LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget capacityReservationTarget) {
+
             this.capacityReservationTarget = capacityReservationTarget;
             return this;
         }
         public LaunchTemplateCapacityReservationSpecification build() {
-            final var o = new LaunchTemplateCapacityReservationSpecification();
-            o.capacityReservationPreference = capacityReservationPreference;
-            o.capacityReservationTarget = capacityReservationTarget;
-            return o;
+            final var _resultValue = new LaunchTemplateCapacityReservationSpecification();
+            _resultValue.capacityReservationPreference = capacityReservationPreference;
+            _resultValue.capacityReservationTarget = capacityReservationTarget;
+            return _resultValue;
         }
     }
 }

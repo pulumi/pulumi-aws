@@ -9,22 +9,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datasync.LocationFsxLustre("example", {
- *     fsxFilesystemArn: aws_fsx_lustre_file_system.example.arn,
- *     securityGroupArns: [aws_security_group.example.arn],
+ *     fsxFilesystemArn: exampleAwsFsxLustreFileSystem.arn,
+ *     securityGroupArns: [exampleAwsSecurityGroup.arn],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_datasync_location_fsx_lustre_file_system` using the `DataSync-ARN#FSx-Lustre-ARN`. For example:
  *
  * ```sh
- *  $ pulumi import aws:datasync/locationFsxLustre:LocationFsxLustre example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:476956259333:file-system/fs-08e04cd442c1bb94a
+ * $ pulumi import aws:datasync/locationFsxLustre:LocationFsxLustre example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:476956259333:file-system/fs-08e04cd442c1bb94a
  * ```
  */
 export class LocationFsxLustre extends pulumi.CustomResource {
@@ -129,8 +131,6 @@ export class LocationFsxLustre extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LocationFsxLustre.__pulumiType, name, resourceInputs, opts);
     }
 }

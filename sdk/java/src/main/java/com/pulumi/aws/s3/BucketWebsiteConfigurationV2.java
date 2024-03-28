@@ -22,8 +22,13 @@ import javax.annotation.Nullable;
 /**
  * Provides an S3 bucket website configuration resource. For more information, see [Hosting Websites on S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
  * 
+ * &gt; This resource cannot be used with S3 directory buckets.
+ * 
  * ## Example Usage
+ * 
  * ### With `routing_rule` configured
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,7 +56,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketWebsiteConfigurationV2(&#34;example&#34;, BucketWebsiteConfigurationV2Args.builder()        
- *             .bucket(aws_s3_bucket.example().id())
+ *             .bucket(exampleAwsS3Bucket.id())
  *             .indexDocument(BucketWebsiteConfigurationV2IndexDocumentArgs.builder()
  *                 .suffix(&#34;index.html&#34;)
  *                 .build())
@@ -71,7 +76,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With `routing_rules` configured
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -96,7 +105,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketWebsiteConfigurationV2(&#34;example&#34;, BucketWebsiteConfigurationV2Args.builder()        
- *             .bucket(aws_s3_bucket.example().id())
+ *             .bucket(exampleAwsS3Bucket.id())
  *             .indexDocument(BucketWebsiteConfigurationV2IndexDocumentArgs.builder()
  *                 .suffix(&#34;index.html&#34;)
  *                 .build())
@@ -118,6 +127,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -128,12 +138,12 @@ import javax.annotation.Nullable;
  * If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
  * 
  * ```sh
- *  $ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name
+ * $ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name
  * ```
- *  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+ * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
  * 
  * ```sh
- *  $ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name,123456789012
+ * $ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name,123456789012
  * ```
  * 
  */

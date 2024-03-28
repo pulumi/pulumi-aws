@@ -4,6 +4,7 @@
 package com.pulumi.aws.autoscaling.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,25 +71,34 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTempl
 
         @CustomType.Setter
         public Builder launchTemplateId(String launchTemplateId) {
-            this.launchTemplateId = Objects.requireNonNull(launchTemplateId);
+            if (launchTemplateId == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification", "launchTemplateId");
+            }
+            this.launchTemplateId = launchTemplateId;
             return this;
         }
         @CustomType.Setter
         public Builder launchTemplateName(String launchTemplateName) {
-            this.launchTemplateName = Objects.requireNonNull(launchTemplateName);
+            if (launchTemplateName == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification", "launchTemplateName");
+            }
+            this.launchTemplateName = launchTemplateName;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification", "version");
+            }
+            this.version = version;
             return this;
         }
         public GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification build() {
-            final var o = new GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification();
-            o.launchTemplateId = launchTemplateId;
-            o.launchTemplateName = launchTemplateName;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification();
+            _resultValue.launchTemplateId = launchTemplateId;
+            _resultValue.launchTemplateName = launchTemplateName;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

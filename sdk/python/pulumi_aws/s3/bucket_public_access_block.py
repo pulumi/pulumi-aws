@@ -220,27 +220,31 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         """
         Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
 
+        > This resource cannot be used with S3 directory buckets.
+
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_public_access_block = aws.s3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="example")
+        example_bucket_public_access_block = aws.s3.BucketPublicAccessBlock("example",
+            bucket=example.id,
             block_public_acls=True,
             block_public_policy=True,
             ignore_public_acls=True,
             restrict_public_buckets=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_s3_bucket_public_access_block` using the bucket name. For example:
 
         ```sh
-         $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
+        $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
         ```
 
         :param str resource_name: The name of the resource.
@@ -265,27 +269,31 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         """
         Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
 
+        > This resource cannot be used with S3 directory buckets.
+
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_public_access_block = aws.s3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="example")
+        example_bucket_public_access_block = aws.s3.BucketPublicAccessBlock("example",
+            bucket=example.id,
             block_public_acls=True,
             block_public_policy=True,
             ignore_public_acls=True,
             restrict_public_buckets=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_s3_bucket_public_access_block` using the bucket name. For example:
 
         ```sh
-         $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
+        $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
         ```
 
         :param str resource_name: The name of the resource.

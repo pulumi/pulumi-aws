@@ -59,19 +59,21 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder selectionCriteria(@Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria selectionCriteria) {
+
             this.selectionCriteria = selectionCriteria;
             return this;
         }
         public StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics build() {
-            final var o = new StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics();
-            o.enabled = enabled;
-            o.selectionCriteria = selectionCriteria;
-            return o;
+            final var _resultValue = new StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics();
+            _resultValue.enabled = enabled;
+            _resultValue.selectionCriteria = selectionCriteria;
+            return _resultValue;
         }
     }
 }

@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Comprehend.Inputs
 
         /// <summary>
         /// Delimiter between labels when training a multi-label classifier.
-        /// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
+        /// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%!`(MISSING), `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
         /// Default is `|`.
         /// </summary>
         [Input("labelDelimiter")]

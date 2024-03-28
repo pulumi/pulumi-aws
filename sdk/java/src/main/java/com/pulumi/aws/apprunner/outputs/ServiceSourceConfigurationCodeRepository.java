@@ -6,6 +6,7 @@ package com.pulumi.aws.apprunner.outputs;
 import com.pulumi.aws.apprunner.outputs.ServiceSourceConfigurationCodeRepositoryCodeConfiguration;
 import com.pulumi.aws.apprunner.outputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersion;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -28,6 +29,11 @@ public final class ServiceSourceConfigurationCodeRepository {
      * 
      */
     private ServiceSourceConfigurationCodeRepositorySourceCodeVersion sourceCodeVersion;
+    /**
+     * @return The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+     * 
+     */
+    private @Nullable String sourceDirectory;
 
     private ServiceSourceConfigurationCodeRepository() {}
     /**
@@ -51,6 +57,13 @@ public final class ServiceSourceConfigurationCodeRepository {
     public ServiceSourceConfigurationCodeRepositorySourceCodeVersion sourceCodeVersion() {
         return this.sourceCodeVersion;
     }
+    /**
+     * @return The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+     * 
+     */
+    public Optional<String> sourceDirectory() {
+        return Optional.ofNullable(this.sourceDirectory);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -64,35 +77,51 @@ public final class ServiceSourceConfigurationCodeRepository {
         private @Nullable ServiceSourceConfigurationCodeRepositoryCodeConfiguration codeConfiguration;
         private String repositoryUrl;
         private ServiceSourceConfigurationCodeRepositorySourceCodeVersion sourceCodeVersion;
+        private @Nullable String sourceDirectory;
         public Builder() {}
         public Builder(ServiceSourceConfigurationCodeRepository defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.codeConfiguration = defaults.codeConfiguration;
     	      this.repositoryUrl = defaults.repositoryUrl;
     	      this.sourceCodeVersion = defaults.sourceCodeVersion;
+    	      this.sourceDirectory = defaults.sourceDirectory;
         }
 
         @CustomType.Setter
         public Builder codeConfiguration(@Nullable ServiceSourceConfigurationCodeRepositoryCodeConfiguration codeConfiguration) {
+
             this.codeConfiguration = codeConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder repositoryUrl(String repositoryUrl) {
-            this.repositoryUrl = Objects.requireNonNull(repositoryUrl);
+            if (repositoryUrl == null) {
+              throw new MissingRequiredPropertyException("ServiceSourceConfigurationCodeRepository", "repositoryUrl");
+            }
+            this.repositoryUrl = repositoryUrl;
             return this;
         }
         @CustomType.Setter
         public Builder sourceCodeVersion(ServiceSourceConfigurationCodeRepositorySourceCodeVersion sourceCodeVersion) {
-            this.sourceCodeVersion = Objects.requireNonNull(sourceCodeVersion);
+            if (sourceCodeVersion == null) {
+              throw new MissingRequiredPropertyException("ServiceSourceConfigurationCodeRepository", "sourceCodeVersion");
+            }
+            this.sourceCodeVersion = sourceCodeVersion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder sourceDirectory(@Nullable String sourceDirectory) {
+
+            this.sourceDirectory = sourceDirectory;
             return this;
         }
         public ServiceSourceConfigurationCodeRepository build() {
-            final var o = new ServiceSourceConfigurationCodeRepository();
-            o.codeConfiguration = codeConfiguration;
-            o.repositoryUrl = repositoryUrl;
-            o.sourceCodeVersion = sourceCodeVersion;
-            return o;
+            final var _resultValue = new ServiceSourceConfigurationCodeRepository();
+            _resultValue.codeConfiguration = codeConfiguration;
+            _resultValue.repositoryUrl = repositoryUrl;
+            _resultValue.sourceCodeVersion = sourceCodeVersion;
+            _resultValue.sourceDirectory = sourceDirectory;
+            return _resultValue;
         }
     }
 }

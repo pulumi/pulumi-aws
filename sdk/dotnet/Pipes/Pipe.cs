@@ -19,8 +19,10 @@ namespace Pulumi.Aws.Pipes
     /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,22 +34,22 @@ namespace Pulumi.Aws.Pipes
     /// {
     ///     var main = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var example = new Aws.Iam.Role("example", new()
     ///     {
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new Dictionary&lt;string, object?&gt;
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["Effect"] = "Allow",
-    ///                 ["Action"] = "sts:AssumeRole",
-    ///                 ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                 ["effect"] = "Allow",
+    ///                 ["action"] = "sts:AssumeRole",
+    ///                 ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Service"] = "pipes.amazonaws.com",
+    ///                     ["service"] = "pipes.amazonaws.com",
     ///                 },
-    ///                 ["Condition"] = new Dictionary&lt;string, object?&gt;
+    ///                 ["condition"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["StringEquals"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["stringEquals"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["aws:SourceAccount"] = main.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///                     },
@@ -56,78 +58,116 @@ namespace Pulumi.Aws.Pipes
     ///         }),
     ///     });
     /// 
-    ///     var sourceQueue = new Aws.Sqs.Queue("sourceQueue");
+    ///     var sourceQueue = new Aws.Sqs.Queue("source");
     /// 
-    ///     var sourceRolePolicy = new Aws.Iam.RolePolicy("sourceRolePolicy", new()
+    ///     var source = new Aws.Iam.RolePolicy("source", new()
     ///     {
-    ///         Role = exampleRole.Id,
-    ///         Policy = sourceQueue.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         Role = example.Id,
+    ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Action"] = new[]
+    ///                     ["effect"] = "Allow",
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "sqs:DeleteMessage",
     ///                         "sqs:GetQueueAttributes",
     ///                         "sqs:ReceiveMessage",
     ///                     },
-    ///                     ["Resource"] = new[]
+    ///                     ["resource"] = new[]
     ///                     {
-    ///                         arn,
+    ///                         sourceQueue.Arn,
     ///                     },
     ///                 },
     ///             },
     ///         })),
     ///     });
     /// 
-    ///     var targetQueue = new Aws.Sqs.Queue("targetQueue");
+    ///     var targetQueue = new Aws.Sqs.Queue("target");
     /// 
-    ///     var targetRolePolicy = new Aws.Iam.RolePolicy("targetRolePolicy", new()
+    ///     var target = new Aws.Iam.RolePolicy("target", new()
     ///     {
-    ///         Role = exampleRole.Id,
-    ///         Policy = targetQueue.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         Role = example.Id,
+    ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Action"] = new[]
+    ///                     ["effect"] = "Allow",
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "sqs:SendMessage",
     ///                     },
-    ///                     ["Resource"] = new[]
+    ///                     ["resource"] = new[]
     ///                     {
-    ///                         arn,
+    ///                         targetQueue.Arn,
     ///                     },
     ///                 },
     ///             },
     ///         })),
     ///     });
     /// 
-    ///     var examplePipe = new Aws.Pipes.Pipe("examplePipe", new()
+    ///     var examplePipe = new Aws.Pipes.Pipe("example", new()
     ///     {
-    ///         RoleArn = exampleRole.Arn,
+    ///         Name = "example-pipe",
+    ///         RoleArn = example.Arn,
     ///         Source = sourceQueue.Arn,
     ///         Target = targetQueue.Arn,
-    ///     }, new CustomResourceOptions
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Enrichment Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Pipes.Pipe("example", new()
     ///     {
-    ///         DependsOn = new[]
+    ///         Name = "example-pipe",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         Source = source.Arn,
+    ///         Target = target.Arn,
+    ///         Enrichment = exampleAwsCloudwatchEventApiDestination.Arn,
+    ///         EnrichmentParameters = new Aws.Pipes.Inputs.PipeEnrichmentParametersArgs
     ///         {
-    ///             sourceRolePolicy,
-    ///             targetRolePolicy,
+    ///             HttpParameters = new Aws.Pipes.Inputs.PipeEnrichmentParametersHttpParametersArgs
+    ///             {
+    ///                 PathParameterValues = "example-path-param",
+    ///                 HeaderParameters = 
+    ///                 {
+    ///                     { "example-header", "example-value" },
+    ///                     { "second-example-header", "second-example-value" },
+    ///                 },
+    ///                 QueryStringParameters = 
+    ///                 {
+    ///                     { "example-query-string", "example-value" },
+    ///                     { "second-example-query-string", "second-example-value" },
+    ///                 },
+    ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Filter Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -139,9 +179,10 @@ namespace Pulumi.Aws.Pipes
     /// {
     ///     var example = new Aws.Pipes.Pipe("example", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Example.Arn,
-    ///         Source = aws_sqs_queue.Source.Arn,
-    ///         Target = aws_sqs_queue.Target.Arn,
+    ///         Name = "example-pipe",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         Source = source.Arn,
+    ///         Target = target.Arn,
     ///         SourceParameters = new Aws.Pipes.Inputs.PipeSourceParametersArgs
     ///         {
     ///             FilterCriteria = new Aws.Pipes.Inputs.PipeSourceParametersFilterCriteriaArgs
@@ -165,13 +206,14 @@ namespace Pulumi.Aws.Pipes
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import pipes using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:pipes/pipe:Pipe example my-pipe
+    /// $ pulumi import aws:pipes/pipe:Pipe example my-pipe
     /// ```
     /// </summary>
     [AwsResourceType("aws:pipes/pipe:Pipe")]
@@ -286,10 +328,6 @@ namespace Pulumi.Aws.Pipes
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -483,11 +521,7 @@ namespace Pulumi.Aws.Pipes
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

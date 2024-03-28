@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * An Object Lambda access point is associated with exactly one standard access point and thus one Amazon S3 bucket.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -26,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.AccessPoint;
  * import com.pulumi.aws.s3.AccessPointArgs;
  * import com.pulumi.aws.s3control.ObjectLambdaAccessPoint;
@@ -44,20 +47,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleAccessPoint = new AccessPoint(&#34;exampleAccessPoint&#34;, AccessPointArgs.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleObjectLambdaAccessPoint = new ObjectLambdaAccessPoint(&#34;exampleObjectLambdaAccessPoint&#34;, ObjectLambdaAccessPointArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .configuration(ObjectLambdaAccessPointConfigurationArgs.builder()
  *                 .supportingAccessPoint(exampleAccessPoint.arn())
  *                 .transformationConfigurations(ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs.builder()
  *                     .actions(&#34;GetObject&#34;)
  *                     .contentTransformation(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs.builder()
  *                         .awsLambda(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs.builder()
- *                             .functionArn(aws_lambda_function.example().arn())
+ *                             .functionArn(exampleAwsLambdaFunction.arn())
  *                             .build())
  *                         .build())
  *                     .build())
@@ -67,13 +74,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Object Lambda Access Points using the `account_id` and `name`, separated by a colon (`:`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint example 123456789012:example
+ * $ pulumi import aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint example 123456789012:example
  * ```
  * 
  */

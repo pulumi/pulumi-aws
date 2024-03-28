@@ -19,7 +19,10 @@ import javax.annotation.Nullable;
  * Resource for managing a QuickSight Refresh Schedule.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,19 +48,23 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new RefreshSchedule(&#34;example&#34;, RefreshScheduleArgs.builder()        
  *             .dataSetId(&#34;dataset-id&#34;)
+ *             .scheduleId(&#34;schedule-id&#34;)
  *             .schedule(RefreshScheduleScheduleArgs.builder()
  *                 .refreshType(&#34;FULL_REFRESH&#34;)
  *                 .scheduleFrequency(RefreshScheduleScheduleScheduleFrequencyArgs.builder()
  *                     .interval(&#34;HOURLY&#34;)
  *                     .build())
  *                 .build())
- *             .scheduleId(&#34;schedule-id&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With Weekly Refresh
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -84,24 +91,28 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new RefreshSchedule(&#34;example&#34;, RefreshScheduleArgs.builder()        
  *             .dataSetId(&#34;dataset-id&#34;)
+ *             .scheduleId(&#34;schedule-id&#34;)
  *             .schedule(RefreshScheduleScheduleArgs.builder()
  *                 .refreshType(&#34;INCREMENTAL_REFRESH&#34;)
  *                 .scheduleFrequency(RefreshScheduleScheduleScheduleFrequencyArgs.builder()
  *                     .interval(&#34;WEEKLY&#34;)
+ *                     .timeOfTheDay(&#34;01:00&#34;)
+ *                     .timezone(&#34;Europe/London&#34;)
  *                     .refreshOnDay(RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs.builder()
  *                         .dayOfWeek(&#34;MONDAY&#34;)
  *                         .build())
- *                     .timeOfTheDay(&#34;01:00&#34;)
- *                     .timezone(&#34;Europe/London&#34;)
  *                     .build())
  *                 .build())
- *             .scheduleId(&#34;schedule-id&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With Monthly Refresh
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -128,30 +139,31 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new RefreshSchedule(&#34;example&#34;, RefreshScheduleArgs.builder()        
  *             .dataSetId(&#34;dataset-id&#34;)
+ *             .scheduleId(&#34;schedule-id&#34;)
  *             .schedule(RefreshScheduleScheduleArgs.builder()
  *                 .refreshType(&#34;INCREMENTAL_REFRESH&#34;)
  *                 .scheduleFrequency(RefreshScheduleScheduleScheduleFrequencyArgs.builder()
  *                     .interval(&#34;MONTHLY&#34;)
+ *                     .timeOfTheDay(&#34;01:00&#34;)
+ *                     .timezone(&#34;Europe/London&#34;)
  *                     .refreshOnDay(RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs.builder()
  *                         .dayOfMonth(&#34;1&#34;)
  *                         .build())
- *                     .timeOfTheDay(&#34;01:00&#34;)
- *                     .timezone(&#34;Europe/London&#34;)
  *                     .build())
  *                 .build())
- *             .scheduleId(&#34;schedule-id&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a QuickSight Refresh Schedule using the AWS account ID, data set ID and schedule ID separated by commas (`,`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:quicksight/refreshSchedule:RefreshSchedule example 123456789012,dataset-id,schedule-id
+ * $ pulumi import aws:quicksight/refreshSchedule:RefreshSchedule example 123456789012,dataset-id,schedule-id
  * ```
  * 
  */

@@ -12,15 +12,17 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opsworks.EcsClusterLayer("example", {
- *     stackId: aws_opsworks_stack.example.id,
- *     ecsClusterArn: aws_ecs_cluster.example.arn,
+ *     stackId: exampleAwsOpsworksStack.id,
+ *     ecsClusterArn: exampleAwsEcsCluster.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class EcsClusterLayer extends pulumi.CustomResource {
     /**
@@ -213,8 +215,6 @@ export class EcsClusterLayer extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(EcsClusterLayer.__pulumiType, name, resourceInputs, opts);
     }
 }

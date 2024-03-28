@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** This provider provides both this standalone Zone VPC Association resource and exclusive VPC associations defined in-line in the `aws.route53.Zone` resource via `vpc` configuration blocks. At this time, you cannot use those in-line VPC associations in conjunction with this resource and the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) in the `aws.route53.Zone` resource to manage additional associations via this resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,13 +55,14 @@ import javax.annotation.Nullable;
  *             .enableDnsSupport(true)
  *             .build());
  * 
- *         var secondaryVpc = new Vpc(&#34;secondaryVpc&#34;, VpcArgs.builder()        
+ *         var secondary = new Vpc(&#34;secondary&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.7.0.0/16&#34;)
  *             .enableDnsHostnames(true)
  *             .enableDnsSupport(true)
  *             .build());
  * 
  *         var example = new Zone(&#34;example&#34;, ZoneArgs.builder()        
+ *             .name(&#34;example.com&#34;)
  *             .vpcs(ZoneVpcArgs.builder()
  *                 .vpcId(primary.id())
  *                 .build())
@@ -67,12 +70,13 @@ import javax.annotation.Nullable;
  * 
  *         var secondaryZoneAssociation = new ZoneAssociation(&#34;secondaryZoneAssociation&#34;, ZoneAssociationArgs.builder()        
  *             .zoneId(example.zoneId())
- *             .vpcId(secondaryVpc.id())
+ *             .vpcId(secondary.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -83,12 +87,12 @@ import javax.annotation.Nullable;
  * The VPC is in the same region where you have configured the AWS Provider:
  * 
  * ```sh
- *  $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
+ * $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
  * ```
- *  The VPC is _not_ in the same region where you have configured the AWS Provider:
+ * The VPC is _not_ in the same region where you have configured the AWS Provider:
  * 
  * ```sh
- *  $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
+ * $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
  * ```
  * 
  */

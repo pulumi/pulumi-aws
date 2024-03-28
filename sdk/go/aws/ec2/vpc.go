@@ -17,6 +17,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,9 +41,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Basic usage with tags:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -70,9 +73,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // VPC with CIDR from AWS IPAM:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -90,37 +95,35 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testVpcIpam, err := ec2.NewVpcIpam(ctx, "testVpcIpam", &ec2.VpcIpamArgs{
+//			test, err := ec2.NewVpcIpam(ctx, "test", &ec2.VpcIpamArgs{
 //				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
 //					&ec2.VpcIpamOperatingRegionArgs{
-//						RegionName: *pulumi.String(current.Name),
+//						RegionName: pulumi.String(current.Name),
 //					},
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "testVpcIpamPool", &ec2.VpcIpamPoolArgs{
+//			testVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "test", &ec2.VpcIpamPoolArgs{
 //				AddressFamily: pulumi.String("ipv4"),
-//				IpamScopeId:   testVpcIpam.PrivateDefaultScopeId,
-//				Locale:        *pulumi.String(current.Name),
+//				IpamScopeId:   test.PrivateDefaultScopeId,
+//				Locale:        pulumi.String(current.Name),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testVpcIpamPoolCidr, err := ec2.NewVpcIpamPoolCidr(ctx, "testVpcIpamPoolCidr", &ec2.VpcIpamPoolCidrArgs{
+//			_, err = ec2.NewVpcIpamPoolCidr(ctx, "test", &ec2.VpcIpamPoolCidrArgs{
 //				IpamPoolId: testVpcIpamPool.ID(),
 //				Cidr:       pulumi.String("172.20.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewVpc(ctx, "testVpc", &ec2.VpcArgs{
+//			_, err = ec2.NewVpc(ctx, "test", &ec2.VpcArgs{
 //				Ipv4IpamPoolId:    testVpcIpamPool.ID(),
 //				Ipv4NetmaskLength: pulumi.Int(28),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				testVpcIpamPoolCidr,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -129,15 +132,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import VPCs using the VPC `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2
-//
+// $ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2
 // ```
 type Vpc struct {
 	pulumi.CustomResourceState
@@ -198,10 +200,6 @@ func NewVpc(ctx *pulumi.Context,
 		args = &VpcArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Vpc
 	err := ctx.RegisterResource("aws:ec2/vpc:Vpc", name, args, &resource, opts...)

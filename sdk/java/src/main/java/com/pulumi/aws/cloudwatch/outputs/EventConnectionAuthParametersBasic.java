@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class EventConnectionAuthParametersBasic {
 
         @CustomType.Setter
         public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+            if (password == null) {
+              throw new MissingRequiredPropertyException("EventConnectionAuthParametersBasic", "password");
+            }
+            this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("EventConnectionAuthParametersBasic", "username");
+            }
+            this.username = username;
             return this;
         }
         public EventConnectionAuthParametersBasic build() {
-            final var o = new EventConnectionAuthParametersBasic();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new EventConnectionAuthParametersBasic();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

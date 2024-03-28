@@ -5,6 +5,7 @@ package com.pulumi.aws.waf.outputs;
 
 import com.pulumi.aws.waf.outputs.WebAclLoggingConfigurationRedactedFields;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,19 +60,23 @@ public final class WebAclLoggingConfiguration {
 
         @CustomType.Setter
         public Builder logDestination(String logDestination) {
-            this.logDestination = Objects.requireNonNull(logDestination);
+            if (logDestination == null) {
+              throw new MissingRequiredPropertyException("WebAclLoggingConfiguration", "logDestination");
+            }
+            this.logDestination = logDestination;
             return this;
         }
         @CustomType.Setter
         public Builder redactedFields(@Nullable WebAclLoggingConfigurationRedactedFields redactedFields) {
+
             this.redactedFields = redactedFields;
             return this;
         }
         public WebAclLoggingConfiguration build() {
-            final var o = new WebAclLoggingConfiguration();
-            o.logDestination = logDestination;
-            o.redactedFields = redactedFields;
-            return o;
+            final var _resultValue = new WebAclLoggingConfiguration();
+            _resultValue.logDestination = logDestination;
+            _resultValue.redactedFields = redactedFields;
+            return _resultValue;
         }
     }
 }

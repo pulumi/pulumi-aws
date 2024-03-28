@@ -355,25 +355,27 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         strict = aws.iam.AccountPasswordPolicy("strict",
-            allow_users_to_change_password=True,
             minimum_password_length=8,
             require_lowercase_characters=True,
             require_numbers=True,
+            require_uppercase_characters=True,
             require_symbols=True,
-            require_uppercase_characters=True)
+            allow_users_to_change_password=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Account Password Policy using the word `iam-account-password-policy`. For example:
 
         ```sh
-         $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
+        $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
         ```
 
         :param str resource_name: The name of the resource.
@@ -403,25 +405,27 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         strict = aws.iam.AccountPasswordPolicy("strict",
-            allow_users_to_change_password=True,
             minimum_password_length=8,
             require_lowercase_characters=True,
             require_numbers=True,
+            require_uppercase_characters=True,
             require_symbols=True,
-            require_uppercase_characters=True)
+            allow_users_to_change_password=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Account Password Policy using the word `iam-account-password-policy`. For example:
 
         ```sh
-         $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
+        $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
         ```
 
         :param str resource_name: The name of the resource.

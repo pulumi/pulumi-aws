@@ -26,20 +26,22 @@ import * as utilities from "../utilities";
  *
  * Basic usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.ManagedPrefixList("example", {
+ *     name: "All VPC CIDR-s",
  *     addressFamily: "IPv4",
  *     maxEntries: 5,
  *     entries: [
  *         {
- *             cidr: aws_vpc.example.cidr_block,
+ *             cidr: exampleAwsVpc.cidrBlock,
  *             description: "Primary",
  *         },
  *         {
- *             cidr: aws_vpc_ipv4_cidr_block_association.example.cidr_block,
+ *             cidr: exampleAwsVpcIpv4CidrBlockAssociation.cidrBlock,
  *             description: "Secondary",
  *         },
  *     ],
@@ -48,13 +50,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Prefix Lists using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
+ * $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
  * ```
  */
 export class ManagedPrefixList extends pulumi.CustomResource {
@@ -165,8 +168,6 @@ export class ManagedPrefixList extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ManagedPrefixList.__pulumiType, name, resourceInputs, opts);
     }
 }

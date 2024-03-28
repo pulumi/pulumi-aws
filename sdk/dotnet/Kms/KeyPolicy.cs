@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Kms
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,44 +24,45 @@ namespace Pulumi.Aws.Kms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var example = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "example",
     ///     });
     /// 
-    ///     var exampleKeyPolicy = new Aws.Kms.KeyPolicy("exampleKeyPolicy", new()
+    ///     var exampleKeyPolicy = new Aws.Kms.KeyPolicy("example", new()
     ///     {
-    ///         KeyId = exampleKey.Id,
+    ///         KeyId = example.Id,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Id"] = "example",
-    ///             ["Statement"] = new[]
+    ///             ["id"] = "example",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = "kms:*",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["action"] = "kms:*",
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["AWS"] = "*",
     ///                     },
-    ///                     ["Resource"] = "*",
-    ///                     ["Sid"] = "Enable IAM User Permissions",
+    ///                     ["resource"] = "*",
+    ///                     ["sid"] = "Enable IAM User Permissions",
     ///                 },
     ///             },
-    ///             ["Version"] = "2012-10-17",
+    ///             ["version"] = "2012-10-17",
     ///         }),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import KMS Key Policies using the `key_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:kms/keyPolicy:KeyPolicy a 1234abcd-12ab-34cd-56ef-1234567890ab
+    /// $ pulumi import aws:kms/keyPolicy:KeyPolicy a 1234abcd-12ab-34cd-56ef-1234567890ab
     /// ```
     /// </summary>
     [AwsResourceType("aws:kms/keyPolicy:KeyPolicy")]

@@ -25,6 +25,16 @@ export type ClusterSnapshot = import("./clusterSnapshot").ClusterSnapshot;
 export const ClusterSnapshot: typeof import("./clusterSnapshot").ClusterSnapshot = null as any;
 utilities.lazyLoad(exports, ["ClusterSnapshot"], () => require("./clusterSnapshot"));
 
+export { DataShareAuthorizationArgs, DataShareAuthorizationState } from "./dataShareAuthorization";
+export type DataShareAuthorization = import("./dataShareAuthorization").DataShareAuthorization;
+export const DataShareAuthorization: typeof import("./dataShareAuthorization").DataShareAuthorization = null as any;
+utilities.lazyLoad(exports, ["DataShareAuthorization"], () => require("./dataShareAuthorization"));
+
+export { DataShareConsumerAssociationArgs, DataShareConsumerAssociationState } from "./dataShareConsumerAssociation";
+export type DataShareConsumerAssociation = import("./dataShareConsumerAssociation").DataShareConsumerAssociation;
+export const DataShareConsumerAssociation: typeof import("./dataShareConsumerAssociation").DataShareConsumerAssociation = null as any;
+utilities.lazyLoad(exports, ["DataShareConsumerAssociation"], () => require("./dataShareConsumerAssociation"));
+
 export { EndpointAccessArgs, EndpointAccessState } from "./endpointAccess";
 export type EndpointAccess = import("./endpointAccess").EndpointAccess;
 export const EndpointAccess: typeof import("./endpointAccess").EndpointAccess = null as any;
@@ -50,10 +60,20 @@ export const getClusterCredentials: typeof import("./getClusterCredentials").get
 export const getClusterCredentialsOutput: typeof import("./getClusterCredentials").getClusterCredentialsOutput = null as any;
 utilities.lazyLoad(exports, ["getClusterCredentials","getClusterCredentialsOutput"], () => require("./getClusterCredentials"));
 
+export { GetDataSharesArgs, GetDataSharesResult, GetDataSharesOutputArgs } from "./getDataShares";
+export const getDataShares: typeof import("./getDataShares").getDataShares = null as any;
+export const getDataSharesOutput: typeof import("./getDataShares").getDataSharesOutput = null as any;
+utilities.lazyLoad(exports, ["getDataShares","getDataSharesOutput"], () => require("./getDataShares"));
+
 export { GetOrderableClusterArgs, GetOrderableClusterResult, GetOrderableClusterOutputArgs } from "./getOrderableCluster";
 export const getOrderableCluster: typeof import("./getOrderableCluster").getOrderableCluster = null as any;
 export const getOrderableClusterOutput: typeof import("./getOrderableCluster").getOrderableClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getOrderableCluster","getOrderableClusterOutput"], () => require("./getOrderableCluster"));
+
+export { GetProducerDataSharesArgs, GetProducerDataSharesResult, GetProducerDataSharesOutputArgs } from "./getProducerDataShares";
+export const getProducerDataShares: typeof import("./getProducerDataShares").getProducerDataShares = null as any;
+export const getProducerDataSharesOutput: typeof import("./getProducerDataShares").getProducerDataSharesOutput = null as any;
+utilities.lazyLoad(exports, ["getProducerDataShares","getProducerDataSharesOutput"], () => require("./getProducerDataShares"));
 
 export { GetServiceAccountArgs, GetServiceAccountResult, GetServiceAccountOutputArgs } from "./getServiceAccount";
 export const getServiceAccount: typeof import("./getServiceAccount").getServiceAccount = null as any;
@@ -133,6 +153,10 @@ const _module = {
                 return new ClusterIamRoles(name, <any>undefined, { urn })
             case "aws:redshift/clusterSnapshot:ClusterSnapshot":
                 return new ClusterSnapshot(name, <any>undefined, { urn })
+            case "aws:redshift/dataShareAuthorization:DataShareAuthorization":
+                return new DataShareAuthorization(name, <any>undefined, { urn })
+            case "aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation":
+                return new DataShareConsumerAssociation(name, <any>undefined, { urn })
             case "aws:redshift/endpointAccess:EndpointAccess":
                 return new EndpointAccess(name, <any>undefined, { urn })
             case "aws:redshift/endpointAuthorization:EndpointAuthorization":
@@ -170,6 +194,8 @@ pulumi.runtime.registerResourceModule("aws", "redshift/authenticationProfile", _
 pulumi.runtime.registerResourceModule("aws", "redshift/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/clusterIamRoles", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/clusterSnapshot", _module)
+pulumi.runtime.registerResourceModule("aws", "redshift/dataShareAuthorization", _module)
+pulumi.runtime.registerResourceModule("aws", "redshift/dataShareConsumerAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/endpointAccess", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/endpointAuthorization", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/eventSubscription", _module)

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := iot.NewThing(ctx, "example", &iot.ThingArgs{
+//				Name: pulumi.String("example"),
 //				Attributes: pulumi.StringMap{
 //					"First": pulumi.String("examplevalue"),
 //				},
@@ -40,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IOT Things using the name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iot/thing:Thing example example
-//
+// $ pulumi import aws:iot/thing:Thing example example
 // ```
 type Thing struct {
 	pulumi.CustomResourceState

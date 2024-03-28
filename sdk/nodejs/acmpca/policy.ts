@@ -8,20 +8,22 @@ import * as utilities from "../utilities";
  * Attaches a resource based policy to a private CA.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ * const example = aws.iam.getPolicyDocument({
  *     statements: [
  *         {
  *             sid: "1",
  *             effect: "Allow",
  *             principals: [{
  *                 type: "AWS",
- *                 identifiers: [data.aws_caller_identity.current.account_id],
+ *                 identifiers: [current.accountId],
  *             }],
  *             actions: [
  *                 "acm-pca:DescribeCertificateAuthority",
@@ -30,17 +32,17 @@ import * as utilities from "../utilities";
  *                 "acm-pca:ListPermissions",
  *                 "acm-pca:ListTags",
  *             ],
- *             resources: [aws_acmpca_certificate_authority.example.arn],
+ *             resources: [exampleAwsAcmpcaCertificateAuthority.arn],
  *         },
  *         {
  *             sid: "2",
- *             effect: Allow,
+ *             effect: allow,
  *             principals: [{
  *                 type: "AWS",
- *                 identifiers: [data.aws_caller_identity.current.account_id],
+ *                 identifiers: [current.accountId],
  *             }],
  *             actions: ["acm-pca:IssueCertificate"],
- *             resources: [aws_acmpca_certificate_authority.example.arn],
+ *             resources: [exampleAwsAcmpcaCertificateAuthority.arn],
  *             conditions: [{
  *                 test: "StringEquals",
  *                 variable: "acm-pca:TemplateArn",
@@ -49,18 +51,19 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const examplePolicy = new aws.acmpca.Policy("examplePolicy", {
- *     resourceArn: aws_acmpca_certificate_authority.example.arn,
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
+ * const examplePolicy = new aws.acmpca.Policy("example", {
+ *     resourceArn: exampleAwsAcmpcaCertificateAuthority.arn,
+ *     policy: example.then(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_acmpca_policy` using the `resource_arn` value. For example:
  *
  * ```sh
- *  $ pulumi import aws:acmpca/policy:Policy example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
+ * $ pulumi import aws:acmpca/policy:Policy example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
  * ```
  */
 export class Policy extends pulumi.CustomResource {

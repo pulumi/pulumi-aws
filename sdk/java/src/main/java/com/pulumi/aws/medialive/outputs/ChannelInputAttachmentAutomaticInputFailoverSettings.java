@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.aws.medialive.outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -19,6 +20,10 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettings {
      * 
      */
     private @Nullable Integer errorClearTimeMsec;
+    /**
+     * @return A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+     * 
+     */
     private @Nullable List<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition> failoverConditions;
     /**
      * @return Input preference when deciding which input to make active when a previously failed input has recovered.
@@ -39,6 +44,10 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettings {
     public Optional<Integer> errorClearTimeMsec() {
         return Optional.ofNullable(this.errorClearTimeMsec);
     }
+    /**
+     * @return A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+     * 
+     */
     public List<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition> failoverConditions() {
         return this.failoverConditions == null ? List.of() : this.failoverConditions;
     }
@@ -81,11 +90,13 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettings {
 
         @CustomType.Setter
         public Builder errorClearTimeMsec(@Nullable Integer errorClearTimeMsec) {
+
             this.errorClearTimeMsec = errorClearTimeMsec;
             return this;
         }
         @CustomType.Setter
         public Builder failoverConditions(@Nullable List<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition> failoverConditions) {
+
             this.failoverConditions = failoverConditions;
             return this;
         }
@@ -94,21 +105,25 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettings {
         }
         @CustomType.Setter
         public Builder inputPreference(@Nullable String inputPreference) {
+
             this.inputPreference = inputPreference;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryInputId(String secondaryInputId) {
-            this.secondaryInputId = Objects.requireNonNull(secondaryInputId);
+            if (secondaryInputId == null) {
+              throw new MissingRequiredPropertyException("ChannelInputAttachmentAutomaticInputFailoverSettings", "secondaryInputId");
+            }
+            this.secondaryInputId = secondaryInputId;
             return this;
         }
         public ChannelInputAttachmentAutomaticInputFailoverSettings build() {
-            final var o = new ChannelInputAttachmentAutomaticInputFailoverSettings();
-            o.errorClearTimeMsec = errorClearTimeMsec;
-            o.failoverConditions = failoverConditions;
-            o.inputPreference = inputPreference;
-            o.secondaryInputId = secondaryInputId;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentAutomaticInputFailoverSettings();
+            _resultValue.errorClearTimeMsec = errorClearTimeMsec;
+            _resultValue.failoverConditions = failoverConditions;
+            _resultValue.inputPreference = inputPreference;
+            _resultValue.secondaryInputId = secondaryInputId;
+            return _resultValue;
         }
     }
 }

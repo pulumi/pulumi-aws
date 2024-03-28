@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,6 +20,8 @@ import javax.annotation.Nullable;
  * Manages an EKS Identity Provider Configuration.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new IdentityProviderConfig(&#34;example&#34;, IdentityProviderConfigArgs.builder()        
- *             .clusterName(aws_eks_cluster.example().name())
+ *             .clusterName(exampleAwsEksCluster.name())
  *             .oidc(IdentityProviderConfigOidcArgs.builder()
  *                 .clientId(&#34;your client_id&#34;)
  *                 .identityProviderConfigName(&#34;example&#34;)
@@ -55,13 +56,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import EKS Identity Provider Configurations using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
+ * $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
  * ```
  * 
  */
@@ -188,9 +190,6 @@ public class IdentityProviderConfig extends com.pulumi.resources.CustomResource 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

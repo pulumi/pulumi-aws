@@ -120,6 +120,7 @@ public final class GetTagsFilter {
 
         @CustomType.Setter
         public Builder ands(@Nullable List<GetTagsFilterAnd> ands) {
+
             this.ands = ands;
             return this;
         }
@@ -128,21 +129,25 @@ public final class GetTagsFilter {
         }
         @CustomType.Setter
         public Builder costCategory(@Nullable GetTagsFilterCostCategory costCategory) {
+
             this.costCategory = costCategory;
             return this;
         }
         @CustomType.Setter
         public Builder dimension(@Nullable GetTagsFilterDimension dimension) {
+
             this.dimension = dimension;
             return this;
         }
         @CustomType.Setter
         public Builder not(@Nullable GetTagsFilterNot not) {
+
             this.not = not;
             return this;
         }
         @CustomType.Setter
         public Builder ors(@Nullable List<GetTagsFilterOr> ors) {
+
             this.ors = ors;
             return this;
         }
@@ -151,18 +156,19 @@ public final class GetTagsFilter {
         }
         @CustomType.Setter
         public Builder tags(@Nullable GetTagsFilterTags tags) {
+
             this.tags = tags;
             return this;
         }
         public GetTagsFilter build() {
-            final var o = new GetTagsFilter();
-            o.ands = ands;
-            o.costCategory = costCategory;
-            o.dimension = dimension;
-            o.not = not;
-            o.ors = ors;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetTagsFilter();
+            _resultValue.ands = ands;
+            _resultValue.costCategory = costCategory;
+            _resultValue.dimension = dimension;
+            _resultValue.not = not;
+            _resultValue.ors = ors;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// Basic usage:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,15 +27,16 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var test = new Aws.Sagemaker.DataQualityJobDefinition("test", new()
     ///     {
+    ///         Name = "my-data-quality-job-definition",
     ///         DataQualityAppSpecification = new Aws.Sagemaker.Inputs.DataQualityJobDefinitionDataQualityAppSpecificationArgs
     ///         {
-    ///             ImageUri = data.Aws_sagemaker_prebuilt_ecr_image.Monitor.Registry_path,
+    ///             ImageUri = monitor.RegistryPath,
     ///         },
     ///         DataQualityJobInput = new Aws.Sagemaker.Inputs.DataQualityJobDefinitionDataQualityJobInputArgs
     ///         {
     ///             EndpointInput = new Aws.Sagemaker.Inputs.DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs
     ///             {
-    ///                 EndpointName = aws_sagemaker_endpoint.My_endpoint.Name,
+    ///                 EndpointName = myEndpoint.Name,
     ///             },
     ///         },
     ///         DataQualityJobOutputConfig = new Aws.Sagemaker.Inputs.DataQualityJobDefinitionDataQualityJobOutputConfigArgs
@@ -43,7 +45,7 @@ namespace Pulumi.Aws.Sagemaker
     ///             {
     ///                 S3Output = new Aws.Sagemaker.Inputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs
     ///                 {
-    ///                     S3Uri = $"https://{aws_s3_bucket.My_bucket.Bucket_regional_domain_name}/output",
+    ///                     S3Uri = $"https://{myBucket.BucketRegionalDomainName}/output",
     ///                 },
     ///             },
     ///         },
@@ -56,18 +58,19 @@ namespace Pulumi.Aws.Sagemaker
     ///                 VolumeSizeInGb = 20,
     ///             },
     ///         },
-    ///         RoleArn = aws_iam_role.My_role.Arn,
+    ///         RoleArn = myRole.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import data quality job definitions using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo
+    /// $ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition")]
@@ -168,10 +171,6 @@ namespace Pulumi.Aws.Sagemaker
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -351,11 +350,7 @@ namespace Pulumi.Aws.Sagemaker
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public DataQualityJobDefinitionState()

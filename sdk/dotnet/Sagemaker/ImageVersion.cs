@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Sagemaker
     /// Provides a SageMaker Image Version resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,19 +27,20 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var test = new Aws.Sagemaker.ImageVersion("test", new()
     ///     {
-    ///         ImageName = aws_sagemaker_image.Test.Id,
+    ///         ImageName = testAwsSagemakerImage.Id,
     ///         BaseImage = "012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SageMaker Image Versions using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
+    /// $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/imageVersion:ImageVersion")]

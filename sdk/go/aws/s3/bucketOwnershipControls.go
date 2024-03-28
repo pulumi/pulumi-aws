@@ -14,8 +14,11 @@ import (
 
 // Provides a resource to manage S3 Bucket Ownership Controls. For more information, see the [S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
 //
+// > This resource cannot be used with S3 directory buckets.
+//
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,12 +31,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketOwnershipControls(ctx, "exampleBucketOwnershipControls", &s3.BucketOwnershipControlsArgs{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewBucketOwnershipControls(ctx, "example", &s3.BucketOwnershipControlsArgs{
+//				Bucket: example.ID(),
 //				Rule: &s3.BucketOwnershipControlsRuleArgs{
 //					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
 //				},
@@ -46,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
-//
+// $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
 // ```
 type BucketOwnershipControls struct {
 	pulumi.CustomResourceState

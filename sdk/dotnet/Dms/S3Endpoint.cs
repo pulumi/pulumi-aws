@@ -17,10 +17,12 @@ namespace Pulumi.Aws.Dms
     /// &gt; **Note:** Some of this resource's arguments have default values that come from the AWS Provider. Other default values are provided by AWS and subject to change without notice. When relying on AWS defaults, the provider state will often have a zero value. For example, the AWS Provider does not provide a default for `cdc_max_batch_interval` but the AWS default is `60` (seconds). However, the provider state will show `0` since this is the value return by AWS when no value is present. Below, we aim to flag the defaults that come from AWS (_e.g._, "AWS default...").
     /// 
     /// ## Example Usage
+    /// 
     /// ### Minimal Configuration
     /// 
     /// This is the minimal configuration for an `aws.dms.S3Endpoint`. This endpoint will rely on the AWS Provider and AWS defaults.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,19 +36,16 @@ namespace Pulumi.Aws.Dms
     ///         EndpointId = "donnedtipi",
     ///         EndpointType = "target",
     ///         BucketName = "beckut_name",
-    ///         ServiceAccessRoleArn = aws_iam_role.Example.Arn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_iam_role_policy.Example,
-    ///         },
+    ///         ServiceAccessRoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Complete Configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -91,7 +90,7 @@ namespace Pulumi.Aws.Dms
     ///         EnableStatistics = false,
     ///         EncodingType = "plain",
     ///         EncryptionMode = "SSE_S3",
-    ///         ExpectedBucketOwner = data.Aws_caller_identity.Current.Account_id,
+    ///         ExpectedBucketOwner = current.AccountId,
     ///         ExternalTableDefinition = "etd",
     ///         IgnoreHeaderRows = 1,
     ///         IncludeOpForFullLoad = true,
@@ -101,29 +100,24 @@ namespace Pulumi.Aws.Dms
     ///         PreserveTransactions = false,
     ///         Rfc4180 = false,
     ///         RowGroupLength = 11000,
-    ///         ServerSideEncryptionKmsKeyId = aws_kms_key.Example.Arn,
-    ///         ServiceAccessRoleArn = aws_iam_role.Example.Arn,
+    ///         ServerSideEncryptionKmsKeyId = exampleAwsKmsKey.Arn,
+    ///         ServiceAccessRoleArn = exampleAwsIamRole.Arn,
     ///         TimestampColumnName = "tx_commit_time",
     ///         UseCsvNoSupValue = false,
     ///         UseTaskStartTimeForFullLoadTimestamp = true,
     ///         GlueCatalogGeneration = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_iam_role_policy.Example,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
+    /// $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
     /// ```
     /// </summary>
     [AwsResourceType("aws:dms/s3Endpoint:S3Endpoint")]
@@ -472,10 +466,6 @@ namespace Pulumi.Aws.Dms
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -1115,11 +1105,7 @@ namespace Pulumi.Aws.Dms
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

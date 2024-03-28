@@ -5,6 +5,7 @@ package com.pulumi.aws.auditmanager.outputs;
 
 import com.pulumi.aws.auditmanager.outputs.GetFrameworkControlSetControl;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,6 +58,7 @@ public final class GetFrameworkControlSet {
 
         @CustomType.Setter
         public Builder controls(@Nullable List<GetFrameworkControlSetControl> controls) {
+
             this.controls = controls;
             return this;
         }
@@ -65,20 +67,26 @@ public final class GetFrameworkControlSet {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFrameworkControlSet", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetFrameworkControlSet", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetFrameworkControlSet build() {
-            final var o = new GetFrameworkControlSet();
-            o.controls = controls;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetFrameworkControlSet();
+            _resultValue.controls = controls;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

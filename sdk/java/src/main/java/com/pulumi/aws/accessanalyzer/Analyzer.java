@@ -6,12 +6,12 @@ package com.pulumi.aws.accessanalyzer;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.accessanalyzer.AnalyzerArgs;
 import com.pulumi.aws.accessanalyzer.inputs.AnalyzerState;
+import com.pulumi.aws.accessanalyzer.outputs.AnalyzerConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * Manages an Access Analyzer Analyzer. More information can be found in the [Access Analyzer User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
  * 
  * ## Example Usage
+ * 
  * ### Account Analyzer
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,7 +52,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Organization Analyzer
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -60,7 +67,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.organizations.OrganizationArgs;
  * import com.pulumi.aws.accessanalyzer.Analyzer;
  * import com.pulumi.aws.accessanalyzer.AnalyzerArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -74,27 +80,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleOrganization = new Organization(&#34;exampleOrganization&#34;, OrganizationArgs.builder()        
+ *         var example = new Organization(&#34;example&#34;, OrganizationArgs.builder()        
  *             .awsServiceAccessPrincipals(&#34;access-analyzer.amazonaws.com&#34;)
  *             .build());
  * 
  *         var exampleAnalyzer = new Analyzer(&#34;exampleAnalyzer&#34;, AnalyzerArgs.builder()        
  *             .analyzerName(&#34;example&#34;)
  *             .type(&#34;ORGANIZATION&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleOrganization)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
+ * $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
  * ```
  * 
  */
@@ -133,6 +138,20 @@ public class Analyzer extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
+     * A block that specifies the configuration of the analyzer. Documented below
+     * 
+     */
+    @Export(name="configuration", refs={AnalyzerConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ AnalyzerConfiguration> configuration;
+
+    /**
+     * @return A block that specifies the configuration of the analyzer. Documented below
+     * 
+     */
+    public Output<Optional<AnalyzerConfiguration>> configuration() {
+        return Codegen.optional(this.configuration);
+    }
+    /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -165,14 +184,14 @@ public class Analyzer extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
+     * Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, ` ACCOUNT_UNUSED_ACCESS  `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
+     * @return Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, ` ACCOUNT_UNUSED_ACCESS  `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
      * 
      */
     public Output<Optional<String>> type() {
@@ -211,9 +230,6 @@ public class Analyzer extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

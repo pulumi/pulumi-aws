@@ -3,8 +3,11 @@ package provider
 
 import (
 	"context"
+	"os"
+	"strings"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
 	"github.com/pulumi/providertest"
@@ -30,20 +33,77 @@ func providerServer(t *testing.T) pulumirpc.ResourceProviderServer {
 	return p
 }
 
-func test(t *testing.T, dir string, opts ...providertest.Option) {
+func skipIfShort(t *testing.T) {
 	if testing.Short() {
 		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without AWS creds")
 		return
 	}
+}
+
+func withNoChangesInResourcesAndNoReplacementsInProvider() providertest.Option {
+	return providertest.WithDiffValidation(func(t *testing.T, diffs providertest.Diffs) {
+		for _, d := range diffs {
+			// For the explicit provider, prohibit replacements.
+			isProvider := strings.HasSuffix(string(d.URN), "aws::provider") ||
+				strings.Contains(string(d.URN), "pulumi:providers:aws")
+			if isProvider {
+				assert.Emptyf(t, d.Replaces, "Unexpected replacement plan for %#v", d)
+			} else { // For normal resources, prohibit any changes.
+				assert.Falsef(t, d.HasChanges, "Expected no change for %#v", d)
+			}
+		}
+	})
+}
+
+func test(t *testing.T, dir, baselineVersion string, opts ...providertest.Option) {
+	if len(opts) == 0 {
+		opts = []providertest.Option{withNoChangesInResourcesAndNoReplacementsInProvider()}
+	}
+	skipIfShort(t)
+	if baselineVersion == "" {
+		baselineVersion = "5.42.0"
+	}
 	opts = append(opts,
 		providertest.WithProviderName("aws"),
-		providertest.WithBaselineVersion("5.42.0"),
+		providertest.WithBaselineVersion(baselineVersion),
 		providertest.WithResourceProviderServer(providerServer(t)),
 	)
 	ptest := providertest.NewProviderTest(dir, opts...)
 	ptest.Run(t)
 }
 
+func nodeTest(t *testing.T, dir string, opts ...providertest.Option) {
+	if len(opts) == 0 {
+		opts = []providertest.Option{withNoChangesInResourcesAndNoReplacementsInProvider()}
+	}
+	envRegion := getEnvRegion(t)
+	opts = append(opts,
+		providertest.WithConfig("aws:region", "INVALID_REGION"),
+		providertest.WithConfig("aws:envRegion", envRegion),
+	)
+	test(t, dir, "", opts...)
+}
+
+// This version of nodeTest does not aws:region INVALID_REGION manipulation.
+func simpleNodeTest(t *testing.T, dir string, opts ...providertest.Option) {
+	if len(opts) == 0 {
+		opts = []providertest.Option{withNoChangesInResourcesAndNoReplacementsInProvider()}
+	}
+	envRegion := getEnvRegion(t)
+	opts = append(opts,
+		providertest.WithConfig("aws:region", envRegion),
+	)
+	test(t, dir, "", opts...)
+}
+
 func TestUpgradeCoverage(t *testing.T) {
 	providertest.ReportUpgradeCoverage(t)
+}
+
+func getEnvRegion(t *testing.T) string {
+	envRegion := os.Getenv("AWS_REGION")
+	if envRegion == "" {
+		envRegion = "us-west-2"
+	}
+	return envRegion
 }

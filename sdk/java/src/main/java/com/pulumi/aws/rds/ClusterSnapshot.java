@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Manages an RDS database cluster snapshot for Aurora clusters. For managing RDS database instance snapshots, see the `aws.rds.Snapshot` resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,20 +46,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ClusterSnapshot(&#34;example&#34;, ClusterSnapshotArgs.builder()        
- *             .dbClusterIdentifier(aws_rds_cluster.example().id())
+ *             .dbClusterIdentifier(exampleAwsRdsCluster.id())
  *             .dbClusterSnapshotIdentifier(&#34;resourcetestsnapshot1234&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_db_cluster_snapshot` using the cluster snapshot identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+ * $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
  * ```
  * 
  */
@@ -322,9 +325,6 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

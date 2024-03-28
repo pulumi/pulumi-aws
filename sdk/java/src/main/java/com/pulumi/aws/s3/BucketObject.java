@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,7 +21,49 @@ import javax.annotation.Nullable;
  * Provides an S3 object resource.
  * 
  * ## Example Usage
+ * 
+ * ### Uploading a file to a bucket
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketObject;
+ * import com.pulumi.aws.s3.BucketObjectArgs;
+ * import com.pulumi.asset.FileAsset;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var object = new BucketObject(&#34;object&#34;, BucketObjectArgs.builder()        
+ *             .bucket(&#34;your_bucket_name&#34;)
+ *             .key(&#34;new_object_key&#34;)
+ *             .source(new FileAsset(&#34;path/to/file&#34;))
+ *             .etag(StdFunctions.filemd5(Filemd5Args.builder()
+ *                 .input(&#34;path/to/file&#34;)
+ *                 .build()).result())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Encrypting with KMS Key
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -32,6 +73,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.Key;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.s3.BucketObject;
@@ -55,9 +97,11 @@ import javax.annotation.Nullable;
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var examplebucket = new BucketV2(&#34;examplebucket&#34;);
+ *         var examplebucket = new BucketV2(&#34;examplebucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;examplebuckettftest&#34;)
+ *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+ *         var example = new BucketAclV2(&#34;example&#34;, BucketAclV2Args.builder()        
  *             .bucket(examplebucket.id())
  *             .acl(&#34;private&#34;)
  *             .build());
@@ -72,93 +116,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Server Side Encryption with S3 Default Master Key
- * ```java
- * package generated_program;
  * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
- * import com.pulumi.aws.s3.BucketObject;
- * import com.pulumi.aws.s3.BucketObjectArgs;
- * import com.pulumi.asset.FileAsset;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var examplebucket = new BucketV2(&#34;examplebucket&#34;);
- * 
- *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
- *             .bucket(examplebucket.id())
- *             .acl(&#34;private&#34;)
- *             .build());
- * 
- *         var exampleBucketObject = new BucketObject(&#34;exampleBucketObject&#34;, BucketObjectArgs.builder()        
- *             .key(&#34;someobject&#34;)
- *             .bucket(examplebucket.id())
- *             .source(new FileAsset(&#34;index.html&#34;))
- *             .serverSideEncryption(&#34;aws:kms&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Server Side Encryption with AWS-Managed Key
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
- * import com.pulumi.aws.s3.BucketObject;
- * import com.pulumi.aws.s3.BucketObjectArgs;
- * import com.pulumi.asset.FileAsset;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var examplebucket = new BucketV2(&#34;examplebucket&#34;);
- * 
- *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
- *             .bucket(examplebucket.id())
- *             .acl(&#34;private&#34;)
- *             .build());
- * 
- *         var exampleBucketObject = new BucketObject(&#34;exampleBucketObject&#34;, BucketObjectArgs.builder()        
- *             .key(&#34;someobject&#34;)
- *             .bucket(examplebucket.id())
- *             .source(new FileAsset(&#34;index.html&#34;))
- *             .serverSideEncryption(&#34;AES256&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### S3 Object Lock
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -169,12 +131,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
- * import com.pulumi.aws.s3.BucketVersioningV2;
- * import com.pulumi.aws.s3.BucketVersioningV2Args;
- * import com.pulumi.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
  * import com.pulumi.aws.s3.BucketObject;
  * import com.pulumi.aws.s3.BucketObjectArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import com.pulumi.asset.FileAsset;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -190,10 +148,114 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var examplebucket = new BucketV2(&#34;examplebucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;examplebuckettftest&#34;)
+ *             .build());
+ * 
+ *         var example = new BucketAclV2(&#34;example&#34;, BucketAclV2Args.builder()        
+ *             .bucket(examplebucket.id())
+ *             .acl(&#34;private&#34;)
+ *             .build());
+ * 
+ *         var exampleBucketObject = new BucketObject(&#34;exampleBucketObject&#34;, BucketObjectArgs.builder()        
+ *             .key(&#34;someobject&#34;)
+ *             .bucket(examplebucket.id())
+ *             .source(new FileAsset(&#34;index.html&#34;))
+ *             .serverSideEncryption(&#34;aws:kms&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Server Side Encryption with AWS-Managed Key
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.BucketAclV2;
+ * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.BucketObject;
+ * import com.pulumi.aws.s3.BucketObjectArgs;
+ * import com.pulumi.asset.FileAsset;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var examplebucket = new BucketV2(&#34;examplebucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;examplebuckettftest&#34;)
+ *             .build());
+ * 
+ *         var example = new BucketAclV2(&#34;example&#34;, BucketAclV2Args.builder()        
+ *             .bucket(examplebucket.id())
+ *             .acl(&#34;private&#34;)
+ *             .build());
+ * 
+ *         var exampleBucketObject = new BucketObject(&#34;exampleBucketObject&#34;, BucketObjectArgs.builder()        
+ *             .key(&#34;someobject&#34;)
+ *             .bucket(examplebucket.id())
+ *             .source(new FileAsset(&#34;index.html&#34;))
+ *             .serverSideEncryption(&#34;AES256&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### S3 Object Lock
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.BucketAclV2;
+ * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.BucketVersioningV2;
+ * import com.pulumi.aws.s3.BucketVersioningV2Args;
+ * import com.pulumi.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
+ * import com.pulumi.aws.s3.BucketObject;
+ * import com.pulumi.aws.s3.BucketObjectArgs;
+ * import com.pulumi.asset.FileAsset;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var examplebucket = new BucketV2(&#34;examplebucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;examplebuckettftest&#34;)
  *             .objectLockEnabled(true)
  *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+ *         var example = new BucketAclV2(&#34;example&#34;, BucketAclV2Args.builder()        
  *             .bucket(examplebucket.id())
  *             .acl(&#34;private&#34;)
  *             .build());
@@ -213,13 +275,12 @@ import javax.annotation.Nullable;
  *             .objectLockMode(&#34;GOVERNANCE&#34;)
  *             .objectLockRetainUntilDate(&#34;2021-12-31T23:59:60Z&#34;)
  *             .forceDestroy(true)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleBucketVersioningV2)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -230,12 +291,12 @@ import javax.annotation.Nullable;
  * Import using the `id`, which is the bucket name and the key together:
  * 
  * ```sh
- *  $ pulumi import aws:s3/bucketObject:BucketObject example some-bucket-name/some/key.txt
+ * $ pulumi import aws:s3/bucketObject:BucketObject example some-bucket-name/some/key.txt
  * ```
- *  Import using S3 URL syntax:
+ * Import using S3 URL syntax:
  * 
  * ```sh
- *  $ pulumi import aws:s3/bucketObject:BucketObject example s3://some-bucket-name/some/key.txt
+ * $ pulumi import aws:s3/bucketObject:BucketObject example s3://some-bucket-name/some/key.txt
  * ```
  * 
  */
@@ -254,6 +315,20 @@ public class BucketObject extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> acl() {
         return Codegen.optional(this.acl);
+    }
+    /**
+     * ARN of the object.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return ARN of the object.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
     }
     /**
      * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
@@ -650,9 +725,6 @@ public class BucketObject extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

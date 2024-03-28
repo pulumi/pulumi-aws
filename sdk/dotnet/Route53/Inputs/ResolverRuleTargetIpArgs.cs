@@ -24,6 +24,9 @@ namespace Pulumi.Aws.Route53.Inputs
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        [Input("protocol")]
+        public Input<string>? Protocol { get; set; }
+
         public ResolverRuleTargetIpArgs()
         {
         }

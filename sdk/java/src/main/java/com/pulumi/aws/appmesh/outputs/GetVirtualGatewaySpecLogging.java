@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecLoggingAccessLog;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,16 +36,19 @@ public final class GetVirtualGatewaySpecLogging {
 
         @CustomType.Setter
         public Builder accessLogs(List<GetVirtualGatewaySpecLoggingAccessLog> accessLogs) {
-            this.accessLogs = Objects.requireNonNull(accessLogs);
+            if (accessLogs == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecLogging", "accessLogs");
+            }
+            this.accessLogs = accessLogs;
             return this;
         }
         public Builder accessLogs(GetVirtualGatewaySpecLoggingAccessLog... accessLogs) {
             return accessLogs(List.of(accessLogs));
         }
         public GetVirtualGatewaySpecLogging build() {
-            final var o = new GetVirtualGatewaySpecLogging();
-            o.accessLogs = accessLogs;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecLogging();
+            _resultValue.accessLogs = accessLogs;
+            return _resultValue;
         }
     }
 }

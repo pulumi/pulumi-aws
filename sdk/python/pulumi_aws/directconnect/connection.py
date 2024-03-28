@@ -473,48 +473,60 @@ class Connection(pulumi.CustomResource):
         Provides a Connection of Direct Connect.
 
         ## Example Usage
+
         ### Create a connection
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         hoge = aws.directconnect.Connection("hoge",
+            name="tf-dx-connection",
             bandwidth="1Gbps",
             location="EqDC2")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Request a MACsec-capable connection
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.directconnect.Connection("example",
+            name="tf-dx-connection",
             bandwidth="10Gbps",
             location="EqDA2",
             request_macsec=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Configure encryption mode for MACsec-capable connections
 
         > **NOTE:** You can only specify the `encryption_mode` argument once the connection is in an `Available` state.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.directconnect.Connection("example",
+            name="tf-dx-connection",
             bandwidth="10Gbps",
-            encryption_mode="must_encrypt",
             location="EqDC2",
-            request_macsec=True)
+            request_macsec=True,
+            encryption_mode="must_encrypt")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Direct Connect connections using the connection `id`. For example:
 
         ```sh
-         $ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3
+        $ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3
         ```
 
         :param str resource_name: The name of the resource.
@@ -540,48 +552,60 @@ class Connection(pulumi.CustomResource):
         Provides a Connection of Direct Connect.
 
         ## Example Usage
+
         ### Create a connection
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         hoge = aws.directconnect.Connection("hoge",
+            name="tf-dx-connection",
             bandwidth="1Gbps",
             location="EqDC2")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Request a MACsec-capable connection
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.directconnect.Connection("example",
+            name="tf-dx-connection",
             bandwidth="10Gbps",
             location="EqDA2",
             request_macsec=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Configure encryption mode for MACsec-capable connections
 
         > **NOTE:** You can only specify the `encryption_mode` argument once the connection is in an `Available` state.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.directconnect.Connection("example",
+            name="tf-dx-connection",
             bandwidth="10Gbps",
-            encryption_mode="must_encrypt",
             location="EqDC2",
-            request_macsec=True)
+            request_macsec=True,
+            encryption_mode="must_encrypt")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Direct Connect connections using the connection `id`. For example:
 
         ```sh
-         $ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3
+        $ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3
         ```
 
         :param str resource_name: The name of the resource.
@@ -638,8 +662,6 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["port_encryption_status"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vlan_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Connection, __self__).__init__(
             'aws:directconnect/connection:Connection',
             resource_name,

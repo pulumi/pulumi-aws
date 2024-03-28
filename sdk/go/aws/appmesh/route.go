@@ -15,8 +15,10 @@ import (
 // Provides an AWS App Mesh route resource.
 //
 // ## Example Usage
+//
 // ### HTTP Routing
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,8 +32,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewRoute(ctx, "serviceb", &appmesh.RouteArgs{
-//				MeshName:          pulumi.Any(aws_appmesh_mesh.Simple.Id),
-//				VirtualRouterName: pulumi.Any(aws_appmesh_virtual_router.Serviceb.Name),
+//				Name:              pulumi.String("serviceB-route"),
+//				MeshName:          pulumi.Any(simple.Id),
+//				VirtualRouterName: pulumi.Any(servicebAwsAppmeshVirtualRouter.Name),
 //				Spec: &appmesh.RouteSpecArgs{
 //					HttpRoute: &appmesh.RouteSpecHttpRouteArgs{
 //						Match: &appmesh.RouteSpecHttpRouteMatchArgs{
@@ -40,11 +43,11 @@ import (
 //						Action: &appmesh.RouteSpecHttpRouteActionArgs{
 //							WeightedTargets: appmesh.RouteSpecHttpRouteActionWeightedTargetArray{
 //								&appmesh.RouteSpecHttpRouteActionWeightedTargetArgs{
-//									VirtualNode: pulumi.Any(aws_appmesh_virtual_node.Serviceb1.Name),
+//									VirtualNode: pulumi.Any(serviceb1.Name),
 //									Weight:      pulumi.Int(90),
 //								},
 //								&appmesh.RouteSpecHttpRouteActionWeightedTargetArgs{
-//									VirtualNode: pulumi.Any(aws_appmesh_virtual_node.Serviceb2.Name),
+//									VirtualNode: pulumi.Any(serviceb2.Name),
 //									Weight:      pulumi.Int(10),
 //								},
 //							},
@@ -60,8 +63,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### HTTP Header Routing
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -75,8 +81,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewRoute(ctx, "serviceb", &appmesh.RouteArgs{
-//				MeshName:          pulumi.Any(aws_appmesh_mesh.Simple.Id),
-//				VirtualRouterName: pulumi.Any(aws_appmesh_virtual_router.Serviceb.Name),
+//				Name:              pulumi.String("serviceB-route"),
+//				MeshName:          pulumi.Any(simple.Id),
+//				VirtualRouterName: pulumi.Any(servicebAwsAppmeshVirtualRouter.Name),
 //				Spec: &appmesh.RouteSpecArgs{
 //					HttpRoute: &appmesh.RouteSpecHttpRouteArgs{
 //						Match: &appmesh.RouteSpecHttpRouteMatchArgs{
@@ -95,7 +102,7 @@ import (
 //						Action: &appmesh.RouteSpecHttpRouteActionArgs{
 //							WeightedTargets: appmesh.RouteSpecHttpRouteActionWeightedTargetArray{
 //								&appmesh.RouteSpecHttpRouteActionWeightedTargetArgs{
-//									VirtualNode: pulumi.Any(aws_appmesh_virtual_node.Serviceb.Name),
+//									VirtualNode: pulumi.Any(servicebAwsAppmeshVirtualNode.Name),
 //									Weight:      pulumi.Int(100),
 //								},
 //							},
@@ -111,8 +118,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Retry Policy
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -126,8 +136,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewRoute(ctx, "serviceb", &appmesh.RouteArgs{
-//				MeshName:          pulumi.Any(aws_appmesh_mesh.Simple.Id),
-//				VirtualRouterName: pulumi.Any(aws_appmesh_virtual_router.Serviceb.Name),
+//				Name:              pulumi.String("serviceB-route"),
+//				MeshName:          pulumi.Any(simple.Id),
+//				VirtualRouterName: pulumi.Any(servicebAwsAppmeshVirtualRouter.Name),
 //				Spec: &appmesh.RouteSpecArgs{
 //					HttpRoute: &appmesh.RouteSpecHttpRouteArgs{
 //						Match: &appmesh.RouteSpecHttpRouteMatchArgs{
@@ -146,7 +157,7 @@ import (
 //						Action: &appmesh.RouteSpecHttpRouteActionArgs{
 //							WeightedTargets: appmesh.RouteSpecHttpRouteActionWeightedTargetArray{
 //								&appmesh.RouteSpecHttpRouteActionWeightedTargetArgs{
-//									VirtualNode: pulumi.Any(aws_appmesh_virtual_node.Serviceb.Name),
+//									VirtualNode: pulumi.Any(servicebAwsAppmeshVirtualNode.Name),
 //									Weight:      pulumi.Int(100),
 //								},
 //							},
@@ -162,8 +173,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### TCP Routing
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -177,14 +191,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewRoute(ctx, "serviceb", &appmesh.RouteArgs{
-//				MeshName:          pulumi.Any(aws_appmesh_mesh.Simple.Id),
-//				VirtualRouterName: pulumi.Any(aws_appmesh_virtual_router.Serviceb.Name),
+//				Name:              pulumi.String("serviceB-route"),
+//				MeshName:          pulumi.Any(simple.Id),
+//				VirtualRouterName: pulumi.Any(servicebAwsAppmeshVirtualRouter.Name),
 //				Spec: &appmesh.RouteSpecArgs{
 //					TcpRoute: &appmesh.RouteSpecTcpRouteArgs{
 //						Action: &appmesh.RouteSpecTcpRouteActionArgs{
 //							WeightedTargets: appmesh.RouteSpecTcpRouteActionWeightedTargetArray{
 //								&appmesh.RouteSpecTcpRouteActionWeightedTargetArgs{
-//									VirtualNode: pulumi.Any(aws_appmesh_virtual_node.Serviceb1.Name),
+//									VirtualNode: pulumi.Any(serviceb1.Name),
 //									Weight:      pulumi.Int(100),
 //								},
 //							},
@@ -200,15 +215,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import App Mesh virtual routes using `mesh_name` and `virtual_router_name` together with the route's `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
-//
+// $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
 // ```
 type Route struct {
 	pulumi.CustomResourceState
@@ -255,10 +269,6 @@ func NewRoute(ctx *pulumi.Context,
 	if args.VirtualRouterName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualRouterName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Route
 	err := ctx.RegisterResource("aws:appmesh/route:Route", name, args, &resource, opts...)

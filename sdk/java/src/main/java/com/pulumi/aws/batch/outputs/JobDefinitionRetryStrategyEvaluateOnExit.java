@@ -4,6 +4,7 @@
 package com.pulumi.aws.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,31 +87,37 @@ public final class JobDefinitionRetryStrategyEvaluateOnExit {
 
         @CustomType.Setter
         public Builder action(String action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("JobDefinitionRetryStrategyEvaluateOnExit", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder onExitCode(@Nullable String onExitCode) {
+
             this.onExitCode = onExitCode;
             return this;
         }
         @CustomType.Setter
         public Builder onReason(@Nullable String onReason) {
+
             this.onReason = onReason;
             return this;
         }
         @CustomType.Setter
         public Builder onStatusReason(@Nullable String onStatusReason) {
+
             this.onStatusReason = onStatusReason;
             return this;
         }
         public JobDefinitionRetryStrategyEvaluateOnExit build() {
-            final var o = new JobDefinitionRetryStrategyEvaluateOnExit();
-            o.action = action;
-            o.onExitCode = onExitCode;
-            o.onReason = onReason;
-            o.onStatusReason = onStatusReason;
-            return o;
+            final var _resultValue = new JobDefinitionRetryStrategyEvaluateOnExit();
+            _resultValue.action = action;
+            _resultValue.onExitCode = onExitCode;
+            _resultValue.onReason = onReason;
+            _resultValue.onStatusReason = onStatusReason;
+            return _resultValue;
         }
     }
 }

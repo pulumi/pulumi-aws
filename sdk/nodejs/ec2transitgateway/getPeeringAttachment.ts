@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Get information on an EC2 Transit Gateway Peering Attachment.
  *
  * ## Example Usage
+ *
  * ### By Filter
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,8 +26,11 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### By Identifier
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,6 +39,7 @@ import * as utilities from "../utilities";
  *     id: "tgw-attach-12345678",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPeeringAttachment(args?: GetPeeringAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringAttachmentResult> {
     args = args || {};
@@ -86,6 +92,7 @@ export interface GetPeeringAttachmentResult {
      * Identifier of the peer EC2 Transit Gateway
      */
     readonly peerTransitGatewayId: string;
+    readonly state: string;
     readonly tags: {[key: string]: string};
     /**
      * Identifier of the local EC2 Transit Gateway
@@ -96,8 +103,10 @@ export interface GetPeeringAttachmentResult {
  * Get information on an EC2 Transit Gateway Peering Attachment.
  *
  * ## Example Usage
+ *
  * ### By Filter
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -109,8 +118,11 @@ export interface GetPeeringAttachmentResult {
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### By Identifier
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -119,6 +131,7 @@ export interface GetPeeringAttachmentResult {
  *     id: "tgw-attach-12345678",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPeeringAttachmentOutput(args?: GetPeeringAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeeringAttachmentResult> {
     return pulumi.output(args).apply((a: any) => getPeeringAttachment(a, opts))

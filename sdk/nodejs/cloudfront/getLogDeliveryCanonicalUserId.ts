@@ -10,18 +10,19 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogDeliveryCanonicalUserId = aws.cloudfront.getLogDeliveryCanonicalUserId({});
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ * const example = aws.cloudfront.getLogDeliveryCanonicalUserId({});
+ * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
  *     bucket: exampleBucketV2.id,
  *     accessControlPolicy: {
  *         grants: [{
  *             grantee: {
- *                 id: exampleLogDeliveryCanonicalUserId.then(exampleLogDeliveryCanonicalUserId => exampleLogDeliveryCanonicalUserId.id),
+ *                 id: example.then(example => example.id),
  *                 type: "CanonicalUser",
  *             },
  *             permission: "FULL_CONTROL",
@@ -29,6 +30,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLogDeliveryCanonicalUserId(args?: GetLogDeliveryCanonicalUserIdArgs, opts?: pulumi.InvokeOptions): Promise<GetLogDeliveryCanonicalUserIdResult> {
     args = args || {};
@@ -65,18 +67,19 @@ export interface GetLogDeliveryCanonicalUserIdResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogDeliveryCanonicalUserId = aws.cloudfront.getLogDeliveryCanonicalUserId({});
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ * const example = aws.cloudfront.getLogDeliveryCanonicalUserId({});
+ * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
  *     bucket: exampleBucketV2.id,
  *     accessControlPolicy: {
  *         grants: [{
  *             grantee: {
- *                 id: exampleLogDeliveryCanonicalUserId.then(exampleLogDeliveryCanonicalUserId => exampleLogDeliveryCanonicalUserId.id),
+ *                 id: example.then(example => example.id),
  *                 type: "CanonicalUser",
  *             },
  *             permission: "FULL_CONTROL",
@@ -84,6 +87,7 @@ export interface GetLogDeliveryCanonicalUserIdResult {
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLogDeliveryCanonicalUserIdOutput(args?: GetLogDeliveryCanonicalUserIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogDeliveryCanonicalUserIdResult> {
     return pulumi.output(args).apply((a: any) => getLogDeliveryCanonicalUserId(a, opts))

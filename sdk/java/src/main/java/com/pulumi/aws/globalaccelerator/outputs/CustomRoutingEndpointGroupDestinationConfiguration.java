@@ -4,6 +4,7 @@
 package com.pulumi.aws.globalaccelerator.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -72,12 +73,18 @@ public final class CustomRoutingEndpointGroupDestinationConfiguration {
 
         @CustomType.Setter
         public Builder fromPort(Integer fromPort) {
-            this.fromPort = Objects.requireNonNull(fromPort);
+            if (fromPort == null) {
+              throw new MissingRequiredPropertyException("CustomRoutingEndpointGroupDestinationConfiguration", "fromPort");
+            }
+            this.fromPort = fromPort;
             return this;
         }
         @CustomType.Setter
         public Builder protocols(List<String> protocols) {
-            this.protocols = Objects.requireNonNull(protocols);
+            if (protocols == null) {
+              throw new MissingRequiredPropertyException("CustomRoutingEndpointGroupDestinationConfiguration", "protocols");
+            }
+            this.protocols = protocols;
             return this;
         }
         public Builder protocols(String... protocols) {
@@ -85,15 +92,18 @@ public final class CustomRoutingEndpointGroupDestinationConfiguration {
         }
         @CustomType.Setter
         public Builder toPort(Integer toPort) {
-            this.toPort = Objects.requireNonNull(toPort);
+            if (toPort == null) {
+              throw new MissingRequiredPropertyException("CustomRoutingEndpointGroupDestinationConfiguration", "toPort");
+            }
+            this.toPort = toPort;
             return this;
         }
         public CustomRoutingEndpointGroupDestinationConfiguration build() {
-            final var o = new CustomRoutingEndpointGroupDestinationConfiguration();
-            o.fromPort = fromPort;
-            o.protocols = protocols;
-            o.toPort = toPort;
-            return o;
+            final var _resultValue = new CustomRoutingEndpointGroupDestinationConfiguration();
+            _resultValue.fromPort = fromPort;
+            _resultValue.protocols = protocols;
+            _resultValue.toPort = toPort;
+            return _resultValue;
         }
     }
 }

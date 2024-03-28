@@ -4,6 +4,7 @@
 package com.pulumi.aws.alb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,43 +115,51 @@ public final class ListenerRuleActionRedirect {
 
         @CustomType.Setter
         public Builder host(@Nullable String host) {
+
             this.host = host;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable String port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
+
             this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder query(@Nullable String query) {
+
             this.query = query;
             return this;
         }
         @CustomType.Setter
         public Builder statusCode(String statusCode) {
-            this.statusCode = Objects.requireNonNull(statusCode);
+            if (statusCode == null) {
+              throw new MissingRequiredPropertyException("ListenerRuleActionRedirect", "statusCode");
+            }
+            this.statusCode = statusCode;
             return this;
         }
         public ListenerRuleActionRedirect build() {
-            final var o = new ListenerRuleActionRedirect();
-            o.host = host;
-            o.path = path;
-            o.port = port;
-            o.protocol = protocol;
-            o.query = query;
-            o.statusCode = statusCode;
-            return o;
+            final var _resultValue = new ListenerRuleActionRedirect();
+            _resultValue.host = host;
+            _resultValue.path = path;
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            _resultValue.query = query;
+            _resultValue.statusCode = statusCode;
+            return _resultValue;
         }
     }
 }

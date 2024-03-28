@@ -104,34 +104,36 @@ class BucketPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         example = aws.s3control.BucketPolicy("example",
-            bucket=aws_s3control_bucket["example"]["arn"],
+            bucket=example_aws_s3control_bucket["arn"],
             policy=json.dumps({
-                "Id": "testBucketPolicy",
-                "Statement": [{
-                    "Action": "s3-outposts:PutBucketLifecycleConfiguration",
-                    "Effect": "Deny",
-                    "Principal": {
+                "id": "testBucketPolicy",
+                "statement": [{
+                    "action": "s3-outposts:PutBucketLifecycleConfiguration",
+                    "effect": "Deny",
+                    "principal": {
                         "AWS": "*",
                     },
-                    "Resource": aws_s3control_bucket["example"]["arn"],
-                    "Sid": "statement1",
+                    "resource": example_aws_s3control_bucket["arn"],
+                    "sid": "statement1",
                 }],
-                "Version": "2012-10-17",
+                "version": "2012-10-17",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 Control Bucket Policies using the Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+        $ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -152,34 +154,36 @@ class BucketPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         example = aws.s3control.BucketPolicy("example",
-            bucket=aws_s3control_bucket["example"]["arn"],
+            bucket=example_aws_s3control_bucket["arn"],
             policy=json.dumps({
-                "Id": "testBucketPolicy",
-                "Statement": [{
-                    "Action": "s3-outposts:PutBucketLifecycleConfiguration",
-                    "Effect": "Deny",
-                    "Principal": {
+                "id": "testBucketPolicy",
+                "statement": [{
+                    "action": "s3-outposts:PutBucketLifecycleConfiguration",
+                    "effect": "Deny",
+                    "principal": {
                         "AWS": "*",
                     },
-                    "Resource": aws_s3control_bucket["example"]["arn"],
-                    "Sid": "statement1",
+                    "resource": example_aws_s3control_bucket["arn"],
+                    "sid": "statement1",
                 }],
-                "Version": "2012-10-17",
+                "version": "2012-10-17",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 Control Bucket Policies using the Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+        $ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
         ```
 
         :param str resource_name: The name of the resource.

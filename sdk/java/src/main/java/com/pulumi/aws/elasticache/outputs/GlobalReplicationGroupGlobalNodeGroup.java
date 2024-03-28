@@ -58,19 +58,21 @@ public final class GlobalReplicationGroupGlobalNodeGroup {
 
         @CustomType.Setter
         public Builder globalNodeGroupId(@Nullable String globalNodeGroupId) {
+
             this.globalNodeGroupId = globalNodeGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder slots(@Nullable String slots) {
+
             this.slots = slots;
             return this;
         }
         public GlobalReplicationGroupGlobalNodeGroup build() {
-            final var o = new GlobalReplicationGroupGlobalNodeGroup();
-            o.globalNodeGroupId = globalNodeGroupId;
-            o.slots = slots;
-            return o;
+            final var _resultValue = new GlobalReplicationGroupGlobalNodeGroup();
+            _resultValue.globalNodeGroupId = globalNodeGroupId;
+            _resultValue.slots = slots;
+            return _resultValue;
         }
     }
 }

@@ -137,22 +137,24 @@ class ClusterRoleAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.rds.ClusterRoleAssociation("example",
-            db_cluster_identifier=aws_rds_cluster["example"]["id"],
+            db_cluster_identifier=example_aws_rds_cluster["id"],
             feature_name="S3_INTEGRATION",
-            role_arn=aws_iam_role["example"]["arn"])
+            role_arn=example_aws_iam_role["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_rds_cluster_role_association` using the DB Cluster Identifier and IAM Role ARN separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:rds/clusterRoleAssociation:ClusterRoleAssociation example my-db-cluster,arn:aws:iam::123456789012:role/my-role
+        $ pulumi import aws:rds/clusterRoleAssociation:ClusterRoleAssociation example my-db-cluster,arn:aws:iam::123456789012:role/my-role
         ```
 
         :param str resource_name: The name of the resource.
@@ -175,22 +177,24 @@ class ClusterRoleAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.rds.ClusterRoleAssociation("example",
-            db_cluster_identifier=aws_rds_cluster["example"]["id"],
+            db_cluster_identifier=example_aws_rds_cluster["id"],
             feature_name="S3_INTEGRATION",
-            role_arn=aws_iam_role["example"]["arn"])
+            role_arn=example_aws_iam_role["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_rds_cluster_role_association` using the DB Cluster Identifier and IAM Role ARN separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:rds/clusterRoleAssociation:ClusterRoleAssociation example my-db-cluster,arn:aws:iam::123456789012:role/my-role
+        $ pulumi import aws:rds/clusterRoleAssociation:ClusterRoleAssociation example my-db-cluster,arn:aws:iam::123456789012:role/my-role
         ```
 
         :param str resource_name: The name of the resource.

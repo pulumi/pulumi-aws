@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CodeCatalyst
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,31 +26,32 @@ namespace Pulumi.Aws.CodeCatalyst
     ///     var test = new Aws.CodeCatalyst.DevEnvironment("test", new()
     ///     {
     ///         Alias = "devenv",
+    ///         SpaceName = "myspace",
+    ///         ProjectName = "myproject",
+    ///         InstanceType = "dev.standard1.small",
+    ///         PersistentStorage = new Aws.CodeCatalyst.Inputs.DevEnvironmentPersistentStorageArgs
+    ///         {
+    ///             Size = 16,
+    ///         },
     ///         Ides = new Aws.CodeCatalyst.Inputs.DevEnvironmentIdesArgs
     ///         {
     ///             Name = "PyCharm",
     ///             Runtime = "public.ecr.aws/jetbrains/py",
     ///         },
     ///         InactivityTimeoutMinutes = 40,
-    ///         InstanceType = "dev.standard1.small",
-    ///         PersistentStorage = new Aws.CodeCatalyst.Inputs.DevEnvironmentPersistentStorageArgs
-    ///         {
-    ///             Size = 16,
-    ///         },
-    ///         ProjectName = "myproject",
     ///         Repositories = new[]
     ///         {
     ///             new Aws.CodeCatalyst.Inputs.DevEnvironmentRepositoryArgs
     ///             {
-    ///                 BranchName = "main",
     ///                 RepositoryName = "pulumi-provider-aws",
+    ///                 BranchName = "main",
     ///             },
     ///         },
-    ///         SpaceName = "myspace",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:codecatalyst/devEnvironment:DevEnvironment")]
     public partial class DevEnvironment : global::Pulumi.CustomResource

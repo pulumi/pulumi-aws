@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Attempting to remove the `reserved-memory` parameter when `family` is set to `redis2.6` or `redis2.8` may show a perpetual difference in this provider due to an ElastiCache API limitation. Leave that parameter configured with any value to workaround the issue.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,6 +48,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new ParameterGroup(&#34;default&#34;, ParameterGroupArgs.builder()        
+ *             .name(&#34;cache-params&#34;)
  *             .family(&#34;redis2.8&#34;)
  *             .parameters(            
  *                 ParameterGroupParameterArgs.builder()
@@ -61,13 +64,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import ElastiCache Parameter Groups using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params
+ * $ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params
  * ```
  * 
  */
@@ -208,9 +212,6 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,7 +57,7 @@ import (
 //				return err
 //			}
 //			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -75,7 +76,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			rolePolicyPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			rolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Effect: pulumi.StringRef("Allow"),
@@ -92,9 +93,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicy(ctx, "rolePolicyRolePolicy", &iam.RolePolicyArgs{
+//			_, err = iam.NewRolePolicy(ctx, "role_policy", &iam.RolePolicyArgs{
+//				Name:   pulumi.String("role_policy"),
 //				Role:   role.ID(),
-//				Policy: *pulumi.String(rolePolicyPolicyDocument.Json),
+//				Policy: pulumi.String(rolePolicy.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -104,15 +106,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Pinpoint Email Channel using the `application-id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
-//
+// $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
 // ```
 type EmailChannel struct {
 	pulumi.CustomResourceState

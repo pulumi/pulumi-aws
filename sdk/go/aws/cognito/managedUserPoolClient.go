@@ -22,6 +22,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,11 +40,20 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", nil)
+//			exampleUserPool, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleIdentityPool, err := cognito.NewIdentityPool(ctx, "exampleIdentityPool", &cognito.IdentityPoolArgs{
+//			_, err = cognito.NewManagedUserPoolClient(ctx, "example", &cognito.ManagedUserPoolClientArgs{
+//				NamePrefix: pulumi.String("AmazonOpenSearchService-example"),
+//				UserPoolId: exampleUserPool.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleIdentityPool, err := cognito.NewIdentityPool(ctx, "example", &cognito.IdentityPoolArgs{
 //				IdentityPoolName: pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -53,7 +63,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Sid: pulumi.StringRef(""),
@@ -75,21 +85,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("example-role"),
 //				Path:             pulumi.String("/service-role/"),
-//				AssumeRolePolicy: *pulumi.String(examplePolicyDocument.Json),
+//				AssumeRolePolicy: pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleRolePolicyAttachment, err := iam.NewRolePolicyAttachment(ctx, "exampleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-//				Role:      exampleRole.Name,
-//				PolicyArn: pulumi.String(fmt.Sprintf("arn:%v:iam::aws:policy/AmazonESCognitoAccess", current.Partition)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDomain, err := opensearch.NewDomain(ctx, "exampleDomain", &opensearch.DomainArgs{
+//			_, err = opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
+//				DomainName: pulumi.String("example"),
 //				CognitoOptions: &opensearch.DomainCognitoOptionsArgs{
 //					Enabled:        pulumi.Bool(true),
 //					UserPoolId:     exampleUserPool.ID(),
@@ -100,19 +105,14 @@ import (
 //					EbsEnabled: pulumi.Bool(true),
 //					VolumeSize: pulumi.Int(10),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_cognito_user_pool_domain.Example,
-//				exampleRolePolicyAttachment,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cognito.NewManagedUserPoolClient(ctx, "exampleManagedUserPoolClient", &cognito.ManagedUserPoolClientArgs{
-//				NamePrefix: pulumi.String("AmazonOpenSearchService-example"),
-//				UserPoolId: exampleUserPool.ID(),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleDomain,
-//			}))
+//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
+//				Role:      exampleRole.Name,
+//				PolicyArn: pulumi.String(fmt.Sprintf("arn:%v:iam::aws:policy/AmazonESCognitoAccess", current.Partition)),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -121,15 +121,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Cognito User Pool Clients using the `id` of the Cognito User Pool and the `id` of the Cognito User Pool Client. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cognito/managedUserPoolClient:ManagedUserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
-//
+// $ pulumi import aws:cognito/managedUserPoolClient:ManagedUserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
 // ```
 type ManagedUserPoolClient struct {
 	pulumi.CustomResourceState

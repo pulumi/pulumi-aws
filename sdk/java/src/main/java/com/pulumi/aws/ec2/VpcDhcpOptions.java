@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * Basic usage:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,8 +54,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Full usage:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -80,15 +85,17 @@ import javax.annotation.Nullable;
  *             .domainNameServers(            
  *                 &#34;127.0.0.1&#34;,
  *                 &#34;10.0.0.2&#34;)
+ *             .ntpServers(&#34;127.0.0.1&#34;)
  *             .netbiosNameServers(&#34;127.0.0.1&#34;)
  *             .netbiosNodeType(2)
- *             .ntpServers(&#34;127.0.0.1&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;foo-name&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Remarks
  * 
  * * Notice that all arguments are optional but you have to specify at least one argument.
@@ -102,7 +109,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import VPC DHCP Options using the DHCP Options `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/vpcDhcpOptions:VpcDhcpOptions my_options dopt-d9070ebb
+ * $ pulumi import aws:ec2/vpcDhcpOptions:VpcDhcpOptions my_options dopt-d9070ebb
  * ```
  * 
  */
@@ -271,9 +278,6 @@ public class VpcDhcpOptions extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

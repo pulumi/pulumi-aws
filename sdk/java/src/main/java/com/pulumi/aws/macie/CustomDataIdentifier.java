@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides a resource to manage an [AWS Macie Custom Data Identifier](https://docs.aws.amazon.com/macie/latest/APIReference/custom-data-identifiers-id.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -30,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.macie2.Account;
  * import com.pulumi.aws.macie.CustomDataIdentifier;
  * import com.pulumi.aws.macie.CustomDataIdentifierArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,28 +45,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
+ *         var example = new Account(&#34;example&#34;);
  * 
  *         var exampleCustomDataIdentifier = new CustomDataIdentifier(&#34;exampleCustomDataIdentifier&#34;, CustomDataIdentifierArgs.builder()        
+ *             .name(&#34;NAME OF CUSTOM DATA IDENTIFIER&#34;)
  *             .regex(&#34;[0-9]{3}-[0-9]{2}-[0-9]{4}&#34;)
  *             .description(&#34;DESCRIPTION&#34;)
  *             .maximumMatchDistance(10)
  *             .keywords(&#34;keyword&#34;)
  *             .ignoreWords(&#34;ignore&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_macie2_account.test())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_macie2_custom_data_identifier` using the id. For example:
  * 
  * ```sh
- *  $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
+ * $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
  * ```
  * 
  */
@@ -256,9 +257,6 @@ public class CustomDataIdentifier extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

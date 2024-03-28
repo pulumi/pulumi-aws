@@ -112,6 +112,21 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
     }
 
     /**
+     * Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     * 
+     */
+    @Import(name="standbyReplicas")
+    private @Nullable Output<String> standbyReplicas;
+
+    /**
+     * @return Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     * 
+     */
+    public Optional<Output<String>> standbyReplicas() {
+        return Optional.ofNullable(this.standbyReplicas);
+    }
+
+    /**
      * A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -176,6 +191,7 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
         this.description = $.description;
         this.kmsKeyArn = $.kmsKeyArn;
         this.name = $.name;
+        this.standbyReplicas = $.standbyReplicas;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.timeouts = $.timeouts;
@@ -328,6 +344,27 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param standbyReplicas Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder standbyReplicas(@Nullable Output<String> standbyReplicas) {
+            $.standbyReplicas = standbyReplicas;
+            return this;
+        }
+
+        /**
+         * @param standbyReplicas Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder standbyReplicas(String standbyReplicas) {
+            return standbyReplicas(Output.of(standbyReplicas));
         }
 
         /**

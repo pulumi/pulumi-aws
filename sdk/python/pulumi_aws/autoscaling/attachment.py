@@ -138,25 +138,29 @@ class Attachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # Create a new load balancer attachment
         example = aws.autoscaling.Attachment("example",
-            autoscaling_group_name=aws_autoscaling_group["example"]["id"],
-            elb=aws_elb["example"]["id"])
+            autoscaling_group_name=example_aws_autoscaling_group["id"],
+            elb=example_aws_elb["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # Create a new ALB Target Group attachment
         example = aws.autoscaling.Attachment("example",
-            autoscaling_group_name=aws_autoscaling_group["example"]["id"],
-            lb_target_group_arn=aws_lb_target_group["example"]["arn"])
+            autoscaling_group_name=example_aws_autoscaling_group["id"],
+            lb_target_group_arn=example_aws_lb_target_group["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,25 +181,29 @@ class Attachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # Create a new load balancer attachment
         example = aws.autoscaling.Attachment("example",
-            autoscaling_group_name=aws_autoscaling_group["example"]["id"],
-            elb=aws_elb["example"]["id"])
+            autoscaling_group_name=example_aws_autoscaling_group["id"],
+            elb=example_aws_elb["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # Create a new ALB Target Group attachment
         example = aws.autoscaling.Attachment("example",
-            autoscaling_group_name=aws_autoscaling_group["example"]["id"],
-            lb_target_group_arn=aws_lb_target_group["example"]["arn"])
+            autoscaling_group_name=example_aws_autoscaling_group["id"],
+            lb_target_group_arn=example_aws_lb_target_group["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param AttachmentArgs args: The arguments to use to populate this resource's properties.

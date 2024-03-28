@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * The following example shows how to get a firewall rule group from its ID.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  *     firewallRuleGroupId: "rslvr-frg-example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getResolverFirewallRuleGroup(args: GetResolverFirewallRuleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverFirewallRuleGroupResult> {
 
@@ -71,6 +73,7 @@ export interface GetResolverFirewallRuleGroupResult {
  *
  * The following example shows how to get a firewall rule group from its ID.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -79,6 +82,7 @@ export interface GetResolverFirewallRuleGroupResult {
  *     firewallRuleGroupId: "rslvr-frg-example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getResolverFirewallRuleGroupOutput(args: GetResolverFirewallRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverFirewallRuleGroupResult> {
     return pulumi.output(args).apply((a: any) => getResolverFirewallRuleGroup(a, opts))

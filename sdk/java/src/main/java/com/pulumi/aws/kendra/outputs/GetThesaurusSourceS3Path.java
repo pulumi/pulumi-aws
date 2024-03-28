@@ -4,6 +4,7 @@
 package com.pulumi.aws.kendra.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class GetThesaurusSourceS3Path {
 
         @CustomType.Setter
         public Builder bucket(String bucket) {
-            this.bucket = Objects.requireNonNull(bucket);
+            if (bucket == null) {
+              throw new MissingRequiredPropertyException("GetThesaurusSourceS3Path", "bucket");
+            }
+            this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("GetThesaurusSourceS3Path", "key");
+            }
+            this.key = key;
             return this;
         }
         public GetThesaurusSourceS3Path build() {
-            final var o = new GetThesaurusSourceS3Path();
-            o.bucket = bucket;
-            o.key = key;
-            return o;
+            final var _resultValue = new GetThesaurusSourceS3Path();
+            _resultValue.bucket = bucket;
+            _resultValue.key = key;
+            return _resultValue;
         }
     }
 }

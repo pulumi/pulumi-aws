@@ -74,25 +74,28 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
 
         @CustomType.Setter
         public Builder condition(@Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition condition) {
+
             this.condition = condition;
             return this;
         }
         @CustomType.Setter
         public Builder documentContentDeletion(@Nullable Boolean documentContentDeletion) {
+
             this.documentContentDeletion = documentContentDeletion;
             return this;
         }
         @CustomType.Setter
         public Builder target(@Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget target) {
+
             this.target = target;
             return this;
         }
         public DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration build() {
-            final var o = new DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration();
-            o.condition = condition;
-            o.documentContentDeletion = documentContentDeletion;
-            o.target = target;
-            return o;
+            final var _resultValue = new DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration();
+            _resultValue.condition = condition;
+            _resultValue.documentContentDeletion = documentContentDeletion;
+            _resultValue.target = target;
+            return _resultValue;
         }
     }
 }

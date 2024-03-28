@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Inspector
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,13 +27,14 @@ namespace Pulumi.Aws.Inspector
     ///     {
     ///         Tags = 
     ///         {
-    ///             { "Env", "bar" },
     ///             { "Name", "foo" },
+    ///             { "Env", "bar" },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:inspector/resourceGroup:ResourceGroup")]
     public partial class ResourceGroup : global::Pulumi.CustomResource

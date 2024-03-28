@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,21 +34,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCertificate, err := acm.NewCertificate(ctx, "exampleCertificate", nil)
+//			example, err := acm.NewCertificate(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lb.NewLoadBalancer(ctx, "frontEndLoadBalancer", nil)
+//			_, err = lb.NewLoadBalancer(ctx, "front_end", nil)
 //			if err != nil {
 //				return err
 //			}
-//			frontEndListener, err := lb.NewListener(ctx, "frontEndListener", nil)
+//			frontEndListener, err := lb.NewListener(ctx, "front_end", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lb.NewListenerCertificate(ctx, "exampleListenerCertificate", &lb.ListenerCertificateArgs{
+//			_, err = lb.NewListenerCertificate(ctx, "example", &lb.ListenerCertificateArgs{
 //				ListenerArn:    frontEndListener.Arn,
-//				CertificateArn: exampleCertificate.Arn,
+//				CertificateArn: example.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -57,15 +58,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Listener Certificates using the listener arn and certificate arn, separated by an underscore (`_`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:alb/listenerCertificate:ListenerCertificate example arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b_arn:aws:iam::123456789012:server-certificate/tf-acc-test-6453083910015726063
-//
+// $ pulumi import aws:alb/listenerCertificate:ListenerCertificate example arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b_arn:aws:iam::123456789012:server-certificate/tf-acc-test-6453083910015726063
 // ```
 type ListenerCertificate struct {
 	pulumi.CustomResourceState

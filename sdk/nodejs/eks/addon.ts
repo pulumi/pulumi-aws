@@ -9,30 +9,35 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.eks.Addon("example", {
- *     clusterName: aws_eks_cluster.example.name,
+ *     clusterName: exampleAwsEksCluster.name,
  *     addonName: "vpc-cni",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Example Update add-on usage with resolveConflictsOnUpdate and PRESERVE
  *
  * `resolveConflictsOnUpdate` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.eks.Addon("example", {
- *     clusterName: aws_eks_cluster.example.name,
+ *     clusterName: exampleAwsEksCluster.name,
  *     addonName: "coredns",
  *     addonVersion: "v1.10.1-eksbuild.1",
  *     resolveConflictsOnUpdate: "PRESERVE",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Example add-on usage with custom configurationValues
  *
@@ -43,12 +48,9 @@ import * as utilities from "../utilities";
  * To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
  * This below is an example for extracting the `configurationValues` schema for `coredns`.
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- *
  * Example to create a `coredns` managed addon with custom `configurationValues`.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -73,13 +75,62 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Example IAM Role for EKS Addon "vpc-cni" with AWS managed policy
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ * import * as tls from "@pulumi/tls";
+ *
+ * const exampleCluster = new aws.eks.Cluster("example", {});
+ * const example = exampleCluster.identities.apply(identities => tls.getCertificateOutput({
+ *     url: identities[0].oidcs?.[0]?.issuer,
+ * }));
+ * const exampleOpenIdConnectProvider = new aws.iam.OpenIdConnectProvider("example", {
+ *     clientIdLists: ["sts.amazonaws.com"],
+ *     thumbprintLists: [example.apply(example => example.certificates?.[0]?.sha1Fingerprint)],
+ *     url: exampleCluster.identities.apply(identities => identities[0].oidcs?.[0]?.issuer),
+ * });
+ * const exampleAssumeRolePolicy = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         actions: ["sts:AssumeRoleWithWebIdentity"],
+ *         effect: "Allow",
+ *         conditions: [{
+ *             test: "StringEquals",
+ *             variable: std.replaceOutput({
+ *                 text: exampleOpenIdConnectProvider.url,
+ *                 search: "https://",
+ *                 replace: "",
+ *             }).apply(invoke => `${invoke.result}:sub`),
+ *             values: ["system:serviceaccount:kube-system:aws-node"],
+ *         }],
+ *         principals: [{
+ *             identifiers: [exampleOpenIdConnectProvider.arn],
+ *             type: "Federated",
+ *         }],
+ *     }],
+ * });
+ * const exampleRole = new aws.iam.Role("example", {
+ *     assumeRolePolicy: exampleAssumeRolePolicy.apply(exampleAssumeRolePolicy => exampleAssumeRolePolicy.json),
+ *     name: "example-vpc-cni-role",
+ * });
+ * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
+ *     policyArn: "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
+ *     role: exampleRole.name,
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EKS add-on using the `cluster_name` and `addon_name` separated by a colon (`:`). For example:
  *
  * ```sh
- *  $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
+ * $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
  * ```
  */
 export class Addon extends pulumi.CustomResource {
@@ -125,7 +176,7 @@ export class Addon extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the EKS Cluster.
      *
      * The following arguments are optional:
      */
@@ -149,7 +200,7 @@ export class Addon extends pulumi.CustomResource {
     /**
      * Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolveConflictsOnCreate` and `resolveConflictsOnUpdate` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
      *
-     * @deprecated The "resolve_conflicts" attribute can't be set to "PRESERVE" on initial resource creation. Use "resolve_conflicts_on_create" and/or "resolve_conflicts_on_update" instead
+     * @deprecated The "resolveConflicts" attribute can't be set to "PRESERVE" on initial resource creation. Use "resolveConflictsOnCreate" and/or "resolveConflictsOnUpdate" instead
      */
     public readonly resolveConflicts!: pulumi.Output<string | undefined>;
     /**
@@ -236,8 +287,6 @@ export class Addon extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Addon.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -261,7 +310,7 @@ export interface AddonState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the EKS Cluster.
      *
      * The following arguments are optional:
      */
@@ -285,7 +334,7 @@ export interface AddonState {
     /**
      * Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolveConflictsOnCreate` and `resolveConflictsOnUpdate` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
      *
-     * @deprecated The "resolve_conflicts" attribute can't be set to "PRESERVE" on initial resource creation. Use "resolve_conflicts_on_create" and/or "resolve_conflicts_on_update" instead
+     * @deprecated The "resolveConflicts" attribute can't be set to "PRESERVE" on initial resource creation. Use "resolveConflictsOnCreate" and/or "resolveConflictsOnUpdate" instead
      */
     resolveConflicts?: pulumi.Input<string>;
     /**
@@ -337,7 +386,7 @@ export interface AddonArgs {
      */
     addonVersion?: pulumi.Input<string>;
     /**
-     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the EKS Cluster.
      *
      * The following arguments are optional:
      */
@@ -353,7 +402,7 @@ export interface AddonArgs {
     /**
      * Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolveConflictsOnCreate` and `resolveConflictsOnUpdate` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
      *
-     * @deprecated The "resolve_conflicts" attribute can't be set to "PRESERVE" on initial resource creation. Use "resolve_conflicts_on_create" and/or "resolve_conflicts_on_update" instead
+     * @deprecated The "resolveConflicts" attribute can't be set to "PRESERVE" on initial resource creation. Use "resolveConflictsOnCreate" and/or "resolveConflictsOnUpdate" instead
      */
     resolveConflicts?: pulumi.Input<string>;
     /**

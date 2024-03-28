@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/what-is-fsx-ontap.html) for more information.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,25 +50,26 @@ import javax.annotation.Nullable;
  *         var test = new OntapFileSystem(&#34;test&#34;, OntapFileSystemArgs.builder()        
  *             .storageCapacity(1024)
  *             .subnetIds(            
- *                 aws_subnet.test1().id(),
- *                 aws_subnet.test2().id())
+ *                 test1.id(),
+ *                 test2.id())
  *             .deploymentType(&#34;MULTI_AZ_1&#34;)
  *             .throughputCapacity(512)
- *             .preferredSubnetId(aws_subnet.test1().id())
+ *             .preferredSubnetId(test1.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import FSx File Systems using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:fsx/ontapFileSystem:OntapFileSystem example fs-543ab12b1ca672f33
+ * $ pulumi import aws:fsx/ontapFileSystem:OntapFileSystem example fs-543ab12b1ca672f33
  * ```
- *  Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+ * Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
  * 
  */
 @ResourceType(type="aws:fsx/ontapFileSystem:OntapFileSystem")
@@ -198,6 +201,20 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.fsxAdminPassword);
     }
     /**
+     * The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+     * 
+     */
+    @Export(name="haPairs", refs={Integer.class}, tree="[0]")
+    private Output<Integer> haPairs;
+
+    /**
+     * @return The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+     * 
+     */
+    public Output<Integer> haPairs() {
+        return this.haPairs;
+    }
+    /**
      * ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
      * 
      */
@@ -310,14 +327,14 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.storageType);
     }
     /**
-     * A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
+     * A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
      * 
      */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
     /**
-     * @return A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
+     * @return A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
      * 
      */
     public Output<List<String>> subnetIds() {
@@ -356,18 +373,32 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`.
+     * Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
      * 
      */
     @Export(name="throughputCapacity", refs={Integer.class}, tree="[0]")
-    private Output<Integer> throughputCapacity;
+    private Output</* @Nullable */ Integer> throughputCapacity;
 
     /**
-     * @return Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`.
+     * @return Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
      * 
      */
-    public Output<Integer> throughputCapacity() {
-        return this.throughputCapacity;
+    public Output<Optional<Integer>> throughputCapacity() {
+        return Codegen.optional(this.throughputCapacity);
+    }
+    /**
+     * Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+     * 
+     */
+    @Export(name="throughputCapacityPerHaPair", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> throughputCapacityPerHaPair;
+
+    /**
+     * @return Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+     * 
+     */
+    public Output<Optional<Integer>> throughputCapacityPerHaPair() {
+        return Codegen.optional(this.throughputCapacityPerHaPair);
     }
     /**
      * Identifier of the Virtual Private Cloud for the file system.
@@ -431,8 +462,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "fsxAdminPassword",
-                "tagsAll"
+                "fsxAdminPassword"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

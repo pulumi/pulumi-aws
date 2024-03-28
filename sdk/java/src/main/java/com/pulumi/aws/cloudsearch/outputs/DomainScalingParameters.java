@@ -73,25 +73,28 @@ public final class DomainScalingParameters {
 
         @CustomType.Setter
         public Builder desiredInstanceType(@Nullable String desiredInstanceType) {
+
             this.desiredInstanceType = desiredInstanceType;
             return this;
         }
         @CustomType.Setter
         public Builder desiredPartitionCount(@Nullable Integer desiredPartitionCount) {
+
             this.desiredPartitionCount = desiredPartitionCount;
             return this;
         }
         @CustomType.Setter
         public Builder desiredReplicationCount(@Nullable Integer desiredReplicationCount) {
+
             this.desiredReplicationCount = desiredReplicationCount;
             return this;
         }
         public DomainScalingParameters build() {
-            final var o = new DomainScalingParameters();
-            o.desiredInstanceType = desiredInstanceType;
-            o.desiredPartitionCount = desiredPartitionCount;
-            o.desiredReplicationCount = desiredReplicationCount;
-            return o;
+            final var _resultValue = new DomainScalingParameters();
+            _resultValue.desiredInstanceType = desiredInstanceType;
+            _resultValue.desiredPartitionCount = desiredPartitionCount;
+            _resultValue.desiredReplicationCount = desiredReplicationCount;
+            return _resultValue;
         }
     }
 }

@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Adds permission to create volumes off of a given EBS Snapshot.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -59,6 +61,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission")

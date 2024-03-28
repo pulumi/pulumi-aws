@@ -11,11 +11,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAmi = aws.ec2.getAmi({
+ * const example = aws.ec2.getAmi({
  *     mostRecent: true,
  *     owners: ["amazon"],
  *     filters: [{
@@ -23,23 +24,27 @@ import * as utilities from "../utilities";
  *         values: ["amzn-ami-vpc-nat*"],
  *     }],
  * });
- * const exampleInstance = new aws.ec2.Instance("exampleInstance", {
- *     ami: exampleAmi.then(exampleAmi => exampleAmi.id),
- *     instanceType: "t2.micro",
+ * const exampleInstance = new aws.ec2.Instance("example", {
+ *     ami: example.then(example => example.id),
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  * });
- * const exampleLicenseConfiguration = new aws.licensemanager.LicenseConfiguration("exampleLicenseConfiguration", {licenseCountingType: "Instance"});
- * const exampleAssociation = new aws.licensemanager.Association("exampleAssociation", {
+ * const exampleLicenseConfiguration = new aws.licensemanager.LicenseConfiguration("example", {
+ *     name: "Example",
+ *     licenseCountingType: "Instance",
+ * });
+ * const exampleAssociation = new aws.licensemanager.Association("example", {
  *     licenseConfigurationArn: exampleLicenseConfiguration.arn,
  *     resourceArn: exampleInstance.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import license configurations using `resource_arn,license_configuration_arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:licensemanager/association:Association example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+ * $ pulumi import aws:licensemanager/association:Association example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
  * ```
  */
 export class Association extends pulumi.CustomResource {

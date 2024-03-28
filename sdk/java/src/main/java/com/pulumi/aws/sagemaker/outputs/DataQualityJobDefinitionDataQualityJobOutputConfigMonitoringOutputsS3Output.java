@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,30 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringO
 
         @CustomType.Setter
         public Builder localPath(@Nullable String localPath) {
+
             this.localPath = localPath;
             return this;
         }
         @CustomType.Setter
         public Builder s3UploadMode(@Nullable String s3UploadMode) {
+
             this.s3UploadMode = s3UploadMode;
             return this;
         }
         @CustomType.Setter
         public Builder s3Uri(String s3Uri) {
-            this.s3Uri = Objects.requireNonNull(s3Uri);
+            if (s3Uri == null) {
+              throw new MissingRequiredPropertyException("DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output", "s3Uri");
+            }
+            this.s3Uri = s3Uri;
             return this;
         }
         public DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output build() {
-            final var o = new DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output();
-            o.localPath = localPath;
-            o.s3UploadMode = s3UploadMode;
-            o.s3Uri = s3Uri;
-            return o;
+            final var _resultValue = new DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output();
+            _resultValue.localPath = localPath;
+            _resultValue.s3UploadMode = s3UploadMode;
+            _resultValue.s3Uri = s3Uri;
+            return _resultValue;
         }
     }
 }

@@ -15,8 +15,10 @@ import (
 // Provides an Amazon Kendra Index resource.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,9 +32,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
+//				Name:        pulumi.String("example"),
 //				Description: pulumi.String("example"),
 //				Edition:     pulumi.String("DEVELOPER_EDITION"),
-//				RoleArn:     pulumi.Any(aws_iam_role.This.Arn),
+//				RoleArn:     pulumi.Any(this.Arn),
 //				Tags: pulumi.StringMap{
 //					"Key1": pulumi.String("Value1"),
 //				},
@@ -45,8 +48,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With capacity units
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,8 +66,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
+//				Name:    pulumi.String("example"),
 //				Edition: pulumi.String("DEVELOPER_EDITION"),
-//				RoleArn: pulumi.Any(aws_iam_role.This.Arn),
+//				RoleArn: pulumi.Any(this.Arn),
 //				CapacityUnits: &kendra.IndexCapacityUnitsArgs{
 //					QueryCapacityUnits:   pulumi.Int(2),
 //					StorageCapacityUnits: pulumi.Int(2),
@@ -75,8 +82,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With server side encryption configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -90,9 +100,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.This.Arn),
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(thisAwsIamRole.Arn),
 //				ServerSideEncryptionConfiguration: &kendra.IndexServerSideEncryptionConfigurationArgs{
-//					KmsKeyId: pulumi.Any(data.Aws_kms_key.This.Arn),
+//					KmsKeyId: pulumi.Any(this.Arn),
 //				},
 //			})
 //			if err != nil {
@@ -103,8 +114,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With user group resolution configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -118,7 +132,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.This.Arn),
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(this.Arn),
 //				UserGroupResolutionConfiguration: &kendra.IndexUserGroupResolutionConfigurationArgs{
 //					UserGroupResolutionMode: pulumi.String("AWS_SSO"),
 //				},
@@ -131,11 +146,15 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Document Metadata Configuration Updates
+//
 // ### Specifying the predefined elements
 //
 // Refer to [Amazon Kendra documentation on built-in document fields](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html#index-reserved-fields) for more information.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -149,7 +168,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.This.Arn),
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(this.Arn),
 //				DocumentMetadataConfigurationUpdates: kendra.IndexDocumentMetadataConfigurationUpdateArray{
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
 //						Name: pulumi.String("_authors"),
@@ -360,10 +380,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Appending additional elements
 //
 // The example below shows additional elements with names, `example-string-value`, `example-long-value`, `example-string-list-value`, `example-date-value` representing the 4 types of `STRING_VALUE`, `LONG_VALUE`, `STRING_LIST_VALUE`, `DATE_VALUE` respectively.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -377,7 +400,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.This.Arn),
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(this.Arn),
 //				DocumentMetadataConfigurationUpdates: kendra.IndexDocumentMetadataConfigurationUpdateArray{
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
 //						Name: pulumi.String("_authors"),
@@ -645,8 +669,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With JSON token type configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -660,7 +687,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.This.Arn),
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(this.Arn),
 //				UserTokenConfigurations: &kendra.IndexUserTokenConfigurationsArgs{
 //					JsonTokenTypeConfiguration: &kendra.IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs{
 //						GroupAttributeField:    pulumi.String("groups"),
@@ -676,15 +704,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Amazon Kendra Indexes using its `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123
-//
+// $ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123
 // ```
 type Index struct {
 	pulumi.CustomResourceState
@@ -740,10 +767,6 @@ func NewIndex(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Index
 	err := ctx.RegisterResource("aws:kendra/index:Index", name, args, &resource, opts...)

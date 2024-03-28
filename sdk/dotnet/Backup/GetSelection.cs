@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Backup
         /// <summary>
         /// Use this data source to get information on an existing backup selection.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,14 +27,13 @@ namespace Pulumi.Aws.Backup
         /// {
         ///     var example = Aws.Backup.GetSelection.Invoke(new()
         ///     {
-        ///         PlanId = data.Aws_backup_plan.Example.Id,
+        ///         PlanId = exampleAwsBackupPlan.Id,
         ///         SelectionId = "selection-id-example",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSelectionResult> InvokeAsync(GetSelectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSelectionResult>("aws:backup/getSelection:getSelection", args ?? new GetSelectionArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Aws.Backup
         /// <summary>
         /// Use this data source to get information on an existing backup selection.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -57,14 +54,13 @@ namespace Pulumi.Aws.Backup
         /// {
         ///     var example = Aws.Backup.GetSelection.Invoke(new()
         ///     {
-        ///         PlanId = data.Aws_backup_plan.Example.Id,
+        ///         PlanId = exampleAwsBackupPlan.Id,
         ///         SelectionId = "selection-id-example",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSelectionResult> Invoke(GetSelectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSelectionResult>("aws:backup/getSelection:getSelection", args ?? new GetSelectionInvokeArgs(), options.WithDefaults());

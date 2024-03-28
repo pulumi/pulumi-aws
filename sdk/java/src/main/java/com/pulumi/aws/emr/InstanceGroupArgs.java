@@ -6,6 +6,7 @@ package com.pulumi.aws.emr;
 import com.pulumi.aws.emr.inputs.InstanceGroupEbsConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -66,6 +67,8 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -103,13 +106,13 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
      * &#34;Properties&#34;: {}
      * }
      * ]
-     * 
      *             &#34;&#34;&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Import(name="configurationsJson")
@@ -117,6 +120,8 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -154,13 +159,13 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
      * &#34;Properties&#34;: {}
      * }
      * ]
-     * 
      *             &#34;&#34;&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<Output<String>> configurationsJson() {
@@ -339,6 +344,8 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param configurationsJson A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -376,13 +383,13 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
          * &#34;Properties&#34;: {}
          * }
          * ]
-         * 
          *             &#34;&#34;&#34;)
          *             .build());
          * 
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -394,6 +401,8 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param configurationsJson A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -431,13 +440,13 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
          * &#34;Properties&#34;: {}
          * }
          * ]
-         * 
          *             &#34;&#34;&#34;)
          *             .build());
          * 
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -562,8 +571,12 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public InstanceGroupArgs build() {
-            $.clusterId = Objects.requireNonNull($.clusterId, "expected parameter 'clusterId' to be non-null");
-            $.instanceType = Objects.requireNonNull($.instanceType, "expected parameter 'instanceType' to be non-null");
+            if ($.clusterId == null) {
+                throw new MissingRequiredPropertyException("InstanceGroupArgs", "clusterId");
+            }
+            if ($.instanceType == null) {
+                throw new MissingRequiredPropertyException("InstanceGroupArgs", "instanceType");
+            }
             return $;
         }
     }

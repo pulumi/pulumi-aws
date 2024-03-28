@@ -18,14 +18,14 @@ public final class SizeConstraintSetState extends com.pulumi.resources.ResourceA
     public static final SizeConstraintSetState Empty = new SizeConstraintSetState();
 
     /**
-     * Amazon Resource Name (ARN)
+     * Amazon Resource Name (ARN).
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN)
+     * @return Amazon Resource Name (ARN).
      * 
      */
     public Optional<Output<String>> arn() {
@@ -33,14 +33,14 @@ public final class SizeConstraintSetState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The name or description of the Size Constraint Set.
+     * Name or description of the Size Constraint Set.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name or description of the Size Constraint Set.
+     * @return Name or description of the Size Constraint Set.
      * 
      */
     public Optional<Output<String>> name() {
@@ -48,14 +48,14 @@ public final class SizeConstraintSetState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies the parts of web requests that you want to inspect the size of.
+     * Parts of web requests that you want to inspect the size of.
      * 
      */
     @Import(name="sizeConstraints")
     private @Nullable Output<List<SizeConstraintSetSizeConstraintArgs>> sizeConstraints;
 
     /**
-     * @return Specifies the parts of web requests that you want to inspect the size of.
+     * @return Parts of web requests that you want to inspect the size of.
      * 
      */
     public Optional<Output<List<SizeConstraintSetSizeConstraintArgs>>> sizeConstraints() {
@@ -89,7 +89,7 @@ public final class SizeConstraintSetState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN)
+         * @param arn Amazon Resource Name (ARN).
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class SizeConstraintSetState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN)
+         * @param arn Amazon Resource Name (ARN).
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class SizeConstraintSetState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name or description of the Size Constraint Set.
+         * @param name Name or description of the Size Constraint Set.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class SizeConstraintSetState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name or description of the Size Constraint Set.
+         * @param name Name or description of the Size Constraint Set.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class SizeConstraintSetState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sizeConstraints Specifies the parts of web requests that you want to inspect the size of.
+         * @param sizeConstraints Parts of web requests that you want to inspect the size of.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class SizeConstraintSetState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sizeConstraints Specifies the parts of web requests that you want to inspect the size of.
+         * @param sizeConstraints Parts of web requests that you want to inspect the size of.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class SizeConstraintSetState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sizeConstraints Specifies the parts of web requests that you want to inspect the size of.
+         * @param sizeConstraints Parts of web requests that you want to inspect the size of.
          * 
          * @return builder
          * 

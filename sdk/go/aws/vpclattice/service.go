@@ -14,8 +14,10 @@ import (
 // Resource for managing an AWS VPC Lattice Service.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.NewService(ctx, "example", &vpclattice.ServiceArgs{
+//				Name:             pulumi.String("example"),
 //				AuthType:         pulumi.String("AWS_IAM"),
 //				CustomDomainName: pulumi.String("example.com"),
 //			})
@@ -40,20 +43,19 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import VPC Lattice Service using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
-//
+// $ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
 // ```
 type Service struct {
 	pulumi.CustomResourceState
 
-	// ARN of the service. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+	// ARN of the service.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
 	AuthType pulumi.StringOutput `pulumi:"authType"`
@@ -61,7 +63,7 @@ type Service struct {
 	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
 	// Custom domain name of the service.
 	CustomDomainName pulumi.StringPtrOutput `pulumi:"customDomainName"`
-	// Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+	// DNS name of the service.
 	DnsEntries ServiceDnsEntryArrayOutput `pulumi:"dnsEntries"`
 	// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
 	//
@@ -84,10 +86,6 @@ func NewService(ctx *pulumi.Context,
 		args = &ServiceArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Service
 	err := ctx.RegisterResource("aws:vpclattice/service:Service", name, args, &resource, opts...)
@@ -111,7 +109,7 @@ func GetService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Service resources.
 type serviceState struct {
-	// ARN of the service. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+	// ARN of the service.
 	Arn *string `pulumi:"arn"`
 	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
 	AuthType *string `pulumi:"authType"`
@@ -119,7 +117,7 @@ type serviceState struct {
 	CertificateArn *string `pulumi:"certificateArn"`
 	// Custom domain name of the service.
 	CustomDomainName *string `pulumi:"customDomainName"`
-	// Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+	// DNS name of the service.
 	DnsEntries []ServiceDnsEntry `pulumi:"dnsEntries"`
 	// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
 	//
@@ -136,7 +134,7 @@ type serviceState struct {
 }
 
 type ServiceState struct {
-	// ARN of the service. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+	// ARN of the service.
 	Arn pulumi.StringPtrInput
 	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
 	AuthType pulumi.StringPtrInput
@@ -144,7 +142,7 @@ type ServiceState struct {
 	CertificateArn pulumi.StringPtrInput
 	// Custom domain name of the service.
 	CustomDomainName pulumi.StringPtrInput
-	// Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+	// DNS name of the service.
 	DnsEntries ServiceDnsEntryArrayInput
 	// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
 	//
@@ -282,7 +280,7 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 	return o
 }
 
-// ARN of the service. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+// ARN of the service.
 func (o ServiceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -302,7 +300,7 @@ func (o ServiceOutput) CustomDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.CustomDomainName }).(pulumi.StringPtrOutput)
 }
 
-// Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+// DNS name of the service.
 func (o ServiceOutput) DnsEntries() ServiceDnsEntryArrayOutput {
 	return o.ApplyT(func(v *Service) ServiceDnsEntryArrayOutput { return v.DnsEntries }).(ServiceDnsEntryArrayOutput)
 }

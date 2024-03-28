@@ -9,20 +9,25 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const yada = new aws.cloudwatch.LogGroup("yada", {});
- * const foo = new aws.cloudwatch.LogStream("foo", {logGroupName: yada.name});
+ * const yada = new aws.cloudwatch.LogGroup("yada", {name: "Yada"});
+ * const foo = new aws.cloudwatch.LogStream("foo", {
+ *     name: "SampleLogStream1234",
+ *     logGroupName: yada.name,
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Cloudwatch Log Stream using the stream's `log_group_name` and `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
+ * $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
  * ```
  */
 export class LogStream extends pulumi.CustomResource {

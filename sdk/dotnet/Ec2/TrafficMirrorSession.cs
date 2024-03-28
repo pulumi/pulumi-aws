@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// To create a basic traffic mirror session
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,13 +37,13 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var target = new Aws.Ec2.TrafficMirrorTarget("target", new()
     ///     {
-    ///         NetworkLoadBalancerArn = aws_lb.Lb.Arn,
+    ///         NetworkLoadBalancerArn = lb.Arn,
     ///     });
     /// 
     ///     var session = new Aws.Ec2.TrafficMirrorSession("session", new()
     ///     {
     ///         Description = "traffic mirror session - example",
-    ///         NetworkInterfaceId = aws_instance.Test.Primary_network_interface_id,
+    ///         NetworkInterfaceId = test.PrimaryNetworkInterfaceId,
     ///         SessionNumber = 1,
     ///         TrafficMirrorFilterId = filter.Id,
     ///         TrafficMirrorTargetId = target.Id,
@@ -50,13 +51,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import traffic mirror sessions using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
+    /// $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/trafficMirrorSession:TrafficMirrorSession")]
@@ -151,10 +153,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -298,11 +296,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

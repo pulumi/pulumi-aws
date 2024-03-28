@@ -973,59 +973,69 @@ class UserPool(pulumi.CustomResource):
         Provides a Cognito User Pool resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        pool = aws.cognito.UserPool("pool")
+        pool = aws.cognito.UserPool("pool", name="mypool")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Enabling SMS and Software Token Multi-Factor Authentication
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        # ... other configuration ...
         example = aws.cognito.UserPool("example",
             mfa_configuration="ON",
             sms_authentication_message="Your code is {####}",
             sms_configuration=aws.cognito.UserPoolSmsConfigurationArgs(
                 external_id="example",
-                sns_caller_arn=aws_iam_role["example"]["arn"],
+                sns_caller_arn=example_aws_iam_role["arn"],
                 sns_region="us-east-1",
             ),
             software_token_mfa_configuration=aws.cognito.UserPoolSoftwareTokenMfaConfigurationArgs(
                 enabled=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using Account Recovery Setting
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.cognito.UserPool("test", account_recovery_setting=aws.cognito.UserPoolAccountRecoverySettingArgs(
-            recovery_mechanisms=[
-                aws.cognito.UserPoolAccountRecoverySettingRecoveryMechanismArgs(
-                    name="verified_email",
-                    priority=1,
-                ),
-                aws.cognito.UserPoolAccountRecoverySettingRecoveryMechanismArgs(
-                    name="verified_phone_number",
-                    priority=2,
-                ),
-            ],
-        ))
+        test = aws.cognito.UserPool("test",
+            name="mypool",
+            account_recovery_setting=aws.cognito.UserPoolAccountRecoverySettingArgs(
+                recovery_mechanisms=[
+                    aws.cognito.UserPoolAccountRecoverySettingRecoveryMechanismArgs(
+                        name="verified_email",
+                        priority=1,
+                    ),
+                    aws.cognito.UserPoolAccountRecoverySettingRecoveryMechanismArgs(
+                        name="verified_phone_number",
+                        priority=2,
+                    ),
+                ],
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cognito User Pools using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
+        $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
         ```
 
         :param str resource_name: The name of the resource.
@@ -1067,59 +1077,69 @@ class UserPool(pulumi.CustomResource):
         Provides a Cognito User Pool resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        pool = aws.cognito.UserPool("pool")
+        pool = aws.cognito.UserPool("pool", name="mypool")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Enabling SMS and Software Token Multi-Factor Authentication
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        # ... other configuration ...
         example = aws.cognito.UserPool("example",
             mfa_configuration="ON",
             sms_authentication_message="Your code is {####}",
             sms_configuration=aws.cognito.UserPoolSmsConfigurationArgs(
                 external_id="example",
-                sns_caller_arn=aws_iam_role["example"]["arn"],
+                sns_caller_arn=example_aws_iam_role["arn"],
                 sns_region="us-east-1",
             ),
             software_token_mfa_configuration=aws.cognito.UserPoolSoftwareTokenMfaConfigurationArgs(
                 enabled=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using Account Recovery Setting
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.cognito.UserPool("test", account_recovery_setting=aws.cognito.UserPoolAccountRecoverySettingArgs(
-            recovery_mechanisms=[
-                aws.cognito.UserPoolAccountRecoverySettingRecoveryMechanismArgs(
-                    name="verified_email",
-                    priority=1,
-                ),
-                aws.cognito.UserPoolAccountRecoverySettingRecoveryMechanismArgs(
-                    name="verified_phone_number",
-                    priority=2,
-                ),
-            ],
-        ))
+        test = aws.cognito.UserPool("test",
+            name="mypool",
+            account_recovery_setting=aws.cognito.UserPoolAccountRecoverySettingArgs(
+                recovery_mechanisms=[
+                    aws.cognito.UserPoolAccountRecoverySettingRecoveryMechanismArgs(
+                        name="verified_email",
+                        priority=1,
+                    ),
+                    aws.cognito.UserPoolAccountRecoverySettingRecoveryMechanismArgs(
+                        name="verified_phone_number",
+                        priority=2,
+                    ),
+                ],
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cognito User Pools using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
+        $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
         ```
 
         :param str resource_name: The name of the resource.
@@ -1202,8 +1222,6 @@ class UserPool(pulumi.CustomResource):
             __props__.__dict__["estimated_number_of_users"] = None
             __props__.__dict__["last_modified_date"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(UserPool, __self__).__init__(
             'aws:cognito/userPool:UserPool',
             resource_name,

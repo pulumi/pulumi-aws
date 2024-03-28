@@ -44,6 +44,7 @@ public final class ThemeConfigurationTypography {
 
         @CustomType.Setter
         public Builder fontFamilies(@Nullable List<ThemeConfigurationTypographyFontFamily> fontFamilies) {
+
             this.fontFamilies = fontFamilies;
             return this;
         }
@@ -51,9 +52,9 @@ public final class ThemeConfigurationTypography {
             return fontFamilies(List.of(fontFamilies));
         }
         public ThemeConfigurationTypography build() {
-            final var o = new ThemeConfigurationTypography();
-            o.fontFamilies = fontFamilies;
-            return o;
+            final var _resultValue = new ThemeConfigurationTypography();
+            _resultValue.fontFamilies = fontFamilies;
+            return _resultValue;
         }
     }
 }

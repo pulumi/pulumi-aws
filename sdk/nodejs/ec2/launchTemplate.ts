@@ -10,86 +10,12 @@ import * as utilities from "../utilities";
 /**
  * Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- *
- * const foo = new aws.ec2.LaunchTemplate("foo", {
- *     blockDeviceMappings: [{
- *         deviceName: "/dev/sdf",
- *         ebs: {
- *             volumeSize: 20,
- *         },
- *     }],
- *     capacityReservationSpecification: {
- *         capacityReservationPreference: "open",
- *     },
- *     cpuOptions: {
- *         coreCount: 4,
- *         threadsPerCore: 2,
- *     },
- *     creditSpecification: {
- *         cpuCredits: "standard",
- *     },
- *     disableApiStop: true,
- *     disableApiTermination: true,
- *     ebsOptimized: "true",
- *     elasticGpuSpecifications: [{
- *         type: "test",
- *     }],
- *     elasticInferenceAccelerator: {
- *         type: "eia1.medium",
- *     },
- *     iamInstanceProfile: {
- *         name: "test",
- *     },
- *     imageId: "ami-test",
- *     instanceInitiatedShutdownBehavior: "terminate",
- *     instanceMarketOptions: {
- *         marketType: "spot",
- *     },
- *     instanceType: "t2.micro",
- *     kernelId: "test",
- *     keyName: "test",
- *     licenseSpecifications: [{
- *         licenseConfigurationArn: "arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef",
- *     }],
- *     metadataOptions: {
- *         httpEndpoint: "enabled",
- *         httpTokens: "required",
- *         httpPutResponseHopLimit: 1,
- *         instanceMetadataTags: "enabled",
- *     },
- *     monitoring: {
- *         enabled: true,
- *     },
- *     networkInterfaces: [{
- *         associatePublicIpAddress: "true",
- *     }],
- *     placement: {
- *         availabilityZone: "us-west-2a",
- *     },
- *     ramDiskId: "test",
- *     vpcSecurityGroupIds: ["sg-12345678"],
- *     tagSpecifications: [{
- *         resourceType: "instance",
- *         tags: {
- *             Name: "test",
- *         },
- *     }],
- *     userData: Buffer.from(fs.readFileSync(`${path.module}/example.sh`), 'binary').toString('base64'),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Launch Templates using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/launchTemplate:LaunchTemplate web lt-12345678
+ * $ pulumi import aws:ec2/launchTemplate:LaunchTemplate web lt-12345678
  * ```
  */
 export class LaunchTemplate extends pulumi.CustomResource {
@@ -389,8 +315,6 @@ export class LaunchTemplate extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LaunchTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }

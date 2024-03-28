@@ -367,19 +367,20 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        default_cluster = aws.redshift.Cluster("defaultCluster",
+        default = aws.redshift.Cluster("default",
             cluster_identifier="default",
             database_name="default")
-        # ...
-        default_topic = aws.sns.Topic("defaultTopic")
-        default_event_subscription = aws.redshift.EventSubscription("defaultEventSubscription",
+        default_topic = aws.sns.Topic("default", name="redshift-events")
+        default_event_subscription = aws.redshift.EventSubscription("default",
+            name="redshift-event-sub",
             sns_topic_arn=default_topic.arn,
             source_type="cluster",
-            source_ids=[default_cluster.id],
+            source_ids=[default.id],
             severity="INFO",
             event_categories=[
                 "configuration",
@@ -391,13 +392,14 @@ class EventSubscription(pulumi.CustomResource):
                 "Name": "default",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Event Subscriptions using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub
+        $ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub
         ```
 
         :param str resource_name: The name of the resource.
@@ -422,19 +424,20 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        default_cluster = aws.redshift.Cluster("defaultCluster",
+        default = aws.redshift.Cluster("default",
             cluster_identifier="default",
             database_name="default")
-        # ...
-        default_topic = aws.sns.Topic("defaultTopic")
-        default_event_subscription = aws.redshift.EventSubscription("defaultEventSubscription",
+        default_topic = aws.sns.Topic("default", name="redshift-events")
+        default_event_subscription = aws.redshift.EventSubscription("default",
+            name="redshift-event-sub",
             sns_topic_arn=default_topic.arn,
             source_type="cluster",
-            source_ids=[default_cluster.id],
+            source_ids=[default.id],
             severity="INFO",
             event_categories=[
                 "configuration",
@@ -446,13 +449,14 @@ class EventSubscription(pulumi.CustomResource):
                 "Name": "default",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Event Subscriptions using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub
+        $ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub
         ```
 
         :param str resource_name: The name of the resource.
@@ -501,8 +505,6 @@ class EventSubscription(pulumi.CustomResource):
             __props__.__dict__["customer_aws_id"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EventSubscription, __self__).__init__(
             'aws:redshift/eventSubscription:EventSubscription',
             resource_name,

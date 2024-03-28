@@ -12,12 +12,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
  *     bucket: exampleBucketV2.id,
  *     acl: "private",
  * });
@@ -31,8 +32,11 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const examplePolicyDocument = pulumi.all([exampleBucketV2.arn, exampleBucketV2.arn]).apply(([exampleBucketV2Arn, exampleBucketV2Arn1]) => aws.iam.getPolicyDocumentOutput({
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "example",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const example = pulumi.all([exampleBucketV2.arn, exampleBucketV2.arn]).apply(([exampleBucketV2Arn, exampleBucketV2Arn1]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             effect: "Allow",
@@ -65,8 +69,8 @@ import * as utilities from "../utilities";
  *                     test: "StringEquals",
  *                     variable: "ec2:Subnet",
  *                     values: [
- *                         aws_subnet.example1.arn,
- *                         aws_subnet.example2.arn,
+ *                         example1.arn,
+ *                         example2.arn,
  *                     ],
  *                 },
  *                 {
@@ -86,11 +90,12 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * }));
- * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
+ * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
  *     role: exampleRole.name,
- *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
+ *     policy: example.apply(example => example.json),
  * });
- * const exampleProject = new aws.codebuild.Project("exampleProject", {
+ * const exampleProject = new aws.codebuild.Project("example", {
+ *     name: "test-project",
  *     description: "test_codebuild_project",
  *     buildTimeout: 5,
  *     serviceRole: exampleRole.arn,
@@ -138,14 +143,14 @@ import * as utilities from "../utilities";
  *     },
  *     sourceVersion: "master",
  *     vpcConfig: {
- *         vpcId: aws_vpc.example.id,
+ *         vpcId: exampleAwsVpc.id,
  *         subnets: [
- *             aws_subnet.example1.id,
- *             aws_subnet.example2.id,
+ *             example1.id,
+ *             example2.id,
  *         ],
  *         securityGroupIds: [
- *             aws_security_group.example1.id,
- *             aws_security_group.example2.id,
+ *             example1AwsSecurityGroup.id,
+ *             example2AwsSecurityGroup.id,
  *         ],
  *     },
  *     tags: {
@@ -153,6 +158,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const project_with_cache = new aws.codebuild.Project("project-with-cache", {
+ *     name: "test-project-cache",
  *     description: "test_codebuild_project_cache",
  *     buildTimeout: 5,
  *     queuedTimeout: 5,
@@ -187,13 +193,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CodeBuild Project using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:codebuild/project:Project name project-name
+ * $ pulumi import aws:codebuild/project:Project name project-name
  * ```
  */
 export class Project extends pulumi.CustomResource {
@@ -245,7 +252,7 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly buildBatchConfig!: pulumi.Output<outputs.codebuild.ProjectBuildBatchConfig | undefined>;
     /**
-     * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+     * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
      */
     public readonly buildTimeout!: pulumi.Output<number | undefined>;
     /**
@@ -289,11 +296,11 @@ export class Project extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicProjectAlias!: pulumi.Output<string>;
     /**
-     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
      */
     public readonly queuedTimeout!: pulumi.Output<number | undefined>;
     /**
-     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if `projectVisibility` is `PUBLIC_READ`.
      */
     public readonly resourceAccessRole!: pulumi.Output<string | undefined>;
     /**
@@ -420,8 +427,6 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Project.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -451,7 +456,7 @@ export interface ProjectState {
      */
     buildBatchConfig?: pulumi.Input<inputs.codebuild.ProjectBuildBatchConfig>;
     /**
-     * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+     * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
      */
     buildTimeout?: pulumi.Input<number>;
     /**
@@ -495,11 +500,11 @@ export interface ProjectState {
      */
     publicProjectAlias?: pulumi.Input<string>;
     /**
-     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
      */
     queuedTimeout?: pulumi.Input<number>;
     /**
-     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if `projectVisibility` is `PUBLIC_READ`.
      */
     resourceAccessRole?: pulumi.Input<string>;
     /**
@@ -561,7 +566,7 @@ export interface ProjectArgs {
      */
     buildBatchConfig?: pulumi.Input<inputs.codebuild.ProjectBuildBatchConfig>;
     /**
-     * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+     * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
      */
     buildTimeout?: pulumi.Input<number>;
     /**
@@ -601,11 +606,11 @@ export interface ProjectArgs {
      */
     projectVisibility?: pulumi.Input<string>;
     /**
-     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
      */
     queuedTimeout?: pulumi.Input<number>;
     /**
-     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if `projectVisibility` is `PUBLIC_READ`.
      */
     resourceAccessRole?: pulumi.Input<string>;
     /**

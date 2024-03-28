@@ -11,20 +11,23 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Kendra Experience.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.Experience("example", {
- *     indexId: aws_kendra_index.example.id,
+ *     indexId: exampleAwsKendraIndex.id,
  *     description: "My Kendra Experience",
- *     roleArn: aws_iam_role.example.arn,
+ *     name: "example",
+ *     roleArn: exampleAwsIamRole.arn,
  *     configuration: {
  *         contentSourceConfiguration: {
  *             directPutContent: true,
- *             faqIds: [aws_kendra_faq.example.faq_id],
+ *             faqIds: [exampleAwsKendraFaq.faqId],
  *         },
  *         userIdentityConfiguration: {
  *             identityAttributeName: "12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
@@ -32,13 +35,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Kendra Experience using the unique identifiers of the experience and index separated by a slash (`/`). For example:
  *
  * ```sh
- *  $ pulumi import aws:kendra/experience:Experience example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
+ * $ pulumi import aws:kendra/experience:Experience example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
  * ```
  */
 export class Experience extends pulumi.CustomResource {

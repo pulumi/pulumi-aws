@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import the default EBS encryption state. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
-//
+// $ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
 // ```
 type EncryptionByDefault struct {
 	pulumi.CustomResourceState

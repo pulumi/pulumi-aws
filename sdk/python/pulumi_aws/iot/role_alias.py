@@ -16,17 +16,21 @@ class RoleAliasArgs:
     def __init__(__self__, *,
                  alias: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
-                 credential_duration: Optional[pulumi.Input[int]] = None):
+                 credential_duration: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RoleAlias resource.
         :param pulumi.Input[str] alias: The name of the role alias.
         :param pulumi.Input[str] role_arn: The identity of the role to which the alias refers.
         :param pulumi.Input[int] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "alias", alias)
         pulumi.set(__self__, "role_arn", role_arn)
         if credential_duration is not None:
             pulumi.set(__self__, "credential_duration", credential_duration)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -64,6 +68,18 @@ class RoleAliasArgs:
     def credential_duration(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "credential_duration", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _RoleAliasState:
@@ -71,13 +87,17 @@ class _RoleAliasState:
                  alias: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  credential_duration: Optional[pulumi.Input[int]] = None,
-                 role_arn: Optional[pulumi.Input[str]] = None):
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering RoleAlias resources.
         :param pulumi.Input[str] alias: The name of the role alias.
         :param pulumi.Input[str] arn: The ARN assigned by AWS to this role alias.
         :param pulumi.Input[int] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
         :param pulumi.Input[str] role_arn: The identity of the role to which the alias refers.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
@@ -87,6 +107,13 @@ class _RoleAliasState:
             pulumi.set(__self__, "credential_duration", credential_duration)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -136,6 +163,33 @@ class _RoleAliasState:
     def role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role_arn", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 class RoleAlias(pulumi.CustomResource):
     @overload
@@ -145,6 +199,7 @@ class RoleAlias(pulumi.CustomResource):
                  alias: Optional[pulumi.Input[str]] = None,
                  credential_duration: Optional[pulumi.Input[int]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides an IoT role alias.
@@ -154,7 +209,7 @@ class RoleAlias(pulumi.CustomResource):
         Using `pulumi import`, import IOT Role Alias using the alias. For example:
 
         ```sh
-         $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
+        $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
         ```
 
         :param str resource_name: The name of the resource.
@@ -162,6 +217,7 @@ class RoleAlias(pulumi.CustomResource):
         :param pulumi.Input[str] alias: The name of the role alias.
         :param pulumi.Input[int] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
         :param pulumi.Input[str] role_arn: The identity of the role to which the alias refers.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -177,7 +233,7 @@ class RoleAlias(pulumi.CustomResource):
         Using `pulumi import`, import IOT Role Alias using the alias. For example:
 
         ```sh
-         $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
+        $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
         ```
 
         :param str resource_name: The name of the resource.
@@ -198,6 +254,7 @@ class RoleAlias(pulumi.CustomResource):
                  alias: Optional[pulumi.Input[str]] = None,
                  credential_duration: Optional[pulumi.Input[int]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -214,7 +271,9 @@ class RoleAlias(pulumi.CustomResource):
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(RoleAlias, __self__).__init__(
             'aws:iot/roleAlias:RoleAlias',
             resource_name,
@@ -228,7 +287,9 @@ class RoleAlias(pulumi.CustomResource):
             alias: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             credential_duration: Optional[pulumi.Input[int]] = None,
-            role_arn: Optional[pulumi.Input[str]] = None) -> 'RoleAlias':
+            role_arn: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'RoleAlias':
         """
         Get an existing RoleAlias resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -240,6 +301,8 @@ class RoleAlias(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN assigned by AWS to this role alias.
         :param pulumi.Input[int] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
         :param pulumi.Input[str] role_arn: The identity of the role to which the alias refers.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -249,6 +312,8 @@ class RoleAlias(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["credential_duration"] = credential_duration
         __props__.__dict__["role_arn"] = role_arn
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         return RoleAlias(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -282,4 +347,23 @@ class RoleAlias(pulumi.CustomResource):
         The identity of the role to which the alias refers.
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
+        return pulumi.get(self, "tags_all")
 

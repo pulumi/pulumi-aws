@@ -72,25 +72,28 @@ public final class DevicePoolRule {
 
         @CustomType.Setter
         public Builder attribute(@Nullable String attribute) {
+
             this.attribute = attribute;
             return this;
         }
         @CustomType.Setter
         public Builder operator(@Nullable String operator) {
+
             this.operator = operator;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }
         public DevicePoolRule build() {
-            final var o = new DevicePoolRule();
-            o.attribute = attribute;
-            o.operator = operator;
-            o.value = value;
-            return o;
+            final var _resultValue = new DevicePoolRule();
+            _resultValue.attribute = attribute;
+            _resultValue.operator = operator;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -171,31 +171,37 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_access_point = aws.s3.AccessPoint("exampleAccessPoint", bucket=example_bucket_v2.id)
-        example_object_lambda_access_point = aws.s3control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", configuration=aws.s3control.ObjectLambdaAccessPointConfigurationArgs(
-            supporting_access_point=example_access_point.arn,
-            transformation_configurations=[aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs(
-                actions=["GetObject"],
-                content_transformation=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs(
-                    aws_lambda=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs(
-                        function_arn=aws_lambda_function["example"]["arn"],
+        example = aws.s3.BucketV2("example", bucket="example")
+        example_access_point = aws.s3.AccessPoint("example",
+            bucket=example.id,
+            name="example")
+        example_object_lambda_access_point = aws.s3control.ObjectLambdaAccessPoint("example",
+            name="example",
+            configuration=aws.s3control.ObjectLambdaAccessPointConfigurationArgs(
+                supporting_access_point=example_access_point.arn,
+                transformation_configurations=[aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs(
+                    actions=["GetObject"],
+                    content_transformation=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs(
+                        aws_lambda=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs(
+                            function_arn=example_aws_lambda_function["arn"],
+                        ),
                     ),
-                ),
-            )],
-        ))
+                )],
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Object Lambda Access Points using the `account_id` and `name`, separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint example 123456789012:example
+        $ pulumi import aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint example 123456789012:example
         ```
 
         :param str resource_name: The name of the resource.
@@ -216,31 +222,37 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_access_point = aws.s3.AccessPoint("exampleAccessPoint", bucket=example_bucket_v2.id)
-        example_object_lambda_access_point = aws.s3control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", configuration=aws.s3control.ObjectLambdaAccessPointConfigurationArgs(
-            supporting_access_point=example_access_point.arn,
-            transformation_configurations=[aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs(
-                actions=["GetObject"],
-                content_transformation=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs(
-                    aws_lambda=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs(
-                        function_arn=aws_lambda_function["example"]["arn"],
+        example = aws.s3.BucketV2("example", bucket="example")
+        example_access_point = aws.s3.AccessPoint("example",
+            bucket=example.id,
+            name="example")
+        example_object_lambda_access_point = aws.s3control.ObjectLambdaAccessPoint("example",
+            name="example",
+            configuration=aws.s3control.ObjectLambdaAccessPointConfigurationArgs(
+                supporting_access_point=example_access_point.arn,
+                transformation_configurations=[aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs(
+                    actions=["GetObject"],
+                    content_transformation=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs(
+                        aws_lambda=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs(
+                            function_arn=example_aws_lambda_function["arn"],
+                        ),
                     ),
-                ),
-            )],
-        ))
+                )],
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Object Lambda Access Points using the `account_id` and `name`, separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint example 123456789012:example
+        $ pulumi import aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint example 123456789012:example
         ```
 
         :param str resource_name: The name of the resource.

@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesis.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,43 +115,55 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
 
         @CustomType.Setter
         public Builder catalogId(@Nullable String catalogId) {
+
             this.catalogId = catalogId;
             return this;
         }
         @CustomType.Setter
         public Builder databaseName(String databaseName) {
-            this.databaseName = Objects.requireNonNull(databaseName);
+            if (databaseName == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration", "databaseName");
+            }
+            this.databaseName = databaseName;
             return this;
         }
         @CustomType.Setter
         public Builder region(@Nullable String region) {
+
             this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder tableName(String tableName) {
-            this.tableName = Objects.requireNonNull(tableName);
+            if (tableName == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration", "tableName");
+            }
+            this.tableName = tableName;
             return this;
         }
         @CustomType.Setter
         public Builder versionId(@Nullable String versionId) {
+
             this.versionId = versionId;
             return this;
         }
         public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration build() {
-            final var o = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration();
-            o.catalogId = catalogId;
-            o.databaseName = databaseName;
-            o.region = region;
-            o.roleArn = roleArn;
-            o.tableName = tableName;
-            o.versionId = versionId;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration();
+            _resultValue.catalogId = catalogId;
+            _resultValue.databaseName = databaseName;
+            _resultValue.region = region;
+            _resultValue.roleArn = roleArn;
+            _resultValue.tableName = tableName;
+            _resultValue.versionId = versionId;
+            return _resultValue;
         }
     }
 }

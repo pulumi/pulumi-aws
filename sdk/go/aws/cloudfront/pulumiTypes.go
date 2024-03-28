@@ -5931,7 +5931,7 @@ type DistributionViewerCertificate struct {
 	IamCertificateId *string `pulumi:"iamCertificateId"`
 	// Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Can only be set if `cloudfrontDefaultCertificate = false`. See all possible values in [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html) table under "Security policy." Some examples include: `TLSv1.2_2019` and `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**: If you are using a custom certificate (specified with `acmCertificateArn` or `iamCertificateId`), and have specified `sni-only` in `sslSupportMethod`, `TLSv1` or later must be specified. If you have specified `vip` in `sslSupportMethod`, only `SSLv3` or `TLSv1` can be specified. If you have specified `cloudfrontDefaultCertificate`, `TLSv1` must be specified.
 	MinimumProtocolVersion *string `pulumi:"minimumProtocolVersion"`
-	// How you want CloudFront to serve HTTPS requests. One of `vip` or `sni-only`. Required if you specify `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
+	// How you want CloudFront to serve HTTPS requests. One of `vip`, `sni-only`, or `static-ip`. Required if you specify `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
 	SslSupportMethod *string `pulumi:"sslSupportMethod"`
 }
 
@@ -5955,7 +5955,7 @@ type DistributionViewerCertificateArgs struct {
 	IamCertificateId pulumi.StringPtrInput `pulumi:"iamCertificateId"`
 	// Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Can only be set if `cloudfrontDefaultCertificate = false`. See all possible values in [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html) table under "Security policy." Some examples include: `TLSv1.2_2019` and `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**: If you are using a custom certificate (specified with `acmCertificateArn` or `iamCertificateId`), and have specified `sni-only` in `sslSupportMethod`, `TLSv1` or later must be specified. If you have specified `vip` in `sslSupportMethod`, only `SSLv3` or `TLSv1` can be specified. If you have specified `cloudfrontDefaultCertificate`, `TLSv1` must be specified.
 	MinimumProtocolVersion pulumi.StringPtrInput `pulumi:"minimumProtocolVersion"`
-	// How you want CloudFront to serve HTTPS requests. One of `vip` or `sni-only`. Required if you specify `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
+	// How you want CloudFront to serve HTTPS requests. One of `vip`, `sni-only`, or `static-ip`. Required if you specify `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
 	SslSupportMethod pulumi.StringPtrInput `pulumi:"sslSupportMethod"`
 }
 
@@ -6056,7 +6056,7 @@ func (o DistributionViewerCertificateOutput) MinimumProtocolVersion() pulumi.Str
 	return o.ApplyT(func(v DistributionViewerCertificate) *string { return v.MinimumProtocolVersion }).(pulumi.StringPtrOutput)
 }
 
-// How you want CloudFront to serve HTTPS requests. One of `vip` or `sni-only`. Required if you specify `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
+// How you want CloudFront to serve HTTPS requests. One of `vip`, `sni-only`, or `static-ip`. Required if you specify `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
 func (o DistributionViewerCertificateOutput) SslSupportMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionViewerCertificate) *string { return v.SslSupportMethod }).(pulumi.StringPtrOutput)
 }
@@ -6125,7 +6125,7 @@ func (o DistributionViewerCertificatePtrOutput) MinimumProtocolVersion() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// How you want CloudFront to serve HTTPS requests. One of `vip` or `sni-only`. Required if you specify `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
+// How you want CloudFront to serve HTTPS requests. One of `vip`, `sni-only`, or `static-ip`. Required if you specify `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
 func (o DistributionViewerCertificatePtrOutput) SslSupportMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionViewerCertificate) *string {
 		if v == nil {
@@ -7251,6 +7251,143 @@ func (o FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutput) To
 
 func (o FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns) []string { return v.Items }).(pulumi.StringArrayOutput)
+}
+
+type KeyValueStoreTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+}
+
+// KeyValueStoreTimeoutsInput is an input type that accepts KeyValueStoreTimeoutsArgs and KeyValueStoreTimeoutsOutput values.
+// You can construct a concrete instance of `KeyValueStoreTimeoutsInput` via:
+//
+//	KeyValueStoreTimeoutsArgs{...}
+type KeyValueStoreTimeoutsInput interface {
+	pulumi.Input
+
+	ToKeyValueStoreTimeoutsOutput() KeyValueStoreTimeoutsOutput
+	ToKeyValueStoreTimeoutsOutputWithContext(context.Context) KeyValueStoreTimeoutsOutput
+}
+
+type KeyValueStoreTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+}
+
+func (KeyValueStoreTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyValueStoreTimeouts)(nil)).Elem()
+}
+
+func (i KeyValueStoreTimeoutsArgs) ToKeyValueStoreTimeoutsOutput() KeyValueStoreTimeoutsOutput {
+	return i.ToKeyValueStoreTimeoutsOutputWithContext(context.Background())
+}
+
+func (i KeyValueStoreTimeoutsArgs) ToKeyValueStoreTimeoutsOutputWithContext(ctx context.Context) KeyValueStoreTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyValueStoreTimeoutsOutput)
+}
+
+func (i KeyValueStoreTimeoutsArgs) ToKeyValueStoreTimeoutsPtrOutput() KeyValueStoreTimeoutsPtrOutput {
+	return i.ToKeyValueStoreTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i KeyValueStoreTimeoutsArgs) ToKeyValueStoreTimeoutsPtrOutputWithContext(ctx context.Context) KeyValueStoreTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyValueStoreTimeoutsOutput).ToKeyValueStoreTimeoutsPtrOutputWithContext(ctx)
+}
+
+// KeyValueStoreTimeoutsPtrInput is an input type that accepts KeyValueStoreTimeoutsArgs, KeyValueStoreTimeoutsPtr and KeyValueStoreTimeoutsPtrOutput values.
+// You can construct a concrete instance of `KeyValueStoreTimeoutsPtrInput` via:
+//
+//	        KeyValueStoreTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type KeyValueStoreTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToKeyValueStoreTimeoutsPtrOutput() KeyValueStoreTimeoutsPtrOutput
+	ToKeyValueStoreTimeoutsPtrOutputWithContext(context.Context) KeyValueStoreTimeoutsPtrOutput
+}
+
+type keyValueStoreTimeoutsPtrType KeyValueStoreTimeoutsArgs
+
+func KeyValueStoreTimeoutsPtr(v *KeyValueStoreTimeoutsArgs) KeyValueStoreTimeoutsPtrInput {
+	return (*keyValueStoreTimeoutsPtrType)(v)
+}
+
+func (*keyValueStoreTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyValueStoreTimeouts)(nil)).Elem()
+}
+
+func (i *keyValueStoreTimeoutsPtrType) ToKeyValueStoreTimeoutsPtrOutput() KeyValueStoreTimeoutsPtrOutput {
+	return i.ToKeyValueStoreTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *keyValueStoreTimeoutsPtrType) ToKeyValueStoreTimeoutsPtrOutputWithContext(ctx context.Context) KeyValueStoreTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyValueStoreTimeoutsPtrOutput)
+}
+
+type KeyValueStoreTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (KeyValueStoreTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyValueStoreTimeouts)(nil)).Elem()
+}
+
+func (o KeyValueStoreTimeoutsOutput) ToKeyValueStoreTimeoutsOutput() KeyValueStoreTimeoutsOutput {
+	return o
+}
+
+func (o KeyValueStoreTimeoutsOutput) ToKeyValueStoreTimeoutsOutputWithContext(ctx context.Context) KeyValueStoreTimeoutsOutput {
+	return o
+}
+
+func (o KeyValueStoreTimeoutsOutput) ToKeyValueStoreTimeoutsPtrOutput() KeyValueStoreTimeoutsPtrOutput {
+	return o.ToKeyValueStoreTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o KeyValueStoreTimeoutsOutput) ToKeyValueStoreTimeoutsPtrOutputWithContext(ctx context.Context) KeyValueStoreTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyValueStoreTimeouts) *KeyValueStoreTimeouts {
+		return &v
+	}).(KeyValueStoreTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o KeyValueStoreTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyValueStoreTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+type KeyValueStoreTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyValueStoreTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyValueStoreTimeouts)(nil)).Elem()
+}
+
+func (o KeyValueStoreTimeoutsPtrOutput) ToKeyValueStoreTimeoutsPtrOutput() KeyValueStoreTimeoutsPtrOutput {
+	return o
+}
+
+func (o KeyValueStoreTimeoutsPtrOutput) ToKeyValueStoreTimeoutsPtrOutputWithContext(ctx context.Context) KeyValueStoreTimeoutsPtrOutput {
+	return o
+}
+
+func (o KeyValueStoreTimeoutsPtrOutput) Elem() KeyValueStoreTimeoutsOutput {
+	return o.ApplyT(func(v *KeyValueStoreTimeouts) KeyValueStoreTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret KeyValueStoreTimeouts
+		return ret
+	}).(KeyValueStoreTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o KeyValueStoreTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyValueStoreTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
 }
 
 type MonitoringSubscriptionMonitoringSubscription struct {
@@ -14899,6 +15036,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionProfileEncryptionEntitiesItemInput)(nil)).Elem(), FieldLevelEncryptionProfileEncryptionEntitiesItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionProfileEncryptionEntitiesItemArrayInput)(nil)).Elem(), FieldLevelEncryptionProfileEncryptionEntitiesItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsInput)(nil)).Elem(), FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyValueStoreTimeoutsInput)(nil)).Elem(), KeyValueStoreTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyValueStoreTimeoutsPtrInput)(nil)).Elem(), KeyValueStoreTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionMonitoringSubscriptionInput)(nil)).Elem(), MonitoringSubscriptionMonitoringSubscriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionMonitoringSubscriptionPtrInput)(nil)).Elem(), MonitoringSubscriptionMonitoringSubscriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigInput)(nil)).Elem(), MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs{})
@@ -15111,6 +15250,8 @@ func init() {
 	pulumi.RegisterOutputType(FieldLevelEncryptionProfileEncryptionEntitiesItemOutput{})
 	pulumi.RegisterOutputType(FieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput{})
 	pulumi.RegisterOutputType(FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutput{})
+	pulumi.RegisterOutputType(KeyValueStoreTimeoutsOutput{})
+	pulumi.RegisterOutputType(KeyValueStoreTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionMonitoringSubscriptionOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionMonitoringSubscriptionPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput{})

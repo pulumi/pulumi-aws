@@ -19,8 +19,10 @@ namespace Pulumi.Aws.DirectoryService
     /// Once the second Trust is created, the first will update to the correct state.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Two-Way Trust
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,21 +31,19 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var oneDirectory = new Aws.DirectoryService.Directory("oneDirectory", new()
+    ///     var oneDirectory = new Aws.DirectoryService.Directory("one", new()
     ///     {
     ///         Name = "one.example.com",
     ///         Type = "MicrosoftAD",
     ///     });
     /// 
-    ///     // ...
-    ///     var twoDirectory = new Aws.DirectoryService.Directory("twoDirectory", new()
+    ///     var twoDirectory = new Aws.DirectoryService.Directory("two", new()
     ///     {
     ///         Name = "two.example.com",
     ///         Type = "MicrosoftAD",
     ///     });
     /// 
-    ///     // ...
-    ///     var oneTrust = new Aws.DirectoryService.Trust("oneTrust", new()
+    ///     var one = new Aws.DirectoryService.Trust("one", new()
     ///     {
     ///         DirectoryId = oneDirectory.Id,
     ///         RemoteDomainName = twoDirectory.Name,
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.DirectoryService
     ///         ConditionalForwarderIpAddrs = twoDirectory.DnsIpAddresses,
     ///     });
     /// 
-    ///     var twoTrust = new Aws.DirectoryService.Trust("twoTrust", new()
+    ///     var two = new Aws.DirectoryService.Trust("two", new()
     ///     {
     ///         DirectoryId = twoDirectory.Id,
     ///         RemoteDomainName = oneDirectory.Name,
@@ -63,8 +63,11 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### One-Way Trust
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -73,21 +76,19 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var oneDirectory = new Aws.DirectoryService.Directory("oneDirectory", new()
+    ///     var oneDirectory = new Aws.DirectoryService.Directory("one", new()
     ///     {
     ///         Name = "one.example.com",
     ///         Type = "MicrosoftAD",
     ///     });
     /// 
-    ///     // ...
-    ///     var twoDirectory = new Aws.DirectoryService.Directory("twoDirectory", new()
+    ///     var twoDirectory = new Aws.DirectoryService.Directory("two", new()
     ///     {
     ///         Name = "two.example.com",
     ///         Type = "MicrosoftAD",
     ///     });
     /// 
-    ///     // ...
-    ///     var oneTrust = new Aws.DirectoryService.Trust("oneTrust", new()
+    ///     var one = new Aws.DirectoryService.Trust("one", new()
     ///     {
     ///         DirectoryId = oneDirectory.Id,
     ///         RemoteDomainName = twoDirectory.Name,
@@ -96,7 +97,7 @@ namespace Pulumi.Aws.DirectoryService
     ///         ConditionalForwarderIpAddrs = twoDirectory.DnsIpAddresses,
     ///     });
     /// 
-    ///     var twoTrust = new Aws.DirectoryService.Trust("twoTrust", new()
+    ///     var two = new Aws.DirectoryService.Trust("two", new()
     ///     {
     ///         DirectoryId = twoDirectory.Id,
     ///         RemoteDomainName = oneDirectory.Name,
@@ -107,13 +108,14 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import the Trust relationship using the directory ID and remote domain name, separated by a `/`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:directoryservice/trust:Trust example d-926724cf57/directory.example.com
+    /// $ pulumi import aws:directoryservice/trust:Trust example d-926724cf57/directory.example.com
     /// ```
     /// </summary>
     [AwsResourceType("aws:directoryservice/trust:Trust")]

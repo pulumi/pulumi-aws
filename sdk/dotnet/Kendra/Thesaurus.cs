@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,12 +25,13 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Thesaurus("example", new()
     ///     {
-    ///         IndexId = aws_kendra_index.Example.Id,
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "Example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         SourceS3Path = new Aws.Kendra.Inputs.ThesaurusSourceS3PathArgs
     ///         {
-    ///             Bucket = aws_s3_bucket.Example.Id,
-    ///             Key = aws_s3_object.Example.Key,
+    ///             Bucket = exampleAwsS3Bucket.Id,
+    ///             Key = exampleAwsS3Object.Key,
     ///         },
     ///         Tags = 
     ///         {
@@ -39,13 +41,14 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
+    /// $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
     /// ```
     /// </summary>
     [AwsResourceType("aws:kendra/thesaurus:Thesaurus")]
@@ -133,10 +136,6 @@ namespace Pulumi.Aws.Kendra
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -278,11 +277,7 @@ namespace Pulumi.Aws.Kendra
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("thesaurusId")]

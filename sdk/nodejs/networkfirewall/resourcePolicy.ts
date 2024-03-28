@@ -8,64 +8,69 @@ import * as utilities from "../utilities";
  * Provides an AWS Network Firewall Resource Policy Resource for a rule group or firewall policy.
  *
  * ## Example Usage
+ *
  * ### For a Firewall Policy resource
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.ResourcePolicy("example", {
- *     resourceArn: aws_networkfirewall_firewall_policy.example.arn,
+ *     resourceArn: exampleAwsNetworkfirewallFirewallPolicy.arn,
  *     policy: JSON.stringify({
- *         Statement: [{
- *             Action: [
+ *         statement: [{
+ *             action: [
  *                 "network-firewall:ListFirewallPolicies",
  *                 "network-firewall:CreateFirewall",
  *                 "network-firewall:UpdateFirewall",
  *                 "network-firewall:AssociateFirewallPolicy",
  *             ],
- *             Effect: "Allow",
- *             Resource: aws_networkfirewall_firewall_policy.example.arn,
- *             Principal: {
+ *             effect: "Allow",
+ *             resource: exampleAwsNetworkfirewallFirewallPolicy.arn,
+ *             principal: {
  *                 AWS: "arn:aws:iam::123456789012:root",
  *             },
  *         }],
- *         Version: "2012-10-17",
+ *         version: "2012-10-17",
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### For a Rule Group resource
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.ResourcePolicy("example", {
- *     resourceArn: aws_networkfirewall_rule_group.example.arn,
+ *     resourceArn: exampleAwsNetworkfirewallRuleGroup.arn,
  *     policy: JSON.stringify({
- *         Statement: [{
- *             Action: [
+ *         statement: [{
+ *             action: [
  *                 "network-firewall:ListRuleGroups",
  *                 "network-firewall:CreateFirewallPolicy",
  *                 "network-firewall:UpdateFirewallPolicy",
  *             ],
- *             Effect: "Allow",
- *             Resource: aws_networkfirewall_rule_group.example.arn,
- *             Principal: {
+ *             effect: "Allow",
+ *             resource: exampleAwsNetworkfirewallRuleGroup.arn,
+ *             principal: {
  *                 AWS: "arn:aws:iam::123456789012:root",
  *             },
  *         }],
- *         Version: "2012-10-17",
+ *         version: "2012-10-17",
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Using `pulumi import`, import Network Firewall Resource Policies using the `resource_arn`. For example:
- *
+ * Using `pulumi import`, import Network Firewall Resource Policies using the `resource arn`. For example:
  * ```sh
- *  $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+ * $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
  * ```
  */
 export class ResourcePolicy extends pulumi.CustomResource {

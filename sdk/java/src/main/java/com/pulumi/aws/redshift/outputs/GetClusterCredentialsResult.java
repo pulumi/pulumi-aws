@@ -4,6 +4,7 @@
 package com.pulumi.aws.redshift.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -111,16 +112,21 @@ public final class GetClusterCredentialsResult {
 
         @CustomType.Setter
         public Builder autoCreate(@Nullable Boolean autoCreate) {
+
             this.autoCreate = autoCreate;
             return this;
         }
         @CustomType.Setter
         public Builder clusterIdentifier(String clusterIdentifier) {
-            this.clusterIdentifier = Objects.requireNonNull(clusterIdentifier);
+            if (clusterIdentifier == null) {
+              throw new MissingRequiredPropertyException("GetClusterCredentialsResult", "clusterIdentifier");
+            }
+            this.clusterIdentifier = clusterIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder dbGroups(@Nullable List<String> dbGroups) {
+
             this.dbGroups = dbGroups;
             return this;
         }
@@ -129,46 +135,60 @@ public final class GetClusterCredentialsResult {
         }
         @CustomType.Setter
         public Builder dbName(@Nullable String dbName) {
+
             this.dbName = dbName;
             return this;
         }
         @CustomType.Setter
         public Builder dbPassword(String dbPassword) {
-            this.dbPassword = Objects.requireNonNull(dbPassword);
+            if (dbPassword == null) {
+              throw new MissingRequiredPropertyException("GetClusterCredentialsResult", "dbPassword");
+            }
+            this.dbPassword = dbPassword;
             return this;
         }
         @CustomType.Setter
         public Builder dbUser(String dbUser) {
-            this.dbUser = Objects.requireNonNull(dbUser);
+            if (dbUser == null) {
+              throw new MissingRequiredPropertyException("GetClusterCredentialsResult", "dbUser");
+            }
+            this.dbUser = dbUser;
             return this;
         }
         @CustomType.Setter
         public Builder durationSeconds(@Nullable Integer durationSeconds) {
+
             this.durationSeconds = durationSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder expiration(String expiration) {
-            this.expiration = Objects.requireNonNull(expiration);
+            if (expiration == null) {
+              throw new MissingRequiredPropertyException("GetClusterCredentialsResult", "expiration");
+            }
+            this.expiration = expiration;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetClusterCredentialsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetClusterCredentialsResult build() {
-            final var o = new GetClusterCredentialsResult();
-            o.autoCreate = autoCreate;
-            o.clusterIdentifier = clusterIdentifier;
-            o.dbGroups = dbGroups;
-            o.dbName = dbName;
-            o.dbPassword = dbPassword;
-            o.dbUser = dbUser;
-            o.durationSeconds = durationSeconds;
-            o.expiration = expiration;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetClusterCredentialsResult();
+            _resultValue.autoCreate = autoCreate;
+            _resultValue.clusterIdentifier = clusterIdentifier;
+            _resultValue.dbGroups = dbGroups;
+            _resultValue.dbName = dbName;
+            _resultValue.dbPassword = dbPassword;
+            _resultValue.dbUser = dbUser;
+            _resultValue.durationSeconds = durationSeconds;
+            _resultValue.expiration = expiration;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

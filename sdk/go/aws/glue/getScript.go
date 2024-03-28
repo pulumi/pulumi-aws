@@ -14,8 +14,10 @@ import (
 // Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
 //
 // ## Example Usage
+//
 // ### Generate Python Script
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,11 +59,11 @@ import (
 //						Args: []glue.GetScriptDagNodeArg{
 //							{
 //								Name:  "database",
-//								Value: fmt.Sprintf("\"%v\"", aws_glue_catalog_database.Source.Name),
+//								Value: fmt.Sprintf("\"%v\"", source.Name),
 //							},
 //							{
 //								Name:  "table_name",
-//								Value: fmt.Sprintf("\"%v\"", aws_glue_catalog_table.Source.Name),
+//								Value: fmt.Sprintf("\"%v\"", sourceAwsGlueCatalogTable.Name),
 //							},
 //						},
 //					},
@@ -95,11 +97,11 @@ import (
 //							},
 //							{
 //								Name:  "database",
-//								Value: fmt.Sprintf("\"%v\"", aws_glue_catalog_database.Destination.Name),
+//								Value: fmt.Sprintf("\"%v\"", destination.Name),
 //							},
 //							{
 //								Name:  "table_name",
-//								Value: fmt.Sprintf("\"%v\"", aws_glue_catalog_table.Destination.Name),
+//								Value: fmt.Sprintf("\"%v\"", destinationAwsGlueCatalogTable.Name),
 //							},
 //						},
 //					},
@@ -109,11 +111,11 @@ import (
 //						Args: []glue.GetScriptDagNodeArg{
 //							{
 //								Name:  "database",
-//								Value: fmt.Sprintf("\"%v\"", aws_glue_catalog_database.Destination.Name),
+//								Value: fmt.Sprintf("\"%v\"", destination.Name),
 //							},
 //							{
 //								Name:  "table_name",
-//								Value: fmt.Sprintf("\"%v\"", aws_glue_catalog_table.Destination.Name),
+//								Value: fmt.Sprintf("\"%v\"", destinationAwsGlueCatalogTable.Name),
 //							},
 //						},
 //					},
@@ -128,8 +130,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Generate Scala Code
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -171,11 +176,11 @@ import (
 //						Args: []glue.GetScriptDagNodeArg{
 //							{
 //								Name:  "database",
-//								Value: fmt.Sprintf("\"%v\"", aws_glue_catalog_database.Source.Name),
+//								Value: fmt.Sprintf("\"%v\"", source.Name),
 //							},
 //							{
 //								Name:  "table_name",
-//								Value: fmt.Sprintf("\"%v\"", aws_glue_catalog_table.Source.Name),
+//								Value: fmt.Sprintf("\"%v\"", sourceAwsGlueCatalogTable.Name),
 //							},
 //						},
 //					},
@@ -209,11 +214,11 @@ import (
 //							},
 //							{
 //								Name:  "database",
-//								Value: fmt.Sprintf("\"%v\"", aws_glue_catalog_database.Destination.Name),
+//								Value: fmt.Sprintf("\"%v\"", destination.Name),
 //							},
 //							{
 //								Name:  "table_name",
-//								Value: fmt.Sprintf("\"%v\"", aws_glue_catalog_table.Destination.Name),
+//								Value: fmt.Sprintf("\"%v\"", destinationAwsGlueCatalogTable.Name),
 //							},
 //						},
 //					},
@@ -223,11 +228,11 @@ import (
 //						Args: []glue.GetScriptDagNodeArg{
 //							{
 //								Name:  "database",
-//								Value: fmt.Sprintf("\"%v\"", aws_glue_catalog_database.Destination.Name),
+//								Value: fmt.Sprintf("\"%v\"", destination.Name),
 //							},
 //							{
 //								Name:  "table_name",
-//								Value: fmt.Sprintf("\"%v\"", aws_glue_catalog_table.Destination.Name),
+//								Value: fmt.Sprintf("\"%v\"", destinationAwsGlueCatalogTable.Name),
 //							},
 //						},
 //					},
@@ -242,6 +247,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetScript(ctx *pulumi.Context, args *GetScriptArgs, opts ...pulumi.InvokeOption) (*GetScriptResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetScriptResult

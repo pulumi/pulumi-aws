@@ -328,13 +328,15 @@ class ListenerRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.vpclattice.ListenerRule("test",
-            listener_identifier=aws_vpclattice_listener["example"]["listener_id"],
-            service_identifier=aws_vpclattice_service["example"]["id"],
+            name="example",
+            listener_identifier=example_aws_vpclattice_listener["listenerId"],
+            service_identifier=example_aws_vpclattice_service["id"],
             priority=20,
             match=aws.vpclattice.ListenerRuleMatchArgs(
                 http_match=aws.vpclattice.ListenerRuleMatchHttpMatchArgs(
@@ -357,26 +359,30 @@ class ListenerRule(pulumi.CustomResource):
                 forward=aws.vpclattice.ListenerRuleActionForwardArgs(
                     target_groups=[
                         aws.vpclattice.ListenerRuleActionForwardTargetGroupArgs(
-                            target_group_identifier=aws_vpclattice_target_group["example"]["id"],
+                            target_group_identifier=example["id"],
                             weight=1,
                         ),
                         aws.vpclattice.ListenerRuleActionForwardTargetGroupArgs(
-                            target_group_identifier=aws_vpclattice_target_group["example2"]["id"],
+                            target_group_identifier=example2["id"],
                             weight=2,
                         ),
                     ],
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.vpclattice.ListenerRule("test",
-            listener_identifier=aws_vpclattice_listener["example"]["listener_id"],
-            service_identifier=aws_vpclattice_service["example"]["id"],
+            name="example",
+            listener_identifier=example["listenerId"],
+            service_identifier=example_aws_vpclattice_service["id"],
             priority=10,
             match=aws.vpclattice.ListenerRuleMatchArgs(
                 http_match=aws.vpclattice.ListenerRuleMatchHttpMatchArgs(
@@ -394,13 +400,14 @@ class ListenerRule(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import VPC Lattice Listener Rule using the `example_id_arg`. For example:
+        Using `pulumi import`, import VPC Lattice Listener Rule using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:vpclattice/listenerRule:ListenerRule example rft-8012925589
+        $ pulumi import aws:vpclattice/listenerRule:ListenerRule example service123/listener456/rule789
         ```
 
         :param str resource_name: The name of the resource.
@@ -426,13 +433,15 @@ class ListenerRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.vpclattice.ListenerRule("test",
-            listener_identifier=aws_vpclattice_listener["example"]["listener_id"],
-            service_identifier=aws_vpclattice_service["example"]["id"],
+            name="example",
+            listener_identifier=example_aws_vpclattice_listener["listenerId"],
+            service_identifier=example_aws_vpclattice_service["id"],
             priority=20,
             match=aws.vpclattice.ListenerRuleMatchArgs(
                 http_match=aws.vpclattice.ListenerRuleMatchHttpMatchArgs(
@@ -455,26 +464,30 @@ class ListenerRule(pulumi.CustomResource):
                 forward=aws.vpclattice.ListenerRuleActionForwardArgs(
                     target_groups=[
                         aws.vpclattice.ListenerRuleActionForwardTargetGroupArgs(
-                            target_group_identifier=aws_vpclattice_target_group["example"]["id"],
+                            target_group_identifier=example["id"],
                             weight=1,
                         ),
                         aws.vpclattice.ListenerRuleActionForwardTargetGroupArgs(
-                            target_group_identifier=aws_vpclattice_target_group["example2"]["id"],
+                            target_group_identifier=example2["id"],
                             weight=2,
                         ),
                     ],
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.vpclattice.ListenerRule("test",
-            listener_identifier=aws_vpclattice_listener["example"]["listener_id"],
-            service_identifier=aws_vpclattice_service["example"]["id"],
+            name="example",
+            listener_identifier=example["listenerId"],
+            service_identifier=example_aws_vpclattice_service["id"],
             priority=10,
             match=aws.vpclattice.ListenerRuleMatchArgs(
                 http_match=aws.vpclattice.ListenerRuleMatchHttpMatchArgs(
@@ -492,13 +505,14 @@ class ListenerRule(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import VPC Lattice Listener Rule using the `example_id_arg`. For example:
+        Using `pulumi import`, import VPC Lattice Listener Rule using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:vpclattice/listenerRule:ListenerRule example rft-8012925589
+        $ pulumi import aws:vpclattice/listenerRule:ListenerRule example service123/listener456/rule789
         ```
 
         :param str resource_name: The name of the resource.
@@ -552,8 +566,6 @@ class ListenerRule(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["rule_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ListenerRule, __self__).__init__(
             'aws:vpclattice/listenerRule:ListenerRule',
             resource_name,

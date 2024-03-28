@@ -11,22 +11,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.storagegateway.WorkingStorage("example", {
- *     diskId: data.aws_storagegateway_local_disk.example.id,
- *     gatewayArn: aws_storagegateway_gateway.example.arn,
+ *     diskId: exampleAwsStoragegatewayLocalDisk.id,
+ *     gatewayArn: exampleAwsStoragegatewayGateway.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_storagegateway_working_storage` using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`). For example:
  *
  * ```sh
- *  $ pulumi import aws:storagegateway/workingStorage:WorkingStorage example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
+ * $ pulumi import aws:storagegateway/workingStorage:WorkingStorage example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
  * ```
  */
 export class WorkingStorage extends pulumi.CustomResource {

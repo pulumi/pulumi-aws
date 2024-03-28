@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,24 +46,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleStream = new Stream(&#34;exampleStream&#34;, StreamArgs.builder()        
+ *         var example = new Stream(&#34;example&#34;, StreamArgs.builder()        
+ *             .name(&#34;example-stream&#34;)
  *             .shardCount(1)
  *             .build());
  * 
  *         var exampleStreamConsumer = new StreamConsumer(&#34;exampleStreamConsumer&#34;, StreamConsumerArgs.builder()        
- *             .streamArn(exampleStream.arn())
+ *             .name(&#34;example-consumer&#34;)
+ *             .streamArn(example.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Kinesis Stream Consumers using the Amazon Resource Name (ARN). For example:
  * 
  * ```sh
- *  $ pulumi import aws:kinesis/streamConsumer:StreamConsumer example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553
+ * $ pulumi import aws:kinesis/streamConsumer:StreamConsumer example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553
  * ```
  * 
  */

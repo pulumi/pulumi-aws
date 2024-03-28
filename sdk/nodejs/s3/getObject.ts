@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * The following example retrieves a text object (which must have a `Content-Type`
  * value starting with `text/`) and uses it as the `userData` for an EC2 instance:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,11 +25,12 @@ import * as utilities from "../utilities";
  *     key: "ec2-bootstrap-script.sh",
  * });
  * const example = new aws.ec2.Instance("example", {
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     ami: "ami-2757f631",
  *     userData: bootstrapScript.then(bootstrapScript => bootstrapScript.body),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * The following, more-complex example retrieves only the metadata for a zip
  * file stored in S3, which is then used to pass the most recent `versionId`
@@ -36,6 +38,7 @@ import * as utilities from "../utilities";
  * Lambda functions is available in the documentation for
  * `aws.lambda.Function`.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -44,14 +47,16 @@ import * as utilities from "../utilities";
  *     bucket: "ourcorp-lambda-functions",
  *     key: "hello-world.zip",
  * });
- * const testLambda = new aws.lambda.Function("testLambda", {
+ * const testLambda = new aws.lambda.Function("test_lambda", {
  *     s3Bucket: lambda.then(lambda => lambda.bucket),
  *     s3Key: lambda.then(lambda => lambda.key),
  *     s3ObjectVersion: lambda.then(lambda => lambda.versionId),
- *     role: aws_iam_role.iam_for_lambda.arn,
+ *     name: "lambda_function_name",
+ *     role: iamForLambda.arn,
  *     handler: "exports.test",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getObject(args: GetObjectArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectResult> {
 
@@ -97,6 +102,10 @@ export interface GetObjectArgs {
  * A collection of values returned by getObject.
  */
 export interface GetObjectResult {
+    /**
+     * ARN of the object.
+     */
+    readonly arn: string;
     /**
      * Object data (see **limitations above** to understand cases in which this field is actually available)
      */
@@ -221,6 +230,7 @@ export interface GetObjectResult {
  * The following example retrieves a text object (which must have a `Content-Type`
  * value starting with `text/`) and uses it as the `userData` for an EC2 instance:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -230,11 +240,12 @@ export interface GetObjectResult {
  *     key: "ec2-bootstrap-script.sh",
  * });
  * const example = new aws.ec2.Instance("example", {
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     ami: "ami-2757f631",
  *     userData: bootstrapScript.then(bootstrapScript => bootstrapScript.body),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * The following, more-complex example retrieves only the metadata for a zip
  * file stored in S3, which is then used to pass the most recent `versionId`
@@ -242,6 +253,7 @@ export interface GetObjectResult {
  * Lambda functions is available in the documentation for
  * `aws.lambda.Function`.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -250,14 +262,16 @@ export interface GetObjectResult {
  *     bucket: "ourcorp-lambda-functions",
  *     key: "hello-world.zip",
  * });
- * const testLambda = new aws.lambda.Function("testLambda", {
+ * const testLambda = new aws.lambda.Function("test_lambda", {
  *     s3Bucket: lambda.then(lambda => lambda.bucket),
  *     s3Key: lambda.then(lambda => lambda.key),
  *     s3ObjectVersion: lambda.then(lambda => lambda.versionId),
- *     role: aws_iam_role.iam_for_lambda.arn,
+ *     name: "lambda_function_name",
+ *     role: iamForLambda.arn,
  *     handler: "exports.test",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getObjectOutput(args: GetObjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObjectResult> {
     return pulumi.output(args).apply((a: any) => getObject(a, opts))

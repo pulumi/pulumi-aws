@@ -4,6 +4,7 @@
 package com.pulumi.aws.mq.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -41,19 +42,25 @@ public final class GetBrokerEncryptionOption {
 
         @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+            if (kmsKeyId == null) {
+              throw new MissingRequiredPropertyException("GetBrokerEncryptionOption", "kmsKeyId");
+            }
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder useAwsOwnedKey(Boolean useAwsOwnedKey) {
-            this.useAwsOwnedKey = Objects.requireNonNull(useAwsOwnedKey);
+            if (useAwsOwnedKey == null) {
+              throw new MissingRequiredPropertyException("GetBrokerEncryptionOption", "useAwsOwnedKey");
+            }
+            this.useAwsOwnedKey = useAwsOwnedKey;
             return this;
         }
         public GetBrokerEncryptionOption build() {
-            final var o = new GetBrokerEncryptionOption();
-            o.kmsKeyId = kmsKeyId;
-            o.useAwsOwnedKey = useAwsOwnedKey;
-            return o;
+            final var _resultValue = new GetBrokerEncryptionOption();
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.useAwsOwnedKey = useAwsOwnedKey;
+            return _resultValue;
         }
     }
 }

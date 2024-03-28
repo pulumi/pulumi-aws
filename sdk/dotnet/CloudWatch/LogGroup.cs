@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,22 +25,24 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var yada = new Aws.CloudWatch.LogGroup("yada", new()
     ///     {
+    ///         Name = "Yada",
     ///         Tags = 
     ///         {
-    ///             { "Application", "serviceA" },
     ///             { "Environment", "production" },
+    ///             { "Application", "serviceA" },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada
+    /// $ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/logGroup:LogGroup")]
@@ -58,6 +61,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
+
+        /// <summary>
+        /// Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+        /// </summary>
+        [Output("logGroupClass")]
+        public Output<string> LogGroupClass { get; private set; } = null!;
 
         /// <summary>
         /// The name of the log group. If omitted, this provider will assign a random, unique name.
@@ -120,10 +129,6 @@ namespace Pulumi.Aws.CloudWatch
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -154,6 +159,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
+
+        /// <summary>
+        /// Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+        /// </summary>
+        [Input("logGroupClass")]
+        public Input<string>? LogGroupClass { get; set; }
 
         /// <summary>
         /// The name of the log group. If omitted, this provider will assign a random, unique name.
@@ -216,6 +227,12 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
+        /// Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+        /// </summary>
+        [Input("logGroupClass")]
+        public Input<string>? LogGroupClass { get; set; }
+
+        /// <summary>
         /// The name of the log group. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
@@ -263,11 +280,7 @@ namespace Pulumi.Aws.CloudWatch
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public LogGroupState()

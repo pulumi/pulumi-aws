@@ -5,6 +5,7 @@ package com.pulumi.aws.ses;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class IdentityPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public IdentityPolicyArgs build() {
-            $.identity = Objects.requireNonNull($.identity, "expected parameter 'identity' to be non-null");
-            $.policy = Objects.requireNonNull($.policy, "expected parameter 'policy' to be non-null");
+            if ($.identity == null) {
+                throw new MissingRequiredPropertyException("IdentityPolicyArgs", "identity");
+            }
+            if ($.policy == null) {
+                throw new MissingRequiredPropertyException("IdentityPolicyArgs", "policy");
+            }
             return $;
         }
     }

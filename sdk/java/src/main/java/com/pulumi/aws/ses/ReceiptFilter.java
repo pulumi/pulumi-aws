@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides an SES receipt filter resource
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -39,6 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var filter = new ReceiptFilter(&#34;filter&#34;, ReceiptFilterArgs.builder()        
+ *             .name(&#34;block-spammer&#34;)
  *             .cidr(&#34;10.10.10.10&#34;)
  *             .policy(&#34;Block&#34;)
  *             .build());
@@ -46,13 +49,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SES Receipt Filter using their `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
+ * $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
  * ```
  * 
  */

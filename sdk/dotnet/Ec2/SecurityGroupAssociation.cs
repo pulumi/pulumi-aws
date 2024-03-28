@@ -22,6 +22,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// Basic usage:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,14 +31,15 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sgEc2 = new Aws.Ec2.SecurityGroupAssociation("sgEc2", new()
+    ///     var sgEc2 = new Aws.Ec2.SecurityGroupAssociation("sg_ec2", new()
     ///     {
-    ///         VpcEndpointId = aws_vpc_endpoint.Ec2.Id,
-    ///         SecurityGroupId = aws_security_group.Sg.Id,
+    ///         VpcEndpointId = ec2.Id,
+    ///         SecurityGroupId = sg.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:ec2/securityGroupAssociation:SecurityGroupAssociation")]
     public partial class SecurityGroupAssociation : global::Pulumi.CustomResource

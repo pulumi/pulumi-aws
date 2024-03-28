@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Sagemaker
     /// Using `pulumi import`, import SageMaker Model Package Groups using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
+    /// $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy")]

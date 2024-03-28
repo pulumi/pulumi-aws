@@ -73,25 +73,28 @@ public final class UserPhoneNumbers {
 
         @CustomType.Setter
         public Builder primary(@Nullable Boolean primary) {
+
             this.primary = primary;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }
         public UserPhoneNumbers build() {
-            final var o = new UserPhoneNumbers();
-            o.primary = primary;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new UserPhoneNumbers();
+            _resultValue.primary = primary;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

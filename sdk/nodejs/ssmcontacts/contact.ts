@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS SSM Contact.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,12 +19,13 @@ import * as utilities from "../utilities";
  * const example = new aws.ssmcontacts.Contact("example", {
  *     alias: "alias",
  *     type: "PERSONAL",
- * }, {
- *     dependsOn: [aws_ssmincidents_replication_set.example],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Usage With All Fields
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,17 +37,16 @@ import * as utilities from "../utilities";
  *     tags: {
  *         key: "value",
  *     },
- * }, {
- *     dependsOn: [aws_ssmincidents_replication_set.example],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SSM Contact using the `ARN`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
+ * $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
  * ```
  */
 export class Contact extends pulumi.CustomResource {
@@ -140,8 +142,6 @@ export class Contact extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Contact.__pulumiType, name, resourceInputs, opts);
     }
 }

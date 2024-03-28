@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * &gt; *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,30 +46,31 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleCurReportDefinition = new ReportDefinition(&#34;exampleCurReportDefinition&#34;, ReportDefinitionArgs.builder()        
- *             .additionalArtifacts(            
- *                 &#34;REDSHIFT&#34;,
- *                 &#34;QUICKSIGHT&#34;)
+ *             .reportName(&#34;example-cur-report-definition&#34;)
+ *             .timeUnit(&#34;HOURLY&#34;)
+ *             .format(&#34;textORcsv&#34;)
+ *             .compression(&#34;GZIP&#34;)
  *             .additionalSchemaElements(            
  *                 &#34;RESOURCES&#34;,
  *                 &#34;SPLIT_COST_ALLOCATION_DATA&#34;)
- *             .compression(&#34;GZIP&#34;)
- *             .format(&#34;textORcsv&#34;)
- *             .reportName(&#34;example-cur-report-definition&#34;)
  *             .s3Bucket(&#34;example-bucket-name&#34;)
  *             .s3Region(&#34;us-east-1&#34;)
- *             .timeUnit(&#34;HOURLY&#34;)
+ *             .additionalArtifacts(            
+ *                 &#34;REDSHIFT&#34;,
+ *                 &#34;QUICKSIGHT&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Report Definitions using the `report_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
+ * $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
  * ```
  * 
  */

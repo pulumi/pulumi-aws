@@ -4,6 +4,7 @@
 package com.pulumi.aws.signer.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,19 +59,23 @@ public final class SigningJobDestinationS3 {
 
         @CustomType.Setter
         public Builder bucket(String bucket) {
-            this.bucket = Objects.requireNonNull(bucket);
+            if (bucket == null) {
+              throw new MissingRequiredPropertyException("SigningJobDestinationS3", "bucket");
+            }
+            this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         public SigningJobDestinationS3 build() {
-            final var o = new SigningJobDestinationS3();
-            o.bucket = bucket;
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new SigningJobDestinationS3();
+            _resultValue.bucket = bucket;
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

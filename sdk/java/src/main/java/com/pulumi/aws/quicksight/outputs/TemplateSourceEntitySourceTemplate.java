@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class TemplateSourceEntitySourceTemplate {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("TemplateSourceEntitySourceTemplate", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         public TemplateSourceEntitySourceTemplate build() {
-            final var o = new TemplateSourceEntitySourceTemplate();
-            o.arn = arn;
-            return o;
+            final var _resultValue = new TemplateSourceEntitySourceTemplate();
+            _resultValue.arn = arn;
+            return _resultValue;
         }
     }
 }

@@ -173,12 +173,14 @@ class LogMetricFilter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        dada = aws.cloudwatch.LogGroup("dada")
+        dada = aws.cloudwatch.LogGroup("dada", name="MyApp/access.log")
         yada = aws.cloudwatch.LogMetricFilter("yada",
+            name="MyAppAccessCount",
             pattern="",
             log_group_name=dada.name,
             metric_transformation=aws.cloudwatch.LogMetricFilterMetricTransformationArgs(
@@ -187,13 +189,14 @@ class LogMetricFilter(pulumi.CustomResource):
                 value="1",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Log Metric Filter using the `log_group_name:name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
+        $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
         ```
 
         :param str resource_name: The name of the resource.
@@ -215,12 +218,14 @@ class LogMetricFilter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        dada = aws.cloudwatch.LogGroup("dada")
+        dada = aws.cloudwatch.LogGroup("dada", name="MyApp/access.log")
         yada = aws.cloudwatch.LogMetricFilter("yada",
+            name="MyAppAccessCount",
             pattern="",
             log_group_name=dada.name,
             metric_transformation=aws.cloudwatch.LogMetricFilterMetricTransformationArgs(
@@ -229,13 +234,14 @@ class LogMetricFilter(pulumi.CustomResource):
                 value="1",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Log Metric Filter using the `log_group_name:name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
+        $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
         ```
 
         :param str resource_name: The name of the resource.

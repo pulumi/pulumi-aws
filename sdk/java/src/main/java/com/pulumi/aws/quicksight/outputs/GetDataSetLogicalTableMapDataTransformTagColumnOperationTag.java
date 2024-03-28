@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.aws.quicksight.outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -42,7 +43,10 @@ public final class GetDataSetLogicalTableMapDataTransformTagColumnOperationTag {
 
         @CustomType.Setter
         public Builder columnDescriptions(List<GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription> columnDescriptions) {
-            this.columnDescriptions = Objects.requireNonNull(columnDescriptions);
+            if (columnDescriptions == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapDataTransformTagColumnOperationTag", "columnDescriptions");
+            }
+            this.columnDescriptions = columnDescriptions;
             return this;
         }
         public Builder columnDescriptions(GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription... columnDescriptions) {
@@ -50,14 +54,17 @@ public final class GetDataSetLogicalTableMapDataTransformTagColumnOperationTag {
         }
         @CustomType.Setter
         public Builder columnGeographicRole(String columnGeographicRole) {
-            this.columnGeographicRole = Objects.requireNonNull(columnGeographicRole);
+            if (columnGeographicRole == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapDataTransformTagColumnOperationTag", "columnGeographicRole");
+            }
+            this.columnGeographicRole = columnGeographicRole;
             return this;
         }
         public GetDataSetLogicalTableMapDataTransformTagColumnOperationTag build() {
-            final var o = new GetDataSetLogicalTableMapDataTransformTagColumnOperationTag();
-            o.columnDescriptions = columnDescriptions;
-            o.columnGeographicRole = columnGeographicRole;
-            return o;
+            final var _resultValue = new GetDataSetLogicalTableMapDataTransformTagColumnOperationTag();
+            _resultValue.columnDescriptions = columnDescriptions;
+            _resultValue.columnGeographicRole = columnGeographicRole;
+            return _resultValue;
         }
     }
 }

@@ -16,78 +16,10 @@ import (
 // > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.
 //
 // ## Example Usage
-// ### Application Load Balancer
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lb.NewLoadBalancer(ctx, "test", &lb.LoadBalancerArgs{
-//				Internal:         pulumi.Bool(false),
-//				LoadBalancerType: pulumi.String("application"),
-//				SecurityGroups: pulumi.StringArray{
-//					aws_security_group.Lb_sg.Id,
-//				},
-//				Subnets:                  "TODO: For expression",
-//				EnableDeletionProtection: pulumi.Bool(true),
-//				AccessLogs: &lb.LoadBalancerAccessLogsArgs{
-//					Bucket:  pulumi.Any(aws_s3_bucket.Lb_logs.Id),
-//					Prefix:  pulumi.String("test-lb"),
-//					Enabled: pulumi.Bool(true),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Network Load Balancer
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lb.NewLoadBalancer(ctx, "test", &lb.LoadBalancerArgs{
-//				Internal:                 pulumi.Bool(false),
-//				LoadBalancerType:         pulumi.String("network"),
-//				Subnets:                  "TODO: For expression",
-//				EnableDeletionProtection: pulumi.Bool(true),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Specifying Elastic IPs
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -101,15 +33,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
+//				Name:             pulumi.String("example"),
 //				LoadBalancerType: pulumi.String("network"),
 //				SubnetMappings: lb.LoadBalancerSubnetMappingArray{
 //					&lb.LoadBalancerSubnetMappingArgs{
-//						SubnetId:     pulumi.Any(aws_subnet.Example1.Id),
-//						AllocationId: pulumi.Any(aws_eip.Example1.Id),
+//						SubnetId:     pulumi.Any(example1AwsSubnet.Id),
+//						AllocationId: pulumi.Any(example1.Id),
 //					},
 //					&lb.LoadBalancerSubnetMappingArgs{
-//						SubnetId:     pulumi.Any(aws_subnet.Example2.Id),
-//						AllocationId: pulumi.Any(aws_eip.Example2.Id),
+//						SubnetId:     pulumi.Any(example2AwsSubnet.Id),
+//						AllocationId: pulumi.Any(example2.Id),
 //					},
 //				},
 //			})
@@ -121,8 +54,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Specifying private IP addresses for an internal-facing load balancer
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -136,14 +72,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
+//				Name:             pulumi.String("example"),
 //				LoadBalancerType: pulumi.String("network"),
 //				SubnetMappings: lb.LoadBalancerSubnetMappingArray{
 //					&lb.LoadBalancerSubnetMappingArgs{
-//						SubnetId:           pulumi.Any(aws_subnet.Example1.Id),
+//						SubnetId:           pulumi.Any(example1.Id),
 //						PrivateIpv4Address: pulumi.String("10.0.1.15"),
 //					},
 //					&lb.LoadBalancerSubnetMappingArgs{
-//						SubnetId:           pulumi.Any(aws_subnet.Example2.Id),
+//						SubnetId:           pulumi.Any(example2.Id),
 //						PrivateIpv4Address: pulumi.String("10.0.2.15"),
 //					},
 //				},
@@ -156,15 +93,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import LBs using their ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:alb/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
-//
+// $ pulumi import aws:alb/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
 // ```
 type LoadBalancer struct {
 	pulumi.CustomResourceState
@@ -175,6 +111,8 @@ type LoadBalancer struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ARN suffix for use with CloudWatch Metrics.
 	ArnSuffix pulumi.StringOutput `pulumi:"arnSuffix"`
+	// A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+	ConnectionLogs LoadBalancerConnectionLogsPtrOutput `pulumi:"connectionLogs"`
 	// The ID of the customer owned ipv4 pool to use for this load balancer.
 	CustomerOwnedIpv4Pool pulumi.StringPtrOutput `pulumi:"customerOwnedIpv4Pool"`
 	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
@@ -197,6 +135,8 @@ type LoadBalancer struct {
 	EnableWafFailOpen pulumi.BoolPtrOutput `pulumi:"enableWafFailOpen"`
 	// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
 	EnableXffClientPort pulumi.BoolPtrOutput `pulumi:"enableXffClientPort"`
+	// Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic pulumi.StringOutput `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
 	// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout pulumi.IntPtrOutput `pulumi:"idleTimeout"`
 	// If true, the LB will be internal. Defaults to `false`.
@@ -215,11 +155,9 @@ type LoadBalancer struct {
 	PreserveHostHeader pulumi.BoolPtrOutput `pulumi:"preserveHostHeader"`
 	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
-	// A subnet mapping block as documented below.
+	// A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
 	SubnetMappings LoadBalancerSubnetMappingArrayOutput `pulumi:"subnetMappings"`
-	// A list of subnet IDs to attach to the LB. Subnets
-	// cannot be updated for Load Balancers of type `network`. Changing this value
-	// for load balancers of type `network` will force a recreation of the resource.
+	// A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -247,10 +185,6 @@ func NewLoadBalancer(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LoadBalancer
 	err := ctx.RegisterResource("aws:alb/loadBalancer:LoadBalancer", name, args, &resource, opts...)
@@ -280,6 +214,8 @@ type loadBalancerState struct {
 	Arn *string `pulumi:"arn"`
 	// The ARN suffix for use with CloudWatch Metrics.
 	ArnSuffix *string `pulumi:"arnSuffix"`
+	// A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+	ConnectionLogs *LoadBalancerConnectionLogs `pulumi:"connectionLogs"`
 	// The ID of the customer owned ipv4 pool to use for this load balancer.
 	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
 	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
@@ -302,6 +238,8 @@ type loadBalancerState struct {
 	EnableWafFailOpen *bool `pulumi:"enableWafFailOpen"`
 	// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
 	EnableXffClientPort *bool `pulumi:"enableXffClientPort"`
+	// Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic *string `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
 	// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout *int `pulumi:"idleTimeout"`
 	// If true, the LB will be internal. Defaults to `false`.
@@ -320,11 +258,9 @@ type loadBalancerState struct {
 	PreserveHostHeader *bool `pulumi:"preserveHostHeader"`
 	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// A subnet mapping block as documented below.
+	// A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
 	SubnetMappings []LoadBalancerSubnetMapping `pulumi:"subnetMappings"`
-	// A list of subnet IDs to attach to the LB. Subnets
-	// cannot be updated for Load Balancers of type `network`. Changing this value
-	// for load balancers of type `network` will force a recreation of the resource.
+	// A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
 	Subnets []string `pulumi:"subnets"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -346,6 +282,8 @@ type LoadBalancerState struct {
 	Arn pulumi.StringPtrInput
 	// The ARN suffix for use with CloudWatch Metrics.
 	ArnSuffix pulumi.StringPtrInput
+	// A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+	ConnectionLogs LoadBalancerConnectionLogsPtrInput
 	// The ID of the customer owned ipv4 pool to use for this load balancer.
 	CustomerOwnedIpv4Pool pulumi.StringPtrInput
 	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
@@ -368,6 +306,8 @@ type LoadBalancerState struct {
 	EnableWafFailOpen pulumi.BoolPtrInput
 	// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
 	EnableXffClientPort pulumi.BoolPtrInput
+	// Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic pulumi.StringPtrInput
 	// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout pulumi.IntPtrInput
 	// If true, the LB will be internal. Defaults to `false`.
@@ -386,11 +326,9 @@ type LoadBalancerState struct {
 	PreserveHostHeader pulumi.BoolPtrInput
 	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups pulumi.StringArrayInput
-	// A subnet mapping block as documented below.
+	// A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
 	SubnetMappings LoadBalancerSubnetMappingArrayInput
-	// A list of subnet IDs to attach to the LB. Subnets
-	// cannot be updated for Load Balancers of type `network`. Changing this value
-	// for load balancers of type `network` will force a recreation of the resource.
+	// A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
 	Subnets pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -412,6 +350,8 @@ func (LoadBalancerState) ElementType() reflect.Type {
 type loadBalancerArgs struct {
 	// An Access Logs block. Access Logs documented below.
 	AccessLogs *LoadBalancerAccessLogs `pulumi:"accessLogs"`
+	// A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+	ConnectionLogs *LoadBalancerConnectionLogs `pulumi:"connectionLogs"`
 	// The ID of the customer owned ipv4 pool to use for this load balancer.
 	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
 	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
@@ -432,6 +372,8 @@ type loadBalancerArgs struct {
 	EnableWafFailOpen *bool `pulumi:"enableWafFailOpen"`
 	// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
 	EnableXffClientPort *bool `pulumi:"enableXffClientPort"`
+	// Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic *string `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
 	// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout *int `pulumi:"idleTimeout"`
 	// If true, the LB will be internal. Defaults to `false`.
@@ -450,11 +392,9 @@ type loadBalancerArgs struct {
 	PreserveHostHeader *bool `pulumi:"preserveHostHeader"`
 	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// A subnet mapping block as documented below.
+	// A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
 	SubnetMappings []LoadBalancerSubnetMapping `pulumi:"subnetMappings"`
-	// A list of subnet IDs to attach to the LB. Subnets
-	// cannot be updated for Load Balancers of type `network`. Changing this value
-	// for load balancers of type `network` will force a recreation of the resource.
+	// A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
 	Subnets []string `pulumi:"subnets"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -466,6 +406,8 @@ type loadBalancerArgs struct {
 type LoadBalancerArgs struct {
 	// An Access Logs block. Access Logs documented below.
 	AccessLogs LoadBalancerAccessLogsPtrInput
+	// A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+	ConnectionLogs LoadBalancerConnectionLogsPtrInput
 	// The ID of the customer owned ipv4 pool to use for this load balancer.
 	CustomerOwnedIpv4Pool pulumi.StringPtrInput
 	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
@@ -486,6 +428,8 @@ type LoadBalancerArgs struct {
 	EnableWafFailOpen pulumi.BoolPtrInput
 	// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
 	EnableXffClientPort pulumi.BoolPtrInput
+	// Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic pulumi.StringPtrInput
 	// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout pulumi.IntPtrInput
 	// If true, the LB will be internal. Defaults to `false`.
@@ -504,11 +448,9 @@ type LoadBalancerArgs struct {
 	PreserveHostHeader pulumi.BoolPtrInput
 	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups pulumi.StringArrayInput
-	// A subnet mapping block as documented below.
+	// A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
 	SubnetMappings LoadBalancerSubnetMappingArrayInput
-	// A list of subnet IDs to attach to the LB. Subnets
-	// cannot be updated for Load Balancers of type `network`. Changing this value
-	// for load balancers of type `network` will force a recreation of the resource.
+	// A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
 	Subnets pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -618,6 +560,11 @@ func (o LoadBalancerOutput) ArnSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.ArnSuffix }).(pulumi.StringOutput)
 }
 
+// A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+func (o LoadBalancerOutput) ConnectionLogs() LoadBalancerConnectionLogsPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) LoadBalancerConnectionLogsPtrOutput { return v.ConnectionLogs }).(LoadBalancerConnectionLogsPtrOutput)
+}
+
 // The ID of the customer owned ipv4 pool to use for this load balancer.
 func (o LoadBalancerOutput) CustomerOwnedIpv4Pool() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.CustomerOwnedIpv4Pool }).(pulumi.StringPtrOutput)
@@ -673,6 +620,13 @@ func (o LoadBalancerOutput) EnableXffClientPort() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.BoolPtrOutput { return v.EnableXffClientPort }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+func (o LoadBalancerOutput) EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput {
+		return v.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic
+	}).(pulumi.StringOutput)
+}
+
 // The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 func (o LoadBalancerOutput) IdleTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.IntPtrOutput { return v.IdleTimeout }).(pulumi.IntPtrOutput)
@@ -715,14 +669,12 @@ func (o LoadBalancerOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// A subnet mapping block as documented below.
+// A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
 func (o LoadBalancerOutput) SubnetMappings() LoadBalancerSubnetMappingArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) LoadBalancerSubnetMappingArrayOutput { return v.SubnetMappings }).(LoadBalancerSubnetMappingArrayOutput)
 }
 
-// A list of subnet IDs to attach to the LB. Subnets
-// cannot be updated for Load Balancers of type `network`. Changing this value
-// for load balancers of type `network` will force a recreation of the resource.
+// A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
 func (o LoadBalancerOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.Subnets }).(pulumi.StringArrayOutput)
 }

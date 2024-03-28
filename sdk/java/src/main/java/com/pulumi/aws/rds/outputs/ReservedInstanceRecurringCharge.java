@@ -43,19 +43,21 @@ public final class ReservedInstanceRecurringCharge {
 
         @CustomType.Setter
         public Builder recurringChargeAmount(@Nullable Integer recurringChargeAmount) {
+
             this.recurringChargeAmount = recurringChargeAmount;
             return this;
         }
         @CustomType.Setter
         public Builder recurringChargeFrequency(@Nullable String recurringChargeFrequency) {
+
             this.recurringChargeFrequency = recurringChargeFrequency;
             return this;
         }
         public ReservedInstanceRecurringCharge build() {
-            final var o = new ReservedInstanceRecurringCharge();
-            o.recurringChargeAmount = recurringChargeAmount;
-            o.recurringChargeFrequency = recurringChargeFrequency;
-            return o;
+            final var _resultValue = new ReservedInstanceRecurringCharge();
+            _resultValue.recurringChargeAmount = recurringChargeAmount;
+            _resultValue.recurringChargeFrequency = recurringChargeFrequency;
+            return _resultValue;
         }
     }
 }

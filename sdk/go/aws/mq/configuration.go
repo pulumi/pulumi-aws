@@ -17,8 +17,10 @@ import (
 // For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
 //
 // ## Example Usage
+//
 // ### ActiveMQ
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,6 +34,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := mq.NewConfiguration(ctx, "example", &mq.ConfigurationArgs{
+//				Description:   pulumi.String("Example Configuration"),
+//				Name:          pulumi.String("example"),
+//				EngineType:    pulumi.String("ActiveMQ"),
+//				EngineVersion: pulumi.String("5.17.6"),
 //				Data: pulumi.String(`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 //
 // <broker xmlns="http://activemq.apache.org/schema/core">
@@ -43,12 +49,8 @@ import (
 //	</plugins>
 //
 // </broker>
-//
 // `),
 //
-//				Description:   pulumi.String("Example Configuration"),
-//				EngineType:    pulumi.String("ActiveMQ"),
-//				EngineVersion: pulumi.String("5.17.6"),
 //			})
 //			if err != nil {
 //				return err
@@ -58,8 +60,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### RabbitMQ
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -73,10 +78,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := mq.NewConfiguration(ctx, "example", &mq.ConfigurationArgs{
-//				Data:          pulumi.String("# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds\nconsumer_timeout = 1800000\n\n"),
 //				Description:   pulumi.String("Example Configuration"),
+//				Name:          pulumi.String("example"),
 //				EngineType:    pulumi.String("RabbitMQ"),
 //				EngineVersion: pulumi.String("3.11.20"),
+//				Data:          pulumi.String("# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds\nconsumer_timeout = 1800000\n"),
 //			})
 //			if err != nil {
 //				return err
@@ -86,15 +92,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import MQ Configurations using the configuration ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
-//
+// $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
 // ```
 type Configuration struct {
 	pulumi.CustomResourceState
@@ -141,10 +146,6 @@ func NewConfiguration(ctx *pulumi.Context,
 	if args.EngineVersion == nil {
 		return nil, errors.New("invalid value for required argument 'EngineVersion'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Configuration
 	err := ctx.RegisterResource("aws:mq/configuration:Configuration", name, args, &resource, opts...)

@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,14 +26,16 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mainRouteTableAssociation = new Aws.Ec2.MainRouteTableAssociation("mainRouteTableAssociation", new()
+    ///     var a = new Aws.Ec2.MainRouteTableAssociation("a", new()
     ///     {
-    ///         VpcId = aws_vpc.Foo.Id,
-    ///         RouteTableId = aws_route_table.Bar.Id,
+    ///         VpcId = foo.Id,
+    ///         RouteTableId = bar.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Notes
     /// 
     /// On VPC creation, the AWS API always creates an initial Main Route Table. This

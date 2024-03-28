@@ -176,30 +176,35 @@ class GroupPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        my_developers = aws.iam.Group("myDevelopers", path="/users/")
-        my_developer_policy = aws.iam.GroupPolicy("myDeveloperPolicy",
+        my_developers = aws.iam.Group("my_developers",
+            name="developers",
+            path="/users/")
+        my_developer_policy = aws.iam.GroupPolicy("my_developer_policy",
+            name="my_developer_policy",
             group=my_developers.name,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": ["ec2:Describe*"],
+                    "effect": "Allow",
+                    "resource": "*",
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Group Policies using the `group_name:group_policy_name`. For example:
 
         ```sh
-         $ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
+        $ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
         ```
 
         :param str resource_name: The name of the resource.
@@ -222,30 +227,35 @@ class GroupPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        my_developers = aws.iam.Group("myDevelopers", path="/users/")
-        my_developer_policy = aws.iam.GroupPolicy("myDeveloperPolicy",
+        my_developers = aws.iam.Group("my_developers",
+            name="developers",
+            path="/users/")
+        my_developer_policy = aws.iam.GroupPolicy("my_developer_policy",
+            name="my_developer_policy",
             group=my_developers.name,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": ["ec2:Describe*"],
+                    "effect": "Allow",
+                    "resource": "*",
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Group Policies using the `group_name:group_policy_name`. For example:
 
         ```sh
-         $ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
+        $ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
         ```
 
         :param str resource_name: The name of the resource.

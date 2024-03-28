@@ -5,6 +5,7 @@ package com.pulumi.aws.backup.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -161,7 +162,9 @@ public final class ReportPlanReportDeliveryChannelArgs extends com.pulumi.resour
         }
 
         public ReportPlanReportDeliveryChannelArgs build() {
-            $.s3BucketName = Objects.requireNonNull($.s3BucketName, "expected parameter 's3BucketName' to be non-null");
+            if ($.s3BucketName == null) {
+                throw new MissingRequiredPropertyException("ReportPlanReportDeliveryChannelArgs", "s3BucketName");
+            }
             return $;
         }
     }

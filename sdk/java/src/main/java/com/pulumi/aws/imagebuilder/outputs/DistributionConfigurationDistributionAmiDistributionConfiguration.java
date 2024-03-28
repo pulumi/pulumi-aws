@@ -117,31 +117,37 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
 
         @CustomType.Setter
         public Builder amiTags(@Nullable Map<String,String> amiTags) {
+
             this.amiTags = amiTags;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder launchPermission(@Nullable DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission launchPermission) {
+
             this.launchPermission = launchPermission;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder targetAccountIds(@Nullable List<String> targetAccountIds) {
+
             this.targetAccountIds = targetAccountIds;
             return this;
         }
@@ -149,14 +155,14 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
             return targetAccountIds(List.of(targetAccountIds));
         }
         public DistributionConfigurationDistributionAmiDistributionConfiguration build() {
-            final var o = new DistributionConfigurationDistributionAmiDistributionConfiguration();
-            o.amiTags = amiTags;
-            o.description = description;
-            o.kmsKeyId = kmsKeyId;
-            o.launchPermission = launchPermission;
-            o.name = name;
-            o.targetAccountIds = targetAccountIds;
-            return o;
+            final var _resultValue = new DistributionConfigurationDistributionAmiDistributionConfiguration();
+            _resultValue.amiTags = amiTags;
+            _resultValue.description = description;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.launchPermission = launchPermission;
+            _resultValue.name = name;
+            _resultValue.targetAccountIds = targetAccountIds;
+            return _resultValue;
         }
     }
 }

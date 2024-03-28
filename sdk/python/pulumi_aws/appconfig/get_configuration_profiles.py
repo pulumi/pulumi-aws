@@ -72,16 +72,19 @@ def get_configuration_profiles(application_id: Optional[str] = None,
     Profile IDs to another resource.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example_configuration_profiles = aws.appconfig.get_configuration_profiles(application_id="a1d3rpe")
-    example_configuration_profile = [aws.appconfig.get_configuration_profile(configuration_profile_id=__value,
-        application_id=aws_appconfig_application["example"]["id"]) for __key, __value in example_configuration_profiles.configuration_profile_ids]
+    example = aws.appconfig.get_configuration_profiles(application_id="a1d3rpe")
+    example_get_configuration_profile = {__key: aws.appconfig.get_configuration_profile(configuration_profile_id=__value,
+        application_id=example_aws_appconfig_application["id"]) for __key, __value in example.configuration_profile_ids}
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str application_id: ID of the AppConfig Application.
@@ -105,16 +108,19 @@ def get_configuration_profiles_output(application_id: Optional[pulumi.Input[str]
     Profile IDs to another resource.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example_configuration_profiles = aws.appconfig.get_configuration_profiles(application_id="a1d3rpe")
-    example_configuration_profile = [aws.appconfig.get_configuration_profile(configuration_profile_id=__value,
-        application_id=aws_appconfig_application["example"]["id"]) for __key, __value in example_configuration_profiles.configuration_profile_ids]
+    example = aws.appconfig.get_configuration_profiles(application_id="a1d3rpe")
+    example_get_configuration_profile = {__key: aws.appconfig.get_configuration_profile(configuration_profile_id=__value,
+        application_id=example_aws_appconfig_application["id"]) for __key, __value in example.configuration_profile_ids}
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str application_id: ID of the AppConfig Application.

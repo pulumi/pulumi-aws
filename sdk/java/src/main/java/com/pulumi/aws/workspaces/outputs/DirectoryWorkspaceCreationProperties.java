@@ -101,37 +101,42 @@ public final class DirectoryWorkspaceCreationProperties {
 
         @CustomType.Setter
         public Builder customSecurityGroupId(@Nullable String customSecurityGroupId) {
+
             this.customSecurityGroupId = customSecurityGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder defaultOu(@Nullable String defaultOu) {
+
             this.defaultOu = defaultOu;
             return this;
         }
         @CustomType.Setter
         public Builder enableInternetAccess(@Nullable Boolean enableInternetAccess) {
+
             this.enableInternetAccess = enableInternetAccess;
             return this;
         }
         @CustomType.Setter
         public Builder enableMaintenanceMode(@Nullable Boolean enableMaintenanceMode) {
+
             this.enableMaintenanceMode = enableMaintenanceMode;
             return this;
         }
         @CustomType.Setter
         public Builder userEnabledAsLocalAdministrator(@Nullable Boolean userEnabledAsLocalAdministrator) {
+
             this.userEnabledAsLocalAdministrator = userEnabledAsLocalAdministrator;
             return this;
         }
         public DirectoryWorkspaceCreationProperties build() {
-            final var o = new DirectoryWorkspaceCreationProperties();
-            o.customSecurityGroupId = customSecurityGroupId;
-            o.defaultOu = defaultOu;
-            o.enableInternetAccess = enableInternetAccess;
-            o.enableMaintenanceMode = enableMaintenanceMode;
-            o.userEnabledAsLocalAdministrator = userEnabledAsLocalAdministrator;
-            return o;
+            final var _resultValue = new DirectoryWorkspaceCreationProperties();
+            _resultValue.customSecurityGroupId = customSecurityGroupId;
+            _resultValue.defaultOu = defaultOu;
+            _resultValue.enableInternetAccess = enableInternetAccess;
+            _resultValue.enableMaintenanceMode = enableMaintenanceMode;
+            _resultValue.userEnabledAsLocalAdministrator = userEnabledAsLocalAdministrator;
+            return _resultValue;
         }
     }
 }

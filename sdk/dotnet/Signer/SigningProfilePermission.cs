@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Signer
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,7 +23,7 @@ namespace Pulumi.Aws.Signer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var prodSp = new Aws.Signer.SigningProfile("prodSp", new()
+    ///     var prodSp = new Aws.Signer.SigningProfile("prod_sp", new()
     ///     {
     ///         PlatformId = "AWSLambda-SHA384-ECDSA",
     ///         NamePrefix = "prod_sp_",
@@ -38,22 +39,22 @@ namespace Pulumi.Aws.Signer
     ///         },
     ///     });
     /// 
-    ///     var spPermission1 = new Aws.Signer.SigningProfilePermission("spPermission1", new()
+    ///     var spPermission1 = new Aws.Signer.SigningProfilePermission("sp_permission_1", new()
     ///     {
     ///         ProfileName = prodSp.Name,
     ///         Action = "signer:StartSigningJob",
-    ///         Principal = @var.Aws_account,
+    ///         Principal = awsAccount,
     ///     });
     /// 
-    ///     var spPermission2 = new Aws.Signer.SigningProfilePermission("spPermission2", new()
+    ///     var spPermission2 = new Aws.Signer.SigningProfilePermission("sp_permission_2", new()
     ///     {
     ///         ProfileName = prodSp.Name,
     ///         Action = "signer:GetSigningProfile",
-    ///         Principal = @var.Aws_team_role_arn,
+    ///         Principal = awsTeamRoleArn,
     ///         StatementId = "ProdAccountStartSigningJob_StatementId",
     ///     });
     /// 
-    ///     var spPermission3 = new Aws.Signer.SigningProfilePermission("spPermission3", new()
+    ///     var spPermission3 = new Aws.Signer.SigningProfilePermission("sp_permission_3", new()
     ///     {
     ///         ProfileName = prodSp.Name,
     ///         Action = "signer:RevokeSignature",
@@ -64,13 +65,14 @@ namespace Pulumi.Aws.Signer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Signer signing profile permission statements using profile_name/statement_id. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:signer/signingProfilePermission:SigningProfilePermission test_signer_signing_profile_permission prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK/ProdAccountStartSigningJobStatementId
+    /// $ pulumi import aws:signer/signingProfilePermission:SigningProfilePermission test_signer_signing_profile_permission prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK/ProdAccountStartSigningJobStatementId
     /// ```
     /// </summary>
     [AwsResourceType("aws:signer/signingProfilePermission:SigningProfilePermission")]

@@ -4,6 +4,7 @@
 package com.pulumi.aws.sesv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class ConfigurationSetTrackingOptions {
 
         @CustomType.Setter
         public Builder customRedirectDomain(String customRedirectDomain) {
-            this.customRedirectDomain = Objects.requireNonNull(customRedirectDomain);
+            if (customRedirectDomain == null) {
+              throw new MissingRequiredPropertyException("ConfigurationSetTrackingOptions", "customRedirectDomain");
+            }
+            this.customRedirectDomain = customRedirectDomain;
             return this;
         }
         public ConfigurationSetTrackingOptions build() {
-            final var o = new ConfigurationSetTrackingOptions();
-            o.customRedirectDomain = customRedirectDomain;
-            return o;
+            final var _resultValue = new ConfigurationSetTrackingOptions();
+            _resultValue.customRedirectDomain = customRedirectDomain;
+            return _resultValue;
         }
     }
 }

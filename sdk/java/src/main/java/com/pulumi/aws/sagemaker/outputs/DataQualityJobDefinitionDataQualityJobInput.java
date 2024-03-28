@@ -59,19 +59,21 @@ public final class DataQualityJobDefinitionDataQualityJobInput {
 
         @CustomType.Setter
         public Builder batchTransformInput(@Nullable DataQualityJobDefinitionDataQualityJobInputBatchTransformInput batchTransformInput) {
+
             this.batchTransformInput = batchTransformInput;
             return this;
         }
         @CustomType.Setter
         public Builder endpointInput(@Nullable DataQualityJobDefinitionDataQualityJobInputEndpointInput endpointInput) {
+
             this.endpointInput = endpointInput;
             return this;
         }
         public DataQualityJobDefinitionDataQualityJobInput build() {
-            final var o = new DataQualityJobDefinitionDataQualityJobInput();
-            o.batchTransformInput = batchTransformInput;
-            o.endpointInput = endpointInput;
-            return o;
+            final var _resultValue = new DataQualityJobDefinitionDataQualityJobInput();
+            _resultValue.batchTransformInput = batchTransformInput;
+            _resultValue.endpointInput = endpointInput;
+            return _resultValue;
         }
     }
 }

@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Deploys an Application CloudFormation Stack from the Serverless Application Repository.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,31 +46,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var currentPartition = AwsFunctions.getPartition();
+ *         final var current = AwsFunctions.getPartition();
  * 
- *         final var currentRegion = AwsFunctions.getRegion();
+ *         final var currentGetRegion = AwsFunctions.getRegion();
  * 
  *         var postgres_rotator = new CloudFormationStack(&#34;postgres-rotator&#34;, CloudFormationStackArgs.builder()        
+ *             .name(&#34;postgres-rotator&#34;)
  *             .applicationId(&#34;arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser&#34;)
  *             .capabilities(            
  *                 &#34;CAPABILITY_IAM&#34;,
  *                 &#34;CAPABILITY_RESOURCE_POLICY&#34;)
  *             .parameters(Map.ofEntries(
- *                 Map.entry(&#34;endpoint&#34;, String.format(&#34;secretsmanager.%s.%s&#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentPartition.applyValue(getPartitionResult -&gt; getPartitionResult.dnsSuffix()))),
- *                 Map.entry(&#34;functionName&#34;, &#34;func-postgres-rotator&#34;)
+ *                 Map.entry(&#34;functionName&#34;, &#34;func-postgres-rotator&#34;),
+ *                 Map.entry(&#34;endpoint&#34;, String.format(&#34;secretsmanager.%s.%s&#34;, currentGetRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),current.applyValue(getPartitionResult -&gt; getPartitionResult.dnsSuffix())))
  *             ))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Serverless Application Repository Stack using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
+ * $ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
  * ```
  * 
  */
@@ -223,9 +227,6 @@ public class CloudFormationStack extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

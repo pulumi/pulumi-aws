@@ -11,14 +11,16 @@ import * as utilities from "../utilities";
  *
  * The following example below creates a CloudFront origin access identity.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.cloudfront.getOriginAccessIdentity({
- *     id: "EDFDVBD632BHDS5",
+ *     id: "E1ZAKK699EOLAL",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOriginAccessIdentity(args: GetOriginAccessIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginAccessIdentityResult> {
 
@@ -33,7 +35,7 @@ export function getOriginAccessIdentity(args: GetOriginAccessIdentityArgs, opts?
  */
 export interface GetOriginAccessIdentityArgs {
     /**
-     * The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+     * The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
      */
     id: string;
 }
@@ -82,14 +84,16 @@ export interface GetOriginAccessIdentityResult {
  *
  * The following example below creates a CloudFront origin access identity.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.cloudfront.getOriginAccessIdentity({
- *     id: "EDFDVBD632BHDS5",
+ *     id: "E1ZAKK699EOLAL",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOriginAccessIdentityOutput(args: GetOriginAccessIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginAccessIdentityResult> {
     return pulumi.output(args).apply((a: any) => getOriginAccessIdentity(a, opts))
@@ -100,7 +104,7 @@ export function getOriginAccessIdentityOutput(args: GetOriginAccessIdentityOutpu
  */
 export interface GetOriginAccessIdentityOutputArgs {
     /**
-     * The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+     * The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
      */
     id: pulumi.Input<string>;
 }

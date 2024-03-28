@@ -73,25 +73,28 @@ public final class FlowLogDestinationOptions {
 
         @CustomType.Setter
         public Builder fileFormat(@Nullable String fileFormat) {
+
             this.fileFormat = fileFormat;
             return this;
         }
         @CustomType.Setter
         public Builder hiveCompatiblePartitions(@Nullable Boolean hiveCompatiblePartitions) {
+
             this.hiveCompatiblePartitions = hiveCompatiblePartitions;
             return this;
         }
         @CustomType.Setter
         public Builder perHourPartition(@Nullable Boolean perHourPartition) {
+
             this.perHourPartition = perHourPartition;
             return this;
         }
         public FlowLogDestinationOptions build() {
-            final var o = new FlowLogDestinationOptions();
-            o.fileFormat = fileFormat;
-            o.hiveCompatiblePartitions = hiveCompatiblePartitions;
-            o.perHourPartition = perHourPartition;
-            return o;
+            final var _resultValue = new FlowLogDestinationOptions();
+            _resultValue.fileFormat = fileFormat;
+            _resultValue.hiveCompatiblePartitions = hiveCompatiblePartitions;
+            _resultValue.perHourPartition = perHourPartition;
+            return _resultValue;
         }
     }
 }

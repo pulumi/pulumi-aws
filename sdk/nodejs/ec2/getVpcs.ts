@@ -11,6 +11,30 @@ import * as utilities from "../utilities";
  * This resource can be useful for getting back a list of VPC Ids for a region.
  *
  * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
+ *
+ * ## Example Usage
+ *
+ * The following shows outputting all VPC Ids.
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * export = async () => {
+ *     const foo = await aws.ec2.getVpcs({
+ *         tags: {
+ *             service: "production",
+ *         },
+ *     });
+ *     return {
+ *         foo: foo.ids,
+ *     };
+ * }
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
  */
 export function getVpcs(args?: GetVpcsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcsResult> {
     args = args || {};
@@ -59,6 +83,30 @@ export interface GetVpcsResult {
  * This resource can be useful for getting back a list of VPC Ids for a region.
  *
  * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
+ *
+ * ## Example Usage
+ *
+ * The following shows outputting all VPC Ids.
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * export = async () => {
+ *     const foo = await aws.ec2.getVpcs({
+ *         tags: {
+ *             service: "production",
+ *         },
+ *     });
+ *     return {
+ *         foo: foo.ids,
+ *     };
+ * }
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
  */
 export function getVpcsOutput(args?: GetVpcsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcsResult> {
     return pulumi.output(args).apply((a: any) => getVpcs(a, opts))

@@ -12,25 +12,27 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.imagebuilder.InfrastructureConfiguration("example", {
  *     description: "example description",
- *     instanceProfileName: aws_iam_instance_profile.example.name,
+ *     instanceProfileName: exampleAwsIamInstanceProfile.name,
  *     instanceTypes: [
  *         "t2.nano",
  *         "t3.micro",
  *     ],
- *     keyPair: aws_key_pair.example.key_name,
- *     securityGroupIds: [aws_security_group.example.id],
- *     snsTopicArn: aws_sns_topic.example.arn,
- *     subnetId: aws_subnet.main.id,
+ *     keyPair: exampleAwsKeyPair.keyName,
+ *     name: "example",
+ *     securityGroupIds: [exampleAwsSecurityGroup.id],
+ *     snsTopicArn: exampleAwsSnsTopic.arn,
+ *     subnetId: main.id,
  *     terminateInstanceOnFailure: true,
  *     logging: {
  *         s3Logs: {
- *             s3BucketName: aws_s3_bucket.example.bucket,
+ *             s3BucketName: exampleAwsS3Bucket.bucket,
  *             s3KeyPrefix: "logs",
  *         },
  *     },
@@ -39,13 +41,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_imagebuilder_infrastructure_configuration` using the Amazon Resource Name (ARN). For example:
  *
  * ```sh
- *  $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
+ * $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
  * ```
  */
 export class InfrastructureConfiguration extends pulumi.CustomResource {
@@ -203,8 +206,6 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(InfrastructureConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

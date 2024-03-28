@@ -24,6 +24,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,9 +37,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewSecurityGroupAssociation(ctx, "sgEc2", &ec2.SecurityGroupAssociationArgs{
-//				VpcEndpointId:   pulumi.Any(aws_vpc_endpoint.Ec2.Id),
-//				SecurityGroupId: pulumi.Any(aws_security_group.Sg.Id),
+//			_, err := ec2.NewSecurityGroupAssociation(ctx, "sg_ec2", &ec2.SecurityGroupAssociationArgs{
+//				VpcEndpointId:   pulumi.Any(ec2.Id),
+//				SecurityGroupId: pulumi.Any(sg.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -48,6 +49,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type SecurityGroupAssociation struct {
 	pulumi.CustomResourceState
 

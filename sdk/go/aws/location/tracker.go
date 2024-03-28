@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_location_tracker` resources using the tracker name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:location/tracker:Tracker example example
-//
+// $ pulumi import aws:location/tracker:Tracker example example
 // ```
 type Tracker struct {
 	pulumi.CustomResourceState
@@ -86,10 +86,6 @@ func NewTracker(ctx *pulumi.Context,
 	if args.TrackerName == nil {
 		return nil, errors.New("invalid value for required argument 'TrackerName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Tracker
 	err := ctx.RegisterResource("aws:location/tracker:Tracker", name, args, &resource, opts...)

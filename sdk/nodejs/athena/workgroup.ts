@@ -12,29 +12,34 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.athena.Workgroup("example", {configuration: {
- *     enforceWorkgroupConfiguration: true,
- *     publishCloudwatchMetricsEnabled: true,
- *     resultConfiguration: {
- *         outputLocation: `s3://${aws_s3_bucket.example.bucket}/output/`,
- *         encryptionConfiguration: {
- *             encryptionOption: "SSE_KMS",
- *             kmsKeyArn: aws_kms_key.example.arn,
+ * const example = new aws.athena.Workgroup("example", {
+ *     name: "example",
+ *     configuration: {
+ *         enforceWorkgroupConfiguration: true,
+ *         publishCloudwatchMetricsEnabled: true,
+ *         resultConfiguration: {
+ *             outputLocation: `s3://${exampleAwsS3Bucket.bucket}/output/`,
+ *             encryptionConfiguration: {
+ *                 encryptionOption: "SSE_KMS",
+ *                 kmsKeyArn: exampleAwsKmsKey.arn,
+ *             },
  *         },
  *     },
- * }});
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Athena Workgroups using their name. For example:
  *
  * ```sh
- *  $ pulumi import aws:athena/workgroup:Workgroup example example
+ * $ pulumi import aws:athena/workgroup:Workgroup example example
  * ```
  */
 export class Workgroup extends pulumi.CustomResource {
@@ -133,8 +138,6 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Workgroup.__pulumiType, name, resourceInputs, opts);
     }
 }

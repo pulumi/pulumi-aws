@@ -11,16 +11,21 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS SESv2 (Simple Email V2) Contact List.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sesv2.ContactList("example", {contactListName: "example"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Extended Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,13 +41,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Using `pulumi import`, import SESv2 (Simple Email V2) Contact List using the `example_id_arg`. For example:
+ * Using `pulumi import`, import SESv2 (Simple Email V2) Contact List using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sesv2/contactList:ContactList example example
+ * $ pulumi import aws:sesv2/contactList:ContactList example example
  * ```
  */
 export class ContactList extends pulumi.CustomResource {
@@ -75,21 +81,21 @@ export class ContactList extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The name of the contact list.
+     * Name of the contact list.
      *
      * The following arguments are optional:
      */
     public readonly contactListName!: pulumi.Output<string>;
     /**
-     * A timestamp noting when the contact list was created in ISO 8601 format.
+     * Timestamp noting when the contact list was created in ISO 8601 format.
      */
     public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
     /**
-     * A description of what the contact list is about.
+     * Description of what the contact list is about.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * A timestamp noting the last time the contact list was updated in ISO 8601 format.
+     * Timestamp noting the last time the contact list was updated in ISO 8601 format.
      */
     public /*out*/ readonly lastUpdatedTimestamp!: pulumi.Output<string>;
     /**
@@ -141,8 +147,6 @@ export class ContactList extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ContactList.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -153,21 +157,21 @@ export class ContactList extends pulumi.CustomResource {
 export interface ContactListState {
     arn?: pulumi.Input<string>;
     /**
-     * The name of the contact list.
+     * Name of the contact list.
      *
      * The following arguments are optional:
      */
     contactListName?: pulumi.Input<string>;
     /**
-     * A timestamp noting when the contact list was created in ISO 8601 format.
+     * Timestamp noting when the contact list was created in ISO 8601 format.
      */
     createdTimestamp?: pulumi.Input<string>;
     /**
-     * A description of what the contact list is about.
+     * Description of what the contact list is about.
      */
     description?: pulumi.Input<string>;
     /**
-     * A timestamp noting the last time the contact list was updated in ISO 8601 format.
+     * Timestamp noting the last time the contact list was updated in ISO 8601 format.
      */
     lastUpdatedTimestamp?: pulumi.Input<string>;
     /**
@@ -189,13 +193,13 @@ export interface ContactListState {
  */
 export interface ContactListArgs {
     /**
-     * The name of the contact list.
+     * Name of the contact list.
      *
      * The following arguments are optional:
      */
     contactListName: pulumi.Input<string>;
     /**
-     * A description of what the contact list is about.
+     * Description of what the contact list is about.
      */
     description?: pulumi.Input<string>;
     /**

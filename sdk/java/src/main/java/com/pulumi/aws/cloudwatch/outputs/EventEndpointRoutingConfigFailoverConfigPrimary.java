@@ -44,13 +44,14 @@ public final class EventEndpointRoutingConfigFailoverConfigPrimary {
 
         @CustomType.Setter
         public Builder healthCheck(@Nullable String healthCheck) {
+
             this.healthCheck = healthCheck;
             return this;
         }
         public EventEndpointRoutingConfigFailoverConfigPrimary build() {
-            final var o = new EventEndpointRoutingConfigFailoverConfigPrimary();
-            o.healthCheck = healthCheck;
-            return o;
+            final var _resultValue = new EventEndpointRoutingConfigFailoverConfigPrimary();
+            _resultValue.healthCheck = healthCheck;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -87,31 +88,37 @@ public final class TaskSetServiceRegistries {
 
         @CustomType.Setter
         public Builder containerName(@Nullable String containerName) {
+
             this.containerName = containerName;
             return this;
         }
         @CustomType.Setter
         public Builder containerPort(@Nullable Integer containerPort) {
+
             this.containerPort = containerPort;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder registryArn(String registryArn) {
-            this.registryArn = Objects.requireNonNull(registryArn);
+            if (registryArn == null) {
+              throw new MissingRequiredPropertyException("TaskSetServiceRegistries", "registryArn");
+            }
+            this.registryArn = registryArn;
             return this;
         }
         public TaskSetServiceRegistries build() {
-            final var o = new TaskSetServiceRegistries();
-            o.containerName = containerName;
-            o.containerPort = containerPort;
-            o.port = port;
-            o.registryArn = registryArn;
-            return o;
+            final var _resultValue = new TaskSetServiceRegistries();
+            _resultValue.containerName = containerName;
+            _resultValue.containerPort = containerPort;
+            _resultValue.port = port;
+            _resultValue.registryArn = registryArn;
+            return _resultValue;
         }
     }
 }

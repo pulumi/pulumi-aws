@@ -14,12 +14,59 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Quicksight.Theme("example", new()
+    ///     {
+    ///         ThemeId = "example",
+    ///         Name = "example",
+    ///         BaseThemeId = "MIDNIGHT",
+    ///         Configuration = new Aws.Quicksight.Inputs.ThemeConfigurationArgs
+    ///         {
+    ///             DataColorPalette = new Aws.Quicksight.Inputs.ThemeConfigurationDataColorPaletteArgs
+    ///             {
+    ///                 Colors = new[]
+    ///                 {
+    ///                     "#FFFFFF",
+    ///                     "#111111",
+    ///                     "#222222",
+    ///                     "#333333",
+    ///                     "#444444",
+    ///                     "#555555",
+    ///                     "#666666",
+    ///                     "#777777",
+    ///                     "#888888",
+    ///                     "#999999",
+    ///                 },
+    ///                 EmptyFillColor = "#FFFFFF",
+    ///                 MinMaxGradients = new[]
+    ///                 {
+    ///                     "#FFFFFF",
+    ///                     "#111111",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a QuickSight Theme using the AWS account ID and theme ID separated by a comma (`,`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
+    /// $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:quicksight/theme:Theme")]
@@ -134,10 +181,6 @@ namespace Pulumi.Aws.Quicksight
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -315,11 +358,7 @@ namespace Pulumi.Aws.Quicksight
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

@@ -685,21 +685,26 @@ class Certificate(pulumi.CustomResource):
         To renew the certificate earlier than 60 days before expiration, configure `early_renewal_duration`.
 
         ## Example Usage
+
         ### Create Certificate
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         cert = aws.acm.Certificate("cert",
             domain_name="example.com",
+            validation_method="DNS",
             tags={
                 "Environment": "test",
-            },
-            validation_method="DNS")
+            })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Custom Domain Validation Options
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -712,17 +717,20 @@ class Certificate(pulumi.CustomResource):
                 validation_domain="example.com",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Existing Certificate Body Import
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
         import pulumi_tls as tls
 
-        example_private_key = tls.PrivateKey("examplePrivateKey", algorithm="RSA")
-        example_self_signed_cert = tls.SelfSignedCert("exampleSelfSignedCert",
+        example = tls.PrivateKey("example", algorithm="RSA")
+        example_self_signed_cert = tls.SelfSignedCert("example",
             key_algorithm="RSA",
-            private_key_pem=example_private_key.private_key_pem,
+            private_key_pem=example.private_key_pem,
             subject=tls.SelfSignedCertSubjectArgs(
                 common_name="example.com",
                 organization="ACME Examples, Inc",
@@ -734,13 +742,16 @@ class Certificate(pulumi.CustomResource):
                 "server_auth",
             ])
         cert = aws.acm.Certificate("cert",
-            private_key=example_private_key.private_key_pem,
+            private_key=example.private_key_pem,
             certificate_body=example_self_signed_cert.cert_pem)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Referencing domain_validation_options With for_each Based Resources
 
         See the `acm.CertificateValidation` resource for a full example of performing DNS validation.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -750,22 +761,23 @@ class Certificate(pulumi.CustomResource):
             name: dvo.resource_record_name,
             record: dvo.resource_record_value,
             type: dvo.resource_record_type,
-        } for dvo in aws_acm_certificate.example.domain_validation_options})]:
+        } for dvo in example_aws_acm_certificate.domain_validation_options})]:
             example.append(aws.route53.Record(f"example-{range['key']}",
                 allow_overwrite=True,
                 name=range["value"]["name"],
                 records=[range["value"]["record"]],
                 ttl=60,
-                type=aws.route53/recordtype.RecordType(range["value"]["type"]),
-                zone_id=aws_route53_zone["example"]["zone_id"]))
+                type=aws.route53.RecordType(range["value"]["type"]),
+                zone_id=example_aws_route53_zone["zoneId"]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import certificates using their ARN. For example:
 
         ```sh
-         $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
+        $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
         ```
 
         :param str resource_name: The name of the resource.
@@ -836,21 +848,26 @@ class Certificate(pulumi.CustomResource):
         To renew the certificate earlier than 60 days before expiration, configure `early_renewal_duration`.
 
         ## Example Usage
+
         ### Create Certificate
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         cert = aws.acm.Certificate("cert",
             domain_name="example.com",
+            validation_method="DNS",
             tags={
                 "Environment": "test",
-            },
-            validation_method="DNS")
+            })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Custom Domain Validation Options
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -863,17 +880,20 @@ class Certificate(pulumi.CustomResource):
                 validation_domain="example.com",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Existing Certificate Body Import
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
         import pulumi_tls as tls
 
-        example_private_key = tls.PrivateKey("examplePrivateKey", algorithm="RSA")
-        example_self_signed_cert = tls.SelfSignedCert("exampleSelfSignedCert",
+        example = tls.PrivateKey("example", algorithm="RSA")
+        example_self_signed_cert = tls.SelfSignedCert("example",
             key_algorithm="RSA",
-            private_key_pem=example_private_key.private_key_pem,
+            private_key_pem=example.private_key_pem,
             subject=tls.SelfSignedCertSubjectArgs(
                 common_name="example.com",
                 organization="ACME Examples, Inc",
@@ -885,13 +905,16 @@ class Certificate(pulumi.CustomResource):
                 "server_auth",
             ])
         cert = aws.acm.Certificate("cert",
-            private_key=example_private_key.private_key_pem,
+            private_key=example.private_key_pem,
             certificate_body=example_self_signed_cert.cert_pem)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Referencing domain_validation_options With for_each Based Resources
 
         See the `acm.CertificateValidation` resource for a full example of performing DNS validation.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -901,22 +924,23 @@ class Certificate(pulumi.CustomResource):
             name: dvo.resource_record_name,
             record: dvo.resource_record_value,
             type: dvo.resource_record_type,
-        } for dvo in aws_acm_certificate.example.domain_validation_options})]:
+        } for dvo in example_aws_acm_certificate.domain_validation_options})]:
             example.append(aws.route53.Record(f"example-{range['key']}",
                 allow_overwrite=True,
                 name=range["value"]["name"],
                 records=[range["value"]["record"]],
                 ttl=60,
-                type=aws.route53/recordtype.RecordType(range["value"]["type"]),
-                zone_id=aws_route53_zone["example"]["zone_id"]))
+                type=aws.route53.RecordType(range["value"]["type"]),
+                zone_id=example_aws_route53_zone["zoneId"]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import certificates using their ARN. For example:
 
         ```sh
-         $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
+        $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
         ```
 
         :param str resource_name: The name of the resource.
@@ -978,7 +1002,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["validation_emails"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["privateKey", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["privateKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Certificate, __self__).__init__(
             'aws:acm/certificate:Certificate',

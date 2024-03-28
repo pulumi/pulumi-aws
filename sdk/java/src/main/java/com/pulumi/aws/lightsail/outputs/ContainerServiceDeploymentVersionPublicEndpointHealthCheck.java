@@ -115,43 +115,49 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheck {
 
         @CustomType.Setter
         public Builder healthyThreshold(@Nullable Integer healthyThreshold) {
+
             this.healthyThreshold = healthyThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder intervalSeconds(@Nullable Integer intervalSeconds) {
+
             this.intervalSeconds = intervalSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder successCodes(@Nullable String successCodes) {
+
             this.successCodes = successCodes;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutSeconds(@Nullable Integer timeoutSeconds) {
+
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder unhealthyThreshold(@Nullable Integer unhealthyThreshold) {
+
             this.unhealthyThreshold = unhealthyThreshold;
             return this;
         }
         public ContainerServiceDeploymentVersionPublicEndpointHealthCheck build() {
-            final var o = new ContainerServiceDeploymentVersionPublicEndpointHealthCheck();
-            o.healthyThreshold = healthyThreshold;
-            o.intervalSeconds = intervalSeconds;
-            o.path = path;
-            o.successCodes = successCodes;
-            o.timeoutSeconds = timeoutSeconds;
-            o.unhealthyThreshold = unhealthyThreshold;
-            return o;
+            final var _resultValue = new ContainerServiceDeploymentVersionPublicEndpointHealthCheck();
+            _resultValue.healthyThreshold = healthyThreshold;
+            _resultValue.intervalSeconds = intervalSeconds;
+            _resultValue.path = path;
+            _resultValue.successCodes = successCodes;
+            _resultValue.timeoutSeconds = timeoutSeconds;
+            _resultValue.unhealthyThreshold = unhealthyThreshold;
+            return _resultValue;
         }
     }
 }

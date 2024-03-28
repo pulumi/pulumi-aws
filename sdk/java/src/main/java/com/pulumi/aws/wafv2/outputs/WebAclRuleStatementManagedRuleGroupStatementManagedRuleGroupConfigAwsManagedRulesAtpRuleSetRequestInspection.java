@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.outputs;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -72,25 +73,34 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
         @CustomType.Setter
         public Builder passwordField(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField passwordField) {
-            this.passwordField = Objects.requireNonNull(passwordField);
+            if (passwordField == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection", "passwordField");
+            }
+            this.passwordField = passwordField;
             return this;
         }
         @CustomType.Setter
         public Builder payloadType(String payloadType) {
-            this.payloadType = Objects.requireNonNull(payloadType);
+            if (payloadType == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection", "payloadType");
+            }
+            this.payloadType = payloadType;
             return this;
         }
         @CustomType.Setter
         public Builder usernameField(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField usernameField) {
-            this.usernameField = Objects.requireNonNull(usernameField);
+            if (usernameField == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection", "usernameField");
+            }
+            this.usernameField = usernameField;
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection();
-            o.passwordField = passwordField;
-            o.payloadType = payloadType;
-            o.usernameField = usernameField;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection();
+            _resultValue.passwordField = passwordField;
+            _resultValue.payloadType = payloadType;
+            _resultValue.usernameField = usernameField;
+            return _resultValue;
         }
     }
 }

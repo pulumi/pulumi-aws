@@ -30,22 +30,24 @@ import * as utilities from "../utilities";
  * the separate resource.
  *
  * ## Example Usage
+ *
  * ### Basic example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.RouteTable("example", {
- *     vpcId: aws_vpc.example.id,
+ *     vpcId: exampleAwsVpc.id,
  *     routes: [
  *         {
  *             cidrBlock: "10.0.1.0/24",
- *             gatewayId: aws_internet_gateway.example.id,
+ *             gatewayId: exampleAwsInternetGateway.id,
  *         },
  *         {
  *             ipv6CidrBlock: "::/0",
- *             egressOnlyGatewayId: aws_egress_only_internet_gateway.example.id,
+ *             egressOnlyGatewayId: exampleAwsEgressOnlyInternetGateway.id,
  *         },
  *     ],
  *     tags: {
@@ -53,61 +55,69 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * To subsequently remove all managed routes:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.RouteTable("example", {
- *     vpcId: aws_vpc.example.id,
+ *     vpcId: exampleAwsVpc.id,
  *     routes: [],
  *     tags: {
  *         Name: "example",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Adopting an existing local route
  *
  * AWS creates certain routes that the AWS provider mostly ignores. You can manage them by importing or adopting them. See Import below for information on importing. This example shows adopting a route and then updating its target.
  *
  * First, adopt an existing AWS-created route:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testVpc = new aws.ec2.Vpc("testVpc", {cidrBlock: "10.1.0.0/16"});
- * const testRouteTable = new aws.ec2.RouteTable("testRouteTable", {
- *     vpcId: testVpc.id,
+ * const test = new aws.ec2.Vpc("test", {cidrBlock: "10.1.0.0/16"});
+ * const testRouteTable = new aws.ec2.RouteTable("test", {
+ *     vpcId: test.id,
  *     routes: [{
  *         cidrBlock: "10.1.0.0/16",
  *         gatewayId: "local",
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Next, update the target of the route:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testVpc = new aws.ec2.Vpc("testVpc", {cidrBlock: "10.1.0.0/16"});
- * const testSubnet = new aws.ec2.Subnet("testSubnet", {
+ * const test = new aws.ec2.Vpc("test", {cidrBlock: "10.1.0.0/16"});
+ * const testSubnet = new aws.ec2.Subnet("test", {
  *     cidrBlock: "10.1.1.0/24",
- *     vpcId: testVpc.id,
+ *     vpcId: test.id,
  * });
- * const testNetworkInterface = new aws.ec2.NetworkInterface("testNetworkInterface", {subnetId: testSubnet.id});
- * const testRouteTable = new aws.ec2.RouteTable("testRouteTable", {
- *     vpcId: testVpc.id,
+ * const testNetworkInterface = new aws.ec2.NetworkInterface("test", {subnetId: testSubnet.id});
+ * const testRouteTable = new aws.ec2.RouteTable("test", {
+ *     vpcId: test.id,
  *     routes: [{
- *         cidrBlock: testVpc.cidrBlock,
+ *         cidrBlock: test.cidrBlock,
  *         networkInterfaceId: testNetworkInterface.id,
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * The target could then be updated again back to `local`.
  *
@@ -116,7 +126,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import Route Tables using the route table `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
+ * $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
  * ```
  */
 export class RouteTable extends pulumi.CustomResource {
@@ -213,8 +223,6 @@ export class RouteTable extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(RouteTable.__pulumiType, name, resourceInputs, opts);
     }
 }

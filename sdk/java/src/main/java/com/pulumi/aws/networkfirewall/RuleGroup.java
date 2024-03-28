@@ -14,7 +14,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,7 +22,10 @@ import javax.annotation.Nullable;
  * Provides an AWS Network Firewall Rule Group Resource
  * 
  * ## Example Usage
+ * 
  * ### Stateful Inspection for denying access to a domain
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,6 +52,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
  *             .capacity(100)
+ *             .name(&#34;example&#34;)
+ *             .type(&#34;STATEFUL&#34;)
  *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
  *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
  *                     .rulesSourceList(RuleGroupRuleGroupRulesSourceRulesSourceListArgs.builder()
@@ -63,58 +67,21 @@ import javax.annotation.Nullable;
  *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
  *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
  *             ))
- *             .type(&#34;STATEFUL&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Stateful Inspection for permitting packets from a source IP address
  * 
- * ```java
- * package generated_program;
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkfirewall.RuleGroup;
- * import com.pulumi.aws.networkfirewall.RuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var ips =         
- *             &#34;1.1.1.1/32&#34;,
- *             &#34;1.0.0.1/32&#34;;
- * 
- *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
- *             .capacity(50)
- *             .description(&#34;Permits http traffic from source&#34;)
- *             .type(&#34;STATEFUL&#34;)
- *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
- *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
- *                     .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                     .build())
- *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;permit HTTP from source&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### Stateful Inspection for blocking packets from going to an intended destination
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -140,22 +107,41 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
  *             .capacity(100)
+ *             .name(&#34;example&#34;)
+ *             .type(&#34;STATEFUL&#34;)
  *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
  *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
- *                     .statefulRule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                     .statefulRules(RuleGroupRuleGroupRulesSourceStatefulRuleArgs.builder()
+ *                         .action(&#34;DROP&#34;)
+ *                         .header(RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs.builder()
+ *                             .destination(&#34;124.1.1.24/32&#34;)
+ *                             .destinationPort(53)
+ *                             .direction(&#34;ANY&#34;)
+ *                             .protocol(&#34;TCP&#34;)
+ *                             .source(&#34;1.2.3.4/32&#34;)
+ *                             .sourcePort(53)
+ *                             .build())
+ *                         .ruleOptions(RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs.builder()
+ *                             .keyword(&#34;sid&#34;)
+ *                             .settings(&#34;1&#34;)
+ *                             .build())
+ *                         .build())
  *                     .build())
  *                 .build())
  *             .tags(Map.ofEntries(
  *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
  *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
  *             ))
- *             .type(&#34;STATEFUL&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Stateful Inspection from rules specifications defined in Suricata flat format
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -179,8 +165,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
  *             .capacity(100)
+ *             .name(&#34;example&#34;)
  *             .type(&#34;STATEFUL&#34;)
- *             .rules(Files.readString(Paths.get(&#34;example.rules&#34;)))
+ *             .rules(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;example.rules&#34;)
+ *                 .build()).result())
  *             .tags(Map.ofEntries(
  *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
  *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
@@ -190,7 +179,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -217,6 +210,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
  *             .capacity(100)
+ *             .name(&#34;example&#34;)
  *             .type(&#34;STATEFUL&#34;)
  *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
  *                 .ruleVariables(RuleGroupRuleGroupRuleVariablesArgs.builder()
@@ -246,7 +240,9 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
- *                     .rulesString(Files.readString(Paths.get(&#34;suricata_rules_file&#34;)))
+ *                     .rulesString(StdFunctions.file(FileArgs.builder()
+ *                         .input(&#34;suricata_rules_file&#34;)
+ *                         .build()).result())
  *                     .build())
  *                 .build())
  *             .tags(Map.ofEntries(
@@ -258,8 +254,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Stateless Inspection with a Custom Action
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -285,13 +284,54 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
- *             .capacity(100)
  *             .description(&#34;Stateless Rate Limiting Rule&#34;)
+ *             .capacity(100)
+ *             .name(&#34;example&#34;)
+ *             .type(&#34;STATELESS&#34;)
  *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
  *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
  *                     .statelessRulesAndCustomActions(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs.builder()
- *                         .customAction(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                         .statelessRule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                         .customActions(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs.builder()
+ *                             .actionDefinition(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs.builder()
+ *                                 .publishMetricAction(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionArgs.builder()
+ *                                     .dimensions(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArgs.builder()
+ *                                         .value(&#34;2&#34;)
+ *                                         .build())
+ *                                     .build())
+ *                                 .build())
+ *                             .actionName(&#34;ExampleMetricsAction&#34;)
+ *                             .build())
+ *                         .statelessRules(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs.builder()
+ *                             .priority(1)
+ *                             .ruleDefinition(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgs.builder()
+ *                                 .actions(                                
+ *                                     &#34;aws:pass&#34;,
+ *                                     &#34;ExampleMetricsAction&#34;)
+ *                                 .matchAttributes(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs.builder()
+ *                                     .sources(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs.builder()
+ *                                         .addressDefinition(&#34;1.2.3.4/32&#34;)
+ *                                         .build())
+ *                                     .sourcePorts(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs.builder()
+ *                                         .fromPort(443)
+ *                                         .toPort(443)
+ *                                         .build())
+ *                                     .destinations(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs.builder()
+ *                                         .addressDefinition(&#34;124.1.1.5/32&#34;)
+ *                                         .build())
+ *                                     .destinationPorts(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs.builder()
+ *                                         .fromPort(443)
+ *                                         .toPort(443)
+ *                                         .build())
+ *                                     .protocols(6)
+ *                                     .tcpFlags(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs.builder()
+ *                                         .flags(&#34;SYN&#34;)
+ *                                         .masks(                                        
+ *                                             &#34;SYN&#34;,
+ *                                             &#34;ACK&#34;)
+ *                                         .build())
+ *                                     .build())
+ *                                 .build())
+ *                             .build())
  *                         .build())
  *                     .build())
  *                 .build())
@@ -299,13 +339,16 @@ import javax.annotation.Nullable;
  *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
  *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
  *             ))
- *             .type(&#34;STATELESS&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### IP Set References to the Rule Group
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -333,6 +376,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
  *             .capacity(100)
+ *             .name(&#34;example&#34;)
  *             .type(&#34;STATEFUL&#34;)
  *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
  *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
@@ -346,7 +390,7 @@ import javax.annotation.Nullable;
  *                     .ipSetReferences(RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs.builder()
  *                         .key(&#34;example&#34;)
  *                         .ipSetReferences(RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs.builder()
- *                             .referenceArn(aws_ec2_managed_prefix_list.this().arn())
+ *                             .referenceArn(this_.arn())
  *                             .build())
  *                         .build())
  *                     .build())
@@ -360,13 +404,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Network Firewall Rule Groups using their `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+ * $ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
  * ```
  * 
  */
@@ -563,9 +608,6 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

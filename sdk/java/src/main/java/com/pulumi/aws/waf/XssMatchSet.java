@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a WAF XSS Match Set Resource
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,31 +46,33 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var xssMatchSet = new XssMatchSet(&#34;xssMatchSet&#34;, XssMatchSetArgs.builder()        
+ *             .name(&#34;xss_match_set&#34;)
  *             .xssMatchTuples(            
  *                 XssMatchSetXssMatchTupleArgs.builder()
+ *                     .textTransformation(&#34;NONE&#34;)
  *                     .fieldToMatch(XssMatchSetXssMatchTupleFieldToMatchArgs.builder()
  *                         .type(&#34;URI&#34;)
  *                         .build())
- *                     .textTransformation(&#34;NONE&#34;)
  *                     .build(),
  *                 XssMatchSetXssMatchTupleArgs.builder()
+ *                     .textTransformation(&#34;NONE&#34;)
  *                     .fieldToMatch(XssMatchSetXssMatchTupleFieldToMatchArgs.builder()
  *                         .type(&#34;QUERY_STRING&#34;)
  *                         .build())
- *                     .textTransformation(&#34;NONE&#34;)
  *                     .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import WAF XSS Match Set using their ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:waf/xssMatchSet:XssMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * $ pulumi import aws:waf/xssMatchSet:XssMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
  * ```
  * 
  */

@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS VPC Lattice Target Group.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,9 +32,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.NewTargetGroup(ctx, "example", &vpclattice.TargetGroupArgs{
+//				Name: pulumi.String("example"),
 //				Type: pulumi.String("INSTANCE"),
 //				Config: &vpclattice.TargetGroupConfigArgs{
-//					VpcIdentifier: pulumi.Any(aws_vpc.Example.Id),
+//					VpcIdentifier: pulumi.Any(exampleAwsVpc.Id),
 //					Port:          pulumi.Int(443),
 //					Protocol:      pulumi.String("HTTPS"),
 //				},
@@ -45,8 +48,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Basic usage with Health check
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,9 +66,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.NewTargetGroup(ctx, "example", &vpclattice.TargetGroupArgs{
+//				Name: pulumi.String("example"),
 //				Type: pulumi.String("IP"),
 //				Config: &vpclattice.TargetGroupConfigArgs{
-//					VpcIdentifier:   pulumi.Any(aws_vpc.Example.Id),
+//					VpcIdentifier:   pulumi.Any(exampleAwsVpc.Id),
 //					IpAddressType:   pulumi.String("IPV4"),
 //					Port:            pulumi.Int(443),
 //					Protocol:        pulumi.String("HTTPS"),
@@ -91,10 +98,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### ALB
 //
 // If the type is ALB, `healthCheck` block is not supported.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -108,9 +118,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.NewTargetGroup(ctx, "example", &vpclattice.TargetGroupArgs{
+//				Name: pulumi.String("example"),
 //				Type: pulumi.String("ALB"),
 //				Config: &vpclattice.TargetGroupConfigArgs{
-//					VpcIdentifier:   pulumi.Any(aws_vpc.Example.Id),
+//					VpcIdentifier:   pulumi.Any(exampleAwsVpc.Id),
 //					Port:            pulumi.Int(443),
 //					Protocol:        pulumi.String("HTTPS"),
 //					ProtocolVersion: pulumi.String("HTTP1"),
@@ -124,10 +135,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Lambda
 //
 // If the type is Lambda, `config` block is not supported.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -141,6 +155,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.NewTargetGroup(ctx, "example", &vpclattice.TargetGroupArgs{
+//				Name: pulumi.String("example"),
 //				Type: pulumi.String("LAMBDA"),
 //			})
 //			if err != nil {
@@ -151,15 +166,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import VPC Lattice Target Group using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:vpclattice/targetGroup:TargetGroup example tg-0c11d4dc16ed96bdb
-//
+// $ pulumi import aws:vpclattice/targetGroup:TargetGroup example tg-0c11d4dc16ed96bdb
 // ```
 type TargetGroup struct {
 	pulumi.CustomResourceState
@@ -194,10 +208,6 @@ func NewTargetGroup(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TargetGroup
 	err := ctx.RegisterResource("aws:vpclattice/targetGroup:TargetGroup", name, args, &resource, opts...)

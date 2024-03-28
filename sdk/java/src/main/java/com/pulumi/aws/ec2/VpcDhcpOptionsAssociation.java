@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a VPC DHCP Options Association resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -39,13 +41,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var dnsResolver = new VpcDhcpOptionsAssociation(&#34;dnsResolver&#34;, VpcDhcpOptionsAssociationArgs.builder()        
- *             .vpcId(aws_vpc.foo().id())
- *             .dhcpOptionsId(aws_vpc_dhcp_options.foo().id())
+ *             .vpcId(fooAwsVpc.id())
+ *             .dhcpOptionsId(foo.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Remarks
  * 
  * * You can only associate one DHCP Options Set to a given VPC ID.
@@ -56,7 +60,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import DHCP associations using the VPC ID associated with the options. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
+ * $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
  * ```
  * 
  */

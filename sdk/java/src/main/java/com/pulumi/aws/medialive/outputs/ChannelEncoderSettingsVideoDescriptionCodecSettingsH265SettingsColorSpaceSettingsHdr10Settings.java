@@ -58,19 +58,21 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
 
         @CustomType.Setter
         public Builder maxCll(@Nullable Integer maxCll) {
+
             this.maxCll = maxCll;
             return this;
         }
         @CustomType.Setter
         public Builder maxFall(@Nullable Integer maxFall) {
+
             this.maxFall = maxFall;
             return this;
         }
         public ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings build() {
-            final var o = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings();
-            o.maxCll = maxCll;
-            o.maxFall = maxFall;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings();
+            _resultValue.maxCll = maxCll;
+            _resultValue.maxFall = maxFall;
+            return _resultValue;
         }
     }
 }

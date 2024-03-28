@@ -5,6 +5,7 @@ package com.pulumi.aws.sfn.outputs;
 
 import com.pulumi.aws.sfn.outputs.GetAliasRoutingConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -114,32 +115,48 @@ public final class GetAliasResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetAliasResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder creationDate(String creationDate) {
-            this.creationDate = Objects.requireNonNull(creationDate);
+            if (creationDate == null) {
+              throw new MissingRequiredPropertyException("GetAliasResult", "creationDate");
+            }
+            this.creationDate = creationDate;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAliasResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAliasResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder routingConfigurations(List<GetAliasRoutingConfiguration> routingConfigurations) {
-            this.routingConfigurations = Objects.requireNonNull(routingConfigurations);
+            if (routingConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetAliasResult", "routingConfigurations");
+            }
+            this.routingConfigurations = routingConfigurations;
             return this;
         }
         public Builder routingConfigurations(GetAliasRoutingConfiguration... routingConfigurations) {
@@ -147,19 +164,22 @@ public final class GetAliasResult {
         }
         @CustomType.Setter
         public Builder statemachineArn(String statemachineArn) {
-            this.statemachineArn = Objects.requireNonNull(statemachineArn);
+            if (statemachineArn == null) {
+              throw new MissingRequiredPropertyException("GetAliasResult", "statemachineArn");
+            }
+            this.statemachineArn = statemachineArn;
             return this;
         }
         public GetAliasResult build() {
-            final var o = new GetAliasResult();
-            o.arn = arn;
-            o.creationDate = creationDate;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.routingConfigurations = routingConfigurations;
-            o.statemachineArn = statemachineArn;
-            return o;
+            final var _resultValue = new GetAliasResult();
+            _resultValue.arn = arn;
+            _resultValue.creationDate = creationDate;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.routingConfigurations = routingConfigurations;
+            _resultValue.statemachineArn = statemachineArn;
+            return _resultValue;
         }
     }
 }

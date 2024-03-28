@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,16 +28,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApplication, err := serverlessrepository.GetApplication(ctx, &serverlessrepository.GetApplicationArgs{
+//			example, err := serverlessrepository.GetApplication(ctx, &serverlessrepository.GetApplicationArgs{
 //				ApplicationId: "arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = serverlessrepository.NewCloudFormationStack(ctx, "exampleCloudFormationStack", &serverlessrepository.CloudFormationStackArgs{
-//				ApplicationId:   *pulumi.String(exampleApplication.ApplicationId),
-//				SemanticVersion: *pulumi.String(exampleApplication.SemanticVersion),
-//				Capabilities:    interface{}(exampleApplication.RequiredCapabilities),
+//			_, err = serverlessrepository.NewCloudFormationStack(ctx, "example", &serverlessrepository.CloudFormationStackArgs{
+//				Name:            pulumi.String("Example"),
+//				ApplicationId:   pulumi.String(example.ApplicationId),
+//				SemanticVersion: pulumi.String(example.SemanticVersion),
+//				Capabilities:    interface{}(example.RequiredCapabilities),
 //			})
 //			if err != nil {
 //				return err
@@ -46,6 +48,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetApplication(ctx *pulumi.Context, args *GetApplicationArgs, opts ...pulumi.InvokeOption) (*GetApplicationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetApplicationResult

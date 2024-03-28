@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,13 +21,13 @@ import * as utilities from "../utilities";
  *         Name: "HelloWorld",
  *     },
  * });
- * const exampleSnapshot = new aws.ebs.Snapshot("exampleSnapshot", {
+ * const exampleSnapshot = new aws.ebs.Snapshot("example_snapshot", {
  *     volumeId: example.id,
  *     tags: {
  *         Name: "HelloWorld_snap",
  *     },
  * });
- * const exampleCopy = new aws.ebs.SnapshotCopy("exampleCopy", {
+ * const exampleCopy = new aws.ebs.SnapshotCopy("example_copy", {
  *     sourceSnapshotId: exampleSnapshot.id,
  *     sourceRegion: "us-west-2",
  *     tags: {
@@ -34,6 +35,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class SnapshotCopy extends pulumi.CustomResource {
     /**
@@ -185,8 +187,6 @@ export class SnapshotCopy extends pulumi.CustomResource {
             resourceInputs["volumeSize"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SnapshotCopy.__pulumiType, name, resourceInputs, opts);
     }
 }

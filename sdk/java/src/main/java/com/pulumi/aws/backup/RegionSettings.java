@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides an AWS Backup Region Settings resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -41,10 +43,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new RegionSettings(&#34;test&#34;, RegionSettingsArgs.builder()        
- *             .resourceTypeManagementPreference(Map.ofEntries(
- *                 Map.entry(&#34;DynamoDB&#34;, true),
- *                 Map.entry(&#34;EFS&#34;, true)
- *             ))
  *             .resourceTypeOptInPreference(Map.ofEntries(
  *                 Map.entry(&#34;Aurora&#34;, true),
  *                 Map.entry(&#34;DocumentDB&#34;, true),
@@ -58,18 +56,23 @@ import javax.annotation.Nullable;
  *                 Map.entry(&#34;Storage Gateway&#34;, true),
  *                 Map.entry(&#34;VirtualMachine&#34;, true)
  *             ))
+ *             .resourceTypeManagementPreference(Map.ofEntries(
+ *                 Map.entry(&#34;DynamoDB&#34;, true),
+ *                 Map.entry(&#34;EFS&#34;, true)
+ *             ))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Backup Region Settings using the `region`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
+ * $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
  * ```
  * 
  */

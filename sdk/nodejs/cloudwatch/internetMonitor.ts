@@ -12,19 +12,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudwatch.InternetMonitor("example", {monitorName: "exmple"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
+ * $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
  * ```
  */
 export class InternetMonitor extends pulumi.CustomResource {
@@ -140,8 +142,6 @@ export class InternetMonitor extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(InternetMonitor.__pulumiType, name, resourceInputs, opts);
     }
 }

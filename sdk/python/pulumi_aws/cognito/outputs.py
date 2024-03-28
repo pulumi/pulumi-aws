@@ -40,6 +40,7 @@ __all__ = [
     'UserPoolLambdaConfig',
     'UserPoolLambdaConfigCustomEmailSender',
     'UserPoolLambdaConfigCustomSmsSender',
+    'UserPoolLambdaConfigPreTokenGenerationConfig',
     'UserPoolPasswordPolicy',
     'UserPoolSchema',
     'UserPoolSchemaNumberAttributeConstraints',
@@ -51,6 +52,7 @@ __all__ = [
     'UserPoolUsernameConfiguration',
     'UserPoolVerificationMessageTemplate',
     'GetIdentityPoolCognitoIdentityProviderResult',
+    'GetUserGroupsGroupResult',
     'GetUserPoolClientAnalyticsConfigurationResult',
     'GetUserPoolClientTokenValidityUnitResult',
 ]
@@ -1645,6 +1647,8 @@ class UserPoolLambdaConfig(dict):
             suggest = "pre_sign_up"
         elif key == "preTokenGeneration":
             suggest = "pre_token_generation"
+        elif key == "preTokenGenerationConfig":
+            suggest = "pre_token_generation_config"
         elif key == "userMigration":
             suggest = "user_migration"
         elif key == "verifyAuthChallengeResponse":
@@ -1673,6 +1677,7 @@ class UserPoolLambdaConfig(dict):
                  pre_authentication: Optional[str] = None,
                  pre_sign_up: Optional[str] = None,
                  pre_token_generation: Optional[str] = None,
+                 pre_token_generation_config: Optional['outputs.UserPoolLambdaConfigPreTokenGenerationConfig'] = None,
                  user_migration: Optional[str] = None,
                  verify_auth_challenge_response: Optional[str] = None):
         """
@@ -1686,7 +1691,8 @@ class UserPoolLambdaConfig(dict):
         :param str post_confirmation: Post-confirmation AWS Lambda trigger.
         :param str pre_authentication: Pre-authentication AWS Lambda trigger.
         :param str pre_sign_up: Pre-registration AWS Lambda trigger.
-        :param str pre_token_generation: Allow to customize identity token claims before token generation.
+        :param str pre_token_generation: Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
+        :param 'UserPoolLambdaConfigPreTokenGenerationConfigArgs' pre_token_generation_config: Allow to customize access tokens. See pre_token_configuration_type
         :param str user_migration: User migration Lambda config type.
         :param str verify_auth_challenge_response: Verifies the authentication challenge response.
         """
@@ -1712,6 +1718,8 @@ class UserPoolLambdaConfig(dict):
             pulumi.set(__self__, "pre_sign_up", pre_sign_up)
         if pre_token_generation is not None:
             pulumi.set(__self__, "pre_token_generation", pre_token_generation)
+        if pre_token_generation_config is not None:
+            pulumi.set(__self__, "pre_token_generation_config", pre_token_generation_config)
         if user_migration is not None:
             pulumi.set(__self__, "user_migration", user_migration)
         if verify_auth_challenge_response is not None:
@@ -1801,9 +1809,17 @@ class UserPoolLambdaConfig(dict):
     @pulumi.getter(name="preTokenGeneration")
     def pre_token_generation(self) -> Optional[str]:
         """
-        Allow to customize identity token claims before token generation.
+        Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
         """
         return pulumi.get(self, "pre_token_generation")
+
+    @property
+    @pulumi.getter(name="preTokenGenerationConfig")
+    def pre_token_generation_config(self) -> Optional['outputs.UserPoolLambdaConfigPreTokenGenerationConfig']:
+        """
+        Allow to customize access tokens. See pre_token_configuration_type
+        """
+        return pulumi.get(self, "pre_token_generation_config")
 
     @property
     @pulumi.getter(name="userMigration")
@@ -1914,6 +1930,54 @@ class UserPoolLambdaConfigCustomSmsSender(dict):
     def lambda_version(self) -> str:
         """
         The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+        """
+        return pulumi.get(self, "lambda_version")
+
+
+@pulumi.output_type
+class UserPoolLambdaConfigPreTokenGenerationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaArn":
+            suggest = "lambda_arn"
+        elif key == "lambdaVersion":
+            suggest = "lambda_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolLambdaConfigPreTokenGenerationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolLambdaConfigPreTokenGenerationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolLambdaConfigPreTokenGenerationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_arn: str,
+                 lambda_version: str):
+        """
+        :param str lambda_arn: The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+        :param str lambda_version: The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
+        """
+        pulumi.set(__self__, "lambda_arn", lambda_arn)
+        pulumi.set(__self__, "lambda_version", lambda_version)
+
+    @property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> str:
+        """
+        The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+        """
+        return pulumi.get(self, "lambda_arn")
+
+    @property
+    @pulumi.getter(name="lambdaVersion")
+    def lambda_version(self) -> str:
+        """
+        The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
         """
         return pulumi.get(self, "lambda_version")
 
@@ -2551,6 +2615,57 @@ class GetIdentityPoolCognitoIdentityProviderResult(dict):
     @pulumi.getter(name="serverSideTokenCheck")
     def server_side_token_check(self) -> bool:
         return pulumi.get(self, "server_side_token_check")
+
+
+@pulumi.output_type
+class GetUserGroupsGroupResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 group_name: str,
+                 precedence: int,
+                 role_arn: str):
+        """
+        :param str description: Description of the user group.
+        :param str group_name: Name of the user group.
+        :param int precedence: Precedence of the user group.
+        :param str role_arn: ARN of the IAM role to be associated with the user group.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "group_name", group_name)
+        pulumi.set(__self__, "precedence", precedence)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the user group.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> str:
+        """
+        Name of the user group.
+        """
+        return pulumi.get(self, "group_name")
+
+    @property
+    @pulumi.getter
+    def precedence(self) -> int:
+        """
+        Precedence of the user group.
+        """
+        return pulumi.get(self, "precedence")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        ARN of the IAM role to be associated with the user group.
+        """
+        return pulumi.get(self, "role_arn")
 
 
 @pulumi.output_type

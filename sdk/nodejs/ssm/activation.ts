@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,28 +24,31 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const testAttach = new aws.iam.RolePolicyAttachment("testAttach", {
+ * const testRole = new aws.iam.Role("test_role", {
+ *     name: "test_role",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const testAttach = new aws.iam.RolePolicyAttachment("test_attach", {
  *     role: testRole.name,
  *     policyArn: "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
  * });
  * const foo = new aws.ssm.Activation("foo", {
+ *     name: "test_ssm_activation",
  *     description: "Test",
  *     iamRole: testRole.id,
  *     registrationLimit: 5,
- * }, {
- *     dependsOn: [testAttach],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AWS SSM Activation using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
+ * $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
  * ```
- *  -> __Note:__ The `activation_code` attribute cannot be imported.
+ * -> __Note:__ The `activation_code` attribute cannot be imported.
  */
 export class Activation extends pulumi.CustomResource {
     /**
@@ -157,8 +161,6 @@ export class Activation extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Activation.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -5,6 +5,7 @@ package com.pulumi.aws.elasticsearch.outputs;
 
 import com.pulumi.aws.elasticsearch.outputs.DomainAutoTuneOptionsMaintenanceSchedule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -74,11 +75,15 @@ public final class DomainAutoTuneOptions {
 
         @CustomType.Setter
         public Builder desiredState(String desiredState) {
-            this.desiredState = Objects.requireNonNull(desiredState);
+            if (desiredState == null) {
+              throw new MissingRequiredPropertyException("DomainAutoTuneOptions", "desiredState");
+            }
+            this.desiredState = desiredState;
             return this;
         }
         @CustomType.Setter
         public Builder maintenanceSchedules(@Nullable List<DomainAutoTuneOptionsMaintenanceSchedule> maintenanceSchedules) {
+
             this.maintenanceSchedules = maintenanceSchedules;
             return this;
         }
@@ -87,15 +92,16 @@ public final class DomainAutoTuneOptions {
         }
         @CustomType.Setter
         public Builder rollbackOnDisable(@Nullable String rollbackOnDisable) {
+
             this.rollbackOnDisable = rollbackOnDisable;
             return this;
         }
         public DomainAutoTuneOptions build() {
-            final var o = new DomainAutoTuneOptions();
-            o.desiredState = desiredState;
-            o.maintenanceSchedules = maintenanceSchedules;
-            o.rollbackOnDisable = rollbackOnDisable;
-            return o;
+            final var _resultValue = new DomainAutoTuneOptions();
+            _resultValue.desiredState = desiredState;
+            _resultValue.maintenanceSchedules = maintenanceSchedules;
+            _resultValue.rollbackOnDisable = rollbackOnDisable;
+            return _resultValue;
         }
     }
 }

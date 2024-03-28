@@ -9,27 +9,29 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleWorkgroup = new aws.redshiftserverless.Workgroup("exampleWorkgroup", {
- *     namespaceName: aws_redshiftserverless_namespace.example.namespace_name,
+ * const example = new aws.redshiftserverless.Workgroup("example", {
+ *     namespaceName: exampleAwsRedshiftserverlessNamespace.namespaceName,
  *     workgroupName: "example",
  * });
- * const exampleUsageLimit = new aws.redshiftserverless.UsageLimit("exampleUsageLimit", {
- *     resourceArn: exampleWorkgroup.arn,
+ * const exampleUsageLimit = new aws.redshiftserverless.UsageLimit("example", {
+ *     resourceArn: example.arn,
  *     usageType: "serverless-compute",
  *     amount: 60,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Serverless Usage Limits using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshiftserverless/usageLimit:UsageLimit example example-id
+ * $ pulumi import aws:redshiftserverless/usageLimit:UsageLimit example example-id
  * ```
  */
 export class UsageLimit extends pulumi.CustomResource {

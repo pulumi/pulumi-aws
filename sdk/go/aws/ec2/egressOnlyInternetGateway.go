@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,15 +32,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//			example, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
 //				CidrBlock:                    pulumi.String("10.1.0.0/16"),
 //				AssignGeneratedIpv6CidrBlock: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewEgressOnlyInternetGateway(ctx, "exampleEgressOnlyInternetGateway", &ec2.EgressOnlyInternetGatewayArgs{
-//				VpcId: exampleVpc.ID(),
+//			_, err = ec2.NewEgressOnlyInternetGateway(ctx, "example", &ec2.EgressOnlyInternetGatewayArgs{
+//				VpcId: example.ID(),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("main"),
 //				},
@@ -52,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Egress-only Internet gateways using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
-//
+// $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
 // ```
 type EgressOnlyInternetGateway struct {
 	pulumi.CustomResourceState
@@ -85,10 +85,6 @@ func NewEgressOnlyInternetGateway(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EgressOnlyInternetGateway
 	err := ctx.RegisterResource("aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway", name, args, &resource, opts...)

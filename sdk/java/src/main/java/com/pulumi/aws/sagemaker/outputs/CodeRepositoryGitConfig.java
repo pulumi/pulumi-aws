@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,30 @@ public final class CodeRepositoryGitConfig {
 
         @CustomType.Setter
         public Builder branch(@Nullable String branch) {
+
             this.branch = branch;
             return this;
         }
         @CustomType.Setter
         public Builder repositoryUrl(String repositoryUrl) {
-            this.repositoryUrl = Objects.requireNonNull(repositoryUrl);
+            if (repositoryUrl == null) {
+              throw new MissingRequiredPropertyException("CodeRepositoryGitConfig", "repositoryUrl");
+            }
+            this.repositoryUrl = repositoryUrl;
             return this;
         }
         @CustomType.Setter
         public Builder secretArn(@Nullable String secretArn) {
+
             this.secretArn = secretArn;
             return this;
         }
         public CodeRepositoryGitConfig build() {
-            final var o = new CodeRepositoryGitConfig();
-            o.branch = branch;
-            o.repositoryUrl = repositoryUrl;
-            o.secretArn = secretArn;
-            return o;
+            final var _resultValue = new CodeRepositoryGitConfig();
+            _resultValue.branch = branch;
+            _resultValue.repositoryUrl = repositoryUrl;
+            _resultValue.secretArn = secretArn;
+            return _resultValue;
         }
     }
 }

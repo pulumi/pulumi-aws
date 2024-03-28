@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,7 +20,10 @@ import javax.annotation.Nullable;
  * Use the `aws_kendra_index_block_list` resource to manage an AWS Kendra block list used for query suggestions for an index.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,10 +47,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new QuerySuggestionsBlockList(&#34;example&#34;, QuerySuggestionsBlockListArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
- *             .roleArn(aws_iam_role.example().arn())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name(&#34;Example&#34;)
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .sourceS3Path(QuerySuggestionsBlockListSourceS3PathArgs.builder()
- *                 .bucket(aws_s3_bucket.example().id())
+ *                 .bucket(exampleAwsS3Bucket.id())
  *                 .key(&#34;example/suggestions.txt&#34;)
  *                 .build())
  *             .tags(Map.of(&#34;Name&#34;, &#34;Example Kendra Index&#34;))
@@ -57,13 +60,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import the `aws_kendra_query_suggestions_block_list` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
+ * $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
  * ```
  * 
  */
@@ -242,9 +246,6 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

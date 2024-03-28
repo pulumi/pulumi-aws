@@ -51,19 +51,21 @@ public final class FleetSpotOptionsMaintenanceStrategiesCapacityRebalance {
 
         @CustomType.Setter
         public Builder replacementStrategy(@Nullable String replacementStrategy) {
+
             this.replacementStrategy = replacementStrategy;
             return this;
         }
         @CustomType.Setter
         public Builder terminationDelay(@Nullable Integer terminationDelay) {
+
             this.terminationDelay = terminationDelay;
             return this;
         }
         public FleetSpotOptionsMaintenanceStrategiesCapacityRebalance build() {
-            final var o = new FleetSpotOptionsMaintenanceStrategiesCapacityRebalance();
-            o.replacementStrategy = replacementStrategy;
-            o.terminationDelay = terminationDelay;
-            return o;
+            final var _resultValue = new FleetSpotOptionsMaintenanceStrategiesCapacityRebalance();
+            _resultValue.replacementStrategy = replacementStrategy;
+            _resultValue.terminationDelay = terminationDelay;
+            return _resultValue;
         }
     }
 }

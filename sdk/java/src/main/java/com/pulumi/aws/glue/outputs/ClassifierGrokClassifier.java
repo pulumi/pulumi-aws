@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,32 @@ public final class ClassifierGrokClassifier {
 
         @CustomType.Setter
         public Builder classification(String classification) {
-            this.classification = Objects.requireNonNull(classification);
+            if (classification == null) {
+              throw new MissingRequiredPropertyException("ClassifierGrokClassifier", "classification");
+            }
+            this.classification = classification;
             return this;
         }
         @CustomType.Setter
         public Builder customPatterns(@Nullable String customPatterns) {
+
             this.customPatterns = customPatterns;
             return this;
         }
         @CustomType.Setter
         public Builder grokPattern(String grokPattern) {
-            this.grokPattern = Objects.requireNonNull(grokPattern);
+            if (grokPattern == null) {
+              throw new MissingRequiredPropertyException("ClassifierGrokClassifier", "grokPattern");
+            }
+            this.grokPattern = grokPattern;
             return this;
         }
         public ClassifierGrokClassifier build() {
-            final var o = new ClassifierGrokClassifier();
-            o.classification = classification;
-            o.customPatterns = customPatterns;
-            o.grokPattern = grokPattern;
-            return o;
+            final var _resultValue = new ClassifierGrokClassifier();
+            _resultValue.classification = classification;
+            _resultValue.customPatterns = customPatterns;
+            _resultValue.grokPattern = grokPattern;
+            return _resultValue;
         }
     }
 }

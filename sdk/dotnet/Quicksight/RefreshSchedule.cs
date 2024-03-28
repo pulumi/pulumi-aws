@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Quicksight
     /// Resource for managing a QuickSight Refresh Schedule.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,6 +28,7 @@ namespace Pulumi.Aws.Quicksight
     ///     var example = new Aws.Quicksight.RefreshSchedule("example", new()
     ///     {
     ///         DataSetId = "dataset-id",
+    ///         ScheduleId = "schedule-id",
     ///         Schedule = new Aws.Quicksight.Inputs.RefreshScheduleScheduleArgs
     ///         {
     ///             RefreshType = "FULL_REFRESH",
@@ -34,13 +37,15 @@ namespace Pulumi.Aws.Quicksight
     ///                 Interval = "HOURLY",
     ///             },
     ///         },
-    ///         ScheduleId = "schedule-id",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Weekly Refresh
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,27 +57,30 @@ namespace Pulumi.Aws.Quicksight
     ///     var example = new Aws.Quicksight.RefreshSchedule("example", new()
     ///     {
     ///         DataSetId = "dataset-id",
+    ///         ScheduleId = "schedule-id",
     ///         Schedule = new Aws.Quicksight.Inputs.RefreshScheduleScheduleArgs
     ///         {
     ///             RefreshType = "INCREMENTAL_REFRESH",
     ///             ScheduleFrequency = new Aws.Quicksight.Inputs.RefreshScheduleScheduleScheduleFrequencyArgs
     ///             {
     ///                 Interval = "WEEKLY",
+    ///                 TimeOfTheDay = "01:00",
+    ///                 Timezone = "Europe/London",
     ///                 RefreshOnDay = new Aws.Quicksight.Inputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs
     ///                 {
     ///                     DayOfWeek = "MONDAY",
     ///                 },
-    ///                 TimeOfTheDay = "01:00",
-    ///                 Timezone = "Europe/London",
     ///             },
     ///         },
-    ///         ScheduleId = "schedule-id",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Monthly Refresh
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -84,32 +92,33 @@ namespace Pulumi.Aws.Quicksight
     ///     var example = new Aws.Quicksight.RefreshSchedule("example", new()
     ///     {
     ///         DataSetId = "dataset-id",
+    ///         ScheduleId = "schedule-id",
     ///         Schedule = new Aws.Quicksight.Inputs.RefreshScheduleScheduleArgs
     ///         {
     ///             RefreshType = "INCREMENTAL_REFRESH",
     ///             ScheduleFrequency = new Aws.Quicksight.Inputs.RefreshScheduleScheduleScheduleFrequencyArgs
     ///             {
     ///                 Interval = "MONTHLY",
+    ///                 TimeOfTheDay = "01:00",
+    ///                 Timezone = "Europe/London",
     ///                 RefreshOnDay = new Aws.Quicksight.Inputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs
     ///                 {
     ///                     DayOfMonth = "1",
     ///                 },
-    ///                 TimeOfTheDay = "01:00",
-    ///                 Timezone = "Europe/London",
     ///             },
     ///         },
-    ///         ScheduleId = "schedule-id",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a QuickSight Refresh Schedule using the AWS account ID, data set ID and schedule ID separated by commas (`,`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:quicksight/refreshSchedule:RefreshSchedule example 123456789012,dataset-id,schedule-id
+    /// $ pulumi import aws:quicksight/refreshSchedule:RefreshSchedule example 123456789012,dataset-id,schedule-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:quicksight/refreshSchedule:RefreshSchedule")]

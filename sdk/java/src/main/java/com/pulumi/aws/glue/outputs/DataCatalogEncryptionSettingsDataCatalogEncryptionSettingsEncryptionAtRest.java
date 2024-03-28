@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,19 +59,23 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
 
         @CustomType.Setter
         public Builder catalogEncryptionMode(String catalogEncryptionMode) {
-            this.catalogEncryptionMode = Objects.requireNonNull(catalogEncryptionMode);
+            if (catalogEncryptionMode == null) {
+              throw new MissingRequiredPropertyException("DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest", "catalogEncryptionMode");
+            }
+            this.catalogEncryptionMode = catalogEncryptionMode;
             return this;
         }
         @CustomType.Setter
         public Builder sseAwsKmsKeyId(@Nullable String sseAwsKmsKeyId) {
+
             this.sseAwsKmsKeyId = sseAwsKmsKeyId;
             return this;
         }
         public DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest build() {
-            final var o = new DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest();
-            o.catalogEncryptionMode = catalogEncryptionMode;
-            o.sseAwsKmsKeyId = sseAwsKmsKeyId;
-            return o;
+            final var _resultValue = new DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest();
+            _resultValue.catalogEncryptionMode = catalogEncryptionMode;
+            _resultValue.sseAwsKmsKeyId = sseAwsKmsKeyId;
+            return _resultValue;
         }
     }
 }

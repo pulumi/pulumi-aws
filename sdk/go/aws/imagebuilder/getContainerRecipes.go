@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := imagebuilder.GetContainerRecipes(ctx, &imagebuilder.GetContainerRecipesArgs{
+//				Owner: pulumi.StringRef("Self"),
 //				Filters: []imagebuilder.GetContainerRecipesFilter{
 //					{
 //						Name: "platform",
@@ -36,7 +38,6 @@ import (
 //						},
 //					},
 //				},
-//				Owner: pulumi.StringRef("Self"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -46,6 +47,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetContainerRecipes(ctx *pulumi.Context, args *GetContainerRecipesArgs, opts ...pulumi.InvokeOption) (*GetContainerRecipesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetContainerRecipesResult
@@ -60,7 +62,7 @@ func GetContainerRecipes(ctx *pulumi.Context, args *GetContainerRecipesArgs, opt
 type GetContainerRecipesArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetContainerRecipesFilter `pulumi:"filters"`
-	// Owner of the container recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+	// Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
 	Owner *string `pulumi:"owner"`
 }
 
@@ -93,7 +95,7 @@ func GetContainerRecipesOutput(ctx *pulumi.Context, args GetContainerRecipesOutp
 type GetContainerRecipesOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetContainerRecipesFilterArrayInput `pulumi:"filters"`
-	// Owner of the container recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+	// Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
 	Owner pulumi.StringPtrInput `pulumi:"owner"`
 }
 

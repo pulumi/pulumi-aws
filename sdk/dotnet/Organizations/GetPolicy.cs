@@ -14,9 +14,7 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// Data source for managing an AWS Organizations Policy.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("aws:organizations/getPolicy:getPolicy", args ?? new GetPolicyArgs(), options.WithDefaults());
@@ -24,9 +22,7 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// Data source for managing an AWS Organizations Policy.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("aws:organizations/getPolicy:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());

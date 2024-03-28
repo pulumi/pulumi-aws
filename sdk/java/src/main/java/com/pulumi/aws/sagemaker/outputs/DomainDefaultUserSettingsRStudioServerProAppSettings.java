@@ -58,19 +58,21 @@ public final class DomainDefaultUserSettingsRStudioServerProAppSettings {
 
         @CustomType.Setter
         public Builder accessStatus(@Nullable String accessStatus) {
+
             this.accessStatus = accessStatus;
             return this;
         }
         @CustomType.Setter
         public Builder userGroup(@Nullable String userGroup) {
+
             this.userGroup = userGroup;
             return this;
         }
         public DomainDefaultUserSettingsRStudioServerProAppSettings build() {
-            final var o = new DomainDefaultUserSettingsRStudioServerProAppSettings();
-            o.accessStatus = accessStatus;
-            o.userGroup = userGroup;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettingsRStudioServerProAppSettings();
+            _resultValue.accessStatus = accessStatus;
+            _resultValue.userGroup = userGroup;
+            return _resultValue;
         }
     }
 }

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,10 +22,11 @@ import * as utilities from "../utilities";
  * });
  * const web = new aws.ec2.Instance("web", {
  *     ami: "ami-abb07bcb",
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     subnetId: subnetId.then(subnetId => subnetId.value),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Promise<GetExportResult> {
 
@@ -70,6 +72,7 @@ export interface GetExportResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -79,10 +82,11 @@ export interface GetExportResult {
  * });
  * const web = new aws.ec2.Instance("web", {
  *     ami: "ami-abb07bcb",
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     subnetId: subnetId.then(subnetId => subnetId.value),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportResult> {
     return pulumi.output(args).apply((a: any) => getExport(a, opts))

@@ -13,6 +13,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"deadLetterTargetArn": aws_sqs_queue.Queue_deadletter.Arn,
+//				"deadLetterTargetArn": queueDeadletter.Arn,
 //				"maxReceiveCount":     4,
 //			})
 //			if err != nil {
@@ -36,6 +37,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
+//				Name:                    pulumi.String("example-queue"),
 //				DelaySeconds:            pulumi.Int(90),
 //				MaxMessageSize:          pulumi.Int(2048),
 //				MessageRetentionSeconds: pulumi.Int(86400),
@@ -53,8 +55,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## FIFO queue
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,8 +73,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
-//				ContentBasedDeduplication: pulumi.Bool(true),
+//				Name:                      pulumi.String("example-queue.fifo"),
 //				FifoQueue:                 pulumi.Bool(true),
+//				ContentBasedDeduplication: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -79,9 +85,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## High-throughput FIFO queue
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -95,8 +103,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
-//				DeduplicationScope:  pulumi.String("messageGroup"),
+//				Name:                pulumi.String("pulumi-example-queue.fifo"),
 //				FifoQueue:           pulumi.Bool(true),
+//				DeduplicationScope:  pulumi.String("messageGroup"),
 //				FifoThroughputLimit: pulumi.String("perMessageGroupId"),
 //			})
 //			if err != nil {
@@ -107,9 +116,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Dead-letter queue
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -125,17 +136,39 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"redrivePermission": "byQueue",
-//				"sourceQueueArns": []interface{}{
-//					aws_sqs_queue.Example_queue.Arn,
-//				},
+//				"deadLetterTargetArn": queueDeadletter.Arn,
+//				"maxReceiveCount":     4,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = sqs.NewQueue(ctx, "exampleQueueDeadletter", &sqs.QueueArgs{
-//				RedriveAllowPolicy: pulumi.String(json0),
+//			_, err = sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
+//				Name:          pulumi.String("pulumi-example-queue"),
+//				RedrivePolicy: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleQueueDeadletter, err := sqs.NewQueue(ctx, "example_queue_deadletter", &sqs.QueueArgs{
+//				Name: pulumi.String("pulumi-example-deadletter-queue"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"redrivePermission": "byQueue",
+//				"sourceQueueArns": []interface{}{
+//					exampleQueue.Arn,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json1 := string(tmpJSON1)
+//			_, err = sqs.NewRedriveAllowPolicy(ctx, "example_queue_redrive_allow_policy", &sqs.RedriveAllowPolicyArgs{
+//				QueueUrl:           exampleQueueDeadletter.ID(),
+//				RedriveAllowPolicy: pulumi.String(json1),
 //			})
 //			if err != nil {
 //				return err
@@ -145,11 +178,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Server-side encryption (SSE)
 //
 // Using [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html):
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -163,6 +198,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
+//				Name:                 pulumi.String("pulumi-example-queue"),
 //				SqsManagedSseEnabled: pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -173,9 +209,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -189,8 +227,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
-//				KmsDataKeyReusePeriodSeconds: pulumi.Int(300),
+//				Name:                         pulumi.String("example-queue"),
 //				KmsMasterKeyId:               pulumi.String("alias/aws/sqs"),
+//				KmsDataKeyReusePeriodSeconds: pulumi.Int(300),
 //			})
 //			if err != nil {
 //				return err
@@ -200,15 +239,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SQS Queues using the queue `url`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
-//
+// $ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
 // ```
 type Queue struct {
 	pulumi.CustomResourceState
@@ -266,10 +304,6 @@ func NewQueue(ctx *pulumi.Context,
 		args = &QueueArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Queue
 	err := ctx.RegisterResource("aws:sqs/queue:Queue", name, args, &resource, opts...)

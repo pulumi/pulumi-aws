@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +31,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewSchema(ctx, "example", &glue.SchemaArgs{
 //				SchemaName:       pulumi.String("example"),
-//				RegistryArn:      pulumi.Any(aws_glue_registry.Test.Arn),
+//				RegistryArn:      pulumi.Any(test.Arn),
 //				DataFormat:       pulumi.String("AVRO"),
 //				Compatibility:    pulumi.String("NONE"),
 //				SchemaDefinition: pulumi.String("{\"type\": \"record\", \"name\": \"r1\", \"fields\": [ {\"name\": \"f1\", \"type\": \"int\"}, {\"name\": \"f2\", \"type\": \"string\"} ]}"),
@@ -43,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glue Registries using `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glue/schema:Schema example arn:aws:glue:us-west-2:123456789012:schema/example/example
-//
+// $ pulumi import aws:glue/schema:Schema example arn:aws:glue:us-west-2:123456789012:schema/example/example
 // ```
 type Schema struct {
 	pulumi.CustomResourceState
@@ -105,10 +105,6 @@ func NewSchema(ctx *pulumi.Context,
 	if args.SchemaName == nil {
 		return nil, errors.New("invalid value for required argument 'SchemaName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Schema
 	err := ctx.RegisterResource("aws:glue/schema:Schema", name, args, &resource, opts...)

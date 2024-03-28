@@ -12,24 +12,26 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.storagegateway.NfsFileShare("example", {
  *     clientLists: ["0.0.0.0/0"],
- *     gatewayArn: aws_storagegateway_gateway.example.arn,
- *     locationArn: aws_s3_bucket.example.arn,
- *     roleArn: aws_iam_role.example.arn,
+ *     gatewayArn: exampleAwsStoragegatewayGateway.arn,
+ *     locationArn: exampleAwsS3Bucket.arn,
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_storagegateway_nfs_file_share` using the NFS File Share Amazon Resource Name (ARN). For example:
  *
  * ```sh
- *  $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
+ * $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
  * ```
  */
 export class NfsFileShare extends pulumi.CustomResource {
@@ -236,8 +238,6 @@ export class NfsFileShare extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(NfsFileShare.__pulumiType, name, resourceInputs, opts);
     }
 }

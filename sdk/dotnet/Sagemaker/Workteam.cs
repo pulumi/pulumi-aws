@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Sagemaker
     /// Provides a SageMaker Workteam resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Cognito Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,7 +28,7 @@ namespace Pulumi.Aws.Sagemaker
     ///     var example = new Aws.Sagemaker.Workteam("example", new()
     ///     {
     ///         WorkteamName = "example",
-    ///         WorkforceName = aws_sagemaker_workforce.Example.Id,
+    ///         WorkforceName = exampleAwsSagemakerWorkforce.Id,
     ///         Description = "example",
     ///         MemberDefinitions = new[]
     ///         {
@@ -34,9 +36,9 @@ namespace Pulumi.Aws.Sagemaker
     ///             {
     ///                 CognitoMemberDefinition = new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionCognitoMemberDefinitionArgs
     ///                 {
-    ///                     ClientId = aws_cognito_user_pool_client.Example.Id,
-    ///                     UserPool = aws_cognito_user_pool_domain.Example.User_pool_id,
-    ///                     UserGroup = aws_cognito_user_group.Example.Id,
+    ///                     ClientId = exampleAwsCognitoUserPoolClient.Id,
+    ///                     UserPool = exampleAwsCognitoUserPoolDomain.UserPoolId,
+    ///                     UserGroup = exampleAwsCognitoUserGroup.Id,
     ///                 },
     ///             },
     ///         },
@@ -44,8 +46,11 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Oidc Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -57,7 +62,7 @@ namespace Pulumi.Aws.Sagemaker
     ///     var example = new Aws.Sagemaker.Workteam("example", new()
     ///     {
     ///         WorkteamName = "example",
-    ///         WorkforceName = aws_sagemaker_workforce.Example.Id,
+    ///         WorkforceName = exampleAwsSagemakerWorkforce.Id,
     ///         Description = "example",
     ///         MemberDefinitions = new[]
     ///         {
@@ -76,13 +81,14 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SageMaker Workteams using the `workteam_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/workteam:Workteam example example
+    /// $ pulumi import aws:sagemaker/workteam:Workteam example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/workteam:Workteam")]
@@ -165,10 +171,6 @@ namespace Pulumi.Aws.Sagemaker
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -306,11 +308,7 @@ namespace Pulumi.Aws.Sagemaker
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

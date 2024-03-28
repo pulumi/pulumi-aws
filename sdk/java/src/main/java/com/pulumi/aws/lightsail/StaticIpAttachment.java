@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see [&#34;Regions and Availability Zones in Amazon Lightsail&#34;](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -26,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lightsail.StaticIp;
+ * import com.pulumi.aws.lightsail.StaticIpArgs;
  * import com.pulumi.aws.lightsail.Instance;
  * import com.pulumi.aws.lightsail.InstanceArgs;
  * import com.pulumi.aws.lightsail.StaticIpAttachment;
@@ -43,16 +46,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testStaticIp = new StaticIp(&#34;testStaticIp&#34;);
+ *         var testStaticIp = new StaticIp(&#34;testStaticIp&#34;, StaticIpArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var testInstance = new Instance(&#34;testInstance&#34;, InstanceArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .availabilityZone(&#34;us-east-1b&#34;)
  *             .blueprintId(&#34;string&#34;)
  *             .bundleId(&#34;string&#34;)
  *             .keyPairName(&#34;some_key_name&#34;)
  *             .build());
  * 
- *         var testStaticIpAttachment = new StaticIpAttachment(&#34;testStaticIpAttachment&#34;, StaticIpAttachmentArgs.builder()        
+ *         var test = new StaticIpAttachment(&#34;test&#34;, StaticIpAttachmentArgs.builder()        
  *             .staticIpName(testStaticIp.id())
  *             .instanceName(testInstance.id())
  *             .build());
@@ -60,6 +66,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:lightsail/staticIpAttachment:StaticIpAttachment")

@@ -12,22 +12,25 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.lightsail.Certificate("test", {
+ *     name: "test",
  *     domainName: "testdomain.com",
  *     subjectAlternativeNames: ["www.testdomain.com"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:
  *
  * ```sh
- *  $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
+ * $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
  * ```
  */
 export class Certificate extends pulumi.CustomResource {
@@ -126,8 +129,6 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }

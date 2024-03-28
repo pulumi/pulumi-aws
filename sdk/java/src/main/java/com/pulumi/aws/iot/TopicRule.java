@@ -38,7 +38,11 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Creates and manages an AWS IoT topic rule.
+ * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,15 +50,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sns.Topic;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.iot.TopicRule;
  * import com.pulumi.aws.iot.TopicRuleArgs;
  * import com.pulumi.aws.iot.inputs.TopicRuleSnsArgs;
  * import com.pulumi.aws.iot.inputs.TopicRuleErrorActionArgs;
  * import com.pulumi.aws.iot.inputs.TopicRuleErrorActionSnsArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.RolePolicy;
  * import com.pulumi.aws.iam.RolePolicyArgs;
  * import java.util.List;
@@ -70,26 +75,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mytopic = new Topic(&#34;mytopic&#34;);
- * 
- *         var myerrortopic = new Topic(&#34;myerrortopic&#34;);
- * 
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;iot.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
+ *         var mytopic = new Topic(&#34;mytopic&#34;, TopicArgs.builder()        
+ *             .name(&#34;mytopic&#34;)
  *             .build());
  * 
- *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var myerrortopic = new Topic(&#34;myerrortopic&#34;, TopicArgs.builder()        
+ *             .name(&#34;myerrortopic&#34;)
  *             .build());
  * 
  *         var rule = new TopicRule(&#34;rule&#34;, TopicRuleArgs.builder()        
+ *             .name(&#34;MyRule&#34;)
  *             .description(&#34;Example rule&#34;)
  *             .enabled(true)
  *             .sql(&#34;SELECT * FROM &#39;topic/test&#39;&#34;)
@@ -108,7 +103,23 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         final var iamPolicyForLambdaPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;iot.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var myrole = new Role(&#34;myrole&#34;, RoleArgs.builder()        
+ *             .name(&#34;myrole&#34;)
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .build());
+ * 
+ *         final var mypolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(&#34;sns:Publish&#34;)
@@ -116,21 +127,23 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var iamPolicyForLambdaRolePolicy = new RolePolicy(&#34;iamPolicyForLambdaRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(role.id())
- *             .policy(iamPolicyForLambdaPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(iamPolicyForLambdaPolicyDocument -&gt; iamPolicyForLambdaPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *         var mypolicyRolePolicy = new RolePolicy(&#34;mypolicyRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;mypolicy&#34;)
+ *             .role(myrole.id())
+ *             .policy(mypolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(mypolicy -&gt; mypolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IoT Topic Rules using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iot/topicRule:TopicRule rule &lt;name&gt;
+ * $ pulumi import aws:iot/topicRule:TopicRule rule &lt;name&gt;
  * ```
  * 
  */
@@ -413,9 +426,6 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

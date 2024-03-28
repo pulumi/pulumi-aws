@@ -19,10 +19,12 @@ import (
 // > **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retainOnDelete` flag.
 //
 // ## Example Usage
+//
 // ### S3 Origin
 //
 // The example below creates a CloudFront distribution with an S3 origin.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,7 +38,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
+//			b, err := s3.NewBucketV2(ctx, "b", &s3.BucketV2Args{
+//				Bucket: pulumi.String("mybucket"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("My bucket"),
 //				},
@@ -44,19 +47,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "bAcl", &s3.BucketAclV2Args{
-//				Bucket: bucketV2.ID(),
+//			_, err = s3.NewBucketAclV2(ctx, "b_acl", &s3.BucketAclV2Args{
+//				Bucket: b.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			s3OriginId := "myS3Origin"
-//			_, err = cloudfront.NewDistribution(ctx, "s3Distribution", &cloudfront.DistributionArgs{
+//			_, err = cloudfront.NewDistribution(ctx, "s3_distribution", &cloudfront.DistributionArgs{
 //				Origins: cloudfront.DistributionOriginArray{
 //					&cloudfront.DistributionOriginArgs{
-//						DomainName:            bucketV2.BucketRegionalDomainName,
-//						OriginAccessControlId: pulumi.Any(aws_cloudfront_origin_access_control.Default.Id),
+//						DomainName:            b.BucketRegionalDomainName,
+//						OriginAccessControlId: pulumi.Any(_default.Id),
 //						OriginId:              pulumi.String(s3OriginId),
 //					},
 //				},
@@ -180,10 +183,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Failover Routing
 //
 // The example below creates a CloudFront distribution with an origin group for failover routing.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -196,7 +202,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewDistribution(ctx, "s3Distribution", &cloudfront.DistributionArgs{
+//			_, err := cloudfront.NewDistribution(ctx, "s3_distribution", &cloudfront.DistributionArgs{
 //				OriginGroups: cloudfront.DistributionOriginGroupArray{
 //					&cloudfront.DistributionOriginGroupArgs{
 //						OriginId: pulumi.String("groupS3"),
@@ -220,17 +226,17 @@ import (
 //				},
 //				Origins: cloudfront.DistributionOriginArray{
 //					&cloudfront.DistributionOriginArgs{
-//						DomainName: pulumi.Any(aws_s3_bucket.Primary.Bucket_regional_domain_name),
+//						DomainName: pulumi.Any(primary.BucketRegionalDomainName),
 //						OriginId:   pulumi.String("primaryS3"),
 //						S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
-//							OriginAccessIdentity: pulumi.Any(aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path),
+//							OriginAccessIdentity: pulumi.Any(_default.CloudfrontAccessIdentityPath),
 //						},
 //					},
 //					&cloudfront.DistributionOriginArgs{
-//						DomainName: pulumi.Any(aws_s3_bucket.Failover.Bucket_regional_domain_name),
+//						DomainName: pulumi.Any(failover.BucketRegionalDomainName),
 //						OriginId:   pulumi.String("failoverS3"),
 //						S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
-//							OriginAccessIdentity: pulumi.Any(aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path),
+//							OriginAccessIdentity: pulumi.Any(_default.CloudfrontAccessIdentityPath),
 //						},
 //					},
 //				},
@@ -246,10 +252,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Managed Caching Policy
 //
 // The example below creates a CloudFront distribution with an [AWS managed caching policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html).
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -263,13 +272,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			s3OriginId := "myS3Origin"
-//			_, err := cloudfront.NewDistribution(ctx, "s3Distribution", &cloudfront.DistributionArgs{
+//			_, err := cloudfront.NewDistribution(ctx, "s3_distribution", &cloudfront.DistributionArgs{
 //				Origins: cloudfront.DistributionOriginArray{
 //					&cloudfront.DistributionOriginArgs{
-//						DomainName: pulumi.Any(aws_s3_bucket.Primary.Bucket_regional_domain_name),
+//						DomainName: pulumi.Any(primary.BucketRegionalDomainName),
 //						OriginId:   pulumi.String("myS3Origin"),
 //						S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
-//							OriginAccessIdentity: pulumi.Any(aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path),
+//							OriginAccessIdentity: pulumi.Any(_default.CloudfrontAccessIdentityPath),
 //						},
 //					},
 //				},
@@ -309,15 +318,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudFront Distributions using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
-//
+// $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
 // ```
 type Distribution struct {
 	pulumi.CustomResourceState
@@ -412,10 +420,6 @@ func NewDistribution(ctx *pulumi.Context,
 	if args.ViewerCertificate == nil {
 		return nil, errors.New("invalid value for required argument 'ViewerCertificate'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Distribution
 	err := ctx.RegisterResource("aws:cloudfront/distribution:Distribution", name, args, &resource, opts...)

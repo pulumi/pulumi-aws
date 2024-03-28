@@ -5,6 +5,7 @@ package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.aws.appflow.outputs.FlowTriggerConfigTriggerProperties;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,19 +60,23 @@ public final class FlowTriggerConfig {
 
         @CustomType.Setter
         public Builder triggerProperties(@Nullable FlowTriggerConfigTriggerProperties triggerProperties) {
+
             this.triggerProperties = triggerProperties;
             return this;
         }
         @CustomType.Setter
         public Builder triggerType(String triggerType) {
-            this.triggerType = Objects.requireNonNull(triggerType);
+            if (triggerType == null) {
+              throw new MissingRequiredPropertyException("FlowTriggerConfig", "triggerType");
+            }
+            this.triggerType = triggerType;
             return this;
         }
         public FlowTriggerConfig build() {
-            final var o = new FlowTriggerConfig();
-            o.triggerProperties = triggerProperties;
-            o.triggerType = triggerType;
-            return o;
+            final var _resultValue = new FlowTriggerConfig();
+            _resultValue.triggerProperties = triggerProperties;
+            _resultValue.triggerType = triggerType;
+            return _resultValue;
         }
     }
 }

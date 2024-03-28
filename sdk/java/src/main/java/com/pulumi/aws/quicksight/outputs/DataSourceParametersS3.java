@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.aws.quicksight.outputs.DataSourceParametersS3ManifestFileLocation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,13 +43,16 @@ public final class DataSourceParametersS3 {
 
         @CustomType.Setter
         public Builder manifestFileLocation(DataSourceParametersS3ManifestFileLocation manifestFileLocation) {
-            this.manifestFileLocation = Objects.requireNonNull(manifestFileLocation);
+            if (manifestFileLocation == null) {
+              throw new MissingRequiredPropertyException("DataSourceParametersS3", "manifestFileLocation");
+            }
+            this.manifestFileLocation = manifestFileLocation;
             return this;
         }
         public DataSourceParametersS3 build() {
-            final var o = new DataSourceParametersS3();
-            o.manifestFileLocation = manifestFileLocation;
-            return o;
+            final var _resultValue = new DataSourceParametersS3();
+            _resultValue.manifestFileLocation = manifestFileLocation;
+            return _resultValue;
         }
     }
 }

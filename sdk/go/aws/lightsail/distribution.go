@@ -15,10 +15,12 @@ import (
 // Resource for managing an AWS Lightsail Distribution.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
 // Below is a basic example with a bucket as an origin.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,17 +33,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testBucket, err := lightsail.NewBucket(ctx, "testBucket", &lightsail.BucketArgs{
+//			test, err := lightsail.NewBucket(ctx, "test", &lightsail.BucketArgs{
+//				Name:     pulumi.String("test-bucket"),
 //				BundleId: pulumi.String("small_1_0"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lightsail.NewDistribution(ctx, "testDistribution", &lightsail.DistributionArgs{
+//			_, err = lightsail.NewDistribution(ctx, "test", &lightsail.DistributionArgs{
+//				Name:     pulumi.String("test-distribution"),
 //				BundleId: pulumi.String("small_1_0"),
 //				Origin: &lightsail.DistributionOriginArgs{
-//					Name:       testBucket.Name,
-//					RegionName: testBucket.Region,
+//					Name:       test.Name,
+//					RegionName: test.Region,
 //				},
 //				DefaultCacheBehavior: &lightsail.DistributionDefaultCacheBehaviorArgs{
 //					Behavior: pulumi.String("cache"),
@@ -71,10 +75,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### instance origin example
 //
 // Below is an example of an instance as the origin.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -102,37 +109,39 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testStaticIp, err := lightsail.NewStaticIp(ctx, "testStaticIp", nil)
+//			testStaticIp, err := lightsail.NewStaticIp(ctx, "test", &lightsail.StaticIpArgs{
+//				Name: pulumi.String("test-static-ip"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			testInstance, err := lightsail.NewInstance(ctx, "testInstance", &lightsail.InstanceArgs{
-//				AvailabilityZone: *pulumi.String(available.Names[0]),
+//			testInstance, err := lightsail.NewInstance(ctx, "test", &lightsail.InstanceArgs{
+//				Name:             pulumi.String("test-instance"),
+//				AvailabilityZone: pulumi.String(available.Names[0]),
 //				BlueprintId:      pulumi.String("amazon_linux_2"),
 //				BundleId:         pulumi.String("micro_1_0"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testStaticIpAttachment, err := lightsail.NewStaticIpAttachment(ctx, "testStaticIpAttachment", &lightsail.StaticIpAttachmentArgs{
+//			_, err = lightsail.NewStaticIpAttachment(ctx, "test", &lightsail.StaticIpAttachmentArgs{
 //				StaticIpName: testStaticIp.Name,
 //				InstanceName: testInstance.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lightsail.NewDistribution(ctx, "testDistribution", &lightsail.DistributionArgs{
+//			_, err = lightsail.NewDistribution(ctx, "test", &lightsail.DistributionArgs{
+//				Name:     pulumi.String("test-distribution"),
 //				BundleId: pulumi.String("small_1_0"),
 //				Origin: &lightsail.DistributionOriginArgs{
 //					Name:       testInstance.Name,
-//					RegionName: *pulumi.String(available.Id),
+//					RegionName: pulumi.String(available.Id),
 //				},
 //				DefaultCacheBehavior: &lightsail.DistributionDefaultCacheBehaviorArgs{
 //					Behavior: pulumi.String("cache"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				testStaticIpAttachment,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -141,10 +150,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### lb origin example
 //
 // # Below is an example with a load balancer as an origin
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -172,7 +184,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testLb, err := lightsail.NewLb(ctx, "testLb", &lightsail.LbArgs{
+//			test, err := lightsail.NewLb(ctx, "test", &lightsail.LbArgs{
+//				Name:            pulumi.String("test-load-balancer"),
 //				HealthCheckPath: pulumi.String("/"),
 //				InstancePort:    pulumi.Int(80),
 //				Tags: pulumi.StringMap{
@@ -182,33 +195,33 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testInstance, err := lightsail.NewInstance(ctx, "testInstance", &lightsail.InstanceArgs{
-//				AvailabilityZone: *pulumi.String(available.Names[0]),
+//			testInstance, err := lightsail.NewInstance(ctx, "test", &lightsail.InstanceArgs{
+//				Name:             pulumi.String("test-instance"),
+//				AvailabilityZone: pulumi.String(available.Names[0]),
 //				BlueprintId:      pulumi.String("amazon_linux_2"),
 //				BundleId:         pulumi.String("nano_1_0"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testLbAttachment, err := lightsail.NewLbAttachment(ctx, "testLbAttachment", &lightsail.LbAttachmentArgs{
-//				LbName:       testLb.Name,
+//			_, err = lightsail.NewLbAttachment(ctx, "test", &lightsail.LbAttachmentArgs{
+//				LbName:       test.Name,
 //				InstanceName: testInstance.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lightsail.NewDistribution(ctx, "testDistribution", &lightsail.DistributionArgs{
+//			_, err = lightsail.NewDistribution(ctx, "test", &lightsail.DistributionArgs{
+//				Name:     pulumi.String("test-distribution"),
 //				BundleId: pulumi.String("small_1_0"),
 //				Origin: &lightsail.DistributionOriginArgs{
-//					Name:       testLb.Name,
-//					RegionName: *pulumi.String(available.Id),
+//					Name:       test.Name,
+//					RegionName: pulumi.String(available.Id),
 //				},
 //				DefaultCacheBehavior: &lightsail.DistributionDefaultCacheBehaviorArgs{
 //					Behavior: pulumi.String("cache"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				testLbAttachment,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -217,15 +230,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Lightsail Distribution using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
-//
+// $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
 // ```
 type Distribution struct {
 	pulumi.CustomResourceState
@@ -295,10 +307,6 @@ func NewDistribution(ctx *pulumi.Context,
 	if args.Origin == nil {
 		return nil, errors.New("invalid value for required argument 'Origin'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Distribution
 	err := ctx.RegisterResource("aws:lightsail/distribution:Distribution", name, args, &resource, opts...)

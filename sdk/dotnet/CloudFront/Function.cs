@@ -17,34 +17,13 @@ namespace Pulumi.Aws.CloudFront
     /// &gt; **NOTE:** You cannot delete a function if it’s associated with a cache behavior. First, update your distributions to remove the function association from all cache behaviors, then delete the function.
     /// 
     /// ## Example Usage
-    /// ### Basic Example
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.CloudFront.Function("test", new()
-    ///     {
-    ///         Runtime = "cloudfront-js-1.0",
-    ///         Comment = "my function",
-    ///         Publish = true,
-    ///         Code = File.ReadAllText($"{path.Module}/function.js"),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudFront Functions using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudfront/function:Function test my_test_function
+    /// $ pulumi import aws:cloudfront/function:Function test my_test_function
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/function:Function")]
@@ -93,7 +72,7 @@ namespace Pulumi.Aws.CloudFront
         public Output<bool?> Publish { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+        /// Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -177,7 +156,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<bool>? Publish { get; set; }
 
         /// <summary>
-        /// Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+        /// Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -235,7 +214,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<bool>? Publish { get; set; }
 
         /// <summary>
-        /// Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+        /// Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
         /// 
         /// The following arguments are optional:
         /// </summary>

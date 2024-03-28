@@ -6,6 +6,7 @@ package com.pulumi.aws.networkmanager;
 import com.pulumi.aws.networkmanager.inputs.ConnectAttachmentOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -234,10 +235,18 @@ public final class ConnectAttachmentArgs extends com.pulumi.resources.ResourceAr
         }
 
         public ConnectAttachmentArgs build() {
-            $.coreNetworkId = Objects.requireNonNull($.coreNetworkId, "expected parameter 'coreNetworkId' to be non-null");
-            $.edgeLocation = Objects.requireNonNull($.edgeLocation, "expected parameter 'edgeLocation' to be non-null");
-            $.options = Objects.requireNonNull($.options, "expected parameter 'options' to be non-null");
-            $.transportAttachmentId = Objects.requireNonNull($.transportAttachmentId, "expected parameter 'transportAttachmentId' to be non-null");
+            if ($.coreNetworkId == null) {
+                throw new MissingRequiredPropertyException("ConnectAttachmentArgs", "coreNetworkId");
+            }
+            if ($.edgeLocation == null) {
+                throw new MissingRequiredPropertyException("ConnectAttachmentArgs", "edgeLocation");
+            }
+            if ($.options == null) {
+                throw new MissingRequiredPropertyException("ConnectAttachmentArgs", "options");
+            }
+            if ($.transportAttachmentId == null) {
+                throw new MissingRequiredPropertyException("ConnectAttachmentArgs", "transportAttachmentId");
+            }
             return $;
         }
     }

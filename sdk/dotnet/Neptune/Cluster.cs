@@ -22,6 +22,7 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,17 +33,18 @@ namespace Pulumi.Aws.Neptune
     /// {
     ///     var @default = new Aws.Neptune.Cluster("default", new()
     ///     {
-    ///         ApplyImmediately = true,
-    ///         BackupRetentionPeriod = 5,
     ///         ClusterIdentifier = "neptune-cluster-demo",
     ///         Engine = "neptune",
-    ///         IamDatabaseAuthenticationEnabled = true,
+    ///         BackupRetentionPeriod = 5,
     ///         PreferredBackupWindow = "07:00-09:00",
     ///         SkipFinalSnapshot = true,
+    ///         IamDatabaseAuthenticationEnabled = true,
+    ///         ApplyImmediately = true,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// &gt; **Note:** AWS Neptune does not support user name/password–based access control.
     /// See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.
@@ -52,7 +54,7 @@ namespace Pulumi.Aws.Neptune
     /// Using `pulumi import`, import `aws_neptune_cluster` using the cluster identifier. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:neptune/cluster:Cluster example my-cluster
+    /// $ pulumi import aws:neptune/cluster:Cluster example my-cluster
     /// ```
     /// </summary>
     [AwsResourceType("aws:neptune/cluster:Cluster")]
@@ -257,6 +259,12 @@ namespace Pulumi.Aws.Neptune
         public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
+        /// Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+        /// </summary>
+        [Output("storageType")]
+        public Output<string> StorageType { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -297,10 +305,6 @@ namespace Pulumi.Aws.Neptune
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -503,6 +507,12 @@ namespace Pulumi.Aws.Neptune
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
+
+        /// <summary>
+        /// Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+        /// </summary>
+        [Input("storageType")]
+        public Input<string>? StorageType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -758,6 +768,12 @@ namespace Pulumi.Aws.Neptune
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
 
+        /// <summary>
+        /// Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+        /// </summary>
+        [Input("storageType")]
+        public Input<string>? StorageType { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -780,11 +796,7 @@ namespace Pulumi.Aws.Neptune
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("vpcSecurityGroupIds")]

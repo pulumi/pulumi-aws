@@ -184,11 +184,13 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         lb = aws.elb.LoadBalancer("lb",
+            name="test-lb",
             availability_zones=["us-east-1a"],
             listeners=[aws.elb.LoadBalancerListenerArgs(
                 instance_port=8000,
@@ -197,10 +199,12 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
                 lb_protocol="http",
             )])
         foo = aws.elb.LoadBalancerCookieStickinessPolicy("foo",
+            name="foo-policy",
             load_balancer=lb.id,
             lb_port=80,
             cookie_expiration_period=600)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -224,11 +228,13 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         lb = aws.elb.LoadBalancer("lb",
+            name="test-lb",
             availability_zones=["us-east-1a"],
             listeners=[aws.elb.LoadBalancerListenerArgs(
                 instance_port=8000,
@@ -237,10 +243,12 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
                 lb_protocol="http",
             )])
         foo = aws.elb.LoadBalancerCookieStickinessPolicy("foo",
+            name="foo-policy",
             load_balancer=lb.id,
             lb_port=80,
             cookie_expiration_period=600)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerCookieStickinessPolicyArgs args: The arguments to use to populate this resource's properties.

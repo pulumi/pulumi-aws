@@ -15,8 +15,10 @@ import (
 // Provides a SageMaker Image resource.
 //
 // ## Example Usage
+//
 // ### Basic usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,7 +33,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewImage(ctx, "example", &sagemaker.ImageArgs{
 //				ImageName: pulumi.String("example"),
-//				RoleArn:   pulumi.Any(aws_iam_role.Test.Arn),
+//				RoleArn:   pulumi.Any(test.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -41,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SageMaker Code Images using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/image:Image test_image my-code-repo
-//
+// $ pulumi import aws:sagemaker/image:Image test_image my-code-repo
 // ```
 type Image struct {
 	pulumi.CustomResourceState
@@ -85,10 +86,6 @@ func NewImage(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Image
 	err := ctx.RegisterResource("aws:sagemaker/image:Image", name, args, &resource, opts...)

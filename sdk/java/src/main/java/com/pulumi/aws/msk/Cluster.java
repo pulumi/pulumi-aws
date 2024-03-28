@@ -18,7 +18,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -29,7 +28,10 @@ import javax.annotation.Nullable;
  * &gt; **Note:** This resource manages _provisioned_ clusters. To manage a _serverless_ Amazon MSK cluster, use the `aws.msk.ServerlessCluster` resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,7 +49,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.Key;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.iam.IamFunctions;
@@ -119,9 +123,13 @@ import javax.annotation.Nullable;
  *             .description(&#34;example&#34;)
  *             .build());
  * 
- *         var test = new LogGroup(&#34;test&#34;);
+ *         var test = new LogGroup(&#34;test&#34;, LogGroupArgs.builder()        
+ *             .name(&#34;msk_broker_logs&#34;)
+ *             .build());
  * 
- *         var bucket = new BucketV2(&#34;bucket&#34;);
+ *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;msk-broker-logs-bucket&#34;)
+ *             .build());
  * 
  *         var bucketAcl = new BucketAclV2(&#34;bucketAcl&#34;, BucketAclV2Args.builder()        
  *             .bucket(bucket.id())
@@ -140,10 +148,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var firehoseRole = new Role(&#34;firehoseRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;firehose_test_role&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var testStream = new FirehoseDeliveryStream(&#34;testStream&#34;, FirehoseDeliveryStreamArgs.builder()        
+ *             .name(&#34;kinesis-firehose-msk-broker-logs-stream&#34;)
  *             .destination(&#34;extended_s3&#34;)
  *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
  *                 .roleArn(firehoseRole.arn())
@@ -153,6 +163,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
+ *             .clusterName(&#34;example&#34;)
  *             .kafkaVersion(&#34;3.2.0&#34;)
  *             .numberOfBrokerNodes(3)
  *             .brokerNodeGroupInfo(ClusterBrokerNodeGroupInfoArgs.builder()
@@ -206,7 +217,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With volume_throughput argument
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -233,14 +248,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
+ *             .clusterName(&#34;example&#34;)
  *             .kafkaVersion(&#34;2.7.1&#34;)
  *             .numberOfBrokerNodes(3)
  *             .brokerNodeGroupInfo(ClusterBrokerNodeGroupInfoArgs.builder()
  *                 .instanceType(&#34;kafka.m5.4xlarge&#34;)
  *                 .clientSubnets(                
- *                     aws_subnet.subnet_az1().id(),
- *                     aws_subnet.subnet_az2().id(),
- *                     aws_subnet.subnet_az3().id())
+ *                     subnetAz1.id(),
+ *                     subnetAz2.id(),
+ *                     subnetAz3.id())
  *                 .storageInfo(ClusterBrokerNodeGroupInfoStorageInfoArgs.builder()
  *                     .ebsStorageInfo(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs.builder()
  *                         .provisionedThroughput(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs.builder()
@@ -250,20 +266,21 @@ import javax.annotation.Nullable;
  *                         .volumeSize(1000)
  *                         .build())
  *                     .build())
- *                 .securityGroups(aws_security_group.sg().id())
+ *                 .securityGroups(sg.id())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import MSK clusters using the cluster `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:msk/cluster:Cluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+ * $ pulumi import aws:msk/cluster:Cluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
  * ```
  * 
  */
@@ -700,9 +717,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

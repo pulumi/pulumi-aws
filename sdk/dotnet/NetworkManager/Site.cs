@@ -14,6 +14,7 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,22 +23,23 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("exampleGlobalNetwork");
+    ///     var example = new Aws.NetworkManager.GlobalNetwork("example");
     /// 
-    ///     var exampleSite = new Aws.NetworkManager.Site("exampleSite", new()
+    ///     var exampleSite = new Aws.NetworkManager.Site("example", new()
     ///     {
-    ///         GlobalNetworkId = exampleGlobalNetwork.Id,
+    ///         GlobalNetworkId = example.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_networkmanager_site` using the site ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:networkmanager/site:Site example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223
+    /// $ pulumi import aws:networkmanager/site:Site example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkmanager/site:Site")]
@@ -102,10 +104,6 @@ namespace Pulumi.Aws.NetworkManager
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -213,11 +211,7 @@ namespace Pulumi.Aws.NetworkManager
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public SiteState()

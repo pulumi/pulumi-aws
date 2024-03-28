@@ -7,6 +7,7 @@ import com.pulumi.aws.sagemaker.inputs.WorkteamMemberDefinitionArgs;
 import com.pulumi.aws.sagemaker.inputs.WorkteamNotificationConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -275,10 +276,18 @@ public final class WorkteamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WorkteamArgs build() {
-            $.description = Objects.requireNonNull($.description, "expected parameter 'description' to be non-null");
-            $.memberDefinitions = Objects.requireNonNull($.memberDefinitions, "expected parameter 'memberDefinitions' to be non-null");
-            $.workforceName = Objects.requireNonNull($.workforceName, "expected parameter 'workforceName' to be non-null");
-            $.workteamName = Objects.requireNonNull($.workteamName, "expected parameter 'workteamName' to be non-null");
+            if ($.description == null) {
+                throw new MissingRequiredPropertyException("WorkteamArgs", "description");
+            }
+            if ($.memberDefinitions == null) {
+                throw new MissingRequiredPropertyException("WorkteamArgs", "memberDefinitions");
+            }
+            if ($.workforceName == null) {
+                throw new MissingRequiredPropertyException("WorkteamArgs", "workforceName");
+            }
+            if ($.workteamName == null) {
+                throw new MissingRequiredPropertyException("WorkteamArgs", "workteamName");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,49 +71,70 @@ public final class GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRo
 
         @CustomType.Setter
         public Builder attachmentId(String attachmentId) {
-            this.attachmentId = Objects.requireNonNull(attachmentId);
+            if (attachmentId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute", "attachmentId");
+            }
+            this.attachmentId = attachmentId;
             return this;
         }
         @CustomType.Setter
         public Builder destinationCidr(String destinationCidr) {
-            this.destinationCidr = Objects.requireNonNull(destinationCidr);
+            if (destinationCidr == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute", "destinationCidr");
+            }
+            this.destinationCidr = destinationCidr;
             return this;
         }
         @CustomType.Setter
         public Builder prefixListId(String prefixListId) {
-            this.prefixListId = Objects.requireNonNull(prefixListId);
+            if (prefixListId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute", "prefixListId");
+            }
+            this.prefixListId = prefixListId;
             return this;
         }
         @CustomType.Setter
         public Builder resourceId(String resourceId) {
-            this.resourceId = Objects.requireNonNull(resourceId);
+            if (resourceId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute", "resourceId");
+            }
+            this.resourceId = resourceId;
             return this;
         }
         @CustomType.Setter
         public Builder resourceType(String resourceType) {
-            this.resourceType = Objects.requireNonNull(resourceType);
+            if (resourceType == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute", "resourceType");
+            }
+            this.resourceType = resourceType;
             return this;
         }
         @CustomType.Setter
         public Builder routeOrigin(String routeOrigin) {
-            this.routeOrigin = Objects.requireNonNull(routeOrigin);
+            if (routeOrigin == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute", "routeOrigin");
+            }
+            this.routeOrigin = routeOrigin;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute", "state");
+            }
+            this.state = state;
             return this;
         }
         public GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute build() {
-            final var o = new GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute();
-            o.attachmentId = attachmentId;
-            o.destinationCidr = destinationCidr;
-            o.prefixListId = prefixListId;
-            o.resourceId = resourceId;
-            o.resourceType = resourceType;
-            o.routeOrigin = routeOrigin;
-            o.state = state;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute();
+            _resultValue.attachmentId = attachmentId;
+            _resultValue.destinationCidr = destinationCidr;
+            _resultValue.prefixListId = prefixListId;
+            _resultValue.resourceId = resourceId;
+            _resultValue.resourceType = resourceType;
+            _resultValue.routeOrigin = routeOrigin;
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

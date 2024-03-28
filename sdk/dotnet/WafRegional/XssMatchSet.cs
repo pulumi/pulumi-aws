@@ -14,6 +14,7 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,38 +23,40 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var xssMatchSet = new Aws.WafRegional.XssMatchSet("xssMatchSet", new()
+    ///     var xssMatchSet = new Aws.WafRegional.XssMatchSet("xss_match_set", new()
     ///     {
+    ///         Name = "xss_match_set",
     ///         XssMatchTuples = new[]
     ///         {
     ///             new Aws.WafRegional.Inputs.XssMatchSetXssMatchTupleArgs
     ///             {
+    ///                 TextTransformation = "NONE",
     ///                 FieldToMatch = new Aws.WafRegional.Inputs.XssMatchSetXssMatchTupleFieldToMatchArgs
     ///                 {
     ///                     Type = "URI",
     ///                 },
-    ///                 TextTransformation = "NONE",
     ///             },
     ///             new Aws.WafRegional.Inputs.XssMatchSetXssMatchTupleArgs
     ///             {
+    ///                 TextTransformation = "NONE",
     ///                 FieldToMatch = new Aws.WafRegional.Inputs.XssMatchSetXssMatchTupleFieldToMatchArgs
     ///                 {
     ///                     Type = "QUERY_STRING",
     ///                 },
-    ///                 TextTransformation = "NONE",
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS WAF Regional XSS Match using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
+    /// $ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
     /// ```
     /// </summary>
     [AwsResourceType("aws:wafregional/xssMatchSet:XssMatchSet")]

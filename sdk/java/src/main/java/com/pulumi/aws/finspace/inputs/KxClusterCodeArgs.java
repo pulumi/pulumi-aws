@@ -5,6 +5,7 @@ package com.pulumi.aws.finspace.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class KxClusterCodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public KxClusterCodeArgs build() {
-            $.s3Bucket = Objects.requireNonNull($.s3Bucket, "expected parameter 's3Bucket' to be non-null");
-            $.s3Key = Objects.requireNonNull($.s3Key, "expected parameter 's3Key' to be non-null");
+            if ($.s3Bucket == null) {
+                throw new MissingRequiredPropertyException("KxClusterCodeArgs", "s3Bucket");
+            }
+            if ($.s3Key == null) {
+                throw new MissingRequiredPropertyException("KxClusterCodeArgs", "s3Key");
+            }
             return $;
         }
     }

@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Creates a new Amazon Redshift Serverless Usage Limit.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,13 +44,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleWorkgroup = new Workgroup(&#34;exampleWorkgroup&#34;, WorkgroupArgs.builder()        
- *             .namespaceName(aws_redshiftserverless_namespace.example().namespace_name())
+ *         var example = new Workgroup(&#34;example&#34;, WorkgroupArgs.builder()        
+ *             .namespaceName(exampleAwsRedshiftserverlessNamespace.namespaceName())
  *             .workgroupName(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleUsageLimit = new UsageLimit(&#34;exampleUsageLimit&#34;, UsageLimitArgs.builder()        
- *             .resourceArn(exampleWorkgroup.arn())
+ *             .resourceArn(example.arn())
  *             .usageType(&#34;serverless-compute&#34;)
  *             .amount(60)
  *             .build());
@@ -56,13 +58,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift Serverless Usage Limits using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshiftserverless/usageLimit:UsageLimit example example-id
+ * $ pulumi import aws:redshiftserverless/usageLimit:UsageLimit example example-id
  * ```
  * 
  */

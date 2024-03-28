@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncry
 
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects", "status");
+            }
+            this.status = status;
             return this;
         }
         public BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects build() {
-            final var o = new BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects();
-            o.status = status;
-            return o;
+            final var _resultValue = new BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects();
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

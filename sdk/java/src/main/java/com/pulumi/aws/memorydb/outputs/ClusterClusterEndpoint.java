@@ -59,19 +59,21 @@ public final class ClusterClusterEndpoint {
 
         @CustomType.Setter
         public Builder address(@Nullable String address) {
+
             this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         public ClusterClusterEndpoint build() {
-            final var o = new ClusterClusterEndpoint();
-            o.address = address;
-            o.port = port;
-            return o;
+            final var _resultValue = new ClusterClusterEndpoint();
+            _resultValue.address = address;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

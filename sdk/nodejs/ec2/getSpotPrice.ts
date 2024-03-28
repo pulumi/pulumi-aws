@@ -12,19 +12,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getSpotPrice({
+ *     instanceType: "t3.medium",
  *     availabilityZone: "us-west-2a",
  *     filters: [{
  *         name: "product-description",
  *         values: ["Linux/UNIX"],
  *     }],
- *     instanceType: "t3.medium",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSpotPrice(args?: GetSpotPriceArgs, opts?: pulumi.InvokeOptions): Promise<GetSpotPriceResult> {
     args = args || {};
@@ -80,19 +82,21 @@ export interface GetSpotPriceResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getSpotPrice({
+ *     instanceType: "t3.medium",
  *     availabilityZone: "us-west-2a",
  *     filters: [{
  *         name: "product-description",
  *         values: ["Linux/UNIX"],
  *     }],
- *     instanceType: "t3.medium",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSpotPriceOutput(args?: GetSpotPriceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpotPriceResult> {
     return pulumi.output(args).apply((a: any) => getSpotPrice(a, opts))

@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,16 +44,19 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
 
         @CustomType.Setter
         public Builder insertHeaders(List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader> insertHeaders) {
-            this.insertHeaders = Objects.requireNonNull(insertHeaders);
+            if (insertHeaders == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandling", "insertHeaders");
+            }
+            this.insertHeaders = insertHeaders;
             return this;
         }
         public Builder insertHeaders(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader... insertHeaders) {
             return insertHeaders(List.of(insertHeaders));
         }
         public WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandling build() {
-            final var o = new WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandling();
-            o.insertHeaders = insertHeaders;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandling();
+            _resultValue.insertHeaders = insertHeaders;
+            return _resultValue;
         }
     }
 }

@@ -13,15 +13,17 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.VpnGatewayRoutePropagation("example", {
- *     vpnGatewayId: aws_vpn_gateway.example.id,
- *     routeTableId: aws_route_table.example.id,
+ *     vpnGatewayId: exampleAwsVpnGateway.id,
+ *     routeTableId: exampleAwsRouteTable.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
     /**

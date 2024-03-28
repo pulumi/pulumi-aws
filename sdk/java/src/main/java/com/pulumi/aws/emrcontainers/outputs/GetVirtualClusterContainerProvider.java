@@ -5,6 +5,7 @@ package com.pulumi.aws.emrcontainers.outputs;
 
 import com.pulumi.aws.emrcontainers.outputs.GetVirtualClusterContainerProviderInfo;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -72,12 +73,18 @@ public final class GetVirtualClusterContainerProvider {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVirtualClusterContainerProvider", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder infos(List<GetVirtualClusterContainerProviderInfo> infos) {
-            this.infos = Objects.requireNonNull(infos);
+            if (infos == null) {
+              throw new MissingRequiredPropertyException("GetVirtualClusterContainerProvider", "infos");
+            }
+            this.infos = infos;
             return this;
         }
         public Builder infos(GetVirtualClusterContainerProviderInfo... infos) {
@@ -85,15 +92,18 @@ public final class GetVirtualClusterContainerProvider {
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetVirtualClusterContainerProvider", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetVirtualClusterContainerProvider build() {
-            final var o = new GetVirtualClusterContainerProvider();
-            o.id = id;
-            o.infos = infos;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetVirtualClusterContainerProvider();
+            _resultValue.id = id;
+            _resultValue.infos = infos;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

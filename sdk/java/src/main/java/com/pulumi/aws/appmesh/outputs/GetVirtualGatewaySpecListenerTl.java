@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListenerTlCertificate;
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListenerTlValidation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -49,7 +50,10 @@ public final class GetVirtualGatewaySpecListenerTl {
 
         @CustomType.Setter
         public Builder certificates(List<GetVirtualGatewaySpecListenerTlCertificate> certificates) {
-            this.certificates = Objects.requireNonNull(certificates);
+            if (certificates == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerTl", "certificates");
+            }
+            this.certificates = certificates;
             return this;
         }
         public Builder certificates(GetVirtualGatewaySpecListenerTlCertificate... certificates) {
@@ -57,23 +61,29 @@ public final class GetVirtualGatewaySpecListenerTl {
         }
         @CustomType.Setter
         public Builder mode(String mode) {
-            this.mode = Objects.requireNonNull(mode);
+            if (mode == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerTl", "mode");
+            }
+            this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder validations(List<GetVirtualGatewaySpecListenerTlValidation> validations) {
-            this.validations = Objects.requireNonNull(validations);
+            if (validations == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerTl", "validations");
+            }
+            this.validations = validations;
             return this;
         }
         public Builder validations(GetVirtualGatewaySpecListenerTlValidation... validations) {
             return validations(List.of(validations));
         }
         public GetVirtualGatewaySpecListenerTl build() {
-            final var o = new GetVirtualGatewaySpecListenerTl();
-            o.certificates = certificates;
-            o.mode = mode;
-            o.validations = validations;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecListenerTl();
+            _resultValue.certificates = certificates;
+            _resultValue.mode = mode;
+            _resultValue.validations = validations;
+            return _resultValue;
         }
     }
 }

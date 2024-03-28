@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.aws.quicksight.outputs.GetDataSetRowLevelPermissionTagConfigurationTagRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -42,22 +43,28 @@ public final class GetDataSetRowLevelPermissionTagConfiguration {
 
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetDataSetRowLevelPermissionTagConfiguration", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tagRules(List<GetDataSetRowLevelPermissionTagConfigurationTagRule> tagRules) {
-            this.tagRules = Objects.requireNonNull(tagRules);
+            if (tagRules == null) {
+              throw new MissingRequiredPropertyException("GetDataSetRowLevelPermissionTagConfiguration", "tagRules");
+            }
+            this.tagRules = tagRules;
             return this;
         }
         public Builder tagRules(GetDataSetRowLevelPermissionTagConfigurationTagRule... tagRules) {
             return tagRules(List.of(tagRules));
         }
         public GetDataSetRowLevelPermissionTagConfiguration build() {
-            final var o = new GetDataSetRowLevelPermissionTagConfiguration();
-            o.status = status;
-            o.tagRules = tagRules;
-            return o;
+            final var _resultValue = new GetDataSetRowLevelPermissionTagConfiguration();
+            _resultValue.status = status;
+            _resultValue.tagRules = tagRules;
+            return _resultValue;
         }
     }
 }

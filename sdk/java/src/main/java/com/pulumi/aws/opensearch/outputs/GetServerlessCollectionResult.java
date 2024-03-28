@@ -4,6 +4,7 @@
 package com.pulumi.aws.opensearch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -47,6 +48,11 @@ public final class GetServerlessCollectionResult {
      */
     private String lastModifiedDate;
     private String name;
+    /**
+     * @return Indicates whether standby replicas should be used for a collection.
+     * 
+     */
+    private String standbyReplicas;
     /**
      * @return A map of tags to assign to the collection.
      * 
@@ -115,6 +121,13 @@ public final class GetServerlessCollectionResult {
         return this.name;
     }
     /**
+     * @return Indicates whether standby replicas should be used for a collection.
+     * 
+     */
+    public String standbyReplicas() {
+        return this.standbyReplicas;
+    }
+    /**
      * @return A map of tags to assign to the collection.
      * 
      */
@@ -147,6 +160,7 @@ public final class GetServerlessCollectionResult {
         private String kmsKeyArn;
         private String lastModifiedDate;
         private String name;
+        private String standbyReplicas;
         private Map<String,String> tags;
         private String type;
         public Builder() {}
@@ -161,79 +175,122 @@ public final class GetServerlessCollectionResult {
     	      this.kmsKeyArn = defaults.kmsKeyArn;
     	      this.lastModifiedDate = defaults.lastModifiedDate;
     	      this.name = defaults.name;
+    	      this.standbyReplicas = defaults.standbyReplicas;
     	      this.tags = defaults.tags;
     	      this.type = defaults.type;
         }
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetServerlessCollectionResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder collectionEndpoint(String collectionEndpoint) {
-            this.collectionEndpoint = Objects.requireNonNull(collectionEndpoint);
+            if (collectionEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetServerlessCollectionResult", "collectionEndpoint");
+            }
+            this.collectionEndpoint = collectionEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+            if (createdDate == null) {
+              throw new MissingRequiredPropertyException("GetServerlessCollectionResult", "createdDate");
+            }
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
         public Builder dashboardEndpoint(String dashboardEndpoint) {
-            this.dashboardEndpoint = Objects.requireNonNull(dashboardEndpoint);
+            if (dashboardEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetServerlessCollectionResult", "dashboardEndpoint");
+            }
+            this.dashboardEndpoint = dashboardEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetServerlessCollectionResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServerlessCollectionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyArn(String kmsKeyArn) {
-            this.kmsKeyArn = Objects.requireNonNull(kmsKeyArn);
+            if (kmsKeyArn == null) {
+              throw new MissingRequiredPropertyException("GetServerlessCollectionResult", "kmsKeyArn");
+            }
+            this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         @CustomType.Setter
         public Builder lastModifiedDate(String lastModifiedDate) {
-            this.lastModifiedDate = Objects.requireNonNull(lastModifiedDate);
+            if (lastModifiedDate == null) {
+              throw new MissingRequiredPropertyException("GetServerlessCollectionResult", "lastModifiedDate");
+            }
+            this.lastModifiedDate = lastModifiedDate;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetServerlessCollectionResult", "name");
+            }
+            this.name = name;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder standbyReplicas(String standbyReplicas) {
+            if (standbyReplicas == null) {
+              throw new MissingRequiredPropertyException("GetServerlessCollectionResult", "standbyReplicas");
+            }
+            this.standbyReplicas = standbyReplicas;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetServerlessCollectionResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetServerlessCollectionResult", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetServerlessCollectionResult build() {
-            final var o = new GetServerlessCollectionResult();
-            o.arn = arn;
-            o.collectionEndpoint = collectionEndpoint;
-            o.createdDate = createdDate;
-            o.dashboardEndpoint = dashboardEndpoint;
-            o.description = description;
-            o.id = id;
-            o.kmsKeyArn = kmsKeyArn;
-            o.lastModifiedDate = lastModifiedDate;
-            o.name = name;
-            o.tags = tags;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetServerlessCollectionResult();
+            _resultValue.arn = arn;
+            _resultValue.collectionEndpoint = collectionEndpoint;
+            _resultValue.createdDate = createdDate;
+            _resultValue.dashboardEndpoint = dashboardEndpoint;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.lastModifiedDate = lastModifiedDate;
+            _resultValue.name = name;
+            _resultValue.standbyReplicas = standbyReplicas;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

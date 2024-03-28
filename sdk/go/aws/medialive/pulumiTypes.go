@@ -6584,7 +6584,7 @@ type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinatio
 	CopyrightHolder *string `pulumi:"copyrightHolder"`
 	// Specifies how to handle the gap between the lines (in multi-line captions). - enabled: Fill with the captions background color (as specified in the input captions). - disabled: Leave the gap unfilled.
 	FillLineGap *string `pulumi:"fillLineGap"`
-	// Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
+	// Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100%!t(MISSING)o allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
 	FontFamily *string `pulumi:"fontFamily"`
 	// Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions. - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext. - exclude: In the font data attached to the EBU-TT captions, set the font family to “monospaced”. Do not include any other style information.
 	StyleControl *string `pulumi:"styleControl"`
@@ -6606,7 +6606,7 @@ type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinatio
 	CopyrightHolder pulumi.StringPtrInput `pulumi:"copyrightHolder"`
 	// Specifies how to handle the gap between the lines (in multi-line captions). - enabled: Fill with the captions background color (as specified in the input captions). - disabled: Leave the gap unfilled.
 	FillLineGap pulumi.StringPtrInput `pulumi:"fillLineGap"`
-	// Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
+	// Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100%!t(MISSING)o allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
 	FontFamily pulumi.StringPtrInput `pulumi:"fontFamily"`
 	// Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions. - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext. - exclude: In the font data attached to the EBU-TT captions, set the font family to “monospaced”. Do not include any other style information.
 	StyleControl pulumi.StringPtrInput `pulumi:"styleControl"`
@@ -6703,7 +6703,7 @@ func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestina
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
+// Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100%!t(MISSING)o allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
 func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput) FontFamily() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings) *string {
 		return v.FontFamily
@@ -6761,7 +6761,7 @@ func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestina
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
+// Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100%!t(MISSING)o allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
 func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput) FontFamily() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings) *string {
 		if v == nil {
@@ -25276,7 +25276,8 @@ func (o ChannelInputAttachmentArrayOutput) Index(i pulumi.IntInput) ChannelInput
 
 type ChannelInputAttachmentAutomaticInputFailoverSettings struct {
 	// This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
-	ErrorClearTimeMsec *int                                                                    `pulumi:"errorClearTimeMsec"`
+	ErrorClearTimeMsec *int `pulumi:"errorClearTimeMsec"`
+	// A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
 	FailoverConditions []ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition `pulumi:"failoverConditions"`
 	// Input preference when deciding which input to make active when a previously failed input has recovered.
 	InputPreference *string `pulumi:"inputPreference"`
@@ -25297,7 +25298,8 @@ type ChannelInputAttachmentAutomaticInputFailoverSettingsInput interface {
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsArgs struct {
 	// This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
-	ErrorClearTimeMsec pulumi.IntPtrInput                                                              `pulumi:"errorClearTimeMsec"`
+	ErrorClearTimeMsec pulumi.IntPtrInput `pulumi:"errorClearTimeMsec"`
+	// A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
 	FailoverConditions ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArrayInput `pulumi:"failoverConditions"`
 	// Input preference when deciding which input to make active when a previously failed input has recovered.
 	InputPreference pulumi.StringPtrInput `pulumi:"inputPreference"`
@@ -25387,6 +25389,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsOutput) ErrorClearTi
 	return o.ApplyT(func(v ChannelInputAttachmentAutomaticInputFailoverSettings) *int { return v.ErrorClearTimeMsec }).(pulumi.IntPtrOutput)
 }
 
+// A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsOutput) FailoverConditions() ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArrayOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentAutomaticInputFailoverSettings) []ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition {
 		return v.FailoverConditions
@@ -25437,6 +25440,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsPtrOutput) ErrorClea
 	}).(pulumi.IntPtrOutput)
 }
 
+// A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsPtrOutput) FailoverConditions() ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArrayOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentAutomaticInputFailoverSettings) []ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition {
 		if v == nil {
@@ -26046,7 +26050,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 }
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings struct {
-	// A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
+	// A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10%!w(MISSING)hite (or 90%!b(MISSING)lack). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
 	BlackDetectThreshold *float64 `pulumi:"blackDetectThreshold"`
 	// The amount of time (in milliseconds) that the active input must be black before automatic input failover occurs.
 	VideoBlackThresholdMsec *int `pulumi:"videoBlackThresholdMsec"`
@@ -26064,7 +26068,7 @@ type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailov
 }
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs struct {
-	// A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
+	// A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10%!w(MISSING)hite (or 90%!b(MISSING)lack). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
 	BlackDetectThreshold pulumi.Float64PtrInput `pulumi:"blackDetectThreshold"`
 	// The amount of time (in milliseconds) that the active input must be black before automatic input failover occurs.
 	VideoBlackThresholdMsec pulumi.IntPtrInput `pulumi:"videoBlackThresholdMsec"`
@@ -26147,7 +26151,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 	}).(ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsPtrOutput)
 }
 
-// A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
+// A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10%!w(MISSING)hite (or 90%!b(MISSING)lack). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsOutput) BlackDetectThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings) *float64 {
 		return v.BlackDetectThreshold
@@ -26185,7 +26189,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 	}).(ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsOutput)
 }
 
-// A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
+// A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10%!w(MISSING)hite (or 90%!b(MISSING)lack). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsPtrOutput) BlackDetectThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings) *float64 {
 		if v == nil {
@@ -29168,13 +29172,13 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTelete
 }
 
 type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle struct {
-	// See the description in left\_offset. For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, "80" means the rectangle height is 80% of the underlying frame height. The top\_offset and rectangle\_height must add up to 100% or less. This field corresponds to tts:extent - Y in the TTML standard.
+	// See the description in left\_offset. For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, "80" means the rectangle height is 80%!o(MISSING)f the underlying frame height. The top\_offset and rectangle\_height must add up to 100%!o(MISSING)r less. This field corresponds to tts:extent - Y in the TTML standard.
 	Height float64 `pulumi:"height"`
-	// Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
+	// Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10%!o(MISSING)f the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
 	LeftOffset float64 `pulumi:"leftOffset"`
-	// See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
+	// See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10%!o(MISSING)f the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
 	TopOffset float64 `pulumi:"topOffset"`
-	// See the description in left\_offset. For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, "80" means the rectangle width is 80% of the underlying frame width. The left\_offset and rectangle\_width must add up to 100% or less. This field corresponds to tts:extent - X in the TTML standard.
+	// See the description in left\_offset. For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, "80" means the rectangle width is 80%!o(MISSING)f the underlying frame width. The left\_offset and rectangle\_width must add up to 100%!o(MISSING)r less. This field corresponds to tts:extent - X in the TTML standard.
 	Width float64 `pulumi:"width"`
 }
 
@@ -29190,13 +29194,13 @@ type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextS
 }
 
 type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs struct {
-	// See the description in left\_offset. For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, "80" means the rectangle height is 80% of the underlying frame height. The top\_offset and rectangle\_height must add up to 100% or less. This field corresponds to tts:extent - Y in the TTML standard.
+	// See the description in left\_offset. For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, "80" means the rectangle height is 80%!o(MISSING)f the underlying frame height. The top\_offset and rectangle\_height must add up to 100%!o(MISSING)r less. This field corresponds to tts:extent - Y in the TTML standard.
 	Height pulumi.Float64Input `pulumi:"height"`
-	// Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
+	// Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10%!o(MISSING)f the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
 	LeftOffset pulumi.Float64Input `pulumi:"leftOffset"`
-	// See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
+	// See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10%!o(MISSING)f the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
 	TopOffset pulumi.Float64Input `pulumi:"topOffset"`
-	// See the description in left\_offset. For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, "80" means the rectangle width is 80% of the underlying frame width. The left\_offset and rectangle\_width must add up to 100% or less. This field corresponds to tts:extent - X in the TTML standard.
+	// See the description in left\_offset. For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, "80" means the rectangle width is 80%!o(MISSING)f the underlying frame width. The left\_offset and rectangle\_width must add up to 100%!o(MISSING)r less. This field corresponds to tts:extent - X in the TTML standard.
 	Width pulumi.Float64Input `pulumi:"width"`
 }
 
@@ -29277,28 +29281,28 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTelete
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectanglePtrOutput)
 }
 
-// See the description in left\_offset. For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, "80" means the rectangle height is 80% of the underlying frame height. The top\_offset and rectangle\_height must add up to 100% or less. This field corresponds to tts:extent - Y in the TTML standard.
+// See the description in left\_offset. For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, "80" means the rectangle height is 80%!o(MISSING)f the underlying frame height. The top\_offset and rectangle\_height must add up to 100%!o(MISSING)r less. This field corresponds to tts:extent - Y in the TTML standard.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleOutput) Height() pulumi.Float64Output {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle) float64 {
 		return v.Height
 	}).(pulumi.Float64Output)
 }
 
-// Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
+// Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10%!o(MISSING)f the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleOutput) LeftOffset() pulumi.Float64Output {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle) float64 {
 		return v.LeftOffset
 	}).(pulumi.Float64Output)
 }
 
-// See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
+// See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10%!o(MISSING)f the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleOutput) TopOffset() pulumi.Float64Output {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle) float64 {
 		return v.TopOffset
 	}).(pulumi.Float64Output)
 }
 
-// See the description in left\_offset. For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, "80" means the rectangle width is 80% of the underlying frame width. The left\_offset and rectangle\_width must add up to 100% or less. This field corresponds to tts:extent - X in the TTML standard.
+// See the description in left\_offset. For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, "80" means the rectangle width is 80%!o(MISSING)f the underlying frame width. The left\_offset and rectangle\_width must add up to 100%!o(MISSING)r less. This field corresponds to tts:extent - X in the TTML standard.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleOutput) Width() pulumi.Float64Output {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle) float64 {
 		return v.Width
@@ -29329,7 +29333,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTelete
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleOutput)
 }
 
-// See the description in left\_offset. For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, "80" means the rectangle height is 80% of the underlying frame height. The top\_offset and rectangle\_height must add up to 100% or less. This field corresponds to tts:extent - Y in the TTML standard.
+// See the description in left\_offset. For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, "80" means the rectangle height is 80%!o(MISSING)f the underlying frame height. The top\_offset and rectangle\_height must add up to 100%!o(MISSING)r less. This field corresponds to tts:extent - Y in the TTML standard.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectanglePtrOutput) Height() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle) *float64 {
 		if v == nil {
@@ -29339,7 +29343,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTelete
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
+// Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10%!o(MISSING)f the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectanglePtrOutput) LeftOffset() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle) *float64 {
 		if v == nil {
@@ -29349,7 +29353,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTelete
 	}).(pulumi.Float64PtrOutput)
 }
 
-// See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
+// See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10%!o(MISSING)f the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectanglePtrOutput) TopOffset() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle) *float64 {
 		if v == nil {
@@ -29359,7 +29363,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTelete
 	}).(pulumi.Float64PtrOutput)
 }
 
-// See the description in left\_offset. For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, "80" means the rectangle width is 80% of the underlying frame width. The left\_offset and rectangle\_width must add up to 100% or less. This field corresponds to tts:extent - X in the TTML standard.
+// See the description in left\_offset. For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, "80" means the rectangle width is 80%!o(MISSING)f the underlying frame width. The left\_offset and rectangle\_width must add up to 100%!o(MISSING)r less. This field corresponds to tts:extent - X in the TTML standard.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectanglePtrOutput) Width() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle) *float64 {
 		if v == nil {
@@ -31960,6 +31964,415 @@ func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+type GetInputDestination struct {
+	Ip   string        `pulumi:"ip"`
+	Port string        `pulumi:"port"`
+	Url  string        `pulumi:"url"`
+	Vpcs []interface{} `pulumi:"vpcs"`
+}
+
+// GetInputDestinationInput is an input type that accepts GetInputDestinationArgs and GetInputDestinationOutput values.
+// You can construct a concrete instance of `GetInputDestinationInput` via:
+//
+//	GetInputDestinationArgs{...}
+type GetInputDestinationInput interface {
+	pulumi.Input
+
+	ToGetInputDestinationOutput() GetInputDestinationOutput
+	ToGetInputDestinationOutputWithContext(context.Context) GetInputDestinationOutput
+}
+
+type GetInputDestinationArgs struct {
+	Ip   pulumi.StringInput `pulumi:"ip"`
+	Port pulumi.StringInput `pulumi:"port"`
+	Url  pulumi.StringInput `pulumi:"url"`
+	Vpcs pulumi.ArrayInput  `pulumi:"vpcs"`
+}
+
+func (GetInputDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInputDestination)(nil)).Elem()
+}
+
+func (i GetInputDestinationArgs) ToGetInputDestinationOutput() GetInputDestinationOutput {
+	return i.ToGetInputDestinationOutputWithContext(context.Background())
+}
+
+func (i GetInputDestinationArgs) ToGetInputDestinationOutputWithContext(ctx context.Context) GetInputDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInputDestinationOutput)
+}
+
+// GetInputDestinationArrayInput is an input type that accepts GetInputDestinationArray and GetInputDestinationArrayOutput values.
+// You can construct a concrete instance of `GetInputDestinationArrayInput` via:
+//
+//	GetInputDestinationArray{ GetInputDestinationArgs{...} }
+type GetInputDestinationArrayInput interface {
+	pulumi.Input
+
+	ToGetInputDestinationArrayOutput() GetInputDestinationArrayOutput
+	ToGetInputDestinationArrayOutputWithContext(context.Context) GetInputDestinationArrayOutput
+}
+
+type GetInputDestinationArray []GetInputDestinationInput
+
+func (GetInputDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInputDestination)(nil)).Elem()
+}
+
+func (i GetInputDestinationArray) ToGetInputDestinationArrayOutput() GetInputDestinationArrayOutput {
+	return i.ToGetInputDestinationArrayOutputWithContext(context.Background())
+}
+
+func (i GetInputDestinationArray) ToGetInputDestinationArrayOutputWithContext(ctx context.Context) GetInputDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInputDestinationArrayOutput)
+}
+
+type GetInputDestinationOutput struct{ *pulumi.OutputState }
+
+func (GetInputDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInputDestination)(nil)).Elem()
+}
+
+func (o GetInputDestinationOutput) ToGetInputDestinationOutput() GetInputDestinationOutput {
+	return o
+}
+
+func (o GetInputDestinationOutput) ToGetInputDestinationOutputWithContext(ctx context.Context) GetInputDestinationOutput {
+	return o
+}
+
+func (o GetInputDestinationOutput) Ip() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInputDestination) string { return v.Ip }).(pulumi.StringOutput)
+}
+
+func (o GetInputDestinationOutput) Port() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInputDestination) string { return v.Port }).(pulumi.StringOutput)
+}
+
+func (o GetInputDestinationOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInputDestination) string { return v.Url }).(pulumi.StringOutput)
+}
+
+func (o GetInputDestinationOutput) Vpcs() pulumi.ArrayOutput {
+	return o.ApplyT(func(v GetInputDestination) []interface{} { return v.Vpcs }).(pulumi.ArrayOutput)
+}
+
+type GetInputDestinationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInputDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInputDestination)(nil)).Elem()
+}
+
+func (o GetInputDestinationArrayOutput) ToGetInputDestinationArrayOutput() GetInputDestinationArrayOutput {
+	return o
+}
+
+func (o GetInputDestinationArrayOutput) ToGetInputDestinationArrayOutputWithContext(ctx context.Context) GetInputDestinationArrayOutput {
+	return o
+}
+
+func (o GetInputDestinationArrayOutput) Index(i pulumi.IntInput) GetInputDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInputDestination {
+		return vs[0].([]GetInputDestination)[vs[1].(int)]
+	}).(GetInputDestinationOutput)
+}
+
+type GetInputInputDevice struct {
+	// The ID of the Input.
+	Id string `pulumi:"id"`
+}
+
+// GetInputInputDeviceInput is an input type that accepts GetInputInputDeviceArgs and GetInputInputDeviceOutput values.
+// You can construct a concrete instance of `GetInputInputDeviceInput` via:
+//
+//	GetInputInputDeviceArgs{...}
+type GetInputInputDeviceInput interface {
+	pulumi.Input
+
+	ToGetInputInputDeviceOutput() GetInputInputDeviceOutput
+	ToGetInputInputDeviceOutputWithContext(context.Context) GetInputInputDeviceOutput
+}
+
+type GetInputInputDeviceArgs struct {
+	// The ID of the Input.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetInputInputDeviceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInputInputDevice)(nil)).Elem()
+}
+
+func (i GetInputInputDeviceArgs) ToGetInputInputDeviceOutput() GetInputInputDeviceOutput {
+	return i.ToGetInputInputDeviceOutputWithContext(context.Background())
+}
+
+func (i GetInputInputDeviceArgs) ToGetInputInputDeviceOutputWithContext(ctx context.Context) GetInputInputDeviceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInputInputDeviceOutput)
+}
+
+// GetInputInputDeviceArrayInput is an input type that accepts GetInputInputDeviceArray and GetInputInputDeviceArrayOutput values.
+// You can construct a concrete instance of `GetInputInputDeviceArrayInput` via:
+//
+//	GetInputInputDeviceArray{ GetInputInputDeviceArgs{...} }
+type GetInputInputDeviceArrayInput interface {
+	pulumi.Input
+
+	ToGetInputInputDeviceArrayOutput() GetInputInputDeviceArrayOutput
+	ToGetInputInputDeviceArrayOutputWithContext(context.Context) GetInputInputDeviceArrayOutput
+}
+
+type GetInputInputDeviceArray []GetInputInputDeviceInput
+
+func (GetInputInputDeviceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInputInputDevice)(nil)).Elem()
+}
+
+func (i GetInputInputDeviceArray) ToGetInputInputDeviceArrayOutput() GetInputInputDeviceArrayOutput {
+	return i.ToGetInputInputDeviceArrayOutputWithContext(context.Background())
+}
+
+func (i GetInputInputDeviceArray) ToGetInputInputDeviceArrayOutputWithContext(ctx context.Context) GetInputInputDeviceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInputInputDeviceArrayOutput)
+}
+
+type GetInputInputDeviceOutput struct{ *pulumi.OutputState }
+
+func (GetInputInputDeviceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInputInputDevice)(nil)).Elem()
+}
+
+func (o GetInputInputDeviceOutput) ToGetInputInputDeviceOutput() GetInputInputDeviceOutput {
+	return o
+}
+
+func (o GetInputInputDeviceOutput) ToGetInputInputDeviceOutputWithContext(ctx context.Context) GetInputInputDeviceOutput {
+	return o
+}
+
+// The ID of the Input.
+func (o GetInputInputDeviceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInputInputDevice) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetInputInputDeviceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInputInputDeviceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInputInputDevice)(nil)).Elem()
+}
+
+func (o GetInputInputDeviceArrayOutput) ToGetInputInputDeviceArrayOutput() GetInputInputDeviceArrayOutput {
+	return o
+}
+
+func (o GetInputInputDeviceArrayOutput) ToGetInputInputDeviceArrayOutputWithContext(ctx context.Context) GetInputInputDeviceArrayOutput {
+	return o
+}
+
+func (o GetInputInputDeviceArrayOutput) Index(i pulumi.IntInput) GetInputInputDeviceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInputInputDevice {
+		return vs[0].([]GetInputInputDevice)[vs[1].(int)]
+	}).(GetInputInputDeviceOutput)
+}
+
+type GetInputMediaConnectFlow struct {
+	FlowArn string `pulumi:"flowArn"`
+}
+
+// GetInputMediaConnectFlowInput is an input type that accepts GetInputMediaConnectFlowArgs and GetInputMediaConnectFlowOutput values.
+// You can construct a concrete instance of `GetInputMediaConnectFlowInput` via:
+//
+//	GetInputMediaConnectFlowArgs{...}
+type GetInputMediaConnectFlowInput interface {
+	pulumi.Input
+
+	ToGetInputMediaConnectFlowOutput() GetInputMediaConnectFlowOutput
+	ToGetInputMediaConnectFlowOutputWithContext(context.Context) GetInputMediaConnectFlowOutput
+}
+
+type GetInputMediaConnectFlowArgs struct {
+	FlowArn pulumi.StringInput `pulumi:"flowArn"`
+}
+
+func (GetInputMediaConnectFlowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInputMediaConnectFlow)(nil)).Elem()
+}
+
+func (i GetInputMediaConnectFlowArgs) ToGetInputMediaConnectFlowOutput() GetInputMediaConnectFlowOutput {
+	return i.ToGetInputMediaConnectFlowOutputWithContext(context.Background())
+}
+
+func (i GetInputMediaConnectFlowArgs) ToGetInputMediaConnectFlowOutputWithContext(ctx context.Context) GetInputMediaConnectFlowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInputMediaConnectFlowOutput)
+}
+
+// GetInputMediaConnectFlowArrayInput is an input type that accepts GetInputMediaConnectFlowArray and GetInputMediaConnectFlowArrayOutput values.
+// You can construct a concrete instance of `GetInputMediaConnectFlowArrayInput` via:
+//
+//	GetInputMediaConnectFlowArray{ GetInputMediaConnectFlowArgs{...} }
+type GetInputMediaConnectFlowArrayInput interface {
+	pulumi.Input
+
+	ToGetInputMediaConnectFlowArrayOutput() GetInputMediaConnectFlowArrayOutput
+	ToGetInputMediaConnectFlowArrayOutputWithContext(context.Context) GetInputMediaConnectFlowArrayOutput
+}
+
+type GetInputMediaConnectFlowArray []GetInputMediaConnectFlowInput
+
+func (GetInputMediaConnectFlowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInputMediaConnectFlow)(nil)).Elem()
+}
+
+func (i GetInputMediaConnectFlowArray) ToGetInputMediaConnectFlowArrayOutput() GetInputMediaConnectFlowArrayOutput {
+	return i.ToGetInputMediaConnectFlowArrayOutputWithContext(context.Background())
+}
+
+func (i GetInputMediaConnectFlowArray) ToGetInputMediaConnectFlowArrayOutputWithContext(ctx context.Context) GetInputMediaConnectFlowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInputMediaConnectFlowArrayOutput)
+}
+
+type GetInputMediaConnectFlowOutput struct{ *pulumi.OutputState }
+
+func (GetInputMediaConnectFlowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInputMediaConnectFlow)(nil)).Elem()
+}
+
+func (o GetInputMediaConnectFlowOutput) ToGetInputMediaConnectFlowOutput() GetInputMediaConnectFlowOutput {
+	return o
+}
+
+func (o GetInputMediaConnectFlowOutput) ToGetInputMediaConnectFlowOutputWithContext(ctx context.Context) GetInputMediaConnectFlowOutput {
+	return o
+}
+
+func (o GetInputMediaConnectFlowOutput) FlowArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInputMediaConnectFlow) string { return v.FlowArn }).(pulumi.StringOutput)
+}
+
+type GetInputMediaConnectFlowArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInputMediaConnectFlowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInputMediaConnectFlow)(nil)).Elem()
+}
+
+func (o GetInputMediaConnectFlowArrayOutput) ToGetInputMediaConnectFlowArrayOutput() GetInputMediaConnectFlowArrayOutput {
+	return o
+}
+
+func (o GetInputMediaConnectFlowArrayOutput) ToGetInputMediaConnectFlowArrayOutputWithContext(ctx context.Context) GetInputMediaConnectFlowArrayOutput {
+	return o
+}
+
+func (o GetInputMediaConnectFlowArrayOutput) Index(i pulumi.IntInput) GetInputMediaConnectFlowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInputMediaConnectFlow {
+		return vs[0].([]GetInputMediaConnectFlow)[vs[1].(int)]
+	}).(GetInputMediaConnectFlowOutput)
+}
+
+type GetInputSource struct {
+	PasswordParam string `pulumi:"passwordParam"`
+	Url           string `pulumi:"url"`
+	Username      string `pulumi:"username"`
+}
+
+// GetInputSourceInput is an input type that accepts GetInputSourceArgs and GetInputSourceOutput values.
+// You can construct a concrete instance of `GetInputSourceInput` via:
+//
+//	GetInputSourceArgs{...}
+type GetInputSourceInput interface {
+	pulumi.Input
+
+	ToGetInputSourceOutput() GetInputSourceOutput
+	ToGetInputSourceOutputWithContext(context.Context) GetInputSourceOutput
+}
+
+type GetInputSourceArgs struct {
+	PasswordParam pulumi.StringInput `pulumi:"passwordParam"`
+	Url           pulumi.StringInput `pulumi:"url"`
+	Username      pulumi.StringInput `pulumi:"username"`
+}
+
+func (GetInputSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInputSource)(nil)).Elem()
+}
+
+func (i GetInputSourceArgs) ToGetInputSourceOutput() GetInputSourceOutput {
+	return i.ToGetInputSourceOutputWithContext(context.Background())
+}
+
+func (i GetInputSourceArgs) ToGetInputSourceOutputWithContext(ctx context.Context) GetInputSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInputSourceOutput)
+}
+
+// GetInputSourceArrayInput is an input type that accepts GetInputSourceArray and GetInputSourceArrayOutput values.
+// You can construct a concrete instance of `GetInputSourceArrayInput` via:
+//
+//	GetInputSourceArray{ GetInputSourceArgs{...} }
+type GetInputSourceArrayInput interface {
+	pulumi.Input
+
+	ToGetInputSourceArrayOutput() GetInputSourceArrayOutput
+	ToGetInputSourceArrayOutputWithContext(context.Context) GetInputSourceArrayOutput
+}
+
+type GetInputSourceArray []GetInputSourceInput
+
+func (GetInputSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInputSource)(nil)).Elem()
+}
+
+func (i GetInputSourceArray) ToGetInputSourceArrayOutput() GetInputSourceArrayOutput {
+	return i.ToGetInputSourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetInputSourceArray) ToGetInputSourceArrayOutputWithContext(ctx context.Context) GetInputSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInputSourceArrayOutput)
+}
+
+type GetInputSourceOutput struct{ *pulumi.OutputState }
+
+func (GetInputSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInputSource)(nil)).Elem()
+}
+
+func (o GetInputSourceOutput) ToGetInputSourceOutput() GetInputSourceOutput {
+	return o
+}
+
+func (o GetInputSourceOutput) ToGetInputSourceOutputWithContext(ctx context.Context) GetInputSourceOutput {
+	return o
+}
+
+func (o GetInputSourceOutput) PasswordParam() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInputSource) string { return v.PasswordParam }).(pulumi.StringOutput)
+}
+
+func (o GetInputSourceOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInputSource) string { return v.Url }).(pulumi.StringOutput)
+}
+
+func (o GetInputSourceOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInputSource) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type GetInputSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInputSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInputSource)(nil)).Elem()
+}
+
+func (o GetInputSourceArrayOutput) ToGetInputSourceArrayOutput() GetInputSourceArrayOutput {
+	return o
+}
+
+func (o GetInputSourceArrayOutput) ToGetInputSourceArrayOutputWithContext(ctx context.Context) GetInputSourceArrayOutput {
+	return o
+}
+
+func (o GetInputSourceArrayOutput) Index(i pulumi.IntInput) GetInputSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInputSource {
+		return vs[0].([]GetInputSource)[vs[1].(int)]
+	}).(GetInputSourceOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelCdiInputSpecificationInput)(nil)).Elem(), ChannelCdiInputSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelCdiInputSpecificationPtrInput)(nil)).Elem(), ChannelCdiInputSpecificationArgs{})
@@ -32298,6 +32711,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInputDestinationInput)(nil)).Elem(), GetInputDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInputDestinationArrayInput)(nil)).Elem(), GetInputDestinationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInputInputDeviceInput)(nil)).Elem(), GetInputInputDeviceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInputInputDeviceArrayInput)(nil)).Elem(), GetInputInputDeviceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInputMediaConnectFlowInput)(nil)).Elem(), GetInputMediaConnectFlowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInputMediaConnectFlowArrayInput)(nil)).Elem(), GetInputMediaConnectFlowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInputSourceInput)(nil)).Elem(), GetInputSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInputSourceArrayInput)(nil)).Elem(), GetInputSourceArray{})
 	pulumi.RegisterOutputType(ChannelCdiInputSpecificationOutput{})
 	pulumi.RegisterOutputType(ChannelCdiInputSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(ChannelDestinationOutput{})
@@ -32635,4 +33056,12 @@ func init() {
 	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput{})
 	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput{})
 	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput{})
+	pulumi.RegisterOutputType(GetInputDestinationOutput{})
+	pulumi.RegisterOutputType(GetInputDestinationArrayOutput{})
+	pulumi.RegisterOutputType(GetInputInputDeviceOutput{})
+	pulumi.RegisterOutputType(GetInputInputDeviceArrayOutput{})
+	pulumi.RegisterOutputType(GetInputMediaConnectFlowOutput{})
+	pulumi.RegisterOutputType(GetInputMediaConnectFlowArrayOutput{})
+	pulumi.RegisterOutputType(GetInputSourceOutput{})
+	pulumi.RegisterOutputType(GetInputSourceArrayOutput{})
 }

@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * More information about subnet groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/subnetgroups.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,30 +49,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+ *         var example = new Vpc(&#34;example&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.0.0.0/16&#34;)
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .vpcId(exampleVpc.id())
+ *             .vpcId(example.id())
  *             .cidrBlock(&#34;10.0.0.0/24&#34;)
  *             .availabilityZone(&#34;us-west-2a&#34;)
  *             .build());
  * 
  *         var exampleSubnetGroup = new SubnetGroup(&#34;exampleSubnetGroup&#34;, SubnetGroupArgs.builder()        
+ *             .name(&#34;my-subnet-group&#34;)
  *             .subnetIds(exampleSubnet.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a subnet group using its `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
+ * $ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
  * ```
  * 
  */
@@ -229,9 +233,6 @@ public class SubnetGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

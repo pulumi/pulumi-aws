@@ -15,53 +15,61 @@ import * as utilities from "../utilities";
  * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.scheduler.Schedule("example", {
+ *     name: "my-schedule",
  *     groupName: "default",
  *     flexibleTimeWindow: {
  *         mode: "OFF",
  *     },
  *     scheduleExpression: "rate(1 hours)",
  *     target: {
- *         arn: aws_sqs_queue.example.arn,
- *         roleArn: aws_iam_role.example.arn,
+ *         arn: exampleAwsSqsQueue.arn,
+ *         roleArn: exampleAwsIamRole.arn,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Universal Target
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleQueue = new aws.sqs.Queue("exampleQueue", {});
- * const exampleSchedule = new aws.scheduler.Schedule("exampleSchedule", {
+ * const example = new aws.sqs.Queue("example", {});
+ * const exampleSchedule = new aws.scheduler.Schedule("example", {
+ *     name: "my-schedule",
  *     flexibleTimeWindow: {
  *         mode: "OFF",
  *     },
  *     scheduleExpression: "rate(1 hours)",
  *     target: {
  *         arn: "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
- *         roleArn: aws_iam_role.example.arn,
- *         input: exampleQueue.url.apply(url => JSON.stringify({
- *             MessageBody: "Greetings, programs!",
- *             QueueUrl: url,
- *         })),
+ *         roleArn: exampleAwsIamRole.arn,
+ *         input: pulumi.jsonStringify({
+ *             messageBody: "Greetings, programs!",
+ *             queueUrl: example.url,
+ *         }),
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
+ * $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
  * ```
  */
 export class Schedule extends pulumi.CustomResource {

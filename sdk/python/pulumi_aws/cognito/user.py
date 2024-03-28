@@ -494,57 +494,65 @@ class User(pulumi.CustomResource):
         Provides a Cognito User Resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool")
-        example_user = aws.cognito.User("exampleUser",
-            user_pool_id=example_user_pool.id,
+        example = aws.cognito.UserPool("example", name="MyExamplePool")
+        example_user = aws.cognito.User("example",
+            user_pool_id=example.id,
             username="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Setting user attributes
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool", schemas=[
-            aws.cognito.UserPoolSchemaArgs(
-                name="example",
-                attribute_data_type="Boolean",
-                mutable=False,
-                required=False,
-                developer_only_attribute=False,
-            ),
-            aws.cognito.UserPoolSchemaArgs(
-                name="foo",
-                attribute_data_type="String",
-                mutable=False,
-                required=False,
-                developer_only_attribute=False,
-                string_attribute_constraints=aws.cognito.UserPoolSchemaStringAttributeConstraintsArgs(),
-            ),
-        ])
-        example_user = aws.cognito.User("exampleUser",
-            user_pool_id=example_user_pool.id,
+        example = aws.cognito.UserPool("example",
+            name="mypool",
+            schemas=[
+                aws.cognito.UserPoolSchemaArgs(
+                    name="example",
+                    attribute_data_type="Boolean",
+                    mutable=False,
+                    required=False,
+                    developer_only_attribute=False,
+                ),
+                aws.cognito.UserPoolSchemaArgs(
+                    name="foo",
+                    attribute_data_type="String",
+                    mutable=False,
+                    required=False,
+                    developer_only_attribute=False,
+                    string_attribute_constraints=aws.cognito.UserPoolSchemaStringAttributeConstraintsArgs(),
+                ),
+            ])
+        example_user = aws.cognito.User("example",
+            user_pool_id=example.id,
             username="example",
             attributes={
                 "example": "true",
                 "foo": "bar",
-                "email": "no-reply@domain.example",
+                "email": "no-reply@example.com",
                 "email_verified": "true",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cognito User using the `user_pool_id`/`name` attributes concatenated. For example:
 
         ```sh
-         $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
+        $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
         ```
 
         :param str resource_name: The name of the resource.
@@ -575,57 +583,65 @@ class User(pulumi.CustomResource):
         Provides a Cognito User Resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool")
-        example_user = aws.cognito.User("exampleUser",
-            user_pool_id=example_user_pool.id,
+        example = aws.cognito.UserPool("example", name="MyExamplePool")
+        example_user = aws.cognito.User("example",
+            user_pool_id=example.id,
             username="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Setting user attributes
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool", schemas=[
-            aws.cognito.UserPoolSchemaArgs(
-                name="example",
-                attribute_data_type="Boolean",
-                mutable=False,
-                required=False,
-                developer_only_attribute=False,
-            ),
-            aws.cognito.UserPoolSchemaArgs(
-                name="foo",
-                attribute_data_type="String",
-                mutable=False,
-                required=False,
-                developer_only_attribute=False,
-                string_attribute_constraints=aws.cognito.UserPoolSchemaStringAttributeConstraintsArgs(),
-            ),
-        ])
-        example_user = aws.cognito.User("exampleUser",
-            user_pool_id=example_user_pool.id,
+        example = aws.cognito.UserPool("example",
+            name="mypool",
+            schemas=[
+                aws.cognito.UserPoolSchemaArgs(
+                    name="example",
+                    attribute_data_type="Boolean",
+                    mutable=False,
+                    required=False,
+                    developer_only_attribute=False,
+                ),
+                aws.cognito.UserPoolSchemaArgs(
+                    name="foo",
+                    attribute_data_type="String",
+                    mutable=False,
+                    required=False,
+                    developer_only_attribute=False,
+                    string_attribute_constraints=aws.cognito.UserPoolSchemaStringAttributeConstraintsArgs(),
+                ),
+            ])
+        example_user = aws.cognito.User("example",
+            user_pool_id=example.id,
             username="example",
             attributes={
                 "example": "true",
                 "foo": "bar",
-                "email": "no-reply@domain.example",
+                "email": "no-reply@example.com",
                 "email_verified": "true",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cognito User using the `user_pool_id`/`name` attributes concatenated. For example:
 
         ```sh
-         $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
+        $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
         ```
 
         :param str resource_name: The name of the resource.

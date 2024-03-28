@@ -293,30 +293,33 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         policy = aws.iam.Policy("policy",
+            name="test_policy",
             path="/",
             description="My test policy",
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": ["ec2:Describe*"],
+                    "effect": "Allow",
+                    "resource": "*",
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Policies using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
+        $ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
         ```
 
         :param str resource_name: The name of the resource.
@@ -340,30 +343,33 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         policy = aws.iam.Policy("policy",
+            name="test_policy",
             path="/",
             description="My test policy",
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": ["ec2:Describe*"],
+                    "effect": "Allow",
+                    "resource": "*",
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Policies using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
+        $ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
         ```
 
         :param str resource_name: The name of the resource.
@@ -407,8 +413,6 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["policy_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Policy, __self__).__init__(
             'aws:iam/policy:Policy',
             resource_name,

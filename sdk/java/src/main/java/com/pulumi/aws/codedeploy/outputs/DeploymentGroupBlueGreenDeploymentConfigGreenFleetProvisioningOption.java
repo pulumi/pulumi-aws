@@ -44,13 +44,14 @@ public final class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisionin
 
         @CustomType.Setter
         public Builder action(@Nullable String action) {
+
             this.action = action;
             return this;
         }
         public DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption build() {
-            final var o = new DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption();
-            o.action = action;
-            return o;
+            final var _resultValue = new DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption();
+            _resultValue.action = action;
+            return _resultValue;
         }
     }
 }

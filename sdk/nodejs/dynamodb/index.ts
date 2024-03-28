@@ -36,6 +36,11 @@ export type Table = import("./table").Table;
 export const Table: typeof import("./table").Table = null as any;
 utilities.lazyLoad(exports, ["Table"], () => require("./table"));
 
+export { TableExportArgs, TableExportState } from "./tableExport";
+export type TableExport = import("./tableExport").TableExport;
+export const TableExport: typeof import("./tableExport").TableExport = null as any;
+utilities.lazyLoad(exports, ["TableExport"], () => require("./tableExport"));
+
 export { TableItemArgs, TableItemState } from "./tableItem";
 export type TableItem = import("./tableItem").TableItem;
 export const TableItem: typeof import("./tableItem").TableItem = null as any;
@@ -64,6 +69,8 @@ const _module = {
                 return new KinesisStreamingDestination(name, <any>undefined, { urn })
             case "aws:dynamodb/table:Table":
                 return new Table(name, <any>undefined, { urn })
+            case "aws:dynamodb/tableExport:TableExport":
+                return new TableExport(name, <any>undefined, { urn })
             case "aws:dynamodb/tableItem:TableItem":
                 return new TableItem(name, <any>undefined, { urn })
             case "aws:dynamodb/tableReplica:TableReplica":
@@ -79,6 +86,7 @@ pulumi.runtime.registerResourceModule("aws", "dynamodb/contributorInsights", _mo
 pulumi.runtime.registerResourceModule("aws", "dynamodb/globalTable", _module)
 pulumi.runtime.registerResourceModule("aws", "dynamodb/kinesisStreamingDestination", _module)
 pulumi.runtime.registerResourceModule("aws", "dynamodb/table", _module)
+pulumi.runtime.registerResourceModule("aws", "dynamodb/tableExport", _module)
 pulumi.runtime.registerResourceModule("aws", "dynamodb/tableItem", _module)
 pulumi.runtime.registerResourceModule("aws", "dynamodb/tableReplica", _module)
 pulumi.runtime.registerResourceModule("aws", "dynamodb/tag", _module)

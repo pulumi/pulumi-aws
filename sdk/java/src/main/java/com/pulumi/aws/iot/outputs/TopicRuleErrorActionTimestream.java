@@ -6,6 +6,7 @@ package com.pulumi.aws.iot.outputs;
 import com.pulumi.aws.iot.outputs.TopicRuleErrorActionTimestreamDimension;
 import com.pulumi.aws.iot.outputs.TopicRuleErrorActionTimestreamTimestamp;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -103,12 +104,18 @@ public final class TopicRuleErrorActionTimestream {
 
         @CustomType.Setter
         public Builder databaseName(String databaseName) {
-            this.databaseName = Objects.requireNonNull(databaseName);
+            if (databaseName == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionTimestream", "databaseName");
+            }
+            this.databaseName = databaseName;
             return this;
         }
         @CustomType.Setter
         public Builder dimensions(List<TopicRuleErrorActionTimestreamDimension> dimensions) {
-            this.dimensions = Objects.requireNonNull(dimensions);
+            if (dimensions == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionTimestream", "dimensions");
+            }
+            this.dimensions = dimensions;
             return this;
         }
         public Builder dimensions(TopicRuleErrorActionTimestreamDimension... dimensions) {
@@ -116,27 +123,34 @@ public final class TopicRuleErrorActionTimestream {
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionTimestream", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder tableName(String tableName) {
-            this.tableName = Objects.requireNonNull(tableName);
+            if (tableName == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionTimestream", "tableName");
+            }
+            this.tableName = tableName;
             return this;
         }
         @CustomType.Setter
         public Builder timestamp(@Nullable TopicRuleErrorActionTimestreamTimestamp timestamp) {
+
             this.timestamp = timestamp;
             return this;
         }
         public TopicRuleErrorActionTimestream build() {
-            final var o = new TopicRuleErrorActionTimestream();
-            o.databaseName = databaseName;
-            o.dimensions = dimensions;
-            o.roleArn = roleArn;
-            o.tableName = tableName;
-            o.timestamp = timestamp;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionTimestream();
+            _resultValue.databaseName = databaseName;
+            _resultValue.dimensions = dimensions;
+            _resultValue.roleArn = roleArn;
+            _resultValue.tableName = tableName;
+            _resultValue.timestamp = timestamp;
+            return _resultValue;
         }
     }
 }

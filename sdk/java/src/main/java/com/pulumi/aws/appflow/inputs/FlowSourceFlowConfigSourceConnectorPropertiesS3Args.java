@@ -6,6 +6,7 @@ package com.pulumi.aws.appflow.inputs;
 import com.pulumi.aws.appflow.inputs.FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -35,15 +36,15 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
      * Amazon S3 bucket prefix.
      * 
      */
-    @Import(name="bucketPrefix")
-    private @Nullable Output<String> bucketPrefix;
+    @Import(name="bucketPrefix", required=true)
+    private Output<String> bucketPrefix;
 
     /**
      * @return Amazon S3 bucket prefix.
      * 
      */
-    public Optional<Output<String>> bucketPrefix() {
-        return Optional.ofNullable(this.bucketPrefix);
+    public Output<String> bucketPrefix() {
+        return this.bucketPrefix;
     }
 
     /**
@@ -114,7 +115,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
          * @return builder
          * 
          */
-        public Builder bucketPrefix(@Nullable Output<String> bucketPrefix) {
+        public Builder bucketPrefix(Output<String> bucketPrefix) {
             $.bucketPrefix = bucketPrefix;
             return this;
         }
@@ -151,7 +152,12 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
         }
 
         public FlowSourceFlowConfigSourceConnectorPropertiesS3Args build() {
-            $.bucketName = Objects.requireNonNull($.bucketName, "expected parameter 'bucketName' to be non-null");
+            if ($.bucketName == null) {
+                throw new MissingRequiredPropertyException("FlowSourceFlowConfigSourceConnectorPropertiesS3Args", "bucketName");
+            }
+            if ($.bucketPrefix == null) {
+                throw new MissingRequiredPropertyException("FlowSourceFlowConfigSourceConnectorPropertiesS3Args", "bucketPrefix");
+            }
             return $;
         }
     }

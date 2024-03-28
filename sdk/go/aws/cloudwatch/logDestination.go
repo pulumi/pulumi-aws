@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,9 +29,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewLogDestination(ctx, "testDestination", &cloudwatch.LogDestinationArgs{
-//				RoleArn:   pulumi.Any(aws_iam_role.Iam_for_cloudwatch.Arn),
-//				TargetArn: pulumi.Any(aws_kinesis_stream.Kinesis_for_cloudwatch.Arn),
+//			_, err := cloudwatch.NewLogDestination(ctx, "test_destination", &cloudwatch.LogDestinationArgs{
+//				Name:      pulumi.String("test_destination"),
+//				RoleArn:   pulumi.Any(iamForCloudwatch.Arn),
+//				TargetArn: pulumi.Any(kinesisForCloudwatch.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -40,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudWatch Logs destinations using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
-//
+// $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
 // ```
 type LogDestination struct {
 	pulumi.CustomResourceState
@@ -82,10 +83,6 @@ func NewLogDestination(ctx *pulumi.Context,
 	if args.TargetArn == nil {
 		return nil, errors.New("invalid value for required argument 'TargetArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LogDestination
 	err := ctx.RegisterResource("aws:cloudwatch/logDestination:LogDestination", name, args, &resource, opts...)

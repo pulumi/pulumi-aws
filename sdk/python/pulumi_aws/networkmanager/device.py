@@ -408,21 +408,23 @@ class Device(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.networkmanager.Device("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            site_id=aws_networkmanager_site["example"]["id"])
+            global_network_id=example_aws_networkmanager_global_network["id"],
+            site_id=example_aws_networkmanager_site["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_device` using the device ARN. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/device:Device example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/device-07f6fd08867abc123
+        $ pulumi import aws:networkmanager/device:Device example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/device-07f6fd08867abc123
         ```
 
         :param str resource_name: The name of the resource.
@@ -450,21 +452,23 @@ class Device(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.networkmanager.Device("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            site_id=aws_networkmanager_site["example"]["id"])
+            global_network_id=example_aws_networkmanager_global_network["id"],
+            site_id=example_aws_networkmanager_site["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_device` using the device ARN. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/device:Device example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/device-07f6fd08867abc123
+        $ pulumi import aws:networkmanager/device:Device example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/device-07f6fd08867abc123
         ```
 
         :param str resource_name: The name of the resource.
@@ -515,8 +519,6 @@ class Device(pulumi.CustomResource):
             __props__.__dict__["vendor"] = vendor
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Device, __self__).__init__(
             'aws:networkmanager/device:Device',
             resource_name,

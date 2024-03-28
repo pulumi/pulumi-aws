@@ -20,20 +20,22 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.neptune.Cluster("default", {
- *     applyImmediately: true,
- *     backupRetentionPeriod: 5,
  *     clusterIdentifier: "neptune-cluster-demo",
  *     engine: "neptune",
- *     iamDatabaseAuthenticationEnabled: true,
+ *     backupRetentionPeriod: 5,
  *     preferredBackupWindow: "07:00-09:00",
  *     skipFinalSnapshot: true,
+ *     iamDatabaseAuthenticationEnabled: true,
+ *     applyImmediately: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * > **Note:** AWS Neptune does not support user name/password–based access control.
  * See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.
@@ -43,7 +45,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import `aws_neptune_cluster` using the cluster identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:neptune/cluster:Cluster example my-cluster
+ * $ pulumi import aws:neptune/cluster:Cluster example my-cluster
  * ```
  */
 export class Cluster extends pulumi.CustomResource {
@@ -207,6 +209,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
     /**
+     * Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+     */
+    public readonly storageType!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -267,6 +273,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
             resourceInputs["snapshotIdentifier"] = state ? state.snapshotIdentifier : undefined;
             resourceInputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
+            resourceInputs["storageType"] = state ? state.storageType : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
@@ -299,6 +306,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
             resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
+            resourceInputs["storageType"] = args ? args.storageType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -310,8 +318,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -453,6 +459,10 @@ export interface ClusterState {
      */
     storageEncrypted?: pulumi.Input<boolean>;
     /**
+     * Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+     */
+    storageType?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -580,6 +590,10 @@ export interface ClusterArgs {
      * Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
      */
     storageEncrypted?: pulumi.Input<boolean>;
+    /**
+     * Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+     */
+    storageType?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

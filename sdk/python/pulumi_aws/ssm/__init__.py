@@ -8,8 +8,10 @@ import typing
 from ._enums import *
 from .activation import *
 from .association import *
+from .contacts_rotation import *
 from .default_patch_baseline import *
 from .document import *
+from .get_contacts_rotation import *
 from .get_document import *
 from .get_instances import *
 from .get_maintenance_windows import *

@@ -251,15 +251,16 @@ class TableReplica(pulumi.CustomResource):
         > **Note:** Do not use the `replica` configuration block of dynamodb.Table together with this resource as the two configuration options are mutually exclusive.
 
         ## Example Usage
+
         ### Basic Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.Provider("main", region="us-west-2")
-        alt = aws.Provider("alt", region="us-east-2")
-        example_table = aws.dynamodb.Table("exampleTable",
+        example = aws.dynamodb.Table("example",
+            name="TestTable",
             hash_key="BrodoBaggins",
             billing_mode="PAY_PER_REQUEST",
             stream_enabled=True,
@@ -267,16 +268,15 @@ class TableReplica(pulumi.CustomResource):
             attributes=[aws.dynamodb.TableAttributeArgs(
                 name="BrodoBaggins",
                 type="S",
-            )],
-            opts=pulumi.ResourceOptions(provider=aws["main"]))
-        example_table_replica = aws.dynamodb.TableReplica("exampleTableReplica",
-            global_table_arn=example_table.arn,
+            )])
+        example_table_replica = aws.dynamodb.TableReplica("example",
+            global_table_arn=example.arn,
             tags={
                 "Name": "IZPAWS",
                 "Pozo": "Amargo",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["alt"]))
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -285,7 +285,7 @@ class TableReplica(pulumi.CustomResource):
         ~> __Note:__ When importing, use the region where the initial or _main_ global table resides, _not_ the region of the replica.
 
         ```sh
-         $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
+        $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
         ```
 
         :param str resource_name: The name of the resource.
@@ -312,15 +312,16 @@ class TableReplica(pulumi.CustomResource):
         > **Note:** Do not use the `replica` configuration block of dynamodb.Table together with this resource as the two configuration options are mutually exclusive.
 
         ## Example Usage
+
         ### Basic Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.Provider("main", region="us-west-2")
-        alt = aws.Provider("alt", region="us-east-2")
-        example_table = aws.dynamodb.Table("exampleTable",
+        example = aws.dynamodb.Table("example",
+            name="TestTable",
             hash_key="BrodoBaggins",
             billing_mode="PAY_PER_REQUEST",
             stream_enabled=True,
@@ -328,16 +329,15 @@ class TableReplica(pulumi.CustomResource):
             attributes=[aws.dynamodb.TableAttributeArgs(
                 name="BrodoBaggins",
                 type="S",
-            )],
-            opts=pulumi.ResourceOptions(provider=aws["main"]))
-        example_table_replica = aws.dynamodb.TableReplica("exampleTableReplica",
-            global_table_arn=example_table.arn,
+            )])
+        example_table_replica = aws.dynamodb.TableReplica("example",
+            global_table_arn=example.arn,
             tags={
                 "Name": "IZPAWS",
                 "Pozo": "Amargo",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["alt"]))
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -346,7 +346,7 @@ class TableReplica(pulumi.CustomResource):
         ~> __Note:__ When importing, use the region where the initial or _main_ global table resides, _not_ the region of the replica.
 
         ```sh
-         $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
+        $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
         ```
 
         :param str resource_name: The name of the resource.
@@ -387,8 +387,6 @@ class TableReplica(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(TableReplica, __self__).__init__(
             'aws:dynamodb/tableReplica:TableReplica',
             resource_name,

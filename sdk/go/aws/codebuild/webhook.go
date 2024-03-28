@@ -15,6 +15,7 @@ import (
 // Manages a CodeBuild webhook, which is an endpoint accepted by the CodeBuild service to trigger builds from source code repositories. Depending on the source type of the CodeBuild project, the CodeBuild service may also automatically create and delete the actual repository webhook as well.
 //
 // ## Example Usage
+//
 // ### Bitbucket and GitHub
 //
 // When working with [Bitbucket](https://bitbucket.org) and [GitHub](https://github.com) source CodeBuild webhooks, the CodeBuild service will automatically create (on `codebuild.Webhook` resource creation) and delete (on `codebuild.Webhook` resource deletion) the Bitbucket/GitHub repository webhook using its granted OAuth permissions. This behavior cannot be controlled by this provider.
@@ -23,6 +24,7 @@ import (
 //
 // > **Note:** Further managing the automatically created Bitbucket/GitHub webhook with the `bitbucketHook`/`githubRepositoryWebhook` resource is only possible with importing that resource after creation of the `codebuild.Webhook` resource. The CodeBuild API does not ever provide the `secret` attribute for the `codebuild.Webhook` resource in this scenario.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,7 +38,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codebuild.NewWebhook(ctx, "example", &codebuild.WebhookArgs{
-//				ProjectName: pulumi.Any(aws_codebuild_project.Example.Name),
+//				ProjectName: pulumi.Any(exampleAwsCodebuildProject.Name),
 //				BuildType:   pulumi.String("BUILD"),
 //				FilterGroups: codebuild.WebhookFilterGroupArray{
 //					&codebuild.WebhookFilterGroupArgs{
@@ -61,61 +63,14 @@ import (
 //	}
 //
 // ```
-// ### GitHub Enterprise
-//
-// When working with [GitHub Enterprise](https://enterprise.github.com/) source CodeBuild webhooks, the GHE repository webhook must be separately managed (e.g., manually or with the `githubRepositoryWebhook` resource).
-//
-// More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codebuild"
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleWebhook, err := codebuild.NewWebhook(ctx, "exampleWebhook", &codebuild.WebhookArgs{
-//				ProjectName: pulumi.Any(aws_codebuild_project.Example.Name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewRepositoryWebhook(ctx, "exampleRepositoryWebhook", &github.RepositoryWebhookArgs{
-//				Active: pulumi.Bool(true),
-//				Events: pulumi.StringArray{
-//					pulumi.String("push"),
-//				},
-//				Repository: pulumi.Any(github_repository.Example.Name),
-//				Configuration: &github.RepositoryWebhookConfigurationArgs{
-//					Url:         exampleWebhook.PayloadUrl,
-//					Secret:      exampleWebhook.Secret,
-//					ContentType: pulumi.String("json"),
-//					InsecureSsl: pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CodeBuild Webhooks using the CodeBuild Project name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:codebuild/webhook:Webhook example MyProjectName
-//
+// $ pulumi import aws:codebuild/webhook:Webhook example MyProjectName
 // ```
 type Webhook struct {
 	pulumi.CustomResourceState

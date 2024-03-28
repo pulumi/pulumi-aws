@@ -16,20 +16,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Declare the data source
  * const pcs = aws.ec2.getVpcPeeringConnections({
  *     filters: [{
  *         name: "requester-vpc-info.vpc-id",
- *         values: [aws_vpc.foo.id],
+ *         values: [foo.id],
  *     }],
  * });
+ * // get the details of each resource
  * const pc = .map(__index => (aws.ec2.getVpcPeeringConnection({
  *     id: _arg0_.ids[__index],
  * })));
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVpcPeeringConnections(args?: GetVpcPeeringConnectionsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcPeeringConnectionsResult> {
     args = args || {};
@@ -83,20 +87,24 @@ export interface GetVpcPeeringConnectionsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Declare the data source
  * const pcs = aws.ec2.getVpcPeeringConnections({
  *     filters: [{
  *         name: "requester-vpc-info.vpc-id",
- *         values: [aws_vpc.foo.id],
+ *         values: [foo.id],
  *     }],
  * });
+ * // get the details of each resource
  * const pc = .map(__index => (aws.ec2.getVpcPeeringConnection({
  *     id: _arg0_.ids[__index],
  * })));
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVpcPeeringConnectionsOutput(args?: GetVpcPeeringConnectionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcPeeringConnectionsResult> {
     return pulumi.output(args).apply((a: any) => getVpcPeeringConnections(a, opts))

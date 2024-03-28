@@ -55,31 +55,35 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
 
         @CustomType.Setter
         public Builder outputSdt(@Nullable String outputSdt) {
+
             this.outputSdt = outputSdt;
             return this;
         }
         @CustomType.Setter
         public Builder repInterval(@Nullable Integer repInterval) {
+
             this.repInterval = repInterval;
             return this;
         }
         @CustomType.Setter
         public Builder serviceName(@Nullable String serviceName) {
+
             this.serviceName = serviceName;
             return this;
         }
         @CustomType.Setter
         public Builder serviceProviderName(@Nullable String serviceProviderName) {
+
             this.serviceProviderName = serviceProviderName;
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings();
-            o.outputSdt = outputSdt;
-            o.repInterval = repInterval;
-            o.serviceName = serviceName;
-            o.serviceProviderName = serviceProviderName;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings();
+            _resultValue.outputSdt = outputSdt;
+            _resultValue.repInterval = repInterval;
+            _resultValue.serviceName = serviceName;
+            _resultValue.serviceProviderName = serviceProviderName;
+            return _resultValue;
         }
     }
 }

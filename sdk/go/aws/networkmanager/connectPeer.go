@@ -12,18 +12,217 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS NetworkManager Connect Peer.
+// Resource for managing an AWS Network Manager Connect Peer.
 //
 // ## Example Usage
+//
+// ### Basic Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// var splat0 []interface{}
+// for _, val0 := range exampleAwsSubnet {
+// splat0 = append(splat0, val0.Arn)
+// }
+// example, err := networkmanager.NewVpcAttachment(ctx, "example", &networkmanager.VpcAttachmentArgs{
+// SubnetArns: toPulumiArray(splat0),
+// CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
+// VpcArn: pulumi.Any(exampleAwsVpc.Arn),
+// })
+// if err != nil {
+// return err
+// }
+// exampleConnectAttachment, err := networkmanager.NewConnectAttachment(ctx, "example", &networkmanager.ConnectAttachmentArgs{
+// CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
+// TransportAttachmentId: example.ID(),
+// EdgeLocation: example.EdgeLocation,
+// Options: &networkmanager.ConnectAttachmentOptionsArgs{
+// Protocol: pulumi.String("GRE"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = networkmanager.NewConnectPeer(ctx, "example", &networkmanager.ConnectPeerArgs{
+// ConnectAttachmentId: exampleConnectAttachment.ID(),
+// PeerAddress: pulumi.String("127.0.0.1"),
+// BgpOptions: &networkmanager.ConnectPeerBgpOptionsArgs{
+// PeerAsn: pulumi.Int(65000),
+// },
+// InsideCidrBlocks: pulumi.StringArray{
+// pulumi.String("172.16.0.0/16"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// func toPulumiArray(arr []) pulumi.Array {
+// var pulumiArr pulumi.Array
+// for _, v := range arr {
+// pulumiArr = append(pulumiArr, pulumi.(v))
+// }
+// return pulumiArr
+// }
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Usage with attachment accepter
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// var splat0 []interface{}
+// for _, val0 := range exampleAwsSubnet {
+// splat0 = append(splat0, val0.Arn)
+// }
+// example, err := networkmanager.NewVpcAttachment(ctx, "example", &networkmanager.VpcAttachmentArgs{
+// SubnetArns: toPulumiArray(splat0),
+// CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
+// VpcArn: pulumi.Any(exampleAwsVpc.Arn),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = networkmanager.NewAttachmentAccepter(ctx, "example", &networkmanager.AttachmentAccepterArgs{
+// AttachmentId: example.ID(),
+// AttachmentType: example.AttachmentType,
+// })
+// if err != nil {
+// return err
+// }
+// exampleConnectAttachment, err := networkmanager.NewConnectAttachment(ctx, "example", &networkmanager.ConnectAttachmentArgs{
+// CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
+// TransportAttachmentId: example.ID(),
+// EdgeLocation: example.EdgeLocation,
+// Options: &networkmanager.ConnectAttachmentOptionsArgs{
+// Protocol: pulumi.String("GRE"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = networkmanager.NewAttachmentAccepter(ctx, "example2", &networkmanager.AttachmentAccepterArgs{
+// AttachmentId: exampleConnectAttachment.ID(),
+// AttachmentType: exampleConnectAttachment.AttachmentType,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = networkmanager.NewConnectPeer(ctx, "example", &networkmanager.ConnectPeerArgs{
+// ConnectAttachmentId: exampleConnectAttachment.ID(),
+// PeerAddress: pulumi.String("127.0.0.1"),
+// BgpOptions: &networkmanager.ConnectPeerBgpOptionsArgs{
+// PeerAsn: pulumi.Int(65500),
+// },
+// InsideCidrBlocks: pulumi.StringArray{
+// pulumi.String("172.16.0.0/16"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// func toPulumiArray(arr []) pulumi.Array {
+// var pulumiArr pulumi.Array
+// for _, v := range arr {
+// pulumiArr = append(pulumiArr, pulumi.(v))
+// }
+// return pulumiArr
+// }
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Usage with a Tunnel-less Connect attachment
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// var splat0 []interface{}
+// for _, val0 := range exampleAwsSubnet {
+// splat0 = append(splat0, val0.Arn)
+// }
+// example, err := networkmanager.NewVpcAttachment(ctx, "example", &networkmanager.VpcAttachmentArgs{
+// SubnetArns: toPulumiArray(splat0),
+// CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
+// VpcArn: pulumi.Any(exampleAwsVpc.Arn),
+// })
+// if err != nil {
+// return err
+// }
+// exampleConnectAttachment, err := networkmanager.NewConnectAttachment(ctx, "example", &networkmanager.ConnectAttachmentArgs{
+// CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
+// TransportAttachmentId: example.ID(),
+// EdgeLocation: example.EdgeLocation,
+// Options: &networkmanager.ConnectAttachmentOptionsArgs{
+// Protocol: pulumi.String("NO_ENCAP"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = networkmanager.NewConnectPeer(ctx, "example", &networkmanager.ConnectPeerArgs{
+// ConnectAttachmentId: exampleConnectAttachment.ID(),
+// PeerAddress: pulumi.String("127.0.0.1"),
+// BgpOptions: &networkmanager.ConnectPeerBgpOptionsArgs{
+// PeerAsn: pulumi.Int(65000),
+// },
+// SubnetArn: pulumi.Any(test2.Arn),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// func toPulumiArray(arr []) pulumi.Array {
+// var pulumiArr pulumi.Array
+// for _, v := range arr {
+// pulumiArr = append(pulumiArr, pulumi.(v))
+// }
+// return pulumiArr
+// }
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_networkmanager_connect_peer` using the connect peer ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
-//
+// $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
 // ```
 type ConnectPeer struct {
 	pulumi.CustomResourceState
@@ -75,10 +274,6 @@ func NewConnectPeer(ctx *pulumi.Context,
 	if args.PeerAddress == nil {
 		return nil, errors.New("invalid value for required argument 'PeerAddress'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConnectPeer
 	err := ctx.RegisterResource("aws:networkmanager/connectPeer:ConnectPeer", name, args, &resource, opts...)

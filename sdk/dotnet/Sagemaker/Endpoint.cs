@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// Basic usage:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,9 +25,10 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var endpoint = new Aws.Sagemaker.Endpoint("endpoint", new()
+    ///     var e = new Aws.Sagemaker.Endpoint("e", new()
     ///     {
-    ///         EndpointConfigName = aws_sagemaker_endpoint_configuration.Ec.Name,
+    ///         Name = "my-endpoint",
+    ///         EndpointConfigName = ec.Name,
     ///         Tags = 
     ///         {
     ///             { "Name", "foo" },
@@ -35,13 +37,14 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import endpoints using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
+    /// $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/endpoint:Endpoint")]
@@ -106,10 +109,6 @@ namespace Pulumi.Aws.Sagemaker
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -217,11 +216,7 @@ namespace Pulumi.Aws.Sagemaker
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public EndpointState()

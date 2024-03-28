@@ -16,12 +16,11 @@ namespace Pulumi.Aws.Sagemaker
         /// 
         /// &gt; **NOTE:** The AWS provider creates a validly constructed `registry_path` but does not verify that the `registry_path` corresponds to an existing image. For example, using a `registry_path` containing an `image_tag` that does not correspond to a Docker image in the ECR repository, will result in an error.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// Basic usage:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,14 +31,13 @@ namespace Pulumi.Aws.Sagemaker
         /// {
         ///     var test = Aws.Sagemaker.GetPrebuiltEcrImage.Invoke(new()
         ///     {
-        ///         ImageTag = "2.2-1.0.11.0",
         ///         RepositoryName = "sagemaker-scikit-learn",
+        ///         ImageTag = "2.2-1.0.11.0",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPrebuiltEcrImageResult> InvokeAsync(GetPrebuiltEcrImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrebuiltEcrImageResult>("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", args ?? new GetPrebuiltEcrImageArgs(), options.WithDefaults());
@@ -49,12 +47,11 @@ namespace Pulumi.Aws.Sagemaker
         /// 
         /// &gt; **NOTE:** The AWS provider creates a validly constructed `registry_path` but does not verify that the `registry_path` corresponds to an existing image. For example, using a `registry_path` containing an `image_tag` that does not correspond to a Docker image in the ECR repository, will result in an error.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// Basic usage:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,14 +62,13 @@ namespace Pulumi.Aws.Sagemaker
         /// {
         ///     var test = Aws.Sagemaker.GetPrebuiltEcrImage.Invoke(new()
         ///     {
-        ///         ImageTag = "2.2-1.0.11.0",
         ///         RepositoryName = "sagemaker-scikit-learn",
+        ///         ImageTag = "2.2-1.0.11.0",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPrebuiltEcrImageResult> Invoke(GetPrebuiltEcrImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrebuiltEcrImageResult>("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", args ?? new GetPrebuiltEcrImageInvokeArgs(), options.WithDefaults());

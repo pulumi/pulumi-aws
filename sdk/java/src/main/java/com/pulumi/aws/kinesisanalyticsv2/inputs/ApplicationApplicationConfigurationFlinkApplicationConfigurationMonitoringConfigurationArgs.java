@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesisanalyticsv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,9 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
         }
 
         public ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs build() {
-            $.configurationType = Objects.requireNonNull($.configurationType, "expected parameter 'configurationType' to be non-null");
+            if ($.configurationType == null) {
+                throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs", "configurationType");
+            }
             return $;
         }
     }

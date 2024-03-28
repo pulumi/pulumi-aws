@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.RouteSpecHttpRouteRetryPolicyPerRetryTimeout;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -90,6 +91,7 @@ public final class RouteSpecHttpRouteRetryPolicy {
 
         @CustomType.Setter
         public Builder httpRetryEvents(@Nullable List<String> httpRetryEvents) {
+
             this.httpRetryEvents = httpRetryEvents;
             return this;
         }
@@ -98,16 +100,23 @@ public final class RouteSpecHttpRouteRetryPolicy {
         }
         @CustomType.Setter
         public Builder maxRetries(Integer maxRetries) {
-            this.maxRetries = Objects.requireNonNull(maxRetries);
+            if (maxRetries == null) {
+              throw new MissingRequiredPropertyException("RouteSpecHttpRouteRetryPolicy", "maxRetries");
+            }
+            this.maxRetries = maxRetries;
             return this;
         }
         @CustomType.Setter
         public Builder perRetryTimeout(RouteSpecHttpRouteRetryPolicyPerRetryTimeout perRetryTimeout) {
-            this.perRetryTimeout = Objects.requireNonNull(perRetryTimeout);
+            if (perRetryTimeout == null) {
+              throw new MissingRequiredPropertyException("RouteSpecHttpRouteRetryPolicy", "perRetryTimeout");
+            }
+            this.perRetryTimeout = perRetryTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder tcpRetryEvents(@Nullable List<String> tcpRetryEvents) {
+
             this.tcpRetryEvents = tcpRetryEvents;
             return this;
         }
@@ -115,12 +124,12 @@ public final class RouteSpecHttpRouteRetryPolicy {
             return tcpRetryEvents(List.of(tcpRetryEvents));
         }
         public RouteSpecHttpRouteRetryPolicy build() {
-            final var o = new RouteSpecHttpRouteRetryPolicy();
-            o.httpRetryEvents = httpRetryEvents;
-            o.maxRetries = maxRetries;
-            o.perRetryTimeout = perRetryTimeout;
-            o.tcpRetryEvents = tcpRetryEvents;
-            return o;
+            final var _resultValue = new RouteSpecHttpRouteRetryPolicy();
+            _resultValue.httpRetryEvents = httpRetryEvents;
+            _resultValue.maxRetries = maxRetries;
+            _resultValue.perRetryTimeout = perRetryTimeout;
+            _resultValue.tcpRetryEvents = tcpRetryEvents;
+            return _resultValue;
         }
     }
 }

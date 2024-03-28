@@ -5,6 +5,7 @@ package com.pulumi.aws.servicediscovery.outputs;
 
 import com.pulumi.aws.servicediscovery.outputs.GetServiceDnsConfigDnsRecord;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -72,7 +73,10 @@ public final class GetServiceDnsConfig {
 
         @CustomType.Setter
         public Builder dnsRecords(List<GetServiceDnsConfigDnsRecord> dnsRecords) {
-            this.dnsRecords = Objects.requireNonNull(dnsRecords);
+            if (dnsRecords == null) {
+              throw new MissingRequiredPropertyException("GetServiceDnsConfig", "dnsRecords");
+            }
+            this.dnsRecords = dnsRecords;
             return this;
         }
         public Builder dnsRecords(GetServiceDnsConfigDnsRecord... dnsRecords) {
@@ -80,20 +84,26 @@ public final class GetServiceDnsConfig {
         }
         @CustomType.Setter
         public Builder namespaceId(String namespaceId) {
-            this.namespaceId = Objects.requireNonNull(namespaceId);
+            if (namespaceId == null) {
+              throw new MissingRequiredPropertyException("GetServiceDnsConfig", "namespaceId");
+            }
+            this.namespaceId = namespaceId;
             return this;
         }
         @CustomType.Setter
         public Builder routingPolicy(String routingPolicy) {
-            this.routingPolicy = Objects.requireNonNull(routingPolicy);
+            if (routingPolicy == null) {
+              throw new MissingRequiredPropertyException("GetServiceDnsConfig", "routingPolicy");
+            }
+            this.routingPolicy = routingPolicy;
             return this;
         }
         public GetServiceDnsConfig build() {
-            final var o = new GetServiceDnsConfig();
-            o.dnsRecords = dnsRecords;
-            o.namespaceId = namespaceId;
-            o.routingPolicy = routingPolicy;
-            return o;
+            final var _resultValue = new GetServiceDnsConfig();
+            _resultValue.dnsRecords = dnsRecords;
+            _resultValue.namespaceId = namespaceId;
+            _resultValue.routingPolicy = routingPolicy;
+            return _resultValue;
         }
     }
 }

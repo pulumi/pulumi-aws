@@ -4,6 +4,7 @@
 package com.pulumi.aws.ssoadmin.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -43,16 +44,19 @@ public final class InstanceAccessControlAttributesAttributeValue {
 
         @CustomType.Setter
         public Builder sources(List<String> sources) {
-            this.sources = Objects.requireNonNull(sources);
+            if (sources == null) {
+              throw new MissingRequiredPropertyException("InstanceAccessControlAttributesAttributeValue", "sources");
+            }
+            this.sources = sources;
             return this;
         }
         public Builder sources(String... sources) {
             return sources(List.of(sources));
         }
         public InstanceAccessControlAttributesAttributeValue build() {
-            final var o = new InstanceAccessControlAttributesAttributeValue();
-            o.sources = sources;
-            return o;
+            final var _resultValue = new InstanceAccessControlAttributesAttributeValue();
+            _resultValue.sources = sources;
+            return _resultValue;
         }
     }
 }

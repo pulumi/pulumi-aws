@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2;
 import com.pulumi.aws.ec2.inputs.RouteTableRouteArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -215,7 +216,9 @@ public final class RouteTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RouteTableArgs build() {
-            $.vpcId = Objects.requireNonNull($.vpcId, "expected parameter 'vpcId' to be non-null");
+            if ($.vpcId == null) {
+                throw new MissingRequiredPropertyException("RouteTableArgs", "vpcId");
+            }
             return $;
         }
     }

@@ -51,19 +51,21 @@ public final class OntapStorageVirtualMachineActiveDirectoryConfiguration {
 
         @CustomType.Setter
         public Builder netbiosName(@Nullable String netbiosName) {
+
             this.netbiosName = netbiosName;
             return this;
         }
         @CustomType.Setter
         public Builder selfManagedActiveDirectoryConfiguration(@Nullable OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration selfManagedActiveDirectoryConfiguration) {
+
             this.selfManagedActiveDirectoryConfiguration = selfManagedActiveDirectoryConfiguration;
             return this;
         }
         public OntapStorageVirtualMachineActiveDirectoryConfiguration build() {
-            final var o = new OntapStorageVirtualMachineActiveDirectoryConfiguration();
-            o.netbiosName = netbiosName;
-            o.selfManagedActiveDirectoryConfiguration = selfManagedActiveDirectoryConfiguration;
-            return o;
+            final var _resultValue = new OntapStorageVirtualMachineActiveDirectoryConfiguration();
+            _resultValue.netbiosName = netbiosName;
+            _resultValue.selfManagedActiveDirectoryConfiguration = selfManagedActiveDirectoryConfiguration;
+            return _resultValue;
         }
     }
 }

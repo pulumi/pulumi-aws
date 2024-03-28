@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -41,7 +42,10 @@ public final class GetDataSetColumnLevelPermissionRule {
 
         @CustomType.Setter
         public Builder columnNames(List<String> columnNames) {
-            this.columnNames = Objects.requireNonNull(columnNames);
+            if (columnNames == null) {
+              throw new MissingRequiredPropertyException("GetDataSetColumnLevelPermissionRule", "columnNames");
+            }
+            this.columnNames = columnNames;
             return this;
         }
         public Builder columnNames(String... columnNames) {
@@ -49,17 +53,20 @@ public final class GetDataSetColumnLevelPermissionRule {
         }
         @CustomType.Setter
         public Builder principals(List<String> principals) {
-            this.principals = Objects.requireNonNull(principals);
+            if (principals == null) {
+              throw new MissingRequiredPropertyException("GetDataSetColumnLevelPermissionRule", "principals");
+            }
+            this.principals = principals;
             return this;
         }
         public Builder principals(String... principals) {
             return principals(List.of(principals));
         }
         public GetDataSetColumnLevelPermissionRule build() {
-            final var o = new GetDataSetColumnLevelPermissionRule();
-            o.columnNames = columnNames;
-            o.principals = principals;
-            return o;
+            final var _resultValue = new GetDataSetColumnLevelPermissionRule();
+            _resultValue.columnNames = columnNames;
+            _resultValue.principals = principals;
+            return _resultValue;
         }
     }
 }

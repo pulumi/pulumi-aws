@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -71,25 +72,34 @@ public final class RuleGroupRuleVisibilityConfig {
 
         @CustomType.Setter
         public Builder cloudwatchMetricsEnabled(Boolean cloudwatchMetricsEnabled) {
-            this.cloudwatchMetricsEnabled = Objects.requireNonNull(cloudwatchMetricsEnabled);
+            if (cloudwatchMetricsEnabled == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleVisibilityConfig", "cloudwatchMetricsEnabled");
+            }
+            this.cloudwatchMetricsEnabled = cloudwatchMetricsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder metricName(String metricName) {
-            this.metricName = Objects.requireNonNull(metricName);
+            if (metricName == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleVisibilityConfig", "metricName");
+            }
+            this.metricName = metricName;
             return this;
         }
         @CustomType.Setter
         public Builder sampledRequestsEnabled(Boolean sampledRequestsEnabled) {
-            this.sampledRequestsEnabled = Objects.requireNonNull(sampledRequestsEnabled);
+            if (sampledRequestsEnabled == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleVisibilityConfig", "sampledRequestsEnabled");
+            }
+            this.sampledRequestsEnabled = sampledRequestsEnabled;
             return this;
         }
         public RuleGroupRuleVisibilityConfig build() {
-            final var o = new RuleGroupRuleVisibilityConfig();
-            o.cloudwatchMetricsEnabled = cloudwatchMetricsEnabled;
-            o.metricName = metricName;
-            o.sampledRequestsEnabled = sampledRequestsEnabled;
-            return o;
+            final var _resultValue = new RuleGroupRuleVisibilityConfig();
+            _resultValue.cloudwatchMetricsEnabled = cloudwatchMetricsEnabled;
+            _resultValue.metricName = metricName;
+            _resultValue.sampledRequestsEnabled = sampledRequestsEnabled;
+            return _resultValue;
         }
     }
 }

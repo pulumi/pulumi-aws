@@ -524,8 +524,11 @@ class VpcAttachmentOptionsArgs:
                  appliance_mode_support: Optional[pulumi.Input[bool]] = None,
                  ipv6_support: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[bool] appliance_mode_support: Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+        :param pulumi.Input[bool] appliance_mode_support: Indicates whether appliance mode is supported.
+               If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+               If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         :param pulumi.Input[bool] ipv6_support: Indicates whether IPv6 is supported.
+               If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         """
         if appliance_mode_support is not None:
             pulumi.set(__self__, "appliance_mode_support", appliance_mode_support)
@@ -536,7 +539,9 @@ class VpcAttachmentOptionsArgs:
     @pulumi.getter(name="applianceModeSupport")
     def appliance_mode_support(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+        Indicates whether appliance mode is supported.
+        If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+        If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         """
         return pulumi.get(self, "appliance_mode_support")
 
@@ -549,6 +554,7 @@ class VpcAttachmentOptionsArgs:
     def ipv6_support(self) -> Optional[pulumi.Input[bool]]:
         """
         Indicates whether IPv6 is supported.
+        If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         """
         return pulumi.get(self, "ipv6_support")
 

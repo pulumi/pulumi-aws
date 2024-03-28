@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,13 +51,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testRole, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//			testRole, err := iam.NewRole(ctx, "test_role", &iam.RoleArgs{
+//				Name:             pulumi.String("test_role"),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testAttach, err := iam.NewRolePolicyAttachment(ctx, "testAttach", &iam.RolePolicyAttachmentArgs{
+//			_, err = iam.NewRolePolicyAttachment(ctx, "test_attach", &iam.RolePolicyAttachmentArgs{
 //				Role:      testRole.Name,
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"),
 //			})
@@ -64,12 +66,11 @@ import (
 //				return err
 //			}
 //			_, err = ssm.NewActivation(ctx, "foo", &ssm.ActivationArgs{
+//				Name:              pulumi.String("test_ssm_activation"),
 //				Description:       pulumi.String("Test"),
 //				IamRole:           testRole.ID(),
 //				RegistrationLimit: pulumi.Int(5),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				testAttach,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -78,18 +79,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AWS SSM Activation using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
-//
+// $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
 // ```
-//
-//	-> __Note:__ The `activation_code` attribute cannot be imported.
+// -> __Note:__ The `activation_code` attribute cannot be imported.
 type Activation struct {
 	pulumi.CustomResourceState
 
@@ -127,10 +126,6 @@ func NewActivation(ctx *pulumi.Context,
 	if args.IamRole == nil {
 		return nil, errors.New("invalid value for required argument 'IamRole'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Activation
 	err := ctx.RegisterResource("aws:ssm/activation:Activation", name, args, &resource, opts...)

@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -35,16 +36,19 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust
 
         @CustomType.Setter
         public Builder certificateAuthorityArns(List<String> certificateAuthorityArns) {
-            this.certificateAuthorityArns = Objects.requireNonNull(certificateAuthorityArns);
+            if (certificateAuthorityArns == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcm", "certificateAuthorityArns");
+            }
+            this.certificateAuthorityArns = certificateAuthorityArns;
             return this;
         }
         public Builder certificateAuthorityArns(String... certificateAuthorityArns) {
             return certificateAuthorityArns(List.of(certificateAuthorityArns));
         }
         public GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcm build() {
-            final var o = new GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcm();
-            o.certificateAuthorityArns = certificateAuthorityArns;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcm();
+            _resultValue.certificateAuthorityArns = certificateAuthorityArns;
+            return _resultValue;
         }
     }
 }

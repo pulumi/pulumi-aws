@@ -5,6 +5,7 @@ package com.pulumi.aws.ecr.outputs;
 
 import com.pulumi.aws.ecr.outputs.RegistryScanningConfigurationRuleRepositoryFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class RegistryScanningConfigurationRule {
 
         @CustomType.Setter
         public Builder repositoryFilters(List<RegistryScanningConfigurationRuleRepositoryFilter> repositoryFilters) {
-            this.repositoryFilters = Objects.requireNonNull(repositoryFilters);
+            if (repositoryFilters == null) {
+              throw new MissingRequiredPropertyException("RegistryScanningConfigurationRule", "repositoryFilters");
+            }
+            this.repositoryFilters = repositoryFilters;
             return this;
         }
         public Builder repositoryFilters(RegistryScanningConfigurationRuleRepositoryFilter... repositoryFilters) {
@@ -66,14 +70,17 @@ public final class RegistryScanningConfigurationRule {
         }
         @CustomType.Setter
         public Builder scanFrequency(String scanFrequency) {
-            this.scanFrequency = Objects.requireNonNull(scanFrequency);
+            if (scanFrequency == null) {
+              throw new MissingRequiredPropertyException("RegistryScanningConfigurationRule", "scanFrequency");
+            }
+            this.scanFrequency = scanFrequency;
             return this;
         }
         public RegistryScanningConfigurationRule build() {
-            final var o = new RegistryScanningConfigurationRule();
-            o.repositoryFilters = repositoryFilters;
-            o.scanFrequency = scanFrequency;
-            return o;
+            final var _resultValue = new RegistryScanningConfigurationRule();
+            _resultValue.repositoryFilters = repositoryFilters;
+            _resultValue.scanFrequency = scanFrequency;
+            return _resultValue;
         }
     }
 }

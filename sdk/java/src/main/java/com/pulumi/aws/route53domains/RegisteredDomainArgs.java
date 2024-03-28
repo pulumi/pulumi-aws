@@ -4,11 +4,13 @@
 package com.pulumi.aws.route53domains;
 
 import com.pulumi.aws.route53domains.inputs.RegisteredDomainAdminContactArgs;
+import com.pulumi.aws.route53domains.inputs.RegisteredDomainBillingContactArgs;
 import com.pulumi.aws.route53domains.inputs.RegisteredDomainNameServerArgs;
 import com.pulumi.aws.route53domains.inputs.RegisteredDomainRegistrantContactArgs;
 import com.pulumi.aws.route53domains.inputs.RegisteredDomainTechContactArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -23,14 +25,14 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
     public static final RegisteredDomainArgs Empty = new RegisteredDomainArgs();
 
     /**
-     * Details about the domain administrative contact.
+     * Details about the domain administrative contact. See Contact Blocks for more details.
      * 
      */
     @Import(name="adminContact")
     private @Nullable Output<RegisteredDomainAdminContactArgs> adminContact;
 
     /**
-     * @return Details about the domain administrative contact.
+     * @return Details about the domain administrative contact. See Contact Blocks for more details.
      * 
      */
     public Optional<Output<RegisteredDomainAdminContactArgs>> adminContact() {
@@ -68,6 +70,36 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Details about the domain billing contact. See Contact Blocks for more details.
+     * 
+     */
+    @Import(name="billingContact")
+    private @Nullable Output<RegisteredDomainBillingContactArgs> billingContact;
+
+    /**
+     * @return Details about the domain billing contact. See Contact Blocks for more details.
+     * 
+     */
+    public Optional<Output<RegisteredDomainBillingContactArgs>> billingContact() {
+        return Optional.ofNullable(this.billingContact);
+    }
+
+    /**
+     * Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+     * 
+     */
+    @Import(name="billingPrivacy")
+    private @Nullable Output<Boolean> billingPrivacy;
+
+    /**
+     * @return Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> billingPrivacy() {
+        return Optional.ofNullable(this.billingPrivacy);
+    }
+
+    /**
      * The name of the registered domain.
      * 
      */
@@ -83,14 +115,14 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The list of nameservers for the domain.
+     * The list of nameservers for the domain. See `name_server` Blocks for more details.
      * 
      */
     @Import(name="nameServers")
     private @Nullable Output<List<RegisteredDomainNameServerArgs>> nameServers;
 
     /**
-     * @return The list of nameservers for the domain.
+     * @return The list of nameservers for the domain. See `name_server` Blocks for more details.
      * 
      */
     public Optional<Output<List<RegisteredDomainNameServerArgs>>> nameServers() {
@@ -98,14 +130,14 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Details about the domain registrant.
+     * Details about the domain registrant. See Contact Blocks for more details.
      * 
      */
     @Import(name="registrantContact")
     private @Nullable Output<RegisteredDomainRegistrantContactArgs> registrantContact;
 
     /**
-     * @return Details about the domain registrant.
+     * @return Details about the domain registrant. See Contact Blocks for more details.
      * 
      */
     public Optional<Output<RegisteredDomainRegistrantContactArgs>> registrantContact() {
@@ -143,14 +175,14 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Details about the domain technical contact.
+     * Details about the domain technical contact. See Contact Blocks for more details.
      * 
      */
     @Import(name="techContact")
     private @Nullable Output<RegisteredDomainTechContactArgs> techContact;
 
     /**
-     * @return Details about the domain technical contact.
+     * @return Details about the domain technical contact. See Contact Blocks for more details.
      * 
      */
     public Optional<Output<RegisteredDomainTechContactArgs>> techContact() {
@@ -193,6 +225,8 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
         this.adminContact = $.adminContact;
         this.adminPrivacy = $.adminPrivacy;
         this.autoRenew = $.autoRenew;
+        this.billingContact = $.billingContact;
+        this.billingPrivacy = $.billingPrivacy;
         this.domainName = $.domainName;
         this.nameServers = $.nameServers;
         this.registrantContact = $.registrantContact;
@@ -222,7 +256,7 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param adminContact Details about the domain administrative contact.
+         * @param adminContact Details about the domain administrative contact. See Contact Blocks for more details.
          * 
          * @return builder
          * 
@@ -233,7 +267,7 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param adminContact Details about the domain administrative contact.
+         * @param adminContact Details about the domain administrative contact. See Contact Blocks for more details.
          * 
          * @return builder
          * 
@@ -285,6 +319,48 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param billingContact Details about the domain billing contact. See Contact Blocks for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder billingContact(@Nullable Output<RegisteredDomainBillingContactArgs> billingContact) {
+            $.billingContact = billingContact;
+            return this;
+        }
+
+        /**
+         * @param billingContact Details about the domain billing contact. See Contact Blocks for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder billingContact(RegisteredDomainBillingContactArgs billingContact) {
+            return billingContact(Output.of(billingContact));
+        }
+
+        /**
+         * @param billingPrivacy Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder billingPrivacy(@Nullable Output<Boolean> billingPrivacy) {
+            $.billingPrivacy = billingPrivacy;
+            return this;
+        }
+
+        /**
+         * @param billingPrivacy Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder billingPrivacy(Boolean billingPrivacy) {
+            return billingPrivacy(Output.of(billingPrivacy));
+        }
+
+        /**
          * @param domainName The name of the registered domain.
          * 
          * @return builder
@@ -306,7 +382,7 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param nameServers The list of nameservers for the domain.
+         * @param nameServers The list of nameservers for the domain. See `name_server` Blocks for more details.
          * 
          * @return builder
          * 
@@ -317,7 +393,7 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param nameServers The list of nameservers for the domain.
+         * @param nameServers The list of nameservers for the domain. See `name_server` Blocks for more details.
          * 
          * @return builder
          * 
@@ -327,7 +403,7 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param nameServers The list of nameservers for the domain.
+         * @param nameServers The list of nameservers for the domain. See `name_server` Blocks for more details.
          * 
          * @return builder
          * 
@@ -337,7 +413,7 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param registrantContact Details about the domain registrant.
+         * @param registrantContact Details about the domain registrant. See Contact Blocks for more details.
          * 
          * @return builder
          * 
@@ -348,7 +424,7 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param registrantContact Details about the domain registrant.
+         * @param registrantContact Details about the domain registrant. See Contact Blocks for more details.
          * 
          * @return builder
          * 
@@ -400,7 +476,7 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param techContact Details about the domain technical contact.
+         * @param techContact Details about the domain technical contact. See Contact Blocks for more details.
          * 
          * @return builder
          * 
@@ -411,7 +487,7 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param techContact Details about the domain technical contact.
+         * @param techContact Details about the domain technical contact. See Contact Blocks for more details.
          * 
          * @return builder
          * 
@@ -463,7 +539,9 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
         }
 
         public RegisteredDomainArgs build() {
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("RegisteredDomainArgs", "domainName");
+            }
             return $;
         }
     }

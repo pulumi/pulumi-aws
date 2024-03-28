@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * `aws.iam.GroupMembership` resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -30,7 +32,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.User;
+ * import com.pulumi.aws.iam.UserArgs;
  * import com.pulumi.aws.iam.Group;
+ * import com.pulumi.aws.iam.GroupArgs;
  * import com.pulumi.aws.iam.UserGroupMembership;
  * import com.pulumi.aws.iam.UserGroupMembershipArgs;
  * import java.util.List;
@@ -46,11 +50,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var user1 = new User(&#34;user1&#34;);
+ *         var user1 = new User(&#34;user1&#34;, UserArgs.builder()        
+ *             .name(&#34;user1&#34;)
+ *             .build());
  * 
- *         var group1 = new Group(&#34;group1&#34;);
+ *         var group1 = new Group(&#34;group1&#34;, GroupArgs.builder()        
+ *             .name(&#34;group1&#34;)
+ *             .build());
  * 
- *         var group2 = new Group(&#34;group2&#34;);
+ *         var group2 = new Group(&#34;group2&#34;, GroupArgs.builder()        
+ *             .name(&#34;group2&#34;)
+ *             .build());
  * 
  *         var example1 = new UserGroupMembership(&#34;example1&#34;, UserGroupMembershipArgs.builder()        
  *             .user(user1.name())
@@ -59,7 +69,9 @@ import javax.annotation.Nullable;
  *                 group2.name())
  *             .build());
  * 
- *         var group3 = new Group(&#34;group3&#34;);
+ *         var group3 = new Group(&#34;group3&#34;, GroupArgs.builder()        
+ *             .name(&#34;group3&#34;)
+ *             .build());
  * 
  *         var example2 = new UserGroupMembership(&#34;example2&#34;, UserGroupMembershipArgs.builder()        
  *             .user(user1.name())
@@ -69,13 +81,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
+ * $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
  * ```
  * 
  */

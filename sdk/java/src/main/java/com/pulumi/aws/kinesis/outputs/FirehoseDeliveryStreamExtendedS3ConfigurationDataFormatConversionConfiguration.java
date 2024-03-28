@@ -7,6 +7,7 @@ import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamExtendedS3Configurat
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -20,17 +21,17 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
      */
     private @Nullable Boolean enabled;
     /**
-     * @return Nested argument that specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. More details below.
+     * @return Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `input_format_configuration` block below for details.
      * 
      */
     private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration inputFormatConfiguration;
     /**
-     * @return Nested argument that specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. More details below.
+     * @return Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `output_format_configuration` block below for details.
      * 
      */
     private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration outputFormatConfiguration;
     /**
-     * @return Nested argument that specifies the AWS Glue Data Catalog table that contains the column information. More details below.
+     * @return Specifies the AWS Glue Data Catalog table that contains the column information. See `schema_configuration` block below for details.
      * 
      */
     private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration schemaConfiguration;
@@ -44,21 +45,21 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return Nested argument that specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. More details below.
+     * @return Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `input_format_configuration` block below for details.
      * 
      */
     public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration inputFormatConfiguration() {
         return this.inputFormatConfiguration;
     }
     /**
-     * @return Nested argument that specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. More details below.
+     * @return Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `output_format_configuration` block below for details.
      * 
      */
     public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration outputFormatConfiguration() {
         return this.outputFormatConfiguration;
     }
     /**
-     * @return Nested argument that specifies the AWS Glue Data Catalog table that contains the column information. More details below.
+     * @return Specifies the AWS Glue Data Catalog table that contains the column information. See `schema_configuration` block below for details.
      * 
      */
     public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration schemaConfiguration() {
@@ -89,31 +90,41 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder inputFormatConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration inputFormatConfiguration) {
-            this.inputFormatConfiguration = Objects.requireNonNull(inputFormatConfiguration);
+            if (inputFormatConfiguration == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration", "inputFormatConfiguration");
+            }
+            this.inputFormatConfiguration = inputFormatConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder outputFormatConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration outputFormatConfiguration) {
-            this.outputFormatConfiguration = Objects.requireNonNull(outputFormatConfiguration);
+            if (outputFormatConfiguration == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration", "outputFormatConfiguration");
+            }
+            this.outputFormatConfiguration = outputFormatConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder schemaConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration schemaConfiguration) {
-            this.schemaConfiguration = Objects.requireNonNull(schemaConfiguration);
+            if (schemaConfiguration == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration", "schemaConfiguration");
+            }
+            this.schemaConfiguration = schemaConfiguration;
             return this;
         }
         public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration build() {
-            final var o = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration();
-            o.enabled = enabled;
-            o.inputFormatConfiguration = inputFormatConfiguration;
-            o.outputFormatConfiguration = outputFormatConfiguration;
-            o.schemaConfiguration = schemaConfiguration;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.inputFormatConfiguration = inputFormatConfiguration;
+            _resultValue.outputFormatConfiguration = outputFormatConfiguration;
+            _resultValue.schemaConfiguration = schemaConfiguration;
+            return _resultValue;
         }
     }
 }

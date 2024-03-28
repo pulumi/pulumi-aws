@@ -14,8 +14,10 @@ namespace Pulumi.Aws.Connect
     /// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
     /// 
     /// ## Example Usage
+    /// 
     /// ### Storage Config Kinesis Firehose Config
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,13 +28,13 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.InstanceStorageConfig("example", new()
     ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
     ///         ResourceType = "CONTACT_TRACE_RECORDS",
     ///         StorageConfig = new Aws.Connect.Inputs.InstanceStorageConfigStorageConfigArgs
     ///         {
     ///             KinesisFirehoseConfig = new Aws.Connect.Inputs.InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs
     ///             {
-    ///                 FirehoseArn = aws_kinesis_firehose_delivery_stream.Example.Arn,
+    ///                 FirehoseArn = exampleAwsKinesisFirehoseDeliveryStream.Arn,
     ///             },
     ///             StorageType = "KINESIS_FIREHOSE",
     ///         },
@@ -40,8 +42,11 @@ namespace Pulumi.Aws.Connect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Storage Config Kinesis Stream Config
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,13 +57,13 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.InstanceStorageConfig("example", new()
     ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
     ///         ResourceType = "CONTACT_TRACE_RECORDS",
     ///         StorageConfig = new Aws.Connect.Inputs.InstanceStorageConfigStorageConfigArgs
     ///         {
     ///             KinesisStreamConfig = new Aws.Connect.Inputs.InstanceStorageConfigStorageConfigKinesisStreamConfigArgs
     ///             {
-    ///                 StreamArn = aws_kinesis_stream.Example.Arn,
+    ///                 StreamArn = exampleAwsKinesisStream.Arn,
     ///             },
     ///             StorageType = "KINESIS_STREAM",
     ///         },
@@ -66,8 +71,11 @@ namespace Pulumi.Aws.Connect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Storage Config Kinesis Video Stream Config
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -78,7 +86,7 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.InstanceStorageConfig("example", new()
     ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
     ///         ResourceType = "MEDIA_STREAMS",
     ///         StorageConfig = new Aws.Connect.Inputs.InstanceStorageConfigStorageConfigArgs
     ///         {
@@ -89,7 +97,7 @@ namespace Pulumi.Aws.Connect
     ///                 EncryptionConfig = new Aws.Connect.Inputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs
     ///                 {
     ///                     EncryptionType = "KMS",
-    ///                     KeyId = aws_kms_key.Example.Arn,
+    ///                     KeyId = exampleAwsKmsKey.Arn,
     ///                 },
     ///             },
     ///             StorageType = "KINESIS_VIDEO_STREAM",
@@ -98,8 +106,11 @@ namespace Pulumi.Aws.Connect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Storage Config S3 Config
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -110,13 +121,13 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.InstanceStorageConfig("example", new()
     ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
     ///         ResourceType = "CHAT_TRANSCRIPTS",
     ///         StorageConfig = new Aws.Connect.Inputs.InstanceStorageConfigStorageConfigArgs
     ///         {
     ///             S3Config = new Aws.Connect.Inputs.InstanceStorageConfigStorageConfigS3ConfigArgs
     ///             {
-    ///                 BucketName = aws_s3_bucket.Example.Id,
+    ///                 BucketName = exampleAwsS3Bucket.Id,
     ///                 BucketPrefix = "example",
     ///             },
     ///             StorageType = "S3",
@@ -125,8 +136,11 @@ namespace Pulumi.Aws.Connect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Storage Config S3 Config with Encryption Config
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -137,18 +151,18 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.InstanceStorageConfig("example", new()
     ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
     ///         ResourceType = "CHAT_TRANSCRIPTS",
     ///         StorageConfig = new Aws.Connect.Inputs.InstanceStorageConfigStorageConfigArgs
     ///         {
     ///             S3Config = new Aws.Connect.Inputs.InstanceStorageConfigStorageConfigS3ConfigArgs
     ///             {
-    ///                 BucketName = aws_s3_bucket.Example.Id,
+    ///                 BucketName = exampleAwsS3Bucket.Id,
     ///                 BucketPrefix = "example",
     ///                 EncryptionConfig = new Aws.Connect.Inputs.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs
     ///                 {
     ///                     EncryptionType = "KMS",
-    ///                     KeyId = aws_kms_key.Example.Arn,
+    ///                     KeyId = exampleAwsKmsKey.Arn,
     ///                 },
     ///             },
     ///             StorageType = "S3",
@@ -157,13 +171,14 @@ namespace Pulumi.Aws.Connect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon Connect Instance Storage Configs using the `instance_id`, `association_id`, and `resource_type` separated by a colon (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:connect/instanceStorageConfig:InstanceStorageConfig example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5:CHAT_TRANSCRIPTS
+    /// $ pulumi import aws:connect/instanceStorageConfig:InstanceStorageConfig example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5:CHAT_TRANSCRIPTS
     /// ```
     /// </summary>
     [AwsResourceType("aws:connect/instanceStorageConfig:InstanceStorageConfig")]

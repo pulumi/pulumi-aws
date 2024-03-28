@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,7 +38,7 @@ import * as utilities from "../utilities";
  *             },
  *             s3BucketDestination: {
  *                 accountId: current.then(current => current.accountId),
- *                 arn: aws_s3_bucket.target.arn,
+ *                 arn: target.arn,
  *                 format: "CSV",
  *                 outputSchemaVersion: "V_1",
  *                 encryption: {
@@ -47,21 +48,22 @@ import * as utilities from "../utilities";
  *         },
  *         exclude: {
  *             buckets: [
- *                 aws_s3_bucket.b1.arn,
- *                 aws_s3_bucket.b2.arn,
+ *                 b1.arn,
+ *                 b2.arn,
  *             ],
  *             regions: ["us-east-2"],
  *         },
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import S3 Storage Lens configurations using the `account_id` and `config_id`, separated by a colon (`:`). For example:
  *
  * ```sh
- *  $ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1
+ * $ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1
  * ```
  */
 export class StorageLensConfiguration extends pulumi.CustomResource {
@@ -154,8 +156,6 @@ export class StorageLensConfiguration extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(StorageLensConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

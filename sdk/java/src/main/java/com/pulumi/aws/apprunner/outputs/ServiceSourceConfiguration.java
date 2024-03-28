@@ -89,31 +89,35 @@ public final class ServiceSourceConfiguration {
 
         @CustomType.Setter
         public Builder authenticationConfiguration(@Nullable ServiceSourceConfigurationAuthenticationConfiguration authenticationConfiguration) {
+
             this.authenticationConfiguration = authenticationConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder autoDeploymentsEnabled(@Nullable Boolean autoDeploymentsEnabled) {
+
             this.autoDeploymentsEnabled = autoDeploymentsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder codeRepository(@Nullable ServiceSourceConfigurationCodeRepository codeRepository) {
+
             this.codeRepository = codeRepository;
             return this;
         }
         @CustomType.Setter
         public Builder imageRepository(@Nullable ServiceSourceConfigurationImageRepository imageRepository) {
+
             this.imageRepository = imageRepository;
             return this;
         }
         public ServiceSourceConfiguration build() {
-            final var o = new ServiceSourceConfiguration();
-            o.authenticationConfiguration = authenticationConfiguration;
-            o.autoDeploymentsEnabled = autoDeploymentsEnabled;
-            o.codeRepository = codeRepository;
-            o.imageRepository = imageRepository;
-            return o;
+            final var _resultValue = new ServiceSourceConfiguration();
+            _resultValue.authenticationConfiguration = authenticationConfiguration;
+            _resultValue.autoDeploymentsEnabled = autoDeploymentsEnabled;
+            _resultValue.codeRepository = codeRepository;
+            _resultValue.imageRepository = imageRepository;
+            return _resultValue;
         }
     }
 }

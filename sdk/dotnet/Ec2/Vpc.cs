@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// Basic usage:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,9 +32,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Basic usage with tags:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,9 +57,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// VPC with CIDR from AWS IPAM:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -67,7 +72,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var current = Aws.GetRegion.Invoke();
     /// 
-    ///     var testVpcIpam = new Aws.Ec2.VpcIpam("testVpcIpam", new()
+    ///     var test = new Aws.Ec2.VpcIpam("test", new()
     ///     {
     ///         OperatingRegions = new[]
     ///         {
@@ -78,40 +83,35 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var testVpcIpamPool = new Aws.Ec2.VpcIpamPool("testVpcIpamPool", new()
+    ///     var testVpcIpamPool = new Aws.Ec2.VpcIpamPool("test", new()
     ///     {
     ///         AddressFamily = "ipv4",
-    ///         IpamScopeId = testVpcIpam.PrivateDefaultScopeId,
+    ///         IpamScopeId = test.PrivateDefaultScopeId,
     ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Name),
     ///     });
     /// 
-    ///     var testVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("testVpcIpamPoolCidr", new()
+    ///     var testVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("test", new()
     ///     {
     ///         IpamPoolId = testVpcIpamPool.Id,
     ///         Cidr = "172.20.0.0/16",
     ///     });
     /// 
-    ///     var testVpc = new Aws.Ec2.Vpc("testVpc", new()
+    ///     var testVpc = new Aws.Ec2.Vpc("test", new()
     ///     {
     ///         Ipv4IpamPoolId = testVpcIpamPool.Id,
     ///         Ipv4NetmaskLength = 28,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             testVpcIpamPoolCidr,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import VPCs using the VPC `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2
+    /// $ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpc:Vpc")]
@@ -271,10 +271,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -531,11 +527,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public VpcState()

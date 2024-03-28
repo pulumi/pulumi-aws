@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,7 +23,10 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new Aws.ApiGateway.RestApi("main");
+    ///     var main = new Aws.ApiGateway.RestApi("main", new()
+    ///     {
+    ///         Name = "MyDemoAPI",
+    ///     });
     /// 
     ///     var test = new Aws.ApiGateway.Response("test", new()
     ///     {
@@ -41,13 +45,14 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
+    /// $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/response:Response")]

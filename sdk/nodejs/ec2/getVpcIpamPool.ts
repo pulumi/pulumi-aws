@@ -20,11 +20,12 @@ import * as utilities from "../utilities";
  * via RAM, and using that pool id to create a VPC with a CIDR derived from
  * AWS IPAM.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testVpcIpamPool = aws.ec2.getVpcIpamPool({
+ * const test = aws.ec2.getVpcIpamPool({
  *     filters: [
  *         {
  *             name: "description",
@@ -36,11 +37,12 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const testVpc = new aws.ec2.Vpc("testVpc", {
- *     ipv4IpamPoolId: testVpcIpamPool.then(testVpcIpamPool => testVpcIpamPool.id),
+ * const testVpc = new aws.ec2.Vpc("test", {
+ *     ipv4IpamPoolId: test.then(test => test.id),
  *     ipv4NetmaskLength: 28,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVpcIpamPool(args?: GetVpcIpamPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIpamPoolResult> {
     args = args || {};
@@ -164,11 +166,12 @@ export interface GetVpcIpamPoolResult {
  * via RAM, and using that pool id to create a VPC with a CIDR derived from
  * AWS IPAM.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testVpcIpamPool = aws.ec2.getVpcIpamPool({
+ * const test = aws.ec2.getVpcIpamPool({
  *     filters: [
  *         {
  *             name: "description",
@@ -180,11 +183,12 @@ export interface GetVpcIpamPoolResult {
  *         },
  *     ],
  * });
- * const testVpc = new aws.ec2.Vpc("testVpc", {
- *     ipv4IpamPoolId: testVpcIpamPool.then(testVpcIpamPool => testVpcIpamPool.id),
+ * const testVpc = new aws.ec2.Vpc("test", {
+ *     ipv4IpamPoolId: test.then(test => test.id),
  *     ipv4NetmaskLength: 28,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVpcIpamPoolOutput(args?: GetVpcIpamPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIpamPoolResult> {
     return pulumi.output(args).apply((a: any) => getVpcIpamPool(a, opts))

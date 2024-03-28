@@ -206,12 +206,14 @@ def get_image_recipe(arn: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.imagebuilder.get_image_recipe(arn="arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the image recipe.
@@ -249,12 +251,14 @@ def get_image_recipe_output(arn: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.imagebuilder.get_image_recipe(arn="arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the image recipe.

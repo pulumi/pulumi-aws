@@ -7,6 +7,9 @@ import typing
 # Export this package's modules as members:
 from .account import *
 from .action_target import *
+from .automation_rule import *
+from .configuration_policy import *
+from .configuration_policy_association import *
 from .finding_aggregator import *
 from .insight import *
 from .invite_accepter import *

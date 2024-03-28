@@ -59,19 +59,21 @@ public final class ClusterOpenMonitoringPrometheus {
 
         @CustomType.Setter
         public Builder jmxExporter(@Nullable ClusterOpenMonitoringPrometheusJmxExporter jmxExporter) {
+
             this.jmxExporter = jmxExporter;
             return this;
         }
         @CustomType.Setter
         public Builder nodeExporter(@Nullable ClusterOpenMonitoringPrometheusNodeExporter nodeExporter) {
+
             this.nodeExporter = nodeExporter;
             return this;
         }
         public ClusterOpenMonitoringPrometheus build() {
-            final var o = new ClusterOpenMonitoringPrometheus();
-            o.jmxExporter = jmxExporter;
-            o.nodeExporter = nodeExporter;
-            return o;
+            final var _resultValue = new ClusterOpenMonitoringPrometheus();
+            _resultValue.jmxExporter = jmxExporter;
+            _resultValue.nodeExporter = nodeExporter;
+            return _resultValue;
         }
     }
 }

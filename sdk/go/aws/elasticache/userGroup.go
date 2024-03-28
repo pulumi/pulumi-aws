@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testUser, err := elasticache.NewUser(ctx, "testUser", &elasticache.UserArgs{
+//			test, err := elasticache.NewUser(ctx, "test", &elasticache.UserArgs{
 //				UserId:       pulumi.String("testUserId"),
 //				UserName:     pulumi.String("default"),
 //				AccessString: pulumi.String("on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember"),
@@ -40,11 +41,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = elasticache.NewUserGroup(ctx, "testUserGroup", &elasticache.UserGroupArgs{
+//			_, err = elasticache.NewUserGroup(ctx, "test", &elasticache.UserGroupArgs{
 //				Engine:      pulumi.String("REDIS"),
 //				UserGroupId: pulumi.String("userGroupId"),
 //				UserIds: pulumi.StringArray{
-//					testUser.UserId,
+//					test.UserId,
 //				},
 //			})
 //			if err != nil {
@@ -55,15 +56,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ElastiCache user groups using the `user_group_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
-//
+// $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
 // ```
 type UserGroup struct {
 	pulumi.CustomResourceState
@@ -99,10 +99,6 @@ func NewUserGroup(ctx *pulumi.Context,
 	if args.UserGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'UserGroupId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserGroup
 	err := ctx.RegisterResource("aws:elasticache/userGroup:UserGroup", name, args, &resource, opts...)

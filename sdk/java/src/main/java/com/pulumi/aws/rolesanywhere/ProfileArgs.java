@@ -5,6 +5,7 @@ package com.pulumi.aws.rolesanywhere;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -359,7 +360,9 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProfileArgs build() {
-            $.roleArns = Objects.requireNonNull($.roleArns, "expected parameter 'roleArns' to be non-null");
+            if ($.roleArns == null) {
+                throw new MissingRequiredPropertyException("ProfileArgs", "roleArns");
+            }
             return $;
         }
     }

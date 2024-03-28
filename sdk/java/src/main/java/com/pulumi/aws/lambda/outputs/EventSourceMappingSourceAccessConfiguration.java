@@ -4,13 +4,14 @@
 package com.pulumi.aws.lambda.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class EventSourceMappingSourceAccessConfiguration {
     /**
-     * @return The type of this configuration.  For Self Managed Kafka you will need to supply blocks for type `VPC_SUBNET` and `VPC_SECURITY_GROUP`.
+     * @return The type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
      * 
      */
     private String type;
@@ -22,7 +23,7 @@ public final class EventSourceMappingSourceAccessConfiguration {
 
     private EventSourceMappingSourceAccessConfiguration() {}
     /**
-     * @return The type of this configuration.  For Self Managed Kafka you will need to supply blocks for type `VPC_SUBNET` and `VPC_SECURITY_GROUP`.
+     * @return The type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
      * 
      */
     public String type() {
@@ -56,19 +57,25 @@ public final class EventSourceMappingSourceAccessConfiguration {
 
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("EventSourceMappingSourceAccessConfiguration", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder uri(String uri) {
-            this.uri = Objects.requireNonNull(uri);
+            if (uri == null) {
+              throw new MissingRequiredPropertyException("EventSourceMappingSourceAccessConfiguration", "uri");
+            }
+            this.uri = uri;
             return this;
         }
         public EventSourceMappingSourceAccessConfiguration build() {
-            final var o = new EventSourceMappingSourceAccessConfiguration();
-            o.type = type;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new EventSourceMappingSourceAccessConfiguration();
+            _resultValue.type = type;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

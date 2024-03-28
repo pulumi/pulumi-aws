@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * conflict and will overwrite attachments.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,13 +50,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var baz = new Attachment(&#34;baz&#34;, AttachmentArgs.builder()        
- *             .elb(aws_elb.bar().id())
- *             .instance(aws_instance.foo().id())
+ *             .elb(bar.id())
+ *             .instance(foo.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:elb/attachment:Attachment")

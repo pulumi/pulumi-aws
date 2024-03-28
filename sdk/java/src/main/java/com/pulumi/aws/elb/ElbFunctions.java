@@ -25,6 +25,8 @@ public final class ElbFunctions {
      * in a given region for the purpose of using in an AWS Route53 Alias.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -52,11 +54,11 @@ public final class ElbFunctions {
      *         final var main = ElbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
+     *             .zoneId(primary.zoneId())
      *             .name(&#34;example.com&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_elb.main().dns_name())
+     *                 .name(mainAwsElb.dnsName())
      *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
@@ -65,6 +67,7 @@ public final class ElbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetHostedZoneIdResult> getHostedZoneId() {
@@ -75,6 +78,8 @@ public final class ElbFunctions {
      * in a given region for the purpose of using in an AWS Route53 Alias.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -102,11 +107,11 @@ public final class ElbFunctions {
      *         final var main = ElbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
+     *             .zoneId(primary.zoneId())
      *             .name(&#34;example.com&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_elb.main().dns_name())
+     *                 .name(mainAwsElb.dnsName())
      *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
@@ -115,6 +120,7 @@ public final class ElbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetHostedZoneIdResult> getHostedZoneIdPlain() {
@@ -125,6 +131,8 @@ public final class ElbFunctions {
      * in a given region for the purpose of using in an AWS Route53 Alias.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -152,11 +160,11 @@ public final class ElbFunctions {
      *         final var main = ElbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
+     *             .zoneId(primary.zoneId())
      *             .name(&#34;example.com&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_elb.main().dns_name())
+     *                 .name(mainAwsElb.dnsName())
      *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
@@ -165,6 +173,7 @@ public final class ElbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetHostedZoneIdResult> getHostedZoneId(GetHostedZoneIdArgs args) {
@@ -175,6 +184,8 @@ public final class ElbFunctions {
      * in a given region for the purpose of using in an AWS Route53 Alias.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -202,11 +213,11 @@ public final class ElbFunctions {
      *         final var main = ElbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
+     *             .zoneId(primary.zoneId())
      *             .name(&#34;example.com&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_elb.main().dns_name())
+     *                 .name(mainAwsElb.dnsName())
      *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
@@ -215,6 +226,7 @@ public final class ElbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetHostedZoneIdResult> getHostedZoneIdPlain(GetHostedZoneIdPlainArgs args) {
@@ -225,6 +237,8 @@ public final class ElbFunctions {
      * in a given region for the purpose of using in an AWS Route53 Alias.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -252,11 +266,11 @@ public final class ElbFunctions {
      *         final var main = ElbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
+     *             .zoneId(primary.zoneId())
      *             .name(&#34;example.com&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_elb.main().dns_name())
+     *                 .name(mainAwsElb.dnsName())
      *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
@@ -265,6 +279,7 @@ public final class ElbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetHostedZoneIdResult> getHostedZoneId(GetHostedZoneIdArgs args, InvokeOptions options) {
@@ -275,6 +290,8 @@ public final class ElbFunctions {
      * in a given region for the purpose of using in an AWS Route53 Alias.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -302,11 +319,11 @@ public final class ElbFunctions {
      *         final var main = ElbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
+     *             .zoneId(primary.zoneId())
      *             .name(&#34;example.com&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_elb.main().dns_name())
+     *                 .name(mainAwsElb.dnsName())
      *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
@@ -315,6 +332,7 @@ public final class ElbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetHostedZoneIdResult> getHostedZoneIdPlain(GetHostedZoneIdPlainArgs args, InvokeOptions options) {
@@ -330,6 +348,8 @@ public final class ElbFunctions {
      * with it, etc.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -360,6 +380,7 @@ public final class ElbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLoadBalancerResult> getLoadBalancer(GetLoadBalancerArgs args) {
@@ -375,6 +396,8 @@ public final class ElbFunctions {
      * with it, etc.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -405,6 +428,7 @@ public final class ElbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLoadBalancerResult> getLoadBalancerPlain(GetLoadBalancerPlainArgs args) {
@@ -420,6 +444,8 @@ public final class ElbFunctions {
      * with it, etc.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -450,6 +476,7 @@ public final class ElbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLoadBalancerResult> getLoadBalancer(GetLoadBalancerArgs args, InvokeOptions options) {
@@ -465,6 +492,8 @@ public final class ElbFunctions {
      * with it, etc.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -495,6 +524,7 @@ public final class ElbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLoadBalancerResult> getLoadBalancerPlain(GetLoadBalancerPlainArgs args, InvokeOptions options) {
@@ -507,6 +537,8 @@ public final class ElbFunctions {
      * &gt; **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -516,6 +548,7 @@ public final class ElbFunctions {
      * import com.pulumi.aws.elb.ElbFunctions;
      * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -541,14 +574,16 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getServiceAccount();
      * 
-     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;);
+     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-elb-tf-test-bucket&#34;)
+     *             .build());
      * 
      *         var elbLogsAcl = new BucketAclV2(&#34;elbLogsAcl&#34;, BucketAclV2Args.builder()        
      *             .bucket(elbLogs.id())
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         final var allowElbLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect(&#34;Allow&#34;)
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -562,10 +597,11 @@ public final class ElbFunctions {
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLoggingPolicyDocument -&gt; allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLogging -&gt; allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
+     *             .name(&#34;my-foobar-elb&#34;)
      *             .availabilityZones(&#34;us-west-2a&#34;)
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())
@@ -582,6 +618,7 @@ public final class ElbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceAccountResult> getServiceAccount() {
@@ -594,6 +631,8 @@ public final class ElbFunctions {
      * &gt; **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -603,6 +642,7 @@ public final class ElbFunctions {
      * import com.pulumi.aws.elb.ElbFunctions;
      * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -628,14 +668,16 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getServiceAccount();
      * 
-     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;);
+     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-elb-tf-test-bucket&#34;)
+     *             .build());
      * 
      *         var elbLogsAcl = new BucketAclV2(&#34;elbLogsAcl&#34;, BucketAclV2Args.builder()        
      *             .bucket(elbLogs.id())
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         final var allowElbLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect(&#34;Allow&#34;)
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -649,10 +691,11 @@ public final class ElbFunctions {
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLoggingPolicyDocument -&gt; allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLogging -&gt; allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
+     *             .name(&#34;my-foobar-elb&#34;)
      *             .availabilityZones(&#34;us-west-2a&#34;)
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())
@@ -669,6 +712,7 @@ public final class ElbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain() {
@@ -681,6 +725,8 @@ public final class ElbFunctions {
      * &gt; **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -690,6 +736,7 @@ public final class ElbFunctions {
      * import com.pulumi.aws.elb.ElbFunctions;
      * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -715,14 +762,16 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getServiceAccount();
      * 
-     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;);
+     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-elb-tf-test-bucket&#34;)
+     *             .build());
      * 
      *         var elbLogsAcl = new BucketAclV2(&#34;elbLogsAcl&#34;, BucketAclV2Args.builder()        
      *             .bucket(elbLogs.id())
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         final var allowElbLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect(&#34;Allow&#34;)
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -736,10 +785,11 @@ public final class ElbFunctions {
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLoggingPolicyDocument -&gt; allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLogging -&gt; allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
+     *             .name(&#34;my-foobar-elb&#34;)
      *             .availabilityZones(&#34;us-west-2a&#34;)
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())
@@ -756,6 +806,7 @@ public final class ElbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceAccountResult> getServiceAccount(GetServiceAccountArgs args) {
@@ -768,6 +819,8 @@ public final class ElbFunctions {
      * &gt; **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -777,6 +830,7 @@ public final class ElbFunctions {
      * import com.pulumi.aws.elb.ElbFunctions;
      * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -802,14 +856,16 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getServiceAccount();
      * 
-     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;);
+     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-elb-tf-test-bucket&#34;)
+     *             .build());
      * 
      *         var elbLogsAcl = new BucketAclV2(&#34;elbLogsAcl&#34;, BucketAclV2Args.builder()        
      *             .bucket(elbLogs.id())
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         final var allowElbLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect(&#34;Allow&#34;)
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -823,10 +879,11 @@ public final class ElbFunctions {
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLoggingPolicyDocument -&gt; allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLogging -&gt; allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
+     *             .name(&#34;my-foobar-elb&#34;)
      *             .availabilityZones(&#34;us-west-2a&#34;)
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())
@@ -843,6 +900,7 @@ public final class ElbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain(GetServiceAccountPlainArgs args) {
@@ -855,6 +913,8 @@ public final class ElbFunctions {
      * &gt; **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -864,6 +924,7 @@ public final class ElbFunctions {
      * import com.pulumi.aws.elb.ElbFunctions;
      * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -889,14 +950,16 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getServiceAccount();
      * 
-     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;);
+     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-elb-tf-test-bucket&#34;)
+     *             .build());
      * 
      *         var elbLogsAcl = new BucketAclV2(&#34;elbLogsAcl&#34;, BucketAclV2Args.builder()        
      *             .bucket(elbLogs.id())
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         final var allowElbLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect(&#34;Allow&#34;)
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -910,10 +973,11 @@ public final class ElbFunctions {
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLoggingPolicyDocument -&gt; allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLogging -&gt; allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
+     *             .name(&#34;my-foobar-elb&#34;)
      *             .availabilityZones(&#34;us-west-2a&#34;)
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())
@@ -930,6 +994,7 @@ public final class ElbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceAccountResult> getServiceAccount(GetServiceAccountArgs args, InvokeOptions options) {
@@ -942,6 +1007,8 @@ public final class ElbFunctions {
      * &gt; **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -951,6 +1018,7 @@ public final class ElbFunctions {
      * import com.pulumi.aws.elb.ElbFunctions;
      * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -976,14 +1044,16 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getServiceAccount();
      * 
-     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;);
+     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-elb-tf-test-bucket&#34;)
+     *             .build());
      * 
      *         var elbLogsAcl = new BucketAclV2(&#34;elbLogsAcl&#34;, BucketAclV2Args.builder()        
      *             .bucket(elbLogs.id())
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         final var allowElbLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect(&#34;Allow&#34;)
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -997,10 +1067,11 @@ public final class ElbFunctions {
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLoggingPolicyDocument -&gt; allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLogging -&gt; allowElbLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
+     *             .name(&#34;my-foobar-elb&#34;)
      *             .availabilityZones(&#34;us-west-2a&#34;)
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())
@@ -1017,6 +1088,7 @@ public final class ElbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain(GetServiceAccountPlainArgs args, InvokeOptions options) {

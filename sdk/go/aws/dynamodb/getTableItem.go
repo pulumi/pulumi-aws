@@ -14,8 +14,10 @@ import (
 // Data source for retrieving a value from an AWS DynamoDB table.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dynamodb.LookupTableItem(ctx, &dynamodb.LookupTableItemArgs{
-//				TableName: aws_dynamodb_table.Example.Name,
+//				TableName: example.Name,
 //				ExpressionAttributeNames: map[string]interface{}{
 //					"#P": "Percentile",
 //				},
@@ -44,6 +46,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupTableItem(ctx *pulumi.Context, args *LookupTableItemArgs, opts ...pulumi.InvokeOption) (*LookupTableItemResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTableItemResult

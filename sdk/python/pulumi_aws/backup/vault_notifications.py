@@ -150,12 +150,13 @@ class VaultNotifications(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_topic = aws.sns.Topic("testTopic")
-        test_policy_document = test_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
+        test_topic = aws.sns.Topic("test", name="backup-vault-events")
+        test = test_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
             statements=[aws.iam.GetPolicyDocumentStatementArgs(
                 actions=["SNS:Publish"],
                 effect="Allow",
@@ -166,10 +167,10 @@ class VaultNotifications(pulumi.CustomResource):
                 resources=[arn],
                 sid="__default_statement_ID",
             )]))
-        test_topic_policy = aws.sns.TopicPolicy("testTopicPolicy",
+        test_topic_policy = aws.sns.TopicPolicy("test",
             arn=test_topic.arn,
-            policy=test_policy_document.json)
-        test_vault_notifications = aws.backup.VaultNotifications("testVaultNotifications",
+            policy=test.json)
+        test_vault_notifications = aws.backup.VaultNotifications("test",
             backup_vault_name="example_backup_vault",
             sns_topic_arn=test_topic.arn,
             backup_vault_events=[
@@ -177,13 +178,14 @@ class VaultNotifications(pulumi.CustomResource):
                 "RESTORE_JOB_COMPLETED",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup vault notifications using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
+        $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
         ```
 
         :param str resource_name: The name of the resource.
@@ -203,12 +205,13 @@ class VaultNotifications(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_topic = aws.sns.Topic("testTopic")
-        test_policy_document = test_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
+        test_topic = aws.sns.Topic("test", name="backup-vault-events")
+        test = test_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
             statements=[aws.iam.GetPolicyDocumentStatementArgs(
                 actions=["SNS:Publish"],
                 effect="Allow",
@@ -219,10 +222,10 @@ class VaultNotifications(pulumi.CustomResource):
                 resources=[arn],
                 sid="__default_statement_ID",
             )]))
-        test_topic_policy = aws.sns.TopicPolicy("testTopicPolicy",
+        test_topic_policy = aws.sns.TopicPolicy("test",
             arn=test_topic.arn,
-            policy=test_policy_document.json)
-        test_vault_notifications = aws.backup.VaultNotifications("testVaultNotifications",
+            policy=test.json)
+        test_vault_notifications = aws.backup.VaultNotifications("test",
             backup_vault_name="example_backup_vault",
             sns_topic_arn=test_topic.arn,
             backup_vault_events=[
@@ -230,13 +233,14 @@ class VaultNotifications(pulumi.CustomResource):
                 "RESTORE_JOB_COMPLETED",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup vault notifications using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
+        $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
         ```
 
         :param str resource_name: The name of the resource.

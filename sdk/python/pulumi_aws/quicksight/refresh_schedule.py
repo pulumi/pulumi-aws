@@ -193,71 +193,80 @@ class RefreshSchedule(pulumi.CustomResource):
         Resource for managing a QuickSight Refresh Schedule.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.RefreshSchedule("example",
             data_set_id="dataset-id",
+            schedule_id="schedule-id",
             schedule=aws.quicksight.RefreshScheduleScheduleArgs(
                 refresh_type="FULL_REFRESH",
                 schedule_frequency=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyArgs(
                     interval="HOURLY",
                 ),
-            ),
-            schedule_id="schedule-id")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Weekly Refresh
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.RefreshSchedule("example",
             data_set_id="dataset-id",
+            schedule_id="schedule-id",
             schedule=aws.quicksight.RefreshScheduleScheduleArgs(
                 refresh_type="INCREMENTAL_REFRESH",
                 schedule_frequency=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyArgs(
                     interval="WEEKLY",
+                    time_of_the_day="01:00",
+                    timezone="Europe/London",
                     refresh_on_day=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs(
                         day_of_week="MONDAY",
                     ),
-                    time_of_the_day="01:00",
-                    timezone="Europe/London",
                 ),
-            ),
-            schedule_id="schedule-id")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Monthly Refresh
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.RefreshSchedule("example",
             data_set_id="dataset-id",
+            schedule_id="schedule-id",
             schedule=aws.quicksight.RefreshScheduleScheduleArgs(
                 refresh_type="INCREMENTAL_REFRESH",
                 schedule_frequency=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyArgs(
                     interval="MONTHLY",
+                    time_of_the_day="01:00",
+                    timezone="Europe/London",
                     refresh_on_day=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs(
                         day_of_month="1",
                     ),
-                    time_of_the_day="01:00",
-                    timezone="Europe/London",
                 ),
-            ),
-            schedule_id="schedule-id")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a QuickSight Refresh Schedule using the AWS account ID, data set ID and schedule ID separated by commas (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/refreshSchedule:RefreshSchedule example 123456789012,dataset-id,schedule-id
+        $ pulumi import aws:quicksight/refreshSchedule:RefreshSchedule example 123456789012,dataset-id,schedule-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -279,71 +288,80 @@ class RefreshSchedule(pulumi.CustomResource):
         Resource for managing a QuickSight Refresh Schedule.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.RefreshSchedule("example",
             data_set_id="dataset-id",
+            schedule_id="schedule-id",
             schedule=aws.quicksight.RefreshScheduleScheduleArgs(
                 refresh_type="FULL_REFRESH",
                 schedule_frequency=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyArgs(
                     interval="HOURLY",
                 ),
-            ),
-            schedule_id="schedule-id")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Weekly Refresh
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.RefreshSchedule("example",
             data_set_id="dataset-id",
+            schedule_id="schedule-id",
             schedule=aws.quicksight.RefreshScheduleScheduleArgs(
                 refresh_type="INCREMENTAL_REFRESH",
                 schedule_frequency=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyArgs(
                     interval="WEEKLY",
+                    time_of_the_day="01:00",
+                    timezone="Europe/London",
                     refresh_on_day=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs(
                         day_of_week="MONDAY",
                     ),
-                    time_of_the_day="01:00",
-                    timezone="Europe/London",
                 ),
-            ),
-            schedule_id="schedule-id")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Monthly Refresh
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.RefreshSchedule("example",
             data_set_id="dataset-id",
+            schedule_id="schedule-id",
             schedule=aws.quicksight.RefreshScheduleScheduleArgs(
                 refresh_type="INCREMENTAL_REFRESH",
                 schedule_frequency=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyArgs(
                     interval="MONTHLY",
+                    time_of_the_day="01:00",
+                    timezone="Europe/London",
                     refresh_on_day=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs(
                         day_of_month="1",
                     ),
-                    time_of_the_day="01:00",
-                    timezone="Europe/London",
                 ),
-            ),
-            schedule_id="schedule-id")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a QuickSight Refresh Schedule using the AWS account ID, data set ID and schedule ID separated by commas (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/refreshSchedule:RefreshSchedule example 123456789012,dataset-id,schedule-id
+        $ pulumi import aws:quicksight/refreshSchedule:RefreshSchedule example 123456789012,dataset-id,schedule-id
         ```
 
         :param str resource_name: The name of the resource.

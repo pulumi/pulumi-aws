@@ -5,6 +5,7 @@ package com.pulumi.aws.organizations.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class GetPoliciesForTargetArgs extends com.pulumi.resources.InvokeA
         }
 
         public GetPoliciesForTargetArgs build() {
-            $.filter = Objects.requireNonNull($.filter, "expected parameter 'filter' to be non-null");
-            $.targetId = Objects.requireNonNull($.targetId, "expected parameter 'targetId' to be non-null");
+            if ($.filter == null) {
+                throw new MissingRequiredPropertyException("GetPoliciesForTargetArgs", "filter");
+            }
+            if ($.targetId == null) {
+                throw new MissingRequiredPropertyException("GetPoliciesForTargetArgs", "targetId");
+            }
             return $;
         }
     }

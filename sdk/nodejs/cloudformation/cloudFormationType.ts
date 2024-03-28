@@ -12,27 +12,29 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudformation.CloudFormationType("example", {
- *     schemaHandlerPackage: `s3://${aws_s3_object.example.bucket}/${aws_s3_object.example.key}`,
+ *     schemaHandlerPackage: `s3://${exampleAwsS3Object.bucket}/${exampleAwsS3Object.key}`,
  *     type: "RESOURCE",
  *     typeName: "ExampleCompany::ExampleService::ExampleResource",
  *     loggingConfig: {
- *         logGroupName: aws_cloudwatch_log_group.example.name,
- *         logRoleArn: aws_iam_role.example.arn,
+ *         logGroupName: exampleAwsCloudwatchLogGroup.name,
+ *         logRoleArn: exampleAwsIamRole.arn,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_cloudformation_type` using the type version Amazon Resource Name (ARN). For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudformation/cloudFormationType:CloudFormationType example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
+ * $ pulumi import aws:cloudformation/cloudFormationType:CloudFormationType example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
  * ```
  */
 export class CloudFormationType extends pulumi.CustomResource {

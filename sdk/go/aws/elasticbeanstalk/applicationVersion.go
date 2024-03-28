@@ -26,6 +26,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,28 +40,32 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultBucketV2, err := s3.NewBucketV2(ctx, "defaultBucketV2", nil)
+//			_, err := s3.NewBucketV2(ctx, "default", &s3.BucketV2Args{
+//				Bucket: pulumi.String("tftest.applicationversion.bucket"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			defaultBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "defaultBucketObjectv2", &s3.BucketObjectv2Args{
-//				Bucket: defaultBucketV2.ID(),
+//			defaultBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "default", &s3.BucketObjectv2Args{
+//				Bucket: _default.ID(),
 //				Key:    pulumi.String("beanstalk/go-v1.zip"),
 //				Source: pulumi.NewFileAsset("go-v1.zip"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = elasticbeanstalk.NewApplication(ctx, "defaultApplication", &elasticbeanstalk.ApplicationArgs{
+//			_, err = elasticbeanstalk.NewApplication(ctx, "default", &elasticbeanstalk.ApplicationArgs{
+//				Name:        pulumi.String("tf-test-name"),
 //				Description: pulumi.String("tf-test-desc"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = elasticbeanstalk.NewApplicationVersion(ctx, "defaultApplicationVersion", &elasticbeanstalk.ApplicationVersionArgs{
+//			_, err = elasticbeanstalk.NewApplicationVersion(ctx, "default", &elasticbeanstalk.ApplicationVersionArgs{
+//				Name:        pulumi.String("tf-test-version-label"),
 //				Application: pulumi.Any("tf-test-name"),
 //				Description: pulumi.String("application version"),
-//				Bucket:      defaultBucketV2.ID(),
+//				Bucket:      _default.ID(),
 //				Key:         defaultBucketObjectv2.ID(),
 //			})
 //			if err != nil {
@@ -71,6 +76,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type ApplicationVersion struct {
 	pulumi.CustomResourceState
 
@@ -114,10 +120,6 @@ func NewApplicationVersion(ctx *pulumi.Context,
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApplicationVersion
 	err := ctx.RegisterResource("aws:elasticbeanstalk/applicationVersion:ApplicationVersion", name, args, &resource, opts...)

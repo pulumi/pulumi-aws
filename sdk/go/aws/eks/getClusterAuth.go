@@ -17,6 +17,40 @@ import (
 // [AWS IAM Authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator) authentication.
 // This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
 // server configured.
+//
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := eks.LookupCluster(ctx, &eks.LookupClusterArgs{
+//				Name: "example",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = eks.GetClusterAuth(ctx, &eks.GetClusterAuthArgs{
+//				Name: "example",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 func GetClusterAuth(ctx *pulumi.Context, args *GetClusterAuthArgs, opts ...pulumi.InvokeOption) (*GetClusterAuthResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetClusterAuthResult

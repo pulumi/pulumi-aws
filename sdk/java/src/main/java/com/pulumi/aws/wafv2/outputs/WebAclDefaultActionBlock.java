@@ -44,13 +44,14 @@ public final class WebAclDefaultActionBlock {
 
         @CustomType.Setter
         public Builder customResponse(@Nullable WebAclDefaultActionBlockCustomResponse customResponse) {
+
             this.customResponse = customResponse;
             return this;
         }
         public WebAclDefaultActionBlock build() {
-            final var o = new WebAclDefaultActionBlock();
-            o.customResponse = customResponse;
-            return o;
+            final var _resultValue = new WebAclDefaultActionBlock();
+            _resultValue.customResponse = customResponse;
+            return _resultValue;
         }
     }
 }

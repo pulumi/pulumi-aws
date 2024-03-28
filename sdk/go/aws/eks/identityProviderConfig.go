@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := eks.NewIdentityProviderConfig(ctx, "example", &eks.IdentityProviderConfigArgs{
-//				ClusterName: pulumi.Any(aws_eks_cluster.Example.Name),
+//				ClusterName: pulumi.Any(exampleAwsEksCluster.Name),
 //				Oidc: &eks.IdentityProviderConfigOidcArgs{
 //					ClientId:                   pulumi.String("your client_id"),
 //					IdentityProviderConfigName: pulumi.String("example"),
@@ -44,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EKS Identity Provider Configurations using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
-//
+// $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
 // ```
 type IdentityProviderConfig struct {
 	pulumi.CustomResourceState
@@ -86,10 +86,6 @@ func NewIdentityProviderConfig(ctx *pulumi.Context,
 	if args.Oidc == nil {
 		return nil, errors.New("invalid value for required argument 'Oidc'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IdentityProviderConfig
 	err := ctx.RegisterResource("aws:eks/identityProviderConfig:IdentityProviderConfig", name, args, &resource, opts...)

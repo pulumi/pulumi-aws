@@ -272,30 +272,33 @@ class CloudFormationStack(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        current_partition = aws.get_partition()
-        current_region = aws.get_region()
+        current = aws.get_partition()
+        current_get_region = aws.get_region()
         postgres_rotator = aws.serverlessrepository.CloudFormationStack("postgres-rotator",
+            name="postgres-rotator",
             application_id="arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser",
             capabilities=[
                 "CAPABILITY_IAM",
                 "CAPABILITY_RESOURCE_POLICY",
             ],
             parameters={
-                "endpoint": f"secretsmanager.{current_region.name}.{current_partition.dns_suffix}",
                 "functionName": "func-postgres-rotator",
+                "endpoint": f"secretsmanager.{current_get_region.name}.{current.dns_suffix}",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Serverless Application Repository Stack using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID. For example:
 
         ```sh
-         $ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
+        $ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
         ```
 
         :param str resource_name: The name of the resource.
@@ -318,30 +321,33 @@ class CloudFormationStack(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        current_partition = aws.get_partition()
-        current_region = aws.get_region()
+        current = aws.get_partition()
+        current_get_region = aws.get_region()
         postgres_rotator = aws.serverlessrepository.CloudFormationStack("postgres-rotator",
+            name="postgres-rotator",
             application_id="arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser",
             capabilities=[
                 "CAPABILITY_IAM",
                 "CAPABILITY_RESOURCE_POLICY",
             ],
             parameters={
-                "endpoint": f"secretsmanager.{current_region.name}.{current_partition.dns_suffix}",
                 "functionName": "func-postgres-rotator",
+                "endpoint": f"secretsmanager.{current_get_region.name}.{current.dns_suffix}",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Serverless Application Repository Stack using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID. For example:
 
         ```sh
-         $ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
+        $ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
         ```
 
         :param str resource_name: The name of the resource.
@@ -386,8 +392,6 @@ class CloudFormationStack(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["outputs"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(CloudFormationStack, __self__).__init__(
             'aws:serverlessrepository/cloudFormationStack:CloudFormationStack',
             resource_name,

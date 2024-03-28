@@ -13,8 +13,10 @@ namespace Pulumi.Aws.AppMesh
     /// Provides an AWS App Mesh virtual service resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Virtual Node Provider
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,14 +27,15 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var servicea = new Aws.AppMesh.VirtualService("servicea", new()
     ///     {
-    ///         MeshName = aws_appmesh_mesh.Simple.Id,
+    ///         Name = "servicea.simpleapp.local",
+    ///         MeshName = simple.Id,
     ///         Spec = new Aws.AppMesh.Inputs.VirtualServiceSpecArgs
     ///         {
     ///             Provider = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderArgs
     ///             {
     ///                 VirtualNode = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderVirtualNodeArgs
     ///                 {
-    ///                     VirtualNodeName = aws_appmesh_virtual_node.Serviceb1.Name,
+    ///                     VirtualNodeName = serviceb1.Name,
     ///                 },
     ///             },
     ///         },
@@ -40,8 +43,11 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Virtual Router Provider
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,14 +58,15 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var servicea = new Aws.AppMesh.VirtualService("servicea", new()
     ///     {
-    ///         MeshName = aws_appmesh_mesh.Simple.Id,
+    ///         Name = "servicea.simpleapp.local",
+    ///         MeshName = simple.Id,
     ///         Spec = new Aws.AppMesh.Inputs.VirtualServiceSpecArgs
     ///         {
     ///             Provider = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderArgs
     ///             {
     ///                 VirtualRouter = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderVirtualRouterArgs
     ///                 {
-    ///                     VirtualRouterName = aws_appmesh_virtual_router.Serviceb.Name,
+    ///                     VirtualRouterName = serviceb.Name,
     ///                 },
     ///             },
     ///         },
@@ -67,13 +74,14 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import App Mesh virtual services using `mesh_name` together with the virtual service's `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
+    /// $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
     /// ```
     /// </summary>
     [AwsResourceType("aws:appmesh/virtualService:VirtualService")]
@@ -162,10 +170,6 @@ namespace Pulumi.Aws.AppMesh
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -303,11 +307,7 @@ namespace Pulumi.Aws.AppMesh
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public VirtualServiceState()

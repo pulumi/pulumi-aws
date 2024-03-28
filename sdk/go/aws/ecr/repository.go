@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,10 +29,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecr.NewRepository(ctx, "foo", &ecr.RepositoryArgs{
+//				Name:               pulumi.String("bar"),
+//				ImageTagMutability: pulumi.String("MUTABLE"),
 //				ImageScanningConfiguration: &ecr.RepositoryImageScanningConfigurationArgs{
 //					ScanOnPush: pulumi.Bool(true),
 //				},
-//				ImageTagMutability: pulumi.String("MUTABLE"),
 //			})
 //			if err != nil {
 //				return err
@@ -41,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ECR Repositories using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ecr/repository:Repository service test-service
-//
+// $ pulumi import aws:ecr/repository:Repository service test-service
 // ```
 type Repository struct {
 	pulumi.CustomResourceState
@@ -86,10 +87,6 @@ func NewRepository(ctx *pulumi.Context,
 		args = &RepositoryArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Repository
 	err := ctx.RegisterResource("aws:ecr/repository:Repository", name, args, &resource, opts...)

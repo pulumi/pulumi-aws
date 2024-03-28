@@ -38,11 +38,12 @@ class PolicyStepScalingPolicyConfigurationArgs:
         :param pulumi.Input[int] min_adjustment_magnitude: Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyStepScalingPolicyConfigurationStepAdjustmentArgs']]] step_adjustments: Set of adjustments that manage scaling. These have the following structure:
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
                
-               ecs_policy = aws.appautoscaling.Policy("ecsPolicy", step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArgs(
+               ecs_policy = aws.appautoscaling.Policy("ecs_policy", step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArgs(
                    step_adjustments=[
                        aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
                            metric_interval_lower_bound="1",
@@ -57,6 +58,7 @@ class PolicyStepScalingPolicyConfigurationArgs:
                    ],
                ))
                ```
+               <!--End PulumiCodeChooser -->
         """
         if adjustment_type is not None:
             pulumi.set(__self__, "adjustment_type", adjustment_type)
@@ -123,11 +125,12 @@ class PolicyStepScalingPolicyConfigurationArgs:
         """
         Set of adjustments that manage scaling. These have the following structure:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        ecs_policy = aws.appautoscaling.Policy("ecsPolicy", step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArgs(
+        ecs_policy = aws.appautoscaling.Policy("ecs_policy", step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArgs(
             step_adjustments=[
                 aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
                     metric_interval_lower_bound="1",
@@ -142,6 +145,7 @@ class PolicyStepScalingPolicyConfigurationArgs:
             ],
         ))
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "step_adjustments")
 

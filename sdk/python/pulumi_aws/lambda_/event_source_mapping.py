@@ -45,7 +45,7 @@ class EventSourceMappingArgs:
         :param pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs'] amazon_managed_kafka_event_source_config: Additional configuration block for Amazon Managed Kafka sources. Incompatible with "self_managed_event_source" and "self_managed_kafka_event_source_config". Detailed below.
         :param pulumi.Input[int] batch_size: The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
         :param pulumi.Input[bool] bisect_batch_on_function_error: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
-        :param pulumi.Input['EventSourceMappingDestinationConfigArgs'] destination_config: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+        :param pulumi.Input['EventSourceMappingDestinationConfigArgs'] destination_config: - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
         :param pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigArgs'] document_db_event_source_config: - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
         :param pulumi.Input[bool] enabled: Determines if the mapping will be enabled on creation. Defaults to `true`.
         :param pulumi.Input[str] event_source_arn: The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
@@ -163,7 +163,7 @@ class EventSourceMappingArgs:
     @pulumi.getter(name="destinationConfig")
     def destination_config(self) -> Optional[pulumi.Input['EventSourceMappingDestinationConfigArgs']]:
         """
-        - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+        - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
         """
         return pulumi.get(self, "destination_config")
 
@@ -425,7 +425,7 @@ class _EventSourceMappingState:
         :param pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs'] amazon_managed_kafka_event_source_config: Additional configuration block for Amazon Managed Kafka sources. Incompatible with "self_managed_event_source" and "self_managed_kafka_event_source_config". Detailed below.
         :param pulumi.Input[int] batch_size: The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
         :param pulumi.Input[bool] bisect_batch_on_function_error: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
-        :param pulumi.Input['EventSourceMappingDestinationConfigArgs'] destination_config: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+        :param pulumi.Input['EventSourceMappingDestinationConfigArgs'] destination_config: - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
         :param pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigArgs'] document_db_event_source_config: - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
         :param pulumi.Input[bool] enabled: Determines if the mapping will be enabled on creation. Defaults to `true`.
         :param pulumi.Input[str] event_source_arn: The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
@@ -551,7 +551,7 @@ class _EventSourceMappingState:
     @pulumi.getter(name="destinationConfig")
     def destination_config(self) -> Optional[pulumi.Input['EventSourceMappingDestinationConfigArgs']]:
         """
-        - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+        - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
         """
         return pulumi.get(self, "destination_config")
 
@@ -896,48 +896,59 @@ class EventSourceMapping(pulumi.CustomResource):
         For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
 
         ## Example Usage
+
         ### DynamoDB
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=aws_dynamodb_table["example"]["stream_arn"],
-            function_name=aws_lambda_function["example"]["arn"],
+            event_source_arn=example_aws_dynamodb_table["streamArn"],
+            function_name=example_aws_lambda_function["arn"],
             starting_position="LATEST")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Kinesis
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=aws_kinesis_stream["example"]["arn"],
-            function_name=aws_lambda_function["example"]["arn"],
+            event_source_arn=example_aws_kinesis_stream["arn"],
+            function_name=example_aws_lambda_function["arn"],
             starting_position="LATEST")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Managed Streaming for Apache Kafka (MSK)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=aws_msk_cluster["example"]["arn"],
-            function_name=aws_lambda_function["example"]["arn"],
+            event_source_arn=example_aws_msk_cluster["arn"],
+            function_name=example_aws_lambda_function["arn"],
             topics=["Example"],
             starting_position="TRIM_HORIZON")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Self Managed Apache Kafka
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            function_name=aws_lambda_function["example"]["arn"],
+            function_name=example_aws_lambda_function["arn"],
             topics=["Example"],
             starting_position="TRIM_HORIZON",
             self_managed_event_source=aws.lambda_.EventSourceMappingSelfManagedEventSourceArgs(
@@ -960,31 +971,37 @@ class EventSourceMapping(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### SQS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=aws_sqs_queue["sqs_queue_test"]["arn"],
-            function_name=aws_lambda_function["example"]["arn"])
+            event_source_arn=sqs_queue_test["arn"],
+            function_name=example_aws_lambda_function["arn"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### SQS with event filter
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=aws_sqs_queue["sqs_queue_test"]["arn"],
-            function_name=aws_lambda_function["example"]["arn"],
+            event_source_arn=sqs_queue_test["arn"],
+            function_name=example_aws_lambda_function["arn"],
             filter_criteria=aws.lambda_.EventSourceMappingFilterCriteriaArgs(
                 filters=[aws.lambda_.EventSourceMappingFilterCriteriaFilterArgs(
                     pattern=json.dumps({
                         "body": {
-                            "Temperature": [{
+                            "temperature": [{
                                 "numeric": [
                                     ">",
                                     0,
@@ -992,19 +1009,66 @@ class EventSourceMapping(pulumi.CustomResource):
                                     100,
                                 ],
                             }],
-                            "Location": ["New York"],
+                            "location": ["New York"],
                         },
                     }),
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
+        ### Amazon MQ (ActiveMQ)
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.EventSourceMapping("example",
+            batch_size=10,
+            event_source_arn=example_aws_mq_broker["arn"],
+            enabled=True,
+            function_name=example_aws_lambda_function["arn"],
+            queues="example",
+            source_access_configurations=[aws.lambda_.EventSourceMappingSourceAccessConfigurationArgs(
+                type="BASIC_AUTH",
+                uri=example_aws_secretsmanager_secret_version["arn"],
+            )])
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### Amazon MQ (RabbitMQ)
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.EventSourceMapping("example",
+            batch_size=1,
+            event_source_arn=example_aws_mq_broker["arn"],
+            enabled=True,
+            function_name=example_aws_lambda_function["arn"],
+            queues="example",
+            source_access_configurations=[
+                aws.lambda_.EventSourceMappingSourceAccessConfigurationArgs(
+                    type="VIRTUAL_HOST",
+                    uri="/example",
+                ),
+                aws.lambda_.EventSourceMappingSourceAccessConfigurationArgs(
+                    type="BASIC_AUTH",
+                    uri=example_aws_secretsmanager_secret_version["arn"],
+                ),
+            ])
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Lambda event source mappings using the `UUID` (event source mapping identifier). For example:
 
         ```sh
-         $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
+        $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
         ```
 
         :param str resource_name: The name of the resource.
@@ -1012,7 +1076,7 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs']] amazon_managed_kafka_event_source_config: Additional configuration block for Amazon Managed Kafka sources. Incompatible with "self_managed_event_source" and "self_managed_kafka_event_source_config". Detailed below.
         :param pulumi.Input[int] batch_size: The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
         :param pulumi.Input[bool] bisect_batch_on_function_error: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['EventSourceMappingDestinationConfigArgs']] destination_config: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+        :param pulumi.Input[pulumi.InputType['EventSourceMappingDestinationConfigArgs']] destination_config: - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
         :param pulumi.Input[pulumi.InputType['EventSourceMappingDocumentDbEventSourceConfigArgs']] document_db_event_source_config: - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
         :param pulumi.Input[bool] enabled: Determines if the mapping will be enabled on creation. Defaults to `true`.
         :param pulumi.Input[str] event_source_arn: The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
@@ -1046,48 +1110,59 @@ class EventSourceMapping(pulumi.CustomResource):
         For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
 
         ## Example Usage
+
         ### DynamoDB
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=aws_dynamodb_table["example"]["stream_arn"],
-            function_name=aws_lambda_function["example"]["arn"],
+            event_source_arn=example_aws_dynamodb_table["streamArn"],
+            function_name=example_aws_lambda_function["arn"],
             starting_position="LATEST")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Kinesis
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=aws_kinesis_stream["example"]["arn"],
-            function_name=aws_lambda_function["example"]["arn"],
+            event_source_arn=example_aws_kinesis_stream["arn"],
+            function_name=example_aws_lambda_function["arn"],
             starting_position="LATEST")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Managed Streaming for Apache Kafka (MSK)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=aws_msk_cluster["example"]["arn"],
-            function_name=aws_lambda_function["example"]["arn"],
+            event_source_arn=example_aws_msk_cluster["arn"],
+            function_name=example_aws_lambda_function["arn"],
             topics=["Example"],
             starting_position="TRIM_HORIZON")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Self Managed Apache Kafka
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            function_name=aws_lambda_function["example"]["arn"],
+            function_name=example_aws_lambda_function["arn"],
             topics=["Example"],
             starting_position="TRIM_HORIZON",
             self_managed_event_source=aws.lambda_.EventSourceMappingSelfManagedEventSourceArgs(
@@ -1110,31 +1185,37 @@ class EventSourceMapping(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### SQS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=aws_sqs_queue["sqs_queue_test"]["arn"],
-            function_name=aws_lambda_function["example"]["arn"])
+            event_source_arn=sqs_queue_test["arn"],
+            function_name=example_aws_lambda_function["arn"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### SQS with event filter
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=aws_sqs_queue["sqs_queue_test"]["arn"],
-            function_name=aws_lambda_function["example"]["arn"],
+            event_source_arn=sqs_queue_test["arn"],
+            function_name=example_aws_lambda_function["arn"],
             filter_criteria=aws.lambda_.EventSourceMappingFilterCriteriaArgs(
                 filters=[aws.lambda_.EventSourceMappingFilterCriteriaFilterArgs(
                     pattern=json.dumps({
                         "body": {
-                            "Temperature": [{
+                            "temperature": [{
                                 "numeric": [
                                     ">",
                                     0,
@@ -1142,19 +1223,66 @@ class EventSourceMapping(pulumi.CustomResource):
                                     100,
                                 ],
                             }],
-                            "Location": ["New York"],
+                            "location": ["New York"],
                         },
                     }),
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
+        ### Amazon MQ (ActiveMQ)
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.EventSourceMapping("example",
+            batch_size=10,
+            event_source_arn=example_aws_mq_broker["arn"],
+            enabled=True,
+            function_name=example_aws_lambda_function["arn"],
+            queues="example",
+            source_access_configurations=[aws.lambda_.EventSourceMappingSourceAccessConfigurationArgs(
+                type="BASIC_AUTH",
+                uri=example_aws_secretsmanager_secret_version["arn"],
+            )])
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### Amazon MQ (RabbitMQ)
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.EventSourceMapping("example",
+            batch_size=1,
+            event_source_arn=example_aws_mq_broker["arn"],
+            enabled=True,
+            function_name=example_aws_lambda_function["arn"],
+            queues="example",
+            source_access_configurations=[
+                aws.lambda_.EventSourceMappingSourceAccessConfigurationArgs(
+                    type="VIRTUAL_HOST",
+                    uri="/example",
+                ),
+                aws.lambda_.EventSourceMappingSourceAccessConfigurationArgs(
+                    type="BASIC_AUTH",
+                    uri=example_aws_secretsmanager_secret_version["arn"],
+                ),
+            ])
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Lambda event source mappings using the `UUID` (event source mapping identifier). For example:
 
         ```sh
-         $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
+        $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
         ```
 
         :param str resource_name: The name of the resource.
@@ -1284,7 +1412,7 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs']] amazon_managed_kafka_event_source_config: Additional configuration block for Amazon Managed Kafka sources. Incompatible with "self_managed_event_source" and "self_managed_kafka_event_source_config". Detailed below.
         :param pulumi.Input[int] batch_size: The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
         :param pulumi.Input[bool] bisect_batch_on_function_error: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['EventSourceMappingDestinationConfigArgs']] destination_config: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+        :param pulumi.Input[pulumi.InputType['EventSourceMappingDestinationConfigArgs']] destination_config: - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
         :param pulumi.Input[pulumi.InputType['EventSourceMappingDocumentDbEventSourceConfigArgs']] document_db_event_source_config: - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
         :param pulumi.Input[bool] enabled: Determines if the mapping will be enabled on creation. Defaults to `true`.
         :param pulumi.Input[str] event_source_arn: The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
@@ -1374,7 +1502,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter(name="destinationConfig")
     def destination_config(self) -> pulumi.Output[Optional['outputs.EventSourceMappingDestinationConfig']]:
         """
-        - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+        - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
         """
         return pulumi.get(self, "destination_config")
 

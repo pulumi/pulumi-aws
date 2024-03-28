@@ -15,8 +15,10 @@ import (
 // Manages an App Runner Service.
 //
 // ## Example Usage
+//
 // ### Service with a Code Repository Source
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,7 +35,7 @@ import (
 //				ServiceName: pulumi.String("example"),
 //				SourceConfiguration: &apprunner.ServiceSourceConfigurationArgs{
 //					AuthenticationConfiguration: &apprunner.ServiceSourceConfigurationAuthenticationConfigurationArgs{
-//						ConnectionArn: pulumi.Any(aws_apprunner_connection.Example.Arn),
+//						ConnectionArn: pulumi.Any(exampleAwsApprunnerConnection.Arn),
 //					},
 //					CodeRepository: &apprunner.ServiceSourceConfigurationCodeRepositoryArgs{
 //						CodeConfiguration: &apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs{
@@ -55,7 +57,7 @@ import (
 //				NetworkConfiguration: &apprunner.ServiceNetworkConfigurationArgs{
 //					EgressConfiguration: &apprunner.ServiceNetworkConfigurationEgressConfigurationArgs{
 //						EgressType:      pulumi.String("VPC"),
-//						VpcConnectorArn: pulumi.Any(aws_apprunner_vpc_connector.Connector.Arn),
+//						VpcConnectorArn: pulumi.Any(connector.Arn),
 //					},
 //				},
 //				Tags: pulumi.StringMap{
@@ -70,8 +72,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Service with an Image Repository Source
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -87,7 +92,6 @@ import (
 //			_, err := apprunner.NewService(ctx, "example", &apprunner.ServiceArgs{
 //				ServiceName: pulumi.String("example"),
 //				SourceConfiguration: &apprunner.ServiceSourceConfigurationArgs{
-//					AutoDeploymentsEnabled: pulumi.Bool(false),
 //					ImageRepository: &apprunner.ServiceSourceConfigurationImageRepositoryArgs{
 //						ImageConfiguration: &apprunner.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs{
 //							Port: pulumi.String("8000"),
@@ -95,6 +99,7 @@ import (
 //						ImageIdentifier:     pulumi.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
 //						ImageRepositoryType: pulumi.String("ECR_PUBLIC"),
 //					},
+//					AutoDeploymentsEnabled: pulumi.Bool(false),
 //				},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example-apprunner-service"),
@@ -108,8 +113,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Service with Observability Configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -122,7 +130,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleObservabilityConfiguration, err := apprunner.NewObservabilityConfiguration(ctx, "exampleObservabilityConfiguration", &apprunner.ObservabilityConfigurationArgs{
+//			exampleObservabilityConfiguration, err := apprunner.NewObservabilityConfiguration(ctx, "example", &apprunner.ObservabilityConfigurationArgs{
 //				ObservabilityConfigurationName: pulumi.String("example"),
 //				TraceConfiguration: &apprunner.ObservabilityConfigurationTraceConfigurationArgs{
 //					Vendor: pulumi.String("AWSXRAY"),
@@ -131,7 +139,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apprunner.NewService(ctx, "exampleService", &apprunner.ServiceArgs{
+//			_, err = apprunner.NewService(ctx, "example", &apprunner.ServiceArgs{
 //				ServiceName: pulumi.String("example"),
 //				ObservabilityConfiguration: &apprunner.ServiceObservabilityConfigurationArgs{
 //					ObservabilityConfigurationArn: exampleObservabilityConfiguration.Arn,
@@ -159,15 +167,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import App Runner Services using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apprunner/service:Service example arn:aws:apprunner:us-east-1:1234567890:service/example/0a03292a89764e5882c41d8f991c82fe
-//
+// $ pulumi import aws:apprunner/service:Service example arn:aws:apprunner:us-east-1:1234567890:service/example/0a03292a89764e5882c41d8f991c82fe
 // ```
 type Service struct {
 	pulumi.CustomResourceState
@@ -219,10 +226,6 @@ func NewService(ctx *pulumi.Context,
 	if args.SourceConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'SourceConfiguration'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Service
 	err := ctx.RegisterResource("aws:apprunner/service:Service", name, args, &resource, opts...)

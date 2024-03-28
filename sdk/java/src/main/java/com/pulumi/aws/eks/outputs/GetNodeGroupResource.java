@@ -5,6 +5,7 @@ package com.pulumi.aws.eks.outputs;
 
 import com.pulumi.aws.eks.outputs.GetNodeGroupResourceAutoscalingGroup;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class GetNodeGroupResource {
 
         @CustomType.Setter
         public Builder autoscalingGroups(List<GetNodeGroupResourceAutoscalingGroup> autoscalingGroups) {
-            this.autoscalingGroups = Objects.requireNonNull(autoscalingGroups);
+            if (autoscalingGroups == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResource", "autoscalingGroups");
+            }
+            this.autoscalingGroups = autoscalingGroups;
             return this;
         }
         public Builder autoscalingGroups(GetNodeGroupResourceAutoscalingGroup... autoscalingGroups) {
@@ -66,14 +70,17 @@ public final class GetNodeGroupResource {
         }
         @CustomType.Setter
         public Builder remoteAccessSecurityGroupId(String remoteAccessSecurityGroupId) {
-            this.remoteAccessSecurityGroupId = Objects.requireNonNull(remoteAccessSecurityGroupId);
+            if (remoteAccessSecurityGroupId == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResource", "remoteAccessSecurityGroupId");
+            }
+            this.remoteAccessSecurityGroupId = remoteAccessSecurityGroupId;
             return this;
         }
         public GetNodeGroupResource build() {
-            final var o = new GetNodeGroupResource();
-            o.autoscalingGroups = autoscalingGroups;
-            o.remoteAccessSecurityGroupId = remoteAccessSecurityGroupId;
-            return o;
+            final var _resultValue = new GetNodeGroupResource();
+            _resultValue.autoscalingGroups = autoscalingGroups;
+            _resultValue.remoteAccessSecurityGroupId = remoteAccessSecurityGroupId;
+            return _resultValue;
         }
     }
 }

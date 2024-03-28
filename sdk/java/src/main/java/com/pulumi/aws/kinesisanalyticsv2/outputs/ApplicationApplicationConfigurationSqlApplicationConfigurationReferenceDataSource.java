@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesisanalyticsv2.outputs;
 import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema;
 import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -80,31 +81,41 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
         @CustomType.Setter
         public Builder referenceId(@Nullable String referenceId) {
+
             this.referenceId = referenceId;
             return this;
         }
         @CustomType.Setter
         public Builder referenceSchema(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema referenceSchema) {
-            this.referenceSchema = Objects.requireNonNull(referenceSchema);
+            if (referenceSchema == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource", "referenceSchema");
+            }
+            this.referenceSchema = referenceSchema;
             return this;
         }
         @CustomType.Setter
         public Builder s3ReferenceDataSource(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource s3ReferenceDataSource) {
-            this.s3ReferenceDataSource = Objects.requireNonNull(s3ReferenceDataSource);
+            if (s3ReferenceDataSource == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource", "s3ReferenceDataSource");
+            }
+            this.s3ReferenceDataSource = s3ReferenceDataSource;
             return this;
         }
         @CustomType.Setter
         public Builder tableName(String tableName) {
-            this.tableName = Objects.requireNonNull(tableName);
+            if (tableName == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource", "tableName");
+            }
+            this.tableName = tableName;
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource();
-            o.referenceId = referenceId;
-            o.referenceSchema = referenceSchema;
-            o.s3ReferenceDataSource = s3ReferenceDataSource;
-            o.tableName = tableName;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource();
+            _resultValue.referenceId = referenceId;
+            _resultValue.referenceSchema = referenceSchema;
+            _resultValue.s3ReferenceDataSource = s3ReferenceDataSource;
+            _resultValue.tableName = tableName;
+            return _resultValue;
         }
     }
 }

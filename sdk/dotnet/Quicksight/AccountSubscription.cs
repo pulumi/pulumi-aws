@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,6 +33,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -65,7 +67,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<ImmutableArray<string>> AdminGroups { get; private set; } = null!;
 
         /// <summary>
-        /// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, and `ACTIVE_DIRECTORY`.
+        /// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
         /// </summary>
         [Output("authenticationMethod")]
         public Output<string> AuthenticationMethod { get; private set; } = null!;
@@ -209,7 +211,7 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, and `ACTIVE_DIRECTORY`.
+        /// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
         /// </summary>
         [Input("authenticationMethod", required: true)]
         public Input<string> AuthenticationMethod { get; set; } = null!;
@@ -333,7 +335,7 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, and `ACTIVE_DIRECTORY`.
+        /// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
         /// </summary>
         [Input("authenticationMethod")]
         public Input<string>? AuthenticationMethod { get; set; }

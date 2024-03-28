@@ -5,6 +5,7 @@ package com.pulumi.aws.batch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ComputeEnvironmentEksConfigurationArgs extends com.pulumi.res
         }
 
         public ComputeEnvironmentEksConfigurationArgs build() {
-            $.eksClusterArn = Objects.requireNonNull($.eksClusterArn, "expected parameter 'eksClusterArn' to be non-null");
-            $.kubernetesNamespace = Objects.requireNonNull($.kubernetesNamespace, "expected parameter 'kubernetesNamespace' to be non-null");
+            if ($.eksClusterArn == null) {
+                throw new MissingRequiredPropertyException("ComputeEnvironmentEksConfigurationArgs", "eksClusterArn");
+            }
+            if ($.kubernetesNamespace == null) {
+                throw new MissingRequiredPropertyException("ComputeEnvironmentEksConfigurationArgs", "kubernetesNamespace");
+            }
             return $;
         }
     }

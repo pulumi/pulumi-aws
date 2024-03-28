@@ -134,25 +134,27 @@ class ConditionalForwader(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.directoryservice.ConditionalForwader("example",
-            directory_id=aws_directory_service_directory["ad"]["id"],
+            directory_id=ad["id"],
             remote_domain_name="example.com",
             dns_ips=[
                 "8.8.8.8",
                 "8.8.4.4",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import conditional forwarders using the directory id and remote_domain_name. For example:
 
         ```sh
-         $ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
+        $ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -172,25 +174,27 @@ class ConditionalForwader(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.directoryservice.ConditionalForwader("example",
-            directory_id=aws_directory_service_directory["ad"]["id"],
+            directory_id=ad["id"],
             remote_domain_name="example.com",
             dns_ips=[
                 "8.8.8.8",
                 "8.8.4.4",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import conditional forwarders using the directory id and remote_domain_name. For example:
 
         ```sh
-         $ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
+        $ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
         ```
 
         :param str resource_name: The name of the resource.

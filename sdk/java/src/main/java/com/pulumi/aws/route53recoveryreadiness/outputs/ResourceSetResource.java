@@ -80,16 +80,19 @@ public final class ResourceSetResource {
 
         @CustomType.Setter
         public Builder componentId(@Nullable String componentId) {
+
             this.componentId = componentId;
             return this;
         }
         @CustomType.Setter
         public Builder dnsTargetResource(@Nullable ResourceSetResourceDnsTargetResource dnsTargetResource) {
+
             this.dnsTargetResource = dnsTargetResource;
             return this;
         }
         @CustomType.Setter
         public Builder readinessScopes(@Nullable List<String> readinessScopes) {
+
             this.readinessScopes = readinessScopes;
             return this;
         }
@@ -98,16 +101,17 @@ public final class ResourceSetResource {
         }
         @CustomType.Setter
         public Builder resourceArn(@Nullable String resourceArn) {
+
             this.resourceArn = resourceArn;
             return this;
         }
         public ResourceSetResource build() {
-            final var o = new ResourceSetResource();
-            o.componentId = componentId;
-            o.dnsTargetResource = dnsTargetResource;
-            o.readinessScopes = readinessScopes;
-            o.resourceArn = resourceArn;
-            return o;
+            final var _resultValue = new ResourceSetResource();
+            _resultValue.componentId = componentId;
+            _resultValue.dnsTargetResource = dnsTargetResource;
+            _resultValue.readinessScopes = readinessScopes;
+            _resultValue.resourceArn = resourceArn;
+            return _resultValue;
         }
     }
 }

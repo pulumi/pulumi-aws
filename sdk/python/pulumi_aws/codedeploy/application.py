@@ -222,37 +222,52 @@ class Application(pulumi.CustomResource):
         Provides a CodeDeploy application to be used as a basis for deployments
 
         ## Example Usage
+
         ### ECS Application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.codedeploy.Application("example", compute_platform="ECS")
+        example = aws.codedeploy.Application("example",
+            compute_platform="ECS",
+            name="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda Application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.codedeploy.Application("example", compute_platform="Lambda")
+        example = aws.codedeploy.Application("example",
+            compute_platform="Lambda",
+            name="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Server Application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.codedeploy.Application("example", compute_platform="Server")
+        example = aws.codedeploy.Application("example",
+            compute_platform="Server",
+            name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeDeploy Applications using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:codedeploy/application:Application example my-application
+        $ pulumi import aws:codedeploy/application:Application example my-application
         ```
 
         :param str resource_name: The name of the resource.
@@ -271,37 +286,52 @@ class Application(pulumi.CustomResource):
         Provides a CodeDeploy application to be used as a basis for deployments
 
         ## Example Usage
+
         ### ECS Application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.codedeploy.Application("example", compute_platform="ECS")
+        example = aws.codedeploy.Application("example",
+            compute_platform="ECS",
+            name="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda Application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.codedeploy.Application("example", compute_platform="Lambda")
+        example = aws.codedeploy.Application("example",
+            compute_platform="Lambda",
+            name="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Server Application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.codedeploy.Application("example", compute_platform="Server")
+        example = aws.codedeploy.Application("example",
+            compute_platform="Server",
+            name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeDeploy Applications using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:codedeploy/application:Application example my-application
+        $ pulumi import aws:codedeploy/application:Application example my-application
         ```
 
         :param str resource_name: The name of the resource.
@@ -339,8 +369,6 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["github_account_name"] = None
             __props__.__dict__["linked_to_github"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Application, __self__).__init__(
             'aws:codedeploy/application:Application',
             resource_name,

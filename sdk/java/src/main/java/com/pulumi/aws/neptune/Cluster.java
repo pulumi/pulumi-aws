@@ -31,6 +31,8 @@ import javax.annotation.Nullable;
  * (see documentation below).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,18 +55,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new Cluster(&#34;default&#34;, ClusterArgs.builder()        
- *             .applyImmediately(true)
- *             .backupRetentionPeriod(5)
  *             .clusterIdentifier(&#34;neptune-cluster-demo&#34;)
  *             .engine(&#34;neptune&#34;)
- *             .iamDatabaseAuthenticationEnabled(true)
+ *             .backupRetentionPeriod(5)
  *             .preferredBackupWindow(&#34;07:00-09:00&#34;)
  *             .skipFinalSnapshot(true)
+ *             .iamDatabaseAuthenticationEnabled(true)
+ *             .applyImmediately(true)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **Note:** AWS Neptune does not support user name/password–based access control.
  * See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.
@@ -74,7 +77,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import `aws_neptune_cluster` using the cluster identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:neptune/cluster:Cluster example my-cluster
+ * $ pulumi import aws:neptune/cluster:Cluster example my-cluster
  * ```
  * 
  */
@@ -543,6 +546,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.storageEncrypted);
     }
     /**
+     * Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+     * 
+     */
+    @Export(name="storageType", refs={String.class}, tree="[0]")
+    private Output<String> storageType;
+
+    /**
+     * @return Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+     * 
+     */
+    public Output<String> storageType() {
+        return this.storageType;
+    }
+    /**
      * A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -621,9 +638,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

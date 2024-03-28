@@ -4,6 +4,7 @@
 package com.pulumi.aws.iam.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,25 +71,34 @@ public final class GetAccessKeysAccessKey {
 
         @CustomType.Setter
         public Builder accessKeyId(String accessKeyId) {
-            this.accessKeyId = Objects.requireNonNull(accessKeyId);
+            if (accessKeyId == null) {
+              throw new MissingRequiredPropertyException("GetAccessKeysAccessKey", "accessKeyId");
+            }
+            this.accessKeyId = accessKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder createDate(String createDate) {
-            this.createDate = Objects.requireNonNull(createDate);
+            if (createDate == null) {
+              throw new MissingRequiredPropertyException("GetAccessKeysAccessKey", "createDate");
+            }
+            this.createDate = createDate;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetAccessKeysAccessKey", "status");
+            }
+            this.status = status;
             return this;
         }
         public GetAccessKeysAccessKey build() {
-            final var o = new GetAccessKeysAccessKey();
-            o.accessKeyId = accessKeyId;
-            o.createDate = createDate;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetAccessKeysAccessKey();
+            _resultValue.accessKeyId = accessKeyId;
+            _resultValue.createDate = createDate;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

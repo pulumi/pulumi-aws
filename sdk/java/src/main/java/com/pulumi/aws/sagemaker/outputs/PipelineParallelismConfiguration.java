@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class PipelineParallelismConfiguration {
 
         @CustomType.Setter
         public Builder maxParallelExecutionSteps(Integer maxParallelExecutionSteps) {
-            this.maxParallelExecutionSteps = Objects.requireNonNull(maxParallelExecutionSteps);
+            if (maxParallelExecutionSteps == null) {
+              throw new MissingRequiredPropertyException("PipelineParallelismConfiguration", "maxParallelExecutionSteps");
+            }
+            this.maxParallelExecutionSteps = maxParallelExecutionSteps;
             return this;
         }
         public PipelineParallelismConfiguration build() {
-            final var o = new PipelineParallelismConfiguration();
-            o.maxParallelExecutionSteps = maxParallelExecutionSteps;
-            return o;
+            final var _resultValue = new PipelineParallelismConfiguration();
+            _resultValue.maxParallelExecutionSteps = maxParallelExecutionSteps;
+            return _resultValue;
         }
     }
 }

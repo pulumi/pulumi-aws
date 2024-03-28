@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class EventEndpointEventBus {
 
         @CustomType.Setter
         public Builder eventBusArn(String eventBusArn) {
-            this.eventBusArn = Objects.requireNonNull(eventBusArn);
+            if (eventBusArn == null) {
+              throw new MissingRequiredPropertyException("EventEndpointEventBus", "eventBusArn");
+            }
+            this.eventBusArn = eventBusArn;
             return this;
         }
         public EventEndpointEventBus build() {
-            final var o = new EventEndpointEventBus();
-            o.eventBusArn = eventBusArn;
-            return o;
+            final var _resultValue = new EventEndpointEventBus();
+            _resultValue.eventBusArn = eventBusArn;
+            return _resultValue;
         }
     }
 }

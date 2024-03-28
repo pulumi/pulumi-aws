@@ -177,27 +177,33 @@ class EventBus(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        messenger = aws.cloudwatch.EventBus("messenger")
+        messenger = aws.cloudwatch.EventBus("messenger", name="chat-messages")
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        examplepartner_event_source = aws.cloudwatch.get_event_source(name_prefix="aws.partner/examplepartner.com")
-        examplepartner_event_bus = aws.cloudwatch.EventBus("examplepartnerEventBus", event_source_name=examplepartner_event_source.name)
+        examplepartner = aws.cloudwatch.get_event_source(name_prefix="aws.partner/examplepartner.com")
+        examplepartner_event_bus = aws.cloudwatch.EventBus("examplepartner",
+            name=examplepartner.name,
+            event_source_name=examplepartner.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge event buses using the `name` (which can also be a partner event source name). For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
+        $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
         ```
 
         :param str resource_name: The name of the resource.
@@ -219,27 +225,33 @@ class EventBus(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        messenger = aws.cloudwatch.EventBus("messenger")
+        messenger = aws.cloudwatch.EventBus("messenger", name="chat-messages")
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        examplepartner_event_source = aws.cloudwatch.get_event_source(name_prefix="aws.partner/examplepartner.com")
-        examplepartner_event_bus = aws.cloudwatch.EventBus("examplepartnerEventBus", event_source_name=examplepartner_event_source.name)
+        examplepartner = aws.cloudwatch.get_event_source(name_prefix="aws.partner/examplepartner.com")
+        examplepartner_event_bus = aws.cloudwatch.EventBus("examplepartner",
+            name=examplepartner.name,
+            event_source_name=examplepartner.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge event buses using the `name` (which can also be a partner event source name). For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
+        $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
         ```
 
         :param str resource_name: The name of the resource.
@@ -274,8 +286,6 @@ class EventBus(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EventBus, __self__).__init__(
             'aws:cloudwatch/eventBus:EventBus',
             resource_name,

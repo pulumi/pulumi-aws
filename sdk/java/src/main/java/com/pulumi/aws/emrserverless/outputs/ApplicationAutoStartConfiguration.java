@@ -44,13 +44,14 @@ public final class ApplicationAutoStartConfiguration {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         public ApplicationAutoStartConfiguration build() {
-            final var o = new ApplicationAutoStartConfiguration();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new ApplicationAutoStartConfiguration();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

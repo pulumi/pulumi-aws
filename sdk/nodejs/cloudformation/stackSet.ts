@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,48 +31,54 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const aWSCloudFormationStackSetAdministrationRole = new aws.iam.Role("aWSCloudFormationStackSetAdministrationRole", {assumeRolePolicy: aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.then(aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy => aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.json)});
+ * const aWSCloudFormationStackSetAdministrationRole = new aws.iam.Role("AWSCloudFormationStackSetAdministrationRole", {
+ *     assumeRolePolicy: aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.then(aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy => aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.json),
+ *     name: "AWSCloudFormationStackSetAdministrationRole",
+ * });
  * const example = new aws.cloudformation.StackSet("example", {
  *     administrationRoleArn: aWSCloudFormationStackSetAdministrationRole.arn,
+ *     name: "example",
  *     parameters: {
  *         VPCCidr: "10.0.0.0/16",
  *     },
  *     templateBody: JSON.stringify({
- *         Parameters: {
- *             VPCCidr: {
- *                 Type: "String",
- *                 Default: "10.0.0.0/16",
- *                 Description: "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
+ *         parameters: {
+ *             vPCCidr: {
+ *                 type: "String",
+ *                 "default": "10.0.0.0/16",
+ *                 description: "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
  *             },
  *         },
- *         Resources: {
+ *         resources: {
  *             myVpc: {
- *                 Type: "AWS::EC2::VPC",
- *                 Properties: {
- *                     CidrBlock: {
- *                         Ref: "VPCCidr",
+ *                 type: "AWS::EC2::VPC",
+ *                 properties: {
+ *                     cidrBlock: {
+ *                         ref: "VPCCidr",
  *                     },
- *                     Tags: [{
- *                         Key: "Name",
- *                         Value: "Primary_CF_VPC",
+ *                     tags: [{
+ *                         key: "Name",
+ *                         value: "Primary_CF_VPC",
  *                     }],
  *                 },
  *             },
  *         },
  *     }),
  * });
- * const aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const aWSCloudFormationStackSetAdministrationRoleExecutionPolicy = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
  *         effect: "Allow",
  *         resources: [pulumi.interpolate`arn:aws:iam::*:role/${example.executionRoleName}`],
  *     }],
  * });
- * const aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy = new aws.iam.RolePolicy("aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy", {
- *     policy: aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.apply(aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument => aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.json),
+ * const aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy = new aws.iam.RolePolicy("AWSCloudFormationStackSetAdministrationRole_ExecutionPolicy", {
+ *     name: "ExecutionPolicy",
+ *     policy: aWSCloudFormationStackSetAdministrationRoleExecutionPolicy.apply(aWSCloudFormationStackSetAdministrationRoleExecutionPolicy => aWSCloudFormationStackSetAdministrationRoleExecutionPolicy.json),
  *     role: aWSCloudFormationStackSetAdministrationRole.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -80,12 +87,12 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import CloudFormation StackSets using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudformation/stackSet:StackSet example example
+ * $ pulumi import aws:cloudformation/stackSet:StackSet example example
  * ```
- *  Using `pulumi import`, import CloudFormation StackSets when acting a delegated administrator in a member account using the `name` and `call_as` values separated by a comma (`,`). For example:
+ * Using `pulumi import`, import CloudFormation StackSets when acting a delegated administrator in a member account using the `name` and `call_as` values separated by a comma (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudformation/stackSet:StackSet example example,DELEGATED_ADMIN
+ * $ pulumi import aws:cloudformation/stackSet:StackSet example example,DELEGATED_ADMIN
  * ```
  */
 export class StackSet extends pulumi.CustomResource {
@@ -238,8 +245,6 @@ export class StackSet extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(StackSet.__pulumiType, name, resourceInputs, opts);
     }
 }

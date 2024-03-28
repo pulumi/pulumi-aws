@@ -9,18 +9,20 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleNodeGroups = aws.eks.getNodeGroups({
+ * const example = aws.eks.getNodeGroups({
  *     clusterName: "example",
  * });
- * const exampleNodeGroup = exampleNodeGroups.then(exampleNodeGroups => .map(([, ]) => (aws.eks.getNodeGroup({
+ * const exampleGetNodeGroup = example.then(example => .reduce((__obj, [, ]) => ({ ...__obj, [__key]: aws.eks.getNodeGroup({
  *     clusterName: "example",
  *     nodeGroupName: __value,
- * }))));
+ * }) })));
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getNodeGroups(args: GetNodeGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeGroupsResult> {
 
@@ -59,18 +61,20 @@ export interface GetNodeGroupsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleNodeGroups = aws.eks.getNodeGroups({
+ * const example = aws.eks.getNodeGroups({
  *     clusterName: "example",
  * });
- * const exampleNodeGroup = exampleNodeGroups.then(exampleNodeGroups => .map(([, ]) => (aws.eks.getNodeGroup({
+ * const exampleGetNodeGroup = example.then(example => .reduce((__obj, [, ]) => ({ ...__obj, [__key]: aws.eks.getNodeGroup({
  *     clusterName: "example",
  *     nodeGroupName: __value,
- * }))));
+ * }) })));
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getNodeGroupsOutput(args: GetNodeGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNodeGroupsResult> {
     return pulumi.output(args).apply((a: any) => getNodeGroups(a, opts))

@@ -4,6 +4,7 @@
 package com.pulumi.aws.iam.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetGroupPlainArgs build() {
-            $.groupName = Objects.requireNonNull($.groupName, "expected parameter 'groupName' to be non-null");
+            if ($.groupName == null) {
+                throw new MissingRequiredPropertyException("GetGroupPlainArgs", "groupName");
+            }
             return $;
         }
     }

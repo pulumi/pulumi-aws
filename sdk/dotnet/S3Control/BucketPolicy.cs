@@ -16,6 +16,7 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,37 +28,38 @@ namespace Pulumi.Aws.S3Control
     /// {
     ///     var example = new Aws.S3Control.BucketPolicy("example", new()
     ///     {
-    ///         Bucket = aws_s3control_bucket.Example.Arn,
+    ///         Bucket = exampleAwsS3controlBucket.Arn,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Id"] = "testBucketPolicy",
-    ///             ["Statement"] = new[]
+    ///             ["id"] = "testBucketPolicy",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = "s3-outposts:PutBucketLifecycleConfiguration",
-    ///                     ["Effect"] = "Deny",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["action"] = "s3-outposts:PutBucketLifecycleConfiguration",
+    ///                     ["effect"] = "Deny",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["AWS"] = "*",
     ///                     },
-    ///                     ["Resource"] = aws_s3control_bucket.Example.Arn,
-    ///                     ["Sid"] = "statement1",
+    ///                     ["resource"] = exampleAwsS3controlBucket.Arn,
+    ///                     ["sid"] = "statement1",
     ///                 },
     ///             },
-    ///             ["Version"] = "2012-10-17",
+    ///             ["version"] = "2012-10-17",
     ///         }),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import S3 Control Bucket Policies using the Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+    /// $ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3control/bucketPolicy:BucketPolicy")]

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,9 +29,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := guardduty.NewFilter(ctx, "myFilter", &guardduty.FilterArgs{
+//			_, err := guardduty.NewFilter(ctx, "MyFilter", &guardduty.FilterArgs{
+//				Name:       pulumi.String("MyFilter"),
 //				Action:     pulumi.String("ARCHIVE"),
-//				DetectorId: pulumi.Any(aws_guardduty_detector.Example.Id),
+//				DetectorId: pulumi.Any(example.Id),
 //				Rank:       pulumi.Int(1),
 //				FindingCriteria: &guardduty.FilterFindingCriteriaArgs{
 //					Criterions: guardduty.FilterFindingCriteriaCriterionArray{
@@ -67,15 +69,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import GuardDuty filters using the detector ID and filter's name separated by a colon. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
-//
+// $ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
 // ```
 type Filter struct {
 	pulumi.CustomResourceState
@@ -121,10 +122,6 @@ func NewFilter(ctx *pulumi.Context,
 	if args.Rank == nil {
 		return nil, errors.New("invalid value for required argument 'Rank'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Filter
 	err := ctx.RegisterResource("aws:guardduty/filter:Filter", name, args, &resource, opts...)

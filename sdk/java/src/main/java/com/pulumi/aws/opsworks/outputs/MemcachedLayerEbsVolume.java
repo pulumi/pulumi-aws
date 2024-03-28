@@ -4,6 +4,7 @@
 package com.pulumi.aws.opsworks.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -122,49 +123,62 @@ public final class MemcachedLayerEbsVolume {
 
         @CustomType.Setter
         public Builder encrypted(@Nullable Boolean encrypted) {
+
             this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
         public Builder iops(@Nullable Integer iops) {
+
             this.iops = iops;
             return this;
         }
         @CustomType.Setter
         public Builder mountPoint(String mountPoint) {
-            this.mountPoint = Objects.requireNonNull(mountPoint);
+            if (mountPoint == null) {
+              throw new MissingRequiredPropertyException("MemcachedLayerEbsVolume", "mountPoint");
+            }
+            this.mountPoint = mountPoint;
             return this;
         }
         @CustomType.Setter
         public Builder numberOfDisks(Integer numberOfDisks) {
-            this.numberOfDisks = Objects.requireNonNull(numberOfDisks);
+            if (numberOfDisks == null) {
+              throw new MissingRequiredPropertyException("MemcachedLayerEbsVolume", "numberOfDisks");
+            }
+            this.numberOfDisks = numberOfDisks;
             return this;
         }
         @CustomType.Setter
         public Builder raidLevel(@Nullable String raidLevel) {
+
             this.raidLevel = raidLevel;
             return this;
         }
         @CustomType.Setter
         public Builder size(Integer size) {
-            this.size = Objects.requireNonNull(size);
+            if (size == null) {
+              throw new MissingRequiredPropertyException("MemcachedLayerEbsVolume", "size");
+            }
+            this.size = size;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         public MemcachedLayerEbsVolume build() {
-            final var o = new MemcachedLayerEbsVolume();
-            o.encrypted = encrypted;
-            o.iops = iops;
-            o.mountPoint = mountPoint;
-            o.numberOfDisks = numberOfDisks;
-            o.raidLevel = raidLevel;
-            o.size = size;
-            o.type = type;
-            return o;
+            final var _resultValue = new MemcachedLayerEbsVolume();
+            _resultValue.encrypted = encrypted;
+            _resultValue.iops = iops;
+            _resultValue.mountPoint = mountPoint;
+            _resultValue.numberOfDisks = numberOfDisks;
+            _resultValue.raidLevel = raidLevel;
+            _resultValue.size = size;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

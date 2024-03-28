@@ -54,31 +54,35 @@ public final class ServiceQuotaUsageMetricMetricDimension {
 
         @CustomType.Setter("class")
         public Builder class_(@Nullable String class_) {
+
             this.class_ = class_;
             return this;
         }
         @CustomType.Setter
         public Builder resource(@Nullable String resource) {
+
             this.resource = resource;
             return this;
         }
         @CustomType.Setter
         public Builder service(@Nullable String service) {
+
             this.service = service;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         public ServiceQuotaUsageMetricMetricDimension build() {
-            final var o = new ServiceQuotaUsageMetricMetricDimension();
-            o.class_ = class_;
-            o.resource = resource;
-            o.service = service;
-            o.type = type;
-            return o;
+            final var _resultValue = new ServiceQuotaUsageMetricMetricDimension();
+            _resultValue.class_ = class_;
+            _resultValue.resource = resource;
+            _resultValue.service = service;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

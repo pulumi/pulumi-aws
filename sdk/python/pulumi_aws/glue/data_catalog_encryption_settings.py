@@ -105,28 +105,30 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.DataCatalogEncryptionSettings("example", data_catalog_encryption_settings=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs(
             connection_password_encryption=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs(
-                aws_kms_key_id=aws_kms_key["test"]["arn"],
+                aws_kms_key_id=test["arn"],
                 return_connection_password_encrypted=True,
             ),
             encryption_at_rest=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs(
                 catalog_encryption_mode="SSE-KMS",
-                sse_aws_kms_key_id=aws_kms_key["test"]["arn"],
+                sse_aws_kms_key_id=test["arn"],
             ),
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Data Catalog Encryption Settings using `CATALOG-ID` (AWS account ID if not custom). For example:
 
         ```sh
-         $ pulumi import aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings example 123456789012
+        $ pulumi import aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -145,28 +147,30 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.DataCatalogEncryptionSettings("example", data_catalog_encryption_settings=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs(
             connection_password_encryption=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs(
-                aws_kms_key_id=aws_kms_key["test"]["arn"],
+                aws_kms_key_id=test["arn"],
                 return_connection_password_encrypted=True,
             ),
             encryption_at_rest=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs(
                 catalog_encryption_mode="SSE-KMS",
-                sse_aws_kms_key_id=aws_kms_key["test"]["arn"],
+                sse_aws_kms_key_id=test["arn"],
             ),
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Data Catalog Encryption Settings using `CATALOG-ID` (AWS account ID if not custom). For example:
 
         ```sh
-         $ pulumi import aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings example 123456789012
+        $ pulumi import aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

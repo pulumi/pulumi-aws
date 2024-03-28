@@ -59,19 +59,21 @@ public final class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption
 
         @CustomType.Setter
         public Builder actionOnTimeout(@Nullable String actionOnTimeout) {
+
             this.actionOnTimeout = actionOnTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder waitTimeInMinutes(@Nullable Integer waitTimeInMinutes) {
+
             this.waitTimeInMinutes = waitTimeInMinutes;
             return this;
         }
         public DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption build() {
-            final var o = new DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption();
-            o.actionOnTimeout = actionOnTimeout;
-            o.waitTimeInMinutes = waitTimeInMinutes;
-            return o;
+            final var _resultValue = new DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption();
+            _resultValue.actionOnTimeout = actionOnTimeout;
+            _resultValue.waitTimeInMinutes = waitTimeInMinutes;
+            return _resultValue;
         }
     }
 }

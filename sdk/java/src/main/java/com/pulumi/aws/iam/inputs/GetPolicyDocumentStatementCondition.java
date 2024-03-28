@@ -4,6 +4,7 @@
 package com.pulumi.aws.iam.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -128,9 +129,15 @@ public final class GetPolicyDocumentStatementCondition extends com.pulumi.resour
         }
 
         public GetPolicyDocumentStatementCondition build() {
-            $.test = Objects.requireNonNull($.test, "expected parameter 'test' to be non-null");
-            $.values = Objects.requireNonNull($.values, "expected parameter 'values' to be non-null");
-            $.variable = Objects.requireNonNull($.variable, "expected parameter 'variable' to be non-null");
+            if ($.test == null) {
+                throw new MissingRequiredPropertyException("GetPolicyDocumentStatementCondition", "test");
+            }
+            if ($.values == null) {
+                throw new MissingRequiredPropertyException("GetPolicyDocumentStatementCondition", "values");
+            }
+            if ($.variable == null) {
+                throw new MissingRequiredPropertyException("GetPolicyDocumentStatementCondition", "variable");
+            }
             return $;
         }
     }

@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy any layer version permission, even when running `pulumi destroy`. Layer version permissions are thus intentional dangling resources that are _not_ managed by Pulumi and may incur extra expense in your AWS account.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,23 +48,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var lambdaLayerPermission = new LayerVersionPermission(&#34;lambdaLayerPermission&#34;, LayerVersionPermissionArgs.builder()        
- *             .action(&#34;lambda:GetLayerVersion&#34;)
  *             .layerName(&#34;arn:aws:lambda:us-west-2:123456654321:layer:test_layer1&#34;)
- *             .principal(&#34;111111111111&#34;)
- *             .statementId(&#34;dev-account&#34;)
  *             .versionNumber(1)
+ *             .principal(&#34;111111111111&#34;)
+ *             .action(&#34;lambda:GetLayerVersion&#34;)
+ *             .statementId(&#34;dev-account&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Lambda Layer Permissions using `layer_name` and `version_number`, separated by a comma (`,`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1
+ * $ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1
  * ```
  * 
  */

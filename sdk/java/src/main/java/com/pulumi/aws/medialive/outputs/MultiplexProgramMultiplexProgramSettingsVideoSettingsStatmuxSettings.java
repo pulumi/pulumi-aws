@@ -72,25 +72,28 @@ public final class MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxS
 
         @CustomType.Setter
         public Builder maximumBitrate(@Nullable Integer maximumBitrate) {
+
             this.maximumBitrate = maximumBitrate;
             return this;
         }
         @CustomType.Setter
         public Builder minimumBitrate(@Nullable Integer minimumBitrate) {
+
             this.minimumBitrate = minimumBitrate;
             return this;
         }
         @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
+
             this.priority = priority;
             return this;
         }
         public MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings build() {
-            final var o = new MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings();
-            o.maximumBitrate = maximumBitrate;
-            o.minimumBitrate = minimumBitrate;
-            o.priority = priority;
-            return o;
+            final var _resultValue = new MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings();
+            _resultValue.maximumBitrate = maximumBitrate;
+            _resultValue.minimumBitrate = minimumBitrate;
+            _resultValue.priority = priority;
+            return _resultValue;
         }
     }
 }

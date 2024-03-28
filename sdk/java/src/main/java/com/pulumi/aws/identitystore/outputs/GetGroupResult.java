@@ -7,6 +7,7 @@ import com.pulumi.aws.identitystore.outputs.GetGroupAlternateIdentifier;
 import com.pulumi.aws.identitystore.outputs.GetGroupExternalId;
 import com.pulumi.aws.identitystore.outputs.GetGroupFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -126,22 +127,32 @@ public final class GetGroupResult {
 
         @CustomType.Setter
         public Builder alternateIdentifier(@Nullable GetGroupAlternateIdentifier alternateIdentifier) {
+
             this.alternateIdentifier = alternateIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder externalIds(List<GetGroupExternalId> externalIds) {
-            this.externalIds = Objects.requireNonNull(externalIds);
+            if (externalIds == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "externalIds");
+            }
+            this.externalIds = externalIds;
             return this;
         }
         public Builder externalIds(GetGroupExternalId... externalIds) {
@@ -149,35 +160,45 @@ public final class GetGroupResult {
         }
         @CustomType.Setter
         public Builder filter(@Nullable GetGroupFilter filter) {
+
             this.filter = filter;
             return this;
         }
         @CustomType.Setter
         public Builder groupId(String groupId) {
-            this.groupId = Objects.requireNonNull(groupId);
+            if (groupId == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "groupId");
+            }
+            this.groupId = groupId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identityStoreId(String identityStoreId) {
-            this.identityStoreId = Objects.requireNonNull(identityStoreId);
+            if (identityStoreId == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "identityStoreId");
+            }
+            this.identityStoreId = identityStoreId;
             return this;
         }
         public GetGroupResult build() {
-            final var o = new GetGroupResult();
-            o.alternateIdentifier = alternateIdentifier;
-            o.description = description;
-            o.displayName = displayName;
-            o.externalIds = externalIds;
-            o.filter = filter;
-            o.groupId = groupId;
-            o.id = id;
-            o.identityStoreId = identityStoreId;
-            return o;
+            final var _resultValue = new GetGroupResult();
+            _resultValue.alternateIdentifier = alternateIdentifier;
+            _resultValue.description = description;
+            _resultValue.displayName = displayName;
+            _resultValue.externalIds = externalIds;
+            _resultValue.filter = filter;
+            _resultValue.groupId = groupId;
+            _resultValue.id = id;
+            _resultValue.identityStoreId = identityStoreId;
+            return _resultValue;
         }
     }
 }

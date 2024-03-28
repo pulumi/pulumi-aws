@@ -312,19 +312,21 @@ class ApiKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.apigateway.ApiKey("example")
+        example = aws.apigateway.ApiKey("example", name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import API Gateway Keys using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/apiKey:ApiKey example 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk
+        $ pulumi import aws:apigateway/apiKey:ApiKey example 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk
         ```
 
         :param str resource_name: The name of the resource.
@@ -349,19 +351,21 @@ class ApiKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.apigateway.ApiKey("example")
+        example = aws.apigateway.ApiKey("example", name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import API Gateway Keys using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/apiKey:ApiKey example 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk
+        $ pulumi import aws:apigateway/apiKey:ApiKey example 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk
         ```
 
         :param str resource_name: The name of the resource.
@@ -406,7 +410,7 @@ class ApiKey(pulumi.CustomResource):
             __props__.__dict__["created_date"] = None
             __props__.__dict__["last_updated_date"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll", "value"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["value"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ApiKey, __self__).__init__(
             'aws:apigateway/apiKey:ApiKey',

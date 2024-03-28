@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -62,14 +63,14 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, and `ACTIVE_DIRECTORY`.
+     * Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
      * 
      */
     @Import(name="authenticationMethod", required=true)
     private Output<String> authenticationMethod;
 
     /**
-     * @return Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, and `ACTIVE_DIRECTORY`.
+     * @return Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
      * 
      */
     public Output<String> authenticationMethod() {
@@ -357,7 +358,7 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param authenticationMethod Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, and `ACTIVE_DIRECTORY`.
+         * @param authenticationMethod Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
          * 
          * @return builder
          * 
@@ -368,7 +369,7 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param authenticationMethod Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, and `ACTIVE_DIRECTORY`.
+         * @param authenticationMethod Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
          * 
          * @return builder
          * 
@@ -633,10 +634,18 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
         }
 
         public AccountSubscriptionArgs build() {
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.authenticationMethod = Objects.requireNonNull($.authenticationMethod, "expected parameter 'authenticationMethod' to be non-null");
-            $.edition = Objects.requireNonNull($.edition, "expected parameter 'edition' to be non-null");
-            $.notificationEmail = Objects.requireNonNull($.notificationEmail, "expected parameter 'notificationEmail' to be non-null");
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("AccountSubscriptionArgs", "accountName");
+            }
+            if ($.authenticationMethod == null) {
+                throw new MissingRequiredPropertyException("AccountSubscriptionArgs", "authenticationMethod");
+            }
+            if ($.edition == null) {
+                throw new MissingRequiredPropertyException("AccountSubscriptionArgs", "edition");
+            }
+            if ($.notificationEmail == null) {
+                throw new MissingRequiredPropertyException("AccountSubscriptionArgs", "notificationEmail");
+            }
             return $;
         }
     }

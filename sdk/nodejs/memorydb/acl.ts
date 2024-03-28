@@ -11,22 +11,27 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.memorydb.Acl("example", {userNames: [
- *     "my-user-1",
- *     "my-user-2",
- * ]});
+ * const example = new aws.memorydb.Acl("example", {
+ *     name: "my-acl",
+ *     userNames: [
+ *         "my-user-1",
+ *         "my-user-2",
+ *     ],
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import an ACL using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:memorydb/acl:Acl example my-acl
+ * $ pulumi import aws:memorydb/acl:Acl example my-acl
  * ```
  */
 export class Acl extends pulumi.CustomResource {
@@ -119,8 +124,6 @@ export class Acl extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Acl.__pulumiType, name, resourceInputs, opts);
     }
 }

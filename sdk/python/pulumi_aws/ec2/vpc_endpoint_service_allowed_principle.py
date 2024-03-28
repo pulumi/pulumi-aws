@@ -110,15 +110,17 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        allow_me_to_foo = aws.ec2.VpcEndpointServiceAllowedPrinciple("allowMeToFoo",
-            vpc_endpoint_service_id=aws_vpc_endpoint_service["foo"]["id"],
+        allow_me_to_foo = aws.ec2.VpcEndpointServiceAllowedPrinciple("allow_me_to_foo",
+            vpc_endpoint_service_id=foo["id"],
             principal_arn=current.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,15 +146,17 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        allow_me_to_foo = aws.ec2.VpcEndpointServiceAllowedPrinciple("allowMeToFoo",
-            vpc_endpoint_service_id=aws_vpc_endpoint_service["foo"]["id"],
+        allow_me_to_foo = aws.ec2.VpcEndpointServiceAllowedPrinciple("allow_me_to_foo",
+            vpc_endpoint_service_id=foo["id"],
             principal_arn=current.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param VpcEndpointServiceAllowedPrincipleArgs args: The arguments to use to populate this resource's properties.

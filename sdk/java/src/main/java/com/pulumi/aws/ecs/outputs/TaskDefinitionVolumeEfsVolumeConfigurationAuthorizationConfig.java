@@ -58,19 +58,21 @@ public final class TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig
 
         @CustomType.Setter
         public Builder accessPointId(@Nullable String accessPointId) {
+
             this.accessPointId = accessPointId;
             return this;
         }
         @CustomType.Setter
         public Builder iam(@Nullable String iam) {
+
             this.iam = iam;
             return this;
         }
         public TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig build() {
-            final var o = new TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig();
-            o.accessPointId = accessPointId;
-            o.iam = iam;
-            return o;
+            final var _resultValue = new TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig();
+            _resultValue.accessPointId = accessPointId;
+            _resultValue.iam = iam;
+            return _resultValue;
         }
     }
 }

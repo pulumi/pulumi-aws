@@ -278,6 +278,7 @@ class EipAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -285,22 +286,23 @@ class EipAssociation(pulumi.CustomResource):
         web = aws.ec2.Instance("web",
             ami="ami-21f78e11",
             availability_zone="us-west-2a",
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             tags={
                 "Name": "HelloWorld",
             })
         example = aws.ec2.Eip("example", domain="vpc")
-        eip_assoc = aws.ec2.EipAssociation("eipAssoc",
+        eip_assoc = aws.ec2.EipAssociation("eip_assoc",
             instance_id=web.id,
             allocation_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EIP Assocations using their association IDs. For example:
 
         ```sh
-         $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
+        $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
         ```
 
         :param str resource_name: The name of the resource.
@@ -338,6 +340,7 @@ class EipAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -345,22 +348,23 @@ class EipAssociation(pulumi.CustomResource):
         web = aws.ec2.Instance("web",
             ami="ami-21f78e11",
             availability_zone="us-west-2a",
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             tags={
                 "Name": "HelloWorld",
             })
         example = aws.ec2.Eip("example", domain="vpc")
-        eip_assoc = aws.ec2.EipAssociation("eipAssoc",
+        eip_assoc = aws.ec2.EipAssociation("eip_assoc",
             instance_id=web.id,
             allocation_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EIP Assocations using their association IDs. For example:
 
         ```sh
-         $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
+        $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
         ```
 
         :param str resource_name: The name of the resource.

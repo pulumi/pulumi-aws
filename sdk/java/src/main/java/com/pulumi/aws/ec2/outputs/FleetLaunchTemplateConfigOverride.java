@@ -130,49 +130,56 @@ public final class FleetLaunchTemplateConfigOverride {
 
         @CustomType.Setter
         public Builder availabilityZone(@Nullable String availabilityZone) {
+
             this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
         public Builder instanceRequirements(@Nullable FleetLaunchTemplateConfigOverrideInstanceRequirements instanceRequirements) {
+
             this.instanceRequirements = instanceRequirements;
             return this;
         }
         @CustomType.Setter
         public Builder instanceType(@Nullable String instanceType) {
+
             this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder maxPrice(@Nullable String maxPrice) {
+
             this.maxPrice = maxPrice;
             return this;
         }
         @CustomType.Setter
         public Builder priority(@Nullable Double priority) {
+
             this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
+
             this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
         public Builder weightedCapacity(@Nullable Double weightedCapacity) {
+
             this.weightedCapacity = weightedCapacity;
             return this;
         }
         public FleetLaunchTemplateConfigOverride build() {
-            final var o = new FleetLaunchTemplateConfigOverride();
-            o.availabilityZone = availabilityZone;
-            o.instanceRequirements = instanceRequirements;
-            o.instanceType = instanceType;
-            o.maxPrice = maxPrice;
-            o.priority = priority;
-            o.subnetId = subnetId;
-            o.weightedCapacity = weightedCapacity;
-            return o;
+            final var _resultValue = new FleetLaunchTemplateConfigOverride();
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.instanceRequirements = instanceRequirements;
+            _resultValue.instanceType = instanceType;
+            _resultValue.maxPrice = maxPrice;
+            _resultValue.priority = priority;
+            _resultValue.subnetId = subnetId;
+            _resultValue.weightedCapacity = weightedCapacity;
+            return _resultValue;
         }
     }
 }

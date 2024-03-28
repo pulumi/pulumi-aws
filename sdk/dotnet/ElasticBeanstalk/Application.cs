@@ -19,6 +19,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,10 +30,11 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// {
     ///     var tftest = new Aws.ElasticBeanstalk.Application("tftest", new()
     ///     {
+    ///         Name = "tf-test-name",
     ///         Description = "tf-test-desc",
     ///         AppversionLifecycle = new Aws.ElasticBeanstalk.Inputs.ApplicationAppversionLifecycleArgs
     ///         {
-    ///             ServiceRole = aws_iam_role.Beanstalk_service.Arn,
+    ///             ServiceRole = beanstalkService.Arn,
     ///             MaxCount = 128,
     ///             DeleteSourceFromS3 = true,
     ///         },
@@ -40,13 +42,14 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
+    /// $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticbeanstalk/application:Application")]
@@ -108,10 +111,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -213,11 +212,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ApplicationState()

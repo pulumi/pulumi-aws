@@ -4,6 +4,7 @@
 package com.pulumi.aws.autoscaling.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,19 +59,23 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredef
 
         @CustomType.Setter
         public Builder predefinedMetricType(String predefinedMetricType) {
-            this.predefinedMetricType = Objects.requireNonNull(predefinedMetricType);
+            if (predefinedMetricType == null) {
+              throw new MissingRequiredPropertyException("PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification", "predefinedMetricType");
+            }
+            this.predefinedMetricType = predefinedMetricType;
             return this;
         }
         @CustomType.Setter
         public Builder resourceLabel(@Nullable String resourceLabel) {
+
             this.resourceLabel = resourceLabel;
             return this;
         }
         public PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification build() {
-            final var o = new PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification();
-            o.predefinedMetricType = predefinedMetricType;
-            o.resourceLabel = resourceLabel;
-            return o;
+            final var _resultValue = new PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification();
+            _resultValue.predefinedMetricType = predefinedMetricType;
+            _resultValue.resourceLabel = resourceLabel;
+            return _resultValue;
         }
     }
 }

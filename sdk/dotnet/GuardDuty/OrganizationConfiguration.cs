@@ -16,6 +16,7 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,15 +25,15 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleDetector = new Aws.GuardDuty.Detector("exampleDetector", new()
+    ///     var example = new Aws.GuardDuty.Detector("example", new()
     ///     {
     ///         Enable = true,
     ///     });
     /// 
-    ///     var exampleOrganizationConfiguration = new Aws.GuardDuty.OrganizationConfiguration("exampleOrganizationConfiguration", new()
+    ///     var exampleOrganizationConfiguration = new Aws.GuardDuty.OrganizationConfiguration("example", new()
     ///     {
     ///         AutoEnableOrganizationMembers = "ALL",
-    ///         DetectorId = exampleDetector.Id,
+    ///         DetectorId = example.Id,
     ///         Datasources = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesArgs
     ///         {
     ///             S3Logs = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesS3LogsArgs
@@ -61,13 +62,14 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import GuardDuty Organization Configurations using the GuardDuty Detector ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:guardduty/organizationConfiguration:OrganizationConfiguration example 00b00fd5aecc0ab60a708659477e9617
+    /// $ pulumi import aws:guardduty/organizationConfiguration:OrganizationConfiguration example 00b00fd5aecc0ab60a708659477e9617
     /// ```
     /// </summary>
     [AwsResourceType("aws:guardduty/organizationConfiguration:OrganizationConfiguration")]

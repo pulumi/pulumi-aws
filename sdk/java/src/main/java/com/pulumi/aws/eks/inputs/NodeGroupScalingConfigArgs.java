@@ -5,6 +5,7 @@ package com.pulumi.aws.eks.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class NodeGroupScalingConfigArgs extends com.pulumi.resources.Resou
         }
 
         public NodeGroupScalingConfigArgs build() {
-            $.desiredSize = Objects.requireNonNull($.desiredSize, "expected parameter 'desiredSize' to be non-null");
-            $.maxSize = Objects.requireNonNull($.maxSize, "expected parameter 'maxSize' to be non-null");
-            $.minSize = Objects.requireNonNull($.minSize, "expected parameter 'minSize' to be non-null");
+            if ($.desiredSize == null) {
+                throw new MissingRequiredPropertyException("NodeGroupScalingConfigArgs", "desiredSize");
+            }
+            if ($.maxSize == null) {
+                throw new MissingRequiredPropertyException("NodeGroupScalingConfigArgs", "maxSize");
+            }
+            if ($.minSize == null) {
+                throw new MissingRequiredPropertyException("NodeGroupScalingConfigArgs", "minSize");
+            }
             return $;
         }
     }

@@ -74,25 +74,28 @@ public final class ConnectorLogDeliveryWorkerLogDelivery {
 
         @CustomType.Setter
         public Builder cloudwatchLogs(@Nullable ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs cloudwatchLogs) {
+
             this.cloudwatchLogs = cloudwatchLogs;
             return this;
         }
         @CustomType.Setter
         public Builder firehose(@Nullable ConnectorLogDeliveryWorkerLogDeliveryFirehose firehose) {
+
             this.firehose = firehose;
             return this;
         }
         @CustomType.Setter
         public Builder s3(@Nullable ConnectorLogDeliveryWorkerLogDeliveryS3 s3) {
+
             this.s3 = s3;
             return this;
         }
         public ConnectorLogDeliveryWorkerLogDelivery build() {
-            final var o = new ConnectorLogDeliveryWorkerLogDelivery();
-            o.cloudwatchLogs = cloudwatchLogs;
-            o.firehose = firehose;
-            o.s3 = s3;
-            return o;
+            final var _resultValue = new ConnectorLogDeliveryWorkerLogDelivery();
+            _resultValue.cloudwatchLogs = cloudwatchLogs;
+            _resultValue.firehose = firehose;
+            _resultValue.s3 = s3;
+            return _resultValue;
         }
     }
 }

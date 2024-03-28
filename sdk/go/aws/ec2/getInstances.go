@@ -21,6 +21,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,7 +34,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testInstances, err := ec2.GetInstances(ctx, &ec2.GetInstancesArgs{
+//			test, err := ec2.GetInstances(ctx, &ec2.GetInstancesArgs{
 //				InstanceTags: map[string]interface{}{
 //					"Role": "HardWorker",
 //				},
@@ -54,11 +55,11 @@ import (
 //				return err
 //			}
 //			var testEip []*ec2.Eip
-//			for index := 0; index < len(testInstances.Ids); index++ {
+//			for index := 0; index < len(test.Ids); index++ {
 //				key0 := index
 //				val0 := index
-//				__res, err := ec2.NewEip(ctx, fmt.Sprintf("testEip-%v", key0), &ec2.EipArgs{
-//					Instance: testInstances.Ids[val0],
+//				__res, err := ec2.NewEip(ctx, fmt.Sprintf("test-%v", key0), &ec2.EipArgs{
+//					Instance: test.Ids[val0],
 //				})
 //				if err != nil {
 //					return err
@@ -70,6 +71,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetInstances(ctx *pulumi.Context, args *GetInstancesArgs, opts ...pulumi.InvokeOption) (*GetInstancesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetInstancesResult

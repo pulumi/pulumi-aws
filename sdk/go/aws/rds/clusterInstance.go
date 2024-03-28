@@ -31,6 +31,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,10 +64,10 @@ import (
 //			for index := 0; index < 2; index++ {
 //				key0 := index
 //				val0 := index
-//				__res, err := rds.NewClusterInstance(ctx, fmt.Sprintf("clusterInstances-%v", key0), &rds.ClusterInstanceArgs{
+//				__res, err := rds.NewClusterInstance(ctx, fmt.Sprintf("cluster_instances-%v", key0), &rds.ClusterInstanceArgs{
 //					Identifier:        pulumi.String(fmt.Sprintf("aurora-cluster-demo-%v", val0)),
 //					ClusterIdentifier: _default.ID(),
-//					InstanceClass:     pulumi.String("db.r4.large"),
+//					InstanceClass:     pulumi.String(rds.InstanceType_R4_Large),
 //					Engine:            _default.Engine,
 //					EngineVersion:     _default.EngineVersion,
 //				})
@@ -80,15 +81,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import RDS Cluster Instances using the `identifier`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:rds/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
-//
+// $ pulumi import aws:rds/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
 // ```
 type ClusterInstance struct {
 	pulumi.CustomResourceState
@@ -117,7 +117,8 @@ type ClusterInstance struct {
 	DbiResourceId pulumi.StringOutput `pulumi:"dbiResourceId"`
 	// DNS address for this instance. May not be writable
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+	// Name of the database engine to be used for the RDS cluster instance.
+	// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
 	Engine pulumi.StringOutput `pulumi:"engine"`
 	// Database engine version.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
@@ -152,7 +153,7 @@ type ClusterInstance struct {
 	// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
 	PromotionTier pulumi.IntPtrOutput `pulumi:"promotionTier"`
 	// Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
-	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
+	PubliclyAccessible pulumi.BoolOutput `pulumi:"publiclyAccessible"`
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -181,10 +182,6 @@ func NewClusterInstance(ctx *pulumi.Context,
 	if args.InstanceClass == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceClass'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterInstance
 	err := ctx.RegisterResource("aws:rds/clusterInstance:ClusterInstance", name, args, &resource, opts...)
@@ -232,7 +229,8 @@ type clusterInstanceState struct {
 	DbiResourceId *string `pulumi:"dbiResourceId"`
 	// DNS address for this instance. May not be writable
 	Endpoint *string `pulumi:"endpoint"`
-	// Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+	// Name of the database engine to be used for the RDS cluster instance.
+	// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
 	Engine *string `pulumi:"engine"`
 	// Database engine version.
 	EngineVersion *string `pulumi:"engineVersion"`
@@ -305,7 +303,8 @@ type ClusterInstanceState struct {
 	DbiResourceId pulumi.StringPtrInput
 	// DNS address for this instance. May not be writable
 	Endpoint pulumi.StringPtrInput
-	// Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+	// Name of the database engine to be used for the RDS cluster instance.
+	// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
 	Engine pulumi.StringPtrInput
 	// Database engine version.
 	EngineVersion pulumi.StringPtrInput
@@ -376,7 +375,8 @@ type clusterInstanceArgs struct {
 	DbParameterGroupName *string `pulumi:"dbParameterGroupName"`
 	// DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached `rds.Cluster`.
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
-	// Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+	// Name of the database engine to be used for the RDS cluster instance.
+	// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
 	Engine string `pulumi:"engine"`
 	// Database engine version.
 	EngineVersion *string `pulumi:"engineVersion"`
@@ -428,7 +428,8 @@ type ClusterInstanceArgs struct {
 	DbParameterGroupName pulumi.StringPtrInput
 	// DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached `rds.Cluster`.
 	DbSubnetGroupName pulumi.StringPtrInput
-	// Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+	// Name of the database engine to be used for the RDS cluster instance.
+	// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
 	Engine pulumi.StringInput
 	// Database engine version.
 	EngineVersion pulumi.StringPtrInput
@@ -607,7 +608,8 @@ func (o ClusterInstanceOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+// Name of the database engine to be used for the RDS cluster instance.
+// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
 func (o ClusterInstanceOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
 }
@@ -693,8 +695,8 @@ func (o ClusterInstanceOutput) PromotionTier() pulumi.IntPtrOutput {
 }
 
 // Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
-func (o ClusterInstanceOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolPtrOutput { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
+func (o ClusterInstanceOutput) PubliclyAccessible() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolOutput { return v.PubliclyAccessible }).(pulumi.BoolOutput)
 }
 
 // Specifies whether the DB cluster is encrypted.

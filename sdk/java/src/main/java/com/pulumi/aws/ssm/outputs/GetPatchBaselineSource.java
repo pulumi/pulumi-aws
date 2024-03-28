@@ -4,6 +4,7 @@
 package com.pulumi.aws.ssm.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -11,38 +12,38 @@ import java.util.Objects;
 @CustomType
 public final class GetPatchBaselineSource {
     /**
-     * @return The value of the yum repo configuration.
+     * @return Value of the yum repo configuration.
      * 
      */
     private String configuration;
     /**
-     * @return The name specified to identify the patch source.
+     * @return Name specified to identify the patch source.
      * 
      */
     private String name;
     /**
-     * @return The specific operating system versions a patch repository applies to.
+     * @return Specific operating system versions a patch repository applies to.
      * 
      */
     private List<String> products;
 
     private GetPatchBaselineSource() {}
     /**
-     * @return The value of the yum repo configuration.
+     * @return Value of the yum repo configuration.
      * 
      */
     public String configuration() {
         return this.configuration;
     }
     /**
-     * @return The name specified to identify the patch source.
+     * @return Name specified to identify the patch source.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The specific operating system versions a patch repository applies to.
+     * @return Specific operating system versions a patch repository applies to.
      * 
      */
     public List<String> products() {
@@ -71,28 +72,37 @@ public final class GetPatchBaselineSource {
 
         @CustomType.Setter
         public Builder configuration(String configuration) {
-            this.configuration = Objects.requireNonNull(configuration);
+            if (configuration == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineSource", "configuration");
+            }
+            this.configuration = configuration;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineSource", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder products(List<String> products) {
-            this.products = Objects.requireNonNull(products);
+            if (products == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineSource", "products");
+            }
+            this.products = products;
             return this;
         }
         public Builder products(String... products) {
             return products(List.of(products));
         }
         public GetPatchBaselineSource build() {
-            final var o = new GetPatchBaselineSource();
-            o.configuration = configuration;
-            o.name = name;
-            o.products = products;
-            return o;
+            final var _resultValue = new GetPatchBaselineSource();
+            _resultValue.configuration = configuration;
+            _resultValue.name = name;
+            _resultValue.products = products;
+            return _resultValue;
         }
     }
 }

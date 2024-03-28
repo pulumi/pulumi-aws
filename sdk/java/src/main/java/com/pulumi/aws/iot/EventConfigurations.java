@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Deleting this resource does not disable the event configurations, the resource in simply removed from state instead.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,30 +46,31 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new EventConfigurations(&#34;example&#34;, EventConfigurationsArgs.builder()        
  *             .eventConfigurations(Map.ofEntries(
- *                 Map.entry(&#34;CA_CERTIFICATE&#34;, false),
- *                 Map.entry(&#34;CERTIFICATE&#34;, true),
+ *                 Map.entry(&#34;THING&#34;, true),
+ *                 Map.entry(&#34;THING_GROUP&#34;, false),
+ *                 Map.entry(&#34;THING_TYPE&#34;, false),
+ *                 Map.entry(&#34;THING_GROUP_MEMBERSHIP&#34;, false),
+ *                 Map.entry(&#34;THING_GROUP_HIERARCHY&#34;, false),
+ *                 Map.entry(&#34;THING_TYPE_ASSOCIATION&#34;, false),
  *                 Map.entry(&#34;JOB&#34;, false),
  *                 Map.entry(&#34;JOB_EXECUTION&#34;, false),
  *                 Map.entry(&#34;POLICY&#34;, false),
- *                 Map.entry(&#34;THING&#34;, true),
- *                 Map.entry(&#34;THING_GROUP&#34;, false),
- *                 Map.entry(&#34;THING_GROUP_HIERARCHY&#34;, false),
- *                 Map.entry(&#34;THING_GROUP_MEMBERSHIP&#34;, false),
- *                 Map.entry(&#34;THING_TYPE&#34;, false),
- *                 Map.entry(&#34;THING_TYPE_ASSOCIATION&#34;, false)
+ *                 Map.entry(&#34;CERTIFICATE&#34;, true),
+ *                 Map.entry(&#34;CA_CERTIFICATE&#34;, false)
  *             ))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IoT Event Configurations using the AWS Region. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
+ * $ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
  * ```
  * 
  */

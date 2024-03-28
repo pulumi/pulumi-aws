@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,31 +34,31 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("my-bucket"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//				Bucket: example.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLustreFileSystem, err := fsx.NewLustreFileSystem(ctx, "exampleLustreFileSystem", &fsx.LustreFileSystemArgs{
-//				StorageCapacity: pulumi.Int(1200),
-//				SubnetIds: pulumi.String{
-//					aws_subnet.Example.Id,
-//				},
+//			exampleLustreFileSystem, err := fsx.NewLustreFileSystem(ctx, "example", &fsx.LustreFileSystemArgs{
+//				StorageCapacity:          pulumi.Int(1200),
+//				SubnetIds:                pulumi.Any(exampleAwsSubnet.Id),
 //				DeploymentType:           pulumi.String("PERSISTENT_2"),
 //				PerUnitStorageThroughput: pulumi.Int(125),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = fsx.NewDataRepositoryAssociation(ctx, "exampleDataRepositoryAssociation", &fsx.DataRepositoryAssociationArgs{
+//			_, err = fsx.NewDataRepositoryAssociation(ctx, "example", &fsx.DataRepositoryAssociationArgs{
 //				FileSystemId: exampleLustreFileSystem.ID(),
-//				DataRepositoryPath: exampleBucketV2.ID().ApplyT(func(id string) (string, error) {
+//				DataRepositoryPath: example.ID().ApplyT(func(id string) (string, error) {
 //					return fmt.Sprintf("s3://%v", id), nil
 //				}).(pulumi.StringOutput),
 //				FileSystemPath: pulumi.String("/my-bucket"),
@@ -86,15 +87,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import FSx Data Repository Associations using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation example dra-0b1cfaeca11088b10
-//
+// $ pulumi import aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation example dra-0b1cfaeca11088b10
 // ```
 type DataRepositoryAssociation struct {
 	pulumi.CustomResourceState
@@ -141,10 +141,6 @@ func NewDataRepositoryAssociation(ctx *pulumi.Context,
 	if args.FileSystemPath == nil {
 		return nil, errors.New("invalid value for required argument 'FileSystemPath'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataRepositoryAssociation
 	err := ctx.RegisterResource("aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation", name, args, &resource, opts...)

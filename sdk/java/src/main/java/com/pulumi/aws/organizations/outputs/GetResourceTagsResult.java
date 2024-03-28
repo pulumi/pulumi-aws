@@ -4,6 +4,7 @@
 package com.pulumi.aws.organizations.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -63,25 +64,34 @@ public final class GetResourceTagsResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetResourceTagsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder resourceId(String resourceId) {
-            this.resourceId = Objects.requireNonNull(resourceId);
+            if (resourceId == null) {
+              throw new MissingRequiredPropertyException("GetResourceTagsResult", "resourceId");
+            }
+            this.resourceId = resourceId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetResourceTagsResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetResourceTagsResult build() {
-            final var o = new GetResourceTagsResult();
-            o.id = id;
-            o.resourceId = resourceId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetResourceTagsResult();
+            _resultValue.id = id;
+            _resultValue.resourceId = resourceId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

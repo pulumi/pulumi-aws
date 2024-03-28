@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -104,49 +105,68 @@ public final class GetQuicksightGroupResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetQuicksightGroupResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder awsAccountId(String awsAccountId) {
-            this.awsAccountId = Objects.requireNonNull(awsAccountId);
+            if (awsAccountId == null) {
+              throw new MissingRequiredPropertyException("GetQuicksightGroupResult", "awsAccountId");
+            }
+            this.awsAccountId = awsAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetQuicksightGroupResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder groupName(String groupName) {
-            this.groupName = Objects.requireNonNull(groupName);
+            if (groupName == null) {
+              throw new MissingRequiredPropertyException("GetQuicksightGroupResult", "groupName");
+            }
+            this.groupName = groupName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetQuicksightGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder namespace(@Nullable String namespace) {
+
             this.namespace = namespace;
             return this;
         }
         @CustomType.Setter
         public Builder principalId(String principalId) {
-            this.principalId = Objects.requireNonNull(principalId);
+            if (principalId == null) {
+              throw new MissingRequiredPropertyException("GetQuicksightGroupResult", "principalId");
+            }
+            this.principalId = principalId;
             return this;
         }
         public GetQuicksightGroupResult build() {
-            final var o = new GetQuicksightGroupResult();
-            o.arn = arn;
-            o.awsAccountId = awsAccountId;
-            o.description = description;
-            o.groupName = groupName;
-            o.id = id;
-            o.namespace = namespace;
-            o.principalId = principalId;
-            return o;
+            final var _resultValue = new GetQuicksightGroupResult();
+            _resultValue.arn = arn;
+            _resultValue.awsAccountId = awsAccountId;
+            _resultValue.description = description;
+            _resultValue.groupName = groupName;
+            _resultValue.id = id;
+            _resultValue.namespace = namespace;
+            _resultValue.principalId = principalId;
+            return _resultValue;
         }
     }
 }

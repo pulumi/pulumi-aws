@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,9 +23,12 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testTopic = new Aws.Sns.Topic("testTopic");
+    ///     var testTopic = new Aws.Sns.Topic("test", new()
+    ///     {
+    ///         Name = "test",
+    ///     });
     /// 
-    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var test = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -49,13 +53,15 @@ namespace Pulumi.Aws.AppConfig
     ///         },
     ///     });
     /// 
-    ///     var testRole = new Aws.Iam.Role("testRole", new()
+    ///     var testRole = new Aws.Iam.Role("test", new()
     ///     {
-    ///         AssumeRolePolicy = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "test",
+    ///         AssumeRolePolicy = test.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var testExtension = new Aws.AppConfig.Extension("testExtension", new()
+    ///     var testExtension = new Aws.AppConfig.Extension("test", new()
     ///     {
+    ///         Name = "test",
     ///         Description = "test description",
     ///         ActionPoints = new[]
     ///         {
@@ -81,13 +87,14 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AppConfig Extensions using their extension ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appconfig/extension:Extension example 71rxuzt
+    /// $ pulumi import aws:appconfig/extension:Extension example 71rxuzt
     /// ```
     /// </summary>
     [AwsResourceType("aws:appconfig/extension:Extension")]
@@ -161,10 +168,6 @@ namespace Pulumi.Aws.AppConfig
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -304,11 +307,7 @@ namespace Pulumi.Aws.AppConfig
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

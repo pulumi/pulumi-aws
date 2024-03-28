@@ -40,8 +40,10 @@ import (
 // `regionalCertificateArn = aws_acm_certificate_validation.cert.certificate_arn`.
 //
 // ## Example Usage
+//
 // ### Edge Optimized (ACM Certificate)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,22 +57,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomainName, err := apigateway.NewDomainName(ctx, "exampleDomainName", &apigateway.DomainNameArgs{
-//				CertificateArn: pulumi.Any(aws_acm_certificate_validation.Example.Certificate_arn),
+//			example, err := apigateway.NewDomainName(ctx, "example", &apigateway.DomainNameArgs{
+//				CertificateArn: pulumi.Any(exampleAwsAcmCertificateValidation.CertificateArn),
 //				DomainName:     pulumi.String("api.example.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
-//				Name:   exampleDomainName.DomainName,
-//				Type:   pulumi.String("A"),
-//				ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
+//			// Example DNS record using Route53.
+//			// Route53 is not specifically required; any DNS host can be used.
+//			_, err = route53.NewRecord(ctx, "example", &route53.RecordArgs{
+//				Name:   example.DomainName,
+//				Type:   pulumi.String(route53.RecordTypeA),
+//				ZoneId: pulumi.Any(exampleAwsRoute53Zone.Id),
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{
 //						EvaluateTargetHealth: pulumi.Bool(true),
-//						Name:                 exampleDomainName.CloudfrontDomainName,
-//						ZoneId:               exampleDomainName.CloudfrontZoneId,
+//						Name:                 example.CloudfrontDomainName,
+//						ZoneId:               example.CloudfrontZoneId,
 //					},
 //				},
 //			})
@@ -82,15 +86,15 @@ import (
 //	}
 //
 // ```
-// ### Edge Optimized (IAM Certificate)
+// <!--End PulumiCodeChooser -->
 //
+// ### Regional (ACM Certificate)
+//
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
-//
-//	"fmt"
-//	"os"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
@@ -98,35 +102,29 @@ import (
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomainName, err := apigateway.NewDomainName(ctx, "exampleDomainName", &apigateway.DomainNameArgs{
-//				DomainName:            pulumi.String("api.example.com"),
-//				CertificateName:       pulumi.String("example-api"),
-//				CertificateBody:       readFileOrPanic(fmt.Sprintf("%v/example.com/example.crt", path.Module)),
-//				CertificateChain:      readFileOrPanic(fmt.Sprintf("%v/example.com/ca.crt", path.Module)),
-//				CertificatePrivateKey: readFileOrPanic(fmt.Sprintf("%v/example.com/example.key", path.Module)),
+//			example, err := apigateway.NewDomainName(ctx, "example", &apigateway.DomainNameArgs{
+//				DomainName:             pulumi.String("api.example.com"),
+//				RegionalCertificateArn: pulumi.Any(exampleAwsAcmCertificateValidation.CertificateArn),
+//				EndpointConfiguration: &apigateway.DomainNameEndpointConfigurationArgs{
+//					Types: pulumi.String("REGIONAL"),
+//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
-//				Name:   exampleDomainName.DomainName,
-//				Type:   pulumi.String("A"),
+//			// Example DNS record using Route53.
+//			// Route53 is not specifically required; any DNS host can be used.
+//			_, err = route53.NewRecord(ctx, "example", &route53.RecordArgs{
+//				Name:   example.DomainName,
+//				Type:   pulumi.String(route53.RecordTypeA),
+//				ZoneId: pulumi.Any(exampleAwsRoute53Zone.Id),
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{
-//						Name:                 exampleDomainName.CloudfrontDomainName,
-//						ZoneId:               exampleDomainName.CloudfrontZoneId,
 //						EvaluateTargetHealth: pulumi.Bool(true),
+//						Name:                 example.RegionalDomainName,
+//						ZoneId:               example.RegionalZoneId,
 //					},
 //				},
 //			})
@@ -138,15 +136,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import API Gateway domain names using their `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
-//
+// $ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
 // ```
 type DomainName struct {
 	pulumi.CustomResourceState
@@ -214,7 +211,6 @@ func NewDomainName(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"certificatePrivateKey",
-		"tagsAll",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)

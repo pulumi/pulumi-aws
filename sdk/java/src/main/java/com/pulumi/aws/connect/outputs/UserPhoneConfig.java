@@ -4,6 +4,7 @@
 package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -88,31 +89,37 @@ public final class UserPhoneConfig {
 
         @CustomType.Setter
         public Builder afterContactWorkTimeLimit(@Nullable Integer afterContactWorkTimeLimit) {
+
             this.afterContactWorkTimeLimit = afterContactWorkTimeLimit;
             return this;
         }
         @CustomType.Setter
         public Builder autoAccept(@Nullable Boolean autoAccept) {
+
             this.autoAccept = autoAccept;
             return this;
         }
         @CustomType.Setter
         public Builder deskPhoneNumber(@Nullable String deskPhoneNumber) {
+
             this.deskPhoneNumber = deskPhoneNumber;
             return this;
         }
         @CustomType.Setter
         public Builder phoneType(String phoneType) {
-            this.phoneType = Objects.requireNonNull(phoneType);
+            if (phoneType == null) {
+              throw new MissingRequiredPropertyException("UserPhoneConfig", "phoneType");
+            }
+            this.phoneType = phoneType;
             return this;
         }
         public UserPhoneConfig build() {
-            final var o = new UserPhoneConfig();
-            o.afterContactWorkTimeLimit = afterContactWorkTimeLimit;
-            o.autoAccept = autoAccept;
-            o.deskPhoneNumber = deskPhoneNumber;
-            o.phoneType = phoneType;
-            return o;
+            final var _resultValue = new UserPhoneConfig();
+            _resultValue.afterContactWorkTimeLimit = afterContactWorkTimeLimit;
+            _resultValue.autoAccept = autoAccept;
+            _resultValue.deskPhoneNumber = deskPhoneNumber;
+            _resultValue.phoneType = phoneType;
+            return _resultValue;
         }
     }
 }

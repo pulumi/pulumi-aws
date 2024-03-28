@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,8 +23,9 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testFleet = new Aws.AppStream.ImageBuilder("testFleet", new()
+    ///     var testFleet = new Aws.AppStream.ImageBuilder("test_fleet", new()
     ///     {
+    ///         Name = "Name",
     ///         Description = "Description of a ImageBuilder",
     ///         DisplayName = "Display name of a ImageBuilder",
     ///         EnableDefaultInternetAccess = false,
@@ -33,7 +35,7 @@ namespace Pulumi.Aws.AppStream
     ///         {
     ///             SubnetIds = new[]
     ///             {
-    ///                 aws_subnet.Example.Id,
+    ///                 example.Id,
     ///             },
     ///         },
     ///         Tags = 
@@ -44,13 +46,14 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
+    /// $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
     /// ```
     /// </summary>
     [AwsResourceType("aws:appstream/imageBuilder:ImageBuilder")]
@@ -137,7 +140,7 @@ namespace Pulumi.Aws.AppStream
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
+        /// State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
@@ -183,10 +186,6 @@ namespace Pulumi.Aws.AppStream
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -397,7 +396,7 @@ namespace Pulumi.Aws.AppStream
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
+        /// State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -424,11 +423,7 @@ namespace Pulumi.Aws.AppStream
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

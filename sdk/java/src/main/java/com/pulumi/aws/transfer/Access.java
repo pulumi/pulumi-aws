@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Provides a AWS Transfer Access resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic S3
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,15 +48,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Access(&#34;example&#34;, AccessArgs.builder()        
  *             .externalId(&#34;S-1-1-12-1234567890-123456789-1234567890-1234&#34;)
- *             .serverId(aws_transfer_server.example().id())
- *             .role(aws_iam_role.example().arn())
- *             .homeDirectory(String.format(&#34;/%s/&#34;, aws_s3_bucket.example().id()))
+ *             .serverId(exampleAwsTransferServer.id())
+ *             .role(exampleAwsIamRole.arn())
+ *             .homeDirectory(String.format(&#34;/%s/&#34;, exampleAwsS3Bucket.id()))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Basic EFS
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -78,9 +85,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new Access(&#34;test&#34;, AccessArgs.builder()        
  *             .externalId(&#34;S-1-1-12-1234567890-123456789-1234567890-1234&#34;)
- *             .serverId(aws_transfer_server.test().id())
- *             .role(aws_iam_role.test().arn())
- *             .homeDirectory(String.format(&#34;/%s/&#34;, aws_efs_file_system.test().id()))
+ *             .serverId(testAwsTransferServer.id())
+ *             .role(testAwsIamRole.arn())
+ *             .homeDirectory(String.format(&#34;/%s/&#34;, testAwsEfsFileSystem.id()))
  *             .posixProfile(AccessPosixProfileArgs.builder()
  *                 .gid(1000)
  *                 .uid(1000)
@@ -90,13 +97,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Transfer Accesses using the `server_id` and `external_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:transfer/access:Access example s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234
+ * $ pulumi import aws:transfer/access:Access example s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234
  * ```
  * 
  */

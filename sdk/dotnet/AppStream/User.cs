@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,20 +26,21 @@ namespace Pulumi.Aws.AppStream
     ///     var example = new Aws.AppStream.User("example", new()
     ///     {
     ///         AuthenticationType = "USERPOOL",
+    ///         UserName = "EMAIL",
     ///         FirstName = "FIRST NAME",
     ///         LastName = "LAST NAME",
-    ///         UserName = "EMAIL",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_appstream_user` using the `user_name` and `authentication_type` separated by a slash (`/`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
+    /// $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
     /// ```
     /// </summary>
     [AwsResourceType("aws:appstream/user:User")]

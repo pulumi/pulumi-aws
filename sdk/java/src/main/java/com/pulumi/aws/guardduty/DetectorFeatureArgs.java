@@ -6,6 +6,7 @@ package com.pulumi.aws.guardduty;
 import com.pulumi.aws.guardduty.inputs.DetectorFeatureAdditionalConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -48,14 +49,14 @@ public final class DetectorFeatureArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+     * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+     * @return The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -157,7 +158,7 @@ public final class DetectorFeatureArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+         * @param name The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
          * 
          * @return builder
          * 
@@ -168,7 +169,7 @@ public final class DetectorFeatureArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+         * @param name The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
          * 
          * @return builder
          * 
@@ -199,8 +200,12 @@ public final class DetectorFeatureArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public DetectorFeatureArgs build() {
-            $.detectorId = Objects.requireNonNull($.detectorId, "expected parameter 'detectorId' to be non-null");
-            $.status = Objects.requireNonNull($.status, "expected parameter 'status' to be non-null");
+            if ($.detectorId == null) {
+                throw new MissingRequiredPropertyException("DetectorFeatureArgs", "detectorId");
+            }
+            if ($.status == null) {
+                throw new MissingRequiredPropertyException("DetectorFeatureArgs", "status");
+            }
             return $;
         }
     }

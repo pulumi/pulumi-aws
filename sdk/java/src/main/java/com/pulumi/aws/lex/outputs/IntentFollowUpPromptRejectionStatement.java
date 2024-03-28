@@ -5,6 +5,7 @@ package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.aws.lex.outputs.IntentFollowUpPromptRejectionStatementMessage;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -68,7 +69,10 @@ public final class IntentFollowUpPromptRejectionStatement {
 
         @CustomType.Setter
         public Builder messages(List<IntentFollowUpPromptRejectionStatementMessage> messages) {
-            this.messages = Objects.requireNonNull(messages);
+            if (messages == null) {
+              throw new MissingRequiredPropertyException("IntentFollowUpPromptRejectionStatement", "messages");
+            }
+            this.messages = messages;
             return this;
         }
         public Builder messages(IntentFollowUpPromptRejectionStatementMessage... messages) {
@@ -76,14 +80,15 @@ public final class IntentFollowUpPromptRejectionStatement {
         }
         @CustomType.Setter
         public Builder responseCard(@Nullable String responseCard) {
+
             this.responseCard = responseCard;
             return this;
         }
         public IntentFollowUpPromptRejectionStatement build() {
-            final var o = new IntentFollowUpPromptRejectionStatement();
-            o.messages = messages;
-            o.responseCard = responseCard;
-            return o;
+            final var _resultValue = new IntentFollowUpPromptRejectionStatement();
+            _resultValue.messages = messages;
+            _resultValue.responseCard = responseCard;
+            return _resultValue;
         }
     }
 }

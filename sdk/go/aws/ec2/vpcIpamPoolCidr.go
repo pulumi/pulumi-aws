@@ -23,56 +23,7 @@ import (
 //
 // Basic usage:
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetRegion(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpcIpam, err := ec2.NewVpcIpam(ctx, "exampleVpcIpam", &ec2.VpcIpamArgs{
-//				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
-//					&ec2.VpcIpamOperatingRegionArgs{
-//						RegionName: *pulumi.String(current.Name),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "exampleVpcIpamPool", &ec2.VpcIpamPoolArgs{
-//				AddressFamily: pulumi.String("ipv4"),
-//				IpamScopeId:   exampleVpcIpam.PrivateDefaultScopeId,
-//				Locale:        *pulumi.String(current.Name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpcIpamPoolCidr(ctx, "exampleVpcIpamPoolCidr", &ec2.VpcIpamPoolCidrArgs{
-//				IpamPoolId: exampleVpcIpamPool.ID(),
-//				Cidr:       pulumi.String("172.20.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// Provision Public IPv6 Pool CIDRs:
-//
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -93,14 +44,66 @@ import (
 //			example, err := ec2.NewVpcIpam(ctx, "example", &ec2.VpcIpamArgs{
 //				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
 //					&ec2.VpcIpamOperatingRegionArgs{
-//						RegionName: *pulumi.String(current.Name),
+//						RegionName: pulumi.String(current.Name),
 //					},
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			ipv6TestPublicVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "ipv6TestPublicVpcIpamPool", &ec2.VpcIpamPoolArgs{
+//			exampleVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "example", &ec2.VpcIpamPoolArgs{
+//				AddressFamily: pulumi.String("ipv4"),
+//				IpamScopeId:   example.PrivateDefaultScopeId,
+//				Locale:        pulumi.String(current.Name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpcIpamPoolCidr(ctx, "example", &ec2.VpcIpamPoolCidrArgs{
+//				IpamPoolId: exampleVpcIpamPool.ID(),
+//				Cidr:       pulumi.String("172.20.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// Provision Public IPv6 Pool CIDRs:
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := ec2.NewVpcIpam(ctx, "example", &ec2.VpcIpamArgs{
+//				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
+//					&ec2.VpcIpamOperatingRegionArgs{
+//						RegionName: pulumi.String(current.Name),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ipv6TestPublic, err := ec2.NewVpcIpamPool(ctx, "ipv6_test_public", &ec2.VpcIpamPoolArgs{
 //				AddressFamily:        pulumi.String("ipv6"),
 //				IpamScopeId:          example.PublicDefaultScopeId,
 //				Locale:               pulumi.String("us-east-1"),
@@ -112,8 +115,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewVpcIpamPoolCidr(ctx, "ipv6TestPublicVpcIpamPoolCidr", &ec2.VpcIpamPoolCidrArgs{
-//				IpamPoolId:    ipv6TestPublicVpcIpamPool.ID(),
+//			_, err = ec2.NewVpcIpamPoolCidr(ctx, "ipv6_test_public", &ec2.VpcIpamPoolCidrArgs{
+//				IpamPoolId:    ipv6TestPublic.ID(),
 //				NetmaskLength: pulumi.Int(52),
 //			})
 //			if err != nil {
@@ -124,6 +127,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -132,9 +136,7 @@ import (
 // __NOTE:__ Do not use the IPAM Pool Cidr ID as this was introduced after the resource already existed.
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
-//
+// $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
 // ```
 type VpcIpamPoolCidr struct {
 	pulumi.CustomResourceState

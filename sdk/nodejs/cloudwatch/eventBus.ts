@@ -11,29 +11,36 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const messenger = new aws.cloudwatch.EventBus("messenger", {});
+ * const messenger = new aws.cloudwatch.EventBus("messenger", {name: "chat-messages"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplepartnerEventSource = aws.cloudwatch.getEventSource({
+ * const examplepartner = aws.cloudwatch.getEventSource({
  *     namePrefix: "aws.partner/examplepartner.com",
  * });
- * const examplepartnerEventBus = new aws.cloudwatch.EventBus("examplepartnerEventBus", {eventSourceName: examplepartnerEventSource.then(examplepartnerEventSource => examplepartnerEventSource.name)});
+ * const examplepartnerEventBus = new aws.cloudwatch.EventBus("examplepartner", {
+ *     name: examplepartner.then(examplepartner => examplepartner.name),
+ *     eventSourceName: examplepartner.then(examplepartner => examplepartner.name),
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EventBridge event buses using the `name` (which can also be a partner event source name). For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
+ * $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
  * ```
  */
 export class EventBus extends pulumi.CustomResource {
@@ -114,8 +121,6 @@ export class EventBus extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(EventBus.__pulumiType, name, resourceInputs, opts);
     }
 }

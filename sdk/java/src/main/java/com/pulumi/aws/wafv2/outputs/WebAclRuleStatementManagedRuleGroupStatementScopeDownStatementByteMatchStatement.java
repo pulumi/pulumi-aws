@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.outputs;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatch;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -89,34 +90,44 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
 
         @CustomType.Setter
         public Builder fieldToMatch(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatch fieldToMatch) {
+
             this.fieldToMatch = fieldToMatch;
             return this;
         }
         @CustomType.Setter
         public Builder positionalConstraint(String positionalConstraint) {
-            this.positionalConstraint = Objects.requireNonNull(positionalConstraint);
+            if (positionalConstraint == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement", "positionalConstraint");
+            }
+            this.positionalConstraint = positionalConstraint;
             return this;
         }
         @CustomType.Setter
         public Builder searchString(String searchString) {
-            this.searchString = Objects.requireNonNull(searchString);
+            if (searchString == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement", "searchString");
+            }
+            this.searchString = searchString;
             return this;
         }
         @CustomType.Setter
         public Builder textTransformations(List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation> textTransformations) {
-            this.textTransformations = Objects.requireNonNull(textTransformations);
+            if (textTransformations == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement", "textTransformations");
+            }
+            this.textTransformations = textTransformations;
             return this;
         }
         public Builder textTransformations(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation... textTransformations) {
             return textTransformations(List.of(textTransformations));
         }
         public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement();
-            o.fieldToMatch = fieldToMatch;
-            o.positionalConstraint = positionalConstraint;
-            o.searchString = searchString;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement();
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.positionalConstraint = positionalConstraint;
+            _resultValue.searchString = searchString;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

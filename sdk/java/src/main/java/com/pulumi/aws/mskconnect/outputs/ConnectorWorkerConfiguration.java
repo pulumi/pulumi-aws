@@ -4,6 +4,7 @@
 package com.pulumi.aws.mskconnect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -57,19 +58,25 @@ public final class ConnectorWorkerConfiguration {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("ConnectorWorkerConfiguration", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder revision(Integer revision) {
-            this.revision = Objects.requireNonNull(revision);
+            if (revision == null) {
+              throw new MissingRequiredPropertyException("ConnectorWorkerConfiguration", "revision");
+            }
+            this.revision = revision;
             return this;
         }
         public ConnectorWorkerConfiguration build() {
-            final var o = new ConnectorWorkerConfiguration();
-            o.arn = arn;
-            o.revision = revision;
-            return o;
+            final var _resultValue = new ConnectorWorkerConfiguration();
+            _resultValue.arn = arn;
+            _resultValue.revision = revision;
+            return _resultValue;
         }
     }
 }

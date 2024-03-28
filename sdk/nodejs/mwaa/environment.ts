@@ -13,24 +13,30 @@ import * as utilities from "../utilities";
  * ## Example Usage
  *
  * A MWAA Environment requires an IAM role (`aws.iam.Role`), two subnets in the private zone (`aws.ec2.Subnet`) and a versioned S3 bucket (`aws.s3.BucketV2`).
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mwaa.Environment("example", {
  *     dagS3Path: "dags/",
- *     executionRoleArn: aws_iam_role.example.arn,
+ *     executionRoleArn: exampleAwsIamRole.arn,
+ *     name: "example",
  *     networkConfiguration: {
- *         securityGroupIds: [aws_security_group.example.id],
- *         subnetIds: aws_subnet["private"].map(__item => __item.id),
+ *         securityGroupIds: [exampleAwsSecurityGroup.id],
+ *         subnetIds: _private.map(__item => __item.id),
  *     },
- *     sourceBucketArn: aws_s3_bucket.example.arn,
+ *     sourceBucketArn: exampleAwsS3Bucket.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example with Airflow configuration options
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -41,25 +47,29 @@ import * as utilities from "../utilities";
  *         "core.parallelism": "1",
  *     },
  *     dagS3Path: "dags/",
- *     executionRoleArn: aws_iam_role.example.arn,
+ *     executionRoleArn: exampleAwsIamRole.arn,
+ *     name: "example",
  *     networkConfiguration: {
- *         securityGroupIds: [aws_security_group.example.id],
- *         subnetIds: aws_subnet["private"].map(__item => __item.id),
+ *         securityGroupIds: [exampleAwsSecurityGroup.id],
+ *         subnetIds: _private.map(__item => __item.id),
  *     },
- *     sourceBucketArn: aws_s3_bucket.example.arn,
+ *     sourceBucketArn: exampleAwsS3Bucket.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example with logging configurations
  *
  * Note that Airflow task logs are enabled by default with the `INFO` log level.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mwaa.Environment("example", {
  *     dagS3Path: "dags/",
- *     executionRoleArn: aws_iam_role.example.arn,
+ *     executionRoleArn: exampleAwsIamRole.arn,
  *     loggingConfiguration: {
  *         dagProcessingLogs: {
  *             enabled: true,
@@ -82,40 +92,46 @@ import * as utilities from "../utilities";
  *             logLevel: "CRITICAL",
  *         },
  *     },
+ *     name: "example",
  *     networkConfiguration: {
- *         securityGroupIds: [aws_security_group.example.id],
- *         subnetIds: aws_subnet["private"].map(__item => __item.id),
+ *         securityGroupIds: [exampleAwsSecurityGroup.id],
+ *         subnetIds: _private.map(__item => __item.id),
  *     },
- *     sourceBucketArn: aws_s3_bucket.example.arn,
+ *     sourceBucketArn: exampleAwsS3Bucket.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example with tags
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mwaa.Environment("example", {
  *     dagS3Path: "dags/",
- *     executionRoleArn: aws_iam_role.example.arn,
+ *     executionRoleArn: exampleAwsIamRole.arn,
+ *     name: "example",
  *     networkConfiguration: {
- *         securityGroupIds: [aws_security_group.example.id],
- *         subnetIds: aws_subnet["private"].map(__item => __item.id),
+ *         securityGroupIds: [exampleAwsSecurityGroup.id],
+ *         subnetIds: _private.map(__item => __item.id),
  *     },
- *     sourceBucketArn: aws_s3_bucket.example.arn,
+ *     sourceBucketArn: exampleAwsS3Bucket.arn,
  *     tags: {
  *         Name: "example",
  *         Environment: "production",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import MWAA Environment using `Name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:mwaa/environment:Environment example MyAirflowEnvironment
+ * $ pulumi import aws:mwaa/environment:Environment example MyAirflowEnvironment
  * ```
  */
 export class Environment extends pulumi.CustomResource {
@@ -167,6 +183,7 @@ export class Environment extends pulumi.CustomResource {
      * The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      */
     public readonly dagS3Path!: pulumi.Output<string>;
+    public readonly endpointManagement!: pulumi.Output<string>;
     /**
      * Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
      */
@@ -281,6 +298,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["dagS3Path"] = state ? state.dagS3Path : undefined;
+            resourceInputs["endpointManagement"] = state ? state.endpointManagement : undefined;
             resourceInputs["environmentClass"] = state ? state.environmentClass : undefined;
             resourceInputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
             resourceInputs["kmsKey"] = state ? state.kmsKey : undefined;
@@ -322,6 +340,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["airflowConfigurationOptions"] = args?.airflowConfigurationOptions ? pulumi.secret(args.airflowConfigurationOptions) : undefined;
             resourceInputs["airflowVersion"] = args ? args.airflowVersion : undefined;
             resourceInputs["dagS3Path"] = args ? args.dagS3Path : undefined;
+            resourceInputs["endpointManagement"] = args ? args.endpointManagement : undefined;
             resourceInputs["environmentClass"] = args ? args.environmentClass : undefined;
             resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
             resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
@@ -350,7 +369,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["webserverUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["airflowConfigurationOptions", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["airflowConfigurationOptions"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Environment.__pulumiType, name, resourceInputs, opts);
     }
@@ -381,6 +400,7 @@ export interface EnvironmentState {
      * The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      */
     dagS3Path?: pulumi.Input<string>;
+    endpointManagement?: pulumi.Input<string>;
     /**
      * Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
      */
@@ -494,6 +514,7 @@ export interface EnvironmentArgs {
      * The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      */
     dagS3Path: pulumi.Input<string>;
+    endpointManagement?: pulumi.Input<string>;
     /**
      * Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
      */

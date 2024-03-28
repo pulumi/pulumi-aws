@@ -16,6 +16,7 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,10 +25,15 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myDetector = new Aws.GuardDuty.Detector("myDetector", new()
+    ///     var myDetector = new Aws.GuardDuty.Detector("MyDetector", new()
     ///     {
+    ///         Enable = true,
     ///         Datasources = new Aws.GuardDuty.Inputs.DetectorDatasourcesArgs
     ///         {
+    ///             S3Logs = new Aws.GuardDuty.Inputs.DetectorDatasourcesS3LogsArgs
+    ///             {
+    ///                 Enable = true,
+    ///             },
     ///             Kubernetes = new Aws.GuardDuty.Inputs.DetectorDatasourcesKubernetesArgs
     ///             {
     ///                 AuditLogs = new Aws.GuardDuty.Inputs.DetectorDatasourcesKubernetesAuditLogsArgs
@@ -45,25 +51,21 @@ namespace Pulumi.Aws.GuardDuty
     ///                     },
     ///                 },
     ///             },
-    ///             S3Logs = new Aws.GuardDuty.Inputs.DetectorDatasourcesS3LogsArgs
-    ///             {
-    ///                 Enable = true,
-    ///             },
     ///         },
-    ///         Enable = true,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import GuardDuty detectors using the detector ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:guardduty/detector:Detector MyDetector 00b00fd5aecc0ab60a708659477e9617
+    /// $ pulumi import aws:guardduty/detector:Detector MyDetector 00b00fd5aecc0ab60a708659477e9617
     /// ```
-    ///  The ID of the detector can be retrieved via the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/list-detectors.html) using `aws guardduty list-detectors`.
+    /// The ID of the detector can be retrieved via the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/list-detectors.html) using `aws guardduty list-detectors`.
     /// </summary>
     [AwsResourceType("aws:guardduty/detector:Detector")]
     public partial class Detector : global::Pulumi.CustomResource
@@ -133,10 +135,6 @@ namespace Pulumi.Aws.GuardDuty
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -250,11 +248,7 @@ namespace Pulumi.Aws.GuardDuty
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public DetectorState()

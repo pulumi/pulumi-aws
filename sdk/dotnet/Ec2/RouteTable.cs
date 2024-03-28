@@ -32,8 +32,10 @@ namespace Pulumi.Aws.Ec2
     /// the separate resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,18 +46,18 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.RouteTable("example", new()
     ///     {
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         VpcId = exampleAwsVpc.Id,
     ///         Routes = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.RouteTableRouteArgs
     ///             {
     ///                 CidrBlock = "10.0.1.0/24",
-    ///                 GatewayId = aws_internet_gateway.Example.Id,
+    ///                 GatewayId = exampleAwsInternetGateway.Id,
     ///             },
     ///             new Aws.Ec2.Inputs.RouteTableRouteArgs
     ///             {
     ///                 Ipv6CidrBlock = "::/0",
-    ///                 EgressOnlyGatewayId = aws_egress_only_internet_gateway.Example.Id,
+    ///                 EgressOnlyGatewayId = exampleAwsEgressOnlyInternetGateway.Id,
     ///             },
     ///         },
     ///         Tags = 
@@ -66,9 +68,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// To subsequently remove all managed routes:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -79,7 +83,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.RouteTable("example", new()
     ///     {
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         VpcId = exampleAwsVpc.Id,
     ///         Routes = new[] {},
     ///         Tags = 
     ///         {
@@ -89,12 +93,15 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Adopting an existing local route
     /// 
     /// AWS creates certain routes that the AWS provider mostly ignores. You can manage them by importing or adopting them. See Import below for information on importing. This example shows adopting a route and then updating its target.
     /// 
     /// First, adopt an existing AWS-created route:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -103,14 +110,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testVpc = new Aws.Ec2.Vpc("testVpc", new()
+    ///     var test = new Aws.Ec2.Vpc("test", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
     ///     });
     /// 
-    ///     var testRouteTable = new Aws.Ec2.RouteTable("testRouteTable", new()
+    ///     var testRouteTable = new Aws.Ec2.RouteTable("test", new()
     ///     {
-    ///         VpcId = testVpc.Id,
+    ///         VpcId = test.Id,
     ///         Routes = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.RouteTableRouteArgs
@@ -123,9 +130,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Next, update the target of the route:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -134,30 +143,30 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testVpc = new Aws.Ec2.Vpc("testVpc", new()
+    ///     var test = new Aws.Ec2.Vpc("test", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
     ///     });
     /// 
-    ///     var testSubnet = new Aws.Ec2.Subnet("testSubnet", new()
+    ///     var testSubnet = new Aws.Ec2.Subnet("test", new()
     ///     {
     ///         CidrBlock = "10.1.1.0/24",
-    ///         VpcId = testVpc.Id,
+    ///         VpcId = test.Id,
     ///     });
     /// 
-    ///     var testNetworkInterface = new Aws.Ec2.NetworkInterface("testNetworkInterface", new()
+    ///     var testNetworkInterface = new Aws.Ec2.NetworkInterface("test", new()
     ///     {
     ///         SubnetId = testSubnet.Id,
     ///     });
     /// 
-    ///     var testRouteTable = new Aws.Ec2.RouteTable("testRouteTable", new()
+    ///     var testRouteTable = new Aws.Ec2.RouteTable("test", new()
     ///     {
-    ///         VpcId = testVpc.Id,
+    ///         VpcId = test.Id,
     ///         Routes = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.RouteTableRouteArgs
     ///             {
-    ///                 CidrBlock = testVpc.CidrBlock,
+    ///                 CidrBlock = test.CidrBlock,
     ///                 NetworkInterfaceId = testNetworkInterface.Id,
     ///             },
     ///         },
@@ -165,6 +174,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// The target could then be updated again back to `local`.
     /// 
@@ -173,7 +183,7 @@ namespace Pulumi.Aws.Ec2
     /// Using `pulumi import`, import Route Tables using the route table `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
+    /// $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/routeTable:RouteTable")]
@@ -245,10 +255,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -382,11 +388,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

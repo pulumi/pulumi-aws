@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -31,6 +30,8 @@ import javax.annotation.Nullable;
  * The state associated with existing resources will automatically be migrated.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,7 +55,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceb = new VirtualRouter(&#34;serviceb&#34;, VirtualRouterArgs.builder()        
- *             .meshName(aws_appmesh_mesh.simple().id())
+ *             .name(&#34;serviceB&#34;)
+ *             .meshName(simple.id())
  *             .spec(VirtualRouterSpecArgs.builder()
  *                 .listeners(VirtualRouterSpecListenerArgs.builder()
  *                     .portMapping(VirtualRouterSpecListenerPortMappingArgs.builder()
@@ -68,13 +70,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import App Mesh virtual routers using `mesh_name` together with the virtual router&#39;s `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
+ * $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
  * ```
  * 
  */
@@ -257,9 +260,6 @@ public class VirtualRouter extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

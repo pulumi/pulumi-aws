@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetCustomerGatewayFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -143,26 +144,39 @@ public final class GetCustomerGatewayResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetCustomerGatewayResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder bgpAsn(Integer bgpAsn) {
-            this.bgpAsn = Objects.requireNonNull(bgpAsn);
+            if (bgpAsn == null) {
+              throw new MissingRequiredPropertyException("GetCustomerGatewayResult", "bgpAsn");
+            }
+            this.bgpAsn = bgpAsn;
             return this;
         }
         @CustomType.Setter
         public Builder certificateArn(String certificateArn) {
-            this.certificateArn = Objects.requireNonNull(certificateArn);
+            if (certificateArn == null) {
+              throw new MissingRequiredPropertyException("GetCustomerGatewayResult", "certificateArn");
+            }
+            this.certificateArn = certificateArn;
             return this;
         }
         @CustomType.Setter
         public Builder deviceName(String deviceName) {
-            this.deviceName = Objects.requireNonNull(deviceName);
+            if (deviceName == null) {
+              throw new MissingRequiredPropertyException("GetCustomerGatewayResult", "deviceName");
+            }
+            this.deviceName = deviceName;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetCustomerGatewayFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -171,36 +185,48 @@ public final class GetCustomerGatewayResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCustomerGatewayResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
-            this.ipAddress = Objects.requireNonNull(ipAddress);
+            if (ipAddress == null) {
+              throw new MissingRequiredPropertyException("GetCustomerGatewayResult", "ipAddress");
+            }
+            this.ipAddress = ipAddress;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetCustomerGatewayResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetCustomerGatewayResult", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetCustomerGatewayResult build() {
-            final var o = new GetCustomerGatewayResult();
-            o.arn = arn;
-            o.bgpAsn = bgpAsn;
-            o.certificateArn = certificateArn;
-            o.deviceName = deviceName;
-            o.filters = filters;
-            o.id = id;
-            o.ipAddress = ipAddress;
-            o.tags = tags;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetCustomerGatewayResult();
+            _resultValue.arn = arn;
+            _resultValue.bgpAsn = bgpAsn;
+            _resultValue.certificateArn = certificateArn;
+            _resultValue.deviceName = deviceName;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ipAddress = ipAddress;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

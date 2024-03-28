@@ -6,6 +6,7 @@ package com.pulumi.aws.verifiedaccess;
 import com.pulumi.aws.verifiedaccess.inputs.InstanceLoggingConfigurationAccessLogsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class InstanceLoggingConfigurationArgs extends com.pulumi.resources
         }
 
         public InstanceLoggingConfigurationArgs build() {
-            $.accessLogs = Objects.requireNonNull($.accessLogs, "expected parameter 'accessLogs' to be non-null");
-            $.verifiedaccessInstanceId = Objects.requireNonNull($.verifiedaccessInstanceId, "expected parameter 'verifiedaccessInstanceId' to be non-null");
+            if ($.accessLogs == null) {
+                throw new MissingRequiredPropertyException("InstanceLoggingConfigurationArgs", "accessLogs");
+            }
+            if ($.verifiedaccessInstanceId == null) {
+                throw new MissingRequiredPropertyException("InstanceLoggingConfigurationArgs", "verifiedaccessInstanceId");
+            }
             return $;
         }
     }

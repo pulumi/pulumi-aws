@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,11 +26,12 @@ namespace Pulumi.Aws.Iot
     ///     var example = new Aws.Iot.LoggingOptions("example", new()
     ///     {
     ///         DefaultLogLevel = "WARN",
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:iot/loggingOptions:LoggingOptions")]
     public partial class LoggingOptions : global::Pulumi.CustomResource

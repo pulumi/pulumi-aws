@@ -19,7 +19,10 @@ import javax.annotation.Nullable;
  * Manages a Service Catalog self-service action.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,22 +46,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ServiceAction(&#34;example&#34;, ServiceActionArgs.builder()        
+ *             .description(&#34;Motor generator unit&#34;)
+ *             .name(&#34;MGU&#34;)
  *             .definition(ServiceActionDefinitionArgs.builder()
  *                 .name(&#34;AWS-RestartEC2Instance&#34;)
  *                 .build())
- *             .description(&#34;Motor generator unit&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_servicecatalog_service_action` using the service action ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
+ * $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
  * ```
  * 
  */

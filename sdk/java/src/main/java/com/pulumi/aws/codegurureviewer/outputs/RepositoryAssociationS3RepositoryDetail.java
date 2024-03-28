@@ -52,11 +52,13 @@ public final class RepositoryAssociationS3RepositoryDetail {
 
         @CustomType.Setter
         public Builder bucketName(@Nullable String bucketName) {
+
             this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder codeArtifacts(@Nullable List<RepositoryAssociationS3RepositoryDetailCodeArtifact> codeArtifacts) {
+
             this.codeArtifacts = codeArtifacts;
             return this;
         }
@@ -64,10 +66,10 @@ public final class RepositoryAssociationS3RepositoryDetail {
             return codeArtifacts(List.of(codeArtifacts));
         }
         public RepositoryAssociationS3RepositoryDetail build() {
-            final var o = new RepositoryAssociationS3RepositoryDetail();
-            o.bucketName = bucketName;
-            o.codeArtifacts = codeArtifacts;
-            return o;
+            final var _resultValue = new RepositoryAssociationS3RepositoryDetail();
+            _resultValue.bucketName = bucketName;
+            _resultValue.codeArtifacts = codeArtifacts;
+            return _resultValue;
         }
     }
 }

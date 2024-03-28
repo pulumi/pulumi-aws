@@ -8,6 +8,7 @@ import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamElasticsearchConfigu
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -17,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirehoseDeliveryStreamElasticsearchConfiguration {
     /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
     private @Nullable Integer bufferingInterval;
@@ -27,7 +28,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
      */
     private @Nullable Integer bufferingSize;
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
@@ -52,7 +53,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
      */
     private @Nullable String indexRotationPeriod;
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration processingConfiguration;
@@ -72,7 +73,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
      */
     private @Nullable String s3BackupMode;
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     private FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration s3Configuration;
@@ -82,14 +83,14 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
      */
     private @Nullable String typeName;
     /**
-     * @return The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
+     * @return The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpc_config` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig vpcConfig;
 
     private FirehoseDeliveryStreamElasticsearchConfiguration() {}
     /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
     public Optional<Integer> bufferingInterval() {
@@ -103,7 +104,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
         return Optional.ofNullable(this.bufferingSize);
     }
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
@@ -138,7 +139,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
         return Optional.ofNullable(this.indexRotationPeriod);
     }
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration> processingConfiguration() {
@@ -166,7 +167,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
         return Optional.ofNullable(this.s3BackupMode);
     }
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     public FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration s3Configuration() {
@@ -180,7 +181,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
         return Optional.ofNullable(this.typeName);
     }
     /**
-     * @return The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
+     * @return The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpc_config` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig> vpcConfig() {
@@ -231,91 +232,111 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
 
         @CustomType.Setter
         public Builder bufferingInterval(@Nullable Integer bufferingInterval) {
+
             this.bufferingInterval = bufferingInterval;
             return this;
         }
         @CustomType.Setter
         public Builder bufferingSize(@Nullable Integer bufferingSize) {
+
             this.bufferingSize = bufferingSize;
             return this;
         }
         @CustomType.Setter
         public Builder cloudwatchLoggingOptions(@Nullable FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions) {
+
             this.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
             return this;
         }
         @CustomType.Setter
         public Builder clusterEndpoint(@Nullable String clusterEndpoint) {
+
             this.clusterEndpoint = clusterEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder domainArn(@Nullable String domainArn) {
+
             this.domainArn = domainArn;
             return this;
         }
         @CustomType.Setter
         public Builder indexName(String indexName) {
-            this.indexName = Objects.requireNonNull(indexName);
+            if (indexName == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamElasticsearchConfiguration", "indexName");
+            }
+            this.indexName = indexName;
             return this;
         }
         @CustomType.Setter
         public Builder indexRotationPeriod(@Nullable String indexRotationPeriod) {
+
             this.indexRotationPeriod = indexRotationPeriod;
             return this;
         }
         @CustomType.Setter
         public Builder processingConfiguration(@Nullable FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration processingConfiguration) {
+
             this.processingConfiguration = processingConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder retryDuration(@Nullable Integer retryDuration) {
+
             this.retryDuration = retryDuration;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamElasticsearchConfiguration", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder s3BackupMode(@Nullable String s3BackupMode) {
+
             this.s3BackupMode = s3BackupMode;
             return this;
         }
         @CustomType.Setter
         public Builder s3Configuration(FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration s3Configuration) {
-            this.s3Configuration = Objects.requireNonNull(s3Configuration);
+            if (s3Configuration == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamElasticsearchConfiguration", "s3Configuration");
+            }
+            this.s3Configuration = s3Configuration;
             return this;
         }
         @CustomType.Setter
         public Builder typeName(@Nullable String typeName) {
+
             this.typeName = typeName;
             return this;
         }
         @CustomType.Setter
         public Builder vpcConfig(@Nullable FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig vpcConfig) {
+
             this.vpcConfig = vpcConfig;
             return this;
         }
         public FirehoseDeliveryStreamElasticsearchConfiguration build() {
-            final var o = new FirehoseDeliveryStreamElasticsearchConfiguration();
-            o.bufferingInterval = bufferingInterval;
-            o.bufferingSize = bufferingSize;
-            o.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
-            o.clusterEndpoint = clusterEndpoint;
-            o.domainArn = domainArn;
-            o.indexName = indexName;
-            o.indexRotationPeriod = indexRotationPeriod;
-            o.processingConfiguration = processingConfiguration;
-            o.retryDuration = retryDuration;
-            o.roleArn = roleArn;
-            o.s3BackupMode = s3BackupMode;
-            o.s3Configuration = s3Configuration;
-            o.typeName = typeName;
-            o.vpcConfig = vpcConfig;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamElasticsearchConfiguration();
+            _resultValue.bufferingInterval = bufferingInterval;
+            _resultValue.bufferingSize = bufferingSize;
+            _resultValue.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
+            _resultValue.clusterEndpoint = clusterEndpoint;
+            _resultValue.domainArn = domainArn;
+            _resultValue.indexName = indexName;
+            _resultValue.indexRotationPeriod = indexRotationPeriod;
+            _resultValue.processingConfiguration = processingConfiguration;
+            _resultValue.retryDuration = retryDuration;
+            _resultValue.roleArn = roleArn;
+            _resultValue.s3BackupMode = s3BackupMode;
+            _resultValue.s3Configuration = s3Configuration;
+            _resultValue.typeName = typeName;
+            _resultValue.vpcConfig = vpcConfig;
+            return _resultValue;
         }
     }
 }

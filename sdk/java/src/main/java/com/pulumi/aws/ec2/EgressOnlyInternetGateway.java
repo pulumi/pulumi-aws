@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,6 +22,8 @@ import javax.annotation.Nullable;
  * outside of your VPC from initiating an IPv6 connection with your instance.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,26 +47,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+ *         var example = new Vpc(&#34;example&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.1.0.0/16&#34;)
  *             .assignGeneratedIpv6CidrBlock(true)
  *             .build());
  * 
  *         var exampleEgressOnlyInternetGateway = new EgressOnlyInternetGateway(&#34;exampleEgressOnlyInternetGateway&#34;, EgressOnlyInternetGatewayArgs.builder()        
- *             .vpcId(exampleVpc.id())
+ *             .vpcId(example.id())
  *             .tags(Map.of(&#34;Name&#34;, &#34;main&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Egress-only Internet gateways using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
+ * $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
  * ```
  * 
  */
@@ -150,9 +152,6 @@ public class EgressOnlyInternetGateway extends com.pulumi.resources.CustomResour
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

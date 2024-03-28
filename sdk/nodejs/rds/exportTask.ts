@@ -11,43 +11,54 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS RDS (Relational Database) Export Task.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rds.ExportTask("example", {
  *     exportTaskIdentifier: "example",
- *     sourceArn: aws_db_snapshot.example.db_snapshot_arn,
- *     s3BucketName: aws_s3_bucket.example.id,
- *     iamRoleArn: aws_iam_role.example.arn,
- *     kmsKeyId: aws_kms_key.example.arn,
+ *     sourceArn: exampleAwsDbSnapshot.dbSnapshotArn,
+ *     s3BucketName: exampleAwsS3Bucket.id,
+ *     iamRoleArn: exampleAwsIamRole.arn,
+ *     kmsKeyId: exampleAwsKmsKey.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Complete Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {forceDestroy: true});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ * const exampleBucketV2 = new aws.s3.BucketV2("example", {
+ *     bucket: "example",
+ *     forceDestroy: true,
+ * });
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
  *     bucket: exampleBucketV2.id,
  *     acl: "private",
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Action: "sts:AssumeRole",
- *         Effect: "Allow",
- *         Sid: "",
- *         Principal: {
- *             Service: "export.rds.amazonaws.com",
- *         },
- *     }],
- * })});
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "example",
+ *     assumeRolePolicy: JSON.stringify({
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: "sts:AssumeRole",
+ *             effect: "Allow",
+ *             sid: "",
+ *             principal: {
+ *                 service: "export.rds.amazonaws.com",
+ *             },
+ *         }],
+ *     }),
+ * });
+ * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             actions: ["s3:ListAllMyBuckets"],
@@ -70,29 +81,32 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const examplePolicy = new aws.iam.Policy("examplePolicy", {policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json)});
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
+ * const examplePolicy = new aws.iam.Policy("example", {
+ *     name: "example",
+ *     policy: example.apply(example => example.json),
+ * });
+ * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
  *     role: exampleRole.name,
  *     policyArn: examplePolicy.arn,
  * });
- * const exampleKey = new aws.kms.Key("exampleKey", {deletionWindowInDays: 10});
- * const exampleInstance = new aws.rds.Instance("exampleInstance", {
+ * const exampleKey = new aws.kms.Key("example", {deletionWindowInDays: 10});
+ * const exampleInstance = new aws.rds.Instance("example", {
  *     identifier: "example",
  *     allocatedStorage: 10,
  *     dbName: "test",
  *     engine: "mysql",
  *     engineVersion: "5.7",
- *     instanceClass: "db.t3.micro",
+ *     instanceClass: aws.rds.InstanceType.T3_Micro,
  *     username: "foo",
  *     password: "foobarbaz",
  *     parameterGroupName: "default.mysql5.7",
  *     skipFinalSnapshot: true,
  * });
- * const exampleSnapshot = new aws.rds.Snapshot("exampleSnapshot", {
+ * const exampleSnapshot = new aws.rds.Snapshot("example", {
  *     dbInstanceIdentifier: exampleInstance.identifier,
  *     dbSnapshotIdentifier: "example",
  * });
- * const exampleExportTask = new aws.rds.ExportTask("exampleExportTask", {
+ * const exampleExportTask = new aws.rds.ExportTask("example", {
  *     exportTaskIdentifier: "example",
  *     sourceArn: exampleSnapshot.dbSnapshotArn,
  *     s3BucketName: exampleBucketV2.id,
@@ -102,13 +116,14 @@ import * as utilities from "../utilities";
  *     s3Prefix: "my_prefix/example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a RDS (Relational Database) Export Task using the `export_task_identifier`. For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/exportTask:ExportTask example example
+ * $ pulumi import aws:rds/exportTask:ExportTask example example
  * ```
  */
 export class ExportTask extends pulumi.CustomResource {

@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -34,13 +35,16 @@ public final class GetLaunchTemplateLicenseSpecification {
 
         @CustomType.Setter
         public Builder licenseConfigurationArn(String licenseConfigurationArn) {
-            this.licenseConfigurationArn = Objects.requireNonNull(licenseConfigurationArn);
+            if (licenseConfigurationArn == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateLicenseSpecification", "licenseConfigurationArn");
+            }
+            this.licenseConfigurationArn = licenseConfigurationArn;
             return this;
         }
         public GetLaunchTemplateLicenseSpecification build() {
-            final var o = new GetLaunchTemplateLicenseSpecification();
-            o.licenseConfigurationArn = licenseConfigurationArn;
-            return o;
+            final var _resultValue = new GetLaunchTemplateLicenseSpecification();
+            _resultValue.licenseConfigurationArn = licenseConfigurationArn;
+            return _resultValue;
         }
     }
 }

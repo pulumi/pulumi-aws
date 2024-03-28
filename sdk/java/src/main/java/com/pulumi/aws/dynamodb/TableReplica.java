@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -25,21 +24,21 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Do not use the `replica` configuration block of aws.dynamodb.Table together with this resource as the two configuration options are mutually exclusive.
  * 
  * ## Example Usage
+ * 
  * ### Basic Example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
  * import com.pulumi.aws.dynamodb.Table;
  * import com.pulumi.aws.dynamodb.TableArgs;
  * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
  * import com.pulumi.aws.dynamodb.TableReplica;
  * import com.pulumi.aws.dynamodb.TableReplicaArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,15 +52,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Provider(&#34;main&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-west-2&#34;)
- *             .build());
- * 
- *         var alt = new Provider(&#34;alt&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-east-2&#34;)
- *             .build());
- * 
- *         var exampleTable = new Table(&#34;exampleTable&#34;, TableArgs.builder()        
+ *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
+ *             .name(&#34;TestTable&#34;)
  *             .hashKey(&#34;BrodoBaggins&#34;)
  *             .billingMode(&#34;PAY_PER_REQUEST&#34;)
  *             .streamEnabled(true)
@@ -70,23 +62,20 @@ import javax.annotation.Nullable;
  *                 .name(&#34;BrodoBaggins&#34;)
  *                 .type(&#34;S&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.main())
- *                 .build());
+ *             .build());
  * 
  *         var exampleTableReplica = new TableReplica(&#34;exampleTableReplica&#34;, TableReplicaArgs.builder()        
- *             .globalTableArn(exampleTable.arn())
+ *             .globalTableArn(example.arn())
  *             .tags(Map.ofEntries(
  *                 Map.entry(&#34;Name&#34;, &#34;IZPAWS&#34;),
  *                 Map.entry(&#34;Pozo&#34;, &#34;Amargo&#34;)
  *             ))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.alt())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -95,7 +84,7 @@ import javax.annotation.Nullable;
  * ~&gt; __Note:__ When importing, use the region where the initial or _main_ global table resides, _not_ the region of the replica.
  * 
  * ```sh
- *  $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
+ * $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
  * ```
  * 
  */
@@ -240,9 +229,6 @@ public class TableReplica extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

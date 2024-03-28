@@ -11,27 +11,30 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Device Fleet resource.
  *
  * ## Example Usage
+ *
  * ### Basic usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.DeviceFleet("example", {
  *     deviceFleetName: "example",
- *     roleArn: aws_iam_role.test.arn,
+ *     roleArn: test.arn,
  *     outputConfig: {
- *         s3OutputLocation: `s3://${aws_s3_bucket.example.bucket}/prefix/`,
+ *         s3OutputLocation: `s3://${exampleAwsS3Bucket.bucket}/prefix/`,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SageMaker Device Fleets using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
+ * $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
  * ```
  */
 export class DeviceFleet extends pulumi.CustomResource {
@@ -142,8 +145,6 @@ export class DeviceFleet extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(DeviceFleet.__pulumiType, name, resourceInputs, opts);
     }
 }

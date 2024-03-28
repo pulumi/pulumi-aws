@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.outputs;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultSpaceSettingsJupyterServerAppSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultSpaceSettingsKernelGatewayAppSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -20,12 +21,12 @@ public final class DomainDefaultSpaceSettings {
      */
     private String executionRole;
     /**
-     * @return The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+     * @return The Jupyter server&#39;s app settings. See `jupyter_server_app_settings` Block below.
      * 
      */
     private @Nullable DomainDefaultSpaceSettingsJupyterServerAppSettings jupyterServerAppSettings;
     /**
-     * @return The kernel gateway app settings. See Kernel Gateway App Settings below.
+     * @return The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
      * 
      */
     private @Nullable DomainDefaultSpaceSettingsKernelGatewayAppSettings kernelGatewayAppSettings;
@@ -44,14 +45,14 @@ public final class DomainDefaultSpaceSettings {
         return this.executionRole;
     }
     /**
-     * @return The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+     * @return The Jupyter server&#39;s app settings. See `jupyter_server_app_settings` Block below.
      * 
      */
     public Optional<DomainDefaultSpaceSettingsJupyterServerAppSettings> jupyterServerAppSettings() {
         return Optional.ofNullable(this.jupyterServerAppSettings);
     }
     /**
-     * @return The kernel gateway app settings. See Kernel Gateway App Settings below.
+     * @return The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
      * 
      */
     public Optional<DomainDefaultSpaceSettingsKernelGatewayAppSettings> kernelGatewayAppSettings() {
@@ -89,21 +90,27 @@ public final class DomainDefaultSpaceSettings {
 
         @CustomType.Setter
         public Builder executionRole(String executionRole) {
-            this.executionRole = Objects.requireNonNull(executionRole);
+            if (executionRole == null) {
+              throw new MissingRequiredPropertyException("DomainDefaultSpaceSettings", "executionRole");
+            }
+            this.executionRole = executionRole;
             return this;
         }
         @CustomType.Setter
         public Builder jupyterServerAppSettings(@Nullable DomainDefaultSpaceSettingsJupyterServerAppSettings jupyterServerAppSettings) {
+
             this.jupyterServerAppSettings = jupyterServerAppSettings;
             return this;
         }
         @CustomType.Setter
         public Builder kernelGatewayAppSettings(@Nullable DomainDefaultSpaceSettingsKernelGatewayAppSettings kernelGatewayAppSettings) {
+
             this.kernelGatewayAppSettings = kernelGatewayAppSettings;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroups(@Nullable List<String> securityGroups) {
+
             this.securityGroups = securityGroups;
             return this;
         }
@@ -111,12 +118,12 @@ public final class DomainDefaultSpaceSettings {
             return securityGroups(List.of(securityGroups));
         }
         public DomainDefaultSpaceSettings build() {
-            final var o = new DomainDefaultSpaceSettings();
-            o.executionRole = executionRole;
-            o.jupyterServerAppSettings = jupyterServerAppSettings;
-            o.kernelGatewayAppSettings = kernelGatewayAppSettings;
-            o.securityGroups = securityGroups;
-            return o;
+            final var _resultValue = new DomainDefaultSpaceSettings();
+            _resultValue.executionRole = executionRole;
+            _resultValue.jupyterServerAppSettings = jupyterServerAppSettings;
+            _resultValue.kernelGatewayAppSettings = kernelGatewayAppSettings;
+            _resultValue.securityGroups = securityGroups;
+            return _resultValue;
         }
     }
 }

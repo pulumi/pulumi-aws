@@ -12,32 +12,49 @@ import * as utilities from "../utilities";
  * > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
  *
  * ## Example Usage
+ *
  * ### Create New Key Pair
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * // Create a new Lightsail Key Pair
- * const lgKeyPair = new aws.lightsail.KeyPair("lgKeyPair", {});
+ * const lgKeyPair = new aws.lightsail.KeyPair("lg_key_pair", {name: "lg_key_pair"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Create New Key Pair with PGP Encrypted Private Key
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const lgKeyPair = new aws.lightsail.KeyPair("lgKeyPair", {pgpKey: "keybase:keybaseusername"});
+ * const lgKeyPair = new aws.lightsail.KeyPair("lg_key_pair", {
+ *     name: "lg_key_pair",
+ *     pgpKey: "keybase:keybaseusername",
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Existing Public Key Import
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const lgKeyPair = new aws.lightsail.KeyPair("lgKeyPair", {publicKey: fs.readFileSync("~/.ssh/id_rsa.pub")});
+ * const lgKeyPair = new aws.lightsail.KeyPair("lg_key_pair", {
+ *     name: "importing",
+ *     publicKey: std.file({
+ *         input: "~/.ssh/id_rsa.pub",
+ *     }).then(invoke => invoke.result),
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -154,8 +171,6 @@ export class KeyPair extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(KeyPair.__pulumiType, name, resourceInputs, opts);
     }
 }

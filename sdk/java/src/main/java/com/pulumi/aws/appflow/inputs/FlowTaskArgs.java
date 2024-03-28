@@ -6,6 +6,7 @@ package com.pulumi.aws.appflow.inputs;
 import com.pulumi.aws.appflow.inputs.FlowTaskConnectorOperatorArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -52,15 +53,15 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
      * Source fields to which a particular task is applied.
      * 
      */
-    @Import(name="sourceFields", required=true)
-    private Output<List<String>> sourceFields;
+    @Import(name="sourceFields")
+    private @Nullable Output<List<String>> sourceFields;
 
     /**
      * @return Source fields to which a particular task is applied.
      * 
      */
-    public Output<List<String>> sourceFields() {
-        return this.sourceFields;
+    public Optional<Output<List<String>>> sourceFields() {
+        return Optional.ofNullable(this.sourceFields);
     }
 
     /**
@@ -179,7 +180,7 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder sourceFields(Output<List<String>> sourceFields) {
+        public Builder sourceFields(@Nullable Output<List<String>> sourceFields) {
             $.sourceFields = sourceFields;
             return this;
         }
@@ -247,8 +248,9 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FlowTaskArgs build() {
-            $.sourceFields = Objects.requireNonNull($.sourceFields, "expected parameter 'sourceFields' to be non-null");
-            $.taskType = Objects.requireNonNull($.taskType, "expected parameter 'taskType' to be non-null");
+            if ($.taskType == null) {
+                throw new MissingRequiredPropertyException("FlowTaskArgs", "taskType");
+            }
             return $;
         }
     }

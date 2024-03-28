@@ -17,6 +17,45 @@ namespace Pulumi.Aws.Ec2
         /// This resource can prove useful when a module accepts a vpc id as
         /// an input variable and needs to, for example, determine the CIDR block of that
         /// VPC.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following example shows how one might accept a VPC id as a variable
+        /// and use this data source to obtain the data necessary to create a subnet
+        /// within it.
+        /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var vpcId = config.RequireObject&lt;dynamic&gt;("vpcId");
+        ///     var selected = Aws.Ec2.GetVpc.Invoke(new()
+        ///     {
+        ///         Id = vpcId,
+        ///     });
+        /// 
+        ///     var example = new Aws.Ec2.Subnet("example", new()
+        ///     {
+        ///         VpcId = selected.Apply(getVpcResult =&gt; getVpcResult.Id),
+        ///         AvailabilityZone = "us-west-2a",
+        ///         CidrBlock = Std.Cidrsubnet.Invoke(new()
+        ///         {
+        ///             Input = selected.Apply(getVpcResult =&gt; getVpcResult.CidrBlock),
+        ///             Newbits = 4,
+        ///             Netnum = 1,
+        ///         }).Apply(invoke =&gt; invoke.Result),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVpcResult> InvokeAsync(GetVpcArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcResult>("aws:ec2/getVpc:getVpc", args ?? new GetVpcArgs(), options.WithDefaults());
@@ -27,6 +66,45 @@ namespace Pulumi.Aws.Ec2
         /// This resource can prove useful when a module accepts a vpc id as
         /// an input variable and needs to, for example, determine the CIDR block of that
         /// VPC.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following example shows how one might accept a VPC id as a variable
+        /// and use this data source to obtain the data necessary to create a subnet
+        /// within it.
+        /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var vpcId = config.RequireObject&lt;dynamic&gt;("vpcId");
+        ///     var selected = Aws.Ec2.GetVpc.Invoke(new()
+        ///     {
+        ///         Id = vpcId,
+        ///     });
+        /// 
+        ///     var example = new Aws.Ec2.Subnet("example", new()
+        ///     {
+        ///         VpcId = selected.Apply(getVpcResult =&gt; getVpcResult.Id),
+        ///         AvailabilityZone = "us-west-2a",
+        ///         CidrBlock = Std.Cidrsubnet.Invoke(new()
+        ///         {
+        ///             Input = selected.Apply(getVpcResult =&gt; getVpcResult.CidrBlock),
+        ///             Newbits = 4,
+        ///             Netnum = 1,
+        ///         }).Apply(invoke =&gt; invoke.Result),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVpcResult> Invoke(GetVpcInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcResult>("aws:ec2/getVpc:getVpc", args ?? new GetVpcInvokeArgs(), options.WithDefaults());

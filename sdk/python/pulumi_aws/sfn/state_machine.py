@@ -193,6 +193,7 @@ class _StateMachineState:
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[bool] publish: Set to true to publish a version of the state machine during creation. Default: false.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+        :param pulumi.Input[str] state_machine_version_arn: The ARN of the state machine version.
         :param pulumi.Input[str] status: The current status of the state machine. Either `ACTIVE` or `DELETING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -354,6 +355,9 @@ class _StateMachineState:
     @property
     @pulumi.getter(name="stateMachineVersionArn")
     def state_machine_version_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the state machine version.
+        """
         return pulumi.get(self, "state_machine_version_arn")
 
     @state_machine_version_arn.setter
@@ -452,37 +456,44 @@ class StateMachine(pulumi.CustomResource):
         Provides a Step Function State Machine resource
 
         ## Example Usage
+
         ### Basic (Standard Workflow)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
+        sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
+            name="my-state-machine",
+            role_arn=iam_for_sfn["arn"],
             definition=f\"\"\"{{
           "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
           "StartAt": "HelloWorld",
           "States": {{
             "HelloWorld": {{
               "Type": "Task",
-              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
+              "Resource": "{lambda_["arn"]}",
               "End": true
             }}
           }}
         }}
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Basic (Express Workflow)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
+        sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
+            name="my-state-machine",
+            role_arn=iam_for_sfn["arn"],
             type="EXPRESS",
             definition=f\"\"\"{{
           "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
@@ -490,22 +501,26 @@ class StateMachine(pulumi.CustomResource):
           "States": {{
             "HelloWorld": {{
               "Type": "Task",
-              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
+              "Resource": "{lambda_["arn"]}",
               "End": true
             }}
           }}
         }}
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Publish (Publish SFN version)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
+        sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
+            name="my-state-machine",
+            role_arn=iam_for_sfn["arn"],
             publish=True,
             type="EXPRESS",
             definition=f\"\"\"{{
@@ -514,49 +529,54 @@ class StateMachine(pulumi.CustomResource):
           "States": {{
             "HelloWorld": {{
               "Type": "Task",
-              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
+              "Resource": "{lambda_["arn"]}",
               "End": true
             }}
           }}
         }}
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Logging
 
         > *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
+        sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
+            name="my-state-machine",
+            role_arn=iam_for_sfn["arn"],
             definition=f\"\"\"{{
           "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
           "StartAt": "HelloWorld",
           "States": {{
             "HelloWorld": {{
               "Type": "Task",
-              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
+              "Resource": "{lambda_["arn"]}",
               "End": true
             }}
           }}
         }}
         \"\"\",
             logging_configuration=aws.sfn.StateMachineLoggingConfigurationArgs(
-                log_destination=f"{aws_cloudwatch_log_group['log_group_for_sfn']['arn']}:*",
+                log_destination=f"{log_group_for_sfn['arn']}:*",
                 include_execution_data=True,
                 level="ERROR",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import State Machines using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
+        $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
         ```
 
         :param str resource_name: The name of the resource.
@@ -581,37 +601,44 @@ class StateMachine(pulumi.CustomResource):
         Provides a Step Function State Machine resource
 
         ## Example Usage
+
         ### Basic (Standard Workflow)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
+        sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
+            name="my-state-machine",
+            role_arn=iam_for_sfn["arn"],
             definition=f\"\"\"{{
           "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
           "StartAt": "HelloWorld",
           "States": {{
             "HelloWorld": {{
               "Type": "Task",
-              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
+              "Resource": "{lambda_["arn"]}",
               "End": true
             }}
           }}
         }}
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Basic (Express Workflow)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
+        sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
+            name="my-state-machine",
+            role_arn=iam_for_sfn["arn"],
             type="EXPRESS",
             definition=f\"\"\"{{
           "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
@@ -619,22 +646,26 @@ class StateMachine(pulumi.CustomResource):
           "States": {{
             "HelloWorld": {{
               "Type": "Task",
-              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
+              "Resource": "{lambda_["arn"]}",
               "End": true
             }}
           }}
         }}
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Publish (Publish SFN version)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
+        sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
+            name="my-state-machine",
+            role_arn=iam_for_sfn["arn"],
             publish=True,
             type="EXPRESS",
             definition=f\"\"\"{{
@@ -643,49 +674,54 @@ class StateMachine(pulumi.CustomResource):
           "States": {{
             "HelloWorld": {{
               "Type": "Task",
-              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
+              "Resource": "{lambda_["arn"]}",
               "End": true
             }}
           }}
         }}
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Logging
 
         > *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
+        sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
+            name="my-state-machine",
+            role_arn=iam_for_sfn["arn"],
             definition=f\"\"\"{{
           "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
           "StartAt": "HelloWorld",
           "States": {{
             "HelloWorld": {{
               "Type": "Task",
-              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
+              "Resource": "{lambda_["arn"]}",
               "End": true
             }}
           }}
         }}
         \"\"\",
             logging_configuration=aws.sfn.StateMachineLoggingConfigurationArgs(
-                log_destination=f"{aws_cloudwatch_log_group['log_group_for_sfn']['arn']}:*",
+                log_destination=f"{log_group_for_sfn['arn']}:*",
                 include_execution_data=True,
                 level="ERROR",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import State Machines using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
+        $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
         ```
 
         :param str resource_name: The name of the resource.
@@ -742,8 +778,6 @@ class StateMachine(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["version_description"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(StateMachine, __self__).__init__(
             'aws:sfn/stateMachine:StateMachine',
             resource_name,
@@ -786,6 +820,7 @@ class StateMachine(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[bool] publish: Set to true to publish a version of the state machine during creation. Default: false.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+        :param pulumi.Input[str] state_machine_version_arn: The ARN of the state machine version.
         :param pulumi.Input[str] status: The current status of the state machine. Either `ACTIVE` or `DELETING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -892,6 +927,9 @@ class StateMachine(pulumi.CustomResource):
     @property
     @pulumi.getter(name="stateMachineVersionArn")
     def state_machine_version_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the state machine version.
+        """
         return pulumi.get(self, "state_machine_version_arn")
 
     @property

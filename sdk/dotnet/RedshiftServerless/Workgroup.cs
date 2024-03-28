@@ -14,6 +14,7 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,13 +31,14 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
+    /// $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshiftserverless/workgroup:Workgroup")]
@@ -73,10 +75,22 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<bool?> EnhancedVpcRouting { get; private set; } = null!;
 
         /// <summary>
+        /// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+        /// </summary>
+        [Output("maxCapacity")]
+        public Output<int?> MaxCapacity { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the namespace.
         /// </summary>
         [Output("namespaceName")]
         public Output<string> NamespaceName { get; private set; } = null!;
+
+        /// <summary>
+        /// The port number on which the cluster accepts incoming connections.
+        /// </summary>
+        [Output("port")]
+        public Output<int> Port { get; private set; } = null!;
 
         /// <summary>
         /// A value that specifies whether the workgroup can be accessed from a public network.
@@ -145,10 +159,6 @@ namespace Pulumi.Aws.RedshiftServerless
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -197,10 +207,22 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<bool>? EnhancedVpcRouting { get; set; }
 
         /// <summary>
+        /// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+        /// </summary>
+        [Input("maxCapacity")]
+        public Input<int>? MaxCapacity { get; set; }
+
+        /// <summary>
         /// The name of the namespace.
         /// </summary>
         [Input("namespaceName", required: true)]
         public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The port number on which the cluster accepts incoming connections.
+        /// </summary>
+        [Input("port")]
+        public Input<int>? Port { get; set; }
 
         /// <summary>
         /// A value that specifies whether the workgroup can be accessed from a public network.
@@ -303,10 +325,22 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<bool>? EnhancedVpcRouting { get; set; }
 
         /// <summary>
+        /// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+        /// </summary>
+        [Input("maxCapacity")]
+        public Input<int>? MaxCapacity { get; set; }
+
+        /// <summary>
         /// The name of the namespace.
         /// </summary>
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
+
+        /// <summary>
+        /// The port number on which the cluster accepts incoming connections.
+        /// </summary>
+        [Input("port")]
+        public Input<int>? Port { get; set; }
 
         /// <summary>
         /// A value that specifies whether the workgroup can be accessed from a public network.
@@ -360,11 +394,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

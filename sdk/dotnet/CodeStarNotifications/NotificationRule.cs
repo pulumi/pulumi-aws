@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CodeStarNotifications
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,7 +28,10 @@ namespace Pulumi.Aws.CodeStarNotifications
     ///         RepositoryName = "example-code-repo",
     ///     });
     /// 
-    ///     var notif = new Aws.Sns.Topic("notif");
+    ///     var notif = new Aws.Sns.Topic("notif", new()
+    ///     {
+    ///         Name = "notification",
+    ///     });
     /// 
     ///     var notifAccess = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
@@ -71,6 +75,7 @@ namespace Pulumi.Aws.CodeStarNotifications
     ///         {
     ///             "codecommit-repository-comments-on-commits",
     ///         },
+    ///         Name = "example-code-repo-commits",
     ///         Resource = code.Arn,
     ///         Targets = new[]
     ///         {
@@ -83,13 +88,14 @@ namespace Pulumi.Aws.CodeStarNotifications
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeStar notification rule using the ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
+    /// $ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
     /// ```
     /// </summary>
     [AwsResourceType("aws:codestarnotifications/notificationRule:NotificationRule")]
@@ -173,10 +179,6 @@ namespace Pulumi.Aws.CodeStarNotifications
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -334,11 +336,7 @@ namespace Pulumi.Aws.CodeStarNotifications
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("targets")]

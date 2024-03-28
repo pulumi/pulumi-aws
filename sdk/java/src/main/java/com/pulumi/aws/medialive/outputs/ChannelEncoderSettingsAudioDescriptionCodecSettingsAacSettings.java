@@ -157,61 +157,70 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
 
         @CustomType.Setter
         public Builder bitrate(@Nullable Double bitrate) {
+
             this.bitrate = bitrate;
             return this;
         }
         @CustomType.Setter
         public Builder codingMode(@Nullable String codingMode) {
+
             this.codingMode = codingMode;
             return this;
         }
         @CustomType.Setter
         public Builder inputType(@Nullable String inputType) {
+
             this.inputType = inputType;
             return this;
         }
         @CustomType.Setter
         public Builder profile(@Nullable String profile) {
+
             this.profile = profile;
             return this;
         }
         @CustomType.Setter
         public Builder rateControlMode(@Nullable String rateControlMode) {
+
             this.rateControlMode = rateControlMode;
             return this;
         }
         @CustomType.Setter
         public Builder rawFormat(@Nullable String rawFormat) {
+
             this.rawFormat = rawFormat;
             return this;
         }
         @CustomType.Setter
         public Builder sampleRate(@Nullable Double sampleRate) {
+
             this.sampleRate = sampleRate;
             return this;
         }
         @CustomType.Setter
         public Builder spec(@Nullable String spec) {
+
             this.spec = spec;
             return this;
         }
         @CustomType.Setter
         public Builder vbrQuality(@Nullable String vbrQuality) {
+
             this.vbrQuality = vbrQuality;
             return this;
         }
         public ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings build() {
-            final var o = new ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings();
-            o.bitrate = bitrate;
-            o.codingMode = codingMode;
-            o.inputType = inputType;
-            o.profile = profile;
-            o.rateControlMode = rateControlMode;
-            o.rawFormat = rawFormat;
-            o.sampleRate = sampleRate;
-            o.spec = spec;
-            o.vbrQuality = vbrQuality;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings();
+            _resultValue.bitrate = bitrate;
+            _resultValue.codingMode = codingMode;
+            _resultValue.inputType = inputType;
+            _resultValue.profile = profile;
+            _resultValue.rateControlMode = rateControlMode;
+            _resultValue.rawFormat = rawFormat;
+            _resultValue.sampleRate = sampleRate;
+            _resultValue.spec = spec;
+            _resultValue.vbrQuality = vbrQuality;
+            return _resultValue;
         }
     }
 }

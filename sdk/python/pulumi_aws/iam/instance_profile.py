@@ -273,6 +273,7 @@ class InstanceProfile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -286,17 +287,21 @@ class InstanceProfile(pulumi.CustomResource):
             actions=["sts:AssumeRole"],
         )])
         role = aws.iam.Role("role",
+            name="test_role",
             path="/",
             assume_role_policy=assume_role.json)
-        test_profile = aws.iam.InstanceProfile("testProfile", role=role.name)
+        test_profile = aws.iam.InstanceProfile("test_profile",
+            name="test_profile",
+            role=role.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Instance Profiles using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
+        $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
         ```
 
         :param str resource_name: The name of the resource.
@@ -318,6 +323,7 @@ class InstanceProfile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -331,17 +337,21 @@ class InstanceProfile(pulumi.CustomResource):
             actions=["sts:AssumeRole"],
         )])
         role = aws.iam.Role("role",
+            name="test_role",
             path="/",
             assume_role_policy=assume_role.json)
-        test_profile = aws.iam.InstanceProfile("testProfile", role=role.name)
+        test_profile = aws.iam.InstanceProfile("test_profile",
+            name="test_profile",
+            role=role.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Instance Profiles using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
+        $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
         ```
 
         :param str resource_name: The name of the resource.
@@ -382,8 +392,6 @@ class InstanceProfile(pulumi.CustomResource):
             __props__.__dict__["create_date"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["unique_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(InstanceProfile, __self__).__init__(
             'aws:iam/instanceProfile:InstanceProfile',
             resource_name,

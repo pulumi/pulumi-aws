@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,15 +30,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
+//			_, err := chime.NewVoiceConnector(ctx, "default", &chime.VoiceConnectorArgs{
+//				Name:              pulumi.String("vc-name-test"),
 //				RequireEncryption: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = chime.NewVoiceConnectorStreaming(ctx, "defaultVoiceConnectorStreaming", &chime.VoiceConnectorStreamingArgs{
+//			_, err = chime.NewVoiceConnectorStreaming(ctx, "default", &chime.VoiceConnectorStreamingArgs{
 //				Disabled:         pulumi.Bool(false),
-//				VoiceConnectorId: defaultVoiceConnector.ID(),
+//				VoiceConnectorId: _default.ID(),
 //				DataRetention:    pulumi.Int(7),
 //				StreamingNotificationTargets: pulumi.StringArray{
 //					pulumi.String("SQS"),
@@ -51,8 +53,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example Usage With Media Insights
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,7 +73,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
+//			_, err := chime.NewVoiceConnector(ctx, "default", &chime.VoiceConnectorArgs{
+//				Name:              pulumi.String("vc-name-test"),
 //				RequireEncryption: pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -95,19 +101,22 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("ExampleResourceAccessRole"),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleStream, err := kinesis.NewStream(ctx, "exampleStream", &kinesis.StreamArgs{
+//			exampleStream, err := kinesis.NewStream(ctx, "example", &kinesis.StreamArgs{
+//				Name:       pulumi.String("ExampleStream"),
 //				ShardCount: pulumi.Int(2),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleMediaInsightsPipelineConfiguration, err := chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "exampleMediaInsightsPipelineConfiguration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
+//			example, err := chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "example", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
+//				Name:                  pulumi.String("ExampleConfig"),
 //				ResourceAccessRoleArn: exampleRole.Arn,
 //				Elements: chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArray{
 //					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
@@ -127,16 +136,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = chime.NewVoiceConnectorStreaming(ctx, "defaultVoiceConnectorStreaming", &chime.VoiceConnectorStreamingArgs{
+//			_, err = chime.NewVoiceConnectorStreaming(ctx, "default", &chime.VoiceConnectorStreamingArgs{
 //				Disabled:         pulumi.Bool(false),
-//				VoiceConnectorId: defaultVoiceConnector.ID(),
+//				VoiceConnectorId: _default.ID(),
 //				DataRetention:    pulumi.Int(7),
 //				StreamingNotificationTargets: pulumi.StringArray{
 //					pulumi.String("SQS"),
 //				},
 //				MediaInsightsConfiguration: &chime.VoiceConnectorStreamingMediaInsightsConfigurationArgs{
 //					Disabled:         pulumi.Bool(false),
-//					ConfigurationArn: exampleMediaInsightsPipelineConfiguration.Arn,
+//					ConfigurationArn: example.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -147,15 +156,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Chime Voice Connector Streaming using the `voice_connector_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming default abcdef1ghij2klmno3pqr4
-//
+// $ pulumi import aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming default abcdef1ghij2klmno3pqr4
 // ```
 type VoiceConnectorStreaming struct {
 	pulumi.CustomResourceState

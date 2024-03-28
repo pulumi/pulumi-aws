@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -34,13 +35,16 @@ public final class GetInstanceCreditSpecification {
 
         @CustomType.Setter
         public Builder cpuCredits(String cpuCredits) {
-            this.cpuCredits = Objects.requireNonNull(cpuCredits);
+            if (cpuCredits == null) {
+              throw new MissingRequiredPropertyException("GetInstanceCreditSpecification", "cpuCredits");
+            }
+            this.cpuCredits = cpuCredits;
             return this;
         }
         public GetInstanceCreditSpecification build() {
-            final var o = new GetInstanceCreditSpecification();
-            o.cpuCredits = cpuCredits;
-            return o;
+            final var _resultValue = new GetInstanceCreditSpecification();
+            _resultValue.cpuCredits = cpuCredits;
+            return _resultValue;
         }
     }
 }

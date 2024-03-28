@@ -19,10 +19,12 @@ import * as utilities from "../utilities";
  * For more information about Network ACLs, see the AWS Documentation on [Network ACLs][aws-network-acls].
  *
  * ## Example Usage
+ *
  * ### Basic Example
  *
  * The following config gives the Default Network ACL the same rules that AWS includes but pulls the resource under management by this provider. This means that any ACL rules added or changed will be detected as drift.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -48,10 +50,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example: Deny All Egress Traffic, Allow Ingress
  *
  * The following denies all Egress traffic by omitting any `egress` rules, while including the default `ingress` rule to allow all traffic.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -63,24 +68,28 @@ import * as utilities from "../utilities";
  *         protocol: "-1",
  *         ruleNo: 100,
  *         action: "allow",
- *         cidrBlock: aws_default_vpc.mainvpc.cidr_block,
+ *         cidrBlock: mainvpcAwsDefaultVpc.cidrBlock,
  *         fromPort: 0,
  *         toPort: 0,
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example: Deny All Traffic To Any Subnet In The Default Network ACL
  *
  * This config denies all traffic in the Default ACL. This can be useful if you want to lock down the VPC to force all resources to assign a non-default ACL.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const mainvpc = new aws.ec2.Vpc("mainvpc", {cidrBlock: "10.1.0.0/16"});
  * const _default = new aws.ec2.DefaultNetworkAcl("default", {defaultNetworkAclId: mainvpc.defaultNetworkAclId});
- * // no rules defined, deny all traffic in this ACL
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Managing Subnets In A Default Network ACL
  *
  * Within a VPC, all Subnets must be associated with a Network ACL. In order to "delete" the association between a Subnet and a non-default Network ACL, the association is destroyed by replacing it with an association between the Subnet and the Default ACL instead.
@@ -91,13 +100,15 @@ import * as utilities from "../utilities";
  *
  * As an alternative to the above, you can also specify the following lifecycle configuration in your `aws.ec2.DefaultNetworkAcl` resource:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // ... other configuration ...
  * const _default = new aws.ec2.DefaultNetworkAcl("default", {});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Removing `aws.ec2.DefaultNetworkAcl` From Your Configuration
  *
  * Each AWS VPC comes with a Default Network ACL that cannot be deleted. The `aws.ec2.DefaultNetworkAcl` allows you to manage this Network ACL, but the provider cannot destroy it. Removing this resource from your configuration will remove it from your statefile and management, **but will not destroy the Network ACL.** All Subnets associations and ingress or egress rules will be left as they are at the time of removal. You can resume managing them via the AWS Console.
@@ -107,7 +118,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import Default Network ACLs using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/defaultNetworkAcl:DefaultNetworkAcl sample acl-7aaabd18
+ * $ pulumi import aws:ec2/defaultNetworkAcl:DefaultNetworkAcl sample acl-7aaabd18
  * ```
  */
 export class DefaultNetworkAcl extends pulumi.CustomResource {
@@ -217,8 +228,6 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(DefaultNetworkAcl.__pulumiType, name, resourceInputs, opts);
     }
 }

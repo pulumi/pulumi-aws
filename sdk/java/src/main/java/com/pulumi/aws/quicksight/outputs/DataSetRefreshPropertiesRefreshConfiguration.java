@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.aws.quicksight.outputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,13 +43,16 @@ public final class DataSetRefreshPropertiesRefreshConfiguration {
 
         @CustomType.Setter
         public Builder incrementalRefresh(DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh incrementalRefresh) {
-            this.incrementalRefresh = Objects.requireNonNull(incrementalRefresh);
+            if (incrementalRefresh == null) {
+              throw new MissingRequiredPropertyException("DataSetRefreshPropertiesRefreshConfiguration", "incrementalRefresh");
+            }
+            this.incrementalRefresh = incrementalRefresh;
             return this;
         }
         public DataSetRefreshPropertiesRefreshConfiguration build() {
-            final var o = new DataSetRefreshPropertiesRefreshConfiguration();
-            o.incrementalRefresh = incrementalRefresh;
-            return o;
+            final var _resultValue = new DataSetRefreshPropertiesRefreshConfiguration();
+            _resultValue.incrementalRefresh = incrementalRefresh;
+            return _resultValue;
         }
     }
 }

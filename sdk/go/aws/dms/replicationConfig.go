@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,12 +35,12 @@ import (
 //				ReplicationConfigIdentifier: pulumi.String("test-dms-serverless-replication-tf"),
 //				ResourceIdentifier:          pulumi.String("test-dms-serverless-replication-tf"),
 //				ReplicationType:             pulumi.String("cdc"),
-//				SourceEndpointArn:           pulumi.Any(aws_dms_endpoint.Source.Endpoint_arn),
-//				TargetEndpointArn:           pulumi.Any(aws_dms_endpoint.Target.Endpoint_arn),
-//				TableMappings:               pulumi.String("  {\n    \"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"object-locator\":{\"schema-name\":\"%%\",\"table-name\":\"%%\", \"rule-action\":\"include\"}]\n  }\n"),
+//				SourceEndpointArn:           pulumi.Any(source.EndpointArn),
+//				TargetEndpointArn:           pulumi.Any(target.EndpointArn),
+//				TableMappings:               pulumi.String("  {\n    \"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"rule-action\":\"include\",\"object-locator\":{\"schema-name\":\"%%\",\"table-name\":\"%%\"}}]\n  }\n"),
 //				StartReplication:            pulumi.Bool(true),
 //				ComputeConfig: &dms.ReplicationConfigComputeConfigArgs{
-//					ReplicationSubnetGroupId:   pulumi.Any(aws_dms_replication_subnet_group.Default.Replication_subnet_group_id),
+//					ReplicationSubnetGroupId:   pulumi.Any(_default.ReplicationSubnetGroupId),
 //					MaxCapacityUnits:           pulumi.Int(64),
 //					MinCapacityUnits:           pulumi.Int(2),
 //					PreferredMaintenanceWindow: pulumi.String("sun:23:45-mon:00:30"),
@@ -53,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a replication config using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:dms/replicationConfig:ReplicationConfig example arn:aws:dms:us-east-1:123456789012:replication-config:UX6OL6MHMMJKFFOXE3H7LLJCMEKBDUG4ZV7DRSI
-//
+// $ pulumi import aws:dms/replicationConfig:ReplicationConfig example arn:aws:dms:us-east-1:123456789012:replication-config:UX6OL6MHMMJKFFOXE3H7LLJCMEKBDUG4ZV7DRSI
 // ```
 type ReplicationConfig struct {
 	pulumi.CustomResourceState
@@ -121,10 +121,6 @@ func NewReplicationConfig(ctx *pulumi.Context,
 	if args.TargetEndpointArn == nil {
 		return nil, errors.New("invalid value for required argument 'TargetEndpointArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationConfig
 	err := ctx.RegisterResource("aws:dms/replicationConfig:ReplicationConfig", name, args, &resource, opts...)

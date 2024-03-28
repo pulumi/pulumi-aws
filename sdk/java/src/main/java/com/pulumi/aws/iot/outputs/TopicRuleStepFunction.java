@@ -4,6 +4,7 @@
 package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,32 @@ public final class TopicRuleStepFunction {
 
         @CustomType.Setter
         public Builder executionNamePrefix(@Nullable String executionNamePrefix) {
+
             this.executionNamePrefix = executionNamePrefix;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("TopicRuleStepFunction", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder stateMachineName(String stateMachineName) {
-            this.stateMachineName = Objects.requireNonNull(stateMachineName);
+            if (stateMachineName == null) {
+              throw new MissingRequiredPropertyException("TopicRuleStepFunction", "stateMachineName");
+            }
+            this.stateMachineName = stateMachineName;
             return this;
         }
         public TopicRuleStepFunction build() {
-            final var o = new TopicRuleStepFunction();
-            o.executionNamePrefix = executionNamePrefix;
-            o.roleArn = roleArn;
-            o.stateMachineName = stateMachineName;
-            return o;
+            final var _resultValue = new TopicRuleStepFunction();
+            _resultValue.executionNamePrefix = executionNamePrefix;
+            _resultValue.roleArn = roleArn;
+            _resultValue.stateMachineName = stateMachineName;
+            return _resultValue;
         }
     }
 }

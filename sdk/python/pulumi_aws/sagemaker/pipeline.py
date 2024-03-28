@@ -339,8 +339,10 @@ class Pipeline(pulumi.CustomResource):
         Provides a SageMaker Pipeline resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -349,25 +351,26 @@ class Pipeline(pulumi.CustomResource):
         example = aws.sagemaker.Pipeline("example",
             pipeline_name="example",
             pipeline_display_name="example",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             pipeline_definition=json.dumps({
-                "Version": "2020-12-01",
-                "Steps": [{
-                    "Name": "Test",
-                    "Type": "Fail",
-                    "Arguments": {
-                        "ErrorMessage": "test",
+                "version": "2020-12-01",
+                "steps": [{
+                    "name": "Test",
+                    "type": "Fail",
+                    "arguments": {
+                        "errorMessage": "test",
                     },
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import pipelines using the `pipeline_name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
+        $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
         ```
 
         :param str resource_name: The name of the resource.
@@ -391,8 +394,10 @@ class Pipeline(pulumi.CustomResource):
         Provides a SageMaker Pipeline resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -401,25 +406,26 @@ class Pipeline(pulumi.CustomResource):
         example = aws.sagemaker.Pipeline("example",
             pipeline_name="example",
             pipeline_display_name="example",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             pipeline_definition=json.dumps({
-                "Version": "2020-12-01",
-                "Steps": [{
-                    "Name": "Test",
-                    "Type": "Fail",
-                    "Arguments": {
-                        "ErrorMessage": "test",
+                "version": "2020-12-01",
+                "steps": [{
+                    "name": "Test",
+                    "type": "Fail",
+                    "arguments": {
+                        "errorMessage": "test",
                     },
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import pipelines using the `pipeline_name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
+        $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
         ```
 
         :param str resource_name: The name of the resource.
@@ -468,8 +474,6 @@ class Pipeline(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Pipeline, __self__).__init__(
             'aws:sagemaker/pipeline:Pipeline',
             resource_name,

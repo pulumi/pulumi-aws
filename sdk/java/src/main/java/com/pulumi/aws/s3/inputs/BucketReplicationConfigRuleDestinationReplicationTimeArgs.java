@@ -6,6 +6,7 @@ package com.pulumi.aws.s3.inputs;
 import com.pulumi.aws.s3.inputs.BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class BucketReplicationConfigRuleDestinationReplicationTimeArgs ext
         }
 
         public BucketReplicationConfigRuleDestinationReplicationTimeArgs build() {
-            $.status = Objects.requireNonNull($.status, "expected parameter 'status' to be non-null");
-            $.time = Objects.requireNonNull($.time, "expected parameter 'time' to be non-null");
+            if ($.status == null) {
+                throw new MissingRequiredPropertyException("BucketReplicationConfigRuleDestinationReplicationTimeArgs", "status");
+            }
+            if ($.time == null) {
+                throw new MissingRequiredPropertyException("BucketReplicationConfigRuleDestinationReplicationTimeArgs", "time");
+            }
             return $;
         }
     }

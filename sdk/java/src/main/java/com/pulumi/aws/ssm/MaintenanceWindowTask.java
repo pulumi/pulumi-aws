@@ -22,7 +22,10 @@ import javax.annotation.Nullable;
  * Provides an SSM Maintenance Window Task resource
  * 
  * ## Example Usage
+ * 
  * ### Automation Tasks
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,17 +56,17 @@ import javax.annotation.Nullable;
  *             .priority(1)
  *             .taskArn(&#34;AWS-RestartEC2Instance&#34;)
  *             .taskType(&#34;AUTOMATION&#34;)
- *             .windowId(aws_ssm_maintenance_window.example().id())
+ *             .windowId(exampleAwsSsmMaintenanceWindow.id())
  *             .targets(MaintenanceWindowTaskTargetArgs.builder()
  *                 .key(&#34;InstanceIds&#34;)
- *                 .values(aws_instance.example().id())
+ *                 .values(exampleAwsInstance.id())
  *                 .build())
  *             .taskInvocationParameters(MaintenanceWindowTaskTaskInvocationParametersArgs.builder()
  *                 .automationParameters(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs.builder()
  *                     .documentVersion(&#34;$LATEST&#34;)
  *                     .parameters(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs.builder()
  *                         .name(&#34;InstanceId&#34;)
- *                         .values(aws_instance.example().id())
+ *                         .values(exampleAwsInstance.id())
  *                         .build())
  *                     .build())
  *                 .build())
@@ -72,7 +75,64 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Lambda Tasks
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ssm.MaintenanceWindowTask;
+ * import com.pulumi.aws.ssm.MaintenanceWindowTaskArgs;
+ * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTargetArgs;
+ * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersArgs;
+ * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new MaintenanceWindowTask(&#34;example&#34;, MaintenanceWindowTaskArgs.builder()        
+ *             .maxConcurrency(2)
+ *             .maxErrors(1)
+ *             .priority(1)
+ *             .taskArn(exampleAwsLambdaFunction.arn())
+ *             .taskType(&#34;LAMBDA&#34;)
+ *             .windowId(exampleAwsSsmMaintenanceWindow.id())
+ *             .targets(MaintenanceWindowTaskTargetArgs.builder()
+ *                 .key(&#34;InstanceIds&#34;)
+ *                 .values(exampleAwsInstance.id())
+ *                 .build())
+ *             .taskInvocationParameters(MaintenanceWindowTaskTaskInvocationParametersArgs.builder()
+ *                 .lambdaParameters(MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs.builder()
+ *                     .clientContext(StdFunctions.base64encode(Base64encodeArgs.builder()
+ *                         .input(&#34;{\&#34;key1\&#34;:\&#34;value1\&#34;}&#34;)
+ *                         .build()).result())
+ *                     .payload(&#34;{\&#34;key1\&#34;:\&#34;value1\&#34;}&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Run Command Tasks
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -104,19 +164,19 @@ import javax.annotation.Nullable;
  *             .priority(1)
  *             .taskArn(&#34;AWS-RunShellScript&#34;)
  *             .taskType(&#34;RUN_COMMAND&#34;)
- *             .windowId(aws_ssm_maintenance_window.example().id())
+ *             .windowId(exampleAwsSsmMaintenanceWindow.id())
  *             .targets(MaintenanceWindowTaskTargetArgs.builder()
  *                 .key(&#34;InstanceIds&#34;)
- *                 .values(aws_instance.example().id())
+ *                 .values(exampleAwsInstance.id())
  *                 .build())
  *             .taskInvocationParameters(MaintenanceWindowTaskTaskInvocationParametersArgs.builder()
  *                 .runCommandParameters(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.builder()
- *                     .outputS3Bucket(aws_s3_bucket.example().id())
+ *                     .outputS3Bucket(exampleAwsS3Bucket.id())
  *                     .outputS3KeyPrefix(&#34;output&#34;)
- *                     .serviceRoleArn(aws_iam_role.example().arn())
+ *                     .serviceRoleArn(exampleAwsIamRole.arn())
  *                     .timeoutSeconds(600)
  *                     .notificationConfig(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs.builder()
- *                         .notificationArn(aws_sns_topic.example().arn())
+ *                         .notificationArn(exampleAwsSnsTopic.arn())
  *                         .notificationEvents(&#34;All&#34;)
  *                         .notificationType(&#34;Command&#34;)
  *                         .build())
@@ -131,7 +191,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Step Function Tasks
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -160,12 +224,12 @@ import javax.annotation.Nullable;
  *             .maxConcurrency(2)
  *             .maxErrors(1)
  *             .priority(1)
- *             .taskArn(aws_sfn_activity.example().id())
+ *             .taskArn(exampleAwsSfnActivity.id())
  *             .taskType(&#34;STEP_FUNCTIONS&#34;)
- *             .windowId(aws_ssm_maintenance_window.example().id())
+ *             .windowId(exampleAwsSsmMaintenanceWindow.id())
  *             .targets(MaintenanceWindowTaskTargetArgs.builder()
  *                 .key(&#34;InstanceIds&#34;)
- *                 .values(aws_instance.example().id())
+ *                 .values(exampleAwsInstance.id())
  *                 .build())
  *             .taskInvocationParameters(MaintenanceWindowTaskTaskInvocationParametersArgs.builder()
  *                 .stepFunctionsParameters(MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs.builder()
@@ -178,13 +242,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AWS Maintenance Window Task using the `window_id` and `window_task_id` separated by `/`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ssm/maintenanceWindowTask:MaintenanceWindowTask task &lt;window_id&gt;/&lt;window_task_id&gt;
+ * $ pulumi import aws:ssm/maintenanceWindowTask:MaintenanceWindowTask task &lt;window_id&gt;/&lt;window_task_id&gt;
  * ```
  * 
  */

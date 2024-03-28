@@ -10,17 +10,22 @@ import * as utilities from "../utilities";
 /**
  * Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
  *
+ * > This resource cannot be used with S3 directory buckets.
+ *
  * ## Example Usage
+ *
  * ### Add inventory configuration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testBucketV2 = new aws.s3.BucketV2("testBucketV2", {});
- * const inventory = new aws.s3.BucketV2("inventory", {});
- * const testInventory = new aws.s3.Inventory("testInventory", {
- *     bucket: testBucketV2.id,
+ * const test = new aws.s3.BucketV2("test", {bucket: "my-tf-test-bucket"});
+ * const inventory = new aws.s3.BucketV2("inventory", {bucket: "my-tf-inventory-bucket"});
+ * const testInventory = new aws.s3.Inventory("test", {
+ *     bucket: test.id,
+ *     name: "EntireBucketDaily",
  *     includedObjectVersions: "All",
  *     schedule: {
  *         frequency: "Daily",
@@ -33,16 +38,20 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Add inventory configuration with S3 object prefix
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.s3.BucketV2("test", {});
- * const inventory = new aws.s3.BucketV2("inventory", {});
+ * const test = new aws.s3.BucketV2("test", {bucket: "my-tf-test-bucket"});
+ * const inventory = new aws.s3.BucketV2("inventory", {bucket: "my-tf-inventory-bucket"});
  * const test_prefix = new aws.s3.Inventory("test-prefix", {
  *     bucket: test.id,
+ *     name: "DocumentsWeekly",
  *     includedObjectVersions: "All",
  *     schedule: {
  *         frequency: "Daily",
@@ -59,13 +68,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import S3 bucket inventory configurations using `bucket:inventory`. For example:
  *
  * ```sh
- *  $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
+ * $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
  * ```
  */
 export class Inventory extends pulumi.CustomResource {

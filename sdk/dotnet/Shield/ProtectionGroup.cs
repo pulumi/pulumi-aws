@@ -15,8 +15,10 @@ namespace Pulumi.Aws.Shield
     /// [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html)
     /// 
     /// ## Example Usage
+    /// 
     /// ### Create protection group for all resources
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,15 +29,18 @@ namespace Pulumi.Aws.Shield
     /// {
     ///     var example = new Aws.Shield.ProtectionGroup("example", new()
     ///     {
+    ///         ProtectionGroupId = "example",
     ///         Aggregation = "MAX",
     ///         Pattern = "ALL",
-    ///         ProtectionGroupId = "example",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Create protection group for arbitrary number of resources
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,53 +49,51 @@ namespace Pulumi.Aws.Shield
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var currentRegion = Aws.GetRegion.Invoke();
+    ///     var current = Aws.GetRegion.Invoke();
     /// 
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var currentGetCallerIdentity = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var exampleEip = new Aws.Ec2.Eip("exampleEip", new()
+    ///     var example = new Aws.Ec2.Eip("example", new()
     ///     {
     ///         Domain = "vpc",
     ///     });
     /// 
-    ///     var exampleProtection = new Aws.Shield.Protection("exampleProtection", new()
+    ///     var exampleProtection = new Aws.Shield.Protection("example", new()
     ///     {
-    ///         ResourceArn = Output.Tuple(currentRegion, currentCallerIdentity, exampleEip.Id).Apply(values =&gt;
+    ///         Name = "example",
+    ///         ResourceArn = Output.Tuple(current, currentGetCallerIdentity, example.Id).Apply(values =&gt;
     ///         {
-    ///             var currentRegion = values.Item1;
-    ///             var currentCallerIdentity = values.Item2;
+    ///             var current = values.Item1;
+    ///             var currentGetCallerIdentity = values.Item2;
     ///             var id = values.Item3;
-    ///             return $"arn:aws:ec2:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:eip-allocation/{id}";
+    ///             return $"arn:aws:ec2:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:eip-allocation/{id}";
     ///         }),
     ///     });
     /// 
-    ///     var exampleProtectionGroup = new Aws.Shield.ProtectionGroup("exampleProtectionGroup", new()
+    ///     var exampleProtectionGroup = new Aws.Shield.ProtectionGroup("example", new()
     ///     {
     ///         ProtectionGroupId = "example",
     ///         Aggregation = "MEAN",
     ///         Pattern = "ARBITRARY",
     ///         Members = new[]
     ///         {
-    ///             Output.Tuple(currentRegion, currentCallerIdentity, exampleEip.Id).Apply(values =&gt;
+    ///             Output.Tuple(current, currentGetCallerIdentity, example.Id).Apply(values =&gt;
     ///             {
-    ///                 var currentRegion = values.Item1;
-    ///                 var currentCallerIdentity = values.Item2;
+    ///                 var current = values.Item1;
+    ///                 var currentGetCallerIdentity = values.Item2;
     ///                 var id = values.Item3;
-    ///                 return $"arn:aws:ec2:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:eip-allocation/{id}";
+    ///                 return $"arn:aws:ec2:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:eip-allocation/{id}";
     ///             }),
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleProtection,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Create protection group for a type of resource
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -101,21 +104,22 @@ namespace Pulumi.Aws.Shield
     /// {
     ///     var example = new Aws.Shield.ProtectionGroup("example", new()
     ///     {
+    ///         ProtectionGroupId = "example",
     ///         Aggregation = "SUM",
     ///         Pattern = "BY_RESOURCE_TYPE",
-    ///         ProtectionGroupId = "example",
     ///         ResourceType = "ELASTIC_IP_ALLOCATION",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Shield protection group resources using their protection group id. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
+    /// $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:shield/protectionGroup:ProtectionGroup")]
@@ -192,10 +196,6 @@ namespace Pulumi.Aws.Shield
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -339,11 +339,7 @@ namespace Pulumi.Aws.Shield
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ProtectionGroupState()

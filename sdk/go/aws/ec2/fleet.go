@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,8 +33,8 @@ import (
 //				LaunchTemplateConfigs: ec2.FleetLaunchTemplateConfigArray{
 //					&ec2.FleetLaunchTemplateConfigArgs{
 //						LaunchTemplateSpecification: &ec2.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs{
-//							LaunchTemplateId: pulumi.Any(aws_launch_template.Example.Id),
-//							Version:          pulumi.Any(aws_launch_template.Example.Latest_version),
+//							LaunchTemplateId: pulumi.Any(exampleAwsLaunchTemplate.Id),
+//							Version:          pulumi.Any(exampleAwsLaunchTemplate.LatestVersion),
 //						},
 //					},
 //				},
@@ -50,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_ec2_fleet` using the Fleet identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
-//
+// $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
 // ```
 type Fleet struct {
 	pulumi.CustomResourceState
@@ -118,10 +118,6 @@ func NewFleet(ctx *pulumi.Context,
 	if args.TargetCapacitySpecification == nil {
 		return nil, errors.New("invalid value for required argument 'TargetCapacitySpecification'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Fleet
 	err := ctx.RegisterResource("aws:ec2/fleet:Fleet", name, args, &resource, opts...)

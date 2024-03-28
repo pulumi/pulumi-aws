@@ -144,22 +144,27 @@ def get_availability_zones(all_availability_zones: Optional[bool] = None,
     > When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
 
     ## Example Usage
+
     ### By State
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
+    # Declare the data source
     available = aws.get_availability_zones(state="available")
+    # e.g., Create subnets in the first two available availability zones
     primary = aws.ec2.Subnet("primary", availability_zone=available.names[0])
-    # ...
     secondary = aws.ec2.Subnet("secondary", availability_zone=available.names[1])
-    # ...
     ```
+    <!--End PulumiCodeChooser -->
+
     ### By Filter
 
     All Local Zones (regardless of opt-in status):
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -173,9 +178,11 @@ def get_availability_zones(all_availability_zones: Optional[bool] = None,
             ],
         )])
     ```
+    <!--End PulumiCodeChooser -->
 
     Only Availability Zones (no Local Zones):
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -185,6 +192,7 @@ def get_availability_zones(all_availability_zones: Optional[bool] = None,
         values=["opt-in-not-required"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
@@ -235,22 +243,27 @@ def get_availability_zones_output(all_availability_zones: Optional[pulumi.Input[
     > When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
 
     ## Example Usage
+
     ### By State
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
+    # Declare the data source
     available = aws.get_availability_zones(state="available")
+    # e.g., Create subnets in the first two available availability zones
     primary = aws.ec2.Subnet("primary", availability_zone=available.names[0])
-    # ...
     secondary = aws.ec2.Subnet("secondary", availability_zone=available.names[1])
-    # ...
     ```
+    <!--End PulumiCodeChooser -->
+
     ### By Filter
 
     All Local Zones (regardless of opt-in status):
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -264,9 +277,11 @@ def get_availability_zones_output(all_availability_zones: Optional[pulumi.Input[
             ],
         )])
     ```
+    <!--End PulumiCodeChooser -->
 
     Only Availability Zones (no Local Zones):
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -276,6 +291,7 @@ def get_availability_zones_output(all_availability_zones: Optional[pulumi.Input[
         values=["opt-in-not-required"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.

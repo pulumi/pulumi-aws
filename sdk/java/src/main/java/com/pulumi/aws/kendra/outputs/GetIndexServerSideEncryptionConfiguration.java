@@ -4,6 +4,7 @@
 package com.pulumi.aws.kendra.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class GetIndexServerSideEncryptionConfiguration {
 
         @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+            if (kmsKeyId == null) {
+              throw new MissingRequiredPropertyException("GetIndexServerSideEncryptionConfiguration", "kmsKeyId");
+            }
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         public GetIndexServerSideEncryptionConfiguration build() {
-            final var o = new GetIndexServerSideEncryptionConfiguration();
-            o.kmsKeyId = kmsKeyId;
-            return o;
+            final var _resultValue = new GetIndexServerSideEncryptionConfiguration();
+            _resultValue.kmsKeyId = kmsKeyId;
+            return _resultValue;
         }
     }
 }

@@ -7,6 +7,7 @@ import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecGrpcRoute;
 import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttp2Route;
 import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttpRoute;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -56,7 +57,10 @@ public final class GetGatewayRouteSpec {
 
         @CustomType.Setter
         public Builder grpcRoutes(List<GetGatewayRouteSpecGrpcRoute> grpcRoutes) {
-            this.grpcRoutes = Objects.requireNonNull(grpcRoutes);
+            if (grpcRoutes == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpec", "grpcRoutes");
+            }
+            this.grpcRoutes = grpcRoutes;
             return this;
         }
         public Builder grpcRoutes(GetGatewayRouteSpecGrpcRoute... grpcRoutes) {
@@ -64,7 +68,10 @@ public final class GetGatewayRouteSpec {
         }
         @CustomType.Setter
         public Builder http2Routes(List<GetGatewayRouteSpecHttp2Route> http2Routes) {
-            this.http2Routes = Objects.requireNonNull(http2Routes);
+            if (http2Routes == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpec", "http2Routes");
+            }
+            this.http2Routes = http2Routes;
             return this;
         }
         public Builder http2Routes(GetGatewayRouteSpecHttp2Route... http2Routes) {
@@ -72,7 +79,10 @@ public final class GetGatewayRouteSpec {
         }
         @CustomType.Setter
         public Builder httpRoutes(List<GetGatewayRouteSpecHttpRoute> httpRoutes) {
-            this.httpRoutes = Objects.requireNonNull(httpRoutes);
+            if (httpRoutes == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpec", "httpRoutes");
+            }
+            this.httpRoutes = httpRoutes;
             return this;
         }
         public Builder httpRoutes(GetGatewayRouteSpecHttpRoute... httpRoutes) {
@@ -80,16 +90,19 @@ public final class GetGatewayRouteSpec {
         }
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpec", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         public GetGatewayRouteSpec build() {
-            final var o = new GetGatewayRouteSpec();
-            o.grpcRoutes = grpcRoutes;
-            o.http2Routes = http2Routes;
-            o.httpRoutes = httpRoutes;
-            o.priority = priority;
-            return o;
+            final var _resultValue = new GetGatewayRouteSpec();
+            _resultValue.grpcRoutes = grpcRoutes;
+            _resultValue.http2Routes = http2Routes;
+            _resultValue.httpRoutes = httpRoutes;
+            _resultValue.priority = priority;
+            return _resultValue;
         }
     }
 }

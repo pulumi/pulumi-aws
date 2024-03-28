@@ -4,6 +4,7 @@
 package com.pulumi.aws.appstream.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ImageBuilderAccessEndpoint {
     /**
-     * @return Type of interface endpoint.
+     * @return Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
      * 
      */
     private String endpointType;
     /**
-     * @return Identifier (ID) of the VPC in which the interface endpoint is used.
+     * @return Identifier (ID) of the interface VPC endpoint.
      * 
      */
     private @Nullable String vpceId;
 
     private ImageBuilderAccessEndpoint() {}
     /**
-     * @return Type of interface endpoint.
+     * @return Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
      * 
      */
     public String endpointType() {
         return this.endpointType;
     }
     /**
-     * @return Identifier (ID) of the VPC in which the interface endpoint is used.
+     * @return Identifier (ID) of the interface VPC endpoint.
      * 
      */
     public Optional<String> vpceId() {
@@ -58,19 +59,23 @@ public final class ImageBuilderAccessEndpoint {
 
         @CustomType.Setter
         public Builder endpointType(String endpointType) {
-            this.endpointType = Objects.requireNonNull(endpointType);
+            if (endpointType == null) {
+              throw new MissingRequiredPropertyException("ImageBuilderAccessEndpoint", "endpointType");
+            }
+            this.endpointType = endpointType;
             return this;
         }
         @CustomType.Setter
         public Builder vpceId(@Nullable String vpceId) {
+
             this.vpceId = vpceId;
             return this;
         }
         public ImageBuilderAccessEndpoint build() {
-            final var o = new ImageBuilderAccessEndpoint();
-            o.endpointType = endpointType;
-            o.vpceId = vpceId;
-            return o;
+            final var _resultValue = new ImageBuilderAccessEndpoint();
+            _resultValue.endpointType = endpointType;
+            _resultValue.vpceId = vpceId;
+            return _resultValue;
         }
     }
 }

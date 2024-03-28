@@ -59,19 +59,21 @@ public final class GlobalClusterGlobalClusterMember {
 
         @CustomType.Setter
         public Builder dbClusterArn(@Nullable String dbClusterArn) {
+
             this.dbClusterArn = dbClusterArn;
             return this;
         }
         @CustomType.Setter
         public Builder isWriter(@Nullable Boolean isWriter) {
+
             this.isWriter = isWriter;
             return this;
         }
         public GlobalClusterGlobalClusterMember build() {
-            final var o = new GlobalClusterGlobalClusterMember();
-            o.dbClusterArn = dbClusterArn;
-            o.isWriter = isWriter;
-            return o;
+            final var _resultValue = new GlobalClusterGlobalClusterMember();
+            _resultValue.dbClusterArn = dbClusterArn;
+            _resultValue.isWriter = isWriter;
+            return _resultValue;
         }
     }
 }

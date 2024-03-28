@@ -4,6 +4,7 @@
 package com.pulumi.aws.codebuild.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -171,67 +172,79 @@ public final class ProjectArtifacts {
 
         @CustomType.Setter
         public Builder artifactIdentifier(@Nullable String artifactIdentifier) {
+
             this.artifactIdentifier = artifactIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder bucketOwnerAccess(@Nullable String bucketOwnerAccess) {
+
             this.bucketOwnerAccess = bucketOwnerAccess;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionDisabled(@Nullable Boolean encryptionDisabled) {
+
             this.encryptionDisabled = encryptionDisabled;
             return this;
         }
         @CustomType.Setter
         public Builder location(@Nullable String location) {
+
             this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder namespaceType(@Nullable String namespaceType) {
+
             this.namespaceType = namespaceType;
             return this;
         }
         @CustomType.Setter
         public Builder overrideArtifactName(@Nullable Boolean overrideArtifactName) {
+
             this.overrideArtifactName = overrideArtifactName;
             return this;
         }
         @CustomType.Setter
         public Builder packaging(@Nullable String packaging) {
+
             this.packaging = packaging;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("ProjectArtifacts", "type");
+            }
+            this.type = type;
             return this;
         }
         public ProjectArtifacts build() {
-            final var o = new ProjectArtifacts();
-            o.artifactIdentifier = artifactIdentifier;
-            o.bucketOwnerAccess = bucketOwnerAccess;
-            o.encryptionDisabled = encryptionDisabled;
-            o.location = location;
-            o.name = name;
-            o.namespaceType = namespaceType;
-            o.overrideArtifactName = overrideArtifactName;
-            o.packaging = packaging;
-            o.path = path;
-            o.type = type;
-            return o;
+            final var _resultValue = new ProjectArtifacts();
+            _resultValue.artifactIdentifier = artifactIdentifier;
+            _resultValue.bucketOwnerAccess = bucketOwnerAccess;
+            _resultValue.encryptionDisabled = encryptionDisabled;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.namespaceType = namespaceType;
+            _resultValue.overrideArtifactName = overrideArtifactName;
+            _resultValue.packaging = packaging;
+            _resultValue.path = path;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

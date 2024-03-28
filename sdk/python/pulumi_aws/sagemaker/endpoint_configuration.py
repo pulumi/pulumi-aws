@@ -32,7 +32,7 @@ class EndpointConfigurationArgs:
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantArgs']]] shadow_production_variants: Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantArgs']]] shadow_production_variants: Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "production_variants", production_variants)
@@ -127,7 +127,7 @@ class EndpointConfigurationArgs:
     @pulumi.getter(name="shadowProductionVariants")
     def shadow_production_variants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantArgs']]]]:
         """
-        Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+        Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
         """
         return pulumi.get(self, "shadow_production_variants")
 
@@ -170,7 +170,7 @@ class _EndpointConfigurationState:
         :param pulumi.Input[str] name: The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationProductionVariantArgs']]] production_variants: An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantArgs']]] shadow_production_variants: Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantArgs']]] shadow_production_variants: Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -286,7 +286,7 @@ class _EndpointConfigurationState:
     @pulumi.getter(name="shadowProductionVariants")
     def shadow_production_variants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantArgs']]]]:
         """
-        Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+        Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
         """
         return pulumi.get(self, "shadow_production_variants")
 
@@ -343,14 +343,16 @@ class EndpointConfiguration(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         ec = aws.sagemaker.EndpointConfiguration("ec",
+            name="my-endpoint-config",
             production_variants=[aws.sagemaker.EndpointConfigurationProductionVariantArgs(
                 variant_name="variant-1",
-                model_name=aws_sagemaker_model["m"]["name"],
+                model_name=m["name"],
                 initial_instance_count=1,
                 instance_type="ml.t2.medium",
             )],
@@ -358,13 +360,14 @@ class EndpointConfiguration(pulumi.CustomResource):
                 "Name": "foo",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import endpoint configurations using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
+        $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
         ```
 
         :param str resource_name: The name of the resource.
@@ -375,7 +378,7 @@ class EndpointConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigurationProductionVariantArgs']]]] production_variants: An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigurationShadowProductionVariantArgs']]]] shadow_production_variants: Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigurationShadowProductionVariantArgs']]]] shadow_production_variants: Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -391,14 +394,16 @@ class EndpointConfiguration(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         ec = aws.sagemaker.EndpointConfiguration("ec",
+            name="my-endpoint-config",
             production_variants=[aws.sagemaker.EndpointConfigurationProductionVariantArgs(
                 variant_name="variant-1",
-                model_name=aws_sagemaker_model["m"]["name"],
+                model_name=m["name"],
                 initial_instance_count=1,
                 instance_type="ml.t2.medium",
             )],
@@ -406,13 +411,14 @@ class EndpointConfiguration(pulumi.CustomResource):
                 "Name": "foo",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import endpoint configurations using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
+        $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
         ```
 
         :param str resource_name: The name of the resource.
@@ -459,8 +465,6 @@ class EndpointConfiguration(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EndpointConfiguration, __self__).__init__(
             'aws:sagemaker/endpointConfiguration:EndpointConfiguration',
             resource_name,
@@ -495,7 +499,7 @@ class EndpointConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigurationProductionVariantArgs']]]] production_variants: An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigurationShadowProductionVariantArgs']]]] shadow_production_variants: Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigurationShadowProductionVariantArgs']]]] shadow_production_variants: Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -575,7 +579,7 @@ class EndpointConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="shadowProductionVariants")
     def shadow_production_variants(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointConfigurationShadowProductionVariant']]]:
         """
-        Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+        Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
         """
         return pulumi.get(self, "shadow_production_variants")
 

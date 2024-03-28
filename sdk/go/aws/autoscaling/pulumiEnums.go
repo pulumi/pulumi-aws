@@ -8,26 +8,32 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html
 type Metric string
 
 const (
-	MetricGroupMinSize              = Metric("GroupMinSize")
-	MetricGroupMaxSize              = Metric("GroupMaxSize")
-	MetricGroupDesiredCapacity      = Metric("GroupDesiredCapacity")
-	MetricGroupInServiceInstances   = Metric("GroupInServiceInstances")
-	MetricGroupInServiceCapacity    = Metric("GroupInServiceCapacity")
-	MetricGroupPendingInstances     = Metric("GroupPendingInstances")
-	MetricGroupPendingCapacity      = Metric("GroupPendingCapacity")
-	MetricGroupStandbyInstances     = Metric("GroupStandbyInstances")
-	MetricGroupStandbyCapacity      = Metric("GroupStandbyCapacity")
-	MetricGroupTerminatingInstances = Metric("GroupTerminatingInstances")
-	MetricGroupTerminatingCapacity  = Metric("GroupTerminatingCapacity")
-	MetricGroupTotalInstances       = Metric("GroupTotalInstances")
-	MetricGroupTotalCapacity        = Metric("GroupTotalCapacity")
+	MetricGroupMinSize                    = Metric("GroupMinSize")
+	MetricGroupMaxSize                    = Metric("GroupMaxSize")
+	MetricGroupDesiredCapacity            = Metric("GroupDesiredCapacity")
+	MetricGroupInServiceInstances         = Metric("GroupInServiceInstances")
+	MetricGroupInServiceCapacity          = Metric("GroupInServiceCapacity")
+	MetricGroupPendingInstances           = Metric("GroupPendingInstances")
+	MetricGroupPendingCapacity            = Metric("GroupPendingCapacity")
+	MetricGroupStandbyInstances           = Metric("GroupStandbyInstances")
+	MetricGroupStandbyCapacity            = Metric("GroupStandbyCapacity")
+	MetricGroupTerminatingInstances       = Metric("GroupTerminatingInstances")
+	MetricGroupTerminatingCapacity        = Metric("GroupTerminatingCapacity")
+	MetricGroupTotalInstances             = Metric("GroupTotalInstances")
+	MetricGroupTotalCapacity              = Metric("GroupTotalCapacity")
+	MetricWarmPoolDesiredCapacity         = Metric("WarmPoolDesiredCapacity")
+	MetricWarmPoolWarmedCapacity          = Metric("WarmPoolWarmedCapacity")
+	MetricWarmPoolPendingCapacity         = Metric("WarmPoolPendingCapacity")
+	MetricWarmPoolTerminatingCapacity     = Metric("WarmPoolTerminatingCapacity")
+	MetricWarmPoolTotalCapacity           = Metric("WarmPoolTotalCapacity")
+	MetricGroupAndWarmPoolDesiredCapacity = Metric("GroupAndWarmPoolDesiredCapacity")
+	MetricGroupAndWarmPoolTotalCapacity   = Metric("GroupAndWarmPoolTotalCapacity")
 )
 
 func (Metric) ElementType() reflect.Type {
@@ -149,10 +155,29 @@ func (o MetricPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetricInput is an input type that accepts MetricArgs and MetricOutput values.
-// You can construct a concrete instance of `MetricInput` via:
+// MetricInput is an input type that accepts values of the Metric enum
+// A concrete instance of `MetricInput` can be one of the following:
 //
-//	MetricArgs{...}
+//	MetricGroupMinSize
+//	MetricGroupMaxSize
+//	MetricGroupDesiredCapacity
+//	MetricGroupInServiceInstances
+//	MetricGroupInServiceCapacity
+//	MetricGroupPendingInstances
+//	MetricGroupPendingCapacity
+//	MetricGroupStandbyInstances
+//	MetricGroupStandbyCapacity
+//	MetricGroupTerminatingInstances
+//	MetricGroupTerminatingCapacity
+//	MetricGroupTotalInstances
+//	MetricGroupTotalCapacity
+//	MetricWarmPoolDesiredCapacity
+//	MetricWarmPoolWarmedCapacity
+//	MetricWarmPoolPendingCapacity
+//	MetricWarmPoolTerminatingCapacity
+//	MetricWarmPoolTotalCapacity
+//	MetricGroupAndWarmPoolDesiredCapacity
+//	MetricGroupAndWarmPoolTotalCapacity
 type MetricInput interface {
 	pulumi.Input
 
@@ -185,12 +210,6 @@ func (in *metricPtr) ToMetricPtrOutput() MetricPtrOutput {
 
 func (in *metricPtr) ToMetricPtrOutputWithContext(ctx context.Context) MetricPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetricPtrOutput)
-}
-
-func (in *metricPtr) ToOutput(ctx context.Context) pulumix.Output[*Metric] {
-	return pulumix.Output[*Metric]{
-		OutputState: in.ToMetricPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html
@@ -319,10 +338,10 @@ func (o MetricsGranularityPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetricsGranularityInput is an input type that accepts MetricsGranularityArgs and MetricsGranularityOutput values.
-// You can construct a concrete instance of `MetricsGranularityInput` via:
+// MetricsGranularityInput is an input type that accepts values of the MetricsGranularity enum
+// A concrete instance of `MetricsGranularityInput` can be one of the following:
 //
-//	MetricsGranularityArgs{...}
+//	MetricsGranularityOneMinute
 type MetricsGranularityInput interface {
 	pulumi.Input
 
@@ -355,12 +374,6 @@ func (in *metricsGranularityPtr) ToMetricsGranularityPtrOutput() MetricsGranular
 
 func (in *metricsGranularityPtr) ToMetricsGranularityPtrOutputWithContext(ctx context.Context) MetricsGranularityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetricsGranularityPtrOutput)
-}
-
-func (in *metricsGranularityPtr) ToOutput(ctx context.Context) pulumix.Output[*MetricsGranularity] {
-	return pulumix.Output[*MetricsGranularity]{
-		OutputState: in.ToMetricsGranularityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_NotificationConfiguration.html
@@ -493,10 +506,14 @@ func (o NotificationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// NotificationTypeInput is an input type that accepts NotificationTypeArgs and NotificationTypeOutput values.
-// You can construct a concrete instance of `NotificationTypeInput` via:
+// NotificationTypeInput is an input type that accepts values of the NotificationType enum
+// A concrete instance of `NotificationTypeInput` can be one of the following:
 //
-//	NotificationTypeArgs{...}
+//	NotificationTypeInstanceLaunch
+//	NotificationTypeInstanceTerminate
+//	NotificationTypeInstanceLaunchError
+//	NotificationTypeInstanceTerminateError
+//	NotificationTypeTestNotification
 type NotificationTypeInput interface {
 	pulumi.Input
 
@@ -529,12 +546,6 @@ func (in *notificationTypePtr) ToNotificationTypePtrOutput() NotificationTypePtr
 
 func (in *notificationTypePtr) ToNotificationTypePtrOutputWithContext(ctx context.Context) NotificationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(NotificationTypePtrOutput)
-}
-
-func (in *notificationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*NotificationType] {
-	return pulumix.Output[*NotificationType]{
-		OutputState: in.ToNotificationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

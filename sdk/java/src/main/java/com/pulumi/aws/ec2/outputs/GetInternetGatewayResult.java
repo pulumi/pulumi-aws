@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.aws.ec2.outputs.GetInternetGatewayAttachment;
 import com.pulumi.aws.ec2.outputs.GetInternetGatewayFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -99,12 +100,18 @@ public final class GetInternetGatewayResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetInternetGatewayResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder attachments(List<GetInternetGatewayAttachment> attachments) {
-            this.attachments = Objects.requireNonNull(attachments);
+            if (attachments == null) {
+              throw new MissingRequiredPropertyException("GetInternetGatewayResult", "attachments");
+            }
+            this.attachments = attachments;
             return this;
         }
         public Builder attachments(GetInternetGatewayAttachment... attachments) {
@@ -112,6 +119,7 @@ public final class GetInternetGatewayResult {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetInternetGatewayFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -120,34 +128,46 @@ public final class GetInternetGatewayResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetInternetGatewayResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder internetGatewayId(String internetGatewayId) {
-            this.internetGatewayId = Objects.requireNonNull(internetGatewayId);
+            if (internetGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetInternetGatewayResult", "internetGatewayId");
+            }
+            this.internetGatewayId = internetGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+            if (ownerId == null) {
+              throw new MissingRequiredPropertyException("GetInternetGatewayResult", "ownerId");
+            }
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetInternetGatewayResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetInternetGatewayResult build() {
-            final var o = new GetInternetGatewayResult();
-            o.arn = arn;
-            o.attachments = attachments;
-            o.filters = filters;
-            o.id = id;
-            o.internetGatewayId = internetGatewayId;
-            o.ownerId = ownerId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetInternetGatewayResult();
+            _resultValue.arn = arn;
+            _resultValue.attachments = attachments;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.internetGatewayId = internetGatewayId;
+            _resultValue.ownerId = ownerId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

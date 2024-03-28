@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## RDS Instance Class Types
     /// 
-    /// Amazon RDS supports three types of instance classes: Standard, Memory Optimized, and Burstable Performance.
+    /// Amazon RDS supports instance classes for the following use cases: General-purpose, Memory-optimized, Burstable Performance, and Optimized-reads.
     /// For more information please read the AWS RDS documentation about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
     /// 
     /// ## Low-Downtime Updates
@@ -41,14 +41,17 @@ namespace Pulumi.Aws.Rds
     /// 
     /// Low-downtime updates are only available for DB Instances using MySQL and MariaDB,
     /// as other engines are not supported by RDS Blue/Green deployments.
+    /// They cannot be used with DB Instances with replicas.
     /// 
     /// Backups must be enabled to use low-downtime updates.
     /// 
     /// Enable low-downtime updates by setting `blue_green_update.enabled` to `true`.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,19 +66,218 @@ namespace Pulumi.Aws.Rds
     ///         DbName = "mydb",
     ///         Engine = "mysql",
     ///         EngineVersion = "5.7",
-    ///         InstanceClass = "db.t3.micro",
-    ///         ParameterGroupName = "default.mysql5.7",
-    ///         Password = "foobarbaz",
-    ///         SkipFinalSnapshot = true,
+    ///         InstanceClass = Aws.Rds.InstanceType.T3_Micro,
     ///         Username = "foo",
+    ///         Password = "foobarbaz",
+    ///         ParameterGroupName = "default.mysql5.7",
+    ///         SkipFinalSnapshot = true,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### RDS Custom for Oracle Usage with Replica
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Lookup the available instance classes for the custom engine for the region being operated in
+    ///     var custom_oracle = Aws.Rds.GetOrderableDbInstance.Invoke(new()
+    ///     {
+    ///         Engine = "custom-oracle-ee",
+    ///         EngineVersion = "19.c.ee.002",
+    ///         LicenseModel = "bring-your-own-license",
+    ///         StorageType = "gp3",
+    ///         PreferredInstanceClasses = new[]
+    ///         {
+    ///             "db.r5.xlarge",
+    ///             "db.r5.2xlarge",
+    ///             "db.r5.4xlarge",
+    ///         },
+    ///     });
+    /// 
+    ///     // The RDS instance resource requires an ARN. Look up the ARN of the KMS key associated with the CEV.
+    ///     var byId = Aws.Kms.GetKey.Invoke(new()
+    ///     {
+    ///         KeyId = "example-ef278353ceba4a5a97de6784565b9f78",
+    ///     });
+    /// 
+    ///     var @default = new Aws.Rds.Instance("default", new()
+    ///     {
+    ///         AllocatedStorage = 50,
+    ///         AutoMinorVersionUpgrade = false,
+    ///         CustomIamInstanceProfile = "AWSRDSCustomInstanceProfile",
+    ///         BackupRetentionPeriod = 7,
+    ///         DbSubnetGroupName = dbSubnetGroupName,
+    ///         Engine = custom_oracle.Apply(custom_oracle =&gt; custom_oracle.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.Engine)),
+    ///         EngineVersion = custom_oracle.Apply(custom_oracle =&gt; custom_oracle.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.EngineVersion)),
+    ///         Identifier = "ee-instance-demo",
+    ///         InstanceClass = custom_oracle.Apply(custom_oracle =&gt; custom_oracle.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.InstanceClass)).Apply(System.Enum.Parse&lt;Aws.Rds.InstanceType&gt;),
+    ///         KmsKeyId = byId.Apply(getKeyResult =&gt; getKeyResult.Arn),
+    ///         LicenseModel = custom_oracle.Apply(custom_oracle =&gt; custom_oracle.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.LicenseModel)),
+    ///         MultiAz = false,
+    ///         Password = "avoid-plaintext-passwords",
+    ///         Username = "test",
+    ///         StorageEncrypted = true,
+    ///     });
+    /// 
+    ///     var test_replica = new Aws.Rds.Instance("test-replica", new()
+    ///     {
+    ///         ReplicateSourceDb = @default.Identifier,
+    ///         ReplicaMode = "mounted",
+    ///         AutoMinorVersionUpgrade = false,
+    ///         CustomIamInstanceProfile = "AWSRDSCustomInstanceProfile",
+    ///         BackupRetentionPeriod = 7,
+    ///         Identifier = "ee-instance-replica",
+    ///         InstanceClass = custom_oracle.Apply(custom_oracle =&gt; custom_oracle.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.InstanceClass)).Apply(System.Enum.Parse&lt;Aws.Rds.InstanceType&gt;),
+    ///         KmsKeyId = byId.Apply(getKeyResult =&gt; getKeyResult.Arn),
+    ///         MultiAz = false,
+    ///         SkipFinalSnapshot = true,
+    ///         StorageEncrypted = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### RDS Custom for SQL Server
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Lookup the available instance classes for the custom engine for the region being operated in
+    ///     var custom_sqlserver = Aws.Rds.GetOrderableDbInstance.Invoke(new()
+    ///     {
+    ///         Engine = "custom-sqlserver-se",
+    ///         EngineVersion = "15.00.4249.2.v1",
+    ///         StorageType = "gp3",
+    ///         PreferredInstanceClasses = new[]
+    ///         {
+    ///             "db.r5.xlarge",
+    ///             "db.r5.2xlarge",
+    ///             "db.r5.4xlarge",
+    ///         },
+    ///     });
+    /// 
+    ///     // The RDS instance resource requires an ARN. Look up the ARN of the KMS key.
+    ///     var byId = Aws.Kms.GetKey.Invoke(new()
+    ///     {
+    ///         KeyId = "example-ef278353ceba4a5a97de6784565b9f78",
+    ///     });
+    /// 
+    ///     var example = new Aws.Rds.Instance("example", new()
+    ///     {
+    ///         AllocatedStorage = 500,
+    ///         AutoMinorVersionUpgrade = false,
+    ///         CustomIamInstanceProfile = "AWSRDSCustomSQLServerInstanceProfile",
+    ///         BackupRetentionPeriod = 7,
+    ///         DbSubnetGroupName = dbSubnetGroupName,
+    ///         Engine = custom_sqlserver.Apply(custom_sqlserver =&gt; custom_sqlserver.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.Engine)),
+    ///         EngineVersion = custom_sqlserver.Apply(custom_sqlserver =&gt; custom_sqlserver.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.EngineVersion)),
+    ///         Identifier = "sql-instance-demo",
+    ///         InstanceClass = custom_sqlserver.Apply(custom_sqlserver =&gt; custom_sqlserver.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.InstanceClass)).Apply(System.Enum.Parse&lt;Aws.Rds.InstanceType&gt;),
+    ///         KmsKeyId = byId.Apply(getKeyResult =&gt; getKeyResult.Arn),
+    ///         MultiAz = false,
+    ///         Password = "avoid-plaintext-passwords",
+    ///         StorageEncrypted = true,
+    ///         Username = "test",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### RDS Db2 Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Lookup the default version for the engine. Db2 Standard Edition is `db2-se`, Db2 Advanced Edition is `db2-ae`.
+    ///     var @default = Aws.Rds.GetEngineVersion.Invoke(new()
+    ///     {
+    ///         Engine = "db2-se",
+    ///     });
+    /// 
+    ///     // Lookup the available instance classes for the engine in the region being operated in
+    ///     var example = Aws.Rds.GetOrderableDbInstance.Invoke(new()
+    ///     {
+    ///         Engine = @default.Apply(getEngineVersionResult =&gt; getEngineVersionResult.Engine),
+    ///         EngineVersion = @default.Apply(getEngineVersionResult =&gt; getEngineVersionResult.Version),
+    ///         LicenseModel = "bring-your-own-license",
+    ///         StorageType = "gp3",
+    ///         PreferredInstanceClasses = new[]
+    ///         {
+    ///             "db.t3.small",
+    ///             "db.r6i.large",
+    ///             "db.m6i.large",
+    ///         },
+    ///     });
+    /// 
+    ///     // The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
+    ///     var exampleParameterGroup = new Aws.Rds.ParameterGroup("example", new()
+    ///     {
+    ///         Name = "db-db2-params",
+    ///         Family = @default.Apply(@default =&gt; @default.Apply(getEngineVersionResult =&gt; getEngineVersionResult.ParameterGroupFamily)),
+    ///         Parameters = new[]
+    ///         {
+    ///             new Aws.Rds.Inputs.ParameterGroupParameterArgs
+    ///             {
+    ///                 ApplyMethod = "immediate",
+    ///                 Name = "rds.ibm_customer_id",
+    ///                 Value = "0",
+    ///             },
+    ///             new Aws.Rds.Inputs.ParameterGroupParameterArgs
+    ///             {
+    ///                 ApplyMethod = "immediate",
+    ///                 Name = "rds.ibm_site_id",
+    ///                 Value = "0",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Create the RDS Db2 instance, use the data sources defined to set attributes
+    ///     var exampleInstance = new Aws.Rds.Instance("example", new()
+    ///     {
+    ///         AllocatedStorage = 100,
+    ///         BackupRetentionPeriod = 7,
+    ///         DbName = "test",
+    ///         Engine = example.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.Engine),
+    ///         EngineVersion = example.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.EngineVersion),
+    ///         Identifier = "db2-instance-demo",
+    ///         InstanceClass = example.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.InstanceClass).Apply(System.Enum.Parse&lt;Aws.Rds.InstanceType&gt;),
+    ///         ParameterGroupName = exampleParameterGroup.Name,
+    ///         Password = "avoid-plaintext-passwords",
+    ///         Username = "test",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Storage Autoscaling
     /// 
     /// To enable Storage Autoscaling with instances that support the feature, define the `max_allocated_storage` argument higher than the `allocated_storage` argument. This provider will automatically hide differences with the `allocated_storage` argument value if autoscaling occurs.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -92,12 +294,15 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Managed Master Passwords via Secrets Manager, default KMS Key
     /// 
     /// &gt; More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
     /// 
     /// You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `password` attribute (removal is required).
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -112,20 +317,23 @@ namespace Pulumi.Aws.Rds
     ///         DbName = "mydb",
     ///         Engine = "mysql",
     ///         EngineVersion = "5.7",
-    ///         InstanceClass = "db.t3.micro",
+    ///         InstanceClass = Aws.Rds.InstanceType.T3_Micro,
     ///         ManageMasterUserPassword = true,
-    ///         ParameterGroupName = "default.mysql5.7",
     ///         Username = "foo",
+    ///         ParameterGroupName = "default.mysql5.7",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Managed Master Passwords via Secrets Manager, specific KMS Key
     /// 
     /// &gt; More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
     /// 
     /// You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -145,7 +353,7 @@ namespace Pulumi.Aws.Rds
     ///         DbName = "mydb",
     ///         Engine = "mysql",
     ///         EngineVersion = "5.7",
-    ///         InstanceClass = "db.t3.micro",
+    ///         InstanceClass = Aws.Rds.InstanceType.T3_Micro,
     ///         ManageMasterUserPassword = true,
     ///         MasterUserSecretKmsKeyId = example.KeyId,
     ///         Username = "foo",
@@ -154,13 +362,14 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DB Instances using the `identifier`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
+    /// $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/instance:Instance")]
@@ -314,19 +523,43 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> DeletionProtection { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Directory Service Active Directory domain to create the instance in.
+        /// The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
         /// </summary>
         [Output("domain")]
         public Output<string?> Domain { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the IAM role to be used when making API calls to the Directory Service.
+        /// The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        [Output("domainAuthSecretArn")]
+        public Output<string?> DomainAuthSecretArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        [Output("domainDnsIps")]
+        public Output<ImmutableArray<string>> DomainDnsIps { get; private set; } = null!;
+
+        /// <summary>
+        /// The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        [Output("domainFqdn")]
+        public Output<string> DomainFqdn { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
         /// </summary>
         [Output("domainIamRoleName")]
         public Output<string?> DomainIamRoleName { get; private set; } = null!;
 
         /// <summary>
-        /// Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+        /// The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        [Output("domainOu")]
+        public Output<string?> DomainOu { get; private set; } = null!;
+
+        /// <summary>
+        /// Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         /// </summary>
         [Output("enabledCloudwatchLogsExports")]
         public Output<ImmutableArray<string>> EnabledCloudwatchLogsExports { get; private set; } = null!;
@@ -515,8 +748,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> OptionGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the DB parameter group to
-        /// associate.
+        /// Name of the DB parameter group to associate.
         /// </summary>
         [Output("parameterGroupName")]
         public Output<string> ParameterGroupName { get; private set; } = null!;
@@ -712,7 +944,6 @@ namespace Pulumi.Aws.Rds
                 AdditionalSecretOutputs =
                 {
                     "password",
-                    "tagsAll",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -873,22 +1104,52 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? DeletionProtection { get; set; }
 
         /// <summary>
-        /// The ID of the Directory Service Active Directory domain to create the instance in.
+        /// The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
         /// <summary>
-        /// The name of the IAM role to be used when making API calls to the Directory Service.
+        /// The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        [Input("domainAuthSecretArn")]
+        public Input<string>? DomainAuthSecretArn { get; set; }
+
+        [Input("domainDnsIps")]
+        private InputList<string>? _domainDnsIps;
+
+        /// <summary>
+        /// The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        public InputList<string> DomainDnsIps
+        {
+            get => _domainDnsIps ?? (_domainDnsIps = new InputList<string>());
+            set => _domainDnsIps = value;
+        }
+
+        /// <summary>
+        /// The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        [Input("domainFqdn")]
+        public Input<string>? DomainFqdn { get; set; }
+
+        /// <summary>
+        /// The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
         /// </summary>
         [Input("domainIamRoleName")]
         public Input<string>? DomainIamRoleName { get; set; }
+
+        /// <summary>
+        /// The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        [Input("domainOu")]
+        public Input<string>? DomainOu { get; set; }
 
         [Input("enabledCloudwatchLogsExports")]
         private InputList<string>? _enabledCloudwatchLogsExports;
 
         /// <summary>
-        /// Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+        /// Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         /// </summary>
         public InputList<string> EnabledCloudwatchLogsExports
         {
@@ -1044,8 +1305,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? OptionGroupName { get; set; }
 
         /// <summary>
-        /// Name of the DB parameter group to
-        /// associate.
+        /// Name of the DB parameter group to associate.
         /// </summary>
         [Input("parameterGroupName")]
         public Input<string>? ParameterGroupName { get; set; }
@@ -1372,22 +1632,52 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? DeletionProtection { get; set; }
 
         /// <summary>
-        /// The ID of the Directory Service Active Directory domain to create the instance in.
+        /// The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
         /// <summary>
-        /// The name of the IAM role to be used when making API calls to the Directory Service.
+        /// The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        [Input("domainAuthSecretArn")]
+        public Input<string>? DomainAuthSecretArn { get; set; }
+
+        [Input("domainDnsIps")]
+        private InputList<string>? _domainDnsIps;
+
+        /// <summary>
+        /// The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        public InputList<string> DomainDnsIps
+        {
+            get => _domainDnsIps ?? (_domainDnsIps = new InputList<string>());
+            set => _domainDnsIps = value;
+        }
+
+        /// <summary>
+        /// The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        [Input("domainFqdn")]
+        public Input<string>? DomainFqdn { get; set; }
+
+        /// <summary>
+        /// The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
         /// </summary>
         [Input("domainIamRoleName")]
         public Input<string>? DomainIamRoleName { get; set; }
+
+        /// <summary>
+        /// The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        [Input("domainOu")]
+        public Input<string>? DomainOu { get; set; }
 
         [Input("enabledCloudwatchLogsExports")]
         private InputList<string>? _enabledCloudwatchLogsExports;
 
         /// <summary>
-        /// Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+        /// Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         /// </summary>
         public InputList<string> EnabledCloudwatchLogsExports
         {
@@ -1591,8 +1881,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? OptionGroupName { get; set; }
 
         /// <summary>
-        /// Name of the DB parameter group to
-        /// associate.
+        /// Name of the DB parameter group to associate.
         /// </summary>
         [Input("parameterGroupName")]
         public Input<string>? ParameterGroupName { get; set; }
@@ -1763,11 +2052,7 @@ namespace Pulumi.Aws.Rds
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

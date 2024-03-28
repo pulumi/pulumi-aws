@@ -13,7 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides an AppConfig Deployment Strategy resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,8 +45,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DeploymentStrategy(&#34;example&#34;, DeploymentStrategyArgs.builder()        
- *             .deploymentDurationInMinutes(3)
+ *             .name(&#34;example-deployment-strategy-tf&#34;)
  *             .description(&#34;Example Deployment Strategy&#34;)
+ *             .deploymentDurationInMinutes(3)
  *             .finalBakeTimeInMinutes(4)
  *             .growthFactor(10)
  *             .growthType(&#34;LINEAR&#34;)
@@ -56,13 +58,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AppConfig Deployment Strategies using their deployment strategy ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
+ * $ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
  * ```
  * 
  */
@@ -245,9 +248,6 @@ public class DeploymentStrategy extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

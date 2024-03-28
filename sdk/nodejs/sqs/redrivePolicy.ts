@@ -14,30 +14,35 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const queue = new aws.sqs.Queue("queue", {});
- * const ddl = new aws.sqs.Queue("ddl", {redriveAllowPolicy: queue.arn.apply(arn => JSON.stringify({
- *     redrivePermission: "byQueue",
- *     sourceQueueArns: [arn],
- * }))});
- * const redrivePolicy = new aws.sqs.RedrivePolicy("redrivePolicy", {
- *     queueUrl: queue.id,
- *     redrivePolicy: ddl.arn.apply(arn => JSON.stringify({
- *         deadLetterTargetArn: arn,
+ * const q = new aws.sqs.Queue("q", {name: "examplequeue"});
+ * const ddl = new aws.sqs.Queue("ddl", {
+ *     name: "examplequeue-ddl",
+ *     redriveAllowPolicy: pulumi.jsonStringify({
+ *         redrivePermission: "byQueue",
+ *         sourceQueueArns: [q.arn],
+ *     }),
+ * });
+ * const qRedrivePolicy = new aws.sqs.RedrivePolicy("q", {
+ *     queueUrl: q.id,
+ *     redrivePolicy: pulumi.jsonStringify({
+ *         deadLetterTargetArn: ddl.arn,
  *         maxReceiveCount: 4,
- *     })),
+ *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SQS Queue Redrive Policies using the queue URL. For example:
  *
  * ```sh
- *  $ pulumi import aws:sqs/redrivePolicy:RedrivePolicy test https://queue.amazonaws.com/0123456789012/myqueue
+ * $ pulumi import aws:sqs/redrivePolicy:RedrivePolicy test https://queue.amazonaws.com/0123456789012/myqueue
  * ```
  */
 export class RedrivePolicy extends pulumi.CustomResource {

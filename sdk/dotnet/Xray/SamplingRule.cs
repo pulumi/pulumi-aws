@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Xray
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,32 +25,33 @@ namespace Pulumi.Aws.Xray
     /// {
     ///     var example = new Aws.Xray.SamplingRule("example", new()
     ///     {
+    ///         RuleName = "example",
+    ///         Priority = 9999,
+    ///         Version = 1,
+    ///         ReservoirSize = 1,
+    ///         FixedRate = 0.05,
+    ///         UrlPath = "*",
+    ///         Host = "*",
+    ///         HttpMethod = "*",
+    ///         ServiceType = "*",
+    ///         ServiceName = "*",
+    ///         ResourceArn = "*",
     ///         Attributes = 
     ///         {
     ///             { "Hello", "Tris" },
     ///         },
-    ///         FixedRate = 0.05,
-    ///         Host = "*",
-    ///         HttpMethod = "*",
-    ///         Priority = 9999,
-    ///         ReservoirSize = 1,
-    ///         ResourceArn = "*",
-    ///         RuleName = "example",
-    ///         ServiceName = "*",
-    ///         ServiceType = "*",
-    ///         UrlPath = "*",
-    ///         Version = 1,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import XRay Sampling Rules using the name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:xray/samplingRule:SamplingRule example example
+    /// $ pulumi import aws:xray/samplingRule:SamplingRule example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:xray/samplingRule:SamplingRule")]
@@ -168,10 +170,6 @@ namespace Pulumi.Aws.Xray
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -387,11 +385,7 @@ namespace Pulumi.Aws.Xray
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

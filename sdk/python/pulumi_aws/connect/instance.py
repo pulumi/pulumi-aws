@@ -436,6 +436,7 @@ class Instance(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -446,21 +447,27 @@ class Instance(pulumi.CustomResource):
             instance_alias="friendly-name-connect",
             outbound_calls_enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Existing Active Directory
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.connect.Instance("test",
-            directory_id=aws_directory_service_directory["test"]["id"],
+            directory_id=test_aws_directory_service_directory["id"],
             identity_management_type="EXISTING_DIRECTORY",
             inbound_calls_enabled=True,
             instance_alias="friendly-name-connect",
             outbound_calls_enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With SAML
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -471,13 +478,14 @@ class Instance(pulumi.CustomResource):
             instance_alias="friendly-name-connect",
             outbound_calls_enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Connect instances using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:connect/instance:Instance example f1288a1f-6193-445a-b47e-af739b2
+        $ pulumi import aws:connect/instance:Instance example f1288a1f-6193-445a-b47e-af739b2
         ```
 
         :param str resource_name: The name of the resource.
@@ -508,6 +516,7 @@ class Instance(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -518,21 +527,27 @@ class Instance(pulumi.CustomResource):
             instance_alias="friendly-name-connect",
             outbound_calls_enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Existing Active Directory
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.connect.Instance("test",
-            directory_id=aws_directory_service_directory["test"]["id"],
+            directory_id=test_aws_directory_service_directory["id"],
             identity_management_type="EXISTING_DIRECTORY",
             inbound_calls_enabled=True,
             instance_alias="friendly-name-connect",
             outbound_calls_enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With SAML
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -543,13 +558,14 @@ class Instance(pulumi.CustomResource):
             instance_alias="friendly-name-connect",
             outbound_calls_enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Connect instances using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:connect/instance:Instance example f1288a1f-6193-445a-b47e-af739b2
+        $ pulumi import aws:connect/instance:Instance example f1288a1f-6193-445a-b47e-af739b2
         ```
 
         :param str resource_name: The name of the resource.

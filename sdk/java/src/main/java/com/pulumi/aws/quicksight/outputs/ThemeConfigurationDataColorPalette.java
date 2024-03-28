@@ -73,6 +73,7 @@ public final class ThemeConfigurationDataColorPalette {
 
         @CustomType.Setter
         public Builder colors(@Nullable List<String> colors) {
+
             this.colors = colors;
             return this;
         }
@@ -81,11 +82,13 @@ public final class ThemeConfigurationDataColorPalette {
         }
         @CustomType.Setter
         public Builder emptyFillColor(@Nullable String emptyFillColor) {
+
             this.emptyFillColor = emptyFillColor;
             return this;
         }
         @CustomType.Setter
         public Builder minMaxGradients(@Nullable List<String> minMaxGradients) {
+
             this.minMaxGradients = minMaxGradients;
             return this;
         }
@@ -93,11 +96,11 @@ public final class ThemeConfigurationDataColorPalette {
             return minMaxGradients(List.of(minMaxGradients));
         }
         public ThemeConfigurationDataColorPalette build() {
-            final var o = new ThemeConfigurationDataColorPalette();
-            o.colors = colors;
-            o.emptyFillColor = emptyFillColor;
-            o.minMaxGradients = minMaxGradients;
-            return o;
+            final var _resultValue = new ThemeConfigurationDataColorPalette();
+            _resultValue.colors = colors;
+            _resultValue.emptyFillColor = emptyFillColor;
+            _resultValue.minMaxGradients = minMaxGradients;
+            return _resultValue;
         }
     }
 }

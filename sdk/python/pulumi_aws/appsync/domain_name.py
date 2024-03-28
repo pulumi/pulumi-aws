@@ -167,21 +167,23 @@ class DomainName(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.appsync.DomainName("example",
             domain_name="api.example.com",
-            certificate_arn=aws_acm_certificate["example"]["arn"])
+            certificate_arn=example_aws_acm_certificate["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appsync_domain_name` using the AppSync domain name. For example:
 
         ```sh
-         $ pulumi import aws:appsync/domainName:DomainName example example.com
+        $ pulumi import aws:appsync/domainName:DomainName example example.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -201,21 +203,23 @@ class DomainName(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.appsync.DomainName("example",
             domain_name="api.example.com",
-            certificate_arn=aws_acm_certificate["example"]["arn"])
+            certificate_arn=example_aws_acm_certificate["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appsync_domain_name` using the AppSync domain name. For example:
 
         ```sh
-         $ pulumi import aws:appsync/domainName:DomainName example example.com
+        $ pulumi import aws:appsync/domainName:DomainName example example.com
         ```
 
         :param str resource_name: The name of the resource.

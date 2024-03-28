@@ -4,6 +4,7 @@
 package com.pulumi.aws.mediaconvert.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,25 +72,34 @@ public final class QueueReservationPlanSettings {
 
         @CustomType.Setter
         public Builder commitment(String commitment) {
-            this.commitment = Objects.requireNonNull(commitment);
+            if (commitment == null) {
+              throw new MissingRequiredPropertyException("QueueReservationPlanSettings", "commitment");
+            }
+            this.commitment = commitment;
             return this;
         }
         @CustomType.Setter
         public Builder renewalType(String renewalType) {
-            this.renewalType = Objects.requireNonNull(renewalType);
+            if (renewalType == null) {
+              throw new MissingRequiredPropertyException("QueueReservationPlanSettings", "renewalType");
+            }
+            this.renewalType = renewalType;
             return this;
         }
         @CustomType.Setter
         public Builder reservedSlots(Integer reservedSlots) {
-            this.reservedSlots = Objects.requireNonNull(reservedSlots);
+            if (reservedSlots == null) {
+              throw new MissingRequiredPropertyException("QueueReservationPlanSettings", "reservedSlots");
+            }
+            this.reservedSlots = reservedSlots;
             return this;
         }
         public QueueReservationPlanSettings build() {
-            final var o = new QueueReservationPlanSettings();
-            o.commitment = commitment;
-            o.renewalType = renewalType;
-            o.reservedSlots = reservedSlots;
-            return o;
+            final var _resultValue = new QueueReservationPlanSettings();
+            _resultValue.commitment = commitment;
+            _resultValue.renewalType = renewalType;
+            _resultValue.reservedSlots = reservedSlots;
+            return _resultValue;
         }
     }
 }

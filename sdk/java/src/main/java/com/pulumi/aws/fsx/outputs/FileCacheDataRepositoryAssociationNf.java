@@ -4,6 +4,7 @@
 package com.pulumi.aws.fsx.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,6 +59,7 @@ public final class FileCacheDataRepositoryAssociationNf {
 
         @CustomType.Setter
         public Builder dnsIps(@Nullable List<String> dnsIps) {
+
             this.dnsIps = dnsIps;
             return this;
         }
@@ -66,14 +68,17 @@ public final class FileCacheDataRepositoryAssociationNf {
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("FileCacheDataRepositoryAssociationNf", "version");
+            }
+            this.version = version;
             return this;
         }
         public FileCacheDataRepositoryAssociationNf build() {
-            final var o = new FileCacheDataRepositoryAssociationNf();
-            o.dnsIps = dnsIps;
-            o.version = version;
-            return o;
+            final var _resultValue = new FileCacheDataRepositoryAssociationNf();
+            _resultValue.dnsIps = dnsIps;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

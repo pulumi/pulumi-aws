@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,9 +23,12 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     {
+    ///         Bucket = "example",
+    ///     });
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
     ///         Acl = "private",
@@ -56,12 +60,13 @@ namespace Pulumi.Aws.CodeBuild
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "example",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -116,8 +121,8 @@ namespace Pulumi.Aws.CodeBuild
     ///                         Variable = "ec2:Subnet",
     ///                         Values = new[]
     ///                         {
-    ///                             aws_subnet.Example1.Arn,
-    ///                             aws_subnet.Example2.Arn,
+    ///                             example1.Arn,
+    ///                             example2.Arn,
     ///                         },
     ///                     },
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -147,14 +152,15 @@ namespace Pulumi.Aws.CodeBuild
     ///         },
     ///     });
     /// 
-    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
+    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("example", new()
     ///     {
     ///         Role = exampleRole.Name,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleProject = new Aws.CodeBuild.Project("exampleProject", new()
+    ///     var exampleProject = new Aws.CodeBuild.Project("example", new()
     ///     {
+    ///         Name = "test-project",
     ///         Description = "test_codebuild_project",
     ///         BuildTimeout = 5,
     ///         ServiceRole = exampleRole.Arn,
@@ -214,16 +220,16 @@ namespace Pulumi.Aws.CodeBuild
     ///         SourceVersion = "master",
     ///         VpcConfig = new Aws.CodeBuild.Inputs.ProjectVpcConfigArgs
     ///         {
-    ///             VpcId = aws_vpc.Example.Id,
+    ///             VpcId = exampleAwsVpc.Id,
     ///             Subnets = new[]
     ///             {
-    ///                 aws_subnet.Example1.Id,
-    ///                 aws_subnet.Example2.Id,
+    ///                 example1.Id,
+    ///                 example2.Id,
     ///             },
     ///             SecurityGroupIds = new[]
     ///             {
-    ///                 aws_security_group.Example1.Id,
-    ///                 aws_security_group.Example2.Id,
+    ///                 example1AwsSecurityGroup.Id,
+    ///                 example2AwsSecurityGroup.Id,
     ///             },
     ///         },
     ///         Tags = 
@@ -234,6 +240,7 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     ///     var project_with_cache = new Aws.CodeBuild.Project("project-with-cache", new()
     ///     {
+    ///         Name = "test-project-cache",
     ///         Description = "test_codebuild_project_cache",
     ///         BuildTimeout = 5,
     ///         QueuedTimeout = 5,
@@ -280,13 +287,14 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeBuild Project using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:codebuild/project:Project name project-name
+    /// $ pulumi import aws:codebuild/project:Project name project-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:codebuild/project:Project")]
@@ -323,7 +331,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<Outputs.ProjectBuildBatchConfig?> BuildBatchConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+        /// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
         /// </summary>
         [Output("buildTimeout")]
         public Output<int?> BuildTimeout { get; private set; } = null!;
@@ -389,13 +397,13 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string> PublicProjectAlias { get; private set; } = null!;
 
         /// <summary>
-        /// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+        /// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
         /// </summary>
         [Output("queuedTimeout")]
         public Output<int?> QueuedTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+        /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
         /// </summary>
         [Output("resourceAccessRole")]
         public Output<string?> ResourceAccessRole { get; private set; } = null!;
@@ -479,10 +487,6 @@ namespace Pulumi.Aws.CodeBuild
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -525,7 +529,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<Inputs.ProjectBuildBatchConfigArgs>? BuildBatchConfig { get; set; }
 
         /// <summary>
-        /// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+        /// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
         /// </summary>
         [Input("buildTimeout")]
         public Input<int>? BuildTimeout { get; set; }
@@ -591,13 +595,13 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? ProjectVisibility { get; set; }
 
         /// <summary>
-        /// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+        /// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
         /// </summary>
         [Input("queuedTimeout")]
         public Input<int>? QueuedTimeout { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+        /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
         /// </summary>
         [Input("resourceAccessRole")]
         public Input<string>? ResourceAccessRole { get; set; }
@@ -715,7 +719,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<Inputs.ProjectBuildBatchConfigGetArgs>? BuildBatchConfig { get; set; }
 
         /// <summary>
-        /// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+        /// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
         /// </summary>
         [Input("buildTimeout")]
         public Input<int>? BuildTimeout { get; set; }
@@ -787,13 +791,13 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? PublicProjectAlias { get; set; }
 
         /// <summary>
-        /// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+        /// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
         /// </summary>
         [Input("queuedTimeout")]
         public Input<int>? QueuedTimeout { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+        /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
         /// </summary>
         [Input("resourceAccessRole")]
         public Input<string>? ResourceAccessRole { get; set; }
@@ -876,11 +880,7 @@ namespace Pulumi.Aws.CodeBuild
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

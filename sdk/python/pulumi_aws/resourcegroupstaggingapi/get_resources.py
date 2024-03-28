@@ -113,16 +113,21 @@ def get_resources(exclude_compliant_resources: Optional[bool] = None,
     Provides details about resource tagging.
 
     ## Example Usage
+
     ### Get All Resource Tag Mappings
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.resourcegroupstaggingapi.get_resources()
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Filter By Tag Key and Value
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -135,14 +140,18 @@ def get_resources(exclude_compliant_resources: Optional[bool] = None,
         ],
     )])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Filter By Resource Type
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.resourcegroupstaggingapi.get_resources(resource_type_filters=["ec2:instance"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool exclude_compliant_resources: Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `include_compliance_details` argument is also set to `true`.
@@ -181,16 +190,21 @@ def get_resources_output(exclude_compliant_resources: Optional[pulumi.Input[Opti
     Provides details about resource tagging.
 
     ## Example Usage
+
     ### Get All Resource Tag Mappings
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.resourcegroupstaggingapi.get_resources()
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Filter By Tag Key and Value
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -203,14 +217,18 @@ def get_resources_output(exclude_compliant_resources: Optional[pulumi.Input[Opti
         ],
     )])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Filter By Resource Type
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.resourcegroupstaggingapi.get_resources(resource_type_filters=["ec2:instance"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool exclude_compliant_resources: Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `include_compliance_details` argument is also set to `true`.

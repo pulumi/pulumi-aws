@@ -80,16 +80,28 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the rule should be enabled (defaults to `true`).
+     * Whether the rule should be enabled.
+     * Defaults to `true`.
+     * Conflicts with `state`.
+     * 
+     * @deprecated
+     * Use &#34;state&#34; instead
      * 
      */
+    @Deprecated /* Use ""state"" instead */
     @Import(name="isEnabled")
     private @Nullable Output<Boolean> isEnabled;
 
     /**
-     * @return Whether the rule should be enabled (defaults to `true`).
+     * @return Whether the rule should be enabled.
+     * Defaults to `true`.
+     * Conflicts with `state`.
+     * 
+     * @deprecated
+     * Use &#34;state&#34; instead
      * 
      */
+    @Deprecated /* Use ""state"" instead */
     public Optional<Output<Boolean>> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
@@ -155,6 +167,35 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * State of the rule.
+     * Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+     * When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+     * To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+     * Defaults to `ENABLED`.
+     * Conflicts with `is_enabled`.
+     * 
+     * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
+     * 
+     */
+    @Import(name="state")
+    private @Nullable Output<String> state;
+
+    /**
+     * @return State of the rule.
+     * Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+     * When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+     * To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+     * Defaults to `ENABLED`.
+     * Conflicts with `is_enabled`.
+     * 
+     * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
+     * 
+     */
+    public Optional<Output<String>> state() {
+        return Optional.ofNullable(this.state);
+    }
+
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -204,6 +245,7 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
         this.namePrefix = $.namePrefix;
         this.roleArn = $.roleArn;
         this.scheduleExpression = $.scheduleExpression;
+        this.state = $.state;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
     }
@@ -313,22 +355,34 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isEnabled Whether the rule should be enabled (defaults to `true`).
+         * @param isEnabled Whether the rule should be enabled.
+         * Defaults to `true`.
+         * Conflicts with `state`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use &#34;state&#34; instead
+         * 
          */
+        @Deprecated /* Use ""state"" instead */
         public Builder isEnabled(@Nullable Output<Boolean> isEnabled) {
             $.isEnabled = isEnabled;
             return this;
         }
 
         /**
-         * @param isEnabled Whether the rule should be enabled (defaults to `true`).
+         * @param isEnabled Whether the rule should be enabled.
+         * Defaults to `true`.
+         * Conflicts with `state`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use &#34;state&#34; instead
+         * 
          */
+        @Deprecated /* Use ""state"" instead */
         public Builder isEnabled(Boolean isEnabled) {
             return isEnabled(Output.of(isEnabled));
         }
@@ -415,6 +469,41 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder scheduleExpression(String scheduleExpression) {
             return scheduleExpression(Output.of(scheduleExpression));
+        }
+
+        /**
+         * @param state State of the rule.
+         * Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+         * When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+         * To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+         * Defaults to `ENABLED`.
+         * Conflicts with `is_enabled`.
+         * 
+         * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder state(@Nullable Output<String> state) {
+            $.state = state;
+            return this;
+        }
+
+        /**
+         * @param state State of the rule.
+         * Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+         * When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+         * To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+         * Defaults to `ENABLED`.
+         * Conflicts with `is_enabled`.
+         * 
+         * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder state(String state) {
+            return state(Output.of(state));
         }
 
         /**

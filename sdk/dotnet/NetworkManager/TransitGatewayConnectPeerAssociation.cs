@@ -15,6 +15,7 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,20 +26,21 @@ namespace Pulumi.Aws.NetworkManager
     /// {
     ///     var example = new Aws.NetworkManager.TransitGatewayConnectPeerAssociation("example", new()
     ///     {
-    ///         GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
-    ///         DeviceId = aws_networkmanager_device.Example.Id,
-    ///         TransitGatewayConnectPeerArn = aws_ec2_transit_gateway_connect_peer.Example.Arn,
+    ///         GlobalNetworkId = exampleAwsNetworkmanagerGlobalNetwork.Id,
+    ///         DeviceId = exampleAwsNetworkmanagerDevice.Id,
+    ///         TransitGatewayConnectPeerArn = exampleAwsEc2TransitGatewayConnectPeer.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_networkmanager_transit_gateway_connect_peer_association` using the global network ID and customer gateway ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway-connect-peer/tgw-connect-peer-12345678
+    /// $ pulumi import aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway-connect-peer/tgw-connect-peer-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation")]

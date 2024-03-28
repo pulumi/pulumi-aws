@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Acmpca
     /// Attaches a resource based policy to a private CA.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,7 +25,7 @@ namespace Pulumi.Aws.Acmpca
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -38,7 +40,7 @@ namespace Pulumi.Aws.Acmpca
     ///                         Type = "AWS",
     ///                         Identifiers = new[]
     ///                         {
-    ///                             data.Aws_caller_identity.Current.Account_id,
+    ///                             current.AccountId,
     ///                         },
     ///                     },
     ///                 },
@@ -52,13 +54,13 @@ namespace Pulumi.Aws.Acmpca
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     aws_acmpca_certificate_authority.Example.Arn,
+    ///                     exampleAwsAcmpcaCertificateAuthority.Arn,
     ///                 },
     ///             },
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
     ///                 Sid = "2",
-    ///                 Effect = Allow,
+    ///                 Effect = allow,
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -66,7 +68,7 @@ namespace Pulumi.Aws.Acmpca
     ///                         Type = "AWS",
     ///                         Identifiers = new[]
     ///                         {
-    ///                             data.Aws_caller_identity.Current.Account_id,
+    ///                             current.AccountId,
     ///                         },
     ///                     },
     ///                 },
@@ -76,7 +78,7 @@ namespace Pulumi.Aws.Acmpca
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     aws_acmpca_certificate_authority.Example.Arn,
+    ///                     exampleAwsAcmpcaCertificateAuthority.Arn,
     ///                 },
     ///                 Conditions = new[]
     ///                 {
@@ -94,21 +96,22 @@ namespace Pulumi.Aws.Acmpca
     ///         },
     ///     });
     /// 
-    ///     var examplePolicy = new Aws.Acmpca.Policy("examplePolicy", new()
+    ///     var examplePolicy = new Aws.Acmpca.Policy("example", new()
     ///     {
-    ///         ResourceArn = aws_acmpca_certificate_authority.Example.Arn,
-    ///         PolicyDetails = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         ResourceArn = exampleAwsAcmpcaCertificateAuthority.Arn,
+    ///         PolicyDetails = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_acmpca_policy` using the `resource_arn` value. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:acmpca/policy:Policy example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
+    /// $ pulumi import aws:acmpca/policy:Policy example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:acmpca/policy:Policy")]

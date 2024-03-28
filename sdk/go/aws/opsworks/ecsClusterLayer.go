@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsworks.NewEcsClusterLayer(ctx, "example", &opsworks.EcsClusterLayerArgs{
-//				StackId:       pulumi.Any(aws_opsworks_stack.Example.Id),
-//				EcsClusterArn: pulumi.Any(aws_ecs_cluster.Example.Arn),
+//				StackId:       pulumi.Any(exampleAwsOpsworksStack.Id),
+//				EcsClusterArn: pulumi.Any(exampleAwsEcsCluster.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type EcsClusterLayer struct {
 	pulumi.CustomResourceState
 
@@ -107,10 +109,6 @@ func NewEcsClusterLayer(ctx *pulumi.Context,
 	if args.StackId == nil {
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EcsClusterLayer
 	err := ctx.RegisterResource("aws:opsworks/ecsClusterLayer:EcsClusterLayer", name, args, &resource, opts...)

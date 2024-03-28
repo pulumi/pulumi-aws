@@ -22,14 +22,14 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
     public static final DomainDefaultUserSettingsCanvasAppSettingsArgs Empty = new DomainDefaultUserSettingsCanvasAppSettingsArgs();
 
     /**
-     * The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+     * The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
      * 
      */
     @Import(name="directDeploySettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs> directDeploySettings;
 
     /**
-     * @return The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+     * @return The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs>> directDeploySettings() {
@@ -37,14 +37,14 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
     }
 
     /**
-     * The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+     * The settings for connecting to an external data source with OAuth. See `identity_provider_oauth_settings` Block below.
      * 
      */
     @Import(name="identityProviderOauthSettings")
     private @Nullable Output<List<DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs>> identityProviderOauthSettings;
 
     /**
-     * @return The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+     * @return The settings for connecting to an external data source with OAuth. See `identity_provider_oauth_settings` Block below.
      * 
      */
     public Optional<Output<List<DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs>>> identityProviderOauthSettings() {
@@ -52,14 +52,14 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
     }
 
     /**
-     * The settings for document querying. See Kendra Settings below.
+     * The settings for document querying. See `kendra_settings` Block below.
      * 
      */
     @Import(name="kendraSettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs> kendraSettings;
 
     /**
-     * @return The settings for document querying. See Kendra Settings below.
+     * @return The settings for document querying. See `kendra_settings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs>> kendraSettings() {
@@ -67,14 +67,14 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
     }
 
     /**
-     * The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+     * The model registry settings for the SageMaker Canvas application. See `model_register_settings` Block below.
      * 
      */
     @Import(name="modelRegisterSettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs> modelRegisterSettings;
 
     /**
-     * @return The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+     * @return The model registry settings for the SageMaker Canvas application. See `model_register_settings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs>> modelRegisterSettings() {
@@ -82,14 +82,14 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
     }
 
     /**
-     * Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
+     * Time series forecast settings for the Canvas app. See `time_series_forecasting_settings` Block below.
      * 
      */
     @Import(name="timeSeriesForecastingSettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs> timeSeriesForecastingSettings;
 
     /**
-     * @return Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
+     * @return Time series forecast settings for the Canvas app. See `time_series_forecasting_settings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs>> timeSeriesForecastingSettings() {
@@ -97,14 +97,14 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
     }
 
     /**
-     * The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+     * The workspace settings for the SageMaker Canvas application. See `workspace_settings` Block below.
      * 
      */
     @Import(name="workspaceSettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs> workspaceSettings;
 
     /**
-     * @return The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+     * @return The workspace settings for the SageMaker Canvas application. See `workspace_settings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs>> workspaceSettings() {
@@ -141,7 +141,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param directDeploySettings The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+         * @param directDeploySettings The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param directDeploySettings The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+         * @param directDeploySettings The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param identityProviderOauthSettings The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+         * @param identityProviderOauthSettings The settings for connecting to an external data source with OAuth. See `identity_provider_oauth_settings` Block below.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param identityProviderOauthSettings The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+         * @param identityProviderOauthSettings The settings for connecting to an external data source with OAuth. See `identity_provider_oauth_settings` Block below.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param identityProviderOauthSettings The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+         * @param identityProviderOauthSettings The settings for connecting to an external data source with OAuth. See `identity_provider_oauth_settings` Block below.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param kendraSettings The settings for document querying. See Kendra Settings below.
+         * @param kendraSettings The settings for document querying. See `kendra_settings` Block below.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param kendraSettings The settings for document querying. See Kendra Settings below.
+         * @param kendraSettings The settings for document querying. See `kendra_settings` Block below.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param modelRegisterSettings The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+         * @param modelRegisterSettings The model registry settings for the SageMaker Canvas application. See `model_register_settings` Block below.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param modelRegisterSettings The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+         * @param modelRegisterSettings The model registry settings for the SageMaker Canvas application. See `model_register_settings` Block below.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param timeSeriesForecastingSettings Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
+         * @param timeSeriesForecastingSettings Time series forecast settings for the Canvas app. See `time_series_forecasting_settings` Block below.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param timeSeriesForecastingSettings Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
+         * @param timeSeriesForecastingSettings Time series forecast settings for the Canvas app. See `time_series_forecasting_settings` Block below.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param workspaceSettings The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+         * @param workspaceSettings The workspace settings for the SageMaker Canvas application. See `workspace_settings` Block below.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param workspaceSettings The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+         * @param workspaceSettings The workspace settings for the SageMaker Canvas application. See `workspace_settings` Block below.
          * 
          * @return builder
          * 

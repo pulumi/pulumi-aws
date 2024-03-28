@@ -4,6 +4,7 @@
 package com.pulumi.aws.lakeformation.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -91,31 +92,37 @@ public final class PermissionsTable {
 
         @CustomType.Setter
         public Builder catalogId(@Nullable String catalogId) {
+
             this.catalogId = catalogId;
             return this;
         }
         @CustomType.Setter
         public Builder databaseName(String databaseName) {
-            this.databaseName = Objects.requireNonNull(databaseName);
+            if (databaseName == null) {
+              throw new MissingRequiredPropertyException("PermissionsTable", "databaseName");
+            }
+            this.databaseName = databaseName;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder wildcard(@Nullable Boolean wildcard) {
+
             this.wildcard = wildcard;
             return this;
         }
         public PermissionsTable build() {
-            final var o = new PermissionsTable();
-            o.catalogId = catalogId;
-            o.databaseName = databaseName;
-            o.name = name;
-            o.wildcard = wildcard;
-            return o;
+            final var _resultValue = new PermissionsTable();
+            _resultValue.catalogId = catalogId;
+            _resultValue.databaseName = databaseName;
+            _resultValue.name = name;
+            _resultValue.wildcard = wildcard;
+            return _resultValue;
         }
     }
 }

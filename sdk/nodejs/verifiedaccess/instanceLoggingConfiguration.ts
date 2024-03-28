@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing a Verified Access Logging Configuration.
  *
  * ## Example Usage
+ *
  * ### With CloudWatch Logging
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,14 +23,17 @@ import * as utilities from "../utilities";
  *     accessLogs: {
  *         cloudwatchLogs: {
  *             enabled: true,
- *             logGroup: aws_cloudwatch_log_group.example.id,
+ *             logGroup: exampleAwsCloudwatchLogGroup.id,
  *         },
  *     },
- *     verifiedaccessInstanceId: aws_verifiedaccess_instance.example.id,
+ *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Kinesis Data Firehose Logging
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,15 +41,18 @@ import * as utilities from "../utilities";
  * const example = new aws.verifiedaccess.InstanceLoggingConfiguration("example", {
  *     accessLogs: {
  *         kinesisDataFirehose: {
- *             deliveryStream: aws_kinesis_firehose_delivery_stream.example.name,
+ *             deliveryStream: exampleAwsKinesisFirehoseDeliveryStream.name,
  *             enabled: true,
  *         },
  *     },
- *     verifiedaccessInstanceId: aws_verifiedaccess_instance.example.id,
+ *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With S3 logging
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -52,16 +60,19 @@ import * as utilities from "../utilities";
  * const example = new aws.verifiedaccess.InstanceLoggingConfiguration("example", {
  *     accessLogs: {
  *         s3: {
- *             bucketName: aws_s3_bucket.example.id,
+ *             bucketName: exampleAwsS3Bucket.id,
  *             enabled: true,
  *             prefix: "example",
  *         },
  *     },
- *     verifiedaccessInstanceId: aws_verifiedaccess_instance.example.id,
+ *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With all three logging options
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -70,22 +81,25 @@ import * as utilities from "../utilities";
  *     accessLogs: {
  *         cloudwatchLogs: {
  *             enabled: true,
- *             logGroup: aws_cloudwatch_log_group.example.id,
+ *             logGroup: exampleAwsCloudwatchLogGroup.id,
  *         },
  *         kinesisDataFirehose: {
- *             deliveryStream: aws_kinesis_firehose_delivery_stream.example.name,
+ *             deliveryStream: exampleAwsKinesisFirehoseDeliveryStream.name,
  *             enabled: true,
  *         },
  *         s3: {
- *             bucketName: aws_s3_bucket.example.id,
+ *             bucketName: exampleAwsS3Bucket.id,
  *             enabled: true,
  *         },
  *     },
- *     verifiedaccessInstanceId: aws_verifiedaccess_instance.example.id,
+ *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With `includeTrustContext`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -94,11 +108,14 @@ import * as utilities from "../utilities";
  *     accessLogs: {
  *         includeTrustContext: true,
  *     },
- *     verifiedaccessInstanceId: aws_verifiedaccess_instance.example.id,
+ *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With `logVersion`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -107,16 +124,17 @@ import * as utilities from "../utilities";
  *     accessLogs: {
  *         logVersion: "ocsf-1.0.0-rc.2",
  *     },
- *     verifiedaccessInstanceId: aws_verifiedaccess_instance.example.id,
+ *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Verified Access Logging Configuration using the Verified Access Instance `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0
+ * $ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0
  * ```
  */
 export class InstanceLoggingConfiguration extends pulumi.CustomResource {

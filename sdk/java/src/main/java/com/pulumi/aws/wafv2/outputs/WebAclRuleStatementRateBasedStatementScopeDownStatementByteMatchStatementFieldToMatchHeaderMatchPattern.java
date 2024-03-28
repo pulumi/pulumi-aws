@@ -74,11 +74,13 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
 
         @CustomType.Setter
         public Builder all(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll all) {
+
             this.all = all;
             return this;
         }
         @CustomType.Setter
         public Builder excludedHeaders(@Nullable List<String> excludedHeaders) {
+
             this.excludedHeaders = excludedHeaders;
             return this;
         }
@@ -87,6 +89,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
         }
         @CustomType.Setter
         public Builder includedHeaders(@Nullable List<String> includedHeaders) {
+
             this.includedHeaders = includedHeaders;
             return this;
         }
@@ -94,11 +97,11 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
             return includedHeaders(List.of(includedHeaders));
         }
         public WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern();
-            o.all = all;
-            o.excludedHeaders = excludedHeaders;
-            o.includedHeaders = includedHeaders;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern();
+            _resultValue.all = all;
+            _resultValue.excludedHeaders = excludedHeaders;
+            _resultValue.includedHeaders = includedHeaders;
+            return _resultValue;
         }
     }
 }

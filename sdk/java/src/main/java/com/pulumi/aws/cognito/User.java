@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Provides a Cognito User Resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -29,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cognito.UserPool;
+ * import com.pulumi.aws.cognito.UserPoolArgs;
  * import com.pulumi.aws.cognito.User;
  * import com.pulumi.aws.cognito.UserArgs;
  * import java.util.List;
@@ -44,17 +48,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleUserPool = new UserPool(&#34;exampleUserPool&#34;);
+ *         var example = new UserPool(&#34;example&#34;, UserPoolArgs.builder()        
+ *             .name(&#34;MyExamplePool&#34;)
+ *             .build());
  * 
  *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
- *             .userPoolId(exampleUserPool.id())
+ *             .userPoolId(example.id())
  *             .username(&#34;example&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Setting user attributes
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -80,7 +90,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleUserPool = new UserPool(&#34;exampleUserPool&#34;, UserPoolArgs.builder()        
+ *         var example = new UserPool(&#34;example&#34;, UserPoolArgs.builder()        
+ *             .name(&#34;mypool&#34;)
  *             .schemas(            
  *                 UserPoolSchemaArgs.builder()
  *                     .name(&#34;example&#34;)
@@ -100,12 +111,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
- *             .userPoolId(exampleUserPool.id())
+ *             .userPoolId(example.id())
  *             .username(&#34;example&#34;)
  *             .attributes(Map.ofEntries(
  *                 Map.entry(&#34;example&#34;, true),
  *                 Map.entry(&#34;foo&#34;, &#34;bar&#34;),
- *                 Map.entry(&#34;email&#34;, &#34;no-reply@domain.example&#34;),
+ *                 Map.entry(&#34;email&#34;, &#34;no-reply@example.com&#34;),
  *                 Map.entry(&#34;email_verified&#34;, true)
  *             ))
  *             .build());
@@ -113,13 +124,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Cognito User using the `user_pool_id`/`name` attributes concatenated. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
+ * $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
  * ```
  * 
  */

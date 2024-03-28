@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Cognito
     /// Provides a Cognito User Pool resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,12 +25,18 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pool = new Aws.Cognito.UserPool("pool");
+    ///     var pool = new Aws.Cognito.UserPool("pool", new()
+    ///     {
+    ///         Name = "mypool",
+    ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Enabling SMS and Software Token Multi-Factor Authentication
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,7 +45,6 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // ... other configuration ...
     ///     var example = new Aws.Cognito.UserPool("example", new()
     ///     {
     ///         MfaConfiguration = "ON",
@@ -45,7 +52,7 @@ namespace Pulumi.Aws.Cognito
     ///         SmsConfiguration = new Aws.Cognito.Inputs.UserPoolSmsConfigurationArgs
     ///         {
     ///             ExternalId = "example",
-    ///             SnsCallerArn = aws_iam_role.Example.Arn,
+    ///             SnsCallerArn = exampleAwsIamRole.Arn,
     ///             SnsRegion = "us-east-1",
     ///         },
     ///         SoftwareTokenMfaConfiguration = new Aws.Cognito.Inputs.UserPoolSoftwareTokenMfaConfigurationArgs
@@ -56,8 +63,11 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Using Account Recovery Setting
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -68,6 +78,7 @@ namespace Pulumi.Aws.Cognito
     /// {
     ///     var test = new Aws.Cognito.UserPool("test", new()
     ///     {
+    ///         Name = "mypool",
     ///         AccountRecoverySetting = new Aws.Cognito.Inputs.UserPoolAccountRecoverySettingArgs
     ///         {
     ///             RecoveryMechanisms = new[]
@@ -88,13 +99,14 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cognito User Pools using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
+    /// $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/userPool:UserPool")]
@@ -317,10 +329,6 @@ namespace Pulumi.Aws.Cognito
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -720,11 +728,7 @@ namespace Pulumi.Aws.Cognito
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

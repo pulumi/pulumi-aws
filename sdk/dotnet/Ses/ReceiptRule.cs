@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,6 +26,14 @@ namespace Pulumi.Aws.Ses
     ///     // Add a header to the email and store it in S3
     ///     var store = new Aws.Ses.ReceiptRule("store", new()
     ///     {
+    ///         Name = "store",
+    ///         RuleSetName = "default-rule-set",
+    ///         Recipients = new[]
+    ///         {
+    ///             "karen@example.com",
+    ///         },
+    ///         Enabled = true,
+    ///         ScanEnabled = true,
     ///         AddHeaderActions = new[]
     ///         {
     ///             new Aws.Ses.Inputs.ReceiptRuleAddHeaderActionArgs
@@ -34,12 +43,6 @@ namespace Pulumi.Aws.Ses
     ///                 Position = 1,
     ///             },
     ///         },
-    ///         Enabled = true,
-    ///         Recipients = new[]
-    ///         {
-    ///             "karen@example.com",
-    ///         },
-    ///         RuleSetName = "default-rule-set",
     ///         S3Actions = new[]
     ///         {
     ///             new Aws.Ses.Inputs.ReceiptRuleS3ActionArgs
@@ -48,18 +51,18 @@ namespace Pulumi.Aws.Ses
     ///                 Position = 2,
     ///             },
     ///         },
-    ///         ScanEnabled = true,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SES receipt rules using the ruleset name and rule name separated by `:`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
+    /// $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
     /// ```
     /// </summary>
     [AwsResourceType("aws:ses/receiptRule:ReceiptRule")]

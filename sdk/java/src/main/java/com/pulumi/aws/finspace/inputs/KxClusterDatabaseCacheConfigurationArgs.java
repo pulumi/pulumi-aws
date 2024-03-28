@@ -5,6 +5,7 @@ package com.pulumi.aws.finspace.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -124,7 +125,9 @@ public final class KxClusterDatabaseCacheConfigurationArgs extends com.pulumi.re
         }
 
         public KxClusterDatabaseCacheConfigurationArgs build() {
-            $.cacheType = Objects.requireNonNull($.cacheType, "expected parameter 'cacheType' to be non-null");
+            if ($.cacheType == null) {
+                throw new MissingRequiredPropertyException("KxClusterDatabaseCacheConfigurationArgs", "cacheType");
+            }
             return $;
         }
     }

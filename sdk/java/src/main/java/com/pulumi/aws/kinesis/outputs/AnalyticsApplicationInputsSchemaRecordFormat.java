@@ -61,19 +61,21 @@ public final class AnalyticsApplicationInputsSchemaRecordFormat {
 
         @CustomType.Setter
         public Builder mappingParameters(@Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParameters mappingParameters) {
+
             this.mappingParameters = mappingParameters;
             return this;
         }
         @CustomType.Setter
         public Builder recordFormatType(@Nullable String recordFormatType) {
+
             this.recordFormatType = recordFormatType;
             return this;
         }
         public AnalyticsApplicationInputsSchemaRecordFormat build() {
-            final var o = new AnalyticsApplicationInputsSchemaRecordFormat();
-            o.mappingParameters = mappingParameters;
-            o.recordFormatType = recordFormatType;
-            return o;
+            final var _resultValue = new AnalyticsApplicationInputsSchemaRecordFormat();
+            _resultValue.mappingParameters = mappingParameters;
+            _resultValue.recordFormatType = recordFormatType;
+            return _resultValue;
         }
     }
 }

@@ -10,57 +10,67 @@ import * as utilities from "../utilities";
  * [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html)
  *
  * ## Example Usage
+ *
  * ### Create protection group for all resources
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.shield.ProtectionGroup("example", {
+ *     protectionGroupId: "example",
  *     aggregation: "MAX",
  *     pattern: "ALL",
- *     protectionGroupId: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Create protection group for arbitrary number of resources
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const currentRegion = aws.getRegion({});
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const exampleEip = new aws.ec2.Eip("exampleEip", {domain: "vpc"});
- * const exampleProtection = new aws.shield.Protection("exampleProtection", {resourceArn: pulumi.all([currentRegion, currentCallerIdentity, exampleEip.id]).apply(([currentRegion, currentCallerIdentity, id]) => `arn:aws:ec2:${currentRegion.name}:${currentCallerIdentity.accountId}:eip-allocation/${id}`)});
- * const exampleProtectionGroup = new aws.shield.ProtectionGroup("exampleProtectionGroup", {
+ * const current = aws.getRegion({});
+ * const currentGetCallerIdentity = aws.getCallerIdentity({});
+ * const example = new aws.ec2.Eip("example", {domain: "vpc"});
+ * const exampleProtection = new aws.shield.Protection("example", {
+ *     name: "example",
+ *     resourceArn: pulumi.all([current, currentGetCallerIdentity, example.id]).apply(([current, currentGetCallerIdentity, id]) => `arn:aws:ec2:${current.name}:${currentGetCallerIdentity.accountId}:eip-allocation/${id}`),
+ * });
+ * const exampleProtectionGroup = new aws.shield.ProtectionGroup("example", {
  *     protectionGroupId: "example",
  *     aggregation: "MEAN",
  *     pattern: "ARBITRARY",
- *     members: [pulumi.all([currentRegion, currentCallerIdentity, exampleEip.id]).apply(([currentRegion, currentCallerIdentity, id]) => `arn:aws:ec2:${currentRegion.name}:${currentCallerIdentity.accountId}:eip-allocation/${id}`)],
- * }, {
- *     dependsOn: [exampleProtection],
+ *     members: [pulumi.all([current, currentGetCallerIdentity, example.id]).apply(([current, currentGetCallerIdentity, id]) => `arn:aws:ec2:${current.name}:${currentGetCallerIdentity.accountId}:eip-allocation/${id}`)],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Create protection group for a type of resource
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.shield.ProtectionGroup("example", {
+ *     protectionGroupId: "example",
  *     aggregation: "SUM",
  *     pattern: "BY_RESOURCE_TYPE",
- *     protectionGroupId: "example",
  *     resourceType: "ELASTIC_IP_ALLOCATION",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Shield protection group resources using their protection group id. For example:
  *
  * ```sh
- *  $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
+ * $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
  * ```
  */
 export class ProtectionGroup extends pulumi.CustomResource {
@@ -168,8 +178,6 @@ export class ProtectionGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ProtectionGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

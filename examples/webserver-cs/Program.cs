@@ -37,7 +37,7 @@ class Program
             {
                 MostRecent = true,
                 Owners = { "137112412989" },
-                Filters = { new Pulumi.Aws.Ec2.Inputs.GetAmiFilterArgs { Name = "name", Values = { "amzn-ami-hvm-*" } } },
+                Filters = { new Pulumi.Aws.Ec2.Inputs.GetAmiFilterArgs { Name = "name", Values = { "amzn2-ami-hvm-*" } } },
             });
 
 

@@ -12,13 +12,15 @@ import * as utilities from "../utilities";
  * > **Note:** The EventBridge bus policy resource  (`aws.cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`aws.cloudwatch.EventPermission`) and will overwrite permissions.
  *
  * ## Example Usage
+ *
  * ### Account Access
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testPolicyDocument = aws.iam.getPolicyDocument({
+ * const test = aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "DevAccountAccess",
  *         effect: "Allow",
@@ -30,18 +32,21 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const testEventBusPolicy = new aws.cloudwatch.EventBusPolicy("testEventBusPolicy", {
- *     policy: testPolicyDocument.then(testPolicyDocument => testPolicyDocument.json),
- *     eventBusName: aws_cloudwatch_event_bus.test.name,
+ * const testEventBusPolicy = new aws.cloudwatch.EventBusPolicy("test", {
+ *     policy: test.then(test => test.json),
+ *     eventBusName: testAwsCloudwatchEventBus.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Organization Access
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testPolicyDocument = aws.iam.getPolicyDocument({
+ * const test = aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "OrganizationAccess",
  *         effect: "Allow",
@@ -62,22 +67,25 @@ import * as utilities from "../utilities";
  *         conditions: [{
  *             test: "StringEquals",
  *             variable: "aws:PrincipalOrgID",
- *             values: [aws_organizations_organization.example.id],
+ *             values: [example.id],
  *         }],
  *     }],
  * });
- * const testEventBusPolicy = new aws.cloudwatch.EventBusPolicy("testEventBusPolicy", {
- *     policy: testPolicyDocument.then(testPolicyDocument => testPolicyDocument.json),
- *     eventBusName: aws_cloudwatch_event_bus.test.name,
+ * const testEventBusPolicy = new aws.cloudwatch.EventBusPolicy("test", {
+ *     policy: test.then(test => test.json),
+ *     eventBusName: testAwsCloudwatchEventBus.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Multiple Statements
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testPolicyDocument = aws.iam.getPolicyDocument({
+ * const test = aws.iam.getPolicyDocument({
  *     statements: [
  *         {
  *             sid: "DevAccountAccess",
@@ -109,23 +117,24 @@ import * as utilities from "../utilities";
  *             conditions: [{
  *                 test: "StringEquals",
  *                 variable: "aws:PrincipalOrgID",
- *                 values: [aws_organizations_organization.example.id],
+ *                 values: [example.id],
  *             }],
  *         },
  *     ],
  * });
- * const testEventBusPolicy = new aws.cloudwatch.EventBusPolicy("testEventBusPolicy", {
- *     policy: testPolicyDocument.then(testPolicyDocument => testPolicyDocument.json),
- *     eventBusName: aws_cloudwatch_event_bus.test.name,
+ * const testEventBusPolicy = new aws.cloudwatch.EventBusPolicy("test", {
+ *     policy: test.then(test => test.json),
+ *     eventBusName: testAwsCloudwatchEventBus.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import an EventBridge policy using the `event_bus_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
+ * $ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
  * ```
  */
 export class EventBusPolicy extends pulumi.CustomResource {

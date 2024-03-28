@@ -86,31 +86,35 @@ public final class IndexDocumentMetadataConfigurationUpdateSearch {
 
         @CustomType.Setter
         public Builder displayable(@Nullable Boolean displayable) {
+
             this.displayable = displayable;
             return this;
         }
         @CustomType.Setter
         public Builder facetable(@Nullable Boolean facetable) {
+
             this.facetable = facetable;
             return this;
         }
         @CustomType.Setter
         public Builder searchable(@Nullable Boolean searchable) {
+
             this.searchable = searchable;
             return this;
         }
         @CustomType.Setter
         public Builder sortable(@Nullable Boolean sortable) {
+
             this.sortable = sortable;
             return this;
         }
         public IndexDocumentMetadataConfigurationUpdateSearch build() {
-            final var o = new IndexDocumentMetadataConfigurationUpdateSearch();
-            o.displayable = displayable;
-            o.facetable = facetable;
-            o.searchable = searchable;
-            o.sortable = sortable;
-            return o;
+            final var _resultValue = new IndexDocumentMetadataConfigurationUpdateSearch();
+            _resultValue.displayable = displayable;
+            _resultValue.facetable = facetable;
+            _resultValue.searchable = searchable;
+            _resultValue.sortable = sortable;
+            return _resultValue;
         }
     }
 }

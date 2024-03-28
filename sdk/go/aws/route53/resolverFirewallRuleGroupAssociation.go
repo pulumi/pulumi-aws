@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,14 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResolverFirewallRuleGroup, err := route53.NewResolverFirewallRuleGroup(ctx, "exampleResolverFirewallRuleGroup", nil)
+//			example, err := route53.NewResolverFirewallRuleGroup(ctx, "example", &route53.ResolverFirewallRuleGroupArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = route53.NewResolverFirewallRuleGroupAssociation(ctx, "exampleResolverFirewallRuleGroupAssociation", &route53.ResolverFirewallRuleGroupAssociationArgs{
-//				FirewallRuleGroupId: exampleResolverFirewallRuleGroup.ID(),
+//			_, err = route53.NewResolverFirewallRuleGroupAssociation(ctx, "example", &route53.ResolverFirewallRuleGroupAssociationArgs{
+//				Name:                pulumi.String("example"),
+//				FirewallRuleGroupId: example.ID(),
 //				Priority:            pulumi.Int(100),
-//				VpcId:               pulumi.Any(aws_vpc.Example.Id),
+//				VpcId:               pulumi.Any(exampleAwsVpc.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -45,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation example rslvr-frgassoc-0123456789abcdef
-//
+// $ pulumi import aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation example rslvr-frgassoc-0123456789abcdef
 // ```
 type ResolverFirewallRuleGroupAssociation struct {
 	pulumi.CustomResourceState
@@ -94,10 +97,6 @@ func NewResolverFirewallRuleGroupAssociation(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverFirewallRuleGroupAssociation
 	err := ctx.RegisterResource("aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation", name, args, &resource, opts...)

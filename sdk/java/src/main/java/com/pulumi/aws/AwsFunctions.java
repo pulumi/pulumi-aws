@@ -48,6 +48,8 @@ public final class AwsFunctions {
      * Parses an ARN into its constituent parts.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -76,6 +78,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetArnResult> getArn(GetArnArgs args) {
@@ -85,6 +88,8 @@ public final class AwsFunctions {
      * Parses an ARN into its constituent parts.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -113,6 +118,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetArnResult> getArnPlain(GetArnPlainArgs args) {
@@ -122,6 +128,8 @@ public final class AwsFunctions {
      * Parses an ARN into its constituent parts.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -150,6 +158,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetArnResult> getArn(GetArnArgs args, InvokeOptions options) {
@@ -159,6 +168,8 @@ public final class AwsFunctions {
      * Parses an ARN into its constituent parts.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -187,6 +198,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetArnResult> getArnPlain(GetArnPlainArgs args, InvokeOptions options) {
@@ -205,6 +217,62 @@ public final class AwsFunctions {
      * This is different from the `aws.getAvailabilityZones` (plural) data source,
      * which provides a list of the available zones.
      * 
+     * ## Example Usage
+     * 
+     * The following example shows how this data source might be used to derive
+     * VPC and subnet CIDR prefixes systematically for an availability zone.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var regionNumber = config.get(&#34;regionNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var azNumber = config.get(&#34;azNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
+     *             .name(&#34;eu-central-1a&#34;)
+     *             .build());
+     * 
+     *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(&#34;10.0.0.0/8&#34;)
+     *                 .newbits(4)
+     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -&gt; getAvailabilityZoneResult.region())])
+     *                 .build()).result())
+     *             .build());
+     * 
+     *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+     *             .vpcId(exampleVpc.id())
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetAvailabilityZoneResult> getAvailabilityZone() {
         return getAvailabilityZone(GetAvailabilityZoneArgs.Empty, InvokeOptions.Empty);
@@ -221,6 +289,62 @@ public final class AwsFunctions {
      * 
      * This is different from the `aws.getAvailabilityZones` (plural) data source,
      * which provides a list of the available zones.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how this data source might be used to derive
+     * VPC and subnet CIDR prefixes systematically for an availability zone.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var regionNumber = config.get(&#34;regionNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var azNumber = config.get(&#34;azNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
+     *             .name(&#34;eu-central-1a&#34;)
+     *             .build());
+     * 
+     *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(&#34;10.0.0.0/8&#34;)
+     *                 .newbits(4)
+     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -&gt; getAvailabilityZoneResult.region())])
+     *                 .build()).result())
+     *             .build());
+     * 
+     *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+     *             .vpcId(exampleVpc.id())
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAvailabilityZoneResult> getAvailabilityZonePlain() {
@@ -239,6 +363,62 @@ public final class AwsFunctions {
      * This is different from the `aws.getAvailabilityZones` (plural) data source,
      * which provides a list of the available zones.
      * 
+     * ## Example Usage
+     * 
+     * The following example shows how this data source might be used to derive
+     * VPC and subnet CIDR prefixes systematically for an availability zone.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var regionNumber = config.get(&#34;regionNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var azNumber = config.get(&#34;azNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
+     *             .name(&#34;eu-central-1a&#34;)
+     *             .build());
+     * 
+     *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(&#34;10.0.0.0/8&#34;)
+     *                 .newbits(4)
+     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -&gt; getAvailabilityZoneResult.region())])
+     *                 .build()).result())
+     *             .build());
+     * 
+     *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+     *             .vpcId(exampleVpc.id())
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetAvailabilityZoneResult> getAvailabilityZone(GetAvailabilityZoneArgs args) {
         return getAvailabilityZone(args, InvokeOptions.Empty);
@@ -255,6 +435,62 @@ public final class AwsFunctions {
      * 
      * This is different from the `aws.getAvailabilityZones` (plural) data source,
      * which provides a list of the available zones.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how this data source might be used to derive
+     * VPC and subnet CIDR prefixes systematically for an availability zone.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var regionNumber = config.get(&#34;regionNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var azNumber = config.get(&#34;azNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
+     *             .name(&#34;eu-central-1a&#34;)
+     *             .build());
+     * 
+     *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(&#34;10.0.0.0/8&#34;)
+     *                 .newbits(4)
+     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -&gt; getAvailabilityZoneResult.region())])
+     *                 .build()).result())
+     *             .build());
+     * 
+     *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+     *             .vpcId(exampleVpc.id())
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAvailabilityZoneResult> getAvailabilityZonePlain(GetAvailabilityZonePlainArgs args) {
@@ -273,6 +509,62 @@ public final class AwsFunctions {
      * This is different from the `aws.getAvailabilityZones` (plural) data source,
      * which provides a list of the available zones.
      * 
+     * ## Example Usage
+     * 
+     * The following example shows how this data source might be used to derive
+     * VPC and subnet CIDR prefixes systematically for an availability zone.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var regionNumber = config.get(&#34;regionNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var azNumber = config.get(&#34;azNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
+     *             .name(&#34;eu-central-1a&#34;)
+     *             .build());
+     * 
+     *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(&#34;10.0.0.0/8&#34;)
+     *                 .newbits(4)
+     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -&gt; getAvailabilityZoneResult.region())])
+     *                 .build()).result())
+     *             .build());
+     * 
+     *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+     *             .vpcId(exampleVpc.id())
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetAvailabilityZoneResult> getAvailabilityZone(GetAvailabilityZoneArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:index/getAvailabilityZone:getAvailabilityZone", TypeShape.of(GetAvailabilityZoneResult.class), args, Utilities.withVersion(options));
@@ -290,6 +582,62 @@ public final class AwsFunctions {
      * This is different from the `aws.getAvailabilityZones` (plural) data source,
      * which provides a list of the available zones.
      * 
+     * ## Example Usage
+     * 
+     * The following example shows how this data source might be used to derive
+     * VPC and subnet CIDR prefixes systematically for an availability zone.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var regionNumber = config.get(&#34;regionNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var azNumber = config.get(&#34;azNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
+     *             .name(&#34;eu-central-1a&#34;)
+     *             .build());
+     * 
+     *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(&#34;10.0.0.0/8&#34;)
+     *                 .newbits(4)
+     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -&gt; getAvailabilityZoneResult.region())])
+     *                 .build()).result())
+     *             .build());
+     * 
+     *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+     *             .vpcId(exampleVpc.id())
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static CompletableFuture<GetAvailabilityZoneResult> getAvailabilityZonePlain(GetAvailabilityZonePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:index/getAvailabilityZone:getAvailabilityZone", TypeShape.of(GetAvailabilityZoneResult.class), args, Utilities.withVersion(options));
@@ -305,7 +653,10 @@ public final class AwsFunctions {
      * &gt; When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
      * 
      * ## Example Usage
+     * 
      * ### By State
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -344,9 +695,13 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Filter
      * 
      * All Local Zones (regardless of opt-in status):
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -381,8 +736,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Only Availability Zones (no Local Zones):
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -414,6 +772,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAvailabilityZonesResult> getAvailabilityZones() {
@@ -430,7 +789,10 @@ public final class AwsFunctions {
      * &gt; When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
      * 
      * ## Example Usage
+     * 
      * ### By State
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -469,9 +831,13 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Filter
      * 
      * All Local Zones (regardless of opt-in status):
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -506,8 +872,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Only Availability Zones (no Local Zones):
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -539,6 +908,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAvailabilityZonesResult> getAvailabilityZonesPlain() {
@@ -555,7 +925,10 @@ public final class AwsFunctions {
      * &gt; When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
      * 
      * ## Example Usage
+     * 
      * ### By State
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -594,9 +967,13 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Filter
      * 
      * All Local Zones (regardless of opt-in status):
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -631,8 +1008,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Only Availability Zones (no Local Zones):
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -664,6 +1044,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAvailabilityZonesResult> getAvailabilityZones(GetAvailabilityZonesArgs args) {
@@ -680,7 +1061,10 @@ public final class AwsFunctions {
      * &gt; When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
      * 
      * ## Example Usage
+     * 
      * ### By State
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -719,9 +1103,13 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Filter
      * 
      * All Local Zones (regardless of opt-in status):
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -756,8 +1144,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Only Availability Zones (no Local Zones):
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -789,6 +1180,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAvailabilityZonesResult> getAvailabilityZonesPlain(GetAvailabilityZonesPlainArgs args) {
@@ -805,7 +1197,10 @@ public final class AwsFunctions {
      * &gt; When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
      * 
      * ## Example Usage
+     * 
      * ### By State
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -844,9 +1239,13 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Filter
      * 
      * All Local Zones (regardless of opt-in status):
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -881,8 +1280,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Only Availability Zones (no Local Zones):
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -914,6 +1316,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAvailabilityZonesResult> getAvailabilityZones(GetAvailabilityZonesArgs args, InvokeOptions options) {
@@ -930,7 +1333,10 @@ public final class AwsFunctions {
      * &gt; When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
      * 
      * ## Example Usage
+     * 
      * ### By State
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -969,9 +1375,13 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Filter
      * 
      * All Local Zones (regardless of opt-in status):
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1006,8 +1416,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Only Availability Zones (no Local Zones):
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1039,6 +1452,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAvailabilityZonesResult> getAvailabilityZonesPlain(GetAvailabilityZonesPlainArgs args, InvokeOptions options) {
@@ -1048,6 +1462,8 @@ public final class AwsFunctions {
      * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1057,6 +1473,7 @@ public final class AwsFunctions {
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -1078,14 +1495,16 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = AwsFunctions.getBillingServiceAccount();
      * 
-     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
+     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-billing-tf-test-bucket&#34;)
+     *             .build());
      * 
      *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
      *             .bucket(billingLogs.id())
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         final var allowBillingLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .effect(&#34;Allow&#34;)
@@ -1111,12 +1530,13 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy(&#34;allowBillingLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLoggingPolicyDocument -&gt; allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLogging -&gt; allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBillingServiceAccountResult> getBillingServiceAccount() {
@@ -1126,6 +1546,8 @@ public final class AwsFunctions {
      * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1135,6 +1557,7 @@ public final class AwsFunctions {
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -1156,14 +1579,16 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = AwsFunctions.getBillingServiceAccount();
      * 
-     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
+     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-billing-tf-test-bucket&#34;)
+     *             .build());
      * 
      *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
      *             .bucket(billingLogs.id())
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         final var allowBillingLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .effect(&#34;Allow&#34;)
@@ -1189,12 +1614,13 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy(&#34;allowBillingLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLoggingPolicyDocument -&gt; allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLogging -&gt; allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBillingServiceAccountResult> getBillingServiceAccountPlain() {
@@ -1204,6 +1630,8 @@ public final class AwsFunctions {
      * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1213,6 +1641,7 @@ public final class AwsFunctions {
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -1234,14 +1663,16 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = AwsFunctions.getBillingServiceAccount();
      * 
-     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
+     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-billing-tf-test-bucket&#34;)
+     *             .build());
      * 
      *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
      *             .bucket(billingLogs.id())
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         final var allowBillingLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .effect(&#34;Allow&#34;)
@@ -1267,12 +1698,13 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy(&#34;allowBillingLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLoggingPolicyDocument -&gt; allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLogging -&gt; allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBillingServiceAccountResult> getBillingServiceAccount(GetBillingServiceAccountArgs args) {
@@ -1282,6 +1714,8 @@ public final class AwsFunctions {
      * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1291,6 +1725,7 @@ public final class AwsFunctions {
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -1312,14 +1747,16 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = AwsFunctions.getBillingServiceAccount();
      * 
-     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
+     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-billing-tf-test-bucket&#34;)
+     *             .build());
      * 
      *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
      *             .bucket(billingLogs.id())
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         final var allowBillingLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .effect(&#34;Allow&#34;)
@@ -1345,12 +1782,13 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy(&#34;allowBillingLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLoggingPolicyDocument -&gt; allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLogging -&gt; allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBillingServiceAccountResult> getBillingServiceAccountPlain(GetBillingServiceAccountPlainArgs args) {
@@ -1360,6 +1798,8 @@ public final class AwsFunctions {
      * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1369,6 +1809,7 @@ public final class AwsFunctions {
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -1390,14 +1831,16 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = AwsFunctions.getBillingServiceAccount();
      * 
-     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
+     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-billing-tf-test-bucket&#34;)
+     *             .build());
      * 
      *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
      *             .bucket(billingLogs.id())
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         final var allowBillingLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .effect(&#34;Allow&#34;)
@@ -1423,12 +1866,13 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy(&#34;allowBillingLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLoggingPolicyDocument -&gt; allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLogging -&gt; allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBillingServiceAccountResult> getBillingServiceAccount(GetBillingServiceAccountArgs args, InvokeOptions options) {
@@ -1438,6 +1882,8 @@ public final class AwsFunctions {
      * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1447,6 +1893,7 @@ public final class AwsFunctions {
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -1468,14 +1915,16 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = AwsFunctions.getBillingServiceAccount();
      * 
-     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
+     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;my-billing-tf-test-bucket&#34;)
+     *             .build());
      * 
      *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
      *             .bucket(billingLogs.id())
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         final var allowBillingLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .effect(&#34;Allow&#34;)
@@ -1501,12 +1950,13 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy(&#34;allowBillingLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLoggingPolicyDocument -&gt; allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLogging -&gt; allowBillingLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBillingServiceAccountResult> getBillingServiceAccountPlain(GetBillingServiceAccountPlainArgs args, InvokeOptions options) {
@@ -1517,6 +1967,8 @@ public final class AwsFunctions {
      * which this provider is authorized.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1546,6 +1998,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCallerIdentityResult> getCallerIdentity() {
@@ -1556,6 +2009,8 @@ public final class AwsFunctions {
      * which this provider is authorized.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1585,6 +2040,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCallerIdentityResult> getCallerIdentityPlain() {
@@ -1595,6 +2051,8 @@ public final class AwsFunctions {
      * which this provider is authorized.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1624,6 +2082,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCallerIdentityResult> getCallerIdentity(GetCallerIdentityArgs args) {
@@ -1634,6 +2093,8 @@ public final class AwsFunctions {
      * which this provider is authorized.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1663,6 +2124,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCallerIdentityResult> getCallerIdentityPlain(GetCallerIdentityPlainArgs args) {
@@ -1673,6 +2135,8 @@ public final class AwsFunctions {
      * which this provider is authorized.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1702,6 +2166,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCallerIdentityResult> getCallerIdentity(GetCallerIdentityArgs args, InvokeOptions options) {
@@ -1712,6 +2177,8 @@ public final class AwsFunctions {
      * which this provider is authorized.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1741,6 +2208,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCallerIdentityResult> getCallerIdentityPlain(GetCallerIdentityPlainArgs args, InvokeOptions options) {
@@ -1752,7 +2220,10 @@ public final class AwsFunctions {
      * With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1779,40 +2250,12 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Dynamically Apply Default Tags to Auto Scaling Group
      * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
-     * import com.pulumi.aws.autoscaling.Group;
-     * import com.pulumi.aws.autoscaling.GroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleDefaultTags = AwsFunctions.getDefaultTags();
-     * 
-     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
-     *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDefaultTagsResult> getDefaultTags() {
@@ -1824,7 +2267,10 @@ public final class AwsFunctions {
      * With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1851,40 +2297,12 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Dynamically Apply Default Tags to Auto Scaling Group
      * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
-     * import com.pulumi.aws.autoscaling.Group;
-     * import com.pulumi.aws.autoscaling.GroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleDefaultTags = AwsFunctions.getDefaultTags();
-     * 
-     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
-     *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDefaultTagsResult> getDefaultTagsPlain() {
@@ -1896,7 +2314,10 @@ public final class AwsFunctions {
      * With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1923,40 +2344,12 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Dynamically Apply Default Tags to Auto Scaling Group
      * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
-     * import com.pulumi.aws.autoscaling.Group;
-     * import com.pulumi.aws.autoscaling.GroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleDefaultTags = AwsFunctions.getDefaultTags();
-     * 
-     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
-     *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDefaultTagsResult> getDefaultTags(GetDefaultTagsArgs args) {
@@ -1968,7 +2361,10 @@ public final class AwsFunctions {
      * With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1995,40 +2391,12 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Dynamically Apply Default Tags to Auto Scaling Group
      * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
-     * import com.pulumi.aws.autoscaling.Group;
-     * import com.pulumi.aws.autoscaling.GroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleDefaultTags = AwsFunctions.getDefaultTags();
-     * 
-     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
-     *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDefaultTagsResult> getDefaultTagsPlain(GetDefaultTagsPlainArgs args) {
@@ -2040,7 +2408,10 @@ public final class AwsFunctions {
      * With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2067,40 +2438,12 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Dynamically Apply Default Tags to Auto Scaling Group
      * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
-     * import com.pulumi.aws.autoscaling.Group;
-     * import com.pulumi.aws.autoscaling.GroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleDefaultTags = AwsFunctions.getDefaultTags();
-     * 
-     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
-     *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDefaultTagsResult> getDefaultTags(GetDefaultTagsArgs args, InvokeOptions options) {
@@ -2112,7 +2455,10 @@ public final class AwsFunctions {
      * With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2139,40 +2485,12 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Dynamically Apply Default Tags to Auto Scaling Group
      * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
-     * import com.pulumi.aws.autoscaling.Group;
-     * import com.pulumi.aws.autoscaling.GroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleDefaultTags = AwsFunctions.getDefaultTags();
-     * 
-     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
-     *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDefaultTagsResult> getDefaultTagsPlain(GetDefaultTagsPlainArgs args, InvokeOptions options) {
@@ -2182,6 +2500,8 @@ public final class AwsFunctions {
      * Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2214,6 +2534,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         var fromEurope = new SecurityGroup(&#34;fromEurope&#34;, SecurityGroupArgs.builder()        
+     *             .name(&#34;from_europe&#34;)
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .fromPort(&#34;443&#34;)
      *                 .toPort(&#34;443&#34;)
@@ -2230,6 +2551,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIpRangesResult> getIpRanges(GetIpRangesArgs args) {
@@ -2239,6 +2561,8 @@ public final class AwsFunctions {
      * Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2271,6 +2595,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         var fromEurope = new SecurityGroup(&#34;fromEurope&#34;, SecurityGroupArgs.builder()        
+     *             .name(&#34;from_europe&#34;)
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .fromPort(&#34;443&#34;)
      *                 .toPort(&#34;443&#34;)
@@ -2287,6 +2612,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIpRangesResult> getIpRangesPlain(GetIpRangesPlainArgs args) {
@@ -2296,6 +2622,8 @@ public final class AwsFunctions {
      * Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2328,6 +2656,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         var fromEurope = new SecurityGroup(&#34;fromEurope&#34;, SecurityGroupArgs.builder()        
+     *             .name(&#34;from_europe&#34;)
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .fromPort(&#34;443&#34;)
      *                 .toPort(&#34;443&#34;)
@@ -2344,6 +2673,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIpRangesResult> getIpRanges(GetIpRangesArgs args, InvokeOptions options) {
@@ -2353,6 +2683,8 @@ public final class AwsFunctions {
      * Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2385,6 +2717,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         var fromEurope = new SecurityGroup(&#34;fromEurope&#34;, SecurityGroupArgs.builder()        
+     *             .name(&#34;from_europe&#34;)
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .fromPort(&#34;443&#34;)
      *                 .toPort(&#34;443&#34;)
@@ -2401,6 +2734,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIpRangesResult> getIpRangesPlain(GetIpRangesPlainArgs args, InvokeOptions options) {
@@ -2411,6 +2745,8 @@ public final class AwsFunctions {
      * which the provider is working.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2438,15 +2774,16 @@ public final class AwsFunctions {
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .sid(&#34;1&#34;)
      *                 .actions(&#34;s3:ListBucket&#34;)
      *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
-     *                 .sid(&#34;1&#34;)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPartitionResult> getPartition() {
@@ -2457,6 +2794,8 @@ public final class AwsFunctions {
      * which the provider is working.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2484,15 +2823,16 @@ public final class AwsFunctions {
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .sid(&#34;1&#34;)
      *                 .actions(&#34;s3:ListBucket&#34;)
      *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
-     *                 .sid(&#34;1&#34;)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPartitionResult> getPartitionPlain() {
@@ -2503,6 +2843,8 @@ public final class AwsFunctions {
      * which the provider is working.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2530,15 +2872,16 @@ public final class AwsFunctions {
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .sid(&#34;1&#34;)
      *                 .actions(&#34;s3:ListBucket&#34;)
      *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
-     *                 .sid(&#34;1&#34;)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPartitionResult> getPartition(GetPartitionArgs args) {
@@ -2549,6 +2892,8 @@ public final class AwsFunctions {
      * which the provider is working.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2576,15 +2921,16 @@ public final class AwsFunctions {
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .sid(&#34;1&#34;)
      *                 .actions(&#34;s3:ListBucket&#34;)
      *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
-     *                 .sid(&#34;1&#34;)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPartitionResult> getPartitionPlain(GetPartitionPlainArgs args) {
@@ -2595,6 +2941,8 @@ public final class AwsFunctions {
      * which the provider is working.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2622,15 +2970,16 @@ public final class AwsFunctions {
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .sid(&#34;1&#34;)
      *                 .actions(&#34;s3:ListBucket&#34;)
      *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
-     *                 .sid(&#34;1&#34;)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPartitionResult> getPartition(GetPartitionArgs args, InvokeOptions options) {
@@ -2641,6 +2990,8 @@ public final class AwsFunctions {
      * which the provider is working.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2668,15 +3019,16 @@ public final class AwsFunctions {
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .sid(&#34;1&#34;)
      *                 .actions(&#34;s3:ListBucket&#34;)
      *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
-     *                 .sid(&#34;1&#34;)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPartitionResult> getPartitionPlain(GetPartitionPlainArgs args, InvokeOptions options) {
@@ -2694,6 +3046,8 @@ public final class AwsFunctions {
      * 
      * The following example shows how the resource might be used to obtain
      * the name of the AWS region configured on the provider.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2720,6 +3074,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRegionResult> getRegion() {
@@ -2737,6 +3092,8 @@ public final class AwsFunctions {
      * 
      * The following example shows how the resource might be used to obtain
      * the name of the AWS region configured on the provider.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2763,6 +3120,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRegionResult> getRegionPlain() {
@@ -2780,6 +3138,8 @@ public final class AwsFunctions {
      * 
      * The following example shows how the resource might be used to obtain
      * the name of the AWS region configured on the provider.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2806,6 +3166,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRegionResult> getRegion(GetRegionArgs args) {
@@ -2823,6 +3184,8 @@ public final class AwsFunctions {
      * 
      * The following example shows how the resource might be used to obtain
      * the name of the AWS region configured on the provider.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2849,6 +3212,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRegionResult> getRegionPlain(GetRegionPlainArgs args) {
@@ -2866,6 +3230,8 @@ public final class AwsFunctions {
      * 
      * The following example shows how the resource might be used to obtain
      * the name of the AWS region configured on the provider.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2892,6 +3258,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRegionResult> getRegion(GetRegionArgs args, InvokeOptions options) {
@@ -2909,6 +3276,8 @@ public final class AwsFunctions {
      * 
      * The following example shows how the resource might be used to obtain
      * the name of the AWS region configured on the provider.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2935,6 +3304,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRegionResult> getRegionPlain(GetRegionPlainArgs args, InvokeOptions options) {
@@ -2946,6 +3316,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * Enabled AWS Regions:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2972,8 +3344,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * All the regions regardless of the availability
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3002,8 +3377,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3036,6 +3414,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRegionsResult> getRegions() {
@@ -3047,6 +3426,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * Enabled AWS Regions:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3073,8 +3454,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * All the regions regardless of the availability
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3103,8 +3487,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3137,6 +3524,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRegionsResult> getRegionsPlain() {
@@ -3148,6 +3536,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * Enabled AWS Regions:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3174,8 +3564,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * All the regions regardless of the availability
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3204,8 +3597,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3238,6 +3634,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRegionsResult> getRegions(GetRegionsArgs args) {
@@ -3249,6 +3646,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * Enabled AWS Regions:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3275,8 +3674,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * All the regions regardless of the availability
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3305,8 +3707,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3339,6 +3744,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRegionsResult> getRegionsPlain(GetRegionsPlainArgs args) {
@@ -3350,6 +3756,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * Enabled AWS Regions:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3376,8 +3784,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * All the regions regardless of the availability
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3406,8 +3817,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3440,6 +3854,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRegionsResult> getRegions(GetRegionsArgs args, InvokeOptions options) {
@@ -3451,6 +3866,8 @@ public final class AwsFunctions {
      * ## Example Usage
      * 
      * Enabled AWS Regions:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3477,8 +3894,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * All the regions regardless of the availability
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3507,8 +3927,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3541,6 +3964,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRegionsResult> getRegionsPlain(GetRegionsPlainArgs args, InvokeOptions options) {
@@ -3550,7 +3974,10 @@ public final class AwsFunctions {
      * Use this data source to compose and decompose AWS service DNS names.
      * 
      * ## Example Usage
+     * 
      * ### Get Service DNS Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3583,7 +4010,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Use Service Reverse DNS Name to Get Components
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3612,7 +4043,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Determine Regional Support for a Service
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3641,6 +4076,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceResult> getService() {
@@ -3650,7 +4086,10 @@ public final class AwsFunctions {
      * Use this data source to compose and decompose AWS service DNS names.
      * 
      * ## Example Usage
+     * 
      * ### Get Service DNS Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3683,7 +4122,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Use Service Reverse DNS Name to Get Components
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3712,7 +4155,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Determine Regional Support for a Service
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3741,6 +4188,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain() {
@@ -3750,7 +4198,10 @@ public final class AwsFunctions {
      * Use this data source to compose and decompose AWS service DNS names.
      * 
      * ## Example Usage
+     * 
      * ### Get Service DNS Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3783,7 +4234,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Use Service Reverse DNS Name to Get Components
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3812,7 +4267,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Determine Regional Support for a Service
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3841,6 +4300,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
@@ -3850,7 +4310,10 @@ public final class AwsFunctions {
      * Use this data source to compose and decompose AWS service DNS names.
      * 
      * ## Example Usage
+     * 
      * ### Get Service DNS Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3883,7 +4346,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Use Service Reverse DNS Name to Get Components
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3912,7 +4379,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Determine Regional Support for a Service
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3941,6 +4412,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
@@ -3950,7 +4422,10 @@ public final class AwsFunctions {
      * Use this data source to compose and decompose AWS service DNS names.
      * 
      * ## Example Usage
+     * 
      * ### Get Service DNS Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3983,7 +4458,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Use Service Reverse DNS Name to Get Components
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4012,7 +4491,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Determine Regional Support for a Service
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4041,6 +4524,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
@@ -4050,7 +4534,10 @@ public final class AwsFunctions {
      * Use this data source to compose and decompose AWS service DNS names.
      * 
      * ## Example Usage
+     * 
      * ### Get Service DNS Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4083,7 +4570,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Use Service Reverse DNS Name to Get Components
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4112,7 +4603,11 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Determine Regional Support for a Service
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4141,6 +4636,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {

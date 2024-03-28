@@ -402,6 +402,7 @@ class Snapshot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -412,19 +413,20 @@ class Snapshot(pulumi.CustomResource):
             tags={
                 "Name": "HelloWorld",
             })
-        example_snapshot = aws.ebs.Snapshot("exampleSnapshot",
+        example_snapshot = aws.ebs.Snapshot("example_snapshot",
             volume_id=example.id,
             tags={
                 "Name": "HelloWorld_snap",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EBS Snapshot using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
+        $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
         ```
 
         :param str resource_name: The name of the resource.
@@ -448,6 +450,7 @@ class Snapshot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -458,19 +461,20 @@ class Snapshot(pulumi.CustomResource):
             tags={
                 "Name": "HelloWorld",
             })
-        example_snapshot = aws.ebs.Snapshot("exampleSnapshot",
+        example_snapshot = aws.ebs.Snapshot("example_snapshot",
             volume_id=example.id,
             tags={
                 "Name": "HelloWorld_snap",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EBS Snapshot using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
+        $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
         ```
 
         :param str resource_name: The name of the resource.
@@ -521,8 +525,6 @@ class Snapshot(pulumi.CustomResource):
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["volume_size"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Snapshot, __self__).__init__(
             'aws:ebs/snapshot:Snapshot',
             resource_name,

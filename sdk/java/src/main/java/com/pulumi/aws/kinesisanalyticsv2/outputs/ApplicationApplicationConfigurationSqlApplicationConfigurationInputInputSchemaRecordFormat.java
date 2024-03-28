@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesisanalyticsv2.outputs;
 
 import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -57,19 +58,25 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
         @CustomType.Setter
         public Builder mappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters mappingParameters) {
-            this.mappingParameters = Objects.requireNonNull(mappingParameters);
+            if (mappingParameters == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat", "mappingParameters");
+            }
+            this.mappingParameters = mappingParameters;
             return this;
         }
         @CustomType.Setter
         public Builder recordFormatType(String recordFormatType) {
-            this.recordFormatType = Objects.requireNonNull(recordFormatType);
+            if (recordFormatType == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat", "recordFormatType");
+            }
+            this.recordFormatType = recordFormatType;
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat();
-            o.mappingParameters = mappingParameters;
-            o.recordFormatType = recordFormatType;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat();
+            _resultValue.mappingParameters = mappingParameters;
+            _resultValue.recordFormatType = recordFormatType;
+            return _resultValue;
         }
     }
 }

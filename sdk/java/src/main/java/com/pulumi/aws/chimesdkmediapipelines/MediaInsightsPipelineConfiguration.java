@@ -23,7 +23,10 @@ import javax.annotation.Nullable;
  * Consult the [Call analytics developer guide](https://docs.aws.amazon.com/chime-sdk/latest/dg/call-analytics.html) for more detailed information about usage.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -55,6 +58,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Stream(&#34;example&#34;, StreamArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .shardCount(2)
  *             .build());
  * 
@@ -70,10 +74,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var callAnalyticsRole = new Role(&#34;callAnalyticsRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;CallAnalyticsRole&#34;)
  *             .assumeRolePolicy(mediaPipelinesAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var myConfiguration = new MediaInsightsPipelineConfiguration(&#34;myConfiguration&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
+ *             .name(&#34;MyBasicConfiguration&#34;)
  *             .resourceAccessRoleArn(callAnalyticsRole.arn())
  *             .elements(            
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
@@ -97,9 +103,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * - The required policies on `call_analytics_role` will vary based on the selected processors. See [Call analytics resource access role](https://docs.aws.amazon.com/chime-sdk/latest/dg/ca-resource-access-role.html) for directions on choosing appropriate policies.
+ * 
  * ### Transcribe Call Analytics processor usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -141,11 +151,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var postCallRole = new Role(&#34;postCallRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;PostCallAccessRole&#34;)
  *             .assumeRolePolicy(transcribeAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var myConfiguration = new MediaInsightsPipelineConfiguration(&#34;myConfiguration&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
- *             .resourceAccessRoleArn(aws_iam_role.example().arn())
+ *             .name(&#34;MyCallAnalyticsConfiguration&#34;)
+ *             .resourceAccessRoleArn(exampleAwsIamRole.arn())
  *             .elements(            
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
  *                     .type(&#34;AmazonTranscribeCallAnalyticsProcessor&#34;)
@@ -174,7 +186,7 @@ import javax.annotation.Nullable;
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
  *                     .type(&#34;KinesisDataStreamSink&#34;)
  *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
- *                         .insightsTarget(aws_kinesis_stream.example().arn())
+ *                         .insightsTarget(example.arn())
  *                         .build())
  *                     .build())
  *             .build());
@@ -182,7 +194,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Real time alerts usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -209,7 +225,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myConfiguration = new MediaInsightsPipelineConfiguration(&#34;myConfiguration&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
- *             .resourceAccessRoleArn(aws_iam_role.call_analytics_role().arn())
+ *             .name(&#34;MyRealTimeAlertConfiguration&#34;)
+ *             .resourceAccessRoleArn(callAnalyticsRole.arn())
  *             .elements(            
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
  *                     .type(&#34;AmazonTranscribeCallAnalyticsProcessor&#34;)
@@ -220,7 +237,7 @@ import javax.annotation.Nullable;
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
  *                     .type(&#34;KinesisDataStreamSink&#34;)
  *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
- *                         .insightsTarget(aws_kinesis_stream.example().arn())
+ *                         .insightsTarget(example.arn())
  *                         .build())
  *                     .build())
  *             .realTimeAlertConfiguration(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs.builder()
@@ -256,7 +273,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Transcribe processor usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -282,7 +303,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myConfiguration = new MediaInsightsPipelineConfiguration(&#34;myConfiguration&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
- *             .resourceAccessRoleArn(aws_iam_role.example().arn())
+ *             .name(&#34;MyTranscribeConfiguration&#34;)
+ *             .resourceAccessRoleArn(exampleAwsIamRole.arn())
  *             .elements(            
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
  *                     .type(&#34;AmazonTranscribeProcessor&#34;)
@@ -303,7 +325,7 @@ import javax.annotation.Nullable;
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
  *                     .type(&#34;KinesisDataStreamSink&#34;)
  *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
- *                         .insightsTarget(aws_kinesis_stream.example().arn())
+ *                         .insightsTarget(example.arn())
  *                         .build())
  *                     .build())
  *             .build());
@@ -311,7 +333,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Voice analytics processor usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -340,7 +366,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myConfiguration = new MediaInsightsPipelineConfiguration(&#34;myConfiguration&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
- *             .resourceAccessRoleArn(aws_iam_role.example().arn())
+ *             .name(&#34;MyVoiceAnalyticsConfiguration&#34;)
+ *             .resourceAccessRoleArn(example.arn())
  *             .elements(            
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
  *                     .type(&#34;VoiceAnalyticsProcessor&#34;)
@@ -370,7 +397,7 @@ import javax.annotation.Nullable;
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
  *                     .type(&#34;KinesisDataStreamSink&#34;)
  *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
- *                         .insightsTarget(aws_kinesis_stream.test().arn())
+ *                         .insightsTarget(test.arn())
  *                         .build())
  *                     .build())
  *             .build());
@@ -378,7 +405,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### S3 Recording sink usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -403,7 +434,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myConfiguration = new MediaInsightsPipelineConfiguration(&#34;myConfiguration&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
- *             .resourceAccessRoleArn(aws_iam_role.example().arn())
+ *             .name(&#34;MyS3RecordingConfiguration&#34;)
+ *             .resourceAccessRoleArn(example.arn())
  *             .elements(MediaInsightsPipelineConfigurationElementArgs.builder()
  *                 .type(&#34;S3RecordingSink&#34;)
  *                 .s3RecordingSinkConfiguration(MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgs.builder()
@@ -415,13 +447,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Chime SDK Media Pipelines Media Insights Pipeline Configuration using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration example abcdef123456
+ * $ pulumi import aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration example abcdef123456
  * ```
  * 
  */
@@ -556,9 +589,6 @@ public class MediaInsightsPipelineConfiguration extends com.pulumi.resources.Cus
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

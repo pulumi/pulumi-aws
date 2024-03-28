@@ -9,19 +9,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.lightsail.Bucket("test", {bundleId: "small_1_0"});
+ * const test = new aws.lightsail.Bucket("test", {
+ *     name: "mytestbucket",
+ *     bundleId: "small_1_0",
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For example:
  *
  * ```sh
- *  $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
+ * $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
  * ```
  */
 export class Bucket extends pulumi.CustomResource {
@@ -138,8 +143,6 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Bucket.__pulumiType, name, resourceInputs, opts);
     }
 }

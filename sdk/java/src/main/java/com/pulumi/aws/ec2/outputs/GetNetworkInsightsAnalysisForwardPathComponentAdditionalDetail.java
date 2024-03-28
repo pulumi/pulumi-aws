@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -42,22 +43,28 @@ public final class GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetai
 
         @CustomType.Setter
         public Builder additionalDetailType(String additionalDetailType) {
-            this.additionalDetailType = Objects.requireNonNull(additionalDetailType);
+            if (additionalDetailType == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetail", "additionalDetailType");
+            }
+            this.additionalDetailType = additionalDetailType;
             return this;
         }
         @CustomType.Setter
         public Builder components(List<GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent> components) {
-            this.components = Objects.requireNonNull(components);
+            if (components == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetail", "components");
+            }
+            this.components = components;
             return this;
         }
         public Builder components(GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent... components) {
             return components(List.of(components));
         }
         public GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetail build() {
-            final var o = new GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetail();
-            o.additionalDetailType = additionalDetailType;
-            o.components = components;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetail();
+            _resultValue.additionalDetailType = additionalDetailType;
+            _resultValue.components = components;
+            return _resultValue;
         }
     }
 }

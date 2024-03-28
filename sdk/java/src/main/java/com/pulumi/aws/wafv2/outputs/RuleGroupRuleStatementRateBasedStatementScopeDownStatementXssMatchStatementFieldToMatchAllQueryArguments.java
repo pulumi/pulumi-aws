@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXss
         }
 
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments();
+            return _resultValue;
         }
     }
 }

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,11 +29,11 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // var splat0 []interface{}
-// for _, val0 := range aws_subnet.Test {
+// for _, val0 := range testAwsSubnet {
 // splat0 = append(splat0, val0.Id)
 // }
 // _, err := rds.NewProxyEndpoint(ctx, "example", &rds.ProxyEndpointArgs{
-// DbProxyName: pulumi.Any(aws_db_proxy.Test.Name),
+// DbProxyName: pulumi.Any(test.Name),
 // DbProxyEndpointName: pulumi.String("example"),
 // VpcSubnetIds: toPulumiArray(splat0),
 // TargetRole: pulumi.String("READ_ONLY"),
@@ -51,15 +52,14 @@ import (
 // return pulumiArr
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DB proxy endpoints using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
-//
+// $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
 // ```
 type ProxyEndpoint struct {
 	pulumi.CustomResourceState
@@ -104,10 +104,6 @@ func NewProxyEndpoint(ctx *pulumi.Context,
 	if args.VpcSubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'VpcSubnetIds'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProxyEndpoint
 	err := ctx.RegisterResource("aws:rds/proxyEndpoint:ProxyEndpoint", name, args, &resource, opts...)

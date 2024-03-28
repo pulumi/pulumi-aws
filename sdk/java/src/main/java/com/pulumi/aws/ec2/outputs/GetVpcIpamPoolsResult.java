@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.aws.ec2.outputs.GetVpcIpamPoolsFilter;
 import com.pulumi.aws.ec2.outputs.GetVpcIpamPoolsIpamPool;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -66,6 +67,7 @@ public final class GetVpcIpamPoolsResult {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<GetVpcIpamPoolsFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -74,23 +76,29 @@ public final class GetVpcIpamPoolsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVpcIpamPoolsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipamPools(List<GetVpcIpamPoolsIpamPool> ipamPools) {
-            this.ipamPools = Objects.requireNonNull(ipamPools);
+            if (ipamPools == null) {
+              throw new MissingRequiredPropertyException("GetVpcIpamPoolsResult", "ipamPools");
+            }
+            this.ipamPools = ipamPools;
             return this;
         }
         public Builder ipamPools(GetVpcIpamPoolsIpamPool... ipamPools) {
             return ipamPools(List.of(ipamPools));
         }
         public GetVpcIpamPoolsResult build() {
-            final var o = new GetVpcIpamPoolsResult();
-            o.filters = filters;
-            o.id = id;
-            o.ipamPools = ipamPools;
-            return o;
+            final var _resultValue = new GetVpcIpamPoolsResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ipamPools = ipamPools;
+            return _resultValue;
         }
     }
 }

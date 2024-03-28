@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApp, err := amplify.NewApp(ctx, "exampleApp", &amplify.AppArgs{
+//			example, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+//				Name: pulumi.String("app"),
 //				CustomRules: amplify.AppCustomRuleArray{
 //					&amplify.AppCustomRuleArgs{
 //						Source: pulumi.String("https://example.com"),
@@ -41,14 +43,14 @@ import (
 //				return err
 //			}
 //			master, err := amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
-//				AppId:      exampleApp.ID(),
+//				AppId:      example.ID(),
 //				BranchName: pulumi.String("master"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = amplify.NewDomainAssociation(ctx, "exampleDomainAssociation", &amplify.DomainAssociationArgs{
-//				AppId:      exampleApp.ID(),
+//			_, err = amplify.NewDomainAssociation(ctx, "example", &amplify.DomainAssociationArgs{
+//				AppId:      example.ID(),
 //				DomainName: pulumi.String("example.com"),
 //				SubDomains: amplify.DomainAssociationSubDomainArray{
 //					&amplify.DomainAssociationSubDomainArgs{
@@ -69,15 +71,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Amplify domain association using `app_id` and `domain_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
-//
+// $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
 // ```
 type DomainAssociation struct {
 	pulumi.CustomResourceState

@@ -5,6 +5,7 @@ package com.pulumi.aws.rds.outputs;
 
 import com.pulumi.aws.rds.outputs.OptionGroupOptionOptionSetting;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -25,7 +26,7 @@ public final class OptionGroupOption {
      */
     private String optionName;
     /**
-     * @return List of option settings to apply.
+     * @return The option settings to apply. See `option_settings` Block below for more details.
      * 
      */
     private @Nullable List<OptionGroupOptionOptionSetting> optionSettings;
@@ -61,7 +62,7 @@ public final class OptionGroupOption {
         return this.optionName;
     }
     /**
-     * @return List of option settings to apply.
+     * @return The option settings to apply. See `option_settings` Block below for more details.
      * 
      */
     public List<OptionGroupOptionOptionSetting> optionSettings() {
@@ -117,6 +118,7 @@ public final class OptionGroupOption {
 
         @CustomType.Setter
         public Builder dbSecurityGroupMemberships(@Nullable List<String> dbSecurityGroupMemberships) {
+
             this.dbSecurityGroupMemberships = dbSecurityGroupMemberships;
             return this;
         }
@@ -125,11 +127,15 @@ public final class OptionGroupOption {
         }
         @CustomType.Setter
         public Builder optionName(String optionName) {
-            this.optionName = Objects.requireNonNull(optionName);
+            if (optionName == null) {
+              throw new MissingRequiredPropertyException("OptionGroupOption", "optionName");
+            }
+            this.optionName = optionName;
             return this;
         }
         @CustomType.Setter
         public Builder optionSettings(@Nullable List<OptionGroupOptionOptionSetting> optionSettings) {
+
             this.optionSettings = optionSettings;
             return this;
         }
@@ -138,16 +144,19 @@ public final class OptionGroupOption {
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }
         @CustomType.Setter
         public Builder vpcSecurityGroupMemberships(@Nullable List<String> vpcSecurityGroupMemberships) {
+
             this.vpcSecurityGroupMemberships = vpcSecurityGroupMemberships;
             return this;
         }
@@ -155,14 +164,14 @@ public final class OptionGroupOption {
             return vpcSecurityGroupMemberships(List.of(vpcSecurityGroupMemberships));
         }
         public OptionGroupOption build() {
-            final var o = new OptionGroupOption();
-            o.dbSecurityGroupMemberships = dbSecurityGroupMemberships;
-            o.optionName = optionName;
-            o.optionSettings = optionSettings;
-            o.port = port;
-            o.version = version;
-            o.vpcSecurityGroupMemberships = vpcSecurityGroupMemberships;
-            return o;
+            final var _resultValue = new OptionGroupOption();
+            _resultValue.dbSecurityGroupMemberships = dbSecurityGroupMemberships;
+            _resultValue.optionName = optionName;
+            _resultValue.optionSettings = optionSettings;
+            _resultValue.port = port;
+            _resultValue.version = version;
+            _resultValue.vpcSecurityGroupMemberships = vpcSecurityGroupMemberships;
+            return _resultValue;
         }
     }
 }

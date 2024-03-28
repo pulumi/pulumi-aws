@@ -11,31 +11,38 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS VPC Lattice Target Group.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.vpclattice.TargetGroup("example", {
+ *     name: "example",
  *     type: "INSTANCE",
  *     config: {
- *         vpcIdentifier: aws_vpc.example.id,
+ *         vpcIdentifier: exampleAwsVpc.id,
  *         port: 443,
  *         protocol: "HTTPS",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Basic usage with Health check
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.vpclattice.TargetGroup("example", {
+ *     name: "example",
  *     type: "IP",
  *     config: {
- *         vpcIdentifier: aws_vpc.example.id,
+ *         vpcIdentifier: exampleAwsVpc.id,
  *         ipAddressType: "IPV4",
  *         port: 443,
  *         protocol: "HTTPS",
@@ -57,41 +64,52 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### ALB
  *
  * If the type is ALB, `healthCheck` block is not supported.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.vpclattice.TargetGroup("example", {
+ *     name: "example",
  *     type: "ALB",
  *     config: {
- *         vpcIdentifier: aws_vpc.example.id,
+ *         vpcIdentifier: exampleAwsVpc.id,
  *         port: 443,
  *         protocol: "HTTPS",
  *         protocolVersion: "HTTP1",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Lambda
  *
  * If the type is Lambda, `config` block is not supported.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.vpclattice.TargetGroup("example", {type: "LAMBDA"});
+ * const example = new aws.vpclattice.TargetGroup("example", {
+ *     name: "example",
+ *     type: "LAMBDA",
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import VPC Lattice Target Group using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:vpclattice/targetGroup:TargetGroup example tg-0c11d4dc16ed96bdb
+ * $ pulumi import aws:vpclattice/targetGroup:TargetGroup example tg-0c11d4dc16ed96bdb
  * ```
  */
 export class TargetGroup extends pulumi.CustomResource {
@@ -189,8 +207,6 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(TargetGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

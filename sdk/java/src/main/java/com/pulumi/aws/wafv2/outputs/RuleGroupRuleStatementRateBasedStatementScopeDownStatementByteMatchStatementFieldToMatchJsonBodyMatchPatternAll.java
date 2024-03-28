@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
         }
 
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll();
+            return _resultValue;
         }
     }
 }

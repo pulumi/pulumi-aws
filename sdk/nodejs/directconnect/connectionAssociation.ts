@@ -9,23 +9,27 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleConnection = new aws.directconnect.Connection("exampleConnection", {
+ * const example = new aws.directconnect.Connection("example", {
+ *     name: "example",
  *     bandwidth: "1Gbps",
  *     location: "EqSe2-EQ",
  * });
- * const exampleLinkAggregationGroup = new aws.directconnect.LinkAggregationGroup("exampleLinkAggregationGroup", {
+ * const exampleLinkAggregationGroup = new aws.directconnect.LinkAggregationGroup("example", {
+ *     name: "example",
  *     connectionsBandwidth: "1Gbps",
  *     location: "EqSe2-EQ",
  * });
- * const exampleConnectionAssociation = new aws.directconnect.ConnectionAssociation("exampleConnectionAssociation", {
- *     connectionId: exampleConnection.id,
+ * const exampleConnectionAssociation = new aws.directconnect.ConnectionAssociation("example", {
+ *     connectionId: example.id,
  *     lagId: exampleLinkAggregationGroup.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class ConnectionAssociation extends pulumi.CustomResource {
     /**

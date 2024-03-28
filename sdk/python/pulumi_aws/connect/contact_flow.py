@@ -361,8 +361,10 @@ class ContactFlow(pulumi.CustomResource):
         See example below which uses `jq` to extract the `Content` attribute and saves it to a local file.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -370,29 +372,30 @@ class ContactFlow(pulumi.CustomResource):
 
         test = aws.connect.ContactFlow("test",
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="Test",
             description="Test Contact Flow Description",
             type="CONTACT_FLOW",
             content=json.dumps({
-                "Version": "2019-10-30",
-                "StartAction": "12345678-1234-1234-1234-123456789012",
-                "Actions": [
+                "version": "2019-10-30",
+                "startAction": "12345678-1234-1234-1234-123456789012",
+                "actions": [
                     {
-                        "Identifier": "12345678-1234-1234-1234-123456789012",
-                        "Type": "MessageParticipant",
-                        "Transitions": {
-                            "NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-                            "Errors": [],
-                            "Conditions": [],
+                        "identifier": "12345678-1234-1234-1234-123456789012",
+                        "type": "MessageParticipant",
+                        "transitions": {
+                            "nextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+                            "errors": [],
+                            "conditions": [],
                         },
-                        "Parameters": {
-                            "Text": "Thanks for calling the sample flow!",
+                        "parameters": {
+                            "text": "Thanks for calling the sample flow!",
                         },
                     },
                     {
-                        "Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-                        "Type": "DisconnectParticipant",
-                        "Transitions": {},
-                        "Parameters": {},
+                        "identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+                        "type": "DisconnectParticipant",
+                        "transitions": {},
+                        "parameters": {},
                     },
                 ],
             }),
@@ -402,13 +405,41 @@ class ContactFlow(pulumi.CustomResource):
                 "Method": "Create",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
+        ### With External Content
+
+        Use the AWS CLI to extract Contact Flow Content:
+
+        Use the generated file as input:
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        test = aws.connect.ContactFlow("test",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="Test",
+            description="Test Contact Flow Description",
+            type="CONTACT_FLOW",
+            filename="contact_flow.json",
+            content_hash=std.filebase64sha256(input="contact_flow.json").result,
+            tags={
+                "Name": "Test Contact Flow",
+                "Application": "Example",
+                "Method": "Create",
+            })
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Connect Contact Flows using the `instance_id` and `contact_flow_id` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:connect/contactFlow:ContactFlow example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+        $ pulumi import aws:connect/contactFlow:ContactFlow example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
         ```
 
         :param str resource_name: The name of the resource.
@@ -439,8 +470,10 @@ class ContactFlow(pulumi.CustomResource):
         See example below which uses `jq` to extract the `Content` attribute and saves it to a local file.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -448,29 +481,30 @@ class ContactFlow(pulumi.CustomResource):
 
         test = aws.connect.ContactFlow("test",
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="Test",
             description="Test Contact Flow Description",
             type="CONTACT_FLOW",
             content=json.dumps({
-                "Version": "2019-10-30",
-                "StartAction": "12345678-1234-1234-1234-123456789012",
-                "Actions": [
+                "version": "2019-10-30",
+                "startAction": "12345678-1234-1234-1234-123456789012",
+                "actions": [
                     {
-                        "Identifier": "12345678-1234-1234-1234-123456789012",
-                        "Type": "MessageParticipant",
-                        "Transitions": {
-                            "NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-                            "Errors": [],
-                            "Conditions": [],
+                        "identifier": "12345678-1234-1234-1234-123456789012",
+                        "type": "MessageParticipant",
+                        "transitions": {
+                            "nextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+                            "errors": [],
+                            "conditions": [],
                         },
-                        "Parameters": {
-                            "Text": "Thanks for calling the sample flow!",
+                        "parameters": {
+                            "text": "Thanks for calling the sample flow!",
                         },
                     },
                     {
-                        "Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-                        "Type": "DisconnectParticipant",
-                        "Transitions": {},
-                        "Parameters": {},
+                        "identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+                        "type": "DisconnectParticipant",
+                        "transitions": {},
+                        "parameters": {},
                     },
                 ],
             }),
@@ -480,13 +514,41 @@ class ContactFlow(pulumi.CustomResource):
                 "Method": "Create",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
+        ### With External Content
+
+        Use the AWS CLI to extract Contact Flow Content:
+
+        Use the generated file as input:
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        test = aws.connect.ContactFlow("test",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="Test",
+            description="Test Contact Flow Description",
+            type="CONTACT_FLOW",
+            filename="contact_flow.json",
+            content_hash=std.filebase64sha256(input="contact_flow.json").result,
+            tags={
+                "Name": "Test Contact Flow",
+                "Application": "Example",
+                "Method": "Create",
+            })
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Connect Contact Flows using the `instance_id` and `contact_flow_id` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:connect/contactFlow:ContactFlow example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+        $ pulumi import aws:connect/contactFlow:ContactFlow example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
         ```
 
         :param str resource_name: The name of the resource.
@@ -534,8 +596,6 @@ class ContactFlow(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["contact_flow_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ContactFlow, __self__).__init__(
             'aws:connect/contactFlow:ContactFlow',
             resource_name,

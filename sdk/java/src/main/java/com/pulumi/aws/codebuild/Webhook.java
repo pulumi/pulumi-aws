@@ -20,6 +20,7 @@ import javax.annotation.Nullable;
  * Manages a CodeBuild webhook, which is an endpoint accepted by the CodeBuild service to trigger builds from source code repositories. Depending on the source type of the CodeBuild project, the CodeBuild service may also automatically create and delete the actual repository webhook as well.
  * 
  * ## Example Usage
+ * 
  * ### Bitbucket and GitHub
  * 
  * When working with [Bitbucket](https://bitbucket.org) and [GitHub](https://github.com) source CodeBuild webhooks, the CodeBuild service will automatically create (on `aws.codebuild.Webhook` resource creation) and delete (on `aws.codebuild.Webhook` resource deletion) the Bitbucket/GitHub repository webhook using its granted OAuth permissions. This behavior cannot be controlled by this provider.
@@ -27,6 +28,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** The AWS account that this provider uses to create this resource *must* have authorized CodeBuild to access Bitbucket/GitHub&#39;s OAuth API in each applicable region. This is a manual step that must be done *before* creating webhooks with this resource. If OAuth is not configured, AWS will return an error similar to `ResourceNotFoundException: Could not find access token for server type github`. More information can be found in the CodeBuild User Guide for [Bitbucket](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-bitbucket-pull-request.html) and [GitHub](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-pull-request.html).
  * 
  * &gt; **Note:** Further managing the automatically created Bitbucket/GitHub webhook with the `bitbucket_hook`/`github_repository_webhook` resource is only possible with importing that resource after creation of the `aws.codebuild.Webhook` resource. The CodeBuild API does not ever provide the `secret` attribute for the `aws.codebuild.Webhook` resource in this scenario.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,7 +53,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Webhook(&#34;example&#34;, WebhookArgs.builder()        
- *             .projectName(aws_codebuild_project.example().name())
+ *             .projectName(exampleAwsCodebuildProject.name())
  *             .buildType(&#34;BUILD&#34;)
  *             .filterGroups(WebhookFilterGroupArgs.builder()
  *                 .filters(                
@@ -68,11 +71,15 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### GitHub Enterprise
  * 
  * When working with [GitHub Enterprise](https://enterprise.github.com/) source CodeBuild webhooks, the GHE repository webhook must be separately managed (e.g., manually or with the `github_repository_webhook` resource).
  * 
  * More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -97,17 +104,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleWebhook = new Webhook(&#34;exampleWebhook&#34;, WebhookArgs.builder()        
- *             .projectName(aws_codebuild_project.example().name())
+ *         var example = new Webhook(&#34;example&#34;, WebhookArgs.builder()        
+ *             .projectName(exampleAwsCodebuildProject.name())
  *             .build());
  * 
  *         var exampleRepositoryWebhook = new RepositoryWebhook(&#34;exampleRepositoryWebhook&#34;, RepositoryWebhookArgs.builder()        
  *             .active(true)
  *             .events(&#34;push&#34;)
- *             .repository(github_repository.example().name())
+ *             .name(&#34;example&#34;)
+ *             .repository(exampleGithubRepository.name())
  *             .configuration(RepositoryWebhookConfigurationArgs.builder()
- *                 .url(exampleWebhook.payloadUrl())
- *                 .secret(exampleWebhook.secret())
+ *                 .url(example.payloadUrl())
+ *                 .secret(example.secret())
  *                 .contentType(&#34;json&#34;)
  *                 .insecureSsl(false)
  *                 .build())
@@ -116,13 +124,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CodeBuild Webhooks using the CodeBuild Project name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:codebuild/webhook:Webhook example MyProjectName
+ * $ pulumi import aws:codebuild/webhook:Webhook example MyProjectName
  * ```
  * 
  */

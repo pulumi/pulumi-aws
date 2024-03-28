@@ -122,12 +122,14 @@ def get_user(tags: Optional[Mapping[str, str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.memorydb.get_user(user_name="my-user")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] tags: Map of tags assigned to the subnet group.
@@ -158,12 +160,14 @@ def get_user_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = 
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.memorydb.get_user(user_name="my-user")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] tags: Map of tags assigned to the subnet group.

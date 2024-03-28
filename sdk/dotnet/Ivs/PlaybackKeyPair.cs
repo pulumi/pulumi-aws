@@ -13,31 +13,37 @@ namespace Pulumi.Aws.Ivs
     /// Resource for managing an AWS IVS (Interactive Video) Playback Key Pair.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Aws.Ivs.PlaybackKeyPair("example", new()
     ///     {
-    ///         PublicKey = File.ReadAllText("./public-key.pem"),
+    ///         PublicKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "./public-key.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IVS (Interactive Video) Playback Key Pair using the ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
+    /// $ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
     /// ```
     /// </summary>
     [AwsResourceType("aws:ivs/playbackKeyPair:PlaybackKeyPair")]
@@ -104,10 +110,6 @@ namespace Pulumi.Aws.Ivs
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -213,11 +215,7 @@ namespace Pulumi.Aws.Ivs
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public PlaybackKeyPairState()

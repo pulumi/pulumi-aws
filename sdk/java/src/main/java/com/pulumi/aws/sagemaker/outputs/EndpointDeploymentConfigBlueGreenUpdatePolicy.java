@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -73,25 +74,30 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicy {
 
         @CustomType.Setter
         public Builder maximumExecutionTimeoutInSeconds(@Nullable Integer maximumExecutionTimeoutInSeconds) {
+
             this.maximumExecutionTimeoutInSeconds = maximumExecutionTimeoutInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder terminationWaitInSeconds(@Nullable Integer terminationWaitInSeconds) {
+
             this.terminationWaitInSeconds = terminationWaitInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder trafficRoutingConfiguration(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration trafficRoutingConfiguration) {
-            this.trafficRoutingConfiguration = Objects.requireNonNull(trafficRoutingConfiguration);
+            if (trafficRoutingConfiguration == null) {
+              throw new MissingRequiredPropertyException("EndpointDeploymentConfigBlueGreenUpdatePolicy", "trafficRoutingConfiguration");
+            }
+            this.trafficRoutingConfiguration = trafficRoutingConfiguration;
             return this;
         }
         public EndpointDeploymentConfigBlueGreenUpdatePolicy build() {
-            final var o = new EndpointDeploymentConfigBlueGreenUpdatePolicy();
-            o.maximumExecutionTimeoutInSeconds = maximumExecutionTimeoutInSeconds;
-            o.terminationWaitInSeconds = terminationWaitInSeconds;
-            o.trafficRoutingConfiguration = trafficRoutingConfiguration;
-            return o;
+            final var _resultValue = new EndpointDeploymentConfigBlueGreenUpdatePolicy();
+            _resultValue.maximumExecutionTimeoutInSeconds = maximumExecutionTimeoutInSeconds;
+            _resultValue.terminationWaitInSeconds = terminationWaitInSeconds;
+            _resultValue.trafficRoutingConfiguration = trafficRoutingConfiguration;
+            return _resultValue;
         }
     }
 }

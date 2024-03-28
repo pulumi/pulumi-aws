@@ -73,25 +73,28 @@ public final class InstanceListenerEndpoint {
 
         @CustomType.Setter
         public Builder address(@Nullable String address) {
+
             this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder hostedZoneId(@Nullable String hostedZoneId) {
+
             this.hostedZoneId = hostedZoneId;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         public InstanceListenerEndpoint build() {
-            final var o = new InstanceListenerEndpoint();
-            o.address = address;
-            o.hostedZoneId = hostedZoneId;
-            o.port = port;
-            return o;
+            final var _resultValue = new InstanceListenerEndpoint();
+            _resultValue.address = address;
+            _resultValue.hostedZoneId = hostedZoneId;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

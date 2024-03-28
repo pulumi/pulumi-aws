@@ -52,11 +52,13 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXss
 
         @CustomType.Setter
         public Builder all(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll all) {
+
             this.all = all;
             return this;
         }
         @CustomType.Setter
         public Builder includedPaths(@Nullable List<String> includedPaths) {
+
             this.includedPaths = includedPaths;
             return this;
         }
@@ -64,10 +66,10 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXss
             return includedPaths(List.of(includedPaths));
         }
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern();
-            o.all = all;
-            o.includedPaths = includedPaths;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern();
+            _resultValue.all = all;
+            _resultValue.includedPaths = includedPaths;
+            return _resultValue;
         }
     }
 }

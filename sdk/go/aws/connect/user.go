@@ -16,8 +16,10 @@ import (
 // [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,11 +33,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewUser(ctx, "example", &connect.UserArgs{
-//				InstanceId:       pulumi.Any(aws_connect_instance.Example.Id),
+//				InstanceId:       pulumi.Any(exampleAwsConnectInstance.Id),
+//				Name:             pulumi.String("example"),
 //				Password:         pulumi.String("Password123"),
-//				RoutingProfileId: pulumi.Any(aws_connect_routing_profile.Example.Routing_profile_id),
+//				RoutingProfileId: pulumi.Any(exampleAwsConnectRoutingProfile.RoutingProfileId),
 //				SecurityProfileIds: pulumi.StringArray{
-//					aws_connect_security_profile.Example.Security_profile_id,
+//					exampleAwsConnectSecurityProfile.SecurityProfileId,
 //				},
 //				IdentityInfo: &connect.UserIdentityInfoArgs{
 //					FirstName: pulumi.String("example"),
@@ -54,8 +57,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With hierarchyGroupId
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -69,12 +75,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewUser(ctx, "example", &connect.UserArgs{
-//				InstanceId:       pulumi.Any(aws_connect_instance.Example.Id),
+//				InstanceId:       pulumi.Any(exampleAwsConnectInstance.Id),
+//				Name:             pulumi.String("example"),
 //				Password:         pulumi.String("Password123"),
-//				RoutingProfileId: pulumi.Any(aws_connect_routing_profile.Example.Routing_profile_id),
-//				HierarchyGroupId: pulumi.Any(aws_connect_user_hierarchy_group.Example.Hierarchy_group_id),
+//				RoutingProfileId: pulumi.Any(exampleAwsConnectRoutingProfile.RoutingProfileId),
+//				HierarchyGroupId: pulumi.Any(exampleAwsConnectUserHierarchyGroup.HierarchyGroupId),
 //				SecurityProfileIds: pulumi.StringArray{
-//					aws_connect_security_profile.Example.Security_profile_id,
+//					exampleAwsConnectSecurityProfile.SecurityProfileId,
 //				},
 //				IdentityInfo: &connect.UserIdentityInfoArgs{
 //					FirstName: pulumi.String("example"),
@@ -93,8 +100,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With identityInfo filled
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -108,11 +118,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewUser(ctx, "example", &connect.UserArgs{
-//				InstanceId:       pulumi.Any(aws_connect_instance.Example.Id),
+//				InstanceId:       pulumi.Any(exampleAwsConnectInstance.Id),
+//				Name:             pulumi.String("example"),
 //				Password:         pulumi.String("Password123"),
-//				RoutingProfileId: pulumi.Any(aws_connect_routing_profile.Example.Routing_profile_id),
+//				RoutingProfileId: pulumi.Any(exampleAwsConnectRoutingProfile.RoutingProfileId),
 //				SecurityProfileIds: pulumi.StringArray{
-//					aws_connect_security_profile.Example.Security_profile_id,
+//					exampleAwsConnectSecurityProfile.SecurityProfileId,
 //				},
 //				IdentityInfo: &connect.UserIdentityInfoArgs{
 //					Email:     pulumi.String("example@example.com"),
@@ -132,8 +143,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With phoneConfig phone type as desk phone
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -147,11 +161,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewUser(ctx, "example", &connect.UserArgs{
-//				InstanceId:       pulumi.Any(aws_connect_instance.Example.Id),
+//				InstanceId:       pulumi.Any(exampleAwsConnectInstance.Id),
+//				Name:             pulumi.String("example"),
 //				Password:         pulumi.String("Password123"),
-//				RoutingProfileId: pulumi.Any(aws_connect_routing_profile.Example.Routing_profile_id),
+//				RoutingProfileId: pulumi.Any(exampleAwsConnectRoutingProfile.RoutingProfileId),
 //				SecurityProfileIds: pulumi.StringArray{
-//					aws_connect_security_profile.Example.Security_profile_id,
+//					exampleAwsConnectSecurityProfile.SecurityProfileId,
 //				},
 //				PhoneConfig: &connect.UserPhoneConfigArgs{
 //					AfterContactWorkTimeLimit: pulumi.Int(0),
@@ -166,8 +181,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With multiple Security profile ids specified in securityProfileIds
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -181,12 +199,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewUser(ctx, "example", &connect.UserArgs{
-//				InstanceId:       pulumi.Any(aws_connect_instance.Example.Id),
+//				InstanceId:       pulumi.Any(exampleAwsConnectInstance.Id),
+//				Name:             pulumi.String("example"),
 //				Password:         pulumi.String("Password123"),
-//				RoutingProfileId: pulumi.Any(aws_connect_routing_profile.Example.Routing_profile_id),
+//				RoutingProfileId: pulumi.Any(exampleAwsConnectRoutingProfile.RoutingProfileId),
 //				SecurityProfileIds: pulumi.StringArray{
-//					aws_connect_security_profile.Example.Security_profile_id,
-//					aws_connect_security_profile.Example2.Security_profile_id,
+//					exampleAwsConnectSecurityProfile.SecurityProfileId,
+//					example2.SecurityProfileId,
 //				},
 //				PhoneConfig: &connect.UserPhoneConfigArgs{
 //					AfterContactWorkTimeLimit: pulumi.Int(0),
@@ -203,15 +222,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Amazon Connect Users using the `instance_id` and `user_id` separated by a colon (`:`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:connect/user:User example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-//
+// $ pulumi import aws:connect/user:User example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 // ```
 type User struct {
 	pulumi.CustomResourceState
@@ -271,7 +289,6 @@ func NewUser(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"password",
-		"tagsAll",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)

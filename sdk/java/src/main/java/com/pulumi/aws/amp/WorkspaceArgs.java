@@ -33,6 +33,21 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+     * 
+     */
+    @Import(name="kmsKeyArn")
+    private @Nullable Output<String> kmsKeyArn;
+
+    /**
+     * @return The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+     * 
+     */
+    public Optional<Output<String>> kmsKeyArn() {
+        return Optional.ofNullable(this.kmsKeyArn);
+    }
+
+    /**
      * Logging configuration for the workspace. See Logging Configuration below for details.
      * 
      */
@@ -66,6 +81,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
 
     private WorkspaceArgs(WorkspaceArgs $) {
         this.alias = $.alias;
+        this.kmsKeyArn = $.kmsKeyArn;
         this.loggingConfiguration = $.loggingConfiguration;
         this.tags = $.tags;
     }
@@ -107,6 +123,27 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder alias(String alias) {
             return alias(Output.of(alias));
+        }
+
+        /**
+         * @param kmsKeyArn The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
+            $.kmsKeyArn = kmsKeyArn;
+            return this;
+        }
+
+        /**
+         * @param kmsKeyArn The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyArn(String kmsKeyArn) {
+            return kmsKeyArn(Output.of(kmsKeyArn));
         }
 
         /**

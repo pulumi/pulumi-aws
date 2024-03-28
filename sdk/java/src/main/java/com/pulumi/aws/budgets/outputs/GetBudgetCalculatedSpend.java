@@ -5,6 +5,7 @@ package com.pulumi.aws.budgets.outputs;
 
 import com.pulumi.aws.budgets.outputs.GetBudgetCalculatedSpendActualSpend;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,16 +36,19 @@ public final class GetBudgetCalculatedSpend {
 
         @CustomType.Setter
         public Builder actualSpends(List<GetBudgetCalculatedSpendActualSpend> actualSpends) {
-            this.actualSpends = Objects.requireNonNull(actualSpends);
+            if (actualSpends == null) {
+              throw new MissingRequiredPropertyException("GetBudgetCalculatedSpend", "actualSpends");
+            }
+            this.actualSpends = actualSpends;
             return this;
         }
         public Builder actualSpends(GetBudgetCalculatedSpendActualSpend... actualSpends) {
             return actualSpends(List.of(actualSpends));
         }
         public GetBudgetCalculatedSpend build() {
-            final var o = new GetBudgetCalculatedSpend();
-            o.actualSpends = actualSpends;
-            return o;
+            final var _resultValue = new GetBudgetCalculatedSpend();
+            _resultValue.actualSpends = actualSpends;
+            return _resultValue;
         }
     }
 }

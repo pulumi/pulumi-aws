@@ -59,19 +59,21 @@ public final class VoiceConnectorStreamingMediaInsightsConfiguration {
 
         @CustomType.Setter
         public Builder configurationArn(@Nullable String configurationArn) {
+
             this.configurationArn = configurationArn;
             return this;
         }
         @CustomType.Setter
         public Builder disabled(@Nullable Boolean disabled) {
+
             this.disabled = disabled;
             return this;
         }
         public VoiceConnectorStreamingMediaInsightsConfiguration build() {
-            final var o = new VoiceConnectorStreamingMediaInsightsConfiguration();
-            o.configurationArn = configurationArn;
-            o.disabled = disabled;
-            return o;
+            final var _resultValue = new VoiceConnectorStreamingMediaInsightsConfiguration();
+            _resultValue.configurationArn = configurationArn;
+            _resultValue.disabled = disabled;
+            return _resultValue;
         }
     }
 }

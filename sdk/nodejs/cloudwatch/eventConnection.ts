@@ -14,45 +14,139 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.cloudwatch.EventConnection("test", {
+ *     name: "ngrok-connection",
+ *     description: "A connection description",
+ *     authorizationType: "API_KEY",
  *     authParameters: {
  *         apiKey: {
  *             key: "x-signature",
  *             value: "1234",
  *         },
  *     },
- *     authorizationType: "API_KEY",
- *     description: "A connection description",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Basic Authorization
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.cloudwatch.EventConnection("test", {
+ *     name: "ngrok-connection",
+ *     description: "A connection description",
+ *     authorizationType: "BASIC",
  *     authParameters: {
  *         basic: {
- *             password: "Pass1234!",
  *             username: "user",
+ *             password: "Pass1234!",
  *         },
  *     },
- *     authorizationType: "BASIC",
- *     description: "A connection description",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### OAuth Authorization
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.cloudwatch.EventConnection("test", {
+ *     name: "ngrok-connection",
+ *     description: "A connection description",
+ *     authorizationType: "OAUTH_CLIENT_CREDENTIALS",
+ *     authParameters: {
+ *         oauth: {
+ *             authorizationEndpoint: "https://auth.url.com/endpoint",
+ *             httpMethod: "GET",
+ *             clientParameters: {
+ *                 clientId: "1234567890",
+ *                 clientSecret: "Pass1234!",
+ *             },
+ *             oauthHttpParameters: {
+ *                 bodies: [{
+ *                     key: "body-parameter-key",
+ *                     value: "body-parameter-value",
+ *                     isValueSecret: false,
+ *                 }],
+ *                 headers: [{
+ *                     key: "header-parameter-key",
+ *                     value: "header-parameter-value",
+ *                     isValueSecret: false,
+ *                 }],
+ *                 queryStrings: [{
+ *                     key: "query-string-parameter-key",
+ *                     value: "query-string-parameter-value",
+ *                     isValueSecret: false,
+ *                 }],
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Invocation Http Parameters
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.cloudwatch.EventConnection("test", {
+ *     name: "ngrok-connection",
+ *     description: "A connection description",
+ *     authorizationType: "BASIC",
+ *     authParameters: {
+ *         basic: {
+ *             username: "user",
+ *             password: "Pass1234!",
+ *         },
+ *         invocationHttpParameters: {
+ *             bodies: [
+ *                 {
+ *                     key: "body-parameter-key",
+ *                     value: "body-parameter-value",
+ *                     isValueSecret: false,
+ *                 },
+ *                 {
+ *                     key: "body-parameter-key2",
+ *                     value: "body-parameter-value2",
+ *                     isValueSecret: true,
+ *                 },
+ *             ],
+ *             headers: [{
+ *                 key: "header-parameter-key",
+ *                 value: "header-parameter-value",
+ *                 isValueSecret: false,
+ *             }],
+ *             queryStrings: [{
+ *                 key: "query-string-parameter-key",
+ *                 value: "query-string-parameter-value",
+ *                 isValueSecret: false,
+ *             }],
+ *         },
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EventBridge EventBridge connection using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
+ * $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
  * ```
  */
 export class EventConnection extends pulumi.CustomResource {

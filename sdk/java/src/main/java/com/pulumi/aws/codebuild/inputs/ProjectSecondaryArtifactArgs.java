@@ -5,6 +5,7 @@ package com.pulumi.aws.codebuild.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -410,8 +411,12 @@ public final class ProjectSecondaryArtifactArgs extends com.pulumi.resources.Res
         }
 
         public ProjectSecondaryArtifactArgs build() {
-            $.artifactIdentifier = Objects.requireNonNull($.artifactIdentifier, "expected parameter 'artifactIdentifier' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.artifactIdentifier == null) {
+                throw new MissingRequiredPropertyException("ProjectSecondaryArtifactArgs", "artifactIdentifier");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ProjectSecondaryArtifactArgs", "type");
+            }
             return $;
         }
     }

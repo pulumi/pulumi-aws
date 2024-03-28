@@ -18,6 +18,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,18 +34,19 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewDataQualityJobDefinition(ctx, "test", &sagemaker.DataQualityJobDefinitionArgs{
+//				Name: pulumi.String("my-data-quality-job-definition"),
 //				DataQualityAppSpecification: &sagemaker.DataQualityJobDefinitionDataQualityAppSpecificationArgs{
-//					ImageUri: pulumi.Any(data.Aws_sagemaker_prebuilt_ecr_image.Monitor.Registry_path),
+//					ImageUri: pulumi.Any(monitor.RegistryPath),
 //				},
 //				DataQualityJobInput: &sagemaker.DataQualityJobDefinitionDataQualityJobInputArgs{
 //					EndpointInput: &sagemaker.DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs{
-//						EndpointName: pulumi.Any(aws_sagemaker_endpoint.My_endpoint.Name),
+//						EndpointName: pulumi.Any(myEndpoint.Name),
 //					},
 //				},
 //				DataQualityJobOutputConfig: &sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigArgs{
 //					MonitoringOutputs: &sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs{
 //						S3Output: sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs{
-//							S3Uri: pulumi.String(fmt.Sprintf("https://%v/output", aws_s3_bucket.My_bucket.Bucket_regional_domain_name)),
+//							S3Uri: pulumi.String(fmt.Sprintf("https://%v/output", myBucket.BucketRegionalDomainName)),
 //						},
 //					},
 //				},
@@ -55,7 +57,7 @@ import (
 //						VolumeSizeInGb: pulumi.Int(20),
 //					},
 //				},
-//				RoleArn: pulumi.Any(aws_iam_role.My_role.Arn),
+//				RoleArn: pulumi.Any(myRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -65,15 +67,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import data quality job definitions using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo
-//
+// $ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo
 // ```
 type DataQualityJobDefinition struct {
 	pulumi.CustomResourceState
@@ -128,10 +129,6 @@ func NewDataQualityJobDefinition(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataQualityJobDefinition
 	err := ctx.RegisterResource("aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition", name, args, &resource, opts...)

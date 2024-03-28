@@ -6,6 +6,7 @@ package com.pulumi.aws.s3.outputs;
 import com.pulumi.aws.s3.outputs.BucketAclV2AccessControlPolicyGrant;
 import com.pulumi.aws.s3.outputs.BucketAclV2AccessControlPolicyOwner;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import javax.annotation.Nullable;
@@ -18,7 +19,7 @@ public final class BucketAclV2AccessControlPolicy {
      */
     private @Nullable List<BucketAclV2AccessControlPolicyGrant> grants;
     /**
-     * @return Configuration block of the bucket owner&#39;s display name and ID. See below.
+     * @return Configuration block for the bucket owner&#39;s display name and ID. See below.
      * 
      */
     private BucketAclV2AccessControlPolicyOwner owner;
@@ -32,7 +33,7 @@ public final class BucketAclV2AccessControlPolicy {
         return this.grants == null ? List.of() : this.grants;
     }
     /**
-     * @return Configuration block of the bucket owner&#39;s display name and ID. See below.
+     * @return Configuration block for the bucket owner&#39;s display name and ID. See below.
      * 
      */
     public BucketAclV2AccessControlPolicyOwner owner() {
@@ -59,6 +60,7 @@ public final class BucketAclV2AccessControlPolicy {
 
         @CustomType.Setter
         public Builder grants(@Nullable List<BucketAclV2AccessControlPolicyGrant> grants) {
+
             this.grants = grants;
             return this;
         }
@@ -67,14 +69,17 @@ public final class BucketAclV2AccessControlPolicy {
         }
         @CustomType.Setter
         public Builder owner(BucketAclV2AccessControlPolicyOwner owner) {
-            this.owner = Objects.requireNonNull(owner);
+            if (owner == null) {
+              throw new MissingRequiredPropertyException("BucketAclV2AccessControlPolicy", "owner");
+            }
+            this.owner = owner;
             return this;
         }
         public BucketAclV2AccessControlPolicy build() {
-            final var o = new BucketAclV2AccessControlPolicy();
-            o.grants = grants;
-            o.owner = owner;
-            return o;
+            final var _resultValue = new BucketAclV2AccessControlPolicy();
+            _resultValue.grants = grants;
+            _resultValue.owner = owner;
+            return _resultValue;
         }
     }
 }

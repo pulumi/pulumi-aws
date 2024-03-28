@@ -73,6 +73,7 @@ public final class PipelineContentConfigPermission {
 
         @CustomType.Setter
         public Builder accesses(@Nullable List<String> accesses) {
+
             this.accesses = accesses;
             return this;
         }
@@ -81,20 +82,22 @@ public final class PipelineContentConfigPermission {
         }
         @CustomType.Setter
         public Builder grantee(@Nullable String grantee) {
+
             this.grantee = grantee;
             return this;
         }
         @CustomType.Setter
         public Builder granteeType(@Nullable String granteeType) {
+
             this.granteeType = granteeType;
             return this;
         }
         public PipelineContentConfigPermission build() {
-            final var o = new PipelineContentConfigPermission();
-            o.accesses = accesses;
-            o.grantee = grantee;
-            o.granteeType = granteeType;
-            return o;
+            final var _resultValue = new PipelineContentConfigPermission();
+            _resultValue.accesses = accesses;
+            _resultValue.grantee = grantee;
+            _resultValue.granteeType = granteeType;
+            return _resultValue;
         }
     }
 }

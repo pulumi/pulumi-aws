@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,11 +30,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appconfig.NewEventIntegration(ctx, "example", &appconfig.EventIntegrationArgs{
-//				Description: pulumi.String("Example Description"),
+//				Name:           pulumi.String("example-name"),
+//				Description:    pulumi.String("Example Description"),
+//				EventbridgeBus: pulumi.String("default"),
 //				EventFilter: &appconfig.EventIntegrationEventFilterArgs{
 //					Source: pulumi.String("aws.partner/examplepartner.com"),
 //				},
-//				EventbridgeBus: pulumi.String("default"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example Event Integration"),
 //				},
@@ -46,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
-//
+// $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
 // ```
 type EventIntegration struct {
 	pulumi.CustomResourceState
@@ -90,10 +91,6 @@ func NewEventIntegration(ctx *pulumi.Context,
 	if args.EventbridgeBus == nil {
 		return nil, errors.New("invalid value for required argument 'EventbridgeBus'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventIntegration
 	err := ctx.RegisterResource("aws:appconfig/eventIntegration:EventIntegration", name, args, &resource, opts...)

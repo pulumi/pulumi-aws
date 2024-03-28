@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,22 +27,23 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         BgpAsn = "65000",
     ///         IpAddress = "172.83.124.10",
+    ///         Type = "ipsec.1",
     ///         Tags = 
     ///         {
     ///             { "Name", "main-customer-gateway" },
     ///         },
-    ///         Type = "ipsec.1",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Customer Gateways using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
+    /// $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/customerGateway:CustomerGateway")]
@@ -119,10 +121,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -249,11 +247,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

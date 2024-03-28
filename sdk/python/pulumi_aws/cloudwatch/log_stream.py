@@ -119,20 +119,24 @@ class LogStream(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        yada = aws.cloudwatch.LogGroup("yada")
-        foo = aws.cloudwatch.LogStream("foo", log_group_name=yada.name)
+        yada = aws.cloudwatch.LogGroup("yada", name="Yada")
+        foo = aws.cloudwatch.LogStream("foo",
+            name="SampleLogStream1234",
+            log_group_name=yada.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cloudwatch Log Stream using the stream's `log_group_name` and `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
+        $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
         ```
 
         :param str resource_name: The name of the resource.
@@ -151,20 +155,24 @@ class LogStream(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        yada = aws.cloudwatch.LogGroup("yada")
-        foo = aws.cloudwatch.LogStream("foo", log_group_name=yada.name)
+        yada = aws.cloudwatch.LogGroup("yada", name="Yada")
+        foo = aws.cloudwatch.LogStream("foo",
+            name="SampleLogStream1234",
+            log_group_name=yada.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cloudwatch Log Stream using the stream's `log_group_name` and `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
+        $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
         ```
 
         :param str resource_name: The name of the resource.

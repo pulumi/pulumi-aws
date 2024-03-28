@@ -5,6 +5,7 @@ package com.pulumi.aws.s3control.outputs;
 
 import com.pulumi.aws.s3control.outputs.ObjectLambdaAccessPointConfigurationTransformationConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -89,6 +90,7 @@ public final class ObjectLambdaAccessPointConfiguration {
 
         @CustomType.Setter
         public Builder allowedFeatures(@Nullable List<String> allowedFeatures) {
+
             this.allowedFeatures = allowedFeatures;
             return this;
         }
@@ -97,29 +99,36 @@ public final class ObjectLambdaAccessPointConfiguration {
         }
         @CustomType.Setter
         public Builder cloudWatchMetricsEnabled(@Nullable Boolean cloudWatchMetricsEnabled) {
+
             this.cloudWatchMetricsEnabled = cloudWatchMetricsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder supportingAccessPoint(String supportingAccessPoint) {
-            this.supportingAccessPoint = Objects.requireNonNull(supportingAccessPoint);
+            if (supportingAccessPoint == null) {
+              throw new MissingRequiredPropertyException("ObjectLambdaAccessPointConfiguration", "supportingAccessPoint");
+            }
+            this.supportingAccessPoint = supportingAccessPoint;
             return this;
         }
         @CustomType.Setter
         public Builder transformationConfigurations(List<ObjectLambdaAccessPointConfigurationTransformationConfiguration> transformationConfigurations) {
-            this.transformationConfigurations = Objects.requireNonNull(transformationConfigurations);
+            if (transformationConfigurations == null) {
+              throw new MissingRequiredPropertyException("ObjectLambdaAccessPointConfiguration", "transformationConfigurations");
+            }
+            this.transformationConfigurations = transformationConfigurations;
             return this;
         }
         public Builder transformationConfigurations(ObjectLambdaAccessPointConfigurationTransformationConfiguration... transformationConfigurations) {
             return transformationConfigurations(List.of(transformationConfigurations));
         }
         public ObjectLambdaAccessPointConfiguration build() {
-            final var o = new ObjectLambdaAccessPointConfiguration();
-            o.allowedFeatures = allowedFeatures;
-            o.cloudWatchMetricsEnabled = cloudWatchMetricsEnabled;
-            o.supportingAccessPoint = supportingAccessPoint;
-            o.transformationConfigurations = transformationConfigurations;
-            return o;
+            final var _resultValue = new ObjectLambdaAccessPointConfiguration();
+            _resultValue.allowedFeatures = allowedFeatures;
+            _resultValue.cloudWatchMetricsEnabled = cloudWatchMetricsEnabled;
+            _resultValue.supportingAccessPoint = supportingAccessPoint;
+            _resultValue.transformationConfigurations = transformationConfigurations;
+            return _resultValue;
         }
     }
 }

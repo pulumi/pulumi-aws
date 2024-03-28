@@ -10,6 +10,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'FastSnapshotRestoreTimeoutsArgs',
     'SnapshotImportClientDataArgs',
     'SnapshotImportDiskContainerArgs',
     'SnapshotImportDiskContainerUserBucketArgs',
@@ -18,6 +19,45 @@ __all__ = [
     'GetSnapshotIdsFilterArgs',
     'GetVolumeFilterArgs',
 ]
+
+@pulumi.input_type
+class FastSnapshotRestoreTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
+
 
 @pulumi.input_type
 class SnapshotImportClientDataArgs:
@@ -207,6 +247,7 @@ class GetEbsVolumesFilterArgs:
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
                For example, if matching against the `size` filter, use:
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -219,6 +260,7 @@ class GetEbsVolumesFilterArgs:
                    ],
                )])
                ```
+               <!--End PulumiCodeChooser -->
         :param Sequence[str] values: Set of values that are accepted for the given field.
                EBS Volume IDs will be selected if any one of the given values match.
         """
@@ -233,6 +275,7 @@ class GetEbsVolumesFilterArgs:
         [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
         For example, if matching against the `size` filter, use:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -245,6 +288,7 @@ class GetEbsVolumesFilterArgs:
             ],
         )])
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "name")
 

@@ -9,42 +9,53 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleAccessPoint = new aws.s3.AccessPoint("exampleAccessPoint", {bucket: exampleBucketV2.id});
- * const exampleObjectLambdaAccessPoint = new aws.s3control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", {configuration: {
- *     supportingAccessPoint: exampleAccessPoint.arn,
- *     transformationConfigurations: [{
- *         actions: ["GetObject"],
- *         contentTransformation: {
- *             awsLambda: {
- *                 functionArn: aws_lambda_function.example.arn,
+ * const example = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleAccessPoint = new aws.s3.AccessPoint("example", {
+ *     bucket: example.id,
+ *     name: "example",
+ * });
+ * const exampleObjectLambdaAccessPoint = new aws.s3control.ObjectLambdaAccessPoint("example", {
+ *     name: "example",
+ *     configuration: {
+ *         supportingAccessPoint: exampleAccessPoint.arn,
+ *         transformationConfigurations: [{
+ *             actions: ["GetObject"],
+ *             contentTransformation: {
+ *                 awsLambda: {
+ *                     functionArn: exampleAwsLambdaFunction.arn,
+ *                 },
  *             },
- *         },
- *     }],
- * }});
- * const exampleObjectLambdaAccessPointPolicy = new aws.s3control.ObjectLambdaAccessPointPolicy("exampleObjectLambdaAccessPointPolicy", {policy: exampleObjectLambdaAccessPoint.arn.apply(arn => JSON.stringify({
- *     Version: "2008-10-17",
- *     Statement: [{
- *         Effect: "Allow",
- *         Action: "s3-object-lambda:GetObject",
- *         Principal: {
- *             AWS: data.aws_caller_identity.current.account_id,
- *         },
- *         Resource: arn,
- *     }],
- * }))});
+ *         }],
+ *     },
+ * });
+ * const exampleObjectLambdaAccessPointPolicy = new aws.s3control.ObjectLambdaAccessPointPolicy("example", {
+ *     name: exampleObjectLambdaAccessPoint.name,
+ *     policy: pulumi.jsonStringify({
+ *         version: "2008-10-17",
+ *         statement: [{
+ *             effect: "Allow",
+ *             action: "s3-object-lambda:GetObject",
+ *             principal: {
+ *                 AWS: current.accountId,
+ *             },
+ *             resource: exampleObjectLambdaAccessPoint.arn,
+ *         }],
+ *     }),
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Object Lambda Access Point policies using the `account_id` and `name`, separated by a colon (`:`). For example:
  *
  * ```sh
- *  $ pulumi import aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy example 123456789012:example
+ * $ pulumi import aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy example 123456789012:example
  * ```
  */
 export class ObjectLambdaAccessPointPolicy extends pulumi.CustomResource {

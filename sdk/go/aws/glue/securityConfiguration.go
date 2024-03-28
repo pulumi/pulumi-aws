@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewSecurityConfiguration(ctx, "example", &glue.SecurityConfigurationArgs{
+//				Name: pulumi.String("example"),
 //				EncryptionConfiguration: &glue.SecurityConfigurationEncryptionConfigurationArgs{
 //					CloudwatchEncryption: &glue.SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs{
 //						CloudwatchEncryptionMode: pulumi.String("DISABLED"),
@@ -37,7 +39,7 @@ import (
 //						JobBookmarksEncryptionMode: pulumi.String("DISABLED"),
 //					},
 //					S3Encryption: &glue.SecurityConfigurationEncryptionConfigurationS3EncryptionArgs{
-//						KmsKeyArn:        pulumi.Any(data.Aws_kms_key.Example.Arn),
+//						KmsKeyArn:        pulumi.Any(exampleAwsKmsKey.Arn),
 //						S3EncryptionMode: pulumi.String("SSE-KMS"),
 //					},
 //				},
@@ -50,15 +52,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glue Security Configurations using `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
-//
+// $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
 // ```
 type SecurityConfiguration struct {
 	pulumi.CustomResourceState

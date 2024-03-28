@@ -17,8 +17,10 @@ import (
 // [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html)
 //
 // ## Example Usage
+//
 // ### Create protection group for all resources
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,9 +34,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := shield.NewProtectionGroup(ctx, "example", &shield.ProtectionGroupArgs{
+//				ProtectionGroupId: pulumi.String("example"),
 //				Aggregation:       pulumi.String("MAX"),
 //				Pattern:           pulumi.String("ALL"),
-//				ProtectionGroupId: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -44,8 +46,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Create protection group for arbitrary number of resources
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,40 +67,39 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			current, err := aws.GetRegion(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			currentGetCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleEip, err := ec2.NewEip(ctx, "exampleEip", &ec2.EipArgs{
+//			example, err := ec2.NewEip(ctx, "example", &ec2.EipArgs{
 //				Domain: pulumi.String("vpc"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleProtection, err := shield.NewProtection(ctx, "exampleProtection", &shield.ProtectionArgs{
-//				ResourceArn: exampleEip.ID().ApplyT(func(id string) (string, error) {
-//					return fmt.Sprintf("arn:aws:ec2:%v:%v:eip-allocation/%v", currentRegion.Name, currentCallerIdentity.AccountId, id), nil
+//			_, err = shield.NewProtection(ctx, "example", &shield.ProtectionArgs{
+//				Name: pulumi.String("example"),
+//				ResourceArn: example.ID().ApplyT(func(id string) (string, error) {
+//					return fmt.Sprintf("arn:aws:ec2:%v:%v:eip-allocation/%v", current.Name, currentGetCallerIdentity.AccountId, id), nil
 //				}).(pulumi.StringOutput),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = shield.NewProtectionGroup(ctx, "exampleProtectionGroup", &shield.ProtectionGroupArgs{
+//			_, err = shield.NewProtectionGroup(ctx, "example", &shield.ProtectionGroupArgs{
 //				ProtectionGroupId: pulumi.String("example"),
 //				Aggregation:       pulumi.String("MEAN"),
 //				Pattern:           pulumi.String("ARBITRARY"),
 //				Members: pulumi.StringArray{
-//					exampleEip.ID().ApplyT(func(id string) (string, error) {
-//						return fmt.Sprintf("arn:aws:ec2:%v:%v:eip-allocation/%v", currentRegion.Name, currentCallerIdentity.AccountId, id), nil
+//					example.ID().ApplyT(func(id string) (string, error) {
+//						return fmt.Sprintf("arn:aws:ec2:%v:%v:eip-allocation/%v", current.Name, currentGetCallerIdentity.AccountId, id), nil
 //					}).(pulumi.StringOutput),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleProtection,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -104,8 +108,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Create protection group for a type of resource
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -119,9 +126,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := shield.NewProtectionGroup(ctx, "example", &shield.ProtectionGroupArgs{
+//				ProtectionGroupId: pulumi.String("example"),
 //				Aggregation:       pulumi.String("SUM"),
 //				Pattern:           pulumi.String("BY_RESOURCE_TYPE"),
-//				ProtectionGroupId: pulumi.String("example"),
 //				ResourceType:      pulumi.String("ELASTIC_IP_ALLOCATION"),
 //			})
 //			if err != nil {
@@ -132,15 +139,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Shield protection group resources using their protection group id. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
-//
+// $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
 // ```
 type ProtectionGroup struct {
 	pulumi.CustomResourceState
@@ -181,10 +187,6 @@ func NewProtectionGroup(ctx *pulumi.Context,
 	if args.ProtectionGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'ProtectionGroupId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProtectionGroup
 	err := ctx.RegisterResource("aws:shield/protectionGroup:ProtectionGroup", name, args, &resource, opts...)

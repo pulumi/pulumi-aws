@@ -9,11 +9,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const main = new aws.apigateway.RestApi("main", {});
+ * const main = new aws.apigateway.RestApi("main", {name: "MyDemoAPI"});
  * const test = new aws.apigateway.Response("test", {
  *     restApiId: main.id,
  *     statusCode: "401",
@@ -26,13 +27,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
+ * $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
  * ```
  */
 export class Response extends pulumi.CustomResource {

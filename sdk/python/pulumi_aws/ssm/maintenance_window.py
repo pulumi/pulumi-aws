@@ -453,24 +453,25 @@ class MaintenanceWindow(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         production = aws.ssm.MaintenanceWindow("production",
-            cutoff=1,
+            name="maintenance-window-application",
+            schedule="cron(0 16 ? * TUE *)",
             duration=3,
-            schedule="cron(0 16 ? * TUE *)")
+            cutoff=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import SSM
-
-        Maintenance Windows using the maintenance window `id`. For example:
+        Using `pulumi import`, import SSM  Maintenance Windows using the maintenance window `id`. For example:
 
         ```sh
-         $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
+        $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
         ```
 
         :param str resource_name: The name of the resource.
@@ -499,24 +500,25 @@ class MaintenanceWindow(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         production = aws.ssm.MaintenanceWindow("production",
-            cutoff=1,
+            name="maintenance-window-application",
+            schedule="cron(0 16 ? * TUE *)",
             duration=3,
-            schedule="cron(0 16 ? * TUE *)")
+            cutoff=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import SSM
-
-        Maintenance Windows using the maintenance window `id`. For example:
+        Using `pulumi import`, import SSM  Maintenance Windows using the maintenance window `id`. For example:
 
         ```sh
-         $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
+        $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
         ```
 
         :param str resource_name: The name of the resource.
@@ -574,8 +576,6 @@ class MaintenanceWindow(pulumi.CustomResource):
             __props__.__dict__["start_date"] = start_date
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(MaintenanceWindow, __self__).__init__(
             'aws:ssm/maintenanceWindow:MaintenanceWindow',
             resource_name,

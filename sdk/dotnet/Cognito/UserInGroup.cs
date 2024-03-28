@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,8 +23,9 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool", new()
+    ///     var example = new Aws.Cognito.UserPool("example", new()
     ///     {
+    ///         Name = "example",
     ///         PasswordPolicy = new Aws.Cognito.Inputs.UserPoolPasswordPolicyArgs
     ///         {
     ///             TemporaryPasswordValidityDays = 7,
@@ -34,26 +36,28 @@ namespace Pulumi.Aws.Cognito
     ///         },
     ///     });
     /// 
-    ///     var exampleUser = new Aws.Cognito.User("exampleUser", new()
+    ///     var exampleUser = new Aws.Cognito.User("example", new()
     ///     {
-    ///         UserPoolId = exampleUserPool.Id,
+    ///         UserPoolId = example.Id,
     ///         Username = "example",
     ///     });
     /// 
-    ///     var exampleUserGroup = new Aws.Cognito.UserGroup("exampleUserGroup", new()
+    ///     var exampleUserGroup = new Aws.Cognito.UserGroup("example", new()
     ///     {
-    ///         UserPoolId = exampleUserPool.Id,
+    ///         UserPoolId = example.Id,
+    ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleUserInGroup = new Aws.Cognito.UserInGroup("exampleUserInGroup", new()
+    ///     var exampleUserInGroup = new Aws.Cognito.UserInGroup("example", new()
     ///     {
-    ///         UserPoolId = exampleUserPool.Id,
+    ///         UserPoolId = example.Id,
     ///         GroupName = exampleUserGroup.Name,
     ///         Username = exampleUser.Username,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:cognito/userInGroup:UserInGroup")]
     public partial class UserInGroup : global::Pulumi.CustomResource

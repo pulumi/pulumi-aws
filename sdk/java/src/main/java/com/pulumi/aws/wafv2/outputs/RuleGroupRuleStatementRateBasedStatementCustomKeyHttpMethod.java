@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod {
         }
 
         public RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod();
+            return _resultValue;
         }
     }
 }

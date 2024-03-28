@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.VirtualGatewaySpecListenerTlsCertificate;
 import com.pulumi.aws.appmesh.outputs.VirtualGatewaySpecListenerTlsValidation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -74,25 +75,32 @@ public final class VirtualGatewaySpecListenerTls {
 
         @CustomType.Setter
         public Builder certificate(VirtualGatewaySpecListenerTlsCertificate certificate) {
-            this.certificate = Objects.requireNonNull(certificate);
+            if (certificate == null) {
+              throw new MissingRequiredPropertyException("VirtualGatewaySpecListenerTls", "certificate");
+            }
+            this.certificate = certificate;
             return this;
         }
         @CustomType.Setter
         public Builder mode(String mode) {
-            this.mode = Objects.requireNonNull(mode);
+            if (mode == null) {
+              throw new MissingRequiredPropertyException("VirtualGatewaySpecListenerTls", "mode");
+            }
+            this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder validation(@Nullable VirtualGatewaySpecListenerTlsValidation validation) {
+
             this.validation = validation;
             return this;
         }
         public VirtualGatewaySpecListenerTls build() {
-            final var o = new VirtualGatewaySpecListenerTls();
-            o.certificate = certificate;
-            o.mode = mode;
-            o.validation = validation;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecListenerTls();
+            _resultValue.certificate = certificate;
+            _resultValue.mode = mode;
+            _resultValue.validation = validation;
+            return _resultValue;
         }
     }
 }

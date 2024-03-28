@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Dms
         /// <summary>
         /// Data source for managing an AWS DMS (Database Migration) Endpoint.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +34,7 @@ namespace Pulumi.Aws.Dms
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("aws:dms/getEndpoint:getEndpoint", args ?? new GetEndpointArgs(), options.WithDefaults());
@@ -43,11 +42,11 @@ namespace Pulumi.Aws.Dms
         /// <summary>
         /// Data source for managing an AWS DMS (Database Migration) Endpoint.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +62,7 @@ namespace Pulumi.Aws.Dms
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("aws:dms/getEndpoint:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithDefaults());
@@ -137,6 +135,7 @@ namespace Pulumi.Aws.Dms
         public readonly ImmutableArray<Outputs.GetEndpointMongodbSettingResult> MongodbSettings;
         public readonly string Password;
         public readonly int Port;
+        public readonly ImmutableArray<Outputs.GetEndpointPostgresSettingResult> PostgresSettings;
         public readonly ImmutableArray<Outputs.GetEndpointRedisSettingResult> RedisSettings;
         public readonly ImmutableArray<Outputs.GetEndpointRedshiftSettingResult> RedshiftSettings;
         public readonly ImmutableArray<Outputs.GetEndpointS3SettingResult> S3Settings;
@@ -180,6 +179,8 @@ namespace Pulumi.Aws.Dms
 
             int port,
 
+            ImmutableArray<Outputs.GetEndpointPostgresSettingResult> postgresSettings,
+
             ImmutableArray<Outputs.GetEndpointRedisSettingResult> redisSettings,
 
             ImmutableArray<Outputs.GetEndpointRedshiftSettingResult> redshiftSettings,
@@ -215,6 +216,7 @@ namespace Pulumi.Aws.Dms
             MongodbSettings = mongodbSettings;
             Password = password;
             Port = port;
+            PostgresSettings = postgresSettings;
             RedisSettings = redisSettings;
             RedshiftSettings = redshiftSettings;
             S3Settings = s3Settings;

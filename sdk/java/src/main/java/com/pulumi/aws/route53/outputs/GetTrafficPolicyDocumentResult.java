@@ -6,6 +6,7 @@ package com.pulumi.aws.route53.outputs;
 import com.pulumi.aws.route53.outputs.GetTrafficPolicyDocumentEndpoint;
 import com.pulumi.aws.route53.outputs.GetTrafficPolicyDocumentRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -97,6 +98,7 @@ public final class GetTrafficPolicyDocumentResult {
 
         @CustomType.Setter
         public Builder endpoints(@Nullable List<GetTrafficPolicyDocumentEndpoint> endpoints) {
+
             this.endpoints = endpoints;
             return this;
         }
@@ -105,21 +107,29 @@ public final class GetTrafficPolicyDocumentResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTrafficPolicyDocumentResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder json(String json) {
-            this.json = Objects.requireNonNull(json);
+            if (json == null) {
+              throw new MissingRequiredPropertyException("GetTrafficPolicyDocumentResult", "json");
+            }
+            this.json = json;
             return this;
         }
         @CustomType.Setter
         public Builder recordType(@Nullable String recordType) {
+
             this.recordType = recordType;
             return this;
         }
         @CustomType.Setter
         public Builder rules(@Nullable List<GetTrafficPolicyDocumentRule> rules) {
+
             this.rules = rules;
             return this;
         }
@@ -128,30 +138,33 @@ public final class GetTrafficPolicyDocumentResult {
         }
         @CustomType.Setter
         public Builder startEndpoint(@Nullable String startEndpoint) {
+
             this.startEndpoint = startEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder startRule(@Nullable String startRule) {
+
             this.startRule = startRule;
             return this;
         }
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }
         public GetTrafficPolicyDocumentResult build() {
-            final var o = new GetTrafficPolicyDocumentResult();
-            o.endpoints = endpoints;
-            o.id = id;
-            o.json = json;
-            o.recordType = recordType;
-            o.rules = rules;
-            o.startEndpoint = startEndpoint;
-            o.startRule = startRule;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetTrafficPolicyDocumentResult();
+            _resultValue.endpoints = endpoints;
+            _resultValue.id = id;
+            _resultValue.json = json;
+            _resultValue.recordType = recordType;
+            _resultValue.rules = rules;
+            _resultValue.startEndpoint = startEndpoint;
+            _resultValue.startRule = startRule;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

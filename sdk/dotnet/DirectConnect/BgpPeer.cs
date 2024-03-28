@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,13 +25,14 @@ namespace Pulumi.Aws.DirectConnect
     /// {
     ///     var peer = new Aws.DirectConnect.BgpPeer("peer", new()
     ///     {
-    ///         VirtualInterfaceId = aws_dx_private_virtual_interface.Foo.Id,
+    ///         VirtualInterfaceId = foo.Id,
     ///         AddressFamily = "ipv6",
     ///         BgpAsn = 65351,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:directconnect/bgpPeer:BgpPeer")]
     public partial class BgpPeer : global::Pulumi.CustomResource

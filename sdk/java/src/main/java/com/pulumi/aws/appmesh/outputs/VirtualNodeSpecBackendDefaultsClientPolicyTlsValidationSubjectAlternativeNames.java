@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,13 +43,16 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjec
 
         @CustomType.Setter
         public Builder match(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch match) {
-            this.match = Objects.requireNonNull(match);
+            if (match == null) {
+              throw new MissingRequiredPropertyException("VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames", "match");
+            }
+            this.match = match;
             return this;
         }
         public VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames build() {
-            final var o = new VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames();
-            o.match = match;
-            return o;
+            final var _resultValue = new VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames();
+            _resultValue.match = match;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class ClassifierXmlClassifier {
 
         @CustomType.Setter
         public Builder classification(String classification) {
-            this.classification = Objects.requireNonNull(classification);
+            if (classification == null) {
+              throw new MissingRequiredPropertyException("ClassifierXmlClassifier", "classification");
+            }
+            this.classification = classification;
             return this;
         }
         @CustomType.Setter
         public Builder rowTag(String rowTag) {
-            this.rowTag = Objects.requireNonNull(rowTag);
+            if (rowTag == null) {
+              throw new MissingRequiredPropertyException("ClassifierXmlClassifier", "rowTag");
+            }
+            this.rowTag = rowTag;
             return this;
         }
         public ClassifierXmlClassifier build() {
-            final var o = new ClassifierXmlClassifier();
-            o.classification = classification;
-            o.rowTag = rowTag;
-            return o;
+            final var _resultValue = new ClassifierXmlClassifier();
+            _resultValue.classification = classification;
+            _resultValue.rowTag = rowTag;
+            return _resultValue;
         }
     }
 }

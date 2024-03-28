@@ -110,6 +110,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettings {
 
         @CustomType.Setter
         public Builder archiveGroupSettings(@Nullable List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting> archiveGroupSettings) {
+
             this.archiveGroupSettings = archiveGroupSettings;
             return this;
         }
@@ -118,50 +119,57 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettings {
         }
         @CustomType.Setter
         public Builder frameCaptureGroupSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings frameCaptureGroupSettings) {
+
             this.frameCaptureGroupSettings = frameCaptureGroupSettings;
             return this;
         }
         @CustomType.Setter
         public Builder hlsGroupSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings hlsGroupSettings) {
+
             this.hlsGroupSettings = hlsGroupSettings;
             return this;
         }
         @CustomType.Setter
         public Builder mediaPackageGroupSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings mediaPackageGroupSettings) {
+
             this.mediaPackageGroupSettings = mediaPackageGroupSettings;
             return this;
         }
         @CustomType.Setter
         public Builder msSmoothGroupSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings msSmoothGroupSettings) {
+
             this.msSmoothGroupSettings = msSmoothGroupSettings;
             return this;
         }
         @CustomType.Setter
         public Builder multiplexGroupSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettings multiplexGroupSettings) {
+
             this.multiplexGroupSettings = multiplexGroupSettings;
             return this;
         }
         @CustomType.Setter
         public Builder rtmpGroupSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings rtmpGroupSettings) {
+
             this.rtmpGroupSettings = rtmpGroupSettings;
             return this;
         }
         @CustomType.Setter
         public Builder udpGroupSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings udpGroupSettings) {
+
             this.udpGroupSettings = udpGroupSettings;
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettings();
-            o.archiveGroupSettings = archiveGroupSettings;
-            o.frameCaptureGroupSettings = frameCaptureGroupSettings;
-            o.hlsGroupSettings = hlsGroupSettings;
-            o.mediaPackageGroupSettings = mediaPackageGroupSettings;
-            o.msSmoothGroupSettings = msSmoothGroupSettings;
-            o.multiplexGroupSettings = multiplexGroupSettings;
-            o.rtmpGroupSettings = rtmpGroupSettings;
-            o.udpGroupSettings = udpGroupSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettings();
+            _resultValue.archiveGroupSettings = archiveGroupSettings;
+            _resultValue.frameCaptureGroupSettings = frameCaptureGroupSettings;
+            _resultValue.hlsGroupSettings = hlsGroupSettings;
+            _resultValue.mediaPackageGroupSettings = mediaPackageGroupSettings;
+            _resultValue.msSmoothGroupSettings = msSmoothGroupSettings;
+            _resultValue.multiplexGroupSettings = multiplexGroupSettings;
+            _resultValue.rtmpGroupSettings = rtmpGroupSettings;
+            _resultValue.udpGroupSettings = udpGroupSettings;
+            return _resultValue;
         }
     }
 }

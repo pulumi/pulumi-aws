@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * Provides a CodeDeploy deployment config for an application
  * 
  * ## Example Usage
+ * 
  * ### Server Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooDeploymentConfig = new DeploymentConfig(&#34;fooDeploymentConfig&#34;, DeploymentConfigArgs.builder()        
+ *         var foo = new DeploymentConfig(&#34;foo&#34;, DeploymentConfigArgs.builder()        
  *             .deploymentConfigName(&#34;test-deployment-config&#34;)
  *             .minimumHealthyHosts(DeploymentConfigMinimumHealthyHostsArgs.builder()
  *                 .type(&#34;HOST_COUNT&#34;)
@@ -58,10 +61,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var fooDeploymentGroup = new DeploymentGroup(&#34;fooDeploymentGroup&#34;, DeploymentGroupArgs.builder()        
- *             .appName(aws_codedeploy_app.foo_app().name())
+ *             .appName(fooApp.name())
  *             .deploymentGroupName(&#34;bar&#34;)
- *             .serviceRoleArn(aws_iam_role.foo_role().arn())
- *             .deploymentConfigName(fooDeploymentConfig.id())
+ *             .serviceRoleArn(fooRole.arn())
+ *             .deploymentConfigName(foo.id())
  *             .ec2TagFilters(DeploymentGroupEc2TagFilterArgs.builder()
  *                 .key(&#34;filterkey&#34;)
  *                 .type(&#34;KEY_AND_VALUE&#34;)
@@ -85,7 +88,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Lambda Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -113,7 +120,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooDeploymentConfig = new DeploymentConfig(&#34;fooDeploymentConfig&#34;, DeploymentConfigArgs.builder()        
+ *         var foo = new DeploymentConfig(&#34;foo&#34;, DeploymentConfigArgs.builder()        
  *             .deploymentConfigName(&#34;test-deployment-config&#34;)
  *             .computePlatform(&#34;Lambda&#34;)
  *             .trafficRoutingConfig(DeploymentConfigTrafficRoutingConfigArgs.builder()
@@ -126,10 +133,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var fooDeploymentGroup = new DeploymentGroup(&#34;fooDeploymentGroup&#34;, DeploymentGroupArgs.builder()        
- *             .appName(aws_codedeploy_app.foo_app().name())
+ *             .appName(fooApp.name())
  *             .deploymentGroupName(&#34;bar&#34;)
- *             .serviceRoleArn(aws_iam_role.foo_role().arn())
- *             .deploymentConfigName(fooDeploymentConfig.id())
+ *             .serviceRoleArn(fooRole.arn())
+ *             .deploymentConfigName(foo.id())
  *             .autoRollbackConfiguration(DeploymentGroupAutoRollbackConfigurationArgs.builder()
  *                 .enabled(true)
  *                 .events(&#34;DEPLOYMENT_STOP_ON_ALARM&#34;)
@@ -143,18 +150,33 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CodeDeploy Deployment Configurations using the `deployment_config_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
+ * $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
  * ```
  * 
  */
 @ResourceType(type="aws:codedeploy/deploymentConfig:DeploymentConfig")
 public class DeploymentConfig extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN of the deployment config.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return The ARN of the deployment config.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
     /**
      * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
      * 

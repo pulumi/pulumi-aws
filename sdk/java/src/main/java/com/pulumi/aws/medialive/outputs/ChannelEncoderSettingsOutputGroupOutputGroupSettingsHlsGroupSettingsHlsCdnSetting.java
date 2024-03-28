@@ -64,37 +64,42 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
 
         @CustomType.Setter
         public Builder hlsAkamaiSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings hlsAkamaiSettings) {
+
             this.hlsAkamaiSettings = hlsAkamaiSettings;
             return this;
         }
         @CustomType.Setter
         public Builder hlsBasicPutSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings hlsBasicPutSettings) {
+
             this.hlsBasicPutSettings = hlsBasicPutSettings;
             return this;
         }
         @CustomType.Setter
         public Builder hlsMediaStoreSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings hlsMediaStoreSettings) {
+
             this.hlsMediaStoreSettings = hlsMediaStoreSettings;
             return this;
         }
         @CustomType.Setter
         public Builder hlsS3Settings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings hlsS3Settings) {
+
             this.hlsS3Settings = hlsS3Settings;
             return this;
         }
         @CustomType.Setter
         public Builder hlsWebdavSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings hlsWebdavSettings) {
+
             this.hlsWebdavSettings = hlsWebdavSettings;
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting();
-            o.hlsAkamaiSettings = hlsAkamaiSettings;
-            o.hlsBasicPutSettings = hlsBasicPutSettings;
-            o.hlsMediaStoreSettings = hlsMediaStoreSettings;
-            o.hlsS3Settings = hlsS3Settings;
-            o.hlsWebdavSettings = hlsWebdavSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting();
+            _resultValue.hlsAkamaiSettings = hlsAkamaiSettings;
+            _resultValue.hlsBasicPutSettings = hlsBasicPutSettings;
+            _resultValue.hlsMediaStoreSettings = hlsMediaStoreSettings;
+            _resultValue.hlsS3Settings = hlsS3Settings;
+            _resultValue.hlsWebdavSettings = hlsWebdavSettings;
+            return _resultValue;
         }
     }
 }

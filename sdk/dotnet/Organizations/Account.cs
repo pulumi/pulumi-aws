@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,20 +29,22 @@ namespace Pulumi.Aws.Organizations
     /// {
     ///     var account = new Aws.Organizations.Account("account", new()
     ///     {
+    ///         Name = "my_new_account",
     ///         Email = "john@doe.org",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import the AWS member account using the `account_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:organizations/account:Account my_account 111111111111
+    /// $ pulumi import aws:organizations/account:Account my_account 111111111111
     /// ```
-    ///  Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+    /// Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
     /// </summary>
     [AwsResourceType("aws:organizations/account:Account")]
     public partial class Account : global::Pulumi.CustomResource
@@ -146,10 +149,6 @@ namespace Pulumi.Aws.Organizations
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -324,11 +323,7 @@ namespace Pulumi.Aws.Organizations
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public AccountState()

@@ -7,6 +7,7 @@ import com.pulumi.aws.s3.outputs.BucketReplicationConfigurationRuleDestinationAc
 import com.pulumi.aws.s3.outputs.BucketReplicationConfigurationRuleDestinationMetrics;
 import com.pulumi.aws.s3.outputs.BucketReplicationConfigurationRuleDestinationReplicationTime;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -133,49 +134,58 @@ public final class BucketReplicationConfigurationRuleDestination {
 
         @CustomType.Setter
         public Builder accessControlTranslation(@Nullable BucketReplicationConfigurationRuleDestinationAccessControlTranslation accessControlTranslation) {
+
             this.accessControlTranslation = accessControlTranslation;
             return this;
         }
         @CustomType.Setter
         public Builder accountId(@Nullable String accountId) {
+
             this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder bucket(String bucket) {
-            this.bucket = Objects.requireNonNull(bucket);
+            if (bucket == null) {
+              throw new MissingRequiredPropertyException("BucketReplicationConfigurationRuleDestination", "bucket");
+            }
+            this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
         public Builder metrics(@Nullable BucketReplicationConfigurationRuleDestinationMetrics metrics) {
+
             this.metrics = metrics;
             return this;
         }
         @CustomType.Setter
         public Builder replicaKmsKeyId(@Nullable String replicaKmsKeyId) {
+
             this.replicaKmsKeyId = replicaKmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder replicationTime(@Nullable BucketReplicationConfigurationRuleDestinationReplicationTime replicationTime) {
+
             this.replicationTime = replicationTime;
             return this;
         }
         @CustomType.Setter
         public Builder storageClass(@Nullable String storageClass) {
+
             this.storageClass = storageClass;
             return this;
         }
         public BucketReplicationConfigurationRuleDestination build() {
-            final var o = new BucketReplicationConfigurationRuleDestination();
-            o.accessControlTranslation = accessControlTranslation;
-            o.accountId = accountId;
-            o.bucket = bucket;
-            o.metrics = metrics;
-            o.replicaKmsKeyId = replicaKmsKeyId;
-            o.replicationTime = replicationTime;
-            o.storageClass = storageClass;
-            return o;
+            final var _resultValue = new BucketReplicationConfigurationRuleDestination();
+            _resultValue.accessControlTranslation = accessControlTranslation;
+            _resultValue.accountId = accountId;
+            _resultValue.bucket = bucket;
+            _resultValue.metrics = metrics;
+            _resultValue.replicaKmsKeyId = replicaKmsKeyId;
+            _resultValue.replicationTime = replicationTime;
+            _resultValue.storageClass = storageClass;
+            return _resultValue;
         }
     }
 }

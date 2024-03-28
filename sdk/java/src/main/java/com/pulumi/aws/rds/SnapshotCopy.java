@@ -13,7 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +21,8 @@ import javax.annotation.Nullable;
  * Manages an RDS database instance snapshot copy. For managing RDS database cluster snapshots, see the `aws.rds.ClusterSnapshot` resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
+ *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
  *             .allocatedStorage(10)
  *             .engine(&#34;mysql&#34;)
  *             .engineVersion(&#34;5.6.21&#34;)
@@ -61,7 +62,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSnapshot = new Snapshot(&#34;exampleSnapshot&#34;, SnapshotArgs.builder()        
- *             .dbInstanceIdentifier(exampleInstance.identifier())
+ *             .dbInstanceIdentifier(example.identifier())
  *             .dbSnapshotIdentifier(&#34;testsnapshot1234&#34;)
  *             .build());
  * 
@@ -73,13 +74,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_db_snapshot_copy` using the snapshot identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
+ * $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
  * ```
  * 
  */
@@ -428,9 +430,6 @@ public class SnapshotCopy extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

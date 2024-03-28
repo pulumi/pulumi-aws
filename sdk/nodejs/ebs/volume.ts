@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * > **NOTE:** At least one of `size` or `snapshotId` is required when specifying an EBS volume
  *
@@ -29,7 +31,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import EBS Volumes using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
+ * $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
  * ```
  */
 export class Volume extends pulumi.CustomResource {
@@ -169,8 +171,6 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Volume.__pulumiType, name, resourceInputs, opts);
     }
 }

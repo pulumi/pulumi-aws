@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Eks
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,9 +25,10 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Eks.FargateProfile("example", new()
     ///     {
-    ///         ClusterName = aws_eks_cluster.Example.Name,
-    ///         PodExecutionRoleArn = aws_iam_role.Example.Arn,
-    ///         SubnetIds = aws_subnet.Example.Select(__item =&gt; __item.Id).ToList(),
+    ///         ClusterName = exampleAwsEksCluster.Name,
+    ///         FargateProfileName = "example",
+    ///         PodExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///         Selectors = new[]
     ///         {
     ///             new Aws.Eks.Inputs.FargateProfileSelectorArgs
@@ -38,8 +40,11 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example IAM Role for EKS Fargate Profile
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,21 +56,22 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "eks-fargate-profile-example",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Statement"] = new[]
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["action"] = "sts:AssumeRole",
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "eks-fargate-pods.amazonaws.com",
+    ///                         ["service"] = "eks-fargate-pods.amazonaws.com",
     ///                     },
     ///                 },
     ///             },
-    ///             ["Version"] = "2012-10-17",
+    ///             ["version"] = "2012-10-17",
     ///         }),
     ///     });
     /// 
@@ -77,13 +83,14 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EKS Fargate Profiles using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
+    /// $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
     /// ```
     /// </summary>
     [AwsResourceType("aws:eks/fargateProfile:FargateProfile")]
@@ -96,7 +103,7 @@ namespace Pulumi.Aws.Eks
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// Name of the EKS Cluster.
         /// </summary>
         [Output("clusterName")]
         public Output<string> ClusterName { get; private set; } = null!;
@@ -168,10 +175,6 @@ namespace Pulumi.Aws.Eks
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -196,7 +199,7 @@ namespace Pulumi.Aws.Eks
     public sealed class FargateProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// Name of the EKS Cluster.
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
@@ -266,7 +269,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// Name of the EKS Cluster.
         /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
@@ -337,11 +340,7 @@ namespace Pulumi.Aws.Eks
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public FargateProfileState()

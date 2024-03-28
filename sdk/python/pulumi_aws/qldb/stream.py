@@ -304,23 +304,25 @@ class Stream(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.qldb.Stream("example",
+            ledger_name="existing-ledger-name",
+            stream_name="sample-ledger-stream",
+            role_arn="sample-role-arn",
             inclusive_start_time="2021-01-01T00:00:00Z",
             kinesis_configuration=aws.qldb.StreamKinesisConfigurationArgs(
                 aggregation_enabled=False,
                 stream_arn="arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream",
             ),
-            ledger_name="existing-ledger-name",
-            role_arn="sample-role-arn",
-            stream_name="sample-ledger-stream",
             tags={
                 "example": "tag",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -343,23 +345,25 @@ class Stream(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.qldb.Stream("example",
+            ledger_name="existing-ledger-name",
+            stream_name="sample-ledger-stream",
+            role_arn="sample-role-arn",
             inclusive_start_time="2021-01-01T00:00:00Z",
             kinesis_configuration=aws.qldb.StreamKinesisConfigurationArgs(
                 aggregation_enabled=False,
                 stream_arn="arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream",
             ),
-            ledger_name="existing-ledger-name",
-            role_arn="sample-role-arn",
-            stream_name="sample-ledger-stream",
             tags={
                 "example": "tag",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param StreamArgs args: The arguments to use to populate this resource's properties.
@@ -411,8 +415,6 @@ class Stream(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Stream, __self__).__init__(
             'aws:qldb/stream:Stream',
             resource_name,

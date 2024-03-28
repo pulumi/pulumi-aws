@@ -74,16 +74,19 @@ public final class CoreNetworkEdge {
 
         @CustomType.Setter
         public Builder asn(@Nullable Integer asn) {
+
             this.asn = asn;
             return this;
         }
         @CustomType.Setter
         public Builder edgeLocation(@Nullable String edgeLocation) {
+
             this.edgeLocation = edgeLocation;
             return this;
         }
         @CustomType.Setter
         public Builder insideCidrBlocks(@Nullable List<String> insideCidrBlocks) {
+
             this.insideCidrBlocks = insideCidrBlocks;
             return this;
         }
@@ -91,11 +94,11 @@ public final class CoreNetworkEdge {
             return insideCidrBlocks(List.of(insideCidrBlocks));
         }
         public CoreNetworkEdge build() {
-            final var o = new CoreNetworkEdge();
-            o.asn = asn;
-            o.edgeLocation = edgeLocation;
-            o.insideCidrBlocks = insideCidrBlocks;
-            return o;
+            final var _resultValue = new CoreNetworkEdge();
+            _resultValue.asn = asn;
+            _resultValue.edgeLocation = edgeLocation;
+            _resultValue.insideCidrBlocks = insideCidrBlocks;
+            return _resultValue;
         }
     }
 }

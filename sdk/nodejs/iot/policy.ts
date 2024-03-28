@@ -11,26 +11,31 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const pubsub = new aws.iot.Policy("pubsub", {policy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Action: ["iot:*"],
- *         Effect: "Allow",
- *         Resource: "*",
- *     }],
- * })});
+ * const pubsub = new aws.iot.Policy("pubsub", {
+ *     name: "PubSubToAnyTopic",
+ *     policy: JSON.stringify({
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: ["iot:*"],
+ *             effect: "Allow",
+ *             resource: "*",
+ *         }],
+ *     }),
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IoT policies using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
+ * $ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
  * ```
  */
 export class Policy extends pulumi.CustomResource {
@@ -77,6 +82,16 @@ export class Policy extends pulumi.CustomResource {
      * The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
      */
     public readonly policy!: pulumi.Output<string>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -95,6 +110,8 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["defaultVersionId"] = state ? state.defaultVersionId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
             if ((!args || args.policy === undefined) && !opts.urn) {
@@ -102,8 +119,10 @@ export class Policy extends pulumi.CustomResource {
             }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["defaultVersionId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Policy.__pulumiType, name, resourceInputs, opts);
@@ -130,6 +149,16 @@ export interface PolicyState {
      * The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
      */
     policy?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -144,4 +173,8 @@ export interface PolicyArgs {
      * The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
      */
     policy: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

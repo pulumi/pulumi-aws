@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,13 +24,14 @@ import * as utilities from "../utilities";
  *     subnetId: subnetId,
  * });
  * const route = aws.ec2.getRoute({
- *     routeTableId: aws_route_table.selected.id,
+ *     routeTableId: selectedAwsRouteTable.id,
  *     destinationCidrBlock: "10.0.1.0/24",
  * });
  * const interface = route.then(route => aws.ec2.getNetworkInterface({
  *     id: route.networkInterfaceId,
  * }));
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
 
@@ -148,6 +150,7 @@ export interface GetRouteResult {
  *
  * The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -158,13 +161,14 @@ export interface GetRouteResult {
  *     subnetId: subnetId,
  * });
  * const route = aws.ec2.getRoute({
- *     routeTableId: aws_route_table.selected.id,
+ *     routeTableId: selectedAwsRouteTable.id,
  *     destinationCidrBlock: "10.0.1.0/24",
  * });
  * const interface = route.then(route => aws.ec2.getNetworkInterface({
  *     id: route.networkInterfaceId,
  * }));
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {
     return pulumi.output(args).apply((a: any) => getRoute(a, opts))

@@ -106,14 +106,14 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+     * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
      * 
      */
     @Import(name="buildTimeout")
     private @Nullable Output<Integer> buildTimeout;
 
     /**
-     * @return Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+     * @return Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
      * 
      */
     public Optional<Output<Integer>> buildTimeout() {
@@ -271,14 +271,14 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
      * 
      */
     @Import(name="queuedTimeout")
     private @Nullable Output<Integer> queuedTimeout;
 
     /**
-     * @return Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+     * @return Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
      * 
      */
     public Optional<Output<Integer>> queuedTimeout() {
@@ -286,14 +286,14 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds.
+     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
      * 
      */
     @Import(name="resourceAccessRole")
     private @Nullable Output<String> resourceAccessRole;
 
     /**
-     * @return The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds.
+     * @return The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
      * 
      */
     public Optional<Output<String>> resourceAccessRole() {
@@ -603,7 +603,7 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param buildTimeout Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+         * @param buildTimeout Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
          * 
          * @return builder
          * 
@@ -614,7 +614,7 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param buildTimeout Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+         * @param buildTimeout Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
          * 
          * @return builder
          * 
@@ -844,7 +844,7 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param queuedTimeout Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+         * @param queuedTimeout Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
          * 
          * @return builder
          * 
@@ -855,7 +855,7 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param queuedTimeout Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+         * @param queuedTimeout Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
          * 
          * @return builder
          * 
@@ -865,7 +865,7 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceAccessRole The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds.
+         * @param resourceAccessRole The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
          * 
          * @return builder
          * 
@@ -876,7 +876,7 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceAccessRole The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds.
+         * @param resourceAccessRole The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
          * 
          * @return builder
          * 

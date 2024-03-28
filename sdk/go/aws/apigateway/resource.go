@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,13 +29,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myDemoAPI, err := apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
+//			myDemoAPI, err := apigateway.NewRestApi(ctx, "MyDemoAPI", &apigateway.RestApiArgs{
+//				Name:        pulumi.String("MyDemoAPI"),
 //				Description: pulumi.String("This is my API for demonstration purposes"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigateway.NewResource(ctx, "myDemoResource", &apigateway.ResourceArgs{
+//			_, err = apigateway.NewResource(ctx, "MyDemoResource", &apigateway.ResourceArgs{
 //				RestApi:  myDemoAPI.ID(),
 //				ParentId: myDemoAPI.RootResourceId,
 //				PathPart: pulumi.String("mydemoresource"),
@@ -47,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_api_gateway_resource` using `REST-API-ID/RESOURCE-ID`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij
-//
+// $ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij
 // ```
 type Resource struct {
 	pulumi.CustomResourceState

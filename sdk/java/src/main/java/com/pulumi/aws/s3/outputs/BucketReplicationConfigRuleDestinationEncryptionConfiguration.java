@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class BucketReplicationConfigRuleDestinationEncryptionConfiguration
 
         @CustomType.Setter
         public Builder replicaKmsKeyId(String replicaKmsKeyId) {
-            this.replicaKmsKeyId = Objects.requireNonNull(replicaKmsKeyId);
+            if (replicaKmsKeyId == null) {
+              throw new MissingRequiredPropertyException("BucketReplicationConfigRuleDestinationEncryptionConfiguration", "replicaKmsKeyId");
+            }
+            this.replicaKmsKeyId = replicaKmsKeyId;
             return this;
         }
         public BucketReplicationConfigRuleDestinationEncryptionConfiguration build() {
-            final var o = new BucketReplicationConfigRuleDestinationEncryptionConfiguration();
-            o.replicaKmsKeyId = replicaKmsKeyId;
-            return o;
+            final var _resultValue = new BucketReplicationConfigRuleDestinationEncryptionConfiguration();
+            _resultValue.replicaKmsKeyId = replicaKmsKeyId;
+            return _resultValue;
         }
     }
 }

@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Provides a resource to create a VPC NAT Gateway.
  * 
  * ## Example Usage
+ * 
  * ### Public NAT
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -30,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.NatGateway;
  * import com.pulumi.aws.ec2.NatGatewayArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,17 +47,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new NatGateway(&#34;example&#34;, NatGatewayArgs.builder()        
- *             .allocationId(aws_eip.example().id())
- *             .subnetId(aws_subnet.example().id())
+ *             .allocationId(exampleAwsEip.id())
+ *             .subnetId(exampleAwsSubnet.id())
  *             .tags(Map.of(&#34;Name&#34;, &#34;gw NAT&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_internet_gateway.example())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Public NAT with Secondary Private IP Addresses
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -78,16 +82,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new NatGateway(&#34;example&#34;, NatGatewayArgs.builder()        
- *             .allocationId(aws_eip.example().id())
- *             .subnetId(aws_subnet.example().id())
- *             .secondaryAllocationIds(aws_eip.secondary().id())
+ *             .allocationId(exampleAwsEip.id())
+ *             .subnetId(exampleAwsSubnet.id())
+ *             .secondaryAllocationIds(secondary.id())
  *             .secondaryPrivateIpAddresses(&#34;10.0.1.5&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Private NAT
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -111,13 +119,17 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new NatGateway(&#34;example&#34;, NatGatewayArgs.builder()        
  *             .connectivityType(&#34;private&#34;)
- *             .subnetId(aws_subnet.example().id())
+ *             .subnetId(exampleAwsSubnet.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Private NAT with Secondary Private IP Addresses
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -141,20 +153,21 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new NatGateway(&#34;example&#34;, NatGatewayArgs.builder()        
  *             .connectivityType(&#34;private&#34;)
- *             .subnetId(aws_subnet.example().id())
+ *             .subnetId(exampleAwsSubnet.id())
  *             .secondaryPrivateIpAddressCount(7)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import NAT Gateways using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
+ * $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
  * ```
  * 
  */
@@ -365,9 +378,6 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

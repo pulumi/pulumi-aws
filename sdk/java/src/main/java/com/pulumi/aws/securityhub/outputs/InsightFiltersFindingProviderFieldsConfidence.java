@@ -72,25 +72,28 @@ public final class InsightFiltersFindingProviderFieldsConfidence {
 
         @CustomType.Setter
         public Builder eq(@Nullable String eq) {
+
             this.eq = eq;
             return this;
         }
         @CustomType.Setter
         public Builder gte(@Nullable String gte) {
+
             this.gte = gte;
             return this;
         }
         @CustomType.Setter
         public Builder lte(@Nullable String lte) {
+
             this.lte = lte;
             return this;
         }
         public InsightFiltersFindingProviderFieldsConfidence build() {
-            final var o = new InsightFiltersFindingProviderFieldsConfidence();
-            o.eq = eq;
-            o.gte = gte;
-            o.lte = lte;
-            return o;
+            final var _resultValue = new InsightFiltersFindingProviderFieldsConfidence();
+            _resultValue.eq = eq;
+            _resultValue.gte = gte;
+            _resultValue.lte = lte;
+            return _resultValue;
         }
     }
 }

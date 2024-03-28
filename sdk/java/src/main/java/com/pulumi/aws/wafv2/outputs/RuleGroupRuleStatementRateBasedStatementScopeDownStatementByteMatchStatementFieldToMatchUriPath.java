@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
         }
 
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath();
+            return _resultValue;
         }
     }
 }

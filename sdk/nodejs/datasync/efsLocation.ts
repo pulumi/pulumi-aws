@@ -16,25 +16,27 @@ import {ARN} from "..";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datasync.EfsLocation("example", {
- *     efsFileSystemArn: aws_efs_mount_target.example.file_system_arn,
+ *     efsFileSystemArn: exampleAwsEfsMountTarget.fileSystemArn,
  *     ec2Config: {
- *         securityGroupArns: [aws_security_group.example.arn],
- *         subnetArn: aws_subnet.example.arn,
+ *         securityGroupArns: [exampleAwsSecurityGroup.arn],
+ *         subnetArn: exampleAwsSubnet.arn,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_datasync_location_efs` using the DataSync Task Amazon Resource Name (ARN). For example:
  *
  * ```sh
- *  $ pulumi import aws:datasync/efsLocation:EfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+ * $ pulumi import aws:datasync/efsLocation:EfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
  * ```
  */
 export class EfsLocation extends pulumi.CustomResource {
@@ -148,8 +150,6 @@ export class EfsLocation extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(EfsLocation.__pulumiType, name, resourceInputs, opts);
     }
 }

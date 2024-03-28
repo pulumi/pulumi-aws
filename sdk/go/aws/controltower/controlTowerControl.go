@@ -15,59 +15,12 @@ import (
 // Allows the application of pre-defined controls to organizational units. For more information on usage, please see the
 // [AWS Control Tower User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/enable-guardrails.html).
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/controltower"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetRegion(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleOrganization, err := organizations.LookupOrganization(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleOrganizationalUnits, err := organizations.GetOrganizationalUnits(ctx, &organizations.GetOrganizationalUnitsArgs{
-//				ParentId: exampleOrganization.Roots[0].Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = controltower.NewControlTowerControl(ctx, "exampleControlTowerControl", &controltower.ControlTowerControlArgs{
-//				ControlIdentifier: pulumi.String(fmt.Sprintf("arn:aws:controltower:%v::control/AWS-GR_EC2_VOLUME_INUSE_CHECK", current.Name)),
-//				TargetIdentifier:  "TODO: For expression"[0],
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Control Tower Controls using their `organizational_unit_arn/control_identifier`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
-//
+// $ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
 // ```
 type ControlTowerControl struct {
 	pulumi.CustomResourceState

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,39 +24,44 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleQueue = new Aws.Sqs.Queue("exampleQueue");
+    ///     var example = new Aws.Sqs.Queue("example", new()
+    ///     {
+    ///         Name = "examplequeue",
+    ///     });
     /// 
     ///     var src = new Aws.Sqs.Queue("src", new()
     ///     {
-    ///         RedrivePolicy = exampleQueue.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         Name = "srcqueue",
+    ///         RedrivePolicy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["deadLetterTargetArn"] = arn,
+    ///             ["deadLetterTargetArn"] = example.Arn,
     ///             ["maxReceiveCount"] = 4,
     ///         })),
     ///     });
     /// 
-    ///     var exampleRedriveAllowPolicy = new Aws.Sqs.RedriveAllowPolicy("exampleRedriveAllowPolicy", new()
+    ///     var exampleRedriveAllowPolicy = new Aws.Sqs.RedriveAllowPolicy("example", new()
     ///     {
-    ///         QueueUrl = exampleQueue.Id,
-    ///         RedriveAllowPolicyName = src.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         QueueUrl = example.Id,
+    ///         RedriveAllowPolicyName = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["redrivePermission"] = "byQueue",
     ///             ["sourceQueueArns"] = new[]
     ///             {
-    ///                 arn,
+    ///                 src.Arn,
     ///             },
     ///         })),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SQS Queue Redrive Allow Policies using the queue URL. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sqs/redriveAllowPolicy:RedriveAllowPolicy test https://queue.amazonaws.com/0123456789012/myqueue
+    /// $ pulumi import aws:sqs/redriveAllowPolicy:RedriveAllowPolicy test https://queue.amazonaws.com/0123456789012/myqueue
     /// ```
     /// </summary>
     [AwsResourceType("aws:sqs/redriveAllowPolicy:RedriveAllowPolicy")]

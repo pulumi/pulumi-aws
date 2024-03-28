@@ -4,6 +4,7 @@
 package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -71,25 +72,34 @@ public final class TopicRuleErrorActionSqs {
 
         @CustomType.Setter
         public Builder queueUrl(String queueUrl) {
-            this.queueUrl = Objects.requireNonNull(queueUrl);
+            if (queueUrl == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionSqs", "queueUrl");
+            }
+            this.queueUrl = queueUrl;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionSqs", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder useBase64(Boolean useBase64) {
-            this.useBase64 = Objects.requireNonNull(useBase64);
+            if (useBase64 == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionSqs", "useBase64");
+            }
+            this.useBase64 = useBase64;
             return this;
         }
         public TopicRuleErrorActionSqs build() {
-            final var o = new TopicRuleErrorActionSqs();
-            o.queueUrl = queueUrl;
-            o.roleArn = roleArn;
-            o.useBase64 = useBase64;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionSqs();
+            _resultValue.queueUrl = queueUrl;
+            _resultValue.roleArn = roleArn;
+            _resultValue.useBase64 = useBase64;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,10 +17,10 @@ import javax.annotation.Nullable;
 public final class GetBucketObjectsResult {
     /**
      * @deprecated
-     * Use the aws_s3_objects data source instead
+     * Use the aws.s3.getObjects data source instead
      * 
      */
-    @Deprecated /* Use the aws_s3_objects data source instead */
+    @Deprecated /* Use the aws.s3.getObjects data source instead */
     private String bucket;
     /**
      * @return List of any keys between `prefix` and the next occurrence of `delimiter` (i.e., similar to subdirectories of the `prefix` &#34;directory&#34;); the list is only returned when you specify `delimiter`
@@ -51,10 +52,10 @@ public final class GetBucketObjectsResult {
     private GetBucketObjectsResult() {}
     /**
      * @deprecated
-     * Use the aws_s3_objects data source instead
+     * Use the aws.s3.getObjects data source instead
      * 
      */
-    @Deprecated /* Use the aws_s3_objects data source instead */
+    @Deprecated /* Use the aws.s3.getObjects data source instead */
     public String bucket() {
         return this.bucket;
     }
@@ -143,12 +144,18 @@ public final class GetBucketObjectsResult {
 
         @CustomType.Setter
         public Builder bucket(String bucket) {
-            this.bucket = Objects.requireNonNull(bucket);
+            if (bucket == null) {
+              throw new MissingRequiredPropertyException("GetBucketObjectsResult", "bucket");
+            }
+            this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
         public Builder commonPrefixes(List<String> commonPrefixes) {
-            this.commonPrefixes = Objects.requireNonNull(commonPrefixes);
+            if (commonPrefixes == null) {
+              throw new MissingRequiredPropertyException("GetBucketObjectsResult", "commonPrefixes");
+            }
+            this.commonPrefixes = commonPrefixes;
             return this;
         }
         public Builder commonPrefixes(String... commonPrefixes) {
@@ -156,27 +163,36 @@ public final class GetBucketObjectsResult {
         }
         @CustomType.Setter
         public Builder delimiter(@Nullable String delimiter) {
+
             this.delimiter = delimiter;
             return this;
         }
         @CustomType.Setter
         public Builder encodingType(@Nullable String encodingType) {
+
             this.encodingType = encodingType;
             return this;
         }
         @CustomType.Setter
         public Builder fetchOwner(@Nullable Boolean fetchOwner) {
+
             this.fetchOwner = fetchOwner;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetBucketObjectsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder keys(List<String> keys) {
-            this.keys = Objects.requireNonNull(keys);
+            if (keys == null) {
+              throw new MissingRequiredPropertyException("GetBucketObjectsResult", "keys");
+            }
+            this.keys = keys;
             return this;
         }
         public Builder keys(String... keys) {
@@ -184,12 +200,16 @@ public final class GetBucketObjectsResult {
         }
         @CustomType.Setter
         public Builder maxKeys(@Nullable Integer maxKeys) {
+
             this.maxKeys = maxKeys;
             return this;
         }
         @CustomType.Setter
         public Builder owners(List<String> owners) {
-            this.owners = Objects.requireNonNull(owners);
+            if (owners == null) {
+              throw new MissingRequiredPropertyException("GetBucketObjectsResult", "owners");
+            }
+            this.owners = owners;
             return this;
         }
         public Builder owners(String... owners) {
@@ -197,28 +217,30 @@ public final class GetBucketObjectsResult {
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder startAfter(@Nullable String startAfter) {
+
             this.startAfter = startAfter;
             return this;
         }
         public GetBucketObjectsResult build() {
-            final var o = new GetBucketObjectsResult();
-            o.bucket = bucket;
-            o.commonPrefixes = commonPrefixes;
-            o.delimiter = delimiter;
-            o.encodingType = encodingType;
-            o.fetchOwner = fetchOwner;
-            o.id = id;
-            o.keys = keys;
-            o.maxKeys = maxKeys;
-            o.owners = owners;
-            o.prefix = prefix;
-            o.startAfter = startAfter;
-            return o;
+            final var _resultValue = new GetBucketObjectsResult();
+            _resultValue.bucket = bucket;
+            _resultValue.commonPrefixes = commonPrefixes;
+            _resultValue.delimiter = delimiter;
+            _resultValue.encodingType = encodingType;
+            _resultValue.fetchOwner = fetchOwner;
+            _resultValue.id = id;
+            _resultValue.keys = keys;
+            _resultValue.maxKeys = maxKeys;
+            _resultValue.owners = owners;
+            _resultValue.prefix = prefix;
+            _resultValue.startAfter = startAfter;
+            return _resultValue;
         }
     }
 }

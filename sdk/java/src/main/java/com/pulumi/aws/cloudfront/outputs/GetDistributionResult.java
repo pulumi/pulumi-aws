@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -199,7 +200,10 @@ public final class GetDistributionResult {
 
         @CustomType.Setter
         public Builder aliases(List<String> aliases) {
-            this.aliases = Objects.requireNonNull(aliases);
+            if (aliases == null) {
+              throw new MissingRequiredPropertyException("GetDistributionResult", "aliases");
+            }
+            this.aliases = aliases;
             return this;
         }
         public Builder aliases(String... aliases) {
@@ -207,74 +211,105 @@ public final class GetDistributionResult {
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetDistributionResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+            if (domainName == null) {
+              throw new MissingRequiredPropertyException("GetDistributionResult", "domainName");
+            }
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetDistributionResult", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder etag(String etag) {
-            this.etag = Objects.requireNonNull(etag);
+            if (etag == null) {
+              throw new MissingRequiredPropertyException("GetDistributionResult", "etag");
+            }
+            this.etag = etag;
             return this;
         }
         @CustomType.Setter
         public Builder hostedZoneId(String hostedZoneId) {
-            this.hostedZoneId = Objects.requireNonNull(hostedZoneId);
+            if (hostedZoneId == null) {
+              throw new MissingRequiredPropertyException("GetDistributionResult", "hostedZoneId");
+            }
+            this.hostedZoneId = hostedZoneId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDistributionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder inProgressValidationBatches(Integer inProgressValidationBatches) {
-            this.inProgressValidationBatches = Objects.requireNonNull(inProgressValidationBatches);
+            if (inProgressValidationBatches == null) {
+              throw new MissingRequiredPropertyException("GetDistributionResult", "inProgressValidationBatches");
+            }
+            this.inProgressValidationBatches = inProgressValidationBatches;
             return this;
         }
         @CustomType.Setter
         public Builder lastModifiedTime(String lastModifiedTime) {
-            this.lastModifiedTime = Objects.requireNonNull(lastModifiedTime);
+            if (lastModifiedTime == null) {
+              throw new MissingRequiredPropertyException("GetDistributionResult", "lastModifiedTime");
+            }
+            this.lastModifiedTime = lastModifiedTime;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetDistributionResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder webAclId(String webAclId) {
-            this.webAclId = Objects.requireNonNull(webAclId);
+            if (webAclId == null) {
+              throw new MissingRequiredPropertyException("GetDistributionResult", "webAclId");
+            }
+            this.webAclId = webAclId;
             return this;
         }
         public GetDistributionResult build() {
-            final var o = new GetDistributionResult();
-            o.aliases = aliases;
-            o.arn = arn;
-            o.domainName = domainName;
-            o.enabled = enabled;
-            o.etag = etag;
-            o.hostedZoneId = hostedZoneId;
-            o.id = id;
-            o.inProgressValidationBatches = inProgressValidationBatches;
-            o.lastModifiedTime = lastModifiedTime;
-            o.status = status;
-            o.tags = tags;
-            o.webAclId = webAclId;
-            return o;
+            final var _resultValue = new GetDistributionResult();
+            _resultValue.aliases = aliases;
+            _resultValue.arn = arn;
+            _resultValue.domainName = domainName;
+            _resultValue.enabled = enabled;
+            _resultValue.etag = etag;
+            _resultValue.hostedZoneId = hostedZoneId;
+            _resultValue.id = id;
+            _resultValue.inProgressValidationBatches = inProgressValidationBatches;
+            _resultValue.lastModifiedTime = lastModifiedTime;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            _resultValue.webAclId = webAclId;
+            return _resultValue;
         }
     }
 }

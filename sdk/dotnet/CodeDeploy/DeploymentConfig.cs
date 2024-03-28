@@ -13,8 +13,10 @@ namespace Pulumi.Aws.CodeDeploy
     /// Provides a CodeDeploy deployment config for an application
     /// 
     /// ## Example Usage
+    /// 
     /// ### Server Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,7 +25,7 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooDeploymentConfig = new Aws.CodeDeploy.DeploymentConfig("fooDeploymentConfig", new()
+    ///     var foo = new Aws.CodeDeploy.DeploymentConfig("foo", new()
     ///     {
     ///         DeploymentConfigName = "test-deployment-config",
     ///         MinimumHealthyHosts = new Aws.CodeDeploy.Inputs.DeploymentConfigMinimumHealthyHostsArgs
@@ -33,12 +35,12 @@ namespace Pulumi.Aws.CodeDeploy
     ///         },
     ///     });
     /// 
-    ///     var fooDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("fooDeploymentGroup", new()
+    ///     var fooDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("foo", new()
     ///     {
-    ///         AppName = aws_codedeploy_app.Foo_app.Name,
+    ///         AppName = fooApp.Name,
     ///         DeploymentGroupName = "bar",
-    ///         ServiceRoleArn = aws_iam_role.Foo_role.Arn,
-    ///         DeploymentConfigName = fooDeploymentConfig.Id,
+    ///         ServiceRoleArn = fooRole.Arn,
+    ///         DeploymentConfigName = foo.Id,
     ///         Ec2TagFilters = new[]
     ///         {
     ///             new Aws.CodeDeploy.Inputs.DeploymentGroupEc2TagFilterArgs
@@ -80,8 +82,11 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Lambda Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -90,7 +95,7 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooDeploymentConfig = new Aws.CodeDeploy.DeploymentConfig("fooDeploymentConfig", new()
+    ///     var foo = new Aws.CodeDeploy.DeploymentConfig("foo", new()
     ///     {
     ///         DeploymentConfigName = "test-deployment-config",
     ///         ComputePlatform = "Lambda",
@@ -105,12 +110,12 @@ namespace Pulumi.Aws.CodeDeploy
     ///         },
     ///     });
     /// 
-    ///     var fooDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("fooDeploymentGroup", new()
+    ///     var fooDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("foo", new()
     ///     {
-    ///         AppName = aws_codedeploy_app.Foo_app.Name,
+    ///         AppName = fooApp.Name,
     ///         DeploymentGroupName = "bar",
-    ///         ServiceRoleArn = aws_iam_role.Foo_role.Arn,
-    ///         DeploymentConfigName = fooDeploymentConfig.Id,
+    ///         ServiceRoleArn = fooRole.Arn,
+    ///         DeploymentConfigName = foo.Id,
     ///         AutoRollbackConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAutoRollbackConfigurationArgs
     ///         {
     ///             Enabled = true,
@@ -131,18 +136,25 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeDeploy Deployment Configurations using the `deployment_config_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
+    /// $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
     /// ```
     /// </summary>
     [AwsResourceType("aws:codedeploy/deploymentConfig:DeploymentConfig")]
     public partial class DeploymentConfig : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the deployment config.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         /// <summary>
         /// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         /// </summary>
@@ -251,6 +263,12 @@ namespace Pulumi.Aws.CodeDeploy
 
     public sealed class DeploymentConfigState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the deployment config.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         /// </summary>

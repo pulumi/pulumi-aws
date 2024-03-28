@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,21 +23,23 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var example = new Aws.Ec2.Vpc("example", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///         EnableDnsSupport = true,
     ///         EnableDnsHostnames = true,
     ///     });
     /// 
-    ///     var examplePrivateDnsNamespace = new Aws.ServiceDiscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", new()
+    ///     var examplePrivateDnsNamespace = new Aws.ServiceDiscovery.PrivateDnsNamespace("example", new()
     ///     {
+    ///         Name = "example.domain.local",
     ///         Description = "example",
-    ///         Vpc = exampleVpc.Id,
+    ///         Vpc = example.Id,
     ///     });
     /// 
-    ///     var exampleService = new Aws.ServiceDiscovery.Service("exampleService", new()
+    ///     var exampleService = new Aws.ServiceDiscovery.Service("example", new()
     ///     {
+    ///         Name = "example",
     ///         DnsConfig = new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigArgs
     ///         {
     ///             NamespaceId = examplePrivateDnsNamespace.Id,
@@ -56,7 +59,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     ///         },
     ///     });
     /// 
-    ///     var exampleInstance = new Aws.ServiceDiscovery.Instance("exampleInstance", new()
+    ///     var exampleInstance = new Aws.ServiceDiscovery.Instance("example", new()
     ///     {
     ///         InstanceId = "example-instance-id",
     ///         ServiceId = exampleService.Id,
@@ -69,7 +72,9 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -78,17 +83,19 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleHttpNamespace = new Aws.ServiceDiscovery.HttpNamespace("exampleHttpNamespace", new()
+    ///     var example = new Aws.ServiceDiscovery.HttpNamespace("example", new()
     ///     {
+    ///         Name = "example.domain.test",
     ///         Description = "example",
     ///     });
     /// 
-    ///     var exampleService = new Aws.ServiceDiscovery.Service("exampleService", new()
+    ///     var exampleService = new Aws.ServiceDiscovery.Service("example", new()
     ///     {
-    ///         NamespaceId = exampleHttpNamespace.Id,
+    ///         Name = "example",
+    ///         NamespaceId = example.Id,
     ///     });
     /// 
-    ///     var exampleInstance = new Aws.ServiceDiscovery.Instance("exampleInstance", new()
+    ///     var exampleInstance = new Aws.ServiceDiscovery.Instance("example", new()
     ///     {
     ///         InstanceId = "example-instance-id",
     ///         ServiceId = exampleService.Id,
@@ -100,13 +107,14 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Service Discovery Instance using the service ID and instance ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
+    /// $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicediscovery/instance:Instance")]

@@ -4,6 +4,7 @@
 package com.pulumi.aws.dms.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -79,7 +80,9 @@ public final class GetReplicationSubnetGroupPlainArgs extends com.pulumi.resourc
         }
 
         public GetReplicationSubnetGroupPlainArgs build() {
-            $.replicationSubnetGroupId = Objects.requireNonNull($.replicationSubnetGroupId, "expected parameter 'replicationSubnetGroupId' to be non-null");
+            if ($.replicationSubnetGroupId == null) {
+                throw new MissingRequiredPropertyException("GetReplicationSubnetGroupPlainArgs", "replicationSubnetGroupId");
+            }
             return $;
         }
     }

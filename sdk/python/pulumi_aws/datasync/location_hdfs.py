@@ -21,7 +21,9 @@ class LocationHdfsArgs:
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  block_size: Optional[pulumi.Input[int]] = None,
                  kerberos_keytab: Optional[pulumi.Input[str]] = None,
+                 kerberos_keytab_base64: Optional[pulumi.Input[str]] = None,
                  kerberos_krb5_conf: Optional[pulumi.Input[str]] = None,
+                 kerberos_krb5_conf_base64: Optional[pulumi.Input[str]] = None,
                  kerberos_principal: Optional[pulumi.Input[str]] = None,
                  kms_key_provider_uri: Optional[pulumi.Input[str]] = None,
                  qop_configuration: Optional[pulumi.Input['LocationHdfsQopConfigurationArgs']] = None,
@@ -35,8 +37,10 @@ class LocationHdfsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]] name_nodes: The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
         :param pulumi.Input[str] authentication_type: The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
         :param pulumi.Input[int] block_size: The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
-        :param pulumi.Input[str] kerberos_keytab: The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
-        :param pulumi.Input[str] kerberos_krb5_conf: The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+        :param pulumi.Input[str] kerberos_keytab: The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
+        :param pulumi.Input[str] kerberos_keytab_base64: Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
+        :param pulumi.Input[str] kerberos_krb5_conf: The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
+        :param pulumi.Input[str] kerberos_krb5_conf_base64: Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
         :param pulumi.Input[str] kerberos_principal: The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
         :param pulumi.Input[str] kms_key_provider_uri: The URI of the HDFS cluster's Key Management Server (KMS).
         :param pulumi.Input['LocationHdfsQopConfigurationArgs'] qop_configuration: The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
@@ -53,8 +57,12 @@ class LocationHdfsArgs:
             pulumi.set(__self__, "block_size", block_size)
         if kerberos_keytab is not None:
             pulumi.set(__self__, "kerberos_keytab", kerberos_keytab)
+        if kerberos_keytab_base64 is not None:
+            pulumi.set(__self__, "kerberos_keytab_base64", kerberos_keytab_base64)
         if kerberos_krb5_conf is not None:
             pulumi.set(__self__, "kerberos_krb5_conf", kerberos_krb5_conf)
+        if kerberos_krb5_conf_base64 is not None:
+            pulumi.set(__self__, "kerberos_krb5_conf_base64", kerberos_krb5_conf_base64)
         if kerberos_principal is not None:
             pulumi.set(__self__, "kerberos_principal", kerberos_principal)
         if kms_key_provider_uri is not None:
@@ -122,7 +130,7 @@ class LocationHdfsArgs:
     @pulumi.getter(name="kerberosKeytab")
     def kerberos_keytab(self) -> Optional[pulumi.Input[str]]:
         """
-        The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+        The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
         """
         return pulumi.get(self, "kerberos_keytab")
 
@@ -131,16 +139,40 @@ class LocationHdfsArgs:
         pulumi.set(self, "kerberos_keytab", value)
 
     @property
+    @pulumi.getter(name="kerberosKeytabBase64")
+    def kerberos_keytab_base64(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
+        """
+        return pulumi.get(self, "kerberos_keytab_base64")
+
+    @kerberos_keytab_base64.setter
+    def kerberos_keytab_base64(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kerberos_keytab_base64", value)
+
+    @property
     @pulumi.getter(name="kerberosKrb5Conf")
     def kerberos_krb5_conf(self) -> Optional[pulumi.Input[str]]:
         """
-        The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+        The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
         """
         return pulumi.get(self, "kerberos_krb5_conf")
 
     @kerberos_krb5_conf.setter
     def kerberos_krb5_conf(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kerberos_krb5_conf", value)
+
+    @property
+    @pulumi.getter(name="kerberosKrb5ConfBase64")
+    def kerberos_krb5_conf_base64(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
+        """
+        return pulumi.get(self, "kerberos_krb5_conf_base64")
+
+    @kerberos_krb5_conf_base64.setter
+    def kerberos_krb5_conf_base64(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kerberos_krb5_conf_base64", value)
 
     @property
     @pulumi.getter(name="kerberosPrincipal")
@@ -235,7 +267,9 @@ class _LocationHdfsState:
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  block_size: Optional[pulumi.Input[int]] = None,
                  kerberos_keytab: Optional[pulumi.Input[str]] = None,
+                 kerberos_keytab_base64: Optional[pulumi.Input[str]] = None,
                  kerberos_krb5_conf: Optional[pulumi.Input[str]] = None,
+                 kerberos_krb5_conf_base64: Optional[pulumi.Input[str]] = None,
                  kerberos_principal: Optional[pulumi.Input[str]] = None,
                  kms_key_provider_uri: Optional[pulumi.Input[str]] = None,
                  name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]]] = None,
@@ -252,8 +286,10 @@ class _LocationHdfsState:
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DataSync Location.
         :param pulumi.Input[str] authentication_type: The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
         :param pulumi.Input[int] block_size: The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
-        :param pulumi.Input[str] kerberos_keytab: The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
-        :param pulumi.Input[str] kerberos_krb5_conf: The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+        :param pulumi.Input[str] kerberos_keytab: The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
+        :param pulumi.Input[str] kerberos_keytab_base64: Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
+        :param pulumi.Input[str] kerberos_krb5_conf: The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
+        :param pulumi.Input[str] kerberos_krb5_conf_base64: Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
         :param pulumi.Input[str] kerberos_principal: The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
         :param pulumi.Input[str] kms_key_provider_uri: The URI of the HDFS cluster's Key Management Server (KMS).
         :param pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]] name_nodes: The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
@@ -274,8 +310,12 @@ class _LocationHdfsState:
             pulumi.set(__self__, "block_size", block_size)
         if kerberos_keytab is not None:
             pulumi.set(__self__, "kerberos_keytab", kerberos_keytab)
+        if kerberos_keytab_base64 is not None:
+            pulumi.set(__self__, "kerberos_keytab_base64", kerberos_keytab_base64)
         if kerberos_krb5_conf is not None:
             pulumi.set(__self__, "kerberos_krb5_conf", kerberos_krb5_conf)
+        if kerberos_krb5_conf_base64 is not None:
+            pulumi.set(__self__, "kerberos_krb5_conf_base64", kerberos_krb5_conf_base64)
         if kerberos_principal is not None:
             pulumi.set(__self__, "kerberos_principal", kerberos_principal)
         if kms_key_provider_uri is not None:
@@ -352,7 +392,7 @@ class _LocationHdfsState:
     @pulumi.getter(name="kerberosKeytab")
     def kerberos_keytab(self) -> Optional[pulumi.Input[str]]:
         """
-        The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+        The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
         """
         return pulumi.get(self, "kerberos_keytab")
 
@@ -361,16 +401,40 @@ class _LocationHdfsState:
         pulumi.set(self, "kerberos_keytab", value)
 
     @property
+    @pulumi.getter(name="kerberosKeytabBase64")
+    def kerberos_keytab_base64(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
+        """
+        return pulumi.get(self, "kerberos_keytab_base64")
+
+    @kerberos_keytab_base64.setter
+    def kerberos_keytab_base64(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kerberos_keytab_base64", value)
+
+    @property
     @pulumi.getter(name="kerberosKrb5Conf")
     def kerberos_krb5_conf(self) -> Optional[pulumi.Input[str]]:
         """
-        The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+        The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
         """
         return pulumi.get(self, "kerberos_krb5_conf")
 
     @kerberos_krb5_conf.setter
     def kerberos_krb5_conf(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kerberos_krb5_conf", value)
+
+    @property
+    @pulumi.getter(name="kerberosKrb5ConfBase64")
+    def kerberos_krb5_conf_base64(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
+        """
+        return pulumi.get(self, "kerberos_krb5_conf_base64")
+
+    @kerberos_krb5_conf_base64.setter
+    def kerberos_krb5_conf_base64(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kerberos_krb5_conf_base64", value)
 
     @property
     @pulumi.getter(name="kerberosPrincipal")
@@ -502,7 +566,9 @@ class LocationHdfs(pulumi.CustomResource):
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  block_size: Optional[pulumi.Input[int]] = None,
                  kerberos_keytab: Optional[pulumi.Input[str]] = None,
+                 kerberos_keytab_base64: Optional[pulumi.Input[str]] = None,
                  kerberos_krb5_conf: Optional[pulumi.Input[str]] = None,
+                 kerberos_krb5_conf_base64: Optional[pulumi.Input[str]] = None,
                  kerberos_principal: Optional[pulumi.Input[str]] = None,
                  kms_key_provider_uri: Optional[pulumi.Input[str]] = None,
                  name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsNameNodeArgs']]]]] = None,
@@ -519,26 +585,49 @@ class LocationHdfs(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.datasync.LocationHdfs("example",
-            agent_arns=[aws_datasync_agent["example"]["arn"]],
+            agent_arns=[example_aws_datasync_agent["arn"]],
             authentication_type="SIMPLE",
             simple_user="example",
             name_nodes=[aws.datasync.LocationHdfsNameNodeArgs(
-                hostname=aws_instance["example"]["private_dns"],
+                hostname=example_aws_instance["privateDns"],
                 port=80,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
+        ### Kerberos Authentication
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.datasync.LocationHdfs("example",
+            agent_arns=[example_aws_datasync_agent["arn"]],
+            authentication_type="KERBEROS",
+            name_nodes=[aws.datasync.LocationHdfsNameNodeArgs(
+                hostname=example_aws_instance["privateDns"],
+                port=80,
+            )],
+            kerberos_principal="user@example.com",
+            kerberos_keytab_base64=std.filebase64(input="user.keytab").result,
+            kerberos_krb5_conf=std.file(input="krb5.conf").result)
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_datasync_location_hdfs` using the Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:datasync/locationHdfs:LocationHdfs example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+        $ pulumi import aws:datasync/locationHdfs:LocationHdfs example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
         ```
 
         :param str resource_name: The name of the resource.
@@ -546,8 +635,10 @@ class LocationHdfs(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
         :param pulumi.Input[str] authentication_type: The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
         :param pulumi.Input[int] block_size: The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
-        :param pulumi.Input[str] kerberos_keytab: The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
-        :param pulumi.Input[str] kerberos_krb5_conf: The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+        :param pulumi.Input[str] kerberos_keytab: The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
+        :param pulumi.Input[str] kerberos_keytab_base64: Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
+        :param pulumi.Input[str] kerberos_krb5_conf: The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
+        :param pulumi.Input[str] kerberos_krb5_conf_base64: Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
         :param pulumi.Input[str] kerberos_principal: The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
         :param pulumi.Input[str] kms_key_provider_uri: The URI of the HDFS cluster's Key Management Server (KMS).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsNameNodeArgs']]]] name_nodes: The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
@@ -570,26 +661,49 @@ class LocationHdfs(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.datasync.LocationHdfs("example",
-            agent_arns=[aws_datasync_agent["example"]["arn"]],
+            agent_arns=[example_aws_datasync_agent["arn"]],
             authentication_type="SIMPLE",
             simple_user="example",
             name_nodes=[aws.datasync.LocationHdfsNameNodeArgs(
-                hostname=aws_instance["example"]["private_dns"],
+                hostname=example_aws_instance["privateDns"],
                 port=80,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
+        ### Kerberos Authentication
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.datasync.LocationHdfs("example",
+            agent_arns=[example_aws_datasync_agent["arn"]],
+            authentication_type="KERBEROS",
+            name_nodes=[aws.datasync.LocationHdfsNameNodeArgs(
+                hostname=example_aws_instance["privateDns"],
+                port=80,
+            )],
+            kerberos_principal="user@example.com",
+            kerberos_keytab_base64=std.filebase64(input="user.keytab").result,
+            kerberos_krb5_conf=std.file(input="krb5.conf").result)
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_datasync_location_hdfs` using the Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:datasync/locationHdfs:LocationHdfs example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+        $ pulumi import aws:datasync/locationHdfs:LocationHdfs example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
         ```
 
         :param str resource_name: The name of the resource.
@@ -611,7 +725,9 @@ class LocationHdfs(pulumi.CustomResource):
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  block_size: Optional[pulumi.Input[int]] = None,
                  kerberos_keytab: Optional[pulumi.Input[str]] = None,
+                 kerberos_keytab_base64: Optional[pulumi.Input[str]] = None,
                  kerberos_krb5_conf: Optional[pulumi.Input[str]] = None,
+                 kerberos_krb5_conf_base64: Optional[pulumi.Input[str]] = None,
                  kerberos_principal: Optional[pulumi.Input[str]] = None,
                  kms_key_provider_uri: Optional[pulumi.Input[str]] = None,
                  name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsNameNodeArgs']]]]] = None,
@@ -635,7 +751,9 @@ class LocationHdfs(pulumi.CustomResource):
             __props__.__dict__["authentication_type"] = authentication_type
             __props__.__dict__["block_size"] = block_size
             __props__.__dict__["kerberos_keytab"] = kerberos_keytab
+            __props__.__dict__["kerberos_keytab_base64"] = kerberos_keytab_base64
             __props__.__dict__["kerberos_krb5_conf"] = kerberos_krb5_conf
+            __props__.__dict__["kerberos_krb5_conf_base64"] = kerberos_krb5_conf_base64
             __props__.__dict__["kerberos_principal"] = kerberos_principal
             __props__.__dict__["kms_key_provider_uri"] = kms_key_provider_uri
             if name_nodes is None and not opts.urn:
@@ -649,8 +767,6 @@ class LocationHdfs(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["uri"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LocationHdfs, __self__).__init__(
             'aws:datasync/locationHdfs:LocationHdfs',
             resource_name,
@@ -666,7 +782,9 @@ class LocationHdfs(pulumi.CustomResource):
             authentication_type: Optional[pulumi.Input[str]] = None,
             block_size: Optional[pulumi.Input[int]] = None,
             kerberos_keytab: Optional[pulumi.Input[str]] = None,
+            kerberos_keytab_base64: Optional[pulumi.Input[str]] = None,
             kerberos_krb5_conf: Optional[pulumi.Input[str]] = None,
+            kerberos_krb5_conf_base64: Optional[pulumi.Input[str]] = None,
             kerberos_principal: Optional[pulumi.Input[str]] = None,
             kms_key_provider_uri: Optional[pulumi.Input[str]] = None,
             name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsNameNodeArgs']]]]] = None,
@@ -688,8 +806,10 @@ class LocationHdfs(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DataSync Location.
         :param pulumi.Input[str] authentication_type: The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
         :param pulumi.Input[int] block_size: The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
-        :param pulumi.Input[str] kerberos_keytab: The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
-        :param pulumi.Input[str] kerberos_krb5_conf: The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+        :param pulumi.Input[str] kerberos_keytab: The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
+        :param pulumi.Input[str] kerberos_keytab_base64: Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
+        :param pulumi.Input[str] kerberos_krb5_conf: The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
+        :param pulumi.Input[str] kerberos_krb5_conf_base64: Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
         :param pulumi.Input[str] kerberos_principal: The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
         :param pulumi.Input[str] kms_key_provider_uri: The URI of the HDFS cluster's Key Management Server (KMS).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsNameNodeArgs']]]] name_nodes: The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
@@ -709,7 +829,9 @@ class LocationHdfs(pulumi.CustomResource):
         __props__.__dict__["authentication_type"] = authentication_type
         __props__.__dict__["block_size"] = block_size
         __props__.__dict__["kerberos_keytab"] = kerberos_keytab
+        __props__.__dict__["kerberos_keytab_base64"] = kerberos_keytab_base64
         __props__.__dict__["kerberos_krb5_conf"] = kerberos_krb5_conf
+        __props__.__dict__["kerberos_krb5_conf_base64"] = kerberos_krb5_conf_base64
         __props__.__dict__["kerberos_principal"] = kerberos_principal
         __props__.__dict__["kms_key_provider_uri"] = kms_key_provider_uri
         __props__.__dict__["name_nodes"] = name_nodes
@@ -758,17 +880,33 @@ class LocationHdfs(pulumi.CustomResource):
     @pulumi.getter(name="kerberosKeytab")
     def kerberos_keytab(self) -> pulumi.Output[Optional[str]]:
         """
-        The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+        The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
         """
         return pulumi.get(self, "kerberos_keytab")
+
+    @property
+    @pulumi.getter(name="kerberosKeytabBase64")
+    def kerberos_keytab_base64(self) -> pulumi.Output[Optional[str]]:
+        """
+        Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
+        """
+        return pulumi.get(self, "kerberos_keytab_base64")
 
     @property
     @pulumi.getter(name="kerberosKrb5Conf")
     def kerberos_krb5_conf(self) -> pulumi.Output[Optional[str]]:
         """
-        The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+        The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
         """
         return pulumi.get(self, "kerberos_krb5_conf")
+
+    @property
+    @pulumi.getter(name="kerberosKrb5ConfBase64")
+    def kerberos_krb5_conf_base64(self) -> pulumi.Output[Optional[str]]:
+        """
+        Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
+        """
+        return pulumi.get(self, "kerberos_krb5_conf_base64")
 
     @property
     @pulumi.getter(name="kerberosPrincipal")
@@ -796,7 +934,7 @@ class LocationHdfs(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="qopConfiguration")
-    def qop_configuration(self) -> pulumi.Output[Optional['outputs.LocationHdfsQopConfiguration']]:
+    def qop_configuration(self) -> pulumi.Output['outputs.LocationHdfsQopConfiguration']:
         """
         The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
         """

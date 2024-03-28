@@ -5,6 +5,7 @@ package com.pulumi.aws.guardduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -14,14 +15,14 @@ public final class DetectorFeatureAdditionalConfigurationArgs extends com.pulumi
     public static final DetectorFeatureAdditionalConfigurationArgs Empty = new DetectorFeatureAdditionalConfigurationArgs();
 
     /**
-     * The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+     * The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+     * @return The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
      * 
      */
     public Output<String> name() {
@@ -69,7 +70,7 @@ public final class DetectorFeatureAdditionalConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param name The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+         * @param name The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
          * 
          * @return builder
          * 
@@ -80,7 +81,7 @@ public final class DetectorFeatureAdditionalConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param name The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+         * @param name The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
          * 
          * @return builder
          * 
@@ -111,8 +112,12 @@ public final class DetectorFeatureAdditionalConfigurationArgs extends com.pulumi
         }
 
         public DetectorFeatureAdditionalConfigurationArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.status = Objects.requireNonNull($.status, "expected parameter 'status' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("DetectorFeatureAdditionalConfigurationArgs", "name");
+            }
+            if ($.status == null) {
+                throw new MissingRequiredPropertyException("DetectorFeatureAdditionalConfigurationArgs", "status");
+            }
             return $;
         }
     }

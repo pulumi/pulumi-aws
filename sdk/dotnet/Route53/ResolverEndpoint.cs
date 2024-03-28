@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,23 +25,29 @@ namespace Pulumi.Aws.Route53
     /// {
     ///     var foo = new Aws.Route53.ResolverEndpoint("foo", new()
     ///     {
+    ///         Name = "foo",
     ///         Direction = "INBOUND",
     ///         SecurityGroupIds = new[]
     ///         {
-    ///             aws_security_group.Sg1.Id,
-    ///             aws_security_group.Sg2.Id,
+    ///             sg1.Id,
+    ///             sg2.Id,
     ///         },
     ///         IpAddresses = new[]
     ///         {
     ///             new Aws.Route53.Inputs.ResolverEndpointIpAddressArgs
     ///             {
-    ///                 SubnetId = aws_subnet.Sn1.Id,
+    ///                 SubnetId = sn1.Id,
     ///             },
     ///             new Aws.Route53.Inputs.ResolverEndpointIpAddressArgs
     ///             {
-    ///                 SubnetId = aws_subnet.Sn2.Id,
+    ///                 SubnetId = sn2.Id,
     ///                 Ip = "10.0.64.4",
     ///             },
+    ///         },
+    ///         Protocols = new[]
+    ///         {
+    ///             "Do53",
+    ///             "DoH",
     ///         },
     ///         Tags = 
     ///         {
@@ -50,15 +57,14 @@ namespace Pulumi.Aws.Route53
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import
-    /// 
-    /// Route 53 Resolver endpoints using the Route 53 Resolver endpoint ID. For example:
+    /// Using `pulumi import`, import  Route 53 Resolver endpoints using the Route 53 Resolver endpoint ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
+    /// $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverEndpoint:ResolverEndpoint")]
@@ -96,6 +102,18 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+        /// </summary>
+        [Output("protocols")]
+        public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
+
+        /// <summary>
+        /// The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+        /// </summary>
+        [Output("resolverEndpointType")]
+        public Output<string> ResolverEndpointType { get; private set; } = null!;
 
         /// <summary>
         /// The ID of one or more security groups that you want to use to control access to this VPC.
@@ -138,10 +156,6 @@ namespace Pulumi.Aws.Route53
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -191,6 +205,24 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("protocols")]
+        private InputList<string>? _protocols;
+
+        /// <summary>
+        /// The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+        /// </summary>
+        public InputList<string> Protocols
+        {
+            get => _protocols ?? (_protocols = new InputList<string>());
+            set => _protocols = value;
+        }
+
+        /// <summary>
+        /// The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+        /// </summary>
+        [Input("resolverEndpointType")]
+        public Input<string>? ResolverEndpointType { get; set; }
 
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
@@ -263,6 +295,24 @@ namespace Pulumi.Aws.Route53
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("protocols")]
+        private InputList<string>? _protocols;
+
+        /// <summary>
+        /// The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+        /// </summary>
+        public InputList<string> Protocols
+        {
+            get => _protocols ?? (_protocols = new InputList<string>());
+            set => _protocols = value;
+        }
+
+        /// <summary>
+        /// The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+        /// </summary>
+        [Input("resolverEndpointType")]
+        public Input<string>? ResolverEndpointType { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 
@@ -297,11 +347,7 @@ namespace Pulumi.Aws.Route53
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ResolverEndpointState()

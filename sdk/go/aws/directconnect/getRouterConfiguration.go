@@ -14,8 +14,10 @@ import (
 // Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +31,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := directconnect.GetRouterConfiguration(ctx, &directconnect.GetRouterConfigurationArgs{
-//				RouterTypeIdentifier: "CiscoSystemsInc-2900SeriesRouters-IOS124",
 //				VirtualInterfaceId:   "dxvif-abcde123",
+//				RouterTypeIdentifier: "CiscoSystemsInc-2900SeriesRouters-IOS124",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -40,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetRouterConfiguration(ctx *pulumi.Context, args *GetRouterConfigurationArgs, opts ...pulumi.InvokeOption) (*GetRouterConfigurationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRouterConfigurationResult
@@ -55,20 +58,6 @@ type GetRouterConfigurationArgs struct {
 	// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
 	//
 	// There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	RouterTypeIdentifier string `pulumi:"routerTypeIdentifier"`
 	// ID of the Direct Connect Virtual Interface
 	VirtualInterfaceId string `pulumi:"virtualInterfaceId"`
@@ -106,20 +95,6 @@ type GetRouterConfigurationOutputArgs struct {
 	// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
 	//
 	// There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	RouterTypeIdentifier pulumi.StringInput `pulumi:"routerTypeIdentifier"`
 	// ID of the Direct Connect Virtual Interface
 	VirtualInterfaceId pulumi.StringInput `pulumi:"virtualInterfaceId"`

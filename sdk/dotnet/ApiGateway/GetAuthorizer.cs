@@ -14,10 +14,9 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// Provides details about a specific API Gateway Authorizer.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,14 +27,13 @@ namespace Pulumi.Aws.ApiGateway
         /// {
         ///     var example = Aws.ApiGateway.GetAuthorizer.Invoke(new()
         ///     {
-        ///         RestApiId = aws_api_gateway_rest_api.Example.Id,
-        ///         AuthorizerId = data.Aws_api_gateway_authorizers.Example.Ids[0],
+        ///         RestApiId = exampleAwsApiGatewayRestApi.Id,
+        ///         AuthorizerId = exampleAwsApiGatewayAuthorizers.Ids[0],
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAuthorizerResult> InvokeAsync(GetAuthorizerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizerResult>("aws:apigateway/getAuthorizer:getAuthorizer", args ?? new GetAuthorizerArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// Provides details about a specific API Gateway Authorizer.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -57,14 +54,13 @@ namespace Pulumi.Aws.ApiGateway
         /// {
         ///     var example = Aws.ApiGateway.GetAuthorizer.Invoke(new()
         ///     {
-        ///         RestApiId = aws_api_gateway_rest_api.Example.Id,
-        ///         AuthorizerId = data.Aws_api_gateway_authorizers.Example.Ids[0],
+        ///         RestApiId = exampleAwsApiGatewayRestApi.Id,
+        ///         AuthorizerId = exampleAwsApiGatewayAuthorizers.Ids[0],
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAuthorizerResult> Invoke(GetAuthorizerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizerResult>("aws:apigateway/getAuthorizer:getAuthorizer", args ?? new GetAuthorizerInvokeArgs(), options.WithDefaults());

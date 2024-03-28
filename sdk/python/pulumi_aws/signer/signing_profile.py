@@ -347,30 +347,32 @@ class SigningProfile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_sp = aws.signer.SigningProfile("testSp", platform_id="AWSLambda-SHA384-ECDSA")
-        prod_sp = aws.signer.SigningProfile("prodSp",
-            name_prefix="prod_sp_",
+        test_sp = aws.signer.SigningProfile("test_sp", platform_id="AWSLambda-SHA384-ECDSA")
+        prod_sp = aws.signer.SigningProfile("prod_sp",
             platform_id="AWSLambda-SHA384-ECDSA",
+            name_prefix="prod_sp_",
             signature_validity_period=aws.signer.SigningProfileSignatureValidityPeriodArgs(
-                type="YEARS",
                 value=5,
+                type="YEARS",
             ),
             tags={
                 "tag1": "value1",
                 "tag2": "value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Signer signing profiles using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
+        $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
         ```
 
         :param str resource_name: The name of the resource.
@@ -392,30 +394,32 @@ class SigningProfile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_sp = aws.signer.SigningProfile("testSp", platform_id="AWSLambda-SHA384-ECDSA")
-        prod_sp = aws.signer.SigningProfile("prodSp",
-            name_prefix="prod_sp_",
+        test_sp = aws.signer.SigningProfile("test_sp", platform_id="AWSLambda-SHA384-ECDSA")
+        prod_sp = aws.signer.SigningProfile("prod_sp",
             platform_id="AWSLambda-SHA384-ECDSA",
+            name_prefix="prod_sp_",
             signature_validity_period=aws.signer.SigningProfileSignatureValidityPeriodArgs(
-                type="YEARS",
                 value=5,
+                type="YEARS",
             ),
             tags={
                 "tag1": "value1",
                 "tag2": "value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Signer signing profiles using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
+        $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
         ```
 
         :param str resource_name: The name of the resource.
@@ -463,8 +467,6 @@ class SigningProfile(pulumi.CustomResource):
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["version"] = None
             __props__.__dict__["version_arn"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SigningProfile, __self__).__init__(
             'aws:signer/signingProfile:SigningProfile',
             resource_name,

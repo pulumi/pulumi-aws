@@ -22,6 +22,7 @@ import (
 // The following example shows how one might accept a Security Group id as a variable
 // and use this data source to obtain the data necessary to create a subnet.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,7 +45,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewSubnet(ctx, "subnet", &ec2.SubnetArgs{
-//				VpcId:     *pulumi.String(selected.VpcId),
+//				VpcId:     pulumi.String(selected.VpcId),
 //				CidrBlock: pulumi.String("10.0.1.0/24"),
 //			})
 //			if err != nil {
@@ -55,6 +56,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupSecurityGroup(ctx *pulumi.Context, args *LookupSecurityGroupArgs, opts ...pulumi.InvokeOption) (*LookupSecurityGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecurityGroupResult

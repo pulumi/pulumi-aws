@@ -309,28 +309,31 @@ class Thesaurus(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.Thesaurus("example",
-            index_id=aws_kendra_index["example"]["id"],
-            role_arn=aws_iam_role["example"]["arn"],
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
+            role_arn=example_aws_iam_role["arn"],
             source_s3_path=aws.kendra.ThesaurusSourceS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
-                key=aws_s3_object["example"]["key"],
+                bucket=example_aws_s3_bucket["id"],
+                key=example_aws_s3_object["key"],
             ),
             tags={
                 "Name": "Example Kendra Thesaurus",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
+        $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
         ```
 
         :param str resource_name: The name of the resource.
@@ -355,28 +358,31 @@ class Thesaurus(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.Thesaurus("example",
-            index_id=aws_kendra_index["example"]["id"],
-            role_arn=aws_iam_role["example"]["arn"],
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
+            role_arn=example_aws_iam_role["arn"],
             source_s3_path=aws.kendra.ThesaurusSourceS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
-                key=aws_s3_object["example"]["key"],
+                bucket=example_aws_s3_bucket["id"],
+                key=example_aws_s3_object["key"],
             ),
             tags={
                 "Name": "Example Kendra Thesaurus",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
+        $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
         ```
 
         :param str resource_name: The name of the resource.
@@ -425,8 +431,6 @@ class Thesaurus(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["thesaurus_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Thesaurus, __self__).__init__(
             'aws:kendra/thesaurus:Thesaurus',
             resource_name,

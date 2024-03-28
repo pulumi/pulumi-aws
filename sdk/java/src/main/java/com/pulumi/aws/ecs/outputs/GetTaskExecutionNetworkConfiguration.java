@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -78,11 +79,13 @@ public final class GetTaskExecutionNetworkConfiguration {
 
         @CustomType.Setter
         public Builder assignPublicIp(@Nullable Boolean assignPublicIp) {
+
             this.assignPublicIp = assignPublicIp;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroups(@Nullable List<String> securityGroups) {
+
             this.securityGroups = securityGroups;
             return this;
         }
@@ -91,18 +94,21 @@ public final class GetTaskExecutionNetworkConfiguration {
         }
         @CustomType.Setter
         public Builder subnets(List<String> subnets) {
-            this.subnets = Objects.requireNonNull(subnets);
+            if (subnets == null) {
+              throw new MissingRequiredPropertyException("GetTaskExecutionNetworkConfiguration", "subnets");
+            }
+            this.subnets = subnets;
             return this;
         }
         public Builder subnets(String... subnets) {
             return subnets(List.of(subnets));
         }
         public GetTaskExecutionNetworkConfiguration build() {
-            final var o = new GetTaskExecutionNetworkConfiguration();
-            o.assignPublicIp = assignPublicIp;
-            o.securityGroups = securityGroups;
-            o.subnets = subnets;
-            return o;
+            final var _resultValue = new GetTaskExecutionNetworkConfiguration();
+            _resultValue.assignPublicIp = assignPublicIp;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.subnets = subnets;
+            return _resultValue;
         }
     }
 }

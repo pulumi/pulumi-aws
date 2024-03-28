@@ -12,25 +12,29 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const example = new aws.sagemaker.HumanTaskUI("example", {
  *     humanTaskUiName: "example",
  *     uiTemplate: {
- *         content: fs.readFileSync("sagemaker-human-task-ui-template.html"),
+ *         content: std.file({
+ *             input: "sagemaker-human-task-ui-template.html",
+ *         }).then(invoke => invoke.result),
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SageMaker Human Task UIs using the `human_task_ui_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
+ * $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
  * ```
  */
 export class HumanTaskUI extends pulumi.CustomResource {
@@ -117,8 +121,6 @@ export class HumanTaskUI extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(HumanTaskUI.__pulumiType, name, resourceInputs, opts);
     }
 }

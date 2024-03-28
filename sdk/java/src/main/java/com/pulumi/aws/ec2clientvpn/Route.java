@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * [AWS Client VPN Administrator&#39;s Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,11 +50,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleEndpoint = new Endpoint(&#34;exampleEndpoint&#34;, EndpointArgs.builder()        
  *             .description(&#34;Example Client VPN endpoint&#34;)
- *             .serverCertificateArn(aws_acm_certificate.example().arn())
+ *             .serverCertificateArn(exampleAwsAcmCertificate.arn())
  *             .clientCidrBlock(&#34;10.0.0.0/16&#34;)
  *             .authenticationOptions(EndpointAuthenticationOptionArgs.builder()
  *                 .type(&#34;certificate-authentication&#34;)
- *                 .rootCertificateChainArn(aws_acm_certificate.example().arn())
+ *                 .rootCertificateChainArn(exampleAwsAcmCertificate.arn())
  *                 .build())
  *             .connectionLogOptions(EndpointConnectionLogOptionsArgs.builder()
  *                 .enabled(false)
@@ -61,10 +63,10 @@ import javax.annotation.Nullable;
  * 
  *         var exampleNetworkAssociation = new NetworkAssociation(&#34;exampleNetworkAssociation&#34;, NetworkAssociationArgs.builder()        
  *             .clientVpnEndpointId(exampleEndpoint.id())
- *             .subnetId(aws_subnet.example().id())
+ *             .subnetId(exampleAwsSubnet.id())
  *             .build());
  * 
- *         var exampleRoute = new Route(&#34;exampleRoute&#34;, RouteArgs.builder()        
+ *         var example = new Route(&#34;example&#34;, RouteArgs.builder()        
  *             .clientVpnEndpointId(exampleEndpoint.id())
  *             .destinationCidrBlock(&#34;0.0.0.0/0&#34;)
  *             .targetVpcSubnetId(exampleNetworkAssociation.subnetId())
@@ -73,13 +75,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AWS Client VPN routes using the endpoint ID, target subnet ID, and destination CIDR block. All values are separated by a `,`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
+ * $ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
  * ```
  * 
  */

@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Evidently
     /// Provides a CloudWatch Evidently Segment resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,6 +27,7 @@ namespace Pulumi.Aws.Evidently
     /// {
     ///     var example = new Aws.Evidently.Segment("example", new()
     ///     {
+    ///         Name = "example",
     ///         Pattern = "{\"Price\":[{\"numeric\":[\"&gt;\",10,\"&lt;=\",20]}]}",
     ///         Tags = 
     ///         {
@@ -34,8 +37,11 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With JSON object in pattern
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,6 +52,7 @@ namespace Pulumi.Aws.Evidently
     /// {
     ///     var example = new Aws.Evidently.Segment("example", new()
     ///     {
+    ///         Name = "example",
     ///         Pattern = @"  {
     ///     ""Price"": [
     ///       {
@@ -53,7 +60,6 @@ namespace Pulumi.Aws.Evidently
     ///       }
     ///     ]
     ///   }
-    ///   
     /// ",
     ///         Tags = 
     ///         {
@@ -63,8 +69,11 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Description
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -75,19 +84,21 @@ namespace Pulumi.Aws.Evidently
     /// {
     ///     var example = new Aws.Evidently.Segment("example", new()
     ///     {
-    ///         Description = "example",
+    ///         Name = "example",
     ///         Pattern = "{\"Price\":[{\"numeric\":[\"&gt;\",10,\"&lt;=\",20]}]}",
+    ///         Description = "example",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudWatch Evidently Segment using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
+    /// $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:evidently/segment:Segment")]
@@ -176,10 +187,6 @@ namespace Pulumi.Aws.Evidently
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -311,11 +318,7 @@ namespace Pulumi.Aws.Evidently
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public SegmentState()

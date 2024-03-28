@@ -352,26 +352,28 @@ class CustomDataIdentifier(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.macie2.Account("exampleAccount")
-        example_custom_data_identifier = aws.macie.CustomDataIdentifier("exampleCustomDataIdentifier",
+        example = aws.macie2.Account("example")
+        example_custom_data_identifier = aws.macie.CustomDataIdentifier("example",
+            name="NAME OF CUSTOM DATA IDENTIFIER",
             regex="[0-9]{3}-[0-9]{2}-[0-9]{4}",
             description="DESCRIPTION",
             maximum_match_distance=10,
             keywords=["keyword"],
-            ignore_words=["ignore"],
-            opts=pulumi.ResourceOptions(depends_on=[aws_macie2_account["test"]]))
+            ignore_words=["ignore"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_macie2_custom_data_identifier` using the id. For example:
 
         ```sh
-         $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
+        $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
         ```
 
         :param str resource_name: The name of the resource.
@@ -396,26 +398,28 @@ class CustomDataIdentifier(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.macie2.Account("exampleAccount")
-        example_custom_data_identifier = aws.macie.CustomDataIdentifier("exampleCustomDataIdentifier",
+        example = aws.macie2.Account("example")
+        example_custom_data_identifier = aws.macie.CustomDataIdentifier("example",
+            name="NAME OF CUSTOM DATA IDENTIFIER",
             regex="[0-9]{3}-[0-9]{2}-[0-9]{4}",
             description="DESCRIPTION",
             maximum_match_distance=10,
             keywords=["keyword"],
-            ignore_words=["ignore"],
-            opts=pulumi.ResourceOptions(depends_on=[aws_macie2_account["test"]]))
+            ignore_words=["ignore"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_macie2_custom_data_identifier` using the id. For example:
 
         ```sh
-         $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
+        $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
         ```
 
         :param str resource_name: The name of the resource.
@@ -461,8 +465,6 @@ class CustomDataIdentifier(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(CustomDataIdentifier, __self__).__init__(
             'aws:macie/customDataIdentifier:CustomDataIdentifier',
             resource_name,

@@ -272,13 +272,14 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.datasync.FsxOpenZfsFileSystem("example",
-            fsx_filesystem_arn=aws_fsx_openzfs_file_system["example"]["arn"],
-            security_group_arns=[aws_security_group["example"]["arn"]],
+            fsx_filesystem_arn=example_aws_fsx_openzfs_file_system["arn"],
+            security_group_arns=[example_aws_security_group["arn"]],
             protocol=aws.datasync.FsxOpenZfsFileSystemProtocolArgs(
                 nfs=aws.datasync.FsxOpenZfsFileSystemProtocolNfsArgs(
                     mount_options=aws.datasync.FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs(
@@ -287,13 +288,14 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_datasync_location_fsx_openzfs_file_system` using the `DataSync-ARN#FSx-openzfs-ARN`. For example:
 
         ```sh
-         $ pulumi import aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:file-system/fs-08e04cd442c1bb94a
+        $ pulumi import aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:file-system/fs-08e04cd442c1bb94a
         ```
 
         :param str resource_name: The name of the resource.
@@ -315,13 +317,14 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.datasync.FsxOpenZfsFileSystem("example",
-            fsx_filesystem_arn=aws_fsx_openzfs_file_system["example"]["arn"],
-            security_group_arns=[aws_security_group["example"]["arn"]],
+            fsx_filesystem_arn=example_aws_fsx_openzfs_file_system["arn"],
+            security_group_arns=[example_aws_security_group["arn"]],
             protocol=aws.datasync.FsxOpenZfsFileSystemProtocolArgs(
                 nfs=aws.datasync.FsxOpenZfsFileSystemProtocolNfsArgs(
                     mount_options=aws.datasync.FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs(
@@ -330,13 +333,14 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_datasync_location_fsx_openzfs_file_system` using the `DataSync-ARN#FSx-openzfs-ARN`. For example:
 
         ```sh
-         $ pulumi import aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:file-system/fs-08e04cd442c1bb94a
+        $ pulumi import aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:file-system/fs-08e04cd442c1bb94a
         ```
 
         :param str resource_name: The name of the resource.
@@ -383,8 +387,6 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["uri"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(FsxOpenZfsFileSystem, __self__).__init__(
             'aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem',
             resource_name,

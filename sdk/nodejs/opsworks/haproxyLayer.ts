@@ -12,15 +12,17 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const lb = new aws.opsworks.HaproxyLayer("lb", {
- *     stackId: aws_opsworks_stack.main.id,
+ *     stackId: main.id,
  *     statsPassword: "foobarbaz",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class HaproxyLayer extends pulumi.CustomResource {
     /**
@@ -245,8 +247,6 @@ export class HaproxyLayer extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(HaproxyLayer.__pulumiType, name, resourceInputs, opts);
     }
 }

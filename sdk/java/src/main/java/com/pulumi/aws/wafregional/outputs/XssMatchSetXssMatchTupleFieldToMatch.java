@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafregional.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,19 +59,23 @@ public final class XssMatchSetXssMatchTupleFieldToMatch {
 
         @CustomType.Setter
         public Builder data(@Nullable String data) {
+
             this.data = data;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("XssMatchSetXssMatchTupleFieldToMatch", "type");
+            }
+            this.type = type;
             return this;
         }
         public XssMatchSetXssMatchTupleFieldToMatch build() {
-            final var o = new XssMatchSetXssMatchTupleFieldToMatch();
-            o.data = data;
-            o.type = type;
-            return o;
+            final var _resultValue = new XssMatchSetXssMatchTupleFieldToMatch();
+            _resultValue.data = data;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

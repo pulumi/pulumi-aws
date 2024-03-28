@@ -9,16 +9,18 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.apigatewayv2.getExport({
- *     apiId: aws_apigatewayv2_route.test.api_id,
+ *     apiId: testAwsApigatewayv2Route.apiId,
  *     specification: "OAS30",
  *     outputType: "JSON",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Promise<GetExportResult> {
 
@@ -87,16 +89,18 @@ export interface GetExportResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.apigatewayv2.getExport({
- *     apiId: aws_apigatewayv2_route.test.api_id,
+ *     apiId: testAwsApigatewayv2Route.apiId,
  *     specification: "OAS30",
  *     outputType: "JSON",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportResult> {
     return pulumi.output(args).apply((a: any) => getExport(a, opts))

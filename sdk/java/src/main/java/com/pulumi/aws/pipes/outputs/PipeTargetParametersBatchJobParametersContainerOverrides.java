@@ -89,6 +89,7 @@ public final class PipeTargetParametersBatchJobParametersContainerOverrides {
 
         @CustomType.Setter
         public Builder commands(@Nullable List<String> commands) {
+
             this.commands = commands;
             return this;
         }
@@ -97,6 +98,7 @@ public final class PipeTargetParametersBatchJobParametersContainerOverrides {
         }
         @CustomType.Setter
         public Builder environments(@Nullable List<PipeTargetParametersBatchJobParametersContainerOverridesEnvironment> environments) {
+
             this.environments = environments;
             return this;
         }
@@ -105,11 +107,13 @@ public final class PipeTargetParametersBatchJobParametersContainerOverrides {
         }
         @CustomType.Setter
         public Builder instanceType(@Nullable String instanceType) {
+
             this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder resourceRequirements(@Nullable List<PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement> resourceRequirements) {
+
             this.resourceRequirements = resourceRequirements;
             return this;
         }
@@ -117,12 +121,12 @@ public final class PipeTargetParametersBatchJobParametersContainerOverrides {
             return resourceRequirements(List.of(resourceRequirements));
         }
         public PipeTargetParametersBatchJobParametersContainerOverrides build() {
-            final var o = new PipeTargetParametersBatchJobParametersContainerOverrides();
-            o.commands = commands;
-            o.environments = environments;
-            o.instanceType = instanceType;
-            o.resourceRequirements = resourceRequirements;
-            return o;
+            final var _resultValue = new PipeTargetParametersBatchJobParametersContainerOverrides();
+            _resultValue.commands = commands;
+            _resultValue.environments = environments;
+            _resultValue.instanceType = instanceType;
+            _resultValue.resourceRequirements = resourceRequirements;
+            return _resultValue;
         }
     }
 }

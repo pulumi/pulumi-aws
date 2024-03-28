@@ -135,30 +135,31 @@ class DocumentationVersion(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi")
-        example_documentation_part = aws.apigateway.DocumentationPart("exampleDocumentationPart",
+        example_rest_api = aws.apigateway.RestApi("example", name="example_api")
+        example = aws.apigateway.DocumentationVersion("example",
+            version="example_version",
+            rest_api_id=example_rest_api.id,
+            description="Example description")
+        example_documentation_part = aws.apigateway.DocumentationPart("example",
             location=aws.apigateway.DocumentationPartLocationArgs(
                 type="API",
             ),
             properties="{\\"description\\":\\"Example\\"}",
             rest_api_id=example_rest_api.id)
-        example_documentation_version = aws.apigateway.DocumentationVersion("exampleDocumentationVersion",
-            version="example_version",
-            rest_api_id=example_rest_api.id,
-            description="Example description",
-            opts=pulumi.ResourceOptions(depends_on=[example_documentation_part]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import API Gateway documentation versions using `REST-API-ID/VERSION`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
+        $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
         ```
 
         :param str resource_name: The name of the resource.
@@ -178,30 +179,31 @@ class DocumentationVersion(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi")
-        example_documentation_part = aws.apigateway.DocumentationPart("exampleDocumentationPart",
+        example_rest_api = aws.apigateway.RestApi("example", name="example_api")
+        example = aws.apigateway.DocumentationVersion("example",
+            version="example_version",
+            rest_api_id=example_rest_api.id,
+            description="Example description")
+        example_documentation_part = aws.apigateway.DocumentationPart("example",
             location=aws.apigateway.DocumentationPartLocationArgs(
                 type="API",
             ),
             properties="{\\"description\\":\\"Example\\"}",
             rest_api_id=example_rest_api.id)
-        example_documentation_version = aws.apigateway.DocumentationVersion("exampleDocumentationVersion",
-            version="example_version",
-            rest_api_id=example_rest_api.id,
-            description="Example description",
-            opts=pulumi.ResourceOptions(depends_on=[example_documentation_part]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import API Gateway documentation versions using `REST-API-ID/VERSION`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
+        $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
         ```
 
         :param str resource_name: The name of the resource.

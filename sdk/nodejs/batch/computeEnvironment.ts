@@ -17,8 +17,10 @@ import * as utilities from "../utilities";
  * otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch](http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html) .
  *
  * ## Example Usage
+ *
  * ### EC2 Type
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,12 +35,18 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const ecsInstanceRoleRole = new aws.iam.Role("ecsInstanceRoleRole", {assumeRolePolicy: ec2AssumeRole.then(ec2AssumeRole => ec2AssumeRole.json)});
- * const ecsInstanceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment", {
- *     role: ecsInstanceRoleRole.name,
+ * const ecsInstanceRole = new aws.iam.Role("ecs_instance_role", {
+ *     name: "ecs_instance_role",
+ *     assumeRolePolicy: ec2AssumeRole.then(ec2AssumeRole => ec2AssumeRole.json),
+ * });
+ * const ecsInstanceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("ecs_instance_role", {
+ *     role: ecsInstanceRole.name,
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
  * });
- * const ecsInstanceRoleInstanceProfile = new aws.iam.InstanceProfile("ecsInstanceRoleInstanceProfile", {role: ecsInstanceRoleRole.name});
+ * const ecsInstanceRoleInstanceProfile = new aws.iam.InstanceProfile("ecs_instance_role", {
+ *     name: "ecs_instance_role",
+ *     role: ecsInstanceRole.name,
+ * });
  * const batchAssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -49,24 +57,33 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const awsBatchServiceRoleRole = new aws.iam.Role("awsBatchServiceRoleRole", {assumeRolePolicy: batchAssumeRole.then(batchAssumeRole => batchAssumeRole.json)});
- * const awsBatchServiceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment", {
- *     role: awsBatchServiceRoleRole.name,
+ * const awsBatchServiceRole = new aws.iam.Role("aws_batch_service_role", {
+ *     name: "aws_batch_service_role",
+ *     assumeRolePolicy: batchAssumeRole.then(batchAssumeRole => batchAssumeRole.json),
+ * });
+ * const awsBatchServiceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("aws_batch_service_role", {
+ *     role: awsBatchServiceRole.name,
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
  * });
- * const sampleSecurityGroup = new aws.ec2.SecurityGroup("sampleSecurityGroup", {egress: [{
- *     fromPort: 0,
- *     toPort: 0,
- *     protocol: "-1",
- *     cidrBlocks: ["0.0.0.0/0"],
- * }]});
- * const sampleVpc = new aws.ec2.Vpc("sampleVpc", {cidrBlock: "10.1.0.0/16"});
- * const sampleSubnet = new aws.ec2.Subnet("sampleSubnet", {
+ * const sample = new aws.ec2.SecurityGroup("sample", {
+ *     name: "aws_batch_compute_environment_security_group",
+ *     egress: [{
+ *         fromPort: 0,
+ *         toPort: 0,
+ *         protocol: "-1",
+ *         cidrBlocks: ["0.0.0.0/0"],
+ *     }],
+ * });
+ * const sampleVpc = new aws.ec2.Vpc("sample", {cidrBlock: "10.1.0.0/16"});
+ * const sampleSubnet = new aws.ec2.Subnet("sample", {
  *     vpcId: sampleVpc.id,
  *     cidrBlock: "10.1.1.0/24",
  * });
- * const samplePlacementGroup = new aws.ec2.PlacementGroup("samplePlacementGroup", {strategy: "cluster"});
- * const sampleComputeEnvironment = new aws.batch.ComputeEnvironment("sampleComputeEnvironment", {
+ * const samplePlacementGroup = new aws.ec2.PlacementGroup("sample", {
+ *     name: "sample",
+ *     strategy: aws.ec2.PlacementStrategy.Cluster,
+ * });
+ * const sampleComputeEnvironment = new aws.batch.ComputeEnvironment("sample", {
  *     computeEnvironmentName: "sample",
  *     computeResources: {
  *         instanceRole: ecsInstanceRoleInstanceProfile.arn,
@@ -74,18 +91,19 @@ import * as utilities from "../utilities";
  *         maxVcpus: 16,
  *         minVcpus: 0,
  *         placementGroup: samplePlacementGroup.name,
- *         securityGroupIds: [sampleSecurityGroup.id],
+ *         securityGroupIds: [sample.id],
  *         subnets: [sampleSubnet.id],
  *         type: "EC2",
  *     },
- *     serviceRole: awsBatchServiceRoleRole.arn,
+ *     serviceRole: awsBatchServiceRole.arn,
  *     type: "MANAGED",
- * }, {
- *     dependsOn: [awsBatchServiceRoleRolePolicyAttachment],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Fargate Type
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -94,23 +112,50 @@ import * as utilities from "../utilities";
  *     computeEnvironmentName: "sample",
  *     computeResources: {
  *         maxVcpus: 16,
- *         securityGroupIds: [aws_security_group.sample.id],
- *         subnets: [aws_subnet.sample.id],
+ *         securityGroupIds: [sampleAwsSecurityGroup.id],
+ *         subnets: [sampleAwsSubnet.id],
  *         type: "FARGATE",
  *     },
- *     serviceRole: aws_iam_role.aws_batch_service_role.arn,
+ *     serviceRole: awsBatchServiceRole.arn,
  *     type: "MANAGED",
- * }, {
- *     dependsOn: [aws_iam_role_policy_attachment.aws_batch_service_role],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Setting Update Policy
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const sample = new aws.batch.ComputeEnvironment("sample", {
+ *     computeEnvironmentName: "sample",
+ *     computeResources: {
+ *         allocationStrategy: "BEST_FIT_PROGRESSIVE",
+ *         instanceRole: ecsInstance.arn,
+ *         instanceTypes: ["optimal"],
+ *         maxVcpus: 4,
+ *         minVcpus: 0,
+ *         securityGroupIds: [sampleAwsSecurityGroup.id],
+ *         subnets: [sampleAwsSubnet.id],
+ *         type: "EC2",
+ *     },
+ *     updatePolicy: {
+ *         jobExecutionTimeoutMinutes: 30,
+ *         terminateJobsOnUpdate: false,
+ *     },
+ *     type: "MANAGED",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AWS Batch compute using the `compute_environment_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
+ * $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
  * ```
  */
 export class ComputeEnvironment extends pulumi.CustomResource {
@@ -195,6 +240,10 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      * The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * Specifies the infrastructure update policy for the compute environment. See details below.
+     */
+    public readonly updatePolicy!: pulumi.Output<outputs.batch.ComputeEnvironmentUpdatePolicy | undefined>;
 
     /**
      * Create a ComputeEnvironment resource with the given unique name, arguments, and options.
@@ -222,6 +271,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["updatePolicy"] = state ? state.updatePolicy : undefined;
         } else {
             const args = argsOrState as ComputeEnvironmentArgs | undefined;
             if ((!args || args.type === undefined) && !opts.urn) {
@@ -235,6 +285,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["updatePolicy"] = args ? args.updatePolicy : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ecsClusterArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -242,8 +293,6 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ComputeEnvironment.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -306,6 +355,10 @@ export interface ComputeEnvironmentState {
      * The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      */
     type?: pulumi.Input<string>;
+    /**
+     * Specifies the infrastructure update policy for the compute environment. See details below.
+     */
+    updatePolicy?: pulumi.Input<inputs.batch.ComputeEnvironmentUpdatePolicy>;
 }
 
 /**
@@ -344,4 +397,8 @@ export interface ComputeEnvironmentArgs {
      * The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      */
     type: pulumi.Input<string>;
+    /**
+     * Specifies the infrastructure update policy for the compute environment. See details below.
+     */
+    updatePolicy?: pulumi.Input<inputs.batch.ComputeEnvironmentUpdatePolicy>;
 }

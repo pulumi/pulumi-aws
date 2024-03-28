@@ -72,25 +72,28 @@ public final class AppCampaignHook {
 
         @CustomType.Setter
         public Builder lambdaFunctionName(@Nullable String lambdaFunctionName) {
+
             this.lambdaFunctionName = lambdaFunctionName;
             return this;
         }
         @CustomType.Setter
         public Builder mode(@Nullable String mode) {
+
             this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder webUrl(@Nullable String webUrl) {
+
             this.webUrl = webUrl;
             return this;
         }
         public AppCampaignHook build() {
-            final var o = new AppCampaignHook();
-            o.lambdaFunctionName = lambdaFunctionName;
-            o.mode = mode;
-            o.webUrl = webUrl;
-            return o;
+            final var _resultValue = new AppCampaignHook();
+            _resultValue.lambdaFunctionName = lambdaFunctionName;
+            _resultValue.mode = mode;
+            _resultValue.webUrl = webUrl;
+            return _resultValue;
         }
     }
 }

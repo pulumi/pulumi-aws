@@ -12,18 +12,20 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.imagebuilder.getContainerRecipes({
+ *     owner: "Self",
  *     filters: [{
  *         name: "platform",
  *         values: ["Linux"],
  *     }],
- *     owner: "Self",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getContainerRecipes(args?: GetContainerRecipesArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerRecipesResult> {
     args = args || {};
@@ -44,7 +46,7 @@ export interface GetContainerRecipesArgs {
      */
     filters?: inputs.imagebuilder.GetContainerRecipesFilter[];
     /**
-     * Owner of the container recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+     * Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
      */
     owner?: string;
 }
@@ -73,18 +75,20 @@ export interface GetContainerRecipesResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.imagebuilder.getContainerRecipes({
+ *     owner: "Self",
  *     filters: [{
  *         name: "platform",
  *         values: ["Linux"],
  *     }],
- *     owner: "Self",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getContainerRecipesOutput(args?: GetContainerRecipesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerRecipesResult> {
     return pulumi.output(args).apply((a: any) => getContainerRecipes(a, opts))
@@ -99,7 +103,7 @@ export interface GetContainerRecipesOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.imagebuilder.GetContainerRecipesFilterArgs>[]>;
     /**
-     * Owner of the container recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+     * Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
      */
     owner?: pulumi.Input<string>;
 }

@@ -12,80 +12,12 @@ namespace Pulumi.Aws.GameLift
     /// <summary>
     /// Provides a GameLift Alias resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleGameSessionQueue = new Aws.GameLift.GameSessionQueue("exampleGameSessionQueue", new()
-    ///     {
-    ///         Destinations = new[] {},
-    ///         PlayerLatencyPolicies = new[]
-    ///         {
-    ///             new Aws.GameLift.Inputs.GameSessionQueuePlayerLatencyPolicyArgs
-    ///             {
-    ///                 MaximumIndividualPlayerLatencyMilliseconds = 3,
-    ///                 PolicyDurationSeconds = 7,
-    ///             },
-    ///             new Aws.GameLift.Inputs.GameSessionQueuePlayerLatencyPolicyArgs
-    ///             {
-    ///                 MaximumIndividualPlayerLatencyMilliseconds = 10,
-    ///             },
-    ///         },
-    ///         TimeoutInSeconds = 25,
-    ///     });
-    /// 
-    ///     var exampleMatchmakingRuleSet = new Aws.GameLift.MatchmakingRuleSet("exampleMatchmakingRuleSet", new()
-    ///     {
-    ///         RuleSetBody = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["name"] = "test",
-    ///             ["ruleLanguageVersion"] = "1.0",
-    ///             ["teams"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["name"] = "alpha",
-    ///                     ["minPlayers"] = 1,
-    ///                     ["maxPlayers"] = 5,
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleMatchmakingConfiguration = new Aws.GameLift.MatchmakingConfiguration("exampleMatchmakingConfiguration", new()
-    ///     {
-    ///         AcceptanceRequired = false,
-    ///         CustomEventData = "pvp",
-    ///         GameSessionData = "game_session_data",
-    ///         BackfillMode = "MANUAL",
-    ///         RequestTimeoutSeconds = 30,
-    ///         RuleSetName = aws_gamelift_matchmaking_rule_set.Test.Name,
-    ///         GameSessionQueueArns = new[]
-    ///         {
-    ///             aws_gamelift_game_session_queue.Test.Arn,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "key1", "value1" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// GameLift Matchmaking Configurations can be imported using the ID, e.g.,
     /// 
     /// ```sh
-    ///  $ pulumi import aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration example &lt;matchmakingconfiguration-id&gt;
+    /// $ pulumi import aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration example &lt;matchmakingconfiguration-id&gt;
     /// ```
     /// </summary>
     [AwsResourceType("aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration")]
@@ -225,10 +157,6 @@ namespace Pulumi.Aws.GameLift
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -501,11 +429,7 @@ namespace Pulumi.Aws.GameLift
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public MatchmakingConfigurationState()

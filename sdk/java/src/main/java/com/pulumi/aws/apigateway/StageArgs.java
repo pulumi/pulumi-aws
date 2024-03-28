@@ -7,6 +7,7 @@ import com.pulumi.aws.apigateway.inputs.StageAccessLogSettingsArgs;
 import com.pulumi.aws.apigateway.inputs.StageCanarySettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -524,9 +525,15 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public StageArgs build() {
-            $.deployment = Objects.requireNonNull($.deployment, "expected parameter 'deployment' to be non-null");
-            $.restApi = Objects.requireNonNull($.restApi, "expected parameter 'restApi' to be non-null");
-            $.stageName = Objects.requireNonNull($.stageName, "expected parameter 'stageName' to be non-null");
+            if ($.deployment == null) {
+                throw new MissingRequiredPropertyException("StageArgs", "deployment");
+            }
+            if ($.restApi == null) {
+                throw new MissingRequiredPropertyException("StageArgs", "restApi");
+            }
+            if ($.stageName == null) {
+                throw new MissingRequiredPropertyException("StageArgs", "stageName");
+            }
             return $;
         }
     }

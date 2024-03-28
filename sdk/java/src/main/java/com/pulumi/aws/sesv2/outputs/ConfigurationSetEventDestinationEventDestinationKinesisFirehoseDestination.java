@@ -4,6 +4,7 @@
 package com.pulumi.aws.sesv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class ConfigurationSetEventDestinationEventDestinationKinesisFireho
 
         @CustomType.Setter
         public Builder deliveryStreamArn(String deliveryStreamArn) {
-            this.deliveryStreamArn = Objects.requireNonNull(deliveryStreamArn);
+            if (deliveryStreamArn == null) {
+              throw new MissingRequiredPropertyException("ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination", "deliveryStreamArn");
+            }
+            this.deliveryStreamArn = deliveryStreamArn;
             return this;
         }
         @CustomType.Setter
         public Builder iamRoleArn(String iamRoleArn) {
-            this.iamRoleArn = Objects.requireNonNull(iamRoleArn);
+            if (iamRoleArn == null) {
+              throw new MissingRequiredPropertyException("ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination", "iamRoleArn");
+            }
+            this.iamRoleArn = iamRoleArn;
             return this;
         }
         public ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination build() {
-            final var o = new ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination();
-            o.deliveryStreamArn = deliveryStreamArn;
-            o.iamRoleArn = iamRoleArn;
-            return o;
+            final var _resultValue = new ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination();
+            _resultValue.deliveryStreamArn = deliveryStreamArn;
+            _resultValue.iamRoleArn = iamRoleArn;
+            return _resultValue;
         }
     }
 }

@@ -16,11 +16,11 @@ namespace Pulumi.Aws.Iam
         /// 
         /// Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Example
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
         ///     {
         ///         Statements = new[]
         ///         {
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Iam
         ///                 },
         ///                 Resources = new[]
         ///                 {
-        ///                     $"arn:aws:s3:::{@var.S3_bucket_name}",
+        ///                     $"arn:aws:s3:::{s3BucketName}",
         ///                 },
         ///                 Conditions = new[]
         ///                 {
@@ -79,27 +79,29 @@ namespace Pulumi.Aws.Iam
         ///                 },
         ///                 Resources = new[]
         ///                 {
-        ///                     $"arn:aws:s3:::{@var.S3_bucket_name}/home/&amp;{{aws:username}}",
-        ///                     $"arn:aws:s3:::{@var.S3_bucket_name}/home/&amp;{{aws:username}}/*",
+        ///                     $"arn:aws:s3:::{s3BucketName}/home/&amp;{{aws:username}}",
+        ///                     $"arn:aws:s3:::{s3BucketName}/home/&amp;{{aws:username}}/*",
         ///                 },
         ///             },
         ///         },
         ///     });
         /// 
-        ///     var examplePolicy = new Aws.Iam.Policy("examplePolicy", new()
+        ///     var examplePolicy = new Aws.Iam.Policy("example", new()
         ///     {
+        ///         Name = "example_policy",
         ///         Path = "/",
-        ///         PolicyDocument = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///         PolicyDocument = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Example Multiple Condition Keys and Values
         /// 
         /// You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -119,40 +121,40 @@ namespace Pulumi.Aws.Iam
         ///                     "kms:Decrypt",
         ///                     "kms:GenerateDataKey",
         ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     "*",
+        ///                 },
         ///                 Conditions = new[]
         ///                 {
         ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
         ///                     {
         ///                         Test = "ForAnyValue:StringEquals",
+        ///                         Variable = "kms:EncryptionContext:service",
         ///                         Values = new[]
         ///                         {
         ///                             "pi",
         ///                         },
-        ///                         Variable = "kms:EncryptionContext:service",
         ///                     },
         ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
         ///                     {
         ///                         Test = "ForAnyValue:StringEquals",
+        ///                         Variable = "kms:EncryptionContext:aws:pi:service",
         ///                         Values = new[]
         ///                         {
         ///                             "rds",
         ///                         },
-        ///                         Variable = "kms:EncryptionContext:aws:pi:service",
         ///                     },
         ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
         ///                     {
         ///                         Test = "ForAnyValue:StringEquals",
+        ///                         Variable = "kms:EncryptionContext:aws:rds:db-id",
         ///                         Values = new[]
         ///                         {
         ///                             "db-AAAAABBBBBCCCCCDDDDDEEEEE",
         ///                             "db-EEEEEDDDDDCCCCCBBBBBAAAAA",
         ///                         },
-        ///                         Variable = "kms:EncryptionContext:aws:rds:db-id",
         ///                     },
-        ///                 },
-        ///                 Resources = new[]
-        ///                 {
-        ///                     "*",
         ///                 },
         ///             },
         ///         },
@@ -160,24 +162,42 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
+        /// ```json
         /// {
-        /// });
+        ///   "Version": "2012-10-17",
+        ///   "Statement": [
+        ///     {
+        ///       "Sid": "",
+        ///       "Effect": "Allow",
+        ///       "Action": [
+        ///         "kms:GenerateDataKey",
+        ///         "kms:Decrypt"
+        ///       ],
+        ///       "Resource": "*",
+        ///       "Condition": {
+        ///         "ForAnyValue:StringEquals": {
+        ///           "kms:EncryptionContext:aws:pi:service": "rds",
+        ///           "kms:EncryptionContext:aws:rds:db-id": [
+        ///             "db-AAAAABBBBBCCCCCDDDDDEEEEE",
+        ///             "db-EEEEEDDDDDCCCCCBBBBBAAAAA"
+        ///           ],
+        ///           "kms:EncryptionContext:service": "pi"
+        ///         }
+        ///       }
+        ///     }
+        ///   ]
+        /// }
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// 
         /// ### Example Assume-Role Policy with Multiple Principals
         /// 
         /// You can specify multiple principal blocks with different types. You can also use this data source to generate an assume-role policy.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -211,7 +231,7 @@ namespace Pulumi.Aws.Iam
         ///                         Type = "AWS",
         ///                         Identifiers = new[]
         ///                         {
-        ///                             @var.Trusted_role_arn,
+        ///                             trustedRoleArn,
         ///                         },
         ///                     },
         ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -219,7 +239,7 @@ namespace Pulumi.Aws.Iam
         ///                         Type = "Federated",
         ///                         Identifiers = new[]
         ///                         {
-        ///                             $"arn:aws:iam::{@var.Account_id}:saml-provider/{@var.Provider_name}",
+        ///                             $"arn:aws:iam::{accountId}:saml-provider/{providerName}",
         ///                             "cognito-identity.amazonaws.com",
         ///                         },
         ///                     },
@@ -230,10 +250,11 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Example Using A Source Document
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -298,22 +319,36 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
+        /// ```json
         /// {
-        /// });
+        ///   "Version": "2012-10-17",
+        ///   "Statement": [
+        ///     {
+        ///       "Sid": "",
+        ///       "Effect": "Allow",
+        ///       "Action": "ec2:*",
+        ///       "Resource": "*"
+        ///     },
+        ///     {
+        ///       "Sid": "SidToOverride",
+        ///       "Effect": "Allow",
+        ///       "Action": "s3:*",
+        ///       "Resource": [
+        ///         "arn:aws:s3:::somebucket/*",
+        ///         "arn:aws:s3:::somebucket"
+        ///       ]
+        ///     }
+        ///   ]
+        /// }
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// 
         /// ### Example Using An Override Document
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -378,24 +413,35 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
+        /// ```json
         /// {
-        /// });
+        ///   "Version": "2012-10-17",
+        ///   "Statement": [
+        ///     {
+        ///       "Sid": "",
+        ///       "Effect": "Allow",
+        ///       "Action": "ec2:*",
+        ///       "Resource": "*"
+        ///     },
+        ///     {
+        ///       "Sid": "SidToOverride",
+        ///       "Effect": "Allow",
+        ///       "Action": "s3:*",
+        ///       "Resource": "*"
+        ///     }
+        ///   ]
+        /// }
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// 
         /// ### Example with Both Source and Override Documents
         /// 
         /// You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -456,24 +502,29 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// `data.aws_iam_policy_document.politik.json` will evaluate to:
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
+        /// ```json
         /// {
-        /// });
+        ///   "Version": "2012-10-17",
+        ///   "Statement": [
+        ///     {
+        ///       "Sid": "OverridePlaceholder",
+        ///       "Effect": "Allow",
+        ///       "Action": "s3:GetObject",
+        ///       "Resource": "*"
+        ///     }
+        ///   ]
+        /// }
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// 
         /// ### Example of Merging Source Documents
         /// 
         /// Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -553,22 +604,45 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// `data.aws_iam_policy_document.combined.json` will evaluate to:
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
+        /// ```json
         /// {
-        /// });
+        ///   "Version": "2012-10-17",
+        ///   "Statement": [
+        ///     {
+        ///       "Sid": "",
+        ///       "Effect": "Allow",
+        ///       "Action": "ec2:*",
+        ///       "Resource": "*"
+        ///     },
+        ///     {
+        ///       "Sid": "UniqueSidOne",
+        ///       "Effect": "Allow",
+        ///       "Action": "s3:*",
+        ///       "Resource": "*"
+        ///     },
+        ///     {
+        ///       "Sid": "UniqueSidTwo",
+        ///       "Effect": "Allow",
+        ///       "Action": "iam:*",
+        ///       "Resource": "*"
+        ///     },
+        ///     {
+        ///       "Sid": "",
+        ///       "Effect": "Allow",
+        ///       "Action": "lambda:*",
+        ///       "Resource": "*"
+        ///     }
+        ///   ]
+        /// }
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// 
         /// ### Example of Merging Override Documents
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -677,20 +751,35 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// `data.aws_iam_policy_document.combined.json` will evaluate to:
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
+        /// ```json
         /// {
-        /// });
+        ///   "Version": "2012-10-17",
+        ///   "Statement": [
+        ///     {
+        ///       "Sid": "OverridePlaceholderTwo",
+        ///       "Effect": "Allow",
+        ///       "Action": "iam:*",
+        ///       "Resource": "*"
+        ///     },
+        ///     {
+        ///       "Sid": "OverridePlaceholderOne",
+        ///       "Effect": "Deny",
+        ///       "Action": "logs:*",
+        ///       "Resource": "*"
+        ///     },
+        ///     {
+        ///       "Sid": "",
+        ///       "Effect": "Allow",
+        ///       "Action": "ec2:*",
+        ///       "Resource": "*"
+        ///     },
+        ///   ]
+        /// }
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPolicyDocumentResult> InvokeAsync(GetPolicyDocumentArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDocumentResult>("aws:iam/getPolicyDocument:getPolicyDocument", args ?? new GetPolicyDocumentArgs(), options.WithDefaults());
@@ -700,11 +789,11 @@ namespace Pulumi.Aws.Iam
         /// 
         /// Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Example
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -713,7 +802,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
         ///     {
         ///         Statements = new[]
         ///         {
@@ -738,7 +827,7 @@ namespace Pulumi.Aws.Iam
         ///                 },
         ///                 Resources = new[]
         ///                 {
-        ///                     $"arn:aws:s3:::{@var.S3_bucket_name}",
+        ///                     $"arn:aws:s3:::{s3BucketName}",
         ///                 },
         ///                 Conditions = new[]
         ///                 {
@@ -763,27 +852,29 @@ namespace Pulumi.Aws.Iam
         ///                 },
         ///                 Resources = new[]
         ///                 {
-        ///                     $"arn:aws:s3:::{@var.S3_bucket_name}/home/&amp;{{aws:username}}",
-        ///                     $"arn:aws:s3:::{@var.S3_bucket_name}/home/&amp;{{aws:username}}/*",
+        ///                     $"arn:aws:s3:::{s3BucketName}/home/&amp;{{aws:username}}",
+        ///                     $"arn:aws:s3:::{s3BucketName}/home/&amp;{{aws:username}}/*",
         ///                 },
         ///             },
         ///         },
         ///     });
         /// 
-        ///     var examplePolicy = new Aws.Iam.Policy("examplePolicy", new()
+        ///     var examplePolicy = new Aws.Iam.Policy("example", new()
         ///     {
+        ///         Name = "example_policy",
         ///         Path = "/",
-        ///         PolicyDocument = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///         PolicyDocument = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Example Multiple Condition Keys and Values
         /// 
         /// You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -803,40 +894,40 @@ namespace Pulumi.Aws.Iam
         ///                     "kms:Decrypt",
         ///                     "kms:GenerateDataKey",
         ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     "*",
+        ///                 },
         ///                 Conditions = new[]
         ///                 {
         ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
         ///                     {
         ///                         Test = "ForAnyValue:StringEquals",
+        ///                         Variable = "kms:EncryptionContext:service",
         ///                         Values = new[]
         ///                         {
         ///                             "pi",
         ///                         },
-        ///                         Variable = "kms:EncryptionContext:service",
         ///                     },
         ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
         ///                     {
         ///                         Test = "ForAnyValue:StringEquals",
+        ///                         Variable = "kms:EncryptionContext:aws:pi:service",
         ///                         Values = new[]
         ///                         {
         ///                             "rds",
         ///                         },
-        ///                         Variable = "kms:EncryptionContext:aws:pi:service",
         ///                     },
         ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
         ///                     {
         ///                         Test = "ForAnyValue:StringEquals",
+        ///                         Variable = "kms:EncryptionContext:aws:rds:db-id",
         ///                         Values = new[]
         ///                         {
         ///                             "db-AAAAABBBBBCCCCCDDDDDEEEEE",
         ///                             "db-EEEEEDDDDDCCCCCBBBBBAAAAA",
         ///                         },
-        ///                         Variable = "kms:EncryptionContext:aws:rds:db-id",
         ///                     },
-        ///                 },
-        ///                 Resources = new[]
-        ///                 {
-        ///                     "*",
         ///                 },
         ///             },
         ///         },
@@ -844,24 +935,42 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
+        /// ```json
         /// {
-        /// });
+        ///   "Version": "2012-10-17",
+        ///   "Statement": [
+        ///     {
+        ///       "Sid": "",
+        ///       "Effect": "Allow",
+        ///       "Action": [
+        ///         "kms:GenerateDataKey",
+        ///         "kms:Decrypt"
+        ///       ],
+        ///       "Resource": "*",
+        ///       "Condition": {
+        ///         "ForAnyValue:StringEquals": {
+        ///           "kms:EncryptionContext:aws:pi:service": "rds",
+        ///           "kms:EncryptionContext:aws:rds:db-id": [
+        ///             "db-AAAAABBBBBCCCCCDDDDDEEEEE",
+        ///             "db-EEEEEDDDDDCCCCCBBBBBAAAAA"
+        ///           ],
+        ///           "kms:EncryptionContext:service": "pi"
+        ///         }
+        ///       }
+        ///     }
+        ///   ]
+        /// }
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// 
         /// ### Example Assume-Role Policy with Multiple Principals
         /// 
         /// You can specify multiple principal blocks with different types. You can also use this data source to generate an assume-role policy.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -895,7 +1004,7 @@ namespace Pulumi.Aws.Iam
         ///                         Type = "AWS",
         ///                         Identifiers = new[]
         ///                         {
-        ///                             @var.Trusted_role_arn,
+        ///                             trustedRoleArn,
         ///                         },
         ///                     },
         ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -903,7 +1012,7 @@ namespace Pulumi.Aws.Iam
         ///                         Type = "Federated",
         ///                         Identifiers = new[]
         ///                         {
-        ///                             $"arn:aws:iam::{@var.Account_id}:saml-provider/{@var.Provider_name}",
+        ///                             $"arn:aws:iam::{accountId}:saml-provider/{providerName}",
         ///                             "cognito-identity.amazonaws.com",
         ///                         },
         ///                     },
@@ -914,10 +1023,11 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Example Using A Source Document
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -982,22 +1092,36 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
+        /// ```json
         /// {
-        /// });
+        ///   "Version": "2012-10-17",
+        ///   "Statement": [
+        ///     {
+        ///       "Sid": "",
+        ///       "Effect": "Allow",
+        ///       "Action": "ec2:*",
+        ///       "Resource": "*"
+        ///     },
+        ///     {
+        ///       "Sid": "SidToOverride",
+        ///       "Effect": "Allow",
+        ///       "Action": "s3:*",
+        ///       "Resource": [
+        ///         "arn:aws:s3:::somebucket/*",
+        ///         "arn:aws:s3:::somebucket"
+        ///       ]
+        ///     }
+        ///   ]
+        /// }
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// 
         /// ### Example Using An Override Document
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -1062,24 +1186,35 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
+        /// ```json
         /// {
-        /// });
+        ///   "Version": "2012-10-17",
+        ///   "Statement": [
+        ///     {
+        ///       "Sid": "",
+        ///       "Effect": "Allow",
+        ///       "Action": "ec2:*",
+        ///       "Resource": "*"
+        ///     },
+        ///     {
+        ///       "Sid": "SidToOverride",
+        ///       "Effect": "Allow",
+        ///       "Action": "s3:*",
+        ///       "Resource": "*"
+        ///     }
+        ///   ]
+        /// }
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// 
         /// ### Example with Both Source and Override Documents
         /// 
         /// You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -1140,24 +1275,29 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// `data.aws_iam_policy_document.politik.json` will evaluate to:
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
+        /// ```json
         /// {
-        /// });
+        ///   "Version": "2012-10-17",
+        ///   "Statement": [
+        ///     {
+        ///       "Sid": "OverridePlaceholder",
+        ///       "Effect": "Allow",
+        ///       "Action": "s3:GetObject",
+        ///       "Resource": "*"
+        ///     }
+        ///   ]
+        /// }
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// 
         /// ### Example of Merging Source Documents
         /// 
         /// Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -1237,22 +1377,45 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// `data.aws_iam_policy_document.combined.json` will evaluate to:
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
+        /// ```json
         /// {
-        /// });
+        ///   "Version": "2012-10-17",
+        ///   "Statement": [
+        ///     {
+        ///       "Sid": "",
+        ///       "Effect": "Allow",
+        ///       "Action": "ec2:*",
+        ///       "Resource": "*"
+        ///     },
+        ///     {
+        ///       "Sid": "UniqueSidOne",
+        ///       "Effect": "Allow",
+        ///       "Action": "s3:*",
+        ///       "Resource": "*"
+        ///     },
+        ///     {
+        ///       "Sid": "UniqueSidTwo",
+        ///       "Effect": "Allow",
+        ///       "Action": "iam:*",
+        ///       "Resource": "*"
+        ///     },
+        ///     {
+        ///       "Sid": "",
+        ///       "Effect": "Allow",
+        ///       "Action": "lambda:*",
+        ///       "Resource": "*"
+        ///     }
+        ///   ]
+        /// }
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// 
         /// ### Example of Merging Override Documents
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -1361,20 +1524,35 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// `data.aws_iam_policy_document.combined.json` will evaluate to:
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
+        /// ```json
         /// {
-        /// });
+        ///   "Version": "2012-10-17",
+        ///   "Statement": [
+        ///     {
+        ///       "Sid": "OverridePlaceholderTwo",
+        ///       "Effect": "Allow",
+        ///       "Action": "iam:*",
+        ///       "Resource": "*"
+        ///     },
+        ///     {
+        ///       "Sid": "OverridePlaceholderOne",
+        ///       "Effect": "Deny",
+        ///       "Action": "logs:*",
+        ///       "Resource": "*"
+        ///     },
+        ///     {
+        ///       "Sid": "",
+        ///       "Effect": "Allow",
+        ///       "Action": "ec2:*",
+        ///       "Resource": "*"
+        ///     },
+        ///   ]
+        /// }
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetPolicyDocumentResult> Invoke(GetPolicyDocumentInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyDocumentResult>("aws:iam/getPolicyDocument:getPolicyDocument", args ?? new GetPolicyDocumentInvokeArgs(), options.WithDefaults());
@@ -1383,6 +1561,9 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GetPolicyDocumentArgs : global::Pulumi.InvokeArgs
     {
+        [Input("overrideJson")]
+        public string? OverrideJson { get; set; }
+
         [Input("overridePolicyDocuments")]
         private List<string>? _overridePolicyDocuments;
 
@@ -1400,6 +1581,9 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         [Input("policyId")]
         public string? PolicyId { get; set; }
+
+        [Input("sourceJson")]
+        public string? SourceJson { get; set; }
 
         [Input("sourcePolicyDocuments")]
         private List<string>? _sourcePolicyDocuments;
@@ -1439,6 +1623,9 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GetPolicyDocumentInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("overrideJson")]
+        public Input<string>? OverrideJson { get; set; }
+
         [Input("overridePolicyDocuments")]
         private InputList<string>? _overridePolicyDocuments;
 
@@ -1456,6 +1643,9 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
+
+        [Input("sourceJson")]
+        public Input<string>? SourceJson { get; set; }
 
         [Input("sourcePolicyDocuments")]
         private InputList<string>? _sourcePolicyDocuments;
@@ -1505,8 +1695,10 @@ namespace Pulumi.Aws.Iam
         /// Standard JSON policy document rendered based on the arguments above.
         /// </summary>
         public readonly string Json;
+        public readonly string? OverrideJson;
         public readonly ImmutableArray<string> OverridePolicyDocuments;
         public readonly string? PolicyId;
+        public readonly string? SourceJson;
         public readonly ImmutableArray<string> SourcePolicyDocuments;
         public readonly ImmutableArray<Outputs.GetPolicyDocumentStatementResult> Statements;
         public readonly string? Version;
@@ -1517,9 +1709,13 @@ namespace Pulumi.Aws.Iam
 
             string json,
 
+            string? overrideJson,
+
             ImmutableArray<string> overridePolicyDocuments,
 
             string? policyId,
+
+            string? sourceJson,
 
             ImmutableArray<string> sourcePolicyDocuments,
 
@@ -1529,8 +1725,10 @@ namespace Pulumi.Aws.Iam
         {
             Id = id;
             Json = json;
+            OverrideJson = overrideJson;
             OverridePolicyDocuments = overridePolicyDocuments;
             PolicyId = policyId;
+            SourceJson = sourceJson;
             SourcePolicyDocuments = sourcePolicyDocuments;
             Statements = statements;
             Version = version;

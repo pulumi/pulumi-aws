@@ -9,23 +9,28 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGraphQLApi = new aws.appsync.GraphQLApi("exampleGraphQLApi", {authenticationType: "API_KEY"});
- * const exampleApiKey = new aws.appsync.ApiKey("exampleApiKey", {
- *     apiId: exampleGraphQLApi.id,
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "API_KEY",
+ *     name: "example",
+ * });
+ * const exampleApiKey = new aws.appsync.ApiKey("example", {
+ *     apiId: example.id,
  *     expires: "2018-05-03T04:00:00Z",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_appsync_api_key` using the AppSync API ID and key separated by `:`. For example:
  *
  * ```sh
- *  $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
+ * $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
  * ```
  */
 export class ApiKey extends pulumi.CustomResource {

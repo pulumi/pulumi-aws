@@ -8,6 +8,7 @@ import com.pulumi.aws.cloudwatch.inputs.MetricStreamIncludeFilterArgs;
 import com.pulumi.aws.cloudwatch.inputs.MetricStreamStatisticsConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -112,7 +113,7 @@ public final class MetricStreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+     * Output format for the stream. Possible values are `json`, `opentelemetry0.7`, and `opentelemetry1.0`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
      * 
      * The following arguments are optional:
      * 
@@ -121,7 +122,7 @@ public final class MetricStreamArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> outputFormat;
 
     /**
-     * @return Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+     * @return Output format for the stream. Possible values are `json`, `opentelemetry0.7`, and `opentelemetry1.0`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
      * 
      * The following arguments are optional:
      * 
@@ -146,14 +147,14 @@ public final class MetricStreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream&#39;s `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
+     * For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream&#39;s `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
      * 
      */
     @Import(name="statisticsConfigurations")
     private @Nullable Output<List<MetricStreamStatisticsConfigurationArgs>> statisticsConfigurations;
 
     /**
-     * @return For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream&#39;s `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
+     * @return For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream&#39;s `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
      * 
      */
     public Optional<Output<List<MetricStreamStatisticsConfigurationArgs>>> statisticsConfigurations() {
@@ -355,7 +356,7 @@ public final class MetricStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outputFormat Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+         * @param outputFormat Output format for the stream. Possible values are `json`, `opentelemetry0.7`, and `opentelemetry1.0`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
          * 
          * The following arguments are optional:
          * 
@@ -368,7 +369,7 @@ public final class MetricStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outputFormat Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+         * @param outputFormat Output format for the stream. Possible values are `json`, `opentelemetry0.7`, and `opentelemetry1.0`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
          * 
          * The following arguments are optional:
          * 
@@ -401,7 +402,7 @@ public final class MetricStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statisticsConfigurations For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream&#39;s `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
+         * @param statisticsConfigurations For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream&#39;s `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
          * 
          * @return builder
          * 
@@ -412,7 +413,7 @@ public final class MetricStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statisticsConfigurations For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream&#39;s `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
+         * @param statisticsConfigurations For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream&#39;s `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
          * 
          * @return builder
          * 
@@ -422,7 +423,7 @@ public final class MetricStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statisticsConfigurations For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream&#39;s `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
+         * @param statisticsConfigurations For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream&#39;s `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
          * 
          * @return builder
          * 
@@ -453,9 +454,15 @@ public final class MetricStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MetricStreamArgs build() {
-            $.firehoseArn = Objects.requireNonNull($.firehoseArn, "expected parameter 'firehoseArn' to be non-null");
-            $.outputFormat = Objects.requireNonNull($.outputFormat, "expected parameter 'outputFormat' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.firehoseArn == null) {
+                throw new MissingRequiredPropertyException("MetricStreamArgs", "firehoseArn");
+            }
+            if ($.outputFormat == null) {
+                throw new MissingRequiredPropertyException("MetricStreamArgs", "outputFormat");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("MetricStreamArgs", "roleArn");
+            }
             return $;
         }
     }

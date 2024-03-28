@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a CodeArtifact Domain Resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,13 +50,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CodeArtifact Domain using the CodeArtifact Domain arn. For example:
  * 
  * ```sh
- *  $ pulumi import aws:codeartifact/domain:Domain example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
+ * $ pulumi import aws:codeartifact/domain:Domain example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
  * ```
  * 
  */
@@ -160,6 +162,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.repositoryCount;
     }
     /**
+     * The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
+     * 
+     */
+    @Export(name="s3BucketArn", refs={String.class}, tree="[0]")
+    private Output<String> s3BucketArn;
+
+    /**
+     * @return The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
+     * 
+     */
+    public Output<String> s3BucketArn() {
+        return this.s3BucketArn;
+    }
+    /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -224,9 +240,6 @@ public class Domain extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

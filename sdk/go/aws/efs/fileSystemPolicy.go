@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,11 +30,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fs, err := efs.NewFileSystem(ctx, "fs", nil)
+//			fs, err := efs.NewFileSystem(ctx, "fs", &efs.FileSystemArgs{
+//				CreationToken: pulumi.String("my-product"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			policyPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//			policy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
 //						Sid:    pulumi.String("ExampleStatement01"),
@@ -65,10 +68,10 @@ import (
 //					},
 //				},
 //			}, nil)
-//			_, err = efs.NewFileSystemPolicy(ctx, "policyFileSystemPolicy", &efs.FileSystemPolicyArgs{
+//			_, err = efs.NewFileSystemPolicy(ctx, "policy", &efs.FileSystemPolicyArgs{
 //				FileSystemId: fs.ID(),
-//				Policy: policyPolicyDocument.ApplyT(func(policyPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &policyPolicyDocument.Json, nil
+//				Policy: policy.ApplyT(func(policy iam.GetPolicyDocumentResult) (*string, error) {
+//					return &policy.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
@@ -79,15 +82,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import the EFS file system policies using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
-//
+// $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
 // ```
 type FileSystemPolicy struct {
 	pulumi.CustomResourceState

@@ -17,6 +17,7 @@ __all__ = ['AppImageConfigArgs', 'AppImageConfig']
 class AppImageConfigArgs:
     def __init__(__self__, *,
                  app_image_config_name: pulumi.Input[str],
+                 jupyter_lab_image_config: Optional[pulumi.Input['AppImageConfigJupyterLabImageConfigArgs']] = None,
                  kernel_gateway_image_config: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -26,6 +27,8 @@ class AppImageConfigArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "app_image_config_name", app_image_config_name)
+        if jupyter_lab_image_config is not None:
+            pulumi.set(__self__, "jupyter_lab_image_config", jupyter_lab_image_config)
         if kernel_gateway_image_config is not None:
             pulumi.set(__self__, "kernel_gateway_image_config", kernel_gateway_image_config)
         if tags is not None:
@@ -42,6 +45,15 @@ class AppImageConfigArgs:
     @app_image_config_name.setter
     def app_image_config_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "app_image_config_name", value)
+
+    @property
+    @pulumi.getter(name="jupyterLabImageConfig")
+    def jupyter_lab_image_config(self) -> Optional[pulumi.Input['AppImageConfigJupyterLabImageConfigArgs']]:
+        return pulumi.get(self, "jupyter_lab_image_config")
+
+    @jupyter_lab_image_config.setter
+    def jupyter_lab_image_config(self, value: Optional[pulumi.Input['AppImageConfigJupyterLabImageConfigArgs']]):
+        pulumi.set(self, "jupyter_lab_image_config", value)
 
     @property
     @pulumi.getter(name="kernelGatewayImageConfig")
@@ -73,6 +85,7 @@ class _AppImageConfigState:
     def __init__(__self__, *,
                  app_image_config_name: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
+                 jupyter_lab_image_config: Optional[pulumi.Input['AppImageConfigJupyterLabImageConfigArgs']] = None,
                  kernel_gateway_image_config: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -88,6 +101,8 @@ class _AppImageConfigState:
             pulumi.set(__self__, "app_image_config_name", app_image_config_name)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if jupyter_lab_image_config is not None:
+            pulumi.set(__self__, "jupyter_lab_image_config", jupyter_lab_image_config)
         if kernel_gateway_image_config is not None:
             pulumi.set(__self__, "kernel_gateway_image_config", kernel_gateway_image_config)
         if tags is not None:
@@ -121,6 +136,15 @@ class _AppImageConfigState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="jupyterLabImageConfig")
+    def jupyter_lab_image_config(self) -> Optional[pulumi.Input['AppImageConfigJupyterLabImageConfigArgs']]:
+        return pulumi.get(self, "jupyter_lab_image_config")
+
+    @jupyter_lab_image_config.setter
+    def jupyter_lab_image_config(self, value: Optional[pulumi.Input['AppImageConfigJupyterLabImageConfigArgs']]):
+        pulumi.set(self, "jupyter_lab_image_config", value)
 
     @property
     @pulumi.getter(name="kernelGatewayImageConfig")
@@ -168,6 +192,7 @@ class AppImageConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_image_config_name: Optional[pulumi.Input[str]] = None,
+                 jupyter_lab_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigJupyterLabImageConfigArgs']]] = None,
                  kernel_gateway_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -175,8 +200,10 @@ class AppImageConfig(pulumi.CustomResource):
         Provides a SageMaker App Image Config resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -189,8 +216,11 @@ class AppImageConfig(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Default File System Config
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -198,19 +228,20 @@ class AppImageConfig(pulumi.CustomResource):
         test = aws.sagemaker.AppImageConfig("test",
             app_image_config_name="example",
             kernel_gateway_image_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigArgs(
-                file_system_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs(),
                 kernel_spec=aws.sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs(
                     name="example",
                 ),
+                file_system_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs(),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker App Image Configs using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
+        $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -229,8 +260,10 @@ class AppImageConfig(pulumi.CustomResource):
         Provides a SageMaker App Image Config resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -243,8 +276,11 @@ class AppImageConfig(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Default File System Config
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -252,19 +288,20 @@ class AppImageConfig(pulumi.CustomResource):
         test = aws.sagemaker.AppImageConfig("test",
             app_image_config_name="example",
             kernel_gateway_image_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigArgs(
-                file_system_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs(),
                 kernel_spec=aws.sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs(
                     name="example",
                 ),
+                file_system_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs(),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker App Image Configs using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
+        $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -283,6 +320,7 @@ class AppImageConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_image_config_name: Optional[pulumi.Input[str]] = None,
+                 jupyter_lab_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigJupyterLabImageConfigArgs']]] = None,
                  kernel_gateway_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -297,12 +335,11 @@ class AppImageConfig(pulumi.CustomResource):
             if app_image_config_name is None and not opts.urn:
                 raise TypeError("Missing required property 'app_image_config_name'")
             __props__.__dict__["app_image_config_name"] = app_image_config_name
+            __props__.__dict__["jupyter_lab_image_config"] = jupyter_lab_image_config
             __props__.__dict__["kernel_gateway_image_config"] = kernel_gateway_image_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AppImageConfig, __self__).__init__(
             'aws:sagemaker/appImageConfig:AppImageConfig',
             resource_name,
@@ -315,6 +352,7 @@ class AppImageConfig(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             app_image_config_name: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            jupyter_lab_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigJupyterLabImageConfigArgs']]] = None,
             kernel_gateway_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'AppImageConfig':
@@ -337,6 +375,7 @@ class AppImageConfig(pulumi.CustomResource):
 
         __props__.__dict__["app_image_config_name"] = app_image_config_name
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["jupyter_lab_image_config"] = jupyter_lab_image_config
         __props__.__dict__["kernel_gateway_image_config"] = kernel_gateway_image_config
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -357,6 +396,11 @@ class AppImageConfig(pulumi.CustomResource):
         The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="jupyterLabImageConfig")
+    def jupyter_lab_image_config(self) -> pulumi.Output[Optional['outputs.AppImageConfigJupyterLabImageConfig']]:
+        return pulumi.get(self, "jupyter_lab_image_config")
 
     @property
     @pulumi.getter(name="kernelGatewayImageConfig")

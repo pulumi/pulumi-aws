@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Route53Domains
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,6 +49,15 @@ namespace Pulumi.Aws.Route53Domains
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ## Import
+    /// 
+    /// Using `pulumi import`, import domains using the domain name. For example:
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:route53domains/registeredDomain:RegisteredDomain example example.com
+    /// ```
     /// </summary>
     [AwsResourceType("aws:route53domains/registeredDomain:RegisteredDomain")]
     public partial class RegisteredDomain : global::Pulumi.CustomResource
@@ -65,7 +75,7 @@ namespace Pulumi.Aws.Route53Domains
         public Output<string> AbuseContactPhone { get; private set; } = null!;
 
         /// <summary>
-        /// Details about the domain administrative contact.
+        /// Details about the domain administrative contact. See Contact Blocks for more details.
         /// </summary>
         [Output("adminContact")]
         public Output<Outputs.RegisteredDomainAdminContact> AdminContact { get; private set; } = null!;
@@ -81,6 +91,18 @@ namespace Pulumi.Aws.Route53Domains
         /// </summary>
         [Output("autoRenew")]
         public Output<bool?> AutoRenew { get; private set; } = null!;
+
+        /// <summary>
+        /// Details about the domain billing contact. See Contact Blocks for more details.
+        /// </summary>
+        [Output("billingContact")]
+        public Output<Outputs.RegisteredDomainBillingContact> BillingContact { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+        /// </summary>
+        [Output("billingPrivacy")]
+        public Output<bool?> BillingPrivacy { get; private set; } = null!;
 
         /// <summary>
         /// The date when the domain was created as found in the response to a WHOIS query.
@@ -101,13 +123,13 @@ namespace Pulumi.Aws.Route53Domains
         public Output<string> ExpirationDate { get; private set; } = null!;
 
         /// <summary>
-        /// The list of nameservers for the domain.
+        /// The list of nameservers for the domain. See `name_server` Blocks for more details.
         /// </summary>
         [Output("nameServers")]
         public Output<ImmutableArray<Outputs.RegisteredDomainNameServer>> NameServers { get; private set; } = null!;
 
         /// <summary>
-        /// Details about the domain registrant.
+        /// Details about the domain registrant. See Contact Blocks for more details.
         /// </summary>
         [Output("registrantContact")]
         public Output<Outputs.RegisteredDomainRegistrantContact> RegistrantContact { get; private set; } = null!;
@@ -155,7 +177,7 @@ namespace Pulumi.Aws.Route53Domains
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Details about the domain technical contact.
+        /// Details about the domain technical contact. See Contact Blocks for more details.
         /// </summary>
         [Output("techContact")]
         public Output<Outputs.RegisteredDomainTechContact> TechContact { get; private set; } = null!;
@@ -207,10 +229,6 @@ namespace Pulumi.Aws.Route53Domains
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -235,7 +253,7 @@ namespace Pulumi.Aws.Route53Domains
     public sealed class RegisteredDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Details about the domain administrative contact.
+        /// Details about the domain administrative contact. See Contact Blocks for more details.
         /// </summary>
         [Input("adminContact")]
         public Input<Inputs.RegisteredDomainAdminContactArgs>? AdminContact { get; set; }
@@ -253,6 +271,18 @@ namespace Pulumi.Aws.Route53Domains
         public Input<bool>? AutoRenew { get; set; }
 
         /// <summary>
+        /// Details about the domain billing contact. See Contact Blocks for more details.
+        /// </summary>
+        [Input("billingContact")]
+        public Input<Inputs.RegisteredDomainBillingContactArgs>? BillingContact { get; set; }
+
+        /// <summary>
+        /// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+        /// </summary>
+        [Input("billingPrivacy")]
+        public Input<bool>? BillingPrivacy { get; set; }
+
+        /// <summary>
         /// The name of the registered domain.
         /// </summary>
         [Input("domainName", required: true)]
@@ -262,7 +292,7 @@ namespace Pulumi.Aws.Route53Domains
         private InputList<Inputs.RegisteredDomainNameServerArgs>? _nameServers;
 
         /// <summary>
-        /// The list of nameservers for the domain.
+        /// The list of nameservers for the domain. See `name_server` Blocks for more details.
         /// </summary>
         public InputList<Inputs.RegisteredDomainNameServerArgs> NameServers
         {
@@ -271,7 +301,7 @@ namespace Pulumi.Aws.Route53Domains
         }
 
         /// <summary>
-        /// Details about the domain registrant.
+        /// Details about the domain registrant. See Contact Blocks for more details.
         /// </summary>
         [Input("registrantContact")]
         public Input<Inputs.RegisteredDomainRegistrantContactArgs>? RegistrantContact { get; set; }
@@ -295,7 +325,7 @@ namespace Pulumi.Aws.Route53Domains
         }
 
         /// <summary>
-        /// Details about the domain technical contact.
+        /// Details about the domain technical contact. See Contact Blocks for more details.
         /// </summary>
         [Input("techContact")]
         public Input<Inputs.RegisteredDomainTechContactArgs>? TechContact { get; set; }
@@ -333,7 +363,7 @@ namespace Pulumi.Aws.Route53Domains
         public Input<string>? AbuseContactPhone { get; set; }
 
         /// <summary>
-        /// Details about the domain administrative contact.
+        /// Details about the domain administrative contact. See Contact Blocks for more details.
         /// </summary>
         [Input("adminContact")]
         public Input<Inputs.RegisteredDomainAdminContactGetArgs>? AdminContact { get; set; }
@@ -349,6 +379,18 @@ namespace Pulumi.Aws.Route53Domains
         /// </summary>
         [Input("autoRenew")]
         public Input<bool>? AutoRenew { get; set; }
+
+        /// <summary>
+        /// Details about the domain billing contact. See Contact Blocks for more details.
+        /// </summary>
+        [Input("billingContact")]
+        public Input<Inputs.RegisteredDomainBillingContactGetArgs>? BillingContact { get; set; }
+
+        /// <summary>
+        /// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+        /// </summary>
+        [Input("billingPrivacy")]
+        public Input<bool>? BillingPrivacy { get; set; }
 
         /// <summary>
         /// The date when the domain was created as found in the response to a WHOIS query.
@@ -372,7 +414,7 @@ namespace Pulumi.Aws.Route53Domains
         private InputList<Inputs.RegisteredDomainNameServerGetArgs>? _nameServers;
 
         /// <summary>
-        /// The list of nameservers for the domain.
+        /// The list of nameservers for the domain. See `name_server` Blocks for more details.
         /// </summary>
         public InputList<Inputs.RegisteredDomainNameServerGetArgs> NameServers
         {
@@ -381,7 +423,7 @@ namespace Pulumi.Aws.Route53Domains
         }
 
         /// <summary>
-        /// Details about the domain registrant.
+        /// Details about the domain registrant. See Contact Blocks for more details.
         /// </summary>
         [Input("registrantContact")]
         public Input<Inputs.RegisteredDomainRegistrantContactGetArgs>? RegistrantContact { get; set; }
@@ -444,15 +486,11 @@ namespace Pulumi.Aws.Route53Domains
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>
-        /// Details about the domain technical contact.
+        /// Details about the domain technical contact. See Contact Blocks for more details.
         /// </summary>
         [Input("techContact")]
         public Input<Inputs.RegisteredDomainTechContactGetArgs>? TechContact { get; set; }

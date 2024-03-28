@@ -4,6 +4,7 @@
 package com.pulumi.aws.elb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -88,31 +89,37 @@ public final class LoadBalancerAccessLogs {
 
         @CustomType.Setter
         public Builder bucket(String bucket) {
-            this.bucket = Objects.requireNonNull(bucket);
+            if (bucket == null) {
+              throw new MissingRequiredPropertyException("LoadBalancerAccessLogs", "bucket");
+            }
+            this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
         public Builder bucketPrefix(@Nullable String bucketPrefix) {
+
             this.bucketPrefix = bucketPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder interval(@Nullable Integer interval) {
+
             this.interval = interval;
             return this;
         }
         public LoadBalancerAccessLogs build() {
-            final var o = new LoadBalancerAccessLogs();
-            o.bucket = bucket;
-            o.bucketPrefix = bucketPrefix;
-            o.enabled = enabled;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new LoadBalancerAccessLogs();
+            _resultValue.bucket = bucket;
+            _resultValue.bucketPrefix = bucketPrefix;
+            _resultValue.enabled = enabled;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

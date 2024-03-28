@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,32 @@ public final class FieldLevelEncryptionConfigContentTypeProfileConfigContentType
 
         @CustomType.Setter
         public Builder contentType(String contentType) {
-            this.contentType = Objects.requireNonNull(contentType);
+            if (contentType == null) {
+              throw new MissingRequiredPropertyException("FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem", "contentType");
+            }
+            this.contentType = contentType;
             return this;
         }
         @CustomType.Setter
         public Builder format(String format) {
-            this.format = Objects.requireNonNull(format);
+            if (format == null) {
+              throw new MissingRequiredPropertyException("FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem", "format");
+            }
+            this.format = format;
             return this;
         }
         @CustomType.Setter
         public Builder profileId(@Nullable String profileId) {
+
             this.profileId = profileId;
             return this;
         }
         public FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem build() {
-            final var o = new FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem();
-            o.contentType = contentType;
-            o.format = format;
-            o.profileId = profileId;
-            return o;
+            final var _resultValue = new FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem();
+            _resultValue.contentType = contentType;
+            _resultValue.format = format;
+            _resultValue.profileId = profileId;
+            return _resultValue;
         }
     }
 }

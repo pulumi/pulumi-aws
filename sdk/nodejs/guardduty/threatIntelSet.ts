@@ -11,37 +11,39 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const primary = new aws.guardduty.Detector("primary", {enable: true});
  * const bucket = new aws.s3.BucketV2("bucket", {});
- * // ... other configuration ...
- * const bucketAcl = new aws.s3.BucketAclV2("bucketAcl", {
+ * const bucketAcl = new aws.s3.BucketAclV2("bucket_acl", {
  *     bucket: bucket.id,
  *     acl: "private",
  * });
- * const myThreatIntelSetBucketObjectv2 = new aws.s3.BucketObjectv2("myThreatIntelSetBucketObjectv2", {
+ * const myThreatIntelSet = new aws.s3.BucketObjectv2("MyThreatIntelSet", {
  *     acl: "public-read",
  *     content: "10.0.0.0/8\n",
  *     bucket: bucket.id,
  *     key: "MyThreatIntelSet",
  * });
- * const myThreatIntelSetThreatIntelSet = new aws.guardduty.ThreatIntelSet("myThreatIntelSetThreatIntelSet", {
+ * const myThreatIntelSetThreatIntelSet = new aws.guardduty.ThreatIntelSet("MyThreatIntelSet", {
  *     activate: true,
  *     detectorId: primary.id,
  *     format: "TXT",
- *     location: pulumi.interpolate`https://s3.amazonaws.com/${myThreatIntelSetBucketObjectv2.bucket}/${myThreatIntelSetBucketObjectv2.key}`,
+ *     location: pulumi.interpolate`https://s3.amazonaws.com/${myThreatIntelSet.bucket}/${myThreatIntelSet.key}`,
+ *     name: "MyThreatIntelSet",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import GuardDuty ThreatIntelSet using the primary GuardDuty detector ID and ThreatIntelSetID. For example:
  *
  * ```sh
- *  $ pulumi import aws:guardduty/threatIntelSet:ThreatIntelSet MyThreatIntelSet 00b00fd5aecc0ab60a708659477e9617:123456789012
+ * $ pulumi import aws:guardduty/threatIntelSet:ThreatIntelSet MyThreatIntelSet 00b00fd5aecc0ab60a708659477e9617:123456789012
  * ```
  */
 export class ThreatIntelSet extends pulumi.CustomResource {
@@ -152,8 +154,6 @@ export class ThreatIntelSet extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ThreatIntelSet.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -16,10 +16,9 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -30,13 +29,12 @@ namespace Pulumi.Aws.Lambda
         /// {
         ///     var existingCsc = Aws.Lambda.GetCodeSigningConfig.Invoke(new()
         ///     {
-        ///         Arn = $"arn:aws:lambda:{@var.Aws_region}:{@var.Aws_account}:code-signing-config:csc-0f6c334abcdea4d8b",
+        ///         Arn = $"arn:aws:lambda:{awsRegion}:{awsAccount}:code-signing-config:csc-0f6c334abcdea4d8b",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetCodeSigningConfigResult> InvokeAsync(GetCodeSigningConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCodeSigningConfigResult>("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", args ?? new GetCodeSigningConfigArgs(), options.WithDefaults());
@@ -46,10 +44,9 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,13 +57,12 @@ namespace Pulumi.Aws.Lambda
         /// {
         ///     var existingCsc = Aws.Lambda.GetCodeSigningConfig.Invoke(new()
         ///     {
-        ///         Arn = $"arn:aws:lambda:{@var.Aws_region}:{@var.Aws_account}:code-signing-config:csc-0f6c334abcdea4d8b",
+        ///         Arn = $"arn:aws:lambda:{awsRegion}:{awsAccount}:code-signing-config:csc-0f6c334abcdea4d8b",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetCodeSigningConfigResult> Invoke(GetCodeSigningConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCodeSigningConfigResult>("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", args ?? new GetCodeSigningConfigInvokeArgs(), options.WithDefaults());

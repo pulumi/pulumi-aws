@@ -6,6 +6,7 @@ package com.pulumi.aws.kendra.outputs;
 import com.pulumi.aws.kendra.outputs.DataSourceConfigurationS3ConfigurationAccessControlListConfiguration;
 import com.pulumi.aws.kendra.outputs.DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -117,21 +118,27 @@ public final class DataSourceConfigurationS3Configuration {
 
         @CustomType.Setter
         public Builder accessControlListConfiguration(@Nullable DataSourceConfigurationS3ConfigurationAccessControlListConfiguration accessControlListConfiguration) {
+
             this.accessControlListConfiguration = accessControlListConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder bucketName(String bucketName) {
-            this.bucketName = Objects.requireNonNull(bucketName);
+            if (bucketName == null) {
+              throw new MissingRequiredPropertyException("DataSourceConfigurationS3Configuration", "bucketName");
+            }
+            this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder documentsMetadataConfiguration(@Nullable DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration documentsMetadataConfiguration) {
+
             this.documentsMetadataConfiguration = documentsMetadataConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder exclusionPatterns(@Nullable List<String> exclusionPatterns) {
+
             this.exclusionPatterns = exclusionPatterns;
             return this;
         }
@@ -140,6 +147,7 @@ public final class DataSourceConfigurationS3Configuration {
         }
         @CustomType.Setter
         public Builder inclusionPatterns(@Nullable List<String> inclusionPatterns) {
+
             this.inclusionPatterns = inclusionPatterns;
             return this;
         }
@@ -148,6 +156,7 @@ public final class DataSourceConfigurationS3Configuration {
         }
         @CustomType.Setter
         public Builder inclusionPrefixes(@Nullable List<String> inclusionPrefixes) {
+
             this.inclusionPrefixes = inclusionPrefixes;
             return this;
         }
@@ -155,14 +164,14 @@ public final class DataSourceConfigurationS3Configuration {
             return inclusionPrefixes(List.of(inclusionPrefixes));
         }
         public DataSourceConfigurationS3Configuration build() {
-            final var o = new DataSourceConfigurationS3Configuration();
-            o.accessControlListConfiguration = accessControlListConfiguration;
-            o.bucketName = bucketName;
-            o.documentsMetadataConfiguration = documentsMetadataConfiguration;
-            o.exclusionPatterns = exclusionPatterns;
-            o.inclusionPatterns = inclusionPatterns;
-            o.inclusionPrefixes = inclusionPrefixes;
-            return o;
+            final var _resultValue = new DataSourceConfigurationS3Configuration();
+            _resultValue.accessControlListConfiguration = accessControlListConfiguration;
+            _resultValue.bucketName = bucketName;
+            _resultValue.documentsMetadataConfiguration = documentsMetadataConfiguration;
+            _resultValue.exclusionPatterns = exclusionPatterns;
+            _resultValue.inclusionPatterns = inclusionPatterns;
+            _resultValue.inclusionPrefixes = inclusionPrefixes;
+            return _resultValue;
         }
     }
 }

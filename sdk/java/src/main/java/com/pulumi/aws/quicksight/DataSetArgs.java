@@ -15,6 +15,7 @@ import com.pulumi.aws.quicksight.inputs.DataSetRowLevelPermissionDataSetArgs;
 import com.pulumi.aws.quicksight.inputs.DataSetRowLevelPermissionTagConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -676,8 +677,12 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DataSetArgs build() {
-            $.dataSetId = Objects.requireNonNull($.dataSetId, "expected parameter 'dataSetId' to be non-null");
-            $.importMode = Objects.requireNonNull($.importMode, "expected parameter 'importMode' to be non-null");
+            if ($.dataSetId == null) {
+                throw new MissingRequiredPropertyException("DataSetArgs", "dataSetId");
+            }
+            if ($.importMode == null) {
+                throw new MissingRequiredPropertyException("DataSetArgs", "importMode");
+            }
             return $;
         }
     }

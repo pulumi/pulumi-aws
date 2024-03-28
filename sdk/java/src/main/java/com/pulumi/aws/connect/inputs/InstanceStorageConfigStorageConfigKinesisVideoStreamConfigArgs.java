@@ -6,6 +6,7 @@ package com.pulumi.aws.connect.inputs;
 import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -150,9 +151,15 @@ public final class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArg
         }
 
         public InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs build() {
-            $.encryptionConfig = Objects.requireNonNull($.encryptionConfig, "expected parameter 'encryptionConfig' to be non-null");
-            $.prefix = Objects.requireNonNull($.prefix, "expected parameter 'prefix' to be non-null");
-            $.retentionPeriodHours = Objects.requireNonNull($.retentionPeriodHours, "expected parameter 'retentionPeriodHours' to be non-null");
+            if ($.encryptionConfig == null) {
+                throw new MissingRequiredPropertyException("InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs", "encryptionConfig");
+            }
+            if ($.prefix == null) {
+                throw new MissingRequiredPropertyException("InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs", "prefix");
+            }
+            if ($.retentionPeriodHours == null) {
+                throw new MissingRequiredPropertyException("InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs", "retentionPeriodHours");
+            }
             return $;
         }
     }

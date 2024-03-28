@@ -11,15 +11,18 @@ import * as utilities from "../utilities";
  * Provides an ElastiCache Global Replication Group resource, which manages replication between two or more Replication Groups in different regions. For more information, see the [ElastiCache User Guide](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html).
  *
  * ## Example Usage
+ *
  * ### Global replication group with one secondary replication group
  *
  * The global replication group depends on the primary group existing. Secondary replication groups depend on the global replication group. the provider dependency management will handle this transparently using resource value references.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const primary = new aws.elasticache.ReplicationGroup("primary", {
+ *     replicationGroupId: "example-primary",
  *     description: "primary replication group",
  *     engine: "redis",
  *     engineVersion: "5.0.6",
@@ -31,13 +34,14 @@ import * as utilities from "../utilities";
  *     primaryReplicationGroupId: primary.id,
  * });
  * const secondary = new aws.elasticache.ReplicationGroup("secondary", {
+ *     replicationGroupId: "example-secondary",
  *     description: "secondary replication group",
  *     globalReplicationGroupId: example.globalReplicationGroupId,
  *     numCacheClusters: 1,
- * }, {
- *     provider: aws.other_region,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Managing Redis Engine Versions
  *
  * The initial Redis version is determined by the version set on the primary replication group.
@@ -52,11 +56,13 @@ import * as utilities from "../utilities";
  * and then upgraded to Redis 6.2 once added to the Global Replication Group.
  * The secondary replication group will be created with Redis 6.2.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const primary = new aws.elasticache.ReplicationGroup("primary", {
+ *     replicationGroupId: "example-primary",
  *     description: "primary replication group",
  *     engine: "redis",
  *     engineVersion: "6.0",
@@ -69,20 +75,20 @@ import * as utilities from "../utilities";
  *     engineVersion: "6.2",
  * });
  * const secondary = new aws.elasticache.ReplicationGroup("secondary", {
+ *     replicationGroupId: "example-secondary",
  *     description: "secondary replication group",
  *     globalReplicationGroupId: example.globalReplicationGroupId,
  *     numCacheClusters: 1,
- * }, {
- *     provider: aws.other_region,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ElastiCache Global Replication Groups using the `global_replication_group_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:elasticache/globalReplicationGroup:GlobalReplicationGroup my_global_replication_group okuqm-global-replication-group-1
+ * $ pulumi import aws:elasticache/globalReplicationGroup:GlobalReplicationGroup my_global_replication_group okuqm-global-replication-group-1
  * ```
  */
 export class GlobalReplicationGroup extends pulumi.CustomResource {

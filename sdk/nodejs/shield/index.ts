@@ -20,6 +20,11 @@ export type DrtAccessRoleArnAssociation = import("./drtAccessRoleArnAssociation"
 export const DrtAccessRoleArnAssociation: typeof import("./drtAccessRoleArnAssociation").DrtAccessRoleArnAssociation = null as any;
 utilities.lazyLoad(exports, ["DrtAccessRoleArnAssociation"], () => require("./drtAccessRoleArnAssociation"));
 
+export { ProactiveEngagementArgs, ProactiveEngagementState } from "./proactiveEngagement";
+export type ProactiveEngagement = import("./proactiveEngagement").ProactiveEngagement;
+export const ProactiveEngagement: typeof import("./proactiveEngagement").ProactiveEngagement = null as any;
+utilities.lazyLoad(exports, ["ProactiveEngagement"], () => require("./proactiveEngagement"));
+
 export { ProtectionArgs, ProtectionState } from "./protection";
 export type Protection = import("./protection").Protection;
 export const Protection: typeof import("./protection").Protection = null as any;
@@ -46,6 +51,8 @@ const _module = {
                 return new DrtAccessLogBucketAssociation(name, <any>undefined, { urn })
             case "aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation":
                 return new DrtAccessRoleArnAssociation(name, <any>undefined, { urn })
+            case "aws:shield/proactiveEngagement:ProactiveEngagement":
+                return new ProactiveEngagement(name, <any>undefined, { urn })
             case "aws:shield/protection:Protection":
                 return new Protection(name, <any>undefined, { urn })
             case "aws:shield/protectionGroup:ProtectionGroup":
@@ -60,6 +67,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "shield/applicationLayerAutomaticResponse", _module)
 pulumi.runtime.registerResourceModule("aws", "shield/drtAccessLogBucketAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "shield/drtAccessRoleArnAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "shield/proactiveEngagement", _module)
 pulumi.runtime.registerResourceModule("aws", "shield/protection", _module)
 pulumi.runtime.registerResourceModule("aws", "shield/protectionGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "shield/protectionHealthCheckAssociation", _module)

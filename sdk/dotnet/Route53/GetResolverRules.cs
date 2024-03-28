@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Route53
         /// <summary>
         /// `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Retrieving the default resolver rule
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,10 +36,11 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Retrieving forward rules shared with me
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -56,12 +57,13 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Retrieving rules by name regex
         /// 
         /// Resolver rules whose name contains `abc`.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -77,8 +79,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetResolverRulesResult> InvokeAsync(GetResolverRulesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverRulesResult>("aws:route53/getResolverRules:getResolverRules", args ?? new GetResolverRulesArgs(), options.WithDefaults());
@@ -86,11 +87,11 @@ namespace Pulumi.Aws.Route53
         /// <summary>
         /// `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Retrieving the default resolver rule
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -108,10 +109,11 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Retrieving forward rules shared with me
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -128,12 +130,13 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Retrieving rules by name regex
         /// 
         /// Resolver rules whose name contains `abc`.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -149,8 +152,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetResolverRulesResult> Invoke(GetResolverRulesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverRulesResult>("aws:route53/getResolverRules:getResolverRules", args ?? new GetResolverRulesInvokeArgs(), options.WithDefaults());

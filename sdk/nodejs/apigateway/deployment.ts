@@ -17,94 +17,107 @@ import {RestApi} from "./index";
  * !> **WARNING:** It is recommended to use the `aws.apigateway.Stage` resource instead of managing an API Gateway Stage via the `stageName` argument of this resource. When this resource is recreated (REST API redeployment) with the `stageName` configured, the stage is deleted and recreated. This will cause a temporary service interruption, increase provide plan differences, and can require a second apply to recreate any downstream stage configuration such as associated `awsApiMethodSettings` resources.
  *
  * ## Example Usage
+ *
  * ### OpenAPI Specification
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as crypto from "crypto";
+ * import * as std from "@pulumi/std";
  *
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {body: JSON.stringify({
- *     openapi: "3.0.1",
- *     info: {
- *         title: "example",
- *         version: "1.0",
- *     },
- *     paths: {
- *         "/path1": {
- *             get: {
- *                 "x-amazon-apigateway-integration": {
- *                     httpMethod: "GET",
- *                     payloadFormatVersion: "1.0",
- *                     type: "HTTP_PROXY",
- *                     uri: "https://ip-ranges.amazonaws.com/ip-ranges.json",
+ * const example = new aws.apigateway.RestApi("example", {
+ *     body: JSON.stringify({
+ *         openapi: "3.0.1",
+ *         info: {
+ *             title: "example",
+ *             version: "1.0",
+ *         },
+ *         paths: {
+ *             "/path1": {
+ *                 get: {
+ *                     "x-amazon-apigateway-integration": {
+ *                         httpMethod: "GET",
+ *                         payloadFormatVersion: "1.0",
+ *                         type: "HTTP_PROXY",
+ *                         uri: "https://ip-ranges.amazonaws.com/ip-ranges.json",
+ *                     },
  *                 },
  *             },
  *         },
- *     },
- * })});
- * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
- *     restApi: exampleRestApi.id,
+ *     }),
+ *     name: "example",
+ * });
+ * const exampleDeployment = new aws.apigateway.Deployment("example", {
+ *     restApi: example.id,
  *     triggers: {
- *         redeployment: exampleRestApi.body.apply(body => JSON.stringify(body)).apply(toJSON => crypto.createHash('sha1').update(toJSON).digest('hex')),
+ *         redeployment: std.sha1Output({
+ *             input: pulumi.jsonStringify(example.body),
+ *         }).apply(invoke => invoke.result),
  *     },
  * });
- * const exampleStage = new aws.apigateway.Stage("exampleStage", {
+ * const exampleStage = new aws.apigateway.Stage("example", {
  *     deployment: exampleDeployment.id,
- *     restApi: exampleRestApi.id,
+ *     restApi: example.id,
  *     stageName: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Resources
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as crypto from "crypto";
+ * import * as std from "@pulumi/std";
  *
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {});
- * const exampleResource = new aws.apigateway.Resource("exampleResource", {
- *     parentId: exampleRestApi.rootResourceId,
+ * const example = new aws.apigateway.RestApi("example", {name: "example"});
+ * const exampleResource = new aws.apigateway.Resource("example", {
+ *     parentId: example.rootResourceId,
  *     pathPart: "example",
- *     restApi: exampleRestApi.id,
+ *     restApi: example.id,
  * });
- * const exampleMethod = new aws.apigateway.Method("exampleMethod", {
+ * const exampleMethod = new aws.apigateway.Method("example", {
  *     authorization: "NONE",
  *     httpMethod: "GET",
  *     resourceId: exampleResource.id,
- *     restApi: exampleRestApi.id,
+ *     restApi: example.id,
  * });
- * const exampleIntegration = new aws.apigateway.Integration("exampleIntegration", {
+ * const exampleIntegration = new aws.apigateway.Integration("example", {
  *     httpMethod: exampleMethod.httpMethod,
  *     resourceId: exampleResource.id,
- *     restApi: exampleRestApi.id,
+ *     restApi: example.id,
  *     type: "MOCK",
  * });
- * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
- *     restApi: exampleRestApi.id,
+ * const exampleDeployment = new aws.apigateway.Deployment("example", {
+ *     restApi: example.id,
  *     triggers: {
- *         redeployment: pulumi.all([exampleResource.id, exampleMethod.id, exampleIntegration.id]).apply(([exampleResourceId, exampleMethodId, exampleIntegrationId]) => JSON.stringify([
- *             exampleResourceId,
- *             exampleMethodId,
- *             exampleIntegrationId,
- *         ])).apply(toJSON => crypto.createHash('sha1').update(toJSON).digest('hex')),
+ *         redeployment: std.sha1Output({
+ *             input: pulumi.jsonStringify([
+ *                 exampleResource.id,
+ *                 exampleMethod.id,
+ *                 exampleIntegration.id,
+ *             ]),
+ *         }).apply(invoke => invoke.result),
  *     },
  * });
- * const exampleStage = new aws.apigateway.Stage("exampleStage", {
+ * const exampleStage = new aws.apigateway.Stage("example", {
  *     deployment: exampleDeployment.id,
- *     restApi: exampleRestApi.id,
+ *     restApi: example.id,
  *     stageName: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_api_gateway_deployment` using `REST-API-ID/DEPLOYMENT-ID`. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigateway/deployment:Deployment example aabbccddee/1122334
+ * $ pulumi import aws:apigateway/deployment:Deployment example aabbccddee/1122334
  * ```
- *  The `stage_name`, `stage_description`, and `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages.
+ * The `stage_name`, `stage_description`, and `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages.
  *
  * The `triggers` argument cannot be imported.
  */

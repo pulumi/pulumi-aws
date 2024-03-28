@@ -9,28 +9,33 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGroup = new aws.resourcegroups.Group("exampleGroup", {resourceQuery: {
- *     query: JSON.stringify({
- *         ResourceTypeFilters: ["AWS::EC2::Instance"],
- *         TagFilters: [{
- *             Key: "Stage",
- *             Values: ["Test"],
- *         }],
- *     }),
- * }});
- * const exampleApplication = new aws.applicationinsights.Application("exampleApplication", {resourceGroupName: exampleGroup.name});
+ * const exampleGroup = new aws.resourcegroups.Group("example", {
+ *     name: "example",
+ *     resourceQuery: {
+ *         query: JSON.stringify({
+ *             resourceTypeFilters: ["AWS::EC2::Instance"],
+ *             tagFilters: [{
+ *                 key: "Stage",
+ *                 values: ["Test"],
+ *             }],
+ *         }),
+ *     },
+ * });
+ * const example = new aws.applicationinsights.Application("example", {resourceGroupName: exampleGroup.name});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:applicationinsights/application:Application some some-application
+ * $ pulumi import aws:applicationinsights/application:Application some some-application
  * ```
  */
 export class Application extends pulumi.CustomResource {
@@ -146,8 +151,6 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }
 }

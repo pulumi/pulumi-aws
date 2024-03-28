@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,6 +32,7 @@ import (
 //			_, err := dataexchange.NewDataSet(ctx, "example", &dataexchange.DataSetArgs{
 //				AssetType:   pulumi.String("S3_SNAPSHOT"),
 //				Description: pulumi.String("example"),
+//				Name:        pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -40,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DataExchange DataSets using their ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:dataexchange/dataSet:DataSet example arn:aws:dataexchange:us-west-2:123456789012:data-sets/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-//
+// $ pulumi import aws:dataexchange/dataSet:DataSet example arn:aws:dataexchange:us-west-2:123456789012:data-sets/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
 // ```
 type DataSet struct {
 	pulumi.CustomResourceState
@@ -82,10 +83,6 @@ func NewDataSet(ctx *pulumi.Context,
 	if args.Description == nil {
 		return nil, errors.New("invalid value for required argument 'Description'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataSet
 	err := ctx.RegisterResource("aws:dataexchange/dataSet:DataSet", name, args, &resource, opts...)

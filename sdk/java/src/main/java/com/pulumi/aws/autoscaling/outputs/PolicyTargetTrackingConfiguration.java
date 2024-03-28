@@ -6,6 +6,7 @@ package com.pulumi.aws.autoscaling.outputs;
 import com.pulumi.aws.autoscaling.outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecification;
 import com.pulumi.aws.autoscaling.outputs.PolicyTargetTrackingConfigurationPredefinedMetricSpecification;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.util.Objects;
@@ -89,31 +90,37 @@ public final class PolicyTargetTrackingConfiguration {
 
         @CustomType.Setter
         public Builder customizedMetricSpecification(@Nullable PolicyTargetTrackingConfigurationCustomizedMetricSpecification customizedMetricSpecification) {
+
             this.customizedMetricSpecification = customizedMetricSpecification;
             return this;
         }
         @CustomType.Setter
         public Builder disableScaleIn(@Nullable Boolean disableScaleIn) {
+
             this.disableScaleIn = disableScaleIn;
             return this;
         }
         @CustomType.Setter
         public Builder predefinedMetricSpecification(@Nullable PolicyTargetTrackingConfigurationPredefinedMetricSpecification predefinedMetricSpecification) {
+
             this.predefinedMetricSpecification = predefinedMetricSpecification;
             return this;
         }
         @CustomType.Setter
         public Builder targetValue(Double targetValue) {
-            this.targetValue = Objects.requireNonNull(targetValue);
+            if (targetValue == null) {
+              throw new MissingRequiredPropertyException("PolicyTargetTrackingConfiguration", "targetValue");
+            }
+            this.targetValue = targetValue;
             return this;
         }
         public PolicyTargetTrackingConfiguration build() {
-            final var o = new PolicyTargetTrackingConfiguration();
-            o.customizedMetricSpecification = customizedMetricSpecification;
-            o.disableScaleIn = disableScaleIn;
-            o.predefinedMetricSpecification = predefinedMetricSpecification;
-            o.targetValue = targetValue;
-            return o;
+            final var _resultValue = new PolicyTargetTrackingConfiguration();
+            _resultValue.customizedMetricSpecification = customizedMetricSpecification;
+            _resultValue.disableScaleIn = disableScaleIn;
+            _resultValue.predefinedMetricSpecification = predefinedMetricSpecification;
+            _resultValue.targetValue = targetValue;
+            return _resultValue;
         }
     }
 }

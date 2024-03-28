@@ -12,47 +12,58 @@ import * as utilities from "../utilities";
  * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.connect.Queue("test", {
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Example Name",
  *     description: "Example Description",
  *     hoursOfOperationId: "12345678-1234-1234-1234-123456789012",
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     tags: {
  *         Name: "Example Queue",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Quick Connect IDs
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.connect.Queue("test", {
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Example Name",
  *     description: "Example Description",
  *     hoursOfOperationId: "12345678-1234-1234-1234-123456789012",
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     quickConnectIds: ["12345678-abcd-1234-abcd-123456789012"],
  *     tags: {
  *         Name: "Example Queue with Quick Connect IDs",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Outbound Caller Config
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.connect.Queue("test", {
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Example Name",
  *     description: "Example Description",
  *     hoursOfOperationId: "12345678-1234-1234-1234-123456789012",
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     outboundCallerConfig: {
  *         outboundCallerIdName: "example",
  *         outboundCallerIdNumberId: "12345678-abcd-1234-abcd-123456789012",
@@ -63,13 +74,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Amazon Connect Queues using the `instance_id` and `queue_id` separated by a colon (`:`). For example:
  *
  * ```sh
- *  $ pulumi import aws:connect/queue:Queue example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+ * $ pulumi import aws:connect/queue:Queue example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
  * ```
  */
 export class Queue extends pulumi.CustomResource {
@@ -198,8 +210,6 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Queue.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -89,31 +89,35 @@ public final class WebAclLoggingConfigurationRedactedField {
 
         @CustomType.Setter
         public Builder method(@Nullable WebAclLoggingConfigurationRedactedFieldMethod method) {
+
             this.method = method;
             return this;
         }
         @CustomType.Setter
         public Builder queryString(@Nullable WebAclLoggingConfigurationRedactedFieldQueryString queryString) {
+
             this.queryString = queryString;
             return this;
         }
         @CustomType.Setter
         public Builder singleHeader(@Nullable WebAclLoggingConfigurationRedactedFieldSingleHeader singleHeader) {
+
             this.singleHeader = singleHeader;
             return this;
         }
         @CustomType.Setter
         public Builder uriPath(@Nullable WebAclLoggingConfigurationRedactedFieldUriPath uriPath) {
+
             this.uriPath = uriPath;
             return this;
         }
         public WebAclLoggingConfigurationRedactedField build() {
-            final var o = new WebAclLoggingConfigurationRedactedField();
-            o.method = method;
-            o.queryString = queryString;
-            o.singleHeader = singleHeader;
-            o.uriPath = uriPath;
-            return o;
+            final var _resultValue = new WebAclLoggingConfigurationRedactedField();
+            _resultValue.method = method;
+            _resultValue.queryString = queryString;
+            _resultValue.singleHeader = singleHeader;
+            _resultValue.uriPath = uriPath;
+            return _resultValue;
         }
     }
 }

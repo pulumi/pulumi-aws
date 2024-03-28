@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,23 +25,23 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway");
+    ///     var example = new Aws.Ec2TransitGateway.TransitGateway("example");
     /// 
-    ///     var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("exampleCustomerGateway", new()
+    ///     var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("example", new()
     ///     {
     ///         BgpAsn = "65000",
     ///         IpAddress = "172.0.0.1",
     ///         Type = "ipsec.1",
     ///     });
     /// 
-    ///     var exampleVpnConnection = new Aws.Ec2.VpnConnection("exampleVpnConnection", new()
+    ///     var exampleVpnConnection = new Aws.Ec2.VpnConnection("example", new()
     ///     {
     ///         CustomerGatewayId = exampleCustomerGateway.Id,
-    ///         TransitGatewayId = exampleTransitGateway.Id,
+    ///         TransitGatewayId = example.Id,
     ///         Type = exampleCustomerGateway.Type,
     ///     });
     /// 
-    ///     var exampleTag = new Aws.Ec2.Tag("exampleTag", new()
+    ///     var exampleTag = new Aws.Ec2.Tag("example", new()
     ///     {
     ///         ResourceId = exampleVpnConnection.TransitGatewayAttachmentId,
     ///         Key = "Name",
@@ -49,13 +50,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ec2_tag` using the EC2 resource identifier and key, separated by a comma (`,`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
+    /// $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/tag:Tag")]

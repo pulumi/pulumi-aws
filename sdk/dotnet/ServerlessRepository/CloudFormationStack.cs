@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ServerlessRepository
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,12 +23,13 @@ namespace Pulumi.Aws.ServerlessRepository
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var currentPartition = Aws.GetPartition.Invoke();
+    ///     var current = Aws.GetPartition.Invoke();
     /// 
-    ///     var currentRegion = Aws.GetRegion.Invoke();
+    ///     var currentGetRegion = Aws.GetRegion.Invoke();
     /// 
     ///     var postgres_rotator = new Aws.ServerlessRepository.CloudFormationStack("postgres-rotator", new()
     ///     {
+    ///         Name = "postgres-rotator",
     ///         ApplicationId = "arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser",
     ///         Capabilities = new[]
     ///         {
@@ -36,25 +38,26 @@ namespace Pulumi.Aws.ServerlessRepository
     ///         },
     ///         Parameters = 
     ///         {
-    ///             { "endpoint", Output.Tuple(currentRegion, currentPartition).Apply(values =&gt;
-    ///             {
-    ///                 var currentRegion = values.Item1;
-    ///                 var currentPartition = values.Item2;
-    ///                 return $"secretsmanager.{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}.{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.DnsSuffix)}";
-    ///             }) },
     ///             { "functionName", "func-postgres-rotator" },
+    ///             { "endpoint", Output.Tuple(currentGetRegion, current).Apply(values =&gt;
+    ///             {
+    ///                 var currentGetRegion = values.Item1;
+    ///                 var current = values.Item2;
+    ///                 return $"secretsmanager.{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}.{current.Apply(getPartitionResult =&gt; getPartitionResult.DnsSuffix)}";
+    ///             }) },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Serverless Application Repository Stack using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
+    /// $ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
     /// ```
     /// </summary>
     [AwsResourceType("aws:serverlessrepository/cloudFormationStack:CloudFormationStack")]
@@ -131,10 +134,6 @@ namespace Pulumi.Aws.ServerlessRepository
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -296,11 +295,7 @@ namespace Pulumi.Aws.ServerlessRepository
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public CloudFormationStackState()

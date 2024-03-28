@@ -4,6 +4,7 @@
 package com.pulumi.aws.finspace.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -79,12 +80,18 @@ public final class KxClusterVpcConfiguration {
 
         @CustomType.Setter
         public Builder ipAddressType(String ipAddressType) {
-            this.ipAddressType = Objects.requireNonNull(ipAddressType);
+            if (ipAddressType == null) {
+              throw new MissingRequiredPropertyException("KxClusterVpcConfiguration", "ipAddressType");
+            }
+            this.ipAddressType = ipAddressType;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+            if (securityGroupIds == null) {
+              throw new MissingRequiredPropertyException("KxClusterVpcConfiguration", "securityGroupIds");
+            }
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {
@@ -92,7 +99,10 @@ public final class KxClusterVpcConfiguration {
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("KxClusterVpcConfiguration", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
@@ -100,16 +110,19 @@ public final class KxClusterVpcConfiguration {
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("KxClusterVpcConfiguration", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public KxClusterVpcConfiguration build() {
-            final var o = new KxClusterVpcConfiguration();
-            o.ipAddressType = ipAddressType;
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new KxClusterVpcConfiguration();
+            _resultValue.ipAddressType = ipAddressType;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

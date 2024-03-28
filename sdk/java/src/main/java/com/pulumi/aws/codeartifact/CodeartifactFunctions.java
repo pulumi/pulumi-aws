@@ -21,6 +21,8 @@ public final class CodeartifactFunctions {
      * The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -43,12 +45,13 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
-     *             .domain(aws_codeartifact_domain.test().domain())
+     *             .domain(testAwsCodeartifactDomain.domain())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthorizationTokenResult> getAuthorizationToken(GetAuthorizationTokenArgs args) {
@@ -58,6 +61,8 @@ public final class CodeartifactFunctions {
      * The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -80,12 +85,13 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
-     *             .domain(aws_codeartifact_domain.test().domain())
+     *             .domain(testAwsCodeartifactDomain.domain())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain(GetAuthorizationTokenPlainArgs args) {
@@ -95,6 +101,8 @@ public final class CodeartifactFunctions {
      * The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -117,12 +125,13 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
-     *             .domain(aws_codeartifact_domain.test().domain())
+     *             .domain(testAwsCodeartifactDomain.domain())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthorizationTokenResult> getAuthorizationToken(GetAuthorizationTokenArgs args, InvokeOptions options) {
@@ -132,6 +141,8 @@ public final class CodeartifactFunctions {
      * The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -154,12 +165,13 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
-     *             .domain(aws_codeartifact_domain.test().domain())
+     *             .domain(testAwsCodeartifactDomain.domain())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain(GetAuthorizationTokenPlainArgs args, InvokeOptions options) {
@@ -169,6 +181,8 @@ public final class CodeartifactFunctions {
      * The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -191,14 +205,15 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getRepositoryEndpoint(GetRepositoryEndpointArgs.builder()
-     *             .domain(aws_codeartifact_domain.test().domain())
-     *             .repository(aws_codeartifact_repository.test().repository())
+     *             .domain(testAwsCodeartifactDomain.domain())
+     *             .repository(testAwsCodeartifactRepository.repository())
      *             .format(&#34;npm&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryEndpointResult> getRepositoryEndpoint(GetRepositoryEndpointArgs args) {
@@ -208,6 +223,8 @@ public final class CodeartifactFunctions {
      * The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -230,14 +247,15 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getRepositoryEndpoint(GetRepositoryEndpointArgs.builder()
-     *             .domain(aws_codeartifact_domain.test().domain())
-     *             .repository(aws_codeartifact_repository.test().repository())
+     *             .domain(testAwsCodeartifactDomain.domain())
+     *             .repository(testAwsCodeartifactRepository.repository())
      *             .format(&#34;npm&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryEndpointResult> getRepositoryEndpointPlain(GetRepositoryEndpointPlainArgs args) {
@@ -247,6 +265,8 @@ public final class CodeartifactFunctions {
      * The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -269,14 +289,15 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getRepositoryEndpoint(GetRepositoryEndpointArgs.builder()
-     *             .domain(aws_codeartifact_domain.test().domain())
-     *             .repository(aws_codeartifact_repository.test().repository())
+     *             .domain(testAwsCodeartifactDomain.domain())
+     *             .repository(testAwsCodeartifactRepository.repository())
      *             .format(&#34;npm&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryEndpointResult> getRepositoryEndpoint(GetRepositoryEndpointArgs args, InvokeOptions options) {
@@ -286,6 +307,8 @@ public final class CodeartifactFunctions {
      * The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -308,14 +331,15 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getRepositoryEndpoint(GetRepositoryEndpointArgs.builder()
-     *             .domain(aws_codeartifact_domain.test().domain())
-     *             .repository(aws_codeartifact_repository.test().repository())
+     *             .domain(testAwsCodeartifactDomain.domain())
+     *             .repository(testAwsCodeartifactRepository.repository())
      *             .format(&#34;npm&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryEndpointResult> getRepositoryEndpointPlain(GetRepositoryEndpointPlainArgs args, InvokeOptions options) {

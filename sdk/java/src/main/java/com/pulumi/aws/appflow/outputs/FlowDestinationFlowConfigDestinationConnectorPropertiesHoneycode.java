@@ -5,6 +5,7 @@ package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.aws.appflow.outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,19 +60,23 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneyc
 
         @CustomType.Setter
         public Builder errorHandlingConfig(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig errorHandlingConfig) {
+
             this.errorHandlingConfig = errorHandlingConfig;
             return this;
         }
         @CustomType.Setter
         public Builder object(String object) {
-            this.object = Objects.requireNonNull(object);
+            if (object == null) {
+              throw new MissingRequiredPropertyException("FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode", "object");
+            }
+            this.object = object;
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode();
-            o.errorHandlingConfig = errorHandlingConfig;
-            o.object = object;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode();
+            _resultValue.errorHandlingConfig = errorHandlingConfig;
+            _resultValue.object = object;
+            return _resultValue;
         }
     }
 }

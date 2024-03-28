@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,21 +31,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			lbUser, err := iam.NewUser(ctx, "lbUser", &iam.UserArgs{
+//			lb, err := iam.NewUser(ctx, "lb", &iam.UserArgs{
+//				Name: pulumi.String("loadbalancer"),
 //				Path: pulumi.String("/system/"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": []string{
+//						"action": []string{
 //							"ec2:Describe*",
 //						},
-//						"Effect":   "Allow",
-//						"Resource": "*",
+//						"effect":   "Allow",
+//						"resource": "*",
 //					},
 //				},
 //			})
@@ -52,15 +54,16 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = iam.NewUserPolicy(ctx, "lbRo", &iam.UserPolicyArgs{
-//				User:   lbUser.Name,
+//			_, err = iam.NewUserPolicy(ctx, "lb_ro", &iam.UserPolicyArgs{
+//				Name:   pulumi.String("test"),
+//				User:   lb.Name,
 //				Policy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewAccessKey(ctx, "lbAccessKey", &iam.AccessKeyArgs{
-//				User: lbUser.Name,
+//			_, err = iam.NewAccessKey(ctx, "lb", &iam.AccessKeyArgs{
+//				User: lb.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -70,15 +73,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IAM User Policies using the `user_name:user_policy_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
-//
+// $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
 // ```
 type UserPolicy struct {
 	pulumi.CustomResourceState

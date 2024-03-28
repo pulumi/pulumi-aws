@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides an Amplify Domain Association resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,7 +50,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleApp = new App(&#34;exampleApp&#34;, AppArgs.builder()        
+ *         var example = new App(&#34;example&#34;, AppArgs.builder()        
+ *             .name(&#34;app&#34;)
  *             .customRules(AppCustomRuleArgs.builder()
  *                 .source(&#34;https://example.com&#34;)
  *                 .status(&#34;302&#34;)
@@ -57,12 +60,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var master = new Branch(&#34;master&#34;, BranchArgs.builder()        
- *             .appId(exampleApp.id())
+ *             .appId(example.id())
  *             .branchName(&#34;master&#34;)
  *             .build());
  * 
  *         var exampleDomainAssociation = new DomainAssociation(&#34;exampleDomainAssociation&#34;, DomainAssociationArgs.builder()        
- *             .appId(exampleApp.id())
+ *             .appId(example.id())
  *             .domainName(&#34;example.com&#34;)
  *             .subDomains(            
  *                 DomainAssociationSubDomainArgs.builder()
@@ -78,13 +81,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Amplify domain association using `app_id` and `domain_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
+ * $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
  * ```
  * 
  */

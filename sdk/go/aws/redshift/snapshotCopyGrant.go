@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,16 +31,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testSnapshotCopyGrant, err := redshift.NewSnapshotCopyGrant(ctx, "testSnapshotCopyGrant", &redshift.SnapshotCopyGrantArgs{
+//			test, err := redshift.NewSnapshotCopyGrant(ctx, "test", &redshift.SnapshotCopyGrantArgs{
 //				SnapshotCopyGrantName: pulumi.String("my-grant"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = redshift.NewCluster(ctx, "testCluster", &redshift.ClusterArgs{
+//			_, err = redshift.NewCluster(ctx, "test", &redshift.ClusterArgs{
 //				SnapshotCopy: &redshift.ClusterSnapshotCopyArgs{
 //					DestinationRegion: pulumi.String("us-east-2"),
-//					GrantName:         testSnapshotCopyGrant.SnapshotCopyGrantName,
+//					GrantName:         test.SnapshotCopyGrantName,
 //				},
 //			})
 //			if err != nil {
@@ -50,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
-//
+// $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
 // ```
 type SnapshotCopyGrant struct {
 	pulumi.CustomResourceState
@@ -87,10 +87,6 @@ func NewSnapshotCopyGrant(ctx *pulumi.Context,
 	if args.SnapshotCopyGrantName == nil {
 		return nil, errors.New("invalid value for required argument 'SnapshotCopyGrantName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SnapshotCopyGrant
 	err := ctx.RegisterResource("aws:redshift/snapshotCopyGrant:SnapshotCopyGrant", name, args, &resource, opts...)

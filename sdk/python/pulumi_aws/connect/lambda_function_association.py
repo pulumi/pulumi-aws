@@ -103,21 +103,23 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.LambdaFunctionAssociation("example",
-            function_arn=aws_lambda_function["example"]["arn"],
-            instance_id=aws_connect_instance["example"]["id"])
+            function_arn=example_aws_lambda_function["arn"],
+            instance_id=example_aws_connect_instance["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_connect_lambda_function_association` using the `instance_id` and `function_arn` separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
+        $ pulumi import aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
         ```
 
         :param str resource_name: The name of the resource.
@@ -137,21 +139,23 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.LambdaFunctionAssociation("example",
-            function_arn=aws_lambda_function["example"]["arn"],
-            instance_id=aws_connect_instance["example"]["id"])
+            function_arn=example_aws_lambda_function["arn"],
+            instance_id=example_aws_connect_instance["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_connect_lambda_function_association` using the `instance_id` and `function_arn` separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
+        $ pulumi import aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
         ```
 
         :param str resource_name: The name of the resource.

@@ -80,25 +80,28 @@ public final class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificati
 
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }
         public SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification build() {
-            final var o = new SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification();
-            o.id = id;
-            o.name = name;
-            o.version = version;
-            return o;
+            final var _resultValue = new SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
+//				Name: pulumi.String("example-pool"),
 //				AutoVerifiedAttributes: pulumi.StringArray{
 //					pulumi.String("email"),
 //				},
@@ -36,7 +38,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cognito.NewIdentityProvider(ctx, "exampleProvider", &cognito.IdentityProviderArgs{
+//			_, err = cognito.NewIdentityProvider(ctx, "example_provider", &cognito.IdentityProviderArgs{
 //				UserPoolId:   example.ID(),
 //				ProviderName: pulumi.String("Google"),
 //				ProviderType: pulumi.String("Google"),
@@ -58,15 +60,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_cognito_identity_provider` resources using their User Pool ID and Provider Name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
-//
+// $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
 // ```
 type IdentityProvider struct {
 	pulumi.CustomResourceState

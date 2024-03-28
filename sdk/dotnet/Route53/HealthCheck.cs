@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Route53
     /// Provides a Route53 health check.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Connectivity and HTTP Status Code Check
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,22 +27,25 @@ namespace Pulumi.Aws.Route53
     /// {
     ///     var example = new Aws.Route53.HealthCheck("example", new()
     ///     {
-    ///         FailureThreshold = 5,
     ///         Fqdn = "example.com",
     ///         Port = 80,
-    ///         RequestInterval = 30,
+    ///         Type = "HTTP",
     ///         ResourcePath = "/",
+    ///         FailureThreshold = 5,
+    ///         RequestInterval = 30,
     ///         Tags = 
     ///         {
     ///             { "Name", "tf-test-health-check" },
     ///         },
-    ///         Type = "HTTP",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Connectivity and String Matching Check
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -62,8 +67,11 @@ namespace Pulumi.Aws.Route53
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Aggregate Check
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -78,7 +86,7 @@ namespace Pulumi.Aws.Route53
     ///         ChildHealthThreshold = 1,
     ///         ChildHealthchecks = new[]
     ///         {
-    ///             aws_route53_health_check.Child.Id,
+    ///             child.Id,
     ///         },
     ///         Tags = 
     ///         {
@@ -88,8 +96,11 @@ namespace Pulumi.Aws.Route53
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### CloudWatch Alarm Check
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -100,6 +111,7 @@ namespace Pulumi.Aws.Route53
     /// {
     ///     var foobar = new Aws.CloudWatch.MetricAlarm("foobar", new()
     ///     {
+    ///         Name = "test-foobar5",
     ///         ComparisonOperator = "GreaterThanOrEqualToThreshold",
     ///         EvaluationPeriods = 2,
     ///         MetricName = "CPUUtilization",
@@ -120,13 +132,14 @@ namespace Pulumi.Aws.Route53
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route53 Health Checks using the health check `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
+    /// $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/healthCheck:HealthCheck")]
@@ -299,10 +312,6 @@ namespace Pulumi.Aws.Route53
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -644,11 +653,7 @@ namespace Pulumi.Aws.Route53
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

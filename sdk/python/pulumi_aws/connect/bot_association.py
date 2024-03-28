@@ -106,34 +106,39 @@ class BotAssociation(pulumi.CustomResource):
         > **NOTE:** This resource only currently supports Amazon Lex (V1) Associations.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.BotAssociation("example",
-            instance_id=aws_connect_instance["example"]["id"],
+            instance_id=example_aws_connect_instance["id"],
             lex_bot=aws.connect.BotAssociationLexBotArgs(
                 lex_region="us-west-2",
                 name="Test",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Including a sample Lex bot
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_intent = aws.lex.Intent("exampleIntent",
+        example = aws.lex.Intent("example",
             create_version=True,
             name="connect_lex_intent",
             fulfillment_activity=aws.lex.IntentFulfillmentActivityArgs(
                 type="ReturnIntent",
             ),
             sample_utterances=["I would like to pick up flowers."])
-        example_bot = aws.lex.Bot("exampleBot",
+        example_bot = aws.lex.Bot("example",
             abort_statement=aws.lex.BotAbortStatementArgs(
                 messages=[aws.lex.BotAbortStatementMessageArgs(
                     content="Sorry, I am not able to assist at this time.",
@@ -148,26 +153,27 @@ class BotAssociation(pulumi.CustomResource):
                 )],
             ),
             intents=[aws.lex.BotIntentArgs(
-                intent_name=example_intent.name,
+                intent_name=example.name,
                 intent_version="1",
             )],
             child_directed=False,
             name="connect_lex_bot",
             process_behavior="BUILD")
-        example_bot_association = aws.connect.BotAssociation("exampleBotAssociation",
-            instance_id=aws_connect_instance["example"]["id"],
+        example_bot_association = aws.connect.BotAssociation("example",
+            instance_id=example_aws_connect_instance["id"],
             lex_bot=aws.connect.BotAssociationLexBotArgs(
                 lex_region=current.name,
                 name=example_bot.name,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_connect_bot_association` using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`). For example:
 
         ```sh
-         $ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
+        $ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
         ```
 
         :param str resource_name: The name of the resource.
@@ -188,34 +194,39 @@ class BotAssociation(pulumi.CustomResource):
         > **NOTE:** This resource only currently supports Amazon Lex (V1) Associations.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.BotAssociation("example",
-            instance_id=aws_connect_instance["example"]["id"],
+            instance_id=example_aws_connect_instance["id"],
             lex_bot=aws.connect.BotAssociationLexBotArgs(
                 lex_region="us-west-2",
                 name="Test",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Including a sample Lex bot
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_intent = aws.lex.Intent("exampleIntent",
+        example = aws.lex.Intent("example",
             create_version=True,
             name="connect_lex_intent",
             fulfillment_activity=aws.lex.IntentFulfillmentActivityArgs(
                 type="ReturnIntent",
             ),
             sample_utterances=["I would like to pick up flowers."])
-        example_bot = aws.lex.Bot("exampleBot",
+        example_bot = aws.lex.Bot("example",
             abort_statement=aws.lex.BotAbortStatementArgs(
                 messages=[aws.lex.BotAbortStatementMessageArgs(
                     content="Sorry, I am not able to assist at this time.",
@@ -230,26 +241,27 @@ class BotAssociation(pulumi.CustomResource):
                 )],
             ),
             intents=[aws.lex.BotIntentArgs(
-                intent_name=example_intent.name,
+                intent_name=example.name,
                 intent_version="1",
             )],
             child_directed=False,
             name="connect_lex_bot",
             process_behavior="BUILD")
-        example_bot_association = aws.connect.BotAssociation("exampleBotAssociation",
-            instance_id=aws_connect_instance["example"]["id"],
+        example_bot_association = aws.connect.BotAssociation("example",
+            instance_id=example_aws_connect_instance["id"],
             lex_bot=aws.connect.BotAssociationLexBotArgs(
                 lex_region=current.name,
                 name=example_bot.name,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_connect_bot_association` using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`). For example:
 
         ```sh
-         $ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
+        $ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
         ```
 
         :param str resource_name: The name of the resource.

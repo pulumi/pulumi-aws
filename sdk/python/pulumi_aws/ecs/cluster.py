@@ -243,43 +243,52 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecs.Cluster("foo", settings=[aws.ecs.ClusterSettingArgs(
-            name="containerInsights",
-            value="enabled",
-        )])
+        foo = aws.ecs.Cluster("foo",
+            name="white-hart",
+            settings=[aws.ecs.ClusterSettingArgs(
+                name="containerInsights",
+                value="enabled",
+            )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example with Log Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
+        example = aws.kms.Key("example",
             description="example",
             deletion_window_in_days=7)
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        test = aws.ecs.Cluster("test", configuration=aws.ecs.ClusterConfigurationArgs(
-            execute_command_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationArgs(
-                kms_key_id=example_key.arn,
-                logging="OVERRIDE",
-                log_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs(
-                    cloud_watch_encryption_enabled=True,
-                    cloud_watch_log_group_name=example_log_group.name,
+        example_log_group = aws.cloudwatch.LogGroup("example", name="example")
+        test = aws.ecs.Cluster("test",
+            name="example",
+            configuration=aws.ecs.ClusterConfigurationArgs(
+                execute_command_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationArgs(
+                    kms_key_id=example.arn,
+                    logging="OVERRIDE",
+                    log_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs(
+                        cloud_watch_encryption_enabled=True,
+                        cloud_watch_log_group_name=example_log_group.name,
+                    ),
                 ),
-            ),
-        ))
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECS clusters using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
+        $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
         ```
 
         :param str resource_name: The name of the resource.
@@ -301,43 +310,52 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecs.Cluster("foo", settings=[aws.ecs.ClusterSettingArgs(
-            name="containerInsights",
-            value="enabled",
-        )])
+        foo = aws.ecs.Cluster("foo",
+            name="white-hart",
+            settings=[aws.ecs.ClusterSettingArgs(
+                name="containerInsights",
+                value="enabled",
+            )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example with Log Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
+        example = aws.kms.Key("example",
             description="example",
             deletion_window_in_days=7)
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        test = aws.ecs.Cluster("test", configuration=aws.ecs.ClusterConfigurationArgs(
-            execute_command_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationArgs(
-                kms_key_id=example_key.arn,
-                logging="OVERRIDE",
-                log_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs(
-                    cloud_watch_encryption_enabled=True,
-                    cloud_watch_log_group_name=example_log_group.name,
+        example_log_group = aws.cloudwatch.LogGroup("example", name="example")
+        test = aws.ecs.Cluster("test",
+            name="example",
+            configuration=aws.ecs.ClusterConfigurationArgs(
+                execute_command_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationArgs(
+                    kms_key_id=example.arn,
+                    logging="OVERRIDE",
+                    log_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs(
+                        cloud_watch_encryption_enabled=True,
+                        cloud_watch_log_group_name=example_log_group.name,
+                    ),
                 ),
-            ),
-        ))
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECS clusters using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
+        $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
         ```
 
         :param str resource_name: The name of the resource.
@@ -376,8 +394,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Cluster, __self__).__init__(
             'aws:ecs/cluster:Cluster',
             resource_name,

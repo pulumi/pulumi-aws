@@ -5,6 +5,7 @@ package com.pulumi.aws.organizations.outputs;
 
 import com.pulumi.aws.organizations.outputs.GetOrganizationRootPolicyType;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -86,34 +87,46 @@ public final class GetOrganizationRoot {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationRoot", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationRoot", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationRoot", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder policyTypes(List<GetOrganizationRootPolicyType> policyTypes) {
-            this.policyTypes = Objects.requireNonNull(policyTypes);
+            if (policyTypes == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationRoot", "policyTypes");
+            }
+            this.policyTypes = policyTypes;
             return this;
         }
         public Builder policyTypes(GetOrganizationRootPolicyType... policyTypes) {
             return policyTypes(List.of(policyTypes));
         }
         public GetOrganizationRoot build() {
-            final var o = new GetOrganizationRoot();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            o.policyTypes = policyTypes;
-            return o;
+            final var _resultValue = new GetOrganizationRoot();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.policyTypes = policyTypes;
+            return _resultValue;
         }
     }
 }

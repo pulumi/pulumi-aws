@@ -208,6 +208,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -233,7 +234,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
                     ),
                     s3_bucket_destination=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs(
                         account_id=current.account_id,
-                        arn=aws_s3_bucket["target"]["arn"],
+                        arn=target["arn"],
                         format="CSV",
                         output_schema_version="V_1",
                         encryption=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs(
@@ -243,20 +244,21 @@ class StorageLensConfiguration(pulumi.CustomResource):
                 ),
                 exclude=aws.s3control.StorageLensConfigurationStorageLensConfigurationExcludeArgs(
                     buckets=[
-                        aws_s3_bucket["b1"]["arn"],
-                        aws_s3_bucket["b2"]["arn"],
+                        b1["arn"],
+                        b2["arn"],
                     ],
                     regions=["us-east-2"],
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 Storage Lens configurations using the `account_id` and `config_id`, separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1
+        $ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1
         ```
 
         :param str resource_name: The name of the resource.
@@ -277,6 +279,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -302,7 +305,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
                     ),
                     s3_bucket_destination=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs(
                         account_id=current.account_id,
-                        arn=aws_s3_bucket["target"]["arn"],
+                        arn=target["arn"],
                         format="CSV",
                         output_schema_version="V_1",
                         encryption=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs(
@@ -312,20 +315,21 @@ class StorageLensConfiguration(pulumi.CustomResource):
                 ),
                 exclude=aws.s3control.StorageLensConfigurationStorageLensConfigurationExcludeArgs(
                     buckets=[
-                        aws_s3_bucket["b1"]["arn"],
-                        aws_s3_bucket["b2"]["arn"],
+                        b1["arn"],
+                        b2["arn"],
                     ],
                     regions=["us-east-2"],
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 Storage Lens configurations using the `account_id` and `config_id`, separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1
+        $ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1
         ```
 
         :param str resource_name: The name of the resource.
@@ -366,8 +370,6 @@ class StorageLensConfiguration(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(StorageLensConfiguration, __self__).__init__(
             'aws:s3control/storageLensConfiguration:StorageLensConfiguration',
             resource_name,

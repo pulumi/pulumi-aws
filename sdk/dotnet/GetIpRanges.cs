@@ -14,10 +14,9 @@ namespace Pulumi.Aws
         /// <summary>
         /// Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,8 +38,9 @@ namespace Pulumi.Aws
         ///         },
         ///     });
         /// 
-        ///     var fromEurope = new Aws.Ec2.SecurityGroup("fromEurope", new()
+        ///     var fromEurope = new Aws.Ec2.SecurityGroup("from_europe", new()
         ///     {
+        ///         Name = "from_europe",
         ///         Ingress = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.SecurityGroupIngressArgs
@@ -61,8 +61,7 @@ namespace Pulumi.Aws
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetIpRangesResult> InvokeAsync(GetIpRangesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpRangesResult>("aws:index/getIpRanges:getIpRanges", args ?? new GetIpRangesArgs(), options.WithDefaults());
@@ -70,10 +69,9 @@ namespace Pulumi.Aws
         /// <summary>
         /// Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -95,8 +93,9 @@ namespace Pulumi.Aws
         ///         },
         ///     });
         /// 
-        ///     var fromEurope = new Aws.Ec2.SecurityGroup("fromEurope", new()
+        ///     var fromEurope = new Aws.Ec2.SecurityGroup("from_europe", new()
         ///     {
+        ///         Name = "from_europe",
         ///         Ingress = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.SecurityGroupIngressArgs
@@ -117,8 +116,7 @@ namespace Pulumi.Aws
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetIpRangesResult> Invoke(GetIpRangesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpRangesResult>("aws:index/getIpRanges:getIpRanges", args ?? new GetIpRangesInvokeArgs(), options.WithDefaults());

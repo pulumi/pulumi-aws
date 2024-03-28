@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,14 +32,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewEventConnection(ctx, "test", &cloudwatch.EventConnectionArgs{
+//				Name:              pulumi.String("ngrok-connection"),
+//				Description:       pulumi.String("A connection description"),
+//				AuthorizationType: pulumi.String("API_KEY"),
 //				AuthParameters: &cloudwatch.EventConnectionAuthParametersArgs{
 //					ApiKey: &cloudwatch.EventConnectionAuthParametersApiKeyArgs{
 //						Key:   pulumi.String("x-signature"),
 //						Value: pulumi.String("1234"),
 //					},
 //				},
-//				AuthorizationType: pulumi.String("API_KEY"),
-//				Description:       pulumi.String("A connection description"),
 //			})
 //			if err != nil {
 //				return err
@@ -48,8 +50,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Basic Authorization
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,14 +68,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewEventConnection(ctx, "test", &cloudwatch.EventConnectionArgs{
+//				Name:              pulumi.String("ngrok-connection"),
+//				Description:       pulumi.String("A connection description"),
+//				AuthorizationType: pulumi.String("BASIC"),
 //				AuthParameters: &cloudwatch.EventConnectionAuthParametersArgs{
 //					Basic: &cloudwatch.EventConnectionAuthParametersBasicArgs{
-//						Password: pulumi.String("Pass1234!"),
 //						Username: pulumi.String("user"),
+//						Password: pulumi.String("Pass1234!"),
 //					},
 //				},
-//				AuthorizationType: pulumi.String("BASIC"),
-//				Description:       pulumi.String("A connection description"),
 //			})
 //			if err != nil {
 //				return err
@@ -80,15 +86,141 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ### OAuth Authorization
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.NewEventConnection(ctx, "test", &cloudwatch.EventConnectionArgs{
+//				Name:              pulumi.String("ngrok-connection"),
+//				Description:       pulumi.String("A connection description"),
+//				AuthorizationType: pulumi.String("OAUTH_CLIENT_CREDENTIALS"),
+//				AuthParameters: &cloudwatch.EventConnectionAuthParametersArgs{
+//					Oauth: &cloudwatch.EventConnectionAuthParametersOauthArgs{
+//						AuthorizationEndpoint: pulumi.String("https://auth.url.com/endpoint"),
+//						HttpMethod:            pulumi.String("GET"),
+//						ClientParameters: &cloudwatch.EventConnectionAuthParametersOauthClientParametersArgs{
+//							ClientId:     pulumi.String("1234567890"),
+//							ClientSecret: pulumi.String("Pass1234!"),
+//						},
+//						OauthHttpParameters: &cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersArgs{
+//							Bodies: cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersBodyArray{
+//								&cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs{
+//									Key:           pulumi.String("body-parameter-key"),
+//									Value:         pulumi.String("body-parameter-value"),
+//									IsValueSecret: pulumi.Bool(false),
+//								},
+//							},
+//							Headers: cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersHeaderArray{
+//								&cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs{
+//									Key:           pulumi.String("header-parameter-key"),
+//									Value:         pulumi.String("header-parameter-value"),
+//									IsValueSecret: pulumi.Bool(false),
+//								},
+//							},
+//							QueryStrings: cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArray{
+//								&cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs{
+//									Key:           pulumi.String("query-string-parameter-key"),
+//									Value:         pulumi.String("query-string-parameter-value"),
+//									IsValueSecret: pulumi.Bool(false),
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Invocation Http Parameters
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.NewEventConnection(ctx, "test", &cloudwatch.EventConnectionArgs{
+//				Name:              pulumi.String("ngrok-connection"),
+//				Description:       pulumi.String("A connection description"),
+//				AuthorizationType: pulumi.String("BASIC"),
+//				AuthParameters: &cloudwatch.EventConnectionAuthParametersArgs{
+//					Basic: &cloudwatch.EventConnectionAuthParametersBasicArgs{
+//						Username: pulumi.String("user"),
+//						Password: pulumi.String("Pass1234!"),
+//					},
+//					InvocationHttpParameters: &cloudwatch.EventConnectionAuthParametersInvocationHttpParametersArgs{
+//						Bodies: cloudwatch.EventConnectionAuthParametersInvocationHttpParametersBodyArray{
+//							&cloudwatch.EventConnectionAuthParametersInvocationHttpParametersBodyArgs{
+//								Key:           pulumi.String("body-parameter-key"),
+//								Value:         pulumi.String("body-parameter-value"),
+//								IsValueSecret: pulumi.Bool(false),
+//							},
+//							&cloudwatch.EventConnectionAuthParametersInvocationHttpParametersBodyArgs{
+//								Key:           pulumi.String("body-parameter-key2"),
+//								Value:         pulumi.String("body-parameter-value2"),
+//								IsValueSecret: pulumi.Bool(true),
+//							},
+//						},
+//						Headers: cloudwatch.EventConnectionAuthParametersInvocationHttpParametersHeaderArray{
+//							&cloudwatch.EventConnectionAuthParametersInvocationHttpParametersHeaderArgs{
+//								Key:           pulumi.String("header-parameter-key"),
+//								Value:         pulumi.String("header-parameter-value"),
+//								IsValueSecret: pulumi.Bool(false),
+//							},
+//						},
+//						QueryStrings: cloudwatch.EventConnectionAuthParametersInvocationHttpParametersQueryStringArray{
+//							&cloudwatch.EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs{
+//								Key:           pulumi.String("query-string-parameter-key"),
+//								Value:         pulumi.String("query-string-parameter-value"),
+//								IsValueSecret: pulumi.Bool(false),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EventBridge EventBridge connection using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
-//
+// $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
 // ```
 type EventConnection struct {
 	pulumi.CustomResourceState

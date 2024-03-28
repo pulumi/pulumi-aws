@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Provides an Application AutoScaling Policy resource.
  * 
  * ## Example Usage
+ * 
  * ### DynamoDB Table Autoscaling
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,6 +59,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var dynamodbTableReadPolicy = new Policy(&#34;dynamodbTableReadPolicy&#34;, PolicyArgs.builder()        
+ *             .name(dynamodbTableReadTarget.resourceId().applyValue(resourceId -&gt; String.format(&#34;DynamoDBReadCapacityUtilization:%s&#34;, resourceId)))
  *             .policyType(&#34;TargetTrackingScaling&#34;)
  *             .resourceId(dynamodbTableReadTarget.resourceId())
  *             .scalableDimension(dynamodbTableReadTarget.scalableDimension())
@@ -71,7 +75,16 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### ECS Service Autoscaling
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Preserve desired count when updating an autoscaled ECS Service
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -94,6 +107,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ecsService = new Service(&#34;ecsService&#34;, ServiceArgs.builder()        
+ *             .name(&#34;serviceName&#34;)
  *             .cluster(&#34;clusterName&#34;)
  *             .taskDefinition(&#34;taskDefinitionFamily:1&#34;)
  *             .desiredCount(2)
@@ -102,7 +116,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Aurora Read Replica Autoscaling
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -128,18 +146,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var replicasTarget = new Target(&#34;replicasTarget&#34;, TargetArgs.builder()        
+ *         var replicas = new Target(&#34;replicas&#34;, TargetArgs.builder()        
  *             .serviceNamespace(&#34;rds&#34;)
  *             .scalableDimension(&#34;rds:cluster:ReadReplicaCount&#34;)
- *             .resourceId(String.format(&#34;cluster:%s&#34;, aws_rds_cluster.example().id()))
+ *             .resourceId(String.format(&#34;cluster:%s&#34;, example.id()))
  *             .minCapacity(1)
  *             .maxCapacity(15)
  *             .build());
  * 
  *         var replicasPolicy = new Policy(&#34;replicasPolicy&#34;, PolicyArgs.builder()        
- *             .serviceNamespace(replicasTarget.serviceNamespace())
- *             .scalableDimension(replicasTarget.scalableDimension())
- *             .resourceId(replicasTarget.resourceId())
+ *             .name(&#34;cpu-auto-scaling&#34;)
+ *             .serviceNamespace(replicas.serviceNamespace())
+ *             .scalableDimension(replicas.scalableDimension())
+ *             .resourceId(replicas.resourceId())
  *             .policyType(&#34;TargetTrackingScaling&#34;)
  *             .targetTrackingScalingPolicyConfiguration(PolicyTargetTrackingScalingPolicyConfigurationArgs.builder()
  *                 .predefinedMetricSpecification(PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs.builder()
@@ -154,7 +173,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Create target tracking scaling policy using metric math
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -189,6 +212,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
+ *             .name(&#34;foo&#34;)
  *             .policyType(&#34;TargetTrackingScaling&#34;)
  *             .resourceId(ecsTarget.resourceId())
  *             .scalableDimension(ecsTarget.scalableDimension())
@@ -247,7 +271,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### MSK / Kafka Autoscaling
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -276,12 +304,13 @@ import javax.annotation.Nullable;
  *         var mskTarget = new Target(&#34;mskTarget&#34;, TargetArgs.builder()        
  *             .serviceNamespace(&#34;kafka&#34;)
  *             .scalableDimension(&#34;kafka:broker-storage:VolumeSize&#34;)
- *             .resourceId(aws_msk_cluster.example().arn())
+ *             .resourceId(example.arn())
  *             .minCapacity(1)
  *             .maxCapacity(8)
  *             .build());
  * 
  *         var targets = new Policy(&#34;targets&#34;, PolicyArgs.builder()        
+ *             .name(&#34;storage-size-auto-scaling&#34;)
  *             .serviceNamespace(mskTarget.serviceNamespace())
  *             .scalableDimension(mskTarget.scalableDimension())
  *             .resourceId(mskTarget.resourceId())
@@ -297,13 +326,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Application AutoScaling Policy using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name
+ * $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name
  * ```
  * 
  */

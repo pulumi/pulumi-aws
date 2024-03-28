@@ -88,31 +88,35 @@ public final class BucketV2Website {
 
         @CustomType.Setter
         public Builder errorDocument(@Nullable String errorDocument) {
+
             this.errorDocument = errorDocument;
             return this;
         }
         @CustomType.Setter
         public Builder indexDocument(@Nullable String indexDocument) {
+
             this.indexDocument = indexDocument;
             return this;
         }
         @CustomType.Setter
         public Builder redirectAllRequestsTo(@Nullable String redirectAllRequestsTo) {
+
             this.redirectAllRequestsTo = redirectAllRequestsTo;
             return this;
         }
         @CustomType.Setter
         public Builder routingRules(@Nullable String routingRules) {
+
             this.routingRules = routingRules;
             return this;
         }
         public BucketV2Website build() {
-            final var o = new BucketV2Website();
-            o.errorDocument = errorDocument;
-            o.indexDocument = indexDocument;
-            o.redirectAllRequestsTo = redirectAllRequestsTo;
-            o.routingRules = routingRules;
-            return o;
+            final var _resultValue = new BucketV2Website();
+            _resultValue.errorDocument = errorDocument;
+            _resultValue.indexDocument = indexDocument;
+            _resultValue.redirectAllRequestsTo = redirectAllRequestsTo;
+            _resultValue.routingRules = routingRules;
+            return _resultValue;
         }
     }
 }

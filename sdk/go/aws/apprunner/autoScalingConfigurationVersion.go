@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import App Runner AutoScaling Configuration Versions using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion example "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
-//
+// $ pulumi import aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion example "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
 // ```
 type AutoScalingConfigurationVersion struct {
 	pulumi.CustomResourceState
@@ -63,7 +63,9 @@ type AutoScalingConfigurationVersion struct {
 	// Name of the auto scaling configuration.
 	AutoScalingConfigurationName pulumi.StringOutput `pulumi:"autoScalingConfigurationName"`
 	// The revision of this auto scaling configuration.
-	AutoScalingConfigurationRevision pulumi.IntOutput `pulumi:"autoScalingConfigurationRevision"`
+	AutoScalingConfigurationRevision pulumi.IntOutput  `pulumi:"autoScalingConfigurationRevision"`
+	HasAssociatedService             pulumi.BoolOutput `pulumi:"hasAssociatedService"`
+	IsDefault                        pulumi.BoolOutput `pulumi:"isDefault"`
 	// Whether the auto scaling configuration has the highest `autoScalingConfigurationRevision` among all configurations that share the same `autoScalingConfigurationName`.
 	Latest pulumi.BoolOutput `pulumi:"latest"`
 	// Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
@@ -92,10 +94,6 @@ func NewAutoScalingConfigurationVersion(ctx *pulumi.Context,
 	if args.AutoScalingConfigurationName == nil {
 		return nil, errors.New("invalid value for required argument 'AutoScalingConfigurationName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AutoScalingConfigurationVersion
 	err := ctx.RegisterResource("aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion", name, args, &resource, opts...)
@@ -124,7 +122,9 @@ type autoScalingConfigurationVersionState struct {
 	// Name of the auto scaling configuration.
 	AutoScalingConfigurationName *string `pulumi:"autoScalingConfigurationName"`
 	// The revision of this auto scaling configuration.
-	AutoScalingConfigurationRevision *int `pulumi:"autoScalingConfigurationRevision"`
+	AutoScalingConfigurationRevision *int  `pulumi:"autoScalingConfigurationRevision"`
+	HasAssociatedService             *bool `pulumi:"hasAssociatedService"`
+	IsDefault                        *bool `pulumi:"isDefault"`
 	// Whether the auto scaling configuration has the highest `autoScalingConfigurationRevision` among all configurations that share the same `autoScalingConfigurationName`.
 	Latest *bool `pulumi:"latest"`
 	// Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
@@ -150,6 +150,8 @@ type AutoScalingConfigurationVersionState struct {
 	AutoScalingConfigurationName pulumi.StringPtrInput
 	// The revision of this auto scaling configuration.
 	AutoScalingConfigurationRevision pulumi.IntPtrInput
+	HasAssociatedService             pulumi.BoolPtrInput
+	IsDefault                        pulumi.BoolPtrInput
 	// Whether the auto scaling configuration has the highest `autoScalingConfigurationRevision` among all configurations that share the same `autoScalingConfigurationName`.
 	Latest pulumi.BoolPtrInput
 	// Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
@@ -299,6 +301,14 @@ func (o AutoScalingConfigurationVersionOutput) AutoScalingConfigurationName() pu
 // The revision of this auto scaling configuration.
 func (o AutoScalingConfigurationVersionOutput) AutoScalingConfigurationRevision() pulumi.IntOutput {
 	return o.ApplyT(func(v *AutoScalingConfigurationVersion) pulumi.IntOutput { return v.AutoScalingConfigurationRevision }).(pulumi.IntOutput)
+}
+
+func (o AutoScalingConfigurationVersionOutput) HasAssociatedService() pulumi.BoolOutput {
+	return o.ApplyT(func(v *AutoScalingConfigurationVersion) pulumi.BoolOutput { return v.HasAssociatedService }).(pulumi.BoolOutput)
+}
+
+func (o AutoScalingConfigurationVersionOutput) IsDefault() pulumi.BoolOutput {
+	return o.ApplyT(func(v *AutoScalingConfigurationVersion) pulumi.BoolOutput { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
 // Whether the auto scaling configuration has the highest `autoScalingConfigurationRevision` among all configurations that share the same `autoScalingConfigurationName`.

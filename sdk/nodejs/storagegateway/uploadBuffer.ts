@@ -10,43 +10,49 @@ import * as utilities from "../utilities";
  * > **NOTE:** The Storage Gateway API provides no method to remove an upload buffer disk. Destroying this resource does not perform any Storage Gateway actions.
  *
  * ## Example Usage
+ *
  * ### Cached and VTL Gateway Type
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testLocalDisk = aws.storagegateway.getLocalDisk({
- *     diskNode: aws_volume_attachment.test.device_name,
- *     gatewayArn: aws_storagegateway_gateway.test.arn,
- * });
- * const testUploadBuffer = new aws.storagegateway.UploadBuffer("testUploadBuffer", {
- *     diskPath: testLocalDisk.then(testLocalDisk => testLocalDisk.diskPath),
- *     gatewayArn: aws_storagegateway_gateway.test.arn,
- * });
- * ```
- * ### Stored Gateway Type
- *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.storagegateway.getLocalDisk({
- *     diskNode: aws_volume_attachment.test.device_name,
- *     gatewayArn: aws_storagegateway_gateway.test.arn,
+ *     diskNode: testAwsVolumeAttachment.deviceName,
+ *     gatewayArn: testAwsStoragegatewayGateway.arn,
  * });
- * const example = new aws.storagegateway.UploadBuffer("example", {
- *     diskId: data.aws_storagegateway_local_disk.example.id,
- *     gatewayArn: aws_storagegateway_gateway.example.arn,
+ * const testUploadBuffer = new aws.storagegateway.UploadBuffer("test", {
+ *     diskPath: test.then(test => test.diskPath),
+ *     gatewayArn: testAwsStoragegatewayGateway.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Stored Gateway Type
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.storagegateway.getLocalDisk({
+ *     diskNode: testAwsVolumeAttachment.deviceName,
+ *     gatewayArn: testAwsStoragegatewayGateway.arn,
+ * });
+ * const example = new aws.storagegateway.UploadBuffer("example", {
+ *     diskId: exampleAwsStoragegatewayLocalDisk.id,
+ *     gatewayArn: exampleAwsStoragegatewayGateway.arn,
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_storagegateway_upload_buffer` using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`). For example:
  *
  * ```sh
- *  $ pulumi import aws:storagegateway/uploadBuffer:UploadBuffer example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
+ * $ pulumi import aws:storagegateway/uploadBuffer:UploadBuffer example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
  * ```
  */
 export class UploadBuffer extends pulumi.CustomResource {

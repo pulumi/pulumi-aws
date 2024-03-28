@@ -413,6 +413,7 @@ class ReservedInstance(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -427,13 +428,14 @@ class ReservedInstance(pulumi.CustomResource):
             reservation_id="optionalCustomReservationID",
             instance_count=3)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For example:
 
         ```sh
-         $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
+        $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
         ```
 
         :param str resource_name: The name of the resource.
@@ -460,6 +462,7 @@ class ReservedInstance(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -474,13 +477,14 @@ class ReservedInstance(pulumi.CustomResource):
             reservation_id="optionalCustomReservationID",
             instance_count=3)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For example:
 
         ```sh
-         $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
+        $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
         ```
 
         :param str resource_name: The name of the resource.
@@ -531,8 +535,6 @@ class ReservedInstance(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["usage_price"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ReservedInstance, __self__).__init__(
             'aws:rds/reservedInstance:ReservedInstance',
             resource_name,

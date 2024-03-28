@@ -44,13 +44,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexP
 
         @CustomType.Setter
         public Builder oversizeHandling(@Nullable String oversizeHandling) {
+
             this.oversizeHandling = oversizeHandling;
             return this;
         }
         public WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody();
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody();
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

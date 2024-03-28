@@ -147,41 +147,49 @@ public final class EmailIdentityDkimSigningAttributes {
 
         @CustomType.Setter
         public Builder currentSigningKeyLength(@Nullable String currentSigningKeyLength) {
+
             this.currentSigningKeyLength = currentSigningKeyLength;
             return this;
         }
         @CustomType.Setter
         public Builder domainSigningPrivateKey(@Nullable String domainSigningPrivateKey) {
+
             this.domainSigningPrivateKey = domainSigningPrivateKey;
             return this;
         }
         @CustomType.Setter
         public Builder domainSigningSelector(@Nullable String domainSigningSelector) {
+
             this.domainSigningSelector = domainSigningSelector;
             return this;
         }
         @CustomType.Setter
         public Builder lastKeyGenerationTimestamp(@Nullable String lastKeyGenerationTimestamp) {
+
             this.lastKeyGenerationTimestamp = lastKeyGenerationTimestamp;
             return this;
         }
         @CustomType.Setter
         public Builder nextSigningKeyLength(@Nullable String nextSigningKeyLength) {
+
             this.nextSigningKeyLength = nextSigningKeyLength;
             return this;
         }
         @CustomType.Setter
         public Builder signingAttributesOrigin(@Nullable String signingAttributesOrigin) {
+
             this.signingAttributesOrigin = signingAttributesOrigin;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tokens(@Nullable List<String> tokens) {
+
             this.tokens = tokens;
             return this;
         }
@@ -189,16 +197,16 @@ public final class EmailIdentityDkimSigningAttributes {
             return tokens(List.of(tokens));
         }
         public EmailIdentityDkimSigningAttributes build() {
-            final var o = new EmailIdentityDkimSigningAttributes();
-            o.currentSigningKeyLength = currentSigningKeyLength;
-            o.domainSigningPrivateKey = domainSigningPrivateKey;
-            o.domainSigningSelector = domainSigningSelector;
-            o.lastKeyGenerationTimestamp = lastKeyGenerationTimestamp;
-            o.nextSigningKeyLength = nextSigningKeyLength;
-            o.signingAttributesOrigin = signingAttributesOrigin;
-            o.status = status;
-            o.tokens = tokens;
-            return o;
+            final var _resultValue = new EmailIdentityDkimSigningAttributes();
+            _resultValue.currentSigningKeyLength = currentSigningKeyLength;
+            _resultValue.domainSigningPrivateKey = domainSigningPrivateKey;
+            _resultValue.domainSigningSelector = domainSigningSelector;
+            _resultValue.lastKeyGenerationTimestamp = lastKeyGenerationTimestamp;
+            _resultValue.nextSigningKeyLength = nextSigningKeyLength;
+            _resultValue.signingAttributesOrigin = signingAttributesOrigin;
+            _resultValue.status = status;
+            _resultValue.tokens = tokens;
+            return _resultValue;
         }
     }
 }

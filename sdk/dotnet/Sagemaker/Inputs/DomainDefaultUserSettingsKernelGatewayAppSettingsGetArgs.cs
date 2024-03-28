@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         private InputList<Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageGetArgs>? _customImages;
 
         /// <summary>
-        /// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        /// A list of custom SageMaker images that are configured to run as a KernelGateway app. see `custom_image` Block below.
         /// </summary>
         public InputList<Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageGetArgs> CustomImages
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         }
 
         /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
         /// </summary>
         [Input("defaultResourceSpec")]
         public Input<Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecGetArgs>? DefaultResourceSpec { get; set; }

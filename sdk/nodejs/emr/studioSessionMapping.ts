@@ -9,24 +9,26 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.emr.StudioSessionMapping("example", {
- *     studioId: aws_emr_studio.example.id,
+ *     studioId: exampleAwsEmrStudio.id,
  *     identityType: "USER",
  *     identityId: "example",
- *     sessionPolicyArn: aws_iam_policy.example.arn,
+ *     sessionPolicyArn: exampleAwsIamPolicy.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EMR studio session mappings using `studio-id:identity-type:identity-id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
+ * $ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
  * ```
  */
 export class StudioSessionMapping extends pulumi.CustomResource {

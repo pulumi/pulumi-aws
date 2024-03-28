@@ -18,6 +18,8 @@ public final class StoragegatewayFunctions {
      * Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -40,13 +42,14 @@ public final class StoragegatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
-     *             .diskPath(aws_volume_attachment.test().device_name())
-     *             .gatewayArn(aws_storagegateway_gateway.test().arn())
+     *             .diskPath(testAwsVolumeAttachment.deviceName())
+     *             .gatewayArn(testAwsStoragegatewayGateway.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalDiskResult> getLocalDisk(GetLocalDiskArgs args) {
@@ -56,6 +59,8 @@ public final class StoragegatewayFunctions {
      * Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -78,13 +83,14 @@ public final class StoragegatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
-     *             .diskPath(aws_volume_attachment.test().device_name())
-     *             .gatewayArn(aws_storagegateway_gateway.test().arn())
+     *             .diskPath(testAwsVolumeAttachment.deviceName())
+     *             .gatewayArn(testAwsStoragegatewayGateway.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalDiskResult> getLocalDiskPlain(GetLocalDiskPlainArgs args) {
@@ -94,6 +100,8 @@ public final class StoragegatewayFunctions {
      * Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -116,13 +124,14 @@ public final class StoragegatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
-     *             .diskPath(aws_volume_attachment.test().device_name())
-     *             .gatewayArn(aws_storagegateway_gateway.test().arn())
+     *             .diskPath(testAwsVolumeAttachment.deviceName())
+     *             .gatewayArn(testAwsStoragegatewayGateway.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalDiskResult> getLocalDisk(GetLocalDiskArgs args, InvokeOptions options) {
@@ -132,6 +141,8 @@ public final class StoragegatewayFunctions {
      * Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -154,13 +165,14 @@ public final class StoragegatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
-     *             .diskPath(aws_volume_attachment.test().device_name())
-     *             .gatewayArn(aws_storagegateway_gateway.test().arn())
+     *             .diskPath(testAwsVolumeAttachment.deviceName())
+     *             .gatewayArn(testAwsStoragegatewayGateway.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalDiskResult> getLocalDiskPlain(GetLocalDiskPlainArgs args, InvokeOptions options) {

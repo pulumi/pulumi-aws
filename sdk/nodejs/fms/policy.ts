@@ -14,21 +14,26 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRuleGroup = new aws.wafregional.RuleGroup("exampleRuleGroup", {metricName: "WAFRuleGroupExample"});
- * const examplePolicy = new aws.fms.Policy("examplePolicy", {
+ * const exampleRuleGroup = new aws.wafregional.RuleGroup("example", {
+ *     metricName: "WAFRuleGroupExample",
+ *     name: "WAF-Rule-Group-Example",
+ * });
+ * const example = new aws.fms.Policy("example", {
+ *     name: "FMS-Policy-Example",
  *     excludeResourceTags: false,
  *     remediationEnabled: false,
  *     resourceType: "AWS::ElasticLoadBalancingV2::LoadBalancer",
  *     securityServicePolicyData: {
  *         type: "WAF",
- *         managedServiceData: exampleRuleGroup.id.apply(id => JSON.stringify({
+ *         managedServiceData: pulumi.jsonStringify({
  *             type: "WAF",
  *             ruleGroups: [{
- *                 id: id,
+ *                 id: exampleRuleGroup.id,
  *                 overrideAction: {
  *                     type: "COUNT",
  *                 },
@@ -37,20 +42,21 @@ import * as utilities from "../utilities";
  *                 type: "BLOCK",
  *             },
  *             overrideCustomerWebACLAssociation: false,
- *         })),
+ *         }),
  *     },
  *     tags: {
  *         Name: "example-fms-policy",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Firewall Manager policies using the policy ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
+ * $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
  * ```
  */
 export class Policy extends pulumi.CustomResource {
@@ -200,8 +206,6 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Policy.__pulumiType, name, resourceInputs, opts);
     }
 }

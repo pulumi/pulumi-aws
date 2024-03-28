@@ -58,19 +58,21 @@ public final class BucketVersioning {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder mfaDelete(@Nullable Boolean mfaDelete) {
+
             this.mfaDelete = mfaDelete;
             return this;
         }
         public BucketVersioning build() {
-            final var o = new BucketVersioning();
-            o.enabled = enabled;
-            o.mfaDelete = mfaDelete;
-            return o;
+            final var _resultValue = new BucketVersioning();
+            _resultValue.enabled = enabled;
+            _resultValue.mfaDelete = mfaDelete;
+            return _resultValue;
         }
     }
 }

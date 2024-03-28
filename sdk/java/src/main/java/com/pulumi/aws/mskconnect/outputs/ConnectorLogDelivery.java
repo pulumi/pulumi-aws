@@ -5,6 +5,7 @@ package com.pulumi.aws.mskconnect.outputs;
 
 import com.pulumi.aws.mskconnect.outputs.ConnectorLogDeliveryWorkerLogDelivery;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,13 +43,16 @@ public final class ConnectorLogDelivery {
 
         @CustomType.Setter
         public Builder workerLogDelivery(ConnectorLogDeliveryWorkerLogDelivery workerLogDelivery) {
-            this.workerLogDelivery = Objects.requireNonNull(workerLogDelivery);
+            if (workerLogDelivery == null) {
+              throw new MissingRequiredPropertyException("ConnectorLogDelivery", "workerLogDelivery");
+            }
+            this.workerLogDelivery = workerLogDelivery;
             return this;
         }
         public ConnectorLogDelivery build() {
-            final var o = new ConnectorLogDelivery();
-            o.workerLogDelivery = workerLogDelivery;
-            return o;
+            final var _resultValue = new ConnectorLogDelivery();
+            _resultValue.workerLogDelivery = workerLogDelivery;
+            return _resultValue;
         }
     }
 }

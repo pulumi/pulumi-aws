@@ -25,26 +25,36 @@ namespace Pulumi.Aws.Iam
     /// 
     /// **Using certs on file:**
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testCert = new Aws.Iam.ServerCertificate("testCert", new()
+    ///     var testCert = new Aws.Iam.ServerCertificate("test_cert", new()
     ///     {
-    ///         CertificateBody = File.ReadAllText("self-ca-cert.pem"),
-    ///         PrivateKey = File.ReadAllText("test-key.pem"),
+    ///         Name = "some_test_cert",
+    ///         CertificateBody = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "self-ca-cert.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         PrivateKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "test-key.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// **Example with cert in-line:**
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,22 +63,22 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testCertAlt = new Aws.Iam.ServerCertificate("testCertAlt", new()
+    ///     var testCertAlt = new Aws.Iam.ServerCertificate("test_cert_alt", new()
     ///     {
+    ///         Name = "alt_test_cert",
     ///         CertificateBody = @"-----BEGIN CERTIFICATE-----
     /// [......] # cert contents
     /// -----END CERTIFICATE-----
-    /// 
     /// ",
     ///         PrivateKey = @"-----BEGIN RSA PRIVATE KEY-----
     /// [......] # cert contents
     /// -----END RSA PRIVATE KEY-----
-    /// 
     /// ",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// **Use in combination with an AWS ELB resource:**
     /// 
@@ -79,24 +89,32 @@ namespace Pulumi.Aws.Iam
     /// to create a new, updated `aws.iam.ServerCertificate` resource and replace it in
     /// dependant resources before attempting to destroy the old version.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testCert = new Aws.Iam.ServerCertificate("testCert", new()
+    ///     var testCert = new Aws.Iam.ServerCertificate("test_cert", new()
     ///     {
     ///         NamePrefix = "example-cert",
-    ///         CertificateBody = File.ReadAllText("self-ca-cert.pem"),
-    ///         PrivateKey = File.ReadAllText("test-key.pem"),
+    ///         CertificateBody = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "self-ca-cert.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         PrivateKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "test-key.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     ///     var ourapp = new Aws.Elb.LoadBalancer("ourapp", new()
     ///     {
+    ///         Name = "asg-deployment-example",
     ///         AvailabilityZones = new[]
     ///         {
     ///             "us-west-2a",
@@ -117,13 +135,14 @@ namespace Pulumi.Aws.Iam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM Server Certificates using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
+    /// $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/serverCertificate:ServerCertificate")]
@@ -231,7 +250,6 @@ namespace Pulumi.Aws.Iam
                 AdditionalSecretOutputs =
                 {
                     "privateKey",
-                    "tagsAll",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -422,11 +440,7 @@ namespace Pulumi.Aws.Iam
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

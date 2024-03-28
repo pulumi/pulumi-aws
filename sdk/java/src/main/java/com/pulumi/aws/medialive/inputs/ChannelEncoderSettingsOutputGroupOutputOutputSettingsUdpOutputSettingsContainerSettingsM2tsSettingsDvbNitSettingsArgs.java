@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -91,8 +92,12 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
         }
 
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs build() {
-            $.networkId = Objects.requireNonNull($.networkId, "expected parameter 'networkId' to be non-null");
-            $.networkName = Objects.requireNonNull($.networkName, "expected parameter 'networkName' to be non-null");
+            if ($.networkId == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs", "networkId");
+            }
+            if ($.networkName == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs", "networkName");
+            }
             return $;
         }
     }

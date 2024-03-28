@@ -12,11 +12,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleTable = new aws.dynamodb.Table("exampleTable", {
+ * const exampleTable = new aws.dynamodb.Table("example", {
+ *     name: "example",
  *     readCapacity: 1,
  *     writeCapacity: 1,
  *     hashKey: "UserId",
@@ -35,20 +37,27 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "example",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         actions: ["dynamodb:*"],
  *         resources: [exampleTable.arn],
  *     }],
  * });
- * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
+ * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
+ *     name: "example",
  *     role: exampleRole.id,
- *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
+ *     policy: example.apply(example => example.json),
  * });
- * const exampleGraphQLApi = new aws.appsync.GraphQLApi("exampleGraphQLApi", {authenticationType: "API_KEY"});
- * const exampleDataSource = new aws.appsync.DataSource("exampleDataSource", {
+ * const exampleGraphQLApi = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "API_KEY",
+ *     name: "my_appsync_example",
+ * });
+ * const exampleDataSource = new aws.appsync.DataSource("example", {
  *     apiId: exampleGraphQLApi.id,
  *     name: "my_appsync_example",
  *     serviceRoleArn: exampleRole.arn,
@@ -58,13 +67,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_appsync_datasource` using the `api_id`, a hyphen, and `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
+ * $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
  * ```
  */
 export class DataSource extends pulumi.CustomResource {

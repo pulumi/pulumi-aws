@@ -5,6 +5,7 @@ package com.pulumi.aws.appflow.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -159,9 +160,15 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs build() {
-            $.authCodeUrl = Objects.requireNonNull($.authCodeUrl, "expected parameter 'authCodeUrl' to be non-null");
-            $.oauthScopes = Objects.requireNonNull($.oauthScopes, "expected parameter 'oauthScopes' to be non-null");
-            $.tokenUrl = Objects.requireNonNull($.tokenUrl, "expected parameter 'tokenUrl' to be non-null");
+            if ($.authCodeUrl == null) {
+                throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs", "authCodeUrl");
+            }
+            if ($.oauthScopes == null) {
+                throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs", "oauthScopes");
+            }
+            if ($.tokenUrl == null) {
+                throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs", "tokenUrl");
+            }
             return $;
         }
     }

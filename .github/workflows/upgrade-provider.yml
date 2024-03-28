@@ -5,12 +5,12 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
   upgrade_provider:
-    if: ${{ contains(github.event.issue.title, 'Upgrade terraform-provider-') || github.event_name == 'workflow_dispatch' }}
+    if: ${{ (github.event.issue.user.login == 'pulumi-bot' && contains(github.event.issue.title, 'Upgrade terraform-provider-')) || github.event_name == 'workflow_dispatch' }}
     name: upgrade-provider
     runs-on: ubuntu-latest
     steps:
     - name: Call upgrade provider action
-      uses: pulumi/pulumi-upgrade-provider-action@v0.0.10
+      uses: pulumi/pulumi-upgrade-provider-action@v0.0.12
       with:
         kind: all
         email: bot@pulumi.com

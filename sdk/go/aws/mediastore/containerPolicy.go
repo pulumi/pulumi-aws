@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,19 +33,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			current, err := aws.GetRegion(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			currentGetCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleContainer, err := mediastore.NewContainer(ctx, "exampleContainer", nil)
+//			exampleContainer, err := mediastore.NewContainer(ctx, "example", &mediastore.ContainerArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
 //						Sid:    pulumi.String("MediaStoreFullAccess"),
@@ -53,7 +56,7 @@ import (
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("AWS"),
 //								Identifiers: pulumi.StringArray{
-//									pulumi.String(fmt.Sprintf("arn:aws:iam::%v:root", currentCallerIdentity.AccountId)),
+//									pulumi.String(fmt.Sprintf("arn:aws:iam::%v:root", currentGetCallerIdentity.AccountId)),
 //								},
 //							},
 //						},
@@ -62,7 +65,7 @@ import (
 //						},
 //						Resources: pulumi.StringArray{
 //							exampleContainer.Name.ApplyT(func(name string) (string, error) {
-//								return fmt.Sprintf("arn:aws:mediastore:%v:%v:container/%v/*", currentRegion.Name, currentCallerIdentity.AccountId, name), nil
+//								return fmt.Sprintf("arn:aws:mediastore:%v:%v:container/%v/*", current.Name, currentGetCallerIdentity.AccountId, name), nil
 //							}).(pulumi.StringOutput),
 //						},
 //						Conditions: iam.GetPolicyDocumentStatementConditionArray{
@@ -77,10 +80,10 @@ import (
 //					},
 //				},
 //			}, nil)
-//			_, err = mediastore.NewContainerPolicy(ctx, "exampleContainerPolicy", &mediastore.ContainerPolicyArgs{
+//			_, err = mediastore.NewContainerPolicy(ctx, "example", &mediastore.ContainerPolicyArgs{
 //				ContainerName: exampleContainer.Name,
-//				Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &examplePolicyDocument.Json, nil
+//				Policy: example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
+//					return &example.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
@@ -91,15 +94,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import MediaStore Container Policy using the MediaStore Container Name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
-//
+// $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
 // ```
 type ContainerPolicy struct {
 	pulumi.CustomResourceState

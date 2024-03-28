@@ -15,8 +15,10 @@ import (
 // Provides a SageMaker Flow Definition resource.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,17 +35,17 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewFlowDefinition(ctx, "example", &sagemaker.FlowDefinitionArgs{
 //				FlowDefinitionName: pulumi.String("example"),
-//				RoleArn:            pulumi.Any(aws_iam_role.Example.Arn),
+//				RoleArn:            pulumi.Any(exampleAwsIamRole.Arn),
 //				HumanLoopConfig: &sagemaker.FlowDefinitionHumanLoopConfigArgs{
-//					HumanTaskUiArn:                    pulumi.Any(aws_sagemaker_human_task_ui.Example.Arn),
+//					HumanTaskUiArn:                    pulumi.Any(exampleAwsSagemakerHumanTaskUi.Arn),
 //					TaskAvailabilityLifetimeInSeconds: pulumi.Int(1),
 //					TaskCount:                         pulumi.Int(1),
 //					TaskDescription:                   pulumi.String("example"),
 //					TaskTitle:                         pulumi.String("example"),
-//					WorkteamArn:                       pulumi.Any(aws_sagemaker_workteam.Example.Arn),
+//					WorkteamArn:                       pulumi.Any(exampleAwsSagemakerWorkteam.Arn),
 //				},
 //				OutputConfig: &sagemaker.FlowDefinitionOutputConfigArgs{
-//					S3OutputPath: pulumi.String(fmt.Sprintf("s3://%v/", aws_s3_bucket.Example.Bucket)),
+//					S3OutputPath: pulumi.String(fmt.Sprintf("s3://%v/", exampleAwsS3Bucket.Bucket)),
 //				},
 //			})
 //			if err != nil {
@@ -54,8 +56,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Public Workteam Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -72,14 +77,14 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewFlowDefinition(ctx, "example", &sagemaker.FlowDefinitionArgs{
 //				FlowDefinitionName: pulumi.String("example"),
-//				RoleArn:            pulumi.Any(aws_iam_role.Example.Arn),
+//				RoleArn:            pulumi.Any(exampleAwsIamRole.Arn),
 //				HumanLoopConfig: &sagemaker.FlowDefinitionHumanLoopConfigArgs{
-//					HumanTaskUiArn:                    pulumi.Any(aws_sagemaker_human_task_ui.Example.Arn),
+//					HumanTaskUiArn:                    pulumi.Any(exampleAwsSagemakerHumanTaskUi.Arn),
 //					TaskAvailabilityLifetimeInSeconds: pulumi.Int(1),
 //					TaskCount:                         pulumi.Int(1),
 //					TaskDescription:                   pulumi.String("example"),
 //					TaskTitle:                         pulumi.String("example"),
-//					WorkteamArn:                       pulumi.String(fmt.Sprintf("arn:aws:sagemaker:%v:394669845002:workteam/public-crowd/default", data.Aws_region.Current.Name)),
+//					WorkteamArn:                       pulumi.String(fmt.Sprintf("arn:aws:sagemaker:%v:394669845002:workteam/public-crowd/default", current.Name)),
 //					PublicWorkforceTaskPrice: &sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs{
 //						AmountInUsd: &sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs{
 //							Cents:                 pulumi.Int(1),
@@ -88,7 +93,7 @@ import (
 //					},
 //				},
 //				OutputConfig: &sagemaker.FlowDefinitionOutputConfigArgs{
-//					S3OutputPath: pulumi.String(fmt.Sprintf("s3://%v/", aws_s3_bucket.Example.Bucket)),
+//					S3OutputPath: pulumi.String(fmt.Sprintf("s3://%v/", exampleAwsS3Bucket.Bucket)),
 //				},
 //			})
 //			if err != nil {
@@ -99,8 +104,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Human Loop Activation Config Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -117,14 +125,14 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewFlowDefinition(ctx, "example", &sagemaker.FlowDefinitionArgs{
 //				FlowDefinitionName: pulumi.String("example"),
-//				RoleArn:            pulumi.Any(aws_iam_role.Example.Arn),
+//				RoleArn:            pulumi.Any(exampleAwsIamRole.Arn),
 //				HumanLoopConfig: &sagemaker.FlowDefinitionHumanLoopConfigArgs{
-//					HumanTaskUiArn:                    pulumi.Any(aws_sagemaker_human_task_ui.Example.Arn),
+//					HumanTaskUiArn:                    pulumi.Any(exampleAwsSagemakerHumanTaskUi.Arn),
 //					TaskAvailabilityLifetimeInSeconds: pulumi.Int(1),
 //					TaskCount:                         pulumi.Int(1),
 //					TaskDescription:                   pulumi.String("example"),
 //					TaskTitle:                         pulumi.String("example"),
-//					WorkteamArn:                       pulumi.Any(aws_sagemaker_workteam.Example.Arn),
+//					WorkteamArn:                       pulumi.Any(exampleAwsSagemakerWorkteam.Arn),
 //				},
 //				HumanLoopRequestSource: &sagemaker.FlowDefinitionHumanLoopRequestSourceArgs{
 //					AwsManagedHumanLoopRequestSource: pulumi.String("AWS/Textract/AnalyzeDocument/Forms/V1"),
@@ -147,7 +155,7 @@ import (
 //					},
 //				},
 //				OutputConfig: &sagemaker.FlowDefinitionOutputConfigArgs{
-//					S3OutputPath: pulumi.String(fmt.Sprintf("s3://%v/", aws_s3_bucket.Example.Bucket)),
+//					S3OutputPath: pulumi.String(fmt.Sprintf("s3://%v/", exampleAwsS3Bucket.Bucket)),
 //				},
 //			})
 //			if err != nil {
@@ -158,15 +166,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SageMaker Flow Definitions using the `flow_definition_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
-//
+// $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
 // ```
 type FlowDefinition struct {
 	pulumi.CustomResourceState
@@ -212,10 +219,6 @@ func NewFlowDefinition(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FlowDefinition
 	err := ctx.RegisterResource("aws:sagemaker/flowDefinition:FlowDefinition", name, args, &resource, opts...)

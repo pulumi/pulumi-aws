@@ -58,19 +58,21 @@ public final class BrokerLogs {
 
         @CustomType.Setter
         public Builder audit(@Nullable Boolean audit) {
+
             this.audit = audit;
             return this;
         }
         @CustomType.Setter
         public Builder general(@Nullable Boolean general) {
+
             this.general = general;
             return this;
         }
         public BrokerLogs build() {
-            final var o = new BrokerLogs();
-            o.audit = audit;
-            o.general = general;
-            return o;
+            final var _resultValue = new BrokerLogs();
+            _resultValue.audit = audit;
+            _resultValue.general = general;
+            return _resultValue;
         }
     }
 }

@@ -32,6 +32,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * You can directly supply a topic and ARN by hand in the `topic_arn` property along with the queue ARN:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,16 +56,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var userUpdatesSqsTarget = new TopicSubscription(&#34;userUpdatesSqsTarget&#34;, TopicSubscriptionArgs.builder()        
- *             .endpoint(&#34;arn:aws:sqs:us-west-2:432981146916:queue-too&#34;)
- *             .protocol(&#34;sqs&#34;)
  *             .topic(&#34;arn:aws:sns:us-west-2:432981146916:user-updates-topic&#34;)
+ *             .protocol(&#34;sqs&#34;)
+ *             .endpoint(&#34;arn:aws:sqs:us-west-2:432981146916:queue-too&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -71,7 +76,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.sqs.Queue;
+ * import com.pulumi.aws.sqs.QueueArgs;
  * import com.pulumi.aws.sns.TopicSubscription;
  * import com.pulumi.aws.sns.TopicSubscriptionArgs;
  * import java.util.List;
@@ -87,9 +94,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var userUpdates = new Topic(&#34;userUpdates&#34;);
+ *         var userUpdates = new Topic(&#34;userUpdates&#34;, TopicArgs.builder()        
+ *             .name(&#34;user-updates-topic&#34;)
+ *             .build());
  * 
- *         var userUpdatesQueue = new Queue(&#34;userUpdatesQueue&#34;);
+ *         var userUpdatesQueue = new Queue(&#34;userUpdatesQueue&#34;, QueueArgs.builder()        
+ *             .name(&#34;user-updates-queue&#34;)
+ *             .build());
  * 
  *         var userUpdatesSqsTarget = new TopicSubscription(&#34;userUpdatesSqsTarget&#34;, TopicSubscriptionArgs.builder()        
  *             .topic(userUpdates.arn())
@@ -100,8 +111,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * You can subscribe SNS topics to SQS queues in different Amazon accounts and regions:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -110,16 +124,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
- * import com.pulumi.aws.inputs.ProviderAssumeRoleArgs;
  * import com.pulumi.aws.sns.Topic;
  * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.sqs.Queue;
  * import com.pulumi.aws.sqs.QueueArgs;
  * import com.pulumi.aws.sns.TopicSubscription;
  * import com.pulumi.aws.sns.TopicSubscriptionArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -200,61 +210,34 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var awsSns = new Provider(&#34;awsSns&#34;, ProviderArgs.builder()        
- *             .region(sns.region())
- *             .assumeRole(ProviderAssumeRoleArgs.builder()
- *                 .roleArn(String.format(&#34;arn:aws:iam::%s:role/%s&#34;, sns.account-id(),sns.role-name()))
- *                 .sessionName(String.format(&#34;sns-%s&#34;, sns.region()))
- *                 .build())
- *             .build());
- * 
- *         var awsSqs = new Provider(&#34;awsSqs&#34;, ProviderArgs.builder()        
- *             .region(sqs.region())
- *             .assumeRole(ProviderAssumeRoleArgs.builder()
- *                 .roleArn(String.format(&#34;arn:aws:iam::%s:role/%s&#34;, sqs.account-id(),sqs.role-name()))
- *                 .sessionName(String.format(&#34;sqs-%s&#34;, sqs.region()))
- *                 .build())
- *             .build());
- * 
- *         var sns2sqs = new Provider(&#34;sns2sqs&#34;, ProviderArgs.builder()        
- *             .region(sns.region())
- *             .assumeRole(ProviderAssumeRoleArgs.builder()
- *                 .roleArn(String.format(&#34;arn:aws:iam::%s:role/%s&#34;, sqs.account-id(),sqs.role-name()))
- *                 .sessionName(String.format(&#34;sns2sqs-%s&#34;, sns.region()))
- *                 .build())
- *             .build());
- * 
- *         var sns_topicTopic = new Topic(&#34;sns-topicTopic&#34;, TopicArgs.builder()        
+ *         var sns_topic = new Topic(&#34;sns-topic&#34;, TopicArgs.builder()        
+ *             .name(sns.name())
  *             .displayName(sns.display_name())
  *             .policy(sns_topic_policy.json())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.sns())
- *                 .build());
+ *             .build());
  * 
  *         var sqs_queue = new Queue(&#34;sqs-queue&#34;, QueueArgs.builder()        
+ *             .name(sqs.name())
  *             .policy(sqs_queue_policy.json())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.sqs())
- *                 .build());
+ *             .build());
  * 
  *         var sns_topicTopicSubscription = new TopicSubscription(&#34;sns-topicTopicSubscription&#34;, TopicSubscriptionArgs.builder()        
- *             .topic(sns_topicTopic.arn())
+ *             .topic(sns_topic.arn())
  *             .protocol(&#34;sqs&#34;)
  *             .endpoint(sqs_queue.arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.sns2sqs())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
+ * $ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
  * ```
  * 
  */

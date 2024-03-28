@@ -44,13 +44,14 @@ public final class WebAclRuleCaptchaConfigImmunityTimeProperty {
 
         @CustomType.Setter
         public Builder immunityTime(@Nullable Integer immunityTime) {
+
             this.immunityTime = immunityTime;
             return this;
         }
         public WebAclRuleCaptchaConfigImmunityTimeProperty build() {
-            final var o = new WebAclRuleCaptchaConfigImmunityTimeProperty();
-            o.immunityTime = immunityTime;
-            return o;
+            final var _resultValue = new WebAclRuleCaptchaConfigImmunityTimeProperty();
+            _resultValue.immunityTime = immunityTime;
+            return _resultValue;
         }
     }
 }

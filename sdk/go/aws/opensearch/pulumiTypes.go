@@ -388,9 +388,13 @@ type DomainAutoTuneOptions struct {
 	// Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
 	DesiredState string `pulumi:"desiredState"`
 	// Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+	//
+	// **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenanceSchedule` configuration blocks cannot be specified when `useOffPeakWindow` is set to `true`.
 	MaintenanceSchedules []DomainAutoTuneOptionsMaintenanceSchedule `pulumi:"maintenanceSchedules"`
 	// Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
 	RollbackOnDisable *string `pulumi:"rollbackOnDisable"`
+	// Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window. Defaults to `false`.
+	UseOffPeakWindow *bool `pulumi:"useOffPeakWindow"`
 }
 
 // DomainAutoTuneOptionsInput is an input type that accepts DomainAutoTuneOptionsArgs and DomainAutoTuneOptionsOutput values.
@@ -408,9 +412,13 @@ type DomainAutoTuneOptionsArgs struct {
 	// Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
 	DesiredState pulumi.StringInput `pulumi:"desiredState"`
 	// Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+	//
+	// **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenanceSchedule` configuration blocks cannot be specified when `useOffPeakWindow` is set to `true`.
 	MaintenanceSchedules DomainAutoTuneOptionsMaintenanceScheduleArrayInput `pulumi:"maintenanceSchedules"`
 	// Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
 	RollbackOnDisable pulumi.StringPtrInput `pulumi:"rollbackOnDisable"`
+	// Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window. Defaults to `false`.
+	UseOffPeakWindow pulumi.BoolPtrInput `pulumi:"useOffPeakWindow"`
 }
 
 func (DomainAutoTuneOptionsArgs) ElementType() reflect.Type {
@@ -496,6 +504,8 @@ func (o DomainAutoTuneOptionsOutput) DesiredState() pulumi.StringOutput {
 }
 
 // Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+//
+// **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenanceSchedule` configuration blocks cannot be specified when `useOffPeakWindow` is set to `true`.
 func (o DomainAutoTuneOptionsOutput) MaintenanceSchedules() DomainAutoTuneOptionsMaintenanceScheduleArrayOutput {
 	return o.ApplyT(func(v DomainAutoTuneOptions) []DomainAutoTuneOptionsMaintenanceSchedule {
 		return v.MaintenanceSchedules
@@ -505,6 +515,11 @@ func (o DomainAutoTuneOptionsOutput) MaintenanceSchedules() DomainAutoTuneOption
 // Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
 func (o DomainAutoTuneOptionsOutput) RollbackOnDisable() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainAutoTuneOptions) *string { return v.RollbackOnDisable }).(pulumi.StringPtrOutput)
+}
+
+// Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window. Defaults to `false`.
+func (o DomainAutoTuneOptionsOutput) UseOffPeakWindow() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainAutoTuneOptions) *bool { return v.UseOffPeakWindow }).(pulumi.BoolPtrOutput)
 }
 
 type DomainAutoTuneOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -542,6 +557,8 @@ func (o DomainAutoTuneOptionsPtrOutput) DesiredState() pulumi.StringPtrOutput {
 }
 
 // Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+//
+// **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenanceSchedule` configuration blocks cannot be specified when `useOffPeakWindow` is set to `true`.
 func (o DomainAutoTuneOptionsPtrOutput) MaintenanceSchedules() DomainAutoTuneOptionsMaintenanceScheduleArrayOutput {
 	return o.ApplyT(func(v *DomainAutoTuneOptions) []DomainAutoTuneOptionsMaintenanceSchedule {
 		if v == nil {
@@ -559,6 +576,16 @@ func (o DomainAutoTuneOptionsPtrOutput) RollbackOnDisable() pulumi.StringPtrOutp
 		}
 		return v.RollbackOnDisable
 	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window. Defaults to `false`.
+func (o DomainAutoTuneOptionsPtrOutput) UseOffPeakWindow() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainAutoTuneOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseOffPeakWindow
+	}).(pulumi.BoolPtrOutput)
 }
 
 type DomainAutoTuneOptionsMaintenanceSchedule struct {
@@ -751,8 +778,9 @@ type DomainClusterConfig struct {
 	// Number of instances in the cluster.
 	InstanceCount *int `pulumi:"instanceCount"`
 	// Instance type of data nodes in the cluster.
-	InstanceType              *string `pulumi:"instanceType"`
-	MultiAzWithStandbyEnabled *bool   `pulumi:"multiAzWithStandbyEnabled"`
+	InstanceType *string `pulumi:"instanceType"`
+	// Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
+	MultiAzWithStandbyEnabled *bool `pulumi:"multiAzWithStandbyEnabled"`
 	// Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
 	WarmCount *int `pulumi:"warmCount"`
 	// Whether to enable warm storage.
@@ -788,8 +816,9 @@ type DomainClusterConfigArgs struct {
 	// Number of instances in the cluster.
 	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
 	// Instance type of data nodes in the cluster.
-	InstanceType              pulumi.StringPtrInput `pulumi:"instanceType"`
-	MultiAzWithStandbyEnabled pulumi.BoolPtrInput   `pulumi:"multiAzWithStandbyEnabled"`
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
+	MultiAzWithStandbyEnabled pulumi.BoolPtrInput `pulumi:"multiAzWithStandbyEnabled"`
 	// Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
 	WarmCount pulumi.IntPtrInput `pulumi:"warmCount"`
 	// Whether to enable warm storage.
@@ -909,6 +938,7 @@ func (o DomainClusterConfigOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+// Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
 func (o DomainClusterConfigOutput) MultiAzWithStandbyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.MultiAzWithStandbyEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1022,6 +1052,7 @@ func (o DomainClusterConfigPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
 func (o DomainClusterConfigPtrOutput) MultiAzWithStandbyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainClusterConfig) *bool {
 		if v == nil {
@@ -1558,7 +1589,7 @@ type DomainDomainEndpointOptions struct {
 	CustomEndpointEnabled *bool `pulumi:"customEndpointEnabled"`
 	// Whether or not to require HTTPS. Defaults to `true`.
 	EnforceHttps *bool `pulumi:"enforceHttps"`
-	// Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+	// Name of the TLS security policy that needs to be applied to the HTTPS endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DomainEndpointOptions.html#opensearchservice-Type-DomainEndpointOptions-TLSSecurityPolicy). Pulumi will only perform drift detection if a configuration value is provided.
 	TlsSecurityPolicy *string `pulumi:"tlsSecurityPolicy"`
 }
 
@@ -1582,7 +1613,7 @@ type DomainDomainEndpointOptionsArgs struct {
 	CustomEndpointEnabled pulumi.BoolPtrInput `pulumi:"customEndpointEnabled"`
 	// Whether or not to require HTTPS. Defaults to `true`.
 	EnforceHttps pulumi.BoolPtrInput `pulumi:"enforceHttps"`
-	// Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+	// Name of the TLS security policy that needs to be applied to the HTTPS endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DomainEndpointOptions.html#opensearchservice-Type-DomainEndpointOptions-TLSSecurityPolicy). Pulumi will only perform drift detection if a configuration value is provided.
 	TlsSecurityPolicy pulumi.StringPtrInput `pulumi:"tlsSecurityPolicy"`
 }
 
@@ -1683,7 +1714,7 @@ func (o DomainDomainEndpointOptionsOutput) EnforceHttps() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainDomainEndpointOptions) *bool { return v.EnforceHttps }).(pulumi.BoolPtrOutput)
 }
 
-// Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+// Name of the TLS security policy that needs to be applied to the HTTPS endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DomainEndpointOptions.html#opensearchservice-Type-DomainEndpointOptions-TLSSecurityPolicy). Pulumi will only perform drift detection if a configuration value is provided.
 func (o DomainDomainEndpointOptionsOutput) TlsSecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDomainEndpointOptions) *string { return v.TlsSecurityPolicy }).(pulumi.StringPtrOutput)
 }
@@ -1752,7 +1783,7 @@ func (o DomainDomainEndpointOptionsPtrOutput) EnforceHttps() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+// Name of the TLS security policy that needs to be applied to the HTTPS endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DomainEndpointOptions.html#opensearchservice-Type-DomainEndpointOptions-TLSSecurityPolicy). Pulumi will only perform drift detection if a configuration value is provided.
 func (o DomainDomainEndpointOptionsPtrOutput) TlsSecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDomainEndpointOptions) *string {
 		if v == nil {
@@ -4499,7 +4530,9 @@ func (o PackagePackageSourcePtrOutput) S3Key() pulumi.StringPtrOutput {
 }
 
 type ServerlessCollectionTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete *string `pulumi:"delete"`
 }
 
@@ -4515,7 +4548,9 @@ type ServerlessCollectionTimeoutsInput interface {
 }
 
 type ServerlessCollectionTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete pulumi.StringPtrInput `pulumi:"delete"`
 }
 
@@ -4596,10 +4631,12 @@ func (o ServerlessCollectionTimeoutsOutput) ToServerlessCollectionTimeoutsPtrOut
 	}).(ServerlessCollectionTimeoutsPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 func (o ServerlessCollectionTimeoutsOutput) Create() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerlessCollectionTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 func (o ServerlessCollectionTimeoutsOutput) Delete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerlessCollectionTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
 }
@@ -4628,6 +4665,7 @@ func (o ServerlessCollectionTimeoutsPtrOutput) Elem() ServerlessCollectionTimeou
 	}).(ServerlessCollectionTimeoutsOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 func (o ServerlessCollectionTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerlessCollectionTimeouts) *string {
 		if v == nil {
@@ -4637,6 +4675,7 @@ func (o ServerlessCollectionTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 func (o ServerlessCollectionTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerlessCollectionTimeouts) *string {
 		if v == nil {
@@ -4841,8 +4880,11 @@ func (o ServerlessSecurityConfigSamlOptionsPtrOutput) UserAttribute() pulumi.Str
 }
 
 type ServerlessVpcEndpointTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Update *string `pulumi:"update"`
 }
 
@@ -4858,8 +4900,11 @@ type ServerlessVpcEndpointTimeoutsInput interface {
 }
 
 type ServerlessVpcEndpointTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Update pulumi.StringPtrInput `pulumi:"update"`
 }
 
@@ -4940,14 +4985,17 @@ func (o ServerlessVpcEndpointTimeoutsOutput) ToServerlessVpcEndpointTimeoutsPtrO
 	}).(ServerlessVpcEndpointTimeoutsPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 func (o ServerlessVpcEndpointTimeoutsOutput) Create() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerlessVpcEndpointTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 func (o ServerlessVpcEndpointTimeoutsOutput) Delete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerlessVpcEndpointTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 func (o ServerlessVpcEndpointTimeoutsOutput) Update() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerlessVpcEndpointTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
 }
@@ -4976,6 +5024,7 @@ func (o ServerlessVpcEndpointTimeoutsPtrOutput) Elem() ServerlessVpcEndpointTime
 	}).(ServerlessVpcEndpointTimeoutsOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 func (o ServerlessVpcEndpointTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerlessVpcEndpointTimeouts) *string {
 		if v == nil {
@@ -4985,6 +5034,7 @@ func (o ServerlessVpcEndpointTimeoutsPtrOutput) Create() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 func (o ServerlessVpcEndpointTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerlessVpcEndpointTimeouts) *string {
 		if v == nil {
@@ -4994,6 +5044,7 @@ func (o ServerlessVpcEndpointTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 func (o ServerlessVpcEndpointTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerlessVpcEndpointTimeouts) *string {
 		if v == nil {
@@ -5308,6 +5359,8 @@ type GetDomainAutoTuneOption struct {
 	MaintenanceSchedules []GetDomainAutoTuneOptionMaintenanceSchedule `pulumi:"maintenanceSchedules"`
 	// Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
 	RollbackOnDisable string `pulumi:"rollbackOnDisable"`
+	// Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window.
+	UseOffPeakWindow bool `pulumi:"useOffPeakWindow"`
 }
 
 // GetDomainAutoTuneOptionInput is an input type that accepts GetDomainAutoTuneOptionArgs and GetDomainAutoTuneOptionOutput values.
@@ -5328,6 +5381,8 @@ type GetDomainAutoTuneOptionArgs struct {
 	MaintenanceSchedules GetDomainAutoTuneOptionMaintenanceScheduleArrayInput `pulumi:"maintenanceSchedules"`
 	// Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
 	RollbackOnDisable pulumi.StringInput `pulumi:"rollbackOnDisable"`
+	// Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window.
+	UseOffPeakWindow pulumi.BoolInput `pulumi:"useOffPeakWindow"`
 }
 
 func (GetDomainAutoTuneOptionArgs) ElementType() reflect.Type {
@@ -5396,6 +5451,11 @@ func (o GetDomainAutoTuneOptionOutput) MaintenanceSchedules() GetDomainAutoTuneO
 // Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
 func (o GetDomainAutoTuneOptionOutput) RollbackOnDisable() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainAutoTuneOption) string { return v.RollbackOnDisable }).(pulumi.StringOutput)
+}
+
+// Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window.
+func (o GetDomainAutoTuneOptionOutput) UseOffPeakWindow() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDomainAutoTuneOption) bool { return v.UseOffPeakWindow }).(pulumi.BoolOutput)
 }
 
 type GetDomainAutoTuneOptionArrayOutput struct{ *pulumi.OutputState }
@@ -5653,8 +5713,9 @@ type GetDomainClusterConfig struct {
 	// Number of instances in the cluster.
 	InstanceCount int `pulumi:"instanceCount"`
 	// Instance type of data nodes in the cluster.
-	InstanceType              string `pulumi:"instanceType"`
-	MultiAzWithStandbyEnabled bool   `pulumi:"multiAzWithStandbyEnabled"`
+	InstanceType string `pulumi:"instanceType"`
+	// Whether a multi-AZ domain is turned on with a standby AZ.
+	MultiAzWithStandbyEnabled bool `pulumi:"multiAzWithStandbyEnabled"`
 	// Number of warm nodes in the cluster.
 	WarmCount int `pulumi:"warmCount"`
 	// Warm storage is enabled.
@@ -5690,8 +5751,9 @@ type GetDomainClusterConfigArgs struct {
 	// Number of instances in the cluster.
 	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
 	// Instance type of data nodes in the cluster.
-	InstanceType              pulumi.StringInput `pulumi:"instanceType"`
-	MultiAzWithStandbyEnabled pulumi.BoolInput   `pulumi:"multiAzWithStandbyEnabled"`
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// Whether a multi-AZ domain is turned on with a standby AZ.
+	MultiAzWithStandbyEnabled pulumi.BoolInput `pulumi:"multiAzWithStandbyEnabled"`
 	// Number of warm nodes in the cluster.
 	WarmCount pulumi.IntInput `pulumi:"warmCount"`
 	// Warm storage is enabled.
@@ -5785,6 +5847,7 @@ func (o GetDomainClusterConfigOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainClusterConfig) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
+// Whether a multi-AZ domain is turned on with a standby AZ.
 func (o GetDomainClusterConfigOutput) MultiAzWithStandbyEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainClusterConfig) bool { return v.MultiAzWithStandbyEnabled }).(pulumi.BoolOutput)
 }

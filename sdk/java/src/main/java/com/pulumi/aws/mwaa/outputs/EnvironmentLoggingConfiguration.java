@@ -104,37 +104,42 @@ public final class EnvironmentLoggingConfiguration {
 
         @CustomType.Setter
         public Builder dagProcessingLogs(@Nullable EnvironmentLoggingConfigurationDagProcessingLogs dagProcessingLogs) {
+
             this.dagProcessingLogs = dagProcessingLogs;
             return this;
         }
         @CustomType.Setter
         public Builder schedulerLogs(@Nullable EnvironmentLoggingConfigurationSchedulerLogs schedulerLogs) {
+
             this.schedulerLogs = schedulerLogs;
             return this;
         }
         @CustomType.Setter
         public Builder taskLogs(@Nullable EnvironmentLoggingConfigurationTaskLogs taskLogs) {
+
             this.taskLogs = taskLogs;
             return this;
         }
         @CustomType.Setter
         public Builder webserverLogs(@Nullable EnvironmentLoggingConfigurationWebserverLogs webserverLogs) {
+
             this.webserverLogs = webserverLogs;
             return this;
         }
         @CustomType.Setter
         public Builder workerLogs(@Nullable EnvironmentLoggingConfigurationWorkerLogs workerLogs) {
+
             this.workerLogs = workerLogs;
             return this;
         }
         public EnvironmentLoggingConfiguration build() {
-            final var o = new EnvironmentLoggingConfiguration();
-            o.dagProcessingLogs = dagProcessingLogs;
-            o.schedulerLogs = schedulerLogs;
-            o.taskLogs = taskLogs;
-            o.webserverLogs = webserverLogs;
-            o.workerLogs = workerLogs;
-            return o;
+            final var _resultValue = new EnvironmentLoggingConfiguration();
+            _resultValue.dagProcessingLogs = dagProcessingLogs;
+            _resultValue.schedulerLogs = schedulerLogs;
+            _resultValue.taskLogs = taskLogs;
+            _resultValue.webserverLogs = webserverLogs;
+            _resultValue.workerLogs = workerLogs;
+            return _resultValue;
         }
     }
 }

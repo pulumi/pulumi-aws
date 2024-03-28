@@ -18,6 +18,7 @@ import (
 //
 // To register a basic SWF domain:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := swf.NewDomain(ctx, "foo", &swf.DomainArgs{
+//				Name:                                   pulumi.String("foo"),
 //				Description:                            pulumi.String("SWF Domain"),
 //				WorkflowExecutionRetentionPeriodInDays: pulumi.String("30"),
 //			})
@@ -42,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SWF Domains using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:swf/domain:Domain foo test-domain
-//
+// $ pulumi import aws:swf/domain:Domain foo test-domain
 // ```
 type Domain struct {
 	pulumi.CustomResourceState
@@ -83,10 +84,6 @@ func NewDomain(ctx *pulumi.Context,
 	if args.WorkflowExecutionRetentionPeriodInDays == nil {
 		return nil, errors.New("invalid value for required argument 'WorkflowExecutionRetentionPeriodInDays'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Domain
 	err := ctx.RegisterResource("aws:swf/domain:Domain", name, args, &resource, opts...)

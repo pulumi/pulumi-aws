@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,7 +39,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Sid:    pulumi.StringRef("Enable IAM User Permissions"),
@@ -63,19 +64,22 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			exampleKey, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				Description:          pulumi.String("my test kms key"),
 //				DeletionWindowInDays: pulumi.Int(7),
-//				Policy:               *pulumi.String(examplePolicyDocument.Json),
+//				Policy:               pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("my-test"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = codebuild.NewReportGroup(ctx, "exampleReportGroup", &codebuild.ReportGroupArgs{
+//			_, err = codebuild.NewReportGroup(ctx, "example", &codebuild.ReportGroupArgs{
+//				Name: pulumi.String("my test report group"),
 //				Type: pulumi.String("TEST"),
 //				ExportConfig: &codebuild.ReportGroupExportConfigArgs{
 //					Type: pulumi.String("S3"),
@@ -96,15 +100,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
-//
+// $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
 // ```
 type ReportGroup struct {
 	pulumi.CustomResourceState
@@ -142,10 +145,6 @@ func NewReportGroup(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReportGroup
 	err := ctx.RegisterResource("aws:codebuild/reportGroup:ReportGroup", name, args, &resource, opts...)

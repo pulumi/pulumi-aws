@@ -5,6 +5,7 @@ package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.aws.ecs.outputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -71,25 +72,34 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration {
 
         @CustomType.Setter
         public Builder authorizationConfig(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig authorizationConfig) {
-            this.authorizationConfig = Objects.requireNonNull(authorizationConfig);
+            if (authorizationConfig == null) {
+              throw new MissingRequiredPropertyException("TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration", "authorizationConfig");
+            }
+            this.authorizationConfig = authorizationConfig;
             return this;
         }
         @CustomType.Setter
         public Builder fileSystemId(String fileSystemId) {
-            this.fileSystemId = Objects.requireNonNull(fileSystemId);
+            if (fileSystemId == null) {
+              throw new MissingRequiredPropertyException("TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration", "fileSystemId");
+            }
+            this.fileSystemId = fileSystemId;
             return this;
         }
         @CustomType.Setter
         public Builder rootDirectory(String rootDirectory) {
-            this.rootDirectory = Objects.requireNonNull(rootDirectory);
+            if (rootDirectory == null) {
+              throw new MissingRequiredPropertyException("TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration", "rootDirectory");
+            }
+            this.rootDirectory = rootDirectory;
             return this;
         }
         public TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration build() {
-            final var o = new TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration();
-            o.authorizationConfig = authorizationConfig;
-            o.fileSystemId = fileSystemId;
-            o.rootDirectory = rootDirectory;
-            return o;
+            final var _resultValue = new TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration();
+            _resultValue.authorizationConfig = authorizationConfig;
+            _resultValue.fileSystemId = fileSystemId;
+            _resultValue.rootDirectory = rootDirectory;
+            return _resultValue;
         }
     }
 }

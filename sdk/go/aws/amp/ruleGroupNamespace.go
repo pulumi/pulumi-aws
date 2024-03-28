@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,12 +29,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			demoWorkspace, err := amp.NewWorkspace(ctx, "demoWorkspace", nil)
+//			demo, err := amp.NewWorkspace(ctx, "demo", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = amp.NewRuleGroupNamespace(ctx, "demoRuleGroupNamespace", &amp.RuleGroupNamespaceArgs{
-//				WorkspaceId: demoWorkspace.ID(),
+//			_, err = amp.NewRuleGroupNamespace(ctx, "demo", &amp.RuleGroupNamespaceArgs{
+//				Name:        pulumi.String("rules"),
+//				WorkspaceId: demo.ID(),
 //				Data: pulumi.String(`groups:
 //	  - name: test
 //	    rules:
@@ -51,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import the prometheus rule group namespace using the arn. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:amp/ruleGroupNamespace:RuleGroupNamespace demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name
-//
+// $ pulumi import aws:amp/ruleGroupNamespace:RuleGroupNamespace demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name
 // ```
 type RuleGroupNamespace struct {
 	pulumi.CustomResourceState

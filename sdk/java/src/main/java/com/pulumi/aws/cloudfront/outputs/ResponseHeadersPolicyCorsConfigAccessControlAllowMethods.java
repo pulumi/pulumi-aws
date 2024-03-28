@@ -36,6 +36,7 @@ public final class ResponseHeadersPolicyCorsConfigAccessControlAllowMethods {
 
         @CustomType.Setter
         public Builder items(@Nullable List<String> items) {
+
             this.items = items;
             return this;
         }
@@ -43,9 +44,9 @@ public final class ResponseHeadersPolicyCorsConfigAccessControlAllowMethods {
             return items(List.of(items));
         }
         public ResponseHeadersPolicyCorsConfigAccessControlAllowMethods build() {
-            final var o = new ResponseHeadersPolicyCorsConfigAccessControlAllowMethods();
-            o.items = items;
-            return o;
+            final var _resultValue = new ResponseHeadersPolicyCorsConfigAccessControlAllowMethods();
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

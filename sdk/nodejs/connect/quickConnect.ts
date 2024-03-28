@@ -13,31 +13,34 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.connect.QuickConnect("test", {
- *     description: "quick connect phone number",
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Example Name",
+ *     description: "quick connect phone number",
  *     quickConnectConfig: {
+ *         quickConnectType: "PHONE_NUMBER",
  *         phoneConfigs: [{
  *             phoneNumber: "+12345678912",
  *         }],
- *         quickConnectType: "PHONE_NUMBER",
  *     },
  *     tags: {
  *         Name: "Example Quick Connect",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Amazon Connect Quick Connects using the `instance_id` and `quick_connect_id` separated by a colon (`:`). For example:
  *
  * ```sh
- *  $ pulumi import aws:connect/quickConnect:QuickConnect example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+ * $ pulumi import aws:connect/quickConnect:QuickConnect example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
  * ```
  */
 export class QuickConnect extends pulumi.CustomResource {
@@ -142,8 +145,6 @@ export class QuickConnect extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(QuickConnect.__pulumiType, name, resourceInputs, opts);
     }
 }

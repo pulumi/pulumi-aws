@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions 
 
         @CustomType.Setter
         public Builder override(Boolean override) {
-            this.override = Objects.requireNonNull(override);
+            if (override == null) {
+              throw new MissingRequiredPropertyException("ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions", "override");
+            }
+            this.override = override;
             return this;
         }
         public ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions build() {
-            final var o = new ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions();
-            o.override = override;
-            return o;
+            final var _resultValue = new ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions();
+            _resultValue.override = override;
+            return _resultValue;
         }
     }
 }

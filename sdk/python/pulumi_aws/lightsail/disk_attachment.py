@@ -134,6 +134,7 @@ class Disk_attachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -143,25 +144,28 @@ class Disk_attachment(pulumi.CustomResource):
                 name="opt-in-status",
                 values=["opt-in-not-required"],
             )])
-        test_disk = aws.lightsail.Disk("testDisk",
+        test = aws.lightsail.Disk("test",
+            name="test-disk",
             size_in_gb=8,
             availability_zone=available.names[0])
-        test_instance = aws.lightsail.Instance("testInstance",
+        test_instance = aws.lightsail.Instance("test",
+            name="test-instance",
             availability_zone=available.names[0],
             blueprint_id="amazon_linux_2",
             bundle_id="nano_1_0")
-        test_disk_attachment = aws.lightsail.Disk_attachment("testDisk_attachment",
-            disk_name=test_disk.name,
+        test_disk_attachment = aws.lightsail.Disk_attachment("test",
+            disk_name=test.name,
             instance_name=test_instance.name,
             disk_path="/dev/xvdf")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_disk` using the id attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
+        $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
         ```
 
         :param str resource_name: The name of the resource.
@@ -181,6 +185,7 @@ class Disk_attachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -190,25 +195,28 @@ class Disk_attachment(pulumi.CustomResource):
                 name="opt-in-status",
                 values=["opt-in-not-required"],
             )])
-        test_disk = aws.lightsail.Disk("testDisk",
+        test = aws.lightsail.Disk("test",
+            name="test-disk",
             size_in_gb=8,
             availability_zone=available.names[0])
-        test_instance = aws.lightsail.Instance("testInstance",
+        test_instance = aws.lightsail.Instance("test",
+            name="test-instance",
             availability_zone=available.names[0],
             blueprint_id="amazon_linux_2",
             bundle_id="nano_1_0")
-        test_disk_attachment = aws.lightsail.Disk_attachment("testDisk_attachment",
-            disk_name=test_disk.name,
+        test_disk_attachment = aws.lightsail.Disk_attachment("test",
+            disk_name=test.name,
             instance_name=test_instance.name,
             disk_path="/dev/xvdf")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_disk` using the id attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
+        $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
         ```
 
         :param str resource_name: The name of the resource.

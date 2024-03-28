@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,6 +21,7 @@ import * as utilities from "../utilities";
  *     type: "retention",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServerlessLifecyclePolicy(args: GetServerlessLifecyclePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessLifecyclePolicyResult> {
 
@@ -75,8 +78,10 @@ export interface GetServerlessLifecyclePolicyResult {
  * Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -86,6 +91,7 @@ export interface GetServerlessLifecyclePolicyResult {
  *     type: "retention",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServerlessLifecyclePolicyOutput(args: GetServerlessLifecyclePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessLifecyclePolicyResult> {
     return pulumi.output(args).apply((a: any) => getServerlessLifecyclePolicy(a, opts))

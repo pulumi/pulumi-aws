@@ -133,40 +133,45 @@ class LicenseAssociation(pulumi.CustomResource):
         Provides an Amazon Managed Grafana workspace license association resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        assume = aws.iam.Role("assume", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "grafana.amazonaws.com",
-                },
-            }],
-        }))
-        example_workspace = aws.grafana.Workspace("exampleWorkspace",
+        assume = aws.iam.Role("assume",
+            name="grafana-assume",
+            assume_role_policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "grafana.amazonaws.com",
+                    },
+                }],
+            }))
+        example_workspace = aws.grafana.Workspace("example",
             account_access_type="CURRENT_ACCOUNT",
             authentication_providers=["SAML"],
             permission_type="SERVICE_MANAGED",
             role_arn=assume.arn)
-        example_license_association = aws.grafana.LicenseAssociation("exampleLicenseAssociation",
+        example = aws.grafana.LicenseAssociation("example",
             license_type="ENTERPRISE_FREE_TRIAL",
             workspace_id=example_workspace.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Grafana workspace license association using the workspace's `id`. For example:
 
         ```sh
-         $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
+        $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
         ```
 
         :param str resource_name: The name of the resource.
@@ -184,40 +189,45 @@ class LicenseAssociation(pulumi.CustomResource):
         Provides an Amazon Managed Grafana workspace license association resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        assume = aws.iam.Role("assume", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "grafana.amazonaws.com",
-                },
-            }],
-        }))
-        example_workspace = aws.grafana.Workspace("exampleWorkspace",
+        assume = aws.iam.Role("assume",
+            name="grafana-assume",
+            assume_role_policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "grafana.amazonaws.com",
+                    },
+                }],
+            }))
+        example_workspace = aws.grafana.Workspace("example",
             account_access_type="CURRENT_ACCOUNT",
             authentication_providers=["SAML"],
             permission_type="SERVICE_MANAGED",
             role_arn=assume.arn)
-        example_license_association = aws.grafana.LicenseAssociation("exampleLicenseAssociation",
+        example = aws.grafana.LicenseAssociation("example",
             license_type="ENTERPRISE_FREE_TRIAL",
             workspace_id=example_workspace.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Grafana workspace license association using the workspace's `id`. For example:
 
         ```sh
-         $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
+        $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
         ```
 
         :param str resource_name: The name of the resource.

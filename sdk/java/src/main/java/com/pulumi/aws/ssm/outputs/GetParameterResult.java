@@ -4,6 +4,7 @@
 package com.pulumi.aws.ssm.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -88,55 +89,77 @@ public final class GetParameterResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetParameterResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetParameterResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder insecureValue(String insecureValue) {
-            this.insecureValue = Objects.requireNonNull(insecureValue);
+            if (insecureValue == null) {
+              throw new MissingRequiredPropertyException("GetParameterResult", "insecureValue");
+            }
+            this.insecureValue = insecureValue;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetParameterResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetParameterResult", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("GetParameterResult", "value");
+            }
+            this.value = value;
             return this;
         }
         @CustomType.Setter
         public Builder version(Integer version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetParameterResult", "version");
+            }
+            this.version = version;
             return this;
         }
         @CustomType.Setter
         public Builder withDecryption(@Nullable Boolean withDecryption) {
+
             this.withDecryption = withDecryption;
             return this;
         }
         public GetParameterResult build() {
-            final var o = new GetParameterResult();
-            o.arn = arn;
-            o.id = id;
-            o.insecureValue = insecureValue;
-            o.name = name;
-            o.type = type;
-            o.value = value;
-            o.version = version;
-            o.withDecryption = withDecryption;
-            return o;
+            final var _resultValue = new GetParameterResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.insecureValue = insecureValue;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            _resultValue.version = version;
+            _resultValue.withDecryption = withDecryption;
+            return _resultValue;
         }
     }
 }

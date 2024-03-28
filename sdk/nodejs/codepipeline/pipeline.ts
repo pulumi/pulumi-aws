@@ -12,12 +12,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.codestarconnections.Connection("example", {providerType: "GitHub"});
- * const codepipelineBucket = new aws.s3.BucketV2("codepipelineBucket", {});
+ * const example = new aws.codestarconnections.Connection("example", {
+ *     name: "example-connection",
+ *     providerType: "GitHub",
+ * });
+ * const codepipelineBucket = new aws.s3.BucketV2("codepipeline_bucket", {bucket: "test-bucket"});
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -28,11 +32,15 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const codepipelineRole = new aws.iam.Role("codepipelineRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const codepipelineRole = new aws.iam.Role("codepipeline_role", {
+ *     name: "test-role",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
  * const s3kmskey = aws.kms.getAlias({
  *     name: "alias/myKmsKey",
  * });
  * const codepipeline = new aws.codepipeline.Pipeline("codepipeline", {
+ *     name: "tf-test-pipeline",
  *     roleArn: codepipelineRole.arn,
  *     artifactStores: [{
  *         location: codepipelineBucket.bucket,
@@ -94,11 +102,14 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const codepipelineBucketAcl = new aws.s3.BucketAclV2("codepipelineBucketAcl", {
+ * const codepipelineBucketPab = new aws.s3.BucketPublicAccessBlock("codepipeline_bucket_pab", {
  *     bucket: codepipelineBucket.id,
- *     acl: "private",
+ *     blockPublicAcls: true,
+ *     blockPublicPolicy: true,
+ *     ignorePublicAcls: true,
+ *     restrictPublicBuckets: true,
  * });
- * const codepipelinePolicyPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const codepipelinePolicy = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             effect: "Allow",
@@ -129,18 +140,20 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const codepipelinePolicyRolePolicy = new aws.iam.RolePolicy("codepipelinePolicyRolePolicy", {
+ * const codepipelinePolicyRolePolicy = new aws.iam.RolePolicy("codepipeline_policy", {
+ *     name: "codepipeline_policy",
  *     role: codepipelineRole.id,
- *     policy: codepipelinePolicyPolicyDocument.apply(codepipelinePolicyPolicyDocument => codepipelinePolicyPolicyDocument.json),
+ *     policy: codepipelinePolicy.apply(codepipelinePolicy => codepipelinePolicy.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CodePipelines using the name. For example:
  *
  * ```sh
- *  $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
+ * $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
  * ```
  */
 export class Pipeline extends pulumi.CustomResource {
@@ -180,9 +193,19 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly artifactStores!: pulumi.Output<outputs.codepipeline.PipelineArtifactStore[]>;
     /**
+     * The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+     *
+     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+     */
+    public readonly executionMode!: pulumi.Output<string | undefined>;
+    /**
      * The name of the pipeline.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+     */
+    public readonly pipelineType!: pulumi.Output<string | undefined>;
     /**
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
@@ -201,6 +224,14 @@ export class Pipeline extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
+     */
+    public readonly triggers!: pulumi.Output<outputs.codepipeline.PipelineTrigger[] | undefined>;
+    /**
+     * A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+     */
+    public readonly variables!: pulumi.Output<outputs.codepipeline.PipelineVariable[] | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -217,11 +248,15 @@ export class Pipeline extends pulumi.CustomResource {
             const state = argsOrState as PipelineState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["artifactStores"] = state ? state.artifactStores : undefined;
+            resourceInputs["executionMode"] = state ? state.executionMode : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["pipelineType"] = state ? state.pipelineType : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["stages"] = state ? state.stages : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["triggers"] = state ? state.triggers : undefined;
+            resourceInputs["variables"] = state ? state.variables : undefined;
         } else {
             const args = argsOrState as PipelineArgs | undefined;
             if ((!args || args.artifactStores === undefined) && !opts.urn) {
@@ -234,16 +269,18 @@ export class Pipeline extends pulumi.CustomResource {
                 throw new Error("Missing required property 'stages'");
             }
             resourceInputs["artifactStores"] = args ? args.artifactStores : undefined;
+            resourceInputs["executionMode"] = args ? args.executionMode : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["pipelineType"] = args ? args.pipelineType : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["stages"] = args ? args.stages : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["triggers"] = args ? args.triggers : undefined;
+            resourceInputs["variables"] = args ? args.variables : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Pipeline.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -261,9 +298,19 @@ export interface PipelineState {
      */
     artifactStores?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineArtifactStore>[]>;
     /**
+     * The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+     *
+     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+     */
+    executionMode?: pulumi.Input<string>;
+    /**
      * The name of the pipeline.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+     */
+    pipelineType?: pulumi.Input<string>;
     /**
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
@@ -282,6 +329,14 @@ export interface PipelineState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
+     */
+    triggers?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineTrigger>[]>;
+    /**
+     * A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+     */
+    variables?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineVariable>[]>;
 }
 
 /**
@@ -293,9 +348,19 @@ export interface PipelineArgs {
      */
     artifactStores: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineArtifactStore>[]>;
     /**
+     * The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+     *
+     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+     */
+    executionMode?: pulumi.Input<string>;
+    /**
      * The name of the pipeline.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+     */
+    pipelineType?: pulumi.Input<string>;
     /**
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
@@ -308,4 +373,12 @@ export interface PipelineArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
+     */
+    triggers?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineTrigger>[]>;
+    /**
+     * A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+     */
+    variables?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineVariable>[]>;
 }

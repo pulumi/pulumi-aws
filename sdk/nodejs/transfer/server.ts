@@ -15,8 +15,10 @@ import * as utilities from "../utilities";
  * > **NOTE:** Use the `aws.transfer.Tag` resource to manage the system tags used for [custom hostnames](https://docs.aws.amazon.com/transfer/latest/userguide/requirements-dns.html#tag-custom-hostname-cdk).
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,16 +27,22 @@ import * as utilities from "../utilities";
  *     Name: "Example",
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Security Policy Name
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.transfer.Server("example", {securityPolicyName: "TransferSecurityPolicy-2020-06"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### VPC Endpoint
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -42,36 +50,45 @@ import * as utilities from "../utilities";
  * const example = new aws.transfer.Server("example", {
  *     endpointType: "VPC",
  *     endpointDetails: {
- *         addressAllocationIds: [aws_eip.example.id],
- *         subnetIds: [aws_subnet.example.id],
- *         vpcId: aws_vpc.example.id,
+ *         addressAllocationIds: [exampleAwsEip.id],
+ *         subnetIds: [exampleAwsSubnet.id],
+ *         vpcId: exampleAwsVpc.id,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### AWS Directory authentication
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.transfer.Server("example", {
  *     identityProviderType: "AWS_DIRECTORY_SERVICE",
- *     directoryId: aws_directory_service_directory.example.id,
+ *     directoryId: exampleAwsDirectoryServiceDirectory.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### AWS Lambda authentication
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.transfer.Server("example", {
  *     identityProviderType: "AWS_LAMBDA",
- *     "function": aws_lambda_identity_provider.example.arn,
+ *     "function": exampleAwsLambdaIdentityProvider.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Protocols
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -79,25 +96,28 @@ import * as utilities from "../utilities";
  * const example = new aws.transfer.Server("example", {
  *     endpointType: "VPC",
  *     endpointDetails: {
- *         subnetIds: [aws_subnet.example.id],
- *         vpcId: aws_vpc.example.id,
+ *         subnetIds: [exampleAwsSubnet.id],
+ *         vpcId: exampleAwsVpc.id,
  *     },
  *     protocols: [
  *         "FTP",
  *         "FTPS",
  *     ],
- *     certificate: aws_acm_certificate.example.arn,
+ *     certificate: exampleAwsAcmCertificate.arn,
  *     identityProviderType: "API_GATEWAY",
- *     url: `${aws_api_gateway_deployment.example.invoke_url}${aws_api_gateway_resource.example.path}`,
+ *     url: `${exampleAwsApiGatewayDeployment.invokeUrl}${exampleAwsApiGatewayResource.path}`,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Using Structured Logging Destinations
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const transferLogGroup = new aws.cloudwatch.LogGroup("transferLogGroup", {namePrefix: "transfer_test_"});
+ * const transfer = new aws.cloudwatch.LogGroup("transfer", {namePrefix: "transfer_test_"});
  * const transferAssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -108,27 +128,28 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const iamForTransfer = new aws.iam.Role("iamForTransfer", {
+ * const iamForTransfer = new aws.iam.Role("iam_for_transfer", {
  *     namePrefix: "iam_for_transfer_",
  *     assumeRolePolicy: transferAssumeRole.then(transferAssumeRole => transferAssumeRole.json),
  *     managedPolicyArns: ["arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess"],
  * });
- * const transferServer = new aws.transfer.Server("transferServer", {
+ * const transferServer = new aws.transfer.Server("transfer", {
  *     endpointType: "PUBLIC",
  *     loggingRole: iamForTransfer.arn,
  *     protocols: ["SFTP"],
- *     structuredLogDestinations: [pulumi.interpolate`${transferLogGroup.arn}:*`],
+ *     structuredLogDestinations: [pulumi.interpolate`${transfer.arn}:*`],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Transfer Servers using the server `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:transfer/server:Server example s-12345678
+ * $ pulumi import aws:transfer/server:Server example s-12345678
  * ```
- *  Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
+ * Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
  */
 export class Server extends pulumi.CustomResource {
     /**
@@ -231,7 +252,17 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly protocols!: pulumi.Output<string[]>;
     /**
-     * Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
+     * Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+     * * `TransferSecurityPolicy-2024-01`
+     * * `TransferSecurityPolicy-2023-05`
+     * * `TransferSecurityPolicy-2022-03`
+     * * `TransferSecurityPolicy-2020-06`
+     * * `TransferSecurityPolicy-2018-11`
+     * * `TransferSecurityPolicy-FIPS-2024-01`
+     * * `TransferSecurityPolicy-FIPS-2023-05`
+     * * `TransferSecurityPolicy-FIPS-2020-06`
+     * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+     * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
      */
     public readonly securityPolicyName!: pulumi.Output<string | undefined>;
     /**
@@ -322,7 +353,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["hostKey", "postAuthenticationLoginBanner", "preAuthenticationLoginBanner", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["hostKey", "postAuthenticationLoginBanner", "preAuthenticationLoginBanner"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Server.__pulumiType, name, resourceInputs, opts);
     }
@@ -405,7 +436,17 @@ export interface ServerState {
      */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
+     * Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+     * * `TransferSecurityPolicy-2024-01`
+     * * `TransferSecurityPolicy-2023-05`
+     * * `TransferSecurityPolicy-2022-03`
+     * * `TransferSecurityPolicy-2020-06`
+     * * `TransferSecurityPolicy-2018-11`
+     * * `TransferSecurityPolicy-FIPS-2024-01`
+     * * `TransferSecurityPolicy-FIPS-2023-05`
+     * * `TransferSecurityPolicy-FIPS-2020-06`
+     * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+     * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
      */
     securityPolicyName?: pulumi.Input<string>;
     /**
@@ -497,7 +538,17 @@ export interface ServerArgs {
      */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
+     * Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+     * * `TransferSecurityPolicy-2024-01`
+     * * `TransferSecurityPolicy-2023-05`
+     * * `TransferSecurityPolicy-2022-03`
+     * * `TransferSecurityPolicy-2020-06`
+     * * `TransferSecurityPolicy-2018-11`
+     * * `TransferSecurityPolicy-FIPS-2024-01`
+     * * `TransferSecurityPolicy-FIPS-2023-05`
+     * * `TransferSecurityPolicy-FIPS-2020-06`
+     * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+     * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
      */
     securityPolicyName?: pulumi.Input<string>;
     /**

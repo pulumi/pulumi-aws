@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsworks.NewMysqlLayer(ctx, "db", &opsworks.MysqlLayerArgs{
-//				StackId: pulumi.Any(aws_opsworks_stack.Main.Id),
+//				StackId: pulumi.Any(main.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type MysqlLayer struct {
 	pulumi.CustomResourceState
 
@@ -107,10 +109,6 @@ func NewMysqlLayer(ctx *pulumi.Context,
 	if args.StackId == nil {
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MysqlLayer
 	err := ctx.RegisterResource("aws:opsworks/mysqlLayer:MysqlLayer", name, args, &resource, opts...)

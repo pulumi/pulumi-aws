@@ -10,8 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot
 {
     /// <summary>
+    /// Creates and manages an AWS IoT topic rule.
+    /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -20,9 +23,42 @@ namespace Pulumi.Aws.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mytopic = new Aws.Sns.Topic("mytopic");
+    ///     var mytopic = new Aws.Sns.Topic("mytopic", new()
+    ///     {
+    ///         Name = "mytopic",
+    ///     });
     /// 
-    ///     var myerrortopic = new Aws.Sns.Topic("myerrortopic");
+    ///     var myerrortopic = new Aws.Sns.Topic("myerrortopic", new()
+    ///     {
+    ///         Name = "myerrortopic",
+    ///     });
+    /// 
+    ///     var rule = new Aws.Iot.TopicRule("rule", new()
+    ///     {
+    ///         Name = "MyRule",
+    ///         Description = "Example rule",
+    ///         Enabled = true,
+    ///         Sql = "SELECT * FROM 'topic/test'",
+    ///         SqlVersion = "2016-03-23",
+    ///         Sns = new[]
+    ///         {
+    ///             new Aws.Iot.Inputs.TopicRuleSnsArgs
+    ///             {
+    ///                 MessageFormat = "RAW",
+    ///                 RoleArn = role.Arn,
+    ///                 TargetArn = mytopic.Arn,
+    ///             },
+    ///         },
+    ///         ErrorAction = new Aws.Iot.Inputs.TopicRuleErrorActionArgs
+    ///         {
+    ///             Sns = new Aws.Iot.Inputs.TopicRuleErrorActionSnsArgs
+    ///             {
+    ///                 MessageFormat = "RAW",
+    ///                 RoleArn = role.Arn,
+    ///                 TargetArn = myerrortopic.Arn,
+    ///             },
+    ///         },
+    ///     });
     /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
@@ -50,38 +86,13 @@ namespace Pulumi.Aws.Iot
     ///         },
     ///     });
     /// 
-    ///     var role = new Aws.Iam.Role("role", new()
+    ///     var myrole = new Aws.Iam.Role("myrole", new()
     ///     {
+    ///         Name = "myrole",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var rule = new Aws.Iot.TopicRule("rule", new()
-    ///     {
-    ///         Description = "Example rule",
-    ///         Enabled = true,
-    ///         Sql = "SELECT * FROM 'topic/test'",
-    ///         SqlVersion = "2016-03-23",
-    ///         Sns = new[]
-    ///         {
-    ///             new Aws.Iot.Inputs.TopicRuleSnsArgs
-    ///             {
-    ///                 MessageFormat = "RAW",
-    ///                 RoleArn = role.Arn,
-    ///                 TargetArn = mytopic.Arn,
-    ///             },
-    ///         },
-    ///         ErrorAction = new Aws.Iot.Inputs.TopicRuleErrorActionArgs
-    ///         {
-    ///             Sns = new Aws.Iot.Inputs.TopicRuleErrorActionSnsArgs
-    ///             {
-    ///                 MessageFormat = "RAW",
-    ///                 RoleArn = role.Arn,
-    ///                 TargetArn = myerrortopic.Arn,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var iamPolicyForLambdaPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var mypolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -100,21 +111,23 @@ namespace Pulumi.Aws.Iot
     ///         },
     ///     });
     /// 
-    ///     var iamPolicyForLambdaRolePolicy = new Aws.Iam.RolePolicy("iamPolicyForLambdaRolePolicy", new()
+    ///     var mypolicyRolePolicy = new Aws.Iam.RolePolicy("mypolicy", new()
     ///     {
-    ///         Role = role.Id,
-    ///         Policy = iamPolicyForLambdaPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "mypolicy",
+    ///         Role = myrole.Id,
+    ///         Policy = mypolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IoT Topic Rules using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iot/topicRule:TopicRule rule &lt;name&gt;
+    /// $ pulumi import aws:iot/topicRule:TopicRule rule &lt;name&gt;
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/topicRule:TopicRule")]
@@ -254,10 +267,6 @@ namespace Pulumi.Aws.Iot
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -697,11 +706,7 @@ namespace Pulumi.Aws.Iot
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("timestreams")]

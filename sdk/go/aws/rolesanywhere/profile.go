@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,19 +33,19 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": []string{
+//						"action": []string{
 //							"sts:AssumeRole",
 //							"sts:TagSession",
 //							"sts:SetSourceIdentity",
 //						},
-//						"Principal": map[string]interface{}{
-//							"Service": "rolesanywhere.amazonaws.com",
+//						"principal": map[string]interface{}{
+//							"service": "rolesanywhere.amazonaws.com",
 //						},
-//						"Effect": "Allow",
-//						"Sid":    "",
+//						"effect": "Allow",
+//						"sid":    "",
 //					},
 //				},
 //			})
@@ -52,16 +53,18 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			testRole, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
+//			test, err := iam.NewRole(ctx, "test", &iam.RoleArgs{
+//				Name:             pulumi.String("test"),
 //				Path:             pulumi.String("/"),
 //				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = rolesanywhere.NewProfile(ctx, "testProfile", &rolesanywhere.ProfileArgs{
+//			_, err = rolesanywhere.NewProfile(ctx, "test", &rolesanywhere.ProfileArgs{
+//				Name: pulumi.String("example"),
 //				RoleArns: pulumi.StringArray{
-//					testRole.Arn,
+//					test.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -72,15 +75,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_rolesanywhere_profile` using its `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
-//
+// $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
 // ```
 type Profile struct {
 	pulumi.CustomResourceState
@@ -119,10 +121,6 @@ func NewProfile(ctx *pulumi.Context,
 	if args.RoleArns == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArns'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Profile
 	err := ctx.RegisterResource("aws:rolesanywhere/profile:Profile", name, args, &resource, opts...)

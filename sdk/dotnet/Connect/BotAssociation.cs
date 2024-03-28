@@ -16,8 +16,10 @@ namespace Pulumi.Aws.Connect
     /// &gt; **NOTE:** This resource only currently supports Amazon Lex (V1) Associations.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,7 +30,7 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.BotAssociation("example", new()
     ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
     ///         LexBot = new Aws.Connect.Inputs.BotAssociationLexBotArgs
     ///         {
     ///             LexRegion = "us-west-2",
@@ -38,8 +40,11 @@ namespace Pulumi.Aws.Connect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Including a sample Lex bot
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,7 +55,7 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var current = Aws.GetRegion.Invoke();
     /// 
-    ///     var exampleIntent = new Aws.Lex.Intent("exampleIntent", new()
+    ///     var example = new Aws.Lex.Intent("example", new()
     ///     {
     ///         CreateVersion = true,
     ///         Name = "connect_lex_intent",
@@ -64,7 +69,7 @@ namespace Pulumi.Aws.Connect
     ///         },
     ///     });
     /// 
-    ///     var exampleBot = new Aws.Lex.Bot("exampleBot", new()
+    ///     var exampleBot = new Aws.Lex.Bot("example", new()
     ///     {
     ///         AbortStatement = new Aws.Lex.Inputs.BotAbortStatementArgs
     ///         {
@@ -93,7 +98,7 @@ namespace Pulumi.Aws.Connect
     ///         {
     ///             new Aws.Lex.Inputs.BotIntentArgs
     ///             {
-    ///                 IntentName = exampleIntent.Name,
+    ///                 IntentName = example.Name,
     ///                 IntentVersion = "1",
     ///             },
     ///         },
@@ -102,9 +107,9 @@ namespace Pulumi.Aws.Connect
     ///         ProcessBehavior = "BUILD",
     ///     });
     /// 
-    ///     var exampleBotAssociation = new Aws.Connect.BotAssociation("exampleBotAssociation", new()
+    ///     var exampleBotAssociation = new Aws.Connect.BotAssociation("example", new()
     ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
     ///         LexBot = new Aws.Connect.Inputs.BotAssociationLexBotArgs
     ///         {
     ///             LexRegion = current.Apply(getRegionResult =&gt; getRegionResult.Name),
@@ -114,13 +119,14 @@ namespace Pulumi.Aws.Connect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_connect_bot_association` using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
+    /// $ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
     /// ```
     /// </summary>
     [AwsResourceType("aws:connect/botAssociation:BotAssociation")]

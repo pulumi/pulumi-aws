@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS SFN (Step Functions) State Machine Alias.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +32,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sfn.LookupAlias(ctx, &sfn.LookupAliasArgs{
 //				Name:            "my_sfn_alias",
-//				StatemachineArn: aws_sfn_state_machine.Sfn_test.Arn,
+//				StatemachineArn: sfnTest.Arn,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -40,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupAlias(ctx *pulumi.Context, args *LookupAliasArgs, opts ...pulumi.InvokeOption) (*LookupAliasResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAliasResult

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,19 +28,20 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafregional.NewXssMatchSet(ctx, "xssMatchSet", &wafregional.XssMatchSetArgs{
+//			_, err := wafregional.NewXssMatchSet(ctx, "xss_match_set", &wafregional.XssMatchSetArgs{
+//				Name: pulumi.String("xss_match_set"),
 //				XssMatchTuples: wafregional.XssMatchSetXssMatchTupleArray{
 //					&wafregional.XssMatchSetXssMatchTupleArgs{
+//						TextTransformation: pulumi.String("NONE"),
 //						FieldToMatch: &wafregional.XssMatchSetXssMatchTupleFieldToMatchArgs{
 //							Type: pulumi.String("URI"),
 //						},
-//						TextTransformation: pulumi.String("NONE"),
 //					},
 //					&wafregional.XssMatchSetXssMatchTupleArgs{
+//						TextTransformation: pulumi.String("NONE"),
 //						FieldToMatch: &wafregional.XssMatchSetXssMatchTupleFieldToMatchArgs{
 //							Type: pulumi.String("QUERY_STRING"),
 //						},
-//						TextTransformation: pulumi.String("NONE"),
 //					},
 //				},
 //			})
@@ -51,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AWS WAF Regional XSS Match using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
-//
+// $ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
 // ```
 type XssMatchSet struct {
 	pulumi.CustomResourceState

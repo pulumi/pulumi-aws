@@ -134,11 +134,12 @@ class SshKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_server = aws.transfer.Server("exampleServer",
+        example_server = aws.transfer.Server("example",
             identity_provider_type="SERVICE_MANAGED",
             tags={
                 "NAME": "tf-acc-test-transfer-server",
@@ -151,35 +152,39 @@ class SshKey(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_user = aws.transfer.User("exampleUser",
+        example_role = aws.iam.Role("example",
+            name="tf-test-transfer-user-iam-role",
+            assume_role_policy=assume_role.json)
+        example_user = aws.transfer.User("example",
             server_id=example_server.id,
             user_name="tftestuser",
             role=example_role.arn,
             tags={
                 "NAME": "tftestuser",
             })
-        example_ssh_key = aws.transfer.SshKey("exampleSshKey",
+        example_ssh_key = aws.transfer.SshKey("example",
             server_id=example_server.id,
             user_name=example_user.user_name,
             body="... SSH key ...")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="AllowFullAccesstoS3",
             effect="Allow",
             actions=["s3:*"],
             resources=["*"],
         )])
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
+        example_role_policy = aws.iam.RolePolicy("example",
+            name="tf-test-transfer-user-iam-policy",
             role=example_role.id,
-            policy=example_policy_document.json)
+            policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transfer SSH Public Key using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
+        $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
         ```
 
         :param str resource_name: The name of the resource.
@@ -199,11 +204,12 @@ class SshKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_server = aws.transfer.Server("exampleServer",
+        example_server = aws.transfer.Server("example",
             identity_provider_type="SERVICE_MANAGED",
             tags={
                 "NAME": "tf-acc-test-transfer-server",
@@ -216,35 +222,39 @@ class SshKey(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_user = aws.transfer.User("exampleUser",
+        example_role = aws.iam.Role("example",
+            name="tf-test-transfer-user-iam-role",
+            assume_role_policy=assume_role.json)
+        example_user = aws.transfer.User("example",
             server_id=example_server.id,
             user_name="tftestuser",
             role=example_role.arn,
             tags={
                 "NAME": "tftestuser",
             })
-        example_ssh_key = aws.transfer.SshKey("exampleSshKey",
+        example_ssh_key = aws.transfer.SshKey("example",
             server_id=example_server.id,
             user_name=example_user.user_name,
             body="... SSH key ...")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="AllowFullAccesstoS3",
             effect="Allow",
             actions=["s3:*"],
             resources=["*"],
         )])
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
+        example_role_policy = aws.iam.RolePolicy("example",
+            name="tf-test-transfer-user-iam-policy",
             role=example_role.id,
-            policy=example_policy_document.json)
+            policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transfer SSH Public Key using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
+        $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
         ```
 
         :param str resource_name: The name of the resource.

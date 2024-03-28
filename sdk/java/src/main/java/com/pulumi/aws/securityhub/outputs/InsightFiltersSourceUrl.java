@@ -4,6 +4,7 @@
 package com.pulumi.aws.securityhub.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class InsightFiltersSourceUrl {
 
         @CustomType.Setter
         public Builder comparison(String comparison) {
-            this.comparison = Objects.requireNonNull(comparison);
+            if (comparison == null) {
+              throw new MissingRequiredPropertyException("InsightFiltersSourceUrl", "comparison");
+            }
+            this.comparison = comparison;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("InsightFiltersSourceUrl", "value");
+            }
+            this.value = value;
             return this;
         }
         public InsightFiltersSourceUrl build() {
-            final var o = new InsightFiltersSourceUrl();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersSourceUrl();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

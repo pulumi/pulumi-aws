@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,21 +20,20 @@ import javax.annotation.Nullable;
  * For examples of custom route table association and propagation, see the [EC2 Transit Gateway Networking Examples Guide](https://docs.aws.amazon.com/vpc/latest/tgw/TGW_Scenarios.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetRegionArgs;
  * import com.pulumi.aws.ec2transitgateway.TransitGateway;
  * import com.pulumi.aws.ec2transitgateway.TransitGatewayArgs;
  * import com.pulumi.aws.ec2transitgateway.PeeringAttachment;
  * import com.pulumi.aws.ec2transitgateway.PeeringAttachmentArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,46 +47,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var local = new Provider(&#34;local&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-east-1&#34;)
- *             .build());
+ *         final var peer = AwsFunctions.getRegion();
  * 
- *         var peer = new Provider(&#34;peer&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-west-2&#34;)
- *             .build());
- * 
- *         final var peerRegion = AwsFunctions.getRegion();
- * 
- *         var localTransitGateway = new TransitGateway(&#34;localTransitGateway&#34;, TransitGatewayArgs.builder()        
+ *         var local = new TransitGateway(&#34;local&#34;, TransitGatewayArgs.builder()        
  *             .tags(Map.of(&#34;Name&#34;, &#34;Local TGW&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.local())
- *                 .build());
+ *             .build());
  * 
  *         var peerTransitGateway = new TransitGateway(&#34;peerTransitGateway&#34;, TransitGatewayArgs.builder()        
  *             .tags(Map.of(&#34;Name&#34;, &#34;Peer TGW&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.peer())
- *                 .build());
+ *             .build());
  * 
  *         var example = new PeeringAttachment(&#34;example&#34;, PeeringAttachmentArgs.builder()        
  *             .peerAccountId(peerTransitGateway.ownerId())
- *             .peerRegion(peerRegion.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *             .peerRegion(peer.applyValue(getRegionResult -&gt; getRegionResult.name()))
  *             .peerTransitGatewayId(peerTransitGateway.id())
- *             .transitGatewayId(localTransitGateway.id())
+ *             .transitGatewayId(local.id())
  *             .tags(Map.of(&#34;Name&#34;, &#34;TGW Peering Requestor&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment` using the EC2 Transit Gateway Attachment identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2transitgateway/peeringAttachment:PeeringAttachment example tgw-attach-12345678
+ * $ pulumi import aws:ec2transitgateway/peeringAttachment:PeeringAttachment example tgw-attach-12345678
  * ```
  * 
  */
@@ -135,6 +122,12 @@ public class PeeringAttachment extends com.pulumi.resources.CustomResource {
      */
     public Output<String> peerTransitGatewayId() {
         return this.peerTransitGatewayId;
+    }
+    @Export(name="state", refs={String.class}, tree="[0]")
+    private Output<String> state;
+
+    public Output<String> state() {
+        return this.state;
     }
     /**
      * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -215,9 +208,6 @@ public class PeeringAttachment extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

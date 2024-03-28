@@ -10,39 +10,42 @@ import * as utilities from "../utilities";
  * > **NOTE:** This resource must be created in the Organization master account and rules will include the master account unless its ID is added to the `excludedAccounts` argument.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cfg.OrganizationCustomPolicyRule("example", {
+ *     name: "example_rule_name",
  *     policyRuntime: "guard-2.x.x",
- *     policyText: `  let status = ['ACTIVE']
+ *     policyText: `let status = ['ACTIVE']
  *
- *   rule tableisactive when
- *       resourceType == "AWS::DynamoDB::Table" {
- *       configuration.tableStatus == %status
- *   }
+ * rule tableisactive when
+ *     resourceType == "AWS::DynamoDB::Table" {
+ *     configuration.tableStatus == %status
+ * }
  *
- *   rule checkcompliance when
- *       resourceType == "AWS::DynamoDB::Table"
- *       tableisactive {
- *           let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
- *           %pitr == "ENABLED"
- *       }
- *
+ * rule checkcompliance when
+ *     resourceType == "AWS::DynamoDB::Table"
+ *     tableisactive {
+ *         let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
+ *         %pitr == "ENABLED"
+ *     }
  * `,
  *     resourceTypesScopes: ["AWS::DynamoDB::Table"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a Config Organization Custom Policy Rule using the `name` argument. For example:
  *
  * ```sh
- *  $ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name
+ * $ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name
  * ```
  */
 export class OrganizationCustomPolicyRule extends pulumi.CustomResource {

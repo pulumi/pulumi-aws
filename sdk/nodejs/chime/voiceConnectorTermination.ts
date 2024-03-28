@@ -9,12 +9,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultVoiceConnector = new aws.chime.VoiceConnector("defaultVoiceConnector", {requireEncryption: true});
- * const defaultVoiceConnectorTermination = new aws.chime.VoiceConnectorTermination("defaultVoiceConnectorTermination", {
+ * const _default = new aws.chime.VoiceConnector("default", {
+ *     name: "vc-name-test",
+ *     requireEncryption: true,
+ * });
+ * const defaultVoiceConnectorTermination = new aws.chime.VoiceConnectorTermination("default", {
  *     disabled: false,
  *     cpsLimit: 1,
  *     cidrAllowLists: ["50.35.78.96/31"],
@@ -22,16 +26,17 @@ import * as utilities from "../utilities";
  *         "US",
  *         "CA",
  *     ],
- *     voiceConnectorId: defaultVoiceConnector.id,
+ *     voiceConnectorId: _default.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Chime Voice Connector Termination using the `voice_connector_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:chime/voiceConnectorTermination:VoiceConnectorTermination default abcdef1ghij2klmno3pqr4
+ * $ pulumi import aws:chime/voiceConnectorTermination:VoiceConnectorTermination default abcdef1ghij2klmno3pqr4
  * ```
  */
 export class VoiceConnectorTermination extends pulumi.CustomResource {

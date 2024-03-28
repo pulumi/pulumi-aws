@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,6 +31,7 @@ import * as utilities from "../utilities";
  *     name: lbTgName,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetGroupResult> {
     args = args || {};
@@ -37,6 +39,7 @@ export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOp
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lb/getTargetGroup:getTargetGroup", {
         "arn": args.arn,
+        "loadBalancingAnomalyMitigation": args.loadBalancingAnomalyMitigation,
         "name": args.name,
         "tags": args.tags,
     }, opts);
@@ -50,6 +53,7 @@ export interface GetTargetGroupArgs {
      * Full ARN of the target group.
      */
     arn?: string;
+    loadBalancingAnomalyMitigation?: string;
     /**
      * Unique name of the target group.
      */
@@ -69,14 +73,16 @@ export interface GetTargetGroupResult {
     readonly arn: string;
     readonly arnSuffix: string;
     readonly connectionTermination: boolean;
-    readonly deregistrationDelay: number;
+    readonly deregistrationDelay: string;
     readonly healthCheck: outputs.lb.GetTargetGroupHealthCheck;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly lambdaMultiValueHeadersEnabled: boolean;
+    readonly loadBalancerArns: string[];
     readonly loadBalancingAlgorithmType: string;
+    readonly loadBalancingAnomalyMitigation: string;
     readonly loadBalancingCrossZoneEnabled: string;
     readonly name: string;
     readonly port: number;
@@ -101,6 +107,7 @@ export interface GetTargetGroupResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -113,6 +120,7 @@ export interface GetTargetGroupResult {
  *     name: lbTgName,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTargetGroupOutput(args?: GetTargetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTargetGroupResult> {
     return pulumi.output(args).apply((a: any) => getTargetGroup(a, opts))
@@ -126,6 +134,7 @@ export interface GetTargetGroupOutputArgs {
      * Full ARN of the target group.
      */
     arn?: pulumi.Input<string>;
+    loadBalancingAnomalyMitigation?: pulumi.Input<string>;
     /**
      * Unique name of the target group.
      */

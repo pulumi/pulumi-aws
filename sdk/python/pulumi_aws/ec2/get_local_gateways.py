@@ -86,15 +86,17 @@ def get_local_gateways(filters: Optional[Sequence[pulumi.InputType['GetLocalGate
 
     The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    foo_local_gateways = aws.ec2.get_local_gateways(tags={
+    foo = aws.ec2.get_local_gateways(tags={
         "service": "production",
     })
-    pulumi.export("foo", foo_local_gateways.ids)
+    pulumi.export("foo", foo.ids)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetLocalGatewaysFilterArgs']] filters: Custom filter block as described below.
@@ -128,15 +130,17 @@ def get_local_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[p
 
     The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    foo_local_gateways = aws.ec2.get_local_gateways(tags={
+    foo = aws.ec2.get_local_gateways(tags={
         "service": "production",
     })
-    pulumi.export("foo", foo_local_gateways.ids)
+    pulumi.export("foo", foo.ids)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetLocalGatewaysFilterArgs']] filters: Custom filter block as described below.

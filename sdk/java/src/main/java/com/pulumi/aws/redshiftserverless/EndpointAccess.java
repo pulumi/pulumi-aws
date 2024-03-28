@@ -14,12 +14,15 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
  * Creates a new Amazon Redshift Serverless Endpoint Access.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,13 +52,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift Serverless Endpoint Access using the `endpoint_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
+ * $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
  * ```
  * 
  */
@@ -102,6 +106,20 @@ public class EndpointAccess extends com.pulumi.resources.CustomResource {
      */
     public Output<String> endpointName() {
         return this.endpointName;
+    }
+    /**
+     * The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+     * 
+     */
+    @Export(name="ownerAccount", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> ownerAccount;
+
+    /**
+     * @return The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+     * 
+     */
+    public Output<Optional<String>> ownerAccount() {
+        return Codegen.optional(this.ownerAccount);
     }
     /**
      * The port that Amazon Redshift Serverless listens on.

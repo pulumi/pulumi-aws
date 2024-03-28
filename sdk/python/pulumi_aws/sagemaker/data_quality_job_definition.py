@@ -405,23 +405,25 @@ class DataQualityJobDefinition(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.sagemaker.DataQualityJobDefinition("test",
+            name="my-data-quality-job-definition",
             data_quality_app_specification=aws.sagemaker.DataQualityJobDefinitionDataQualityAppSpecificationArgs(
-                image_uri=data["aws_sagemaker_prebuilt_ecr_image"]["monitor"]["registry_path"],
+                image_uri=monitor["registryPath"],
             ),
             data_quality_job_input=aws.sagemaker.DataQualityJobDefinitionDataQualityJobInputArgs(
                 endpoint_input=aws.sagemaker.DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs(
-                    endpoint_name=aws_sagemaker_endpoint["my_endpoint"]["name"],
+                    endpoint_name=my_endpoint["name"],
                 ),
             ),
             data_quality_job_output_config=aws.sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigArgs(
                 monitoring_outputs=aws.sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs(
                     s3_output=aws.sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs(
-                        s3_uri=f"https://{aws_s3_bucket['my_bucket']['bucket_regional_domain_name']}/output",
+                        s3_uri=f"https://{my_bucket['bucketRegionalDomainName']}/output",
                     ),
                 ),
             ),
@@ -432,15 +434,16 @@ class DataQualityJobDefinition(pulumi.CustomResource):
                     volume_size_in_gb=20,
                 ),
             ),
-            role_arn=aws_iam_role["my_role"]["arn"])
+            role_arn=my_role["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import data quality job definitions using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo
+        $ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo
         ```
 
         :param str resource_name: The name of the resource.
@@ -469,23 +472,25 @@ class DataQualityJobDefinition(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.sagemaker.DataQualityJobDefinition("test",
+            name="my-data-quality-job-definition",
             data_quality_app_specification=aws.sagemaker.DataQualityJobDefinitionDataQualityAppSpecificationArgs(
-                image_uri=data["aws_sagemaker_prebuilt_ecr_image"]["monitor"]["registry_path"],
+                image_uri=monitor["registryPath"],
             ),
             data_quality_job_input=aws.sagemaker.DataQualityJobDefinitionDataQualityJobInputArgs(
                 endpoint_input=aws.sagemaker.DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs(
-                    endpoint_name=aws_sagemaker_endpoint["my_endpoint"]["name"],
+                    endpoint_name=my_endpoint["name"],
                 ),
             ),
             data_quality_job_output_config=aws.sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigArgs(
                 monitoring_outputs=aws.sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs(
                     s3_output=aws.sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs(
-                        s3_uri=f"https://{aws_s3_bucket['my_bucket']['bucket_regional_domain_name']}/output",
+                        s3_uri=f"https://{my_bucket['bucketRegionalDomainName']}/output",
                     ),
                 ),
             ),
@@ -496,15 +501,16 @@ class DataQualityJobDefinition(pulumi.CustomResource):
                     volume_size_in_gb=20,
                 ),
             ),
-            role_arn=aws_iam_role["my_role"]["arn"])
+            role_arn=my_role["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import data quality job definitions using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo
+        $ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo
         ```
 
         :param str resource_name: The name of the resource.
@@ -563,8 +569,6 @@ class DataQualityJobDefinition(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(DataQualityJobDefinition, __self__).__init__(
             'aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition',
             resource_name,

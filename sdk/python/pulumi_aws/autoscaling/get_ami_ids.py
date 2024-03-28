@@ -88,6 +88,7 @@ def get_ami_ids(filters: Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArgs
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -102,7 +103,7 @@ def get_ami_ids(filters: Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArgs
             values=["Environment"],
         ),
     ])
-    slack_notifications = aws.autoscaling.Notification("slackNotifications",
+    slack_notifications = aws.autoscaling.Notification("slack_notifications",
         group_names=groups.names,
         notifications=[
             "autoscaling:EC2_INSTANCE_LAUNCH",
@@ -112,6 +113,7 @@ def get_ami_ids(filters: Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArgs
         ],
         topic_arn="TOPIC ARN")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetAmiIdsFilterArgs']] filters: Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
@@ -140,6 +142,7 @@ def get_ami_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.I
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -154,7 +157,7 @@ def get_ami_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.I
             values=["Environment"],
         ),
     ])
-    slack_notifications = aws.autoscaling.Notification("slackNotifications",
+    slack_notifications = aws.autoscaling.Notification("slack_notifications",
         group_names=groups.names,
         notifications=[
             "autoscaling:EC2_INSTANCE_LAUNCH",
@@ -164,6 +167,7 @@ def get_ami_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.I
         ],
         topic_arn="TOPIC ARN")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetAmiIdsFilterArgs']] filters: Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).

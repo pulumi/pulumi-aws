@@ -4,6 +4,7 @@
 package com.pulumi.aws.dms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -83,61 +84,88 @@ public final class GetEndpointKinesisSetting {
 
         @CustomType.Setter
         public Builder includeControlDetails(Boolean includeControlDetails) {
-            this.includeControlDetails = Objects.requireNonNull(includeControlDetails);
+            if (includeControlDetails == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKinesisSetting", "includeControlDetails");
+            }
+            this.includeControlDetails = includeControlDetails;
             return this;
         }
         @CustomType.Setter
         public Builder includeNullAndEmpty(Boolean includeNullAndEmpty) {
-            this.includeNullAndEmpty = Objects.requireNonNull(includeNullAndEmpty);
+            if (includeNullAndEmpty == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKinesisSetting", "includeNullAndEmpty");
+            }
+            this.includeNullAndEmpty = includeNullAndEmpty;
             return this;
         }
         @CustomType.Setter
         public Builder includePartitionValue(Boolean includePartitionValue) {
-            this.includePartitionValue = Objects.requireNonNull(includePartitionValue);
+            if (includePartitionValue == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKinesisSetting", "includePartitionValue");
+            }
+            this.includePartitionValue = includePartitionValue;
             return this;
         }
         @CustomType.Setter
         public Builder includeTableAlterOperations(Boolean includeTableAlterOperations) {
-            this.includeTableAlterOperations = Objects.requireNonNull(includeTableAlterOperations);
+            if (includeTableAlterOperations == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKinesisSetting", "includeTableAlterOperations");
+            }
+            this.includeTableAlterOperations = includeTableAlterOperations;
             return this;
         }
         @CustomType.Setter
         public Builder includeTransactionDetails(Boolean includeTransactionDetails) {
-            this.includeTransactionDetails = Objects.requireNonNull(includeTransactionDetails);
+            if (includeTransactionDetails == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKinesisSetting", "includeTransactionDetails");
+            }
+            this.includeTransactionDetails = includeTransactionDetails;
             return this;
         }
         @CustomType.Setter
         public Builder messageFormat(String messageFormat) {
-            this.messageFormat = Objects.requireNonNull(messageFormat);
+            if (messageFormat == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKinesisSetting", "messageFormat");
+            }
+            this.messageFormat = messageFormat;
             return this;
         }
         @CustomType.Setter
         public Builder partitionIncludeSchemaTable(Boolean partitionIncludeSchemaTable) {
-            this.partitionIncludeSchemaTable = Objects.requireNonNull(partitionIncludeSchemaTable);
+            if (partitionIncludeSchemaTable == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKinesisSetting", "partitionIncludeSchemaTable");
+            }
+            this.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
             return this;
         }
         @CustomType.Setter
         public Builder serviceAccessRoleArn(String serviceAccessRoleArn) {
-            this.serviceAccessRoleArn = Objects.requireNonNull(serviceAccessRoleArn);
+            if (serviceAccessRoleArn == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKinesisSetting", "serviceAccessRoleArn");
+            }
+            this.serviceAccessRoleArn = serviceAccessRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder streamArn(String streamArn) {
-            this.streamArn = Objects.requireNonNull(streamArn);
+            if (streamArn == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKinesisSetting", "streamArn");
+            }
+            this.streamArn = streamArn;
             return this;
         }
         public GetEndpointKinesisSetting build() {
-            final var o = new GetEndpointKinesisSetting();
-            o.includeControlDetails = includeControlDetails;
-            o.includeNullAndEmpty = includeNullAndEmpty;
-            o.includePartitionValue = includePartitionValue;
-            o.includeTableAlterOperations = includeTableAlterOperations;
-            o.includeTransactionDetails = includeTransactionDetails;
-            o.messageFormat = messageFormat;
-            o.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
-            o.serviceAccessRoleArn = serviceAccessRoleArn;
-            o.streamArn = streamArn;
-            return o;
+            final var _resultValue = new GetEndpointKinesisSetting();
+            _resultValue.includeControlDetails = includeControlDetails;
+            _resultValue.includeNullAndEmpty = includeNullAndEmpty;
+            _resultValue.includePartitionValue = includePartitionValue;
+            _resultValue.includeTableAlterOperations = includeTableAlterOperations;
+            _resultValue.includeTransactionDetails = includeTransactionDetails;
+            _resultValue.messageFormat = messageFormat;
+            _resultValue.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
+            _resultValue.serviceAccessRoleArn = serviceAccessRoleArn;
+            _resultValue.streamArn = streamArn;
+            return _resultValue;
         }
     }
 }

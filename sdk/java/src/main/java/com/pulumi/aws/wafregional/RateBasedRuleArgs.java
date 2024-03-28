@@ -6,6 +6,7 @@ package com.pulumi.aws.wafregional;
 import com.pulumi.aws.wafregional.inputs.RateBasedRulePredicateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -275,9 +276,15 @@ public final class RateBasedRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RateBasedRuleArgs build() {
-            $.metricName = Objects.requireNonNull($.metricName, "expected parameter 'metricName' to be non-null");
-            $.rateKey = Objects.requireNonNull($.rateKey, "expected parameter 'rateKey' to be non-null");
-            $.rateLimit = Objects.requireNonNull($.rateLimit, "expected parameter 'rateLimit' to be non-null");
+            if ($.metricName == null) {
+                throw new MissingRequiredPropertyException("RateBasedRuleArgs", "metricName");
+            }
+            if ($.rateKey == null) {
+                throw new MissingRequiredPropertyException("RateBasedRuleArgs", "rateKey");
+            }
+            if ($.rateLimit == null) {
+                throw new MissingRequiredPropertyException("RateBasedRuleArgs", "rateLimit");
+            }
             return $;
         }
     }

@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,6 +20,8 @@ import javax.annotation.Nullable;
  * Manages an App Runner VPC Ingress Connection.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,10 +45,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VpcIngressConnection(&#34;example&#34;, VpcIngressConnectionArgs.builder()        
- *             .serviceArn(aws_apprunner_service.example().arn())
+ *             .name(&#34;example&#34;)
+ *             .serviceArn(exampleAwsApprunnerService.arn())
  *             .ingressVpcConfiguration(VpcIngressConnectionIngressVpcConfigurationArgs.builder()
- *                 .vpcId(aws_default_vpc.default().id())
- *                 .vpcEndpointId(aws_vpc_endpoint.apprunner().id())
+ *                 .vpcId(default_.id())
+ *                 .vpcEndpointId(apprunner.id())
  *                 .build())
  *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
  *             .build());
@@ -55,13 +57,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import App Runner VPC Ingress Connection using the `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apprunner/vpcIngressConnection:VpcIngressConnection example &#34;arn:aws:apprunner:us-west-2:837424938642:vpcingressconnection/example/b379f86381d74825832c2e82080342fa&#34;
+ * $ pulumi import aws:apprunner/vpcIngressConnection:VpcIngressConnection example &#34;arn:aws:apprunner:us-west-2:837424938642:vpcingressconnection/example/b379f86381d74825832c2e82080342fa&#34;
  * ```
  * 
  */
@@ -216,9 +219,6 @@ public class VpcIngressConnection extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

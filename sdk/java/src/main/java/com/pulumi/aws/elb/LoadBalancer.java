@@ -35,6 +35,8 @@ import javax.annotation.Nullable;
  * conflict and will overwrite attachments.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -60,6 +62,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;foobar-elb&#34;)
  *             .availabilityZones(            
  *                 &#34;us-west-2a&#34;,
  *                 &#34;us-west-2b&#34;,
@@ -90,7 +93,7 @@ import javax.annotation.Nullable;
  *                 .target(&#34;HTTP:8000/&#34;)
  *                 .interval(30)
  *                 .build())
- *             .instances(aws_instance.foo().id())
+ *             .instances(foo.id())
  *             .crossZoneLoadBalancing(true)
  *             .idleTimeout(400)
  *             .connectionDraining(true)
@@ -101,6 +104,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Note on ECDSA Key Algorithm
  * 
  * If the ARN of the `ssl_certificate_id` that is pointed to references a
@@ -114,7 +119,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import ELBs using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
+ * $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
  * ```
  * 
  */
@@ -485,9 +490,6 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
             .version(Utilities.getVersion())
             .aliases(List.of(
                 Output.of(Alias.builder().type("aws:elasticloadbalancing/loadBalancer:LoadBalancer").build())
-            ))
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

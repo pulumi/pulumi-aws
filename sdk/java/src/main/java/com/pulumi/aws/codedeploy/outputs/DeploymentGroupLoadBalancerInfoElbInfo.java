@@ -44,13 +44,14 @@ public final class DeploymentGroupLoadBalancerInfoElbInfo {
 
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         public DeploymentGroupLoadBalancerInfoElbInfo build() {
-            final var o = new DeploymentGroupLoadBalancerInfoElbInfo();
-            o.name = name;
-            return o;
+            final var _resultValue = new DeploymentGroupLoadBalancerInfoElbInfo();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

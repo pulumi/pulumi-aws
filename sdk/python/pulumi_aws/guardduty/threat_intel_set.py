@@ -272,34 +272,36 @@ class ThreatIntelSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         primary = aws.guardduty.Detector("primary", enable=True)
         bucket = aws.s3.BucketV2("bucket")
-        # ... other configuration ...
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
+        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
             bucket=bucket.id,
             acl="private")
-        my_threat_intel_set_bucket_objectv2 = aws.s3.BucketObjectv2("myThreatIntelSetBucketObjectv2",
+        my_threat_intel_set = aws.s3.BucketObjectv2("MyThreatIntelSet",
             acl="public-read",
             content="10.0.0.0/8\\n",
             bucket=bucket.id,
             key="MyThreatIntelSet")
-        my_threat_intel_set_threat_intel_set = aws.guardduty.ThreatIntelSet("myThreatIntelSetThreatIntelSet",
+        my_threat_intel_set_threat_intel_set = aws.guardduty.ThreatIntelSet("MyThreatIntelSet",
             activate=True,
             detector_id=primary.id,
             format="TXT",
-            location=pulumi.Output.all(my_threat_intel_set_bucket_objectv2.bucket, my_threat_intel_set_bucket_objectv2.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"))
+            location=pulumi.Output.all(my_threat_intel_set.bucket, my_threat_intel_set.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"),
+            name="MyThreatIntelSet")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GuardDuty ThreatIntelSet using the primary GuardDuty detector ID and ThreatIntelSetID. For example:
 
         ```sh
-         $ pulumi import aws:guardduty/threatIntelSet:ThreatIntelSet MyThreatIntelSet 00b00fd5aecc0ab60a708659477e9617:123456789012
+        $ pulumi import aws:guardduty/threatIntelSet:ThreatIntelSet MyThreatIntelSet 00b00fd5aecc0ab60a708659477e9617:123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -324,34 +326,36 @@ class ThreatIntelSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         primary = aws.guardduty.Detector("primary", enable=True)
         bucket = aws.s3.BucketV2("bucket")
-        # ... other configuration ...
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
+        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
             bucket=bucket.id,
             acl="private")
-        my_threat_intel_set_bucket_objectv2 = aws.s3.BucketObjectv2("myThreatIntelSetBucketObjectv2",
+        my_threat_intel_set = aws.s3.BucketObjectv2("MyThreatIntelSet",
             acl="public-read",
             content="10.0.0.0/8\\n",
             bucket=bucket.id,
             key="MyThreatIntelSet")
-        my_threat_intel_set_threat_intel_set = aws.guardduty.ThreatIntelSet("myThreatIntelSetThreatIntelSet",
+        my_threat_intel_set_threat_intel_set = aws.guardduty.ThreatIntelSet("MyThreatIntelSet",
             activate=True,
             detector_id=primary.id,
             format="TXT",
-            location=pulumi.Output.all(my_threat_intel_set_bucket_objectv2.bucket, my_threat_intel_set_bucket_objectv2.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"))
+            location=pulumi.Output.all(my_threat_intel_set.bucket, my_threat_intel_set.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"),
+            name="MyThreatIntelSet")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GuardDuty ThreatIntelSet using the primary GuardDuty detector ID and ThreatIntelSetID. For example:
 
         ```sh
-         $ pulumi import aws:guardduty/threatIntelSet:ThreatIntelSet MyThreatIntelSet 00b00fd5aecc0ab60a708659477e9617:123456789012
+        $ pulumi import aws:guardduty/threatIntelSet:ThreatIntelSet MyThreatIntelSet 00b00fd5aecc0ab60a708659477e9617:123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -400,8 +404,6 @@ class ThreatIntelSet(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ThreatIntelSet, __self__).__init__(
             'aws:guardduty/threatIntelSet:ThreatIntelSet',
             resource_name,

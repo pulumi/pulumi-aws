@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS CodeCatalyst Dev Environment.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,9 +22,10 @@ import * as utilities from "../utilities";
  * const example = aws.codecatalyst.getDevEnvironment({
  *     spaceName: "myspace",
  *     projectName: "myproject",
- *     envId: aws_codecatalyst_dev_environment.example.id,
+ *     envId: exampleAwsCodecatalystDevEnvironment.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDevEnvironment(args: GetDevEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDevEnvironmentResult> {
 
@@ -126,8 +129,10 @@ export interface GetDevEnvironmentResult {
  * Data source for managing an AWS CodeCatalyst Dev Environment.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -135,9 +140,10 @@ export interface GetDevEnvironmentResult {
  * const example = aws.codecatalyst.getDevEnvironment({
  *     spaceName: "myspace",
  *     projectName: "myproject",
- *     envId: aws_codecatalyst_dev_environment.example.id,
+ *     envId: exampleAwsCodecatalystDevEnvironment.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDevEnvironmentOutput(args: GetDevEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getDevEnvironment(a, opts))

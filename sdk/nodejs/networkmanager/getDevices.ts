@@ -9,17 +9,19 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkmanager.getDevices({
- *     globalNetworkId: _var.global_network_id,
+ *     globalNetworkId: globalNetworkId,
  *     tags: {
  *         Env: "test",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDevices(args: GetDevicesArgs, opts?: pulumi.InvokeOptions): Promise<GetDevicesResult> {
 
@@ -70,17 +72,19 @@ export interface GetDevicesResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkmanager.getDevices({
- *     globalNetworkId: _var.global_network_id,
+ *     globalNetworkId: globalNetworkId,
  *     tags: {
  *         Env: "test",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDevicesOutput(args: GetDevicesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevicesResult> {
     return pulumi.output(args).apply((a: any) => getDevices(a, opts))

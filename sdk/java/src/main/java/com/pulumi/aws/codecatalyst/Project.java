@@ -18,7 +18,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS CodeCatalyst Project.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -41,21 +44,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Project(&#34;test&#34;, ProjectArgs.builder()        
- *             .description(&#34;My CodeCatalyst Project created using Pulumi&#34;)
- *             .displayName(&#34;MyProject&#34;)
  *             .spaceName(&#34;myproject&#34;)
+ *             .displayName(&#34;MyProject&#34;)
+ *             .description(&#34;My CodeCatalyst Project created using Pulumi&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import CodeCatalyst Project using the `example_id_arg`. For example:
+ * Using `pulumi import`, import CodeCatalyst Project using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:codecatalyst/project:Project example project-id-12345678
+ * $ pulumi import aws:codecatalyst/project:Project example project-id-12345678
  * ```
  * 
  */

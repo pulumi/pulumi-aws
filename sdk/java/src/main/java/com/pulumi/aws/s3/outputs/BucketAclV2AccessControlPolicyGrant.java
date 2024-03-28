@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.aws.s3.outputs.BucketAclV2AccessControlPolicyGrantGrantee;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -18,7 +19,7 @@ public final class BucketAclV2AccessControlPolicyGrant {
      */
     private @Nullable BucketAclV2AccessControlPolicyGrantGrantee grantee;
     /**
-     * @return Logging permissions assigned to the grantee for the bucket.
+     * @return Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
      * 
      */
     private String permission;
@@ -32,7 +33,7 @@ public final class BucketAclV2AccessControlPolicyGrant {
         return Optional.ofNullable(this.grantee);
     }
     /**
-     * @return Logging permissions assigned to the grantee for the bucket.
+     * @return Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
      * 
      */
     public String permission() {
@@ -59,19 +60,23 @@ public final class BucketAclV2AccessControlPolicyGrant {
 
         @CustomType.Setter
         public Builder grantee(@Nullable BucketAclV2AccessControlPolicyGrantGrantee grantee) {
+
             this.grantee = grantee;
             return this;
         }
         @CustomType.Setter
         public Builder permission(String permission) {
-            this.permission = Objects.requireNonNull(permission);
+            if (permission == null) {
+              throw new MissingRequiredPropertyException("BucketAclV2AccessControlPolicyGrant", "permission");
+            }
+            this.permission = permission;
             return this;
         }
         public BucketAclV2AccessControlPolicyGrant build() {
-            final var o = new BucketAclV2AccessControlPolicyGrant();
-            o.grantee = grantee;
-            o.permission = permission;
-            return o;
+            final var _resultValue = new BucketAclV2AccessControlPolicyGrant();
+            _resultValue.grantee = grantee;
+            _resultValue.permission = permission;
+            return _resultValue;
         }
     }
 }

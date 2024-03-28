@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,19 +25,20 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.VpcEndpointRouteTableAssociation("example", new()
     ///     {
-    ///         RouteTableId = aws_route_table.Example.Id,
-    ///         VpcEndpointId = aws_vpc_endpoint.Example.Id,
+    ///         RouteTableId = exampleAwsRouteTable.Id,
+    ///         VpcEndpointId = exampleAwsVpcEndpoint.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import VPC Endpoint Route Table Associations using `vpc_endpoint_id` together with `route_table_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation example vpce-aaaaaaaa/rtb-bbbbbbbb
+    /// $ pulumi import aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation example vpce-aaaaaaaa/rtb-bbbbbbbb
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation")]

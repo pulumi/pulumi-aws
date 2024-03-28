@@ -5,20 +5,21 @@ package com.pulumi.aws.fsx.outputs;
 
 import com.pulumi.aws.fsx.outputs.OpenZfsVolumeNfsExportsClientConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class OpenZfsVolumeNfsExports {
     /**
-     * @return A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+     * @return A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `client_configurations` Block below for details.
      * 
      */
     private List<OpenZfsVolumeNfsExportsClientConfiguration> clientConfigurations;
 
     private OpenZfsVolumeNfsExports() {}
     /**
-     * @return A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+     * @return A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `client_configurations` Block below for details.
      * 
      */
     public List<OpenZfsVolumeNfsExportsClientConfiguration> clientConfigurations() {
@@ -43,16 +44,19 @@ public final class OpenZfsVolumeNfsExports {
 
         @CustomType.Setter
         public Builder clientConfigurations(List<OpenZfsVolumeNfsExportsClientConfiguration> clientConfigurations) {
-            this.clientConfigurations = Objects.requireNonNull(clientConfigurations);
+            if (clientConfigurations == null) {
+              throw new MissingRequiredPropertyException("OpenZfsVolumeNfsExports", "clientConfigurations");
+            }
+            this.clientConfigurations = clientConfigurations;
             return this;
         }
         public Builder clientConfigurations(OpenZfsVolumeNfsExportsClientConfiguration... clientConfigurations) {
             return clientConfigurations(List.of(clientConfigurations));
         }
         public OpenZfsVolumeNfsExports build() {
-            final var o = new OpenZfsVolumeNfsExports();
-            o.clientConfigurations = clientConfigurations;
-            return o;
+            final var _resultValue = new OpenZfsVolumeNfsExports();
+            _resultValue.clientConfigurations = clientConfigurations;
+            return _resultValue;
         }
     }
 }

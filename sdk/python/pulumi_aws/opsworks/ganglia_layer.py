@@ -894,14 +894,16 @@ class GangliaLayer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         monitor = aws.opsworks.GangliaLayer("monitor",
-            stack_id=aws_opsworks_stack["main"]["id"],
+            stack_id=main["id"],
             password="foobarbaz")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -940,14 +942,16 @@ class GangliaLayer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         monitor = aws.opsworks.GangliaLayer("monitor",
-            stack_id=aws_opsworks_stack["main"]["id"],
+            stack_id=main["id"],
             password="foobarbaz")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param GangliaLayerArgs args: The arguments to use to populate this resource's properties.
@@ -1031,8 +1035,6 @@ class GangliaLayer(pulumi.CustomResource):
             __props__.__dict__["username"] = username
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(GangliaLayer, __self__).__init__(
             'aws:opsworks/gangliaLayer:GangliaLayer',
             resource_name,

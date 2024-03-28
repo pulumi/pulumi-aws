@@ -4,6 +4,7 @@
 package com.pulumi.aws.eks.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetNodeGroupsPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         public GetNodeGroupsPlainArgs build() {
-            $.clusterName = Objects.requireNonNull($.clusterName, "expected parameter 'clusterName' to be non-null");
+            if ($.clusterName == null) {
+                throw new MissingRequiredPropertyException("GetNodeGroupsPlainArgs", "clusterName");
+            }
             return $;
         }
     }

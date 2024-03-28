@@ -12,12 +12,58 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.msk.Replicator("test", {
+ *     replicatorName: "test-name",
+ *     description: "test-description",
+ *     serviceExecutionRoleArn: sourceAwsIamRole.arn,
+ *     kafkaClusters: [
+ *         {
+ *             amazonMskCluster: {
+ *                 mskClusterArn: source.arn,
+ *             },
+ *             vpcConfig: {
+ *                 subnetIds: sourceAwsSubnet.map(__item => __item.id),
+ *                 securityGroupsIds: [sourceAwsSecurityGroup.id],
+ *             },
+ *         },
+ *         {
+ *             amazonMskCluster: {
+ *                 mskClusterArn: target.arn,
+ *             },
+ *             vpcConfig: {
+ *                 subnetIds: targetAwsSubnet.map(__item => __item.id),
+ *                 securityGroupsIds: [targetAwsSecurityGroup.id],
+ *             },
+ *         },
+ *     ],
+ *     replicationInfoList: {
+ *         sourceKafkaClusterArn: source.arn,
+ *         targetKafkaClusterArn: target.arn,
+ *         targetCompressionType: "NONE",
+ *         topicReplications: [{
+ *             topicsToReplicates: [".*"],
+ *         }],
+ *         consumerGroupReplications: [{
+ *             consumerGroupsToReplicates: [".*"],
+ *         }],
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Import
  *
  * Using `pulumi import`, import MSK replicators using the replicator ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:msk/replicator:Replicator example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+ * $ pulumi import aws:msk/replicator:Replicator example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
  * ```
  */
 export class Replicator extends pulumi.CustomResource {
@@ -126,8 +172,6 @@ export class Replicator extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Replicator.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -72,25 +72,28 @@ public final class SpotInstanceRequestLaunchTemplate {
 
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }
         public SpotInstanceRequestLaunchTemplate build() {
-            final var o = new SpotInstanceRequestLaunchTemplate();
-            o.id = id;
-            o.name = name;
-            o.version = version;
-            return o;
+            final var _resultValue = new SpotInstanceRequestLaunchTemplate();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

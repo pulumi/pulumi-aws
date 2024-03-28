@@ -5,6 +5,7 @@ package com.pulumi.aws.wafregional.outputs;
 
 import com.pulumi.aws.wafregional.outputs.XssMatchSetXssMatchTupleFieldToMatch;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -57,19 +58,25 @@ public final class XssMatchSetXssMatchTuple {
 
         @CustomType.Setter
         public Builder fieldToMatch(XssMatchSetXssMatchTupleFieldToMatch fieldToMatch) {
-            this.fieldToMatch = Objects.requireNonNull(fieldToMatch);
+            if (fieldToMatch == null) {
+              throw new MissingRequiredPropertyException("XssMatchSetXssMatchTuple", "fieldToMatch");
+            }
+            this.fieldToMatch = fieldToMatch;
             return this;
         }
         @CustomType.Setter
         public Builder textTransformation(String textTransformation) {
-            this.textTransformation = Objects.requireNonNull(textTransformation);
+            if (textTransformation == null) {
+              throw new MissingRequiredPropertyException("XssMatchSetXssMatchTuple", "textTransformation");
+            }
+            this.textTransformation = textTransformation;
             return this;
         }
         public XssMatchSetXssMatchTuple build() {
-            final var o = new XssMatchSetXssMatchTuple();
-            o.fieldToMatch = fieldToMatch;
-            o.textTransformation = textTransformation;
-            return o;
+            final var _resultValue = new XssMatchSetXssMatchTuple();
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.textTransformation = textTransformation;
+            return _resultValue;
         }
     }
 }

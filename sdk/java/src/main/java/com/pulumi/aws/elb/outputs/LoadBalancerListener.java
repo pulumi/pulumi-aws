@@ -4,6 +4,7 @@
 package com.pulumi.aws.elb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -107,37 +108,50 @@ public final class LoadBalancerListener {
 
         @CustomType.Setter
         public Builder instancePort(Integer instancePort) {
-            this.instancePort = Objects.requireNonNull(instancePort);
+            if (instancePort == null) {
+              throw new MissingRequiredPropertyException("LoadBalancerListener", "instancePort");
+            }
+            this.instancePort = instancePort;
             return this;
         }
         @CustomType.Setter
         public Builder instanceProtocol(String instanceProtocol) {
-            this.instanceProtocol = Objects.requireNonNull(instanceProtocol);
+            if (instanceProtocol == null) {
+              throw new MissingRequiredPropertyException("LoadBalancerListener", "instanceProtocol");
+            }
+            this.instanceProtocol = instanceProtocol;
             return this;
         }
         @CustomType.Setter
         public Builder lbPort(Integer lbPort) {
-            this.lbPort = Objects.requireNonNull(lbPort);
+            if (lbPort == null) {
+              throw new MissingRequiredPropertyException("LoadBalancerListener", "lbPort");
+            }
+            this.lbPort = lbPort;
             return this;
         }
         @CustomType.Setter
         public Builder lbProtocol(String lbProtocol) {
-            this.lbProtocol = Objects.requireNonNull(lbProtocol);
+            if (lbProtocol == null) {
+              throw new MissingRequiredPropertyException("LoadBalancerListener", "lbProtocol");
+            }
+            this.lbProtocol = lbProtocol;
             return this;
         }
         @CustomType.Setter
         public Builder sslCertificateId(@Nullable String sslCertificateId) {
+
             this.sslCertificateId = sslCertificateId;
             return this;
         }
         public LoadBalancerListener build() {
-            final var o = new LoadBalancerListener();
-            o.instancePort = instancePort;
-            o.instanceProtocol = instanceProtocol;
-            o.lbPort = lbPort;
-            o.lbProtocol = lbProtocol;
-            o.sslCertificateId = sslCertificateId;
-            return o;
+            final var _resultValue = new LoadBalancerListener();
+            _resultValue.instancePort = instancePort;
+            _resultValue.instanceProtocol = instanceProtocol;
+            _resultValue.lbPort = lbPort;
+            _resultValue.lbProtocol = lbProtocol;
+            _resultValue.sslCertificateId = sslCertificateId;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.elasticbeanstalk.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -62,31 +63,41 @@ public final class ConfigurationTemplateSetting {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ConfigurationTemplateSetting", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder namespace(String namespace) {
-            this.namespace = Objects.requireNonNull(namespace);
+            if (namespace == null) {
+              throw new MissingRequiredPropertyException("ConfigurationTemplateSetting", "namespace");
+            }
+            this.namespace = namespace;
             return this;
         }
         @CustomType.Setter
         public Builder resource(@Nullable String resource) {
+
             this.resource = resource;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("ConfigurationTemplateSetting", "value");
+            }
+            this.value = value;
             return this;
         }
         public ConfigurationTemplateSetting build() {
-            final var o = new ConfigurationTemplateSetting();
-            o.name = name;
-            o.namespace = namespace;
-            o.resource = resource;
-            o.value = value;
-            return o;
+            final var _resultValue = new ConfigurationTemplateSetting();
+            _resultValue.name = name;
+            _resultValue.namespace = namespace;
+            _resultValue.resource = resource;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

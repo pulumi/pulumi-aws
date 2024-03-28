@@ -116,43 +116,49 @@ public final class ChannelEncoderSettingsGlobalConfiguration {
 
         @CustomType.Setter
         public Builder initialAudioGain(@Nullable Integer initialAudioGain) {
+
             this.initialAudioGain = initialAudioGain;
             return this;
         }
         @CustomType.Setter
         public Builder inputEndAction(@Nullable String inputEndAction) {
+
             this.inputEndAction = inputEndAction;
             return this;
         }
         @CustomType.Setter
         public Builder inputLossBehavior(@Nullable ChannelEncoderSettingsGlobalConfigurationInputLossBehavior inputLossBehavior) {
+
             this.inputLossBehavior = inputLossBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder outputLockingMode(@Nullable String outputLockingMode) {
+
             this.outputLockingMode = outputLockingMode;
             return this;
         }
         @CustomType.Setter
         public Builder outputTimingSource(@Nullable String outputTimingSource) {
+
             this.outputTimingSource = outputTimingSource;
             return this;
         }
         @CustomType.Setter
         public Builder supportLowFramerateInputs(@Nullable String supportLowFramerateInputs) {
+
             this.supportLowFramerateInputs = supportLowFramerateInputs;
             return this;
         }
         public ChannelEncoderSettingsGlobalConfiguration build() {
-            final var o = new ChannelEncoderSettingsGlobalConfiguration();
-            o.initialAudioGain = initialAudioGain;
-            o.inputEndAction = inputEndAction;
-            o.inputLossBehavior = inputLossBehavior;
-            o.outputLockingMode = outputLockingMode;
-            o.outputTimingSource = outputTimingSource;
-            o.supportLowFramerateInputs = supportLowFramerateInputs;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsGlobalConfiguration();
+            _resultValue.initialAudioGain = initialAudioGain;
+            _resultValue.inputEndAction = inputEndAction;
+            _resultValue.inputLossBehavior = inputLossBehavior;
+            _resultValue.outputLockingMode = outputLockingMode;
+            _resultValue.outputTimingSource = outputTimingSource;
+            _resultValue.supportLowFramerateInputs = supportLowFramerateInputs;
+            return _resultValue;
         }
     }
 }

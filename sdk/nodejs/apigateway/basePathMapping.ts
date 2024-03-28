@@ -11,32 +11,6 @@ import {RestApi} from "./index";
  * with a deployed API so that its methods can be called via the
  * custom domain name.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- *
- * const exampleStage = new aws.apigateway.Stage("exampleStage", {
- *     deployment: aws_api_gateway_deployment.example.id,
- *     restApi: aws_api_gateway_rest_api.example.id,
- *     stageName: "example",
- * });
- * const exampleDomainName = new aws.apigateway.DomainName("exampleDomainName", {
- *     domainName: "example.com",
- *     certificateName: "example-api",
- *     certificateBody: fs.readFileSync(`${path.module}/example.com/example.crt`),
- *     certificateChain: fs.readFileSync(`${path.module}/example.com/ca.crt`),
- *     certificatePrivateKey: fs.readFileSync(`${path.module}/example.com/example.key`),
- * });
- * const exampleBasePathMapping = new aws.apigateway.BasePathMapping("exampleBasePathMapping", {
- *     restApi: aws_api_gateway_rest_api.example.id,
- *     stageName: exampleStage.stageName,
- *     domainName: exampleDomainName.domainName,
- * });
- * ```
- *
  * ## Import
  *
  * For a non-root `base_path`:
@@ -46,12 +20,12 @@ import {RestApi} from "./index";
  * For an empty `base_path` or, in other words, a root path (`/`):
  *
  * ```sh
- *  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
+ * $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
  * ```
- *  For a non-root `base_path`:
+ * For a non-root `base_path`:
  *
  * ```sh
- *  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
+ * $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
  * ```
  */
 export class BasePathMapping extends pulumi.CustomResource {

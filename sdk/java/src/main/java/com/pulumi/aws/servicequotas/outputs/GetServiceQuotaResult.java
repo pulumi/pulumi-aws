@@ -5,6 +5,7 @@ package com.pulumi.aws.servicequotas.outputs;
 
 import com.pulumi.aws.servicequotas.outputs.GetServiceQuotaUsageMetric;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -162,52 +163,82 @@ public final class GetServiceQuotaResult {
 
         @CustomType.Setter
         public Builder adjustable(Boolean adjustable) {
-            this.adjustable = Objects.requireNonNull(adjustable);
+            if (adjustable == null) {
+              throw new MissingRequiredPropertyException("GetServiceQuotaResult", "adjustable");
+            }
+            this.adjustable = adjustable;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetServiceQuotaResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder defaultValue(Double defaultValue) {
-            this.defaultValue = Objects.requireNonNull(defaultValue);
+            if (defaultValue == null) {
+              throw new MissingRequiredPropertyException("GetServiceQuotaResult", "defaultValue");
+            }
+            this.defaultValue = defaultValue;
             return this;
         }
         @CustomType.Setter
         public Builder globalQuota(Boolean globalQuota) {
-            this.globalQuota = Objects.requireNonNull(globalQuota);
+            if (globalQuota == null) {
+              throw new MissingRequiredPropertyException("GetServiceQuotaResult", "globalQuota");
+            }
+            this.globalQuota = globalQuota;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceQuotaResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder quotaCode(String quotaCode) {
-            this.quotaCode = Objects.requireNonNull(quotaCode);
+            if (quotaCode == null) {
+              throw new MissingRequiredPropertyException("GetServiceQuotaResult", "quotaCode");
+            }
+            this.quotaCode = quotaCode;
             return this;
         }
         @CustomType.Setter
         public Builder quotaName(String quotaName) {
-            this.quotaName = Objects.requireNonNull(quotaName);
+            if (quotaName == null) {
+              throw new MissingRequiredPropertyException("GetServiceQuotaResult", "quotaName");
+            }
+            this.quotaName = quotaName;
             return this;
         }
         @CustomType.Setter
         public Builder serviceCode(String serviceCode) {
-            this.serviceCode = Objects.requireNonNull(serviceCode);
+            if (serviceCode == null) {
+              throw new MissingRequiredPropertyException("GetServiceQuotaResult", "serviceCode");
+            }
+            this.serviceCode = serviceCode;
             return this;
         }
         @CustomType.Setter
         public Builder serviceName(String serviceName) {
-            this.serviceName = Objects.requireNonNull(serviceName);
+            if (serviceName == null) {
+              throw new MissingRequiredPropertyException("GetServiceQuotaResult", "serviceName");
+            }
+            this.serviceName = serviceName;
             return this;
         }
         @CustomType.Setter
         public Builder usageMetrics(List<GetServiceQuotaUsageMetric> usageMetrics) {
-            this.usageMetrics = Objects.requireNonNull(usageMetrics);
+            if (usageMetrics == null) {
+              throw new MissingRequiredPropertyException("GetServiceQuotaResult", "usageMetrics");
+            }
+            this.usageMetrics = usageMetrics;
             return this;
         }
         public Builder usageMetrics(GetServiceQuotaUsageMetric... usageMetrics) {
@@ -215,23 +246,26 @@ public final class GetServiceQuotaResult {
         }
         @CustomType.Setter
         public Builder value(Double value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("GetServiceQuotaResult", "value");
+            }
+            this.value = value;
             return this;
         }
         public GetServiceQuotaResult build() {
-            final var o = new GetServiceQuotaResult();
-            o.adjustable = adjustable;
-            o.arn = arn;
-            o.defaultValue = defaultValue;
-            o.globalQuota = globalQuota;
-            o.id = id;
-            o.quotaCode = quotaCode;
-            o.quotaName = quotaName;
-            o.serviceCode = serviceCode;
-            o.serviceName = serviceName;
-            o.usageMetrics = usageMetrics;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetServiceQuotaResult();
+            _resultValue.adjustable = adjustable;
+            _resultValue.arn = arn;
+            _resultValue.defaultValue = defaultValue;
+            _resultValue.globalQuota = globalQuota;
+            _resultValue.id = id;
+            _resultValue.quotaCode = quotaCode;
+            _resultValue.quotaName = quotaName;
+            _resultValue.serviceCode = serviceCode;
+            _resultValue.serviceName = serviceName;
+            _resultValue.usageMetrics = usageMetrics;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

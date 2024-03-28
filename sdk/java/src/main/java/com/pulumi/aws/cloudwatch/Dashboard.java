@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a CloudWatch Dashboard resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -80,13 +82,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudWatch dashboards using the `dashboard_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudwatch/dashboard:Dashboard sample dashboard_name
+ * $ pulumi import aws:cloudwatch/dashboard:Dashboard sample dashboard_name
  * ```
  * 
  */

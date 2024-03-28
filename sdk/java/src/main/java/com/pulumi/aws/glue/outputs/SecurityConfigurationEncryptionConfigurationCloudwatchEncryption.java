@@ -58,19 +58,21 @@ public final class SecurityConfigurationEncryptionConfigurationCloudwatchEncrypt
 
         @CustomType.Setter
         public Builder cloudwatchEncryptionMode(@Nullable String cloudwatchEncryptionMode) {
+
             this.cloudwatchEncryptionMode = cloudwatchEncryptionMode;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
+
             this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         public SecurityConfigurationEncryptionConfigurationCloudwatchEncryption build() {
-            final var o = new SecurityConfigurationEncryptionConfigurationCloudwatchEncryption();
-            o.cloudwatchEncryptionMode = cloudwatchEncryptionMode;
-            o.kmsKeyArn = kmsKeyArn;
-            return o;
+            final var _resultValue = new SecurityConfigurationEncryptionConfigurationCloudwatchEncryption();
+            _resultValue.cloudwatchEncryptionMode = cloudwatchEncryptionMode;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            return _resultValue;
         }
     }
 }

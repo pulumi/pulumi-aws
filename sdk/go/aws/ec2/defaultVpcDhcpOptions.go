@@ -26,6 +26,7 @@ import (
 //
 // Basic usage with tags:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,15 +52,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import VPC DHCP Options using the DHCP Options `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions default_options dopt-d9070ebb
-//
+// $ pulumi import aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions default_options dopt-d9070ebb
 // ```
 type DefaultVpcDhcpOptions struct {
 	pulumi.CustomResourceState
@@ -88,10 +88,6 @@ func NewDefaultVpcDhcpOptions(ctx *pulumi.Context,
 		args = &DefaultVpcDhcpOptionsArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DefaultVpcDhcpOptions
 	err := ctx.RegisterResource("aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions", name, args, &resource, opts...)

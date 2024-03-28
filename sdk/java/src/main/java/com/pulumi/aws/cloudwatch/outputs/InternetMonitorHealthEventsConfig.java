@@ -58,19 +58,21 @@ public final class InternetMonitorHealthEventsConfig {
 
         @CustomType.Setter
         public Builder availabilityScoreThreshold(@Nullable Double availabilityScoreThreshold) {
+
             this.availabilityScoreThreshold = availabilityScoreThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder performanceScoreThreshold(@Nullable Double performanceScoreThreshold) {
+
             this.performanceScoreThreshold = performanceScoreThreshold;
             return this;
         }
         public InternetMonitorHealthEventsConfig build() {
-            final var o = new InternetMonitorHealthEventsConfig();
-            o.availabilityScoreThreshold = availabilityScoreThreshold;
-            o.performanceScoreThreshold = performanceScoreThreshold;
-            return o;
+            final var _resultValue = new InternetMonitorHealthEventsConfig();
+            _resultValue.availabilityScoreThreshold = availabilityScoreThreshold;
+            _resultValue.performanceScoreThreshold = performanceScoreThreshold;
+            return _resultValue;
         }
     }
 }

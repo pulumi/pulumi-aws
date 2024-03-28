@@ -425,23 +425,26 @@ class HostedTransitVirtualInterface(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.directconnect.HostedTransitVirtualInterface("example",
-            connection_id=aws_dx_connection["example"]["id"],
+            connection_id=example_aws_dx_connection["id"],
+            name="tf-transit-vif-example",
             vlan=4094,
             address_family="ipv4",
             bgp_asn=65352)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Direct Connect hosted transit virtual interfaces using the VIF `id`. For example:
 
         ```sh
-         $ pulumi import aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface test dxvif-33cc44dd
+        $ pulumi import aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface test dxvif-33cc44dd
         ```
 
         :param str resource_name: The name of the resource.
@@ -470,23 +473,26 @@ class HostedTransitVirtualInterface(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.directconnect.HostedTransitVirtualInterface("example",
-            connection_id=aws_dx_connection["example"]["id"],
+            connection_id=example_aws_dx_connection["id"],
+            name="tf-transit-vif-example",
             vlan=4094,
             address_family="ipv4",
             bgp_asn=65352)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Direct Connect hosted transit virtual interfaces using the VIF `id`. For example:
 
         ```sh
-         $ pulumi import aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface test dxvif-33cc44dd
+        $ pulumi import aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface test dxvif-33cc44dd
         ```
 
         :param str resource_name: The name of the resource.

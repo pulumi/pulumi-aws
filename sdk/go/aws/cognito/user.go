@@ -15,8 +15,10 @@ import (
 // Provides a Cognito User Resource.
 //
 // ## Example Usage
+//
 // ### Basic configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,12 +31,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", nil)
+//			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
+//				Name: pulumi.String("MyExamplePool"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cognito.NewUser(ctx, "exampleUser", &cognito.UserArgs{
-//				UserPoolId: exampleUserPool.ID(),
+//			_, err = cognito.NewUser(ctx, "example", &cognito.UserArgs{
+//				UserPoolId: example.ID(),
 //				Username:   pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -45,8 +49,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Setting user attributes
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,7 +66,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", &cognito.UserPoolArgs{
+//			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
+//				Name: pulumi.String("mypool"),
 //				Schemas: cognito.UserPoolSchemaArray{
 //					&cognito.UserPoolSchemaArgs{
 //						Name:                   pulumi.String("example"),
@@ -81,13 +89,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cognito.NewUser(ctx, "exampleUser", &cognito.UserArgs{
-//				UserPoolId: exampleUserPool.ID(),
+//			_, err = cognito.NewUser(ctx, "example", &cognito.UserArgs{
+//				UserPoolId: example.ID(),
 //				Username:   pulumi.String("example"),
 //				Attributes: pulumi.StringMap{
 //					"example":        pulumi.String("true"),
 //					"foo":            pulumi.String("bar"),
-//					"email":          pulumi.String("no-reply@domain.example"),
+//					"email":          pulumi.String("no-reply@example.com"),
 //					"email_verified": pulumi.String("true"),
 //				},
 //			})
@@ -99,15 +107,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Cognito User using the `user_pool_id`/`name` attributes concatenated. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
-//
+// $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
 // ```
 type User struct {
 	pulumi.CustomResourceState

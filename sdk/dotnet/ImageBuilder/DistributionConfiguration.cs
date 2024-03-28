@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,6 +25,7 @@ namespace Pulumi.Aws.ImageBuilder
     /// {
     ///     var example = new Aws.ImageBuilder.DistributionConfiguration("example", new()
     ///     {
+    ///         Name = "example",
     ///         Distributions = new[]
     ///         {
     ///             new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionArgs
@@ -34,6 +36,7 @@ namespace Pulumi.Aws.ImageBuilder
     ///                     {
     ///                         { "CostCenter", "IT" },
     ///                     },
+    ///                     Name = "example-{{ imagebuilder:buildDate }}",
     ///                     LaunchPermission = new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs
     ///                     {
     ///                         UserIds = new[]
@@ -41,7 +44,6 @@ namespace Pulumi.Aws.ImageBuilder
     ///                             "123456789012",
     ///                         },
     ///                     },
-    ///                     Name = "example-{{ imagebuilder:buildDate }}",
     ///                 },
     ///                 LaunchTemplateConfigurations = new[]
     ///                 {
@@ -57,13 +59,14 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_imagebuilder_distribution_configurations` resources using the Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
+    /// $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:imagebuilder/distributionConfiguration:DistributionConfiguration")]
@@ -142,10 +145,6 @@ namespace Pulumi.Aws.ImageBuilder
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -281,11 +280,7 @@ namespace Pulumi.Aws.ImageBuilder
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public DistributionConfigurationState()

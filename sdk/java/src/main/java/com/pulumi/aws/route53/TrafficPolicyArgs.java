@@ -5,6 +5,7 @@ package com.pulumi.aws.route53;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -158,7 +159,9 @@ public final class TrafficPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TrafficPolicyArgs build() {
-            $.document = Objects.requireNonNull($.document, "expected parameter 'document' to be non-null");
+            if ($.document == null) {
+                throw new MissingRequiredPropertyException("TrafficPolicyArgs", "document");
+            }
             return $;
         }
     }

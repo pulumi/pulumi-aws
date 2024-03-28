@@ -18,8 +18,10 @@ namespace Pulumi.Aws.DirectConnect
     /// **Note:** The `secret_arn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `aws.directconnect.MacsecKeyAssociation` resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Create MACSec key with CKN and CAK
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,8 +44,11 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Create MACSec key with existing Secrets Manager secret
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,24 +57,25 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleConnection = Aws.DirectConnect.GetConnection.Invoke(new()
+    ///     var example = Aws.DirectConnect.GetConnection.Invoke(new()
     ///     {
     ///         Name = "tf-dx-connection",
     ///     });
     /// 
-    ///     var exampleSecret = Aws.SecretsManager.GetSecret.Invoke(new()
+    ///     var exampleGetSecret = Aws.SecretsManager.GetSecret.Invoke(new()
     ///     {
     ///         Name = "directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
     ///     });
     /// 
     ///     var test = new Aws.DirectConnect.MacsecKeyAssociation("test", new()
     ///     {
-    ///         ConnectionId = exampleConnection.Apply(getConnectionResult =&gt; getConnectionResult.Id),
-    ///         SecretArn = exampleSecret.Apply(getSecretResult =&gt; getSecretResult.Arn),
+    ///         ConnectionId = example.Apply(getConnectionResult =&gt; getConnectionResult.Id),
+    ///         SecretArn = exampleGetSecret.Apply(getSecretResult =&gt; getSecretResult.Arn),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:directconnect/macsecKeyAssociation:MacsecKeyAssociation")]
     public partial class MacsecKeyAssociation : global::Pulumi.CustomResource

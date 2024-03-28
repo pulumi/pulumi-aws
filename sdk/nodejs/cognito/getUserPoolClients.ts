@@ -9,14 +9,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.cognito.getUserPoolClients({
- *     userPoolId: aws_cognito_user_pool.main.id,
+ *     userPoolId: mainAwsCognitoUserPool.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getUserPoolClients(args: GetUserPoolClientsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolClientsResult> {
 
@@ -59,14 +61,16 @@ export interface GetUserPoolClientsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.cognito.getUserPoolClients({
- *     userPoolId: aws_cognito_user_pool.main.id,
+ *     userPoolId: mainAwsCognitoUserPool.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getUserPoolClientsOutput(args: GetUserPoolClientsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolClientsResult> {
     return pulumi.output(args).apply((a: any) => getUserPoolClients(a, opts))

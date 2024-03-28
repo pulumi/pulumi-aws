@@ -119,32 +119,35 @@ class VpcEndpoint(pulumi.CustomResource):
         Manages an [AWS Opensearch VPC Endpoint](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon OpenSearch Service-managed VPC endpoint.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         foo = aws.opensearch.VpcEndpoint("foo",
-            domain_arn=aws_opensearch_domain["domain_1"]["arn"],
+            domain_arn=domain1["arn"],
             vpc_options=aws.opensearch.VpcEndpointVpcOptionsArgs(
                 security_group_ids=[
-                    aws_security_group["test"]["id"],
-                    aws_security_group["test2"]["id"],
+                    test["id"],
+                    test2["id"],
                 ],
                 subnet_ids=[
-                    aws_subnet["test"]["id"],
-                    aws_subnet["test2"]["id"],
+                    test_aws_subnet["id"],
+                    test2_aws_subnet["id"],
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import OpenSearch VPC endpoint connections using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:opensearch/vpcEndpoint:VpcEndpoint example endpoint-id
+        $ pulumi import aws:opensearch/vpcEndpoint:VpcEndpoint example endpoint-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -162,32 +165,35 @@ class VpcEndpoint(pulumi.CustomResource):
         Manages an [AWS Opensearch VPC Endpoint](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon OpenSearch Service-managed VPC endpoint.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         foo = aws.opensearch.VpcEndpoint("foo",
-            domain_arn=aws_opensearch_domain["domain_1"]["arn"],
+            domain_arn=domain1["arn"],
             vpc_options=aws.opensearch.VpcEndpointVpcOptionsArgs(
                 security_group_ids=[
-                    aws_security_group["test"]["id"],
-                    aws_security_group["test2"]["id"],
+                    test["id"],
+                    test2["id"],
                 ],
                 subnet_ids=[
-                    aws_subnet["test"]["id"],
-                    aws_subnet["test2"]["id"],
+                    test_aws_subnet["id"],
+                    test2_aws_subnet["id"],
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import OpenSearch VPC endpoint connections using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:opensearch/vpcEndpoint:VpcEndpoint example endpoint-id
+        $ pulumi import aws:opensearch/vpcEndpoint:VpcEndpoint example endpoint-id
         ```
 
         :param str resource_name: The name of the resource.

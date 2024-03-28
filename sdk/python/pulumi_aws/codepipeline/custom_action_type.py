@@ -353,6 +353,7 @@ class CustomActionType(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -370,13 +371,14 @@ class CustomActionType(pulumi.CustomResource):
             provider_name="example",
             version="1")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeDeploy CustomActionType using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:pulumi:1
+        $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:pulumi:1
         ```
 
         :param str resource_name: The name of the resource.
@@ -401,6 +403,7 @@ class CustomActionType(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -418,13 +421,14 @@ class CustomActionType(pulumi.CustomResource):
             provider_name="example",
             version="1")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeDeploy CustomActionType using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:pulumi:1
+        $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:pulumi:1
         ```
 
         :param str resource_name: The name of the resource.
@@ -480,8 +484,6 @@ class CustomActionType(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["owner"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(CustomActionType, __self__).__init__(
             'aws:codepipeline/customActionType:CustomActionType',
             resource_name,

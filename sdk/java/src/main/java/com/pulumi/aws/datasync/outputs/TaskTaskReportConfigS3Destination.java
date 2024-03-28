@@ -4,6 +4,7 @@
 package com.pulumi.aws.datasync.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,32 @@ public final class TaskTaskReportConfigS3Destination {
 
         @CustomType.Setter
         public Builder bucketAccessRoleArn(String bucketAccessRoleArn) {
-            this.bucketAccessRoleArn = Objects.requireNonNull(bucketAccessRoleArn);
+            if (bucketAccessRoleArn == null) {
+              throw new MissingRequiredPropertyException("TaskTaskReportConfigS3Destination", "bucketAccessRoleArn");
+            }
+            this.bucketAccessRoleArn = bucketAccessRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder s3BucketArn(String s3BucketArn) {
-            this.s3BucketArn = Objects.requireNonNull(s3BucketArn);
+            if (s3BucketArn == null) {
+              throw new MissingRequiredPropertyException("TaskTaskReportConfigS3Destination", "s3BucketArn");
+            }
+            this.s3BucketArn = s3BucketArn;
             return this;
         }
         @CustomType.Setter
         public Builder subdirectory(@Nullable String subdirectory) {
+
             this.subdirectory = subdirectory;
             return this;
         }
         public TaskTaskReportConfigS3Destination build() {
-            final var o = new TaskTaskReportConfigS3Destination();
-            o.bucketAccessRoleArn = bucketAccessRoleArn;
-            o.s3BucketArn = s3BucketArn;
-            o.subdirectory = subdirectory;
-            return o;
+            final var _resultValue = new TaskTaskReportConfigS3Destination();
+            _resultValue.bucketAccessRoleArn = bucketAccessRoleArn;
+            _resultValue.s3BucketArn = s3BucketArn;
+            _resultValue.subdirectory = subdirectory;
+            return _resultValue;
         }
     }
 }

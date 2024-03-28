@@ -14,7 +14,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,6 +22,8 @@ import javax.annotation.Nullable;
  * Provides a Pinpoint App resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,25 +48,27 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new App(&#34;example&#34;, AppArgs.builder()        
+ *             .name(&#34;test-app&#34;)
  *             .limits(AppLimitsArgs.builder()
  *                 .maximumDuration(600)
  *                 .build())
  *             .quietTime(AppQuietTimeArgs.builder()
- *                 .end(&#34;06:00&#34;)
  *                 .start(&#34;00:00&#34;)
+ *                 .end(&#34;06:00&#34;)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Pinpoint App using the `application-id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:pinpoint/app:App name application-id
+ * $ pulumi import aws:pinpoint/app:App name application-id
  * ```
  * 
  */
@@ -234,9 +237,6 @@ public class App extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

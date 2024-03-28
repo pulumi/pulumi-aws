@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,21 +31,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myDevelopers, err := iam.NewGroup(ctx, "myDevelopers", &iam.GroupArgs{
+//			myDevelopers, err := iam.NewGroup(ctx, "my_developers", &iam.GroupArgs{
+//				Name: pulumi.String("developers"),
 //				Path: pulumi.String("/users/"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": []string{
+//						"action": []string{
 //							"ec2:Describe*",
 //						},
-//						"Effect":   "Allow",
-//						"Resource": "*",
+//						"effect":   "Allow",
+//						"resource": "*",
 //					},
 //				},
 //			})
@@ -52,7 +54,8 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = iam.NewGroupPolicy(ctx, "myDeveloperPolicy", &iam.GroupPolicyArgs{
+//			_, err = iam.NewGroupPolicy(ctx, "my_developer_policy", &iam.GroupPolicyArgs{
+//				Name:   pulumi.String("my_developer_policy"),
 //				Group:  myDevelopers.Name,
 //				Policy: pulumi.String(json0),
 //			})
@@ -64,15 +67,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IAM Group Policies using the `group_name:group_policy_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
-//
+// $ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
 // ```
 type GroupPolicy struct {
 	pulumi.CustomResourceState

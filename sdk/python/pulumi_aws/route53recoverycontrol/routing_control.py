@@ -176,28 +176,35 @@ class RoutingControl(pulumi.CustomResource):
 
         ## Example Usage
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53recoverycontrol.RoutingControl("example", cluster_arn="arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393")
-        ```
-
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.route53recoverycontrol.RoutingControl("example",
+            name="tinlicker",
+            cluster_arn="arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.route53recoverycontrol.RoutingControl("example",
+            name="thomasoliver",
             cluster_arn="arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393",
             control_panel_arn="arn:aws:route53-recovery-control::428113431245:controlpanel/abd5fbfc052d4844a082dbf400f61da8")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 Recovery Control Config Routing Control using the routing control arn. For example:
 
         ```sh
-         $ pulumi import aws:route53recoverycontrol/routingControl:RoutingControl mycontrol arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b
+        $ pulumi import aws:route53recoverycontrol/routingControl:RoutingControl mycontrol arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b
         ```
 
         :param str resource_name: The name of the resource.
@@ -219,28 +226,35 @@ class RoutingControl(pulumi.CustomResource):
 
         ## Example Usage
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53recoverycontrol.RoutingControl("example", cluster_arn="arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393")
-        ```
-
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.route53recoverycontrol.RoutingControl("example",
+            name="tinlicker",
+            cluster_arn="arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.route53recoverycontrol.RoutingControl("example",
+            name="thomasoliver",
             cluster_arn="arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393",
             control_panel_arn="arn:aws:route53-recovery-control::428113431245:controlpanel/abd5fbfc052d4844a082dbf400f61da8")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 Recovery Control Config Routing Control using the routing control arn. For example:
 
         ```sh
-         $ pulumi import aws:route53recoverycontrol/routingControl:RoutingControl mycontrol arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b
+        $ pulumi import aws:route53recoverycontrol/routingControl:RoutingControl mycontrol arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b
         ```
 
         :param str resource_name: The name of the resource.

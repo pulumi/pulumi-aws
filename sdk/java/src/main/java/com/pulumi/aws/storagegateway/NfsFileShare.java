@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Manages an AWS Storage Gateway NFS File Share.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,21 +48,22 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new NfsFileShare(&#34;example&#34;, NfsFileShareArgs.builder()        
  *             .clientLists(&#34;0.0.0.0/0&#34;)
- *             .gatewayArn(aws_storagegateway_gateway.example().arn())
- *             .locationArn(aws_s3_bucket.example().arn())
- *             .roleArn(aws_iam_role.example().arn())
+ *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
+ *             .locationArn(exampleAwsS3Bucket.arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_storagegateway_nfs_file_share` using the NFS File Share Amazon Resource Name (ARN). For example:
  * 
  * ```sh
- *  $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
+ * $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
  * ```
  * 
  */
@@ -439,9 +442,6 @@ public class NfsFileShare extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

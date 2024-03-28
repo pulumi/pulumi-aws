@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,6 +35,15 @@ import * as utilities from "../utilities";
  *         Environment: "test",
  *     },
  * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ## Import
+ *
+ * Using `pulumi import`, import domains using the domain name. For example:
+ *
+ * ```sh
+ * $ pulumi import aws:route53domains/registeredDomain:RegisteredDomain example example.com
  * ```
  */
 export class RegisteredDomain extends pulumi.CustomResource {
@@ -73,7 +83,7 @@ export class RegisteredDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly abuseContactPhone!: pulumi.Output<string>;
     /**
-     * Details about the domain administrative contact.
+     * Details about the domain administrative contact. See Contact Blocks for more details.
      */
     public readonly adminContact!: pulumi.Output<outputs.route53domains.RegisteredDomainAdminContact>;
     /**
@@ -84,6 +94,14 @@ export class RegisteredDomain extends pulumi.CustomResource {
      * Whether the domain registration is set to renew automatically. Default: `true`.
      */
     public readonly autoRenew!: pulumi.Output<boolean | undefined>;
+    /**
+     * Details about the domain billing contact. See Contact Blocks for more details.
+     */
+    public readonly billingContact!: pulumi.Output<outputs.route53domains.RegisteredDomainBillingContact>;
+    /**
+     * Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+     */
+    public readonly billingPrivacy!: pulumi.Output<boolean | undefined>;
     /**
      * The date when the domain was created as found in the response to a WHOIS query.
      */
@@ -97,11 +115,11 @@ export class RegisteredDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly expirationDate!: pulumi.Output<string>;
     /**
-     * The list of nameservers for the domain.
+     * The list of nameservers for the domain. See `nameServer` Blocks for more details.
      */
     public readonly nameServers!: pulumi.Output<outputs.route53domains.RegisteredDomainNameServer[]>;
     /**
-     * Details about the domain registrant.
+     * Details about the domain registrant. See Contact Blocks for more details.
      */
     public readonly registrantContact!: pulumi.Output<outputs.route53domains.RegisteredDomainRegistrantContact>;
     /**
@@ -135,7 +153,7 @@ export class RegisteredDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Details about the domain technical contact.
+     * Details about the domain technical contact. See Contact Blocks for more details.
      */
     public readonly techContact!: pulumi.Output<outputs.route53domains.RegisteredDomainTechContact>;
     /**
@@ -173,6 +191,8 @@ export class RegisteredDomain extends pulumi.CustomResource {
             resourceInputs["adminContact"] = state ? state.adminContact : undefined;
             resourceInputs["adminPrivacy"] = state ? state.adminPrivacy : undefined;
             resourceInputs["autoRenew"] = state ? state.autoRenew : undefined;
+            resourceInputs["billingContact"] = state ? state.billingContact : undefined;
+            resourceInputs["billingPrivacy"] = state ? state.billingPrivacy : undefined;
             resourceInputs["creationDate"] = state ? state.creationDate : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["expirationDate"] = state ? state.expirationDate : undefined;
@@ -198,6 +218,8 @@ export class RegisteredDomain extends pulumi.CustomResource {
             resourceInputs["adminContact"] = args ? args.adminContact : undefined;
             resourceInputs["adminPrivacy"] = args ? args.adminPrivacy : undefined;
             resourceInputs["autoRenew"] = args ? args.autoRenew : undefined;
+            resourceInputs["billingContact"] = args ? args.billingContact : undefined;
+            resourceInputs["billingPrivacy"] = args ? args.billingPrivacy : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["nameServers"] = args ? args.nameServers : undefined;
             resourceInputs["registrantContact"] = args ? args.registrantContact : undefined;
@@ -219,8 +241,6 @@ export class RegisteredDomain extends pulumi.CustomResource {
             resourceInputs["whoisServer"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(RegisteredDomain.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -238,7 +258,7 @@ export interface RegisteredDomainState {
      */
     abuseContactPhone?: pulumi.Input<string>;
     /**
-     * Details about the domain administrative contact.
+     * Details about the domain administrative contact. See Contact Blocks for more details.
      */
     adminContact?: pulumi.Input<inputs.route53domains.RegisteredDomainAdminContact>;
     /**
@@ -249,6 +269,14 @@ export interface RegisteredDomainState {
      * Whether the domain registration is set to renew automatically. Default: `true`.
      */
     autoRenew?: pulumi.Input<boolean>;
+    /**
+     * Details about the domain billing contact. See Contact Blocks for more details.
+     */
+    billingContact?: pulumi.Input<inputs.route53domains.RegisteredDomainBillingContact>;
+    /**
+     * Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+     */
+    billingPrivacy?: pulumi.Input<boolean>;
     /**
      * The date when the domain was created as found in the response to a WHOIS query.
      */
@@ -262,11 +290,11 @@ export interface RegisteredDomainState {
      */
     expirationDate?: pulumi.Input<string>;
     /**
-     * The list of nameservers for the domain.
+     * The list of nameservers for the domain. See `nameServer` Blocks for more details.
      */
     nameServers?: pulumi.Input<pulumi.Input<inputs.route53domains.RegisteredDomainNameServer>[]>;
     /**
-     * Details about the domain registrant.
+     * Details about the domain registrant. See Contact Blocks for more details.
      */
     registrantContact?: pulumi.Input<inputs.route53domains.RegisteredDomainRegistrantContact>;
     /**
@@ -300,7 +328,7 @@ export interface RegisteredDomainState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Details about the domain technical contact.
+     * Details about the domain technical contact. See Contact Blocks for more details.
      */
     techContact?: pulumi.Input<inputs.route53domains.RegisteredDomainTechContact>;
     /**
@@ -326,7 +354,7 @@ export interface RegisteredDomainState {
  */
 export interface RegisteredDomainArgs {
     /**
-     * Details about the domain administrative contact.
+     * Details about the domain administrative contact. See Contact Blocks for more details.
      */
     adminContact?: pulumi.Input<inputs.route53domains.RegisteredDomainAdminContact>;
     /**
@@ -338,15 +366,23 @@ export interface RegisteredDomainArgs {
      */
     autoRenew?: pulumi.Input<boolean>;
     /**
+     * Details about the domain billing contact. See Contact Blocks for more details.
+     */
+    billingContact?: pulumi.Input<inputs.route53domains.RegisteredDomainBillingContact>;
+    /**
+     * Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+     */
+    billingPrivacy?: pulumi.Input<boolean>;
+    /**
      * The name of the registered domain.
      */
     domainName: pulumi.Input<string>;
     /**
-     * The list of nameservers for the domain.
+     * The list of nameservers for the domain. See `nameServer` Blocks for more details.
      */
     nameServers?: pulumi.Input<pulumi.Input<inputs.route53domains.RegisteredDomainNameServer>[]>;
     /**
-     * Details about the domain registrant.
+     * Details about the domain registrant. See Contact Blocks for more details.
      */
     registrantContact?: pulumi.Input<inputs.route53domains.RegisteredDomainRegistrantContact>;
     /**
@@ -358,7 +394,7 @@ export interface RegisteredDomainArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Details about the domain technical contact.
+     * Details about the domain technical contact. See Contact Blocks for more details.
      */
     techContact?: pulumi.Input<inputs.route53domains.RegisteredDomainTechContact>;
     /**

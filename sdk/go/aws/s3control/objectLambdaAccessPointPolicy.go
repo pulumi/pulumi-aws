@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,17 +32,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccessPoint, err := s3.NewAccessPoint(ctx, "exampleAccessPoint", &s3.AccessPointArgs{
-//				Bucket: exampleBucketV2.ID(),
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleObjectLambdaAccessPoint, err := s3control.NewObjectLambdaAccessPoint(ctx, "exampleObjectLambdaAccessPoint", &s3control.ObjectLambdaAccessPointArgs{
+//			exampleAccessPoint, err := s3.NewAccessPoint(ctx, "example", &s3.AccessPointArgs{
+//				Bucket: example.ID(),
+//				Name:   pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleObjectLambdaAccessPoint, err := s3control.NewObjectLambdaAccessPoint(ctx, "example", &s3control.ObjectLambdaAccessPointArgs{
+//				Name: pulumi.String("example"),
 //				Configuration: &s3control.ObjectLambdaAccessPointConfigurationArgs{
 //					SupportingAccessPoint: exampleAccessPoint.Arn,
 //					TransformationConfigurations: s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArray{
@@ -51,7 +56,7 @@ import (
 //							},
 //							ContentTransformation: &s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs{
 //								AwsLambda: &s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs{
-//									FunctionArn: pulumi.Any(aws_lambda_function.Example.Arn),
+//									FunctionArn: pulumi.Any(exampleAwsLambdaFunction.Arn),
 //								},
 //							},
 //						},
@@ -61,19 +66,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3control.NewObjectLambdaAccessPointPolicy(ctx, "exampleObjectLambdaAccessPointPolicy", &s3control.ObjectLambdaAccessPointPolicyArgs{
+//			_, err = s3control.NewObjectLambdaAccessPointPolicy(ctx, "example", &s3control.ObjectLambdaAccessPointPolicyArgs{
+//				Name: exampleObjectLambdaAccessPoint.Name,
 //				Policy: exampleObjectLambdaAccessPoint.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"Version": "2008-10-17",
-//						"Statement": []map[string]interface{}{
+//						"version": "2008-10-17",
+//						"statement": []map[string]interface{}{
 //							map[string]interface{}{
-//								"Effect": "Allow",
-//								"Action": "s3-object-lambda:GetObject",
-//								"Principal": map[string]interface{}{
-//									"AWS": data.Aws_caller_identity.Current.Account_id,
+//								"effect": "Allow",
+//								"action": "s3-object-lambda:GetObject",
+//								"principal": map[string]interface{}{
+//									"AWS": current.AccountId,
 //								},
-//								"Resource": arn,
+//								"resource": arn,
 //							},
 //						},
 //					})
@@ -92,15 +98,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Object Lambda Access Point policies using the `account_id` and `name`, separated by a colon (`:`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy example 123456789012:example
-//
+// $ pulumi import aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy example 123456789012:example
 // ```
 type ObjectLambdaAccessPointPolicy struct {
 	pulumi.CustomResourceState

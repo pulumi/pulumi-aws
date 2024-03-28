@@ -176,35 +176,41 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         > **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is _not_ managed by Pulumi and may incur extra expense in your AWS account.
 
         ## Example Usage
+
         ### Alias Name
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lambda_.ProvisionedConcurrencyConfig("example",
-            function_name=aws_lambda_alias["example"]["function_name"],
+            function_name=example_aws_lambda_alias["functionName"],
             provisioned_concurrent_executions=1,
-            qualifier=aws_lambda_alias["example"]["name"])
+            qualifier=example_aws_lambda_alias["name"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Function Version
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lambda_.ProvisionedConcurrencyConfig("example",
-            function_name=aws_lambda_function["example"]["function_name"],
+            function_name=example_aws_lambda_function["functionName"],
             provisioned_concurrent_executions=1,
-            qualifier=aws_lambda_function["example"]["version"])
+            qualifier=example_aws_lambda_function["version"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `function_name` and `qualifier` separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function,production
+        $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function,production
         ```
 
         :param str resource_name: The name of the resource.
@@ -228,35 +234,41 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         > **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is _not_ managed by Pulumi and may incur extra expense in your AWS account.
 
         ## Example Usage
+
         ### Alias Name
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lambda_.ProvisionedConcurrencyConfig("example",
-            function_name=aws_lambda_alias["example"]["function_name"],
+            function_name=example_aws_lambda_alias["functionName"],
             provisioned_concurrent_executions=1,
-            qualifier=aws_lambda_alias["example"]["name"])
+            qualifier=example_aws_lambda_alias["name"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Function Version
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lambda_.ProvisionedConcurrencyConfig("example",
-            function_name=aws_lambda_function["example"]["function_name"],
+            function_name=example_aws_lambda_function["functionName"],
             provisioned_concurrent_executions=1,
-            qualifier=aws_lambda_function["example"]["version"])
+            qualifier=example_aws_lambda_function["version"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `function_name` and `qualifier` separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function,production
+        $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function,production
         ```
 
         :param str resource_name: The name of the resource.

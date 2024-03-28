@@ -30,6 +30,8 @@ public final class BackupFunctions {
      * Use this data source to get information on an existing backup framework.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -58,6 +60,7 @@ public final class BackupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFrameworkResult> getFramework(GetFrameworkArgs args) {
@@ -67,6 +70,8 @@ public final class BackupFunctions {
      * Use this data source to get information on an existing backup framework.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -95,6 +100,7 @@ public final class BackupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFrameworkResult> getFrameworkPlain(GetFrameworkPlainArgs args) {
@@ -104,6 +110,8 @@ public final class BackupFunctions {
      * Use this data source to get information on an existing backup framework.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -132,6 +140,7 @@ public final class BackupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFrameworkResult> getFramework(GetFrameworkArgs args, InvokeOptions options) {
@@ -141,6 +150,8 @@ public final class BackupFunctions {
      * Use this data source to get information on an existing backup framework.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -169,6 +180,7 @@ public final class BackupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFrameworkResult> getFrameworkPlain(GetFrameworkPlainArgs args, InvokeOptions options) {
@@ -178,6 +190,8 @@ public final class BackupFunctions {
      * Use this data source to get information on an existing backup plan.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -206,6 +220,7 @@ public final class BackupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPlanResult> getPlan(GetPlanArgs args) {
@@ -215,6 +230,8 @@ public final class BackupFunctions {
      * Use this data source to get information on an existing backup plan.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -243,6 +260,7 @@ public final class BackupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPlanResult> getPlanPlain(GetPlanPlainArgs args) {
@@ -252,6 +270,8 @@ public final class BackupFunctions {
      * Use this data source to get information on an existing backup plan.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -280,6 +300,7 @@ public final class BackupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPlanResult> getPlan(GetPlanArgs args, InvokeOptions options) {
@@ -289,6 +310,8 @@ public final class BackupFunctions {
      * Use this data source to get information on an existing backup plan.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -317,6 +340,7 @@ public final class BackupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPlanResult> getPlanPlain(GetPlanPlainArgs args, InvokeOptions options) {
@@ -326,6 +350,8 @@ public final class BackupFunctions {
      * Use this data source to get information on an existing backup report plan.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -354,6 +380,7 @@ public final class BackupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReportPlanResult> getReportPlan(GetReportPlanArgs args) {
@@ -363,6 +390,8 @@ public final class BackupFunctions {
      * Use this data source to get information on an existing backup report plan.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -391,6 +420,7 @@ public final class BackupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReportPlanResult> getReportPlanPlain(GetReportPlanPlainArgs args) {
@@ -400,6 +430,8 @@ public final class BackupFunctions {
      * Use this data source to get information on an existing backup report plan.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -428,6 +460,7 @@ public final class BackupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReportPlanResult> getReportPlan(GetReportPlanArgs args, InvokeOptions options) {
@@ -437,6 +470,8 @@ public final class BackupFunctions {
      * Use this data source to get information on an existing backup report plan.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -465,6 +500,7 @@ public final class BackupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReportPlanResult> getReportPlanPlain(GetReportPlanPlainArgs args, InvokeOptions options) {
@@ -474,6 +510,8 @@ public final class BackupFunctions {
      * Use this data source to get information on an existing backup selection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -496,13 +534,14 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getSelection(GetSelectionArgs.builder()
-     *             .planId(data.aws_backup_plan().example().id())
+     *             .planId(exampleAwsBackupPlan.id())
      *             .selectionId(&#34;selection-id-example&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSelectionResult> getSelection(GetSelectionArgs args) {
@@ -512,6 +551,8 @@ public final class BackupFunctions {
      * Use this data source to get information on an existing backup selection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -534,13 +575,14 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getSelection(GetSelectionArgs.builder()
-     *             .planId(data.aws_backup_plan().example().id())
+     *             .planId(exampleAwsBackupPlan.id())
      *             .selectionId(&#34;selection-id-example&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSelectionResult> getSelectionPlain(GetSelectionPlainArgs args) {
@@ -550,6 +592,8 @@ public final class BackupFunctions {
      * Use this data source to get information on an existing backup selection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -572,13 +616,14 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getSelection(GetSelectionArgs.builder()
-     *             .planId(data.aws_backup_plan().example().id())
+     *             .planId(exampleAwsBackupPlan.id())
      *             .selectionId(&#34;selection-id-example&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSelectionResult> getSelection(GetSelectionArgs args, InvokeOptions options) {
@@ -588,6 +633,8 @@ public final class BackupFunctions {
      * Use this data source to get information on an existing backup selection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -610,13 +657,14 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getSelection(GetSelectionArgs.builder()
-     *             .planId(data.aws_backup_plan().example().id())
+     *             .planId(exampleAwsBackupPlan.id())
      *             .selectionId(&#34;selection-id-example&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSelectionResult> getSelectionPlain(GetSelectionPlainArgs args, InvokeOptions options) {
@@ -626,6 +674,8 @@ public final class BackupFunctions {
      * Use this data source to get information on an existing backup vault.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -654,6 +704,7 @@ public final class BackupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVaultResult> getVault(GetVaultArgs args) {
@@ -663,6 +714,8 @@ public final class BackupFunctions {
      * Use this data source to get information on an existing backup vault.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -691,6 +744,7 @@ public final class BackupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVaultResult> getVaultPlain(GetVaultPlainArgs args) {
@@ -700,6 +754,8 @@ public final class BackupFunctions {
      * Use this data source to get information on an existing backup vault.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -728,6 +784,7 @@ public final class BackupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVaultResult> getVault(GetVaultArgs args, InvokeOptions options) {
@@ -737,6 +794,8 @@ public final class BackupFunctions {
      * Use this data source to get information on an existing backup vault.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -765,6 +824,7 @@ public final class BackupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVaultResult> getVaultPlain(GetVaultPlainArgs args, InvokeOptions options) {

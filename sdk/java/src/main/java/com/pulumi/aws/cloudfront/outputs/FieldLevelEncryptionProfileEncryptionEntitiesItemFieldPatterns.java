@@ -36,6 +36,7 @@ public final class FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPattern
 
         @CustomType.Setter
         public Builder items(@Nullable List<String> items) {
+
             this.items = items;
             return this;
         }
@@ -43,9 +44,9 @@ public final class FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPattern
             return items(List.of(items));
         }
         public FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns build() {
-            final var o = new FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns();
-            o.items = items;
-            return o;
+            final var _resultValue = new FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns();
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

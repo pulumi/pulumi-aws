@@ -58,19 +58,21 @@ public final class GetTagsSortBy {
 
         @CustomType.Setter
         public Builder key(@Nullable String key) {
+
             this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder sortOrder(@Nullable String sortOrder) {
+
             this.sortOrder = sortOrder;
             return this;
         }
         public GetTagsSortBy build() {
-            final var o = new GetTagsSortBy();
-            o.key = key;
-            o.sortOrder = sortOrder;
-            return o;
+            final var _resultValue = new GetTagsSortBy();
+            _resultValue.key = key;
+            _resultValue.sortOrder = sortOrder;
+            return _resultValue;
         }
     }
 }

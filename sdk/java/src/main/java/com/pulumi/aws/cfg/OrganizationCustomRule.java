@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** The proper Lambda permission to allow the AWS Config service invoke the Lambda Function must be in place before the rule will successfully create or update. See also the `aws.lambda.Permission` resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -35,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.organizations.OrganizationArgs;
  * import com.pulumi.aws.cfg.OrganizationCustomRule;
  * import com.pulumi.aws.cfg.OrganizationCustomRuleArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,10 +50,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplePermission = new Permission(&#34;examplePermission&#34;, PermissionArgs.builder()        
+ *         var example = new Permission(&#34;example&#34;, PermissionArgs.builder()        
  *             .action(&#34;lambda:InvokeFunction&#34;)
- *             .function(aws_lambda_function.example().arn())
+ *             .function(exampleAwsLambdaFunction.arn())
  *             .principal(&#34;config.amazonaws.com&#34;)
+ *             .statementId(&#34;AllowExecutionFromConfig&#34;)
  *             .build());
  * 
  *         var exampleOrganization = new Organization(&#34;exampleOrganization&#34;, OrganizationArgs.builder()        
@@ -61,24 +63,22 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleOrganizationCustomRule = new OrganizationCustomRule(&#34;exampleOrganizationCustomRule&#34;, OrganizationCustomRuleArgs.builder()        
- *             .lambdaFunctionArn(aws_lambda_function.example().arn())
+ *             .lambdaFunctionArn(exampleAwsLambdaFunction.arn())
+ *             .name(&#34;example&#34;)
  *             .triggerTypes(&#34;ConfigurationItemChangeNotification&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     examplePermission,
- *                     exampleOrganization)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Config Organization Custom Rules using the name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
+ * $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
  * ```
  * 
  */

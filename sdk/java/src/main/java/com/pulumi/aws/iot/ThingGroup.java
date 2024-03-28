@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Manages an AWS IoT Thing Group.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,9 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var parent = new ThingGroup(&#34;parent&#34;);
+ *         var parent = new ThingGroup(&#34;parent&#34;, ThingGroupArgs.builder()        
+ *             .name(&#34;parent&#34;)
+ *             .build());
  * 
  *         var example = new ThingGroup(&#34;example&#34;, ThingGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .parentGroupName(parent.name())
  *             .properties(ThingGroupPropertiesArgs.builder()
  *                 .attributePayload(ThingGroupPropertiesAttributePayloadArgs.builder()
@@ -65,13 +70,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IoT Things Groups using the name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iot/thingGroup:ThingGroup example example
+ * $ pulumi import aws:iot/thingGroup:ThingGroup example example
  * ```
  * 
  */
@@ -212,9 +218,6 @@ public class ThingGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

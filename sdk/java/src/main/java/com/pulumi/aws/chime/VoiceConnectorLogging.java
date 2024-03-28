@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Adds a logging configuration for the specified Amazon Chime Voice Connector. The logging configuration specifies whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,26 +44,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var defaultVoiceConnector = new VoiceConnector(&#34;defaultVoiceConnector&#34;, VoiceConnectorArgs.builder()        
+ *         var default_ = new VoiceConnector(&#34;default&#34;, VoiceConnectorArgs.builder()        
+ *             .name(&#34;vc-name-test&#34;)
  *             .requireEncryption(true)
  *             .build());
  * 
  *         var defaultVoiceConnectorLogging = new VoiceConnectorLogging(&#34;defaultVoiceConnectorLogging&#34;, VoiceConnectorLoggingArgs.builder()        
  *             .enableSipLogs(true)
  *             .enableMediaMetricLogs(true)
- *             .voiceConnectorId(defaultVoiceConnector.id())
+ *             .voiceConnectorId(default_.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Chime Voice Connector Logging using the `voice_connector_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4
+ * $ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4
  * ```
  * 
  */

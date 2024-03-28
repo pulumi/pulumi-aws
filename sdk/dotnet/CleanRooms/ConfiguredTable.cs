@@ -13,8 +13,10 @@ namespace Pulumi.Aws.CleanRooms
     /// Provides a AWS Clean Rooms configured table. Configured tables are used to represent references to existing tables in the AWS Glue Data Catalog.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Configured table with tags
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,16 +25,17 @@ namespace Pulumi.Aws.CleanRooms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testConfiguredTable = new Aws.CleanRooms.ConfiguredTable("testConfiguredTable", new()
+    ///     var testConfiguredTable = new Aws.CleanRooms.ConfiguredTable("test_configured_table", new()
     ///     {
+    ///         Name = "pulumi-example-table",
+    ///         Description = "I made this table with Pulumi!",
+    ///         AnalysisMethod = "DIRECT_QUERY",
     ///         AllowedColumns = new[]
     ///         {
     ///             "column1",
     ///             "column2",
     ///             "column3",
     ///         },
-    ///         AnalysisMethod = "DIRECT_QUERY",
-    ///         Description = "I made this table with Pulumi!",
     ///         TableReference = new Aws.CleanRooms.Inputs.ConfiguredTableTableReferenceArgs
     ///         {
     ///             DatabaseName = "example_database",
@@ -46,13 +49,14 @@ namespace Pulumi.Aws.CleanRooms
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_cleanrooms_configured_table` using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cleanrooms/configuredTable:ConfiguredTable table 1234abcd-12ab-34cd-56ef-1234567890ab
+    /// $ pulumi import aws:cleanrooms/configuredTable:ConfiguredTable table 1234abcd-12ab-34cd-56ef-1234567890ab
     /// ```
     /// </summary>
     [AwsResourceType("aws:cleanrooms/configuredTable:ConfiguredTable")]
@@ -140,10 +144,6 @@ namespace Pulumi.Aws.CleanRooms
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -293,11 +293,7 @@ namespace Pulumi.Aws.CleanRooms
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

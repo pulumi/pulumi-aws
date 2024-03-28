@@ -4,6 +4,7 @@
 package com.pulumi.aws.auditmanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,19 +41,25 @@ public final class GetControlControlMappingSourceSourceKeyword {
 
         @CustomType.Setter
         public Builder keywordInputType(String keywordInputType) {
-            this.keywordInputType = Objects.requireNonNull(keywordInputType);
+            if (keywordInputType == null) {
+              throw new MissingRequiredPropertyException("GetControlControlMappingSourceSourceKeyword", "keywordInputType");
+            }
+            this.keywordInputType = keywordInputType;
             return this;
         }
         @CustomType.Setter
         public Builder keywordValue(String keywordValue) {
-            this.keywordValue = Objects.requireNonNull(keywordValue);
+            if (keywordValue == null) {
+              throw new MissingRequiredPropertyException("GetControlControlMappingSourceSourceKeyword", "keywordValue");
+            }
+            this.keywordValue = keywordValue;
             return this;
         }
         public GetControlControlMappingSourceSourceKeyword build() {
-            final var o = new GetControlControlMappingSourceSourceKeyword();
-            o.keywordInputType = keywordInputType;
-            o.keywordValue = keywordValue;
-            return o;
+            final var _resultValue = new GetControlControlMappingSourceSourceKeyword();
+            _resultValue.keywordInputType = keywordInputType;
+            _resultValue.keywordValue = keywordValue;
+            return _resultValue;
         }
     }
 }

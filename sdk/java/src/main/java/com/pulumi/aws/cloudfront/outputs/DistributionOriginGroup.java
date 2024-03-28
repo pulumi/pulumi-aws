@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudfront.outputs;
 import com.pulumi.aws.cloudfront.outputs.DistributionOriginGroupFailoverCriteria;
 import com.pulumi.aws.cloudfront.outputs.DistributionOriginGroupMember;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -73,12 +74,18 @@ public final class DistributionOriginGroup {
 
         @CustomType.Setter
         public Builder failoverCriteria(DistributionOriginGroupFailoverCriteria failoverCriteria) {
-            this.failoverCriteria = Objects.requireNonNull(failoverCriteria);
+            if (failoverCriteria == null) {
+              throw new MissingRequiredPropertyException("DistributionOriginGroup", "failoverCriteria");
+            }
+            this.failoverCriteria = failoverCriteria;
             return this;
         }
         @CustomType.Setter
         public Builder members(List<DistributionOriginGroupMember> members) {
-            this.members = Objects.requireNonNull(members);
+            if (members == null) {
+              throw new MissingRequiredPropertyException("DistributionOriginGroup", "members");
+            }
+            this.members = members;
             return this;
         }
         public Builder members(DistributionOriginGroupMember... members) {
@@ -86,15 +93,18 @@ public final class DistributionOriginGroup {
         }
         @CustomType.Setter
         public Builder originId(String originId) {
-            this.originId = Objects.requireNonNull(originId);
+            if (originId == null) {
+              throw new MissingRequiredPropertyException("DistributionOriginGroup", "originId");
+            }
+            this.originId = originId;
             return this;
         }
         public DistributionOriginGroup build() {
-            final var o = new DistributionOriginGroup();
-            o.failoverCriteria = failoverCriteria;
-            o.members = members;
-            o.originId = originId;
-            return o;
+            final var _resultValue = new DistributionOriginGroup();
+            _resultValue.failoverCriteria = failoverCriteria;
+            _resultValue.members = members;
+            _resultValue.originId = originId;
+            return _resultValue;
         }
     }
 }

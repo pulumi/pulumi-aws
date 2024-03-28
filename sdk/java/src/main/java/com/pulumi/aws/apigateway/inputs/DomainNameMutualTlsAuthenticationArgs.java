@@ -5,6 +5,7 @@ package com.pulumi.aws.apigateway.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class DomainNameMutualTlsAuthenticationArgs extends com.pulumi.reso
         }
 
         public DomainNameMutualTlsAuthenticationArgs build() {
-            $.truststoreUri = Objects.requireNonNull($.truststoreUri, "expected parameter 'truststoreUri' to be non-null");
+            if ($.truststoreUri == null) {
+                throw new MissingRequiredPropertyException("DomainNameMutualTlsAuthenticationArgs", "truststoreUri");
+            }
             return $;
         }
     }

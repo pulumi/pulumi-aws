@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class DataSourceParametersRds {
 
         @CustomType.Setter
         public Builder database(String database) {
-            this.database = Objects.requireNonNull(database);
+            if (database == null) {
+              throw new MissingRequiredPropertyException("DataSourceParametersRds", "database");
+            }
+            this.database = database;
             return this;
         }
         @CustomType.Setter
         public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("DataSourceParametersRds", "instanceId");
+            }
+            this.instanceId = instanceId;
             return this;
         }
         public DataSourceParametersRds build() {
-            final var o = new DataSourceParametersRds();
-            o.database = database;
-            o.instanceId = instanceId;
-            return o;
+            final var _resultValue = new DataSourceParametersRds();
+            _resultValue.database = database;
+            _resultValue.instanceId = instanceId;
+            return _resultValue;
         }
     }
 }

@@ -15,8 +15,10 @@ namespace Pulumi.Aws.Glue
     /// &gt; Glue functionality, such as monitoring and logging of jobs, is typically managed with the `default_arguments` argument. See the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the Glue developer guide for additional information.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Python Job
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,17 +29,21 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Job("example", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         Name = "example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Command = new Aws.Glue.Inputs.JobCommandArgs
     ///         {
-    ///             ScriptLocation = $"s3://{aws_s3_bucket.Example.Bucket}/example.py",
+    ///             ScriptLocation = $"s3://{exampleAwsS3Bucket.Bucket}/example.py",
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Ray Job
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,7 +54,8 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Job("example", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         Name = "example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         GlueVersion = "4.0",
     ///         WorkerType = "Z.2X",
     ///         Command = new Aws.Glue.Inputs.JobCommandArgs
@@ -56,14 +63,17 @@ namespace Pulumi.Aws.Glue
     ///             Name = "glueray",
     ///             PythonVersion = "3.9",
     ///             Runtime = "Ray2.4",
-    ///             ScriptLocation = $"s3://{aws_s3_bucket.Example.Bucket}/example.py",
+    ///             ScriptLocation = $"s3://{exampleAwsS3Bucket.Bucket}/example.py",
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Scala Job
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -74,10 +84,11 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Job("example", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         Name = "example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Command = new Aws.Glue.Inputs.JobCommandArgs
     ///         {
-    ///             ScriptLocation = $"s3://{aws_s3_bucket.Example.Bucket}/example.scala",
+    ///             ScriptLocation = $"s3://{exampleAwsS3Bucket.Bucket}/example.scala",
     ///         },
     ///         DefaultArguments = 
     ///         {
@@ -87,8 +98,11 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Streaming Job
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -99,18 +113,22 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Job("example", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         Name = "example streaming job",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Command = new Aws.Glue.Inputs.JobCommandArgs
     ///         {
     ///             Name = "gluestreaming",
-    ///             ScriptLocation = $"s3://{aws_s3_bucket.Example.Bucket}/example.script",
+    ///             ScriptLocation = $"s3://{exampleAwsS3Bucket.Bucket}/example.script",
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Enabling CloudWatch Logs and Metrics
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -119,17 +137,17 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new()
+    ///     var example = new Aws.CloudWatch.LogGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         RetentionInDays = 14,
     ///     });
     /// 
-    ///     // ... other configuration ...
-    ///     var exampleJob = new Aws.Glue.Job("exampleJob", new()
+    ///     var exampleJob = new Aws.Glue.Job("example", new()
     ///     {
     ///         DefaultArguments = 
     ///         {
-    ///             { "--continuous-log-logGroup", exampleLogGroup.Name },
+    ///             { "--continuous-log-logGroup", example.Name },
     ///             { "--enable-continuous-cloudwatch-log", "true" },
     ///             { "--enable-continuous-log-filter", "true" },
     ///             { "--enable-metrics", "" },
@@ -138,13 +156,14 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Jobs using `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:glue/job:Job MyJob MyJob
+    /// $ pulumi import aws:glue/job:Job MyJob MyJob
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/job:Job")]
@@ -298,10 +317,6 @@ namespace Pulumi.Aws.Glue
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -606,11 +621,7 @@ namespace Pulumi.Aws.Glue
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

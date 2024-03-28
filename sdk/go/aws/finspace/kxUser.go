@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS FinSpace Kx User.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,28 +35,29 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				Description:          pulumi.String("Example KMS Key"),
 //				DeletionWindowInDays: pulumi.Int(7),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKxEnvironment, err := finspace.NewKxEnvironment(ctx, "exampleKxEnvironment", &finspace.KxEnvironmentArgs{
-//				KmsKeyId: exampleKey.Arn,
+//			exampleKxEnvironment, err := finspace.NewKxEnvironment(ctx, "example", &finspace.KxEnvironmentArgs{
+//				Name:     pulumi.String("my-tf-kx-environment"),
+//				KmsKeyId: example.Arn,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Sid":    "",
-//						"Principal": map[string]interface{}{
-//							"Service": "ec2.amazonaws.com",
+//						"action": "sts:AssumeRole",
+//						"effect": "Allow",
+//						"sid":    "",
+//						"principal": map[string]interface{}{
+//							"service": "ec2.amazonaws.com",
 //						},
 //					},
 //				},
@@ -63,13 +66,15 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("example-role"),
 //				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = finspace.NewKxUser(ctx, "exampleKxUser", &finspace.KxUserArgs{
+//			_, err = finspace.NewKxUser(ctx, "example", &finspace.KxUserArgs{
+//				Name:          pulumi.String("my-tf-kx-user"),
 //				EnvironmentId: exampleKxEnvironment.ID(),
 //				IamRole:       exampleRole.Arn,
 //			})
@@ -81,15 +86,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import an AWS FinSpace Kx User using the `id` (environment ID and user name, comma-delimited). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:finspace/kxUser:KxUser example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-user
-//
+// $ pulumi import aws:finspace/kxUser:KxUser example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-user
 // ```
 type KxUser struct {
 	pulumi.CustomResourceState
@@ -125,10 +129,6 @@ func NewKxUser(ctx *pulumi.Context,
 	if args.IamRole == nil {
 		return nil, errors.New("invalid value for required argument 'IamRole'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KxUser
 	err := ctx.RegisterResource("aws:finspace/kxUser:KxUser", name, args, &resource, opts...)

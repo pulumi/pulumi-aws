@@ -8,6 +8,7 @@ import com.pulumi.aws.fsx.outputs.GetOntapStorageVirtualMachineEndpoint;
 import com.pulumi.aws.fsx.outputs.GetOntapStorageVirtualMachineFilter;
 import com.pulumi.aws.fsx.outputs.GetOntapStorageVirtualMachineLifecycleTransitionReason;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -201,7 +202,10 @@ public final class GetOntapStorageVirtualMachineResult {
 
         @CustomType.Setter
         public Builder activeDirectoryConfigurations(List<GetOntapStorageVirtualMachineActiveDirectoryConfiguration> activeDirectoryConfigurations) {
-            this.activeDirectoryConfigurations = Objects.requireNonNull(activeDirectoryConfigurations);
+            if (activeDirectoryConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineResult", "activeDirectoryConfigurations");
+            }
+            this.activeDirectoryConfigurations = activeDirectoryConfigurations;
             return this;
         }
         public Builder activeDirectoryConfigurations(GetOntapStorageVirtualMachineActiveDirectoryConfiguration... activeDirectoryConfigurations) {
@@ -209,17 +213,26 @@ public final class GetOntapStorageVirtualMachineResult {
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder creationTime(String creationTime) {
-            this.creationTime = Objects.requireNonNull(creationTime);
+            if (creationTime == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineResult", "creationTime");
+            }
+            this.creationTime = creationTime;
             return this;
         }
         @CustomType.Setter
         public Builder endpoints(List<GetOntapStorageVirtualMachineEndpoint> endpoints) {
-            this.endpoints = Objects.requireNonNull(endpoints);
+            if (endpoints == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineResult", "endpoints");
+            }
+            this.endpoints = endpoints;
             return this;
         }
         public Builder endpoints(GetOntapStorageVirtualMachineEndpoint... endpoints) {
@@ -227,11 +240,15 @@ public final class GetOntapStorageVirtualMachineResult {
         }
         @CustomType.Setter
         public Builder fileSystemId(String fileSystemId) {
-            this.fileSystemId = Objects.requireNonNull(fileSystemId);
+            if (fileSystemId == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineResult", "fileSystemId");
+            }
+            this.fileSystemId = fileSystemId;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetOntapStorageVirtualMachineFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -240,17 +257,26 @@ public final class GetOntapStorageVirtualMachineResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder lifecycleStatus(String lifecycleStatus) {
-            this.lifecycleStatus = Objects.requireNonNull(lifecycleStatus);
+            if (lifecycleStatus == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineResult", "lifecycleStatus");
+            }
+            this.lifecycleStatus = lifecycleStatus;
             return this;
         }
         @CustomType.Setter
         public Builder lifecycleTransitionReasons(List<GetOntapStorageVirtualMachineLifecycleTransitionReason> lifecycleTransitionReasons) {
-            this.lifecycleTransitionReasons = Objects.requireNonNull(lifecycleTransitionReasons);
+            if (lifecycleTransitionReasons == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineResult", "lifecycleTransitionReasons");
+            }
+            this.lifecycleTransitionReasons = lifecycleTransitionReasons;
             return this;
         }
         public Builder lifecycleTransitionReasons(GetOntapStorageVirtualMachineLifecycleTransitionReason... lifecycleTransitionReasons) {
@@ -258,40 +284,52 @@ public final class GetOntapStorageVirtualMachineResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder subtype(String subtype) {
-            this.subtype = Objects.requireNonNull(subtype);
+            if (subtype == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineResult", "subtype");
+            }
+            this.subtype = subtype;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder uuid(String uuid) {
-            this.uuid = Objects.requireNonNull(uuid);
+            if (uuid == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineResult", "uuid");
+            }
+            this.uuid = uuid;
             return this;
         }
         public GetOntapStorageVirtualMachineResult build() {
-            final var o = new GetOntapStorageVirtualMachineResult();
-            o.activeDirectoryConfigurations = activeDirectoryConfigurations;
-            o.arn = arn;
-            o.creationTime = creationTime;
-            o.endpoints = endpoints;
-            o.fileSystemId = fileSystemId;
-            o.filters = filters;
-            o.id = id;
-            o.lifecycleStatus = lifecycleStatus;
-            o.lifecycleTransitionReasons = lifecycleTransitionReasons;
-            o.name = name;
-            o.subtype = subtype;
-            o.tags = tags;
-            o.uuid = uuid;
-            return o;
+            final var _resultValue = new GetOntapStorageVirtualMachineResult();
+            _resultValue.activeDirectoryConfigurations = activeDirectoryConfigurations;
+            _resultValue.arn = arn;
+            _resultValue.creationTime = creationTime;
+            _resultValue.endpoints = endpoints;
+            _resultValue.fileSystemId = fileSystemId;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.lifecycleStatus = lifecycleStatus;
+            _resultValue.lifecycleTransitionReasons = lifecycleTransitionReasons;
+            _resultValue.name = name;
+            _resultValue.subtype = subtype;
+            _resultValue.tags = tags;
+            _resultValue.uuid = uuid;
+            return _resultValue;
         }
     }
 }

@@ -121,13 +121,15 @@ class LifecyclePolicy(pulumi.CustomResource):
         > **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the this provider code, the resource will be flagged for recreation every deployment.
 
         ## Example Usage
+
         ### Policy on untagged image
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecr.Repository("foo")
+        foo = aws.ecr.Repository("foo", name="bar")
         foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
             repository=foo.name,
             policy=\"\"\"{
@@ -149,13 +151,16 @@ class LifecyclePolicy(pulumi.CustomResource):
         }
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Policy on tagged image
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecr.Repository("foo")
+        foo = aws.ecr.Repository("foo", name="bar")
         foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
             repository=foo.name,
             policy=\"\"\"{
@@ -177,13 +182,14 @@ class LifecyclePolicy(pulumi.CustomResource):
         }
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECR Lifecycle Policy using the name of the repository. For example:
 
         ```sh
-         $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
+        $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
         ```
 
         :param str resource_name: The name of the resource.
@@ -205,13 +211,15 @@ class LifecyclePolicy(pulumi.CustomResource):
         > **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the this provider code, the resource will be flagged for recreation every deployment.
 
         ## Example Usage
+
         ### Policy on untagged image
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecr.Repository("foo")
+        foo = aws.ecr.Repository("foo", name="bar")
         foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
             repository=foo.name,
             policy=\"\"\"{
@@ -233,13 +241,16 @@ class LifecyclePolicy(pulumi.CustomResource):
         }
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Policy on tagged image
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecr.Repository("foo")
+        foo = aws.ecr.Repository("foo", name="bar")
         foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
             repository=foo.name,
             policy=\"\"\"{
@@ -261,13 +272,14 @@ class LifecyclePolicy(pulumi.CustomResource):
         }
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECR Lifecycle Policy using the name of the repository. For example:
 
         ```sh
-         $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
+        $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
         ```
 
         :param str resource_name: The name of the resource.

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := neptune.NewClusterSnapshot(ctx, "example", &neptune.ClusterSnapshotArgs{
-//				DbClusterIdentifier:         pulumi.Any(aws_neptune_cluster.Example.Id),
+//				DbClusterIdentifier:         pulumi.Any(exampleAwsNeptuneCluster.Id),
 //				DbClusterSnapshotIdentifier: pulumi.String("resourcetestsnapshot1234"),
 //			})
 //			if err != nil {
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_neptune_cluster_snapshot` using the cluster snapshot identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:neptune/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
-//
+// $ pulumi import aws:neptune/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
 // ```
 type ClusterSnapshot struct {
 	pulumi.CustomResourceState

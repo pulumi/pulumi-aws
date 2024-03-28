@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,6 +22,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** When removing a Glacier Vault, the Vault must be empty.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -30,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.glacier.Vault;
@@ -48,9 +50,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var awsSnsTopic = new Topic(&#34;awsSnsTopic&#34;);
+ *         var awsSnsTopic = new Topic(&#34;awsSnsTopic&#34;, TopicArgs.builder()        
+ *             .name(&#34;glacier-sns-topic&#34;)
+ *             .build());
  * 
- *         final var myArchivePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var myArchive = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;add-read-only-perm&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -66,26 +70,28 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var myArchiveVault = new Vault(&#34;myArchiveVault&#34;, VaultArgs.builder()        
+ *             .name(&#34;MyArchive&#34;)
  *             .notification(VaultNotificationArgs.builder()
  *                 .snsTopic(awsSnsTopic.arn())
  *                 .events(                
  *                     &#34;ArchiveRetrievalCompleted&#34;,
  *                     &#34;InventoryRetrievalCompleted&#34;)
  *                 .build())
- *             .accessPolicy(myArchivePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .accessPolicy(myArchive.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .tags(Map.of(&#34;Test&#34;, &#34;MyArchive&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Glacier Vaults using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:glacier/vault:Vault archive my_archive
+ * $ pulumi import aws:glacier/vault:Vault archive my_archive
  * ```
  * 
  */
@@ -228,9 +234,6 @@ public class Vault extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

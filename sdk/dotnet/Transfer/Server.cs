@@ -17,8 +17,10 @@ namespace Pulumi.Aws.Transfer
     /// &gt; **NOTE:** Use the `aws.transfer.Tag` resource to manage the system tags used for [custom hostnames](https://docs.aws.amazon.com/transfer/latest/userguide/requirements-dns.html#tag-custom-hostname-cdk).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,8 +39,11 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Security Policy Name
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,8 +59,11 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### VPC Endpoint
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -71,20 +79,23 @@ namespace Pulumi.Aws.Transfer
     ///         {
     ///             AddressAllocationIds = new[]
     ///             {
-    ///                 aws_eip.Example.Id,
+    ///                 exampleAwsEip.Id,
     ///             },
     ///             SubnetIds = new[]
     ///             {
-    ///                 aws_subnet.Example.Id,
+    ///                 exampleAwsSubnet.Id,
     ///             },
-    ///             VpcId = aws_vpc.Example.Id,
+    ///             VpcId = exampleAwsVpc.Id,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### AWS Directory authentication
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -96,13 +107,16 @@ namespace Pulumi.Aws.Transfer
     ///     var example = new Aws.Transfer.Server("example", new()
     ///     {
     ///         IdentityProviderType = "AWS_DIRECTORY_SERVICE",
-    ///         DirectoryId = aws_directory_service_directory.Example.Id,
+    ///         DirectoryId = exampleAwsDirectoryServiceDirectory.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### AWS Lambda authentication
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -114,13 +128,16 @@ namespace Pulumi.Aws.Transfer
     ///     var example = new Aws.Transfer.Server("example", new()
     ///     {
     ///         IdentityProviderType = "AWS_LAMBDA",
-    ///         Function = aws_lambda_identity_provider.Example.Arn,
+    ///         Function = exampleAwsLambdaIdentityProvider.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Protocols
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -136,24 +153,27 @@ namespace Pulumi.Aws.Transfer
     ///         {
     ///             SubnetIds = new[]
     ///             {
-    ///                 aws_subnet.Example.Id,
+    ///                 exampleAwsSubnet.Id,
     ///             },
-    ///             VpcId = aws_vpc.Example.Id,
+    ///             VpcId = exampleAwsVpc.Id,
     ///         },
     ///         Protocols = new[]
     ///         {
     ///             "FTP",
     ///             "FTPS",
     ///         },
-    ///         Certificate = aws_acm_certificate.Example.Arn,
+    ///         Certificate = exampleAwsAcmCertificate.Arn,
     ///         IdentityProviderType = "API_GATEWAY",
-    ///         Url = $"{aws_api_gateway_deployment.Example.Invoke_url}{aws_api_gateway_resource.Example.Path}",
+    ///         Url = $"{exampleAwsApiGatewayDeployment.InvokeUrl}{exampleAwsApiGatewayResource.Path}",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Using Structured Logging Destinations
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -162,7 +182,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var transferLogGroup = new Aws.CloudWatch.LogGroup("transferLogGroup", new()
+    ///     var transfer = new Aws.CloudWatch.LogGroup("transfer", new()
     ///     {
     ///         NamePrefix = "transfer_test_",
     ///     });
@@ -193,7 +213,7 @@ namespace Pulumi.Aws.Transfer
     ///         },
     ///     });
     /// 
-    ///     var iamForTransfer = new Aws.Iam.Role("iamForTransfer", new()
+    ///     var iamForTransfer = new Aws.Iam.Role("iam_for_transfer", new()
     ///     {
     ///         NamePrefix = "iam_for_transfer_",
     ///         AssumeRolePolicy = transferAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
@@ -203,7 +223,7 @@ namespace Pulumi.Aws.Transfer
     ///         },
     ///     });
     /// 
-    ///     var transferServer = new Aws.Transfer.Server("transferServer", new()
+    ///     var transferServer = new Aws.Transfer.Server("transfer", new()
     ///     {
     ///         EndpointType = "PUBLIC",
     ///         LoggingRole = iamForTransfer.Arn,
@@ -213,21 +233,22 @@ namespace Pulumi.Aws.Transfer
     ///         },
     ///         StructuredLogDestinations = new[]
     ///         {
-    ///             transferLogGroup.Arn.Apply(arn =&gt; $"{arn}:*"),
+    ///             transfer.Arn.Apply(arn =&gt; $"{arn}:*"),
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Transfer Servers using the server `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:transfer/server:Server example s-12345678
+    /// $ pulumi import aws:transfer/server:Server example s-12345678
     /// ```
-    ///  Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
+    /// Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
     /// </summary>
     [AwsResourceType("aws:transfer/server:Server")]
     public partial class Server : global::Pulumi.CustomResource
@@ -341,7 +362,17 @@ namespace Pulumi.Aws.Transfer
         public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
+        /// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+        /// * `TransferSecurityPolicy-2024-01`
+        /// * `TransferSecurityPolicy-2023-05`
+        /// * `TransferSecurityPolicy-2022-03`
+        /// * `TransferSecurityPolicy-2020-06`
+        /// * `TransferSecurityPolicy-2018-11`
+        /// * `TransferSecurityPolicy-FIPS-2024-01`
+        /// * `TransferSecurityPolicy-FIPS-2023-05`
+        /// * `TransferSecurityPolicy-FIPS-2020-06`
+        /// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+        /// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
         /// </summary>
         [Output("securityPolicyName")]
         public Output<string?> SecurityPolicyName { get; private set; } = null!;
@@ -404,7 +435,6 @@ namespace Pulumi.Aws.Transfer
                     "hostKey",
                     "postAuthenticationLoginBanner",
                     "preAuthenticationLoginBanner",
-                    "tagsAll",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -556,7 +586,17 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
+        /// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+        /// * `TransferSecurityPolicy-2024-01`
+        /// * `TransferSecurityPolicy-2023-05`
+        /// * `TransferSecurityPolicy-2022-03`
+        /// * `TransferSecurityPolicy-2020-06`
+        /// * `TransferSecurityPolicy-2018-11`
+        /// * `TransferSecurityPolicy-FIPS-2024-01`
+        /// * `TransferSecurityPolicy-FIPS-2023-05`
+        /// * `TransferSecurityPolicy-FIPS-2020-06`
+        /// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+        /// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
         /// </summary>
         [Input("securityPolicyName")]
         public Input<string>? SecurityPolicyName { get; set; }
@@ -750,7 +790,17 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
+        /// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+        /// * `TransferSecurityPolicy-2024-01`
+        /// * `TransferSecurityPolicy-2023-05`
+        /// * `TransferSecurityPolicy-2022-03`
+        /// * `TransferSecurityPolicy-2020-06`
+        /// * `TransferSecurityPolicy-2018-11`
+        /// * `TransferSecurityPolicy-FIPS-2024-01`
+        /// * `TransferSecurityPolicy-FIPS-2023-05`
+        /// * `TransferSecurityPolicy-FIPS-2020-06`
+        /// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+        /// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
         /// </summary>
         [Input("securityPolicyName")]
         public Input<string>? SecurityPolicyName { get; set; }
@@ -789,11 +839,7 @@ namespace Pulumi.Aws.Transfer
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

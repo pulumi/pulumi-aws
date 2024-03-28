@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudwatch.outputs;
 import com.pulumi.aws.cloudwatch.outputs.EventConnectionAuthParametersOauthClientParameters;
 import com.pulumi.aws.cloudwatch.outputs.EventConnectionAuthParametersOauthOauthHttpParameters;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -88,31 +89,41 @@ public final class EventConnectionAuthParametersOauth {
 
         @CustomType.Setter
         public Builder authorizationEndpoint(String authorizationEndpoint) {
-            this.authorizationEndpoint = Objects.requireNonNull(authorizationEndpoint);
+            if (authorizationEndpoint == null) {
+              throw new MissingRequiredPropertyException("EventConnectionAuthParametersOauth", "authorizationEndpoint");
+            }
+            this.authorizationEndpoint = authorizationEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder clientParameters(@Nullable EventConnectionAuthParametersOauthClientParameters clientParameters) {
+
             this.clientParameters = clientParameters;
             return this;
         }
         @CustomType.Setter
         public Builder httpMethod(String httpMethod) {
-            this.httpMethod = Objects.requireNonNull(httpMethod);
+            if (httpMethod == null) {
+              throw new MissingRequiredPropertyException("EventConnectionAuthParametersOauth", "httpMethod");
+            }
+            this.httpMethod = httpMethod;
             return this;
         }
         @CustomType.Setter
         public Builder oauthHttpParameters(EventConnectionAuthParametersOauthOauthHttpParameters oauthHttpParameters) {
-            this.oauthHttpParameters = Objects.requireNonNull(oauthHttpParameters);
+            if (oauthHttpParameters == null) {
+              throw new MissingRequiredPropertyException("EventConnectionAuthParametersOauth", "oauthHttpParameters");
+            }
+            this.oauthHttpParameters = oauthHttpParameters;
             return this;
         }
         public EventConnectionAuthParametersOauth build() {
-            final var o = new EventConnectionAuthParametersOauth();
-            o.authorizationEndpoint = authorizationEndpoint;
-            o.clientParameters = clientParameters;
-            o.httpMethod = httpMethod;
-            o.oauthHttpParameters = oauthHttpParameters;
-            return o;
+            final var _resultValue = new EventConnectionAuthParametersOauth();
+            _resultValue.authorizationEndpoint = authorizationEndpoint;
+            _resultValue.clientParameters = clientParameters;
+            _resultValue.httpMethod = httpMethod;
+            _resultValue.oauthHttpParameters = oauthHttpParameters;
+            return _resultValue;
         }
     }
 }

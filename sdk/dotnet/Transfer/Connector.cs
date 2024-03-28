@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Transfer
     /// Provides a AWS Transfer AS2 Connector resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,16 +27,16 @@ namespace Pulumi.Aws.Transfer
     /// {
     ///     var example = new Aws.Transfer.Connector("example", new()
     ///     {
-    ///         AccessRole = aws_iam_role.Test.Arn,
+    ///         AccessRole = test.Arn,
     ///         As2Config = new Aws.Transfer.Inputs.ConnectorAs2ConfigArgs
     ///         {
     ///             Compression = "DISABLED",
     ///             EncryptionAlgorithm = "AWS128_CBC",
     ///             MessageSubject = "For Connector",
-    ///             LocalProfileId = aws_transfer_profile.Local.Profile_id,
+    ///             LocalProfileId = local.ProfileId,
     ///             MdnResponse = "NONE",
     ///             MdnSigningAlgorithm = "NONE",
-    ///             PartnerProfileId = aws_transfer_profile.Partner.Profile_id,
+    ///             PartnerProfileId = partner.ProfileId,
     ///             SigningAlgorithm = "NONE",
     ///         },
     ///         Url = "http://www.test.com",
@@ -42,8 +44,11 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### SFTP Connector
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,27 +59,28 @@ namespace Pulumi.Aws.Transfer
     /// {
     ///     var example = new Aws.Transfer.Connector("example", new()
     ///     {
-    ///         AccessRole = aws_iam_role.Test.Arn,
+    ///         AccessRole = test.Arn,
     ///         SftpConfig = new Aws.Transfer.Inputs.ConnectorSftpConfigArgs
     ///         {
     ///             TrustedHostKeys = new[]
     ///             {
     ///                 "ssh-rsa AAAAB3NYourKeysHere",
     ///             },
-    ///             UserSecretId = aws_secretsmanager_secret.Example.Id,
+    ///             UserSecretId = exampleAwsSecretsmanagerSecret.Id,
     ///         },
     ///         Url = "sftp://test.com",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Transfer AS2 Connector using the `connector_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:transfer/connector:Connector example c-4221a88afd5f4362a
+    /// $ pulumi import aws:transfer/connector:Connector example c-4221a88afd5f4362a
     /// ```
     /// </summary>
     [AwsResourceType("aws:transfer/connector:Connector")]
@@ -154,10 +160,6 @@ namespace Pulumi.Aws.Transfer
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -285,11 +287,7 @@ namespace Pulumi.Aws.Transfer
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

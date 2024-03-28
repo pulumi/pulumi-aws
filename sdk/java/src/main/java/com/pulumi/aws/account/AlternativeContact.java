@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Manages the specified alternate contact attached to an AWS Account.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -41,14 +43,16 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var operations = new AlternativeContact(&#34;operations&#34;, AlternativeContactArgs.builder()        
  *             .alternateContactType(&#34;OPERATIONS&#34;)
+ *             .name(&#34;Example&#34;)
+ *             .title(&#34;Example&#34;)
  *             .emailAddress(&#34;test@example.com&#34;)
  *             .phoneNumber(&#34;+1234567890&#34;)
- *             .title(&#34;Example&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -59,12 +63,12 @@ import javax.annotation.Nullable;
  * Import the Alternate Contact for the current account:
  * 
  * ```sh
- *  $ pulumi import aws:account/alternativeContact:AlternativeContact operations OPERATIONS
+ * $ pulumi import aws:account/alternativeContact:AlternativeContact operations OPERATIONS
  * ```
- *  Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):
+ * Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):
  * 
  * ```sh
- *  $ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS
+ * $ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS
  * ```
  * 
  */

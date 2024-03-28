@@ -28,9 +28,7 @@ import (
 // Using `pulumi import`, import CloudHSM v2 Clusters using the cluster `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudhsmv2/cluster:Cluster test_cluster cluster-aeb282a201
-//
+// $ pulumi import aws:cloudhsmv2/cluster:Cluster test_cluster cluster-aeb282a201
 // ```
 type Cluster struct {
 	pulumi.CustomResourceState
@@ -77,10 +75,6 @@ func NewCluster(ctx *pulumi.Context,
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("aws:cloudhsmv2/cluster:Cluster", name, args, &resource, opts...)

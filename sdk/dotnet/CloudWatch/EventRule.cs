@@ -16,6 +16,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,6 +28,7 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var console = new Aws.CloudWatch.EventRule("console", new()
     ///     {
+    ///         Name = "capture-aws-sign-in",
     ///         Description = "Capture each AWS Console Sign In",
     ///         EventPattern = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -37,11 +39,15 @@ namespace Pulumi.Aws.CloudWatch
     ///         }),
     ///     });
     /// 
-    ///     var awsLogins = new Aws.Sns.Topic("awsLogins");
+    ///     var awsLogins = new Aws.Sns.Topic("aws_logins", new()
+    ///     {
+    ///         Name = "aws-console-logins",
+    ///     });
     /// 
     ///     var sns = new Aws.CloudWatch.EventTarget("sns", new()
     ///     {
     ///         Rule = console.Name,
+    ///         TargetId = "SendToSNS",
     ///         Arn = awsLogins.Arn,
     ///     });
     /// 
@@ -83,13 +89,14 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
+    /// $ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/eventRule:EventRule")]
@@ -121,7 +128,9 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string?> EventPattern { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the rule should be enabled (defaults to `true`).
+        /// Whether the rule should be enabled.
+        /// Defaults to `true`.
+        /// Conflicts with `state`.
         /// </summary>
         [Output("isEnabled")]
         public Output<bool?> IsEnabled { get; private set; } = null!;
@@ -149,6 +158,19 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Output("scheduleExpression")]
         public Output<string?> ScheduleExpression { get; private set; } = null!;
+
+        /// <summary>
+        /// State of the rule.
+        /// Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+        /// When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+        /// To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+        /// Defaults to `ENABLED`.
+        /// Conflicts with `is_enabled`.
+        /// 
+        /// **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
+        /// </summary>
+        [Output("state")]
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -185,10 +207,6 @@ namespace Pulumi.Aws.CloudWatch
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -232,7 +250,9 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? EventPattern { get; set; }
 
         /// <summary>
-        /// Whether the rule should be enabled (defaults to `true`).
+        /// Whether the rule should be enabled.
+        /// Defaults to `true`.
+        /// Conflicts with `state`.
         /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
@@ -260,6 +280,19 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("scheduleExpression")]
         public Input<string>? ScheduleExpression { get; set; }
+
+        /// <summary>
+        /// State of the rule.
+        /// Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+        /// When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+        /// To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+        /// Defaults to `ENABLED`.
+        /// Conflicts with `is_enabled`.
+        /// 
+        /// **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -307,7 +340,9 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? EventPattern { get; set; }
 
         /// <summary>
-        /// Whether the rule should be enabled (defaults to `true`).
+        /// Whether the rule should be enabled.
+        /// Defaults to `true`.
+        /// Conflicts with `state`.
         /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
@@ -336,6 +371,19 @@ namespace Pulumi.Aws.CloudWatch
         [Input("scheduleExpression")]
         public Input<string>? ScheduleExpression { get; set; }
 
+        /// <summary>
+        /// State of the rule.
+        /// Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+        /// When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+        /// To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+        /// Defaults to `ENABLED`.
+        /// Conflicts with `is_enabled`.
+        /// 
+        /// **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -358,11 +406,7 @@ namespace Pulumi.Aws.CloudWatch
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public EventRuleState()

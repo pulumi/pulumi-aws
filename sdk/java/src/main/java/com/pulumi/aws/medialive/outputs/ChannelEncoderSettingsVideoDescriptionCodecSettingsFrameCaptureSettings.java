@@ -59,19 +59,21 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptu
 
         @CustomType.Setter
         public Builder captureInterval(@Nullable Integer captureInterval) {
+
             this.captureInterval = captureInterval;
             return this;
         }
         @CustomType.Setter
         public Builder captureIntervalUnits(@Nullable String captureIntervalUnits) {
+
             this.captureIntervalUnits = captureIntervalUnits;
             return this;
         }
         public ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings build() {
-            final var o = new ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings();
-            o.captureInterval = captureInterval;
-            o.captureIntervalUnits = captureIntervalUnits;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings();
+            _resultValue.captureInterval = captureInterval;
+            _resultValue.captureIntervalUnits = captureIntervalUnits;
+            return _resultValue;
         }
     }
 }

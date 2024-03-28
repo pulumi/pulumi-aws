@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,25 +74,32 @@ public final class DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage 
 
         @CustomType.Setter
         public Builder appImageConfigName(String appImageConfigName) {
-            this.appImageConfigName = Objects.requireNonNull(appImageConfigName);
+            if (appImageConfigName == null) {
+              throw new MissingRequiredPropertyException("DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage", "appImageConfigName");
+            }
+            this.appImageConfigName = appImageConfigName;
             return this;
         }
         @CustomType.Setter
         public Builder imageName(String imageName) {
-            this.imageName = Objects.requireNonNull(imageName);
+            if (imageName == null) {
+              throw new MissingRequiredPropertyException("DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage", "imageName");
+            }
+            this.imageName = imageName;
             return this;
         }
         @CustomType.Setter
         public Builder imageVersionNumber(@Nullable Integer imageVersionNumber) {
+
             this.imageVersionNumber = imageVersionNumber;
             return this;
         }
         public DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage build() {
-            final var o = new DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage();
-            o.appImageConfigName = appImageConfigName;
-            o.imageName = imageName;
-            o.imageVersionNumber = imageVersionNumber;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage();
+            _resultValue.appImageConfigName = appImageConfigName;
+            _resultValue.imageName = imageName;
+            _resultValue.imageVersionNumber = imageVersionNumber;
+            return _resultValue;
         }
     }
 }

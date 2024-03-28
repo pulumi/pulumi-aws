@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -34,13 +35,16 @@ public final class GetClusterServiceConnectDefault {
 
         @CustomType.Setter
         public Builder namespace(String namespace) {
-            this.namespace = Objects.requireNonNull(namespace);
+            if (namespace == null) {
+              throw new MissingRequiredPropertyException("GetClusterServiceConnectDefault", "namespace");
+            }
+            this.namespace = namespace;
             return this;
         }
         public GetClusterServiceConnectDefault build() {
-            final var o = new GetClusterServiceConnectDefault();
-            o.namespace = namespace;
-            return o;
+            final var _resultValue = new GetClusterServiceConnectDefault();
+            _resultValue.namespace = namespace;
+            return _resultValue;
         }
     }
 }

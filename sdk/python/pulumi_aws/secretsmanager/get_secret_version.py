@@ -21,10 +21,13 @@ class GetSecretVersionResult:
     """
     A collection of values returned by getSecretVersion.
     """
-    def __init__(__self__, arn=None, id=None, secret_binary=None, secret_id=None, secret_string=None, version_id=None, version_stage=None, version_stages=None):
+    def __init__(__self__, arn=None, created_date=None, id=None, secret_binary=None, secret_id=None, secret_string=None, version_id=None, version_stage=None, version_stages=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        pulumi.set(__self__, "created_date", created_date)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -54,6 +57,14 @@ class GetSecretVersionResult:
         ARN of the secret.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        Created date of the secret in UTC.
+        """
+        return pulumi.get(self, "created_date")
 
     @property
     @pulumi.getter
@@ -110,6 +121,7 @@ class AwaitableGetSecretVersionResult(GetSecretVersionResult):
             yield self
         return GetSecretVersionResult(
             arn=self.arn,
+            created_date=self.created_date,
             id=self.id,
             secret_binary=self.secret_binary,
             secret_id=self.secret_id,
@@ -127,25 +139,31 @@ def get_secret_version(secret_id: Optional[str] = None,
     Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `secretsmanager.Secret` data source.
 
     ## Example Usage
+
     ### Retrieve Current Secret Version
 
     By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    secret_version = aws.secretsmanager.get_secret_version(secret_id=data["aws_secretsmanager_secret"]["example"]["id"])
+    secret_version = aws.secretsmanager.get_secret_version(secret_id=example["id"])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Retrieve Specific Secret Version
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    by_version_stage = aws.secretsmanager.get_secret_version(secret_id=data["aws_secretsmanager_secret"]["example"]["id"],
+    by_version_stage = aws.secretsmanager.get_secret_version(secret_id=example["id"],
         version_stage="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
@@ -161,6 +179,7 @@ def get_secret_version(secret_id: Optional[str] = None,
 
     return AwaitableGetSecretVersionResult(
         arn=pulumi.get(__ret__, 'arn'),
+        created_date=pulumi.get(__ret__, 'created_date'),
         id=pulumi.get(__ret__, 'id'),
         secret_binary=pulumi.get(__ret__, 'secret_binary'),
         secret_id=pulumi.get(__ret__, 'secret_id'),
@@ -179,25 +198,31 @@ def get_secret_version_output(secret_id: Optional[pulumi.Input[str]] = None,
     Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `secretsmanager.Secret` data source.
 
     ## Example Usage
+
     ### Retrieve Current Secret Version
 
     By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    secret_version = aws.secretsmanager.get_secret_version(secret_id=data["aws_secretsmanager_secret"]["example"]["id"])
+    secret_version = aws.secretsmanager.get_secret_version(secret_id=example["id"])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Retrieve Specific Secret Version
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    by_version_stage = aws.secretsmanager.get_secret_version(secret_id=data["aws_secretsmanager_secret"]["example"]["id"],
+    by_version_stage = aws.secretsmanager.get_secret_version(secret_id=example["id"],
         version_stage="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.

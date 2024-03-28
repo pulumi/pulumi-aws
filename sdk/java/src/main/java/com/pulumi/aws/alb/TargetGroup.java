@@ -29,7 +29,10 @@ import javax.annotation.Nullable;
  * &gt; **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
  * 
  * ## Example Usage
+ * 
  * ### Instance Target Group
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -58,6 +61,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new TargetGroup(&#34;test&#34;, TargetGroupArgs.builder()        
+ *             .name(&#34;tf-example-lb-tg&#34;)
  *             .port(80)
  *             .protocol(&#34;HTTP&#34;)
  *             .vpcId(main.id())
@@ -66,7 +70,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### IP Target Group
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -95,6 +103,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var ip_example = new TargetGroup(&#34;ip-example&#34;, TargetGroupArgs.builder()        
+ *             .name(&#34;tf-example-lb-tg&#34;)
  *             .port(80)
  *             .protocol(&#34;HTTP&#34;)
  *             .targetType(&#34;ip&#34;)
@@ -104,7 +113,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Lambda Target Group
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -127,13 +140,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var lambda_example = new TargetGroup(&#34;lambda-example&#34;, TargetGroupArgs.builder()        
+ *             .name(&#34;tf-example-lb-tg&#34;)
  *             .targetType(&#34;lambda&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### ALB Target Group
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -156,16 +174,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var alb_example = new TargetGroup(&#34;alb-example&#34;, TargetGroupArgs.builder()        
+ *             .name(&#34;tf-example-lb-alb-tg&#34;)
  *             .targetType(&#34;alb&#34;)
  *             .port(80)
  *             .protocol(&#34;TCP&#34;)
- *             .vpcId(aws_vpc.main().id())
+ *             .vpcId(main.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Target group with unhealthy connection termination disabled
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -189,9 +212,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var tcp_example = new TargetGroup(&#34;tcp-example&#34;, TargetGroupArgs.builder()        
+ *             .name(&#34;tf-example-lb-nlb-tg&#34;)
  *             .port(25)
  *             .protocol(&#34;TCP&#34;)
- *             .vpcId(aws_vpc.main().id())
+ *             .vpcId(main.id())
  *             .targetHealthStates(TargetGroupTargetHealthStateArgs.builder()
  *                 .enableUnhealthyConnectionTermination(false)
  *                 .build())
@@ -200,13 +224,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Target Groups using their ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:alb/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
+ * $ pulumi import aws:alb/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
  * ```
  * 
  */
@@ -311,18 +336,46 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.lambdaMultiValueHeadersEnabled);
     }
     /**
-     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+     * ARNs of the Load Balancers associated with the Target Group.
+     * 
+     */
+    @Export(name="loadBalancerArns", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> loadBalancerArns;
+
+    /**
+     * @return ARNs of the Load Balancers associated with the Target Group.
+     * 
+     */
+    public Output<List<String>> loadBalancerArns() {
+        return this.loadBalancerArns;
+    }
+    /**
+     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
      * 
      */
     @Export(name="loadBalancingAlgorithmType", refs={String.class}, tree="[0]")
     private Output<String> loadBalancingAlgorithmType;
 
     /**
-     * @return Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+     * @return Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
      * 
      */
     public Output<String> loadBalancingAlgorithmType() {
         return this.loadBalancingAlgorithmType;
+    }
+    /**
+     * Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `&#34;on&#34;` or `&#34;off&#34;`. The default is `&#34;off&#34;`.
+     * 
+     */
+    @Export(name="loadBalancingAnomalyMitigation", refs={String.class}, tree="[0]")
+    private Output<String> loadBalancingAnomalyMitigation;
+
+    /**
+     * @return Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `&#34;on&#34;` or `&#34;off&#34;`. The default is `&#34;off&#34;`.
+     * 
+     */
+    public Output<String> loadBalancingAnomalyMitigation() {
+        return this.loadBalancingAnomalyMitigation;
     }
     /**
      * Indicates whether cross zone load balancing is enabled. The value is `&#34;true&#34;`, `&#34;false&#34;` or `&#34;use_load_balancer_configuration&#34;`. The default is `&#34;use_load_balancer_configuration&#34;`.
@@ -395,14 +448,20 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
         return this.preserveClientIp;
     }
     /**
-     * Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+     * Protocol to use for routing traffic to the targets.
+     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+     * Required when `target_type` is `instance`, `ip`, or `alb`.
+     * Does not apply when `target_type` is `lambda`.
      * 
      */
     @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> protocol;
 
     /**
-     * @return Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+     * @return Protocol to use for routing traffic to the targets.
+     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+     * Required when `target_type` is `instance`, `ip`, or `alb`.
+     * Does not apply when `target_type` is `lambda`.
      * 
      */
     public Output<Optional<String>> protocol() {
@@ -525,7 +584,9 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
         return this.targetHealthStates;
     }
     /**
-     * Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+     * Type of target that you must specify when registering targets with this target group.
+     * See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
+     * The default is `instance`.
      * 
      * Note that you can&#39;t specify targets for a target group using both instance IDs and IP addresses.
      * 
@@ -540,7 +601,9 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> targetType;
 
     /**
-     * @return Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+     * @return Type of target that you must specify when registering targets with this target group.
+     * See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
+     * The default is `instance`.
      * 
      * Note that you can&#39;t specify targets for a target group using both instance IDs and IP addresses.
      * 
@@ -603,9 +666,6 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
             .version(Utilities.getVersion())
             .aliases(List.of(
                 Output.of(Alias.builder().type("aws:applicationloadbalancing/targetGroup:TargetGroup").build())
-            ))
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

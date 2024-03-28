@@ -424,17 +424,20 @@ class User(pulumi.CustomResource):
         [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
+            instance_id=example_aws_connect_instance["id"],
+            name="example",
             password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
+            routing_profile_id=example_aws_connect_routing_profile["routingProfileId"],
+            security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]],
             identity_info=aws.connect.UserIdentityInfoArgs(
                 first_name="example",
                 last_name="example2",
@@ -444,18 +447,22 @@ class User(pulumi.CustomResource):
                 phone_type="SOFT_PHONE",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With hierarchy_group_id
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
+            instance_id=example_aws_connect_instance["id"],
+            name="example",
             password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            hierarchy_group_id=aws_connect_user_hierarchy_group["example"]["hierarchy_group_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
+            routing_profile_id=example_aws_connect_routing_profile["routingProfileId"],
+            hierarchy_group_id=example_aws_connect_user_hierarchy_group["hierarchyGroupId"],
+            security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]],
             identity_info=aws.connect.UserIdentityInfoArgs(
                 first_name="example",
                 last_name="example2",
@@ -465,17 +472,21 @@ class User(pulumi.CustomResource):
                 phone_type="SOFT_PHONE",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With identity_info filled
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
+            instance_id=example_aws_connect_instance["id"],
+            name="example",
             password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
+            routing_profile_id=example_aws_connect_routing_profile["routingProfileId"],
+            security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]],
             identity_info=aws.connect.UserIdentityInfoArgs(
                 email="example@example.com",
                 first_name="example",
@@ -486,35 +497,43 @@ class User(pulumi.CustomResource):
                 phone_type="SOFT_PHONE",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With phone_config phone type as desk phone
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
+            instance_id=example_aws_connect_instance["id"],
+            name="example",
             password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
+            routing_profile_id=example_aws_connect_routing_profile["routingProfileId"],
+            security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]],
             phone_config=aws.connect.UserPhoneConfigArgs(
                 after_contact_work_time_limit=0,
                 phone_type="SOFT_PHONE",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With multiple Security profile ids specified in security_profile_ids
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
+            instance_id=example_aws_connect_instance["id"],
+            name="example",
             password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
+            routing_profile_id=example_aws_connect_routing_profile["routingProfileId"],
             security_profile_ids=[
-                aws_connect_security_profile["example"]["security_profile_id"],
-                aws_connect_security_profile["example2"]["security_profile_id"],
+                example_aws_connect_security_profile["securityProfileId"],
+                example2["securityProfileId"],
             ],
             phone_config=aws.connect.UserPhoneConfigArgs(
                 after_contact_work_time_limit=0,
@@ -523,13 +542,14 @@ class User(pulumi.CustomResource):
                 phone_type="DESK_PHONE",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Connect Users using the `instance_id` and `user_id` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:connect/user:User example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+        $ pulumi import aws:connect/user:User example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
         ```
 
         :param str resource_name: The name of the resource.
@@ -557,17 +577,20 @@ class User(pulumi.CustomResource):
         [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
+            instance_id=example_aws_connect_instance["id"],
+            name="example",
             password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
+            routing_profile_id=example_aws_connect_routing_profile["routingProfileId"],
+            security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]],
             identity_info=aws.connect.UserIdentityInfoArgs(
                 first_name="example",
                 last_name="example2",
@@ -577,18 +600,22 @@ class User(pulumi.CustomResource):
                 phone_type="SOFT_PHONE",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With hierarchy_group_id
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
+            instance_id=example_aws_connect_instance["id"],
+            name="example",
             password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            hierarchy_group_id=aws_connect_user_hierarchy_group["example"]["hierarchy_group_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
+            routing_profile_id=example_aws_connect_routing_profile["routingProfileId"],
+            hierarchy_group_id=example_aws_connect_user_hierarchy_group["hierarchyGroupId"],
+            security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]],
             identity_info=aws.connect.UserIdentityInfoArgs(
                 first_name="example",
                 last_name="example2",
@@ -598,17 +625,21 @@ class User(pulumi.CustomResource):
                 phone_type="SOFT_PHONE",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With identity_info filled
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
+            instance_id=example_aws_connect_instance["id"],
+            name="example",
             password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
+            routing_profile_id=example_aws_connect_routing_profile["routingProfileId"],
+            security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]],
             identity_info=aws.connect.UserIdentityInfoArgs(
                 email="example@example.com",
                 first_name="example",
@@ -619,35 +650,43 @@ class User(pulumi.CustomResource):
                 phone_type="SOFT_PHONE",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With phone_config phone type as desk phone
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
+            instance_id=example_aws_connect_instance["id"],
+            name="example",
             password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
+            routing_profile_id=example_aws_connect_routing_profile["routingProfileId"],
+            security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]],
             phone_config=aws.connect.UserPhoneConfigArgs(
                 after_contact_work_time_limit=0,
                 phone_type="SOFT_PHONE",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With multiple Security profile ids specified in security_profile_ids
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
+            instance_id=example_aws_connect_instance["id"],
+            name="example",
             password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
+            routing_profile_id=example_aws_connect_routing_profile["routingProfileId"],
             security_profile_ids=[
-                aws_connect_security_profile["example"]["security_profile_id"],
-                aws_connect_security_profile["example2"]["security_profile_id"],
+                example_aws_connect_security_profile["securityProfileId"],
+                example2["securityProfileId"],
             ],
             phone_config=aws.connect.UserPhoneConfigArgs(
                 after_contact_work_time_limit=0,
@@ -656,13 +695,14 @@ class User(pulumi.CustomResource):
                 phone_type="DESK_PHONE",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Connect Users using the `instance_id` and `user_id` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:connect/user:User example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+        $ pulumi import aws:connect/user:User example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
         ```
 
         :param str resource_name: The name of the resource.
@@ -720,7 +760,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["user_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(User, __self__).__init__(
             'aws:connect/user:User',

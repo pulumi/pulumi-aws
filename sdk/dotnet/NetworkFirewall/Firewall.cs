@@ -14,6 +14,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,13 +25,14 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.Firewall("example", new()
     ///     {
-    ///         FirewallPolicyArn = aws_networkfirewall_firewall_policy.Example.Arn,
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         Name = "example",
+    ///         FirewallPolicyArn = exampleAwsNetworkfirewallFirewallPolicy.Arn,
+    ///         VpcId = exampleAwsVpc.Id,
     ///         SubnetMappings = new[]
     ///         {
     ///             new Aws.NetworkFirewall.Inputs.FirewallSubnetMappingArgs
     ///             {
-    ///                 SubnetId = aws_subnet.Example.Id,
+    ///                 SubnetId = exampleAwsSubnet.Id,
     ///             },
     ///         },
     ///         Tags = 
@@ -42,13 +44,14 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Network Firewall Firewalls using their `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:networkfirewall/firewall:Firewall example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
+    /// $ pulumi import aws:networkfirewall/firewall:Firewall example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkfirewall/firewall:Firewall")]
@@ -61,7 +64,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+        /// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
         /// </summary>
         [Output("deleteProtection")]
         public Output<bool?> DeleteProtection { get; private set; } = null!;
@@ -85,7 +88,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<string> FirewallPolicyArn { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+        /// A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
         /// </summary>
         [Output("firewallPolicyChangeProtection")]
         public Output<bool?> FirewallPolicyChangeProtection { get; private set; } = null!;
@@ -103,7 +106,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+        /// A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
         /// </summary>
         [Output("subnetChangeProtection")]
         public Output<bool?> SubnetChangeProtection { get; private set; } = null!;
@@ -161,10 +164,6 @@ namespace Pulumi.Aws.NetworkFirewall
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -189,7 +188,7 @@ namespace Pulumi.Aws.NetworkFirewall
     public sealed class FirewallArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+        /// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
@@ -213,7 +212,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<string> FirewallPolicyArn { get; set; } = null!;
 
         /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+        /// A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
         /// </summary>
         [Input("firewallPolicyChangeProtection")]
         public Input<bool>? FirewallPolicyChangeProtection { get; set; }
@@ -225,7 +224,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+        /// A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
         /// </summary>
         [Input("subnetChangeProtection")]
         public Input<bool>? SubnetChangeProtection { get; set; }
@@ -275,7 +274,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+        /// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
@@ -299,7 +298,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<string>? FirewallPolicyArn { get; set; }
 
         /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+        /// A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
         /// </summary>
         [Input("firewallPolicyChangeProtection")]
         public Input<bool>? FirewallPolicyChangeProtection { get; set; }
@@ -323,7 +322,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+        /// A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
         /// </summary>
         [Input("subnetChangeProtection")]
         public Input<bool>? SubnetChangeProtection { get; set; }
@@ -362,11 +361,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

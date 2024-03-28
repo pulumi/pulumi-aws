@@ -22,7 +22,10 @@ import javax.annotation.Nullable;
  * [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html)
  * 
  * ## Example Usage
+ * 
  * ### Create protection group for all resources
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,15 +48,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ProtectionGroup(&#34;example&#34;, ProtectionGroupArgs.builder()        
+ *             .protectionGroupId(&#34;example&#34;)
  *             .aggregation(&#34;MAX&#34;)
  *             .pattern(&#34;ALL&#34;)
- *             .protectionGroupId(&#34;example&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Create protection group for arbitrary number of resources
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -69,7 +76,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.shield.ProtectionArgs;
  * import com.pulumi.aws.shield.ProtectionGroup;
  * import com.pulumi.aws.shield.ProtectionGroupArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -83,31 +89,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var currentRegion = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion();
  * 
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
  * 
- *         var exampleEip = new Eip(&#34;exampleEip&#34;, EipArgs.builder()        
+ *         var example = new Eip(&#34;example&#34;, EipArgs.builder()        
  *             .domain(&#34;vpc&#34;)
  *             .build());
  * 
  *         var exampleProtection = new Protection(&#34;exampleProtection&#34;, ProtectionArgs.builder()        
- *             .resourceArn(exampleEip.id().applyValue(id -&gt; String.format(&#34;arn:aws:ec2:%s:%s:eip-allocation/%s&#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),id)))
+ *             .name(&#34;example&#34;)
+ *             .resourceArn(example.id().applyValue(id -&gt; String.format(&#34;arn:aws:ec2:%s:%s:eip-allocation/%s&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),id)))
  *             .build());
  * 
  *         var exampleProtectionGroup = new ProtectionGroup(&#34;exampleProtectionGroup&#34;, ProtectionGroupArgs.builder()        
  *             .protectionGroupId(&#34;example&#34;)
  *             .aggregation(&#34;MEAN&#34;)
  *             .pattern(&#34;ARBITRARY&#34;)
- *             .members(exampleEip.id().applyValue(id -&gt; String.format(&#34;arn:aws:ec2:%s:%s:eip-allocation/%s&#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),id)))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleProtection)
- *                 .build());
+ *             .members(example.id().applyValue(id -&gt; String.format(&#34;arn:aws:ec2:%s:%s:eip-allocation/%s&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),id)))
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Create protection group for a type of resource
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -130,22 +139,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ProtectionGroup(&#34;example&#34;, ProtectionGroupArgs.builder()        
+ *             .protectionGroupId(&#34;example&#34;)
  *             .aggregation(&#34;SUM&#34;)
  *             .pattern(&#34;BY_RESOURCE_TYPE&#34;)
- *             .protectionGroupId(&#34;example&#34;)
  *             .resourceType(&#34;ELASTIC_IP_ALLOCATION&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Shield protection group resources using their protection group id. For example:
  * 
  * ```sh
- *  $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
+ * $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
  * ```
  * 
  */
@@ -300,9 +310,6 @@ public class ProtectionGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

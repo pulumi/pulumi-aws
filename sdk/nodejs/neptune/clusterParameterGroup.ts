@@ -12,26 +12,29 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.neptune.ClusterParameterGroup("example", {
- *     description: "neptune cluster parameter group",
  *     family: "neptune1",
+ *     name: "example",
+ *     description: "neptune cluster parameter group",
  *     parameters: [{
  *         name: "neptune_enable_audit_log",
  *         value: "1",
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Neptune Cluster Parameter Groups using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:neptune/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
+ * $ pulumi import aws:neptune/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
  * ```
  */
 export class ClusterParameterGroup extends pulumi.CustomResource {
@@ -133,8 +136,6 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ClusterParameterGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

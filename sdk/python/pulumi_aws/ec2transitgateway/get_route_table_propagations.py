@@ -83,14 +83,17 @@ def get_route_table_propagations(filters: Optional[Sequence[pulumi.InputType['Ge
     Provides information for multiple EC2 Transit Gateway Route Table Propagations, such as their identifiers.
 
     ## Example Usage
+
     ### By Transit Gateway Identifier
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_route_table_propagations(transit_gateway_route_table_id=aws_ec2_transit_gateway_route_table["example"]["id"])
+    example = aws.ec2transitgateway.get_route_table_propagations(transit_gateway_route_table_id=example_aws_ec2_transit_gateway_route_table["id"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetRouteTablePropagationsFilterArgs']] filters: Custom filter block as described below.
@@ -122,14 +125,17 @@ def get_route_table_propagations_output(filters: Optional[pulumi.Input[Optional[
     Provides information for multiple EC2 Transit Gateway Route Table Propagations, such as their identifiers.
 
     ## Example Usage
+
     ### By Transit Gateway Identifier
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_route_table_propagations(transit_gateway_route_table_id=aws_ec2_transit_gateway_route_table["example"]["id"])
+    example = aws.ec2transitgateway.get_route_table_propagations(transit_gateway_route_table_id=example_aws_ec2_transit_gateway_route_table["id"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetRouteTablePropagationsFilterArgs']] filters: Custom filter block as described below.

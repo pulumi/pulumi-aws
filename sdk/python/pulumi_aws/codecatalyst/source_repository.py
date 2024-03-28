@@ -175,23 +175,27 @@ class SourceRepository(pulumi.CustomResource):
         Resource for managing an AWS CodeCatalyst Source Repository.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.codecatalyst.SourceRepository("example",
+            name="example-repo",
             project_name="example-project",
             space_name="example-space")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import CodeCatalyst Source Repository using the `example_id_arg`. For example:
+        Using `pulumi import`, import CodeCatalyst Source Repository using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example source_repository-id-12345678
+        $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example example-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -213,23 +217,27 @@ class SourceRepository(pulumi.CustomResource):
         Resource for managing an AWS CodeCatalyst Source Repository.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.codecatalyst.SourceRepository("example",
+            name="example-repo",
             project_name="example-project",
             space_name="example-space")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import CodeCatalyst Source Repository using the `example_id_arg`. For example:
+        Using `pulumi import`, import CodeCatalyst Source Repository using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example source_repository-id-12345678
+        $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example example-repo
         ```
 
         :param str resource_name: The name of the resource.

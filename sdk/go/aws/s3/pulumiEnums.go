@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // See https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl
@@ -144,10 +143,17 @@ func (o CannedAclPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// CannedAclInput is an input type that accepts CannedAclArgs and CannedAclOutput values.
-// You can construct a concrete instance of `CannedAclInput` via:
+// CannedAclInput is an input type that accepts values of the CannedAcl enum
+// A concrete instance of `CannedAclInput` can be one of the following:
 //
-//	CannedAclArgs{...}
+//	CannedAclPrivate
+//	CannedAclPublicRead
+//	CannedAclPublicReadWrite
+//	CannedAclAwsExecRead
+//	CannedAclAuthenticatedRead
+//	CannedAclBucketOwnerRead
+//	CannedAclBucketOwnerFullControl
+//	CannedAclLogDeliveryWrite
 type CannedAclInput interface {
 	pulumi.Input
 
@@ -180,12 +186,6 @@ func (in *cannedAclPtr) ToCannedAclPtrOutput() CannedAclPtrOutput {
 
 func (in *cannedAclPtr) ToCannedAclPtrOutputWithContext(ctx context.Context) CannedAclPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CannedAclPtrOutput)
-}
-
-func (in *cannedAclPtr) ToOutput(ctx context.Context) pulumix.Output[*CannedAcl] {
-	return pulumix.Output[*CannedAcl]{
-		OutputState: in.ToCannedAclPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

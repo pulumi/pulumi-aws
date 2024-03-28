@@ -100,37 +100,42 @@ public final class DirectorySelfServicePermissions {
 
         @CustomType.Setter
         public Builder changeComputeType(@Nullable Boolean changeComputeType) {
+
             this.changeComputeType = changeComputeType;
             return this;
         }
         @CustomType.Setter
         public Builder increaseVolumeSize(@Nullable Boolean increaseVolumeSize) {
+
             this.increaseVolumeSize = increaseVolumeSize;
             return this;
         }
         @CustomType.Setter
         public Builder rebuildWorkspace(@Nullable Boolean rebuildWorkspace) {
+
             this.rebuildWorkspace = rebuildWorkspace;
             return this;
         }
         @CustomType.Setter
         public Builder restartWorkspace(@Nullable Boolean restartWorkspace) {
+
             this.restartWorkspace = restartWorkspace;
             return this;
         }
         @CustomType.Setter
         public Builder switchRunningMode(@Nullable Boolean switchRunningMode) {
+
             this.switchRunningMode = switchRunningMode;
             return this;
         }
         public DirectorySelfServicePermissions build() {
-            final var o = new DirectorySelfServicePermissions();
-            o.changeComputeType = changeComputeType;
-            o.increaseVolumeSize = increaseVolumeSize;
-            o.rebuildWorkspace = rebuildWorkspace;
-            o.restartWorkspace = restartWorkspace;
-            o.switchRunningMode = switchRunningMode;
-            return o;
+            final var _resultValue = new DirectorySelfServicePermissions();
+            _resultValue.changeComputeType = changeComputeType;
+            _resultValue.increaseVolumeSize = increaseVolumeSize;
+            _resultValue.rebuildWorkspace = rebuildWorkspace;
+            _resultValue.restartWorkspace = restartWorkspace;
+            _resultValue.switchRunningMode = switchRunningMode;
+            return _resultValue;
         }
     }
 }

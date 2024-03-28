@@ -28,7 +28,7 @@ class ConnectionArgs:
         The set of arguments for constructing a Connection resource.
         :param pulumi.Input[str] catalog_id: The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connection_properties: A map of key-value pairs used as parameters for this connection.
-        :param pulumi.Input[str] connection_type: The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
+        :param pulumi.Input[str] connection_type: The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
         :param pulumi.Input[str] description: Description of the connection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
         :param pulumi.Input[str] name: The name of the connection.
@@ -80,7 +80,7 @@ class ConnectionArgs:
     @pulumi.getter(name="connectionType")
     def connection_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
+        The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
         """
         return pulumi.get(self, "connection_type")
 
@@ -167,7 +167,7 @@ class _ConnectionState:
         :param pulumi.Input[str] arn: The ARN of the Glue Connection.
         :param pulumi.Input[str] catalog_id: The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connection_properties: A map of key-value pairs used as parameters for this connection.
-        :param pulumi.Input[str] connection_type: The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
+        :param pulumi.Input[str] connection_type: The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
         :param pulumi.Input[str] description: Description of the connection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
         :param pulumi.Input[str] name: The name of the connection.
@@ -239,7 +239,7 @@ class _ConnectionState:
     @pulumi.getter(name="connectionType")
     def connection_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
+        The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
         """
         return pulumi.get(self, "connection_type")
 
@@ -341,52 +341,61 @@ class Connection(pulumi.CustomResource):
         Provides a Glue Connection resource.
 
         ## Example Usage
+
         ### Non-VPC Connection
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.Connection("example", connection_properties={
-            "JDBC_CONNECTION_URL": "jdbc:mysql://example.com/exampledatabase",
-            "PASSWORD": "examplepassword",
-            "USERNAME": "exampleusername",
-        })
-        ```
-        ### VPC Connection
-
-        For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
-
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Connection("example",
             connection_properties={
-                "JDBC_CONNECTION_URL": f"jdbc:mysql://{aws_rds_cluster['example']['endpoint']}/exampledatabase",
+                "JDBC_CONNECTION_URL": "jdbc:mysql://example.com/exampledatabase",
                 "PASSWORD": "examplepassword",
                 "USERNAME": "exampleusername",
             },
+            name="example")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### VPC Connection
+
+        For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Connection("example",
+            connection_properties={
+                "JDBC_CONNECTION_URL": f"jdbc:mysql://{example_aws_rds_cluster['endpoint']}/exampledatabase",
+                "PASSWORD": "examplepassword",
+                "USERNAME": "exampleusername",
+            },
+            name="example",
             physical_connection_requirements=aws.glue.ConnectionPhysicalConnectionRequirementsArgs(
-                availability_zone=aws_subnet["example"]["availability_zone"],
-                security_group_id_lists=[aws_security_group["example"]["id"]],
-                subnet_id=aws_subnet["example"]["id"],
+                availability_zone=example_aws_subnet["availabilityZone"],
+                security_group_id_lists=[example_aws_security_group["id"]],
+                subnet_id=example_aws_subnet["id"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Connections using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`. For example:
 
         ```sh
-         $ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection
+        $ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_id: The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connection_properties: A map of key-value pairs used as parameters for this connection.
-        :param pulumi.Input[str] connection_type: The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
+        :param pulumi.Input[str] connection_type: The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
         :param pulumi.Input[str] description: Description of the connection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
         :param pulumi.Input[str] name: The name of the connection.
@@ -403,45 +412,54 @@ class Connection(pulumi.CustomResource):
         Provides a Glue Connection resource.
 
         ## Example Usage
+
         ### Non-VPC Connection
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.Connection("example", connection_properties={
-            "JDBC_CONNECTION_URL": "jdbc:mysql://example.com/exampledatabase",
-            "PASSWORD": "examplepassword",
-            "USERNAME": "exampleusername",
-        })
-        ```
-        ### VPC Connection
-
-        For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
-
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Connection("example",
             connection_properties={
-                "JDBC_CONNECTION_URL": f"jdbc:mysql://{aws_rds_cluster['example']['endpoint']}/exampledatabase",
+                "JDBC_CONNECTION_URL": "jdbc:mysql://example.com/exampledatabase",
                 "PASSWORD": "examplepassword",
                 "USERNAME": "exampleusername",
             },
+            name="example")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### VPC Connection
+
+        For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Connection("example",
+            connection_properties={
+                "JDBC_CONNECTION_URL": f"jdbc:mysql://{example_aws_rds_cluster['endpoint']}/exampledatabase",
+                "PASSWORD": "examplepassword",
+                "USERNAME": "exampleusername",
+            },
+            name="example",
             physical_connection_requirements=aws.glue.ConnectionPhysicalConnectionRequirementsArgs(
-                availability_zone=aws_subnet["example"]["availability_zone"],
-                security_group_id_lists=[aws_security_group["example"]["id"]],
-                subnet_id=aws_subnet["example"]["id"],
+                availability_zone=example_aws_subnet["availabilityZone"],
+                security_group_id_lists=[example_aws_security_group["id"]],
+                subnet_id=example_aws_subnet["id"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Connections using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`. For example:
 
         ```sh
-         $ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection
+        $ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection
         ```
 
         :param str resource_name: The name of the resource.
@@ -486,7 +504,7 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["connectionProperties", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["connectionProperties"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Connection, __self__).__init__(
             'aws:glue/connection:Connection',
@@ -518,7 +536,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the Glue Connection.
         :param pulumi.Input[str] catalog_id: The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connection_properties: A map of key-value pairs used as parameters for this connection.
-        :param pulumi.Input[str] connection_type: The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
+        :param pulumi.Input[str] connection_type: The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
         :param pulumi.Input[str] description: Description of the connection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
         :param pulumi.Input[str] name: The name of the connection.
@@ -570,7 +588,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter(name="connectionType")
     def connection_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
+        The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
         """
         return pulumi.get(self, "connection_type")
 

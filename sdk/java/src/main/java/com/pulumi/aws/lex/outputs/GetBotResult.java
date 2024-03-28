@@ -4,6 +4,7 @@
 package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -271,109 +272,158 @@ public final class GetBotResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetBotResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder checksum(String checksum) {
-            this.checksum = Objects.requireNonNull(checksum);
+            if (checksum == null) {
+              throw new MissingRequiredPropertyException("GetBotResult", "checksum");
+            }
+            this.checksum = checksum;
             return this;
         }
         @CustomType.Setter
         public Builder childDirected(Boolean childDirected) {
-            this.childDirected = Objects.requireNonNull(childDirected);
+            if (childDirected == null) {
+              throw new MissingRequiredPropertyException("GetBotResult", "childDirected");
+            }
+            this.childDirected = childDirected;
             return this;
         }
         @CustomType.Setter
         public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+            if (createdDate == null) {
+              throw new MissingRequiredPropertyException("GetBotResult", "createdDate");
+            }
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetBotResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder detectSentiment(Boolean detectSentiment) {
-            this.detectSentiment = Objects.requireNonNull(detectSentiment);
+            if (detectSentiment == null) {
+              throw new MissingRequiredPropertyException("GetBotResult", "detectSentiment");
+            }
+            this.detectSentiment = detectSentiment;
             return this;
         }
         @CustomType.Setter
         public Builder enableModelImprovements(Boolean enableModelImprovements) {
-            this.enableModelImprovements = Objects.requireNonNull(enableModelImprovements);
+            if (enableModelImprovements == null) {
+              throw new MissingRequiredPropertyException("GetBotResult", "enableModelImprovements");
+            }
+            this.enableModelImprovements = enableModelImprovements;
             return this;
         }
         @CustomType.Setter
         public Builder failureReason(String failureReason) {
-            this.failureReason = Objects.requireNonNull(failureReason);
+            if (failureReason == null) {
+              throw new MissingRequiredPropertyException("GetBotResult", "failureReason");
+            }
+            this.failureReason = failureReason;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetBotResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder idleSessionTtlInSeconds(Integer idleSessionTtlInSeconds) {
-            this.idleSessionTtlInSeconds = Objects.requireNonNull(idleSessionTtlInSeconds);
+            if (idleSessionTtlInSeconds == null) {
+              throw new MissingRequiredPropertyException("GetBotResult", "idleSessionTtlInSeconds");
+            }
+            this.idleSessionTtlInSeconds = idleSessionTtlInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder lastUpdatedDate(String lastUpdatedDate) {
-            this.lastUpdatedDate = Objects.requireNonNull(lastUpdatedDate);
+            if (lastUpdatedDate == null) {
+              throw new MissingRequiredPropertyException("GetBotResult", "lastUpdatedDate");
+            }
+            this.lastUpdatedDate = lastUpdatedDate;
             return this;
         }
         @CustomType.Setter
         public Builder locale(String locale) {
-            this.locale = Objects.requireNonNull(locale);
+            if (locale == null) {
+              throw new MissingRequiredPropertyException("GetBotResult", "locale");
+            }
+            this.locale = locale;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetBotResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nluIntentConfidenceThreshold(Double nluIntentConfidenceThreshold) {
-            this.nluIntentConfidenceThreshold = Objects.requireNonNull(nluIntentConfidenceThreshold);
+            if (nluIntentConfidenceThreshold == null) {
+              throw new MissingRequiredPropertyException("GetBotResult", "nluIntentConfidenceThreshold");
+            }
+            this.nluIntentConfidenceThreshold = nluIntentConfidenceThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetBotResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }
         @CustomType.Setter
         public Builder voiceId(String voiceId) {
-            this.voiceId = Objects.requireNonNull(voiceId);
+            if (voiceId == null) {
+              throw new MissingRequiredPropertyException("GetBotResult", "voiceId");
+            }
+            this.voiceId = voiceId;
             return this;
         }
         public GetBotResult build() {
-            final var o = new GetBotResult();
-            o.arn = arn;
-            o.checksum = checksum;
-            o.childDirected = childDirected;
-            o.createdDate = createdDate;
-            o.description = description;
-            o.detectSentiment = detectSentiment;
-            o.enableModelImprovements = enableModelImprovements;
-            o.failureReason = failureReason;
-            o.id = id;
-            o.idleSessionTtlInSeconds = idleSessionTtlInSeconds;
-            o.lastUpdatedDate = lastUpdatedDate;
-            o.locale = locale;
-            o.name = name;
-            o.nluIntentConfidenceThreshold = nluIntentConfidenceThreshold;
-            o.status = status;
-            o.version = version;
-            o.voiceId = voiceId;
-            return o;
+            final var _resultValue = new GetBotResult();
+            _resultValue.arn = arn;
+            _resultValue.checksum = checksum;
+            _resultValue.childDirected = childDirected;
+            _resultValue.createdDate = createdDate;
+            _resultValue.description = description;
+            _resultValue.detectSentiment = detectSentiment;
+            _resultValue.enableModelImprovements = enableModelImprovements;
+            _resultValue.failureReason = failureReason;
+            _resultValue.id = id;
+            _resultValue.idleSessionTtlInSeconds = idleSessionTtlInSeconds;
+            _resultValue.lastUpdatedDate = lastUpdatedDate;
+            _resultValue.locale = locale;
+            _resultValue.name = name;
+            _resultValue.nluIntentConfidenceThreshold = nluIntentConfidenceThreshold;
+            _resultValue.status = status;
+            _resultValue.version = version;
+            _resultValue.voiceId = voiceId;
+            return _resultValue;
         }
     }
 }

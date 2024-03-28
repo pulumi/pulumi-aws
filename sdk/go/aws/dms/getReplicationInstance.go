@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dms.LookupReplicationInstance(ctx, &dms.LookupReplicationInstanceArgs{
-//				ReplicationInstanceId: aws_dms_replication_instance.Test.Replication_instance_id,
+//				ReplicationInstanceId: testAwsDmsReplicationInstance.ReplicationInstanceId,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupReplicationInstance(ctx *pulumi.Context, args *LookupReplicationInstanceArgs, opts ...pulumi.InvokeOption) (*LookupReplicationInstanceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReplicationInstanceResult

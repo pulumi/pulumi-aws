@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Xray
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,8 +25,8 @@ namespace Pulumi.Aws.Xray
     /// {
     ///     var example = new Aws.Xray.Group("example", new()
     ///     {
-    ///         FilterExpression = "responsetime &gt; 5",
     ///         GroupName = "example",
+    ///         FilterExpression = "responsetime &gt; 5",
     ///         InsightsConfiguration = new Aws.Xray.Inputs.GroupInsightsConfigurationArgs
     ///         {
     ///             InsightsEnabled = true,
@@ -35,13 +36,14 @@ namespace Pulumi.Aws.Xray
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import XRay Groups using the ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:xray/group:Group example arn:aws:xray:us-west-2:1234567890:group/example-group/TNGX7SW5U6QY36T4ZMOUA3HVLBYCZTWDIOOXY3CJAXTHSS3YCWUA
+    /// $ pulumi import aws:xray/group:Group example arn:aws:xray:us-west-2:1234567890:group/example-group/TNGX7SW5U6QY36T4ZMOUA3HVLBYCZTWDIOOXY3CJAXTHSS3YCWUA
     /// ```
     /// </summary>
     [AwsResourceType("aws:xray/group:Group")]
@@ -106,10 +108,6 @@ namespace Pulumi.Aws.Xray
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -217,11 +215,7 @@ namespace Pulumi.Aws.Xray
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public GroupState()

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,8 +23,9 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleApp = new Aws.Amplify.App("exampleApp", new()
+    ///     var example = new Aws.Amplify.App("example", new()
     ///     {
+    ///         Name = "app",
     ///         CustomRules = new[]
     ///         {
     ///             new Aws.Amplify.Inputs.AppCustomRuleArgs
@@ -37,13 +39,13 @@ namespace Pulumi.Aws.Amplify
     /// 
     ///     var master = new Aws.Amplify.Branch("master", new()
     ///     {
-    ///         AppId = exampleApp.Id,
+    ///         AppId = example.Id,
     ///         BranchName = "master",
     ///     });
     /// 
-    ///     var exampleDomainAssociation = new Aws.Amplify.DomainAssociation("exampleDomainAssociation", new()
+    ///     var exampleDomainAssociation = new Aws.Amplify.DomainAssociation("example", new()
     ///     {
-    ///         AppId = exampleApp.Id,
+    ///         AppId = example.Id,
     ///         DomainName = "example.com",
     ///         SubDomains = new[]
     ///         {
@@ -62,13 +64,14 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amplify domain association using `app_id` and `domain_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
+    /// $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
     /// ```
     /// </summary>
     [AwsResourceType("aws:amplify/domainAssociation:DomainAssociation")]

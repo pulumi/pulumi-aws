@@ -73,25 +73,28 @@ public final class IdentityPoolCognitoIdentityProvider {
 
         @CustomType.Setter
         public Builder clientId(@Nullable String clientId) {
+
             this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder providerName(@Nullable String providerName) {
+
             this.providerName = providerName;
             return this;
         }
         @CustomType.Setter
         public Builder serverSideTokenCheck(@Nullable Boolean serverSideTokenCheck) {
+
             this.serverSideTokenCheck = serverSideTokenCheck;
             return this;
         }
         public IdentityPoolCognitoIdentityProvider build() {
-            final var o = new IdentityPoolCognitoIdentityProvider();
-            o.clientId = clientId;
-            o.providerName = providerName;
-            o.serverSideTokenCheck = serverSideTokenCheck;
-            return o;
+            final var _resultValue = new IdentityPoolCognitoIdentityProvider();
+            _resultValue.clientId = clientId;
+            _resultValue.providerName = providerName;
+            _resultValue.serverSideTokenCheck = serverSideTokenCheck;
+            return _resultValue;
         }
     }
 }

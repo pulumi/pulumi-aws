@@ -102,26 +102,30 @@ class BucketOwnershipControls(pulumi.CustomResource):
         """
         Provides a resource to manage S3 Bucket Ownership Controls. For more information, see the [S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
 
+        > This resource cannot be used with S3 directory buckets.
+
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="example")
+        example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
+            bucket=example.id,
             rule=aws.s3.BucketOwnershipControlsRuleArgs(
                 object_ownership="BucketOwnerPreferred",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For example:
 
         ```sh
-         $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
+        $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
         ```
 
         :param str resource_name: The name of the resource.
@@ -138,26 +142,30 @@ class BucketOwnershipControls(pulumi.CustomResource):
         """
         Provides a resource to manage S3 Bucket Ownership Controls. For more information, see the [S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
 
+        > This resource cannot be used with S3 directory buckets.
+
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="example")
+        example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
+            bucket=example.id,
             rule=aws.s3.BucketOwnershipControlsRuleArgs(
                 object_ownership="BucketOwnerPreferred",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For example:
 
         ```sh
-         $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
+        $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
         ```
 
         :param str resource_name: The name of the resource.

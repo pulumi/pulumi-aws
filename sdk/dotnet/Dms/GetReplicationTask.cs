@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Dms
         /// <summary>
         /// Data source for managing an AWS DMS (Database Migration) Replication Task.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -29,13 +29,12 @@ namespace Pulumi.Aws.Dms
         /// {
         ///     var test = Aws.Dms.GetReplicationTask.Invoke(new()
         ///     {
-        ///         ReplicationTaskId = aws_dms_replication_task.Test.Replication_task_id,
+        ///         ReplicationTaskId = testAwsDmsReplicationTask.ReplicationTaskId,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetReplicationTaskResult> InvokeAsync(GetReplicationTaskArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationTaskResult>("aws:dms/getReplicationTask:getReplicationTask", args ?? new GetReplicationTaskArgs(), options.WithDefaults());
@@ -43,11 +42,11 @@ namespace Pulumi.Aws.Dms
         /// <summary>
         /// Data source for managing an AWS DMS (Database Migration) Replication Task.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,13 +57,12 @@ namespace Pulumi.Aws.Dms
         /// {
         ///     var test = Aws.Dms.GetReplicationTask.Invoke(new()
         ///     {
-        ///         ReplicationTaskId = aws_dms_replication_task.Test.Replication_task_id,
+        ///         ReplicationTaskId = testAwsDmsReplicationTask.ReplicationTaskId,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetReplicationTaskResult> Invoke(GetReplicationTaskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationTaskResult>("aws:dms/getReplicationTask:getReplicationTask", args ?? new GetReplicationTaskInvokeArgs(), options.WithDefaults());

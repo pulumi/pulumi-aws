@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,20 +33,21 @@ import * as utilities from "../utilities";
  * });
  * const clusterInstances: aws.docdb.ClusterInstance[] = [];
  * for (const range = {value: 0}; range.value < 2; range.value++) {
- *     clusterInstances.push(new aws.docdb.ClusterInstance(`clusterInstances-${range.value}`, {
+ *     clusterInstances.push(new aws.docdb.ClusterInstance(`cluster_instances-${range.value}`, {
  *         identifier: `docdb-cluster-demo-${range.value}`,
  *         clusterIdentifier: _default.id,
  *         instanceClass: "db.r5.large",
  *     }));
  * }
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import DocumentDB Cluster Instances using the `identifier`. For example:
  *
  * ```sh
- *  $ pulumi import aws:docdb/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
+ * $ pulumi import aws:docdb/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
  * ```
  */
 export class ClusterInstance extends pulumi.CustomResource {
@@ -94,7 +96,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
-     * (Optional) The identifier of the CA certificate for the DB instance.
+     * The identifier of the certificate authority (CA) certificate for the DB instance.
      */
     public readonly caCertIdentifier!: pulumi.Output<string>;
     /**
@@ -286,8 +288,6 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["writer"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ClusterInstance.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -314,7 +314,7 @@ export interface ClusterInstanceState {
      */
     availabilityZone?: pulumi.Input<string>;
     /**
-     * (Optional) The identifier of the CA certificate for the DB instance.
+     * The identifier of the certificate authority (CA) certificate for the DB instance.
      */
     caCertIdentifier?: pulumi.Input<string>;
     /**
@@ -448,7 +448,7 @@ export interface ClusterInstanceArgs {
      */
     availabilityZone?: pulumi.Input<string>;
     /**
-     * (Optional) The identifier of the CA certificate for the DB instance.
+     * The identifier of the certificate authority (CA) certificate for the DB instance.
      */
     caCertIdentifier?: pulumi.Input<string>;
     /**

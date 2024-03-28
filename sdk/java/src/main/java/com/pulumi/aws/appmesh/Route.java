@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,7 +20,10 @@ import javax.annotation.Nullable;
  * Provides an AWS App Mesh route resource.
  * 
  * ## Example Usage
+ * 
  * ### HTTP Routing
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,8 +50,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceb = new Route(&#34;serviceb&#34;, RouteArgs.builder()        
- *             .meshName(aws_appmesh_mesh.simple().id())
- *             .virtualRouterName(aws_appmesh_virtual_router.serviceb().name())
+ *             .name(&#34;serviceB-route&#34;)
+ *             .meshName(simple.id())
+ *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
  *             .spec(RouteSpecArgs.builder()
  *                 .httpRoute(RouteSpecHttpRouteArgs.builder()
  *                     .match(RouteSpecHttpRouteMatchArgs.builder()
@@ -58,11 +61,11 @@ import javax.annotation.Nullable;
  *                     .action(RouteSpecHttpRouteActionArgs.builder()
  *                         .weightedTargets(                        
  *                             RouteSpecHttpRouteActionWeightedTargetArgs.builder()
- *                                 .virtualNode(aws_appmesh_virtual_node.serviceb1().name())
+ *                                 .virtualNode(serviceb1.name())
  *                                 .weight(90)
  *                                 .build(),
  *                             RouteSpecHttpRouteActionWeightedTargetArgs.builder()
- *                                 .virtualNode(aws_appmesh_virtual_node.serviceb2().name())
+ *                                 .virtualNode(serviceb2.name())
  *                                 .weight(10)
  *                                 .build())
  *                         .build())
@@ -73,7 +76,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### HTTP Header Routing
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -100,8 +107,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceb = new Route(&#34;serviceb&#34;, RouteArgs.builder()        
- *             .meshName(aws_appmesh_mesh.simple().id())
- *             .virtualRouterName(aws_appmesh_virtual_router.serviceb().name())
+ *             .name(&#34;serviceB-route&#34;)
+ *             .meshName(simple.id())
+ *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
  *             .spec(RouteSpecArgs.builder()
  *                 .httpRoute(RouteSpecHttpRouteArgs.builder()
  *                     .match(RouteSpecHttpRouteMatchArgs.builder()
@@ -117,7 +125,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .action(RouteSpecHttpRouteActionArgs.builder()
  *                         .weightedTargets(RouteSpecHttpRouteActionWeightedTargetArgs.builder()
- *                             .virtualNode(aws_appmesh_virtual_node.serviceb().name())
+ *                             .virtualNode(servicebAwsAppmeshVirtualNode.name())
  *                             .weight(100)
  *                             .build())
  *                         .build())
@@ -128,7 +136,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Retry Policy
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -157,8 +169,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceb = new Route(&#34;serviceb&#34;, RouteArgs.builder()        
- *             .meshName(aws_appmesh_mesh.simple().id())
- *             .virtualRouterName(aws_appmesh_virtual_router.serviceb().name())
+ *             .name(&#34;serviceB-route&#34;)
+ *             .meshName(simple.id())
+ *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
  *             .spec(RouteSpecArgs.builder()
  *                 .httpRoute(RouteSpecHttpRouteArgs.builder()
  *                     .match(RouteSpecHttpRouteMatchArgs.builder()
@@ -174,7 +187,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .action(RouteSpecHttpRouteActionArgs.builder()
  *                         .weightedTargets(RouteSpecHttpRouteActionWeightedTargetArgs.builder()
- *                             .virtualNode(aws_appmesh_virtual_node.serviceb().name())
+ *                             .virtualNode(servicebAwsAppmeshVirtualNode.name())
  *                             .weight(100)
  *                             .build())
  *                         .build())
@@ -185,7 +198,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### TCP Routing
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -211,13 +228,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceb = new Route(&#34;serviceb&#34;, RouteArgs.builder()        
- *             .meshName(aws_appmesh_mesh.simple().id())
- *             .virtualRouterName(aws_appmesh_virtual_router.serviceb().name())
+ *             .name(&#34;serviceB-route&#34;)
+ *             .meshName(simple.id())
+ *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
  *             .spec(RouteSpecArgs.builder()
  *                 .tcpRoute(RouteSpecTcpRouteArgs.builder()
  *                     .action(RouteSpecTcpRouteActionArgs.builder()
  *                         .weightedTargets(RouteSpecTcpRouteActionWeightedTargetArgs.builder()
- *                             .virtualNode(aws_appmesh_virtual_node.serviceb1().name())
+ *                             .virtualNode(serviceb1.name())
  *                             .weight(100)
  *                             .build())
  *                         .build())
@@ -228,13 +246,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import App Mesh virtual routes using `mesh_name` and `virtual_router_name` together with the route&#39;s `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
+ * $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
  * ```
  * 
  */
@@ -431,9 +450,6 @@ public class Route extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

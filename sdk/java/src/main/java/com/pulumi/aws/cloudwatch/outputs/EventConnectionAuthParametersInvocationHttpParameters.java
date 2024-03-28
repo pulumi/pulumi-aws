@@ -74,6 +74,7 @@ public final class EventConnectionAuthParametersInvocationHttpParameters {
 
         @CustomType.Setter
         public Builder bodies(@Nullable List<EventConnectionAuthParametersInvocationHttpParametersBody> bodies) {
+
             this.bodies = bodies;
             return this;
         }
@@ -82,6 +83,7 @@ public final class EventConnectionAuthParametersInvocationHttpParameters {
         }
         @CustomType.Setter
         public Builder headers(@Nullable List<EventConnectionAuthParametersInvocationHttpParametersHeader> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -90,6 +92,7 @@ public final class EventConnectionAuthParametersInvocationHttpParameters {
         }
         @CustomType.Setter
         public Builder queryStrings(@Nullable List<EventConnectionAuthParametersInvocationHttpParametersQueryString> queryStrings) {
+
             this.queryStrings = queryStrings;
             return this;
         }
@@ -97,11 +100,11 @@ public final class EventConnectionAuthParametersInvocationHttpParameters {
             return queryStrings(List.of(queryStrings));
         }
         public EventConnectionAuthParametersInvocationHttpParameters build() {
-            final var o = new EventConnectionAuthParametersInvocationHttpParameters();
-            o.bodies = bodies;
-            o.headers = headers;
-            o.queryStrings = queryStrings;
-            return o;
+            final var _resultValue = new EventConnectionAuthParametersInvocationHttpParameters();
+            _resultValue.bodies = bodies;
+            _resultValue.headers = headers;
+            _resultValue.queryStrings = queryStrings;
+            return _resultValue;
         }
     }
 }

@@ -119,43 +119,49 @@ public final class ResponseHeadersPolicySecurityHeadersConfig {
 
         @CustomType.Setter
         public Builder contentSecurityPolicy(@Nullable ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy contentSecurityPolicy) {
+
             this.contentSecurityPolicy = contentSecurityPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder contentTypeOptions(@Nullable ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions contentTypeOptions) {
+
             this.contentTypeOptions = contentTypeOptions;
             return this;
         }
         @CustomType.Setter
         public Builder frameOptions(@Nullable ResponseHeadersPolicySecurityHeadersConfigFrameOptions frameOptions) {
+
             this.frameOptions = frameOptions;
             return this;
         }
         @CustomType.Setter
         public Builder referrerPolicy(@Nullable ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy referrerPolicy) {
+
             this.referrerPolicy = referrerPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder strictTransportSecurity(@Nullable ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity strictTransportSecurity) {
+
             this.strictTransportSecurity = strictTransportSecurity;
             return this;
         }
         @CustomType.Setter
         public Builder xssProtection(@Nullable ResponseHeadersPolicySecurityHeadersConfigXssProtection xssProtection) {
+
             this.xssProtection = xssProtection;
             return this;
         }
         public ResponseHeadersPolicySecurityHeadersConfig build() {
-            final var o = new ResponseHeadersPolicySecurityHeadersConfig();
-            o.contentSecurityPolicy = contentSecurityPolicy;
-            o.contentTypeOptions = contentTypeOptions;
-            o.frameOptions = frameOptions;
-            o.referrerPolicy = referrerPolicy;
-            o.strictTransportSecurity = strictTransportSecurity;
-            o.xssProtection = xssProtection;
-            return o;
+            final var _resultValue = new ResponseHeadersPolicySecurityHeadersConfig();
+            _resultValue.contentSecurityPolicy = contentSecurityPolicy;
+            _resultValue.contentTypeOptions = contentTypeOptions;
+            _resultValue.frameOptions = frameOptions;
+            _resultValue.referrerPolicy = referrerPolicy;
+            _resultValue.strictTransportSecurity = strictTransportSecurity;
+            _resultValue.xssProtection = xssProtection;
+            return _resultValue;
         }
     }
 }

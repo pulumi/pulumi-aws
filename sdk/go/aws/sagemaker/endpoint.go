@@ -18,6 +18,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,8 +31,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewEndpoint(ctx, "endpoint", &sagemaker.EndpointArgs{
-//				EndpointConfigName: pulumi.Any(aws_sagemaker_endpoint_configuration.Ec.Name),
+//			_, err := sagemaker.NewEndpoint(ctx, "e", &sagemaker.EndpointArgs{
+//				Name:               pulumi.String("my-endpoint"),
+//				EndpointConfigName: pulumi.Any(ec.Name),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("foo"),
 //				},
@@ -44,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import endpoints using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
-//
+// $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
 // ```
 type Endpoint struct {
 	pulumi.CustomResourceState
@@ -83,10 +84,6 @@ func NewEndpoint(ctx *pulumi.Context,
 	if args.EndpointConfigName == nil {
 		return nil, errors.New("invalid value for required argument 'EndpointConfigName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Endpoint
 	err := ctx.RegisterResource("aws:sagemaker/endpoint:Endpoint", name, args, &resource, opts...)

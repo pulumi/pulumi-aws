@@ -15,8 +15,10 @@ import (
 // Provides a Synthetics Group Association resource.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,8 +32,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := synthetics.NewGroupAssociation(ctx, "example", &synthetics.GroupAssociationArgs{
-//				GroupName: pulumi.Any(aws_synthetics_group.Example.Name),
-//				CanaryArn: pulumi.Any(aws_synthetics_canary.Example.Arn),
+//				GroupName: pulumi.Any(exampleAwsSyntheticsGroup.Name),
+//				CanaryArn: pulumi.Any(exampleAwsSyntheticsCanary.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -41,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudWatch Synthetics Group Association using the `canary_arn,group_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:synthetics/groupAssociation:GroupAssociation example arn:aws:synthetics:us-west-2:123456789012:canary:tf-acc-test-abcd1234,examplename
-//
+// $ pulumi import aws:synthetics/groupAssociation:GroupAssociation example arn:aws:synthetics:us-west-2:123456789012:canary:tf-acc-test-abcd1234,examplename
 // ```
 type GroupAssociation struct {
 	pulumi.CustomResourceState

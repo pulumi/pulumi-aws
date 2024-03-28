@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -16,19 +17,20 @@ import * as utilities from "../utilities";
  * const main = new aws.ec2.CustomerGateway("main", {
  *     bgpAsn: "65000",
  *     ipAddress: "172.83.124.10",
+ *     type: "ipsec.1",
  *     tags: {
  *         Name: "main-customer-gateway",
  *     },
- *     type: "ipsec.1",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Customer Gateways using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
+ * $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
  * ```
  */
 export class CustomerGateway extends pulumi.CustomResource {
@@ -134,8 +136,6 @@ export class CustomerGateway extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(CustomerGateway.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -270,18 +270,20 @@ class EventEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         this = aws.cloudwatch.EventEndpoint("this",
-            role_arn=aws_iam_role["replication"]["arn"],
+            name="global-endpoint",
+            role_arn=replication["arn"],
             event_buses=[
                 aws.cloudwatch.EventEndpointEventBusArgs(
-                    event_bus_arn=aws_cloudwatch_event_bus["primary"]["arn"],
+                    event_bus_arn=primary["arn"],
                 ),
                 aws.cloudwatch.EventEndpointEventBusArgs(
-                    event_bus_arn=aws_cloudwatch_event_bus["secondary"]["arn"],
+                    event_bus_arn=secondary["arn"],
                 ),
             ],
             replication_config=aws.cloudwatch.EventEndpointReplicationConfigArgs(
@@ -290,7 +292,7 @@ class EventEndpoint(pulumi.CustomResource):
             routing_config=aws.cloudwatch.EventEndpointRoutingConfigArgs(
                 failover_config=aws.cloudwatch.EventEndpointRoutingConfigFailoverConfigArgs(
                     primary=aws.cloudwatch.EventEndpointRoutingConfigFailoverConfigPrimaryArgs(
-                        health_check=aws_route53_health_check["primary"]["arn"],
+                        health_check=primary_aws_route53_health_check["arn"],
                     ),
                     secondary=aws.cloudwatch.EventEndpointRoutingConfigFailoverConfigSecondaryArgs(
                         route="us-east-2",
@@ -298,13 +300,14 @@ class EventEndpoint(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge Global Endpoints using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint
+        $ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint
         ```
 
         :param str resource_name: The name of the resource.
@@ -329,18 +332,20 @@ class EventEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         this = aws.cloudwatch.EventEndpoint("this",
-            role_arn=aws_iam_role["replication"]["arn"],
+            name="global-endpoint",
+            role_arn=replication["arn"],
             event_buses=[
                 aws.cloudwatch.EventEndpointEventBusArgs(
-                    event_bus_arn=aws_cloudwatch_event_bus["primary"]["arn"],
+                    event_bus_arn=primary["arn"],
                 ),
                 aws.cloudwatch.EventEndpointEventBusArgs(
-                    event_bus_arn=aws_cloudwatch_event_bus["secondary"]["arn"],
+                    event_bus_arn=secondary["arn"],
                 ),
             ],
             replication_config=aws.cloudwatch.EventEndpointReplicationConfigArgs(
@@ -349,7 +354,7 @@ class EventEndpoint(pulumi.CustomResource):
             routing_config=aws.cloudwatch.EventEndpointRoutingConfigArgs(
                 failover_config=aws.cloudwatch.EventEndpointRoutingConfigFailoverConfigArgs(
                     primary=aws.cloudwatch.EventEndpointRoutingConfigFailoverConfigPrimaryArgs(
-                        health_check=aws_route53_health_check["primary"]["arn"],
+                        health_check=primary_aws_route53_health_check["arn"],
                     ),
                     secondary=aws.cloudwatch.EventEndpointRoutingConfigFailoverConfigSecondaryArgs(
                         route="us-east-2",
@@ -357,13 +362,14 @@ class EventEndpoint(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge Global Endpoints using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint
+        $ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint
         ```
 
         :param str resource_name: The name of the resource.

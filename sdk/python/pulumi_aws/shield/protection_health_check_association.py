@@ -104,23 +104,27 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
         Blog post: [AWS Shield Advanced now supports Health Based Detection](https://aws.amazon.com/about-aws/whats-new/2020/02/aws-shield-advanced-now-supports-health-based-detection/)
 
         ## Example Usage
+
         ### Create an association between a protected EIP and a Route53 Health Check
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        current_partition = aws.get_partition()
-        example_eip = aws.ec2.Eip("exampleEip",
+        current = aws.get_region()
+        current_get_caller_identity = aws.get_caller_identity()
+        current_get_partition = aws.get_partition()
+        example = aws.ec2.Eip("example",
             domain="vpc",
             tags={
                 "Name": "example",
             })
-        example_protection = aws.shield.Protection("exampleProtection", resource_arn=example_eip.id.apply(lambda id: f"arn:{current_partition.partition}:ec2:{current_region.name}:{current_caller_identity.account_id}:eip-allocation/{id}"))
-        example_health_check = aws.route53.HealthCheck("exampleHealthCheck",
-            ip_address=example_eip.public_ip,
+        example_protection = aws.shield.Protection("example",
+            name="example-protection",
+            resource_arn=example.id.apply(lambda id: f"arn:{current_get_partition.partition}:ec2:{current.name}:{current_get_caller_identity.account_id}:eip-allocation/{id}"))
+        example_health_check = aws.route53.HealthCheck("example",
+            ip_address=example.public_ip,
             port=80,
             type="HTTP",
             resource_path="/ready",
@@ -129,17 +133,18 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
             tags={
                 "Name": "tf-example-health-check",
             })
-        example_protection_health_check_association = aws.shield.ProtectionHealthCheckAssociation("exampleProtectionHealthCheckAssociation",
+        example_protection_health_check_association = aws.shield.ProtectionHealthCheckAssociation("example",
             health_check_arn=example_health_check.arn,
             shield_protection_id=example_protection.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Shield protection health check association resources using the `shield_protection_id` and `health_check_arn`. For example:
 
         ```sh
-         $ pulumi import aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b
+        $ pulumi import aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b
         ```
 
         :param str resource_name: The name of the resource.
@@ -160,23 +165,27 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
         Blog post: [AWS Shield Advanced now supports Health Based Detection](https://aws.amazon.com/about-aws/whats-new/2020/02/aws-shield-advanced-now-supports-health-based-detection/)
 
         ## Example Usage
+
         ### Create an association between a protected EIP and a Route53 Health Check
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        current_partition = aws.get_partition()
-        example_eip = aws.ec2.Eip("exampleEip",
+        current = aws.get_region()
+        current_get_caller_identity = aws.get_caller_identity()
+        current_get_partition = aws.get_partition()
+        example = aws.ec2.Eip("example",
             domain="vpc",
             tags={
                 "Name": "example",
             })
-        example_protection = aws.shield.Protection("exampleProtection", resource_arn=example_eip.id.apply(lambda id: f"arn:{current_partition.partition}:ec2:{current_region.name}:{current_caller_identity.account_id}:eip-allocation/{id}"))
-        example_health_check = aws.route53.HealthCheck("exampleHealthCheck",
-            ip_address=example_eip.public_ip,
+        example_protection = aws.shield.Protection("example",
+            name="example-protection",
+            resource_arn=example.id.apply(lambda id: f"arn:{current_get_partition.partition}:ec2:{current.name}:{current_get_caller_identity.account_id}:eip-allocation/{id}"))
+        example_health_check = aws.route53.HealthCheck("example",
+            ip_address=example.public_ip,
             port=80,
             type="HTTP",
             resource_path="/ready",
@@ -185,17 +194,18 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
             tags={
                 "Name": "tf-example-health-check",
             })
-        example_protection_health_check_association = aws.shield.ProtectionHealthCheckAssociation("exampleProtectionHealthCheckAssociation",
+        example_protection_health_check_association = aws.shield.ProtectionHealthCheckAssociation("example",
             health_check_arn=example_health_check.arn,
             shield_protection_id=example_protection.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Shield protection health check association resources using the `shield_protection_id` and `health_check_arn`. For example:
 
         ```sh
-         $ pulumi import aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b
+        $ pulumi import aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b
         ```
 
         :param str resource_name: The name of the resource.

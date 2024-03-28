@@ -791,25 +791,30 @@ class HealthCheck(pulumi.CustomResource):
         Provides a Route53 health check.
 
         ## Example Usage
+
         ### Connectivity and HTTP Status Code Check
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.route53.HealthCheck("example",
-            failure_threshold=5,
             fqdn="example.com",
             port=80,
-            request_interval=30,
+            type="HTTP",
             resource_path="/",
+            failure_threshold=5,
+            request_interval=30,
             tags={
                 "Name": "tf-test-health-check",
-            },
-            type="HTTP")
+            })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Connectivity and String Matching Check
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -823,8 +828,11 @@ class HealthCheck(pulumi.CustomResource):
             search_string="example",
             type="HTTPS_STR_MATCH")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Aggregate Check
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -832,18 +840,22 @@ class HealthCheck(pulumi.CustomResource):
         parent = aws.route53.HealthCheck("parent",
             type="CALCULATED",
             child_health_threshold=1,
-            child_healthchecks=[aws_route53_health_check["child"]["id"]],
+            child_healthchecks=[child["id"]],
             tags={
                 "Name": "tf-test-calculated-health-check",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### CloudWatch Alarm Check
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         foobar = aws.cloudwatch.MetricAlarm("foobar",
+            name="test-foobar5",
             comparison_operator="GreaterThanOrEqualToThreshold",
             evaluation_periods=2,
             metric_name="CPUUtilization",
@@ -858,13 +870,14 @@ class HealthCheck(pulumi.CustomResource):
             cloudwatch_alarm_region="us-west-2",
             insufficient_data_health_status="Healthy")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 Health Checks using the health check `id`. For example:
 
         ```sh
-         $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
+        $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
         ```
 
         :param str resource_name: The name of the resource.
@@ -907,25 +920,30 @@ class HealthCheck(pulumi.CustomResource):
         Provides a Route53 health check.
 
         ## Example Usage
+
         ### Connectivity and HTTP Status Code Check
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.route53.HealthCheck("example",
-            failure_threshold=5,
             fqdn="example.com",
             port=80,
-            request_interval=30,
+            type="HTTP",
             resource_path="/",
+            failure_threshold=5,
+            request_interval=30,
             tags={
                 "Name": "tf-test-health-check",
-            },
-            type="HTTP")
+            })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Connectivity and String Matching Check
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -939,8 +957,11 @@ class HealthCheck(pulumi.CustomResource):
             search_string="example",
             type="HTTPS_STR_MATCH")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Aggregate Check
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -948,18 +969,22 @@ class HealthCheck(pulumi.CustomResource):
         parent = aws.route53.HealthCheck("parent",
             type="CALCULATED",
             child_health_threshold=1,
-            child_healthchecks=[aws_route53_health_check["child"]["id"]],
+            child_healthchecks=[child["id"]],
             tags={
                 "Name": "tf-test-calculated-health-check",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### CloudWatch Alarm Check
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         foobar = aws.cloudwatch.MetricAlarm("foobar",
+            name="test-foobar5",
             comparison_operator="GreaterThanOrEqualToThreshold",
             evaluation_periods=2,
             metric_name="CPUUtilization",
@@ -974,13 +999,14 @@ class HealthCheck(pulumi.CustomResource):
             cloudwatch_alarm_region="us-west-2",
             insufficient_data_health_status="Healthy")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 Health Checks using the health check `id`. For example:
 
         ```sh
-         $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
+        $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
         ```
 
         :param str resource_name: The name of the resource.
@@ -1053,8 +1079,6 @@ class HealthCheck(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(HealthCheck, __self__).__init__(
             'aws:route53/healthCheck:HealthCheck',
             resource_name,

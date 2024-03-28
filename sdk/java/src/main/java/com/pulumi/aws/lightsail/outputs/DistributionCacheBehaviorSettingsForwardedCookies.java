@@ -59,6 +59,7 @@ public final class DistributionCacheBehaviorSettingsForwardedCookies {
 
         @CustomType.Setter
         public Builder cookiesAllowLists(@Nullable List<String> cookiesAllowLists) {
+
             this.cookiesAllowLists = cookiesAllowLists;
             return this;
         }
@@ -67,14 +68,15 @@ public final class DistributionCacheBehaviorSettingsForwardedCookies {
         }
         @CustomType.Setter
         public Builder option(@Nullable String option) {
+
             this.option = option;
             return this;
         }
         public DistributionCacheBehaviorSettingsForwardedCookies build() {
-            final var o = new DistributionCacheBehaviorSettingsForwardedCookies();
-            o.cookiesAllowLists = cookiesAllowLists;
-            o.option = option;
-            return o;
+            final var _resultValue = new DistributionCacheBehaviorSettingsForwardedCookies();
+            _resultValue.cookiesAllowLists = cookiesAllowLists;
+            _resultValue.option = option;
+            return _resultValue;
         }
     }
 }

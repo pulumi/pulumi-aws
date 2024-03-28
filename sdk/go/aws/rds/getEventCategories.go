@@ -15,6 +15,7 @@ import (
 //
 // List the event categories of all the RDS resources.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,19 +28,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleEventCategories, err := rds.GetEventCategories(ctx, nil, nil)
+//			example, err := rds.GetEventCategories(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("example", exampleEventCategories.EventCategories)
+//			ctx.Export("example", example.EventCategories)
 //			return nil
 //		})
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // List the event categories specific to the RDS resource `db-snapshot`.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,18 +55,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleEventCategories, err := rds.GetEventCategories(ctx, &rds.GetEventCategoriesArgs{
+//			example, err := rds.GetEventCategories(ctx, &rds.GetEventCategoriesArgs{
 //				SourceType: pulumi.StringRef("db-snapshot"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("example", exampleEventCategories.EventCategories)
+//			ctx.Export("example", example.EventCategories)
 //			return nil
 //		})
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetEventCategories(ctx *pulumi.Context, args *GetEventCategoriesArgs, opts ...pulumi.InvokeOption) (*GetEventCategoriesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEventCategoriesResult

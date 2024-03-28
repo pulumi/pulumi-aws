@@ -4,6 +4,7 @@
 package com.pulumi.aws.scheduler.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class ScheduleTargetKinesisParameters {
 
         @CustomType.Setter
         public Builder partitionKey(String partitionKey) {
-            this.partitionKey = Objects.requireNonNull(partitionKey);
+            if (partitionKey == null) {
+              throw new MissingRequiredPropertyException("ScheduleTargetKinesisParameters", "partitionKey");
+            }
+            this.partitionKey = partitionKey;
             return this;
         }
         public ScheduleTargetKinesisParameters build() {
-            final var o = new ScheduleTargetKinesisParameters();
-            o.partitionKey = partitionKey;
-            return o;
+            final var _resultValue = new ScheduleTargetKinesisParameters();
+            _resultValue.partitionKey = partitionKey;
+            return _resultValue;
         }
     }
 }

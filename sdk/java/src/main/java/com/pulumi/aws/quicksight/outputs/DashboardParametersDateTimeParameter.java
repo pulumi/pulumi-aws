@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -49,22 +50,28 @@ public final class DashboardParametersDateTimeParameter {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("DashboardParametersDateTimeParameter", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder values(List<String> values) {
-            this.values = Objects.requireNonNull(values);
+            if (values == null) {
+              throw new MissingRequiredPropertyException("DashboardParametersDateTimeParameter", "values");
+            }
+            this.values = values;
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
         }
         public DashboardParametersDateTimeParameter build() {
-            final var o = new DashboardParametersDateTimeParameter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new DashboardParametersDateTimeParameter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -272,12 +272,57 @@ class Replicator(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.msk.Replicator("test",
+            replicator_name="test-name",
+            description="test-description",
+            service_execution_role_arn=source_aws_iam_role["arn"],
+            kafka_clusters=[
+                aws.msk.ReplicatorKafkaClusterArgs(
+                    amazon_msk_cluster=aws.msk.ReplicatorKafkaClusterAmazonMskClusterArgs(
+                        msk_cluster_arn=source["arn"],
+                    ),
+                    vpc_config=aws.msk.ReplicatorKafkaClusterVpcConfigArgs(
+                        subnet_ids=[__item["id"] for __item in source_aws_subnet],
+                        security_groups_ids=[source_aws_security_group["id"]],
+                    ),
+                ),
+                aws.msk.ReplicatorKafkaClusterArgs(
+                    amazon_msk_cluster=aws.msk.ReplicatorKafkaClusterAmazonMskClusterArgs(
+                        msk_cluster_arn=target["arn"],
+                    ),
+                    vpc_config=aws.msk.ReplicatorKafkaClusterVpcConfigArgs(
+                        subnet_ids=[__item["id"] for __item in target_aws_subnet],
+                        security_groups_ids=[target_aws_security_group["id"]],
+                    ),
+                ),
+            ],
+            replication_info_list=aws.msk.ReplicatorReplicationInfoListArgs(
+                source_kafka_cluster_arn=source["arn"],
+                target_kafka_cluster_arn=target["arn"],
+                target_compression_type="NONE",
+                topic_replications=[aws.msk.ReplicatorReplicationInfoListTopicReplicationArgs(
+                    topics_to_replicates=[".*"],
+                )],
+                consumer_group_replications=[aws.msk.ReplicatorReplicationInfoListConsumerGroupReplicationArgs(
+                    consumer_groups_to_replicates=[".*"],
+                )],
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Using `pulumi import`, import MSK replicators using the replicator ARN. For example:
 
         ```sh
-         $ pulumi import aws:msk/replicator:Replicator example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+        $ pulumi import aws:msk/replicator:Replicator example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
         ```
 
         :param str resource_name: The name of the resource.
@@ -299,12 +344,57 @@ class Replicator(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.msk.Replicator("test",
+            replicator_name="test-name",
+            description="test-description",
+            service_execution_role_arn=source_aws_iam_role["arn"],
+            kafka_clusters=[
+                aws.msk.ReplicatorKafkaClusterArgs(
+                    amazon_msk_cluster=aws.msk.ReplicatorKafkaClusterAmazonMskClusterArgs(
+                        msk_cluster_arn=source["arn"],
+                    ),
+                    vpc_config=aws.msk.ReplicatorKafkaClusterVpcConfigArgs(
+                        subnet_ids=[__item["id"] for __item in source_aws_subnet],
+                        security_groups_ids=[source_aws_security_group["id"]],
+                    ),
+                ),
+                aws.msk.ReplicatorKafkaClusterArgs(
+                    amazon_msk_cluster=aws.msk.ReplicatorKafkaClusterAmazonMskClusterArgs(
+                        msk_cluster_arn=target["arn"],
+                    ),
+                    vpc_config=aws.msk.ReplicatorKafkaClusterVpcConfigArgs(
+                        subnet_ids=[__item["id"] for __item in target_aws_subnet],
+                        security_groups_ids=[target_aws_security_group["id"]],
+                    ),
+                ),
+            ],
+            replication_info_list=aws.msk.ReplicatorReplicationInfoListArgs(
+                source_kafka_cluster_arn=source["arn"],
+                target_kafka_cluster_arn=target["arn"],
+                target_compression_type="NONE",
+                topic_replications=[aws.msk.ReplicatorReplicationInfoListTopicReplicationArgs(
+                    topics_to_replicates=[".*"],
+                )],
+                consumer_group_replications=[aws.msk.ReplicatorReplicationInfoListConsumerGroupReplicationArgs(
+                    consumer_groups_to_replicates=[".*"],
+                )],
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Using `pulumi import`, import MSK replicators using the replicator ARN. For example:
 
         ```sh
-         $ pulumi import aws:msk/replicator:Replicator example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+        $ pulumi import aws:msk/replicator:Replicator example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
         ```
 
         :param str resource_name: The name of the resource.
@@ -354,8 +444,6 @@ class Replicator(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["current_version"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Replicator, __self__).__init__(
             'aws:msk/replicator:Replicator',
             resource_name,

@@ -5,6 +5,7 @@ package com.pulumi.aws.ecs.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class TaskDefinitionEphemeralStorageArgs extends com.pulumi.resourc
         }
 
         public TaskDefinitionEphemeralStorageArgs build() {
-            $.sizeInGib = Objects.requireNonNull($.sizeInGib, "expected parameter 'sizeInGib' to be non-null");
+            if ($.sizeInGib == null) {
+                throw new MissingRequiredPropertyException("TaskDefinitionEphemeralStorageArgs", "sizeInGib");
+            }
             return $;
         }
     }

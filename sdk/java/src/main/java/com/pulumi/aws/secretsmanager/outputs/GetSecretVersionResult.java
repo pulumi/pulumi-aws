@@ -4,6 +4,7 @@
 package com.pulumi.aws.secretsmanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -17,6 +18,11 @@ public final class GetSecretVersionResult {
      * 
      */
     private String arn;
+    /**
+     * @return Created date of the secret in UTC.
+     * 
+     */
+    private String createdDate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -48,6 +54,13 @@ public final class GetSecretVersionResult {
      */
     public String arn() {
         return this.arn;
+    }
+    /**
+     * @return Created date of the secret in UTC.
+     * 
+     */
+    public String createdDate() {
+        return this.createdDate;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -97,6 +110,7 @@ public final class GetSecretVersionResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
+        private String createdDate;
         private String id;
         private String secretBinary;
         private String secretId;
@@ -108,6 +122,7 @@ public final class GetSecretVersionResult {
         public Builder(GetSecretVersionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
+    	      this.createdDate = defaults.createdDate;
     	      this.id = defaults.id;
     	      this.secretBinary = defaults.secretBinary;
     	      this.secretId = defaults.secretId;
@@ -119,58 +134,89 @@ public final class GetSecretVersionResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetSecretVersionResult", "arn");
+            }
+            this.arn = arn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder createdDate(String createdDate) {
+            if (createdDate == null) {
+              throw new MissingRequiredPropertyException("GetSecretVersionResult", "createdDate");
+            }
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSecretVersionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder secretBinary(String secretBinary) {
-            this.secretBinary = Objects.requireNonNull(secretBinary);
+            if (secretBinary == null) {
+              throw new MissingRequiredPropertyException("GetSecretVersionResult", "secretBinary");
+            }
+            this.secretBinary = secretBinary;
             return this;
         }
         @CustomType.Setter
         public Builder secretId(String secretId) {
-            this.secretId = Objects.requireNonNull(secretId);
+            if (secretId == null) {
+              throw new MissingRequiredPropertyException("GetSecretVersionResult", "secretId");
+            }
+            this.secretId = secretId;
             return this;
         }
         @CustomType.Setter
         public Builder secretString(String secretString) {
-            this.secretString = Objects.requireNonNull(secretString);
+            if (secretString == null) {
+              throw new MissingRequiredPropertyException("GetSecretVersionResult", "secretString");
+            }
+            this.secretString = secretString;
             return this;
         }
         @CustomType.Setter
         public Builder versionId(String versionId) {
-            this.versionId = Objects.requireNonNull(versionId);
+            if (versionId == null) {
+              throw new MissingRequiredPropertyException("GetSecretVersionResult", "versionId");
+            }
+            this.versionId = versionId;
             return this;
         }
         @CustomType.Setter
         public Builder versionStage(@Nullable String versionStage) {
+
             this.versionStage = versionStage;
             return this;
         }
         @CustomType.Setter
         public Builder versionStages(List<String> versionStages) {
-            this.versionStages = Objects.requireNonNull(versionStages);
+            if (versionStages == null) {
+              throw new MissingRequiredPropertyException("GetSecretVersionResult", "versionStages");
+            }
+            this.versionStages = versionStages;
             return this;
         }
         public Builder versionStages(String... versionStages) {
             return versionStages(List.of(versionStages));
         }
         public GetSecretVersionResult build() {
-            final var o = new GetSecretVersionResult();
-            o.arn = arn;
-            o.id = id;
-            o.secretBinary = secretBinary;
-            o.secretId = secretId;
-            o.secretString = secretString;
-            o.versionId = versionId;
-            o.versionStage = versionStage;
-            o.versionStages = versionStages;
-            return o;
+            final var _resultValue = new GetSecretVersionResult();
+            _resultValue.arn = arn;
+            _resultValue.createdDate = createdDate;
+            _resultValue.id = id;
+            _resultValue.secretBinary = secretBinary;
+            _resultValue.secretId = secretId;
+            _resultValue.secretString = secretString;
+            _resultValue.versionId = versionId;
+            _resultValue.versionStage = versionStage;
+            _resultValue.versionStages = versionStages;
+            return _resultValue;
         }
     }
 }

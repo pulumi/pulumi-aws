@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupFunctionUrl(ctx *pulumi.Context, args *LookupFunctionUrlArgs, opts ...pulumi.InvokeOption) (*LookupFunctionUrlResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFunctionUrlResult
@@ -70,7 +72,7 @@ type LookupFunctionUrlResult struct {
 	// ARN of the function.
 	FunctionArn  string `pulumi:"functionArn"`
 	FunctionName string `pulumi:"functionName"`
-	// HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
+	// HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
 	FunctionUrl string `pulumi:"functionUrl"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -147,7 +149,7 @@ func (o LookupFunctionUrlResultOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.FunctionName }).(pulumi.StringOutput)
 }
 
-// HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
+// HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
 func (o LookupFunctionUrlResultOutput) FunctionUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.FunctionUrl }).(pulumi.StringOutput)
 }

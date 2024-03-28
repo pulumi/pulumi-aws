@@ -309,31 +309,34 @@ class IntegrationResponse(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        my_demo_resource = aws.apigateway.Resource("myDemoResource",
+        my_demo_api = aws.apigateway.RestApi("MyDemoAPI",
+            name="MyDemoAPI",
+            description="This is my API for demonstration purposes")
+        my_demo_resource = aws.apigateway.Resource("MyDemoResource",
             rest_api=my_demo_api.id,
             parent_id=my_demo_api.root_resource_id,
             path_part="mydemoresource")
-        my_demo_method = aws.apigateway.Method("myDemoMethod",
+        my_demo_method = aws.apigateway.Method("MyDemoMethod",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method="GET",
             authorization="NONE")
-        my_demo_integration = aws.apigateway.Integration("myDemoIntegration",
+        my_demo_integration = aws.apigateway.Integration("MyDemoIntegration",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method=my_demo_method.http_method,
             type="MOCK")
-        response200 = aws.apigateway.MethodResponse("response200",
+        response200 = aws.apigateway.MethodResponse("response_200",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method=my_demo_method.http_method,
             status_code="200")
-        my_demo_integration_response = aws.apigateway.IntegrationResponse("myDemoIntegrationResponse",
+        my_demo_integration_response = aws.apigateway.IntegrationResponse("MyDemoIntegrationResponse",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method=my_demo_method.http_method,
@@ -347,13 +350,14 @@ class IntegrationResponse(pulumi.CustomResource):
         \"\"\",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_integration_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/integrationResponse:IntegrationResponse example 12345abcde/67890fghij/GET/200
+        $ pulumi import aws:apigateway/integrationResponse:IntegrationResponse example 12345abcde/67890fghij/GET/200
         ```
 
         :param str resource_name: The name of the resource.
@@ -383,31 +387,34 @@ class IntegrationResponse(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        my_demo_resource = aws.apigateway.Resource("myDemoResource",
+        my_demo_api = aws.apigateway.RestApi("MyDemoAPI",
+            name="MyDemoAPI",
+            description="This is my API for demonstration purposes")
+        my_demo_resource = aws.apigateway.Resource("MyDemoResource",
             rest_api=my_demo_api.id,
             parent_id=my_demo_api.root_resource_id,
             path_part="mydemoresource")
-        my_demo_method = aws.apigateway.Method("myDemoMethod",
+        my_demo_method = aws.apigateway.Method("MyDemoMethod",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method="GET",
             authorization="NONE")
-        my_demo_integration = aws.apigateway.Integration("myDemoIntegration",
+        my_demo_integration = aws.apigateway.Integration("MyDemoIntegration",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method=my_demo_method.http_method,
             type="MOCK")
-        response200 = aws.apigateway.MethodResponse("response200",
+        response200 = aws.apigateway.MethodResponse("response_200",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method=my_demo_method.http_method,
             status_code="200")
-        my_demo_integration_response = aws.apigateway.IntegrationResponse("myDemoIntegrationResponse",
+        my_demo_integration_response = aws.apigateway.IntegrationResponse("MyDemoIntegrationResponse",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method=my_demo_method.http_method,
@@ -421,13 +428,14 @@ class IntegrationResponse(pulumi.CustomResource):
         \"\"\",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_integration_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/integrationResponse:IntegrationResponse example 12345abcde/67890fghij/GET/200
+        $ pulumi import aws:apigateway/integrationResponse:IntegrationResponse example 12345abcde/67890fghij/GET/200
         ```
 
         :param str resource_name: The name of the resource.

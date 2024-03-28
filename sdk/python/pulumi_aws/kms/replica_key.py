@@ -386,28 +386,28 @@ class ReplicaKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.Provider("primary", region="us-east-1")
-        primary_key = aws.kms.Key("primaryKey",
+        primary = aws.kms.Key("primary",
             description="Multi-Region primary key",
             deletion_window_in_days=30,
-            multi_region=True,
-            opts=pulumi.ResourceOptions(provider=aws["primary"]))
+            multi_region=True)
         replica = aws.kms.ReplicaKey("replica",
             description="Multi-Region replica key",
             deletion_window_in_days=7,
-            primary_key_arn=primary_key.arn)
+            primary_key_arn=primary.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import KMS multi-Region replica keys using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:kms/replicaKey:ReplicaKey example 1234abcd-12ab-34cd-56ef-1234567890ab
+        $ pulumi import aws:kms/replicaKey:ReplicaKey example 1234abcd-12ab-34cd-56ef-1234567890ab
         ```
 
         :param str resource_name: The name of the resource.
@@ -435,28 +435,28 @@ class ReplicaKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.Provider("primary", region="us-east-1")
-        primary_key = aws.kms.Key("primaryKey",
+        primary = aws.kms.Key("primary",
             description="Multi-Region primary key",
             deletion_window_in_days=30,
-            multi_region=True,
-            opts=pulumi.ResourceOptions(provider=aws["primary"]))
+            multi_region=True)
         replica = aws.kms.ReplicaKey("replica",
             description="Multi-Region replica key",
             deletion_window_in_days=7,
-            primary_key_arn=primary_key.arn)
+            primary_key_arn=primary.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import KMS multi-Region replica keys using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:kms/replicaKey:ReplicaKey example 1234abcd-12ab-34cd-56ef-1234567890ab
+        $ pulumi import aws:kms/replicaKey:ReplicaKey example 1234abcd-12ab-34cd-56ef-1234567890ab
         ```
 
         :param str resource_name: The name of the resource.
@@ -505,8 +505,6 @@ class ReplicaKey(pulumi.CustomResource):
             __props__.__dict__["key_spec"] = None
             __props__.__dict__["key_usage"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ReplicaKey, __self__).__init__(
             'aws:kms/replicaKey:ReplicaKey',
             resource_name,

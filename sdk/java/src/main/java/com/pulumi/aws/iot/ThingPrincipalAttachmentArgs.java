@@ -5,6 +5,7 @@ package com.pulumi.aws.iot;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ThingPrincipalAttachmentArgs extends com.pulumi.resources.Res
         }
 
         public ThingPrincipalAttachmentArgs build() {
-            $.principal = Objects.requireNonNull($.principal, "expected parameter 'principal' to be non-null");
-            $.thing = Objects.requireNonNull($.thing, "expected parameter 'thing' to be non-null");
+            if ($.principal == null) {
+                throw new MissingRequiredPropertyException("ThingPrincipalAttachmentArgs", "principal");
+            }
+            if ($.thing == null) {
+                throw new MissingRequiredPropertyException("ThingPrincipalAttachmentArgs", "thing");
+            }
             return $;
         }
     }

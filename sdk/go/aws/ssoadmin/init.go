@@ -23,6 +23,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:ssoadmin/accountAssignment:AccountAssignment":
 		r = &AccountAssignment{}
+	case "aws:ssoadmin/application:Application":
+		r = &Application{}
+	case "aws:ssoadmin/applicationAccessScope:ApplicationAccessScope":
+		r = &ApplicationAccessScope{}
+	case "aws:ssoadmin/applicationAssignment:ApplicationAssignment":
+		r = &ApplicationAssignment{}
+	case "aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration":
+		r = &ApplicationAssignmentConfiguration{}
 	case "aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment":
 		r = &CustomerManagedPolicyAttachment{}
 	case "aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes":
@@ -35,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PermissionSetInlinePolicy{}
 	case "aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment":
 		r = &PermissionsBoundaryAttachment{}
+	case "aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer":
+		r = &TrustedTokenIssuer{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -51,6 +61,26 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ssoadmin/accountAssignment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ssoadmin/application",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ssoadmin/applicationAccessScope",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ssoadmin/applicationAssignment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ssoadmin/applicationAssignmentConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -81,6 +111,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ssoadmin/permissionsBoundaryAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ssoadmin/trustedTokenIssuer",
 		&module{version},
 	)
 }

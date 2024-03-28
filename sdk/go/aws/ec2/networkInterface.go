@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,16 +30,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewNetworkInterface(ctx, "test", &ec2.NetworkInterfaceArgs{
-//				SubnetId: pulumi.Any(aws_subnet.Public_a.Id),
+//				SubnetId: pulumi.Any(publicA.Id),
 //				PrivateIps: pulumi.StringArray{
 //					pulumi.String("10.0.0.50"),
 //				},
 //				SecurityGroups: pulumi.StringArray{
-//					aws_security_group.Web.Id,
+//					web.Id,
 //				},
 //				Attachments: ec2.NetworkInterfaceAttachmentTypeArray{
 //					&ec2.NetworkInterfaceAttachmentTypeArgs{
-//						Instance:    pulumi.Any(aws_instance.Test.Id),
+//						Instance:    pulumi.Any(testAwsInstance.Id),
 //						DeviceIndex: pulumi.Int(1),
 //					},
 //				},
@@ -51,6 +52,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example of Managing Multiple IPs on a Network Interface
 //
 // By default, private IPs are managed through the `privateIps` and `privateIpsCount` arguments which manage IPs as a set of IPs that are configured without regard to order. For a new network interface, the same primary IP address is consistently selected from a given set of addresses, regardless of the order provided. However, modifications of the set of addresses of an existing interface will not alter the current primary IP address unless it has been removed from the set.
@@ -73,9 +76,7 @@ import (
 // Using `pulumi import`, import Network Interfaces using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
-//
+// $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
 // ```
 type NetworkInterface struct {
 	pulumi.CustomResourceState
@@ -146,10 +147,6 @@ func NewNetworkInterface(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkInterface
 	err := ctx.RegisterResource("aws:ec2/networkInterface:NetworkInterface", name, args, &resource, opts...)

@@ -9,13 +9,15 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const demoWorkspace = new aws.amp.Workspace("demoWorkspace", {});
- * const demoRuleGroupNamespace = new aws.amp.RuleGroupNamespace("demoRuleGroupNamespace", {
- *     workspaceId: demoWorkspace.id,
+ * const demo = new aws.amp.Workspace("demo", {});
+ * const demoRuleGroupNamespace = new aws.amp.RuleGroupNamespace("demo", {
+ *     name: "rules",
+ *     workspaceId: demo.id,
  *     data: `groups:
  *   - name: test
  *     rules:
@@ -24,13 +26,14 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import the prometheus rule group namespace using the arn. For example:
  *
  * ```sh
- *  $ pulumi import aws:amp/ruleGroupNamespace:RuleGroupNamespace demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name
+ * $ pulumi import aws:amp/ruleGroupNamespace:RuleGroupNamespace demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name
  * ```
  */
 export class RuleGroupNamespace extends pulumi.CustomResource {

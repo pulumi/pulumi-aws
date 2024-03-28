@@ -8,32 +8,35 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Transcribe VocabularyFilter.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.transcribe.VocabularyFilter("example", {
- *     languageCode: "en-US",
- *     tags: {
- *         tag1: "value1",
- *         tag2: "value3",
- *     },
  *     vocabularyFilterName: "example",
+ *     languageCode: "en-US",
  *     words: [
  *         "cars",
  *         "bucket",
  *     ],
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value3",
+ *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Transcribe VocabularyFilter using the `vocabulary_filter_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
+ * $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
  * ```
  */
 export class VocabularyFilter extends pulumi.CustomResource {
@@ -138,8 +141,6 @@ export class VocabularyFilter extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VocabularyFilter.__pulumiType, name, resourceInputs, opts);
     }
 }

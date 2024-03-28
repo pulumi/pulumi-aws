@@ -44,13 +44,14 @@ public final class ThemeConfigurationSheetTileBorder {
 
         @CustomType.Setter
         public Builder show(@Nullable Boolean show) {
+
             this.show = show;
             return this;
         }
         public ThemeConfigurationSheetTileBorder build() {
-            final var o = new ThemeConfigurationSheetTileBorder();
-            o.show = show;
-            return o;
+            final var _resultValue = new ThemeConfigurationSheetTileBorder();
+            _resultValue.show = show;
+            return _resultValue;
         }
     }
 }

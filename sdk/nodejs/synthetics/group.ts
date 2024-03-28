@@ -8,21 +8,24 @@ import * as utilities from "../utilities";
  * Provides a Synthetics Group resource.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.synthetics.Group("example", {});
+ * const example = new aws.synthetics.Group("example", {name: "example"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CloudWatch Synthetics Group using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:synthetics/group:Group example example
+ * $ pulumi import aws:synthetics/group:Group example example
  * ```
  */
 export class Group extends pulumi.CustomResource {
@@ -105,8 +108,6 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Group.__pulumiType, name, resourceInputs, opts);
     }
 }

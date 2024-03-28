@@ -4,6 +4,7 @@
 package com.pulumi.aws.msk.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -73,25 +74,30 @@ public final class ClusterLoggingInfoBrokerLogsS3 {
 
         @CustomType.Setter
         public Builder bucket(@Nullable String bucket) {
+
             this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("ClusterLoggingInfoBrokerLogsS3", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         public ClusterLoggingInfoBrokerLogsS3 build() {
-            final var o = new ClusterLoggingInfoBrokerLogsS3();
-            o.bucket = bucket;
-            o.enabled = enabled;
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new ClusterLoggingInfoBrokerLogsS3();
+            _resultValue.bucket = bucket;
+            _resultValue.enabled = enabled;
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

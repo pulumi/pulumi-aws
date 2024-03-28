@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** This resource only currently supports Amazon Lex (V1) Associations.
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,7 +48,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BotAssociation(&#34;example&#34;, BotAssociationArgs.builder()        
- *             .instanceId(aws_connect_instance.example().id())
+ *             .instanceId(exampleAwsConnectInstance.id())
  *             .lexBot(BotAssociationLexBotArgs.builder()
  *                 .lexRegion(&#34;us-west-2&#34;)
  *                 .name(&#34;Test&#34;)
@@ -55,7 +58,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Including a sample Lex bot
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -90,7 +97,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var exampleIntent = new Intent(&#34;exampleIntent&#34;, IntentArgs.builder()        
+ *         var example = new Intent(&#34;example&#34;, IntentArgs.builder()        
  *             .createVersion(true)
  *             .name(&#34;connect_lex_intent&#34;)
  *             .fulfillmentActivity(IntentFulfillmentActivityArgs.builder()
@@ -114,7 +121,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .intents(BotIntentArgs.builder()
- *                 .intentName(exampleIntent.name())
+ *                 .intentName(example.name())
  *                 .intentVersion(&#34;1&#34;)
  *                 .build())
  *             .childDirected(false)
@@ -123,7 +130,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBotAssociation = new BotAssociation(&#34;exampleBotAssociation&#34;, BotAssociationArgs.builder()        
- *             .instanceId(aws_connect_instance.example().id())
+ *             .instanceId(exampleAwsConnectInstance.id())
  *             .lexBot(BotAssociationLexBotArgs.builder()
  *                 .lexRegion(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
  *                 .name(exampleBot.name())
@@ -133,13 +140,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_connect_bot_association` using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
+ * $ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
  * ```
  * 
  */

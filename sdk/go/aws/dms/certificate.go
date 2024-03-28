@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,6 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new certificate
 //			_, err := dms.NewCertificate(ctx, "test", &dms.CertificateArgs{
 //				CertificateId:  pulumi.String("test-dms-certificate-tf"),
 //				CertificatePem: pulumi.String("..."),
@@ -43,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import certificates using the `certificate_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
-//
+// $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
 // ```
 type Certificate struct {
 	pulumi.CustomResourceState
@@ -93,7 +94,6 @@ func NewCertificate(ctx *pulumi.Context,
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"certificatePem",
 		"certificateWallet",
-		"tagsAll",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)

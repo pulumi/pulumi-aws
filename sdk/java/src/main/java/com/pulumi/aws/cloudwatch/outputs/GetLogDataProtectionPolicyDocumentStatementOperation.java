@@ -63,19 +63,21 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperation {
 
         @CustomType.Setter
         public Builder audit(@Nullable GetLogDataProtectionPolicyDocumentStatementOperationAudit audit) {
+
             this.audit = audit;
             return this;
         }
         @CustomType.Setter
         public Builder deidentify(@Nullable GetLogDataProtectionPolicyDocumentStatementOperationDeidentify deidentify) {
+
             this.deidentify = deidentify;
             return this;
         }
         public GetLogDataProtectionPolicyDocumentStatementOperation build() {
-            final var o = new GetLogDataProtectionPolicyDocumentStatementOperation();
-            o.audit = audit;
-            o.deidentify = deidentify;
-            return o;
+            final var _resultValue = new GetLogDataProtectionPolicyDocumentStatementOperation();
+            _resultValue.audit = audit;
+            _resultValue.deidentify = deidentify;
+            return _resultValue;
         }
     }
 }

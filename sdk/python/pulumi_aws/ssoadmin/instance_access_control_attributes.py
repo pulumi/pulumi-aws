@@ -131,7 +131,7 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
         Using `pulumi import`, import SSO Account Assignments using the `instance_arn`. For example:
 
         ```sh
-         $ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef
+        $ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef
         ```
 
         :param str resource_name: The name of the resource.
@@ -153,7 +153,7 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
         Using `pulumi import`, import SSO Account Assignments using the `instance_arn`. For example:
 
         ```sh
-         $ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef
+        $ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef
         ```
 
         :param str resource_name: The name of the resource.

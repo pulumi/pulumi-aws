@@ -241,45 +241,53 @@ class AnomalyMonitor(pulumi.CustomResource):
         ## Example Usage
 
         There are two main types of a Cost Anomaly Monitor: `DIMENSIONAL` and `CUSTOM`.
+
         ### Dimensional Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        service_monitor = aws.costexplorer.AnomalyMonitor("serviceMonitor",
-            monitor_dimension="SERVICE",
-            monitor_type="DIMENSIONAL")
+        service_monitor = aws.costexplorer.AnomalyMonitor("service_monitor",
+            name="AWSServiceMonitor",
+            monitor_type="DIMENSIONAL",
+            monitor_dimension="SERVICE")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Custom Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         test = aws.costexplorer.AnomalyMonitor("test",
+            name="AWSCustomAnomalyMonitor",
             monitor_type="CUSTOM",
             monitor_specification=json.dumps({
-                "And": None,
-                "CostCategories": None,
-                "Dimensions": None,
-                "Not": None,
-                "Or": None,
-                "Tags": {
-                    "Key": "CostCenter",
-                    "MatchOptions": None,
-                    "Values": ["10000"],
+                "and": None,
+                "costCategories": None,
+                "dimensions": None,
+                "not": None,
+                "or": None,
+                "tags": {
+                    "key": "CostCenter",
+                    "matchOptions": None,
+                    "values": ["10000"],
                 },
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ce_anomaly_monitor` using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
+        $ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
         ```
 
         :param str resource_name: The name of the resource.
@@ -302,45 +310,53 @@ class AnomalyMonitor(pulumi.CustomResource):
         ## Example Usage
 
         There are two main types of a Cost Anomaly Monitor: `DIMENSIONAL` and `CUSTOM`.
+
         ### Dimensional Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        service_monitor = aws.costexplorer.AnomalyMonitor("serviceMonitor",
-            monitor_dimension="SERVICE",
-            monitor_type="DIMENSIONAL")
+        service_monitor = aws.costexplorer.AnomalyMonitor("service_monitor",
+            name="AWSServiceMonitor",
+            monitor_type="DIMENSIONAL",
+            monitor_dimension="SERVICE")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Custom Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         test = aws.costexplorer.AnomalyMonitor("test",
+            name="AWSCustomAnomalyMonitor",
             monitor_type="CUSTOM",
             monitor_specification=json.dumps({
-                "And": None,
-                "CostCategories": None,
-                "Dimensions": None,
-                "Not": None,
-                "Or": None,
-                "Tags": {
-                    "Key": "CostCenter",
-                    "MatchOptions": None,
-                    "Values": ["10000"],
+                "and": None,
+                "costCategories": None,
+                "dimensions": None,
+                "not": None,
+                "or": None,
+                "tags": {
+                    "key": "CostCenter",
+                    "matchOptions": None,
+                    "values": ["10000"],
                 },
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ce_anomaly_monitor` using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
+        $ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
         ```
 
         :param str resource_name: The name of the resource.
@@ -381,8 +397,6 @@ class AnomalyMonitor(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AnomalyMonitor, __self__).__init__(
             'aws:costexplorer/anomalyMonitor:AnomalyMonitor',
             resource_name,

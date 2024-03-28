@@ -158,6 +158,11 @@ token: Optional[str]
 session token. A session token is only required if you are using temporary security credentials.
 """
 
+tokenBucketRateLimiterCapacity: Optional[int]
+"""
+The capacity of the AWS SDK's token bucket rate limiter.
+"""
+
 useDualstackEndpoint: Optional[bool]
 """
 Resolve an endpoint with DualStack capability

@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.aws.cloudfront.outputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,19 +60,23 @@ public final class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig {
 
         @CustomType.Setter
         public Builder sessionStickinessConfig(@Nullable ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig sessionStickinessConfig) {
+
             this.sessionStickinessConfig = sessionStickinessConfig;
             return this;
         }
         @CustomType.Setter
         public Builder weight(Double weight) {
-            this.weight = Objects.requireNonNull(weight);
+            if (weight == null) {
+              throw new MissingRequiredPropertyException("ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig", "weight");
+            }
+            this.weight = weight;
             return this;
         }
         public ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig build() {
-            final var o = new ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig();
-            o.sessionStickinessConfig = sessionStickinessConfig;
-            o.weight = weight;
-            return o;
+            final var _resultValue = new ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig();
+            _resultValue.sessionStickinessConfig = sessionStickinessConfig;
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

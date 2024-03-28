@@ -11,31 +11,33 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.iot.EventConfigurations("example", {eventConfigurations: {
- *     CA_CERTIFICATE: false,
- *     CERTIFICATE: true,
+ *     THING: true,
+ *     THING_GROUP: false,
+ *     THING_TYPE: false,
+ *     THING_GROUP_MEMBERSHIP: false,
+ *     THING_GROUP_HIERARCHY: false,
+ *     THING_TYPE_ASSOCIATION: false,
  *     JOB: false,
  *     JOB_EXECUTION: false,
  *     POLICY: false,
- *     THING: true,
- *     THING_GROUP: false,
- *     THING_GROUP_HIERARCHY: false,
- *     THING_GROUP_MEMBERSHIP: false,
- *     THING_TYPE: false,
- *     THING_TYPE_ASSOCIATION: false,
+ *     CERTIFICATE: true,
+ *     CA_CERTIFICATE: false,
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IoT Event Configurations using the AWS Region. For example:
  *
  * ```sh
- *  $ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
+ * $ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
  * ```
  */
 export class EventConfigurations extends pulumi.CustomResource {

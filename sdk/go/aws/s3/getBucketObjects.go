@@ -30,7 +30,7 @@ func GetBucketObjects(ctx *pulumi.Context, args *GetBucketObjectsArgs, opts ...p
 type GetBucketObjectsArgs struct {
 	// Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
 	//
-	// Deprecated: Use the aws_s3_objects data source instead
+	// Deprecated: Use the s3.getObjects data source instead
 	Bucket string `pulumi:"bucket"`
 	// Character used to group keys (Default: none)
 	Delimiter *string `pulumi:"delimiter"`
@@ -48,7 +48,7 @@ type GetBucketObjectsArgs struct {
 
 // A collection of values returned by getBucketObjects.
 type GetBucketObjectsResult struct {
-	// Deprecated: Use the aws_s3_objects data source instead
+	// Deprecated: Use the s3.getObjects data source instead
 	Bucket string `pulumi:"bucket"`
 	// List of any keys between `prefix` and the next occurrence of `delimiter` (i.e., similar to subdirectories of the `prefix` "directory"); the list is only returned when you specify `delimiter`
 	CommonPrefixes []string `pulumi:"commonPrefixes"`
@@ -83,7 +83,7 @@ func GetBucketObjectsOutput(ctx *pulumi.Context, args GetBucketObjectsOutputArgs
 type GetBucketObjectsOutputArgs struct {
 	// Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
 	//
-	// Deprecated: Use the aws_s3_objects data source instead
+	// Deprecated: Use the s3.getObjects data source instead
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// Character used to group keys (Default: none)
 	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
@@ -118,7 +118,7 @@ func (o GetBucketObjectsResultOutput) ToGetBucketObjectsResultOutputWithContext(
 	return o
 }
 
-// Deprecated: Use the aws_s3_objects data source instead
+// Deprecated: Use the s3.getObjects data source instead
 func (o GetBucketObjectsResultOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketObjectsResult) string { return v.Bucket }).(pulumi.StringOutput)
 }

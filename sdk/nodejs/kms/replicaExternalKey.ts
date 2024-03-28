@@ -10,35 +10,33 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const primary = new aws.Provider("primary", {region: "us-east-1"});
- * const primaryExternalKey = new aws.kms.ExternalKey("primaryExternalKey", {
+ * const primary = new aws.kms.ExternalKey("primary", {
  *     description: "Multi-Region primary key",
  *     deletionWindowInDays: 30,
  *     multiRegion: true,
  *     enabled: true,
  *     keyMaterialBase64: "...",
- * }, {
- *     provider: aws.primary,
  * });
  * const replica = new aws.kms.ReplicaExternalKey("replica", {
  *     description: "Multi-Region replica key",
  *     deletionWindowInDays: 7,
- *     primaryKeyArn: aws_kms_external.primary.arn,
+ *     primaryKeyArn: primaryAwsKmsExternal.arn,
  *     keyMaterialBase64: "...",
  * });
- * // Must be the same key material as the primary's.
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import KMS multi-Region replica keys using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:kms/replicaExternalKey:ReplicaExternalKey example 1234abcd-12ab-34cd-56ef-1234567890ab
+ * $ pulumi import aws:kms/replicaExternalKey:ReplicaExternalKey example 1234abcd-12ab-34cd-56ef-1234567890ab
  * ```
  */
 export class ReplicaExternalKey extends pulumi.CustomResource {
@@ -186,7 +184,7 @@ export class ReplicaExternalKey extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["keyMaterialBase64", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["keyMaterialBase64"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(ReplicaExternalKey.__pulumiType, name, resourceInputs, opts);
     }

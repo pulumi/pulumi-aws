@@ -4,6 +4,7 @@
 package com.pulumi.aws.cognito.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -47,25 +48,34 @@ public final class GetIdentityPoolCognitoIdentityProvider {
 
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("GetIdentityPoolCognitoIdentityProvider", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder providerName(String providerName) {
-            this.providerName = Objects.requireNonNull(providerName);
+            if (providerName == null) {
+              throw new MissingRequiredPropertyException("GetIdentityPoolCognitoIdentityProvider", "providerName");
+            }
+            this.providerName = providerName;
             return this;
         }
         @CustomType.Setter
         public Builder serverSideTokenCheck(Boolean serverSideTokenCheck) {
-            this.serverSideTokenCheck = Objects.requireNonNull(serverSideTokenCheck);
+            if (serverSideTokenCheck == null) {
+              throw new MissingRequiredPropertyException("GetIdentityPoolCognitoIdentityProvider", "serverSideTokenCheck");
+            }
+            this.serverSideTokenCheck = serverSideTokenCheck;
             return this;
         }
         public GetIdentityPoolCognitoIdentityProvider build() {
-            final var o = new GetIdentityPoolCognitoIdentityProvider();
-            o.clientId = clientId;
-            o.providerName = providerName;
-            o.serverSideTokenCheck = serverSideTokenCheck;
-            return o;
+            final var _resultValue = new GetIdentityPoolCognitoIdentityProvider();
+            _resultValue.clientId = clientId;
+            _resultValue.providerName = providerName;
+            _resultValue.serverSideTokenCheck = serverSideTokenCheck;
+            return _resultValue;
         }
     }
 }

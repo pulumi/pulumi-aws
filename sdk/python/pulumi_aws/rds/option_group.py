@@ -30,7 +30,7 @@ class OptionGroupArgs:
         :param pulumi.Input[str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] option_group_description: Description of the option group.
-        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]] options: List of options to apply.
+        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]] options: The options to apply. See `option` Block below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "engine_name", engine_name)
@@ -112,7 +112,7 @@ class OptionGroupArgs:
     @pulumi.getter
     def options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]]]:
         """
-        List of options to apply.
+        The options to apply. See `option` Block below for more details.
         """
         return pulumi.get(self, "options")
 
@@ -153,7 +153,7 @@ class _OptionGroupState:
         :param pulumi.Input[str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] option_group_description: Description of the option group.
-        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]] options: List of options to apply.
+        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]] options: The options to apply. See `option` Block below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -257,7 +257,7 @@ class _OptionGroupState:
     @pulumi.getter
     def options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]]]:
         """
-        List of options to apply.
+        The options to apply. See `option` Block below for more details.
         """
         return pulumi.get(self, "options")
 
@@ -316,11 +316,13 @@ class OptionGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.rds.OptionGroup("example",
+            name="option-group-test",
             option_group_description="Option Group",
             engine_name="sqlserver-ee",
             major_engine_version="11.00",
@@ -336,7 +338,7 @@ class OptionGroup(pulumi.CustomResource):
                     option_name="SQLSERVER_BACKUP_RESTORE",
                     option_settings=[aws.rds.OptionGroupOptionOptionSettingArgs(
                         name="IAM_ROLE_ARN",
-                        value=aws_iam_role["example"]["arn"],
+                        value=example_aws_iam_role["arn"],
                     )],
                 ),
                 aws.rds.OptionGroupOptionArgs(
@@ -344,6 +346,7 @@ class OptionGroup(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         > **Note:** Any modifications to the `rds.OptionGroup` are set to happen immediately as we default to applying immediately.
 
@@ -360,7 +363,7 @@ class OptionGroup(pulumi.CustomResource):
         Using `pulumi import`, import DB option groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
+        $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
         ```
 
         :param str resource_name: The name of the resource.
@@ -370,7 +373,7 @@ class OptionGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] option_group_description: Description of the option group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]] options: List of options to apply.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]] options: The options to apply. See `option` Block below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -389,11 +392,13 @@ class OptionGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.rds.OptionGroup("example",
+            name="option-group-test",
             option_group_description="Option Group",
             engine_name="sqlserver-ee",
             major_engine_version="11.00",
@@ -409,7 +414,7 @@ class OptionGroup(pulumi.CustomResource):
                     option_name="SQLSERVER_BACKUP_RESTORE",
                     option_settings=[aws.rds.OptionGroupOptionOptionSettingArgs(
                         name="IAM_ROLE_ARN",
-                        value=aws_iam_role["example"]["arn"],
+                        value=example_aws_iam_role["arn"],
                     )],
                 ),
                 aws.rds.OptionGroupOptionArgs(
@@ -417,6 +422,7 @@ class OptionGroup(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         > **Note:** Any modifications to the `rds.OptionGroup` are set to happen immediately as we default to applying immediately.
 
@@ -433,7 +439,7 @@ class OptionGroup(pulumi.CustomResource):
         Using `pulumi import`, import DB option groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
+        $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
         ```
 
         :param str resource_name: The name of the resource.
@@ -482,8 +488,6 @@ class OptionGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(OptionGroup, __self__).__init__(
             'aws:rds/optionGroup:OptionGroup',
             resource_name,
@@ -516,7 +520,7 @@ class OptionGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] option_group_description: Description of the option group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]] options: List of options to apply.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]] options: The options to apply. See `option` Block below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -587,7 +591,7 @@ class OptionGroup(pulumi.CustomResource):
     @pulumi.getter
     def options(self) -> pulumi.Output[Optional[Sequence['outputs.OptionGroupOption']]]:
         """
-        List of options to apply.
+        The options to apply. See `option` Block below for more details.
         """
         return pulumi.get(self, "options")
 

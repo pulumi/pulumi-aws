@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := chime.NewVoiceConnector(ctx, "test", &chime.VoiceConnectorArgs{
-//				AwsRegion:         pulumi.String("us-east-1"),
+//				Name:              pulumi.String("connector-test-1"),
 //				RequireEncryption: pulumi.Bool(true),
+//				AwsRegion:         pulumi.String("us-east-1"),
 //			})
 //			if err != nil {
 //				return err
@@ -40,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Configuration Recorder using the name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:chime/voiceConnector:VoiceConnector test example
-//
+// $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
 // ```
 type VoiceConnector struct {
 	pulumi.CustomResourceState
@@ -83,10 +84,6 @@ func NewVoiceConnector(ctx *pulumi.Context,
 	if args.RequireEncryption == nil {
 		return nil, errors.New("invalid value for required argument 'RequireEncryption'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VoiceConnector
 	err := ctx.RegisterResource("aws:chime/voiceConnector:VoiceConnector", name, args, &resource, opts...)

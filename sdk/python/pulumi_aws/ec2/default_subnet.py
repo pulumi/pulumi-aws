@@ -539,23 +539,25 @@ class DefaultSubnet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        default_az1 = aws.ec2.DefaultSubnet("defaultAz1",
+        default_az1 = aws.ec2.DefaultSubnet("default_az1",
             availability_zone="us-west-2a",
             tags={
                 "Name": "Default subnet for us-west-2a",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import subnets using the subnet `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
+        $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
         ```
 
         :param str resource_name: The name of the resource.
@@ -585,23 +587,25 @@ class DefaultSubnet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        default_az1 = aws.ec2.DefaultSubnet("defaultAz1",
+        default_az1 = aws.ec2.DefaultSubnet("default_az1",
             availability_zone="us-west-2a",
             tags={
                 "Name": "Default subnet for us-west-2a",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import subnets using the subnet `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
+        $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
         ```
 
         :param str resource_name: The name of the resource.
@@ -666,8 +670,6 @@ class DefaultSubnet(pulumi.CustomResource):
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(DefaultSubnet, __self__).__init__(
             'aws:ec2/defaultSubnet:DefaultSubnet',
             resource_name,

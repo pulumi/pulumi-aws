@@ -4,6 +4,7 @@
 package com.pulumi.aws.opensearch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -119,22 +120,34 @@ public final class GetServerlessVpcEndpointResult {
 
         @CustomType.Setter
         public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+            if (createdDate == null) {
+              throw new MissingRequiredPropertyException("GetServerlessVpcEndpointResult", "createdDate");
+            }
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServerlessVpcEndpointResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetServerlessVpcEndpointResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+            if (securityGroupIds == null) {
+              throw new MissingRequiredPropertyException("GetServerlessVpcEndpointResult", "securityGroupIds");
+            }
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {
@@ -142,7 +155,10 @@ public final class GetServerlessVpcEndpointResult {
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("GetServerlessVpcEndpointResult", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
@@ -150,24 +166,30 @@ public final class GetServerlessVpcEndpointResult {
         }
         @CustomType.Setter
         public Builder vpcEndpointId(String vpcEndpointId) {
-            this.vpcEndpointId = Objects.requireNonNull(vpcEndpointId);
+            if (vpcEndpointId == null) {
+              throw new MissingRequiredPropertyException("GetServerlessVpcEndpointResult", "vpcEndpointId");
+            }
+            this.vpcEndpointId = vpcEndpointId;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetServerlessVpcEndpointResult", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public GetServerlessVpcEndpointResult build() {
-            final var o = new GetServerlessVpcEndpointResult();
-            o.createdDate = createdDate;
-            o.id = id;
-            o.name = name;
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            o.vpcEndpointId = vpcEndpointId;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetServerlessVpcEndpointResult();
+            _resultValue.createdDate = createdDate;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcEndpointId = vpcEndpointId;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

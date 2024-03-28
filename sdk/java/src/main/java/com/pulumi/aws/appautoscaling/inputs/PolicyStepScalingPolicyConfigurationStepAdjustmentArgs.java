@@ -5,6 +5,7 @@ package com.pulumi.aws.appautoscaling.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class PolicyStepScalingPolicyConfigurationStepAdjustmentArgs extend
         }
 
         public PolicyStepScalingPolicyConfigurationStepAdjustmentArgs build() {
-            $.scalingAdjustment = Objects.requireNonNull($.scalingAdjustment, "expected parameter 'scalingAdjustment' to be non-null");
+            if ($.scalingAdjustment == null) {
+                throw new MissingRequiredPropertyException("PolicyStepScalingPolicyConfigurationStepAdjustmentArgs", "scalingAdjustment");
+            }
             return $;
         }
     }

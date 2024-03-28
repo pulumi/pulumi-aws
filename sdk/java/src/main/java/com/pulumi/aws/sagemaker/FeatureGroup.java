@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * Basic usage:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,7 +54,7 @@ import javax.annotation.Nullable;
  *             .featureGroupName(&#34;example&#34;)
  *             .recordIdentifierFeatureName(&#34;example&#34;)
  *             .eventTimeFeatureName(&#34;example&#34;)
- *             .roleArn(aws_iam_role.test().arn())
+ *             .roleArn(test.arn())
  *             .featureDefinitions(FeatureGroupFeatureDefinitionArgs.builder()
  *                 .featureName(&#34;example&#34;)
  *                 .featureType(&#34;String&#34;)
@@ -65,13 +67,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Feature Groups using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
+ * $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
  * ```
  * 
  */
@@ -268,9 +271,6 @@ public class FeatureGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -12,28 +12,33 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.dax.ParameterGroup("example", {parameters: [
- *     {
- *         name: "query-ttl-millis",
- *         value: "100000",
- *     },
- *     {
- *         name: "record-ttl-millis",
- *         value: "100000",
- *     },
- * ]});
+ * const example = new aws.dax.ParameterGroup("example", {
+ *     name: "example",
+ *     parameters: [
+ *         {
+ *             name: "query-ttl-millis",
+ *             value: "100000",
+ *         },
+ *         {
+ *             name: "record-ttl-millis",
+ *             value: "100000",
+ *         },
+ *     ],
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import DAX Parameter Group using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
+ * $ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
  * ```
  */
 export class ParameterGroup extends pulumi.CustomResource {

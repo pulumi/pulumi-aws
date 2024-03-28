@@ -25,8 +25,8 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         public ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings build() {
-            final var o = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings();
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings();
+            return _resultValue;
         }
     }
 }

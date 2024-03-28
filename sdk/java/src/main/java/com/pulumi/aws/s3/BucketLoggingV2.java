@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.s3.BucketLoggingV2Args;
 import com.pulumi.aws.s3.inputs.BucketLoggingV2State;
 import com.pulumi.aws.s3.outputs.BucketLoggingV2TargetGrant;
+import com.pulumi.aws.s3.outputs.BucketLoggingV2TargetObjectKeyFormat;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -23,7 +24,11 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Amazon S3 supports server access logging, AWS CloudTrail, or a combination of both. Refer to the [Logging options for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/logging-with-S3.html)
  * to decide which method meets your requirements.
  * 
+ * &gt; This resource cannot be used with S3 directory buckets.
+ * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -31,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.s3.BucketLoggingV2;
@@ -48,14 +54,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-tf-example-bucket&#34;)
+ *             .build());
  * 
  *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .acl(&#34;private&#34;)
  *             .build());
  * 
- *         var logBucket = new BucketV2(&#34;logBucket&#34;);
+ *         var logBucket = new BucketV2(&#34;logBucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-tf-log-bucket&#34;)
+ *             .build());
  * 
  *         var logBucketAcl = new BucketAclV2(&#34;logBucketAcl&#34;, BucketAclV2Args.builder()        
  *             .bucket(logBucket.id())
@@ -63,7 +73,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBucketLoggingV2 = new BucketLoggingV2(&#34;exampleBucketLoggingV2&#34;, BucketLoggingV2Args.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .targetBucket(logBucket.id())
  *             .targetPrefix(&#34;log/&#34;)
  *             .build());
@@ -71,6 +81,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -81,12 +92,12 @@ import javax.annotation.Nullable;
  * If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
  * 
  * ```sh
- *  $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name
+ * $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name
  * ```
- *  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+ * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
  * 
  * ```sh
- *  $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name,123456789012
+ * $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name,123456789012
  * ```
  * 
  */
@@ -147,6 +158,20 @@ public class BucketLoggingV2 extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<BucketLoggingV2TargetGrant>>> targetGrants() {
         return Codegen.optional(this.targetGrants);
+    }
+    /**
+     * Amazon S3 key format for log objects. See below.
+     * 
+     */
+    @Export(name="targetObjectKeyFormat", refs={BucketLoggingV2TargetObjectKeyFormat.class}, tree="[0]")
+    private Output</* @Nullable */ BucketLoggingV2TargetObjectKeyFormat> targetObjectKeyFormat;
+
+    /**
+     * @return Amazon S3 key format for log objects. See below.
+     * 
+     */
+    public Output<Optional<BucketLoggingV2TargetObjectKeyFormat>> targetObjectKeyFormat() {
+        return Codegen.optional(this.targetObjectKeyFormat);
     }
     /**
      * Prefix for all log object keys.

@@ -11,11 +11,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.kinesis.VideoStream("default", {
+ *     name: "kinesis-video-stream",
  *     dataRetentionInHours: 1,
  *     deviceName: "kinesis-video-device-name",
  *     mediaType: "video/h264",
@@ -24,13 +26,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Kinesis Streams using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:kinesis/videoStream:VideoStream test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/pulumi-kinesis-test/1554978910975
+ * $ pulumi import aws:kinesis/videoStream:VideoStream test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/pulumi-kinesis-test/1554978910975
  * ```
  */
 export class VideoStream extends pulumi.CustomResource {
@@ -142,8 +145,6 @@ export class VideoStream extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VideoStream.__pulumiType, name, resourceInputs, opts);
     }
 }

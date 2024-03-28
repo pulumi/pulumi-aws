@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,6 +25,7 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var production = new Aws.Ssm.PatchBaseline("production", new()
     ///     {
+    ///         Name = "patch-baseline",
     ///         ApprovedPatches = new[]
     ///         {
     ///             "KB123456",
@@ -38,6 +40,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:ssm/patchGroup:PatchGroup")]
     public partial class PatchGroup : global::Pulumi.CustomResource

@@ -4,6 +4,7 @@
 package com.pulumi.aws.cognito.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class UserPoolUserPoolAddOns {
 
         @CustomType.Setter
         public Builder advancedSecurityMode(String advancedSecurityMode) {
-            this.advancedSecurityMode = Objects.requireNonNull(advancedSecurityMode);
+            if (advancedSecurityMode == null) {
+              throw new MissingRequiredPropertyException("UserPoolUserPoolAddOns", "advancedSecurityMode");
+            }
+            this.advancedSecurityMode = advancedSecurityMode;
             return this;
         }
         public UserPoolUserPoolAddOns build() {
-            final var o = new UserPoolUserPoolAddOns();
-            o.advancedSecurityMode = advancedSecurityMode;
-            return o;
+            final var _resultValue = new UserPoolUserPoolAddOns();
+            _resultValue.advancedSecurityMode = advancedSecurityMode;
+            return _resultValue;
         }
     }
 }

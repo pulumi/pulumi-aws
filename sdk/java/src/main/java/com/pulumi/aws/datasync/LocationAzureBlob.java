@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** The DataSync Agents must be available before creating this resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,9 +48,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LocationAzureBlob(&#34;example&#34;, LocationAzureBlobArgs.builder()        
- *             .agentArns(aws_datasync_agent.example().arn())
+ *             .agentArns(exampleAwsDatasyncAgent.arn())
  *             .authenticationType(&#34;SAS&#34;)
- *             .containerUrl(&#34;https://example.com/path&#34;)
+ *             .containerUrl(&#34;https://myaccount.blob.core.windows.net/mycontainer&#34;)
  *             .sasConfiguration(LocationAzureBlobSasConfigurationArgs.builder()
  *                 .token(&#34;sp=r&amp;st=2023-12-20T14:54:52Z&amp;se=2023-12-20T22:54:52Z&amp;spr=https&amp;sv=2021-06-08&amp;sr=c&amp;sig=aBBKDWQvyuVcTPH9EBp%2FXTI9E%2F%2Fmq171%2BZU178wcwqU%3D&#34;)
  *                 .build())
@@ -57,13 +59,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_datasync_location_azure_blob` using the Amazon Resource Name (ARN). For example:
  * 
  * ```sh
- *  $ pulumi import aws:datasync/locationAzureBlob:LocationAzureBlob example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+ * $ pulumi import aws:datasync/locationAzureBlob:LocationAzureBlob example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
  * ```
  * 
  */
@@ -252,9 +255,6 @@ public class LocationAzureBlob extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

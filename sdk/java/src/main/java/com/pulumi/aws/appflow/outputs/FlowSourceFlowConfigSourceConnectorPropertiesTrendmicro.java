@@ -4,6 +4,7 @@
 package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro {
 
         @CustomType.Setter
         public Builder object(String object) {
-            this.object = Objects.requireNonNull(object);
+            if (object == null) {
+              throw new MissingRequiredPropertyException("FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro", "object");
+            }
+            this.object = object;
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro build() {
-            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro();
-            o.object = object;
-            return o;
+            final var _resultValue = new FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro();
+            _resultValue.object = object;
+            return _resultValue;
         }
     }
 }

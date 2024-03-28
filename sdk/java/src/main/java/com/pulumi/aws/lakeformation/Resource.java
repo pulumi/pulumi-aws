@@ -10,15 +10,22 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
  * Registers a Lake Formation resource (e.g., S3 bucket) as managed by the Data Catalog. In other words, the S3 path is added to the data lake.
  * 
- * Choose a role that has read/write access to the chosen Amazon S3 path or use the service-linked role. When you register the S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy.
+ * Choose a role that has read/write access to the chosen Amazon S3 path or use the service-linked role.
+ * When you register the S3 path, the service-linked role and a new inline policy are created on your behalf.
+ * Lake Formation adds the first path to the inline policy and attaches it to the service-linked role.
+ * When you register subsequent paths, Lake Formation adds the path to the existing policy.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,66 +49,105 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleBucket = S3Functions.getBucket(GetBucketArgs.builder()
+ *         final var example = S3Functions.getBucket(GetBucketArgs.builder()
  *             .bucket(&#34;an-example-bucket&#34;)
  *             .build());
  * 
  *         var exampleResource = new Resource(&#34;exampleResource&#34;, ResourceArgs.builder()        
- *             .arn(exampleBucket.applyValue(getBucketResult -&gt; getBucketResult.arn()))
+ *             .arn(example.applyValue(getBucketResult -&gt; getBucketResult.arn()))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:lakeformation/resource:Resource")
 public class Resource extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the resource, an S3 path.
+     * Amazon Resource Name (ARN) of the resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the resource, an S3 path.
+     * @return Amazon Resource Name (ARN) of the resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * Flag to enable AWS LakeFormation hybrid access permission mode.
+     * 
+     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     * 
+     */
+    @Export(name="hybridAccessEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> hybridAccessEnabled;
+
+    /**
+     * @return Flag to enable AWS LakeFormation hybrid access permission mode.
+     * 
+     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     * 
+     */
+    public Output<Boolean> hybridAccessEnabled() {
+        return this.hybridAccessEnabled;
+    }
+    /**
+     * Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     @Export(name="lastModified", refs={String.class}, tree="[0]")
     private Output<String> lastModified;
 
     /**
-     * @return (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * @return Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     public Output<String> lastModified() {
         return this.lastModified;
     }
     /**
-     * Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
-     * 
-     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     * Role that has read/write access to the resource.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
-     * 
-     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     * @return Role that has read/write access to the resource.
      * 
      */
     public Output<String> roleArn() {
         return this.roleArn;
+    }
+    /**
+     * Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
+     * 
+     */
+    @Export(name="useServiceLinkedRole", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> useServiceLinkedRole;
+
+    /**
+     * @return Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
+     * 
+     */
+    public Output<Optional<Boolean>> useServiceLinkedRole() {
+        return Codegen.optional(this.useServiceLinkedRole);
+    }
+    @Export(name="withFederation", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> withFederation;
+
+    public Output<Boolean> withFederation() {
+        return this.withFederation;
     }
 
     /**

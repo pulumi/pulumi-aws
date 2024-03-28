@@ -9,28 +9,31 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.emr.Studio("example", {
  *     authMode: "SSO",
- *     defaultS3Location: `s3://${aws_s3_bucket.test.bucket}/test`,
- *     engineSecurityGroupId: aws_security_group.test.id,
- *     serviceRole: aws_iam_role.test.arn,
- *     subnetIds: [aws_subnet.test.id],
- *     userRole: aws_iam_role.test.arn,
- *     vpcId: aws_vpc.test.id,
- *     workspaceSecurityGroupId: aws_security_group.test.id,
+ *     defaultS3Location: `s3://${test.bucket}/test`,
+ *     engineSecurityGroupId: testAwsSecurityGroup.id,
+ *     name: "example",
+ *     serviceRole: testAwsIamRole.arn,
+ *     subnetIds: [testAwsSubnet.id],
+ *     userRole: testAwsIamRole.arn,
+ *     vpcId: testAwsVpc.id,
+ *     workspaceSecurityGroupId: testAwsSecurityGroup.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EMR studios using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
+ * $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
  * ```
  */
 export class Studio extends pulumi.CustomResource {
@@ -198,8 +201,6 @@ export class Studio extends pulumi.CustomResource {
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Studio.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -17,8 +17,10 @@ namespace Pulumi.Aws.DynamoDB
     /// &gt; **Note:** Do not use the `replica` configuration block of aws.dynamodb.Table together with this resource as the two configuration options are mutually exclusive.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,18 +29,9 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new Aws.Provider("main", new()
+    ///     var example = new Aws.DynamoDB.Table("example", new()
     ///     {
-    ///         Region = "us-west-2",
-    ///     });
-    /// 
-    ///     var alt = new Aws.Provider("alt", new()
-    ///     {
-    ///         Region = "us-east-2",
-    ///     });
-    /// 
-    ///     var exampleTable = new Aws.DynamoDB.Table("exampleTable", new()
-    ///     {
+    ///         Name = "TestTable",
     ///         HashKey = "BrodoBaggins",
     ///         BillingMode = "PAY_PER_REQUEST",
     ///         StreamEnabled = true,
@@ -51,26 +44,21 @@ namespace Pulumi.Aws.DynamoDB
     ///                 Type = "S",
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Main,
     ///     });
     /// 
-    ///     var exampleTableReplica = new Aws.DynamoDB.TableReplica("exampleTableReplica", new()
+    ///     var exampleTableReplica = new Aws.DynamoDB.TableReplica("example", new()
     ///     {
-    ///         GlobalTableArn = exampleTable.Arn,
+    ///         GlobalTableArn = example.Arn,
     ///         Tags = 
     ///         {
     ///             { "Name", "IZPAWS" },
     ///             { "Pozo", "Amargo" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Alt,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -79,7 +67,7 @@ namespace Pulumi.Aws.DynamoDB
     /// ~&gt; __Note:__ When importing, use the region where the initial or _main_ global table resides, _not_ the region of the replica.
     /// 
     /// ```sh
-    ///  $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
+    /// $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
     /// ```
     /// </summary>
     [AwsResourceType("aws:dynamodb/tableReplica:TableReplica")]
@@ -152,10 +140,6 @@ namespace Pulumi.Aws.DynamoDB
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -279,11 +263,7 @@ namespace Pulumi.Aws.DynamoDB
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public TableReplicaState()

@@ -120,6 +120,7 @@ public final class GatewayRouteSpecHttpRouteMatch {
 
         @CustomType.Setter
         public Builder headers(@Nullable List<GatewayRouteSpecHttpRouteMatchHeader> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -128,26 +129,31 @@ public final class GatewayRouteSpecHttpRouteMatch {
         }
         @CustomType.Setter
         public Builder hostname(@Nullable GatewayRouteSpecHttpRouteMatchHostname hostname) {
+
             this.hostname = hostname;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable GatewayRouteSpecHttpRouteMatchPath path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder queryParameters(@Nullable List<GatewayRouteSpecHttpRouteMatchQueryParameter> queryParameters) {
+
             this.queryParameters = queryParameters;
             return this;
         }
@@ -155,14 +161,14 @@ public final class GatewayRouteSpecHttpRouteMatch {
             return queryParameters(List.of(queryParameters));
         }
         public GatewayRouteSpecHttpRouteMatch build() {
-            final var o = new GatewayRouteSpecHttpRouteMatch();
-            o.headers = headers;
-            o.hostname = hostname;
-            o.path = path;
-            o.port = port;
-            o.prefix = prefix;
-            o.queryParameters = queryParameters;
-            return o;
+            final var _resultValue = new GatewayRouteSpecHttpRouteMatch();
+            _resultValue.headers = headers;
+            _resultValue.hostname = hostname;
+            _resultValue.path = path;
+            _resultValue.port = port;
+            _resultValue.prefix = prefix;
+            _resultValue.queryParameters = queryParameters;
+            return _resultValue;
         }
     }
 }

@@ -11,14 +11,17 @@ import * as utilities from "../utilities";
  * Provides a CloudWatch Evidently Feature resource.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Feature("example", {
- *     project: aws_evidently_project.example.name,
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
  *     description: "example description",
  *     variations: [{
  *         name: "Variation1",
@@ -31,14 +34,18 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With default variation
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Feature("example", {
- *     project: aws_evidently_project.example.name,
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
  *     defaultVariation: "Variation2",
  *     variations: [
  *         {
@@ -56,14 +63,18 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With entity overrides
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Feature("example", {
- *     project: aws_evidently_project.example.name,
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
  *     entityOverrides: {
  *         test1: "Variation1",
  *     },
@@ -83,14 +94,18 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With evaluation strategy
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Feature("example", {
- *     project: aws_evidently_project.example.name,
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
  *     evaluationStrategy: "ALL_RULES",
  *     entityOverrides: {
  *         test1: "Variation1",
@@ -103,13 +118,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CloudWatch Evidently Feature using the feature `name` and `name` or `arn` of the hosting CloudWatch Evidently Project separated by a `:`. For example:
  *
  * ```sh
- *  $ pulumi import aws:evidently/feature:Feature example exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example
+ * $ pulumi import aws:evidently/feature:Feature example exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example
  * ```
  */
 export class Feature extends pulumi.CustomResource {
@@ -256,8 +272,6 @@ export class Feature extends pulumi.CustomResource {
             resourceInputs["valueType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Feature.__pulumiType, name, resourceInputs, opts);
     }
 }

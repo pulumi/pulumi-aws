@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CloudFormation
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,25 +25,26 @@ namespace Pulumi.Aws.CloudFormation
     /// {
     ///     var example = new Aws.CloudFormation.CloudFormationType("example", new()
     ///     {
-    ///         SchemaHandlerPackage = $"s3://{aws_s3_object.Example.Bucket}/{aws_s3_object.Example.Key}",
+    ///         SchemaHandlerPackage = $"s3://{exampleAwsS3Object.Bucket}/{exampleAwsS3Object.Key}",
     ///         Type = "RESOURCE",
     ///         TypeName = "ExampleCompany::ExampleService::ExampleResource",
     ///         LoggingConfig = new Aws.CloudFormation.Inputs.CloudFormationTypeLoggingConfigArgs
     ///         {
-    ///             LogGroupName = aws_cloudwatch_log_group.Example.Name,
-    ///             LogRoleArn = aws_iam_role.Example.Arn,
+    ///             LogGroupName = exampleAwsCloudwatchLogGroup.Name,
+    ///             LogRoleArn = exampleAwsIamRole.Arn,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_cloudformation_type` using the type version Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudformation/cloudFormationType:CloudFormationType example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
+    /// $ pulumi import aws:cloudformation/cloudFormationType:CloudFormationType example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudformation/cloudFormationType:CloudFormationType")]

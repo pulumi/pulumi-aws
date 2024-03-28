@@ -58,19 +58,21 @@ public final class RoleInlinePolicy {
 
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder policy(@Nullable String policy) {
+
             this.policy = policy;
             return this;
         }
         public RoleInlinePolicy build() {
-            final var o = new RoleInlinePolicy();
-            o.name = name;
-            o.policy = policy;
-            return o;
+            final var _resultValue = new RoleInlinePolicy();
+            _resultValue.name = name;
+            _resultValue.policy = policy;
+            return _resultValue;
         }
     }
 }

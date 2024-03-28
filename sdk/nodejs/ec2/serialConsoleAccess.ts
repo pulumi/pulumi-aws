@@ -11,19 +11,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.SerialConsoleAccess("example", {enabled: true});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import serial console access state. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
+ * $ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
  * ```
  */
 export class SerialConsoleAccess extends pulumi.CustomResource {

@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -42,7 +43,10 @@ public final class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMap
 
         @CustomType.Setter
         public Builder inputChannelLevels(List<ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel> inputChannelLevels) {
-            this.inputChannelLevels = Objects.requireNonNull(inputChannelLevels);
+            if (inputChannelLevels == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping", "inputChannelLevels");
+            }
+            this.inputChannelLevels = inputChannelLevels;
             return this;
         }
         public Builder inputChannelLevels(ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel... inputChannelLevels) {
@@ -50,14 +54,17 @@ public final class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMap
         }
         @CustomType.Setter
         public Builder outputChannel(Integer outputChannel) {
-            this.outputChannel = Objects.requireNonNull(outputChannel);
+            if (outputChannel == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping", "outputChannel");
+            }
+            this.outputChannel = outputChannel;
             return this;
         }
         public ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping build() {
-            final var o = new ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping();
-            o.inputChannelLevels = inputChannelLevels;
-            o.outputChannel = outputChannel;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping();
+            _resultValue.inputChannelLevels = inputChannelLevels;
+            _resultValue.outputChannel = outputChannel;
+            return _resultValue;
         }
     }
 }

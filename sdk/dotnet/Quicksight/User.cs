@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,16 +25,17 @@ namespace Pulumi.Aws.Quicksight
     /// {
     ///     var example = new Aws.Quicksight.User("example", new()
     ///     {
-    ///         Email = "author@example.com",
-    ///         IamArn = "arn:aws:iam::123456789012:user/Example",
-    ///         IdentityType = "IAM",
-    ///         Namespace = "foo",
     ///         SessionName = "an-author",
+    ///         Email = "author@example.com",
+    ///         Namespace = "foo",
+    ///         IdentityType = "IAM",
+    ///         IamArn = "arn:aws:iam::123456789012:user/Example",
     ///         UserRole = "AUTHOR",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

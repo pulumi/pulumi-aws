@@ -13,8 +13,10 @@ namespace Pulumi.Aws.NetworkFirewall
     /// Provides an AWS Network Firewall Resource Policy Resource for a rule group or firewall policy.
     /// 
     /// ## Example Usage
+    /// 
     /// ### For a Firewall Policy resource
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,36 +28,39 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.ResourcePolicy("example", new()
     ///     {
-    ///         ResourceArn = aws_networkfirewall_firewall_policy.Example.Arn,
+    ///         ResourceArn = exampleAwsNetworkfirewallFirewallPolicy.Arn,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Statement"] = new[]
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "network-firewall:ListFirewallPolicies",
     ///                         "network-firewall:CreateFirewall",
     ///                         "network-firewall:UpdateFirewall",
     ///                         "network-firewall:AssociateFirewallPolicy",
     ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = aws_networkfirewall_firewall_policy.Example.Arn,
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["effect"] = "Allow",
+    ///                     ["resource"] = exampleAwsNetworkfirewallFirewallPolicy.Arn,
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["AWS"] = "arn:aws:iam::123456789012:root",
     ///                     },
     ///                 },
     ///             },
-    ///             ["Version"] = "2012-10-17",
+    ///             ["version"] = "2012-10-17",
     ///         }),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### For a Rule Group resource
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -67,40 +72,40 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.ResourcePolicy("example", new()
     ///     {
-    ///         ResourceArn = aws_networkfirewall_rule_group.Example.Arn,
+    ///         ResourceArn = exampleAwsNetworkfirewallRuleGroup.Arn,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Statement"] = new[]
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "network-firewall:ListRuleGroups",
     ///                         "network-firewall:CreateFirewallPolicy",
     ///                         "network-firewall:UpdateFirewallPolicy",
     ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = aws_networkfirewall_rule_group.Example.Arn,
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["effect"] = "Allow",
+    ///                     ["resource"] = exampleAwsNetworkfirewallRuleGroup.Arn,
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["AWS"] = "arn:aws:iam::123456789012:root",
     ///                     },
     ///                 },
     ///             },
-    ///             ["Version"] = "2012-10-17",
+    ///             ["version"] = "2012-10-17",
     ///         }),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Network Firewall Resource Policies using the `resource_arn`. For example:
-    /// 
+    /// Using `pulumi import`, import Network Firewall Resource Policies using the `resource arn`. For example:
     /// ```sh
-    ///  $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+    /// $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkfirewall/resourcePolicy:ResourcePolicy")]

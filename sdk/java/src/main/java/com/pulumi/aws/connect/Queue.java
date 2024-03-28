@@ -23,7 +23,10 @@ import javax.annotation.Nullable;
  * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,16 +49,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Queue(&#34;test&#34;, QueueArgs.builder()        
+ *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *             .name(&#34;Example Name&#34;)
  *             .description(&#34;Example Description&#34;)
  *             .hoursOfOperationId(&#34;12345678-1234-1234-1234-123456789012&#34;)
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;Example Queue&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With Quick Connect IDs
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -78,9 +86,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Queue(&#34;test&#34;, QueueArgs.builder()        
+ *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *             .name(&#34;Example Name&#34;)
  *             .description(&#34;Example Description&#34;)
  *             .hoursOfOperationId(&#34;12345678-1234-1234-1234-123456789012&#34;)
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
  *             .quickConnectIds(&#34;12345678-abcd-1234-abcd-123456789012&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;Example Queue with Quick Connect IDs&#34;))
  *             .build());
@@ -88,7 +97,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With Outbound Caller Config
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -112,9 +125,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Queue(&#34;test&#34;, QueueArgs.builder()        
+ *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *             .name(&#34;Example Name&#34;)
  *             .description(&#34;Example Description&#34;)
  *             .hoursOfOperationId(&#34;12345678-1234-1234-1234-123456789012&#34;)
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
  *             .outboundCallerConfig(QueueOutboundCallerConfigArgs.builder()
  *                 .outboundCallerIdName(&#34;example&#34;)
  *                 .outboundCallerIdNumberId(&#34;12345678-abcd-1234-abcd-123456789012&#34;)
@@ -126,13 +140,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Amazon Connect Queues using the `instance_id` and `queue_id` separated by a colon (`:`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:connect/queue:Queue example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+ * $ pulumi import aws:connect/queue:Queue example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
  * ```
  * 
  */
@@ -343,9 +358,6 @@ public class Queue extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

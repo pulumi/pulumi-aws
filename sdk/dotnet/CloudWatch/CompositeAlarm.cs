@@ -16,6 +16,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,10 +29,10 @@ namespace Pulumi.Aws.CloudWatch
     ///     {
     ///         AlarmDescription = "This is a composite alarm!",
     ///         AlarmName = "example-composite-alarm",
-    ///         AlarmActions = aws_sns_topic.Example.Arn,
-    ///         OkActions = aws_sns_topic.Example.Arn,
-    ///         AlarmRule = @$"ALARM({aws_cloudwatch_metric_alarm.Alpha.Alarm_name}) OR
-    /// ALARM({aws_cloudwatch_metric_alarm.Bravo.Alarm_name})
+    ///         AlarmActions = exampleAwsSnsTopic.Arn,
+    ///         OkActions = exampleAwsSnsTopic.Arn,
+    ///         AlarmRule = @$"ALARM({alpha.AlarmName}) OR
+    /// ALARM({bravo.AlarmName})
     /// ",
     ///         ActionsSuppressor = new Aws.CloudWatch.Inputs.CompositeAlarmActionsSuppressorArgs
     ///         {
@@ -43,13 +44,14 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
+    /// $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/compositeAlarm:CompositeAlarm")]
@@ -144,10 +146,6 @@ namespace Pulumi.Aws.CloudWatch
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -351,11 +349,7 @@ namespace Pulumi.Aws.CloudWatch
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public CompositeAlarmState()

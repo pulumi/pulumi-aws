@@ -16,10 +16,9 @@ namespace Pulumi.Aws.CloudWatch
         /// 
         /// &gt; For more information about data protection policies, see the [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,7 +27,7 @@ namespace Pulumi.Aws.CloudWatch
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleLogDataProtectionPolicyDocument = Aws.CloudWatch.GetLogDataProtectionPolicyDocument.Invoke(new()
+        ///     var example = Aws.CloudWatch.GetLogDataProtectionPolicyDocument.Invoke(new()
         ///     {
         ///         Name = "Example",
         ///         Statements = new[]
@@ -49,15 +48,15 @@ namespace Pulumi.Aws.CloudWatch
         ///                         {
         ///                             CloudwatchLogs = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsInputArgs
         ///                             {
-        ///                                 LogGroup = aws_cloudwatch_log_group.Audit.Name,
+        ///                                 LogGroup = audit.Name,
         ///                             },
         ///                             Firehose = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseInputArgs
         ///                             {
-        ///                                 DeliveryStream = aws_kinesis_firehose_delivery_stream.Audit.Name,
+        ///                                 DeliveryStream = auditAwsKinesisFirehoseDeliveryStream.Name,
         ///                             },
         ///                             S3 = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3InputArgs
         ///                             {
-        ///                                 Bucket = aws_s3_bucket.Audit.Bucket,
+        ///                                 Bucket = auditAwsS3Bucket.Bucket,
         ///                             },
         ///                         },
         ///                     },
@@ -82,16 +81,15 @@ namespace Pulumi.Aws.CloudWatch
         ///         },
         ///     });
         /// 
-        ///     var exampleLogDataProtectionPolicy = new Aws.CloudWatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy", new()
+        ///     var exampleLogDataProtectionPolicy = new Aws.CloudWatch.LogDataProtectionPolicy("example", new()
         ///     {
-        ///         LogGroupName = aws_cloudwatch_log_group.Example.Name,
-        ///         PolicyDocument = exampleLogDataProtectionPolicyDocument.Apply(getLogDataProtectionPolicyDocumentResult =&gt; getLogDataProtectionPolicyDocumentResult.Json),
+        ///         LogGroupName = exampleAwsCloudwatchLogGroup.Name,
+        ///         PolicyDocument = example.Apply(getLogDataProtectionPolicyDocumentResult =&gt; getLogDataProtectionPolicyDocumentResult.Json),
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLogDataProtectionPolicyDocumentResult> InvokeAsync(GetLogDataProtectionPolicyDocumentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogDataProtectionPolicyDocumentResult>("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", args ?? new GetLogDataProtectionPolicyDocumentArgs(), options.WithDefaults());
@@ -101,10 +99,9 @@ namespace Pulumi.Aws.CloudWatch
         /// 
         /// &gt; For more information about data protection policies, see the [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -113,7 +110,7 @@ namespace Pulumi.Aws.CloudWatch
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleLogDataProtectionPolicyDocument = Aws.CloudWatch.GetLogDataProtectionPolicyDocument.Invoke(new()
+        ///     var example = Aws.CloudWatch.GetLogDataProtectionPolicyDocument.Invoke(new()
         ///     {
         ///         Name = "Example",
         ///         Statements = new[]
@@ -134,15 +131,15 @@ namespace Pulumi.Aws.CloudWatch
         ///                         {
         ///                             CloudwatchLogs = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsInputArgs
         ///                             {
-        ///                                 LogGroup = aws_cloudwatch_log_group.Audit.Name,
+        ///                                 LogGroup = audit.Name,
         ///                             },
         ///                             Firehose = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseInputArgs
         ///                             {
-        ///                                 DeliveryStream = aws_kinesis_firehose_delivery_stream.Audit.Name,
+        ///                                 DeliveryStream = auditAwsKinesisFirehoseDeliveryStream.Name,
         ///                             },
         ///                             S3 = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3InputArgs
         ///                             {
-        ///                                 Bucket = aws_s3_bucket.Audit.Bucket,
+        ///                                 Bucket = auditAwsS3Bucket.Bucket,
         ///                             },
         ///                         },
         ///                     },
@@ -167,16 +164,15 @@ namespace Pulumi.Aws.CloudWatch
         ///         },
         ///     });
         /// 
-        ///     var exampleLogDataProtectionPolicy = new Aws.CloudWatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy", new()
+        ///     var exampleLogDataProtectionPolicy = new Aws.CloudWatch.LogDataProtectionPolicy("example", new()
         ///     {
-        ///         LogGroupName = aws_cloudwatch_log_group.Example.Name,
-        ///         PolicyDocument = exampleLogDataProtectionPolicyDocument.Apply(getLogDataProtectionPolicyDocumentResult =&gt; getLogDataProtectionPolicyDocumentResult.Json),
+        ///         LogGroupName = exampleAwsCloudwatchLogGroup.Name,
+        ///         PolicyDocument = example.Apply(getLogDataProtectionPolicyDocumentResult =&gt; getLogDataProtectionPolicyDocumentResult.Json),
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLogDataProtectionPolicyDocumentResult> Invoke(GetLogDataProtectionPolicyDocumentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogDataProtectionPolicyDocumentResult>("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", args ?? new GetLogDataProtectionPolicyDocumentInvokeArgs(), options.WithDefaults());

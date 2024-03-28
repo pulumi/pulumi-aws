@@ -73,25 +73,28 @@ public final class CatalogTableStorageDescriptorSerDeInfo {
 
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
+
             this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
         public Builder serializationLibrary(@Nullable String serializationLibrary) {
+
             this.serializationLibrary = serializationLibrary;
             return this;
         }
         public CatalogTableStorageDescriptorSerDeInfo build() {
-            final var o = new CatalogTableStorageDescriptorSerDeInfo();
-            o.name = name;
-            o.parameters = parameters;
-            o.serializationLibrary = serializationLibrary;
-            return o;
+            final var _resultValue = new CatalogTableStorageDescriptorSerDeInfo();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.serializationLibrary = serializationLibrary;
+            return _resultValue;
         }
     }
 }

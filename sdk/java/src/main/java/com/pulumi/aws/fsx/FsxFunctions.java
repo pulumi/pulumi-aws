@@ -30,7 +30,10 @@ public final class FsxFunctions {
      * Retrieve information on FSx ONTAP File System.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -59,6 +62,7 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOntapFileSystemResult> getOntapFileSystem(GetOntapFileSystemArgs args) {
@@ -68,7 +72,10 @@ public final class FsxFunctions {
      * Retrieve information on FSx ONTAP File System.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -97,6 +104,7 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOntapFileSystemResult> getOntapFileSystemPlain(GetOntapFileSystemPlainArgs args) {
@@ -106,7 +114,10 @@ public final class FsxFunctions {
      * Retrieve information on FSx ONTAP File System.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -135,6 +146,7 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOntapFileSystemResult> getOntapFileSystem(GetOntapFileSystemArgs args, InvokeOptions options) {
@@ -144,7 +156,10 @@ public final class FsxFunctions {
      * Retrieve information on FSx ONTAP File System.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -173,6 +188,7 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOntapFileSystemResult> getOntapFileSystemPlain(GetOntapFileSystemPlainArgs args, InvokeOptions options) {
@@ -182,7 +198,10 @@ public final class FsxFunctions {
      * Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -211,7 +230,11 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter Example
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -243,6 +266,7 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOntapStorageVirtualMachineResult> getOntapStorageVirtualMachine() {
@@ -252,7 +276,10 @@ public final class FsxFunctions {
      * Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -281,7 +308,11 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter Example
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -313,6 +344,7 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOntapStorageVirtualMachineResult> getOntapStorageVirtualMachinePlain() {
@@ -322,7 +354,10 @@ public final class FsxFunctions {
      * Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -351,7 +386,11 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter Example
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -383,6 +422,7 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOntapStorageVirtualMachineResult> getOntapStorageVirtualMachine(GetOntapStorageVirtualMachineArgs args) {
@@ -392,7 +432,10 @@ public final class FsxFunctions {
      * Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -421,7 +464,11 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter Example
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -453,6 +500,7 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOntapStorageVirtualMachineResult> getOntapStorageVirtualMachinePlain(GetOntapStorageVirtualMachinePlainArgs args) {
@@ -462,7 +510,10 @@ public final class FsxFunctions {
      * Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -491,7 +542,11 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter Example
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -523,6 +578,7 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOntapStorageVirtualMachineResult> getOntapStorageVirtualMachine(GetOntapStorageVirtualMachineArgs args, InvokeOptions options) {
@@ -532,7 +588,10 @@ public final class FsxFunctions {
      * Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -561,7 +620,11 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter Example
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -593,6 +656,7 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOntapStorageVirtualMachineResult> getOntapStorageVirtualMachinePlain(GetOntapStorageVirtualMachinePlainArgs args, InvokeOptions options) {
@@ -604,6 +668,8 @@ public final class FsxFunctions {
      * ## Example Usage
      * 
      * The following shows outputting all SVM IDs for a given FSx ONTAP File System.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -635,6 +701,7 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOntapStorageVirtualMachinesResult> getOntapStorageVirtualMachines() {
@@ -646,6 +713,8 @@ public final class FsxFunctions {
      * ## Example Usage
      * 
      * The following shows outputting all SVM IDs for a given FSx ONTAP File System.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -677,6 +746,7 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOntapStorageVirtualMachinesResult> getOntapStorageVirtualMachinesPlain() {
@@ -688,6 +758,8 @@ public final class FsxFunctions {
      * ## Example Usage
      * 
      * The following shows outputting all SVM IDs for a given FSx ONTAP File System.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -719,6 +791,7 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOntapStorageVirtualMachinesResult> getOntapStorageVirtualMachines(GetOntapStorageVirtualMachinesArgs args) {
@@ -730,6 +803,8 @@ public final class FsxFunctions {
      * ## Example Usage
      * 
      * The following shows outputting all SVM IDs for a given FSx ONTAP File System.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -761,6 +836,7 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOntapStorageVirtualMachinesResult> getOntapStorageVirtualMachinesPlain(GetOntapStorageVirtualMachinesPlainArgs args) {
@@ -772,6 +848,8 @@ public final class FsxFunctions {
      * ## Example Usage
      * 
      * The following shows outputting all SVM IDs for a given FSx ONTAP File System.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -803,6 +881,7 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOntapStorageVirtualMachinesResult> getOntapStorageVirtualMachines(GetOntapStorageVirtualMachinesArgs args, InvokeOptions options) {
@@ -814,6 +893,8 @@ public final class FsxFunctions {
      * ## Example Usage
      * 
      * The following shows outputting all SVM IDs for a given FSx ONTAP File System.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -845,6 +926,7 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOntapStorageVirtualMachinesResult> getOntapStorageVirtualMachinesPlain(GetOntapStorageVirtualMachinesPlainArgs args, InvokeOptions options) {
@@ -854,7 +936,10 @@ public final class FsxFunctions {
      * Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
      * 
      * ## Example Usage
+     * 
      * ### Root volume Example
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -877,16 +962,17 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOpenZfsSnapshot(GetOpenZfsSnapshotArgs.builder()
+     *             .mostRecent(true)
      *             .filters(GetOpenZfsSnapshotFilterArgs.builder()
      *                 .name(&#34;volume-id&#34;)
      *                 .values(&#34;fsvol-073a32b6098a73feb&#34;)
      *                 .build())
-     *             .mostRecent(true)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOpenZfsSnapshotResult> getOpenZfsSnapshot() {
@@ -896,7 +982,10 @@ public final class FsxFunctions {
      * Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
      * 
      * ## Example Usage
+     * 
      * ### Root volume Example
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -919,16 +1008,17 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOpenZfsSnapshot(GetOpenZfsSnapshotArgs.builder()
+     *             .mostRecent(true)
      *             .filters(GetOpenZfsSnapshotFilterArgs.builder()
      *                 .name(&#34;volume-id&#34;)
      *                 .values(&#34;fsvol-073a32b6098a73feb&#34;)
      *                 .build())
-     *             .mostRecent(true)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOpenZfsSnapshotResult> getOpenZfsSnapshotPlain() {
@@ -938,7 +1028,10 @@ public final class FsxFunctions {
      * Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
      * 
      * ## Example Usage
+     * 
      * ### Root volume Example
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -961,16 +1054,17 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOpenZfsSnapshot(GetOpenZfsSnapshotArgs.builder()
+     *             .mostRecent(true)
      *             .filters(GetOpenZfsSnapshotFilterArgs.builder()
      *                 .name(&#34;volume-id&#34;)
      *                 .values(&#34;fsvol-073a32b6098a73feb&#34;)
      *                 .build())
-     *             .mostRecent(true)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOpenZfsSnapshotResult> getOpenZfsSnapshot(GetOpenZfsSnapshotArgs args) {
@@ -980,7 +1074,10 @@ public final class FsxFunctions {
      * Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
      * 
      * ## Example Usage
+     * 
      * ### Root volume Example
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1003,16 +1100,17 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOpenZfsSnapshot(GetOpenZfsSnapshotArgs.builder()
+     *             .mostRecent(true)
      *             .filters(GetOpenZfsSnapshotFilterArgs.builder()
      *                 .name(&#34;volume-id&#34;)
      *                 .values(&#34;fsvol-073a32b6098a73feb&#34;)
      *                 .build())
-     *             .mostRecent(true)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOpenZfsSnapshotResult> getOpenZfsSnapshotPlain(GetOpenZfsSnapshotPlainArgs args) {
@@ -1022,7 +1120,10 @@ public final class FsxFunctions {
      * Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
      * 
      * ## Example Usage
+     * 
      * ### Root volume Example
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1045,16 +1146,17 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOpenZfsSnapshot(GetOpenZfsSnapshotArgs.builder()
+     *             .mostRecent(true)
      *             .filters(GetOpenZfsSnapshotFilterArgs.builder()
      *                 .name(&#34;volume-id&#34;)
      *                 .values(&#34;fsvol-073a32b6098a73feb&#34;)
      *                 .build())
-     *             .mostRecent(true)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOpenZfsSnapshotResult> getOpenZfsSnapshot(GetOpenZfsSnapshotArgs args, InvokeOptions options) {
@@ -1064,7 +1166,10 @@ public final class FsxFunctions {
      * Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
      * 
      * ## Example Usage
+     * 
      * ### Root volume Example
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1087,16 +1192,17 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOpenZfsSnapshot(GetOpenZfsSnapshotArgs.builder()
+     *             .mostRecent(true)
      *             .filters(GetOpenZfsSnapshotFilterArgs.builder()
      *                 .name(&#34;volume-id&#34;)
      *                 .values(&#34;fsvol-073a32b6098a73feb&#34;)
      *                 .build())
-     *             .mostRecent(true)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOpenZfsSnapshotResult> getOpenZfsSnapshotPlain(GetOpenZfsSnapshotPlainArgs args, InvokeOptions options) {
@@ -1106,7 +1212,10 @@ public final class FsxFunctions {
      * Retrieve information on FSx Windows File System.
      * 
      * ## Example Usage
+     * 
      * ### Root volume Example
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1135,6 +1244,7 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWindowsFileSystemResult> getWindowsFileSystem(GetWindowsFileSystemArgs args) {
@@ -1144,7 +1254,10 @@ public final class FsxFunctions {
      * Retrieve information on FSx Windows File System.
      * 
      * ## Example Usage
+     * 
      * ### Root volume Example
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1173,6 +1286,7 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWindowsFileSystemResult> getWindowsFileSystemPlain(GetWindowsFileSystemPlainArgs args) {
@@ -1182,7 +1296,10 @@ public final class FsxFunctions {
      * Retrieve information on FSx Windows File System.
      * 
      * ## Example Usage
+     * 
      * ### Root volume Example
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1211,6 +1328,7 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWindowsFileSystemResult> getWindowsFileSystem(GetWindowsFileSystemArgs args, InvokeOptions options) {
@@ -1220,7 +1338,10 @@ public final class FsxFunctions {
      * Retrieve information on FSx Windows File System.
      * 
      * ## Example Usage
+     * 
      * ### Root volume Example
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1249,6 +1370,7 @@ public final class FsxFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWindowsFileSystemResult> getWindowsFileSystemPlain(GetWindowsFileSystemPlainArgs args, InvokeOptions options) {

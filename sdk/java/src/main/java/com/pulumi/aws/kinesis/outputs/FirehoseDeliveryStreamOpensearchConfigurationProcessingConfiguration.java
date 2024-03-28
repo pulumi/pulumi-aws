@@ -19,7 +19,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationProcessingConfig
      */
     private @Nullable Boolean enabled;
     /**
-     * @return Array of data processors. More details are given below
+     * @return Specifies the data processors as multiple blocks. See `processors` block below for details.
      * 
      */
     private @Nullable List<FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor> processors;
@@ -33,7 +33,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationProcessingConfig
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return Array of data processors. More details are given below
+     * @return Specifies the data processors as multiple blocks. See `processors` block below for details.
      * 
      */
     public List<FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor> processors() {
@@ -60,11 +60,13 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationProcessingConfig
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder processors(@Nullable List<FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor> processors) {
+
             this.processors = processors;
             return this;
         }
@@ -72,10 +74,10 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationProcessingConfig
             return processors(List.of(processors));
         }
         public FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration build() {
-            final var o = new FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration();
-            o.enabled = enabled;
-            o.processors = processors;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.processors = processors;
+            return _resultValue;
         }
     }
 }

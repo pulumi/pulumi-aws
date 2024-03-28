@@ -13,8 +13,10 @@ namespace Pulumi.Aws.OpenSearch
     /// Manages an AWS Opensearch Package Association.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,8 +25,9 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myDomain = new Aws.OpenSearch.Domain("myDomain", new()
+    ///     var myDomain = new Aws.OpenSearch.Domain("my_domain", new()
     ///     {
+    ///         DomainName = "my-opensearch-domain",
     ///         EngineVersion = "Elasticsearch_7.10",
     ///         ClusterConfig = new Aws.OpenSearch.Inputs.DomainClusterConfigArgs
     ///         {
@@ -32,25 +35,26 @@ namespace Pulumi.Aws.OpenSearch
     ///         },
     ///     });
     /// 
-    ///     var examplePackage = new Aws.OpenSearch.Package("examplePackage", new()
+    ///     var example = new Aws.OpenSearch.Package("example", new()
     ///     {
     ///         PackageName = "example-txt",
     ///         PackageSource = new Aws.OpenSearch.Inputs.PackagePackageSourceArgs
     ///         {
-    ///             S3BucketName = aws_s3_bucket.My_opensearch_packages.Bucket,
-    ///             S3Key = aws_s3_object.Example.Key,
+    ///             S3BucketName = myOpensearchPackages.Bucket,
+    ///             S3Key = exampleAwsS3Object.Key,
     ///         },
     ///         PackageType = "TXT-DICTIONARY",
     ///     });
     /// 
-    ///     var examplePackageAssociation = new Aws.OpenSearch.PackageAssociation("examplePackageAssociation", new()
+    ///     var examplePackageAssociation = new Aws.OpenSearch.PackageAssociation("example", new()
     ///     {
-    ///         PackageId = examplePackage.Id,
+    ///         PackageId = example.Id,
     ///         DomainName = myDomain.DomainName,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:opensearch/packageAssociation:PackageAssociation")]
     public partial class PackageAssociation : global::Pulumi.CustomResource

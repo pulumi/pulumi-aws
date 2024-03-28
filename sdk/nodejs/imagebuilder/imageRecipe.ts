@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,7 +27,7 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  *     components: [{
- *         componentArn: aws_imagebuilder_component.example.arn,
+ *         componentArn: exampleAwsImagebuilderComponent.arn,
  *         parameters: [
  *             {
  *                 name: "Parameter1",
@@ -38,17 +39,19 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     }],
- *     parentImage: `arn:${data.aws_partition.current.partition}:imagebuilder:${data.aws_region.current.name}:aws:image/amazon-linux-2-x86/x.x.x`,
+ *     name: "example",
+ *     parentImage: `arn:${current.partition}:imagebuilder:${currentAwsRegion.name}:aws:image/amazon-linux-2-x86/x.x.x`,
  *     version: "1.0.0",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_imagebuilder_image_recipe` resources using the Amazon Resource Name (ARN). For example:
  *
  * ```sh
- *  $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
+ * $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
  * ```
  */
 export class ImageRecipe extends pulumi.CustomResource {
@@ -200,8 +203,6 @@ export class ImageRecipe extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ImageRecipe.__pulumiType, name, resourceInputs, opts);
     }
 }

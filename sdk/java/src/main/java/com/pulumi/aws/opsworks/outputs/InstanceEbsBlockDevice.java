@@ -4,6 +4,7 @@
 package com.pulumi.aws.opsworks.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -68,43 +69,51 @@ public final class InstanceEbsBlockDevice {
 
         @CustomType.Setter
         public Builder deleteOnTermination(@Nullable Boolean deleteOnTermination) {
+
             this.deleteOnTermination = deleteOnTermination;
             return this;
         }
         @CustomType.Setter
         public Builder deviceName(String deviceName) {
-            this.deviceName = Objects.requireNonNull(deviceName);
+            if (deviceName == null) {
+              throw new MissingRequiredPropertyException("InstanceEbsBlockDevice", "deviceName");
+            }
+            this.deviceName = deviceName;
             return this;
         }
         @CustomType.Setter
         public Builder iops(@Nullable Integer iops) {
+
             this.iops = iops;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotId(@Nullable String snapshotId) {
+
             this.snapshotId = snapshotId;
             return this;
         }
         @CustomType.Setter
         public Builder volumeSize(@Nullable Integer volumeSize) {
+
             this.volumeSize = volumeSize;
             return this;
         }
         @CustomType.Setter
         public Builder volumeType(@Nullable String volumeType) {
+
             this.volumeType = volumeType;
             return this;
         }
         public InstanceEbsBlockDevice build() {
-            final var o = new InstanceEbsBlockDevice();
-            o.deleteOnTermination = deleteOnTermination;
-            o.deviceName = deviceName;
-            o.iops = iops;
-            o.snapshotId = snapshotId;
-            o.volumeSize = volumeSize;
-            o.volumeType = volumeType;
-            return o;
+            final var _resultValue = new InstanceEbsBlockDevice();
+            _resultValue.deleteOnTermination = deleteOnTermination;
+            _resultValue.deviceName = deviceName;
+            _resultValue.iops = iops;
+            _resultValue.snapshotId = snapshotId;
+            _resultValue.volumeSize = volumeSize;
+            _resultValue.volumeType = volumeType;
+            return _resultValue;
         }
     }
 }

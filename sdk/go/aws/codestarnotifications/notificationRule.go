@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,7 +37,9 @@ import (
 // if err != nil {
 // return err
 // }
-// notif, err := sns.NewTopic(ctx, "notif", nil)
+// notif, err := sns.NewTopic(ctx, "notif", &sns.TopicArgs{
+// Name: pulumi.String("notification"),
+// })
 // if err != nil {
 // return err
 // }
@@ -76,6 +79,7 @@ import (
 // EventTypeIds: pulumi.StringArray{
 // pulumi.String("codecommit-repository-comments-on-commits"),
 // },
+// Name: pulumi.String("example-code-repo-commits"),
 // Resource: code.Arn,
 // Targets: codestarnotifications.NotificationRuleTargetArray{
 // &codestarnotifications.NotificationRuleTargetArgs{
@@ -90,15 +94,14 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CodeStar notification rule using the ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
-//
+// $ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
 // ```
 type NotificationRule struct {
 	pulumi.CustomResourceState
@@ -142,10 +145,6 @@ func NewNotificationRule(ctx *pulumi.Context,
 	if args.Resource == nil {
 		return nil, errors.New("invalid value for required argument 'Resource'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NotificationRule
 	err := ctx.RegisterResource("aws:codestarnotifications/notificationRule:NotificationRule", name, args, &resource, opts...)

@@ -4,6 +4,7 @@
 package com.pulumi.aws.appconfig.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -73,25 +74,30 @@ public final class ExtensionParameter {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ExtensionParameter", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder required(@Nullable Boolean required) {
+
             this.required = required;
             return this;
         }
         public ExtensionParameter build() {
-            final var o = new ExtensionParameter();
-            o.description = description;
-            o.name = name;
-            o.required = required;
-            return o;
+            final var _resultValue = new ExtensionParameter();
+            _resultValue.description = description;
+            _resultValue.name = name;
+            _resultValue.required = required;
+            return _resultValue;
         }
     }
 }

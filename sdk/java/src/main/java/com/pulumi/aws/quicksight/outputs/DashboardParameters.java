@@ -89,6 +89,7 @@ public final class DashboardParameters {
 
         @CustomType.Setter
         public Builder dateTimeParameters(@Nullable List<DashboardParametersDateTimeParameter> dateTimeParameters) {
+
             this.dateTimeParameters = dateTimeParameters;
             return this;
         }
@@ -97,6 +98,7 @@ public final class DashboardParameters {
         }
         @CustomType.Setter
         public Builder decimalParameters(@Nullable List<DashboardParametersDecimalParameter> decimalParameters) {
+
             this.decimalParameters = decimalParameters;
             return this;
         }
@@ -105,6 +107,7 @@ public final class DashboardParameters {
         }
         @CustomType.Setter
         public Builder integerParameters(@Nullable List<DashboardParametersIntegerParameter> integerParameters) {
+
             this.integerParameters = integerParameters;
             return this;
         }
@@ -113,6 +116,7 @@ public final class DashboardParameters {
         }
         @CustomType.Setter
         public Builder stringParameters(@Nullable List<DashboardParametersStringParameter> stringParameters) {
+
             this.stringParameters = stringParameters;
             return this;
         }
@@ -120,12 +124,12 @@ public final class DashboardParameters {
             return stringParameters(List.of(stringParameters));
         }
         public DashboardParameters build() {
-            final var o = new DashboardParameters();
-            o.dateTimeParameters = dateTimeParameters;
-            o.decimalParameters = decimalParameters;
-            o.integerParameters = integerParameters;
-            o.stringParameters = stringParameters;
-            return o;
+            final var _resultValue = new DashboardParameters();
+            _resultValue.dateTimeParameters = dateTimeParameters;
+            _resultValue.decimalParameters = decimalParameters;
+            _resultValue.integerParameters = integerParameters;
+            _resultValue.stringParameters = stringParameters;
+            return _resultValue;
         }
     }
 }

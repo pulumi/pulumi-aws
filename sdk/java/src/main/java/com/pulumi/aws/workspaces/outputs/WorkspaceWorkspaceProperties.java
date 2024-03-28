@@ -101,37 +101,42 @@ public final class WorkspaceWorkspaceProperties {
 
         @CustomType.Setter
         public Builder computeTypeName(@Nullable String computeTypeName) {
+
             this.computeTypeName = computeTypeName;
             return this;
         }
         @CustomType.Setter
         public Builder rootVolumeSizeGib(@Nullable Integer rootVolumeSizeGib) {
+
             this.rootVolumeSizeGib = rootVolumeSizeGib;
             return this;
         }
         @CustomType.Setter
         public Builder runningMode(@Nullable String runningMode) {
+
             this.runningMode = runningMode;
             return this;
         }
         @CustomType.Setter
         public Builder runningModeAutoStopTimeoutInMinutes(@Nullable Integer runningModeAutoStopTimeoutInMinutes) {
+
             this.runningModeAutoStopTimeoutInMinutes = runningModeAutoStopTimeoutInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder userVolumeSizeGib(@Nullable Integer userVolumeSizeGib) {
+
             this.userVolumeSizeGib = userVolumeSizeGib;
             return this;
         }
         public WorkspaceWorkspaceProperties build() {
-            final var o = new WorkspaceWorkspaceProperties();
-            o.computeTypeName = computeTypeName;
-            o.rootVolumeSizeGib = rootVolumeSizeGib;
-            o.runningMode = runningMode;
-            o.runningModeAutoStopTimeoutInMinutes = runningModeAutoStopTimeoutInMinutes;
-            o.userVolumeSizeGib = userVolumeSizeGib;
-            return o;
+            final var _resultValue = new WorkspaceWorkspaceProperties();
+            _resultValue.computeTypeName = computeTypeName;
+            _resultValue.rootVolumeSizeGib = rootVolumeSizeGib;
+            _resultValue.runningMode = runningMode;
+            _resultValue.runningModeAutoStopTimeoutInMinutes = runningModeAutoStopTimeoutInMinutes;
+            _resultValue.userVolumeSizeGib = userVolumeSizeGib;
+            return _resultValue;
         }
     }
 }

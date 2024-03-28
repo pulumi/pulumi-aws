@@ -7,6 +7,7 @@ import com.pulumi.aws.transfer.inputs.ConnectorAs2ConfigArgs;
 import com.pulumi.aws.transfer.inputs.ConnectorSftpConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -264,8 +265,12 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ConnectorArgs build() {
-            $.accessRole = Objects.requireNonNull($.accessRole, "expected parameter 'accessRole' to be non-null");
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
+            if ($.accessRole == null) {
+                throw new MissingRequiredPropertyException("ConnectorArgs", "accessRole");
+            }
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("ConnectorArgs", "url");
+            }
             return $;
         }
     }

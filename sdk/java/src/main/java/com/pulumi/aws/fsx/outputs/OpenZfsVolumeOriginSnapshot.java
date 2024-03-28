@@ -4,18 +4,35 @@
 package com.pulumi.aws.fsx.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class OpenZfsVolumeOriginSnapshot {
+    /**
+     * @return Specifies the strategy used when copying data from the snapshot to the new volume. Valid values are `CLONE`, `FULL_COPY`, `INCREMENTAL_COPY`.
+     * 
+     */
     private String copyStrategy;
+    /**
+     * @return The Amazon Resource Name (ARN) of the origin snapshot.
+     * 
+     */
     private String snapshotArn;
 
     private OpenZfsVolumeOriginSnapshot() {}
+    /**
+     * @return Specifies the strategy used when copying data from the snapshot to the new volume. Valid values are `CLONE`, `FULL_COPY`, `INCREMENTAL_COPY`.
+     * 
+     */
     public String copyStrategy() {
         return this.copyStrategy;
     }
+    /**
+     * @return The Amazon Resource Name (ARN) of the origin snapshot.
+     * 
+     */
     public String snapshotArn() {
         return this.snapshotArn;
     }
@@ -40,19 +57,25 @@ public final class OpenZfsVolumeOriginSnapshot {
 
         @CustomType.Setter
         public Builder copyStrategy(String copyStrategy) {
-            this.copyStrategy = Objects.requireNonNull(copyStrategy);
+            if (copyStrategy == null) {
+              throw new MissingRequiredPropertyException("OpenZfsVolumeOriginSnapshot", "copyStrategy");
+            }
+            this.copyStrategy = copyStrategy;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotArn(String snapshotArn) {
-            this.snapshotArn = Objects.requireNonNull(snapshotArn);
+            if (snapshotArn == null) {
+              throw new MissingRequiredPropertyException("OpenZfsVolumeOriginSnapshot", "snapshotArn");
+            }
+            this.snapshotArn = snapshotArn;
             return this;
         }
         public OpenZfsVolumeOriginSnapshot build() {
-            final var o = new OpenZfsVolumeOriginSnapshot();
-            o.copyStrategy = copyStrategy;
-            o.snapshotArn = snapshotArn;
-            return o;
+            final var _resultValue = new OpenZfsVolumeOriginSnapshot();
+            _resultValue.copyStrategy = copyStrategy;
+            _resultValue.snapshotArn = snapshotArn;
+            return _resultValue;
         }
     }
 }

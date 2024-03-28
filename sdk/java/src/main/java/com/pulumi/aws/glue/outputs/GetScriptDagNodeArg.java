@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -73,25 +74,32 @@ public final class GetScriptDagNodeArg {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetScriptDagNodeArg", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder param(@Nullable Boolean param) {
+
             this.param = param;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("GetScriptDagNodeArg", "value");
+            }
+            this.value = value;
             return this;
         }
         public GetScriptDagNodeArg build() {
-            final var o = new GetScriptDagNodeArg();
-            o.name = name;
-            o.param = param;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetScriptDagNodeArg();
+            _resultValue.name = name;
+            _resultValue.param = param;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

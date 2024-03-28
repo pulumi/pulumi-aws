@@ -16,8 +16,10 @@ import (
 // See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
 //
 // ## Example Usage
+//
 // ### Root volume Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,18 +32,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOpenZfsFileSystem, err := fsx.NewOpenZfsFileSystem(ctx, "exampleOpenZfsFileSystem", &fsx.OpenZfsFileSystemArgs{
-//				StorageCapacity: pulumi.Int(64),
-//				SubnetIds: pulumi.String{
-//					aws_subnet.Example.Id,
-//				},
+//			exampleOpenZfsFileSystem, err := fsx.NewOpenZfsFileSystem(ctx, "example", &fsx.OpenZfsFileSystemArgs{
+//				StorageCapacity:    pulumi.Int(64),
+//				SubnetIds:          pulumi.Any(exampleAwsSubnet.Id),
 //				DeploymentType:     pulumi.String("SINGLE_AZ_1"),
 //				ThroughputCapacity: pulumi.Int(64),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = fsx.NewOpenZfsSnapshot(ctx, "exampleOpenZfsSnapshot", &fsx.OpenZfsSnapshotArgs{
+//			_, err = fsx.NewOpenZfsSnapshot(ctx, "example", &fsx.OpenZfsSnapshotArgs{
+//				Name:     pulumi.String("example"),
 //				VolumeId: exampleOpenZfsFileSystem.RootVolumeId,
 //			})
 //			if err != nil {
@@ -52,8 +53,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Child volume Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,24 +70,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOpenZfsFileSystem, err := fsx.NewOpenZfsFileSystem(ctx, "exampleOpenZfsFileSystem", &fsx.OpenZfsFileSystemArgs{
-//				StorageCapacity: pulumi.Int(64),
-//				SubnetIds: pulumi.String{
-//					aws_subnet.Example.Id,
-//				},
+//			exampleOpenZfsFileSystem, err := fsx.NewOpenZfsFileSystem(ctx, "example", &fsx.OpenZfsFileSystemArgs{
+//				StorageCapacity:    pulumi.Int(64),
+//				SubnetIds:          pulumi.Any(exampleAwsSubnet.Id),
 //				DeploymentType:     pulumi.String("SINGLE_AZ_1"),
 //				ThroughputCapacity: pulumi.Int(64),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleOpenZfsVolume, err := fsx.NewOpenZfsVolume(ctx, "exampleOpenZfsVolume", &fsx.OpenZfsVolumeArgs{
+//			exampleOpenZfsVolume, err := fsx.NewOpenZfsVolume(ctx, "example", &fsx.OpenZfsVolumeArgs{
+//				Name:           pulumi.String("example"),
 //				ParentVolumeId: exampleOpenZfsFileSystem.RootVolumeId,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = fsx.NewOpenZfsSnapshot(ctx, "exampleOpenZfsSnapshot", &fsx.OpenZfsSnapshotArgs{
+//			_, err = fsx.NewOpenZfsSnapshot(ctx, "example", &fsx.OpenZfsSnapshotArgs{
+//				Name:     pulumi.String("example"),
 //				VolumeId: exampleOpenZfsVolume.ID(),
 //			})
 //			if err != nil {
@@ -94,15 +98,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import FSx OpenZFS snapshot using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:fsx/openZfsSnapshot:OpenZfsSnapshot example fs-543ab12b1ca672f33
-//
+// $ pulumi import aws:fsx/openZfsSnapshot:OpenZfsSnapshot example fs-543ab12b1ca672f33
 // ```
 type OpenZfsSnapshot struct {
 	pulumi.CustomResourceState
@@ -132,10 +135,6 @@ func NewOpenZfsSnapshot(ctx *pulumi.Context,
 	if args.VolumeId == nil {
 		return nil, errors.New("invalid value for required argument 'VolumeId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OpenZfsSnapshot
 	err := ctx.RegisterResource("aws:fsx/openZfsSnapshot:OpenZfsSnapshot", name, args, &resource, opts...)

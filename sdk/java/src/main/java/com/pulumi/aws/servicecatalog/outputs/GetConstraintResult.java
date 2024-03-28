@@ -4,6 +4,7 @@
 package com.pulumi.aws.servicecatalog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -140,61 +141,86 @@ public final class GetConstraintResult {
 
         @CustomType.Setter
         public Builder acceptLanguage(@Nullable String acceptLanguage) {
+
             this.acceptLanguage = acceptLanguage;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetConstraintResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetConstraintResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+            if (owner == null) {
+              throw new MissingRequiredPropertyException("GetConstraintResult", "owner");
+            }
+            this.owner = owner;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(String parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+            if (parameters == null) {
+              throw new MissingRequiredPropertyException("GetConstraintResult", "parameters");
+            }
+            this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
         public Builder portfolioId(String portfolioId) {
-            this.portfolioId = Objects.requireNonNull(portfolioId);
+            if (portfolioId == null) {
+              throw new MissingRequiredPropertyException("GetConstraintResult", "portfolioId");
+            }
+            this.portfolioId = portfolioId;
             return this;
         }
         @CustomType.Setter
         public Builder productId(String productId) {
-            this.productId = Objects.requireNonNull(productId);
+            if (productId == null) {
+              throw new MissingRequiredPropertyException("GetConstraintResult", "productId");
+            }
+            this.productId = productId;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetConstraintResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetConstraintResult", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetConstraintResult build() {
-            final var o = new GetConstraintResult();
-            o.acceptLanguage = acceptLanguage;
-            o.description = description;
-            o.id = id;
-            o.owner = owner;
-            o.parameters = parameters;
-            o.portfolioId = portfolioId;
-            o.productId = productId;
-            o.status = status;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetConstraintResult();
+            _resultValue.acceptLanguage = acceptLanguage;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.owner = owner;
+            _resultValue.parameters = parameters;
+            _resultValue.portfolioId = portfolioId;
+            _resultValue.productId = productId;
+            _resultValue.status = status;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

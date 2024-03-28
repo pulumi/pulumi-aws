@@ -100,37 +100,42 @@ public final class InstanceVerifiedAccessTrustProvider {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder deviceTrustProviderType(@Nullable String deviceTrustProviderType) {
+
             this.deviceTrustProviderType = deviceTrustProviderType;
             return this;
         }
         @CustomType.Setter
         public Builder trustProviderType(@Nullable String trustProviderType) {
+
             this.trustProviderType = trustProviderType;
             return this;
         }
         @CustomType.Setter
         public Builder userTrustProviderType(@Nullable String userTrustProviderType) {
+
             this.userTrustProviderType = userTrustProviderType;
             return this;
         }
         @CustomType.Setter
         public Builder verifiedAccessTrustProviderId(@Nullable String verifiedAccessTrustProviderId) {
+
             this.verifiedAccessTrustProviderId = verifiedAccessTrustProviderId;
             return this;
         }
         public InstanceVerifiedAccessTrustProvider build() {
-            final var o = new InstanceVerifiedAccessTrustProvider();
-            o.description = description;
-            o.deviceTrustProviderType = deviceTrustProviderType;
-            o.trustProviderType = trustProviderType;
-            o.userTrustProviderType = userTrustProviderType;
-            o.verifiedAccessTrustProviderId = verifiedAccessTrustProviderId;
-            return o;
+            final var _resultValue = new InstanceVerifiedAccessTrustProvider();
+            _resultValue.description = description;
+            _resultValue.deviceTrustProviderType = deviceTrustProviderType;
+            _resultValue.trustProviderType = trustProviderType;
+            _resultValue.userTrustProviderType = userTrustProviderType;
+            _resultValue.verifiedAccessTrustProviderId = verifiedAccessTrustProviderId;
+            return _resultValue;
         }
     }
 }

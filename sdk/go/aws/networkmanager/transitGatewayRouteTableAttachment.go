@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.NewTransitGatewayRouteTableAttachment(ctx, "example", &networkmanager.TransitGatewayRouteTableAttachmentArgs{
-//				PeeringId:                   pulumi.Any(aws_networkmanager_transit_gateway_peering.Example.Id),
-//				TransitGatewayRouteTableArn: pulumi.Any(aws_ec2_transit_gateway_route_table.Example.Arn),
+//				PeeringId:                   pulumi.Any(exampleAwsNetworkmanagerTransitGatewayPeering.Id),
+//				TransitGatewayRouteTableArn: pulumi.Any(exampleAwsEc2TransitGatewayRouteTable.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_networkmanager_transit_gateway_route_table_attachment` using the attachment ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8
-//
+// $ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8
 // ```
 type TransitGatewayRouteTableAttachment struct {
 	pulumi.CustomResourceState
@@ -98,10 +98,6 @@ func NewTransitGatewayRouteTableAttachment(ctx *pulumi.Context,
 	if args.TransitGatewayRouteTableArn == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayRouteTableArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitGatewayRouteTableAttachment
 	err := ctx.RegisterResource("aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment", name, args, &resource, opts...)

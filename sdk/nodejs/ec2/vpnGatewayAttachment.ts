@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,11 +23,12 @@ import * as utilities from "../utilities";
  * const vpn = new aws.ec2.VpnGateway("vpn", {tags: {
  *     Name: "example-vpn-gateway",
  * }});
- * const vpnAttachment = new aws.ec2.VpnGatewayAttachment("vpnAttachment", {
+ * const vpnAttachment = new aws.ec2.VpnGatewayAttachment("vpn_attachment", {
  *     vpcId: network.id,
  *     vpnGatewayId: vpn.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
  * and [Virtual Private Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) user

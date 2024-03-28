@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,9 +31,10 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := account.NewAlternativeContact(ctx, "operations", &account.AlternativeContactArgs{
 //				AlternateContactType: pulumi.String("OPERATIONS"),
+//				Name:                 pulumi.String("Example"),
+//				Title:                pulumi.String("Example"),
 //				EmailAddress:         pulumi.String("test@example.com"),
 //				PhoneNumber:          pulumi.String("+1234567890"),
-//				Title:                pulumi.String("Example"),
 //			})
 //			if err != nil {
 //				return err
@@ -42,6 +44,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -52,17 +55,12 @@ import (
 // Import the Alternate Contact for the current account:
 //
 // ```sh
-//
-//	$ pulumi import aws:account/alternativeContact:AlternativeContact operations OPERATIONS
-//
+// $ pulumi import aws:account/alternativeContact:AlternativeContact operations OPERATIONS
 // ```
-//
-//	Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):
+// Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):
 //
 // ```sh
-//
-//	$ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS
-//
+// $ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS
 // ```
 type AlternativeContact struct {
 	pulumi.CustomResourceState

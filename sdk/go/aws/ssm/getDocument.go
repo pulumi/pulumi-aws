@@ -17,6 +17,7 @@ import (
 //
 // To get the contents of the document owned by AWS.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,9 +43,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // To get the contents of the custom document.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,7 +61,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.LookupDocument(ctx, &ssm.LookupDocumentArgs{
-//				Name:           aws_ssm_document.Test.Name,
+//				Name:           testAwsSsmDocument.Name,
 //				DocumentFormat: pulumi.StringRef("JSON"),
 //			}, nil)
 //			if err != nil {
@@ -69,6 +72,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupDocument(ctx *pulumi.Context, args *LookupDocumentArgs, opts ...pulumi.InvokeOption) (*LookupDocumentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDocumentResult

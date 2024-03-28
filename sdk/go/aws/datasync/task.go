@@ -15,8 +15,8 @@ import (
 // Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
 //
 // ## Example Usage
-// ### With Scheduling
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,8 +31,43 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewTask(ctx, "example", &datasync.TaskArgs{
-//				DestinationLocationArn: pulumi.Any(aws_datasync_location_s3.Destination.Arn),
-//				SourceLocationArn:      pulumi.Any(aws_datasync_location_nfs.Source.Arn),
+//				DestinationLocationArn: pulumi.Any(destination.Arn),
+//				Name:                   pulumi.String("example"),
+//				SourceLocationArn:      pulumi.Any(source.Arn),
+//				Options: &datasync.TaskOptionsArgs{
+//					BytesPerSecond: -1,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ### With Scheduling
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datasync.NewTask(ctx, "example", &datasync.TaskArgs{
+//				DestinationLocationArn: pulumi.Any(destination.Arn),
+//				Name:                   pulumi.String("example"),
+//				SourceLocationArn:      pulumi.Any(source.Arn),
 //				Schedule: &datasync.TaskScheduleArgs{
 //					ScheduleExpression: pulumi.String("cron(0 12 ? * SUN,WED *)"),
 //				},
@@ -45,8 +80,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Filtering
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,8 +99,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewTask(ctx, "example", &datasync.TaskArgs{
-//				DestinationLocationArn: pulumi.Any(aws_datasync_location_s3.Destination.Arn),
-//				SourceLocationArn:      pulumi.Any(aws_datasync_location_nfs.Source.Arn),
+//				DestinationLocationArn: pulumi.Any(destination.Arn),
+//				Name:                   pulumi.String("example"),
+//				SourceLocationArn:      pulumi.Any(source.Arn),
 //				Excludes: &datasync.TaskExcludesArgs{
 //					FilterType: pulumi.String("SIMPLE_PATTERN"),
 //					Value:      pulumi.String("/folder1|/folder2"),
@@ -80,15 +119,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_datasync_task` using the DataSync Task Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
-//
+// $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
 // ```
 type Task struct {
 	pulumi.CustomResourceState
@@ -134,10 +172,6 @@ func NewTask(ctx *pulumi.Context,
 	if args.SourceLocationArn == nil {
 		return nil, errors.New("invalid value for required argument 'SourceLocationArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Task
 	err := ctx.RegisterResource("aws:datasync/task:Task", name, args, &resource, opts...)

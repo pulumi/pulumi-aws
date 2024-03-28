@@ -4,6 +4,7 @@
 package com.pulumi.aws.emr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,19 +59,23 @@ public final class ClusterPlacementGroupConfig {
 
         @CustomType.Setter
         public Builder instanceRole(String instanceRole) {
-            this.instanceRole = Objects.requireNonNull(instanceRole);
+            if (instanceRole == null) {
+              throw new MissingRequiredPropertyException("ClusterPlacementGroupConfig", "instanceRole");
+            }
+            this.instanceRole = instanceRole;
             return this;
         }
         @CustomType.Setter
         public Builder placementStrategy(@Nullable String placementStrategy) {
+
             this.placementStrategy = placementStrategy;
             return this;
         }
         public ClusterPlacementGroupConfig build() {
-            final var o = new ClusterPlacementGroupConfig();
-            o.instanceRole = instanceRole;
-            o.placementStrategy = placementStrategy;
-            return o;
+            final var _resultValue = new ClusterPlacementGroupConfig();
+            _resultValue.instanceRole = instanceRole;
+            _resultValue.placementStrategy = placementStrategy;
+            return _resultValue;
         }
     }
 }

@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// Basic usage.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,6 +31,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.ManagedPrefixList("example", new()
     ///     {
+    ///         Name = "All VPC CIDR-s",
     ///         AddressFamily = "IPv4",
     ///         MaxEntries = 5,
     ///         Tags = 
@@ -38,22 +40,23 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var entry1 = new Aws.Ec2.ManagedPrefixListEntry("entry1", new()
+    ///     var entry1 = new Aws.Ec2.ManagedPrefixListEntry("entry_1", new()
     ///     {
-    ///         Cidr = aws_vpc.Example.Cidr_block,
+    ///         Cidr = exampleAwsVpc.CidrBlock,
     ///         Description = "Primary",
     ///         PrefixListId = example.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import prefix list entries using `prefix_list_id` and `cidr` separated by a comma (`,`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
+    /// $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry")]
@@ -72,7 +75,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// CIDR block of this entry.
+        /// The ID of the prefix list.
         /// </summary>
         [Output("prefixListId")]
         public Output<string> PrefixListId { get; private set; } = null!;
@@ -136,7 +139,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// CIDR block of this entry.
+        /// The ID of the prefix list.
         /// </summary>
         [Input("prefixListId", required: true)]
         public Input<string> PrefixListId { get; set; } = null!;
@@ -162,7 +165,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// CIDR block of this entry.
+        /// The ID of the prefix list.
         /// </summary>
         [Input("prefixListId")]
         public Input<string>? PrefixListId { get; set; }

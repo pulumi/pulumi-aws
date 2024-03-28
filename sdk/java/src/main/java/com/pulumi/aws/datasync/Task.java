@@ -16,7 +16,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -25,7 +24,13 @@ import javax.annotation.Nullable;
  * Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With Scheduling
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,8 +54,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Task(&#34;example&#34;, TaskArgs.builder()        
- *             .destinationLocationArn(aws_datasync_location_s3.destination().arn())
- *             .sourceLocationArn(aws_datasync_location_nfs.source().arn())
+ *             .destinationLocationArn(destination.arn())
+ *             .name(&#34;example&#34;)
+ *             .sourceLocationArn(source.arn())
  *             .schedule(TaskScheduleArgs.builder()
  *                 .scheduleExpression(&#34;cron(0 12 ? * SUN,WED *)&#34;)
  *                 .build())
@@ -59,7 +65,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With Filtering
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -84,8 +94,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Task(&#34;example&#34;, TaskArgs.builder()        
- *             .destinationLocationArn(aws_datasync_location_s3.destination().arn())
- *             .sourceLocationArn(aws_datasync_location_nfs.source().arn())
+ *             .destinationLocationArn(destination.arn())
+ *             .name(&#34;example&#34;)
+ *             .sourceLocationArn(source.arn())
  *             .excludes(TaskExcludesArgs.builder()
  *                 .filterType(&#34;SIMPLE_PATTERN&#34;)
  *                 .value(&#34;/folder1|/folder2&#34;)
@@ -99,13 +110,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_datasync_task` using the DataSync Task Amazon Resource Name (ARN). For example:
  * 
  * ```sh
- *  $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
+ * $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
  * ```
  * 
  */
@@ -316,9 +328,6 @@ public class Task extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

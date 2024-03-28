@@ -59,19 +59,21 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetenti
 
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable Integer value) {
+
             this.value = value;
             return this;
         }
         public OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention build() {
-            final var o = new OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention();
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention();
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

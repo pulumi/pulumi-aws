@@ -6,6 +6,7 @@ package com.pulumi.aws.ecr.outputs;
 import com.pulumi.aws.ecr.outputs.GetRepositoryEncryptionConfiguration;
 import com.pulumi.aws.ecr.outputs.GetRepositoryImageScanningConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -156,12 +157,18 @@ public final class GetRepositoryResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionConfigurations(List<GetRepositoryEncryptionConfiguration> encryptionConfigurations) {
-            this.encryptionConfigurations = Objects.requireNonNull(encryptionConfigurations);
+            if (encryptionConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "encryptionConfigurations");
+            }
+            this.encryptionConfigurations = encryptionConfigurations;
             return this;
         }
         public Builder encryptionConfigurations(GetRepositoryEncryptionConfiguration... encryptionConfigurations) {
@@ -169,12 +176,18 @@ public final class GetRepositoryResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder imageScanningConfigurations(List<GetRepositoryImageScanningConfiguration> imageScanningConfigurations) {
-            this.imageScanningConfigurations = Objects.requireNonNull(imageScanningConfigurations);
+            if (imageScanningConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "imageScanningConfigurations");
+            }
+            this.imageScanningConfigurations = imageScanningConfigurations;
             return this;
         }
         public Builder imageScanningConfigurations(GetRepositoryImageScanningConfiguration... imageScanningConfigurations) {
@@ -182,12 +195,18 @@ public final class GetRepositoryResult {
         }
         @CustomType.Setter
         public Builder imageTagMutability(String imageTagMutability) {
-            this.imageTagMutability = Objects.requireNonNull(imageTagMutability);
+            if (imageTagMutability == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "imageTagMutability");
+            }
+            this.imageTagMutability = imageTagMutability;
             return this;
         }
         @CustomType.Setter
         public Builder mostRecentImageTags(List<String> mostRecentImageTags) {
-            this.mostRecentImageTags = Objects.requireNonNull(mostRecentImageTags);
+            if (mostRecentImageTags == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "mostRecentImageTags");
+            }
+            this.mostRecentImageTags = mostRecentImageTags;
             return this;
         }
         public Builder mostRecentImageTags(String... mostRecentImageTags) {
@@ -195,37 +214,49 @@ public final class GetRepositoryResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder registryId(String registryId) {
-            this.registryId = Objects.requireNonNull(registryId);
+            if (registryId == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "registryId");
+            }
+            this.registryId = registryId;
             return this;
         }
         @CustomType.Setter
         public Builder repositoryUrl(String repositoryUrl) {
-            this.repositoryUrl = Objects.requireNonNull(repositoryUrl);
+            if (repositoryUrl == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "repositoryUrl");
+            }
+            this.repositoryUrl = repositoryUrl;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetRepositoryResult build() {
-            final var o = new GetRepositoryResult();
-            o.arn = arn;
-            o.encryptionConfigurations = encryptionConfigurations;
-            o.id = id;
-            o.imageScanningConfigurations = imageScanningConfigurations;
-            o.imageTagMutability = imageTagMutability;
-            o.mostRecentImageTags = mostRecentImageTags;
-            o.name = name;
-            o.registryId = registryId;
-            o.repositoryUrl = repositoryUrl;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetRepositoryResult();
+            _resultValue.arn = arn;
+            _resultValue.encryptionConfigurations = encryptionConfigurations;
+            _resultValue.id = id;
+            _resultValue.imageScanningConfigurations = imageScanningConfigurations;
+            _resultValue.imageTagMutability = imageTagMutability;
+            _resultValue.mostRecentImageTags = mostRecentImageTags;
+            _resultValue.name = name;
+            _resultValue.registryId = registryId;
+            _resultValue.repositoryUrl = repositoryUrl;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

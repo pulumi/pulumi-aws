@@ -14,27 +14,27 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DomainDefaultUserSettingsCanvasAppSettings
     {
         /// <summary>
-        /// The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+        /// The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings? DirectDeploySettings;
         /// <summary>
-        /// The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+        /// The settings for connecting to an external data source with OAuth. See `identity_provider_oauth_settings` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting> IdentityProviderOauthSettings;
         /// <summary>
-        /// The settings for document querying. See Kendra Settings below.
+        /// The settings for document querying. See `kendra_settings` Block below.
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsCanvasAppSettingsKendraSettings? KendraSettings;
         /// <summary>
-        /// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+        /// The model registry settings for the SageMaker Canvas application. See `model_register_settings` Block below.
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings? ModelRegisterSettings;
         /// <summary>
-        /// Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
+        /// Time series forecast settings for the Canvas app. See `time_series_forecasting_settings` Block below.
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings? TimeSeriesForecastingSettings;
         /// <summary>
-        /// The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+        /// The workspace settings for the SageMaker Canvas application. See `workspace_settings` Block below.
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings? WorkspaceSettings;
 

@@ -5,6 +5,7 @@ package com.pulumi.aws.organizations.outputs;
 
 import com.pulumi.aws.organizations.outputs.GetOrganizationalUnitChildAccountsAccount;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -64,7 +65,10 @@ public final class GetOrganizationalUnitChildAccountsResult {
 
         @CustomType.Setter
         public Builder accounts(List<GetOrganizationalUnitChildAccountsAccount> accounts) {
-            this.accounts = Objects.requireNonNull(accounts);
+            if (accounts == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationalUnitChildAccountsResult", "accounts");
+            }
+            this.accounts = accounts;
             return this;
         }
         public Builder accounts(GetOrganizationalUnitChildAccountsAccount... accounts) {
@@ -72,20 +76,26 @@ public final class GetOrganizationalUnitChildAccountsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationalUnitChildAccountsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder parentId(String parentId) {
-            this.parentId = Objects.requireNonNull(parentId);
+            if (parentId == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationalUnitChildAccountsResult", "parentId");
+            }
+            this.parentId = parentId;
             return this;
         }
         public GetOrganizationalUnitChildAccountsResult build() {
-            final var o = new GetOrganizationalUnitChildAccountsResult();
-            o.accounts = accounts;
-            o.id = id;
-            o.parentId = parentId;
-            return o;
+            final var _resultValue = new GetOrganizationalUnitChildAccountsResult();
+            _resultValue.accounts = accounts;
+            _resultValue.id = id;
+            _resultValue.parentId = parentId;
+            return _resultValue;
         }
     }
 }

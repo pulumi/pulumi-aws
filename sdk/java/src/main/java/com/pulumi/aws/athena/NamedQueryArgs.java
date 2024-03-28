@@ -5,6 +5,7 @@ package com.pulumi.aws.athena;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,8 +225,12 @@ public final class NamedQueryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NamedQueryArgs build() {
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.query = Objects.requireNonNull($.query, "expected parameter 'query' to be non-null");
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("NamedQueryArgs", "database");
+            }
+            if ($.query == null) {
+                throw new MissingRequiredPropertyException("NamedQueryArgs", "query");
+            }
             return $;
         }
     }

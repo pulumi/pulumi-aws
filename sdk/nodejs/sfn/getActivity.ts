@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     name: "my-activity",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getActivity(args?: GetActivityArgs, opts?: pulumi.InvokeOptions): Promise<GetActivityResult> {
     args = args || {};
@@ -62,6 +64,7 @@ export interface GetActivityResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -70,6 +73,7 @@ export interface GetActivityResult {
  *     name: "my-activity",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getActivityOutput(args?: GetActivityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityResult> {
     return pulumi.output(args).apply((a: any) => getActivity(a, opts))

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleFleet, err := appstream.NewFleet(ctx, "exampleFleet", &appstream.FleetArgs{
+//			example, err := appstream.NewFleet(ctx, "example", &appstream.FleetArgs{
+//				Name:         pulumi.String("NAME"),
 //				ImageName:    pulumi.String("Amazon-AppStream2-Sample-Image-03-11-2023"),
 //				InstanceType: pulumi.String("stream.standard.small"),
 //				ComputeCapacity: &appstream.FleetComputeCapacityArgs{
@@ -38,12 +40,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleStack, err := appstream.NewStack(ctx, "exampleStack", nil)
+//			exampleStack, err := appstream.NewStack(ctx, "example", &appstream.StackArgs{
+//				Name: pulumi.String("STACK NAME"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appstream.NewFleetStackAssociation(ctx, "exampleFleetStackAssociation", &appstream.FleetStackAssociationArgs{
-//				FleetName: exampleFleet.Name,
+//			_, err = appstream.NewFleetStackAssociation(ctx, "example", &appstream.FleetStackAssociationArgs{
+//				FleetName: example.Name,
 //				StackName: exampleStack.Name,
 //			})
 //			if err != nil {
@@ -54,15 +58,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
-//
+// $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
 // ```
 type FleetStackAssociation struct {
 	pulumi.CustomResourceState

@@ -304,15 +304,19 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         """
         Provides an S3 bucket website configuration resource. For more information, see [Hosting Websites on S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
 
+        > This resource cannot be used with S3 directory buckets.
+
         ## Example Usage
+
         ### With `routing_rule` configured
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3.BucketWebsiteConfigurationV2("example",
-            bucket=aws_s3_bucket["example"]["id"],
+            bucket=example_aws_s3_bucket["id"],
             index_document=aws.s3.BucketWebsiteConfigurationV2IndexDocumentArgs(
                 suffix="index.html",
             ),
@@ -328,14 +332,17 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With `routing_rules` configured
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3.BucketWebsiteConfigurationV2("example",
-            bucket=aws_s3_bucket["example"]["id"],
+            bucket=example_aws_s3_bucket["id"],
             index_document=aws.s3.BucketWebsiteConfigurationV2IndexDocumentArgs(
                 suffix="index.html",
             ),
@@ -352,6 +359,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         }]
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -362,12 +370,12 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
 
         ```sh
-         $ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name
+        $ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name
         ```
-         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+        If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 
         ```sh
-         $ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name,123456789012
+        $ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name,123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -390,15 +398,19 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         """
         Provides an S3 bucket website configuration resource. For more information, see [Hosting Websites on S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
 
+        > This resource cannot be used with S3 directory buckets.
+
         ## Example Usage
+
         ### With `routing_rule` configured
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3.BucketWebsiteConfigurationV2("example",
-            bucket=aws_s3_bucket["example"]["id"],
+            bucket=example_aws_s3_bucket["id"],
             index_document=aws.s3.BucketWebsiteConfigurationV2IndexDocumentArgs(
                 suffix="index.html",
             ),
@@ -414,14 +426,17 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With `routing_rules` configured
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3.BucketWebsiteConfigurationV2("example",
-            bucket=aws_s3_bucket["example"]["id"],
+            bucket=example_aws_s3_bucket["id"],
             index_document=aws.s3.BucketWebsiteConfigurationV2IndexDocumentArgs(
                 suffix="index.html",
             ),
@@ -438,6 +453,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         }]
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -448,12 +464,12 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
 
         ```sh
-         $ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name
+        $ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name
         ```
-         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+        If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 
         ```sh
-         $ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name,123456789012
+        $ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name,123456789012
         ```
 
         :param str resource_name: The name of the resource.

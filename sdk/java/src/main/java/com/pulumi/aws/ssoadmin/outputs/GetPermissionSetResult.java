@@ -4,6 +4,7 @@
 package com.pulumi.aws.ssoadmin.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -123,61 +124,88 @@ public final class GetPermissionSetResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetPermissionSetResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+            if (createdDate == null) {
+              throw new MissingRequiredPropertyException("GetPermissionSetResult", "createdDate");
+            }
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetPermissionSetResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPermissionSetResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceArn(String instanceArn) {
-            this.instanceArn = Objects.requireNonNull(instanceArn);
+            if (instanceArn == null) {
+              throw new MissingRequiredPropertyException("GetPermissionSetResult", "instanceArn");
+            }
+            this.instanceArn = instanceArn;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetPermissionSetResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder relayState(String relayState) {
-            this.relayState = Objects.requireNonNull(relayState);
+            if (relayState == null) {
+              throw new MissingRequiredPropertyException("GetPermissionSetResult", "relayState");
+            }
+            this.relayState = relayState;
             return this;
         }
         @CustomType.Setter
         public Builder sessionDuration(String sessionDuration) {
-            this.sessionDuration = Objects.requireNonNull(sessionDuration);
+            if (sessionDuration == null) {
+              throw new MissingRequiredPropertyException("GetPermissionSetResult", "sessionDuration");
+            }
+            this.sessionDuration = sessionDuration;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetPermissionSetResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetPermissionSetResult build() {
-            final var o = new GetPermissionSetResult();
-            o.arn = arn;
-            o.createdDate = createdDate;
-            o.description = description;
-            o.id = id;
-            o.instanceArn = instanceArn;
-            o.name = name;
-            o.relayState = relayState;
-            o.sessionDuration = sessionDuration;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetPermissionSetResult();
+            _resultValue.arn = arn;
+            _resultValue.createdDate = createdDate;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.instanceArn = instanceArn;
+            _resultValue.name = name;
+            _resultValue.relayState = relayState;
+            _resultValue.sessionDuration = sessionDuration;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

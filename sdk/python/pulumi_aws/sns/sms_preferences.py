@@ -236,12 +236,18 @@ class SmsPreferences(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        update_sms_prefs = aws.sns.SmsPreferences("updateSmsPrefs")
+        update_sms_prefs = aws.sns.SmsPreferences("update_sms_prefs")
         ```
+        <!--End PulumiCodeChooser -->
+
+        ## Import
+
+        You cannot import the SMS preferences.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -263,12 +269,18 @@ class SmsPreferences(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        update_sms_prefs = aws.sns.SmsPreferences("updateSmsPrefs")
+        update_sms_prefs = aws.sns.SmsPreferences("update_sms_prefs")
         ```
+        <!--End PulumiCodeChooser -->
+
+        ## Import
+
+        You cannot import the SMS preferences.
 
         :param str resource_name: The name of the resource.
         :param SmsPreferencesArgs args: The arguments to use to populate this resource's properties.

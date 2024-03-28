@@ -4,6 +4,7 @@
 package com.pulumi.aws.fsx.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,25 +72,34 @@ public final class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota {
 
         @CustomType.Setter
         public Builder id(Integer id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder storageCapacityQuotaGib(Integer storageCapacityQuotaGib) {
-            this.storageCapacityQuotaGib = Objects.requireNonNull(storageCapacityQuotaGib);
+            if (storageCapacityQuotaGib == null) {
+              throw new MissingRequiredPropertyException("OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota", "storageCapacityQuotaGib");
+            }
+            this.storageCapacityQuotaGib = storageCapacityQuotaGib;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota", "type");
+            }
+            this.type = type;
             return this;
         }
         public OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota build() {
-            final var o = new OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota();
-            o.id = id;
-            o.storageCapacityQuotaGib = storageCapacityQuotaGib;
-            o.type = type;
-            return o;
+            final var _resultValue = new OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota();
+            _resultValue.id = id;
+            _resultValue.storageCapacityQuotaGib = storageCapacityQuotaGib;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

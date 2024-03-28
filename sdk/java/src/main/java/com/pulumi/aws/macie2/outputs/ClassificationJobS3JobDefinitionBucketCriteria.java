@@ -59,19 +59,21 @@ public final class ClassificationJobS3JobDefinitionBucketCriteria {
 
         @CustomType.Setter
         public Builder excludes(@Nullable ClassificationJobS3JobDefinitionBucketCriteriaExcludes excludes) {
+
             this.excludes = excludes;
             return this;
         }
         @CustomType.Setter
         public Builder includes(@Nullable ClassificationJobS3JobDefinitionBucketCriteriaIncludes includes) {
+
             this.includes = includes;
             return this;
         }
         public ClassificationJobS3JobDefinitionBucketCriteria build() {
-            final var o = new ClassificationJobS3JobDefinitionBucketCriteria();
-            o.excludes = excludes;
-            o.includes = includes;
-            return o;
+            final var _resultValue = new ClassificationJobS3JobDefinitionBucketCriteria();
+            _resultValue.excludes = excludes;
+            _resultValue.includes = includes;
+            return _resultValue;
         }
     }
 }

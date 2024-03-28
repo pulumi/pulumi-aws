@@ -6,6 +6,7 @@ package com.pulumi.aws.medialive.outputs;
 import com.pulumi.aws.medialive.outputs.ChannelInputAttachmentAutomaticInputFailoverSettings;
 import com.pulumi.aws.medialive.outputs.ChannelInputAttachmentInputSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -88,31 +89,39 @@ public final class ChannelInputAttachment {
 
         @CustomType.Setter
         public Builder automaticInputFailoverSettings(@Nullable ChannelInputAttachmentAutomaticInputFailoverSettings automaticInputFailoverSettings) {
+
             this.automaticInputFailoverSettings = automaticInputFailoverSettings;
             return this;
         }
         @CustomType.Setter
         public Builder inputAttachmentName(String inputAttachmentName) {
-            this.inputAttachmentName = Objects.requireNonNull(inputAttachmentName);
+            if (inputAttachmentName == null) {
+              throw new MissingRequiredPropertyException("ChannelInputAttachment", "inputAttachmentName");
+            }
+            this.inputAttachmentName = inputAttachmentName;
             return this;
         }
         @CustomType.Setter
         public Builder inputId(String inputId) {
-            this.inputId = Objects.requireNonNull(inputId);
+            if (inputId == null) {
+              throw new MissingRequiredPropertyException("ChannelInputAttachment", "inputId");
+            }
+            this.inputId = inputId;
             return this;
         }
         @CustomType.Setter
         public Builder inputSettings(@Nullable ChannelInputAttachmentInputSettings inputSettings) {
+
             this.inputSettings = inputSettings;
             return this;
         }
         public ChannelInputAttachment build() {
-            final var o = new ChannelInputAttachment();
-            o.automaticInputFailoverSettings = automaticInputFailoverSettings;
-            o.inputAttachmentName = inputAttachmentName;
-            o.inputId = inputId;
-            o.inputSettings = inputSettings;
-            return o;
+            final var _resultValue = new ChannelInputAttachment();
+            _resultValue.automaticInputFailoverSettings = automaticInputFailoverSettings;
+            _resultValue.inputAttachmentName = inputAttachmentName;
+            _resultValue.inputId = inputId;
+            _resultValue.inputSettings = inputSettings;
+            return _resultValue;
         }
     }
 }

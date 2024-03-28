@@ -9,35 +9,37 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {description: "example"});
- * const exampleKeyPolicy = new aws.kms.KeyPolicy("exampleKeyPolicy", {
- *     keyId: exampleKey.id,
+ * const example = new aws.kms.Key("example", {description: "example"});
+ * const exampleKeyPolicy = new aws.kms.KeyPolicy("example", {
+ *     keyId: example.id,
  *     policy: JSON.stringify({
- *         Id: "example",
- *         Statement: [{
- *             Action: "kms:*",
- *             Effect: "Allow",
- *             Principal: {
+ *         id: "example",
+ *         statement: [{
+ *             action: "kms:*",
+ *             effect: "Allow",
+ *             principal: {
  *                 AWS: "*",
  *             },
- *             Resource: "*",
- *             Sid: "Enable IAM User Permissions",
+ *             resource: "*",
+ *             sid: "Enable IAM User Permissions",
  *         }],
- *         Version: "2012-10-17",
+ *         version: "2012-10-17",
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import KMS Key Policies using the `key_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:kms/keyPolicy:KeyPolicy a 1234abcd-12ab-34cd-56ef-1234567890ab
+ * $ pulumi import aws:kms/keyPolicy:KeyPolicy a 1234abcd-12ab-34cd-56ef-1234567890ab
  * ```
  */
 export class KeyPolicy extends pulumi.CustomResource {

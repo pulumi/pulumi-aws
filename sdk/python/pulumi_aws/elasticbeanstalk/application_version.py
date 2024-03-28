@@ -322,22 +322,27 @@ class ApplicationVersion(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        default_bucket_v2 = aws.s3.BucketV2("defaultBucketV2")
-        default_bucket_objectv2 = aws.s3.BucketObjectv2("defaultBucketObjectv2",
-            bucket=default_bucket_v2.id,
+        default = aws.s3.BucketV2("default", bucket="tftest.applicationversion.bucket")
+        default_bucket_objectv2 = aws.s3.BucketObjectv2("default",
+            bucket=default.id,
             key="beanstalk/go-v1.zip",
             source=pulumi.FileAsset("go-v1.zip"))
-        default_application = aws.elasticbeanstalk.Application("defaultApplication", description="tf-test-desc")
-        default_application_version = aws.elasticbeanstalk.ApplicationVersion("defaultApplicationVersion",
+        default_application = aws.elasticbeanstalk.Application("default",
+            name="tf-test-name",
+            description="tf-test-desc")
+        default_application_version = aws.elasticbeanstalk.ApplicationVersion("default",
+            name="tf-test-version-label",
             application="tf-test-name",
             description="application version",
-            bucket=default_bucket_v2.id,
+            bucket=default.id,
             key=default_bucket_objectv2.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -372,22 +377,27 @@ class ApplicationVersion(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        default_bucket_v2 = aws.s3.BucketV2("defaultBucketV2")
-        default_bucket_objectv2 = aws.s3.BucketObjectv2("defaultBucketObjectv2",
-            bucket=default_bucket_v2.id,
+        default = aws.s3.BucketV2("default", bucket="tftest.applicationversion.bucket")
+        default_bucket_objectv2 = aws.s3.BucketObjectv2("default",
+            bucket=default.id,
             key="beanstalk/go-v1.zip",
             source=pulumi.FileAsset("go-v1.zip"))
-        default_application = aws.elasticbeanstalk.Application("defaultApplication", description="tf-test-desc")
-        default_application_version = aws.elasticbeanstalk.ApplicationVersion("defaultApplicationVersion",
+        default_application = aws.elasticbeanstalk.Application("default",
+            name="tf-test-name",
+            description="tf-test-desc")
+        default_application_version = aws.elasticbeanstalk.ApplicationVersion("default",
+            name="tf-test-version-label",
             application="tf-test-name",
             description="application version",
-            bucket=default_bucket_v2.id,
+            bucket=default.id,
             key=default_bucket_objectv2.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param ApplicationVersionArgs args: The arguments to use to populate this resource's properties.
@@ -435,8 +445,6 @@ class ApplicationVersion(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ApplicationVersion, __self__).__init__(
             'aws:elasticbeanstalk/applicationVersion:ApplicationVersion',
             resource_name,

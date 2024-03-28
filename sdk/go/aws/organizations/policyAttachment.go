@@ -15,8 +15,10 @@ import (
 // Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
 //
 // ## Example Usage
+//
 // ### Organization Account
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := organizations.NewPolicyAttachment(ctx, "account", &organizations.PolicyAttachmentArgs{
-//				PolicyId: pulumi.Any(aws_organizations_policy.Example.Id),
+//				PolicyId: pulumi.Any(example.Id),
 //				TargetId: pulumi.String("123456789012"),
 //			})
 //			if err != nil {
@@ -41,8 +43,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Organization Root
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,8 +61,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := organizations.NewPolicyAttachment(ctx, "root", &organizations.PolicyAttachmentArgs{
-//				PolicyId: pulumi.Any(aws_organizations_policy.Example.Id),
-//				TargetId: pulumi.Any(aws_organizations_organization.Example.Roots[0].Id),
+//				PolicyId: pulumi.Any(example.Id),
+//				TargetId: pulumi.Any(exampleAwsOrganizationsOrganization.Roots[0].Id),
 //			})
 //			if err != nil {
 //				return err
@@ -67,8 +72,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Organization Unit
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -82,8 +90,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := organizations.NewPolicyAttachment(ctx, "unit", &organizations.PolicyAttachmentArgs{
-//				PolicyId: pulumi.Any(aws_organizations_policy.Example.Id),
-//				TargetId: pulumi.Any(aws_organizations_organizational_unit.Example.Id),
+//				PolicyId: pulumi.Any(example.Id),
+//				TargetId: pulumi.Any(exampleAwsOrganizationsOrganizationalUnit.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -93,6 +101,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -101,9 +110,7 @@ import (
 // With an account target:
 //
 // ```sh
-//
-//	$ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
-//
+// $ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
 // ```
 type PolicyAttachment struct {
 	pulumi.CustomResourceState

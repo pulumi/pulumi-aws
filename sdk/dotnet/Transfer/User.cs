@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,7 +23,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooServer = new Aws.Transfer.Server("fooServer", new()
+    ///     var fooServer = new Aws.Transfer.Server("foo", new()
     ///     {
     ///         IdentityProviderType = "SERVICE_MANAGED",
     ///         Tags = 
@@ -57,12 +58,13 @@ namespace Pulumi.Aws.Transfer
     ///         },
     ///     });
     /// 
-    ///     var fooRole = new Aws.Iam.Role("fooRole", new()
+    ///     var fooRole = new Aws.Iam.Role("foo", new()
     ///     {
+    ///         Name = "tf-test-transfer-user-iam-role",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var fooPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var foo = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -82,13 +84,14 @@ namespace Pulumi.Aws.Transfer
     ///         },
     ///     });
     /// 
-    ///     var fooRolePolicy = new Aws.Iam.RolePolicy("fooRolePolicy", new()
+    ///     var fooRolePolicy = new Aws.Iam.RolePolicy("foo", new()
     ///     {
+    ///         Name = "tf-test-transfer-user-iam-policy",
     ///         Role = fooRole.Id,
-    ///         Policy = fooPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = foo.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var fooUser = new Aws.Transfer.User("fooUser", new()
+    ///     var fooUser = new Aws.Transfer.User("foo", new()
     ///     {
     ///         ServerId = fooServer.Id,
     ///         UserName = "tftestuser",
@@ -106,13 +109,14 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:transfer/user:User bar s-12345678/test-username
+    /// $ pulumi import aws:transfer/user:User bar s-12345678/test-username
     /// ```
     /// </summary>
     [AwsResourceType("aws:transfer/user:User")]
@@ -207,10 +211,6 @@ namespace Pulumi.Aws.Transfer
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -384,11 +384,7 @@ namespace Pulumi.Aws.Transfer
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

@@ -33,14 +33,14 @@ public final class GetComponentsArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+     * Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
      * 
      */
     @Import(name="owner")
     private @Nullable Output<String> owner;
 
     /**
-     * @return Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+     * @return Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
      * 
      */
     public Optional<Output<String>> owner() {
@@ -104,7 +104,7 @@ public final class GetComponentsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param owner Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+         * @param owner Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class GetComponentsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param owner Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+         * @param owner Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
          * 
          * @return builder
          * 

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,17 +18,19 @@ import * as utilities from "../utilities";
  *     engine: "mysql",
  *     engineVersion: "5.7.22",
  *     licenseModel: "general-public-license",
+ *     storageType: "standard",
  *     preferredInstanceClasses: [
  *         "db.r6.xlarge",
  *         "db.m4.large",
  *         "db.t3.small",
  *     ],
- *     storageType: "standard",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Valid parameter combinations can also be found with `preferredEngineVersions` and/or `preferredInstanceClasses`.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -47,6 +50,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOrderableDbInstance(args: GetOrderableDbInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableDbInstanceResult> {
 
@@ -54,17 +58,23 @@ export function getOrderableDbInstance(args: GetOrderableDbInstanceArgs, opts?: 
     return pulumi.runtime.invoke("aws:rds/getOrderableDbInstance:getOrderableDbInstance", {
         "availabilityZoneGroup": args.availabilityZoneGroup,
         "engine": args.engine,
+        "engineLatestVersion": args.engineLatestVersion,
         "engineVersion": args.engineVersion,
         "instanceClass": args.instanceClass,
         "licenseModel": args.licenseModel,
         "preferredEngineVersions": args.preferredEngineVersions,
         "preferredInstanceClasses": args.preferredInstanceClasses,
+        "readReplicaCapable": args.readReplicaCapable,
         "storageType": args.storageType,
+        "supportedEngineModes": args.supportedEngineModes,
+        "supportedNetworkTypes": args.supportedNetworkTypes,
+        "supportsClusters": args.supportsClusters,
         "supportsEnhancedMonitoring": args.supportsEnhancedMonitoring,
         "supportsGlobalDatabases": args.supportsGlobalDatabases,
         "supportsIamDatabaseAuthentication": args.supportsIamDatabaseAuthentication,
         "supportsIops": args.supportsIops,
         "supportsKerberosAuthentication": args.supportsKerberosAuthentication,
+        "supportsMultiAz": args.supportsMultiAz,
         "supportsPerformanceInsights": args.supportsPerformanceInsights,
         "supportsStorageAutoscaling": args.supportsStorageAutoscaling,
         "supportsStorageEncryption": args.supportsStorageEncryption,
@@ -85,7 +95,11 @@ export interface GetOrderableDbInstanceArgs {
      */
     engine: string;
     /**
-     * Version of the DB engine. If none is provided, the AWS-defined default version will be used.
+     * When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. You must use `engineLatestVersion` with `preferredInstanceClasses` and/or `preferredEngineVersions`. Using `engineLatestVersion` will avoid `multiple RDS DB Instance Classes` errors. If you use `engineLatestVersion` with `preferredInstanceClasses`, the data source returns the latest version for the _first_ matching instance class (instance class priority). **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines, using `engineLatestVersion` may _not_ return the latest version in every situation.
+     */
+    engineLatestVersion?: boolean;
+    /**
+     * Version of the DB engine. If none is provided, the data source tries to use the AWS-defined default version that matches any other criteria.
      */
     engineVersion?: string;
     /**
@@ -97,17 +111,33 @@ export interface GetOrderableDbInstanceArgs {
      */
     licenseModel?: string;
     /**
-     * Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+     * Ordered list of preferred RDS DB instance engine versions. When `engineLatestVersion` is not set, the data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engineLatestVersion`, it returns an error. **CAUTION:** We don't recommend using `preferredEngineVersions` without `preferredInstanceClasses` since the data source returns an arbitrary `instanceClass` based on the first one AWS returns that matches the engine version and any other criteria.
      */
     preferredEngineVersions?: string[];
     /**
-     * Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+     * Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engineLatestVersion`, it returns an error. If you use `preferredInstanceClasses` without `preferredEngineVersions` or `engineLatestVersion`, the data source returns an arbitrary `engineVersion` based on the first one AWS returns matching the instance class and any other criteria.
      */
     preferredInstanceClasses?: string[];
+    /**
+     * Whether a DB instance can have a read replica.
+     */
+    readReplicaCapable?: boolean;
     /**
      * Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
      */
     storageType?: string;
+    /**
+     * Use to limit results to engine modes such as `provisioned`.
+     */
+    supportedEngineModes?: string[];
+    /**
+     * Use to limit results to network types `IPV4` or `DUAL`.
+     */
+    supportedNetworkTypes?: string[];
+    /**
+     * Whether to limit results to instances that support clusters.
+     */
+    supportsClusters?: boolean;
     /**
      * Enable this to ensure a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
      */
@@ -128,6 +158,10 @@ export interface GetOrderableDbInstanceArgs {
      * Enable this to ensure a DB instance supports Kerberos Authentication.
      */
     supportsKerberosAuthentication?: boolean;
+    /**
+     * Whether to limit results to instances that are multi-AZ capable.
+     */
+    supportsMultiAz?: boolean;
     /**
      * Enable this to ensure a DB instance supports Performance Insights.
      */
@@ -156,6 +190,7 @@ export interface GetOrderableDbInstanceResult {
      */
     readonly availabilityZones: string[];
     readonly engine: string;
+    readonly engineLatestVersion?: boolean;
     readonly engineVersion: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -197,24 +232,17 @@ export interface GetOrderableDbInstanceResult {
     readonly outpostCapable: boolean;
     readonly preferredEngineVersions?: string[];
     readonly preferredInstanceClasses?: string[];
-    /**
-     * Whether a DB instance can have a read replica.
-     */
     readonly readReplicaCapable: boolean;
     readonly storageType: string;
-    /**
-     * A list of the supported DB engine modes.
-     */
     readonly supportedEngineModes: string[];
-    /**
-     * The network types supported by the DB instance (`IPV4` or `DUAL`).
-     */
     readonly supportedNetworkTypes: string[];
+    readonly supportsClusters: boolean;
     readonly supportsEnhancedMonitoring: boolean;
     readonly supportsGlobalDatabases: boolean;
     readonly supportsIamDatabaseAuthentication: boolean;
     readonly supportsIops: boolean;
     readonly supportsKerberosAuthentication: boolean;
+    readonly supportsMultiAz: boolean;
     readonly supportsPerformanceInsights: boolean;
     readonly supportsStorageAutoscaling: boolean;
     readonly supportsStorageEncryption: boolean;
@@ -225,6 +253,7 @@ export interface GetOrderableDbInstanceResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -233,17 +262,19 @@ export interface GetOrderableDbInstanceResult {
  *     engine: "mysql",
  *     engineVersion: "5.7.22",
  *     licenseModel: "general-public-license",
+ *     storageType: "standard",
  *     preferredInstanceClasses: [
  *         "db.r6.xlarge",
  *         "db.m4.large",
  *         "db.t3.small",
  *     ],
- *     storageType: "standard",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Valid parameter combinations can also be found with `preferredEngineVersions` and/or `preferredInstanceClasses`.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -263,6 +294,7 @@ export interface GetOrderableDbInstanceResult {
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOrderableDbInstanceOutput(args: GetOrderableDbInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderableDbInstanceResult> {
     return pulumi.output(args).apply((a: any) => getOrderableDbInstance(a, opts))
@@ -281,7 +313,11 @@ export interface GetOrderableDbInstanceOutputArgs {
      */
     engine: pulumi.Input<string>;
     /**
-     * Version of the DB engine. If none is provided, the AWS-defined default version will be used.
+     * When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. You must use `engineLatestVersion` with `preferredInstanceClasses` and/or `preferredEngineVersions`. Using `engineLatestVersion` will avoid `multiple RDS DB Instance Classes` errors. If you use `engineLatestVersion` with `preferredInstanceClasses`, the data source returns the latest version for the _first_ matching instance class (instance class priority). **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines, using `engineLatestVersion` may _not_ return the latest version in every situation.
+     */
+    engineLatestVersion?: pulumi.Input<boolean>;
+    /**
+     * Version of the DB engine. If none is provided, the data source tries to use the AWS-defined default version that matches any other criteria.
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -293,17 +329,33 @@ export interface GetOrderableDbInstanceOutputArgs {
      */
     licenseModel?: pulumi.Input<string>;
     /**
-     * Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+     * Ordered list of preferred RDS DB instance engine versions. When `engineLatestVersion` is not set, the data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engineLatestVersion`, it returns an error. **CAUTION:** We don't recommend using `preferredEngineVersions` without `preferredInstanceClasses` since the data source returns an arbitrary `instanceClass` based on the first one AWS returns that matches the engine version and any other criteria.
      */
     preferredEngineVersions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+     * Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engineLatestVersion`, it returns an error. If you use `preferredInstanceClasses` without `preferredEngineVersions` or `engineLatestVersion`, the data source returns an arbitrary `engineVersion` based on the first one AWS returns matching the instance class and any other criteria.
      */
     preferredInstanceClasses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Whether a DB instance can have a read replica.
+     */
+    readReplicaCapable?: pulumi.Input<boolean>;
     /**
      * Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
      */
     storageType?: pulumi.Input<string>;
+    /**
+     * Use to limit results to engine modes such as `provisioned`.
+     */
+    supportedEngineModes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Use to limit results to network types `IPV4` or `DUAL`.
+     */
+    supportedNetworkTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Whether to limit results to instances that support clusters.
+     */
+    supportsClusters?: pulumi.Input<boolean>;
     /**
      * Enable this to ensure a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
      */
@@ -324,6 +376,10 @@ export interface GetOrderableDbInstanceOutputArgs {
      * Enable this to ensure a DB instance supports Kerberos Authentication.
      */
     supportsKerberosAuthentication?: pulumi.Input<boolean>;
+    /**
+     * Whether to limit results to instances that are multi-AZ capable.
+     */
+    supportsMultiAz?: pulumi.Input<boolean>;
     /**
      * Enable this to ensure a DB instance supports Performance Insights.
      */

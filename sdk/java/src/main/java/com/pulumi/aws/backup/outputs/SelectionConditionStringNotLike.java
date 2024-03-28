@@ -4,6 +4,7 @@
 package com.pulumi.aws.backup.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class SelectionConditionStringNotLike {
 
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("SelectionConditionStringNotLike", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("SelectionConditionStringNotLike", "value");
+            }
+            this.value = value;
             return this;
         }
         public SelectionConditionStringNotLike build() {
-            final var o = new SelectionConditionStringNotLike();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new SelectionConditionStringNotLike();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

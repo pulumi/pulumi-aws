@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,25 +71,34 @@ public final class ModelPrimaryContainerModelDataSourceS3DataSource {
 
         @CustomType.Setter
         public Builder compressionType(String compressionType) {
-            this.compressionType = Objects.requireNonNull(compressionType);
+            if (compressionType == null) {
+              throw new MissingRequiredPropertyException("ModelPrimaryContainerModelDataSourceS3DataSource", "compressionType");
+            }
+            this.compressionType = compressionType;
             return this;
         }
         @CustomType.Setter
         public Builder s3DataType(String s3DataType) {
-            this.s3DataType = Objects.requireNonNull(s3DataType);
+            if (s3DataType == null) {
+              throw new MissingRequiredPropertyException("ModelPrimaryContainerModelDataSourceS3DataSource", "s3DataType");
+            }
+            this.s3DataType = s3DataType;
             return this;
         }
         @CustomType.Setter
         public Builder s3Uri(String s3Uri) {
-            this.s3Uri = Objects.requireNonNull(s3Uri);
+            if (s3Uri == null) {
+              throw new MissingRequiredPropertyException("ModelPrimaryContainerModelDataSourceS3DataSource", "s3Uri");
+            }
+            this.s3Uri = s3Uri;
             return this;
         }
         public ModelPrimaryContainerModelDataSourceS3DataSource build() {
-            final var o = new ModelPrimaryContainerModelDataSourceS3DataSource();
-            o.compressionType = compressionType;
-            o.s3DataType = s3DataType;
-            o.s3Uri = s3Uri;
-            return o;
+            final var _resultValue = new ModelPrimaryContainerModelDataSourceS3DataSource();
+            _resultValue.compressionType = compressionType;
+            _resultValue.s3DataType = s3DataType;
+            _resultValue.s3Uri = s3Uri;
+            return _resultValue;
         }
     }
 }

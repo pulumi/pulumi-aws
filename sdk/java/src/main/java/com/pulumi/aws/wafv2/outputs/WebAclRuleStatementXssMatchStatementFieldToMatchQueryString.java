@@ -25,8 +25,8 @@ public final class WebAclRuleStatementXssMatchStatementFieldToMatchQueryString {
         }
 
         public WebAclRuleStatementXssMatchStatementFieldToMatchQueryString build() {
-            final var o = new WebAclRuleStatementXssMatchStatementFieldToMatchQueryString();
-            return o;
+            final var _resultValue = new WebAclRuleStatementXssMatchStatementFieldToMatchQueryString();
+            return _resultValue;
         }
     }
 }

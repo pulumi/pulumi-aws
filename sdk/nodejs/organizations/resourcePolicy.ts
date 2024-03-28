@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -43,16 +44,16 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- *
  * `});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_organizations_resource_policy` using the resource policy ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:organizations/resourcePolicy:ResourcePolicy example rp-12345678
+ * $ pulumi import aws:organizations/resourcePolicy:ResourcePolicy example rp-12345678
  * ```
  */
 export class ResourcePolicy extends pulumi.CustomResource {
@@ -130,8 +131,6 @@ export class ResourcePolicy extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ResourcePolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

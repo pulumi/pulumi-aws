@@ -16,8 +16,10 @@ import (
 // > **NOTE:** It is only valid to create one type of classifier (csv, grok, JSON, or XML). Changing classifier types will recreate the classifier.
 //
 // ## Example Usage
+//
 // ### Csv Classifier
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,6 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewClassifier(ctx, "example", &glue.ClassifierArgs{
+//				Name: pulumi.String("example"),
 //				CsvClassifier: &glue.ClassifierCsvClassifierArgs{
 //					AllowSingleColumn:    pulumi.Bool(false),
 //					ContainsHeader:       pulumi.String("PRESENT"),
@@ -51,8 +54,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Grok Classifier
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,6 +72,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewClassifier(ctx, "example", &glue.ClassifierArgs{
+//				Name: pulumi.String("example"),
 //				GrokClassifier: &glue.ClassifierGrokClassifierArgs{
 //					Classification: pulumi.String("example"),
 //					GrokPattern:    pulumi.String("example"),
@@ -79,8 +86,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### JSON Classifier
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -94,6 +104,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewClassifier(ctx, "example", &glue.ClassifierArgs{
+//				Name: pulumi.String("example"),
 //				JsonClassifier: &glue.ClassifierJsonClassifierArgs{
 //					JsonPath: pulumi.String("example"),
 //				},
@@ -106,8 +117,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### XML Classifier
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -121,6 +135,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewClassifier(ctx, "example", &glue.ClassifierArgs{
+//				Name: pulumi.String("example"),
 //				XmlClassifier: &glue.ClassifierXmlClassifierArgs{
 //					Classification: pulumi.String("example"),
 //					RowTag:         pulumi.String("example"),
@@ -134,15 +149,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glue Classifiers using their name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
-//
+// $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
 // ```
 type Classifier struct {
 	pulumi.CustomResourceState

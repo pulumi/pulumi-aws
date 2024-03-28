@@ -88,6 +88,7 @@ class DeploymentConfigArgs:
 @pulumi.input_type
 class _DeploymentConfigState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
                  compute_platform: Optional[pulumi.Input[str]] = None,
                  deployment_config_id: Optional[pulumi.Input[str]] = None,
                  deployment_config_name: Optional[pulumi.Input[str]] = None,
@@ -95,12 +96,15 @@ class _DeploymentConfigState:
                  traffic_routing_config: Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']] = None):
         """
         Input properties used for looking up and filtering DeploymentConfig resources.
+        :param pulumi.Input[str] arn: The ARN of the deployment config.
         :param pulumi.Input[str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         :param pulumi.Input[str] deployment_config_id: The AWS Assigned deployment config id
         :param pulumi.Input[str] deployment_config_name: The name of the deployment config.
         :param pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs'] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
         :param pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs'] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if compute_platform is not None:
             pulumi.set(__self__, "compute_platform", compute_platform)
         if deployment_config_id is not None:
@@ -111,6 +115,18 @@ class _DeploymentConfigState:
             pulumi.set(__self__, "minimum_healthy_hosts", minimum_healthy_hosts)
         if traffic_routing_config is not None:
             pulumi.set(__self__, "traffic_routing_config", traffic_routing_config)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the deployment config.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="computePlatform")
@@ -187,23 +203,25 @@ class DeploymentConfig(pulumi.CustomResource):
         Provides a CodeDeploy deployment config for an application
 
         ## Example Usage
+
         ### Server Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        foo_deployment_config = aws.codedeploy.DeploymentConfig("fooDeploymentConfig",
+        foo = aws.codedeploy.DeploymentConfig("foo",
             deployment_config_name="test-deployment-config",
             minimum_healthy_hosts=aws.codedeploy.DeploymentConfigMinimumHealthyHostsArgs(
                 type="HOST_COUNT",
                 value=2,
             ))
-        foo_deployment_group = aws.codedeploy.DeploymentGroup("fooDeploymentGroup",
-            app_name=aws_codedeploy_app["foo_app"]["name"],
+        foo_deployment_group = aws.codedeploy.DeploymentGroup("foo",
+            app_name=foo_app["name"],
             deployment_group_name="bar",
-            service_role_arn=aws_iam_role["foo_role"]["arn"],
-            deployment_config_name=foo_deployment_config.id,
+            service_role_arn=foo_role["arn"],
+            deployment_config_name=foo.id,
             ec2_tag_filters=[aws.codedeploy.DeploymentGroupEc2TagFilterArgs(
                 key="filterkey",
                 type="KEY_AND_VALUE",
@@ -223,13 +241,16 @@ class DeploymentConfig(pulumi.CustomResource):
                 enabled=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        foo_deployment_config = aws.codedeploy.DeploymentConfig("fooDeploymentConfig",
+        foo = aws.codedeploy.DeploymentConfig("foo",
             deployment_config_name="test-deployment-config",
             compute_platform="Lambda",
             traffic_routing_config=aws.codedeploy.DeploymentConfigTrafficRoutingConfigArgs(
@@ -239,11 +260,11 @@ class DeploymentConfig(pulumi.CustomResource):
                     percentage=10,
                 ),
             ))
-        foo_deployment_group = aws.codedeploy.DeploymentGroup("fooDeploymentGroup",
-            app_name=aws_codedeploy_app["foo_app"]["name"],
+        foo_deployment_group = aws.codedeploy.DeploymentGroup("foo",
+            app_name=foo_app["name"],
             deployment_group_name="bar",
-            service_role_arn=aws_iam_role["foo_role"]["arn"],
-            deployment_config_name=foo_deployment_config.id,
+            service_role_arn=foo_role["arn"],
+            deployment_config_name=foo.id,
             auto_rollback_configuration=aws.codedeploy.DeploymentGroupAutoRollbackConfigurationArgs(
                 enabled=True,
                 events=["DEPLOYMENT_STOP_ON_ALARM"],
@@ -253,13 +274,14 @@ class DeploymentConfig(pulumi.CustomResource):
                 enabled=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeDeploy Deployment Configurations using the `deployment_config_name`. For example:
 
         ```sh
-         $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
+        $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
         ```
 
         :param str resource_name: The name of the resource.
@@ -279,23 +301,25 @@ class DeploymentConfig(pulumi.CustomResource):
         Provides a CodeDeploy deployment config for an application
 
         ## Example Usage
+
         ### Server Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        foo_deployment_config = aws.codedeploy.DeploymentConfig("fooDeploymentConfig",
+        foo = aws.codedeploy.DeploymentConfig("foo",
             deployment_config_name="test-deployment-config",
             minimum_healthy_hosts=aws.codedeploy.DeploymentConfigMinimumHealthyHostsArgs(
                 type="HOST_COUNT",
                 value=2,
             ))
-        foo_deployment_group = aws.codedeploy.DeploymentGroup("fooDeploymentGroup",
-            app_name=aws_codedeploy_app["foo_app"]["name"],
+        foo_deployment_group = aws.codedeploy.DeploymentGroup("foo",
+            app_name=foo_app["name"],
             deployment_group_name="bar",
-            service_role_arn=aws_iam_role["foo_role"]["arn"],
-            deployment_config_name=foo_deployment_config.id,
+            service_role_arn=foo_role["arn"],
+            deployment_config_name=foo.id,
             ec2_tag_filters=[aws.codedeploy.DeploymentGroupEc2TagFilterArgs(
                 key="filterkey",
                 type="KEY_AND_VALUE",
@@ -315,13 +339,16 @@ class DeploymentConfig(pulumi.CustomResource):
                 enabled=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        foo_deployment_config = aws.codedeploy.DeploymentConfig("fooDeploymentConfig",
+        foo = aws.codedeploy.DeploymentConfig("foo",
             deployment_config_name="test-deployment-config",
             compute_platform="Lambda",
             traffic_routing_config=aws.codedeploy.DeploymentConfigTrafficRoutingConfigArgs(
@@ -331,11 +358,11 @@ class DeploymentConfig(pulumi.CustomResource):
                     percentage=10,
                 ),
             ))
-        foo_deployment_group = aws.codedeploy.DeploymentGroup("fooDeploymentGroup",
-            app_name=aws_codedeploy_app["foo_app"]["name"],
+        foo_deployment_group = aws.codedeploy.DeploymentGroup("foo",
+            app_name=foo_app["name"],
             deployment_group_name="bar",
-            service_role_arn=aws_iam_role["foo_role"]["arn"],
-            deployment_config_name=foo_deployment_config.id,
+            service_role_arn=foo_role["arn"],
+            deployment_config_name=foo.id,
             auto_rollback_configuration=aws.codedeploy.DeploymentGroupAutoRollbackConfigurationArgs(
                 enabled=True,
                 events=["DEPLOYMENT_STOP_ON_ALARM"],
@@ -345,13 +372,14 @@ class DeploymentConfig(pulumi.CustomResource):
                 enabled=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeDeploy Deployment Configurations using the `deployment_config_name`. For example:
 
         ```sh
-         $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
+        $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
         ```
 
         :param str resource_name: The name of the resource.
@@ -386,6 +414,7 @@ class DeploymentConfig(pulumi.CustomResource):
             __props__.__dict__["deployment_config_name"] = deployment_config_name
             __props__.__dict__["minimum_healthy_hosts"] = minimum_healthy_hosts
             __props__.__dict__["traffic_routing_config"] = traffic_routing_config
+            __props__.__dict__["arn"] = None
             __props__.__dict__["deployment_config_id"] = None
         super(DeploymentConfig, __self__).__init__(
             'aws:codedeploy/deploymentConfig:DeploymentConfig',
@@ -397,6 +426,7 @@ class DeploymentConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             compute_platform: Optional[pulumi.Input[str]] = None,
             deployment_config_id: Optional[pulumi.Input[str]] = None,
             deployment_config_name: Optional[pulumi.Input[str]] = None,
@@ -409,6 +439,7 @@ class DeploymentConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the deployment config.
         :param pulumi.Input[str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         :param pulumi.Input[str] deployment_config_id: The AWS Assigned deployment config id
         :param pulumi.Input[str] deployment_config_name: The name of the deployment config.
@@ -419,12 +450,21 @@ class DeploymentConfig(pulumi.CustomResource):
 
         __props__ = _DeploymentConfigState.__new__(_DeploymentConfigState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["compute_platform"] = compute_platform
         __props__.__dict__["deployment_config_id"] = deployment_config_id
         __props__.__dict__["deployment_config_name"] = deployment_config_name
         __props__.__dict__["minimum_healthy_hosts"] = minimum_healthy_hosts
         __props__.__dict__["traffic_routing_config"] = traffic_routing_config
         return DeploymentConfig(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the deployment config.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="computePlatform")

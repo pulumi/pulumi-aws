@@ -58,19 +58,21 @@ public final class ServiceSourceConfigurationAuthenticationConfiguration {
 
         @CustomType.Setter
         public Builder accessRoleArn(@Nullable String accessRoleArn) {
+
             this.accessRoleArn = accessRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder connectionArn(@Nullable String connectionArn) {
+
             this.connectionArn = connectionArn;
             return this;
         }
         public ServiceSourceConfigurationAuthenticationConfiguration build() {
-            final var o = new ServiceSourceConfigurationAuthenticationConfiguration();
-            o.accessRoleArn = accessRoleArn;
-            o.connectionArn = connectionArn;
-            return o;
+            final var _resultValue = new ServiceSourceConfigurationAuthenticationConfiguration();
+            _resultValue.accessRoleArn = accessRoleArn;
+            _resultValue.connectionArn = connectionArn;
+            return _resultValue;
         }
     }
 }

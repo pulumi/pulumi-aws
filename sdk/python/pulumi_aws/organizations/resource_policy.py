@@ -141,6 +141,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -175,16 +176,16 @@ class ResourcePolicy(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_organizations_resource_policy` using the resource policy ID. For example:
 
         ```sh
-         $ pulumi import aws:organizations/resourcePolicy:ResourcePolicy example rp-12345678
+        $ pulumi import aws:organizations/resourcePolicy:ResourcePolicy example rp-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -203,6 +204,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -237,16 +239,16 @@ class ResourcePolicy(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_organizations_resource_policy` using the resource policy ID. For example:
 
         ```sh
-         $ pulumi import aws:organizations/resourcePolicy:ResourcePolicy example rp-12345678
+        $ pulumi import aws:organizations/resourcePolicy:ResourcePolicy example rp-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -281,8 +283,6 @@ class ResourcePolicy(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ResourcePolicy, __self__).__init__(
             'aws:organizations/resourcePolicy:ResourcePolicy',
             resource_name,

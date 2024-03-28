@@ -5,6 +5,7 @@ package com.pulumi.aws.lightsail.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class DistributionCacheBehaviorArgs extends com.pulumi.resources.Re
         }
 
         public DistributionCacheBehaviorArgs build() {
-            $.behavior = Objects.requireNonNull($.behavior, "expected parameter 'behavior' to be non-null");
-            $.path = Objects.requireNonNull($.path, "expected parameter 'path' to be non-null");
+            if ($.behavior == null) {
+                throw new MissingRequiredPropertyException("DistributionCacheBehaviorArgs", "behavior");
+            }
+            if ($.path == null) {
+                throw new MissingRequiredPropertyException("DistributionCacheBehaviorArgs", "path");
+            }
             return $;
         }
     }

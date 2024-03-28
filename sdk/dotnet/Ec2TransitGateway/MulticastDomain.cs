@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -89,21 +90,21 @@ namespace Pulumi.Aws.Ec2TransitGateway
     ///     var instance1 = new Aws.Ec2.Instance("instance1", new()
     ///     {
     ///         Ami = amazonLinux.Apply(getAmiResult =&gt; getAmiResult.Id),
-    ///         InstanceType = "t2.micro",
+    ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
     ///         SubnetId = subnet1.Id,
     ///     });
     /// 
     ///     var instance2 = new Aws.Ec2.Instance("instance2", new()
     ///     {
     ///         Ami = amazonLinux.Apply(getAmiResult =&gt; getAmiResult.Id),
-    ///         InstanceType = "t2.micro",
+    ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
     ///         SubnetId = subnet2.Id,
     ///     });
     /// 
     ///     var instance3 = new Aws.Ec2.Instance("instance3", new()
     ///     {
     ///         Ami = amazonLinux.Apply(getAmiResult =&gt; getAmiResult.Id),
-    ///         InstanceType = "t2.micro",
+    ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
     ///         SubnetId = subnet3.Id,
     ///     });
     /// 
@@ -187,13 +188,14 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ec2_transit_gateway_multicast_domain` using the EC2 Transit Gateway Multicast Domain identifier. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2transitgateway/multicastDomain:MulticastDomain example tgw-mcast-domain-12345
+    /// $ pulumi import aws:ec2transitgateway/multicastDomain:MulticastDomain example tgw-mcast-domain-12345
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/multicastDomain:MulticastDomain")]
@@ -270,10 +272,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -393,11 +391,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53.NewResolverQueryLogConfig(ctx, "example", &route53.ResolverQueryLogConfigArgs{
-//				DestinationArn: pulumi.Any(aws_s3_bucket.Example.Arn),
+//				Name:           pulumi.String("example"),
+//				DestinationArn: pulumi.Any(exampleAwsS3Bucket.Arn),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("Prod"),
 //				},
@@ -42,17 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// # Using `pulumi import`, import
-//
-// Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
+// Using `pulumi import`, import  Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
-//
+// $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
 // ```
 type ResolverQueryLogConfig struct {
 	pulumi.CustomResourceState
@@ -88,10 +87,6 @@ func NewResolverQueryLogConfig(ctx *pulumi.Context,
 	if args.DestinationArn == nil {
 		return nil, errors.New("invalid value for required argument 'DestinationArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverQueryLogConfig
 	err := ctx.RegisterResource("aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig", name, args, &resource, opts...)

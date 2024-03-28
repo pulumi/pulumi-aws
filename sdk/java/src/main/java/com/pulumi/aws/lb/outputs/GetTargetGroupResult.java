@@ -6,9 +6,11 @@ package com.pulumi.aws.lb.outputs;
 import com.pulumi.aws.lb.outputs.GetTargetGroupHealthCheck;
 import com.pulumi.aws.lb.outputs.GetTargetGroupStickiness;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -17,7 +19,7 @@ public final class GetTargetGroupResult {
     private String arn;
     private String arnSuffix;
     private Boolean connectionTermination;
-    private Integer deregistrationDelay;
+    private String deregistrationDelay;
     private GetTargetGroupHealthCheck healthCheck;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -25,7 +27,9 @@ public final class GetTargetGroupResult {
      */
     private String id;
     private Boolean lambdaMultiValueHeadersEnabled;
+    private List<String> loadBalancerArns;
     private String loadBalancingAlgorithmType;
+    private String loadBalancingAnomalyMitigation;
     private String loadBalancingCrossZoneEnabled;
     private String name;
     private Integer port;
@@ -49,7 +53,7 @@ public final class GetTargetGroupResult {
     public Boolean connectionTermination() {
         return this.connectionTermination;
     }
-    public Integer deregistrationDelay() {
+    public String deregistrationDelay() {
         return this.deregistrationDelay;
     }
     public GetTargetGroupHealthCheck healthCheck() {
@@ -65,8 +69,14 @@ public final class GetTargetGroupResult {
     public Boolean lambdaMultiValueHeadersEnabled() {
         return this.lambdaMultiValueHeadersEnabled;
     }
+    public List<String> loadBalancerArns() {
+        return this.loadBalancerArns;
+    }
     public String loadBalancingAlgorithmType() {
         return this.loadBalancingAlgorithmType;
+    }
+    public String loadBalancingAnomalyMitigation() {
+        return this.loadBalancingAnomalyMitigation;
     }
     public String loadBalancingCrossZoneEnabled() {
         return this.loadBalancingCrossZoneEnabled;
@@ -117,11 +127,13 @@ public final class GetTargetGroupResult {
         private String arn;
         private String arnSuffix;
         private Boolean connectionTermination;
-        private Integer deregistrationDelay;
+        private String deregistrationDelay;
         private GetTargetGroupHealthCheck healthCheck;
         private String id;
         private Boolean lambdaMultiValueHeadersEnabled;
+        private List<String> loadBalancerArns;
         private String loadBalancingAlgorithmType;
+        private String loadBalancingAnomalyMitigation;
         private String loadBalancingCrossZoneEnabled;
         private String name;
         private Integer port;
@@ -144,7 +156,9 @@ public final class GetTargetGroupResult {
     	      this.healthCheck = defaults.healthCheck;
     	      this.id = defaults.id;
     	      this.lambdaMultiValueHeadersEnabled = defaults.lambdaMultiValueHeadersEnabled;
+    	      this.loadBalancerArns = defaults.loadBalancerArns;
     	      this.loadBalancingAlgorithmType = defaults.loadBalancingAlgorithmType;
+    	      this.loadBalancingAnomalyMitigation = defaults.loadBalancingAnomalyMitigation;
     	      this.loadBalancingCrossZoneEnabled = defaults.loadBalancingCrossZoneEnabled;
     	      this.name = defaults.name;
     	      this.port = defaults.port;
@@ -161,127 +175,208 @@ public final class GetTargetGroupResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder arnSuffix(String arnSuffix) {
-            this.arnSuffix = Objects.requireNonNull(arnSuffix);
+            if (arnSuffix == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "arnSuffix");
+            }
+            this.arnSuffix = arnSuffix;
             return this;
         }
         @CustomType.Setter
         public Builder connectionTermination(Boolean connectionTermination) {
-            this.connectionTermination = Objects.requireNonNull(connectionTermination);
+            if (connectionTermination == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "connectionTermination");
+            }
+            this.connectionTermination = connectionTermination;
             return this;
         }
         @CustomType.Setter
-        public Builder deregistrationDelay(Integer deregistrationDelay) {
-            this.deregistrationDelay = Objects.requireNonNull(deregistrationDelay);
+        public Builder deregistrationDelay(String deregistrationDelay) {
+            if (deregistrationDelay == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "deregistrationDelay");
+            }
+            this.deregistrationDelay = deregistrationDelay;
             return this;
         }
         @CustomType.Setter
         public Builder healthCheck(GetTargetGroupHealthCheck healthCheck) {
-            this.healthCheck = Objects.requireNonNull(healthCheck);
+            if (healthCheck == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "healthCheck");
+            }
+            this.healthCheck = healthCheck;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder lambdaMultiValueHeadersEnabled(Boolean lambdaMultiValueHeadersEnabled) {
-            this.lambdaMultiValueHeadersEnabled = Objects.requireNonNull(lambdaMultiValueHeadersEnabled);
+            if (lambdaMultiValueHeadersEnabled == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "lambdaMultiValueHeadersEnabled");
+            }
+            this.lambdaMultiValueHeadersEnabled = lambdaMultiValueHeadersEnabled;
             return this;
         }
         @CustomType.Setter
+        public Builder loadBalancerArns(List<String> loadBalancerArns) {
+            if (loadBalancerArns == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "loadBalancerArns");
+            }
+            this.loadBalancerArns = loadBalancerArns;
+            return this;
+        }
+        public Builder loadBalancerArns(String... loadBalancerArns) {
+            return loadBalancerArns(List.of(loadBalancerArns));
+        }
+        @CustomType.Setter
         public Builder loadBalancingAlgorithmType(String loadBalancingAlgorithmType) {
-            this.loadBalancingAlgorithmType = Objects.requireNonNull(loadBalancingAlgorithmType);
+            if (loadBalancingAlgorithmType == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "loadBalancingAlgorithmType");
+            }
+            this.loadBalancingAlgorithmType = loadBalancingAlgorithmType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder loadBalancingAnomalyMitigation(String loadBalancingAnomalyMitigation) {
+            if (loadBalancingAnomalyMitigation == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "loadBalancingAnomalyMitigation");
+            }
+            this.loadBalancingAnomalyMitigation = loadBalancingAnomalyMitigation;
             return this;
         }
         @CustomType.Setter
         public Builder loadBalancingCrossZoneEnabled(String loadBalancingCrossZoneEnabled) {
-            this.loadBalancingCrossZoneEnabled = Objects.requireNonNull(loadBalancingCrossZoneEnabled);
+            if (loadBalancingCrossZoneEnabled == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "loadBalancingCrossZoneEnabled");
+            }
+            this.loadBalancingCrossZoneEnabled = loadBalancingCrossZoneEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder preserveClientIp(String preserveClientIp) {
-            this.preserveClientIp = Objects.requireNonNull(preserveClientIp);
+            if (preserveClientIp == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "preserveClientIp");
+            }
+            this.preserveClientIp = preserveClientIp;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder protocolVersion(String protocolVersion) {
-            this.protocolVersion = Objects.requireNonNull(protocolVersion);
+            if (protocolVersion == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "protocolVersion");
+            }
+            this.protocolVersion = protocolVersion;
             return this;
         }
         @CustomType.Setter
         public Builder proxyProtocolV2(Boolean proxyProtocolV2) {
-            this.proxyProtocolV2 = Objects.requireNonNull(proxyProtocolV2);
+            if (proxyProtocolV2 == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "proxyProtocolV2");
+            }
+            this.proxyProtocolV2 = proxyProtocolV2;
             return this;
         }
         @CustomType.Setter
         public Builder slowStart(Integer slowStart) {
-            this.slowStart = Objects.requireNonNull(slowStart);
+            if (slowStart == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "slowStart");
+            }
+            this.slowStart = slowStart;
             return this;
         }
         @CustomType.Setter
         public Builder stickiness(GetTargetGroupStickiness stickiness) {
-            this.stickiness = Objects.requireNonNull(stickiness);
+            if (stickiness == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "stickiness");
+            }
+            this.stickiness = stickiness;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder targetType(String targetType) {
-            this.targetType = Objects.requireNonNull(targetType);
+            if (targetType == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "targetType");
+            }
+            this.targetType = targetType;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public GetTargetGroupResult build() {
-            final var o = new GetTargetGroupResult();
-            o.arn = arn;
-            o.arnSuffix = arnSuffix;
-            o.connectionTermination = connectionTermination;
-            o.deregistrationDelay = deregistrationDelay;
-            o.healthCheck = healthCheck;
-            o.id = id;
-            o.lambdaMultiValueHeadersEnabled = lambdaMultiValueHeadersEnabled;
-            o.loadBalancingAlgorithmType = loadBalancingAlgorithmType;
-            o.loadBalancingCrossZoneEnabled = loadBalancingCrossZoneEnabled;
-            o.name = name;
-            o.port = port;
-            o.preserveClientIp = preserveClientIp;
-            o.protocol = protocol;
-            o.protocolVersion = protocolVersion;
-            o.proxyProtocolV2 = proxyProtocolV2;
-            o.slowStart = slowStart;
-            o.stickiness = stickiness;
-            o.tags = tags;
-            o.targetType = targetType;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetTargetGroupResult();
+            _resultValue.arn = arn;
+            _resultValue.arnSuffix = arnSuffix;
+            _resultValue.connectionTermination = connectionTermination;
+            _resultValue.deregistrationDelay = deregistrationDelay;
+            _resultValue.healthCheck = healthCheck;
+            _resultValue.id = id;
+            _resultValue.lambdaMultiValueHeadersEnabled = lambdaMultiValueHeadersEnabled;
+            _resultValue.loadBalancerArns = loadBalancerArns;
+            _resultValue.loadBalancingAlgorithmType = loadBalancingAlgorithmType;
+            _resultValue.loadBalancingAnomalyMitigation = loadBalancingAnomalyMitigation;
+            _resultValue.loadBalancingCrossZoneEnabled = loadBalancingCrossZoneEnabled;
+            _resultValue.name = name;
+            _resultValue.port = port;
+            _resultValue.preserveClientIp = preserveClientIp;
+            _resultValue.protocol = protocol;
+            _resultValue.protocolVersion = protocolVersion;
+            _resultValue.proxyProtocolV2 = proxyProtocolV2;
+            _resultValue.slowStart = slowStart;
+            _resultValue.stickiness = stickiness;
+            _resultValue.tags = tags;
+            _resultValue.targetType = targetType;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

@@ -9,15 +9,17 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.iot.LoggingOptions("example", {
  *     defaultLogLevel: "WARN",
- *     roleArn: aws_iam_role.example.arn,
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class LoggingOptions extends pulumi.CustomResource {
     /**

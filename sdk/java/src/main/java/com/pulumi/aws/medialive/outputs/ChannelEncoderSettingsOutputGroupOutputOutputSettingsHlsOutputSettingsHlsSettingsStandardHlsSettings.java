@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -43,19 +44,23 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
 
         @CustomType.Setter
         public Builder audioRenditionSets(@Nullable String audioRenditionSets) {
+
             this.audioRenditionSets = audioRenditionSets;
             return this;
         }
         @CustomType.Setter
         public Builder m3u8Settings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings m3u8Settings) {
-            this.m3u8Settings = Objects.requireNonNull(m3u8Settings);
+            if (m3u8Settings == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings", "m3u8Settings");
+            }
+            this.m3u8Settings = m3u8Settings;
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings();
-            o.audioRenditionSets = audioRenditionSets;
-            o.m3u8Settings = m3u8Settings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings();
+            _resultValue.audioRenditionSets = audioRenditionSets;
+            _resultValue.m3u8Settings = m3u8Settings;
+            return _resultValue;
         }
     }
 }

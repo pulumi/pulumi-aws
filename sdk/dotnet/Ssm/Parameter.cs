@@ -15,8 +15,10 @@ namespace Pulumi.Aws.Ssm
     /// &gt; **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by the provider before. This argument has been deprecated and will be removed in v6.0.0 of the provider. For more information on how this affects the behavior of this resource, see this issue comment.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,14 +29,18 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var foo = new Aws.Ssm.Parameter("foo", new()
     ///     {
-    ///         Type = "String",
+    ///         Name = "foo",
+    ///         Type = Aws.Ssm.ParameterType.String,
     ///         Value = "bar",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Encrypted string using default SSM KMS key
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,22 +52,23 @@ namespace Pulumi.Aws.Ssm
     ///     var @default = new Aws.Rds.Instance("default", new()
     ///     {
     ///         AllocatedStorage = 10,
-    ///         StorageType = "gp2",
+    ///         StorageType = Aws.Rds.StorageType.GP2,
     ///         Engine = "mysql",
     ///         EngineVersion = "5.7.16",
-    ///         InstanceClass = "db.t2.micro",
+    ///         InstanceClass = Aws.Rds.InstanceType.T2_Micro,
     ///         DbName = "mydb",
     ///         Username = "foo",
-    ///         Password = @var.Database_master_password,
+    ///         Password = databaseMasterPassword,
     ///         DbSubnetGroupName = "my_database_subnet_group",
     ///         ParameterGroupName = "default.mysql5.7",
     ///     });
     /// 
     ///     var secret = new Aws.Ssm.Parameter("secret", new()
     ///     {
+    ///         Name = "/production/database/password/master",
     ///         Description = "The parameter description",
-    ///         Type = "SecureString",
-    ///         Value = @var.Database_master_password,
+    ///         Type = Aws.Ssm.ParameterType.SecureString,
+    ///         Value = databaseMasterPassword,
     ///         Tags = 
     ///         {
     ///             { "environment", "production" },
@@ -70,13 +77,14 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
+    /// $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssm/parameter:Parameter")]
@@ -195,7 +203,6 @@ namespace Pulumi.Aws.Ssm
                 Version = Utilities.Version,
                 AdditionalSecretOutputs =
                 {
-                    "tagsAll",
                     "value",
                 },
             };
@@ -391,11 +398,7 @@ namespace Pulumi.Aws.Ssm
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

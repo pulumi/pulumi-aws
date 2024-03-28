@@ -13,41 +13,49 @@ import * as utilities from "../utilities";
  * > **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
  *
  * ## Example Usage
+ *
  * ### Permissions For A Lake Formation S3 Resource
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.lakeformation.getPermissions({
- *     principal: aws_iam_role.workflow_role.arn,
+ *     principal: workflowRole.arn,
  *     dataLocation: {
- *         arn: aws_lakeformation_resource.test.arn,
+ *         arn: testAwsLakeformationResource.arn,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Permissions For A Glue Catalog Database
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.lakeformation.getPermissions({
- *     principal: aws_iam_role.workflow_role.arn,
+ *     principal: workflowRole.arn,
  *     database: {
- *         name: aws_glue_catalog_database.test.name,
+ *         name: testAwsGlueCatalogDatabase.name,
  *         catalogId: "110376042874",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Permissions For Tag-Based Access Control
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.lakeformation.getPermissions({
- *     principal: aws_iam_role.workflow_role.arn,
+ *     principal: workflowRole.arn,
  *     lfTagPolicy: {
  *         resourceType: "DATABASE",
  *         expressions: [
@@ -66,6 +74,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPermissions(args: GetPermissionsArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionsResult> {
 
@@ -73,6 +82,7 @@ export function getPermissions(args: GetPermissionsArgs, opts?: pulumi.InvokeOpt
     return pulumi.runtime.invoke("aws:lakeformation/getPermissions:getPermissions", {
         "catalogId": args.catalogId,
         "catalogResource": args.catalogResource,
+        "dataCellsFilter": args.dataCellsFilter,
         "dataLocation": args.dataLocation,
         "database": args.database,
         "lfTag": args.lfTag,
@@ -95,6 +105,10 @@ export interface GetPermissionsArgs {
      * Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
      */
     catalogResource?: boolean;
+    /**
+     * Configuration block for a data cells filter resource. Detailed below.
+     */
+    dataCellsFilter?: inputs.lakeformation.GetPermissionsDataCellsFilter;
     /**
      * Configuration block for a data location resource. Detailed below.
      */
@@ -135,6 +149,7 @@ export interface GetPermissionsArgs {
 export interface GetPermissionsResult {
     readonly catalogId?: string;
     readonly catalogResource?: boolean;
+    readonly dataCellsFilter: outputs.lakeformation.GetPermissionsDataCellsFilter;
     readonly dataLocation: outputs.lakeformation.GetPermissionsDataLocation;
     readonly database: outputs.lakeformation.GetPermissionsDatabase;
     /**
@@ -161,41 +176,49 @@ export interface GetPermissionsResult {
  * > **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
  *
  * ## Example Usage
+ *
  * ### Permissions For A Lake Formation S3 Resource
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.lakeformation.getPermissions({
- *     principal: aws_iam_role.workflow_role.arn,
+ *     principal: workflowRole.arn,
  *     dataLocation: {
- *         arn: aws_lakeformation_resource.test.arn,
+ *         arn: testAwsLakeformationResource.arn,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Permissions For A Glue Catalog Database
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.lakeformation.getPermissions({
- *     principal: aws_iam_role.workflow_role.arn,
+ *     principal: workflowRole.arn,
  *     database: {
- *         name: aws_glue_catalog_database.test.name,
+ *         name: testAwsGlueCatalogDatabase.name,
  *         catalogId: "110376042874",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Permissions For Tag-Based Access Control
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.lakeformation.getPermissions({
- *     principal: aws_iam_role.workflow_role.arn,
+ *     principal: workflowRole.arn,
  *     lfTagPolicy: {
  *         resourceType: "DATABASE",
  *         expressions: [
@@ -214,6 +237,7 @@ export interface GetPermissionsResult {
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPermissionsOutput(args: GetPermissionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionsResult> {
     return pulumi.output(args).apply((a: any) => getPermissions(a, opts))
@@ -231,6 +255,10 @@ export interface GetPermissionsOutputArgs {
      * Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
      */
     catalogResource?: pulumi.Input<boolean>;
+    /**
+     * Configuration block for a data cells filter resource. Detailed below.
+     */
+    dataCellsFilter?: pulumi.Input<inputs.lakeformation.GetPermissionsDataCellsFilterArgs>;
     /**
      * Configuration block for a data location resource. Detailed below.
      */

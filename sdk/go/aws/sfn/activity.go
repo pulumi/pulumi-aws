@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,7 +28,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sfn.NewActivity(ctx, "sfnActivity", nil)
+//			_, err := sfn.NewActivity(ctx, "sfn_activity", &sfn.ActivityArgs{
+//				Name: pulumi.String("my-activity"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -36,15 +39,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import activities using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
-//
+// $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
 // ```
 type Activity struct {
 	pulumi.CustomResourceState
@@ -68,10 +70,6 @@ func NewActivity(ctx *pulumi.Context,
 		args = &ActivityArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Activity
 	err := ctx.RegisterResource("aws:sfn/activity:Activity", name, args, &resource, opts...)

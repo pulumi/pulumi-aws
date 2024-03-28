@@ -99,7 +99,7 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
         Using `pulumi import`, import SageMaker Model Package Groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
+        $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -122,7 +122,7 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
         Using `pulumi import`, import SageMaker Model Package Groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
+        $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
         ```
 
         :param str resource_name: The name of the resource.

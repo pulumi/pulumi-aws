@@ -16,6 +16,102 @@ namespace Pulumi.Aws.Ec2
         /// `aws.ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
         /// 
         /// This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// Basic usage:
+        /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var p = Aws.Ec2.GetVpcIpamPool.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetVpcIpamPoolFilterInputArgs
+        ///             {
+        ///                 Name = "description",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "*mypool*",
+        ///                 },
+        ///             },
+        ///             new Aws.Ec2.Inputs.GetVpcIpamPoolFilterInputArgs
+        ///             {
+        ///                 Name = "address-family",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "ipv4",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var c = Aws.Ec2.GetVpcIpamPoolCidrs.Invoke(new()
+        ///     {
+        ///         IpamPoolId = p.Apply(getVpcIpamPoolResult =&gt; getVpcIpamPoolResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
+        /// Filtering:
+        /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var c = Aws.Ec2.GetVpcIpamPoolCidrs.Invoke(new()
+        ///     {
+        ///         IpamPoolId = "ipam-pool-123",
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetVpcIpamPoolCidrsFilterInputArgs
+        ///             {
+        ///                 Name = "cidr",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "10.*",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var mycidrs = .Where(cidr =&gt; cidr.State == "provisioned").Select(cidr =&gt; 
+        ///     {
+        ///         return cidr.Cidr;
+        ///     }).ToList();
+        /// 
+        ///     var pls = new Aws.Ec2.ManagedPrefixList("pls", new()
+        ///     {
+        ///         Entries = mycidrs.Select((v, k) =&gt; new { Key = k, Value = v }).Apply(entries =&gt; entries.Select(entry =&gt; 
+        ///         {
+        ///             return 
+        ///             {
+        ///                 { "cidr", entry.Value },
+        ///                 { "description", entry.Value },
+        ///             };
+        ///         }).ToList()),
+        ///         Name = $"IPAM Pool ({test.Id}) Cidrs",
+        ///         AddressFamily = "IPv4",
+        ///         MaxEntries = mycidrs.Length,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVpcIamPoolCidrsResult> InvokeAsync(GetVpcIamPoolCidrsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcIamPoolCidrsResult>("aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs", args ?? new GetVpcIamPoolCidrsArgs(), options.WithDefaults());
@@ -24,6 +120,102 @@ namespace Pulumi.Aws.Ec2
         /// `aws.ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
         /// 
         /// This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// Basic usage:
+        /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var p = Aws.Ec2.GetVpcIpamPool.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetVpcIpamPoolFilterInputArgs
+        ///             {
+        ///                 Name = "description",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "*mypool*",
+        ///                 },
+        ///             },
+        ///             new Aws.Ec2.Inputs.GetVpcIpamPoolFilterInputArgs
+        ///             {
+        ///                 Name = "address-family",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "ipv4",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var c = Aws.Ec2.GetVpcIpamPoolCidrs.Invoke(new()
+        ///     {
+        ///         IpamPoolId = p.Apply(getVpcIpamPoolResult =&gt; getVpcIpamPoolResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
+        /// Filtering:
+        /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var c = Aws.Ec2.GetVpcIpamPoolCidrs.Invoke(new()
+        ///     {
+        ///         IpamPoolId = "ipam-pool-123",
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetVpcIpamPoolCidrsFilterInputArgs
+        ///             {
+        ///                 Name = "cidr",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "10.*",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var mycidrs = .Where(cidr =&gt; cidr.State == "provisioned").Select(cidr =&gt; 
+        ///     {
+        ///         return cidr.Cidr;
+        ///     }).ToList();
+        /// 
+        ///     var pls = new Aws.Ec2.ManagedPrefixList("pls", new()
+        ///     {
+        ///         Entries = mycidrs.Select((v, k) =&gt; new { Key = k, Value = v }).Apply(entries =&gt; entries.Select(entry =&gt; 
+        ///         {
+        ///             return 
+        ///             {
+        ///                 { "cidr", entry.Value },
+        ///                 { "description", entry.Value },
+        ///             };
+        ///         }).ToList()),
+        ///         Name = $"IPAM Pool ({test.Id}) Cidrs",
+        ///         AddressFamily = "IPv4",
+        ///         MaxEntries = mycidrs.Length,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVpcIamPoolCidrsResult> Invoke(GetVpcIamPoolCidrsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcIamPoolCidrsResult>("aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs", args ?? new GetVpcIamPoolCidrsInvokeArgs(), options.WithDefaults());

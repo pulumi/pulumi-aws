@@ -797,19 +797,22 @@ class NetworkInterface(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.ec2.NetworkInterface("test",
-            subnet_id=aws_subnet["public_a"]["id"],
+            subnet_id=public_a["id"],
             private_ips=["10.0.0.50"],
-            security_groups=[aws_security_group["web"]["id"]],
+            security_groups=[web["id"]],
             attachments=[aws.ec2.NetworkInterfaceAttachmentArgs(
-                instance=aws_instance["test"]["id"],
+                instance=test_aws_instance["id"],
                 device_index=1,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example of Managing Multiple IPs on a Network Interface
 
         By default, private IPs are managed through the `private_ips` and `private_ips_count` arguments which manage IPs as a set of IPs that are configured without regard to order. For a new network interface, the same primary IP address is consistently selected from a given set of addresses, regardless of the order provided. However, modifications of the set of addresses of an existing interface will not alter the current primary IP address unless it has been removed from the set.
@@ -832,7 +835,7 @@ class NetworkInterface(pulumi.CustomResource):
         Using `pulumi import`, import Network Interfaces using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
+        $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
         ```
 
         :param str resource_name: The name of the resource.
@@ -870,19 +873,22 @@ class NetworkInterface(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.ec2.NetworkInterface("test",
-            subnet_id=aws_subnet["public_a"]["id"],
+            subnet_id=public_a["id"],
             private_ips=["10.0.0.50"],
-            security_groups=[aws_security_group["web"]["id"]],
+            security_groups=[web["id"]],
             attachments=[aws.ec2.NetworkInterfaceAttachmentArgs(
-                instance=aws_instance["test"]["id"],
+                instance=test_aws_instance["id"],
                 device_index=1,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example of Managing Multiple IPs on a Network Interface
 
         By default, private IPs are managed through the `private_ips` and `private_ips_count` arguments which manage IPs as a set of IPs that are configured without regard to order. For a new network interface, the same primary IP address is consistently selected from a given set of addresses, regardless of the order provided. However, modifications of the set of addresses of an existing interface will not alter the current primary IP address unless it has been removed from the set.
@@ -905,7 +911,7 @@ class NetworkInterface(pulumi.CustomResource):
         Using `pulumi import`, import Network Interfaces using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
+        $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
         ```
 
         :param str resource_name: The name of the resource.
@@ -980,8 +986,6 @@ class NetworkInterface(pulumi.CustomResource):
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["private_dns_name"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(NetworkInterface, __self__).__init__(
             'aws:ec2/networkInterface:NetworkInterface',
             resource_name,

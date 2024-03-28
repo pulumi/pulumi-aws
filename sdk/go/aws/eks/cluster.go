@@ -15,8 +15,10 @@ import (
 // Manages an EKS Cluster.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,17 +32,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := eks.NewCluster(ctx, "example", &eks.ClusterArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				VpcConfig: &eks.ClusterVpcConfigArgs{
 //					SubnetIds: pulumi.StringArray{
-//						aws_subnet.Example1.Id,
-//						aws_subnet.Example2.Id,
+//						example1.Id,
+//						example2.Id,
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_role_policy_attachment.ExampleAmazonEKSClusterPolicy,
-//				aws_iam_role_policy_attachment.ExampleAmazonEKSVPCResourceController,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -53,8 +53,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example IAM Role for EKS Cluster
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -89,7 +92,8 @@ import (
 //				return err
 //			}
 //			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//				Name:             pulumi.String("eks-cluster-example"),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -101,6 +105,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Optionally, enable Security Groups for Pods
+//			// Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
 //			_, err = iam.NewRolePolicyAttachment(ctx, "example-AmazonEKSVPCResourceController", &iam.RolePolicyAttachmentArgs{
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"),
 //				Role:      example.Name,
@@ -113,16 +119,21 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Enabling Control Plane Logging
 //
 // [EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) can be enabled via the `enabledClusterLogTypes` argument. To manage the CloudWatch Log Group retention period, the `cloudwatch.LogGroup` resource can be used.
 //
 // > The below configuration uses [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) to prevent ordering issues with EKS automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
+//
+//	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
@@ -138,20 +149,20 @@ import (
 //			if param := cfg.Get("clusterName"); param != "" {
 //				clusterName = param
 //			}
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", &cloudwatch.LogGroupArgs{
-//				RetentionInDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = eks.NewCluster(ctx, "exampleCluster", &eks.ClusterArgs{
+//			_, err := eks.NewCluster(ctx, "example", &eks.ClusterArgs{
 //				EnabledClusterLogTypes: pulumi.StringArray{
 //					pulumi.String("api"),
 //					pulumi.String("audit"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleLogGroup,
-//			}))
+//				Name: pulumi.String(clusterName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
+//				Name:            pulumi.String(fmt.Sprintf("/aws/eks/%v/cluster", clusterName)),
+//				RetentionInDays: pulumi.Int(7),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -160,10 +171,109 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Enabling IAM Roles for Service Accounts
+//
+// Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi-tls/sdk/v4/go/tls"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleCluster, err := eks.NewCluster(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			example := exampleCluster.Identities.ApplyT(func(identities []eks.ClusterIdentity) (tls.GetCertificateResult, error) {
+//				return tls.GetCertificateOutput(ctx, tls.GetCertificateOutputArgs{
+//					Url: identities[0].Oidcs[0].Issuer,
+//				}, nil), nil
+//			}).(tls.GetCertificateResultOutput)
+//			exampleOpenIdConnectProvider, err := iam.NewOpenIdConnectProvider(ctx, "example", &iam.OpenIdConnectProviderArgs{
+//				ClientIdLists: pulumi.StringArray{
+//					pulumi.String("sts.amazonaws.com"),
+//				},
+//				ThumbprintLists: pulumi.StringArray{
+//					example.ApplyT(func(example tls.GetCertificateResult) (*string, error) {
+//						return &example.Certificates[0].Sha1Fingerprint, nil
+//					}).(pulumi.StringPtrOutput),
+//				},
+//				Url: example.ApplyT(func(example tls.GetCertificateResult) (*string, error) {
+//					return &example.Url, nil
+//				}).(pulumi.StringPtrOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAssumeRolePolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Actions: pulumi.StringArray{
+//							pulumi.String("sts:AssumeRoleWithWebIdentity"),
+//						},
+//						Effect: pulumi.String("Allow"),
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test: pulumi.String("StringEquals"),
+//								Variable: std.ReplaceOutput(ctx, std.ReplaceOutputArgs{
+//									Text:    exampleOpenIdConnectProvider.Url,
+//									Search:  pulumi.String("https://"),
+//									Replace: pulumi.String(""),
+//								}, nil).ApplyT(func(invoke std.ReplaceResult) (string, error) {
+//									return fmt.Sprintf("%v:sub", invoke.Result), nil
+//								}).(pulumi.StringOutput),
+//								Values: pulumi.StringArray{
+//									pulumi.String("system:serviceaccount:kube-system:aws-node"),
+//								},
+//							},
+//						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Identifiers: pulumi.StringArray{
+//									exampleOpenIdConnectProvider.Arn,
+//								},
+//								Type: pulumi.String("Federated"),
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			_, err = iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				AssumeRolePolicy: exampleAssumeRolePolicy.ApplyT(func(exampleAssumeRolePolicy iam.GetPolicyDocumentResult) (*string, error) {
+//					return &exampleAssumeRolePolicy.Json, nil
+//				}).(pulumi.StringPtrOutput),
+//				Name: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ### EKS Cluster on AWS Outpost
 //
 // [Creating a local Amazon EKS cluster on an AWS Outpost](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -177,14 +287,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(data.Aws_iam_policy_document.Example_assume_role_policy.Json),
+//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(exampleAssumeRolePolicy.Json),
+//				Name:             pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = eks.NewCluster(ctx, "exampleCluster", &eks.ClusterArgs{
-//				RoleArn: exampleRole.Arn,
+//			_, err = eks.NewCluster(ctx, "example", &eks.ClusterArgs{
+//				Name:    pulumi.String("example-cluster"),
+//				RoleArn: example.Arn,
 //				VpcConfig: &eks.ClusterVpcConfigArgs{
 //					EndpointPrivateAccess: pulumi.Bool(true),
 //					EndpointPublicAccess:  pulumi.Bool(false),
@@ -192,7 +304,7 @@ import (
 //				OutpostConfig: &eks.ClusterOutpostConfigArgs{
 //					ControlPlaneInstanceType: pulumi.String("m5d.large"),
 //					OutpostArns: pulumi.StringArray{
-//						data.Aws_outposts_outpost.Example.Arn,
+//						exampleAwsOutpostsOutpost.Arn,
 //					},
 //				},
 //			})
@@ -204,6 +316,52 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ### EKS Cluster with Access Config
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(exampleAssumeRolePolicy.Json),
+//				Name:             pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = eks.NewCluster(ctx, "example", &eks.ClusterArgs{
+//				Name:    pulumi.String("example-cluster"),
+//				RoleArn: example.Arn,
+//				VpcConfig: &eks.ClusterVpcConfigArgs{
+//					EndpointPrivateAccess: pulumi.Bool(true),
+//					EndpointPublicAccess:  pulumi.Bool(false),
+//				},
+//				AccessConfig: &eks.ClusterAccessConfigArgs{
+//					AuthenticationMode:                      pulumi.String("CONFIG_MAP"),
+//					BootstrapClusterCreatorAdminPermissions: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // After adding inline IAM Policies (e.g., `iam.RolePolicy` resource) or attaching IAM Policies (e.g., `iam.Policy` resource and `iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g., `kubernetesServiceAccount` resource) and recreate any pods.
 //
@@ -212,13 +370,13 @@ import (
 // Using `pulumi import`, import EKS Clusters using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:eks/cluster:Cluster my_cluster my_cluster
-//
+// $ pulumi import aws:eks/cluster:Cluster my_cluster my_cluster
 // ```
 type Cluster struct {
 	pulumi.CustomResourceState
 
+	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+	AccessConfig ClusterAccessConfigOutput `pulumi:"accessConfig"`
 	// ARN of the cluster.
 	Arn                    pulumi.StringOutput                    `pulumi:"arn"`
 	CertificateAuthorities ClusterCertificateAuthorityArrayOutput `pulumi:"certificateAuthorities"`
@@ -240,7 +398,7 @@ type Cluster struct {
 	Identities ClusterIdentityArrayOutput `pulumi:"identities"`
 	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigOutput `pulumi:"kubernetesNetworkConfig"`
-	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
 	OutpostConfig ClusterOutpostConfigPtrOutput `pulumi:"outpostConfig"`
@@ -277,10 +435,6 @@ func NewCluster(ctx *pulumi.Context,
 	if args.VpcConfig == nil {
 		return nil, errors.New("invalid value for required argument 'VpcConfig'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("aws:eks/cluster:Cluster", name, args, &resource, opts...)
@@ -304,6 +458,8 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
+	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+	AccessConfig *ClusterAccessConfig `pulumi:"accessConfig"`
 	// ARN of the cluster.
 	Arn                    *string                       `pulumi:"arn"`
 	CertificateAuthorities []ClusterCertificateAuthority `pulumi:"certificateAuthorities"`
@@ -325,7 +481,7 @@ type clusterState struct {
 	Identities []ClusterIdentity `pulumi:"identities"`
 	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
 	KubernetesNetworkConfig *ClusterKubernetesNetworkConfig `pulumi:"kubernetesNetworkConfig"`
-	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
 	Name *string `pulumi:"name"`
 	// Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
 	OutpostConfig *ClusterOutpostConfig `pulumi:"outpostConfig"`
@@ -350,6 +506,8 @@ type clusterState struct {
 }
 
 type ClusterState struct {
+	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+	AccessConfig ClusterAccessConfigPtrInput
 	// ARN of the cluster.
 	Arn                    pulumi.StringPtrInput
 	CertificateAuthorities ClusterCertificateAuthorityArrayInput
@@ -371,7 +529,7 @@ type ClusterState struct {
 	Identities ClusterIdentityArrayInput
 	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrInput
-	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
 	Name pulumi.StringPtrInput
 	// Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
 	OutpostConfig ClusterOutpostConfigPtrInput
@@ -400,14 +558,16 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	DefaultAddonsToRemoves []string `pulumi:"defaultAddonsToRemoves"`
+	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+	AccessConfig           *ClusterAccessConfig `pulumi:"accessConfig"`
+	DefaultAddonsToRemoves []string             `pulumi:"defaultAddonsToRemoves"`
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
 	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
 	EncryptionConfig *ClusterEncryptionConfig `pulumi:"encryptionConfig"`
 	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
 	KubernetesNetworkConfig *ClusterKubernetesNetworkConfig `pulumi:"kubernetesNetworkConfig"`
-	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
 	Name *string `pulumi:"name"`
 	// Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
 	OutpostConfig *ClusterOutpostConfig `pulumi:"outpostConfig"`
@@ -425,6 +585,8 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
+	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+	AccessConfig           ClusterAccessConfigPtrInput
 	DefaultAddonsToRemoves pulumi.StringArrayInput
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes pulumi.StringArrayInput
@@ -432,7 +594,7 @@ type ClusterArgs struct {
 	EncryptionConfig ClusterEncryptionConfigPtrInput
 	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrInput
-	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
 	Name pulumi.StringPtrInput
 	// Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
 	OutpostConfig ClusterOutpostConfigPtrInput
@@ -535,6 +697,11 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+func (o ClusterOutput) AccessConfig() ClusterAccessConfigOutput {
+	return o.ApplyT(func(v *Cluster) ClusterAccessConfigOutput { return v.AccessConfig }).(ClusterAccessConfigOutput)
+}
+
 // ARN of the cluster.
 func (o ClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
@@ -589,7 +756,7 @@ func (o ClusterOutput) KubernetesNetworkConfig() ClusterKubernetesNetworkConfigO
 	return o.ApplyT(func(v *Cluster) ClusterKubernetesNetworkConfigOutput { return v.KubernetesNetworkConfig }).(ClusterKubernetesNetworkConfigOutput)
 }
 
-// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
 func (o ClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

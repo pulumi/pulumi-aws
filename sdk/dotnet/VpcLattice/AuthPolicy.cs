@@ -13,8 +13,10 @@ namespace Pulumi.Aws.VpcLattice
     /// Resource for managing an AWS VPC Lattice Auth Policy.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,29 +26,30 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleService = new Aws.VpcLattice.Service("exampleService", new()
+    ///     var example = new Aws.VpcLattice.Service("example", new()
     ///     {
+    ///         Name = "example-vpclattice-service",
     ///         AuthType = "AWS_IAM",
     ///         CustomDomainName = "example.com",
     ///     });
     /// 
-    ///     var exampleAuthPolicy = new Aws.VpcLattice.AuthPolicy("exampleAuthPolicy", new()
+    ///     var exampleAuthPolicy = new Aws.VpcLattice.AuthPolicy("example", new()
     ///     {
-    ///         ResourceIdentifier = exampleService.Arn,
+    ///         ResourceIdentifier = example.Arn,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = "*",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = "*",
-    ///                     ["Resource"] = "*",
-    ///                     ["Condition"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["action"] = "*",
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = "*",
+    ///                     ["resource"] = "*",
+    ///                     ["condition"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["StringNotEqualsIgnoreCase"] = new Dictionary&lt;string, object?&gt;
+    ///                         ["stringNotEqualsIgnoreCase"] = new Dictionary&lt;string, object?&gt;
     ///                         {
     ///                             ["aws:PrincipalType"] = "anonymous",
     ///                         },
@@ -58,13 +61,14 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import VPC Lattice Auth Policy using the `example_id_arg`. For example:
+    /// Using `pulumi import`, import VPC Lattice Auth Policy using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:vpclattice/authPolicy:AuthPolicy example rft-8012925589
+    /// $ pulumi import aws:vpclattice/authPolicy:AuthPolicy example abcd-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:vpclattice/authPolicy:AuthPolicy")]
@@ -83,7 +87,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> ResourceIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+        /// The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
         /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
@@ -147,7 +151,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string> ResourceIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+        /// The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -173,7 +177,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? ResourceIdentifier { get; set; }
 
         /// <summary>
-        /// The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+        /// The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

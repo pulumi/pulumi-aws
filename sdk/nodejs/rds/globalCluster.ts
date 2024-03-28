@@ -13,8 +13,10 @@ import * as utilities from "../utilities";
  * More information about Aurora global databases can be found in the [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database-creating).
  *
  * ## Example Usage
+ *
  * ### New MySQL Global Cluster
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,7 +27,7 @@ import * as utilities from "../utilities";
  *     engineVersion: "5.6.mysql_aurora.1.22.2",
  *     databaseName: "example_db",
  * });
- * const primaryCluster = new aws.rds.Cluster("primaryCluster", {
+ * const primary = new aws.rds.Cluster("primary", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     clusterIdentifier: "test-primary-cluster",
@@ -34,55 +36,47 @@ import * as utilities from "../utilities";
  *     databaseName: "example_db",
  *     globalClusterIdentifier: example.id,
  *     dbSubnetGroupName: "default",
- * }, {
- *     provider: aws.primary,
  * });
- * const primaryClusterInstance = new aws.rds.ClusterInstance("primaryClusterInstance", {
+ * const primaryClusterInstance = new aws.rds.ClusterInstance("primary", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     identifier: "test-primary-cluster-instance",
- *     clusterIdentifier: primaryCluster.id,
- *     instanceClass: "db.r4.large",
+ *     clusterIdentifier: primary.id,
+ *     instanceClass: aws.rds.InstanceType.R4_Large,
  *     dbSubnetGroupName: "default",
- * }, {
- *     provider: aws.primary,
  * });
- * const secondaryCluster = new aws.rds.Cluster("secondaryCluster", {
+ * const secondary = new aws.rds.Cluster("secondary", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     clusterIdentifier: "test-secondary-cluster",
  *     globalClusterIdentifier: example.id,
  *     dbSubnetGroupName: "default",
- * }, {
- *     provider: aws.secondary,
- *     dependsOn: [primaryClusterInstance],
  * });
- * const secondaryClusterInstance = new aws.rds.ClusterInstance("secondaryClusterInstance", {
+ * const secondaryClusterInstance = new aws.rds.ClusterInstance("secondary", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     identifier: "test-secondary-cluster-instance",
- *     clusterIdentifier: secondaryCluster.id,
- *     instanceClass: "db.r4.large",
+ *     clusterIdentifier: secondary.id,
+ *     instanceClass: aws.rds.InstanceType.R4_Large,
  *     dbSubnetGroupName: "default",
- * }, {
- *     provider: aws.secondary,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### New PostgreSQL Global Cluster
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const primary = new aws.Provider("primary", {region: "us-east-2"});
- * const secondary = new aws.Provider("secondary", {region: "us-east-1"});
  * const example = new aws.rds.GlobalCluster("example", {
  *     globalClusterIdentifier: "global-test",
  *     engine: "aurora-postgresql",
  *     engineVersion: "11.9",
  *     databaseName: "example_db",
  * });
- * const primaryCluster = new aws.rds.Cluster("primaryCluster", {
+ * const primary = new aws.rds.Cluster("primary", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     clusterIdentifier: "test-primary-cluster",
@@ -91,59 +85,55 @@ import * as utilities from "../utilities";
  *     databaseName: "example_db",
  *     globalClusterIdentifier: example.id,
  *     dbSubnetGroupName: "default",
- * }, {
- *     provider: aws.primary,
  * });
- * const primaryClusterInstance = new aws.rds.ClusterInstance("primaryClusterInstance", {
+ * const primaryClusterInstance = new aws.rds.ClusterInstance("primary", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     identifier: "test-primary-cluster-instance",
- *     clusterIdentifier: primaryCluster.id,
- *     instanceClass: "db.r4.large",
+ *     clusterIdentifier: primary.id,
+ *     instanceClass: aws.rds.InstanceType.R4_Large,
  *     dbSubnetGroupName: "default",
- * }, {
- *     provider: aws.primary,
  * });
- * const secondaryCluster = new aws.rds.Cluster("secondaryCluster", {
+ * const secondary = new aws.rds.Cluster("secondary", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     clusterIdentifier: "test-secondary-cluster",
  *     globalClusterIdentifier: example.id,
  *     skipFinalSnapshot: true,
  *     dbSubnetGroupName: "default",
- * }, {
- *     provider: aws.secondary,
- *     dependsOn: [primaryClusterInstance],
  * });
- * const secondaryClusterInstance = new aws.rds.ClusterInstance("secondaryClusterInstance", {
+ * const secondaryClusterInstance = new aws.rds.ClusterInstance("secondary", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     identifier: "test-secondary-cluster-instance",
- *     clusterIdentifier: secondaryCluster.id,
- *     instanceClass: "db.r4.large",
+ *     clusterIdentifier: secondary.id,
+ *     instanceClass: aws.rds.InstanceType.R4_Large,
  *     dbSubnetGroupName: "default",
- * }, {
- *     provider: aws.secondary,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### New Global Cluster From Existing DB Cluster
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // ... other configuration ...
- * const exampleCluster = new aws.rds.Cluster("exampleCluster", {});
- * const exampleGlobalCluster = new aws.rds.GlobalCluster("exampleGlobalCluster", {
+ * const example = new aws.rds.Cluster("example", {});
+ * const exampleGlobalCluster = new aws.rds.GlobalCluster("example", {
  *     forceDestroy: true,
  *     globalClusterIdentifier: "example",
- *     sourceDbClusterIdentifier: exampleCluster.arn,
+ *     sourceDbClusterIdentifier: example.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Upgrading Engine Versions
  *
  * When you upgrade the version of an `aws.rds.GlobalCluster`, the provider will attempt to in-place upgrade the engine versions of all associated clusters. Since the `aws.rds.Cluster` resource is being updated through the `aws.rds.GlobalCluster`, you are likely to get an error (`Provider produced inconsistent final plan`). To avoid this, use the `lifecycle` `ignoreChanges` meta argument as shown below on the `aws.rds.Cluster`.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -153,7 +143,7 @@ import * as utilities from "../utilities";
  *     engine: "aurora-mysql",
  *     engineVersion: "5.7.mysql_aurora.2.07.5",
  * });
- * const primaryCluster = new aws.rds.Cluster("primaryCluster", {
+ * const primary = new aws.rds.Cluster("primary", {
  *     allowMajorVersionUpgrade: true,
  *     applyImmediately: true,
  *     clusterIdentifier: "odessadnipro",
@@ -165,24 +155,25 @@ import * as utilities from "../utilities";
  *     masterUsername: "maesatsuki",
  *     skipFinalSnapshot: true,
  * });
- * const primaryClusterInstance = new aws.rds.ClusterInstance("primaryClusterInstance", {
+ * const primaryClusterInstance = new aws.rds.ClusterInstance("primary", {
  *     applyImmediately: true,
- *     clusterIdentifier: primaryCluster.id,
- *     engine: primaryCluster.engine,
- *     engineVersion: primaryCluster.engineVersion,
+ *     clusterIdentifier: primary.id,
+ *     engine: primary.engine,
+ *     engineVersion: primary.engineVersion,
  *     identifier: "donetsklviv",
- *     instanceClass: "db.r4.large",
+ *     instanceClass: aws.rds.InstanceType.R4_Large,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_rds_global_cluster` using the RDS Global Cluster identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/globalCluster:GlobalCluster example example
+ * $ pulumi import aws:rds/globalCluster:GlobalCluster example example
  * ```
- *  Certain resource arguments, like `force_destroy`, only exist within this provider. If the argument is set in the the provider configuration on an imported resource, This provider will show a difference on the first plan after import to update the state value. This change is safe to apply immediately so the state matches the desired configuration.
+ * Certain resource arguments, like `force_destroy`, only exist within this provider. If the argument is set in the the provider configuration on an imported resource, This provider will show a difference on the first plan after import to update the state value. This change is safe to apply immediately so the state matches the desired configuration.
  *
  * Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
  */

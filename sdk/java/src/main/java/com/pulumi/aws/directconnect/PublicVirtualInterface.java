@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides a Direct Connect public virtual interface resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,27 +45,29 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new PublicVirtualInterface(&#34;foo&#34;, PublicVirtualInterfaceArgs.builder()        
- *             .addressFamily(&#34;ipv4&#34;)
- *             .amazonAddress(&#34;175.45.176.2/30&#34;)
- *             .bgpAsn(65352)
  *             .connectionId(&#34;dxcon-zzzzzzzz&#34;)
+ *             .name(&#34;vif-foo&#34;)
+ *             .vlan(4094)
+ *             .addressFamily(&#34;ipv4&#34;)
+ *             .bgpAsn(65352)
  *             .customerAddress(&#34;175.45.176.1/30&#34;)
+ *             .amazonAddress(&#34;175.45.176.2/30&#34;)
  *             .routeFilterPrefixes(            
  *                 &#34;210.52.109.0/24&#34;,
  *                 &#34;175.45.176.0/22&#34;)
- *             .vlan(4094)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Direct Connect public virtual interfaces using the VIF `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:directconnect/publicVirtualInterface:PublicVirtualInterface test dxvif-33cc44dd
+ * $ pulumi import aws:directconnect/publicVirtualInterface:PublicVirtualInterface test dxvif-33cc44dd
  * ```
  * 
  */
@@ -294,9 +298,6 @@ public class PublicVirtualInterface extends com.pulumi.resources.CustomResource 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -10,39 +10,41 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleEndpoint = new aws.ec2clientvpn.Endpoint("exampleEndpoint", {
+ * const exampleEndpoint = new aws.ec2clientvpn.Endpoint("example", {
  *     description: "Example Client VPN endpoint",
- *     serverCertificateArn: aws_acm_certificate.example.arn,
+ *     serverCertificateArn: exampleAwsAcmCertificate.arn,
  *     clientCidrBlock: "10.0.0.0/16",
  *     authenticationOptions: [{
  *         type: "certificate-authentication",
- *         rootCertificateChainArn: aws_acm_certificate.example.arn,
+ *         rootCertificateChainArn: exampleAwsAcmCertificate.arn,
  *     }],
  *     connectionLogOptions: {
  *         enabled: false,
  *     },
  * });
- * const exampleNetworkAssociation = new aws.ec2clientvpn.NetworkAssociation("exampleNetworkAssociation", {
+ * const exampleNetworkAssociation = new aws.ec2clientvpn.NetworkAssociation("example", {
  *     clientVpnEndpointId: exampleEndpoint.id,
- *     subnetId: aws_subnet.example.id,
+ *     subnetId: exampleAwsSubnet.id,
  * });
- * const exampleRoute = new aws.ec2clientvpn.Route("exampleRoute", {
+ * const example = new aws.ec2clientvpn.Route("example", {
  *     clientVpnEndpointId: exampleEndpoint.id,
  *     destinationCidrBlock: "0.0.0.0/0",
  *     targetVpcSubnetId: exampleNetworkAssociation.subnetId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AWS Client VPN routes using the endpoint ID, target subnet ID, and destination CIDR block. All values are separated by a `,`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
+ * $ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
  * ```
  */
 export class Route extends pulumi.CustomResource {

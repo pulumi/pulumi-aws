@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,7 +19,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS FinSpace Kx Database.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,30 +48,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
  *             .description(&#34;Example KMS Key&#34;)
  *             .deletionWindowInDays(7)
  *             .build());
  * 
  *         var exampleKxEnvironment = new KxEnvironment(&#34;exampleKxEnvironment&#34;, KxEnvironmentArgs.builder()        
- *             .kmsKeyId(exampleKey.arn())
+ *             .name(&#34;my-tf-kx-environment&#34;)
+ *             .kmsKeyId(example.arn())
  *             .build());
  * 
  *         var exampleKxDatabase = new KxDatabase(&#34;exampleKxDatabase&#34;, KxDatabaseArgs.builder()        
  *             .environmentId(exampleKxEnvironment.id())
+ *             .name(&#34;my-tf-kx-database&#34;)
  *             .description(&#34;Example database description&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import an AWS FinSpace Kx Database using the `id` (environment ID and database name, comma-delimited). For example:
  * 
  * ```sh
- *  $ pulumi import aws:finspace/kxDatabase:KxDatabase example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database
+ * $ pulumi import aws:finspace/kxDatabase:KxDatabase example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database
  * ```
  * 
  */
@@ -228,9 +233,6 @@ public class KxDatabase extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

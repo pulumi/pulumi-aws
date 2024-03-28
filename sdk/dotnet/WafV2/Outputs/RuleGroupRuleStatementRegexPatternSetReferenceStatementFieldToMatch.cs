@@ -26,6 +26,10 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies? Cookies;
         /// <summary>
+        /// Inspect the request headers. See Header Order below for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder> HeaderOrders;
+        /// <summary>
         /// Inspect the request headers. See Headers below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader> Headers;
@@ -63,6 +67,8 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies? cookies,
 
+            ImmutableArray<Outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder> headerOrders,
+
             ImmutableArray<Outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader> headers,
 
             Outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint? ja3Fingerprint,
@@ -82,6 +88,7 @@ namespace Pulumi.Aws.WafV2.Outputs
             AllQueryArguments = allQueryArguments;
             Body = body;
             Cookies = cookies;
+            HeaderOrders = headerOrders;
             Headers = headers;
             Ja3Fingerprint = ja3Fingerprint;
             JsonBody = jsonBody;

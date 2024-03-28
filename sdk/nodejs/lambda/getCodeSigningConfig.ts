@@ -14,14 +14,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const existingCsc = aws.lambda.getCodeSigningConfig({
- *     arn: `arn:aws:lambda:${_var.aws_region}:${_var.aws_account}:code-signing-config:csc-0f6c334abcdea4d8b`,
+ *     arn: `arn:aws:lambda:${awsRegion}:${awsAccount}:code-signing-config:csc-0f6c334abcdea4d8b`,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCodeSigningConfig(args: GetCodeSigningConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeSigningConfigResult> {
 
@@ -78,14 +80,16 @@ export interface GetCodeSigningConfigResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const existingCsc = aws.lambda.getCodeSigningConfig({
- *     arn: `arn:aws:lambda:${_var.aws_region}:${_var.aws_account}:code-signing-config:csc-0f6c334abcdea4d8b`,
+ *     arn: `arn:aws:lambda:${awsRegion}:${awsAccount}:code-signing-config:csc-0f6c334abcdea4d8b`,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCodeSigningConfigOutput(args: GetCodeSigningConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeSigningConfigResult> {
     return pulumi.output(args).apply((a: any) => getCodeSigningConfig(a, opts))

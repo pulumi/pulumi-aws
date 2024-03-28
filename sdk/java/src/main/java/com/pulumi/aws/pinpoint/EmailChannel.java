@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a Pinpoint Email Channel resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -77,7 +79,7 @@ import javax.annotation.Nullable;
  *             .domain(&#34;example.com&#34;)
  *             .build());
  * 
- *         final var rolePolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var rolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(                
@@ -88,20 +90,22 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var rolePolicyRolePolicy = new RolePolicy(&#34;rolePolicyRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;role_policy&#34;)
  *             .role(role.id())
- *             .policy(rolePolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(rolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Pinpoint Email Channel using the `application-id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
+ * $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
  * ```
  * 
  */

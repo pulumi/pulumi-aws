@@ -169,11 +169,14 @@ class LoadBalancerPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         wu_tang = aws.elb.LoadBalancer("wu-tang",
+            name="wu-tang",
             availability_zones=["us-east-1a"],
             listeners=[aws.elb.LoadBalancerListenerArgs(
                 instance_port=443,
@@ -191,7 +194,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
             policy_type_name="PublicKeyPolicyType",
             policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
                 name="PublicKey",
-                value=(lambda path: open(path).read())("wu-tang-pubkey"),
+                value=std.file(input="wu-tang-pubkey").result,
             )])
         wu_tang_root_ca_backend_auth_policy = aws.elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy",
             load_balancer_name=wu_tang.name,
@@ -199,7 +202,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
             policy_type_name="BackendServerAuthenticationPolicyType",
             policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
                 name="PublicKeyPolicyName",
-                value=aws_load_balancer_policy["wu-tang-root-ca-pubkey-policy"]["policy_name"],
+                value=wu_tang_root_ca_pubkey_policy["policyName"],
             )])
         wu_tang_ssl = aws.elb.LoadBalancerPolicy("wu-tang-ssl",
             load_balancer_name=wu_tang.name,
@@ -232,6 +235,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
             load_balancer_port=443,
             policy_names=[wu_tang_ssl.policy_name])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -251,11 +255,14 @@ class LoadBalancerPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         wu_tang = aws.elb.LoadBalancer("wu-tang",
+            name="wu-tang",
             availability_zones=["us-east-1a"],
             listeners=[aws.elb.LoadBalancerListenerArgs(
                 instance_port=443,
@@ -273,7 +280,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
             policy_type_name="PublicKeyPolicyType",
             policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
                 name="PublicKey",
-                value=(lambda path: open(path).read())("wu-tang-pubkey"),
+                value=std.file(input="wu-tang-pubkey").result,
             )])
         wu_tang_root_ca_backend_auth_policy = aws.elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy",
             load_balancer_name=wu_tang.name,
@@ -281,7 +288,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
             policy_type_name="BackendServerAuthenticationPolicyType",
             policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
                 name="PublicKeyPolicyName",
-                value=aws_load_balancer_policy["wu-tang-root-ca-pubkey-policy"]["policy_name"],
+                value=wu_tang_root_ca_pubkey_policy["policyName"],
             )])
         wu_tang_ssl = aws.elb.LoadBalancerPolicy("wu-tang-ssl",
             load_balancer_name=wu_tang.name,
@@ -314,6 +321,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
             load_balancer_port=443,
             policy_names=[wu_tang_ssl.policy_name])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerPolicyArgs args: The arguments to use to populate this resource's properties.

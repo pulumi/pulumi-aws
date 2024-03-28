@@ -18,6 +18,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// Basic usage:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,16 +27,22 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Sns.Topic("example");
+    ///     var example = new Aws.Sns.Topic("example", new()
+    ///     {
+    ///         Name = "example-topic",
+    ///     });
     /// 
-    ///     // arn is an exported attribute
-    ///     var bar = new Aws.AutoScaling.Group("bar");
+    ///     var bar = new Aws.AutoScaling.Group("bar", new()
+    ///     {
+    ///         Name = "foobar1-test",
+    ///     });
     /// 
-    ///     // ...
-    ///     var foo = new Aws.AutoScaling.Group("foo");
+    ///     var foo = new Aws.AutoScaling.Group("foo", new()
+    ///     {
+    ///         Name = "barfoo-test",
+    ///     });
     /// 
-    ///     // ...
-    ///     var exampleNotifications = new Aws.AutoScaling.Notification("exampleNotifications", new()
+    ///     var exampleNotifications = new Aws.AutoScaling.Notification("example_notifications", new()
     ///     {
     ///         GroupNames = new[]
     ///         {
@@ -54,6 +61,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:autoscaling/notification:Notification")]
     public partial class Notification : global::Pulumi.CustomResource

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,13 +29,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUser, err := iam.NewUser(ctx, "exampleUser", nil)
+//			example, err := iam.NewUser(ctx, "example", &iam.UserArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewServiceSpecificCredential(ctx, "exampleServiceSpecificCredential", &iam.ServiceSpecificCredentialArgs{
+//			_, err = iam.NewServiceSpecificCredential(ctx, "example", &iam.ServiceSpecificCredentialArgs{
 //				ServiceName: pulumi.String("codecommit.amazonaws.com"),
-//				UserName:    exampleUser.Name,
+//				UserName:    example.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -44,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IAM Service Specific Credentials using the `service_name:user_name:service_specific_credential_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iam/serviceSpecificCredential:ServiceSpecificCredential default `codecommit.amazonaws.com:example:some-id`
-//
+// $ pulumi import aws:iam/serviceSpecificCredential:ServiceSpecificCredential default `codecommit.amazonaws.com:example:some-id`
 // ```
 type ServiceSpecificCredential struct {
 	pulumi.CustomResourceState

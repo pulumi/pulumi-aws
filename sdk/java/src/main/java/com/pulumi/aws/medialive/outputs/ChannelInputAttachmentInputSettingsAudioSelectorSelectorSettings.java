@@ -89,31 +89,35 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
 
         @CustomType.Setter
         public Builder audioHlsRenditionSelection(@Nullable ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection audioHlsRenditionSelection) {
+
             this.audioHlsRenditionSelection = audioHlsRenditionSelection;
             return this;
         }
         @CustomType.Setter
         public Builder audioLanguageSelection(@Nullable ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection audioLanguageSelection) {
+
             this.audioLanguageSelection = audioLanguageSelection;
             return this;
         }
         @CustomType.Setter
         public Builder audioPidSelection(@Nullable ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection audioPidSelection) {
+
             this.audioPidSelection = audioPidSelection;
             return this;
         }
         @CustomType.Setter
         public Builder audioTrackSelection(@Nullable ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection audioTrackSelection) {
+
             this.audioTrackSelection = audioTrackSelection;
             return this;
         }
         public ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings build() {
-            final var o = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings();
-            o.audioHlsRenditionSelection = audioHlsRenditionSelection;
-            o.audioLanguageSelection = audioLanguageSelection;
-            o.audioPidSelection = audioPidSelection;
-            o.audioTrackSelection = audioTrackSelection;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings();
+            _resultValue.audioHlsRenditionSelection = audioHlsRenditionSelection;
+            _resultValue.audioLanguageSelection = audioLanguageSelection;
+            _resultValue.audioPidSelection = audioPidSelection;
+            _resultValue.audioTrackSelection = audioTrackSelection;
+            return _resultValue;
         }
     }
 }

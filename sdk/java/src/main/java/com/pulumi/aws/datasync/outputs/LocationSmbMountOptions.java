@@ -44,13 +44,14 @@ public final class LocationSmbMountOptions {
 
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }
         public LocationSmbMountOptions build() {
-            final var o = new LocationSmbMountOptions();
-            o.version = version;
-            return o;
+            final var _resultValue = new LocationSmbMountOptions();
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

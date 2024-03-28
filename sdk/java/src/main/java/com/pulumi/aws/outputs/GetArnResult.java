@@ -4,6 +4,7 @@
 package com.pulumi.aws.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -114,49 +115,70 @@ public final class GetArnResult {
 
         @CustomType.Setter
         public Builder account(String account) {
-            this.account = Objects.requireNonNull(account);
+            if (account == null) {
+              throw new MissingRequiredPropertyException("GetArnResult", "account");
+            }
+            this.account = account;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetArnResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetArnResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder partition(String partition) {
-            this.partition = Objects.requireNonNull(partition);
+            if (partition == null) {
+              throw new MissingRequiredPropertyException("GetArnResult", "partition");
+            }
+            this.partition = partition;
             return this;
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetArnResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder resource(String resource) {
-            this.resource = Objects.requireNonNull(resource);
+            if (resource == null) {
+              throw new MissingRequiredPropertyException("GetArnResult", "resource");
+            }
+            this.resource = resource;
             return this;
         }
         @CustomType.Setter
         public Builder service(String service) {
-            this.service = Objects.requireNonNull(service);
+            if (service == null) {
+              throw new MissingRequiredPropertyException("GetArnResult", "service");
+            }
+            this.service = service;
             return this;
         }
         public GetArnResult build() {
-            final var o = new GetArnResult();
-            o.account = account;
-            o.arn = arn;
-            o.id = id;
-            o.partition = partition;
-            o.region = region;
-            o.resource = resource;
-            o.service = service;
-            return o;
+            final var _resultValue = new GetArnResult();
+            _resultValue.account = account;
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.partition = partition;
+            _resultValue.region = region;
+            _resultValue.resource = resource;
+            _resultValue.service = service;
+            return _resultValue;
         }
     }
 }

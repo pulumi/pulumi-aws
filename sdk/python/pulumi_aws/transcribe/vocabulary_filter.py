@@ -258,31 +258,34 @@ class VocabularyFilter(pulumi.CustomResource):
         Resource for managing an AWS Transcribe VocabularyFilter.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.transcribe.VocabularyFilter("example",
-            language_code="en-US",
-            tags={
-                "tag1": "value1",
-                "tag2": "value3",
-            },
             vocabulary_filter_name="example",
+            language_code="en-US",
             words=[
                 "cars",
                 "bucket",
-            ])
+            ],
+            tags={
+                "tag1": "value1",
+                "tag2": "value3",
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transcribe VocabularyFilter using the `vocabulary_filter_name`. For example:
 
         ```sh
-         $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
+        $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -305,31 +308,34 @@ class VocabularyFilter(pulumi.CustomResource):
         Resource for managing an AWS Transcribe VocabularyFilter.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.transcribe.VocabularyFilter("example",
-            language_code="en-US",
-            tags={
-                "tag1": "value1",
-                "tag2": "value3",
-            },
             vocabulary_filter_name="example",
+            language_code="en-US",
             words=[
                 "cars",
                 "bucket",
-            ])
+            ],
+            tags={
+                "tag1": "value1",
+                "tag2": "value3",
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transcribe VocabularyFilter using the `vocabulary_filter_name`. For example:
 
         ```sh
-         $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
+        $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -373,8 +379,6 @@ class VocabularyFilter(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["download_uri"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VocabularyFilter, __self__).__init__(
             'aws:transcribe/vocabularyFilter:VocabularyFilter',
             resource_name,

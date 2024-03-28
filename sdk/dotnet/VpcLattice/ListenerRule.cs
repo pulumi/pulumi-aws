@@ -14,6 +14,7 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,8 +25,9 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var test = new Aws.VpcLattice.ListenerRule("test", new()
     ///     {
-    ///         ListenerIdentifier = aws_vpclattice_listener.Example.Listener_id,
-    ///         ServiceIdentifier = aws_vpclattice_service.Example.Id,
+    ///         Name = "example",
+    ///         ListenerIdentifier = exampleAwsVpclatticeListener.ListenerId,
+    ///         ServiceIdentifier = exampleAwsVpclatticeService.Id,
     ///         Priority = 20,
     ///         Match = new Aws.VpcLattice.Inputs.ListenerRuleMatchArgs
     ///         {
@@ -61,12 +63,12 @@ namespace Pulumi.Aws.VpcLattice
     ///                 {
     ///                     new Aws.VpcLattice.Inputs.ListenerRuleActionForwardTargetGroupArgs
     ///                     {
-    ///                         TargetGroupIdentifier = aws_vpclattice_target_group.Example.Id,
+    ///                         TargetGroupIdentifier = example.Id,
     ///                         Weight = 1,
     ///                     },
     ///                     new Aws.VpcLattice.Inputs.ListenerRuleActionForwardTargetGroupArgs
     ///                     {
-    ///                         TargetGroupIdentifier = aws_vpclattice_target_group.Example2.Id,
+    ///                         TargetGroupIdentifier = example2.Id,
     ///                         Weight = 2,
     ///                     },
     ///                 },
@@ -76,8 +78,11 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -88,8 +93,9 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var test = new Aws.VpcLattice.ListenerRule("test", new()
     ///     {
-    ///         ListenerIdentifier = aws_vpclattice_listener.Example.Listener_id,
-    ///         ServiceIdentifier = aws_vpclattice_service.Example.Id,
+    ///         Name = "example",
+    ///         ListenerIdentifier = example.ListenerId,
+    ///         ServiceIdentifier = exampleAwsVpclatticeService.Id,
     ///         Priority = 10,
     ///         Match = new Aws.VpcLattice.Inputs.ListenerRuleMatchArgs
     ///         {
@@ -116,13 +122,14 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import VPC Lattice Listener Rule using the `example_id_arg`. For example:
+    /// Using `pulumi import`, import VPC Lattice Listener Rule using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:vpclattice/listenerRule:ListenerRule example rft-8012925589
+    /// $ pulumi import aws:vpclattice/listenerRule:ListenerRule example service123/listener456/rule789
     /// ```
     /// </summary>
     [AwsResourceType("aws:vpclattice/listenerRule:ListenerRule")]
@@ -213,10 +220,6 @@ namespace Pulumi.Aws.VpcLattice
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -370,11 +373,7 @@ namespace Pulumi.Aws.VpcLattice
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ListenerRuleState()

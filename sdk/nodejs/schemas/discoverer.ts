@@ -11,23 +11,25 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const messenger = new aws.cloudwatch.EventBus("messenger", {});
+ * const messenger = new aws.cloudwatch.EventBus("messenger", {name: "chat-messages"});
  * const test = new aws.schemas.Discoverer("test", {
  *     sourceArn: messenger.arn,
  *     description: "Auto discover event schemas",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EventBridge discoverers using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:schemas/discoverer:Discoverer test 123
+ * $ pulumi import aws:schemas/discoverer:Discoverer test 123
  * ```
  */
 export class Discoverer extends pulumi.CustomResource {
@@ -111,8 +113,6 @@ export class Discoverer extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Discoverer.__pulumiType, name, resourceInputs, opts);
     }
 }

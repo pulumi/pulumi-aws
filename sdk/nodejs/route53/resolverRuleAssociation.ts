@@ -9,22 +9,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.route53.ResolverRuleAssociation("example", {
- *     resolverRuleId: aws_route53_resolver_rule.sys.id,
- *     vpcId: aws_vpc.foo.id,
+ *     resolverRuleId: sys.id,
+ *     vpcId: foo.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Route53 Resolver rule associations using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:route53/resolverRuleAssociation:ResolverRuleAssociation example rslvr-rrassoc-97242eaf88example
+ * $ pulumi import aws:route53/resolverRuleAssociation:ResolverRuleAssociation example rslvr-rrassoc-97242eaf88example
  * ```
  */
 export class ResolverRuleAssociation extends pulumi.CustomResource {

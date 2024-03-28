@@ -102,37 +102,42 @@ public final class TaskDefinitionVolumeDockerVolumeConfiguration {
 
         @CustomType.Setter
         public Builder autoprovision(@Nullable Boolean autoprovision) {
+
             this.autoprovision = autoprovision;
             return this;
         }
         @CustomType.Setter
         public Builder driver(@Nullable String driver) {
+
             this.driver = driver;
             return this;
         }
         @CustomType.Setter
         public Builder driverOpts(@Nullable Map<String,String> driverOpts) {
+
             this.driverOpts = driverOpts;
             return this;
         }
         @CustomType.Setter
         public Builder labels(@Nullable Map<String,String> labels) {
+
             this.labels = labels;
             return this;
         }
         @CustomType.Setter
         public Builder scope(@Nullable String scope) {
+
             this.scope = scope;
             return this;
         }
         public TaskDefinitionVolumeDockerVolumeConfiguration build() {
-            final var o = new TaskDefinitionVolumeDockerVolumeConfiguration();
-            o.autoprovision = autoprovision;
-            o.driver = driver;
-            o.driverOpts = driverOpts;
-            o.labels = labels;
-            o.scope = scope;
-            return o;
+            final var _resultValue = new TaskDefinitionVolumeDockerVolumeConfiguration();
+            _resultValue.autoprovision = autoprovision;
+            _resultValue.driver = driver;
+            _resultValue.driverOpts = driverOpts;
+            _resultValue.labels = labels;
+            _resultValue.scope = scope;
+            return _resultValue;
         }
     }
 }

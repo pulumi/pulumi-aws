@@ -129,18 +129,48 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+     * ARNs of the Load Balancers associated with the Target Group.
+     * 
+     */
+    @Import(name="loadBalancerArns")
+    private @Nullable Output<List<String>> loadBalancerArns;
+
+    /**
+     * @return ARNs of the Load Balancers associated with the Target Group.
+     * 
+     */
+    public Optional<Output<List<String>>> loadBalancerArns() {
+        return Optional.ofNullable(this.loadBalancerArns);
+    }
+
+    /**
+     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
      * 
      */
     @Import(name="loadBalancingAlgorithmType")
     private @Nullable Output<String> loadBalancingAlgorithmType;
 
     /**
-     * @return Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+     * @return Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
      * 
      */
     public Optional<Output<String>> loadBalancingAlgorithmType() {
         return Optional.ofNullable(this.loadBalancingAlgorithmType);
+    }
+
+    /**
+     * Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `&#34;on&#34;` or `&#34;off&#34;`. The default is `&#34;off&#34;`.
+     * 
+     */
+    @Import(name="loadBalancingAnomalyMitigation")
+    private @Nullable Output<String> loadBalancingAnomalyMitigation;
+
+    /**
+     * @return Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `&#34;on&#34;` or `&#34;off&#34;`. The default is `&#34;off&#34;`.
+     * 
+     */
+    public Optional<Output<String>> loadBalancingAnomalyMitigation() {
+        return Optional.ofNullable(this.loadBalancingAnomalyMitigation);
     }
 
     /**
@@ -219,14 +249,20 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+     * Protocol to use for routing traffic to the targets.
+     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+     * Required when `target_type` is `instance`, `ip`, or `alb`.
+     * Does not apply when `target_type` is `lambda`.
      * 
      */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
     /**
-     * @return Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+     * @return Protocol to use for routing traffic to the targets.
+     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+     * Required when `target_type` is `instance`, `ip`, or `alb`.
+     * Does not apply when `target_type` is `lambda`.
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -362,7 +398,9 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+     * Type of target that you must specify when registering targets with this target group.
+     * See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
+     * The default is `instance`.
      * 
      * Note that you can&#39;t specify targets for a target group using both instance IDs and IP addresses.
      * 
@@ -377,7 +415,9 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> targetType;
 
     /**
-     * @return Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+     * @return Type of target that you must specify when registering targets with this target group.
+     * See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
+     * The default is `instance`.
      * 
      * Note that you can&#39;t specify targets for a target group using both instance IDs and IP addresses.
      * 
@@ -417,7 +457,9 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
         this.healthCheck = $.healthCheck;
         this.ipAddressType = $.ipAddressType;
         this.lambdaMultiValueHeadersEnabled = $.lambdaMultiValueHeadersEnabled;
+        this.loadBalancerArns = $.loadBalancerArns;
         this.loadBalancingAlgorithmType = $.loadBalancingAlgorithmType;
+        this.loadBalancingAnomalyMitigation = $.loadBalancingAnomalyMitigation;
         this.loadBalancingCrossZoneEnabled = $.loadBalancingCrossZoneEnabled;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
@@ -602,7 +644,38 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancingAlgorithmType Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+         * @param loadBalancerArns ARNs of the Load Balancers associated with the Target Group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loadBalancerArns(@Nullable Output<List<String>> loadBalancerArns) {
+            $.loadBalancerArns = loadBalancerArns;
+            return this;
+        }
+
+        /**
+         * @param loadBalancerArns ARNs of the Load Balancers associated with the Target Group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loadBalancerArns(List<String> loadBalancerArns) {
+            return loadBalancerArns(Output.of(loadBalancerArns));
+        }
+
+        /**
+         * @param loadBalancerArns ARNs of the Load Balancers associated with the Target Group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loadBalancerArns(String... loadBalancerArns) {
+            return loadBalancerArns(List.of(loadBalancerArns));
+        }
+
+        /**
+         * @param loadBalancingAlgorithmType Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
          * 
          * @return builder
          * 
@@ -613,13 +686,34 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancingAlgorithmType Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+         * @param loadBalancingAlgorithmType Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
          * 
          * @return builder
          * 
          */
         public Builder loadBalancingAlgorithmType(String loadBalancingAlgorithmType) {
             return loadBalancingAlgorithmType(Output.of(loadBalancingAlgorithmType));
+        }
+
+        /**
+         * @param loadBalancingAnomalyMitigation Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `&#34;on&#34;` or `&#34;off&#34;`. The default is `&#34;off&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loadBalancingAnomalyMitigation(@Nullable Output<String> loadBalancingAnomalyMitigation) {
+            $.loadBalancingAnomalyMitigation = loadBalancingAnomalyMitigation;
+            return this;
+        }
+
+        /**
+         * @param loadBalancingAnomalyMitigation Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `&#34;on&#34;` or `&#34;off&#34;`. The default is `&#34;off&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loadBalancingAnomalyMitigation(String loadBalancingAnomalyMitigation) {
+            return loadBalancingAnomalyMitigation(Output.of(loadBalancingAnomalyMitigation));
         }
 
         /**
@@ -728,7 +822,10 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocol Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+         * @param protocol Protocol to use for routing traffic to the targets.
+         * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+         * Required when `target_type` is `instance`, `ip`, or `alb`.
+         * Does not apply when `target_type` is `lambda`.
          * 
          * @return builder
          * 
@@ -739,7 +836,10 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocol Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+         * @param protocol Protocol to use for routing traffic to the targets.
+         * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+         * Required when `target_type` is `instance`, `ip`, or `alb`.
+         * Does not apply when `target_type` is `lambda`.
          * 
          * @return builder
          * 
@@ -945,7 +1045,9 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetType Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+         * @param targetType Type of target that you must specify when registering targets with this target group.
+         * See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
+         * The default is `instance`.
          * 
          * Note that you can&#39;t specify targets for a target group using both instance IDs and IP addresses.
          * 
@@ -964,7 +1066,9 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetType Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+         * @param targetType Type of target that you must specify when registering targets with this target group.
+         * See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
+         * The default is `instance`.
          * 
          * Note that you can&#39;t specify targets for a target group using both instance IDs and IP addresses.
          * 

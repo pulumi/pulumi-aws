@@ -12,10 +12,14 @@ namespace Pulumi.Aws.LakeFormation
     /// <summary>
     /// Registers a Lake Formation resource (e.g., S3 bucket) as managed by the Data Catalog. In other words, the S3 path is added to the data lake.
     /// 
-    /// Choose a role that has read/write access to the chosen Amazon S3 path or use the service-linked role. When you register the S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy.
+    /// Choose a role that has read/write access to the chosen Amazon S3 path or use the service-linked role.
+    /// When you register the S3 path, the service-linked role and a new inline policy are created on your behalf.
+    /// Lake Formation adds the first path to the inline policy and attaches it to the service-linked role.
+    /// When you register subsequent paths, Lake Formation adds the path to the existing policy.
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,41 +28,59 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucket = Aws.S3.GetBucket.Invoke(new()
+    ///     var example = Aws.S3.GetBucket.Invoke(new()
     ///     {
     ///         Bucket = "an-example-bucket",
     ///     });
     /// 
-    ///     var exampleResource = new Aws.LakeFormation.Resource("exampleResource", new()
+    ///     var exampleResource = new Aws.LakeFormation.Resource("example", new()
     ///     {
-    ///         Arn = exampleBucket.Apply(getBucketResult =&gt; getBucketResult.Arn),
+    ///         Arn = example.Apply(getBucketResult =&gt; getBucketResult.Arn),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:lakeformation/resource:Resource")]
     public partial class Resource : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the resource, an S3 path.
+        /// Amazon Resource Name (ARN) of the resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        /// Flag to enable AWS LakeFormation hybrid access permission mode.
+        /// 
+        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+        /// </summary>
+        [Output("hybridAccessEnabled")]
+        public Output<bool> HybridAccessEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         [Output("lastModified")]
         public Output<string> LastModified { get; private set; } = null!;
 
         /// <summary>
-        /// Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
-        /// 
-        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+        /// Role that has read/write access to the resource.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
+
+        /// <summary>
+        /// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
+        /// </summary>
+        [Output("useServiceLinkedRole")]
+        public Output<bool?> UseServiceLinkedRole { get; private set; } = null!;
+
+        [Output("withFederation")]
+        public Output<bool> WithFederation { get; private set; } = null!;
 
 
         /// <summary>
@@ -107,18 +129,35 @@ namespace Pulumi.Aws.LakeFormation
     public sealed class ResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the resource, an S3 path.
+        /// Amazon Resource Name (ARN) of the resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
         /// <summary>
-        /// Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+        /// Flag to enable AWS LakeFormation hybrid access permission mode.
         /// 
         /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         /// </summary>
+        [Input("hybridAccessEnabled")]
+        public Input<bool>? HybridAccessEnabled { get; set; }
+
+        /// <summary>
+        /// Role that has read/write access to the resource.
+        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
+
+        /// <summary>
+        /// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
+        /// </summary>
+        [Input("useServiceLinkedRole")]
+        public Input<bool>? UseServiceLinkedRole { get; set; }
+
+        [Input("withFederation")]
+        public Input<bool>? WithFederation { get; set; }
 
         public ResourceArgs()
         {
@@ -129,24 +168,41 @@ namespace Pulumi.Aws.LakeFormation
     public sealed class ResourceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the resource, an S3 path.
+        /// Amazon Resource Name (ARN) of the resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        /// Flag to enable AWS LakeFormation hybrid access permission mode.
+        /// 
+        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+        /// </summary>
+        [Input("hybridAccessEnabled")]
+        public Input<bool>? HybridAccessEnabled { get; set; }
+
+        /// <summary>
+        /// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         [Input("lastModified")]
         public Input<string>? LastModified { get; set; }
 
         /// <summary>
-        /// Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
-        /// 
-        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+        /// Role that has read/write access to the resource.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
+
+        /// <summary>
+        /// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
+        /// </summary>
+        [Input("useServiceLinkedRole")]
+        public Input<bool>? UseServiceLinkedRole { get; set; }
+
+        [Input("withFederation")]
+        public Input<bool>? WithFederation { get; set; }
 
         public ResourceState()
         {

@@ -75,6 +75,7 @@ public final class ListenerRuleMatchHttpMatch {
 
         @CustomType.Setter
         public Builder headerMatches(@Nullable List<ListenerRuleMatchHttpMatchHeaderMatch> headerMatches) {
+
             this.headerMatches = headerMatches;
             return this;
         }
@@ -83,20 +84,22 @@ public final class ListenerRuleMatchHttpMatch {
         }
         @CustomType.Setter
         public Builder method(@Nullable String method) {
+
             this.method = method;
             return this;
         }
         @CustomType.Setter
         public Builder pathMatch(@Nullable ListenerRuleMatchHttpMatchPathMatch pathMatch) {
+
             this.pathMatch = pathMatch;
             return this;
         }
         public ListenerRuleMatchHttpMatch build() {
-            final var o = new ListenerRuleMatchHttpMatch();
-            o.headerMatches = headerMatches;
-            o.method = method;
-            o.pathMatch = pathMatch;
-            return o;
+            final var _resultValue = new ListenerRuleMatchHttpMatch();
+            _resultValue.headerMatches = headerMatches;
+            _resultValue.method = method;
+            _resultValue.pathMatch = pathMatch;
+            return _resultValue;
         }
     }
 }

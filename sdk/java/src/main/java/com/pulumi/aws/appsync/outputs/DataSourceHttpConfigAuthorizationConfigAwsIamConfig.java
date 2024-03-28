@@ -58,19 +58,21 @@ public final class DataSourceHttpConfigAuthorizationConfigAwsIamConfig {
 
         @CustomType.Setter
         public Builder signingRegion(@Nullable String signingRegion) {
+
             this.signingRegion = signingRegion;
             return this;
         }
         @CustomType.Setter
         public Builder signingServiceName(@Nullable String signingServiceName) {
+
             this.signingServiceName = signingServiceName;
             return this;
         }
         public DataSourceHttpConfigAuthorizationConfigAwsIamConfig build() {
-            final var o = new DataSourceHttpConfigAuthorizationConfigAwsIamConfig();
-            o.signingRegion = signingRegion;
-            o.signingServiceName = signingServiceName;
-            return o;
+            final var _resultValue = new DataSourceHttpConfigAuthorizationConfigAwsIamConfig();
+            _resultValue.signingRegion = signingRegion;
+            _resultValue.signingServiceName = signingServiceName;
+            return _resultValue;
         }
     }
 }

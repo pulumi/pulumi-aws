@@ -20,8 +20,10 @@ import (
 // **Note:** The `secretArn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `directconnect.MacsecKeyAssociation` resource.
 //
 // ## Example Usage
+//
 // ### Create MACSec key with CKN and CAK
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +43,7 @@ import (
 //				return err
 //			}
 //			_, err = directconnect.NewMacsecKeyAssociation(ctx, "test", &directconnect.MacsecKeyAssociationArgs{
-//				ConnectionId: *pulumi.String(example.Id),
+//				ConnectionId: pulumi.String(example.Id),
 //				Ckn:          pulumi.String("0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"),
 //				Cak:          pulumi.String("abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789"),
 //			})
@@ -53,8 +55,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Create MACSec key with existing Secrets Manager secret
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,21 +73,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleConnection, err := directconnect.LookupConnection(ctx, &directconnect.LookupConnectionArgs{
+//			example, err := directconnect.LookupConnection(ctx, &directconnect.LookupConnectionArgs{
 //				Name: "tf-dx-connection",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleSecret, err := secretsmanager.LookupSecret(ctx, &secretsmanager.LookupSecretArgs{
+//			exampleGetSecret, err := secretsmanager.LookupSecret(ctx, &secretsmanager.LookupSecretArgs{
 //				Name: pulumi.StringRef("directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = directconnect.NewMacsecKeyAssociation(ctx, "test", &directconnect.MacsecKeyAssociationArgs{
-//				ConnectionId: *pulumi.String(exampleConnection.Id),
-//				SecretArn:    *pulumi.String(exampleSecret.Arn),
+//				ConnectionId: pulumi.String(example.Id),
+//				SecretArn:    pulumi.String(exampleGetSecret.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -92,6 +97,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type MacsecKeyAssociation struct {
 	pulumi.CustomResourceState
 

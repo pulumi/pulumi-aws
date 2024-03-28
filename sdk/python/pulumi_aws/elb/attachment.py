@@ -109,15 +109,17 @@ class Attachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # Create a new load balancer attachment
         baz = aws.elb.Attachment("baz",
-            elb=aws_elb["bar"]["id"],
-            instance=aws_instance["foo"]["id"])
+            elb=bar["id"],
+            instance=foo["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,15 +144,17 @@ class Attachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # Create a new load balancer attachment
         baz = aws.elb.Attachment("baz",
-            elb=aws_elb["bar"]["id"],
-            instance=aws_instance["foo"]["id"])
+            elb=bar["id"],
+            instance=foo["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param AttachmentArgs args: The arguments to use to populate this resource's properties.

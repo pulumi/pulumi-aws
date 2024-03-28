@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,7 +28,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datapipeline.NewPipeline(ctx, "default", nil)
+//			_, err := datapipeline.NewPipeline(ctx, "default", &datapipeline.PipelineArgs{
+//				Name: pulumi.String("tf-pipeline-default"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -36,15 +39,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_datapipeline_pipeline` using the id (Pipeline ID). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
-//
+// $ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
 // ```
 type Pipeline struct {
 	pulumi.CustomResourceState
@@ -68,10 +70,6 @@ func NewPipeline(ctx *pulumi.Context,
 		args = &PipelineArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Pipeline
 	err := ctx.RegisterResource("aws:datapipeline/pipeline:Pipeline", name, args, &resource, opts...)

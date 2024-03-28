@@ -14,15 +14,24 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AssumeRole struct {
-	Duration          *string           `pulumi:"duration"`
-	ExternalId        *string           `pulumi:"externalId"`
-	Policy            *string           `pulumi:"policy"`
-	PolicyArns        []string          `pulumi:"policyArns"`
-	RoleArn           *string           `pulumi:"roleArn"`
-	SessionName       *string           `pulumi:"sessionName"`
-	SourceIdentity    *string           `pulumi:"sourceIdentity"`
-	Tags              map[string]string `pulumi:"tags"`
-	TransitiveTagKeys []string          `pulumi:"transitiveTagKeys"`
+	// The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+	Duration *string `pulumi:"duration"`
+	// A unique identifier that might be required when you assume a role in another account.
+	ExternalId *string `pulumi:"externalId"`
+	// IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+	Policy *string `pulumi:"policy"`
+	// Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+	PolicyArns []string `pulumi:"policyArns"`
+	// Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+	RoleArn *string `pulumi:"roleArn"`
+	// An identifier for the assumed role session.
+	SessionName *string `pulumi:"sessionName"`
+	// Source identity specified by the principal assuming the role.
+	SourceIdentity *string `pulumi:"sourceIdentity"`
+	// Assume role session tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Assume role session tag keys to pass to any subsequent sessions.
+	TransitiveTagKeys []string `pulumi:"transitiveTagKeys"`
 }
 
 // AssumeRoleInput is an input type that accepts AssumeRoleArgs and AssumeRoleOutput values.
@@ -37,14 +46,23 @@ type AssumeRoleInput interface {
 }
 
 type AssumeRoleArgs struct {
-	Duration          pulumi.StringPtrInput   `pulumi:"duration"`
-	ExternalId        pulumi.StringPtrInput   `pulumi:"externalId"`
-	Policy            pulumi.StringPtrInput   `pulumi:"policy"`
-	PolicyArns        pulumi.StringArrayInput `pulumi:"policyArns"`
-	RoleArn           pulumi.StringPtrInput   `pulumi:"roleArn"`
-	SessionName       pulumi.StringPtrInput   `pulumi:"sessionName"`
-	SourceIdentity    pulumi.StringPtrInput   `pulumi:"sourceIdentity"`
-	Tags              pulumi.StringMapInput   `pulumi:"tags"`
+	// The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+	Duration pulumi.StringPtrInput `pulumi:"duration"`
+	// A unique identifier that might be required when you assume a role in another account.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+	Policy pulumi.StringPtrInput `pulumi:"policy"`
+	// Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+	PolicyArns pulumi.StringArrayInput `pulumi:"policyArns"`
+	// Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// An identifier for the assumed role session.
+	SessionName pulumi.StringPtrInput `pulumi:"sessionName"`
+	// Source identity specified by the principal assuming the role.
+	SourceIdentity pulumi.StringPtrInput `pulumi:"sourceIdentity"`
+	// Assume role session tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Assume role session tag keys to pass to any subsequent sessions.
 	TransitiveTagKeys pulumi.StringArrayInput `pulumi:"transitiveTagKeys"`
 }
 
@@ -74,50 +92,64 @@ func (o AssumeRoleOutput) ToAssumeRoleOutputWithContext(ctx context.Context) Ass
 	return o
 }
 
+// The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
 func (o AssumeRoleOutput) Duration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssumeRole) *string { return v.Duration }).(pulumi.StringPtrOutput)
 }
 
+// A unique identifier that might be required when you assume a role in another account.
 func (o AssumeRoleOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssumeRole) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
 }
 
+// IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
 func (o AssumeRoleOutput) Policy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssumeRole) *string { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
+// Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
 func (o AssumeRoleOutput) PolicyArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AssumeRole) []string { return v.PolicyArns }).(pulumi.StringArrayOutput)
 }
 
+// Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
 func (o AssumeRoleOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssumeRole) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// An identifier for the assumed role session.
 func (o AssumeRoleOutput) SessionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssumeRole) *string { return v.SessionName }).(pulumi.StringPtrOutput)
 }
 
+// Source identity specified by the principal assuming the role.
 func (o AssumeRoleOutput) SourceIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssumeRole) *string { return v.SourceIdentity }).(pulumi.StringPtrOutput)
 }
 
+// Assume role session tags.
 func (o AssumeRoleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v AssumeRole) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Assume role session tag keys to pass to any subsequent sessions.
 func (o AssumeRoleOutput) TransitiveTagKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AssumeRole) []string { return v.TransitiveTagKeys }).(pulumi.StringArrayOutput)
 }
 
 type AssumeRoleWithWebIdentity struct {
-	Duration             *string  `pulumi:"duration"`
-	Policy               *string  `pulumi:"policy"`
-	PolicyArns           []string `pulumi:"policyArns"`
-	RoleArn              *string  `pulumi:"roleArn"`
-	SessionName          *string  `pulumi:"sessionName"`
-	WebIdentityToken     *string  `pulumi:"webIdentityToken"`
-	WebIdentityTokenFile *string  `pulumi:"webIdentityTokenFile"`
+	// The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+	Duration *string `pulumi:"duration"`
+	// IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+	Policy *string `pulumi:"policy"`
+	// Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+	PolicyArns []string `pulumi:"policyArns"`
+	// Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+	RoleArn *string `pulumi:"roleArn"`
+	// An identifier for the assumed role session.
+	SessionName          *string `pulumi:"sessionName"`
+	WebIdentityToken     *string `pulumi:"webIdentityToken"`
+	WebIdentityTokenFile *string `pulumi:"webIdentityTokenFile"`
 }
 
 // AssumeRoleWithWebIdentityInput is an input type that accepts AssumeRoleWithWebIdentityArgs and AssumeRoleWithWebIdentityOutput values.
@@ -132,13 +164,18 @@ type AssumeRoleWithWebIdentityInput interface {
 }
 
 type AssumeRoleWithWebIdentityArgs struct {
-	Duration             pulumi.StringPtrInput   `pulumi:"duration"`
-	Policy               pulumi.StringPtrInput   `pulumi:"policy"`
-	PolicyArns           pulumi.StringArrayInput `pulumi:"policyArns"`
-	RoleArn              pulumi.StringPtrInput   `pulumi:"roleArn"`
-	SessionName          pulumi.StringPtrInput   `pulumi:"sessionName"`
-	WebIdentityToken     pulumi.StringPtrInput   `pulumi:"webIdentityToken"`
-	WebIdentityTokenFile pulumi.StringPtrInput   `pulumi:"webIdentityTokenFile"`
+	// The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+	Duration pulumi.StringPtrInput `pulumi:"duration"`
+	// IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+	Policy pulumi.StringPtrInput `pulumi:"policy"`
+	// Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+	PolicyArns pulumi.StringArrayInput `pulumi:"policyArns"`
+	// Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// An identifier for the assumed role session.
+	SessionName          pulumi.StringPtrInput `pulumi:"sessionName"`
+	WebIdentityToken     pulumi.StringPtrInput `pulumi:"webIdentityToken"`
+	WebIdentityTokenFile pulumi.StringPtrInput `pulumi:"webIdentityTokenFile"`
 }
 
 func (AssumeRoleWithWebIdentityArgs) ElementType() reflect.Type {
@@ -167,22 +204,27 @@ func (o AssumeRoleWithWebIdentityOutput) ToAssumeRoleWithWebIdentityOutputWithCo
 	return o
 }
 
+// The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
 func (o AssumeRoleWithWebIdentityOutput) Duration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssumeRoleWithWebIdentity) *string { return v.Duration }).(pulumi.StringPtrOutput)
 }
 
+// IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
 func (o AssumeRoleWithWebIdentityOutput) Policy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssumeRoleWithWebIdentity) *string { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
+// Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
 func (o AssumeRoleWithWebIdentityOutput) PolicyArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AssumeRoleWithWebIdentity) []string { return v.PolicyArns }).(pulumi.StringArrayOutput)
 }
 
+// Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
 func (o AssumeRoleWithWebIdentityOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssumeRoleWithWebIdentity) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// An identifier for the assumed role session.
 func (o AssumeRoleWithWebIdentityOutput) SessionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssumeRoleWithWebIdentity) *string { return v.SessionName }).(pulumi.StringPtrOutput)
 }
@@ -196,6 +238,7 @@ func (o AssumeRoleWithWebIdentityOutput) WebIdentityTokenFile() pulumi.StringPtr
 }
 
 type DefaultTags struct {
+	// Resource tags to default across all resources
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -211,6 +254,7 @@ type DefaultTagsInput interface {
 }
 
 type DefaultTagsArgs struct {
+	// Resource tags to default across all resources
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -240,266 +284,560 @@ func (o DefaultTagsOutput) ToDefaultTagsOutputWithContext(ctx context.Context) D
 	return o
 }
 
+// Resource tags to default across all resources
 func (o DefaultTagsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v DefaultTags) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 type Endpoints struct {
-	Accessanalyzer                       *string `pulumi:"accessanalyzer"`
-	Account                              *string `pulumi:"account"`
-	Acm                                  *string `pulumi:"acm"`
-	Acmpca                               *string `pulumi:"acmpca"`
-	Amg                                  *string `pulumi:"amg"`
-	Amp                                  *string `pulumi:"amp"`
-	Amplify                              *string `pulumi:"amplify"`
-	Apigateway                           *string `pulumi:"apigateway"`
-	Apigatewayv2                         *string `pulumi:"apigatewayv2"`
-	Appautoscaling                       *string `pulumi:"appautoscaling"`
-	Appconfig                            *string `pulumi:"appconfig"`
-	Appflow                              *string `pulumi:"appflow"`
-	Appintegrations                      *string `pulumi:"appintegrations"`
-	Appintegrationsservice               *string `pulumi:"appintegrationsservice"`
-	Applicationautoscaling               *string `pulumi:"applicationautoscaling"`
-	Applicationinsights                  *string `pulumi:"applicationinsights"`
-	Appmesh                              *string `pulumi:"appmesh"`
-	Apprunner                            *string `pulumi:"apprunner"`
-	Appstream                            *string `pulumi:"appstream"`
-	Appsync                              *string `pulumi:"appsync"`
-	Athena                               *string `pulumi:"athena"`
-	Auditmanager                         *string `pulumi:"auditmanager"`
-	Autoscaling                          *string `pulumi:"autoscaling"`
-	Autoscalingplans                     *string `pulumi:"autoscalingplans"`
-	Backup                               *string `pulumi:"backup"`
-	Batch                                *string `pulumi:"batch"`
-	Beanstalk                            *string `pulumi:"beanstalk"`
-	Bedrock                              *string `pulumi:"bedrock"`
-	Budgets                              *string `pulumi:"budgets"`
-	Ce                                   *string `pulumi:"ce"`
-	Chime                                *string `pulumi:"chime"`
-	Chimesdkmediapipelines               *string `pulumi:"chimesdkmediapipelines"`
-	Chimesdkvoice                        *string `pulumi:"chimesdkvoice"`
-	Cleanrooms                           *string `pulumi:"cleanrooms"`
-	Cloud9                               *string `pulumi:"cloud9"`
-	Cloudcontrol                         *string `pulumi:"cloudcontrol"`
-	Cloudcontrolapi                      *string `pulumi:"cloudcontrolapi"`
-	Cloudformation                       *string `pulumi:"cloudformation"`
-	Cloudfront                           *string `pulumi:"cloudfront"`
-	Cloudhsm                             *string `pulumi:"cloudhsm"`
-	Cloudhsmv2                           *string `pulumi:"cloudhsmv2"`
-	Cloudsearch                          *string `pulumi:"cloudsearch"`
-	Cloudtrail                           *string `pulumi:"cloudtrail"`
-	Cloudwatch                           *string `pulumi:"cloudwatch"`
-	Cloudwatchevents                     *string `pulumi:"cloudwatchevents"`
-	Cloudwatchevidently                  *string `pulumi:"cloudwatchevidently"`
-	Cloudwatchlog                        *string `pulumi:"cloudwatchlog"`
-	Cloudwatchlogs                       *string `pulumi:"cloudwatchlogs"`
+	// Use this to override the default service endpoint URL
+	Accessanalyzer *string `pulumi:"accessanalyzer"`
+	// Use this to override the default service endpoint URL
+	Account *string `pulumi:"account"`
+	// Use this to override the default service endpoint URL
+	Acm *string `pulumi:"acm"`
+	// Use this to override the default service endpoint URL
+	Acmpca *string `pulumi:"acmpca"`
+	// Use this to override the default service endpoint URL
+	Amg *string `pulumi:"amg"`
+	// Use this to override the default service endpoint URL
+	Amp *string `pulumi:"amp"`
+	// Use this to override the default service endpoint URL
+	Amplify *string `pulumi:"amplify"`
+	// Use this to override the default service endpoint URL
+	Apigateway *string `pulumi:"apigateway"`
+	// Use this to override the default service endpoint URL
+	Apigatewayv2 *string `pulumi:"apigatewayv2"`
+	// Use this to override the default service endpoint URL
+	Appautoscaling *string `pulumi:"appautoscaling"`
+	// Use this to override the default service endpoint URL
+	Appconfig *string `pulumi:"appconfig"`
+	// Use this to override the default service endpoint URL
+	Appfabric *string `pulumi:"appfabric"`
+	// Use this to override the default service endpoint URL
+	Appflow *string `pulumi:"appflow"`
+	// Use this to override the default service endpoint URL
+	Appintegrations *string `pulumi:"appintegrations"`
+	// Use this to override the default service endpoint URL
+	Appintegrationsservice *string `pulumi:"appintegrationsservice"`
+	// Use this to override the default service endpoint URL
+	Applicationautoscaling *string `pulumi:"applicationautoscaling"`
+	// Use this to override the default service endpoint URL
+	Applicationinsights *string `pulumi:"applicationinsights"`
+	// Use this to override the default service endpoint URL
+	Appmesh *string `pulumi:"appmesh"`
+	// Use this to override the default service endpoint URL
+	Appregistry *string `pulumi:"appregistry"`
+	// Use this to override the default service endpoint URL
+	Apprunner *string `pulumi:"apprunner"`
+	// Use this to override the default service endpoint URL
+	Appstream *string `pulumi:"appstream"`
+	// Use this to override the default service endpoint URL
+	Appsync *string `pulumi:"appsync"`
+	// Use this to override the default service endpoint URL
+	Athena *string `pulumi:"athena"`
+	// Use this to override the default service endpoint URL
+	Auditmanager *string `pulumi:"auditmanager"`
+	// Use this to override the default service endpoint URL
+	Autoscaling *string `pulumi:"autoscaling"`
+	// Use this to override the default service endpoint URL
+	Autoscalingplans *string `pulumi:"autoscalingplans"`
+	// Use this to override the default service endpoint URL
+	Backup *string `pulumi:"backup"`
+	// Use this to override the default service endpoint URL
+	Batch *string `pulumi:"batch"`
+	// Use this to override the default service endpoint URL
+	Beanstalk *string `pulumi:"beanstalk"`
+	// Use this to override the default service endpoint URL
+	Bedrock *string `pulumi:"bedrock"`
+	// Use this to override the default service endpoint URL
+	Bedrockagent *string `pulumi:"bedrockagent"`
+	// Use this to override the default service endpoint URL
+	Budgets *string `pulumi:"budgets"`
+	// Use this to override the default service endpoint URL
+	Ce *string `pulumi:"ce"`
+	// Use this to override the default service endpoint URL
+	Chime *string `pulumi:"chime"`
+	// Use this to override the default service endpoint URL
+	Chimesdkmediapipelines *string `pulumi:"chimesdkmediapipelines"`
+	// Use this to override the default service endpoint URL
+	Chimesdkvoice *string `pulumi:"chimesdkvoice"`
+	// Use this to override the default service endpoint URL
+	Cleanrooms *string `pulumi:"cleanrooms"`
+	// Use this to override the default service endpoint URL
+	Cloud9 *string `pulumi:"cloud9"`
+	// Use this to override the default service endpoint URL
+	Cloudcontrol *string `pulumi:"cloudcontrol"`
+	// Use this to override the default service endpoint URL
+	Cloudcontrolapi *string `pulumi:"cloudcontrolapi"`
+	// Use this to override the default service endpoint URL
+	Cloudformation *string `pulumi:"cloudformation"`
+	// Use this to override the default service endpoint URL
+	Cloudfront *string `pulumi:"cloudfront"`
+	// Use this to override the default service endpoint URL
+	Cloudfrontkeyvaluestore *string `pulumi:"cloudfrontkeyvaluestore"`
+	// Use this to override the default service endpoint URL
+	Cloudhsm *string `pulumi:"cloudhsm"`
+	// Use this to override the default service endpoint URL
+	Cloudhsmv2 *string `pulumi:"cloudhsmv2"`
+	// Use this to override the default service endpoint URL
+	Cloudsearch *string `pulumi:"cloudsearch"`
+	// Use this to override the default service endpoint URL
+	Cloudtrail *string `pulumi:"cloudtrail"`
+	// Use this to override the default service endpoint URL
+	Cloudwatch *string `pulumi:"cloudwatch"`
+	// Use this to override the default service endpoint URL
+	Cloudwatchevents *string `pulumi:"cloudwatchevents"`
+	// Use this to override the default service endpoint URL
+	Cloudwatchevidently *string `pulumi:"cloudwatchevidently"`
+	// Use this to override the default service endpoint URL
+	Cloudwatchlog *string `pulumi:"cloudwatchlog"`
+	// Use this to override the default service endpoint URL
+	Cloudwatchlogs *string `pulumi:"cloudwatchlogs"`
+	// Use this to override the default service endpoint URL
 	Cloudwatchobservabilityaccessmanager *string `pulumi:"cloudwatchobservabilityaccessmanager"`
-	Cloudwatchrum                        *string `pulumi:"cloudwatchrum"`
-	Codeartifact                         *string `pulumi:"codeartifact"`
-	Codebuild                            *string `pulumi:"codebuild"`
-	Codecatalyst                         *string `pulumi:"codecatalyst"`
-	Codecommit                           *string `pulumi:"codecommit"`
-	Codedeploy                           *string `pulumi:"codedeploy"`
-	Codegurureviewer                     *string `pulumi:"codegurureviewer"`
-	Codepipeline                         *string `pulumi:"codepipeline"`
-	Codestarconnections                  *string `pulumi:"codestarconnections"`
-	Codestarnotifications                *string `pulumi:"codestarnotifications"`
-	Cognitoidentity                      *string `pulumi:"cognitoidentity"`
-	Cognitoidentityprovider              *string `pulumi:"cognitoidentityprovider"`
-	Cognitoidp                           *string `pulumi:"cognitoidp"`
-	Comprehend                           *string `pulumi:"comprehend"`
-	Computeoptimizer                     *string `pulumi:"computeoptimizer"`
-	Config                               *string `pulumi:"config"`
-	Configservice                        *string `pulumi:"configservice"`
-	Connect                              *string `pulumi:"connect"`
-	Connectcases                         *string `pulumi:"connectcases"`
-	Controltower                         *string `pulumi:"controltower"`
-	Costandusagereportservice            *string `pulumi:"costandusagereportservice"`
-	Costexplorer                         *string `pulumi:"costexplorer"`
-	Cur                                  *string `pulumi:"cur"`
-	Customerprofiles                     *string `pulumi:"customerprofiles"`
-	Databasemigration                    *string `pulumi:"databasemigration"`
-	Databasemigrationservice             *string `pulumi:"databasemigrationservice"`
-	Dataexchange                         *string `pulumi:"dataexchange"`
-	Datapipeline                         *string `pulumi:"datapipeline"`
-	Datasync                             *string `pulumi:"datasync"`
-	Dax                                  *string `pulumi:"dax"`
-	Deploy                               *string `pulumi:"deploy"`
-	Detective                            *string `pulumi:"detective"`
-	Devicefarm                           *string `pulumi:"devicefarm"`
-	Directconnect                        *string `pulumi:"directconnect"`
-	Directoryservice                     *string `pulumi:"directoryservice"`
-	Dlm                                  *string `pulumi:"dlm"`
-	Dms                                  *string `pulumi:"dms"`
-	Docdb                                *string `pulumi:"docdb"`
-	Docdbelastic                         *string `pulumi:"docdbelastic"`
-	Ds                                   *string `pulumi:"ds"`
-	Dynamodb                             *string `pulumi:"dynamodb"`
-	Ec2                                  *string `pulumi:"ec2"`
-	Ecr                                  *string `pulumi:"ecr"`
-	Ecrpublic                            *string `pulumi:"ecrpublic"`
-	Ecs                                  *string `pulumi:"ecs"`
-	Efs                                  *string `pulumi:"efs"`
-	Eks                                  *string `pulumi:"eks"`
-	Elasticache                          *string `pulumi:"elasticache"`
-	Elasticbeanstalk                     *string `pulumi:"elasticbeanstalk"`
-	Elasticloadbalancing                 *string `pulumi:"elasticloadbalancing"`
-	Elasticloadbalancingv2               *string `pulumi:"elasticloadbalancingv2"`
-	Elasticsearch                        *string `pulumi:"elasticsearch"`
-	Elasticsearchservice                 *string `pulumi:"elasticsearchservice"`
-	Elastictranscoder                    *string `pulumi:"elastictranscoder"`
-	Elb                                  *string `pulumi:"elb"`
-	Elbv2                                *string `pulumi:"elbv2"`
-	Emr                                  *string `pulumi:"emr"`
-	Emrcontainers                        *string `pulumi:"emrcontainers"`
-	Emrserverless                        *string `pulumi:"emrserverless"`
-	Es                                   *string `pulumi:"es"`
-	Eventbridge                          *string `pulumi:"eventbridge"`
-	Events                               *string `pulumi:"events"`
-	Evidently                            *string `pulumi:"evidently"`
-	Finspace                             *string `pulumi:"finspace"`
-	Firehose                             *string `pulumi:"firehose"`
-	Fis                                  *string `pulumi:"fis"`
-	Fms                                  *string `pulumi:"fms"`
-	Fsx                                  *string `pulumi:"fsx"`
-	Gamelift                             *string `pulumi:"gamelift"`
-	Glacier                              *string `pulumi:"glacier"`
-	Globalaccelerator                    *string `pulumi:"globalaccelerator"`
-	Glue                                 *string `pulumi:"glue"`
-	Grafana                              *string `pulumi:"grafana"`
-	Greengrass                           *string `pulumi:"greengrass"`
-	Guardduty                            *string `pulumi:"guardduty"`
-	Healthlake                           *string `pulumi:"healthlake"`
-	Iam                                  *string `pulumi:"iam"`
-	Identitystore                        *string `pulumi:"identitystore"`
-	Imagebuilder                         *string `pulumi:"imagebuilder"`
-	Inspector                            *string `pulumi:"inspector"`
-	Inspector2                           *string `pulumi:"inspector2"`
-	Inspectorv2                          *string `pulumi:"inspectorv2"`
-	Internetmonitor                      *string `pulumi:"internetmonitor"`
-	Iot                                  *string `pulumi:"iot"`
-	Iotanalytics                         *string `pulumi:"iotanalytics"`
-	Iotevents                            *string `pulumi:"iotevents"`
-	Ivs                                  *string `pulumi:"ivs"`
-	Ivschat                              *string `pulumi:"ivschat"`
-	Kafka                                *string `pulumi:"kafka"`
-	Kafkaconnect                         *string `pulumi:"kafkaconnect"`
-	Kendra                               *string `pulumi:"kendra"`
-	Keyspaces                            *string `pulumi:"keyspaces"`
-	Kinesis                              *string `pulumi:"kinesis"`
-	Kinesisanalytics                     *string `pulumi:"kinesisanalytics"`
-	Kinesisanalyticsv2                   *string `pulumi:"kinesisanalyticsv2"`
-	Kinesisvideo                         *string `pulumi:"kinesisvideo"`
-	Kms                                  *string `pulumi:"kms"`
-	Lakeformation                        *string `pulumi:"lakeformation"`
-	Lambda                               *string `pulumi:"lambda"`
-	Lex                                  *string `pulumi:"lex"`
-	Lexmodelbuilding                     *string `pulumi:"lexmodelbuilding"`
-	Lexmodelbuildingservice              *string `pulumi:"lexmodelbuildingservice"`
-	Lexmodels                            *string `pulumi:"lexmodels"`
-	Lexmodelsv2                          *string `pulumi:"lexmodelsv2"`
-	Lexv2models                          *string `pulumi:"lexv2models"`
-	Licensemanager                       *string `pulumi:"licensemanager"`
-	Lightsail                            *string `pulumi:"lightsail"`
-	Location                             *string `pulumi:"location"`
-	Locationservice                      *string `pulumi:"locationservice"`
-	Logs                                 *string `pulumi:"logs"`
-	Macie2                               *string `pulumi:"macie2"`
-	Managedgrafana                       *string `pulumi:"managedgrafana"`
-	Mediaconnect                         *string `pulumi:"mediaconnect"`
-	Mediaconvert                         *string `pulumi:"mediaconvert"`
-	Medialive                            *string `pulumi:"medialive"`
-	Mediapackage                         *string `pulumi:"mediapackage"`
-	Mediastore                           *string `pulumi:"mediastore"`
-	Memorydb                             *string `pulumi:"memorydb"`
-	Mq                                   *string `pulumi:"mq"`
-	Msk                                  *string `pulumi:"msk"`
-	Mwaa                                 *string `pulumi:"mwaa"`
-	Neptune                              *string `pulumi:"neptune"`
-	Networkfirewall                      *string `pulumi:"networkfirewall"`
-	Networkmanager                       *string `pulumi:"networkmanager"`
-	Oam                                  *string `pulumi:"oam"`
-	Opensearch                           *string `pulumi:"opensearch"`
-	Opensearchingestion                  *string `pulumi:"opensearchingestion"`
-	Opensearchserverless                 *string `pulumi:"opensearchserverless"`
-	Opensearchservice                    *string `pulumi:"opensearchservice"`
-	Opsworks                             *string `pulumi:"opsworks"`
-	Organizations                        *string `pulumi:"organizations"`
-	Osis                                 *string `pulumi:"osis"`
-	Outposts                             *string `pulumi:"outposts"`
-	Pinpoint                             *string `pulumi:"pinpoint"`
-	Pipes                                *string `pulumi:"pipes"`
-	Pricing                              *string `pulumi:"pricing"`
-	Prometheus                           *string `pulumi:"prometheus"`
-	Prometheusservice                    *string `pulumi:"prometheusservice"`
-	Qldb                                 *string `pulumi:"qldb"`
-	Quicksight                           *string `pulumi:"quicksight"`
-	Ram                                  *string `pulumi:"ram"`
-	Rbin                                 *string `pulumi:"rbin"`
-	Rds                                  *string `pulumi:"rds"`
-	Recyclebin                           *string `pulumi:"recyclebin"`
-	Redshift                             *string `pulumi:"redshift"`
-	Redshiftdata                         *string `pulumi:"redshiftdata"`
-	Redshiftdataapiservice               *string `pulumi:"redshiftdataapiservice"`
-	Redshiftserverless                   *string `pulumi:"redshiftserverless"`
-	Resourceexplorer2                    *string `pulumi:"resourceexplorer2"`
-	Resourcegroups                       *string `pulumi:"resourcegroups"`
-	Resourcegroupstagging                *string `pulumi:"resourcegroupstagging"`
-	Resourcegroupstaggingapi             *string `pulumi:"resourcegroupstaggingapi"`
-	Rolesanywhere                        *string `pulumi:"rolesanywhere"`
-	Route53                              *string `pulumi:"route53"`
-	Route53domains                       *string `pulumi:"route53domains"`
-	Route53recoverycontrolconfig         *string `pulumi:"route53recoverycontrolconfig"`
-	Route53recoveryreadiness             *string `pulumi:"route53recoveryreadiness"`
-	Route53resolver                      *string `pulumi:"route53resolver"`
-	Rum                                  *string `pulumi:"rum"`
-	S3                                   *string `pulumi:"s3"`
-	S3api                                *string `pulumi:"s3api"`
-	S3control                            *string `pulumi:"s3control"`
-	S3outposts                           *string `pulumi:"s3outposts"`
-	Sagemaker                            *string `pulumi:"sagemaker"`
-	Scheduler                            *string `pulumi:"scheduler"`
-	Schemas                              *string `pulumi:"schemas"`
-	Sdb                                  *string `pulumi:"sdb"`
-	Secretsmanager                       *string `pulumi:"secretsmanager"`
-	Securityhub                          *string `pulumi:"securityhub"`
-	Securitylake                         *string `pulumi:"securitylake"`
-	Serverlessapplicationrepository      *string `pulumi:"serverlessapplicationrepository"`
-	Serverlessapprepo                    *string `pulumi:"serverlessapprepo"`
-	Serverlessrepo                       *string `pulumi:"serverlessrepo"`
-	Servicecatalog                       *string `pulumi:"servicecatalog"`
-	Servicediscovery                     *string `pulumi:"servicediscovery"`
-	Servicequotas                        *string `pulumi:"servicequotas"`
-	Ses                                  *string `pulumi:"ses"`
-	Sesv2                                *string `pulumi:"sesv2"`
-	Sfn                                  *string `pulumi:"sfn"`
-	Shield                               *string `pulumi:"shield"`
-	Signer                               *string `pulumi:"signer"`
-	Simpledb                             *string `pulumi:"simpledb"`
-	Sns                                  *string `pulumi:"sns"`
-	Sqs                                  *string `pulumi:"sqs"`
-	Ssm                                  *string `pulumi:"ssm"`
-	Ssmcontacts                          *string `pulumi:"ssmcontacts"`
-	Ssmincidents                         *string `pulumi:"ssmincidents"`
-	Sso                                  *string `pulumi:"sso"`
-	Ssoadmin                             *string `pulumi:"ssoadmin"`
-	Stepfunctions                        *string `pulumi:"stepfunctions"`
-	Storagegateway                       *string `pulumi:"storagegateway"`
-	Sts                                  *string `pulumi:"sts"`
-	Swf                                  *string `pulumi:"swf"`
-	Synthetics                           *string `pulumi:"synthetics"`
-	Timestreamwrite                      *string `pulumi:"timestreamwrite"`
-	Transcribe                           *string `pulumi:"transcribe"`
-	Transcribeservice                    *string `pulumi:"transcribeservice"`
-	Transfer                             *string `pulumi:"transfer"`
-	Verifiedpermissions                  *string `pulumi:"verifiedpermissions"`
-	Vpclattice                           *string `pulumi:"vpclattice"`
-	Waf                                  *string `pulumi:"waf"`
-	Wafregional                          *string `pulumi:"wafregional"`
-	Wafv2                                *string `pulumi:"wafv2"`
-	Worklink                             *string `pulumi:"worklink"`
-	Workspaces                           *string `pulumi:"workspaces"`
-	Xray                                 *string `pulumi:"xray"`
+	// Use this to override the default service endpoint URL
+	Cloudwatchrum *string `pulumi:"cloudwatchrum"`
+	// Use this to override the default service endpoint URL
+	Codeartifact *string `pulumi:"codeartifact"`
+	// Use this to override the default service endpoint URL
+	Codebuild *string `pulumi:"codebuild"`
+	// Use this to override the default service endpoint URL
+	Codecatalyst *string `pulumi:"codecatalyst"`
+	// Use this to override the default service endpoint URL
+	Codecommit *string `pulumi:"codecommit"`
+	// Use this to override the default service endpoint URL
+	Codedeploy *string `pulumi:"codedeploy"`
+	// Use this to override the default service endpoint URL
+	Codeguruprofiler *string `pulumi:"codeguruprofiler"`
+	// Use this to override the default service endpoint URL
+	Codegurureviewer *string `pulumi:"codegurureviewer"`
+	// Use this to override the default service endpoint URL
+	Codepipeline *string `pulumi:"codepipeline"`
+	// Use this to override the default service endpoint URL
+	Codestarconnections *string `pulumi:"codestarconnections"`
+	// Use this to override the default service endpoint URL
+	Codestarnotifications *string `pulumi:"codestarnotifications"`
+	// Use this to override the default service endpoint URL
+	Cognitoidentity *string `pulumi:"cognitoidentity"`
+	// Use this to override the default service endpoint URL
+	Cognitoidentityprovider *string `pulumi:"cognitoidentityprovider"`
+	// Use this to override the default service endpoint URL
+	Cognitoidp *string `pulumi:"cognitoidp"`
+	// Use this to override the default service endpoint URL
+	Comprehend *string `pulumi:"comprehend"`
+	// Use this to override the default service endpoint URL
+	Computeoptimizer *string `pulumi:"computeoptimizer"`
+	// Use this to override the default service endpoint URL
+	Config *string `pulumi:"config"`
+	// Use this to override the default service endpoint URL
+	Configservice *string `pulumi:"configservice"`
+	// Use this to override the default service endpoint URL
+	Connect *string `pulumi:"connect"`
+	// Use this to override the default service endpoint URL
+	Connectcases *string `pulumi:"connectcases"`
+	// Use this to override the default service endpoint URL
+	Controltower *string `pulumi:"controltower"`
+	// Use this to override the default service endpoint URL
+	Costandusagereportservice *string `pulumi:"costandusagereportservice"`
+	// Use this to override the default service endpoint URL
+	Costexplorer *string `pulumi:"costexplorer"`
+	// Use this to override the default service endpoint URL
+	Costoptimizationhub *string `pulumi:"costoptimizationhub"`
+	// Use this to override the default service endpoint URL
+	Cur *string `pulumi:"cur"`
+	// Use this to override the default service endpoint URL
+	Customerprofiles *string `pulumi:"customerprofiles"`
+	// Use this to override the default service endpoint URL
+	Databasemigration *string `pulumi:"databasemigration"`
+	// Use this to override the default service endpoint URL
+	Databasemigrationservice *string `pulumi:"databasemigrationservice"`
+	// Use this to override the default service endpoint URL
+	Dataexchange *string `pulumi:"dataexchange"`
+	// Use this to override the default service endpoint URL
+	Datapipeline *string `pulumi:"datapipeline"`
+	// Use this to override the default service endpoint URL
+	Datasync *string `pulumi:"datasync"`
+	// Use this to override the default service endpoint URL
+	Dax *string `pulumi:"dax"`
+	// Use this to override the default service endpoint URL
+	Deploy *string `pulumi:"deploy"`
+	// Use this to override the default service endpoint URL
+	Detective *string `pulumi:"detective"`
+	// Use this to override the default service endpoint URL
+	Devicefarm *string `pulumi:"devicefarm"`
+	// Use this to override the default service endpoint URL
+	Devopsguru *string `pulumi:"devopsguru"`
+	// Use this to override the default service endpoint URL
+	Directconnect *string `pulumi:"directconnect"`
+	// Use this to override the default service endpoint URL
+	Directoryservice *string `pulumi:"directoryservice"`
+	// Use this to override the default service endpoint URL
+	Dlm *string `pulumi:"dlm"`
+	// Use this to override the default service endpoint URL
+	Dms *string `pulumi:"dms"`
+	// Use this to override the default service endpoint URL
+	Docdb *string `pulumi:"docdb"`
+	// Use this to override the default service endpoint URL
+	Docdbelastic *string `pulumi:"docdbelastic"`
+	// Use this to override the default service endpoint URL
+	Ds *string `pulumi:"ds"`
+	// Use this to override the default service endpoint URL
+	Dynamodb *string `pulumi:"dynamodb"`
+	// Use this to override the default service endpoint URL
+	Ec2 *string `pulumi:"ec2"`
+	// Use this to override the default service endpoint URL
+	Ecr *string `pulumi:"ecr"`
+	// Use this to override the default service endpoint URL
+	Ecrpublic *string `pulumi:"ecrpublic"`
+	// Use this to override the default service endpoint URL
+	Ecs *string `pulumi:"ecs"`
+	// Use this to override the default service endpoint URL
+	Efs *string `pulumi:"efs"`
+	// Use this to override the default service endpoint URL
+	Eks *string `pulumi:"eks"`
+	// Use this to override the default service endpoint URL
+	Elasticache *string `pulumi:"elasticache"`
+	// Use this to override the default service endpoint URL
+	Elasticbeanstalk *string `pulumi:"elasticbeanstalk"`
+	// Use this to override the default service endpoint URL
+	Elasticloadbalancing *string `pulumi:"elasticloadbalancing"`
+	// Use this to override the default service endpoint URL
+	Elasticloadbalancingv2 *string `pulumi:"elasticloadbalancingv2"`
+	// Use this to override the default service endpoint URL
+	Elasticsearch *string `pulumi:"elasticsearch"`
+	// Use this to override the default service endpoint URL
+	Elasticsearchservice *string `pulumi:"elasticsearchservice"`
+	// Use this to override the default service endpoint URL
+	Elastictranscoder *string `pulumi:"elastictranscoder"`
+	// Use this to override the default service endpoint URL
+	Elb *string `pulumi:"elb"`
+	// Use this to override the default service endpoint URL
+	Elbv2 *string `pulumi:"elbv2"`
+	// Use this to override the default service endpoint URL
+	Emr *string `pulumi:"emr"`
+	// Use this to override the default service endpoint URL
+	Emrcontainers *string `pulumi:"emrcontainers"`
+	// Use this to override the default service endpoint URL
+	Emrserverless *string `pulumi:"emrserverless"`
+	// Use this to override the default service endpoint URL
+	Es *string `pulumi:"es"`
+	// Use this to override the default service endpoint URL
+	Eventbridge *string `pulumi:"eventbridge"`
+	// Use this to override the default service endpoint URL
+	Events *string `pulumi:"events"`
+	// Use this to override the default service endpoint URL
+	Evidently *string `pulumi:"evidently"`
+	// Use this to override the default service endpoint URL
+	Finspace *string `pulumi:"finspace"`
+	// Use this to override the default service endpoint URL
+	Firehose *string `pulumi:"firehose"`
+	// Use this to override the default service endpoint URL
+	Fis *string `pulumi:"fis"`
+	// Use this to override the default service endpoint URL
+	Fms *string `pulumi:"fms"`
+	// Use this to override the default service endpoint URL
+	Fsx *string `pulumi:"fsx"`
+	// Use this to override the default service endpoint URL
+	Gamelift *string `pulumi:"gamelift"`
+	// Use this to override the default service endpoint URL
+	Glacier *string `pulumi:"glacier"`
+	// Use this to override the default service endpoint URL
+	Globalaccelerator *string `pulumi:"globalaccelerator"`
+	// Use this to override the default service endpoint URL
+	Glue *string `pulumi:"glue"`
+	// Use this to override the default service endpoint URL
+	Grafana *string `pulumi:"grafana"`
+	// Use this to override the default service endpoint URL
+	Greengrass *string `pulumi:"greengrass"`
+	// Use this to override the default service endpoint URL
+	Groundstation *string `pulumi:"groundstation"`
+	// Use this to override the default service endpoint URL
+	Guardduty *string `pulumi:"guardduty"`
+	// Use this to override the default service endpoint URL
+	Healthlake *string `pulumi:"healthlake"`
+	// Use this to override the default service endpoint URL
+	Iam *string `pulumi:"iam"`
+	// Use this to override the default service endpoint URL
+	Identitystore *string `pulumi:"identitystore"`
+	// Use this to override the default service endpoint URL
+	Imagebuilder *string `pulumi:"imagebuilder"`
+	// Use this to override the default service endpoint URL
+	Inspector *string `pulumi:"inspector"`
+	// Use this to override the default service endpoint URL
+	Inspector2 *string `pulumi:"inspector2"`
+	// Use this to override the default service endpoint URL
+	Inspectorv2 *string `pulumi:"inspectorv2"`
+	// Use this to override the default service endpoint URL
+	Internetmonitor *string `pulumi:"internetmonitor"`
+	// Use this to override the default service endpoint URL
+	Iot *string `pulumi:"iot"`
+	// Use this to override the default service endpoint URL
+	Iotanalytics *string `pulumi:"iotanalytics"`
+	// Use this to override the default service endpoint URL
+	Iotevents *string `pulumi:"iotevents"`
+	// Use this to override the default service endpoint URL
+	Ivs *string `pulumi:"ivs"`
+	// Use this to override the default service endpoint URL
+	Ivschat *string `pulumi:"ivschat"`
+	// Use this to override the default service endpoint URL
+	Kafka *string `pulumi:"kafka"`
+	// Use this to override the default service endpoint URL
+	Kafkaconnect *string `pulumi:"kafkaconnect"`
+	// Use this to override the default service endpoint URL
+	Kendra *string `pulumi:"kendra"`
+	// Use this to override the default service endpoint URL
+	Keyspaces *string `pulumi:"keyspaces"`
+	// Use this to override the default service endpoint URL
+	Kinesis *string `pulumi:"kinesis"`
+	// Use this to override the default service endpoint URL
+	Kinesisanalytics *string `pulumi:"kinesisanalytics"`
+	// Use this to override the default service endpoint URL
+	Kinesisanalyticsv2 *string `pulumi:"kinesisanalyticsv2"`
+	// Use this to override the default service endpoint URL
+	Kinesisvideo *string `pulumi:"kinesisvideo"`
+	// Use this to override the default service endpoint URL
+	Kms *string `pulumi:"kms"`
+	// Use this to override the default service endpoint URL
+	Lakeformation *string `pulumi:"lakeformation"`
+	// Use this to override the default service endpoint URL
+	Lambda *string `pulumi:"lambda"`
+	// Use this to override the default service endpoint URL
+	Launchwizard *string `pulumi:"launchwizard"`
+	// Use this to override the default service endpoint URL
+	Lex *string `pulumi:"lex"`
+	// Use this to override the default service endpoint URL
+	Lexmodelbuilding *string `pulumi:"lexmodelbuilding"`
+	// Use this to override the default service endpoint URL
+	Lexmodelbuildingservice *string `pulumi:"lexmodelbuildingservice"`
+	// Use this to override the default service endpoint URL
+	Lexmodels *string `pulumi:"lexmodels"`
+	// Use this to override the default service endpoint URL
+	Lexmodelsv2 *string `pulumi:"lexmodelsv2"`
+	// Use this to override the default service endpoint URL
+	Lexv2models *string `pulumi:"lexv2models"`
+	// Use this to override the default service endpoint URL
+	Licensemanager *string `pulumi:"licensemanager"`
+	// Use this to override the default service endpoint URL
+	Lightsail *string `pulumi:"lightsail"`
+	// Use this to override the default service endpoint URL
+	Location *string `pulumi:"location"`
+	// Use this to override the default service endpoint URL
+	Locationservice *string `pulumi:"locationservice"`
+	// Use this to override the default service endpoint URL
+	Logs *string `pulumi:"logs"`
+	// Use this to override the default service endpoint URL
+	Lookoutmetrics *string `pulumi:"lookoutmetrics"`
+	// Use this to override the default service endpoint URL
+	M2 *string `pulumi:"m2"`
+	// Use this to override the default service endpoint URL
+	Macie2 *string `pulumi:"macie2"`
+	// Use this to override the default service endpoint URL
+	Managedgrafana *string `pulumi:"managedgrafana"`
+	// Use this to override the default service endpoint URL
+	Mediaconnect *string `pulumi:"mediaconnect"`
+	// Use this to override the default service endpoint URL
+	Mediaconvert *string `pulumi:"mediaconvert"`
+	// Use this to override the default service endpoint URL
+	Medialive *string `pulumi:"medialive"`
+	// Use this to override the default service endpoint URL
+	Mediapackage *string `pulumi:"mediapackage"`
+	// Use this to override the default service endpoint URL
+	Mediapackagev2 *string `pulumi:"mediapackagev2"`
+	// Use this to override the default service endpoint URL
+	Mediastore *string `pulumi:"mediastore"`
+	// Use this to override the default service endpoint URL
+	Memorydb *string `pulumi:"memorydb"`
+	// Use this to override the default service endpoint URL
+	Mq *string `pulumi:"mq"`
+	// Use this to override the default service endpoint URL
+	Msk *string `pulumi:"msk"`
+	// Use this to override the default service endpoint URL
+	Mwaa *string `pulumi:"mwaa"`
+	// Use this to override the default service endpoint URL
+	Neptune *string `pulumi:"neptune"`
+	// Use this to override the default service endpoint URL
+	Networkfirewall *string `pulumi:"networkfirewall"`
+	// Use this to override the default service endpoint URL
+	Networkmanager *string `pulumi:"networkmanager"`
+	// Use this to override the default service endpoint URL
+	Oam *string `pulumi:"oam"`
+	// Use this to override the default service endpoint URL
+	Opensearch *string `pulumi:"opensearch"`
+	// Use this to override the default service endpoint URL
+	Opensearchingestion *string `pulumi:"opensearchingestion"`
+	// Use this to override the default service endpoint URL
+	Opensearchserverless *string `pulumi:"opensearchserverless"`
+	// Use this to override the default service endpoint URL
+	Opensearchservice *string `pulumi:"opensearchservice"`
+	// Use this to override the default service endpoint URL
+	Opsworks *string `pulumi:"opsworks"`
+	// Use this to override the default service endpoint URL
+	Organizations *string `pulumi:"organizations"`
+	// Use this to override the default service endpoint URL
+	Osis *string `pulumi:"osis"`
+	// Use this to override the default service endpoint URL
+	Outposts *string `pulumi:"outposts"`
+	// Use this to override the default service endpoint URL
+	Pcaconnectorad *string `pulumi:"pcaconnectorad"`
+	// Use this to override the default service endpoint URL
+	Pinpoint *string `pulumi:"pinpoint"`
+	// Use this to override the default service endpoint URL
+	Pipes *string `pulumi:"pipes"`
+	// Use this to override the default service endpoint URL
+	Polly *string `pulumi:"polly"`
+	// Use this to override the default service endpoint URL
+	Pricing *string `pulumi:"pricing"`
+	// Use this to override the default service endpoint URL
+	Prometheus *string `pulumi:"prometheus"`
+	// Use this to override the default service endpoint URL
+	Prometheusservice *string `pulumi:"prometheusservice"`
+	// Use this to override the default service endpoint URL
+	Qbusiness *string `pulumi:"qbusiness"`
+	// Use this to override the default service endpoint URL
+	Qldb *string `pulumi:"qldb"`
+	// Use this to override the default service endpoint URL
+	Quicksight *string `pulumi:"quicksight"`
+	// Use this to override the default service endpoint URL
+	Ram *string `pulumi:"ram"`
+	// Use this to override the default service endpoint URL
+	Rbin *string `pulumi:"rbin"`
+	// Use this to override the default service endpoint URL
+	Rds *string `pulumi:"rds"`
+	// Use this to override the default service endpoint URL
+	Recyclebin *string `pulumi:"recyclebin"`
+	// Use this to override the default service endpoint URL
+	Redshift *string `pulumi:"redshift"`
+	// Use this to override the default service endpoint URL
+	Redshiftdata *string `pulumi:"redshiftdata"`
+	// Use this to override the default service endpoint URL
+	Redshiftdataapiservice *string `pulumi:"redshiftdataapiservice"`
+	// Use this to override the default service endpoint URL
+	Redshiftserverless *string `pulumi:"redshiftserverless"`
+	// Use this to override the default service endpoint URL
+	Rekognition *string `pulumi:"rekognition"`
+	// Use this to override the default service endpoint URL
+	Resourceexplorer2 *string `pulumi:"resourceexplorer2"`
+	// Use this to override the default service endpoint URL
+	Resourcegroups *string `pulumi:"resourcegroups"`
+	// Use this to override the default service endpoint URL
+	Resourcegroupstagging *string `pulumi:"resourcegroupstagging"`
+	// Use this to override the default service endpoint URL
+	Resourcegroupstaggingapi *string `pulumi:"resourcegroupstaggingapi"`
+	// Use this to override the default service endpoint URL
+	Rolesanywhere *string `pulumi:"rolesanywhere"`
+	// Use this to override the default service endpoint URL
+	Route53 *string `pulumi:"route53"`
+	// Use this to override the default service endpoint URL
+	Route53domains *string `pulumi:"route53domains"`
+	// Use this to override the default service endpoint URL
+	Route53recoverycontrolconfig *string `pulumi:"route53recoverycontrolconfig"`
+	// Use this to override the default service endpoint URL
+	Route53recoveryreadiness *string `pulumi:"route53recoveryreadiness"`
+	// Use this to override the default service endpoint URL
+	Route53resolver *string `pulumi:"route53resolver"`
+	// Use this to override the default service endpoint URL
+	Rum *string `pulumi:"rum"`
+	// Use this to override the default service endpoint URL
+	S3 *string `pulumi:"s3"`
+	// Use this to override the default service endpoint URL
+	S3api *string `pulumi:"s3api"`
+	// Use this to override the default service endpoint URL
+	S3control *string `pulumi:"s3control"`
+	// Use this to override the default service endpoint URL
+	S3outposts *string `pulumi:"s3outposts"`
+	// Use this to override the default service endpoint URL
+	Sagemaker *string `pulumi:"sagemaker"`
+	// Use this to override the default service endpoint URL
+	Scheduler *string `pulumi:"scheduler"`
+	// Use this to override the default service endpoint URL
+	Schemas *string `pulumi:"schemas"`
+	// Use this to override the default service endpoint URL
+	Sdb *string `pulumi:"sdb"`
+	// Use this to override the default service endpoint URL
+	Secretsmanager *string `pulumi:"secretsmanager"`
+	// Use this to override the default service endpoint URL
+	Securityhub *string `pulumi:"securityhub"`
+	// Use this to override the default service endpoint URL
+	Securitylake *string `pulumi:"securitylake"`
+	// Use this to override the default service endpoint URL
+	Serverlessapplicationrepository *string `pulumi:"serverlessapplicationrepository"`
+	// Use this to override the default service endpoint URL
+	Serverlessapprepo *string `pulumi:"serverlessapprepo"`
+	// Use this to override the default service endpoint URL
+	Serverlessrepo *string `pulumi:"serverlessrepo"`
+	// Use this to override the default service endpoint URL
+	Servicecatalog *string `pulumi:"servicecatalog"`
+	// Use this to override the default service endpoint URL
+	Servicecatalogappregistry *string `pulumi:"servicecatalogappregistry"`
+	// Use this to override the default service endpoint URL
+	Servicediscovery *string `pulumi:"servicediscovery"`
+	// Use this to override the default service endpoint URL
+	Servicequotas *string `pulumi:"servicequotas"`
+	// Use this to override the default service endpoint URL
+	Ses *string `pulumi:"ses"`
+	// Use this to override the default service endpoint URL
+	Sesv2 *string `pulumi:"sesv2"`
+	// Use this to override the default service endpoint URL
+	Sfn *string `pulumi:"sfn"`
+	// Use this to override the default service endpoint URL
+	Shield *string `pulumi:"shield"`
+	// Use this to override the default service endpoint URL
+	Signer *string `pulumi:"signer"`
+	// Use this to override the default service endpoint URL
+	Simpledb *string `pulumi:"simpledb"`
+	// Use this to override the default service endpoint URL
+	Sns *string `pulumi:"sns"`
+	// Use this to override the default service endpoint URL
+	Sqs *string `pulumi:"sqs"`
+	// Use this to override the default service endpoint URL
+	Ssm *string `pulumi:"ssm"`
+	// Use this to override the default service endpoint URL
+	Ssmcontacts *string `pulumi:"ssmcontacts"`
+	// Use this to override the default service endpoint URL
+	Ssmincidents *string `pulumi:"ssmincidents"`
+	// Use this to override the default service endpoint URL
+	Ssmsap *string `pulumi:"ssmsap"`
+	// Use this to override the default service endpoint URL
+	Sso *string `pulumi:"sso"`
+	// Use this to override the default service endpoint URL
+	Ssoadmin *string `pulumi:"ssoadmin"`
+	// Use this to override the default service endpoint URL
+	Stepfunctions *string `pulumi:"stepfunctions"`
+	// Use this to override the default service endpoint URL
+	Storagegateway *string `pulumi:"storagegateway"`
+	// Use this to override the default service endpoint URL
+	Sts *string `pulumi:"sts"`
+	// Use this to override the default service endpoint URL
+	Swf *string `pulumi:"swf"`
+	// Use this to override the default service endpoint URL
+	Synthetics *string `pulumi:"synthetics"`
+	// Use this to override the default service endpoint URL
+	Timestreamwrite *string `pulumi:"timestreamwrite"`
+	// Use this to override the default service endpoint URL
+	Transcribe *string `pulumi:"transcribe"`
+	// Use this to override the default service endpoint URL
+	Transcribeservice *string `pulumi:"transcribeservice"`
+	// Use this to override the default service endpoint URL
+	Transfer *string `pulumi:"transfer"`
+	// Use this to override the default service endpoint URL
+	Verifiedpermissions *string `pulumi:"verifiedpermissions"`
+	// Use this to override the default service endpoint URL
+	Vpclattice *string `pulumi:"vpclattice"`
+	// Use this to override the default service endpoint URL
+	Waf *string `pulumi:"waf"`
+	// Use this to override the default service endpoint URL
+	Wafregional *string `pulumi:"wafregional"`
+	// Use this to override the default service endpoint URL
+	Wafv2 *string `pulumi:"wafv2"`
+	// Use this to override the default service endpoint URL
+	Wellarchitected *string `pulumi:"wellarchitected"`
+	// Use this to override the default service endpoint URL
+	Worklink *string `pulumi:"worklink"`
+	// Use this to override the default service endpoint URL
+	Workspaces *string `pulumi:"workspaces"`
+	// Use this to override the default service endpoint URL
+	Xray *string `pulumi:"xray"`
 }
 
 // EndpointsInput is an input type that accepts EndpointsArgs and EndpointsOutput values.
@@ -514,261 +852,554 @@ type EndpointsInput interface {
 }
 
 type EndpointsArgs struct {
-	Accessanalyzer                       pulumi.StringPtrInput `pulumi:"accessanalyzer"`
-	Account                              pulumi.StringPtrInput `pulumi:"account"`
-	Acm                                  pulumi.StringPtrInput `pulumi:"acm"`
-	Acmpca                               pulumi.StringPtrInput `pulumi:"acmpca"`
-	Amg                                  pulumi.StringPtrInput `pulumi:"amg"`
-	Amp                                  pulumi.StringPtrInput `pulumi:"amp"`
-	Amplify                              pulumi.StringPtrInput `pulumi:"amplify"`
-	Apigateway                           pulumi.StringPtrInput `pulumi:"apigateway"`
-	Apigatewayv2                         pulumi.StringPtrInput `pulumi:"apigatewayv2"`
-	Appautoscaling                       pulumi.StringPtrInput `pulumi:"appautoscaling"`
-	Appconfig                            pulumi.StringPtrInput `pulumi:"appconfig"`
-	Appflow                              pulumi.StringPtrInput `pulumi:"appflow"`
-	Appintegrations                      pulumi.StringPtrInput `pulumi:"appintegrations"`
-	Appintegrationsservice               pulumi.StringPtrInput `pulumi:"appintegrationsservice"`
-	Applicationautoscaling               pulumi.StringPtrInput `pulumi:"applicationautoscaling"`
-	Applicationinsights                  pulumi.StringPtrInput `pulumi:"applicationinsights"`
-	Appmesh                              pulumi.StringPtrInput `pulumi:"appmesh"`
-	Apprunner                            pulumi.StringPtrInput `pulumi:"apprunner"`
-	Appstream                            pulumi.StringPtrInput `pulumi:"appstream"`
-	Appsync                              pulumi.StringPtrInput `pulumi:"appsync"`
-	Athena                               pulumi.StringPtrInput `pulumi:"athena"`
-	Auditmanager                         pulumi.StringPtrInput `pulumi:"auditmanager"`
-	Autoscaling                          pulumi.StringPtrInput `pulumi:"autoscaling"`
-	Autoscalingplans                     pulumi.StringPtrInput `pulumi:"autoscalingplans"`
-	Backup                               pulumi.StringPtrInput `pulumi:"backup"`
-	Batch                                pulumi.StringPtrInput `pulumi:"batch"`
-	Beanstalk                            pulumi.StringPtrInput `pulumi:"beanstalk"`
-	Bedrock                              pulumi.StringPtrInput `pulumi:"bedrock"`
-	Budgets                              pulumi.StringPtrInput `pulumi:"budgets"`
-	Ce                                   pulumi.StringPtrInput `pulumi:"ce"`
-	Chime                                pulumi.StringPtrInput `pulumi:"chime"`
-	Chimesdkmediapipelines               pulumi.StringPtrInput `pulumi:"chimesdkmediapipelines"`
-	Chimesdkvoice                        pulumi.StringPtrInput `pulumi:"chimesdkvoice"`
-	Cleanrooms                           pulumi.StringPtrInput `pulumi:"cleanrooms"`
-	Cloud9                               pulumi.StringPtrInput `pulumi:"cloud9"`
-	Cloudcontrol                         pulumi.StringPtrInput `pulumi:"cloudcontrol"`
-	Cloudcontrolapi                      pulumi.StringPtrInput `pulumi:"cloudcontrolapi"`
-	Cloudformation                       pulumi.StringPtrInput `pulumi:"cloudformation"`
-	Cloudfront                           pulumi.StringPtrInput `pulumi:"cloudfront"`
-	Cloudhsm                             pulumi.StringPtrInput `pulumi:"cloudhsm"`
-	Cloudhsmv2                           pulumi.StringPtrInput `pulumi:"cloudhsmv2"`
-	Cloudsearch                          pulumi.StringPtrInput `pulumi:"cloudsearch"`
-	Cloudtrail                           pulumi.StringPtrInput `pulumi:"cloudtrail"`
-	Cloudwatch                           pulumi.StringPtrInput `pulumi:"cloudwatch"`
-	Cloudwatchevents                     pulumi.StringPtrInput `pulumi:"cloudwatchevents"`
-	Cloudwatchevidently                  pulumi.StringPtrInput `pulumi:"cloudwatchevidently"`
-	Cloudwatchlog                        pulumi.StringPtrInput `pulumi:"cloudwatchlog"`
-	Cloudwatchlogs                       pulumi.StringPtrInput `pulumi:"cloudwatchlogs"`
+	// Use this to override the default service endpoint URL
+	Accessanalyzer pulumi.StringPtrInput `pulumi:"accessanalyzer"`
+	// Use this to override the default service endpoint URL
+	Account pulumi.StringPtrInput `pulumi:"account"`
+	// Use this to override the default service endpoint URL
+	Acm pulumi.StringPtrInput `pulumi:"acm"`
+	// Use this to override the default service endpoint URL
+	Acmpca pulumi.StringPtrInput `pulumi:"acmpca"`
+	// Use this to override the default service endpoint URL
+	Amg pulumi.StringPtrInput `pulumi:"amg"`
+	// Use this to override the default service endpoint URL
+	Amp pulumi.StringPtrInput `pulumi:"amp"`
+	// Use this to override the default service endpoint URL
+	Amplify pulumi.StringPtrInput `pulumi:"amplify"`
+	// Use this to override the default service endpoint URL
+	Apigateway pulumi.StringPtrInput `pulumi:"apigateway"`
+	// Use this to override the default service endpoint URL
+	Apigatewayv2 pulumi.StringPtrInput `pulumi:"apigatewayv2"`
+	// Use this to override the default service endpoint URL
+	Appautoscaling pulumi.StringPtrInput `pulumi:"appautoscaling"`
+	// Use this to override the default service endpoint URL
+	Appconfig pulumi.StringPtrInput `pulumi:"appconfig"`
+	// Use this to override the default service endpoint URL
+	Appfabric pulumi.StringPtrInput `pulumi:"appfabric"`
+	// Use this to override the default service endpoint URL
+	Appflow pulumi.StringPtrInput `pulumi:"appflow"`
+	// Use this to override the default service endpoint URL
+	Appintegrations pulumi.StringPtrInput `pulumi:"appintegrations"`
+	// Use this to override the default service endpoint URL
+	Appintegrationsservice pulumi.StringPtrInput `pulumi:"appintegrationsservice"`
+	// Use this to override the default service endpoint URL
+	Applicationautoscaling pulumi.StringPtrInput `pulumi:"applicationautoscaling"`
+	// Use this to override the default service endpoint URL
+	Applicationinsights pulumi.StringPtrInput `pulumi:"applicationinsights"`
+	// Use this to override the default service endpoint URL
+	Appmesh pulumi.StringPtrInput `pulumi:"appmesh"`
+	// Use this to override the default service endpoint URL
+	Appregistry pulumi.StringPtrInput `pulumi:"appregistry"`
+	// Use this to override the default service endpoint URL
+	Apprunner pulumi.StringPtrInput `pulumi:"apprunner"`
+	// Use this to override the default service endpoint URL
+	Appstream pulumi.StringPtrInput `pulumi:"appstream"`
+	// Use this to override the default service endpoint URL
+	Appsync pulumi.StringPtrInput `pulumi:"appsync"`
+	// Use this to override the default service endpoint URL
+	Athena pulumi.StringPtrInput `pulumi:"athena"`
+	// Use this to override the default service endpoint URL
+	Auditmanager pulumi.StringPtrInput `pulumi:"auditmanager"`
+	// Use this to override the default service endpoint URL
+	Autoscaling pulumi.StringPtrInput `pulumi:"autoscaling"`
+	// Use this to override the default service endpoint URL
+	Autoscalingplans pulumi.StringPtrInput `pulumi:"autoscalingplans"`
+	// Use this to override the default service endpoint URL
+	Backup pulumi.StringPtrInput `pulumi:"backup"`
+	// Use this to override the default service endpoint URL
+	Batch pulumi.StringPtrInput `pulumi:"batch"`
+	// Use this to override the default service endpoint URL
+	Beanstalk pulumi.StringPtrInput `pulumi:"beanstalk"`
+	// Use this to override the default service endpoint URL
+	Bedrock pulumi.StringPtrInput `pulumi:"bedrock"`
+	// Use this to override the default service endpoint URL
+	Bedrockagent pulumi.StringPtrInput `pulumi:"bedrockagent"`
+	// Use this to override the default service endpoint URL
+	Budgets pulumi.StringPtrInput `pulumi:"budgets"`
+	// Use this to override the default service endpoint URL
+	Ce pulumi.StringPtrInput `pulumi:"ce"`
+	// Use this to override the default service endpoint URL
+	Chime pulumi.StringPtrInput `pulumi:"chime"`
+	// Use this to override the default service endpoint URL
+	Chimesdkmediapipelines pulumi.StringPtrInput `pulumi:"chimesdkmediapipelines"`
+	// Use this to override the default service endpoint URL
+	Chimesdkvoice pulumi.StringPtrInput `pulumi:"chimesdkvoice"`
+	// Use this to override the default service endpoint URL
+	Cleanrooms pulumi.StringPtrInput `pulumi:"cleanrooms"`
+	// Use this to override the default service endpoint URL
+	Cloud9 pulumi.StringPtrInput `pulumi:"cloud9"`
+	// Use this to override the default service endpoint URL
+	Cloudcontrol pulumi.StringPtrInput `pulumi:"cloudcontrol"`
+	// Use this to override the default service endpoint URL
+	Cloudcontrolapi pulumi.StringPtrInput `pulumi:"cloudcontrolapi"`
+	// Use this to override the default service endpoint URL
+	Cloudformation pulumi.StringPtrInput `pulumi:"cloudformation"`
+	// Use this to override the default service endpoint URL
+	Cloudfront pulumi.StringPtrInput `pulumi:"cloudfront"`
+	// Use this to override the default service endpoint URL
+	Cloudfrontkeyvaluestore pulumi.StringPtrInput `pulumi:"cloudfrontkeyvaluestore"`
+	// Use this to override the default service endpoint URL
+	Cloudhsm pulumi.StringPtrInput `pulumi:"cloudhsm"`
+	// Use this to override the default service endpoint URL
+	Cloudhsmv2 pulumi.StringPtrInput `pulumi:"cloudhsmv2"`
+	// Use this to override the default service endpoint URL
+	Cloudsearch pulumi.StringPtrInput `pulumi:"cloudsearch"`
+	// Use this to override the default service endpoint URL
+	Cloudtrail pulumi.StringPtrInput `pulumi:"cloudtrail"`
+	// Use this to override the default service endpoint URL
+	Cloudwatch pulumi.StringPtrInput `pulumi:"cloudwatch"`
+	// Use this to override the default service endpoint URL
+	Cloudwatchevents pulumi.StringPtrInput `pulumi:"cloudwatchevents"`
+	// Use this to override the default service endpoint URL
+	Cloudwatchevidently pulumi.StringPtrInput `pulumi:"cloudwatchevidently"`
+	// Use this to override the default service endpoint URL
+	Cloudwatchlog pulumi.StringPtrInput `pulumi:"cloudwatchlog"`
+	// Use this to override the default service endpoint URL
+	Cloudwatchlogs pulumi.StringPtrInput `pulumi:"cloudwatchlogs"`
+	// Use this to override the default service endpoint URL
 	Cloudwatchobservabilityaccessmanager pulumi.StringPtrInput `pulumi:"cloudwatchobservabilityaccessmanager"`
-	Cloudwatchrum                        pulumi.StringPtrInput `pulumi:"cloudwatchrum"`
-	Codeartifact                         pulumi.StringPtrInput `pulumi:"codeartifact"`
-	Codebuild                            pulumi.StringPtrInput `pulumi:"codebuild"`
-	Codecatalyst                         pulumi.StringPtrInput `pulumi:"codecatalyst"`
-	Codecommit                           pulumi.StringPtrInput `pulumi:"codecommit"`
-	Codedeploy                           pulumi.StringPtrInput `pulumi:"codedeploy"`
-	Codegurureviewer                     pulumi.StringPtrInput `pulumi:"codegurureviewer"`
-	Codepipeline                         pulumi.StringPtrInput `pulumi:"codepipeline"`
-	Codestarconnections                  pulumi.StringPtrInput `pulumi:"codestarconnections"`
-	Codestarnotifications                pulumi.StringPtrInput `pulumi:"codestarnotifications"`
-	Cognitoidentity                      pulumi.StringPtrInput `pulumi:"cognitoidentity"`
-	Cognitoidentityprovider              pulumi.StringPtrInput `pulumi:"cognitoidentityprovider"`
-	Cognitoidp                           pulumi.StringPtrInput `pulumi:"cognitoidp"`
-	Comprehend                           pulumi.StringPtrInput `pulumi:"comprehend"`
-	Computeoptimizer                     pulumi.StringPtrInput `pulumi:"computeoptimizer"`
-	Config                               pulumi.StringPtrInput `pulumi:"config"`
-	Configservice                        pulumi.StringPtrInput `pulumi:"configservice"`
-	Connect                              pulumi.StringPtrInput `pulumi:"connect"`
-	Connectcases                         pulumi.StringPtrInput `pulumi:"connectcases"`
-	Controltower                         pulumi.StringPtrInput `pulumi:"controltower"`
-	Costandusagereportservice            pulumi.StringPtrInput `pulumi:"costandusagereportservice"`
-	Costexplorer                         pulumi.StringPtrInput `pulumi:"costexplorer"`
-	Cur                                  pulumi.StringPtrInput `pulumi:"cur"`
-	Customerprofiles                     pulumi.StringPtrInput `pulumi:"customerprofiles"`
-	Databasemigration                    pulumi.StringPtrInput `pulumi:"databasemigration"`
-	Databasemigrationservice             pulumi.StringPtrInput `pulumi:"databasemigrationservice"`
-	Dataexchange                         pulumi.StringPtrInput `pulumi:"dataexchange"`
-	Datapipeline                         pulumi.StringPtrInput `pulumi:"datapipeline"`
-	Datasync                             pulumi.StringPtrInput `pulumi:"datasync"`
-	Dax                                  pulumi.StringPtrInput `pulumi:"dax"`
-	Deploy                               pulumi.StringPtrInput `pulumi:"deploy"`
-	Detective                            pulumi.StringPtrInput `pulumi:"detective"`
-	Devicefarm                           pulumi.StringPtrInput `pulumi:"devicefarm"`
-	Directconnect                        pulumi.StringPtrInput `pulumi:"directconnect"`
-	Directoryservice                     pulumi.StringPtrInput `pulumi:"directoryservice"`
-	Dlm                                  pulumi.StringPtrInput `pulumi:"dlm"`
-	Dms                                  pulumi.StringPtrInput `pulumi:"dms"`
-	Docdb                                pulumi.StringPtrInput `pulumi:"docdb"`
-	Docdbelastic                         pulumi.StringPtrInput `pulumi:"docdbelastic"`
-	Ds                                   pulumi.StringPtrInput `pulumi:"ds"`
-	Dynamodb                             pulumi.StringPtrInput `pulumi:"dynamodb"`
-	Ec2                                  pulumi.StringPtrInput `pulumi:"ec2"`
-	Ecr                                  pulumi.StringPtrInput `pulumi:"ecr"`
-	Ecrpublic                            pulumi.StringPtrInput `pulumi:"ecrpublic"`
-	Ecs                                  pulumi.StringPtrInput `pulumi:"ecs"`
-	Efs                                  pulumi.StringPtrInput `pulumi:"efs"`
-	Eks                                  pulumi.StringPtrInput `pulumi:"eks"`
-	Elasticache                          pulumi.StringPtrInput `pulumi:"elasticache"`
-	Elasticbeanstalk                     pulumi.StringPtrInput `pulumi:"elasticbeanstalk"`
-	Elasticloadbalancing                 pulumi.StringPtrInput `pulumi:"elasticloadbalancing"`
-	Elasticloadbalancingv2               pulumi.StringPtrInput `pulumi:"elasticloadbalancingv2"`
-	Elasticsearch                        pulumi.StringPtrInput `pulumi:"elasticsearch"`
-	Elasticsearchservice                 pulumi.StringPtrInput `pulumi:"elasticsearchservice"`
-	Elastictranscoder                    pulumi.StringPtrInput `pulumi:"elastictranscoder"`
-	Elb                                  pulumi.StringPtrInput `pulumi:"elb"`
-	Elbv2                                pulumi.StringPtrInput `pulumi:"elbv2"`
-	Emr                                  pulumi.StringPtrInput `pulumi:"emr"`
-	Emrcontainers                        pulumi.StringPtrInput `pulumi:"emrcontainers"`
-	Emrserverless                        pulumi.StringPtrInput `pulumi:"emrserverless"`
-	Es                                   pulumi.StringPtrInput `pulumi:"es"`
-	Eventbridge                          pulumi.StringPtrInput `pulumi:"eventbridge"`
-	Events                               pulumi.StringPtrInput `pulumi:"events"`
-	Evidently                            pulumi.StringPtrInput `pulumi:"evidently"`
-	Finspace                             pulumi.StringPtrInput `pulumi:"finspace"`
-	Firehose                             pulumi.StringPtrInput `pulumi:"firehose"`
-	Fis                                  pulumi.StringPtrInput `pulumi:"fis"`
-	Fms                                  pulumi.StringPtrInput `pulumi:"fms"`
-	Fsx                                  pulumi.StringPtrInput `pulumi:"fsx"`
-	Gamelift                             pulumi.StringPtrInput `pulumi:"gamelift"`
-	Glacier                              pulumi.StringPtrInput `pulumi:"glacier"`
-	Globalaccelerator                    pulumi.StringPtrInput `pulumi:"globalaccelerator"`
-	Glue                                 pulumi.StringPtrInput `pulumi:"glue"`
-	Grafana                              pulumi.StringPtrInput `pulumi:"grafana"`
-	Greengrass                           pulumi.StringPtrInput `pulumi:"greengrass"`
-	Guardduty                            pulumi.StringPtrInput `pulumi:"guardduty"`
-	Healthlake                           pulumi.StringPtrInput `pulumi:"healthlake"`
-	Iam                                  pulumi.StringPtrInput `pulumi:"iam"`
-	Identitystore                        pulumi.StringPtrInput `pulumi:"identitystore"`
-	Imagebuilder                         pulumi.StringPtrInput `pulumi:"imagebuilder"`
-	Inspector                            pulumi.StringPtrInput `pulumi:"inspector"`
-	Inspector2                           pulumi.StringPtrInput `pulumi:"inspector2"`
-	Inspectorv2                          pulumi.StringPtrInput `pulumi:"inspectorv2"`
-	Internetmonitor                      pulumi.StringPtrInput `pulumi:"internetmonitor"`
-	Iot                                  pulumi.StringPtrInput `pulumi:"iot"`
-	Iotanalytics                         pulumi.StringPtrInput `pulumi:"iotanalytics"`
-	Iotevents                            pulumi.StringPtrInput `pulumi:"iotevents"`
-	Ivs                                  pulumi.StringPtrInput `pulumi:"ivs"`
-	Ivschat                              pulumi.StringPtrInput `pulumi:"ivschat"`
-	Kafka                                pulumi.StringPtrInput `pulumi:"kafka"`
-	Kafkaconnect                         pulumi.StringPtrInput `pulumi:"kafkaconnect"`
-	Kendra                               pulumi.StringPtrInput `pulumi:"kendra"`
-	Keyspaces                            pulumi.StringPtrInput `pulumi:"keyspaces"`
-	Kinesis                              pulumi.StringPtrInput `pulumi:"kinesis"`
-	Kinesisanalytics                     pulumi.StringPtrInput `pulumi:"kinesisanalytics"`
-	Kinesisanalyticsv2                   pulumi.StringPtrInput `pulumi:"kinesisanalyticsv2"`
-	Kinesisvideo                         pulumi.StringPtrInput `pulumi:"kinesisvideo"`
-	Kms                                  pulumi.StringPtrInput `pulumi:"kms"`
-	Lakeformation                        pulumi.StringPtrInput `pulumi:"lakeformation"`
-	Lambda                               pulumi.StringPtrInput `pulumi:"lambda"`
-	Lex                                  pulumi.StringPtrInput `pulumi:"lex"`
-	Lexmodelbuilding                     pulumi.StringPtrInput `pulumi:"lexmodelbuilding"`
-	Lexmodelbuildingservice              pulumi.StringPtrInput `pulumi:"lexmodelbuildingservice"`
-	Lexmodels                            pulumi.StringPtrInput `pulumi:"lexmodels"`
-	Lexmodelsv2                          pulumi.StringPtrInput `pulumi:"lexmodelsv2"`
-	Lexv2models                          pulumi.StringPtrInput `pulumi:"lexv2models"`
-	Licensemanager                       pulumi.StringPtrInput `pulumi:"licensemanager"`
-	Lightsail                            pulumi.StringPtrInput `pulumi:"lightsail"`
-	Location                             pulumi.StringPtrInput `pulumi:"location"`
-	Locationservice                      pulumi.StringPtrInput `pulumi:"locationservice"`
-	Logs                                 pulumi.StringPtrInput `pulumi:"logs"`
-	Macie2                               pulumi.StringPtrInput `pulumi:"macie2"`
-	Managedgrafana                       pulumi.StringPtrInput `pulumi:"managedgrafana"`
-	Mediaconnect                         pulumi.StringPtrInput `pulumi:"mediaconnect"`
-	Mediaconvert                         pulumi.StringPtrInput `pulumi:"mediaconvert"`
-	Medialive                            pulumi.StringPtrInput `pulumi:"medialive"`
-	Mediapackage                         pulumi.StringPtrInput `pulumi:"mediapackage"`
-	Mediastore                           pulumi.StringPtrInput `pulumi:"mediastore"`
-	Memorydb                             pulumi.StringPtrInput `pulumi:"memorydb"`
-	Mq                                   pulumi.StringPtrInput `pulumi:"mq"`
-	Msk                                  pulumi.StringPtrInput `pulumi:"msk"`
-	Mwaa                                 pulumi.StringPtrInput `pulumi:"mwaa"`
-	Neptune                              pulumi.StringPtrInput `pulumi:"neptune"`
-	Networkfirewall                      pulumi.StringPtrInput `pulumi:"networkfirewall"`
-	Networkmanager                       pulumi.StringPtrInput `pulumi:"networkmanager"`
-	Oam                                  pulumi.StringPtrInput `pulumi:"oam"`
-	Opensearch                           pulumi.StringPtrInput `pulumi:"opensearch"`
-	Opensearchingestion                  pulumi.StringPtrInput `pulumi:"opensearchingestion"`
-	Opensearchserverless                 pulumi.StringPtrInput `pulumi:"opensearchserverless"`
-	Opensearchservice                    pulumi.StringPtrInput `pulumi:"opensearchservice"`
-	Opsworks                             pulumi.StringPtrInput `pulumi:"opsworks"`
-	Organizations                        pulumi.StringPtrInput `pulumi:"organizations"`
-	Osis                                 pulumi.StringPtrInput `pulumi:"osis"`
-	Outposts                             pulumi.StringPtrInput `pulumi:"outposts"`
-	Pinpoint                             pulumi.StringPtrInput `pulumi:"pinpoint"`
-	Pipes                                pulumi.StringPtrInput `pulumi:"pipes"`
-	Pricing                              pulumi.StringPtrInput `pulumi:"pricing"`
-	Prometheus                           pulumi.StringPtrInput `pulumi:"prometheus"`
-	Prometheusservice                    pulumi.StringPtrInput `pulumi:"prometheusservice"`
-	Qldb                                 pulumi.StringPtrInput `pulumi:"qldb"`
-	Quicksight                           pulumi.StringPtrInput `pulumi:"quicksight"`
-	Ram                                  pulumi.StringPtrInput `pulumi:"ram"`
-	Rbin                                 pulumi.StringPtrInput `pulumi:"rbin"`
-	Rds                                  pulumi.StringPtrInput `pulumi:"rds"`
-	Recyclebin                           pulumi.StringPtrInput `pulumi:"recyclebin"`
-	Redshift                             pulumi.StringPtrInput `pulumi:"redshift"`
-	Redshiftdata                         pulumi.StringPtrInput `pulumi:"redshiftdata"`
-	Redshiftdataapiservice               pulumi.StringPtrInput `pulumi:"redshiftdataapiservice"`
-	Redshiftserverless                   pulumi.StringPtrInput `pulumi:"redshiftserverless"`
-	Resourceexplorer2                    pulumi.StringPtrInput `pulumi:"resourceexplorer2"`
-	Resourcegroups                       pulumi.StringPtrInput `pulumi:"resourcegroups"`
-	Resourcegroupstagging                pulumi.StringPtrInput `pulumi:"resourcegroupstagging"`
-	Resourcegroupstaggingapi             pulumi.StringPtrInput `pulumi:"resourcegroupstaggingapi"`
-	Rolesanywhere                        pulumi.StringPtrInput `pulumi:"rolesanywhere"`
-	Route53                              pulumi.StringPtrInput `pulumi:"route53"`
-	Route53domains                       pulumi.StringPtrInput `pulumi:"route53domains"`
-	Route53recoverycontrolconfig         pulumi.StringPtrInput `pulumi:"route53recoverycontrolconfig"`
-	Route53recoveryreadiness             pulumi.StringPtrInput `pulumi:"route53recoveryreadiness"`
-	Route53resolver                      pulumi.StringPtrInput `pulumi:"route53resolver"`
-	Rum                                  pulumi.StringPtrInput `pulumi:"rum"`
-	S3                                   pulumi.StringPtrInput `pulumi:"s3"`
-	S3api                                pulumi.StringPtrInput `pulumi:"s3api"`
-	S3control                            pulumi.StringPtrInput `pulumi:"s3control"`
-	S3outposts                           pulumi.StringPtrInput `pulumi:"s3outposts"`
-	Sagemaker                            pulumi.StringPtrInput `pulumi:"sagemaker"`
-	Scheduler                            pulumi.StringPtrInput `pulumi:"scheduler"`
-	Schemas                              pulumi.StringPtrInput `pulumi:"schemas"`
-	Sdb                                  pulumi.StringPtrInput `pulumi:"sdb"`
-	Secretsmanager                       pulumi.StringPtrInput `pulumi:"secretsmanager"`
-	Securityhub                          pulumi.StringPtrInput `pulumi:"securityhub"`
-	Securitylake                         pulumi.StringPtrInput `pulumi:"securitylake"`
-	Serverlessapplicationrepository      pulumi.StringPtrInput `pulumi:"serverlessapplicationrepository"`
-	Serverlessapprepo                    pulumi.StringPtrInput `pulumi:"serverlessapprepo"`
-	Serverlessrepo                       pulumi.StringPtrInput `pulumi:"serverlessrepo"`
-	Servicecatalog                       pulumi.StringPtrInput `pulumi:"servicecatalog"`
-	Servicediscovery                     pulumi.StringPtrInput `pulumi:"servicediscovery"`
-	Servicequotas                        pulumi.StringPtrInput `pulumi:"servicequotas"`
-	Ses                                  pulumi.StringPtrInput `pulumi:"ses"`
-	Sesv2                                pulumi.StringPtrInput `pulumi:"sesv2"`
-	Sfn                                  pulumi.StringPtrInput `pulumi:"sfn"`
-	Shield                               pulumi.StringPtrInput `pulumi:"shield"`
-	Signer                               pulumi.StringPtrInput `pulumi:"signer"`
-	Simpledb                             pulumi.StringPtrInput `pulumi:"simpledb"`
-	Sns                                  pulumi.StringPtrInput `pulumi:"sns"`
-	Sqs                                  pulumi.StringPtrInput `pulumi:"sqs"`
-	Ssm                                  pulumi.StringPtrInput `pulumi:"ssm"`
-	Ssmcontacts                          pulumi.StringPtrInput `pulumi:"ssmcontacts"`
-	Ssmincidents                         pulumi.StringPtrInput `pulumi:"ssmincidents"`
-	Sso                                  pulumi.StringPtrInput `pulumi:"sso"`
-	Ssoadmin                             pulumi.StringPtrInput `pulumi:"ssoadmin"`
-	Stepfunctions                        pulumi.StringPtrInput `pulumi:"stepfunctions"`
-	Storagegateway                       pulumi.StringPtrInput `pulumi:"storagegateway"`
-	Sts                                  pulumi.StringPtrInput `pulumi:"sts"`
-	Swf                                  pulumi.StringPtrInput `pulumi:"swf"`
-	Synthetics                           pulumi.StringPtrInput `pulumi:"synthetics"`
-	Timestreamwrite                      pulumi.StringPtrInput `pulumi:"timestreamwrite"`
-	Transcribe                           pulumi.StringPtrInput `pulumi:"transcribe"`
-	Transcribeservice                    pulumi.StringPtrInput `pulumi:"transcribeservice"`
-	Transfer                             pulumi.StringPtrInput `pulumi:"transfer"`
-	Verifiedpermissions                  pulumi.StringPtrInput `pulumi:"verifiedpermissions"`
-	Vpclattice                           pulumi.StringPtrInput `pulumi:"vpclattice"`
-	Waf                                  pulumi.StringPtrInput `pulumi:"waf"`
-	Wafregional                          pulumi.StringPtrInput `pulumi:"wafregional"`
-	Wafv2                                pulumi.StringPtrInput `pulumi:"wafv2"`
-	Worklink                             pulumi.StringPtrInput `pulumi:"worklink"`
-	Workspaces                           pulumi.StringPtrInput `pulumi:"workspaces"`
-	Xray                                 pulumi.StringPtrInput `pulumi:"xray"`
+	// Use this to override the default service endpoint URL
+	Cloudwatchrum pulumi.StringPtrInput `pulumi:"cloudwatchrum"`
+	// Use this to override the default service endpoint URL
+	Codeartifact pulumi.StringPtrInput `pulumi:"codeartifact"`
+	// Use this to override the default service endpoint URL
+	Codebuild pulumi.StringPtrInput `pulumi:"codebuild"`
+	// Use this to override the default service endpoint URL
+	Codecatalyst pulumi.StringPtrInput `pulumi:"codecatalyst"`
+	// Use this to override the default service endpoint URL
+	Codecommit pulumi.StringPtrInput `pulumi:"codecommit"`
+	// Use this to override the default service endpoint URL
+	Codedeploy pulumi.StringPtrInput `pulumi:"codedeploy"`
+	// Use this to override the default service endpoint URL
+	Codeguruprofiler pulumi.StringPtrInput `pulumi:"codeguruprofiler"`
+	// Use this to override the default service endpoint URL
+	Codegurureviewer pulumi.StringPtrInput `pulumi:"codegurureviewer"`
+	// Use this to override the default service endpoint URL
+	Codepipeline pulumi.StringPtrInput `pulumi:"codepipeline"`
+	// Use this to override the default service endpoint URL
+	Codestarconnections pulumi.StringPtrInput `pulumi:"codestarconnections"`
+	// Use this to override the default service endpoint URL
+	Codestarnotifications pulumi.StringPtrInput `pulumi:"codestarnotifications"`
+	// Use this to override the default service endpoint URL
+	Cognitoidentity pulumi.StringPtrInput `pulumi:"cognitoidentity"`
+	// Use this to override the default service endpoint URL
+	Cognitoidentityprovider pulumi.StringPtrInput `pulumi:"cognitoidentityprovider"`
+	// Use this to override the default service endpoint URL
+	Cognitoidp pulumi.StringPtrInput `pulumi:"cognitoidp"`
+	// Use this to override the default service endpoint URL
+	Comprehend pulumi.StringPtrInput `pulumi:"comprehend"`
+	// Use this to override the default service endpoint URL
+	Computeoptimizer pulumi.StringPtrInput `pulumi:"computeoptimizer"`
+	// Use this to override the default service endpoint URL
+	Config pulumi.StringPtrInput `pulumi:"config"`
+	// Use this to override the default service endpoint URL
+	Configservice pulumi.StringPtrInput `pulumi:"configservice"`
+	// Use this to override the default service endpoint URL
+	Connect pulumi.StringPtrInput `pulumi:"connect"`
+	// Use this to override the default service endpoint URL
+	Connectcases pulumi.StringPtrInput `pulumi:"connectcases"`
+	// Use this to override the default service endpoint URL
+	Controltower pulumi.StringPtrInput `pulumi:"controltower"`
+	// Use this to override the default service endpoint URL
+	Costandusagereportservice pulumi.StringPtrInput `pulumi:"costandusagereportservice"`
+	// Use this to override the default service endpoint URL
+	Costexplorer pulumi.StringPtrInput `pulumi:"costexplorer"`
+	// Use this to override the default service endpoint URL
+	Costoptimizationhub pulumi.StringPtrInput `pulumi:"costoptimizationhub"`
+	// Use this to override the default service endpoint URL
+	Cur pulumi.StringPtrInput `pulumi:"cur"`
+	// Use this to override the default service endpoint URL
+	Customerprofiles pulumi.StringPtrInput `pulumi:"customerprofiles"`
+	// Use this to override the default service endpoint URL
+	Databasemigration pulumi.StringPtrInput `pulumi:"databasemigration"`
+	// Use this to override the default service endpoint URL
+	Databasemigrationservice pulumi.StringPtrInput `pulumi:"databasemigrationservice"`
+	// Use this to override the default service endpoint URL
+	Dataexchange pulumi.StringPtrInput `pulumi:"dataexchange"`
+	// Use this to override the default service endpoint URL
+	Datapipeline pulumi.StringPtrInput `pulumi:"datapipeline"`
+	// Use this to override the default service endpoint URL
+	Datasync pulumi.StringPtrInput `pulumi:"datasync"`
+	// Use this to override the default service endpoint URL
+	Dax pulumi.StringPtrInput `pulumi:"dax"`
+	// Use this to override the default service endpoint URL
+	Deploy pulumi.StringPtrInput `pulumi:"deploy"`
+	// Use this to override the default service endpoint URL
+	Detective pulumi.StringPtrInput `pulumi:"detective"`
+	// Use this to override the default service endpoint URL
+	Devicefarm pulumi.StringPtrInput `pulumi:"devicefarm"`
+	// Use this to override the default service endpoint URL
+	Devopsguru pulumi.StringPtrInput `pulumi:"devopsguru"`
+	// Use this to override the default service endpoint URL
+	Directconnect pulumi.StringPtrInput `pulumi:"directconnect"`
+	// Use this to override the default service endpoint URL
+	Directoryservice pulumi.StringPtrInput `pulumi:"directoryservice"`
+	// Use this to override the default service endpoint URL
+	Dlm pulumi.StringPtrInput `pulumi:"dlm"`
+	// Use this to override the default service endpoint URL
+	Dms pulumi.StringPtrInput `pulumi:"dms"`
+	// Use this to override the default service endpoint URL
+	Docdb pulumi.StringPtrInput `pulumi:"docdb"`
+	// Use this to override the default service endpoint URL
+	Docdbelastic pulumi.StringPtrInput `pulumi:"docdbelastic"`
+	// Use this to override the default service endpoint URL
+	Ds pulumi.StringPtrInput `pulumi:"ds"`
+	// Use this to override the default service endpoint URL
+	Dynamodb pulumi.StringPtrInput `pulumi:"dynamodb"`
+	// Use this to override the default service endpoint URL
+	Ec2 pulumi.StringPtrInput `pulumi:"ec2"`
+	// Use this to override the default service endpoint URL
+	Ecr pulumi.StringPtrInput `pulumi:"ecr"`
+	// Use this to override the default service endpoint URL
+	Ecrpublic pulumi.StringPtrInput `pulumi:"ecrpublic"`
+	// Use this to override the default service endpoint URL
+	Ecs pulumi.StringPtrInput `pulumi:"ecs"`
+	// Use this to override the default service endpoint URL
+	Efs pulumi.StringPtrInput `pulumi:"efs"`
+	// Use this to override the default service endpoint URL
+	Eks pulumi.StringPtrInput `pulumi:"eks"`
+	// Use this to override the default service endpoint URL
+	Elasticache pulumi.StringPtrInput `pulumi:"elasticache"`
+	// Use this to override the default service endpoint URL
+	Elasticbeanstalk pulumi.StringPtrInput `pulumi:"elasticbeanstalk"`
+	// Use this to override the default service endpoint URL
+	Elasticloadbalancing pulumi.StringPtrInput `pulumi:"elasticloadbalancing"`
+	// Use this to override the default service endpoint URL
+	Elasticloadbalancingv2 pulumi.StringPtrInput `pulumi:"elasticloadbalancingv2"`
+	// Use this to override the default service endpoint URL
+	Elasticsearch pulumi.StringPtrInput `pulumi:"elasticsearch"`
+	// Use this to override the default service endpoint URL
+	Elasticsearchservice pulumi.StringPtrInput `pulumi:"elasticsearchservice"`
+	// Use this to override the default service endpoint URL
+	Elastictranscoder pulumi.StringPtrInput `pulumi:"elastictranscoder"`
+	// Use this to override the default service endpoint URL
+	Elb pulumi.StringPtrInput `pulumi:"elb"`
+	// Use this to override the default service endpoint URL
+	Elbv2 pulumi.StringPtrInput `pulumi:"elbv2"`
+	// Use this to override the default service endpoint URL
+	Emr pulumi.StringPtrInput `pulumi:"emr"`
+	// Use this to override the default service endpoint URL
+	Emrcontainers pulumi.StringPtrInput `pulumi:"emrcontainers"`
+	// Use this to override the default service endpoint URL
+	Emrserverless pulumi.StringPtrInput `pulumi:"emrserverless"`
+	// Use this to override the default service endpoint URL
+	Es pulumi.StringPtrInput `pulumi:"es"`
+	// Use this to override the default service endpoint URL
+	Eventbridge pulumi.StringPtrInput `pulumi:"eventbridge"`
+	// Use this to override the default service endpoint URL
+	Events pulumi.StringPtrInput `pulumi:"events"`
+	// Use this to override the default service endpoint URL
+	Evidently pulumi.StringPtrInput `pulumi:"evidently"`
+	// Use this to override the default service endpoint URL
+	Finspace pulumi.StringPtrInput `pulumi:"finspace"`
+	// Use this to override the default service endpoint URL
+	Firehose pulumi.StringPtrInput `pulumi:"firehose"`
+	// Use this to override the default service endpoint URL
+	Fis pulumi.StringPtrInput `pulumi:"fis"`
+	// Use this to override the default service endpoint URL
+	Fms pulumi.StringPtrInput `pulumi:"fms"`
+	// Use this to override the default service endpoint URL
+	Fsx pulumi.StringPtrInput `pulumi:"fsx"`
+	// Use this to override the default service endpoint URL
+	Gamelift pulumi.StringPtrInput `pulumi:"gamelift"`
+	// Use this to override the default service endpoint URL
+	Glacier pulumi.StringPtrInput `pulumi:"glacier"`
+	// Use this to override the default service endpoint URL
+	Globalaccelerator pulumi.StringPtrInput `pulumi:"globalaccelerator"`
+	// Use this to override the default service endpoint URL
+	Glue pulumi.StringPtrInput `pulumi:"glue"`
+	// Use this to override the default service endpoint URL
+	Grafana pulumi.StringPtrInput `pulumi:"grafana"`
+	// Use this to override the default service endpoint URL
+	Greengrass pulumi.StringPtrInput `pulumi:"greengrass"`
+	// Use this to override the default service endpoint URL
+	Groundstation pulumi.StringPtrInput `pulumi:"groundstation"`
+	// Use this to override the default service endpoint URL
+	Guardduty pulumi.StringPtrInput `pulumi:"guardduty"`
+	// Use this to override the default service endpoint URL
+	Healthlake pulumi.StringPtrInput `pulumi:"healthlake"`
+	// Use this to override the default service endpoint URL
+	Iam pulumi.StringPtrInput `pulumi:"iam"`
+	// Use this to override the default service endpoint URL
+	Identitystore pulumi.StringPtrInput `pulumi:"identitystore"`
+	// Use this to override the default service endpoint URL
+	Imagebuilder pulumi.StringPtrInput `pulumi:"imagebuilder"`
+	// Use this to override the default service endpoint URL
+	Inspector pulumi.StringPtrInput `pulumi:"inspector"`
+	// Use this to override the default service endpoint URL
+	Inspector2 pulumi.StringPtrInput `pulumi:"inspector2"`
+	// Use this to override the default service endpoint URL
+	Inspectorv2 pulumi.StringPtrInput `pulumi:"inspectorv2"`
+	// Use this to override the default service endpoint URL
+	Internetmonitor pulumi.StringPtrInput `pulumi:"internetmonitor"`
+	// Use this to override the default service endpoint URL
+	Iot pulumi.StringPtrInput `pulumi:"iot"`
+	// Use this to override the default service endpoint URL
+	Iotanalytics pulumi.StringPtrInput `pulumi:"iotanalytics"`
+	// Use this to override the default service endpoint URL
+	Iotevents pulumi.StringPtrInput `pulumi:"iotevents"`
+	// Use this to override the default service endpoint URL
+	Ivs pulumi.StringPtrInput `pulumi:"ivs"`
+	// Use this to override the default service endpoint URL
+	Ivschat pulumi.StringPtrInput `pulumi:"ivschat"`
+	// Use this to override the default service endpoint URL
+	Kafka pulumi.StringPtrInput `pulumi:"kafka"`
+	// Use this to override the default service endpoint URL
+	Kafkaconnect pulumi.StringPtrInput `pulumi:"kafkaconnect"`
+	// Use this to override the default service endpoint URL
+	Kendra pulumi.StringPtrInput `pulumi:"kendra"`
+	// Use this to override the default service endpoint URL
+	Keyspaces pulumi.StringPtrInput `pulumi:"keyspaces"`
+	// Use this to override the default service endpoint URL
+	Kinesis pulumi.StringPtrInput `pulumi:"kinesis"`
+	// Use this to override the default service endpoint URL
+	Kinesisanalytics pulumi.StringPtrInput `pulumi:"kinesisanalytics"`
+	// Use this to override the default service endpoint URL
+	Kinesisanalyticsv2 pulumi.StringPtrInput `pulumi:"kinesisanalyticsv2"`
+	// Use this to override the default service endpoint URL
+	Kinesisvideo pulumi.StringPtrInput `pulumi:"kinesisvideo"`
+	// Use this to override the default service endpoint URL
+	Kms pulumi.StringPtrInput `pulumi:"kms"`
+	// Use this to override the default service endpoint URL
+	Lakeformation pulumi.StringPtrInput `pulumi:"lakeformation"`
+	// Use this to override the default service endpoint URL
+	Lambda pulumi.StringPtrInput `pulumi:"lambda"`
+	// Use this to override the default service endpoint URL
+	Launchwizard pulumi.StringPtrInput `pulumi:"launchwizard"`
+	// Use this to override the default service endpoint URL
+	Lex pulumi.StringPtrInput `pulumi:"lex"`
+	// Use this to override the default service endpoint URL
+	Lexmodelbuilding pulumi.StringPtrInput `pulumi:"lexmodelbuilding"`
+	// Use this to override the default service endpoint URL
+	Lexmodelbuildingservice pulumi.StringPtrInput `pulumi:"lexmodelbuildingservice"`
+	// Use this to override the default service endpoint URL
+	Lexmodels pulumi.StringPtrInput `pulumi:"lexmodels"`
+	// Use this to override the default service endpoint URL
+	Lexmodelsv2 pulumi.StringPtrInput `pulumi:"lexmodelsv2"`
+	// Use this to override the default service endpoint URL
+	Lexv2models pulumi.StringPtrInput `pulumi:"lexv2models"`
+	// Use this to override the default service endpoint URL
+	Licensemanager pulumi.StringPtrInput `pulumi:"licensemanager"`
+	// Use this to override the default service endpoint URL
+	Lightsail pulumi.StringPtrInput `pulumi:"lightsail"`
+	// Use this to override the default service endpoint URL
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Use this to override the default service endpoint URL
+	Locationservice pulumi.StringPtrInput `pulumi:"locationservice"`
+	// Use this to override the default service endpoint URL
+	Logs pulumi.StringPtrInput `pulumi:"logs"`
+	// Use this to override the default service endpoint URL
+	Lookoutmetrics pulumi.StringPtrInput `pulumi:"lookoutmetrics"`
+	// Use this to override the default service endpoint URL
+	M2 pulumi.StringPtrInput `pulumi:"m2"`
+	// Use this to override the default service endpoint URL
+	Macie2 pulumi.StringPtrInput `pulumi:"macie2"`
+	// Use this to override the default service endpoint URL
+	Managedgrafana pulumi.StringPtrInput `pulumi:"managedgrafana"`
+	// Use this to override the default service endpoint URL
+	Mediaconnect pulumi.StringPtrInput `pulumi:"mediaconnect"`
+	// Use this to override the default service endpoint URL
+	Mediaconvert pulumi.StringPtrInput `pulumi:"mediaconvert"`
+	// Use this to override the default service endpoint URL
+	Medialive pulumi.StringPtrInput `pulumi:"medialive"`
+	// Use this to override the default service endpoint URL
+	Mediapackage pulumi.StringPtrInput `pulumi:"mediapackage"`
+	// Use this to override the default service endpoint URL
+	Mediapackagev2 pulumi.StringPtrInput `pulumi:"mediapackagev2"`
+	// Use this to override the default service endpoint URL
+	Mediastore pulumi.StringPtrInput `pulumi:"mediastore"`
+	// Use this to override the default service endpoint URL
+	Memorydb pulumi.StringPtrInput `pulumi:"memorydb"`
+	// Use this to override the default service endpoint URL
+	Mq pulumi.StringPtrInput `pulumi:"mq"`
+	// Use this to override the default service endpoint URL
+	Msk pulumi.StringPtrInput `pulumi:"msk"`
+	// Use this to override the default service endpoint URL
+	Mwaa pulumi.StringPtrInput `pulumi:"mwaa"`
+	// Use this to override the default service endpoint URL
+	Neptune pulumi.StringPtrInput `pulumi:"neptune"`
+	// Use this to override the default service endpoint URL
+	Networkfirewall pulumi.StringPtrInput `pulumi:"networkfirewall"`
+	// Use this to override the default service endpoint URL
+	Networkmanager pulumi.StringPtrInput `pulumi:"networkmanager"`
+	// Use this to override the default service endpoint URL
+	Oam pulumi.StringPtrInput `pulumi:"oam"`
+	// Use this to override the default service endpoint URL
+	Opensearch pulumi.StringPtrInput `pulumi:"opensearch"`
+	// Use this to override the default service endpoint URL
+	Opensearchingestion pulumi.StringPtrInput `pulumi:"opensearchingestion"`
+	// Use this to override the default service endpoint URL
+	Opensearchserverless pulumi.StringPtrInput `pulumi:"opensearchserverless"`
+	// Use this to override the default service endpoint URL
+	Opensearchservice pulumi.StringPtrInput `pulumi:"opensearchservice"`
+	// Use this to override the default service endpoint URL
+	Opsworks pulumi.StringPtrInput `pulumi:"opsworks"`
+	// Use this to override the default service endpoint URL
+	Organizations pulumi.StringPtrInput `pulumi:"organizations"`
+	// Use this to override the default service endpoint URL
+	Osis pulumi.StringPtrInput `pulumi:"osis"`
+	// Use this to override the default service endpoint URL
+	Outposts pulumi.StringPtrInput `pulumi:"outposts"`
+	// Use this to override the default service endpoint URL
+	Pcaconnectorad pulumi.StringPtrInput `pulumi:"pcaconnectorad"`
+	// Use this to override the default service endpoint URL
+	Pinpoint pulumi.StringPtrInput `pulumi:"pinpoint"`
+	// Use this to override the default service endpoint URL
+	Pipes pulumi.StringPtrInput `pulumi:"pipes"`
+	// Use this to override the default service endpoint URL
+	Polly pulumi.StringPtrInput `pulumi:"polly"`
+	// Use this to override the default service endpoint URL
+	Pricing pulumi.StringPtrInput `pulumi:"pricing"`
+	// Use this to override the default service endpoint URL
+	Prometheus pulumi.StringPtrInput `pulumi:"prometheus"`
+	// Use this to override the default service endpoint URL
+	Prometheusservice pulumi.StringPtrInput `pulumi:"prometheusservice"`
+	// Use this to override the default service endpoint URL
+	Qbusiness pulumi.StringPtrInput `pulumi:"qbusiness"`
+	// Use this to override the default service endpoint URL
+	Qldb pulumi.StringPtrInput `pulumi:"qldb"`
+	// Use this to override the default service endpoint URL
+	Quicksight pulumi.StringPtrInput `pulumi:"quicksight"`
+	// Use this to override the default service endpoint URL
+	Ram pulumi.StringPtrInput `pulumi:"ram"`
+	// Use this to override the default service endpoint URL
+	Rbin pulumi.StringPtrInput `pulumi:"rbin"`
+	// Use this to override the default service endpoint URL
+	Rds pulumi.StringPtrInput `pulumi:"rds"`
+	// Use this to override the default service endpoint URL
+	Recyclebin pulumi.StringPtrInput `pulumi:"recyclebin"`
+	// Use this to override the default service endpoint URL
+	Redshift pulumi.StringPtrInput `pulumi:"redshift"`
+	// Use this to override the default service endpoint URL
+	Redshiftdata pulumi.StringPtrInput `pulumi:"redshiftdata"`
+	// Use this to override the default service endpoint URL
+	Redshiftdataapiservice pulumi.StringPtrInput `pulumi:"redshiftdataapiservice"`
+	// Use this to override the default service endpoint URL
+	Redshiftserverless pulumi.StringPtrInput `pulumi:"redshiftserverless"`
+	// Use this to override the default service endpoint URL
+	Rekognition pulumi.StringPtrInput `pulumi:"rekognition"`
+	// Use this to override the default service endpoint URL
+	Resourceexplorer2 pulumi.StringPtrInput `pulumi:"resourceexplorer2"`
+	// Use this to override the default service endpoint URL
+	Resourcegroups pulumi.StringPtrInput `pulumi:"resourcegroups"`
+	// Use this to override the default service endpoint URL
+	Resourcegroupstagging pulumi.StringPtrInput `pulumi:"resourcegroupstagging"`
+	// Use this to override the default service endpoint URL
+	Resourcegroupstaggingapi pulumi.StringPtrInput `pulumi:"resourcegroupstaggingapi"`
+	// Use this to override the default service endpoint URL
+	Rolesanywhere pulumi.StringPtrInput `pulumi:"rolesanywhere"`
+	// Use this to override the default service endpoint URL
+	Route53 pulumi.StringPtrInput `pulumi:"route53"`
+	// Use this to override the default service endpoint URL
+	Route53domains pulumi.StringPtrInput `pulumi:"route53domains"`
+	// Use this to override the default service endpoint URL
+	Route53recoverycontrolconfig pulumi.StringPtrInput `pulumi:"route53recoverycontrolconfig"`
+	// Use this to override the default service endpoint URL
+	Route53recoveryreadiness pulumi.StringPtrInput `pulumi:"route53recoveryreadiness"`
+	// Use this to override the default service endpoint URL
+	Route53resolver pulumi.StringPtrInput `pulumi:"route53resolver"`
+	// Use this to override the default service endpoint URL
+	Rum pulumi.StringPtrInput `pulumi:"rum"`
+	// Use this to override the default service endpoint URL
+	S3 pulumi.StringPtrInput `pulumi:"s3"`
+	// Use this to override the default service endpoint URL
+	S3api pulumi.StringPtrInput `pulumi:"s3api"`
+	// Use this to override the default service endpoint URL
+	S3control pulumi.StringPtrInput `pulumi:"s3control"`
+	// Use this to override the default service endpoint URL
+	S3outposts pulumi.StringPtrInput `pulumi:"s3outposts"`
+	// Use this to override the default service endpoint URL
+	Sagemaker pulumi.StringPtrInput `pulumi:"sagemaker"`
+	// Use this to override the default service endpoint URL
+	Scheduler pulumi.StringPtrInput `pulumi:"scheduler"`
+	// Use this to override the default service endpoint URL
+	Schemas pulumi.StringPtrInput `pulumi:"schemas"`
+	// Use this to override the default service endpoint URL
+	Sdb pulumi.StringPtrInput `pulumi:"sdb"`
+	// Use this to override the default service endpoint URL
+	Secretsmanager pulumi.StringPtrInput `pulumi:"secretsmanager"`
+	// Use this to override the default service endpoint URL
+	Securityhub pulumi.StringPtrInput `pulumi:"securityhub"`
+	// Use this to override the default service endpoint URL
+	Securitylake pulumi.StringPtrInput `pulumi:"securitylake"`
+	// Use this to override the default service endpoint URL
+	Serverlessapplicationrepository pulumi.StringPtrInput `pulumi:"serverlessapplicationrepository"`
+	// Use this to override the default service endpoint URL
+	Serverlessapprepo pulumi.StringPtrInput `pulumi:"serverlessapprepo"`
+	// Use this to override the default service endpoint URL
+	Serverlessrepo pulumi.StringPtrInput `pulumi:"serverlessrepo"`
+	// Use this to override the default service endpoint URL
+	Servicecatalog pulumi.StringPtrInput `pulumi:"servicecatalog"`
+	// Use this to override the default service endpoint URL
+	Servicecatalogappregistry pulumi.StringPtrInput `pulumi:"servicecatalogappregistry"`
+	// Use this to override the default service endpoint URL
+	Servicediscovery pulumi.StringPtrInput `pulumi:"servicediscovery"`
+	// Use this to override the default service endpoint URL
+	Servicequotas pulumi.StringPtrInput `pulumi:"servicequotas"`
+	// Use this to override the default service endpoint URL
+	Ses pulumi.StringPtrInput `pulumi:"ses"`
+	// Use this to override the default service endpoint URL
+	Sesv2 pulumi.StringPtrInput `pulumi:"sesv2"`
+	// Use this to override the default service endpoint URL
+	Sfn pulumi.StringPtrInput `pulumi:"sfn"`
+	// Use this to override the default service endpoint URL
+	Shield pulumi.StringPtrInput `pulumi:"shield"`
+	// Use this to override the default service endpoint URL
+	Signer pulumi.StringPtrInput `pulumi:"signer"`
+	// Use this to override the default service endpoint URL
+	Simpledb pulumi.StringPtrInput `pulumi:"simpledb"`
+	// Use this to override the default service endpoint URL
+	Sns pulumi.StringPtrInput `pulumi:"sns"`
+	// Use this to override the default service endpoint URL
+	Sqs pulumi.StringPtrInput `pulumi:"sqs"`
+	// Use this to override the default service endpoint URL
+	Ssm pulumi.StringPtrInput `pulumi:"ssm"`
+	// Use this to override the default service endpoint URL
+	Ssmcontacts pulumi.StringPtrInput `pulumi:"ssmcontacts"`
+	// Use this to override the default service endpoint URL
+	Ssmincidents pulumi.StringPtrInput `pulumi:"ssmincidents"`
+	// Use this to override the default service endpoint URL
+	Ssmsap pulumi.StringPtrInput `pulumi:"ssmsap"`
+	// Use this to override the default service endpoint URL
+	Sso pulumi.StringPtrInput `pulumi:"sso"`
+	// Use this to override the default service endpoint URL
+	Ssoadmin pulumi.StringPtrInput `pulumi:"ssoadmin"`
+	// Use this to override the default service endpoint URL
+	Stepfunctions pulumi.StringPtrInput `pulumi:"stepfunctions"`
+	// Use this to override the default service endpoint URL
+	Storagegateway pulumi.StringPtrInput `pulumi:"storagegateway"`
+	// Use this to override the default service endpoint URL
+	Sts pulumi.StringPtrInput `pulumi:"sts"`
+	// Use this to override the default service endpoint URL
+	Swf pulumi.StringPtrInput `pulumi:"swf"`
+	// Use this to override the default service endpoint URL
+	Synthetics pulumi.StringPtrInput `pulumi:"synthetics"`
+	// Use this to override the default service endpoint URL
+	Timestreamwrite pulumi.StringPtrInput `pulumi:"timestreamwrite"`
+	// Use this to override the default service endpoint URL
+	Transcribe pulumi.StringPtrInput `pulumi:"transcribe"`
+	// Use this to override the default service endpoint URL
+	Transcribeservice pulumi.StringPtrInput `pulumi:"transcribeservice"`
+	// Use this to override the default service endpoint URL
+	Transfer pulumi.StringPtrInput `pulumi:"transfer"`
+	// Use this to override the default service endpoint URL
+	Verifiedpermissions pulumi.StringPtrInput `pulumi:"verifiedpermissions"`
+	// Use this to override the default service endpoint URL
+	Vpclattice pulumi.StringPtrInput `pulumi:"vpclattice"`
+	// Use this to override the default service endpoint URL
+	Waf pulumi.StringPtrInput `pulumi:"waf"`
+	// Use this to override the default service endpoint URL
+	Wafregional pulumi.StringPtrInput `pulumi:"wafregional"`
+	// Use this to override the default service endpoint URL
+	Wafv2 pulumi.StringPtrInput `pulumi:"wafv2"`
+	// Use this to override the default service endpoint URL
+	Wellarchitected pulumi.StringPtrInput `pulumi:"wellarchitected"`
+	// Use this to override the default service endpoint URL
+	Worklink pulumi.StringPtrInput `pulumi:"worklink"`
+	// Use this to override the default service endpoint URL
+	Workspaces pulumi.StringPtrInput `pulumi:"workspaces"`
+	// Use this to override the default service endpoint URL
+	Xray pulumi.StringPtrInput `pulumi:"xray"`
 }
 
 func (EndpointsArgs) ElementType() reflect.Type {
@@ -822,1022 +1453,1372 @@ func (o EndpointsOutput) ToEndpointsOutputWithContext(ctx context.Context) Endpo
 	return o
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Accessanalyzer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Accessanalyzer }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Account() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Account }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Acm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Acm }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Acmpca() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Acmpca }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Amg() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Amg }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Amp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Amp }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Amplify() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Amplify }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Apigateway() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Apigateway }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Apigatewayv2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Apigatewayv2 }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Appautoscaling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Appautoscaling }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Appconfig() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Appconfig }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Appfabric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Appfabric }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Appflow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Appflow }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Appintegrations() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Appintegrations }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Appintegrationsservice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Appintegrationsservice }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Applicationautoscaling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Applicationautoscaling }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Applicationinsights() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Applicationinsights }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Appmesh() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Appmesh }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Appregistry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Appregistry }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Apprunner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Apprunner }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Appstream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Appstream }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Appsync() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Appsync }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Athena() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Athena }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Auditmanager() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Auditmanager }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Autoscaling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Autoscaling }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Autoscalingplans() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Autoscalingplans }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Backup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Backup }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Batch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Batch }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Beanstalk() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Beanstalk }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Bedrock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Bedrock }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Bedrockagent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Bedrockagent }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Budgets() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Budgets }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Ce() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Ce }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Chime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Chime }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Chimesdkmediapipelines() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Chimesdkmediapipelines }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Chimesdkvoice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Chimesdkvoice }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Cleanrooms() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cleanrooms }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Cloud9() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cloud9 }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Cloudcontrol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cloudcontrol }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Cloudcontrolapi() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cloudcontrolapi }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Cloudformation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cloudformation }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Cloudfront() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cloudfront }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Cloudfrontkeyvaluestore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Cloudfrontkeyvaluestore }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Cloudhsm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cloudhsm }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Cloudhsmv2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cloudhsmv2 }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Cloudsearch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cloudsearch }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Cloudtrail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cloudtrail }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Cloudwatch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cloudwatch }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Cloudwatchevents() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cloudwatchevents }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Cloudwatchevidently() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cloudwatchevidently }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Cloudwatchlog() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cloudwatchlog }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Cloudwatchlogs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cloudwatchlogs }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Cloudwatchobservabilityaccessmanager() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cloudwatchobservabilityaccessmanager }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Cloudwatchrum() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cloudwatchrum }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Codeartifact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Codeartifact }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Codebuild() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Codebuild }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Codecatalyst() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Codecatalyst }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Codecommit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Codecommit }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Codedeploy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Codedeploy }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Codeguruprofiler() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Codeguruprofiler }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Codegurureviewer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Codegurureviewer }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Codepipeline() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Codepipeline }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Codestarconnections() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Codestarconnections }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Codestarnotifications() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Codestarnotifications }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Cognitoidentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cognitoidentity }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Cognitoidentityprovider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cognitoidentityprovider }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Cognitoidp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cognitoidp }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Comprehend() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Comprehend }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Computeoptimizer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Computeoptimizer }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Config() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Config }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Configservice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Configservice }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Connect() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Connect }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Connectcases() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Connectcases }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Controltower() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Controltower }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Costandusagereportservice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Costandusagereportservice }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Costexplorer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Costexplorer }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Costoptimizationhub() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Costoptimizationhub }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Cur() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cur }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Customerprofiles() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Customerprofiles }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Databasemigration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Databasemigration }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Databasemigrationservice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Databasemigrationservice }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Dataexchange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Dataexchange }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Datapipeline() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Datapipeline }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Datasync() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Datasync }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Dax() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Dax }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Deploy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Deploy }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Detective() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Detective }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Devicefarm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Devicefarm }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Devopsguru() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Devopsguru }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Directconnect() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Directconnect }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Directoryservice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Directoryservice }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Dlm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Dlm }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Dms() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Dms }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Docdb() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Docdb }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Docdbelastic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Docdbelastic }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Ds() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Ds }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Dynamodb() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Dynamodb }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Ec2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Ec2 }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Ecr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Ecr }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Ecrpublic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Ecrpublic }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Ecs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Ecs }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Efs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Efs }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Eks() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Eks }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Elasticache() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Elasticache }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Elasticbeanstalk() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Elasticbeanstalk }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Elasticloadbalancing() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Elasticloadbalancing }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Elasticloadbalancingv2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Elasticloadbalancingv2 }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Elasticsearch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Elasticsearch }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Elasticsearchservice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Elasticsearchservice }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Elastictranscoder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Elastictranscoder }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Elb() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Elb }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Elbv2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Elbv2 }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Emr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Emr }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Emrcontainers() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Emrcontainers }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Emrserverless() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Emrserverless }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Es() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Es }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Eventbridge() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Eventbridge }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Events() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Events }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Evidently() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Evidently }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Finspace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Finspace }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Firehose() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Firehose }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Fis() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Fis }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Fms() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Fms }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Fsx() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Fsx }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Gamelift() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Gamelift }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Glacier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Glacier }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Globalaccelerator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Globalaccelerator }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Glue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Glue }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Grafana() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Grafana }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Greengrass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Greengrass }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Groundstation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Groundstation }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Guardduty() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Guardduty }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Healthlake() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Healthlake }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Iam() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Iam }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Identitystore() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Identitystore }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Imagebuilder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Imagebuilder }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Inspector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Inspector }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Inspector2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Inspector2 }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Inspectorv2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Inspectorv2 }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Internetmonitor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Internetmonitor }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Iot() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Iot }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Iotanalytics() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Iotanalytics }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Iotevents() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Iotevents }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Ivs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Ivs }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Ivschat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Ivschat }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Kafka() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Kafka }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Kafkaconnect() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Kafkaconnect }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Kendra() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Kendra }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Keyspaces() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Keyspaces }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Kinesis() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Kinesis }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Kinesisanalytics() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Kinesisanalytics }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Kinesisanalyticsv2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Kinesisanalyticsv2 }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Kinesisvideo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Kinesisvideo }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Kms() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Kms }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Lakeformation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Lakeformation }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Lambda() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Lambda }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Launchwizard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Launchwizard }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Lex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Lex }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Lexmodelbuilding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Lexmodelbuilding }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Lexmodelbuildingservice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Lexmodelbuildingservice }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Lexmodels() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Lexmodels }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Lexmodelsv2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Lexmodelsv2 }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Lexv2models() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Lexv2models }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Licensemanager() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Licensemanager }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Lightsail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Lightsail }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Locationservice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Locationservice }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Logs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Logs }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Lookoutmetrics() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Lookoutmetrics }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) M2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.M2 }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Macie2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Macie2 }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Managedgrafana() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Managedgrafana }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Mediaconnect() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Mediaconnect }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Mediaconvert() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Mediaconvert }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Medialive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Medialive }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Mediapackage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Mediapackage }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Mediapackagev2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Mediapackagev2 }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Mediastore() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Mediastore }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Memorydb() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Memorydb }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Mq() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Mq }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Msk() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Msk }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Mwaa() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Mwaa }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Neptune() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Neptune }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Networkfirewall() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Networkfirewall }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Networkmanager() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Networkmanager }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Oam() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Oam }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Opensearch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Opensearch }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Opensearchingestion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Opensearchingestion }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Opensearchserverless() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Opensearchserverless }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Opensearchservice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Opensearchservice }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Opsworks() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Opsworks }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Organizations() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Organizations }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Osis() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Osis }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Outposts() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Outposts }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Pcaconnectorad() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Pcaconnectorad }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Pinpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Pinpoint }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Pipes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Pipes }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Polly() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Polly }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Pricing() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Pricing }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Prometheus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Prometheus }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Prometheusservice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Prometheusservice }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Qbusiness() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Qbusiness }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Qldb() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Qldb }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Quicksight() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Quicksight }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Ram() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Ram }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Rbin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Rbin }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Rds() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Rds }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Recyclebin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Recyclebin }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Redshift() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Redshift }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Redshiftdata() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Redshiftdata }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Redshiftdataapiservice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Redshiftdataapiservice }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Redshiftserverless() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Redshiftserverless }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Rekognition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Rekognition }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Resourceexplorer2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Resourceexplorer2 }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Resourcegroups() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Resourcegroups }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Resourcegroupstagging() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Resourcegroupstagging }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Resourcegroupstaggingapi() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Resourcegroupstaggingapi }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Rolesanywhere() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Rolesanywhere }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Route53() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Route53 }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Route53domains() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Route53domains }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Route53recoverycontrolconfig() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Route53recoverycontrolconfig }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Route53recoveryreadiness() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Route53recoveryreadiness }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Route53resolver() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Route53resolver }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Rum() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Rum }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) S3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.S3 }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) S3api() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.S3api }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) S3control() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.S3control }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) S3outposts() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.S3outposts }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Sagemaker() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Sagemaker }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Scheduler() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Scheduler }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Schemas() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Schemas }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Sdb() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Sdb }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Secretsmanager() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Secretsmanager }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Securityhub() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Securityhub }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Securitylake() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Securitylake }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Serverlessapplicationrepository() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Serverlessapplicationrepository }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Serverlessapprepo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Serverlessapprepo }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Serverlessrepo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Serverlessrepo }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Servicecatalog() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Servicecatalog }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Servicecatalogappregistry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Servicecatalogappregistry }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Servicediscovery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Servicediscovery }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Servicequotas() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Servicequotas }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Ses() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Ses }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Sesv2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Sesv2 }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Sfn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Sfn }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Shield() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Shield }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Signer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Signer }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Simpledb() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Simpledb }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Sns() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Sns }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Sqs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Sqs }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Ssm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Ssm }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Ssmcontacts() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Ssmcontacts }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Ssmincidents() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Ssmincidents }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Ssmsap() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Ssmsap }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Sso() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Sso }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Ssoadmin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Ssoadmin }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Stepfunctions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Stepfunctions }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Storagegateway() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Storagegateway }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Sts() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Sts }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Swf() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Swf }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Synthetics() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Synthetics }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Timestreamwrite() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Timestreamwrite }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Transcribe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Transcribe }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Transcribeservice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Transcribeservice }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Transfer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Transfer }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Verifiedpermissions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Verifiedpermissions }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Vpclattice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Vpclattice }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Waf() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Waf }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Wafregional() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Wafregional }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Wafv2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Wafv2 }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Wellarchitected() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Wellarchitected }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Worklink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Worklink }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Workspaces() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Workspaces }).(pulumi.StringPtrOutput)
 }
 
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Xray() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Xray }).(pulumi.StringPtrOutput)
 }
@@ -1863,8 +2844,10 @@ func (o EndpointsArrayOutput) Index(i pulumi.IntInput) EndpointsOutput {
 }
 
 type IgnoreTags struct {
+	// Resource tag key prefixes to ignore across all resources.
 	KeyPrefixes []string `pulumi:"keyPrefixes"`
-	Keys        []string `pulumi:"keys"`
+	// Resource tag keys to ignore across all resources.
+	Keys []string `pulumi:"keys"`
 }
 
 // IgnoreTagsInput is an input type that accepts IgnoreTagsArgs and IgnoreTagsOutput values.
@@ -1879,8 +2862,10 @@ type IgnoreTagsInput interface {
 }
 
 type IgnoreTagsArgs struct {
+	// Resource tag key prefixes to ignore across all resources.
 	KeyPrefixes pulumi.StringArrayInput `pulumi:"keyPrefixes"`
-	Keys        pulumi.StringArrayInput `pulumi:"keys"`
+	// Resource tag keys to ignore across all resources.
+	Keys pulumi.StringArrayInput `pulumi:"keys"`
 }
 
 func (IgnoreTagsArgs) ElementType() reflect.Type {
@@ -1909,10 +2894,12 @@ func (o IgnoreTagsOutput) ToIgnoreTagsOutputWithContext(ctx context.Context) Ign
 	return o
 }
 
+// Resource tag key prefixes to ignore across all resources.
 func (o IgnoreTagsOutput) KeyPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IgnoreTags) []string { return v.KeyPrefixes }).(pulumi.StringArrayOutput)
 }
 
+// Resource tag keys to ignore across all resources.
 func (o IgnoreTagsOutput) Keys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IgnoreTags) []string { return v.Keys }).(pulumi.StringArrayOutput)
 }

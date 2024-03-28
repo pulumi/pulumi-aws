@@ -5,6 +5,7 @@ package com.pulumi.aws.lightsail;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class LbCertificateAttachmentArgs extends com.pulumi.resources.Reso
         }
 
         public LbCertificateAttachmentArgs build() {
-            $.certificateName = Objects.requireNonNull($.certificateName, "expected parameter 'certificateName' to be non-null");
-            $.lbName = Objects.requireNonNull($.lbName, "expected parameter 'lbName' to be non-null");
+            if ($.certificateName == null) {
+                throw new MissingRequiredPropertyException("LbCertificateAttachmentArgs", "certificateName");
+            }
+            if ($.lbName == null) {
+                throw new MissingRequiredPropertyException("LbCertificateAttachmentArgs", "lbName");
+            }
             return $;
         }
     }

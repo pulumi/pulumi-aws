@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Batch
     /// Provides a Batch Job Definition resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Job definition of type container
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,6 +28,7 @@ namespace Pulumi.Aws.Batch
     /// {
     ///     var test = new Aws.Batch.JobDefinition("test", new()
     ///     {
+    ///         Name = "my_test_batch_job_definition",
     ///         Type = "container",
     ///         ContainerProperties = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -90,8 +93,11 @@ namespace Pulumi.Aws.Batch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Job definition of type multinode
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -103,6 +109,7 @@ namespace Pulumi.Aws.Batch
     /// {
     ///     var test = new Aws.Batch.JobDefinition("test", new()
     ///     {
+    ///         Name = "tf_test_batch_job_definition_multinode",
     ///         Type = "multinode",
     ///         NodeProperties = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -146,8 +153,63 @@ namespace Pulumi.Aws.Batch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Job Definitionn of type EKS
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Batch.JobDefinition("test", new()
+    ///     {
+    ///         Name = " tf_test_batch_job_definition_eks",
+    ///         Type = "container",
+    ///         EksProperties = new Aws.Batch.Inputs.JobDefinitionEksPropertiesArgs
+    ///         {
+    ///             PodProperties = new Aws.Batch.Inputs.JobDefinitionEksPropertiesPodPropertiesArgs
+    ///             {
+    ///                 HostNetwork = true,
+    ///                 Containers = new Aws.Batch.Inputs.JobDefinitionEksPropertiesPodPropertiesContainersArgs
+    ///                 {
+    ///                     Image = "public.ecr.aws/amazonlinux/amazonlinux:1",
+    ///                     Commands = new[]
+    ///                     {
+    ///                         "sleep",
+    ///                         "60",
+    ///                     },
+    ///                     Resources = new Aws.Batch.Inputs.JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs
+    ///                     {
+    ///                         Limits = 
+    ///                         {
+    ///                             { "cpu", "1" },
+    ///                             { "memory", "1024Mi" },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Metadata = new Aws.Batch.Inputs.JobDefinitionEksPropertiesPodPropertiesMetadataArgs
+    ///                 {
+    ///                     Labels = 
+    ///                     {
+    ///                         { "environment", "test" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Fargate Platform Capability
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -182,12 +244,13 @@ namespace Pulumi.Aws.Batch
     ///         },
     ///     });
     /// 
-    ///     var ecsTaskExecutionRole = new Aws.Iam.Role("ecsTaskExecutionRole", new()
+    ///     var ecsTaskExecutionRole = new Aws.Iam.Role("ecs_task_execution_role", new()
     ///     {
+    ///         Name = "my_test_batch_exec_role",
     ///         AssumeRolePolicy = assumeRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var ecsTaskExecutionRolePolicy = new Aws.Iam.RolePolicyAttachment("ecsTaskExecutionRolePolicy", new()
+    ///     var ecsTaskExecutionRolePolicy = new Aws.Iam.RolePolicyAttachment("ecs_task_execution_role_policy", new()
     ///     {
     ///         Role = ecsTaskExecutionRole.Name,
     ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",
@@ -195,12 +258,13 @@ namespace Pulumi.Aws.Batch
     /// 
     ///     var test = new Aws.Batch.JobDefinition("test", new()
     ///     {
+    ///         Name = "my_test_batch_job_definition",
     ///         Type = "container",
     ///         PlatformCapabilities = new[]
     ///         {
     ///             "FARGATE",
     ///         },
-    ///         ContainerProperties = ecsTaskExecutionRole.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         ContainerProperties = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["command"] = new[]
     ///             {
@@ -226,36 +290,49 @@ namespace Pulumi.Aws.Batch
     ///                     ["value"] = "512",
     ///                 },
     ///             },
-    ///             ["executionRoleArn"] = arn,
+    ///             ["executionRoleArn"] = ecsTaskExecutionRole.Arn,
     ///         })),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
+    /// $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
     /// ```
     /// </summary>
     [AwsResourceType("aws:batch/jobDefinition:JobDefinition")]
     public partial class JobDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name of the job definition.
+        /// The Amazon Resource Name of the job definition, includes revision (`:#`).
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN without the revision number.
+        /// </summary>
+        [Output("arnPrefix")]
+        public Output<string> ArnPrefix { get; private set; } = null!;
+
+        /// <summary>
         /// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-        /// provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+        /// provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         /// </summary>
         [Output("containerProperties")]
         public Output<string?> ContainerProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+        /// </summary>
+        [Output("eksProperties")]
+        public Output<Outputs.JobDefinitionEksProperties?> EksProperties { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the job definition.
@@ -300,6 +377,12 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         [Output("revision")]
         public Output<int> Revision { get; private set; } = null!;
+
+        /// <summary>
+        /// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+        /// </summary>
+        [Output("schedulingPriority")]
+        public Output<int?> SchedulingPriority { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -350,10 +433,6 @@ namespace Pulumi.Aws.Batch
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -379,10 +458,16 @@ namespace Pulumi.Aws.Batch
     {
         /// <summary>
         /// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-        /// provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+        /// provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         /// </summary>
         [Input("containerProperties")]
         public Input<string>? ContainerProperties { get; set; }
+
+        /// <summary>
+        /// A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+        /// </summary>
+        [Input("eksProperties")]
+        public Input<Inputs.JobDefinitionEksPropertiesArgs>? EksProperties { get; set; }
 
         /// <summary>
         /// Specifies the name of the job definition.
@@ -434,6 +519,12 @@ namespace Pulumi.Aws.Batch
         [Input("retryStrategy")]
         public Input<Inputs.JobDefinitionRetryStrategyArgs>? RetryStrategy { get; set; }
 
+        /// <summary>
+        /// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+        /// </summary>
+        [Input("schedulingPriority")]
+        public Input<int>? SchedulingPriority { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -469,17 +560,29 @@ namespace Pulumi.Aws.Batch
     public sealed class JobDefinitionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name of the job definition.
+        /// The Amazon Resource Name of the job definition, includes revision (`:#`).
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// The ARN without the revision number.
+        /// </summary>
+        [Input("arnPrefix")]
+        public Input<string>? ArnPrefix { get; set; }
+
+        /// <summary>
         /// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-        /// provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+        /// provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         /// </summary>
         [Input("containerProperties")]
         public Input<string>? ContainerProperties { get; set; }
+
+        /// <summary>
+        /// A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+        /// </summary>
+        [Input("eksProperties")]
+        public Input<Inputs.JobDefinitionEksPropertiesGetArgs>? EksProperties { get; set; }
 
         /// <summary>
         /// Specifies the name of the job definition.
@@ -537,6 +640,12 @@ namespace Pulumi.Aws.Batch
         [Input("revision")]
         public Input<int>? Revision { get; set; }
 
+        /// <summary>
+        /// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+        /// </summary>
+        [Input("schedulingPriority")]
+        public Input<int>? SchedulingPriority { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -559,11 +668,7 @@ namespace Pulumi.Aws.Batch
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

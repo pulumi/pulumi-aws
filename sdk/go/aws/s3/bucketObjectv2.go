@@ -15,8 +15,48 @@ import (
 // Provides an S3 object resource.
 //
 // ## Example Usage
+//
+// ### Uploading a file to a bucket
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFilemd5, err := std.Filemd5(ctx, &std.Filemd5Args{
+//				Input: "path/to/file",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketObjectv2(ctx, "object", &s3.BucketObjectv2Args{
+//				Bucket: pulumi.Any("your_bucket_name"),
+//				Key:    pulumi.String("new_object_key"),
+//				Source: pulumi.NewFileAsset("path/to/file"),
+//				Etag:   invokeFilemd5.Result,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Encrypting with KMS Key
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,18 +77,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", nil)
+//			examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", &s3.BucketV2Args{
+//				Bucket: pulumi.String("examplebuckettftest"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
 //				Bucket: examplebucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
+//			_, err = s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
 //				Key:      pulumi.String("someobject"),
 //				Bucket:   examplebucket.ID(),
 //				Source:   pulumi.NewFileAsset("index.html"),
@@ -62,86 +104,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Server Side Encryption with S3 Default Master Key
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-//				Bucket: examplebucket.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
-//				Key:                  pulumi.String("someobject"),
-//				Bucket:               examplebucket.ID(),
-//				Source:               pulumi.NewFileAsset("index.html"),
-//				ServerSideEncryption: pulumi.String("aws:kms"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Server Side Encryption with AWS-Managed Key
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-//				Bucket: examplebucket.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
-//				Key:                  pulumi.String("someobject"),
-//				Bucket:               examplebucket.ID(),
-//				Source:               pulumi.NewFileAsset("index.html"),
-//				ServerSideEncryption: pulumi.String("AES256"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### S3 Object Lock
-//
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -155,38 +122,24 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", &s3.BucketV2Args{
-//				ObjectLockEnabled: pulumi.Bool(true),
+//				Bucket: pulumi.String("examplebuckettftest"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
 //				Bucket: examplebucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "exampleBucketVersioningV2", &s3.BucketVersioningV2Args{
-//				Bucket: examplebucket.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
-//					Status: pulumi.String("Enabled"),
-//				},
+//			_, err = s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
+//				Key:                  pulumi.String("someobject"),
+//				Bucket:               examplebucket.ID(),
+//				Source:               pulumi.NewFileAsset("index.html"),
+//				ServerSideEncryption: pulumi.String("aws:kms"),
 //			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketObjectv2(ctx, "examplebucketObject", &s3.BucketObjectv2Args{
-//				Key:                       pulumi.String("someobject"),
-//				Bucket:                    examplebucket.ID(),
-//				Source:                    pulumi.NewFileAsset("important.txt"),
-//				ObjectLockLegalHoldStatus: pulumi.String("ON"),
-//				ObjectLockMode:            pulumi.String("GOVERNANCE"),
-//				ObjectLockRetainUntilDate: pulumi.String("2021-12-31T23:59:60Z"),
-//				ForceDestroy:              pulumi.Bool(true),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleBucketVersioningV2,
-//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -195,11 +148,11 @@ import (
 //	}
 //
 // ```
-// ### Ignoring Provider `defaultTags`
+// <!--End PulumiCodeChooser -->
 //
-// S3 objects support a [maximum of 10 tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
-// If the resource's own `tags` and the provider-level `defaultTags` would together lead to more than 10 tags on an S3 object, use the `overrideProvider` configuration block to suppress any provider-level `defaultTags`.
+// ### Server Side Encryption with AWS-Managed Key
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -212,11 +165,119 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", nil)
+//			examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", &s3.BucketV2Args{
+//				Bucket: pulumi.String("examplebuckettftest"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketObjectv2(ctx, "examplebucketObject", &s3.BucketObjectv2Args{
+//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//				Bucket: examplebucket.ID(),
+//				Acl:    pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
+//				Key:                  pulumi.String("someobject"),
+//				Bucket:               examplebucket.ID(),
+//				Source:               pulumi.NewFileAsset("index.html"),
+//				ServerSideEncryption: pulumi.String("AES256"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ### S3 Object Lock
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", &s3.BucketV2Args{
+//				Bucket:            pulumi.String("examplebuckettftest"),
+//				ObjectLockEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//				Bucket: examplebucket.ID(),
+//				Acl:    pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketVersioningV2(ctx, "example", &s3.BucketVersioningV2Args{
+//				Bucket: examplebucket.ID(),
+//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
+//					Status: pulumi.String("Enabled"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketObjectv2(ctx, "examplebucket_object", &s3.BucketObjectv2Args{
+//				Key:                       pulumi.String("someobject"),
+//				Bucket:                    examplebucket.ID(),
+//				Source:                    pulumi.NewFileAsset("important.txt"),
+//				ObjectLockLegalHoldStatus: pulumi.String("ON"),
+//				ObjectLockMode:            pulumi.String("GOVERNANCE"),
+//				ObjectLockRetainUntilDate: pulumi.String("2021-12-31T23:59:60Z"),
+//				ForceDestroy:              pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Ignoring Provider `defaultTags`
+//
+// S3 objects support a [maximum of 10 tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
+// If the resource's own `tags` and the provider-level `defaultTags` would together lead to more than 10 tags on an S3 object, use the `overrideProvider` configuration block to suppress any provider-level `defaultTags`.
+//
+// > S3 objects stored in Amazon S3 Express directory buckets do not support tags, so any provider-level `defaultTags` must be suppressed.
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", &s3.BucketV2Args{
+//				Bucket: pulumi.String("examplebuckettftest"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketObjectv2(ctx, "examplebucket_object", &s3.BucketObjectv2Args{
 //				Key:    pulumi.String("someobject"),
 //				Bucket: examplebucket.ID(),
 //				Source: pulumi.NewFileAsset("important.txt"),
@@ -237,6 +298,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -247,23 +309,20 @@ import (
 // Import using the `id`, which is the bucket name and the key together:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example some-bucket-name/some/key.txt
-//
+// $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example some-bucket-name/some/key.txt
 // ```
-//
-//	Import using S3 URL syntax:
+// Import using S3 URL syntax:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example s3://some-bucket-name/some/key.txt
-//
+// $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example s3://some-bucket-name/some/key.txt
 // ```
 type BucketObjectv2 struct {
 	pulumi.CustomResourceState
 
 	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
 	Acl pulumi.StringOutput `pulumi:"acl"`
+	// ARN of the object.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
@@ -352,10 +411,6 @@ func NewBucketObjectv2(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketObjectv2
 	err := ctx.RegisterResource("aws:s3/bucketObjectv2:BucketObjectv2", name, args, &resource, opts...)
@@ -381,6 +436,8 @@ func GetBucketObjectv2(ctx *pulumi.Context,
 type bucketObjectv2State struct {
 	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
 	Acl *string `pulumi:"acl"`
+	// ARN of the object.
+	Arn *string `pulumi:"arn"`
 	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
 	Bucket interface{} `pulumi:"bucket"`
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
@@ -456,6 +513,8 @@ type bucketObjectv2State struct {
 type BucketObjectv2State struct {
 	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
 	Acl pulumi.StringPtrInput
+	// ARN of the object.
+	Arn pulumi.StringPtrInput
 	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
 	Bucket pulumi.Input
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
@@ -745,6 +804,11 @@ func (o BucketObjectv2Output) ToBucketObjectv2OutputWithContext(ctx context.Cont
 // [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
 func (o BucketObjectv2Output) Acl() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.Acl }).(pulumi.StringOutput)
+}
+
+// ARN of the object.
+func (o BucketObjectv2Output) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.

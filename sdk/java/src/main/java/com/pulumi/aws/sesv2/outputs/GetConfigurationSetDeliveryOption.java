@@ -4,6 +4,7 @@
 package com.pulumi.aws.sesv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class GetConfigurationSetDeliveryOption {
 
         @CustomType.Setter
         public Builder sendingPoolName(String sendingPoolName) {
-            this.sendingPoolName = Objects.requireNonNull(sendingPoolName);
+            if (sendingPoolName == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationSetDeliveryOption", "sendingPoolName");
+            }
+            this.sendingPoolName = sendingPoolName;
             return this;
         }
         @CustomType.Setter
         public Builder tlsPolicy(String tlsPolicy) {
-            this.tlsPolicy = Objects.requireNonNull(tlsPolicy);
+            if (tlsPolicy == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationSetDeliveryOption", "tlsPolicy");
+            }
+            this.tlsPolicy = tlsPolicy;
             return this;
         }
         public GetConfigurationSetDeliveryOption build() {
-            final var o = new GetConfigurationSetDeliveryOption();
-            o.sendingPoolName = sendingPoolName;
-            o.tlsPolicy = tlsPolicy;
-            return o;
+            final var _resultValue = new GetConfigurationSetDeliveryOption();
+            _resultValue.sendingPoolName = sendingPoolName;
+            _resultValue.tlsPolicy = tlsPolicy;
+            return _resultValue;
         }
     }
 }

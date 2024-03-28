@@ -26,6 +26,7 @@ namespace Pulumi.Aws.Sns
     /// 
     /// You can directly supply a topic and ARN by hand in the `topic_arn` property along with the queue ARN:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,18 +35,20 @@ namespace Pulumi.Aws.Sns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var userUpdatesSqsTarget = new Aws.Sns.TopicSubscription("userUpdatesSqsTarget", new()
+    ///     var userUpdatesSqsTarget = new Aws.Sns.TopicSubscription("user_updates_sqs_target", new()
     ///     {
-    ///         Endpoint = "arn:aws:sqs:us-west-2:432981146916:queue-too",
-    ///         Protocol = "sqs",
     ///         Topic = "arn:aws:sns:us-west-2:432981146916:user-updates-topic",
+    ///         Protocol = "sqs",
+    ///         Endpoint = "arn:aws:sqs:us-west-2:432981146916:queue-too",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,11 +57,17 @@ namespace Pulumi.Aws.Sns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var userUpdates = new Aws.Sns.Topic("userUpdates");
+    ///     var userUpdates = new Aws.Sns.Topic("user_updates", new()
+    ///     {
+    ///         Name = "user-updates-topic",
+    ///     });
     /// 
-    ///     var userUpdatesQueue = new Aws.Sqs.Queue("userUpdatesQueue");
+    ///     var userUpdatesQueue = new Aws.Sqs.Queue("user_updates_queue", new()
+    ///     {
+    ///         Name = "user-updates-queue",
+    ///     });
     /// 
-    ///     var userUpdatesSqsTarget = new Aws.Sns.TopicSubscription("userUpdatesSqsTarget", new()
+    ///     var userUpdatesSqsTarget = new Aws.Sns.TopicSubscription("user_updates_sqs_target", new()
     ///     {
     ///         Topic = userUpdates.Arn,
     ///         Protocol = "sqs",
@@ -67,9 +76,11 @@ namespace Pulumi.Aws.Sns
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// You can subscribe SNS topics to SQS queues in different Amazon accounts and regions:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -79,20 +90,20 @@ namespace Pulumi.Aws.Sns
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var config = new Config();
-    ///     var sns = config.GetObject&lt;Sns&gt;("sns") ?? 
+    ///     var sns = config.GetObject&lt;dynamic&gt;("sns") ?? 
     ///     {
     ///         { "account-id", "111111111111" },
-    ///         { "role-name", "service/service" },
+    ///         { "displayName", "example" },
     ///         { "name", "example-sns-topic" },
-    ///         { "display_name", "example" },
     ///         { "region", "us-west-1" },
+    ///         { "role-name", "service/service" },
     ///     };
-    ///     var sqs = config.GetObject&lt;Sqs&gt;("sqs") ?? 
+    ///     var sqs = config.GetObject&lt;dynamic&gt;("sqs") ?? 
     ///     {
     ///         { "account-id", "222222222222" },
-    ///         { "role-name", "service/service" },
     ///         { "name", "example-sqs-queue" },
     ///         { "region", "us-east-1" },
+    ///         { "role-name", "service/service" },
     ///     };
     ///     var sns_topic_policy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
@@ -226,92 +237,36 @@ namespace Pulumi.Aws.Sns
     ///         },
     ///     });
     /// 
-    ///     // provider to manage SNS topics
-    ///     var awsSns = new Aws.Provider("awsSns", new()
+    ///     var sns_topic = new Aws.Sns.Topic("sns-topic", new()
     ///     {
-    ///         Region = sns.Region,
-    ///         AssumeRole = new Aws.Inputs.ProviderAssumeRoleArgs
-    ///         {
-    ///             RoleArn = $"arn:aws:iam::{sns.Account_id}:role/{sns.Role_name}",
-    ///             SessionName = $"sns-{sns.Region}",
-    ///         },
-    ///     });
-    /// 
-    ///     // provider to manage SQS queues
-    ///     var awsSqs = new Aws.Provider("awsSqs", new()
-    ///     {
-    ///         Region = sqs.Region,
-    ///         AssumeRole = new Aws.Inputs.ProviderAssumeRoleArgs
-    ///         {
-    ///             RoleArn = $"arn:aws:iam::{sqs.Account_id}:role/{sqs.Role_name}",
-    ///             SessionName = $"sqs-{sqs.Region}",
-    ///         },
-    ///     });
-    /// 
-    ///     // provider to subscribe SQS to SNS (using the SQS account but the SNS region)
-    ///     var sns2sqs = new Aws.Provider("sns2sqs", new()
-    ///     {
-    ///         Region = sns.Region,
-    ///         AssumeRole = new Aws.Inputs.ProviderAssumeRoleArgs
-    ///         {
-    ///             RoleArn = $"arn:aws:iam::{sqs.Account_id}:role/{sqs.Role_name}",
-    ///             SessionName = $"sns2sqs-{sns.Region}",
-    ///         },
-    ///     });
-    /// 
-    ///     var sns_topicTopic = new Aws.Sns.Topic("sns-topicTopic", new()
-    ///     {
+    ///         Name = sns.Name,
     ///         DisplayName = sns.Display_name,
     ///         Policy = sns_topic_policy.Apply(sns_topic_policy =&gt; sns_topic_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Sns,
     ///     });
     /// 
     ///     var sqs_queue = new Aws.Sqs.Queue("sqs-queue", new()
     ///     {
+    ///         Name = sqs.Name,
     ///         Policy = sqs_queue_policy.Apply(sqs_queue_policy =&gt; sqs_queue_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Sqs,
     ///     });
     /// 
-    ///     var sns_topicTopicSubscription = new Aws.Sns.TopicSubscription("sns-topicTopicSubscription", new()
+    ///     var sns_topicTopicSubscription = new Aws.Sns.TopicSubscription("sns-topic", new()
     ///     {
-    ///         Topic = sns_topicTopic.Arn,
+    ///         Topic = sns_topic.Arn,
     ///         Protocol = "sqs",
     ///         Endpoint = sqs_queue.Arn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Sns2sqs,
     ///     });
     /// 
     /// });
-    /// 
-    /// public class Sns
-    /// {
-    ///     public string account-id { get; set; }
-    ///     public string display_name { get; set; }
-    ///     public string name { get; set; }
-    ///     public string region { get; set; }
-    ///     public string role-name { get; set; }
-    /// }
-    /// 
-    /// public class Sqs
-    /// {
-    ///     public string account-id { get; set; }
-    ///     public string name { get; set; }
-    ///     public string region { get; set; }
-    ///     public string role-name { get; set; }
-    /// }
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
+    /// $ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
     /// ```
     /// </summary>
     [AwsResourceType("aws:sns/topicSubscription:TopicSubscription")]

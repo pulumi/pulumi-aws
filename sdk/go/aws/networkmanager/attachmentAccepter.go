@@ -12,11 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS NetworkManager Attachment Accepter.
+// Resource for managing an AWS Network Manager Attachment Accepter.
 //
 // ## Example Usage
+//
 // ### Example with VPC attachment
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,8 +32,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.NewAttachmentAccepter(ctx, "test", &networkmanager.AttachmentAccepterArgs{
-//				AttachmentId:   pulumi.Any(aws_networkmanager_vpc_attachment.Vpc.Id),
-//				AttachmentType: pulumi.Any(aws_networkmanager_vpc_attachment.Vpc.Attachment_type),
+//				AttachmentId:   pulumi.Any(vpc.Id),
+//				AttachmentType: pulumi.Any(vpc.AttachmentType),
 //			})
 //			if err != nil {
 //				return err
@@ -41,8 +43,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example with site-to-site VPN attachment
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,8 +61,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.NewAttachmentAccepter(ctx, "test", &networkmanager.AttachmentAccepterArgs{
-//				AttachmentId:   pulumi.Any(aws_networkmanager_site_to_site_vpn_attachment.Vpn.Id),
-//				AttachmentType: pulumi.Any(aws_networkmanager_site_to_site_vpn_attachment.Vpn.Attachment_type),
+//				AttachmentId:   pulumi.Any(vpn.Id),
+//				AttachmentType: pulumi.Any(vpn.AttachmentType),
 //			})
 //			if err != nil {
 //				return err
@@ -67,6 +72,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type AttachmentAccepter struct {
 	pulumi.CustomResourceState
 

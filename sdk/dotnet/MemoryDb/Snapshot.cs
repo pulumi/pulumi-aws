@@ -16,6 +16,7 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,18 +27,20 @@ namespace Pulumi.Aws.MemoryDb
     /// {
     ///     var example = new Aws.MemoryDb.Snapshot("example", new()
     ///     {
-    ///         ClusterName = aws_memorydb_cluster.Example.Name,
+    ///         ClusterName = exampleAwsMemorydbCluster.Name,
+    ///         Name = "my-snapshot",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a snapshot using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
+    /// $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
     /// ```
     /// </summary>
     [AwsResourceType("aws:memorydb/snapshot:Snapshot")]
@@ -120,10 +123,6 @@ namespace Pulumi.Aws.MemoryDb
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -261,11 +260,7 @@ namespace Pulumi.Aws.MemoryDb
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public SnapshotState()

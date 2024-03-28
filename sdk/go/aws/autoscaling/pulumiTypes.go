@@ -518,6 +518,8 @@ type GroupInstanceRefreshPreferences struct {
 	CheckpointPercentages []int `pulumi:"checkpointPercentages"`
 	// Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
 	InstanceWarmup *string `pulumi:"instanceWarmup"`
+	// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+	MaxHealthyPercentage *int `pulumi:"maxHealthyPercentage"`
 	// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
 	MinHealthyPercentage *int `pulumi:"minHealthyPercentage"`
 	// Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
@@ -548,6 +550,8 @@ type GroupInstanceRefreshPreferencesArgs struct {
 	CheckpointPercentages pulumi.IntArrayInput `pulumi:"checkpointPercentages"`
 	// Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
 	InstanceWarmup pulumi.StringPtrInput `pulumi:"instanceWarmup"`
+	// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+	MaxHealthyPercentage pulumi.IntPtrInput `pulumi:"maxHealthyPercentage"`
 	// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
 	MinHealthyPercentage pulumi.IntPtrInput `pulumi:"minHealthyPercentage"`
 	// Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
@@ -655,6 +659,11 @@ func (o GroupInstanceRefreshPreferencesOutput) InstanceWarmup() pulumi.StringPtr
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *string { return v.InstanceWarmup }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+func (o GroupInstanceRefreshPreferencesOutput) MaxHealthyPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *int { return v.MaxHealthyPercentage }).(pulumi.IntPtrOutput)
+}
+
 // Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
 func (o GroupInstanceRefreshPreferencesOutput) MinHealthyPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *int { return v.MinHealthyPercentage }).(pulumi.IntPtrOutput)
@@ -737,6 +746,16 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) InstanceWarmup() pulumi.String
 		}
 		return v.InstanceWarmup
 	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+func (o GroupInstanceRefreshPreferencesPtrOutput) MaxHealthyPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupInstanceRefreshPreferences) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxHealthyPercentage
+	}).(pulumi.IntPtrOutput)
 }
 
 // Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
@@ -1817,54 +1836,12 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements struct 
 	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
 	AcceleratorCount *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorManufacturers []string `pulumi:"acceleratorManufacturers"`
 	// List of accelerator names. Default is any acclerator.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorNames []string `pulumi:"acceleratorNames"`
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
 	// List of accelerator types. Default is any accelerator type.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
 	// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
 	//
@@ -1879,58 +1856,16 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements struct 
 	// List of CPU manufacturer names. Default is any manufacturer.
 	//
 	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	CpuManufacturers []string `pulumi:"cpuManufacturers"`
 	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 	//
 	// > **NOTE:** If you specify `excludedInstanceTypes`, you can't specify `allowedInstanceTypes`.
 	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
 	// List of instance generation names. Default is any generation.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	InstanceGenerations []string `pulumi:"instanceGenerations"`
 	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
 	LocalStorage *string `pulumi:"localStorage"`
 	// List of local storage type names. Default any storage type.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	LocalStorageTypes []string `pulumi:"localStorageTypes"`
 	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
 	MemoryGibPerVcpu *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu `pulumi:"memoryGibPerVcpu"`
@@ -1971,54 +1906,12 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs str
 	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
 	AcceleratorCount GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrInput `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorManufacturers pulumi.StringArrayInput `pulumi:"acceleratorManufacturers"`
 	// List of accelerator names. Default is any acclerator.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorNames pulumi.StringArrayInput `pulumi:"acceleratorNames"`
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
 	// List of accelerator types. Default is any accelerator type.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorTypes pulumi.StringArrayInput `pulumi:"acceleratorTypes"`
 	// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
 	//
@@ -2033,58 +1926,16 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs str
 	// List of CPU manufacturer names. Default is any manufacturer.
 	//
 	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	CpuManufacturers pulumi.StringArrayInput `pulumi:"cpuManufacturers"`
 	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 	//
 	// > **NOTE:** If you specify `excludedInstanceTypes`, you can't specify `allowedInstanceTypes`.
 	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
 	// List of instance generation names. Default is any generation.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	InstanceGenerations pulumi.StringArrayInput `pulumi:"instanceGenerations"`
 	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
 	LocalStorage pulumi.StringPtrInput `pulumi:"localStorage"`
 	// List of local storage type names. Default any storage type.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	LocalStorageTypes pulumi.StringArrayInput `pulumi:"localStorageTypes"`
 	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
 	MemoryGibPerVcpu GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput `pulumi:"memoryGibPerVcpu"`
@@ -2195,23 +2046,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutpu
 }
 
 // List of accelerator manufacturer names. Default is any manufacturer.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		return v.AcceleratorManufacturers
@@ -2219,23 +2053,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutpu
 }
 
 // List of accelerator names. Default is any acclerator.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		return v.AcceleratorNames
@@ -2250,23 +2067,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutpu
 }
 
 // List of accelerator types. Default is any accelerator type.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		return v.AcceleratorTypes
@@ -2306,23 +2106,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutpu
 // List of CPU manufacturer names. Default is any manufacturer.
 //
 // > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		return v.CpuManufacturers
@@ -2339,23 +2122,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutpu
 }
 
 // List of instance generation names. Default is any generation.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) InstanceGenerations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		return v.InstanceGenerations
@@ -2370,23 +2136,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutpu
 }
 
 // List of local storage type names. Default any storage type.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) LocalStorageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		return v.LocalStorageTypes
@@ -2495,23 +2244,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 }
 
 // List of accelerator manufacturer names. Default is any manufacturer.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -2522,23 +2254,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 }
 
 // List of accelerator names. Default is any acclerator.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -2559,23 +2274,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 }
 
 // List of accelerator types. Default is any accelerator type.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -2630,23 +2328,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 // List of CPU manufacturer names. Default is any manufacturer.
 //
 // > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -2669,23 +2350,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 }
 
 // List of instance generation names. Default is any generation.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) InstanceGenerations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -2706,23 +2370,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 }
 
 // List of local storage type names. Default any storage type.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) LocalStorageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -8256,7 +7903,7 @@ type PolicyStepAdjustment struct {
 	// Without a value, AWS will treat this bound as positive infinity. The upper bound
 	// must be greater than the lower bound.
 	//
-	// Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%, but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
+	// Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%!,(MISSING) but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
 	//
 	// The following arguments are only available to "TargetTrackingScaling" type policies:
 	MetricIntervalUpperBound *string `pulumi:"metricIntervalUpperBound"`
@@ -8287,7 +7934,7 @@ type PolicyStepAdjustmentArgs struct {
 	// Without a value, AWS will treat this bound as positive infinity. The upper bound
 	// must be greater than the lower bound.
 	//
-	// Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%, but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
+	// Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%!,(MISSING) but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
 	//
 	// The following arguments are only available to "TargetTrackingScaling" type policies:
 	MetricIntervalUpperBound pulumi.StringPtrInput `pulumi:"metricIntervalUpperBound"`
@@ -8360,7 +8007,7 @@ func (o PolicyStepAdjustmentOutput) MetricIntervalLowerBound() pulumi.StringPtrO
 // Without a value, AWS will treat this bound as positive infinity. The upper bound
 // must be greater than the lower bound.
 //
-// Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%, but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
+// Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%!,(MISSING) but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
 //
 // The following arguments are only available to "TargetTrackingScaling" type policies:
 func (o PolicyStepAdjustmentOutput) MetricIntervalUpperBound() pulumi.StringPtrOutput {

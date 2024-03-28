@@ -87,31 +87,35 @@ public final class SnapshotImportClientData {
 
         @CustomType.Setter
         public Builder comment(@Nullable String comment) {
+
             this.comment = comment;
             return this;
         }
         @CustomType.Setter
         public Builder uploadEnd(@Nullable String uploadEnd) {
+
             this.uploadEnd = uploadEnd;
             return this;
         }
         @CustomType.Setter
         public Builder uploadSize(@Nullable Double uploadSize) {
+
             this.uploadSize = uploadSize;
             return this;
         }
         @CustomType.Setter
         public Builder uploadStart(@Nullable String uploadStart) {
+
             this.uploadStart = uploadStart;
             return this;
         }
         public SnapshotImportClientData build() {
-            final var o = new SnapshotImportClientData();
-            o.comment = comment;
-            o.uploadEnd = uploadEnd;
-            o.uploadSize = uploadSize;
-            o.uploadStart = uploadStart;
-            return o;
+            final var _resultValue = new SnapshotImportClientData();
+            _resultValue.comment = comment;
+            _resultValue.uploadEnd = uploadEnd;
+            _resultValue.uploadSize = uploadSize;
+            _resultValue.uploadStart = uploadStart;
+            return _resultValue;
         }
     }
 }

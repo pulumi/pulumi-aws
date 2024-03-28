@@ -11,14 +11,16 @@ import * as utilities from "../utilities";
  * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
  *
  * ## Example Usage
+ *
  * ### Basic Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegion({});
- * const exampleTrafficPolicyDocument = Promise.all([current, current]).then(([current, current1]) => aws.route53.getTrafficPolicyDocument({
+ * const example = Promise.all([current, current]).then(([current, current1]) => aws.route53.getTrafficPolicyDocument({
  *     recordType: "A",
  *     startRule: "site_switch",
  *     endpoints: [
@@ -45,20 +47,24 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * }));
- * const exampleTrafficPolicy = new aws.route53.TrafficPolicy("exampleTrafficPolicy", {
+ * const exampleTrafficPolicy = new aws.route53.TrafficPolicy("example", {
+ *     name: "example",
  *     comment: "example comment",
- *     document: exampleTrafficPolicyDocument.then(exampleTrafficPolicyDocument => exampleTrafficPolicyDocument.json),
+ *     document: example.then(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Complex Example
  *
  * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleTrafficPolicyDocument = aws.route53.getTrafficPolicyDocument({
+ * const example = aws.route53.getTrafficPolicyDocument({
  *     recordType: "A",
  *     startRule: "geoproximity_rule",
  *     endpoints: [
@@ -120,11 +126,13 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const exampleTrafficPolicy = new aws.route53.TrafficPolicy("exampleTrafficPolicy", {
+ * const exampleTrafficPolicy = new aws.route53.TrafficPolicy("example", {
+ *     name: "example",
  *     comment: "example comment",
- *     document: exampleTrafficPolicyDocument.then(exampleTrafficPolicyDocument => exampleTrafficPolicyDocument.json),
+ *     document: example.then(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTrafficPolicyDocument(args?: GetTrafficPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficPolicyDocumentResult> {
     args = args || {};
@@ -193,14 +201,16 @@ export interface GetTrafficPolicyDocumentResult {
  * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
  *
  * ## Example Usage
+ *
  * ### Basic Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegion({});
- * const exampleTrafficPolicyDocument = Promise.all([current, current]).then(([current, current1]) => aws.route53.getTrafficPolicyDocument({
+ * const example = Promise.all([current, current]).then(([current, current1]) => aws.route53.getTrafficPolicyDocument({
  *     recordType: "A",
  *     startRule: "site_switch",
  *     endpoints: [
@@ -227,20 +237,24 @@ export interface GetTrafficPolicyDocumentResult {
  *         },
  *     }],
  * }));
- * const exampleTrafficPolicy = new aws.route53.TrafficPolicy("exampleTrafficPolicy", {
+ * const exampleTrafficPolicy = new aws.route53.TrafficPolicy("example", {
+ *     name: "example",
  *     comment: "example comment",
- *     document: exampleTrafficPolicyDocument.then(exampleTrafficPolicyDocument => exampleTrafficPolicyDocument.json),
+ *     document: example.then(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Complex Example
  *
  * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleTrafficPolicyDocument = aws.route53.getTrafficPolicyDocument({
+ * const example = aws.route53.getTrafficPolicyDocument({
  *     recordType: "A",
  *     startRule: "geoproximity_rule",
  *     endpoints: [
@@ -302,11 +316,13 @@ export interface GetTrafficPolicyDocumentResult {
  *         },
  *     ],
  * });
- * const exampleTrafficPolicy = new aws.route53.TrafficPolicy("exampleTrafficPolicy", {
+ * const exampleTrafficPolicy = new aws.route53.TrafficPolicy("example", {
+ *     name: "example",
  *     comment: "example comment",
- *     document: exampleTrafficPolicyDocument.then(exampleTrafficPolicyDocument => exampleTrafficPolicyDocument.json),
+ *     document: example.then(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTrafficPolicyDocumentOutput(args?: GetTrafficPolicyDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficPolicyDocumentResult> {
     return pulumi.output(args).apply((a: any) => getTrafficPolicyDocument(a, opts))

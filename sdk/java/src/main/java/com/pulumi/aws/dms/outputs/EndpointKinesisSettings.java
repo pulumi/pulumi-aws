@@ -157,61 +157,70 @@ public final class EndpointKinesisSettings {
 
         @CustomType.Setter
         public Builder includeControlDetails(@Nullable Boolean includeControlDetails) {
+
             this.includeControlDetails = includeControlDetails;
             return this;
         }
         @CustomType.Setter
         public Builder includeNullAndEmpty(@Nullable Boolean includeNullAndEmpty) {
+
             this.includeNullAndEmpty = includeNullAndEmpty;
             return this;
         }
         @CustomType.Setter
         public Builder includePartitionValue(@Nullable Boolean includePartitionValue) {
+
             this.includePartitionValue = includePartitionValue;
             return this;
         }
         @CustomType.Setter
         public Builder includeTableAlterOperations(@Nullable Boolean includeTableAlterOperations) {
+
             this.includeTableAlterOperations = includeTableAlterOperations;
             return this;
         }
         @CustomType.Setter
         public Builder includeTransactionDetails(@Nullable Boolean includeTransactionDetails) {
+
             this.includeTransactionDetails = includeTransactionDetails;
             return this;
         }
         @CustomType.Setter
         public Builder messageFormat(@Nullable String messageFormat) {
+
             this.messageFormat = messageFormat;
             return this;
         }
         @CustomType.Setter
         public Builder partitionIncludeSchemaTable(@Nullable Boolean partitionIncludeSchemaTable) {
+
             this.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
             return this;
         }
         @CustomType.Setter
         public Builder serviceAccessRoleArn(@Nullable String serviceAccessRoleArn) {
+
             this.serviceAccessRoleArn = serviceAccessRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder streamArn(@Nullable String streamArn) {
+
             this.streamArn = streamArn;
             return this;
         }
         public EndpointKinesisSettings build() {
-            final var o = new EndpointKinesisSettings();
-            o.includeControlDetails = includeControlDetails;
-            o.includeNullAndEmpty = includeNullAndEmpty;
-            o.includePartitionValue = includePartitionValue;
-            o.includeTableAlterOperations = includeTableAlterOperations;
-            o.includeTransactionDetails = includeTransactionDetails;
-            o.messageFormat = messageFormat;
-            o.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
-            o.serviceAccessRoleArn = serviceAccessRoleArn;
-            o.streamArn = streamArn;
-            return o;
+            final var _resultValue = new EndpointKinesisSettings();
+            _resultValue.includeControlDetails = includeControlDetails;
+            _resultValue.includeNullAndEmpty = includeNullAndEmpty;
+            _resultValue.includePartitionValue = includePartitionValue;
+            _resultValue.includeTableAlterOperations = includeTableAlterOperations;
+            _resultValue.includeTransactionDetails = includeTransactionDetails;
+            _resultValue.messageFormat = messageFormat;
+            _resultValue.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
+            _resultValue.serviceAccessRoleArn = serviceAccessRoleArn;
+            _resultValue.streamArn = streamArn;
+            return _resultValue;
         }
     }
 }

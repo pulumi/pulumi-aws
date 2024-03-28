@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a FSx Backup resource.
  * 
  * ## Lustre Example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,20 +46,23 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleLustreFileSystem = new LustreFileSystem(&#34;exampleLustreFileSystem&#34;, LustreFileSystemArgs.builder()        
  *             .storageCapacity(1200)
- *             .subnetIds(aws_subnet.example().id())
+ *             .subnetIds(exampleAwsSubnet.id())
  *             .deploymentType(&#34;PERSISTENT_1&#34;)
  *             .perUnitStorageThroughput(50)
  *             .build());
  * 
- *         var exampleBackup = new Backup(&#34;exampleBackup&#34;, BackupArgs.builder()        
+ *         var example = new Backup(&#34;example&#34;, BackupArgs.builder()        
  *             .fileSystemId(exampleLustreFileSystem.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Windows Example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -83,22 +87,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleWindowsFileSystem = new WindowsFileSystem(&#34;exampleWindowsFileSystem&#34;, WindowsFileSystemArgs.builder()        
- *             .activeDirectoryId(aws_directory_service_directory.eample().id())
+ *             .activeDirectoryId(eample.id())
  *             .skipFinalBackup(true)
  *             .storageCapacity(32)
- *             .subnetIds(aws_subnet.example1().id())
+ *             .subnetIds(example1.id())
  *             .throughputCapacity(8)
  *             .build());
  * 
- *         var exampleBackup = new Backup(&#34;exampleBackup&#34;, BackupArgs.builder()        
+ *         var example = new Backup(&#34;example&#34;, BackupArgs.builder()        
  *             .fileSystemId(exampleWindowsFileSystem.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## ONTAP Example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -123,21 +130,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleOntapVolume = new OntapVolume(&#34;exampleOntapVolume&#34;, OntapVolumeArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .junctionPath(&#34;/example&#34;)
  *             .sizeInMegabytes(1024)
  *             .storageEfficiencyEnabled(true)
- *             .storageVirtualMachineId(aws_fsx_ontap_storage_virtual_machine.test().id())
+ *             .storageVirtualMachineId(test.id())
  *             .build());
  * 
- *         var exampleBackup = new Backup(&#34;exampleBackup&#34;, BackupArgs.builder()        
+ *         var example = new Backup(&#34;example&#34;, BackupArgs.builder()        
  *             .volumeId(exampleOntapVolume.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## OpenZFS Example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -163,25 +174,26 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleOpenZfsFileSystem = new OpenZfsFileSystem(&#34;exampleOpenZfsFileSystem&#34;, OpenZfsFileSystemArgs.builder()        
  *             .storageCapacity(64)
- *             .subnetIds(aws_subnet.example().id())
+ *             .subnetIds(exampleAwsSubnet.id())
  *             .deploymentType(&#34;SINGLE_AZ_1&#34;)
  *             .throughputCapacity(64)
  *             .build());
  * 
- *         var exampleBackup = new Backup(&#34;exampleBackup&#34;, BackupArgs.builder()        
+ *         var example = new Backup(&#34;example&#34;, BackupArgs.builder()        
  *             .fileSystemId(exampleOpenZfsFileSystem.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import FSx Backups using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
+ * $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
  * ```
  * 
  */
@@ -336,9 +348,6 @@ public class Backup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,8 +52,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			cloudwatchRole, err := iam.NewRole(ctx, "cloudwatchRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//			cloudwatchRole, err := iam.NewRole(ctx, "cloudwatch", &iam.RoleArgs{
+//				Name:             pulumi.String("api_gateway_cloudwatch_global"),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -63,7 +65,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			cloudwatchPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			cloudwatch, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Effect: pulumi.StringRef("Allow"),
@@ -85,9 +87,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicy(ctx, "cloudwatchRolePolicy", &iam.RolePolicyArgs{
+//			_, err = iam.NewRolePolicy(ctx, "cloudwatch", &iam.RolePolicyArgs{
+//				Name:   pulumi.String("default"),
 //				Role:   cloudwatchRole.ID(),
-//				Policy: *pulumi.String(cloudwatchPolicyDocument.Json),
+//				Policy: pulumi.String(cloudwatch.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -97,15 +100,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import API Gateway Accounts using the word `api-gateway-account`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/account:Account demo api-gateway-account
-//
+// $ pulumi import aws:apigateway/account:Account demo api-gateway-account
 // ```
 type Account struct {
 	pulumi.CustomResourceState

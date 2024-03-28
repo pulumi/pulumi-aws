@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupLogGroup(ctx *pulumi.Context, args *LookupLogGroupArgs, opts ...pulumi.InvokeOption) (*LookupLogGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLogGroupResult
@@ -66,7 +68,9 @@ type LookupLogGroupResult struct {
 	Id string `pulumi:"id"`
 	// ARN of the KMS Key to use when encrypting log data.
 	KmsKeyId string `pulumi:"kmsKeyId"`
-	Name     string `pulumi:"name"`
+	// The log class of the log group.
+	LogGroupClass string `pulumi:"logGroupClass"`
+	Name          string `pulumi:"name"`
 	// Number of days log events retained in the specified log group.
 	RetentionInDays int `pulumi:"retentionInDays"`
 	// Map of tags to assign to the resource.
@@ -131,6 +135,11 @@ func (o LookupLogGroupResultOutput) Id() pulumi.StringOutput {
 // ARN of the KMS Key to use when encrypting log data.
 func (o LookupLogGroupResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+// The log class of the log group.
+func (o LookupLogGroupResultOutput) LogGroupClass() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLogGroupResult) string { return v.LogGroupClass }).(pulumi.StringOutput)
 }
 
 func (o LookupLogGroupResultOutput) Name() pulumi.StringOutput {

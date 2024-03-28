@@ -372,11 +372,12 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        foo_server = aws.transfer.Server("fooServer",
+        foo_server = aws.transfer.Server("foo",
             identity_provider_type="SERVICE_MANAGED",
             tags={
                 "NAME": "tf-acc-test-transfer-server",
@@ -389,17 +390,20 @@ class User(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        foo_role = aws.iam.Role("fooRole", assume_role_policy=assume_role.json)
-        foo_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        foo_role = aws.iam.Role("foo",
+            name="tf-test-transfer-user-iam-role",
+            assume_role_policy=assume_role.json)
+        foo = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="AllowFullAccesstoS3",
             effect="Allow",
             actions=["s3:*"],
             resources=["*"],
         )])
-        foo_role_policy = aws.iam.RolePolicy("fooRolePolicy",
+        foo_role_policy = aws.iam.RolePolicy("foo",
+            name="tf-test-transfer-user-iam-policy",
             role=foo_role.id,
-            policy=foo_policy_document.json)
-        foo_user = aws.transfer.User("fooUser",
+            policy=foo.json)
+        foo_user = aws.transfer.User("foo",
             server_id=foo_server.id,
             user_name="tftestuser",
             role=foo_role.arn,
@@ -409,13 +413,14 @@ class User(pulumi.CustomResource):
                 target="/bucket3/test-path/tftestuser.pdf",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:transfer/user:User bar s-12345678/test-username
+        $ pulumi import aws:transfer/user:User bar s-12345678/test-username
         ```
 
         :param str resource_name: The name of the resource.
@@ -441,11 +446,12 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        foo_server = aws.transfer.Server("fooServer",
+        foo_server = aws.transfer.Server("foo",
             identity_provider_type="SERVICE_MANAGED",
             tags={
                 "NAME": "tf-acc-test-transfer-server",
@@ -458,17 +464,20 @@ class User(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        foo_role = aws.iam.Role("fooRole", assume_role_policy=assume_role.json)
-        foo_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        foo_role = aws.iam.Role("foo",
+            name="tf-test-transfer-user-iam-role",
+            assume_role_policy=assume_role.json)
+        foo = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="AllowFullAccesstoS3",
             effect="Allow",
             actions=["s3:*"],
             resources=["*"],
         )])
-        foo_role_policy = aws.iam.RolePolicy("fooRolePolicy",
+        foo_role_policy = aws.iam.RolePolicy("foo",
+            name="tf-test-transfer-user-iam-policy",
             role=foo_role.id,
-            policy=foo_policy_document.json)
-        foo_user = aws.transfer.User("fooUser",
+            policy=foo.json)
+        foo_user = aws.transfer.User("foo",
             server_id=foo_server.id,
             user_name="tftestuser",
             role=foo_role.arn,
@@ -478,13 +487,14 @@ class User(pulumi.CustomResource):
                 target="/bucket3/test-path/tftestuser.pdf",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:transfer/user:User bar s-12345678/test-username
+        $ pulumi import aws:transfer/user:User bar s-12345678/test-username
         ```
 
         :param str resource_name: The name of the resource.
@@ -537,8 +547,6 @@ class User(pulumi.CustomResource):
             __props__.__dict__["user_name"] = user_name
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(User, __self__).__init__(
             'aws:transfer/user:User',
             resource_name,

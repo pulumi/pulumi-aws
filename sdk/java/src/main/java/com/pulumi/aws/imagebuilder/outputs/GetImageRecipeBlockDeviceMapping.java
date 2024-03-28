@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.aws.imagebuilder.outputs.GetImageRecipeBlockDeviceMappingEb;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -86,12 +87,18 @@ public final class GetImageRecipeBlockDeviceMapping {
 
         @CustomType.Setter
         public Builder deviceName(String deviceName) {
-            this.deviceName = Objects.requireNonNull(deviceName);
+            if (deviceName == null) {
+              throw new MissingRequiredPropertyException("GetImageRecipeBlockDeviceMapping", "deviceName");
+            }
+            this.deviceName = deviceName;
             return this;
         }
         @CustomType.Setter
         public Builder ebs(List<GetImageRecipeBlockDeviceMappingEb> ebs) {
-            this.ebs = Objects.requireNonNull(ebs);
+            if (ebs == null) {
+              throw new MissingRequiredPropertyException("GetImageRecipeBlockDeviceMapping", "ebs");
+            }
+            this.ebs = ebs;
             return this;
         }
         public Builder ebs(GetImageRecipeBlockDeviceMappingEb... ebs) {
@@ -99,21 +106,27 @@ public final class GetImageRecipeBlockDeviceMapping {
         }
         @CustomType.Setter
         public Builder noDevice(String noDevice) {
-            this.noDevice = Objects.requireNonNull(noDevice);
+            if (noDevice == null) {
+              throw new MissingRequiredPropertyException("GetImageRecipeBlockDeviceMapping", "noDevice");
+            }
+            this.noDevice = noDevice;
             return this;
         }
         @CustomType.Setter
         public Builder virtualName(String virtualName) {
-            this.virtualName = Objects.requireNonNull(virtualName);
+            if (virtualName == null) {
+              throw new MissingRequiredPropertyException("GetImageRecipeBlockDeviceMapping", "virtualName");
+            }
+            this.virtualName = virtualName;
             return this;
         }
         public GetImageRecipeBlockDeviceMapping build() {
-            final var o = new GetImageRecipeBlockDeviceMapping();
-            o.deviceName = deviceName;
-            o.ebs = ebs;
-            o.noDevice = noDevice;
-            o.virtualName = virtualName;
-            return o;
+            final var _resultValue = new GetImageRecipeBlockDeviceMapping();
+            _resultValue.deviceName = deviceName;
+            _resultValue.ebs = ebs;
+            _resultValue.noDevice = noDevice;
+            _resultValue.virtualName = virtualName;
+            return _resultValue;
         }
     }
 }

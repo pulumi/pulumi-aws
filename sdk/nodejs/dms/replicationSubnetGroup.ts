@@ -10,8 +10,10 @@ import * as utilities from "../utilities";
  * > **Note:** AWS requires a special IAM role called `dms-vpc-role` when using this resource. See the example below to create it as part of your configuration.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,32 +31,36 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Creating special IAM role
  *
  * If your account does not already include the `dms-vpc-role` IAM role, you will need to create it to allow DMS to manage subnets in the VPC.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const dms_vpc_role = new aws.iam.Role("dms-vpc-role", {
+ *     name: "dms-vpc-role",
  *     description: "Allows DMS to manage VPC",
  *     assumeRolePolicy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Principal: {
- *                 Service: "dms.amazonaws.com",
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             effect: "Allow",
+ *             principal: {
+ *                 service: "dms.amazonaws.com",
  *             },
- *             Action: "sts:AssumeRole",
+ *             action: "sts:AssumeRole",
  *         }],
  *     }),
  * });
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
+ * const example = new aws.iam.RolePolicyAttachment("example", {
  *     role: dms_vpc_role.name,
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole",
  * });
- * const exampleReplicationSubnetGroup = new aws.dms.ReplicationSubnetGroup("exampleReplicationSubnetGroup", {
+ * const exampleReplicationSubnetGroup = new aws.dms.ReplicationSubnetGroup("example", {
  *     replicationSubnetGroupDescription: "Example",
  *     replicationSubnetGroupId: "example-id",
  *     subnetIds: [
@@ -64,17 +70,16 @@ import * as utilities from "../utilities";
  *     tags: {
  *         Name: "example-id",
  *     },
- * }, {
- *     dependsOn: [exampleRolePolicyAttachment],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import replication subnet groups using the `replication_subnet_group_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
+ * $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
  * ```
  */
 export class ReplicationSubnetGroup extends pulumi.CustomResource {
@@ -173,8 +178,6 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ReplicationSubnetGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

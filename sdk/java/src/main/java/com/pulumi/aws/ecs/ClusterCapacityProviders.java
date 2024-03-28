@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * More information about capacity providers can be found in the [ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -29,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ecs.Cluster;
+ * import com.pulumi.aws.ecs.ClusterArgs;
  * import com.pulumi.aws.ecs.ClusterCapacityProviders;
  * import com.pulumi.aws.ecs.ClusterCapacityProvidersArgs;
  * import com.pulumi.aws.ecs.inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs;
@@ -45,10 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;);
+ *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
+ *             .name(&#34;my-cluster&#34;)
+ *             .build());
  * 
  *         var exampleClusterCapacityProviders = new ClusterCapacityProviders(&#34;exampleClusterCapacityProviders&#34;, ClusterCapacityProvidersArgs.builder()        
- *             .clusterName(exampleCluster.name())
+ *             .clusterName(example.name())
  *             .capacityProviders(&#34;FARGATE&#34;)
  *             .defaultCapacityProviderStrategies(ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs.builder()
  *                 .base(1)
@@ -60,13 +65,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
+ * $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
  * ```
  * 
  */

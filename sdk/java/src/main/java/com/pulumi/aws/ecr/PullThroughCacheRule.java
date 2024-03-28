@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -20,6 +21,8 @@ import javax.annotation.Nullable;
  * upstream repositories, see [Using pull through cache rules](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,23 +47,39 @@ import javax.annotation.Nullable;
  *         var example = new PullThroughCacheRule(&#34;example&#34;, PullThroughCacheRuleArgs.builder()        
  *             .ecrRepositoryPrefix(&#34;ecr-public&#34;)
  *             .upstreamRegistryUrl(&#34;public.ecr.aws&#34;)
+ *             .credentialArn(&#34;arn:aws:secretsmanager:us-east-1:123456789:secret:ecr-pullthroughcache/ecrpublic&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a pull-through cache rule using the `ecr_repository_prefix`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
+ * $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
  * ```
  * 
  */
 @ResourceType(type="aws:ecr/pullThroughCacheRule:PullThroughCacheRule")
 public class PullThroughCacheRule extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the Secret which will be used to authenticate against the registry.
+     * 
+     */
+    @Export(name="credentialArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> credentialArn;
+
+    /**
+     * @return ARN of the Secret which will be used to authenticate against the registry.
+     * 
+     */
+    public Output<Optional<String>> credentialArn() {
+        return Codegen.optional(this.credentialArn);
+    }
     /**
      * The repository name prefix to use when caching images from the source registry.
      * 

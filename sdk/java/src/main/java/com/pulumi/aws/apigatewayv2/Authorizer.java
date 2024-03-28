@@ -23,7 +23,10 @@ import javax.annotation.Nullable;
  * More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
  * 
  * ## Example Usage
+ * 
  * ### Basic WebSocket API
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,16 +49,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Authorizer(&#34;example&#34;, AuthorizerArgs.builder()        
- *             .apiId(aws_apigatewayv2_api.example().id())
+ *             .apiId(exampleAwsApigatewayv2Api.id())
  *             .authorizerType(&#34;REQUEST&#34;)
- *             .authorizerUri(aws_lambda_function.example().invoke_arn())
+ *             .authorizerUri(exampleAwsLambdaFunction.invokeArn())
  *             .identitySources(&#34;route.request.header.Auth&#34;)
+ *             .name(&#34;example-authorizer&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Basic HTTP API
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -78,23 +86,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Authorizer(&#34;example&#34;, AuthorizerArgs.builder()        
- *             .apiId(aws_apigatewayv2_api.example().id())
+ *             .apiId(exampleAwsApigatewayv2Api.id())
  *             .authorizerType(&#34;REQUEST&#34;)
- *             .authorizerUri(aws_lambda_function.example().invoke_arn())
+ *             .authorizerUri(exampleAwsLambdaFunction.invokeArn())
  *             .identitySources(&#34;$request.header.Authorization&#34;)
+ *             .name(&#34;example-authorizer&#34;)
  *             .authorizerPayloadFormatVersion(&#34;2.0&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_apigatewayv2_authorizer` using the API identifier and authorizer identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigatewayv2/authorizer:Authorizer example aabbccddee/1122334
+ * $ pulumi import aws:apigatewayv2/authorizer:Authorizer example aabbccddee/1122334
  * ```
  * 
  */

@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS SSM Contact Plan.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,8 +47,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Usage with SSM Contact
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -82,8 +87,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Usage With All Fields
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -96,21 +104,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			escalationPlan, err := ssmcontacts.NewContact(ctx, "escalationPlan", &ssmcontacts.ContactArgs{
+//			escalationPlan, err := ssmcontacts.NewContact(ctx, "escalation_plan", &ssmcontacts.ContactArgs{
 //				Alias: pulumi.String("escalation-plan-alias"),
 //				Type:  pulumi.String("ESCALATION"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			contactOne, err := ssmcontacts.NewContact(ctx, "contactOne", &ssmcontacts.ContactArgs{
+//			contactOne, err := ssmcontacts.NewContact(ctx, "contact_one", &ssmcontacts.ContactArgs{
 //				Alias: pulumi.String("alias"),
 //				Type:  pulumi.String("PERSONAL"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			contactTwo, err := ssmcontacts.NewContact(ctx, "contactTwo", &ssmcontacts.ContactArgs{
+//			contactTwo, err := ssmcontacts.NewContact(ctx, "contact_two", &ssmcontacts.ContactArgs{
 //				Alias: pulumi.String("alias"),
 //				Type:  pulumi.String("PERSONAL"),
 //			})
@@ -138,7 +146,7 @@ import (
 //							&ssmcontacts.PlanStageTargetArgs{
 //								ChannelTargetInfo: &ssmcontacts.PlanStageTargetChannelTargetInfoArgs{
 //									RetryIntervalInMinutes: pulumi.Int(2),
-//									ContactChannelId:       pulumi.Any(aws_ssmcontacts_contact_channel.Channel.Arn),
+//									ContactChannelId:       pulumi.Any(channel.Arn),
 //								},
 //							},
 //						},
@@ -153,15 +161,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SSM Contact Plan using the Contact ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
-//
+// $ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
 // ```
 type Plan struct {
 	pulumi.CustomResourceState

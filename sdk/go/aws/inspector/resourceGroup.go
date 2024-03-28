@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,8 +31,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := inspector.NewResourceGroup(ctx, "example", &inspector.ResourceGroupArgs{
 //				Tags: pulumi.StringMap{
-//					"Env":  pulumi.String("bar"),
 //					"Name": pulumi.String("foo"),
+//					"Env":  pulumi.String("bar"),
 //				},
 //			})
 //			if err != nil {
@@ -42,6 +43,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type ResourceGroup struct {
 	pulumi.CustomResourceState
 

@@ -292,18 +292,21 @@ class VpcDhcpOptions(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        dns_resolver = aws.ec2.VpcDhcpOptions("dnsResolver", domain_name_servers=[
+        dns_resolver = aws.ec2.VpcDhcpOptions("dns_resolver", domain_name_servers=[
             "8.8.8.8",
             "8.8.4.4",
         ])
         ```
+        <!--End PulumiCodeChooser -->
 
         Full usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -314,13 +317,15 @@ class VpcDhcpOptions(pulumi.CustomResource):
                 "127.0.0.1",
                 "10.0.0.2",
             ],
+            ntp_servers=["127.0.0.1"],
             netbios_name_servers=["127.0.0.1"],
             netbios_node_type="2",
-            ntp_servers=["127.0.0.1"],
             tags={
                 "Name": "foo-name",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Remarks
 
         * Notice that all arguments are optional but you have to specify at least one argument.
@@ -334,7 +339,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
         Using `pulumi import`, import VPC DHCP Options using the DHCP Options `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcDhcpOptions:VpcDhcpOptions my_options dopt-d9070ebb
+        $ pulumi import aws:ec2/vpcDhcpOptions:VpcDhcpOptions my_options dopt-d9070ebb
         ```
 
         :param str resource_name: The name of the resource.
@@ -359,18 +364,21 @@ class VpcDhcpOptions(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        dns_resolver = aws.ec2.VpcDhcpOptions("dnsResolver", domain_name_servers=[
+        dns_resolver = aws.ec2.VpcDhcpOptions("dns_resolver", domain_name_servers=[
             "8.8.8.8",
             "8.8.4.4",
         ])
         ```
+        <!--End PulumiCodeChooser -->
 
         Full usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -381,13 +389,15 @@ class VpcDhcpOptions(pulumi.CustomResource):
                 "127.0.0.1",
                 "10.0.0.2",
             ],
+            ntp_servers=["127.0.0.1"],
             netbios_name_servers=["127.0.0.1"],
             netbios_node_type="2",
-            ntp_servers=["127.0.0.1"],
             tags={
                 "Name": "foo-name",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Remarks
 
         * Notice that all arguments are optional but you have to specify at least one argument.
@@ -401,7 +411,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
         Using `pulumi import`, import VPC DHCP Options using the DHCP Options `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcDhcpOptions:VpcDhcpOptions my_options dopt-d9070ebb
+        $ pulumi import aws:ec2/vpcDhcpOptions:VpcDhcpOptions my_options dopt-d9070ebb
         ```
 
         :param str resource_name: The name of the resource.
@@ -443,8 +453,6 @@ class VpcDhcpOptions(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VpcDhcpOptions, __self__).__init__(
             'aws:ec2/vpcDhcpOptions:VpcDhcpOptions',
             resource_name,

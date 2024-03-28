@@ -136,22 +136,24 @@ class LinkAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.networkmanager.LinkAssociation("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            link_id=aws_networkmanager_link["example"]["id"],
-            device_id=aws_networkmanager_device["example"]["id"])
+            global_network_id=example_aws_networkmanager_global_network["id"],
+            link_id=example_aws_networkmanager_link["id"],
+            device_id=example_aws_networkmanager_device["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_link_association` using the global network ID, link ID and device ID. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/linkAssociation:LinkAssociation example global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123
+        $ pulumi import aws:networkmanager/linkAssociation:LinkAssociation example global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123
         ```
 
         :param str resource_name: The name of the resource.
@@ -173,22 +175,24 @@ class LinkAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.networkmanager.LinkAssociation("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            link_id=aws_networkmanager_link["example"]["id"],
-            device_id=aws_networkmanager_device["example"]["id"])
+            global_network_id=example_aws_networkmanager_global_network["id"],
+            link_id=example_aws_networkmanager_link["id"],
+            device_id=example_aws_networkmanager_device["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_link_association` using the global network ID, link ID and device ID. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/linkAssociation:LinkAssociation example global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123
+        $ pulumi import aws:networkmanager/linkAssociation:LinkAssociation example global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123
         ```
 
         :param str resource_name: The name of the resource.

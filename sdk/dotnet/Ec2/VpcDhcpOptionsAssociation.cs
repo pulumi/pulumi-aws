@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,14 +23,16 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dnsResolver = new Aws.Ec2.VpcDhcpOptionsAssociation("dnsResolver", new()
+    ///     var dnsResolver = new Aws.Ec2.VpcDhcpOptionsAssociation("dns_resolver", new()
     ///     {
-    ///         VpcId = aws_vpc.Foo.Id,
-    ///         DhcpOptionsId = aws_vpc_dhcp_options.Foo.Id,
+    ///         VpcId = fooAwsVpc.Id,
+    ///         DhcpOptionsId = foo.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Remarks
     /// 
     /// * You can only associate one DHCP Options Set to a given VPC ID.
@@ -40,7 +43,7 @@ namespace Pulumi.Aws.Ec2
     /// Using `pulumi import`, import DHCP associations using the VPC ID associated with the options. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
+    /// $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation")]

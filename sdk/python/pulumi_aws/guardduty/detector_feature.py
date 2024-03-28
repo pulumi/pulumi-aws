@@ -25,7 +25,7 @@ class DetectorFeatureArgs:
         :param pulumi.Input[str] detector_id: Amazon GuardDuty detector ID.
         :param pulumi.Input[str] status: The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         :param pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]] additional_configurations: Additional feature configuration block. See below.
-        :param pulumi.Input[str] name: The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+        :param pulumi.Input[str] name: The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
         """
         pulumi.set(__self__, "detector_id", detector_id)
         pulumi.set(__self__, "status", status)
@@ -74,7 +74,7 @@ class DetectorFeatureArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+        The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
         """
         return pulumi.get(self, "name")
 
@@ -94,7 +94,7 @@ class _DetectorFeatureState:
         Input properties used for looking up and filtering DetectorFeature resources.
         :param pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]] additional_configurations: Additional feature configuration block. See below.
         :param pulumi.Input[str] detector_id: Amazon GuardDuty detector ID.
-        :param pulumi.Input[str] name: The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+        :param pulumi.Input[str] name: The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
         :param pulumi.Input[str] status: The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         """
         if additional_configurations is not None:
@@ -134,7 +134,7 @@ class _DetectorFeatureState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+        The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
         """
         return pulumi.get(self, "name")
 
@@ -172,25 +172,28 @@ class DetectorFeature(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.guardduty.Detector("example", enable=True)
-        eks_runtime_monitoring = aws.guardduty.DetectorFeature("eksRuntimeMonitoring",
+        eks_runtime_monitoring = aws.guardduty.DetectorFeature("eks_runtime_monitoring",
             detector_id=example.id,
+            name="EKS_RUNTIME_MONITORING",
             status="ENABLED",
             additional_configurations=[aws.guardduty.DetectorFeatureAdditionalConfigurationArgs(
                 name="EKS_ADDON_MANAGEMENT",
                 status="ENABLED",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorFeatureAdditionalConfigurationArgs']]]] additional_configurations: Additional feature configuration block. See below.
         :param pulumi.Input[str] detector_id: Amazon GuardDuty detector ID.
-        :param pulumi.Input[str] name: The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+        :param pulumi.Input[str] name: The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
         :param pulumi.Input[str] status: The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         """
         ...
@@ -206,19 +209,22 @@ class DetectorFeature(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.guardduty.Detector("example", enable=True)
-        eks_runtime_monitoring = aws.guardduty.DetectorFeature("eksRuntimeMonitoring",
+        eks_runtime_monitoring = aws.guardduty.DetectorFeature("eks_runtime_monitoring",
             detector_id=example.id,
+            name="EKS_RUNTIME_MONITORING",
             status="ENABLED",
             additional_configurations=[aws.guardduty.DetectorFeatureAdditionalConfigurationArgs(
                 name="EKS_ADDON_MANAGEMENT",
                 status="ENABLED",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param DetectorFeatureArgs args: The arguments to use to populate this resource's properties.
@@ -279,7 +285,7 @@ class DetectorFeature(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorFeatureAdditionalConfigurationArgs']]]] additional_configurations: Additional feature configuration block. See below.
         :param pulumi.Input[str] detector_id: Amazon GuardDuty detector ID.
-        :param pulumi.Input[str] name: The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+        :param pulumi.Input[str] name: The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
         :param pulumi.Input[str] status: The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -312,7 +318,7 @@ class DetectorFeature(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+        The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
         """
         return pulumi.get(self, "name")
 

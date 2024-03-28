@@ -7,6 +7,7 @@ import com.pulumi.aws.ec2.enums.PlacementStrategy;
 import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -260,7 +261,9 @@ public final class PlacementGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public PlacementGroupArgs build() {
-            $.strategy = Objects.requireNonNull($.strategy, "expected parameter 'strategy' to be non-null");
+            if ($.strategy == null) {
+                throw new MissingRequiredPropertyException("PlacementGroupArgs", "strategy");
+            }
             return $;
         }
     }

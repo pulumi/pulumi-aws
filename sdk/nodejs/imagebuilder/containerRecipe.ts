@@ -12,20 +12,22 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.imagebuilder.ContainerRecipe("example", {
+ *     name: "example",
  *     version: "1.0.0",
  *     containerType: "DOCKER",
  *     parentImage: "arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
  *     targetRepository: {
- *         repositoryName: aws_ecr_repository.example.name,
+ *         repositoryName: exampleAwsEcrRepository.name,
  *         service: "ECR",
  *     },
  *     components: [{
- *         componentArn: aws_imagebuilder_component.example.arn,
+ *         componentArn: exampleAwsImagebuilderComponent.arn,
  *         parameters: [
  *             {
  *                 name: "Parameter1",
@@ -43,13 +45,14 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_imagebuilder_container_recipe` resources using the Amazon Resource Name (ARN). For example:
  *
  * ```sh
- *  $ pulumi import aws:imagebuilder/containerRecipe:ContainerRecipe example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
+ * $ pulumi import aws:imagebuilder/containerRecipe:ContainerRecipe example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
  * ```
  */
 export class ContainerRecipe extends pulumi.CustomResource {
@@ -237,8 +240,6 @@ export class ContainerRecipe extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ContainerRecipe.__pulumiType, name, resourceInputs, opts);
     }
 }

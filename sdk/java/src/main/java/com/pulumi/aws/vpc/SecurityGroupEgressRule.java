@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -28,6 +27,8 @@ import javax.annotation.Nullable;
  * You should not use the `aws.vpc.SecurityGroupEgressRule` resource in conjunction with an `aws.ec2.SecurityGroup` resource with in-line rules or with `aws.ec2.SecurityGroupRule` resources defined for the same Security Group, as rule conflicts may occur and rules will be overwritten.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SecurityGroupEgressRule(&#34;example&#34;, SecurityGroupEgressRuleArgs.builder()        
- *             .securityGroupId(aws_security_group.example().id())
+ *             .securityGroupId(exampleAwsSecurityGroup.id())
  *             .cidrIpv4(&#34;10.0.0.0/8&#34;)
  *             .fromPort(80)
  *             .ipProtocol(&#34;tcp&#34;)
@@ -60,13 +61,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import security group egress rules using the `security_group_rule_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule example sgr-02108b27edd666983
+ * $ pulumi import aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule example sgr-02108b27edd666983
  * ```
  * 
  */
@@ -291,9 +293,6 @@ public class SecurityGroupEgressRule extends com.pulumi.resources.CustomResource
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

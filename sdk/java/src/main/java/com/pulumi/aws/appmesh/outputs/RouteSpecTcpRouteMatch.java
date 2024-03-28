@@ -44,13 +44,14 @@ public final class RouteSpecTcpRouteMatch {
 
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         public RouteSpecTcpRouteMatch build() {
-            final var o = new RouteSpecTcpRouteMatch();
-            o.port = port;
-            return o;
+            final var _resultValue = new RouteSpecTcpRouteMatch();
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

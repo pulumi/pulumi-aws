@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Ec2
     /// Provides a resource to create a VPC NAT Gateway.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Public NAT
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,24 +27,21 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.NatGateway("example", new()
     ///     {
-    ///         AllocationId = aws_eip.Example.Id,
-    ///         SubnetId = aws_subnet.Example.Id,
+    ///         AllocationId = exampleAwsEip.Id,
+    ///         SubnetId = exampleAwsSubnet.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "gw NAT" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_internet_gateway.Example,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Public NAT with Secondary Private IP Addresses
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,11 +52,11 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.NatGateway("example", new()
     ///     {
-    ///         AllocationId = aws_eip.Example.Id,
-    ///         SubnetId = aws_subnet.Example.Id,
+    ///         AllocationId = exampleAwsEip.Id,
+    ///         SubnetId = exampleAwsSubnet.Id,
     ///         SecondaryAllocationIds = new[]
     ///         {
-    ///             aws_eip.Secondary.Id,
+    ///             secondary.Id,
     ///         },
     ///         SecondaryPrivateIpAddresses = new[]
     ///         {
@@ -67,8 +66,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Private NAT
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -80,13 +82,16 @@ namespace Pulumi.Aws.Ec2
     ///     var example = new Aws.Ec2.NatGateway("example", new()
     ///     {
     ///         ConnectivityType = "private",
-    ///         SubnetId = aws_subnet.Example.Id,
+    ///         SubnetId = exampleAwsSubnet.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Private NAT with Secondary Private IP Addresses
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -98,19 +103,20 @@ namespace Pulumi.Aws.Ec2
     ///     var example = new Aws.Ec2.NatGateway("example", new()
     ///     {
     ///         ConnectivityType = "private",
-    ///         SubnetId = aws_subnet.Example.Id,
+    ///         SubnetId = exampleAwsSubnet.Id,
     ///         SecondaryPrivateIpAddressCount = 7,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import NAT Gateways using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
+    /// $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/natGateway:NatGateway")]
@@ -211,10 +217,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -406,11 +408,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public NatGatewayState()

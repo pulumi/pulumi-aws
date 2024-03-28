@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,11 +29,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := gamelift.NewGameSessionQueue(ctx, "test", &gamelift.GameSessionQueueArgs{
+//				Name: pulumi.String("example-session-queue"),
 //				Destinations: pulumi.StringArray{
-//					aws_gamelift_fleet.Us_west_2_fleet.Arn,
-//					aws_gamelift_fleet.Eu_central_1_fleet.Arn,
+//					usWest2Fleet.Arn,
+//					euCentral1Fleet.Arn,
 //				},
-//				NotificationTarget: pulumi.Any(aws_sns_topic.Game_session_queue_notifications.Arn),
+//				NotificationTarget: pulumi.Any(gameSessionQueueNotifications.Arn),
 //				PlayerLatencyPolicies: gamelift.GameSessionQueuePlayerLatencyPolicyArray{
 //					&gamelift.GameSessionQueuePlayerLatencyPolicyArgs{
 //						MaximumIndividualPlayerLatencyMilliseconds: pulumi.Int(100),
@@ -52,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import GameLift Game Session Queues using their `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
-//
+// $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
 // ```
 type GameSessionQueue struct {
 	pulumi.CustomResourceState
@@ -94,10 +95,6 @@ func NewGameSessionQueue(ctx *pulumi.Context,
 		args = &GameSessionQueueArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GameSessionQueue
 	err := ctx.RegisterResource("aws:gamelift/gameSessionQueue:GameSessionQueue", name, args, &resource, opts...)

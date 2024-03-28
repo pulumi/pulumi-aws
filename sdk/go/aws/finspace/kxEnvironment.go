@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS FinSpace Kx Environment.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,15 +32,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				Description:          pulumi.String("Sample KMS Key"),
 //				DeletionWindowInDays: pulumi.Int(7),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = finspace.NewKxEnvironment(ctx, "exampleKxEnvironment", &finspace.KxEnvironmentArgs{
-//				KmsKeyId: exampleKey.Arn,
+//			_, err = finspace.NewKxEnvironment(ctx, "example", &finspace.KxEnvironmentArgs{
+//				Name:     pulumi.String("my-tf-kx-environment"),
+//				KmsKeyId: example.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -48,8 +51,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Transit Gateway Configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,22 +70,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				Description:          pulumi.String("Sample KMS Key"),
 //				DeletionWindowInDays: pulumi.Int(7),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", &ec2transitgateway.TransitGatewayArgs{
+//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "example", &ec2transitgateway.TransitGatewayArgs{
 //				Description: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = finspace.NewKxEnvironment(ctx, "exampleEnv", &finspace.KxEnvironmentArgs{
+//			_, err = finspace.NewKxEnvironment(ctx, "example_env", &finspace.KxEnvironmentArgs{
+//				Name:        pulumi.String("my-tf-kx-environment"),
 //				Description: pulumi.String("Environment description"),
-//				KmsKeyId:    exampleKey.Arn,
+//				KmsKeyId:    example.Arn,
 //				TransitGatewayConfiguration: &finspace.KxEnvironmentTransitGatewayConfigurationArgs{
 //					TransitGatewayId:  exampleTransitGateway.ID(),
 //					RoutableCidrSpace: pulumi.String("100.64.0.0/26"),
@@ -99,8 +106,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Transit Gateway Attachment Network ACL Configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -115,22 +125,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				Description:          pulumi.String("Sample KMS Key"),
 //				DeletionWindowInDays: pulumi.Int(7),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", &ec2transitgateway.TransitGatewayArgs{
+//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "example", &ec2transitgateway.TransitGatewayArgs{
 //				Description: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = finspace.NewKxEnvironment(ctx, "exampleEnv", &finspace.KxEnvironmentArgs{
+//			_, err = finspace.NewKxEnvironment(ctx, "example_env", &finspace.KxEnvironmentArgs{
+//				Name:        pulumi.String("my-tf-kx-environment"),
 //				Description: pulumi.String("Environment description"),
-//				KmsKeyId:    exampleKey.Arn,
+//				KmsKeyId:    example.Arn,
 //				TransitGatewayConfiguration: &finspace.KxEnvironmentTransitGatewayConfigurationArgs{
 //					TransitGatewayId:  exampleTransitGateway.ID(),
 //					RoutableCidrSpace: pulumi.String("100.64.0.0/26"),
@@ -166,15 +177,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import an AWS FinSpace Kx Environment using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:finspace/kxEnvironment:KxEnvironment example n3ceo7wqxoxcti5tujqwzs
-//
+// $ pulumi import aws:finspace/kxEnvironment:KxEnvironment example n3ceo7wqxoxcti5tujqwzs
 // ```
 type KxEnvironment struct {
 	pulumi.CustomResourceState
@@ -221,10 +231,6 @@ func NewKxEnvironment(ctx *pulumi.Context,
 	if args.KmsKeyId == nil {
 		return nil, errors.New("invalid value for required argument 'KmsKeyId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KxEnvironment
 	err := ctx.RegisterResource("aws:finspace/kxEnvironment:KxEnvironment", name, args, &resource, opts...)

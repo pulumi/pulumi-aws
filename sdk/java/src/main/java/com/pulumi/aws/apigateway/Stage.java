@@ -14,7 +14,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,6 +22,8 @@ import javax.annotation.Nullable;
  * Manages an API Gateway Stage. A stage is a named reference to a deployment, which can be done via the `aws.apigateway.Deployment` resource. Stages can be optionally managed further with the `aws.apigateway.BasePathMapping` resource, `aws.apigateway.DomainName` resource, and `aws_api_method_settings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-stages.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRestApi = new RestApi(&#34;exampleRestApi&#34;, RestApiArgs.builder()        
+ *         var example = new RestApi(&#34;example&#34;, RestApiArgs.builder()        
  *             .body(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;openapi&#34;, &#34;3.0.1&#34;),
@@ -73,22 +74,22 @@ import javax.annotation.Nullable;
  *                         ))
  *                     ))
  *                 )))
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
- *             .restApi(exampleRestApi.id())
- *             .triggers(Map.of(&#34;redeployment&#34;, exampleRestApi.body().applyValue(body -&gt; serializeJson(
- *                 body)).applyValue(toJSON -&gt; computeSHA1(toJSON))))
+ *             .restApi(example.id())
+ *             .triggers(Map.of(&#34;redeployment&#34;, StdFunctions.sha1().applyValue(invoke -&gt; invoke.result())))
  *             .build());
  * 
  *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
  *             .deployment(exampleDeployment.id())
- *             .restApi(exampleRestApi.id())
+ *             .restApi(example.id())
  *             .stageName(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleMethodSettings = new MethodSettings(&#34;exampleMethodSettings&#34;, MethodSettingsArgs.builder()        
- *             .restApi(exampleRestApi.id())
+ *             .restApi(example.id())
  *             .stageName(exampleStage.stageName())
  *             .methodPath(&#34;*{@literal /}*&#34;)
  *             .settings(MethodSettingsSettingsArgs.builder()
@@ -100,9 +101,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Managing the API Logging CloudWatch Log Group
  * 
  * API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `aws.cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, import the `aws.cloudwatch.LogGroup` resource into Pulumi as a one time operation. You can recreate the environment without import.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -110,11 +115,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigateway.RestApi;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.cloudwatch.LogGroupArgs;
  * import com.pulumi.aws.apigateway.Stage;
  * import com.pulumi.aws.apigateway.StageArgs;
- * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -130,28 +134,28 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
  *         final var stageName = config.get(&#34;stageName&#34;).orElse(&#34;example&#34;);
- *         var exampleRestApi = new RestApi(&#34;exampleRestApi&#34;);
- * 
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;, LogGroupArgs.builder()        
- *             .retentionInDays(7)
- *             .build());
+ *         var example = new RestApi(&#34;example&#34;);
  * 
  *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
  *             .stageName(stageName)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleLogGroup)
- *                 .build());
+ *             .build());
+ * 
+ *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;, LogGroupArgs.builder()        
+ *             .name(example.id().applyValue(id -&gt; String.format(&#34;API-Gateway-Execution-Logs_%s/%s&#34;, id,stageName)))
+ *             .retentionInDays(7)
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_api_gateway_stage` using `REST-API-ID/STAGE-NAME`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
+ * $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
  * ```
  * 
  */
@@ -452,9 +456,6 @@ public class Stage extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

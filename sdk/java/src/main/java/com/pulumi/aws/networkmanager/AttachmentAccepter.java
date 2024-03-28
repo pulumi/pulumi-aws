@@ -15,10 +15,13 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS NetworkManager Attachment Accepter.
+ * Resource for managing an AWS Network Manager Attachment Accepter.
  * 
  * ## Example Usage
+ * 
  * ### Example with VPC attachment
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -41,14 +44,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new AttachmentAccepter(&#34;test&#34;, AttachmentAccepterArgs.builder()        
- *             .attachmentId(aws_networkmanager_vpc_attachment.vpc().id())
- *             .attachmentType(aws_networkmanager_vpc_attachment.vpc().attachment_type())
+ *             .attachmentId(vpc.id())
+ *             .attachmentType(vpc.attachmentType())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Example with site-to-site VPN attachment
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -71,13 +78,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new AttachmentAccepter(&#34;test&#34;, AttachmentAccepterArgs.builder()        
- *             .attachmentId(aws_networkmanager_site_to_site_vpn_attachment.vpn().id())
- *             .attachmentType(aws_networkmanager_site_to_site_vpn_attachment.vpn().attachment_type())
+ *             .attachmentId(vpn.id())
+ *             .attachmentType(vpn.attachmentType())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:networkmanager/attachmentAccepter:AttachmentAccepter")

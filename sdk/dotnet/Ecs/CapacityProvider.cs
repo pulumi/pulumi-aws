@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,8 +25,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // ... other configuration, including potentially other tags ...
-    ///     var testGroup = new Aws.AutoScaling.Group("testGroup", new()
+    ///     var test = new Aws.AutoScaling.Group("test", new()
     ///     {
     ///         Tags = new[]
     ///         {
@@ -38,11 +38,12 @@ namespace Pulumi.Aws.Ecs
     ///         },
     ///     });
     /// 
-    ///     var testCapacityProvider = new Aws.Ecs.CapacityProvider("testCapacityProvider", new()
+    ///     var testCapacityProvider = new Aws.Ecs.CapacityProvider("test", new()
     ///     {
+    ///         Name = "test",
     ///         AutoScalingGroupProvider = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderArgs
     ///         {
-    ///             AutoScalingGroupArn = testGroup.Arn,
+    ///             AutoScalingGroupArn = test.Arn,
     ///             ManagedTerminationProtection = "ENABLED",
     ///             ManagedScaling = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs
     ///             {
@@ -56,13 +57,14 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ECS Capacity Providers using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
+    /// $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecs/capacityProvider:CapacityProvider")]
@@ -121,10 +123,6 @@ namespace Pulumi.Aws.Ecs
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -220,11 +218,7 @@ namespace Pulumi.Aws.Ecs
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public CapacityProviderState()

@@ -242,21 +242,24 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.lightsail.Certificate("test",
+            name="test",
             domain_name="testdomain.com",
             subject_alternative_names=["www.testdomain.com"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
+        $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
         ```
 
         :param str resource_name: The name of the resource.
@@ -277,21 +280,24 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.lightsail.Certificate("test",
+            name="test",
             domain_name="testdomain.com",
             subject_alternative_names=["www.testdomain.com"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
+        $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
         ```
 
         :param str resource_name: The name of the resource.
@@ -330,8 +336,6 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["domain_validation_options"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Certificate, __self__).__init__(
             'aws:lightsail/certificate:Certificate',
             resource_name,

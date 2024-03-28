@@ -15,8 +15,10 @@ import (
 // Resource for managing a QuickSight Template.
 //
 // ## Example Usage
+//
 // ### From Source Template
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,10 +33,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewTemplate(ctx, "example", &quicksight.TemplateArgs{
 //				TemplateId:         pulumi.String("example-id"),
+//				Name:               pulumi.String("example-name"),
 //				VersionDescription: pulumi.String("version"),
 //				SourceEntity: &quicksight.TemplateSourceEntityArgs{
 //					SourceTemplate: &quicksight.TemplateSourceEntitySourceTemplateArgs{
-//						Arn: pulumi.Any(aws_quicksight_template.Source.Arn),
+//						Arn: pulumi.Any(source.Arn),
 //					},
 //				},
 //			})
@@ -46,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:quicksight/template:Template example 123456789012,example-id
-//
+// $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
 // ```
 type Template struct {
 	pulumi.CustomResourceState
@@ -106,10 +108,6 @@ func NewTemplate(ctx *pulumi.Context,
 	if args.VersionDescription == nil {
 		return nil, errors.New("invalid value for required argument 'VersionDescription'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Template
 	err := ctx.RegisterResource("aws:quicksight/template:Template", name, args, &resource, opts...)

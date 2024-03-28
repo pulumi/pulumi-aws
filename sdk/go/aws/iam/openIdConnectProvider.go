@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,13 +30,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := iam.NewOpenIdConnectProvider(ctx, "default", &iam.OpenIdConnectProviderArgs{
+//				Url: pulumi.String("https://accounts.google.com"),
 //				ClientIdLists: pulumi.StringArray{
 //					pulumi.String("266362248691-342342xasdasdasda-apps.googleusercontent.com"),
 //				},
 //				ThumbprintLists: pulumi.StringArray{
 //					pulumi.String("cf23df2207d99a74fbe169e3eba035e633b65d94"),
 //				},
-//				Url: pulumi.String("https://accounts.google.com"),
 //			})
 //			if err != nil {
 //				return err
@@ -45,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IAM OpenID Connect Providers using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iam/openIdConnectProvider:OpenIdConnectProvider default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
-//
+// $ pulumi import aws:iam/openIdConnectProvider:OpenIdConnectProvider default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
 // ```
 type OpenIdConnectProvider struct {
 	pulumi.CustomResourceState
@@ -90,10 +90,6 @@ func NewOpenIdConnectProvider(ctx *pulumi.Context,
 	if args.Url == nil {
 		return nil, errors.New("invalid value for required argument 'Url'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OpenIdConnectProvider
 	err := ctx.RegisterResource("aws:iam/openIdConnectProvider:OpenIdConnectProvider", name, args, &resource, opts...)

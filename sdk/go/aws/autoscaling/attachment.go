@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,9 +31,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new load balancer attachment
 //			_, err := autoscaling.NewAttachment(ctx, "example", &autoscaling.AttachmentArgs{
-//				AutoscalingGroupName: pulumi.Any(aws_autoscaling_group.Example.Id),
-//				Elb:                  pulumi.Any(aws_elb.Example.Id),
+//				AutoscalingGroupName: pulumi.Any(exampleAwsAutoscalingGroup.Id),
+//				Elb:                  pulumi.Any(exampleAwsElb.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -42,7 +44,9 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,9 +59,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new ALB Target Group attachment
 //			_, err := autoscaling.NewAttachment(ctx, "example", &autoscaling.AttachmentArgs{
-//				AutoscalingGroupName: pulumi.Any(aws_autoscaling_group.Example.Id),
-//				LbTargetGroupArn:     pulumi.Any(aws_lb_target_group.Example.Arn),
+//				AutoscalingGroupName: pulumi.Any(exampleAwsAutoscalingGroup.Id),
+//				LbTargetGroupArn:     pulumi.Any(exampleAwsLbTargetGroup.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -67,6 +72,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type Attachment struct {
 	pulumi.CustomResourceState
 

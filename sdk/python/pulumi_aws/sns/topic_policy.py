@@ -120,11 +120,12 @@ class TopicPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.sns.Topic("test")
+        test = aws.sns.Topic("test", name="my-topic-with-policy")
         sns_topic_policy = test.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
             statements=[aws.iam.GetPolicyDocumentStatementArgs(
                 actions=[
@@ -141,7 +142,7 @@ class TopicPolicy(pulumi.CustomResource):
                 conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                     test="StringEquals",
                     variable="AWS:SourceOwner",
-                    values=[var["account-id"]],
+                    values=[account_id],
                 )],
                 effect="Allow",
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -155,13 +156,14 @@ class TopicPolicy(pulumi.CustomResource):
             arn=test.arn,
             policy=sns_topic_policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SNS Topic Policy using the topic ARN. For example:
 
         ```sh
-         $ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
+        $ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
         ```
 
         :param str resource_name: The name of the resource.
@@ -182,11 +184,12 @@ class TopicPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.sns.Topic("test")
+        test = aws.sns.Topic("test", name="my-topic-with-policy")
         sns_topic_policy = test.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
             statements=[aws.iam.GetPolicyDocumentStatementArgs(
                 actions=[
@@ -203,7 +206,7 @@ class TopicPolicy(pulumi.CustomResource):
                 conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                     test="StringEquals",
                     variable="AWS:SourceOwner",
-                    values=[var["account-id"]],
+                    values=[account_id],
                 )],
                 effect="Allow",
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -217,13 +220,14 @@ class TopicPolicy(pulumi.CustomResource):
             arn=test.arn,
             policy=sns_topic_policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SNS Topic Policy using the topic ARN. For example:
 
         ```sh
-         $ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
+        $ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
         ```
 
         :param str resource_name: The name of the resource.

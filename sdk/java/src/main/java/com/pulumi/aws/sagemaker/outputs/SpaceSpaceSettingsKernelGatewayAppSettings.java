@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.outputs;
 import com.pulumi.aws.sagemaker.outputs.SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage;
 import com.pulumi.aws.sagemaker.outputs.SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -74,6 +75,7 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettings {
 
         @CustomType.Setter
         public Builder customImages(@Nullable List<SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage> customImages) {
+
             this.customImages = customImages;
             return this;
         }
@@ -82,11 +84,15 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettings {
         }
         @CustomType.Setter
         public Builder defaultResourceSpec(SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec) {
-            this.defaultResourceSpec = Objects.requireNonNull(defaultResourceSpec);
+            if (defaultResourceSpec == null) {
+              throw new MissingRequiredPropertyException("SpaceSpaceSettingsKernelGatewayAppSettings", "defaultResourceSpec");
+            }
+            this.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
         @CustomType.Setter
         public Builder lifecycleConfigArns(@Nullable List<String> lifecycleConfigArns) {
+
             this.lifecycleConfigArns = lifecycleConfigArns;
             return this;
         }
@@ -94,11 +100,11 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettings {
             return lifecycleConfigArns(List.of(lifecycleConfigArns));
         }
         public SpaceSpaceSettingsKernelGatewayAppSettings build() {
-            final var o = new SpaceSpaceSettingsKernelGatewayAppSettings();
-            o.customImages = customImages;
-            o.defaultResourceSpec = defaultResourceSpec;
-            o.lifecycleConfigArns = lifecycleConfigArns;
-            return o;
+            final var _resultValue = new SpaceSpaceSettingsKernelGatewayAppSettings();
+            _resultValue.customImages = customImages;
+            _resultValue.defaultResourceSpec = defaultResourceSpec;
+            _resultValue.lifecycleConfigArns = lifecycleConfigArns;
+            return _resultValue;
         }
     }
 }

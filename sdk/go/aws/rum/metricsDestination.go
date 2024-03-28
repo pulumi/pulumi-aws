@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rum.NewMetricsDestination(ctx, "example", &rum.MetricsDestinationArgs{
-//				AppMonitorName: pulumi.Any(aws_rum_app_monitor.Example.Name),
+//				AppMonitorName: pulumi.Any(exampleAwsRumAppMonitor.Name),
 //				Destination:    pulumi.String("CloudWatch"),
 //			})
 //			if err != nil {
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Cloudwatch RUM Metrics Destination using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:rum/metricsDestination:MetricsDestination example example
-//
+// $ pulumi import aws:rum/metricsDestination:MetricsDestination example example
 // ```
 type MetricsDestination struct {
 	pulumi.CustomResourceState

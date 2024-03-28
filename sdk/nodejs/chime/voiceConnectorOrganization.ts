@@ -12,14 +12,18 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultVoiceConnector = new aws.chime.VoiceConnector("defaultVoiceConnector", {requireEncryption: true});
- * const defaultVoiceConnectorOrganization = new aws.chime.VoiceConnectorOrganization("defaultVoiceConnectorOrganization", {
+ * const _default = new aws.chime.VoiceConnector("default", {
+ *     name: "test",
+ *     requireEncryption: true,
+ * });
+ * const defaultVoiceConnectorOrganization = new aws.chime.VoiceConnectorOrganization("default", {
  *     disabled: false,
- *     voiceConnectorId: defaultVoiceConnector.id,
+ *     voiceConnectorId: _default.id,
  *     routes: [
  *         {
  *             host: "127.0.0.1",
@@ -38,13 +42,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Chime Voice Connector Origination using the `voice_connector_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization default abcdef1ghij2klmno3pqr4
+ * $ pulumi import aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization default abcdef1ghij2klmno3pqr4
  * ```
  */
 export class VoiceConnectorOrganization extends pulumi.CustomResource {

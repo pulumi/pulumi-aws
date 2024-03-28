@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesis.outputs;
 import com.pulumi.aws.kinesis.outputs.AnalyticsApplicationInputsSchemaRecordColumn;
 import com.pulumi.aws.kinesis.outputs.AnalyticsApplicationInputsSchemaRecordFormat;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -79,7 +80,10 @@ public final class AnalyticsApplicationInputsSchema {
 
         @CustomType.Setter
         public Builder recordColumns(List<AnalyticsApplicationInputsSchemaRecordColumn> recordColumns) {
-            this.recordColumns = Objects.requireNonNull(recordColumns);
+            if (recordColumns == null) {
+              throw new MissingRequiredPropertyException("AnalyticsApplicationInputsSchema", "recordColumns");
+            }
+            this.recordColumns = recordColumns;
             return this;
         }
         public Builder recordColumns(AnalyticsApplicationInputsSchemaRecordColumn... recordColumns) {
@@ -87,20 +91,24 @@ public final class AnalyticsApplicationInputsSchema {
         }
         @CustomType.Setter
         public Builder recordEncoding(@Nullable String recordEncoding) {
+
             this.recordEncoding = recordEncoding;
             return this;
         }
         @CustomType.Setter
         public Builder recordFormat(AnalyticsApplicationInputsSchemaRecordFormat recordFormat) {
-            this.recordFormat = Objects.requireNonNull(recordFormat);
+            if (recordFormat == null) {
+              throw new MissingRequiredPropertyException("AnalyticsApplicationInputsSchema", "recordFormat");
+            }
+            this.recordFormat = recordFormat;
             return this;
         }
         public AnalyticsApplicationInputsSchema build() {
-            final var o = new AnalyticsApplicationInputsSchema();
-            o.recordColumns = recordColumns;
-            o.recordEncoding = recordEncoding;
-            o.recordFormat = recordFormat;
-            return o;
+            final var _resultValue = new AnalyticsApplicationInputsSchema();
+            _resultValue.recordColumns = recordColumns;
+            _resultValue.recordEncoding = recordEncoding;
+            _resultValue.recordFormat = recordFormat;
+            return _resultValue;
         }
     }
 }

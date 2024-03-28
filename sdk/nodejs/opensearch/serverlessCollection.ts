@@ -15,13 +15,16 @@ import * as utilities from "../utilities";
  * > **NOTE:** An `aws.opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleServerlessSecurityPolicy = new aws.opensearch.ServerlessSecurityPolicy("exampleServerlessSecurityPolicy", {
+ * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
+ *     name: "example",
  *     type: "encryption",
  *     policy: JSON.stringify({
  *         Rules: [{
@@ -31,17 +34,16 @@ import * as utilities from "../utilities";
  *         AWSOwnedKey: true,
  *     }),
  * });
- * const exampleServerlessCollection = new aws.opensearch.ServerlessCollection("exampleServerlessCollection", {}, {
- *     dependsOn: [exampleServerlessSecurityPolicy],
- * });
+ * const exampleServerlessCollection = new aws.opensearch.ServerlessCollection("example", {name: "example"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
+ * $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
  * ```
  */
 export class ServerlessCollection extends pulumi.CustomResource {
@@ -99,6 +101,10 @@ export class ServerlessCollection extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     */
+    public readonly standbyReplicas!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -131,6 +137,7 @@ export class ServerlessCollection extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["standbyReplicas"] = state ? state.standbyReplicas : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
@@ -139,6 +146,7 @@ export class ServerlessCollection extends pulumi.CustomResource {
             const args = argsOrState as ServerlessCollectionArgs | undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["standbyReplicas"] = args ? args.standbyReplicas : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -149,8 +157,6 @@ export class ServerlessCollection extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServerlessCollection.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -186,6 +192,10 @@ export interface ServerlessCollectionState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     */
+    standbyReplicas?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -214,6 +224,10 @@ export interface ServerlessCollectionArgs {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     */
+    standbyReplicas?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

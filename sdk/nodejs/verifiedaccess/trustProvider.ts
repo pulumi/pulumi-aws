@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,15 +23,14 @@ import * as utilities from "../utilities";
  *     userTrustProviderType: "iam-identity-center",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Using `pulumi import`, import Transfer Workflows using the
- *
- * `id`. For example:
+ * Using `pulumi import`, import Transfer Workflows using the  `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:verifiedaccess/trustProvider:TrustProvider example vatp-8012925589
+ * $ pulumi import aws:verifiedaccess/trustProvider:TrustProvider example vatp-8012925589
  * ```
  */
 export class TrustProvider extends pulumi.CustomResource {
@@ -141,8 +141,6 @@ export class TrustProvider extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(TrustProvider.__pulumiType, name, resourceInputs, opts);
     }
 }

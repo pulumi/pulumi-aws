@@ -9,15 +9,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleInstance = new aws.rds.Instance("exampleInstance", {
+ * const example = new aws.rds.Instance("example", {
  *     allocatedStorage: 10,
  *     engine: "mysql",
  *     engineVersion: "5.6.21",
- *     instanceClass: "db.t2.micro",
+ *     instanceClass: aws.rds.InstanceType.T2_Micro,
  *     dbName: "baz",
  *     password: "barbarbarbar",
  *     username: "foo",
@@ -25,22 +26,23 @@ import * as utilities from "../utilities";
  *     backupRetentionPeriod: 0,
  *     parameterGroupName: "default.mysql5.6",
  * });
- * const exampleSnapshot = new aws.rds.Snapshot("exampleSnapshot", {
- *     dbInstanceIdentifier: exampleInstance.identifier,
+ * const exampleSnapshot = new aws.rds.Snapshot("example", {
+ *     dbInstanceIdentifier: example.identifier,
  *     dbSnapshotIdentifier: "testsnapshot1234",
  * });
- * const exampleSnapshotCopy = new aws.rds.SnapshotCopy("exampleSnapshotCopy", {
+ * const exampleSnapshotCopy = new aws.rds.SnapshotCopy("example", {
  *     sourceDbSnapshotIdentifier: exampleSnapshot.dbSnapshotArn,
  *     targetDbSnapshotIdentifier: "testsnapshot1234-copy",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_db_snapshot_copy` using the snapshot identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
+ * $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
  * ```
  */
 export class SnapshotCopy extends pulumi.CustomResource {
@@ -229,8 +231,6 @@ export class SnapshotCopy extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SnapshotCopy.__pulumiType, name, resourceInputs, opts);
     }
 }

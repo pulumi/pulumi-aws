@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetNatGatewayFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -195,21 +196,31 @@ public final class GetNatGatewayResult {
 
         @CustomType.Setter
         public Builder allocationId(String allocationId) {
-            this.allocationId = Objects.requireNonNull(allocationId);
+            if (allocationId == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "allocationId");
+            }
+            this.allocationId = allocationId;
             return this;
         }
         @CustomType.Setter
         public Builder associationId(String associationId) {
-            this.associationId = Objects.requireNonNull(associationId);
+            if (associationId == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "associationId");
+            }
+            this.associationId = associationId;
             return this;
         }
         @CustomType.Setter
         public Builder connectivityType(String connectivityType) {
-            this.connectivityType = Objects.requireNonNull(connectivityType);
+            if (connectivityType == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "connectivityType");
+            }
+            this.connectivityType = connectivityType;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetNatGatewayFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -218,27 +229,42 @@ public final class GetNatGatewayResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaceId(String networkInterfaceId) {
-            this.networkInterfaceId = Objects.requireNonNull(networkInterfaceId);
+            if (networkInterfaceId == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "networkInterfaceId");
+            }
+            this.networkInterfaceId = networkInterfaceId;
             return this;
         }
         @CustomType.Setter
         public Builder privateIp(String privateIp) {
-            this.privateIp = Objects.requireNonNull(privateIp);
+            if (privateIp == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "privateIp");
+            }
+            this.privateIp = privateIp;
             return this;
         }
         @CustomType.Setter
         public Builder publicIp(String publicIp) {
-            this.publicIp = Objects.requireNonNull(publicIp);
+            if (publicIp == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "publicIp");
+            }
+            this.publicIp = publicIp;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryAllocationIds(List<String> secondaryAllocationIds) {
-            this.secondaryAllocationIds = Objects.requireNonNull(secondaryAllocationIds);
+            if (secondaryAllocationIds == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "secondaryAllocationIds");
+            }
+            this.secondaryAllocationIds = secondaryAllocationIds;
             return this;
         }
         public Builder secondaryAllocationIds(String... secondaryAllocationIds) {
@@ -246,12 +272,18 @@ public final class GetNatGatewayResult {
         }
         @CustomType.Setter
         public Builder secondaryPrivateIpAddressCount(Integer secondaryPrivateIpAddressCount) {
-            this.secondaryPrivateIpAddressCount = Objects.requireNonNull(secondaryPrivateIpAddressCount);
+            if (secondaryPrivateIpAddressCount == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "secondaryPrivateIpAddressCount");
+            }
+            this.secondaryPrivateIpAddressCount = secondaryPrivateIpAddressCount;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryPrivateIpAddresses(List<String> secondaryPrivateIpAddresses) {
-            this.secondaryPrivateIpAddresses = Objects.requireNonNull(secondaryPrivateIpAddresses);
+            if (secondaryPrivateIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "secondaryPrivateIpAddresses");
+            }
+            this.secondaryPrivateIpAddresses = secondaryPrivateIpAddresses;
             return this;
         }
         public Builder secondaryPrivateIpAddresses(String... secondaryPrivateIpAddresses) {
@@ -259,42 +291,54 @@ public final class GetNatGatewayResult {
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public GetNatGatewayResult build() {
-            final var o = new GetNatGatewayResult();
-            o.allocationId = allocationId;
-            o.associationId = associationId;
-            o.connectivityType = connectivityType;
-            o.filters = filters;
-            o.id = id;
-            o.networkInterfaceId = networkInterfaceId;
-            o.privateIp = privateIp;
-            o.publicIp = publicIp;
-            o.secondaryAllocationIds = secondaryAllocationIds;
-            o.secondaryPrivateIpAddressCount = secondaryPrivateIpAddressCount;
-            o.secondaryPrivateIpAddresses = secondaryPrivateIpAddresses;
-            o.state = state;
-            o.subnetId = subnetId;
-            o.tags = tags;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetNatGatewayResult();
+            _resultValue.allocationId = allocationId;
+            _resultValue.associationId = associationId;
+            _resultValue.connectivityType = connectivityType;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.networkInterfaceId = networkInterfaceId;
+            _resultValue.privateIp = privateIp;
+            _resultValue.publicIp = publicIp;
+            _resultValue.secondaryAllocationIds = secondaryAllocationIds;
+            _resultValue.secondaryPrivateIpAddressCount = secondaryPrivateIpAddressCount;
+            _resultValue.secondaryPrivateIpAddresses = secondaryPrivateIpAddresses;
+            _resultValue.state = state;
+            _resultValue.subnetId = subnetId;
+            _resultValue.tags = tags;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

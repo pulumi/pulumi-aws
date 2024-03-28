@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class ServiceDeploymentCircuitBreaker {
 
         @CustomType.Setter
         public Builder enable(Boolean enable) {
-            this.enable = Objects.requireNonNull(enable);
+            if (enable == null) {
+              throw new MissingRequiredPropertyException("ServiceDeploymentCircuitBreaker", "enable");
+            }
+            this.enable = enable;
             return this;
         }
         @CustomType.Setter
         public Builder rollback(Boolean rollback) {
-            this.rollback = Objects.requireNonNull(rollback);
+            if (rollback == null) {
+              throw new MissingRequiredPropertyException("ServiceDeploymentCircuitBreaker", "rollback");
+            }
+            this.rollback = rollback;
             return this;
         }
         public ServiceDeploymentCircuitBreaker build() {
-            final var o = new ServiceDeploymentCircuitBreaker();
-            o.enable = enable;
-            o.rollback = rollback;
-            return o;
+            final var _resultValue = new ServiceDeploymentCircuitBreaker();
+            _resultValue.enable = enable;
+            _resultValue.rollback = rollback;
+            return _resultValue;
         }
     }
 }

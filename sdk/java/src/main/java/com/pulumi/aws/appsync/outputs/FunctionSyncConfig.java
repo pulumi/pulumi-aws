@@ -73,25 +73,28 @@ public final class FunctionSyncConfig {
 
         @CustomType.Setter
         public Builder conflictDetection(@Nullable String conflictDetection) {
+
             this.conflictDetection = conflictDetection;
             return this;
         }
         @CustomType.Setter
         public Builder conflictHandler(@Nullable String conflictHandler) {
+
             this.conflictHandler = conflictHandler;
             return this;
         }
         @CustomType.Setter
         public Builder lambdaConflictHandlerConfig(@Nullable FunctionSyncConfigLambdaConflictHandlerConfig lambdaConflictHandlerConfig) {
+
             this.lambdaConflictHandlerConfig = lambdaConflictHandlerConfig;
             return this;
         }
         public FunctionSyncConfig build() {
-            final var o = new FunctionSyncConfig();
-            o.conflictDetection = conflictDetection;
-            o.conflictHandler = conflictHandler;
-            o.lambdaConflictHandlerConfig = lambdaConflictHandlerConfig;
-            return o;
+            final var _resultValue = new FunctionSyncConfig();
+            _resultValue.conflictDetection = conflictDetection;
+            _resultValue.conflictHandler = conflictHandler;
+            _resultValue.lambdaConflictHandlerConfig = lambdaConflictHandlerConfig;
+            return _resultValue;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,23 +25,25 @@ namespace Pulumi.Aws.Iot
     /// {
     ///     var iot = new Aws.Iot.DomainConfiguration("iot", new()
     ///     {
+    ///         Name = "iot-",
     ///         DomainName = "iot.example.com",
     ///         ServiceType = "DATA",
     ///         ServerCertificateArns = new[]
     ///         {
-    ///             aws_acm_certificate.Cert.Arn,
+    ///             cert.Arn,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import domain configurations using the name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iot/domainConfiguration:DomainConfiguration example example
+    /// $ pulumi import aws:iot/domainConfiguration:DomainConfiguration example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/domainConfiguration:DomainConfiguration")]
@@ -53,7 +56,7 @@ namespace Pulumi.Aws.Iot
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// An object that specifies the authorization service for a domain. See below.
+        /// An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
         /// </summary>
         [Output("authorizerConfig")]
         public Output<Outputs.DomainConfigurationAuthorizerConfig?> AuthorizerConfig { get; private set; } = null!;
@@ -88,6 +91,9 @@ namespace Pulumi.Aws.Iot
         [Output("serviceType")]
         public Output<string?> ServiceType { get; private set; } = null!;
 
+        /// <summary>
+        /// The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
+        /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
@@ -104,7 +110,7 @@ namespace Pulumi.Aws.Iot
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// An object that specifies the TLS configuration for a domain. See below.
+        /// An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
         /// </summary>
         [Output("tlsConfig")]
         public Output<Outputs.DomainConfigurationTlsConfig> TlsConfig { get; private set; } = null!;
@@ -138,10 +144,6 @@ namespace Pulumi.Aws.Iot
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -166,7 +168,7 @@ namespace Pulumi.Aws.Iot
     public sealed class DomainConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An object that specifies the authorization service for a domain. See below.
+        /// An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
         /// </summary>
         [Input("authorizerConfig")]
         public Input<Inputs.DomainConfigurationAuthorizerConfigArgs>? AuthorizerConfig { get; set; }
@@ -201,6 +203,9 @@ namespace Pulumi.Aws.Iot
         [Input("serviceType")]
         public Input<string>? ServiceType { get; set; }
 
+        /// <summary>
+        /// The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
@@ -217,7 +222,7 @@ namespace Pulumi.Aws.Iot
         }
 
         /// <summary>
-        /// An object that specifies the TLS configuration for a domain. See below.
+        /// An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
         /// </summary>
         [Input("tlsConfig")]
         public Input<Inputs.DomainConfigurationTlsConfigArgs>? TlsConfig { get; set; }
@@ -243,7 +248,7 @@ namespace Pulumi.Aws.Iot
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// An object that specifies the authorization service for a domain. See below.
+        /// An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
         /// </summary>
         [Input("authorizerConfig")]
         public Input<Inputs.DomainConfigurationAuthorizerConfigGetArgs>? AuthorizerConfig { get; set; }
@@ -284,6 +289,9 @@ namespace Pulumi.Aws.Iot
         [Input("serviceType")]
         public Input<string>? ServiceType { get; set; }
 
+        /// <summary>
+        /// The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
@@ -309,15 +317,11 @@ namespace Pulumi.Aws.Iot
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>
-        /// An object that specifies the TLS configuration for a domain. See below.
+        /// An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
         /// </summary>
         [Input("tlsConfig")]
         public Input<Inputs.DomainConfigurationTlsConfigGetArgs>? TlsConfig { get; set; }

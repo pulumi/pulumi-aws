@@ -87,31 +87,35 @@ public final class ProjectLogsConfigS3Logs {
 
         @CustomType.Setter
         public Builder bucketOwnerAccess(@Nullable String bucketOwnerAccess) {
+
             this.bucketOwnerAccess = bucketOwnerAccess;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionDisabled(@Nullable Boolean encryptionDisabled) {
+
             this.encryptionDisabled = encryptionDisabled;
             return this;
         }
         @CustomType.Setter
         public Builder location(@Nullable String location) {
+
             this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         public ProjectLogsConfigS3Logs build() {
-            final var o = new ProjectLogsConfigS3Logs();
-            o.bucketOwnerAccess = bucketOwnerAccess;
-            o.encryptionDisabled = encryptionDisabled;
-            o.location = location;
-            o.status = status;
-            return o;
+            final var _resultValue = new ProjectLogsConfigS3Logs();
+            _resultValue.bucketOwnerAccess = bucketOwnerAccess;
+            _resultValue.encryptionDisabled = encryptionDisabled;
+            _resultValue.location = location;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

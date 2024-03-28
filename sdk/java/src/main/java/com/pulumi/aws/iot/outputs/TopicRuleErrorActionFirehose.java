@@ -4,6 +4,7 @@
 package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -87,31 +88,39 @@ public final class TopicRuleErrorActionFirehose {
 
         @CustomType.Setter
         public Builder batchMode(@Nullable Boolean batchMode) {
+
             this.batchMode = batchMode;
             return this;
         }
         @CustomType.Setter
         public Builder deliveryStreamName(String deliveryStreamName) {
-            this.deliveryStreamName = Objects.requireNonNull(deliveryStreamName);
+            if (deliveryStreamName == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionFirehose", "deliveryStreamName");
+            }
+            this.deliveryStreamName = deliveryStreamName;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionFirehose", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder separator(@Nullable String separator) {
+
             this.separator = separator;
             return this;
         }
         public TopicRuleErrorActionFirehose build() {
-            final var o = new TopicRuleErrorActionFirehose();
-            o.batchMode = batchMode;
-            o.deliveryStreamName = deliveryStreamName;
-            o.roleArn = roleArn;
-            o.separator = separator;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionFirehose();
+            _resultValue.batchMode = batchMode;
+            _resultValue.deliveryStreamName = deliveryStreamName;
+            _resultValue.roleArn = roleArn;
+            _resultValue.separator = separator;
+            return _resultValue;
         }
     }
 }

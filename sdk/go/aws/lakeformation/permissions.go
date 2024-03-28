@@ -29,6 +29,7 @@ import (
 //
 // This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `createDatabaseDefaultPermissions` and `createTableDefaultPermissions` are not set in the `lakeformation.DataLakeSettings` resource, they are cleared.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,19 +44,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentSessionContext, err := iam.GetSessionContext(ctx, &iam.GetSessionContextArgs{
-//				Arn: currentCallerIdentity.Arn,
+//			currentGetSessionContext, err := iam.GetSessionContext(ctx, &iam.GetSessionContextArgs{
+//				Arn: current.Arn,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = lakeformation.NewDataLakeSettings(ctx, "test", &lakeformation.DataLakeSettingsArgs{
 //				Admins: pulumi.StringArray{
-//					*pulumi.String(currentSessionContext.IssuerArn),
+//					pulumi.String(currentGetSessionContext.IssuerArn),
 //				},
 //			})
 //			if err != nil {
@@ -66,6 +67,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // To remove existing `IAMAllowedPrincipals` permissions, use the [AWS Lake Formation Console](https://console.aws.amazon.com/lakeformation/) or [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lakeformation/batch-revoke-permissions.html).
 //
@@ -82,6 +84,7 @@ import (
 //
 // AWS does not support combining `IAMAllowedPrincipals` permissions and non-`IAMAllowedPrincipals` permissions. Doing so results in unexpected permissions and behaviors. For example, this configuration grants a user `SELECT` on a column in a table.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -95,15 +98,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewCatalogDatabase(ctx, "exampleCatalogDatabase", &glue.CatalogDatabaseArgs{
+//			_, err := glue.NewCatalogDatabase(ctx, "example", &glue.CatalogDatabaseArgs{
 //				Name: pulumi.String("sadabate"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleCatalogTable, err := glue.NewCatalogTable(ctx, "exampleCatalogTable", &glue.CatalogTableArgs{
+//			exampleCatalogTable, err := glue.NewCatalogTable(ctx, "example", &glue.CatalogTableArgs{
 //				Name:         pulumi.String("abelt"),
-//				DatabaseName: pulumi.Any(aws_glue_catalog_database.Test.Name),
+//				DatabaseName: pulumi.Any(test.Name),
 //				StorageDescriptor: &glue.CatalogTableStorageDescriptorArgs{
 //					Columns: glue.CatalogTableStorageDescriptorColumnArray{
 //						&glue.CatalogTableStorageDescriptorColumnArgs{
@@ -116,7 +119,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lakeformation.NewPermissions(ctx, "examplePermissions", &lakeformation.PermissionsArgs{
+//			_, err = lakeformation.NewPermissions(ctx, "example", &lakeformation.PermissionsArgs{
 //				Permissions: pulumi.StringArray{
 //					pulumi.String("SELECT"),
 //				},
@@ -137,6 +140,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // The resulting permissions depend on whether the table had `IAMAllowedPrincipals` (IAP) permissions or not.
 //
@@ -153,8 +157,10 @@ import (
 // If the `principal` is also a data lake administrator, AWS grants implicit permissions that can cause errors using this resource. For example, AWS implicitly grants a `principal`/administrator `permissions` and `permissionsWithGrantOption` of `ALL`, `ALTER`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT` on a table. If you use this resource to explicitly grant the `principal`/administrator `permissions` but _not_ `permissionsWithGrantOption` of `ALL`, `ALTER`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT` on the table, this resource will read the implicit `permissionsWithGrantOption` and attempt to revoke them when the resource is destroyed. Doing so will cause an `InvalidInputException: No permissions revoked` error because you cannot revoke implicit permissions _per se_. To workaround this problem, explicitly grant the `principal`/administrator `permissions` _and_ `permissionsWithGrantOption`, which can then be revoked. Similarly, granting a `principal`/administrator permissions on a table with columns and providing `columnNames`, will result in a `InvalidInputException: Permissions modification is invalid` error because you are narrowing the implicit permissions. Instead, set `wildcard` to `true` and remove the `columnNames`.
 //
 // ## Example Usage
+//
 // ### Grant Permissions For A Lake Formation S3 Resource
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -168,12 +174,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewPermissions(ctx, "example", &lakeformation.PermissionsArgs{
-//				Principal: pulumi.Any(aws_iam_role.Workflow_role.Arn),
+//				Principal: pulumi.Any(workflowRole.Arn),
 //				Permissions: pulumi.StringArray{
-//					pulumi.String("ALL"),
+//					pulumi.String("DATA_LOCATION_ACCESS"),
 //				},
 //				DataLocation: &lakeformation.PermissionsDataLocationArgs{
-//					Arn: pulumi.Any(aws_lakeformation_resource.Example.Arn),
+//					Arn: pulumi.Any(exampleAwsLakeformationResource.Arn),
 //				},
 //			})
 //			if err != nil {
@@ -184,8 +190,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Grant Permissions For A Glue Catalog Database
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -199,14 +208,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewPermissions(ctx, "example", &lakeformation.PermissionsArgs{
-//				Principal: pulumi.Any(aws_iam_role.Workflow_role.Arn),
+//				Principal: pulumi.Any(workflowRole.Arn),
 //				Permissions: pulumi.StringArray{
 //					pulumi.String("CREATE_TABLE"),
 //					pulumi.String("ALTER"),
 //					pulumi.String("DROP"),
 //				},
 //				Database: &lakeformation.PermissionsDatabaseArgs{
-//					Name:      pulumi.Any(aws_glue_catalog_database.Example.Name),
+//					Name:      pulumi.Any(exampleAwsGlueCatalogDatabase.Name),
 //					CatalogId: pulumi.String("110376042874"),
 //				},
 //			})
@@ -218,8 +227,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Grant Permissions Using Tag-Based Access Control
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -233,7 +245,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewPermissions(ctx, "test", &lakeformation.PermissionsArgs{
-//				Principal: pulumi.Any(aws_iam_role.Sales_role.Arn),
+//				Principal: pulumi.Any(salesRole.Arn),
 //				Permissions: pulumi.StringArray{
 //					pulumi.String("CREATE_TABLE"),
 //					pulumi.String("ALTER"),
@@ -266,6 +278,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type Permissions struct {
 	pulumi.CustomResourceState
 
@@ -273,6 +286,8 @@ type Permissions struct {
 	CatalogId pulumi.StringPtrOutput `pulumi:"catalogId"`
 	// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
 	CatalogResource pulumi.BoolPtrOutput `pulumi:"catalogResource"`
+	// Configuration block for a data cells filter resource. Detailed below.
+	DataCellsFilter PermissionsDataCellsFilterPtrOutput `pulumi:"dataCellsFilter"`
 	// Configuration block for a data location resource. Detailed below.
 	DataLocation PermissionsDataLocationOutput `pulumi:"dataLocation"`
 	// Configuration block for a database resource. Detailed below.
@@ -339,6 +354,8 @@ type permissionsState struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
 	CatalogResource *bool `pulumi:"catalogResource"`
+	// Configuration block for a data cells filter resource. Detailed below.
+	DataCellsFilter *PermissionsDataCellsFilter `pulumi:"dataCellsFilter"`
 	// Configuration block for a data location resource. Detailed below.
 	DataLocation *PermissionsDataLocation `pulumi:"dataLocation"`
 	// Configuration block for a database resource. Detailed below.
@@ -370,6 +387,8 @@ type PermissionsState struct {
 	CatalogId pulumi.StringPtrInput
 	// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
 	CatalogResource pulumi.BoolPtrInput
+	// Configuration block for a data cells filter resource. Detailed below.
+	DataCellsFilter PermissionsDataCellsFilterPtrInput
 	// Configuration block for a data location resource. Detailed below.
 	DataLocation PermissionsDataLocationPtrInput
 	// Configuration block for a database resource. Detailed below.
@@ -405,6 +424,8 @@ type permissionsArgs struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
 	CatalogResource *bool `pulumi:"catalogResource"`
+	// Configuration block for a data cells filter resource. Detailed below.
+	DataCellsFilter *PermissionsDataCellsFilter `pulumi:"dataCellsFilter"`
 	// Configuration block for a data location resource. Detailed below.
 	DataLocation *PermissionsDataLocation `pulumi:"dataLocation"`
 	// Configuration block for a database resource. Detailed below.
@@ -437,6 +458,8 @@ type PermissionsArgs struct {
 	CatalogId pulumi.StringPtrInput
 	// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
 	CatalogResource pulumi.BoolPtrInput
+	// Configuration block for a data cells filter resource. Detailed below.
+	DataCellsFilter PermissionsDataCellsFilterPtrInput
 	// Configuration block for a data location resource. Detailed below.
 	DataLocation PermissionsDataLocationPtrInput
 	// Configuration block for a database resource. Detailed below.
@@ -558,6 +581,11 @@ func (o PermissionsOutput) CatalogId() pulumi.StringPtrOutput {
 // Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
 func (o PermissionsOutput) CatalogResource() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Permissions) pulumi.BoolPtrOutput { return v.CatalogResource }).(pulumi.BoolPtrOutput)
+}
+
+// Configuration block for a data cells filter resource. Detailed below.
+func (o PermissionsOutput) DataCellsFilter() PermissionsDataCellsFilterPtrOutput {
+	return o.ApplyT(func(v *Permissions) PermissionsDataCellsFilterPtrOutput { return v.DataCellsFilter }).(PermissionsDataCellsFilterPtrOutput)
 }
 
 // Configuration block for a data location resource. Detailed below.

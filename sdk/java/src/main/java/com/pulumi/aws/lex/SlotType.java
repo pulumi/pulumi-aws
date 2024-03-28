@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -67,13 +69,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import slot types using their name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
+ * $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
  * ```
  * 
  */

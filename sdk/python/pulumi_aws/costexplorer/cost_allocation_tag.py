@@ -118,21 +118,23 @@ class CostAllocationTag(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.costexplorer.CostAllocationTag("example",
-            status="Active",
-            tag_key="example")
+            tag_key="example",
+            status="Active")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ce_cost_allocation_tag` using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key
+        $ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key
         ```
 
         :param str resource_name: The name of the resource.
@@ -151,21 +153,23 @@ class CostAllocationTag(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.costexplorer.CostAllocationTag("example",
-            status="Active",
-            tag_key="example")
+            tag_key="example",
+            status="Active")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ce_cost_allocation_tag` using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key
+        $ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key
         ```
 
         :param str resource_name: The name of the resource.

@@ -19,16 +19,23 @@ import {Application, ApplicationVersion} from "./index";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const tftest = new aws.elasticbeanstalk.Application("tftest", {description: "tf-test-desc"});
+ * const tftest = new aws.elasticbeanstalk.Application("tftest", {
+ *     name: "tf-test-name",
+ *     description: "tf-test-desc",
+ * });
  * const tfenvtest = new aws.elasticbeanstalk.Environment("tfenvtest", {
+ *     name: "tf-test-name",
  *     application: tftest.name,
  *     solutionStackName: "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Option Settings
  *
  * Some options can be stack-specific, check [AWS Docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html)
@@ -43,12 +50,17 @@ import {Application, ApplicationVersion} from "./index";
  *
  * ### Example With Options
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const tftest = new aws.elasticbeanstalk.Application("tftest", {description: "tf-test-desc"});
+ * const tftest = new aws.elasticbeanstalk.Application("tftest", {
+ *     name: "tf-test-name",
+ *     description: "tf-test-desc",
+ * });
  * const tfenvtest = new aws.elasticbeanstalk.Environment("tfenvtest", {
+ *     name: "tf-test-name",
  *     application: tftest.name,
  *     solutionStackName: "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
  *     settings: [
@@ -65,13 +77,14 @@ import {Application, ApplicationVersion} from "./index";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Elastic Beanstalk Environments using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
+ * $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
  * ```
  */
 export class Environment extends pulumi.CustomResource {
@@ -284,8 +297,6 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["triggers"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Environment.__pulumiType, name, resourceInputs, opts);
     }
 }

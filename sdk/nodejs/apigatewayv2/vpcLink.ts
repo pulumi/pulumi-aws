@@ -12,25 +12,28 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigatewayv2.VpcLink("example", {
- *     securityGroupIds: [data.aws_security_group.example.id],
- *     subnetIds: data.aws_subnets.example.ids,
+ *     name: "example",
+ *     securityGroupIds: [exampleAwsSecurityGroup.id],
+ *     subnetIds: exampleAwsSubnets.ids,
  *     tags: {
  *         Usage: "example",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
+ * $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
  * ```
  */
 export class VpcLink extends pulumi.CustomResource {
@@ -123,8 +126,6 @@ export class VpcLink extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VpcLink.__pulumiType, name, resourceInputs, opts);
     }
 }

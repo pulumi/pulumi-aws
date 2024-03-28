@@ -4,6 +4,7 @@
 package com.pulumi.aws.eks.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,22 +58,28 @@ public final class GetNodeGroupRemoteAccess {
 
         @CustomType.Setter
         public Builder ec2SshKey(String ec2SshKey) {
-            this.ec2SshKey = Objects.requireNonNull(ec2SshKey);
+            if (ec2SshKey == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupRemoteAccess", "ec2SshKey");
+            }
+            this.ec2SshKey = ec2SshKey;
             return this;
         }
         @CustomType.Setter
         public Builder sourceSecurityGroupIds(List<String> sourceSecurityGroupIds) {
-            this.sourceSecurityGroupIds = Objects.requireNonNull(sourceSecurityGroupIds);
+            if (sourceSecurityGroupIds == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupRemoteAccess", "sourceSecurityGroupIds");
+            }
+            this.sourceSecurityGroupIds = sourceSecurityGroupIds;
             return this;
         }
         public Builder sourceSecurityGroupIds(String... sourceSecurityGroupIds) {
             return sourceSecurityGroupIds(List.of(sourceSecurityGroupIds));
         }
         public GetNodeGroupRemoteAccess build() {
-            final var o = new GetNodeGroupRemoteAccess();
-            o.ec2SshKey = ec2SshKey;
-            o.sourceSecurityGroupIds = sourceSecurityGroupIds;
-            return o;
+            final var _resultValue = new GetNodeGroupRemoteAccess();
+            _resultValue.ec2SshKey = ec2SshKey;
+            _resultValue.sourceSecurityGroupIds = sourceSecurityGroupIds;
+            return _resultValue;
         }
     }
 }

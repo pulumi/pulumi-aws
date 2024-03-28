@@ -20,6 +20,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,16 +35,18 @@ namespace Pulumi.Aws.AutoScaling
     ///         {
     ///             "us-east-1a",
     ///         },
+    ///         Name = "foobar3-test",
     ///         MaxSize = 5,
     ///         MinSize = 2,
     ///         HealthCheckGracePeriod = 300,
     ///         HealthCheckType = "ELB",
     ///         ForceDelete = true,
-    ///         LaunchConfiguration = aws_launch_configuration.Foo.Name,
+    ///         LaunchConfiguration = foo.Name,
     ///     });
     /// 
     ///     var bat = new Aws.AutoScaling.Policy("bat", new()
     ///     {
+    ///         Name = "foobar3-test",
     ///         ScalingAdjustment = 4,
     ///         AdjustmentType = "ChangeInCapacity",
     ///         Cooldown = 300,
@@ -52,8 +55,11 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Create target tracking scaling policy using metric math
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,21 +71,25 @@ namespace Pulumi.Aws.AutoScaling
     ///     var example = new Aws.AutoScaling.Policy("example", new()
     ///     {
     ///         AutoscalingGroupName = "my-test-asg",
+    ///         Name = "foo",
     ///         PolicyType = "TargetTrackingScaling",
     ///         TargetTrackingConfiguration = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationArgs
     ///         {
+    ///             TargetValue = 100,
     ///             CustomizedMetricSpecification = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs
     ///             {
     ///                 Metrics = new[]
     ///                 {
     ///                     new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs
     ///                     {
-    ///                         Id = "m1",
     ///                         Label = "Get the queue size (the number of messages waiting to be processed)",
+    ///                         Id = "m1",
     ///                         MetricStat = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs
     ///                         {
     ///                             Metric = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs
     ///                             {
+    ///                                 Namespace = "AWS/SQS",
+    ///                                 MetricName = "ApproximateNumberOfMessagesVisible",
     ///                                 Dimensions = new[]
     ///                                 {
     ///                                     new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs
@@ -88,8 +98,6 @@ namespace Pulumi.Aws.AutoScaling
     ///                                         Value = "my-queue",
     ///                                     },
     ///                                 },
-    ///                                 MetricName = "ApproximateNumberOfMessagesVisible",
-    ///                                 Namespace = "AWS/SQS",
     ///                             },
     ///                             Stat = "Sum",
     ///                         },
@@ -97,12 +105,14 @@ namespace Pulumi.Aws.AutoScaling
     ///                     },
     ///                     new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs
     ///                     {
-    ///                         Id = "m2",
     ///                         Label = "Get the group size (the number of InService instances)",
+    ///                         Id = "m2",
     ///                         MetricStat = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs
     ///                         {
     ///                             Metric = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs
     ///                             {
+    ///                                 Namespace = "AWS/AutoScaling",
+    ///                                 MetricName = "GroupInServiceInstances",
     ///                                 Dimensions = new[]
     ///                                 {
     ///                                     new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs
@@ -111,8 +121,6 @@ namespace Pulumi.Aws.AutoScaling
     ///                                         Value = "my-asg",
     ///                                     },
     ///                                 },
-    ///                                 MetricName = "GroupInServiceInstances",
-    ///                                 Namespace = "AWS/AutoScaling",
     ///                             },
     ///                             Stat = "Average",
     ///                         },
@@ -120,21 +128,23 @@ namespace Pulumi.Aws.AutoScaling
     ///                     },
     ///                     new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs
     ///                     {
-    ///                         Expression = "m1 / m2",
-    ///                         Id = "e1",
     ///                         Label = "Calculate the backlog per instance",
+    ///                         Id = "e1",
+    ///                         Expression = "m1 / m2",
     ///                         ReturnData = true,
     ///                     },
     ///                 },
     ///             },
-    ///             TargetValue = 100,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Create predictive scaling policy using customized metrics
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -146,30 +156,32 @@ namespace Pulumi.Aws.AutoScaling
     ///     var example = new Aws.AutoScaling.Policy("example", new()
     ///     {
     ///         AutoscalingGroupName = "my-test-asg",
+    ///         Name = "foo",
     ///         PolicyType = "PredictiveScaling",
     ///         PredictiveScalingConfiguration = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationArgs
     ///         {
     ///             MetricSpecification = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationArgs
     ///             {
-    ///                 CustomizedCapacityMetricSpecification = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs
-    ///                 {
-    ///                     MetricDataQueries = new[]
-    ///                     {
-    ///                         new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs
-    ///                         {
-    ///                             Expression = "SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))",
-    ///                             Id = "capacity_sum",
-    ///                         },
-    ///                     },
-    ///                 },
+    ///                 TargetValue = 10,
     ///                 CustomizedLoadMetricSpecification = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs
     ///                 {
     ///                     MetricDataQueries = new[]
     ///                     {
     ///                         new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs
     ///                         {
-    ///                             Expression = "SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 3600))",
     ///                             Id = "load_sum",
+    ///                             Expression = "SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 3600))",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 CustomizedCapacityMetricSpecification = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs
+    ///                 {
+    ///                     MetricDataQueries = new[]
+    ///                     {
+    ///                         new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs
+    ///                         {
+    ///                             Id = "capacity_sum",
+    ///                             Expression = "SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))",
     ///                         },
     ///                     },
     ///                 },
@@ -179,32 +191,34 @@ namespace Pulumi.Aws.AutoScaling
     ///                     {
     ///                         new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs
     ///                         {
-    ///                             Expression = "SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))",
     ///                             Id = "capacity_sum",
+    ///                             Expression = "SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))",
     ///                             ReturnData = false,
     ///                         },
     ///                         new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs
     ///                         {
-    ///                             Expression = "SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 300))",
     ///                             Id = "load_sum",
+    ///                             Expression = "SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 300))",
     ///                             ReturnData = false,
     ///                         },
     ///                         new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs
     ///                         {
-    ///                             Expression = "load_sum / (capacity_sum * PERIOD(capacity_sum) / 60)",
     ///                             Id = "weighted_average",
+    ///                             Expression = "load_sum / (capacity_sum * PERIOD(capacity_sum) / 60)",
     ///                         },
     ///                     },
     ///                 },
-    ///                 TargetValue = 10,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Create predictive scaling policy using customized scaling and predefined load metric
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -216,11 +230,18 @@ namespace Pulumi.Aws.AutoScaling
     ///     var example = new Aws.AutoScaling.Policy("example", new()
     ///     {
     ///         AutoscalingGroupName = "my-test-asg",
+    ///         Name = "foo",
     ///         PolicyType = "PredictiveScaling",
     ///         PredictiveScalingConfiguration = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationArgs
     ///         {
     ///             MetricSpecification = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationArgs
     ///             {
+    ///                 TargetValue = 10,
+    ///                 PredefinedLoadMetricSpecification = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs
+    ///                 {
+    ///                     PredefinedMetricType = "ASGTotalCPUUtilization",
+    ///                     ResourceLabel = "app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff",
+    ///                 },
     ///                 CustomizedScalingMetricSpecification = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs
     ///                 {
     ///                     MetricDataQueries = new[]
@@ -232,6 +253,8 @@ namespace Pulumi.Aws.AutoScaling
     ///                             {
     ///                                 Metric = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs
     ///                                 {
+    ///                                     MetricName = "CPUUtilization",
+    ///                                     Namespace = "AWS/EC2",
     ///                                     Dimensions = new[]
     ///                                     {
     ///                                         new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs
@@ -240,33 +263,26 @@ namespace Pulumi.Aws.AutoScaling
     ///                                             Value = "my-test-asg",
     ///                                         },
     ///                                     },
-    ///                                     MetricName = "CPUUtilization",
-    ///                                     Namespace = "AWS/EC2",
     ///                                 },
     ///                                 Stat = "Average",
     ///                             },
     ///                         },
     ///                     },
     ///                 },
-    ///                 PredefinedLoadMetricSpecification = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs
-    ///                 {
-    ///                     PredefinedMetricType = "ASGTotalCPUUtilization",
-    ///                     ResourceLabel = "app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff",
-    ///                 },
-    ///                 TargetValue = 10,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AutoScaling scaling policy using the role autoscaling_group_name and name separated by `/`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
+    /// $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:autoscaling/policy:Policy")]
@@ -354,6 +370,7 @@ namespace Pulumi.Aws.AutoScaling
         /// Set of adjustments that manage
         /// group scaling. These have the following structure:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -368,21 +385,22 @@ namespace Pulumi.Aws.AutoScaling
         ///         {
         ///             new Aws.AutoScaling.Inputs.PolicyStepAdjustmentArgs
         ///             {
+        ///                 ScalingAdjustment = -1,
         ///                 MetricIntervalLowerBound = "1",
         ///                 MetricIntervalUpperBound = "2",
-        ///                 ScalingAdjustment = -1,
         ///             },
         ///             new Aws.AutoScaling.Inputs.PolicyStepAdjustmentArgs
         ///             {
+        ///                 ScalingAdjustment = 1,
         ///                 MetricIntervalLowerBound = "2",
         ///                 MetricIntervalUpperBound = "3",
-        ///                 ScalingAdjustment = 1,
         ///             },
         ///         },
         ///     });
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// The following fields are available in step adjustments:
         /// </summary>
@@ -392,6 +410,7 @@ namespace Pulumi.Aws.AutoScaling
         /// <summary>
         /// Target tracking policy. These have the following structure:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -414,6 +433,7 @@ namespace Pulumi.Aws.AutoScaling
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// The following fields are available in target tracking configuration:
         /// </summary>
@@ -545,6 +565,7 @@ namespace Pulumi.Aws.AutoScaling
         /// Set of adjustments that manage
         /// group scaling. These have the following structure:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -559,21 +580,22 @@ namespace Pulumi.Aws.AutoScaling
         ///         {
         ///             new Aws.AutoScaling.Inputs.PolicyStepAdjustmentArgs
         ///             {
+        ///                 ScalingAdjustment = -1,
         ///                 MetricIntervalLowerBound = "1",
         ///                 MetricIntervalUpperBound = "2",
-        ///                 ScalingAdjustment = -1,
         ///             },
         ///             new Aws.AutoScaling.Inputs.PolicyStepAdjustmentArgs
         ///             {
+        ///                 ScalingAdjustment = 1,
         ///                 MetricIntervalLowerBound = "2",
         ///                 MetricIntervalUpperBound = "3",
-        ///                 ScalingAdjustment = 1,
         ///             },
         ///         },
         ///     });
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// The following fields are available in step adjustments:
         /// </summary>
@@ -586,6 +608,7 @@ namespace Pulumi.Aws.AutoScaling
         /// <summary>
         /// Target tracking policy. These have the following structure:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -608,6 +631,7 @@ namespace Pulumi.Aws.AutoScaling
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// The following fields are available in target tracking configuration:
         /// </summary>
@@ -707,6 +731,7 @@ namespace Pulumi.Aws.AutoScaling
         /// Set of adjustments that manage
         /// group scaling. These have the following structure:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -721,21 +746,22 @@ namespace Pulumi.Aws.AutoScaling
         ///         {
         ///             new Aws.AutoScaling.Inputs.PolicyStepAdjustmentArgs
         ///             {
+        ///                 ScalingAdjustment = -1,
         ///                 MetricIntervalLowerBound = "1",
         ///                 MetricIntervalUpperBound = "2",
-        ///                 ScalingAdjustment = -1,
         ///             },
         ///             new Aws.AutoScaling.Inputs.PolicyStepAdjustmentArgs
         ///             {
+        ///                 ScalingAdjustment = 1,
         ///                 MetricIntervalLowerBound = "2",
         ///                 MetricIntervalUpperBound = "3",
-        ///                 ScalingAdjustment = 1,
         ///             },
         ///         },
         ///     });
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// The following fields are available in step adjustments:
         /// </summary>
@@ -748,6 +774,7 @@ namespace Pulumi.Aws.AutoScaling
         /// <summary>
         /// Target tracking policy. These have the following structure:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -770,6 +797,7 @@ namespace Pulumi.Aws.AutoScaling
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// The following fields are available in target tracking configuration:
         /// </summary>

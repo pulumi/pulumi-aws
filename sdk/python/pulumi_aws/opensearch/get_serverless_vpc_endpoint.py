@@ -120,12 +120,14 @@ def get_serverless_vpc_endpoint(vpc_endpoint_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.opensearch.get_serverless_vpc_endpoint(vpc_endpoint_id="vpce-829a4487959e2a839")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str vpc_endpoint_id: The unique identifier of the endpoint.
@@ -153,12 +155,14 @@ def get_serverless_vpc_endpoint_output(vpc_endpoint_id: Optional[pulumi.Input[st
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.opensearch.get_serverless_vpc_endpoint(vpc_endpoint_id="vpce-829a4487959e2a839")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str vpc_endpoint_id: The unique identifier of the endpoint.

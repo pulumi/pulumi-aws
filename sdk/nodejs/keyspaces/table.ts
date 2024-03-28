@@ -14,12 +14,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.keyspaces.Table("example", {
- *     keyspaceName: aws_keyspaces_keyspace.example.name,
+ *     keyspaceName: exampleAwsKeyspacesKeyspace.name,
  *     tableName: "my_table",
  *     schemaDefinition: {
  *         columns: [{
@@ -32,13 +33,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For example:
  *
  * ```sh
- *  $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
+ * $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
  * ```
  */
 export class Table extends pulumi.CustomResource {
@@ -178,8 +180,6 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Table.__pulumiType, name, resourceInputs, opts);
     }
 }

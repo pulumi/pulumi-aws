@@ -15,8 +15,10 @@ namespace Pulumi.Aws.Ec2
     /// &gt; **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), subnets associated with Lambda Functions can take up to 45 minutes to successfully delete.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,7 +29,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var main = new Aws.Ec2.Subnet("main", new()
     ///     {
-    ///         VpcId = aws_vpc.Main.Id,
+    ///         VpcId = mainAwsVpc.Id,
     ///         CidrBlock = "10.0.1.0/24",
     ///         Tags = 
     ///         {
@@ -37,11 +39,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Subnets In Secondary VPC CIDR Blocks
     /// 
     /// When managing subnets in one of a VPC's secondary CIDR blocks created using a `aws.ec2.VpcIpv4CidrBlockAssociation`
     /// resource, it is recommended to reference that resource's `vpc_id` attribute to ensure correct dependency ordering.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,13 +55,13 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var secondaryCidr = new Aws.Ec2.VpcIpv4CidrBlockAssociation("secondaryCidr", new()
+    ///     var secondaryCidr = new Aws.Ec2.VpcIpv4CidrBlockAssociation("secondary_cidr", new()
     ///     {
-    ///         VpcId = aws_vpc.Main.Id,
+    ///         VpcId = main.Id,
     ///         CidrBlock = "172.20.0.0/16",
     ///     });
     /// 
-    ///     var inSecondaryCidr = new Aws.Ec2.Subnet("inSecondaryCidr", new()
+    ///     var inSecondaryCidr = new Aws.Ec2.Subnet("in_secondary_cidr", new()
     ///     {
     ///         VpcId = secondaryCidr.VpcId,
     ///         CidrBlock = "172.20.0.0/24",
@@ -64,13 +69,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import subnets using the subnet `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/subnet:Subnet public_subnet subnet-9d4a7b6c
+    /// $ pulumi import aws:ec2/subnet:Subnet public_subnet subnet-9d4a7b6c
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/subnet:Subnet")]
@@ -230,10 +236,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -513,11 +515,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

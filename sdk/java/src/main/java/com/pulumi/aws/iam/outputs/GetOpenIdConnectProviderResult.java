@@ -4,6 +4,7 @@
 package com.pulumi.aws.iam.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -98,12 +99,18 @@ public final class GetOpenIdConnectProviderResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetOpenIdConnectProviderResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder clientIdLists(List<String> clientIdLists) {
-            this.clientIdLists = Objects.requireNonNull(clientIdLists);
+            if (clientIdLists == null) {
+              throw new MissingRequiredPropertyException("GetOpenIdConnectProviderResult", "clientIdLists");
+            }
+            this.clientIdLists = clientIdLists;
             return this;
         }
         public Builder clientIdLists(String... clientIdLists) {
@@ -111,17 +118,26 @@ public final class GetOpenIdConnectProviderResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetOpenIdConnectProviderResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetOpenIdConnectProviderResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder thumbprintLists(List<String> thumbprintLists) {
-            this.thumbprintLists = Objects.requireNonNull(thumbprintLists);
+            if (thumbprintLists == null) {
+              throw new MissingRequiredPropertyException("GetOpenIdConnectProviderResult", "thumbprintLists");
+            }
+            this.thumbprintLists = thumbprintLists;
             return this;
         }
         public Builder thumbprintLists(String... thumbprintLists) {
@@ -129,18 +145,21 @@ public final class GetOpenIdConnectProviderResult {
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("GetOpenIdConnectProviderResult", "url");
+            }
+            this.url = url;
             return this;
         }
         public GetOpenIdConnectProviderResult build() {
-            final var o = new GetOpenIdConnectProviderResult();
-            o.arn = arn;
-            o.clientIdLists = clientIdLists;
-            o.id = id;
-            o.tags = tags;
-            o.thumbprintLists = thumbprintLists;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetOpenIdConnectProviderResult();
+            _resultValue.arn = arn;
+            _resultValue.clientIdLists = clientIdLists;
+            _resultValue.id = id;
+            _resultValue.tags = tags;
+            _resultValue.thumbprintLists = thumbprintLists;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

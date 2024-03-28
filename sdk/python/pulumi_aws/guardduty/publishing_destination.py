@@ -175,13 +175,16 @@ class PublishingDestination(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        current_caller_identity = aws.get_caller_identity()
-        current_region = aws.get_region()
-        gd_bucket = aws.s3.BucketV2("gdBucket", force_destroy=True)
+        current = aws.get_caller_identity()
+        current_get_region = aws.get_region()
+        gd_bucket = aws.s3.BucketV2("gd_bucket",
+            bucket="example",
+            force_destroy=True)
         bucket_pol = aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="Allow PutObject",
@@ -206,7 +209,7 @@ class PublishingDestination(pulumi.CustomResource):
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="Allow GuardDuty to encrypt findings",
                 actions=["kms:GenerateDataKey"],
-                resources=[f"arn:aws:kms:{current_region.name}:{current_caller_identity.account_id}:key/*"],
+                resources=[f"arn:aws:kms:{current_get_region.name}:{current.account_id}:key/*"],
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="Service",
                     identifiers=["guardduty.amazonaws.com"],
@@ -215,30 +218,30 @@ class PublishingDestination(pulumi.CustomResource):
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="Allow all users to modify/delete key (test only)",
                 actions=["kms:*"],
-                resources=[f"arn:aws:kms:{current_region.name}:{current_caller_identity.account_id}:key/*"],
+                resources=[f"arn:aws:kms:{current_get_region.name}:{current.account_id}:key/*"],
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="AWS",
-                    identifiers=[f"arn:aws:iam::{current_caller_identity.account_id}:root"],
+                    identifiers=[f"arn:aws:iam::{current.account_id}:root"],
                 )],
             ),
         ])
-        test_gd = aws.guardduty.Detector("testGd", enable=True)
-        gd_bucket_acl = aws.s3.BucketAclV2("gdBucketAcl",
+        test_gd = aws.guardduty.Detector("test_gd", enable=True)
+        gd_bucket_acl = aws.s3.BucketAclV2("gd_bucket_acl",
             bucket=gd_bucket.id,
             acl="private")
-        gd_bucket_policy = aws.s3.BucketPolicy("gdBucketPolicy",
+        gd_bucket_policy = aws.s3.BucketPolicy("gd_bucket_policy",
             bucket=gd_bucket.id,
             policy=bucket_pol.json)
-        gd_key = aws.kms.Key("gdKey",
+        gd_key = aws.kms.Key("gd_key",
             description="Temporary key for AccTest of TF",
             deletion_window_in_days=7,
             policy=kms_pol.json)
         test = aws.guardduty.PublishingDestination("test",
             detector_id=test_gd.id,
             destination_arn=gd_bucket.arn,
-            kms_key_arn=gd_key.arn,
-            opts=pulumi.ResourceOptions(depends_on=[gd_bucket_policy]))
+            kms_key_arn=gd_key.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         > **Note:** Please do not use this simple example for Bucket-Policy and KMS Key Policy in a production environment. It is much too open for such a use-case. Refer to the AWS documentation here: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html
 
@@ -247,7 +250,7 @@ class PublishingDestination(pulumi.CustomResource):
         Using `pulumi import`, import GuardDuty PublishingDestination using the master GuardDuty detector ID and PublishingDestinationID. For example:
 
         ```sh
-         $ pulumi import aws:guardduty/publishingDestination:PublishingDestination test a4b86f26fa42e7e7cf0d1c333ea77777:a4b86f27a0e464e4a7e0516d242f1234
+        $ pulumi import aws:guardduty/publishingDestination:PublishingDestination test a4b86f26fa42e7e7cf0d1c333ea77777:a4b86f27a0e464e4a7e0516d242f1234
         ```
 
         :param str resource_name: The name of the resource.
@@ -270,13 +273,16 @@ class PublishingDestination(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        current_caller_identity = aws.get_caller_identity()
-        current_region = aws.get_region()
-        gd_bucket = aws.s3.BucketV2("gdBucket", force_destroy=True)
+        current = aws.get_caller_identity()
+        current_get_region = aws.get_region()
+        gd_bucket = aws.s3.BucketV2("gd_bucket",
+            bucket="example",
+            force_destroy=True)
         bucket_pol = aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="Allow PutObject",
@@ -301,7 +307,7 @@ class PublishingDestination(pulumi.CustomResource):
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="Allow GuardDuty to encrypt findings",
                 actions=["kms:GenerateDataKey"],
-                resources=[f"arn:aws:kms:{current_region.name}:{current_caller_identity.account_id}:key/*"],
+                resources=[f"arn:aws:kms:{current_get_region.name}:{current.account_id}:key/*"],
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="Service",
                     identifiers=["guardduty.amazonaws.com"],
@@ -310,30 +316,30 @@ class PublishingDestination(pulumi.CustomResource):
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="Allow all users to modify/delete key (test only)",
                 actions=["kms:*"],
-                resources=[f"arn:aws:kms:{current_region.name}:{current_caller_identity.account_id}:key/*"],
+                resources=[f"arn:aws:kms:{current_get_region.name}:{current.account_id}:key/*"],
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="AWS",
-                    identifiers=[f"arn:aws:iam::{current_caller_identity.account_id}:root"],
+                    identifiers=[f"arn:aws:iam::{current.account_id}:root"],
                 )],
             ),
         ])
-        test_gd = aws.guardduty.Detector("testGd", enable=True)
-        gd_bucket_acl = aws.s3.BucketAclV2("gdBucketAcl",
+        test_gd = aws.guardduty.Detector("test_gd", enable=True)
+        gd_bucket_acl = aws.s3.BucketAclV2("gd_bucket_acl",
             bucket=gd_bucket.id,
             acl="private")
-        gd_bucket_policy = aws.s3.BucketPolicy("gdBucketPolicy",
+        gd_bucket_policy = aws.s3.BucketPolicy("gd_bucket_policy",
             bucket=gd_bucket.id,
             policy=bucket_pol.json)
-        gd_key = aws.kms.Key("gdKey",
+        gd_key = aws.kms.Key("gd_key",
             description="Temporary key for AccTest of TF",
             deletion_window_in_days=7,
             policy=kms_pol.json)
         test = aws.guardduty.PublishingDestination("test",
             detector_id=test_gd.id,
             destination_arn=gd_bucket.arn,
-            kms_key_arn=gd_key.arn,
-            opts=pulumi.ResourceOptions(depends_on=[gd_bucket_policy]))
+            kms_key_arn=gd_key.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         > **Note:** Please do not use this simple example for Bucket-Policy and KMS Key Policy in a production environment. It is much too open for such a use-case. Refer to the AWS documentation here: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html
 
@@ -342,7 +348,7 @@ class PublishingDestination(pulumi.CustomResource):
         Using `pulumi import`, import GuardDuty PublishingDestination using the master GuardDuty detector ID and PublishingDestinationID. For example:
 
         ```sh
-         $ pulumi import aws:guardduty/publishingDestination:PublishingDestination test a4b86f26fa42e7e7cf0d1c333ea77777:a4b86f27a0e464e4a7e0516d242f1234
+        $ pulumi import aws:guardduty/publishingDestination:PublishingDestination test a4b86f26fa42e7e7cf0d1c333ea77777:a4b86f27a0e464e4a7e0516d242f1234
         ```
 
         :param str resource_name: The name of the resource.

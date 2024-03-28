@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,17 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//			exampleVpc, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("10.1.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleInternetGateway, err := ec2.NewInternetGateway(ctx, "exampleInternetGateway", nil)
+//			exampleInternetGateway, err := ec2.NewInternetGateway(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewInternetGatewayAttachment(ctx, "exampleInternetGatewayAttachment", &ec2.InternetGatewayAttachmentArgs{
+//			_, err = ec2.NewInternetGatewayAttachment(ctx, "example", &ec2.InternetGatewayAttachmentArgs{
 //				InternetGatewayId: exampleInternetGateway.ID(),
 //				VpcId:             exampleVpc.ID(),
 //			})
@@ -50,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Internet Gateway Attachments using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/internetGatewayAttachment:InternetGatewayAttachment example igw-c0a643a9:vpc-123456
-//
+// $ pulumi import aws:ec2/internetGatewayAttachment:InternetGatewayAttachment example igw-c0a643a9:vpc-123456
 // ```
 type InternetGatewayAttachment struct {
 	pulumi.CustomResourceState

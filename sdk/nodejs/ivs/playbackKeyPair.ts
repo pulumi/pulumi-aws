@@ -8,22 +8,27 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS IVS (Interactive Video) Playback Key Pair.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const example = new aws.ivs.PlaybackKeyPair("example", {publicKey: fs.readFileSync("./public-key.pem")});
+ * const example = new aws.ivs.PlaybackKeyPair("example", {publicKey: std.file({
+ *     input: "./public-key.pem",
+ * }).then(invoke => invoke.result)});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IVS (Interactive Video) Playback Key Pair using the ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
+ * $ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
  * ```
  */
 export class PlaybackKeyPair extends pulumi.CustomResource {
@@ -115,8 +120,6 @@ export class PlaybackKeyPair extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(PlaybackKeyPair.__pulumiType, name, resourceInputs, opts);
     }
 }

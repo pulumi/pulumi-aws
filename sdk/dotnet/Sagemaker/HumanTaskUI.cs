@@ -14,12 +14,13 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -28,19 +29,23 @@ namespace Pulumi.Aws.Sagemaker
     ///         HumanTaskUiName = "example",
     ///         UiTemplate = new Aws.Sagemaker.Inputs.HumanTaskUIUiTemplateArgs
     ///         {
-    ///             Content = File.ReadAllText("sagemaker-human-task-ui-template.html"),
+    ///             Content = Std.File.Invoke(new()
+    ///             {
+    ///                 Input = "sagemaker-human-task-ui-template.html",
+    ///             }).Apply(invoke =&gt; invoke.Result),
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SageMaker Human Task UIs using the `human_task_ui_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
+    /// $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/humanTaskUI:HumanTaskUI")]
@@ -99,10 +104,6 @@ namespace Pulumi.Aws.Sagemaker
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -192,11 +193,7 @@ namespace Pulumi.Aws.Sagemaker
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesis.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,25 +71,34 @@ public final class AnalyticsApplicationReferenceDataSourcesS3 {
 
         @CustomType.Setter
         public Builder bucketArn(String bucketArn) {
-            this.bucketArn = Objects.requireNonNull(bucketArn);
+            if (bucketArn == null) {
+              throw new MissingRequiredPropertyException("AnalyticsApplicationReferenceDataSourcesS3", "bucketArn");
+            }
+            this.bucketArn = bucketArn;
             return this;
         }
         @CustomType.Setter
         public Builder fileKey(String fileKey) {
-            this.fileKey = Objects.requireNonNull(fileKey);
+            if (fileKey == null) {
+              throw new MissingRequiredPropertyException("AnalyticsApplicationReferenceDataSourcesS3", "fileKey");
+            }
+            this.fileKey = fileKey;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("AnalyticsApplicationReferenceDataSourcesS3", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         public AnalyticsApplicationReferenceDataSourcesS3 build() {
-            final var o = new AnalyticsApplicationReferenceDataSourcesS3();
-            o.bucketArn = bucketArn;
-            o.fileKey = fileKey;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new AnalyticsApplicationReferenceDataSourcesS3();
+            _resultValue.bucketArn = bucketArn;
+            _resultValue.fileKey = fileKey;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

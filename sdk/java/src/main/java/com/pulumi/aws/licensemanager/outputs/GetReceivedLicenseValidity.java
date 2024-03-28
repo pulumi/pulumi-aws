@@ -4,6 +4,7 @@
 package com.pulumi.aws.licensemanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class GetReceivedLicenseValidity {
 
         @CustomType.Setter
         public Builder begin(String begin) {
-            this.begin = Objects.requireNonNull(begin);
+            if (begin == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseValidity", "begin");
+            }
+            this.begin = begin;
             return this;
         }
         @CustomType.Setter
         public Builder end(String end) {
-            this.end = Objects.requireNonNull(end);
+            if (end == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseValidity", "end");
+            }
+            this.end = end;
             return this;
         }
         public GetReceivedLicenseValidity build() {
-            final var o = new GetReceivedLicenseValidity();
-            o.begin = begin;
-            o.end = end;
-            return o;
+            final var _resultValue = new GetReceivedLicenseValidity();
+            _resultValue.begin = begin;
+            _resultValue.end = end;
+            return _resultValue;
         }
     }
 }

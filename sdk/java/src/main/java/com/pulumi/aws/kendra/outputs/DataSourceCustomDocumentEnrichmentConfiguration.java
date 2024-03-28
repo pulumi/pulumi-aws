@@ -90,6 +90,7 @@ public final class DataSourceCustomDocumentEnrichmentConfiguration {
 
         @CustomType.Setter
         public Builder inlineConfigurations(@Nullable List<DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration> inlineConfigurations) {
+
             this.inlineConfigurations = inlineConfigurations;
             return this;
         }
@@ -98,26 +99,29 @@ public final class DataSourceCustomDocumentEnrichmentConfiguration {
         }
         @CustomType.Setter
         public Builder postExtractionHookConfiguration(@Nullable DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration postExtractionHookConfiguration) {
+
             this.postExtractionHookConfiguration = postExtractionHookConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder preExtractionHookConfiguration(@Nullable DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration preExtractionHookConfiguration) {
+
             this.preExtractionHookConfiguration = preExtractionHookConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(@Nullable String roleArn) {
+
             this.roleArn = roleArn;
             return this;
         }
         public DataSourceCustomDocumentEnrichmentConfiguration build() {
-            final var o = new DataSourceCustomDocumentEnrichmentConfiguration();
-            o.inlineConfigurations = inlineConfigurations;
-            o.postExtractionHookConfiguration = postExtractionHookConfiguration;
-            o.preExtractionHookConfiguration = preExtractionHookConfiguration;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new DataSourceCustomDocumentEnrichmentConfiguration();
+            _resultValue.inlineConfigurations = inlineConfigurations;
+            _resultValue.postExtractionHookConfiguration = postExtractionHookConfiguration;
+            _resultValue.preExtractionHookConfiguration = preExtractionHookConfiguration;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

@@ -435,6 +435,10 @@ class ExportTaskTimeoutsArgs:
     def __init__(__self__, *,
                  create: Optional[pulumi.Input[str]] = None,
                  delete: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
         if create is not None:
             pulumi.set(__self__, "create", create)
         if delete is not None:
@@ -443,6 +447,9 @@ class ExportTaskTimeoutsArgs:
     @property
     @pulumi.getter
     def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
         return pulumi.get(self, "create")
 
     @create.setter
@@ -452,6 +459,9 @@ class ExportTaskTimeoutsArgs:
     @property
     @pulumi.getter
     def delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
         return pulumi.get(self, "delete")
 
     @delete.setter
@@ -835,7 +845,7 @@ class OptionGroupOptionArgs:
         """
         :param pulumi.Input[str] option_name: Name of the option (e.g., MEMCACHED).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] db_security_group_memberships: List of DB Security Groups for which the option is enabled.
-        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArgs']]] option_settings: List of option settings to apply.
+        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArgs']]] option_settings: The option settings to apply. See `option_settings` Block below for more details.
         :param pulumi.Input[int] port: Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
         :param pulumi.Input[str] version: Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_memberships: List of VPC Security Groups for which the option is enabled.
@@ -880,7 +890,7 @@ class OptionGroupOptionArgs:
     @pulumi.getter(name="optionSettings")
     def option_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArgs']]]]:
         """
-        List of option settings to apply.
+        The option settings to apply. See `option_settings` Block below for more details.
         """
         return pulumi.get(self, "option_settings")
 

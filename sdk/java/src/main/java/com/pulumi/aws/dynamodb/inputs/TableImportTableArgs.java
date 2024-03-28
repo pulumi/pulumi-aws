@@ -7,6 +7,7 @@ import com.pulumi.aws.dynamodb.inputs.TableImportTableInputFormatOptionsArgs;
 import com.pulumi.aws.dynamodb.inputs.TableImportTableS3BucketSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -18,14 +19,16 @@ public final class TableImportTableArgs extends com.pulumi.resources.ResourceArg
     public static final TableImportTableArgs Empty = new TableImportTableArgs();
 
     /**
-     * Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
+     * Type of compression to be used on the input coming from the imported table.
+     * Valid values are `GZIP`, `ZSTD` and `NONE`.
      * 
      */
     @Import(name="inputCompressionType")
     private @Nullable Output<String> inputCompressionType;
 
     /**
-     * @return Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
+     * @return Type of compression to be used on the input coming from the imported table.
+     * Valid values are `GZIP`, `ZSTD` and `NONE`.
      * 
      */
     public Optional<Output<String>> inputCompressionType() {
@@ -33,14 +36,16 @@ public final class TableImportTableArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The format of the source data. Valid values are `CSV`, `DYNAMODB_JSON` and `ION`.
+     * The format of the source data.
+     * Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
      * 
      */
     @Import(name="inputFormat", required=true)
     private Output<String> inputFormat;
 
     /**
-     * @return The format of the source data. Valid values are `CSV`, `DYNAMODB_JSON` and `ION`.
+     * @return The format of the source data.
+     * Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
      * 
      */
     public Output<String> inputFormat() {
@@ -48,14 +53,18 @@ public final class TableImportTableArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
+     * Describe the format options for the data that was imported into the target table.
+     * There is one value, `csv`.
+     * See below.
      * 
      */
     @Import(name="inputFormatOptions")
     private @Nullable Output<TableImportTableInputFormatOptionsArgs> inputFormatOptions;
 
     /**
-     * @return Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
+     * @return Describe the format options for the data that was imported into the target table.
+     * There is one value, `csv`.
+     * See below.
      * 
      */
     public Optional<Output<TableImportTableInputFormatOptionsArgs>> inputFormatOptions() {
@@ -63,14 +72,16 @@ public final class TableImportTableArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Values for the S3 bucket the source file is imported from. See below.
+     * Values for the S3 bucket the source file is imported from.
+     * See below.
      * 
      */
     @Import(name="s3BucketSource", required=true)
     private Output<TableImportTableS3BucketSourceArgs> s3BucketSource;
 
     /**
-     * @return Values for the S3 bucket the source file is imported from. See below.
+     * @return Values for the S3 bucket the source file is imported from.
+     * See below.
      * 
      */
     public Output<TableImportTableS3BucketSourceArgs> s3BucketSource() {
@@ -105,7 +116,8 @@ public final class TableImportTableArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param inputCompressionType Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
+         * @param inputCompressionType Type of compression to be used on the input coming from the imported table.
+         * Valid values are `GZIP`, `ZSTD` and `NONE`.
          * 
          * @return builder
          * 
@@ -116,7 +128,8 @@ public final class TableImportTableArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param inputCompressionType Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
+         * @param inputCompressionType Type of compression to be used on the input coming from the imported table.
+         * Valid values are `GZIP`, `ZSTD` and `NONE`.
          * 
          * @return builder
          * 
@@ -126,7 +139,8 @@ public final class TableImportTableArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param inputFormat The format of the source data. Valid values are `CSV`, `DYNAMODB_JSON` and `ION`.
+         * @param inputFormat The format of the source data.
+         * Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
          * 
          * @return builder
          * 
@@ -137,7 +151,8 @@ public final class TableImportTableArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param inputFormat The format of the source data. Valid values are `CSV`, `DYNAMODB_JSON` and `ION`.
+         * @param inputFormat The format of the source data.
+         * Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
          * 
          * @return builder
          * 
@@ -147,7 +162,9 @@ public final class TableImportTableArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param inputFormatOptions Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
+         * @param inputFormatOptions Describe the format options for the data that was imported into the target table.
+         * There is one value, `csv`.
+         * See below.
          * 
          * @return builder
          * 
@@ -158,7 +175,9 @@ public final class TableImportTableArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param inputFormatOptions Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
+         * @param inputFormatOptions Describe the format options for the data that was imported into the target table.
+         * There is one value, `csv`.
+         * See below.
          * 
          * @return builder
          * 
@@ -168,7 +187,8 @@ public final class TableImportTableArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param s3BucketSource Values for the S3 bucket the source file is imported from. See below.
+         * @param s3BucketSource Values for the S3 bucket the source file is imported from.
+         * See below.
          * 
          * @return builder
          * 
@@ -179,7 +199,8 @@ public final class TableImportTableArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param s3BucketSource Values for the S3 bucket the source file is imported from. See below.
+         * @param s3BucketSource Values for the S3 bucket the source file is imported from.
+         * See below.
          * 
          * @return builder
          * 
@@ -189,8 +210,12 @@ public final class TableImportTableArgs extends com.pulumi.resources.ResourceArg
         }
 
         public TableImportTableArgs build() {
-            $.inputFormat = Objects.requireNonNull($.inputFormat, "expected parameter 'inputFormat' to be non-null");
-            $.s3BucketSource = Objects.requireNonNull($.s3BucketSource, "expected parameter 's3BucketSource' to be non-null");
+            if ($.inputFormat == null) {
+                throw new MissingRequiredPropertyException("TableImportTableArgs", "inputFormat");
+            }
+            if ($.s3BucketSource == null) {
+                throw new MissingRequiredPropertyException("TableImportTableArgs", "s3BucketSource");
+            }
             return $;
         }
     }

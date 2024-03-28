@@ -4,14 +4,23 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation {
+    /**
+     * @return Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+     * 
+     */
     private String owner;
 
     private BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation() {}
+    /**
+     * @return Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+     * 
+     */
     public String owner() {
         return this.owner;
     }
@@ -34,13 +43,16 @@ public final class BucketV2ReplicationConfigurationRuleDestinationAccessControlT
 
         @CustomType.Setter
         public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+            if (owner == null) {
+              throw new MissingRequiredPropertyException("BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation", "owner");
+            }
+            this.owner = owner;
             return this;
         }
         public BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation build() {
-            final var o = new BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation();
-            o.owner = owner;
-            return o;
+            final var _resultValue = new BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation();
+            _resultValue.owner = owner;
+            return _resultValue;
         }
     }
 }

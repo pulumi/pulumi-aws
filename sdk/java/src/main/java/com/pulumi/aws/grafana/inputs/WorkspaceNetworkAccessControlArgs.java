@@ -5,6 +5,7 @@ package com.pulumi.aws.grafana.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -132,8 +133,12 @@ public final class WorkspaceNetworkAccessControlArgs extends com.pulumi.resource
         }
 
         public WorkspaceNetworkAccessControlArgs build() {
-            $.prefixListIds = Objects.requireNonNull($.prefixListIds, "expected parameter 'prefixListIds' to be non-null");
-            $.vpceIds = Objects.requireNonNull($.vpceIds, "expected parameter 'vpceIds' to be non-null");
+            if ($.prefixListIds == null) {
+                throw new MissingRequiredPropertyException("WorkspaceNetworkAccessControlArgs", "prefixListIds");
+            }
+            if ($.vpceIds == null) {
+                throw new MissingRequiredPropertyException("WorkspaceNetworkAccessControlArgs", "vpceIds");
+            }
             return $;
         }
     }

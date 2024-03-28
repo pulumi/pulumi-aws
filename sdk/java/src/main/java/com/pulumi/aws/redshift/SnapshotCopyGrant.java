@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +21,8 @@ import javax.annotation.Nullable;
  * Note that the grant must exist in the destination region, and not in the region of the cluster.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,27 +47,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testSnapshotCopyGrant = new SnapshotCopyGrant(&#34;testSnapshotCopyGrant&#34;, SnapshotCopyGrantArgs.builder()        
+ *         var test = new SnapshotCopyGrant(&#34;test&#34;, SnapshotCopyGrantArgs.builder()        
  *             .snapshotCopyGrantName(&#34;my-grant&#34;)
  *             .build());
  * 
  *         var testCluster = new Cluster(&#34;testCluster&#34;, ClusterArgs.builder()        
  *             .snapshotCopy(ClusterSnapshotCopyArgs.builder()
  *                 .destinationRegion(&#34;us-east-2&#34;)
- *                 .grantName(testSnapshotCopyGrant.snapshotCopyGrantName())
+ *                 .grantName(test.snapshotCopyGrantName())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
+ * $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
  * ```
  * 
  */
@@ -179,9 +181,6 @@ public class SnapshotCopyGrant extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

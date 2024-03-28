@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,6 +25,7 @@ namespace Pulumi.Aws.Route53
     /// {
     ///     var example = new Aws.Route53.TrafficPolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         Comment = "example comment",
     ///         Document = @"{
     ///   ""AWSPolicyFormatVersion"": ""2015-10-01"",
@@ -36,19 +38,19 @@ namespace Pulumi.Aws.Route53
     ///   },
     ///   ""StartEndpoint"": ""endpoint-start-NkPh""
     /// }
-    /// 
     /// ",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route53 Traffic Policy using the `id` and `version`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53/trafficPolicy:TrafficPolicy example 01a52019-d16f-422a-ae72-c306d2b6df7e/1
+    /// $ pulumi import aws:route53/trafficPolicy:TrafficPolicy example 01a52019-d16f-422a-ae72-c306d2b6df7e/1
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/trafficPolicy:TrafficPolicy")]

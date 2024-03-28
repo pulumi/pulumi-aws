@@ -4,6 +4,7 @@
 package com.pulumi.aws.licensemanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
@@ -57,19 +58,25 @@ public final class GetReceivedLicenseConsumptionConfigurationBorrowConfiguration
 
         @CustomType.Setter
         public Builder allowEarlyCheckIn(Boolean allowEarlyCheckIn) {
-            this.allowEarlyCheckIn = Objects.requireNonNull(allowEarlyCheckIn);
+            if (allowEarlyCheckIn == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseConsumptionConfigurationBorrowConfiguration", "allowEarlyCheckIn");
+            }
+            this.allowEarlyCheckIn = allowEarlyCheckIn;
             return this;
         }
         @CustomType.Setter
         public Builder maxTimeToLiveInMinutes(Integer maxTimeToLiveInMinutes) {
-            this.maxTimeToLiveInMinutes = Objects.requireNonNull(maxTimeToLiveInMinutes);
+            if (maxTimeToLiveInMinutes == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseConsumptionConfigurationBorrowConfiguration", "maxTimeToLiveInMinutes");
+            }
+            this.maxTimeToLiveInMinutes = maxTimeToLiveInMinutes;
             return this;
         }
         public GetReceivedLicenseConsumptionConfigurationBorrowConfiguration build() {
-            final var o = new GetReceivedLicenseConsumptionConfigurationBorrowConfiguration();
-            o.allowEarlyCheckIn = allowEarlyCheckIn;
-            o.maxTimeToLiveInMinutes = maxTimeToLiveInMinutes;
-            return o;
+            final var _resultValue = new GetReceivedLicenseConsumptionConfigurationBorrowConfiguration();
+            _resultValue.allowEarlyCheckIn = allowEarlyCheckIn;
+            _resultValue.maxTimeToLiveInMinutes = maxTimeToLiveInMinutes;
+            return _resultValue;
         }
     }
 }

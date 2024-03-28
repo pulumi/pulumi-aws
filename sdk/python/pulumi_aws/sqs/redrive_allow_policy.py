@@ -102,30 +102,34 @@ class RedriveAllowPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        example_queue = aws.sqs.Queue("exampleQueue")
-        src = aws.sqs.Queue("src", redrive_policy=example_queue.arn.apply(lambda arn: json.dumps({
-            "deadLetterTargetArn": arn,
-            "maxReceiveCount": 4,
-        })))
-        example_redrive_allow_policy = aws.sqs.RedriveAllowPolicy("exampleRedriveAllowPolicy",
-            queue_url=example_queue.id,
-            redrive_allow_policy=src.arn.apply(lambda arn: json.dumps({
+        example = aws.sqs.Queue("example", name="examplequeue")
+        src = aws.sqs.Queue("src",
+            name="srcqueue",
+            redrive_policy=pulumi.Output.json_dumps({
+                "deadLetterTargetArn": example.arn,
+                "maxReceiveCount": 4,
+            }))
+        example_redrive_allow_policy = aws.sqs.RedriveAllowPolicy("example",
+            queue_url=example.id,
+            redrive_allow_policy=pulumi.Output.json_dumps({
                 "redrivePermission": "byQueue",
-                "sourceQueueArns": [arn],
-            })))
+                "sourceQueueArns": [src.arn],
+            }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SQS Queue Redrive Allow Policies using the queue URL. For example:
 
         ```sh
-         $ pulumi import aws:sqs/redriveAllowPolicy:RedriveAllowPolicy test https://queue.amazonaws.com/0123456789012/myqueue
+        $ pulumi import aws:sqs/redriveAllowPolicy:RedriveAllowPolicy test https://queue.amazonaws.com/0123456789012/myqueue
         ```
 
         :param str resource_name: The name of the resource.
@@ -144,30 +148,34 @@ class RedriveAllowPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        example_queue = aws.sqs.Queue("exampleQueue")
-        src = aws.sqs.Queue("src", redrive_policy=example_queue.arn.apply(lambda arn: json.dumps({
-            "deadLetterTargetArn": arn,
-            "maxReceiveCount": 4,
-        })))
-        example_redrive_allow_policy = aws.sqs.RedriveAllowPolicy("exampleRedriveAllowPolicy",
-            queue_url=example_queue.id,
-            redrive_allow_policy=src.arn.apply(lambda arn: json.dumps({
+        example = aws.sqs.Queue("example", name="examplequeue")
+        src = aws.sqs.Queue("src",
+            name="srcqueue",
+            redrive_policy=pulumi.Output.json_dumps({
+                "deadLetterTargetArn": example.arn,
+                "maxReceiveCount": 4,
+            }))
+        example_redrive_allow_policy = aws.sqs.RedriveAllowPolicy("example",
+            queue_url=example.id,
+            redrive_allow_policy=pulumi.Output.json_dumps({
                 "redrivePermission": "byQueue",
-                "sourceQueueArns": [arn],
-            })))
+                "sourceQueueArns": [src.arn],
+            }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SQS Queue Redrive Allow Policies using the queue URL. For example:
 
         ```sh
-         $ pulumi import aws:sqs/redriveAllowPolicy:RedriveAllowPolicy test https://queue.amazonaws.com/0123456789012/myqueue
+        $ pulumi import aws:sqs/redriveAllowPolicy:RedriveAllowPolicy test https://queue.amazonaws.com/0123456789012/myqueue
         ```
 
         :param str resource_name: The name of the resource.

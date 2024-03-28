@@ -6,6 +6,7 @@ package com.pulumi.aws.networkmanager.outputs;
 import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkPolicyDocumentAttachmentPolicyAction;
 import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkPolicyDocumentAttachmentPolicyCondition;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -104,17 +105,24 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicy {
 
         @CustomType.Setter
         public Builder action(GetCoreNetworkPolicyDocumentAttachmentPolicyAction action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentAttachmentPolicy", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder conditionLogic(@Nullable String conditionLogic) {
+
             this.conditionLogic = conditionLogic;
             return this;
         }
         @CustomType.Setter
         public Builder conditions(List<GetCoreNetworkPolicyDocumentAttachmentPolicyCondition> conditions) {
-            this.conditions = Objects.requireNonNull(conditions);
+            if (conditions == null) {
+              throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentAttachmentPolicy", "conditions");
+            }
+            this.conditions = conditions;
             return this;
         }
         public Builder conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyCondition... conditions) {
@@ -122,22 +130,26 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicy {
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder ruleNumber(Integer ruleNumber) {
-            this.ruleNumber = Objects.requireNonNull(ruleNumber);
+            if (ruleNumber == null) {
+              throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentAttachmentPolicy", "ruleNumber");
+            }
+            this.ruleNumber = ruleNumber;
             return this;
         }
         public GetCoreNetworkPolicyDocumentAttachmentPolicy build() {
-            final var o = new GetCoreNetworkPolicyDocumentAttachmentPolicy();
-            o.action = action;
-            o.conditionLogic = conditionLogic;
-            o.conditions = conditions;
-            o.description = description;
-            o.ruleNumber = ruleNumber;
-            return o;
+            final var _resultValue = new GetCoreNetworkPolicyDocumentAttachmentPolicy();
+            _resultValue.action = action;
+            _resultValue.conditionLogic = conditionLogic;
+            _resultValue.conditions = conditions;
+            _resultValue.description = description;
+            _resultValue.ruleNumber = ruleNumber;
+            return _resultValue;
         }
     }
 }

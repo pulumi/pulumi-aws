@@ -5,6 +5,7 @@ package com.pulumi.aws.iam.outputs;
 
 import com.pulumi.aws.iam.outputs.GetPolicyDocumentStatement;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -23,8 +24,22 @@ public final class GetPolicyDocumentResult {
      * 
      */
     private String json;
+    /**
+     * @deprecated
+     * Not used
+     * 
+     */
+    @Deprecated /* Not used */
+    private @Nullable String overrideJson;
     private @Nullable List<String> overridePolicyDocuments;
     private @Nullable String policyId;
+    /**
+     * @deprecated
+     * Not used
+     * 
+     */
+    @Deprecated /* Not used */
+    private @Nullable String sourceJson;
     private @Nullable List<String> sourcePolicyDocuments;
     private @Nullable List<GetPolicyDocumentStatement> statements;
     private @Nullable String version;
@@ -44,11 +59,29 @@ public final class GetPolicyDocumentResult {
     public String json() {
         return this.json;
     }
+    /**
+     * @deprecated
+     * Not used
+     * 
+     */
+    @Deprecated /* Not used */
+    public Optional<String> overrideJson() {
+        return Optional.ofNullable(this.overrideJson);
+    }
     public List<String> overridePolicyDocuments() {
         return this.overridePolicyDocuments == null ? List.of() : this.overridePolicyDocuments;
     }
     public Optional<String> policyId() {
         return Optional.ofNullable(this.policyId);
+    }
+    /**
+     * @deprecated
+     * Not used
+     * 
+     */
+    @Deprecated /* Not used */
+    public Optional<String> sourceJson() {
+        return Optional.ofNullable(this.sourceJson);
     }
     public List<String> sourcePolicyDocuments() {
         return this.sourcePolicyDocuments == null ? List.of() : this.sourcePolicyDocuments;
@@ -71,8 +104,10 @@ public final class GetPolicyDocumentResult {
     public static final class Builder {
         private String id;
         private String json;
+        private @Nullable String overrideJson;
         private @Nullable List<String> overridePolicyDocuments;
         private @Nullable String policyId;
+        private @Nullable String sourceJson;
         private @Nullable List<String> sourcePolicyDocuments;
         private @Nullable List<GetPolicyDocumentStatement> statements;
         private @Nullable String version;
@@ -81,8 +116,10 @@ public final class GetPolicyDocumentResult {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.json = defaults.json;
+    	      this.overrideJson = defaults.overrideJson;
     	      this.overridePolicyDocuments = defaults.overridePolicyDocuments;
     	      this.policyId = defaults.policyId;
+    	      this.sourceJson = defaults.sourceJson;
     	      this.sourcePolicyDocuments = defaults.sourcePolicyDocuments;
     	      this.statements = defaults.statements;
     	      this.version = defaults.version;
@@ -90,16 +127,29 @@ public final class GetPolicyDocumentResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPolicyDocumentResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder json(String json) {
-            this.json = Objects.requireNonNull(json);
+            if (json == null) {
+              throw new MissingRequiredPropertyException("GetPolicyDocumentResult", "json");
+            }
+            this.json = json;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder overrideJson(@Nullable String overrideJson) {
+
+            this.overrideJson = overrideJson;
             return this;
         }
         @CustomType.Setter
         public Builder overridePolicyDocuments(@Nullable List<String> overridePolicyDocuments) {
+
             this.overridePolicyDocuments = overridePolicyDocuments;
             return this;
         }
@@ -108,11 +158,19 @@ public final class GetPolicyDocumentResult {
         }
         @CustomType.Setter
         public Builder policyId(@Nullable String policyId) {
+
             this.policyId = policyId;
             return this;
         }
         @CustomType.Setter
+        public Builder sourceJson(@Nullable String sourceJson) {
+
+            this.sourceJson = sourceJson;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sourcePolicyDocuments(@Nullable List<String> sourcePolicyDocuments) {
+
             this.sourcePolicyDocuments = sourcePolicyDocuments;
             return this;
         }
@@ -121,6 +179,7 @@ public final class GetPolicyDocumentResult {
         }
         @CustomType.Setter
         public Builder statements(@Nullable List<GetPolicyDocumentStatement> statements) {
+
             this.statements = statements;
             return this;
         }
@@ -129,19 +188,22 @@ public final class GetPolicyDocumentResult {
         }
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }
         public GetPolicyDocumentResult build() {
-            final var o = new GetPolicyDocumentResult();
-            o.id = id;
-            o.json = json;
-            o.overridePolicyDocuments = overridePolicyDocuments;
-            o.policyId = policyId;
-            o.sourcePolicyDocuments = sourcePolicyDocuments;
-            o.statements = statements;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetPolicyDocumentResult();
+            _resultValue.id = id;
+            _resultValue.json = json;
+            _resultValue.overrideJson = overrideJson;
+            _resultValue.overridePolicyDocuments = overridePolicyDocuments;
+            _resultValue.policyId = policyId;
+            _resultValue.sourceJson = sourceJson;
+            _resultValue.sourcePolicyDocuments = sourcePolicyDocuments;
+            _resultValue.statements = statements;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

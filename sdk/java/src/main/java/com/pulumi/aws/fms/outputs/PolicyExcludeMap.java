@@ -62,6 +62,7 @@ public final class PolicyExcludeMap {
 
         @CustomType.Setter
         public Builder accounts(@Nullable List<String> accounts) {
+
             this.accounts = accounts;
             return this;
         }
@@ -70,6 +71,7 @@ public final class PolicyExcludeMap {
         }
         @CustomType.Setter
         public Builder orgunits(@Nullable List<String> orgunits) {
+
             this.orgunits = orgunits;
             return this;
         }
@@ -77,10 +79,10 @@ public final class PolicyExcludeMap {
             return orgunits(List.of(orgunits));
         }
         public PolicyExcludeMap build() {
-            final var o = new PolicyExcludeMap();
-            o.accounts = accounts;
-            o.orgunits = orgunits;
-            return o;
+            final var _resultValue = new PolicyExcludeMap();
+            _resultValue.accounts = accounts;
+            _resultValue.orgunits = orgunits;
+            return _resultValue;
         }
     }
 }

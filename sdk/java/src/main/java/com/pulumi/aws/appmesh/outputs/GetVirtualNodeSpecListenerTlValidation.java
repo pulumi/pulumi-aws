@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTlValidationTrust;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetVirtualNodeSpecListenerTlValidation {
 
         @CustomType.Setter
         public Builder subjectAlternativeNames(List<GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName> subjectAlternativeNames) {
-            this.subjectAlternativeNames = Objects.requireNonNull(subjectAlternativeNames);
+            if (subjectAlternativeNames == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerTlValidation", "subjectAlternativeNames");
+            }
+            this.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
         public Builder subjectAlternativeNames(GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName... subjectAlternativeNames) {
@@ -50,17 +54,20 @@ public final class GetVirtualNodeSpecListenerTlValidation {
         }
         @CustomType.Setter
         public Builder trusts(List<GetVirtualNodeSpecListenerTlValidationTrust> trusts) {
-            this.trusts = Objects.requireNonNull(trusts);
+            if (trusts == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerTlValidation", "trusts");
+            }
+            this.trusts = trusts;
             return this;
         }
         public Builder trusts(GetVirtualNodeSpecListenerTlValidationTrust... trusts) {
             return trusts(List.of(trusts));
         }
         public GetVirtualNodeSpecListenerTlValidation build() {
-            final var o = new GetVirtualNodeSpecListenerTlValidation();
-            o.subjectAlternativeNames = subjectAlternativeNames;
-            o.trusts = trusts;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListenerTlValidation();
+            _resultValue.subjectAlternativeNames = subjectAlternativeNames;
+            _resultValue.trusts = trusts;
+            return _resultValue;
         }
     }
 }

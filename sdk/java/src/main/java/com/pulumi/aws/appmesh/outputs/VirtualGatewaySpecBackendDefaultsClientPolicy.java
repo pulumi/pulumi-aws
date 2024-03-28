@@ -44,13 +44,14 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicy {
 
         @CustomType.Setter
         public Builder tls(@Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTls tls) {
+
             this.tls = tls;
             return this;
         }
         public VirtualGatewaySpecBackendDefaultsClientPolicy build() {
-            final var o = new VirtualGatewaySpecBackendDefaultsClientPolicy();
-            o.tls = tls;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecBackendDefaultsClientPolicy();
+            _resultValue.tls = tls;
+            return _resultValue;
         }
     }
 }

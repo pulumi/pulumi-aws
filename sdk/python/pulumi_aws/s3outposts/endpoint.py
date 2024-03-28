@@ -266,22 +266,24 @@ class Endpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3outposts.Endpoint("example",
-            outpost_id=data["aws_outposts_outpost"]["example"]["id"],
-            security_group_id=aws_security_group["example"]["id"],
-            subnet_id=aws_subnet["example"]["id"])
+            outpost_id=example_aws_outposts_outpost["id"],
+            security_group_id=example_aws_security_group["id"],
+            subnet_id=example_aws_subnet["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 Outposts Endpoints using Amazon Resource Name (ARN), EC2 Security Group identifier, and EC2 Subnet identifier, separated by commas (`,`). For example:
 
         ```sh
-         $ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
+        $ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -303,22 +305,24 @@ class Endpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3outposts.Endpoint("example",
-            outpost_id=data["aws_outposts_outpost"]["example"]["id"],
-            security_group_id=aws_security_group["example"]["id"],
-            subnet_id=aws_subnet["example"]["id"])
+            outpost_id=example_aws_outposts_outpost["id"],
+            security_group_id=example_aws_security_group["id"],
+            subnet_id=example_aws_subnet["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 Outposts Endpoints using Amazon Resource Name (ARN), EC2 Security Group identifier, and EC2 Subnet identifier, separated by commas (`,`). For example:
 
         ```sh
-         $ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
+        $ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
         ```
 
         :param str resource_name: The name of the resource.

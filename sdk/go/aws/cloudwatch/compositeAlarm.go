@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -35,9 +36,9 @@ import (
 //			_, err := cloudwatch.NewCompositeAlarm(ctx, "example", &cloudwatch.CompositeAlarmArgs{
 //				AlarmDescription: pulumi.String("This is a composite alarm!"),
 //				AlarmName:        pulumi.String("example-composite-alarm"),
-//				AlarmActions:     pulumi.Any(aws_sns_topic.Example.Arn),
-//				OkActions:        pulumi.Any(aws_sns_topic.Example.Arn),
-//				AlarmRule:        pulumi.String(fmt.Sprintf("ALARM(%v) OR\nALARM(%v)\n", aws_cloudwatch_metric_alarm.Alpha.Alarm_name, aws_cloudwatch_metric_alarm.Bravo.Alarm_name)),
+//				AlarmActions:     pulumi.Any(exampleAwsSnsTopic.Arn),
+//				OkActions:        pulumi.Any(exampleAwsSnsTopic.Arn),
+//				AlarmRule:        pulumi.String(fmt.Sprintf("ALARM(%v) OR\nALARM(%v)\n", alpha.AlarmName, bravo.AlarmName)),
 //				ActionsSuppressor: &cloudwatch.CompositeAlarmActionsSuppressorArgs{
 //					Alarm:           pulumi.String("suppressor-alarm"),
 //					ExtensionPeriod: pulumi.Int(10),
@@ -52,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
-//
+// $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
 // ```
 type CompositeAlarm struct {
 	pulumi.CustomResourceState
@@ -104,10 +104,6 @@ func NewCompositeAlarm(ctx *pulumi.Context,
 	if args.AlarmRule == nil {
 		return nil, errors.New("invalid value for required argument 'AlarmRule'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CompositeAlarm
 	err := ctx.RegisterResource("aws:cloudwatch/compositeAlarm:CompositeAlarm", name, args, &resource, opts...)

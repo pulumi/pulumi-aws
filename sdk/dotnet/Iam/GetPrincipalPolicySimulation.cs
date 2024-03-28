@@ -19,9 +19,152 @@ namespace Pulumi.Aws.Iam
         /// 
         /// &gt; **Note:** Correctly using this data source requires familiarity with various details of AWS Identity and Access Management, and how various AWS services integrate with it. For general information on the AWS IAM policy simulator, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html). This data source wraps the `iam:SimulatePrincipalPolicy` API action described on that page.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% /examples %}}
+        /// 
+        /// ### Self Access-checking Example
+        /// 
+        /// The following example raises an error if the credentials passed to the AWS provider do not have access to perform the three actions `s3:GetObject`, `s3:PutObject`, and `s3:DeleteObject` on the S3 bucket with the given ARN.
+        /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Aws.GetCallerIdentity.Invoke();
+        /// 
+        ///     var s3ObjectAccess = Aws.Iam.GetPrincipalPolicySimulation.Invoke(new()
+        ///     {
+        ///         ActionNames = new[]
+        ///         {
+        ///             "s3:GetObject",
+        ///             "s3:PutObject",
+        ///             "s3:DeleteObject",
+        ///         },
+        ///         PolicySourceArn = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.Arn),
+        ///         ResourceArns = new[]
+        ///         {
+        ///             "arn:aws:s3:::my-test-bucket",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
+        /// If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
+        /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = new Aws.S3.BucketObject("example", new()
+        ///     {
+        ///         Bucket = "my-test-bucket",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
+        /// ### Testing the Effect of a Declared Policy
+        /// 
+        /// The following example declares an S3 bucket and a user that should have access to the bucket, and then uses `aws.iam.getPrincipalPolicySimulation` to verify that the user does indeed have access to perform needed operations against the bucket.
+        /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using System.Text.Json;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Aws.GetCallerIdentity.Invoke();
+        /// 
+        ///     var example = new Aws.Iam.User("example", new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+        ///     {
+        ///         Bucket = "my-test-bucket",
+        ///     });
+        /// 
+        ///     var s3Access = new Aws.Iam.UserPolicy("s3_access", new()
+        ///     {
+        ///         Name = "example_s3_access",
+        ///         User = example.Name,
+        ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
+        ///         {
+        ///             ["version"] = "2012-10-17",
+        ///             ["statement"] = new[]
+        ///             {
+        ///                 new Dictionary&lt;string, object?&gt;
+        ///                 {
+        ///                     ["action"] = "s3:GetObject",
+        ///                     ["effect"] = "Allow",
+        ///                     ["resource"] = exampleBucketV2.Arn,
+        ///                 },
+        ///             },
+        ///         })),
+        ///     });
+        /// 
+        ///     var accountAccess = new Aws.S3.BucketPolicy("account_access", new()
+        ///     {
+        ///         Bucket = exampleBucketV2.Bucket,
+        ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
+        ///         {
+        ///             ["version"] = "2012-10-17",
+        ///             ["statement"] = new[]
+        ///             {
+        ///                 new Dictionary&lt;string, object?&gt;
+        ///                 {
+        ///                     ["action"] = "s3:*",
+        ///                     ["effect"] = "Allow",
+        ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
+        ///                     {
+        ///                         ["AWS"] = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+        ///                     },
+        ///                     ["resource"] = new[]
+        ///                     {
+        ///                         exampleBucketV2.Arn,
+        ///                         exampleBucketV2.Arn.Apply(arn =&gt; $"{arn}/*"),
+        ///                     },
+        ///                 },
+        ///             },
+        ///         })),
+        ///     });
+        /// 
+        ///     var s3ObjectAccess = Aws.Iam.GetPrincipalPolicySimulation.Invoke(new()
+        ///     {
+        ///         ActionNames = new[]
+        ///         {
+        ///             "s3:GetObject",
+        ///         },
+        ///         PolicySourceArn = example.Arn,
+        ///         ResourceArns = new[]
+        ///         {
+        ///             exampleBucketV2.Arn,
+        ///         },
+        ///         ResourcePolicyJson = accountAccess.Policy,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
+        /// When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
         /// </summary>
         public static Task<GetPrincipalPolicySimulationResult> InvokeAsync(GetPrincipalPolicySimulationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrincipalPolicySimulationResult>("aws:iam/getPrincipalPolicySimulation:getPrincipalPolicySimulation", args ?? new GetPrincipalPolicySimulationArgs(), options.WithDefaults());
@@ -34,9 +177,152 @@ namespace Pulumi.Aws.Iam
         /// 
         /// &gt; **Note:** Correctly using this data source requires familiarity with various details of AWS Identity and Access Management, and how various AWS services integrate with it. For general information on the AWS IAM policy simulator, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html). This data source wraps the `iam:SimulatePrincipalPolicy` API action described on that page.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% /examples %}}
+        /// 
+        /// ### Self Access-checking Example
+        /// 
+        /// The following example raises an error if the credentials passed to the AWS provider do not have access to perform the three actions `s3:GetObject`, `s3:PutObject`, and `s3:DeleteObject` on the S3 bucket with the given ARN.
+        /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Aws.GetCallerIdentity.Invoke();
+        /// 
+        ///     var s3ObjectAccess = Aws.Iam.GetPrincipalPolicySimulation.Invoke(new()
+        ///     {
+        ///         ActionNames = new[]
+        ///         {
+        ///             "s3:GetObject",
+        ///             "s3:PutObject",
+        ///             "s3:DeleteObject",
+        ///         },
+        ///         PolicySourceArn = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.Arn),
+        ///         ResourceArns = new[]
+        ///         {
+        ///             "arn:aws:s3:::my-test-bucket",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
+        /// If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
+        /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = new Aws.S3.BucketObject("example", new()
+        ///     {
+        ///         Bucket = "my-test-bucket",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
+        /// ### Testing the Effect of a Declared Policy
+        /// 
+        /// The following example declares an S3 bucket and a user that should have access to the bucket, and then uses `aws.iam.getPrincipalPolicySimulation` to verify that the user does indeed have access to perform needed operations against the bucket.
+        /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using System.Text.Json;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Aws.GetCallerIdentity.Invoke();
+        /// 
+        ///     var example = new Aws.Iam.User("example", new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+        ///     {
+        ///         Bucket = "my-test-bucket",
+        ///     });
+        /// 
+        ///     var s3Access = new Aws.Iam.UserPolicy("s3_access", new()
+        ///     {
+        ///         Name = "example_s3_access",
+        ///         User = example.Name,
+        ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
+        ///         {
+        ///             ["version"] = "2012-10-17",
+        ///             ["statement"] = new[]
+        ///             {
+        ///                 new Dictionary&lt;string, object?&gt;
+        ///                 {
+        ///                     ["action"] = "s3:GetObject",
+        ///                     ["effect"] = "Allow",
+        ///                     ["resource"] = exampleBucketV2.Arn,
+        ///                 },
+        ///             },
+        ///         })),
+        ///     });
+        /// 
+        ///     var accountAccess = new Aws.S3.BucketPolicy("account_access", new()
+        ///     {
+        ///         Bucket = exampleBucketV2.Bucket,
+        ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
+        ///         {
+        ///             ["version"] = "2012-10-17",
+        ///             ["statement"] = new[]
+        ///             {
+        ///                 new Dictionary&lt;string, object?&gt;
+        ///                 {
+        ///                     ["action"] = "s3:*",
+        ///                     ["effect"] = "Allow",
+        ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
+        ///                     {
+        ///                         ["AWS"] = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+        ///                     },
+        ///                     ["resource"] = new[]
+        ///                     {
+        ///                         exampleBucketV2.Arn,
+        ///                         exampleBucketV2.Arn.Apply(arn =&gt; $"{arn}/*"),
+        ///                     },
+        ///                 },
+        ///             },
+        ///         })),
+        ///     });
+        /// 
+        ///     var s3ObjectAccess = Aws.Iam.GetPrincipalPolicySimulation.Invoke(new()
+        ///     {
+        ///         ActionNames = new[]
+        ///         {
+        ///             "s3:GetObject",
+        ///         },
+        ///         PolicySourceArn = example.Arn,
+        ///         ResourceArns = new[]
+        ///         {
+        ///             exampleBucketV2.Arn,
+        ///         },
+        ///         ResourcePolicyJson = accountAccess.Policy,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
+        /// When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
         /// </summary>
         public static Output<GetPrincipalPolicySimulationResult> Invoke(GetPrincipalPolicySimulationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrincipalPolicySimulationResult>("aws:iam/getPrincipalPolicySimulation:getPrincipalPolicySimulation", args ?? new GetPrincipalPolicySimulationInvokeArgs(), options.WithDefaults());

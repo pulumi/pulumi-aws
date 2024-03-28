@@ -60,19 +60,21 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
         @CustomType.Setter
         public Builder oauth2Properties(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties oauth2Properties) {
+
             this.oauth2Properties = oauth2Properties;
             return this;
         }
         @CustomType.Setter
         public Builder profileProperties(@Nullable Map<String,String> profileProperties) {
+
             this.profileProperties = profileProperties;
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector();
-            o.oauth2Properties = oauth2Properties;
-            o.profileProperties = profileProperties;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector();
+            _resultValue.oauth2Properties = oauth2Properties;
+            _resultValue.profileProperties = profileProperties;
+            return _resultValue;
         }
     }
 }

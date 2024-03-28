@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,9 +33,9 @@ import (
 //				ClientLists: pulumi.StringArray{
 //					pulumi.String("0.0.0.0/0"),
 //				},
-//				GatewayArn:  pulumi.Any(aws_storagegateway_gateway.Example.Arn),
-//				LocationArn: pulumi.Any(aws_s3_bucket.Example.Arn),
-//				RoleArn:     pulumi.Any(aws_iam_role.Example.Arn),
+//				GatewayArn:  pulumi.Any(exampleAwsStoragegatewayGateway.Arn),
+//				LocationArn: pulumi.Any(exampleAwsS3Bucket.Arn),
+//				RoleArn:     pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -44,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_storagegateway_nfs_file_share` using the NFS File Share Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
-//
+// $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
 // ```
 type NfsFileShare struct {
 	pulumi.CustomResourceState
@@ -128,10 +128,6 @@ func NewNfsFileShare(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NfsFileShare
 	err := ctx.RegisterResource("aws:storagegateway/nfsFileShare:NfsFileShare", name, args, &resource, opts...)

@@ -4750,7 +4750,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput) In
 }
 
 type OpenZfsVolumeNfsExports struct {
-	// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+	// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block below for details.
 	ClientConfigurations []OpenZfsVolumeNfsExportsClientConfiguration `pulumi:"clientConfigurations"`
 }
 
@@ -4766,7 +4766,7 @@ type OpenZfsVolumeNfsExportsInput interface {
 }
 
 type OpenZfsVolumeNfsExportsArgs struct {
-	// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+	// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block below for details.
 	ClientConfigurations OpenZfsVolumeNfsExportsClientConfigurationArrayInput `pulumi:"clientConfigurations"`
 }
 
@@ -4847,7 +4847,7 @@ func (o OpenZfsVolumeNfsExportsOutput) ToOpenZfsVolumeNfsExportsPtrOutputWithCon
 	}).(OpenZfsVolumeNfsExportsPtrOutput)
 }
 
-// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block below for details.
 func (o OpenZfsVolumeNfsExportsOutput) ClientConfigurations() OpenZfsVolumeNfsExportsClientConfigurationArrayOutput {
 	return o.ApplyT(func(v OpenZfsVolumeNfsExports) []OpenZfsVolumeNfsExportsClientConfiguration {
 		return v.ClientConfigurations
@@ -4878,7 +4878,7 @@ func (o OpenZfsVolumeNfsExportsPtrOutput) Elem() OpenZfsVolumeNfsExportsOutput {
 	}).(OpenZfsVolumeNfsExportsOutput)
 }
 
-// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block below for details.
 func (o OpenZfsVolumeNfsExportsPtrOutput) ClientConfigurations() OpenZfsVolumeNfsExportsClientConfigurationArrayOutput {
 	return o.ApplyT(func(v *OpenZfsVolumeNfsExports) []OpenZfsVolumeNfsExportsClientConfiguration {
 		if v == nil {
@@ -4995,8 +4995,10 @@ func (o OpenZfsVolumeNfsExportsClientConfigurationArrayOutput) Index(i pulumi.In
 }
 
 type OpenZfsVolumeOriginSnapshot struct {
+	// Specifies the strategy used when copying data from the snapshot to the new volume. Valid values are `CLONE`, `FULL_COPY`, `INCREMENTAL_COPY`.
 	CopyStrategy string `pulumi:"copyStrategy"`
-	SnapshotArn  string `pulumi:"snapshotArn"`
+	// The Amazon Resource Name (ARN) of the origin snapshot.
+	SnapshotArn string `pulumi:"snapshotArn"`
 }
 
 // OpenZfsVolumeOriginSnapshotInput is an input type that accepts OpenZfsVolumeOriginSnapshotArgs and OpenZfsVolumeOriginSnapshotOutput values.
@@ -5011,8 +5013,10 @@ type OpenZfsVolumeOriginSnapshotInput interface {
 }
 
 type OpenZfsVolumeOriginSnapshotArgs struct {
+	// Specifies the strategy used when copying data from the snapshot to the new volume. Valid values are `CLONE`, `FULL_COPY`, `INCREMENTAL_COPY`.
 	CopyStrategy pulumi.StringInput `pulumi:"copyStrategy"`
-	SnapshotArn  pulumi.StringInput `pulumi:"snapshotArn"`
+	// The Amazon Resource Name (ARN) of the origin snapshot.
+	SnapshotArn pulumi.StringInput `pulumi:"snapshotArn"`
 }
 
 func (OpenZfsVolumeOriginSnapshotArgs) ElementType() reflect.Type {
@@ -5092,10 +5096,12 @@ func (o OpenZfsVolumeOriginSnapshotOutput) ToOpenZfsVolumeOriginSnapshotPtrOutpu
 	}).(OpenZfsVolumeOriginSnapshotPtrOutput)
 }
 
+// Specifies the strategy used when copying data from the snapshot to the new volume. Valid values are `CLONE`, `FULL_COPY`, `INCREMENTAL_COPY`.
 func (o OpenZfsVolumeOriginSnapshotOutput) CopyStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenZfsVolumeOriginSnapshot) string { return v.CopyStrategy }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the origin snapshot.
 func (o OpenZfsVolumeOriginSnapshotOutput) SnapshotArn() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenZfsVolumeOriginSnapshot) string { return v.SnapshotArn }).(pulumi.StringOutput)
 }
@@ -5124,6 +5130,7 @@ func (o OpenZfsVolumeOriginSnapshotPtrOutput) Elem() OpenZfsVolumeOriginSnapshot
 	}).(OpenZfsVolumeOriginSnapshotOutput)
 }
 
+// Specifies the strategy used when copying data from the snapshot to the new volume. Valid values are `CLONE`, `FULL_COPY`, `INCREMENTAL_COPY`.
 func (o OpenZfsVolumeOriginSnapshotPtrOutput) CopyStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenZfsVolumeOriginSnapshot) *string {
 		if v == nil {
@@ -5133,6 +5140,7 @@ func (o OpenZfsVolumeOriginSnapshotPtrOutput) CopyStrategy() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the origin snapshot.
 func (o OpenZfsVolumeOriginSnapshotPtrOutput) SnapshotArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenZfsVolumeOriginSnapshot) *string {
 		if v == nil {

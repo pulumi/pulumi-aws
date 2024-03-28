@@ -58,19 +58,21 @@ public final class LifecyclePolicyPolicyDetailsParameters {
 
         @CustomType.Setter
         public Builder excludeBootVolume(@Nullable Boolean excludeBootVolume) {
+
             this.excludeBootVolume = excludeBootVolume;
             return this;
         }
         @CustomType.Setter
         public Builder noReboot(@Nullable Boolean noReboot) {
+
             this.noReboot = noReboot;
             return this;
         }
         public LifecyclePolicyPolicyDetailsParameters build() {
-            final var o = new LifecyclePolicyPolicyDetailsParameters();
-            o.excludeBootVolume = excludeBootVolume;
-            o.noReboot = noReboot;
-            return o;
+            final var _resultValue = new LifecyclePolicyPolicyDetailsParameters();
+            _resultValue.excludeBootVolume = excludeBootVolume;
+            _resultValue.noReboot = noReboot;
+            return _resultValue;
         }
     }
 }

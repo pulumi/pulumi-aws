@@ -143,12 +143,13 @@ class FileSystemPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        fs = aws.efs.FileSystem("fs")
-        policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        fs = aws.efs.FileSystem("fs", creation_token="my-product")
+        policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="ExampleStatement01",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -166,17 +167,18 @@ class FileSystemPolicy(pulumi.CustomResource):
                 values=["true"],
             )],
         )])
-        policy_file_system_policy = aws.efs.FileSystemPolicy("policyFileSystemPolicy",
+        policy_file_system_policy = aws.efs.FileSystemPolicy("policy",
             file_system_id=fs.id,
-            policy=policy_policy_document.json)
+            policy=policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the EFS file system policies using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
+        $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
         ```
 
         :param str resource_name: The name of the resource.
@@ -198,12 +200,13 @@ class FileSystemPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        fs = aws.efs.FileSystem("fs")
-        policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        fs = aws.efs.FileSystem("fs", creation_token="my-product")
+        policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="ExampleStatement01",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -221,17 +224,18 @@ class FileSystemPolicy(pulumi.CustomResource):
                 values=["true"],
             )],
         )])
-        policy_file_system_policy = aws.efs.FileSystemPolicy("policyFileSystemPolicy",
+        policy_file_system_policy = aws.efs.FileSystemPolicy("policy",
             file_system_id=fs.id,
-            policy=policy_policy_document.json)
+            policy=policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the EFS file system policies using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
+        $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
         ```
 
         :param str resource_name: The name of the resource.

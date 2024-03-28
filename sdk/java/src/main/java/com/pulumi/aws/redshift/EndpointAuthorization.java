@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Creates a new Amazon Redshift endpoint authorization.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,19 +46,20 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new EndpointAuthorization(&#34;example&#34;, EndpointAuthorizationArgs.builder()        
  *             .account(&#34;01234567910&#34;)
- *             .clusterIdentifier(aws_redshift_cluster.example().cluster_identifier())
+ *             .clusterIdentifier(exampleAwsRedshiftCluster.clusterIdentifier())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift endpoint authorization using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshift/endpointAuthorization:EndpointAuthorization example 01234567910:cluster-example-id
+ * $ pulumi import aws:redshift/endpointAuthorization:EndpointAuthorization example 01234567910:cluster-example-id
  * ```
  * 
  */

@@ -4,6 +4,7 @@
 package com.pulumi.aws.gamelift.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,19 +59,23 @@ public final class GameSessionQueuePlayerLatencyPolicy {
 
         @CustomType.Setter
         public Builder maximumIndividualPlayerLatencyMilliseconds(Integer maximumIndividualPlayerLatencyMilliseconds) {
-            this.maximumIndividualPlayerLatencyMilliseconds = Objects.requireNonNull(maximumIndividualPlayerLatencyMilliseconds);
+            if (maximumIndividualPlayerLatencyMilliseconds == null) {
+              throw new MissingRequiredPropertyException("GameSessionQueuePlayerLatencyPolicy", "maximumIndividualPlayerLatencyMilliseconds");
+            }
+            this.maximumIndividualPlayerLatencyMilliseconds = maximumIndividualPlayerLatencyMilliseconds;
             return this;
         }
         @CustomType.Setter
         public Builder policyDurationSeconds(@Nullable Integer policyDurationSeconds) {
+
             this.policyDurationSeconds = policyDurationSeconds;
             return this;
         }
         public GameSessionQueuePlayerLatencyPolicy build() {
-            final var o = new GameSessionQueuePlayerLatencyPolicy();
-            o.maximumIndividualPlayerLatencyMilliseconds = maximumIndividualPlayerLatencyMilliseconds;
-            o.policyDurationSeconds = policyDurationSeconds;
-            return o;
+            final var _resultValue = new GameSessionQueuePlayerLatencyPolicy();
+            _resultValue.maximumIndividualPlayerLatencyMilliseconds = maximumIndividualPlayerLatencyMilliseconds;
+            _resultValue.policyDurationSeconds = policyDurationSeconds;
+            return _resultValue;
         }
     }
 }

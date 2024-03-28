@@ -134,18 +134,21 @@ class Instance(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
+        example = aws.ec2.Vpc("example",
             cidr_block="10.0.0.0/16",
             enable_dns_support=True,
             enable_dns_hostnames=True)
-        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace",
+        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("example",
+            name="example.domain.local",
             description="example",
-            vpc=example_vpc.id)
-        example_service = aws.servicediscovery.Service("exampleService",
+            vpc=example.id)
+        example_service = aws.servicediscovery.Service("example",
+            name="example",
             dns_config=aws.servicediscovery.ServiceDnsConfigArgs(
                 namespace_id=example_private_dns_namespace.id,
                 dns_records=[aws.servicediscovery.ServiceDnsConfigDnsRecordArgs(
@@ -157,7 +160,7 @@ class Instance(pulumi.CustomResource):
             health_check_custom_config=aws.servicediscovery.ServiceHealthCheckCustomConfigArgs(
                 failure_threshold=1,
             ))
-        example_instance = aws.servicediscovery.Instance("exampleInstance",
+        example_instance = aws.servicediscovery.Instance("example",
             instance_id="example-instance-id",
             service_id=example_service.id,
             attributes={
@@ -165,27 +168,34 @@ class Instance(pulumi.CustomResource):
                 "custom_attribute": "custom",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_http_namespace = aws.servicediscovery.HttpNamespace("exampleHttpNamespace", description="example")
-        example_service = aws.servicediscovery.Service("exampleService", namespace_id=example_http_namespace.id)
-        example_instance = aws.servicediscovery.Instance("exampleInstance",
+        example = aws.servicediscovery.HttpNamespace("example",
+            name="example.domain.test",
+            description="example")
+        example_service = aws.servicediscovery.Service("example",
+            name="example",
+            namespace_id=example.id)
+        example_instance = aws.servicediscovery.Instance("example",
             instance_id="example-instance-id",
             service_id=example_service.id,
             attributes={
                 "AWS_EC2_INSTANCE_ID": "i-0abdg374kd892cj6dl",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Service Discovery Instance using the service ID and instance ID. For example:
 
         ```sh
-         $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
+        $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
         ```
 
         :param str resource_name: The name of the resource.
@@ -205,18 +215,21 @@ class Instance(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
+        example = aws.ec2.Vpc("example",
             cidr_block="10.0.0.0/16",
             enable_dns_support=True,
             enable_dns_hostnames=True)
-        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace",
+        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("example",
+            name="example.domain.local",
             description="example",
-            vpc=example_vpc.id)
-        example_service = aws.servicediscovery.Service("exampleService",
+            vpc=example.id)
+        example_service = aws.servicediscovery.Service("example",
+            name="example",
             dns_config=aws.servicediscovery.ServiceDnsConfigArgs(
                 namespace_id=example_private_dns_namespace.id,
                 dns_records=[aws.servicediscovery.ServiceDnsConfigDnsRecordArgs(
@@ -228,7 +241,7 @@ class Instance(pulumi.CustomResource):
             health_check_custom_config=aws.servicediscovery.ServiceHealthCheckCustomConfigArgs(
                 failure_threshold=1,
             ))
-        example_instance = aws.servicediscovery.Instance("exampleInstance",
+        example_instance = aws.servicediscovery.Instance("example",
             instance_id="example-instance-id",
             service_id=example_service.id,
             attributes={
@@ -236,27 +249,34 @@ class Instance(pulumi.CustomResource):
                 "custom_attribute": "custom",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_http_namespace = aws.servicediscovery.HttpNamespace("exampleHttpNamespace", description="example")
-        example_service = aws.servicediscovery.Service("exampleService", namespace_id=example_http_namespace.id)
-        example_instance = aws.servicediscovery.Instance("exampleInstance",
+        example = aws.servicediscovery.HttpNamespace("example",
+            name="example.domain.test",
+            description="example")
+        example_service = aws.servicediscovery.Service("example",
+            name="example",
+            namespace_id=example.id)
+        example_instance = aws.servicediscovery.Instance("example",
             instance_id="example-instance-id",
             service_id=example_service.id,
             attributes={
                 "AWS_EC2_INSTANCE_ID": "i-0abdg374kd892cj6dl",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Service Discovery Instance using the service ID and instance ID. For example:
 
         ```sh
-         $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
+        $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
         ```
 
         :param str resource_name: The name of the resource.

@@ -74,25 +74,28 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesMonitoringCon
 
         @CustomType.Setter
         public Builder cloudWatchMonitoringConfiguration(@Nullable JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration cloudWatchMonitoringConfiguration) {
+
             this.cloudWatchMonitoringConfiguration = cloudWatchMonitoringConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder persistentAppUi(@Nullable String persistentAppUi) {
+
             this.persistentAppUi = persistentAppUi;
             return this;
         }
         @CustomType.Setter
         public Builder s3MonitoringConfiguration(@Nullable JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration s3MonitoringConfiguration) {
+
             this.s3MonitoringConfiguration = s3MonitoringConfiguration;
             return this;
         }
         public JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration build() {
-            final var o = new JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration();
-            o.cloudWatchMonitoringConfiguration = cloudWatchMonitoringConfiguration;
-            o.persistentAppUi = persistentAppUi;
-            o.s3MonitoringConfiguration = s3MonitoringConfiguration;
-            return o;
+            final var _resultValue = new JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration();
+            _resultValue.cloudWatchMonitoringConfiguration = cloudWatchMonitoringConfiguration;
+            _resultValue.persistentAppUi = persistentAppUi;
+            _resultValue.s3MonitoringConfiguration = s3MonitoringConfiguration;
+            return _resultValue;
         }
     }
 }

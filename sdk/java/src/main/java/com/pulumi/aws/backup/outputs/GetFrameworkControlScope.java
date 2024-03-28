@@ -4,6 +4,7 @@
 package com.pulumi.aws.backup.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -72,7 +73,10 @@ public final class GetFrameworkControlScope {
 
         @CustomType.Setter
         public Builder complianceResourceIds(List<String> complianceResourceIds) {
-            this.complianceResourceIds = Objects.requireNonNull(complianceResourceIds);
+            if (complianceResourceIds == null) {
+              throw new MissingRequiredPropertyException("GetFrameworkControlScope", "complianceResourceIds");
+            }
+            this.complianceResourceIds = complianceResourceIds;
             return this;
         }
         public Builder complianceResourceIds(String... complianceResourceIds) {
@@ -80,7 +84,10 @@ public final class GetFrameworkControlScope {
         }
         @CustomType.Setter
         public Builder complianceResourceTypes(List<String> complianceResourceTypes) {
-            this.complianceResourceTypes = Objects.requireNonNull(complianceResourceTypes);
+            if (complianceResourceTypes == null) {
+              throw new MissingRequiredPropertyException("GetFrameworkControlScope", "complianceResourceTypes");
+            }
+            this.complianceResourceTypes = complianceResourceTypes;
             return this;
         }
         public Builder complianceResourceTypes(String... complianceResourceTypes) {
@@ -88,15 +95,18 @@ public final class GetFrameworkControlScope {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetFrameworkControlScope", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetFrameworkControlScope build() {
-            final var o = new GetFrameworkControlScope();
-            o.complianceResourceIds = complianceResourceIds;
-            o.complianceResourceTypes = complianceResourceTypes;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetFrameworkControlScope();
+            _resultValue.complianceResourceIds = complianceResourceIds;
+            _resultValue.complianceResourceTypes = complianceResourceTypes;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

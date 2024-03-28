@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,8 +34,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewVpnGatewayRoutePropagation(ctx, "example", &ec2.VpnGatewayRoutePropagationArgs{
-//				VpnGatewayId: pulumi.Any(aws_vpn_gateway.Example.Id),
-//				RouteTableId: pulumi.Any(aws_route_table.Example.Id),
+//				VpnGatewayId: pulumi.Any(exampleAwsVpnGateway.Id),
+//				RouteTableId: pulumi.Any(exampleAwsRouteTable.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -44,6 +45,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type VpnGatewayRoutePropagation struct {
 	pulumi.CustomResourceState
 

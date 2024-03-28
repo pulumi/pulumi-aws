@@ -59,19 +59,21 @@ public final class ExperienceConfiguration {
 
         @CustomType.Setter
         public Builder contentSourceConfiguration(@Nullable ExperienceConfigurationContentSourceConfiguration contentSourceConfiguration) {
+
             this.contentSourceConfiguration = contentSourceConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder userIdentityConfiguration(@Nullable ExperienceConfigurationUserIdentityConfiguration userIdentityConfiguration) {
+
             this.userIdentityConfiguration = userIdentityConfiguration;
             return this;
         }
         public ExperienceConfiguration build() {
-            final var o = new ExperienceConfiguration();
-            o.contentSourceConfiguration = contentSourceConfiguration;
-            o.userIdentityConfiguration = userIdentityConfiguration;
-            return o;
+            final var _resultValue = new ExperienceConfiguration();
+            _resultValue.contentSourceConfiguration = contentSourceConfiguration;
+            _resultValue.userIdentityConfiguration = userIdentityConfiguration;
+            return _resultValue;
         }
     }
 }

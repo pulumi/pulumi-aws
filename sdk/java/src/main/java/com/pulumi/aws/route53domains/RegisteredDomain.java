@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.route53domains.RegisteredDomainArgs;
 import com.pulumi.aws.route53domains.inputs.RegisteredDomainState;
 import com.pulumi.aws.route53domains.outputs.RegisteredDomainAdminContact;
+import com.pulumi.aws.route53domains.outputs.RegisteredDomainBillingContact;
 import com.pulumi.aws.route53domains.outputs.RegisteredDomainNameServer;
 import com.pulumi.aws.route53domains.outputs.RegisteredDomainRegistrantContact;
 import com.pulumi.aws.route53domains.outputs.RegisteredDomainTechContact;
@@ -29,6 +30,8 @@ import javax.annotation.Nullable;
  * The `aws.route53domains.RegisteredDomain` resource behaves differently from normal resources in that if a domain has been registered, the provider does not _register_ this domain, but instead &#34;adopts&#34; it into management. A destroy does not delete the domain but does remove the resource from state.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -66,6 +69,15 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Import
+ * 
+ * Using `pulumi import`, import domains using the domain name. For example:
+ * 
+ * ```sh
+ * $ pulumi import aws:route53domains/registeredDomain:RegisteredDomain example example.com
+ * ```
  * 
  */
 @ResourceType(type="aws:route53domains/registeredDomain:RegisteredDomain")
@@ -99,14 +111,14 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
         return this.abuseContactPhone;
     }
     /**
-     * Details about the domain administrative contact.
+     * Details about the domain administrative contact. See Contact Blocks for more details.
      * 
      */
     @Export(name="adminContact", refs={RegisteredDomainAdminContact.class}, tree="[0]")
     private Output<RegisteredDomainAdminContact> adminContact;
 
     /**
-     * @return Details about the domain administrative contact.
+     * @return Details about the domain administrative contact. See Contact Blocks for more details.
      * 
      */
     public Output<RegisteredDomainAdminContact> adminContact() {
@@ -139,6 +151,34 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> autoRenew() {
         return Codegen.optional(this.autoRenew);
+    }
+    /**
+     * Details about the domain billing contact. See Contact Blocks for more details.
+     * 
+     */
+    @Export(name="billingContact", refs={RegisteredDomainBillingContact.class}, tree="[0]")
+    private Output<RegisteredDomainBillingContact> billingContact;
+
+    /**
+     * @return Details about the domain billing contact. See Contact Blocks for more details.
+     * 
+     */
+    public Output<RegisteredDomainBillingContact> billingContact() {
+        return this.billingContact;
+    }
+    /**
+     * Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+     * 
+     */
+    @Export(name="billingPrivacy", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> billingPrivacy;
+
+    /**
+     * @return Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> billingPrivacy() {
+        return Codegen.optional(this.billingPrivacy);
     }
     /**
      * The date when the domain was created as found in the response to a WHOIS query.
@@ -183,28 +223,28 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
         return this.expirationDate;
     }
     /**
-     * The list of nameservers for the domain.
+     * The list of nameservers for the domain. See `name_server` Blocks for more details.
      * 
      */
     @Export(name="nameServers", refs={List.class,RegisteredDomainNameServer.class}, tree="[0,1]")
     private Output<List<RegisteredDomainNameServer>> nameServers;
 
     /**
-     * @return The list of nameservers for the domain.
+     * @return The list of nameservers for the domain. See `name_server` Blocks for more details.
      * 
      */
     public Output<List<RegisteredDomainNameServer>> nameServers() {
         return this.nameServers;
     }
     /**
-     * Details about the domain registrant.
+     * Details about the domain registrant. See Contact Blocks for more details.
      * 
      */
     @Export(name="registrantContact", refs={RegisteredDomainRegistrantContact.class}, tree="[0]")
     private Output<RegisteredDomainRegistrantContact> registrantContact;
 
     /**
-     * @return Details about the domain registrant.
+     * @return Details about the domain registrant. See Contact Blocks for more details.
      * 
      */
     public Output<RegisteredDomainRegistrantContact> registrantContact() {
@@ -313,14 +353,14 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Details about the domain technical contact.
+     * Details about the domain technical contact. See Contact Blocks for more details.
      * 
      */
     @Export(name="techContact", refs={RegisteredDomainTechContact.class}, tree="[0]")
     private Output<RegisteredDomainTechContact> techContact;
 
     /**
-     * @return Details about the domain technical contact.
+     * @return Details about the domain technical contact. See Contact Blocks for more details.
      * 
      */
     public Output<RegisteredDomainTechContact> techContact() {
@@ -415,9 +455,6 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

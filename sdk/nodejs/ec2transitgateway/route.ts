@@ -8,20 +8,25 @@ import * as utilities from "../utilities";
  * Manages an EC2 Transit Gateway Route.
  *
  * ## Example Usage
+ *
  * ### Standard usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2transitgateway.Route("example", {
  *     destinationCidrBlock: "0.0.0.0/0",
- *     transitGatewayAttachmentId: aws_ec2_transit_gateway_vpc_attachment.example.id,
- *     transitGatewayRouteTableId: aws_ec2_transit_gateway.example.association_default_route_table_id,
+ *     transitGatewayAttachmentId: exampleAwsEc2TransitGatewayVpcAttachment.id,
+ *     transitGatewayRouteTableId: exampleAwsEc2TransitGateway.associationDefaultRouteTableId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Blackhole route
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,16 +34,17 @@ import * as utilities from "../utilities";
  * const example = new aws.ec2transitgateway.Route("example", {
  *     destinationCidrBlock: "0.0.0.0/0",
  *     blackhole: true,
- *     transitGatewayRouteTableId: aws_ec2_transit_gateway.example.association_default_route_table_id,
+ *     transitGatewayRouteTableId: exampleAwsEc2TransitGateway.associationDefaultRouteTableId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ec2_transit_gateway_route` using the EC2 Transit Gateway Route Table, an underscore, and the destination. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2transitgateway/route:Route example tgw-rtb-12345678_0.0.0.0/0
+ * $ pulumi import aws:ec2transitgateway/route:Route example tgw-rtb-12345678_0.0.0.0/0
  * ```
  */
 export class Route extends pulumi.CustomResource {

@@ -4,6 +4,7 @@
 package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -11,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsBotLocaleVoiceSettings {
+    /**
+     * @return Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. Valid values are `standard` and `neural`. If not specified, the default is `standard`.
+     * 
+     */
     private @Nullable String engine;
+    /**
+     * @return Identifier of the Amazon Polly voice to use.
+     * 
+     */
     private String voiceId;
 
     private V2modelsBotLocaleVoiceSettings() {}
+    /**
+     * @return Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. Valid values are `standard` and `neural`. If not specified, the default is `standard`.
+     * 
+     */
     public Optional<String> engine() {
         return Optional.ofNullable(this.engine);
     }
+    /**
+     * @return Identifier of the Amazon Polly voice to use.
+     * 
+     */
     public String voiceId() {
         return this.voiceId;
     }
@@ -42,19 +59,23 @@ public final class V2modelsBotLocaleVoiceSettings {
 
         @CustomType.Setter
         public Builder engine(@Nullable String engine) {
+
             this.engine = engine;
             return this;
         }
         @CustomType.Setter
         public Builder voiceId(String voiceId) {
-            this.voiceId = Objects.requireNonNull(voiceId);
+            if (voiceId == null) {
+              throw new MissingRequiredPropertyException("V2modelsBotLocaleVoiceSettings", "voiceId");
+            }
+            this.voiceId = voiceId;
             return this;
         }
         public V2modelsBotLocaleVoiceSettings build() {
-            final var o = new V2modelsBotLocaleVoiceSettings();
-            o.engine = engine;
-            o.voiceId = voiceId;
-            return o;
+            final var _resultValue = new V2modelsBotLocaleVoiceSettings();
+            _resultValue.engine = engine;
+            _resultValue.voiceId = voiceId;
+            return _resultValue;
         }
     }
 }

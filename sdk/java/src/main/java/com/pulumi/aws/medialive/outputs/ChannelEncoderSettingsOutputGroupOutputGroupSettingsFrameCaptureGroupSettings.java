@@ -6,6 +6,7 @@ package com.pulumi.aws.medialive.outputs;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -51,19 +52,23 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCapt
 
         @CustomType.Setter
         public Builder destination(ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination destination) {
-            this.destination = Objects.requireNonNull(destination);
+            if (destination == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings", "destination");
+            }
+            this.destination = destination;
             return this;
         }
         @CustomType.Setter
         public Builder frameCaptureCdnSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings frameCaptureCdnSettings) {
+
             this.frameCaptureCdnSettings = frameCaptureCdnSettings;
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings();
-            o.destination = destination;
-            o.frameCaptureCdnSettings = frameCaptureCdnSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings();
+            _resultValue.destination = destination;
+            _resultValue.frameCaptureCdnSettings = frameCaptureCdnSettings;
+            return _resultValue;
         }
     }
 }

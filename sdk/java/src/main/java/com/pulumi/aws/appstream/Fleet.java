@@ -16,7 +16,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -25,6 +24,8 @@ import javax.annotation.Nullable;
  * Provides an AppStream fleet.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,33 +50,35 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testFleet = new Fleet(&#34;testFleet&#34;, FleetArgs.builder()        
+ *             .name(&#34;test-fleet&#34;)
  *             .computeCapacity(FleetComputeCapacityArgs.builder()
  *                 .desiredInstances(1)
  *                 .build())
  *             .description(&#34;test fleet&#34;)
+ *             .idleDisconnectTimeoutInSeconds(60)
  *             .displayName(&#34;test-fleet&#34;)
  *             .enableDefaultInternetAccess(false)
  *             .fleetType(&#34;ON_DEMAND&#34;)
- *             .idleDisconnectTimeoutInSeconds(60)
  *             .imageName(&#34;Amazon-AppStream2-Sample-Image-03-11-2023&#34;)
  *             .instanceType(&#34;stream.standard.large&#34;)
  *             .maxUserDurationInSeconds(600)
- *             .tags(Map.of(&#34;TagName&#34;, &#34;tag-value&#34;))
  *             .vpcConfig(FleetVpcConfigArgs.builder()
  *                 .subnetIds(&#34;subnet-06e9b13400c225127&#34;)
  *                 .build())
+ *             .tags(Map.of(&#34;TagName&#34;, &#34;tag-value&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_appstream_fleet` using the id. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
+ * $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
  * ```
  * 
  */
@@ -222,14 +225,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
         return this.iamRoleArn;
     }
     /**
-     * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
+     * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to 60 seconds.
      * 
      */
     @Export(name="idleDisconnectTimeoutInSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> idleDisconnectTimeoutInSeconds;
 
     /**
-     * @return Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
+     * @return Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to 60 seconds.
      * 
      */
     public Output<Optional<Integer>> idleDisconnectTimeoutInSeconds() {
@@ -410,9 +413,6 @@ public class Fleet extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

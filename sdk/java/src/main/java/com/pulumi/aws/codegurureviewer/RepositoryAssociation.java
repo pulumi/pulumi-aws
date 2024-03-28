@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS CodeGuru Reviewer Repository Association.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleKey = new Key(&#34;exampleKey&#34;);
+ *         var example = new Key(&#34;example&#34;);
  * 
  *         var exampleRepository = new Repository(&#34;exampleRepository&#34;, RepositoryArgs.builder()        
  *             .repositoryName(&#34;example-repo&#34;)
@@ -64,13 +66,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .kmsKeyDetails(RepositoryAssociationKmsKeyDetailsArgs.builder()
  *                 .encryptionOption(&#34;CUSTOMER_MANAGED_CMK&#34;)
- *                 .kmsKeyId(exampleKey.keyId())
+ *                 .kmsKeyId(example.keyId())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:codegurureviewer/repositoryAssociation:RepositoryAssociation")
@@ -276,9 +279,6 @@ public class RepositoryAssociation extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

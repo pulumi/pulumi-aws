@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,9 +31,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.NewConnection(ctx, "example", &networkmanager.ConnectionArgs{
-//				GlobalNetworkId:   pulumi.Any(aws_networkmanager_global_network.Example.Id),
-//				DeviceId:          pulumi.Any(aws_networkmanager_device.Example1.Id),
-//				ConnectedDeviceId: pulumi.Any(aws_networkmanager_device.Example2.Id),
+//				GlobalNetworkId:   pulumi.Any(exampleAwsNetworkmanagerGlobalNetwork.Id),
+//				DeviceId:          pulumi.Any(example1.Id),
+//				ConnectedDeviceId: pulumi.Any(example2.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -42,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_networkmanager_connection` using the connection ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:networkmanager/connection:Connection example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/connection-07f6fd08867abc123
-//
+// $ pulumi import aws:networkmanager/connection:Connection example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/connection-07f6fd08867abc123
 // ```
 type Connection struct {
 	pulumi.CustomResourceState
@@ -93,10 +93,6 @@ func NewConnection(ctx *pulumi.Context,
 	if args.GlobalNetworkId == nil {
 		return nil, errors.New("invalid value for required argument 'GlobalNetworkId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Connection
 	err := ctx.RegisterResource("aws:networkmanager/connection:Connection", name, args, &resource, opts...)

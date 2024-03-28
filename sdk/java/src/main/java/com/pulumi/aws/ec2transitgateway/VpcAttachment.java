@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Manages an EC2 Transit Gateway VPC Attachment. For examples of custom route table association and propagation, see the EC2 Transit Gateway Networking Examples Guide.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,21 +45,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VpcAttachment(&#34;example&#34;, VpcAttachmentArgs.builder()        
- *             .subnetIds(aws_subnet.example().id())
- *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
- *             .vpcId(aws_vpc.example().id())
+ *             .subnetIds(exampleAwsSubnet.id())
+ *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
+ *             .vpcId(exampleAwsVpc.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment` using the EC2 Transit Gateway Attachment identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2transitgateway/vpcAttachment:VpcAttachment example tgw-attach-12345678
+ * $ pulumi import aws:ec2transitgateway/vpcAttachment:VpcAttachment example tgw-attach-12345678
  * ```
  * 
  */
@@ -254,9 +257,6 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

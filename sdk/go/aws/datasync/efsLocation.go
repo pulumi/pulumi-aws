@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,12 +33,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewEfsLocation(ctx, "example", &datasync.EfsLocationArgs{
-//				EfsFileSystemArn: pulumi.Any(aws_efs_mount_target.Example.File_system_arn),
+//				EfsFileSystemArn: pulumi.Any(exampleAwsEfsMountTarget.FileSystemArn),
 //				Ec2Config: &datasync.EfsLocationEc2ConfigArgs{
 //					SecurityGroupArns: pulumi.StringArray{
-//						aws_security_group.Example.Arn,
+//						exampleAwsSecurityGroup.Arn,
 //					},
-//					SubnetArn: pulumi.Any(aws_subnet.Example.Arn),
+//					SubnetArn: pulumi.Any(exampleAwsSubnet.Arn),
 //				},
 //			})
 //			if err != nil {
@@ -48,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_datasync_location_efs` using the DataSync Task Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:datasync/efsLocation:EfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-//
+// $ pulumi import aws:datasync/efsLocation:EfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 // ```
 type EfsLocation struct {
 	pulumi.CustomResourceState
@@ -97,10 +97,6 @@ func NewEfsLocation(ctx *pulumi.Context,
 	if args.EfsFileSystemArn == nil {
 		return nil, errors.New("invalid value for required argument 'EfsFileSystemArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EfsLocation
 	err := ctx.RegisterResource("aws:datasync/efsLocation:EfsLocation", name, args, &resource, opts...)

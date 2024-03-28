@@ -276,6 +276,7 @@ class CustomerGateway(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -283,18 +284,19 @@ class CustomerGateway(pulumi.CustomResource):
         main = aws.ec2.CustomerGateway("main",
             bgp_asn="65000",
             ip_address="172.83.124.10",
+            type="ipsec.1",
             tags={
                 "Name": "main-customer-gateway",
-            },
-            type="ipsec.1")
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Customer Gateways using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
+        $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
         ```
 
         :param str resource_name: The name of the resource.
@@ -318,6 +320,7 @@ class CustomerGateway(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -325,18 +328,19 @@ class CustomerGateway(pulumi.CustomResource):
         main = aws.ec2.CustomerGateway("main",
             bgp_asn="65000",
             ip_address="172.83.124.10",
+            type="ipsec.1",
             tags={
                 "Name": "main-customer-gateway",
-            },
-            type="ipsec.1")
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Customer Gateways using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
+        $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
         ```
 
         :param str resource_name: The name of the resource.
@@ -381,8 +385,6 @@ class CustomerGateway(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(CustomerGateway, __self__).__init__(
             'aws:ec2/customerGateway:CustomerGateway',
             resource_name,

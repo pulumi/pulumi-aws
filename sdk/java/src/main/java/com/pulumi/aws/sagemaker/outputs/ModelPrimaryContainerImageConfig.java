@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.ModelPrimaryContainerImageConfigRepositoryAuthConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,19 +60,23 @@ public final class ModelPrimaryContainerImageConfig {
 
         @CustomType.Setter
         public Builder repositoryAccessMode(String repositoryAccessMode) {
-            this.repositoryAccessMode = Objects.requireNonNull(repositoryAccessMode);
+            if (repositoryAccessMode == null) {
+              throw new MissingRequiredPropertyException("ModelPrimaryContainerImageConfig", "repositoryAccessMode");
+            }
+            this.repositoryAccessMode = repositoryAccessMode;
             return this;
         }
         @CustomType.Setter
         public Builder repositoryAuthConfig(@Nullable ModelPrimaryContainerImageConfigRepositoryAuthConfig repositoryAuthConfig) {
+
             this.repositoryAuthConfig = repositoryAuthConfig;
             return this;
         }
         public ModelPrimaryContainerImageConfig build() {
-            final var o = new ModelPrimaryContainerImageConfig();
-            o.repositoryAccessMode = repositoryAccessMode;
-            o.repositoryAuthConfig = repositoryAuthConfig;
-            return o;
+            final var _resultValue = new ModelPrimaryContainerImageConfig();
+            _resultValue.repositoryAccessMode = repositoryAccessMode;
+            _resultValue.repositoryAuthConfig = repositoryAuthConfig;
+            return _resultValue;
         }
     }
 }

@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2transitgateway.outputs;
 
 import com.pulumi.aws.ec2transitgateway.outputs.GetRouteTableFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -123,21 +124,31 @@ public final class GetRouteTableResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder defaultAssociationRouteTable(Boolean defaultAssociationRouteTable) {
-            this.defaultAssociationRouteTable = Objects.requireNonNull(defaultAssociationRouteTable);
+            if (defaultAssociationRouteTable == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "defaultAssociationRouteTable");
+            }
+            this.defaultAssociationRouteTable = defaultAssociationRouteTable;
             return this;
         }
         @CustomType.Setter
         public Builder defaultPropagationRouteTable(Boolean defaultPropagationRouteTable) {
-            this.defaultPropagationRouteTable = Objects.requireNonNull(defaultPropagationRouteTable);
+            if (defaultPropagationRouteTable == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "defaultPropagationRouteTable");
+            }
+            this.defaultPropagationRouteTable = defaultPropagationRouteTable;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetRouteTableFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -146,29 +157,38 @@ public final class GetRouteTableResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayId(String transitGatewayId) {
-            this.transitGatewayId = Objects.requireNonNull(transitGatewayId);
+            if (transitGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "transitGatewayId");
+            }
+            this.transitGatewayId = transitGatewayId;
             return this;
         }
         public GetRouteTableResult build() {
-            final var o = new GetRouteTableResult();
-            o.arn = arn;
-            o.defaultAssociationRouteTable = defaultAssociationRouteTable;
-            o.defaultPropagationRouteTable = defaultPropagationRouteTable;
-            o.filters = filters;
-            o.id = id;
-            o.tags = tags;
-            o.transitGatewayId = transitGatewayId;
-            return o;
+            final var _resultValue = new GetRouteTableResult();
+            _resultValue.arn = arn;
+            _resultValue.defaultAssociationRouteTable = defaultAssociationRouteTable;
+            _resultValue.defaultPropagationRouteTable = defaultPropagationRouteTable;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.tags = tags;
+            _resultValue.transitGatewayId = transitGatewayId;
+            return _resultValue;
         }
     }
 }

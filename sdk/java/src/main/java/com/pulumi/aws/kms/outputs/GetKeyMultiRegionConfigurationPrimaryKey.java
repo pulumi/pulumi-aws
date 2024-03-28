@@ -4,6 +4,7 @@
 package com.pulumi.aws.kms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class GetKeyMultiRegionConfigurationPrimaryKey {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetKeyMultiRegionConfigurationPrimaryKey", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetKeyMultiRegionConfigurationPrimaryKey", "region");
+            }
+            this.region = region;
             return this;
         }
         public GetKeyMultiRegionConfigurationPrimaryKey build() {
-            final var o = new GetKeyMultiRegionConfigurationPrimaryKey();
-            o.arn = arn;
-            o.region = region;
-            return o;
+            final var _resultValue = new GetKeyMultiRegionConfigurationPrimaryKey();
+            _resultValue.arn = arn;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

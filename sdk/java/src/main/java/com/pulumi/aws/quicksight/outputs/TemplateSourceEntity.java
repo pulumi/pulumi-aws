@@ -59,19 +59,21 @@ public final class TemplateSourceEntity {
 
         @CustomType.Setter
         public Builder sourceAnalysis(@Nullable TemplateSourceEntitySourceAnalysis sourceAnalysis) {
+
             this.sourceAnalysis = sourceAnalysis;
             return this;
         }
         @CustomType.Setter
         public Builder sourceTemplate(@Nullable TemplateSourceEntitySourceTemplate sourceTemplate) {
+
             this.sourceTemplate = sourceTemplate;
             return this;
         }
         public TemplateSourceEntity build() {
-            final var o = new TemplateSourceEntity();
-            o.sourceAnalysis = sourceAnalysis;
-            o.sourceTemplate = sourceTemplate;
-            return o;
+            final var _resultValue = new TemplateSourceEntity();
+            _resultValue.sourceAnalysis = sourceAnalysis;
+            _resultValue.sourceTemplate = sourceTemplate;
+            return _resultValue;
         }
     }
 }

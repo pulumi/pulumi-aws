@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,15 +32,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2018-11-08",
-//				"DestinationReferences": []string{
+//				"version": "2018-11-08",
+//				"destinationReferences": []string{
 //					"refs/heads/master",
 //				},
-//				"Statements": []map[string]interface{}{
+//				"statements": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Type":                    "Approvers",
-//						"NumberOfApprovalsNeeded": 2,
-//						"ApprovalPoolMembers": []string{
+//						"type":                    "Approvers",
+//						"numberOfApprovalsNeeded": 2,
+//						"approvalPoolMembers": []string{
 //							"arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*",
 //						},
 //					},
@@ -50,6 +51,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = codecommit.NewApprovalRuleTemplate(ctx, "example", &codecommit.ApprovalRuleTemplateArgs{
+//				Name:        pulumi.String("MyExampleApprovalRuleTemplate"),
 //				Description: pulumi.String("This is an example approval rule template"),
 //				Content:     pulumi.String(json0),
 //			})
@@ -61,15 +63,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CodeCommit approval rule templates using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
-//
+// $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
 // ```
 type ApprovalRuleTemplate struct {
 	pulumi.CustomResourceState

@@ -11,59 +11,77 @@ import * as utilities from "../utilities";
  * Provides a Glue Data Quality Ruleset Resource. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/glue-data-quality.html) for a full explanation of the Glue Data Quality Ruleset functionality
  *
  * ## Example Usage
+ *
  * ### Basic
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.DataQualityRuleset("example", {ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]"});
- * ```
- * ### With description
- *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.DataQualityRuleset("example", {
+ *     name: "example",
+ *     ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### With description
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.glue.DataQualityRuleset("example", {
+ *     name: "example",
  *     description: "example",
  *     ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With tags
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.DataQualityRuleset("example", {
+ *     name: "example",
  *     ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
  *     tags: {
  *         hello: "world",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With targetTable
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.DataQualityRuleset("example", {
+ *     name: "example",
  *     ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
  *     targetTable: {
- *         databaseName: aws_glue_catalog_database.example.name,
- *         tableName: aws_glue_catalog_table.example.name,
+ *         databaseName: exampleAwsGlueCatalogDatabase.name,
+ *         tableName: exampleAwsGlueCatalogTable.name,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Glue Data Quality Ruleset using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName
+ * $ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName
  * ```
  */
 export class DataQualityRuleset extends pulumi.CustomResource {
@@ -177,8 +195,6 @@ export class DataQualityRuleset extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(DataQualityRuleset.__pulumiType, name, resourceInputs, opts);
     }
 }

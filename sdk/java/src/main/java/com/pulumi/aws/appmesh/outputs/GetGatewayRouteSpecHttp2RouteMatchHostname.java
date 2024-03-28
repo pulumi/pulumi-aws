@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,19 +41,25 @@ public final class GetGatewayRouteSpecHttp2RouteMatchHostname {
 
         @CustomType.Setter
         public Builder exact(String exact) {
-            this.exact = Objects.requireNonNull(exact);
+            if (exact == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttp2RouteMatchHostname", "exact");
+            }
+            this.exact = exact;
             return this;
         }
         @CustomType.Setter
         public Builder suffix(String suffix) {
-            this.suffix = Objects.requireNonNull(suffix);
+            if (suffix == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttp2RouteMatchHostname", "suffix");
+            }
+            this.suffix = suffix;
             return this;
         }
         public GetGatewayRouteSpecHttp2RouteMatchHostname build() {
-            final var o = new GetGatewayRouteSpecHttp2RouteMatchHostname();
-            o.exact = exact;
-            o.suffix = suffix;
-            return o;
+            final var _resultValue = new GetGatewayRouteSpecHttp2RouteMatchHostname();
+            _resultValue.exact = exact;
+            _resultValue.suffix = suffix;
+            return _resultValue;
         }
     }
 }

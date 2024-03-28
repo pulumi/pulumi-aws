@@ -4,6 +4,7 @@
 package com.pulumi.aws.lb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
@@ -59,19 +60,23 @@ public final class ListenerRuleActionForwardStickiness {
 
         @CustomType.Setter
         public Builder duration(Integer duration) {
-            this.duration = Objects.requireNonNull(duration);
+            if (duration == null) {
+              throw new MissingRequiredPropertyException("ListenerRuleActionForwardStickiness", "duration");
+            }
+            this.duration = duration;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         public ListenerRuleActionForwardStickiness build() {
-            final var o = new ListenerRuleActionForwardStickiness();
-            o.duration = duration;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new ListenerRuleActionForwardStickiness();
+            _resultValue.duration = duration;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

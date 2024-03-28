@@ -19,9 +19,7 @@ import (
 // Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
-//
+// $ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
 // ```
 type ClusterSnapshot struct {
 	pulumi.CustomResourceState
@@ -59,10 +57,6 @@ func NewClusterSnapshot(ctx *pulumi.Context,
 	if args.SnapshotIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'SnapshotIdentifier'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterSnapshot
 	err := ctx.RegisterResource("aws:redshift/clusterSnapshot:ClusterSnapshot", name, args, &resource, opts...)

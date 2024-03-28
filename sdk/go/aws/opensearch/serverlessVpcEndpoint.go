@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS OpenSearchServerless VPC Endpoint.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,10 +32,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opensearch.NewServerlessVpcEndpoint(ctx, "example", &opensearch.ServerlessVpcEndpointArgs{
+//				Name: pulumi.String("myendpoint"),
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Example.Id,
+//					exampleAwsSubnet.Id,
 //				},
-//				VpcId: pulumi.Any(aws_vpc.Example.Id),
+//				VpcId: pulumi.Any(exampleAwsVpc.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -43,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import OpenSearchServerless Vpc Endpointa using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
-//
+// $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
 // ```
 type ServerlessVpcEndpoint struct {
 	pulumi.CustomResourceState

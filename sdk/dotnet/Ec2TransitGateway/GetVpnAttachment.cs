@@ -16,11 +16,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// &gt; EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transit_gateway_attachment_id` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### By Transit Gateway and VPN Connection Identifiers
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -31,16 +31,17 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// {
         ///     var example = Aws.Ec2TransitGateway.GetVpnAttachment.Invoke(new()
         ///     {
-        ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
-        ///         VpnConnectionId = aws_vpn_connection.Example.Id,
+        ///         TransitGatewayId = exampleAwsEc2TransitGateway.Id,
+        ///         VpnConnectionId = exampleAwsVpnConnection.Id,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Filter
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -66,8 +67,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVpnAttachmentResult> InvokeAsync(GetVpnAttachmentArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpnAttachmentResult>("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", args ?? new GetVpnAttachmentArgs(), options.WithDefaults());
@@ -77,11 +77,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// &gt; EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transit_gateway_attachment_id` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### By Transit Gateway and VPN Connection Identifiers
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -92,16 +92,17 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// {
         ///     var example = Aws.Ec2TransitGateway.GetVpnAttachment.Invoke(new()
         ///     {
-        ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
-        ///         VpnConnectionId = aws_vpn_connection.Example.Id,
+        ///         TransitGatewayId = exampleAwsEc2TransitGateway.Id,
+        ///         VpnConnectionId = exampleAwsVpnConnection.Id,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Filter
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -127,8 +128,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVpnAttachmentResult> Invoke(GetVpnAttachmentInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpnAttachmentResult>("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", args ?? new GetVpnAttachmentInvokeArgs(), options.WithDefaults());

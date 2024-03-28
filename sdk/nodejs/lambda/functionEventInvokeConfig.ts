@@ -11,74 +11,86 @@ import * as utilities from "../utilities";
  * Manages an asynchronous invocation configuration for a Lambda Function or Alias. More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
  *
  * ## Example Usage
+ *
  * ### Destination Configuration
  *
  * > **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
- *     functionName: aws_lambda_alias.example.function_name,
+ *     functionName: exampleAwsLambdaAlias.functionName,
  *     destinationConfig: {
  *         onFailure: {
- *             destination: aws_sqs_queue.example.arn,
+ *             destination: exampleAwsSqsQueue.arn,
  *         },
  *         onSuccess: {
- *             destination: aws_sns_topic.example.arn,
+ *             destination: exampleAwsSnsTopic.arn,
  *         },
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Error Handling Configuration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
- *     functionName: aws_lambda_alias.example.function_name,
+ *     functionName: exampleAwsLambdaAlias.functionName,
  *     maximumEventAgeInSeconds: 60,
  *     maximumRetryAttempts: 0,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Configuration for Alias Name
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
- *     functionName: aws_lambda_alias.example.function_name,
- *     qualifier: aws_lambda_alias.example.name,
+ *     functionName: exampleAwsLambdaAlias.functionName,
+ *     qualifier: exampleAwsLambdaAlias.name,
  * });
- * // ... other configuration ...
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Configuration for Function Latest Unpublished Version
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
- *     functionName: aws_lambda_function.example.function_name,
+ *     functionName: exampleAwsLambdaFunction.functionName,
  *     qualifier: "$LATEST",
  * });
- * // ... other configuration ...
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Configuration for Function Published Version
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
- *     functionName: aws_lambda_function.example.function_name,
- *     qualifier: aws_lambda_function.example.version,
+ *     functionName: exampleAwsLambdaFunction.functionName,
+ *     qualifier: exampleAwsLambdaFunction.version,
  * });
- * // ... other configuration ...
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -93,22 +105,22 @@ import * as utilities from "../utilities";
  * ARN without qualifier (all versions and aliases):
  *
  * ```sh
- *  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
+ * $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
  * ```
- *  ARN with qualifier:
+ * ARN with qualifier:
  *
  * ```sh
- *  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
+ * $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
  * ```
- *  Name without qualifier (all versions and aliases):
+ * Name without qualifier (all versions and aliases):
  *
  * ```sh
- *  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
+ * $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
  * ```
- *  Name with qualifier:
+ * Name with qualifier:
  *
  * ```sh
- *  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
+ * $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
  * ```
  */
 export class FunctionEventInvokeConfig extends pulumi.CustomResource {

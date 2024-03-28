@@ -8,6 +8,7 @@ import com.pulumi.aws.pipes.outputs.PipeTargetParametersBatchJobParametersContai
 import com.pulumi.aws.pipes.outputs.PipeTargetParametersBatchJobParametersDependsOn;
 import com.pulumi.aws.pipes.outputs.PipeTargetParametersBatchJobParametersRetryStrategy;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -134,16 +135,19 @@ public final class PipeTargetParametersBatchJobParameters {
 
         @CustomType.Setter
         public Builder arrayProperties(@Nullable PipeTargetParametersBatchJobParametersArrayProperties arrayProperties) {
+
             this.arrayProperties = arrayProperties;
             return this;
         }
         @CustomType.Setter
         public Builder containerOverrides(@Nullable PipeTargetParametersBatchJobParametersContainerOverrides containerOverrides) {
+
             this.containerOverrides = containerOverrides;
             return this;
         }
         @CustomType.Setter
         public Builder dependsOns(@Nullable List<PipeTargetParametersBatchJobParametersDependsOn> dependsOns) {
+
             this.dependsOns = dependsOns;
             return this;
         }
@@ -152,34 +156,42 @@ public final class PipeTargetParametersBatchJobParameters {
         }
         @CustomType.Setter
         public Builder jobDefinition(String jobDefinition) {
-            this.jobDefinition = Objects.requireNonNull(jobDefinition);
+            if (jobDefinition == null) {
+              throw new MissingRequiredPropertyException("PipeTargetParametersBatchJobParameters", "jobDefinition");
+            }
+            this.jobDefinition = jobDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder jobName(String jobName) {
-            this.jobName = Objects.requireNonNull(jobName);
+            if (jobName == null) {
+              throw new MissingRequiredPropertyException("PipeTargetParametersBatchJobParameters", "jobName");
+            }
+            this.jobName = jobName;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
+
             this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
         public Builder retryStrategy(@Nullable PipeTargetParametersBatchJobParametersRetryStrategy retryStrategy) {
+
             this.retryStrategy = retryStrategy;
             return this;
         }
         public PipeTargetParametersBatchJobParameters build() {
-            final var o = new PipeTargetParametersBatchJobParameters();
-            o.arrayProperties = arrayProperties;
-            o.containerOverrides = containerOverrides;
-            o.dependsOns = dependsOns;
-            o.jobDefinition = jobDefinition;
-            o.jobName = jobName;
-            o.parameters = parameters;
-            o.retryStrategy = retryStrategy;
-            return o;
+            final var _resultValue = new PipeTargetParametersBatchJobParameters();
+            _resultValue.arrayProperties = arrayProperties;
+            _resultValue.containerOverrides = containerOverrides;
+            _resultValue.dependsOns = dependsOns;
+            _resultValue.jobDefinition = jobDefinition;
+            _resultValue.jobName = jobName;
+            _resultValue.parameters = parameters;
+            _resultValue.retryStrategy = retryStrategy;
+            return _resultValue;
         }
     }
 }

@@ -6,6 +6,7 @@ package com.pulumi.aws.servicequotas.inputs;
 import com.pulumi.aws.servicequotas.inputs.GetTemplatesTemplateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -125,7 +126,9 @@ public final class GetTemplatesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetTemplatesArgs build() {
-            $.region = Objects.requireNonNull($.region, "expected parameter 'region' to be non-null");
+            if ($.region == null) {
+                throw new MissingRequiredPropertyException("GetTemplatesArgs", "region");
+            }
             return $;
         }
     }

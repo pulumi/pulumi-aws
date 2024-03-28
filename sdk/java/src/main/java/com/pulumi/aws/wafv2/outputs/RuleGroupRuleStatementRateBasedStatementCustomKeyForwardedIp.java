@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp 
         }
 
         public RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp();
+            return _resultValue;
         }
     }
 }

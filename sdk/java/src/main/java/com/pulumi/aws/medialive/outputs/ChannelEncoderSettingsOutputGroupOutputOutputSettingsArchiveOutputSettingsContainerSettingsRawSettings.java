@@ -25,8 +25,8 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
         }
 
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings();
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings();
+            return _resultValue;
         }
     }
 }

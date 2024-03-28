@@ -102,59 +102,65 @@ class FindingAggregator(pulumi.CustomResource):
         Manages a Security Hub finding aggregator. Security Hub needs to be enabled in a region in order for the aggregator to pull through findings.
 
         ## Example Usage
+
         ### All Regions Usage
 
         The following example will enable the aggregator for every region.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_finding_aggregator = aws.securityhub.FindingAggregator("exampleFindingAggregator", linking_mode="ALL_REGIONS",
-        opts=pulumi.ResourceOptions(depends_on=[example_account]))
+        example = aws.securityhub.Account("example")
+        example_finding_aggregator = aws.securityhub.FindingAggregator("example", linking_mode="ALL_REGIONS")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### All Regions Except Specified Regions Usage
 
         The following example will enable the aggregator for every region except those specified in `specified_regions`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_finding_aggregator = aws.securityhub.FindingAggregator("exampleFindingAggregator",
+        example = aws.securityhub.Account("example")
+        example_finding_aggregator = aws.securityhub.FindingAggregator("example",
             linking_mode="ALL_REGIONS_EXCEPT_SPECIFIED",
             specified_regions=[
                 "eu-west-1",
                 "eu-west-2",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
+            ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Specified Regions Usage
 
         The following example will enable the aggregator for every region specified in `specified_regions`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_finding_aggregator = aws.securityhub.FindingAggregator("exampleFindingAggregator",
+        example = aws.securityhub.Account("example")
+        example_finding_aggregator = aws.securityhub.FindingAggregator("example",
             linking_mode="SPECIFIED_REGIONS",
             specified_regions=[
                 "eu-west-1",
                 "eu-west-2",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
+            ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an existing Security Hub finding aggregator using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
+        $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
         ```
 
         :param str resource_name: The name of the resource.
@@ -172,59 +178,65 @@ class FindingAggregator(pulumi.CustomResource):
         Manages a Security Hub finding aggregator. Security Hub needs to be enabled in a region in order for the aggregator to pull through findings.
 
         ## Example Usage
+
         ### All Regions Usage
 
         The following example will enable the aggregator for every region.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_finding_aggregator = aws.securityhub.FindingAggregator("exampleFindingAggregator", linking_mode="ALL_REGIONS",
-        opts=pulumi.ResourceOptions(depends_on=[example_account]))
+        example = aws.securityhub.Account("example")
+        example_finding_aggregator = aws.securityhub.FindingAggregator("example", linking_mode="ALL_REGIONS")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### All Regions Except Specified Regions Usage
 
         The following example will enable the aggregator for every region except those specified in `specified_regions`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_finding_aggregator = aws.securityhub.FindingAggregator("exampleFindingAggregator",
+        example = aws.securityhub.Account("example")
+        example_finding_aggregator = aws.securityhub.FindingAggregator("example",
             linking_mode="ALL_REGIONS_EXCEPT_SPECIFIED",
             specified_regions=[
                 "eu-west-1",
                 "eu-west-2",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
+            ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Specified Regions Usage
 
         The following example will enable the aggregator for every region specified in `specified_regions`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_finding_aggregator = aws.securityhub.FindingAggregator("exampleFindingAggregator",
+        example = aws.securityhub.Account("example")
+        example_finding_aggregator = aws.securityhub.FindingAggregator("example",
             linking_mode="SPECIFIED_REGIONS",
             specified_regions=[
                 "eu-west-1",
                 "eu-west-2",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
+            ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an existing Security Hub finding aggregator using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
+        $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
         ```
 
         :param str resource_name: The name of the resource.

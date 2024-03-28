@@ -178,11 +178,12 @@ class PipelineDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.datapipeline.Pipeline("default")
+        default = aws.datapipeline.Pipeline("default", name="tf-pipeline-default")
         example = aws.datapipeline.PipelineDefinition("example",
             pipeline_id=default.id,
             pipeline_objects=[
@@ -240,13 +241,14 @@ class PipelineDefinition(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_datapipeline_pipeline_definition` using the id. For example:
 
         ```sh
-         $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
+        $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
         ```
 
         :param str resource_name: The name of the resource.
@@ -269,11 +271,12 @@ class PipelineDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.datapipeline.Pipeline("default")
+        default = aws.datapipeline.Pipeline("default", name="tf-pipeline-default")
         example = aws.datapipeline.PipelineDefinition("example",
             pipeline_id=default.id,
             pipeline_objects=[
@@ -331,13 +334,14 @@ class PipelineDefinition(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_datapipeline_pipeline_definition` using the id. For example:
 
         ```sh
-         $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
+        $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
         ```
 
         :param str resource_name: The name of the resource.

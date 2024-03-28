@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleActionAllowCustomRequestHandlingInsertHeader;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,16 +44,19 @@ public final class WebAclRuleActionAllowCustomRequestHandling {
 
         @CustomType.Setter
         public Builder insertHeaders(List<WebAclRuleActionAllowCustomRequestHandlingInsertHeader> insertHeaders) {
-            this.insertHeaders = Objects.requireNonNull(insertHeaders);
+            if (insertHeaders == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleActionAllowCustomRequestHandling", "insertHeaders");
+            }
+            this.insertHeaders = insertHeaders;
             return this;
         }
         public Builder insertHeaders(WebAclRuleActionAllowCustomRequestHandlingInsertHeader... insertHeaders) {
             return insertHeaders(List.of(insertHeaders));
         }
         public WebAclRuleActionAllowCustomRequestHandling build() {
-            final var o = new WebAclRuleActionAllowCustomRequestHandling();
-            o.insertHeaders = insertHeaders;
-            return o;
+            final var _resultValue = new WebAclRuleActionAllowCustomRequestHandling();
+            _resultValue.insertHeaders = insertHeaders;
+            return _resultValue;
         }
     }
 }

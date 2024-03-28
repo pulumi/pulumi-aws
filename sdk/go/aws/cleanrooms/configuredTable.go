@@ -15,8 +15,10 @@ import (
 // Provides a AWS Clean Rooms configured table. Configured tables are used to represent references to existing tables in the AWS Glue Data Catalog.
 //
 // ## Example Usage
+//
 // ### Configured table with tags
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,14 +31,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cleanrooms.NewConfiguredTable(ctx, "testConfiguredTable", &cleanrooms.ConfiguredTableArgs{
+//			_, err := cleanrooms.NewConfiguredTable(ctx, "test_configured_table", &cleanrooms.ConfiguredTableArgs{
+//				Name:           pulumi.String("pulumi-example-table"),
+//				Description:    pulumi.String("I made this table with Pulumi!"),
+//				AnalysisMethod: pulumi.String("DIRECT_QUERY"),
 //				AllowedColumns: pulumi.StringArray{
 //					pulumi.String("column1"),
 //					pulumi.String("column2"),
 //					pulumi.String("column3"),
 //				},
-//				AnalysisMethod: pulumi.String("DIRECT_QUERY"),
-//				Description:    pulumi.String("I made this table with Pulumi!"),
 //				TableReference: &cleanrooms.ConfiguredTableTableReferenceArgs{
 //					DatabaseName: pulumi.String("example_database"),
 //					TableName:    pulumi.String("example_table"),
@@ -53,15 +56,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_cleanrooms_configured_table` using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cleanrooms/configuredTable:ConfiguredTable table 1234abcd-12ab-34cd-56ef-1234567890ab
-//
+// $ pulumi import aws:cleanrooms/configuredTable:ConfiguredTable table 1234abcd-12ab-34cd-56ef-1234567890ab
 // ```
 type ConfiguredTable struct {
 	pulumi.CustomResourceState
@@ -106,10 +108,6 @@ func NewConfiguredTable(ctx *pulumi.Context,
 	if args.TableReference == nil {
 		return nil, errors.New("invalid value for required argument 'TableReference'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfiguredTable
 	err := ctx.RegisterResource("aws:cleanrooms/configuredTable:ConfiguredTable", name, args, &resource, opts...)

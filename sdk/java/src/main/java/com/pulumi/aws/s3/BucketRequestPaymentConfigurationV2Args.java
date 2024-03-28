@@ -5,6 +5,7 @@ package com.pulumi.aws.s3;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class BucketRequestPaymentConfigurationV2Args extends com.pulumi.re
         }
 
         public BucketRequestPaymentConfigurationV2Args build() {
-            $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
-            $.payer = Objects.requireNonNull($.payer, "expected parameter 'payer' to be non-null");
+            if ($.bucket == null) {
+                throw new MissingRequiredPropertyException("BucketRequestPaymentConfigurationV2Args", "bucket");
+            }
+            if ($.payer == null) {
+                throw new MissingRequiredPropertyException("BucketRequestPaymentConfigurationV2Args", "payer");
+            }
             return $;
         }
     }

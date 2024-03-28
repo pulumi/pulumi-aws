@@ -5,6 +5,7 @@ package com.pulumi.aws.route53.outputs;
 
 import com.pulumi.aws.route53.outputs.GetResolverEndpointFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -23,7 +24,9 @@ public final class GetResolverEndpointResult {
     private String id;
     private List<String> ipAddresses;
     private String name;
+    private List<String> protocols;
     private @Nullable String resolverEndpointId;
+    private String resolverEndpointType;
     private String status;
     private String vpcId;
 
@@ -50,8 +53,14 @@ public final class GetResolverEndpointResult {
     public String name() {
         return this.name;
     }
+    public List<String> protocols() {
+        return this.protocols;
+    }
     public Optional<String> resolverEndpointId() {
         return Optional.ofNullable(this.resolverEndpointId);
+    }
+    public String resolverEndpointType() {
+        return this.resolverEndpointType;
     }
     public String status() {
         return this.status;
@@ -75,7 +84,9 @@ public final class GetResolverEndpointResult {
         private String id;
         private List<String> ipAddresses;
         private String name;
+        private List<String> protocols;
         private @Nullable String resolverEndpointId;
+        private String resolverEndpointType;
         private String status;
         private String vpcId;
         public Builder() {}
@@ -87,23 +98,32 @@ public final class GetResolverEndpointResult {
     	      this.id = defaults.id;
     	      this.ipAddresses = defaults.ipAddresses;
     	      this.name = defaults.name;
+    	      this.protocols = defaults.protocols;
     	      this.resolverEndpointId = defaults.resolverEndpointId;
+    	      this.resolverEndpointType = defaults.resolverEndpointType;
     	      this.status = defaults.status;
     	      this.vpcId = defaults.vpcId;
         }
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetResolverEndpointResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder direction(String direction) {
-            this.direction = Objects.requireNonNull(direction);
+            if (direction == null) {
+              throw new MissingRequiredPropertyException("GetResolverEndpointResult", "direction");
+            }
+            this.direction = direction;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetResolverEndpointFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -112,12 +132,18 @@ public final class GetResolverEndpointResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetResolverEndpointResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddresses(List<String> ipAddresses) {
-            this.ipAddresses = Objects.requireNonNull(ipAddresses);
+            if (ipAddresses == null) {
+              throw new MissingRequiredPropertyException("GetResolverEndpointResult", "ipAddresses");
+            }
+            this.ipAddresses = ipAddresses;
             return this;
         }
         public Builder ipAddresses(String... ipAddresses) {
@@ -125,36 +151,67 @@ public final class GetResolverEndpointResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetResolverEndpointResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
+        public Builder protocols(List<String> protocols) {
+            if (protocols == null) {
+              throw new MissingRequiredPropertyException("GetResolverEndpointResult", "protocols");
+            }
+            this.protocols = protocols;
+            return this;
+        }
+        public Builder protocols(String... protocols) {
+            return protocols(List.of(protocols));
+        }
+        @CustomType.Setter
         public Builder resolverEndpointId(@Nullable String resolverEndpointId) {
+
             this.resolverEndpointId = resolverEndpointId;
             return this;
         }
         @CustomType.Setter
+        public Builder resolverEndpointType(String resolverEndpointType) {
+            if (resolverEndpointType == null) {
+              throw new MissingRequiredPropertyException("GetResolverEndpointResult", "resolverEndpointType");
+            }
+            this.resolverEndpointType = resolverEndpointType;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetResolverEndpointResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetResolverEndpointResult", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public GetResolverEndpointResult build() {
-            final var o = new GetResolverEndpointResult();
-            o.arn = arn;
-            o.direction = direction;
-            o.filters = filters;
-            o.id = id;
-            o.ipAddresses = ipAddresses;
-            o.name = name;
-            o.resolverEndpointId = resolverEndpointId;
-            o.status = status;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetResolverEndpointResult();
+            _resultValue.arn = arn;
+            _resultValue.direction = direction;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ipAddresses = ipAddresses;
+            _resultValue.name = name;
+            _resultValue.protocols = protocols;
+            _resultValue.resolverEndpointId = resolverEndpointId;
+            _resultValue.resolverEndpointType = resolverEndpointType;
+            _resultValue.status = status;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

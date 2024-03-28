@@ -247,21 +247,23 @@ class Snapshot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.redshiftserverless.Snapshot("example",
-            namespace_name=aws_redshiftserverless_workgroup["example"]["namespace_name"],
+            namespace_name=example_aws_redshiftserverless_workgroup["namespaceName"],
             snapshot_name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Serverless Snapshots using the `snapshot_name`. For example:
 
         ```sh
-         $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
+        $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -281,21 +283,23 @@ class Snapshot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.redshiftserverless.Snapshot("example",
-            namespace_name=aws_redshiftserverless_workgroup["example"]["namespace_name"],
+            namespace_name=example_aws_redshiftserverless_workgroup["namespaceName"],
             snapshot_name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Serverless Snapshots using the `snapshot_name`. For example:
 
         ```sh
-         $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
+        $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
         ```
 
         :param str resource_name: The name of the resource.

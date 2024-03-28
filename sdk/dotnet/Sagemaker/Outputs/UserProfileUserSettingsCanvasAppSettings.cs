@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly Outputs.UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings? ModelRegisterSettings;
         /// <summary>
-        /// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+        /// Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
         /// </summary>
         public readonly Outputs.UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings? TimeSeriesForecastingSettings;
         /// <summary>

@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,8 +32,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2transitgateway.NewMulticastGroupSource(ctx, "example", &ec2transitgateway.MulticastGroupSourceArgs{
 //				GroupIpAddress:                  pulumi.String("224.0.0.1"),
-//				NetworkInterfaceId:              pulumi.Any(aws_network_interface.Example.Id),
-//				TransitGatewayMulticastDomainId: pulumi.Any(aws_ec2_transit_gateway_multicast_domain.Example.Id),
+//				NetworkInterfaceId:              pulumi.Any(exampleAwsNetworkInterface.Id),
+//				TransitGatewayMulticastDomainId: pulumi.Any(exampleAwsEc2TransitGatewayMulticastDomain.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -42,6 +43,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type MulticastGroupSource struct {
 	pulumi.CustomResourceState
 

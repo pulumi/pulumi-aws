@@ -7,6 +7,7 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListenerTlCertificate
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListenerTlCertificateFile;
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListenerTlCertificateSd;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -49,7 +50,10 @@ public final class GetVirtualGatewaySpecListenerTlCertificate {
 
         @CustomType.Setter
         public Builder acms(List<GetVirtualGatewaySpecListenerTlCertificateAcm> acms) {
-            this.acms = Objects.requireNonNull(acms);
+            if (acms == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerTlCertificate", "acms");
+            }
+            this.acms = acms;
             return this;
         }
         public Builder acms(GetVirtualGatewaySpecListenerTlCertificateAcm... acms) {
@@ -57,7 +61,10 @@ public final class GetVirtualGatewaySpecListenerTlCertificate {
         }
         @CustomType.Setter
         public Builder files(List<GetVirtualGatewaySpecListenerTlCertificateFile> files) {
-            this.files = Objects.requireNonNull(files);
+            if (files == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerTlCertificate", "files");
+            }
+            this.files = files;
             return this;
         }
         public Builder files(GetVirtualGatewaySpecListenerTlCertificateFile... files) {
@@ -65,18 +72,21 @@ public final class GetVirtualGatewaySpecListenerTlCertificate {
         }
         @CustomType.Setter
         public Builder sds(List<GetVirtualGatewaySpecListenerTlCertificateSd> sds) {
-            this.sds = Objects.requireNonNull(sds);
+            if (sds == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerTlCertificate", "sds");
+            }
+            this.sds = sds;
             return this;
         }
         public Builder sds(GetVirtualGatewaySpecListenerTlCertificateSd... sds) {
             return sds(List.of(sds));
         }
         public GetVirtualGatewaySpecListenerTlCertificate build() {
-            final var o = new GetVirtualGatewaySpecListenerTlCertificate();
-            o.acms = acms;
-            o.files = files;
-            o.sds = sds;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecListenerTlCertificate();
+            _resultValue.acms = acms;
+            _resultValue.files = files;
+            _resultValue.sds = sds;
+            return _resultValue;
         }
     }
 }

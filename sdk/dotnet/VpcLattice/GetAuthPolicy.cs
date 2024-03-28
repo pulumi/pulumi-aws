@@ -14,11 +14,11 @@ namespace Pulumi.Aws.VpcLattice
         /// <summary>
         /// Data source for managing an AWS VPC Lattice Auth Policy.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -29,13 +29,12 @@ namespace Pulumi.Aws.VpcLattice
         /// {
         ///     var test = Aws.VpcLattice.GetAuthPolicy.Invoke(new()
         ///     {
-        ///         ResourceIdentifier = aws_vpclattice_auth_policy.Test.Resource_identifier,
+        ///         ResourceIdentifier = testAwsVpclatticeAuthPolicy.ResourceIdentifier,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAuthPolicyResult> InvokeAsync(GetAuthPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthPolicyResult>("aws:vpclattice/getAuthPolicy:getAuthPolicy", args ?? new GetAuthPolicyArgs(), options.WithDefaults());
@@ -43,11 +42,11 @@ namespace Pulumi.Aws.VpcLattice
         /// <summary>
         /// Data source for managing an AWS VPC Lattice Auth Policy.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,13 +57,12 @@ namespace Pulumi.Aws.VpcLattice
         /// {
         ///     var test = Aws.VpcLattice.GetAuthPolicy.Invoke(new()
         ///     {
-        ///         ResourceIdentifier = aws_vpclattice_auth_policy.Test.Resource_identifier,
+        ///         ResourceIdentifier = testAwsVpclatticeAuthPolicy.ResourceIdentifier,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAuthPolicyResult> Invoke(GetAuthPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthPolicyResult>("aws:vpclattice/getAuthPolicy:getAuthPolicy", args ?? new GetAuthPolicyInvokeArgs(), options.WithDefaults());

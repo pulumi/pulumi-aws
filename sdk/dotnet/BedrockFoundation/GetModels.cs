@@ -14,11 +14,11 @@ namespace Pulumi.Aws.BedrockFoundation
         /// <summary>
         /// Data source for managing AWS Bedrock Foundation Models.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -31,10 +31,11 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Filter by Inference Type
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -50,8 +51,7 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetModelsResult> InvokeAsync(GetModelsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetModelsResult>("aws:bedrockfoundation/getModels:getModels", args ?? new GetModelsArgs(), options.WithDefaults());
@@ -59,11 +59,11 @@ namespace Pulumi.Aws.BedrockFoundation
         /// <summary>
         /// Data source for managing AWS Bedrock Foundation Models.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -76,10 +76,11 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Filter by Inference Type
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -95,8 +96,7 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetModelsResult> Invoke(GetModelsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetModelsResult>("aws:bedrockfoundation/getModels:getModels", args ?? new GetModelsInvokeArgs(), options.WithDefaults());
@@ -129,18 +129,6 @@ namespace Pulumi.Aws.BedrockFoundation
         [Input("byProvider")]
         public string? ByProvider { get; set; }
 
-        [Input("modelSummaries")]
-        private List<Inputs.GetModelsModelSummaryArgs>? _modelSummaries;
-
-        /// <summary>
-        /// List of model summary objects. See `model_summaries`.
-        /// </summary>
-        public List<Inputs.GetModelsModelSummaryArgs> ModelSummaries
-        {
-            get => _modelSummaries ?? (_modelSummaries = new List<Inputs.GetModelsModelSummaryArgs>());
-            set => _modelSummaries = value;
-        }
-
         public GetModelsArgs()
         {
         }
@@ -172,18 +160,6 @@ namespace Pulumi.Aws.BedrockFoundation
         /// </summary>
         [Input("byProvider")]
         public Input<string>? ByProvider { get; set; }
-
-        [Input("modelSummaries")]
-        private InputList<Inputs.GetModelsModelSummaryInputArgs>? _modelSummaries;
-
-        /// <summary>
-        /// List of model summary objects. See `model_summaries`.
-        /// </summary>
-        public InputList<Inputs.GetModelsModelSummaryInputArgs> ModelSummaries
-        {
-            get => _modelSummaries ?? (_modelSummaries = new InputList<Inputs.GetModelsModelSummaryInputArgs>());
-            set => _modelSummaries = value;
-        }
 
         public GetModelsInvokeArgs()
         {

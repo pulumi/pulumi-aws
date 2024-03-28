@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -57,19 +58,25 @@ public final class BucketIntelligentTieringConfigurationTiering {
 
         @CustomType.Setter
         public Builder accessTier(String accessTier) {
-            this.accessTier = Objects.requireNonNull(accessTier);
+            if (accessTier == null) {
+              throw new MissingRequiredPropertyException("BucketIntelligentTieringConfigurationTiering", "accessTier");
+            }
+            this.accessTier = accessTier;
             return this;
         }
         @CustomType.Setter
         public Builder days(Integer days) {
-            this.days = Objects.requireNonNull(days);
+            if (days == null) {
+              throw new MissingRequiredPropertyException("BucketIntelligentTieringConfigurationTiering", "days");
+            }
+            this.days = days;
             return this;
         }
         public BucketIntelligentTieringConfigurationTiering build() {
-            final var o = new BucketIntelligentTieringConfigurationTiering();
-            o.accessTier = accessTier;
-            o.days = days;
-            return o;
+            final var _resultValue = new BucketIntelligentTieringConfigurationTiering();
+            _resultValue.accessTier = accessTier;
+            _resultValue.days = days;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.dynamodb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -86,11 +87,15 @@ public final class TableLocalSecondaryIndex {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("TableLocalSecondaryIndex", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nonKeyAttributes(@Nullable List<String> nonKeyAttributes) {
+
             this.nonKeyAttributes = nonKeyAttributes;
             return this;
         }
@@ -99,21 +104,27 @@ public final class TableLocalSecondaryIndex {
         }
         @CustomType.Setter
         public Builder projectionType(String projectionType) {
-            this.projectionType = Objects.requireNonNull(projectionType);
+            if (projectionType == null) {
+              throw new MissingRequiredPropertyException("TableLocalSecondaryIndex", "projectionType");
+            }
+            this.projectionType = projectionType;
             return this;
         }
         @CustomType.Setter
         public Builder rangeKey(String rangeKey) {
-            this.rangeKey = Objects.requireNonNull(rangeKey);
+            if (rangeKey == null) {
+              throw new MissingRequiredPropertyException("TableLocalSecondaryIndex", "rangeKey");
+            }
+            this.rangeKey = rangeKey;
             return this;
         }
         public TableLocalSecondaryIndex build() {
-            final var o = new TableLocalSecondaryIndex();
-            o.name = name;
-            o.nonKeyAttributes = nonKeyAttributes;
-            o.projectionType = projectionType;
-            o.rangeKey = rangeKey;
-            return o;
+            final var _resultValue = new TableLocalSecondaryIndex();
+            _resultValue.name = name;
+            _resultValue.nonKeyAttributes = nonKeyAttributes;
+            _resultValue.projectionType = projectionType;
+            _resultValue.rangeKey = rangeKey;
+            return _resultValue;
         }
     }
 }

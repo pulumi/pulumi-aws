@@ -44,6 +44,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludes {
 
         @CustomType.Setter
         public Builder ands(@Nullable List<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd> ands) {
+
             this.ands = ands;
             return this;
         }
@@ -51,9 +52,9 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludes {
             return ands(List.of(ands));
         }
         public ClassificationJobS3JobDefinitionBucketCriteriaIncludes build() {
-            final var o = new ClassificationJobS3JobDefinitionBucketCriteriaIncludes();
-            o.ands = ands;
-            return o;
+            final var _resultValue = new ClassificationJobS3JobDefinitionBucketCriteriaIncludes();
+            _resultValue.ands = ands;
+            return _resultValue;
         }
     }
 }

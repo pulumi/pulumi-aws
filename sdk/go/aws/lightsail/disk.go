@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,8 +45,9 @@ import (
 //				return err
 //			}
 //			_, err = lightsail.NewDisk(ctx, "test", &lightsail.DiskArgs{
+//				Name:             pulumi.String("test"),
 //				SizeInGb:         pulumi.Int(8),
-//				AvailabilityZone: *pulumi.String(available.Names[0]),
+//				AvailabilityZone: pulumi.String(available.Names[0]),
 //			})
 //			if err != nil {
 //				return err
@@ -55,15 +57,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_lightsail_disk` using the name attribute. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lightsail/disk:Disk test test
-//
+// $ pulumi import aws:lightsail/disk:Disk test test
 // ```
 type Disk struct {
 	pulumi.CustomResourceState
@@ -101,10 +102,6 @@ func NewDisk(ctx *pulumi.Context,
 	if args.SizeInGb == nil {
 		return nil, errors.New("invalid value for required argument 'SizeInGb'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Disk
 	err := ctx.RegisterResource("aws:lightsail/disk:Disk", name, args, &resource, opts...)

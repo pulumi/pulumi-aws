@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Associates a Direct Connect Connection with a LAG.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,24 +44,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleConnection = new Connection(&#34;exampleConnection&#34;, ConnectionArgs.builder()        
+ *         var example = new Connection(&#34;example&#34;, ConnectionArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .bandwidth(&#34;1Gbps&#34;)
  *             .location(&#34;EqSe2-EQ&#34;)
  *             .build());
  * 
  *         var exampleLinkAggregationGroup = new LinkAggregationGroup(&#34;exampleLinkAggregationGroup&#34;, LinkAggregationGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .connectionsBandwidth(&#34;1Gbps&#34;)
  *             .location(&#34;EqSe2-EQ&#34;)
  *             .build());
  * 
  *         var exampleConnectionAssociation = new ConnectionAssociation(&#34;exampleConnectionAssociation&#34;, ConnectionAssociationArgs.builder()        
- *             .connectionId(exampleConnection.id())
+ *             .connectionId(example.id())
  *             .lagId(exampleLinkAggregationGroup.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:directconnect/connectionAssociation:ConnectionAssociation")

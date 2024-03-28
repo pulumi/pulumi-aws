@@ -22,7 +22,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS IVS (Interactive Video) Chat Room.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -30,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ivschat.Room;
+ * import com.pulumi.aws.ivschat.RoomArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -43,12 +47,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Room(&#34;example&#34;);
+ *         var example = new Room(&#34;example&#34;, RoomArgs.builder()        
+ *             .name(&#34;tf-room&#34;)
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Usage with Logging Configuration to S3 Bucket
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -76,33 +86,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
  *             .bucketPrefix(&#34;tf-ivschat-logging-bucket-&#34;)
  *             .forceDestroy(true)
  *             .build());
  * 
  *         var exampleLoggingConfiguration = new LoggingConfiguration(&#34;exampleLoggingConfiguration&#34;, LoggingConfigurationArgs.builder()        
+ *             .name(&#34;tf-ivschat-loggingconfiguration&#34;)
  *             .destinationConfiguration(LoggingConfigurationDestinationConfigurationArgs.builder()
  *                 .s3(LoggingConfigurationDestinationConfigurationS3Args.builder()
- *                     .bucketName(exampleBucketV2.id())
+ *                     .bucketName(example.id())
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *         var exampleRoom = new Room(&#34;exampleRoom&#34;, RoomArgs.builder()        
+ *             .name(&#34;tf-ivschat-room&#34;)
  *             .loggingConfigurationIdentifiers(exampleLoggingConfiguration.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IVS (Interactive Video) Chat Room using the ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
+ * $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
  * ```
  * 
  */
@@ -267,9 +280,6 @@ public class Room extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

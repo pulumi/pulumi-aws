@@ -16,6 +16,8 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -23,6 +25,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.worklink.Fleet;
+ * import com.pulumi.aws.worklink.FleetArgs;
  * import com.pulumi.aws.worklink.WebsiteCertificateAuthorityAssociation;
  * import com.pulumi.aws.worklink.WebsiteCertificateAuthorityAssociationArgs;
  * import java.util.List;
@@ -38,23 +41,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Fleet(&#34;example&#34;);
+ *         var example = new Fleet(&#34;example&#34;, FleetArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var test = new WebsiteCertificateAuthorityAssociation(&#34;test&#34;, WebsiteCertificateAuthorityAssociationArgs.builder()        
- *             .fleetArn(aws_worklink_fleet.test().arn())
- *             .certificate(Files.readString(Paths.get(&#34;certificate.pem&#34;)))
+ *             .fleetArn(testAwsWorklinkFleet.arn())
+ *             .certificate(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;certificate.pem&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import WorkLink Website Certificate Authority using `FLEET-ARN,WEBSITE-CA-ID`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
+ * $ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
  * ```
  * 
  */

@@ -191,19 +191,23 @@ class PublicDnsNamespace(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicediscovery.PublicDnsNamespace("example", description="example")
+        example = aws.servicediscovery.PublicDnsNamespace("example",
+            name="hoge.example.com",
+            description="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Service Discovery Public DNS Namespace using the namespace ID. For example:
 
         ```sh
-         $ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
+        $ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
         ```
 
         :param str resource_name: The name of the resource.
@@ -223,19 +227,23 @@ class PublicDnsNamespace(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicediscovery.PublicDnsNamespace("example", description="example")
+        example = aws.servicediscovery.PublicDnsNamespace("example",
+            name="hoge.example.com",
+            description="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Service Discovery Public DNS Namespace using the namespace ID. For example:
 
         ```sh
-         $ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
+        $ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
         ```
 
         :param str resource_name: The name of the resource.
@@ -271,8 +279,6 @@ class PublicDnsNamespace(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["hosted_zone"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(PublicDnsNamespace, __self__).__init__(
             'aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace',
             resource_name,

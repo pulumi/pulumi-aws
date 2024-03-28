@@ -44,13 +44,14 @@ public final class EventTargetKinesisTarget {
 
         @CustomType.Setter
         public Builder partitionKeyPath(@Nullable String partitionKeyPath) {
+
             this.partitionKeyPath = partitionKeyPath;
             return this;
         }
         public EventTargetKinesisTarget build() {
-            final var o = new EventTargetKinesisTarget();
-            o.partitionKeyPath = partitionKeyPath;
-            return o;
+            final var _resultValue = new EventTargetKinesisTarget();
+            _resultValue.partitionKeyPath = partitionKeyPath;
+            return _resultValue;
         }
     }
 }

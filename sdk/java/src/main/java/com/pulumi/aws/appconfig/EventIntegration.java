@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides an Amazon AppIntegrations Event Integration resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,24 +45,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EventIntegration(&#34;example&#34;, EventIntegrationArgs.builder()        
+ *             .name(&#34;example-name&#34;)
  *             .description(&#34;Example Description&#34;)
+ *             .eventbridgeBus(&#34;default&#34;)
  *             .eventFilter(EventIntegrationEventFilterArgs.builder()
  *                 .source(&#34;aws.partner/examplepartner.com&#34;)
  *                 .build())
- *             .eventbridgeBus(&#34;default&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;Example Event Integration&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
+ * $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
  * ```
  * 
  */
@@ -202,9 +205,6 @@ public class EventIntegration extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

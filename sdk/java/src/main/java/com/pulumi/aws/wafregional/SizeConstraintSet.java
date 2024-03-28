@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a WAF Regional Size Constraint Set Resource for use with Application Load Balancer.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,26 +46,28 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sizeConstraintSet = new SizeConstraintSet(&#34;sizeConstraintSet&#34;, SizeConstraintSetArgs.builder()        
+ *             .name(&#34;tfsize_constraints&#34;)
  *             .sizeConstraints(SizeConstraintSetSizeConstraintArgs.builder()
+ *                 .textTransformation(&#34;NONE&#34;)
  *                 .comparisonOperator(&#34;EQ&#34;)
+ *                 .size(&#34;4096&#34;)
  *                 .fieldToMatch(SizeConstraintSetSizeConstraintFieldToMatchArgs.builder()
  *                     .type(&#34;BODY&#34;)
  *                     .build())
- *                 .size(&#34;4096&#34;)
- *                 .textTransformation(&#34;NONE&#34;)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import WAF Size Constraint Set using the id. For example:
  * 
  * ```sh
- *  $ pulumi import aws:wafregional/sizeConstraintSet:SizeConstraintSet size_constraint_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * $ pulumi import aws:wafregional/sizeConstraintSet:SizeConstraintSet size_constraint_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
  * ```
  * 
  */

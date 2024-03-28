@@ -223,67 +223,76 @@ class Backup(pulumi.CustomResource):
 
         ## Lustre Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_lustre_file_system = aws.fsx.LustreFileSystem("exampleLustreFileSystem",
+        example_lustre_file_system = aws.fsx.LustreFileSystem("example",
             storage_capacity=1200,
-            subnet_ids=[aws_subnet["example"]["id"]],
+            subnet_ids=example_aws_subnet["id"],
             deployment_type="PERSISTENT_1",
             per_unit_storage_throughput=50)
-        example_backup = aws.fsx.Backup("exampleBackup", file_system_id=example_lustre_file_system.id)
+        example = aws.fsx.Backup("example", file_system_id=example_lustre_file_system.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Windows Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_windows_file_system = aws.fsx.WindowsFileSystem("exampleWindowsFileSystem",
-            active_directory_id=aws_directory_service_directory["eample"]["id"],
+        example_windows_file_system = aws.fsx.WindowsFileSystem("example",
+            active_directory_id=eample["id"],
             skip_final_backup=True,
             storage_capacity=32,
-            subnet_ids=[aws_subnet["example1"]["id"]],
+            subnet_ids=[example1["id"]],
             throughput_capacity=8)
-        example_backup = aws.fsx.Backup("exampleBackup", file_system_id=example_windows_file_system.id)
+        example = aws.fsx.Backup("example", file_system_id=example_windows_file_system.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## ONTAP Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_ontap_volume = aws.fsx.OntapVolume("exampleOntapVolume",
+        example_ontap_volume = aws.fsx.OntapVolume("example",
+            name="example",
             junction_path="/example",
             size_in_megabytes=1024,
             storage_efficiency_enabled=True,
-            storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine["test"]["id"])
-        example_backup = aws.fsx.Backup("exampleBackup", volume_id=example_ontap_volume.id)
+            storage_virtual_machine_id=test["id"])
+        example = aws.fsx.Backup("example", volume_id=example_ontap_volume.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## OpenZFS Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem",
+        example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("example",
             storage_capacity=64,
-            subnet_ids=[aws_subnet["example"]["id"]],
+            subnet_ids=example_aws_subnet["id"],
             deployment_type="SINGLE_AZ_1",
             throughput_capacity=64)
-        example_backup = aws.fsx.Backup("exampleBackup", file_system_id=example_open_zfs_file_system.id)
+        example = aws.fsx.Backup("example", file_system_id=example_open_zfs_file_system.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import FSx Backups using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
+        $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
         ```
 
         :param str resource_name: The name of the resource.
@@ -303,67 +312,76 @@ class Backup(pulumi.CustomResource):
 
         ## Lustre Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_lustre_file_system = aws.fsx.LustreFileSystem("exampleLustreFileSystem",
+        example_lustre_file_system = aws.fsx.LustreFileSystem("example",
             storage_capacity=1200,
-            subnet_ids=[aws_subnet["example"]["id"]],
+            subnet_ids=example_aws_subnet["id"],
             deployment_type="PERSISTENT_1",
             per_unit_storage_throughput=50)
-        example_backup = aws.fsx.Backup("exampleBackup", file_system_id=example_lustre_file_system.id)
+        example = aws.fsx.Backup("example", file_system_id=example_lustre_file_system.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Windows Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_windows_file_system = aws.fsx.WindowsFileSystem("exampleWindowsFileSystem",
-            active_directory_id=aws_directory_service_directory["eample"]["id"],
+        example_windows_file_system = aws.fsx.WindowsFileSystem("example",
+            active_directory_id=eample["id"],
             skip_final_backup=True,
             storage_capacity=32,
-            subnet_ids=[aws_subnet["example1"]["id"]],
+            subnet_ids=[example1["id"]],
             throughput_capacity=8)
-        example_backup = aws.fsx.Backup("exampleBackup", file_system_id=example_windows_file_system.id)
+        example = aws.fsx.Backup("example", file_system_id=example_windows_file_system.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## ONTAP Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_ontap_volume = aws.fsx.OntapVolume("exampleOntapVolume",
+        example_ontap_volume = aws.fsx.OntapVolume("example",
+            name="example",
             junction_path="/example",
             size_in_megabytes=1024,
             storage_efficiency_enabled=True,
-            storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine["test"]["id"])
-        example_backup = aws.fsx.Backup("exampleBackup", volume_id=example_ontap_volume.id)
+            storage_virtual_machine_id=test["id"])
+        example = aws.fsx.Backup("example", volume_id=example_ontap_volume.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## OpenZFS Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem",
+        example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("example",
             storage_capacity=64,
-            subnet_ids=[aws_subnet["example"]["id"]],
+            subnet_ids=example_aws_subnet["id"],
             deployment_type="SINGLE_AZ_1",
             throughput_capacity=64)
-        example_backup = aws.fsx.Backup("exampleBackup", file_system_id=example_open_zfs_file_system.id)
+        example = aws.fsx.Backup("example", file_system_id=example_open_zfs_file_system.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import FSx Backups using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
+        $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
         ```
 
         :param str resource_name: The name of the resource.
@@ -401,8 +419,6 @@ class Backup(pulumi.CustomResource):
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["type"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Backup, __self__).__init__(
             'aws:fsx/backup:Backup',
             resource_name,

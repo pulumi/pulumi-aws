@@ -84,36 +84,40 @@ class RegistryPolicy(pulumi.CustomResource):
         """
         Provides an Elastic Container Registry Policy.
 
+        > **NOTE on ECR Registry Policies:** While the AWS Management Console interface may suggest the ability to define multiple policies by creating multiple statements, ECR registry policies are effectively managed as singular entities at the regional level by the AWS APIs. Therefore, the `ecr.RegistryPolicy` resource should be configured only once per region with all necessary statements defined in the same policy. Attempting to define multiple `ecr.RegistryPolicy` resources may result in perpetual differences, with one policy overriding another.
+
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        current_caller_identity = aws.get_caller_identity()
-        current_region = aws.get_region()
-        current_partition = aws.get_partition()
+        current = aws.get_caller_identity()
+        current_get_region = aws.get_region()
+        current_get_partition = aws.get_partition()
         example = aws.ecr.RegistryPolicy("example", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Sid": "testpolicy",
-                "Effect": "Allow",
-                "Principal": {
-                    "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
+            "version": "2012-10-17",
+            "statement": [{
+                "sid": "testpolicy",
+                "effect": "Allow",
+                "principal": {
+                    "AWS": f"arn:{current_get_partition.partition}:iam::{current.account_id}:root",
                 },
-                "Action": ["ecr:ReplicateImage"],
-                "Resource": [f"arn:{current_partition.partition}:ecr:{current_region.name}:{current_caller_identity.account_id}:repository/*"],
+                "action": ["ecr:ReplicateImage"],
+                "resource": [f"arn:{current_get_partition.partition}:ecr:{current_get_region.name}:{current.account_id}:repository/*"],
             }],
         }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECR Registry Policy using the registry id. For example:
 
         ```sh
-         $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
+        $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -129,36 +133,40 @@ class RegistryPolicy(pulumi.CustomResource):
         """
         Provides an Elastic Container Registry Policy.
 
+        > **NOTE on ECR Registry Policies:** While the AWS Management Console interface may suggest the ability to define multiple policies by creating multiple statements, ECR registry policies are effectively managed as singular entities at the regional level by the AWS APIs. Therefore, the `ecr.RegistryPolicy` resource should be configured only once per region with all necessary statements defined in the same policy. Attempting to define multiple `ecr.RegistryPolicy` resources may result in perpetual differences, with one policy overriding another.
+
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        current_caller_identity = aws.get_caller_identity()
-        current_region = aws.get_region()
-        current_partition = aws.get_partition()
+        current = aws.get_caller_identity()
+        current_get_region = aws.get_region()
+        current_get_partition = aws.get_partition()
         example = aws.ecr.RegistryPolicy("example", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Sid": "testpolicy",
-                "Effect": "Allow",
-                "Principal": {
-                    "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
+            "version": "2012-10-17",
+            "statement": [{
+                "sid": "testpolicy",
+                "effect": "Allow",
+                "principal": {
+                    "AWS": f"arn:{current_get_partition.partition}:iam::{current.account_id}:root",
                 },
-                "Action": ["ecr:ReplicateImage"],
-                "Resource": [f"arn:{current_partition.partition}:ecr:{current_region.name}:{current_caller_identity.account_id}:repository/*"],
+                "action": ["ecr:ReplicateImage"],
+                "resource": [f"arn:{current_get_partition.partition}:ecr:{current_get_region.name}:{current.account_id}:repository/*"],
             }],
         }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECR Registry Policy using the registry id. For example:
 
         ```sh
-         $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
+        $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

@@ -45,14 +45,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
+     * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
      * 
      */
     @Import(name="capacityProviderStrategies")
     private @Nullable Output<List<ServiceCapacityProviderStrategyArgs>> capacityProviderStrategies;
 
     /**
-     * @return Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
+     * @return Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
      * 
      */
     public Optional<Output<List<ServiceCapacityProviderStrategyArgs>>> capacityProviderStrategies() {
@@ -225,14 +225,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+     * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
      * 
      */
     @Import(name="launchType")
     private @Nullable Output<String> launchType;
 
     /**
-     * @return Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+     * @return Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
      * 
      */
     public Optional<Output<String>> launchType() {
@@ -424,14 +424,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
      * 
      */
     @Import(name="triggers")
     private @Nullable Output<Map<String,String>> triggers;
 
     /**
-     * @return Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+     * @return Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
      * 
      */
     public Optional<Output<Map<String,String>>> triggers() {
@@ -526,7 +526,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacityProviderStrategies Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
+         * @param capacityProviderStrategies Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
          * 
          * @return builder
          * 
@@ -537,7 +537,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacityProviderStrategies Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
+         * @param capacityProviderStrategies Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
          * 
          * @return builder
          * 
@@ -547,7 +547,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacityProviderStrategies Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
+         * @param capacityProviderStrategies Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
          * 
          * @return builder
          * 
@@ -788,7 +788,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param launchType Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+         * @param launchType Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
          * 
          * @return builder
          * 
@@ -799,7 +799,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param launchType Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+         * @param launchType Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
          * 
          * @return builder
          * 
@@ -1095,7 +1095,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param triggers Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+         * @param triggers Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
          * 
          * @return builder
          * 
@@ -1106,7 +1106,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param triggers Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+         * @param triggers Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
          * 
          * @return builder
          * 

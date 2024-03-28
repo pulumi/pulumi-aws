@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,46 +24,30 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var local = new Aws.Provider("local", new()
-    ///     {
-    ///         Region = "us-east-1",
-    ///     });
+    ///     var peer = Aws.GetRegion.Invoke();
     /// 
-    ///     var peer = new Aws.Provider("peer", new()
-    ///     {
-    ///         Region = "us-west-2",
-    ///     });
-    /// 
-    ///     var peerRegion = Aws.GetRegion.Invoke();
-    /// 
-    ///     var localTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("localTransitGateway", new()
+    ///     var local = new Aws.Ec2TransitGateway.TransitGateway("local", new()
     ///     {
     ///         Tags = 
     ///         {
     ///             { "Name", "Local TGW" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Local,
     ///     });
     /// 
-    ///     var peerTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("peerTransitGateway", new()
+    ///     var peerTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("peer", new()
     ///     {
     ///         Tags = 
     ///         {
     ///             { "Name", "Peer TGW" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Peer,
     ///     });
     /// 
     ///     var example = new Aws.Ec2TransitGateway.PeeringAttachment("example", new()
     ///     {
     ///         PeerAccountId = peerTransitGateway.OwnerId,
-    ///         PeerRegion = peerRegion.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///         PeerRegion = peer.Apply(getRegionResult =&gt; getRegionResult.Name),
     ///         PeerTransitGatewayId = peerTransitGateway.Id,
-    ///         TransitGatewayId = localTransitGateway.Id,
+    ///         TransitGatewayId = local.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "TGW Peering Requestor" },
@@ -71,13 +56,14 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment` using the EC2 Transit Gateway Attachment identifier. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2transitgateway/peeringAttachment:PeeringAttachment example tgw-attach-12345678
+    /// $ pulumi import aws:ec2transitgateway/peeringAttachment:PeeringAttachment example tgw-attach-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/peeringAttachment:PeeringAttachment")]
@@ -100,6 +86,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         [Output("peerTransitGatewayId")]
         public Output<string> PeerTransitGatewayId { get; private set; } = null!;
+
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -142,10 +131,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -231,6 +216,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Input("peerTransitGatewayId")]
         public Input<string>? PeerTransitGatewayId { get; set; }
 
+        [Input("state")]
+        public Input<string>? State { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -253,11 +241,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

@@ -248,7 +248,8 @@ class FirewallPolicyFirewallPolicyArgs:
                  stateful_engine_options: Optional[pulumi.Input['FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs']] = None,
                  stateful_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs']]]] = None,
                  stateless_custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatelessCustomActionArgs']]]] = None,
-                 stateless_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs']]]] = None):
+                 stateless_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs']]]] = None,
+                 tls_inspection_configuration_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] stateless_default_actions: Set of actions to take on a packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
                In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
@@ -260,6 +261,7 @@ class FirewallPolicyFirewallPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs']]] stateful_rule_group_references: Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatelessCustomActionArgs']]] stateless_custom_actions: Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy's `stateless_default_actions`. See Stateless Custom Action below for details.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs']]] stateless_rule_group_references: Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
+        :param pulumi.Input[str] tls_inspection_configuration_arn: The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. "You can only add a TLS inspection configuration to a new policy, not to an existing policy."  This cannot be removed from a FW Policy.
         """
         pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
         pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
@@ -275,6 +277,8 @@ class FirewallPolicyFirewallPolicyArgs:
             pulumi.set(__self__, "stateless_custom_actions", stateless_custom_actions)
         if stateless_rule_group_references is not None:
             pulumi.set(__self__, "stateless_rule_group_references", stateless_rule_group_references)
+        if tls_inspection_configuration_arn is not None:
+            pulumi.set(__self__, "tls_inspection_configuration_arn", tls_inspection_configuration_arn)
 
     @property
     @pulumi.getter(name="statelessDefaultActions")
@@ -373,6 +377,18 @@ class FirewallPolicyFirewallPolicyArgs:
     @stateless_rule_group_references.setter
     def stateless_rule_group_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs']]]]):
         pulumi.set(self, "stateless_rule_group_references", value)
+
+    @property
+    @pulumi.getter(name="tlsInspectionConfigurationArn")
+    def tls_inspection_configuration_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. "You can only add a TLS inspection configuration to a new policy, not to an existing policy."  This cannot be removed from a FW Policy.
+        """
+        return pulumi.get(self, "tls_inspection_configuration_arn")
+
+    @tls_inspection_configuration_arn.setter
+    def tls_inspection_configuration_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tls_inspection_configuration_arn", value)
 
 
 @pulumi.input_type

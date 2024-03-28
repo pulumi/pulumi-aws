@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Creates and manages an AWS IoT Thing.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,19 +44,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Thing(&#34;example&#34;, ThingArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .attributes(Map.of(&#34;First&#34;, &#34;examplevalue&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IOT Things using the name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iot/thing:Thing example example
+ * $ pulumi import aws:iot/thing:Thing example example
  * ```
  * 
  */

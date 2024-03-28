@@ -15,10 +15,9 @@ namespace Pulumi.Aws
         /// Use this data source to lookup information about the current AWS partition in
         /// which the provider is working.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,6 +34,7 @@ namespace Pulumi.Aws
         ///         {
         ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
         ///             {
+        ///                 Sid = "1",
         ///                 Actions = new[]
         ///                 {
         ///                     "s3:ListBucket",
@@ -43,15 +43,13 @@ namespace Pulumi.Aws
         ///                 {
         ///                     $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:s3:::my-bucket",
         ///                 },
-        ///                 Sid = "1",
         ///             },
         ///         },
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPartitionResult> InvokeAsync(GetPartitionArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartitionResult>("aws:index/getPartition:getPartition", args ?? new GetPartitionArgs(), options.WithDefaults());
@@ -60,10 +58,9 @@ namespace Pulumi.Aws
         /// Use this data source to lookup information about the current AWS partition in
         /// which the provider is working.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -80,6 +77,7 @@ namespace Pulumi.Aws
         ///         {
         ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
         ///             {
+        ///                 Sid = "1",
         ///                 Actions = new[]
         ///                 {
         ///                     "s3:ListBucket",
@@ -88,15 +86,13 @@ namespace Pulumi.Aws
         ///                 {
         ///                     $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:s3:::my-bucket",
         ///                 },
-        ///                 Sid = "1",
         ///             },
         ///         },
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPartitionResult> Invoke(GetPartitionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartitionResult>("aws:index/getPartition:getPartition", args ?? new GetPartitionInvokeArgs(), options.WithDefaults());

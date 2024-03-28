@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,17 +22,18 @@ import * as utilities from "../utilities";
  * const example = new aws.sagemaker.Project("example", {
  *     projectName: "example",
  *     serviceCatalogProvisioningDetails: {
- *         productId: aws_servicecatalog_product.example.id,
+ *         productId: exampleAwsServicecatalogProduct.id,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SageMaker Projects using the `project_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/project:Project example example
+ * $ pulumi import aws:sagemaker/project:Project example example
  * ```
  */
 export class Project extends pulumi.CustomResource {
@@ -130,8 +132,6 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Project.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -19,22 +19,19 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const peer = new aws.Provider("peer", {region: "us-west-2"});
- * // Accepter's credentials.
  * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
- * const peerVpc = new aws.ec2.Vpc("peerVpc", {cidrBlock: "10.1.0.0/16"}, {
- *     provider: aws.peer,
- * });
- * const peerCallerIdentity = aws.getCallerIdentity({});
+ * const peerVpc = new aws.ec2.Vpc("peer", {cidrBlock: "10.1.0.0/16"});
+ * const peer = aws.getCallerIdentity({});
  * // Requester's side of the connection.
- * const peerVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("peerVpcPeeringConnection", {
+ * const peerVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("peer", {
  *     vpcId: main.id,
  *     peerVpcId: peerVpc.id,
- *     peerOwnerId: peerCallerIdentity.then(peerCallerIdentity => peerCallerIdentity.accountId),
+ *     peerOwnerId: peer.then(peer => peer.accountId),
  *     peerRegion: "us-west-2",
  *     autoAccept: false,
  *     tags: {
@@ -42,25 +39,24 @@ import * as utilities from "../utilities";
  *     },
  * });
  * // Accepter's side of the connection.
- * const peerVpcPeeringConnectionAccepter = new aws.ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", {
+ * const peerVpcPeeringConnectionAccepter = new aws.ec2.VpcPeeringConnectionAccepter("peer", {
  *     vpcPeeringConnectionId: peerVpcPeeringConnection.id,
  *     autoAccept: true,
  *     tags: {
  *         Side: "Accepter",
  *     },
- * }, {
- *     provider: aws.peer,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import VPC Peering Connection Accepters using the Peering Connection ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter example pcx-12345678
+ * $ pulumi import aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter example pcx-12345678
  * ```
- *  Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+ * Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
  */
 export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
     /**
@@ -181,8 +177,6 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VpcPeeringConnectionAccepter.__pulumiType, name, resourceInputs, opts);
     }
 }

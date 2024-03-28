@@ -102,29 +102,31 @@ class InstanceTrustProviderAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_instance = aws.verifiedaccess.Instance("exampleInstance")
-        example_trust_provider = aws.verifiedaccess.TrustProvider("exampleTrustProvider",
+        example = aws.verifiedaccess.Instance("example")
+        example_trust_provider = aws.verifiedaccess.TrustProvider("example",
             device_trust_provider_type="jamf",
             policy_reference_name="example",
             trust_provider_type="device",
             device_options=aws.verifiedaccess.TrustProviderDeviceOptionsArgs(
                 tenant_id="example",
             ))
-        example_instance_trust_provider_attachment = aws.verifiedaccess.InstanceTrustProviderAttachment("exampleInstanceTrustProviderAttachment",
-            verifiedaccess_instance_id=example_instance.id,
+        example_instance_trust_provider_attachment = aws.verifiedaccess.InstanceTrustProviderAttachment("example",
+            verifiedaccess_instance_id=example.id,
             verifiedaccess_trust_provider_id=example_trust_provider.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Verified Access Instance Trust Provider Attachments using the `verifiedaccess_instance_id` and `verifiedaccess_trust_provider_id` separated by a forward slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment example vai-1234567890abcdef0/vatp-8012925589
+        $ pulumi import aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment example vai-1234567890abcdef0/vatp-8012925589
         ```
 
         :param str resource_name: The name of the resource.
@@ -143,29 +145,31 @@ class InstanceTrustProviderAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_instance = aws.verifiedaccess.Instance("exampleInstance")
-        example_trust_provider = aws.verifiedaccess.TrustProvider("exampleTrustProvider",
+        example = aws.verifiedaccess.Instance("example")
+        example_trust_provider = aws.verifiedaccess.TrustProvider("example",
             device_trust_provider_type="jamf",
             policy_reference_name="example",
             trust_provider_type="device",
             device_options=aws.verifiedaccess.TrustProviderDeviceOptionsArgs(
                 tenant_id="example",
             ))
-        example_instance_trust_provider_attachment = aws.verifiedaccess.InstanceTrustProviderAttachment("exampleInstanceTrustProviderAttachment",
-            verifiedaccess_instance_id=example_instance.id,
+        example_instance_trust_provider_attachment = aws.verifiedaccess.InstanceTrustProviderAttachment("example",
+            verifiedaccess_instance_id=example.id,
             verifiedaccess_trust_provider_id=example_trust_provider.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Verified Access Instance Trust Provider Attachments using the `verifiedaccess_instance_id` and `verifiedaccess_trust_provider_id` separated by a forward slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment example vai-1234567890abcdef0/vatp-8012925589
+        $ pulumi import aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment example vai-1234567890abcdef0/vatp-8012925589
         ```
 
         :param str resource_name: The name of the resource.

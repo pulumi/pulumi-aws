@@ -74,25 +74,28 @@ public final class GatewayRouteSpecHttp2RouteActionRewrite {
 
         @CustomType.Setter
         public Builder hostname(@Nullable GatewayRouteSpecHttp2RouteActionRewriteHostname hostname) {
+
             this.hostname = hostname;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable GatewayRouteSpecHttp2RouteActionRewritePath path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable GatewayRouteSpecHttp2RouteActionRewritePrefix prefix) {
+
             this.prefix = prefix;
             return this;
         }
         public GatewayRouteSpecHttp2RouteActionRewrite build() {
-            final var o = new GatewayRouteSpecHttp2RouteActionRewrite();
-            o.hostname = hostname;
-            o.path = path;
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new GatewayRouteSpecHttp2RouteActionRewrite();
+            _resultValue.hostname = hostname;
+            _resultValue.path = path;
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.identitystore.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -71,25 +72,34 @@ public final class GetUserEmail {
 
         @CustomType.Setter
         public Builder primary(Boolean primary) {
-            this.primary = Objects.requireNonNull(primary);
+            if (primary == null) {
+              throw new MissingRequiredPropertyException("GetUserEmail", "primary");
+            }
+            this.primary = primary;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetUserEmail", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("GetUserEmail", "value");
+            }
+            this.value = value;
             return this;
         }
         public GetUserEmail build() {
-            final var o = new GetUserEmail();
-            o.primary = primary;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetUserEmail();
+            _resultValue.primary = primary;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -93,45 +93,58 @@ def get_roles(name_regex: Optional[str] = None,
     Use this data source to get the ARNs and Names of IAM Roles.
 
     ## Example Usage
+
     ### All roles in an account
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     roles = aws.iam.get_roles()
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Roles filtered by name regex
 
     Roles whose role-name contains `project`
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     roles = aws.iam.get_roles(name_regex=".*project.*")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Roles filtered by path prefix
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     roles = aws.iam.get_roles(path_prefix="/custom-path")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Roles provisioned by AWS SSO
 
     Roles in the account filtered by path prefix
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     roles = aws.iam.get_roles(path_prefix="/aws-reserved/sso.amazonaws.com/")
     ```
+    <!--End PulumiCodeChooser -->
 
     Specific role in the account filtered by name regex and path prefix
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -139,6 +152,7 @@ def get_roles(name_regex: Optional[str] = None,
     roles = aws.iam.get_roles(name_regex="AWSReservedSSO_permission_set_name_.*",
         path_prefix="/aws-reserved/sso.amazonaws.com/")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name_regex: Regex string to apply to the IAM roles list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
@@ -166,45 +180,58 @@ def get_roles_output(name_regex: Optional[pulumi.Input[Optional[str]]] = None,
     Use this data source to get the ARNs and Names of IAM Roles.
 
     ## Example Usage
+
     ### All roles in an account
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     roles = aws.iam.get_roles()
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Roles filtered by name regex
 
     Roles whose role-name contains `project`
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     roles = aws.iam.get_roles(name_regex=".*project.*")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Roles filtered by path prefix
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     roles = aws.iam.get_roles(path_prefix="/custom-path")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Roles provisioned by AWS SSO
 
     Roles in the account filtered by path prefix
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     roles = aws.iam.get_roles(path_prefix="/aws-reserved/sso.amazonaws.com/")
     ```
+    <!--End PulumiCodeChooser -->
 
     Specific role in the account filtered by name regex and path prefix
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -212,6 +239,7 @@ def get_roles_output(name_regex: Optional[pulumi.Input[Optional[str]]] = None,
     roles = aws.iam.get_roles(name_regex="AWSReservedSSO_permission_set_name_.*",
         path_prefix="/aws-reserved/sso.amazonaws.com/")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name_regex: Regex string to apply to the IAM roles list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.

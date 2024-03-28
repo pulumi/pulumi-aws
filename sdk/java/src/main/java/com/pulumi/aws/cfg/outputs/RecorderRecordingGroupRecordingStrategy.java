@@ -36,13 +36,14 @@ public final class RecorderRecordingGroupRecordingStrategy {
 
         @CustomType.Setter
         public Builder useOnly(@Nullable String useOnly) {
+
             this.useOnly = useOnly;
             return this;
         }
         public RecorderRecordingGroupRecordingStrategy build() {
-            final var o = new RecorderRecordingGroupRecordingStrategy();
-            o.useOnly = useOnly;
-            return o;
+            final var _resultValue = new RecorderRecordingGroupRecordingStrategy();
+            _resultValue.useOnly = useOnly;
+            return _resultValue;
         }
     }
 }

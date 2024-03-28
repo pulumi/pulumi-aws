@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecHttp2RouteAction;
 import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecHttp2RouteMatch;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -57,19 +58,25 @@ public final class GatewayRouteSpecHttp2Route {
 
         @CustomType.Setter
         public Builder action(GatewayRouteSpecHttp2RouteAction action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("GatewayRouteSpecHttp2Route", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder match(GatewayRouteSpecHttp2RouteMatch match) {
-            this.match = Objects.requireNonNull(match);
+            if (match == null) {
+              throw new MissingRequiredPropertyException("GatewayRouteSpecHttp2Route", "match");
+            }
+            this.match = match;
             return this;
         }
         public GatewayRouteSpecHttp2Route build() {
-            final var o = new GatewayRouteSpecHttp2Route();
-            o.action = action;
-            o.match = match;
-            return o;
+            final var _resultValue = new GatewayRouteSpecHttp2Route();
+            _resultValue.action = action;
+            _resultValue.match = match;
+            return _resultValue;
         }
     }
 }

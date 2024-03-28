@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchRangeArgs extends com.pul
         }
 
         public RouteSpecGrpcRouteMatchMetadataMatchRangeArgs build() {
-            $.end = Objects.requireNonNull($.end, "expected parameter 'end' to be non-null");
-            $.start = Objects.requireNonNull($.start, "expected parameter 'start' to be non-null");
+            if ($.end == null) {
+                throw new MissingRequiredPropertyException("RouteSpecGrpcRouteMatchMetadataMatchRangeArgs", "end");
+            }
+            if ($.start == null) {
+                throw new MissingRequiredPropertyException("RouteSpecGrpcRouteMatchMetadataMatchRangeArgs", "start");
+            }
             return $;
         }
     }

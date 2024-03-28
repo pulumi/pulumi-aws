@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS WorkSpaces Connection Alias.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import WorkSpaces Connection Alias using the connection alias ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:workspaces/connectionAlias:ConnectionAlias example rft-8012925589
-//
+// $ pulumi import aws:workspaces/connectionAlias:ConnectionAlias example rft-8012925589
 // ```
 type ConnectionAlias struct {
 	pulumi.CustomResourceState
@@ -78,10 +79,6 @@ func NewConnectionAlias(ctx *pulumi.Context,
 	if args.ConnectionString == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionString'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConnectionAlias
 	err := ctx.RegisterResource("aws:workspaces/connectionAlias:ConnectionAlias", name, args, &resource, opts...)

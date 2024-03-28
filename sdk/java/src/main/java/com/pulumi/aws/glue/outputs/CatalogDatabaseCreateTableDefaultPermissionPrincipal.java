@@ -44,13 +44,14 @@ public final class CatalogDatabaseCreateTableDefaultPermissionPrincipal {
 
         @CustomType.Setter
         public Builder dataLakePrincipalIdentifier(@Nullable String dataLakePrincipalIdentifier) {
+
             this.dataLakePrincipalIdentifier = dataLakePrincipalIdentifier;
             return this;
         }
         public CatalogDatabaseCreateTableDefaultPermissionPrincipal build() {
-            final var o = new CatalogDatabaseCreateTableDefaultPermissionPrincipal();
-            o.dataLakePrincipalIdentifier = dataLakePrincipalIdentifier;
-            return o;
+            final var _resultValue = new CatalogDatabaseCreateTableDefaultPermissionPrincipal();
+            _resultValue.dataLakePrincipalIdentifier = dataLakePrincipalIdentifier;
+            return _resultValue;
         }
     }
 }

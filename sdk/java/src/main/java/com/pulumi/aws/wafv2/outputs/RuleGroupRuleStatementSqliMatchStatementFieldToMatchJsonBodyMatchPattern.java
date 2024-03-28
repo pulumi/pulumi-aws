@@ -52,11 +52,13 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyM
 
         @CustomType.Setter
         public Builder all(@Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll all) {
+
             this.all = all;
             return this;
         }
         @CustomType.Setter
         public Builder includedPaths(@Nullable List<String> includedPaths) {
+
             this.includedPaths = includedPaths;
             return this;
         }
@@ -64,10 +66,10 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyM
             return includedPaths(List.of(includedPaths));
         }
         public RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern build() {
-            final var o = new RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern();
-            o.all = all;
-            o.includedPaths = includedPaths;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern();
+            _resultValue.all = all;
+            _resultValue.includedPaths = includedPaths;
+            return _resultValue;
         }
     }
 }

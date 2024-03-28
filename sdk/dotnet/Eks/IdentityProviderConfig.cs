@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Eks
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,7 +25,7 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Eks.IdentityProviderConfig("example", new()
     ///     {
-    ///         ClusterName = aws_eks_cluster.Example.Name,
+    ///         ClusterName = exampleAwsEksCluster.Name,
     ///         Oidc = new Aws.Eks.Inputs.IdentityProviderConfigOidcArgs
     ///         {
     ///             ClientId = "your client_id",
@@ -35,13 +36,14 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EKS Identity Provider Configurations using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
+    /// $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
     /// ```
     /// </summary>
     [AwsResourceType("aws:eks/identityProviderConfig:IdentityProviderConfig")]
@@ -106,10 +108,6 @@ namespace Pulumi.Aws.Eks
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -211,11 +209,7 @@ namespace Pulumi.Aws.Eks
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public IdentityProviderConfigState()

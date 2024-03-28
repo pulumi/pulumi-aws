@@ -14,8 +14,10 @@ import (
 // Resource for managing an AWS CloudWatch Observability Access Manager Sink.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := oam.NewSink(ctx, "example", &oam.SinkArgs{
+//				Name: pulumi.String("ExampleSink"),
 //				Tags: pulumi.StringMap{
 //					"Env": pulumi.String("prod"),
 //				},
@@ -41,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudWatch Observability Access Manager Sink using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:oam/sink:Sink example arn:aws:oam:us-west-2:123456789012:sink/sink-id
-//
+// $ pulumi import aws:oam/sink:Sink example arn:aws:oam:us-west-2:123456789012:sink/sink-id
 // ```
 type Sink struct {
 	pulumi.CustomResourceState
@@ -75,10 +77,6 @@ func NewSink(ctx *pulumi.Context,
 		args = &SinkArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Sink
 	err := ctx.RegisterResource("aws:oam/sink:Sink", name, args, &resource, opts...)

@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,25 +29,26 @@ namespace Pulumi.Aws.Fsx
     ///         StorageCapacity = 1024,
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Test1.Id,
-    ///             aws_subnet.Test2.Id,
+    ///             test1.Id,
+    ///             test2.Id,
     ///         },
     ///         DeploymentType = "MULTI_AZ_1",
     ///         ThroughputCapacity = 512,
-    ///         PreferredSubnetId = aws_subnet.Test1.Id,
+    ///         PreferredSubnetId = test1.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import FSx File Systems using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:fsx/ontapFileSystem:OntapFileSystem example fs-543ab12b1ca672f33
+    /// $ pulumi import aws:fsx/ontapFileSystem:OntapFileSystem example fs-543ab12b1ca672f33
     /// ```
-    ///  Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+    /// Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
     /// </summary>
     [AwsResourceType("aws:fsx/ontapFileSystem:OntapFileSystem")]
     public partial class OntapFileSystem : global::Pulumi.CustomResource
@@ -106,6 +108,12 @@ namespace Pulumi.Aws.Fsx
         public Output<string?> FsxAdminPassword { get; private set; } = null!;
 
         /// <summary>
+        /// The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+        /// </summary>
+        [Output("haPairs")]
+        public Output<int> HaPairs { get; private set; } = null!;
+
+        /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         /// </summary>
         [Output("kmsKeyId")]
@@ -154,7 +162,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string?> StorageType { get; private set; } = null!;
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
+        /// A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
@@ -172,10 +180,16 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`.
+        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         /// </summary>
         [Output("throughputCapacity")]
-        public Output<int> ThroughputCapacity { get; private set; } = null!;
+        public Output<int?> ThroughputCapacity { get; private set; } = null!;
+
+        /// <summary>
+        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        /// </summary>
+        [Output("throughputCapacityPerHaPair")]
+        public Output<int?> ThroughputCapacityPerHaPair { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of the Virtual Private Cloud for the file system.
@@ -215,7 +229,6 @@ namespace Pulumi.Aws.Fsx
                 AdditionalSecretOutputs =
                 {
                     "fsxAdminPassword",
-                    "tagsAll",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -287,6 +300,12 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
+        /// The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+        /// </summary>
+        [Input("haPairs")]
+        public Input<int>? HaPairs { get; set; }
+
+        /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         /// </summary>
         [Input("kmsKeyId")]
@@ -338,7 +357,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
+        /// A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -359,10 +378,16 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`.
+        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         /// </summary>
-        [Input("throughputCapacity", required: true)]
-        public Input<int> ThroughputCapacity { get; set; } = null!;
+        [Input("throughputCapacity")]
+        public Input<int>? ThroughputCapacity { get; set; }
+
+        /// <summary>
+        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        /// </summary>
+        [Input("throughputCapacityPerHaPair")]
+        public Input<int>? ThroughputCapacityPerHaPair { get; set; }
 
         /// <summary>
         /// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
@@ -449,6 +474,12 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
+        /// The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+        /// </summary>
+        [Input("haPairs")]
+        public Input<int>? HaPairs { get; set; }
+
+        /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         /// </summary>
         [Input("kmsKeyId")]
@@ -518,7 +549,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
+        /// A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -548,18 +579,20 @@ namespace Pulumi.Aws.Fsx
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>
-        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`.
+        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         /// </summary>
         [Input("throughputCapacity")]
         public Input<int>? ThroughputCapacity { get; set; }
+
+        /// <summary>
+        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        /// </summary>
+        [Input("throughputCapacityPerHaPair")]
+        public Input<int>? ThroughputCapacityPerHaPair { get; set; }
 
         /// <summary>
         /// Identifier of the Virtual Private Cloud for the file system.

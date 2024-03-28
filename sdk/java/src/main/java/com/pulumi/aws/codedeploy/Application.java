@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,7 +20,10 @@ import javax.annotation.Nullable;
  * Provides a CodeDeploy application to be used as a basis for deployments
  * 
  * ## Example Usage
+ * 
  * ### ECS Application
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,12 +47,17 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Application(&#34;example&#34;, ApplicationArgs.builder()        
  *             .computePlatform(&#34;ECS&#34;)
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Lambda Application
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -74,12 +81,17 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Application(&#34;example&#34;, ApplicationArgs.builder()        
  *             .computePlatform(&#34;Lambda&#34;)
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Server Application
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -103,18 +115,20 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Application(&#34;example&#34;, ApplicationArgs.builder()        
  *             .computePlatform(&#34;Server&#34;)
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CodeDeploy Applications using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:codedeploy/application:Application example my-application
+ * $ pulumi import aws:codedeploy/application:Application example my-application
  * ```
  * 
  */
@@ -269,9 +283,6 @@ public class Application extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

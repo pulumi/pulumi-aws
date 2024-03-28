@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesis.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class StreamStreamModeDetailsArgs extends com.pulumi.resources.Reso
         }
 
         public StreamStreamModeDetailsArgs build() {
-            $.streamMode = Objects.requireNonNull($.streamMode, "expected parameter 'streamMode' to be non-null");
+            if ($.streamMode == null) {
+                throw new MissingRequiredPropertyException("StreamStreamModeDetailsArgs", "streamMode");
+            }
             return $;
         }
     }

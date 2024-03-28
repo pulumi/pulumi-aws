@@ -28,7 +28,7 @@ public final class DocumentClassifierInputDataConfig {
     private @Nullable String dataFormat;
     /**
      * @return Delimiter between labels when training a multi-label classifier.
-     * Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
+     * Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%!`(MISSING), `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
      * Default is `|`.
      * 
      */
@@ -61,7 +61,7 @@ public final class DocumentClassifierInputDataConfig {
     }
     /**
      * @return Delimiter between labels when training a multi-label classifier.
-     * Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
+     * Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%!`(MISSING), `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
      * Default is `|`.
      * 
      */
@@ -106,6 +106,7 @@ public final class DocumentClassifierInputDataConfig {
 
         @CustomType.Setter
         public Builder augmentedManifests(@Nullable List<DocumentClassifierInputDataConfigAugmentedManifest> augmentedManifests) {
+
             this.augmentedManifests = augmentedManifests;
             return this;
         }
@@ -114,32 +115,36 @@ public final class DocumentClassifierInputDataConfig {
         }
         @CustomType.Setter
         public Builder dataFormat(@Nullable String dataFormat) {
+
             this.dataFormat = dataFormat;
             return this;
         }
         @CustomType.Setter
         public Builder labelDelimiter(@Nullable String labelDelimiter) {
+
             this.labelDelimiter = labelDelimiter;
             return this;
         }
         @CustomType.Setter
         public Builder s3Uri(@Nullable String s3Uri) {
+
             this.s3Uri = s3Uri;
             return this;
         }
         @CustomType.Setter
         public Builder testS3Uri(@Nullable String testS3Uri) {
+
             this.testS3Uri = testS3Uri;
             return this;
         }
         public DocumentClassifierInputDataConfig build() {
-            final var o = new DocumentClassifierInputDataConfig();
-            o.augmentedManifests = augmentedManifests;
-            o.dataFormat = dataFormat;
-            o.labelDelimiter = labelDelimiter;
-            o.s3Uri = s3Uri;
-            o.testS3Uri = testS3Uri;
-            return o;
+            final var _resultValue = new DocumentClassifierInputDataConfig();
+            _resultValue.augmentedManifests = augmentedManifests;
+            _resultValue.dataFormat = dataFormat;
+            _resultValue.labelDelimiter = labelDelimiter;
+            _resultValue.s3Uri = s3Uri;
+            _resultValue.testS3Uri = testS3Uri;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -71,25 +72,34 @@ public final class ResponseHeadersPolicyCustomHeadersConfigItem {
 
         @CustomType.Setter
         public Builder header(String header) {
-            this.header = Objects.requireNonNull(header);
+            if (header == null) {
+              throw new MissingRequiredPropertyException("ResponseHeadersPolicyCustomHeadersConfigItem", "header");
+            }
+            this.header = header;
             return this;
         }
         @CustomType.Setter
         public Builder override(Boolean override) {
-            this.override = Objects.requireNonNull(override);
+            if (override == null) {
+              throw new MissingRequiredPropertyException("ResponseHeadersPolicyCustomHeadersConfigItem", "override");
+            }
+            this.override = override;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("ResponseHeadersPolicyCustomHeadersConfigItem", "value");
+            }
+            this.value = value;
             return this;
         }
         public ResponseHeadersPolicyCustomHeadersConfigItem build() {
-            final var o = new ResponseHeadersPolicyCustomHeadersConfigItem();
-            o.header = header;
-            o.override = override;
-            o.value = value;
-            return o;
+            final var _resultValue = new ResponseHeadersPolicyCustomHeadersConfigItem();
+            _resultValue.header = header;
+            _resultValue.override = override;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

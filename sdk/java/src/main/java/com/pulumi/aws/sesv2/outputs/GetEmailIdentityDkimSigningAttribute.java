@@ -4,6 +4,7 @@
 package com.pulumi.aws.sesv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -125,58 +126,82 @@ public final class GetEmailIdentityDkimSigningAttribute {
 
         @CustomType.Setter
         public Builder currentSigningKeyLength(String currentSigningKeyLength) {
-            this.currentSigningKeyLength = Objects.requireNonNull(currentSigningKeyLength);
+            if (currentSigningKeyLength == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityDkimSigningAttribute", "currentSigningKeyLength");
+            }
+            this.currentSigningKeyLength = currentSigningKeyLength;
             return this;
         }
         @CustomType.Setter
         public Builder domainSigningPrivateKey(String domainSigningPrivateKey) {
-            this.domainSigningPrivateKey = Objects.requireNonNull(domainSigningPrivateKey);
+            if (domainSigningPrivateKey == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityDkimSigningAttribute", "domainSigningPrivateKey");
+            }
+            this.domainSigningPrivateKey = domainSigningPrivateKey;
             return this;
         }
         @CustomType.Setter
         public Builder domainSigningSelector(String domainSigningSelector) {
-            this.domainSigningSelector = Objects.requireNonNull(domainSigningSelector);
+            if (domainSigningSelector == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityDkimSigningAttribute", "domainSigningSelector");
+            }
+            this.domainSigningSelector = domainSigningSelector;
             return this;
         }
         @CustomType.Setter
         public Builder lastKeyGenerationTimestamp(String lastKeyGenerationTimestamp) {
-            this.lastKeyGenerationTimestamp = Objects.requireNonNull(lastKeyGenerationTimestamp);
+            if (lastKeyGenerationTimestamp == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityDkimSigningAttribute", "lastKeyGenerationTimestamp");
+            }
+            this.lastKeyGenerationTimestamp = lastKeyGenerationTimestamp;
             return this;
         }
         @CustomType.Setter
         public Builder nextSigningKeyLength(String nextSigningKeyLength) {
-            this.nextSigningKeyLength = Objects.requireNonNull(nextSigningKeyLength);
+            if (nextSigningKeyLength == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityDkimSigningAttribute", "nextSigningKeyLength");
+            }
+            this.nextSigningKeyLength = nextSigningKeyLength;
             return this;
         }
         @CustomType.Setter
         public Builder signingAttributesOrigin(String signingAttributesOrigin) {
-            this.signingAttributesOrigin = Objects.requireNonNull(signingAttributesOrigin);
+            if (signingAttributesOrigin == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityDkimSigningAttribute", "signingAttributesOrigin");
+            }
+            this.signingAttributesOrigin = signingAttributesOrigin;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityDkimSigningAttribute", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tokens(List<String> tokens) {
-            this.tokens = Objects.requireNonNull(tokens);
+            if (tokens == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityDkimSigningAttribute", "tokens");
+            }
+            this.tokens = tokens;
             return this;
         }
         public Builder tokens(String... tokens) {
             return tokens(List.of(tokens));
         }
         public GetEmailIdentityDkimSigningAttribute build() {
-            final var o = new GetEmailIdentityDkimSigningAttribute();
-            o.currentSigningKeyLength = currentSigningKeyLength;
-            o.domainSigningPrivateKey = domainSigningPrivateKey;
-            o.domainSigningSelector = domainSigningSelector;
-            o.lastKeyGenerationTimestamp = lastKeyGenerationTimestamp;
-            o.nextSigningKeyLength = nextSigningKeyLength;
-            o.signingAttributesOrigin = signingAttributesOrigin;
-            o.status = status;
-            o.tokens = tokens;
-            return o;
+            final var _resultValue = new GetEmailIdentityDkimSigningAttribute();
+            _resultValue.currentSigningKeyLength = currentSigningKeyLength;
+            _resultValue.domainSigningPrivateKey = domainSigningPrivateKey;
+            _resultValue.domainSigningSelector = domainSigningSelector;
+            _resultValue.lastKeyGenerationTimestamp = lastKeyGenerationTimestamp;
+            _resultValue.nextSigningKeyLength = nextSigningKeyLength;
+            _resultValue.signingAttributesOrigin = signingAttributesOrigin;
+            _resultValue.status = status;
+            _resultValue.tokens = tokens;
+            return _resultValue;
         }
     }
 }

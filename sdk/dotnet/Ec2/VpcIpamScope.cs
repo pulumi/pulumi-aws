@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// Basic usage:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,7 +27,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var current = Aws.GetRegion.Invoke();
     /// 
-    ///     var exampleVpcIpam = new Aws.Ec2.VpcIpam("exampleVpcIpam", new()
+    ///     var example = new Aws.Ec2.VpcIpam("example", new()
     ///     {
     ///         OperatingRegions = new[]
     ///         {
@@ -37,21 +38,22 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var exampleVpcIpamScope = new Aws.Ec2.VpcIpamScope("exampleVpcIpamScope", new()
+    ///     var exampleVpcIpamScope = new Aws.Ec2.VpcIpamScope("example", new()
     ///     {
-    ///         IpamId = exampleVpcIpam.Id,
+    ///         IpamId = example.Id,
     ///         Description = "Another Scope",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IPAMs using the `scope_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
+    /// $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcIpamScope:VpcIpamScope")]
@@ -128,10 +130,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -244,11 +242,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public VpcIpamScopeState()

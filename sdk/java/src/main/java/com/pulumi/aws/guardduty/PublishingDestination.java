@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides a resource to manage a GuardDuty PublishingDestination. Requires an existing GuardDuty Detector.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -41,7 +43,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.guardduty.PublishingDestination;
  * import com.pulumi.aws.guardduty.PublishingDestinationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,11 +56,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         final var currentRegion = AwsFunctions.getRegion();
+ *         final var currentGetRegion = AwsFunctions.getRegion();
  * 
  *         var gdBucket = new BucketV2(&#34;gdBucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
  *             .forceDestroy(true)
  *             .build());
  * 
@@ -90,7 +92,7 @@ import javax.annotation.Nullable;
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .sid(&#34;Allow GuardDuty to encrypt findings&#34;)
  *                     .actions(&#34;kms:GenerateDataKey&#34;)
- *                     .resources(String.format(&#34;arn:aws:kms:%s:%s:key/*&#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+ *                     .resources(String.format(&#34;arn:aws:kms:%s:%s:key/*&#34;, currentGetRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type(&#34;Service&#34;)
  *                         .identifiers(&#34;guardduty.amazonaws.com&#34;)
@@ -99,10 +101,10 @@ import javax.annotation.Nullable;
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .sid(&#34;Allow all users to modify/delete key (test only)&#34;)
  *                     .actions(&#34;kms:*&#34;)
- *                     .resources(String.format(&#34;arn:aws:kms:%s:%s:key/*&#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+ *                     .resources(String.format(&#34;arn:aws:kms:%s:%s:key/*&#34;, currentGetRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type(&#34;AWS&#34;)
- *                         .identifiers(String.format(&#34;arn:aws:iam::%s:root&#34;, currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+ *                         .identifiers(String.format(&#34;arn:aws:iam::%s:root&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
  *                         .build())
  *                     .build())
  *             .build());
@@ -131,13 +133,12 @@ import javax.annotation.Nullable;
  *             .detectorId(testGd.id())
  *             .destinationArn(gdBucket.arn())
  *             .kmsKeyArn(gdKey.arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(gdBucketPolicy)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **Note:** Please do not use this simple example for Bucket-Policy and KMS Key Policy in a production environment. It is much too open for such a use-case. Refer to the AWS documentation here: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html
  * 
@@ -146,7 +147,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import GuardDuty PublishingDestination using the master GuardDuty detector ID and PublishingDestinationID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:guardduty/publishingDestination:PublishingDestination test a4b86f26fa42e7e7cf0d1c333ea77777:a4b86f27a0e464e4a7e0516d242f1234
+ * $ pulumi import aws:guardduty/publishingDestination:PublishingDestination test a4b86f26fa42e7e7cf0d1c333ea77777:a4b86f27a0e464e4a7e0516d242f1234
  * ```
  * 
  */

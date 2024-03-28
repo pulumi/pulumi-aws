@@ -9,12 +9,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const mainUserPool = new aws.cognito.UserPool("mainUserPool", {});
- * const groupRolePolicyDocument = aws.iam.getPolicyDocument({
+ * const main = new aws.cognito.UserPool("main", {name: "identity pool"});
+ * const groupRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -36,21 +37,26 @@ import * as utilities from "../utilities";
  *         ],
  *     }],
  * });
- * const groupRoleRole = new aws.iam.Role("groupRoleRole", {assumeRolePolicy: groupRolePolicyDocument.then(groupRolePolicyDocument => groupRolePolicyDocument.json)});
- * const mainUserGroup = new aws.cognito.UserGroup("mainUserGroup", {
- *     userPoolId: mainUserPool.id,
+ * const groupRoleRole = new aws.iam.Role("group_role", {
+ *     name: "user-group-role",
+ *     assumeRolePolicy: groupRole.then(groupRole => groupRole.json),
+ * });
+ * const mainUserGroup = new aws.cognito.UserGroup("main", {
+ *     name: "user-group",
+ *     userPoolId: main.id,
  *     description: "Managed by Pulumi",
  *     precedence: 42,
  *     roleArn: groupRoleRole.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Cognito User Groups using the `user_pool_id`/`name` attributes concatenated. For example:
  *
  * ```sh
- *  $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
+ * $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
  * ```
  */
 export class UserGroup extends pulumi.CustomResource {

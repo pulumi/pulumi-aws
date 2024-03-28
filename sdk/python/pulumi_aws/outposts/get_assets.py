@@ -91,32 +91,41 @@ def get_assets(arn: Optional[str] = None,
     Information about hardware assets in an Outpost.
 
     ## Example Usage
+
     ### Basic
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"])
+    example = aws.outposts.get_assets(arn=example_aws_outposts_outpost["arn"])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### With Host ID Filter
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"],
+    example = aws.outposts.get_assets(arn=example_aws_outposts_outpost["arn"],
         host_id_filters=["h-x38g5n0yd2a0ueb61"])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### With Status ID Filter
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"],
+    example = aws.outposts.get_assets(arn=example_aws_outposts_outpost["arn"],
         status_id_filters=["ACTIVE"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: Outpost ARN.
@@ -147,32 +156,41 @@ def get_assets_output(arn: Optional[pulumi.Input[str]] = None,
     Information about hardware assets in an Outpost.
 
     ## Example Usage
+
     ### Basic
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"])
+    example = aws.outposts.get_assets(arn=example_aws_outposts_outpost["arn"])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### With Host ID Filter
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"],
+    example = aws.outposts.get_assets(arn=example_aws_outposts_outpost["arn"],
         host_id_filters=["h-x38g5n0yd2a0ueb61"])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### With Status ID Filter
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"],
+    example = aws.outposts.get_assets(arn=example_aws_outposts_outpost["arn"],
         status_id_filters=["ACTIVE"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: Outpost ARN.

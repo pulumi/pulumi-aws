@@ -117,6 +117,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
 
         @CustomType.Setter
         public Builder metricDimensions(@Nullable List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension> metricDimensions) {
+
             this.metricDimensions = metricDimensions;
             return this;
         }
@@ -125,11 +126,13 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         }
         @CustomType.Setter
         public Builder metricName(@Nullable String metricName) {
+
             this.metricName = metricName;
             return this;
         }
         @CustomType.Setter
         public Builder metrics(@Nullable List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric> metrics) {
+
             this.metrics = metrics;
             return this;
         }
@@ -138,28 +141,31 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         }
         @CustomType.Setter
         public Builder namespace(@Nullable String namespace) {
+
             this.namespace = namespace;
             return this;
         }
         @CustomType.Setter
         public Builder statistic(@Nullable String statistic) {
+
             this.statistic = statistic;
             return this;
         }
         @CustomType.Setter
         public Builder unit(@Nullable String unit) {
+
             this.unit = unit;
             return this;
         }
         public PolicyTargetTrackingConfigurationCustomizedMetricSpecification build() {
-            final var o = new PolicyTargetTrackingConfigurationCustomizedMetricSpecification();
-            o.metricDimensions = metricDimensions;
-            o.metricName = metricName;
-            o.metrics = metrics;
-            o.namespace = namespace;
-            o.statistic = statistic;
-            o.unit = unit;
-            return o;
+            final var _resultValue = new PolicyTargetTrackingConfigurationCustomizedMetricSpecification();
+            _resultValue.metricDimensions = metricDimensions;
+            _resultValue.metricName = metricName;
+            _resultValue.metrics = metrics;
+            _resultValue.namespace = namespace;
+            _resultValue.statistic = statistic;
+            _resultValue.unit = unit;
+            return _resultValue;
         }
     }
 }

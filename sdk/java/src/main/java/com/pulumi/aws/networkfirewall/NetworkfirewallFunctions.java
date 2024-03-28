@@ -24,7 +24,10 @@ public final class NetworkfirewallFunctions {
      * Retrieve information about a firewall.
      * 
      * ## Example Usage
+     * 
      * ### Find firewall policy by ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -47,13 +50,17 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .arn(arn)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Find firewall policy by Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -82,7 +89,11 @@ public final class NetworkfirewallFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Find firewall policy by ARN and Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -105,13 +116,14 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .arn(arn)
      *             .name(&#34;Test&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFirewallResult> getFirewall() {
@@ -121,7 +133,10 @@ public final class NetworkfirewallFunctions {
      * Retrieve information about a firewall.
      * 
      * ## Example Usage
+     * 
      * ### Find firewall policy by ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -144,13 +159,17 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .arn(arn)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Find firewall policy by Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -179,7 +198,11 @@ public final class NetworkfirewallFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Find firewall policy by ARN and Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -202,13 +225,14 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .arn(arn)
      *             .name(&#34;Test&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFirewallResult> getFirewallPlain() {
@@ -218,7 +242,10 @@ public final class NetworkfirewallFunctions {
      * Retrieve information about a firewall.
      * 
      * ## Example Usage
+     * 
      * ### Find firewall policy by ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -241,13 +268,17 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .arn(arn)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Find firewall policy by Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -276,7 +307,11 @@ public final class NetworkfirewallFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Find firewall policy by ARN and Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -299,13 +334,14 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .arn(arn)
      *             .name(&#34;Test&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFirewallResult> getFirewall(GetFirewallArgs args) {
@@ -315,7 +351,10 @@ public final class NetworkfirewallFunctions {
      * Retrieve information about a firewall.
      * 
      * ## Example Usage
+     * 
      * ### Find firewall policy by ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -338,13 +377,17 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .arn(arn)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Find firewall policy by Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -373,7 +416,11 @@ public final class NetworkfirewallFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Find firewall policy by ARN and Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -396,13 +443,14 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .arn(arn)
      *             .name(&#34;Test&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFirewallResult> getFirewallPlain(GetFirewallPlainArgs args) {
@@ -412,7 +460,10 @@ public final class NetworkfirewallFunctions {
      * Retrieve information about a firewall.
      * 
      * ## Example Usage
+     * 
      * ### Find firewall policy by ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -435,13 +486,17 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .arn(arn)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Find firewall policy by Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -470,7 +525,11 @@ public final class NetworkfirewallFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Find firewall policy by ARN and Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -493,13 +552,14 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .arn(arn)
      *             .name(&#34;Test&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFirewallResult> getFirewall(GetFirewallArgs args, InvokeOptions options) {
@@ -509,7 +569,10 @@ public final class NetworkfirewallFunctions {
      * Retrieve information about a firewall.
      * 
      * ## Example Usage
+     * 
      * ### Find firewall policy by ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -532,13 +595,17 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .arn(arn)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Find firewall policy by Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -567,7 +634,11 @@ public final class NetworkfirewallFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Find firewall policy by ARN and Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -590,13 +661,14 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
-     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .arn(arn)
      *             .name(&#34;Test&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFirewallResult> getFirewallPlain(GetFirewallPlainArgs args, InvokeOptions options) {
@@ -606,7 +678,10 @@ public final class NetworkfirewallFunctions {
      * Retrieve information about a firewall policy.
      * 
      * ## Example Usage
+     * 
      * ### Find firewall policy by name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -629,13 +704,17 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .name(var_.firewall_policy_name())
+     *             .name(firewallPolicyName)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Find firewall policy by ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -658,13 +737,17 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .arn(var_.firewall_policy_arn())
+     *             .arn(firewallPolicyArn)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Find firewall policy by name and ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -687,13 +770,14 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .arn(var_.firewall_policy_arn())
-     *             .name(var_.firewall_policy_name())
+     *             .arn(firewallPolicyArn)
+     *             .name(firewallPolicyName)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
      * 
@@ -707,7 +791,10 @@ public final class NetworkfirewallFunctions {
      * Retrieve information about a firewall policy.
      * 
      * ## Example Usage
+     * 
      * ### Find firewall policy by name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -730,13 +817,17 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .name(var_.firewall_policy_name())
+     *             .name(firewallPolicyName)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Find firewall policy by ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -759,13 +850,17 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .arn(var_.firewall_policy_arn())
+     *             .arn(firewallPolicyArn)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Find firewall policy by name and ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -788,13 +883,14 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .arn(var_.firewall_policy_arn())
-     *             .name(var_.firewall_policy_name())
+     *             .arn(firewallPolicyArn)
+     *             .name(firewallPolicyName)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
      * 
@@ -808,7 +904,10 @@ public final class NetworkfirewallFunctions {
      * Retrieve information about a firewall policy.
      * 
      * ## Example Usage
+     * 
      * ### Find firewall policy by name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -831,13 +930,17 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .name(var_.firewall_policy_name())
+     *             .name(firewallPolicyName)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Find firewall policy by ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -860,13 +963,17 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .arn(var_.firewall_policy_arn())
+     *             .arn(firewallPolicyArn)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Find firewall policy by name and ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -889,13 +996,14 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .arn(var_.firewall_policy_arn())
-     *             .name(var_.firewall_policy_name())
+     *             .arn(firewallPolicyArn)
+     *             .name(firewallPolicyName)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
      * 
@@ -909,7 +1017,10 @@ public final class NetworkfirewallFunctions {
      * Retrieve information about a firewall policy.
      * 
      * ## Example Usage
+     * 
      * ### Find firewall policy by name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -932,13 +1043,17 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .name(var_.firewall_policy_name())
+     *             .name(firewallPolicyName)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Find firewall policy by ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -961,13 +1076,17 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .arn(var_.firewall_policy_arn())
+     *             .arn(firewallPolicyArn)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Find firewall policy by name and ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -990,13 +1109,14 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .arn(var_.firewall_policy_arn())
-     *             .name(var_.firewall_policy_name())
+     *             .arn(firewallPolicyArn)
+     *             .name(firewallPolicyName)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
      * 
@@ -1010,7 +1130,10 @@ public final class NetworkfirewallFunctions {
      * Retrieve information about a firewall policy.
      * 
      * ## Example Usage
+     * 
      * ### Find firewall policy by name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1033,13 +1156,17 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .name(var_.firewall_policy_name())
+     *             .name(firewallPolicyName)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Find firewall policy by ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1062,13 +1189,17 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .arn(var_.firewall_policy_arn())
+     *             .arn(firewallPolicyArn)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Find firewall policy by name and ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1091,13 +1222,14 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .arn(var_.firewall_policy_arn())
-     *             .name(var_.firewall_policy_name())
+     *             .arn(firewallPolicyArn)
+     *             .name(firewallPolicyName)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
      * 
@@ -1111,7 +1243,10 @@ public final class NetworkfirewallFunctions {
      * Retrieve information about a firewall policy.
      * 
      * ## Example Usage
+     * 
      * ### Find firewall policy by name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1134,13 +1269,17 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .name(var_.firewall_policy_name())
+     *             .name(firewallPolicyName)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Find firewall policy by ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1163,13 +1302,17 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .arn(var_.firewall_policy_arn())
+     *             .arn(firewallPolicyArn)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Find firewall policy by name and ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1192,13 +1335,14 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
-     *             .arn(var_.firewall_policy_arn())
-     *             .name(var_.firewall_policy_name())
+     *             .arn(firewallPolicyArn)
+     *             .name(firewallPolicyName)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
      * 
@@ -1212,6 +1356,8 @@ public final class NetworkfirewallFunctions {
      * Retrieve information about a Network Firewall resource policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1234,12 +1380,13 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
-     *             .resourceArn(var_.resource_policy_arn())
+     *             .resourceArn(resourcePolicyArn)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResourcePolicyResult> getResourcePolicy(GetResourcePolicyArgs args) {
@@ -1249,6 +1396,8 @@ public final class NetworkfirewallFunctions {
      * Retrieve information about a Network Firewall resource policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1271,12 +1420,13 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
-     *             .resourceArn(var_.resource_policy_arn())
+     *             .resourceArn(resourcePolicyArn)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResourcePolicyResult> getResourcePolicyPlain(GetResourcePolicyPlainArgs args) {
@@ -1286,6 +1436,8 @@ public final class NetworkfirewallFunctions {
      * Retrieve information about a Network Firewall resource policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1308,12 +1460,13 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
-     *             .resourceArn(var_.resource_policy_arn())
+     *             .resourceArn(resourcePolicyArn)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResourcePolicyResult> getResourcePolicy(GetResourcePolicyArgs args, InvokeOptions options) {
@@ -1323,6 +1476,8 @@ public final class NetworkfirewallFunctions {
      * Retrieve information about a Network Firewall resource policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1345,12 +1500,13 @@ public final class NetworkfirewallFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkfirewallFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
-     *             .resourceArn(var_.resource_policy_arn())
+     *             .resourceArn(resourcePolicyArn)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResourcePolicyResult> getResourcePolicyPlain(GetResourcePolicyPlainArgs args, InvokeOptions options) {

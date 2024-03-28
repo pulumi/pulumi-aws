@@ -65,16 +65,19 @@ public final class PartitionIndexPartitionIndex {
 
         @CustomType.Setter
         public Builder indexName(@Nullable String indexName) {
+
             this.indexName = indexName;
             return this;
         }
         @CustomType.Setter
         public Builder indexStatus(@Nullable String indexStatus) {
+
             this.indexStatus = indexStatus;
             return this;
         }
         @CustomType.Setter
         public Builder keys(@Nullable List<String> keys) {
+
             this.keys = keys;
             return this;
         }
@@ -82,11 +85,11 @@ public final class PartitionIndexPartitionIndex {
             return keys(List.of(keys));
         }
         public PartitionIndexPartitionIndex build() {
-            final var o = new PartitionIndexPartitionIndex();
-            o.indexName = indexName;
-            o.indexStatus = indexStatus;
-            o.keys = keys;
-            return o;
+            final var _resultValue = new PartitionIndexPartitionIndex();
+            _resultValue.indexName = indexName;
+            _resultValue.indexStatus = indexStatus;
+            _resultValue.keys = keys;
+            return _resultValue;
         }
     }
 }

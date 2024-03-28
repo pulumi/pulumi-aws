@@ -46,13 +46,14 @@ public final class MeshSpecEgressFilter {
 
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         public MeshSpecEgressFilter build() {
-            final var o = new MeshSpecEgressFilter();
-            o.type = type;
-            return o;
+            final var _resultValue = new MeshSpecEgressFilter();
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

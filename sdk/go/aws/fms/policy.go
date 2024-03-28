@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,13 +34,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRuleGroup, err := wafregional.NewRuleGroup(ctx, "exampleRuleGroup", &wafregional.RuleGroupArgs{
+//			exampleRuleGroup, err := wafregional.NewRuleGroup(ctx, "example", &wafregional.RuleGroupArgs{
 //				MetricName: pulumi.String("WAFRuleGroupExample"),
+//				Name:       pulumi.String("WAF-Rule-Group-Example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = fms.NewPolicy(ctx, "examplePolicy", &fms.PolicyArgs{
+//			_, err = fms.NewPolicy(ctx, "example", &fms.PolicyArgs{
+//				Name:                pulumi.String("FMS-Policy-Example"),
 //				ExcludeResourceTags: pulumi.Bool(false),
 //				RemediationEnabled:  pulumi.Bool(false),
 //				ResourceType:        pulumi.String("AWS::ElasticLoadBalancingV2::LoadBalancer"),
@@ -81,15 +84,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Firewall Manager policies using the policy ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
-//
+// $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
 // ```
 type Policy struct {
 	pulumi.CustomResourceState
@@ -142,10 +144,6 @@ func NewPolicy(ctx *pulumi.Context,
 	if args.SecurityServicePolicyData == nil {
 		return nil, errors.New("invalid value for required argument 'SecurityServicePolicyData'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Policy
 	err := ctx.RegisterResource("aws:fms/policy:Policy", name, args, &resource, opts...)

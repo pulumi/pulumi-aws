@@ -44,13 +44,14 @@ public final class IntegrationTlsConfig {
 
         @CustomType.Setter
         public Builder insecureSkipVerification(@Nullable Boolean insecureSkipVerification) {
+
             this.insecureSkipVerification = insecureSkipVerification;
             return this;
         }
         public IntegrationTlsConfig build() {
-            final var o = new IntegrationTlsConfig();
-            o.insecureSkipVerification = insecureSkipVerification;
-            return o;
+            final var _resultValue = new IntegrationTlsConfig();
+            _resultValue.insecureSkipVerification = insecureSkipVerification;
+            return _resultValue;
         }
     }
 }

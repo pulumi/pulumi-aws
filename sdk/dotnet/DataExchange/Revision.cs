@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DataExchange
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,18 +25,19 @@ namespace Pulumi.Aws.DataExchange
     /// {
     ///     var example = new Aws.DataExchange.Revision("example", new()
     ///     {
-    ///         DataSetId = aws_dataexchange_data_set.Example.Id,
+    ///         DataSetId = exampleAwsDataexchangeDataSet.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DataExchange Revisions using their `data-set-id:revision-id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:dataexchange/revision:Revision example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+    /// $ pulumi import aws:dataexchange/revision:Revision example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
     /// ```
     /// </summary>
     [AwsResourceType("aws:dataexchange/revision:Revision")]
@@ -100,10 +102,6 @@ namespace Pulumi.Aws.DataExchange
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -205,11 +203,7 @@ namespace Pulumi.Aws.DataExchange
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public RevisionState()

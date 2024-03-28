@@ -9,27 +9,29 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {
+ * const example = new aws.ec2.Vpc("example", {
  *     cidrBlock: "10.0.0.0/16",
  *     enableDnsSupport: true,
  *     enableDnsHostnames: true,
  * });
- * const exampleResolverFirewallConfig = new aws.route53.ResolverFirewallConfig("exampleResolverFirewallConfig", {
- *     resourceId: exampleVpc.id,
+ * const exampleResolverFirewallConfig = new aws.route53.ResolverFirewallConfig("example", {
+ *     resourceId: example.id,
  *     firewallFailOpen: "ENABLED",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:route53/resolverFirewallConfig:ResolverFirewallConfig example rdsc-be1866ecc1683e95
+ * $ pulumi import aws:route53/resolverFirewallConfig:ResolverFirewallConfig example rdsc-be1866ecc1683e95
  * ```
  */
 export class ResolverFirewallConfig extends pulumi.CustomResource {

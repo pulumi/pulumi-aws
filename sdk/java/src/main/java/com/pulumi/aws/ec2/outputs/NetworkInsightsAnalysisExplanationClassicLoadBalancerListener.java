@@ -42,19 +42,21 @@ public final class NetworkInsightsAnalysisExplanationClassicLoadBalancerListener
 
         @CustomType.Setter
         public Builder instancePort(@Nullable Integer instancePort) {
+
             this.instancePort = instancePort;
             return this;
         }
         @CustomType.Setter
         public Builder loadBalancerPort(@Nullable Integer loadBalancerPort) {
+
             this.loadBalancerPort = loadBalancerPort;
             return this;
         }
         public NetworkInsightsAnalysisExplanationClassicLoadBalancerListener build() {
-            final var o = new NetworkInsightsAnalysisExplanationClassicLoadBalancerListener();
-            o.instancePort = instancePort;
-            o.loadBalancerPort = loadBalancerPort;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisExplanationClassicLoadBalancerListener();
+            _resultValue.instancePort = instancePort;
+            _resultValue.loadBalancerPort = loadBalancerPort;
+            return _resultValue;
         }
     }
 }

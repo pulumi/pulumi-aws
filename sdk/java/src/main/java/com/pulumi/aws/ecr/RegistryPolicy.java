@@ -16,7 +16,11 @@ import javax.annotation.Nullable;
 /**
  * Provides an Elastic Container Registry Policy.
  * 
+ * &gt; **NOTE on ECR Registry Policies:** While the AWS Management Console interface may suggest the ability to define multiple policies by creating multiple statements, ECR registry policies are effectively managed as singular entities at the regional level by the AWS APIs. Therefore, the `aws.ecr.RegistryPolicy` resource should be configured only once per region with all necessary statements defined in the same policy. Attempting to define multiple `aws.ecr.RegistryPolicy` resources may result in perpetual differences, with one policy overriding another.
+ * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,24 +47,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         final var currentRegion = AwsFunctions.getRegion();
+ *         final var currentGetRegion = AwsFunctions.getRegion();
  * 
- *         final var currentPartition = AwsFunctions.getPartition();
+ *         final var currentGetPartition = AwsFunctions.getPartition();
  * 
  *         var example = new RegistryPolicy(&#34;example&#34;, RegistryPolicyArgs.builder()        
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Sid&#34;, &#34;testpolicy&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;AWS&#34;, String.format(&#34;arn:%s:iam::%s:root&#34;, currentPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;sid&#34;, &#34;testpolicy&#34;),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;AWS&#34;, String.format(&#34;arn:%s:iam::%s:root&#34;, currentGetPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
  *                         )),
- *                         jsonProperty(&#34;Action&#34;, jsonArray(&#34;ecr:ReplicateImage&#34;)),
- *                         jsonProperty(&#34;Resource&#34;, jsonArray(String.format(&#34;arn:%s:ecr:%s:%s:repository/*&#34;, currentPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))))
+ *                         jsonProperty(&#34;action&#34;, jsonArray(&#34;ecr:ReplicateImage&#34;)),
+ *                         jsonProperty(&#34;resource&#34;, jsonArray(String.format(&#34;arn:%s:ecr:%s:%s:repository/*&#34;, currentGetPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentGetRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))))
  *                     )))
  *                 )))
  *             .build());
@@ -68,13 +72,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import ECR Registry Policy using the registry id. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
+ * $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
  * ```
  * 
  */

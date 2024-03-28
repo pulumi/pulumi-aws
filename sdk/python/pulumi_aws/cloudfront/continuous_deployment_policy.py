@@ -169,8 +169,10 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         Resource for managing an AWS CloudFront Continuous Deployment Policy.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -178,7 +180,6 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         staging = aws.cloudfront.Distribution("staging",
             enabled=True,
             staging=True)
-        # ... other configuration ...
         example = aws.cloudfront.ContinuousDeploymentPolicy("example",
             enabled=True,
             staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(
@@ -194,10 +195,12 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         production = aws.cloudfront.Distribution("production",
             enabled=True,
             continuous_deployment_policy_id=example.id)
-        # ... other configuration ...
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Single Weight Config with Session Stickiness
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -205,7 +208,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         example = aws.cloudfront.ContinuousDeploymentPolicy("example",
             enabled=True,
             staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(
-                items=[aws_cloudfront_distribution["staging"]["domain_name"]],
+                items=[staging["domainName"]],
                 quantity=1,
             ),
             traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs(
@@ -219,8 +222,11 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Single Header Config
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -228,7 +234,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         example = aws.cloudfront.ContinuousDeploymentPolicy("example",
             enabled=True,
             staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(
-                items=[aws_cloudfront_distribution["staging"]["domain_name"]],
+                items=[staging["domainName"]],
                 quantity=1,
             ),
             traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs(
@@ -239,13 +245,14 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudFront Continuous Deployment Policy using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
+        $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
         ```
 
         :param str resource_name: The name of the resource.
@@ -264,8 +271,10 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         Resource for managing an AWS CloudFront Continuous Deployment Policy.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -273,7 +282,6 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         staging = aws.cloudfront.Distribution("staging",
             enabled=True,
             staging=True)
-        # ... other configuration ...
         example = aws.cloudfront.ContinuousDeploymentPolicy("example",
             enabled=True,
             staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(
@@ -289,10 +297,12 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         production = aws.cloudfront.Distribution("production",
             enabled=True,
             continuous_deployment_policy_id=example.id)
-        # ... other configuration ...
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Single Weight Config with Session Stickiness
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -300,7 +310,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         example = aws.cloudfront.ContinuousDeploymentPolicy("example",
             enabled=True,
             staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(
-                items=[aws_cloudfront_distribution["staging"]["domain_name"]],
+                items=[staging["domainName"]],
                 quantity=1,
             ),
             traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs(
@@ -314,8 +324,11 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Single Header Config
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -323,7 +336,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         example = aws.cloudfront.ContinuousDeploymentPolicy("example",
             enabled=True,
             staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(
-                items=[aws_cloudfront_distribution["staging"]["domain_name"]],
+                items=[staging["domainName"]],
                 quantity=1,
             ),
             traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs(
@@ -334,13 +347,14 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudFront Continuous Deployment Policy using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
+        $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
         ```
 
         :param str resource_name: The name of the resource.

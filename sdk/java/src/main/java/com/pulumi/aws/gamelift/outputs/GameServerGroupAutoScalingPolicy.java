@@ -5,6 +5,7 @@ package com.pulumi.aws.gamelift.outputs;
 
 import com.pulumi.aws.gamelift.outputs.GameServerGroupAutoScalingPolicyTargetTrackingConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -57,19 +58,23 @@ public final class GameServerGroupAutoScalingPolicy {
 
         @CustomType.Setter
         public Builder estimatedInstanceWarmup(@Nullable Integer estimatedInstanceWarmup) {
+
             this.estimatedInstanceWarmup = estimatedInstanceWarmup;
             return this;
         }
         @CustomType.Setter
         public Builder targetTrackingConfiguration(GameServerGroupAutoScalingPolicyTargetTrackingConfiguration targetTrackingConfiguration) {
-            this.targetTrackingConfiguration = Objects.requireNonNull(targetTrackingConfiguration);
+            if (targetTrackingConfiguration == null) {
+              throw new MissingRequiredPropertyException("GameServerGroupAutoScalingPolicy", "targetTrackingConfiguration");
+            }
+            this.targetTrackingConfiguration = targetTrackingConfiguration;
             return this;
         }
         public GameServerGroupAutoScalingPolicy build() {
-            final var o = new GameServerGroupAutoScalingPolicy();
-            o.estimatedInstanceWarmup = estimatedInstanceWarmup;
-            o.targetTrackingConfiguration = targetTrackingConfiguration;
-            return o;
+            final var _resultValue = new GameServerGroupAutoScalingPolicy();
+            _resultValue.estimatedInstanceWarmup = estimatedInstanceWarmup;
+            _resultValue.targetTrackingConfiguration = targetTrackingConfiguration;
+            return _resultValue;
         }
     }
 }

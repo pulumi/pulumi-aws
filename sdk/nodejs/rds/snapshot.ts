@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,7 +18,7 @@ import * as utilities from "../utilities";
  *     allocatedStorage: 10,
  *     engine: "mysql",
  *     engineVersion: "5.6.21",
- *     instanceClass: "db.t2.micro",
+ *     instanceClass: aws.rds.InstanceType.T2_Micro,
  *     dbName: "baz",
  *     password: "barbarbarbar",
  *     username: "foo",
@@ -30,13 +31,14 @@ import * as utilities from "../utilities";
  *     dbSnapshotIdentifier: "testsnapshot1234",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_db_snapshot` using the snapshot identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
+ * $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
  * ```
  */
 export class Snapshot extends pulumi.CustomResource {
@@ -219,8 +221,6 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Snapshot.__pulumiType, name, resourceInputs, opts);
     }
 }

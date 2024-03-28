@@ -4,6 +4,7 @@
 package com.pulumi.aws.chime.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -57,19 +58,25 @@ public final class VoiceConnectorGroupConnector {
 
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("VoiceConnectorGroupConnector", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder voiceConnectorId(String voiceConnectorId) {
-            this.voiceConnectorId = Objects.requireNonNull(voiceConnectorId);
+            if (voiceConnectorId == null) {
+              throw new MissingRequiredPropertyException("VoiceConnectorGroupConnector", "voiceConnectorId");
+            }
+            this.voiceConnectorId = voiceConnectorId;
             return this;
         }
         public VoiceConnectorGroupConnector build() {
-            final var o = new VoiceConnectorGroupConnector();
-            o.priority = priority;
-            o.voiceConnectorId = voiceConnectorId;
-            return o;
+            final var _resultValue = new VoiceConnectorGroupConnector();
+            _resultValue.priority = priority;
+            _resultValue.voiceConnectorId = voiceConnectorId;
+            return _resultValue;
         }
     }
 }

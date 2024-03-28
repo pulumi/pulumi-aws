@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -60,7 +61,10 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeo
 
         @CustomType.Setter
         public Builder countryCodes(List<String> countryCodes) {
-            this.countryCodes = Objects.requireNonNull(countryCodes);
+            if (countryCodes == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement", "countryCodes");
+            }
+            this.countryCodes = countryCodes;
             return this;
         }
         public Builder countryCodes(String... countryCodes) {
@@ -68,14 +72,15 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeo
         }
         @CustomType.Setter
         public Builder forwardedIpConfig(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig forwardedIpConfig) {
+
             this.forwardedIpConfig = forwardedIpConfig;
             return this;
         }
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement();
-            o.countryCodes = countryCodes;
-            o.forwardedIpConfig = forwardedIpConfig;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement();
+            _resultValue.countryCodes = countryCodes;
+            _resultValue.forwardedIpConfig = forwardedIpConfig;
+            return _resultValue;
         }
     }
 }

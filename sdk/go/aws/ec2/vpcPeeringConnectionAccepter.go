@@ -23,6 +23,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,32 +37,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "peer", &aws.ProviderArgs{
-//				Region: pulumi.String("us-west-2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
 //			main, err := ec2.NewVpc(ctx, "main", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("10.0.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			peerVpc, err := ec2.NewVpc(ctx, "peerVpc", &ec2.VpcArgs{
+//			peerVpc, err := ec2.NewVpc(ctx, "peer", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("10.1.0.0/16"),
-//			}, pulumi.Provider(aws.Peer))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			peerCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			peer, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			peerVpcPeeringConnection, err := ec2.NewVpcPeeringConnection(ctx, "peerVpcPeeringConnection", &ec2.VpcPeeringConnectionArgs{
+//			// Requester's side of the connection.
+//			peerVpcPeeringConnection, err := ec2.NewVpcPeeringConnection(ctx, "peer", &ec2.VpcPeeringConnectionArgs{
 //				VpcId:       main.ID(),
 //				PeerVpcId:   peerVpc.ID(),
-//				PeerOwnerId: *pulumi.String(peerCallerIdentity.AccountId),
+//				PeerOwnerId: pulumi.String(peer.AccountId),
 //				PeerRegion:  pulumi.String("us-west-2"),
 //				AutoAccept:  pulumi.Bool(false),
 //				Tags: pulumi.StringMap{
@@ -71,13 +67,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewVpcPeeringConnectionAccepter(ctx, "peerVpcPeeringConnectionAccepter", &ec2.VpcPeeringConnectionAccepterArgs{
+//			// Accepter's side of the connection.
+//			_, err = ec2.NewVpcPeeringConnectionAccepter(ctx, "peer", &ec2.VpcPeeringConnectionAccepterArgs{
 //				VpcPeeringConnectionId: peerVpcPeeringConnection.ID(),
 //				AutoAccept:             pulumi.Bool(true),
 //				Tags: pulumi.StringMap{
 //					"Side": pulumi.String("Accepter"),
 //				},
-//			}, pulumi.Provider(aws.Peer))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -86,18 +83,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import VPC Peering Connection Accepters using the Peering Connection ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter example pcx-12345678
-//
+// $ pulumi import aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter example pcx-12345678
 // ```
-//
-//	Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+// Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 type VpcPeeringConnectionAccepter struct {
 	pulumi.CustomResourceState
 
@@ -139,10 +134,6 @@ func NewVpcPeeringConnectionAccepter(ctx *pulumi.Context,
 	if args.VpcPeeringConnectionId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcPeeringConnectionId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcPeeringConnectionAccepter
 	err := ctx.RegisterResource("aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter", name, args, &resource, opts...)

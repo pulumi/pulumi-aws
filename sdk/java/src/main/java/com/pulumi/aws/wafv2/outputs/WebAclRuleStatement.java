@@ -254,97 +254,112 @@ public final class WebAclRuleStatement {
 
         @CustomType.Setter
         public Builder andStatement(@Nullable WebAclRuleStatementAndStatement andStatement) {
+
             this.andStatement = andStatement;
             return this;
         }
         @CustomType.Setter
         public Builder byteMatchStatement(@Nullable WebAclRuleStatementByteMatchStatement byteMatchStatement) {
+
             this.byteMatchStatement = byteMatchStatement;
             return this;
         }
         @CustomType.Setter
         public Builder geoMatchStatement(@Nullable WebAclRuleStatementGeoMatchStatement geoMatchStatement) {
+
             this.geoMatchStatement = geoMatchStatement;
             return this;
         }
         @CustomType.Setter
         public Builder ipSetReferenceStatement(@Nullable WebAclRuleStatementIpSetReferenceStatement ipSetReferenceStatement) {
+
             this.ipSetReferenceStatement = ipSetReferenceStatement;
             return this;
         }
         @CustomType.Setter
         public Builder labelMatchStatement(@Nullable WebAclRuleStatementLabelMatchStatement labelMatchStatement) {
+
             this.labelMatchStatement = labelMatchStatement;
             return this;
         }
         @CustomType.Setter
         public Builder managedRuleGroupStatement(@Nullable WebAclRuleStatementManagedRuleGroupStatement managedRuleGroupStatement) {
+
             this.managedRuleGroupStatement = managedRuleGroupStatement;
             return this;
         }
         @CustomType.Setter
         public Builder notStatement(@Nullable WebAclRuleStatementNotStatement notStatement) {
+
             this.notStatement = notStatement;
             return this;
         }
         @CustomType.Setter
         public Builder orStatement(@Nullable WebAclRuleStatementOrStatement orStatement) {
+
             this.orStatement = orStatement;
             return this;
         }
         @CustomType.Setter
         public Builder rateBasedStatement(@Nullable WebAclRuleStatementRateBasedStatement rateBasedStatement) {
+
             this.rateBasedStatement = rateBasedStatement;
             return this;
         }
         @CustomType.Setter
         public Builder regexMatchStatement(@Nullable WebAclRuleStatementRegexMatchStatement regexMatchStatement) {
+
             this.regexMatchStatement = regexMatchStatement;
             return this;
         }
         @CustomType.Setter
         public Builder regexPatternSetReferenceStatement(@Nullable WebAclRuleStatementRegexPatternSetReferenceStatement regexPatternSetReferenceStatement) {
+
             this.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             return this;
         }
         @CustomType.Setter
         public Builder ruleGroupReferenceStatement(@Nullable WebAclRuleStatementRuleGroupReferenceStatement ruleGroupReferenceStatement) {
+
             this.ruleGroupReferenceStatement = ruleGroupReferenceStatement;
             return this;
         }
         @CustomType.Setter
         public Builder sizeConstraintStatement(@Nullable WebAclRuleStatementSizeConstraintStatement sizeConstraintStatement) {
+
             this.sizeConstraintStatement = sizeConstraintStatement;
             return this;
         }
         @CustomType.Setter
         public Builder sqliMatchStatement(@Nullable WebAclRuleStatementSqliMatchStatement sqliMatchStatement) {
+
             this.sqliMatchStatement = sqliMatchStatement;
             return this;
         }
         @CustomType.Setter
         public Builder xssMatchStatement(@Nullable WebAclRuleStatementXssMatchStatement xssMatchStatement) {
+
             this.xssMatchStatement = xssMatchStatement;
             return this;
         }
         public WebAclRuleStatement build() {
-            final var o = new WebAclRuleStatement();
-            o.andStatement = andStatement;
-            o.byteMatchStatement = byteMatchStatement;
-            o.geoMatchStatement = geoMatchStatement;
-            o.ipSetReferenceStatement = ipSetReferenceStatement;
-            o.labelMatchStatement = labelMatchStatement;
-            o.managedRuleGroupStatement = managedRuleGroupStatement;
-            o.notStatement = notStatement;
-            o.orStatement = orStatement;
-            o.rateBasedStatement = rateBasedStatement;
-            o.regexMatchStatement = regexMatchStatement;
-            o.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
-            o.ruleGroupReferenceStatement = ruleGroupReferenceStatement;
-            o.sizeConstraintStatement = sizeConstraintStatement;
-            o.sqliMatchStatement = sqliMatchStatement;
-            o.xssMatchStatement = xssMatchStatement;
-            return o;
+            final var _resultValue = new WebAclRuleStatement();
+            _resultValue.andStatement = andStatement;
+            _resultValue.byteMatchStatement = byteMatchStatement;
+            _resultValue.geoMatchStatement = geoMatchStatement;
+            _resultValue.ipSetReferenceStatement = ipSetReferenceStatement;
+            _resultValue.labelMatchStatement = labelMatchStatement;
+            _resultValue.managedRuleGroupStatement = managedRuleGroupStatement;
+            _resultValue.notStatement = notStatement;
+            _resultValue.orStatement = orStatement;
+            _resultValue.rateBasedStatement = rateBasedStatement;
+            _resultValue.regexMatchStatement = regexMatchStatement;
+            _resultValue.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
+            _resultValue.ruleGroupReferenceStatement = ruleGroupReferenceStatement;
+            _resultValue.sizeConstraintStatement = sizeConstraintStatement;
+            _resultValue.sqliMatchStatement = sqliMatchStatement;
+            _resultValue.xssMatchStatement = xssMatchStatement;
+            return _resultValue;
         }
     }
 }

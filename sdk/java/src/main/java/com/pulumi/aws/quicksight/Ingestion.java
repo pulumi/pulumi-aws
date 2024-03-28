@@ -17,7 +17,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS QuickSight Ingestion.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -40,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Ingestion(&#34;example&#34;, IngestionArgs.builder()        
- *             .dataSetId(aws_quicksight_data_set.example().data_set_id())
+ *             .dataSetId(exampleAwsQuicksightDataSet.dataSetId())
  *             .ingestionId(&#34;example-id&#34;)
  *             .ingestionType(&#34;FULL_REFRESH&#34;)
  *             .build());
@@ -48,13 +51,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import QuickSight Ingestion using the AWS account ID, data set ID, and ingestion ID separated by commas (`,`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:quicksight/ingestion:Ingestion example 123456789012,example-dataset-id,example-ingestion-id
+ * $ pulumi import aws:quicksight/ingestion:Ingestion example 123456789012,example-dataset-id,example-ingestion-id
  * ```
  * 
  */

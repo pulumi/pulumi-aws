@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,7 +21,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS VPC Lattice Listener.
  * 
  * ## Example Usage
- * ### Forward action
+ * 
+ * ### Fixed response action
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -30,6 +32,55 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.vpclattice.Service;
+ * import com.pulumi.aws.vpclattice.ServiceArgs;
+ * import com.pulumi.aws.vpclattice.Listener;
+ * import com.pulumi.aws.vpclattice.ListenerArgs;
+ * import com.pulumi.aws.vpclattice.inputs.ListenerDefaultActionArgs;
+ * import com.pulumi.aws.vpclattice.inputs.ListenerDefaultActionFixedResponseArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
+ * 
+ *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .protocol(&#34;HTTPS&#34;)
+ *             .serviceIdentifier(example.id())
+ *             .defaultAction(ListenerDefaultActionArgs.builder()
+ *                 .fixedResponse(ListenerDefaultActionFixedResponseArgs.builder()
+ *                     .statusCode(404)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Forward action
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.vpclattice.Service;
+ * import com.pulumi.aws.vpclattice.ServiceArgs;
  * import com.pulumi.aws.vpclattice.TargetGroup;
  * import com.pulumi.aws.vpclattice.TargetGroupArgs;
  * import com.pulumi.aws.vpclattice.inputs.TargetGroupConfigArgs;
@@ -49,20 +100,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Service(&#34;test&#34;);
+ *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleTargetGroup = new TargetGroup(&#34;exampleTargetGroup&#34;, TargetGroupArgs.builder()        
+ *             .name(&#34;example-target-group-1&#34;)
  *             .type(&#34;INSTANCE&#34;)
  *             .config(TargetGroupConfigArgs.builder()
  *                 .port(80)
  *                 .protocol(&#34;HTTP&#34;)
- *                 .vpcIdentifier(aws_vpc.test().id())
+ *                 .vpcIdentifier(exampleAwsVpc.id())
  *                 .build())
  *             .build());
  * 
  *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .protocol(&#34;HTTP&#34;)
- *             .serviceIdentifier(aws_vpclattice_service.example().id())
+ *             .serviceIdentifier(example.id())
  *             .defaultAction(ListenerDefaultActionArgs.builder()
  *                 .forwards(ListenerDefaultActionForwardArgs.builder()
  *                     .targetGroups(ListenerDefaultActionForwardTargetGroupArgs.builder()
@@ -75,7 +130,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Forward action with weighted target groups
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -83,6 +142,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.vpclattice.Service;
+ * import com.pulumi.aws.vpclattice.ServiceArgs;
  * import com.pulumi.aws.vpclattice.TargetGroup;
  * import com.pulumi.aws.vpclattice.TargetGroupArgs;
  * import com.pulumi.aws.vpclattice.inputs.TargetGroupConfigArgs;
@@ -102,29 +162,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Service(&#34;test&#34;);
+ *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var example1 = new TargetGroup(&#34;example1&#34;, TargetGroupArgs.builder()        
+ *             .name(&#34;example-target-group-1&#34;)
  *             .type(&#34;INSTANCE&#34;)
  *             .config(TargetGroupConfigArgs.builder()
  *                 .port(80)
  *                 .protocol(&#34;HTTP&#34;)
- *                 .vpcIdentifier(aws_vpc.test().id())
+ *                 .vpcIdentifier(exampleAwsVpc.id())
  *                 .build())
  *             .build());
  * 
  *         var example2 = new TargetGroup(&#34;example2&#34;, TargetGroupArgs.builder()        
+ *             .name(&#34;example-target-group-2&#34;)
  *             .type(&#34;INSTANCE&#34;)
  *             .config(TargetGroupConfigArgs.builder()
  *                 .port(8080)
  *                 .protocol(&#34;HTTP&#34;)
- *                 .vpcIdentifier(aws_vpc.test().id())
+ *                 .vpcIdentifier(exampleAwsVpc.id())
  *                 .build())
  *             .build());
  * 
- *         var example = new Listener(&#34;example&#34;, ListenerArgs.builder()        
+ *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .protocol(&#34;HTTP&#34;)
- *             .serviceIdentifier(aws_vpclattice_service.example().id())
+ *             .serviceIdentifier(example.id())
  *             .defaultAction(ListenerDefaultActionArgs.builder()
  *                 .forwards(ListenerDefaultActionForwardArgs.builder()
  *                     .targetGroups(                    
@@ -143,13 +208,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import VPC Lattice Listener using the `listener_id` of the listener and the `id` of the VPC Lattice service combined with a `/` character. For example:
  * 
  * ```sh
- *  $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
+ * $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
  * ```
  * 
  */
@@ -348,9 +414,6 @@ public class Listener extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

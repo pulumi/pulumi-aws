@@ -5,6 +5,7 @@ package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -72,12 +73,18 @@ public final class GetFirewallFirewallStatusCapacityUsageSummaryCidr {
 
         @CustomType.Setter
         public Builder availableCidrCount(Integer availableCidrCount) {
-            this.availableCidrCount = Objects.requireNonNull(availableCidrCount);
+            if (availableCidrCount == null) {
+              throw new MissingRequiredPropertyException("GetFirewallFirewallStatusCapacityUsageSummaryCidr", "availableCidrCount");
+            }
+            this.availableCidrCount = availableCidrCount;
             return this;
         }
         @CustomType.Setter
         public Builder ipSetReferences(List<GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference> ipSetReferences) {
-            this.ipSetReferences = Objects.requireNonNull(ipSetReferences);
+            if (ipSetReferences == null) {
+              throw new MissingRequiredPropertyException("GetFirewallFirewallStatusCapacityUsageSummaryCidr", "ipSetReferences");
+            }
+            this.ipSetReferences = ipSetReferences;
             return this;
         }
         public Builder ipSetReferences(GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference... ipSetReferences) {
@@ -85,15 +92,18 @@ public final class GetFirewallFirewallStatusCapacityUsageSummaryCidr {
         }
         @CustomType.Setter
         public Builder utilizedCidrCount(Integer utilizedCidrCount) {
-            this.utilizedCidrCount = Objects.requireNonNull(utilizedCidrCount);
+            if (utilizedCidrCount == null) {
+              throw new MissingRequiredPropertyException("GetFirewallFirewallStatusCapacityUsageSummaryCidr", "utilizedCidrCount");
+            }
+            this.utilizedCidrCount = utilizedCidrCount;
             return this;
         }
         public GetFirewallFirewallStatusCapacityUsageSummaryCidr build() {
-            final var o = new GetFirewallFirewallStatusCapacityUsageSummaryCidr();
-            o.availableCidrCount = availableCidrCount;
-            o.ipSetReferences = ipSetReferences;
-            o.utilizedCidrCount = utilizedCidrCount;
-            return o;
+            final var _resultValue = new GetFirewallFirewallStatusCapacityUsageSummaryCidr();
+            _resultValue.availableCidrCount = availableCidrCount;
+            _resultValue.ipSetReferences = ipSetReferences;
+            _resultValue.utilizedCidrCount = utilizedCidrCount;
+            return _resultValue;
         }
     }
 }

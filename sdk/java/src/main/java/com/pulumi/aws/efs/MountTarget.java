@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides an Elastic File System (EFS) mount target.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,21 +55,22 @@ import javax.annotation.Nullable;
  *             .cidrBlock(&#34;10.0.1.0/24&#34;)
  *             .build());
  * 
- *         var alphaMountTarget = new MountTarget(&#34;alphaMountTarget&#34;, MountTargetArgs.builder()        
- *             .fileSystemId(aws_efs_file_system.foo().id())
+ *         var alpha = new MountTarget(&#34;alpha&#34;, MountTargetArgs.builder()        
+ *             .fileSystemId(fooAwsEfsFileSystem.id())
  *             .subnetId(alphaSubnet.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import the EFS mount targets using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
+ * $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
  * ```
  * 
  */

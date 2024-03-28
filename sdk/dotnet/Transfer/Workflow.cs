@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Transfer
     /// Provides a AWS Transfer Workflow resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic single step example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,8 +43,11 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Multistep example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -61,7 +66,7 @@ namespace Pulumi.Aws.Transfer
     ///                 {
     ///                     Name = "example",
     ///                     SourceFileLocation = "${original.file}",
-    ///                     Target = aws_lambda_function.Example.Arn,
+    ///                     Target = exampleAwsLambdaFunction.Arn,
     ///                     TimeoutSeconds = 60,
     ///                 },
     ///                 Type = "CUSTOM",
@@ -88,13 +93,14 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Transfer Workflows using the `worflow_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:transfer/workflow:Workflow example example
+    /// $ pulumi import aws:transfer/workflow:Workflow example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:transfer/workflow:Workflow")]
@@ -159,10 +165,6 @@ namespace Pulumi.Aws.Transfer
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -294,11 +296,7 @@ namespace Pulumi.Aws.Transfer
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public WorkflowState()

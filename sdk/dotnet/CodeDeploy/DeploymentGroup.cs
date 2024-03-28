@@ -16,6 +16,7 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,26 +51,33 @@ namespace Pulumi.Aws.CodeDeploy
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var example = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "example-role",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var aWSCodeDeployRole = new Aws.Iam.RolePolicyAttachment("aWSCodeDeployRole", new()
+    ///     var aWSCodeDeployRole = new Aws.Iam.RolePolicyAttachment("AWSCodeDeployRole", new()
     ///     {
     ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole",
-    ///         Role = exampleRole.Name,
+    ///         Role = example.Name,
     ///     });
     /// 
-    ///     var exampleApplication = new Aws.CodeDeploy.Application("exampleApplication");
+    ///     var exampleApplication = new Aws.CodeDeploy.Application("example", new()
+    ///     {
+    ///         Name = "example-app",
+    ///     });
     /// 
-    ///     var exampleTopic = new Aws.Sns.Topic("exampleTopic");
+    ///     var exampleTopic = new Aws.Sns.Topic("example", new()
+    ///     {
+    ///         Name = "example-topic",
+    ///     });
     /// 
-    ///     var exampleDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("exampleDeploymentGroup", new()
+    ///     var exampleDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("example", new()
     ///     {
     ///         AppName = exampleApplication.Name,
     ///         DeploymentGroupName = "example-group",
-    ///         ServiceRoleArn = exampleRole.Arn,
+    ///         ServiceRoleArn = example.Arn,
     ///         Ec2TagSets = new[]
     ///         {
     ///             new Aws.CodeDeploy.Inputs.DeploymentGroupEc2TagSetArgs
@@ -124,8 +132,11 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Blue Green Deployments with ECS
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -134,17 +145,18 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleApplication = new Aws.CodeDeploy.Application("exampleApplication", new()
+    ///     var example = new Aws.CodeDeploy.Application("example", new()
     ///     {
     ///         ComputePlatform = "ECS",
+    ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("exampleDeploymentGroup", new()
+    ///     var exampleDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("example", new()
     ///     {
-    ///         AppName = exampleApplication.Name,
+    ///         AppName = example.Name,
     ///         DeploymentConfigName = "CodeDeployDefault.ECSAllAtOnce",
     ///         DeploymentGroupName = "example",
-    ///         ServiceRoleArn = aws_iam_role.Example.Arn,
+    ///         ServiceRoleArn = exampleAwsIamRole.Arn,
     ///         AutoRollbackConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAutoRollbackConfigurationArgs
     ///         {
     ///             Enabled = true,
@@ -172,8 +184,8 @@ namespace Pulumi.Aws.CodeDeploy
     ///         },
     ///         EcsService = new Aws.CodeDeploy.Inputs.DeploymentGroupEcsServiceArgs
     ///         {
-    ///             ClusterName = aws_ecs_cluster.Example.Name,
-    ///             ServiceName = aws_ecs_service.Example.Name,
+    ///             ClusterName = exampleAwsEcsCluster.Name,
+    ///             ServiceName = exampleAwsEcsService.Name,
     ///         },
     ///         LoadBalancerInfo = new Aws.CodeDeploy.Inputs.DeploymentGroupLoadBalancerInfoArgs
     ///         {
@@ -183,18 +195,18 @@ namespace Pulumi.Aws.CodeDeploy
     ///                 {
     ///                     ListenerArns = new[]
     ///                     {
-    ///                         aws_lb_listener.Example.Arn,
+    ///                         exampleAwsLbListener.Arn,
     ///                     },
     ///                 },
     ///                 TargetGroups = new[]
     ///                 {
     ///                     new Aws.CodeDeploy.Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs
     ///                     {
-    ///                         Name = aws_lb_target_group.Blue.Name,
+    ///                         Name = blue.Name,
     ///                     },
     ///                     new Aws.CodeDeploy.Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs
     ///                     {
-    ///                         Name = aws_lb_target_group.Green.Name,
+    ///                         Name = green.Name,
     ///                     },
     ///                 },
     ///             },
@@ -203,8 +215,11 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Blue Green Deployments with Servers and Classic ELB
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -213,13 +228,16 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleApplication = new Aws.CodeDeploy.Application("exampleApplication");
-    /// 
-    ///     var exampleDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("exampleDeploymentGroup", new()
+    ///     var example = new Aws.CodeDeploy.Application("example", new()
     ///     {
-    ///         AppName = exampleApplication.Name,
+    ///         Name = "example-app",
+    ///     });
+    /// 
+    ///     var exampleDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("example", new()
+    ///     {
+    ///         AppName = example.Name,
     ///         DeploymentGroupName = "example-group",
-    ///         ServiceRoleArn = aws_iam_role.Example.Arn,
+    ///         ServiceRoleArn = exampleAwsIamRole.Arn,
     ///         DeploymentStyle = new Aws.CodeDeploy.Inputs.DeploymentGroupDeploymentStyleArgs
     ///         {
     ///             DeploymentOption = "WITH_TRAFFIC_CONTROL",
@@ -231,7 +249,7 @@ namespace Pulumi.Aws.CodeDeploy
     ///             {
     ///                 new Aws.CodeDeploy.Inputs.DeploymentGroupLoadBalancerInfoElbInfoArgs
     ///                 {
-    ///                     Name = aws_elb.Example.Name,
+    ///                     Name = exampleAwsElb.Name,
     ///                 },
     ///             },
     ///         },
@@ -255,13 +273,14 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeDeploy Deployment Groups using `app_name`, a colon, and `deployment_group_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
+    /// $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
     /// ```
     /// </summary>
     [AwsResourceType("aws:codedeploy/deploymentGroup:DeploymentGroup")]
@@ -416,10 +435,6 @@ namespace Pulumi.Aws.CodeDeploy
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -743,11 +758,7 @@ namespace Pulumi.Aws.CodeDeploy
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("triggerConfigurations")]

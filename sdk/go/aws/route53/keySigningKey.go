@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,59 +39,59 @@ import (
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Statement": []interface{}{
+//				"statement": []interface{}{
 //					map[string]interface{}{
-//						"Action": []string{
+//						"action": []string{
 //							"kms:DescribeKey",
 //							"kms:GetPublicKey",
 //							"kms:Sign",
 //						},
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "dnssec-route53.amazonaws.com",
+//						"effect": "Allow",
+//						"principal": map[string]interface{}{
+//							"service": "dnssec-route53.amazonaws.com",
 //						},
-//						"Sid":      "Allow Route 53 DNSSEC Service",
-//						"Resource": "*",
-//						"Condition": map[string]interface{}{
-//							"StringEquals": map[string]interface{}{
+//						"sid":      "Allow Route 53 DNSSEC Service",
+//						"resource": "*",
+//						"condition": map[string]interface{}{
+//							"stringEquals": map[string]interface{}{
 //								"aws:SourceAccount": current.AccountId,
 //							},
-//							"ArnLike": map[string]interface{}{
+//							"arnLike": map[string]interface{}{
 //								"aws:SourceArn": "arn:aws:route53:::hostedzone/*",
 //							},
 //						},
 //					},
 //					map[string]interface{}{
-//						"Action": "kms:CreateGrant",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "dnssec-route53.amazonaws.com",
+//						"action": "kms:CreateGrant",
+//						"effect": "Allow",
+//						"principal": map[string]interface{}{
+//							"service": "dnssec-route53.amazonaws.com",
 //						},
-//						"Sid":      "Allow Route 53 DNSSEC Service to CreateGrant",
-//						"Resource": "*",
-//						"Condition": map[string]interface{}{
-//							"Bool": map[string]interface{}{
+//						"sid":      "Allow Route 53 DNSSEC Service to CreateGrant",
+//						"resource": "*",
+//						"condition": map[string]interface{}{
+//							"bool": map[string]interface{}{
 //								"kms:GrantIsForAWSResource": "true",
 //							},
 //						},
 //					},
 //					map[string]interface{}{
-//						"Action": "kms:*",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"action": "kms:*",
+//						"effect": "Allow",
+//						"principal": map[string]interface{}{
 //							"AWS": fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
 //						},
-//						"Resource": "*",
-//						"Sid":      "Enable IAM User Permissions",
+//						"resource": "*",
+//						"sid":      "Enable IAM User Permissions",
 //					},
 //				},
-//				"Version": "2012-10-17",
+//				"version": "2012-10-17",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			_, err = kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				CustomerMasterKeySpec: pulumi.String("ECC_NIST_P256"),
 //				DeletionWindowInDays:  pulumi.Int(7),
 //				KeyUsage:              pulumi.String("SIGN_VERIFY"),
@@ -99,22 +100,23 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = route53.NewZone(ctx, "exampleZone", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleKeySigningKey, err := route53.NewKeySigningKey(ctx, "exampleKeySigningKey", &route53.KeySigningKeyArgs{
-//				HostedZoneId:            pulumi.Any(aws_route53_zone.Test.Id),
-//				KeyManagementServiceArn: pulumi.Any(aws_kms_key.Test.Arn),
+//			_, err = route53.NewZone(ctx, "example", &route53.ZoneArgs{
+//				Name: pulumi.String("example.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = route53.NewHostedZoneDnsSec(ctx, "exampleHostedZoneDnsSec", &route53.HostedZoneDnsSecArgs{
+//			exampleKeySigningKey, err := route53.NewKeySigningKey(ctx, "example", &route53.KeySigningKeyArgs{
+//				HostedZoneId:            pulumi.Any(test.Id),
+//				KeyManagementServiceArn: pulumi.Any(testAwsKmsKey.Arn),
+//				Name:                    pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewHostedZoneDnsSec(ctx, "example", &route53.HostedZoneDnsSecArgs{
 //				HostedZoneId: exampleKeySigningKey.HostedZoneId,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleKeySigningKey,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -123,15 +125,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_route53_key_signing_key` resources using the Route 53 Hosted Zone identifier and KMS Key identifier, separated by a comma (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example
-//
+// $ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example
 // ```
 type KeySigningKey struct {
 	pulumi.CustomResourceState

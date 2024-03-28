@@ -59,19 +59,21 @@ public final class ApplicationApplicationConfigurationRunConfiguration {
 
         @CustomType.Setter
         public Builder applicationRestoreConfiguration(@Nullable ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration applicationRestoreConfiguration) {
+
             this.applicationRestoreConfiguration = applicationRestoreConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder flinkRunConfiguration(@Nullable ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration flinkRunConfiguration) {
+
             this.flinkRunConfiguration = flinkRunConfiguration;
             return this;
         }
         public ApplicationApplicationConfigurationRunConfiguration build() {
-            final var o = new ApplicationApplicationConfigurationRunConfiguration();
-            o.applicationRestoreConfiguration = applicationRestoreConfiguration;
-            o.flinkRunConfiguration = flinkRunConfiguration;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationRunConfiguration();
+            _resultValue.applicationRestoreConfiguration = applicationRestoreConfiguration;
+            _resultValue.flinkRunConfiguration = flinkRunConfiguration;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
 
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder scope(String scope) {
-            this.scope = Objects.requireNonNull(scope);
+            if (scope == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement", "scope");
+            }
+            this.scope = scope;
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement();
-            o.key = key;
-            o.scope = scope;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement();
+            _resultValue.key = key;
+            _resultValue.scope = scope;
+            return _resultValue;
         }
     }
 }

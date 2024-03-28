@@ -4,6 +4,7 @@
 package com.pulumi.aws.identitystore.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,43 +113,61 @@ public final class GetUserName {
 
         @CustomType.Setter
         public Builder familyName(String familyName) {
-            this.familyName = Objects.requireNonNull(familyName);
+            if (familyName == null) {
+              throw new MissingRequiredPropertyException("GetUserName", "familyName");
+            }
+            this.familyName = familyName;
             return this;
         }
         @CustomType.Setter
         public Builder formatted(String formatted) {
-            this.formatted = Objects.requireNonNull(formatted);
+            if (formatted == null) {
+              throw new MissingRequiredPropertyException("GetUserName", "formatted");
+            }
+            this.formatted = formatted;
             return this;
         }
         @CustomType.Setter
         public Builder givenName(String givenName) {
-            this.givenName = Objects.requireNonNull(givenName);
+            if (givenName == null) {
+              throw new MissingRequiredPropertyException("GetUserName", "givenName");
+            }
+            this.givenName = givenName;
             return this;
         }
         @CustomType.Setter
         public Builder honorificPrefix(String honorificPrefix) {
-            this.honorificPrefix = Objects.requireNonNull(honorificPrefix);
+            if (honorificPrefix == null) {
+              throw new MissingRequiredPropertyException("GetUserName", "honorificPrefix");
+            }
+            this.honorificPrefix = honorificPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder honorificSuffix(String honorificSuffix) {
-            this.honorificSuffix = Objects.requireNonNull(honorificSuffix);
+            if (honorificSuffix == null) {
+              throw new MissingRequiredPropertyException("GetUserName", "honorificSuffix");
+            }
+            this.honorificSuffix = honorificSuffix;
             return this;
         }
         @CustomType.Setter
         public Builder middleName(String middleName) {
-            this.middleName = Objects.requireNonNull(middleName);
+            if (middleName == null) {
+              throw new MissingRequiredPropertyException("GetUserName", "middleName");
+            }
+            this.middleName = middleName;
             return this;
         }
         public GetUserName build() {
-            final var o = new GetUserName();
-            o.familyName = familyName;
-            o.formatted = formatted;
-            o.givenName = givenName;
-            o.honorificPrefix = honorificPrefix;
-            o.honorificSuffix = honorificSuffix;
-            o.middleName = middleName;
-            return o;
+            final var _resultValue = new GetUserName();
+            _resultValue.familyName = familyName;
+            _resultValue.formatted = formatted;
+            _resultValue.givenName = givenName;
+            _resultValue.honorificPrefix = honorificPrefix;
+            _resultValue.honorificSuffix = honorificSuffix;
+            _resultValue.middleName = middleName;
+            return _resultValue;
         }
     }
 }

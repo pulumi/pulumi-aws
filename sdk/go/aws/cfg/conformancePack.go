@@ -21,8 +21,10 @@ import (
 // `cfg.Recorder` resource.
 //
 // ## Example Usage
+//
 // ### Template Body
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,6 +38,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cfg.NewConformancePack(ctx, "example", &cfg.ConformancePackArgs{
+//				Name: pulumi.String("example"),
 //				InputParameters: cfg.ConformancePackInputParameterArray{
 //					&cfg.ConformancePackInputParameterArgs{
 //						ParameterName:  pulumi.String("AccessKeysRotatedParameterMaxAccessKeyAge"),
@@ -58,9 +61,7 @@ import (
 //
 // `),
 //
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_config_configuration_recorder.Example,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -69,8 +70,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Template S3 URI
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -86,11 +90,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
+//			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
 //				Bucket: exampleBucketV2.ID(),
 //				Key:    pulumi.String("example-key"),
 //				Content: pulumi.String(`Resources:
@@ -108,15 +114,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cfg.NewConformancePack(ctx, "exampleConformancePack", &cfg.ConformancePackArgs{
+//			_, err = cfg.NewConformancePack(ctx, "example", &cfg.ConformancePackArgs{
+//				Name: pulumi.String("example"),
 //				TemplateS3Uri: pulumi.All(exampleBucketV2.Bucket, exampleBucketObjectv2.Key).ApplyT(func(_args []interface{}) (string, error) {
 //					bucket := _args[0].(string)
 //					key := _args[1].(string)
 //					return fmt.Sprintf("s3://%v/%v", bucket, key), nil
 //				}).(pulumi.StringOutput),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_config_configuration_recorder.Example,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -125,15 +130,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Config Conformance Packs using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cfg/conformancePack:ConformancePack example example
-//
+// $ pulumi import aws:cfg/conformancePack:ConformancePack example example
 // ```
 type ConformancePack struct {
 	pulumi.CustomResourceState

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,18 +33,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRegions, err := aws.GetRegions(ctx, nil, nil)
+//			example, err := aws.GetRegions(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ecr.NewReplicationConfiguration(ctx, "exampleReplicationConfiguration", &ecr.ReplicationConfigurationArgs{
+//			_, err = ecr.NewReplicationConfiguration(ctx, "example", &ecr.ReplicationConfigurationArgs{
 //				ReplicationConfiguration: &ecr.ReplicationConfigurationReplicationConfigurationArgs{
 //					Rules: ecr.ReplicationConfigurationReplicationConfigurationRuleArray{
 //						&ecr.ReplicationConfigurationReplicationConfigurationRuleArgs{
 //							Destinations: ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArray{
 //								&ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs{
-//									Region:     *pulumi.String(exampleRegions.Names[0]),
-//									RegistryId: *pulumi.String(current.AccountId),
+//									Region:     pulumi.String(example.Names[0]),
+//									RegistryId: pulumi.String(current.AccountId),
 //								},
 //							},
 //						},
@@ -58,8 +59,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Multiple Region Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -77,22 +81,22 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRegions, err := aws.GetRegions(ctx, nil, nil)
+//			example, err := aws.GetRegions(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ecr.NewReplicationConfiguration(ctx, "exampleReplicationConfiguration", &ecr.ReplicationConfigurationArgs{
+//			_, err = ecr.NewReplicationConfiguration(ctx, "example", &ecr.ReplicationConfigurationArgs{
 //				ReplicationConfiguration: &ecr.ReplicationConfigurationReplicationConfigurationArgs{
 //					Rules: ecr.ReplicationConfigurationReplicationConfigurationRuleArray{
 //						&ecr.ReplicationConfigurationReplicationConfigurationRuleArgs{
 //							Destinations: ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArray{
 //								&ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs{
-//									Region:     *pulumi.String(exampleRegions.Names[0]),
-//									RegistryId: *pulumi.String(current.AccountId),
+//									Region:     pulumi.String(example.Names[0]),
+//									RegistryId: pulumi.String(current.AccountId),
 //								},
 //								&ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs{
-//									Region:     *pulumi.String(exampleRegions.Names[1]),
-//									RegistryId: *pulumi.String(current.AccountId),
+//									Region:     pulumi.String(example.Names[1]),
+//									RegistryId: pulumi.String(current.AccountId),
 //								},
 //							},
 //						},
@@ -107,9 +111,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Repository Filter Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -127,18 +133,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRegions, err := aws.GetRegions(ctx, nil, nil)
+//			example, err := aws.GetRegions(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ecr.NewReplicationConfiguration(ctx, "exampleReplicationConfiguration", &ecr.ReplicationConfigurationArgs{
+//			_, err = ecr.NewReplicationConfiguration(ctx, "example", &ecr.ReplicationConfigurationArgs{
 //				ReplicationConfiguration: &ecr.ReplicationConfigurationReplicationConfigurationArgs{
 //					Rules: ecr.ReplicationConfigurationReplicationConfigurationRuleArray{
 //						&ecr.ReplicationConfigurationReplicationConfigurationRuleArgs{
 //							Destinations: ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArray{
 //								&ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs{
-//									Region:     *pulumi.String(exampleRegions.Names[0]),
-//									RegistryId: *pulumi.String(current.AccountId),
+//									Region:     pulumi.String(example.Names[0]),
+//									RegistryId: pulumi.String(current.AccountId),
 //								},
 //							},
 //							RepositoryFilters: ecr.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArray{
@@ -159,15 +165,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ECR Replication Configuration using the `registry_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
-//
+// $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
 // ```
 type ReplicationConfiguration struct {
 	pulumi.CustomResourceState

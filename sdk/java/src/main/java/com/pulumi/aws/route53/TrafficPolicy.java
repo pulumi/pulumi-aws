@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Manages a Route53 Traffic Policy.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -41,6 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TrafficPolicy(&#34;example&#34;, TrafficPolicyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .comment(&#34;example comment&#34;)
  *             .document(&#34;&#34;&#34;
  * {
@@ -54,20 +57,20 @@ import javax.annotation.Nullable;
  *   },
  *   &#34;StartEndpoint&#34;: &#34;endpoint-start-NkPh&#34;
  * }
- * 
  *             &#34;&#34;&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Route53 Traffic Policy using the `id` and `version`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:route53/trafficPolicy:TrafficPolicy example 01a52019-d16f-422a-ae72-c306d2b6df7e/1
+ * $ pulumi import aws:route53/trafficPolicy:TrafficPolicy example 01a52019-d16f-422a-ae72-c306d2b6df7e/1
  * ```
  * 
  */

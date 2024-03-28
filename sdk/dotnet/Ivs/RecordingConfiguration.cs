@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Ivs
     /// Resource for managing an AWS IVS (Interactive Video) Recording Configuration.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,6 +27,7 @@ namespace Pulumi.Aws.Ivs
     /// {
     ///     var example = new Aws.Ivs.RecordingConfiguration("example", new()
     ///     {
+    ///         Name = "recording_configuration-1",
     ///         DestinationConfiguration = new Aws.Ivs.Inputs.RecordingConfigurationDestinationConfigurationArgs
     ///         {
     ///             S3 = new Aws.Ivs.Inputs.RecordingConfigurationDestinationConfigurationS3Args
@@ -36,13 +39,14 @@ namespace Pulumi.Aws.Ivs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IVS (Interactive Video) Recording Configuration using the ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
+    /// $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
     /// ```
     /// </summary>
     [AwsResourceType("aws:ivs/recordingConfiguration:RecordingConfiguration")]
@@ -119,10 +123,6 @@ namespace Pulumi.Aws.Ivs
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -242,11 +242,7 @@ namespace Pulumi.Aws.Ivs
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

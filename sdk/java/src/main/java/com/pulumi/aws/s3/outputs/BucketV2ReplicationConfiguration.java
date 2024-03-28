@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.aws.s3.outputs.BucketV2ReplicationConfigurationRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,22 +59,28 @@ public final class BucketV2ReplicationConfiguration {
 
         @CustomType.Setter
         public Builder role(String role) {
-            this.role = Objects.requireNonNull(role);
+            if (role == null) {
+              throw new MissingRequiredPropertyException("BucketV2ReplicationConfiguration", "role");
+            }
+            this.role = role;
             return this;
         }
         @CustomType.Setter
         public Builder rules(List<BucketV2ReplicationConfigurationRule> rules) {
-            this.rules = Objects.requireNonNull(rules);
+            if (rules == null) {
+              throw new MissingRequiredPropertyException("BucketV2ReplicationConfiguration", "rules");
+            }
+            this.rules = rules;
             return this;
         }
         public Builder rules(BucketV2ReplicationConfigurationRule... rules) {
             return rules(List.of(rules));
         }
         public BucketV2ReplicationConfiguration build() {
-            final var o = new BucketV2ReplicationConfiguration();
-            o.role = role;
-            o.rules = rules;
-            return o;
+            final var _resultValue = new BucketV2ReplicationConfiguration();
+            _resultValue.role = role;
+            _resultValue.rules = rules;
+            return _resultValue;
         }
     }
 }

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,11 +30,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewLocationFsxWindows(ctx, "example", &datasync.LocationFsxWindowsArgs{
-//				FsxFilesystemArn: pulumi.Any(aws_fsx_windows_file_system.Example.Arn),
+//				FsxFilesystemArn: pulumi.Any(exampleAwsFsxWindowsFileSystem.Arn),
 //				User:             pulumi.String("SomeUser"),
 //				Password:         pulumi.String("SuperSecretPassw0rd"),
 //				SecurityGroupArns: pulumi.StringArray{
-//					aws_security_group.Example.Arn,
+//					exampleAwsSecurityGroup.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -44,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_datasync_location_fsx_windows_file_system` using the `DataSync-ARN#FSx-Windows-ARN`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:datasync/locationFsxWindows:LocationFsxWindows example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:476956259333:file-system/fs-08e04cd442c1bb94a
-//
+// $ pulumi import aws:datasync/locationFsxWindows:LocationFsxWindows example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:476956259333:file-system/fs-08e04cd442c1bb94a
 // ```
 type LocationFsxWindows struct {
 	pulumi.CustomResourceState
@@ -107,7 +107,6 @@ func NewLocationFsxWindows(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"password",
-		"tagsAll",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)

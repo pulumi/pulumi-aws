@@ -9,6 +9,7 @@ import com.pulumi.aws.ec2.inputs.LaunchConfigurationMetadataOptionsArgs;
 import com.pulumi.aws.ec2.inputs.LaunchConfigurationRootBlockDeviceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -749,8 +750,12 @@ public final class LaunchConfigurationArgs extends com.pulumi.resources.Resource
         }
 
         public LaunchConfigurationArgs build() {
-            $.imageId = Objects.requireNonNull($.imageId, "expected parameter 'imageId' to be non-null");
-            $.instanceType = Objects.requireNonNull($.instanceType, "expected parameter 'instanceType' to be non-null");
+            if ($.imageId == null) {
+                throw new MissingRequiredPropertyException("LaunchConfigurationArgs", "imageId");
+            }
+            if ($.instanceType == null) {
+                throw new MissingRequiredPropertyException("LaunchConfigurationArgs", "instanceType");
+            }
             return $;
         }
     }

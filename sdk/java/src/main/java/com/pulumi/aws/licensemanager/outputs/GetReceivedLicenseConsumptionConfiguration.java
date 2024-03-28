@@ -6,6 +6,7 @@ package com.pulumi.aws.licensemanager.outputs;
 import com.pulumi.aws.licensemanager.outputs.GetReceivedLicenseConsumptionConfigurationBorrowConfiguration;
 import com.pulumi.aws.licensemanager.outputs.GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -65,7 +66,10 @@ public final class GetReceivedLicenseConsumptionConfiguration {
 
         @CustomType.Setter
         public Builder borrowConfigurations(List<GetReceivedLicenseConsumptionConfigurationBorrowConfiguration> borrowConfigurations) {
-            this.borrowConfigurations = Objects.requireNonNull(borrowConfigurations);
+            if (borrowConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseConsumptionConfiguration", "borrowConfigurations");
+            }
+            this.borrowConfigurations = borrowConfigurations;
             return this;
         }
         public Builder borrowConfigurations(GetReceivedLicenseConsumptionConfigurationBorrowConfiguration... borrowConfigurations) {
@@ -73,7 +77,10 @@ public final class GetReceivedLicenseConsumptionConfiguration {
         }
         @CustomType.Setter
         public Builder provisionalConfigurations(List<GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration> provisionalConfigurations) {
-            this.provisionalConfigurations = Objects.requireNonNull(provisionalConfigurations);
+            if (provisionalConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseConsumptionConfiguration", "provisionalConfigurations");
+            }
+            this.provisionalConfigurations = provisionalConfigurations;
             return this;
         }
         public Builder provisionalConfigurations(GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration... provisionalConfigurations) {
@@ -81,15 +88,18 @@ public final class GetReceivedLicenseConsumptionConfiguration {
         }
         @CustomType.Setter
         public Builder renewType(String renewType) {
-            this.renewType = Objects.requireNonNull(renewType);
+            if (renewType == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseConsumptionConfiguration", "renewType");
+            }
+            this.renewType = renewType;
             return this;
         }
         public GetReceivedLicenseConsumptionConfiguration build() {
-            final var o = new GetReceivedLicenseConsumptionConfiguration();
-            o.borrowConfigurations = borrowConfigurations;
-            o.provisionalConfigurations = provisionalConfigurations;
-            o.renewType = renewType;
-            return o;
+            final var _resultValue = new GetReceivedLicenseConsumptionConfiguration();
+            _resultValue.borrowConfigurations = borrowConfigurations;
+            _resultValue.provisionalConfigurations = provisionalConfigurations;
+            _resultValue.renewType = renewType;
+            return _resultValue;
         }
     }
 }

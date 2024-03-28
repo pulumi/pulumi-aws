@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a CloudWatch Logs destination policy resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,11 +47,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testDestination = new LogDestination(&#34;testDestination&#34;, LogDestinationArgs.builder()        
- *             .roleArn(aws_iam_role.iam_for_cloudwatch().arn())
- *             .targetArn(aws_kinesis_stream.kinesis_for_cloudwatch().arn())
+ *             .name(&#34;test_destination&#34;)
+ *             .roleArn(iamForCloudwatch.arn())
+ *             .targetArn(kinesisForCloudwatch.arn())
  *             .build());
  * 
- *         final var testDestinationPolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var testDestinationPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -63,19 +66,20 @@ import javax.annotation.Nullable;
  * 
  *         var testDestinationPolicyLogDestinationPolicy = new LogDestinationPolicy(&#34;testDestinationPolicyLogDestinationPolicy&#34;, LogDestinationPolicyArgs.builder()        
  *             .destinationName(testDestination.name())
- *             .accessPolicy(testDestinationPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(testDestinationPolicyPolicyDocument -&gt; testDestinationPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .accessPolicy(testDestinationPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(testDestinationPolicy -&gt; testDestinationPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudWatch Logs destination policies using the `destination_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
+ * $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
  * ```
  * 
  */

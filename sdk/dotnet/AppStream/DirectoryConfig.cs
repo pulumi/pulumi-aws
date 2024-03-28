@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,13 +39,14 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_appstream_directory_config` using the id. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
+    /// $ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
     /// ```
     /// </summary>
     [AwsResourceType("aws:appstream/directoryConfig:DirectoryConfig")]

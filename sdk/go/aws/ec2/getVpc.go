@@ -16,6 +16,58 @@ import (
 // This resource can prove useful when a module accepts a vpc id as
 // an input variable and needs to, for example, determine the CIDR block of that
 // VPC.
+//
+// ## Example Usage
+//
+// The following example shows how one might accept a VPC id as a variable
+// and use this data source to obtain the data necessary to create a subnet
+// within it.
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			vpcId := cfg.RequireObject("vpcId")
+//			selected, err := ec2.LookupVpc(ctx, &ec2.LookupVpcArgs{
+//				Id: pulumi.StringRef(vpcId),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeCidrsubnet, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
+//				Input:   selected.CidrBlock,
+//				Newbits: 4,
+//				Netnum:  1,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
+//				VpcId:            pulumi.String(selected.Id),
+//				AvailabilityZone: pulumi.String("us-west-2a"),
+//				CidrBlock:        invokeCidrsubnet.Result,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 func LookupVpc(ctx *pulumi.Context, args *LookupVpcArgs, opts ...pulumi.InvokeOption) (*LookupVpcResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcResult

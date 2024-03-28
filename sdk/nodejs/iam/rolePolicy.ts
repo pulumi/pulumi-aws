@@ -13,40 +13,46 @@ import {PolicyDocument, Role} from "./index";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Action: "sts:AssumeRole",
- *         Effect: "Allow",
- *         Sid: "",
- *         Principal: {
- *             Service: "ec2.amazonaws.com",
- *         },
- *     }],
- * })});
- * const testPolicy = new aws.iam.RolePolicy("testPolicy", {
+ * const testRole = new aws.iam.Role("test_role", {
+ *     name: "test_role",
+ *     assumeRolePolicy: JSON.stringify({
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: "sts:AssumeRole",
+ *             effect: "Allow",
+ *             sid: "",
+ *             principal: {
+ *                 service: "ec2.amazonaws.com",
+ *             },
+ *         }],
+ *     }),
+ * });
+ * const testPolicy = new aws.iam.RolePolicy("test_policy", {
+ *     name: "test_policy",
  *     role: testRole.id,
  *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: ["ec2:Describe*"],
- *             Effect: "Allow",
- *             Resource: "*",
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: ["ec2:Describe*"],
+ *             effect: "Allow",
+ *             resource: "*",
  *         }],
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IAM Role Policies using the `role_name:role_policy_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:iam/rolePolicy:RolePolicy mypolicy role_of_mypolicy_name:mypolicy_name
+ * $ pulumi import aws:iam/rolePolicy:RolePolicy mypolicy role_of_mypolicy_name:mypolicy_name
  * ```
  */
 export class RolePolicy extends pulumi.CustomResource {

@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,25 +71,34 @@ public final class WebAclCustomResponseBody {
 
         @CustomType.Setter
         public Builder content(String content) {
-            this.content = Objects.requireNonNull(content);
+            if (content == null) {
+              throw new MissingRequiredPropertyException("WebAclCustomResponseBody", "content");
+            }
+            this.content = content;
             return this;
         }
         @CustomType.Setter
         public Builder contentType(String contentType) {
-            this.contentType = Objects.requireNonNull(contentType);
+            if (contentType == null) {
+              throw new MissingRequiredPropertyException("WebAclCustomResponseBody", "contentType");
+            }
+            this.contentType = contentType;
             return this;
         }
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("WebAclCustomResponseBody", "key");
+            }
+            this.key = key;
             return this;
         }
         public WebAclCustomResponseBody build() {
-            final var o = new WebAclCustomResponseBody();
-            o.content = content;
-            o.contentType = contentType;
-            o.key = key;
-            return o;
+            final var _resultValue = new WebAclCustomResponseBody();
+            _resultValue.content = content;
+            _resultValue.contentType = contentType;
+            _resultValue.key = key;
+            return _resultValue;
         }
     }
 }

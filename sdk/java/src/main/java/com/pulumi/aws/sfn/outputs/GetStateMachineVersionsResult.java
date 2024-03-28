@@ -4,6 +4,7 @@
 package com.pulumi.aws.sfn.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -63,28 +64,37 @@ public final class GetStateMachineVersionsResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetStateMachineVersionsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder statemachineArn(String statemachineArn) {
-            this.statemachineArn = Objects.requireNonNull(statemachineArn);
+            if (statemachineArn == null) {
+              throw new MissingRequiredPropertyException("GetStateMachineVersionsResult", "statemachineArn");
+            }
+            this.statemachineArn = statemachineArn;
             return this;
         }
         @CustomType.Setter
         public Builder statemachineVersions(List<String> statemachineVersions) {
-            this.statemachineVersions = Objects.requireNonNull(statemachineVersions);
+            if (statemachineVersions == null) {
+              throw new MissingRequiredPropertyException("GetStateMachineVersionsResult", "statemachineVersions");
+            }
+            this.statemachineVersions = statemachineVersions;
             return this;
         }
         public Builder statemachineVersions(String... statemachineVersions) {
             return statemachineVersions(List.of(statemachineVersions));
         }
         public GetStateMachineVersionsResult build() {
-            final var o = new GetStateMachineVersionsResult();
-            o.id = id;
-            o.statemachineArn = statemachineArn;
-            o.statemachineVersions = statemachineVersions;
-            return o;
+            final var _resultValue = new GetStateMachineVersionsResult();
+            _resultValue.id = id;
+            _resultValue.statemachineArn = statemachineArn;
+            _resultValue.statemachineVersions = statemachineVersions;
+            return _resultValue;
         }
     }
 }

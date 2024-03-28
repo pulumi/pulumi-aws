@@ -18,74 +18,74 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainDefaultUserSettingsCanvasAppSettings {
     /**
-     * @return The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+     * @return The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings directDeploySettings;
     /**
-     * @return The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+     * @return The settings for connecting to an external data source with OAuth. See `identity_provider_oauth_settings` Block below.
      * 
      */
     private @Nullable List<DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting> identityProviderOauthSettings;
     /**
-     * @return The settings for document querying. See Kendra Settings below.
+     * @return The settings for document querying. See `kendra_settings` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsCanvasAppSettingsKendraSettings kendraSettings;
     /**
-     * @return The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+     * @return The model registry settings for the SageMaker Canvas application. See `model_register_settings` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings modelRegisterSettings;
     /**
-     * @return Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
+     * @return Time series forecast settings for the Canvas app. See `time_series_forecasting_settings` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings timeSeriesForecastingSettings;
     /**
-     * @return The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+     * @return The workspace settings for the SageMaker Canvas application. See `workspace_settings` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings workspaceSettings;
 
     private DomainDefaultUserSettingsCanvasAppSettings() {}
     /**
-     * @return The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+     * @return The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings> directDeploySettings() {
         return Optional.ofNullable(this.directDeploySettings);
     }
     /**
-     * @return The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+     * @return The settings for connecting to an external data source with OAuth. See `identity_provider_oauth_settings` Block below.
      * 
      */
     public List<DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting> identityProviderOauthSettings() {
         return this.identityProviderOauthSettings == null ? List.of() : this.identityProviderOauthSettings;
     }
     /**
-     * @return The settings for document querying. See Kendra Settings below.
+     * @return The settings for document querying. See `kendra_settings` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsCanvasAppSettingsKendraSettings> kendraSettings() {
         return Optional.ofNullable(this.kendraSettings);
     }
     /**
-     * @return The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+     * @return The model registry settings for the SageMaker Canvas application. See `model_register_settings` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings> modelRegisterSettings() {
         return Optional.ofNullable(this.modelRegisterSettings);
     }
     /**
-     * @return Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
+     * @return Time series forecast settings for the Canvas app. See `time_series_forecasting_settings` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings> timeSeriesForecastingSettings() {
         return Optional.ofNullable(this.timeSeriesForecastingSettings);
     }
     /**
-     * @return The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+     * @return The workspace settings for the SageMaker Canvas application. See `workspace_settings` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings> workspaceSettings() {
@@ -120,11 +120,13 @@ public final class DomainDefaultUserSettingsCanvasAppSettings {
 
         @CustomType.Setter
         public Builder directDeploySettings(@Nullable DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings directDeploySettings) {
+
             this.directDeploySettings = directDeploySettings;
             return this;
         }
         @CustomType.Setter
         public Builder identityProviderOauthSettings(@Nullable List<DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting> identityProviderOauthSettings) {
+
             this.identityProviderOauthSettings = identityProviderOauthSettings;
             return this;
         }
@@ -133,33 +135,37 @@ public final class DomainDefaultUserSettingsCanvasAppSettings {
         }
         @CustomType.Setter
         public Builder kendraSettings(@Nullable DomainDefaultUserSettingsCanvasAppSettingsKendraSettings kendraSettings) {
+
             this.kendraSettings = kendraSettings;
             return this;
         }
         @CustomType.Setter
         public Builder modelRegisterSettings(@Nullable DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings modelRegisterSettings) {
+
             this.modelRegisterSettings = modelRegisterSettings;
             return this;
         }
         @CustomType.Setter
         public Builder timeSeriesForecastingSettings(@Nullable DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings timeSeriesForecastingSettings) {
+
             this.timeSeriesForecastingSettings = timeSeriesForecastingSettings;
             return this;
         }
         @CustomType.Setter
         public Builder workspaceSettings(@Nullable DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings workspaceSettings) {
+
             this.workspaceSettings = workspaceSettings;
             return this;
         }
         public DomainDefaultUserSettingsCanvasAppSettings build() {
-            final var o = new DomainDefaultUserSettingsCanvasAppSettings();
-            o.directDeploySettings = directDeploySettings;
-            o.identityProviderOauthSettings = identityProviderOauthSettings;
-            o.kendraSettings = kendraSettings;
-            o.modelRegisterSettings = modelRegisterSettings;
-            o.timeSeriesForecastingSettings = timeSeriesForecastingSettings;
-            o.workspaceSettings = workspaceSettings;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettingsCanvasAppSettings();
+            _resultValue.directDeploySettings = directDeploySettings;
+            _resultValue.identityProviderOauthSettings = identityProviderOauthSettings;
+            _resultValue.kendraSettings = kendraSettings;
+            _resultValue.modelRegisterSettings = modelRegisterSettings;
+            _resultValue.timeSeriesForecastingSettings = timeSeriesForecastingSettings;
+            _resultValue.workspaceSettings = workspaceSettings;
+            return _resultValue;
         }
     }
 }

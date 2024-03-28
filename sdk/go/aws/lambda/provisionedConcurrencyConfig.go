@@ -17,8 +17,10 @@ import (
 // > **NOTE:** Setting `skipDestroy` to `true` means that the AWS Provider will _not_ destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is _not_ managed by Pulumi and may incur extra expense in your AWS account.
 //
 // ## Example Usage
+//
 // ### Alias Name
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,9 +34,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewProvisionedConcurrencyConfig(ctx, "example", &lambda.ProvisionedConcurrencyConfigArgs{
-//				FunctionName:                    pulumi.Any(aws_lambda_alias.Example.Function_name),
+//				FunctionName:                    pulumi.Any(exampleAwsLambdaAlias.FunctionName),
 //				ProvisionedConcurrentExecutions: pulumi.Int(1),
-//				Qualifier:                       pulumi.Any(aws_lambda_alias.Example.Name),
+//				Qualifier:                       pulumi.Any(exampleAwsLambdaAlias.Name),
 //			})
 //			if err != nil {
 //				return err
@@ -44,8 +46,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Function Version
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,9 +64,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewProvisionedConcurrencyConfig(ctx, "example", &lambda.ProvisionedConcurrencyConfigArgs{
-//				FunctionName:                    pulumi.Any(aws_lambda_function.Example.Function_name),
+//				FunctionName:                    pulumi.Any(exampleAwsLambdaFunction.FunctionName),
 //				ProvisionedConcurrentExecutions: pulumi.Int(1),
-//				Qualifier:                       pulumi.Any(aws_lambda_function.Example.Version),
+//				Qualifier:                       pulumi.Any(exampleAwsLambdaFunction.Version),
 //			})
 //			if err != nil {
 //				return err
@@ -71,15 +76,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `function_name` and `qualifier` separated by a comma (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function,production
-//
+// $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function,production
 // ```
 type ProvisionedConcurrencyConfig struct {
 	pulumi.CustomResourceState

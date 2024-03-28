@@ -29,6 +29,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** When you create a canary, AWS creates supporting implicit resources. See the Amazon CloudWatch Synthetics documentation on [DeleteCanary](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DeleteCanary.html) for a full list. Neither AWS nor this provider deletes these implicit resources automatically when the canary is deleted. Before deleting a canary, ensure you have all the information about the canary that you need to delete the implicit resources using the AWS Console, or AWS CLI.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,26 +54,28 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var some = new Canary(&#34;some&#34;, CanaryArgs.builder()        
+ *             .name(&#34;some-canary&#34;)
  *             .artifactS3Location(&#34;s3://some-bucket/&#34;)
  *             .executionRoleArn(&#34;some-role&#34;)
  *             .handler(&#34;exports.handler&#34;)
+ *             .zipFile(&#34;test-fixtures/lambdatest.zip&#34;)
  *             .runtimeVersion(&#34;syn-1.0&#34;)
  *             .schedule(CanaryScheduleArgs.builder()
  *                 .expression(&#34;rate(0 minute)&#34;)
  *                 .build())
- *             .zipFile(&#34;test-fixtures/lambdatest.zip&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Synthetics Canaries using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:synthetics/canary:Canary some some-canary
+ * $ pulumi import aws:synthetics/canary:Canary some some-canary
  * ```
  * 
  */
@@ -454,9 +458,6 @@ public class Canary extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Sfn
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,17 +23,21 @@ namespace Pulumi.Aws.Sfn
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sfnActivity = new Aws.Sfn.Activity("sfnActivity");
+    ///     var sfnActivity = new Aws.Sfn.Activity("sfn_activity", new()
+    ///     {
+    ///         Name = "my-activity",
+    ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import activities using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
+    /// $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
     /// ```
     /// </summary>
     [AwsResourceType("aws:sfn/activity:Activity")]
@@ -85,10 +90,6 @@ namespace Pulumi.Aws.Sfn
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -172,11 +173,7 @@ namespace Pulumi.Aws.Sfn
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ActivityState()

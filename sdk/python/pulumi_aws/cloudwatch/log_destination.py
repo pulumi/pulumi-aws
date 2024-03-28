@@ -206,21 +206,24 @@ class LogDestination(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_destination = aws.cloudwatch.LogDestination("testDestination",
-            role_arn=aws_iam_role["iam_for_cloudwatch"]["arn"],
-            target_arn=aws_kinesis_stream["kinesis_for_cloudwatch"]["arn"])
+        test_destination = aws.cloudwatch.LogDestination("test_destination",
+            name="test_destination",
+            role_arn=iam_for_cloudwatch["arn"],
+            target_arn=kinesis_for_cloudwatch["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Logs destinations using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
+        $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
         ```
 
         :param str resource_name: The name of the resource.
@@ -241,21 +244,24 @@ class LogDestination(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_destination = aws.cloudwatch.LogDestination("testDestination",
-            role_arn=aws_iam_role["iam_for_cloudwatch"]["arn"],
-            target_arn=aws_kinesis_stream["kinesis_for_cloudwatch"]["arn"])
+        test_destination = aws.cloudwatch.LogDestination("test_destination",
+            name="test_destination",
+            role_arn=iam_for_cloudwatch["arn"],
+            target_arn=kinesis_for_cloudwatch["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Logs destinations using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
+        $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
         ```
 
         :param str resource_name: The name of the resource.
@@ -296,8 +302,6 @@ class LogDestination(pulumi.CustomResource):
             __props__.__dict__["target_arn"] = target_arn
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LogDestination, __self__).__init__(
             'aws:cloudwatch/logDestination:LogDestination',
             resource_name,

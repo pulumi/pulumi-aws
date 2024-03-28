@@ -4,6 +4,7 @@
 package com.pulumi.aws.kendra.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -84,31 +85,43 @@ public final class GetIndexDocumentMetadataConfigurationUpdateSearch {
 
         @CustomType.Setter
         public Builder displayable(Boolean displayable) {
-            this.displayable = Objects.requireNonNull(displayable);
+            if (displayable == null) {
+              throw new MissingRequiredPropertyException("GetIndexDocumentMetadataConfigurationUpdateSearch", "displayable");
+            }
+            this.displayable = displayable;
             return this;
         }
         @CustomType.Setter
         public Builder facetable(Boolean facetable) {
-            this.facetable = Objects.requireNonNull(facetable);
+            if (facetable == null) {
+              throw new MissingRequiredPropertyException("GetIndexDocumentMetadataConfigurationUpdateSearch", "facetable");
+            }
+            this.facetable = facetable;
             return this;
         }
         @CustomType.Setter
         public Builder searchable(Boolean searchable) {
-            this.searchable = Objects.requireNonNull(searchable);
+            if (searchable == null) {
+              throw new MissingRequiredPropertyException("GetIndexDocumentMetadataConfigurationUpdateSearch", "searchable");
+            }
+            this.searchable = searchable;
             return this;
         }
         @CustomType.Setter
         public Builder sortable(Boolean sortable) {
-            this.sortable = Objects.requireNonNull(sortable);
+            if (sortable == null) {
+              throw new MissingRequiredPropertyException("GetIndexDocumentMetadataConfigurationUpdateSearch", "sortable");
+            }
+            this.sortable = sortable;
             return this;
         }
         public GetIndexDocumentMetadataConfigurationUpdateSearch build() {
-            final var o = new GetIndexDocumentMetadataConfigurationUpdateSearch();
-            o.displayable = displayable;
-            o.facetable = facetable;
-            o.searchable = searchable;
-            o.sortable = sortable;
-            return o;
+            final var _resultValue = new GetIndexDocumentMetadataConfigurationUpdateSearch();
+            _resultValue.displayable = displayable;
+            _resultValue.facetable = facetable;
+            _resultValue.searchable = searchable;
+            _resultValue.sortable = sortable;
+            return _resultValue;
         }
     }
 }

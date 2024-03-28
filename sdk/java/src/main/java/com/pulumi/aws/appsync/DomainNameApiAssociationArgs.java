@@ -5,6 +5,7 @@ package com.pulumi.aws.appsync;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class DomainNameApiAssociationArgs extends com.pulumi.resources.Res
         }
 
         public DomainNameApiAssociationArgs build() {
-            $.apiId = Objects.requireNonNull($.apiId, "expected parameter 'apiId' to be non-null");
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
+            if ($.apiId == null) {
+                throw new MissingRequiredPropertyException("DomainNameApiAssociationArgs", "apiId");
+            }
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("DomainNameApiAssociationArgs", "domainName");
+            }
             return $;
         }
     }

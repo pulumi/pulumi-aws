@@ -590,19 +590,22 @@ class DataSet(pulumi.CustomResource):
         Resource for managing a QuickSight Data Set.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
             data_set_id="example-id",
+            name="example-name",
             import_mode="SPICE",
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
+                    data_source_arn=example_aws_quicksight_data_source["arn"],
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -613,19 +616,23 @@ class DataSet(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Column Level Permission Rules
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
             data_set_id="example-id",
+            name="example-name",
             import_mode="SPICE",
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
+                    data_source_arn=example_aws_quicksight_data_source["arn"],
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -637,22 +644,26 @@ class DataSet(pulumi.CustomResource):
             )],
             column_level_permission_rules=[aws.quicksight.DataSetColumnLevelPermissionRuleArgs(
                 column_names=["Column1"],
-                principals=[aws_quicksight_user["example"]["arn"]],
+                principals=[example_aws_quicksight_user["arn"]],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Field Folders
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
             data_set_id="example-id",
+            name="example-name",
             import_mode="SPICE",
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
+                    data_source_arn=example_aws_quicksight_data_source["arn"],
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -668,19 +679,23 @@ class DataSet(pulumi.CustomResource):
                 description="example description",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Permissions
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
             data_set_id="example-id",
+            name="example-name",
             import_mode="SPICE",
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
+                    data_source_arn=example_aws_quicksight_data_source["arn"],
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -698,22 +713,26 @@ class DataSet(pulumi.CustomResource):
                     "quicksight:DescribeIngestion",
                     "quicksight:ListIngestions",
                 ],
-                principal=aws_quicksight_user["example"]["arn"],
+                principal=example_aws_quicksight_user["arn"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Row Level Permission Tag Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
             data_set_id="example-id",
+            name="example-name",
             import_mode="SPICE",
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
+                    data_source_arn=example_aws_quicksight_data_source["arn"],
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -733,13 +752,14 @@ class DataSet(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a QuickSight Data Set using the AWS account ID and data set ID separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
+        $ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -772,19 +792,22 @@ class DataSet(pulumi.CustomResource):
         Resource for managing a QuickSight Data Set.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
             data_set_id="example-id",
+            name="example-name",
             import_mode="SPICE",
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
+                    data_source_arn=example_aws_quicksight_data_source["arn"],
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -795,19 +818,23 @@ class DataSet(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Column Level Permission Rules
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
             data_set_id="example-id",
+            name="example-name",
             import_mode="SPICE",
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
+                    data_source_arn=example_aws_quicksight_data_source["arn"],
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -819,22 +846,26 @@ class DataSet(pulumi.CustomResource):
             )],
             column_level_permission_rules=[aws.quicksight.DataSetColumnLevelPermissionRuleArgs(
                 column_names=["Column1"],
-                principals=[aws_quicksight_user["example"]["arn"]],
+                principals=[example_aws_quicksight_user["arn"]],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Field Folders
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
             data_set_id="example-id",
+            name="example-name",
             import_mode="SPICE",
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
+                    data_source_arn=example_aws_quicksight_data_source["arn"],
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -850,19 +881,23 @@ class DataSet(pulumi.CustomResource):
                 description="example description",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Permissions
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
             data_set_id="example-id",
+            name="example-name",
             import_mode="SPICE",
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
+                    data_source_arn=example_aws_quicksight_data_source["arn"],
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -880,22 +915,26 @@ class DataSet(pulumi.CustomResource):
                     "quicksight:DescribeIngestion",
                     "quicksight:ListIngestions",
                 ],
-                principal=aws_quicksight_user["example"]["arn"],
+                principal=example_aws_quicksight_user["arn"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Row Level Permission Tag Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
             data_set_id="example-id",
+            name="example-name",
             import_mode="SPICE",
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
+                    data_source_arn=example_aws_quicksight_data_source["arn"],
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -915,13 +954,14 @@ class DataSet(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a QuickSight Data Set using the AWS account ID and data set ID separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
+        $ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -985,8 +1025,6 @@ class DataSet(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["output_columns"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(DataSet, __self__).__init__(
             'aws:quicksight/dataSet:DataSet',
             resource_name,

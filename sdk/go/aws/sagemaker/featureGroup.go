@@ -18,6 +18,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,7 +35,7 @@ import (
 //				FeatureGroupName:            pulumi.String("example"),
 //				RecordIdentifierFeatureName: pulumi.String("example"),
 //				EventTimeFeatureName:        pulumi.String("example"),
-//				RoleArn:                     pulumi.Any(aws_iam_role.Test.Arn),
+//				RoleArn:                     pulumi.Any(test.Arn),
 //				FeatureDefinitions: sagemaker.FeatureGroupFeatureDefinitionArray{
 //					&sagemaker.FeatureGroupFeatureDefinitionArgs{
 //						FeatureName: pulumi.String("example"),
@@ -53,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Feature Groups using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
-//
+// $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
 // ```
 type FeatureGroup struct {
 	pulumi.CustomResourceState
@@ -114,10 +114,6 @@ func NewFeatureGroup(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FeatureGroup
 	err := ctx.RegisterResource("aws:sagemaker/featureGroup:FeatureGroup", name, args, &resource, opts...)

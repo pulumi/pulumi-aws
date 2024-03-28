@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
 
         @CustomType.Setter
         public Builder addressDefinition(String addressDefinition) {
-            this.addressDefinition = Objects.requireNonNull(addressDefinition);
+            if (addressDefinition == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource", "addressDefinition");
+            }
+            this.addressDefinition = addressDefinition;
             return this;
         }
         public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource build() {
-            final var o = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource();
-            o.addressDefinition = addressDefinition;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource();
+            _resultValue.addressDefinition = addressDefinition;
+            return _resultValue;
         }
     }
 }

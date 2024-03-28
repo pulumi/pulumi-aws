@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,7 +23,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testUser = new Aws.ElastiCache.User("testUser", new()
+    ///     var test = new Aws.ElastiCache.User("test", new()
     ///     {
     ///         UserId = "testUserId",
     ///         UserName = "default",
@@ -34,25 +35,26 @@ namespace Pulumi.Aws.ElastiCache
     ///         },
     ///     });
     /// 
-    ///     var testUserGroup = new Aws.ElastiCache.UserGroup("testUserGroup", new()
+    ///     var testUserGroup = new Aws.ElastiCache.UserGroup("test", new()
     ///     {
     ///         Engine = "REDIS",
     ///         UserGroupId = "userGroupId",
     ///         UserIds = new[]
     ///         {
-    ///             testUser.UserId,
+    ///             test.UserId,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ElastiCache user groups using the `user_group_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
+    /// $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticache/userGroup:UserGroup")]
@@ -119,10 +121,6 @@ namespace Pulumi.Aws.ElastiCache
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -226,11 +224,7 @@ namespace Pulumi.Aws.ElastiCache
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

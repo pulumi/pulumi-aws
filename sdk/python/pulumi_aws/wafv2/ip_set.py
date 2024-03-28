@@ -284,30 +284,33 @@ class IpSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.wafv2.IpSet("example",
+            name="example",
+            description="Example IP set",
+            scope="REGIONAL",
+            ip_address_version="IPV4",
             addresses=[
                 "1.2.3.4/32",
                 "5.6.7.8/32",
             ],
-            description="Example IP set",
-            ip_address_version="IPV4",
-            scope="REGIONAL",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WAFv2 IP Sets using `ID/name/scope`. For example:
 
         ```sh
-         $ pulumi import aws:wafv2/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+        $ pulumi import aws:wafv2/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
         ```
 
         :param str resource_name: The name of the resource.
@@ -330,30 +333,33 @@ class IpSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.wafv2.IpSet("example",
+            name="example",
+            description="Example IP set",
+            scope="REGIONAL",
+            ip_address_version="IPV4",
             addresses=[
                 "1.2.3.4/32",
                 "5.6.7.8/32",
             ],
-            description="Example IP set",
-            ip_address_version="IPV4",
-            scope="REGIONAL",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WAFv2 IP Sets using `ID/name/scope`. For example:
 
         ```sh
-         $ pulumi import aws:wafv2/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+        $ pulumi import aws:wafv2/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
         ```
 
         :param str resource_name: The name of the resource.
@@ -399,8 +405,6 @@ class IpSet(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["lock_token"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(IpSet, __self__).__init__(
             'aws:wafv2/ipSet:IpSet',
             resource_name,

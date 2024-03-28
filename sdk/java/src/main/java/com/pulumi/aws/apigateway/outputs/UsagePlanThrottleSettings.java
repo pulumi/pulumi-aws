@@ -59,19 +59,21 @@ public final class UsagePlanThrottleSettings {
 
         @CustomType.Setter
         public Builder burstLimit(@Nullable Integer burstLimit) {
+
             this.burstLimit = burstLimit;
             return this;
         }
         @CustomType.Setter
         public Builder rateLimit(@Nullable Double rateLimit) {
+
             this.rateLimit = rateLimit;
             return this;
         }
         public UsagePlanThrottleSettings build() {
-            final var o = new UsagePlanThrottleSettings();
-            o.burstLimit = burstLimit;
-            o.rateLimit = rateLimit;
-            return o;
+            final var _resultValue = new UsagePlanThrottleSettings();
+            _resultValue.burstLimit = burstLimit;
+            _resultValue.rateLimit = rateLimit;
+            return _resultValue;
         }
     }
 }

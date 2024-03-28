@@ -154,11 +154,12 @@ class Ciphertext(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        oauth_config = aws.kms.Key("oauthConfig",
+        oauth_config = aws.kms.Key("oauth_config",
             description="oauth config",
             is_enabled=True)
         oauth = aws.kms.Ciphertext("oauth",
@@ -169,6 +170,7 @@ class Ciphertext(pulumi.CustomResource):
         }
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,11 +192,12 @@ class Ciphertext(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        oauth_config = aws.kms.Key("oauthConfig",
+        oauth_config = aws.kms.Key("oauth_config",
             description="oauth config",
             is_enabled=True)
         oauth = aws.kms.Ciphertext("oauth",
@@ -205,6 +208,7 @@ class Ciphertext(pulumi.CustomResource):
         }
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param CiphertextArgs args: The arguments to use to populate this resource's properties.

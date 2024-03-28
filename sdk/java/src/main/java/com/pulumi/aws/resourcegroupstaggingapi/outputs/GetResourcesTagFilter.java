@@ -4,6 +4,7 @@
 package com.pulumi.aws.resourcegroupstaggingapi.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,11 +59,15 @@ public final class GetResourcesTagFilter {
 
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("GetResourcesTagFilter", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder values(@Nullable List<String> values) {
+
             this.values = values;
             return this;
         }
@@ -70,10 +75,10 @@ public final class GetResourcesTagFilter {
             return values(List.of(values));
         }
         public GetResourcesTagFilter build() {
-            final var o = new GetResourcesTagFilter();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetResourcesTagFilter();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

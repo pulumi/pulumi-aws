@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigatewayv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -121,22 +122,34 @@ public final class GetVpcLinkResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetVpcLinkResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVpcLinkResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVpcLinkResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+            if (securityGroupIds == null) {
+              throw new MissingRequiredPropertyException("GetVpcLinkResult", "securityGroupIds");
+            }
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {
@@ -144,7 +157,10 @@ public final class GetVpcLinkResult {
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("GetVpcLinkResult", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
@@ -152,24 +168,28 @@ public final class GetVpcLinkResult {
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vpcLinkId(String vpcLinkId) {
-            this.vpcLinkId = Objects.requireNonNull(vpcLinkId);
+            if (vpcLinkId == null) {
+              throw new MissingRequiredPropertyException("GetVpcLinkResult", "vpcLinkId");
+            }
+            this.vpcLinkId = vpcLinkId;
             return this;
         }
         public GetVpcLinkResult build() {
-            final var o = new GetVpcLinkResult();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            o.tags = tags;
-            o.vpcLinkId = vpcLinkId;
-            return o;
+            final var _resultValue = new GetVpcLinkResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.tags = tags;
+            _resultValue.vpcLinkId = vpcLinkId;
+            return _resultValue;
         }
     }
 }

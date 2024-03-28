@@ -58,19 +58,21 @@ public final class VpcIngressConnectionIngressVpcConfiguration {
 
         @CustomType.Setter
         public Builder vpcEndpointId(@Nullable String vpcEndpointId) {
+
             this.vpcEndpointId = vpcEndpointId;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(@Nullable String vpcId) {
+
             this.vpcId = vpcId;
             return this;
         }
         public VpcIngressConnectionIngressVpcConfiguration build() {
-            final var o = new VpcIngressConnectionIngressVpcConfiguration();
-            o.vpcEndpointId = vpcEndpointId;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new VpcIngressConnectionIngressVpcConfiguration();
+            _resultValue.vpcEndpointId = vpcEndpointId;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

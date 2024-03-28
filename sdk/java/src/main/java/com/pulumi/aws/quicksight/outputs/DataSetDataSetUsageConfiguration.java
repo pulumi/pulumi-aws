@@ -58,19 +58,21 @@ public final class DataSetDataSetUsageConfiguration {
 
         @CustomType.Setter
         public Builder disableUseAsDirectQuerySource(@Nullable Boolean disableUseAsDirectQuerySource) {
+
             this.disableUseAsDirectQuerySource = disableUseAsDirectQuerySource;
             return this;
         }
         @CustomType.Setter
         public Builder disableUseAsImportedSource(@Nullable Boolean disableUseAsImportedSource) {
+
             this.disableUseAsImportedSource = disableUseAsImportedSource;
             return this;
         }
         public DataSetDataSetUsageConfiguration build() {
-            final var o = new DataSetDataSetUsageConfiguration();
-            o.disableUseAsDirectQuerySource = disableUseAsDirectQuerySource;
-            o.disableUseAsImportedSource = disableUseAsImportedSource;
-            return o;
+            final var _resultValue = new DataSetDataSetUsageConfiguration();
+            _resultValue.disableUseAsDirectQuerySource = disableUseAsDirectQuerySource;
+            _resultValue.disableUseAsImportedSource = disableUseAsImportedSource;
+            return _resultValue;
         }
     }
 }

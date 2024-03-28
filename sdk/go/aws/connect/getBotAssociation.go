@@ -14,8 +14,10 @@ import (
 // Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
 //
 // ## Example Usage
+//
 // ### By name
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,6 +44,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupBotAssociation(ctx *pulumi.Context, args *LookupBotAssociationArgs, opts ...pulumi.InvokeOption) (*LookupBotAssociationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBotAssociationResult

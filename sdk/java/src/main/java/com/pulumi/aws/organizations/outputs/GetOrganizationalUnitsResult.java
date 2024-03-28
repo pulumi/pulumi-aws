@@ -5,6 +5,7 @@ package com.pulumi.aws.organizations.outputs;
 
 import com.pulumi.aws.organizations.outputs.GetOrganizationalUnitsChild;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -64,7 +65,10 @@ public final class GetOrganizationalUnitsResult {
 
         @CustomType.Setter
         public Builder children(List<GetOrganizationalUnitsChild> children) {
-            this.children = Objects.requireNonNull(children);
+            if (children == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationalUnitsResult", "children");
+            }
+            this.children = children;
             return this;
         }
         public Builder children(GetOrganizationalUnitsChild... children) {
@@ -72,20 +76,26 @@ public final class GetOrganizationalUnitsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationalUnitsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder parentId(String parentId) {
-            this.parentId = Objects.requireNonNull(parentId);
+            if (parentId == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationalUnitsResult", "parentId");
+            }
+            this.parentId = parentId;
             return this;
         }
         public GetOrganizationalUnitsResult build() {
-            final var o = new GetOrganizationalUnitsResult();
-            o.children = children;
-            o.id = id;
-            o.parentId = parentId;
-            return o;
+            final var _resultValue = new GetOrganizationalUnitsResult();
+            _resultValue.children = children;
+            _resultValue.id = id;
+            _resultValue.parentId = parentId;
+            return _resultValue;
         }
     }
 }

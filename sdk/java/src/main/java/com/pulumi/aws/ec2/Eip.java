@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -25,7 +24,10 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Do not use `network_interface` to associate the EIP to `aws.lb.LoadBalancer` or `aws.ec2.NatGateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
  * 
  * ## Example Usage
+ * 
  * ### Single EIP associated with an instance
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,14 +50,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var lb = new Eip(&#34;lb&#34;, EipArgs.builder()        
- *             .instance(aws_instance.web().id())
+ *             .instance(web.id())
  *             .domain(&#34;vpc&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Multiple EIPs associated with a single network interface
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -80,7 +86,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var multi_ip = new NetworkInterface(&#34;multi-ip&#34;, NetworkInterfaceArgs.builder()        
- *             .subnetId(aws_subnet.main().id())
+ *             .subnetId(main.id())
  *             .privateIps(            
  *                 &#34;10.0.0.10&#34;,
  *                 &#34;10.0.0.11&#34;)
@@ -101,7 +107,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -118,7 +128,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.InstanceArgs;
  * import com.pulumi.aws.ec2.Eip;
  * import com.pulumi.aws.ec2.EipArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -145,9 +154,7 @@ import javax.annotation.Nullable;
  *             .vpcId(default_.id())
  *             .cidrBlock(&#34;10.0.0.0/24&#34;)
  *             .mapPublicIpOnLaunch(true)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(gw)
- *                 .build());
+ *             .build());
  * 
  *         var foo = new Instance(&#34;foo&#34;, InstanceArgs.builder()        
  *             .ami(&#34;ami-5189a661&#34;)
@@ -160,14 +167,16 @@ import javax.annotation.Nullable;
  *             .domain(&#34;vpc&#34;)
  *             .instance(foo.id())
  *             .associateWithPrivateIp(&#34;10.0.0.12&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(gw)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Allocating EIP from the BYOIP pool
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -197,13 +206,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
+ * $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
  * ```
  * 
  */
@@ -530,9 +540,6 @@ public class Eip extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

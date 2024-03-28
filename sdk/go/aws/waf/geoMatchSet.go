@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,7 +28,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := waf.NewGeoMatchSet(ctx, "geoMatchSet", &waf.GeoMatchSetArgs{
+//			_, err := waf.NewGeoMatchSet(ctx, "geo_match_set", &waf.GeoMatchSetArgs{
+//				Name: pulumi.String("geo_match_set"),
 //				GeoMatchConstraints: waf.GeoMatchSetGeoMatchConstraintArray{
 //					&waf.GeoMatchSetGeoMatchConstraintArgs{
 //						Type:  pulumi.String("Country"),
@@ -47,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import WAF Geo Match Set using their ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:waf/geoMatchSet:GeoMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-//
+// $ pulumi import aws:waf/geoMatchSet:GeoMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 // ```
 type GeoMatchSet struct {
 	pulumi.CustomResourceState

@@ -44,13 +44,14 @@ public final class ApplicationApplicationConfigurationRunConfigurationFlinkRunCo
 
         @CustomType.Setter
         public Builder allowNonRestoredState(@Nullable Boolean allowNonRestoredState) {
+
             this.allowNonRestoredState = allowNonRestoredState;
             return this;
         }
         public ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration build() {
-            final var o = new ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration();
-            o.allowNonRestoredState = allowNonRestoredState;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration();
+            _resultValue.allowNonRestoredState = allowNonRestoredState;
+            return _resultValue;
         }
     }
 }

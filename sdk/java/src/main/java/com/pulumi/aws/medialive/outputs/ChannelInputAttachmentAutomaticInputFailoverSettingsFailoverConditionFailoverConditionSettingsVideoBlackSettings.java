@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings {
     /**
-     * @return A value used in calculating the threshold below which MediaLive considers a pixel to be &#39;black&#39;. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is &#39;black&#39;. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is &#39;black&#39;. The range is 0.0 to 1.0, with any number of decimal places.
+     * @return A value used in calculating the threshold below which MediaLive considers a pixel to be &#39;black&#39;. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10%!w(MISSING)hite (or 90%!b(MISSING)lack). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is &#39;black&#39;. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is &#39;black&#39;. The range is 0.0 to 1.0, with any number of decimal places.
      * 
      */
     private @Nullable Double blackDetectThreshold;
@@ -25,7 +25,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
 
     private ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings() {}
     /**
-     * @return A value used in calculating the threshold below which MediaLive considers a pixel to be &#39;black&#39;. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is &#39;black&#39;. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is &#39;black&#39;. The range is 0.0 to 1.0, with any number of decimal places.
+     * @return A value used in calculating the threshold below which MediaLive considers a pixel to be &#39;black&#39;. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10%!w(MISSING)hite (or 90%!b(MISSING)lack). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is &#39;black&#39;. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is &#39;black&#39;. The range is 0.0 to 1.0, with any number of decimal places.
      * 
      */
     public Optional<Double> blackDetectThreshold() {
@@ -59,19 +59,21 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
 
         @CustomType.Setter
         public Builder blackDetectThreshold(@Nullable Double blackDetectThreshold) {
+
             this.blackDetectThreshold = blackDetectThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder videoBlackThresholdMsec(@Nullable Integer videoBlackThresholdMsec) {
+
             this.videoBlackThresholdMsec = videoBlackThresholdMsec;
             return this;
         }
         public ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings build() {
-            final var o = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings();
-            o.blackDetectThreshold = blackDetectThreshold;
-            o.videoBlackThresholdMsec = videoBlackThresholdMsec;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings();
+            _resultValue.blackDetectThreshold = blackDetectThreshold;
+            _resultValue.videoBlackThresholdMsec = videoBlackThresholdMsec;
+            return _resultValue;
         }
     }
 }

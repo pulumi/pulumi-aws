@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class GetRepositoryImageScanningConfiguration {
 
         @CustomType.Setter
         public Builder scanOnPush(Boolean scanOnPush) {
-            this.scanOnPush = Objects.requireNonNull(scanOnPush);
+            if (scanOnPush == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryImageScanningConfiguration", "scanOnPush");
+            }
+            this.scanOnPush = scanOnPush;
             return this;
         }
         public GetRepositoryImageScanningConfiguration build() {
-            final var o = new GetRepositoryImageScanningConfiguration();
-            o.scanOnPush = scanOnPush;
-            return o;
+            final var _resultValue = new GetRepositoryImageScanningConfiguration();
+            _resultValue.scanOnPush = scanOnPush;
+            return _resultValue;
         }
     }
 }

@@ -9,15 +9,17 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.backup.getSelection({
- *     planId: data.aws_backup_plan.example.id,
+ *     planId: exampleAwsBackupPlan.id,
  *     selectionId: "selection-id-example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSelection(args: GetSelectionArgs, opts?: pulumi.InvokeOptions): Promise<GetSelectionResult> {
 
@@ -70,15 +72,17 @@ export interface GetSelectionResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.backup.getSelection({
- *     planId: data.aws_backup_plan.example.id,
+ *     planId: exampleAwsBackupPlan.id,
  *     selectionId: "selection-id-example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSelectionOutput(args: GetSelectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSelectionResult> {
     return pulumi.output(args).apply((a: any) => getSelection(a, opts))

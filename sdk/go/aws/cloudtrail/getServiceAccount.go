@@ -14,8 +14,11 @@ import (
 // Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
 // in a given region for the purpose of allowing CloudTrail to store trail data in S3.
 //
+// > **Note:** AWS documentation [states that](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html#troubleshooting-s3-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+//
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,12 +39,13 @@ import (
 // return err
 // }
 // bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
+// Bucket: pulumi.String("tf-cloudtrail-logging-test-bucket"),
 // ForceDestroy: pulumi.Bool(true),
 // })
 // if err != nil {
 // return err
 // }
-// allowCloudtrailLoggingPolicyDocument := pulumi.All(bucket.Arn,bucket.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
+// allowCloudtrailLogging := pulumi.All(bucket.Arn,bucket.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
 // bucketArn := _args[0].(string)
 // bucketArn1 := _args[1].(string)
 // return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
@@ -85,10 +89,10 @@ import (
 // },
 // }, nil), nil
 // }).(iam.GetPolicyDocumentResultOutput)
-// _, err = s3.NewBucketPolicy(ctx, "allowCloudtrailLoggingBucketPolicy", &s3.BucketPolicyArgs{
+// _, err = s3.NewBucketPolicy(ctx, "allow_cloudtrail_logging", &s3.BucketPolicyArgs{
 // Bucket: bucket.ID(),
-// Policy: allowCloudtrailLoggingPolicyDocument.ApplyT(func(allowCloudtrailLoggingPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-// return &allowCloudtrailLoggingPolicyDocument.Json, nil
+// Policy: allowCloudtrailLogging.ApplyT(func(allowCloudtrailLogging iam.GetPolicyDocumentResult) (*string, error) {
+// return &allowCloudtrailLogging.Json, nil
 // }).(pulumi.StringPtrOutput),
 // })
 // if err != nil {
@@ -98,6 +102,7 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 func GetServiceAccount(ctx *pulumi.Context, args *GetServiceAccountArgs, opts ...pulumi.InvokeOption) (*GetServiceAccountResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServiceAccountResult

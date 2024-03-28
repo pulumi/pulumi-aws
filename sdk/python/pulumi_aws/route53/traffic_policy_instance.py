@@ -199,23 +199,26 @@ class TrafficPolicyInstance(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.route53.TrafficPolicyInstance("test",
-            hosted_zone_id="Z033120931TAQO548OGJC",
+            name="test.example.com",
             traffic_policy_id="b3gb108f-ea6f-45a5-baab-9d112d8b4037",
             traffic_policy_version=1,
+            hosted_zone_id="Z033120931TAQO548OGJC",
             ttl=360)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 traffic policy instance using its id. For example:
 
         ```sh
-         $ pulumi import aws:route53/trafficPolicyInstance:TrafficPolicyInstance test df579d9a-6396-410e-ac22-e7ad60cf9e7e
+        $ pulumi import aws:route53/trafficPolicyInstance:TrafficPolicyInstance test df579d9a-6396-410e-ac22-e7ad60cf9e7e
         ```
 
         :param str resource_name: The name of the resource.
@@ -237,23 +240,26 @@ class TrafficPolicyInstance(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.route53.TrafficPolicyInstance("test",
-            hosted_zone_id="Z033120931TAQO548OGJC",
+            name="test.example.com",
             traffic_policy_id="b3gb108f-ea6f-45a5-baab-9d112d8b4037",
             traffic_policy_version=1,
+            hosted_zone_id="Z033120931TAQO548OGJC",
             ttl=360)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 traffic policy instance using its id. For example:
 
         ```sh
-         $ pulumi import aws:route53/trafficPolicyInstance:TrafficPolicyInstance test df579d9a-6396-410e-ac22-e7ad60cf9e7e
+        $ pulumi import aws:route53/trafficPolicyInstance:TrafficPolicyInstance test df579d9a-6396-410e-ac22-e7ad60cf9e7e
         ```
 
         :param str resource_name: The name of the resource.

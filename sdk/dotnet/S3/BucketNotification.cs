@@ -14,9 +14,13 @@ namespace Pulumi.Aws.S3
     /// 
     /// &gt; **NOTE:** S3 Buckets only support a single notification configuration. Declaring multiple `aws.s3.BucketNotification` resources to the same S3 Bucket will cause a perpetual difference in configuration. See the example "Trigger multiple Lambda functions" for an option.
     /// 
+    /// &gt; This resource cannot be used with S3 directory buckets.
+    /// 
     /// ## Example Usage
+    /// 
     /// ### Add notification configuration to SNS Topic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,9 +29,12 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucket = new Aws.S3.BucketV2("bucket");
+    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+    ///     {
+    ///         Bucket = "your-bucket-name",
+    ///     });
     /// 
-    ///     var topicPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var topic = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -69,12 +76,13 @@ namespace Pulumi.Aws.S3
     ///         },
     ///     });
     /// 
-    ///     var topicTopic = new Aws.Sns.Topic("topicTopic", new()
+    ///     var topicTopic = new Aws.Sns.Topic("topic", new()
     ///     {
-    ///         Policy = topicPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "s3-event-notification-topic",
+    ///         Policy = topic.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var bucketNotification = new Aws.S3.BucketNotification("bucketNotification", new()
+    ///     var bucketNotification = new Aws.S3.BucketNotification("bucket_notification", new()
     ///     {
     ///         Bucket = bucket.Id,
     ///         Topics = new[]
@@ -93,8 +101,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Add notification configuration to SQS Queue
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -103,9 +114,12 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucket = new Aws.S3.BucketV2("bucket");
+    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+    ///     {
+    ///         Bucket = "your-bucket-name",
+    ///     });
     /// 
-    ///     var queuePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var queue = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -147,12 +161,13 @@ namespace Pulumi.Aws.S3
     ///         },
     ///     });
     /// 
-    ///     var queueQueue = new Aws.Sqs.Queue("queueQueue", new()
+    ///     var queueQueue = new Aws.Sqs.Queue("queue", new()
     ///     {
-    ///         Policy = queuePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "s3-event-notification-queue",
+    ///         Policy = queue.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var bucketNotification = new Aws.S3.BucketNotification("bucketNotification", new()
+    ///     var bucketNotification = new Aws.S3.BucketNotification("bucket_notification", new()
     ///     {
     ///         Bucket = bucket.Id,
     ///         Queues = new[]
@@ -171,8 +186,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Add notification configuration to Lambda Function
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -207,30 +225,36 @@ namespace Pulumi.Aws.S3
     ///         },
     ///     });
     /// 
-    ///     var iamForLambda = new Aws.Iam.Role("iamForLambda", new()
+    ///     var iamForLambda = new Aws.Iam.Role("iam_for_lambda", new()
     ///     {
+    ///         Name = "iam_for_lambda",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var func = new Aws.Lambda.Function("func", new()
     ///     {
     ///         Code = new FileArchive("your-function.zip"),
+    ///         Name = "example_lambda_name",
     ///         Role = iamForLambda.Arn,
     ///         Handler = "exports.example",
-    ///         Runtime = "go1.x",
+    ///         Runtime = Aws.Lambda.Runtime.Go1dx,
     ///     });
     /// 
-    ///     var bucket = new Aws.S3.BucketV2("bucket");
-    /// 
-    ///     var allowBucket = new Aws.Lambda.Permission("allowBucket", new()
+    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
     ///     {
+    ///         Bucket = "your-bucket-name",
+    ///     });
+    /// 
+    ///     var allowBucket = new Aws.Lambda.Permission("allow_bucket", new()
+    ///     {
+    ///         StatementId = "AllowExecutionFromS3Bucket",
     ///         Action = "lambda:InvokeFunction",
     ///         Function = func.Arn,
     ///         Principal = "s3.amazonaws.com",
     ///         SourceArn = bucket.Arn,
     ///     });
     /// 
-    ///     var bucketNotification = new Aws.S3.BucketNotification("bucketNotification", new()
+    ///     var bucketNotification = new Aws.S3.BucketNotification("bucket_notification", new()
     ///     {
     ///         Bucket = bucket.Id,
     ///         LambdaFunctions = new[]
@@ -246,18 +270,15 @@ namespace Pulumi.Aws.S3
     ///                 FilterSuffix = ".log",
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             allowBucket,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// ### Add multiple notification configurations to SQS Queue
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
+    /// ### Trigger multiple Lambda functions
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -266,9 +287,127 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucket = new Aws.S3.BucketV2("bucket");
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "lambda.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
     /// 
-    ///     var queuePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var iamForLambda = new Aws.Iam.Role("iam_for_lambda", new()
+    ///     {
+    ///         Name = "iam_for_lambda",
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var func1 = new Aws.Lambda.Function("func1", new()
+    ///     {
+    ///         Code = new FileArchive("your-function1.zip"),
+    ///         Name = "example_lambda_name1",
+    ///         Role = iamForLambda.Arn,
+    ///         Handler = "exports.example",
+    ///         Runtime = Aws.Lambda.Runtime.Go1dx,
+    ///     });
+    /// 
+    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+    ///     {
+    ///         Bucket = "your-bucket-name",
+    ///     });
+    /// 
+    ///     var allowBucket1 = new Aws.Lambda.Permission("allow_bucket1", new()
+    ///     {
+    ///         StatementId = "AllowExecutionFromS3Bucket1",
+    ///         Action = "lambda:InvokeFunction",
+    ///         Function = func1.Arn,
+    ///         Principal = "s3.amazonaws.com",
+    ///         SourceArn = bucket.Arn,
+    ///     });
+    /// 
+    ///     var func2 = new Aws.Lambda.Function("func2", new()
+    ///     {
+    ///         Code = new FileArchive("your-function2.zip"),
+    ///         Name = "example_lambda_name2",
+    ///         Role = iamForLambda.Arn,
+    ///         Handler = "exports.example",
+    ///     });
+    /// 
+    ///     var allowBucket2 = new Aws.Lambda.Permission("allow_bucket2", new()
+    ///     {
+    ///         StatementId = "AllowExecutionFromS3Bucket2",
+    ///         Action = "lambda:InvokeFunction",
+    ///         Function = func2.Arn,
+    ///         Principal = "s3.amazonaws.com",
+    ///         SourceArn = bucket.Arn,
+    ///     });
+    /// 
+    ///     var bucketNotification = new Aws.S3.BucketNotification("bucket_notification", new()
+    ///     {
+    ///         Bucket = bucket.Id,
+    ///         LambdaFunctions = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.BucketNotificationLambdaFunctionArgs
+    ///             {
+    ///                 LambdaFunctionArn = func1.Arn,
+    ///                 Events = new[]
+    ///                 {
+    ///                     "s3:ObjectCreated:*",
+    ///                 },
+    ///                 FilterPrefix = "AWSLogs/",
+    ///                 FilterSuffix = ".log",
+    ///             },
+    ///             new Aws.S3.Inputs.BucketNotificationLambdaFunctionArgs
+    ///             {
+    ///                 LambdaFunctionArn = func2.Arn,
+    ///                 Events = new[]
+    ///                 {
+    ///                     "s3:ObjectCreated:*",
+    ///                 },
+    ///                 FilterPrefix = "OtherLogs/",
+    ///                 FilterSuffix = ".log",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Add multiple notification configurations to SQS Queue
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+    ///     {
+    ///         Bucket = "your-bucket-name",
+    ///     });
+    /// 
+    ///     var queue = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -310,12 +449,13 @@ namespace Pulumi.Aws.S3
     ///         },
     ///     });
     /// 
-    ///     var queueQueue = new Aws.Sqs.Queue("queueQueue", new()
+    ///     var queueQueue = new Aws.Sqs.Queue("queue", new()
     ///     {
-    ///         Policy = queuePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "s3-event-notification-queue",
+    ///         Policy = queue.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var bucketNotification = new Aws.S3.BucketNotification("bucketNotification", new()
+    ///     var bucketNotification = new Aws.S3.BucketNotification("bucket_notification", new()
     ///     {
     ///         Bucket = bucket.Id,
     ///         Queues = new[]
@@ -345,20 +485,13 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// For JSON syntax, use an array instead of defining the `queue` key twice.
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    /// });
-    /// ```
     /// ### Emit events to EventBridge
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -367,9 +500,12 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucket = new Aws.S3.BucketV2("bucket");
+    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+    ///     {
+    ///         Bucket = "your-bucket-name",
+    ///     });
     /// 
-    ///     var bucketNotification = new Aws.S3.BucketNotification("bucketNotification", new()
+    ///     var bucketNotification = new Aws.S3.BucketNotification("bucket_notification", new()
     ///     {
     ///         Bucket = bucket.Id,
     ///         Eventbridge = true,
@@ -377,13 +513,14 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import S3 bucket notification using the `bucket`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
+    /// $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketNotification:BucketNotification")]

@@ -13,8 +13,10 @@ namespace Pulumi.Aws.SecretsManager
     /// Provides a resource to manage AWS Secrets Manager secret policy.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,9 +25,12 @@ namespace Pulumi.Aws.SecretsManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleSecret = new Aws.SecretsManager.Secret("exampleSecret");
+    ///     var exampleSecret = new Aws.SecretsManager.Secret("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -56,21 +61,22 @@ namespace Pulumi.Aws.SecretsManager
     ///         },
     ///     });
     /// 
-    ///     var exampleSecretPolicy = new Aws.SecretsManager.SecretPolicy("exampleSecretPolicy", new()
+    ///     var exampleSecretPolicy = new Aws.SecretsManager.SecretPolicy("example", new()
     ///     {
     ///         SecretArn = exampleSecret.Arn,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_secretsmanager_secret_policy` using the secret Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:secretsmanager/secretPolicy:SecretPolicy example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
+    /// $ pulumi import aws:secretsmanager/secretPolicy:SecretPolicy example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
     /// ```
     /// </summary>
     [AwsResourceType("aws:secretsmanager/secretPolicy:SecretPolicy")]

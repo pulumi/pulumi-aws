@@ -11,6 +11,7 @@ import com.pulumi.aws.ecs.inputs.TaskDefinitionRuntimePlatformArgs;
 import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -284,6 +285,21 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Whether should track latest task definition or the one created with the resource. Default is `false`.
+     * 
+     */
+    @Import(name="trackLatest")
+    private @Nullable Output<Boolean> trackLatest;
+
+    /**
+     * @return Whether should track latest task definition or the one created with the resource. Default is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> trackLatest() {
+        return Optional.ofNullable(this.trackLatest);
+    }
+
+    /**
      * Configuration block for volumes that containers in your task may use. Detailed below.
      * 
      */
@@ -318,6 +334,7 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
         this.skipDestroy = $.skipDestroy;
         this.tags = $.tags;
         this.taskRoleArn = $.taskRoleArn;
+        this.trackLatest = $.trackLatest;
         this.volumes = $.volumes;
     }
 
@@ -731,6 +748,27 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param trackLatest Whether should track latest task definition or the one created with the resource. Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trackLatest(@Nullable Output<Boolean> trackLatest) {
+            $.trackLatest = trackLatest;
+            return this;
+        }
+
+        /**
+         * @param trackLatest Whether should track latest task definition or the one created with the resource. Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trackLatest(Boolean trackLatest) {
+            return trackLatest(Output.of(trackLatest));
+        }
+
+        /**
          * @param volumes Configuration block for volumes that containers in your task may use. Detailed below.
          * 
          * @return builder
@@ -762,8 +800,12 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public TaskDefinitionArgs build() {
-            $.containerDefinitions = Objects.requireNonNull($.containerDefinitions, "expected parameter 'containerDefinitions' to be non-null");
-            $.family = Objects.requireNonNull($.family, "expected parameter 'family' to be non-null");
+            if ($.containerDefinitions == null) {
+                throw new MissingRequiredPropertyException("TaskDefinitionArgs", "containerDefinitions");
+            }
+            if ($.family == null) {
+                throw new MissingRequiredPropertyException("TaskDefinitionArgs", "family");
+            }
             return $;
         }
     }

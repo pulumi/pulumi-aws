@@ -58,6 +58,7 @@ public final class FleetVpcConfig {
 
         @CustomType.Setter
         public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
+
             this.securityGroupIds = securityGroupIds;
             return this;
         }
@@ -66,6 +67,7 @@ public final class FleetVpcConfig {
         }
         @CustomType.Setter
         public Builder subnetIds(@Nullable List<String> subnetIds) {
+
             this.subnetIds = subnetIds;
             return this;
         }
@@ -73,10 +75,10 @@ public final class FleetVpcConfig {
             return subnetIds(List.of(subnetIds));
         }
         public FleetVpcConfig build() {
-            final var o = new FleetVpcConfig();
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            return o;
+            final var _resultValue = new FleetVpcConfig();
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            return _resultValue;
         }
     }
 }

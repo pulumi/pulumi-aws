@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,7 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAmi, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+//			example, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
 //				MostRecent: pulumi.BoolRef(true),
 //				Owners: []string{
 //					"amazon",
@@ -48,20 +49,21 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleInstance, err := ec2.NewInstance(ctx, "exampleInstance", &ec2.InstanceArgs{
-//				Ami:          *pulumi.String(exampleAmi.Id),
-//				InstanceType: pulumi.String("t2.micro"),
+//			exampleInstance, err := ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
+//				Ami:          pulumi.String(example.Id),
+//				InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLicenseConfiguration, err := licensemanager.NewLicenseConfiguration(ctx, "exampleLicenseConfiguration", &licensemanager.LicenseConfigurationArgs{
+//			exampleLicenseConfiguration, err := licensemanager.NewLicenseConfiguration(ctx, "example", &licensemanager.LicenseConfigurationArgs{
+//				Name:                pulumi.String("Example"),
 //				LicenseCountingType: pulumi.String("Instance"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = licensemanager.NewAssociation(ctx, "exampleAssociation", &licensemanager.AssociationArgs{
+//			_, err = licensemanager.NewAssociation(ctx, "example", &licensemanager.AssociationArgs{
 //				LicenseConfigurationArn: exampleLicenseConfiguration.Arn,
 //				ResourceArn:             exampleInstance.Arn,
 //			})
@@ -73,15 +75,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import license configurations using `resource_arn,license_configuration_arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:licensemanager/association:Association example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
-//
+// $ pulumi import aws:licensemanager/association:Association example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
 // ```
 type Association struct {
 	pulumi.CustomResourceState

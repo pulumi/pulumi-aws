@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,58 +26,64 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const iotFleetProvisioning = new aws.iam.Role("iotFleetProvisioning", {
+ * const iotFleetProvisioning = new aws.iam.Role("iot_fleet_provisioning", {
+ *     name: "IoTProvisioningServiceRole",
  *     path: "/service-role/",
  *     assumeRolePolicy: iotAssumeRolePolicy.then(iotAssumeRolePolicy => iotAssumeRolePolicy.json),
  * });
- * const iotFleetProvisioningRegistration = new aws.iam.RolePolicyAttachment("iotFleetProvisioningRegistration", {
+ * const iotFleetProvisioningRegistration = new aws.iam.RolePolicyAttachment("iot_fleet_provisioning_registration", {
  *     role: iotFleetProvisioning.name,
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSIoTThingsRegistration",
  * });
- * const devicePolicyPolicyDocument = aws.iam.getPolicyDocument({
+ * const devicePolicy = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["iot:Subscribe"],
  *         resources: ["*"],
  *     }],
  * });
- * const devicePolicyPolicy = new aws.iot.Policy("devicePolicyPolicy", {policy: devicePolicyPolicyDocument.then(devicePolicyPolicyDocument => devicePolicyPolicyDocument.json)});
+ * const devicePolicyPolicy = new aws.iot.Policy("device_policy", {
+ *     name: "DevicePolicy",
+ *     policy: devicePolicy.then(devicePolicy => devicePolicy.json),
+ * });
  * const fleet = new aws.iot.ProvisioningTemplate("fleet", {
+ *     name: "FleetTemplate",
  *     description: "My provisioning template",
  *     provisioningRoleArn: iotFleetProvisioning.arn,
  *     enabled: true,
- *     templateBody: devicePolicyPolicy.name.apply(name => JSON.stringify({
- *         Parameters: {
- *             SerialNumber: {
- *                 Type: "String",
+ *     templateBody: pulumi.jsonStringify({
+ *         parameters: {
+ *             serialNumber: {
+ *                 type: "String",
  *             },
  *         },
- *         Resources: {
+ *         resources: {
  *             certificate: {
- *                 Properties: {
- *                     CertificateId: {
- *                         Ref: "AWS::IoT::Certificate::Id",
+ *                 properties: {
+ *                     certificateId: {
+ *                         ref: "AWS::IoT::Certificate::Id",
  *                     },
- *                     Status: "Active",
+ *                     status: "Active",
  *                 },
- *                 Type: "AWS::IoT::Certificate",
+ *                 type: "AWS::IoT::Certificate",
  *             },
  *             policy: {
- *                 Properties: {
- *                     PolicyName: name,
+ *                 properties: {
+ *                     policyName: devicePolicyPolicy.name,
  *                 },
- *                 Type: "AWS::IoT::Policy",
+ *                 type: "AWS::IoT::Policy",
  *             },
  *         },
- *     })),
+ *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IoT fleet provisioning templates using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
+ * $ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
  * ```
  */
 export class ProvisioningTemplate extends pulumi.CustomResource {
@@ -199,8 +206,6 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ProvisioningTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }

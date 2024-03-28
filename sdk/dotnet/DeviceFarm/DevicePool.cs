@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DeviceFarm
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,7 +25,8 @@ namespace Pulumi.Aws.DeviceFarm
     /// {
     ///     var example = new Aws.DeviceFarm.DevicePool("example", new()
     ///     {
-    ///         ProjectArn = aws_devicefarm_project.Example.Arn,
+    ///         Name = "example",
+    ///         ProjectArn = exampleAwsDevicefarmProject.Arn,
     ///         Rules = new[]
     ///         {
     ///             new Aws.DeviceFarm.Inputs.DevicePoolRuleArgs
@@ -38,13 +40,14 @@ namespace Pulumi.Aws.DeviceFarm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DeviceFarm Device Pools using their ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:devicefarm/devicePool:DevicePool example arn:aws:devicefarm:us-west-2:123456789012:devicepool:4fa784c7-ccb4-4dbf-ba4f-02198320daa1/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+    /// $ pulumi import aws:devicefarm/devicePool:DevicePool example arn:aws:devicefarm:us-west-2:123456789012:devicepool:4fa784c7-ccb4-4dbf-ba4f-02198320daa1/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
     /// ```
     /// </summary>
     [AwsResourceType("aws:devicefarm/devicePool:DevicePool")]
@@ -124,10 +127,6 @@ namespace Pulumi.Aws.DeviceFarm
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -271,11 +270,7 @@ namespace Pulumi.Aws.DeviceFarm
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("type")]

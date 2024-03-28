@@ -59,19 +59,21 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration
 
         @CustomType.Setter
         public Builder newerNoncurrentVersions(@Nullable String newerNoncurrentVersions) {
+
             this.newerNoncurrentVersions = newerNoncurrentVersions;
             return this;
         }
         @CustomType.Setter
         public Builder noncurrentDays(@Nullable Integer noncurrentDays) {
+
             this.noncurrentDays = noncurrentDays;
             return this;
         }
         public BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration build() {
-            final var o = new BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration();
-            o.newerNoncurrentVersions = newerNoncurrentVersions;
-            o.noncurrentDays = noncurrentDays;
-            return o;
+            final var _resultValue = new BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration();
+            _resultValue.newerNoncurrentVersions = newerNoncurrentVersions;
+            _resultValue.noncurrentDays = noncurrentDays;
+            return _resultValue;
         }
     }
 }

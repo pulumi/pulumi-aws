@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS SSM Contacts Contact Channel.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupContactChannel(ctx *pulumi.Context, args *LookupContactChannelArgs, opts ...pulumi.InvokeOption) (*LookupContactChannelResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupContactChannelResult

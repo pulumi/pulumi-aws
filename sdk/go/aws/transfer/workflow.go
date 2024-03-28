@@ -15,8 +15,10 @@ import (
 // Provides a AWS Transfer Workflow resource.
 //
 // ## Example Usage
+//
 // ### Basic single step example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,8 +50,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Multistep example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,7 +73,7 @@ import (
 //						CustomStepDetails: &transfer.WorkflowStepCustomStepDetailsArgs{
 //							Name:               pulumi.String("example"),
 //							SourceFileLocation: pulumi.String("${original.file}"),
-//							Target:             pulumi.Any(aws_lambda_function.Example.Arn),
+//							Target:             pulumi.Any(exampleAwsLambdaFunction.Arn),
 //							TimeoutSeconds:     pulumi.Int(60),
 //						},
 //						Type: pulumi.String("CUSTOM"),
@@ -96,15 +101,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Transfer Workflows using the `worflow_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:transfer/workflow:Workflow example example
-//
+// $ pulumi import aws:transfer/workflow:Workflow example example
 // ```
 type Workflow struct {
 	pulumi.CustomResourceState
@@ -135,10 +139,6 @@ func NewWorkflow(ctx *pulumi.Context,
 	if args.Steps == nil {
 		return nil, errors.New("invalid value for required argument 'Steps'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workflow
 	err := ctx.RegisterResource("aws:transfer/workflow:Workflow", name, args, &resource, opts...)

@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS RBin Rule.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,17 +32,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rbin.NewRule(ctx, "example", &rbin.RuleArgs{
-//				Description: pulumi.String("example_rule"),
+//				Description:  pulumi.String("example_rule"),
+//				ResourceType: pulumi.String("EBS_SNAPSHOT"),
 //				ResourceTags: rbin.RuleResourceTagArray{
 //					&rbin.RuleResourceTagArgs{
 //						ResourceTagKey:   pulumi.String("tag_key"),
 //						ResourceTagValue: pulumi.String("tag_value"),
 //					},
 //				},
-//				ResourceType: pulumi.String("EBS_SNAPSHOT"),
 //				RetentionPeriod: &rbin.RuleRetentionPeriodArgs{
-//					RetentionPeriodUnit:  pulumi.String("DAYS"),
 //					RetentionPeriodValue: pulumi.Int(10),
+//					RetentionPeriodUnit:  pulumi.String("DAYS"),
 //				},
 //				Tags: pulumi.StringMap{
 //					"test_tag_key": pulumi.String("test_tag_value"),
@@ -54,15 +56,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import RBin Rule using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:rbin/rule:Rule example examplerule
-//
+// $ pulumi import aws:rbin/rule:Rule example examplerule
 // ```
 type Rule struct {
 	pulumi.CustomResourceState
@@ -104,10 +105,6 @@ func NewRule(ctx *pulumi.Context,
 	if args.RetentionPeriod == nil {
 		return nil, errors.New("invalid value for required argument 'RetentionPeriod'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Rule
 	err := ctx.RegisterResource("aws:rbin/rule:Rule", name, args, &resource, opts...)

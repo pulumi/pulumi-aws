@@ -44,13 +44,14 @@ public final class VirtualClusterContainerProviderInfoEksInfo {
 
         @CustomType.Setter
         public Builder namespace(@Nullable String namespace) {
+
             this.namespace = namespace;
             return this;
         }
         public VirtualClusterContainerProviderInfoEksInfo build() {
-            final var o = new VirtualClusterContainerProviderInfoEksInfo();
-            o.namespace = namespace;
-            return o;
+            final var _resultValue = new VirtualClusterContainerProviderInfoEksInfo();
+            _resultValue.namespace = namespace;
+            return _resultValue;
         }
     }
 }

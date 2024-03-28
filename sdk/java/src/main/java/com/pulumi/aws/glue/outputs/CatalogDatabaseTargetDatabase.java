@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,32 @@ public final class CatalogDatabaseTargetDatabase {
 
         @CustomType.Setter
         public Builder catalogId(String catalogId) {
-            this.catalogId = Objects.requireNonNull(catalogId);
+            if (catalogId == null) {
+              throw new MissingRequiredPropertyException("CatalogDatabaseTargetDatabase", "catalogId");
+            }
+            this.catalogId = catalogId;
             return this;
         }
         @CustomType.Setter
         public Builder databaseName(String databaseName) {
-            this.databaseName = Objects.requireNonNull(databaseName);
+            if (databaseName == null) {
+              throw new MissingRequiredPropertyException("CatalogDatabaseTargetDatabase", "databaseName");
+            }
+            this.databaseName = databaseName;
             return this;
         }
         @CustomType.Setter
         public Builder region(@Nullable String region) {
+
             this.region = region;
             return this;
         }
         public CatalogDatabaseTargetDatabase build() {
-            final var o = new CatalogDatabaseTargetDatabase();
-            o.catalogId = catalogId;
-            o.databaseName = databaseName;
-            o.region = region;
-            return o;
+            final var _resultValue = new CatalogDatabaseTargetDatabase();
+            _resultValue.catalogId = catalogId;
+            _resultValue.databaseName = databaseName;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

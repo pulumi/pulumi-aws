@@ -87,6 +87,7 @@ def get_export(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -94,9 +95,10 @@ def get_export(name: Optional[str] = None,
     subnet_id = aws.cloudformation.get_export(name="mySubnetIdExportName")
     web = aws.ec2.Instance("web",
         ami="ami-abb07bcb",
-        instance_type="t2.micro",
+        instance_type=aws.ec2.InstanceType.T2_MICRO,
         subnet_id=subnet_id.value)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
@@ -124,6 +126,7 @@ def get_export_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -131,9 +134,10 @@ def get_export_output(name: Optional[pulumi.Input[str]] = None,
     subnet_id = aws.cloudformation.get_export(name="mySubnetIdExportName")
     web = aws.ec2.Instance("web",
         ami="ami-abb07bcb",
-        instance_type="t2.micro",
+        instance_type=aws.ec2.InstanceType.T2_MICRO,
         subnet_id=subnet_id.value)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)

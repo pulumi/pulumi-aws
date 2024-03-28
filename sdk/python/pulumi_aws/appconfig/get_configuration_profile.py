@@ -22,7 +22,7 @@ class GetConfigurationProfileResult:
     """
     A collection of values returned by getConfigurationProfile.
     """
-    def __init__(__self__, application_id=None, arn=None, configuration_profile_id=None, description=None, id=None, location_uri=None, name=None, retrieval_role_arn=None, tags=None, type=None, validators=None):
+    def __init__(__self__, application_id=None, arn=None, configuration_profile_id=None, description=None, id=None, kms_key_identifier=None, location_uri=None, name=None, retrieval_role_arn=None, tags=None, type=None, validators=None):
         if application_id and not isinstance(application_id, str):
             raise TypeError("Expected argument 'application_id' to be a str")
         pulumi.set(__self__, "application_id", application_id)
@@ -38,6 +38,9 @@ class GetConfigurationProfileResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kms_key_identifier and not isinstance(kms_key_identifier, str):
+            raise TypeError("Expected argument 'kms_key_identifier' to be a str")
+        pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
         if location_uri and not isinstance(location_uri, str):
             raise TypeError("Expected argument 'location_uri' to be a str")
         pulumi.set(__self__, "location_uri", location_uri)
@@ -90,6 +93,11 @@ class GetConfigurationProfileResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> str:
+        return pulumi.get(self, "kms_key_identifier")
 
     @property
     @pulumi.getter(name="locationUri")
@@ -151,6 +159,7 @@ class AwaitableGetConfigurationProfileResult(GetConfigurationProfileResult):
             configuration_profile_id=self.configuration_profile_id,
             description=self.description,
             id=self.id,
+            kms_key_identifier=self.kms_key_identifier,
             location_uri=self.location_uri,
             name=self.name,
             retrieval_role_arn=self.retrieval_role_arn,
@@ -167,8 +176,10 @@ def get_configuration_profile(application_id: Optional[str] = None,
     Provides access to an AppConfig Configuration Profile.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -176,6 +187,7 @@ def get_configuration_profile(application_id: Optional[str] = None,
     example = aws.appconfig.get_configuration_profile(application_id="b5d5gpj",
         configuration_profile_id="qrbb1c1")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str application_id: ID of the AppConfig application to which this configuration profile belongs.
@@ -195,6 +207,7 @@ def get_configuration_profile(application_id: Optional[str] = None,
         configuration_profile_id=pulumi.get(__ret__, 'configuration_profile_id'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
+        kms_key_identifier=pulumi.get(__ret__, 'kms_key_identifier'),
         location_uri=pulumi.get(__ret__, 'location_uri'),
         name=pulumi.get(__ret__, 'name'),
         retrieval_role_arn=pulumi.get(__ret__, 'retrieval_role_arn'),
@@ -212,8 +225,10 @@ def get_configuration_profile_output(application_id: Optional[pulumi.Input[str]]
     Provides access to an AppConfig Configuration Profile.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -221,6 +236,7 @@ def get_configuration_profile_output(application_id: Optional[pulumi.Input[str]]
     example = aws.appconfig.get_configuration_profile(application_id="b5d5gpj",
         configuration_profile_id="qrbb1c1")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str application_id: ID of the AppConfig application to which this configuration profile belongs.

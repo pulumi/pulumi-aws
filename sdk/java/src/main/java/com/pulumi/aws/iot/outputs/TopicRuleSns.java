@@ -4,6 +4,7 @@
 package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,32 @@ public final class TopicRuleSns {
 
         @CustomType.Setter
         public Builder messageFormat(@Nullable String messageFormat) {
+
             this.messageFormat = messageFormat;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("TopicRuleSns", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder targetArn(String targetArn) {
-            this.targetArn = Objects.requireNonNull(targetArn);
+            if (targetArn == null) {
+              throw new MissingRequiredPropertyException("TopicRuleSns", "targetArn");
+            }
+            this.targetArn = targetArn;
             return this;
         }
         public TopicRuleSns build() {
-            final var o = new TopicRuleSns();
-            o.messageFormat = messageFormat;
-            o.roleArn = roleArn;
-            o.targetArn = targetArn;
-            return o;
+            final var _resultValue = new TopicRuleSns();
+            _resultValue.messageFormat = messageFormat;
+            _resultValue.roleArn = roleArn;
+            _resultValue.targetArn = targetArn;
+            return _resultValue;
         }
     }
 }

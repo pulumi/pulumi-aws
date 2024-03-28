@@ -1349,85 +1349,12 @@ class LaunchTemplate(pulumi.CustomResource):
         """
         Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_aws as aws
-
-        foo = aws.ec2.LaunchTemplate("foo",
-            block_device_mappings=[aws.ec2.LaunchTemplateBlockDeviceMappingArgs(
-                device_name="/dev/sdf",
-                ebs=aws.ec2.LaunchTemplateBlockDeviceMappingEbsArgs(
-                    volume_size=20,
-                ),
-            )],
-            capacity_reservation_specification=aws.ec2.LaunchTemplateCapacityReservationSpecificationArgs(
-                capacity_reservation_preference="open",
-            ),
-            cpu_options=aws.ec2.LaunchTemplateCpuOptionsArgs(
-                core_count=4,
-                threads_per_core=2,
-            ),
-            credit_specification=aws.ec2.LaunchTemplateCreditSpecificationArgs(
-                cpu_credits="standard",
-            ),
-            disable_api_stop=True,
-            disable_api_termination=True,
-            ebs_optimized="true",
-            elastic_gpu_specifications=[aws.ec2.LaunchTemplateElasticGpuSpecificationArgs(
-                type="test",
-            )],
-            elastic_inference_accelerator=aws.ec2.LaunchTemplateElasticInferenceAcceleratorArgs(
-                type="eia1.medium",
-            ),
-            iam_instance_profile=aws.ec2.LaunchTemplateIamInstanceProfileArgs(
-                name="test",
-            ),
-            image_id="ami-test",
-            instance_initiated_shutdown_behavior="terminate",
-            instance_market_options=aws.ec2.LaunchTemplateInstanceMarketOptionsArgs(
-                market_type="spot",
-            ),
-            instance_type="t2.micro",
-            kernel_id="test",
-            key_name="test",
-            license_specifications=[aws.ec2.LaunchTemplateLicenseSpecificationArgs(
-                license_configuration_arn="arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef",
-            )],
-            metadata_options=aws.ec2.LaunchTemplateMetadataOptionsArgs(
-                http_endpoint="enabled",
-                http_tokens="required",
-                http_put_response_hop_limit=1,
-                instance_metadata_tags="enabled",
-            ),
-            monitoring=aws.ec2.LaunchTemplateMonitoringArgs(
-                enabled=True,
-            ),
-            network_interfaces=[aws.ec2.LaunchTemplateNetworkInterfaceArgs(
-                associate_public_ip_address="true",
-            )],
-            placement=aws.ec2.LaunchTemplatePlacementArgs(
-                availability_zone="us-west-2a",
-            ),
-            ram_disk_id="test",
-            vpc_security_group_ids=["sg-12345678"],
-            tag_specifications=[aws.ec2.LaunchTemplateTagSpecificationArgs(
-                resource_type="instance",
-                tags={
-                    "Name": "test",
-                },
-            )],
-            user_data=(lambda path: base64.b64encode(open(path).read().encode()).decode())(f"{path['module']}/example.sh"))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Launch Templates using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/launchTemplate:LaunchTemplate web lt-12345678
+        $ pulumi import aws:ec2/launchTemplate:LaunchTemplate web lt-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -1488,85 +1415,12 @@ class LaunchTemplate(pulumi.CustomResource):
         """
         Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_aws as aws
-
-        foo = aws.ec2.LaunchTemplate("foo",
-            block_device_mappings=[aws.ec2.LaunchTemplateBlockDeviceMappingArgs(
-                device_name="/dev/sdf",
-                ebs=aws.ec2.LaunchTemplateBlockDeviceMappingEbsArgs(
-                    volume_size=20,
-                ),
-            )],
-            capacity_reservation_specification=aws.ec2.LaunchTemplateCapacityReservationSpecificationArgs(
-                capacity_reservation_preference="open",
-            ),
-            cpu_options=aws.ec2.LaunchTemplateCpuOptionsArgs(
-                core_count=4,
-                threads_per_core=2,
-            ),
-            credit_specification=aws.ec2.LaunchTemplateCreditSpecificationArgs(
-                cpu_credits="standard",
-            ),
-            disable_api_stop=True,
-            disable_api_termination=True,
-            ebs_optimized="true",
-            elastic_gpu_specifications=[aws.ec2.LaunchTemplateElasticGpuSpecificationArgs(
-                type="test",
-            )],
-            elastic_inference_accelerator=aws.ec2.LaunchTemplateElasticInferenceAcceleratorArgs(
-                type="eia1.medium",
-            ),
-            iam_instance_profile=aws.ec2.LaunchTemplateIamInstanceProfileArgs(
-                name="test",
-            ),
-            image_id="ami-test",
-            instance_initiated_shutdown_behavior="terminate",
-            instance_market_options=aws.ec2.LaunchTemplateInstanceMarketOptionsArgs(
-                market_type="spot",
-            ),
-            instance_type="t2.micro",
-            kernel_id="test",
-            key_name="test",
-            license_specifications=[aws.ec2.LaunchTemplateLicenseSpecificationArgs(
-                license_configuration_arn="arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef",
-            )],
-            metadata_options=aws.ec2.LaunchTemplateMetadataOptionsArgs(
-                http_endpoint="enabled",
-                http_tokens="required",
-                http_put_response_hop_limit=1,
-                instance_metadata_tags="enabled",
-            ),
-            monitoring=aws.ec2.LaunchTemplateMonitoringArgs(
-                enabled=True,
-            ),
-            network_interfaces=[aws.ec2.LaunchTemplateNetworkInterfaceArgs(
-                associate_public_ip_address="true",
-            )],
-            placement=aws.ec2.LaunchTemplatePlacementArgs(
-                availability_zone="us-west-2a",
-            ),
-            ram_disk_id="test",
-            vpc_security_group_ids=["sg-12345678"],
-            tag_specifications=[aws.ec2.LaunchTemplateTagSpecificationArgs(
-                resource_type="instance",
-                tags={
-                    "Name": "test",
-                },
-            )],
-            user_data=(lambda path: base64.b64encode(open(path).read().encode()).decode())(f"{path['module']}/example.sh"))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Launch Templates using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/launchTemplate:LaunchTemplate web lt-12345678
+        $ pulumi import aws:ec2/launchTemplate:LaunchTemplate web lt-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -1670,8 +1524,6 @@ class LaunchTemplate(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["latest_version"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LaunchTemplate, __self__).__init__(
             'aws:ec2/launchTemplate:LaunchTemplate',
             resource_name,

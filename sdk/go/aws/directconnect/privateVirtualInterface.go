@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,10 +30,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := directconnect.NewPrivateVirtualInterface(ctx, "foo", &directconnect.PrivateVirtualInterfaceArgs{
+//				ConnectionId:  pulumi.String("dxcon-zzzzzzzz"),
+//				Name:          pulumi.String("vif-foo"),
+//				Vlan:          pulumi.Int(4094),
 //				AddressFamily: pulumi.String("ipv4"),
 //				BgpAsn:        pulumi.Int(65352),
-//				ConnectionId:  pulumi.String("dxcon-zzzzzzzz"),
-//				Vlan:          pulumi.Int(4094),
 //			})
 //			if err != nil {
 //				return err
@@ -42,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Direct Connect private virtual interfaces using the VIF `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:directconnect/privateVirtualInterface:PrivateVirtualInterface test dxvif-33cc44dd
-//
+// $ pulumi import aws:directconnect/privateVirtualInterface:PrivateVirtualInterface test dxvif-33cc44dd
 // ```
 type PrivateVirtualInterface struct {
 	pulumi.CustomResourceState
@@ -114,10 +115,6 @@ func NewPrivateVirtualInterface(ctx *pulumi.Context,
 	if args.Vlan == nil {
 		return nil, errors.New("invalid value for required argument 'Vlan'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PrivateVirtualInterface
 	err := ctx.RegisterResource("aws:directconnect/privateVirtualInterface:PrivateVirtualInterface", name, args, &resource, opts...)

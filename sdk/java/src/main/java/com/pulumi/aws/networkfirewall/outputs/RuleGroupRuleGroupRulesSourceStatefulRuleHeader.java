@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,43 +113,61 @@ public final class RuleGroupRuleGroupRulesSourceStatefulRuleHeader {
 
         @CustomType.Setter
         public Builder destination(String destination) {
-            this.destination = Objects.requireNonNull(destination);
+            if (destination == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceStatefulRuleHeader", "destination");
+            }
+            this.destination = destination;
             return this;
         }
         @CustomType.Setter
         public Builder destinationPort(String destinationPort) {
-            this.destinationPort = Objects.requireNonNull(destinationPort);
+            if (destinationPort == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceStatefulRuleHeader", "destinationPort");
+            }
+            this.destinationPort = destinationPort;
             return this;
         }
         @CustomType.Setter
         public Builder direction(String direction) {
-            this.direction = Objects.requireNonNull(direction);
+            if (direction == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceStatefulRuleHeader", "direction");
+            }
+            this.direction = direction;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceStatefulRuleHeader", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder source(String source) {
-            this.source = Objects.requireNonNull(source);
+            if (source == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceStatefulRuleHeader", "source");
+            }
+            this.source = source;
             return this;
         }
         @CustomType.Setter
         public Builder sourcePort(String sourcePort) {
-            this.sourcePort = Objects.requireNonNull(sourcePort);
+            if (sourcePort == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceStatefulRuleHeader", "sourcePort");
+            }
+            this.sourcePort = sourcePort;
             return this;
         }
         public RuleGroupRuleGroupRulesSourceStatefulRuleHeader build() {
-            final var o = new RuleGroupRuleGroupRulesSourceStatefulRuleHeader();
-            o.destination = destination;
-            o.destinationPort = destinationPort;
-            o.direction = direction;
-            o.protocol = protocol;
-            o.source = source;
-            o.sourcePort = sourcePort;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupRulesSourceStatefulRuleHeader();
+            _resultValue.destination = destination;
+            _resultValue.destinationPort = destinationPort;
+            _resultValue.direction = direction;
+            _resultValue.protocol = protocol;
+            _resultValue.source = source;
+            _resultValue.sourcePort = sourcePort;
+            return _resultValue;
         }
     }
 }

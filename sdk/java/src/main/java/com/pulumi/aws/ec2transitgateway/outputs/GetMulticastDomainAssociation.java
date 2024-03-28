@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2transitgateway.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class GetMulticastDomainAssociation {
 
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("GetMulticastDomainAssociation", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayAttachmentId(String transitGatewayAttachmentId) {
-            this.transitGatewayAttachmentId = Objects.requireNonNull(transitGatewayAttachmentId);
+            if (transitGatewayAttachmentId == null) {
+              throw new MissingRequiredPropertyException("GetMulticastDomainAssociation", "transitGatewayAttachmentId");
+            }
+            this.transitGatewayAttachmentId = transitGatewayAttachmentId;
             return this;
         }
         public GetMulticastDomainAssociation build() {
-            final var o = new GetMulticastDomainAssociation();
-            o.subnetId = subnetId;
-            o.transitGatewayAttachmentId = transitGatewayAttachmentId;
-            return o;
+            final var _resultValue = new GetMulticastDomainAssociation();
+            _resultValue.subnetId = subnetId;
+            _resultValue.transitGatewayAttachmentId = transitGatewayAttachmentId;
+            return _resultValue;
         }
     }
 }

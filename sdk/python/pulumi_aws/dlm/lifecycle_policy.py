@@ -239,16 +239,147 @@ class LifecyclePolicy(pulumi.CustomResource):
         Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
 
         ## Example Usage
+
+        ### Basic
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["dlm.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        dlm_lifecycle_role = aws.iam.Role("dlm_lifecycle_role",
+            name="dlm-lifecycle-role",
+            assume_role_policy=assume_role.json)
+        dlm_lifecycle = aws.iam.get_policy_document(statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=[
+                    "ec2:CreateSnapshot",
+                    "ec2:CreateSnapshots",
+                    "ec2:DeleteSnapshot",
+                    "ec2:DescribeInstances",
+                    "ec2:DescribeVolumes",
+                    "ec2:DescribeSnapshots",
+                ],
+                resources=["*"],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=["ec2:CreateTags"],
+                resources=["arn:aws:ec2:*::snapshot/*"],
+            ),
+        ])
+        dlm_lifecycle_role_policy = aws.iam.RolePolicy("dlm_lifecycle",
+            name="dlm-lifecycle-policy",
+            role=dlm_lifecycle_role.id,
+            policy=dlm_lifecycle.json)
+        example = aws.dlm.LifecyclePolicy("example",
+            description="example DLM lifecycle policy",
+            execution_role_arn=dlm_lifecycle_role.arn,
+            state="ENABLED",
+            policy_details=aws.dlm.LifecyclePolicyPolicyDetailsArgs(
+                resource_types="VOLUME",
+                schedules=[aws.dlm.LifecyclePolicyPolicyDetailsScheduleArgs(
+                    name="2 weeks of daily snapshots",
+                    create_rule=aws.dlm.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs(
+                        interval=24,
+                        interval_unit="HOURS",
+                        times="23:45",
+                    ),
+                    retain_rule=aws.dlm.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs(
+                        count=14,
+                    ),
+                    tags_to_add={
+                        "SnapshotCreator": "DLM",
+                    },
+                    copy_tags=False,
+                )],
+                target_tags={
+                    "Snapshot": "true",
+                },
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### Example Cross-Region Snapshot Copy Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # ...other configuration...
+        current = aws.get_caller_identity()
+        key = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            sid="Enable IAM User Permissions",
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="AWS",
+                identifiers=[f"arn:aws:iam::{current.account_id}:root"],
+            )],
+            actions=["kms:*"],
+            resources=["*"],
+        )])
+        dlm_cross_region_copy_cmk = aws.kms.Key("dlm_cross_region_copy_cmk",
+            description="Example Alternate Region KMS Key",
+            policy=key.json)
+        example = aws.dlm.LifecyclePolicy("example",
+            description="example DLM lifecycle policy",
+            execution_role_arn=dlm_lifecycle_role["arn"],
+            state="ENABLED",
+            policy_details=aws.dlm.LifecyclePolicyPolicyDetailsArgs(
+                resource_types="VOLUME",
+                schedules=[aws.dlm.LifecyclePolicyPolicyDetailsScheduleArgs(
+                    name="2 weeks of daily snapshots",
+                    create_rule=aws.dlm.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs(
+                        interval=24,
+                        interval_unit="HOURS",
+                        times="23:45",
+                    ),
+                    retain_rule=aws.dlm.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs(
+                        count=14,
+                    ),
+                    tags_to_add={
+                        "SnapshotCreator": "DLM",
+                    },
+                    copy_tags=False,
+                    cross_region_copy_rules=[aws.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs(
+                        target="us-west-2",
+                        encrypted=True,
+                        cmk_arn=dlm_cross_region_copy_cmk.arn,
+                        copy_tags=True,
+                        retain_rule=aws.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs(
+                            interval=30,
+                            interval_unit="DAYS",
+                        ),
+                    )],
+                )],
+                target_tags={
+                    "Snapshot": "true",
+                },
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Event Based Policy Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        example_lifecycle_policy = aws.dlm.LifecyclePolicy("exampleLifecyclePolicy",
+        example_lifecycle_policy = aws.dlm.LifecyclePolicy("example",
             description="tf-acc-basic",
-            execution_role_arn=aws_iam_role["example"]["arn"],
+            execution_role_arn=example_aws_iam_role["arn"],
             policy_details=aws.dlm.LifecyclePolicyPolicyDetailsArgs(
                 policy_type="EVENT_BASED_POLICY",
                 action=aws.dlm.LifecyclePolicyPolicyDetailsActionArgs(
@@ -271,18 +402,19 @@ class LifecyclePolicy(pulumi.CustomResource):
                     ),
                 ),
             ))
-        example_policy = aws.iam.get_policy(name="AWSDataLifecycleManagerServiceRole")
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
-            role=aws_iam_role["example"]["id"],
-            policy_arn=example_policy.arn)
+        example = aws.iam.get_policy(name="AWSDataLifecycleManagerServiceRole")
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
+            role=example_aws_iam_role["id"],
+            policy_arn=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DLM lifecycle policies using their policy ID. For example:
 
         ```sh
-         $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
+        $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
         ```
 
         :param str resource_name: The name of the resource.
@@ -303,16 +435,147 @@ class LifecyclePolicy(pulumi.CustomResource):
         Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
 
         ## Example Usage
+
+        ### Basic
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["dlm.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        dlm_lifecycle_role = aws.iam.Role("dlm_lifecycle_role",
+            name="dlm-lifecycle-role",
+            assume_role_policy=assume_role.json)
+        dlm_lifecycle = aws.iam.get_policy_document(statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=[
+                    "ec2:CreateSnapshot",
+                    "ec2:CreateSnapshots",
+                    "ec2:DeleteSnapshot",
+                    "ec2:DescribeInstances",
+                    "ec2:DescribeVolumes",
+                    "ec2:DescribeSnapshots",
+                ],
+                resources=["*"],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=["ec2:CreateTags"],
+                resources=["arn:aws:ec2:*::snapshot/*"],
+            ),
+        ])
+        dlm_lifecycle_role_policy = aws.iam.RolePolicy("dlm_lifecycle",
+            name="dlm-lifecycle-policy",
+            role=dlm_lifecycle_role.id,
+            policy=dlm_lifecycle.json)
+        example = aws.dlm.LifecyclePolicy("example",
+            description="example DLM lifecycle policy",
+            execution_role_arn=dlm_lifecycle_role.arn,
+            state="ENABLED",
+            policy_details=aws.dlm.LifecyclePolicyPolicyDetailsArgs(
+                resource_types="VOLUME",
+                schedules=[aws.dlm.LifecyclePolicyPolicyDetailsScheduleArgs(
+                    name="2 weeks of daily snapshots",
+                    create_rule=aws.dlm.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs(
+                        interval=24,
+                        interval_unit="HOURS",
+                        times="23:45",
+                    ),
+                    retain_rule=aws.dlm.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs(
+                        count=14,
+                    ),
+                    tags_to_add={
+                        "SnapshotCreator": "DLM",
+                    },
+                    copy_tags=False,
+                )],
+                target_tags={
+                    "Snapshot": "true",
+                },
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### Example Cross-Region Snapshot Copy Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # ...other configuration...
+        current = aws.get_caller_identity()
+        key = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            sid="Enable IAM User Permissions",
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="AWS",
+                identifiers=[f"arn:aws:iam::{current.account_id}:root"],
+            )],
+            actions=["kms:*"],
+            resources=["*"],
+        )])
+        dlm_cross_region_copy_cmk = aws.kms.Key("dlm_cross_region_copy_cmk",
+            description="Example Alternate Region KMS Key",
+            policy=key.json)
+        example = aws.dlm.LifecyclePolicy("example",
+            description="example DLM lifecycle policy",
+            execution_role_arn=dlm_lifecycle_role["arn"],
+            state="ENABLED",
+            policy_details=aws.dlm.LifecyclePolicyPolicyDetailsArgs(
+                resource_types="VOLUME",
+                schedules=[aws.dlm.LifecyclePolicyPolicyDetailsScheduleArgs(
+                    name="2 weeks of daily snapshots",
+                    create_rule=aws.dlm.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs(
+                        interval=24,
+                        interval_unit="HOURS",
+                        times="23:45",
+                    ),
+                    retain_rule=aws.dlm.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs(
+                        count=14,
+                    ),
+                    tags_to_add={
+                        "SnapshotCreator": "DLM",
+                    },
+                    copy_tags=False,
+                    cross_region_copy_rules=[aws.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs(
+                        target="us-west-2",
+                        encrypted=True,
+                        cmk_arn=dlm_cross_region_copy_cmk.arn,
+                        copy_tags=True,
+                        retain_rule=aws.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs(
+                            interval=30,
+                            interval_unit="DAYS",
+                        ),
+                    )],
+                )],
+                target_tags={
+                    "Snapshot": "true",
+                },
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Event Based Policy Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        example_lifecycle_policy = aws.dlm.LifecyclePolicy("exampleLifecyclePolicy",
+        example_lifecycle_policy = aws.dlm.LifecyclePolicy("example",
             description="tf-acc-basic",
-            execution_role_arn=aws_iam_role["example"]["arn"],
+            execution_role_arn=example_aws_iam_role["arn"],
             policy_details=aws.dlm.LifecyclePolicyPolicyDetailsArgs(
                 policy_type="EVENT_BASED_POLICY",
                 action=aws.dlm.LifecyclePolicyPolicyDetailsActionArgs(
@@ -335,18 +598,19 @@ class LifecyclePolicy(pulumi.CustomResource):
                     ),
                 ),
             ))
-        example_policy = aws.iam.get_policy(name="AWSDataLifecycleManagerServiceRole")
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
-            role=aws_iam_role["example"]["id"],
-            policy_arn=example_policy.arn)
+        example = aws.iam.get_policy(name="AWSDataLifecycleManagerServiceRole")
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
+            role=example_aws_iam_role["id"],
+            policy_arn=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DLM lifecycle policies using their policy ID. For example:
 
         ```sh
-         $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
+        $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
         ```
 
         :param str resource_name: The name of the resource.
@@ -391,8 +655,6 @@ class LifecyclePolicy(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LifecyclePolicy, __self__).__init__(
             'aws:dlm/lifecyclePolicy:LifecyclePolicy',
             resource_name,

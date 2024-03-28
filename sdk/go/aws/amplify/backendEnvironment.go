@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,12 +29,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApp, err := amplify.NewApp(ctx, "exampleApp", nil)
+//			example, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = amplify.NewBackendEnvironment(ctx, "exampleBackendEnvironment", &amplify.BackendEnvironmentArgs{
-//				AppId:               exampleApp.ID(),
+//			_, err = amplify.NewBackendEnvironment(ctx, "example", &amplify.BackendEnvironmentArgs{
+//				AppId:               example.ID(),
 //				EnvironmentName:     pulumi.String("example"),
 //				DeploymentArtifacts: pulumi.String("app-example-deployment"),
 //				StackName:           pulumi.String("amplify-app-example"),
@@ -46,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Amplify backend environment using `app_id` and `environment_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example
-//
+// $ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example
 // ```
 type BackendEnvironment struct {
 	pulumi.CustomResourceState

@@ -5,6 +5,7 @@ package com.pulumi.aws.s3control;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class AccessPointPolicyArgs extends com.pulumi.resources.ResourceAr
         }
 
         public AccessPointPolicyArgs build() {
-            $.accessPointArn = Objects.requireNonNull($.accessPointArn, "expected parameter 'accessPointArn' to be non-null");
-            $.policy = Objects.requireNonNull($.policy, "expected parameter 'policy' to be non-null");
+            if ($.accessPointArn == null) {
+                throw new MissingRequiredPropertyException("AccessPointPolicyArgs", "accessPointArn");
+            }
+            if ($.policy == null) {
+                throw new MissingRequiredPropertyException("AccessPointPolicyArgs", "policy");
+            }
             return $;
         }
     }

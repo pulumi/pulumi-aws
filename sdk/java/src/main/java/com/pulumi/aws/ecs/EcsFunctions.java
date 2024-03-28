@@ -31,6 +31,8 @@ public final class EcsFunctions {
      * cluster within an AWS ECS service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -59,6 +61,7 @@ public final class EcsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args) {
@@ -69,6 +72,8 @@ public final class EcsFunctions {
      * cluster within an AWS ECS service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -97,6 +102,7 @@ public final class EcsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args) {
@@ -107,6 +113,8 @@ public final class EcsFunctions {
      * cluster within an AWS ECS service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -135,6 +143,7 @@ public final class EcsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOptions options) {
@@ -145,6 +154,8 @@ public final class EcsFunctions {
      * cluster within an AWS ECS service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -173,6 +184,7 @@ public final class EcsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args, InvokeOptions options) {
@@ -183,6 +195,8 @@ public final class EcsFunctions {
      * a specific container within an AWS ECS service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -205,13 +219,14 @@ public final class EcsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ecs-mongo = EcsFunctions.getContainerDefinition(GetContainerDefinitionArgs.builder()
-     *             .taskDefinition(aws_ecs_task_definition.mongo().id())
+     *             .taskDefinition(mongo.id())
      *             .containerName(&#34;mongodb&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetContainerDefinitionResult> getContainerDefinition(GetContainerDefinitionArgs args) {
@@ -222,6 +237,8 @@ public final class EcsFunctions {
      * a specific container within an AWS ECS service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -244,13 +261,14 @@ public final class EcsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ecs-mongo = EcsFunctions.getContainerDefinition(GetContainerDefinitionArgs.builder()
-     *             .taskDefinition(aws_ecs_task_definition.mongo().id())
+     *             .taskDefinition(mongo.id())
      *             .containerName(&#34;mongodb&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetContainerDefinitionResult> getContainerDefinitionPlain(GetContainerDefinitionPlainArgs args) {
@@ -261,6 +279,8 @@ public final class EcsFunctions {
      * a specific container within an AWS ECS service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -283,13 +303,14 @@ public final class EcsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ecs-mongo = EcsFunctions.getContainerDefinition(GetContainerDefinitionArgs.builder()
-     *             .taskDefinition(aws_ecs_task_definition.mongo().id())
+     *             .taskDefinition(mongo.id())
      *             .containerName(&#34;mongodb&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetContainerDefinitionResult> getContainerDefinition(GetContainerDefinitionArgs args, InvokeOptions options) {
@@ -300,6 +321,8 @@ public final class EcsFunctions {
      * a specific container within an AWS ECS service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -322,13 +345,14 @@ public final class EcsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ecs-mongo = EcsFunctions.getContainerDefinition(GetContainerDefinitionArgs.builder()
-     *             .taskDefinition(aws_ecs_task_definition.mongo().id())
+     *             .taskDefinition(mongo.id())
      *             .containerName(&#34;mongodb&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetContainerDefinitionResult> getContainerDefinitionPlain(GetContainerDefinitionPlainArgs args, InvokeOptions options) {
@@ -339,6 +363,8 @@ public final class EcsFunctions {
      * Service within a AWS ECS Cluster.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -362,12 +388,13 @@ public final class EcsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = EcsFunctions.getService(GetServiceArgs.builder()
      *             .serviceName(&#34;example&#34;)
-     *             .clusterArn(data.aws_ecs_cluster().example().arn())
+     *             .clusterArn(exampleAwsEcsCluster.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
@@ -378,6 +405,8 @@ public final class EcsFunctions {
      * Service within a AWS ECS Cluster.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -401,12 +430,13 @@ public final class EcsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = EcsFunctions.getService(GetServiceArgs.builder()
      *             .serviceName(&#34;example&#34;)
-     *             .clusterArn(data.aws_ecs_cluster().example().arn())
+     *             .clusterArn(exampleAwsEcsCluster.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
@@ -417,6 +447,8 @@ public final class EcsFunctions {
      * Service within a AWS ECS Cluster.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -440,12 +472,13 @@ public final class EcsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = EcsFunctions.getService(GetServiceArgs.builder()
      *             .serviceName(&#34;example&#34;)
-     *             .clusterArn(data.aws_ecs_cluster().example().arn())
+     *             .clusterArn(exampleAwsEcsCluster.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
@@ -456,6 +489,8 @@ public final class EcsFunctions {
      * Service within a AWS ECS Cluster.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -479,12 +514,13 @@ public final class EcsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = EcsFunctions.getService(GetServiceArgs.builder()
      *             .serviceName(&#34;example&#34;)
-     *             .clusterArn(data.aws_ecs_cluster().example().arn())
+     *             .clusterArn(exampleAwsEcsCluster.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {
@@ -495,17 +531,20 @@ public final class EcsFunctions {
      * a specific AWS ECS task definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecs.TaskDefinition;
+     * import com.pulumi.aws.ecs.TaskDefinitionArgs;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetTaskDefinitionArgs;
      * import com.pulumi.aws.ecs.Cluster;
-     * import com.pulumi.aws.ecs.TaskDefinition;
-     * import com.pulumi.aws.ecs.TaskDefinitionArgs;
+     * import com.pulumi.aws.ecs.ClusterArgs;
      * import com.pulumi.aws.ecs.Service;
      * import com.pulumi.aws.ecs.ServiceArgs;
      * import java.util.List;
@@ -521,13 +560,7 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var mongoTaskDefinition = EcsFunctions.getTaskDefinition(GetTaskDefinitionArgs.builder()
-     *             .taskDefinition(mongoEcs / taskDefinitionTaskDefinition.family())
-     *             .build());
-     * 
-     *         var foo = new Cluster(&#34;foo&#34;);
-     * 
-     *         var mongoEcs_taskDefinitionTaskDefinition = new TaskDefinition(&#34;mongoEcs/taskDefinitionTaskDefinition&#34;, TaskDefinitionArgs.builder()        
+     *         var mongoTaskDefinition = new TaskDefinition(&#34;mongoTaskDefinition&#34;, TaskDefinitionArgs.builder()        
      *             .family(&#34;mongodb&#34;)
      *             .containerDefinitions(&#34;&#34;&#34;
      * [
@@ -547,15 +580,25 @@ public final class EcsFunctions {
      *             &#34;&#34;&#34;)
      *             .build());
      * 
+     *         final var mongo = EcsFunctions.getTaskDefinition(GetTaskDefinitionArgs.builder()
+     *             .taskDefinition(mongoTaskDefinition.family())
+     *             .build());
+     * 
+     *         var foo = new Cluster(&#34;foo&#34;, ClusterArgs.builder()        
+     *             .name(&#34;foo&#34;)
+     *             .build());
+     * 
      *         var mongoService = new Service(&#34;mongoService&#34;, ServiceArgs.builder()        
+     *             .name(&#34;mongo&#34;)
      *             .cluster(foo.id())
      *             .desiredCount(2)
-     *             .taskDefinition(mongoTaskDefinition.applyValue(getTaskDefinitionResult -&gt; getTaskDefinitionResult.arn()))
+     *             .taskDefinition(mongo.applyValue(getTaskDefinitionResult -&gt; getTaskDefinitionResult).applyValue(mongo -&gt; mongo.applyValue(getTaskDefinitionResult -&gt; getTaskDefinitionResult.arn())))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTaskDefinitionResult> getTaskDefinition(GetTaskDefinitionArgs args) {
@@ -566,17 +609,20 @@ public final class EcsFunctions {
      * a specific AWS ECS task definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecs.TaskDefinition;
+     * import com.pulumi.aws.ecs.TaskDefinitionArgs;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetTaskDefinitionArgs;
      * import com.pulumi.aws.ecs.Cluster;
-     * import com.pulumi.aws.ecs.TaskDefinition;
-     * import com.pulumi.aws.ecs.TaskDefinitionArgs;
+     * import com.pulumi.aws.ecs.ClusterArgs;
      * import com.pulumi.aws.ecs.Service;
      * import com.pulumi.aws.ecs.ServiceArgs;
      * import java.util.List;
@@ -592,13 +638,7 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var mongoTaskDefinition = EcsFunctions.getTaskDefinition(GetTaskDefinitionArgs.builder()
-     *             .taskDefinition(mongoEcs / taskDefinitionTaskDefinition.family())
-     *             .build());
-     * 
-     *         var foo = new Cluster(&#34;foo&#34;);
-     * 
-     *         var mongoEcs_taskDefinitionTaskDefinition = new TaskDefinition(&#34;mongoEcs/taskDefinitionTaskDefinition&#34;, TaskDefinitionArgs.builder()        
+     *         var mongoTaskDefinition = new TaskDefinition(&#34;mongoTaskDefinition&#34;, TaskDefinitionArgs.builder()        
      *             .family(&#34;mongodb&#34;)
      *             .containerDefinitions(&#34;&#34;&#34;
      * [
@@ -618,15 +658,25 @@ public final class EcsFunctions {
      *             &#34;&#34;&#34;)
      *             .build());
      * 
+     *         final var mongo = EcsFunctions.getTaskDefinition(GetTaskDefinitionArgs.builder()
+     *             .taskDefinition(mongoTaskDefinition.family())
+     *             .build());
+     * 
+     *         var foo = new Cluster(&#34;foo&#34;, ClusterArgs.builder()        
+     *             .name(&#34;foo&#34;)
+     *             .build());
+     * 
      *         var mongoService = new Service(&#34;mongoService&#34;, ServiceArgs.builder()        
+     *             .name(&#34;mongo&#34;)
      *             .cluster(foo.id())
      *             .desiredCount(2)
-     *             .taskDefinition(mongoTaskDefinition.applyValue(getTaskDefinitionResult -&gt; getTaskDefinitionResult.arn()))
+     *             .taskDefinition(mongo.applyValue(getTaskDefinitionResult -&gt; getTaskDefinitionResult).applyValue(mongo -&gt; mongo.applyValue(getTaskDefinitionResult -&gt; getTaskDefinitionResult.arn())))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTaskDefinitionResult> getTaskDefinitionPlain(GetTaskDefinitionPlainArgs args) {
@@ -637,17 +687,20 @@ public final class EcsFunctions {
      * a specific AWS ECS task definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecs.TaskDefinition;
+     * import com.pulumi.aws.ecs.TaskDefinitionArgs;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetTaskDefinitionArgs;
      * import com.pulumi.aws.ecs.Cluster;
-     * import com.pulumi.aws.ecs.TaskDefinition;
-     * import com.pulumi.aws.ecs.TaskDefinitionArgs;
+     * import com.pulumi.aws.ecs.ClusterArgs;
      * import com.pulumi.aws.ecs.Service;
      * import com.pulumi.aws.ecs.ServiceArgs;
      * import java.util.List;
@@ -663,13 +716,7 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var mongoTaskDefinition = EcsFunctions.getTaskDefinition(GetTaskDefinitionArgs.builder()
-     *             .taskDefinition(mongoEcs / taskDefinitionTaskDefinition.family())
-     *             .build());
-     * 
-     *         var foo = new Cluster(&#34;foo&#34;);
-     * 
-     *         var mongoEcs_taskDefinitionTaskDefinition = new TaskDefinition(&#34;mongoEcs/taskDefinitionTaskDefinition&#34;, TaskDefinitionArgs.builder()        
+     *         var mongoTaskDefinition = new TaskDefinition(&#34;mongoTaskDefinition&#34;, TaskDefinitionArgs.builder()        
      *             .family(&#34;mongodb&#34;)
      *             .containerDefinitions(&#34;&#34;&#34;
      * [
@@ -689,15 +736,25 @@ public final class EcsFunctions {
      *             &#34;&#34;&#34;)
      *             .build());
      * 
+     *         final var mongo = EcsFunctions.getTaskDefinition(GetTaskDefinitionArgs.builder()
+     *             .taskDefinition(mongoTaskDefinition.family())
+     *             .build());
+     * 
+     *         var foo = new Cluster(&#34;foo&#34;, ClusterArgs.builder()        
+     *             .name(&#34;foo&#34;)
+     *             .build());
+     * 
      *         var mongoService = new Service(&#34;mongoService&#34;, ServiceArgs.builder()        
+     *             .name(&#34;mongo&#34;)
      *             .cluster(foo.id())
      *             .desiredCount(2)
-     *             .taskDefinition(mongoTaskDefinition.applyValue(getTaskDefinitionResult -&gt; getTaskDefinitionResult.arn()))
+     *             .taskDefinition(mongo.applyValue(getTaskDefinitionResult -&gt; getTaskDefinitionResult).applyValue(mongo -&gt; mongo.applyValue(getTaskDefinitionResult -&gt; getTaskDefinitionResult.arn())))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTaskDefinitionResult> getTaskDefinition(GetTaskDefinitionArgs args, InvokeOptions options) {
@@ -708,17 +765,20 @@ public final class EcsFunctions {
      * a specific AWS ECS task definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecs.TaskDefinition;
+     * import com.pulumi.aws.ecs.TaskDefinitionArgs;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetTaskDefinitionArgs;
      * import com.pulumi.aws.ecs.Cluster;
-     * import com.pulumi.aws.ecs.TaskDefinition;
-     * import com.pulumi.aws.ecs.TaskDefinitionArgs;
+     * import com.pulumi.aws.ecs.ClusterArgs;
      * import com.pulumi.aws.ecs.Service;
      * import com.pulumi.aws.ecs.ServiceArgs;
      * import java.util.List;
@@ -734,13 +794,7 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var mongoTaskDefinition = EcsFunctions.getTaskDefinition(GetTaskDefinitionArgs.builder()
-     *             .taskDefinition(mongoEcs / taskDefinitionTaskDefinition.family())
-     *             .build());
-     * 
-     *         var foo = new Cluster(&#34;foo&#34;);
-     * 
-     *         var mongoEcs_taskDefinitionTaskDefinition = new TaskDefinition(&#34;mongoEcs/taskDefinitionTaskDefinition&#34;, TaskDefinitionArgs.builder()        
+     *         var mongoTaskDefinition = new TaskDefinition(&#34;mongoTaskDefinition&#34;, TaskDefinitionArgs.builder()        
      *             .family(&#34;mongodb&#34;)
      *             .containerDefinitions(&#34;&#34;&#34;
      * [
@@ -760,15 +814,25 @@ public final class EcsFunctions {
      *             &#34;&#34;&#34;)
      *             .build());
      * 
+     *         final var mongo = EcsFunctions.getTaskDefinition(GetTaskDefinitionArgs.builder()
+     *             .taskDefinition(mongoTaskDefinition.family())
+     *             .build());
+     * 
+     *         var foo = new Cluster(&#34;foo&#34;, ClusterArgs.builder()        
+     *             .name(&#34;foo&#34;)
+     *             .build());
+     * 
      *         var mongoService = new Service(&#34;mongoService&#34;, ServiceArgs.builder()        
+     *             .name(&#34;mongo&#34;)
      *             .cluster(foo.id())
      *             .desiredCount(2)
-     *             .taskDefinition(mongoTaskDefinition.applyValue(getTaskDefinitionResult -&gt; getTaskDefinitionResult.arn()))
+     *             .taskDefinition(mongo.applyValue(getTaskDefinitionResult -&gt; getTaskDefinitionResult).applyValue(mongo -&gt; mongo.applyValue(getTaskDefinitionResult -&gt; getTaskDefinitionResult.arn())))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTaskDefinitionResult> getTaskDefinitionPlain(GetTaskDefinitionPlainArgs args, InvokeOptions options) {
@@ -781,6 +845,48 @@ public final class EcsFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetTaskExecutionArgs;
+     * import com.pulumi.aws.ecs.inputs.GetTaskExecutionNetworkConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EcsFunctions.getTaskExecution(GetTaskExecutionArgs.builder()
+     *             .cluster(exampleAwsEcsCluster.id())
+     *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
+     *             .desiredCount(1)
+     *             .launchType(&#34;FARGATE&#34;)
+     *             .networkConfiguration(GetTaskExecutionNetworkConfigurationArgs.builder()
+     *                 .subnets(exampleAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+     *                 .securityGroups(exampleAwsSecurityGroup.id())
+     *                 .assignPublicIp(false)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetTaskExecutionResult> getTaskExecution(GetTaskExecutionArgs args) {
         return getTaskExecution(args, InvokeOptions.Empty);
@@ -791,6 +897,48 @@ public final class EcsFunctions {
      * &gt; **NOTE on preview operations:** This data source calls the `RunTask` API on every read operation, which means new task(s) may be created from a `pulumi preview` command if all attributes are known. Placing this functionality behind a data source is an intentional trade off to enable use cases requiring a one-time task execution without relying on provisioners. Caution should be taken to ensure the data source is only executed once, or that the resulting tasks can safely run in parallel.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetTaskExecutionArgs;
+     * import com.pulumi.aws.ecs.inputs.GetTaskExecutionNetworkConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EcsFunctions.getTaskExecution(GetTaskExecutionArgs.builder()
+     *             .cluster(exampleAwsEcsCluster.id())
+     *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
+     *             .desiredCount(1)
+     *             .launchType(&#34;FARGATE&#34;)
+     *             .networkConfiguration(GetTaskExecutionNetworkConfigurationArgs.builder()
+     *                 .subnets(exampleAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+     *                 .securityGroups(exampleAwsSecurityGroup.id())
+     *                 .assignPublicIp(false)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTaskExecutionResult> getTaskExecutionPlain(GetTaskExecutionPlainArgs args) {
@@ -803,6 +951,48 @@ public final class EcsFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetTaskExecutionArgs;
+     * import com.pulumi.aws.ecs.inputs.GetTaskExecutionNetworkConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EcsFunctions.getTaskExecution(GetTaskExecutionArgs.builder()
+     *             .cluster(exampleAwsEcsCluster.id())
+     *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
+     *             .desiredCount(1)
+     *             .launchType(&#34;FARGATE&#34;)
+     *             .networkConfiguration(GetTaskExecutionNetworkConfigurationArgs.builder()
+     *                 .subnets(exampleAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+     *                 .securityGroups(exampleAwsSecurityGroup.id())
+     *                 .assignPublicIp(false)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetTaskExecutionResult> getTaskExecution(GetTaskExecutionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ecs/getTaskExecution:getTaskExecution", TypeShape.of(GetTaskExecutionResult.class), args, Utilities.withVersion(options));
@@ -813,6 +1003,48 @@ public final class EcsFunctions {
      * &gt; **NOTE on preview operations:** This data source calls the `RunTask` API on every read operation, which means new task(s) may be created from a `pulumi preview` command if all attributes are known. Placing this functionality behind a data source is an intentional trade off to enable use cases requiring a one-time task execution without relying on provisioners. Caution should be taken to ensure the data source is only executed once, or that the resulting tasks can safely run in parallel.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetTaskExecutionArgs;
+     * import com.pulumi.aws.ecs.inputs.GetTaskExecutionNetworkConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EcsFunctions.getTaskExecution(GetTaskExecutionArgs.builder()
+     *             .cluster(exampleAwsEcsCluster.id())
+     *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
+     *             .desiredCount(1)
+     *             .launchType(&#34;FARGATE&#34;)
+     *             .networkConfiguration(GetTaskExecutionNetworkConfigurationArgs.builder()
+     *                 .subnets(exampleAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+     *                 .securityGroups(exampleAwsSecurityGroup.id())
+     *                 .assignPublicIp(false)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTaskExecutionResult> getTaskExecutionPlain(GetTaskExecutionPlainArgs args, InvokeOptions options) {

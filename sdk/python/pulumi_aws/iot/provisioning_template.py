@@ -356,6 +356,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -368,53 +369,58 @@ class ProvisioningTemplate(pulumi.CustomResource):
                 identifiers=["iot.amazonaws.com"],
             )],
         )])
-        iot_fleet_provisioning = aws.iam.Role("iotFleetProvisioning",
+        iot_fleet_provisioning = aws.iam.Role("iot_fleet_provisioning",
+            name="IoTProvisioningServiceRole",
             path="/service-role/",
             assume_role_policy=iot_assume_role_policy.json)
-        iot_fleet_provisioning_registration = aws.iam.RolePolicyAttachment("iotFleetProvisioningRegistration",
+        iot_fleet_provisioning_registration = aws.iam.RolePolicyAttachment("iot_fleet_provisioning_registration",
             role=iot_fleet_provisioning.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSIoTThingsRegistration")
-        device_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        device_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["iot:Subscribe"],
             resources=["*"],
         )])
-        device_policy_policy = aws.iot.Policy("devicePolicyPolicy", policy=device_policy_policy_document.json)
+        device_policy_policy = aws.iot.Policy("device_policy",
+            name="DevicePolicy",
+            policy=device_policy.json)
         fleet = aws.iot.ProvisioningTemplate("fleet",
+            name="FleetTemplate",
             description="My provisioning template",
             provisioning_role_arn=iot_fleet_provisioning.arn,
             enabled=True,
-            template_body=device_policy_policy.name.apply(lambda name: json.dumps({
-                "Parameters": {
-                    "SerialNumber": {
-                        "Type": "String",
+            template_body=pulumi.Output.json_dumps({
+                "parameters": {
+                    "serialNumber": {
+                        "type": "String",
                     },
                 },
-                "Resources": {
+                "resources": {
                     "certificate": {
-                        "Properties": {
-                            "CertificateId": {
-                                "Ref": "AWS::IoT::Certificate::Id",
+                        "properties": {
+                            "certificateId": {
+                                "ref": "AWS::IoT::Certificate::Id",
                             },
-                            "Status": "Active",
+                            "status": "Active",
                         },
-                        "Type": "AWS::IoT::Certificate",
+                        "type": "AWS::IoT::Certificate",
                     },
                     "policy": {
-                        "Properties": {
-                            "PolicyName": name,
+                        "properties": {
+                            "policyName": device_policy_policy.name,
                         },
-                        "Type": "AWS::IoT::Policy",
+                        "type": "AWS::IoT::Policy",
                     },
                 },
-            })))
+            }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IoT fleet provisioning templates using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
+        $ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
         ```
 
         :param str resource_name: The name of the resource.
@@ -439,6 +445,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -451,53 +458,58 @@ class ProvisioningTemplate(pulumi.CustomResource):
                 identifiers=["iot.amazonaws.com"],
             )],
         )])
-        iot_fleet_provisioning = aws.iam.Role("iotFleetProvisioning",
+        iot_fleet_provisioning = aws.iam.Role("iot_fleet_provisioning",
+            name="IoTProvisioningServiceRole",
             path="/service-role/",
             assume_role_policy=iot_assume_role_policy.json)
-        iot_fleet_provisioning_registration = aws.iam.RolePolicyAttachment("iotFleetProvisioningRegistration",
+        iot_fleet_provisioning_registration = aws.iam.RolePolicyAttachment("iot_fleet_provisioning_registration",
             role=iot_fleet_provisioning.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSIoTThingsRegistration")
-        device_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        device_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["iot:Subscribe"],
             resources=["*"],
         )])
-        device_policy_policy = aws.iot.Policy("devicePolicyPolicy", policy=device_policy_policy_document.json)
+        device_policy_policy = aws.iot.Policy("device_policy",
+            name="DevicePolicy",
+            policy=device_policy.json)
         fleet = aws.iot.ProvisioningTemplate("fleet",
+            name="FleetTemplate",
             description="My provisioning template",
             provisioning_role_arn=iot_fleet_provisioning.arn,
             enabled=True,
-            template_body=device_policy_policy.name.apply(lambda name: json.dumps({
-                "Parameters": {
-                    "SerialNumber": {
-                        "Type": "String",
+            template_body=pulumi.Output.json_dumps({
+                "parameters": {
+                    "serialNumber": {
+                        "type": "String",
                     },
                 },
-                "Resources": {
+                "resources": {
                     "certificate": {
-                        "Properties": {
-                            "CertificateId": {
-                                "Ref": "AWS::IoT::Certificate::Id",
+                        "properties": {
+                            "certificateId": {
+                                "ref": "AWS::IoT::Certificate::Id",
                             },
-                            "Status": "Active",
+                            "status": "Active",
                         },
-                        "Type": "AWS::IoT::Certificate",
+                        "type": "AWS::IoT::Certificate",
                     },
                     "policy": {
-                        "Properties": {
-                            "PolicyName": name,
+                        "properties": {
+                            "policyName": device_policy_policy.name,
                         },
-                        "Type": "AWS::IoT::Policy",
+                        "type": "AWS::IoT::Policy",
                     },
                 },
-            })))
+            }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IoT fleet provisioning templates using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
+        $ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
         ```
 
         :param str resource_name: The name of the resource.
@@ -547,8 +559,6 @@ class ProvisioningTemplate(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["default_version_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ProvisioningTemplate, __self__).__init__(
             'aws:iot/provisioningTemplate:ProvisioningTemplate',
             resource_name,

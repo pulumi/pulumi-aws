@@ -61,19 +61,21 @@ public final class DataSourceCredentials {
 
         @CustomType.Setter
         public Builder copySourceArn(@Nullable String copySourceArn) {
+
             this.copySourceArn = copySourceArn;
             return this;
         }
         @CustomType.Setter
         public Builder credentialPair(@Nullable DataSourceCredentialsCredentialPair credentialPair) {
+
             this.credentialPair = credentialPair;
             return this;
         }
         public DataSourceCredentials build() {
-            final var o = new DataSourceCredentials();
-            o.copySourceArn = copySourceArn;
-            o.credentialPair = credentialPair;
-            return o;
+            final var _resultValue = new DataSourceCredentials();
+            _resultValue.copySourceArn = copySourceArn;
+            _resultValue.credentialPair = credentialPair;
+            return _resultValue;
         }
     }
 }

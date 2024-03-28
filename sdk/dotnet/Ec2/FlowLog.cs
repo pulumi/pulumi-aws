@@ -14,8 +14,10 @@ namespace Pulumi.Aws.Ec2
     /// interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
     /// 
     /// ## Example Usage
+    /// 
     /// ### CloudWatch Logging
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,7 +26,10 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
+    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
@@ -52,20 +57,21 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "example",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new()
+    ///     var exampleFlowLog = new Aws.Ec2.FlowLog("example", new()
     ///     {
     ///         IamRoleArn = exampleRole.Arn,
     ///         LogDestination = exampleLogGroup.Arn,
     ///         TrafficType = "ALL",
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         VpcId = exampleAwsVpc.Id,
     ///     });
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -88,16 +94,20 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
+    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         Role = exampleRole.Id,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### S3 Logging
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -106,20 +116,26 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     {
+    ///         Bucket = "example",
+    ///     });
     /// 
-    ///     var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new()
+    ///     var example = new Aws.Ec2.FlowLog("example", new()
     ///     {
     ///         LogDestination = exampleBucketV2.Arn,
     ///         LogDestinationType = "s3",
     ///         TrafficType = "ALL",
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         VpcId = exampleAwsVpc.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### S3 Logging in Apache Parquet format with per-hour partitions
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -128,14 +144,17 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     {
+    ///         Bucket = "example",
+    ///     });
     /// 
-    ///     var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new()
+    ///     var example = new Aws.Ec2.FlowLog("example", new()
     ///     {
     ///         LogDestination = exampleBucketV2.Arn,
     ///         LogDestinationType = "s3",
     ///         TrafficType = "ALL",
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         VpcId = exampleAwsVpc.Id,
     ///         DestinationOptions = new Aws.Ec2.Inputs.FlowLogDestinationOptionsArgs
     ///         {
     ///             FileFormat = "parquet",
@@ -145,13 +164,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Flow Logs using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
+    /// $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/flowLog:FlowLog")]
@@ -200,7 +220,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> LogDestinationType { get; private set; } = null!;
 
         /// <summary>
-        /// The fields to include in the flow log record, in the order in which they should appear.
+        /// The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         /// </summary>
         [Output("logFormat")]
         public Output<string> LogFormat { get; private set; } = null!;
@@ -285,10 +305,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -349,7 +365,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? LogDestinationType { get; set; }
 
         /// <summary>
-        /// The fields to include in the flow log record, in the order in which they should appear.
+        /// The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         /// </summary>
         [Input("logFormat")]
         public Input<string>? LogFormat { get; set; }
@@ -462,7 +478,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? LogDestinationType { get; set; }
 
         /// <summary>
-        /// The fields to include in the flow log record, in the order in which they should appear.
+        /// The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         /// </summary>
         [Input("logFormat")]
         public Input<string>? LogFormat { get; set; }
@@ -510,11 +526,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

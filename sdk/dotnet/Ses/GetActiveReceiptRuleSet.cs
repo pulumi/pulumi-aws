@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Ses
         /// <summary>
         /// Retrieve the active SES receipt rule set
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -30,8 +29,7 @@ namespace Pulumi.Aws.Ses
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetActiveReceiptRuleSetResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActiveReceiptRuleSetResult>("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", InvokeArgs.Empty, options.WithDefaults());
@@ -39,10 +37,9 @@ namespace Pulumi.Aws.Ses
         /// <summary>
         /// Retrieve the active SES receipt rule set
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -55,8 +52,7 @@ namespace Pulumi.Aws.Ses
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetActiveReceiptRuleSetResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActiveReceiptRuleSetResult>("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", InvokeArgs.Empty, options.WithDefaults());

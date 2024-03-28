@@ -17,6 +17,7 @@ namespace Pulumi.Aws.MemoryDb
     /// &gt; **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,12 +27,12 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRandomPassword = new Random.RandomPassword("exampleRandomPassword", new()
+    ///     var example = new Random.Index.Password("example", new()
     ///     {
     ///         Length = 16,
     ///     });
     /// 
-    ///     var exampleUser = new Aws.MemoryDb.User("exampleUser", new()
+    ///     var exampleUser = new Aws.MemoryDb.User("example", new()
     ///     {
     ///         UserName = "my-user",
     ///         AccessString = "on ~* &amp;* +@all",
@@ -40,22 +41,23 @@ namespace Pulumi.Aws.MemoryDb
     ///             Type = "password",
     ///             Passwords = new[]
     ///             {
-    ///                 exampleRandomPassword.Result,
+    ///                 example.Result,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a user using the `user_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:memorydb/user:User example my-user
+    /// $ pulumi import aws:memorydb/user:User example my-user
     /// ```
-    ///  The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
+    /// The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
     /// </summary>
     [AwsResourceType("aws:memorydb/user:User")]
     public partial class User : global::Pulumi.CustomResource
@@ -127,10 +129,6 @@ namespace Pulumi.Aws.MemoryDb
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -240,11 +238,7 @@ namespace Pulumi.Aws.MemoryDb
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

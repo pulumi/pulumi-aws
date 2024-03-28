@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,25 +27,23 @@ namespace Pulumi.Aws.Fsx
     /// {
     ///     var example = new Aws.Fsx.LustreFileSystem("example", new()
     ///     {
-    ///         ImportPath = $"s3://{aws_s3_bucket.Example.Bucket}",
+    ///         ImportPath = $"s3://{exampleAwsS3Bucket.Bucket}",
     ///         StorageCapacity = 1200,
-    ///         SubnetIds = new[]
-    ///         {
-    ///             aws_subnet.Example.Id,
-    ///         },
+    ///         SubnetIds = exampleAwsSubnet.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import FSx File Systems using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:fsx/lustreFileSystem:LustreFileSystem example fs-543ab12b1ca672f33
+    /// $ pulumi import aws:fsx/lustreFileSystem:LustreFileSystem example fs-543ab12b1ca672f33
     /// ```
-    ///  Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+    /// Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
     /// </summary>
     [AwsResourceType("aws:fsx/lustreFileSystem:LustreFileSystem")]
     public partial class LustreFileSystem : global::Pulumi.CustomResource
@@ -246,10 +245,6 @@ namespace Pulumi.Aws.Fsx
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -609,11 +604,7 @@ namespace Pulumi.Aws.Fsx
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

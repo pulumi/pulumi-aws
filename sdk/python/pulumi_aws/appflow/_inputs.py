@@ -4047,12 +4047,16 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs:
     def __init__(__self__, *,
-                 aggregation_type: Optional[pulumi.Input[str]] = None):
+                 aggregation_type: Optional[pulumi.Input[str]] = None,
+                 target_file_size: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] aggregation_type: Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+        :param pulumi.Input[int] target_file_size: The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
         """
         if aggregation_type is not None:
             pulumi.set(__self__, "aggregation_type", aggregation_type)
+        if target_file_size is not None:
+            pulumi.set(__self__, "target_file_size", target_file_size)
 
     @property
     @pulumi.getter(name="aggregationType")
@@ -4065,6 +4069,18 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
     @aggregation_type.setter
     def aggregation_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "aggregation_type", value)
+
+    @property
+    @pulumi.getter(name="targetFileSize")
+    def target_file_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+        """
+        return pulumi.get(self, "target_file_size")
+
+    @target_file_size.setter
+    def target_file_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "target_file_size", value)
 
 
 @pulumi.input_type
@@ -5373,7 +5389,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs:
 class FlowSourceFlowConfigSourceConnectorPropertiesS3Args:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str],
-                 bucket_prefix: Optional[pulumi.Input[str]] = None,
+                 bucket_prefix: pulumi.Input[str],
                  s3_input_format_config: Optional[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs']] = None):
         """
         :param pulumi.Input[str] bucket_name: Name of the Amazon S3 bucket.
@@ -5381,8 +5397,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesS3Args:
         :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs'] s3_input_format_config: When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
-        if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+        pulumi.set(__self__, "bucket_prefix", bucket_prefix)
         if s3_input_format_config is not None:
             pulumi.set(__self__, "s3_input_format_config", s3_input_format_config)
 
@@ -5400,14 +5415,14 @@ class FlowSourceFlowConfigSourceConnectorPropertiesS3Args:
 
     @property
     @pulumi.getter(name="bucketPrefix")
-    def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
+    def bucket_prefix(self) -> pulumi.Input[str]:
         """
         Amazon S3 bucket prefix.
         """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter
-    def bucket_prefix(self, value: Optional[pulumi.Input[str]]):
+    def bucket_prefix(self, value: pulumi.Input[str]):
         pulumi.set(self, "bucket_prefix", value)
 
     @property
@@ -5721,38 +5736,27 @@ class FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs:
 @pulumi.input_type
 class FlowTaskArgs:
     def __init__(__self__, *,
-                 source_fields: pulumi.Input[Sequence[pulumi.Input[str]]],
                  task_type: pulumi.Input[str],
                  connector_operators: Optional[pulumi.Input[Sequence[pulumi.Input['FlowTaskConnectorOperatorArgs']]]] = None,
                  destination_field: Optional[pulumi.Input[str]] = None,
+                 source_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  task_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_fields: Source fields to which a particular task is applied.
         :param pulumi.Input[str] task_type: Particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
         :param pulumi.Input[Sequence[pulumi.Input['FlowTaskConnectorOperatorArgs']]] connector_operators: Operation to be performed on the provided source fields. See Connector Operator for details.
         :param pulumi.Input[str] destination_field: Field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_fields: Source fields to which a particular task is applied.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] task_properties: Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
         """
-        pulumi.set(__self__, "source_fields", source_fields)
         pulumi.set(__self__, "task_type", task_type)
         if connector_operators is not None:
             pulumi.set(__self__, "connector_operators", connector_operators)
         if destination_field is not None:
             pulumi.set(__self__, "destination_field", destination_field)
+        if source_fields is not None:
+            pulumi.set(__self__, "source_fields", source_fields)
         if task_properties is not None:
             pulumi.set(__self__, "task_properties", task_properties)
-
-    @property
-    @pulumi.getter(name="sourceFields")
-    def source_fields(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Source fields to which a particular task is applied.
-        """
-        return pulumi.get(self, "source_fields")
-
-    @source_fields.setter
-    def source_fields(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "source_fields", value)
 
     @property
     @pulumi.getter(name="taskType")
@@ -5789,6 +5793,18 @@ class FlowTaskArgs:
     @destination_field.setter
     def destination_field(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "destination_field", value)
+
+    @property
+    @pulumi.getter(name="sourceFields")
+    def source_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Source fields to which a particular task is applied.
+        """
+        return pulumi.get(self, "source_fields")
+
+    @source_fields.setter
+    def source_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "source_fields", value)
 
     @property
     @pulumi.getter(name="taskProperties")

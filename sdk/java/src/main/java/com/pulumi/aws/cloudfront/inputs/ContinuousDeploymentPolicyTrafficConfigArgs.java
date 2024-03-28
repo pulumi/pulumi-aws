@@ -7,6 +7,7 @@ import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyTrafficConfigS
 import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -152,7 +153,9 @@ public final class ContinuousDeploymentPolicyTrafficConfigArgs extends com.pulum
         }
 
         public ContinuousDeploymentPolicyTrafficConfigArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ContinuousDeploymentPolicyTrafficConfigArgs", "type");
+            }
             return $;
         }
     }

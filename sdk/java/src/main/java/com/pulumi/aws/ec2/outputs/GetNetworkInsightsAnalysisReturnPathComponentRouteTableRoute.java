@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -88,67 +89,97 @@ public final class GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute 
 
         @CustomType.Setter
         public Builder destinationCidr(String destinationCidr) {
-            this.destinationCidr = Objects.requireNonNull(destinationCidr);
+            if (destinationCidr == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute", "destinationCidr");
+            }
+            this.destinationCidr = destinationCidr;
             return this;
         }
         @CustomType.Setter
         public Builder destinationPrefixListId(String destinationPrefixListId) {
-            this.destinationPrefixListId = Objects.requireNonNull(destinationPrefixListId);
+            if (destinationPrefixListId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute", "destinationPrefixListId");
+            }
+            this.destinationPrefixListId = destinationPrefixListId;
             return this;
         }
         @CustomType.Setter
         public Builder egressOnlyInternetGatewayId(String egressOnlyInternetGatewayId) {
-            this.egressOnlyInternetGatewayId = Objects.requireNonNull(egressOnlyInternetGatewayId);
+            if (egressOnlyInternetGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute", "egressOnlyInternetGatewayId");
+            }
+            this.egressOnlyInternetGatewayId = egressOnlyInternetGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder gatewayId(String gatewayId) {
-            this.gatewayId = Objects.requireNonNull(gatewayId);
+            if (gatewayId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute", "gatewayId");
+            }
+            this.gatewayId = gatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute", "instanceId");
+            }
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
         public Builder natGatewayId(String natGatewayId) {
-            this.natGatewayId = Objects.requireNonNull(natGatewayId);
+            if (natGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute", "natGatewayId");
+            }
+            this.natGatewayId = natGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaceId(String networkInterfaceId) {
-            this.networkInterfaceId = Objects.requireNonNull(networkInterfaceId);
+            if (networkInterfaceId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute", "networkInterfaceId");
+            }
+            this.networkInterfaceId = networkInterfaceId;
             return this;
         }
         @CustomType.Setter
         public Builder origin(String origin) {
-            this.origin = Objects.requireNonNull(origin);
+            if (origin == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute", "origin");
+            }
+            this.origin = origin;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayId(String transitGatewayId) {
-            this.transitGatewayId = Objects.requireNonNull(transitGatewayId);
+            if (transitGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute", "transitGatewayId");
+            }
+            this.transitGatewayId = transitGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder vpcPeeringConnectionId(String vpcPeeringConnectionId) {
-            this.vpcPeeringConnectionId = Objects.requireNonNull(vpcPeeringConnectionId);
+            if (vpcPeeringConnectionId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute", "vpcPeeringConnectionId");
+            }
+            this.vpcPeeringConnectionId = vpcPeeringConnectionId;
             return this;
         }
         public GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute build() {
-            final var o = new GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute();
-            o.destinationCidr = destinationCidr;
-            o.destinationPrefixListId = destinationPrefixListId;
-            o.egressOnlyInternetGatewayId = egressOnlyInternetGatewayId;
-            o.gatewayId = gatewayId;
-            o.instanceId = instanceId;
-            o.natGatewayId = natGatewayId;
-            o.networkInterfaceId = networkInterfaceId;
-            o.origin = origin;
-            o.transitGatewayId = transitGatewayId;
-            o.vpcPeeringConnectionId = vpcPeeringConnectionId;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute();
+            _resultValue.destinationCidr = destinationCidr;
+            _resultValue.destinationPrefixListId = destinationPrefixListId;
+            _resultValue.egressOnlyInternetGatewayId = egressOnlyInternetGatewayId;
+            _resultValue.gatewayId = gatewayId;
+            _resultValue.instanceId = instanceId;
+            _resultValue.natGatewayId = natGatewayId;
+            _resultValue.networkInterfaceId = networkInterfaceId;
+            _resultValue.origin = origin;
+            _resultValue.transitGatewayId = transitGatewayId;
+            _resultValue.vpcPeeringConnectionId = vpcPeeringConnectionId;
+            return _resultValue;
         }
     }
 }

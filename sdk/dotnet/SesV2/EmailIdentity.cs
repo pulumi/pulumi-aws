@@ -15,8 +15,10 @@ namespace Pulumi.Aws.SesV2
     /// ## Example Usage
     /// 
     /// ### Basic Usage
+    /// 
     /// ### Email Address Identity
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,8 +34,11 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Domain Identity
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,8 +54,11 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Configuration Set
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -59,21 +67,24 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleConfigurationSet = new Aws.SesV2.ConfigurationSet("exampleConfigurationSet", new()
+    ///     var example = new Aws.SesV2.ConfigurationSet("example", new()
     ///     {
     ///         ConfigurationSetName = "example",
     ///     });
     /// 
-    ///     var exampleEmailIdentity = new Aws.SesV2.EmailIdentity("exampleEmailIdentity", new()
+    ///     var exampleEmailIdentity = new Aws.SesV2.EmailIdentity("example", new()
     ///     {
     ///         EmailIdentityDetails = "example.com",
-    ///         ConfigurationSetName = exampleConfigurationSet.ConfigurationSetName,
+    ///         ConfigurationSetName = example.ConfigurationSetName,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### DKIM Signing Attributes (BYODKIM)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -84,23 +95,24 @@ namespace Pulumi.Aws.SesV2
     /// {
     ///     var example = new Aws.SesV2.EmailIdentity("example", new()
     ///     {
+    ///         EmailIdentityDetails = "example.com",
     ///         DkimSigningAttributes = new Aws.SesV2.Inputs.EmailIdentityDkimSigningAttributesArgs
     ///         {
     ///             DomainSigningPrivateKey = "MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...",
     ///             DomainSigningSelector = "example",
     ///         },
-    ///         EmailIdentityDetails = "example.com",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity using the `email_identity`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
+    /// $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
     /// ```
     /// </summary>
     [AwsResourceType("aws:sesv2/emailIdentity:EmailIdentity")]
@@ -179,10 +191,6 @@ namespace Pulumi.Aws.SesV2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -300,11 +308,7 @@ namespace Pulumi.Aws.SesV2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

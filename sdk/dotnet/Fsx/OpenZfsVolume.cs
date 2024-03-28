@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,18 +26,20 @@ namespace Pulumi.Aws.Fsx
     /// {
     ///     var test = new Aws.Fsx.OpenZfsVolume("test", new()
     ///     {
-    ///         ParentVolumeId = aws_fsx_openzfs_file_system.Test.Root_volume_id,
+    ///         Name = "testvolume",
+    ///         ParentVolumeId = testAwsFsxOpenzfsFileSystem.RootVolumeId,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import FSx Volumes using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:fsx/openZfsVolume:OpenZfsVolume example fsvol-543ab12b1ca672f33
+    /// $ pulumi import aws:fsx/openZfsVolume:OpenZfsVolume example fsvol-543ab12b1ca672f33
     /// ```
     /// </summary>
     [AwsResourceType("aws:fsx/openZfsVolume:OpenZfsVolume")]
@@ -73,13 +76,13 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+        /// NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block Below for details.
         /// </summary>
         [Output("nfsExports")]
         public Output<Outputs.OpenZfsVolumeNfsExports?> NfsExports { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the source snapshot to create the volume from.
+        /// Specifies the configuration to use when creating the OpenZFS volume. See `origin_snapshot` Block below for details.
         /// </summary>
         [Output("originSnapshot")]
         public Output<Outputs.OpenZfsVolumeOriginSnapshot?> OriginSnapshot { get; private set; } = null!;
@@ -127,7 +130,7 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+        /// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
         /// </summary>
         [Output("userAndGroupQuotas")]
         public Output<ImmutableArray<Outputs.OpenZfsVolumeUserAndGroupQuota>> UserAndGroupQuotas { get; private set; } = null!;
@@ -158,10 +161,6 @@ namespace Pulumi.Aws.Fsx
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -210,13 +209,13 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+        /// NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block Below for details.
         /// </summary>
         [Input("nfsExports")]
         public Input<Inputs.OpenZfsVolumeNfsExportsArgs>? NfsExports { get; set; }
 
         /// <summary>
-        /// The ARN of the source snapshot to create the volume from.
+        /// Specifies the configuration to use when creating the OpenZFS volume. See `origin_snapshot` Block below for details.
         /// </summary>
         [Input("originSnapshot")]
         public Input<Inputs.OpenZfsVolumeOriginSnapshotArgs>? OriginSnapshot { get; set; }
@@ -267,7 +266,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<Inputs.OpenZfsVolumeUserAndGroupQuotaArgs>? _userAndGroupQuotas;
 
         /// <summary>
-        /// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+        /// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
         /// </summary>
         public InputList<Inputs.OpenZfsVolumeUserAndGroupQuotaArgs> UserAndGroupQuotas
         {
@@ -317,13 +316,13 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+        /// NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block Below for details.
         /// </summary>
         [Input("nfsExports")]
         public Input<Inputs.OpenZfsVolumeNfsExportsGetArgs>? NfsExports { get; set; }
 
         /// <summary>
-        /// The ARN of the source snapshot to create the volume from.
+        /// Specifies the configuration to use when creating the OpenZFS volume. See `origin_snapshot` Block below for details.
         /// </summary>
         [Input("originSnapshot")]
         public Input<Inputs.OpenZfsVolumeOriginSnapshotGetArgs>? OriginSnapshot { get; set; }
@@ -380,18 +379,14 @@ namespace Pulumi.Aws.Fsx
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("userAndGroupQuotas")]
         private InputList<Inputs.OpenZfsVolumeUserAndGroupQuotaGetArgs>? _userAndGroupQuotas;
 
         /// <summary>
-        /// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+        /// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
         /// </summary>
         public InputList<Inputs.OpenZfsVolumeUserAndGroupQuotaGetArgs> UserAndGroupQuotas
         {

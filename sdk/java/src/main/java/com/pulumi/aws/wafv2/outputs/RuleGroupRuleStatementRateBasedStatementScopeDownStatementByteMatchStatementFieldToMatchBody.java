@@ -44,13 +44,14 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
 
         @CustomType.Setter
         public Builder oversizeHandling(@Nullable String oversizeHandling) {
+
             this.oversizeHandling = oversizeHandling;
             return this;
         }
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody();
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody();
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

@@ -6,6 +6,7 @@ package com.pulumi.aws.workspaces;
 import com.pulumi.aws.workspaces.inputs.WorkspaceWorkspacePropertiesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -109,14 +110,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+     * The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
      * 
      */
     @Import(name="volumeEncryptionKey")
     private @Nullable Output<String> volumeEncryptionKey;
 
     /**
-     * @return The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+     * @return The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
      * 
      */
     public Optional<Output<String>> volumeEncryptionKey() {
@@ -296,7 +297,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param volumeEncryptionKey The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+         * @param volumeEncryptionKey The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
          * 
          * @return builder
          * 
@@ -307,7 +308,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param volumeEncryptionKey The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+         * @param volumeEncryptionKey The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
          * 
          * @return builder
          * 
@@ -338,9 +339,15 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WorkspaceArgs build() {
-            $.bundleId = Objects.requireNonNull($.bundleId, "expected parameter 'bundleId' to be non-null");
-            $.directoryId = Objects.requireNonNull($.directoryId, "expected parameter 'directoryId' to be non-null");
-            $.userName = Objects.requireNonNull($.userName, "expected parameter 'userName' to be non-null");
+            if ($.bundleId == null) {
+                throw new MissingRequiredPropertyException("WorkspaceArgs", "bundleId");
+            }
+            if ($.directoryId == null) {
+                throw new MissingRequiredPropertyException("WorkspaceArgs", "directoryId");
+            }
+            if ($.userName == null) {
+                throw new MissingRequiredPropertyException("WorkspaceArgs", "userName");
+            }
             return $;
         }
     }

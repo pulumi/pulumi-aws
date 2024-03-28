@@ -30,7 +30,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         [Input("destinationField")]
         public Input<string>? DestinationField { get; set; }
 
-        [Input("sourceFields", required: true)]
+        [Input("sourceFields")]
         private InputList<string>? _sourceFields;
 
         /// <summary>

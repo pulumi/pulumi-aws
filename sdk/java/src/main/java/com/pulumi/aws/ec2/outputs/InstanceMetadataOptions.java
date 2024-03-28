@@ -105,37 +105,42 @@ public final class InstanceMetadataOptions {
 
         @CustomType.Setter
         public Builder httpEndpoint(@Nullable String httpEndpoint) {
+
             this.httpEndpoint = httpEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder httpProtocolIpv6(@Nullable String httpProtocolIpv6) {
+
             this.httpProtocolIpv6 = httpProtocolIpv6;
             return this;
         }
         @CustomType.Setter
         public Builder httpPutResponseHopLimit(@Nullable Integer httpPutResponseHopLimit) {
+
             this.httpPutResponseHopLimit = httpPutResponseHopLimit;
             return this;
         }
         @CustomType.Setter
         public Builder httpTokens(@Nullable String httpTokens) {
+
             this.httpTokens = httpTokens;
             return this;
         }
         @CustomType.Setter
         public Builder instanceMetadataTags(@Nullable String instanceMetadataTags) {
+
             this.instanceMetadataTags = instanceMetadataTags;
             return this;
         }
         public InstanceMetadataOptions build() {
-            final var o = new InstanceMetadataOptions();
-            o.httpEndpoint = httpEndpoint;
-            o.httpProtocolIpv6 = httpProtocolIpv6;
-            o.httpPutResponseHopLimit = httpPutResponseHopLimit;
-            o.httpTokens = httpTokens;
-            o.instanceMetadataTags = instanceMetadataTags;
-            return o;
+            final var _resultValue = new InstanceMetadataOptions();
+            _resultValue.httpEndpoint = httpEndpoint;
+            _resultValue.httpProtocolIpv6 = httpProtocolIpv6;
+            _resultValue.httpPutResponseHopLimit = httpPutResponseHopLimit;
+            _resultValue.httpTokens = httpTokens;
+            _resultValue.instanceMetadataTags = instanceMetadataTags;
+            return _resultValue;
         }
     }
 }

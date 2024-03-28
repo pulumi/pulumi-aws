@@ -10,29 +10,32 @@ import * as utilities from "../utilities";
  * > **NOTE:** This resource does not associate a Service Catalog product and portfolio. However, the product and portfolio must be associated (see the `aws.servicecatalog.ProductPortfolioAssociation` resource) prior to creating a constraint or you will receive an error.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.servicecatalog.Constraint("example", {
  *     description: "Back off, man. I'm a scientist.",
- *     portfolioId: aws_servicecatalog_portfolio.example.id,
- *     productId: aws_servicecatalog_product.example.id,
+ *     portfolioId: exampleAwsServicecatalogPortfolio.id,
+ *     productId: exampleAwsServicecatalogProduct.id,
  *     type: "LAUNCH",
  *     parameters: JSON.stringify({
  *         RoleArn: "arn:aws:iam::123456789012:role/LaunchRole",
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_servicecatalog_constraint` using the constraint ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
+ * $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
  * ```
  */
 export class Constraint extends pulumi.CustomResource {

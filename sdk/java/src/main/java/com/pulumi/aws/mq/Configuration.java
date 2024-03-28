@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,7 +22,10 @@ import javax.annotation.Nullable;
  * For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
  * 
  * ## Example Usage
+ * 
  * ### ActiveMQ
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,6 +48,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Configuration(&#34;example&#34;, ConfigurationArgs.builder()        
+ *             .description(&#34;Example Configuration&#34;)
+ *             .name(&#34;example&#34;)
+ *             .engineType(&#34;ActiveMQ&#34;)
+ *             .engineVersion(&#34;5.17.6&#34;)
  *             .data(&#34;&#34;&#34;
  * &lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; standalone=&#34;yes&#34;?&gt;
  * &lt;broker xmlns=&#34;http://activemq.apache.org/schema/core&#34;&gt;
@@ -55,17 +61,17 @@ import javax.annotation.Nullable;
  *     &lt;timeStampingBrokerPlugin ttlCeiling=&#34;86400000&#34; zeroExpirationOverride=&#34;86400000&#34;/&gt;
  *   &lt;/plugins&gt;
  * &lt;/broker&gt;
- * 
  *             &#34;&#34;&#34;)
- *             .description(&#34;Example Configuration&#34;)
- *             .engineType(&#34;ActiveMQ&#34;)
- *             .engineVersion(&#34;5.17.6&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### RabbitMQ
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -88,26 +94,27 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Configuration(&#34;example&#34;, ConfigurationArgs.builder()        
+ *             .description(&#34;Example Configuration&#34;)
+ *             .name(&#34;example&#34;)
+ *             .engineType(&#34;RabbitMQ&#34;)
+ *             .engineVersion(&#34;3.11.20&#34;)
  *             .data(&#34;&#34;&#34;
  * # Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
  * consumer_timeout = 1800000
- * 
  *             &#34;&#34;&#34;)
- *             .description(&#34;Example Configuration&#34;)
- *             .engineType(&#34;RabbitMQ&#34;)
- *             .engineVersion(&#34;3.11.20&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import MQ Configurations using the configuration ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
+ * $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
  * ```
  * 
  */
@@ -294,9 +301,6 @@ public class Configuration extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -11,13 +11,15 @@ import * as utilities from "../utilities";
  * Manages an attachment between one or more existing LF-tags and an existing Lake Formation resource.
  *
  * ## Example Usage
+ *
  * ### Database Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLfTag = new aws.lakeformation.LfTag("exampleLfTag", {
+ * const example = new aws.lakeformation.LfTag("example", {
  *     key: "right",
  *     values: [
  *         "abbey",
@@ -30,23 +32,26 @@ import * as utilities from "../utilities";
  *         "club",
  *     ],
  * });
- * const exampleResourceLfTags = new aws.lakeformation.ResourceLfTags("exampleResourceLfTags", {
+ * const exampleResourceLfTags = new aws.lakeformation.ResourceLfTags("example", {
  *     database: {
- *         name: aws_glue_catalog_database.example.name,
+ *         name: exampleAwsGlueCatalogDatabase.name,
  *     },
  *     lfTags: [{
- *         key: exampleLfTag.key,
+ *         key: example.key,
  *         value: "stowe",
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Multiple Tags Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLfTag = new aws.lakeformation.LfTag("exampleLfTag", {
+ * const example = new aws.lakeformation.LfTag("example", {
  *     key: "right",
  *     values: [
  *         "abbey",
@@ -71,9 +76,9 @@ import * as utilities from "../utilities";
  *         "vale",
  *     ],
  * });
- * const exampleResourceLfTags = new aws.lakeformation.ResourceLfTags("exampleResourceLfTags", {
+ * const exampleResourceLfTags = new aws.lakeformation.ResourceLfTags("example", {
  *     database: {
- *         name: aws_glue_catalog_database.example.name,
+ *         name: exampleAwsGlueCatalogDatabase.name,
  *     },
  *     lfTags: [
  *         {
@@ -87,6 +92,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class ResourceLfTags extends pulumi.CustomResource {
     /**

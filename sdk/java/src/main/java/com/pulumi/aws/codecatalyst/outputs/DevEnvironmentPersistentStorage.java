@@ -4,6 +4,7 @@
 package com.pulumi.aws.codecatalyst.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class DevEnvironmentPersistentStorage {
 
         @CustomType.Setter
         public Builder size(Integer size) {
-            this.size = Objects.requireNonNull(size);
+            if (size == null) {
+              throw new MissingRequiredPropertyException("DevEnvironmentPersistentStorage", "size");
+            }
+            this.size = size;
             return this;
         }
         public DevEnvironmentPersistentStorage build() {
-            final var o = new DevEnvironmentPersistentStorage();
-            o.size = size;
-            return o;
+            final var _resultValue = new DevEnvironmentPersistentStorage();
+            _resultValue.size = size;
+            return _resultValue;
         }
     }
 }

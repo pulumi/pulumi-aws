@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			prodSp, err := signer.NewSigningProfile(ctx, "prodSp", &signer.SigningProfileArgs{
+//			prodSp, err := signer.NewSigningProfile(ctx, "prod_sp", &signer.SigningProfileArgs{
 //				PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
 //				NamePrefix: pulumi.String("prod_sp_"),
 //				SignatureValidityPeriod: &signer.SigningProfileSignatureValidityPeriodArgs{
@@ -43,24 +44,24 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = signer.NewSigningProfilePermission(ctx, "spPermission1", &signer.SigningProfilePermissionArgs{
+//			_, err = signer.NewSigningProfilePermission(ctx, "sp_permission_1", &signer.SigningProfilePermissionArgs{
 //				ProfileName: prodSp.Name,
 //				Action:      pulumi.String("signer:StartSigningJob"),
-//				Principal:   pulumi.Any(_var.Aws_account),
+//				Principal:   pulumi.Any(awsAccount),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = signer.NewSigningProfilePermission(ctx, "spPermission2", &signer.SigningProfilePermissionArgs{
+//			_, err = signer.NewSigningProfilePermission(ctx, "sp_permission_2", &signer.SigningProfilePermissionArgs{
 //				ProfileName: prodSp.Name,
 //				Action:      pulumi.String("signer:GetSigningProfile"),
-//				Principal:   pulumi.Any(_var.Aws_team_role_arn),
+//				Principal:   pulumi.Any(awsTeamRoleArn),
 //				StatementId: pulumi.String("ProdAccountStartSigningJob_StatementId"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = signer.NewSigningProfilePermission(ctx, "spPermission3", &signer.SigningProfilePermissionArgs{
+//			_, err = signer.NewSigningProfilePermission(ctx, "sp_permission_3", &signer.SigningProfilePermissionArgs{
 //				ProfileName:       prodSp.Name,
 //				Action:            pulumi.String("signer:RevokeSignature"),
 //				Principal:         pulumi.String("123456789012"),
@@ -75,15 +76,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Signer signing profile permission statements using profile_name/statement_id. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:signer/signingProfilePermission:SigningProfilePermission test_signer_signing_profile_permission prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK/ProdAccountStartSigningJobStatementId
-//
+// $ pulumi import aws:signer/signingProfilePermission:SigningProfilePermission test_signer_signing_profile_permission prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK/ProdAccountStartSigningJobStatementId
 // ```
 type SigningProfilePermission struct {
 	pulumi.CustomResourceState

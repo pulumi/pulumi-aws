@@ -11,22 +11,31 @@ import * as utilities from "../utilities";
  * Resource for managing a QuickSight Folder.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.Folder("example", {folderId: "example-id"});
- * ```
- * ### With Permissions
- *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.Folder("example", {
  *     folderId: "example-id",
+ *     name: "example-name",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### With Permissions
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.quicksight.Folder("example", {
+ *     folderId: "example-id",
+ *     name: "example-name",
  *     permissions: [{
  *         actions: [
  *             "quicksight:CreateFolder",
@@ -38,29 +47,37 @@ import * as utilities from "../utilities";
  *             "quicksight:DescribeFolderPermissions",
  *             "quicksight:UpdateFolderPermissions",
  *         ],
- *         principal: aws_quicksight_user.example.arn,
+ *         principal: exampleAwsQuicksightUser.arn,
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Parent Folder
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const parent = new aws.quicksight.Folder("parent", {folderId: "parent-id"});
+ * const parent = new aws.quicksight.Folder("parent", {
+ *     folderId: "parent-id",
+ *     name: "parent-name",
+ * });
  * const example = new aws.quicksight.Folder("example", {
  *     folderId: "example-id",
+ *     name: "example-name",
  *     parentFolderArn: parent.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a QuickSight folder using the AWS account ID and folder ID name separated by a comma (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
+ * $ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
  * ```
  */
 export class Folder extends pulumi.CustomResource {
@@ -188,8 +205,6 @@ export class Folder extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Folder.__pulumiType, name, resourceInputs, opts);
     }
 }

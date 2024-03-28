@@ -4,6 +4,7 @@
 package com.pulumi.aws.appsync.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class ResolverRuntime {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ResolverRuntime", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder runtimeVersion(String runtimeVersion) {
-            this.runtimeVersion = Objects.requireNonNull(runtimeVersion);
+            if (runtimeVersion == null) {
+              throw new MissingRequiredPropertyException("ResolverRuntime", "runtimeVersion");
+            }
+            this.runtimeVersion = runtimeVersion;
             return this;
         }
         public ResolverRuntime build() {
-            final var o = new ResolverRuntime();
-            o.name = name;
-            o.runtimeVersion = runtimeVersion;
-            return o;
+            final var _resultValue = new ResolverRuntime();
+            _resultValue.name = name;
+            _resultValue.runtimeVersion = runtimeVersion;
+            return _resultValue;
         }
     }
 }

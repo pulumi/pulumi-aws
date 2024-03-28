@@ -5,6 +5,7 @@ package com.pulumi.aws.ssoadmin;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class PermissionSetInlinePolicyArgs extends com.pulumi.resources.Re
         }
 
         public PermissionSetInlinePolicyArgs build() {
-            $.inlinePolicy = Objects.requireNonNull($.inlinePolicy, "expected parameter 'inlinePolicy' to be non-null");
-            $.instanceArn = Objects.requireNonNull($.instanceArn, "expected parameter 'instanceArn' to be non-null");
-            $.permissionSetArn = Objects.requireNonNull($.permissionSetArn, "expected parameter 'permissionSetArn' to be non-null");
+            if ($.inlinePolicy == null) {
+                throw new MissingRequiredPropertyException("PermissionSetInlinePolicyArgs", "inlinePolicy");
+            }
+            if ($.instanceArn == null) {
+                throw new MissingRequiredPropertyException("PermissionSetInlinePolicyArgs", "instanceArn");
+            }
+            if ($.permissionSetArn == null) {
+                throw new MissingRequiredPropertyException("PermissionSetInlinePolicyArgs", "permissionSetArn");
+            }
             return $;
         }
     }

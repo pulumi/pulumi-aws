@@ -4,6 +4,7 @@
 package com.pulumi.aws.lakeformation.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class GetDataLakeSettingsCreateDatabaseDefaultPermission {
 
         @CustomType.Setter
         public Builder permissions(List<String> permissions) {
-            this.permissions = Objects.requireNonNull(permissions);
+            if (permissions == null) {
+              throw new MissingRequiredPropertyException("GetDataLakeSettingsCreateDatabaseDefaultPermission", "permissions");
+            }
+            this.permissions = permissions;
             return this;
         }
         public Builder permissions(String... permissions) {
@@ -65,14 +69,17 @@ public final class GetDataLakeSettingsCreateDatabaseDefaultPermission {
         }
         @CustomType.Setter
         public Builder principal(String principal) {
-            this.principal = Objects.requireNonNull(principal);
+            if (principal == null) {
+              throw new MissingRequiredPropertyException("GetDataLakeSettingsCreateDatabaseDefaultPermission", "principal");
+            }
+            this.principal = principal;
             return this;
         }
         public GetDataLakeSettingsCreateDatabaseDefaultPermission build() {
-            final var o = new GetDataLakeSettingsCreateDatabaseDefaultPermission();
-            o.permissions = permissions;
-            o.principal = principal;
-            return o;
+            final var _resultValue = new GetDataLakeSettingsCreateDatabaseDefaultPermission();
+            _resultValue.permissions = permissions;
+            _resultValue.principal = principal;
+            return _resultValue;
         }
     }
 }

@@ -11,24 +11,49 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS VPC Lattice Listener.
  *
  * ## Example Usage
- * ### Forward action
  *
+ * ### Fixed response action
+ *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.vpclattice.Service("test", {});
- * const exampleTargetGroup = new aws.vpclattice.TargetGroup("exampleTargetGroup", {
+ * const example = new aws.vpclattice.Service("example", {name: "example"});
+ * const exampleListener = new aws.vpclattice.Listener("example", {
+ *     name: "example",
+ *     protocol: "HTTPS",
+ *     serviceIdentifier: example.id,
+ *     defaultAction: {
+ *         fixedResponse: {
+ *             statusCode: 404,
+ *         },
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Forward action
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.vpclattice.Service("example", {name: "example"});
+ * const exampleTargetGroup = new aws.vpclattice.TargetGroup("example", {
+ *     name: "example-target-group-1",
  *     type: "INSTANCE",
  *     config: {
  *         port: 80,
  *         protocol: "HTTP",
- *         vpcIdentifier: aws_vpc.test.id,
+ *         vpcIdentifier: exampleAwsVpc.id,
  *     },
  * });
- * const exampleListener = new aws.vpclattice.Listener("exampleListener", {
+ * const exampleListener = new aws.vpclattice.Listener("example", {
+ *     name: "example",
  *     protocol: "HTTP",
- *     serviceIdentifier: aws_vpclattice_service.example.id,
+ *     serviceIdentifier: example.id,
  *     defaultAction: {
  *         forwards: [{
  *             targetGroups: [{
@@ -38,32 +63,38 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Forward action with weighted target groups
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.vpclattice.Service("test", {});
+ * const example = new aws.vpclattice.Service("example", {name: "example"});
  * const example1 = new aws.vpclattice.TargetGroup("example1", {
+ *     name: "example-target-group-1",
  *     type: "INSTANCE",
  *     config: {
  *         port: 80,
  *         protocol: "HTTP",
- *         vpcIdentifier: aws_vpc.test.id,
+ *         vpcIdentifier: exampleAwsVpc.id,
  *     },
  * });
  * const example2 = new aws.vpclattice.TargetGroup("example2", {
+ *     name: "example-target-group-2",
  *     type: "INSTANCE",
  *     config: {
  *         port: 8080,
  *         protocol: "HTTP",
- *         vpcIdentifier: aws_vpc.test.id,
+ *         vpcIdentifier: exampleAwsVpc.id,
  *     },
  * });
- * const example = new aws.vpclattice.Listener("example", {
+ * const exampleListener = new aws.vpclattice.Listener("example", {
+ *     name: "example",
  *     protocol: "HTTP",
- *     serviceIdentifier: aws_vpclattice_service.example.id,
+ *     serviceIdentifier: example.id,
  *     defaultAction: {
  *         forwards: [{
  *             targetGroups: [
@@ -80,13 +111,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import VPC Lattice Listener using the `listener_id` of the listener and the `id` of the VPC Lattice service combined with a `/` character. For example:
  *
  * ```sh
- *  $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
+ * $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
  * ```
  */
 export class Listener extends pulumi.CustomResource {
@@ -211,8 +243,6 @@ export class Listener extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Listener.__pulumiType, name, resourceInputs, opts);
     }
 }

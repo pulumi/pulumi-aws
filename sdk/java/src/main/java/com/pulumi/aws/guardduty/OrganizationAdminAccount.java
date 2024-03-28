@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Manages a GuardDuty Organization Admin Account. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in GuardDuty can be found in the [GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -28,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.guardduty.Detector;
  * import com.pulumi.aws.guardduty.OrganizationAdminAccount;
  * import com.pulumi.aws.guardduty.OrganizationAdminAccountArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -42,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleOrganization = new Organization(&#34;exampleOrganization&#34;, OrganizationArgs.builder()        
+ *         var example = new Organization(&#34;example&#34;, OrganizationArgs.builder()        
  *             .awsServiceAccessPrincipals(&#34;guardduty.amazonaws.com&#34;)
  *             .featureSet(&#34;ALL&#34;)
  *             .build());
@@ -51,20 +52,19 @@ import javax.annotation.Nullable;
  * 
  *         var exampleOrganizationAdminAccount = new OrganizationAdminAccount(&#34;exampleOrganizationAdminAccount&#34;, OrganizationAdminAccountArgs.builder()        
  *             .adminAccountId(&#34;123456789012&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleOrganization)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import GuardDuty Organization Admin Account using the AWS account ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:guardduty/organizationAdminAccount:OrganizationAdminAccount example 123456789012
+ * $ pulumi import aws:guardduty/organizationAdminAccount:OrganizationAdminAccount example 123456789012
  * ```
  * 
  */

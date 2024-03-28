@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,17 +31,17 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := ec2transitgateway.NewVpcAttachment(ctx, "example", &ec2transitgateway.VpcAttachmentArgs{
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Example.Id,
+//					exampleAwsSubnet.Id,
 //				},
-//				TransitGatewayId: pulumi.Any(aws_ec2_transit_gateway.Example.Id),
-//				VpcId:            pulumi.Any(aws_vpc.Example.Id),
+//				TransitGatewayId: pulumi.Any(exampleAwsEc2TransitGateway.Id),
+//				VpcId:            pulumi.Any(exampleAwsVpc.Id),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2transitgateway.NewConnect(ctx, "attachment", &ec2transitgateway.ConnectArgs{
 //				TransportAttachmentId: example.ID(),
-//				TransitGatewayId:      pulumi.Any(aws_ec2_transit_gateway.Example.Id),
+//				TransitGatewayId:      pulumi.Any(exampleAwsEc2TransitGateway.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -50,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_ec2_transit_gateway_connect` using the EC2 Transit Gateway Connect identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
-//
+// $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
 // ```
 type Connect struct {
 	pulumi.CustomResourceState
@@ -94,10 +94,6 @@ func NewConnect(ctx *pulumi.Context,
 	if args.TransportAttachmentId == nil {
 		return nil, errors.New("invalid value for required argument 'TransportAttachmentId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Connect
 	err := ctx.RegisterResource("aws:ec2transitgateway/connect:Connect", name, args, &resource, opts...)

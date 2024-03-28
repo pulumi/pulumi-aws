@@ -99,6 +99,7 @@ import * as autoscaling from "./autoscaling";
 import * as autoscalingplans from "./autoscalingplans";
 import * as backup from "./backup";
 import * as batch from "./batch";
+import * as bedrock from "./bedrock";
 import * as bedrockfoundation from "./bedrockfoundation";
 import * as bedrockmodel from "./bedrockmodel";
 import * as budgets from "./budgets";
@@ -119,6 +120,7 @@ import * as codebuild from "./codebuild";
 import * as codecatalyst from "./codecatalyst";
 import * as codecommit from "./codecommit";
 import * as codedeploy from "./codedeploy";
+import * as codeguruprofiler from "./codeguruprofiler";
 import * as codegurureviewer from "./codegurureviewer";
 import * as codepipeline from "./codepipeline";
 import * as codestarconnections from "./codestarconnections";
@@ -130,12 +132,14 @@ import * as connect from "./connect";
 import * as controltower from "./controltower";
 import * as costexplorer from "./costexplorer";
 import * as cur from "./cur";
+import * as customerprofiles from "./customerprofiles";
 import * as dataexchange from "./dataexchange";
 import * as datapipeline from "./datapipeline";
 import * as datasync from "./datasync";
 import * as dax from "./dax";
 import * as detective from "./detective";
 import * as devicefarm from "./devicefarm";
+import * as devopsguru from "./devopsguru";
 import * as directconnect from "./directconnect";
 import * as directoryservice from "./directoryservice";
 import * as dlm from "./dlm";
@@ -206,11 +210,13 @@ import * as networkfirewall from "./networkfirewall";
 import * as networkmanager from "./networkmanager";
 import * as oam from "./oam";
 import * as opensearch from "./opensearch";
+import * as opensearchingest from "./opensearchingest";
 import * as opsworks from "./opsworks";
 import * as organizations from "./organizations";
 import * as outposts from "./outposts";
 import * as pinpoint from "./pinpoint";
 import * as pipes from "./pipes";
+import * as polly from "./polly";
 import * as pricing from "./pricing";
 import * as qldb from "./qldb";
 import * as quicksight from "./quicksight";
@@ -220,6 +226,7 @@ import * as rds from "./rds";
 import * as redshift from "./redshift";
 import * as redshiftdata from "./redshiftdata";
 import * as redshiftserverless from "./redshiftserverless";
+import * as rekognition from "./rekognition";
 import * as resourceexplorer from "./resourceexplorer";
 import * as resourcegroups from "./resourcegroups";
 import * as resourcegroupstaggingapi from "./resourcegroupstaggingapi";
@@ -237,6 +244,7 @@ import * as scheduler from "./scheduler";
 import * as schemas from "./schemas";
 import * as secretsmanager from "./secretsmanager";
 import * as securityhub from "./securityhub";
+import * as securitylake from "./securitylake";
 import * as serverlessrepository from "./serverlessrepository";
 import * as servicecatalog from "./servicecatalog";
 import * as servicediscovery from "./servicediscovery";
@@ -261,6 +269,7 @@ import * as transcribe from "./transcribe";
 import * as transfer from "./transfer";
 import * as types from "./types";
 import * as verifiedaccess from "./verifiedaccess";
+import * as verifiedpermissions from "./verifiedpermissions";
 import * as vpc from "./vpc";
 import * as vpclattice from "./vpclattice";
 import * as waf from "./waf";
@@ -296,6 +305,7 @@ export {
     autoscalingplans,
     backup,
     batch,
+    bedrock,
     bedrockfoundation,
     bedrockmodel,
     budgets,
@@ -316,6 +326,7 @@ export {
     codecatalyst,
     codecommit,
     codedeploy,
+    codeguruprofiler,
     codegurureviewer,
     codepipeline,
     codestarconnections,
@@ -327,12 +338,14 @@ export {
     controltower,
     costexplorer,
     cur,
+    customerprofiles,
     dataexchange,
     datapipeline,
     datasync,
     dax,
     detective,
     devicefarm,
+    devopsguru,
     directconnect,
     directoryservice,
     dlm,
@@ -403,11 +416,13 @@ export {
     networkmanager,
     oam,
     opensearch,
+    opensearchingest,
     opsworks,
     organizations,
     outposts,
     pinpoint,
     pipes,
+    polly,
     pricing,
     qldb,
     quicksight,
@@ -417,6 +432,7 @@ export {
     redshift,
     redshiftdata,
     redshiftserverless,
+    rekognition,
     resourceexplorer,
     resourcegroups,
     resourcegroupstaggingapi,
@@ -434,6 +450,7 @@ export {
     schemas,
     secretsmanager,
     securityhub,
+    securitylake,
     serverlessrepository,
     servicecatalog,
     servicediscovery,
@@ -458,6 +475,7 @@ export {
     transfer,
     types,
     verifiedaccess,
+    verifiedpermissions,
     vpc,
     vpclattice,
     waf,

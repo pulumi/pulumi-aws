@@ -17,7 +17,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Managed Streaming for Kafka Cluster Policy.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,28 +46,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         final var currentPartition = AwsFunctions.getPartition();
+ *         final var currentGetPartition = AwsFunctions.getPartition();
  * 
  *         var example = new ClusterPolicy(&#34;example&#34;, ClusterPolicyArgs.builder()        
- *             .clusterArn(aws_msk_cluster.example().arn())
+ *             .clusterArn(exampleAwsMskCluster.arn())
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Sid&#34;, &#34;ExampleMskClusterPolicy&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;AWS&#34;, String.format(&#34;arn:%s:iam::%s:root&#34;, currentPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;sid&#34;, &#34;ExampleMskClusterPolicy&#34;),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;AWS&#34;, String.format(&#34;arn:%s:iam::%s:root&#34;, currentGetPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
  *                         )),
- *                         jsonProperty(&#34;Action&#34;, jsonArray(
+ *                         jsonProperty(&#34;action&#34;, jsonArray(
  *                             &#34;kafka:Describe*&#34;, 
  *                             &#34;kafka:Get*&#34;, 
  *                             &#34;kafka:CreateVpcConnection&#34;, 
  *                             &#34;kafka:GetBootstrapBrokers&#34;
  *                         )),
- *                         jsonProperty(&#34;Resource&#34;, aws_msk_cluster.example().arn())
+ *                         jsonProperty(&#34;resource&#34;, exampleAwsMskCluster.arn())
  *                     )))
  *                 )))
  *             .build());
@@ -72,13 +75,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Managed Streaming for Kafka Cluster Policy using the `cluster_arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:msk/clusterPolicy:ClusterPolicy example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+ * $ pulumi import aws:msk/clusterPolicy:ClusterPolicy example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
  * ```
  * 
  */

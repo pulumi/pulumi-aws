@@ -14,6 +14,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,8 +39,9 @@ namespace Pulumi.Aws.LightSail
     ///         },
     ///     });
     /// 
-    ///     var testLb = new Aws.LightSail.Lb("testLb", new()
+    ///     var test = new Aws.LightSail.Lb("test", new()
     ///     {
+    ///         Name = "test-load-balancer",
     ///         HealthCheckPath = "/",
     ///         InstancePort = 80,
     ///         Tags = 
@@ -48,28 +50,30 @@ namespace Pulumi.Aws.LightSail
     ///         },
     ///     });
     /// 
-    ///     var testInstance = new Aws.LightSail.Instance("testInstance", new()
+    ///     var testInstance = new Aws.LightSail.Instance("test", new()
     ///     {
+    ///         Name = "test-instance",
     ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
     ///         BlueprintId = "amazon_linux_2",
     ///         BundleId = "nano_1_0",
     ///     });
     /// 
-    ///     var testLbAttachment = new Aws.LightSail.LbAttachment("testLbAttachment", new()
+    ///     var testLbAttachment = new Aws.LightSail.LbAttachment("test", new()
     ///     {
-    ///         LbName = testLb.Name,
+    ///         LbName = test.Name,
     ///         InstanceName = testInstance.Name,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
+    /// $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/lbAttachment:LbAttachment")]

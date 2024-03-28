@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecServiceDiscoveryAwsCloudMap;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecServiceDiscoveryDn;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetVirtualNodeSpecServiceDiscovery {
 
         @CustomType.Setter
         public Builder awsCloudMaps(List<GetVirtualNodeSpecServiceDiscoveryAwsCloudMap> awsCloudMaps) {
-            this.awsCloudMaps = Objects.requireNonNull(awsCloudMaps);
+            if (awsCloudMaps == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecServiceDiscovery", "awsCloudMaps");
+            }
+            this.awsCloudMaps = awsCloudMaps;
             return this;
         }
         public Builder awsCloudMaps(GetVirtualNodeSpecServiceDiscoveryAwsCloudMap... awsCloudMaps) {
@@ -50,17 +54,20 @@ public final class GetVirtualNodeSpecServiceDiscovery {
         }
         @CustomType.Setter
         public Builder dns(List<GetVirtualNodeSpecServiceDiscoveryDn> dns) {
-            this.dns = Objects.requireNonNull(dns);
+            if (dns == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecServiceDiscovery", "dns");
+            }
+            this.dns = dns;
             return this;
         }
         public Builder dns(GetVirtualNodeSpecServiceDiscoveryDn... dns) {
             return dns(List.of(dns));
         }
         public GetVirtualNodeSpecServiceDiscovery build() {
-            final var o = new GetVirtualNodeSpecServiceDiscovery();
-            o.awsCloudMaps = awsCloudMaps;
-            o.dns = dns;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecServiceDiscovery();
+            _resultValue.awsCloudMaps = awsCloudMaps;
+            _resultValue.dns = dns;
+            return _resultValue;
         }
     }
 }

@@ -10,120 +10,144 @@ import * as utilities from "../utilities";
  * ## Example Usage
  *
  * ### Encryption Security Policy
+ *
  * ### Applies to a single collection
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
+ *     name: "example",
  *     type: "encryption",
  *     description: "encryption security policy for example-collection",
  *     policy: JSON.stringify({
- *         Rules: [{
- *             Resource: ["collection/example-collection"],
- *             ResourceType: "collection",
+ *         rules: [{
+ *             resource: ["collection/example-collection"],
+ *             resourceType: "collection",
  *         }],
- *         AWSOwnedKey: true,
+ *         aWSOwnedKey: true,
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Applies to multiple collections
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
+ *     name: "example",
  *     type: "encryption",
  *     description: "encryption security policy for collections that begin with \"example\"",
  *     policy: JSON.stringify({
- *         Rules: [{
- *             Resource: ["collection/example*"],
- *             ResourceType: "collection",
+ *         rules: [{
+ *             resource: ["collection/example*"],
+ *             resourceType: "collection",
  *         }],
- *         AWSOwnedKey: true,
+ *         aWSOwnedKey: true,
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Using a customer managed key
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
+ *     name: "example",
  *     type: "encryption",
  *     description: "encryption security policy using customer KMS key",
  *     policy: JSON.stringify({
- *         Rules: [{
- *             Resource: ["collection/customer-managed-key-collection"],
- *             ResourceType: "collection",
+ *         rules: [{
+ *             resource: ["collection/customer-managed-key-collection"],
+ *             resourceType: "collection",
  *         }],
- *         AWSOwnedKey: false,
- *         KmsARN: "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
+ *         aWSOwnedKey: false,
+ *         kmsARN: "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Network Security Policy
+ *
  * ### Allow public access to the collection endpoint and the Dashboards endpoint
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
+ *     name: "example",
  *     type: "network",
  *     description: "Public access",
  *     policy: JSON.stringify([{
- *         Description: "Public access to collection and Dashboards endpoint for example collection",
- *         Rules: [
+ *         description: "Public access to collection and Dashboards endpoint for example collection",
+ *         rules: [
  *             {
- *                 ResourceType: "collection",
- *                 Resource: ["collection/example-collection"],
+ *                 resourceType: "collection",
+ *                 resource: ["collection/example-collection"],
  *             },
  *             {
- *                 ResourceType: "dashboard",
- *                 Resource: ["collection/example-collection"],
+ *                 resourceType: "dashboard",
+ *                 resource: ["collection/example-collection"],
  *             },
  *         ],
- *         AllowFromPublic: true,
+ *         allowFromPublic: true,
  *     }]),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Allow VPC access to the collection endpoint and the Dashboards endpoint
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
+ *     name: "example",
  *     type: "network",
  *     description: "VPC access",
  *     policy: JSON.stringify([{
- *         Description: "VPC access to collection and Dashboards endpoint for example collection",
- *         Rules: [
+ *         description: "VPC access to collection and Dashboards endpoint for example collection",
+ *         rules: [
  *             {
- *                 ResourceType: "collection",
- *                 Resource: ["collection/example-collection"],
+ *                 resourceType: "collection",
+ *                 resource: ["collection/example-collection"],
  *             },
  *             {
- *                 ResourceType: "dashboard",
- *                 Resource: ["collection/example-collection"],
+ *                 resourceType: "dashboard",
+ *                 resource: ["collection/example-collection"],
  *             },
  *         ],
- *         AllowFromPublic: false,
- *         SourceVPCEs: ["vpce-050f79086ee71ac05"],
+ *         allowFromPublic: false,
+ *         sourceVPCEs: ["vpce-050f79086ee71ac05"],
  *     }]),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Mixed access for different collections
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
+ *     name: "example",
  *     type: "network",
  *     description: "Mixed access for marketing and sales",
  *     policy: JSON.stringify([
@@ -153,13 +177,14 @@ import * as utilities from "../utilities";
  *     ]),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import OpenSearchServerless Security Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
  *
  * ```sh
- *  $ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
+ * $ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
  * ```
  */
 export class ServerlessSecurityPolicy extends pulumi.CustomResource {

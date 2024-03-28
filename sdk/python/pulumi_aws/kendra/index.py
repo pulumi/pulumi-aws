@@ -523,69 +523,89 @@ class Index(pulumi.CustomResource):
         Provides an Amazon Kendra Index resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
+            name="example",
             description="example",
             edition="DEVELOPER_EDITION",
-            role_arn=aws_iam_role["this"]["arn"],
+            role_arn=this["arn"],
             tags={
                 "Key1": "Value1",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With capacity units
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
+            name="example",
             edition="DEVELOPER_EDITION",
-            role_arn=aws_iam_role["this"]["arn"],
+            role_arn=this["arn"],
             capacity_units=aws.kendra.IndexCapacityUnitsArgs(
                 query_capacity_units=2,
                 storage_capacity_units=2,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With server side encryption configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            role_arn=aws_iam_role["this"]["arn"],
+            name="example",
+            role_arn=this_aws_iam_role["arn"],
             server_side_encryption_configuration=aws.kendra.IndexServerSideEncryptionConfigurationArgs(
-                kms_key_id=data["aws_kms_key"]["this"]["arn"],
+                kms_key_id=this["arn"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With user group resolution configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            role_arn=aws_iam_role["this"]["arn"],
+            name="example",
+            role_arn=this["arn"],
             user_group_resolution_configuration=aws.kendra.IndexUserGroupResolutionConfigurationArgs(
                 user_group_resolution_mode="AWS_SSO",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Document Metadata Configuration Updates
+
         ### Specifying the predefined elements
 
         Refer to [Amazon Kendra documentation on built-in document fields](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html#index-reserved-fields) for more information.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            role_arn=aws_iam_role["this"]["arn"],
+            name="example",
+            role_arn=this["arn"],
             document_metadata_configuration_updates=[
                 aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
                     name="_authors",
@@ -788,16 +808,20 @@ class Index(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Appending additional elements
 
         The example below shows additional elements with names, `example-string-value`, `example-long-value`, `example-string-list-value`, `example-date-value` representing the 4 types of `STRING_VALUE`, `LONG_VALUE`, `STRING_LIST_VALUE`, `DATE_VALUE` respectively.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            role_arn=aws_iam_role["this"]["arn"],
+            name="example",
+            role_arn=this["arn"],
             document_metadata_configuration_updates=[
                 aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
                     name="_authors",
@@ -1057,14 +1081,18 @@ class Index(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With JSON token type configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            role_arn=aws_iam_role["this"]["arn"],
+            name="example",
+            role_arn=this["arn"],
             user_token_configurations=aws.kendra.IndexUserTokenConfigurationsArgs(
                 json_token_type_configuration=aws.kendra.IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs(
                     group_attribute_field="groups",
@@ -1072,13 +1100,14 @@ class Index(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Kendra Indexes using its `id`. For example:
 
         ```sh
-         $ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123
+        $ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123
         ```
 
         :param str resource_name: The name of the resource.
@@ -1106,69 +1135,89 @@ class Index(pulumi.CustomResource):
         Provides an Amazon Kendra Index resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
+            name="example",
             description="example",
             edition="DEVELOPER_EDITION",
-            role_arn=aws_iam_role["this"]["arn"],
+            role_arn=this["arn"],
             tags={
                 "Key1": "Value1",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With capacity units
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
+            name="example",
             edition="DEVELOPER_EDITION",
-            role_arn=aws_iam_role["this"]["arn"],
+            role_arn=this["arn"],
             capacity_units=aws.kendra.IndexCapacityUnitsArgs(
                 query_capacity_units=2,
                 storage_capacity_units=2,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With server side encryption configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            role_arn=aws_iam_role["this"]["arn"],
+            name="example",
+            role_arn=this_aws_iam_role["arn"],
             server_side_encryption_configuration=aws.kendra.IndexServerSideEncryptionConfigurationArgs(
-                kms_key_id=data["aws_kms_key"]["this"]["arn"],
+                kms_key_id=this["arn"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With user group resolution configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            role_arn=aws_iam_role["this"]["arn"],
+            name="example",
+            role_arn=this["arn"],
             user_group_resolution_configuration=aws.kendra.IndexUserGroupResolutionConfigurationArgs(
                 user_group_resolution_mode="AWS_SSO",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Document Metadata Configuration Updates
+
         ### Specifying the predefined elements
 
         Refer to [Amazon Kendra documentation on built-in document fields](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html#index-reserved-fields) for more information.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            role_arn=aws_iam_role["this"]["arn"],
+            name="example",
+            role_arn=this["arn"],
             document_metadata_configuration_updates=[
                 aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
                     name="_authors",
@@ -1371,16 +1420,20 @@ class Index(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Appending additional elements
 
         The example below shows additional elements with names, `example-string-value`, `example-long-value`, `example-string-list-value`, `example-date-value` representing the 4 types of `STRING_VALUE`, `LONG_VALUE`, `STRING_LIST_VALUE`, `DATE_VALUE` respectively.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            role_arn=aws_iam_role["this"]["arn"],
+            name="example",
+            role_arn=this["arn"],
             document_metadata_configuration_updates=[
                 aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
                     name="_authors",
@@ -1640,14 +1693,18 @@ class Index(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With JSON token type configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            role_arn=aws_iam_role["this"]["arn"],
+            name="example",
+            role_arn=this["arn"],
             user_token_configurations=aws.kendra.IndexUserTokenConfigurationsArgs(
                 json_token_type_configuration=aws.kendra.IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs(
                     group_attribute_field="groups",
@@ -1655,13 +1712,14 @@ class Index(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Kendra Indexes using its `id`. For example:
 
         ```sh
-         $ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123
+        $ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123
         ```
 
         :param str resource_name: The name of the resource.
@@ -1719,8 +1777,6 @@ class Index(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["updated_at"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Index, __self__).__init__(
             'aws:kendra/index:Index',
             resource_name,

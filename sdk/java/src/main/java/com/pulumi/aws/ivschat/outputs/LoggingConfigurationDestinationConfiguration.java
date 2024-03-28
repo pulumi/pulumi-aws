@@ -74,25 +74,28 @@ public final class LoggingConfigurationDestinationConfiguration {
 
         @CustomType.Setter
         public Builder cloudwatchLogs(@Nullable LoggingConfigurationDestinationConfigurationCloudwatchLogs cloudwatchLogs) {
+
             this.cloudwatchLogs = cloudwatchLogs;
             return this;
         }
         @CustomType.Setter
         public Builder firehose(@Nullable LoggingConfigurationDestinationConfigurationFirehose firehose) {
+
             this.firehose = firehose;
             return this;
         }
         @CustomType.Setter
         public Builder s3(@Nullable LoggingConfigurationDestinationConfigurationS3 s3) {
+
             this.s3 = s3;
             return this;
         }
         public LoggingConfigurationDestinationConfiguration build() {
-            final var o = new LoggingConfigurationDestinationConfiguration();
-            o.cloudwatchLogs = cloudwatchLogs;
-            o.firehose = firehose;
-            o.s3 = s3;
-            return o;
+            final var _resultValue = new LoggingConfigurationDestinationConfiguration();
+            _resultValue.cloudwatchLogs = cloudwatchLogs;
+            _resultValue.firehose = firehose;
+            _resultValue.s3 = s3;
+            return _resultValue;
         }
     }
 }

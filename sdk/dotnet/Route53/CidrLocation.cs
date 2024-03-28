@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,11 +23,15 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCidrCollection = new Aws.Route53.CidrCollection("exampleCidrCollection");
-    /// 
-    ///     var exampleCidrLocation = new Aws.Route53.CidrLocation("exampleCidrLocation", new()
+    ///     var example = new Aws.Route53.CidrCollection("example", new()
     ///     {
-    ///         CidrCollectionId = exampleCidrCollection.Id,
+    ///         Name = "collection-1",
+    ///     });
+    /// 
+    ///     var exampleCidrLocation = new Aws.Route53.CidrLocation("example", new()
+    ///     {
+    ///         CidrCollectionId = example.Id,
+    ///         Name = "office",
     ///         CidrBlocks = new[]
     ///         {
     ///             "200.5.3.0/24",
@@ -36,13 +41,14 @@ namespace Pulumi.Aws.Route53
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CIDR locations using their the CIDR collection ID and location name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53/cidrLocation:CidrLocation example 9ac32814-3e67-0932-6048-8d779cc6f511,office
+    /// $ pulumi import aws:route53/cidrLocation:CidrLocation example 9ac32814-3e67-0932-6048-8d779cc6f511,office
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/cidrLocation:CidrLocation")]

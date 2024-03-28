@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,19 +30,24 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53.NewResolverEndpoint(ctx, "foo", &route53.ResolverEndpointArgs{
+//				Name:      pulumi.String("foo"),
 //				Direction: pulumi.String("INBOUND"),
 //				SecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Sg1.Id,
-//					aws_security_group.Sg2.Id,
+//					sg1.Id,
+//					sg2.Id,
 //				},
 //				IpAddresses: route53.ResolverEndpointIpAddressArray{
 //					&route53.ResolverEndpointIpAddressArgs{
-//						SubnetId: pulumi.Any(aws_subnet.Sn1.Id),
+//						SubnetId: pulumi.Any(sn1.Id),
 //					},
 //					&route53.ResolverEndpointIpAddressArgs{
-//						SubnetId: pulumi.Any(aws_subnet.Sn2.Id),
+//						SubnetId: pulumi.Any(sn2.Id),
 //						Ip:       pulumi.String("10.0.64.4"),
 //					},
+//				},
+//				Protocols: pulumi.StringArray{
+//					pulumi.String("Do53"),
+//					pulumi.String("DoH"),
 //				},
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("Prod"),
@@ -55,17 +61,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// # Using `pulumi import`, import
-//
-// Route 53 Resolver endpoints using the Route 53 Resolver endpoint ID. For example:
+// Using `pulumi import`, import  Route 53 Resolver endpoints using the Route 53 Resolver endpoint ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
-//
+// $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
 // ```
 type ResolverEndpoint struct {
 	pulumi.CustomResourceState
@@ -83,6 +86,10 @@ type ResolverEndpoint struct {
 	IpAddresses ResolverEndpointIpAddressArrayOutput `pulumi:"ipAddresses"`
 	// The friendly name of the Route 53 Resolver endpoint.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
+	// The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+	ResolverEndpointType pulumi.StringOutput `pulumi:"resolverEndpointType"`
 	// The ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -109,10 +116,6 @@ func NewResolverEndpoint(ctx *pulumi.Context,
 	if args.SecurityGroupIds == nil {
 		return nil, errors.New("invalid value for required argument 'SecurityGroupIds'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverEndpoint
 	err := ctx.RegisterResource("aws:route53/resolverEndpoint:ResolverEndpoint", name, args, &resource, opts...)
@@ -149,6 +152,10 @@ type resolverEndpointState struct {
 	IpAddresses []ResolverEndpointIpAddress `pulumi:"ipAddresses"`
 	// The friendly name of the Route 53 Resolver endpoint.
 	Name *string `pulumi:"name"`
+	// The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+	Protocols []string `pulumi:"protocols"`
+	// The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+	ResolverEndpointType *string `pulumi:"resolverEndpointType"`
 	// The ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -173,6 +180,10 @@ type ResolverEndpointState struct {
 	IpAddresses ResolverEndpointIpAddressArrayInput
 	// The friendly name of the Route 53 Resolver endpoint.
 	Name pulumi.StringPtrInput
+	// The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+	Protocols pulumi.StringArrayInput
+	// The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+	ResolverEndpointType pulumi.StringPtrInput
 	// The ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -197,6 +208,10 @@ type resolverEndpointArgs struct {
 	IpAddresses []ResolverEndpointIpAddress `pulumi:"ipAddresses"`
 	// The friendly name of the Route 53 Resolver endpoint.
 	Name *string `pulumi:"name"`
+	// The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+	Protocols []string `pulumi:"protocols"`
+	// The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+	ResolverEndpointType *string `pulumi:"resolverEndpointType"`
 	// The ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -214,6 +229,10 @@ type ResolverEndpointArgs struct {
 	IpAddresses ResolverEndpointIpAddressArrayInput
 	// The friendly name of the Route 53 Resolver endpoint.
 	Name pulumi.StringPtrInput
+	// The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+	Protocols pulumi.StringArrayInput
+	// The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+	ResolverEndpointType pulumi.StringPtrInput
 	// The ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -333,6 +352,16 @@ func (o ResolverEndpointOutput) IpAddresses() ResolverEndpointIpAddressArrayOutp
 // The friendly name of the Route 53 Resolver endpoint.
 func (o ResolverEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+func (o ResolverEndpointOutput) Protocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringArrayOutput { return v.Protocols }).(pulumi.StringArrayOutput)
+}
+
+// The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+func (o ResolverEndpointOutput) ResolverEndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.ResolverEndpointType }).(pulumi.StringOutput)
 }
 
 // The ID of one or more security groups that you want to use to control access to this VPC.

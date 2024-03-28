@@ -26,7 +26,10 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** This resource allows you to manage an Amazon Lightsail container service deployment version but the provider cannot destroy it. Removing this resource from your configuration will remove it from your statefile.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -71,19 +74,20 @@ import javax.annotation.Nullable;
  *                     .successCodes(&#34;200-499&#34;)
  *                     .build())
  *                 .build())
- *             .serviceName(aws_lightsail_container_service.example().name())
+ *             .serviceName(exampleAwsLightsailContainerService.name())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Lightsail Container Service Deployment Version using the `service_name` and `version` separated by a slash (`/`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion example container-service-1/1
+ * $ pulumi import aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion example container-service-1/1
  * ```
  * 
  */

@@ -331,33 +331,37 @@ class ResolverFirewallRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_resolver_firewall_domain_list = aws.route53.ResolverFirewallDomainList("exampleResolverFirewallDomainList",
+        example = aws.route53.ResolverFirewallDomainList("example",
+            name="example",
             domains=["example.com"],
             tags={})
-        example_resolver_firewall_rule_group = aws.route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", tags={})
-        example_resolver_firewall_rule = aws.route53.ResolverFirewallRule("exampleResolverFirewallRule",
+        example_resolver_firewall_rule_group = aws.route53.ResolverFirewallRuleGroup("example",
+            name="example",
+            tags={})
+        example_resolver_firewall_rule = aws.route53.ResolverFirewallRule("example",
+            name="example",
             action="BLOCK",
             block_override_dns_type="CNAME",
             block_override_domain="example.com",
             block_override_ttl=1,
             block_response="OVERRIDE",
-            firewall_domain_list_id=example_resolver_firewall_domain_list.id,
+            firewall_domain_list_id=example.id,
             firewall_rule_group_id=example_resolver_firewall_rule_group.id,
             priority=100)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import
-
-        Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':'. For example:
+        Using `pulumi import`, import  Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':'. For example:
 
         ```sh
-         $ pulumi import aws:route53/resolverFirewallRule:ResolverFirewallRule example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
+        $ pulumi import aws:route53/resolverFirewallRule:ResolverFirewallRule example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
         ```
 
         :param str resource_name: The name of the resource.
@@ -383,33 +387,37 @@ class ResolverFirewallRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_resolver_firewall_domain_list = aws.route53.ResolverFirewallDomainList("exampleResolverFirewallDomainList",
+        example = aws.route53.ResolverFirewallDomainList("example",
+            name="example",
             domains=["example.com"],
             tags={})
-        example_resolver_firewall_rule_group = aws.route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", tags={})
-        example_resolver_firewall_rule = aws.route53.ResolverFirewallRule("exampleResolverFirewallRule",
+        example_resolver_firewall_rule_group = aws.route53.ResolverFirewallRuleGroup("example",
+            name="example",
+            tags={})
+        example_resolver_firewall_rule = aws.route53.ResolverFirewallRule("example",
+            name="example",
             action="BLOCK",
             block_override_dns_type="CNAME",
             block_override_domain="example.com",
             block_override_ttl=1,
             block_response="OVERRIDE",
-            firewall_domain_list_id=example_resolver_firewall_domain_list.id,
+            firewall_domain_list_id=example.id,
             firewall_rule_group_id=example_resolver_firewall_rule_group.id,
             priority=100)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import
-
-        Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':'. For example:
+        Using `pulumi import`, import  Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':'. For example:
 
         ```sh
-         $ pulumi import aws:route53/resolverFirewallRule:ResolverFirewallRule example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
+        $ pulumi import aws:route53/resolverFirewallRule:ResolverFirewallRule example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
         ```
 
         :param str resource_name: The name of the resource.

@@ -58,16 +58,19 @@ public final class ThingGroupMetadata {
 
         @CustomType.Setter
         public Builder creationDate(@Nullable String creationDate) {
+
             this.creationDate = creationDate;
             return this;
         }
         @CustomType.Setter
         public Builder parentGroupName(@Nullable String parentGroupName) {
+
             this.parentGroupName = parentGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder rootToParentGroups(@Nullable List<ThingGroupMetadataRootToParentGroup> rootToParentGroups) {
+
             this.rootToParentGroups = rootToParentGroups;
             return this;
         }
@@ -75,11 +78,11 @@ public final class ThingGroupMetadata {
             return rootToParentGroups(List.of(rootToParentGroups));
         }
         public ThingGroupMetadata build() {
-            final var o = new ThingGroupMetadata();
-            o.creationDate = creationDate;
-            o.parentGroupName = parentGroupName;
-            o.rootToParentGroups = rootToParentGroups;
-            return o;
+            final var _resultValue = new ThingGroupMetadata();
+            _resultValue.creationDate = creationDate;
+            _resultValue.parentGroupName = parentGroupName;
+            _resultValue.rootToParentGroups = rootToParentGroups;
+            return _resultValue;
         }
     }
 }

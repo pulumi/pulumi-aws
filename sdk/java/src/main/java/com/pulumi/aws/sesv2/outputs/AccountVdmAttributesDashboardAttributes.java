@@ -44,13 +44,14 @@ public final class AccountVdmAttributesDashboardAttributes {
 
         @CustomType.Setter
         public Builder engagementMetrics(@Nullable String engagementMetrics) {
+
             this.engagementMetrics = engagementMetrics;
             return this;
         }
         public AccountVdmAttributesDashboardAttributes build() {
-            final var o = new AccountVdmAttributesDashboardAttributes();
-            o.engagementMetrics = engagementMetrics;
-            return o;
+            final var _resultValue = new AccountVdmAttributesDashboardAttributes();
+            _resultValue.engagementMetrics = engagementMetrics;
+            return _resultValue;
         }
     }
 }

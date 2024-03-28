@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Manages an Image Builder Infrastructure Configuration.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,18 +50,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new InfrastructureConfiguration(&#34;example&#34;, InfrastructureConfigurationArgs.builder()        
  *             .description(&#34;example description&#34;)
- *             .instanceProfileName(aws_iam_instance_profile.example().name())
+ *             .instanceProfileName(exampleAwsIamInstanceProfile.name())
  *             .instanceTypes(            
  *                 &#34;t2.nano&#34;,
  *                 &#34;t3.micro&#34;)
- *             .keyPair(aws_key_pair.example().key_name())
- *             .securityGroupIds(aws_security_group.example().id())
- *             .snsTopicArn(aws_sns_topic.example().arn())
- *             .subnetId(aws_subnet.main().id())
+ *             .keyPair(exampleAwsKeyPair.keyName())
+ *             .name(&#34;example&#34;)
+ *             .securityGroupIds(exampleAwsSecurityGroup.id())
+ *             .snsTopicArn(exampleAwsSnsTopic.arn())
+ *             .subnetId(main.id())
  *             .terminateInstanceOnFailure(true)
  *             .logging(InfrastructureConfigurationLoggingArgs.builder()
  *                 .s3Logs(InfrastructureConfigurationLoggingS3LogsArgs.builder()
- *                     .s3BucketName(aws_s3_bucket.example().bucket())
+ *                     .s3BucketName(exampleAwsS3Bucket.bucket())
  *                     .s3KeyPrefix(&#34;logs&#34;)
  *                     .build())
  *                 .build())
@@ -69,13 +72,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_imagebuilder_infrastructure_configuration` using the Amazon Resource Name (ARN). For example:
  * 
  * ```sh
- *  $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
+ * $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
  * ```
  * 
  */
@@ -360,9 +364,6 @@ public class InfrastructureConfiguration extends com.pulumi.resources.CustomReso
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

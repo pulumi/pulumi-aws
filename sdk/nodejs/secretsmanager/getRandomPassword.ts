@@ -9,15 +9,17 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.secretsmanager.getRandomPassword({
- *     excludeNumbers: true,
  *     passwordLength: 50,
+ *     excludeNumbers: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRandomPassword(args?: GetRandomPasswordArgs, opts?: pulumi.InvokeOptions): Promise<GetRandomPasswordResult> {
     args = args || {};
@@ -31,7 +33,6 @@ export function getRandomPassword(args?: GetRandomPasswordArgs, opts?: pulumi.In
         "excludeUppercase": args.excludeUppercase,
         "includeSpace": args.includeSpace,
         "passwordLength": args.passwordLength,
-        "randomPassword": args.randomPassword,
         "requireEachIncludedType": args.requireEachIncludedType,
     }, opts);
 }
@@ -53,7 +54,7 @@ export interface GetRandomPasswordArgs {
      */
     excludeNumbers?: boolean;
     /**
-     * Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
+     * Specifies whether to exclude the following punctuation characters from the password: ``! " # $ %!&(MISSING) ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
      */
     excludePunctuation?: boolean;
     /**
@@ -68,10 +69,6 @@ export interface GetRandomPasswordArgs {
      * Length of the password.
      */
     passwordLength?: number;
-    /**
-     * Random password.
-     */
-    randomPassword?: string;
     /**
      * Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
      */
@@ -104,15 +101,17 @@ export interface GetRandomPasswordResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.secretsmanager.getRandomPassword({
- *     excludeNumbers: true,
  *     passwordLength: 50,
+ *     excludeNumbers: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRandomPasswordOutput(args?: GetRandomPasswordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRandomPasswordResult> {
     return pulumi.output(args).apply((a: any) => getRandomPassword(a, opts))
@@ -135,7 +134,7 @@ export interface GetRandomPasswordOutputArgs {
      */
     excludeNumbers?: pulumi.Input<boolean>;
     /**
-     * Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
+     * Specifies whether to exclude the following punctuation characters from the password: ``! " # $ %!&(MISSING) ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
      */
     excludePunctuation?: pulumi.Input<boolean>;
     /**
@@ -150,10 +149,6 @@ export interface GetRandomPasswordOutputArgs {
      * Length of the password.
      */
     passwordLength?: pulumi.Input<number>;
-    /**
-     * Random password.
-     */
-    randomPassword?: pulumi.Input<string>;
     /**
      * Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
      */

@@ -6,6 +6,7 @@ package com.pulumi.aws.globalaccelerator;
 import com.pulumi.aws.globalaccelerator.inputs.CustomRoutingListenerPortRangeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -123,8 +124,12 @@ public final class CustomRoutingListenerArgs extends com.pulumi.resources.Resour
         }
 
         public CustomRoutingListenerArgs build() {
-            $.acceleratorArn = Objects.requireNonNull($.acceleratorArn, "expected parameter 'acceleratorArn' to be non-null");
-            $.portRanges = Objects.requireNonNull($.portRanges, "expected parameter 'portRanges' to be non-null");
+            if ($.acceleratorArn == null) {
+                throw new MissingRequiredPropertyException("CustomRoutingListenerArgs", "acceleratorArn");
+            }
+            if ($.portRanges == null) {
+                throw new MissingRequiredPropertyException("CustomRoutingListenerArgs", "portRanges");
+            }
             return $;
         }
     }

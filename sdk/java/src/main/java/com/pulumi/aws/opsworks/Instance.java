@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Provides an OpsWorks instance resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,8 +47,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var my_instance = new Instance(&#34;my-instance&#34;, InstanceArgs.builder()        
- *             .stackId(aws_opsworks_stack.main().id())
- *             .layerIds(aws_opsworks_custom_layer.my-layer().id())
+ *             .stackId(main.id())
+ *             .layerIds(my_layer.id())
  *             .instanceType(&#34;t2.micro&#34;)
  *             .os(&#34;Amazon Linux 2015.09&#34;)
  *             .state(&#34;stopped&#34;)
@@ -55,6 +57,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Block devices
  * 
  * Each of the `*_block_device` attributes controls a portion of the AWS
@@ -104,7 +108,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import Opsworks Instances using the instance `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
+ * $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
  * ```
  * 
  */

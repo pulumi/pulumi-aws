@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,6 +22,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Associating an ECS Capacity Provider to an Auto Scaling Group will automatically add the `AmazonECSManaged` tag to the Auto Scaling Group. This tag should be included in the `aws.autoscaling.Group` resource configuration to prevent the provider from removing it in subsequent executions as well as ensuring the `AmazonECSManaged` tag is propagated to all EC2 Instances in the Auto Scaling Group if `min_size` is above 0 on creation. Any EC2 Instances in the Auto Scaling Group without this tag must be manually be updated, otherwise they may cause unexpected scaling behavior and metrics.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testGroup = new Group(&#34;testGroup&#34;, GroupArgs.builder()        
+ *         var test = new Group(&#34;test&#34;, GroupArgs.builder()        
  *             .tags(GroupTagArgs.builder()
  *                 .key(&#34;AmazonECSManaged&#34;)
  *                 .value(true)
@@ -58,8 +59,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testCapacityProvider = new CapacityProvider(&#34;testCapacityProvider&#34;, CapacityProviderArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .autoScalingGroupProvider(CapacityProviderAutoScalingGroupProviderArgs.builder()
- *                 .autoScalingGroupArn(testGroup.arn())
+ *                 .autoScalingGroupArn(test.arn())
  *                 .managedTerminationProtection(&#34;ENABLED&#34;)
  *                 .managedScaling(CapacityProviderAutoScalingGroupProviderManagedScalingArgs.builder()
  *                     .maximumScalingStepSize(1000)
@@ -73,13 +75,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import ECS Capacity Providers using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
+ * $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
  * ```
  * 
  */
@@ -192,9 +195,6 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

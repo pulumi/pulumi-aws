@@ -14,6 +14,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,20 +29,21 @@ namespace Pulumi.Aws.StorageGateway
     ///         {
     ///             "0.0.0.0/0",
     ///         },
-    ///         GatewayArn = aws_storagegateway_gateway.Example.Arn,
-    ///         LocationArn = aws_s3_bucket.Example.Arn,
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         GatewayArn = exampleAwsStoragegatewayGateway.Arn,
+    ///         LocationArn = exampleAwsS3Bucket.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_storagegateway_nfs_file_share` using the NFS File Share Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
+    /// $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:storagegateway/nfsFileShare:NfsFileShare")]
@@ -214,10 +216,6 @@ namespace Pulumi.Aws.StorageGateway
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -535,11 +533,7 @@ namespace Pulumi.Aws.StorageGateway
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

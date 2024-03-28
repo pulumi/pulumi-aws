@@ -58,19 +58,21 @@ public final class StackSetAutoDeployment {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder retainStacksOnAccountRemoval(@Nullable Boolean retainStacksOnAccountRemoval) {
+
             this.retainStacksOnAccountRemoval = retainStacksOnAccountRemoval;
             return this;
         }
         public StackSetAutoDeployment build() {
-            final var o = new StackSetAutoDeployment();
-            o.enabled = enabled;
-            o.retainStacksOnAccountRemoval = retainStacksOnAccountRemoval;
-            return o;
+            final var _resultValue = new StackSetAutoDeployment();
+            _resultValue.enabled = enabled;
+            _resultValue.retainStacksOnAccountRemoval = retainStacksOnAccountRemoval;
+            return _resultValue;
         }
     }
 }

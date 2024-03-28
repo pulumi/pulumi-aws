@@ -525,46 +525,49 @@ class Stack(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         network = aws.cloudformation.Stack("network",
+            name="networking-stack",
             parameters={
                 "VPCCidr": "10.0.0.0/16",
             },
             template_body=json.dumps({
-                "Parameters": {
-                    "VPCCidr": {
-                        "Type": "String",
-                        "Default": "10.0.0.0/16",
-                        "Description": "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
+                "parameters": {
+                    "vPCCidr": {
+                        "type": "String",
+                        "default": "10.0.0.0/16",
+                        "description": "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
                     },
                 },
-                "Resources": {
+                "resources": {
                     "myVpc": {
-                        "Type": "AWS::EC2::VPC",
-                        "Properties": {
-                            "CidrBlock": {
+                        "type": "AWS::EC2::VPC",
+                        "properties": {
+                            "cidrBlock": {
                                 "Ref": "VPCCidr",
                             },
-                            "Tags": [{
-                                "Key": "Name",
-                                "Value": "Primary_CF_VPC",
+                            "tags": [{
+                                "key": "Name",
+                                "value": "Primary_CF_VPC",
                             }],
                         },
                     },
                 },
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cloudformation Stacks using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
+        $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
         ```
 
         :param str resource_name: The name of the resource.
@@ -599,46 +602,49 @@ class Stack(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         network = aws.cloudformation.Stack("network",
+            name="networking-stack",
             parameters={
                 "VPCCidr": "10.0.0.0/16",
             },
             template_body=json.dumps({
-                "Parameters": {
-                    "VPCCidr": {
-                        "Type": "String",
-                        "Default": "10.0.0.0/16",
-                        "Description": "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
+                "parameters": {
+                    "vPCCidr": {
+                        "type": "String",
+                        "default": "10.0.0.0/16",
+                        "description": "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
                     },
                 },
-                "Resources": {
+                "resources": {
                     "myVpc": {
-                        "Type": "AWS::EC2::VPC",
-                        "Properties": {
-                            "CidrBlock": {
+                        "type": "AWS::EC2::VPC",
+                        "properties": {
+                            "cidrBlock": {
                                 "Ref": "VPCCidr",
                             },
-                            "Tags": [{
-                                "Key": "Name",
-                                "Value": "Primary_CF_VPC",
+                            "tags": [{
+                                "key": "Name",
+                                "value": "Primary_CF_VPC",
                             }],
                         },
                     },
                 },
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cloudformation Stacks using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
+        $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
         ```
 
         :param str resource_name: The name of the resource.
@@ -693,8 +699,6 @@ class Stack(pulumi.CustomResource):
             __props__.__dict__["timeout_in_minutes"] = timeout_in_minutes
             __props__.__dict__["outputs"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Stack, __self__).__init__(
             'aws:cloudformation/stack:Stack',
             resource_name,

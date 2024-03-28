@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,7 +23,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleServer = new Aws.Transfer.Server("exampleServer", new()
+    ///     var exampleServer = new Aws.Transfer.Server("example", new()
     ///     {
     ///         IdentityProviderType = "SERVICE_MANAGED",
     ///         Tags = 
@@ -57,12 +58,13 @@ namespace Pulumi.Aws.Transfer
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "tf-test-transfer-user-iam-role",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleUser = new Aws.Transfer.User("exampleUser", new()
+    ///     var exampleUser = new Aws.Transfer.User("example", new()
     ///     {
     ///         ServerId = exampleServer.Id,
     ///         UserName = "tftestuser",
@@ -73,14 +75,14 @@ namespace Pulumi.Aws.Transfer
     ///         },
     ///     });
     /// 
-    ///     var exampleSshKey = new Aws.Transfer.SshKey("exampleSshKey", new()
+    ///     var exampleSshKey = new Aws.Transfer.SshKey("example", new()
     ///     {
     ///         ServerId = exampleServer.Id,
     ///         UserName = exampleUser.UserName,
     ///         Body = "... SSH key ...",
     ///     });
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -100,21 +102,23 @@ namespace Pulumi.Aws.Transfer
     ///         },
     ///     });
     /// 
-    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
+    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("example", new()
     ///     {
+    ///         Name = "tf-test-transfer-user-iam-policy",
     ///         Role = exampleRole.Id,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Transfer SSH Public Key using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
+    /// $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
     /// ```
     /// </summary>
     [AwsResourceType("aws:transfer/sshKey:SshKey")]

@@ -8,6 +8,7 @@ import com.pulumi.aws.appmesh.outputs.VirtualGatewaySpecListenerHealthCheck;
 import com.pulumi.aws.appmesh.outputs.VirtualGatewaySpecListenerPortMapping;
 import com.pulumi.aws.appmesh.outputs.VirtualGatewaySpecListenerTls;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -89,31 +90,37 @@ public final class VirtualGatewaySpecListener {
 
         @CustomType.Setter
         public Builder connectionPool(@Nullable VirtualGatewaySpecListenerConnectionPool connectionPool) {
+
             this.connectionPool = connectionPool;
             return this;
         }
         @CustomType.Setter
         public Builder healthCheck(@Nullable VirtualGatewaySpecListenerHealthCheck healthCheck) {
+
             this.healthCheck = healthCheck;
             return this;
         }
         @CustomType.Setter
         public Builder portMapping(VirtualGatewaySpecListenerPortMapping portMapping) {
-            this.portMapping = Objects.requireNonNull(portMapping);
+            if (portMapping == null) {
+              throw new MissingRequiredPropertyException("VirtualGatewaySpecListener", "portMapping");
+            }
+            this.portMapping = portMapping;
             return this;
         }
         @CustomType.Setter
         public Builder tls(@Nullable VirtualGatewaySpecListenerTls tls) {
+
             this.tls = tls;
             return this;
         }
         public VirtualGatewaySpecListener build() {
-            final var o = new VirtualGatewaySpecListener();
-            o.connectionPool = connectionPool;
-            o.healthCheck = healthCheck;
-            o.portMapping = portMapping;
-            o.tls = tls;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecListener();
+            _resultValue.connectionPool = connectionPool;
+            _resultValue.healthCheck = healthCheck;
+            _resultValue.portMapping = portMapping;
+            _resultValue.tls = tls;
+            return _resultValue;
         }
     }
 }

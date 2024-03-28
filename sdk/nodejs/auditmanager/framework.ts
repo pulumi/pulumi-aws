@@ -11,26 +11,32 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Audit Manager Framework.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.auditmanager.Framework("test", {controlSets: [{
+ * const test = new aws.auditmanager.Framework("test", {
  *     name: "example",
- *     controls: [{
- *         id: aws_auditmanager_control.test.id,
+ *     controlSets: [{
+ *         name: "example",
+ *         controls: [{
+ *             id: testAwsAuditmanagerControl.id,
+ *         }],
  *     }],
- * }]});
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Audit Manager Framework using the framework `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:auditmanager/framework:Framework example abc123-de45
+ * $ pulumi import aws:auditmanager/framework:Framework example abc123-de45
  * ```
  */
 export class Framework extends pulumi.CustomResource {
@@ -130,8 +136,6 @@ export class Framework extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Framework.__pulumiType, name, resourceInputs, opts);
     }
 }

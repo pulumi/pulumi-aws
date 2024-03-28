@@ -15,8 +15,10 @@ import (
 // Provides a SageMaker Domain resource.
 //
 // ## Example Usage
+//
 // ### Basic usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Actions: []string{
@@ -50,19 +52,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("example"),
 //				Path:             pulumi.String("/"),
-//				AssumeRolePolicy: *pulumi.String(examplePolicyDocument.Json),
+//				AssumeRolePolicy: pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sagemaker.NewDomain(ctx, "exampleDomain", &sagemaker.DomainArgs{
+//			_, err = sagemaker.NewDomain(ctx, "example", &sagemaker.DomainArgs{
 //				DomainName: pulumi.String("example"),
 //				AuthMode:   pulumi.String("IAM"),
-//				VpcId:      pulumi.Any(aws_vpc.Example.Id),
+//				VpcId:      pulumi.Any(exampleAwsVpc.Id),
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Example.Id,
+//					exampleAwsSubnet.Id,
 //				},
 //				DefaultUserSettings: &sagemaker.DomainDefaultUserSettingsArgs{
 //					ExecutionRole: exampleRole.Arn,
@@ -76,8 +79,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Using Custom Images
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -90,14 +96,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleImage, err := sagemaker.NewImage(ctx, "exampleImage", &sagemaker.ImageArgs{
+//			example, err := sagemaker.NewImage(ctx, "example", &sagemaker.ImageArgs{
 //				ImageName: pulumi.String("example"),
-//				RoleArn:   pulumi.Any(aws_iam_role.Example.Arn),
+//				RoleArn:   pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAppImageConfig, err := sagemaker.NewAppImageConfig(ctx, "exampleAppImageConfig", &sagemaker.AppImageConfigArgs{
+//			exampleAppImageConfig, err := sagemaker.NewAppImageConfig(ctx, "example", &sagemaker.AppImageConfigArgs{
 //				AppImageConfigName: pulumi.String("example"),
 //				KernelGatewayImageConfig: &sagemaker.AppImageConfigKernelGatewayImageConfigArgs{
 //					KernelSpec: &sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs{
@@ -108,22 +114,22 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleImageVersion, err := sagemaker.NewImageVersion(ctx, "exampleImageVersion", &sagemaker.ImageVersionArgs{
-//				ImageName: exampleImage.ID(),
+//			exampleImageVersion, err := sagemaker.NewImageVersion(ctx, "example", &sagemaker.ImageVersionArgs{
+//				ImageName: example.ID(),
 //				BaseImage: pulumi.String("base-image"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sagemaker.NewDomain(ctx, "exampleDomain", &sagemaker.DomainArgs{
+//			_, err = sagemaker.NewDomain(ctx, "example", &sagemaker.DomainArgs{
 //				DomainName: pulumi.String("example"),
 //				AuthMode:   pulumi.String("IAM"),
-//				VpcId:      pulumi.Any(aws_vpc.Example.Id),
+//				VpcId:      pulumi.Any(exampleAwsVpc.Id),
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Example.Id,
+//					exampleAwsSubnet.Id,
 //				},
 //				DefaultUserSettings: &sagemaker.DomainDefaultUserSettingsArgs{
-//					ExecutionRole: pulumi.Any(aws_iam_role.Example.Arn),
+//					ExecutionRole: pulumi.Any(exampleAwsIamRole.Arn),
 //					KernelGatewayAppSettings: &sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs{
 //						CustomImages: sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArray{
 //							&sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs{
@@ -142,15 +148,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SageMaker Domains using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
-//
+// $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
 // ```
 type Domain struct {
 	pulumi.CustomResourceState
@@ -163,21 +168,24 @@ type Domain struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
 	AuthMode pulumi.StringOutput `pulumi:"authMode"`
-	// The default space settings. See Default Space Settings below.
+	// The default space settings. See `defaultSpaceSettings` Block below.
 	DefaultSpaceSettings DomainDefaultSpaceSettingsPtrOutput `pulumi:"defaultSpaceSettings"`
-	// The default user settings. See Default User Settings below.* `domainName` - (Required) The domain name.
+	// The default user settings. See `defaultUserSettings` Block below.
 	DefaultUserSettings DomainDefaultUserSettingsOutput `pulumi:"defaultUserSettings"`
-	DomainName          pulumi.StringOutput             `pulumi:"domainName"`
-	// The domain's settings.
+	// The domain name.
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// The domain settings. See `domainSettings` Block below.
 	DomainSettings DomainDomainSettingsPtrOutput `pulumi:"domainSettings"`
 	// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
 	HomeEfsFileSystemId pulumi.StringOutput `pulumi:"homeEfsFileSystemId"`
 	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
 	RetentionPolicy DomainRetentionPolicyPtrOutput `pulumi:"retentionPolicy"`
 	// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
 	SecurityGroupIdForDomainBoundary pulumi.StringOutput `pulumi:"securityGroupIdForDomainBoundary"`
+	// The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+	SingleSignOnApplicationArn pulumi.StringOutput `pulumi:"singleSignOnApplicationArn"`
 	// The SSO managed application instance ID.
 	SingleSignOnManagedApplicationInstanceId pulumi.StringOutput `pulumi:"singleSignOnManagedApplicationInstanceId"`
 	// The VPC subnets that Studio uses for communication.
@@ -218,10 +226,6 @@ func NewDomain(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Domain
 	err := ctx.RegisterResource("aws:sagemaker/domain:Domain", name, args, &resource, opts...)
@@ -253,21 +257,24 @@ type domainState struct {
 	Arn *string `pulumi:"arn"`
 	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
 	AuthMode *string `pulumi:"authMode"`
-	// The default space settings. See Default Space Settings below.
+	// The default space settings. See `defaultSpaceSettings` Block below.
 	DefaultSpaceSettings *DomainDefaultSpaceSettings `pulumi:"defaultSpaceSettings"`
-	// The default user settings. See Default User Settings below.* `domainName` - (Required) The domain name.
+	// The default user settings. See `defaultUserSettings` Block below.
 	DefaultUserSettings *DomainDefaultUserSettings `pulumi:"defaultUserSettings"`
-	DomainName          *string                    `pulumi:"domainName"`
-	// The domain's settings.
+	// The domain name.
+	DomainName *string `pulumi:"domainName"`
+	// The domain settings. See `domainSettings` Block below.
 	DomainSettings *DomainDomainSettings `pulumi:"domainSettings"`
 	// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
 	HomeEfsFileSystemId *string `pulumi:"homeEfsFileSystemId"`
 	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
 	RetentionPolicy *DomainRetentionPolicy `pulumi:"retentionPolicy"`
 	// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
 	SecurityGroupIdForDomainBoundary *string `pulumi:"securityGroupIdForDomainBoundary"`
+	// The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+	SingleSignOnApplicationArn *string `pulumi:"singleSignOnApplicationArn"`
 	// The SSO managed application instance ID.
 	SingleSignOnManagedApplicationInstanceId *string `pulumi:"singleSignOnManagedApplicationInstanceId"`
 	// The VPC subnets that Studio uses for communication.
@@ -295,21 +302,24 @@ type DomainState struct {
 	Arn pulumi.StringPtrInput
 	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
 	AuthMode pulumi.StringPtrInput
-	// The default space settings. See Default Space Settings below.
+	// The default space settings. See `defaultSpaceSettings` Block below.
 	DefaultSpaceSettings DomainDefaultSpaceSettingsPtrInput
-	// The default user settings. See Default User Settings below.* `domainName` - (Required) The domain name.
+	// The default user settings. See `defaultUserSettings` Block below.
 	DefaultUserSettings DomainDefaultUserSettingsPtrInput
-	DomainName          pulumi.StringPtrInput
-	// The domain's settings.
+	// The domain name.
+	DomainName pulumi.StringPtrInput
+	// The domain settings. See `domainSettings` Block below.
 	DomainSettings DomainDomainSettingsPtrInput
 	// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
 	HomeEfsFileSystemId pulumi.StringPtrInput
 	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
 	KmsKeyId pulumi.StringPtrInput
-	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
 	RetentionPolicy DomainRetentionPolicyPtrInput
 	// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
 	SecurityGroupIdForDomainBoundary pulumi.StringPtrInput
+	// The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+	SingleSignOnApplicationArn pulumi.StringPtrInput
 	// The SSO managed application instance ID.
 	SingleSignOnManagedApplicationInstanceId pulumi.StringPtrInput
 	// The VPC subnets that Studio uses for communication.
@@ -339,16 +349,17 @@ type domainArgs struct {
 	AppSecurityGroupManagement *string `pulumi:"appSecurityGroupManagement"`
 	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
 	AuthMode string `pulumi:"authMode"`
-	// The default space settings. See Default Space Settings below.
+	// The default space settings. See `defaultSpaceSettings` Block below.
 	DefaultSpaceSettings *DomainDefaultSpaceSettings `pulumi:"defaultSpaceSettings"`
-	// The default user settings. See Default User Settings below.* `domainName` - (Required) The domain name.
+	// The default user settings. See `defaultUserSettings` Block below.
 	DefaultUserSettings DomainDefaultUserSettings `pulumi:"defaultUserSettings"`
-	DomainName          string                    `pulumi:"domainName"`
-	// The domain's settings.
+	// The domain name.
+	DomainName string `pulumi:"domainName"`
+	// The domain settings. See `domainSettings` Block below.
 	DomainSettings *DomainDomainSettings `pulumi:"domainSettings"`
 	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
 	RetentionPolicy *DomainRetentionPolicy `pulumi:"retentionPolicy"`
 	// The VPC subnets that Studio uses for communication.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -368,16 +379,17 @@ type DomainArgs struct {
 	AppSecurityGroupManagement pulumi.StringPtrInput
 	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
 	AuthMode pulumi.StringInput
-	// The default space settings. See Default Space Settings below.
+	// The default space settings. See `defaultSpaceSettings` Block below.
 	DefaultSpaceSettings DomainDefaultSpaceSettingsPtrInput
-	// The default user settings. See Default User Settings below.* `domainName` - (Required) The domain name.
+	// The default user settings. See `defaultUserSettings` Block below.
 	DefaultUserSettings DomainDefaultUserSettingsInput
-	DomainName          pulumi.StringInput
-	// The domain's settings.
+	// The domain name.
+	DomainName pulumi.StringInput
+	// The domain settings. See `domainSettings` Block below.
 	DomainSettings DomainDomainSettingsPtrInput
 	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
 	KmsKeyId pulumi.StringPtrInput
-	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
 	RetentionPolicy DomainRetentionPolicyPtrInput
 	// The VPC subnets that Studio uses for communication.
 	SubnetIds pulumi.StringArrayInput
@@ -496,21 +508,22 @@ func (o DomainOutput) AuthMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.AuthMode }).(pulumi.StringOutput)
 }
 
-// The default space settings. See Default Space Settings below.
+// The default space settings. See `defaultSpaceSettings` Block below.
 func (o DomainOutput) DefaultSpaceSettings() DomainDefaultSpaceSettingsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainDefaultSpaceSettingsPtrOutput { return v.DefaultSpaceSettings }).(DomainDefaultSpaceSettingsPtrOutput)
 }
 
-// The default user settings. See Default User Settings below.* `domainName` - (Required) The domain name.
+// The default user settings. See `defaultUserSettings` Block below.
 func (o DomainOutput) DefaultUserSettings() DomainDefaultUserSettingsOutput {
 	return o.ApplyT(func(v *Domain) DomainDefaultUserSettingsOutput { return v.DefaultUserSettings }).(DomainDefaultUserSettingsOutput)
 }
 
+// The domain name.
 func (o DomainOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The domain's settings.
+// The domain settings. See `domainSettings` Block below.
 func (o DomainOutput) DomainSettings() DomainDomainSettingsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainDomainSettingsPtrOutput { return v.DomainSettings }).(DomainDomainSettingsPtrOutput)
 }
@@ -525,7 +538,7 @@ func (o DomainOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
 func (o DomainOutput) RetentionPolicy() DomainRetentionPolicyPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainRetentionPolicyPtrOutput { return v.RetentionPolicy }).(DomainRetentionPolicyPtrOutput)
 }
@@ -533,6 +546,11 @@ func (o DomainOutput) RetentionPolicy() DomainRetentionPolicyPtrOutput {
 // The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
 func (o DomainOutput) SecurityGroupIdForDomainBoundary() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.SecurityGroupIdForDomainBoundary }).(pulumi.StringOutput)
+}
+
+// The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+func (o DomainOutput) SingleSignOnApplicationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.SingleSignOnApplicationArn }).(pulumi.StringOutput)
 }
 
 // The SSO managed application instance ID.

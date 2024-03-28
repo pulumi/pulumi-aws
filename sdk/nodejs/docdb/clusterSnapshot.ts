@@ -9,22 +9,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.docdb.ClusterSnapshot("example", {
- *     dbClusterIdentifier: aws_docdb_cluster.example.id,
+ *     dbClusterIdentifier: exampleAwsDocdbCluster.id,
  *     dbClusterSnapshotIdentifier: "resourcetestsnapshot1234",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_docdb_cluster_snapshot` using the cluster snapshot identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+ * $ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
  * ```
  */
 export class ClusterSnapshot extends pulumi.CustomResource {

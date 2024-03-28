@@ -17,14 +17,15 @@ import (
 // More information about DocumentDB Global Clusters can be found in the [DocumentDB Developer Guide](https://docs.aws.amazon.com/documentdb/latest/developerguide/global-clusters.html).
 //
 // ## Example Usage
+//
 // ### New DocumentDB Global Cluster
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/docdb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -32,18 +33,6 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "primary", &aws.ProviderArgs{
-//				Region: pulumi.String("us-east-2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = aws.NewProvider(ctx, "secondary", &aws.ProviderArgs{
-//				Region: pulumi.String("us-east-1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
 //			example, err := docdb.NewGlobalCluster(ctx, "example", &docdb.GlobalClusterArgs{
 //				GlobalClusterIdentifier: pulumi.String("global-test"),
 //				Engine:                  pulumi.String("docdb"),
@@ -52,7 +41,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			primaryCluster, err := docdb.NewCluster(ctx, "primaryCluster", &docdb.ClusterArgs{
+//			primary, err := docdb.NewCluster(ctx, "primary", &docdb.ClusterArgs{
 //				Engine:                  example.Engine,
 //				EngineVersion:           example.EngineVersion,
 //				ClusterIdentifier:       pulumi.String("test-primary-cluster"),
@@ -60,39 +49,35 @@ import (
 //				MasterPassword:          pulumi.String("somepass123"),
 //				GlobalClusterIdentifier: example.ID(),
 //				DbSubnetGroupName:       pulumi.String("default"),
-//			}, pulumi.Provider(aws.Primary))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			primaryClusterInstance, err := docdb.NewClusterInstance(ctx, "primaryClusterInstance", &docdb.ClusterInstanceArgs{
+//			_, err = docdb.NewClusterInstance(ctx, "primary", &docdb.ClusterInstanceArgs{
 //				Engine:            example.Engine,
 //				Identifier:        pulumi.String("test-primary-cluster-instance"),
-//				ClusterIdentifier: primaryCluster.ID(),
+//				ClusterIdentifier: primary.ID(),
 //				InstanceClass:     pulumi.String("db.r5.large"),
-//			}, pulumi.Provider(aws.Primary))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			secondaryCluster, err := docdb.NewCluster(ctx, "secondaryCluster", &docdb.ClusterArgs{
+//			secondary, err := docdb.NewCluster(ctx, "secondary", &docdb.ClusterArgs{
 //				Engine:                  example.Engine,
 //				EngineVersion:           example.EngineVersion,
 //				ClusterIdentifier:       pulumi.String("test-secondary-cluster"),
 //				GlobalClusterIdentifier: example.ID(),
 //				DbSubnetGroupName:       pulumi.String("default"),
-//			}, pulumi.Provider(aws.Secondary), pulumi.DependsOn([]pulumi.Resource{
-//				primaryCluster,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = docdb.NewClusterInstance(ctx, "secondaryClusterInstance", &docdb.ClusterInstanceArgs{
+//			_, err = docdb.NewClusterInstance(ctx, "secondary", &docdb.ClusterInstanceArgs{
 //				Engine:            example.Engine,
 //				Identifier:        pulumi.String("test-secondary-cluster-instance"),
-//				ClusterIdentifier: secondaryCluster.ID(),
+//				ClusterIdentifier: secondary.ID(),
 //				InstanceClass:     pulumi.String("db.r5.large"),
-//			}, pulumi.Provider(aws.Secondary), pulumi.DependsOn([]pulumi.Resource{
-//				primaryClusterInstance,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -101,8 +86,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### New Global Cluster From Existing DB Cluster
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -115,13 +103,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCluster, err := docdb.NewCluster(ctx, "exampleCluster", nil)
+//			example, err := docdb.NewCluster(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = docdb.NewGlobalCluster(ctx, "exampleGlobalCluster", &docdb.GlobalClusterArgs{
+//			_, err = docdb.NewGlobalCluster(ctx, "example", &docdb.GlobalClusterArgs{
 //				GlobalClusterIdentifier:   pulumi.String("example"),
-//				SourceDbClusterIdentifier: exampleCluster.Arn,
+//				SourceDbClusterIdentifier: example.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -131,18 +119,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_docdb_global_cluster` using the Global Cluster identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:docdb/globalCluster:GlobalCluster example example
-//
+// $ pulumi import aws:docdb/globalCluster:GlobalCluster example example
 // ```
-//
-//	Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+// Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 type GlobalCluster struct {
 	pulumi.CustomResourceState
 

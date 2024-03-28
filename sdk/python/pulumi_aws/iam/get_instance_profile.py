@@ -134,12 +134,14 @@ def get_instance_profile(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.iam.get_instance_profile(name="an_example_instance_profile_name")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Friendly IAM instance profile name to match.
@@ -170,12 +172,14 @@ def get_instance_profile_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.iam.get_instance_profile(name="an_example_instance_profile_name")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Friendly IAM instance profile name to match.

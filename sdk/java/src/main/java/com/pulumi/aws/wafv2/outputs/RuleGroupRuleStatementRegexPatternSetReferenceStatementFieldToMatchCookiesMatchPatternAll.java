@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
         }
 
         public RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll build() {
-            final var o = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll();
+            return _resultValue;
         }
     }
 }

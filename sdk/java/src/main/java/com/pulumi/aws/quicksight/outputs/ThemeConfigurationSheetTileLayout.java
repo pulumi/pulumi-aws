@@ -59,19 +59,21 @@ public final class ThemeConfigurationSheetTileLayout {
 
         @CustomType.Setter
         public Builder gutter(@Nullable ThemeConfigurationSheetTileLayoutGutter gutter) {
+
             this.gutter = gutter;
             return this;
         }
         @CustomType.Setter
         public Builder margin(@Nullable ThemeConfigurationSheetTileLayoutMargin margin) {
+
             this.margin = margin;
             return this;
         }
         public ThemeConfigurationSheetTileLayout build() {
-            final var o = new ThemeConfigurationSheetTileLayout();
-            o.gutter = gutter;
-            o.margin = margin;
-            return o;
+            final var _resultValue = new ThemeConfigurationSheetTileLayout();
+            _resultValue.gutter = gutter;
+            _resultValue.margin = margin;
+            return _resultValue;
         }
     }
 }

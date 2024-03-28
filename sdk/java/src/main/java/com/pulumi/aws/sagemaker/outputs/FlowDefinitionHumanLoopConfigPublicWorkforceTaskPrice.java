@@ -44,13 +44,14 @@ public final class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice {
 
         @CustomType.Setter
         public Builder amountInUsd(@Nullable FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd amountInUsd) {
+
             this.amountInUsd = amountInUsd;
             return this;
         }
         public FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice build() {
-            final var o = new FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice();
-            o.amountInUsd = amountInUsd;
-            return o;
+            final var _resultValue = new FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice();
+            _resultValue.amountInUsd = amountInUsd;
+            return _resultValue;
         }
     }
 }

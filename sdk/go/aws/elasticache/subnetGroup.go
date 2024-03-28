@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooVpc, err := ec2.NewVpc(ctx, "fooVpc", &ec2.VpcArgs{
+//			foo, err := ec2.NewVpc(ctx, "foo", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("10.0.0.0/16"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("tf-test"),
@@ -38,8 +39,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			fooSubnet, err := ec2.NewSubnet(ctx, "fooSubnet", &ec2.SubnetArgs{
-//				VpcId:            fooVpc.ID(),
+//			fooSubnet, err := ec2.NewSubnet(ctx, "foo", &ec2.SubnetArgs{
+//				VpcId:            foo.ID(),
 //				CidrBlock:        pulumi.String("10.0.0.0/24"),
 //				AvailabilityZone: pulumi.String("us-west-2a"),
 //				Tags: pulumi.StringMap{
@@ -50,6 +51,7 @@ import (
 //				return err
 //			}
 //			_, err = elasticache.NewSubnetGroup(ctx, "bar", &elasticache.SubnetGroupArgs{
+//				Name: pulumi.String("tf-test-cache-subnet"),
 //				SubnetIds: pulumi.StringArray{
 //					fooSubnet.ID(),
 //				},
@@ -62,15 +64,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ElastiCache Subnet Groups using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
-//
+// $ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
 // ```
 type SubnetGroup struct {
 	pulumi.CustomResourceState
@@ -88,6 +89,8 @@ type SubnetGroup struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewSubnetGroup registers a new resource with the given unique name, arguments, and options.
@@ -103,10 +106,6 @@ func NewSubnetGroup(ctx *pulumi.Context,
 	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SubnetGroup
 	err := ctx.RegisterResource("aws:elasticache/subnetGroup:SubnetGroup", name, args, &resource, opts...)
@@ -143,6 +142,8 @@ type subnetGroupState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 type SubnetGroupState struct {
@@ -159,6 +160,8 @@ type SubnetGroupState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
+	// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+	VpcId pulumi.StringPtrInput
 }
 
 func (SubnetGroupState) ElementType() reflect.Type {
@@ -304,6 +307,11 @@ func (o SubnetGroupOutput) Tags() pulumi.StringMapOutput {
 // Deprecated: Please use `tags` instead.
 func (o SubnetGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+func (o SubnetGroupOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }
 
 type SubnetGroupArrayOutput struct{ *pulumi.OutputState }

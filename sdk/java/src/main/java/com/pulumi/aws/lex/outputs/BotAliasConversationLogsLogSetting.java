@@ -4,6 +4,7 @@
 package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -100,37 +101,48 @@ public final class BotAliasConversationLogsLogSetting {
 
         @CustomType.Setter
         public Builder destination(String destination) {
-            this.destination = Objects.requireNonNull(destination);
+            if (destination == null) {
+              throw new MissingRequiredPropertyException("BotAliasConversationLogsLogSetting", "destination");
+            }
+            this.destination = destination;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
+
             this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         @CustomType.Setter
         public Builder logType(String logType) {
-            this.logType = Objects.requireNonNull(logType);
+            if (logType == null) {
+              throw new MissingRequiredPropertyException("BotAliasConversationLogsLogSetting", "logType");
+            }
+            this.logType = logType;
             return this;
         }
         @CustomType.Setter
         public Builder resourceArn(String resourceArn) {
-            this.resourceArn = Objects.requireNonNull(resourceArn);
+            if (resourceArn == null) {
+              throw new MissingRequiredPropertyException("BotAliasConversationLogsLogSetting", "resourceArn");
+            }
+            this.resourceArn = resourceArn;
             return this;
         }
         @CustomType.Setter
         public Builder resourcePrefix(@Nullable String resourcePrefix) {
+
             this.resourcePrefix = resourcePrefix;
             return this;
         }
         public BotAliasConversationLogsLogSetting build() {
-            final var o = new BotAliasConversationLogsLogSetting();
-            o.destination = destination;
-            o.kmsKeyArn = kmsKeyArn;
-            o.logType = logType;
-            o.resourceArn = resourceArn;
-            o.resourcePrefix = resourcePrefix;
-            return o;
+            final var _resultValue = new BotAliasConversationLogsLogSetting();
+            _resultValue.destination = destination;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.logType = logType;
+            _resultValue.resourceArn = resourceArn;
+            _resultValue.resourcePrefix = resourcePrefix;
+            return _resultValue;
         }
     }
 }

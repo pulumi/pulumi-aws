@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,8 +56,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewLaunchConfiguration(ctx, "asConf", &ec2.LaunchConfigurationArgs{
-//				ImageId:      *pulumi.String(ubuntu.Id),
+//			_, err = ec2.NewLaunchConfiguration(ctx, "as_conf", &ec2.LaunchConfigurationArgs{
+//				Name:         pulumi.String("web_config"),
+//				ImageId:      pulumi.String(ubuntu.Id),
 //				InstanceType: pulumi.String("t2.micro"),
 //			})
 //			if err != nil {
@@ -67,6 +69,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Using with AutoScaling Groups
 //
 // Launch Configurations cannot be updated after creation with the Amazon
@@ -77,6 +81,7 @@ import (
 // Either omit the Launch Configuration `name` attribute, or specify a partial name
 // with `namePrefix`.  Example:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -113,15 +118,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			asConf, err := ec2.NewLaunchConfiguration(ctx, "asConf", &ec2.LaunchConfigurationArgs{
+//			asConf, err := ec2.NewLaunchConfiguration(ctx, "as_conf", &ec2.LaunchConfigurationArgs{
 //				NamePrefix:   pulumi.String("lc-example-"),
-//				ImageId:      *pulumi.String(ubuntu.Id),
+//				ImageId:      pulumi.String(ubuntu.Id),
 //				InstanceType: pulumi.String("t2.micro"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = autoscaling.NewGroup(ctx, "bar", &autoscaling.GroupArgs{
+//				Name:                pulumi.String("asg-example"),
 //				LaunchConfiguration: asConf.Name,
 //				MinSize:             pulumi.Int(1),
 //				MaxSize:             pulumi.Int(2),
@@ -134,6 +140,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // With this setup this provider generates a unique name for your Launch
 // Configuration and can then update the AutoScaling Group without conflict before
@@ -148,6 +155,7 @@ import (
 // documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
 // for more information or how to launch [Spot Instances][3] with this provider.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -184,8 +192,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			asConf, err := ec2.NewLaunchConfiguration(ctx, "asConf", &ec2.LaunchConfigurationArgs{
-//				ImageId:      *pulumi.String(ubuntu.Id),
+//			asConf, err := ec2.NewLaunchConfiguration(ctx, "as_conf", &ec2.LaunchConfigurationArgs{
+//				ImageId:      pulumi.String(ubuntu.Id),
 //				InstanceType: pulumi.String("m4.large"),
 //				SpotPrice:    pulumi.String("0.001"),
 //			})
@@ -193,6 +201,7 @@ import (
 //				return err
 //			}
 //			_, err = autoscaling.NewGroup(ctx, "bar", &autoscaling.GroupArgs{
+//				Name:                pulumi.String("asg-example"),
 //				LaunchConfiguration: asConf.Name,
 //			})
 //			if err != nil {
@@ -203,6 +212,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Block devices
 //
@@ -261,9 +271,7 @@ import (
 // Using `pulumi import`, import launch configurations using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf pulumi-lg-123456
-//
+// $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf pulumi-lg-123456
 // ```
 type LaunchConfiguration struct {
 	pulumi.CustomResourceState

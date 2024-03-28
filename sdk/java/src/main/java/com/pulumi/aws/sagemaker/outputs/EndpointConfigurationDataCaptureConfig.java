@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.outputs;
 import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader;
 import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationDataCaptureConfigCaptureOption;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -119,12 +120,16 @@ public final class EndpointConfigurationDataCaptureConfig {
 
         @CustomType.Setter
         public Builder captureContentTypeHeader(@Nullable EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader captureContentTypeHeader) {
+
             this.captureContentTypeHeader = captureContentTypeHeader;
             return this;
         }
         @CustomType.Setter
         public Builder captureOptions(List<EndpointConfigurationDataCaptureConfigCaptureOption> captureOptions) {
-            this.captureOptions = Objects.requireNonNull(captureOptions);
+            if (captureOptions == null) {
+              throw new MissingRequiredPropertyException("EndpointConfigurationDataCaptureConfig", "captureOptions");
+            }
+            this.captureOptions = captureOptions;
             return this;
         }
         public Builder captureOptions(EndpointConfigurationDataCaptureConfigCaptureOption... captureOptions) {
@@ -132,33 +137,41 @@ public final class EndpointConfigurationDataCaptureConfig {
         }
         @CustomType.Setter
         public Builder destinationS3Uri(String destinationS3Uri) {
-            this.destinationS3Uri = Objects.requireNonNull(destinationS3Uri);
+            if (destinationS3Uri == null) {
+              throw new MissingRequiredPropertyException("EndpointConfigurationDataCaptureConfig", "destinationS3Uri");
+            }
+            this.destinationS3Uri = destinationS3Uri;
             return this;
         }
         @CustomType.Setter
         public Builder enableCapture(@Nullable Boolean enableCapture) {
+
             this.enableCapture = enableCapture;
             return this;
         }
         @CustomType.Setter
         public Builder initialSamplingPercentage(Integer initialSamplingPercentage) {
-            this.initialSamplingPercentage = Objects.requireNonNull(initialSamplingPercentage);
+            if (initialSamplingPercentage == null) {
+              throw new MissingRequiredPropertyException("EndpointConfigurationDataCaptureConfig", "initialSamplingPercentage");
+            }
+            this.initialSamplingPercentage = initialSamplingPercentage;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         public EndpointConfigurationDataCaptureConfig build() {
-            final var o = new EndpointConfigurationDataCaptureConfig();
-            o.captureContentTypeHeader = captureContentTypeHeader;
-            o.captureOptions = captureOptions;
-            o.destinationS3Uri = destinationS3Uri;
-            o.enableCapture = enableCapture;
-            o.initialSamplingPercentage = initialSamplingPercentage;
-            o.kmsKeyId = kmsKeyId;
-            return o;
+            final var _resultValue = new EndpointConfigurationDataCaptureConfig();
+            _resultValue.captureContentTypeHeader = captureContentTypeHeader;
+            _resultValue.captureOptions = captureOptions;
+            _resultValue.destinationS3Uri = destinationS3Uri;
+            _resultValue.enableCapture = enableCapture;
+            _resultValue.initialSamplingPercentage = initialSamplingPercentage;
+            _resultValue.kmsKeyId = kmsKeyId;
+            return _resultValue;
         }
     }
 }

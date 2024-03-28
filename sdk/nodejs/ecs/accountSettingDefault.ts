@@ -13,19 +13,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.ecs.AccountSettingDefault("test", {value: "enabled"});
+ * const test = new aws.ecs.AccountSettingDefault("test", {
+ *     name: "taskLongArnFormat",
+ *     value: "enabled",
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ECS Account Setting defaults using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
+ * $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
  * ```
  */
 export class AccountSettingDefault extends pulumi.CustomResource {
@@ -57,12 +62,12 @@ export class AccountSettingDefault extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+     * Name of the account setting to set.
      */
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly principalArn!: pulumi.Output<string>;
     /**
-     * State of the setting. Valid values are `enabled` and `disabled`.
+     * State of the setting.
      */
     public readonly value!: pulumi.Output<string>;
 
@@ -101,12 +106,12 @@ export class AccountSettingDefault extends pulumi.CustomResource {
  */
 export interface AccountSettingDefaultState {
     /**
-     * Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+     * Name of the account setting to set.
      */
     name?: pulumi.Input<string>;
     principalArn?: pulumi.Input<string>;
     /**
-     * State of the setting. Valid values are `enabled` and `disabled`.
+     * State of the setting.
      */
     value?: pulumi.Input<string>;
 }
@@ -116,11 +121,11 @@ export interface AccountSettingDefaultState {
  */
 export interface AccountSettingDefaultArgs {
     /**
-     * Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+     * Name of the account setting to set.
      */
     name?: pulumi.Input<string>;
     /**
-     * State of the setting. Valid values are `enabled` and `disabled`.
+     * State of the setting.
      */
     value: pulumi.Input<string>;
 }

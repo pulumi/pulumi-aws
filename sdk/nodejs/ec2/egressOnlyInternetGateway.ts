@@ -12,28 +12,30 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {
+ * const example = new aws.ec2.Vpc("example", {
  *     cidrBlock: "10.1.0.0/16",
  *     assignGeneratedIpv6CidrBlock: true,
  * });
- * const exampleEgressOnlyInternetGateway = new aws.ec2.EgressOnlyInternetGateway("exampleEgressOnlyInternetGateway", {
- *     vpcId: exampleVpc.id,
+ * const exampleEgressOnlyInternetGateway = new aws.ec2.EgressOnlyInternetGateway("example", {
+ *     vpcId: example.id,
  *     tags: {
  *         Name: "main",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Egress-only Internet gateways using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
+ * $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
  * ```
  */
 export class EgressOnlyInternetGateway extends pulumi.CustomResource {
@@ -105,8 +107,6 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(EgressOnlyInternetGateway.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -134,14 +134,16 @@ def get_export(accepts: Optional[str] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.apigateway.get_export(rest_api_id=aws_api_gateway_stage["example"]["rest_api_id"],
-        stage_name=aws_api_gateway_stage["example"]["stage_name"],
+    example = aws.apigateway.get_export(rest_api_id=example_aws_api_gateway_stage["restApiId"],
+        stage_name=example_aws_api_gateway_stage["stageName"],
         export_type="oas30")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str accepts: Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
@@ -181,14 +183,16 @@ def get_export_output(accepts: Optional[pulumi.Input[Optional[str]]] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.apigateway.get_export(rest_api_id=aws_api_gateway_stage["example"]["rest_api_id"],
-        stage_name=aws_api_gateway_stage["example"]["stage_name"],
+    example = aws.apigateway.get_export(rest_api_id=example_aws_api_gateway_stage["restApiId"],
+        stage_name=example_aws_api_gateway_stage["stageName"],
         export_type="oas30")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str accepts: Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.

@@ -33,6 +33,8 @@ import javax.annotation.Nullable;
  * resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -57,7 +59,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var main = new NetworkAcl(&#34;main&#34;, NetworkAclArgs.builder()        
- *             .vpcId(aws_vpc.main().id())
+ *             .vpcId(mainAwsVpc.id())
  *             .egress(NetworkAclEgressArgs.builder()
  *                 .protocol(&#34;tcp&#34;)
  *                 .ruleNo(200)
@@ -80,13 +82,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Network ACLs using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
+ * $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
  * ```
  * 
  */
@@ -109,7 +112,11 @@ public class NetworkAcl extends com.pulumi.resources.CustomResource {
     /**
      * Specifies an egress rule. Parameters defined below.
      * 
+     * @deprecated
+     * Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
+     * 
      */
+    @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules. */
     @Export(name="egress", refs={List.class,NetworkAclEgress.class}, tree="[0,1]")
     private Output<List<NetworkAclEgress>> egress;
 
@@ -123,7 +130,11 @@ public class NetworkAcl extends com.pulumi.resources.CustomResource {
     /**
      * Specifies an ingress rule. Parameters defined below.
      * 
+     * @deprecated
+     * Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
+     * 
      */
+    @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules. */
     @Export(name="ingress", refs={List.class,NetworkAclIngress.class}, tree="[0,1]")
     private Output<List<NetworkAclIngress>> ingress;
 
@@ -241,9 +252,6 @@ public class NetworkAcl extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

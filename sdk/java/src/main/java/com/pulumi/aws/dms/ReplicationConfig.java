@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -24,6 +23,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Changing most arguments will stop the replication if it is running. You can set `start_replication` to resume the replication afterwards.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,16 +51,16 @@ import javax.annotation.Nullable;
  *             .replicationConfigIdentifier(&#34;test-dms-serverless-replication-tf&#34;)
  *             .resourceIdentifier(&#34;test-dms-serverless-replication-tf&#34;)
  *             .replicationType(&#34;cdc&#34;)
- *             .sourceEndpointArn(aws_dms_endpoint.source().endpoint_arn())
- *             .targetEndpointArn(aws_dms_endpoint.target().endpoint_arn())
+ *             .sourceEndpointArn(source.endpointArn())
+ *             .targetEndpointArn(target.endpointArn())
  *             .tableMappings(&#34;&#34;&#34;
  *   {
- *     &#34;rules&#34;:[{&#34;rule-type&#34;:&#34;selection&#34;,&#34;rule-id&#34;:&#34;1&#34;,&#34;rule-name&#34;:&#34;1&#34;,&#34;object-locator&#34;:{&#34;schema-name&#34;:&#34;%%&#34;,&#34;table-name&#34;:&#34;%%&#34;, &#34;rule-action&#34;:&#34;include&#34;}]
+ *     &#34;rules&#34;:[{&#34;rule-type&#34;:&#34;selection&#34;,&#34;rule-id&#34;:&#34;1&#34;,&#34;rule-name&#34;:&#34;1&#34;,&#34;rule-action&#34;:&#34;include&#34;,&#34;object-locator&#34;:{&#34;schema-name&#34;:&#34;%%&#34;,&#34;table-name&#34;:&#34;%%&#34;}}]
  *   }
  *             &#34;&#34;&#34;)
  *             .startReplication(true)
  *             .computeConfig(ReplicationConfigComputeConfigArgs.builder()
- *                 .replicationSubnetGroupId(aws_dms_replication_subnet_group.default().replication_subnet_group_id())
+ *                 .replicationSubnetGroupId(default_.replicationSubnetGroupId())
  *                 .maxCapacityUnits(&#34;64&#34;)
  *                 .minCapacityUnits(&#34;2&#34;)
  *                 .preferredMaintenanceWindow(&#34;sun:23:45-mon:00:30&#34;)
@@ -69,13 +70,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a replication config using the `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:dms/replicationConfig:ReplicationConfig example arn:aws:dms:us-east-1:123456789012:replication-config:UX6OL6MHMMJKFFOXE3H7LLJCMEKBDUG4ZV7DRSI
+ * $ pulumi import aws:dms/replicationConfig:ReplicationConfig example arn:aws:dms:us-east-1:123456789012:replication-config:UX6OL6MHMMJKFFOXE3H7LLJCMEKBDUG4ZV7DRSI
  * ```
  * 
  */
@@ -300,9 +302,6 @@ public class ReplicationConfig extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

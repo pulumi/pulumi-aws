@@ -4,6 +4,7 @@
 package com.pulumi.aws.datasync.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -57,19 +58,25 @@ public final class LocationHdfsNameNode {
 
         @CustomType.Setter
         public Builder hostname(String hostname) {
-            this.hostname = Objects.requireNonNull(hostname);
+            if (hostname == null) {
+              throw new MissingRequiredPropertyException("LocationHdfsNameNode", "hostname");
+            }
+            this.hostname = hostname;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("LocationHdfsNameNode", "port");
+            }
+            this.port = port;
             return this;
         }
         public LocationHdfsNameNode build() {
-            final var o = new LocationHdfsNameNode();
-            o.hostname = hostname;
-            o.port = port;
-            return o;
+            final var _resultValue = new LocationHdfsNameNode();
+            _resultValue.hostname = hostname;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

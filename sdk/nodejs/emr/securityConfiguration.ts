@@ -9,11 +9,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foo = new aws.emr.SecurityConfiguration("foo", {configuration: `{
+ * const foo = new aws.emr.SecurityConfiguration("foo", {
+ *     name: "emrsc_other",
+ *     configuration: `{
  *   "EncryptionConfiguration": {
  *     "AtRestEncryptionConfiguration": {
  *       "S3EncryptionConfiguration": {
@@ -28,16 +31,17 @@ import * as utilities from "../utilities";
  *     "EnableAtRestEncryption": true
  *   }
  * }
- *
- * `});
+ * `,
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EMR Security Configurations using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:emr/securityConfiguration:SecurityConfiguration sc example-sc-name
+ * $ pulumi import aws:emr/securityConfiguration:SecurityConfiguration sc example-sc-name
  * ```
  */
 export class SecurityConfiguration extends pulumi.CustomResource {

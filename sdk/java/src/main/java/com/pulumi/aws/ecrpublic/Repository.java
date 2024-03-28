@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -24,18 +23,17 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** This resource can only be used in the `us-east-1` region.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
  * import com.pulumi.aws.ecrpublic.Repository;
  * import com.pulumi.aws.ecrpublic.RepositoryArgs;
  * import com.pulumi.aws.ecrpublic.inputs.RepositoryCatalogDataArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,35 +47,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var usEast1 = new Provider(&#34;usEast1&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-east-1&#34;)
- *             .build());
- * 
  *         var foo = new Repository(&#34;foo&#34;, RepositoryArgs.builder()        
  *             .repositoryName(&#34;bar&#34;)
  *             .catalogData(RepositoryCatalogDataArgs.builder()
  *                 .aboutText(&#34;About Text&#34;)
  *                 .architectures(&#34;ARM&#34;)
  *                 .description(&#34;Description&#34;)
- *                 .logoImageBlob(Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get(image.png()))))
+ *                 .logoImageBlob(StdFunctions.filebase64(Filebase64Args.builder()
+ *                     .input(png)
+ *                     .build()).result())
  *                 .operatingSystems(&#34;Linux&#34;)
  *                 .usageText(&#34;Usage Text&#34;)
  *                 .build())
  *             .tags(Map.of(&#34;env&#34;, &#34;production&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.us_east_1())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import ECR Public Repositories using the `repository_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ecrpublic/repository:Repository example example
+ * $ pulumi import aws:ecrpublic/repository:Repository example example
  * ```
  * 
  */
@@ -224,9 +219,6 @@ public class Repository extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -53,7 +53,17 @@ class ServerArgs:
         :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
         :param pulumi.Input['ServerProtocolDetailsArgs'] protocol_details: The protocol settings that are configured for your server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
-        :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
+        :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+               * `TransferSecurityPolicy-2024-01`
+               * `TransferSecurityPolicy-2023-05`
+               * `TransferSecurityPolicy-2022-03`
+               * `TransferSecurityPolicy-2020-06`
+               * `TransferSecurityPolicy-2018-11`
+               * `TransferSecurityPolicy-FIPS-2024-01`
+               * `TransferSecurityPolicy-FIPS-2023-05`
+               * `TransferSecurityPolicy-FIPS-2020-06`
+               * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+               * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] structured_log_destinations: A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] url: URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
@@ -284,7 +294,17 @@ class ServerArgs:
     @pulumi.getter(name="securityPolicyName")
     def security_policy_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
+        Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+        * `TransferSecurityPolicy-2024-01`
+        * `TransferSecurityPolicy-2023-05`
+        * `TransferSecurityPolicy-2022-03`
+        * `TransferSecurityPolicy-2020-06`
+        * `TransferSecurityPolicy-2018-11`
+        * `TransferSecurityPolicy-FIPS-2024-01`
+        * `TransferSecurityPolicy-FIPS-2023-05`
+        * `TransferSecurityPolicy-FIPS-2020-06`
+        * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+        * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
         """
         return pulumi.get(self, "security_policy_name")
 
@@ -388,7 +408,17 @@ class _ServerState:
         :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
         :param pulumi.Input['ServerProtocolDetailsArgs'] protocol_details: The protocol settings that are configured for your server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
-        :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
+        :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+               * `TransferSecurityPolicy-2024-01`
+               * `TransferSecurityPolicy-2023-05`
+               * `TransferSecurityPolicy-2022-03`
+               * `TransferSecurityPolicy-2020-06`
+               * `TransferSecurityPolicy-2018-11`
+               * `TransferSecurityPolicy-FIPS-2024-01`
+               * `TransferSecurityPolicy-FIPS-2023-05`
+               * `TransferSecurityPolicy-FIPS-2020-06`
+               * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+               * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] structured_log_destinations: A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -667,7 +697,17 @@ class _ServerState:
     @pulumi.getter(name="securityPolicyName")
     def security_policy_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
+        Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+        * `TransferSecurityPolicy-2024-01`
+        * `TransferSecurityPolicy-2023-05`
+        * `TransferSecurityPolicy-2022-03`
+        * `TransferSecurityPolicy-2020-06`
+        * `TransferSecurityPolicy-2018-11`
+        * `TransferSecurityPolicy-FIPS-2024-01`
+        * `TransferSecurityPolicy-FIPS-2023-05`
+        * `TransferSecurityPolicy-FIPS-2020-06`
+        * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+        * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
         """
         return pulumi.get(self, "security_policy_name")
 
@@ -773,8 +813,10 @@ class Server(pulumi.CustomResource):
         > **NOTE:** Use the `transfer.Tag` resource to manage the system tags used for [custom hostnames](https://docs.aws.amazon.com/transfer/latest/userguide/requirements-dns.html#tag-custom-hostname-cdk).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -783,16 +825,22 @@ class Server(pulumi.CustomResource):
             "Name": "Example",
         })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Security Policy Name
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.transfer.Server("example", security_policy_name="TransferSecurityPolicy-2020-06")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### VPC Endpoint
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -800,33 +848,42 @@ class Server(pulumi.CustomResource):
         example = aws.transfer.Server("example",
             endpoint_type="VPC",
             endpoint_details=aws.transfer.ServerEndpointDetailsArgs(
-                address_allocation_ids=[aws_eip["example"]["id"]],
-                subnet_ids=[aws_subnet["example"]["id"]],
-                vpc_id=aws_vpc["example"]["id"],
+                address_allocation_ids=[example_aws_eip["id"]],
+                subnet_ids=[example_aws_subnet["id"]],
+                vpc_id=example_aws_vpc["id"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### AWS Directory authentication
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.transfer.Server("example",
             identity_provider_type="AWS_DIRECTORY_SERVICE",
-            directory_id=aws_directory_service_directory["example"]["id"])
+            directory_id=example_aws_directory_service_directory["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### AWS Lambda authentication
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.transfer.Server("example",
             identity_provider_type="AWS_LAMBDA",
-            function=aws_lambda_identity_provider["example"]["arn"])
+            function=example_aws_lambda_identity_provider["arn"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Protocols
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -834,24 +891,27 @@ class Server(pulumi.CustomResource):
         example = aws.transfer.Server("example",
             endpoint_type="VPC",
             endpoint_details=aws.transfer.ServerEndpointDetailsArgs(
-                subnet_ids=[aws_subnet["example"]["id"]],
-                vpc_id=aws_vpc["example"]["id"],
+                subnet_ids=[example_aws_subnet["id"]],
+                vpc_id=example_aws_vpc["id"],
             ),
             protocols=[
                 "FTP",
                 "FTPS",
             ],
-            certificate=aws_acm_certificate["example"]["arn"],
+            certificate=example_aws_acm_certificate["arn"],
             identity_provider_type="API_GATEWAY",
-            url=f"{aws_api_gateway_deployment['example']['invoke_url']}{aws_api_gateway_resource['example']['path']}")
+            url=f"{example_aws_api_gateway_deployment['invokeUrl']}{example_aws_api_gateway_resource['path']}")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using Structured Logging Destinations
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        transfer_log_group = aws.cloudwatch.LogGroup("transferLogGroup", name_prefix="transfer_test_")
+        transfer = aws.cloudwatch.LogGroup("transfer", name_prefix="transfer_test_")
         transfer_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -860,25 +920,26 @@ class Server(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        iam_for_transfer = aws.iam.Role("iamForTransfer",
+        iam_for_transfer = aws.iam.Role("iam_for_transfer",
             name_prefix="iam_for_transfer_",
             assume_role_policy=transfer_assume_role.json,
             managed_policy_arns=["arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess"])
-        transfer_server = aws.transfer.Server("transferServer",
+        transfer_server = aws.transfer.Server("transfer",
             endpoint_type="PUBLIC",
             logging_role=iam_for_transfer.arn,
             protocols=["SFTP"],
-            structured_log_destinations=[transfer_log_group.arn.apply(lambda arn: f"{arn}:*")])
+            structured_log_destinations=[transfer.arn.apply(lambda arn: f"{arn}:*")])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transfer Servers using the server `id`. For example:
 
         ```sh
-         $ pulumi import aws:transfer/server:Server example s-12345678
+        $ pulumi import aws:transfer/server:Server example s-12345678
         ```
-         Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
+        Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -897,7 +958,17 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
         :param pulumi.Input[pulumi.InputType['ServerProtocolDetailsArgs']] protocol_details: The protocol settings that are configured for your server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
-        :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
+        :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+               * `TransferSecurityPolicy-2024-01`
+               * `TransferSecurityPolicy-2023-05`
+               * `TransferSecurityPolicy-2022-03`
+               * `TransferSecurityPolicy-2020-06`
+               * `TransferSecurityPolicy-2018-11`
+               * `TransferSecurityPolicy-FIPS-2024-01`
+               * `TransferSecurityPolicy-FIPS-2023-05`
+               * `TransferSecurityPolicy-FIPS-2020-06`
+               * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+               * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] structured_log_destinations: A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] url: URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
@@ -917,8 +988,10 @@ class Server(pulumi.CustomResource):
         > **NOTE:** Use the `transfer.Tag` resource to manage the system tags used for [custom hostnames](https://docs.aws.amazon.com/transfer/latest/userguide/requirements-dns.html#tag-custom-hostname-cdk).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -927,16 +1000,22 @@ class Server(pulumi.CustomResource):
             "Name": "Example",
         })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Security Policy Name
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.transfer.Server("example", security_policy_name="TransferSecurityPolicy-2020-06")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### VPC Endpoint
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -944,33 +1023,42 @@ class Server(pulumi.CustomResource):
         example = aws.transfer.Server("example",
             endpoint_type="VPC",
             endpoint_details=aws.transfer.ServerEndpointDetailsArgs(
-                address_allocation_ids=[aws_eip["example"]["id"]],
-                subnet_ids=[aws_subnet["example"]["id"]],
-                vpc_id=aws_vpc["example"]["id"],
+                address_allocation_ids=[example_aws_eip["id"]],
+                subnet_ids=[example_aws_subnet["id"]],
+                vpc_id=example_aws_vpc["id"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### AWS Directory authentication
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.transfer.Server("example",
             identity_provider_type="AWS_DIRECTORY_SERVICE",
-            directory_id=aws_directory_service_directory["example"]["id"])
+            directory_id=example_aws_directory_service_directory["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### AWS Lambda authentication
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.transfer.Server("example",
             identity_provider_type="AWS_LAMBDA",
-            function=aws_lambda_identity_provider["example"]["arn"])
+            function=example_aws_lambda_identity_provider["arn"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Protocols
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -978,24 +1066,27 @@ class Server(pulumi.CustomResource):
         example = aws.transfer.Server("example",
             endpoint_type="VPC",
             endpoint_details=aws.transfer.ServerEndpointDetailsArgs(
-                subnet_ids=[aws_subnet["example"]["id"]],
-                vpc_id=aws_vpc["example"]["id"],
+                subnet_ids=[example_aws_subnet["id"]],
+                vpc_id=example_aws_vpc["id"],
             ),
             protocols=[
                 "FTP",
                 "FTPS",
             ],
-            certificate=aws_acm_certificate["example"]["arn"],
+            certificate=example_aws_acm_certificate["arn"],
             identity_provider_type="API_GATEWAY",
-            url=f"{aws_api_gateway_deployment['example']['invoke_url']}{aws_api_gateway_resource['example']['path']}")
+            url=f"{example_aws_api_gateway_deployment['invokeUrl']}{example_aws_api_gateway_resource['path']}")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using Structured Logging Destinations
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        transfer_log_group = aws.cloudwatch.LogGroup("transferLogGroup", name_prefix="transfer_test_")
+        transfer = aws.cloudwatch.LogGroup("transfer", name_prefix="transfer_test_")
         transfer_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -1004,25 +1095,26 @@ class Server(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        iam_for_transfer = aws.iam.Role("iamForTransfer",
+        iam_for_transfer = aws.iam.Role("iam_for_transfer",
             name_prefix="iam_for_transfer_",
             assume_role_policy=transfer_assume_role.json,
             managed_policy_arns=["arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess"])
-        transfer_server = aws.transfer.Server("transferServer",
+        transfer_server = aws.transfer.Server("transfer",
             endpoint_type="PUBLIC",
             logging_role=iam_for_transfer.arn,
             protocols=["SFTP"],
-            structured_log_destinations=[transfer_log_group.arn.apply(lambda arn: f"{arn}:*")])
+            structured_log_destinations=[transfer.arn.apply(lambda arn: f"{arn}:*")])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transfer Servers using the server `id`. For example:
 
         ```sh
-         $ pulumi import aws:transfer/server:Server example s-12345678
+        $ pulumi import aws:transfer/server:Server example s-12345678
         ```
-         Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
+        Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
 
         :param str resource_name: The name of the resource.
         :param ServerArgs args: The arguments to use to populate this resource's properties.
@@ -1092,7 +1184,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["host_key_fingerprint"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["hostKey", "postAuthenticationLoginBanner", "preAuthenticationLoginBanner", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["hostKey", "postAuthenticationLoginBanner", "preAuthenticationLoginBanner"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Server, __self__).__init__(
             'aws:transfer/server:Server',
@@ -1153,7 +1245,17 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
         :param pulumi.Input[pulumi.InputType['ServerProtocolDetailsArgs']] protocol_details: The protocol settings that are configured for your server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
-        :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
+        :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+               * `TransferSecurityPolicy-2024-01`
+               * `TransferSecurityPolicy-2023-05`
+               * `TransferSecurityPolicy-2022-03`
+               * `TransferSecurityPolicy-2020-06`
+               * `TransferSecurityPolicy-2018-11`
+               * `TransferSecurityPolicy-FIPS-2024-01`
+               * `TransferSecurityPolicy-FIPS-2023-05`
+               * `TransferSecurityPolicy-FIPS-2020-06`
+               * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+               * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] structured_log_destinations: A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1338,7 +1440,17 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="securityPolicyName")
     def security_policy_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
+        Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+        * `TransferSecurityPolicy-2024-01`
+        * `TransferSecurityPolicy-2023-05`
+        * `TransferSecurityPolicy-2022-03`
+        * `TransferSecurityPolicy-2020-06`
+        * `TransferSecurityPolicy-2018-11`
+        * `TransferSecurityPolicy-FIPS-2024-01`
+        * `TransferSecurityPolicy-FIPS-2023-05`
+        * `TransferSecurityPolicy-FIPS-2020-06`
+        * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+        * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
         """
         return pulumi.get(self, "security_policy_name")
 

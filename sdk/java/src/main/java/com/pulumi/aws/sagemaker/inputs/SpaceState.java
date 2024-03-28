@@ -3,7 +3,9 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.SpaceOwnershipSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.SpaceSpaceSettingsArgs;
+import com.pulumi.aws.sagemaker.inputs.SpaceSpaceSharingSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -63,6 +65,36 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A collection of ownership settings. See Ownership Settings below.
+     * 
+     */
+    @Import(name="ownershipSettings")
+    private @Nullable Output<SpaceOwnershipSettingsArgs> ownershipSettings;
+
+    /**
+     * @return A collection of ownership settings. See Ownership Settings below.
+     * 
+     */
+    public Optional<Output<SpaceOwnershipSettingsArgs>> ownershipSettings() {
+        return Optional.ofNullable(this.ownershipSettings);
+    }
+
+    /**
+     * The name of the space that appears in the SageMaker Studio UI.
+     * 
+     */
+    @Import(name="spaceDisplayName")
+    private @Nullable Output<String> spaceDisplayName;
+
+    /**
+     * @return The name of the space that appears in the SageMaker Studio UI.
+     * 
+     */
+    public Optional<Output<String>> spaceDisplayName() {
+        return Optional.ofNullable(this.spaceDisplayName);
+    }
+
+    /**
      * The name of the space.
      * 
      */
@@ -90,6 +122,21 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<SpaceSpaceSettingsArgs>> spaceSettings() {
         return Optional.ofNullable(this.spaceSettings);
+    }
+
+    /**
+     * A collection of space sharing settings. See Space Sharing Settings below.
+     * 
+     */
+    @Import(name="spaceSharingSettings")
+    private @Nullable Output<SpaceSpaceSharingSettingsArgs> spaceSharingSettings;
+
+    /**
+     * @return A collection of space sharing settings. See Space Sharing Settings below.
+     * 
+     */
+    public Optional<Output<SpaceSpaceSharingSettingsArgs>> spaceSharingSettings() {
+        return Optional.ofNullable(this.spaceSharingSettings);
     }
 
     /**
@@ -130,16 +177,35 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+     * 
+     */
+    @Import(name="url")
+    private @Nullable Output<String> url;
+
+    /**
+     * @return Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+     * 
+     */
+    public Optional<Output<String>> url() {
+        return Optional.ofNullable(this.url);
+    }
+
     private SpaceState() {}
 
     private SpaceState(SpaceState $) {
         this.arn = $.arn;
         this.domainId = $.domainId;
         this.homeEfsFileSystemUid = $.homeEfsFileSystemUid;
+        this.ownershipSettings = $.ownershipSettings;
+        this.spaceDisplayName = $.spaceDisplayName;
         this.spaceName = $.spaceName;
         this.spaceSettings = $.spaceSettings;
+        this.spaceSharingSettings = $.spaceSharingSettings;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.url = $.url;
     }
 
     public static Builder builder() {
@@ -224,6 +290,48 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param ownershipSettings A collection of ownership settings. See Ownership Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ownershipSettings(@Nullable Output<SpaceOwnershipSettingsArgs> ownershipSettings) {
+            $.ownershipSettings = ownershipSettings;
+            return this;
+        }
+
+        /**
+         * @param ownershipSettings A collection of ownership settings. See Ownership Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ownershipSettings(SpaceOwnershipSettingsArgs ownershipSettings) {
+            return ownershipSettings(Output.of(ownershipSettings));
+        }
+
+        /**
+         * @param spaceDisplayName The name of the space that appears in the SageMaker Studio UI.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spaceDisplayName(@Nullable Output<String> spaceDisplayName) {
+            $.spaceDisplayName = spaceDisplayName;
+            return this;
+        }
+
+        /**
+         * @param spaceDisplayName The name of the space that appears in the SageMaker Studio UI.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spaceDisplayName(String spaceDisplayName) {
+            return spaceDisplayName(Output.of(spaceDisplayName));
+        }
+
+        /**
          * @param spaceName The name of the space.
          * 
          * @return builder
@@ -263,6 +371,27 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder spaceSettings(SpaceSpaceSettingsArgs spaceSettings) {
             return spaceSettings(Output.of(spaceSettings));
+        }
+
+        /**
+         * @param spaceSharingSettings A collection of space sharing settings. See Space Sharing Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spaceSharingSettings(@Nullable Output<SpaceSpaceSharingSettingsArgs> spaceSharingSettings) {
+            $.spaceSharingSettings = spaceSharingSettings;
+            return this;
+        }
+
+        /**
+         * @param spaceSharingSettings A collection of space sharing settings. See Space Sharing Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spaceSharingSettings(SpaceSpaceSharingSettingsArgs spaceSharingSettings) {
+            return spaceSharingSettings(Output.of(spaceSharingSettings));
         }
 
         /**
@@ -313,6 +442,27 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
         @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param url Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder url(@Nullable Output<String> url) {
+            $.url = url;
+            return this;
+        }
+
+        /**
+         * @param url Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder url(String url) {
+            return url(Output.of(url));
         }
 
         public SpaceState build() {

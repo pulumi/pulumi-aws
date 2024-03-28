@@ -74,25 +74,28 @@ public final class GetTagsFilterOr {
 
         @CustomType.Setter
         public Builder costCategory(@Nullable GetTagsFilterOrCostCategory costCategory) {
+
             this.costCategory = costCategory;
             return this;
         }
         @CustomType.Setter
         public Builder dimension(@Nullable GetTagsFilterOrDimension dimension) {
+
             this.dimension = dimension;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable GetTagsFilterOrTags tags) {
+
             this.tags = tags;
             return this;
         }
         public GetTagsFilterOr build() {
-            final var o = new GetTagsFilterOr();
-            o.costCategory = costCategory;
-            o.dimension = dimension;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetTagsFilterOr();
+            _resultValue.costCategory = costCategory;
+            _resultValue.dimension = dimension;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -15,7 +15,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -24,7 +23,10 @@ import javax.annotation.Nullable;
  * Provides a SageMaker Flow Definition resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,24 +52,28 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new FlowDefinition(&#34;example&#34;, FlowDefinitionArgs.builder()        
  *             .flowDefinitionName(&#34;example&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .humanLoopConfig(FlowDefinitionHumanLoopConfigArgs.builder()
- *                 .humanTaskUiArn(aws_sagemaker_human_task_ui.example().arn())
+ *                 .humanTaskUiArn(exampleAwsSagemakerHumanTaskUi.arn())
  *                 .taskAvailabilityLifetimeInSeconds(1)
  *                 .taskCount(1)
  *                 .taskDescription(&#34;example&#34;)
  *                 .taskTitle(&#34;example&#34;)
- *                 .workteamArn(aws_sagemaker_workteam.example().arn())
+ *                 .workteamArn(exampleAwsSagemakerWorkteam.arn())
  *                 .build())
  *             .outputConfig(FlowDefinitionOutputConfigArgs.builder()
- *                 .s3OutputPath(String.format(&#34;s3://%s/&#34;, aws_s3_bucket.example().bucket()))
+ *                 .s3OutputPath(String.format(&#34;s3://%s/&#34;, exampleAwsS3Bucket.bucket()))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Public Workteam Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -95,14 +101,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new FlowDefinition(&#34;example&#34;, FlowDefinitionArgs.builder()        
  *             .flowDefinitionName(&#34;example&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .humanLoopConfig(FlowDefinitionHumanLoopConfigArgs.builder()
- *                 .humanTaskUiArn(aws_sagemaker_human_task_ui.example().arn())
+ *                 .humanTaskUiArn(exampleAwsSagemakerHumanTaskUi.arn())
  *                 .taskAvailabilityLifetimeInSeconds(1)
  *                 .taskCount(1)
  *                 .taskDescription(&#34;example&#34;)
  *                 .taskTitle(&#34;example&#34;)
- *                 .workteamArn(String.format(&#34;arn:aws:sagemaker:%s:394669845002:workteam/public-crowd/default&#34;, data.aws_region().current().name()))
+ *                 .workteamArn(String.format(&#34;arn:aws:sagemaker:%s:394669845002:workteam/public-crowd/default&#34;, current.name()))
  *                 .publicWorkforceTaskPrice(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs.builder()
  *                     .amountInUsd(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs.builder()
  *                         .cents(1)
@@ -111,14 +117,18 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .outputConfig(FlowDefinitionOutputConfigArgs.builder()
- *                 .s3OutputPath(String.format(&#34;s3://%s/&#34;, aws_s3_bucket.example().bucket()))
+ *                 .s3OutputPath(String.format(&#34;s3://%s/&#34;, exampleAwsS3Bucket.bucket()))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Human Loop Activation Config Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -147,14 +157,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new FlowDefinition(&#34;example&#34;, FlowDefinitionArgs.builder()        
  *             .flowDefinitionName(&#34;example&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .humanLoopConfig(FlowDefinitionHumanLoopConfigArgs.builder()
- *                 .humanTaskUiArn(aws_sagemaker_human_task_ui.example().arn())
+ *                 .humanTaskUiArn(exampleAwsSagemakerHumanTaskUi.arn())
  *                 .taskAvailabilityLifetimeInSeconds(1)
  *                 .taskCount(1)
  *                 .taskDescription(&#34;example&#34;)
  *                 .taskTitle(&#34;example&#34;)
- *                 .workteamArn(aws_sagemaker_workteam.example().arn())
+ *                 .workteamArn(exampleAwsSagemakerWorkteam.arn())
  *                 .build())
  *             .humanLoopRequestSource(FlowDefinitionHumanLoopRequestSourceArgs.builder()
  *                 .awsManagedHumanLoopRequestSource(&#34;AWS/Textract/AnalyzeDocument/Forms/V1&#34;)
@@ -176,20 +186,21 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .outputConfig(FlowDefinitionOutputConfigArgs.builder()
- *                 .s3OutputPath(String.format(&#34;s3://%s/&#34;, aws_s3_bucket.example().bucket()))
+ *                 .s3OutputPath(String.format(&#34;s3://%s/&#34;, exampleAwsS3Bucket.bucket()))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SageMaker Flow Definitions using the `flow_definition_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
+ * $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
  * ```
  * 
  */
@@ -358,9 +369,6 @@ public class FlowDefinition extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

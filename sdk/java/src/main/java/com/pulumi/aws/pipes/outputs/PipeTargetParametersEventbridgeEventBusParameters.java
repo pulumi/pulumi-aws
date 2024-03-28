@@ -101,16 +101,19 @@ public final class PipeTargetParametersEventbridgeEventBusParameters {
 
         @CustomType.Setter
         public Builder detailType(@Nullable String detailType) {
+
             this.detailType = detailType;
             return this;
         }
         @CustomType.Setter
         public Builder endpointId(@Nullable String endpointId) {
+
             this.endpointId = endpointId;
             return this;
         }
         @CustomType.Setter
         public Builder resources(@Nullable List<String> resources) {
+
             this.resources = resources;
             return this;
         }
@@ -119,22 +122,24 @@ public final class PipeTargetParametersEventbridgeEventBusParameters {
         }
         @CustomType.Setter
         public Builder source(@Nullable String source) {
+
             this.source = source;
             return this;
         }
         @CustomType.Setter
         public Builder time(@Nullable String time) {
+
             this.time = time;
             return this;
         }
         public PipeTargetParametersEventbridgeEventBusParameters build() {
-            final var o = new PipeTargetParametersEventbridgeEventBusParameters();
-            o.detailType = detailType;
-            o.endpointId = endpointId;
-            o.resources = resources;
-            o.source = source;
-            o.time = time;
-            return o;
+            final var _resultValue = new PipeTargetParametersEventbridgeEventBusParameters();
+            _resultValue.detailType = detailType;
+            _resultValue.endpointId = endpointId;
+            _resultValue.resources = resources;
+            _resultValue.source = source;
+            _resultValue.time = time;
+            return _resultValue;
         }
     }
 }

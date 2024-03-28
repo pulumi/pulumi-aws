@@ -103,15 +103,12 @@ class RegionSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.backup.RegionSettings("test",
-            resource_type_management_preference={
-                "DynamoDB": True,
-                "EFS": True,
-            },
             resource_type_opt_in_preference={
                 "Aurora": True,
                 "DocumentDB": True,
@@ -124,15 +121,20 @@ class RegionSettings(pulumi.CustomResource):
                 "RDS": True,
                 "Storage Gateway": True,
                 "VirtualMachine": True,
+            },
+            resource_type_management_preference={
+                "DynamoDB": True,
+                "EFS": True,
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup Region Settings using the `region`. For example:
 
         ```sh
-         $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
+        $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
         ```
 
         :param str resource_name: The name of the resource.
@@ -151,15 +153,12 @@ class RegionSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.backup.RegionSettings("test",
-            resource_type_management_preference={
-                "DynamoDB": True,
-                "EFS": True,
-            },
             resource_type_opt_in_preference={
                 "Aurora": True,
                 "DocumentDB": True,
@@ -172,15 +171,20 @@ class RegionSettings(pulumi.CustomResource):
                 "RDS": True,
                 "Storage Gateway": True,
                 "VirtualMachine": True,
+            },
+            resource_type_management_preference={
+                "DynamoDB": True,
+                "EFS": True,
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup Region Settings using the `region`. For example:
 
         ```sh
-         $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
+        $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
         ```
 
         :param str resource_name: The name of the resource.

@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,13 +43,16 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringO
 
         @CustomType.Setter
         public Builder s3Output(DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output s3Output) {
-            this.s3Output = Objects.requireNonNull(s3Output);
+            if (s3Output == null) {
+              throw new MissingRequiredPropertyException("DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs", "s3Output");
+            }
+            this.s3Output = s3Output;
             return this;
         }
         public DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs build() {
-            final var o = new DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs();
-            o.s3Output = s3Output;
-            return o;
+            final var _resultValue = new DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs();
+            _resultValue.s3Output = s3Output;
+            return _resultValue;
         }
     }
 }

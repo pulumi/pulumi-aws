@@ -11,19 +11,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.schemas.Registry("test", {description: "A custom schema registry"});
+ * const test = new aws.schemas.Registry("test", {
+ *     name: "my_own_registry",
+ *     description: "A custom schema registry",
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EventBridge schema registries using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:schemas/registry:Registry test my_own_registry
+ * $ pulumi import aws:schemas/registry:Registry test my_own_registry
  * ```
  */
 export class Registry extends pulumi.CustomResource {
@@ -104,8 +109,6 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Registry.__pulumiType, name, resourceInputs, opts);
     }
 }

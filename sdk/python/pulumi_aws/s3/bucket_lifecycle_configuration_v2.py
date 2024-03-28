@@ -149,7 +149,10 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         Running Pulumi operations shortly after creating a lifecycle configuration may result in changes that affect configuration idempotence.
         See the Amazon S3 User Guide on [setting lifecycle configuration on a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.html).
 
+        > This resource cannot be used with S3 directory buckets.
+
         ## Example Usage
+
         ### With neither a filter nor prefix specified
 
         The Lifecycle rule applies to a subset of objects based on the key name prefix (`""`).
@@ -157,43 +160,50 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         This configuration is intended to replicate the default behavior of the `lifecycle_rule`
         parameter in the AWS Provider `s3.BucketV2` resource prior to `v4.0`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
-            bucket=aws_s3_bucket["bucket"]["id"],
+            bucket=bucket["id"],
             rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
                 id="rule-1",
                 status="Enabled",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Specifying an empty filter
 
         The Lifecycle rule applies to all objects in the bucket.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
-            bucket=aws_s3_bucket["bucket"]["id"],
+            bucket=bucket["id"],
             rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
                 id="rule-1",
                 filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(),
                 status="Enabled",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Specifying a filter using key prefixes
 
         The Lifecycle rule applies to a subset of objects based on the key name prefix (`logs/`).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
-            bucket=aws_s3_bucket["bucket"]["id"],
+            bucket=bucket["id"],
             rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
                 id="rule-1",
                 filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
@@ -202,15 +212,17 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                 status="Enabled",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         If you want to apply a Lifecycle action to a subset of objects based on different key name prefixes, specify separate rules.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
-            bucket=aws_s3_bucket["bucket"]["id"],
+            bucket=bucket["id"],
             rules=[
                 aws.s3.BucketLifecycleConfigurationV2RuleArgs(
                     id="rule-1",
@@ -228,16 +240,19 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Specifying a filter based on an object tag
 
         The Lifecycle rule specifies a filter based on a tag key and value. The rule then applies only to a subset of objects with the specific tag.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
-            bucket=aws_s3_bucket["bucket"]["id"],
+            bucket=bucket["id"],
             rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
                 id="rule-1",
                 filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
@@ -249,16 +264,19 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                 status="Enabled",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Specifying a filter based on multiple tags
 
         The Lifecycle rule directs Amazon S3 to perform lifecycle actions on objects with two tags (with the specific tag keys and values). Notice `tags` is wrapped in the `and` configuration block.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
-            bucket=aws_s3_bucket["bucket"]["id"],
+            bucket=bucket["id"],
             rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
                 id="rule-1",
                 filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
@@ -272,16 +290,19 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                 status="Enabled",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Specifying a filter based on both prefix and one or more tags
 
         The Lifecycle rule directs Amazon S3 to perform lifecycle actions on objects with the specified prefix and two tags (with the specific tag keys and values). Notice both `prefix` and `tags` are wrapped in the `and` configuration block.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
-            bucket=aws_s3_bucket["bucket"]["id"],
+            bucket=bucket["id"],
             rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
                 id="rule-1",
                 filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
@@ -296,16 +317,19 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                 status="Enabled",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Specifying a filter based on object size
 
         Object size values are in bytes. Maximum filter size is 5TB. Some storage classes have minimum object size limitations, for more information, see [Comparing the Amazon S3 storage classes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html#sc-compare).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
-            bucket=aws_s3_bucket["bucket"]["id"],
+            bucket=bucket["id"],
             rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
                 id="rule-1",
                 filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
@@ -314,16 +338,19 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                 status="Enabled",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Specifying a filter based on object size range and prefix
 
         The `object_size_greater_than` must be less than the `object_size_less_than`. Notice both the object size range and prefix are wrapped in the `and` configuration block.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
-            bucket=aws_s3_bucket["bucket"]["id"],
+            bucket=bucket["id"],
             rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
                 id="rule-1",
                 filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
@@ -336,14 +363,17 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                 status="Enabled",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Creating a Lifecycle Configuration for a bucket with versioning
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.BucketV2("bucket")
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
+        bucket = aws.s3.BucketV2("bucket", bucket="my-bucket")
+        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
             bucket=bucket.id,
             acl="private")
         bucket_config = aws.s3.BucketLifecycleConfigurationV2("bucket-config",
@@ -386,8 +416,8 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                     status="Enabled",
                 ),
             ])
-        versioning_bucket = aws.s3.BucketV2("versioningBucket")
-        versioning_bucket_acl = aws.s3.BucketAclV2("versioningBucketAcl",
+        versioning_bucket = aws.s3.BucketV2("versioning_bucket", bucket="my-versioning-bucket")
+        versioning_bucket_acl = aws.s3.BucketAclV2("versioning_bucket_acl",
             bucket=versioning_bucket.id,
             acl="private")
         versioning = aws.s3.BucketVersioningV2("versioning",
@@ -416,9 +446,9 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                     ),
                 ],
                 status="Enabled",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[versioning]))
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -429,12 +459,12 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
 
         ```sh
-         $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name
+        $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name
         ```
-         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+        If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 
         ```sh
-         $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name,123456789012
+        $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name,123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -466,7 +496,10 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         Running Pulumi operations shortly after creating a lifecycle configuration may result in changes that affect configuration idempotence.
         See the Amazon S3 User Guide on [setting lifecycle configuration on a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.html).
 
+        > This resource cannot be used with S3 directory buckets.
+
         ## Example Usage
+
         ### With neither a filter nor prefix specified
 
         The Lifecycle rule applies to a subset of objects based on the key name prefix (`""`).
@@ -474,43 +507,50 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         This configuration is intended to replicate the default behavior of the `lifecycle_rule`
         parameter in the AWS Provider `s3.BucketV2` resource prior to `v4.0`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
-            bucket=aws_s3_bucket["bucket"]["id"],
+            bucket=bucket["id"],
             rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
                 id="rule-1",
                 status="Enabled",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Specifying an empty filter
 
         The Lifecycle rule applies to all objects in the bucket.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
-            bucket=aws_s3_bucket["bucket"]["id"],
+            bucket=bucket["id"],
             rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
                 id="rule-1",
                 filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(),
                 status="Enabled",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Specifying a filter using key prefixes
 
         The Lifecycle rule applies to a subset of objects based on the key name prefix (`logs/`).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
-            bucket=aws_s3_bucket["bucket"]["id"],
+            bucket=bucket["id"],
             rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
                 id="rule-1",
                 filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
@@ -519,15 +559,17 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                 status="Enabled",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         If you want to apply a Lifecycle action to a subset of objects based on different key name prefixes, specify separate rules.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
-            bucket=aws_s3_bucket["bucket"]["id"],
+            bucket=bucket["id"],
             rules=[
                 aws.s3.BucketLifecycleConfigurationV2RuleArgs(
                     id="rule-1",
@@ -545,16 +587,19 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Specifying a filter based on an object tag
 
         The Lifecycle rule specifies a filter based on a tag key and value. The rule then applies only to a subset of objects with the specific tag.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
-            bucket=aws_s3_bucket["bucket"]["id"],
+            bucket=bucket["id"],
             rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
                 id="rule-1",
                 filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
@@ -566,16 +611,19 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                 status="Enabled",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Specifying a filter based on multiple tags
 
         The Lifecycle rule directs Amazon S3 to perform lifecycle actions on objects with two tags (with the specific tag keys and values). Notice `tags` is wrapped in the `and` configuration block.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
-            bucket=aws_s3_bucket["bucket"]["id"],
+            bucket=bucket["id"],
             rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
                 id="rule-1",
                 filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
@@ -589,16 +637,19 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                 status="Enabled",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Specifying a filter based on both prefix and one or more tags
 
         The Lifecycle rule directs Amazon S3 to perform lifecycle actions on objects with the specified prefix and two tags (with the specific tag keys and values). Notice both `prefix` and `tags` are wrapped in the `and` configuration block.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
-            bucket=aws_s3_bucket["bucket"]["id"],
+            bucket=bucket["id"],
             rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
                 id="rule-1",
                 filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
@@ -613,16 +664,19 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                 status="Enabled",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Specifying a filter based on object size
 
         Object size values are in bytes. Maximum filter size is 5TB. Some storage classes have minimum object size limitations, for more information, see [Comparing the Amazon S3 storage classes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html#sc-compare).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
-            bucket=aws_s3_bucket["bucket"]["id"],
+            bucket=bucket["id"],
             rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
                 id="rule-1",
                 filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
@@ -631,16 +685,19 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                 status="Enabled",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Specifying a filter based on object size range and prefix
 
         The `object_size_greater_than` must be less than the `object_size_less_than`. Notice both the object size range and prefix are wrapped in the `and` configuration block.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
-            bucket=aws_s3_bucket["bucket"]["id"],
+            bucket=bucket["id"],
             rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
                 id="rule-1",
                 filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
@@ -653,14 +710,17 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                 status="Enabled",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Creating a Lifecycle Configuration for a bucket with versioning
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.BucketV2("bucket")
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
+        bucket = aws.s3.BucketV2("bucket", bucket="my-bucket")
+        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
             bucket=bucket.id,
             acl="private")
         bucket_config = aws.s3.BucketLifecycleConfigurationV2("bucket-config",
@@ -703,8 +763,8 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                     status="Enabled",
                 ),
             ])
-        versioning_bucket = aws.s3.BucketV2("versioningBucket")
-        versioning_bucket_acl = aws.s3.BucketAclV2("versioningBucketAcl",
+        versioning_bucket = aws.s3.BucketV2("versioning_bucket", bucket="my-versioning-bucket")
+        versioning_bucket_acl = aws.s3.BucketAclV2("versioning_bucket_acl",
             bucket=versioning_bucket.id,
             acl="private")
         versioning = aws.s3.BucketVersioningV2("versioning",
@@ -733,9 +793,9 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                     ),
                 ],
                 status="Enabled",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[versioning]))
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -746,12 +806,12 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
 
         ```sh
-         $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name
+        $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name
         ```
-         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+        If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 
         ```sh
-         $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name,123456789012
+        $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name,123456789012
         ```
 
         :param str resource_name: The name of the resource.

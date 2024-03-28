@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Location Geofence Collection using the `collection_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:location/geofenceCollection:GeofenceCollection example example
-//
+// $ pulumi import aws:location/geofenceCollection:GeofenceCollection example example
 // ```
 type GeofenceCollection struct {
 	pulumi.CustomResourceState
@@ -82,10 +82,6 @@ func NewGeofenceCollection(ctx *pulumi.Context,
 	if args.CollectionName == nil {
 		return nil, errors.New("invalid value for required argument 'CollectionName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GeofenceCollection
 	err := ctx.RegisterResource("aws:location/geofenceCollection:GeofenceCollection", name, args, &resource, opts...)

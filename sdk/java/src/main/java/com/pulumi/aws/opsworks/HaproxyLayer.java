@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * Provides an OpsWorks haproxy layer resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,13 +49,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var lb = new HaproxyLayer(&#34;lb&#34;, HaproxyLayerArgs.builder()        
- *             .stackId(aws_opsworks_stack.main().id())
+ *             .stackId(main.id())
  *             .statsPassword(&#34;foobarbaz&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:opsworks/haproxyLayer:HaproxyLayer")
@@ -481,9 +484,6 @@ public class HaproxyLayer extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

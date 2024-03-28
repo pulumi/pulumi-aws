@@ -14,6 +14,7 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,57 +23,34 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary = new Aws.Provider("primary");
+    ///     var primary = new Aws.GuardDuty.Detector("primary");
     /// 
-    ///     var member = new Aws.Provider("member");
+    ///     var memberDetector = new Aws.GuardDuty.Detector("member");
     /// 
-    ///     var primaryDetector = new Aws.GuardDuty.Detector("primaryDetector", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Primary,
-    ///     });
-    /// 
-    ///     var memberDetector = new Aws.GuardDuty.Detector("memberDetector", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Member,
-    ///     });
-    /// 
-    ///     var memberMember = new Aws.GuardDuty.Member("memberMember", new()
-    ///     {
-    ///         AccountId = memberDetector.AccountId,
-    ///         DetectorId = primaryDetector.Id,
-    ///         Email = "required@example.com",
-    ///         Invite = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Primary,
-    ///     });
-    /// 
-    ///     var memberInviteAccepter = new Aws.GuardDuty.InviteAccepter("memberInviteAccepter", new()
+    ///     var member = new Aws.GuardDuty.InviteAccepter("member", new()
     ///     {
     ///         DetectorId = memberDetector.Id,
-    ///         MasterAccountId = primaryDetector.AccountId,
-    ///     }, new CustomResourceOptions
+    ///         MasterAccountId = primary.AccountId,
+    ///     });
+    /// 
+    ///     var memberMember = new Aws.GuardDuty.Member("member", new()
     ///     {
-    ///         Provider = aws.Member,
-    ///         DependsOn = new[]
-    ///         {
-    ///             memberMember,
-    ///         },
+    ///         AccountId = memberDetector.AccountId,
+    ///         DetectorId = primary.Id,
+    ///         Email = "required@example.com",
+    ///         Invite = true,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_guardduty_invite_accepter` using the member GuardDuty detector ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:guardduty/inviteAccepter:InviteAccepter member 00b00fd5aecc0ab60a708659477e9617
+    /// $ pulumi import aws:guardduty/inviteAccepter:InviteAccepter member 00b00fd5aecc0ab60a708659477e9617
     /// ```
     /// </summary>
     [AwsResourceType("aws:guardduty/inviteAccepter:InviteAccepter")]

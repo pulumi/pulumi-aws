@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Ssm
     /// Resource for registering an AWS Systems Manager Default Patch Baseline.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,15 +25,16 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePatchBaseline = new Aws.Ssm.PatchBaseline("examplePatchBaseline", new()
+    ///     var examplePatchBaseline = new Aws.Ssm.PatchBaseline("example", new()
     ///     {
+    ///         Name = "example",
     ///         ApprovedPatches = new[]
     ///         {
     ///             "KB123456",
     ///         },
     ///     });
     /// 
-    ///     var exampleDefaultPatchBaseline = new Aws.Ssm.DefaultPatchBaseline("exampleDefaultPatchBaseline", new()
+    ///     var example = new Aws.Ssm.DefaultPatchBaseline("example", new()
     ///     {
     ///         BaselineId = examplePatchBaseline.Id,
     ///         OperatingSystem = examplePatchBaseline.OperatingSystem,
@@ -39,6 +42,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -51,17 +55,17 @@ namespace Pulumi.Aws.Ssm
     /// Using the patch baseline ID:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example pb-1234567890abcdef1
+    /// $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example pb-1234567890abcdef1
     /// ```
-    ///  Using the patch baseline ARN:
+    /// Using the patch baseline ARN:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1
+    /// $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1
     /// ```
-    ///  Using the operating system value:
+    /// Using the operating system value:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example CENTOS
+    /// $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example CENTOS
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssm/defaultPatchBaseline:DefaultPatchBaseline")]

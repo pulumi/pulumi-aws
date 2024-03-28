@@ -19,17 +19,15 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Bedrock custom model using the `id` set to the AWS region. For example:
+// Using `pulumi import`, import Bedrock custom model using the `id` set to the AWS Region. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration my_config us-east-1
-//
+// $ pulumi import aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration my_config us-east-1
 // ```
 type InvocationLoggingConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The logging configuration values to set. See `loggingConfig`.
+	// The logging configuration values to set.
 	LoggingConfig InvocationLoggingConfigurationLoggingConfigPtrOutput `pulumi:"loggingConfig"`
 }
 
@@ -63,12 +61,12 @@ func GetInvocationLoggingConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InvocationLoggingConfiguration resources.
 type invocationLoggingConfigurationState struct {
-	// The logging configuration values to set. See `loggingConfig`.
+	// The logging configuration values to set.
 	LoggingConfig *InvocationLoggingConfigurationLoggingConfig `pulumi:"loggingConfig"`
 }
 
 type InvocationLoggingConfigurationState struct {
-	// The logging configuration values to set. See `loggingConfig`.
+	// The logging configuration values to set.
 	LoggingConfig InvocationLoggingConfigurationLoggingConfigPtrInput
 }
 
@@ -77,13 +75,13 @@ func (InvocationLoggingConfigurationState) ElementType() reflect.Type {
 }
 
 type invocationLoggingConfigurationArgs struct {
-	// The logging configuration values to set. See `loggingConfig`.
+	// The logging configuration values to set.
 	LoggingConfig *InvocationLoggingConfigurationLoggingConfig `pulumi:"loggingConfig"`
 }
 
 // The set of arguments for constructing a InvocationLoggingConfiguration resource.
 type InvocationLoggingConfigurationArgs struct {
-	// The logging configuration values to set. See `loggingConfig`.
+	// The logging configuration values to set.
 	LoggingConfig InvocationLoggingConfigurationLoggingConfigPtrInput
 }
 
@@ -174,7 +172,7 @@ func (o InvocationLoggingConfigurationOutput) ToInvocationLoggingConfigurationOu
 	return o
 }
 
-// The logging configuration values to set. See `loggingConfig`.
+// The logging configuration values to set.
 func (o InvocationLoggingConfigurationOutput) LoggingConfig() InvocationLoggingConfigurationLoggingConfigPtrOutput {
 	return o.ApplyT(func(v *InvocationLoggingConfiguration) InvocationLoggingConfigurationLoggingConfigPtrOutput {
 		return v.LoggingConfig

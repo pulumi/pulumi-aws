@@ -59,19 +59,21 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClie
 
         @CustomType.Setter
         public Builder sasl(@Nullable ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl sasl) {
+
             this.sasl = sasl;
             return this;
         }
         @CustomType.Setter
         public Builder tls(@Nullable Boolean tls) {
+
             this.tls = tls;
             return this;
         }
         public ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication build() {
-            final var o = new ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication();
-            o.sasl = sasl;
-            o.tls = tls;
-            return o;
+            final var _resultValue = new ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication();
+            _resultValue.sasl = sasl;
+            _resultValue.tls = tls;
+            return _resultValue;
         }
     }
 }

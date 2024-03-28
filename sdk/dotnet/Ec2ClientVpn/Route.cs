@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,17 +24,17 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleEndpoint = new Aws.Ec2ClientVpn.Endpoint("exampleEndpoint", new()
+    ///     var exampleEndpoint = new Aws.Ec2ClientVpn.Endpoint("example", new()
     ///     {
     ///         Description = "Example Client VPN endpoint",
-    ///         ServerCertificateArn = aws_acm_certificate.Example.Arn,
+    ///         ServerCertificateArn = exampleAwsAcmCertificate.Arn,
     ///         ClientCidrBlock = "10.0.0.0/16",
     ///         AuthenticationOptions = new[]
     ///         {
     ///             new Aws.Ec2ClientVpn.Inputs.EndpointAuthenticationOptionArgs
     ///             {
     ///                 Type = "certificate-authentication",
-    ///                 RootCertificateChainArn = aws_acm_certificate.Example.Arn,
+    ///                 RootCertificateChainArn = exampleAwsAcmCertificate.Arn,
     ///             },
     ///         },
     ///         ConnectionLogOptions = new Aws.Ec2ClientVpn.Inputs.EndpointConnectionLogOptionsArgs
@@ -42,13 +43,13 @@ namespace Pulumi.Aws.Ec2ClientVpn
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkAssociation = new Aws.Ec2ClientVpn.NetworkAssociation("exampleNetworkAssociation", new()
+    ///     var exampleNetworkAssociation = new Aws.Ec2ClientVpn.NetworkAssociation("example", new()
     ///     {
     ///         ClientVpnEndpointId = exampleEndpoint.Id,
-    ///         SubnetId = aws_subnet.Example.Id,
+    ///         SubnetId = exampleAwsSubnet.Id,
     ///     });
     /// 
-    ///     var exampleRoute = new Aws.Ec2ClientVpn.Route("exampleRoute", new()
+    ///     var example = new Aws.Ec2ClientVpn.Route("example", new()
     ///     {
     ///         ClientVpnEndpointId = exampleEndpoint.Id,
     ///         DestinationCidrBlock = "0.0.0.0/0",
@@ -57,13 +58,14 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS Client VPN routes using the endpoint ID, target subnet ID, and destination CIDR block. All values are separated by a `,`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
+    /// $ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2clientvpn/route:Route")]

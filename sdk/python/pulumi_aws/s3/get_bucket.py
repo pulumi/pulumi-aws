@@ -146,8 +146,10 @@ def get_bucket(bucket: Optional[str] = None,
     Distribution.
 
     ## Example Usage
+
     ### Route53 Record
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -157,14 +159,17 @@ def get_bucket(bucket: Optional[str] = None,
     example = aws.route53.Record("example",
         zone_id=test_zone.id,
         name="bucket",
-        type="A",
+        type=aws.route53.RecordType.A,
         aliases=[aws.route53.RecordAliasArgs(
             name=selected.website_domain,
             zone_id=selected.hosted_zone_id,
         )])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### CloudFront Origin
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -175,6 +180,7 @@ def get_bucket(bucket: Optional[str] = None,
         origin_id="s3-selected-bucket",
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str bucket: Name of the bucket
@@ -206,8 +212,10 @@ def get_bucket_output(bucket: Optional[pulumi.Input[str]] = None,
     Distribution.
 
     ## Example Usage
+
     ### Route53 Record
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -217,14 +225,17 @@ def get_bucket_output(bucket: Optional[pulumi.Input[str]] = None,
     example = aws.route53.Record("example",
         zone_id=test_zone.id,
         name="bucket",
-        type="A",
+        type=aws.route53.RecordType.A,
         aliases=[aws.route53.RecordAliasArgs(
             name=selected.website_domain,
             zone_id=selected.hosted_zone_id,
         )])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### CloudFront Origin
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -235,6 +246,7 @@ def get_bucket_output(bucket: Optional[pulumi.Input[str]] = None,
         origin_id="s3-selected-bucket",
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str bucket: Name of the bucket

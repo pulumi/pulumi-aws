@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -161,7 +162,9 @@ public final class DataSetFieldFolderArgs extends com.pulumi.resources.ResourceA
         }
 
         public DataSetFieldFolderArgs build() {
-            $.fieldFoldersId = Objects.requireNonNull($.fieldFoldersId, "expected parameter 'fieldFoldersId' to be non-null");
+            if ($.fieldFoldersId == null) {
+                throw new MissingRequiredPropertyException("DataSetFieldFolderArgs", "fieldFoldersId");
+            }
             return $;
         }
     }

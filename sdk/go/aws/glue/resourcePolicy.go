@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,15 +33,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentPartition, err := aws.GetPartition(ctx, nil, nil)
+//			currentGetPartition, err := aws.GetPartition(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			currentGetRegion, err := aws.GetRegion(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -51,7 +52,7 @@ import (
 //							"glue:CreateTable",
 //						},
 //						Resources: []string{
-//							fmt.Sprintf("arn:%v:glue:%v:%v:*", currentPartition.Partition, currentRegion.Name, currentCallerIdentity.AccountId),
+//							fmt.Sprintf("arn:%v:glue:%v:%v:*", currentGetPartition.Partition, currentGetRegion.Name, current.AccountId),
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
@@ -68,7 +69,7 @@ import (
 //				return err
 //			}
 //			_, err = glue.NewResourcePolicy(ctx, "example", &glue.ResourcePolicyArgs{
-//				Policy: *pulumi.String(glue_example_policy.Json),
+//				Policy: pulumi.String(glue_example_policy.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -78,15 +79,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glue Resource Policy using the account ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
-//
+// $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
 // ```
 type ResourcePolicy struct {
 	pulumi.CustomResourceState

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,20 +29,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testStack, err := appstream.NewStack(ctx, "testStack", nil)
+//			test, err := appstream.NewStack(ctx, "test", &appstream.StackArgs{
+//				Name: pulumi.String("STACK NAME"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			testUser, err := appstream.NewUser(ctx, "testUser", &appstream.UserArgs{
+//			testUser, err := appstream.NewUser(ctx, "test", &appstream.UserArgs{
 //				AuthenticationType: pulumi.String("USERPOOL"),
 //				UserName:           pulumi.String("EMAIL"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appstream.NewUserStackAssociation(ctx, "testUserStackAssociation", &appstream.UserStackAssociationArgs{
+//			_, err = appstream.NewUserStackAssociation(ctx, "test", &appstream.UserStackAssociationArgs{
 //				AuthenticationType: testUser.AuthenticationType,
-//				StackName:          testStack.Name,
+//				StackName:          test.Name,
 //				UserName:           testUser.UserName,
 //			})
 //			if err != nil {
@@ -52,15 +55,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AppStream User Stack Association using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
-//
+// $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
 // ```
 type UserStackAssociation struct {
 	pulumi.CustomResourceState

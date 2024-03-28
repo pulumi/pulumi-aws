@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -41,19 +42,25 @@ public final class GetRouteSpecHttp2RouteTimeoutIdle {
 
         @CustomType.Setter
         public Builder unit(String unit) {
-            this.unit = Objects.requireNonNull(unit);
+            if (unit == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttp2RouteTimeoutIdle", "unit");
+            }
+            this.unit = unit;
             return this;
         }
         @CustomType.Setter
         public Builder value(Integer value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttp2RouteTimeoutIdle", "value");
+            }
+            this.value = value;
             return this;
         }
         public GetRouteSpecHttp2RouteTimeoutIdle build() {
-            final var o = new GetRouteSpecHttp2RouteTimeoutIdle();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetRouteSpecHttp2RouteTimeoutIdle();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

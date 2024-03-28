@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScope
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -135,7 +136,9 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSql
         }
 
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs build() {
-            $.textTransformations = Objects.requireNonNull($.textTransformations, "expected parameter 'textTransformations' to be non-null");
+            if ($.textTransformations == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs", "textTransformations");
+            }
             return $;
         }
     }

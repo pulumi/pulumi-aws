@@ -8,30 +8,38 @@ import * as utilities from "../utilities";
  * Adds a launch permission to an Amazon Machine Image (AMI).
  *
  * ## Example Usage
+ *
  * ### AWS Account ID
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.AmiLaunchPermission("example", {
- *     accountId: "123456789012",
  *     imageId: "ami-12345678",
+ *     accountId: "123456789012",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Public Access
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.AmiLaunchPermission("example", {
- *     group: "all",
  *     imageId: "ami-12345678",
+ *     group: "all",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Organization Access
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -42,13 +50,14 @@ import * as utilities from "../utilities";
  *     organizationArn: current.then(current => current.arn),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AMI Launch Permissions using `[ACCOUNT-ID|GROUP-NAME|ORGANIZATION-ARN|ORGANIZATIONAL-UNIT-ARN]/IMAGE-ID`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
+ * $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
  * ```
  */
 export class AmiLaunchPermission extends pulumi.CustomResource {

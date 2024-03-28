@@ -11,6 +11,7 @@ import com.pulumi.aws.appsync.inputs.GraphQLApiUserPoolConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -66,6 +67,21 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> authenticationType() {
         return Optional.ofNullable(this.authenticationType);
+    }
+
+    /**
+     * Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
+     * 
+     */
+    @Import(name="introspectionConfig")
+    private @Nullable Output<String> introspectionConfig;
+
+    /**
+     * @return Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
+     * 
+     */
+    public Optional<Output<String>> introspectionConfig() {
+        return Optional.ofNullable(this.introspectionConfig);
     }
 
     /**
@@ -126,6 +142,40 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<GraphQLApiOpenidConnectConfigArgs>> openidConnectConfig() {
         return Optional.ofNullable(this.openidConnectConfig);
+    }
+
+    /**
+     * The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there&#39;s no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
+     * 
+     * Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
+     * 
+     */
+    @Import(name="queryDepthLimit")
+    private @Nullable Output<Integer> queryDepthLimit;
+
+    /**
+     * @return The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there&#39;s no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
+     * 
+     * Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
+     * 
+     */
+    public Optional<Output<Integer>> queryDepthLimit() {
+        return Optional.ofNullable(this.queryDepthLimit);
+    }
+
+    /**
+     * The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
+     * 
+     */
+    @Import(name="resolverCountLimit")
+    private @Nullable Output<Integer> resolverCountLimit;
+
+    /**
+     * @return The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
+     * 
+     */
+    public Optional<Output<Integer>> resolverCountLimit() {
+        return Optional.ofNullable(this.resolverCountLimit);
     }
 
     /**
@@ -247,10 +297,13 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
         this.additionalAuthenticationProviders = $.additionalAuthenticationProviders;
         this.arn = $.arn;
         this.authenticationType = $.authenticationType;
+        this.introspectionConfig = $.introspectionConfig;
         this.lambdaAuthorizerConfig = $.lambdaAuthorizerConfig;
         this.logConfig = $.logConfig;
         this.name = $.name;
         this.openidConnectConfig = $.openidConnectConfig;
+        this.queryDepthLimit = $.queryDepthLimit;
+        this.resolverCountLimit = $.resolverCountLimit;
         this.schema = $.schema;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -352,6 +405,27 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param introspectionConfig Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder introspectionConfig(@Nullable Output<String> introspectionConfig) {
+            $.introspectionConfig = introspectionConfig;
+            return this;
+        }
+
+        /**
+         * @param introspectionConfig Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder introspectionConfig(String introspectionConfig) {
+            return introspectionConfig(Output.of(introspectionConfig));
+        }
+
+        /**
          * @param lambdaAuthorizerConfig Nested argument containing Lambda authorizer configuration. Defined below.
          * 
          * @return builder
@@ -433,6 +507,52 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder openidConnectConfig(GraphQLApiOpenidConnectConfigArgs openidConnectConfig) {
             return openidConnectConfig(Output.of(openidConnectConfig));
+        }
+
+        /**
+         * @param queryDepthLimit The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there&#39;s no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
+         * 
+         * Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queryDepthLimit(@Nullable Output<Integer> queryDepthLimit) {
+            $.queryDepthLimit = queryDepthLimit;
+            return this;
+        }
+
+        /**
+         * @param queryDepthLimit The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there&#39;s no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
+         * 
+         * Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queryDepthLimit(Integer queryDepthLimit) {
+            return queryDepthLimit(Output.of(queryDepthLimit));
+        }
+
+        /**
+         * @param resolverCountLimit The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resolverCountLimit(@Nullable Output<Integer> resolverCountLimit) {
+            $.resolverCountLimit = resolverCountLimit;
+            return this;
+        }
+
+        /**
+         * @param resolverCountLimit The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resolverCountLimit(Integer resolverCountLimit) {
+            return resolverCountLimit(Output.of(resolverCountLimit));
         }
 
         /**

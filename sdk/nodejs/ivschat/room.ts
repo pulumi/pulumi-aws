@@ -11,38 +11,50 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS IVS (Interactive Video) Chat Room.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ivschat.Room("example", {});
+ * const example = new aws.ivschat.Room("example", {name: "tf-room"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Usage with Logging Configuration to S3 Bucket
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {
+ * const example = new aws.s3.BucketV2("example", {
  *     bucketPrefix: "tf-ivschat-logging-bucket-",
  *     forceDestroy: true,
  * });
- * const exampleLoggingConfiguration = new aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", {destinationConfiguration: {
- *     s3: {
- *         bucketName: exampleBucketV2.id,
+ * const exampleLoggingConfiguration = new aws.ivschat.LoggingConfiguration("example", {
+ *     name: "tf-ivschat-loggingconfiguration",
+ *     destinationConfiguration: {
+ *         s3: {
+ *             bucketName: example.id,
+ *         },
  *     },
- * }});
- * const exampleRoom = new aws.ivschat.Room("exampleRoom", {loggingConfigurationIdentifiers: [exampleLoggingConfiguration.arn]});
+ * });
+ * const exampleRoom = new aws.ivschat.Room("example", {
+ *     name: "tf-ivschat-room",
+ *     loggingConfigurationIdentifiers: [exampleLoggingConfiguration.arn],
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IVS (Interactive Video) Chat Room using the ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
+ * $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
  * ```
  */
 export class Room extends pulumi.CustomResource {
@@ -146,8 +158,6 @@ export class Room extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Room.__pulumiType, name, resourceInputs, opts);
     }
 }

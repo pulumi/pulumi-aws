@@ -14,31 +14,33 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleProxy = new aws.rds.Proxy("exampleProxy", {
+ * const example = new aws.rds.Proxy("example", {
+ *     name: "example",
  *     debugLogging: false,
  *     engineFamily: "MYSQL",
  *     idleClientTimeout: 1800,
  *     requireTls: true,
- *     roleArn: aws_iam_role.example.arn,
- *     vpcSecurityGroupIds: [aws_security_group.example.id],
- *     vpcSubnetIds: [aws_subnet.example.id],
+ *     roleArn: exampleAwsIamRole.arn,
+ *     vpcSecurityGroupIds: [exampleAwsSecurityGroup.id],
+ *     vpcSubnetIds: [exampleAwsSubnet.id],
  *     auths: [{
  *         authScheme: "SECRETS",
  *         description: "example",
  *         iamAuth: "DISABLED",
- *         secretArn: aws_secretsmanager_secret.example.arn,
+ *         secretArn: exampleAwsSecretsmanagerSecret.arn,
  *     }],
  *     tags: {
  *         Name: "example",
  *         Key: "value",
  *     },
  * });
- * const exampleProxyDefaultTargetGroup = new aws.rds.ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup", {
- *     dbProxyName: exampleProxy.name,
+ * const exampleProxyDefaultTargetGroup = new aws.rds.ProxyDefaultTargetGroup("example", {
+ *     dbProxyName: example.name,
  *     connectionPoolConfig: {
  *         connectionBorrowTimeout: 120,
  *         initQuery: "SET x=1, y=2",
@@ -48,13 +50,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import DB proxy default target groups using the `db_proxy_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
+ * $ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
  * ```
  */
 export class ProxyDefaultTargetGroup extends pulumi.CustomResource {

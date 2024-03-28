@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codeartifact.GetRepositoryEndpoint(ctx, &codeartifact.GetRepositoryEndpointArgs{
-//				Domain:     aws_codeartifact_domain.Test.Domain,
-//				Repository: aws_codeartifact_repository.Test.Repository,
+//				Domain:     testAwsCodeartifactDomain.Domain,
+//				Repository: testAwsCodeartifactRepository.Repository,
 //				Format:     "npm",
 //			}, nil)
 //			if err != nil {
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetRepositoryEndpoint(ctx *pulumi.Context, args *GetRepositoryEndpointArgs, opts ...pulumi.InvokeOption) (*GetRepositoryEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRepositoryEndpointResult

@@ -16,8 +16,10 @@ import (
 // Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
 //
 // ## Example Usage
+//
 // ### Basic Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,56 +33,34 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.GetCoreNetworkPolicyDocument(ctx, &networkmanager.GetCoreNetworkPolicyDocumentArgs{
-//				AttachmentPolicies: []networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicy{
-//					{
-//						Action: {
-//							AssociationMethod: "constant",
-//							Segment:           pulumi.StringRef("shared"),
-//						},
-//						ConditionLogic: pulumi.StringRef("or"),
-//						Conditions: []networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyCondition{
-//							{
-//								Key:      pulumi.StringRef("segment"),
-//								Operator: pulumi.StringRef("equals"),
-//								Type:     "tag-value",
-//								Value:    pulumi.StringRef("shared"),
-//							},
-//						},
-//						RuleNumber: 100,
-//					},
-//					{
-//						Action: {
-//							AssociationMethod: "constant",
-//							Segment:           pulumi.StringRef("prod"),
-//						},
-//						ConditionLogic: pulumi.StringRef("or"),
-//						Conditions: []networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyCondition{
-//							{
-//								Key:      pulumi.StringRef("segment"),
-//								Operator: pulumi.StringRef("equals"),
-//								Type:     "tag-value",
-//								Value:    pulumi.StringRef("prod"),
-//							},
-//						},
-//						RuleNumber: 200,
-//					},
-//				},
 //				CoreNetworkConfigurations: []networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfiguration{
 //					{
+//						VpnEcmpSupport: pulumi.BoolRef(false),
 //						AsnRanges: []string{
 //							"64512-64555",
 //						},
 //						EdgeLocations: []networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation{
 //							{
-//								Asn:      pulumi.StringRef("64512"),
 //								Location: "us-east-1",
+//								Asn:      pulumi.StringRef("64512"),
 //							},
 //							{
-//								Asn:      pulumi.StringRef("64513"),
 //								Location: "eu-central-1",
+//								Asn:      pulumi.StringRef("64513"),
 //							},
 //						},
-//						VpnEcmpSupport: pulumi.BoolRef(false),
+//					},
+//				},
+//				Segments: []networkmanager.GetCoreNetworkPolicyDocumentSegment{
+//					{
+//						Name:                        "shared",
+//						Description:                 pulumi.StringRef("Segment for shared services"),
+//						RequireAttachmentAcceptance: pulumi.BoolRef(true),
+//					},
+//					{
+//						Name:                        "prod",
+//						Description:                 pulumi.StringRef("Segment for prod services"),
+//						RequireAttachmentAcceptance: pulumi.BoolRef(true),
 //					},
 //				},
 //				SegmentActions: []networkmanager.GetCoreNetworkPolicyDocumentSegmentAction{
@@ -93,16 +73,38 @@ import (
 //						},
 //					},
 //				},
-//				Segments: []networkmanager.GetCoreNetworkPolicyDocumentSegment{
+//				AttachmentPolicies: []networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicy{
 //					{
-//						Description:                 pulumi.StringRef("Segment for shared services"),
-//						Name:                        "shared",
-//						RequireAttachmentAcceptance: pulumi.BoolRef(true),
+//						RuleNumber:     100,
+//						ConditionLogic: pulumi.StringRef("or"),
+//						Conditions: []networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyCondition{
+//							{
+//								Type:     "tag-value",
+//								Operator: pulumi.StringRef("equals"),
+//								Key:      pulumi.StringRef("segment"),
+//								Value:    pulumi.StringRef("shared"),
+//							},
+//						},
+//						Action: {
+//							AssociationMethod: "constant",
+//							Segment:           pulumi.StringRef("shared"),
+//						},
 //					},
 //					{
-//						Description:                 pulumi.StringRef("Segment for prod services"),
-//						Name:                        "prod",
-//						RequireAttachmentAcceptance: pulumi.BoolRef(true),
+//						RuleNumber:     200,
+//						ConditionLogic: pulumi.StringRef("or"),
+//						Conditions: []networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyCondition{
+//							{
+//								Type:     "tag-value",
+//								Operator: pulumi.StringRef("equals"),
+//								Key:      pulumi.StringRef("segment"),
+//								Value:    pulumi.StringRef("prod"),
+//							},
+//						},
+//						Action: {
+//							AssociationMethod: "constant",
+//							Segment:           pulumi.StringRef("prod"),
+//						},
 //					},
 //				},
 //			}, nil)
@@ -114,25 +116,9 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetCoreNetworkPolicyDocument(ctx *pulumi.Context, args *GetCoreNetworkPolicyDocumentArgs, opts ...pulumi.InvokeOption) (*GetCoreNetworkPolicyDocumentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCoreNetworkPolicyDocumentResult

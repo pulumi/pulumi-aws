@@ -4,6 +4,7 @@
 package com.pulumi.aws.gamelift.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,25 +74,32 @@ public final class FleetRuntimeConfigurationServerProcess {
 
         @CustomType.Setter
         public Builder concurrentExecutions(Integer concurrentExecutions) {
-            this.concurrentExecutions = Objects.requireNonNull(concurrentExecutions);
+            if (concurrentExecutions == null) {
+              throw new MissingRequiredPropertyException("FleetRuntimeConfigurationServerProcess", "concurrentExecutions");
+            }
+            this.concurrentExecutions = concurrentExecutions;
             return this;
         }
         @CustomType.Setter
         public Builder launchPath(String launchPath) {
-            this.launchPath = Objects.requireNonNull(launchPath);
+            if (launchPath == null) {
+              throw new MissingRequiredPropertyException("FleetRuntimeConfigurationServerProcess", "launchPath");
+            }
+            this.launchPath = launchPath;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable String parameters) {
+
             this.parameters = parameters;
             return this;
         }
         public FleetRuntimeConfigurationServerProcess build() {
-            final var o = new FleetRuntimeConfigurationServerProcess();
-            o.concurrentExecutions = concurrentExecutions;
-            o.launchPath = launchPath;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new FleetRuntimeConfigurationServerProcess();
+            _resultValue.concurrentExecutions = concurrentExecutions;
+            _resultValue.launchPath = launchPath;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

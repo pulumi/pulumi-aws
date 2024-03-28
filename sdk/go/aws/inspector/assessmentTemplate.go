@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := inspector.NewAssessmentTemplate(ctx, "example", &inspector.AssessmentTemplateArgs{
-//				TargetArn: pulumi.Any(aws_inspector_assessment_target.Example.Arn),
+//				Name:      pulumi.String("example"),
+//				TargetArn: pulumi.Any(exampleAwsInspectorAssessmentTarget.Arn),
 //				Duration:  pulumi.Int(3600),
 //				RulesPackageArns: pulumi.StringArray{
 //					pulumi.String("arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p"),
@@ -40,7 +42,7 @@ import (
 //				EventSubscriptions: inspector.AssessmentTemplateEventSubscriptionArray{
 //					&inspector.AssessmentTemplateEventSubscriptionArgs{
 //						Event:    pulumi.String("ASSESSMENT_RUN_COMPLETED"),
-//						TopicArn: pulumi.Any(aws_sns_topic.Example.Arn),
+//						TopicArn: pulumi.Any(exampleAwsSnsTopic.Arn),
 //					},
 //				},
 //			})
@@ -52,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_inspector_assessment_template` using the template assessment ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
-//
+// $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
 // ```
 type AssessmentTemplate struct {
 	pulumi.CustomResourceState
@@ -101,10 +102,6 @@ func NewAssessmentTemplate(ctx *pulumi.Context,
 	if args.TargetArn == nil {
 		return nil, errors.New("invalid value for required argument 'TargetArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AssessmentTemplate
 	err := ctx.RegisterResource("aws:inspector/assessmentTemplate:AssessmentTemplate", name, args, &resource, opts...)

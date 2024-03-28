@@ -12,13 +12,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {});
- * const exampleRepository = new aws.codecommit.Repository("exampleRepository", {repositoryName: "example-repo"});
- * const exampleRepositoryAssociation = new aws.codegurureviewer.RepositoryAssociation("exampleRepositoryAssociation", {
+ * const example = new aws.kms.Key("example", {});
+ * const exampleRepository = new aws.codecommit.Repository("example", {repositoryName: "example-repo"});
+ * const exampleRepositoryAssociation = new aws.codegurureviewer.RepositoryAssociation("example", {
  *     repository: {
  *         codecommit: {
  *             name: exampleRepository.repositoryName,
@@ -26,10 +27,11 @@ import * as utilities from "../utilities";
  *     },
  *     kmsKeyDetails: {
  *         encryptionOption: "CUSTOMER_MANAGED_CMK",
- *         kmsKeyId: exampleKey.keyId,
+ *         kmsKeyId: example.keyId,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class RepositoryAssociation extends pulumi.CustomResource {
     /**
@@ -154,8 +156,6 @@ export class RepositoryAssociation extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(RepositoryAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

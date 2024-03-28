@@ -7,6 +7,7 @@ import com.pulumi.aws.datapipeline.outputs.GetPipelineDefinitionParameterObject;
 import com.pulumi.aws.datapipeline.outputs.GetPipelineDefinitionParameterValue;
 import com.pulumi.aws.datapipeline.outputs.GetPipelineDefinitionPipelineObject;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -95,12 +96,18 @@ public final class GetPipelineDefinitionResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPipelineDefinitionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder parameterObjects(List<GetPipelineDefinitionParameterObject> parameterObjects) {
-            this.parameterObjects = Objects.requireNonNull(parameterObjects);
+            if (parameterObjects == null) {
+              throw new MissingRequiredPropertyException("GetPipelineDefinitionResult", "parameterObjects");
+            }
+            this.parameterObjects = parameterObjects;
             return this;
         }
         public Builder parameterObjects(GetPipelineDefinitionParameterObject... parameterObjects) {
@@ -108,6 +115,7 @@ public final class GetPipelineDefinitionResult {
         }
         @CustomType.Setter
         public Builder parameterValues(@Nullable List<GetPipelineDefinitionParameterValue> parameterValues) {
+
             this.parameterValues = parameterValues;
             return this;
         }
@@ -116,25 +124,31 @@ public final class GetPipelineDefinitionResult {
         }
         @CustomType.Setter
         public Builder pipelineId(String pipelineId) {
-            this.pipelineId = Objects.requireNonNull(pipelineId);
+            if (pipelineId == null) {
+              throw new MissingRequiredPropertyException("GetPipelineDefinitionResult", "pipelineId");
+            }
+            this.pipelineId = pipelineId;
             return this;
         }
         @CustomType.Setter
         public Builder pipelineObjects(List<GetPipelineDefinitionPipelineObject> pipelineObjects) {
-            this.pipelineObjects = Objects.requireNonNull(pipelineObjects);
+            if (pipelineObjects == null) {
+              throw new MissingRequiredPropertyException("GetPipelineDefinitionResult", "pipelineObjects");
+            }
+            this.pipelineObjects = pipelineObjects;
             return this;
         }
         public Builder pipelineObjects(GetPipelineDefinitionPipelineObject... pipelineObjects) {
             return pipelineObjects(List.of(pipelineObjects));
         }
         public GetPipelineDefinitionResult build() {
-            final var o = new GetPipelineDefinitionResult();
-            o.id = id;
-            o.parameterObjects = parameterObjects;
-            o.parameterValues = parameterValues;
-            o.pipelineId = pipelineId;
-            o.pipelineObjects = pipelineObjects;
-            return o;
+            final var _resultValue = new GetPipelineDefinitionResult();
+            _resultValue.id = id;
+            _resultValue.parameterObjects = parameterObjects;
+            _resultValue.parameterValues = parameterValues;
+            _resultValue.pipelineId = pipelineId;
+            _resultValue.pipelineObjects = pipelineObjects;
+            return _resultValue;
         }
     }
 }

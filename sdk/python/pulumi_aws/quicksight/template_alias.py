@@ -190,24 +190,27 @@ class TemplateAlias(pulumi.CustomResource):
         Resource for managing an AWS QuickSight Template Alias.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.TemplateAlias("example",
             alias_name="example-alias",
-            template_id=aws_quicksight_template["test"]["template_id"],
-            template_version_number=aws_quicksight_template["test"]["version_number"])
+            template_id=test["templateId"],
+            template_version_number=test["versionNumber"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import QuickSight Template Alias using the AWS account ID, template ID, and alias name separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/templateAlias:TemplateAlias example 123456789012,example-id,example-alias
+        $ pulumi import aws:quicksight/templateAlias:TemplateAlias example 123456789012,example-id,example-alias
         ```
 
         :param str resource_name: The name of the resource.
@@ -229,24 +232,27 @@ class TemplateAlias(pulumi.CustomResource):
         Resource for managing an AWS QuickSight Template Alias.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.TemplateAlias("example",
             alias_name="example-alias",
-            template_id=aws_quicksight_template["test"]["template_id"],
-            template_version_number=aws_quicksight_template["test"]["version_number"])
+            template_id=test["templateId"],
+            template_version_number=test["versionNumber"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import QuickSight Template Alias using the AWS account ID, template ID, and alias name separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/templateAlias:TemplateAlias example 123456789012,example-id,example-alias
+        $ pulumi import aws:quicksight/templateAlias:TemplateAlias example 123456789012,example-id,example-alias
         ```
 
         :param str resource_name: The name of the resource.

@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudsearch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -171,67 +172,81 @@ public final class DomainIndexField {
 
         @CustomType.Setter
         public Builder analysisScheme(@Nullable String analysisScheme) {
+
             this.analysisScheme = analysisScheme;
             return this;
         }
         @CustomType.Setter
         public Builder defaultValue(@Nullable String defaultValue) {
+
             this.defaultValue = defaultValue;
             return this;
         }
         @CustomType.Setter
         public Builder facet(@Nullable Boolean facet) {
+
             this.facet = facet;
             return this;
         }
         @CustomType.Setter
         public Builder highlight(@Nullable Boolean highlight) {
+
             this.highlight = highlight;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("DomainIndexField", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter("return")
         public Builder return_(@Nullable Boolean return_) {
+
             this.return_ = return_;
             return this;
         }
         @CustomType.Setter
         public Builder search(@Nullable Boolean search) {
+
             this.search = search;
             return this;
         }
         @CustomType.Setter
         public Builder sort(@Nullable Boolean sort) {
+
             this.sort = sort;
             return this;
         }
         @CustomType.Setter
         public Builder sourceFields(@Nullable String sourceFields) {
+
             this.sourceFields = sourceFields;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("DomainIndexField", "type");
+            }
+            this.type = type;
             return this;
         }
         public DomainIndexField build() {
-            final var o = new DomainIndexField();
-            o.analysisScheme = analysisScheme;
-            o.defaultValue = defaultValue;
-            o.facet = facet;
-            o.highlight = highlight;
-            o.name = name;
-            o.return_ = return_;
-            o.search = search;
-            o.sort = sort;
-            o.sourceFields = sourceFields;
-            o.type = type;
-            return o;
+            final var _resultValue = new DomainIndexField();
+            _resultValue.analysisScheme = analysisScheme;
+            _resultValue.defaultValue = defaultValue;
+            _resultValue.facet = facet;
+            _resultValue.highlight = highlight;
+            _resultValue.name = name;
+            _resultValue.return_ = return_;
+            _resultValue.search = search;
+            _resultValue.sort = sort;
+            _resultValue.sourceFields = sourceFields;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

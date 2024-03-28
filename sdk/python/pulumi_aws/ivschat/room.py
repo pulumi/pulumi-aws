@@ -295,37 +295,47 @@ class Room(pulumi.CustomResource):
         Resource for managing an AWS IVS (Interactive Video) Chat Room.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ivschat.Room("example")
+        example = aws.ivschat.Room("example", name="tf-room")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Usage with Logging Configuration to S3 Bucket
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2",
+        example = aws.s3.BucketV2("example",
             bucket_prefix="tf-ivschat-logging-bucket-",
             force_destroy=True)
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
-            s3=aws.ivschat.LoggingConfigurationDestinationConfigurationS3Args(
-                bucket_name=example_bucket_v2.id,
-            ),
-        ))
-        example_room = aws.ivschat.Room("exampleRoom", logging_configuration_identifiers=[example_logging_configuration.arn])
+        example_logging_configuration = aws.ivschat.LoggingConfiguration("example",
+            name="tf-ivschat-loggingconfiguration",
+            destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
+                s3=aws.ivschat.LoggingConfigurationDestinationConfigurationS3Args(
+                    bucket_name=example.id,
+                ),
+            ))
+        example_room = aws.ivschat.Room("example",
+            name="tf-ivschat-room",
+            logging_configuration_identifiers=[example_logging_configuration.arn])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IVS (Interactive Video) Chat Room using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
+        $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
         ```
 
         :param str resource_name: The name of the resource.
@@ -352,37 +362,47 @@ class Room(pulumi.CustomResource):
         Resource for managing an AWS IVS (Interactive Video) Chat Room.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ivschat.Room("example")
+        example = aws.ivschat.Room("example", name="tf-room")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Usage with Logging Configuration to S3 Bucket
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2",
+        example = aws.s3.BucketV2("example",
             bucket_prefix="tf-ivschat-logging-bucket-",
             force_destroy=True)
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
-            s3=aws.ivschat.LoggingConfigurationDestinationConfigurationS3Args(
-                bucket_name=example_bucket_v2.id,
-            ),
-        ))
-        example_room = aws.ivschat.Room("exampleRoom", logging_configuration_identifiers=[example_logging_configuration.arn])
+        example_logging_configuration = aws.ivschat.LoggingConfiguration("example",
+            name="tf-ivschat-loggingconfiguration",
+            destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
+                s3=aws.ivschat.LoggingConfigurationDestinationConfigurationS3Args(
+                    bucket_name=example.id,
+                ),
+            ))
+        example_room = aws.ivschat.Room("example",
+            name="tf-ivschat-room",
+            logging_configuration_identifiers=[example_logging_configuration.arn])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IVS (Interactive Video) Chat Room using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
+        $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
         ```
 
         :param str resource_name: The name of the resource.
@@ -423,8 +443,6 @@ class Room(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Room, __self__).__init__(
             'aws:ivschat/room:Room',
             resource_name,

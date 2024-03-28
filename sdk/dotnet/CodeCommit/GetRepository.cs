@@ -14,10 +14,9 @@ namespace Pulumi.Aws.CodeCommit
         /// <summary>
         /// The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Aws.CodeCommit
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRepositoryResult> InvokeAsync(GetRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryResult>("aws:codecommit/getRepository:getRepository", args ?? new GetRepositoryArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.CodeCommit
         /// <summary>
         /// The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Aws.CodeCommit
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRepositoryResult> Invoke(GetRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryResult>("aws:codecommit/getRepository:getRepository", args ?? new GetRepositoryInvokeArgs(), options.WithDefaults());
@@ -102,7 +98,7 @@ namespace Pulumi.Aws.CodeCommit
     public sealed class GetRepositoryResult
     {
         /// <summary>
-        /// ARN of the repository
+        /// ARN of the repository.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -118,7 +114,11 @@ namespace Pulumi.Aws.CodeCommit
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// ID of the repository
+        /// The ID of the encryption key.
+        /// </summary>
+        public readonly string KmsKeyId;
+        /// <summary>
+        /// ID of the repository.
         /// </summary>
         public readonly string RepositoryId;
         public readonly string RepositoryName;
@@ -133,6 +133,8 @@ namespace Pulumi.Aws.CodeCommit
 
             string id,
 
+            string kmsKeyId,
+
             string repositoryId,
 
             string repositoryName)
@@ -141,6 +143,7 @@ namespace Pulumi.Aws.CodeCommit
             CloneUrlHttp = cloneUrlHttp;
             CloneUrlSsh = cloneUrlSsh;
             Id = id;
+            KmsKeyId = kmsKeyId;
             RepositoryId = repositoryId;
             RepositoryName = repositoryName;
         }

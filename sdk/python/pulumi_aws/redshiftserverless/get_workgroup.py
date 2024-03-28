@@ -153,14 +153,17 @@ def get_workgroup(workgroup_name: Optional[str] = None,
     Data source for managing an AWS Redshift Serverless Workgroup.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.redshiftserverless.get_workgroup(workgroup_name=aws_redshiftserverless_workgroup["example"]["workgroup_name"])
+    example = aws.redshiftserverless.get_workgroup(workgroup_name=example_aws_redshiftserverless_workgroup["workgroupName"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str workgroup_name: The name of the workgroup associated with the database.
@@ -190,14 +193,17 @@ def get_workgroup_output(workgroup_name: Optional[pulumi.Input[str]] = None,
     Data source for managing an AWS Redshift Serverless Workgroup.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.redshiftserverless.get_workgroup(workgroup_name=aws_redshiftserverless_workgroup["example"]["workgroup_name"])
+    example = aws.redshiftserverless.get_workgroup(workgroup_name=example_aws_redshiftserverless_workgroup["workgroupName"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str workgroup_name: The name of the workgroup associated with the database.

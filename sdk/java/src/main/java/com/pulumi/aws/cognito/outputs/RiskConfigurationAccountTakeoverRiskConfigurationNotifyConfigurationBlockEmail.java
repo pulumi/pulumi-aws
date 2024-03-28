@@ -4,6 +4,7 @@
 package com.pulumi.aws.cognito.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,25 +71,34 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
 
         @CustomType.Setter
         public Builder htmlBody(String htmlBody) {
-            this.htmlBody = Objects.requireNonNull(htmlBody);
+            if (htmlBody == null) {
+              throw new MissingRequiredPropertyException("RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail", "htmlBody");
+            }
+            this.htmlBody = htmlBody;
             return this;
         }
         @CustomType.Setter
         public Builder subject(String subject) {
-            this.subject = Objects.requireNonNull(subject);
+            if (subject == null) {
+              throw new MissingRequiredPropertyException("RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail", "subject");
+            }
+            this.subject = subject;
             return this;
         }
         @CustomType.Setter
         public Builder textBody(String textBody) {
-            this.textBody = Objects.requireNonNull(textBody);
+            if (textBody == null) {
+              throw new MissingRequiredPropertyException("RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail", "textBody");
+            }
+            this.textBody = textBody;
             return this;
         }
         public RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail build() {
-            final var o = new RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail();
-            o.htmlBody = htmlBody;
-            o.subject = subject;
-            o.textBody = textBody;
-            return o;
+            final var _resultValue = new RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail();
+            _resultValue.htmlBody = htmlBody;
+            _resultValue.subject = subject;
+            _resultValue.textBody = textBody;
+            return _resultValue;
         }
     }
 }

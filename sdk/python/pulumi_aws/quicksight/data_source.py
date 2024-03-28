@@ -413,12 +413,14 @@ class DataSource(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         default = aws.quicksight.DataSource("default",
             data_source_id="example-id",
+            name="My Cool Data in S3",
             parameters=aws.quicksight.DataSourceParametersArgs(
                 s3=aws.quicksight.DataSourceParametersS3Args(
                     manifest_file_location=aws.quicksight.DataSourceParametersS3ManifestFileLocationArgs(
@@ -429,13 +431,14 @@ class DataSource(pulumi.CustomResource):
             ),
             type="S3")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a QuickSight data source using the AWS account ID, and data source ID separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
+        $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -464,12 +467,14 @@ class DataSource(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         default = aws.quicksight.DataSource("default",
             data_source_id="example-id",
+            name="My Cool Data in S3",
             parameters=aws.quicksight.DataSourceParametersArgs(
                 s3=aws.quicksight.DataSourceParametersS3Args(
                     manifest_file_location=aws.quicksight.DataSourceParametersS3ManifestFileLocationArgs(
@@ -480,13 +485,14 @@ class DataSource(pulumi.CustomResource):
             ),
             type="S3")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a QuickSight data source using the AWS account ID, and data source ID separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
+        $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -541,8 +547,6 @@ class DataSource(pulumi.CustomResource):
             __props__.__dict__["vpc_connection_properties"] = vpc_connection_properties
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(DataSource, __self__).__init__(
             'aws:quicksight/dataSource:DataSource',
             resource_name,

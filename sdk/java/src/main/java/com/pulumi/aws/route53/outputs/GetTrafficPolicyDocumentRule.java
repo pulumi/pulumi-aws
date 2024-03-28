@@ -10,6 +10,7 @@ import com.pulumi.aws.route53.outputs.GetTrafficPolicyDocumentRulePrimary;
 import com.pulumi.aws.route53.outputs.GetTrafficPolicyDocumentRuleRegion;
 import com.pulumi.aws.route53.outputs.GetTrafficPolicyDocumentRuleSecondary;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -149,6 +150,7 @@ public final class GetTrafficPolicyDocumentRule {
 
         @CustomType.Setter
         public Builder geoProximityLocations(@Nullable List<GetTrafficPolicyDocumentRuleGeoProximityLocation> geoProximityLocations) {
+
             this.geoProximityLocations = geoProximityLocations;
             return this;
         }
@@ -157,11 +159,15 @@ public final class GetTrafficPolicyDocumentRule {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTrafficPolicyDocumentRule", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder items(@Nullable List<GetTrafficPolicyDocumentRuleItem> items) {
+
             this.items = items;
             return this;
         }
@@ -170,6 +176,7 @@ public final class GetTrafficPolicyDocumentRule {
         }
         @CustomType.Setter
         public Builder locations(@Nullable List<GetTrafficPolicyDocumentRuleLocation> locations) {
+
             this.locations = locations;
             return this;
         }
@@ -178,11 +185,13 @@ public final class GetTrafficPolicyDocumentRule {
         }
         @CustomType.Setter
         public Builder primary(@Nullable GetTrafficPolicyDocumentRulePrimary primary) {
+
             this.primary = primary;
             return this;
         }
         @CustomType.Setter
         public Builder regions(@Nullable List<GetTrafficPolicyDocumentRuleRegion> regions) {
+
             this.regions = regions;
             return this;
         }
@@ -191,25 +200,27 @@ public final class GetTrafficPolicyDocumentRule {
         }
         @CustomType.Setter
         public Builder secondary(@Nullable GetTrafficPolicyDocumentRuleSecondary secondary) {
+
             this.secondary = secondary;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         public GetTrafficPolicyDocumentRule build() {
-            final var o = new GetTrafficPolicyDocumentRule();
-            o.geoProximityLocations = geoProximityLocations;
-            o.id = id;
-            o.items = items;
-            o.locations = locations;
-            o.primary = primary;
-            o.regions = regions;
-            o.secondary = secondary;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetTrafficPolicyDocumentRule();
+            _resultValue.geoProximityLocations = geoProximityLocations;
+            _resultValue.id = id;
+            _resultValue.items = items;
+            _resultValue.locations = locations;
+            _resultValue.primary = primary;
+            _resultValue.regions = regions;
+            _resultValue.secondary = secondary;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

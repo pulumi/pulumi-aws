@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,31 +87,39 @@ public final class DataSetRowLevelPermissionTagConfigurationTagRule {
 
         @CustomType.Setter
         public Builder columnName(String columnName) {
-            this.columnName = Objects.requireNonNull(columnName);
+            if (columnName == null) {
+              throw new MissingRequiredPropertyException("DataSetRowLevelPermissionTagConfigurationTagRule", "columnName");
+            }
+            this.columnName = columnName;
             return this;
         }
         @CustomType.Setter
         public Builder matchAllValue(@Nullable String matchAllValue) {
+
             this.matchAllValue = matchAllValue;
             return this;
         }
         @CustomType.Setter
         public Builder tagKey(String tagKey) {
-            this.tagKey = Objects.requireNonNull(tagKey);
+            if (tagKey == null) {
+              throw new MissingRequiredPropertyException("DataSetRowLevelPermissionTagConfigurationTagRule", "tagKey");
+            }
+            this.tagKey = tagKey;
             return this;
         }
         @CustomType.Setter
         public Builder tagMultiValueDelimiter(@Nullable String tagMultiValueDelimiter) {
+
             this.tagMultiValueDelimiter = tagMultiValueDelimiter;
             return this;
         }
         public DataSetRowLevelPermissionTagConfigurationTagRule build() {
-            final var o = new DataSetRowLevelPermissionTagConfigurationTagRule();
-            o.columnName = columnName;
-            o.matchAllValue = matchAllValue;
-            o.tagKey = tagKey;
-            o.tagMultiValueDelimiter = tagMultiValueDelimiter;
-            return o;
+            final var _resultValue = new DataSetRowLevelPermissionTagConfigurationTagRule();
+            _resultValue.columnName = columnName;
+            _resultValue.matchAllValue = matchAllValue;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagMultiValueDelimiter = tagMultiValueDelimiter;
+            return _resultValue;
         }
     }
 }

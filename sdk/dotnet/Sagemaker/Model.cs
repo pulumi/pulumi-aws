@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// Basic usage:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,7 +50,7 @@ namespace Pulumi.Aws.Sagemaker
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
@@ -59,8 +60,9 @@ namespace Pulumi.Aws.Sagemaker
     ///         RepositoryName = "kmeans",
     ///     });
     /// 
-    ///     var exampleModel = new Aws.Sagemaker.Model("exampleModel", new()
+    ///     var example = new Aws.Sagemaker.Model("example", new()
     ///     {
+    ///         Name = "my-model",
     ///         ExecutionRoleArn = exampleRole.Arn,
     ///         PrimaryContainer = new Aws.Sagemaker.Inputs.ModelPrimaryContainerArgs
     ///         {
@@ -70,6 +72,8 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Inference Execution Config
     /// 
     /// * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
@@ -79,7 +83,7 @@ namespace Pulumi.Aws.Sagemaker
     /// Using `pulumi import`, import models using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/model:Model test_model model-foo
+    /// $ pulumi import aws:sagemaker/model:Model test_model model-foo
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/model:Model")]
@@ -170,10 +174,6 @@ namespace Pulumi.Aws.Sagemaker
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -339,11 +339,7 @@ namespace Pulumi.Aws.Sagemaker
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

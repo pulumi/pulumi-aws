@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a resource to manage an [Amazon Detective Member](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateMembers.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -41,12 +43,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGraph = new Graph(&#34;exampleGraph&#34;);
+ *         var example = new Graph(&#34;example&#34;);
  * 
  *         var exampleMember = new Member(&#34;exampleMember&#34;, MemberArgs.builder()        
  *             .accountId(&#34;AWS ACCOUNT ID&#34;)
  *             .emailAddress(&#34;EMAIL&#34;)
- *             .graphArn(exampleGraph.id())
+ *             .graphArn(example.id())
  *             .message(&#34;Message of the invitation&#34;)
  *             .disableEmailNotification(true)
  *             .build());
@@ -54,13 +56,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_detective_member` using the ARN of the graph followed by the account ID of the member account. For example:
  * 
  * ```sh
- *  $ pulumi import aws:detective/member:Member example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d/123456789012
+ * $ pulumi import aws:detective/member:Member example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d/123456789012
  * ```
  * 
  */

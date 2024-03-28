@@ -9,13 +9,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleTopic = new aws.sns.Topic("exampleTopic", {});
- * const exampleDataProtectionPolicy = new aws.sns.DataProtectionPolicy("exampleDataProtectionPolicy", {
- *     arn: exampleTopic.arn,
+ * const example = new aws.sns.Topic("example", {name: "example"});
+ * const exampleDataProtectionPolicy = new aws.sns.DataProtectionPolicy("example", {
+ *     arn: example.arn,
  *     policy: JSON.stringify({
  *         Description: "Example data protection policy",
  *         Name: "__example_data_protection_policy",
@@ -32,13 +33,14 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SNS Data Protection Topic Policy using the topic ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:sns/dataProtectionPolicy:DataProtectionPolicy example arn:aws:sns:us-west-2:0123456789012:example
+ * $ pulumi import aws:sns/dataProtectionPolicy:DataProtectionPolicy example arn:aws:sns:us-west-2:0123456789012:example
  * ```
  */
 export class DataProtectionPolicy extends pulumi.CustomResource {

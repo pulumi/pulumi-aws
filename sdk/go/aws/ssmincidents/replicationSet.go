@@ -17,10 +17,12 @@ import (
 // > **NOTE:** Deleting a replication set also deletes all Incident Manager related data including response plans, incident records, contacts and escalation plans.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
 // Create a replication set.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,9 +53,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Add a Region to a replication set. (You can add only one Region at a time.)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -84,9 +88,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Delete a Region from a replication set. (You can delete only one Region at a time.)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -114,10 +120,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Basic Usage with an AWS Customer Managed Key
 //
 // Create a replication set with an AWS Key Management Service (AWS KMS) customer manager key:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -131,7 +140,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", nil)
+//			exampleKey, err := kms.NewKey(ctx, "example_key", nil)
 //			if err != nil {
 //				return err
 //			}
@@ -154,15 +163,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import an Incident Manager replication. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ssmincidents/replicationSet:ReplicationSet replicationSetName import
-//
+// $ pulumi import aws:ssmincidents/replicationSet:ReplicationSet replicationSetName import
 // ```
 type ReplicationSet struct {
 	pulumi.CustomResourceState
@@ -199,10 +207,6 @@ func NewReplicationSet(ctx *pulumi.Context,
 	if args.Regions == nil {
 		return nil, errors.New("invalid value for required argument 'Regions'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationSet
 	err := ctx.RegisterResource("aws:ssmincidents/replicationSet:ReplicationSet", name, args, &resource, opts...)

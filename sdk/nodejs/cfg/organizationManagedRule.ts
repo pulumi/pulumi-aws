@@ -13,25 +13,28 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleOrganization = new aws.organizations.Organization("exampleOrganization", {
+ * const example = new aws.organizations.Organization("example", {
  *     awsServiceAccessPrincipals: ["config-multiaccountsetup.amazonaws.com"],
  *     featureSet: "ALL",
  * });
- * const exampleOrganizationManagedRule = new aws.cfg.OrganizationManagedRule("exampleOrganizationManagedRule", {ruleIdentifier: "IAM_PASSWORD_POLICY"}, {
- *     dependsOn: [exampleOrganization],
+ * const exampleOrganizationManagedRule = new aws.cfg.OrganizationManagedRule("example", {
+ *     name: "example",
+ *     ruleIdentifier: "IAM_PASSWORD_POLICY",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Config Organization Managed Rules using the name. For example:
  *
  * ```sh
- *  $ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
+ * $ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
  * ```
  */
 export class OrganizationManagedRule extends pulumi.CustomResource {

@@ -4,6 +4,7 @@
 package com.pulumi.aws.redshift.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,25 +71,34 @@ public final class GetClusterClusterNode {
 
         @CustomType.Setter
         public Builder nodeRole(String nodeRole) {
-            this.nodeRole = Objects.requireNonNull(nodeRole);
+            if (nodeRole == null) {
+              throw new MissingRequiredPropertyException("GetClusterClusterNode", "nodeRole");
+            }
+            this.nodeRole = nodeRole;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddress(String privateIpAddress) {
-            this.privateIpAddress = Objects.requireNonNull(privateIpAddress);
+            if (privateIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetClusterClusterNode", "privateIpAddress");
+            }
+            this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpAddress(String publicIpAddress) {
-            this.publicIpAddress = Objects.requireNonNull(publicIpAddress);
+            if (publicIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetClusterClusterNode", "publicIpAddress");
+            }
+            this.publicIpAddress = publicIpAddress;
             return this;
         }
         public GetClusterClusterNode build() {
-            final var o = new GetClusterClusterNode();
-            o.nodeRole = nodeRole;
-            o.privateIpAddress = privateIpAddress;
-            o.publicIpAddress = publicIpAddress;
-            return o;
+            final var _resultValue = new GetClusterClusterNode();
+            _resultValue.nodeRole = nodeRole;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.publicIpAddress = publicIpAddress;
+            return _resultValue;
         }
     }
 }

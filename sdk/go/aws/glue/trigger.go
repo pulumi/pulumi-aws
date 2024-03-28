@@ -15,8 +15,10 @@ import (
 // Manages a Glue Trigger resource.
 //
 // ## Example Usage
+//
 // ### Conditional Trigger
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,16 +32,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewTrigger(ctx, "example", &glue.TriggerArgs{
+//				Name: pulumi.String("example"),
 //				Type: pulumi.String("CONDITIONAL"),
 //				Actions: glue.TriggerActionArray{
 //					&glue.TriggerActionArgs{
-//						JobName: pulumi.Any(aws_glue_job.Example1.Name),
+//						JobName: pulumi.Any(example1.Name),
 //					},
 //				},
 //				Predicate: &glue.TriggerPredicateArgs{
 //					Conditions: glue.TriggerPredicateConditionArray{
 //						&glue.TriggerPredicateConditionArgs{
-//							JobName: pulumi.Any(aws_glue_job.Example2.Name),
+//							JobName: pulumi.Any(example2.Name),
 //							State:   pulumi.String("SUCCEEDED"),
 //						},
 //					},
@@ -53,8 +56,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### On-Demand Trigger
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,10 +74,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewTrigger(ctx, "example", &glue.TriggerArgs{
+//				Name: pulumi.String("example"),
 //				Type: pulumi.String("ON_DEMAND"),
 //				Actions: glue.TriggerActionArray{
 //					&glue.TriggerActionArgs{
-//						JobName: pulumi.Any(aws_glue_job.Example.Name),
+//						JobName: pulumi.Any(exampleAwsGlueJob.Name),
 //					},
 //				},
 //			})
@@ -83,8 +90,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Scheduled Trigger
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -98,11 +108,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewTrigger(ctx, "example", &glue.TriggerArgs{
+//				Name:     pulumi.String("example"),
 //				Schedule: pulumi.String("cron(15 12 * * ? *)"),
 //				Type:     pulumi.String("SCHEDULED"),
 //				Actions: glue.TriggerActionArray{
 //					&glue.TriggerActionArgs{
-//						JobName: pulumi.Any(aws_glue_job.Example.Name),
+//						JobName: pulumi.Any(exampleAwsGlueJob.Name),
 //					},
 //				},
 //			})
@@ -114,10 +125,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Conditional Trigger with Crawler Action
 //
 // **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -131,16 +145,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewTrigger(ctx, "example", &glue.TriggerArgs{
+//				Name: pulumi.String("example"),
 //				Type: pulumi.String("CONDITIONAL"),
 //				Actions: glue.TriggerActionArray{
 //					&glue.TriggerActionArgs{
-//						CrawlerName: pulumi.Any(aws_glue_crawler.Example1.Name),
+//						CrawlerName: pulumi.Any(example1.Name),
 //					},
 //				},
 //				Predicate: &glue.TriggerPredicateArgs{
 //					Conditions: glue.TriggerPredicateConditionArray{
 //						&glue.TriggerPredicateConditionArgs{
-//							JobName: pulumi.Any(aws_glue_job.Example2.Name),
+//							JobName: pulumi.Any(example2.Name),
 //							State:   pulumi.String("SUCCEEDED"),
 //						},
 //					},
@@ -154,10 +169,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Conditional Trigger with Crawler Condition
 //
 // **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -171,16 +189,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewTrigger(ctx, "example", &glue.TriggerArgs{
+//				Name: pulumi.String("example"),
 //				Type: pulumi.String("CONDITIONAL"),
 //				Actions: glue.TriggerActionArray{
 //					&glue.TriggerActionArgs{
-//						JobName: pulumi.Any(aws_glue_job.Example1.Name),
+//						JobName: pulumi.Any(example1.Name),
 //					},
 //				},
 //				Predicate: &glue.TriggerPredicateArgs{
 //					Conditions: glue.TriggerPredicateConditionArray{
 //						&glue.TriggerPredicateConditionArgs{
-//							CrawlerName: pulumi.Any(aws_glue_crawler.Example2.Name),
+//							CrawlerName: pulumi.Any(example2.Name),
 //							CrawlState:  pulumi.String("SUCCEEDED"),
 //						},
 //					},
@@ -194,15 +213,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glue Triggers using `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
-//
+// $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
 // ```
 type Trigger struct {
 	pulumi.CustomResourceState
@@ -252,10 +270,6 @@ func NewTrigger(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Trigger
 	err := ctx.RegisterResource("aws:glue/trigger:Trigger", name, args, &resource, opts...)

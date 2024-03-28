@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudfront.outputs;
 import com.pulumi.aws.cloudfront.outputs.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig;
 import com.pulumi.aws.cloudfront.outputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -74,25 +75,30 @@ public final class ContinuousDeploymentPolicyTrafficConfig {
 
         @CustomType.Setter
         public Builder singleHeaderConfig(@Nullable ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig singleHeaderConfig) {
+
             this.singleHeaderConfig = singleHeaderConfig;
             return this;
         }
         @CustomType.Setter
         public Builder singleWeightConfig(@Nullable ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig singleWeightConfig) {
+
             this.singleWeightConfig = singleWeightConfig;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("ContinuousDeploymentPolicyTrafficConfig", "type");
+            }
+            this.type = type;
             return this;
         }
         public ContinuousDeploymentPolicyTrafficConfig build() {
-            final var o = new ContinuousDeploymentPolicyTrafficConfig();
-            o.singleHeaderConfig = singleHeaderConfig;
-            o.singleWeightConfig = singleWeightConfig;
-            o.type = type;
-            return o;
+            final var _resultValue = new ContinuousDeploymentPolicyTrafficConfig();
+            _resultValue.singleHeaderConfig = singleHeaderConfig;
+            _resultValue.singleWeightConfig = singleWeightConfig;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

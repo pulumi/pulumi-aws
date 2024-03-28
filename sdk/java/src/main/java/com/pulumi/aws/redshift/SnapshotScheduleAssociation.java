@@ -15,6 +15,8 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -40,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var defaultCluster = new Cluster(&#34;defaultCluster&#34;, ClusterArgs.builder()        
+ *         var default_ = new Cluster(&#34;default&#34;, ClusterArgs.builder()        
  *             .clusterIdentifier(&#34;tf-redshift-cluster&#34;)
  *             .databaseName(&#34;mydb&#34;)
  *             .masterUsername(&#34;foo&#34;)
@@ -55,20 +57,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var defaultSnapshotScheduleAssociation = new SnapshotScheduleAssociation(&#34;defaultSnapshotScheduleAssociation&#34;, SnapshotScheduleAssociationArgs.builder()        
- *             .clusterIdentifier(defaultCluster.id())
+ *             .clusterIdentifier(default_.id())
  *             .scheduleIdentifier(defaultSnapshotSchedule.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift Snapshot Schedule Association using the `&lt;cluster-identifier&gt;/&lt;schedule-identifier&gt;`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
+ * $ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
  * ```
  * 
  */

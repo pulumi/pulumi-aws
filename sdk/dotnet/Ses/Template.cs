@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,24 +23,25 @@ namespace Pulumi.Aws.Ses
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myTemplate = new Aws.Ses.Template("myTemplate", new()
+    ///     var myTemplate = new Aws.Ses.Template("MyTemplate", new()
     ///     {
-    ///         Html = "&lt;h1&gt;Hello {{name}},&lt;/h1&gt;&lt;p&gt;Your favorite animal is {{favoriteanimal}}.&lt;/p&gt;",
+    ///         Name = "MyTemplate",
     ///         Subject = "Greetings, {{name}}!",
+    ///         Html = "&lt;h1&gt;Hello {{name}},&lt;/h1&gt;&lt;p&gt;Your favorite animal is {{favoriteanimal}}.&lt;/p&gt;",
     ///         Text = @"Hello {{name}},
-    /// Your favorite animal is {{favoriteanimal}}.
-    /// ",
+    /// Your favorite animal is {{favoriteanimal}}.",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SES templates using the template name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
+    /// $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
     /// ```
     /// </summary>
     [AwsResourceType("aws:ses/template:Template")]

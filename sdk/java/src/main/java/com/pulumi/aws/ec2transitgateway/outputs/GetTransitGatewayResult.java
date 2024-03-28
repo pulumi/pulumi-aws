@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2transitgateway.outputs;
 
 import com.pulumi.aws.ec2transitgateway.outputs.GetTransitGatewayFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -249,46 +250,71 @@ public final class GetTransitGatewayResult {
 
         @CustomType.Setter
         public Builder amazonSideAsn(Integer amazonSideAsn) {
-            this.amazonSideAsn = Objects.requireNonNull(amazonSideAsn);
+            if (amazonSideAsn == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayResult", "amazonSideAsn");
+            }
+            this.amazonSideAsn = amazonSideAsn;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder associationDefaultRouteTableId(String associationDefaultRouteTableId) {
-            this.associationDefaultRouteTableId = Objects.requireNonNull(associationDefaultRouteTableId);
+            if (associationDefaultRouteTableId == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayResult", "associationDefaultRouteTableId");
+            }
+            this.associationDefaultRouteTableId = associationDefaultRouteTableId;
             return this;
         }
         @CustomType.Setter
         public Builder autoAcceptSharedAttachments(String autoAcceptSharedAttachments) {
-            this.autoAcceptSharedAttachments = Objects.requireNonNull(autoAcceptSharedAttachments);
+            if (autoAcceptSharedAttachments == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayResult", "autoAcceptSharedAttachments");
+            }
+            this.autoAcceptSharedAttachments = autoAcceptSharedAttachments;
             return this;
         }
         @CustomType.Setter
         public Builder defaultRouteTableAssociation(String defaultRouteTableAssociation) {
-            this.defaultRouteTableAssociation = Objects.requireNonNull(defaultRouteTableAssociation);
+            if (defaultRouteTableAssociation == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayResult", "defaultRouteTableAssociation");
+            }
+            this.defaultRouteTableAssociation = defaultRouteTableAssociation;
             return this;
         }
         @CustomType.Setter
         public Builder defaultRouteTablePropagation(String defaultRouteTablePropagation) {
-            this.defaultRouteTablePropagation = Objects.requireNonNull(defaultRouteTablePropagation);
+            if (defaultRouteTablePropagation == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayResult", "defaultRouteTablePropagation");
+            }
+            this.defaultRouteTablePropagation = defaultRouteTablePropagation;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder dnsSupport(String dnsSupport) {
-            this.dnsSupport = Objects.requireNonNull(dnsSupport);
+            if (dnsSupport == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayResult", "dnsSupport");
+            }
+            this.dnsSupport = dnsSupport;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetTransitGatewayFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -297,32 +323,50 @@ public final class GetTransitGatewayResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder multicastSupport(String multicastSupport) {
-            this.multicastSupport = Objects.requireNonNull(multicastSupport);
+            if (multicastSupport == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayResult", "multicastSupport");
+            }
+            this.multicastSupport = multicastSupport;
             return this;
         }
         @CustomType.Setter
         public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+            if (ownerId == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayResult", "ownerId");
+            }
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
         public Builder propagationDefaultRouteTableId(String propagationDefaultRouteTableId) {
-            this.propagationDefaultRouteTableId = Objects.requireNonNull(propagationDefaultRouteTableId);
+            if (propagationDefaultRouteTableId == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayResult", "propagationDefaultRouteTableId");
+            }
+            this.propagationDefaultRouteTableId = propagationDefaultRouteTableId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayCidrBlocks(List<String> transitGatewayCidrBlocks) {
-            this.transitGatewayCidrBlocks = Objects.requireNonNull(transitGatewayCidrBlocks);
+            if (transitGatewayCidrBlocks == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayResult", "transitGatewayCidrBlocks");
+            }
+            this.transitGatewayCidrBlocks = transitGatewayCidrBlocks;
             return this;
         }
         public Builder transitGatewayCidrBlocks(String... transitGatewayCidrBlocks) {
@@ -330,28 +374,31 @@ public final class GetTransitGatewayResult {
         }
         @CustomType.Setter
         public Builder vpnEcmpSupport(String vpnEcmpSupport) {
-            this.vpnEcmpSupport = Objects.requireNonNull(vpnEcmpSupport);
+            if (vpnEcmpSupport == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayResult", "vpnEcmpSupport");
+            }
+            this.vpnEcmpSupport = vpnEcmpSupport;
             return this;
         }
         public GetTransitGatewayResult build() {
-            final var o = new GetTransitGatewayResult();
-            o.amazonSideAsn = amazonSideAsn;
-            o.arn = arn;
-            o.associationDefaultRouteTableId = associationDefaultRouteTableId;
-            o.autoAcceptSharedAttachments = autoAcceptSharedAttachments;
-            o.defaultRouteTableAssociation = defaultRouteTableAssociation;
-            o.defaultRouteTablePropagation = defaultRouteTablePropagation;
-            o.description = description;
-            o.dnsSupport = dnsSupport;
-            o.filters = filters;
-            o.id = id;
-            o.multicastSupport = multicastSupport;
-            o.ownerId = ownerId;
-            o.propagationDefaultRouteTableId = propagationDefaultRouteTableId;
-            o.tags = tags;
-            o.transitGatewayCidrBlocks = transitGatewayCidrBlocks;
-            o.vpnEcmpSupport = vpnEcmpSupport;
-            return o;
+            final var _resultValue = new GetTransitGatewayResult();
+            _resultValue.amazonSideAsn = amazonSideAsn;
+            _resultValue.arn = arn;
+            _resultValue.associationDefaultRouteTableId = associationDefaultRouteTableId;
+            _resultValue.autoAcceptSharedAttachments = autoAcceptSharedAttachments;
+            _resultValue.defaultRouteTableAssociation = defaultRouteTableAssociation;
+            _resultValue.defaultRouteTablePropagation = defaultRouteTablePropagation;
+            _resultValue.description = description;
+            _resultValue.dnsSupport = dnsSupport;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.multicastSupport = multicastSupport;
+            _resultValue.ownerId = ownerId;
+            _resultValue.propagationDefaultRouteTableId = propagationDefaultRouteTableId;
+            _resultValue.tags = tags;
+            _resultValue.transitGatewayCidrBlocks = transitGatewayCidrBlocks;
+            _resultValue.vpnEcmpSupport = vpnEcmpSupport;
+            return _resultValue;
         }
     }
 }

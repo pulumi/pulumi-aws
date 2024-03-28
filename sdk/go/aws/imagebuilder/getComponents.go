@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := imagebuilder.GetComponents(ctx, &imagebuilder.GetComponentsArgs{
+//				Owner: pulumi.StringRef("Self"),
 //				Filters: []imagebuilder.GetComponentsFilter{
 //					{
 //						Name: "platform",
@@ -36,7 +38,6 @@ import (
 //						},
 //					},
 //				},
-//				Owner: pulumi.StringRef("Self"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -46,6 +47,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetComponents(ctx *pulumi.Context, args *GetComponentsArgs, opts ...pulumi.InvokeOption) (*GetComponentsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetComponentsResult
@@ -60,7 +62,7 @@ func GetComponents(ctx *pulumi.Context, args *GetComponentsArgs, opts ...pulumi.
 type GetComponentsArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetComponentsFilter `pulumi:"filters"`
-	// Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+	// Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
 	Owner *string `pulumi:"owner"`
 }
 
@@ -93,7 +95,7 @@ func GetComponentsOutput(ctx *pulumi.Context, args GetComponentsOutputArgs, opts
 type GetComponentsOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetComponentsFilterArrayInput `pulumi:"filters"`
-	// Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+	// Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
 	Owner pulumi.StringPtrInput `pulumi:"owner"`
 }
 

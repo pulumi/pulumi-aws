@@ -42,19 +42,21 @@ public final class RepositoryAssociationS3RepositoryDetailCodeArtifact {
 
         @CustomType.Setter
         public Builder buildArtifactsObjectKey(@Nullable String buildArtifactsObjectKey) {
+
             this.buildArtifactsObjectKey = buildArtifactsObjectKey;
             return this;
         }
         @CustomType.Setter
         public Builder sourceCodeArtifactsObjectKey(@Nullable String sourceCodeArtifactsObjectKey) {
+
             this.sourceCodeArtifactsObjectKey = sourceCodeArtifactsObjectKey;
             return this;
         }
         public RepositoryAssociationS3RepositoryDetailCodeArtifact build() {
-            final var o = new RepositoryAssociationS3RepositoryDetailCodeArtifact();
-            o.buildArtifactsObjectKey = buildArtifactsObjectKey;
-            o.sourceCodeArtifactsObjectKey = sourceCodeArtifactsObjectKey;
-            return o;
+            final var _resultValue = new RepositoryAssociationS3RepositoryDetailCodeArtifact();
+            _resultValue.buildArtifactsObjectKey = buildArtifactsObjectKey;
+            _resultValue.sourceCodeArtifactsObjectKey = sourceCodeArtifactsObjectKey;
+            return _resultValue;
         }
     }
 }

@@ -10,25 +10,29 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const routeTableAssociation = new aws.ec2.RouteTableAssociation("routeTableAssociation", {
- *     subnetId: aws_subnet.foo.id,
- *     routeTableId: aws_route_table.bar.id,
+ * const a = new aws.ec2.RouteTableAssociation("a", {
+ *     subnetId: foo.id,
+ *     routeTableId: bar.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const routeTableAssociation = new aws.ec2.RouteTableAssociation("routeTableAssociation", {
- *     gatewayId: aws_internet_gateway.foo.id,
- *     routeTableId: aws_route_table.bar.id,
+ * const b = new aws.ec2.RouteTableAssociation("b", {
+ *     gatewayId: foo.id,
+ *     routeTableId: bar.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -39,12 +43,12 @@ import * as utilities from "../utilities";
  * With EC2 Subnets:
  *
  * ```sh
- *  $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
+ * $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
  * ```
- *  With EC2 Internet Gateways:
+ * With EC2 Internet Gateways:
  *
  * ```sh
- *  $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
+ * $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
  * ```
  */
 export class RouteTableAssociation extends pulumi.CustomResource {

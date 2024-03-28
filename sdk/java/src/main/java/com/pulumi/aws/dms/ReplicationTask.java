@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,6 +22,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Changing most arguments will stop the task if it is running. You can set `start_replication_task` to resume the task afterwards.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,55 +46,56 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ReplicationTask(&#34;test&#34;, ReplicationTaskArgs.builder()        
- *             .cdcStartTime(1484346880)
+ *             .cdcStartTime(&#34;1993-05-21T05:50:00Z&#34;)
  *             .migrationType(&#34;full-load&#34;)
- *             .replicationInstanceArn(aws_dms_replication_instance.test-dms-replication-instance-tf().replication_instance_arn())
+ *             .replicationInstanceArn(test_dms_replication_instance_tf.replicationInstanceArn())
  *             .replicationTaskId(&#34;test-dms-replication-task-tf&#34;)
  *             .replicationTaskSettings(&#34;...&#34;)
- *             .sourceEndpointArn(aws_dms_endpoint.test-dms-source-endpoint-tf().endpoint_arn())
+ *             .sourceEndpointArn(test_dms_source_endpoint_tf.endpointArn())
  *             .tableMappings(&#34;{\&#34;rules\&#34;:[{\&#34;rule-type\&#34;:\&#34;selection\&#34;,\&#34;rule-id\&#34;:\&#34;1\&#34;,\&#34;rule-name\&#34;:\&#34;1\&#34;,\&#34;object-locator\&#34;:{\&#34;schema-name\&#34;:\&#34;%\&#34;,\&#34;table-name\&#34;:\&#34;%\&#34;},\&#34;rule-action\&#34;:\&#34;include\&#34;}]}&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
- *             .targetEndpointArn(aws_dms_endpoint.test-dms-target-endpoint-tf().endpoint_arn())
+ *             .targetEndpointArn(test_dms_target_endpoint_tf.endpointArn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import replication tasks using the `replication_task_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
+ * $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
  * ```
  * 
  */
 @ResourceType(type="aws:dms/replicationTask:ReplicationTask")
 public class ReplicationTask extends com.pulumi.resources.CustomResource {
     /**
-     * Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+     * Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
      * 
      */
     @Export(name="cdcStartPosition", refs={String.class}, tree="[0]")
     private Output<String> cdcStartPosition;
 
     /**
-     * @return Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+     * @return Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
      * 
      */
     public Output<String> cdcStartPosition() {
         return this.cdcStartPosition;
     }
     /**
-     * The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
+     * RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
      * 
      */
     @Export(name="cdcStartTime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cdcStartTime;
 
     /**
-     * @return The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
+     * @return RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
      * 
      */
     public Output<Optional<String>> cdcStartTime() {
@@ -314,9 +316,6 @@ public class ReplicationTask extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -494,23 +494,28 @@ class Stage(pulumi.CustomResource):
         More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.apigatewayv2.Stage("example", api_id=aws_apigatewayv2_api["example"]["id"])
+        example = aws.apigatewayv2.Stage("example",
+            api_id=example_aws_apigatewayv2_api["id"],
+            name="example-stage")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_apigatewayv2_stage` using the API identifier and stage name. For example:
 
         ```sh
-         $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
+        $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
         ```
-         -> __Note:__ The API Gateway managed stage created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
+        -> __Note:__ The API Gateway managed stage created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -541,23 +546,28 @@ class Stage(pulumi.CustomResource):
         More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.apigatewayv2.Stage("example", api_id=aws_apigatewayv2_api["example"]["id"])
+        example = aws.apigatewayv2.Stage("example",
+            api_id=example_aws_apigatewayv2_api["id"],
+            name="example-stage")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_apigatewayv2_stage` using the API identifier and stage name. For example:
 
         ```sh
-         $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
+        $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
         ```
-         -> __Note:__ The API Gateway managed stage created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
+        -> __Note:__ The API Gateway managed stage created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
 
         :param str resource_name: The name of the resource.
         :param StageArgs args: The arguments to use to populate this resource's properties.
@@ -611,8 +621,6 @@ class Stage(pulumi.CustomResource):
             __props__.__dict__["execution_arn"] = None
             __props__.__dict__["invoke_url"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Stage, __self__).__init__(
             'aws:apigatewayv2/stage:Stage',
             resource_name,

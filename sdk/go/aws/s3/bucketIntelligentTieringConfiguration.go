@@ -14,9 +14,13 @@ import (
 
 // Provides an [S3 Intelligent-Tiering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html) configuration resource.
 //
+// > This resource cannot be used with S3 directory buckets.
+//
 // ## Example Usage
+//
 // ### Add intelligent tiering configuration for entire S3 bucket
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,12 +33,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucketIntelligentTieringConfiguration(ctx, "example-entire-bucket", &s3.BucketIntelligentTieringConfigurationArgs{
 //				Bucket: example.ID(),
+//				Name:   pulumi.String("EntireBucket"),
 //				Tierings: s3.BucketIntelligentTieringConfigurationTieringArray{
 //					&s3.BucketIntelligentTieringConfigurationTieringArgs{
 //						AccessTier: pulumi.String("DEEP_ARCHIVE_ACCESS"),
@@ -54,8 +61,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Add intelligent tiering configuration with S3 object filter
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,12 +78,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucketIntelligentTieringConfiguration(ctx, "example-filtered", &s3.BucketIntelligentTieringConfigurationArgs{
 //				Bucket: example.ID(),
+//				Name:   pulumi.String("ImportantBlueDocuments"),
 //				Status: pulumi.String("Disabled"),
 //				Filter: &s3.BucketIntelligentTieringConfigurationFilterArgs{
 //					Prefix: pulumi.String("documents/"),
@@ -97,15 +110,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import S3 bucket intelligent tiering configurations using `bucket:name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
-//
+// $ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
 // ```
 type BucketIntelligentTieringConfiguration struct {
 	pulumi.CustomResourceState

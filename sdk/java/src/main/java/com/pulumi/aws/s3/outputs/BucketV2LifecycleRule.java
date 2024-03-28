@@ -8,6 +8,7 @@ import com.pulumi.aws.s3.outputs.BucketV2LifecycleRuleNoncurrentVersionExpiratio
 import com.pulumi.aws.s3.outputs.BucketV2LifecycleRuleNoncurrentVersionTransition;
 import com.pulumi.aws.s3.outputs.BucketV2LifecycleRuleTransition;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -164,16 +165,21 @@ public final class BucketV2LifecycleRule {
 
         @CustomType.Setter
         public Builder abortIncompleteMultipartUploadDays(@Nullable Integer abortIncompleteMultipartUploadDays) {
+
             this.abortIncompleteMultipartUploadDays = abortIncompleteMultipartUploadDays;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("BucketV2LifecycleRule", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder expirations(@Nullable List<BucketV2LifecycleRuleExpiration> expirations) {
+
             this.expirations = expirations;
             return this;
         }
@@ -182,11 +188,13 @@ public final class BucketV2LifecycleRule {
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder noncurrentVersionExpirations(@Nullable List<BucketV2LifecycleRuleNoncurrentVersionExpiration> noncurrentVersionExpirations) {
+
             this.noncurrentVersionExpirations = noncurrentVersionExpirations;
             return this;
         }
@@ -195,6 +203,7 @@ public final class BucketV2LifecycleRule {
         }
         @CustomType.Setter
         public Builder noncurrentVersionTransitions(@Nullable List<BucketV2LifecycleRuleNoncurrentVersionTransition> noncurrentVersionTransitions) {
+
             this.noncurrentVersionTransitions = noncurrentVersionTransitions;
             return this;
         }
@@ -203,16 +212,19 @@ public final class BucketV2LifecycleRule {
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder transitions(@Nullable List<BucketV2LifecycleRuleTransition> transitions) {
+
             this.transitions = transitions;
             return this;
         }
@@ -220,17 +232,17 @@ public final class BucketV2LifecycleRule {
             return transitions(List.of(transitions));
         }
         public BucketV2LifecycleRule build() {
-            final var o = new BucketV2LifecycleRule();
-            o.abortIncompleteMultipartUploadDays = abortIncompleteMultipartUploadDays;
-            o.enabled = enabled;
-            o.expirations = expirations;
-            o.id = id;
-            o.noncurrentVersionExpirations = noncurrentVersionExpirations;
-            o.noncurrentVersionTransitions = noncurrentVersionTransitions;
-            o.prefix = prefix;
-            o.tags = tags;
-            o.transitions = transitions;
-            return o;
+            final var _resultValue = new BucketV2LifecycleRule();
+            _resultValue.abortIncompleteMultipartUploadDays = abortIncompleteMultipartUploadDays;
+            _resultValue.enabled = enabled;
+            _resultValue.expirations = expirations;
+            _resultValue.id = id;
+            _resultValue.noncurrentVersionExpirations = noncurrentVersionExpirations;
+            _resultValue.noncurrentVersionTransitions = noncurrentVersionTransitions;
+            _resultValue.prefix = prefix;
+            _resultValue.tags = tags;
+            _resultValue.transitions = transitions;
+            return _resultValue;
         }
     }
 }

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.verifiedaccess.inputs;
 
+import com.pulumi.aws.verifiedaccess.inputs.GroupSseConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -91,11 +92,34 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.owner);
     }
 
+    /**
+     * The policy document that is associated with this resource.
+     * 
+     */
     @Import(name="policyDocument")
     private @Nullable Output<String> policyDocument;
 
+    /**
+     * @return The policy document that is associated with this resource.
+     * 
+     */
     public Optional<Output<String>> policyDocument() {
         return Optional.ofNullable(this.policyDocument);
+    }
+
+    /**
+     * Configuration block to use KMS keys for server-side encryption.
+     * 
+     */
+    @Import(name="sseConfiguration")
+    private @Nullable Output<GroupSseConfigurationArgs> sseConfiguration;
+
+    /**
+     * @return Configuration block to use KMS keys for server-side encryption.
+     * 
+     */
+    public Optional<Output<GroupSseConfigurationArgs>> sseConfiguration() {
+        return Optional.ofNullable(this.sseConfiguration);
     }
 
     /**
@@ -190,6 +214,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         this.lastUpdatedTime = $.lastUpdatedTime;
         this.owner = $.owner;
         this.policyDocument = $.policyDocument;
+        this.sseConfiguration = $.sseConfiguration;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.verifiedaccessGroupArn = $.verifiedaccessGroupArn;
@@ -320,13 +345,46 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
             return owner(Output.of(owner));
         }
 
+        /**
+         * @param policyDocument The policy document that is associated with this resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policyDocument(@Nullable Output<String> policyDocument) {
             $.policyDocument = policyDocument;
             return this;
         }
 
+        /**
+         * @param policyDocument The policy document that is associated with this resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policyDocument(String policyDocument) {
             return policyDocument(Output.of(policyDocument));
+        }
+
+        /**
+         * @param sseConfiguration Configuration block to use KMS keys for server-side encryption.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sseConfiguration(@Nullable Output<GroupSseConfigurationArgs> sseConfiguration) {
+            $.sseConfiguration = sseConfiguration;
+            return this;
+        }
+
+        /**
+         * @param sseConfiguration Configuration block to use KMS keys for server-side encryption.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sseConfiguration(GroupSseConfigurationArgs sseConfiguration) {
+            return sseConfiguration(Output.of(sseConfiguration));
         }
 
         /**

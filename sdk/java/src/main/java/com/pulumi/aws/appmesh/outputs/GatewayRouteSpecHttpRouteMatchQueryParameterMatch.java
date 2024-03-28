@@ -44,13 +44,14 @@ public final class GatewayRouteSpecHttpRouteMatchQueryParameterMatch {
 
         @CustomType.Setter
         public Builder exact(@Nullable String exact) {
+
             this.exact = exact;
             return this;
         }
         public GatewayRouteSpecHttpRouteMatchQueryParameterMatch build() {
-            final var o = new GatewayRouteSpecHttpRouteMatchQueryParameterMatch();
-            o.exact = exact;
-            return o;
+            final var _resultValue = new GatewayRouteSpecHttpRouteMatchQueryParameterMatch();
+            _resultValue.exact = exact;
+            return _resultValue;
         }
     }
 }

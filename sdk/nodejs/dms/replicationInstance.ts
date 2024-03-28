@@ -11,10 +11,17 @@ import * as utilities from "../utilities";
  *
  * Create required roles and then create a DMS instance, setting the dependsOn to the required role policy attachments.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Database Migration Service requires the below IAM Roles to be created before
+ * // replication instances can be created. See the DMS Documentation for
+ * // additional information: https://docs.aws.amazon.com/dms/latest/userguide/security-iam.html#CHAP_Security.APIRole
+ * //  * dms-vpc-role
+ * //  * dms-cloudwatch-logs-role
+ * //  * dms-access-for-endpoint
  * const dmsAssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
@@ -24,17 +31,26 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const dms_access_for_endpoint = new aws.iam.Role("dms-access-for-endpoint", {assumeRolePolicy: dmsAssumeRole.then(dmsAssumeRole => dmsAssumeRole.json)});
+ * const dms_access_for_endpoint = new aws.iam.Role("dms-access-for-endpoint", {
+ *     assumeRolePolicy: dmsAssumeRole.then(dmsAssumeRole => dmsAssumeRole.json),
+ *     name: "dms-access-for-endpoint",
+ * });
  * const dms_access_for_endpoint_AmazonDMSRedshiftS3Role = new aws.iam.RolePolicyAttachment("dms-access-for-endpoint-AmazonDMSRedshiftS3Role", {
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonDMSRedshiftS3Role",
  *     role: dms_access_for_endpoint.name,
  * });
- * const dms_cloudwatch_logs_role = new aws.iam.Role("dms-cloudwatch-logs-role", {assumeRolePolicy: dmsAssumeRole.then(dmsAssumeRole => dmsAssumeRole.json)});
+ * const dms_cloudwatch_logs_role = new aws.iam.Role("dms-cloudwatch-logs-role", {
+ *     assumeRolePolicy: dmsAssumeRole.then(dmsAssumeRole => dmsAssumeRole.json),
+ *     name: "dms-cloudwatch-logs-role",
+ * });
  * const dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole = new aws.iam.RolePolicyAttachment("dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole", {
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole",
  *     role: dms_cloudwatch_logs_role.name,
  * });
- * const dms_vpc_role = new aws.iam.Role("dms-vpc-role", {assumeRolePolicy: dmsAssumeRole.then(dmsAssumeRole => dmsAssumeRole.json)});
+ * const dms_vpc_role = new aws.iam.Role("dms-vpc-role", {
+ *     assumeRolePolicy: dmsAssumeRole.then(dmsAssumeRole => dmsAssumeRole.json),
+ *     name: "dms-vpc-role",
+ * });
  * const dms_vpc_role_AmazonDMSVPCManagementRole = new aws.iam.RolePolicyAttachment("dms-vpc-role-AmazonDMSVPCManagementRole", {
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole",
  *     role: dms_vpc_role.name,
@@ -52,26 +68,21 @@ import * as utilities from "../utilities";
  *     publiclyAccessible: true,
  *     replicationInstanceClass: "dms.t2.micro",
  *     replicationInstanceId: "test-dms-replication-instance-tf",
- *     replicationSubnetGroupId: aws_dms_replication_subnet_group["test-dms-replication-subnet-group-tf"].id,
+ *     replicationSubnetGroupId: test_dms_replication_subnet_group_tf.id,
  *     tags: {
  *         Name: "test",
  *     },
  *     vpcSecurityGroupIds: ["sg-12345678"],
- * }, {
- *     dependsOn: [
- *         dms_access_for_endpoint_AmazonDMSRedshiftS3Role,
- *         dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole,
- *         dms_vpc_role_AmazonDMSVPCManagementRole,
- *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import replication instances using the `replication_instance_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
+ * $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
  * ```
  */
 export class ReplicationInstance extends pulumi.CustomResource {
@@ -258,8 +269,6 @@ export class ReplicationInstance extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ReplicationInstance.__pulumiType, name, resourceInputs, opts);
     }
 }

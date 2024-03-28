@@ -5,6 +5,7 @@ package com.pulumi.aws.autoscaling.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -127,8 +128,12 @@ public final class TrafficSourceAttachmentTrafficSourceArgs extends com.pulumi.r
         }
 
         public TrafficSourceAttachmentTrafficSourceArgs build() {
-            $.identifier = Objects.requireNonNull($.identifier, "expected parameter 'identifier' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.identifier == null) {
+                throw new MissingRequiredPropertyException("TrafficSourceAttachmentTrafficSourceArgs", "identifier");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("TrafficSourceAttachmentTrafficSourceArgs", "type");
+            }
             return $;
         }
     }

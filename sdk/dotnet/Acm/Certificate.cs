@@ -49,8 +49,10 @@ namespace Pulumi.Aws.Acm
     /// To renew the certificate earlier than 60 days before expiration, configure `early_renewal_duration`.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Create Certificate
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -62,17 +64,20 @@ namespace Pulumi.Aws.Acm
     ///     var cert = new Aws.Acm.Certificate("cert", new()
     ///     {
     ///         DomainName = "example.com",
+    ///         ValidationMethod = "DNS",
     ///         Tags = 
     ///         {
     ///             { "Environment", "test" },
     ///         },
-    ///         ValidationMethod = "DNS",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Custom Domain Validation Options
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -97,8 +102,11 @@ namespace Pulumi.Aws.Acm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Existing Certificate Body Import
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -108,15 +116,15 @@ namespace Pulumi.Aws.Acm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePrivateKey = new Tls.PrivateKey("examplePrivateKey", new()
+    ///     var example = new Tls.PrivateKey("example", new()
     ///     {
     ///         Algorithm = "RSA",
     ///     });
     /// 
-    ///     var exampleSelfSignedCert = new Tls.SelfSignedCert("exampleSelfSignedCert", new()
+    ///     var exampleSelfSignedCert = new Tls.SelfSignedCert("example", new()
     ///     {
     ///         KeyAlgorithm = "RSA",
-    ///         PrivateKeyPem = examplePrivateKey.PrivateKeyPem,
+    ///         PrivateKeyPem = example.PrivateKeyPem,
     ///         Subject = new Tls.Inputs.SelfSignedCertSubjectArgs
     ///         {
     ///             CommonName = "example.com",
@@ -133,16 +141,19 @@ namespace Pulumi.Aws.Acm
     /// 
     ///     var cert = new Aws.Acm.Certificate("cert", new()
     ///     {
-    ///         PrivateKey = examplePrivateKey.PrivateKeyPem,
+    ///         PrivateKey = example.PrivateKeyPem,
     ///         CertificateBody = exampleSelfSignedCert.CertPem,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Referencing domain_validation_options With for_each Based Resources
     /// 
     /// See the `aws.acm.CertificateValidation` resource for a full example of performing DNS validation.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -174,19 +185,20 @@ namespace Pulumi.Aws.Acm
     ///                 range.Value.Record,
     ///             },
     ///             Ttl = 60,
-    ///             Type = System.Enum.Parse&lt;Aws.Route53.RecordType.RecordType&gt;(range.Value.Type),
-    ///             ZoneId = aws_route53_zone.Example.Zone_id,
+    ///             Type = System.Enum.Parse&lt;Aws.Route53.RecordType&gt;(range.Value.Type),
+    ///             ZoneId = exampleAwsRoute53Zone.ZoneId,
     ///         }));
     ///     }
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import certificates using their ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
+    /// $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
     /// ```
     /// </summary>
     [AwsResourceType("aws:acm/certificate:Certificate")]
@@ -365,7 +377,6 @@ namespace Pulumi.Aws.Acm
                 AdditionalSecretOutputs =
                 {
                     "privateKey",
-                    "tagsAll",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -665,11 +676,7 @@ namespace Pulumi.Aws.Acm
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

@@ -11,44 +11,49 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Flow Definition resource.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.FlowDefinition("example", {
  *     flowDefinitionName: "example",
- *     roleArn: aws_iam_role.example.arn,
+ *     roleArn: exampleAwsIamRole.arn,
  *     humanLoopConfig: {
- *         humanTaskUiArn: aws_sagemaker_human_task_ui.example.arn,
+ *         humanTaskUiArn: exampleAwsSagemakerHumanTaskUi.arn,
  *         taskAvailabilityLifetimeInSeconds: 1,
  *         taskCount: 1,
  *         taskDescription: "example",
  *         taskTitle: "example",
- *         workteamArn: aws_sagemaker_workteam.example.arn,
+ *         workteamArn: exampleAwsSagemakerWorkteam.arn,
  *     },
  *     outputConfig: {
- *         s3OutputPath: `s3://${aws_s3_bucket.example.bucket}/`,
+ *         s3OutputPath: `s3://${exampleAwsS3Bucket.bucket}/`,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Public Workteam Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.FlowDefinition("example", {
  *     flowDefinitionName: "example",
- *     roleArn: aws_iam_role.example.arn,
+ *     roleArn: exampleAwsIamRole.arn,
  *     humanLoopConfig: {
- *         humanTaskUiArn: aws_sagemaker_human_task_ui.example.arn,
+ *         humanTaskUiArn: exampleAwsSagemakerHumanTaskUi.arn,
  *         taskAvailabilityLifetimeInSeconds: 1,
  *         taskCount: 1,
  *         taskDescription: "example",
  *         taskTitle: "example",
- *         workteamArn: `arn:aws:sagemaker:${data.aws_region.current.name}:394669845002:workteam/public-crowd/default`,
+ *         workteamArn: `arn:aws:sagemaker:${current.name}:394669845002:workteam/public-crowd/default`,
  *         publicWorkforceTaskPrice: {
  *             amountInUsd: {
  *                 cents: 1,
@@ -57,26 +62,29 @@ import * as utilities from "../utilities";
  *         },
  *     },
  *     outputConfig: {
- *         s3OutputPath: `s3://${aws_s3_bucket.example.bucket}/`,
+ *         s3OutputPath: `s3://${exampleAwsS3Bucket.bucket}/`,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Human Loop Activation Config Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.FlowDefinition("example", {
  *     flowDefinitionName: "example",
- *     roleArn: aws_iam_role.example.arn,
+ *     roleArn: exampleAwsIamRole.arn,
  *     humanLoopConfig: {
- *         humanTaskUiArn: aws_sagemaker_human_task_ui.example.arn,
+ *         humanTaskUiArn: exampleAwsSagemakerHumanTaskUi.arn,
  *         taskAvailabilityLifetimeInSeconds: 1,
  *         taskCount: 1,
  *         taskDescription: "example",
  *         taskTitle: "example",
- *         workteamArn: aws_sagemaker_workteam.example.arn,
+ *         workteamArn: exampleAwsSagemakerWorkteam.arn,
  *     },
  *     humanLoopRequestSource: {
  *         awsManagedHumanLoopRequestSource: "AWS/Textract/AnalyzeDocument/Forms/V1",
@@ -97,17 +105,18 @@ import * as utilities from "../utilities";
  *         },
  *     },
  *     outputConfig: {
- *         s3OutputPath: `s3://${aws_s3_bucket.example.bucket}/`,
+ *         s3OutputPath: `s3://${exampleAwsS3Bucket.bucket}/`,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SageMaker Flow Definitions using the `flow_definition_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
+ * $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
  * ```
  */
 export class FlowDefinition extends pulumi.CustomResource {
@@ -224,8 +233,6 @@ export class FlowDefinition extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(FlowDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }

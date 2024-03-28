@@ -58,6 +58,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersVpc {
 
         @CustomType.Setter
         public Builder securityGroups(@Nullable List<String> securityGroups) {
+
             this.securityGroups = securityGroups;
             return this;
         }
@@ -66,6 +67,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersVpc {
         }
         @CustomType.Setter
         public Builder subnets(@Nullable List<String> subnets) {
+
             this.subnets = subnets;
             return this;
         }
@@ -73,10 +75,10 @@ public final class PipeSourceParametersSelfManagedKafkaParametersVpc {
             return subnets(List.of(subnets));
         }
         public PipeSourceParametersSelfManagedKafkaParametersVpc build() {
-            final var o = new PipeSourceParametersSelfManagedKafkaParametersVpc();
-            o.securityGroups = securityGroups;
-            o.subnets = subnets;
-            return o;
+            final var _resultValue = new PipeSourceParametersSelfManagedKafkaParametersVpc();
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.subnets = subnets;
+            return _resultValue;
         }
     }
 }

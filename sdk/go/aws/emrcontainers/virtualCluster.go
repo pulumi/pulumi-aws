@@ -15,8 +15,10 @@ import (
 // Manages an EMR Containers (EMR on EKS) Virtual Cluster.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,7 +33,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emrcontainers.NewVirtualCluster(ctx, "example", &emrcontainers.VirtualClusterArgs{
 //				ContainerProvider: &emrcontainers.VirtualClusterContainerProviderArgs{
-//					Id:   pulumi.Any(aws_eks_cluster.Example.Name),
+//					Id:   pulumi.Any(exampleAwsEksCluster.Name),
 //					Type: pulumi.String("EKS"),
 //					Info: &emrcontainers.VirtualClusterContainerProviderInfoArgs{
 //						EksInfo: &emrcontainers.VirtualClusterContainerProviderInfoEksInfoArgs{
@@ -39,6 +41,7 @@ import (
 //						},
 //					},
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -48,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EKS Clusters using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
-//
+// $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
 // ```
 type VirtualCluster struct {
 	pulumi.CustomResourceState
@@ -85,10 +87,6 @@ func NewVirtualCluster(ctx *pulumi.Context,
 	if args.ContainerProvider == nil {
 		return nil, errors.New("invalid value for required argument 'ContainerProvider'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualCluster
 	err := ctx.RegisterResource("aws:emrcontainers/virtualCluster:VirtualCluster", name, args, &resource, opts...)

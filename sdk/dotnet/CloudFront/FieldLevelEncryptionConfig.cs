@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,7 +50,7 @@ namespace Pulumi.Aws.CloudFront
     ///                 {
     ///                     new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs
     ///                     {
-    ///                         ProfileId = aws_cloudfront_field_level_encryption_profile.Test.Id,
+    ///                         ProfileId = testAwsCloudfrontFieldLevelEncryptionProfile.Id,
     ///                         QueryArg = "Arg1",
     ///                     },
     ///                 },
@@ -59,13 +60,14 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cloudfront Field Level Encryption Config using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
+    /// $ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig")]

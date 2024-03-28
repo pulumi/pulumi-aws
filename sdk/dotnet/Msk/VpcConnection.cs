@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Msk
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,23 +27,24 @@ namespace Pulumi.Aws.Msk
     ///     {
     ///         Authentication = "SASL_IAM",
     ///         TargetClusterArn = "aws_msk_cluster.arn",
-    ///         VpcId = aws_vpc.Test.Id,
-    ///         ClientSubnets = aws_subnet.Test.Select(__item =&gt; __item.Id).ToList(),
+    ///         VpcId = testAwsVpc.Id,
+    ///         ClientSubnets = testAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///         SecurityGroups = new[]
     ///         {
-    ///             aws_security_group.Test.Id,
+    ///             testAwsSecurityGroup.Id,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MSK configurations using the configuration ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:msk/vpcConnection:VpcConnection example arn:aws:kafka:eu-west-2:123456789012:vpc-connection/123456789012/example/38173259-79cd-4ee8-87f3-682ea6023f48-2
+    /// $ pulumi import aws:msk/vpcConnection:VpcConnection example arn:aws:kafka:eu-west-2:123456789012:vpc-connection/123456789012/example/38173259-79cd-4ee8-87f3-682ea6023f48-2
     /// ```
     /// </summary>
     [AwsResourceType("aws:msk/vpcConnection:VpcConnection")]
@@ -119,10 +121,6 @@ namespace Pulumi.Aws.Msk
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -266,11 +264,7 @@ namespace Pulumi.Aws.Msk
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

@@ -11,11 +11,12 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ * const example = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
  *         principals: [{
@@ -24,20 +25,27 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json)});
- * const exampleDevEndpoint = new aws.glue.DevEndpoint("exampleDevEndpoint", {roleArn: exampleRole.arn});
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "AWSGlueServiceRole-foo",
+ *     assumeRolePolicy: example.then(example => example.json),
+ * });
+ * const exampleDevEndpoint = new aws.glue.DevEndpoint("example", {
+ *     name: "foo",
+ *     roleArn: exampleRole.arn,
+ * });
  * const example_AWSGlueServiceRole = new aws.iam.RolePolicyAttachment("example-AWSGlueServiceRole", {
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole",
  *     role: exampleRole.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a Glue Development Endpoint using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
+ * $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
  * ```
  */
 export class DevEndpoint extends pulumi.CustomResource {
@@ -241,8 +249,6 @@ export class DevEndpoint extends pulumi.CustomResource {
             resourceInputs["zeppelinRemoteSparkInterpreterPort"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(DevEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }

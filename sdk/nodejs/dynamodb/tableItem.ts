@@ -12,11 +12,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleTable = new aws.dynamodb.Table("exampleTable", {
+ * const exampleTable = new aws.dynamodb.Table("example", {
+ *     name: "example-name",
  *     readCapacity: 10,
  *     writeCapacity: 10,
  *     hashKey: "exampleHashKey",
@@ -25,7 +27,7 @@ import * as utilities from "../utilities";
  *         type: "S",
  *     }],
  * });
- * const exampleTableItem = new aws.dynamodb.TableItem("exampleTableItem", {
+ * const example = new aws.dynamodb.TableItem("example", {
  *     tableName: exampleTable.name,
  *     hashKey: exampleTable.hashKey,
  *     item: `{
@@ -38,6 +40,7 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

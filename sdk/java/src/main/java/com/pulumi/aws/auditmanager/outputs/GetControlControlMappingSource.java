@@ -5,6 +5,7 @@ package com.pulumi.aws.auditmanager.outputs;
 
 import com.pulumi.aws.auditmanager.outputs.GetControlControlMappingSourceSourceKeyword;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -79,55 +80,77 @@ public final class GetControlControlMappingSource {
 
         @CustomType.Setter
         public Builder sourceDescription(String sourceDescription) {
-            this.sourceDescription = Objects.requireNonNull(sourceDescription);
+            if (sourceDescription == null) {
+              throw new MissingRequiredPropertyException("GetControlControlMappingSource", "sourceDescription");
+            }
+            this.sourceDescription = sourceDescription;
             return this;
         }
         @CustomType.Setter
         public Builder sourceFrequency(String sourceFrequency) {
-            this.sourceFrequency = Objects.requireNonNull(sourceFrequency);
+            if (sourceFrequency == null) {
+              throw new MissingRequiredPropertyException("GetControlControlMappingSource", "sourceFrequency");
+            }
+            this.sourceFrequency = sourceFrequency;
             return this;
         }
         @CustomType.Setter
         public Builder sourceId(String sourceId) {
-            this.sourceId = Objects.requireNonNull(sourceId);
+            if (sourceId == null) {
+              throw new MissingRequiredPropertyException("GetControlControlMappingSource", "sourceId");
+            }
+            this.sourceId = sourceId;
             return this;
         }
         @CustomType.Setter
         public Builder sourceKeyword(@Nullable GetControlControlMappingSourceSourceKeyword sourceKeyword) {
+
             this.sourceKeyword = sourceKeyword;
             return this;
         }
         @CustomType.Setter
         public Builder sourceName(String sourceName) {
-            this.sourceName = Objects.requireNonNull(sourceName);
+            if (sourceName == null) {
+              throw new MissingRequiredPropertyException("GetControlControlMappingSource", "sourceName");
+            }
+            this.sourceName = sourceName;
             return this;
         }
         @CustomType.Setter
         public Builder sourceSetUpOption(String sourceSetUpOption) {
-            this.sourceSetUpOption = Objects.requireNonNull(sourceSetUpOption);
+            if (sourceSetUpOption == null) {
+              throw new MissingRequiredPropertyException("GetControlControlMappingSource", "sourceSetUpOption");
+            }
+            this.sourceSetUpOption = sourceSetUpOption;
             return this;
         }
         @CustomType.Setter
         public Builder sourceType(String sourceType) {
-            this.sourceType = Objects.requireNonNull(sourceType);
+            if (sourceType == null) {
+              throw new MissingRequiredPropertyException("GetControlControlMappingSource", "sourceType");
+            }
+            this.sourceType = sourceType;
             return this;
         }
         @CustomType.Setter
         public Builder troubleshootingText(String troubleshootingText) {
-            this.troubleshootingText = Objects.requireNonNull(troubleshootingText);
+            if (troubleshootingText == null) {
+              throw new MissingRequiredPropertyException("GetControlControlMappingSource", "troubleshootingText");
+            }
+            this.troubleshootingText = troubleshootingText;
             return this;
         }
         public GetControlControlMappingSource build() {
-            final var o = new GetControlControlMappingSource();
-            o.sourceDescription = sourceDescription;
-            o.sourceFrequency = sourceFrequency;
-            o.sourceId = sourceId;
-            o.sourceKeyword = sourceKeyword;
-            o.sourceName = sourceName;
-            o.sourceSetUpOption = sourceSetUpOption;
-            o.sourceType = sourceType;
-            o.troubleshootingText = troubleshootingText;
-            return o;
+            final var _resultValue = new GetControlControlMappingSource();
+            _resultValue.sourceDescription = sourceDescription;
+            _resultValue.sourceFrequency = sourceFrequency;
+            _resultValue.sourceId = sourceId;
+            _resultValue.sourceKeyword = sourceKeyword;
+            _resultValue.sourceName = sourceName;
+            _resultValue.sourceSetUpOption = sourceSetUpOption;
+            _resultValue.sourceType = sourceType;
+            _resultValue.troubleshootingText = troubleshootingText;
+            return _resultValue;
         }
     }
 }

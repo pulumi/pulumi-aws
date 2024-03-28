@@ -4,6 +4,7 @@
 package com.pulumi.aws.mskconnect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -59,19 +60,23 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryFirehose {
 
         @CustomType.Setter
         public Builder deliveryStream(@Nullable String deliveryStream) {
+
             this.deliveryStream = deliveryStream;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("ConnectorLogDeliveryWorkerLogDeliveryFirehose", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         public ConnectorLogDeliveryWorkerLogDeliveryFirehose build() {
-            final var o = new ConnectorLogDeliveryWorkerLogDeliveryFirehose();
-            o.deliveryStream = deliveryStream;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new ConnectorLogDeliveryWorkerLogDeliveryFirehose();
+            _resultValue.deliveryStream = deliveryStream;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

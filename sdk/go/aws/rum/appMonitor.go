@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rum.NewAppMonitor(ctx, "example", &rum.AppMonitorArgs{
+//				Name:   pulumi.String("example"),
 //				Domain: pulumi.String("localhost"),
 //			})
 //			if err != nil {
@@ -39,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Cloudwatch RUM App Monitor using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:rum/appMonitor:AppMonitor example example
-//
+// $ pulumi import aws:rum/appMonitor:AppMonitor example example
 // ```
 type AppMonitor struct {
 	pulumi.CustomResourceState
@@ -86,10 +87,6 @@ func NewAppMonitor(ctx *pulumi.Context,
 	if args.Domain == nil {
 		return nil, errors.New("invalid value for required argument 'Domain'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AppMonitor
 	err := ctx.RegisterResource("aws:rum/appMonitor:AppMonitor", name, args, &resource, opts...)

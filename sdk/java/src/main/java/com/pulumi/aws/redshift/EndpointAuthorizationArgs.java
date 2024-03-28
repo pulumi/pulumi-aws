@@ -5,6 +5,7 @@ package com.pulumi.aws.redshift;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -199,8 +200,12 @@ public final class EndpointAuthorizationArgs extends com.pulumi.resources.Resour
         }
 
         public EndpointAuthorizationArgs build() {
-            $.account = Objects.requireNonNull($.account, "expected parameter 'account' to be non-null");
-            $.clusterIdentifier = Objects.requireNonNull($.clusterIdentifier, "expected parameter 'clusterIdentifier' to be non-null");
+            if ($.account == null) {
+                throw new MissingRequiredPropertyException("EndpointAuthorizationArgs", "account");
+            }
+            if ($.clusterIdentifier == null) {
+                throw new MissingRequiredPropertyException("EndpointAuthorizationArgs", "clusterIdentifier");
+            }
             return $;
         }
     }

@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Ebs
         /// <summary>
         /// Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,6 +27,11 @@ namespace Pulumi.Aws.Ebs
         /// {
         ///     var ebsVolume = Aws.Ebs.GetSnapshot.Invoke(new()
         ///     {
+        ///         MostRecent = true,
+        ///         Owners = new[]
+        ///         {
+        ///             "self",
+        ///         },
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ebs.Inputs.GetSnapshotFilterInputArgs
@@ -47,17 +51,11 @@ namespace Pulumi.Aws.Ebs
         ///                 },
         ///             },
         ///         },
-        ///         MostRecent = true,
-        ///         Owners = new[]
-        ///         {
-        ///             "self",
-        ///         },
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("aws:ebs/getSnapshot:getSnapshot", args ?? new GetSnapshotArgs(), options.WithDefaults());
@@ -65,10 +63,9 @@ namespace Pulumi.Aws.Ebs
         /// <summary>
         /// Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -79,6 +76,11 @@ namespace Pulumi.Aws.Ebs
         /// {
         ///     var ebsVolume = Aws.Ebs.GetSnapshot.Invoke(new()
         ///     {
+        ///         MostRecent = true,
+        ///         Owners = new[]
+        ///         {
+        ///             "self",
+        ///         },
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ebs.Inputs.GetSnapshotFilterInputArgs
@@ -98,17 +100,11 @@ namespace Pulumi.Aws.Ebs
         ///                 },
         ///             },
         ///         },
-        ///         MostRecent = true,
-        ///         Owners = new[]
-        ///         {
-        ///             "self",
-        ///         },
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("aws:ebs/getSnapshot:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());

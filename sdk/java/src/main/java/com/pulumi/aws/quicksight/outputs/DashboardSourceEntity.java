@@ -44,13 +44,14 @@ public final class DashboardSourceEntity {
 
         @CustomType.Setter
         public Builder sourceTemplate(@Nullable DashboardSourceEntitySourceTemplate sourceTemplate) {
+
             this.sourceTemplate = sourceTemplate;
             return this;
         }
         public DashboardSourceEntity build() {
-            final var o = new DashboardSourceEntity();
-            o.sourceTemplate = sourceTemplate;
-            return o;
+            final var _resultValue = new DashboardSourceEntity();
+            _resultValue.sourceTemplate = sourceTemplate;
+            return _resultValue;
         }
     }
 }

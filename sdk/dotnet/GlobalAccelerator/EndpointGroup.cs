@@ -14,6 +14,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,12 +25,12 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// {
     ///     var example = new Aws.GlobalAccelerator.EndpointGroup("example", new()
     ///     {
-    ///         ListenerArn = aws_globalaccelerator_listener.Example.Id,
+    ///         ListenerArn = exampleAwsGlobalacceleratorListener.Id,
     ///         EndpointConfigurations = new[]
     ///         {
     ///             new Aws.GlobalAccelerator.Inputs.EndpointGroupEndpointConfigurationArgs
     ///             {
-    ///                 EndpointId = aws_lb.Example.Arn,
+    ///                 EndpointId = exampleAwsLb.Arn,
     ///                 Weight = 100,
     ///             },
     ///         },
@@ -37,13 +38,14 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Global Accelerator endpoint groups using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:globalaccelerator/endpointGroup:EndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
+    /// $ pulumi import aws:globalaccelerator/endpointGroup:EndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
     /// ```
     /// </summary>
     [AwsResourceType("aws:globalaccelerator/endpointGroup:EndpointGroup")]

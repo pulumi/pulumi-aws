@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Provides a CodePipeline Webhook.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,13 +55,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var barPipeline = new Pipeline(&#34;barPipeline&#34;, PipelineArgs.builder()        
- *             .roleArn(aws_iam_role.bar().arn())
+ *         var bar = new Pipeline(&#34;bar&#34;, PipelineArgs.builder()        
+ *             .name(&#34;tf-test-pipeline&#34;)
+ *             .roleArn(barAwsIamRole.arn())
  *             .artifactStores(PipelineArtifactStoreArgs.builder()
- *                 .location(aws_s3_bucket.bar().bucket())
+ *                 .location(barAwsS3Bucket.bucket())
  *                 .type(&#34;S3&#34;)
  *                 .encryptionKey(PipelineArtifactStoreEncryptionKeyArgs.builder()
- *                     .id(data.aws_kms_alias().s3kmskey().arn())
+ *                     .id(s3kmskey.arn())
  *                     .type(&#34;KMS&#34;)
  *                     .build())
  *                 .build())
@@ -97,9 +100,10 @@ import javax.annotation.Nullable;
  *         final var webhookSecret = &#34;super-secret&#34;;
  * 
  *         var barWebhook = new Webhook(&#34;barWebhook&#34;, WebhookArgs.builder()        
+ *             .name(&#34;test-webhook-github-bar&#34;)
  *             .authentication(&#34;GITHUB_HMAC&#34;)
  *             .targetAction(&#34;Source&#34;)
- *             .targetPipeline(barPipeline.name())
+ *             .targetPipeline(bar.name())
  *             .authenticationConfiguration(WebhookAuthenticationConfigurationArgs.builder()
  *                 .secretToken(webhookSecret)
  *                 .build())
@@ -110,7 +114,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var barRepositoryWebhook = new RepositoryWebhook(&#34;barRepositoryWebhook&#34;, RepositoryWebhookArgs.builder()        
- *             .repository(github_repository.repo().name())
+ *             .repository(repo.name())
+ *             .name(&#34;web&#34;)
  *             .configuration(RepositoryWebhookConfigurationArgs.builder()
  *                 .url(barWebhook.url())
  *                 .contentType(&#34;json&#34;)
@@ -123,13 +128,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
+ * $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
  * ```
  * 
  */
@@ -312,9 +318,6 @@ public class Webhook extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

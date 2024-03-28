@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class AnalysisSourceEntitySourceTemplateDataSetReference {
 
         @CustomType.Setter
         public Builder dataSetArn(String dataSetArn) {
-            this.dataSetArn = Objects.requireNonNull(dataSetArn);
+            if (dataSetArn == null) {
+              throw new MissingRequiredPropertyException("AnalysisSourceEntitySourceTemplateDataSetReference", "dataSetArn");
+            }
+            this.dataSetArn = dataSetArn;
             return this;
         }
         @CustomType.Setter
         public Builder dataSetPlaceholder(String dataSetPlaceholder) {
-            this.dataSetPlaceholder = Objects.requireNonNull(dataSetPlaceholder);
+            if (dataSetPlaceholder == null) {
+              throw new MissingRequiredPropertyException("AnalysisSourceEntitySourceTemplateDataSetReference", "dataSetPlaceholder");
+            }
+            this.dataSetPlaceholder = dataSetPlaceholder;
             return this;
         }
         public AnalysisSourceEntitySourceTemplateDataSetReference build() {
-            final var o = new AnalysisSourceEntitySourceTemplateDataSetReference();
-            o.dataSetArn = dataSetArn;
-            o.dataSetPlaceholder = dataSetPlaceholder;
-            return o;
+            final var _resultValue = new AnalysisSourceEntitySourceTemplateDataSetReference();
+            _resultValue.dataSetArn = dataSetArn;
+            _resultValue.dataSetPlaceholder = dataSetPlaceholder;
+            return _resultValue;
         }
     }
 }

@@ -211,26 +211,28 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        foo_vpc = aws.ec2.Vpc("fooVpc", cidr_block="10.1.0.0/16")
-        foo_subnet = aws.ec2.Subnet("fooSubnet",
+        foo = aws.ec2.Vpc("foo", cidr_block="10.1.0.0/16")
+        foo_subnet = aws.ec2.Subnet("foo",
             cidr_block="10.1.1.0/24",
             availability_zone="us-west-2a",
-            vpc_id=foo_vpc.id,
+            vpc_id=foo.id,
             tags={
                 "Name": "tf-dbsubnet-test-1",
             })
         bar = aws.ec2.Subnet("bar",
             cidr_block="10.1.2.0/24",
             availability_zone="us-west-2b",
-            vpc_id=foo_vpc.id,
+            vpc_id=foo.id,
             tags={
                 "Name": "tf-dbsubnet-test-2",
             })
-        foo_subnet_group = aws.redshift.SubnetGroup("fooSubnetGroup",
+        foo_subnet_group = aws.redshift.SubnetGroup("foo",
+            name="foo",
             subnet_ids=[
                 foo_subnet.id,
                 bar.id,
@@ -239,13 +241,14 @@ class SubnetGroup(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift subnet groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/subnetGroup:SubnetGroup testgroup1 test-cluster-subnet-group
+        $ pulumi import aws:redshift/subnetGroup:SubnetGroup testgroup1 test-cluster-subnet-group
         ```
 
         :param str resource_name: The name of the resource.
@@ -266,26 +269,28 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        foo_vpc = aws.ec2.Vpc("fooVpc", cidr_block="10.1.0.0/16")
-        foo_subnet = aws.ec2.Subnet("fooSubnet",
+        foo = aws.ec2.Vpc("foo", cidr_block="10.1.0.0/16")
+        foo_subnet = aws.ec2.Subnet("foo",
             cidr_block="10.1.1.0/24",
             availability_zone="us-west-2a",
-            vpc_id=foo_vpc.id,
+            vpc_id=foo.id,
             tags={
                 "Name": "tf-dbsubnet-test-1",
             })
         bar = aws.ec2.Subnet("bar",
             cidr_block="10.1.2.0/24",
             availability_zone="us-west-2b",
-            vpc_id=foo_vpc.id,
+            vpc_id=foo.id,
             tags={
                 "Name": "tf-dbsubnet-test-2",
             })
-        foo_subnet_group = aws.redshift.SubnetGroup("fooSubnetGroup",
+        foo_subnet_group = aws.redshift.SubnetGroup("foo",
+            name="foo",
             subnet_ids=[
                 foo_subnet.id,
                 bar.id,
@@ -294,13 +299,14 @@ class SubnetGroup(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift subnet groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/subnetGroup:SubnetGroup testgroup1 test-cluster-subnet-group
+        $ pulumi import aws:redshift/subnetGroup:SubnetGroup testgroup1 test-cluster-subnet-group
         ```
 
         :param str resource_name: The name of the resource.
@@ -341,8 +347,6 @@ class SubnetGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SubnetGroup, __self__).__init__(
             'aws:redshift/subnetGroup:SubnetGroup',
             resource_name,

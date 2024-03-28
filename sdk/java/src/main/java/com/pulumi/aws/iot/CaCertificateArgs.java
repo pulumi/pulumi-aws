@@ -6,6 +6,7 @@ package com.pulumi.aws.iot;
 import com.pulumi.aws.iot.inputs.CaCertificateRegistrationConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -305,9 +306,15 @@ public final class CaCertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CaCertificateArgs build() {
-            $.active = Objects.requireNonNull($.active, "expected parameter 'active' to be non-null");
-            $.allowAutoRegistration = Objects.requireNonNull($.allowAutoRegistration, "expected parameter 'allowAutoRegistration' to be non-null");
-            $.caCertificatePem = Objects.requireNonNull($.caCertificatePem, "expected parameter 'caCertificatePem' to be non-null");
+            if ($.active == null) {
+                throw new MissingRequiredPropertyException("CaCertificateArgs", "active");
+            }
+            if ($.allowAutoRegistration == null) {
+                throw new MissingRequiredPropertyException("CaCertificateArgs", "allowAutoRegistration");
+            }
+            if ($.caCertificatePem == null) {
+                throw new MissingRequiredPropertyException("CaCertificateArgs", "caCertificatePem");
+            }
             return $;
         }
     }

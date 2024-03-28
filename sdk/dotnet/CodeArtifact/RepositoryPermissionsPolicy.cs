@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,24 +23,24 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var exampleKey = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "domain key",
     ///     });
     /// 
-    ///     var exampleDomain = new Aws.CodeArtifact.Domain("exampleDomain", new()
+    ///     var exampleDomain = new Aws.CodeArtifact.Domain("example", new()
     ///     {
     ///         DomainName = "example",
     ///         EncryptionKey = exampleKey.Arn,
     ///     });
     /// 
-    ///     var exampleRepository = new Aws.CodeArtifact.Repository("exampleRepository", new()
+    ///     var exampleRepository = new Aws.CodeArtifact.Repository("example", new()
     ///     {
     ///         RepositoryName = "example",
     ///         Domain = exampleDomain.DomainName,
     ///     });
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -69,22 +70,23 @@ namespace Pulumi.Aws.CodeArtifact
     ///         },
     ///     });
     /// 
-    ///     var exampleRepositoryPermissionsPolicy = new Aws.CodeArtifact.RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy", new()
+    ///     var exampleRepositoryPermissionsPolicy = new Aws.CodeArtifact.RepositoryPermissionsPolicy("example", new()
     ///     {
     ///         Repository = exampleRepository.RepositoryName,
     ///         Domain = exampleDomain.DomainName,
-    ///         PolicyDocument = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         PolicyDocument = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeArtifact Repository Permissions Policies using the CodeArtifact Repository ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
+    /// $ pulumi import aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
     /// ```
     /// </summary>
     [AwsResourceType("aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy")]

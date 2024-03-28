@@ -254,12 +254,15 @@ class RegexPatternSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.wafv2.RegexPatternSet("example",
+            name="example",
             description="Example regex pattern set",
+            scope="REGIONAL",
             regular_expressions=[
                 aws.wafv2.RegexPatternSetRegularExpressionArgs(
                     regex_string="one",
@@ -268,19 +271,19 @@ class RegexPatternSet(pulumi.CustomResource):
                     regex_string="two",
                 ),
             ],
-            scope="REGIONAL",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WAFv2 Regex Pattern Sets using `ID/name/scope`. For example:
 
         ```sh
-         $ pulumi import aws:wafv2/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+        $ pulumi import aws:wafv2/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
         ```
 
         :param str resource_name: The name of the resource.
@@ -302,12 +305,15 @@ class RegexPatternSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.wafv2.RegexPatternSet("example",
+            name="example",
             description="Example regex pattern set",
+            scope="REGIONAL",
             regular_expressions=[
                 aws.wafv2.RegexPatternSetRegularExpressionArgs(
                     regex_string="one",
@@ -316,19 +322,19 @@ class RegexPatternSet(pulumi.CustomResource):
                     regex_string="two",
                 ),
             ],
-            scope="REGIONAL",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WAFv2 Regex Pattern Sets using `ID/name/scope`. For example:
 
         ```sh
-         $ pulumi import aws:wafv2/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+        $ pulumi import aws:wafv2/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
         ```
 
         :param str resource_name: The name of the resource.
@@ -370,8 +376,6 @@ class RegexPatternSet(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["lock_token"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(RegexPatternSet, __self__).__init__(
             'aws:wafv2/regexPatternSet:RegexPatternSet',
             resource_name,

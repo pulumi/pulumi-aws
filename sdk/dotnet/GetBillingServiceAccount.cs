@@ -14,10 +14,9 @@ namespace Pulumi.Aws
         /// <summary>
         /// Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,15 +27,18 @@ namespace Pulumi.Aws
         /// {
         ///     var main = Aws.GetBillingServiceAccount.Invoke();
         /// 
-        ///     var billingLogs = new Aws.S3.BucketV2("billingLogs");
+        ///     var billingLogs = new Aws.S3.BucketV2("billing_logs", new()
+        ///     {
+        ///         Bucket = "my-billing-tf-test-bucket",
+        ///     });
         /// 
-        ///     var billingLogsAcl = new Aws.S3.BucketAclV2("billingLogsAcl", new()
+        ///     var billingLogsAcl = new Aws.S3.BucketAclV2("billing_logs_acl", new()
         ///     {
         ///         Bucket = billingLogs.Id,
         ///         Acl = "private",
         ///     });
         /// 
-        ///     var allowBillingLoggingPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     var allowBillingLogging = Aws.Iam.GetPolicyDocument.Invoke(new()
         ///     {
         ///         Statements = new[]
         ///         {
@@ -90,16 +92,15 @@ namespace Pulumi.Aws
         ///         },
         ///     });
         /// 
-        ///     var allowBillingLoggingBucketPolicy = new Aws.S3.BucketPolicy("allowBillingLoggingBucketPolicy", new()
+        ///     var allowBillingLoggingBucketPolicy = new Aws.S3.BucketPolicy("allow_billing_logging", new()
         ///     {
         ///         Bucket = billingLogs.Id,
-        ///         Policy = allowBillingLoggingPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///         Policy = allowBillingLogging.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetBillingServiceAccountResult> InvokeAsync(GetBillingServiceAccountArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBillingServiceAccountResult>("aws:index/getBillingServiceAccount:getBillingServiceAccount", args ?? new GetBillingServiceAccountArgs(), options.WithDefaults());
@@ -107,10 +108,9 @@ namespace Pulumi.Aws
         /// <summary>
         /// Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -121,15 +121,18 @@ namespace Pulumi.Aws
         /// {
         ///     var main = Aws.GetBillingServiceAccount.Invoke();
         /// 
-        ///     var billingLogs = new Aws.S3.BucketV2("billingLogs");
+        ///     var billingLogs = new Aws.S3.BucketV2("billing_logs", new()
+        ///     {
+        ///         Bucket = "my-billing-tf-test-bucket",
+        ///     });
         /// 
-        ///     var billingLogsAcl = new Aws.S3.BucketAclV2("billingLogsAcl", new()
+        ///     var billingLogsAcl = new Aws.S3.BucketAclV2("billing_logs_acl", new()
         ///     {
         ///         Bucket = billingLogs.Id,
         ///         Acl = "private",
         ///     });
         /// 
-        ///     var allowBillingLoggingPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     var allowBillingLogging = Aws.Iam.GetPolicyDocument.Invoke(new()
         ///     {
         ///         Statements = new[]
         ///         {
@@ -183,16 +186,15 @@ namespace Pulumi.Aws
         ///         },
         ///     });
         /// 
-        ///     var allowBillingLoggingBucketPolicy = new Aws.S3.BucketPolicy("allowBillingLoggingBucketPolicy", new()
+        ///     var allowBillingLoggingBucketPolicy = new Aws.S3.BucketPolicy("allow_billing_logging", new()
         ///     {
         ///         Bucket = billingLogs.Id,
-        ///         Policy = allowBillingLoggingPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///         Policy = allowBillingLogging.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetBillingServiceAccountResult> Invoke(GetBillingServiceAccountInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingServiceAccountResult>("aws:index/getBillingServiceAccount:getBillingServiceAccount", args ?? new GetBillingServiceAccountInvokeArgs(), options.WithDefaults());

@@ -11,24 +11,28 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS VPC Lattice Service.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.vpclattice.Service("example", {
+ *     name: "example",
  *     authType: "AWS_IAM",
  *     customDomainName: "example.com",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import VPC Lattice Service using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
+ * $ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
  * ```
  */
 export class Service extends pulumi.CustomResource {
@@ -60,7 +64,7 @@ export class Service extends pulumi.CustomResource {
     }
 
     /**
-     * ARN of the service. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+     * ARN of the service.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -76,7 +80,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly customDomainName!: pulumi.Output<string | undefined>;
     /**
-     * Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+     * DNS name of the service.
      */
     public /*out*/ readonly dnsEntries!: pulumi.Output<outputs.vpclattice.ServiceDnsEntry[]>;
     /**
@@ -135,8 +139,6 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -146,7 +148,7 @@ export class Service extends pulumi.CustomResource {
  */
 export interface ServiceState {
     /**
-     * ARN of the service. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+     * ARN of the service.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -162,7 +164,7 @@ export interface ServiceState {
      */
     customDomainName?: pulumi.Input<string>;
     /**
-     * Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+     * DNS name of the service.
      */
     dnsEntries?: pulumi.Input<pulumi.Input<inputs.vpclattice.ServiceDnsEntry>[]>;
     /**

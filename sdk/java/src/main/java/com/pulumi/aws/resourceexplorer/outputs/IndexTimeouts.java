@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IndexTimeouts {
+    /**
+     * @return A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours).
+     * 
+     */
     private @Nullable String create;
+    /**
+     * @return A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+     * 
+     */
     private @Nullable String delete;
+    /**
+     * @return A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours).
+     * 
+     */
     private @Nullable String update;
 
     private IndexTimeouts() {}
+    /**
+     * @return A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours).
+     * 
+     */
     public Optional<String> create() {
         return Optional.ofNullable(this.create);
     }
+    /**
+     * @return A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+     * 
+     */
     public Optional<String> delete() {
         return Optional.ofNullable(this.delete);
     }
+    /**
+     * @return A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours).
+     * 
+     */
     public Optional<String> update() {
         return Optional.ofNullable(this.update);
     }
@@ -48,25 +72,28 @@ public final class IndexTimeouts {
 
         @CustomType.Setter
         public Builder create(@Nullable String create) {
+
             this.create = create;
             return this;
         }
         @CustomType.Setter
         public Builder delete(@Nullable String delete) {
+
             this.delete = delete;
             return this;
         }
         @CustomType.Setter
         public Builder update(@Nullable String update) {
+
             this.update = update;
             return this;
         }
         public IndexTimeouts build() {
-            final var o = new IndexTimeouts();
-            o.create = create;
-            o.delete = delete;
-            o.update = update;
-            return o;
+            final var _resultValue = new IndexTimeouts();
+            _resultValue.create = create;
+            _resultValue.delete = delete;
+            _resultValue.update = update;
+            return _resultValue;
         }
     }
 }

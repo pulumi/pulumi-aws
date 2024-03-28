@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Chime
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,12 +25,13 @@ namespace Pulumi.Aws.Chime
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var defaultVoiceConnector = new Aws.Chime.VoiceConnector("defaultVoiceConnector", new()
+    ///     var @default = new Aws.Chime.VoiceConnector("default", new()
     ///     {
+    ///         Name = "test",
     ///         RequireEncryption = true,
     ///     });
     /// 
-    ///     var defaultVoiceConnectorTermination = new Aws.Chime.VoiceConnectorTermination("defaultVoiceConnectorTermination", new()
+    ///     var defaultVoiceConnectorTermination = new Aws.Chime.VoiceConnectorTermination("default", new()
     ///     {
     ///         Disabled = true,
     ///         CpsLimit = 1,
@@ -42,12 +44,12 @@ namespace Pulumi.Aws.Chime
     ///             "US",
     ///             "CA",
     ///         },
-    ///         VoiceConnectorId = defaultVoiceConnector.Id,
+    ///         VoiceConnectorId = @default.Id,
     ///     });
     /// 
-    ///     var defaultVoiceConnectorTerminationCredentials = new Aws.Chime.VoiceConnectorTerminationCredentials("defaultVoiceConnectorTerminationCredentials", new()
+    ///     var defaultVoiceConnectorTerminationCredentials = new Aws.Chime.VoiceConnectorTerminationCredentials("default", new()
     ///     {
-    ///         VoiceConnectorId = defaultVoiceConnector.Id,
+    ///         VoiceConnectorId = @default.Id,
     ///         Credentials = new[]
     ///         {
     ///             new Aws.Chime.Inputs.VoiceConnectorTerminationCredentialsCredentialArgs
@@ -56,23 +58,18 @@ namespace Pulumi.Aws.Chime
     ///                 Password = "test!",
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             defaultVoiceConnectorTermination,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Chime Voice Connector Termination Credentials using the `voice_connector_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials default abcdef1ghij2klmno3pqr4
+    /// $ pulumi import aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials default abcdef1ghij2klmno3pqr4
     /// ```
     /// </summary>
     [AwsResourceType("aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials")]

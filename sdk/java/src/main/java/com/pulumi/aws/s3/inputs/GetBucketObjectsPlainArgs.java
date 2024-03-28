@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -20,10 +21,10 @@ public final class GetBucketObjectsPlainArgs extends com.pulumi.resources.Invoke
      * Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      * 
      * @deprecated
-     * Use the aws_s3_objects data source instead
+     * Use the aws.s3.getObjects data source instead
      * 
      */
-    @Deprecated /* Use the aws_s3_objects data source instead */
+    @Deprecated /* Use the aws.s3.getObjects data source instead */
     @Import(name="bucket", required=true)
     private String bucket;
 
@@ -31,10 +32,10 @@ public final class GetBucketObjectsPlainArgs extends com.pulumi.resources.Invoke
      * @return Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      * 
      * @deprecated
-     * Use the aws_s3_objects data source instead
+     * Use the aws.s3.getObjects data source instead
      * 
      */
-    @Deprecated /* Use the aws_s3_objects data source instead */
+    @Deprecated /* Use the aws.s3.getObjects data source instead */
     public String bucket() {
         return this.bucket;
     }
@@ -165,10 +166,10 @@ public final class GetBucketObjectsPlainArgs extends com.pulumi.resources.Invoke
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_objects data source instead
+         * Use the aws.s3.getObjects data source instead
          * 
          */
-        @Deprecated /* Use the aws_s3_objects data source instead */
+        @Deprecated /* Use the aws.s3.getObjects data source instead */
         public Builder bucket(String bucket) {
             $.bucket = bucket;
             return this;
@@ -241,7 +242,9 @@ public final class GetBucketObjectsPlainArgs extends com.pulumi.resources.Invoke
         }
 
         public GetBucketObjectsPlainArgs build() {
-            $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
+            if ($.bucket == null) {
+                throw new MissingRequiredPropertyException("GetBucketObjectsPlainArgs", "bucket");
+            }
             return $;
         }
     }

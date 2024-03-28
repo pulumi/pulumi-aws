@@ -16,10 +16,9 @@ namespace Pulumi.Aws.CloudWatch
         /// 
         /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,8 +34,7 @@ namespace Pulumi.Aws.CloudWatch
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEventConnectionResult> InvokeAsync(GetEventConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventConnectionResult>("aws:cloudwatch/getEventConnection:getEventConnection", args ?? new GetEventConnectionArgs(), options.WithDefaults());
@@ -46,10 +44,9 @@ namespace Pulumi.Aws.CloudWatch
         /// 
         /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,8 +62,7 @@ namespace Pulumi.Aws.CloudWatch
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEventConnectionResult> Invoke(GetEventConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventConnectionResult>("aws:cloudwatch/getEventConnection:getEventConnection", args ?? new GetEventConnectionInvokeArgs(), options.WithDefaults());

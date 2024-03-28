@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.glue.CatalogDatabaseArgs;
 import com.pulumi.aws.glue.inputs.CatalogDatabaseState;
 import com.pulumi.aws.glue.outputs.CatalogDatabaseCreateTableDefaultPermission;
+import com.pulumi.aws.glue.outputs.CatalogDatabaseFederatedDatabase;
 import com.pulumi.aws.glue.outputs.CatalogDatabaseTargetDatabase;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -22,6 +23,8 @@ import javax.annotation.Nullable;
  * Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,14 +46,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var awsGlueCatalogDatabase = new CatalogDatabase(&#34;awsGlueCatalogDatabase&#34;, CatalogDatabaseArgs.builder()        
+ *         var example = new CatalogDatabase(&#34;example&#34;, CatalogDatabaseArgs.builder()        
  *             .name(&#34;MyCatalogDatabase&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Create Table Default Permissions
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -74,26 +81,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var awsGlueCatalogDatabase = new CatalogDatabase(&#34;awsGlueCatalogDatabase&#34;, CatalogDatabaseArgs.builder()        
+ *         var example = new CatalogDatabase(&#34;example&#34;, CatalogDatabaseArgs.builder()        
+ *             .name(&#34;MyCatalogDatabase&#34;)
  *             .createTableDefaultPermissions(CatalogDatabaseCreateTableDefaultPermissionArgs.builder()
  *                 .permissions(&#34;SELECT&#34;)
  *                 .principal(CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs.builder()
  *                     .dataLakePrincipalIdentifier(&#34;IAM_ALLOWED_PRINCIPALS&#34;)
  *                     .build())
  *                 .build())
- *             .name(&#34;MyCatalogDatabase&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Glue Catalog Databases using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
  * 
  * ```sh
- *  $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
+ * $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
  * ```
  * 
  */
@@ -154,6 +162,20 @@ public class CatalogDatabase extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
+    }
+    /**
+     * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
+     * 
+     */
+    @Export(name="federatedDatabase", refs={CatalogDatabaseFederatedDatabase.class}, tree="[0]")
+    private Output</* @Nullable */ CatalogDatabaseFederatedDatabase> federatedDatabase;
+
+    /**
+     * @return Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
+     * 
+     */
+    public Output<Optional<CatalogDatabaseFederatedDatabase>> federatedDatabase() {
+        return Codegen.optional(this.federatedDatabase);
     }
     /**
      * Location of the database (for example, an HDFS path).
@@ -276,9 +298,6 @@ public class CatalogDatabase extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

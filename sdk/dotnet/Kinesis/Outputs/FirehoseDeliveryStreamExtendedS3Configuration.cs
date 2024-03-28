@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string BucketArn;
         /// <summary>
-        /// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        /// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         /// </summary>
         public readonly int? BufferingInterval;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly int? BufferingSize;
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
+        /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions;
         /// <summary>
@@ -34,17 +34,25 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? CompressionFormat;
         /// <summary>
-        /// Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
+        /// The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
+        /// </summary>
+        public readonly string? CustomTimeZone;
+        /// <summary>
+        /// Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `data_format_conversion_configuration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration? DataFormatConversionConfiguration;
         /// <summary>
-        /// The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details. Required when using dynamic partitioning.
+        /// The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamic_partitioning_configuration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration? DynamicPartitioningConfiguration;
         /// <summary>
         /// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
         /// </summary>
         public readonly string? ErrorOutputPrefix;
+        /// <summary>
+        /// The file extension to override the default file extension (for example, `.json`).
+        /// </summary>
+        public readonly string? FileExtension;
         /// <summary>
         /// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
         /// be used.
@@ -55,7 +63,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? Prefix;
         /// <summary>
-        /// The data processing configuration.  More details are given below.
+        /// The data processing configuration.  See `processing_configuration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration? ProcessingConfiguration;
         /// <summary>
@@ -83,11 +91,15 @@ namespace Pulumi.Aws.Kinesis.Outputs
 
             string? compressionFormat,
 
+            string? customTimeZone,
+
             Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration? dataFormatConversionConfiguration,
 
             Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration? dynamicPartitioningConfiguration,
 
             string? errorOutputPrefix,
+
+            string? fileExtension,
 
             string? kmsKeyArn,
 
@@ -106,9 +118,11 @@ namespace Pulumi.Aws.Kinesis.Outputs
             BufferingSize = bufferingSize;
             CloudwatchLoggingOptions = cloudwatchLoggingOptions;
             CompressionFormat = compressionFormat;
+            CustomTimeZone = customTimeZone;
             DataFormatConversionConfiguration = dataFormatConversionConfiguration;
             DynamicPartitioningConfiguration = dynamicPartitioningConfiguration;
             ErrorOutputPrefix = errorOutputPrefix;
+            FileExtension = fileExtension;
             KmsKeyArn = kmsKeyArn;
             Prefix = prefix;
             ProcessingConfiguration = processingConfiguration;

@@ -12,16 +12,18 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS NetworkManager SiteToSiteAttachment.
+ * Resource for managing an AWS Network Manager SiteToSiteAttachment.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,20 +46,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SiteToSiteVpnAttachment(&#34;example&#34;, SiteToSiteVpnAttachmentArgs.builder()        
- *             .coreNetworkId(awscc_networkmanager_core_network.example().id())
- *             .vpnConnectionArn(aws_vpn_connection.example().arn())
+ *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
+ *             .vpnConnectionArn(exampleAwsVpnConnection.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_networkmanager_site_to_site_vpn_attachment` using the attachment ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment example attachment-0f8fa60d2238d1bd8
+ * $ pulumi import aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment example attachment-0f8fa60d2238d1bd8
  * ```
  * 
  */
@@ -286,9 +289,6 @@ public class SiteToSiteVpnAttachment extends com.pulumi.resources.CustomResource
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

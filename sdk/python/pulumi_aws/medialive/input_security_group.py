@@ -162,27 +162,30 @@ class InputSecurityGroup(pulumi.CustomResource):
         Resource for managing an AWS MediaLive InputSecurityGroup.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.medialive.InputSecurityGroup("example",
-            tags={
-                "ENVIRONMENT": "prod",
-            },
             whitelist_rules=[aws.medialive.InputSecurityGroupWhitelistRuleArgs(
                 cidr="10.0.0.8/32",
-            )])
+            )],
+            tags={
+                "ENVIRONMENT": "prod",
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
+        $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
         ```
 
         :param str resource_name: The name of the resource.
@@ -202,27 +205,30 @@ class InputSecurityGroup(pulumi.CustomResource):
         Resource for managing an AWS MediaLive InputSecurityGroup.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.medialive.InputSecurityGroup("example",
-            tags={
-                "ENVIRONMENT": "prod",
-            },
             whitelist_rules=[aws.medialive.InputSecurityGroupWhitelistRuleArgs(
                 cidr="10.0.0.8/32",
-            )])
+            )],
+            tags={
+                "ENVIRONMENT": "prod",
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
+        $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
         ```
 
         :param str resource_name: The name of the resource.
@@ -258,8 +264,6 @@ class InputSecurityGroup(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["inputs"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(InputSecurityGroup, __self__).__init__(
             'aws:medialive/inputSecurityGroup:InputSecurityGroup',
             resource_name,

@@ -44,13 +44,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCap
 
         @CustomType.Setter
         public Builder nameModifier(@Nullable String nameModifier) {
+
             this.nameModifier = nameModifier;
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings();
-            o.nameModifier = nameModifier;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings();
+            _resultValue.nameModifier = nameModifier;
+            return _resultValue;
         }
     }
 }

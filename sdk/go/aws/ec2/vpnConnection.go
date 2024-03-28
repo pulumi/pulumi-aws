@@ -19,8 +19,10 @@ import (
 // [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
 //
 // ## Example Usage
+//
 // ### EC2 Transit Gateway
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,11 +36,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", nil)
+//			example, err := ec2transitgateway.NewTransitGateway(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "exampleCustomerGateway", &ec2.CustomerGatewayArgs{
+//			exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "example", &ec2.CustomerGatewayArgs{
 //				BgpAsn:    pulumi.String("65000"),
 //				IpAddress: pulumi.String("172.0.0.1"),
 //				Type:      pulumi.String("ipsec.1"),
@@ -46,9 +48,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewVpnConnection(ctx, "exampleVpnConnection", &ec2.VpnConnectionArgs{
+//			_, err = ec2.NewVpnConnection(ctx, "example", &ec2.VpnConnectionArgs{
 //				CustomerGatewayId: exampleCustomerGateway.ID(),
-//				TransitGatewayId:  exampleTransitGateway.ID(),
+//				TransitGatewayId:  example.ID(),
 //				Type:              exampleCustomerGateway.Type,
 //			})
 //			if err != nil {
@@ -59,8 +61,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Virtual Private Gateway
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -79,13 +84,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			vpnGateway, err := ec2.NewVpnGateway(ctx, "vpnGateway", &ec2.VpnGatewayArgs{
+//			vpnGateway, err := ec2.NewVpnGateway(ctx, "vpn_gateway", &ec2.VpnGatewayArgs{
 //				VpcId: vpc.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			customerGateway, err := ec2.NewCustomerGateway(ctx, "customerGateway", &ec2.CustomerGatewayArgs{
+//			customerGateway, err := ec2.NewCustomerGateway(ctx, "customer_gateway", &ec2.CustomerGatewayArgs{
 //				BgpAsn:    pulumi.String("65000"),
 //				IpAddress: pulumi.String("172.0.0.1"),
 //				Type:      pulumi.String("ipsec.1"),
@@ -107,8 +112,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### AWS Site to Site Private VPN
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -123,13 +131,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGateway, err := directconnect.NewGateway(ctx, "exampleGateway", &directconnect.GatewayArgs{
+//			exampleGateway, err := directconnect.NewGateway(ctx, "example", &directconnect.GatewayArgs{
+//				Name:          pulumi.String("example_ipsec_vpn_example"),
 //				AmazonSideAsn: pulumi.String("64512"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", &ec2transitgateway.TransitGatewayArgs{
+//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "example", &ec2transitgateway.TransitGatewayArgs{
 //				AmazonSideAsn: pulumi.Int(64513),
 //				Description:   pulumi.String("example_ipsec_vpn_example"),
 //				TransitGatewayCidrBlocks: pulumi.StringArray{
@@ -139,7 +148,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "exampleCustomerGateway", &ec2.CustomerGatewayArgs{
+//			exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "example", &ec2.CustomerGatewayArgs{
 //				BgpAsn:    pulumi.String("64514"),
 //				IpAddress: pulumi.String("10.0.0.1"),
 //				Type:      pulumi.String("ipsec.1"),
@@ -150,7 +159,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = directconnect.NewGatewayAssociation(ctx, "exampleGatewayAssociation", &directconnect.GatewayAssociationArgs{
+//			_, err = directconnect.NewGatewayAssociation(ctx, "example", &directconnect.GatewayAssociationArgs{
 //				DxGatewayId:         exampleGateway.ID(),
 //				AssociatedGatewayId: exampleTransitGateway.ID(),
 //				AllowedPrefixes: pulumi.StringArray{
@@ -160,16 +169,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDirectConnectGatewayAttachment := ec2transitgateway.GetDirectConnectGatewayAttachmentOutput(ctx, ec2transitgateway.GetDirectConnectGatewayAttachmentOutputArgs{
+//			example := ec2transitgateway.GetDirectConnectGatewayAttachmentOutput(ctx, ec2transitgateway.GetDirectConnectGatewayAttachmentOutputArgs{
 //				TransitGatewayId: exampleTransitGateway.ID(),
 //				DxGatewayId:      exampleGateway.ID(),
 //			}, nil)
-//			_, err = ec2.NewVpnConnection(ctx, "exampleVpnConnection", &ec2.VpnConnectionArgs{
+//			_, err = ec2.NewVpnConnection(ctx, "example", &ec2.VpnConnectionArgs{
 //				CustomerGatewayId:    exampleCustomerGateway.ID(),
 //				OutsideIpAddressType: pulumi.String("PrivateIpv4"),
 //				TransitGatewayId:     exampleTransitGateway.ID(),
-//				TransportTransitGatewayAttachmentId: exampleDirectConnectGatewayAttachment.ApplyT(func(exampleDirectConnectGatewayAttachment ec2transitgateway.GetDirectConnectGatewayAttachmentResult) (*string, error) {
-//					return &exampleDirectConnectGatewayAttachment.Id, nil
+//				TransportTransitGatewayAttachmentId: example.ApplyT(func(example ec2transitgateway.GetDirectConnectGatewayAttachmentResult) (*string, error) {
+//					return &example.Id, nil
 //				}).(pulumi.StringPtrOutput),
 //				Type: pulumi.String("ipsec.1"),
 //				Tags: pulumi.StringMap{
@@ -184,15 +193,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import VPN Connections using the VPN connection `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
-//
+// $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
 // ```
 type VpnConnection struct {
 	pulumi.CustomResourceState
@@ -366,7 +374,6 @@ func NewVpnConnection(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"customerGatewayConfiguration",
-		"tagsAll",
 		"tunnel1PresharedKey",
 		"tunnel2PresharedKey",
 	})

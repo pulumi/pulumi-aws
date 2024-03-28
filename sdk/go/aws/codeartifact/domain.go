@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CodeArtifact Domain using the CodeArtifact Domain arn. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:codeartifact/domain:Domain example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
-//
+// $ pulumi import aws:codeartifact/domain:Domain example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
 // ```
 type Domain struct {
 	pulumi.CustomResourceState
@@ -66,6 +66,8 @@ type Domain struct {
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// The number of repositories in the domain.
 	RepositoryCount pulumi.IntOutput `pulumi:"repositoryCount"`
+	// The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
+	S3BucketArn pulumi.StringOutput `pulumi:"s3BucketArn"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -84,10 +86,6 @@ func NewDomain(ctx *pulumi.Context,
 	if args.Domain == nil {
 		return nil, errors.New("invalid value for required argument 'Domain'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Domain
 	err := ctx.RegisterResource("aws:codeartifact/domain:Domain", name, args, &resource, opts...)
@@ -125,6 +123,8 @@ type domainState struct {
 	Owner *string `pulumi:"owner"`
 	// The number of repositories in the domain.
 	RepositoryCount *int `pulumi:"repositoryCount"`
+	// The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
+	S3BucketArn *string `pulumi:"s3BucketArn"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -148,6 +148,8 @@ type DomainState struct {
 	Owner pulumi.StringPtrInput
 	// The number of repositories in the domain.
 	RepositoryCount pulumi.IntPtrInput
+	// The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
+	S3BucketArn pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -299,6 +301,11 @@ func (o DomainOutput) Owner() pulumi.StringOutput {
 // The number of repositories in the domain.
 func (o DomainOutput) RepositoryCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *Domain) pulumi.IntOutput { return v.RepositoryCount }).(pulumi.IntOutput)
+}
+
+// The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
+func (o DomainOutput) S3BucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.S3BucketArn }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccelerator, err := globalaccelerator.NewAccelerator(ctx, "exampleAccelerator", &globalaccelerator.AcceleratorArgs{
+//			example, err := globalaccelerator.NewAccelerator(ctx, "example", &globalaccelerator.AcceleratorArgs{
+//				Name:          pulumi.String("Example"),
 //				IpAddressType: pulumi.String("IPV4"),
 //				Enabled:       pulumi.Bool(true),
 //				Attributes: &globalaccelerator.AcceleratorAttributesArgs{
@@ -40,8 +42,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = globalaccelerator.NewListener(ctx, "exampleListener", &globalaccelerator.ListenerArgs{
-//				AcceleratorArn: exampleAccelerator.ID(),
+//			_, err = globalaccelerator.NewListener(ctx, "example", &globalaccelerator.ListenerArgs{
+//				AcceleratorArn: example.ID(),
 //				ClientAffinity: pulumi.String("SOURCE_IP"),
 //				Protocol:       pulumi.String("TCP"),
 //				PortRanges: globalaccelerator.ListenerPortRangeArray{
@@ -59,15 +61,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Global Accelerator listeners using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
-//
+// $ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
 // ```
 type Listener struct {
 	pulumi.CustomResourceState

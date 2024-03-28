@@ -405,28 +405,50 @@ class Task(pulumi.CustomResource):
         Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
 
         ## Example Usage
-        ### With Scheduling
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.datasync.Task("example",
-            destination_location_arn=aws_datasync_location_s3["destination"]["arn"],
-            source_location_arn=aws_datasync_location_nfs["source"]["arn"],
+            destination_location_arn=destination["arn"],
+            name="example",
+            source_location_arn=source["arn"],
+            options=aws.datasync.TaskOptionsArgs(
+                bytes_per_second=-1,
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### With Scheduling
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.datasync.Task("example",
+            destination_location_arn=destination["arn"],
+            name="example",
+            source_location_arn=source["arn"],
             schedule=aws.datasync.TaskScheduleArgs(
                 schedule_expression="cron(0 12 ? * SUN,WED *)",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Filtering
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.datasync.Task("example",
-            destination_location_arn=aws_datasync_location_s3["destination"]["arn"],
-            source_location_arn=aws_datasync_location_nfs["source"]["arn"],
+            destination_location_arn=destination["arn"],
+            name="example",
+            source_location_arn=source["arn"],
             excludes=aws.datasync.TaskExcludesArgs(
                 filter_type="SIMPLE_PATTERN",
                 value="/folder1|/folder2",
@@ -436,13 +458,14 @@ class Task(pulumi.CustomResource):
                 value="/folder1|/folder2",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_datasync_task` using the DataSync Task Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
+        $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
         ```
 
         :param str resource_name: The name of the resource.
@@ -468,28 +491,50 @@ class Task(pulumi.CustomResource):
         Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
 
         ## Example Usage
-        ### With Scheduling
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.datasync.Task("example",
-            destination_location_arn=aws_datasync_location_s3["destination"]["arn"],
-            source_location_arn=aws_datasync_location_nfs["source"]["arn"],
+            destination_location_arn=destination["arn"],
+            name="example",
+            source_location_arn=source["arn"],
+            options=aws.datasync.TaskOptionsArgs(
+                bytes_per_second=-1,
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### With Scheduling
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.datasync.Task("example",
+            destination_location_arn=destination["arn"],
+            name="example",
+            source_location_arn=source["arn"],
             schedule=aws.datasync.TaskScheduleArgs(
                 schedule_expression="cron(0 12 ? * SUN,WED *)",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Filtering
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.datasync.Task("example",
-            destination_location_arn=aws_datasync_location_s3["destination"]["arn"],
-            source_location_arn=aws_datasync_location_nfs["source"]["arn"],
+            destination_location_arn=destination["arn"],
+            name="example",
+            source_location_arn=source["arn"],
             excludes=aws.datasync.TaskExcludesArgs(
                 filter_type="SIMPLE_PATTERN",
                 value="/folder1|/folder2",
@@ -499,13 +544,14 @@ class Task(pulumi.CustomResource):
                 value="/folder1|/folder2",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_datasync_task` using the DataSync Task Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
+        $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
         ```
 
         :param str resource_name: The name of the resource.
@@ -558,8 +604,6 @@ class Task(pulumi.CustomResource):
             __props__.__dict__["task_report_config"] = task_report_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Task, __self__).__init__(
             'aws:datasync/task:Task',
             resource_name,

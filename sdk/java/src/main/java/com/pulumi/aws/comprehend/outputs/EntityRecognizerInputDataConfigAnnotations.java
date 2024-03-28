@@ -4,6 +4,7 @@
 package com.pulumi.aws.comprehend.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -50,19 +51,23 @@ public final class EntityRecognizerInputDataConfigAnnotations {
 
         @CustomType.Setter
         public Builder s3Uri(String s3Uri) {
-            this.s3Uri = Objects.requireNonNull(s3Uri);
+            if (s3Uri == null) {
+              throw new MissingRequiredPropertyException("EntityRecognizerInputDataConfigAnnotations", "s3Uri");
+            }
+            this.s3Uri = s3Uri;
             return this;
         }
         @CustomType.Setter
         public Builder testS3Uri(@Nullable String testS3Uri) {
+
             this.testS3Uri = testS3Uri;
             return this;
         }
         public EntityRecognizerInputDataConfigAnnotations build() {
-            final var o = new EntityRecognizerInputDataConfigAnnotations();
-            o.s3Uri = s3Uri;
-            o.testS3Uri = testS3Uri;
-            return o;
+            final var _resultValue = new EntityRecognizerInputDataConfigAnnotations();
+            _resultValue.s3Uri = s3Uri;
+            _resultValue.testS3Uri = testS3Uri;
+            return _resultValue;
         }
     }
 }

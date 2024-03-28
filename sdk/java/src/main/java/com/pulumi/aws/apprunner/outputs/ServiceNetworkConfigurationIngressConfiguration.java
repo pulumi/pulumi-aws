@@ -44,13 +44,14 @@ public final class ServiceNetworkConfigurationIngressConfiguration {
 
         @CustomType.Setter
         public Builder isPubliclyAccessible(@Nullable Boolean isPubliclyAccessible) {
+
             this.isPubliclyAccessible = isPubliclyAccessible;
             return this;
         }
         public ServiceNetworkConfigurationIngressConfiguration build() {
-            final var o = new ServiceNetworkConfigurationIngressConfiguration();
-            o.isPubliclyAccessible = isPubliclyAccessible;
-            return o;
+            final var _resultValue = new ServiceNetworkConfigurationIngressConfiguration();
+            _resultValue.isPubliclyAccessible = isPubliclyAccessible;
+            return _resultValue;
         }
     }
 }

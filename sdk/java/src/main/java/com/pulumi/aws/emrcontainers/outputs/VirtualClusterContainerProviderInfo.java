@@ -5,6 +5,7 @@ package com.pulumi.aws.emrcontainers.outputs;
 
 import com.pulumi.aws.emrcontainers.outputs.VirtualClusterContainerProviderInfoEksInfo;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,13 +43,16 @@ public final class VirtualClusterContainerProviderInfo {
 
         @CustomType.Setter
         public Builder eksInfo(VirtualClusterContainerProviderInfoEksInfo eksInfo) {
-            this.eksInfo = Objects.requireNonNull(eksInfo);
+            if (eksInfo == null) {
+              throw new MissingRequiredPropertyException("VirtualClusterContainerProviderInfo", "eksInfo");
+            }
+            this.eksInfo = eksInfo;
             return this;
         }
         public VirtualClusterContainerProviderInfo build() {
-            final var o = new VirtualClusterContainerProviderInfo();
-            o.eksInfo = eksInfo;
-            return o;
+            final var _resultValue = new VirtualClusterContainerProviderInfo();
+            _resultValue.eksInfo = eksInfo;
+            return _resultValue;
         }
     }
 }

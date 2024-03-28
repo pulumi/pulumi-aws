@@ -11,24 +11,26 @@ import * as utilities from "../utilities";
  * Provides a CodeDeploy deployment config for an application
  *
  * ## Example Usage
+ *
  * ### Server Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooDeploymentConfig = new aws.codedeploy.DeploymentConfig("fooDeploymentConfig", {
+ * const foo = new aws.codedeploy.DeploymentConfig("foo", {
  *     deploymentConfigName: "test-deployment-config",
  *     minimumHealthyHosts: {
  *         type: "HOST_COUNT",
  *         value: 2,
  *     },
  * });
- * const fooDeploymentGroup = new aws.codedeploy.DeploymentGroup("fooDeploymentGroup", {
- *     appName: aws_codedeploy_app.foo_app.name,
+ * const fooDeploymentGroup = new aws.codedeploy.DeploymentGroup("foo", {
+ *     appName: fooApp.name,
  *     deploymentGroupName: "bar",
- *     serviceRoleArn: aws_iam_role.foo_role.arn,
- *     deploymentConfigName: fooDeploymentConfig.id,
+ *     serviceRoleArn: fooRole.arn,
+ *     deploymentConfigName: foo.id,
  *     ec2TagFilters: [{
  *         key: "filterkey",
  *         type: "KEY_AND_VALUE",
@@ -49,13 +51,16 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Lambda Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooDeploymentConfig = new aws.codedeploy.DeploymentConfig("fooDeploymentConfig", {
+ * const foo = new aws.codedeploy.DeploymentConfig("foo", {
  *     deploymentConfigName: "test-deployment-config",
  *     computePlatform: "Lambda",
  *     trafficRoutingConfig: {
@@ -66,11 +71,11 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * });
- * const fooDeploymentGroup = new aws.codedeploy.DeploymentGroup("fooDeploymentGroup", {
- *     appName: aws_codedeploy_app.foo_app.name,
+ * const fooDeploymentGroup = new aws.codedeploy.DeploymentGroup("foo", {
+ *     appName: fooApp.name,
  *     deploymentGroupName: "bar",
- *     serviceRoleArn: aws_iam_role.foo_role.arn,
- *     deploymentConfigName: fooDeploymentConfig.id,
+ *     serviceRoleArn: fooRole.arn,
+ *     deploymentConfigName: foo.id,
  *     autoRollbackConfiguration: {
  *         enabled: true,
  *         events: ["DEPLOYMENT_STOP_ON_ALARM"],
@@ -81,13 +86,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CodeDeploy Deployment Configurations using the `deployment_config_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
+ * $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
  * ```
  */
 export class DeploymentConfig extends pulumi.CustomResource {
@@ -118,6 +124,10 @@ export class DeploymentConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === DeploymentConfig.__pulumiType;
     }
 
+    /**
+     * The ARN of the deployment config.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
      */
@@ -152,6 +162,7 @@ export class DeploymentConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeploymentConfigState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["computePlatform"] = state ? state.computePlatform : undefined;
             resourceInputs["deploymentConfigId"] = state ? state.deploymentConfigId : undefined;
             resourceInputs["deploymentConfigName"] = state ? state.deploymentConfigName : undefined;
@@ -163,6 +174,7 @@ export class DeploymentConfig extends pulumi.CustomResource {
             resourceInputs["deploymentConfigName"] = args ? args.deploymentConfigName : undefined;
             resourceInputs["minimumHealthyHosts"] = args ? args.minimumHealthyHosts : undefined;
             resourceInputs["trafficRoutingConfig"] = args ? args.trafficRoutingConfig : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["deploymentConfigId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -174,6 +186,10 @@ export class DeploymentConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DeploymentConfig resources.
  */
 export interface DeploymentConfigState {
+    /**
+     * The ARN of the deployment config.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
      */

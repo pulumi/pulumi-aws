@@ -12,8 +12,11 @@ namespace Pulumi.Aws.Ecr
     /// <summary>
     /// Provides an Elastic Container Registry Policy.
     /// 
+    /// &gt; **NOTE on ECR Registry Policies:** While the AWS Management Console interface may suggest the ability to define multiple policies by creating multiple statements, ECR registry policies are effectively managed as singular entities at the regional level by the AWS APIs. Therefore, the `aws.ecr.RegistryPolicy` resource should be configured only once per region with all necessary statements defined in the same policy. Attempting to define multiple `aws.ecr.RegistryPolicy` resources may result in perpetual differences, with one policy overriding another.
+    /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,57 +26,61 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var currentRegion = Aws.GetRegion.Invoke();
+    ///     var currentGetRegion = Aws.GetRegion.Invoke();
     /// 
-    ///     var currentPartition = Aws.GetPartition.Invoke();
+    ///     var currentGetPartition = Aws.GetPartition.Invoke();
     /// 
     ///     var example = new Aws.Ecr.RegistryPolicy("example", new()
     ///     {
-    ///         Policy = Output.Tuple(currentPartition, currentCallerIdentity, currentPartition, currentRegion, currentCallerIdentity).Apply(values =&gt;
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             var currentPartition = values.Item1;
-    ///             var currentCallerIdentity = values.Item2;
-    ///             var currentPartition1 = values.Item3;
-    ///             var currentRegion = values.Item4;
-    ///             var currentCallerIdentity1 = values.Item5;
-    ///             return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
-    ///                 ["Version"] = "2012-10-17",
-    ///                 ["Statement"] = new[]
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     ["sid"] = "testpolicy",
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Sid"] = "testpolicy",
-    ///                         ["Effect"] = "Allow",
-    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                         ["AWS"] = Output.Tuple(currentGetPartition, current).Apply(values =&gt;
     ///                         {
-    ///                             ["AWS"] = $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
-    ///                         },
-    ///                         ["Action"] = new[]
+    ///                             var currentGetPartition = values.Item1;
+    ///                             var current = values.Item2;
+    ///                             return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root";
+    ///                         }),
+    ///                     },
+    ///                     ["action"] = new[]
+    ///                     {
+    ///                         "ecr:ReplicateImage",
+    ///                     },
+    ///                     ["resource"] = new[]
+    ///                     {
+    ///                         Output.Tuple(currentGetPartition, currentGetRegion, current).Apply(values =&gt;
     ///                         {
-    ///                             "ecr:ReplicateImage",
-    ///                         },
-    ///                         ["Resource"] = new[]
-    ///                         {
-    ///                             $"arn:{currentPartition1.Partition}:ecr:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity1.AccountId}:repository/*",
-    ///                         },
+    ///                             var currentGetPartition = values.Item1;
+    ///                             var currentGetRegion = values.Item2;
+    ///                             var current = values.Item3;
+    ///                             return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:ecr:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:repository/*";
+    ///                         }),
     ///                     },
     ///                 },
-    ///             });
+    ///             },
     ///         }),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ECR Registry Policy using the registry id. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
+    /// $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecr/registryPolicy:RegistryPolicy")]

@@ -14,24 +14,18 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
-    /// using System.Security.Cryptography;
-    /// using System.Text;
     /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	private static string ComputeSHA1(string input) {
-    /// 		return BitConverter.ToString(
-    /// 			SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input))
-    /// 		).Replace("-","").ToLowerInvariant());
-    /// 	}
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new()
+    ///     var example = new Aws.ApiGateway.RestApi("example", new()
     ///     {
     ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -58,27 +52,31 @@ namespace Pulumi.Aws.ApiGateway
     ///                 },
     ///             },
     ///         }),
+    ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("example", new()
     ///     {
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         Triggers = 
     ///         {
-    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///             { "redeployment", Std.Sha1.Invoke(new()
+    ///             {
+    ///                 Input = Output.JsonSerialize(Output.Create(example.Body)),
+    ///             }).Apply(invoke =&gt; invoke.Result) },
     ///         },
     ///     });
     /// 
-    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     var exampleStage = new Aws.ApiGateway.Stage("example", new()
     ///     {
     ///         Deployment = exampleDeployment.Id,
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         StageName = "example",
     ///     });
     /// 
-    ///     var exampleMethodSettings = new Aws.ApiGateway.MethodSettings("exampleMethodSettings", new()
+    ///     var exampleMethodSettings = new Aws.ApiGateway.MethodSettings("example", new()
     ///     {
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         StageName = exampleStage.StageName,
     ///         MethodPath = "*/*",
     ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
@@ -90,10 +88,13 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Managing the API Logging CloudWatch Log Group
     /// 
     /// API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `aws.cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, import the `aws.cloudwatch.LogGroup` resource into Pulumi as a one time operation. You can recreate the environment without import.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -104,36 +105,29 @@ namespace Pulumi.Aws.ApiGateway
     /// {
     ///     var config = new Config();
     ///     var stageName = config.Get("stageName") ?? "example";
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi");
+    ///     var example = new Aws.ApiGateway.RestApi("example");
     /// 
-    ///     // ... other configuration ...
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new()
+    ///     var exampleStage = new Aws.ApiGateway.Stage("example", new()
     ///     {
+    ///         StageName = stageName,
+    ///     });
+    /// 
+    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("example", new()
+    ///     {
+    ///         Name = example.Id.Apply(id =&gt; $"API-Gateway-Execution-Logs_{id}/{stageName}"),
     ///         RetentionInDays = 7,
     ///     });
     /// 
-    ///     // ... potentially other configuration ...
-    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
-    ///     {
-    ///         StageName = stageName,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleLogGroup,
-    ///         },
-    ///     });
-    /// 
-    ///     // ... other configuration ...
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_api_gateway_stage` using `REST-API-ID/STAGE-NAME`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
+    /// $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/stage:Stage")]
@@ -273,10 +267,6 @@ namespace Pulumi.Aws.ApiGateway
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -501,11 +491,7 @@ namespace Pulumi.Aws.ApiGateway
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("variables")]

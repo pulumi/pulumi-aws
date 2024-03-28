@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatement;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,16 +44,19 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
 
         @CustomType.Setter
         public Builder statements(List<WebAclRuleStatement> statements) {
-            this.statements = Objects.requireNonNull(statements);
+            if (statements == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement", "statements");
+            }
+            this.statements = statements;
             return this;
         }
         public Builder statements(WebAclRuleStatement... statements) {
             return statements(List.of(statements));
         }
         public WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement();
-            o.statements = statements;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement();
+            _resultValue.statements = statements;
+            return _resultValue;
         }
     }
 }

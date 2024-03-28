@@ -639,21 +639,27 @@ class NotebookInstance(pulumi.CustomResource):
         Provides a SageMaker Notebook Instance resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         ni = aws.sagemaker.NotebookInstance("ni",
-            role_arn=aws_iam_role["role"]["arn"],
+            name="my-notebook-instance",
+            role_arn=role["arn"],
             instance_type="ml.t2.medium",
             tags={
                 "Name": "foo",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Code repository usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -664,20 +670,22 @@ class NotebookInstance(pulumi.CustomResource):
                 repository_url="https://github.com/github/docs.git",
             ))
         ni = aws.sagemaker.NotebookInstance("ni",
-            role_arn=aws_iam_role["role"]["arn"],
+            name="my-notebook-instance",
+            role_arn=role["arn"],
             instance_type="ml.t2.medium",
             default_code_repository=example.code_repository_name,
             tags={
                 "Name": "foo",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Notebook Instances using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
+        $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
         ```
 
         :param str resource_name: The name of the resource.
@@ -710,21 +718,27 @@ class NotebookInstance(pulumi.CustomResource):
         Provides a SageMaker Notebook Instance resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         ni = aws.sagemaker.NotebookInstance("ni",
-            role_arn=aws_iam_role["role"]["arn"],
+            name="my-notebook-instance",
+            role_arn=role["arn"],
             instance_type="ml.t2.medium",
             tags={
                 "Name": "foo",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Code repository usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -735,20 +749,22 @@ class NotebookInstance(pulumi.CustomResource):
                 repository_url="https://github.com/github/docs.git",
             ))
         ni = aws.sagemaker.NotebookInstance("ni",
-            role_arn=aws_iam_role["role"]["arn"],
+            name="my-notebook-instance",
+            role_arn=role["arn"],
             instance_type="ml.t2.medium",
             default_code_repository=example.code_repository_name,
             tags={
                 "Name": "foo",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Notebook Instances using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
+        $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
         ```
 
         :param str resource_name: The name of the resource.
@@ -815,8 +831,6 @@ class NotebookInstance(pulumi.CustomResource):
             __props__.__dict__["network_interface_id"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["url"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(NotebookInstance, __self__).__init__(
             'aws:sagemaker/notebookInstance:NotebookInstance',
             resource_name,

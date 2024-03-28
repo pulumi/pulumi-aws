@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainDefaultUserSettingsRSessionAppSettings {
     /**
-     * @return A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+     * @return A list of custom SageMaker images that are configured to run as a RSession app. see `custom_image` Block below.
      * 
      */
     private @Nullable List<DomainDefaultUserSettingsRSessionAppSettingsCustomImage> customImages;
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block above.
      * 
      */
     private @Nullable DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec defaultResourceSpec;
 
     private DomainDefaultUserSettingsRSessionAppSettings() {}
     /**
-     * @return A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+     * @return A list of custom SageMaker images that are configured to run as a RSession app. see `custom_image` Block below.
      * 
      */
     public List<DomainDefaultUserSettingsRSessionAppSettingsCustomImage> customImages() {
         return this.customImages == null ? List.of() : this.customImages;
     }
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block above.
      * 
      */
     public Optional<DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec> defaultResourceSpec() {
@@ -60,6 +60,7 @@ public final class DomainDefaultUserSettingsRSessionAppSettings {
 
         @CustomType.Setter
         public Builder customImages(@Nullable List<DomainDefaultUserSettingsRSessionAppSettingsCustomImage> customImages) {
+
             this.customImages = customImages;
             return this;
         }
@@ -68,14 +69,15 @@ public final class DomainDefaultUserSettingsRSessionAppSettings {
         }
         @CustomType.Setter
         public Builder defaultResourceSpec(@Nullable DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec defaultResourceSpec) {
+
             this.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
         public DomainDefaultUserSettingsRSessionAppSettings build() {
-            final var o = new DomainDefaultUserSettingsRSessionAppSettings();
-            o.customImages = customImages;
-            o.defaultResourceSpec = defaultResourceSpec;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettingsRSessionAppSettings();
+            _resultValue.customImages = customImages;
+            _resultValue.defaultResourceSpec = defaultResourceSpec;
+            return _resultValue;
         }
     }
 }

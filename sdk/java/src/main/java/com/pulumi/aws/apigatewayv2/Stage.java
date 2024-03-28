@@ -25,7 +25,10 @@ import javax.annotation.Nullable;
  * More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,21 +51,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Stage(&#34;example&#34;, StageArgs.builder()        
- *             .apiId(aws_apigatewayv2_api.example().id())
+ *             .apiId(exampleAwsApigatewayv2Api.id())
+ *             .name(&#34;example-stage&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_apigatewayv2_stage` using the API identifier and stage name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
+ * $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
  * ```
- *  -&gt; __Note:__ The API Gateway managed stage created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
+ * -&gt; __Note:__ The API Gateway managed stage created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
  * 
  */
 @ResourceType(type="aws:apigatewayv2/stage:Stage")
@@ -328,9 +333,6 @@ public class Stage extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.codecommit;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -47,6 +48,21 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+     * 
+     */
+    @Import(name="kmsKeyId")
+    private @Nullable Output<String> kmsKeyId;
+
+    /**
+     * @return The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+     * 
+     */
+    public Optional<Output<String>> kmsKeyId() {
+        return Optional.ofNullable(this.kmsKeyId);
+    }
+
+    /**
      * The name for the repository. This needs to be less than 100 characters.
      * 
      */
@@ -81,6 +97,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
     private RepositoryArgs(RepositoryArgs $) {
         this.defaultBranch = $.defaultBranch;
         this.description = $.description;
+        this.kmsKeyId = $.kmsKeyId;
         this.repositoryName = $.repositoryName;
         this.tags = $.tags;
     }
@@ -146,6 +163,27 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param kmsKeyId The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
+            $.kmsKeyId = kmsKeyId;
+            return this;
+        }
+
+        /**
+         * @param kmsKeyId The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyId(String kmsKeyId) {
+            return kmsKeyId(Output.of(kmsKeyId));
+        }
+
+        /**
          * @param repositoryName The name for the repository. This needs to be less than 100 characters.
          * 
          * @return builder
@@ -188,7 +226,9 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RepositoryArgs build() {
-            $.repositoryName = Objects.requireNonNull($.repositoryName, "expected parameter 'repositoryName' to be non-null");
+            if ($.repositoryName == null) {
+                throw new MissingRequiredPropertyException("RepositoryArgs", "repositoryName");
+            }
             return $;
         }
     }

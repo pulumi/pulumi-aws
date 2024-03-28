@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,13 +34,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRepository, err := ecrpublic.NewRepository(ctx, "exampleRepository", &ecrpublic.RepositoryArgs{
+//			exampleRepository, err := ecrpublic.NewRepository(ctx, "example", &ecrpublic.RepositoryArgs{
 //				RepositoryName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Sid:    pulumi.StringRef("new policy"),
@@ -74,9 +75,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ecrpublic.NewRepositoryPolicy(ctx, "exampleRepositoryPolicy", &ecrpublic.RepositoryPolicyArgs{
+//			_, err = ecrpublic.NewRepositoryPolicy(ctx, "example", &ecrpublic.RepositoryPolicyArgs{
 //				RepositoryName: exampleRepository.RepositoryName,
-//				Policy:         *pulumi.String(examplePolicyDocument.Json),
+//				Policy:         pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -86,15 +87,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ECR Public Repository Policy using the repository name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
-//
+// $ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
 // ```
 type RepositoryPolicy struct {
 	pulumi.CustomResourceState

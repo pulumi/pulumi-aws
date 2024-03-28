@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsworks.NewHaproxyLayer(ctx, "lb", &opsworks.HaproxyLayerArgs{
-//				StackId:       pulumi.Any(aws_opsworks_stack.Main.Id),
+//				StackId:       pulumi.Any(main.Id),
 //				StatsPassword: pulumi.String("foobarbaz"),
 //			})
 //			if err != nil {
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type HaproxyLayer struct {
 	pulumi.CustomResourceState
 
@@ -119,10 +121,6 @@ func NewHaproxyLayer(ctx *pulumi.Context,
 	if args.StatsPassword == nil {
 		return nil, errors.New("invalid value for required argument 'StatsPassword'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HaproxyLayer
 	err := ctx.RegisterResource("aws:opsworks/haproxyLayer:HaproxyLayer", name, args, &resource, opts...)

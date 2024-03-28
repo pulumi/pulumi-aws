@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * Basic usage:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(&#34;sts:AssumeRole&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -61,10 +63,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .name(&#34;AWSGlueServiceRole-foo&#34;)
+ *             .assumeRolePolicy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var exampleDevEndpoint = new DevEndpoint(&#34;exampleDevEndpoint&#34;, DevEndpointArgs.builder()        
+ *             .name(&#34;foo&#34;)
  *             .roleArn(exampleRole.arn())
  *             .build());
  * 
@@ -76,13 +80,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a Glue Development Endpoint using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
+ * $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
  * ```
  * 
  */
@@ -475,9 +480,6 @@ public class DevEndpoint extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -44,13 +44,14 @@ public final class ListenerRuleMatch {
 
         @CustomType.Setter
         public Builder httpMatch(@Nullable ListenerRuleMatchHttpMatch httpMatch) {
+
             this.httpMatch = httpMatch;
             return this;
         }
         public ListenerRuleMatch build() {
-            final var o = new ListenerRuleMatch();
-            o.httpMatch = httpMatch;
-            return o;
+            final var _resultValue = new ListenerRuleMatch();
+            _resultValue.httpMatch = httpMatch;
+            return _resultValue;
         }
     }
 }

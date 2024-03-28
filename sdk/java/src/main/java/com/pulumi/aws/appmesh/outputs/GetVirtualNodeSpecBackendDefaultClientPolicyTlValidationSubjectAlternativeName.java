@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,16 +36,19 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubje
 
         @CustomType.Setter
         public Builder matches(List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch> matches) {
-            this.matches = Objects.requireNonNull(matches);
+            if (matches == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName", "matches");
+            }
+            this.matches = matches;
             return this;
         }
         public Builder matches(GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch... matches) {
             return matches(List.of(matches));
         }
         public GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName build() {
-            final var o = new GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName();
-            o.matches = matches;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName();
+            _resultValue.matches = matches;
+            return _resultValue;
         }
     }
 }

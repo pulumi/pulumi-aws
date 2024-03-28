@@ -102,12 +102,15 @@ class DomainPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.opensearch.Domain("example", engine_version="OpenSearch_1.1")
-        main_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.opensearch.Domain("example",
+            domain_name="tf-test",
+            engine_version="OpenSearch_1.1")
+        main = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="*",
@@ -121,10 +124,11 @@ class DomainPolicy(pulumi.CustomResource):
                 values=["127.0.0.1/32"],
             )],
         )])
-        main_domain_policy = aws.opensearch.DomainPolicy("mainDomainPolicy",
+        main_domain_policy = aws.opensearch.DomainPolicy("main",
             domain_name=example.domain_name,
-            access_policies=main_policy_document.json)
+            access_policies=main.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,12 +146,15 @@ class DomainPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.opensearch.Domain("example", engine_version="OpenSearch_1.1")
-        main_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.opensearch.Domain("example",
+            domain_name="tf-test",
+            engine_version="OpenSearch_1.1")
+        main = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="*",
@@ -161,10 +168,11 @@ class DomainPolicy(pulumi.CustomResource):
                 values=["127.0.0.1/32"],
             )],
         )])
-        main_domain_policy = aws.opensearch.DomainPolicy("mainDomainPolicy",
+        main_domain_policy = aws.opensearch.DomainPolicy("main",
             domain_name=example.domain_name,
-            access_policies=main_policy_document.json)
+            access_policies=main.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param DomainPolicyArgs args: The arguments to use to populate this resource's properties.

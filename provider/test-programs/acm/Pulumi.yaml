@@ -1,0 +1,16 @@
+name: acm
+runtime: yaml
+resources:
+  certificate:
+    type: aws:acm:Certificate
+    properties:
+      domainName: "example.com"
+      validationMethod: "EMAIL"
+      subjectAlternativeNames: ["www.example.com"]
+    options:
+      customTimeouts:
+        create: "30m"
+  certificateValidation:
+    type: aws:acm:CertificateValidation
+    properties:
+      certificateArn: ${certificate.arn}

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,12 +49,13 @@ namespace Pulumi.Aws.Ssm
     ///         },
     ///     });
     /// 
-    ///     var testRole = new Aws.Iam.Role("testRole", new()
+    ///     var testRole = new Aws.Iam.Role("test_role", new()
     ///     {
+    ///         Name = "test_role",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var testAttach = new Aws.Iam.RolePolicyAttachment("testAttach", new()
+    ///     var testAttach = new Aws.Iam.RolePolicyAttachment("test_attach", new()
     ///     {
     ///         Role = testRole.Name,
     ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
@@ -61,28 +63,24 @@ namespace Pulumi.Aws.Ssm
     /// 
     ///     var foo = new Aws.Ssm.Activation("foo", new()
     ///     {
+    ///         Name = "test_ssm_activation",
     ///         Description = "Test",
     ///         IamRole = testRole.Id,
     ///         RegistrationLimit = 5,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             testAttach,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS SSM Activation using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
+    /// $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
     /// ```
-    ///  -&gt; __Note:__ The `activation_code` attribute cannot be imported.
+    /// -&gt; __Note:__ The `activation_code` attribute cannot be imported.
     /// </summary>
     [AwsResourceType("aws:ssm/activation:Activation")]
     public partial class Activation : global::Pulumi.CustomResource
@@ -170,10 +168,6 @@ namespace Pulumi.Aws.Ssm
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -317,11 +311,7 @@ namespace Pulumi.Aws.Ssm
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ActivationState()

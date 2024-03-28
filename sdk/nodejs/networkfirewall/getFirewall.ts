@@ -11,18 +11,23 @@ import * as utilities from "../utilities";
  * Retrieve information about a firewall.
  *
  * ## Example Usage
+ *
  * ### Find firewall policy by ARN
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkfirewall.getFirewall({
- *     arn: aws_networkfirewall_firewall.arn,
+ *     arn: arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Find firewall policy by Name
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -31,17 +36,21 @@ import * as utilities from "../utilities";
  *     name: "Test",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Find firewall policy by ARN and Name
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkfirewall.getFirewall({
- *     arn: aws_networkfirewall_firewall.arn,
+ *     arn: arn,
  *     name: "Test",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFirewall(args?: GetFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallResult> {
     args = args || {};
@@ -81,7 +90,7 @@ export interface GetFirewallResult {
      */
     readonly arn: string;
     /**
-     * Boolean flag indicating whether it is possible to delete the firewall.
+     * A flag indicating whether the firewall is protected against deletion.
      */
     readonly deleteProtection: boolean;
     /**
@@ -97,7 +106,7 @@ export interface GetFirewallResult {
      */
     readonly firewallPolicyArn: string;
     /**
-     * A boolean flag indicating whether it is possible to change the associated firewall policy.
+     * A flag indicating whether the firewall is protected against a change to the firewall policy association.
      */
     readonly firewallPolicyChangeProtection: boolean;
     /**
@@ -113,7 +122,7 @@ export interface GetFirewallResult {
      */
     readonly name: string;
     /**
-     * A boolean flag indicating whether it is possible to change the associated subnet(s).
+     * A flag indicating whether the firewall is protected against changes to the subnet associations.
      */
     readonly subnetChangeProtection: boolean;
     /**
@@ -137,18 +146,23 @@ export interface GetFirewallResult {
  * Retrieve information about a firewall.
  *
  * ## Example Usage
+ *
  * ### Find firewall policy by ARN
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkfirewall.getFirewall({
- *     arn: aws_networkfirewall_firewall.arn,
+ *     arn: arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Find firewall policy by Name
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -157,17 +171,21 @@ export interface GetFirewallResult {
  *     name: "Test",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Find firewall policy by ARN and Name
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkfirewall.getFirewall({
- *     arn: aws_networkfirewall_firewall.arn,
+ *     arn: arn,
  *     name: "Test",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFirewallOutput(args?: GetFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallResult> {
     return pulumi.output(args).apply((a: any) => getFirewall(a, opts))

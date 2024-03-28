@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,10 +28,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.NewTemplate(ctx, "myTemplate", &ses.TemplateArgs{
-//				Html:    pulumi.String("<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>"),
+//			_, err := ses.NewTemplate(ctx, "MyTemplate", &ses.TemplateArgs{
+//				Name:    pulumi.String("MyTemplate"),
 //				Subject: pulumi.String("Greetings, {{name}}!"),
-//				Text:    pulumi.String("Hello {{name}},\nYour favorite animal is {{favoriteanimal}}.\n"),
+//				Html:    pulumi.String("<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>"),
+//				Text:    pulumi.String("Hello {{name}},\nYour favorite animal is {{favoriteanimal}}."),
 //			})
 //			if err != nil {
 //				return err
@@ -40,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SES templates using the template name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ses/template:Template MyTemplate MyTemplate
-//
+// $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
 // ```
 type Template struct {
 	pulumi.CustomResourceState

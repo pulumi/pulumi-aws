@@ -4,6 +4,7 @@
 package com.pulumi.aws.keyspaces.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class TableSchemaDefinitionPartitionKey {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("TableSchemaDefinitionPartitionKey", "name");
+            }
+            this.name = name;
             return this;
         }
         public TableSchemaDefinitionPartitionKey build() {
-            final var o = new TableSchemaDefinitionPartitionKey();
-            o.name = name;
-            return o;
+            final var _resultValue = new TableSchemaDefinitionPartitionKey();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

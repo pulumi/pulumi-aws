@@ -14,28 +14,33 @@ import * as utilities from "../utilities";
  * > **NOTE:** This resource only currently supports Amazon Lex (V1) Associations.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.BotAssociation("example", {
- *     instanceId: aws_connect_instance.example.id,
+ *     instanceId: exampleAwsConnectInstance.id,
  *     lexBot: {
  *         lexRegion: "us-west-2",
  *         name: "Test",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Including a sample Lex bot
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegion({});
- * const exampleIntent = new aws.lex.Intent("exampleIntent", {
+ * const example = new aws.lex.Intent("example", {
  *     createVersion: true,
  *     name: "connect_lex_intent",
  *     fulfillmentActivity: {
@@ -43,7 +48,7 @@ import * as utilities from "../utilities";
  *     },
  *     sampleUtterances: ["I would like to pick up flowers."],
  * });
- * const exampleBot = new aws.lex.Bot("exampleBot", {
+ * const exampleBot = new aws.lex.Bot("example", {
  *     abortStatement: {
  *         messages: [{
  *             content: "Sorry, I am not able to assist at this time.",
@@ -58,28 +63,29 @@ import * as utilities from "../utilities";
  *         }],
  *     },
  *     intents: [{
- *         intentName: exampleIntent.name,
+ *         intentName: example.name,
  *         intentVersion: "1",
  *     }],
  *     childDirected: false,
  *     name: "connect_lex_bot",
  *     processBehavior: "BUILD",
  * });
- * const exampleBotAssociation = new aws.connect.BotAssociation("exampleBotAssociation", {
- *     instanceId: aws_connect_instance.example.id,
+ * const exampleBotAssociation = new aws.connect.BotAssociation("example", {
+ *     instanceId: exampleAwsConnectInstance.id,
  *     lexBot: {
  *         lexRegion: current.then(current => current.name),
  *         name: exampleBot.name,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_connect_bot_association` using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`). For example:
  *
  * ```sh
- *  $ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
+ * $ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
  * ```
  */
 export class BotAssociation extends pulumi.CustomResource {

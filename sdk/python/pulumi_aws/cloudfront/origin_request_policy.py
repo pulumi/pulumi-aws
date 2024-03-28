@@ -218,11 +218,13 @@ class OriginRequestPolicy(pulumi.CustomResource):
 
         The following example below creates a CloudFront origin request policy.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cloudfront.OriginRequestPolicy("example",
+            name="example-policy",
             comment="example comment",
             cookies_config=aws.cloudfront.OriginRequestPolicyCookiesConfigArgs(
                 cookie_behavior="whitelist",
@@ -243,13 +245,14 @@ class OriginRequestPolicy(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cloudfront Origin Request Policies using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/originRequestPolicy:OriginRequestPolicy policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3
+        $ pulumi import aws:cloudfront/originRequestPolicy:OriginRequestPolicy policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3
         ```
 
         :param str resource_name: The name of the resource.
@@ -271,11 +274,13 @@ class OriginRequestPolicy(pulumi.CustomResource):
 
         The following example below creates a CloudFront origin request policy.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cloudfront.OriginRequestPolicy("example",
+            name="example-policy",
             comment="example comment",
             cookies_config=aws.cloudfront.OriginRequestPolicyCookiesConfigArgs(
                 cookie_behavior="whitelist",
@@ -296,13 +301,14 @@ class OriginRequestPolicy(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cloudfront Origin Request Policies using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/originRequestPolicy:OriginRequestPolicy policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3
+        $ pulumi import aws:cloudfront/originRequestPolicy:OriginRequestPolicy policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3
         ```
 
         :param str resource_name: The name of the resource.

@@ -7,6 +7,7 @@ import com.pulumi.aws.ec2.outputs.GetVpcEndpointDnsEntry;
 import com.pulumi.aws.ec2.outputs.GetVpcEndpointDnsOption;
 import com.pulumi.aws.ec2.outputs.GetVpcEndpointFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -273,12 +274,18 @@ public final class GetVpcEndpointResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder cidrBlocks(List<String> cidrBlocks) {
-            this.cidrBlocks = Objects.requireNonNull(cidrBlocks);
+            if (cidrBlocks == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointResult", "cidrBlocks");
+            }
+            this.cidrBlocks = cidrBlocks;
             return this;
         }
         public Builder cidrBlocks(String... cidrBlocks) {
@@ -286,7 +293,10 @@ public final class GetVpcEndpointResult {
         }
         @CustomType.Setter
         public Builder dnsEntries(List<GetVpcEndpointDnsEntry> dnsEntries) {
-            this.dnsEntries = Objects.requireNonNull(dnsEntries);
+            if (dnsEntries == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointResult", "dnsEntries");
+            }
+            this.dnsEntries = dnsEntries;
             return this;
         }
         public Builder dnsEntries(GetVpcEndpointDnsEntry... dnsEntries) {
@@ -294,7 +304,10 @@ public final class GetVpcEndpointResult {
         }
         @CustomType.Setter
         public Builder dnsOptions(List<GetVpcEndpointDnsOption> dnsOptions) {
-            this.dnsOptions = Objects.requireNonNull(dnsOptions);
+            if (dnsOptions == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointResult", "dnsOptions");
+            }
+            this.dnsOptions = dnsOptions;
             return this;
         }
         public Builder dnsOptions(GetVpcEndpointDnsOption... dnsOptions) {
@@ -302,6 +315,7 @@ public final class GetVpcEndpointResult {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetVpcEndpointFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -310,17 +324,26 @@ public final class GetVpcEndpointResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddressType(String ipAddressType) {
-            this.ipAddressType = Objects.requireNonNull(ipAddressType);
+            if (ipAddressType == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointResult", "ipAddressType");
+            }
+            this.ipAddressType = ipAddressType;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaceIds(List<String> networkInterfaceIds) {
-            this.networkInterfaceIds = Objects.requireNonNull(networkInterfaceIds);
+            if (networkInterfaceIds == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointResult", "networkInterfaceIds");
+            }
+            this.networkInterfaceIds = networkInterfaceIds;
             return this;
         }
         public Builder networkInterfaceIds(String... networkInterfaceIds) {
@@ -328,32 +351,50 @@ public final class GetVpcEndpointResult {
         }
         @CustomType.Setter
         public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+            if (ownerId == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointResult", "ownerId");
+            }
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
         public Builder policy(String policy) {
-            this.policy = Objects.requireNonNull(policy);
+            if (policy == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointResult", "policy");
+            }
+            this.policy = policy;
             return this;
         }
         @CustomType.Setter
         public Builder prefixListId(String prefixListId) {
-            this.prefixListId = Objects.requireNonNull(prefixListId);
+            if (prefixListId == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointResult", "prefixListId");
+            }
+            this.prefixListId = prefixListId;
             return this;
         }
         @CustomType.Setter
         public Builder privateDnsEnabled(Boolean privateDnsEnabled) {
-            this.privateDnsEnabled = Objects.requireNonNull(privateDnsEnabled);
+            if (privateDnsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointResult", "privateDnsEnabled");
+            }
+            this.privateDnsEnabled = privateDnsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder requesterManaged(Boolean requesterManaged) {
-            this.requesterManaged = Objects.requireNonNull(requesterManaged);
+            if (requesterManaged == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointResult", "requesterManaged");
+            }
+            this.requesterManaged = requesterManaged;
             return this;
         }
         @CustomType.Setter
         public Builder routeTableIds(List<String> routeTableIds) {
-            this.routeTableIds = Objects.requireNonNull(routeTableIds);
+            if (routeTableIds == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointResult", "routeTableIds");
+            }
+            this.routeTableIds = routeTableIds;
             return this;
         }
         public Builder routeTableIds(String... routeTableIds) {
@@ -361,7 +402,10 @@ public final class GetVpcEndpointResult {
         }
         @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+            if (securityGroupIds == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointResult", "securityGroupIds");
+            }
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {
@@ -369,17 +413,26 @@ public final class GetVpcEndpointResult {
         }
         @CustomType.Setter
         public Builder serviceName(String serviceName) {
-            this.serviceName = Objects.requireNonNull(serviceName);
+            if (serviceName == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointResult", "serviceName");
+            }
+            this.serviceName = serviceName;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointResult", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointResult", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
@@ -387,43 +440,52 @@ public final class GetVpcEndpointResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vpcEndpointType(String vpcEndpointType) {
-            this.vpcEndpointType = Objects.requireNonNull(vpcEndpointType);
+            if (vpcEndpointType == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointResult", "vpcEndpointType");
+            }
+            this.vpcEndpointType = vpcEndpointType;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointResult", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public GetVpcEndpointResult build() {
-            final var o = new GetVpcEndpointResult();
-            o.arn = arn;
-            o.cidrBlocks = cidrBlocks;
-            o.dnsEntries = dnsEntries;
-            o.dnsOptions = dnsOptions;
-            o.filters = filters;
-            o.id = id;
-            o.ipAddressType = ipAddressType;
-            o.networkInterfaceIds = networkInterfaceIds;
-            o.ownerId = ownerId;
-            o.policy = policy;
-            o.prefixListId = prefixListId;
-            o.privateDnsEnabled = privateDnsEnabled;
-            o.requesterManaged = requesterManaged;
-            o.routeTableIds = routeTableIds;
-            o.securityGroupIds = securityGroupIds;
-            o.serviceName = serviceName;
-            o.state = state;
-            o.subnetIds = subnetIds;
-            o.tags = tags;
-            o.vpcEndpointType = vpcEndpointType;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetVpcEndpointResult();
+            _resultValue.arn = arn;
+            _resultValue.cidrBlocks = cidrBlocks;
+            _resultValue.dnsEntries = dnsEntries;
+            _resultValue.dnsOptions = dnsOptions;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ipAddressType = ipAddressType;
+            _resultValue.networkInterfaceIds = networkInterfaceIds;
+            _resultValue.ownerId = ownerId;
+            _resultValue.policy = policy;
+            _resultValue.prefixListId = prefixListId;
+            _resultValue.privateDnsEnabled = privateDnsEnabled;
+            _resultValue.requesterManaged = requesterManaged;
+            _resultValue.routeTableIds = routeTableIds;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.serviceName = serviceName;
+            _resultValue.state = state;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.tags = tags;
+            _resultValue.vpcEndpointType = vpcEndpointType;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

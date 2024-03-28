@@ -14,10 +14,9 @@ namespace Pulumi.Aws.CloudWatch
         /// <summary>
         /// Use this data source to get information about an AWS Cloudwatch Log Group
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Aws.CloudWatch
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLogGroupResult> InvokeAsync(GetLogGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogGroupResult>("aws:cloudwatch/getLogGroup:getLogGroup", args ?? new GetLogGroupArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.CloudWatch
         /// <summary>
         /// Use this data source to get information about an AWS Cloudwatch Log Group
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Aws.CloudWatch
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLogGroupResult> Invoke(GetLogGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogGroupResult>("aws:cloudwatch/getLogGroup:getLogGroup", args ?? new GetLogGroupInvokeArgs(), options.WithDefaults());
@@ -141,6 +137,10 @@ namespace Pulumi.Aws.CloudWatch
         /// ARN of the KMS Key to use when encrypting log data.
         /// </summary>
         public readonly string KmsKeyId;
+        /// <summary>
+        /// The log class of the log group.
+        /// </summary>
+        public readonly string LogGroupClass;
         public readonly string Name;
         /// <summary>
         /// Number of days log events retained in the specified log group.
@@ -161,6 +161,8 @@ namespace Pulumi.Aws.CloudWatch
 
             string kmsKeyId,
 
+            string logGroupClass,
+
             string name,
 
             int retentionInDays,
@@ -171,6 +173,7 @@ namespace Pulumi.Aws.CloudWatch
             CreationTime = creationTime;
             Id = id;
             KmsKeyId = kmsKeyId;
+            LogGroupClass = logGroupClass;
             Name = name;
             RetentionInDays = retentionInDays;
             Tags = tags;

@@ -15,8 +15,10 @@ import (
 // Resource for managing a QuickSight Folder.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,6 +33,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewFolder(ctx, "example", &quicksight.FolderArgs{
 //				FolderId: pulumi.String("example-id"),
+//				Name:     pulumi.String("example-name"),
 //			})
 //			if err != nil {
 //				return err
@@ -40,8 +43,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Permissions
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,6 +62,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewFolder(ctx, "example", &quicksight.FolderArgs{
 //				FolderId: pulumi.String("example-id"),
+//				Name:     pulumi.String("example-name"),
 //				Permissions: quicksight.FolderPermissionArray{
 //					&quicksight.FolderPermissionArgs{
 //						Actions: pulumi.StringArray{
@@ -68,7 +75,7 @@ import (
 //							pulumi.String("quicksight:DescribeFolderPermissions"),
 //							pulumi.String("quicksight:UpdateFolderPermissions"),
 //						},
-//						Principal: pulumi.Any(aws_quicksight_user.Example.Arn),
+//						Principal: pulumi.Any(exampleAwsQuicksightUser.Arn),
 //					},
 //				},
 //			})
@@ -80,8 +87,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Parent Folder
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -96,12 +106,14 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			parent, err := quicksight.NewFolder(ctx, "parent", &quicksight.FolderArgs{
 //				FolderId: pulumi.String("parent-id"),
+//				Name:     pulumi.String("parent-name"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = quicksight.NewFolder(ctx, "example", &quicksight.FolderArgs{
 //				FolderId:        pulumi.String("example-id"),
+//				Name:            pulumi.String("example-name"),
 //				ParentFolderArn: parent.Arn,
 //			})
 //			if err != nil {
@@ -112,15 +124,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a QuickSight folder using the AWS account ID and folder ID name separated by a comma (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
-//
+// $ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
 // ```
 type Folder struct {
 	pulumi.CustomResourceState
@@ -165,10 +176,6 @@ func NewFolder(ctx *pulumi.Context,
 	if args.FolderId == nil {
 		return nil, errors.New("invalid value for required argument 'FolderId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Folder
 	err := ctx.RegisterResource("aws:quicksight/folder:Folder", name, args, &resource, opts...)

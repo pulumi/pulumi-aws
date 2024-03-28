@@ -11,17 +11,20 @@ import * as utilities from "../utilities";
  * Use the `awsKendraIndexBlockList` resource to manage an AWS Kendra block list used for query suggestions for an index.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.QuerySuggestionsBlockList("example", {
- *     indexId: aws_kendra_index.example.id,
- *     roleArn: aws_iam_role.example.arn,
+ *     indexId: exampleAwsKendraIndex.id,
+ *     name: "Example",
+ *     roleArn: exampleAwsIamRole.arn,
  *     sourceS3Path: {
- *         bucket: aws_s3_bucket.example.id,
+ *         bucket: exampleAwsS3Bucket.id,
  *         key: "example/suggestions.txt",
  *     },
  *     tags: {
@@ -29,13 +32,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import the `aws_kendra_query_suggestions_block_list` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
  *
  * ```sh
- *  $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
+ * $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
  * ```
  */
 export class QuerySuggestionsBlockList extends pulumi.CustomResource {
@@ -154,8 +158,6 @@ export class QuerySuggestionsBlockList extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(QuerySuggestionsBlockList.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -9,14 +9,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.apigateway.getAuthorizers({
- *     restApiId: aws_api_gateway_rest_api.example.id,
+ *     restApiId: exampleAwsApiGatewayRestApi.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAuthorizers(args: GetAuthorizersArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizersResult> {
 
@@ -55,14 +57,16 @@ export interface GetAuthorizersResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.apigateway.getAuthorizers({
- *     restApiId: aws_api_gateway_rest_api.example.id,
+ *     restApiId: exampleAwsApiGatewayRestApi.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAuthorizersOutput(args: GetAuthorizersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizersResult> {
     return pulumi.output(args).apply((a: any) => getAuthorizers(a, opts))

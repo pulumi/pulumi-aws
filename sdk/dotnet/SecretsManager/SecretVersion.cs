@@ -15,8 +15,10 @@ namespace Pulumi.Aws.SecretsManager
     /// &gt; **NOTE:** If the `AWSCURRENT` staging label is present on this version during resource deletion, that label cannot be removed and will be skipped to prevent errors when fully deleting the secret. That label will leave this secret version active even after the resource is deleted from this provider unless the secret itself is deleted. Move the `AWSCURRENT` staging label before or after deleting this resource from this provider to fully trigger version deprecation if necessary.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Simple String Value
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,19 +29,52 @@ namespace Pulumi.Aws.SecretsManager
     /// {
     ///     var example = new Aws.SecretsManager.SecretVersion("example", new()
     ///     {
-    ///         SecretId = aws_secretsmanager_secret.Example.Id,
+    ///         SecretId = exampleAwsSecretsmanagerSecret.Id,
     ///         SecretString = "example-string-to-protect",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Key-Value Pairs
+    /// 
+    /// Secrets Manager also accepts key-value pairs in JSON.
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var config = new Config();
+    ///     var example = config.GetObject&lt;Dictionary&lt;string, string&gt;&gt;("example") ?? 
+    ///     {
+    ///         { "key1", "value1" },
+    ///         { "key2", "value2" },
+    ///     };
+    ///     var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("example", new()
+    ///     {
+    ///         SecretId = exampleAwsSecretsmanagerSecret.Id,
+    ///         SecretString = JsonSerializer.Serialize(example),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// Reading key-value pairs from JSON back into a native map
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_secretsmanager_secret_version` using the secret ID and version ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:secretsmanager/secretVersion:SecretVersion example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
+    /// $ pulumi import aws:secretsmanager/secretVersion:SecretVersion example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
     /// ```
     /// </summary>
     [AwsResourceType("aws:secretsmanager/secretVersion:SecretVersion")]

@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** An alarm (composite or metric) cannot be destroyed when there are other composite alarms depending on it. This can lead to a cyclical dependency on update, as the provider will unsuccessfully attempt to destroy alarms before updating the rule. Consider using `depends_on`, references to alarm names, and two-stage updates.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,12 +51,12 @@ import javax.annotation.Nullable;
  *         var example = new CompositeAlarm(&#34;example&#34;, CompositeAlarmArgs.builder()        
  *             .alarmDescription(&#34;This is a composite alarm!&#34;)
  *             .alarmName(&#34;example-composite-alarm&#34;)
- *             .alarmActions(aws_sns_topic.example().arn())
- *             .okActions(aws_sns_topic.example().arn())
+ *             .alarmActions(exampleAwsSnsTopic.arn())
+ *             .okActions(exampleAwsSnsTopic.arn())
  *             .alarmRule(&#34;&#34;&#34;
  * ALARM(%s) OR
  * ALARM(%s)
- * &#34;, aws_cloudwatch_metric_alarm.alpha().alarm_name(),aws_cloudwatch_metric_alarm.bravo().alarm_name()))
+ * &#34;, alpha.alarmName(),bravo.alarmName()))
  *             .actionsSuppressor(CompositeAlarmActionsSuppressorArgs.builder()
  *                 .alarm(&#34;suppressor-alarm&#34;)
  *                 .extensionPeriod(10)
@@ -65,13 +67,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
+ * $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
  * ```
  * 
  */
@@ -268,9 +271,6 @@ public class CompositeAlarm extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

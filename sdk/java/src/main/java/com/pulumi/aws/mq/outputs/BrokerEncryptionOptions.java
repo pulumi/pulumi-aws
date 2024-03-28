@@ -59,19 +59,21 @@ public final class BrokerEncryptionOptions {
 
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder useAwsOwnedKey(@Nullable Boolean useAwsOwnedKey) {
+
             this.useAwsOwnedKey = useAwsOwnedKey;
             return this;
         }
         public BrokerEncryptionOptions build() {
-            final var o = new BrokerEncryptionOptions();
-            o.kmsKeyId = kmsKeyId;
-            o.useAwsOwnedKey = useAwsOwnedKey;
-            return o;
+            final var _resultValue = new BrokerEncryptionOptions();
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.useAwsOwnedKey = useAwsOwnedKey;
+            return _resultValue;
         }
     }
 }

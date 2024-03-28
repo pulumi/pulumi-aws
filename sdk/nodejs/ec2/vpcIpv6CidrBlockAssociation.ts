@@ -11,23 +11,25 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testVpc = new aws.ec2.Vpc("testVpc", {cidrBlock: "10.0.0.0/16"});
- * const testVpcIpv6CidrBlockAssociation = new aws.ec2.VpcIpv6CidrBlockAssociation("testVpcIpv6CidrBlockAssociation", {
- *     ipv6IpamPoolId: aws_vpc_ipam_pool.test.id,
- *     vpcId: testVpc.id,
+ * const test = new aws.ec2.Vpc("test", {cidrBlock: "10.0.0.0/16"});
+ * const testVpcIpv6CidrBlockAssociation = new aws.ec2.VpcIpv6CidrBlockAssociation("test", {
+ *     ipv6IpamPoolId: testAwsVpcIpamPool.id,
+ *     vpcId: test.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_vpc_ipv6_cidr_block_association` using the VPC CIDR Association ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
+ * $ pulumi import aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
  * ```
  */
 export class VpcIpv6CidrBlockAssociation extends pulumi.CustomResource {

@@ -42,19 +42,21 @@ public final class EnvironmentLastUpdatedError {
 
         @CustomType.Setter
         public Builder errorCode(@Nullable String errorCode) {
+
             this.errorCode = errorCode;
             return this;
         }
         @CustomType.Setter
         public Builder errorMessage(@Nullable String errorMessage) {
+
             this.errorMessage = errorMessage;
             return this;
         }
         public EnvironmentLastUpdatedError build() {
-            final var o = new EnvironmentLastUpdatedError();
-            o.errorCode = errorCode;
-            o.errorMessage = errorMessage;
-            return o;
+            final var _resultValue = new EnvironmentLastUpdatedError();
+            _resultValue.errorCode = errorCode;
+            _resultValue.errorMessage = errorMessage;
+            return _resultValue;
         }
     }
 }

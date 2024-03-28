@@ -21,9 +21,7 @@ import (
 // Using `pulumi import`, import Transfer AS2 Profile using the `profile_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:transfer/profile:Profile example p-4221a88afd5f4362a
-//
+// $ pulumi import aws:transfer/profile:Profile example p-4221a88afd5f4362a
 // ```
 type Profile struct {
 	pulumi.CustomResourceState
@@ -57,10 +55,6 @@ func NewProfile(ctx *pulumi.Context,
 	if args.ProfileType == nil {
 		return nil, errors.New("invalid value for required argument 'ProfileType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Profile
 	err := ctx.RegisterResource("aws:transfer/profile:Profile", name, args, &resource, opts...)

@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** The DataSync Agents must be available before creating this resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,19 +51,20 @@ import javax.annotation.Nullable;
  *             .subdirectory(&#34;/exported/path&#34;)
  *             .user(&#34;Guest&#34;)
  *             .password(&#34;ANotGreatPassword&#34;)
- *             .agentArns(aws_datasync_agent.example().arn())
+ *             .agentArns(exampleAwsDatasyncAgent.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_datasync_location_smb` using the Amazon Resource Name (ARN). For example:
  * 
  * ```sh
- *  $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+ * $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
  * ```
  * 
  */
@@ -251,8 +254,7 @@ public class LocationSmb extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "password",
-                "tagsAll"
+                "password"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

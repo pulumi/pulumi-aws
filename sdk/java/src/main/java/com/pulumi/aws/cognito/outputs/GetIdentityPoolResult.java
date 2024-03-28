@@ -5,6 +5,7 @@ package com.pulumi.aws.cognito.outputs;
 
 import com.pulumi.aws.cognito.outputs.GetIdentityPoolCognitoIdentityProvider;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -178,22 +179,34 @@ public final class GetIdentityPoolResult {
 
         @CustomType.Setter
         public Builder allowClassicFlow(Boolean allowClassicFlow) {
-            this.allowClassicFlow = Objects.requireNonNull(allowClassicFlow);
+            if (allowClassicFlow == null) {
+              throw new MissingRequiredPropertyException("GetIdentityPoolResult", "allowClassicFlow");
+            }
+            this.allowClassicFlow = allowClassicFlow;
             return this;
         }
         @CustomType.Setter
         public Builder allowUnauthenticatedIdentities(Boolean allowUnauthenticatedIdentities) {
-            this.allowUnauthenticatedIdentities = Objects.requireNonNull(allowUnauthenticatedIdentities);
+            if (allowUnauthenticatedIdentities == null) {
+              throw new MissingRequiredPropertyException("GetIdentityPoolResult", "allowUnauthenticatedIdentities");
+            }
+            this.allowUnauthenticatedIdentities = allowUnauthenticatedIdentities;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetIdentityPoolResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder cognitoIdentityProviders(List<GetIdentityPoolCognitoIdentityProvider> cognitoIdentityProviders) {
-            this.cognitoIdentityProviders = Objects.requireNonNull(cognitoIdentityProviders);
+            if (cognitoIdentityProviders == null) {
+              throw new MissingRequiredPropertyException("GetIdentityPoolResult", "cognitoIdentityProviders");
+            }
+            this.cognitoIdentityProviders = cognitoIdentityProviders;
             return this;
         }
         public Builder cognitoIdentityProviders(GetIdentityPoolCognitoIdentityProvider... cognitoIdentityProviders) {
@@ -201,22 +214,34 @@ public final class GetIdentityPoolResult {
         }
         @CustomType.Setter
         public Builder developerProviderName(String developerProviderName) {
-            this.developerProviderName = Objects.requireNonNull(developerProviderName);
+            if (developerProviderName == null) {
+              throw new MissingRequiredPropertyException("GetIdentityPoolResult", "developerProviderName");
+            }
+            this.developerProviderName = developerProviderName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetIdentityPoolResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identityPoolName(String identityPoolName) {
-            this.identityPoolName = Objects.requireNonNull(identityPoolName);
+            if (identityPoolName == null) {
+              throw new MissingRequiredPropertyException("GetIdentityPoolResult", "identityPoolName");
+            }
+            this.identityPoolName = identityPoolName;
             return this;
         }
         @CustomType.Setter
         public Builder openidConnectProviderArns(List<String> openidConnectProviderArns) {
-            this.openidConnectProviderArns = Objects.requireNonNull(openidConnectProviderArns);
+            if (openidConnectProviderArns == null) {
+              throw new MissingRequiredPropertyException("GetIdentityPoolResult", "openidConnectProviderArns");
+            }
+            this.openidConnectProviderArns = openidConnectProviderArns;
             return this;
         }
         public Builder openidConnectProviderArns(String... openidConnectProviderArns) {
@@ -224,7 +249,10 @@ public final class GetIdentityPoolResult {
         }
         @CustomType.Setter
         public Builder samlProviderArns(List<String> samlProviderArns) {
-            this.samlProviderArns = Objects.requireNonNull(samlProviderArns);
+            if (samlProviderArns == null) {
+              throw new MissingRequiredPropertyException("GetIdentityPoolResult", "samlProviderArns");
+            }
+            this.samlProviderArns = samlProviderArns;
             return this;
         }
         public Builder samlProviderArns(String... samlProviderArns) {
@@ -232,28 +260,34 @@ public final class GetIdentityPoolResult {
         }
         @CustomType.Setter
         public Builder supportedLoginProviders(Map<String,String> supportedLoginProviders) {
-            this.supportedLoginProviders = Objects.requireNonNull(supportedLoginProviders);
+            if (supportedLoginProviders == null) {
+              throw new MissingRequiredPropertyException("GetIdentityPoolResult", "supportedLoginProviders");
+            }
+            this.supportedLoginProviders = supportedLoginProviders;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetIdentityPoolResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetIdentityPoolResult build() {
-            final var o = new GetIdentityPoolResult();
-            o.allowClassicFlow = allowClassicFlow;
-            o.allowUnauthenticatedIdentities = allowUnauthenticatedIdentities;
-            o.arn = arn;
-            o.cognitoIdentityProviders = cognitoIdentityProviders;
-            o.developerProviderName = developerProviderName;
-            o.id = id;
-            o.identityPoolName = identityPoolName;
-            o.openidConnectProviderArns = openidConnectProviderArns;
-            o.samlProviderArns = samlProviderArns;
-            o.supportedLoginProviders = supportedLoginProviders;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetIdentityPoolResult();
+            _resultValue.allowClassicFlow = allowClassicFlow;
+            _resultValue.allowUnauthenticatedIdentities = allowUnauthenticatedIdentities;
+            _resultValue.arn = arn;
+            _resultValue.cognitoIdentityProviders = cognitoIdentityProviders;
+            _resultValue.developerProviderName = developerProviderName;
+            _resultValue.id = id;
+            _resultValue.identityPoolName = identityPoolName;
+            _resultValue.openidConnectProviderArns = openidConnectProviderArns;
+            _resultValue.samlProviderArns = samlProviderArns;
+            _resultValue.supportedLoginProviders = supportedLoginProviders;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

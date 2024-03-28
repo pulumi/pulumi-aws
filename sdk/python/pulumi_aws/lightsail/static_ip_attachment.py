@@ -120,20 +120,23 @@ class StaticIpAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_static_ip = aws.lightsail.StaticIp("testStaticIp")
-        test_instance = aws.lightsail.Instance("testInstance",
+        test_static_ip = aws.lightsail.StaticIp("test", name="example")
+        test_instance = aws.lightsail.Instance("test",
+            name="example",
             availability_zone="us-east-1b",
             blueprint_id="string",
             bundle_id="string",
             key_pair_name="some_key_name")
-        test_static_ip_attachment = aws.lightsail.StaticIpAttachment("testStaticIpAttachment",
+        test = aws.lightsail.StaticIpAttachment("test",
             static_ip_name=test_static_ip.id,
             instance_name=test_instance.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,20 +156,23 @@ class StaticIpAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_static_ip = aws.lightsail.StaticIp("testStaticIp")
-        test_instance = aws.lightsail.Instance("testInstance",
+        test_static_ip = aws.lightsail.StaticIp("test", name="example")
+        test_instance = aws.lightsail.Instance("test",
+            name="example",
             availability_zone="us-east-1b",
             blueprint_id="string",
             bundle_id="string",
             key_pair_name="some_key_name")
-        test_static_ip_attachment = aws.lightsail.StaticIpAttachment("testStaticIpAttachment",
+        test = aws.lightsail.StaticIpAttachment("test",
             static_ip_name=test_static_ip.id,
             instance_name=test_instance.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param StaticIpAttachmentArgs args: The arguments to use to populate this resource's properties.

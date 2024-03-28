@@ -12,17 +12,19 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cognito.RiskConfiguration("example", {
- *     userPoolId: aws_cognito_user_pool.example.id,
+ *     userPoolId: exampleAwsCognitoUserPool.id,
  *     riskExceptionConfiguration: {
  *         blockedIpRangeLists: ["10.10.10.10/32"],
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -33,12 +35,12 @@ import * as utilities from "../utilities";
  * Import using the user pool ID:
  *
  * ```sh
- *  $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example
+ * $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example
  * ```
- *  Import using the user pool ID and Client ID separated by a `:`:
+ * Import using the user pool ID and Client ID separated by a `:`:
  *
  * ```sh
- *  $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
+ * $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
  * ```
  */
 export class RiskConfiguration extends pulumi.CustomResource {

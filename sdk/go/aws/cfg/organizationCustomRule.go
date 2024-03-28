@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,15 +35,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePermission, err := lambda.NewPermission(ctx, "examplePermission", &lambda.PermissionArgs{
-//				Action:    pulumi.String("lambda:InvokeFunction"),
-//				Function:  pulumi.Any(aws_lambda_function.Example.Arn),
-//				Principal: pulumi.String("config.amazonaws.com"),
+//			_, err := lambda.NewPermission(ctx, "example", &lambda.PermissionArgs{
+//				Action:      pulumi.String("lambda:InvokeFunction"),
+//				Function:    pulumi.Any(exampleAwsLambdaFunction.Arn),
+//				Principal:   pulumi.String("config.amazonaws.com"),
+//				StatementId: pulumi.String("AllowExecutionFromConfig"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
+//			_, err = organizations.NewOrganization(ctx, "example", &organizations.OrganizationArgs{
 //				AwsServiceAccessPrincipals: pulumi.StringArray{
 //					pulumi.String("config-multiaccountsetup.amazonaws.com"),
 //				},
@@ -51,15 +53,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cfg.NewOrganizationCustomRule(ctx, "exampleOrganizationCustomRule", &cfg.OrganizationCustomRuleArgs{
-//				LambdaFunctionArn: pulumi.Any(aws_lambda_function.Example.Arn),
+//			_, err = cfg.NewOrganizationCustomRule(ctx, "example", &cfg.OrganizationCustomRuleArgs{
+//				LambdaFunctionArn: pulumi.Any(exampleAwsLambdaFunction.Arn),
+//				Name:              pulumi.String("example"),
 //				TriggerTypes: pulumi.StringArray{
 //					pulumi.String("ConfigurationItemChangeNotification"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				examplePermission,
-//				exampleOrganization,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -68,15 +68,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Config Organization Custom Rules using the name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
-//
+// $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
 // ```
 type OrganizationCustomRule struct {
 	pulumi.CustomResourceState

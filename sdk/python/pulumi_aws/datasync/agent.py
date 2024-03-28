@@ -342,19 +342,23 @@ class Agent(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.datasync.Agent("example", ip_address="1.2.3.4")
+        example = aws.datasync.Agent("example",
+            ip_address="1.2.3.4",
+            name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_datasync_agent` using the DataSync Agent Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
+        $ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
         ```
 
         :param str resource_name: The name of the resource.
@@ -381,19 +385,23 @@ class Agent(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.datasync.Agent("example", ip_address="1.2.3.4")
+        example = aws.datasync.Agent("example",
+            ip_address="1.2.3.4",
+            name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_datasync_agent` using the DataSync Agent Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
+        $ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
         ```
 
         :param str resource_name: The name of the resource.
@@ -438,8 +446,6 @@ class Agent(pulumi.CustomResource):
             __props__.__dict__["vpc_endpoint_id"] = vpc_endpoint_id
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Agent, __self__).__init__(
             'aws:datasync/agent:Agent',
             resource_name,

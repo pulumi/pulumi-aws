@@ -44,13 +44,14 @@ public final class DomainOffPeakWindowOptionsOffPeakWindow {
 
         @CustomType.Setter
         public Builder windowStartTime(@Nullable DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime windowStartTime) {
+
             this.windowStartTime = windowStartTime;
             return this;
         }
         public DomainOffPeakWindowOptionsOffPeakWindow build() {
-            final var o = new DomainOffPeakWindowOptionsOffPeakWindow();
-            o.windowStartTime = windowStartTime;
-            return o;
+            final var _resultValue = new DomainOffPeakWindowOptionsOffPeakWindow();
+            _resultValue.windowStartTime = windowStartTime;
+            return _resultValue;
         }
     }
 }

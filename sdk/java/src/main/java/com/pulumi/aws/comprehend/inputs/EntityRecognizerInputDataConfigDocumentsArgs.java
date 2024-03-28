@@ -5,6 +5,7 @@ package com.pulumi.aws.comprehend.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -134,7 +135,9 @@ public final class EntityRecognizerInputDataConfigDocumentsArgs extends com.pulu
         }
 
         public EntityRecognizerInputDataConfigDocumentsArgs build() {
-            $.s3Uri = Objects.requireNonNull($.s3Uri, "expected parameter 's3Uri' to be non-null");
+            if ($.s3Uri == null) {
+                throw new MissingRequiredPropertyException("EntityRecognizerInputDataConfigDocumentsArgs", "s3Uri");
+            }
             return $;
         }
     }

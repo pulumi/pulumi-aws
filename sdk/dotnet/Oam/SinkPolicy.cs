@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Oam
     /// Resource for managing an AWS CloudWatch Observability Access Manager Sink Policy.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,26 +26,29 @@ namespace Pulumi.Aws.Oam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleSink = new Aws.Oam.Sink("exampleSink");
-    /// 
-    ///     var exampleSinkPolicy = new Aws.Oam.SinkPolicy("exampleSinkPolicy", new()
+    ///     var example = new Aws.Oam.Sink("example", new()
     ///     {
-    ///         SinkIdentifier = exampleSink.Id,
+    ///         Name = "ExampleSink",
+    ///     });
+    /// 
+    ///     var exampleSinkPolicy = new Aws.Oam.SinkPolicy("example", new()
+    ///     {
+    ///         SinkIdentifier = example.Id,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "oam:CreateLink",
     ///                         "oam:UpdateLink",
     ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = "*",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["effect"] = "Allow",
+    ///                     ["resource"] = "*",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["AWS"] = new[]
     ///                         {
@@ -51,7 +56,7 @@ namespace Pulumi.Aws.Oam
     ///                             "222222222222",
     ///                         },
     ///                     },
-    ///                     ["Condition"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["condition"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["ForAllValues:StringEquals"] = new Dictionary&lt;string, object?&gt;
     ///                         {
@@ -69,13 +74,14 @@ namespace Pulumi.Aws.Oam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudWatch Observability Access Manager Sink Policy using the `sink_identifier`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:oam/sinkPolicy:SinkPolicy example arn:aws:oam:us-west-2:123456789012:sink/sink-id
+    /// $ pulumi import aws:oam/sinkPolicy:SinkPolicy example arn:aws:oam:us-west-2:123456789012:sink/sink-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:oam/sinkPolicy:SinkPolicy")]

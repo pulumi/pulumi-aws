@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
     public sealed class FirehoseDeliveryStreamRedshiftConfiguration
     {
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
+        /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string Password;
         /// <summary>
-        /// The data processing configuration.  More details are given below.
+        /// The data processing configuration.  See `processing_configuration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration? ProcessingConfiguration;
         /// <summary>
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? S3BackupMode;
         /// <summary>
-        /// The S3 Configuration. See s3_configuration for more details.
+        /// The S3 Configuration. See s3_configuration below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamRedshiftConfigurationS3Configuration S3Configuration;
         /// <summary>

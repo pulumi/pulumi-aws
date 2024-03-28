@@ -6,6 +6,7 @@ package com.pulumi.aws.medialive;
 import com.pulumi.aws.medialive.inputs.MultiplexProgramMultiplexProgramSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -159,8 +160,12 @@ public final class MultiplexProgramArgs extends com.pulumi.resources.ResourceArg
         }
 
         public MultiplexProgramArgs build() {
-            $.multiplexId = Objects.requireNonNull($.multiplexId, "expected parameter 'multiplexId' to be non-null");
-            $.programName = Objects.requireNonNull($.programName, "expected parameter 'programName' to be non-null");
+            if ($.multiplexId == null) {
+                throw new MissingRequiredPropertyException("MultiplexProgramArgs", "multiplexId");
+            }
+            if ($.programName == null) {
+                throw new MissingRequiredPropertyException("MultiplexProgramArgs", "programName");
+            }
             return $;
         }
     }

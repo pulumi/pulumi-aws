@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Destroying this resource removes the shared directory from the consumer account only.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -30,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.directoryservice.inputs.SharedDirectoryTargetArgs;
  * import com.pulumi.aws.directoryservice.SharedDirectoryAccepter;
  * import com.pulumi.aws.directoryservice.SharedDirectoryAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,30 +45,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleSharedDirectory = new SharedDirectory(&#34;exampleSharedDirectory&#34;, SharedDirectoryArgs.builder()        
- *             .directoryId(aws_directory_service_directory.example().id())
+ *         var example = new SharedDirectory(&#34;example&#34;, SharedDirectoryArgs.builder()        
+ *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
  *             .notes(&#34;example&#34;)
  *             .target(SharedDirectoryTargetArgs.builder()
- *                 .id(data.aws_caller_identity().receiver().account_id())
+ *                 .id(receiver.accountId())
  *                 .build())
  *             .build());
  * 
  *         var exampleSharedDirectoryAccepter = new SharedDirectoryAccepter(&#34;exampleSharedDirectoryAccepter&#34;, SharedDirectoryAccepterArgs.builder()        
- *             .sharedDirectoryId(exampleSharedDirectory.sharedDirectoryId())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;awsalternate&#34;)
- *                 .build());
+ *             .sharedDirectoryId(example.sharedDirectoryId())
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Directory Service Shared Directories using the shared directory ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
+ * $ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
  * ```
  * 
  */

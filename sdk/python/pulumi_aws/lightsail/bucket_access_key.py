@@ -132,12 +132,26 @@ class BucketAccessKey(pulumi.CustomResource):
         """
         Provides a lightsail bucket access key. This is a set of credentials that allow API requests to be made to the lightsail bucket.
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.lightsail.Bucket("test",
+            name="mytestbucket",
+            bundle_id="small_1_0")
+        test_lightsail_bucket_access_key_access_key = aws.index.LightsailBucketAccessKeyAccessKey("test", bucket_name=test_aws_lightsail_bucket_access_key.id)
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_bucket_access_key` using the `id` attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey test example-bucket,AKIAIOSFODNN7EXAMPLE
+        $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey test example-bucket,AKIAIOSFODNN7EXAMPLE
         ```
 
         :param str resource_name: The name of the resource.
@@ -153,12 +167,26 @@ class BucketAccessKey(pulumi.CustomResource):
         """
         Provides a lightsail bucket access key. This is a set of credentials that allow API requests to be made to the lightsail bucket.
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.lightsail.Bucket("test",
+            name="mytestbucket",
+            bundle_id="small_1_0")
+        test_lightsail_bucket_access_key_access_key = aws.index.LightsailBucketAccessKeyAccessKey("test", bucket_name=test_aws_lightsail_bucket_access_key.id)
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_bucket_access_key` using the `id` attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey test example-bucket,AKIAIOSFODNN7EXAMPLE
+        $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey test example-bucket,AKIAIOSFODNN7EXAMPLE
         ```
 
         :param str resource_name: The name of the resource.

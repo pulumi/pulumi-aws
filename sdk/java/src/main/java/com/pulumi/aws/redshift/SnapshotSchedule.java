@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -41,20 +43,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new SnapshotSchedule(&#34;default&#34;, SnapshotScheduleArgs.builder()        
- *             .definitions(&#34;rate(12 hours)&#34;)
  *             .identifier(&#34;tf-redshift-snapshot-schedule&#34;)
+ *             .definitions(&#34;rate(12 hours)&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift Snapshot Schedule using the `identifier`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
+ * $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
  * ```
  * 
  */
@@ -211,9 +214,6 @@ public class SnapshotSchedule extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.wafregional.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -89,9 +90,15 @@ public final class RulePredicateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RulePredicateArgs build() {
-            $.dataId = Objects.requireNonNull($.dataId, "expected parameter 'dataId' to be non-null");
-            $.negated = Objects.requireNonNull($.negated, "expected parameter 'negated' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.dataId == null) {
+                throw new MissingRequiredPropertyException("RulePredicateArgs", "dataId");
+            }
+            if ($.negated == null) {
+                throw new MissingRequiredPropertyException("RulePredicateArgs", "negated");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("RulePredicateArgs", "type");
+            }
             return $;
         }
     }

@@ -14,10 +14,9 @@ namespace Pulumi.Aws.DirectoryService
         /// <summary>
         /// Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,13 +27,12 @@ namespace Pulumi.Aws.DirectoryService
         /// {
         ///     var example = Aws.DirectoryService.GetDirectory.Invoke(new()
         ///     {
-        ///         DirectoryId = aws_directory_service_directory.Main.Id,
+        ///         DirectoryId = main.Id,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDirectoryResult> InvokeAsync(GetDirectoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDirectoryResult>("aws:directoryservice/getDirectory:getDirectory", args ?? new GetDirectoryArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.DirectoryService
         /// <summary>
         /// Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -56,13 +53,12 @@ namespace Pulumi.Aws.DirectoryService
         /// {
         ///     var example = Aws.DirectoryService.GetDirectory.Invoke(new()
         ///     {
-        ///         DirectoryId = aws_directory_service_directory.Main.Id,
+        ///         DirectoryId = main.Id,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDirectoryResult> Invoke(GetDirectoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDirectoryResult>("aws:directoryservice/getDirectory:getDirectory", args ?? new GetDirectoryInvokeArgs(), options.WithDefaults());

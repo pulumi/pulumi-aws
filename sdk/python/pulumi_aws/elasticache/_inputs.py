@@ -15,6 +15,12 @@ __all__ = [
     'GlobalReplicationGroupGlobalNodeGroupArgs',
     'ParameterGroupParameterArgs',
     'ReplicationGroupLogDeliveryConfigurationArgs',
+    'ServerlessCacheCacheUsageLimitsArgs',
+    'ServerlessCacheCacheUsageLimitsDataStorageArgs',
+    'ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs',
+    'ServerlessCacheEndpointArgs',
+    'ServerlessCacheReaderEndpointArgs',
+    'ServerlessCacheTimeoutsArgs',
     'UserAuthenticationModeArgs',
     'GetUserAuthenticationModeArgs',
 ]
@@ -302,6 +308,233 @@ class ReplicationGroupLogDeliveryConfigurationArgs:
     @log_type.setter
     def log_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "log_type", value)
+
+
+@pulumi.input_type
+class ServerlessCacheCacheUsageLimitsArgs:
+    def __init__(__self__, *,
+                 data_storage: Optional[pulumi.Input['ServerlessCacheCacheUsageLimitsDataStorageArgs']] = None,
+                 ecpu_per_seconds: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs']]]] = None):
+        """
+        :param pulumi.Input['ServerlessCacheCacheUsageLimitsDataStorageArgs'] data_storage: The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs']]] ecpu_per_seconds: The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+        """
+        if data_storage is not None:
+            pulumi.set(__self__, "data_storage", data_storage)
+        if ecpu_per_seconds is not None:
+            pulumi.set(__self__, "ecpu_per_seconds", ecpu_per_seconds)
+
+    @property
+    @pulumi.getter(name="dataStorage")
+    def data_storage(self) -> Optional[pulumi.Input['ServerlessCacheCacheUsageLimitsDataStorageArgs']]:
+        """
+        The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+        """
+        return pulumi.get(self, "data_storage")
+
+    @data_storage.setter
+    def data_storage(self, value: Optional[pulumi.Input['ServerlessCacheCacheUsageLimitsDataStorageArgs']]):
+        pulumi.set(self, "data_storage", value)
+
+    @property
+    @pulumi.getter(name="ecpuPerSeconds")
+    def ecpu_per_seconds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs']]]]:
+        """
+        The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+        """
+        return pulumi.get(self, "ecpu_per_seconds")
+
+    @ecpu_per_seconds.setter
+    def ecpu_per_seconds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs']]]]):
+        pulumi.set(self, "ecpu_per_seconds", value)
+
+
+@pulumi.input_type
+class ServerlessCacheCacheUsageLimitsDataStorageArgs:
+    def __init__(__self__, *,
+                 maximum: pulumi.Input[int],
+                 unit: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] maximum: The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
+        :param pulumi.Input[str] unit: The unit that the storage is measured in, in GB.
+        """
+        pulumi.set(__self__, "maximum", maximum)
+        pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> pulumi.Input[int]:
+        """
+        The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
+        """
+        return pulumi.get(self, "maximum")
+
+    @maximum.setter
+    def maximum(self, value: pulumi.Input[int]):
+        pulumi.set(self, "maximum", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[str]:
+        """
+        The unit that the storage is measured in, in GB.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "unit", value)
+
+
+@pulumi.input_type
+class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs:
+    def __init__(__self__, *,
+                 maximum: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] maximum: The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
+        """
+        pulumi.set(__self__, "maximum", maximum)
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> pulumi.Input[int]:
+        """
+        The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
+        """
+        return pulumi.get(self, "maximum")
+
+    @maximum.setter
+    def maximum(self, value: pulumi.Input[int]):
+        pulumi.set(self, "maximum", value)
+
+
+@pulumi.input_type
+class ServerlessCacheEndpointArgs:
+    def __init__(__self__, *,
+                 address: pulumi.Input[str],
+                 port: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] address: The DNS hostname of the cache node.
+        :param pulumi.Input[int] port: The port number that the cache engine is listening on. Set as integer.
+        """
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def address(self) -> pulumi.Input[str]:
+        """
+        The DNS hostname of the cache node.
+        """
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "address", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        """
+        The port number that the cache engine is listening on. Set as integer.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class ServerlessCacheReaderEndpointArgs:
+    def __init__(__self__, *,
+                 address: pulumi.Input[str],
+                 port: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] address: The DNS hostname of the cache node.
+        :param pulumi.Input[int] port: The port number that the cache engine is listening on. Set as integer.
+        """
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def address(self) -> pulumi.Input[str]:
+        """
+        The DNS hostname of the cache node.
+        """
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "address", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        """
+        The port number that the cache engine is listening on. Set as integer.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class ServerlessCacheTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None,
+                 update: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update", value)
 
 
 @pulumi.input_type

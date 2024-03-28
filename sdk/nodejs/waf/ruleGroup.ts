@@ -12,29 +12,35 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRule = new aws.waf.Rule("exampleRule", {metricName: "example"});
- * const exampleRuleGroup = new aws.waf.RuleGroup("exampleRuleGroup", {
+ * const example = new aws.waf.Rule("example", {
+ *     name: "example",
+ *     metricName: "example",
+ * });
+ * const exampleRuleGroup = new aws.waf.RuleGroup("example", {
+ *     name: "example",
  *     metricName: "example",
  *     activatedRules: [{
  *         action: {
  *             type: "COUNT",
  *         },
  *         priority: 50,
- *         ruleId: exampleRule.id,
+ *         ruleId: example.id,
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import WAF Rule Group using the id. For example:
  *
  * ```sh
- *  $ pulumi import aws:waf/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * $ pulumi import aws:waf/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
  * ```
  */
 export class RuleGroup extends pulumi.CustomResource {
@@ -124,8 +130,6 @@ export class RuleGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(RuleGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

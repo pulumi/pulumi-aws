@@ -66,16 +66,19 @@ public final class SchedulingPolicyFairSharePolicy {
 
         @CustomType.Setter
         public Builder computeReservation(@Nullable Integer computeReservation) {
+
             this.computeReservation = computeReservation;
             return this;
         }
         @CustomType.Setter
         public Builder shareDecaySeconds(@Nullable Integer shareDecaySeconds) {
+
             this.shareDecaySeconds = shareDecaySeconds;
             return this;
         }
         @CustomType.Setter
         public Builder shareDistributions(@Nullable List<SchedulingPolicyFairSharePolicyShareDistribution> shareDistributions) {
+
             this.shareDistributions = shareDistributions;
             return this;
         }
@@ -83,11 +86,11 @@ public final class SchedulingPolicyFairSharePolicy {
             return shareDistributions(List.of(shareDistributions));
         }
         public SchedulingPolicyFairSharePolicy build() {
-            final var o = new SchedulingPolicyFairSharePolicy();
-            o.computeReservation = computeReservation;
-            o.shareDecaySeconds = shareDecaySeconds;
-            o.shareDistributions = shareDistributions;
-            return o;
+            final var _resultValue = new SchedulingPolicyFairSharePolicy();
+            _resultValue.computeReservation = computeReservation;
+            _resultValue.shareDecaySeconds = shareDecaySeconds;
+            _resultValue.shareDistributions = shareDistributions;
+            return _resultValue;
         }
     }
 }

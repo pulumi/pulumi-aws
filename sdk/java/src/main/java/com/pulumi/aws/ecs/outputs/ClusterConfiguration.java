@@ -44,13 +44,14 @@ public final class ClusterConfiguration {
 
         @CustomType.Setter
         public Builder executeCommandConfiguration(@Nullable ClusterConfigurationExecuteCommandConfiguration executeCommandConfiguration) {
+
             this.executeCommandConfiguration = executeCommandConfiguration;
             return this;
         }
         public ClusterConfiguration build() {
-            final var o = new ClusterConfiguration();
-            o.executeCommandConfiguration = executeCommandConfiguration;
-            return o;
+            final var _resultValue = new ClusterConfiguration();
+            _resultValue.executeCommandConfiguration = executeCommandConfiguration;
+            return _resultValue;
         }
     }
 }

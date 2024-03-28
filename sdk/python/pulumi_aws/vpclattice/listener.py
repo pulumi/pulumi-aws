@@ -350,23 +350,47 @@ class Listener(pulumi.CustomResource):
         Resource for managing an AWS VPC Lattice Listener.
 
         ## Example Usage
-        ### Forward action
 
+        ### Fixed response action
+
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.vpclattice.Service("test")
-        example_target_group = aws.vpclattice.TargetGroup("exampleTargetGroup",
+        example = aws.vpclattice.Service("example", name="example")
+        example_listener = aws.vpclattice.Listener("example",
+            name="example",
+            protocol="HTTPS",
+            service_identifier=example.id,
+            default_action=aws.vpclattice.ListenerDefaultActionArgs(
+                fixed_response=aws.vpclattice.ListenerDefaultActionFixedResponseArgs(
+                    status_code=404,
+                ),
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### Forward action
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.vpclattice.Service("example", name="example")
+        example_target_group = aws.vpclattice.TargetGroup("example",
+            name="example-target-group-1",
             type="INSTANCE",
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=80,
                 protocol="HTTP",
-                vpc_identifier=aws_vpc["test"]["id"],
+                vpc_identifier=example_aws_vpc["id"],
             ))
-        example_listener = aws.vpclattice.Listener("exampleListener",
+        example_listener = aws.vpclattice.Listener("example",
+            name="example",
             protocol="HTTP",
-            service_identifier=aws_vpclattice_service["example"]["id"],
+            service_identifier=example.id,
             default_action=aws.vpclattice.ListenerDefaultActionArgs(
                 forwards=[aws.vpclattice.ListenerDefaultActionForwardArgs(
                     target_groups=[aws.vpclattice.ListenerDefaultActionForwardTargetGroupArgs(
@@ -375,30 +399,36 @@ class Listener(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Forward action with weighted target groups
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.vpclattice.Service("test")
+        example = aws.vpclattice.Service("example", name="example")
         example1 = aws.vpclattice.TargetGroup("example1",
+            name="example-target-group-1",
             type="INSTANCE",
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=80,
                 protocol="HTTP",
-                vpc_identifier=aws_vpc["test"]["id"],
+                vpc_identifier=example_aws_vpc["id"],
             ))
         example2 = aws.vpclattice.TargetGroup("example2",
+            name="example-target-group-2",
             type="INSTANCE",
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=8080,
                 protocol="HTTP",
-                vpc_identifier=aws_vpc["test"]["id"],
+                vpc_identifier=example_aws_vpc["id"],
             ))
-        example = aws.vpclattice.Listener("example",
+        example_listener = aws.vpclattice.Listener("example",
+            name="example",
             protocol="HTTP",
-            service_identifier=aws_vpclattice_service["example"]["id"],
+            service_identifier=example.id,
             default_action=aws.vpclattice.ListenerDefaultActionArgs(
                 forwards=[aws.vpclattice.ListenerDefaultActionForwardArgs(
                     target_groups=[
@@ -414,13 +444,14 @@ class Listener(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Lattice Listener using the `listener_id` of the listener and the `id` of the VPC Lattice service combined with a `/` character. For example:
 
         ```sh
-         $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
+        $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
         ```
 
         :param str resource_name: The name of the resource.
@@ -444,23 +475,47 @@ class Listener(pulumi.CustomResource):
         Resource for managing an AWS VPC Lattice Listener.
 
         ## Example Usage
-        ### Forward action
 
+        ### Fixed response action
+
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.vpclattice.Service("test")
-        example_target_group = aws.vpclattice.TargetGroup("exampleTargetGroup",
+        example = aws.vpclattice.Service("example", name="example")
+        example_listener = aws.vpclattice.Listener("example",
+            name="example",
+            protocol="HTTPS",
+            service_identifier=example.id,
+            default_action=aws.vpclattice.ListenerDefaultActionArgs(
+                fixed_response=aws.vpclattice.ListenerDefaultActionFixedResponseArgs(
+                    status_code=404,
+                ),
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### Forward action
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.vpclattice.Service("example", name="example")
+        example_target_group = aws.vpclattice.TargetGroup("example",
+            name="example-target-group-1",
             type="INSTANCE",
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=80,
                 protocol="HTTP",
-                vpc_identifier=aws_vpc["test"]["id"],
+                vpc_identifier=example_aws_vpc["id"],
             ))
-        example_listener = aws.vpclattice.Listener("exampleListener",
+        example_listener = aws.vpclattice.Listener("example",
+            name="example",
             protocol="HTTP",
-            service_identifier=aws_vpclattice_service["example"]["id"],
+            service_identifier=example.id,
             default_action=aws.vpclattice.ListenerDefaultActionArgs(
                 forwards=[aws.vpclattice.ListenerDefaultActionForwardArgs(
                     target_groups=[aws.vpclattice.ListenerDefaultActionForwardTargetGroupArgs(
@@ -469,30 +524,36 @@ class Listener(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Forward action with weighted target groups
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.vpclattice.Service("test")
+        example = aws.vpclattice.Service("example", name="example")
         example1 = aws.vpclattice.TargetGroup("example1",
+            name="example-target-group-1",
             type="INSTANCE",
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=80,
                 protocol="HTTP",
-                vpc_identifier=aws_vpc["test"]["id"],
+                vpc_identifier=example_aws_vpc["id"],
             ))
         example2 = aws.vpclattice.TargetGroup("example2",
+            name="example-target-group-2",
             type="INSTANCE",
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=8080,
                 protocol="HTTP",
-                vpc_identifier=aws_vpc["test"]["id"],
+                vpc_identifier=example_aws_vpc["id"],
             ))
-        example = aws.vpclattice.Listener("example",
+        example_listener = aws.vpclattice.Listener("example",
+            name="example",
             protocol="HTTP",
-            service_identifier=aws_vpclattice_service["example"]["id"],
+            service_identifier=example.id,
             default_action=aws.vpclattice.ListenerDefaultActionArgs(
                 forwards=[aws.vpclattice.ListenerDefaultActionForwardArgs(
                     target_groups=[
@@ -508,13 +569,14 @@ class Listener(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Lattice Listener using the `listener_id` of the listener and the `id` of the VPC Lattice service combined with a `/` character. For example:
 
         ```sh
-         $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
+        $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
         ```
 
         :param str resource_name: The name of the resource.
@@ -564,8 +626,6 @@ class Listener(pulumi.CustomResource):
             __props__.__dict__["last_updated_at"] = None
             __props__.__dict__["listener_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Listener, __self__).__init__(
             'aws:vpclattice/listener:Listener',
             resource_name,

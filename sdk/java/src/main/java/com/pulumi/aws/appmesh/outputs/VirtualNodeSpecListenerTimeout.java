@@ -89,31 +89,35 @@ public final class VirtualNodeSpecListenerTimeout {
 
         @CustomType.Setter
         public Builder grpc(@Nullable VirtualNodeSpecListenerTimeoutGrpc grpc) {
+
             this.grpc = grpc;
             return this;
         }
         @CustomType.Setter
         public Builder http(@Nullable VirtualNodeSpecListenerTimeoutHttp http) {
+
             this.http = http;
             return this;
         }
         @CustomType.Setter
         public Builder http2(@Nullable VirtualNodeSpecListenerTimeoutHttp2 http2) {
+
             this.http2 = http2;
             return this;
         }
         @CustomType.Setter
         public Builder tcp(@Nullable VirtualNodeSpecListenerTimeoutTcp tcp) {
+
             this.tcp = tcp;
             return this;
         }
         public VirtualNodeSpecListenerTimeout build() {
-            final var o = new VirtualNodeSpecListenerTimeout();
-            o.grpc = grpc;
-            o.http = http;
-            o.http2 = http2;
-            o.tcp = tcp;
-            return o;
+            final var _resultValue = new VirtualNodeSpecListenerTimeout();
+            _resultValue.grpc = grpc;
+            _resultValue.http = http;
+            _resultValue.http2 = http2;
+            _resultValue.tcp = tcp;
+            return _resultValue;
         }
     }
 }

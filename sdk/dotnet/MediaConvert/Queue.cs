@@ -14,6 +14,7 @@ namespace Pulumi.Aws.MediaConvert
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,17 +23,21 @@ namespace Pulumi.Aws.MediaConvert
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.MediaConvert.Queue("test");
+    ///     var test = new Aws.MediaConvert.Queue("test", new()
+    ///     {
+    ///         Name = "tf-test-queue",
+    ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Media Convert Queue using the queue name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
+    /// $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
     /// ```
     /// </summary>
     [AwsResourceType("aws:mediaconvert/queue:Queue")]
@@ -109,10 +114,6 @@ namespace Pulumi.Aws.MediaConvert
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -244,11 +245,7 @@ namespace Pulumi.Aws.MediaConvert
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public QueueState()

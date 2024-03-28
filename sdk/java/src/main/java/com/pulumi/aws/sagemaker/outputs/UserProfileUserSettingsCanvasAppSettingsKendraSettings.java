@@ -44,13 +44,14 @@ public final class UserProfileUserSettingsCanvasAppSettingsKendraSettings {
 
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         public UserProfileUserSettingsCanvasAppSettingsKendraSettings build() {
-            final var o = new UserProfileUserSettingsCanvasAppSettingsKendraSettings();
-            o.status = status;
-            return o;
+            final var _resultValue = new UserProfileUserSettingsCanvasAppSettingsKendraSettings();
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

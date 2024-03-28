@@ -271,42 +271,45 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cloudsearch.Domain("example",
-            index_fields=[
-                aws.cloudsearch.DomainIndexFieldArgs(
-                    analysis_scheme="_en_default_",
-                    highlight=False,
-                    name="headline",
-                    return_=True,
-                    search=True,
-                    sort=True,
-                    type="text",
-                ),
-                aws.cloudsearch.DomainIndexFieldArgs(
-                    facet=True,
-                    name="price",
-                    return_=True,
-                    search=True,
-                    sort=True,
-                    source_fields="headline",
-                    type="double",
-                ),
-            ],
+            name="example-domain",
             scaling_parameters=aws.cloudsearch.DomainScalingParametersArgs(
                 desired_instance_type="search.medium",
-            ))
+            ),
+            index_fields=[
+                aws.cloudsearch.DomainIndexFieldArgs(
+                    name="headline",
+                    type="text",
+                    search=True,
+                    return_=True,
+                    sort=True,
+                    highlight=False,
+                    analysis_scheme="_en_default_",
+                ),
+                aws.cloudsearch.DomainIndexFieldArgs(
+                    name="price",
+                    type="double",
+                    search=True,
+                    facet=True,
+                    return_=True,
+                    sort=True,
+                    source_fields="headline",
+                ),
+            ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudSearch Domains using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudsearch/domain:Domain example example-domain
+        $ pulumi import aws:cloudsearch/domain:Domain example example-domain
         ```
 
         :param str resource_name: The name of the resource.
@@ -330,42 +333,45 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cloudsearch.Domain("example",
-            index_fields=[
-                aws.cloudsearch.DomainIndexFieldArgs(
-                    analysis_scheme="_en_default_",
-                    highlight=False,
-                    name="headline",
-                    return_=True,
-                    search=True,
-                    sort=True,
-                    type="text",
-                ),
-                aws.cloudsearch.DomainIndexFieldArgs(
-                    facet=True,
-                    name="price",
-                    return_=True,
-                    search=True,
-                    sort=True,
-                    source_fields="headline",
-                    type="double",
-                ),
-            ],
+            name="example-domain",
             scaling_parameters=aws.cloudsearch.DomainScalingParametersArgs(
                 desired_instance_type="search.medium",
-            ))
+            ),
+            index_fields=[
+                aws.cloudsearch.DomainIndexFieldArgs(
+                    name="headline",
+                    type="text",
+                    search=True,
+                    return_=True,
+                    sort=True,
+                    highlight=False,
+                    analysis_scheme="_en_default_",
+                ),
+                aws.cloudsearch.DomainIndexFieldArgs(
+                    name="price",
+                    type="double",
+                    search=True,
+                    facet=True,
+                    return_=True,
+                    sort=True,
+                    source_fields="headline",
+                ),
+            ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudSearch Domains using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudsearch/domain:Domain example example-domain
+        $ pulumi import aws:cloudsearch/domain:Domain example example-domain
         ```
 
         :param str resource_name: The name of the resource.

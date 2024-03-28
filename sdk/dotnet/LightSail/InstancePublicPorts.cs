@@ -18,6 +18,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,16 +27,17 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testInstance = new Aws.LightSail.Instance("testInstance", new()
+    ///     var test = new Aws.LightSail.Instance("test", new()
     ///     {
-    ///         AvailabilityZone = data.Aws_availability_zones.Available.Names[0],
+    ///         Name = "yak_sail",
+    ///         AvailabilityZone = available.Names[0],
     ///         BlueprintId = "amazon_linux_2",
     ///         BundleId = "nano_1_0",
     ///     });
     /// 
-    ///     var testInstancePublicPorts = new Aws.LightSail.InstancePublicPorts("testInstancePublicPorts", new()
+    ///     var testInstancePublicPorts = new Aws.LightSail.InstancePublicPorts("test", new()
     ///     {
-    ///         InstanceName = testInstance.Name,
+    ///         InstanceName = test.Name,
     ///         PortInfos = new[]
     ///         {
     ///             new Aws.LightSail.Inputs.InstancePublicPortsPortInfoArgs
@@ -49,6 +51,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:lightsail/instancePublicPorts:InstancePublicPorts")]
     public partial class InstancePublicPorts : global::Pulumi.CustomResource

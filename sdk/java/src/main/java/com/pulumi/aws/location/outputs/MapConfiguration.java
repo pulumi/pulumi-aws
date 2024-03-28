@@ -4,6 +4,7 @@
 package com.pulumi.aws.location.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class MapConfiguration {
 
         @CustomType.Setter
         public Builder style(String style) {
-            this.style = Objects.requireNonNull(style);
+            if (style == null) {
+              throw new MissingRequiredPropertyException("MapConfiguration", "style");
+            }
+            this.style = style;
             return this;
         }
         public MapConfiguration build() {
-            final var o = new MapConfiguration();
-            o.style = style;
-            return o;
+            final var _resultValue = new MapConfiguration();
+            _resultValue.style = style;
+            return _resultValue;
         }
     }
 }

@@ -21,6 +21,7 @@ namespace Pulumi.Aws.Elb
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,12 +33,13 @@ namespace Pulumi.Aws.Elb
     ///     // Create a new load balancer attachment
     ///     var baz = new Aws.Elb.Attachment("baz", new()
     ///     {
-    ///         Elb = aws_elb.Bar.Id,
-    ///         Instance = aws_instance.Foo.Id,
+    ///         Elb = bar.Id,
+    ///         Instance = foo.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:elb/attachment:Attachment")]
     public partial class Attachment : global::Pulumi.CustomResource
@@ -79,7 +81,7 @@ namespace Pulumi.Aws.Elb
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancing/attachment:Attachment"},
+                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancing/attachment:Attachment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

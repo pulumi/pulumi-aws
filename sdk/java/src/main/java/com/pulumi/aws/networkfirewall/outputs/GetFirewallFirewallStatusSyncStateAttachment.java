@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -62,25 +63,34 @@ public final class GetFirewallFirewallStatusSyncStateAttachment {
 
         @CustomType.Setter
         public Builder endpointId(String endpointId) {
-            this.endpointId = Objects.requireNonNull(endpointId);
+            if (endpointId == null) {
+              throw new MissingRequiredPropertyException("GetFirewallFirewallStatusSyncStateAttachment", "endpointId");
+            }
+            this.endpointId = endpointId;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetFirewallFirewallStatusSyncStateAttachment", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("GetFirewallFirewallStatusSyncStateAttachment", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         public GetFirewallFirewallStatusSyncStateAttachment build() {
-            final var o = new GetFirewallFirewallStatusSyncStateAttachment();
-            o.endpointId = endpointId;
-            o.status = status;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new GetFirewallFirewallStatusSyncStateAttachment();
+            _resultValue.endpointId = endpointId;
+            _resultValue.status = status;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

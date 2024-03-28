@@ -15,8 +15,10 @@ import (
 // Provides a CloudWatch Evidently Feature resource.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +32,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := evidently.NewFeature(ctx, "example", &evidently.FeatureArgs{
-//				Project:     pulumi.Any(aws_evidently_project.Example.Name),
+//				Name:        pulumi.String("example"),
+//				Project:     pulumi.Any(exampleAwsEvidentlyProject.Name),
 //				Description: pulumi.String("example description"),
 //				Variations: evidently.FeatureVariationArray{
 //					&evidently.FeatureVariationArgs{
@@ -52,8 +55,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With default variation
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,7 +73,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := evidently.NewFeature(ctx, "example", &evidently.FeatureArgs{
-//				Project:          pulumi.Any(aws_evidently_project.Example.Name),
+//				Name:             pulumi.String("example"),
+//				Project:          pulumi.Any(exampleAwsEvidentlyProject.Name),
 //				DefaultVariation: pulumi.String("Variation2"),
 //				Variations: evidently.FeatureVariationArray{
 //					&evidently.FeatureVariationArgs{
@@ -92,8 +99,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With entity overrides
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -107,7 +117,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := evidently.NewFeature(ctx, "example", &evidently.FeatureArgs{
-//				Project: pulumi.Any(aws_evidently_project.Example.Name),
+//				Name:    pulumi.String("example"),
+//				Project: pulumi.Any(exampleAwsEvidentlyProject.Name),
 //				EntityOverrides: pulumi.StringMap{
 //					"test1": pulumi.String("Variation1"),
 //				},
@@ -134,8 +145,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With evaluation strategy
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -149,7 +163,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := evidently.NewFeature(ctx, "example", &evidently.FeatureArgs{
-//				Project:            pulumi.Any(aws_evidently_project.Example.Name),
+//				Name:               pulumi.String("example"),
+//				Project:            pulumi.Any(exampleAwsEvidentlyProject.Name),
 //				EvaluationStrategy: pulumi.String("ALL_RULES"),
 //				EntityOverrides: pulumi.StringMap{
 //					"test1": pulumi.String("Variation1"),
@@ -171,15 +186,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudWatch Evidently Feature using the feature `name` and `name` or `arn` of the hosting CloudWatch Evidently Project separated by a `:`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:evidently/feature:Feature example exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example
-//
+// $ pulumi import aws:evidently/feature:Feature example exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example
 // ```
 type Feature struct {
 	pulumi.CustomResourceState
@@ -231,10 +245,6 @@ func NewFeature(ctx *pulumi.Context,
 	if args.Variations == nil {
 		return nil, errors.New("invalid value for required argument 'Variations'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Feature
 	err := ctx.RegisterResource("aws:evidently/feature:Feature", name, args, &resource, opts...)

@@ -44,13 +44,14 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody {
 
         @CustomType.Setter
         public Builder oversizeHandling(@Nullable String oversizeHandling) {
+
             this.oversizeHandling = oversizeHandling;
             return this;
         }
         public RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody build() {
-            final var o = new RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody();
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody();
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

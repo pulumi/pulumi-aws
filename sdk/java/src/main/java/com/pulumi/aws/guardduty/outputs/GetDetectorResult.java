@@ -5,6 +5,7 @@ package com.pulumi.aws.guardduty.outputs;
 
 import com.pulumi.aws.guardduty.outputs.GetDetectorFeature;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -92,7 +93,10 @@ public final class GetDetectorResult {
 
         @CustomType.Setter
         public Builder features(List<GetDetectorFeature> features) {
-            this.features = Objects.requireNonNull(features);
+            if (features == null) {
+              throw new MissingRequiredPropertyException("GetDetectorResult", "features");
+            }
+            this.features = features;
             return this;
         }
         public Builder features(GetDetectorFeature... features) {
@@ -100,32 +104,44 @@ public final class GetDetectorResult {
         }
         @CustomType.Setter
         public Builder findingPublishingFrequency(String findingPublishingFrequency) {
-            this.findingPublishingFrequency = Objects.requireNonNull(findingPublishingFrequency);
+            if (findingPublishingFrequency == null) {
+              throw new MissingRequiredPropertyException("GetDetectorResult", "findingPublishingFrequency");
+            }
+            this.findingPublishingFrequency = findingPublishingFrequency;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDetectorResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder serviceRoleArn(String serviceRoleArn) {
-            this.serviceRoleArn = Objects.requireNonNull(serviceRoleArn);
+            if (serviceRoleArn == null) {
+              throw new MissingRequiredPropertyException("GetDetectorResult", "serviceRoleArn");
+            }
+            this.serviceRoleArn = serviceRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetDetectorResult", "status");
+            }
+            this.status = status;
             return this;
         }
         public GetDetectorResult build() {
-            final var o = new GetDetectorResult();
-            o.features = features;
-            o.findingPublishingFrequency = findingPublishingFrequency;
-            o.id = id;
-            o.serviceRoleArn = serviceRoleArn;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetDetectorResult();
+            _resultValue.features = features;
+            _resultValue.findingPublishingFrequency = findingPublishingFrequency;
+            _resultValue.id = id;
+            _resultValue.serviceRoleArn = serviceRoleArn;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

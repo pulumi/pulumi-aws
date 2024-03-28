@@ -58,19 +58,21 @@ public final class PipeTargetParametersEcsTaskParametersOverridesInferenceAccele
 
         @CustomType.Setter
         public Builder deviceName(@Nullable String deviceName) {
+
             this.deviceName = deviceName;
             return this;
         }
         @CustomType.Setter
         public Builder deviceType(@Nullable String deviceType) {
+
             this.deviceType = deviceType;
             return this;
         }
         public PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride build() {
-            final var o = new PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride();
-            o.deviceName = deviceName;
-            o.deviceType = deviceType;
-            return o;
+            final var _resultValue = new PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride();
+            _resultValue.deviceName = deviceName;
+            _resultValue.deviceType = deviceType;
+            return _resultValue;
         }
     }
 }

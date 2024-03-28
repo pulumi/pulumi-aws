@@ -14,35 +14,39 @@ import {RestApi} from "./index";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myDemoAPI = new aws.apigateway.RestApi("myDemoAPI", {description: "This is my API for demonstration purposes"});
- * const myDemoResource = new aws.apigateway.Resource("myDemoResource", {
+ * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
+ *     name: "MyDemoAPI",
+ *     description: "This is my API for demonstration purposes",
+ * });
+ * const myDemoResource = new aws.apigateway.Resource("MyDemoResource", {
  *     restApi: myDemoAPI.id,
  *     parentId: myDemoAPI.rootResourceId,
  *     pathPart: "mydemoresource",
  * });
- * const myDemoMethod = new aws.apigateway.Method("myDemoMethod", {
+ * const myDemoMethod = new aws.apigateway.Method("MyDemoMethod", {
  *     restApi: myDemoAPI.id,
  *     resourceId: myDemoResource.id,
  *     httpMethod: "GET",
  *     authorization: "NONE",
  * });
- * const myDemoIntegration = new aws.apigateway.Integration("myDemoIntegration", {
+ * const myDemoIntegration = new aws.apigateway.Integration("MyDemoIntegration", {
  *     restApi: myDemoAPI.id,
  *     resourceId: myDemoResource.id,
  *     httpMethod: myDemoMethod.httpMethod,
  *     type: "MOCK",
  * });
- * const response200 = new aws.apigateway.MethodResponse("response200", {
+ * const response200 = new aws.apigateway.MethodResponse("response_200", {
  *     restApi: myDemoAPI.id,
  *     resourceId: myDemoResource.id,
  *     httpMethod: myDemoMethod.httpMethod,
  *     statusCode: "200",
  * });
- * const myDemoIntegrationResponse = new aws.apigateway.IntegrationResponse("myDemoIntegrationResponse", {
+ * const myDemoIntegrationResponse = new aws.apigateway.IntegrationResponse("MyDemoIntegrationResponse", {
  *     restApi: myDemoAPI.id,
  *     resourceId: myDemoResource.id,
  *     httpMethod: myDemoMethod.httpMethod,
@@ -57,13 +61,14 @@ import {RestApi} from "./index";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_api_gateway_integration_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigateway/integrationResponse:IntegrationResponse example 12345abcde/67890fghij/GET/200
+ * $ pulumi import aws:apigateway/integrationResponse:IntegrationResponse example 12345abcde/67890fghij/GET/200
  * ```
  */
 export class IntegrationResponse extends pulumi.CustomResource {

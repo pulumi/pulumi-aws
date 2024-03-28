@@ -140,13 +140,14 @@ class ClusterCapacityProviders(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_cluster = aws.ecs.Cluster("exampleCluster")
-        example_cluster_capacity_providers = aws.ecs.ClusterCapacityProviders("exampleClusterCapacityProviders",
-            cluster_name=example_cluster.name,
+        example = aws.ecs.Cluster("example", name="my-cluster")
+        example_cluster_capacity_providers = aws.ecs.ClusterCapacityProviders("example",
+            cluster_name=example.name,
             capacity_providers=["FARGATE"],
             default_capacity_provider_strategies=[aws.ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs(
                 base=1,
@@ -154,13 +155,14 @@ class ClusterCapacityProviders(pulumi.CustomResource):
                 capacity_provider="FARGATE",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For example:
 
         ```sh
-         $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
+        $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
         ```
 
         :param str resource_name: The name of the resource.
@@ -182,13 +184,14 @@ class ClusterCapacityProviders(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_cluster = aws.ecs.Cluster("exampleCluster")
-        example_cluster_capacity_providers = aws.ecs.ClusterCapacityProviders("exampleClusterCapacityProviders",
-            cluster_name=example_cluster.name,
+        example = aws.ecs.Cluster("example", name="my-cluster")
+        example_cluster_capacity_providers = aws.ecs.ClusterCapacityProviders("example",
+            cluster_name=example.name,
             capacity_providers=["FARGATE"],
             default_capacity_provider_strategies=[aws.ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs(
                 base=1,
@@ -196,13 +199,14 @@ class ClusterCapacityProviders(pulumi.CustomResource):
                 capacity_provider="FARGATE",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For example:
 
         ```sh
-         $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
+        $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
         ```
 
         :param str resource_name: The name of the resource.

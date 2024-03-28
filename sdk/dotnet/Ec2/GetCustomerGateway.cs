@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Get an existing AWS Customer Gateway.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -43,7 +42,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         ///     var main = new Aws.Ec2.VpnGateway("main", new()
         ///     {
-        ///         VpcId = aws_vpc.Main.Id,
+        ///         VpcId = mainAwsVpc.Id,
         ///         AmazonSideAsn = "7224",
         ///     });
         /// 
@@ -57,8 +56,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetCustomerGatewayResult> InvokeAsync(GetCustomerGatewayArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomerGatewayResult>("aws:ec2/getCustomerGateway:getCustomerGateway", args ?? new GetCustomerGatewayArgs(), options.WithDefaults());
@@ -66,10 +64,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Get an existing AWS Customer Gateway.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -95,7 +92,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         ///     var main = new Aws.Ec2.VpnGateway("main", new()
         ///     {
-        ///         VpcId = aws_vpc.Main.Id,
+        ///         VpcId = mainAwsVpc.Id,
         ///         AmazonSideAsn = "7224",
         ///     });
         /// 
@@ -109,8 +106,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetCustomerGatewayResult> Invoke(GetCustomerGatewayInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomerGatewayResult>("aws:ec2/getCustomerGateway:getCustomerGateway", args ?? new GetCustomerGatewayInvokeArgs(), options.WithDefaults());

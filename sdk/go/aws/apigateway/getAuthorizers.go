@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigateway.GetAuthorizers(ctx, &apigateway.GetAuthorizersArgs{
-//				RestApiId: aws_api_gateway_rest_api.Example.Id,
+//				RestApiId: exampleAwsApiGatewayRestApi.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetAuthorizers(ctx *pulumi.Context, args *GetAuthorizersArgs, opts ...pulumi.InvokeOption) (*GetAuthorizersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAuthorizersResult

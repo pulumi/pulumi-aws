@@ -14,6 +14,7 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,19 +25,20 @@ namespace Pulumi.Aws.NetworkManager
     /// {
     ///     var example = new Aws.NetworkManager.TransitGatewayRouteTableAttachment("example", new()
     ///     {
-    ///         PeeringId = aws_networkmanager_transit_gateway_peering.Example.Id,
-    ///         TransitGatewayRouteTableArn = aws_ec2_transit_gateway_route_table.Example.Arn,
+    ///         PeeringId = exampleAwsNetworkmanagerTransitGatewayPeering.Id,
+    ///         TransitGatewayRouteTableArn = exampleAwsEc2TransitGatewayRouteTable.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_networkmanager_transit_gateway_route_table_attachment` using the attachment ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8
+    /// $ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment")]
@@ -149,10 +151,6 @@ namespace Pulumi.Aws.NetworkManager
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -296,11 +294,7 @@ namespace Pulumi.Aws.NetworkManager
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

@@ -4,6 +4,7 @@
 package com.pulumi.aws.directconnect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,22 +58,28 @@ public final class GetLocationsResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLocationsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder locationCodes(List<String> locationCodes) {
-            this.locationCodes = Objects.requireNonNull(locationCodes);
+            if (locationCodes == null) {
+              throw new MissingRequiredPropertyException("GetLocationsResult", "locationCodes");
+            }
+            this.locationCodes = locationCodes;
             return this;
         }
         public Builder locationCodes(String... locationCodes) {
             return locationCodes(List.of(locationCodes));
         }
         public GetLocationsResult build() {
-            final var o = new GetLocationsResult();
-            o.id = id;
-            o.locationCodes = locationCodes;
-            return o;
+            final var _resultValue = new GetLocationsResult();
+            _resultValue.id = id;
+            _resultValue.locationCodes = locationCodes;
+            return _resultValue;
         }
     }
 }

@@ -11,29 +11,33 @@ import * as utilities from "../utilities";
  * A SIP rule associates your SIP media application with a phone number or a Request URI hostname. You can associate a SIP rule with more than one SIP media application. Each application then runs only that rule.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.chime.SdkvoiceSipRule("example", {
+ *     name: "example-sip-rule",
  *     triggerType: "RequestUriHostname",
- *     triggerValue: aws_chime_voice_connector["example-voice-connector"].outbound_host_name,
+ *     triggerValue: example_voice_connector.outboundHostName,
  *     targetApplications: [{
  *         priority: 1,
- *         sipMediaApplicationId: aws_chimesdkvoice_sip_media_application["example-sma"].id,
+ *         sipMediaApplicationId: example_sma.id,
  *         awsRegion: "us-east-1",
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a ChimeSDKVoice SIP Rule using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:chime/sdkvoiceSipRule:SdkvoiceSipRule example abcdef123456
+ * $ pulumi import aws:chime/sdkvoiceSipRule:SdkvoiceSipRule example abcdef123456
  * ```
  */
 export class SdkvoiceSipRule extends pulumi.CustomResource {

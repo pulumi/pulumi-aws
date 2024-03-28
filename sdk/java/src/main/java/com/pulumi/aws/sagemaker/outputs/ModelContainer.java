@@ -147,55 +147,63 @@ public final class ModelContainer {
 
         @CustomType.Setter
         public Builder containerHostname(@Nullable String containerHostname) {
+
             this.containerHostname = containerHostname;
             return this;
         }
         @CustomType.Setter
         public Builder environment(@Nullable Map<String,String> environment) {
+
             this.environment = environment;
             return this;
         }
         @CustomType.Setter
         public Builder image(@Nullable String image) {
+
             this.image = image;
             return this;
         }
         @CustomType.Setter
         public Builder imageConfig(@Nullable ModelContainerImageConfig imageConfig) {
+
             this.imageConfig = imageConfig;
             return this;
         }
         @CustomType.Setter
         public Builder mode(@Nullable String mode) {
+
             this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder modelDataSource(@Nullable ModelContainerModelDataSource modelDataSource) {
+
             this.modelDataSource = modelDataSource;
             return this;
         }
         @CustomType.Setter
         public Builder modelDataUrl(@Nullable String modelDataUrl) {
+
             this.modelDataUrl = modelDataUrl;
             return this;
         }
         @CustomType.Setter
         public Builder modelPackageName(@Nullable String modelPackageName) {
+
             this.modelPackageName = modelPackageName;
             return this;
         }
         public ModelContainer build() {
-            final var o = new ModelContainer();
-            o.containerHostname = containerHostname;
-            o.environment = environment;
-            o.image = image;
-            o.imageConfig = imageConfig;
-            o.mode = mode;
-            o.modelDataSource = modelDataSource;
-            o.modelDataUrl = modelDataUrl;
-            o.modelPackageName = modelPackageName;
-            return o;
+            final var _resultValue = new ModelContainer();
+            _resultValue.containerHostname = containerHostname;
+            _resultValue.environment = environment;
+            _resultValue.image = image;
+            _resultValue.imageConfig = imageConfig;
+            _resultValue.mode = mode;
+            _resultValue.modelDataSource = modelDataSource;
+            _resultValue.modelDataUrl = modelDataUrl;
+            _resultValue.modelPackageName = modelPackageName;
+            return _resultValue;
         }
     }
 }

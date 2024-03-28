@@ -461,6 +461,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The capacity of the AWS SDK&#39;s token bucket rate limiter.
+     * 
+     */
+    @Import(name="tokenBucketRateLimiterCapacity", json=true)
+    private @Nullable Output<Integer> tokenBucketRateLimiterCapacity;
+
+    /**
+     * @return The capacity of the AWS SDK&#39;s token bucket rate limiter.
+     * 
+     */
+    public Optional<Output<Integer>> tokenBucketRateLimiterCapacity() {
+        return Optional.ofNullable(this.tokenBucketRateLimiterCapacity);
+    }
+
+    /**
      * Resolve an endpoint with DualStack capability
      * 
      */
@@ -523,6 +538,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.skipRequestingAccountId = $.skipRequestingAccountId;
         this.stsRegion = $.stsRegion;
         this.token = $.token;
+        this.tokenBucketRateLimiterCapacity = $.tokenBucketRateLimiterCapacity;
         this.useDualstackEndpoint = $.useDualstackEndpoint;
         this.useFipsEndpoint = $.useFipsEndpoint;
     }
@@ -1171,6 +1187,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder token(String token) {
             return token(Output.of(token));
+        }
+
+        /**
+         * @param tokenBucketRateLimiterCapacity The capacity of the AWS SDK&#39;s token bucket rate limiter.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenBucketRateLimiterCapacity(@Nullable Output<Integer> tokenBucketRateLimiterCapacity) {
+            $.tokenBucketRateLimiterCapacity = tokenBucketRateLimiterCapacity;
+            return this;
+        }
+
+        /**
+         * @param tokenBucketRateLimiterCapacity The capacity of the AWS SDK&#39;s token bucket rate limiter.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenBucketRateLimiterCapacity(Integer tokenBucketRateLimiterCapacity) {
+            return tokenBucketRateLimiterCapacity(Output.of(tokenBucketRateLimiterCapacity));
         }
 
         /**

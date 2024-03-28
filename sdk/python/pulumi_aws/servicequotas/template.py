@@ -231,25 +231,28 @@ class Template(pulumi.CustomResource):
         > Only the management account of an organization can alter Service Quota templates, and this must be done from the `us-east-1` region.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.servicequotas.Template("example",
-            quota_code="L-2ACBD22F",
             region="us-east-1",
+            quota_code="L-2ACBD22F",
             service_code="lambda",
             value=80)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Service Quotas Template using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:servicequotas/template:Template example us-east-1,L-2ACBD22F,lambda
+        $ pulumi import aws:servicequotas/template:Template example us-east-1,L-2ACBD22F,lambda
         ```
 
         :param str resource_name: The name of the resource.
@@ -271,25 +274,28 @@ class Template(pulumi.CustomResource):
         > Only the management account of an organization can alter Service Quota templates, and this must be done from the `us-east-1` region.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.servicequotas.Template("example",
-            quota_code="L-2ACBD22F",
             region="us-east-1",
+            quota_code="L-2ACBD22F",
             service_code="lambda",
             value=80)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Service Quotas Template using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:servicequotas/template:Template example us-east-1,L-2ACBD22F,lambda
+        $ pulumi import aws:servicequotas/template:Template example us-east-1,L-2ACBD22F,lambda
         ```
 
         :param str resource_name: The name of the resource.

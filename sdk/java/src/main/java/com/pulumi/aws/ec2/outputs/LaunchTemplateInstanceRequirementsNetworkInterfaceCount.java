@@ -58,19 +58,21 @@ public final class LaunchTemplateInstanceRequirementsNetworkInterfaceCount {
 
         @CustomType.Setter
         public Builder max(@Nullable Integer max) {
+
             this.max = max;
             return this;
         }
         @CustomType.Setter
         public Builder min(@Nullable Integer min) {
+
             this.min = min;
             return this;
         }
         public LaunchTemplateInstanceRequirementsNetworkInterfaceCount build() {
-            final var o = new LaunchTemplateInstanceRequirementsNetworkInterfaceCount();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new LaunchTemplateInstanceRequirementsNetworkInterfaceCount();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

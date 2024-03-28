@@ -13,28 +13,27 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleCertificate = new aws.acm.Certificate("exampleCertificate", {});
- * // ...
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEndLoadBalancer", {});
- * // ...
- * const frontEndListener = new aws.lb.Listener("frontEndListener", {});
- * // ...
- * const exampleListenerCertificate = new aws.lb.ListenerCertificate("exampleListenerCertificate", {
+ * const example = new aws.acm.Certificate("example", {});
+ * const frontEnd = new aws.lb.LoadBalancer("front_end", {});
+ * const frontEndListener = new aws.lb.Listener("front_end", {});
+ * const exampleListenerCertificate = new aws.lb.ListenerCertificate("example", {
  *     listenerArn: frontEndListener.arn,
- *     certificateArn: exampleCertificate.arn,
+ *     certificateArn: example.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Listener Certificates using the listener arn and certificate arn, separated by an underscore (`_`). For example:
  *
  * ```sh
- *  $ pulumi import aws:alb/listenerCertificate:ListenerCertificate example arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b_arn:aws:iam::123456789012:server-certificate/tf-acc-test-6453083910015726063
+ * $ pulumi import aws:alb/listenerCertificate:ListenerCertificate example arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b_arn:aws:iam::123456789012:server-certificate/tf-acc-test-6453083910015726063
  * ```
  */
 export class ListenerCertificate extends pulumi.CustomResource {

@@ -149,7 +149,7 @@ public final class EndpointS3Settings {
      */
     private @Nullable Boolean includeOpForFullLoad;
     /**
-     * @return Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
+     * @return Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
      * 
      */
     private @Nullable Integer maxFileSize;
@@ -395,7 +395,7 @@ public final class EndpointS3Settings {
         return Optional.ofNullable(this.includeOpForFullLoad);
     }
     /**
-     * @return Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
+     * @return Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
      * 
      */
     public Optional<Integer> maxFileSize() {
@@ -564,235 +564,273 @@ public final class EndpointS3Settings {
 
         @CustomType.Setter
         public Builder addColumnName(@Nullable Boolean addColumnName) {
+
             this.addColumnName = addColumnName;
             return this;
         }
         @CustomType.Setter
         public Builder bucketFolder(@Nullable String bucketFolder) {
+
             this.bucketFolder = bucketFolder;
             return this;
         }
         @CustomType.Setter
         public Builder bucketName(@Nullable String bucketName) {
+
             this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder cannedAclForObjects(@Nullable String cannedAclForObjects) {
+
             this.cannedAclForObjects = cannedAclForObjects;
             return this;
         }
         @CustomType.Setter
         public Builder cdcInsertsAndUpdates(@Nullable Boolean cdcInsertsAndUpdates) {
+
             this.cdcInsertsAndUpdates = cdcInsertsAndUpdates;
             return this;
         }
         @CustomType.Setter
         public Builder cdcInsertsOnly(@Nullable Boolean cdcInsertsOnly) {
+
             this.cdcInsertsOnly = cdcInsertsOnly;
             return this;
         }
         @CustomType.Setter
         public Builder cdcMaxBatchInterval(@Nullable Integer cdcMaxBatchInterval) {
+
             this.cdcMaxBatchInterval = cdcMaxBatchInterval;
             return this;
         }
         @CustomType.Setter
         public Builder cdcMinFileSize(@Nullable Integer cdcMinFileSize) {
+
             this.cdcMinFileSize = cdcMinFileSize;
             return this;
         }
         @CustomType.Setter
         public Builder cdcPath(@Nullable String cdcPath) {
+
             this.cdcPath = cdcPath;
             return this;
         }
         @CustomType.Setter
         public Builder compressionType(@Nullable String compressionType) {
+
             this.compressionType = compressionType;
             return this;
         }
         @CustomType.Setter
         public Builder csvDelimiter(@Nullable String csvDelimiter) {
+
             this.csvDelimiter = csvDelimiter;
             return this;
         }
         @CustomType.Setter
         public Builder csvNoSupValue(@Nullable String csvNoSupValue) {
+
             this.csvNoSupValue = csvNoSupValue;
             return this;
         }
         @CustomType.Setter
         public Builder csvNullValue(@Nullable String csvNullValue) {
+
             this.csvNullValue = csvNullValue;
             return this;
         }
         @CustomType.Setter
         public Builder csvRowDelimiter(@Nullable String csvRowDelimiter) {
+
             this.csvRowDelimiter = csvRowDelimiter;
             return this;
         }
         @CustomType.Setter
         public Builder dataFormat(@Nullable String dataFormat) {
+
             this.dataFormat = dataFormat;
             return this;
         }
         @CustomType.Setter
         public Builder dataPageSize(@Nullable Integer dataPageSize) {
+
             this.dataPageSize = dataPageSize;
             return this;
         }
         @CustomType.Setter
         public Builder datePartitionDelimiter(@Nullable String datePartitionDelimiter) {
+
             this.datePartitionDelimiter = datePartitionDelimiter;
             return this;
         }
         @CustomType.Setter
         public Builder datePartitionEnabled(@Nullable Boolean datePartitionEnabled) {
+
             this.datePartitionEnabled = datePartitionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder datePartitionSequence(@Nullable String datePartitionSequence) {
+
             this.datePartitionSequence = datePartitionSequence;
             return this;
         }
         @CustomType.Setter
         public Builder dictPageSizeLimit(@Nullable Integer dictPageSizeLimit) {
+
             this.dictPageSizeLimit = dictPageSizeLimit;
             return this;
         }
         @CustomType.Setter
         public Builder enableStatistics(@Nullable Boolean enableStatistics) {
+
             this.enableStatistics = enableStatistics;
             return this;
         }
         @CustomType.Setter
         public Builder encodingType(@Nullable String encodingType) {
+
             this.encodingType = encodingType;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionMode(@Nullable String encryptionMode) {
+
             this.encryptionMode = encryptionMode;
             return this;
         }
         @CustomType.Setter
         public Builder externalTableDefinition(@Nullable String externalTableDefinition) {
+
             this.externalTableDefinition = externalTableDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder glueCatalogGeneration(@Nullable Boolean glueCatalogGeneration) {
+
             this.glueCatalogGeneration = glueCatalogGeneration;
             return this;
         }
         @CustomType.Setter
         public Builder ignoreHeaderRows(@Nullable Integer ignoreHeaderRows) {
+
             this.ignoreHeaderRows = ignoreHeaderRows;
             return this;
         }
         @CustomType.Setter
         public Builder includeOpForFullLoad(@Nullable Boolean includeOpForFullLoad) {
+
             this.includeOpForFullLoad = includeOpForFullLoad;
             return this;
         }
         @CustomType.Setter
         public Builder maxFileSize(@Nullable Integer maxFileSize) {
+
             this.maxFileSize = maxFileSize;
             return this;
         }
         @CustomType.Setter
         public Builder parquetTimestampInMillisecond(@Nullable Boolean parquetTimestampInMillisecond) {
+
             this.parquetTimestampInMillisecond = parquetTimestampInMillisecond;
             return this;
         }
         @CustomType.Setter
         public Builder parquetVersion(@Nullable String parquetVersion) {
+
             this.parquetVersion = parquetVersion;
             return this;
         }
         @CustomType.Setter
         public Builder preserveTransactions(@Nullable Boolean preserveTransactions) {
+
             this.preserveTransactions = preserveTransactions;
             return this;
         }
         @CustomType.Setter
         public Builder rfc4180(@Nullable Boolean rfc4180) {
+
             this.rfc4180 = rfc4180;
             return this;
         }
         @CustomType.Setter
         public Builder rowGroupLength(@Nullable Integer rowGroupLength) {
+
             this.rowGroupLength = rowGroupLength;
             return this;
         }
         @CustomType.Setter
         public Builder serverSideEncryptionKmsKeyId(@Nullable String serverSideEncryptionKmsKeyId) {
+
             this.serverSideEncryptionKmsKeyId = serverSideEncryptionKmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder serviceAccessRoleArn(@Nullable String serviceAccessRoleArn) {
+
             this.serviceAccessRoleArn = serviceAccessRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder timestampColumnName(@Nullable String timestampColumnName) {
+
             this.timestampColumnName = timestampColumnName;
             return this;
         }
         @CustomType.Setter
         public Builder useCsvNoSupValue(@Nullable Boolean useCsvNoSupValue) {
+
             this.useCsvNoSupValue = useCsvNoSupValue;
             return this;
         }
         @CustomType.Setter
         public Builder useTaskStartTimeForFullLoadTimestamp(@Nullable Boolean useTaskStartTimeForFullLoadTimestamp) {
+
             this.useTaskStartTimeForFullLoadTimestamp = useTaskStartTimeForFullLoadTimestamp;
             return this;
         }
         public EndpointS3Settings build() {
-            final var o = new EndpointS3Settings();
-            o.addColumnName = addColumnName;
-            o.bucketFolder = bucketFolder;
-            o.bucketName = bucketName;
-            o.cannedAclForObjects = cannedAclForObjects;
-            o.cdcInsertsAndUpdates = cdcInsertsAndUpdates;
-            o.cdcInsertsOnly = cdcInsertsOnly;
-            o.cdcMaxBatchInterval = cdcMaxBatchInterval;
-            o.cdcMinFileSize = cdcMinFileSize;
-            o.cdcPath = cdcPath;
-            o.compressionType = compressionType;
-            o.csvDelimiter = csvDelimiter;
-            o.csvNoSupValue = csvNoSupValue;
-            o.csvNullValue = csvNullValue;
-            o.csvRowDelimiter = csvRowDelimiter;
-            o.dataFormat = dataFormat;
-            o.dataPageSize = dataPageSize;
-            o.datePartitionDelimiter = datePartitionDelimiter;
-            o.datePartitionEnabled = datePartitionEnabled;
-            o.datePartitionSequence = datePartitionSequence;
-            o.dictPageSizeLimit = dictPageSizeLimit;
-            o.enableStatistics = enableStatistics;
-            o.encodingType = encodingType;
-            o.encryptionMode = encryptionMode;
-            o.externalTableDefinition = externalTableDefinition;
-            o.glueCatalogGeneration = glueCatalogGeneration;
-            o.ignoreHeaderRows = ignoreHeaderRows;
-            o.includeOpForFullLoad = includeOpForFullLoad;
-            o.maxFileSize = maxFileSize;
-            o.parquetTimestampInMillisecond = parquetTimestampInMillisecond;
-            o.parquetVersion = parquetVersion;
-            o.preserveTransactions = preserveTransactions;
-            o.rfc4180 = rfc4180;
-            o.rowGroupLength = rowGroupLength;
-            o.serverSideEncryptionKmsKeyId = serverSideEncryptionKmsKeyId;
-            o.serviceAccessRoleArn = serviceAccessRoleArn;
-            o.timestampColumnName = timestampColumnName;
-            o.useCsvNoSupValue = useCsvNoSupValue;
-            o.useTaskStartTimeForFullLoadTimestamp = useTaskStartTimeForFullLoadTimestamp;
-            return o;
+            final var _resultValue = new EndpointS3Settings();
+            _resultValue.addColumnName = addColumnName;
+            _resultValue.bucketFolder = bucketFolder;
+            _resultValue.bucketName = bucketName;
+            _resultValue.cannedAclForObjects = cannedAclForObjects;
+            _resultValue.cdcInsertsAndUpdates = cdcInsertsAndUpdates;
+            _resultValue.cdcInsertsOnly = cdcInsertsOnly;
+            _resultValue.cdcMaxBatchInterval = cdcMaxBatchInterval;
+            _resultValue.cdcMinFileSize = cdcMinFileSize;
+            _resultValue.cdcPath = cdcPath;
+            _resultValue.compressionType = compressionType;
+            _resultValue.csvDelimiter = csvDelimiter;
+            _resultValue.csvNoSupValue = csvNoSupValue;
+            _resultValue.csvNullValue = csvNullValue;
+            _resultValue.csvRowDelimiter = csvRowDelimiter;
+            _resultValue.dataFormat = dataFormat;
+            _resultValue.dataPageSize = dataPageSize;
+            _resultValue.datePartitionDelimiter = datePartitionDelimiter;
+            _resultValue.datePartitionEnabled = datePartitionEnabled;
+            _resultValue.datePartitionSequence = datePartitionSequence;
+            _resultValue.dictPageSizeLimit = dictPageSizeLimit;
+            _resultValue.enableStatistics = enableStatistics;
+            _resultValue.encodingType = encodingType;
+            _resultValue.encryptionMode = encryptionMode;
+            _resultValue.externalTableDefinition = externalTableDefinition;
+            _resultValue.glueCatalogGeneration = glueCatalogGeneration;
+            _resultValue.ignoreHeaderRows = ignoreHeaderRows;
+            _resultValue.includeOpForFullLoad = includeOpForFullLoad;
+            _resultValue.maxFileSize = maxFileSize;
+            _resultValue.parquetTimestampInMillisecond = parquetTimestampInMillisecond;
+            _resultValue.parquetVersion = parquetVersion;
+            _resultValue.preserveTransactions = preserveTransactions;
+            _resultValue.rfc4180 = rfc4180;
+            _resultValue.rowGroupLength = rowGroupLength;
+            _resultValue.serverSideEncryptionKmsKeyId = serverSideEncryptionKmsKeyId;
+            _resultValue.serviceAccessRoleArn = serviceAccessRoleArn;
+            _resultValue.timestampColumnName = timestampColumnName;
+            _resultValue.useCsvNoSupValue = useCsvNoSupValue;
+            _resultValue.useTaskStartTimeForFullLoadTimestamp = useTaskStartTimeForFullLoadTimestamp;
+            return _resultValue;
         }
     }
 }

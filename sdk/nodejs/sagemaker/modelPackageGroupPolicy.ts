@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import SageMaker Model Package Groups using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
+ * $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
  * ```
  */
 export class ModelPackageGroupPolicy extends pulumi.CustomResource {

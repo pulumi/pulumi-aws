@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Rds
     /// Provides an custom engine version (CEV) resource for Amazon RDS Custom. For additional information, see [Working with CEVs for RDS Custom for Oracle](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html) and [Working with CEVs for RDS Custom for SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev-sqlserver.html) in the the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html).
     /// 
     /// ## Example Usage
+    /// 
     /// ### RDS Custom for Oracle Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,18 +25,18 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var example = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "KMS symmetric key for RDS Custom for Oracle",
     ///     });
     /// 
-    ///     var exampleCustomDbEngineVersion = new Aws.Rds.CustomDbEngineVersion("exampleCustomDbEngineVersion", new()
+    ///     var exampleCustomDbEngineVersion = new Aws.Rds.CustomDbEngineVersion("example", new()
     ///     {
     ///         DatabaseInstallationFilesS3BucketName = "DOC-EXAMPLE-BUCKET",
     ///         DatabaseInstallationFilesS3Prefix = "1915_GI/",
     ///         Engine = "custom-oracle-ee-cdb",
     ///         EngineVersion = "19.cdb_cev1",
-    ///         KmsKeyId = exampleKey.Arn,
+    ///         KmsKeyId = example.Arn,
     ///         Manifest = @"  {
     /// 	""databaseInstallationFileNames"":[""V982063-01.zip""]
     ///   }
@@ -48,40 +50,37 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### RDS Custom for Oracle External Manifest Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
-    /// using System;
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
-    /// using System.Security.Cryptography;
-    /// using System.Text;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	private static string ComputeFileBase64Sha256(string path) {
-    /// 		var fileData = System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(path));
-    /// 		var hashData = SHA256.Create().ComputeHash(fileData);
-    /// 		return Convert.ToBase64String(hashData);
-    /// 	}
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var example = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "KMS symmetric key for RDS Custom for Oracle",
     ///     });
     /// 
-    ///     var exampleCustomDbEngineVersion = new Aws.Rds.CustomDbEngineVersion("exampleCustomDbEngineVersion", new()
+    ///     var exampleCustomDbEngineVersion = new Aws.Rds.CustomDbEngineVersion("example", new()
     ///     {
     ///         DatabaseInstallationFilesS3BucketName = "DOC-EXAMPLE-BUCKET",
     ///         DatabaseInstallationFilesS3Prefix = "1915_GI/",
     ///         Engine = "custom-oracle-ee-cdb",
     ///         EngineVersion = "19.cdb_cev1",
-    ///         KmsKeyId = exampleKey.Arn,
+    ///         KmsKeyId = example.Arn,
     ///         Filename = "manifest_1915_GI.json",
-    ///         ManifestHash = ComputeFileBase64Sha256(manifest_1915_GI.Json),
+    ///         ManifestHash = Std.Filebase64sha256.Invoke(new()
+    ///         {
+    ///             Input = json,
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Tags = 
     ///         {
     ///             { "Name", "example" },
@@ -91,8 +90,11 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### RDS Custom for SQL Server Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -111,8 +113,11 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### RDS Custom for SQL Server Usage with AMI from another region
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -123,6 +128,7 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var example = new Aws.Ec2.AmiCopy("example", new()
     ///     {
+    ///         Name = "sqlserver-se-2019-15.00.4249.2",
     ///         Description = "A copy of ami-xxxxxxxx",
     ///         SourceAmiId = "ami-xxxxxxxx",
     ///         SourceAmiRegion = "us-east-1",
@@ -138,13 +144,14 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import custom engine versions for Amazon RDS custom using the `engine` and `engine_version` separated by a colon (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rds/customDbEngineVersion:CustomDbEngineVersion example custom-oracle-ee-cdb:19.cdb_cev1
+    /// $ pulumi import aws:rds/customDbEngineVersion:CustomDbEngineVersion example custom-oracle-ee-cdb:19.cdb_cev1
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/customDbEngineVersion:CustomDbEngineVersion")]
@@ -287,10 +294,6 @@ namespace Pulumi.Aws.Rds
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -524,11 +527,7 @@ namespace Pulumi.Aws.Rds
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public CustomDbEngineVersionState()

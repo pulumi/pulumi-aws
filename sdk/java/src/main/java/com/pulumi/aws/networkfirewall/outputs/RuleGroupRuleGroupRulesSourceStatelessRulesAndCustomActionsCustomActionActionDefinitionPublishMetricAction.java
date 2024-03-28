@@ -5,6 +5,7 @@ package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.aws.networkfirewall.outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimension;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,16 +44,19 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCu
 
         @CustomType.Setter
         public Builder dimensions(List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimension> dimensions) {
-            this.dimensions = Objects.requireNonNull(dimensions);
+            if (dimensions == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricAction", "dimensions");
+            }
+            this.dimensions = dimensions;
             return this;
         }
         public Builder dimensions(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimension... dimensions) {
             return dimensions(List.of(dimensions));
         }
         public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricAction build() {
-            final var o = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricAction();
-            o.dimensions = dimensions;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricAction();
+            _resultValue.dimensions = dimensions;
+            return _resultValue;
         }
     }
 }

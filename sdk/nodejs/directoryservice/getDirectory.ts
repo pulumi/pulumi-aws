@@ -12,14 +12,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.directoryservice.getDirectory({
- *     directoryId: aws_directory_service_directory.main.id,
+ *     directoryId: main.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDirectory(args: GetDirectoryArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectoryResult> {
 
@@ -110,14 +112,16 @@ export interface GetDirectoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.directoryservice.getDirectory({
- *     directoryId: aws_directory_service_directory.main.id,
+ *     directoryId: main.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDirectoryOutput(args: GetDirectoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDirectoryResult> {
     return pulumi.output(args).apply((a: any) => getDirectory(a, opts))

@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Provides a AWS Clean Rooms configured table. Configured tables are used to represent references to existing tables in the AWS Glue Data Catalog.
  * 
  * ## Example Usage
+ * 
  * ### Configured table with tags
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,12 +48,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testConfiguredTable = new ConfiguredTable(&#34;testConfiguredTable&#34;, ConfiguredTableArgs.builder()        
+ *             .name(&#34;pulumi-example-table&#34;)
+ *             .description(&#34;I made this table with Pulumi!&#34;)
+ *             .analysisMethod(&#34;DIRECT_QUERY&#34;)
  *             .allowedColumns(            
  *                 &#34;column1&#34;,
  *                 &#34;column2&#34;,
  *                 &#34;column3&#34;)
- *             .analysisMethod(&#34;DIRECT_QUERY&#34;)
- *             .description(&#34;I made this table with Pulumi!&#34;)
  *             .tableReference(ConfiguredTableTableReferenceArgs.builder()
  *                 .databaseName(&#34;example_database&#34;)
  *                 .tableName(&#34;example_table&#34;)
@@ -61,13 +65,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_cleanrooms_configured_table` using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cleanrooms/configuredTable:ConfiguredTable table 1234abcd-12ab-34cd-56ef-1234567890ab
+ * $ pulumi import aws:cleanrooms/configuredTable:ConfiguredTable table 1234abcd-12ab-34cd-56ef-1234567890ab
  * ```
  * 
  */
@@ -248,9 +253,6 @@ public class ConfiguredTable extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

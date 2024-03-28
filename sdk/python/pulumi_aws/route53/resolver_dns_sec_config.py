@@ -118,25 +118,25 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
+        example = aws.ec2.Vpc("example",
             cidr_block="10.0.0.0/16",
             enable_dns_support=True,
             enable_dns_hostnames=True)
-        example_resolver_dns_sec_config = aws.route53.ResolverDnsSecConfig("exampleResolverDnsSecConfig", resource_id=example_vpc.id)
+        example_resolver_dns_sec_config = aws.route53.ResolverDnsSecConfig("example", resource_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import
-
-        Route 53 Resolver DNSSEC configs using the Route 53 Resolver DNSSEC config ID. For example:
+        Using `pulumi import`, import  Route 53 Resolver DNSSEC configs using the Route 53 Resolver DNSSEC config ID. For example:
 
         ```sh
-         $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
+        $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
         ```
 
         :param str resource_name: The name of the resource.
@@ -154,25 +154,25 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
+        example = aws.ec2.Vpc("example",
             cidr_block="10.0.0.0/16",
             enable_dns_support=True,
             enable_dns_hostnames=True)
-        example_resolver_dns_sec_config = aws.route53.ResolverDnsSecConfig("exampleResolverDnsSecConfig", resource_id=example_vpc.id)
+        example_resolver_dns_sec_config = aws.route53.ResolverDnsSecConfig("example", resource_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import
-
-        Route 53 Resolver DNSSEC configs using the Route 53 Resolver DNSSEC config ID. For example:
+        Using `pulumi import`, import  Route 53 Resolver DNSSEC configs using the Route 53 Resolver DNSSEC config ID. For example:
 
         ```sh
-         $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
+        $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
         ```
 
         :param str resource_name: The name of the resource.

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,26 +23,28 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new()
+    ///     var example = new Aws.AppSync.GraphQLApi("example", new()
     ///     {
     ///         AuthenticationType = "API_KEY",
+    ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleApiKey = new Aws.AppSync.ApiKey("exampleApiKey", new()
+    ///     var exampleApiKey = new Aws.AppSync.ApiKey("example", new()
     ///     {
-    ///         ApiId = exampleGraphQLApi.Id,
+    ///         ApiId = example.Id,
     ///         Expires = "2018-05-03T04:00:00Z",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_appsync_api_key` using the AppSync API ID and key separated by `:`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
+    /// $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
     /// ```
     /// </summary>
     [AwsResourceType("aws:appsync/apiKey:ApiKey")]

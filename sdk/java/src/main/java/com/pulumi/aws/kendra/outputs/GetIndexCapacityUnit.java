@@ -4,6 +4,7 @@
 package com.pulumi.aws.kendra.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class GetIndexCapacityUnit {
 
         @CustomType.Setter
         public Builder queryCapacityUnits(Integer queryCapacityUnits) {
-            this.queryCapacityUnits = Objects.requireNonNull(queryCapacityUnits);
+            if (queryCapacityUnits == null) {
+              throw new MissingRequiredPropertyException("GetIndexCapacityUnit", "queryCapacityUnits");
+            }
+            this.queryCapacityUnits = queryCapacityUnits;
             return this;
         }
         @CustomType.Setter
         public Builder storageCapacityUnits(Integer storageCapacityUnits) {
-            this.storageCapacityUnits = Objects.requireNonNull(storageCapacityUnits);
+            if (storageCapacityUnits == null) {
+              throw new MissingRequiredPropertyException("GetIndexCapacityUnit", "storageCapacityUnits");
+            }
+            this.storageCapacityUnits = storageCapacityUnits;
             return this;
         }
         public GetIndexCapacityUnit build() {
-            final var o = new GetIndexCapacityUnit();
-            o.queryCapacityUnits = queryCapacityUnits;
-            o.storageCapacityUnits = storageCapacityUnits;
-            return o;
+            final var _resultValue = new GetIndexCapacityUnit();
+            _resultValue.queryCapacityUnits = queryCapacityUnits;
+            _resultValue.storageCapacityUnits = storageCapacityUnits;
+            return _resultValue;
         }
     }
 }

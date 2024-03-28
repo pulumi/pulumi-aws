@@ -201,11 +201,13 @@ class BillingGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.iot.BillingGroup("example",
+            name="example",
             properties=aws.iot.BillingGroupPropertiesArgs(
                 description="This is my billing group",
             ),
@@ -213,13 +215,14 @@ class BillingGroup(pulumi.CustomResource):
                 "terraform": "true",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IoT Billing Groups using the name. For example:
 
         ```sh
-         $ pulumi import aws:iot/billingGroup:BillingGroup example example
+        $ pulumi import aws:iot/billingGroup:BillingGroup example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -239,11 +242,13 @@ class BillingGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.iot.BillingGroup("example",
+            name="example",
             properties=aws.iot.BillingGroupPropertiesArgs(
                 description="This is my billing group",
             ),
@@ -251,13 +256,14 @@ class BillingGroup(pulumi.CustomResource):
                 "terraform": "true",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IoT Billing Groups using the name. For example:
 
         ```sh
-         $ pulumi import aws:iot/billingGroup:BillingGroup example example
+        $ pulumi import aws:iot/billingGroup:BillingGroup example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -294,8 +300,6 @@ class BillingGroup(pulumi.CustomResource):
             __props__.__dict__["metadatas"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["version"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(BillingGroup, __self__).__init__(
             'aws:iot/billingGroup:BillingGroup',
             resource_name,

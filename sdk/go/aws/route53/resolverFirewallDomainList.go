@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,7 +28,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewResolverFirewallDomainList(ctx, "example", nil)
+//			_, err := route53.NewResolverFirewallDomainList(ctx, "example", &route53.ResolverFirewallDomainListArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -36,17 +39,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// # Using `pulumi import`, import
-//
-// Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For example:
+// Using `pulumi import`, import  Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList example rslvr-fdl-0123456789abcdef
-//
+// $ pulumi import aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList example rslvr-fdl-0123456789abcdef
 // ```
 type ResolverFirewallDomainList struct {
 	pulumi.CustomResourceState
@@ -72,10 +72,6 @@ func NewResolverFirewallDomainList(ctx *pulumi.Context,
 		args = &ResolverFirewallDomainListArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverFirewallDomainList
 	err := ctx.RegisterResource("aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList", name, args, &resource, opts...)

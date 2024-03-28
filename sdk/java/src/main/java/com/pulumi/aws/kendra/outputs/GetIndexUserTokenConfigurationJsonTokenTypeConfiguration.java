@@ -4,6 +4,7 @@
 package com.pulumi.aws.kendra.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class GetIndexUserTokenConfigurationJsonTokenTypeConfiguration {
 
         @CustomType.Setter
         public Builder groupAttributeField(String groupAttributeField) {
-            this.groupAttributeField = Objects.requireNonNull(groupAttributeField);
+            if (groupAttributeField == null) {
+              throw new MissingRequiredPropertyException("GetIndexUserTokenConfigurationJsonTokenTypeConfiguration", "groupAttributeField");
+            }
+            this.groupAttributeField = groupAttributeField;
             return this;
         }
         @CustomType.Setter
         public Builder userNameAttributeField(String userNameAttributeField) {
-            this.userNameAttributeField = Objects.requireNonNull(userNameAttributeField);
+            if (userNameAttributeField == null) {
+              throw new MissingRequiredPropertyException("GetIndexUserTokenConfigurationJsonTokenTypeConfiguration", "userNameAttributeField");
+            }
+            this.userNameAttributeField = userNameAttributeField;
             return this;
         }
         public GetIndexUserTokenConfigurationJsonTokenTypeConfiguration build() {
-            final var o = new GetIndexUserTokenConfigurationJsonTokenTypeConfiguration();
-            o.groupAttributeField = groupAttributeField;
-            o.userNameAttributeField = userNameAttributeField;
-            return o;
+            final var _resultValue = new GetIndexUserTokenConfigurationJsonTokenTypeConfiguration();
+            _resultValue.groupAttributeField = groupAttributeField;
+            _resultValue.userNameAttributeField = userNameAttributeField;
+            return _resultValue;
         }
     }
 }

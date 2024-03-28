@@ -298,17 +298,22 @@ class Inventory(pulumi.CustomResource):
         """
         Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
 
+        > This resource cannot be used with S3 directory buckets.
+
         ## Example Usage
+
         ### Add inventory configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_bucket_v2 = aws.s3.BucketV2("testBucketV2")
-        inventory = aws.s3.BucketV2("inventory")
-        test_inventory = aws.s3.Inventory("testInventory",
-            bucket=test_bucket_v2.id,
+        test = aws.s3.BucketV2("test", bucket="my-tf-test-bucket")
+        inventory = aws.s3.BucketV2("inventory", bucket="my-tf-inventory-bucket")
+        test_inventory = aws.s3.Inventory("test",
+            bucket=test.id,
+            name="EntireBucketDaily",
             included_object_versions="All",
             schedule=aws.s3.InventoryScheduleArgs(
                 frequency="Daily",
@@ -320,16 +325,20 @@ class Inventory(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Add inventory configuration with S3 object prefix
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.s3.BucketV2("test")
-        inventory = aws.s3.BucketV2("inventory")
+        test = aws.s3.BucketV2("test", bucket="my-tf-test-bucket")
+        inventory = aws.s3.BucketV2("inventory", bucket="my-tf-inventory-bucket")
         test_prefix = aws.s3.Inventory("test-prefix",
             bucket=test.id,
+            name="DocumentsWeekly",
             included_object_versions="All",
             schedule=aws.s3.InventoryScheduleArgs(
                 frequency="Daily",
@@ -345,13 +354,14 @@ class Inventory(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 bucket inventory configurations using `bucket:inventory`. For example:
 
         ```sh
-         $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
+        $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
         ```
 
         :param str resource_name: The name of the resource.
@@ -374,17 +384,22 @@ class Inventory(pulumi.CustomResource):
         """
         Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
 
+        > This resource cannot be used with S3 directory buckets.
+
         ## Example Usage
+
         ### Add inventory configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_bucket_v2 = aws.s3.BucketV2("testBucketV2")
-        inventory = aws.s3.BucketV2("inventory")
-        test_inventory = aws.s3.Inventory("testInventory",
-            bucket=test_bucket_v2.id,
+        test = aws.s3.BucketV2("test", bucket="my-tf-test-bucket")
+        inventory = aws.s3.BucketV2("inventory", bucket="my-tf-inventory-bucket")
+        test_inventory = aws.s3.Inventory("test",
+            bucket=test.id,
+            name="EntireBucketDaily",
             included_object_versions="All",
             schedule=aws.s3.InventoryScheduleArgs(
                 frequency="Daily",
@@ -396,16 +411,20 @@ class Inventory(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Add inventory configuration with S3 object prefix
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.s3.BucketV2("test")
-        inventory = aws.s3.BucketV2("inventory")
+        test = aws.s3.BucketV2("test", bucket="my-tf-test-bucket")
+        inventory = aws.s3.BucketV2("inventory", bucket="my-tf-inventory-bucket")
         test_prefix = aws.s3.Inventory("test-prefix",
             bucket=test.id,
+            name="DocumentsWeekly",
             included_object_versions="All",
             schedule=aws.s3.InventoryScheduleArgs(
                 frequency="Daily",
@@ -421,13 +440,14 @@ class Inventory(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 bucket inventory configurations using `bucket:inventory`. For example:
 
         ```sh
-         $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
+        $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
         ```
 
         :param str resource_name: The name of the resource.

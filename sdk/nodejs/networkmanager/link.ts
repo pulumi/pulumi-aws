@@ -12,13 +12,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkmanager.Link("example", {
- *     globalNetworkId: aws_networkmanager_global_network.example.id,
- *     siteId: aws_networkmanager_site.example.id,
+ *     globalNetworkId: exampleAwsNetworkmanagerGlobalNetwork.id,
+ *     siteId: exampleAwsNetworkmanagerSite.id,
  *     bandwidth: {
  *         uploadSpeed: 10,
  *         downloadSpeed: 50,
@@ -26,13 +27,14 @@ import * as utilities from "../utilities";
  *     providerName: "MegaCorp",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_networkmanager_link` using the link ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:networkmanager/link:Link example arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223
+ * $ pulumi import aws:networkmanager/link:Link example arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223
  * ```
  */
 export class Link extends pulumi.CustomResource {
@@ -146,8 +148,6 @@ export class Link extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Link.__pulumiType, name, resourceInputs, opts);
     }
 }

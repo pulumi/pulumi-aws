@@ -13,19 +13,21 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testIpamPreviewNextCidr = aws.ec2.getIpamPreviewNextCidr({
- *     ipamPoolId: aws_vpc_ipam_pool.test.id,
+ * const test = aws.ec2.getIpamPreviewNextCidr({
+ *     ipamPoolId: testAwsVpcIpamPool.id,
  *     netmaskLength: 28,
  * });
- * const testVpcIpamPoolCidrAllocation = new aws.ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", {
- *     ipamPoolId: aws_vpc_ipam_pool.test.id,
- *     cidr: testIpamPreviewNextCidr.then(testIpamPreviewNextCidr => testIpamPreviewNextCidr.cidr),
+ * const testVpcIpamPoolCidrAllocation = new aws.ec2.VpcIpamPoolCidrAllocation("test", {
+ *     ipamPoolId: testAwsVpcIpamPool.id,
+ *     cidr: test.then(test => test.cidr),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getIpamPreviewNextCidr(args: GetIpamPreviewNextCidrArgs, opts?: pulumi.InvokeOptions): Promise<GetIpamPreviewNextCidrResult> {
 
@@ -80,19 +82,21 @@ export interface GetIpamPreviewNextCidrResult {
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testIpamPreviewNextCidr = aws.ec2.getIpamPreviewNextCidr({
- *     ipamPoolId: aws_vpc_ipam_pool.test.id,
+ * const test = aws.ec2.getIpamPreviewNextCidr({
+ *     ipamPoolId: testAwsVpcIpamPool.id,
  *     netmaskLength: 28,
  * });
- * const testVpcIpamPoolCidrAllocation = new aws.ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", {
- *     ipamPoolId: aws_vpc_ipam_pool.test.id,
- *     cidr: testIpamPreviewNextCidr.then(testIpamPreviewNextCidr => testIpamPreviewNextCidr.cidr),
+ * const testVpcIpamPoolCidrAllocation = new aws.ec2.VpcIpamPoolCidrAllocation("test", {
+ *     ipamPoolId: testAwsVpcIpamPool.id,
+ *     cidr: test.then(test => test.cidr),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getIpamPreviewNextCidrOutput(args: GetIpamPreviewNextCidrOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpamPreviewNextCidrResult> {
     return pulumi.output(args).apply((a: any) => getIpamPreviewNextCidr(a, opts))

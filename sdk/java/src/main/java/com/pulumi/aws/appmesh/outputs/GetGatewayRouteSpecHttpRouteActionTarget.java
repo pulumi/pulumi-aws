@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttpRouteActionTargetVirtualService;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -42,22 +43,28 @@ public final class GetGatewayRouteSpecHttpRouteActionTarget {
 
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttpRouteActionTarget", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder virtualServices(List<GetGatewayRouteSpecHttpRouteActionTargetVirtualService> virtualServices) {
-            this.virtualServices = Objects.requireNonNull(virtualServices);
+            if (virtualServices == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttpRouteActionTarget", "virtualServices");
+            }
+            this.virtualServices = virtualServices;
             return this;
         }
         public Builder virtualServices(GetGatewayRouteSpecHttpRouteActionTargetVirtualService... virtualServices) {
             return virtualServices(List.of(virtualServices));
         }
         public GetGatewayRouteSpecHttpRouteActionTarget build() {
-            final var o = new GetGatewayRouteSpecHttpRouteActionTarget();
-            o.port = port;
-            o.virtualServices = virtualServices;
-            return o;
+            final var _resultValue = new GetGatewayRouteSpecHttpRouteActionTarget();
+            _resultValue.port = port;
+            _resultValue.virtualServices = virtualServices;
+            return _resultValue;
         }
     }
 }

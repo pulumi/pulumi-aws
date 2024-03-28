@@ -698,31 +698,33 @@ class Cluster(pulumi.CustomResource):
         > **Note:** This resource manages _provisioned_ clusters. To manage a _serverless_ Amazon MSK cluster, use the `msk.ServerlessCluster` resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         vpc = aws.ec2.Vpc("vpc", cidr_block="192.168.0.0/22")
         azs = aws.get_availability_zones(state="available")
-        subnet_az1 = aws.ec2.Subnet("subnetAz1",
+        subnet_az1 = aws.ec2.Subnet("subnet_az1",
             availability_zone=azs.names[0],
             cidr_block="192.168.0.0/24",
             vpc_id=vpc.id)
-        subnet_az2 = aws.ec2.Subnet("subnetAz2",
+        subnet_az2 = aws.ec2.Subnet("subnet_az2",
             availability_zone=azs.names[1],
             cidr_block="192.168.1.0/24",
             vpc_id=vpc.id)
-        subnet_az3 = aws.ec2.Subnet("subnetAz3",
+        subnet_az3 = aws.ec2.Subnet("subnet_az3",
             availability_zone=azs.names[2],
             cidr_block="192.168.2.0/24",
             vpc_id=vpc.id)
         sg = aws.ec2.SecurityGroup("sg", vpc_id=vpc.id)
         kms = aws.kms.Key("kms", description="example")
-        test = aws.cloudwatch.LogGroup("test")
-        bucket = aws.s3.BucketV2("bucket")
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
+        test = aws.cloudwatch.LogGroup("test", name="msk_broker_logs")
+        bucket = aws.s3.BucketV2("bucket", bucket="msk-broker-logs-bucket")
+        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
             bucket=bucket.id,
             acl="private")
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
@@ -733,8 +735,11 @@ class Cluster(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=assume_role.json)
-        test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
+        firehose_role = aws.iam.Role("firehose_role",
+            name="firehose_test_role",
+            assume_role_policy=assume_role.json)
+        test_stream = aws.kinesis.FirehoseDeliveryStream("test_stream",
+            name="kinesis-firehose-msk-broker-logs-stream",
             destination="extended_s3",
             extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
                 role_arn=firehose_role.arn,
@@ -744,6 +749,7 @@ class Cluster(pulumi.CustomResource):
                 "LogDeliveryEnabled": "placeholder",
             })
         example = aws.msk.Cluster("example",
+            cluster_name="example",
             kafka_version="3.2.0",
             number_of_broker_nodes=3,
             broker_node_group_info=aws.msk.ClusterBrokerNodeGroupInfoArgs(
@@ -796,21 +802,25 @@ class Cluster(pulumi.CustomResource):
         pulumi.export("zookeeperConnectString", example.zookeeper_connect_string)
         pulumi.export("bootstrapBrokersTls", example.bootstrap_brokers_tls)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With volume_throughput argument
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.msk.Cluster("example",
+            cluster_name="example",
             kafka_version="2.7.1",
             number_of_broker_nodes=3,
             broker_node_group_info=aws.msk.ClusterBrokerNodeGroupInfoArgs(
                 instance_type="kafka.m5.4xlarge",
                 client_subnets=[
-                    aws_subnet["subnet_az1"]["id"],
-                    aws_subnet["subnet_az2"]["id"],
-                    aws_subnet["subnet_az3"]["id"],
+                    subnet_az1["id"],
+                    subnet_az2["id"],
+                    subnet_az3["id"],
                 ],
                 storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoArgs(
                     ebs_storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs(
@@ -821,16 +831,17 @@ class Cluster(pulumi.CustomResource):
                         volume_size=1000,
                     ),
                 ),
-                security_groups=[aws_security_group["sg"]["id"]],
+                security_groups=[sg["id"]],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MSK clusters using the cluster `arn`. For example:
 
         ```sh
-         $ pulumi import aws:msk/cluster:Cluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+        $ pulumi import aws:msk/cluster:Cluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
         ```
 
         :param str resource_name: The name of the resource.
@@ -860,31 +871,33 @@ class Cluster(pulumi.CustomResource):
         > **Note:** This resource manages _provisioned_ clusters. To manage a _serverless_ Amazon MSK cluster, use the `msk.ServerlessCluster` resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         vpc = aws.ec2.Vpc("vpc", cidr_block="192.168.0.0/22")
         azs = aws.get_availability_zones(state="available")
-        subnet_az1 = aws.ec2.Subnet("subnetAz1",
+        subnet_az1 = aws.ec2.Subnet("subnet_az1",
             availability_zone=azs.names[0],
             cidr_block="192.168.0.0/24",
             vpc_id=vpc.id)
-        subnet_az2 = aws.ec2.Subnet("subnetAz2",
+        subnet_az2 = aws.ec2.Subnet("subnet_az2",
             availability_zone=azs.names[1],
             cidr_block="192.168.1.0/24",
             vpc_id=vpc.id)
-        subnet_az3 = aws.ec2.Subnet("subnetAz3",
+        subnet_az3 = aws.ec2.Subnet("subnet_az3",
             availability_zone=azs.names[2],
             cidr_block="192.168.2.0/24",
             vpc_id=vpc.id)
         sg = aws.ec2.SecurityGroup("sg", vpc_id=vpc.id)
         kms = aws.kms.Key("kms", description="example")
-        test = aws.cloudwatch.LogGroup("test")
-        bucket = aws.s3.BucketV2("bucket")
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
+        test = aws.cloudwatch.LogGroup("test", name="msk_broker_logs")
+        bucket = aws.s3.BucketV2("bucket", bucket="msk-broker-logs-bucket")
+        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
             bucket=bucket.id,
             acl="private")
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
@@ -895,8 +908,11 @@ class Cluster(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=assume_role.json)
-        test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
+        firehose_role = aws.iam.Role("firehose_role",
+            name="firehose_test_role",
+            assume_role_policy=assume_role.json)
+        test_stream = aws.kinesis.FirehoseDeliveryStream("test_stream",
+            name="kinesis-firehose-msk-broker-logs-stream",
             destination="extended_s3",
             extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
                 role_arn=firehose_role.arn,
@@ -906,6 +922,7 @@ class Cluster(pulumi.CustomResource):
                 "LogDeliveryEnabled": "placeholder",
             })
         example = aws.msk.Cluster("example",
+            cluster_name="example",
             kafka_version="3.2.0",
             number_of_broker_nodes=3,
             broker_node_group_info=aws.msk.ClusterBrokerNodeGroupInfoArgs(
@@ -958,21 +975,25 @@ class Cluster(pulumi.CustomResource):
         pulumi.export("zookeeperConnectString", example.zookeeper_connect_string)
         pulumi.export("bootstrapBrokersTls", example.bootstrap_brokers_tls)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With volume_throughput argument
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.msk.Cluster("example",
+            cluster_name="example",
             kafka_version="2.7.1",
             number_of_broker_nodes=3,
             broker_node_group_info=aws.msk.ClusterBrokerNodeGroupInfoArgs(
                 instance_type="kafka.m5.4xlarge",
                 client_subnets=[
-                    aws_subnet["subnet_az1"]["id"],
-                    aws_subnet["subnet_az2"]["id"],
-                    aws_subnet["subnet_az3"]["id"],
+                    subnet_az1["id"],
+                    subnet_az2["id"],
+                    subnet_az3["id"],
                 ],
                 storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoArgs(
                     ebs_storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs(
@@ -983,16 +1004,17 @@ class Cluster(pulumi.CustomResource):
                         volume_size=1000,
                     ),
                 ),
-                security_groups=[aws_security_group["sg"]["id"]],
+                security_groups=[sg["id"]],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MSK clusters using the cluster `arn`. For example:
 
         ```sh
-         $ pulumi import aws:msk/cluster:Cluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+        $ pulumi import aws:msk/cluster:Cluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
         ```
 
         :param str resource_name: The name of the resource.
@@ -1065,8 +1087,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["zookeeper_connect_string"] = None
             __props__.__dict__["zookeeper_connect_string_tls"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Cluster, __self__).__init__(
             'aws:msk/cluster:Cluster',
             resource_name,

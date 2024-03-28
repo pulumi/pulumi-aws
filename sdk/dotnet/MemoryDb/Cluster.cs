@@ -16,6 +16,7 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,25 +28,27 @@ namespace Pulumi.Aws.MemoryDb
     ///     var example = new Aws.MemoryDb.Cluster("example", new()
     ///     {
     ///         AclName = "open-access",
+    ///         Name = "my-cluster",
     ///         NodeType = "db.t4g.small",
     ///         NumShards = 2,
     ///         SecurityGroupIds = new[]
     ///         {
-    ///             aws_security_group.Example.Id,
+    ///             exampleAwsSecurityGroup.Id,
     ///         },
     ///         SnapshotRetentionLimit = 7,
-    ///         SubnetGroupName = aws_memorydb_subnet_group.Example.Id,
+    ///         SubnetGroupName = exampleAwsMemorydbSubnetGroup.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a cluster using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
+    /// $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
     /// ```
     /// </summary>
     [AwsResourceType("aws:memorydb/cluster:Cluster")]
@@ -247,10 +250,6 @@ namespace Pulumi.Aws.MemoryDb
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -646,11 +645,7 @@ namespace Pulumi.Aws.MemoryDb
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

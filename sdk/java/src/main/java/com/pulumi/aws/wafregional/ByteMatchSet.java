@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a WAF Regional Byte Match Set Resource for use with Application Load Balancer.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,27 +46,29 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var byteSet = new ByteMatchSet(&#34;byteSet&#34;, ByteMatchSetArgs.builder()        
+ *             .name(&#34;my_waf_byte_match_set&#34;)
  *             .byteMatchTuples(ByteMatchSetByteMatchTupleArgs.builder()
- *                 .fieldToMatch(ByteMatchSetByteMatchTupleFieldToMatchArgs.builder()
- *                     .data(&#34;referer&#34;)
- *                     .type(&#34;HEADER&#34;)
- *                     .build())
- *                 .positionalConstraint(&#34;CONTAINS&#34;)
- *                 .targetString(&#34;badrefer1&#34;)
  *                 .textTransformation(&#34;NONE&#34;)
+ *                 .targetString(&#34;badrefer1&#34;)
+ *                 .positionalConstraint(&#34;CONTAINS&#34;)
+ *                 .fieldToMatch(ByteMatchSetByteMatchTupleFieldToMatchArgs.builder()
+ *                     .type(&#34;HEADER&#34;)
+ *                     .data(&#34;referer&#34;)
+ *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import WAF Regional Byte Match Set using the id. For example:
  * 
  * ```sh
- *  $ pulumi import aws:wafregional/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * $ pulumi import aws:wafregional/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
  * ```
  * 
  */

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,17 +28,20 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const exampleRole = new aws.iam.Role("example", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
  * const test = aws.sagemaker.getPrebuiltEcrImage({
  *     repositoryName: "kmeans",
  * });
- * const exampleModel = new aws.sagemaker.Model("exampleModel", {
+ * const example = new aws.sagemaker.Model("example", {
+ *     name: "my-model",
  *     executionRoleArn: exampleRole.arn,
  *     primaryContainer: {
  *         image: test.then(test => test.registryPath),
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Inference Execution Config
  *
  * * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
@@ -47,7 +51,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import models using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/model:Model test_model model-foo
+ * $ pulumi import aws:sagemaker/model:Model test_model model-foo
  * ```
  */
 export class Model extends pulumi.CustomResource {
@@ -163,8 +167,6 @@ export class Model extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Model.__pulumiType, name, resourceInputs, opts);
     }
 }

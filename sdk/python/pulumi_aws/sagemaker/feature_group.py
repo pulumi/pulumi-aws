@@ -372,6 +372,7 @@ class FeatureGroup(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -380,7 +381,7 @@ class FeatureGroup(pulumi.CustomResource):
             feature_group_name="example",
             record_identifier_feature_name="example",
             event_time_feature_name="example",
-            role_arn=aws_iam_role["test"]["arn"],
+            role_arn=test["arn"],
             feature_definitions=[aws.sagemaker.FeatureGroupFeatureDefinitionArgs(
                 feature_name="example",
                 feature_type="String",
@@ -389,13 +390,14 @@ class FeatureGroup(pulumi.CustomResource):
                 enable_online_store=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Feature Groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
+        $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
         ```
 
         :param str resource_name: The name of the resource.
@@ -423,6 +425,7 @@ class FeatureGroup(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -431,7 +434,7 @@ class FeatureGroup(pulumi.CustomResource):
             feature_group_name="example",
             record_identifier_feature_name="example",
             event_time_feature_name="example",
-            role_arn=aws_iam_role["test"]["arn"],
+            role_arn=test["arn"],
             feature_definitions=[aws.sagemaker.FeatureGroupFeatureDefinitionArgs(
                 feature_name="example",
                 feature_type="String",
@@ -440,13 +443,14 @@ class FeatureGroup(pulumi.CustomResource):
                 enable_online_store=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Feature Groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
+        $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
         ```
 
         :param str resource_name: The name of the resource.
@@ -503,8 +507,6 @@ class FeatureGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(FeatureGroup, __self__).__init__(
             'aws:sagemaker/featureGroup:FeatureGroup',
             resource_name,

@@ -144,14 +144,17 @@ class MultiplexProgram(pulumi.CustomResource):
         Resource for managing an AWS MediaLive MultiplexProgram.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available")
-        example_multiplex = aws.medialive.Multiplex("exampleMultiplex",
+        example = aws.medialive.Multiplex("example",
+            name="example-multiplex-changed",
             availability_zones=[
                 available.names[0],
                 available.names[1],
@@ -166,9 +169,9 @@ class MultiplexProgram(pulumi.CustomResource):
             tags={
                 "tag1": "value1",
             })
-        example_multiplex_program = aws.medialive.MultiplexProgram("exampleMultiplexProgram",
+        example_multiplex_program = aws.medialive.MultiplexProgram("example",
             program_name="example_program",
-            multiplex_id=example_multiplex.id,
+            multiplex_id=example.id,
             multiplex_program_settings=aws.medialive.MultiplexProgramMultiplexProgramSettingsArgs(
                 program_number=1,
                 preferred_channel_pipeline="CURRENTLY_ACTIVE",
@@ -177,13 +180,14 @@ class MultiplexProgram(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of "`program_name`/`multiplex_id`". For example:
 
         ```sh
-         $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
+        $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
         ```
 
         :param str resource_name: The name of the resource.
@@ -204,14 +208,17 @@ class MultiplexProgram(pulumi.CustomResource):
         Resource for managing an AWS MediaLive MultiplexProgram.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available")
-        example_multiplex = aws.medialive.Multiplex("exampleMultiplex",
+        example = aws.medialive.Multiplex("example",
+            name="example-multiplex-changed",
             availability_zones=[
                 available.names[0],
                 available.names[1],
@@ -226,9 +233,9 @@ class MultiplexProgram(pulumi.CustomResource):
             tags={
                 "tag1": "value1",
             })
-        example_multiplex_program = aws.medialive.MultiplexProgram("exampleMultiplexProgram",
+        example_multiplex_program = aws.medialive.MultiplexProgram("example",
             program_name="example_program",
-            multiplex_id=example_multiplex.id,
+            multiplex_id=example.id,
             multiplex_program_settings=aws.medialive.MultiplexProgramMultiplexProgramSettingsArgs(
                 program_number=1,
                 preferred_channel_pipeline="CURRENTLY_ACTIVE",
@@ -237,13 +244,14 @@ class MultiplexProgram(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of "`program_name`/`multiplex_id`". For example:
 
         ```sh
-         $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
+        $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
         ```
 
         :param str resource_name: The name of the resource.

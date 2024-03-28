@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Emr
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,7 +30,7 @@ namespace Pulumi.Aws.Emr
     /// {
     ///     var task = new Aws.Emr.InstanceFleet("task", new()
     ///     {
-    ///         ClusterId = aws_emr_cluster.Cluster.Id,
+    ///         ClusterId = cluster.Id,
     ///         InstanceTypeConfigs = new[]
     ///         {
     ///             new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigArgs
@@ -76,19 +77,21 @@ namespace Pulumi.Aws.Emr
     ///                 },
     ///             },
     ///         },
+    ///         Name = "task fleet",
     ///         TargetOnDemandCapacity = 1,
     ///         TargetSpotCapacity = 1,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EMR Instance Fleet using the EMR Cluster identifier and Instance Fleet identifier separated by a forward slash (`/`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
+    /// $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
     /// ```
     /// </summary>
     [AwsResourceType("aws:emr/instanceFleet:InstanceFleet")]

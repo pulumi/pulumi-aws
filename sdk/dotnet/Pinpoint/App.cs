@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,26 +25,28 @@ namespace Pulumi.Aws.Pinpoint
     /// {
     ///     var example = new Aws.Pinpoint.App("example", new()
     ///     {
+    ///         Name = "test-app",
     ///         Limits = new Aws.Pinpoint.Inputs.AppLimitsArgs
     ///         {
     ///             MaximumDuration = 600,
     ///         },
     ///         QuietTime = new Aws.Pinpoint.Inputs.AppQuietTimeArgs
     ///         {
-    ///             End = "06:00",
     ///             Start = "00:00",
+    ///             End = "06:00",
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Pinpoint App using the `application-id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:pinpoint/app:App name application-id
+    /// $ pulumi import aws:pinpoint/app:App name application-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:pinpoint/app:App")]
@@ -126,10 +129,6 @@ namespace Pulumi.Aws.Pinpoint
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -267,11 +266,7 @@ namespace Pulumi.Aws.Pinpoint
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public AppState()

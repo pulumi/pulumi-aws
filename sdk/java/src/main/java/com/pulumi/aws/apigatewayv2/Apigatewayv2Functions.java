@@ -27,6 +27,8 @@ public final class Apigatewayv2Functions {
      * Provides details about a specific Amazon API Gateway Version 2 API.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -55,6 +57,7 @@ public final class Apigatewayv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApiResult> getApi(GetApiArgs args) {
@@ -64,6 +67,8 @@ public final class Apigatewayv2Functions {
      * Provides details about a specific Amazon API Gateway Version 2 API.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -92,6 +97,7 @@ public final class Apigatewayv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApiResult> getApiPlain(GetApiPlainArgs args) {
@@ -101,6 +107,8 @@ public final class Apigatewayv2Functions {
      * Provides details about a specific Amazon API Gateway Version 2 API.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -129,6 +137,7 @@ public final class Apigatewayv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApiResult> getApi(GetApiArgs args, InvokeOptions options) {
@@ -138,6 +147,8 @@ public final class Apigatewayv2Functions {
      * Provides details about a specific Amazon API Gateway Version 2 API.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -166,6 +177,7 @@ public final class Apigatewayv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApiResult> getApiPlain(GetApiPlainArgs args, InvokeOptions options) {
@@ -175,6 +187,8 @@ public final class Apigatewayv2Functions {
      * Provides details about multiple Amazon API Gateway Version 2 APIs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -203,6 +217,7 @@ public final class Apigatewayv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApisResult> getApis() {
@@ -212,6 +227,8 @@ public final class Apigatewayv2Functions {
      * Provides details about multiple Amazon API Gateway Version 2 APIs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -240,6 +257,7 @@ public final class Apigatewayv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApisResult> getApisPlain() {
@@ -249,6 +267,8 @@ public final class Apigatewayv2Functions {
      * Provides details about multiple Amazon API Gateway Version 2 APIs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -277,6 +297,7 @@ public final class Apigatewayv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApisResult> getApis(GetApisArgs args) {
@@ -286,6 +307,8 @@ public final class Apigatewayv2Functions {
      * Provides details about multiple Amazon API Gateway Version 2 APIs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -314,6 +337,7 @@ public final class Apigatewayv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApisResult> getApisPlain(GetApisPlainArgs args) {
@@ -323,6 +347,8 @@ public final class Apigatewayv2Functions {
      * Provides details about multiple Amazon API Gateway Version 2 APIs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -351,6 +377,7 @@ public final class Apigatewayv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApisResult> getApis(GetApisArgs args, InvokeOptions options) {
@@ -360,6 +387,8 @@ public final class Apigatewayv2Functions {
      * Provides details about multiple Amazon API Gateway Version 2 APIs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -388,6 +417,7 @@ public final class Apigatewayv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApisResult> getApisPlain(GetApisPlainArgs args, InvokeOptions options) {
@@ -397,6 +427,8 @@ public final class Apigatewayv2Functions {
      * Exports a definition of an API in a particular output format and specification.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -419,7 +451,7 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Apigatewayv2Functions.getExport(GetExportArgs.builder()
-     *             .apiId(aws_apigatewayv2_route.test().api_id())
+     *             .apiId(testAwsApigatewayv2Route.apiId())
      *             .specification(&#34;OAS30&#34;)
      *             .outputType(&#34;JSON&#34;)
      *             .build());
@@ -427,6 +459,7 @@ public final class Apigatewayv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetExportResult> getExport(GetExportArgs args) {
@@ -436,6 +469,8 @@ public final class Apigatewayv2Functions {
      * Exports a definition of an API in a particular output format and specification.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -458,7 +493,7 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Apigatewayv2Functions.getExport(GetExportArgs.builder()
-     *             .apiId(aws_apigatewayv2_route.test().api_id())
+     *             .apiId(testAwsApigatewayv2Route.apiId())
      *             .specification(&#34;OAS30&#34;)
      *             .outputType(&#34;JSON&#34;)
      *             .build());
@@ -466,6 +501,7 @@ public final class Apigatewayv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetExportResult> getExportPlain(GetExportPlainArgs args) {
@@ -475,6 +511,8 @@ public final class Apigatewayv2Functions {
      * Exports a definition of an API in a particular output format and specification.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -497,7 +535,7 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Apigatewayv2Functions.getExport(GetExportArgs.builder()
-     *             .apiId(aws_apigatewayv2_route.test().api_id())
+     *             .apiId(testAwsApigatewayv2Route.apiId())
      *             .specification(&#34;OAS30&#34;)
      *             .outputType(&#34;JSON&#34;)
      *             .build());
@@ -505,6 +543,7 @@ public final class Apigatewayv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetExportResult> getExport(GetExportArgs args, InvokeOptions options) {
@@ -514,6 +553,8 @@ public final class Apigatewayv2Functions {
      * Exports a definition of an API in a particular output format and specification.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -536,7 +577,7 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Apigatewayv2Functions.getExport(GetExportArgs.builder()
-     *             .apiId(aws_apigatewayv2_route.test().api_id())
+     *             .apiId(testAwsApigatewayv2Route.apiId())
      *             .specification(&#34;OAS30&#34;)
      *             .outputType(&#34;JSON&#34;)
      *             .build());
@@ -544,6 +585,7 @@ public final class Apigatewayv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetExportResult> getExportPlain(GetExportPlainArgs args, InvokeOptions options) {
@@ -553,7 +595,10 @@ public final class Apigatewayv2Functions {
      * Data source for managing an AWS API Gateway V2 VPC Link.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -582,6 +627,7 @@ public final class Apigatewayv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVpcLinkResult> getVpcLink(GetVpcLinkArgs args) {
@@ -591,7 +637,10 @@ public final class Apigatewayv2Functions {
      * Data source for managing an AWS API Gateway V2 VPC Link.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -620,6 +669,7 @@ public final class Apigatewayv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpcLinkResult> getVpcLinkPlain(GetVpcLinkPlainArgs args) {
@@ -629,7 +679,10 @@ public final class Apigatewayv2Functions {
      * Data source for managing an AWS API Gateway V2 VPC Link.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -658,6 +711,7 @@ public final class Apigatewayv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVpcLinkResult> getVpcLink(GetVpcLinkArgs args, InvokeOptions options) {
@@ -667,7 +721,10 @@ public final class Apigatewayv2Functions {
      * Data source for managing an AWS API Gateway V2 VPC Link.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -696,6 +753,7 @@ public final class Apigatewayv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpcLinkResult> getVpcLinkPlain(GetVpcLinkPlainArgs args, InvokeOptions options) {

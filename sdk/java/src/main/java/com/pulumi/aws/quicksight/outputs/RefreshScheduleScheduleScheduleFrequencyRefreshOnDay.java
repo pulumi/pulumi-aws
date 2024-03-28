@@ -58,19 +58,21 @@ public final class RefreshScheduleScheduleScheduleFrequencyRefreshOnDay {
 
         @CustomType.Setter
         public Builder dayOfMonth(@Nullable String dayOfMonth) {
+
             this.dayOfMonth = dayOfMonth;
             return this;
         }
         @CustomType.Setter
         public Builder dayOfWeek(@Nullable String dayOfWeek) {
+
             this.dayOfWeek = dayOfWeek;
             return this;
         }
         public RefreshScheduleScheduleScheduleFrequencyRefreshOnDay build() {
-            final var o = new RefreshScheduleScheduleScheduleFrequencyRefreshOnDay();
-            o.dayOfMonth = dayOfMonth;
-            o.dayOfWeek = dayOfWeek;
-            return o;
+            final var _resultValue = new RefreshScheduleScheduleScheduleFrequencyRefreshOnDay();
+            _resultValue.dayOfMonth = dayOfMonth;
+            _resultValue.dayOfWeek = dayOfWeek;
+            return _resultValue;
         }
     }
 }

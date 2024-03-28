@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,14 +30,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewGatewayRoute(ctx, "example", &appmesh.GatewayRouteArgs{
+//				Name:               pulumi.String("example-gateway-route"),
 //				MeshName:           pulumi.String("example-service-mesh"),
-//				VirtualGatewayName: pulumi.Any(aws_appmesh_virtual_gateway.Example.Name),
+//				VirtualGatewayName: pulumi.Any(exampleAwsAppmeshVirtualGateway.Name),
 //				Spec: &appmesh.GatewayRouteSpecArgs{
 //					HttpRoute: &appmesh.GatewayRouteSpecHttpRouteArgs{
 //						Action: &appmesh.GatewayRouteSpecHttpRouteActionArgs{
 //							Target: &appmesh.GatewayRouteSpecHttpRouteActionTargetArgs{
 //								VirtualService: &appmesh.GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs{
-//									VirtualServiceName: pulumi.Any(aws_appmesh_virtual_service.Example.Name),
+//									VirtualServiceName: pulumi.Any(exampleAwsAppmeshVirtualService.Name),
 //								},
 //							},
 //						},
@@ -57,15 +59,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import App Mesh gateway routes using `mesh_name` and `virtual_gateway_name` together with the gateway route's `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appmesh/gatewayRoute:GatewayRoute example mesh/gw1/example-gateway-route
-//
+// $ pulumi import aws:appmesh/gatewayRoute:GatewayRoute example mesh/gw1/example-gateway-route
 // ```
 type GatewayRoute struct {
 	pulumi.CustomResourceState
@@ -112,10 +113,6 @@ func NewGatewayRoute(ctx *pulumi.Context,
 	if args.VirtualGatewayName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualGatewayName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GatewayRoute
 	err := ctx.RegisterResource("aws:appmesh/gatewayRoute:GatewayRoute", name, args, &resource, opts...)

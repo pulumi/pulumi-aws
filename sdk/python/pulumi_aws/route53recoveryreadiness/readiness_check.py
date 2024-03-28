@@ -181,6 +181,7 @@ class ReadinessCheck(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -189,13 +190,14 @@ class ReadinessCheck(pulumi.CustomResource):
             readiness_check_name=my_cw_alarm_check,
             resource_set_name=my_cw_alarm_set)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 Recovery Readiness readiness checks using the readiness check name. For example:
 
         ```sh
-         $ pulumi import aws:route53recoveryreadiness/readinessCheck:ReadinessCheck my-cw-alarm-check example
+        $ pulumi import aws:route53recoveryreadiness/readinessCheck:ReadinessCheck my-cw-alarm-check example
         ```
 
         :param str resource_name: The name of the resource.
@@ -217,6 +219,7 @@ class ReadinessCheck(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -225,13 +228,14 @@ class ReadinessCheck(pulumi.CustomResource):
             readiness_check_name=my_cw_alarm_check,
             resource_set_name=my_cw_alarm_set)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 Recovery Readiness readiness checks using the readiness check name. For example:
 
         ```sh
-         $ pulumi import aws:route53recoveryreadiness/readinessCheck:ReadinessCheck my-cw-alarm-check example
+        $ pulumi import aws:route53recoveryreadiness/readinessCheck:ReadinessCheck my-cw-alarm-check example
         ```
 
         :param str resource_name: The name of the resource.
@@ -270,8 +274,6 @@ class ReadinessCheck(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ReadinessCheck, __self__).__init__(
             'aws:route53recoveryreadiness/readinessCheck:ReadinessCheck',
             resource_name,

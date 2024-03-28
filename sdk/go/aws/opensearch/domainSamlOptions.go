@@ -15,31 +15,25 @@ import (
 // Manages SAML authentication options for an AWS OpenSearch Domain.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomain, err := opensearch.NewDomain(ctx, "exampleDomain", &opensearch.DomainArgs{
+//			example, err := opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
+//				DomainName:    pulumi.String("example"),
 //				EngineVersion: pulumi.String("OpenSearch_1.1"),
 //				ClusterConfig: &opensearch.DomainClusterConfigArgs{
 //					InstanceType: pulumi.String("r4.large.search"),
@@ -54,13 +48,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = opensearch.NewDomainSamlOptions(ctx, "exampleDomainSamlOptions", &opensearch.DomainSamlOptionsArgs{
-//				DomainName: exampleDomain.DomainName,
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "./saml-metadata.xml",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opensearch.NewDomainSamlOptions(ctx, "example", &opensearch.DomainSamlOptionsArgs{
+//				DomainName: example.DomainName,
 //				SamlOptions: &opensearch.DomainSamlOptionsSamlOptionsArgs{
 //					Enabled: pulumi.Bool(true),
 //					Idp: &opensearch.DomainSamlOptionsSamlOptionsIdpArgs{
 //						EntityId:        pulumi.String("https://example.com"),
-//						MetadataContent: readFileOrPanic("./saml-metadata.xml"),
+//						MetadataContent: invokeFile.Result,
 //					},
 //				},
 //			})
@@ -72,15 +72,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import OpenSearch domains using the `domain_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name
-//
+// $ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name
 // ```
 type DomainSamlOptions struct {
 	pulumi.CustomResourceState

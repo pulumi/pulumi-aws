@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecs.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetContainerDefinitionPlainArgs extends com.pulumi.resources.
         }
 
         public GetContainerDefinitionPlainArgs build() {
-            $.containerName = Objects.requireNonNull($.containerName, "expected parameter 'containerName' to be non-null");
-            $.taskDefinition = Objects.requireNonNull($.taskDefinition, "expected parameter 'taskDefinition' to be non-null");
+            if ($.containerName == null) {
+                throw new MissingRequiredPropertyException("GetContainerDefinitionPlainArgs", "containerName");
+            }
+            if ($.taskDefinition == null) {
+                throw new MissingRequiredPropertyException("GetContainerDefinitionPlainArgs", "taskDefinition");
+            }
             return $;
         }
     }

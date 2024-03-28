@@ -15,12 +15,31 @@ __all__ = [
     'ComputeEnvironmentComputeResourcesEc2Configuration',
     'ComputeEnvironmentComputeResourcesLaunchTemplate',
     'ComputeEnvironmentEksConfiguration',
+    'ComputeEnvironmentUpdatePolicy',
+    'JobDefinitionEksProperties',
+    'JobDefinitionEksPropertiesPodProperties',
+    'JobDefinitionEksPropertiesPodPropertiesContainers',
+    'JobDefinitionEksPropertiesPodPropertiesContainersEnv',
+    'JobDefinitionEksPropertiesPodPropertiesContainersResources',
+    'JobDefinitionEksPropertiesPodPropertiesContainersSecurityContext',
+    'JobDefinitionEksPropertiesPodPropertiesContainersVolumeMount',
+    'JobDefinitionEksPropertiesPodPropertiesMetadata',
+    'JobDefinitionEksPropertiesPodPropertiesVolume',
+    'JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir',
+    'JobDefinitionEksPropertiesPodPropertiesVolumeHostPath',
+    'JobDefinitionEksPropertiesPodPropertiesVolumeSecret',
     'JobDefinitionRetryStrategy',
     'JobDefinitionRetryStrategyEvaluateOnExit',
     'JobDefinitionTimeout',
+    'JobQueueComputeEnvironmentOrder',
     'JobQueueTimeouts',
     'SchedulingPolicyFairSharePolicy',
     'SchedulingPolicyFairSharePolicyShareDistribution',
+    'GetComputeEnvironmentUpdatePolicyResult',
+    'GetJobDefinitionEksPropertyResult',
+    'GetJobDefinitionNodePropertyResult',
+    'GetJobDefinitionRetryStrategyResult',
+    'GetJobDefinitionTimeoutResult',
     'GetJobQueueComputeEnvironmentOrderResult',
     'GetSchedulingPolicyFairSharePolicyResult',
     'GetSchedulingPolicyFairSharePolicyShareDistributionResult',
@@ -93,8 +112,8 @@ class ComputeEnvironmentComputeResources(dict):
         :param int max_vcpus: The maximum number of EC2 vCPUs that an environment can reach.
         :param Sequence[str] subnets: A list of VPC subnets into which the compute resources are launched.
         :param str type: The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
-        :param str allocation_strategy: The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        :param int bid_percentage: Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param str allocation_strategy: The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param int bid_percentage: Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20%!((MISSING)`20`), then the Spot price must be below 20%!o(MISSING)f the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100%!o(MISSING)f the On-Demand price. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param int desired_vcpus: The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param Sequence['ComputeEnvironmentComputeResourcesEc2ConfigurationArgs'] ec2_configurations: Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
         :param str ec2_key_pair: The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
@@ -168,7 +187,7 @@ class ComputeEnvironmentComputeResources(dict):
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> Optional[str]:
         """
-        The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
         return pulumi.get(self, "allocation_strategy")
 
@@ -176,7 +195,7 @@ class ComputeEnvironmentComputeResources(dict):
     @pulumi.getter(name="bidPercentage")
     def bid_percentage(self) -> Optional[int]:
         """
-        Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20%!((MISSING)`20`), then the Spot price must be below 20%!o(MISSING)f the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100%!o(MISSING)f the On-Demand price. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
         return pulumi.get(self, "bid_percentage")
 
@@ -438,6 +457,680 @@ class ComputeEnvironmentEksConfiguration(dict):
 
 
 @pulumi.output_type
+class ComputeEnvironmentUpdatePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jobExecutionTimeoutMinutes":
+            suggest = "job_execution_timeout_minutes"
+        elif key == "terminateJobsOnUpdate":
+            suggest = "terminate_jobs_on_update"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeEnvironmentUpdatePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeEnvironmentUpdatePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeEnvironmentUpdatePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 job_execution_timeout_minutes: int,
+                 terminate_jobs_on_update: bool):
+        """
+        :param int job_execution_timeout_minutes: Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
+        :param bool terminate_jobs_on_update: Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
+        """
+        pulumi.set(__self__, "job_execution_timeout_minutes", job_execution_timeout_minutes)
+        pulumi.set(__self__, "terminate_jobs_on_update", terminate_jobs_on_update)
+
+    @property
+    @pulumi.getter(name="jobExecutionTimeoutMinutes")
+    def job_execution_timeout_minutes(self) -> int:
+        """
+        Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
+        """
+        return pulumi.get(self, "job_execution_timeout_minutes")
+
+    @property
+    @pulumi.getter(name="terminateJobsOnUpdate")
+    def terminate_jobs_on_update(self) -> bool:
+        """
+        Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
+        """
+        return pulumi.get(self, "terminate_jobs_on_update")
+
+
+@pulumi.output_type
+class JobDefinitionEksProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "podProperties":
+            suggest = "pod_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionEksProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionEksProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionEksProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pod_properties: 'outputs.JobDefinitionEksPropertiesPodProperties'):
+        """
+        :param 'JobDefinitionEksPropertiesPodPropertiesArgs' pod_properties: The properties for the Kubernetes pod resources of a job. See `pod_properties` below.
+        """
+        pulumi.set(__self__, "pod_properties", pod_properties)
+
+    @property
+    @pulumi.getter(name="podProperties")
+    def pod_properties(self) -> 'outputs.JobDefinitionEksPropertiesPodProperties':
+        """
+        The properties for the Kubernetes pod resources of a job. See `pod_properties` below.
+        """
+        return pulumi.get(self, "pod_properties")
+
+
+@pulumi.output_type
+class JobDefinitionEksPropertiesPodProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsPolicy":
+            suggest = "dns_policy"
+        elif key == "hostNetwork":
+            suggest = "host_network"
+        elif key == "serviceAccountName":
+            suggest = "service_account_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionEksPropertiesPodProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionEksPropertiesPodProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionEksPropertiesPodProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 containers: 'outputs.JobDefinitionEksPropertiesPodPropertiesContainers',
+                 dns_policy: Optional[str] = None,
+                 host_network: Optional[bool] = None,
+                 metadata: Optional['outputs.JobDefinitionEksPropertiesPodPropertiesMetadata'] = None,
+                 service_account_name: Optional[str] = None,
+                 volumes: Optional[Sequence['outputs.JobDefinitionEksPropertiesPodPropertiesVolume']] = None):
+        """
+        :param 'JobDefinitionEksPropertiesPodPropertiesContainersArgs' containers: The properties of the container that's used on the Amazon EKS pod. See containers below.
+        :param str dns_policy: The DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
+        :param bool host_network: Indicates if the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
+        :param 'JobDefinitionEksPropertiesPodPropertiesMetadataArgs' metadata: Metadata about the Kubernetes pod.
+        :param str service_account_name: The name of the service account that's used to run the pod.
+        :param Sequence['JobDefinitionEksPropertiesPodPropertiesVolumeArgs'] volumes: Specifies the volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+        """
+        pulumi.set(__self__, "containers", containers)
+        if dns_policy is not None:
+            pulumi.set(__self__, "dns_policy", dns_policy)
+        if host_network is not None:
+            pulumi.set(__self__, "host_network", host_network)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if service_account_name is not None:
+            pulumi.set(__self__, "service_account_name", service_account_name)
+        if volumes is not None:
+            pulumi.set(__self__, "volumes", volumes)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> 'outputs.JobDefinitionEksPropertiesPodPropertiesContainers':
+        """
+        The properties of the container that's used on the Amazon EKS pod. See containers below.
+        """
+        return pulumi.get(self, "containers")
+
+    @property
+    @pulumi.getter(name="dnsPolicy")
+    def dns_policy(self) -> Optional[str]:
+        """
+        The DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
+        """
+        return pulumi.get(self, "dns_policy")
+
+    @property
+    @pulumi.getter(name="hostNetwork")
+    def host_network(self) -> Optional[bool]:
+        """
+        Indicates if the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
+        """
+        return pulumi.get(self, "host_network")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional['outputs.JobDefinitionEksPropertiesPodPropertiesMetadata']:
+        """
+        Metadata about the Kubernetes pod.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="serviceAccountName")
+    def service_account_name(self) -> Optional[str]:
+        """
+        The name of the service account that's used to run the pod.
+        """
+        return pulumi.get(self, "service_account_name")
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Optional[Sequence['outputs.JobDefinitionEksPropertiesPodPropertiesVolume']]:
+        """
+        Specifies the volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+        """
+        return pulumi.get(self, "volumes")
+
+
+@pulumi.output_type
+class JobDefinitionEksPropertiesPodPropertiesContainers(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imagePullPolicy":
+            suggest = "image_pull_policy"
+        elif key == "securityContext":
+            suggest = "security_context"
+        elif key == "volumeMounts":
+            suggest = "volume_mounts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionEksPropertiesPodPropertiesContainers. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionEksPropertiesPodPropertiesContainers.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionEksPropertiesPodPropertiesContainers.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image: str,
+                 args: Optional[Sequence[str]] = None,
+                 commands: Optional[Sequence[str]] = None,
+                 envs: Optional[Sequence['outputs.JobDefinitionEksPropertiesPodPropertiesContainersEnv']] = None,
+                 image_pull_policy: Optional[str] = None,
+                 name: Optional[str] = None,
+                 resources: Optional['outputs.JobDefinitionEksPropertiesPodPropertiesContainersResources'] = None,
+                 security_context: Optional['outputs.JobDefinitionEksPropertiesPodPropertiesContainersSecurityContext'] = None,
+                 volume_mounts: Optional[Sequence['outputs.JobDefinitionEksPropertiesPodPropertiesContainersVolumeMount']] = None):
+        """
+        :param str image: The Docker image used to start the container.
+        :param Sequence[str] args: An array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
+        :param Sequence[str] commands: The entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
+        :param Sequence['JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs'] envs: The environment variables to pass to a container. See EKS Environment below.
+        :param str image_pull_policy: The image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
+        :param str name: The name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
+        :param 'JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs' resources: The type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+        :param 'JobDefinitionEksPropertiesPodPropertiesContainersSecurityContextArgs' security_context: The security context for a job.
+        :param Sequence['JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgs'] volume_mounts: The volume mounts for the container.
+        """
+        pulumi.set(__self__, "image", image)
+        if args is not None:
+            pulumi.set(__self__, "args", args)
+        if commands is not None:
+            pulumi.set(__self__, "commands", commands)
+        if envs is not None:
+            pulumi.set(__self__, "envs", envs)
+        if image_pull_policy is not None:
+            pulumi.set(__self__, "image_pull_policy", image_pull_policy)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+        if security_context is not None:
+            pulumi.set(__self__, "security_context", security_context)
+        if volume_mounts is not None:
+            pulumi.set(__self__, "volume_mounts", volume_mounts)
+
+    @property
+    @pulumi.getter
+    def image(self) -> str:
+        """
+        The Docker image used to start the container.
+        """
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[Sequence[str]]:
+        """
+        An array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
+        """
+        return pulumi.get(self, "args")
+
+    @property
+    @pulumi.getter
+    def commands(self) -> Optional[Sequence[str]]:
+        """
+        The entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
+        """
+        return pulumi.get(self, "commands")
+
+    @property
+    @pulumi.getter
+    def envs(self) -> Optional[Sequence['outputs.JobDefinitionEksPropertiesPodPropertiesContainersEnv']]:
+        """
+        The environment variables to pass to a container. See EKS Environment below.
+        """
+        return pulumi.get(self, "envs")
+
+    @property
+    @pulumi.getter(name="imagePullPolicy")
+    def image_pull_policy(self) -> Optional[str]:
+        """
+        The image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
+        """
+        return pulumi.get(self, "image_pull_policy")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def resources(self) -> Optional['outputs.JobDefinitionEksPropertiesPodPropertiesContainersResources']:
+        """
+        The type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+        """
+        return pulumi.get(self, "resources")
+
+    @property
+    @pulumi.getter(name="securityContext")
+    def security_context(self) -> Optional['outputs.JobDefinitionEksPropertiesPodPropertiesContainersSecurityContext']:
+        """
+        The security context for a job.
+        """
+        return pulumi.get(self, "security_context")
+
+    @property
+    @pulumi.getter(name="volumeMounts")
+    def volume_mounts(self) -> Optional[Sequence['outputs.JobDefinitionEksPropertiesPodPropertiesContainersVolumeMount']]:
+        """
+        The volume mounts for the container.
+        """
+        return pulumi.get(self, "volume_mounts")
+
+
+@pulumi.output_type
+class JobDefinitionEksPropertiesPodPropertiesContainersEnv(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: Specifies the name of the job definition.
+        :param str value: The value of the environment variable.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the job definition.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the environment variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class JobDefinitionEksPropertiesPodPropertiesContainersResources(dict):
+    def __init__(__self__, *,
+                 limits: Optional[Mapping[str, str]] = None,
+                 requests: Optional[Mapping[str, str]] = None):
+        if limits is not None:
+            pulumi.set(__self__, "limits", limits)
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+
+    @property
+    @pulumi.getter
+    def limits(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "limits")
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "requests")
+
+
+@pulumi.output_type
+class JobDefinitionEksPropertiesPodPropertiesContainersSecurityContext(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "readOnlyRootFileSystem":
+            suggest = "read_only_root_file_system"
+        elif key == "runAsGroup":
+            suggest = "run_as_group"
+        elif key == "runAsNonRoot":
+            suggest = "run_as_non_root"
+        elif key == "runAsUser":
+            suggest = "run_as_user"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionEksPropertiesPodPropertiesContainersSecurityContext. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionEksPropertiesPodPropertiesContainersSecurityContext.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionEksPropertiesPodPropertiesContainersSecurityContext.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 privileged: Optional[bool] = None,
+                 read_only_root_file_system: Optional[bool] = None,
+                 run_as_group: Optional[int] = None,
+                 run_as_non_root: Optional[bool] = None,
+                 run_as_user: Optional[int] = None):
+        if privileged is not None:
+            pulumi.set(__self__, "privileged", privileged)
+        if read_only_root_file_system is not None:
+            pulumi.set(__self__, "read_only_root_file_system", read_only_root_file_system)
+        if run_as_group is not None:
+            pulumi.set(__self__, "run_as_group", run_as_group)
+        if run_as_non_root is not None:
+            pulumi.set(__self__, "run_as_non_root", run_as_non_root)
+        if run_as_user is not None:
+            pulumi.set(__self__, "run_as_user", run_as_user)
+
+    @property
+    @pulumi.getter
+    def privileged(self) -> Optional[bool]:
+        return pulumi.get(self, "privileged")
+
+    @property
+    @pulumi.getter(name="readOnlyRootFileSystem")
+    def read_only_root_file_system(self) -> Optional[bool]:
+        return pulumi.get(self, "read_only_root_file_system")
+
+    @property
+    @pulumi.getter(name="runAsGroup")
+    def run_as_group(self) -> Optional[int]:
+        return pulumi.get(self, "run_as_group")
+
+    @property
+    @pulumi.getter(name="runAsNonRoot")
+    def run_as_non_root(self) -> Optional[bool]:
+        return pulumi.get(self, "run_as_non_root")
+
+    @property
+    @pulumi.getter(name="runAsUser")
+    def run_as_user(self) -> Optional[int]:
+        return pulumi.get(self, "run_as_user")
+
+
+@pulumi.output_type
+class JobDefinitionEksPropertiesPodPropertiesContainersVolumeMount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountPath":
+            suggest = "mount_path"
+        elif key == "readOnly":
+            suggest = "read_only"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionEksPropertiesPodPropertiesContainersVolumeMount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionEksPropertiesPodPropertiesContainersVolumeMount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionEksPropertiesPodPropertiesContainersVolumeMount.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mount_path: str,
+                 name: str,
+                 read_only: Optional[bool] = None):
+        """
+        :param str name: Specifies the name of the job definition.
+        """
+        pulumi.set(__self__, "mount_path", mount_path)
+        pulumi.set(__self__, "name", name)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> str:
+        return pulumi.get(self, "mount_path")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the job definition.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[bool]:
+        return pulumi.get(self, "read_only")
+
+
+@pulumi.output_type
+class JobDefinitionEksPropertiesPodPropertiesMetadata(dict):
+    def __init__(__self__, *,
+                 labels: Optional[Mapping[str, str]] = None):
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "labels")
+
+
+@pulumi.output_type
+class JobDefinitionEksPropertiesPodPropertiesVolume(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emptyDir":
+            suggest = "empty_dir"
+        elif key == "hostPath":
+            suggest = "host_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionEksPropertiesPodPropertiesVolume. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionEksPropertiesPodPropertiesVolume.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionEksPropertiesPodPropertiesVolume.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 empty_dir: Optional['outputs.JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir'] = None,
+                 host_path: Optional['outputs.JobDefinitionEksPropertiesPodPropertiesVolumeHostPath'] = None,
+                 name: Optional[str] = None,
+                 secret: Optional['outputs.JobDefinitionEksPropertiesPodPropertiesVolumeSecret'] = None):
+        """
+        :param str name: Specifies the name of the job definition.
+        """
+        if empty_dir is not None:
+            pulumi.set(__self__, "empty_dir", empty_dir)
+        if host_path is not None:
+            pulumi.set(__self__, "host_path", host_path)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter(name="emptyDir")
+    def empty_dir(self) -> Optional['outputs.JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir']:
+        return pulumi.get(self, "empty_dir")
+
+    @property
+    @pulumi.getter(name="hostPath")
+    def host_path(self) -> Optional['outputs.JobDefinitionEksPropertiesPodPropertiesVolumeHostPath']:
+        return pulumi.get(self, "host_path")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Specifies the name of the job definition.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional['outputs.JobDefinitionEksPropertiesPodPropertiesVolumeSecret']:
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sizeLimit":
+            suggest = "size_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 size_limit: str,
+                 medium: Optional[str] = None):
+        """
+        :param str size_limit: The maximum size of the volume. By default, there's no maximum size defined.
+        :param str medium: The medium to store the volume. The default value is an empty string, which uses the storage of the node.
+        """
+        pulumi.set(__self__, "size_limit", size_limit)
+        if medium is not None:
+            pulumi.set(__self__, "medium", medium)
+
+    @property
+    @pulumi.getter(name="sizeLimit")
+    def size_limit(self) -> str:
+        """
+        The maximum size of the volume. By default, there's no maximum size defined.
+        """
+        return pulumi.get(self, "size_limit")
+
+    @property
+    @pulumi.getter
+    def medium(self) -> Optional[str]:
+        """
+        The medium to store the volume. The default value is an empty string, which uses the storage of the node.
+        """
+        return pulumi.get(self, "medium")
+
+
+@pulumi.output_type
+class JobDefinitionEksPropertiesPodPropertiesVolumeHostPath(dict):
+    def __init__(__self__, *,
+                 path: str):
+        """
+        :param str path: The path of the file or directory on the host to mount into containers on the pod.
+        """
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The path of the file or directory on the host to mount into containers on the pod.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class JobDefinitionEksPropertiesPodPropertiesVolumeSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionEksPropertiesPodPropertiesVolumeSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionEksPropertiesPodPropertiesVolumeSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionEksPropertiesPodPropertiesVolumeSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_name: str,
+                 optional: Optional[bool] = None):
+        """
+        :param str secret_name: The name of the secret. The name must be allowed as a DNS subdomain name.
+        :param bool optional: Specifies whether the secret or the secret's keys must be defined.
+        """
+        pulumi.set(__self__, "secret_name", secret_name)
+        if optional is not None:
+            pulumi.set(__self__, "optional", optional)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of the secret. The name must be allowed as a DNS subdomain name.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter
+    def optional(self) -> Optional[bool]:
+        """
+        Specifies whether the secret or the secret's keys must be defined.
+        """
+        return pulumi.get(self, "optional")
+
+
+@pulumi.output_type
 class JobDefinitionRetryStrategy(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -597,11 +1290,62 @@ class JobDefinitionTimeout(dict):
 
 
 @pulumi.output_type
+class JobQueueComputeEnvironmentOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeEnvironment":
+            suggest = "compute_environment"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobQueueComputeEnvironmentOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobQueueComputeEnvironmentOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobQueueComputeEnvironmentOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_environment: str,
+                 order: int):
+        """
+        :param str compute_environment: The Amazon Resource Name (ARN) of the compute environment.
+        :param int order: The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
+        """
+        pulumi.set(__self__, "compute_environment", compute_environment)
+        pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter(name="computeEnvironment")
+    def compute_environment(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the compute environment.
+        """
+        return pulumi.get(self, "compute_environment")
+
+    @property
+    @pulumi.getter
+    def order(self) -> int:
+        """
+        The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
+        """
+        return pulumi.get(self, "order")
+
+
+@pulumi.output_type
 class JobQueueTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[str] = None,
                  delete: Optional[str] = None,
                  update: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
         if create is not None:
             pulumi.set(__self__, "create", create)
         if delete is not None:
@@ -612,16 +1356,25 @@ class JobQueueTimeouts(dict):
     @property
     @pulumi.getter
     def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
         return pulumi.get(self, "create")
 
     @property
     @pulumi.getter
     def delete(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
         return pulumi.get(self, "delete")
 
     @property
     @pulumi.getter
     def update(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
         return pulumi.get(self, "update")
 
 
@@ -732,6 +1485,130 @@ class SchedulingPolicyFairSharePolicyShareDistribution(dict):
         The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
         """
         return pulumi.get(self, "weight_factor")
+
+
+@pulumi.output_type
+class GetComputeEnvironmentUpdatePolicyResult(dict):
+    def __init__(__self__, *,
+                 job_execution_timeout_minutes: int,
+                 terminate_jobs_on_update: bool):
+        pulumi.set(__self__, "job_execution_timeout_minutes", job_execution_timeout_minutes)
+        pulumi.set(__self__, "terminate_jobs_on_update", terminate_jobs_on_update)
+
+    @property
+    @pulumi.getter(name="jobExecutionTimeoutMinutes")
+    def job_execution_timeout_minutes(self) -> int:
+        return pulumi.get(self, "job_execution_timeout_minutes")
+
+    @property
+    @pulumi.getter(name="terminateJobsOnUpdate")
+    def terminate_jobs_on_update(self) -> bool:
+        return pulumi.get(self, "terminate_jobs_on_update")
+
+
+@pulumi.output_type
+class GetJobDefinitionEksPropertyResult(dict):
+    def __init__(__self__, *,
+                 pod_properties: Sequence[Any]):
+        """
+        :param Sequence[Any] pod_properties: The properties for the Kubernetes pod resources of a job.
+        """
+        pulumi.set(__self__, "pod_properties", pod_properties)
+
+    @property
+    @pulumi.getter(name="podProperties")
+    def pod_properties(self) -> Sequence[Any]:
+        """
+        The properties for the Kubernetes pod resources of a job.
+        """
+        return pulumi.get(self, "pod_properties")
+
+
+@pulumi.output_type
+class GetJobDefinitionNodePropertyResult(dict):
+    def __init__(__self__, *,
+                 main_node: int,
+                 node_range_properties: Sequence[Any],
+                 num_nodes: int):
+        """
+        :param int main_node: Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
+        :param Sequence[Any] node_range_properties: A list of node ranges and their properties that are associated with a multi-node parallel job.
+        :param int num_nodes: The number of nodes that are associated with a multi-node parallel job.
+        """
+        pulumi.set(__self__, "main_node", main_node)
+        pulumi.set(__self__, "node_range_properties", node_range_properties)
+        pulumi.set(__self__, "num_nodes", num_nodes)
+
+    @property
+    @pulumi.getter(name="mainNode")
+    def main_node(self) -> int:
+        """
+        Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
+        """
+        return pulumi.get(self, "main_node")
+
+    @property
+    @pulumi.getter(name="nodeRangeProperties")
+    def node_range_properties(self) -> Sequence[Any]:
+        """
+        A list of node ranges and their properties that are associated with a multi-node parallel job.
+        """
+        return pulumi.get(self, "node_range_properties")
+
+    @property
+    @pulumi.getter(name="numNodes")
+    def num_nodes(self) -> int:
+        """
+        The number of nodes that are associated with a multi-node parallel job.
+        """
+        return pulumi.get(self, "num_nodes")
+
+
+@pulumi.output_type
+class GetJobDefinitionRetryStrategyResult(dict):
+    def __init__(__self__, *,
+                 attempts: int,
+                 evaluate_on_exits: Sequence[Any]):
+        """
+        :param int attempts: The number of times to move a job to the RUNNABLE status.
+        :param Sequence[Any] evaluate_on_exits: Array of up to 5 objects that specify the conditions where jobs are retried or failed.
+        """
+        pulumi.set(__self__, "attempts", attempts)
+        pulumi.set(__self__, "evaluate_on_exits", evaluate_on_exits)
+
+    @property
+    @pulumi.getter
+    def attempts(self) -> int:
+        """
+        The number of times to move a job to the RUNNABLE status.
+        """
+        return pulumi.get(self, "attempts")
+
+    @property
+    @pulumi.getter(name="evaluateOnExits")
+    def evaluate_on_exits(self) -> Sequence[Any]:
+        """
+        Array of up to 5 objects that specify the conditions where jobs are retried or failed.
+        """
+        return pulumi.get(self, "evaluate_on_exits")
+
+
+@pulumi.output_type
+class GetJobDefinitionTimeoutResult(dict):
+    def __init__(__self__, *,
+                 attempt_duration_seconds: int):
+        """
+        :param int attempt_duration_seconds: The job timeout time (in seconds) that's measured from the job attempt's startedAt timestamp.
+        """
+        pulumi.set(__self__, "attempt_duration_seconds", attempt_duration_seconds)
+
+    @property
+    @pulumi.getter(name="attemptDurationSeconds")
+    def attempt_duration_seconds(self) -> int:
+        """
+        The job timeout time (in seconds) that's measured from the job attempt's startedAt timestamp.
+        """
+        return pulumi.get(self, "attempt_duration_seconds")
 
 
 @pulumi.output_type

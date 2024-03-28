@@ -399,13 +399,15 @@ class Stream(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_stream = aws.kinesis.Stream("testStream",
-            retention_period=48,
+        test_stream = aws.kinesis.Stream("test_stream",
+            name="kinesis-test",
             shard_count=1,
+            retention_period=48,
             shard_level_metrics=[
                 "IncomingBytes",
                 "OutgoingBytes",
@@ -417,13 +419,14 @@ class Stream(pulumi.CustomResource):
                 "Environment": "test",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Kinesis Streams using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
+        $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
         ```
 
         :param str resource_name: The name of the resource.
@@ -454,13 +457,15 @@ class Stream(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_stream = aws.kinesis.Stream("testStream",
-            retention_period=48,
+        test_stream = aws.kinesis.Stream("test_stream",
+            name="kinesis-test",
             shard_count=1,
+            retention_period=48,
             shard_level_metrics=[
                 "IncomingBytes",
                 "OutgoingBytes",
@@ -472,13 +477,14 @@ class Stream(pulumi.CustomResource):
                 "Environment": "test",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Kinesis Streams using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
+        $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
         ```
 
         :param str resource_name: The name of the resource.
@@ -526,8 +532,6 @@ class Stream(pulumi.CustomResource):
             __props__.__dict__["stream_mode_details"] = stream_mode_details
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Stream, __self__).__init__(
             'aws:kinesis/stream:Stream',
             resource_name,

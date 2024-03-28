@@ -19,56 +19,6 @@ import javax.annotation.Nullable;
  * with a deployed API so that its methods can be called via the
  * custom domain name.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.Stage;
- * import com.pulumi.aws.apigateway.StageArgs;
- * import com.pulumi.aws.apigateway.DomainName;
- * import com.pulumi.aws.apigateway.DomainNameArgs;
- * import com.pulumi.aws.apigateway.BasePathMapping;
- * import com.pulumi.aws.apigateway.BasePathMappingArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
- *             .deployment(aws_api_gateway_deployment.example().id())
- *             .restApi(aws_api_gateway_rest_api.example().id())
- *             .stageName(&#34;example&#34;)
- *             .build());
- * 
- *         var exampleDomainName = new DomainName(&#34;exampleDomainName&#34;, DomainNameArgs.builder()        
- *             .domainName(&#34;example.com&#34;)
- *             .certificateName(&#34;example-api&#34;)
- *             .certificateBody(Files.readString(Paths.get(String.format(&#34;%s/example.com/example.crt&#34;, path.module()))))
- *             .certificateChain(Files.readString(Paths.get(String.format(&#34;%s/example.com/ca.crt&#34;, path.module()))))
- *             .certificatePrivateKey(Files.readString(Paths.get(String.format(&#34;%s/example.com/example.key&#34;, path.module()))))
- *             .build());
- * 
- *         var exampleBasePathMapping = new BasePathMapping(&#34;exampleBasePathMapping&#34;, BasePathMappingArgs.builder()        
- *             .restApi(aws_api_gateway_rest_api.example().id())
- *             .stageName(exampleStage.stageName())
- *             .domainName(exampleDomainName.domainName())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * For a non-root `base_path`:
@@ -78,12 +28,12 @@ import javax.annotation.Nullable;
  * For an empty `base_path` or, in other words, a root path (`/`):
  * 
  * ```sh
- *  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
+ * $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
  * ```
- *  For a non-root `base_path`:
+ * For a non-root `base_path`:
  * 
  * ```sh
- *  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
+ * $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
  * ```
  * 
  */

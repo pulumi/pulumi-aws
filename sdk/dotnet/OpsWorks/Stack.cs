@@ -14,6 +14,7 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,9 +25,10 @@ namespace Pulumi.Aws.OpsWorks
     /// {
     ///     var main = new Aws.OpsWorks.Stack("main", new()
     ///     {
+    ///         Name = "awesome-stack",
     ///         Region = "us-west-1",
-    ///         ServiceRoleArn = aws_iam_role.Opsworks.Arn,
-    ///         DefaultInstanceProfileArn = aws_iam_instance_profile.Opsworks.Arn,
+    ///         ServiceRoleArn = opsworksAwsIamRole.Arn,
+    ///         DefaultInstanceProfileArn = opsworks.Arn,
     ///         Tags = 
     ///         {
     ///             { "Name", "foobar-stack" },
@@ -41,13 +43,14 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import OpsWorks stacks using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000
+    /// $ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/stack:Stack")]
@@ -224,10 +227,6 @@ namespace Pulumi.Aws.OpsWorks
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -552,11 +551,7 @@ namespace Pulumi.Aws.OpsWorks
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

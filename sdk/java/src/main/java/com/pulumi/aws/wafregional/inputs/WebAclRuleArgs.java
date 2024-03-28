@@ -7,6 +7,7 @@ import com.pulumi.aws.wafregional.inputs.WebAclRuleActionArgs;
 import com.pulumi.aws.wafregional.inputs.WebAclRuleOverrideActionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -231,8 +232,12 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WebAclRuleArgs build() {
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
-            $.ruleId = Objects.requireNonNull($.ruleId, "expected parameter 'ruleId' to be non-null");
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleArgs", "priority");
+            }
+            if ($.ruleId == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleArgs", "ruleId");
+            }
             return $;
         }
     }

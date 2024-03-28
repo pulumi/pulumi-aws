@@ -12,9 +12,13 @@ namespace Pulumi.Aws.S3
     /// <summary>
     /// Provides a S3 bucket [metrics configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html) resource.
     /// 
+    /// &gt; This resource cannot be used with S3 directory buckets.
+    /// 
     /// ## Example Usage
+    /// 
     /// ### Add metrics configuration for entire S3 bucket
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,17 +27,24 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example");
+    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     {
+    ///         Bucket = "example",
+    ///     });
     /// 
     ///     var example_entire_bucket = new Aws.S3.BucketMetric("example-entire-bucket", new()
     ///     {
     ///         Bucket = example.Id,
+    ///         Name = "EntireBucket",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Add metrics configuration with S3 object filter
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,11 +53,15 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example");
+    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     {
+    ///         Bucket = "example",
+    ///     });
     /// 
     ///     var example_filtered = new Aws.S3.BucketMetric("example-filtered", new()
     ///     {
     ///         Bucket = example.Id,
+    ///         Name = "ImportantBlueDocuments",
     ///         Filter = new Aws.S3.Inputs.BucketMetricFilterArgs
     ///         {
     ///             Prefix = "documents/",
@@ -60,13 +75,55 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Add metrics configuration with S3 object filter for S3 Access Point
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     {
+    ///         Bucket = "example",
+    ///     });
+    /// 
+    ///     var example_access_point = new Aws.S3.AccessPoint("example-access-point", new()
+    ///     {
+    ///         Bucket = example.Id,
+    ///         Name = "example-access-point",
+    ///     });
+    /// 
+    ///     var example_filtered = new Aws.S3.BucketMetric("example-filtered", new()
+    ///     {
+    ///         Bucket = example.Id,
+    ///         Name = "ImportantBlueDocuments",
+    ///         Filter = new Aws.S3.Inputs.BucketMetricFilterArgs
+    ///         {
+    ///             AccessPoint = example_access_point.Arn,
+    ///             Tags = 
+    ///             {
+    ///                 { "priority", "high" },
+    ///                 { "class", "blue" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import S3 bucket metric configurations using `bucket:metric`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket
+    /// $ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketMetric:BucketMetric")]

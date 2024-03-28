@@ -13,23 +13,26 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Declare the data source
  * const pc = aws.ec2.getVpcPeeringConnection({
- *     vpcId: aws_vpc.foo.id,
+ *     vpcId: foo.id,
  *     peerCidrBlock: "10.0.1.0/22",
  * });
  * // Create a route table
- * const rt = new aws.ec2.RouteTable("rt", {vpcId: aws_vpc.foo.id});
+ * const rt = new aws.ec2.RouteTable("rt", {vpcId: foo.id});
  * // Create a route
- * const route = new aws.ec2.Route("route", {
+ * const r = new aws.ec2.Route("r", {
  *     routeTableId: rt.id,
  *     destinationCidrBlock: pc.then(pc => pc.peerCidrBlock),
  *     vpcPeeringConnectionId: pc.then(pc => pc.id),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVpcPeeringConnection(args?: GetVpcPeeringConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcPeeringConnectionResult> {
     args = args || {};
@@ -123,17 +126,25 @@ export interface GetVpcPeeringConnectionResult {
      */
     readonly cidrBlock: string;
     /**
-     * List of objects with CIDR blocks of the requester VPC.
+     * List of objects with IPv4 CIDR blocks of the requester VPC.
      */
     readonly cidrBlockSets: outputs.ec2.GetVpcPeeringConnectionCidrBlockSet[];
     readonly filters?: outputs.ec2.GetVpcPeeringConnectionFilter[];
     readonly id: string;
+    /**
+     * List of objects with IPv6 CIDR blocks of the requester VPC.
+     */
+    readonly ipv6CidrBlockSets: outputs.ec2.GetVpcPeeringConnectionIpv6CidrBlockSet[];
     readonly ownerId: string;
     readonly peerCidrBlock: string;
     /**
-     * List of objects with CIDR blocks of the accepter VPC.
+     * List of objects with IPv4 CIDR blocks of the accepter VPC.
      */
     readonly peerCidrBlockSets: outputs.ec2.GetVpcPeeringConnectionPeerCidrBlockSet[];
+    /**
+     * List of objects with IPv6 CIDR blocks of the accepter VPC.
+     */
+    readonly peerIpv6CidrBlockSets: outputs.ec2.GetVpcPeeringConnectionPeerIpv6CidrBlockSet[];
     readonly peerOwnerId: string;
     readonly peerRegion: string;
     readonly peerVpcId: string;
@@ -153,23 +164,26 @@ export interface GetVpcPeeringConnectionResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Declare the data source
  * const pc = aws.ec2.getVpcPeeringConnection({
- *     vpcId: aws_vpc.foo.id,
+ *     vpcId: foo.id,
  *     peerCidrBlock: "10.0.1.0/22",
  * });
  * // Create a route table
- * const rt = new aws.ec2.RouteTable("rt", {vpcId: aws_vpc.foo.id});
+ * const rt = new aws.ec2.RouteTable("rt", {vpcId: foo.id});
  * // Create a route
- * const route = new aws.ec2.Route("route", {
+ * const r = new aws.ec2.Route("r", {
  *     routeTableId: rt.id,
  *     destinationCidrBlock: pc.then(pc => pc.peerCidrBlock),
  *     vpcPeeringConnectionId: pc.then(pc => pc.id),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVpcPeeringConnectionOutput(args?: GetVpcPeeringConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcPeeringConnectionResult> {
     return pulumi.output(args).apply((a: any) => getVpcPeeringConnection(a, opts))

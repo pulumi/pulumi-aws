@@ -21,6 +21,7 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,7 +47,7 @@ namespace Pulumi.Aws.DocDB
     ///     for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
     ///     {
     ///         var range = new { Value = rangeIndex };
-    ///         clusterInstances.Add(new Aws.DocDB.ClusterInstance($"clusterInstances-{range.Value}", new()
+    ///         clusterInstances.Add(new Aws.DocDB.ClusterInstance($"cluster_instances-{range.Value}", new()
     ///         {
     ///             Identifier = $"docdb-cluster-demo-{range.Value}",
     ///             ClusterIdentifier = @default.Id,
@@ -55,13 +56,14 @@ namespace Pulumi.Aws.DocDB
     ///     }
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DocumentDB Cluster Instances using the `identifier`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:docdb/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
+    /// $ pulumi import aws:docdb/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
     /// ```
     /// </summary>
     [AwsResourceType("aws:docdb/clusterInstance:ClusterInstance")]
@@ -93,7 +95,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) The identifier of the CA certificate for the DB instance.
+        /// The identifier of the certificate authority (CA) certificate for the DB instance.
         /// </summary>
         [Output("caCertIdentifier")]
         public Output<string> CaCertIdentifier { get; private set; } = null!;
@@ -274,10 +276,6 @@ namespace Pulumi.Aws.DocDB
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -321,7 +319,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// (Optional) The identifier of the CA certificate for the DB instance.
+        /// The identifier of the certificate authority (CA) certificate for the DB instance.
         /// </summary>
         [Input("caCertIdentifier")]
         public Input<string>? CaCertIdentifier { get; set; }
@@ -456,7 +454,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// (Optional) The identifier of the CA certificate for the DB instance.
+        /// The identifier of the certificate authority (CA) certificate for the DB instance.
         /// </summary>
         [Input("caCertIdentifier")]
         public Input<string>? CaCertIdentifier { get; set; }
@@ -618,11 +616,7 @@ namespace Pulumi.Aws.DocDB
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

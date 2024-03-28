@@ -13,8 +13,10 @@ namespace Pulumi.Aws.VpcLattice
     /// Resource for managing an AWS VPC Lattice Service Network or Service Access log subscription.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,19 +27,20 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.AccessLogSubscription("example", new()
     ///     {
-    ///         ResourceIdentifier = aws_vpclattice_service_network.Example.Id,
-    ///         DestinationArn = aws_s3.Bucket.Arn,
+    ///         ResourceIdentifier = exampleAwsVpclatticeServiceNetwork.Id,
+    ///         DestinationArn = bucket.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import VPC Lattice Access Log Subscription using the access log subscription ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
+    /// $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
     /// ```
     /// </summary>
     [AwsResourceType("aws:vpclattice/accessLogSubscription:AccessLogSubscription")]
@@ -96,10 +99,6 @@ namespace Pulumi.Aws.VpcLattice
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -189,11 +188,7 @@ namespace Pulumi.Aws.VpcLattice
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public AccessLogSubscriptionState()

@@ -16,13 +16,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.fis.ExperimentTemplate("example", {
  *     description: "example",
- *     roleArn: aws_iam_role.example.arn,
+ *     roleArn: exampleAwsIamRole.arn,
  *     stopConditions: [{
  *         source: "none",
  *     }],
@@ -45,13 +46,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import FIS Experiment Templates using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
+ * $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
  * ```
  */
 export class ExperimentTemplate extends pulumi.CustomResource {
@@ -162,8 +164,6 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ExperimentTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Deleting this resource does not disable the detector feature, the resource in simply removed from state instead.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,6 +54,7 @@ import javax.annotation.Nullable;
  * 
  *         var eksRuntimeMonitoring = new DetectorFeature(&#34;eksRuntimeMonitoring&#34;, DetectorFeatureArgs.builder()        
  *             .detectorId(example.id())
+ *             .name(&#34;EKS_RUNTIME_MONITORING&#34;)
  *             .status(&#34;ENABLED&#34;)
  *             .additionalConfigurations(DetectorFeatureAdditionalConfigurationArgs.builder()
  *                 .name(&#34;EKS_ADDON_MANAGEMENT&#34;)
@@ -62,6 +65,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:guardduty/detectorFeature:DetectorFeature")
@@ -95,14 +99,14 @@ public class DetectorFeature extends com.pulumi.resources.CustomResource {
         return this.detectorId;
     }
     /**
-     * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+     * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+     * @return The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
      * 
      */
     public Output<String> name() {

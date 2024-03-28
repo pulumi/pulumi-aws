@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleActionBlockCustomResponseResponseHeader;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -75,16 +76,21 @@ public final class RuleGroupRuleActionBlockCustomResponse {
 
         @CustomType.Setter
         public Builder customResponseBodyKey(@Nullable String customResponseBodyKey) {
+
             this.customResponseBodyKey = customResponseBodyKey;
             return this;
         }
         @CustomType.Setter
         public Builder responseCode(Integer responseCode) {
-            this.responseCode = Objects.requireNonNull(responseCode);
+            if (responseCode == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleActionBlockCustomResponse", "responseCode");
+            }
+            this.responseCode = responseCode;
             return this;
         }
         @CustomType.Setter
         public Builder responseHeaders(@Nullable List<RuleGroupRuleActionBlockCustomResponseResponseHeader> responseHeaders) {
+
             this.responseHeaders = responseHeaders;
             return this;
         }
@@ -92,11 +98,11 @@ public final class RuleGroupRuleActionBlockCustomResponse {
             return responseHeaders(List.of(responseHeaders));
         }
         public RuleGroupRuleActionBlockCustomResponse build() {
-            final var o = new RuleGroupRuleActionBlockCustomResponse();
-            o.customResponseBodyKey = customResponseBodyKey;
-            o.responseCode = responseCode;
-            o.responseHeaders = responseHeaders;
-            return o;
+            final var _resultValue = new RuleGroupRuleActionBlockCustomResponse();
+            _resultValue.customResponseBodyKey = customResponseBodyKey;
+            _resultValue.responseCode = responseCode;
+            _resultValue.responseHeaders = responseHeaders;
+            return _resultValue;
         }
     }
 }

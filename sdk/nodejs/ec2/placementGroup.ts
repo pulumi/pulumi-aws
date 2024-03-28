@@ -13,19 +13,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const web = new aws.ec2.PlacementGroup("web", {strategy: "cluster"});
+ * const web = new aws.ec2.PlacementGroup("web", {
+ *     name: "hunky-dory-pg",
+ *     strategy: aws.ec2.PlacementStrategy.Cluster,
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import placement groups using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
+ * $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
  * ```
  */
 export class PlacementGroup extends pulumi.CustomResource {
@@ -130,8 +135,6 @@ export class PlacementGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(PlacementGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

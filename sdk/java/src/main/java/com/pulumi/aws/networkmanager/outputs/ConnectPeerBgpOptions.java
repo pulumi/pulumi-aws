@@ -36,13 +36,14 @@ public final class ConnectPeerBgpOptions {
 
         @CustomType.Setter
         public Builder peerAsn(@Nullable Integer peerAsn) {
+
             this.peerAsn = peerAsn;
             return this;
         }
         public ConnectPeerBgpOptions build() {
-            final var o = new ConnectPeerBgpOptions();
-            o.peerAsn = peerAsn;
-            return o;
+            final var _resultValue = new ConnectPeerBgpOptions();
+            _resultValue.peerAsn = peerAsn;
+            return _resultValue;
         }
     }
 }

@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Creates a Redshift authentication profile
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,22 +45,23 @@ import javax.annotation.Nullable;
  *             .authenticationProfileName(&#34;example&#34;)
  *             .authenticationProfileContent(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;AllowDBUserOverride&#34;, &#34;1&#34;),
- *                     jsonProperty(&#34;Client_ID&#34;, &#34;ExampleClientID&#34;),
- *                     jsonProperty(&#34;App_ID&#34;, &#34;example&#34;)
+ *                     jsonProperty(&#34;allowDBUserOverride&#34;, &#34;1&#34;),
+ *                     jsonProperty(&#34;clientID&#34;, &#34;ExampleClientID&#34;),
+ *                     jsonProperty(&#34;appID&#34;, &#34;example&#34;)
  *                 )))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
+ * $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
  * ```
  * 
  */

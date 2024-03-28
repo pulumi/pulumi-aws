@@ -14,8 +14,10 @@ import (
 // Resource for managing an AWS Audit Manager Control.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := auditmanager.NewControl(ctx, "example", &auditmanager.ControlArgs{
+//				Name: pulumi.String("example"),
 //				ControlMappingSources: auditmanager.ControlControlMappingSourceArray{
 //					&auditmanager.ControlControlMappingSourceArgs{
 //						SourceName:        pulumi.String("example"),
@@ -45,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import an Audit Manager Control using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:auditmanager/control:Control example abc123-de45
-//
+// $ pulumi import aws:auditmanager/control:Control example abc123-de45
 // ```
 type Control struct {
 	pulumi.CustomResourceState
@@ -90,10 +92,6 @@ func NewControl(ctx *pulumi.Context,
 		args = &ControlArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Control
 	err := ctx.RegisterResource("aws:auditmanager/control:Control", name, args, &resource, opts...)

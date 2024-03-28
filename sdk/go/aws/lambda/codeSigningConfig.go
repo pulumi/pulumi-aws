@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,11 +31,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewCodeSigningConfig(ctx, "newCsc", &lambda.CodeSigningConfigArgs{
+//			_, err := lambda.NewCodeSigningConfig(ctx, "new_csc", &lambda.CodeSigningConfigArgs{
 //				AllowedPublishers: &lambda.CodeSigningConfigAllowedPublishersArgs{
 //					SigningProfileVersionArns: pulumi.StringArray{
-//						aws_signer_signing_profile.Example1.Arn,
-//						aws_signer_signing_profile.Example2.Arn,
+//						example1.Arn,
+//						example2.Arn,
 //					},
 //				},
 //				Policies: &lambda.CodeSigningConfigPoliciesArgs{
@@ -50,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Code Signing Configs using their ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig imported_csc arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
-//
+// $ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig imported_csc arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
 // ```
 type CodeSigningConfig struct {
 	pulumi.CustomResourceState

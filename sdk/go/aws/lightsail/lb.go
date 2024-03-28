@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lightsail.NewLb(ctx, "test", &lightsail.LbArgs{
+//				Name:            pulumi.String("test-load-balancer"),
 //				HealthCheckPath: pulumi.String("/"),
 //				InstancePort:    pulumi.Int(80),
 //				Tags: pulumi.StringMap{
@@ -43,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_lightsail_lb` using the name attribute. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lightsail/lb:Lb test example-load-balancer
-//
+// $ pulumi import aws:lightsail/lb:Lb test example-load-balancer
 // ```
 type Lb struct {
 	pulumi.CustomResourceState
@@ -93,10 +94,6 @@ func NewLb(ctx *pulumi.Context,
 	if args.InstancePort == nil {
 		return nil, errors.New("invalid value for required argument 'InstancePort'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Lb
 	err := ctx.RegisterResource("aws:lightsail/lb:Lb", name, args, &resource, opts...)

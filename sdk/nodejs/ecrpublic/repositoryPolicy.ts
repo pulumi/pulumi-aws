@@ -13,12 +13,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRepository = new aws.ecrpublic.Repository("exampleRepository", {repositoryName: "example"});
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ * const exampleRepository = new aws.ecrpublic.Repository("example", {repositoryName: "example"});
+ * const example = aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "new policy",
  *         effect: "Allow",
@@ -44,18 +45,19 @@ import * as utilities from "../utilities";
  *         ],
  *     }],
  * });
- * const exampleRepositoryPolicy = new aws.ecrpublic.RepositoryPolicy("exampleRepositoryPolicy", {
+ * const exampleRepositoryPolicy = new aws.ecrpublic.RepositoryPolicy("example", {
  *     repositoryName: exampleRepository.repositoryName,
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
+ *     policy: example.then(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ECR Public Repository Policy using the repository name. For example:
  *
  * ```sh
- *  $ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
+ * $ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
  * ```
  */
 export class RepositoryPolicy extends pulumi.CustomResource {

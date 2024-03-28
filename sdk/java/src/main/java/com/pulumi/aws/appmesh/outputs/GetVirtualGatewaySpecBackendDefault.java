@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecBackendDefaultClientPolicy;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,16 +36,19 @@ public final class GetVirtualGatewaySpecBackendDefault {
 
         @CustomType.Setter
         public Builder clientPolicies(List<GetVirtualGatewaySpecBackendDefaultClientPolicy> clientPolicies) {
-            this.clientPolicies = Objects.requireNonNull(clientPolicies);
+            if (clientPolicies == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecBackendDefault", "clientPolicies");
+            }
+            this.clientPolicies = clientPolicies;
             return this;
         }
         public Builder clientPolicies(GetVirtualGatewaySpecBackendDefaultClientPolicy... clientPolicies) {
             return clientPolicies(List.of(clientPolicies));
         }
         public GetVirtualGatewaySpecBackendDefault build() {
-            final var o = new GetVirtualGatewaySpecBackendDefault();
-            o.clientPolicies = clientPolicies;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecBackendDefault();
+            _resultValue.clientPolicies = clientPolicies;
+            return _resultValue;
         }
     }
 }

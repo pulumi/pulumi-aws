@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAu
 
         @CustomType.Setter
         public Builder credentialsParameter(String credentialsParameter) {
-            this.credentialsParameter = Objects.requireNonNull(credentialsParameter);
+            if (credentialsParameter == null) {
+              throw new MissingRequiredPropertyException("TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig", "credentialsParameter");
+            }
+            this.credentialsParameter = credentialsParameter;
             return this;
         }
         @CustomType.Setter
         public Builder domain(String domain) {
-            this.domain = Objects.requireNonNull(domain);
+            if (domain == null) {
+              throw new MissingRequiredPropertyException("TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig", "domain");
+            }
+            this.domain = domain;
             return this;
         }
         public TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig build() {
-            final var o = new TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig();
-            o.credentialsParameter = credentialsParameter;
-            o.domain = domain;
-            return o;
+            final var _resultValue = new TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig();
+            _resultValue.credentialsParameter = credentialsParameter;
+            _resultValue.domain = domain;
+            return _resultValue;
         }
     }
 }

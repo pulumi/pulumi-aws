@@ -59,19 +59,21 @@ public final class DomainEndpointOptions {
 
         @CustomType.Setter
         public Builder enforceHttps(@Nullable Boolean enforceHttps) {
+
             this.enforceHttps = enforceHttps;
             return this;
         }
         @CustomType.Setter
         public Builder tlsSecurityPolicy(@Nullable String tlsSecurityPolicy) {
+
             this.tlsSecurityPolicy = tlsSecurityPolicy;
             return this;
         }
         public DomainEndpointOptions build() {
-            final var o = new DomainEndpointOptions();
-            o.enforceHttps = enforceHttps;
-            o.tlsSecurityPolicy = tlsSecurityPolicy;
-            return o;
+            final var _resultValue = new DomainEndpointOptions();
+            _resultValue.enforceHttps = enforceHttps;
+            _resultValue.tlsSecurityPolicy = tlsSecurityPolicy;
+            return _resultValue;
         }
     }
 }

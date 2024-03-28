@@ -4,6 +4,7 @@
 package com.pulumi.aws.budgets.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -86,6 +87,7 @@ public final class BudgetActionDefinitionIamActionDefinition {
 
         @CustomType.Setter
         public Builder groups(@Nullable List<String> groups) {
+
             this.groups = groups;
             return this;
         }
@@ -94,11 +96,15 @@ public final class BudgetActionDefinitionIamActionDefinition {
         }
         @CustomType.Setter
         public Builder policyArn(String policyArn) {
-            this.policyArn = Objects.requireNonNull(policyArn);
+            if (policyArn == null) {
+              throw new MissingRequiredPropertyException("BudgetActionDefinitionIamActionDefinition", "policyArn");
+            }
+            this.policyArn = policyArn;
             return this;
         }
         @CustomType.Setter
         public Builder roles(@Nullable List<String> roles) {
+
             this.roles = roles;
             return this;
         }
@@ -107,6 +113,7 @@ public final class BudgetActionDefinitionIamActionDefinition {
         }
         @CustomType.Setter
         public Builder users(@Nullable List<String> users) {
+
             this.users = users;
             return this;
         }
@@ -114,12 +121,12 @@ public final class BudgetActionDefinitionIamActionDefinition {
             return users(List.of(users));
         }
         public BudgetActionDefinitionIamActionDefinition build() {
-            final var o = new BudgetActionDefinitionIamActionDefinition();
-            o.groups = groups;
-            o.policyArn = policyArn;
-            o.roles = roles;
-            o.users = users;
-            return o;
+            final var _resultValue = new BudgetActionDefinitionIamActionDefinition();
+            _resultValue.groups = groups;
+            _resultValue.policyArn = policyArn;
+            _resultValue.roles = roles;
+            _resultValue.users = users;
+            return _resultValue;
         }
     }
 }

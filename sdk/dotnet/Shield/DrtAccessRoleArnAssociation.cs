@@ -10,11 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Shield
 {
     /// <summary>
-    /// Authorizes the Shield Response Team (SRT) using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks. For more information see [Configure AWS SRT Support](https://docs.aws.amazon.com/waf/latest/developerguide/authorize-srt.html)
+    /// Authorizes the Shield Response Team (SRT) using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks.
+    /// For more information see [Configure AWS SRT Support](https://docs.aws.amazon.com/waf/latest/developerguide/authorize-srt.html)
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,12 +27,13 @@ namespace Pulumi.Aws.Shield
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testRole = new Aws.Iam.Role("testRole", new()
+    ///     var test = new Aws.Iam.Role("test", new()
     ///     {
+    ///         Name = awsShieldDrtAccessRoleArn,
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
@@ -45,18 +49,27 @@ namespace Pulumi.Aws.Shield
     ///         }),
     ///     });
     /// 
-    ///     var testRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("testRolePolicyAttachment", new()
+    ///     var testRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("test", new()
     ///     {
-    ///         Role = testRole.Name,
+    ///         Role = test.Name,
     ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy",
     ///     });
     /// 
-    ///     var testDrtAccessRoleArnAssociation = new Aws.Shield.DrtAccessRoleArnAssociation("testDrtAccessRoleArnAssociation", new()
+    ///     var testDrtAccessRoleArnAssociation = new Aws.Shield.DrtAccessRoleArnAssociation("test", new()
     ///     {
-    ///         RoleArn = testRole.Arn,
+    ///         RoleArn = test.Arn,
     ///     });
     /// 
     /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ## Import
+    /// 
+    /// Using `pulumi import`, import Shield DRT access role ARN association using the AWS account ID. For example:
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation example 123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation")]

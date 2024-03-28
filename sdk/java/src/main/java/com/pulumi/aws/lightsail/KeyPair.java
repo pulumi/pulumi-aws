@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -24,33 +23,10 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see [&#34;Regions and Availability Zones in Amazon Lightsail&#34;](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
  * 
  * ## Example Usage
+ * 
  * ### Create New Key Pair
- * ```java
- * package generated_program;
  * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lightsail.KeyPair;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var lgKeyPair = new KeyPair(&#34;lgKeyPair&#34;);
- * 
- *     }
- * }
- * ```
- * ### Create New Key Pair with PGP Encrypted Private Key
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -73,13 +49,51 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var lgKeyPair = new KeyPair(&#34;lgKeyPair&#34;, KeyPairArgs.builder()        
+ *             .name(&#34;lg_key_pair&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Create New Key Pair with PGP Encrypted Private Key
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lightsail.KeyPair;
+ * import com.pulumi.aws.lightsail.KeyPairArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var lgKeyPair = new KeyPair(&#34;lgKeyPair&#34;, KeyPairArgs.builder()        
+ *             .name(&#34;lg_key_pair&#34;)
  *             .pgpKey(&#34;keybase:keybaseusername&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Existing Public Key Import
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -102,12 +116,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var lgKeyPair = new KeyPair(&#34;lgKeyPair&#34;, KeyPairArgs.builder()        
- *             .publicKey(Files.readString(Paths.get(&#34;~/.ssh/id_rsa.pub&#34;)))
+ *             .name(&#34;importing&#34;)
+ *             .publicKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;~/.ssh/id_rsa.pub&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -297,9 +315,6 @@ public class KeyPair extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

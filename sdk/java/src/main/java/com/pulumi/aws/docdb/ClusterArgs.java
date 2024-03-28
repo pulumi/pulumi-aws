@@ -193,14 +193,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+     * The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
      * 
      */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
     /**
-     * @return The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+     * @return The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
      * 
      */
     public Optional<Output<String>> engine() {
@@ -396,6 +396,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+     * 
+     */
+    @Import(name="storageType")
+    private @Nullable Output<String> storageType;
+
+    /**
+     * @return The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+     * 
+     */
+    public Optional<Output<String>> storageType() {
+        return Optional.ofNullable(this.storageType);
+    }
+
+    /**
      * A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -454,6 +469,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.skipFinalSnapshot = $.skipFinalSnapshot;
         this.snapshotIdentifier = $.snapshotIdentifier;
         this.storageEncrypted = $.storageEncrypted;
+        this.storageType = $.storageType;
         this.tags = $.tags;
         this.vpcSecurityGroupIds = $.vpcSecurityGroupIds;
     }
@@ -748,7 +764,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+         * @param engine The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
          * 
          * @return builder
          * 
@@ -759,7 +775,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+         * @param engine The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
          * 
          * @return builder
          * 
@@ -1026,6 +1042,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder storageEncrypted(Boolean storageEncrypted) {
             return storageEncrypted(Output.of(storageEncrypted));
+        }
+
+        /**
+         * @param storageType The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageType(@Nullable Output<String> storageType) {
+            $.storageType = storageType;
+            return this;
+        }
+
+        /**
+         * @param storageType The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageType(String storageType) {
+            return storageType(Output.of(storageType));
         }
 
         /**

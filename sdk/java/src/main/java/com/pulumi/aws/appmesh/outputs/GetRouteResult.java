@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetRouteSpec;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -153,47 +154,74 @@ public final class GetRouteResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+            if (createdDate == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "createdDate");
+            }
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder lastUpdatedDate(String lastUpdatedDate) {
-            this.lastUpdatedDate = Objects.requireNonNull(lastUpdatedDate);
+            if (lastUpdatedDate == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "lastUpdatedDate");
+            }
+            this.lastUpdatedDate = lastUpdatedDate;
             return this;
         }
         @CustomType.Setter
         public Builder meshName(String meshName) {
-            this.meshName = Objects.requireNonNull(meshName);
+            if (meshName == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "meshName");
+            }
+            this.meshName = meshName;
             return this;
         }
         @CustomType.Setter
         public Builder meshOwner(String meshOwner) {
-            this.meshOwner = Objects.requireNonNull(meshOwner);
+            if (meshOwner == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "meshOwner");
+            }
+            this.meshOwner = meshOwner;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceOwner(String resourceOwner) {
-            this.resourceOwner = Objects.requireNonNull(resourceOwner);
+            if (resourceOwner == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "resourceOwner");
+            }
+            this.resourceOwner = resourceOwner;
             return this;
         }
         @CustomType.Setter
         public Builder specs(List<GetRouteSpec> specs) {
-            this.specs = Objects.requireNonNull(specs);
+            if (specs == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "specs");
+            }
+            this.specs = specs;
             return this;
         }
         public Builder specs(GetRouteSpec... specs) {
@@ -201,28 +229,34 @@ public final class GetRouteResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder virtualRouterName(String virtualRouterName) {
-            this.virtualRouterName = Objects.requireNonNull(virtualRouterName);
+            if (virtualRouterName == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "virtualRouterName");
+            }
+            this.virtualRouterName = virtualRouterName;
             return this;
         }
         public GetRouteResult build() {
-            final var o = new GetRouteResult();
-            o.arn = arn;
-            o.createdDate = createdDate;
-            o.id = id;
-            o.lastUpdatedDate = lastUpdatedDate;
-            o.meshName = meshName;
-            o.meshOwner = meshOwner;
-            o.name = name;
-            o.resourceOwner = resourceOwner;
-            o.specs = specs;
-            o.tags = tags;
-            o.virtualRouterName = virtualRouterName;
-            return o;
+            final var _resultValue = new GetRouteResult();
+            _resultValue.arn = arn;
+            _resultValue.createdDate = createdDate;
+            _resultValue.id = id;
+            _resultValue.lastUpdatedDate = lastUpdatedDate;
+            _resultValue.meshName = meshName;
+            _resultValue.meshOwner = meshOwner;
+            _resultValue.name = name;
+            _resultValue.resourceOwner = resourceOwner;
+            _resultValue.specs = specs;
+            _resultValue.tags = tags;
+            _resultValue.virtualRouterName = virtualRouterName;
+            return _resultValue;
         }
     }
 }

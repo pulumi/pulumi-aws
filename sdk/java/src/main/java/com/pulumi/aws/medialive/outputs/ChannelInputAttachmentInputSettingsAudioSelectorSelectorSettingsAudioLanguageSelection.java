@@ -4,6 +4,7 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,19 +59,23 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
 
         @CustomType.Setter
         public Builder languageCode(String languageCode) {
-            this.languageCode = Objects.requireNonNull(languageCode);
+            if (languageCode == null) {
+              throw new MissingRequiredPropertyException("ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection", "languageCode");
+            }
+            this.languageCode = languageCode;
             return this;
         }
         @CustomType.Setter
         public Builder languageSelectionPolicy(@Nullable String languageSelectionPolicy) {
+
             this.languageSelectionPolicy = languageSelectionPolicy;
             return this;
         }
         public ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection build() {
-            final var o = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection();
-            o.languageCode = languageCode;
-            o.languageSelectionPolicy = languageSelectionPolicy;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection();
+            _resultValue.languageCode = languageCode;
+            _resultValue.languageSelectionPolicy = languageSelectionPolicy;
+            return _resultValue;
         }
     }
 }

@@ -18,6 +18,7 @@ import (
 //
 // Create required roles and then create a DMS instance, setting the dependsOn to the required role policy attachments.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,6 +32,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Database Migration Service requires the below IAM Roles to be created before
+//			// replication instances can be created. See the DMS Documentation for
+//			// additional information: https://docs.aws.amazon.com/dms/latest/userguide/security-iam.html#CHAP_Security.APIRole
+//			//   - dms-vpc-role
+//			//   - dms-cloudwatch-logs-role
+//			//   - dms-access-for-endpoint
 //			dmsAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
@@ -52,7 +59,8 @@ import (
 //				return err
 //			}
 //			_, err = iam.NewRole(ctx, "dms-access-for-endpoint", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(dmsAssumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(dmsAssumeRole.Json),
+//				Name:             pulumi.String("dms-access-for-endpoint"),
 //			})
 //			if err != nil {
 //				return err
@@ -65,7 +73,8 @@ import (
 //				return err
 //			}
 //			_, err = iam.NewRole(ctx, "dms-cloudwatch-logs-role", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(dmsAssumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(dmsAssumeRole.Json),
+//				Name:             pulumi.String("dms-cloudwatch-logs-role"),
 //			})
 //			if err != nil {
 //				return err
@@ -78,7 +87,8 @@ import (
 //				return err
 //			}
 //			_, err = iam.NewRole(ctx, "dms-vpc-role", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(dmsAssumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(dmsAssumeRole.Json),
+//				Name:             pulumi.String("dms-vpc-role"),
 //			})
 //			if err != nil {
 //				return err
@@ -90,6 +100,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Create a new replication instance
 //			_, err = dms.NewReplicationInstance(ctx, "test", &dms.ReplicationInstanceArgs{
 //				AllocatedStorage:           pulumi.Int(20),
 //				ApplyImmediately:           pulumi.Bool(true),
@@ -102,18 +113,14 @@ import (
 //				PubliclyAccessible:         pulumi.Bool(true),
 //				ReplicationInstanceClass:   pulumi.String("dms.t2.micro"),
 //				ReplicationInstanceId:      pulumi.String("test-dms-replication-instance-tf"),
-//				ReplicationSubnetGroupId:   pulumi.Any(aws_dms_replication_subnet_group.TestDmsReplicationSubnetGroupTf.Id),
+//				ReplicationSubnetGroupId:   pulumi.Any(test_dms_replication_subnet_group_tf.Id),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("test"),
 //				},
 //				VpcSecurityGroupIds: pulumi.StringArray{
 //					pulumi.String("sg-12345678"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				dms_access_for_endpoint_AmazonDMSRedshiftS3Role,
-//				dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole,
-//				dms_vpc_role_AmazonDMSVPCManagementRole,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -122,15 +129,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import replication instances using the `replication_instance_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
-//
+// $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
 // ```
 type ReplicationInstance struct {
 	pulumi.CustomResourceState
@@ -202,10 +208,6 @@ func NewReplicationInstance(ctx *pulumi.Context,
 	if args.ReplicationInstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'ReplicationInstanceId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationInstance
 	err := ctx.RegisterResource("aws:dms/replicationInstance:ReplicationInstance", name, args, &resource, opts...)

@@ -5,6 +5,7 @@ package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidr;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,16 +44,19 @@ public final class GetFirewallFirewallStatusCapacityUsageSummary {
 
         @CustomType.Setter
         public Builder cidrs(List<GetFirewallFirewallStatusCapacityUsageSummaryCidr> cidrs) {
-            this.cidrs = Objects.requireNonNull(cidrs);
+            if (cidrs == null) {
+              throw new MissingRequiredPropertyException("GetFirewallFirewallStatusCapacityUsageSummary", "cidrs");
+            }
+            this.cidrs = cidrs;
             return this;
         }
         public Builder cidrs(GetFirewallFirewallStatusCapacityUsageSummaryCidr... cidrs) {
             return cidrs(List.of(cidrs));
         }
         public GetFirewallFirewallStatusCapacityUsageSummary build() {
-            final var o = new GetFirewallFirewallStatusCapacityUsageSummary();
-            o.cidrs = cidrs;
-            return o;
+            final var _resultValue = new GetFirewallFirewallStatusCapacityUsageSummary();
+            _resultValue.cidrs = cidrs;
+            return _resultValue;
         }
     }
 }

@@ -11,43 +11,46 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS QuickSight VPC Connection.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const vpcConnectionRole = new aws.iam.Role("vpcConnectionRole", {
+ * const vpcConnectionRole = new aws.iam.Role("vpc_connection_role", {
  *     assumeRolePolicy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Action: "sts:AssumeRole",
- *             Principal: {
- *                 Service: "quicksight.amazonaws.com",
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             effect: "Allow",
+ *             action: "sts:AssumeRole",
+ *             principal: {
+ *                 service: "quicksight.amazonaws.com",
  *             },
  *         }],
  *     }),
  *     inlinePolicies: [{
  *         name: "QuickSightVPCConnectionRolePolicy",
  *         policy: JSON.stringify({
- *             Version: "2012-10-17",
- *             Statement: [{
- *                 Effect: "Allow",
- *                 Action: [
+ *             version: "2012-10-17",
+ *             statement: [{
+ *                 effect: "Allow",
+ *                 action: [
  *                     "ec2:CreateNetworkInterface",
  *                     "ec2:ModifyNetworkInterfaceAttribute",
  *                     "ec2:DeleteNetworkInterface",
  *                     "ec2:DescribeSubnets",
  *                     "ec2:DescribeSecurityGroups",
  *                 ],
- *                 Resource: ["*"],
+ *                 resource: ["*"],
  *             }],
  *         }),
  *     }],
  * });
  * const example = new aws.quicksight.VpcConnection("example", {
  *     vpcConnectionId: "example-connection-id",
+ *     name: "Example Connection",
  *     roleArn: vpcConnectionRole.arn,
  *     securityGroupIds: ["sg-00000000000000000"],
  *     subnetIds: [
@@ -56,13 +59,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import QuickSight VPC connection using the AWS account ID and VPC connection ID separated by commas (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
+ * $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
  * ```
  */
 export class VpcConnection extends pulumi.CustomResource {
@@ -196,8 +200,6 @@ export class VpcConnection extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VpcConnection.__pulumiType, name, resourceInputs, opts);
     }
 }

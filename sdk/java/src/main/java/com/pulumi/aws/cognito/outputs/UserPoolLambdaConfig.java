@@ -5,6 +5,7 @@ package com.pulumi.aws.cognito.outputs;
 
 import com.pulumi.aws.cognito.outputs.UserPoolLambdaConfigCustomEmailSender;
 import com.pulumi.aws.cognito.outputs.UserPoolLambdaConfigCustomSmsSender;
+import com.pulumi.aws.cognito.outputs.UserPoolLambdaConfigPreTokenGenerationConfig;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
@@ -64,10 +65,15 @@ public final class UserPoolLambdaConfig {
      */
     private @Nullable String preSignUp;
     /**
-     * @return Allow to customize identity token claims before token generation.
+     * @return Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
      * 
      */
     private @Nullable String preTokenGeneration;
+    /**
+     * @return Allow to customize access tokens. See pre_token_configuration_type
+     * 
+     */
+    private @Nullable UserPoolLambdaConfigPreTokenGenerationConfig preTokenGenerationConfig;
     /**
      * @return User migration Lambda config type.
      * 
@@ -151,11 +157,18 @@ public final class UserPoolLambdaConfig {
         return Optional.ofNullable(this.preSignUp);
     }
     /**
-     * @return Allow to customize identity token claims before token generation.
+     * @return Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
      * 
      */
     public Optional<String> preTokenGeneration() {
         return Optional.ofNullable(this.preTokenGeneration);
+    }
+    /**
+     * @return Allow to customize access tokens. See pre_token_configuration_type
+     * 
+     */
+    public Optional<UserPoolLambdaConfigPreTokenGenerationConfig> preTokenGenerationConfig() {
+        return Optional.ofNullable(this.preTokenGenerationConfig);
     }
     /**
      * @return User migration Lambda config type.
@@ -192,6 +205,7 @@ public final class UserPoolLambdaConfig {
         private @Nullable String preAuthentication;
         private @Nullable String preSignUp;
         private @Nullable String preTokenGeneration;
+        private @Nullable UserPoolLambdaConfigPreTokenGenerationConfig preTokenGenerationConfig;
         private @Nullable String userMigration;
         private @Nullable String verifyAuthChallengeResponse;
         public Builder() {}
@@ -208,91 +222,112 @@ public final class UserPoolLambdaConfig {
     	      this.preAuthentication = defaults.preAuthentication;
     	      this.preSignUp = defaults.preSignUp;
     	      this.preTokenGeneration = defaults.preTokenGeneration;
+    	      this.preTokenGenerationConfig = defaults.preTokenGenerationConfig;
     	      this.userMigration = defaults.userMigration;
     	      this.verifyAuthChallengeResponse = defaults.verifyAuthChallengeResponse;
         }
 
         @CustomType.Setter
         public Builder createAuthChallenge(@Nullable String createAuthChallenge) {
+
             this.createAuthChallenge = createAuthChallenge;
             return this;
         }
         @CustomType.Setter
         public Builder customEmailSender(@Nullable UserPoolLambdaConfigCustomEmailSender customEmailSender) {
+
             this.customEmailSender = customEmailSender;
             return this;
         }
         @CustomType.Setter
         public Builder customMessage(@Nullable String customMessage) {
+
             this.customMessage = customMessage;
             return this;
         }
         @CustomType.Setter
         public Builder customSmsSender(@Nullable UserPoolLambdaConfigCustomSmsSender customSmsSender) {
+
             this.customSmsSender = customSmsSender;
             return this;
         }
         @CustomType.Setter
         public Builder defineAuthChallenge(@Nullable String defineAuthChallenge) {
+
             this.defineAuthChallenge = defineAuthChallenge;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder postAuthentication(@Nullable String postAuthentication) {
+
             this.postAuthentication = postAuthentication;
             return this;
         }
         @CustomType.Setter
         public Builder postConfirmation(@Nullable String postConfirmation) {
+
             this.postConfirmation = postConfirmation;
             return this;
         }
         @CustomType.Setter
         public Builder preAuthentication(@Nullable String preAuthentication) {
+
             this.preAuthentication = preAuthentication;
             return this;
         }
         @CustomType.Setter
         public Builder preSignUp(@Nullable String preSignUp) {
+
             this.preSignUp = preSignUp;
             return this;
         }
         @CustomType.Setter
         public Builder preTokenGeneration(@Nullable String preTokenGeneration) {
+
             this.preTokenGeneration = preTokenGeneration;
             return this;
         }
         @CustomType.Setter
+        public Builder preTokenGenerationConfig(@Nullable UserPoolLambdaConfigPreTokenGenerationConfig preTokenGenerationConfig) {
+
+            this.preTokenGenerationConfig = preTokenGenerationConfig;
+            return this;
+        }
+        @CustomType.Setter
         public Builder userMigration(@Nullable String userMigration) {
+
             this.userMigration = userMigration;
             return this;
         }
         @CustomType.Setter
         public Builder verifyAuthChallengeResponse(@Nullable String verifyAuthChallengeResponse) {
+
             this.verifyAuthChallengeResponse = verifyAuthChallengeResponse;
             return this;
         }
         public UserPoolLambdaConfig build() {
-            final var o = new UserPoolLambdaConfig();
-            o.createAuthChallenge = createAuthChallenge;
-            o.customEmailSender = customEmailSender;
-            o.customMessage = customMessage;
-            o.customSmsSender = customSmsSender;
-            o.defineAuthChallenge = defineAuthChallenge;
-            o.kmsKeyId = kmsKeyId;
-            o.postAuthentication = postAuthentication;
-            o.postConfirmation = postConfirmation;
-            o.preAuthentication = preAuthentication;
-            o.preSignUp = preSignUp;
-            o.preTokenGeneration = preTokenGeneration;
-            o.userMigration = userMigration;
-            o.verifyAuthChallengeResponse = verifyAuthChallengeResponse;
-            return o;
+            final var _resultValue = new UserPoolLambdaConfig();
+            _resultValue.createAuthChallenge = createAuthChallenge;
+            _resultValue.customEmailSender = customEmailSender;
+            _resultValue.customMessage = customMessage;
+            _resultValue.customSmsSender = customSmsSender;
+            _resultValue.defineAuthChallenge = defineAuthChallenge;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.postAuthentication = postAuthentication;
+            _resultValue.postConfirmation = postConfirmation;
+            _resultValue.preAuthentication = preAuthentication;
+            _resultValue.preSignUp = preSignUp;
+            _resultValue.preTokenGeneration = preTokenGeneration;
+            _resultValue.preTokenGenerationConfig = preTokenGenerationConfig;
+            _resultValue.userMigration = userMigration;
+            _resultValue.verifyAuthChallengeResponse = verifyAuthChallengeResponse;
+            return _resultValue;
         }
     }
 }

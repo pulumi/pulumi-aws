@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSql
         }
 
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll();
+            return _resultValue;
         }
     }
 }

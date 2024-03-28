@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,7 +35,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testStream, err := kinesis.NewStream(ctx, "testStream", &kinesis.StreamArgs{
+//			testStream, err := kinesis.NewStream(ctx, "test_stream", &kinesis.StreamArgs{
+//				Name:       pulumi.String("pinpoint-kinesis-test"),
 //				ShardCount: pulumi.Int(1),
 //			})
 //			if err != nil {
@@ -61,8 +63,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testRole, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//			testRole, err := iam.NewRole(ctx, "test_role", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -75,7 +77,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testRolePolicyPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			testRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Effect: pulumi.StringRef("Allow"),
@@ -92,9 +94,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicy(ctx, "testRolePolicyRolePolicy", &iam.RolePolicyArgs{
+//			_, err = iam.NewRolePolicy(ctx, "test_role_policy", &iam.RolePolicyArgs{
+//				Name:   pulumi.String("test_policy"),
 //				Role:   testRole.ID(),
-//				Policy: *pulumi.String(testRolePolicyPolicyDocument.Json),
+//				Policy: pulumi.String(testRolePolicy.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -104,15 +107,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Pinpoint Event Stream using the `application-id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
-//
+// $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
 // ```
 type EventStream struct {
 	pulumi.CustomResourceState

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.GetSites(ctx, &networkmanager.GetSitesArgs{
-//				GlobalNetworkId: _var.Global_network_id,
+//				GlobalNetworkId: globalNetworkId,
 //				Tags: map[string]interface{}{
 //					"Env": "test",
 //				},
@@ -41,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetSites(ctx *pulumi.Context, args *GetSitesArgs, opts ...pulumi.InvokeOption) (*GetSitesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSitesResult

@@ -197,12 +197,36 @@ class Package(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        my_opensearch_packages = aws.s3.BucketV2("my_opensearch_packages", bucket="my-opensearch-packages")
+        example = aws.s3.BucketObjectv2("example",
+            bucket=my_opensearch_packages.bucket,
+            key="example.txt",
+            source=pulumi.FileAsset("./example.txt"),
+            etag=std.filemd5(input="./example.txt").result)
+        example_package = aws.opensearch.Package("example",
+            package_name="example-txt",
+            package_source=aws.opensearch.PackagePackageSourceArgs(
+                s3_bucket_name=my_opensearch_packages.bucket,
+                s3_key=example.key,
+            ),
+            package_type="TXT-DICTIONARY")
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For example:
 
         ```sh
-         $ pulumi import aws:opensearch/package:Package example package-id
+        $ pulumi import aws:opensearch/package:Package example package-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -223,12 +247,36 @@ class Package(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        my_opensearch_packages = aws.s3.BucketV2("my_opensearch_packages", bucket="my-opensearch-packages")
+        example = aws.s3.BucketObjectv2("example",
+            bucket=my_opensearch_packages.bucket,
+            key="example.txt",
+            source=pulumi.FileAsset("./example.txt"),
+            etag=std.filemd5(input="./example.txt").result)
+        example_package = aws.opensearch.Package("example",
+            package_name="example-txt",
+            package_source=aws.opensearch.PackagePackageSourceArgs(
+                s3_bucket_name=my_opensearch_packages.bucket,
+                s3_key=example.key,
+            ),
+            package_type="TXT-DICTIONARY")
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For example:
 
         ```sh
-         $ pulumi import aws:opensearch/package:Package example package-id
+        $ pulumi import aws:opensearch/package:Package example package-id
         ```
 
         :param str resource_name: The name of the resource.

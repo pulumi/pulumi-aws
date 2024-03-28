@@ -128,6 +128,181 @@ func (o ClusterParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) Clus
 	}).(ClusterParameterGroupParameterOutput)
 }
 
+type ElasticClusterTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// ElasticClusterTimeoutsInput is an input type that accepts ElasticClusterTimeoutsArgs and ElasticClusterTimeoutsOutput values.
+// You can construct a concrete instance of `ElasticClusterTimeoutsInput` via:
+//
+//	ElasticClusterTimeoutsArgs{...}
+type ElasticClusterTimeoutsInput interface {
+	pulumi.Input
+
+	ToElasticClusterTimeoutsOutput() ElasticClusterTimeoutsOutput
+	ToElasticClusterTimeoutsOutputWithContext(context.Context) ElasticClusterTimeoutsOutput
+}
+
+type ElasticClusterTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (ElasticClusterTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ElasticClusterTimeouts)(nil)).Elem()
+}
+
+func (i ElasticClusterTimeoutsArgs) ToElasticClusterTimeoutsOutput() ElasticClusterTimeoutsOutput {
+	return i.ToElasticClusterTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ElasticClusterTimeoutsArgs) ToElasticClusterTimeoutsOutputWithContext(ctx context.Context) ElasticClusterTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ElasticClusterTimeoutsOutput)
+}
+
+func (i ElasticClusterTimeoutsArgs) ToElasticClusterTimeoutsPtrOutput() ElasticClusterTimeoutsPtrOutput {
+	return i.ToElasticClusterTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ElasticClusterTimeoutsArgs) ToElasticClusterTimeoutsPtrOutputWithContext(ctx context.Context) ElasticClusterTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ElasticClusterTimeoutsOutput).ToElasticClusterTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ElasticClusterTimeoutsPtrInput is an input type that accepts ElasticClusterTimeoutsArgs, ElasticClusterTimeoutsPtr and ElasticClusterTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ElasticClusterTimeoutsPtrInput` via:
+//
+//	        ElasticClusterTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ElasticClusterTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToElasticClusterTimeoutsPtrOutput() ElasticClusterTimeoutsPtrOutput
+	ToElasticClusterTimeoutsPtrOutputWithContext(context.Context) ElasticClusterTimeoutsPtrOutput
+}
+
+type elasticClusterTimeoutsPtrType ElasticClusterTimeoutsArgs
+
+func ElasticClusterTimeoutsPtr(v *ElasticClusterTimeoutsArgs) ElasticClusterTimeoutsPtrInput {
+	return (*elasticClusterTimeoutsPtrType)(v)
+}
+
+func (*elasticClusterTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ElasticClusterTimeouts)(nil)).Elem()
+}
+
+func (i *elasticClusterTimeoutsPtrType) ToElasticClusterTimeoutsPtrOutput() ElasticClusterTimeoutsPtrOutput {
+	return i.ToElasticClusterTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *elasticClusterTimeoutsPtrType) ToElasticClusterTimeoutsPtrOutputWithContext(ctx context.Context) ElasticClusterTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ElasticClusterTimeoutsPtrOutput)
+}
+
+type ElasticClusterTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ElasticClusterTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ElasticClusterTimeouts)(nil)).Elem()
+}
+
+func (o ElasticClusterTimeoutsOutput) ToElasticClusterTimeoutsOutput() ElasticClusterTimeoutsOutput {
+	return o
+}
+
+func (o ElasticClusterTimeoutsOutput) ToElasticClusterTimeoutsOutputWithContext(ctx context.Context) ElasticClusterTimeoutsOutput {
+	return o
+}
+
+func (o ElasticClusterTimeoutsOutput) ToElasticClusterTimeoutsPtrOutput() ElasticClusterTimeoutsPtrOutput {
+	return o.ToElasticClusterTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ElasticClusterTimeoutsOutput) ToElasticClusterTimeoutsPtrOutputWithContext(ctx context.Context) ElasticClusterTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ElasticClusterTimeouts) *ElasticClusterTimeouts {
+		return &v
+	}).(ElasticClusterTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ElasticClusterTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ElasticClusterTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ElasticClusterTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ElasticClusterTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ElasticClusterTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ElasticClusterTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type ElasticClusterTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ElasticClusterTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ElasticClusterTimeouts)(nil)).Elem()
+}
+
+func (o ElasticClusterTimeoutsPtrOutput) ToElasticClusterTimeoutsPtrOutput() ElasticClusterTimeoutsPtrOutput {
+	return o
+}
+
+func (o ElasticClusterTimeoutsPtrOutput) ToElasticClusterTimeoutsPtrOutputWithContext(ctx context.Context) ElasticClusterTimeoutsPtrOutput {
+	return o
+}
+
+func (o ElasticClusterTimeoutsPtrOutput) Elem() ElasticClusterTimeoutsOutput {
+	return o.ApplyT(func(v *ElasticClusterTimeouts) ElasticClusterTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ElasticClusterTimeouts
+		return ret
+	}).(ElasticClusterTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ElasticClusterTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ElasticClusterTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ElasticClusterTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ElasticClusterTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ElasticClusterTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ElasticClusterTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type GlobalClusterGlobalClusterMember struct {
 	// Amazon Resource Name (ARN) of member DB Cluster.
 	DbClusterArn *string `pulumi:"dbClusterArn"`
@@ -237,10 +412,14 @@ func (o GlobalClusterGlobalClusterMemberArrayOutput) Index(i pulumi.IntInput) Gl
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterParameterGroupParameterInput)(nil)).Elem(), ClusterParameterGroupParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterParameterGroupParameterArrayInput)(nil)).Elem(), ClusterParameterGroupParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ElasticClusterTimeoutsInput)(nil)).Elem(), ElasticClusterTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ElasticClusterTimeoutsPtrInput)(nil)).Elem(), ElasticClusterTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterGlobalClusterMemberInput)(nil)).Elem(), GlobalClusterGlobalClusterMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterGlobalClusterMemberArrayInput)(nil)).Elem(), GlobalClusterGlobalClusterMemberArray{})
 	pulumi.RegisterOutputType(ClusterParameterGroupParameterOutput{})
 	pulumi.RegisterOutputType(ClusterParameterGroupParameterArrayOutput{})
+	pulumi.RegisterOutputType(ElasticClusterTimeoutsOutput{})
+	pulumi.RegisterOutputType(ElasticClusterTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GlobalClusterGlobalClusterMemberOutput{})
 	pulumi.RegisterOutputType(GlobalClusterGlobalClusterMemberArrayOutput{})
 }

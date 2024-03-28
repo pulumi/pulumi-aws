@@ -241,25 +241,28 @@ class Build(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.gamelift.Build("test",
+            name="example-build",
             operating_system="WINDOWS_2012",
             storage_location=aws.gamelift.BuildStorageLocationArgs(
-                bucket=aws_s3_bucket["test"]["id"],
-                key=aws_s3_object["test"]["key"],
-                role_arn=aws_iam_role["test"]["arn"],
+                bucket=test_aws_s3_bucket["id"],
+                key=test_aws_s3_object["key"],
+                role_arn=test_aws_iam_role["arn"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GameLift Builds using the ID. For example:
 
         ```sh
-         $ pulumi import aws:gamelift/build:Build example <build-id>
+        $ pulumi import aws:gamelift/build:Build example <build-id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -281,25 +284,28 @@ class Build(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.gamelift.Build("test",
+            name="example-build",
             operating_system="WINDOWS_2012",
             storage_location=aws.gamelift.BuildStorageLocationArgs(
-                bucket=aws_s3_bucket["test"]["id"],
-                key=aws_s3_object["test"]["key"],
-                role_arn=aws_iam_role["test"]["arn"],
+                bucket=test_aws_s3_bucket["id"],
+                key=test_aws_s3_object["key"],
+                role_arn=test_aws_iam_role["arn"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GameLift Builds using the ID. For example:
 
         ```sh
-         $ pulumi import aws:gamelift/build:Build example <build-id>
+        $ pulumi import aws:gamelift/build:Build example <build-id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -342,8 +348,6 @@ class Build(pulumi.CustomResource):
             __props__.__dict__["version"] = version
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Build, __self__).__init__(
             'aws:gamelift/build:Build',
             resource_name,

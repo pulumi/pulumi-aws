@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  *     name: "prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSigningProfile(args: GetSigningProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetSigningProfileResult> {
 
@@ -95,6 +97,7 @@ export interface GetSigningProfileResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -103,6 +106,7 @@ export interface GetSigningProfileResult {
  *     name: "prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSigningProfileOutput(args: GetSigningProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSigningProfileResult> {
     return pulumi.output(args).apply((a: any) => getSigningProfile(a, opts))

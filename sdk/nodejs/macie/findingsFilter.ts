@@ -12,32 +12,33 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.macie2.Account("example", {});
  * const test = new aws.macie.FindingsFilter("test", {
+ *     name: "NAME OF THE FINDINGS FILTER",
  *     description: "DESCRIPTION",
  *     position: 1,
  *     action: "ARCHIVE",
  *     findingCriteria: {
  *         criterions: [{
  *             field: "region",
- *             eqs: [data.aws_region.current.name],
+ *             eqs: [current.name],
  *         }],
  *     },
- * }, {
- *     dependsOn: [aws_macie2_account.test],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_macie2_findings_filter` using the id. For example:
  *
  * ```sh
- *  $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
+ * $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
  * ```
  */
 export class FindingsFilter extends pulumi.CustomResource {
@@ -146,8 +147,6 @@ export class FindingsFilter extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(FindingsFilter.__pulumiType, name, resourceInputs, opts);
     }
 }

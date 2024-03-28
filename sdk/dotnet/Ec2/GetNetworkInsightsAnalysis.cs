@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// `aws.ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,13 +27,12 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetNetworkInsightsAnalysis.Invoke(new()
         ///     {
-        ///         NetworkInsightsAnalysisId = aws_ec2_network_insights_analysis.Example.Id,
+        ///         NetworkInsightsAnalysisId = exampleAwsEc2NetworkInsightsAnalysis.Id,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetNetworkInsightsAnalysisResult> InvokeAsync(GetNetworkInsightsAnalysisArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInsightsAnalysisResult>("aws:ec2/getNetworkInsightsAnalysis:getNetworkInsightsAnalysis", args ?? new GetNetworkInsightsAnalysisArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// `aws.ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -56,13 +53,12 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetNetworkInsightsAnalysis.Invoke(new()
         ///     {
-        ///         NetworkInsightsAnalysisId = aws_ec2_network_insights_analysis.Example.Id,
+        ///         NetworkInsightsAnalysisId = exampleAwsEc2NetworkInsightsAnalysis.Id,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetNetworkInsightsAnalysisResult> Invoke(GetNetworkInsightsAnalysisInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInsightsAnalysisResult>("aws:ec2/getNetworkInsightsAnalysis:getNetworkInsightsAnalysis", args ?? new GetNetworkInsightsAnalysisInvokeArgs(), options.WithDefaults());

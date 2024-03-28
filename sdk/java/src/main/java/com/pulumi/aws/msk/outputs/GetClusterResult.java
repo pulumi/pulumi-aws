@@ -4,6 +4,7 @@
 package com.pulumi.aws.msk.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -246,103 +247,151 @@ public final class GetClusterResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder bootstrapBrokers(String bootstrapBrokers) {
-            this.bootstrapBrokers = Objects.requireNonNull(bootstrapBrokers);
+            if (bootstrapBrokers == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "bootstrapBrokers");
+            }
+            this.bootstrapBrokers = bootstrapBrokers;
             return this;
         }
         @CustomType.Setter
         public Builder bootstrapBrokersPublicSaslIam(String bootstrapBrokersPublicSaslIam) {
-            this.bootstrapBrokersPublicSaslIam = Objects.requireNonNull(bootstrapBrokersPublicSaslIam);
+            if (bootstrapBrokersPublicSaslIam == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "bootstrapBrokersPublicSaslIam");
+            }
+            this.bootstrapBrokersPublicSaslIam = bootstrapBrokersPublicSaslIam;
             return this;
         }
         @CustomType.Setter
         public Builder bootstrapBrokersPublicSaslScram(String bootstrapBrokersPublicSaslScram) {
-            this.bootstrapBrokersPublicSaslScram = Objects.requireNonNull(bootstrapBrokersPublicSaslScram);
+            if (bootstrapBrokersPublicSaslScram == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "bootstrapBrokersPublicSaslScram");
+            }
+            this.bootstrapBrokersPublicSaslScram = bootstrapBrokersPublicSaslScram;
             return this;
         }
         @CustomType.Setter
         public Builder bootstrapBrokersPublicTls(String bootstrapBrokersPublicTls) {
-            this.bootstrapBrokersPublicTls = Objects.requireNonNull(bootstrapBrokersPublicTls);
+            if (bootstrapBrokersPublicTls == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "bootstrapBrokersPublicTls");
+            }
+            this.bootstrapBrokersPublicTls = bootstrapBrokersPublicTls;
             return this;
         }
         @CustomType.Setter
         public Builder bootstrapBrokersSaslIam(String bootstrapBrokersSaslIam) {
-            this.bootstrapBrokersSaslIam = Objects.requireNonNull(bootstrapBrokersSaslIam);
+            if (bootstrapBrokersSaslIam == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "bootstrapBrokersSaslIam");
+            }
+            this.bootstrapBrokersSaslIam = bootstrapBrokersSaslIam;
             return this;
         }
         @CustomType.Setter
         public Builder bootstrapBrokersSaslScram(String bootstrapBrokersSaslScram) {
-            this.bootstrapBrokersSaslScram = Objects.requireNonNull(bootstrapBrokersSaslScram);
+            if (bootstrapBrokersSaslScram == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "bootstrapBrokersSaslScram");
+            }
+            this.bootstrapBrokersSaslScram = bootstrapBrokersSaslScram;
             return this;
         }
         @CustomType.Setter
         public Builder bootstrapBrokersTls(String bootstrapBrokersTls) {
-            this.bootstrapBrokersTls = Objects.requireNonNull(bootstrapBrokersTls);
+            if (bootstrapBrokersTls == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "bootstrapBrokersTls");
+            }
+            this.bootstrapBrokersTls = bootstrapBrokersTls;
             return this;
         }
         @CustomType.Setter
         public Builder clusterName(String clusterName) {
-            this.clusterName = Objects.requireNonNull(clusterName);
+            if (clusterName == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "clusterName");
+            }
+            this.clusterName = clusterName;
             return this;
         }
         @CustomType.Setter
         public Builder clusterUuid(String clusterUuid) {
-            this.clusterUuid = Objects.requireNonNull(clusterUuid);
+            if (clusterUuid == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "clusterUuid");
+            }
+            this.clusterUuid = clusterUuid;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kafkaVersion(String kafkaVersion) {
-            this.kafkaVersion = Objects.requireNonNull(kafkaVersion);
+            if (kafkaVersion == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "kafkaVersion");
+            }
+            this.kafkaVersion = kafkaVersion;
             return this;
         }
         @CustomType.Setter
         public Builder numberOfBrokerNodes(Integer numberOfBrokerNodes) {
-            this.numberOfBrokerNodes = Objects.requireNonNull(numberOfBrokerNodes);
+            if (numberOfBrokerNodes == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "numberOfBrokerNodes");
+            }
+            this.numberOfBrokerNodes = numberOfBrokerNodes;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder zookeeperConnectString(String zookeeperConnectString) {
-            this.zookeeperConnectString = Objects.requireNonNull(zookeeperConnectString);
+            if (zookeeperConnectString == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "zookeeperConnectString");
+            }
+            this.zookeeperConnectString = zookeeperConnectString;
             return this;
         }
         @CustomType.Setter
         public Builder zookeeperConnectStringTls(String zookeeperConnectStringTls) {
-            this.zookeeperConnectStringTls = Objects.requireNonNull(zookeeperConnectStringTls);
+            if (zookeeperConnectStringTls == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "zookeeperConnectStringTls");
+            }
+            this.zookeeperConnectStringTls = zookeeperConnectStringTls;
             return this;
         }
         public GetClusterResult build() {
-            final var o = new GetClusterResult();
-            o.arn = arn;
-            o.bootstrapBrokers = bootstrapBrokers;
-            o.bootstrapBrokersPublicSaslIam = bootstrapBrokersPublicSaslIam;
-            o.bootstrapBrokersPublicSaslScram = bootstrapBrokersPublicSaslScram;
-            o.bootstrapBrokersPublicTls = bootstrapBrokersPublicTls;
-            o.bootstrapBrokersSaslIam = bootstrapBrokersSaslIam;
-            o.bootstrapBrokersSaslScram = bootstrapBrokersSaslScram;
-            o.bootstrapBrokersTls = bootstrapBrokersTls;
-            o.clusterName = clusterName;
-            o.clusterUuid = clusterUuid;
-            o.id = id;
-            o.kafkaVersion = kafkaVersion;
-            o.numberOfBrokerNodes = numberOfBrokerNodes;
-            o.tags = tags;
-            o.zookeeperConnectString = zookeeperConnectString;
-            o.zookeeperConnectStringTls = zookeeperConnectStringTls;
-            return o;
+            final var _resultValue = new GetClusterResult();
+            _resultValue.arn = arn;
+            _resultValue.bootstrapBrokers = bootstrapBrokers;
+            _resultValue.bootstrapBrokersPublicSaslIam = bootstrapBrokersPublicSaslIam;
+            _resultValue.bootstrapBrokersPublicSaslScram = bootstrapBrokersPublicSaslScram;
+            _resultValue.bootstrapBrokersPublicTls = bootstrapBrokersPublicTls;
+            _resultValue.bootstrapBrokersSaslIam = bootstrapBrokersSaslIam;
+            _resultValue.bootstrapBrokersSaslScram = bootstrapBrokersSaslScram;
+            _resultValue.bootstrapBrokersTls = bootstrapBrokersTls;
+            _resultValue.clusterName = clusterName;
+            _resultValue.clusterUuid = clusterUuid;
+            _resultValue.id = id;
+            _resultValue.kafkaVersion = kafkaVersion;
+            _resultValue.numberOfBrokerNodes = numberOfBrokerNodes;
+            _resultValue.tags = tags;
+            _resultValue.zookeeperConnectString = zookeeperConnectString;
+            _resultValue.zookeeperConnectStringTls = zookeeperConnectStringTls;
+            return _resultValue;
         }
     }
 }

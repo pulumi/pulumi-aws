@@ -86,31 +86,35 @@ public final class AppProductionBranch {
 
         @CustomType.Setter
         public Builder branchName(@Nullable String branchName) {
+
             this.branchName = branchName;
             return this;
         }
         @CustomType.Setter
         public Builder lastDeployTime(@Nullable String lastDeployTime) {
+
             this.lastDeployTime = lastDeployTime;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder thumbnailUrl(@Nullable String thumbnailUrl) {
+
             this.thumbnailUrl = thumbnailUrl;
             return this;
         }
         public AppProductionBranch build() {
-            final var o = new AppProductionBranch();
-            o.branchName = branchName;
-            o.lastDeployTime = lastDeployTime;
-            o.status = status;
-            o.thumbnailUrl = thumbnailUrl;
-            return o;
+            final var _resultValue = new AppProductionBranch();
+            _resultValue.branchName = branchName;
+            _resultValue.lastDeployTime = lastDeployTime;
+            _resultValue.status = status;
+            _resultValue.thumbnailUrl = thumbnailUrl;
+            return _resultValue;
         }
     }
 }

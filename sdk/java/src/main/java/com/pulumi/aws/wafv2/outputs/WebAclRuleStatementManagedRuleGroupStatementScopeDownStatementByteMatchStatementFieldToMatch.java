@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatement
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookies;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeader;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchMethod;
@@ -37,6 +38,11 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookies cookies;
+    /**
+     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+     * 
+     */
+    private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder> headerOrders;
     /**
      * @return Inspect the request headers. See `headers` below for details.
      * 
@@ -99,6 +105,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookies> cookies() {
         return Optional.ofNullable(this.cookies);
+    }
+    /**
+     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+     * 
+     */
+    public List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder> headerOrders() {
+        return this.headerOrders == null ? List.of() : this.headerOrders;
     }
     /**
      * @return Inspect the request headers. See `headers` below for details.
@@ -169,6 +182,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments allQueryArguments;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchBody body;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookies cookies;
+        private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder> headerOrders;
         private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeader> headers;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody jsonBody;
@@ -183,6 +197,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     	      this.allQueryArguments = defaults.allQueryArguments;
     	      this.body = defaults.body;
     	      this.cookies = defaults.cookies;
+    	      this.headerOrders = defaults.headerOrders;
     	      this.headers = defaults.headers;
     	      this.ja3Fingerprint = defaults.ja3Fingerprint;
     	      this.jsonBody = defaults.jsonBody;
@@ -195,21 +210,34 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
 
         @CustomType.Setter
         public Builder allQueryArguments(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments allQueryArguments) {
+
             this.allQueryArguments = allQueryArguments;
             return this;
         }
         @CustomType.Setter
         public Builder body(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchBody body) {
+
             this.body = body;
             return this;
         }
         @CustomType.Setter
         public Builder cookies(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookies cookies) {
+
             this.cookies = cookies;
             return this;
         }
         @CustomType.Setter
+        public Builder headerOrders(@Nullable List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder> headerOrders) {
+
+            this.headerOrders = headerOrders;
+            return this;
+        }
+        public Builder headerOrders(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder... headerOrders) {
+            return headerOrders(List.of(headerOrders));
+        }
+        @CustomType.Setter
         public Builder headers(@Nullable List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeader> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -218,53 +246,61 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
         @CustomType.Setter
         public Builder ja3Fingerprint(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint) {
+
             this.ja3Fingerprint = ja3Fingerprint;
             return this;
         }
         @CustomType.Setter
         public Builder jsonBody(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody jsonBody) {
+
             this.jsonBody = jsonBody;
             return this;
         }
         @CustomType.Setter
         public Builder method(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchMethod method) {
+
             this.method = method;
             return this;
         }
         @CustomType.Setter
         public Builder queryString(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString queryString) {
+
             this.queryString = queryString;
             return this;
         }
         @CustomType.Setter
         public Builder singleHeader(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader singleHeader) {
+
             this.singleHeader = singleHeader;
             return this;
         }
         @CustomType.Setter
         public Builder singleQueryArgument(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument singleQueryArgument) {
+
             this.singleQueryArgument = singleQueryArgument;
             return this;
         }
         @CustomType.Setter
         public Builder uriPath(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath uriPath) {
+
             this.uriPath = uriPath;
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatch build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatch();
-            o.allQueryArguments = allQueryArguments;
-            o.body = body;
-            o.cookies = cookies;
-            o.headers = headers;
-            o.ja3Fingerprint = ja3Fingerprint;
-            o.jsonBody = jsonBody;
-            o.method = method;
-            o.queryString = queryString;
-            o.singleHeader = singleHeader;
-            o.singleQueryArgument = singleQueryArgument;
-            o.uriPath = uriPath;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatch();
+            _resultValue.allQueryArguments = allQueryArguments;
+            _resultValue.body = body;
+            _resultValue.cookies = cookies;
+            _resultValue.headerOrders = headerOrders;
+            _resultValue.headers = headers;
+            _resultValue.ja3Fingerprint = ja3Fingerprint;
+            _resultValue.jsonBody = jsonBody;
+            _resultValue.method = method;
+            _resultValue.queryString = queryString;
+            _resultValue.singleHeader = singleHeader;
+            _resultValue.singleQueryArgument = singleQueryArgument;
+            _resultValue.uriPath = uriPath;
+            return _resultValue;
         }
     }
 }

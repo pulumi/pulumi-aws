@@ -44,13 +44,14 @@ public final class FunctionSyncConfigLambdaConflictHandlerConfig {
 
         @CustomType.Setter
         public Builder lambdaConflictHandlerArn(@Nullable String lambdaConflictHandlerArn) {
+
             this.lambdaConflictHandlerArn = lambdaConflictHandlerArn;
             return this;
         }
         public FunctionSyncConfigLambdaConflictHandlerConfig build() {
-            final var o = new FunctionSyncConfigLambdaConflictHandlerConfig();
-            o.lambdaConflictHandlerArn = lambdaConflictHandlerArn;
-            return o;
+            final var _resultValue = new FunctionSyncConfigLambdaConflictHandlerConfig();
+            _resultValue.lambdaConflictHandlerArn = lambdaConflictHandlerArn;
+            return _resultValue;
         }
     }
 }

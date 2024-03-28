@@ -12,35 +12,37 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleDirectory = new aws.directoryservice.Directory("exampleDirectory", {
+ * const example = new aws.directoryservice.Directory("example", {
  *     name: "tf-example",
  *     password: "SuperSecretPassw0rd",
  *     type: "MicrosoftAD",
  *     edition: "Standard",
  *     vpcSettings: {
- *         vpcId: aws_vpc.example.id,
- *         subnetIds: aws_subnet.example.map(__item => __item.id),
+ *         vpcId: exampleAwsVpc.id,
+ *         subnetIds: exampleAwsSubnet.map(__item => __item.id),
  *     },
  * });
- * const exampleSharedDirectory = new aws.directoryservice.SharedDirectory("exampleSharedDirectory", {
- *     directoryId: exampleDirectory.id,
+ * const exampleSharedDirectory = new aws.directoryservice.SharedDirectory("example", {
+ *     directoryId: example.id,
  *     notes: "You wanna have a catch?",
  *     target: {
- *         id: data.aws_caller_identity.receiver.account_id,
+ *         id: receiver.accountId,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Directory Service Shared Directories using the owner directory ID/shared directory ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:directoryservice/sharedDirectory:SharedDirectory example d-1234567890/d-9267633ece
+ * $ pulumi import aws:directoryservice/sharedDirectory:SharedDirectory example d-1234567890/d-9267633ece
  * ```
  */
 export class SharedDirectory extends pulumi.CustomResource {

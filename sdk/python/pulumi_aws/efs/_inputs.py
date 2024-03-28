@@ -15,6 +15,7 @@ __all__ = [
     'AccessPointRootDirectoryCreationInfoArgs',
     'BackupPolicyBackupPolicyArgs',
     'FileSystemLifecyclePolicyArgs',
+    'FileSystemProtectionArgs',
     'FileSystemSizeInByteArgs',
     'ReplicationConfigurationDestinationArgs',
 ]
@@ -188,22 +189,38 @@ class BackupPolicyBackupPolicyArgs:
 @pulumi.input_type
 class FileSystemLifecyclePolicyArgs:
     def __init__(__self__, *,
+                 transition_to_archive: Optional[pulumi.Input[str]] = None,
                  transition_to_ia: Optional[pulumi.Input[str]] = None,
                  transition_to_primary_storage_class: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] transition_to_ia: Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+        :param pulumi.Input[str] transition_to_archive: Indicates how long it takes to transition files to the archive storage class. Requires transition_to_ia, Elastic Throughput and General Purpose performance mode. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
+        :param pulumi.Input[str] transition_to_ia: Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
         :param pulumi.Input[str] transition_to_primary_storage_class: Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
         """
+        if transition_to_archive is not None:
+            pulumi.set(__self__, "transition_to_archive", transition_to_archive)
         if transition_to_ia is not None:
             pulumi.set(__self__, "transition_to_ia", transition_to_ia)
         if transition_to_primary_storage_class is not None:
             pulumi.set(__self__, "transition_to_primary_storage_class", transition_to_primary_storage_class)
 
     @property
+    @pulumi.getter(name="transitionToArchive")
+    def transition_to_archive(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates how long it takes to transition files to the archive storage class. Requires transition_to_ia, Elastic Throughput and General Purpose performance mode. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
+        """
+        return pulumi.get(self, "transition_to_archive")
+
+    @transition_to_archive.setter
+    def transition_to_archive(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transition_to_archive", value)
+
+    @property
     @pulumi.getter(name="transitionToIa")
     def transition_to_ia(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+        Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
         """
         return pulumi.get(self, "transition_to_ia")
 
@@ -222,6 +239,29 @@ class FileSystemLifecyclePolicyArgs:
     @transition_to_primary_storage_class.setter
     def transition_to_primary_storage_class(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "transition_to_primary_storage_class", value)
+
+
+@pulumi.input_type
+class FileSystemProtectionArgs:
+    def __init__(__self__, *,
+                 replication_overwrite: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] replication_overwrite: Indicates whether replication overwrite protection is enabled. Valid values: `ENABLED` or `DISABLED`.
+        """
+        if replication_overwrite is not None:
+            pulumi.set(__self__, "replication_overwrite", replication_overwrite)
+
+    @property
+    @pulumi.getter(name="replicationOverwrite")
+    def replication_overwrite(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether replication overwrite protection is enabled. Valid values: `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "replication_overwrite")
+
+    @replication_overwrite.setter
+    def replication_overwrite(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replication_overwrite", value)
 
 
 @pulumi.input_type
@@ -289,6 +329,7 @@ class ReplicationConfigurationDestinationArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] availability_zone_name: The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
+        :param pulumi.Input[str] file_system_id: The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
         :param pulumi.Input[str] kms_key_id: The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
         :param pulumi.Input[str] region: The region in which the replica should be created.
         """
@@ -318,6 +359,9 @@ class ReplicationConfigurationDestinationArgs:
     @property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
+        """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter

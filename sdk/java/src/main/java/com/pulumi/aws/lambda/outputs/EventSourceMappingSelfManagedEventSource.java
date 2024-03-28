@@ -4,6 +4,7 @@
 package com.pulumi.aws.lambda.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -43,13 +44,16 @@ public final class EventSourceMappingSelfManagedEventSource {
 
         @CustomType.Setter
         public Builder endpoints(Map<String,String> endpoints) {
-            this.endpoints = Objects.requireNonNull(endpoints);
+            if (endpoints == null) {
+              throw new MissingRequiredPropertyException("EventSourceMappingSelfManagedEventSource", "endpoints");
+            }
+            this.endpoints = endpoints;
             return this;
         }
         public EventSourceMappingSelfManagedEventSource build() {
-            final var o = new EventSourceMappingSelfManagedEventSource();
-            o.endpoints = endpoints;
-            return o;
+            final var _resultValue = new EventSourceMappingSelfManagedEventSource();
+            _resultValue.endpoints = endpoints;
+            return _resultValue;
         }
     }
 }

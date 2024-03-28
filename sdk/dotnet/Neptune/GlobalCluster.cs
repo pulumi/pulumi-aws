@@ -15,8 +15,10 @@ namespace Pulumi.Aws.Neptune
     /// More information about Neptune Global Clusters can be found in the [Neptune User Guide](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-global-database.html).
     /// 
     /// ## Example Usage
+    /// 
     /// ### New Neptune Global Cluster
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,16 +27,6 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary = new Aws.Provider("primary", new()
-    ///     {
-    ///         Region = "us-east-2",
-    ///     });
-    /// 
-    ///     var secondary = new Aws.Provider("secondary", new()
-    ///     {
-    ///         Region = "us-east-1",
-    ///     });
-    /// 
     ///     var example = new Aws.Neptune.GlobalCluster("example", new()
     ///     {
     ///         GlobalClusterIdentifier = "global-test",
@@ -42,64 +34,51 @@ namespace Pulumi.Aws.Neptune
     ///         EngineVersion = "1.2.0.0",
     ///     });
     /// 
-    ///     var primaryCluster = new Aws.Neptune.Cluster("primaryCluster", new()
+    ///     var primary = new Aws.Neptune.Cluster("primary", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
     ///         ClusterIdentifier = "test-primary-cluster",
     ///         GlobalClusterIdentifier = example.Id,
     ///         NeptuneSubnetGroupName = "default",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Primary,
     ///     });
     /// 
-    ///     var primaryClusterInstance = new Aws.Neptune.ClusterInstance("primaryClusterInstance", new()
+    ///     var primaryClusterInstance = new Aws.Neptune.ClusterInstance("primary", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
     ///         Identifier = "test-primary-cluster-instance",
-    ///         ClusterIdentifier = primaryCluster.Id,
+    ///         ClusterIdentifier = primary.Id,
     ///         InstanceClass = "db.r5.large",
     ///         NeptuneSubnetGroupName = "default",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Primary,
     ///     });
     /// 
-    ///     var secondaryCluster = new Aws.Neptune.Cluster("secondaryCluster", new()
+    ///     var secondary = new Aws.Neptune.Cluster("secondary", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
     ///         ClusterIdentifier = "test-secondary-cluster",
     ///         GlobalClusterIdentifier = example.Id,
     ///         NeptuneSubnetGroupName = "default",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Secondary,
     ///     });
     /// 
-    ///     var secondaryClusterInstance = new Aws.Neptune.ClusterInstance("secondaryClusterInstance", new()
+    ///     var secondaryClusterInstance = new Aws.Neptune.ClusterInstance("secondary", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
     ///         Identifier = "test-secondary-cluster-instance",
-    ///         ClusterIdentifier = secondaryCluster.Id,
+    ///         ClusterIdentifier = secondary.Id,
     ///         InstanceClass = "db.r5.large",
     ///         NeptuneSubnetGroupName = "default",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Secondary,
-    ///         DependsOn = new[]
-    ///         {
-    ///             primaryClusterInstance,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### New Global Cluster From Existing DB Cluster
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -108,26 +87,26 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // ... other configuration ...
-    ///     var exampleCluster = new Aws.Neptune.Cluster("exampleCluster");
+    ///     var example = new Aws.Neptune.Cluster("example");
     /// 
-    ///     var exampleGlobalCluster = new Aws.Neptune.GlobalCluster("exampleGlobalCluster", new()
+    ///     var exampleGlobalCluster = new Aws.Neptune.GlobalCluster("example", new()
     ///     {
     ///         GlobalClusterIdentifier = "example",
-    ///         SourceDbClusterIdentifier = exampleCluster.Arn,
+    ///         SourceDbClusterIdentifier = example.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_neptune_global_cluster` using the Global Cluster identifier. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:neptune/globalCluster:GlobalCluster example example
+    /// $ pulumi import aws:neptune/globalCluster:GlobalCluster example example
     /// ```
-    ///  Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+    /// Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
     /// </summary>
     [AwsResourceType("aws:neptune/globalCluster:GlobalCluster")]
     public partial class GlobalCluster : global::Pulumi.CustomResource

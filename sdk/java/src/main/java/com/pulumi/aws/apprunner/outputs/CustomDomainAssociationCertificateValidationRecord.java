@@ -86,31 +86,35 @@ public final class CustomDomainAssociationCertificateValidationRecord {
 
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }
         public CustomDomainAssociationCertificateValidationRecord build() {
-            final var o = new CustomDomainAssociationCertificateValidationRecord();
-            o.name = name;
-            o.status = status;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new CustomDomainAssociationCertificateValidationRecord();
+            _resultValue.name = name;
+            _resultValue.status = status;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

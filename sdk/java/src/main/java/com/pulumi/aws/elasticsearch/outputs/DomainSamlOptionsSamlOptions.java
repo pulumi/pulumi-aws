@@ -131,49 +131,56 @@ public final class DomainSamlOptionsSamlOptions {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder idp(@Nullable DomainSamlOptionsSamlOptionsIdp idp) {
+
             this.idp = idp;
             return this;
         }
         @CustomType.Setter
         public Builder masterBackendRole(@Nullable String masterBackendRole) {
+
             this.masterBackendRole = masterBackendRole;
             return this;
         }
         @CustomType.Setter
         public Builder masterUserName(@Nullable String masterUserName) {
+
             this.masterUserName = masterUserName;
             return this;
         }
         @CustomType.Setter
         public Builder rolesKey(@Nullable String rolesKey) {
+
             this.rolesKey = rolesKey;
             return this;
         }
         @CustomType.Setter
         public Builder sessionTimeoutMinutes(@Nullable Integer sessionTimeoutMinutes) {
+
             this.sessionTimeoutMinutes = sessionTimeoutMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder subjectKey(@Nullable String subjectKey) {
+
             this.subjectKey = subjectKey;
             return this;
         }
         public DomainSamlOptionsSamlOptions build() {
-            final var o = new DomainSamlOptionsSamlOptions();
-            o.enabled = enabled;
-            o.idp = idp;
-            o.masterBackendRole = masterBackendRole;
-            o.masterUserName = masterUserName;
-            o.rolesKey = rolesKey;
-            o.sessionTimeoutMinutes = sessionTimeoutMinutes;
-            o.subjectKey = subjectKey;
-            return o;
+            final var _resultValue = new DomainSamlOptionsSamlOptions();
+            _resultValue.enabled = enabled;
+            _resultValue.idp = idp;
+            _resultValue.masterBackendRole = masterBackendRole;
+            _resultValue.masterUserName = masterUserName;
+            _resultValue.rolesKey = rolesKey;
+            _resultValue.sessionTimeoutMinutes = sessionTimeoutMinutes;
+            _resultValue.subjectKey = subjectKey;
+            return _resultValue;
         }
     }
 }

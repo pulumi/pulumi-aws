@@ -5,6 +5,7 @@ package com.pulumi.aws.evidently.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -46,14 +47,14 @@ public final class LaunchScheduledSplitsConfigStepSegmentOverrideArgs extends co
     }
 
     /**
-     * The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
+     * The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50%!o(MISSING)f traffic.
      * 
      */
     @Import(name="weights", required=true)
     private Output<Map<String,Integer>> weights;
 
     /**
-     * @return The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
+     * @return The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50%!o(MISSING)f traffic.
      * 
      */
     public Output<Map<String,Integer>> weights() {
@@ -129,7 +130,7 @@ public final class LaunchScheduledSplitsConfigStepSegmentOverrideArgs extends co
         }
 
         /**
-         * @param weights The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
+         * @param weights The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50%!o(MISSING)f traffic.
          * 
          * @return builder
          * 
@@ -140,7 +141,7 @@ public final class LaunchScheduledSplitsConfigStepSegmentOverrideArgs extends co
         }
 
         /**
-         * @param weights The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
+         * @param weights The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50%!o(MISSING)f traffic.
          * 
          * @return builder
          * 
@@ -150,9 +151,15 @@ public final class LaunchScheduledSplitsConfigStepSegmentOverrideArgs extends co
         }
 
         public LaunchScheduledSplitsConfigStepSegmentOverrideArgs build() {
-            $.evaluationOrder = Objects.requireNonNull($.evaluationOrder, "expected parameter 'evaluationOrder' to be non-null");
-            $.segment = Objects.requireNonNull($.segment, "expected parameter 'segment' to be non-null");
-            $.weights = Objects.requireNonNull($.weights, "expected parameter 'weights' to be non-null");
+            if ($.evaluationOrder == null) {
+                throw new MissingRequiredPropertyException("LaunchScheduledSplitsConfigStepSegmentOverrideArgs", "evaluationOrder");
+            }
+            if ($.segment == null) {
+                throw new MissingRequiredPropertyException("LaunchScheduledSplitsConfigStepSegmentOverrideArgs", "segment");
+            }
+            if ($.weights == null) {
+                throw new MissingRequiredPropertyException("LaunchScheduledSplitsConfigStepSegmentOverrideArgs", "weights");
+            }
             return $;
         }
     }

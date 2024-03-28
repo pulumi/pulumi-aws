@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -36,6 +37,11 @@ public final class GetImageResult {
      * 
      */
     private List<String> imageTags;
+    /**
+     * @return The URI for the specific image version specified by `image_tag` or `image_digest`.
+     * 
+     */
+    private String imageUri;
     private @Nullable Boolean mostRecent;
     private String registryId;
     private String repositoryName;
@@ -75,6 +81,13 @@ public final class GetImageResult {
     public List<String> imageTags() {
         return this.imageTags;
     }
+    /**
+     * @return The URI for the specific image version specified by `image_tag` or `image_digest`.
+     * 
+     */
+    public String imageUri() {
+        return this.imageUri;
+    }
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
@@ -100,6 +113,7 @@ public final class GetImageResult {
         private Integer imageSizeInBytes;
         private @Nullable String imageTag;
         private List<String> imageTags;
+        private String imageUri;
         private @Nullable Boolean mostRecent;
         private String registryId;
         private String repositoryName;
@@ -112,6 +126,7 @@ public final class GetImageResult {
     	      this.imageSizeInBytes = defaults.imageSizeInBytes;
     	      this.imageTag = defaults.imageTag;
     	      this.imageTags = defaults.imageTags;
+    	      this.imageUri = defaults.imageUri;
     	      this.mostRecent = defaults.mostRecent;
     	      this.registryId = defaults.registryId;
     	      this.repositoryName = defaults.repositoryName;
@@ -119,64 +134,96 @@ public final class GetImageResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder imageDigest(String imageDigest) {
-            this.imageDigest = Objects.requireNonNull(imageDigest);
+            if (imageDigest == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "imageDigest");
+            }
+            this.imageDigest = imageDigest;
             return this;
         }
         @CustomType.Setter
         public Builder imagePushedAt(Integer imagePushedAt) {
-            this.imagePushedAt = Objects.requireNonNull(imagePushedAt);
+            if (imagePushedAt == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "imagePushedAt");
+            }
+            this.imagePushedAt = imagePushedAt;
             return this;
         }
         @CustomType.Setter
         public Builder imageSizeInBytes(Integer imageSizeInBytes) {
-            this.imageSizeInBytes = Objects.requireNonNull(imageSizeInBytes);
+            if (imageSizeInBytes == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "imageSizeInBytes");
+            }
+            this.imageSizeInBytes = imageSizeInBytes;
             return this;
         }
         @CustomType.Setter
         public Builder imageTag(@Nullable String imageTag) {
+
             this.imageTag = imageTag;
             return this;
         }
         @CustomType.Setter
         public Builder imageTags(List<String> imageTags) {
-            this.imageTags = Objects.requireNonNull(imageTags);
+            if (imageTags == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "imageTags");
+            }
+            this.imageTags = imageTags;
             return this;
         }
         public Builder imageTags(String... imageTags) {
             return imageTags(List.of(imageTags));
         }
         @CustomType.Setter
+        public Builder imageUri(String imageUri) {
+            if (imageUri == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "imageUri");
+            }
+            this.imageUri = imageUri;
+            return this;
+        }
+        @CustomType.Setter
         public Builder mostRecent(@Nullable Boolean mostRecent) {
+
             this.mostRecent = mostRecent;
             return this;
         }
         @CustomType.Setter
         public Builder registryId(String registryId) {
-            this.registryId = Objects.requireNonNull(registryId);
+            if (registryId == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "registryId");
+            }
+            this.registryId = registryId;
             return this;
         }
         @CustomType.Setter
         public Builder repositoryName(String repositoryName) {
-            this.repositoryName = Objects.requireNonNull(repositoryName);
+            if (repositoryName == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "repositoryName");
+            }
+            this.repositoryName = repositoryName;
             return this;
         }
         public GetImageResult build() {
-            final var o = new GetImageResult();
-            o.id = id;
-            o.imageDigest = imageDigest;
-            o.imagePushedAt = imagePushedAt;
-            o.imageSizeInBytes = imageSizeInBytes;
-            o.imageTag = imageTag;
-            o.imageTags = imageTags;
-            o.mostRecent = mostRecent;
-            o.registryId = registryId;
-            o.repositoryName = repositoryName;
-            return o;
+            final var _resultValue = new GetImageResult();
+            _resultValue.id = id;
+            _resultValue.imageDigest = imageDigest;
+            _resultValue.imagePushedAt = imagePushedAt;
+            _resultValue.imageSizeInBytes = imageSizeInBytes;
+            _resultValue.imageTag = imageTag;
+            _resultValue.imageTags = imageTags;
+            _resultValue.imageUri = imageUri;
+            _resultValue.mostRecent = mostRecent;
+            _resultValue.registryId = registryId;
+            _resultValue.repositoryName = repositoryName;
+            return _resultValue;
         }
     }
 }

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,6 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
+//				DomainName:           pulumi.String("tf-test"),
 //				ElasticsearchVersion: pulumi.String("2.3"),
 //			})
 //			if err != nil {
@@ -67,6 +69,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type DomainPolicy struct {
 	pulumi.CustomResourceState
 

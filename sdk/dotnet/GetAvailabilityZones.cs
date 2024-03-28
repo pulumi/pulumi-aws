@@ -21,11 +21,11 @@ namespace Pulumi.Aws
         /// 
         /// &gt; When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### By State
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,31 +34,32 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Declare the data source
         ///     var available = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
         ///         State = "available",
         ///     });
         /// 
+        ///     // e.g., Create subnets in the first two available availability zones
         ///     var primary = new Aws.Ec2.Subnet("primary", new()
         ///     {
         ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
         ///     });
         /// 
-        ///     // ...
         ///     var secondary = new Aws.Ec2.Subnet("secondary", new()
         ///     {
         ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[1]),
         ///     });
         /// 
-        ///     // ...
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### By Filter
         /// 
         /// All Local Zones (regardless of opt-in status):
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -86,9 +87,11 @@ namespace Pulumi.Aws
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// Only Availability Zones (no Local Zones):
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -114,8 +117,7 @@ namespace Pulumi.Aws
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAvailabilityZonesResult> InvokeAsync(GetAvailabilityZonesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityZonesResult>("aws:index/getAvailabilityZones:getAvailabilityZones", args ?? new GetAvailabilityZonesArgs(), options.WithDefaults());
@@ -130,11 +132,11 @@ namespace Pulumi.Aws
         /// 
         /// &gt; When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### By State
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -143,31 +145,32 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Declare the data source
         ///     var available = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
         ///         State = "available",
         ///     });
         /// 
+        ///     // e.g., Create subnets in the first two available availability zones
         ///     var primary = new Aws.Ec2.Subnet("primary", new()
         ///     {
         ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
         ///     });
         /// 
-        ///     // ...
         ///     var secondary = new Aws.Ec2.Subnet("secondary", new()
         ///     {
         ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[1]),
         ///     });
         /// 
-        ///     // ...
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### By Filter
         /// 
         /// All Local Zones (regardless of opt-in status):
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -195,9 +198,11 @@ namespace Pulumi.Aws
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// Only Availability Zones (no Local Zones):
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -223,8 +228,7 @@ namespace Pulumi.Aws
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAvailabilityZonesResult> Invoke(GetAvailabilityZonesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAvailabilityZonesResult>("aws:index/getAvailabilityZones:getAvailabilityZones", args ?? new GetAvailabilityZonesInvokeArgs(), options.WithDefaults());

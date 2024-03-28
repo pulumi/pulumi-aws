@@ -15,10 +15,9 @@ namespace Pulumi.Aws.Pricing
         /// Use this data source to get the pricing information of all products in AWS.
         /// This data source is only available in a us-east-1 or ap-south-1 provider.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -29,6 +28,7 @@ namespace Pulumi.Aws.Pricing
         /// {
         ///     var example = Aws.Pricing.GetProduct.Invoke(new()
         ///     {
+        ///         ServiceCode = "AmazonEC2",
         ///         Filters = new[]
         ///         {
         ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
@@ -67,12 +67,13 @@ namespace Pulumi.Aws.Pricing
         ///                 Value = "Used",
         ///             },
         ///         },
-        ///         ServiceCode = "AmazonEC2",
         ///     });
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -83,6 +84,7 @@ namespace Pulumi.Aws.Pricing
         /// {
         ///     var example = Aws.Pricing.GetProduct.Invoke(new()
         ///     {
+        ///         ServiceCode = "AmazonRedshift",
         ///         Filters = new[]
         ///         {
         ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
@@ -96,13 +98,11 @@ namespace Pulumi.Aws.Pricing
         ///                 Value = "US East (N. Virginia)",
         ///             },
         ///         },
-        ///         ServiceCode = "AmazonRedshift",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetProductResult> InvokeAsync(GetProductArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("aws:pricing/getProduct:getProduct", args ?? new GetProductArgs(), options.WithDefaults());
@@ -111,10 +111,9 @@ namespace Pulumi.Aws.Pricing
         /// Use this data source to get the pricing information of all products in AWS.
         /// This data source is only available in a us-east-1 or ap-south-1 provider.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -125,6 +124,7 @@ namespace Pulumi.Aws.Pricing
         /// {
         ///     var example = Aws.Pricing.GetProduct.Invoke(new()
         ///     {
+        ///         ServiceCode = "AmazonEC2",
         ///         Filters = new[]
         ///         {
         ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
@@ -163,12 +163,13 @@ namespace Pulumi.Aws.Pricing
         ///                 Value = "Used",
         ///             },
         ///         },
-        ///         ServiceCode = "AmazonEC2",
         ///     });
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -179,6 +180,7 @@ namespace Pulumi.Aws.Pricing
         /// {
         ///     var example = Aws.Pricing.GetProduct.Invoke(new()
         ///     {
+        ///         ServiceCode = "AmazonRedshift",
         ///         Filters = new[]
         ///         {
         ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
@@ -192,13 +194,11 @@ namespace Pulumi.Aws.Pricing
         ///                 Value = "US East (N. Virginia)",
         ///             },
         ///         },
-        ///         ServiceCode = "AmazonRedshift",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductResult>("aws:pricing/getProduct:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());

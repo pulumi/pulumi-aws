@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,7 +20,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Chime SDK Voice Profile Domain.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,14 +48,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
  *             .description(&#34;KMS Key for Voice Profile Domain&#34;)
  *             .deletionWindowInDays(7)
  *             .build());
  * 
  *         var exampleSdkvoiceVoiceProfileDomain = new SdkvoiceVoiceProfileDomain(&#34;exampleSdkvoiceVoiceProfileDomain&#34;, SdkvoiceVoiceProfileDomainArgs.builder()        
+ *             .name(&#34;ExampleVoiceProfileDomain&#34;)
  *             .serverSideEncryptionConfiguration(SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs.builder()
- *                 .kmsKeyArn(exampleKey.arn())
+ *                 .kmsKeyArn(example.arn())
  *                 .build())
  *             .description(&#34;My Voice Profile Domain&#34;)
  *             .tags(Map.of(&#34;key1&#34;, &#34;value1&#34;))
@@ -62,13 +65,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AWS Chime SDK Voice Profile Domain using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
+ * $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
  * ```
  * 
  */
@@ -181,9 +185,6 @@ public class SdkvoiceVoiceProfileDomain extends com.pulumi.resources.CustomResou
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

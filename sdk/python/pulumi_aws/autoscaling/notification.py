@@ -142,17 +142,15 @@ class Notification(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sns.Topic("example")
-        # arn is an exported attribute
-        bar = aws.autoscaling.Group("bar")
-        # ...
-        foo = aws.autoscaling.Group("foo")
-        # ...
-        example_notifications = aws.autoscaling.Notification("exampleNotifications",
+        example = aws.sns.Topic("example", name="example-topic")
+        bar = aws.autoscaling.Group("bar", name="foobar1-test")
+        foo = aws.autoscaling.Group("foo", name="barfoo-test")
+        example_notifications = aws.autoscaling.Notification("example_notifications",
             group_names=[
                 bar.name,
                 foo.name,
@@ -165,6 +163,7 @@ class Notification(pulumi.CustomResource):
             ],
             topic_arn=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -188,17 +187,15 @@ class Notification(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sns.Topic("example")
-        # arn is an exported attribute
-        bar = aws.autoscaling.Group("bar")
-        # ...
-        foo = aws.autoscaling.Group("foo")
-        # ...
-        example_notifications = aws.autoscaling.Notification("exampleNotifications",
+        example = aws.sns.Topic("example", name="example-topic")
+        bar = aws.autoscaling.Group("bar", name="foobar1-test")
+        foo = aws.autoscaling.Group("foo", name="barfoo-test")
+        example_notifications = aws.autoscaling.Notification("example_notifications",
             group_names=[
                 bar.name,
                 foo.name,
@@ -211,6 +208,7 @@ class Notification(pulumi.CustomResource):
             ],
             topic_arn=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param NotificationArgs args: The arguments to use to populate this resource's properties.

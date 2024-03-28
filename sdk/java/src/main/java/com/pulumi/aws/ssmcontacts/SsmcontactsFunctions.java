@@ -24,7 +24,10 @@ public final class SsmcontactsFunctions {
      * Data source for managing an AWS SSM Contact.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -53,6 +56,7 @@ public final class SsmcontactsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetContactResult> getContact(GetContactArgs args) {
@@ -62,7 +66,10 @@ public final class SsmcontactsFunctions {
      * Data source for managing an AWS SSM Contact.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -91,6 +98,7 @@ public final class SsmcontactsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetContactResult> getContactPlain(GetContactPlainArgs args) {
@@ -100,7 +108,10 @@ public final class SsmcontactsFunctions {
      * Data source for managing an AWS SSM Contact.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -129,6 +140,7 @@ public final class SsmcontactsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetContactResult> getContact(GetContactArgs args, InvokeOptions options) {
@@ -138,7 +150,10 @@ public final class SsmcontactsFunctions {
      * Data source for managing an AWS SSM Contact.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -167,6 +182,7 @@ public final class SsmcontactsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetContactResult> getContactPlain(GetContactPlainArgs args, InvokeOptions options) {
@@ -176,7 +192,10 @@ public final class SsmcontactsFunctions {
      * Data source for managing an AWS SSM Contacts Contact Channel.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -205,6 +224,7 @@ public final class SsmcontactsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetContactChannelResult> getContactChannel(GetContactChannelArgs args) {
@@ -214,7 +234,10 @@ public final class SsmcontactsFunctions {
      * Data source for managing an AWS SSM Contacts Contact Channel.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -243,6 +266,7 @@ public final class SsmcontactsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetContactChannelResult> getContactChannelPlain(GetContactChannelPlainArgs args) {
@@ -252,7 +276,10 @@ public final class SsmcontactsFunctions {
      * Data source for managing an AWS SSM Contacts Contact Channel.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -281,6 +308,7 @@ public final class SsmcontactsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetContactChannelResult> getContactChannel(GetContactChannelArgs args, InvokeOptions options) {
@@ -290,7 +318,10 @@ public final class SsmcontactsFunctions {
      * Data source for managing an AWS SSM Contacts Contact Channel.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -319,6 +350,7 @@ public final class SsmcontactsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetContactChannelResult> getContactChannelPlain(GetContactChannelPlainArgs args, InvokeOptions options) {
@@ -328,7 +360,10 @@ public final class SsmcontactsFunctions {
      * Data source for managing a Plan of an AWS SSM Contact.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -357,6 +392,7 @@ public final class SsmcontactsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPlanResult> getPlan(GetPlanArgs args) {
@@ -366,7 +402,10 @@ public final class SsmcontactsFunctions {
      * Data source for managing a Plan of an AWS SSM Contact.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -395,6 +434,7 @@ public final class SsmcontactsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPlanResult> getPlanPlain(GetPlanPlainArgs args) {
@@ -404,7 +444,10 @@ public final class SsmcontactsFunctions {
      * Data source for managing a Plan of an AWS SSM Contact.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -433,6 +476,7 @@ public final class SsmcontactsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPlanResult> getPlan(GetPlanArgs args, InvokeOptions options) {
@@ -442,7 +486,10 @@ public final class SsmcontactsFunctions {
      * Data source for managing a Plan of an AWS SSM Contact.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -471,6 +518,7 @@ public final class SsmcontactsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPlanResult> getPlanPlain(GetPlanPlainArgs args, InvokeOptions options) {

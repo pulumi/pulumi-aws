@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides a DMS (Data Migration Service) event subscription resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,8 +49,9 @@ import javax.annotation.Nullable;
  *             .eventCategories(            
  *                 &#34;creation&#34;,
  *                 &#34;failure&#34;)
- *             .snsTopicArn(aws_sns_topic.example().arn())
- *             .sourceIds(aws_dms_replication_task.example().replication_task_id())
+ *             .name(&#34;my-favorite-event-subscription&#34;)
+ *             .snsTopicArn(exampleAwsSnsTopic.arn())
+ *             .sourceIds(exampleAwsDmsReplicationTask.replicationTaskId())
  *             .sourceType(&#34;replication-task&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
  *             .build());
@@ -56,13 +59,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import event subscriptions using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
+ * $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
  * ```
  * 
  */
@@ -139,14 +143,14 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
         return this.snsTopicArn;
     }
     /**
-     * Ids of sources to listen to.
+     * Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
      * 
      */
     @Export(name="sourceIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sourceIds;
 
     /**
-     * @return Ids of sources to listen to.
+     * @return Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
      * 
      */
     public Output<Optional<List<String>>> sourceIds() {
@@ -157,14 +161,14 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sourceType", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> sourceType;
+    private Output<String> sourceType;
 
     /**
      * @return Type of source for events. Valid values: `replication-instance` or `replication-task`
      * 
      */
-    public Output<Optional<String>> sourceType() {
-        return Codegen.optional(this.sourceType);
+    public Output<String> sourceType() {
+        return this.sourceType;
     }
     /**
      * Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -231,9 +235,6 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

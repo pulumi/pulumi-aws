@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides an IAM Service Specific Credential.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -26,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.User;
+ * import com.pulumi.aws.iam.UserArgs;
  * import com.pulumi.aws.iam.ServiceSpecificCredential;
  * import com.pulumi.aws.iam.ServiceSpecificCredentialArgs;
  * import java.util.List;
@@ -41,23 +44,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleUser = new User(&#34;exampleUser&#34;);
+ *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleServiceSpecificCredential = new ServiceSpecificCredential(&#34;exampleServiceSpecificCredential&#34;, ServiceSpecificCredentialArgs.builder()        
  *             .serviceName(&#34;codecommit.amazonaws.com&#34;)
- *             .userName(exampleUser.name())
+ *             .userName(example.name())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IAM Service Specific Credentials using the `service_name:user_name:service_specific_credential_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iam/serviceSpecificCredential:ServiceSpecificCredential default `codecommit.amazonaws.com:example:some-id`
+ * $ pulumi import aws:iam/serviceSpecificCredential:ServiceSpecificCredential default `codecommit.amazonaws.com:example:some-id`
  * ```
  * 
  */

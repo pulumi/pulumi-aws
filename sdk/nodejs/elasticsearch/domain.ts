@@ -13,58 +13,70 @@ import {PolicyDocument} from "../iam";
  * Manages an AWS Elasticsearch Domain.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.elasticsearch.Domain("example", {
+ *     domainName: "example",
+ *     elasticsearchVersion: "7.10",
  *     clusterConfig: {
  *         instanceType: "r4.large.elasticsearch",
  *     },
- *     elasticsearchVersion: "7.10",
  *     tags: {
  *         Domain: "TestDomain",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Access Policy
  *
  * > See also: `aws.elasticsearch.DomainPolicy` resource
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
  * const domain = config.get("domain") || "tf-test";
- * const currentRegion = aws.getRegion({});
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const example = new aws.elasticsearch.Domain("example", {accessPolicies: Promise.all([currentRegion, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity]) => `{
+ * const current = aws.getRegion({});
+ * const currentGetCallerIdentity = aws.getCallerIdentity({});
+ * const example = new aws.elasticsearch.Domain("example", {
+ *     domainName: domain,
+ *     accessPolicies: Promise.all([current, currentGetCallerIdentity]).then(([current, currentGetCallerIdentity]) => `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
  *       "Action": "es:*",
  *       "Principal": "*",
  *       "Effect": "Allow",
- *       "Resource": "arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*",
+ *       "Resource": "arn:aws:es:${current.name}:${currentGetCallerIdentity.accountId}:domain/${domain}/*",
  *       "Condition": {
  *         "IpAddress": {"aws:SourceIp": ["66.193.100.22/32"]}
  *       }
  *     }
  *   ]
  * }
- * `)});
+ * `),
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Log Publishing to CloudWatch Logs
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {name: "example"});
+ * const example = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -79,18 +91,20 @@ import {PolicyDocument} from "../iam";
  *         resources: ["arn:aws:logs:*"],
  *     }],
  * });
- * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy", {
+ * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("example", {
  *     policyName: "example",
- *     policyDocument: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
+ *     policyDocument: example.then(example => example.json),
  * });
- * // .. other configuration ...
- * const exampleDomain = new aws.elasticsearch.Domain("exampleDomain", {logPublishingOptions: [{
+ * const exampleDomain = new aws.elasticsearch.Domain("example", {logPublishingOptions: [{
  *     cloudwatchLogGroupArn: exampleLogGroup.arn,
  *     logType: "INDEX_SLOW_LOGS",
  * }]});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### VPC based ES
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -98,34 +112,36 @@ import {PolicyDocument} from "../iam";
  * const config = new pulumi.Config();
  * const vpc = config.requireObject("vpc");
  * const domain = config.get("domain") || "tf-test";
- * const selectedVpc = aws.ec2.getVpc({
+ * const selected = aws.ec2.getVpc({
  *     tags: {
  *         Name: vpc,
  *     },
  * });
- * const selectedSubnets = selectedVpc.then(selectedVpc => aws.ec2.getSubnets({
+ * const selectedGetSubnets = selected.then(selected => aws.ec2.getSubnets({
  *     filters: [{
  *         name: "vpc-id",
- *         values: [selectedVpc.id],
+ *         values: [selected.id],
  *     }],
  *     tags: {
  *         Tier: "private",
  *     },
  * }));
- * const currentRegion = aws.getRegion({});
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const esSecurityGroup = new aws.ec2.SecurityGroup("esSecurityGroup", {
+ * const current = aws.getRegion({});
+ * const currentGetCallerIdentity = aws.getCallerIdentity({});
+ * const es = new aws.ec2.SecurityGroup("es", {
+ *     name: `${vpc}-elasticsearch-${domain}`,
  *     description: "Managed by Pulumi",
- *     vpcId: selectedVpc.then(selectedVpc => selectedVpc.id),
+ *     vpcId: selected.then(selected => selected.id),
  *     ingress: [{
  *         fromPort: 443,
  *         toPort: 443,
  *         protocol: "tcp",
- *         cidrBlocks: [selectedVpc.then(selectedVpc => selectedVpc.cidrBlock)],
+ *         cidrBlocks: [selected.then(selected => selected.cidrBlock)],
  *     }],
  * });
- * const esServiceLinkedRole = new aws.iam.ServiceLinkedRole("esServiceLinkedRole", {awsServiceName: "opensearchservice.amazonaws.com"});
- * const esDomain = new aws.elasticsearch.Domain("esDomain", {
+ * const esServiceLinkedRole = new aws.iam.ServiceLinkedRole("es", {awsServiceName: "opensearchservice.amazonaws.com"});
+ * const esDomain = new aws.elasticsearch.Domain("es", {
+ *     domainName: domain,
  *     elasticsearchVersion: "6.3",
  *     clusterConfig: {
  *         instanceType: "m4.large.elasticsearch",
@@ -133,22 +149,22 @@ import {PolicyDocument} from "../iam";
  *     },
  *     vpcOptions: {
  *         subnetIds: [
- *             selectedSubnets.then(selectedSubnets => selectedSubnets.ids?.[0]),
- *             selectedSubnets.then(selectedSubnets => selectedSubnets.ids?.[1]),
+ *             selectedGetSubnets.then(selectedGetSubnets => selectedGetSubnets.ids?.[0]),
+ *             selectedGetSubnets.then(selectedGetSubnets => selectedGetSubnets.ids?.[1]),
  *         ],
- *         securityGroupIds: [esSecurityGroup.id],
+ *         securityGroupIds: [es.id],
  *     },
  *     advancedOptions: {
  *         "rest.action.multi.allow_explicit_index": "true",
  *     },
- *     accessPolicies: Promise.all([currentRegion, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity]) => `{
+ *     accessPolicies: Promise.all([current, currentGetCallerIdentity]).then(([current, currentGetCallerIdentity]) => `{
  * 	"Version": "2012-10-17",
  * 	"Statement": [
  * 		{
  * 			"Action": "es:*",
  * 			"Principal": "*",
  * 			"Effect": "Allow",
- * 			"Resource": "arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*"
+ * 			"Resource": "arn:aws:es:${current.name}:${currentGetCallerIdentity.accountId}:domain/${domain}/*"
  * 		}
  * 	]
  * }
@@ -156,17 +172,16 @@ import {PolicyDocument} from "../iam";
  *     tags: {
  *         Domain: "TestDomain",
  *     },
- * }, {
- *     dependsOn: [esServiceLinkedRole],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:elasticsearch/domain:Domain example domain_name
+ * $ pulumi import aws:elasticsearch/domain:Domain example domain_name
  * ```
  */
 export class Domain extends pulumi.CustomResource {
@@ -347,8 +362,6 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Domain.__pulumiType, name, resourceInputs, opts);
     }
 }

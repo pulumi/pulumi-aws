@@ -5,6 +5,7 @@ package com.pulumi.aws.codepipeline.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -81,16 +82,12 @@ public final class PipelineStageActionArgs extends com.pulumi.resources.Resource
     /**
      * The namespace all output variables will be accessed from.
      * 
-     * &gt; **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
-     * 
      */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
     /**
      * @return The namespace all output variables will be accessed from.
-     * 
-     * &gt; **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
      * 
      */
     public Optional<Output<String>> namespace() {
@@ -334,8 +331,6 @@ public final class PipelineStageActionArgs extends com.pulumi.resources.Resource
         /**
          * @param namespace The namespace all output variables will be accessed from.
          * 
-         * &gt; **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
-         * 
          * @return builder
          * 
          */
@@ -346,8 +341,6 @@ public final class PipelineStageActionArgs extends com.pulumi.resources.Resource
 
         /**
          * @param namespace The namespace all output variables will be accessed from.
-         * 
-         * &gt; **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
          * 
          * @return builder
          * 
@@ -514,11 +507,21 @@ public final class PipelineStageActionArgs extends com.pulumi.resources.Resource
         }
 
         public PipelineStageActionArgs build() {
-            $.category = Objects.requireNonNull($.category, "expected parameter 'category' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.owner = Objects.requireNonNull($.owner, "expected parameter 'owner' to be non-null");
-            $.provider = Objects.requireNonNull($.provider, "expected parameter 'provider' to be non-null");
-            $.version = Objects.requireNonNull($.version, "expected parameter 'version' to be non-null");
+            if ($.category == null) {
+                throw new MissingRequiredPropertyException("PipelineStageActionArgs", "category");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("PipelineStageActionArgs", "name");
+            }
+            if ($.owner == null) {
+                throw new MissingRequiredPropertyException("PipelineStageActionArgs", "owner");
+            }
+            if ($.provider == null) {
+                throw new MissingRequiredPropertyException("PipelineStageActionArgs", "provider");
+            }
+            if ($.version == null) {
+                throw new MissingRequiredPropertyException("PipelineStageActionArgs", "version");
+            }
             return $;
         }
     }

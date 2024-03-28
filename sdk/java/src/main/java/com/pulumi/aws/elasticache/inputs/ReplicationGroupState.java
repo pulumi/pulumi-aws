@@ -81,6 +81,21 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     * 
+     */
+    @Import(name="authTokenUpdateStrategy")
+    private @Nullable Output<String> authTokenUpdateStrategy;
+
+    /**
+     * @return Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     * 
+     */
+    public Optional<Output<String>> authTokenUpdateStrategy() {
+        return Optional.ofNullable(this.authTokenUpdateStrategy);
+    }
+
+    /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
      * Only supported for engine type `&#34;redis&#34;` and if the engine version is 6 or higher.
      * Defaults to `true`.
@@ -719,6 +734,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         this.arn = $.arn;
         this.atRestEncryptionEnabled = $.atRestEncryptionEnabled;
         this.authToken = $.authToken;
+        this.authTokenUpdateStrategy = $.authTokenUpdateStrategy;
         this.autoMinorVersionUpgrade = $.autoMinorVersionUpgrade;
         this.automaticFailoverEnabled = $.automaticFailoverEnabled;
         this.clusterEnabled = $.clusterEnabled;
@@ -861,6 +877,27 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
          */
         public Builder authToken(String authToken) {
             return authToken(Output.of(authToken));
+        }
+
+        /**
+         * @param authTokenUpdateStrategy Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authTokenUpdateStrategy(@Nullable Output<String> authTokenUpdateStrategy) {
+            $.authTokenUpdateStrategy = authTokenUpdateStrategy;
+            return this;
+        }
+
+        /**
+         * @param authTokenUpdateStrategy Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authTokenUpdateStrategy(String authTokenUpdateStrategy) {
+            return authTokenUpdateStrategy(Output.of(authTokenUpdateStrategy));
         }
 
         /**

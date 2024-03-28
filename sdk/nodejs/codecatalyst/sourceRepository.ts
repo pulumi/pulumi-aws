@@ -8,24 +8,28 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS CodeCatalyst Source Repository.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.codecatalyst.SourceRepository("example", {
+ *     name: "example-repo",
  *     projectName: "example-project",
  *     spaceName: "example-space",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Using `pulumi import`, import CodeCatalyst Source Repository using the `example_id_arg`. For example:
+ * Using `pulumi import`, import CodeCatalyst Source Repository using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example source_repository-id-12345678
+ * $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example example-repo
  * ```
  */
 export class SourceRepository extends pulumi.CustomResource {

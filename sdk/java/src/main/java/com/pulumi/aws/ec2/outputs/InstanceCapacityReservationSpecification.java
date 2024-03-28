@@ -63,19 +63,21 @@ public final class InstanceCapacityReservationSpecification {
 
         @CustomType.Setter
         public Builder capacityReservationPreference(@Nullable String capacityReservationPreference) {
+
             this.capacityReservationPreference = capacityReservationPreference;
             return this;
         }
         @CustomType.Setter
         public Builder capacityReservationTarget(@Nullable InstanceCapacityReservationSpecificationCapacityReservationTarget capacityReservationTarget) {
+
             this.capacityReservationTarget = capacityReservationTarget;
             return this;
         }
         public InstanceCapacityReservationSpecification build() {
-            final var o = new InstanceCapacityReservationSpecification();
-            o.capacityReservationPreference = capacityReservationPreference;
-            o.capacityReservationTarget = capacityReservationTarget;
-            return o;
+            final var _resultValue = new InstanceCapacityReservationSpecification();
+            _resultValue.capacityReservationPreference = capacityReservationPreference;
+            _resultValue.capacityReservationTarget = capacityReservationTarget;
+            return _resultValue;
         }
     }
 }

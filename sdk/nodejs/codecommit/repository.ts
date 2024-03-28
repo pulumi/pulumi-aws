@@ -9,22 +9,43 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.codecommit.Repository("test", {
- *     description: "This is the Sample App Repository",
  *     repositoryName: "MyTestRepository",
+ *     description: "This is the Sample App Repository",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### AWS KMS Customer Managed Keys (CMK)
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testKey = new aws.kms.Key("test", {
+ *     description: "test",
+ *     deletionWindowInDays: 7,
+ * });
+ * const test = new aws.codecommit.Repository("test", {
+ *     repositoryName: "MyTestRepository",
+ *     description: "This is the Sample App Repository",
+ *     kmsKeyId: testKey.arn,
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CodeCommit repository using repository name. For example:
  *
  * ```sh
- *  $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
+ * $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
  * ```
  */
 export class Repository extends pulumi.CustomResource {
@@ -76,6 +97,10 @@ export class Repository extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+     */
+    public readonly kmsKeyId!: pulumi.Output<string>;
+    /**
      * The ID of the repository
      */
     public /*out*/ readonly repositoryId!: pulumi.Output<string>;
@@ -112,6 +137,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["cloneUrlSsh"] = state ? state.cloneUrlSsh : undefined;
             resourceInputs["defaultBranch"] = state ? state.defaultBranch : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["repositoryId"] = state ? state.repositoryId : undefined;
             resourceInputs["repositoryName"] = state ? state.repositoryName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -123,6 +149,7 @@ export class Repository extends pulumi.CustomResource {
             }
             resourceInputs["defaultBranch"] = args ? args.defaultBranch : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -132,8 +159,6 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Repository.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -162,6 +187,10 @@ export interface RepositoryState {
      * The description of the repository. This needs to be less than 1000 characters
      */
     description?: pulumi.Input<string>;
+    /**
+     * The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+     */
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * The ID of the repository
      */
@@ -194,6 +223,10 @@ export interface RepositoryArgs {
      * The description of the repository. This needs to be less than 1000 characters
      */
     description?: pulumi.Input<string>;
+    /**
+     * The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+     */
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * The name for the repository. This needs to be less than 100 characters.
      */

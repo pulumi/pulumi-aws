@@ -20,6 +20,21 @@ export type CustomDomainAssociation = import("./customDomainAssociation").Custom
 export const CustomDomainAssociation: typeof import("./customDomainAssociation").CustomDomainAssociation = null as any;
 utilities.lazyLoad(exports, ["CustomDomainAssociation"], () => require("./customDomainAssociation"));
 
+export { DefaultAutoScalingConfigurationVersionArgs, DefaultAutoScalingConfigurationVersionState } from "./defaultAutoScalingConfigurationVersion";
+export type DefaultAutoScalingConfigurationVersion = import("./defaultAutoScalingConfigurationVersion").DefaultAutoScalingConfigurationVersion;
+export const DefaultAutoScalingConfigurationVersion: typeof import("./defaultAutoScalingConfigurationVersion").DefaultAutoScalingConfigurationVersion = null as any;
+utilities.lazyLoad(exports, ["DefaultAutoScalingConfigurationVersion"], () => require("./defaultAutoScalingConfigurationVersion"));
+
+export { DeploymentArgs, DeploymentState } from "./deployment";
+export type Deployment = import("./deployment").Deployment;
+export const Deployment: typeof import("./deployment").Deployment = null as any;
+utilities.lazyLoad(exports, ["Deployment"], () => require("./deployment"));
+
+export { GetHostedZoneIdArgs, GetHostedZoneIdResult, GetHostedZoneIdOutputArgs } from "./getHostedZoneId";
+export const getHostedZoneId: typeof import("./getHostedZoneId").getHostedZoneId = null as any;
+export const getHostedZoneIdOutput: typeof import("./getHostedZoneId").getHostedZoneIdOutput = null as any;
+utilities.lazyLoad(exports, ["getHostedZoneId","getHostedZoneIdOutput"], () => require("./getHostedZoneId"));
+
 export { ObservabilityConfigurationArgs, ObservabilityConfigurationState } from "./observabilityConfiguration";
 export type ObservabilityConfiguration = import("./observabilityConfiguration").ObservabilityConfiguration;
 export const ObservabilityConfiguration: typeof import("./observabilityConfiguration").ObservabilityConfiguration = null as any;
@@ -51,6 +66,10 @@ const _module = {
                 return new Connection(name, <any>undefined, { urn })
             case "aws:apprunner/customDomainAssociation:CustomDomainAssociation":
                 return new CustomDomainAssociation(name, <any>undefined, { urn })
+            case "aws:apprunner/defaultAutoScalingConfigurationVersion:DefaultAutoScalingConfigurationVersion":
+                return new DefaultAutoScalingConfigurationVersion(name, <any>undefined, { urn })
+            case "aws:apprunner/deployment:Deployment":
+                return new Deployment(name, <any>undefined, { urn })
             case "aws:apprunner/observabilityConfiguration:ObservabilityConfiguration":
                 return new ObservabilityConfiguration(name, <any>undefined, { urn })
             case "aws:apprunner/service:Service":
@@ -67,6 +86,8 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "apprunner/autoScalingConfigurationVersion", _module)
 pulumi.runtime.registerResourceModule("aws", "apprunner/connection", _module)
 pulumi.runtime.registerResourceModule("aws", "apprunner/customDomainAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "apprunner/defaultAutoScalingConfigurationVersion", _module)
+pulumi.runtime.registerResourceModule("aws", "apprunner/deployment", _module)
 pulumi.runtime.registerResourceModule("aws", "apprunner/observabilityConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "apprunner/service", _module)
 pulumi.runtime.registerResourceModule("aws", "apprunner/vpcConnector", _module)

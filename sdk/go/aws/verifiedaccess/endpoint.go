@@ -15,48 +15,10 @@ import (
 // Resource for managing an AWS EC2 (Elastic Compute Cloud) Verified Access Endpoint.
 //
 // ## Example Usage
-// ### ALB Example
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedaccess"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := verifiedaccess.NewEndpoint(ctx, "example", &verifiedaccess.EndpointArgs{
-//				ApplicationDomain:    pulumi.String("example.com"),
-//				AttachmentType:       pulumi.String("vpc"),
-//				Description:          pulumi.String("example"),
-//				DomainCertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
-//				EndpointDomainPrefix: pulumi.String("example"),
-//				EndpointType:         pulumi.String("load-balancer"),
-//				LoadBalancerOptions: &verifiedaccess.EndpointLoadBalancerOptionsArgs{
-//					LoadBalancerArn: pulumi.Any(aws_lb.Example.Arn),
-//					Port:            pulumi.Int(443),
-//					Protocol:        pulumi.String("https"),
-//					SubnetIds:       "TODO: For expression",
-//				},
-//				SecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Example.Id,
-//				},
-//				VerifiedAccessGroupId: pulumi.Any(aws_verifiedaccess_group.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Network Interface Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -73,18 +35,18 @@ import (
 //				ApplicationDomain:    pulumi.String("example.com"),
 //				AttachmentType:       pulumi.String("vpc"),
 //				Description:          pulumi.String("example"),
-//				DomainCertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
+//				DomainCertificateArn: pulumi.Any(exampleAwsAcmCertificate.Arn),
 //				EndpointDomainPrefix: pulumi.String("example"),
 //				EndpointType:         pulumi.String("network-interface"),
 //				NetworkInterfaceOptions: &verifiedaccess.EndpointNetworkInterfaceOptionsArgs{
-//					NetworkInterfaceId: pulumi.Any(aws_network_interface.Example.Id),
+//					NetworkInterfaceId: pulumi.Any(exampleAwsNetworkInterface.Id),
 //					Port:               pulumi.Int(443),
 //					Protocol:           pulumi.String("https"),
 //				},
 //				SecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Example.Id,
+//					exampleAwsSecurityGroup.Id,
 //				},
-//				VerifiedAccessGroupId: pulumi.Any(aws_verifiedaccess_group.Example.Id),
+//				VerifiedAccessGroupId: pulumi.Any(exampleAwsVerifiedaccessGroup.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -94,17 +56,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// # Using `pulumi import`, import Verified Access Instances using the
-//
-// `id`. For example:
+// Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:verifiedaccess/endpoint:Endpoint example vae-8012925589
-//
+// $ pulumi import aws:verifiedaccess/endpoint:Endpoint example vae-8012925589
 // ```
 type Endpoint struct {
 	pulumi.CustomResourceState
@@ -129,6 +88,8 @@ type Endpoint struct {
 	LoadBalancerOptions EndpointLoadBalancerOptionsPtrOutput `pulumi:"loadBalancerOptions"`
 	// The network interface details. This parameter is required if the endpoint type is `network-interface`.
 	NetworkInterfaceOptions EndpointNetworkInterfaceOptionsPtrOutput `pulumi:"networkInterfaceOptions"`
+	// The policy document that is associated with this resource.
+	PolicyDocument pulumi.StringPtrOutput `pulumi:"policyDocument"`
 	// List of the the security groups IDs to associate with the Verified Access endpoint.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The options in use for server side encryption.
@@ -169,10 +130,6 @@ func NewEndpoint(ctx *pulumi.Context,
 	if args.VerifiedAccessGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'VerifiedAccessGroupId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Endpoint
 	err := ctx.RegisterResource("aws:verifiedaccess/endpoint:Endpoint", name, args, &resource, opts...)
@@ -216,6 +173,8 @@ type endpointState struct {
 	LoadBalancerOptions *EndpointLoadBalancerOptions `pulumi:"loadBalancerOptions"`
 	// The network interface details. This parameter is required if the endpoint type is `network-interface`.
 	NetworkInterfaceOptions *EndpointNetworkInterfaceOptions `pulumi:"networkInterfaceOptions"`
+	// The policy document that is associated with this resource.
+	PolicyDocument *string `pulumi:"policyDocument"`
 	// List of the the security groups IDs to associate with the Verified Access endpoint.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The options in use for server side encryption.
@@ -252,6 +211,8 @@ type EndpointState struct {
 	LoadBalancerOptions EndpointLoadBalancerOptionsPtrInput
 	// The network interface details. This parameter is required if the endpoint type is `network-interface`.
 	NetworkInterfaceOptions EndpointNetworkInterfaceOptionsPtrInput
+	// The policy document that is associated with this resource.
+	PolicyDocument pulumi.StringPtrInput
 	// List of the the security groups IDs to associate with the Verified Access endpoint.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The options in use for server side encryption.
@@ -288,6 +249,8 @@ type endpointArgs struct {
 	LoadBalancerOptions *EndpointLoadBalancerOptions `pulumi:"loadBalancerOptions"`
 	// The network interface details. This parameter is required if the endpoint type is `network-interface`.
 	NetworkInterfaceOptions *EndpointNetworkInterfaceOptions `pulumi:"networkInterfaceOptions"`
+	// The policy document that is associated with this resource.
+	PolicyDocument *string `pulumi:"policyDocument"`
 	// List of the the security groups IDs to associate with the Verified Access endpoint.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The options in use for server side encryption.
@@ -318,6 +281,8 @@ type EndpointArgs struct {
 	LoadBalancerOptions EndpointLoadBalancerOptionsPtrInput
 	// The network interface details. This parameter is required if the endpoint type is `network-interface`.
 	NetworkInterfaceOptions EndpointNetworkInterfaceOptionsPtrInput
+	// The policy document that is associated with this resource.
+	PolicyDocument pulumi.StringPtrInput
 	// List of the the security groups IDs to associate with the Verified Access endpoint.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The options in use for server side encryption.
@@ -465,6 +430,11 @@ func (o EndpointOutput) LoadBalancerOptions() EndpointLoadBalancerOptionsPtrOutp
 // The network interface details. This parameter is required if the endpoint type is `network-interface`.
 func (o EndpointOutput) NetworkInterfaceOptions() EndpointNetworkInterfaceOptionsPtrOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointNetworkInterfaceOptionsPtrOutput { return v.NetworkInterfaceOptions }).(EndpointNetworkInterfaceOptionsPtrOutput)
+}
+
+// The policy document that is associated with this resource.
+func (o EndpointOutput) PolicyDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.PolicyDocument }).(pulumi.StringPtrOutput)
 }
 
 // List of the the security groups IDs to associate with the Verified Access endpoint.

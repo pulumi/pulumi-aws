@@ -11,30 +11,33 @@ import {PolicyDocument} from "./index";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const policy = new aws.iam.Policy("policy", {
+ *     name: "test_policy",
  *     path: "/",
  *     description: "My test policy",
  *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: ["ec2:Describe*"],
- *             Effect: "Allow",
- *             Resource: "*",
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: ["ec2:Describe*"],
+ *             effect: "Allow",
+ *             resource: "*",
  *         }],
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IAM Policies using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
+ * $ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
  * ```
  */
 export class Policy extends pulumi.CustomResource {
@@ -143,8 +146,6 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Policy.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -70,31 +70,35 @@ public final class DocumentParameter {
 
         @CustomType.Setter
         public Builder defaultValue(@Nullable String defaultValue) {
+
             this.defaultValue = defaultValue;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         public DocumentParameter build() {
-            final var o = new DocumentParameter();
-            o.defaultValue = defaultValue;
-            o.description = description;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new DocumentParameter();
+            _resultValue.defaultValue = defaultValue;
+            _resultValue.description = description;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

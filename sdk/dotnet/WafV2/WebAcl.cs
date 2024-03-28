@@ -13,6 +13,12 @@ namespace Pulumi.Aws.WafV2
     public partial class WebAcl : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The URL to use in SDK integrations with managed rule groups.
+        /// </summary>
+        [Output("applicationIntegrationUrl")]
+        public Output<string> ApplicationIntegrationUrl { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the IP Set that this statement references.
         /// </summary>
         [Output("arn")]
@@ -31,10 +37,16 @@ namespace Pulumi.Aws.WafV2
         public Output<int> Capacity { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        /// Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
         /// </summary>
         [Output("captchaConfig")]
         public Output<Outputs.WebAclCaptchaConfig?> CaptchaConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
+        /// </summary>
+        [Output("challengeConfig")]
+        public Output<Outputs.WebAclChallengeConfig?> ChallengeConfig { get; private set; } = null!;
 
         /// <summary>
         /// Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
@@ -122,10 +134,6 @@ namespace Pulumi.Aws.WafV2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -156,10 +164,16 @@ namespace Pulumi.Aws.WafV2
         public Input<Inputs.WebAclAssociationConfigArgs>? AssociationConfig { get; set; }
 
         /// <summary>
-        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        /// Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
         /// </summary>
         [Input("captchaConfig")]
         public Input<Inputs.WebAclCaptchaConfigArgs>? CaptchaConfig { get; set; }
+
+        /// <summary>
+        /// Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
+        /// </summary>
+        [Input("challengeConfig")]
+        public Input<Inputs.WebAclChallengeConfigArgs>? ChallengeConfig { get; set; }
 
         [Input("customResponseBodies")]
         private InputList<Inputs.WebAclCustomResponseBodyArgs>? _customResponseBodies;
@@ -248,6 +262,12 @@ namespace Pulumi.Aws.WafV2
     public sealed class WebAclState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The URL to use in SDK integrations with managed rule groups.
+        /// </summary>
+        [Input("applicationIntegrationUrl")]
+        public Input<string>? ApplicationIntegrationUrl { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the IP Set that this statement references.
         /// </summary>
         [Input("arn")]
@@ -266,10 +286,16 @@ namespace Pulumi.Aws.WafV2
         public Input<int>? Capacity { get; set; }
 
         /// <summary>
-        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        /// Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
         /// </summary>
         [Input("captchaConfig")]
         public Input<Inputs.WebAclCaptchaConfigGetArgs>? CaptchaConfig { get; set; }
+
+        /// <summary>
+        /// Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
+        /// </summary>
+        [Input("challengeConfig")]
+        public Input<Inputs.WebAclChallengeConfigGetArgs>? ChallengeConfig { get; set; }
 
         [Input("customResponseBodies")]
         private InputList<Inputs.WebAclCustomResponseBodyGetArgs>? _customResponseBodies;
@@ -344,11 +370,7 @@ namespace Pulumi.Aws.WafV2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("tokenDomains")]

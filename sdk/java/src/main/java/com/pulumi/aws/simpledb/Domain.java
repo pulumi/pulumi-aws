@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a SimpleDB domain resource
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -24,6 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.simpledb.Domain;
+ * import com.pulumi.aws.simpledb.DomainArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -37,18 +40,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var users = new Domain(&#34;users&#34;);
+ *         var users = new Domain(&#34;users&#34;, DomainArgs.builder()        
+ *             .name(&#34;users&#34;)
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SimpleDB Domains using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:simpledb/domain:Domain users users
+ * $ pulumi import aws:simpledb/domain:Domain users users
  * ```
  * 
  */

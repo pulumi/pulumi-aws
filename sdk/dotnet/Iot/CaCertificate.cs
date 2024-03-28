@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,12 +24,12 @@ namespace Pulumi.Aws.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var caPrivateKey = new Tls.PrivateKey("caPrivateKey", new()
+    ///     var caPrivateKey = new Tls.PrivateKey("ca", new()
     ///     {
     ///         Algorithm = "RSA",
     ///     });
     /// 
-    ///     var caSelfSignedCert = new Tls.SelfSignedCert("caSelfSignedCert", new()
+    ///     var ca = new Tls.SelfSignedCert("ca", new()
     ///     {
     ///         PrivateKeyPem = caPrivateKey.PrivateKeyPem,
     ///         Subject = new Tls.Inputs.SelfSignedCertSubjectArgs
@@ -46,27 +47,27 @@ namespace Pulumi.Aws.Iot
     ///         IsCaCertificate = true,
     ///     });
     /// 
-    ///     var verificationPrivateKey = new Tls.PrivateKey("verificationPrivateKey", new()
+    ///     var verificationPrivateKey = new Tls.PrivateKey("verification", new()
     ///     {
     ///         Algorithm = "RSA",
     ///     });
     /// 
-    ///     var exampleRegistrationCode = Aws.Iot.GetRegistrationCode.Invoke();
+    ///     var example = Aws.Iot.GetRegistrationCode.Invoke();
     /// 
-    ///     var verificationCertRequest = new Tls.CertRequest("verificationCertRequest", new()
+    ///     var verification = new Tls.CertRequest("verification", new()
     ///     {
     ///         PrivateKeyPem = verificationPrivateKey.PrivateKeyPem,
     ///         Subject = new Tls.Inputs.CertRequestSubjectArgs
     ///         {
-    ///             CommonName = exampleRegistrationCode.Apply(getRegistrationCodeResult =&gt; getRegistrationCodeResult.RegistrationCode),
+    ///             CommonName = example.Apply(getRegistrationCodeResult =&gt; getRegistrationCodeResult.RegistrationCode),
     ///         },
     ///     });
     /// 
-    ///     var verificationLocallySignedCert = new Tls.LocallySignedCert("verificationLocallySignedCert", new()
+    ///     var verificationLocallySignedCert = new Tls.LocallySignedCert("verification", new()
     ///     {
-    ///         CertRequestPem = verificationCertRequest.CertRequestPem,
+    ///         CertRequestPem = verification.CertRequestPem,
     ///         CaPrivateKeyPem = caPrivateKey.PrivateKeyPem,
-    ///         CaCertPem = caSelfSignedCert.CertPem,
+    ///         CaCertPem = ca.CertPem,
     ///         ValidityPeriodHours = 12,
     ///         AllowedUses = new[]
     ///         {
@@ -76,16 +77,17 @@ namespace Pulumi.Aws.Iot
     ///         },
     ///     });
     /// 
-    ///     var exampleCaCertificate = new Aws.Iot.CaCertificate("exampleCaCertificate", new()
+    ///     var exampleCaCertificate = new Aws.Iot.CaCertificate("example", new()
     ///     {
     ///         Active = true,
-    ///         CaCertificatePem = caSelfSignedCert.CertPem,
+    ///         CaCertificatePem = ca.CertPem,
     ///         VerificationCertificatePem = verificationLocallySignedCert.CertPem,
     ///         AllowAutoRegistration = true,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:iot/caCertificate:CaCertificate")]
     public partial class CaCertificate : global::Pulumi.CustomResource
@@ -189,7 +191,6 @@ namespace Pulumi.Aws.Iot
                 AdditionalSecretOutputs =
                 {
                     "caCertificatePem",
-                    "tagsAll",
                     "verificationCertificatePem",
                 },
             };
@@ -372,11 +373,7 @@ namespace Pulumi.Aws.Iot
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("validities")]

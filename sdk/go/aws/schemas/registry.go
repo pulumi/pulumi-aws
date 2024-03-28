@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := schemas.NewRegistry(ctx, "test", &schemas.RegistryArgs{
+//				Name:        pulumi.String("my_own_registry"),
 //				Description: pulumi.String("A custom schema registry"),
 //			})
 //			if err != nil {
@@ -40,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EventBridge schema registries using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:schemas/registry:Registry test my_own_registry
-//
+// $ pulumi import aws:schemas/registry:Registry test my_own_registry
 // ```
 type Registry struct {
 	pulumi.CustomResourceState
@@ -74,10 +75,6 @@ func NewRegistry(ctx *pulumi.Context,
 		args = &RegistryArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Registry
 	err := ctx.RegisterResource("aws:schemas/registry:Registry", name, args, &resource, opts...)

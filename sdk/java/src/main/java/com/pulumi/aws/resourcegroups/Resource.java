@@ -17,7 +17,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Resource Groups Resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -27,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.DedicatedHost;
  * import com.pulumi.aws.ec2.DedicatedHostArgs;
  * import com.pulumi.aws.resourcegroups.Group;
+ * import com.pulumi.aws.resourcegroups.GroupArgs;
  * import com.pulumi.aws.resourcegroups.Resource;
  * import com.pulumi.aws.resourcegroups.ResourceArgs;
  * import java.util.List;
@@ -42,23 +46,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleDedicatedHost = new DedicatedHost(&#34;exampleDedicatedHost&#34;, DedicatedHostArgs.builder()        
+ *         var example = new DedicatedHost(&#34;example&#34;, DedicatedHostArgs.builder()        
  *             .instanceFamily(&#34;t3&#34;)
  *             .availabilityZone(&#34;us-east-1a&#34;)
  *             .hostRecovery(&#34;off&#34;)
  *             .autoPlacement(&#34;on&#34;)
  *             .build());
  * 
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;);
+ *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleResource = new Resource(&#34;exampleResource&#34;, ResourceArgs.builder()        
  *             .groupArn(exampleGroup.arn())
- *             .resourceArn(exampleDedicatedHost.arn())
+ *             .resourceArn(example.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:resourcegroups/resource:Resource")

@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * **Using certs on file:**
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,14 +46,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var testCert = new SigningCertificate(&#34;testCert&#34;, SigningCertificateArgs.builder()        
  *             .username(&#34;some_test_cert&#34;)
- *             .certificateBody(Files.readString(Paths.get(&#34;self-ca-cert.pem&#34;)))
+ *             .certificateBody(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;self-ca-cert.pem&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * **Example with cert in-line:**
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -74,25 +81,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testCertAlt = new SigningCertificate(&#34;testCertAlt&#34;, SigningCertificateArgs.builder()        
+ *             .username(&#34;some_test_cert&#34;)
  *             .certificateBody(&#34;&#34;&#34;
  * -----BEGIN CERTIFICATE-----
  * [......] # cert contents
  * -----END CERTIFICATE-----
- * 
  *             &#34;&#34;&#34;)
- *             .username(&#34;some_test_cert&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IAM Signing Certificates using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
+ * $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
  * ```
  * 
  */

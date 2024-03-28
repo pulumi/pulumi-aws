@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides an AppSync Type.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -40,12 +42,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGraphQLApi = new GraphQLApi(&#34;exampleGraphQLApi&#34;, GraphQLApiArgs.builder()        
+ *         var example = new GraphQLApi(&#34;example&#34;, GraphQLApiArgs.builder()        
  *             .authenticationType(&#34;API_KEY&#34;)
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleType = new Type(&#34;exampleType&#34;, TypeArgs.builder()        
- *             .apiId(exampleGraphQLApi.id())
+ *             .apiId(example.id())
  *             .format(&#34;SDL&#34;)
  *             .definition(&#34;&#34;&#34;
  * type Mutation
@@ -60,13 +63,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Appsync Types using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appsync/type:Type example api-id:format:name
+ * $ pulumi import aws:appsync/type:Type example api-id:format:name
  * ```
  * 
  */

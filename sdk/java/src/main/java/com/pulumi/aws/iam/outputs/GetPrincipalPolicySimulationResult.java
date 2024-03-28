@@ -5,6 +5,7 @@ package com.pulumi.aws.iam.outputs;
 
 import com.pulumi.aws.iam.outputs.GetPrincipalPolicySimulationResultMatchedStatement;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -130,27 +131,42 @@ public final class GetPrincipalPolicySimulationResult {
 
         @CustomType.Setter
         public Builder actionName(String actionName) {
-            this.actionName = Objects.requireNonNull(actionName);
+            if (actionName == null) {
+              throw new MissingRequiredPropertyException("GetPrincipalPolicySimulationResult", "actionName");
+            }
+            this.actionName = actionName;
             return this;
         }
         @CustomType.Setter
         public Builder allowed(Boolean allowed) {
-            this.allowed = Objects.requireNonNull(allowed);
+            if (allowed == null) {
+              throw new MissingRequiredPropertyException("GetPrincipalPolicySimulationResult", "allowed");
+            }
+            this.allowed = allowed;
             return this;
         }
         @CustomType.Setter
         public Builder decision(String decision) {
-            this.decision = Objects.requireNonNull(decision);
+            if (decision == null) {
+              throw new MissingRequiredPropertyException("GetPrincipalPolicySimulationResult", "decision");
+            }
+            this.decision = decision;
             return this;
         }
         @CustomType.Setter
         public Builder decisionDetails(Map<String,String> decisionDetails) {
-            this.decisionDetails = Objects.requireNonNull(decisionDetails);
+            if (decisionDetails == null) {
+              throw new MissingRequiredPropertyException("GetPrincipalPolicySimulationResult", "decisionDetails");
+            }
+            this.decisionDetails = decisionDetails;
             return this;
         }
         @CustomType.Setter
         public Builder matchedStatements(List<GetPrincipalPolicySimulationResultMatchedStatement> matchedStatements) {
-            this.matchedStatements = Objects.requireNonNull(matchedStatements);
+            if (matchedStatements == null) {
+              throw new MissingRequiredPropertyException("GetPrincipalPolicySimulationResult", "matchedStatements");
+            }
+            this.matchedStatements = matchedStatements;
             return this;
         }
         public Builder matchedStatements(GetPrincipalPolicySimulationResultMatchedStatement... matchedStatements) {
@@ -158,7 +174,10 @@ public final class GetPrincipalPolicySimulationResult {
         }
         @CustomType.Setter
         public Builder missingContextKeys(List<String> missingContextKeys) {
-            this.missingContextKeys = Objects.requireNonNull(missingContextKeys);
+            if (missingContextKeys == null) {
+              throw new MissingRequiredPropertyException("GetPrincipalPolicySimulationResult", "missingContextKeys");
+            }
+            this.missingContextKeys = missingContextKeys;
             return this;
         }
         public Builder missingContextKeys(String... missingContextKeys) {
@@ -166,19 +185,22 @@ public final class GetPrincipalPolicySimulationResult {
         }
         @CustomType.Setter
         public Builder resourceArn(String resourceArn) {
-            this.resourceArn = Objects.requireNonNull(resourceArn);
+            if (resourceArn == null) {
+              throw new MissingRequiredPropertyException("GetPrincipalPolicySimulationResult", "resourceArn");
+            }
+            this.resourceArn = resourceArn;
             return this;
         }
         public GetPrincipalPolicySimulationResult build() {
-            final var o = new GetPrincipalPolicySimulationResult();
-            o.actionName = actionName;
-            o.allowed = allowed;
-            o.decision = decision;
-            o.decisionDetails = decisionDetails;
-            o.matchedStatements = matchedStatements;
-            o.missingContextKeys = missingContextKeys;
-            o.resourceArn = resourceArn;
-            return o;
+            final var _resultValue = new GetPrincipalPolicySimulationResult();
+            _resultValue.actionName = actionName;
+            _resultValue.allowed = allowed;
+            _resultValue.decision = decision;
+            _resultValue.decisionDetails = decisionDetails;
+            _resultValue.matchedStatements = matchedStatements;
+            _resultValue.missingContextKeys = missingContextKeys;
+            _resultValue.resourceArn = resourceArn;
+            return _resultValue;
         }
     }
 }

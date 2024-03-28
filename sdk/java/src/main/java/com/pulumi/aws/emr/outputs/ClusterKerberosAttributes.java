@@ -4,6 +4,7 @@
 package com.pulumi.aws.emr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -100,37 +101,46 @@ public final class ClusterKerberosAttributes {
 
         @CustomType.Setter
         public Builder adDomainJoinPassword(@Nullable String adDomainJoinPassword) {
+
             this.adDomainJoinPassword = adDomainJoinPassword;
             return this;
         }
         @CustomType.Setter
         public Builder adDomainJoinUser(@Nullable String adDomainJoinUser) {
+
             this.adDomainJoinUser = adDomainJoinUser;
             return this;
         }
         @CustomType.Setter
         public Builder crossRealmTrustPrincipalPassword(@Nullable String crossRealmTrustPrincipalPassword) {
+
             this.crossRealmTrustPrincipalPassword = crossRealmTrustPrincipalPassword;
             return this;
         }
         @CustomType.Setter
         public Builder kdcAdminPassword(String kdcAdminPassword) {
-            this.kdcAdminPassword = Objects.requireNonNull(kdcAdminPassword);
+            if (kdcAdminPassword == null) {
+              throw new MissingRequiredPropertyException("ClusterKerberosAttributes", "kdcAdminPassword");
+            }
+            this.kdcAdminPassword = kdcAdminPassword;
             return this;
         }
         @CustomType.Setter
         public Builder realm(String realm) {
-            this.realm = Objects.requireNonNull(realm);
+            if (realm == null) {
+              throw new MissingRequiredPropertyException("ClusterKerberosAttributes", "realm");
+            }
+            this.realm = realm;
             return this;
         }
         public ClusterKerberosAttributes build() {
-            final var o = new ClusterKerberosAttributes();
-            o.adDomainJoinPassword = adDomainJoinPassword;
-            o.adDomainJoinUser = adDomainJoinUser;
-            o.crossRealmTrustPrincipalPassword = crossRealmTrustPrincipalPassword;
-            o.kdcAdminPassword = kdcAdminPassword;
-            o.realm = realm;
-            return o;
+            final var _resultValue = new ClusterKerberosAttributes();
+            _resultValue.adDomainJoinPassword = adDomainJoinPassword;
+            _resultValue.adDomainJoinUser = adDomainJoinUser;
+            _resultValue.crossRealmTrustPrincipalPassword = crossRealmTrustPrincipalPassword;
+            _resultValue.kdcAdminPassword = kdcAdminPassword;
+            _resultValue.realm = realm;
+            return _resultValue;
         }
     }
 }

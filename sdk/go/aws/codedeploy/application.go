@@ -14,8 +14,10 @@ import (
 // Provides a CodeDeploy application to be used as a basis for deployments
 //
 // ## Example Usage
+//
 // ### ECS Application
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,6 +32,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codedeploy.NewApplication(ctx, "example", &codedeploy.ApplicationArgs{
 //				ComputePlatform: pulumi.String("ECS"),
+//				Name:            pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -39,8 +42,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Lambda Application
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,6 +61,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codedeploy.NewApplication(ctx, "example", &codedeploy.ApplicationArgs{
 //				ComputePlatform: pulumi.String("Lambda"),
+//				Name:            pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -64,8 +71,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Server Application
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -80,6 +90,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codedeploy.NewApplication(ctx, "example", &codedeploy.ApplicationArgs{
 //				ComputePlatform: pulumi.String("Server"),
+//				Name:            pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -89,15 +100,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CodeDeploy Applications using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:codedeploy/application:Application example my-application
-//
+// $ pulumi import aws:codedeploy/application:Application example my-application
 // ```
 type Application struct {
 	pulumi.CustomResourceState
@@ -129,10 +139,6 @@ func NewApplication(ctx *pulumi.Context,
 		args = &ApplicationArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Application
 	err := ctx.RegisterResource("aws:codedeploy/application:Application", name, args, &resource, opts...)

@@ -20,31 +20,35 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const privateS3VpcEndpoint = new aws.ec2.VpcEndpoint("privateS3VpcEndpoint", {
- *     vpcId: aws_vpc.foo.id,
+ * const privateS3VpcEndpoint = new aws.ec2.VpcEndpoint("private_s3", {
+ *     vpcId: foo.id,
  *     serviceName: "com.amazonaws.us-west-2.s3",
  * });
- * const privateS3PrefixList = aws.ec2.getPrefixListOutput({
+ * const privateS3 = aws.ec2.getPrefixListOutput({
  *     prefixListId: privateS3VpcEndpoint.prefixListId,
  * });
- * const bar = new aws.ec2.NetworkAcl("bar", {vpcId: aws_vpc.foo.id});
- * const privateS3NetworkAclRule = new aws.ec2.NetworkAclRule("privateS3NetworkAclRule", {
+ * const bar = new aws.ec2.NetworkAcl("bar", {vpcId: foo.id});
+ * const privateS3NetworkAclRule = new aws.ec2.NetworkAclRule("private_s3", {
  *     networkAclId: bar.id,
  *     ruleNumber: 200,
  *     egress: false,
  *     protocol: "tcp",
  *     ruleAction: "allow",
- *     cidrBlock: privateS3PrefixList.apply(privateS3PrefixList => privateS3PrefixList.cidrBlocks?.[0]),
+ *     cidrBlock: privateS3.apply(privateS3 => privateS3.cidrBlocks?.[0]),
  *     fromPort: 443,
  *     toPort: 443,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Filter
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -56,6 +60,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPrefixList(args?: GetPrefixListArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixListResult> {
     args = args || {};
@@ -118,31 +123,35 @@ export interface GetPrefixListResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const privateS3VpcEndpoint = new aws.ec2.VpcEndpoint("privateS3VpcEndpoint", {
- *     vpcId: aws_vpc.foo.id,
+ * const privateS3VpcEndpoint = new aws.ec2.VpcEndpoint("private_s3", {
+ *     vpcId: foo.id,
  *     serviceName: "com.amazonaws.us-west-2.s3",
  * });
- * const privateS3PrefixList = aws.ec2.getPrefixListOutput({
+ * const privateS3 = aws.ec2.getPrefixListOutput({
  *     prefixListId: privateS3VpcEndpoint.prefixListId,
  * });
- * const bar = new aws.ec2.NetworkAcl("bar", {vpcId: aws_vpc.foo.id});
- * const privateS3NetworkAclRule = new aws.ec2.NetworkAclRule("privateS3NetworkAclRule", {
+ * const bar = new aws.ec2.NetworkAcl("bar", {vpcId: foo.id});
+ * const privateS3NetworkAclRule = new aws.ec2.NetworkAclRule("private_s3", {
  *     networkAclId: bar.id,
  *     ruleNumber: 200,
  *     egress: false,
  *     protocol: "tcp",
  *     ruleAction: "allow",
- *     cidrBlock: privateS3PrefixList.apply(privateS3PrefixList => privateS3PrefixList.cidrBlocks?.[0]),
+ *     cidrBlock: privateS3.apply(privateS3 => privateS3.cidrBlocks?.[0]),
  *     fromPort: 443,
  *     toPort: 443,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Filter
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -154,6 +163,7 @@ export interface GetPrefixListResult {
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPrefixListOutput(args?: GetPrefixListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrefixListResult> {
     return pulumi.output(args).apply((a: any) => getPrefixList(a, opts))

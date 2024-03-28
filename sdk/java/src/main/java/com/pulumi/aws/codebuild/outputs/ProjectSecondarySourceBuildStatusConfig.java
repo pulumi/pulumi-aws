@@ -58,19 +58,21 @@ public final class ProjectSecondarySourceBuildStatusConfig {
 
         @CustomType.Setter
         public Builder context(@Nullable String context) {
+
             this.context = context;
             return this;
         }
         @CustomType.Setter
         public Builder targetUrl(@Nullable String targetUrl) {
+
             this.targetUrl = targetUrl;
             return this;
         }
         public ProjectSecondarySourceBuildStatusConfig build() {
-            final var o = new ProjectSecondarySourceBuildStatusConfig();
-            o.context = context;
-            o.targetUrl = targetUrl;
-            return o;
+            final var _resultValue = new ProjectSecondarySourceBuildStatusConfig();
+            _resultValue.context = context;
+            _resultValue.targetUrl = targetUrl;
+            return _resultValue;
         }
     }
 }

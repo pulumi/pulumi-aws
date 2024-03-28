@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lex.NewBot(ctx, "orderFlowersBot", &lex.BotArgs{
+//			_, err := lex.NewBot(ctx, "order_flowers_bot", &lex.BotArgs{
 //				AbortStatement: &lex.BotAbortStatementArgs{
 //					Messages: lex.BotAbortStatementMessageArray{
 //						&lex.BotAbortStatementMessageArgs{
@@ -70,15 +71,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import bots using their name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
-//
+// $ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
 // ```
 type Bot struct {
 	pulumi.CustomResourceState

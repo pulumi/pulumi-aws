@@ -12,12 +12,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleSourceBucketV2 = new aws.s3.BucketV2("exampleSourceBucketV2", {});
- * const exampleSourcePolicyDocument = aws.iam.getPolicyDocument({
+ * const exampleSourceBucketV2 = new aws.s3.BucketV2("example_source", {bucket: "example-source"});
+ * const exampleSource = aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "AllowAppFlowSourceActions",
  *         effect: "Allow",
@@ -35,17 +36,17 @@ import * as utilities from "../utilities";
  *         ],
  *     }],
  * });
- * const exampleSourceBucketPolicy = new aws.s3.BucketPolicy("exampleSourceBucketPolicy", {
+ * const exampleSourceBucketPolicy = new aws.s3.BucketPolicy("example_source", {
  *     bucket: exampleSourceBucketV2.id,
- *     policy: exampleSourcePolicyDocument.then(exampleSourcePolicyDocument => exampleSourcePolicyDocument.json),
+ *     policy: exampleSource.then(exampleSource => exampleSource.json),
  * });
- * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
+ * const example = new aws.s3.BucketObjectv2("example", {
  *     bucket: exampleSourceBucketV2.id,
  *     key: "example_source.csv",
  *     source: new pulumi.asset.FileAsset("example_source.csv"),
  * });
- * const exampleDestinationBucketV2 = new aws.s3.BucketV2("exampleDestinationBucketV2", {});
- * const exampleDestinationPolicyDocument = aws.iam.getPolicyDocument({
+ * const exampleDestinationBucketV2 = new aws.s3.BucketV2("example_destination", {bucket: "example-destination"});
+ * const exampleDestination = aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "AllowAppFlowDestinationActions",
  *         effect: "Allow",
@@ -67,11 +68,12 @@ import * as utilities from "../utilities";
  *         ],
  *     }],
  * });
- * const exampleDestinationBucketPolicy = new aws.s3.BucketPolicy("exampleDestinationBucketPolicy", {
+ * const exampleDestinationBucketPolicy = new aws.s3.BucketPolicy("example_destination", {
  *     bucket: exampleDestinationBucketV2.id,
- *     policy: exampleDestinationPolicyDocument.then(exampleDestinationPolicyDocument => exampleDestinationPolicyDocument.json),
+ *     policy: exampleDestination.then(exampleDestination => exampleDestination.json),
  * });
- * const exampleFlow = new aws.appflow.Flow("exampleFlow", {
+ * const exampleFlow = new aws.appflow.Flow("example", {
+ *     name: "example",
  *     sourceFlowConfig: {
  *         connectorType: "S3",
  *         sourceConnectorProperties: {
@@ -107,13 +109,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AppFlow flows using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:appflow/flow:Flow example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
+ * $ pulumi import aws:appflow/flow:Flow example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
  * ```
  */
 export class Flow extends pulumi.CustomResource {
@@ -156,6 +159,10 @@ export class Flow extends pulumi.CustomResource {
      * A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
      */
     public readonly destinationFlowConfigs!: pulumi.Output<outputs.appflow.FlowDestinationFlowConfig[]>;
+    /**
+     * The current status of the flow.
+     */
+    public /*out*/ readonly flowStatus!: pulumi.Output<string>;
     /**
      * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      */
@@ -203,6 +210,7 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["destinationFlowConfigs"] = state ? state.destinationFlowConfigs : undefined;
+            resourceInputs["flowStatus"] = state ? state.flowStatus : undefined;
             resourceInputs["kmsArn"] = state ? state.kmsArn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["sourceFlowConfig"] = state ? state.sourceFlowConfig : undefined;
@@ -233,11 +241,10 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["tasks"] = args ? args.tasks : undefined;
             resourceInputs["triggerConfig"] = args ? args.triggerConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["flowStatus"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Flow.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -258,6 +265,10 @@ export interface FlowState {
      * A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
      */
     destinationFlowConfigs?: pulumi.Input<pulumi.Input<inputs.appflow.FlowDestinationFlowConfig>[]>;
+    /**
+     * The current status of the flow.
+     */
+    flowStatus?: pulumi.Input<string>;
     /**
      * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      */

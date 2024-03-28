@@ -6,6 +6,7 @@ package com.pulumi.aws.quicksight;
 import com.pulumi.aws.quicksight.inputs.NamespaceTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -214,7 +215,9 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NamespaceArgs build() {
-            $.namespace = Objects.requireNonNull($.namespace, "expected parameter 'namespace' to be non-null");
+            if ($.namespace == null) {
+                throw new MissingRequiredPropertyException("NamespaceArgs", "namespace");
+            }
             return $;
         }
     }

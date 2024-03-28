@@ -11,29 +11,35 @@ import * as utilities from "../utilities";
  * Manages an EMR Containers (EMR on EKS) Job Template.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.emrcontainers.JobTemplate("example", {jobTemplateData: {
- *     executionRoleArn: aws_iam_role.example.arn,
- *     releaseLabel: "emr-6.10.0-latest",
- *     jobDriver: {
- *         sparkSqlJobDriver: {
- *             entryPoint: "default",
+ * const example = new aws.emrcontainers.JobTemplate("example", {
+ *     jobTemplateData: {
+ *         executionRoleArn: exampleAwsIamRole.arn,
+ *         releaseLabel: "emr-6.10.0-latest",
+ *         jobDriver: {
+ *             sparkSqlJobDriver: {
+ *                 entryPoint: "default",
+ *             },
  *         },
  *     },
- * }});
+ *     name: "example",
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EKS job templates using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
+ * $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
  * ```
  */
 export class JobTemplate extends pulumi.CustomResource {
@@ -123,8 +129,6 @@ export class JobTemplate extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(JobTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }

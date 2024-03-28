@@ -17,26 +17,32 @@ namespace Pulumi.Aws.Iam
     /// 
     /// **Using certs on file:**
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testCert = new Aws.Iam.SigningCertificate("testCert", new()
+    ///     var testCert = new Aws.Iam.SigningCertificate("test_cert", new()
     ///     {
     ///         Username = "some_test_cert",
-    ///         CertificateBody = File.ReadAllText("self-ca-cert.pem"),
+    ///         CertificateBody = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "self-ca-cert.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// **Example with cert in-line:**
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,25 +51,25 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testCertAlt = new Aws.Iam.SigningCertificate("testCertAlt", new()
+    ///     var testCertAlt = new Aws.Iam.SigningCertificate("test_cert_alt", new()
     ///     {
+    ///         Username = "some_test_cert",
     ///         CertificateBody = @"-----BEGIN CERTIFICATE-----
     /// [......] # cert contents
     /// -----END CERTIFICATE-----
-    /// 
     /// ",
-    ///         Username = "some_test_cert",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM Signing Certificates using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
+    /// $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/signingCertificate:SigningCertificate")]

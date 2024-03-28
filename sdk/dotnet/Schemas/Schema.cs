@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Schemas
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,11 +26,15 @@ namespace Pulumi.Aws.Schemas
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testRegistry = new Aws.Schemas.Registry("testRegistry");
-    /// 
-    ///     var testSchema = new Aws.Schemas.Schema("testSchema", new()
+    ///     var test = new Aws.Schemas.Registry("test", new()
     ///     {
-    ///         RegistryName = testRegistry.Name,
+    ///         Name = "my_own_registry",
+    ///     });
+    /// 
+    ///     var testSchema = new Aws.Schemas.Schema("test", new()
+    ///     {
+    ///         Name = "my_schema",
+    ///         RegistryName = test.Name,
     ///         Type = "OpenApi3",
     ///         Description = "The schema definition for my event",
     ///         Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -65,13 +70,14 @@ namespace Pulumi.Aws.Schemas
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EventBridge schema using the `name` and `registry_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:schemas/schema:Schema test name/registry
+    /// $ pulumi import aws:schemas/schema:Schema test name/registry
     /// ```
     /// </summary>
     [AwsResourceType("aws:schemas/schema:Schema")]
@@ -166,10 +172,6 @@ namespace Pulumi.Aws.Schemas
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -301,11 +303,7 @@ namespace Pulumi.Aws.Schemas
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

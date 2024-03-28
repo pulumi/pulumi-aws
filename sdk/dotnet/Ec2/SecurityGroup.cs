@@ -21,8 +21,10 @@ namespace Pulumi.Aws.Ec2
     /// &gt; **NOTE:** The `cidr_blocks` and `ipv6_cidr_blocks` parameters are optional in the `ingress` and `egress` blocks. If nothing is specified, traffic will be blocked as described in _NOTE on Egress rules_ later.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,56 +33,56 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var allowTls = new Aws.Ec2.SecurityGroup("allowTls", new()
+    ///     var allowTls = new Aws.Ec2.SecurityGroup("allow_tls", new()
     ///     {
-    ///         Description = "Allow TLS inbound traffic",
-    ///         VpcId = aws_vpc.Main.Id,
-    ///         Ingress = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.SecurityGroupIngressArgs
-    ///             {
-    ///                 Description = "TLS from VPC",
-    ///                 FromPort = 443,
-    ///                 ToPort = 443,
-    ///                 Protocol = "tcp",
-    ///                 CidrBlocks = new[]
-    ///                 {
-    ///                     aws_vpc.Main.Cidr_block,
-    ///                 },
-    ///                 Ipv6CidrBlocks = new[]
-    ///                 {
-    ///                     aws_vpc.Main.Ipv6_cidr_block,
-    ///                 },
-    ///             },
-    ///         },
-    ///         Egress = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.SecurityGroupEgressArgs
-    ///             {
-    ///                 FromPort = 0,
-    ///                 ToPort = 0,
-    ///                 Protocol = "-1",
-    ///                 CidrBlocks = new[]
-    ///                 {
-    ///                     "0.0.0.0/0",
-    ///                 },
-    ///                 Ipv6CidrBlocks = new[]
-    ///                 {
-    ///                     "::/0",
-    ///                 },
-    ///             },
-    ///         },
+    ///         Name = "allow_tls",
+    ///         Description = "Allow TLS inbound traffic and all outbound traffic",
+    ///         VpcId = main.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "allow_tls" },
     ///         },
     ///     });
     /// 
+    ///     var allowTlsIpv4 = new Aws.Vpc.SecurityGroupIngressRule("allow_tls_ipv4", new()
+    ///     {
+    ///         SecurityGroupId = allowTls.Id,
+    ///         CidrIpv4 = main.CidrBlock,
+    ///         FromPort = 443,
+    ///         IpProtocol = "tcp",
+    ///         ToPort = 443,
+    ///     });
+    /// 
+    ///     var allowTlsIpv6 = new Aws.Vpc.SecurityGroupIngressRule("allow_tls_ipv6", new()
+    ///     {
+    ///         SecurityGroupId = allowTls.Id,
+    ///         CidrIpv6 = main.Ipv6CidrBlock,
+    ///         FromPort = 443,
+    ///         IpProtocol = "tcp",
+    ///         ToPort = 443,
+    ///     });
+    /// 
+    ///     var allowAllTrafficIpv4 = new Aws.Vpc.SecurityGroupEgressRule("allow_all_traffic_ipv4", new()
+    ///     {
+    ///         SecurityGroupId = allowTls.Id,
+    ///         CidrIpv4 = "0.0.0.0/0",
+    ///         IpProtocol = "-1",
+    ///     });
+    /// 
+    ///     var allowAllTrafficIpv6 = new Aws.Vpc.SecurityGroupEgressRule("allow_all_traffic_ipv6", new()
+    ///     {
+    ///         SecurityGroupId = allowTls.Id,
+    ///         CidrIpv6 = "::/0",
+    ///         IpProtocol = "-1",
+    ///     });
+    /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// &gt; **NOTE on Egress rules:** By default, AWS creates an `ALLOW ALL` egress rule when creating a new Security Group inside of a VPC. When creating a new Security Group inside a VPC, **this provider will remove this default rule**, and require you specifically re-create it if you desire that rule. We feel this leads to fewer surprises in terms of controlling your egress rules. If you desire this rule to be in place, you can use this `egress` block:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -95,23 +97,25 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             new Aws.Ec2.Inputs.SecurityGroupEgressArgs
     ///             {
+    ///                 FromPort = 0,
+    ///                 ToPort = 0,
+    ///                 Protocol = "-1",
     ///                 CidrBlocks = new[]
     ///                 {
     ///                     "0.0.0.0/0",
     ///                 },
-    ///                 FromPort = 0,
     ///                 Ipv6CidrBlocks = new[]
     ///                 {
     ///                     "::/0",
     ///                 },
-    ///                 Protocol = "-1",
-    ///                 ToPort = 0,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Usage With Prefix List IDs
     /// 
     /// Prefix Lists are either managed by AWS internally, or created by the customer using a
@@ -119,6 +123,7 @@ namespace Pulumi.Aws.Ec2
     /// AWS are associated with a prefix list name, or service name, that is linked to a specific region.
     /// Prefix list IDs are exported on VPC Endpoints, so you can use this format:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -127,10 +132,8 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myEndpoint = new Aws.Ec2.VpcEndpoint("myEndpoint");
+    ///     var myEndpoint = new Aws.Ec2.VpcEndpoint("my_endpoint");
     /// 
-    ///     // ... other configuration ...
-    ///     // ... other configuration ...
     ///     var example = new Aws.Ec2.SecurityGroup("example", new()
     ///     {
     ///         Egress = new[]
@@ -150,12 +153,15 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// You can also find a specific Prefix List using the `aws.ec2.getPrefixList` data source.
+    /// 
     /// ### Removing All Ingress and Egress Rules
     /// 
     /// The `ingress` and `egress` arguments are processed in attributes-as-blocks mode. Due to this, removing these arguments from the configuration will **not** cause the provider to destroy the managed rules. To subsequently remove all managed ingress and egress rules:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -166,13 +172,16 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.SecurityGroup("example", new()
     ///     {
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         Name = "sg",
+    ///         VpcId = exampleAwsVpc.Id,
     ///         Ingress = new[] {},
     ///         Egress = new[] {},
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Recreating a Security Group
     /// 
     /// A simple security group `name` change "forces new" the security group--the provider destroys the security group and creates a new one. (Likewise, `description`, `name_prefix`, or `vpc_id` [cannot be changed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group).) Attempting to recreate the security group leads to a variety of complications depending on how it is used.
@@ -184,12 +193,14 @@ namespace Pulumi.Aws.Ec2
     /// The provider does not model bi-directional dependencies like this, but, even if it did, simply knowing the dependency situation would not be enough to solve it. For example, some resources must always have an associated security group while others don't need to. In addition, when the `aws.ec2.SecurityGroup` resource attempts to recreate, it receives a dependent object error, which does not provide information on whether the dependent object is a security group rule or, for example, an associated EC2 instance. Within the provider, the associated resource (_e.g._, `aws.ec2.Instance`) does not receive an error when the `aws.ec2.SecurityGroup` is trying to recreate even though that is where changes to the associated resource would need to take place (_e.g._, removing the security group association).
     /// 
     /// Despite these sticky problems, below are some ways to improve your experience when you find it necessary to recreate a security group.
+    /// 
     /// ### `create_before_destroy`
     /// 
     /// (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
     /// 
     /// Normally, the provider first deletes the existing security group resource and then creates a new one. When a security group is associated with a resource, the delete won't succeed. You can invert the default behavior using the `create_before_destroy` meta argument:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -198,16 +209,22 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.SecurityGroup("example");
+    ///     var example = new Aws.Ec2.SecurityGroup("example", new()
+    ///     {
+    ///         Name = "changeable-name",
+    ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### `replace_triggered_by`
     /// 
     /// (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
     /// 
     /// To replace a resource when a security group changes, use the `replace_triggered_by` meta argument. Note that in this example, the `aws.ec2.Instance` will be destroyed and created again when the `aws.ec2.SecurityGroup` changes.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -216,26 +233,31 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleSecurityGroup = new Aws.Ec2.SecurityGroup("exampleSecurityGroup");
-    /// 
-    ///     // ... other configuration ...
-    ///     var exampleInstance = new Aws.Ec2.Instance("exampleInstance", new()
+    ///     var example = new Aws.Ec2.SecurityGroup("example", new()
     ///     {
-    ///         InstanceType = "t3.small",
+    ///         Name = "sg",
+    ///     });
+    /// 
+    ///     var exampleInstance = new Aws.Ec2.Instance("example", new()
+    ///     {
+    ///         InstanceType = Aws.Ec2.InstanceType.T3_Small,
     ///         VpcSecurityGroupIds = new[]
     ///         {
-    ///             aws_security_group.Test.Id,
+    ///             test.Id,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Shorter timeout
     /// 
     /// (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
     /// 
     /// If destroying a security group takes a long time, it may be because the provider cannot distinguish between a dependent object (_e.g._, a security group rule or EC2 instance) that is _in the process of being deleted_ and one that is not. In other words, it may be waiting for a train that isn't scheduled to arrive. To fail faster, shorten the `delete` timeout from the default timeout:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -244,17 +266,97 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.SecurityGroup("example");
+    ///     var example = new Aws.Ec2.SecurityGroup("example", new()
+    ///     {
+    ///         Name = "izizavle",
+    ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Provisioners
+    /// 
+    /// (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
+    /// 
+    /// **DISCLAIMER:** We **_HIGHLY_** recommend using one of the above approaches and _NOT_ using local provisioners. Provisioners, like the one shown below, should be considered a **last resort** since they are _not readable_, _require skills outside standard configuration_, are _error prone_ and _difficult to maintain_, are not compatible with cloud environments and upgrade tools, require AWS CLI installation, and are subject to changes outside the AWS Provider.
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Command = Pulumi.Command;
+    /// using Null = Pulumi.Null;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @default = Aws.Ec2.GetSecurityGroup.Invoke(new()
+    ///     {
+    ///         Name = "default",
+    ///     });
+    /// 
+    ///     var example = new Aws.Ec2.SecurityGroup("example", new()
+    ///     {
+    ///         Name = "sg",
+    ///         Tags = 
+    ///         {
+    ///             { "workaround1", "tagged-name" },
+    ///             { "workaround2", @default.Apply(@default =&gt; @default.Apply(getSecurityGroupResult =&gt; getSecurityGroupResult.Id)) },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleProvisioner0 = new Command.Local.Command("exampleProvisioner0", new()
+    ///     {
+    ///         Create = "true",
+    ///         Update = "true",
+    ///         Delete = @$"            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters ""Name=tag:Name,Values={tags.Workaround1}"" --query ""VpcEndpoints[0].VpcEndpointId"" --output text` &amp;&amp;
+    ///             aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${{ENDPOINT_ID}} --add-security-group-ids {tags.Workaround2} --remove-security-group-ids {id}
+    /// ",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             example,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleResource = new Null.Index.Resource("example", new()
+    ///     {
+    ///         Triggers = 
+    ///         {
+    ///             { "rerunUponChangeOf", Std.Join.Invoke(new()
+    ///             {
+    ///                 Separator = ",",
+    ///                 Input = exampleAwsVpcEndpoint.SecurityGroupIds,
+    ///             }).Result },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleResourceProvisioner0 = new Command.Local.Command("exampleResourceProvisioner0", new()
+    ///     {
+    ///         Create = @$"            aws ec2 modify-vpc-endpoint --vpc-endpoint-id {exampleAwsVpcEndpoint.Id} --remove-security-group-ids {@default.Apply(getSecurityGroupResult =&gt; getSecurityGroupResult.Id)}
+    /// ",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleResource,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Security Groups using the security group `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/securityGroup:SecurityGroup elb_sg sg-903004f8
+    /// $ pulumi import aws:ec2/securityGroup:SecurityGroup elb_sg sg-903004f8
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/securityGroup:SecurityGroup")]
@@ -349,10 +451,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -388,6 +486,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         /// </summary>
+        [Obsolete(@"Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.")]
         public InputList<Inputs.SecurityGroupEgressArgs> Egress
         {
             get => _egress ?? (_egress = new InputList<Inputs.SecurityGroupEgressArgs>());
@@ -400,6 +499,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         /// </summary>
+        [Obsolete(@"Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.")]
         public InputList<Inputs.SecurityGroupIngressArgs> Ingress
         {
             get => _ingress ?? (_ingress = new InputList<Inputs.SecurityGroupIngressArgs>());
@@ -469,6 +569,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         /// </summary>
+        [Obsolete(@"Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.")]
         public InputList<Inputs.SecurityGroupEgressGetArgs> Egress
         {
             get => _egress ?? (_egress = new InputList<Inputs.SecurityGroupEgressGetArgs>());
@@ -481,6 +582,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         /// </summary>
+        [Obsolete(@"Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.")]
         public InputList<Inputs.SecurityGroupIngressGetArgs> Ingress
         {
             get => _ingress ?? (_ingress = new InputList<Inputs.SecurityGroupIngressGetArgs>());
@@ -533,11 +635,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

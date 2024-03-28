@@ -52,11 +52,13 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBod
 
         @CustomType.Setter
         public Builder all(@Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll all) {
+
             this.all = all;
             return this;
         }
         @CustomType.Setter
         public Builder includedPaths(@Nullable List<String> includedPaths) {
+
             this.includedPaths = includedPaths;
             return this;
         }
@@ -64,10 +66,10 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBod
             return includedPaths(List.of(includedPaths));
         }
         public WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern build() {
-            final var o = new WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern();
-            o.all = all;
-            o.includedPaths = includedPaths;
-            return o;
+            final var _resultValue = new WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern();
+            _resultValue.all = all;
+            _resultValue.includedPaths = includedPaths;
+            return _resultValue;
         }
     }
 }

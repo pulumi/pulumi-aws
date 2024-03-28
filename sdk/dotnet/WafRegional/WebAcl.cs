@@ -13,8 +13,10 @@ namespace Pulumi.Aws.WafRegional
     /// Provides a WAF Regional Web ACL Resource for use with Application Load Balancer.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Regular Rule
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,6 +27,7 @@ namespace Pulumi.Aws.WafRegional
     /// {
     ///     var ipset = new Aws.WafRegional.IpSet("ipset", new()
     ///     {
+    ///         Name = "tfIPSet",
     ///         IpSetDescriptors = new[]
     ///         {
     ///             new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
@@ -37,6 +40,7 @@ namespace Pulumi.Aws.WafRegional
     /// 
     ///     var wafrule = new Aws.WafRegional.Rule("wafrule", new()
     ///     {
+    ///         Name = "tfWAFRule",
     ///         MetricName = "tfWAFRule",
     ///         Predicates = new[]
     ///         {
@@ -51,6 +55,7 @@ namespace Pulumi.Aws.WafRegional
     /// 
     ///     var wafacl = new Aws.WafRegional.WebAcl("wafacl", new()
     ///     {
+    ///         Name = "tfWebACL",
     ///         MetricName = "tfWebACL",
     ///         DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
     ///         {
@@ -73,8 +78,11 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Group Rule
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -85,6 +93,7 @@ namespace Pulumi.Aws.WafRegional
     /// {
     ///     var example = new Aws.WafRegional.WebAcl("example", new()
     ///     {
+    ///         Name = "example",
     ///         MetricName = "example",
     ///         DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
     ///         {
@@ -95,7 +104,7 @@ namespace Pulumi.Aws.WafRegional
     ///             new Aws.WafRegional.Inputs.WebAclRuleArgs
     ///             {
     ///                 Priority = 1,
-    ///                 RuleId = aws_wafregional_rule_group.Example.Id,
+    ///                 RuleId = exampleAwsWafregionalRuleGroup.Id,
     ///                 Type = "GROUP",
     ///                 OverrideAction = new Aws.WafRegional.Inputs.WebAclRuleOverrideActionArgs
     ///                 {
@@ -107,10 +116,13 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Logging
     /// 
     /// &gt; *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-`. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -119,12 +131,11 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // ... other configuration ...
     ///     var example = new Aws.WafRegional.WebAcl("example", new()
     ///     {
     ///         LoggingConfiguration = new Aws.WafRegional.Inputs.WebAclLoggingConfigurationArgs
     ///         {
-    ///             LogDestination = aws_kinesis_firehose_delivery_stream.Example.Arn,
+    ///             LogDestination = exampleAwsKinesisFirehoseDeliveryStream.Arn,
     ///             RedactedFields = new Aws.WafRegional.Inputs.WebAclLoggingConfigurationRedactedFieldsArgs
     ///             {
     ///                 FieldToMatches = new[]
@@ -145,13 +156,14 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WAF Regional Web ACL using the id. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:wafregional/webAcl:WebAcl wafacl a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+    /// $ pulumi import aws:wafregional/webAcl:WebAcl wafacl a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
     /// ```
     /// </summary>
     [AwsResourceType("aws:wafregional/webAcl:WebAcl")]
@@ -228,10 +240,6 @@ namespace Pulumi.Aws.WafRegional
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -375,11 +383,7 @@ namespace Pulumi.Aws.WafRegional
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public WebAclState()

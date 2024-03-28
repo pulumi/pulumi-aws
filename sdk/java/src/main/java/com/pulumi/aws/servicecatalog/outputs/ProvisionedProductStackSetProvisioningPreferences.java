@@ -116,6 +116,7 @@ public final class ProvisionedProductStackSetProvisioningPreferences {
 
         @CustomType.Setter
         public Builder accounts(@Nullable List<String> accounts) {
+
             this.accounts = accounts;
             return this;
         }
@@ -124,26 +125,31 @@ public final class ProvisionedProductStackSetProvisioningPreferences {
         }
         @CustomType.Setter
         public Builder failureToleranceCount(@Nullable Integer failureToleranceCount) {
+
             this.failureToleranceCount = failureToleranceCount;
             return this;
         }
         @CustomType.Setter
         public Builder failureTolerancePercentage(@Nullable Integer failureTolerancePercentage) {
+
             this.failureTolerancePercentage = failureTolerancePercentage;
             return this;
         }
         @CustomType.Setter
         public Builder maxConcurrencyCount(@Nullable Integer maxConcurrencyCount) {
+
             this.maxConcurrencyCount = maxConcurrencyCount;
             return this;
         }
         @CustomType.Setter
         public Builder maxConcurrencyPercentage(@Nullable Integer maxConcurrencyPercentage) {
+
             this.maxConcurrencyPercentage = maxConcurrencyPercentage;
             return this;
         }
         @CustomType.Setter
         public Builder regions(@Nullable List<String> regions) {
+
             this.regions = regions;
             return this;
         }
@@ -151,14 +157,14 @@ public final class ProvisionedProductStackSetProvisioningPreferences {
             return regions(List.of(regions));
         }
         public ProvisionedProductStackSetProvisioningPreferences build() {
-            final var o = new ProvisionedProductStackSetProvisioningPreferences();
-            o.accounts = accounts;
-            o.failureToleranceCount = failureToleranceCount;
-            o.failureTolerancePercentage = failureTolerancePercentage;
-            o.maxConcurrencyCount = maxConcurrencyCount;
-            o.maxConcurrencyPercentage = maxConcurrencyPercentage;
-            o.regions = regions;
-            return o;
+            final var _resultValue = new ProvisionedProductStackSetProvisioningPreferences();
+            _resultValue.accounts = accounts;
+            _resultValue.failureToleranceCount = failureToleranceCount;
+            _resultValue.failureTolerancePercentage = failureTolerancePercentage;
+            _resultValue.maxConcurrencyCount = maxConcurrencyCount;
+            _resultValue.maxConcurrencyPercentage = maxConcurrencyPercentage;
+            _resultValue.regions = regions;
+            return _resultValue;
         }
     }
 }

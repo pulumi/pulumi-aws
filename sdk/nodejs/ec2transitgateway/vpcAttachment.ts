@@ -9,23 +9,25 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2transitgateway.VpcAttachment("example", {
- *     subnetIds: [aws_subnet.example.id],
- *     transitGatewayId: aws_ec2_transit_gateway.example.id,
- *     vpcId: aws_vpc.example.id,
+ *     subnetIds: [exampleAwsSubnet.id],
+ *     transitGatewayId: exampleAwsEc2TransitGateway.id,
+ *     vpcId: exampleAwsVpc.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment` using the EC2 Transit Gateway Attachment identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2transitgateway/vpcAttachment:VpcAttachment example tgw-attach-12345678
+ * $ pulumi import aws:ec2transitgateway/vpcAttachment:VpcAttachment example tgw-attach-12345678
  * ```
  */
 export class VpcAttachment extends pulumi.CustomResource {
@@ -151,8 +153,6 @@ export class VpcAttachment extends pulumi.CustomResource {
             resourceInputs["vpcOwnerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VpcAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }

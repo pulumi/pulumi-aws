@@ -17,8 +17,10 @@ namespace Pulumi.Aws.AppAutoScaling
     /// &gt; **NOTE:** The [Application Auto Scaling service automatically attempts to manage IAM Service-Linked Roles](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) when registering certain service namespaces for the first time. To manually manage this role, see the `aws.iam.ServiceLinkedRole` resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### DynamoDB Table Autoscaling
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,19 +29,22 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dynamodbTableReadTarget = new Aws.AppAutoScaling.Target("dynamodbTableReadTarget", new()
+    ///     var dynamodbTableReadTarget = new Aws.AppAutoScaling.Target("dynamodb_table_read_target", new()
     ///     {
     ///         MaxCapacity = 100,
     ///         MinCapacity = 5,
-    ///         ResourceId = $"table/{aws_dynamodb_table.Example.Name}",
+    ///         ResourceId = $"table/{example.Name}",
     ///         ScalableDimension = "dynamodb:table:ReadCapacityUnits",
     ///         ServiceNamespace = "dynamodb",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### DynamoDB Index Autoscaling
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,19 +53,22 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dynamodbIndexReadTarget = new Aws.AppAutoScaling.Target("dynamodbIndexReadTarget", new()
+    ///     var dynamodbIndexReadTarget = new Aws.AppAutoScaling.Target("dynamodb_index_read_target", new()
     ///     {
     ///         MaxCapacity = 100,
     ///         MinCapacity = 5,
-    ///         ResourceId = $"table/{aws_dynamodb_table.Example.Name}/index/{@var.Index_name}",
+    ///         ResourceId = $"table/{example.Name}/index/{indexName}",
     ///         ScalableDimension = "dynamodb:index:ReadCapacityUnits",
     ///         ServiceNamespace = "dynamodb",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### ECS Service Autoscaling
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -69,19 +77,22 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ecsTarget = new Aws.AppAutoScaling.Target("ecsTarget", new()
+    ///     var ecsTarget = new Aws.AppAutoScaling.Target("ecs_target", new()
     ///     {
     ///         MaxCapacity = 4,
     ///         MinCapacity = 1,
-    ///         ResourceId = $"service/{aws_ecs_cluster.Example.Name}/{aws_ecs_service.Example.Name}",
+    ///         ResourceId = $"service/{example.Name}/{exampleAwsEcsService.Name}",
     ///         ScalableDimension = "ecs:service:DesiredCount",
     ///         ServiceNamespace = "ecs",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Aurora Read Replica Autoscaling
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -92,17 +103,20 @@ namespace Pulumi.Aws.AppAutoScaling
     /// {
     ///     var replicas = new Aws.AppAutoScaling.Target("replicas", new()
     ///     {
-    ///         MaxCapacity = 15,
-    ///         MinCapacity = 1,
-    ///         ResourceId = $"cluster:{aws_rds_cluster.Example.Id}",
-    ///         ScalableDimension = "rds:cluster:ReadReplicaCount",
     ///         ServiceNamespace = "rds",
+    ///         ScalableDimension = "rds:cluster:ReadReplicaCount",
+    ///         ResourceId = $"cluster:{example.Id}",
+    ///         MinCapacity = 1,
+    ///         MaxCapacity = 15,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Suppressing `tags_all` Differences For Older Resources
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -111,19 +125,22 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ecsTarget = new Aws.AppAutoScaling.Target("ecsTarget", new()
+    ///     var ecsTarget = new Aws.AppAutoScaling.Target("ecs_target", new()
     ///     {
     ///         MaxCapacity = 4,
     ///         MinCapacity = 1,
-    ///         ResourceId = $"service/{aws_ecs_cluster.Example.Name}/{aws_ecs_service.Example.Name}",
+    ///         ResourceId = $"service/{example.Name}/{exampleAwsEcsService.Name}",
     ///         ScalableDimension = "ecs:service:DesiredCount",
     ///         ServiceNamespace = "ecs",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### MSK / Kafka Autoscaling
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -132,24 +149,25 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mskTarget = new Aws.AppAutoScaling.Target("mskTarget", new()
+    ///     var mskTarget = new Aws.AppAutoScaling.Target("msk_target", new()
     ///     {
-    ///         MaxCapacity = 8,
-    ///         MinCapacity = 1,
-    ///         ResourceId = aws_msk_cluster.Example.Arn,
-    ///         ScalableDimension = "kafka:broker-storage:VolumeSize",
     ///         ServiceNamespace = "kafka",
+    ///         ScalableDimension = "kafka:broker-storage:VolumeSize",
+    ///         ResourceId = example.Arn,
+    ///         MinCapacity = 1,
+    ///         MaxCapacity = 8,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Application AutoScaling Target using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appautoscaling/target:Target test-target service-namespace/resource-id/scalable-dimension
+    /// $ pulumi import aws:appautoscaling/target:Target test-target service-namespace/resource-id/scalable-dimension
     /// ```
     /// </summary>
     [AwsResourceType("aws:appautoscaling/target:Target")]
@@ -232,10 +250,6 @@ namespace Pulumi.Aws.AppAutoScaling
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -379,11 +393,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public TargetState()

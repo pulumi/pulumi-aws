@@ -10,11 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager
 {
     /// <summary>
-    /// Resource for managing an AWS NetworkManager Attachment Accepter.
+    /// Resource for managing an AWS Network Manager Attachment Accepter.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Example with VPC attachment
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,14 +27,17 @@ namespace Pulumi.Aws.NetworkManager
     /// {
     ///     var test = new Aws.NetworkManager.AttachmentAccepter("test", new()
     ///     {
-    ///         AttachmentId = aws_networkmanager_vpc_attachment.Vpc.Id,
-    ///         AttachmentType = aws_networkmanager_vpc_attachment.Vpc.Attachment_type,
+    ///         AttachmentId = vpc.Id,
+    ///         AttachmentType = vpc.AttachmentType,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example with site-to-site VPN attachment
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,12 +48,13 @@ namespace Pulumi.Aws.NetworkManager
     /// {
     ///     var test = new Aws.NetworkManager.AttachmentAccepter("test", new()
     ///     {
-    ///         AttachmentId = aws_networkmanager_site_to_site_vpn_attachment.Vpn.Id,
-    ///         AttachmentType = aws_networkmanager_site_to_site_vpn_attachment.Vpn.Attachment_type,
+    ///         AttachmentId = vpn.Id,
+    ///         AttachmentType = vpn.AttachmentType,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:networkmanager/attachmentAccepter:AttachmentAccepter")]
     public partial class AttachmentAccepter : global::Pulumi.CustomResource

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.LookupNetworkInsightsAnalysis(ctx, &ec2.LookupNetworkInsightsAnalysisArgs{
-//				NetworkInsightsAnalysisId: pulumi.StringRef(aws_ec2_network_insights_analysis.Example.Id),
+//				NetworkInsightsAnalysisId: pulumi.StringRef(exampleAwsEc2NetworkInsightsAnalysis.Id),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupNetworkInsightsAnalysis(ctx *pulumi.Context, args *LookupNetworkInsightsAnalysisArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInsightsAnalysisResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkInsightsAnalysisResult

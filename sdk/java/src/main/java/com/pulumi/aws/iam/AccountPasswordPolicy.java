@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * in the official AWS docs.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,24 +47,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var strict = new AccountPasswordPolicy(&#34;strict&#34;, AccountPasswordPolicyArgs.builder()        
- *             .allowUsersToChangePassword(true)
  *             .minimumPasswordLength(8)
  *             .requireLowercaseCharacters(true)
  *             .requireNumbers(true)
- *             .requireSymbols(true)
  *             .requireUppercaseCharacters(true)
+ *             .requireSymbols(true)
+ *             .allowUsersToChangePassword(true)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IAM Account Password Policy using the word `iam-account-password-policy`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
+ * $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
  * ```
  * 
  */

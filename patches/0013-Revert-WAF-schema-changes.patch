@@ -1,12 +1,12 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 15 Nov 2022 13:59:57 +0000
-Subject: [PATCH 13/29] Revert WAF schema changes
+Subject: [PATCH 13/46] Revert WAF schema changes
 
 - This causes far too many types to be generated downstream.
 
 diff --git a/internal/service/wafv2/schemas.go b/internal/service/wafv2/schemas.go
-index ec60542b34..2a96b804e2 100644
+index 129dd5b5cc..011ebdeeeb 100644
 --- a/internal/service/wafv2/schemas.go
 +++ b/internal/service/wafv2/schemas.go
 @@ -52,14 +52,14 @@ func ruleGroupRootStatementSchema(level int) *schema.Schema {

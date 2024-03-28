@@ -13,7 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,6 +22,8 @@ import javax.annotation.Nullable;
  * A transit virtual interface is a VLAN that transports traffic from a Direct Connect gateway to one or more transit gateways.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,13 +47,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGateway = new Gateway(&#34;exampleGateway&#34;, GatewayArgs.builder()        
+ *         var example = new Gateway(&#34;example&#34;, GatewayArgs.builder()        
+ *             .name(&#34;tf-dxg-example&#34;)
  *             .amazonSideAsn(64512)
  *             .build());
  * 
  *         var exampleTransitVirtualInterface = new TransitVirtualInterface(&#34;exampleTransitVirtualInterface&#34;, TransitVirtualInterfaceArgs.builder()        
- *             .connectionId(aws_dx_connection.example().id())
- *             .dxGatewayId(exampleGateway.id())
+ *             .connectionId(exampleAwsDxConnection.id())
+ *             .dxGatewayId(example.id())
+ *             .name(&#34;tf-transit-vif-example&#34;)
  *             .vlan(4094)
  *             .addressFamily(&#34;ipv4&#34;)
  *             .bgpAsn(65352)
@@ -61,13 +64,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Direct Connect transit virtual interfaces using the VIF `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
+ * $ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
  * ```
  * 
  */
@@ -342,9 +346,6 @@ public class TransitVirtualInterface extends com.pulumi.resources.CustomResource
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

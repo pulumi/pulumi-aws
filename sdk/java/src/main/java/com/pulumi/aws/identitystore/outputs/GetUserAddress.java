@@ -4,6 +4,7 @@
 package com.pulumi.aws.identitystore.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -141,55 +142,79 @@ public final class GetUserAddress {
 
         @CustomType.Setter
         public Builder country(String country) {
-            this.country = Objects.requireNonNull(country);
+            if (country == null) {
+              throw new MissingRequiredPropertyException("GetUserAddress", "country");
+            }
+            this.country = country;
             return this;
         }
         @CustomType.Setter
         public Builder formatted(String formatted) {
-            this.formatted = Objects.requireNonNull(formatted);
+            if (formatted == null) {
+              throw new MissingRequiredPropertyException("GetUserAddress", "formatted");
+            }
+            this.formatted = formatted;
             return this;
         }
         @CustomType.Setter
         public Builder locality(String locality) {
-            this.locality = Objects.requireNonNull(locality);
+            if (locality == null) {
+              throw new MissingRequiredPropertyException("GetUserAddress", "locality");
+            }
+            this.locality = locality;
             return this;
         }
         @CustomType.Setter
         public Builder postalCode(String postalCode) {
-            this.postalCode = Objects.requireNonNull(postalCode);
+            if (postalCode == null) {
+              throw new MissingRequiredPropertyException("GetUserAddress", "postalCode");
+            }
+            this.postalCode = postalCode;
             return this;
         }
         @CustomType.Setter
         public Builder primary(Boolean primary) {
-            this.primary = Objects.requireNonNull(primary);
+            if (primary == null) {
+              throw new MissingRequiredPropertyException("GetUserAddress", "primary");
+            }
+            this.primary = primary;
             return this;
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetUserAddress", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder streetAddress(String streetAddress) {
-            this.streetAddress = Objects.requireNonNull(streetAddress);
+            if (streetAddress == null) {
+              throw new MissingRequiredPropertyException("GetUserAddress", "streetAddress");
+            }
+            this.streetAddress = streetAddress;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetUserAddress", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetUserAddress build() {
-            final var o = new GetUserAddress();
-            o.country = country;
-            o.formatted = formatted;
-            o.locality = locality;
-            o.postalCode = postalCode;
-            o.primary = primary;
-            o.region = region;
-            o.streetAddress = streetAddress;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetUserAddress();
+            _resultValue.country = country;
+            _resultValue.formatted = formatted;
+            _resultValue.locality = locality;
+            _resultValue.postalCode = postalCode;
+            _resultValue.primary = primary;
+            _resultValue.region = region;
+            _resultValue.streetAddress = streetAddress;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,13 +29,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testCatalogDatabase, err := glue.NewCatalogDatabase(ctx, "testCatalogDatabase", &glue.CatalogDatabaseArgs{
+//			testCatalogDatabase, err := glue.NewCatalogDatabase(ctx, "test", &glue.CatalogDatabaseArgs{
 //				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testCatalogTable, err := glue.NewCatalogTable(ctx, "testCatalogTable", &glue.CatalogTableArgs{
+//			testCatalogTable, err := glue.NewCatalogTable(ctx, "test", &glue.CatalogTableArgs{
 //				Name:             pulumi.String("example"),
 //				DatabaseName:     testCatalogDatabase.Name,
 //				Owner:            pulumi.String("my_owner"),
@@ -111,8 +112,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = glue.NewMLTransform(ctx, "testMLTransform", &glue.MLTransformArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.Test.Arn),
+//			_, err = glue.NewMLTransform(ctx, "test", &glue.MLTransformArgs{
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(testAwsIamRole.Arn),
 //				InputRecordTables: glue.MLTransformInputRecordTableArray{
 //					&glue.MLTransformInputRecordTableArgs{
 //						DatabaseName: testCatalogTable.DatabaseName,
@@ -125,9 +127,7 @@ import (
 //						PrimaryKeyColumnName: pulumi.String("my_column_1"),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_role_policy_attachment.Test,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -136,15 +136,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glue ML Transforms using `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
-//
+// $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
 // ```
 type MLTransform struct {
 	pulumi.CustomResourceState
@@ -201,10 +200,6 @@ func NewMLTransform(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MLTransform
 	err := ctx.RegisterResource("aws:glue/mLTransform:MLTransform", name, args, &resource, opts...)

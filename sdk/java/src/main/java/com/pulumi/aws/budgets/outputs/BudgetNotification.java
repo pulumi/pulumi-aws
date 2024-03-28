@@ -4,6 +4,7 @@
 package com.pulumi.aws.budgets.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -115,16 +116,23 @@ public final class BudgetNotification {
 
         @CustomType.Setter
         public Builder comparisonOperator(String comparisonOperator) {
-            this.comparisonOperator = Objects.requireNonNull(comparisonOperator);
+            if (comparisonOperator == null) {
+              throw new MissingRequiredPropertyException("BudgetNotification", "comparisonOperator");
+            }
+            this.comparisonOperator = comparisonOperator;
             return this;
         }
         @CustomType.Setter
         public Builder notificationType(String notificationType) {
-            this.notificationType = Objects.requireNonNull(notificationType);
+            if (notificationType == null) {
+              throw new MissingRequiredPropertyException("BudgetNotification", "notificationType");
+            }
+            this.notificationType = notificationType;
             return this;
         }
         @CustomType.Setter
         public Builder subscriberEmailAddresses(@Nullable List<String> subscriberEmailAddresses) {
+
             this.subscriberEmailAddresses = subscriberEmailAddresses;
             return this;
         }
@@ -133,6 +141,7 @@ public final class BudgetNotification {
         }
         @CustomType.Setter
         public Builder subscriberSnsTopicArns(@Nullable List<String> subscriberSnsTopicArns) {
+
             this.subscriberSnsTopicArns = subscriberSnsTopicArns;
             return this;
         }
@@ -141,23 +150,29 @@ public final class BudgetNotification {
         }
         @CustomType.Setter
         public Builder threshold(Double threshold) {
-            this.threshold = Objects.requireNonNull(threshold);
+            if (threshold == null) {
+              throw new MissingRequiredPropertyException("BudgetNotification", "threshold");
+            }
+            this.threshold = threshold;
             return this;
         }
         @CustomType.Setter
         public Builder thresholdType(String thresholdType) {
-            this.thresholdType = Objects.requireNonNull(thresholdType);
+            if (thresholdType == null) {
+              throw new MissingRequiredPropertyException("BudgetNotification", "thresholdType");
+            }
+            this.thresholdType = thresholdType;
             return this;
         }
         public BudgetNotification build() {
-            final var o = new BudgetNotification();
-            o.comparisonOperator = comparisonOperator;
-            o.notificationType = notificationType;
-            o.subscriberEmailAddresses = subscriberEmailAddresses;
-            o.subscriberSnsTopicArns = subscriberSnsTopicArns;
-            o.threshold = threshold;
-            o.thresholdType = thresholdType;
-            return o;
+            final var _resultValue = new BudgetNotification();
+            _resultValue.comparisonOperator = comparisonOperator;
+            _resultValue.notificationType = notificationType;
+            _resultValue.subscriberEmailAddresses = subscriberEmailAddresses;
+            _resultValue.subscriberSnsTopicArns = subscriberSnsTopicArns;
+            _resultValue.threshold = threshold;
+            _resultValue.thresholdType = thresholdType;
+            return _resultValue;
         }
     }
 }

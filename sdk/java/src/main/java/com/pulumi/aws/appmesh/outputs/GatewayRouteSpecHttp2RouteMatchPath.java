@@ -58,19 +58,21 @@ public final class GatewayRouteSpecHttp2RouteMatchPath {
 
         @CustomType.Setter
         public Builder exact(@Nullable String exact) {
+
             this.exact = exact;
             return this;
         }
         @CustomType.Setter
         public Builder regex(@Nullable String regex) {
+
             this.regex = regex;
             return this;
         }
         public GatewayRouteSpecHttp2RouteMatchPath build() {
-            final var o = new GatewayRouteSpecHttp2RouteMatchPath();
-            o.exact = exact;
-            o.regex = regex;
-            return o;
+            final var _resultValue = new GatewayRouteSpecHttp2RouteMatchPath();
+            _resultValue.exact = exact;
+            _resultValue.regex = regex;
+            return _resultValue;
         }
     }
 }

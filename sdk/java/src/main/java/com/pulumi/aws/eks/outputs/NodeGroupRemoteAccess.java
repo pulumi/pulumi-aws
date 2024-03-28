@@ -59,11 +59,13 @@ public final class NodeGroupRemoteAccess {
 
         @CustomType.Setter
         public Builder ec2SshKey(@Nullable String ec2SshKey) {
+
             this.ec2SshKey = ec2SshKey;
             return this;
         }
         @CustomType.Setter
         public Builder sourceSecurityGroupIds(@Nullable List<String> sourceSecurityGroupIds) {
+
             this.sourceSecurityGroupIds = sourceSecurityGroupIds;
             return this;
         }
@@ -71,10 +73,10 @@ public final class NodeGroupRemoteAccess {
             return sourceSecurityGroupIds(List.of(sourceSecurityGroupIds));
         }
         public NodeGroupRemoteAccess build() {
-            final var o = new NodeGroupRemoteAccess();
-            o.ec2SshKey = ec2SshKey;
-            o.sourceSecurityGroupIds = sourceSecurityGroupIds;
-            return o;
+            final var _resultValue = new NodeGroupRemoteAccess();
+            _resultValue.ec2SshKey = ec2SshKey;
+            _resultValue.sourceSecurityGroupIds = sourceSecurityGroupIds;
+            return _resultValue;
         }
     }
 }

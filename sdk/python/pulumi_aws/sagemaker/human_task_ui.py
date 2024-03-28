@@ -175,23 +175,26 @@ class HumanTaskUI(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         example = aws.sagemaker.HumanTaskUI("example",
             human_task_ui_name="example",
             ui_template=aws.sagemaker.HumanTaskUIUiTemplateArgs(
-                content=(lambda path: open(path).read())("sagemaker-human-task-ui-template.html"),
+                content=std.file(input="sagemaker-human-task-ui-template.html").result,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Human Task UIs using the `human_task_ui_name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
+        $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -211,23 +214,26 @@ class HumanTaskUI(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         example = aws.sagemaker.HumanTaskUI("example",
             human_task_ui_name="example",
             ui_template=aws.sagemaker.HumanTaskUIUiTemplateArgs(
-                content=(lambda path: open(path).read())("sagemaker-human-task-ui-template.html"),
+                content=std.file(input="sagemaker-human-task-ui-template.html").result,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Human Task UIs using the `human_task_ui_name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
+        $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -266,8 +272,6 @@ class HumanTaskUI(pulumi.CustomResource):
             __props__.__dict__["ui_template"] = ui_template
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(HumanTaskUI, __self__).__init__(
             'aws:sagemaker/humanTaskUI:HumanTaskUI',
             resource_name,

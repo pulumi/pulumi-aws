@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,26 +34,26 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Id": "testBucketPolicy",
-//				"Statement": []map[string]interface{}{
+//				"id": "testBucketPolicy",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": "s3-outposts:PutBucketLifecycleConfiguration",
-//						"Effect": "Deny",
-//						"Principal": map[string]interface{}{
+//						"action": "s3-outposts:PutBucketLifecycleConfiguration",
+//						"effect": "Deny",
+//						"principal": map[string]interface{}{
 //							"AWS": "*",
 //						},
-//						"Resource": aws_s3control_bucket.Example.Arn,
-//						"Sid":      "statement1",
+//						"resource": exampleAwsS3controlBucket.Arn,
+//						"sid":      "statement1",
 //					},
 //				},
-//				"Version": "2012-10-17",
+//				"version": "2012-10-17",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = s3control.NewBucketPolicy(ctx, "example", &s3control.BucketPolicyArgs{
-//				Bucket: pulumi.Any(aws_s3control_bucket.Example.Arn),
+//				Bucket: pulumi.Any(exampleAwsS3controlBucket.Arn),
 //				Policy: pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -63,15 +64,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import S3 Control Bucket Policies using the Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
-//
+// $ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
 // ```
 type BucketPolicy struct {
 	pulumi.CustomResourceState

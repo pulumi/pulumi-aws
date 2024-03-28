@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Qldb
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,18 +27,20 @@ namespace Pulumi.Aws.Qldb
     /// {
     ///     var sample_ledger = new Aws.Qldb.Ledger("sample-ledger", new()
     ///     {
+    ///         Name = "sample-ledger",
     ///         PermissionsMode = "STANDARD",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import QLDB Ledgers using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
+    /// $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
     /// ```
     /// </summary>
     [AwsResourceType("aws:qldb/ledger:Ledger")]
@@ -108,10 +111,6 @@ namespace Pulumi.Aws.Qldb
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -231,11 +230,7 @@ namespace Pulumi.Aws.Qldb
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public LedgerState()

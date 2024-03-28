@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,10 +30,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Declare the data source
 //			rules, err := inspector.GetRulesPackages(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
+//			// e.g., Use in aws_inspector_assessment_template
 //			group, err := inspector.NewResourceGroup(ctx, "group", &inspector.ResourceGroupArgs{
 //				Tags: pulumi.StringMap{
 //					"test": pulumi.String("test"),
@@ -41,14 +44,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			assessmentAssessmentTarget, err := inspector.NewAssessmentTarget(ctx, "assessmentAssessmentTarget", &inspector.AssessmentTargetArgs{
+//			assessment, err := inspector.NewAssessmentTarget(ctx, "assessment", &inspector.AssessmentTargetArgs{
+//				Name:             pulumi.String("test"),
 //				ResourceGroupArn: group.Arn,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = inspector.NewAssessmentTemplate(ctx, "assessmentAssessmentTemplate", &inspector.AssessmentTemplateArgs{
-//				TargetArn:        assessmentAssessmentTarget.Arn,
+//			_, err = inspector.NewAssessmentTemplate(ctx, "assessment", &inspector.AssessmentTemplateArgs{
+//				Name:             pulumi.String("Test"),
+//				TargetArn:        assessment.Arn,
 //				Duration:         pulumi.Int(60),
 //				RulesPackageArns: interface{}(rules.Arns),
 //			})
@@ -60,6 +65,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetRulesPackages(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetRulesPackagesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRulesPackagesResult

@@ -5,6 +5,7 @@ package com.pulumi.aws.ssmincidents.outputs;
 
 import com.pulumi.aws.ssmincidents.outputs.GetResponsePlanIncidentTemplateNotificationTarget;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -116,22 +117,34 @@ public final class GetResponsePlanIncidentTemplate {
 
         @CustomType.Setter
         public Builder dedupeString(String dedupeString) {
-            this.dedupeString = Objects.requireNonNull(dedupeString);
+            if (dedupeString == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanIncidentTemplate", "dedupeString");
+            }
+            this.dedupeString = dedupeString;
             return this;
         }
         @CustomType.Setter
         public Builder impact(Integer impact) {
-            this.impact = Objects.requireNonNull(impact);
+            if (impact == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanIncidentTemplate", "impact");
+            }
+            this.impact = impact;
             return this;
         }
         @CustomType.Setter
         public Builder incidentTags(Map<String,String> incidentTags) {
-            this.incidentTags = Objects.requireNonNull(incidentTags);
+            if (incidentTags == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanIncidentTemplate", "incidentTags");
+            }
+            this.incidentTags = incidentTags;
             return this;
         }
         @CustomType.Setter
         public Builder notificationTargets(List<GetResponsePlanIncidentTemplateNotificationTarget> notificationTargets) {
-            this.notificationTargets = Objects.requireNonNull(notificationTargets);
+            if (notificationTargets == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanIncidentTemplate", "notificationTargets");
+            }
+            this.notificationTargets = notificationTargets;
             return this;
         }
         public Builder notificationTargets(GetResponsePlanIncidentTemplateNotificationTarget... notificationTargets) {
@@ -139,23 +152,29 @@ public final class GetResponsePlanIncidentTemplate {
         }
         @CustomType.Setter
         public Builder summary(String summary) {
-            this.summary = Objects.requireNonNull(summary);
+            if (summary == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanIncidentTemplate", "summary");
+            }
+            this.summary = summary;
             return this;
         }
         @CustomType.Setter
         public Builder title(String title) {
-            this.title = Objects.requireNonNull(title);
+            if (title == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanIncidentTemplate", "title");
+            }
+            this.title = title;
             return this;
         }
         public GetResponsePlanIncidentTemplate build() {
-            final var o = new GetResponsePlanIncidentTemplate();
-            o.dedupeString = dedupeString;
-            o.impact = impact;
-            o.incidentTags = incidentTags;
-            o.notificationTargets = notificationTargets;
-            o.summary = summary;
-            o.title = title;
-            return o;
+            final var _resultValue = new GetResponsePlanIncidentTemplate();
+            _resultValue.dedupeString = dedupeString;
+            _resultValue.impact = impact;
+            _resultValue.incidentTags = incidentTags;
+            _resultValue.notificationTargets = notificationTargets;
+            _resultValue.summary = summary;
+            _resultValue.title = title;
+            return _resultValue;
         }
     }
 }

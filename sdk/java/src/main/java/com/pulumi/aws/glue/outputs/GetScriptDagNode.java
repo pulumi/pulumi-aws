@@ -5,6 +5,7 @@ package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.aws.glue.outputs.GetScriptDagNodeArg;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -89,7 +90,10 @@ public final class GetScriptDagNode {
 
         @CustomType.Setter
         public Builder args(List<GetScriptDagNodeArg> args) {
-            this.args = Objects.requireNonNull(args);
+            if (args == null) {
+              throw new MissingRequiredPropertyException("GetScriptDagNode", "args");
+            }
+            this.args = args;
             return this;
         }
         public Builder args(GetScriptDagNodeArg... args) {
@@ -97,26 +101,33 @@ public final class GetScriptDagNode {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetScriptDagNode", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder lineNumber(@Nullable Integer lineNumber) {
+
             this.lineNumber = lineNumber;
             return this;
         }
         @CustomType.Setter
         public Builder nodeType(String nodeType) {
-            this.nodeType = Objects.requireNonNull(nodeType);
+            if (nodeType == null) {
+              throw new MissingRequiredPropertyException("GetScriptDagNode", "nodeType");
+            }
+            this.nodeType = nodeType;
             return this;
         }
         public GetScriptDagNode build() {
-            final var o = new GetScriptDagNode();
-            o.args = args;
-            o.id = id;
-            o.lineNumber = lineNumber;
-            o.nodeType = nodeType;
-            return o;
+            final var _resultValue = new GetScriptDagNode();
+            _resultValue.args = args;
+            _resultValue.id = id;
+            _resultValue.lineNumber = lineNumber;
+            _resultValue.nodeType = nodeType;
+            return _resultValue;
         }
     }
 }

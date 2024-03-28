@@ -36,13 +36,14 @@ public final class TrustProviderDeviceOptions {
 
         @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
+
             this.tenantId = tenantId;
             return this;
         }
         public TrustProviderDeviceOptions build() {
-            final var o = new TrustProviderDeviceOptions();
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new TrustProviderDeviceOptions();
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

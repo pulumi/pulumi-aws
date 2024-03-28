@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			sample, err := emr.NewCluster(ctx, "sample", &emr.ClusterArgs{
+//				Name:         pulumi.String("emr-sample-cluster"),
 //				ReleaseLabel: pulumi.String("emr-5.30.0"),
 //				MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
 //					InstanceType: pulumi.String("m4.large"),
@@ -60,15 +62,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EMR Managed Scaling Policies using the EMR Cluster identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
-//
+// $ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
 // ```
 type ManagedScalingPolicy struct {
 	pulumi.CustomResourceState

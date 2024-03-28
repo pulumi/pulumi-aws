@@ -4,6 +4,7 @@
 package com.pulumi.aws.signer.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -41,19 +42,25 @@ public final class SigningProfileSignatureValidityPeriod {
 
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("SigningProfileSignatureValidityPeriod", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder value(Integer value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("SigningProfileSignatureValidityPeriod", "value");
+            }
+            this.value = value;
             return this;
         }
         public SigningProfileSignatureValidityPeriod build() {
-            final var o = new SigningProfileSignatureValidityPeriod();
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new SigningProfileSignatureValidityPeriod();
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

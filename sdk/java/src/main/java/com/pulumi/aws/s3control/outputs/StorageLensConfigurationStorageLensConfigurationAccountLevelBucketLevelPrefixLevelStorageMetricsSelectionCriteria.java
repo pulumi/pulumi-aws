@@ -74,25 +74,28 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
 
         @CustomType.Setter
         public Builder delimiter(@Nullable String delimiter) {
+
             this.delimiter = delimiter;
             return this;
         }
         @CustomType.Setter
         public Builder maxDepth(@Nullable Integer maxDepth) {
+
             this.maxDepth = maxDepth;
             return this;
         }
         @CustomType.Setter
         public Builder minStorageBytesPercentage(@Nullable Double minStorageBytesPercentage) {
+
             this.minStorageBytesPercentage = minStorageBytesPercentage;
             return this;
         }
         public StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria build() {
-            final var o = new StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria();
-            o.delimiter = delimiter;
-            o.maxDepth = maxDepth;
-            o.minStorageBytesPercentage = minStorageBytesPercentage;
-            return o;
+            final var _resultValue = new StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria();
+            _resultValue.delimiter = delimiter;
+            _resultValue.maxDepth = maxDepth;
+            _resultValue.minStorageBytesPercentage = minStorageBytesPercentage;
+            return _resultValue;
         }
     }
 }

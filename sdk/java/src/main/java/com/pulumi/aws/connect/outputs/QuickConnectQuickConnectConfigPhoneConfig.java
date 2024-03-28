@@ -4,6 +4,7 @@
 package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class QuickConnectQuickConnectConfigPhoneConfig {
 
         @CustomType.Setter
         public Builder phoneNumber(String phoneNumber) {
-            this.phoneNumber = Objects.requireNonNull(phoneNumber);
+            if (phoneNumber == null) {
+              throw new MissingRequiredPropertyException("QuickConnectQuickConnectConfigPhoneConfig", "phoneNumber");
+            }
+            this.phoneNumber = phoneNumber;
             return this;
         }
         public QuickConnectQuickConnectConfigPhoneConfig build() {
-            final var o = new QuickConnectQuickConnectConfigPhoneConfig();
-            o.phoneNumber = phoneNumber;
-            return o;
+            final var _resultValue = new QuickConnectQuickConnectConfigPhoneConfig();
+            _resultValue.phoneNumber = phoneNumber;
+            return _resultValue;
         }
     }
 }

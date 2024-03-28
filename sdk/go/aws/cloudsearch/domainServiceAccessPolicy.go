@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,11 +32,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomain, err := cloudsearch.NewDomain(ctx, "exampleDomain", nil)
+//			exampleDomain, err := cloudsearch.NewDomain(ctx, "example", &cloudsearch.DomainArgs{
+//				Name: pulumi.String("example-domain"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Sid:    pulumi.StringRef("search_only"),
@@ -67,9 +70,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudsearch.NewDomainServiceAccessPolicy(ctx, "exampleDomainServiceAccessPolicy", &cloudsearch.DomainServiceAccessPolicyArgs{
+//			_, err = cloudsearch.NewDomainServiceAccessPolicy(ctx, "example", &cloudsearch.DomainServiceAccessPolicyArgs{
 //				DomainName:   exampleDomain.ID(),
-//				AccessPolicy: *pulumi.String(examplePolicyDocument.Json),
+//				AccessPolicy: pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -79,15 +82,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudSearch domain service access policies using the domain name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
-//
+// $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
 // ```
 type DomainServiceAccessPolicy struct {
 	pulumi.CustomResourceState

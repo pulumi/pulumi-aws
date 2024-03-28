@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides a CloudFront real-time log configuration resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,7 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new MonitoringSubscription(&#34;example&#34;, MonitoringSubscriptionArgs.builder()        
- *             .distributionId(aws_cloudfront_distribution.example().id())
+ *             .distributionId(exampleAwsCloudfrontDistribution.id())
  *             .monitoringSubscription(MonitoringSubscriptionMonitoringSubscriptionArgs.builder()
  *                 .realtimeMetricsSubscriptionConfig(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs.builder()
  *                     .realtimeMetricsSubscriptionStatus(&#34;Enabled&#34;)
@@ -53,13 +55,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudFront monitoring subscription using the id. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
+ * $ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
  * ```
  * 
  */

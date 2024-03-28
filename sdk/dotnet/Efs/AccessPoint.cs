@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Efs
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,18 +25,19 @@ namespace Pulumi.Aws.Efs
     /// {
     ///     var test = new Aws.Efs.AccessPoint("test", new()
     ///     {
-    ///         FileSystemId = aws_efs_file_system.Foo.Id,
+    ///         FileSystemId = foo.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import the EFS access points using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
+    /// $ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
     /// ```
     /// </summary>
     [AwsResourceType("aws:efs/accessPoint:AccessPoint")]
@@ -109,10 +111,6 @@ namespace Pulumi.Aws.Efs
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -229,11 +227,7 @@ namespace Pulumi.Aws.Efs
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public AccessPointState()

@@ -58,19 +58,21 @@ public final class CrawlerSchemaChangePolicy {
 
         @CustomType.Setter
         public Builder deleteBehavior(@Nullable String deleteBehavior) {
+
             this.deleteBehavior = deleteBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder updateBehavior(@Nullable String updateBehavior) {
+
             this.updateBehavior = updateBehavior;
             return this;
         }
         public CrawlerSchemaChangePolicy build() {
-            final var o = new CrawlerSchemaChangePolicy();
-            o.deleteBehavior = deleteBehavior;
-            o.updateBehavior = updateBehavior;
-            return o;
+            final var _resultValue = new CrawlerSchemaChangePolicy();
+            _resultValue.deleteBehavior = deleteBehavior;
+            _resultValue.updateBehavior = updateBehavior;
+            return _resultValue;
         }
     }
 }

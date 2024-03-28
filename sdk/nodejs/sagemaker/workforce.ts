@@ -11,22 +11,25 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Workforce resource.
  *
  * ## Example Usage
+ *
  * ### Cognito Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {});
- * const exampleUserPoolClient = new aws.cognito.UserPoolClient("exampleUserPoolClient", {
+ * const exampleUserPool = new aws.cognito.UserPool("example", {name: "example"});
+ * const exampleUserPoolClient = new aws.cognito.UserPoolClient("example", {
+ *     name: "example",
  *     generateSecret: true,
  *     userPoolId: exampleUserPool.id,
  * });
- * const exampleUserPoolDomain = new aws.cognito.UserPoolDomain("exampleUserPoolDomain", {
+ * const exampleUserPoolDomain = new aws.cognito.UserPoolDomain("example", {
  *     domain: "example",
  *     userPoolId: exampleUserPool.id,
  * });
- * const exampleWorkforce = new aws.sagemaker.Workforce("exampleWorkforce", {
+ * const example = new aws.sagemaker.Workforce("example", {
  *     workforceName: "example",
  *     cognitoConfig: {
  *         clientId: exampleUserPoolClient.id,
@@ -34,13 +37,17 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Oidc Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.Workforce("example", {
+ *     workforceName: "example",
  *     oidcConfig: {
  *         authorizationEndpoint: "https://example.com",
  *         clientId: "example",
@@ -51,16 +58,16 @@ import * as utilities from "../utilities";
  *         tokenEndpoint: "https://example.com",
  *         userInfoEndpoint: "https://example.com",
  *     },
- *     workforceName: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SageMaker Workforces using the `workforce_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/workforce:Workforce example example
+ * $ pulumi import aws:sagemaker/workforce:Workforce example example
  * ```
  */
 export class Workforce extends pulumi.CustomResource {

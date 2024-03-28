@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Kms
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,37 +23,30 @@ namespace Pulumi.Aws.Kms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary = new Aws.Provider("primary", new()
-    ///     {
-    ///         Region = "us-east-1",
-    ///     });
-    /// 
-    ///     var primaryKey = new Aws.Kms.Key("primaryKey", new()
+    ///     var primary = new Aws.Kms.Key("primary", new()
     ///     {
     ///         Description = "Multi-Region primary key",
     ///         DeletionWindowInDays = 30,
     ///         MultiRegion = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Primary,
     ///     });
     /// 
     ///     var replica = new Aws.Kms.ReplicaKey("replica", new()
     ///     {
     ///         Description = "Multi-Region replica key",
     ///         DeletionWindowInDays = 7,
-    ///         PrimaryKeyArn = primaryKey.Arn,
+    ///         PrimaryKeyArn = primary.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import KMS multi-Region replica keys using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:kms/replicaKey:ReplicaKey example 1234abcd-12ab-34cd-56ef-1234567890ab
+    /// $ pulumi import aws:kms/replicaKey:ReplicaKey example 1234abcd-12ab-34cd-56ef-1234567890ab
     /// ```
     /// </summary>
     [AwsResourceType("aws:kms/replicaKey:ReplicaKey")]
@@ -163,10 +157,6 @@ namespace Pulumi.Aws.Kms
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -342,11 +332,7 @@ namespace Pulumi.Aws.Kms
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ReplicaKeyState()

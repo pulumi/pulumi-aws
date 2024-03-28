@@ -17,7 +17,10 @@ import javax.annotation.Nullable;
  * Provides a resource to manage a CloudWatch log resource policy.
  * 
  * ## Example Usage
+ * 
  * ### Elasticsearch Log Publishing
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -41,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var elasticsearch-log-publishing-policyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var elasticsearch-log-publishing-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(                
  *                     &#34;logs:CreateLogStream&#34;,
@@ -56,14 +59,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var elasticsearch_log_publishing_policyLogResourcePolicy = new LogResourcePolicy(&#34;elasticsearch-log-publishing-policyLogResourcePolicy&#34;, LogResourcePolicyArgs.builder()        
- *             .policyDocument(elasticsearch_log_publishing_policyPolicyDocument.json())
+ *             .policyDocument(elasticsearch_log_publishing_policy.json())
  *             .policyName(&#34;elasticsearch-log-publishing-policy&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Route53 Query Logging
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -87,7 +94,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var route53-query-logging-policyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var route53-query-logging-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(                
  *                     &#34;logs:CreateLogStream&#34;,
@@ -101,20 +108,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var route53_query_logging_policyLogResourcePolicy = new LogResourcePolicy(&#34;route53-query-logging-policyLogResourcePolicy&#34;, LogResourcePolicyArgs.builder()        
- *             .policyDocument(route53_query_logging_policyPolicyDocument.json())
+ *             .policyDocument(route53_query_logging_policy.json())
  *             .policyName(&#34;route53-query-logging-policy&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudWatch log resource policies using the policy name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
+ * $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
  * ```
  * 
  */

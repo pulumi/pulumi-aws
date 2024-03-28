@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,10 +31,11 @@ namespace Pulumi.Aws.Dms
     ///             "creation",
     ///             "failure",
     ///         },
-    ///         SnsTopicArn = aws_sns_topic.Example.Arn,
+    ///         Name = "my-favorite-event-subscription",
+    ///         SnsTopicArn = exampleAwsSnsTopic.Arn,
     ///         SourceIds = new[]
     ///         {
-    ///             aws_dms_replication_task.Example.Replication_task_id,
+    ///             exampleAwsDmsReplicationTask.ReplicationTaskId,
     ///         },
     ///         SourceType = "replication-task",
     ///         Tags = 
@@ -44,13 +46,14 @@ namespace Pulumi.Aws.Dms
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import event subscriptions using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
+    /// $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
     /// ```
     /// </summary>
     [AwsResourceType("aws:dms/eventSubscription:EventSubscription")]
@@ -87,7 +90,7 @@ namespace Pulumi.Aws.Dms
         public Output<string> SnsTopicArn { get; private set; } = null!;
 
         /// <summary>
-        /// Ids of sources to listen to.
+        /// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
         /// </summary>
         [Output("sourceIds")]
         public Output<ImmutableArray<string>> SourceIds { get; private set; } = null!;
@@ -96,7 +99,7 @@ namespace Pulumi.Aws.Dms
         /// Type of source for events. Valid values: `replication-instance` or `replication-task`
         /// </summary>
         [Output("sourceType")]
-        public Output<string?> SourceType { get; private set; } = null!;
+        public Output<string> SourceType { get; private set; } = null!;
 
         /// <summary>
         /// Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -133,10 +136,6 @@ namespace Pulumi.Aws.Dms
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -194,7 +193,7 @@ namespace Pulumi.Aws.Dms
         private InputList<string>? _sourceIds;
 
         /// <summary>
-        /// Ids of sources to listen to.
+        /// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
         /// </summary>
         public InputList<string> SourceIds
         {
@@ -205,8 +204,8 @@ namespace Pulumi.Aws.Dms
         /// <summary>
         /// Type of source for events. Valid values: `replication-instance` or `replication-task`
         /// </summary>
-        [Input("sourceType")]
-        public Input<string>? SourceType { get; set; }
+        [Input("sourceType", required: true)]
+        public Input<string> SourceType { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -268,7 +267,7 @@ namespace Pulumi.Aws.Dms
         private InputList<string>? _sourceIds;
 
         /// <summary>
-        /// Ids of sources to listen to.
+        /// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
         /// </summary>
         public InputList<string> SourceIds
         {
@@ -304,11 +303,7 @@ namespace Pulumi.Aws.Dms
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public EventSubscriptionState()

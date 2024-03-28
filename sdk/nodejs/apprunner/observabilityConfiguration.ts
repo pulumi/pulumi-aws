@@ -12,27 +12,29 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apprunner.ObservabilityConfiguration("example", {
  *     observabilityConfigurationName: "example",
- *     tags: {
- *         Name: "example-apprunner-observability-configuration",
- *     },
  *     traceConfiguration: {
  *         vendor: "AWSXRAY",
  *     },
+ *     tags: {
+ *         Name: "example-apprunner-observability-configuration",
+ *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import App Runner Observability Configuration using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:apprunner/observabilityConfiguration:ObservabilityConfiguration example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
+ * $ pulumi import aws:apprunner/observabilityConfiguration:ObservabilityConfiguration example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
  * ```
  */
 export class ObservabilityConfiguration extends pulumi.CustomResource {
@@ -134,8 +136,6 @@ export class ObservabilityConfiguration extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ObservabilityConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

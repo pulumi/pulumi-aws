@@ -29,6 +29,17 @@ class AssumeRole(dict):
                  source_identity: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  transitive_tag_keys: Optional[Sequence[str]] = None):
+        """
+        :param str duration: The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+        :param str external_id: A unique identifier that might be required when you assume a role in another account.
+        :param str policy: IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+        :param Sequence[str] policy_arns: Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+        :param str role_arn: Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+        :param str session_name: An identifier for the assumed role session.
+        :param str source_identity: Source identity specified by the principal assuming the role.
+        :param Mapping[str, str] tags: Assume role session tags.
+        :param Sequence[str] transitive_tag_keys: Assume role session tag keys to pass to any subsequent sessions.
+        """
         if duration is not None:
             pulumi.set(__self__, "duration", duration)
         if external_id is not None:
@@ -51,46 +62,73 @@ class AssumeRole(dict):
     @property
     @pulumi.getter
     def duration(self) -> Optional[str]:
+        """
+        The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+        """
         return pulumi.get(self, "duration")
 
     @property
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional[str]:
+        """
+        A unique identifier that might be required when you assume a role in another account.
+        """
         return pulumi.get(self, "external_id")
 
     @property
     @pulumi.getter
     def policy(self) -> Optional[str]:
+        """
+        IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+        """
         return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="policyArns")
     def policy_arns(self) -> Optional[Sequence[str]]:
+        """
+        Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+        """
         return pulumi.get(self, "policy_arns")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="sessionName")
     def session_name(self) -> Optional[str]:
+        """
+        An identifier for the assumed role session.
+        """
         return pulumi.get(self, "session_name")
 
     @property
     @pulumi.getter(name="sourceIdentity")
     def source_identity(self) -> Optional[str]:
+        """
+        Source identity specified by the principal assuming the role.
+        """
         return pulumi.get(self, "source_identity")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Assume role session tags.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="transitiveTagKeys")
     def transitive_tag_keys(self) -> Optional[Sequence[str]]:
+        """
+        Assume role session tag keys to pass to any subsequent sessions.
+        """
         return pulumi.get(self, "transitive_tag_keys")
 
 
@@ -104,6 +142,13 @@ class AssumeRoleWithWebIdentity(dict):
                  session_name: Optional[str] = None,
                  web_identity_token: Optional[str] = None,
                  web_identity_token_file: Optional[str] = None):
+        """
+        :param str duration: The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+        :param str policy: IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+        :param Sequence[str] policy_arns: Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+        :param str role_arn: Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+        :param str session_name: An identifier for the assumed role session.
+        """
         if duration is not None:
             pulumi.set(__self__, "duration", duration)
         if policy is not None:
@@ -122,26 +167,41 @@ class AssumeRoleWithWebIdentity(dict):
     @property
     @pulumi.getter
     def duration(self) -> Optional[str]:
+        """
+        The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+        """
         return pulumi.get(self, "duration")
 
     @property
     @pulumi.getter
     def policy(self) -> Optional[str]:
+        """
+        IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+        """
         return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="policyArns")
     def policy_arns(self) -> Optional[Sequence[str]]:
+        """
+        Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+        """
         return pulumi.get(self, "policy_arns")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="sessionName")
     def session_name(self) -> Optional[str]:
+        """
+        An identifier for the assumed role session.
+        """
         return pulumi.get(self, "session_name")
 
     @property
@@ -159,12 +219,18 @@ class AssumeRoleWithWebIdentity(dict):
 class DefaultTags(dict):
     def __init__(__self__, *,
                  tags: Optional[Mapping[str, str]] = None):
+        """
+        :param Mapping[str, str] tags: Resource tags to default across all resources
+        """
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags to default across all resources
+        """
         return pulumi.get(self, "tags")
 
 
@@ -182,12 +248,14 @@ class Endpoints(dict):
                  apigatewayv2: Optional[str] = None,
                  appautoscaling: Optional[str] = None,
                  appconfig: Optional[str] = None,
+                 appfabric: Optional[str] = None,
                  appflow: Optional[str] = None,
                  appintegrations: Optional[str] = None,
                  appintegrationsservice: Optional[str] = None,
                  applicationautoscaling: Optional[str] = None,
                  applicationinsights: Optional[str] = None,
                  appmesh: Optional[str] = None,
+                 appregistry: Optional[str] = None,
                  apprunner: Optional[str] = None,
                  appstream: Optional[str] = None,
                  appsync: Optional[str] = None,
@@ -199,6 +267,7 @@ class Endpoints(dict):
                  batch: Optional[str] = None,
                  beanstalk: Optional[str] = None,
                  bedrock: Optional[str] = None,
+                 bedrockagent: Optional[str] = None,
                  budgets: Optional[str] = None,
                  ce: Optional[str] = None,
                  chime: Optional[str] = None,
@@ -210,6 +279,7 @@ class Endpoints(dict):
                  cloudcontrolapi: Optional[str] = None,
                  cloudformation: Optional[str] = None,
                  cloudfront: Optional[str] = None,
+                 cloudfrontkeyvaluestore: Optional[str] = None,
                  cloudhsm: Optional[str] = None,
                  cloudhsmv2: Optional[str] = None,
                  cloudsearch: Optional[str] = None,
@@ -226,6 +296,7 @@ class Endpoints(dict):
                  codecatalyst: Optional[str] = None,
                  codecommit: Optional[str] = None,
                  codedeploy: Optional[str] = None,
+                 codeguruprofiler: Optional[str] = None,
                  codegurureviewer: Optional[str] = None,
                  codepipeline: Optional[str] = None,
                  codestarconnections: Optional[str] = None,
@@ -242,6 +313,7 @@ class Endpoints(dict):
                  controltower: Optional[str] = None,
                  costandusagereportservice: Optional[str] = None,
                  costexplorer: Optional[str] = None,
+                 costoptimizationhub: Optional[str] = None,
                  cur: Optional[str] = None,
                  customerprofiles: Optional[str] = None,
                  databasemigration: Optional[str] = None,
@@ -253,6 +325,7 @@ class Endpoints(dict):
                  deploy: Optional[str] = None,
                  detective: Optional[str] = None,
                  devicefarm: Optional[str] = None,
+                 devopsguru: Optional[str] = None,
                  directconnect: Optional[str] = None,
                  directoryservice: Optional[str] = None,
                  dlm: Optional[str] = None,
@@ -294,6 +367,7 @@ class Endpoints(dict):
                  glue: Optional[str] = None,
                  grafana: Optional[str] = None,
                  greengrass: Optional[str] = None,
+                 groundstation: Optional[str] = None,
                  guardduty: Optional[str] = None,
                  healthlake: Optional[str] = None,
                  iam: Optional[str] = None,
@@ -319,6 +393,7 @@ class Endpoints(dict):
                  kms: Optional[str] = None,
                  lakeformation: Optional[str] = None,
                  lambda_: Optional[str] = None,
+                 launchwizard: Optional[str] = None,
                  lex: Optional[str] = None,
                  lexmodelbuilding: Optional[str] = None,
                  lexmodelbuildingservice: Optional[str] = None,
@@ -330,12 +405,15 @@ class Endpoints(dict):
                  location: Optional[str] = None,
                  locationservice: Optional[str] = None,
                  logs: Optional[str] = None,
+                 lookoutmetrics: Optional[str] = None,
+                 m2: Optional[str] = None,
                  macie2: Optional[str] = None,
                  managedgrafana: Optional[str] = None,
                  mediaconnect: Optional[str] = None,
                  mediaconvert: Optional[str] = None,
                  medialive: Optional[str] = None,
                  mediapackage: Optional[str] = None,
+                 mediapackagev2: Optional[str] = None,
                  mediastore: Optional[str] = None,
                  memorydb: Optional[str] = None,
                  mq: Optional[str] = None,
@@ -353,11 +431,14 @@ class Endpoints(dict):
                  organizations: Optional[str] = None,
                  osis: Optional[str] = None,
                  outposts: Optional[str] = None,
+                 pcaconnectorad: Optional[str] = None,
                  pinpoint: Optional[str] = None,
                  pipes: Optional[str] = None,
+                 polly: Optional[str] = None,
                  pricing: Optional[str] = None,
                  prometheus: Optional[str] = None,
                  prometheusservice: Optional[str] = None,
+                 qbusiness: Optional[str] = None,
                  qldb: Optional[str] = None,
                  quicksight: Optional[str] = None,
                  ram: Optional[str] = None,
@@ -368,6 +449,7 @@ class Endpoints(dict):
                  redshiftdata: Optional[str] = None,
                  redshiftdataapiservice: Optional[str] = None,
                  redshiftserverless: Optional[str] = None,
+                 rekognition: Optional[str] = None,
                  resourceexplorer2: Optional[str] = None,
                  resourcegroups: Optional[str] = None,
                  resourcegroupstagging: Optional[str] = None,
@@ -394,6 +476,7 @@ class Endpoints(dict):
                  serverlessapprepo: Optional[str] = None,
                  serverlessrepo: Optional[str] = None,
                  servicecatalog: Optional[str] = None,
+                 servicecatalogappregistry: Optional[str] = None,
                  servicediscovery: Optional[str] = None,
                  servicequotas: Optional[str] = None,
                  ses: Optional[str] = None,
@@ -407,6 +490,7 @@ class Endpoints(dict):
                  ssm: Optional[str] = None,
                  ssmcontacts: Optional[str] = None,
                  ssmincidents: Optional[str] = None,
+                 ssmsap: Optional[str] = None,
                  sso: Optional[str] = None,
                  ssoadmin: Optional[str] = None,
                  stepfunctions: Optional[str] = None,
@@ -423,9 +507,286 @@ class Endpoints(dict):
                  waf: Optional[str] = None,
                  wafregional: Optional[str] = None,
                  wafv2: Optional[str] = None,
+                 wellarchitected: Optional[str] = None,
                  worklink: Optional[str] = None,
                  workspaces: Optional[str] = None,
                  xray: Optional[str] = None):
+        """
+        :param str accessanalyzer: Use this to override the default service endpoint URL
+        :param str account: Use this to override the default service endpoint URL
+        :param str acm: Use this to override the default service endpoint URL
+        :param str acmpca: Use this to override the default service endpoint URL
+        :param str amg: Use this to override the default service endpoint URL
+        :param str amp: Use this to override the default service endpoint URL
+        :param str amplify: Use this to override the default service endpoint URL
+        :param str apigateway: Use this to override the default service endpoint URL
+        :param str apigatewayv2: Use this to override the default service endpoint URL
+        :param str appautoscaling: Use this to override the default service endpoint URL
+        :param str appconfig: Use this to override the default service endpoint URL
+        :param str appfabric: Use this to override the default service endpoint URL
+        :param str appflow: Use this to override the default service endpoint URL
+        :param str appintegrations: Use this to override the default service endpoint URL
+        :param str appintegrationsservice: Use this to override the default service endpoint URL
+        :param str applicationautoscaling: Use this to override the default service endpoint URL
+        :param str applicationinsights: Use this to override the default service endpoint URL
+        :param str appmesh: Use this to override the default service endpoint URL
+        :param str appregistry: Use this to override the default service endpoint URL
+        :param str apprunner: Use this to override the default service endpoint URL
+        :param str appstream: Use this to override the default service endpoint URL
+        :param str appsync: Use this to override the default service endpoint URL
+        :param str athena: Use this to override the default service endpoint URL
+        :param str auditmanager: Use this to override the default service endpoint URL
+        :param str autoscaling: Use this to override the default service endpoint URL
+        :param str autoscalingplans: Use this to override the default service endpoint URL
+        :param str backup: Use this to override the default service endpoint URL
+        :param str batch: Use this to override the default service endpoint URL
+        :param str beanstalk: Use this to override the default service endpoint URL
+        :param str bedrock: Use this to override the default service endpoint URL
+        :param str bedrockagent: Use this to override the default service endpoint URL
+        :param str budgets: Use this to override the default service endpoint URL
+        :param str ce: Use this to override the default service endpoint URL
+        :param str chime: Use this to override the default service endpoint URL
+        :param str chimesdkmediapipelines: Use this to override the default service endpoint URL
+        :param str chimesdkvoice: Use this to override the default service endpoint URL
+        :param str cleanrooms: Use this to override the default service endpoint URL
+        :param str cloud9: Use this to override the default service endpoint URL
+        :param str cloudcontrol: Use this to override the default service endpoint URL
+        :param str cloudcontrolapi: Use this to override the default service endpoint URL
+        :param str cloudformation: Use this to override the default service endpoint URL
+        :param str cloudfront: Use this to override the default service endpoint URL
+        :param str cloudfrontkeyvaluestore: Use this to override the default service endpoint URL
+        :param str cloudhsm: Use this to override the default service endpoint URL
+        :param str cloudhsmv2: Use this to override the default service endpoint URL
+        :param str cloudsearch: Use this to override the default service endpoint URL
+        :param str cloudtrail: Use this to override the default service endpoint URL
+        :param str cloudwatch: Use this to override the default service endpoint URL
+        :param str cloudwatchevents: Use this to override the default service endpoint URL
+        :param str cloudwatchevidently: Use this to override the default service endpoint URL
+        :param str cloudwatchlog: Use this to override the default service endpoint URL
+        :param str cloudwatchlogs: Use this to override the default service endpoint URL
+        :param str cloudwatchobservabilityaccessmanager: Use this to override the default service endpoint URL
+        :param str cloudwatchrum: Use this to override the default service endpoint URL
+        :param str codeartifact: Use this to override the default service endpoint URL
+        :param str codebuild: Use this to override the default service endpoint URL
+        :param str codecatalyst: Use this to override the default service endpoint URL
+        :param str codecommit: Use this to override the default service endpoint URL
+        :param str codedeploy: Use this to override the default service endpoint URL
+        :param str codeguruprofiler: Use this to override the default service endpoint URL
+        :param str codegurureviewer: Use this to override the default service endpoint URL
+        :param str codepipeline: Use this to override the default service endpoint URL
+        :param str codestarconnections: Use this to override the default service endpoint URL
+        :param str codestarnotifications: Use this to override the default service endpoint URL
+        :param str cognitoidentity: Use this to override the default service endpoint URL
+        :param str cognitoidentityprovider: Use this to override the default service endpoint URL
+        :param str cognitoidp: Use this to override the default service endpoint URL
+        :param str comprehend: Use this to override the default service endpoint URL
+        :param str computeoptimizer: Use this to override the default service endpoint URL
+        :param str config: Use this to override the default service endpoint URL
+        :param str configservice: Use this to override the default service endpoint URL
+        :param str connect: Use this to override the default service endpoint URL
+        :param str connectcases: Use this to override the default service endpoint URL
+        :param str controltower: Use this to override the default service endpoint URL
+        :param str costandusagereportservice: Use this to override the default service endpoint URL
+        :param str costexplorer: Use this to override the default service endpoint URL
+        :param str costoptimizationhub: Use this to override the default service endpoint URL
+        :param str cur: Use this to override the default service endpoint URL
+        :param str customerprofiles: Use this to override the default service endpoint URL
+        :param str databasemigration: Use this to override the default service endpoint URL
+        :param str databasemigrationservice: Use this to override the default service endpoint URL
+        :param str dataexchange: Use this to override the default service endpoint URL
+        :param str datapipeline: Use this to override the default service endpoint URL
+        :param str datasync: Use this to override the default service endpoint URL
+        :param str dax: Use this to override the default service endpoint URL
+        :param str deploy: Use this to override the default service endpoint URL
+        :param str detective: Use this to override the default service endpoint URL
+        :param str devicefarm: Use this to override the default service endpoint URL
+        :param str devopsguru: Use this to override the default service endpoint URL
+        :param str directconnect: Use this to override the default service endpoint URL
+        :param str directoryservice: Use this to override the default service endpoint URL
+        :param str dlm: Use this to override the default service endpoint URL
+        :param str dms: Use this to override the default service endpoint URL
+        :param str docdb: Use this to override the default service endpoint URL
+        :param str docdbelastic: Use this to override the default service endpoint URL
+        :param str ds: Use this to override the default service endpoint URL
+        :param str dynamodb: Use this to override the default service endpoint URL
+        :param str ec2: Use this to override the default service endpoint URL
+        :param str ecr: Use this to override the default service endpoint URL
+        :param str ecrpublic: Use this to override the default service endpoint URL
+        :param str ecs: Use this to override the default service endpoint URL
+        :param str efs: Use this to override the default service endpoint URL
+        :param str eks: Use this to override the default service endpoint URL
+        :param str elasticache: Use this to override the default service endpoint URL
+        :param str elasticbeanstalk: Use this to override the default service endpoint URL
+        :param str elasticloadbalancing: Use this to override the default service endpoint URL
+        :param str elasticloadbalancingv2: Use this to override the default service endpoint URL
+        :param str elasticsearch: Use this to override the default service endpoint URL
+        :param str elasticsearchservice: Use this to override the default service endpoint URL
+        :param str elastictranscoder: Use this to override the default service endpoint URL
+        :param str elb: Use this to override the default service endpoint URL
+        :param str elbv2: Use this to override the default service endpoint URL
+        :param str emr: Use this to override the default service endpoint URL
+        :param str emrcontainers: Use this to override the default service endpoint URL
+        :param str emrserverless: Use this to override the default service endpoint URL
+        :param str es: Use this to override the default service endpoint URL
+        :param str eventbridge: Use this to override the default service endpoint URL
+        :param str events: Use this to override the default service endpoint URL
+        :param str evidently: Use this to override the default service endpoint URL
+        :param str finspace: Use this to override the default service endpoint URL
+        :param str firehose: Use this to override the default service endpoint URL
+        :param str fis: Use this to override the default service endpoint URL
+        :param str fms: Use this to override the default service endpoint URL
+        :param str fsx: Use this to override the default service endpoint URL
+        :param str gamelift: Use this to override the default service endpoint URL
+        :param str glacier: Use this to override the default service endpoint URL
+        :param str globalaccelerator: Use this to override the default service endpoint URL
+        :param str glue: Use this to override the default service endpoint URL
+        :param str grafana: Use this to override the default service endpoint URL
+        :param str greengrass: Use this to override the default service endpoint URL
+        :param str groundstation: Use this to override the default service endpoint URL
+        :param str guardduty: Use this to override the default service endpoint URL
+        :param str healthlake: Use this to override the default service endpoint URL
+        :param str iam: Use this to override the default service endpoint URL
+        :param str identitystore: Use this to override the default service endpoint URL
+        :param str imagebuilder: Use this to override the default service endpoint URL
+        :param str inspector: Use this to override the default service endpoint URL
+        :param str inspector2: Use this to override the default service endpoint URL
+        :param str inspectorv2: Use this to override the default service endpoint URL
+        :param str internetmonitor: Use this to override the default service endpoint URL
+        :param str iot: Use this to override the default service endpoint URL
+        :param str iotanalytics: Use this to override the default service endpoint URL
+        :param str iotevents: Use this to override the default service endpoint URL
+        :param str ivs: Use this to override the default service endpoint URL
+        :param str ivschat: Use this to override the default service endpoint URL
+        :param str kafka: Use this to override the default service endpoint URL
+        :param str kafkaconnect: Use this to override the default service endpoint URL
+        :param str kendra: Use this to override the default service endpoint URL
+        :param str keyspaces: Use this to override the default service endpoint URL
+        :param str kinesis: Use this to override the default service endpoint URL
+        :param str kinesisanalytics: Use this to override the default service endpoint URL
+        :param str kinesisanalyticsv2: Use this to override the default service endpoint URL
+        :param str kinesisvideo: Use this to override the default service endpoint URL
+        :param str kms: Use this to override the default service endpoint URL
+        :param str lakeformation: Use this to override the default service endpoint URL
+        :param str lambda_: Use this to override the default service endpoint URL
+        :param str launchwizard: Use this to override the default service endpoint URL
+        :param str lex: Use this to override the default service endpoint URL
+        :param str lexmodelbuilding: Use this to override the default service endpoint URL
+        :param str lexmodelbuildingservice: Use this to override the default service endpoint URL
+        :param str lexmodels: Use this to override the default service endpoint URL
+        :param str lexmodelsv2: Use this to override the default service endpoint URL
+        :param str lexv2models: Use this to override the default service endpoint URL
+        :param str licensemanager: Use this to override the default service endpoint URL
+        :param str lightsail: Use this to override the default service endpoint URL
+        :param str location: Use this to override the default service endpoint URL
+        :param str locationservice: Use this to override the default service endpoint URL
+        :param str logs: Use this to override the default service endpoint URL
+        :param str lookoutmetrics: Use this to override the default service endpoint URL
+        :param str m2: Use this to override the default service endpoint URL
+        :param str macie2: Use this to override the default service endpoint URL
+        :param str managedgrafana: Use this to override the default service endpoint URL
+        :param str mediaconnect: Use this to override the default service endpoint URL
+        :param str mediaconvert: Use this to override the default service endpoint URL
+        :param str medialive: Use this to override the default service endpoint URL
+        :param str mediapackage: Use this to override the default service endpoint URL
+        :param str mediapackagev2: Use this to override the default service endpoint URL
+        :param str mediastore: Use this to override the default service endpoint URL
+        :param str memorydb: Use this to override the default service endpoint URL
+        :param str mq: Use this to override the default service endpoint URL
+        :param str msk: Use this to override the default service endpoint URL
+        :param str mwaa: Use this to override the default service endpoint URL
+        :param str neptune: Use this to override the default service endpoint URL
+        :param str networkfirewall: Use this to override the default service endpoint URL
+        :param str networkmanager: Use this to override the default service endpoint URL
+        :param str oam: Use this to override the default service endpoint URL
+        :param str opensearch: Use this to override the default service endpoint URL
+        :param str opensearchingestion: Use this to override the default service endpoint URL
+        :param str opensearchserverless: Use this to override the default service endpoint URL
+        :param str opensearchservice: Use this to override the default service endpoint URL
+        :param str opsworks: Use this to override the default service endpoint URL
+        :param str organizations: Use this to override the default service endpoint URL
+        :param str osis: Use this to override the default service endpoint URL
+        :param str outposts: Use this to override the default service endpoint URL
+        :param str pcaconnectorad: Use this to override the default service endpoint URL
+        :param str pinpoint: Use this to override the default service endpoint URL
+        :param str pipes: Use this to override the default service endpoint URL
+        :param str polly: Use this to override the default service endpoint URL
+        :param str pricing: Use this to override the default service endpoint URL
+        :param str prometheus: Use this to override the default service endpoint URL
+        :param str prometheusservice: Use this to override the default service endpoint URL
+        :param str qbusiness: Use this to override the default service endpoint URL
+        :param str qldb: Use this to override the default service endpoint URL
+        :param str quicksight: Use this to override the default service endpoint URL
+        :param str ram: Use this to override the default service endpoint URL
+        :param str rbin: Use this to override the default service endpoint URL
+        :param str rds: Use this to override the default service endpoint URL
+        :param str recyclebin: Use this to override the default service endpoint URL
+        :param str redshift: Use this to override the default service endpoint URL
+        :param str redshiftdata: Use this to override the default service endpoint URL
+        :param str redshiftdataapiservice: Use this to override the default service endpoint URL
+        :param str redshiftserverless: Use this to override the default service endpoint URL
+        :param str rekognition: Use this to override the default service endpoint URL
+        :param str resourceexplorer2: Use this to override the default service endpoint URL
+        :param str resourcegroups: Use this to override the default service endpoint URL
+        :param str resourcegroupstagging: Use this to override the default service endpoint URL
+        :param str resourcegroupstaggingapi: Use this to override the default service endpoint URL
+        :param str rolesanywhere: Use this to override the default service endpoint URL
+        :param str route53: Use this to override the default service endpoint URL
+        :param str route53domains: Use this to override the default service endpoint URL
+        :param str route53recoverycontrolconfig: Use this to override the default service endpoint URL
+        :param str route53recoveryreadiness: Use this to override the default service endpoint URL
+        :param str route53resolver: Use this to override the default service endpoint URL
+        :param str rum: Use this to override the default service endpoint URL
+        :param str s3: Use this to override the default service endpoint URL
+        :param str s3api: Use this to override the default service endpoint URL
+        :param str s3control: Use this to override the default service endpoint URL
+        :param str s3outposts: Use this to override the default service endpoint URL
+        :param str sagemaker: Use this to override the default service endpoint URL
+        :param str scheduler: Use this to override the default service endpoint URL
+        :param str schemas: Use this to override the default service endpoint URL
+        :param str sdb: Use this to override the default service endpoint URL
+        :param str secretsmanager: Use this to override the default service endpoint URL
+        :param str securityhub: Use this to override the default service endpoint URL
+        :param str securitylake: Use this to override the default service endpoint URL
+        :param str serverlessapplicationrepository: Use this to override the default service endpoint URL
+        :param str serverlessapprepo: Use this to override the default service endpoint URL
+        :param str serverlessrepo: Use this to override the default service endpoint URL
+        :param str servicecatalog: Use this to override the default service endpoint URL
+        :param str servicecatalogappregistry: Use this to override the default service endpoint URL
+        :param str servicediscovery: Use this to override the default service endpoint URL
+        :param str servicequotas: Use this to override the default service endpoint URL
+        :param str ses: Use this to override the default service endpoint URL
+        :param str sesv2: Use this to override the default service endpoint URL
+        :param str sfn: Use this to override the default service endpoint URL
+        :param str shield: Use this to override the default service endpoint URL
+        :param str signer: Use this to override the default service endpoint URL
+        :param str simpledb: Use this to override the default service endpoint URL
+        :param str sns: Use this to override the default service endpoint URL
+        :param str sqs: Use this to override the default service endpoint URL
+        :param str ssm: Use this to override the default service endpoint URL
+        :param str ssmcontacts: Use this to override the default service endpoint URL
+        :param str ssmincidents: Use this to override the default service endpoint URL
+        :param str ssmsap: Use this to override the default service endpoint URL
+        :param str sso: Use this to override the default service endpoint URL
+        :param str ssoadmin: Use this to override the default service endpoint URL
+        :param str stepfunctions: Use this to override the default service endpoint URL
+        :param str storagegateway: Use this to override the default service endpoint URL
+        :param str sts: Use this to override the default service endpoint URL
+        :param str swf: Use this to override the default service endpoint URL
+        :param str synthetics: Use this to override the default service endpoint URL
+        :param str timestreamwrite: Use this to override the default service endpoint URL
+        :param str transcribe: Use this to override the default service endpoint URL
+        :param str transcribeservice: Use this to override the default service endpoint URL
+        :param str transfer: Use this to override the default service endpoint URL
+        :param str verifiedpermissions: Use this to override the default service endpoint URL
+        :param str vpclattice: Use this to override the default service endpoint URL
+        :param str waf: Use this to override the default service endpoint URL
+        :param str wafregional: Use this to override the default service endpoint URL
+        :param str wafv2: Use this to override the default service endpoint URL
+        :param str wellarchitected: Use this to override the default service endpoint URL
+        :param str worklink: Use this to override the default service endpoint URL
+        :param str workspaces: Use this to override the default service endpoint URL
+        :param str xray: Use this to override the default service endpoint URL
+        """
         if accessanalyzer is not None:
             pulumi.set(__self__, "accessanalyzer", accessanalyzer)
         if account is not None:
@@ -448,6 +809,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "appautoscaling", appautoscaling)
         if appconfig is not None:
             pulumi.set(__self__, "appconfig", appconfig)
+        if appfabric is not None:
+            pulumi.set(__self__, "appfabric", appfabric)
         if appflow is not None:
             pulumi.set(__self__, "appflow", appflow)
         if appintegrations is not None:
@@ -460,6 +823,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "applicationinsights", applicationinsights)
         if appmesh is not None:
             pulumi.set(__self__, "appmesh", appmesh)
+        if appregistry is not None:
+            pulumi.set(__self__, "appregistry", appregistry)
         if apprunner is not None:
             pulumi.set(__self__, "apprunner", apprunner)
         if appstream is not None:
@@ -482,6 +847,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "beanstalk", beanstalk)
         if bedrock is not None:
             pulumi.set(__self__, "bedrock", bedrock)
+        if bedrockagent is not None:
+            pulumi.set(__self__, "bedrockagent", bedrockagent)
         if budgets is not None:
             pulumi.set(__self__, "budgets", budgets)
         if ce is not None:
@@ -504,6 +871,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "cloudformation", cloudformation)
         if cloudfront is not None:
             pulumi.set(__self__, "cloudfront", cloudfront)
+        if cloudfrontkeyvaluestore is not None:
+            pulumi.set(__self__, "cloudfrontkeyvaluestore", cloudfrontkeyvaluestore)
         if cloudhsm is not None:
             pulumi.set(__self__, "cloudhsm", cloudhsm)
         if cloudhsmv2 is not None:
@@ -536,6 +905,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "codecommit", codecommit)
         if codedeploy is not None:
             pulumi.set(__self__, "codedeploy", codedeploy)
+        if codeguruprofiler is not None:
+            pulumi.set(__self__, "codeguruprofiler", codeguruprofiler)
         if codegurureviewer is not None:
             pulumi.set(__self__, "codegurureviewer", codegurureviewer)
         if codepipeline is not None:
@@ -568,6 +939,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "costandusagereportservice", costandusagereportservice)
         if costexplorer is not None:
             pulumi.set(__self__, "costexplorer", costexplorer)
+        if costoptimizationhub is not None:
+            pulumi.set(__self__, "costoptimizationhub", costoptimizationhub)
         if cur is not None:
             pulumi.set(__self__, "cur", cur)
         if customerprofiles is not None:
@@ -590,6 +963,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "detective", detective)
         if devicefarm is not None:
             pulumi.set(__self__, "devicefarm", devicefarm)
+        if devopsguru is not None:
+            pulumi.set(__self__, "devopsguru", devopsguru)
         if directconnect is not None:
             pulumi.set(__self__, "directconnect", directconnect)
         if directoryservice is not None:
@@ -672,6 +1047,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "grafana", grafana)
         if greengrass is not None:
             pulumi.set(__self__, "greengrass", greengrass)
+        if groundstation is not None:
+            pulumi.set(__self__, "groundstation", groundstation)
         if guardduty is not None:
             pulumi.set(__self__, "guardduty", guardduty)
         if healthlake is not None:
@@ -722,6 +1099,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "lakeformation", lakeformation)
         if lambda_ is not None:
             pulumi.set(__self__, "lambda_", lambda_)
+        if launchwizard is not None:
+            pulumi.set(__self__, "launchwizard", launchwizard)
         if lex is not None:
             pulumi.set(__self__, "lex", lex)
         if lexmodelbuilding is not None:
@@ -744,6 +1123,10 @@ class Endpoints(dict):
             pulumi.set(__self__, "locationservice", locationservice)
         if logs is not None:
             pulumi.set(__self__, "logs", logs)
+        if lookoutmetrics is not None:
+            pulumi.set(__self__, "lookoutmetrics", lookoutmetrics)
+        if m2 is not None:
+            pulumi.set(__self__, "m2", m2)
         if macie2 is not None:
             pulumi.set(__self__, "macie2", macie2)
         if managedgrafana is not None:
@@ -756,6 +1139,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "medialive", medialive)
         if mediapackage is not None:
             pulumi.set(__self__, "mediapackage", mediapackage)
+        if mediapackagev2 is not None:
+            pulumi.set(__self__, "mediapackagev2", mediapackagev2)
         if mediastore is not None:
             pulumi.set(__self__, "mediastore", mediastore)
         if memorydb is not None:
@@ -790,16 +1175,22 @@ class Endpoints(dict):
             pulumi.set(__self__, "osis", osis)
         if outposts is not None:
             pulumi.set(__self__, "outposts", outposts)
+        if pcaconnectorad is not None:
+            pulumi.set(__self__, "pcaconnectorad", pcaconnectorad)
         if pinpoint is not None:
             pulumi.set(__self__, "pinpoint", pinpoint)
         if pipes is not None:
             pulumi.set(__self__, "pipes", pipes)
+        if polly is not None:
+            pulumi.set(__self__, "polly", polly)
         if pricing is not None:
             pulumi.set(__self__, "pricing", pricing)
         if prometheus is not None:
             pulumi.set(__self__, "prometheus", prometheus)
         if prometheusservice is not None:
             pulumi.set(__self__, "prometheusservice", prometheusservice)
+        if qbusiness is not None:
+            pulumi.set(__self__, "qbusiness", qbusiness)
         if qldb is not None:
             pulumi.set(__self__, "qldb", qldb)
         if quicksight is not None:
@@ -820,6 +1211,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "redshiftdataapiservice", redshiftdataapiservice)
         if redshiftserverless is not None:
             pulumi.set(__self__, "redshiftserverless", redshiftserverless)
+        if rekognition is not None:
+            pulumi.set(__self__, "rekognition", rekognition)
         if resourceexplorer2 is not None:
             pulumi.set(__self__, "resourceexplorer2", resourceexplorer2)
         if resourcegroups is not None:
@@ -872,6 +1265,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "serverlessrepo", serverlessrepo)
         if servicecatalog is not None:
             pulumi.set(__self__, "servicecatalog", servicecatalog)
+        if servicecatalogappregistry is not None:
+            pulumi.set(__self__, "servicecatalogappregistry", servicecatalogappregistry)
         if servicediscovery is not None:
             pulumi.set(__self__, "servicediscovery", servicediscovery)
         if servicequotas is not None:
@@ -898,6 +1293,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "ssmcontacts", ssmcontacts)
         if ssmincidents is not None:
             pulumi.set(__self__, "ssmincidents", ssmincidents)
+        if ssmsap is not None:
+            pulumi.set(__self__, "ssmsap", ssmsap)
         if sso is not None:
             pulumi.set(__self__, "sso", sso)
         if ssoadmin is not None:
@@ -930,6 +1327,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "wafregional", wafregional)
         if wafv2 is not None:
             pulumi.set(__self__, "wafv2", wafv2)
+        if wellarchitected is not None:
+            pulumi.set(__self__, "wellarchitected", wellarchitected)
         if worklink is not None:
             pulumi.set(__self__, "worklink", worklink)
         if workspaces is not None:
@@ -940,1276 +1339,2193 @@ class Endpoints(dict):
     @property
     @pulumi.getter
     def accessanalyzer(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "accessanalyzer")
 
     @property
     @pulumi.getter
     def account(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "account")
 
     @property
     @pulumi.getter
     def acm(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "acm")
 
     @property
     @pulumi.getter
     def acmpca(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "acmpca")
 
     @property
     @pulumi.getter
     def amg(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "amg")
 
     @property
     @pulumi.getter
     def amp(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "amp")
 
     @property
     @pulumi.getter
     def amplify(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "amplify")
 
     @property
     @pulumi.getter
     def apigateway(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "apigateway")
 
     @property
     @pulumi.getter
     def apigatewayv2(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "apigatewayv2")
 
     @property
     @pulumi.getter
     def appautoscaling(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "appautoscaling")
 
     @property
     @pulumi.getter
     def appconfig(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "appconfig")
 
     @property
     @pulumi.getter
+    def appfabric(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "appfabric")
+
+    @property
+    @pulumi.getter
     def appflow(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "appflow")
 
     @property
     @pulumi.getter
     def appintegrations(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "appintegrations")
 
     @property
     @pulumi.getter
     def appintegrationsservice(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "appintegrationsservice")
 
     @property
     @pulumi.getter
     def applicationautoscaling(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "applicationautoscaling")
 
     @property
     @pulumi.getter
     def applicationinsights(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "applicationinsights")
 
     @property
     @pulumi.getter
     def appmesh(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "appmesh")
 
     @property
     @pulumi.getter
+    def appregistry(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "appregistry")
+
+    @property
+    @pulumi.getter
     def apprunner(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "apprunner")
 
     @property
     @pulumi.getter
     def appstream(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "appstream")
 
     @property
     @pulumi.getter
     def appsync(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "appsync")
 
     @property
     @pulumi.getter
     def athena(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "athena")
 
     @property
     @pulumi.getter
     def auditmanager(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "auditmanager")
 
     @property
     @pulumi.getter
     def autoscaling(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "autoscaling")
 
     @property
     @pulumi.getter
     def autoscalingplans(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "autoscalingplans")
 
     @property
     @pulumi.getter
     def backup(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "backup")
 
     @property
     @pulumi.getter
     def batch(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "batch")
 
     @property
     @pulumi.getter
     def beanstalk(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "beanstalk")
 
     @property
     @pulumi.getter
     def bedrock(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "bedrock")
 
     @property
     @pulumi.getter
+    def bedrockagent(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "bedrockagent")
+
+    @property
+    @pulumi.getter
     def budgets(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "budgets")
 
     @property
     @pulumi.getter
     def ce(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "ce")
 
     @property
     @pulumi.getter
     def chime(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "chime")
 
     @property
     @pulumi.getter
     def chimesdkmediapipelines(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "chimesdkmediapipelines")
 
     @property
     @pulumi.getter
     def chimesdkvoice(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "chimesdkvoice")
 
     @property
     @pulumi.getter
     def cleanrooms(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "cleanrooms")
 
     @property
     @pulumi.getter
     def cloud9(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "cloud9")
 
     @property
     @pulumi.getter
     def cloudcontrol(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "cloudcontrol")
 
     @property
     @pulumi.getter
     def cloudcontrolapi(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "cloudcontrolapi")
 
     @property
     @pulumi.getter
     def cloudformation(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "cloudformation")
 
     @property
     @pulumi.getter
     def cloudfront(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "cloudfront")
 
     @property
     @pulumi.getter
+    def cloudfrontkeyvaluestore(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "cloudfrontkeyvaluestore")
+
+    @property
+    @pulumi.getter
     def cloudhsm(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "cloudhsm")
 
     @property
     @pulumi.getter
     def cloudhsmv2(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "cloudhsmv2")
 
     @property
     @pulumi.getter
     def cloudsearch(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "cloudsearch")
 
     @property
     @pulumi.getter
     def cloudtrail(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "cloudtrail")
 
     @property
     @pulumi.getter
     def cloudwatch(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "cloudwatch")
 
     @property
     @pulumi.getter
     def cloudwatchevents(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "cloudwatchevents")
 
     @property
     @pulumi.getter
     def cloudwatchevidently(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "cloudwatchevidently")
 
     @property
     @pulumi.getter
     def cloudwatchlog(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "cloudwatchlog")
 
     @property
     @pulumi.getter
     def cloudwatchlogs(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "cloudwatchlogs")
 
     @property
     @pulumi.getter
     def cloudwatchobservabilityaccessmanager(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "cloudwatchobservabilityaccessmanager")
 
     @property
     @pulumi.getter
     def cloudwatchrum(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "cloudwatchrum")
 
     @property
     @pulumi.getter
     def codeartifact(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "codeartifact")
 
     @property
     @pulumi.getter
     def codebuild(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "codebuild")
 
     @property
     @pulumi.getter
     def codecatalyst(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "codecatalyst")
 
     @property
     @pulumi.getter
     def codecommit(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "codecommit")
 
     @property
     @pulumi.getter
     def codedeploy(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "codedeploy")
 
     @property
     @pulumi.getter
+    def codeguruprofiler(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "codeguruprofiler")
+
+    @property
+    @pulumi.getter
     def codegurureviewer(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "codegurureviewer")
 
     @property
     @pulumi.getter
     def codepipeline(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "codepipeline")
 
     @property
     @pulumi.getter
     def codestarconnections(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "codestarconnections")
 
     @property
     @pulumi.getter
     def codestarnotifications(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "codestarnotifications")
 
     @property
     @pulumi.getter
     def cognitoidentity(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "cognitoidentity")
 
     @property
     @pulumi.getter
     def cognitoidentityprovider(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "cognitoidentityprovider")
 
     @property
     @pulumi.getter
     def cognitoidp(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "cognitoidp")
 
     @property
     @pulumi.getter
     def comprehend(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "comprehend")
 
     @property
     @pulumi.getter
     def computeoptimizer(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "computeoptimizer")
 
     @property
     @pulumi.getter
     def config(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "config")
 
     @property
     @pulumi.getter
     def configservice(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "configservice")
 
     @property
     @pulumi.getter
     def connect(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "connect")
 
     @property
     @pulumi.getter
     def connectcases(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "connectcases")
 
     @property
     @pulumi.getter
     def controltower(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "controltower")
 
     @property
     @pulumi.getter
     def costandusagereportservice(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "costandusagereportservice")
 
     @property
     @pulumi.getter
     def costexplorer(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "costexplorer")
 
     @property
     @pulumi.getter
+    def costoptimizationhub(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "costoptimizationhub")
+
+    @property
+    @pulumi.getter
     def cur(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "cur")
 
     @property
     @pulumi.getter
     def customerprofiles(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "customerprofiles")
 
     @property
     @pulumi.getter
     def databasemigration(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "databasemigration")
 
     @property
     @pulumi.getter
     def databasemigrationservice(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "databasemigrationservice")
 
     @property
     @pulumi.getter
     def dataexchange(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "dataexchange")
 
     @property
     @pulumi.getter
     def datapipeline(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "datapipeline")
 
     @property
     @pulumi.getter
     def datasync(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "datasync")
 
     @property
     @pulumi.getter
     def dax(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "dax")
 
     @property
     @pulumi.getter
     def deploy(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "deploy")
 
     @property
     @pulumi.getter
     def detective(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "detective")
 
     @property
     @pulumi.getter
     def devicefarm(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "devicefarm")
 
     @property
     @pulumi.getter
+    def devopsguru(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "devopsguru")
+
+    @property
+    @pulumi.getter
     def directconnect(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "directconnect")
 
     @property
     @pulumi.getter
     def directoryservice(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "directoryservice")
 
     @property
     @pulumi.getter
     def dlm(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "dlm")
 
     @property
     @pulumi.getter
     def dms(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "dms")
 
     @property
     @pulumi.getter
     def docdb(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "docdb")
 
     @property
     @pulumi.getter
     def docdbelastic(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "docdbelastic")
 
     @property
     @pulumi.getter
     def ds(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "ds")
 
     @property
     @pulumi.getter
     def dynamodb(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "dynamodb")
 
     @property
     @pulumi.getter
     def ec2(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "ec2")
 
     @property
     @pulumi.getter
     def ecr(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "ecr")
 
     @property
     @pulumi.getter
     def ecrpublic(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "ecrpublic")
 
     @property
     @pulumi.getter
     def ecs(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "ecs")
 
     @property
     @pulumi.getter
     def efs(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "efs")
 
     @property
     @pulumi.getter
     def eks(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "eks")
 
     @property
     @pulumi.getter
     def elasticache(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "elasticache")
 
     @property
     @pulumi.getter
     def elasticbeanstalk(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "elasticbeanstalk")
 
     @property
     @pulumi.getter
     def elasticloadbalancing(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "elasticloadbalancing")
 
     @property
     @pulumi.getter
     def elasticloadbalancingv2(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "elasticloadbalancingv2")
 
     @property
     @pulumi.getter
     def elasticsearch(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "elasticsearch")
 
     @property
     @pulumi.getter
     def elasticsearchservice(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "elasticsearchservice")
 
     @property
     @pulumi.getter
     def elastictranscoder(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "elastictranscoder")
 
     @property
     @pulumi.getter
     def elb(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "elb")
 
     @property
     @pulumi.getter
     def elbv2(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "elbv2")
 
     @property
     @pulumi.getter
     def emr(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "emr")
 
     @property
     @pulumi.getter
     def emrcontainers(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "emrcontainers")
 
     @property
     @pulumi.getter
     def emrserverless(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "emrserverless")
 
     @property
     @pulumi.getter
     def es(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "es")
 
     @property
     @pulumi.getter
     def eventbridge(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "eventbridge")
 
     @property
     @pulumi.getter
     def events(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "events")
 
     @property
     @pulumi.getter
     def evidently(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "evidently")
 
     @property
     @pulumi.getter
     def finspace(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "finspace")
 
     @property
     @pulumi.getter
     def firehose(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "firehose")
 
     @property
     @pulumi.getter
     def fis(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "fis")
 
     @property
     @pulumi.getter
     def fms(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "fms")
 
     @property
     @pulumi.getter
     def fsx(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "fsx")
 
     @property
     @pulumi.getter
     def gamelift(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "gamelift")
 
     @property
     @pulumi.getter
     def glacier(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "glacier")
 
     @property
     @pulumi.getter
     def globalaccelerator(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "globalaccelerator")
 
     @property
     @pulumi.getter
     def glue(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "glue")
 
     @property
     @pulumi.getter
     def grafana(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "grafana")
 
     @property
     @pulumi.getter
     def greengrass(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "greengrass")
 
     @property
     @pulumi.getter
+    def groundstation(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "groundstation")
+
+    @property
+    @pulumi.getter
     def guardduty(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "guardduty")
 
     @property
     @pulumi.getter
     def healthlake(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "healthlake")
 
     @property
     @pulumi.getter
     def iam(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "iam")
 
     @property
     @pulumi.getter
     def identitystore(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "identitystore")
 
     @property
     @pulumi.getter
     def imagebuilder(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "imagebuilder")
 
     @property
     @pulumi.getter
     def inspector(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "inspector")
 
     @property
     @pulumi.getter
     def inspector2(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "inspector2")
 
     @property
     @pulumi.getter
     def inspectorv2(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "inspectorv2")
 
     @property
     @pulumi.getter
     def internetmonitor(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "internetmonitor")
 
     @property
     @pulumi.getter
     def iot(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "iot")
 
     @property
     @pulumi.getter
     def iotanalytics(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "iotanalytics")
 
     @property
     @pulumi.getter
     def iotevents(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "iotevents")
 
     @property
     @pulumi.getter
     def ivs(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "ivs")
 
     @property
     @pulumi.getter
     def ivschat(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "ivschat")
 
     @property
     @pulumi.getter
     def kafka(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "kafka")
 
     @property
     @pulumi.getter
     def kafkaconnect(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "kafkaconnect")
 
     @property
     @pulumi.getter
     def kendra(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "kendra")
 
     @property
     @pulumi.getter
     def keyspaces(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "keyspaces")
 
     @property
     @pulumi.getter
     def kinesis(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "kinesis")
 
     @property
     @pulumi.getter
     def kinesisanalytics(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "kinesisanalytics")
 
     @property
     @pulumi.getter
     def kinesisanalyticsv2(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "kinesisanalyticsv2")
 
     @property
     @pulumi.getter
     def kinesisvideo(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "kinesisvideo")
 
     @property
     @pulumi.getter
     def kms(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "kms")
 
     @property
     @pulumi.getter
     def lakeformation(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "lakeformation")
 
     @property
     @pulumi.getter(name="lambda")
     def lambda_(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "lambda_")
 
     @property
     @pulumi.getter
+    def launchwizard(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "launchwizard")
+
+    @property
+    @pulumi.getter
     def lex(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "lex")
 
     @property
     @pulumi.getter
     def lexmodelbuilding(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "lexmodelbuilding")
 
     @property
     @pulumi.getter
     def lexmodelbuildingservice(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "lexmodelbuildingservice")
 
     @property
     @pulumi.getter
     def lexmodels(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "lexmodels")
 
     @property
     @pulumi.getter
     def lexmodelsv2(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "lexmodelsv2")
 
     @property
     @pulumi.getter
     def lexv2models(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "lexv2models")
 
     @property
     @pulumi.getter
     def licensemanager(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "licensemanager")
 
     @property
     @pulumi.getter
     def lightsail(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "lightsail")
 
     @property
     @pulumi.getter
     def location(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
     def locationservice(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "locationservice")
 
     @property
     @pulumi.getter
     def logs(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "logs")
 
     @property
     @pulumi.getter
+    def lookoutmetrics(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "lookoutmetrics")
+
+    @property
+    @pulumi.getter
+    def m2(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "m2")
+
+    @property
+    @pulumi.getter
     def macie2(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "macie2")
 
     @property
     @pulumi.getter
     def managedgrafana(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "managedgrafana")
 
     @property
     @pulumi.getter
     def mediaconnect(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "mediaconnect")
 
     @property
     @pulumi.getter
     def mediaconvert(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "mediaconvert")
 
     @property
     @pulumi.getter
     def medialive(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "medialive")
 
     @property
     @pulumi.getter
     def mediapackage(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "mediapackage")
 
     @property
     @pulumi.getter
+    def mediapackagev2(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "mediapackagev2")
+
+    @property
+    @pulumi.getter
     def mediastore(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "mediastore")
 
     @property
     @pulumi.getter
     def memorydb(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "memorydb")
 
     @property
     @pulumi.getter
     def mq(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "mq")
 
     @property
     @pulumi.getter
     def msk(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "msk")
 
     @property
     @pulumi.getter
     def mwaa(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "mwaa")
 
     @property
     @pulumi.getter
     def neptune(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "neptune")
 
     @property
     @pulumi.getter
     def networkfirewall(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "networkfirewall")
 
     @property
     @pulumi.getter
     def networkmanager(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "networkmanager")
 
     @property
     @pulumi.getter
     def oam(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "oam")
 
     @property
     @pulumi.getter
     def opensearch(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "opensearch")
 
     @property
     @pulumi.getter
     def opensearchingestion(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "opensearchingestion")
 
     @property
     @pulumi.getter
     def opensearchserverless(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "opensearchserverless")
 
     @property
     @pulumi.getter
     def opensearchservice(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "opensearchservice")
 
     @property
     @pulumi.getter
     def opsworks(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "opsworks")
 
     @property
     @pulumi.getter
     def organizations(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "organizations")
 
     @property
     @pulumi.getter
     def osis(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "osis")
 
     @property
     @pulumi.getter
     def outposts(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "outposts")
 
     @property
     @pulumi.getter
+    def pcaconnectorad(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "pcaconnectorad")
+
+    @property
+    @pulumi.getter
     def pinpoint(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "pinpoint")
 
     @property
     @pulumi.getter
     def pipes(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "pipes")
 
     @property
     @pulumi.getter
+    def polly(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "polly")
+
+    @property
+    @pulumi.getter
     def pricing(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "pricing")
 
     @property
     @pulumi.getter
     def prometheus(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "prometheus")
 
     @property
     @pulumi.getter
     def prometheusservice(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "prometheusservice")
 
     @property
     @pulumi.getter
+    def qbusiness(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "qbusiness")
+
+    @property
+    @pulumi.getter
     def qldb(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "qldb")
 
     @property
     @pulumi.getter
     def quicksight(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "quicksight")
 
     @property
     @pulumi.getter
     def ram(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "ram")
 
     @property
     @pulumi.getter
     def rbin(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "rbin")
 
     @property
     @pulumi.getter
     def rds(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "rds")
 
     @property
     @pulumi.getter
     def recyclebin(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "recyclebin")
 
     @property
     @pulumi.getter
     def redshift(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "redshift")
 
     @property
     @pulumi.getter
     def redshiftdata(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "redshiftdata")
 
     @property
     @pulumi.getter
     def redshiftdataapiservice(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "redshiftdataapiservice")
 
     @property
     @pulumi.getter
     def redshiftserverless(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "redshiftserverless")
 
     @property
     @pulumi.getter
+    def rekognition(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "rekognition")
+
+    @property
+    @pulumi.getter
     def resourceexplorer2(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "resourceexplorer2")
 
     @property
     @pulumi.getter
     def resourcegroups(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "resourcegroups")
 
     @property
     @pulumi.getter
     def resourcegroupstagging(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "resourcegroupstagging")
 
     @property
     @pulumi.getter
     def resourcegroupstaggingapi(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "resourcegroupstaggingapi")
 
     @property
     @pulumi.getter
     def rolesanywhere(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "rolesanywhere")
 
     @property
     @pulumi.getter
     def route53(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "route53")
 
     @property
     @pulumi.getter
     def route53domains(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "route53domains")
 
     @property
     @pulumi.getter
     def route53recoverycontrolconfig(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "route53recoverycontrolconfig")
 
     @property
     @pulumi.getter
     def route53recoveryreadiness(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "route53recoveryreadiness")
 
     @property
     @pulumi.getter
     def route53resolver(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "route53resolver")
 
     @property
     @pulumi.getter
     def rum(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "rum")
 
     @property
     @pulumi.getter
     def s3(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "s3")
 
     @property
     @pulumi.getter
     def s3api(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "s3api")
 
     @property
     @pulumi.getter
     def s3control(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "s3control")
 
     @property
     @pulumi.getter
     def s3outposts(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "s3outposts")
 
     @property
     @pulumi.getter
     def sagemaker(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "sagemaker")
 
     @property
     @pulumi.getter
     def scheduler(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "scheduler")
 
     @property
     @pulumi.getter
     def schemas(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "schemas")
 
     @property
     @pulumi.getter
     def sdb(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "sdb")
 
     @property
     @pulumi.getter
     def secretsmanager(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "secretsmanager")
 
     @property
     @pulumi.getter
     def securityhub(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "securityhub")
 
     @property
     @pulumi.getter
     def securitylake(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "securitylake")
 
     @property
     @pulumi.getter
     def serverlessapplicationrepository(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "serverlessapplicationrepository")
 
     @property
     @pulumi.getter
     def serverlessapprepo(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "serverlessapprepo")
 
     @property
     @pulumi.getter
     def serverlessrepo(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "serverlessrepo")
 
     @property
     @pulumi.getter
     def servicecatalog(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "servicecatalog")
 
     @property
     @pulumi.getter
+    def servicecatalogappregistry(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "servicecatalogappregistry")
+
+    @property
+    @pulumi.getter
     def servicediscovery(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "servicediscovery")
 
     @property
     @pulumi.getter
     def servicequotas(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "servicequotas")
 
     @property
     @pulumi.getter
     def ses(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "ses")
 
     @property
     @pulumi.getter
     def sesv2(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "sesv2")
 
     @property
     @pulumi.getter
     def sfn(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "sfn")
 
     @property
     @pulumi.getter
     def shield(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "shield")
 
     @property
     @pulumi.getter
     def signer(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "signer")
 
     @property
     @pulumi.getter
     def simpledb(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "simpledb")
 
     @property
     @pulumi.getter
     def sns(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "sns")
 
     @property
     @pulumi.getter
     def sqs(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "sqs")
 
     @property
     @pulumi.getter
     def ssm(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "ssm")
 
     @property
     @pulumi.getter
     def ssmcontacts(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "ssmcontacts")
 
     @property
     @pulumi.getter
     def ssmincidents(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "ssmincidents")
 
     @property
     @pulumi.getter
+    def ssmsap(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "ssmsap")
+
+    @property
+    @pulumi.getter
     def sso(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "sso")
 
     @property
     @pulumi.getter
     def ssoadmin(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "ssoadmin")
 
     @property
     @pulumi.getter
     def stepfunctions(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "stepfunctions")
 
     @property
     @pulumi.getter
     def storagegateway(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "storagegateway")
 
     @property
     @pulumi.getter
     def sts(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "sts")
 
     @property
     @pulumi.getter
     def swf(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "swf")
 
     @property
     @pulumi.getter
     def synthetics(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "synthetics")
 
     @property
     @pulumi.getter
     def timestreamwrite(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "timestreamwrite")
 
     @property
     @pulumi.getter
     def transcribe(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "transcribe")
 
     @property
     @pulumi.getter
     def transcribeservice(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "transcribeservice")
 
     @property
     @pulumi.getter
     def transfer(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "transfer")
 
     @property
     @pulumi.getter
     def verifiedpermissions(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "verifiedpermissions")
 
     @property
     @pulumi.getter
     def vpclattice(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "vpclattice")
 
     @property
     @pulumi.getter
     def waf(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "waf")
 
     @property
     @pulumi.getter
     def wafregional(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "wafregional")
 
     @property
     @pulumi.getter
     def wafv2(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "wafv2")
 
     @property
     @pulumi.getter
+    def wellarchitected(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "wellarchitected")
+
+    @property
+    @pulumi.getter
     def worklink(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "worklink")
 
     @property
     @pulumi.getter
     def workspaces(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "workspaces")
 
     @property
     @pulumi.getter
     def xray(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
         return pulumi.get(self, "xray")
 
 
@@ -2218,6 +3534,10 @@ class IgnoreTags(dict):
     def __init__(__self__, *,
                  key_prefixes: Optional[Sequence[str]] = None,
                  keys: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] key_prefixes: Resource tag key prefixes to ignore across all resources.
+        :param Sequence[str] keys: Resource tag keys to ignore across all resources.
+        """
         if key_prefixes is not None:
             pulumi.set(__self__, "key_prefixes", key_prefixes)
         if keys is not None:
@@ -2226,11 +3546,17 @@ class IgnoreTags(dict):
     @property
     @pulumi.getter(name="keyPrefixes")
     def key_prefixes(self) -> Optional[Sequence[str]]:
+        """
+        Resource tag key prefixes to ignore across all resources.
+        """
         return pulumi.get(self, "key_prefixes")
 
     @property
     @pulumi.getter
     def keys(self) -> Optional[Sequence[str]]:
+        """
+        Resource tag keys to ignore across all resources.
+        """
         return pulumi.get(self, "keys")
 
 

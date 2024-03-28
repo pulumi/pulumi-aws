@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// Provides information about a Lambda function URL.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,8 +34,7 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFunctionUrlResult> InvokeAsync(GetFunctionUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionUrlResult>("aws:lambda/getFunctionUrl:getFunctionUrl", args ?? new GetFunctionUrlArgs(), options.WithDefaults());
@@ -44,10 +42,9 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// Provides information about a Lambda function URL.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,8 +62,7 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFunctionUrlResult> Invoke(GetFunctionUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFunctionUrlResult>("aws:lambda/getFunctionUrl:getFunctionUrl", args ?? new GetFunctionUrlInvokeArgs(), options.WithDefaults());
@@ -135,7 +131,7 @@ namespace Pulumi.Aws.Lambda
         public readonly string FunctionArn;
         public readonly string FunctionName;
         /// <summary>
-        /// HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
+        /// HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
         /// </summary>
         public readonly string FunctionUrl;
         /// <summary>

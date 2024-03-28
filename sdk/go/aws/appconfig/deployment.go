@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,12 +30,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appconfig.NewDeployment(ctx, "example", &appconfig.DeploymentArgs{
-//				ApplicationId:          pulumi.Any(aws_appconfig_application.Example.Id),
-//				ConfigurationProfileId: pulumi.Any(aws_appconfig_configuration_profile.Example.Configuration_profile_id),
-//				ConfigurationVersion:   pulumi.Any(aws_appconfig_hosted_configuration_version.Example.Version_number),
-//				DeploymentStrategyId:   pulumi.Any(aws_appconfig_deployment_strategy.Example.Id),
+//				ApplicationId:          pulumi.Any(exampleAwsAppconfigApplication.Id),
+//				ConfigurationProfileId: pulumi.Any(exampleAwsAppconfigConfigurationProfile.ConfigurationProfileId),
+//				ConfigurationVersion:   pulumi.Any(exampleAwsAppconfigHostedConfigurationVersion.VersionNumber),
+//				DeploymentStrategyId:   pulumi.Any(exampleAwsAppconfigDeploymentStrategy.Id),
 //				Description:            pulumi.String("My example deployment"),
-//				EnvironmentId:          pulumi.Any(aws_appconfig_environment.Example.Environment_id),
+//				EnvironmentId:          pulumi.Any(exampleAwsAppconfigEnvironment.EnvironmentId),
+//				KmsKeyIdentifier:       pulumi.Any(exampleAwsKmsKey.Arn),
 //				Tags: pulumi.StringMap{
 //					"Type": pulumi.String("AppConfig Deployment"),
 //				},
@@ -47,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AppConfig Deployments using the application ID, environment ID, and deployment number separated by a slash (`/`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appconfig/deployment:Deployment example 71abcde/11xxxxx/1
-//
+// $ pulumi import aws:appconfig/deployment:Deployment example 71abcde/11xxxxx/1
 // ```
 type Deployment struct {
 	pulumi.CustomResourceState
@@ -76,6 +77,10 @@ type Deployment struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Environment ID. Must be between 4 and 7 characters in length.
 	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
+	// ARN of the KMS key used to encrypt configuration data.
+	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
+	// The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
 	// State of the deployment.
 	State pulumi.StringOutput `pulumi:"state"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -108,10 +113,6 @@ func NewDeployment(ctx *pulumi.Context,
 	if args.EnvironmentId == nil {
 		return nil, errors.New("invalid value for required argument 'EnvironmentId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Deployment
 	err := ctx.RegisterResource("aws:appconfig/deployment:Deployment", name, args, &resource, opts...)
@@ -151,6 +152,10 @@ type deploymentState struct {
 	Description *string `pulumi:"description"`
 	// Environment ID. Must be between 4 and 7 characters in length.
 	EnvironmentId *string `pulumi:"environmentId"`
+	// ARN of the KMS key used to encrypt configuration data.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// State of the deployment.
 	State *string `pulumi:"state"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -178,6 +183,10 @@ type DeploymentState struct {
 	Description pulumi.StringPtrInput
 	// Environment ID. Must be between 4 and 7 characters in length.
 	EnvironmentId pulumi.StringPtrInput
+	// ARN of the KMS key used to encrypt configuration data.
+	KmsKeyArn pulumi.StringPtrInput
+	// The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+	KmsKeyIdentifier pulumi.StringPtrInput
 	// State of the deployment.
 	State pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -205,6 +214,8 @@ type deploymentArgs struct {
 	Description *string `pulumi:"description"`
 	// Environment ID. Must be between 4 and 7 characters in length.
 	EnvironmentId string `pulumi:"environmentId"`
+	// The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -223,6 +234,8 @@ type DeploymentArgs struct {
 	Description pulumi.StringPtrInput
 	// Environment ID. Must be between 4 and 7 characters in length.
 	EnvironmentId pulumi.StringInput
+	// The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+	KmsKeyIdentifier pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -352,6 +365,16 @@ func (o DeploymentOutput) Description() pulumi.StringPtrOutput {
 // Environment ID. Must be between 4 and 7 characters in length.
 func (o DeploymentOutput) EnvironmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.EnvironmentId }).(pulumi.StringOutput)
+}
+
+// ARN of the KMS key used to encrypt configuration data.
+func (o DeploymentOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.KmsKeyArn }).(pulumi.StringOutput)
+}
+
+// The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+func (o DeploymentOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // State of the deployment.

@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * For information about function aliases, see [CreateAlias](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateAlias.html) and [AliasRoutingConfiguration](https://docs.aws.amazon.com/lambda/latest/dg/API_AliasRoutingConfiguration.html) in the API docs.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,8 +47,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testLambdaAlias = new Alias(&#34;testLambdaAlias&#34;, AliasArgs.builder()        
+ *             .name(&#34;my_alias&#34;)
  *             .description(&#34;a sample description&#34;)
- *             .functionName(aws_lambda_function.lambda_function_test().arn())
+ *             .functionName(lambdaFunctionTest.arn())
  *             .functionVersion(&#34;1&#34;)
  *             .routingConfig(AliasRoutingConfigArgs.builder()
  *                 .additionalVersionWeights(Map.of(&#34;2&#34;, 0.5))
@@ -56,13 +59,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Lambda Function Aliases using the `function_name/alias`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
+ * $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
  * ```
  * 
  */

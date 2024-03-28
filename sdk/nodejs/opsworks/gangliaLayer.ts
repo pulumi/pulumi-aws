@@ -12,15 +12,17 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const monitor = new aws.opsworks.GangliaLayer("monitor", {
- *     stackId: aws_opsworks_stack.main.id,
+ *     stackId: main.id,
  *     password: "foobarbaz",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class GangliaLayer extends pulumi.CustomResource {
     /**
@@ -227,8 +229,6 @@ export class GangliaLayer extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(GangliaLayer.__pulumiType, name, resourceInputs, opts);
     }
 }

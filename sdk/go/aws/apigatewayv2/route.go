@@ -16,8 +16,10 @@ import (
 // More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) for [WebSocket](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-develop-routes.html) and [HTTP](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html) APIs.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,15 +32,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApi, err := apigatewayv2.NewApi(ctx, "exampleApi", &apigatewayv2.ApiArgs{
+//			example, err := apigatewayv2.NewApi(ctx, "example", &apigatewayv2.ApiArgs{
+//				Name:                     pulumi.String("example-websocket-api"),
 //				ProtocolType:             pulumi.String("WEBSOCKET"),
 //				RouteSelectionExpression: pulumi.String("$request.body.action"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigatewayv2.NewRoute(ctx, "exampleRoute", &apigatewayv2.RouteArgs{
-//				ApiId:    exampleApi.ID(),
+//			_, err = apigatewayv2.NewRoute(ctx, "example", &apigatewayv2.RouteArgs{
+//				ApiId:    example.ID(),
 //				RouteKey: pulumi.String("$default"),
 //			})
 //			if err != nil {
@@ -49,8 +52,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### HTTP Proxy Integration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -65,14 +71,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApi, err := apigatewayv2.NewApi(ctx, "exampleApi", &apigatewayv2.ApiArgs{
+//			example, err := apigatewayv2.NewApi(ctx, "example", &apigatewayv2.ApiArgs{
+//				Name:         pulumi.String("example-http-api"),
 //				ProtocolType: pulumi.String("HTTP"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleIntegration, err := apigatewayv2.NewIntegration(ctx, "exampleIntegration", &apigatewayv2.IntegrationArgs{
-//				ApiId:             exampleApi.ID(),
+//			exampleIntegration, err := apigatewayv2.NewIntegration(ctx, "example", &apigatewayv2.IntegrationArgs{
+//				ApiId:             example.ID(),
 //				IntegrationType:   pulumi.String("HTTP_PROXY"),
 //				IntegrationMethod: pulumi.String("ANY"),
 //				IntegrationUri:    pulumi.String("https://example.com/{proxy}"),
@@ -80,8 +87,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigatewayv2.NewRoute(ctx, "exampleRoute", &apigatewayv2.RouteArgs{
-//				ApiId:    exampleApi.ID(),
+//			_, err = apigatewayv2.NewRoute(ctx, "example", &apigatewayv2.RouteArgs{
+//				ApiId:    example.ID(),
 //				RouteKey: pulumi.String("ANY /example/{proxy+}"),
 //				Target: exampleIntegration.ID().ApplyT(func(id string) (string, error) {
 //					return fmt.Sprintf("integrations/%v", id), nil
@@ -95,18 +102,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_apigatewayv2_route` using the API identifier and route identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigatewayv2/route:Route example aabbccddee/1122334
-//
+// $ pulumi import aws:apigatewayv2/route:Route example aabbccddee/1122334
 // ```
-//
-//	-> __Note:__ The API Gateway managed route created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
+// -> __Note:__ The API Gateway managed route created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
 type Route struct {
 	pulumi.CustomResourceState
 

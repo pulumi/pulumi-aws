@@ -101,37 +101,42 @@ public final class DomainDomainEndpointOptions {
 
         @CustomType.Setter
         public Builder customEndpoint(@Nullable String customEndpoint) {
+
             this.customEndpoint = customEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder customEndpointCertificateArn(@Nullable String customEndpointCertificateArn) {
+
             this.customEndpointCertificateArn = customEndpointCertificateArn;
             return this;
         }
         @CustomType.Setter
         public Builder customEndpointEnabled(@Nullable Boolean customEndpointEnabled) {
+
             this.customEndpointEnabled = customEndpointEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder enforceHttps(@Nullable Boolean enforceHttps) {
+
             this.enforceHttps = enforceHttps;
             return this;
         }
         @CustomType.Setter
         public Builder tlsSecurityPolicy(@Nullable String tlsSecurityPolicy) {
+
             this.tlsSecurityPolicy = tlsSecurityPolicy;
             return this;
         }
         public DomainDomainEndpointOptions build() {
-            final var o = new DomainDomainEndpointOptions();
-            o.customEndpoint = customEndpoint;
-            o.customEndpointCertificateArn = customEndpointCertificateArn;
-            o.customEndpointEnabled = customEndpointEnabled;
-            o.enforceHttps = enforceHttps;
-            o.tlsSecurityPolicy = tlsSecurityPolicy;
-            return o;
+            final var _resultValue = new DomainDomainEndpointOptions();
+            _resultValue.customEndpoint = customEndpoint;
+            _resultValue.customEndpointCertificateArn = customEndpointCertificateArn;
+            _resultValue.customEndpointEnabled = customEndpointEnabled;
+            _resultValue.enforceHttps = enforceHttps;
+            _resultValue.tlsSecurityPolicy = tlsSecurityPolicy;
+            return _resultValue;
         }
     }
 }

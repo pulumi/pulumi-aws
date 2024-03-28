@@ -10,6 +10,7 @@ import com.pulumi.aws.cloudfront.outputs.GetResponseHeadersPolicySecurityHeaders
 import com.pulumi.aws.cloudfront.outputs.GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity;
 import com.pulumi.aws.cloudfront.outputs.GetResponseHeadersPolicySecurityHeadersConfigXssProtection;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -118,7 +119,10 @@ public final class GetResponseHeadersPolicySecurityHeadersConfig {
 
         @CustomType.Setter
         public Builder contentSecurityPolicies(List<GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy> contentSecurityPolicies) {
-            this.contentSecurityPolicies = Objects.requireNonNull(contentSecurityPolicies);
+            if (contentSecurityPolicies == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicySecurityHeadersConfig", "contentSecurityPolicies");
+            }
+            this.contentSecurityPolicies = contentSecurityPolicies;
             return this;
         }
         public Builder contentSecurityPolicies(GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy... contentSecurityPolicies) {
@@ -126,7 +130,10 @@ public final class GetResponseHeadersPolicySecurityHeadersConfig {
         }
         @CustomType.Setter
         public Builder contentTypeOptions(List<GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption> contentTypeOptions) {
-            this.contentTypeOptions = Objects.requireNonNull(contentTypeOptions);
+            if (contentTypeOptions == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicySecurityHeadersConfig", "contentTypeOptions");
+            }
+            this.contentTypeOptions = contentTypeOptions;
             return this;
         }
         public Builder contentTypeOptions(GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption... contentTypeOptions) {
@@ -134,7 +141,10 @@ public final class GetResponseHeadersPolicySecurityHeadersConfig {
         }
         @CustomType.Setter
         public Builder frameOptions(List<GetResponseHeadersPolicySecurityHeadersConfigFrameOption> frameOptions) {
-            this.frameOptions = Objects.requireNonNull(frameOptions);
+            if (frameOptions == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicySecurityHeadersConfig", "frameOptions");
+            }
+            this.frameOptions = frameOptions;
             return this;
         }
         public Builder frameOptions(GetResponseHeadersPolicySecurityHeadersConfigFrameOption... frameOptions) {
@@ -142,7 +152,10 @@ public final class GetResponseHeadersPolicySecurityHeadersConfig {
         }
         @CustomType.Setter
         public Builder referrerPolicies(List<GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy> referrerPolicies) {
-            this.referrerPolicies = Objects.requireNonNull(referrerPolicies);
+            if (referrerPolicies == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicySecurityHeadersConfig", "referrerPolicies");
+            }
+            this.referrerPolicies = referrerPolicies;
             return this;
         }
         public Builder referrerPolicies(GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy... referrerPolicies) {
@@ -150,7 +163,10 @@ public final class GetResponseHeadersPolicySecurityHeadersConfig {
         }
         @CustomType.Setter
         public Builder strictTransportSecurities(List<GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity> strictTransportSecurities) {
-            this.strictTransportSecurities = Objects.requireNonNull(strictTransportSecurities);
+            if (strictTransportSecurities == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicySecurityHeadersConfig", "strictTransportSecurities");
+            }
+            this.strictTransportSecurities = strictTransportSecurities;
             return this;
         }
         public Builder strictTransportSecurities(GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity... strictTransportSecurities) {
@@ -158,21 +174,24 @@ public final class GetResponseHeadersPolicySecurityHeadersConfig {
         }
         @CustomType.Setter
         public Builder xssProtections(List<GetResponseHeadersPolicySecurityHeadersConfigXssProtection> xssProtections) {
-            this.xssProtections = Objects.requireNonNull(xssProtections);
+            if (xssProtections == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicySecurityHeadersConfig", "xssProtections");
+            }
+            this.xssProtections = xssProtections;
             return this;
         }
         public Builder xssProtections(GetResponseHeadersPolicySecurityHeadersConfigXssProtection... xssProtections) {
             return xssProtections(List.of(xssProtections));
         }
         public GetResponseHeadersPolicySecurityHeadersConfig build() {
-            final var o = new GetResponseHeadersPolicySecurityHeadersConfig();
-            o.contentSecurityPolicies = contentSecurityPolicies;
-            o.contentTypeOptions = contentTypeOptions;
-            o.frameOptions = frameOptions;
-            o.referrerPolicies = referrerPolicies;
-            o.strictTransportSecurities = strictTransportSecurities;
-            o.xssProtections = xssProtections;
-            return o;
+            final var _resultValue = new GetResponseHeadersPolicySecurityHeadersConfig();
+            _resultValue.contentSecurityPolicies = contentSecurityPolicies;
+            _resultValue.contentTypeOptions = contentTypeOptions;
+            _resultValue.frameOptions = frameOptions;
+            _resultValue.referrerPolicies = referrerPolicies;
+            _resultValue.strictTransportSecurities = strictTransportSecurities;
+            _resultValue.xssProtections = xssProtections;
+            return _resultValue;
         }
     }
 }

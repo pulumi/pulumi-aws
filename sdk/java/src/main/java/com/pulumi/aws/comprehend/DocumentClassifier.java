@@ -14,7 +14,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,7 +22,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Comprehend Document Classifier.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -34,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.comprehend.DocumentClassifier;
  * import com.pulumi.aws.comprehend.DocumentClassifierArgs;
  * import com.pulumi.aws.comprehend.inputs.DocumentClassifierInputDataConfigArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,27 +52,27 @@ import javax.annotation.Nullable;
  *         var documents = new BucketObjectv2(&#34;documents&#34;);
  * 
  *         var example = new DocumentClassifier(&#34;example&#34;, DocumentClassifierArgs.builder()        
- *             .dataAccessRoleArn(aws_iam_role.example().arn())
+ *             .name(&#34;example&#34;)
+ *             .dataAccessRoleArn(exampleAwsIamRole.arn())
  *             .languageCode(&#34;en&#34;)
  *             .inputDataConfig(DocumentClassifierInputDataConfigArgs.builder()
- *                 .s3Uri(documents.id().applyValue(id -&gt; String.format(&#34;s3://%s/%s&#34;, aws_s3_bucket.test().bucket(),id)))
+ *                 .s3Uri(documents.id().applyValue(id -&gt; String.format(&#34;s3://%s/%s&#34;, test.bucket(),id)))
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_iam_role_policy.example())
- *                 .build());
+ *             .build());
  * 
  *         var entities = new BucketObjectv2(&#34;entities&#34;);
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Comprehend Document Classifier using the ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
+ * $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
  * ```
  * 
  */
@@ -352,9 +353,6 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

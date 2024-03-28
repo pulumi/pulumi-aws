@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -87,31 +88,39 @@ public final class ResponseHeadersPolicySecurityHeadersConfigXssProtection {
 
         @CustomType.Setter
         public Builder modeBlock(@Nullable Boolean modeBlock) {
+
             this.modeBlock = modeBlock;
             return this;
         }
         @CustomType.Setter
         public Builder override(Boolean override) {
-            this.override = Objects.requireNonNull(override);
+            if (override == null) {
+              throw new MissingRequiredPropertyException("ResponseHeadersPolicySecurityHeadersConfigXssProtection", "override");
+            }
+            this.override = override;
             return this;
         }
         @CustomType.Setter
         public Builder protection(Boolean protection) {
-            this.protection = Objects.requireNonNull(protection);
+            if (protection == null) {
+              throw new MissingRequiredPropertyException("ResponseHeadersPolicySecurityHeadersConfigXssProtection", "protection");
+            }
+            this.protection = protection;
             return this;
         }
         @CustomType.Setter
         public Builder reportUri(@Nullable String reportUri) {
+
             this.reportUri = reportUri;
             return this;
         }
         public ResponseHeadersPolicySecurityHeadersConfigXssProtection build() {
-            final var o = new ResponseHeadersPolicySecurityHeadersConfigXssProtection();
-            o.modeBlock = modeBlock;
-            o.override = override;
-            o.protection = protection;
-            o.reportUri = reportUri;
-            return o;
+            final var _resultValue = new ResponseHeadersPolicySecurityHeadersConfigXssProtection();
+            _resultValue.modeBlock = modeBlock;
+            _resultValue.override = override;
+            _resultValue.protection = protection;
+            _resultValue.reportUri = reportUri;
+            return _resultValue;
         }
     }
 }

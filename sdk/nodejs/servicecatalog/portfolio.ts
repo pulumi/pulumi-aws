@@ -9,22 +9,25 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const portfolio = new aws.servicecatalog.Portfolio("portfolio", {
+ *     name: "My App Portfolio",
  *     description: "List of my organizations apps",
  *     providerName: "Brett",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Service Catalog Portfolios using the Service Catalog Portfolio `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
+ * $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
  * ```
  */
 export class Portfolio extends pulumi.CustomResource {
@@ -114,8 +117,6 @@ export class Portfolio extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Portfolio.__pulumiType, name, resourceInputs, opts);
     }
 }

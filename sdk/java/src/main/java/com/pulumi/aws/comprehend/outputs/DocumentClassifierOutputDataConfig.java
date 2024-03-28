@@ -4,6 +4,7 @@
 package com.pulumi.aws.comprehend.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -76,25 +77,30 @@ public final class DocumentClassifierOutputDataConfig {
 
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder outputS3Uri(@Nullable String outputS3Uri) {
+
             this.outputS3Uri = outputS3Uri;
             return this;
         }
         @CustomType.Setter
         public Builder s3Uri(String s3Uri) {
-            this.s3Uri = Objects.requireNonNull(s3Uri);
+            if (s3Uri == null) {
+              throw new MissingRequiredPropertyException("DocumentClassifierOutputDataConfig", "s3Uri");
+            }
+            this.s3Uri = s3Uri;
             return this;
         }
         public DocumentClassifierOutputDataConfig build() {
-            final var o = new DocumentClassifierOutputDataConfig();
-            o.kmsKeyId = kmsKeyId;
-            o.outputS3Uri = outputS3Uri;
-            o.s3Uri = s3Uri;
-            return o;
+            final var _resultValue = new DocumentClassifierOutputDataConfig();
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.outputS3Uri = outputS3Uri;
+            _resultValue.s3Uri = s3Uri;
+            return _resultValue;
         }
     }
 }

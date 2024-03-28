@@ -14,8 +14,10 @@ namespace Pulumi.Aws.Connect
     /// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,12 +28,13 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.User("example", new()
     ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
+    ///         Name = "example",
     ///         Password = "Password123",
-    ///         RoutingProfileId = aws_connect_routing_profile.Example.Routing_profile_id,
+    ///         RoutingProfileId = exampleAwsConnectRoutingProfile.RoutingProfileId,
     ///         SecurityProfileIds = new[]
     ///         {
-    ///             aws_connect_security_profile.Example.Security_profile_id,
+    ///             exampleAwsConnectSecurityProfile.SecurityProfileId,
     ///         },
     ///         IdentityInfo = new Aws.Connect.Inputs.UserIdentityInfoArgs
     ///         {
@@ -47,8 +50,11 @@ namespace Pulumi.Aws.Connect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With hierarchy_group_id
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -59,13 +65,14 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.User("example", new()
     ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
+    ///         Name = "example",
     ///         Password = "Password123",
-    ///         RoutingProfileId = aws_connect_routing_profile.Example.Routing_profile_id,
-    ///         HierarchyGroupId = aws_connect_user_hierarchy_group.Example.Hierarchy_group_id,
+    ///         RoutingProfileId = exampleAwsConnectRoutingProfile.RoutingProfileId,
+    ///         HierarchyGroupId = exampleAwsConnectUserHierarchyGroup.HierarchyGroupId,
     ///         SecurityProfileIds = new[]
     ///         {
-    ///             aws_connect_security_profile.Example.Security_profile_id,
+    ///             exampleAwsConnectSecurityProfile.SecurityProfileId,
     ///         },
     ///         IdentityInfo = new Aws.Connect.Inputs.UserIdentityInfoArgs
     ///         {
@@ -81,8 +88,11 @@ namespace Pulumi.Aws.Connect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With identity_info filled
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -93,12 +103,13 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.User("example", new()
     ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
+    ///         Name = "example",
     ///         Password = "Password123",
-    ///         RoutingProfileId = aws_connect_routing_profile.Example.Routing_profile_id,
+    ///         RoutingProfileId = exampleAwsConnectRoutingProfile.RoutingProfileId,
     ///         SecurityProfileIds = new[]
     ///         {
-    ///             aws_connect_security_profile.Example.Security_profile_id,
+    ///             exampleAwsConnectSecurityProfile.SecurityProfileId,
     ///         },
     ///         IdentityInfo = new Aws.Connect.Inputs.UserIdentityInfoArgs
     ///         {
@@ -115,8 +126,11 @@ namespace Pulumi.Aws.Connect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With phone_config phone type as desk phone
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -127,12 +141,13 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.User("example", new()
     ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
+    ///         Name = "example",
     ///         Password = "Password123",
-    ///         RoutingProfileId = aws_connect_routing_profile.Example.Routing_profile_id,
+    ///         RoutingProfileId = exampleAwsConnectRoutingProfile.RoutingProfileId,
     ///         SecurityProfileIds = new[]
     ///         {
-    ///             aws_connect_security_profile.Example.Security_profile_id,
+    ///             exampleAwsConnectSecurityProfile.SecurityProfileId,
     ///         },
     ///         PhoneConfig = new Aws.Connect.Inputs.UserPhoneConfigArgs
     ///         {
@@ -143,8 +158,11 @@ namespace Pulumi.Aws.Connect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With multiple Security profile ids specified in security_profile_ids
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -155,13 +173,14 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.User("example", new()
     ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         InstanceId = exampleAwsConnectInstance.Id,
+    ///         Name = "example",
     ///         Password = "Password123",
-    ///         RoutingProfileId = aws_connect_routing_profile.Example.Routing_profile_id,
+    ///         RoutingProfileId = exampleAwsConnectRoutingProfile.RoutingProfileId,
     ///         SecurityProfileIds = new[]
     ///         {
-    ///             aws_connect_security_profile.Example.Security_profile_id,
-    ///             aws_connect_security_profile.Example2.Security_profile_id,
+    ///             exampleAwsConnectSecurityProfile.SecurityProfileId,
+    ///             example2.SecurityProfileId,
     ///         },
     ///         PhoneConfig = new Aws.Connect.Inputs.UserPhoneConfigArgs
     ///         {
@@ -174,13 +193,14 @@ namespace Pulumi.Aws.Connect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon Connect Users using the `instance_id` and `user_id` separated by a colon (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:connect/user:User example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+    /// $ pulumi import aws:connect/user:User example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
     /// ```
     /// </summary>
     [AwsResourceType("aws:connect/user:User")]
@@ -291,7 +311,6 @@ namespace Pulumi.Aws.Connect
                 AdditionalSecretOutputs =
                 {
                     "password",
-                    "tagsAll",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -506,11 +525,7 @@ namespace Pulumi.Aws.Connect
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

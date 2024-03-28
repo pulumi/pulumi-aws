@@ -10,6 +10,7 @@ import com.pulumi.aws.dlm.outputs.LifecyclePolicyPolicyDetailsScheduleFastRestor
 import com.pulumi.aws.dlm.outputs.LifecyclePolicyPolicyDetailsScheduleRetainRule;
 import com.pulumi.aws.dlm.outputs.LifecyclePolicyPolicyDetailsScheduleShareRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -179,16 +180,21 @@ public final class LifecyclePolicyPolicyDetailsSchedule {
 
         @CustomType.Setter
         public Builder copyTags(@Nullable Boolean copyTags) {
+
             this.copyTags = copyTags;
             return this;
         }
         @CustomType.Setter
         public Builder createRule(LifecyclePolicyPolicyDetailsScheduleCreateRule createRule) {
-            this.createRule = Objects.requireNonNull(createRule);
+            if (createRule == null) {
+              throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailsSchedule", "createRule");
+            }
+            this.createRule = createRule;
             return this;
         }
         @CustomType.Setter
         public Builder crossRegionCopyRules(@Nullable List<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule> crossRegionCopyRules) {
+
             this.crossRegionCopyRules = crossRegionCopyRules;
             return this;
         }
@@ -197,52 +203,63 @@ public final class LifecyclePolicyPolicyDetailsSchedule {
         }
         @CustomType.Setter
         public Builder deprecateRule(@Nullable LifecyclePolicyPolicyDetailsScheduleDeprecateRule deprecateRule) {
+
             this.deprecateRule = deprecateRule;
             return this;
         }
         @CustomType.Setter
         public Builder fastRestoreRule(@Nullable LifecyclePolicyPolicyDetailsScheduleFastRestoreRule fastRestoreRule) {
+
             this.fastRestoreRule = fastRestoreRule;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailsSchedule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder retainRule(LifecyclePolicyPolicyDetailsScheduleRetainRule retainRule) {
-            this.retainRule = Objects.requireNonNull(retainRule);
+            if (retainRule == null) {
+              throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailsSchedule", "retainRule");
+            }
+            this.retainRule = retainRule;
             return this;
         }
         @CustomType.Setter
         public Builder shareRule(@Nullable LifecyclePolicyPolicyDetailsScheduleShareRule shareRule) {
+
             this.shareRule = shareRule;
             return this;
         }
         @CustomType.Setter
         public Builder tagsToAdd(@Nullable Map<String,String> tagsToAdd) {
+
             this.tagsToAdd = tagsToAdd;
             return this;
         }
         @CustomType.Setter
         public Builder variableTags(@Nullable Map<String,String> variableTags) {
+
             this.variableTags = variableTags;
             return this;
         }
         public LifecyclePolicyPolicyDetailsSchedule build() {
-            final var o = new LifecyclePolicyPolicyDetailsSchedule();
-            o.copyTags = copyTags;
-            o.createRule = createRule;
-            o.crossRegionCopyRules = crossRegionCopyRules;
-            o.deprecateRule = deprecateRule;
-            o.fastRestoreRule = fastRestoreRule;
-            o.name = name;
-            o.retainRule = retainRule;
-            o.shareRule = shareRule;
-            o.tagsToAdd = tagsToAdd;
-            o.variableTags = variableTags;
-            return o;
+            final var _resultValue = new LifecyclePolicyPolicyDetailsSchedule();
+            _resultValue.copyTags = copyTags;
+            _resultValue.createRule = createRule;
+            _resultValue.crossRegionCopyRules = crossRegionCopyRules;
+            _resultValue.deprecateRule = deprecateRule;
+            _resultValue.fastRestoreRule = fastRestoreRule;
+            _resultValue.name = name;
+            _resultValue.retainRule = retainRule;
+            _resultValue.shareRule = shareRule;
+            _resultValue.tagsToAdd = tagsToAdd;
+            _resultValue.variableTags = variableTags;
+            return _resultValue;
         }
     }
 }

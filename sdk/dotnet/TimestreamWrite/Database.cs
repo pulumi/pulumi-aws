@@ -13,8 +13,10 @@ namespace Pulumi.Aws.TimestreamWrite
     /// Provides a Timestream database resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,8 +32,11 @@ namespace Pulumi.Aws.TimestreamWrite
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Full usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,7 +48,7 @@ namespace Pulumi.Aws.TimestreamWrite
     ///     var example = new Aws.TimestreamWrite.Database("example", new()
     ///     {
     ///         DatabaseName = "database-example",
-    ///         KmsKeyId = aws_kms_key.Example.Arn,
+    ///         KmsKeyId = exampleAwsKmsKey.Arn,
     ///         Tags = 
     ///         {
     ///             { "Name", "value" },
@@ -52,13 +57,14 @@ namespace Pulumi.Aws.TimestreamWrite
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Timestream databases using the `database_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:timestreamwrite/database:Database example example
+    /// $ pulumi import aws:timestreamwrite/database:Database example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:timestreamwrite/database:Database")]
@@ -123,10 +129,6 @@ namespace Pulumi.Aws.TimestreamWrite
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -228,11 +230,7 @@ namespace Pulumi.Aws.TimestreamWrite
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public DatabaseState()

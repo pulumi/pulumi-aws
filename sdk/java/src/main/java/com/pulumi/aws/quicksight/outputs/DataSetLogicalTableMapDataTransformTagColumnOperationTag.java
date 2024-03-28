@@ -59,19 +59,21 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperationTag {
 
         @CustomType.Setter
         public Builder columnDescription(@Nullable DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription columnDescription) {
+
             this.columnDescription = columnDescription;
             return this;
         }
         @CustomType.Setter
         public Builder columnGeographicRole(@Nullable String columnGeographicRole) {
+
             this.columnGeographicRole = columnGeographicRole;
             return this;
         }
         public DataSetLogicalTableMapDataTransformTagColumnOperationTag build() {
-            final var o = new DataSetLogicalTableMapDataTransformTagColumnOperationTag();
-            o.columnDescription = columnDescription;
-            o.columnGeographicRole = columnGeographicRole;
-            return o;
+            final var _resultValue = new DataSetLogicalTableMapDataTransformTagColumnOperationTag();
+            _resultValue.columnDescription = columnDescription;
+            _resultValue.columnGeographicRole = columnGeographicRole;
+            return _resultValue;
         }
     }
 }

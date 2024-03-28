@@ -6,6 +6,7 @@ package com.pulumi.aws.quicksight.outputs;
 import com.pulumi.aws.quicksight.outputs.GetDataSetLogicalTableMapDataTransform;
 import com.pulumi.aws.quicksight.outputs.GetDataSetLogicalTableMapSource;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -55,12 +56,18 @@ public final class GetDataSetLogicalTableMap {
 
         @CustomType.Setter
         public Builder alias(String alias) {
-            this.alias = Objects.requireNonNull(alias);
+            if (alias == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMap", "alias");
+            }
+            this.alias = alias;
             return this;
         }
         @CustomType.Setter
         public Builder dataTransforms(List<GetDataSetLogicalTableMapDataTransform> dataTransforms) {
-            this.dataTransforms = Objects.requireNonNull(dataTransforms);
+            if (dataTransforms == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMap", "dataTransforms");
+            }
+            this.dataTransforms = dataTransforms;
             return this;
         }
         public Builder dataTransforms(GetDataSetLogicalTableMapDataTransform... dataTransforms) {
@@ -68,24 +75,30 @@ public final class GetDataSetLogicalTableMap {
         }
         @CustomType.Setter
         public Builder logicalTableMapId(String logicalTableMapId) {
-            this.logicalTableMapId = Objects.requireNonNull(logicalTableMapId);
+            if (logicalTableMapId == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMap", "logicalTableMapId");
+            }
+            this.logicalTableMapId = logicalTableMapId;
             return this;
         }
         @CustomType.Setter
         public Builder sources(List<GetDataSetLogicalTableMapSource> sources) {
-            this.sources = Objects.requireNonNull(sources);
+            if (sources == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMap", "sources");
+            }
+            this.sources = sources;
             return this;
         }
         public Builder sources(GetDataSetLogicalTableMapSource... sources) {
             return sources(List.of(sources));
         }
         public GetDataSetLogicalTableMap build() {
-            final var o = new GetDataSetLogicalTableMap();
-            o.alias = alias;
-            o.dataTransforms = dataTransforms;
-            o.logicalTableMapId = logicalTableMapId;
-            o.sources = sources;
-            return o;
+            final var _resultValue = new GetDataSetLogicalTableMap();
+            _resultValue.alias = alias;
+            _resultValue.dataTransforms = dataTransforms;
+            _resultValue.logicalTableMapId = logicalTableMapId;
+            _resultValue.sources = sources;
+            return _resultValue;
         }
     }
 }

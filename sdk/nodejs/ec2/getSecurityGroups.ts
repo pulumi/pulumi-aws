@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +24,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,11 +39,12 @@ import * as utilities from "../utilities";
  *         },
  *         {
  *             name: "vpc-id",
- *             values: [_var.vpc_id],
+ *             values: [vpcId],
  *         },
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSecurityGroups(args?: GetSecurityGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupsResult> {
     args = args || {};
@@ -94,6 +98,7 @@ export interface GetSecurityGroupsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -105,7 +110,9 @@ export interface GetSecurityGroupsResult {
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -118,11 +125,12 @@ export interface GetSecurityGroupsResult {
  *         },
  *         {
  *             name: "vpc-id",
- *             values: [_var.vpc_id],
+ *             values: [vpcId],
  *         },
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSecurityGroupsOutput(args?: GetSecurityGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupsResult> {
     return pulumi.output(args).apply((a: any) => getSecurityGroups(a, opts))

@@ -10,25 +10,36 @@ import * as utilities from "../utilities";
 /**
  * Provides a S3 bucket [metrics configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html) resource.
  *
+ * > This resource cannot be used with S3 directory buckets.
+ *
  * ## Example Usage
+ *
  * ### Add metrics configuration for entire S3 bucket
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {});
- * const example_entire_bucket = new aws.s3.BucketMetric("example-entire-bucket", {bucket: example.id});
+ * const example = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const example_entire_bucket = new aws.s3.BucketMetric("example-entire-bucket", {
+ *     bucket: example.id,
+ *     name: "EntireBucket",
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Add metrics configuration with S3 object filter
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {});
+ * const example = new aws.s3.BucketV2("example", {bucket: "example"});
  * const example_filtered = new aws.s3.BucketMetric("example-filtered", {
  *     bucket: example.id,
+ *     name: "ImportantBlueDocuments",
  *     filter: {
  *         prefix: "documents/",
  *         tags: {
@@ -38,13 +49,40 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Add metrics configuration with S3 object filter for S3 Access Point
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const example_access_point = new aws.s3.AccessPoint("example-access-point", {
+ *     bucket: example.id,
+ *     name: "example-access-point",
+ * });
+ * const example_filtered = new aws.s3.BucketMetric("example-filtered", {
+ *     bucket: example.id,
+ *     name: "ImportantBlueDocuments",
+ *     filter: {
+ *         accessPoint: example_access_point.arn,
+ *         tags: {
+ *             priority: "high",
+ *             "class": "blue",
+ *         },
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import S3 bucket metric configurations using `bucket:metric`. For example:
  *
  * ```sh
- *  $ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket
+ * $ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket
  * ```
  */
 export class BucketMetric extends pulumi.CustomResource {

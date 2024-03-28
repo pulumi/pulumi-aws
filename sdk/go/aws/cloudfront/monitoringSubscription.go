@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewMonitoringSubscription(ctx, "example", &cloudfront.MonitoringSubscriptionArgs{
-//				DistributionId: pulumi.Any(aws_cloudfront_distribution.Example.Id),
+//				DistributionId: pulumi.Any(exampleAwsCloudfrontDistribution.Id),
 //				MonitoringSubscription: &cloudfront.MonitoringSubscriptionMonitoringSubscriptionArgs{
 //					RealtimeMetricsSubscriptionConfig: &cloudfront.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs{
 //						RealtimeMetricsSubscriptionStatus: pulumi.String("Enabled"),
@@ -44,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudFront monitoring subscription using the id. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
-//
+// $ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
 // ```
 type MonitoringSubscription struct {
 	pulumi.CustomResourceState

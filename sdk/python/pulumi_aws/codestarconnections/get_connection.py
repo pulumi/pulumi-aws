@@ -85,7 +85,7 @@ class GetConnectionResult:
     @pulumi.getter(name="providerType")
     def provider_type(self) -> str:
         """
-        Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket` and `GitHub`. For connections to a GitHub Enterprise Server instance, you must create an codestarconnections.Host resource and use `host_arn` instead.
+        Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket`, `GitHub` and `GitLab`. For connections to GitHub Enterprise Server or GitLab Self-Managed instances, you must create an codestarconnections.Host resource and use `host_arn` instead.
         """
         return pulumi.get(self, "provider_type")
 
@@ -121,22 +121,28 @@ def get_connection(arn: Optional[str] = None,
     Provides details about CodeStar Connection.
 
     ## Example Usage
+
     ### By ARN
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.codestarconnections.get_connection(arn=aws_codestarconnections_connection["example"]["arn"])
+    example = aws.codestarconnections.get_connection(arn=example_aws_codestarconnections_connection["arn"])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### By Name
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.codestarconnections.get_connection(name=aws_codestarconnections_connection["example"]["name"])
+    example = aws.codestarconnections.get_connection(name=example_aws_codestarconnections_connection["name"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: CodeStar Connection ARN.
@@ -171,22 +177,28 @@ def get_connection_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     Provides details about CodeStar Connection.
 
     ## Example Usage
+
     ### By ARN
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.codestarconnections.get_connection(arn=aws_codestarconnections_connection["example"]["arn"])
+    example = aws.codestarconnections.get_connection(arn=example_aws_codestarconnections_connection["arn"])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### By Name
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.codestarconnections.get_connection(name=aws_codestarconnections_connection["example"]["name"])
+    example = aws.codestarconnections.get_connection(name=example_aws_codestarconnections_connection["name"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: CodeStar Connection ARN.

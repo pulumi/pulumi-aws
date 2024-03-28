@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * For more information, see the Amazon VPC User Guide on [Route Tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html). For information about managing normal route tables in this provider, see `aws.ec2.RouteTable`.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,15 +52,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DefaultRouteTable(&#34;example&#34;, DefaultRouteTableArgs.builder()        
- *             .defaultRouteTableId(aws_vpc.example().default_route_table_id())
+ *             .defaultRouteTableId(exampleAwsVpc.defaultRouteTableId())
  *             .routes(            
  *                 DefaultRouteTableRouteArgs.builder()
  *                     .cidrBlock(&#34;10.0.1.0/24&#34;)
- *                     .gatewayId(aws_internet_gateway.example().id())
+ *                     .gatewayId(exampleAwsInternetGateway.id())
  *                     .build(),
  *                 DefaultRouteTableRouteArgs.builder()
  *                     .ipv6CidrBlock(&#34;::/0&#34;)
- *                     .egressOnlyGatewayId(aws_egress_only_internet_gateway.example().id())
+ *                     .egressOnlyGatewayId(exampleAwsEgressOnlyInternetGateway.id())
  *                     .build())
  *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
  *             .build());
@@ -66,8 +68,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * To subsequently remove all managed routes:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -90,7 +95,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DefaultRouteTable(&#34;example&#34;, DefaultRouteTableArgs.builder()        
- *             .defaultRouteTableId(aws_vpc.example().default_route_table_id())
+ *             .defaultRouteTableId(exampleAwsVpc.defaultRouteTableId())
  *             .routes()
  *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
  *             .build());
@@ -98,13 +103,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
+ * $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
  * ```
  * 
  */
@@ -263,9 +269,6 @@ public class DefaultRouteTable extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

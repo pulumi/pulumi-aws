@@ -6,6 +6,7 @@ package com.pulumi.aws.appflow.outputs;
 import com.pulumi.aws.appflow.outputs.FlowSourceFlowConfigIncrementalPullConfig;
 import com.pulumi.aws.appflow.outputs.FlowSourceFlowConfigSourceConnectorProperties;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -102,37 +103,46 @@ public final class FlowSourceFlowConfig {
 
         @CustomType.Setter
         public Builder apiVersion(@Nullable String apiVersion) {
+
             this.apiVersion = apiVersion;
             return this;
         }
         @CustomType.Setter
         public Builder connectorProfileName(@Nullable String connectorProfileName) {
+
             this.connectorProfileName = connectorProfileName;
             return this;
         }
         @CustomType.Setter
         public Builder connectorType(String connectorType) {
-            this.connectorType = Objects.requireNonNull(connectorType);
+            if (connectorType == null) {
+              throw new MissingRequiredPropertyException("FlowSourceFlowConfig", "connectorType");
+            }
+            this.connectorType = connectorType;
             return this;
         }
         @CustomType.Setter
         public Builder incrementalPullConfig(@Nullable FlowSourceFlowConfigIncrementalPullConfig incrementalPullConfig) {
+
             this.incrementalPullConfig = incrementalPullConfig;
             return this;
         }
         @CustomType.Setter
         public Builder sourceConnectorProperties(FlowSourceFlowConfigSourceConnectorProperties sourceConnectorProperties) {
-            this.sourceConnectorProperties = Objects.requireNonNull(sourceConnectorProperties);
+            if (sourceConnectorProperties == null) {
+              throw new MissingRequiredPropertyException("FlowSourceFlowConfig", "sourceConnectorProperties");
+            }
+            this.sourceConnectorProperties = sourceConnectorProperties;
             return this;
         }
         public FlowSourceFlowConfig build() {
-            final var o = new FlowSourceFlowConfig();
-            o.apiVersion = apiVersion;
-            o.connectorProfileName = connectorProfileName;
-            o.connectorType = connectorType;
-            o.incrementalPullConfig = incrementalPullConfig;
-            o.sourceConnectorProperties = sourceConnectorProperties;
-            return o;
+            final var _resultValue = new FlowSourceFlowConfig();
+            _resultValue.apiVersion = apiVersion;
+            _resultValue.connectorProfileName = connectorProfileName;
+            _resultValue.connectorType = connectorType;
+            _resultValue.incrementalPullConfig = incrementalPullConfig;
+            _resultValue.sourceConnectorProperties = sourceConnectorProperties;
+            return _resultValue;
         }
     }
 }

@@ -9,19 +9,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.redshiftserverless.Namespace("example", {namespaceName: "concurrency-scaling"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshiftserverless/namespace:Namespace example example
+ * $ pulumi import aws:redshiftserverless/namespace:Namespace example example
  * ```
  */
 export class Namespace extends pulumi.CustomResource {
@@ -52,8 +54,14 @@ export class Namespace extends pulumi.CustomResource {
         return obj['__pulumiType'] === Namespace.__pulumiType;
     }
 
+    public /*out*/ readonly adminPasswordSecretArn!: pulumi.Output<string>;
+    /**
+     * ID of the KMS key used to encrypt the namespace's admin credentials secret.
+     */
+    public readonly adminPasswordSecretKmsKeyId!: pulumi.Output<string>;
     /**
      * The password of the administrator for the first database created in the namespace.
+     * Conflicts with `manageAdminPassword`.
      */
     public readonly adminUserPassword!: pulumi.Output<string | undefined>;
     /**
@@ -84,6 +92,11 @@ export class Namespace extends pulumi.CustomResource {
      * The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
      */
     public readonly logExports!: pulumi.Output<string[] | undefined>;
+    /**
+     * Whether to use AWS SecretManager to manage namespace's admin credentials.
+     * Conflicts with `adminUserPassword`.
+     */
+    public readonly manageAdminPassword!: pulumi.Output<boolean | undefined>;
     /**
      * The Redshift Namespace ID.
      */
@@ -116,6 +129,8 @@ export class Namespace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamespaceState | undefined;
+            resourceInputs["adminPasswordSecretArn"] = state ? state.adminPasswordSecretArn : undefined;
+            resourceInputs["adminPasswordSecretKmsKeyId"] = state ? state.adminPasswordSecretKmsKeyId : undefined;
             resourceInputs["adminUserPassword"] = state ? state.adminUserPassword : undefined;
             resourceInputs["adminUsername"] = state ? state.adminUsername : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
@@ -124,6 +139,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["iamRoles"] = state ? state.iamRoles : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["logExports"] = state ? state.logExports : undefined;
+            resourceInputs["manageAdminPassword"] = state ? state.manageAdminPassword : undefined;
             resourceInputs["namespaceId"] = state ? state.namespaceId : undefined;
             resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -133,6 +149,7 @@ export class Namespace extends pulumi.CustomResource {
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
+            resourceInputs["adminPasswordSecretKmsKeyId"] = args ? args.adminPasswordSecretKmsKeyId : undefined;
             resourceInputs["adminUserPassword"] = args?.adminUserPassword ? pulumi.secret(args.adminUserPassword) : undefined;
             resourceInputs["adminUsername"] = args?.adminUsername ? pulumi.secret(args.adminUsername) : undefined;
             resourceInputs["dbName"] = args ? args.dbName : undefined;
@@ -140,14 +157,16 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["iamRoles"] = args ? args.iamRoles : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["logExports"] = args ? args.logExports : undefined;
+            resourceInputs["manageAdminPassword"] = args ? args.manageAdminPassword : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["adminPasswordSecretArn"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["namespaceId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["adminUserPassword", "adminUsername", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["adminUserPassword", "adminUsername"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Namespace.__pulumiType, name, resourceInputs, opts);
     }
@@ -157,8 +176,14 @@ export class Namespace extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Namespace resources.
  */
 export interface NamespaceState {
+    adminPasswordSecretArn?: pulumi.Input<string>;
+    /**
+     * ID of the KMS key used to encrypt the namespace's admin credentials secret.
+     */
+    adminPasswordSecretKmsKeyId?: pulumi.Input<string>;
     /**
      * The password of the administrator for the first database created in the namespace.
+     * Conflicts with `manageAdminPassword`.
      */
     adminUserPassword?: pulumi.Input<string>;
     /**
@@ -190,6 +215,11 @@ export interface NamespaceState {
      */
     logExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Whether to use AWS SecretManager to manage namespace's admin credentials.
+     * Conflicts with `adminUserPassword`.
+     */
+    manageAdminPassword?: pulumi.Input<boolean>;
+    /**
      * The Redshift Namespace ID.
      */
     namespaceId?: pulumi.Input<string>;
@@ -214,7 +244,12 @@ export interface NamespaceState {
  */
 export interface NamespaceArgs {
     /**
+     * ID of the KMS key used to encrypt the namespace's admin credentials secret.
+     */
+    adminPasswordSecretKmsKeyId?: pulumi.Input<string>;
+    /**
      * The password of the administrator for the first database created in the namespace.
+     * Conflicts with `manageAdminPassword`.
      */
     adminUserPassword?: pulumi.Input<string>;
     /**
@@ -241,6 +276,11 @@ export interface NamespaceArgs {
      * The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
      */
     logExports?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Whether to use AWS SecretManager to manage namespace's admin credentials.
+     * Conflicts with `adminUserPassword`.
+     */
+    manageAdminPassword?: pulumi.Input<boolean>;
     /**
      * The name of the namespace.
      */

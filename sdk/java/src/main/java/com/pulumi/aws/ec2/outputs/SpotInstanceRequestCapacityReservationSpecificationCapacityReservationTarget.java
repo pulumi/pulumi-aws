@@ -58,19 +58,21 @@ public final class SpotInstanceRequestCapacityReservationSpecificationCapacityRe
 
         @CustomType.Setter
         public Builder capacityReservationId(@Nullable String capacityReservationId) {
+
             this.capacityReservationId = capacityReservationId;
             return this;
         }
         @CustomType.Setter
         public Builder capacityReservationResourceGroupArn(@Nullable String capacityReservationResourceGroupArn) {
+
             this.capacityReservationResourceGroupArn = capacityReservationResourceGroupArn;
             return this;
         }
         public SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget build() {
-            final var o = new SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget();
-            o.capacityReservationId = capacityReservationId;
-            o.capacityReservationResourceGroupArn = capacityReservationResourceGroupArn;
-            return o;
+            final var _resultValue = new SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget();
+            _resultValue.capacityReservationId = capacityReservationId;
+            _resultValue.capacityReservationResourceGroupArn = capacityReservationResourceGroupArn;
+            return _resultValue;
         }
     }
 }

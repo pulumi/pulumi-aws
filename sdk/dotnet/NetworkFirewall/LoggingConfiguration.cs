@@ -13,8 +13,10 @@ namespace Pulumi.Aws.NetworkFirewall
     /// Provides an AWS Network Firewall Logging Configuration Resource
     /// 
     /// ## Example Usage
+    /// 
     /// ### Logging to S3
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,7 +27,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new()
     ///     {
-    ///         FirewallArn = aws_networkfirewall_firewall.Example.Arn,
+    ///         FirewallArn = exampleAwsNetworkfirewallFirewall.Arn,
     ///         LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
     ///         {
     ///             LogDestinationConfigs = new[]
@@ -34,7 +36,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                 {
     ///                     LogDestination = 
     ///                     {
-    ///                         { "bucketName", aws_s3_bucket.Example.Bucket },
+    ///                         { "bucketName", exampleAwsS3Bucket.Bucket },
     ///                         { "prefix", "/example" },
     ///                     },
     ///                     LogDestinationType = "S3",
@@ -46,8 +48,11 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Logging to CloudWatch
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,7 +63,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new()
     ///     {
-    ///         FirewallArn = aws_networkfirewall_firewall.Example.Arn,
+    ///         FirewallArn = exampleAwsNetworkfirewallFirewall.Arn,
     ///         LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
     ///         {
     ///             LogDestinationConfigs = new[]
@@ -67,7 +72,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                 {
     ///                     LogDestination = 
     ///                     {
-    ///                         { "logGroup", aws_cloudwatch_log_group.Example.Name },
+    ///                         { "logGroup", exampleAwsCloudwatchLogGroup.Name },
     ///                     },
     ///                     LogDestinationType = "CloudWatchLogs",
     ///                     LogType = "ALERT",
@@ -78,8 +83,11 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Logging to Kinesis Data Firehose
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -90,7 +98,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new()
     ///     {
-    ///         FirewallArn = aws_networkfirewall_firewall.Example.Arn,
+    ///         FirewallArn = exampleAwsNetworkfirewallFirewall.Arn,
     ///         LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
     ///         {
     ///             LogDestinationConfigs = new[]
@@ -99,7 +107,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                 {
     ///                     LogDestination = 
     ///                     {
-    ///                         { "deliveryStream", aws_kinesis_firehose_delivery_stream.Example.Name },
+    ///                         { "deliveryStream", exampleAwsKinesisFirehoseDeliveryStream.Name },
     ///                     },
     ///                     LogDestinationType = "KinesisDataFirehose",
     ///                     LogType = "ALERT",
@@ -110,13 +118,14 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Network Firewall Logging Configurations using the `firewall_arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
+    /// $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkfirewall/loggingConfiguration:LoggingConfiguration")]

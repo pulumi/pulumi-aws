@@ -4,6 +4,7 @@
 package com.pulumi.aws.codecatalyst.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,19 +41,25 @@ public final class GetDevEnvironmentIde {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDevEnvironmentIde", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder runtime(String runtime) {
-            this.runtime = Objects.requireNonNull(runtime);
+            if (runtime == null) {
+              throw new MissingRequiredPropertyException("GetDevEnvironmentIde", "runtime");
+            }
+            this.runtime = runtime;
             return this;
         }
         public GetDevEnvironmentIde build() {
-            final var o = new GetDevEnvironmentIde();
-            o.name = name;
-            o.runtime = runtime;
-            return o;
+            final var _resultValue = new GetDevEnvironmentIde();
+            _resultValue.name = name;
+            _resultValue.runtime = runtime;
+            return _resultValue;
         }
     }
 }

@@ -13,43 +13,49 @@ import * as utilities from "../utilities";
  * > **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `defaultIamRoleArn` argument and the `aws.redshift.ClusterIamRoles` resource's `defaultIamRoleArn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.redshift.Cluster("example", {
  *     clusterIdentifier: "tf-redshift-cluster",
- *     clusterType: "single-node",
  *     databaseName: "mydb",
- *     masterPassword: "Mustbe8characters",
  *     masterUsername: "exampleuser",
+ *     masterPassword: "Mustbe8characters",
  *     nodeType: "dc1.large",
+ *     clusterType: "single-node",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Managed Credentials
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.redshift.Cluster("example", {
  *     clusterIdentifier: "tf-redshift-cluster",
- *     clusterType: "single-node",
  *     databaseName: "mydb",
- *     manageMasterPassword: true,
  *     masterUsername: "exampleuser",
  *     nodeType: "dc1.large",
+ *     clusterType: "single-node",
+ *     manageMasterPassword: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Clusters using the `cluster_identifier`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
+ * $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
  * ```
  */
 export class Cluster extends pulumi.CustomResource {
@@ -229,6 +235,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly masterUsername!: pulumi.Output<string | undefined>;
     /**
+     * Specifies if the Redshift cluster is multi-AZ.
+     */
+    public readonly multiAz!: pulumi.Output<boolean | undefined>;
+    /**
      * The node type to be provisioned for the cluster.
      */
     public readonly nodeType!: pulumi.Output<string>;
@@ -338,6 +348,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["masterPasswordSecretArn"] = state ? state.masterPasswordSecretArn : undefined;
             resourceInputs["masterPasswordSecretKmsKeyId"] = state ? state.masterPasswordSecretKmsKeyId : undefined;
             resourceInputs["masterUsername"] = state ? state.masterUsername : undefined;
+            resourceInputs["multiAz"] = state ? state.multiAz : undefined;
             resourceInputs["nodeType"] = state ? state.nodeType : undefined;
             resourceInputs["numberOfNodes"] = state ? state.numberOfNodes : undefined;
             resourceInputs["ownerAccount"] = state ? state.ownerAccount : undefined;
@@ -389,6 +400,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["masterPassword"] = args?.masterPassword ? pulumi.secret(args.masterPassword) : undefined;
             resourceInputs["masterPasswordSecretKmsKeyId"] = args ? args.masterPasswordSecretKmsKeyId : undefined;
             resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
+            resourceInputs["multiAz"] = args ? args.multiAz : undefined;
             resourceInputs["nodeType"] = args ? args.nodeType : undefined;
             resourceInputs["numberOfNodes"] = args ? args.numberOfNodes : undefined;
             resourceInputs["ownerAccount"] = args ? args.ownerAccount : undefined;
@@ -410,7 +422,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["masterPassword", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["masterPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -568,6 +580,10 @@ export interface ClusterState {
      * Username for the master DB user.
      */
     masterUsername?: pulumi.Input<string>;
+    /**
+     * Specifies if the Redshift cluster is multi-AZ.
+     */
+    multiAz?: pulumi.Input<boolean>;
     /**
      * The node type to be provisioned for the cluster.
      */
@@ -764,6 +780,10 @@ export interface ClusterArgs {
      * Username for the master DB user.
      */
     masterUsername?: pulumi.Input<string>;
+    /**
+     * Specifies if the Redshift cluster is multi-AZ.
+     */
+    multiAz?: pulumi.Input<boolean>;
     /**
      * The node type to be provisioned for the cluster.
      */

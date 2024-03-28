@@ -15,8 +15,10 @@ namespace Pulumi.Aws.StorageGateway
     /// &gt; **NOTE:** The Storage Gateway API requires the gateway to be connected to properly return information after activation. If you are receiving `The specified gateway is not connected` errors during resource creation (gateway activation), ensure your gateway instance meets the [Storage Gateway requirements](https://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Local Cache
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,29 +27,32 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testVolumeAttachment = new Aws.Ec2.VolumeAttachment("testVolumeAttachment", new()
+    ///     var testVolumeAttachment = new Aws.Ec2.VolumeAttachment("test", new()
     ///     {
     ///         DeviceName = "/dev/xvdb",
-    ///         VolumeId = aws_ebs_volume.Test.Id,
-    ///         InstanceId = aws_instance.Test.Id,
+    ///         VolumeId = testAwsEbsVolume.Id,
+    ///         InstanceId = testAwsInstance.Id,
     ///     });
     /// 
-    ///     var testLocalDisk = Aws.StorageGateway.GetLocalDisk.Invoke(new()
+    ///     var test = Aws.StorageGateway.GetLocalDisk.Invoke(new()
     ///     {
-    ///         DiskNode = testVolumeAttachment.DeviceName,
-    ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
+    ///         DiskNode = testAwsVolumeAttachment.DeviceName,
+    ///         GatewayArn = testAwsStoragegatewayGateway.Arn,
     ///     });
     /// 
-    ///     var testCache = new Aws.StorageGateway.Cache("testCache", new()
+    ///     var testCache = new Aws.StorageGateway.Cache("test", new()
     ///     {
-    ///         DiskId = testLocalDisk.Apply(getLocalDiskResult =&gt; getLocalDiskResult.DiskId),
-    ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
+    ///         DiskId = test.Apply(getLocalDiskResult =&gt; getLocalDiskResult.DiskId),
+    ///         GatewayArn = testAwsStoragegatewayGateway.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### FSx File Gateway
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -72,8 +77,11 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### S3 File Gateway
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -92,8 +100,11 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Tape Gateway
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -114,8 +125,11 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Volume Gateway (Cached)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -134,8 +148,11 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Volume Gateway (Stored)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -154,15 +171,16 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_storagegateway_gateway` using the gateway Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
+    /// $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
     /// ```
-    ///  Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+    /// Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
     /// </summary>
     [AwsResourceType("aws:storagegateway/gateway:Gateway")]
     public partial class Gateway : global::Pulumi.CustomResource
@@ -337,7 +355,6 @@ namespace Pulumi.Aws.StorageGateway
                 AdditionalSecretOutputs =
                 {
                     "smbGuestPassword",
-                    "tagsAll",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -652,11 +669,7 @@ namespace Pulumi.Aws.StorageGateway
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

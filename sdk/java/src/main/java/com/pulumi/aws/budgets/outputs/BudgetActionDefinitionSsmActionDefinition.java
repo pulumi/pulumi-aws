@@ -4,6 +4,7 @@
 package com.pulumi.aws.budgets.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,12 +72,18 @@ public final class BudgetActionDefinitionSsmActionDefinition {
 
         @CustomType.Setter
         public Builder actionSubType(String actionSubType) {
-            this.actionSubType = Objects.requireNonNull(actionSubType);
+            if (actionSubType == null) {
+              throw new MissingRequiredPropertyException("BudgetActionDefinitionSsmActionDefinition", "actionSubType");
+            }
+            this.actionSubType = actionSubType;
             return this;
         }
         @CustomType.Setter
         public Builder instanceIds(List<String> instanceIds) {
-            this.instanceIds = Objects.requireNonNull(instanceIds);
+            if (instanceIds == null) {
+              throw new MissingRequiredPropertyException("BudgetActionDefinitionSsmActionDefinition", "instanceIds");
+            }
+            this.instanceIds = instanceIds;
             return this;
         }
         public Builder instanceIds(String... instanceIds) {
@@ -84,15 +91,18 @@ public final class BudgetActionDefinitionSsmActionDefinition {
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("BudgetActionDefinitionSsmActionDefinition", "region");
+            }
+            this.region = region;
             return this;
         }
         public BudgetActionDefinitionSsmActionDefinition build() {
-            final var o = new BudgetActionDefinitionSsmActionDefinition();
-            o.actionSubType = actionSubType;
-            o.instanceIds = instanceIds;
-            o.region = region;
-            return o;
+            final var _resultValue = new BudgetActionDefinitionSsmActionDefinition();
+            _resultValue.actionSubType = actionSubType;
+            _resultValue.instanceIds = instanceIds;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

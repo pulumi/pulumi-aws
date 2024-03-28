@@ -15,8 +15,10 @@ import (
 // Manages an [AWS Elasticsearch VPC Endpoint](https://docs.aws.amazon.com/elasticsearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon elasticsearch Service-managed VPC endpoint.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,15 +32,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticsearch.NewVpcEndpoint(ctx, "foo", &elasticsearch.VpcEndpointArgs{
-//				DomainArn: pulumi.Any(aws_elasticsearch_domain.Domain_1.Arn),
+//				DomainArn: pulumi.Any(domain1.Arn),
 //				VpcOptions: &elasticsearch.VpcEndpointVpcOptionsArgs{
 //					SecurityGroupIds: pulumi.StringArray{
-//						aws_security_group.Test.Id,
-//						aws_security_group.Test2.Id,
+//						test.Id,
+//						test2.Id,
 //					},
 //					SubnetIds: pulumi.StringArray{
-//						aws_subnet.Test.Id,
-//						aws_subnet.Test2.Id,
+//						testAwsSubnet.Id,
+//						test2AwsSubnet.Id,
 //					},
 //				},
 //			})
@@ -50,15 +52,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import elasticsearch VPC endpoint connections using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:elasticsearch/vpcEndpoint:VpcEndpoint example endpoint-id
-//
+// $ pulumi import aws:elasticsearch/vpcEndpoint:VpcEndpoint example endpoint-id
 // ```
 type VpcEndpoint struct {
 	pulumi.CustomResourceState

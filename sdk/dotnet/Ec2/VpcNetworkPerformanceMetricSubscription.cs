@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,12 +25,13 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.VpcNetworkPerformanceMetricSubscription("example", new()
     ///     {
-    ///         Destination = "us-west-1",
     ///         Source = "us-east-1",
+    ///         Destination = "us-west-1",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:ec2/vpcNetworkPerformanceMetricSubscription:VpcNetworkPerformanceMetricSubscription")]
     public partial class VpcNetworkPerformanceMetricSubscription : global::Pulumi.CustomResource

@@ -59,19 +59,21 @@ public final class PermissionsBoundaryAttachmentPermissionsBoundary {
 
         @CustomType.Setter
         public Builder customerManagedPolicyReference(@Nullable PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference customerManagedPolicyReference) {
+
             this.customerManagedPolicyReference = customerManagedPolicyReference;
             return this;
         }
         @CustomType.Setter
         public Builder managedPolicyArn(@Nullable String managedPolicyArn) {
+
             this.managedPolicyArn = managedPolicyArn;
             return this;
         }
         public PermissionsBoundaryAttachmentPermissionsBoundary build() {
-            final var o = new PermissionsBoundaryAttachmentPermissionsBoundary();
-            o.customerManagedPolicyReference = customerManagedPolicyReference;
-            o.managedPolicyArn = managedPolicyArn;
-            return o;
+            final var _resultValue = new PermissionsBoundaryAttachmentPermissionsBoundary();
+            _resultValue.customerManagedPolicyReference = customerManagedPolicyReference;
+            _resultValue.managedPolicyArn = managedPolicyArn;
+            return _resultValue;
         }
     }
 }

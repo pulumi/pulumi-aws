@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Destroying this resource will disable Security Hub for this AWS account.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,13 +48,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:securityhub/account:Account example 123456789012
+ * $ pulumi import aws:securityhub/account:Account example 123456789012
  * ```
  * 
  */

@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class RouteSpecHttpRouteMatchHeaderMatchRange {
 
         @CustomType.Setter
         public Builder end(Integer end) {
-            this.end = Objects.requireNonNull(end);
+            if (end == null) {
+              throw new MissingRequiredPropertyException("RouteSpecHttpRouteMatchHeaderMatchRange", "end");
+            }
+            this.end = end;
             return this;
         }
         @CustomType.Setter
         public Builder start(Integer start) {
-            this.start = Objects.requireNonNull(start);
+            if (start == null) {
+              throw new MissingRequiredPropertyException("RouteSpecHttpRouteMatchHeaderMatchRange", "start");
+            }
+            this.start = start;
             return this;
         }
         public RouteSpecHttpRouteMatchHeaderMatchRange build() {
-            final var o = new RouteSpecHttpRouteMatchHeaderMatchRange();
-            o.end = end;
-            o.start = start;
-            return o;
+            final var _resultValue = new RouteSpecHttpRouteMatchHeaderMatchRange();
+            _resultValue.end = end;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

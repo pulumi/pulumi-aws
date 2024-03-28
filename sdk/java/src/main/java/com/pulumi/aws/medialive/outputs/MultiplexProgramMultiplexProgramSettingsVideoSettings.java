@@ -59,19 +59,21 @@ public final class MultiplexProgramMultiplexProgramSettingsVideoSettings {
 
         @CustomType.Setter
         public Builder constantBitrate(@Nullable Integer constantBitrate) {
+
             this.constantBitrate = constantBitrate;
             return this;
         }
         @CustomType.Setter
         public Builder statmuxSettings(@Nullable MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings statmuxSettings) {
+
             this.statmuxSettings = statmuxSettings;
             return this;
         }
         public MultiplexProgramMultiplexProgramSettingsVideoSettings build() {
-            final var o = new MultiplexProgramMultiplexProgramSettingsVideoSettings();
-            o.constantBitrate = constantBitrate;
-            o.statmuxSettings = statmuxSettings;
-            return o;
+            final var _resultValue = new MultiplexProgramMultiplexProgramSettingsVideoSettings();
+            _resultValue.constantBitrate = constantBitrate;
+            _resultValue.statmuxSettings = statmuxSettings;
+            return _resultValue;
         }
     }
 }

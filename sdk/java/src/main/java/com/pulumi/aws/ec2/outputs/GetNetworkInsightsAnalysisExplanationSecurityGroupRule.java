@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupRulePortRange;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -66,17 +67,26 @@ public final class GetNetworkInsightsAnalysisExplanationSecurityGroupRule {
 
         @CustomType.Setter
         public Builder cidr(String cidr) {
-            this.cidr = Objects.requireNonNull(cidr);
+            if (cidr == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanationSecurityGroupRule", "cidr");
+            }
+            this.cidr = cidr;
             return this;
         }
         @CustomType.Setter
         public Builder direction(String direction) {
-            this.direction = Objects.requireNonNull(direction);
+            if (direction == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanationSecurityGroupRule", "direction");
+            }
+            this.direction = direction;
             return this;
         }
         @CustomType.Setter
         public Builder portRanges(List<GetNetworkInsightsAnalysisExplanationSecurityGroupRulePortRange> portRanges) {
-            this.portRanges = Objects.requireNonNull(portRanges);
+            if (portRanges == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanationSecurityGroupRule", "portRanges");
+            }
+            this.portRanges = portRanges;
             return this;
         }
         public Builder portRanges(GetNetworkInsightsAnalysisExplanationSecurityGroupRulePortRange... portRanges) {
@@ -84,28 +94,37 @@ public final class GetNetworkInsightsAnalysisExplanationSecurityGroupRule {
         }
         @CustomType.Setter
         public Builder prefixListId(String prefixListId) {
-            this.prefixListId = Objects.requireNonNull(prefixListId);
+            if (prefixListId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanationSecurityGroupRule", "prefixListId");
+            }
+            this.prefixListId = prefixListId;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanationSecurityGroupRule", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroupId(String securityGroupId) {
-            this.securityGroupId = Objects.requireNonNull(securityGroupId);
+            if (securityGroupId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanationSecurityGroupRule", "securityGroupId");
+            }
+            this.securityGroupId = securityGroupId;
             return this;
         }
         public GetNetworkInsightsAnalysisExplanationSecurityGroupRule build() {
-            final var o = new GetNetworkInsightsAnalysisExplanationSecurityGroupRule();
-            o.cidr = cidr;
-            o.direction = direction;
-            o.portRanges = portRanges;
-            o.prefixListId = prefixListId;
-            o.protocol = protocol;
-            o.securityGroupId = securityGroupId;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisExplanationSecurityGroupRule();
+            _resultValue.cidr = cidr;
+            _resultValue.direction = direction;
+            _resultValue.portRanges = portRanges;
+            _resultValue.prefixListId = prefixListId;
+            _resultValue.protocol = protocol;
+            _resultValue.securityGroupId = securityGroupId;
+            return _resultValue;
         }
     }
 }

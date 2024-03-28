@@ -4,6 +4,7 @@
 package com.pulumi.aws.auditmanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class AssessmentScopeAwsService {
 
         @CustomType.Setter
         public Builder serviceName(String serviceName) {
-            this.serviceName = Objects.requireNonNull(serviceName);
+            if (serviceName == null) {
+              throw new MissingRequiredPropertyException("AssessmentScopeAwsService", "serviceName");
+            }
+            this.serviceName = serviceName;
             return this;
         }
         public AssessmentScopeAwsService build() {
-            final var o = new AssessmentScopeAwsService();
-            o.serviceName = serviceName;
-            return o;
+            final var _resultValue = new AssessmentScopeAwsService();
+            _resultValue.serviceName = serviceName;
+            return _resultValue;
         }
     }
 }

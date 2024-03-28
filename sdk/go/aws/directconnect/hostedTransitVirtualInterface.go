@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,7 +32,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := directconnect.NewHostedTransitVirtualInterface(ctx, "example", &directconnect.HostedTransitVirtualInterfaceArgs{
-//				ConnectionId:  pulumi.Any(aws_dx_connection.Example.Id),
+//				ConnectionId:  pulumi.Any(exampleAwsDxConnection.Id),
+//				Name:          pulumi.String("tf-transit-vif-example"),
 //				Vlan:          pulumi.Int(4094),
 //				AddressFamily: pulumi.String("ipv4"),
 //				BgpAsn:        pulumi.Int(65352),
@@ -44,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Direct Connect hosted transit virtual interfaces using the VIF `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface test dxvif-33cc44dd
-//
+// $ pulumi import aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface test dxvif-33cc44dd
 // ```
 type HostedTransitVirtualInterface struct {
 	pulumi.CustomResourceState

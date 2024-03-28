@@ -79,6 +79,7 @@ public final class WorkforceWorkforceVpcConfig {
 
         @CustomType.Setter
         public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
+
             this.securityGroupIds = securityGroupIds;
             return this;
         }
@@ -87,6 +88,7 @@ public final class WorkforceWorkforceVpcConfig {
         }
         @CustomType.Setter
         public Builder subnets(@Nullable List<String> subnets) {
+
             this.subnets = subnets;
             return this;
         }
@@ -95,21 +97,23 @@ public final class WorkforceWorkforceVpcConfig {
         }
         @CustomType.Setter
         public Builder vpcEndpointId(@Nullable String vpcEndpointId) {
+
             this.vpcEndpointId = vpcEndpointId;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(@Nullable String vpcId) {
+
             this.vpcId = vpcId;
             return this;
         }
         public WorkforceWorkforceVpcConfig build() {
-            final var o = new WorkforceWorkforceVpcConfig();
-            o.securityGroupIds = securityGroupIds;
-            o.subnets = subnets;
-            o.vpcEndpointId = vpcEndpointId;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new WorkforceWorkforceVpcConfig();
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnets = subnets;
+            _resultValue.vpcEndpointId = vpcEndpointId;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

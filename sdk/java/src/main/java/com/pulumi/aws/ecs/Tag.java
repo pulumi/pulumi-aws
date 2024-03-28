@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,14 +46,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleComputeEnvironment = new ComputeEnvironment(&#34;exampleComputeEnvironment&#34;, ComputeEnvironmentArgs.builder()        
+ *         var example = new ComputeEnvironment(&#34;example&#34;, ComputeEnvironmentArgs.builder()        
  *             .computeEnvironmentName(&#34;example&#34;)
- *             .serviceRole(aws_iam_role.example().arn())
+ *             .serviceRole(exampleAwsIamRole.arn())
  *             .type(&#34;UNMANAGED&#34;)
  *             .build());
  * 
  *         var exampleTag = new Tag(&#34;exampleTag&#34;, TagArgs.builder()        
- *             .resourceArn(exampleComputeEnvironment.ecsClusterArn())
+ *             .resourceArn(example.ecsClusterArn())
  *             .key(&#34;Name&#34;)
  *             .value(&#34;Hello World&#34;)
  *             .build());
@@ -59,13 +61,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_ecs_tag` using the ECS resource identifier and key, separated by a comma (`,`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:ecs/tag:Tag example arn:aws:ecs:us-east-1:123456789012:cluster/example,Name
+ * $ pulumi import aws:ecs/tag:Tag example arn:aws:ecs:us-east-1:123456789012:cluster/example,Name
  * ```
  * 
  */

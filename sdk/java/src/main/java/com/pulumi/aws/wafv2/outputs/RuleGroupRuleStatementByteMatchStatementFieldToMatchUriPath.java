@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPath {
         }
 
         public RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPath build() {
-            final var o = new RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPath();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPath();
+            return _resultValue;
         }
     }
 }

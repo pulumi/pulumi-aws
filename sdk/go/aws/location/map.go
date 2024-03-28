@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_location_map` resources using the map name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:location/map:Map example example
-//
+// $ pulumi import aws:location/map:Map example example
 // ```
 type Map struct {
 	pulumi.CustomResourceState
@@ -90,10 +90,6 @@ func NewMap(ctx *pulumi.Context,
 	if args.MapName == nil {
 		return nil, errors.New("invalid value for required argument 'MapName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Map
 	err := ctx.RegisterResource("aws:location/map:Map", name, args, &resource, opts...)

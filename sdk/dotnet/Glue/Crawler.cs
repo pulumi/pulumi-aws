@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Glue
     /// Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
     /// 
     /// ## Example Usage
+    /// 
     /// ### DynamoDB Target Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,8 +27,9 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Crawler("example", new()
     ///     {
-    ///         DatabaseName = aws_glue_catalog_database.Example.Name,
-    ///         Role = aws_iam_role.Example.Arn,
+    ///         DatabaseName = exampleAwsGlueCatalogDatabase.Name,
+    ///         Name = "example",
+    ///         Role = exampleAwsIamRole.Arn,
     ///         DynamodbTargets = new[]
     ///         {
     ///             new Aws.Glue.Inputs.CrawlerDynamodbTargetArgs
@@ -38,8 +41,11 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### JDBC Target Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,13 +56,14 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Crawler("example", new()
     ///     {
-    ///         DatabaseName = aws_glue_catalog_database.Example.Name,
-    ///         Role = aws_iam_role.Example.Arn,
+    ///         DatabaseName = exampleAwsGlueCatalogDatabase.Name,
+    ///         Name = "example",
+    ///         Role = exampleAwsIamRole.Arn,
     ///         JdbcTargets = new[]
     ///         {
     ///             new Aws.Glue.Inputs.CrawlerJdbcTargetArgs
     ///             {
-    ///                 ConnectionName = aws_glue_connection.Example.Name,
+    ///                 ConnectionName = exampleAwsGlueConnection.Name,
     ///                 Path = "database-name/%",
     ///             },
     ///         },
@@ -64,8 +71,11 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### S3 Target Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -76,21 +86,25 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Crawler("example", new()
     ///     {
-    ///         DatabaseName = aws_glue_catalog_database.Example.Name,
-    ///         Role = aws_iam_role.Example.Arn,
+    ///         DatabaseName = exampleAwsGlueCatalogDatabase.Name,
+    ///         Name = "example",
+    ///         Role = exampleAwsIamRole.Arn,
     ///         S3Targets = new[]
     ///         {
     ///             new Aws.Glue.Inputs.CrawlerS3TargetArgs
     ///             {
-    ///                 Path = $"s3://{aws_s3_bucket.Example.Bucket}",
+    ///                 Path = $"s3://{exampleAwsS3Bucket.Bucket}",
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Catalog Target Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -101,16 +115,17 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Crawler("example", new()
     ///     {
-    ///         DatabaseName = aws_glue_catalog_database.Example.Name,
-    ///         Role = aws_iam_role.Example.Arn,
+    ///         DatabaseName = exampleAwsGlueCatalogDatabase.Name,
+    ///         Name = "example",
+    ///         Role = exampleAwsIamRole.Arn,
     ///         CatalogTargets = new[]
     ///         {
     ///             new Aws.Glue.Inputs.CrawlerCatalogTargetArgs
     ///             {
-    ///                 DatabaseName = aws_glue_catalog_database.Example.Name,
+    ///                 DatabaseName = exampleAwsGlueCatalogDatabase.Name,
     ///                 Tables = new[]
     ///                 {
-    ///                     aws_glue_catalog_table.Example.Name,
+    ///                     exampleAwsGlueCatalogTable.Name,
     ///                 },
     ///             },
     ///         },
@@ -129,8 +144,11 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### MongoDB Target Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -141,13 +159,14 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Crawler("example", new()
     ///     {
-    ///         DatabaseName = aws_glue_catalog_database.Example.Name,
-    ///         Role = aws_iam_role.Example.Arn,
+    ///         DatabaseName = exampleAwsGlueCatalogDatabase.Name,
+    ///         Name = "example",
+    ///         Role = exampleAwsIamRole.Arn,
     ///         MongodbTargets = new[]
     ///         {
     ///             new Aws.Glue.Inputs.CrawlerMongodbTargetArgs
     ///             {
-    ///                 ConnectionName = aws_glue_connection.Example.Name,
+    ///                 ConnectionName = exampleAwsGlueConnection.Name,
     ///                 Path = "database-name/%",
     ///             },
     ///         },
@@ -155,8 +174,11 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Configuration Settings Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -166,45 +188,47 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var eventsCrawler = new Aws.Glue.Crawler("eventsCrawler", new()
+    ///     var eventsCrawler = new Aws.Glue.Crawler("events_crawler", new()
     ///     {
-    ///         DatabaseName = aws_glue_catalog_database.Glue_database.Name,
+    ///         DatabaseName = glueDatabase.Name,
     ///         Schedule = "cron(0 1 * * ? *)",
-    ///         Role = aws_iam_role.Glue_role.Arn,
-    ///         Tags = @var.Tags,
+    ///         Name = $"events_crawler_{environmentName}",
+    ///         Role = glueRole.Arn,
+    ///         Tags = tags,
     ///         Configuration = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Grouping"] = new Dictionary&lt;string, object?&gt;
+    ///             ["grouping"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["TableGroupingPolicy"] = "CombineCompatibleSchemas",
+    ///                 ["tableGroupingPolicy"] = "CombineCompatibleSchemas",
     ///             },
-    ///             ["CrawlerOutput"] = new Dictionary&lt;string, object?&gt;
+    ///             ["crawlerOutput"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["Partitions"] = new Dictionary&lt;string, object?&gt;
+    ///                 ["partitions"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["AddOrUpdateBehavior"] = "InheritFromTable",
+    ///                     ["addOrUpdateBehavior"] = "InheritFromTable",
     ///                 },
     ///             },
-    ///             ["Version"] = 1,
+    ///             ["version"] = 1,
     ///         }),
     ///         S3Targets = new[]
     ///         {
     ///             new Aws.Glue.Inputs.CrawlerS3TargetArgs
     ///             {
-    ///                 Path = $"s3://{aws_s3_bucket.Data_lake_bucket.Bucket}",
+    ///                 Path = $"s3://{dataLakeBucket.Bucket}",
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Crawlers using `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
+    /// $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/crawler:Crawler")]
@@ -271,7 +295,7 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableArray<Outputs.CrawlerIcebergTarget>> IcebergTargets { get; private set; } = null!;
 
         /// <summary>
-        /// List of nested JBDC target arguments. See JDBC Target below.
+        /// List of nested JDBC target arguments. See JDBC Target below.
         /// </summary>
         [Output("jdbcTargets")]
         public Output<ImmutableArray<Outputs.CrawlerJdbcTarget>> JdbcTargets { get; private set; } = null!;
@@ -377,10 +401,6 @@ namespace Pulumi.Aws.Glue
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -498,7 +518,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CrawlerJdbcTargetArgs>? _jdbcTargets;
 
         /// <summary>
-        /// List of nested JBDC target arguments. See JDBC Target below.
+        /// List of nested JDBC target arguments. See JDBC Target below.
         /// </summary>
         public InputList<Inputs.CrawlerJdbcTargetArgs> JdbcTargets
         {
@@ -704,7 +724,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CrawlerJdbcTargetGetArgs>? _jdbcTargets;
 
         /// <summary>
-        /// List of nested JBDC target arguments. See JDBC Target below.
+        /// List of nested JDBC target arguments. See JDBC Target below.
         /// </summary>
         public InputList<Inputs.CrawlerJdbcTargetGetArgs> JdbcTargets
         {
@@ -812,11 +832,7 @@ namespace Pulumi.Aws.Glue
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public CrawlerState()

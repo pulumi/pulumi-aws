@@ -73,25 +73,28 @@ public final class DataQualityJobDefinitionNetworkConfig {
 
         @CustomType.Setter
         public Builder enableInterContainerTrafficEncryption(@Nullable Boolean enableInterContainerTrafficEncryption) {
+
             this.enableInterContainerTrafficEncryption = enableInterContainerTrafficEncryption;
             return this;
         }
         @CustomType.Setter
         public Builder enableNetworkIsolation(@Nullable Boolean enableNetworkIsolation) {
+
             this.enableNetworkIsolation = enableNetworkIsolation;
             return this;
         }
         @CustomType.Setter
         public Builder vpcConfig(@Nullable DataQualityJobDefinitionNetworkConfigVpcConfig vpcConfig) {
+
             this.vpcConfig = vpcConfig;
             return this;
         }
         public DataQualityJobDefinitionNetworkConfig build() {
-            final var o = new DataQualityJobDefinitionNetworkConfig();
-            o.enableInterContainerTrafficEncryption = enableInterContainerTrafficEncryption;
-            o.enableNetworkIsolation = enableNetworkIsolation;
-            o.vpcConfig = vpcConfig;
-            return o;
+            final var _resultValue = new DataQualityJobDefinitionNetworkConfig();
+            _resultValue.enableInterContainerTrafficEncryption = enableInterContainerTrafficEncryption;
+            _resultValue.enableNetworkIsolation = enableNetworkIsolation;
+            _resultValue.vpcConfig = vpcConfig;
+            return _resultValue;
         }
     }
 }

@@ -14,8 +14,10 @@ import (
 // Resource for managing an AWS Audit Manager Framework.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,12 +31,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := auditmanager.NewFramework(ctx, "test", &auditmanager.FrameworkArgs{
+//				Name: pulumi.String("example"),
 //				ControlSets: auditmanager.FrameworkControlSetArray{
 //					&auditmanager.FrameworkControlSetArgs{
 //						Name: pulumi.String("example"),
 //						Controls: auditmanager.FrameworkControlSetControlArray{
 //							&auditmanager.FrameworkControlSetControlArgs{
-//								Id: pulumi.Any(aws_auditmanager_control.Test.Id),
+//								Id: pulumi.Any(testAwsAuditmanagerControl.Id),
 //							},
 //						},
 //					},
@@ -48,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Audit Manager Framework using the framework `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:auditmanager/framework:Framework example abc123-de45
-//
+// $ pulumi import aws:auditmanager/framework:Framework example abc123-de45
 // ```
 type Framework struct {
 	pulumi.CustomResourceState
@@ -89,10 +91,6 @@ func NewFramework(ctx *pulumi.Context,
 		args = &FrameworkArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Framework
 	err := ctx.RegisterResource("aws:auditmanager/framework:Framework", name, args, &resource, opts...)

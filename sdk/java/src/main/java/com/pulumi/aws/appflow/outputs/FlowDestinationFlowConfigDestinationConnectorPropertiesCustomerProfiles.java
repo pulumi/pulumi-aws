@@ -4,6 +4,7 @@
 package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,19 +59,23 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
 
         @CustomType.Setter
         public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+            if (domainName == null) {
+              throw new MissingRequiredPropertyException("FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles", "domainName");
+            }
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder objectTypeName(@Nullable String objectTypeName) {
+
             this.objectTypeName = objectTypeName;
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles();
-            o.domainName = domainName;
-            o.objectTypeName = objectTypeName;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles();
+            _resultValue.domainName = domainName;
+            _resultValue.objectTypeName = objectTypeName;
+            return _resultValue;
         }
     }
 }

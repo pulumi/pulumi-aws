@@ -59,19 +59,21 @@ public final class DataQualityJobDefinitionDataQualityBaselineConfig {
 
         @CustomType.Setter
         public Builder constraintsResource(@Nullable DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource constraintsResource) {
+
             this.constraintsResource = constraintsResource;
             return this;
         }
         @CustomType.Setter
         public Builder statisticsResource(@Nullable DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource statisticsResource) {
+
             this.statisticsResource = statisticsResource;
             return this;
         }
         public DataQualityJobDefinitionDataQualityBaselineConfig build() {
-            final var o = new DataQualityJobDefinitionDataQualityBaselineConfig();
-            o.constraintsResource = constraintsResource;
-            o.statisticsResource = statisticsResource;
-            return o;
+            final var _resultValue = new DataQualityJobDefinitionDataQualityBaselineConfig();
+            _resultValue.constraintsResource = constraintsResource;
+            _resultValue.statisticsResource = statisticsResource;
+            return _resultValue;
         }
     }
 }

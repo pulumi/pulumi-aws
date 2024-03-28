@@ -14,12 +14,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultVoiceConnector = new aws.chime.VoiceConnector("defaultVoiceConnector", {requireEncryption: true});
- * const defaultVoiceConnectorTermination = new aws.chime.VoiceConnectorTermination("defaultVoiceConnectorTermination", {
+ * const _default = new aws.chime.VoiceConnector("default", {
+ *     name: "test",
+ *     requireEncryption: true,
+ * });
+ * const defaultVoiceConnectorTermination = new aws.chime.VoiceConnectorTermination("default", {
  *     disabled: true,
  *     cpsLimit: 1,
  *     cidrAllowLists: ["50.35.78.96/31"],
@@ -27,25 +31,24 @@ import * as utilities from "../utilities";
  *         "US",
  *         "CA",
  *     ],
- *     voiceConnectorId: defaultVoiceConnector.id,
+ *     voiceConnectorId: _default.id,
  * });
- * const defaultVoiceConnectorTerminationCredentials = new aws.chime.VoiceConnectorTerminationCredentials("defaultVoiceConnectorTerminationCredentials", {
- *     voiceConnectorId: defaultVoiceConnector.id,
+ * const defaultVoiceConnectorTerminationCredentials = new aws.chime.VoiceConnectorTerminationCredentials("default", {
+ *     voiceConnectorId: _default.id,
  *     credentials: [{
  *         username: "test",
  *         password: "test!",
  *     }],
- * }, {
- *     dependsOn: [defaultVoiceConnectorTermination],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Chime Voice Connector Termination Credentials using the `voice_connector_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials default abcdef1ghij2klmno3pqr4
+ * $ pulumi import aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials default abcdef1ghij2klmno3pqr4
  * ```
  */
 export class VoiceConnectorTerminationCredentials extends pulumi.CustomResource {

@@ -120,6 +120,7 @@ class AssessmentTarget(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -128,15 +129,18 @@ class AssessmentTarget(pulumi.CustomResource):
             "Name": "foo",
             "Env": "bar",
         })
-        foo = aws.inspector.AssessmentTarget("foo", resource_group_arn=bar.arn)
+        foo = aws.inspector.AssessmentTarget("foo",
+            name="assessment target",
+            resource_group_arn=bar.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Inspector Classic Assessment Targets using their Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
+        $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
         ```
 
         :param str resource_name: The name of the resource.
@@ -155,6 +159,7 @@ class AssessmentTarget(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -163,15 +168,18 @@ class AssessmentTarget(pulumi.CustomResource):
             "Name": "foo",
             "Env": "bar",
         })
-        foo = aws.inspector.AssessmentTarget("foo", resource_group_arn=bar.arn)
+        foo = aws.inspector.AssessmentTarget("foo",
+            name="assessment target",
+            resource_group_arn=bar.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Inspector Classic Assessment Targets using their Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
+        $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
         ```
 
         :param str resource_name: The name of the resource.

@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,7 +20,10 @@ import javax.annotation.Nullable;
  * The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.
  * 
  * ## Example Usage
+ * 
  * ### Create protection
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,29 +53,31 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var available = AwsFunctions.getAvailabilityZones();
  * 
- *         final var currentRegion = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion();
  * 
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
  * 
- *         var exampleEip = new Eip(&#34;exampleEip&#34;, EipArgs.builder()        
+ *         var example = new Eip(&#34;example&#34;, EipArgs.builder()        
  *             .domain(&#34;vpc&#34;)
  *             .build());
  * 
  *         var exampleProtection = new Protection(&#34;exampleProtection&#34;, ProtectionArgs.builder()        
- *             .resourceArn(exampleEip.id().applyValue(id -&gt; String.format(&#34;arn:aws:ec2:%s:%s:eip-allocation/%s&#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),id)))
+ *             .name(&#34;example&#34;)
+ *             .resourceArn(example.id().applyValue(id -&gt; String.format(&#34;arn:aws:ec2:%s:%s:eip-allocation/%s&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),id)))
  *             .tags(Map.of(&#34;Environment&#34;, &#34;Dev&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Shield protection resources using specifying their ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
+ * $ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
  * ```
  * 
  */
@@ -186,9 +190,6 @@ public class Protection extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

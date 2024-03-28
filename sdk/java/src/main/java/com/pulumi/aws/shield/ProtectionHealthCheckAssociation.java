@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * Blog post: [AWS Shield Advanced now supports Health Based Detection](https://aws.amazon.com/about-aws/whats-new/2020/02/aws-shield-advanced-now-supports-health-based-detection/)
  * 
  * ## Example Usage
+ * 
  * ### Create an association between a protected EIP and a Route53 Health Check
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,23 +55,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var currentRegion = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion();
  * 
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
  * 
- *         final var currentPartition = AwsFunctions.getPartition();
+ *         final var currentGetPartition = AwsFunctions.getPartition();
  * 
- *         var exampleEip = new Eip(&#34;exampleEip&#34;, EipArgs.builder()        
+ *         var example = new Eip(&#34;example&#34;, EipArgs.builder()        
  *             .domain(&#34;vpc&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
  *             .build());
  * 
  *         var exampleProtection = new Protection(&#34;exampleProtection&#34;, ProtectionArgs.builder()        
- *             .resourceArn(exampleEip.id().applyValue(id -&gt; String.format(&#34;arn:%s:ec2:%s:%s:eip-allocation/%s&#34;, currentPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),id)))
+ *             .name(&#34;example-protection&#34;)
+ *             .resourceArn(example.id().applyValue(id -&gt; String.format(&#34;arn:%s:ec2:%s:%s:eip-allocation/%s&#34;, currentGetPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),current.applyValue(getRegionResult -&gt; getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),id)))
  *             .build());
  * 
  *         var exampleHealthCheck = new HealthCheck(&#34;exampleHealthCheck&#34;, HealthCheckArgs.builder()        
- *             .ipAddress(exampleEip.publicIp())
+ *             .ipAddress(example.publicIp())
  *             .port(80)
  *             .type(&#34;HTTP&#34;)
  *             .resourcePath(&#34;/ready&#34;)
@@ -85,13 +89,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Shield protection health check association resources using the `shield_protection_id` and `health_check_arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b
+ * $ pulumi import aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b
  * ```
  * 
  */

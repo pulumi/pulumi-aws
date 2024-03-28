@@ -4,6 +4,7 @@
 package com.pulumi.aws.lightsail.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -101,6 +102,7 @@ public final class ContainerServiceDeploymentVersionContainer {
 
         @CustomType.Setter
         public Builder commands(@Nullable List<String> commands) {
+
             this.commands = commands;
             return this;
         }
@@ -109,32 +111,40 @@ public final class ContainerServiceDeploymentVersionContainer {
         }
         @CustomType.Setter
         public Builder containerName(String containerName) {
-            this.containerName = Objects.requireNonNull(containerName);
+            if (containerName == null) {
+              throw new MissingRequiredPropertyException("ContainerServiceDeploymentVersionContainer", "containerName");
+            }
+            this.containerName = containerName;
             return this;
         }
         @CustomType.Setter
         public Builder environment(@Nullable Map<String,String> environment) {
+
             this.environment = environment;
             return this;
         }
         @CustomType.Setter
         public Builder image(String image) {
-            this.image = Objects.requireNonNull(image);
+            if (image == null) {
+              throw new MissingRequiredPropertyException("ContainerServiceDeploymentVersionContainer", "image");
+            }
+            this.image = image;
             return this;
         }
         @CustomType.Setter
         public Builder ports(@Nullable Map<String,String> ports) {
+
             this.ports = ports;
             return this;
         }
         public ContainerServiceDeploymentVersionContainer build() {
-            final var o = new ContainerServiceDeploymentVersionContainer();
-            o.commands = commands;
-            o.containerName = containerName;
-            o.environment = environment;
-            o.image = image;
-            o.ports = ports;
-            return o;
+            final var _resultValue = new ContainerServiceDeploymentVersionContainer();
+            _resultValue.commands = commands;
+            _resultValue.containerName = containerName;
+            _resultValue.environment = environment;
+            _resultValue.image = image;
+            _resultValue.ports = ports;
+            return _resultValue;
         }
     }
 }

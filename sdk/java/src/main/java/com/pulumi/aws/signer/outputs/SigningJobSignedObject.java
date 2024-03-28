@@ -44,6 +44,7 @@ public final class SigningJobSignedObject {
 
         @CustomType.Setter
         public Builder s3s(@Nullable List<SigningJobSignedObjectS3> s3s) {
+
             this.s3s = s3s;
             return this;
         }
@@ -51,9 +52,9 @@ public final class SigningJobSignedObject {
             return s3s(List.of(s3s));
         }
         public SigningJobSignedObject build() {
-            final var o = new SigningJobSignedObject();
-            o.s3s = s3s;
-            return o;
+            final var _resultValue = new SigningJobSignedObject();
+            _resultValue.s3s = s3s;
+            return _resultValue;
         }
     }
 }

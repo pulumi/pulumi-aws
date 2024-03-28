@@ -36,13 +36,14 @@ public final class InternetMonitorInternetMeasurementsLogDelivery {
 
         @CustomType.Setter
         public Builder s3Config(@Nullable InternetMonitorInternetMeasurementsLogDeliveryS3Config s3Config) {
+
             this.s3Config = s3Config;
             return this;
         }
         public InternetMonitorInternetMeasurementsLogDelivery build() {
-            final var o = new InternetMonitorInternetMeasurementsLogDelivery();
-            o.s3Config = s3Config;
-            return o;
+            final var _resultValue = new InternetMonitorInternetMeasurementsLogDelivery();
+            _resultValue.s3Config = s3Config;
+            return _resultValue;
         }
     }
 }

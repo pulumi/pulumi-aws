@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Managed Streaming for Kafka VPC Connection.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,21 +46,22 @@ import javax.annotation.Nullable;
  *         var test = new VpcConnection(&#34;test&#34;, VpcConnectionArgs.builder()        
  *             .authentication(&#34;SASL_IAM&#34;)
  *             .targetClusterArn(&#34;aws_msk_cluster.arn&#34;)
- *             .vpcId(aws_vpc.test().id())
- *             .clientSubnets(aws_subnet.test().stream().map(element -&gt; element.id()).collect(toList()))
- *             .securityGroups(aws_security_group.test().id())
+ *             .vpcId(testAwsVpc.id())
+ *             .clientSubnets(testAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+ *             .securityGroups(testAwsSecurityGroup.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import MSK configurations using the configuration ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:msk/vpcConnection:VpcConnection example arn:aws:kafka:eu-west-2:123456789012:vpc-connection/123456789012/example/38173259-79cd-4ee8-87f3-682ea6023f48-2
+ * $ pulumi import aws:msk/vpcConnection:VpcConnection example arn:aws:kafka:eu-west-2:123456789012:vpc-connection/123456789012/example/38173259-79cd-4ee8-87f3-682ea6023f48-2
  * ```
  * 
  */
@@ -213,9 +216,6 @@ public class VpcConnection extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

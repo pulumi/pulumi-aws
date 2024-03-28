@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,15 +49,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var lbUser = new User(&#34;lbUser&#34;, UserArgs.builder()        
+ *             .name(&#34;loadbalancer&#34;)
  *             .path(&#34;/system/&#34;)
  *             .build());
  * 
- *         var lbAccessKey = new AccessKey(&#34;lbAccessKey&#34;, AccessKeyArgs.builder()        
+ *         var lb = new AccessKey(&#34;lb&#34;, AccessKeyArgs.builder()        
  *             .user(lbUser.name())
  *             .pgpKey(&#34;keybase:some_person_that_exists&#34;)
  *             .build());
  * 
- *         final var lbRoPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var lbRo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(&#34;ec2:Describe*&#34;)
@@ -64,14 +67,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var lbRoUserPolicy = new UserPolicy(&#34;lbRoUserPolicy&#34;, UserPolicyArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .user(lbUser.name())
- *             .policy(lbRoPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(lbRo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         ctx.export(&#34;secret&#34;, lbAccessKey.encryptedSecret());
+ *         ctx.export(&#34;secret&#34;, lb.encryptedSecret());
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -95,27 +102,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testUser = new User(&#34;testUser&#34;, UserArgs.builder()        
+ *         var test = new User(&#34;test&#34;, UserArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .path(&#34;/test/&#34;)
  *             .build());
  * 
  *         var testAccessKey = new AccessKey(&#34;testAccessKey&#34;, AccessKeyArgs.builder()        
- *             .user(testUser.name())
+ *             .user(test.name())
  *             .build());
  * 
  *         ctx.export(&#34;awsIamSmtpPasswordV4&#34;, testAccessKey.sesSmtpPasswordV4());
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IAM Access Keys using the identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iam/accessKey:AccessKey example AKIA1234567890
+ * $ pulumi import aws:iam/accessKey:AccessKey example AKIA1234567890
  * ```
- *  Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, `ses_smtp_password_v4`, and `encrypted_ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
+ * Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, `ses_smtp_password_v4`, and `encrypted_ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
  * 
  */
 @ResourceType(type="aws:iam/accessKey:AccessKey")

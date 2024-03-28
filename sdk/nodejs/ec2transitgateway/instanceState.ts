@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,25 +30,26 @@ import * as utilities from "../utilities";
  *     ],
  *     owners: ["099720109477"],
  * });
- * const testInstance = new aws.ec2.Instance("testInstance", {
+ * const test = new aws.ec2.Instance("test", {
  *     ami: ubuntu.then(ubuntu => ubuntu.id),
- *     instanceType: "t3.micro",
+ *     instanceType: aws.ec2.InstanceType.T3_Micro,
  *     tags: {
  *         Name: "HelloWorld",
  *     },
  * });
- * const testInstanceState = new aws.ec2transitgateway.InstanceState("testInstanceState", {
- *     instanceId: testInstance.id,
+ * const testInstanceState = new aws.ec2transitgateway.InstanceState("test", {
+ *     instanceId: test.id,
  *     state: "stopped",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
+ * $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
  * ```
  */
 export class InstanceState extends pulumi.CustomResource {

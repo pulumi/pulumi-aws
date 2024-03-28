@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,7 +19,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS VPC Lattice Service Network or Service Access log subscription.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,20 +45,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AccessLogSubscription(&#34;example&#34;, AccessLogSubscriptionArgs.builder()        
- *             .resourceIdentifier(aws_vpclattice_service_network.example().id())
- *             .destinationArn(aws_s3.bucket().arn())
+ *             .resourceIdentifier(exampleAwsVpclatticeServiceNetwork.id())
+ *             .destinationArn(bucket.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import VPC Lattice Access Log Subscription using the access log subscription ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
+ * $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
  * ```
  * 
  */
@@ -169,9 +172,6 @@ public class AccessLogSubscription extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -73,25 +73,28 @@ public final class TableCapacitySpecification {
 
         @CustomType.Setter
         public Builder readCapacityUnits(@Nullable Integer readCapacityUnits) {
+
             this.readCapacityUnits = readCapacityUnits;
             return this;
         }
         @CustomType.Setter
         public Builder throughputMode(@Nullable String throughputMode) {
+
             this.throughputMode = throughputMode;
             return this;
         }
         @CustomType.Setter
         public Builder writeCapacityUnits(@Nullable Integer writeCapacityUnits) {
+
             this.writeCapacityUnits = writeCapacityUnits;
             return this;
         }
         public TableCapacitySpecification build() {
-            final var o = new TableCapacitySpecification();
-            o.readCapacityUnits = readCapacityUnits;
-            o.throughputMode = throughputMode;
-            o.writeCapacityUnits = writeCapacityUnits;
-            return o;
+            final var _resultValue = new TableCapacitySpecification();
+            _resultValue.readCapacityUnits = readCapacityUnits;
+            _resultValue.throughputMode = throughputMode;
+            _resultValue.writeCapacityUnits = writeCapacityUnits;
+            return _resultValue;
         }
     }
 }

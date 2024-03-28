@@ -4,6 +4,7 @@
 package com.pulumi.aws.mskconnect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class ConnectorKafkaClusterApacheKafkaClusterVpc {
 
         @CustomType.Setter
         public Builder securityGroups(List<String> securityGroups) {
-            this.securityGroups = Objects.requireNonNull(securityGroups);
+            if (securityGroups == null) {
+              throw new MissingRequiredPropertyException("ConnectorKafkaClusterApacheKafkaClusterVpc", "securityGroups");
+            }
+            this.securityGroups = securityGroups;
             return this;
         }
         public Builder securityGroups(String... securityGroups) {
@@ -65,17 +69,20 @@ public final class ConnectorKafkaClusterApacheKafkaClusterVpc {
         }
         @CustomType.Setter
         public Builder subnets(List<String> subnets) {
-            this.subnets = Objects.requireNonNull(subnets);
+            if (subnets == null) {
+              throw new MissingRequiredPropertyException("ConnectorKafkaClusterApacheKafkaClusterVpc", "subnets");
+            }
+            this.subnets = subnets;
             return this;
         }
         public Builder subnets(String... subnets) {
             return subnets(List.of(subnets));
         }
         public ConnectorKafkaClusterApacheKafkaClusterVpc build() {
-            final var o = new ConnectorKafkaClusterApacheKafkaClusterVpc();
-            o.securityGroups = securityGroups;
-            o.subnets = subnets;
-            return o;
+            final var _resultValue = new ConnectorKafkaClusterApacheKafkaClusterVpc();
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.subnets = subnets;
+            return _resultValue;
         }
     }
 }

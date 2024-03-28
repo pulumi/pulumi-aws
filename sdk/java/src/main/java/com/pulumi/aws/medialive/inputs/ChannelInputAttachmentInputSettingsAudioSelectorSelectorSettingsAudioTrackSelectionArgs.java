@@ -7,6 +7,7 @@ import com.pulumi.aws.medialive.inputs.ChannelInputAttachmentInputSettingsAudioS
 import com.pulumi.aws.medialive.inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -125,7 +126,9 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
 
         public ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs build() {
-            $.tracks = Objects.requireNonNull($.tracks, "expected parameter 'tracks' to be non-null");
+            if ($.tracks == null) {
+                throw new MissingRequiredPropertyException("ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs", "tracks");
+            }
             return $;
         }
     }

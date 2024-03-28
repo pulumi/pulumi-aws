@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides an AWS Route 53 Recovery Control Config Safety Rule
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,8 +46,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SafetyRule(&#34;example&#34;, SafetyRuleArgs.builder()        
- *             .assertedControls(aws_route53recoverycontrolconfig_routing_control.example().arn())
+ *             .assertedControls(exampleAwsRoute53recoverycontrolconfigRoutingControl.arn())
  *             .controlPanelArn(&#34;arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8&#34;)
+ *             .name(&#34;daisyguttridge&#34;)
  *             .waitPeriodMs(5000)
  *             .ruleConfig(SafetyRuleRuleConfigArgs.builder()
  *                 .inverted(false)
@@ -57,6 +60,9 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -80,10 +86,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SafetyRule(&#34;example&#34;, SafetyRuleArgs.builder()        
+ *             .name(&#34;i_o&#34;)
  *             .controlPanelArn(&#34;arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8&#34;)
  *             .waitPeriodMs(5000)
- *             .gatingControls(aws_route53recoverycontrolconfig_routing_control.example().arn())
- *             .targetControls(aws_route53recoverycontrolconfig_routing_control.example().arn())
+ *             .gatingControls(exampleAwsRoute53recoverycontrolconfigRoutingControl.arn())
+ *             .targetControls(exampleAwsRoute53recoverycontrolconfigRoutingControl.arn())
  *             .ruleConfig(SafetyRuleRuleConfigArgs.builder()
  *                 .inverted(false)
  *                 .threshold(1)
@@ -94,13 +101,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Route53 Recovery Control Config Safety Rule using the safety rule ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:route53recoverycontrol/safetyRule:SafetyRule myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
+ * $ pulumi import aws:route53recoverycontrol/safetyRule:SafetyRule myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
  * ```
  * 
  */

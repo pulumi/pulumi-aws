@@ -102,6 +102,7 @@ class LbAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -111,27 +112,30 @@ class LbAttachment(pulumi.CustomResource):
                 name="opt-in-status",
                 values=["opt-in-not-required"],
             )])
-        test_lb = aws.lightsail.Lb("testLb",
+        test = aws.lightsail.Lb("test",
+            name="test-load-balancer",
             health_check_path="/",
             instance_port=80,
             tags={
                 "foo": "bar",
             })
-        test_instance = aws.lightsail.Instance("testInstance",
+        test_instance = aws.lightsail.Instance("test",
+            name="test-instance",
             availability_zone=available.names[0],
             blueprint_id="amazon_linux_2",
             bundle_id="nano_1_0")
-        test_lb_attachment = aws.lightsail.LbAttachment("testLbAttachment",
-            lb_name=test_lb.name,
+        test_lb_attachment = aws.lightsail.LbAttachment("test",
+            lb_name=test.name,
             instance_name=test_instance.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
+        $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
         ```
 
         :param str resource_name: The name of the resource.
@@ -150,6 +154,7 @@ class LbAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -159,27 +164,30 @@ class LbAttachment(pulumi.CustomResource):
                 name="opt-in-status",
                 values=["opt-in-not-required"],
             )])
-        test_lb = aws.lightsail.Lb("testLb",
+        test = aws.lightsail.Lb("test",
+            name="test-load-balancer",
             health_check_path="/",
             instance_port=80,
             tags={
                 "foo": "bar",
             })
-        test_instance = aws.lightsail.Instance("testInstance",
+        test_instance = aws.lightsail.Instance("test",
+            name="test-instance",
             availability_zone=available.names[0],
             blueprint_id="amazon_linux_2",
             bundle_id="nano_1_0")
-        test_lb_attachment = aws.lightsail.LbAttachment("testLbAttachment",
-            lb_name=test_lb.name,
+        test_lb_attachment = aws.lightsail.LbAttachment("test",
+            lb_name=test.name,
             instance_name=test_instance.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
+        $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
         ```
 
         :param str resource_name: The name of the resource.

@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -101,37 +102,46 @@ public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInpu
 
         @CustomType.Setter
         public Builder dataCapturedDestinationS3Uri(String dataCapturedDestinationS3Uri) {
-            this.dataCapturedDestinationS3Uri = Objects.requireNonNull(dataCapturedDestinationS3Uri);
+            if (dataCapturedDestinationS3Uri == null) {
+              throw new MissingRequiredPropertyException("DataQualityJobDefinitionDataQualityJobInputBatchTransformInput", "dataCapturedDestinationS3Uri");
+            }
+            this.dataCapturedDestinationS3Uri = dataCapturedDestinationS3Uri;
             return this;
         }
         @CustomType.Setter
         public Builder datasetFormat(DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat datasetFormat) {
-            this.datasetFormat = Objects.requireNonNull(datasetFormat);
+            if (datasetFormat == null) {
+              throw new MissingRequiredPropertyException("DataQualityJobDefinitionDataQualityJobInputBatchTransformInput", "datasetFormat");
+            }
+            this.datasetFormat = datasetFormat;
             return this;
         }
         @CustomType.Setter
         public Builder localPath(@Nullable String localPath) {
+
             this.localPath = localPath;
             return this;
         }
         @CustomType.Setter
         public Builder s3DataDistributionType(@Nullable String s3DataDistributionType) {
+
             this.s3DataDistributionType = s3DataDistributionType;
             return this;
         }
         @CustomType.Setter
         public Builder s3InputMode(@Nullable String s3InputMode) {
+
             this.s3InputMode = s3InputMode;
             return this;
         }
         public DataQualityJobDefinitionDataQualityJobInputBatchTransformInput build() {
-            final var o = new DataQualityJobDefinitionDataQualityJobInputBatchTransformInput();
-            o.dataCapturedDestinationS3Uri = dataCapturedDestinationS3Uri;
-            o.datasetFormat = datasetFormat;
-            o.localPath = localPath;
-            o.s3DataDistributionType = s3DataDistributionType;
-            o.s3InputMode = s3InputMode;
-            return o;
+            final var _resultValue = new DataQualityJobDefinitionDataQualityJobInputBatchTransformInput();
+            _resultValue.dataCapturedDestinationS3Uri = dataCapturedDestinationS3Uri;
+            _resultValue.datasetFormat = datasetFormat;
+            _resultValue.localPath = localPath;
+            _resultValue.s3DataDistributionType = s3DataDistributionType;
+            _resultValue.s3InputMode = s3InputMode;
+            return _resultValue;
         }
     }
 }

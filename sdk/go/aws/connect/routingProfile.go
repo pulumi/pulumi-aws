@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,9 +31,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewRoutingProfile(ctx, "example", &connect.RoutingProfileArgs{
+//				InstanceId:             pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:                   pulumi.String("example"),
 //				DefaultOutboundQueueId: pulumi.String("12345678-1234-1234-1234-123456789012"),
 //				Description:            pulumi.String("example description"),
-//				InstanceId:             pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
 //				MediaConcurrencies: connect.RoutingProfileMediaConcurrencyArray{
 //					&connect.RoutingProfileMediaConcurrencyArgs{
 //						Channel:     pulumi.String("VOICE"),
@@ -59,15 +61,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Amazon Connect Routing Profiles using the `instance_id` and `routing_profile_id` separated by a colon (`:`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-//
+// $ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 // ```
 type RoutingProfile struct {
 	pulumi.CustomResourceState
@@ -116,10 +117,6 @@ func NewRoutingProfile(ctx *pulumi.Context,
 	if args.MediaConcurrencies == nil {
 		return nil, errors.New("invalid value for required argument 'MediaConcurrencies'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RoutingProfile
 	err := ctx.RegisterResource("aws:connect/routingProfile:RoutingProfile", name, args, &resource, opts...)

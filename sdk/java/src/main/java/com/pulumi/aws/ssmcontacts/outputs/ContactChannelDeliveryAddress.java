@@ -4,6 +4,7 @@
 package com.pulumi.aws.ssmcontacts.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class ContactChannelDeliveryAddress {
 
         @CustomType.Setter
         public Builder simpleAddress(String simpleAddress) {
-            this.simpleAddress = Objects.requireNonNull(simpleAddress);
+            if (simpleAddress == null) {
+              throw new MissingRequiredPropertyException("ContactChannelDeliveryAddress", "simpleAddress");
+            }
+            this.simpleAddress = simpleAddress;
             return this;
         }
         public ContactChannelDeliveryAddress build() {
-            final var o = new ContactChannelDeliveryAddress();
-            o.simpleAddress = simpleAddress;
-            return o;
+            final var _resultValue = new ContactChannelDeliveryAddress();
+            _resultValue.simpleAddress = simpleAddress;
+            return _resultValue;
         }
     }
 }

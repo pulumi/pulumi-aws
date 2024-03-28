@@ -14,30 +14,34 @@ import * as utilities from "../utilities";
  *
  * To retrieve a baseline provided by AWS:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const centos = aws.ssm.getPatchBaseline({
+ *     owner: "AWS",
  *     namePrefix: "AWS-",
  *     operatingSystem: "CENTOS",
- *     owner: "AWS",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * To retrieve a baseline on your account:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const defaultCustom = aws.ssm.getPatchBaseline({
- *     defaultBaseline: true,
- *     namePrefix: "MyCustomBaseline",
- *     operatingSystem: "WINDOWS",
  *     owner: "Self",
+ *     namePrefix: "MyCustomBaseline",
+ *     defaultBaseline: true,
+ *     operatingSystem: "WINDOWS",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPatchBaseline(args: GetPatchBaselineArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchBaselineResult> {
 
@@ -68,6 +72,8 @@ export interface GetPatchBaselineArgs {
     operatingSystem?: string;
     /**
      * Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+     *
+     * The following arguments are optional:
      */
     owner: string;
 }
@@ -85,7 +91,7 @@ export interface GetPatchBaselineResult {
      */
     readonly approvedPatches: string[];
     /**
-     * The compliance level for approved patches.
+     * Compliance level for approved patches.
      */
     readonly approvedPatchesComplianceLevel: string;
     /**
@@ -106,7 +112,11 @@ export interface GetPatchBaselineResult {
      */
     readonly id: string;
     /**
-     * The name specified to identify the patch source.
+     * JSON representation of the baseline.
+     */
+    readonly json: string;
+    /**
+     * Name specified to identify the patch source.
      */
     readonly name: string;
     readonly namePrefix?: string;
@@ -117,7 +127,7 @@ export interface GetPatchBaselineResult {
      */
     readonly rejectedPatches: string[];
     /**
-     * The action specified to take on patches included in the `rejectedPatches` list.
+     * Action specified to take on patches included in the `rejectedPatches` list.
      */
     readonly rejectedPatchesAction: string;
     /**
@@ -132,30 +142,34 @@ export interface GetPatchBaselineResult {
  *
  * To retrieve a baseline provided by AWS:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const centos = aws.ssm.getPatchBaseline({
+ *     owner: "AWS",
  *     namePrefix: "AWS-",
  *     operatingSystem: "CENTOS",
- *     owner: "AWS",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * To retrieve a baseline on your account:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const defaultCustom = aws.ssm.getPatchBaseline({
- *     defaultBaseline: true,
- *     namePrefix: "MyCustomBaseline",
- *     operatingSystem: "WINDOWS",
  *     owner: "Self",
+ *     namePrefix: "MyCustomBaseline",
+ *     defaultBaseline: true,
+ *     operatingSystem: "WINDOWS",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPatchBaselineOutput(args: GetPatchBaselineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPatchBaselineResult> {
     return pulumi.output(args).apply((a: any) => getPatchBaseline(a, opts))
@@ -179,6 +193,8 @@ export interface GetPatchBaselineOutputArgs {
     operatingSystem?: pulumi.Input<string>;
     /**
      * Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+     *
+     * The following arguments are optional:
      */
     owner: pulumi.Input<string>;
 }

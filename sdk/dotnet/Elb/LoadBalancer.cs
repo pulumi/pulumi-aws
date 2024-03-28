@@ -23,6 +23,7 @@ namespace Pulumi.Aws.Elb
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,6 +35,7 @@ namespace Pulumi.Aws.Elb
     ///     // Create a new load balancer
     ///     var bar = new Aws.Elb.LoadBalancer("bar", new()
     ///     {
+    ///         Name = "foobar-elb",
     ///         AvailabilityZones = new[]
     ///         {
     ///             "us-west-2a",
@@ -74,7 +76,7 @@ namespace Pulumi.Aws.Elb
     ///         },
     ///         Instances = new[]
     ///         {
-    ///             aws_instance.Foo.Id,
+    ///             foo.Id,
     ///         },
     ///         CrossZoneLoadBalancing = true,
     ///         IdleTimeout = 400,
@@ -88,6 +90,8 @@ namespace Pulumi.Aws.Elb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Note on ECDSA Key Algorithm
     /// 
     /// If the ARN of the `ssl_certificate_id` that is pointed to references a
@@ -101,7 +105,7 @@ namespace Pulumi.Aws.Elb
     /// Using `pulumi import`, import ELBs using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
+    /// $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
     /// ```
     /// </summary>
     [AwsResourceType("aws:elb/loadBalancer:LoadBalancer")]
@@ -273,11 +277,7 @@ namespace Pulumi.Aws.Elb
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancing/loadBalancer:LoadBalancer"},
-                },
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
+                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancing/loadBalancer:LoadBalancer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -630,11 +630,7 @@ namespace Pulumi.Aws.Elb
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

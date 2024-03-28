@@ -101,37 +101,42 @@ public final class ClusterConfigurationExecuteCommandConfigurationLogConfigurati
 
         @CustomType.Setter
         public Builder cloudWatchEncryptionEnabled(@Nullable Boolean cloudWatchEncryptionEnabled) {
+
             this.cloudWatchEncryptionEnabled = cloudWatchEncryptionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder cloudWatchLogGroupName(@Nullable String cloudWatchLogGroupName) {
+
             this.cloudWatchLogGroupName = cloudWatchLogGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder s3BucketEncryptionEnabled(@Nullable Boolean s3BucketEncryptionEnabled) {
+
             this.s3BucketEncryptionEnabled = s3BucketEncryptionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder s3BucketName(@Nullable String s3BucketName) {
+
             this.s3BucketName = s3BucketName;
             return this;
         }
         @CustomType.Setter
         public Builder s3KeyPrefix(@Nullable String s3KeyPrefix) {
+
             this.s3KeyPrefix = s3KeyPrefix;
             return this;
         }
         public ClusterConfigurationExecuteCommandConfigurationLogConfiguration build() {
-            final var o = new ClusterConfigurationExecuteCommandConfigurationLogConfiguration();
-            o.cloudWatchEncryptionEnabled = cloudWatchEncryptionEnabled;
-            o.cloudWatchLogGroupName = cloudWatchLogGroupName;
-            o.s3BucketEncryptionEnabled = s3BucketEncryptionEnabled;
-            o.s3BucketName = s3BucketName;
-            o.s3KeyPrefix = s3KeyPrefix;
-            return o;
+            final var _resultValue = new ClusterConfigurationExecuteCommandConfigurationLogConfiguration();
+            _resultValue.cloudWatchEncryptionEnabled = cloudWatchEncryptionEnabled;
+            _resultValue.cloudWatchLogGroupName = cloudWatchLogGroupName;
+            _resultValue.s3BucketEncryptionEnabled = s3BucketEncryptionEnabled;
+            _resultValue.s3BucketName = s3BucketName;
+            _resultValue.s3KeyPrefix = s3KeyPrefix;
+            return _resultValue;
         }
     }
 }

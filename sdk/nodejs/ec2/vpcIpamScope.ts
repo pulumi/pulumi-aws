@@ -11,26 +11,28 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegion({});
- * const exampleVpcIpam = new aws.ec2.VpcIpam("exampleVpcIpam", {operatingRegions: [{
+ * const example = new aws.ec2.VpcIpam("example", {operatingRegions: [{
  *     regionName: current.then(current => current.name),
  * }]});
- * const exampleVpcIpamScope = new aws.ec2.VpcIpamScope("exampleVpcIpamScope", {
- *     ipamId: exampleVpcIpam.id,
+ * const exampleVpcIpamScope = new aws.ec2.VpcIpamScope("example", {
+ *     ipamId: example.id,
  *     description: "Another Scope",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IPAMs using the `scope_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
+ * $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
  * ```
  */
 export class VpcIpamScope extends pulumi.CustomResource {
@@ -133,8 +135,6 @@ export class VpcIpamScope extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VpcIpamScope.__pulumiType, name, resourceInputs, opts);
     }
 }

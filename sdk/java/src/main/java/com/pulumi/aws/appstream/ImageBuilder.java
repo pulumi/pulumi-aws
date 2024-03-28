@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * Provides an AppStream image builder.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,13 +49,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testFleet = new ImageBuilder(&#34;testFleet&#34;, ImageBuilderArgs.builder()        
+ *             .name(&#34;Name&#34;)
  *             .description(&#34;Description of a ImageBuilder&#34;)
  *             .displayName(&#34;Display name of a ImageBuilder&#34;)
  *             .enableDefaultInternetAccess(false)
  *             .imageName(&#34;AppStream-WinServer2019-10-05-2022&#34;)
  *             .instanceType(&#34;stream.standard.large&#34;)
  *             .vpcConfig(ImageBuilderVpcConfigArgs.builder()
- *                 .subnetIds(aws_subnet.example().id())
+ *                 .subnetIds(example.id())
  *                 .build())
  *             .tags(Map.of(&#34;Name&#34;, &#34;Example Image Builder&#34;))
  *             .build());
@@ -61,13 +64,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
+ * $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
  * ```
  * 
  */
@@ -260,14 +264,14 @@ public class ImageBuilder extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
+     * State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
-     * @return State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
+     * @return State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
      * 
      */
     public Output<String> state() {
@@ -352,9 +356,6 @@ public class ImageBuilder extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

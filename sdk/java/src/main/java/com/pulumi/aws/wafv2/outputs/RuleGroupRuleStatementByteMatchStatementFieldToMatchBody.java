@@ -44,13 +44,14 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchBody {
 
         @CustomType.Setter
         public Builder oversizeHandling(@Nullable String oversizeHandling) {
+
             this.oversizeHandling = oversizeHandling;
             return this;
         }
         public RuleGroupRuleStatementByteMatchStatementFieldToMatchBody build() {
-            final var o = new RuleGroupRuleStatementByteMatchStatementFieldToMatchBody();
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementByteMatchStatementFieldToMatchBody();
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Creates a Lightsail load balancer resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,6 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Lb(&#34;test&#34;, LbArgs.builder()        
+ *             .name(&#34;test-load-balancer&#34;)
  *             .healthCheckPath(&#34;/&#34;)
  *             .instancePort(&#34;80&#34;)
  *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
@@ -51,13 +54,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_lightsail_lb` using the name attribute. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lightsail/lb:Lb test example-load-balancer
+ * $ pulumi import aws:lightsail/lb:Lb test example-load-balancer
  * ```
  * 
  */
@@ -260,9 +264,6 @@ public class Lb extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

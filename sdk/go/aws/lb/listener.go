@@ -17,8 +17,10 @@ import (
 // > **Note:** `alb.Listener` is known as `lb.Listener`. The functionality is identical.
 //
 // ## Example Usage
+//
 // ### Forward Action
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,16 +33,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			frontEndLoadBalancer, err := lb.NewLoadBalancer(ctx, "frontEndLoadBalancer", nil)
+//			frontEnd, err := lb.NewLoadBalancer(ctx, "front_end", nil)
 //			if err != nil {
 //				return err
 //			}
-//			frontEndTargetGroup, err := lb.NewTargetGroup(ctx, "frontEndTargetGroup", nil)
+//			frontEndTargetGroup, err := lb.NewTargetGroup(ctx, "front_end", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lb.NewListener(ctx, "frontEndListener", &lb.ListenerArgs{
-//				LoadBalancerArn: frontEndLoadBalancer.Arn,
+//			_, err = lb.NewListener(ctx, "front_end", &lb.ListenerArgs{
+//				LoadBalancerArn: frontEnd.Arn,
 //				Port:            pulumi.Int(443),
 //				Protocol:        pulumi.String("HTTPS"),
 //				SslPolicy:       pulumi.String("ELBSecurityPolicy-2016-08"),
@@ -60,9 +62,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // To a NLB:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -75,8 +79,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lb.NewListener(ctx, "frontEnd", &lb.ListenerArgs{
-//				LoadBalancerArn: pulumi.Any(aws_lb.Front_end.Arn),
+//			_, err := lb.NewListener(ctx, "front_end", &lb.ListenerArgs{
+//				LoadBalancerArn: pulumi.Any(frontEndAwsLb.Arn),
 //				Port:            pulumi.Int(443),
 //				Protocol:        pulumi.String("TLS"),
 //				CertificateArn:  pulumi.String("arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4"),
@@ -84,7 +88,7 @@ import (
 //				DefaultActions: lb.ListenerDefaultActionArray{
 //					&lb.ListenerDefaultActionArgs{
 //						Type:           pulumi.String("forward"),
-//						TargetGroupArn: pulumi.Any(aws_lb_target_group.Front_end.Arn),
+//						TargetGroupArn: pulumi.Any(frontEndAwsLbTargetGroup.Arn),
 //					},
 //				},
 //			})
@@ -96,8 +100,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Redirect Action
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -110,12 +117,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			frontEndLoadBalancer, err := lb.NewLoadBalancer(ctx, "frontEndLoadBalancer", nil)
+//			frontEnd, err := lb.NewLoadBalancer(ctx, "front_end", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lb.NewListener(ctx, "frontEndListener", &lb.ListenerArgs{
-//				LoadBalancerArn: frontEndLoadBalancer.Arn,
+//			_, err = lb.NewListener(ctx, "front_end", &lb.ListenerArgs{
+//				LoadBalancerArn: frontEnd.Arn,
 //				Port:            pulumi.Int(80),
 //				Protocol:        pulumi.String("HTTP"),
 //				DefaultActions: lb.ListenerDefaultActionArray{
@@ -137,8 +144,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Fixed-response Action
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -151,12 +161,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			frontEndLoadBalancer, err := lb.NewLoadBalancer(ctx, "frontEndLoadBalancer", nil)
+//			frontEnd, err := lb.NewLoadBalancer(ctx, "front_end", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lb.NewListener(ctx, "frontEndListener", &lb.ListenerArgs{
-//				LoadBalancerArn: frontEndLoadBalancer.Arn,
+//			_, err = lb.NewListener(ctx, "front_end", &lb.ListenerArgs{
+//				LoadBalancerArn: frontEnd.Arn,
 //				Port:            pulumi.Int(80),
 //				Protocol:        pulumi.String("HTTP"),
 //				DefaultActions: lb.ListenerDefaultActionArray{
@@ -178,8 +188,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Authenticate-cognito Action
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -193,11 +206,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			frontEndLoadBalancer, err := lb.NewLoadBalancer(ctx, "frontEndLoadBalancer", nil)
+//			frontEnd, err := lb.NewLoadBalancer(ctx, "front_end", nil)
 //			if err != nil {
 //				return err
 //			}
-//			frontEndTargetGroup, err := lb.NewTargetGroup(ctx, "frontEndTargetGroup", nil)
+//			frontEndTargetGroup, err := lb.NewTargetGroup(ctx, "front_end", nil)
 //			if err != nil {
 //				return err
 //			}
@@ -213,8 +226,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lb.NewListener(ctx, "frontEndListener", &lb.ListenerArgs{
-//				LoadBalancerArn: frontEndLoadBalancer.Arn,
+//			_, err = lb.NewListener(ctx, "front_end", &lb.ListenerArgs{
+//				LoadBalancerArn: frontEnd.Arn,
 //				Port:            pulumi.Int(80),
 //				Protocol:        pulumi.String("HTTP"),
 //				DefaultActions: lb.ListenerDefaultActionArray{
@@ -240,8 +253,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Authenticate-OIDC Action
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -254,16 +270,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			frontEndLoadBalancer, err := lb.NewLoadBalancer(ctx, "frontEndLoadBalancer", nil)
+//			frontEnd, err := lb.NewLoadBalancer(ctx, "front_end", nil)
 //			if err != nil {
 //				return err
 //			}
-//			frontEndTargetGroup, err := lb.NewTargetGroup(ctx, "frontEndTargetGroup", nil)
+//			frontEndTargetGroup, err := lb.NewTargetGroup(ctx, "front_end", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lb.NewListener(ctx, "frontEndListener", &lb.ListenerArgs{
-//				LoadBalancerArn: frontEndLoadBalancer.Arn,
+//			_, err = lb.NewListener(ctx, "front_end", &lb.ListenerArgs{
+//				LoadBalancerArn: frontEnd.Arn,
 //				Port:            pulumi.Int(80),
 //				Protocol:        pulumi.String("HTTP"),
 //				DefaultActions: lb.ListenerDefaultActionArray{
@@ -292,8 +308,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Gateway Load Balancer Listener
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -306,21 +325,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "exampleLoadBalancer", &lb.LoadBalancerArgs{
+//			example, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
 //				LoadBalancerType: pulumi.String("gateway"),
+//				Name:             pulumi.String("example"),
 //				SubnetMappings: lb.LoadBalancerSubnetMappingArray{
 //					&lb.LoadBalancerSubnetMappingArgs{
-//						SubnetId: pulumi.Any(aws_subnet.Example.Id),
+//						SubnetId: pulumi.Any(exampleAwsSubnet.Id),
 //					},
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleTargetGroup, err := lb.NewTargetGroup(ctx, "exampleTargetGroup", &lb.TargetGroupArgs{
+//			exampleTargetGroup, err := lb.NewTargetGroup(ctx, "example", &lb.TargetGroupArgs{
+//				Name:     pulumi.String("example"),
 //				Port:     pulumi.Int(6081),
 //				Protocol: pulumi.String("GENEVE"),
-//				VpcId:    pulumi.Any(aws_vpc.Example.Id),
+//				VpcId:    pulumi.Any(exampleAwsVpc.Id),
 //				HealthCheck: &lb.TargetGroupHealthCheckArgs{
 //					Port:     pulumi.String("80"),
 //					Protocol: pulumi.String("HTTP"),
@@ -329,8 +350,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lb.NewListener(ctx, "exampleListener", &lb.ListenerArgs{
-//				LoadBalancerArn: exampleLoadBalancer.ID(),
+//			_, err = lb.NewListener(ctx, "example", &lb.ListenerArgs{
+//				LoadBalancerArn: example.ID(),
 //				DefaultActions: lb.ListenerDefaultActionArray{
 //					&lb.ListenerDefaultActionArgs{
 //						TargetGroupArn: exampleTargetGroup.ID(),
@@ -346,15 +367,62 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Mutual TLS Authentication
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
+//				LoadBalancerType: pulumi.String("application"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTargetGroup, err := lb.NewTargetGroup(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lb.NewListener(ctx, "example", &lb.ListenerArgs{
+//				LoadBalancerArn: example.ID(),
+//				DefaultActions: lb.ListenerDefaultActionArray{
+//					&lb.ListenerDefaultActionArgs{
+//						TargetGroupArn: exampleTargetGroup.ID(),
+//						Type:           pulumi.String("forward"),
+//					},
+//				},
+//				MutualAuthentication: &lb.ListenerMutualAuthenticationArgs{
+//					Mode:          pulumi.String("verify"),
+//					TrustStoreArn: pulumi.String("..."),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import listeners using their ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lb/listener:Listener front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
-//
+// $ pulumi import aws:lb/listener:Listener front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
 // ```
 type Listener struct {
 	pulumi.CustomResourceState
@@ -373,6 +441,8 @@ type Listener struct {
 	//
 	// The following arguments are optional:
 	LoadBalancerArn pulumi.StringOutput `pulumi:"loadBalancerArn"`
+	// The mutual authentication configuration information. Detailed below.
+	MutualAuthentication ListenerMutualAuthenticationOutput `pulumi:"mutualAuthentication"`
 	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
@@ -408,10 +478,6 @@ func NewListener(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Listener
 	err := ctx.RegisterResource("aws:lb/listener:Listener", name, args, &resource, opts...)
@@ -449,6 +515,8 @@ type listenerState struct {
 	//
 	// The following arguments are optional:
 	LoadBalancerArn *string `pulumi:"loadBalancerArn"`
+	// The mutual authentication configuration information. Detailed below.
+	MutualAuthentication *ListenerMutualAuthentication `pulumi:"mutualAuthentication"`
 	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
 	Port *int `pulumi:"port"`
 	// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
@@ -480,6 +548,8 @@ type ListenerState struct {
 	//
 	// The following arguments are optional:
 	LoadBalancerArn pulumi.StringPtrInput
+	// The mutual authentication configuration information. Detailed below.
+	MutualAuthentication ListenerMutualAuthenticationPtrInput
 	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
 	Port pulumi.IntPtrInput
 	// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
@@ -511,6 +581,8 @@ type listenerArgs struct {
 	//
 	// The following arguments are optional:
 	LoadBalancerArn string `pulumi:"loadBalancerArn"`
+	// The mutual authentication configuration information. Detailed below.
+	MutualAuthentication *ListenerMutualAuthentication `pulumi:"mutualAuthentication"`
 	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
 	Port *int `pulumi:"port"`
 	// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
@@ -535,6 +607,8 @@ type ListenerArgs struct {
 	//
 	// The following arguments are optional:
 	LoadBalancerArn pulumi.StringInput
+	// The mutual authentication configuration information. Detailed below.
+	MutualAuthentication ListenerMutualAuthenticationPtrInput
 	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
 	Port pulumi.IntPtrInput
 	// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
@@ -661,6 +735,11 @@ func (o ListenerOutput) DefaultActions() ListenerDefaultActionArrayOutput {
 // The following arguments are optional:
 func (o ListenerOutput) LoadBalancerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.LoadBalancerArn }).(pulumi.StringOutput)
+}
+
+// The mutual authentication configuration information. Detailed below.
+func (o ListenerOutput) MutualAuthentication() ListenerMutualAuthenticationOutput {
+	return o.ApplyT(func(v *Listener) ListenerMutualAuthenticationOutput { return v.MutualAuthentication }).(ListenerMutualAuthenticationOutput)
 }
 
 // Port on which the load balancer is listening. Not valid for Gateway Load Balancers.

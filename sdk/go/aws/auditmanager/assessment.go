@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS Audit Manager Assessment.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,21 +34,22 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := auditmanager.NewAssessment(ctx, "test", &auditmanager.AssessmentArgs{
+//				Name: pulumi.String("example"),
 //				AssessmentReportsDestination: &auditmanager.AssessmentAssessmentReportsDestinationArgs{
-//					Destination:     pulumi.String(fmt.Sprintf("s3://%v", aws_s3_bucket.Test.Id)),
+//					Destination:     pulumi.String(fmt.Sprintf("s3://%v", testAwsS3Bucket.Id)),
 //					DestinationType: pulumi.String("S3"),
 //				},
-//				FrameworkId: pulumi.Any(aws_auditmanager_framework.Test.Id),
+//				FrameworkId: pulumi.Any(testAwsAuditmanagerFramework.Id),
 //				Roles: auditmanager.AssessmentRoleArray{
 //					&auditmanager.AssessmentRoleArgs{
-//						RoleArn:  pulumi.Any(aws_iam_role.Test.Arn),
+//						RoleArn:  pulumi.Any(testAwsIamRole.Arn),
 //						RoleType: pulumi.String("PROCESS_OWNER"),
 //					},
 //				},
 //				Scope: &auditmanager.AssessmentScopeArgs{
 //					AwsAccounts: auditmanager.AssessmentScopeAwsAccountArray{
 //						&auditmanager.AssessmentScopeAwsAccountArgs{
-//							Id: pulumi.Any(data.Aws_caller_identity.Current.Account_id),
+//							Id: pulumi.Any(current.AccountId),
 //						},
 //					},
 //					AwsServices: auditmanager.AssessmentScopeAwsServiceArray{
@@ -64,15 +67,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Audit Manager Assessments using the assessment `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:auditmanager/assessment:Assessment example abc123-de45
-//
+// $ pulumi import aws:auditmanager/assessment:Assessment example abc123-de45
 // ```
 type Assessment struct {
 	pulumi.CustomResourceState
@@ -116,10 +118,6 @@ func NewAssessment(ctx *pulumi.Context,
 	if args.Roles == nil {
 		return nil, errors.New("invalid value for required argument 'Roles'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Assessment
 	err := ctx.RegisterResource("aws:auditmanager/assessment:Assessment", name, args, &resource, opts...)

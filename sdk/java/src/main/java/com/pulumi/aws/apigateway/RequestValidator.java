@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Manages an API Gateway Request Validator.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -41,7 +43,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RequestValidator(&#34;example&#34;, RequestValidatorArgs.builder()        
- *             .restApi(aws_api_gateway_rest_api.example().id())
+ *             .name(&#34;example&#34;)
+ *             .restApi(exampleAwsApiGatewayRestApi.id())
  *             .validateRequestBody(true)
  *             .validateRequestParameters(true)
  *             .build());
@@ -49,13 +52,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_api_gateway_request_validator` using `REST-API-ID/REQUEST-VALIDATOR-ID`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
+ * $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
  * ```
  * 
  */

@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -43,17 +44,18 @@ import * as utilities from "../utilities";
  *         perUnitStorageThroughput: 1000,
  *         weeklyMaintenanceStartTime: "2:05:00",
  *     }],
- *     subnetIds: [aws_subnet.test1.id],
+ *     subnetIds: [test1.id],
  *     storageCapacity: 1200,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Amazon File Cache cache using the resource `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
+ * $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
  * ```
  */
 export class FileCache extends pulumi.CustomResource {
@@ -222,8 +224,6 @@ export class FileCache extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(FileCache.__pulumiType, name, resourceInputs, opts);
     }
 }

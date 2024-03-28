@@ -27,7 +27,10 @@ import javax.annotation.Nullable;
  * &gt; Glue functionality, such as monitoring and logging of jobs, is typically managed with the `default_arguments` argument. See the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the Glue developer guide for additional information.
  * 
  * ## Example Usage
+ * 
  * ### Python Job
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,16 +54,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Job(&#34;example&#34;, JobArgs.builder()        
- *             .roleArn(aws_iam_role.example().arn())
+ *             .name(&#34;example&#34;)
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .command(JobCommandArgs.builder()
- *                 .scriptLocation(String.format(&#34;s3://%s/example.py&#34;, aws_s3_bucket.example().bucket()))
+ *                 .scriptLocation(String.format(&#34;s3://%s/example.py&#34;, exampleAwsS3Bucket.bucket()))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Ray Job
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -84,21 +92,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Job(&#34;example&#34;, JobArgs.builder()        
- *             .roleArn(aws_iam_role.example().arn())
+ *             .name(&#34;example&#34;)
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .glueVersion(&#34;4.0&#34;)
  *             .workerType(&#34;Z.2X&#34;)
  *             .command(JobCommandArgs.builder()
  *                 .name(&#34;glueray&#34;)
  *                 .pythonVersion(&#34;3.9&#34;)
  *                 .runtime(&#34;Ray2.4&#34;)
- *                 .scriptLocation(String.format(&#34;s3://%s/example.py&#34;, aws_s3_bucket.example().bucket()))
+ *                 .scriptLocation(String.format(&#34;s3://%s/example.py&#34;, exampleAwsS3Bucket.bucket()))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Scala Job
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -122,9 +135,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Job(&#34;example&#34;, JobArgs.builder()        
- *             .roleArn(aws_iam_role.example().arn())
+ *             .name(&#34;example&#34;)
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .command(JobCommandArgs.builder()
- *                 .scriptLocation(String.format(&#34;s3://%s/example.scala&#34;, aws_s3_bucket.example().bucket()))
+ *                 .scriptLocation(String.format(&#34;s3://%s/example.scala&#34;, exampleAwsS3Bucket.bucket()))
  *                 .build())
  *             .defaultArguments(Map.of(&#34;--job-language&#34;, &#34;scala&#34;))
  *             .build());
@@ -132,7 +146,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Streaming Job
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -156,17 +174,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Job(&#34;example&#34;, JobArgs.builder()        
- *             .roleArn(aws_iam_role.example().arn())
+ *             .name(&#34;example streaming job&#34;)
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .command(JobCommandArgs.builder()
  *                 .name(&#34;gluestreaming&#34;)
- *                 .scriptLocation(String.format(&#34;s3://%s/example.script&#34;, aws_s3_bucket.example().bucket()))
+ *                 .scriptLocation(String.format(&#34;s3://%s/example.script&#34;, exampleAwsS3Bucket.bucket()))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Enabling CloudWatch Logs and Metrics
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -190,13 +213,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;, LogGroupArgs.builder()        
+ *         var example = new LogGroup(&#34;example&#34;, LogGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .retentionInDays(14)
  *             .build());
  * 
  *         var exampleJob = new Job(&#34;exampleJob&#34;, JobArgs.builder()        
  *             .defaultArguments(Map.ofEntries(
- *                 Map.entry(&#34;--continuous-log-logGroup&#34;, exampleLogGroup.name()),
+ *                 Map.entry(&#34;--continuous-log-logGroup&#34;, example.name()),
  *                 Map.entry(&#34;--enable-continuous-cloudwatch-log&#34;, &#34;true&#34;),
  *                 Map.entry(&#34;--enable-continuous-log-filter&#34;, &#34;true&#34;),
  *                 Map.entry(&#34;--enable-metrics&#34;, &#34;&#34;)
@@ -206,13 +230,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Glue Jobs using `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:glue/job:Job MyJob MyJob
+ * $ pulumi import aws:glue/job:Job MyJob MyJob
  * ```
  * 
  */
@@ -545,9 +570,6 @@ public class Job extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

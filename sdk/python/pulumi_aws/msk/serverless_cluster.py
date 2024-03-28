@@ -224,12 +224,35 @@ class ServerlessCluster(pulumi.CustomResource):
 
         > **Note:** To manage a _provisioned_ Amazon MSK cluster, use the `msk.Cluster` resource.
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.msk.ServerlessCluster("example",
+            cluster_name="Example",
+            vpc_configs=[aws.msk.ServerlessClusterVpcConfigArgs(
+                subnet_ids=[__item["id"] for __item in example_aws_subnet],
+                security_group_ids=[example_aws_security_group["id"]],
+            )],
+            client_authentication=aws.msk.ServerlessClusterClientAuthenticationArgs(
+                sasl=aws.msk.ServerlessClusterClientAuthenticationSaslArgs(
+                    iam=aws.msk.ServerlessClusterClientAuthenticationSaslIamArgs(
+                        enabled=True,
+                    ),
+                ),
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Using `pulumi import`, import MSK serverless clusters using the cluster `arn`. For example:
 
         ```sh
-         $ pulumi import aws:msk/serverlessCluster:ServerlessCluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+        $ pulumi import aws:msk/serverlessCluster:ServerlessCluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
         ```
 
         :param str resource_name: The name of the resource.
@@ -250,12 +273,35 @@ class ServerlessCluster(pulumi.CustomResource):
 
         > **Note:** To manage a _provisioned_ Amazon MSK cluster, use the `msk.Cluster` resource.
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.msk.ServerlessCluster("example",
+            cluster_name="Example",
+            vpc_configs=[aws.msk.ServerlessClusterVpcConfigArgs(
+                subnet_ids=[__item["id"] for __item in example_aws_subnet],
+                security_group_ids=[example_aws_security_group["id"]],
+            )],
+            client_authentication=aws.msk.ServerlessClusterClientAuthenticationArgs(
+                sasl=aws.msk.ServerlessClusterClientAuthenticationSaslArgs(
+                    iam=aws.msk.ServerlessClusterClientAuthenticationSaslIamArgs(
+                        enabled=True,
+                    ),
+                ),
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Using `pulumi import`, import MSK serverless clusters using the cluster `arn`. For example:
 
         ```sh
-         $ pulumi import aws:msk/serverlessCluster:ServerlessCluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+        $ pulumi import aws:msk/serverlessCluster:ServerlessCluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
         ```
 
         :param str resource_name: The name of the resource.
@@ -297,8 +343,6 @@ class ServerlessCluster(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["cluster_uuid"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServerlessCluster, __self__).__init__(
             'aws:msk/serverlessCluster:ServerlessCluster',
             resource_name,

@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a resource to manage a GuardDuty member. To accept invitations in member accounts, see the `aws.guardduty.InviteAccepter` resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -29,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.guardduty.DetectorArgs;
  * import com.pulumi.aws.guardduty.Member;
  * import com.pulumi.aws.guardduty.MemberArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,14 +48,12 @@ import javax.annotation.Nullable;
  *             .enable(true)
  *             .build());
  * 
- *         var memberDetector = new Detector(&#34;memberDetector&#34;, DetectorArgs.builder()        
+ *         var member = new Detector(&#34;member&#34;, DetectorArgs.builder()        
  *             .enable(true)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.dev())
- *                 .build());
+ *             .build());
  * 
  *         var memberMember = new Member(&#34;memberMember&#34;, MemberArgs.builder()        
- *             .accountId(memberDetector.accountId())
+ *             .accountId(member.accountId())
  *             .detectorId(primary.id())
  *             .email(&#34;required@example.com&#34;)
  *             .invite(true)
@@ -64,13 +63,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import GuardDuty members using the primary GuardDuty detector ID and member AWS account ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:guardduty/member:Member MyMember 00b00fd5aecc0ab60a708659477e9617:123456789012
+ * $ pulumi import aws:guardduty/member:Member MyMember 00b00fd5aecc0ab60a708659477e9617:123456789012
  * ```
  * 
  */

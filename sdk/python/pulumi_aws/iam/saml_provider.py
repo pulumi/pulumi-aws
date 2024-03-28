@@ -190,19 +190,24 @@ class SamlProvider(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        default = aws.iam.SamlProvider("default", saml_metadata_document=(lambda path: open(path).read())("saml-metadata.xml"))
+        default = aws.iam.SamlProvider("default",
+            name="myprovider",
+            saml_metadata_document=std.file(input="saml-metadata.xml").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM SAML Providers using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:iam/samlProvider:SamlProvider default arn:aws:iam::123456789012:saml-provider/SAMLADFS
+        $ pulumi import aws:iam/samlProvider:SamlProvider default arn:aws:iam::123456789012:saml-provider/SAMLADFS
         ```
 
         :param str resource_name: The name of the resource.
@@ -222,19 +227,24 @@ class SamlProvider(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        default = aws.iam.SamlProvider("default", saml_metadata_document=(lambda path: open(path).read())("saml-metadata.xml"))
+        default = aws.iam.SamlProvider("default",
+            name="myprovider",
+            saml_metadata_document=std.file(input="saml-metadata.xml").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM SAML Providers using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:iam/samlProvider:SamlProvider default arn:aws:iam::123456789012:saml-provider/SAMLADFS
+        $ pulumi import aws:iam/samlProvider:SamlProvider default arn:aws:iam::123456789012:saml-provider/SAMLADFS
         ```
 
         :param str resource_name: The name of the resource.
@@ -272,8 +282,6 @@ class SamlProvider(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["valid_until"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SamlProvider, __self__).__init__(
             'aws:iam/samlProvider:SamlProvider',
             resource_name,

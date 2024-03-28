@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class InstanceInstanceMarketOptions
     {
         /// <summary>
-        /// Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+        /// Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spot_options` is specified.
         /// </summary>
         public readonly string? MarketType;
         /// <summary>

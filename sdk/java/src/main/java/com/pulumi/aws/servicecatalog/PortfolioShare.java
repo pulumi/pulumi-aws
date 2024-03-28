@@ -27,7 +27,10 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** You can&#39;t share a shared resource, including portfolios that contain a shared product.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,20 +54,21 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new PortfolioShare(&#34;example&#34;, PortfolioShareArgs.builder()        
  *             .principalId(&#34;012128675309&#34;)
- *             .portfolioId(aws_servicecatalog_portfolio.example().id())
+ *             .portfolioId(exampleAwsServicecatalogPortfolio.id())
  *             .type(&#34;ACCOUNT&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_servicecatalog_portfolio_share` using the portfolio share ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012
+ * $ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012
  * ```
  * 
  */

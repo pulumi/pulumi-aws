@@ -178,22 +178,26 @@ class MonitoringSchedule(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.sagemaker.MonitoringSchedule("test", monitoring_schedule_config=aws.sagemaker.MonitoringScheduleMonitoringScheduleConfigArgs(
-            monitoring_job_definition_name=aws_sagemaker_data_quality_job_definition["test"]["name"],
-            monitoring_type="DataQuality",
-        ))
+        test = aws.sagemaker.MonitoringSchedule("test",
+            name="my-monitoring-schedule",
+            monitoring_schedule_config=aws.sagemaker.MonitoringScheduleMonitoringScheduleConfigArgs(
+                monitoring_job_definition_name=test_aws_sagemaker_data_quality_job_definition["name"],
+                monitoring_type="DataQuality",
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import monitoring schedules using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo
+        $ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo
         ```
 
         :param str resource_name: The name of the resource.
@@ -215,22 +219,26 @@ class MonitoringSchedule(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.sagemaker.MonitoringSchedule("test", monitoring_schedule_config=aws.sagemaker.MonitoringScheduleMonitoringScheduleConfigArgs(
-            monitoring_job_definition_name=aws_sagemaker_data_quality_job_definition["test"]["name"],
-            monitoring_type="DataQuality",
-        ))
+        test = aws.sagemaker.MonitoringSchedule("test",
+            name="my-monitoring-schedule",
+            monitoring_schedule_config=aws.sagemaker.MonitoringScheduleMonitoringScheduleConfigArgs(
+                monitoring_job_definition_name=test_aws_sagemaker_data_quality_job_definition["name"],
+                monitoring_type="DataQuality",
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import monitoring schedules using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo
+        $ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo
         ```
 
         :param str resource_name: The name of the resource.
@@ -267,8 +275,6 @@ class MonitoringSchedule(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(MonitoringSchedule, __self__).__init__(
             'aws:sagemaker/monitoringSchedule:MonitoringSchedule',
             resource_name,

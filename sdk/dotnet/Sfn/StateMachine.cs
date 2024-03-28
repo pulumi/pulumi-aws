@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Sfn
     /// Provides a Step Function State Machine resource
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic (Standard Workflow)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,16 +26,17 @@ namespace Pulumi.Aws.Sfn
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ...
-    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfnStateMachine", new()
+    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfn_state_machine", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Iam_for_sfn.Arn,
+    ///         Name = "my-state-machine",
+    ///         RoleArn = iamForSfn.Arn,
     ///         Definition = @$"{{
     ///   ""Comment"": ""A Hello World example of the Amazon States Language using an AWS Lambda Function"",
     ///   ""StartAt"": ""HelloWorld"",
     ///   ""States"": {{
     ///     ""HelloWorld"": {{
     ///       ""Type"": ""Task"",
-    ///       ""Resource"": ""{aws_lambda_function.Lambda.Arn}"",
+    ///       ""Resource"": ""{lambda.Arn}"",
     ///       ""End"": true
     ///     }}
     ///   }}
@@ -43,8 +46,11 @@ namespace Pulumi.Aws.Sfn
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Basic (Express Workflow)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,9 +60,10 @@ namespace Pulumi.Aws.Sfn
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ...
-    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfnStateMachine", new()
+    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfn_state_machine", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Iam_for_sfn.Arn,
+    ///         Name = "my-state-machine",
+    ///         RoleArn = iamForSfn.Arn,
     ///         Type = "EXPRESS",
     ///         Definition = @$"{{
     ///   ""Comment"": ""A Hello World example of the Amazon States Language using an AWS Lambda Function"",
@@ -64,7 +71,7 @@ namespace Pulumi.Aws.Sfn
     ///   ""States"": {{
     ///     ""HelloWorld"": {{
     ///       ""Type"": ""Task"",
-    ///       ""Resource"": ""{aws_lambda_function.Lambda.Arn}"",
+    ///       ""Resource"": ""{lambda.Arn}"",
     ///       ""End"": true
     ///     }}
     ///   }}
@@ -74,8 +81,11 @@ namespace Pulumi.Aws.Sfn
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Publish (Publish SFN version)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -85,9 +95,10 @@ namespace Pulumi.Aws.Sfn
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ...
-    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfnStateMachine", new()
+    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfn_state_machine", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Iam_for_sfn.Arn,
+    ///         Name = "my-state-machine",
+    ///         RoleArn = iamForSfn.Arn,
     ///         Publish = true,
     ///         Type = "EXPRESS",
     ///         Definition = @$"{{
@@ -96,7 +107,7 @@ namespace Pulumi.Aws.Sfn
     ///   ""States"": {{
     ///     ""HelloWorld"": {{
     ///       ""Type"": ""Task"",
-    ///       ""Resource"": ""{aws_lambda_function.Lambda.Arn}"",
+    ///       ""Resource"": ""{lambda.Arn}"",
     ///       ""End"": true
     ///     }}
     ///   }}
@@ -106,10 +117,13 @@ namespace Pulumi.Aws.Sfn
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Logging
     /// 
     /// &gt; *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -119,16 +133,17 @@ namespace Pulumi.Aws.Sfn
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ...
-    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfnStateMachine", new()
+    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfn_state_machine", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Iam_for_sfn.Arn,
+    ///         Name = "my-state-machine",
+    ///         RoleArn = iamForSfn.Arn,
     ///         Definition = @$"{{
     ///   ""Comment"": ""A Hello World example of the Amazon States Language using an AWS Lambda Function"",
     ///   ""StartAt"": ""HelloWorld"",
     ///   ""States"": {{
     ///     ""HelloWorld"": {{
     ///       ""Type"": ""Task"",
-    ///       ""Resource"": ""{aws_lambda_function.Lambda.Arn}"",
+    ///       ""Resource"": ""{lambda.Arn}"",
     ///       ""End"": true
     ///     }}
     ///   }}
@@ -136,7 +151,7 @@ namespace Pulumi.Aws.Sfn
     /// ",
     ///         LoggingConfiguration = new Aws.Sfn.Inputs.StateMachineLoggingConfigurationArgs
     ///         {
-    ///             LogDestination = $"{aws_cloudwatch_log_group.Log_group_for_sfn.Arn}:*",
+    ///             LogDestination = $"{logGroupForSfn.Arn}:*",
     ///             IncludeExecutionData = true,
     ///             Level = "ERROR",
     ///         },
@@ -144,13 +159,14 @@ namespace Pulumi.Aws.Sfn
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import State Machines using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
+    /// $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
     /// ```
     /// </summary>
     [AwsResourceType("aws:sfn/stateMachine:StateMachine")]
@@ -210,6 +226,9 @@ namespace Pulumi.Aws.Sfn
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the state machine version.
+        /// </summary>
         [Output("stateMachineVersionArn")]
         public Output<string> StateMachineVersionArn { get; private set; } = null!;
 
@@ -269,10 +288,6 @@ namespace Pulumi.Aws.Sfn
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -418,6 +433,9 @@ namespace Pulumi.Aws.Sfn
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
+        /// <summary>
+        /// The ARN of the state machine version.
+        /// </summary>
         [Input("stateMachineVersionArn")]
         public Input<string>? StateMachineVersionArn { get; set; }
 
@@ -449,11 +467,7 @@ namespace Pulumi.Aws.Sfn
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

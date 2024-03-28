@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,19 +31,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSharedDirectory, err := directoryservice.NewSharedDirectory(ctx, "exampleSharedDirectory", &directoryservice.SharedDirectoryArgs{
-//				DirectoryId: pulumi.Any(aws_directory_service_directory.Example.Id),
+//			example, err := directoryservice.NewSharedDirectory(ctx, "example", &directoryservice.SharedDirectoryArgs{
+//				DirectoryId: pulumi.Any(exampleAwsDirectoryServiceDirectory.Id),
 //				Notes:       pulumi.String("example"),
 //				Target: &directoryservice.SharedDirectoryTargetArgs{
-//					Id: pulumi.Any(data.Aws_caller_identity.Receiver.Account_id),
+//					Id: pulumi.Any(receiver.AccountId),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = directoryservice.NewSharedDirectoryAccepter(ctx, "exampleSharedDirectoryAccepter", &directoryservice.SharedDirectoryAccepterArgs{
-//				SharedDirectoryId: exampleSharedDirectory.SharedDirectoryId,
-//			}, pulumi.Provider("awsalternate"))
+//			_, err = directoryservice.NewSharedDirectoryAccepter(ctx, "example", &directoryservice.SharedDirectoryAccepterArgs{
+//				SharedDirectoryId: example.SharedDirectoryId,
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -51,15 +52,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Directory Service Shared Directories using the shared directory ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
-//
+// $ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
 // ```
 type SharedDirectoryAccepter struct {
 	pulumi.CustomResourceState

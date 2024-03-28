@@ -25,8 +25,8 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexP
         }
 
         public WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll();
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll();
+            return _resultValue;
         }
     }
 }

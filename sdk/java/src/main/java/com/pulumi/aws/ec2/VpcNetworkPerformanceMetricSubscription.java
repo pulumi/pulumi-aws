@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides a resource to manage an Infrastructure Performance subscription.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -40,13 +42,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VpcNetworkPerformanceMetricSubscription(&#34;example&#34;, VpcNetworkPerformanceMetricSubscriptionArgs.builder()        
- *             .destination(&#34;us-west-1&#34;)
  *             .source(&#34;us-east-1&#34;)
+ *             .destination(&#34;us-west-1&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:ec2/vpcNetworkPerformanceMetricSubscription:VpcNetworkPerformanceMetricSubscription")

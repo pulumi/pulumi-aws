@@ -32,10 +32,12 @@ namespace Pulumi.Aws.ElastiCache
     /// &gt; **Note:** Be aware of the terminology collision around "cluster" for `aws.elasticache.ReplicationGroup`. For example, it is possible to create a ["Cluster Mode Disabled [Redis] Cluster"](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Create.CON.Redis.html). With "Cluster Mode Enabled", the data will be stored in shards (called "node groups"). See [Redis Cluster Configuration](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/cluster-create-determine-requirements.html#redis-cluster-configuration) for a diagram of the differences. To enable cluster mode, use a parameter group that has cluster mode enabled. The default parameter groups provided by AWS end with ".cluster.on", for example `default.redis6.x.cluster.on`.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Redis Cluster Mode Disabled
     /// 
     /// To create a single shard primary with single read replica:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,26 +49,29 @@ namespace Pulumi.Aws.ElastiCache
     ///     var example = new Aws.ElastiCache.ReplicationGroup("example", new()
     ///     {
     ///         AutomaticFailoverEnabled = true,
-    ///         Description = "example description",
-    ///         NodeType = "cache.m4.large",
-    ///         NumCacheClusters = 2,
-    ///         ParameterGroupName = "default.redis3.2",
-    ///         Port = 6379,
     ///         PreferredCacheClusterAzs = new[]
     ///         {
     ///             "us-west-2a",
     ///             "us-west-2b",
     ///         },
+    ///         ReplicationGroupId = "tf-rep-group-1",
+    ///         Description = "example description",
+    ///         NodeType = "cache.m4.large",
+    ///         NumCacheClusters = 2,
+    ///         ParameterGroupName = "default.redis3.2",
+    ///         Port = 6379,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// You have two options for adjusting the number of replicas:
     /// 
     /// * Adjusting `num_cache_clusters` directly. This will attempt to automatically add or remove replicas, but provides no granular control (e.g., preferred availability zone, cache cluster ID) for the added or removed replicas. This also currently expects cache cluster IDs in the form of `replication_group_id-00#`.
     /// * Otherwise for fine grained control of the underlying cache clusters, they can be added or removed with the `aws.elasticache.Cluster` resource and its `replication_group_id` attribute. In this situation, you will need to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to prevent perpetual differences with the `number_cache_cluster` attribute.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -83,6 +88,7 @@ namespace Pulumi.Aws.ElastiCache
     ///             "us-west-2a",
     ///             "us-west-2b",
     ///         },
+    ///         ReplicationGroupId = "tf-rep-group-1",
     ///         Description = "example description",
     ///         NodeType = "cache.m4.large",
     ///         NumCacheClusters = 2,
@@ -91,20 +97,24 @@ namespace Pulumi.Aws.ElastiCache
     ///     });
     /// 
     ///     var replica = new List&lt;Aws.ElastiCache.Cluster&gt;();
-    ///     for (var rangeIndex = 0; rangeIndex &lt; (1 == true); rangeIndex++)
+    ///     for (var rangeIndex = 0; rangeIndex &lt; 1; rangeIndex++)
     ///     {
     ///         var range = new { Value = rangeIndex };
     ///         replica.Add(new Aws.ElastiCache.Cluster($"replica-{range.Value}", new()
     ///         {
+    ///             ClusterId = $"tf-rep-group-1-{range.Value}",
     ///             ReplicationGroupId = example.Id,
     ///         }));
     ///     }
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Redis Cluster Mode Enabled
     /// 
     /// To create two shards with a primary and a single read replica each:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -115,19 +125,23 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var baz = new Aws.ElastiCache.ReplicationGroup("baz", new()
     ///     {
-    ///         AutomaticFailoverEnabled = true,
+    ///         ReplicationGroupId = "tf-redis-cluster",
     ///         Description = "example description",
     ///         NodeType = "cache.t2.small",
-    ///         NumNodeGroups = 2,
-    ///         ParameterGroupName = "default.redis3.2.cluster.on",
     ///         Port = 6379,
+    ///         ParameterGroupName = "default.redis3.2.cluster.on",
+    ///         AutomaticFailoverEnabled = true,
+    ///         NumNodeGroups = 2,
     ///         ReplicasPerNodeGroup = 1,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Redis Log Delivery configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -138,6 +152,7 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var test = new Aws.ElastiCache.ReplicationGroup("test", new()
     ///     {
+    ///         ReplicationGroupId = "myreplicaciongroup",
     ///         Description = "test description",
     ///         NodeType = "cache.t3.small",
     ///         Port = 6379,
@@ -149,14 +164,14 @@ namespace Pulumi.Aws.ElastiCache
     ///         {
     ///             new Aws.ElastiCache.Inputs.ReplicationGroupLogDeliveryConfigurationArgs
     ///             {
-    ///                 Destination = aws_cloudwatch_log_group.Example.Name,
+    ///                 Destination = example.Name,
     ///                 DestinationType = "cloudwatch-logs",
     ///                 LogFormat = "text",
     ///                 LogType = "slow-log",
     ///             },
     ///             new Aws.ElastiCache.Inputs.ReplicationGroupLogDeliveryConfigurationArgs
     ///             {
-    ///                 Destination = aws_kinesis_firehose_delivery_stream.Example.Name,
+    ///                 Destination = exampleAwsKinesisFirehoseDeliveryStream.Name,
     ///                 DestinationType = "kinesis-firehose",
     ///                 LogFormat = "json",
     ///                 LogType = "engine-log",
@@ -166,16 +181,19 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// &gt; **Note:** We currently do not support passing a `primary_cluster_id` in order to create the Replication Group.
     /// 
     /// &gt; **Note:** Automatic Failover is unavailable for Redis versions earlier than 2.8.6,
     /// and unavailable on T1 node types. For T2 node types, it is only available on Redis version 3.2.4 or later with cluster mode enabled. See the [High Availability Using Replication Groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Replication.html) guide
     /// for full details on using Replication Groups.
+    /// 
     /// ### Creating a secondary replication group for a global replication group
     /// 
     /// A Global Replication Group can have one one two secondary Replication Groups in different regions. These are added to an existing Global Replication Group.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -186,27 +204,23 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var primary = new Aws.ElastiCache.ReplicationGroup("primary", new()
     ///     {
+    ///         ReplicationGroupId = "example-primary",
     ///         Description = "primary replication group",
     ///         Engine = "redis",
     ///         EngineVersion = "5.0.6",
     ///         NodeType = "cache.m5.large",
     ///         NumCacheClusters = 1,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Other_region,
     ///     });
     /// 
     ///     var example = new Aws.ElastiCache.GlobalReplicationGroup("example", new()
     ///     {
     ///         GlobalReplicationGroupIdSuffix = "example",
     ///         PrimaryReplicationGroupId = primary.Id,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Other_region,
     ///     });
     /// 
     ///     var secondary = new Aws.ElastiCache.ReplicationGroup("secondary", new()
     ///     {
+    ///         ReplicationGroupId = "example-secondary",
     ///         Description = "secondary replication group",
     ///         GlobalReplicationGroupId = example.GlobalReplicationGroupId,
     ///         NumCacheClusters = 1,
@@ -214,13 +228,50 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Redis AUTH and In-Transit Encryption Enabled
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.ElastiCache.ReplicationGroup("example", new()
+    ///     {
+    ///         ReplicationGroupId = "example",
+    ///         Description = "example with authentication",
+    ///         NodeType = "cache.t2.micro",
+    ///         NumCacheClusters = 1,
+    ///         Port = 6379,
+    ///         SubnetGroupName = exampleAwsElasticacheSubnetGroup.Name,
+    ///         SecurityGroupIds = new[]
+    ///         {
+    ///             exampleAwsSecurityGroup.Id,
+    ///         },
+    ///         ParameterGroupName = "default.redis5.0",
+    ///         EngineVersion = "5.0.6",
+    ///         TransitEncryptionEnabled = true,
+    ///         AuthToken = "abcdefgh1234567890",
+    ///         AuthTokenUpdateStrategy = "ROTATE",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// &gt; When adding a new `auth_token` to a previously passwordless replication group, using the `ROTATE` update strategy will result in support for **both** the new token and passwordless authentication. To immediately require authorization when adding the initial token, use the `SET` strategy instead. See the [Authenticating with the Redis AUTH command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html) guide for additional details.
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ElastiCache Replication Groups using the `replication_group_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
+    /// $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticache/replicationGroup:ReplicationGroup")]
@@ -249,6 +300,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Output("authToken")]
         public Output<string?> AuthToken { get; private set; } = null!;
+
+        /// <summary>
+        /// Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+        /// </summary>
+        [Output("authTokenUpdateStrategy")]
+        public Output<string?> AuthTokenUpdateStrategy { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
@@ -528,7 +585,6 @@ namespace Pulumi.Aws.ElastiCache
                 AdditionalSecretOutputs =
                 {
                     "authToken",
-                    "tagsAll",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -580,6 +636,12 @@ namespace Pulumi.Aws.ElastiCache
                 _authToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+        /// </summary>
+        [Input("authTokenUpdateStrategy")]
+        public Input<string>? AuthTokenUpdateStrategy { get; set; }
 
         /// <summary>
         /// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
@@ -876,6 +938,12 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
+        /// Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+        /// </summary>
+        [Input("authTokenUpdateStrategy")]
+        public Input<string>? AuthTokenUpdateStrategy { get; set; }
+
+        /// <summary>
         /// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
         /// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
         /// Defaults to `true`.
@@ -1161,11 +1229,7 @@ namespace Pulumi.Aws.ElastiCache
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

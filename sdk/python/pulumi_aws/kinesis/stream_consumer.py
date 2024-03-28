@@ -139,20 +139,26 @@ class StreamConsumer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_stream = aws.kinesis.Stream("exampleStream", shard_count=1)
-        example_stream_consumer = aws.kinesis.StreamConsumer("exampleStreamConsumer", stream_arn=example_stream.arn)
+        example = aws.kinesis.Stream("example",
+            name="example-stream",
+            shard_count=1)
+        example_stream_consumer = aws.kinesis.StreamConsumer("example",
+            name="example-consumer",
+            stream_arn=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Kinesis Stream Consumers using the Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:kinesis/streamConsumer:StreamConsumer example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553
+        $ pulumi import aws:kinesis/streamConsumer:StreamConsumer example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553
         ```
 
         :param str resource_name: The name of the resource.
@@ -175,20 +181,26 @@ class StreamConsumer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_stream = aws.kinesis.Stream("exampleStream", shard_count=1)
-        example_stream_consumer = aws.kinesis.StreamConsumer("exampleStreamConsumer", stream_arn=example_stream.arn)
+        example = aws.kinesis.Stream("example",
+            name="example-stream",
+            shard_count=1)
+        example_stream_consumer = aws.kinesis.StreamConsumer("example",
+            name="example-consumer",
+            stream_arn=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Kinesis Stream Consumers using the Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:kinesis/streamConsumer:StreamConsumer example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553
+        $ pulumi import aws:kinesis/streamConsumer:StreamConsumer example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553
         ```
 
         :param str resource_name: The name of the resource.

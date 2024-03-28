@@ -59,19 +59,21 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersCon
 
         @CustomType.Setter
         public Builder headerBehavior(@Nullable String headerBehavior) {
+
             this.headerBehavior = headerBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder headers(@Nullable CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders headers) {
+
             this.headers = headers;
             return this;
         }
         public CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig build() {
-            final var o = new CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig();
-            o.headerBehavior = headerBehavior;
-            o.headers = headers;
-            return o;
+            final var _resultValue = new CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig();
+            _resultValue.headerBehavior = headerBehavior;
+            _resultValue.headers = headers;
+            return _resultValue;
         }
     }
 }

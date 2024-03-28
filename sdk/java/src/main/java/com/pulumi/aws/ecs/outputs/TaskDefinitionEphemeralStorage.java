@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class TaskDefinitionEphemeralStorage {
 
         @CustomType.Setter
         public Builder sizeInGib(Integer sizeInGib) {
-            this.sizeInGib = Objects.requireNonNull(sizeInGib);
+            if (sizeInGib == null) {
+              throw new MissingRequiredPropertyException("TaskDefinitionEphemeralStorage", "sizeInGib");
+            }
+            this.sizeInGib = sizeInGib;
             return this;
         }
         public TaskDefinitionEphemeralStorage build() {
-            final var o = new TaskDefinitionEphemeralStorage();
-            o.sizeInGib = sizeInGib;
-            return o;
+            final var _resultValue = new TaskDefinitionEphemeralStorage();
+            _resultValue.sizeInGib = sizeInGib;
+            return _resultValue;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,29 +23,25 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
+    ///     var example = new Aws.SecurityHub.Account("example");
     /// 
-    ///     var exampleActionTarget = new Aws.SecurityHub.ActionTarget("exampleActionTarget", new()
+    ///     var exampleActionTarget = new Aws.SecurityHub.ActionTarget("example", new()
     ///     {
+    ///         Name = "Send notification to chat",
     ///         Identifier = "SendToChat",
     ///         Description = "This is custom action sends selected findings to chat",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccount,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Security Hub custom action using the action target ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
+    /// $ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
     /// ```
     /// </summary>
     [AwsResourceType("aws:securityhub/actionTarget:ActionTarget")]

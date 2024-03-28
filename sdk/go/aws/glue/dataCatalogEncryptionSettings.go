@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,12 +32,12 @@ import (
 //			_, err := glue.NewDataCatalogEncryptionSettings(ctx, "example", &glue.DataCatalogEncryptionSettingsArgs{
 //				DataCatalogEncryptionSettings: &glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs{
 //					ConnectionPasswordEncryption: &glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs{
-//						AwsKmsKeyId:                       pulumi.Any(aws_kms_key.Test.Arn),
+//						AwsKmsKeyId:                       pulumi.Any(test.Arn),
 //						ReturnConnectionPasswordEncrypted: pulumi.Bool(true),
 //					},
 //					EncryptionAtRest: &glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs{
 //						CatalogEncryptionMode: pulumi.String("SSE-KMS"),
-//						SseAwsKmsKeyId:        pulumi.Any(aws_kms_key.Test.Arn),
+//						SseAwsKmsKeyId:        pulumi.Any(test.Arn),
 //					},
 //				},
 //			})
@@ -48,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glue Data Catalog Encryption Settings using `CATALOG-ID` (AWS account ID if not custom). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings example 123456789012
-//
+// $ pulumi import aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings example 123456789012
 // ```
 type DataCatalogEncryptionSettings struct {
 	pulumi.CustomResourceState

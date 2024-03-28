@@ -14,7 +14,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,6 +22,8 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS VPC Lattice Listener Rule.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,8 +52,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ListenerRule(&#34;test&#34;, ListenerRuleArgs.builder()        
- *             .listenerIdentifier(aws_vpclattice_listener.example().listener_id())
- *             .serviceIdentifier(aws_vpclattice_service.example().id())
+ *             .name(&#34;example&#34;)
+ *             .listenerIdentifier(exampleAwsVpclatticeListener.listenerId())
+ *             .serviceIdentifier(exampleAwsVpclatticeService.id())
  *             .priority(20)
  *             .match(ListenerRuleMatchArgs.builder()
  *                 .httpMatch(ListenerRuleMatchHttpMatchArgs.builder()
@@ -75,11 +77,11 @@ import javax.annotation.Nullable;
  *                 .forward(ListenerRuleActionForwardArgs.builder()
  *                     .targetGroups(                    
  *                         ListenerRuleActionForwardTargetGroupArgs.builder()
- *                             .targetGroupIdentifier(aws_vpclattice_target_group.example().id())
+ *                             .targetGroupIdentifier(example.id())
  *                             .weight(1)
  *                             .build(),
  *                         ListenerRuleActionForwardTargetGroupArgs.builder()
- *                             .targetGroupIdentifier(aws_vpclattice_target_group.example2().id())
+ *                             .targetGroupIdentifier(example2.id())
  *                             .weight(2)
  *                             .build())
  *                     .build())
@@ -89,7 +91,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -118,8 +124,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ListenerRule(&#34;test&#34;, ListenerRuleArgs.builder()        
- *             .listenerIdentifier(aws_vpclattice_listener.example().listener_id())
- *             .serviceIdentifier(aws_vpclattice_service.example().id())
+ *             .name(&#34;example&#34;)
+ *             .listenerIdentifier(example.listenerId())
+ *             .serviceIdentifier(exampleAwsVpclatticeService.id())
  *             .priority(10)
  *             .match(ListenerRuleMatchArgs.builder()
  *                 .httpMatch(ListenerRuleMatchHttpMatchArgs.builder()
@@ -141,13 +148,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import VPC Lattice Listener Rule using the `example_id_arg`. For example:
+ * Using `pulumi import`, import VPC Lattice Listener Rule using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:vpclattice/listenerRule:ListenerRule example rft-8012925589
+ * $ pulumi import aws:vpclattice/listenerRule:ListenerRule example service123/listener456/rule789
  * ```
  * 
  */
@@ -334,9 +342,6 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

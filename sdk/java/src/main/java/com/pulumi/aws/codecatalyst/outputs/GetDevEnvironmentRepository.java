@@ -4,6 +4,7 @@
 package com.pulumi.aws.codecatalyst.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,19 +41,25 @@ public final class GetDevEnvironmentRepository {
 
         @CustomType.Setter
         public Builder branchName(String branchName) {
-            this.branchName = Objects.requireNonNull(branchName);
+            if (branchName == null) {
+              throw new MissingRequiredPropertyException("GetDevEnvironmentRepository", "branchName");
+            }
+            this.branchName = branchName;
             return this;
         }
         @CustomType.Setter
         public Builder repositoryName(String repositoryName) {
-            this.repositoryName = Objects.requireNonNull(repositoryName);
+            if (repositoryName == null) {
+              throw new MissingRequiredPropertyException("GetDevEnvironmentRepository", "repositoryName");
+            }
+            this.repositoryName = repositoryName;
             return this;
         }
         public GetDevEnvironmentRepository build() {
-            final var o = new GetDevEnvironmentRepository();
-            o.branchName = branchName;
-            o.repositoryName = repositoryName;
-            return o;
+            final var _resultValue = new GetDevEnvironmentRepository();
+            _resultValue.branchName = branchName;
+            _resultValue.repositoryName = repositoryName;
+            return _resultValue;
         }
     }
 }

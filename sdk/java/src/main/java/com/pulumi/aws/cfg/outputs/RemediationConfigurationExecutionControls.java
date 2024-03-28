@@ -44,13 +44,14 @@ public final class RemediationConfigurationExecutionControls {
 
         @CustomType.Setter
         public Builder ssmControls(@Nullable RemediationConfigurationExecutionControlsSsmControls ssmControls) {
+
             this.ssmControls = ssmControls;
             return this;
         }
         public RemediationConfigurationExecutionControls build() {
-            final var o = new RemediationConfigurationExecutionControls();
-            o.ssmControls = ssmControls;
-            return o;
+            final var _resultValue = new RemediationConfigurationExecutionControls();
+            _resultValue.ssmControls = ssmControls;
+            return _resultValue;
         }
     }
 }

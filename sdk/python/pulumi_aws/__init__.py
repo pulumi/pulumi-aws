@@ -71,6 +71,8 @@ if typing.TYPE_CHECKING:
     backup = __backup
     import pulumi_aws.batch as __batch
     batch = __batch
+    import pulumi_aws.bedrock as __bedrock
+    bedrock = __bedrock
     import pulumi_aws.bedrockfoundation as __bedrockfoundation
     bedrockfoundation = __bedrockfoundation
     import pulumi_aws.bedrockmodel as __bedrockmodel
@@ -111,6 +113,8 @@ if typing.TYPE_CHECKING:
     codecommit = __codecommit
     import pulumi_aws.codedeploy as __codedeploy
     codedeploy = __codedeploy
+    import pulumi_aws.codeguruprofiler as __codeguruprofiler
+    codeguruprofiler = __codeguruprofiler
     import pulumi_aws.codegurureviewer as __codegurureviewer
     codegurureviewer = __codegurureviewer
     import pulumi_aws.codepipeline as __codepipeline
@@ -133,6 +137,8 @@ if typing.TYPE_CHECKING:
     costexplorer = __costexplorer
     import pulumi_aws.cur as __cur
     cur = __cur
+    import pulumi_aws.customerprofiles as __customerprofiles
+    customerprofiles = __customerprofiles
     import pulumi_aws.dataexchange as __dataexchange
     dataexchange = __dataexchange
     import pulumi_aws.datapipeline as __datapipeline
@@ -145,6 +151,8 @@ if typing.TYPE_CHECKING:
     detective = __detective
     import pulumi_aws.devicefarm as __devicefarm
     devicefarm = __devicefarm
+    import pulumi_aws.devopsguru as __devopsguru
+    devopsguru = __devopsguru
     import pulumi_aws.directconnect as __directconnect
     directconnect = __directconnect
     import pulumi_aws.directoryservice as __directoryservice
@@ -285,6 +293,8 @@ if typing.TYPE_CHECKING:
     oam = __oam
     import pulumi_aws.opensearch as __opensearch
     opensearch = __opensearch
+    import pulumi_aws.opensearchingest as __opensearchingest
+    opensearchingest = __opensearchingest
     import pulumi_aws.opsworks as __opsworks
     opsworks = __opsworks
     import pulumi_aws.organizations as __organizations
@@ -295,6 +305,8 @@ if typing.TYPE_CHECKING:
     pinpoint = __pinpoint
     import pulumi_aws.pipes as __pipes
     pipes = __pipes
+    import pulumi_aws.polly as __polly
+    polly = __polly
     import pulumi_aws.pricing as __pricing
     pricing = __pricing
     import pulumi_aws.qldb as __qldb
@@ -313,6 +325,8 @@ if typing.TYPE_CHECKING:
     redshiftdata = __redshiftdata
     import pulumi_aws.redshiftserverless as __redshiftserverless
     redshiftserverless = __redshiftserverless
+    import pulumi_aws.rekognition as __rekognition
+    rekognition = __rekognition
     import pulumi_aws.resourceexplorer as __resourceexplorer
     resourceexplorer = __resourceexplorer
     import pulumi_aws.resourcegroups as __resourcegroups
@@ -347,6 +361,8 @@ if typing.TYPE_CHECKING:
     secretsmanager = __secretsmanager
     import pulumi_aws.securityhub as __securityhub
     securityhub = __securityhub
+    import pulumi_aws.securitylake as __securitylake
+    securitylake = __securitylake
     import pulumi_aws.serverlessrepository as __serverlessrepository
     serverlessrepository = __serverlessrepository
     import pulumi_aws.servicecatalog as __servicecatalog
@@ -393,6 +409,8 @@ if typing.TYPE_CHECKING:
     transfer = __transfer
     import pulumi_aws.verifiedaccess as __verifiedaccess
     verifiedaccess = __verifiedaccess
+    import pulumi_aws.verifiedpermissions as __verifiedpermissions
+    verifiedpermissions = __verifiedpermissions
     import pulumi_aws.vpc as __vpc
     vpc = __vpc
     import pulumi_aws.vpclattice as __vpclattice
@@ -434,6 +452,7 @@ else:
     autoscalingplans = _utilities.lazy_import('pulumi_aws.autoscalingplans')
     backup = _utilities.lazy_import('pulumi_aws.backup')
     batch = _utilities.lazy_import('pulumi_aws.batch')
+    bedrock = _utilities.lazy_import('pulumi_aws.bedrock')
     bedrockfoundation = _utilities.lazy_import('pulumi_aws.bedrockfoundation')
     bedrockmodel = _utilities.lazy_import('pulumi_aws.bedrockmodel')
     budgets = _utilities.lazy_import('pulumi_aws.budgets')
@@ -454,6 +473,7 @@ else:
     codecatalyst = _utilities.lazy_import('pulumi_aws.codecatalyst')
     codecommit = _utilities.lazy_import('pulumi_aws.codecommit')
     codedeploy = _utilities.lazy_import('pulumi_aws.codedeploy')
+    codeguruprofiler = _utilities.lazy_import('pulumi_aws.codeguruprofiler')
     codegurureviewer = _utilities.lazy_import('pulumi_aws.codegurureviewer')
     codepipeline = _utilities.lazy_import('pulumi_aws.codepipeline')
     codestarconnections = _utilities.lazy_import('pulumi_aws.codestarconnections')
@@ -465,12 +485,14 @@ else:
     controltower = _utilities.lazy_import('pulumi_aws.controltower')
     costexplorer = _utilities.lazy_import('pulumi_aws.costexplorer')
     cur = _utilities.lazy_import('pulumi_aws.cur')
+    customerprofiles = _utilities.lazy_import('pulumi_aws.customerprofiles')
     dataexchange = _utilities.lazy_import('pulumi_aws.dataexchange')
     datapipeline = _utilities.lazy_import('pulumi_aws.datapipeline')
     datasync = _utilities.lazy_import('pulumi_aws.datasync')
     dax = _utilities.lazy_import('pulumi_aws.dax')
     detective = _utilities.lazy_import('pulumi_aws.detective')
     devicefarm = _utilities.lazy_import('pulumi_aws.devicefarm')
+    devopsguru = _utilities.lazy_import('pulumi_aws.devopsguru')
     directconnect = _utilities.lazy_import('pulumi_aws.directconnect')
     directoryservice = _utilities.lazy_import('pulumi_aws.directoryservice')
     dlm = _utilities.lazy_import('pulumi_aws.dlm')
@@ -541,11 +563,13 @@ else:
     networkmanager = _utilities.lazy_import('pulumi_aws.networkmanager')
     oam = _utilities.lazy_import('pulumi_aws.oam')
     opensearch = _utilities.lazy_import('pulumi_aws.opensearch')
+    opensearchingest = _utilities.lazy_import('pulumi_aws.opensearchingest')
     opsworks = _utilities.lazy_import('pulumi_aws.opsworks')
     organizations = _utilities.lazy_import('pulumi_aws.organizations')
     outposts = _utilities.lazy_import('pulumi_aws.outposts')
     pinpoint = _utilities.lazy_import('pulumi_aws.pinpoint')
     pipes = _utilities.lazy_import('pulumi_aws.pipes')
+    polly = _utilities.lazy_import('pulumi_aws.polly')
     pricing = _utilities.lazy_import('pulumi_aws.pricing')
     qldb = _utilities.lazy_import('pulumi_aws.qldb')
     quicksight = _utilities.lazy_import('pulumi_aws.quicksight')
@@ -555,6 +579,7 @@ else:
     redshift = _utilities.lazy_import('pulumi_aws.redshift')
     redshiftdata = _utilities.lazy_import('pulumi_aws.redshiftdata')
     redshiftserverless = _utilities.lazy_import('pulumi_aws.redshiftserverless')
+    rekognition = _utilities.lazy_import('pulumi_aws.rekognition')
     resourceexplorer = _utilities.lazy_import('pulumi_aws.resourceexplorer')
     resourcegroups = _utilities.lazy_import('pulumi_aws.resourcegroups')
     resourcegroupstaggingapi = _utilities.lazy_import('pulumi_aws.resourcegroupstaggingapi')
@@ -572,6 +597,7 @@ else:
     schemas = _utilities.lazy_import('pulumi_aws.schemas')
     secretsmanager = _utilities.lazy_import('pulumi_aws.secretsmanager')
     securityhub = _utilities.lazy_import('pulumi_aws.securityhub')
+    securitylake = _utilities.lazy_import('pulumi_aws.securitylake')
     serverlessrepository = _utilities.lazy_import('pulumi_aws.serverlessrepository')
     servicecatalog = _utilities.lazy_import('pulumi_aws.servicecatalog')
     servicediscovery = _utilities.lazy_import('pulumi_aws.servicediscovery')
@@ -595,6 +621,7 @@ else:
     transcribe = _utilities.lazy_import('pulumi_aws.transcribe')
     transfer = _utilities.lazy_import('pulumi_aws.transfer')
     verifiedaccess = _utilities.lazy_import('pulumi_aws.verifiedaccess')
+    verifiedpermissions = _utilities.lazy_import('pulumi_aws.verifiedpermissions')
     vpc = _utilities.lazy_import('pulumi_aws.vpc')
     vpclattice = _utilities.lazy_import('pulumi_aws.vpclattice')
     waf = _utilities.lazy_import('pulumi_aws.waf')
@@ -637,6 +664,14 @@ _utilities.register(
   "fqn": "pulumi_aws.account",
   "classes": {
    "aws:account/primaryContact:PrimaryContact": "PrimaryContact"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "account/region",
+  "fqn": "pulumi_aws.account",
+  "classes": {
+   "aws:account/region:Region": "Region"
   }
  },
  {
@@ -757,6 +792,14 @@ _utilities.register(
   "fqn": "pulumi_aws.amp",
   "classes": {
    "aws:amp/ruleGroupNamespace:RuleGroupNamespace": "RuleGroupNamespace"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "amp/scraper",
+  "fqn": "pulumi_aws.amp",
+  "classes": {
+   "aws:amp/scraper:Scraper": "Scraper"
   }
  },
  {
@@ -1305,6 +1348,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "apprunner/defaultAutoScalingConfigurationVersion",
+  "fqn": "pulumi_aws.apprunner",
+  "classes": {
+   "aws:apprunner/defaultAutoScalingConfigurationVersion:DefaultAutoScalingConfigurationVersion": "DefaultAutoScalingConfigurationVersion"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "apprunner/deployment",
+  "fqn": "pulumi_aws.apprunner",
+  "classes": {
+   "aws:apprunner/deployment:Deployment": "Deployment"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "apprunner/observabilityConfiguration",
   "fqn": "pulumi_aws.apprunner",
   "classes": {
@@ -1753,6 +1812,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "bedrock/customModel",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/customModel:CustomModel": "CustomModel"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrock/provisionedModelThroughput",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput": "ProvisionedModelThroughput"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "bedrockmodel/invocationLoggingConfiguration",
   "fqn": "pulumi_aws.bedrockmodel",
   "classes": {
@@ -1861,6 +1936,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cfg",
   "classes": {
    "aws:cfg/remediationConfiguration:RemediationConfiguration": "RemediationConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cfg/retentionConfiguration",
+  "fqn": "pulumi_aws.cfg",
+  "classes": {
+   "aws:cfg/retentionConfiguration:RetentionConfiguration": "RetentionConfiguration"
   }
  },
  {
@@ -2093,6 +2176,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cloudfront",
   "classes": {
    "aws:cloudfront/keyGroup:KeyGroup": "KeyGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudfront/keyValueStore",
+  "fqn": "pulumi_aws.cloudfront",
+  "classes": {
+   "aws:cloudfront/keyValueStore:KeyValueStore": "KeyValueStore"
   }
  },
  {
@@ -2537,6 +2628,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "codeguruprofiler/profilingGroup",
+  "fqn": "pulumi_aws.codeguruprofiler",
+  "classes": {
+   "aws:codeguruprofiler/profilingGroup:ProfilingGroup": "ProfilingGroup"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "codegurureviewer/repositoryAssociation",
   "fqn": "pulumi_aws.codegurureviewer",
   "classes": {
@@ -2857,6 +2956,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "controltower/landingZone",
+  "fqn": "pulumi_aws.controltower",
+  "classes": {
+   "aws:controltower/landingZone:LandingZone": "LandingZone"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "costexplorer/anomalyMonitor",
   "fqn": "pulumi_aws.costexplorer",
   "classes": {
@@ -2893,6 +3000,22 @@ _utilities.register(
   "fqn": "pulumi_aws.cur",
   "classes": {
    "aws:cur/reportDefinition:ReportDefinition": "ReportDefinition"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "customerprofiles/domain",
+  "fqn": "pulumi_aws.customerprofiles",
+  "classes": {
+   "aws:customerprofiles/domain:Domain": "Domain"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "customerprofiles/profile",
+  "fqn": "pulumi_aws.customerprofiles",
+  "classes": {
+   "aws:customerprofiles/profile:Profile": "Profile"
   }
  },
  {
@@ -3141,6 +3264,22 @@ _utilities.register(
   "fqn": "pulumi_aws.devicefarm",
   "classes": {
    "aws:devicefarm/upload:Upload": "Upload"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "devopsguru/eventSourcesConfig",
+  "fqn": "pulumi_aws.devopsguru",
+  "classes": {
+   "aws:devopsguru/eventSourcesConfig:EventSourcesConfig": "EventSourcesConfig"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "devopsguru/resourceCollection",
+  "fqn": "pulumi_aws.devopsguru",
+  "classes": {
+   "aws:devopsguru/resourceCollection:ResourceCollection": "ResourceCollection"
   }
  },
  {
@@ -3465,6 +3604,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "docdb/elasticCluster",
+  "fqn": "pulumi_aws.docdb",
+  "classes": {
+   "aws:docdb/elasticCluster:ElasticCluster": "ElasticCluster"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "docdb/eventSubscription",
   "fqn": "pulumi_aws.docdb",
   "classes": {
@@ -3521,6 +3668,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "dynamodb/tableExport",
+  "fqn": "pulumi_aws.dynamodb",
+  "classes": {
+   "aws:dynamodb/tableExport:TableExport": "TableExport"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "dynamodb/tableItem",
   "fqn": "pulumi_aws.dynamodb",
   "classes": {
@@ -3557,6 +3712,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ebs",
   "classes": {
    "aws:ebs/encryptionByDefault:EncryptionByDefault": "EncryptionByDefault"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ebs/fastSnapshotRestore",
+  "fqn": "pulumi_aws.ebs",
+  "classes": {
+   "aws:ebs/fastSnapshotRestore:FastSnapshotRestore": "FastSnapshotRestore"
   }
  },
  {
@@ -4713,6 +4876,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "eks/accessEntry",
+  "fqn": "pulumi_aws.eks",
+  "classes": {
+   "aws:eks/accessEntry:AccessEntry": "AccessEntry"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "eks/accessPolicyAssociation",
+  "fqn": "pulumi_aws.eks",
+  "classes": {
+   "aws:eks/accessPolicyAssociation:AccessPolicyAssociation": "AccessPolicyAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "eks/addon",
   "fqn": "pulumi_aws.eks",
   "classes": {
@@ -4753,6 +4932,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "eks/podIdentityAssociation",
+  "fqn": "pulumi_aws.eks",
+  "classes": {
+   "aws:eks/podIdentityAssociation:PodIdentityAssociation": "PodIdentityAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "elasticache/cluster",
   "fqn": "pulumi_aws.elasticache",
   "classes": {
@@ -4781,6 +4968,14 @@ _utilities.register(
   "fqn": "pulumi_aws.elasticache",
   "classes": {
    "aws:elasticache/replicationGroup:ReplicationGroup": "ReplicationGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "elasticache/serverlessCache",
+  "fqn": "pulumi_aws.elasticache",
+  "classes": {
+   "aws:elasticache/serverlessCache:ServerlessCache": "ServerlessCache"
   }
  },
  {
@@ -5097,6 +5292,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "finspace/kxDataview",
+  "fqn": "pulumi_aws.finspace",
+  "classes": {
+   "aws:finspace/kxDataview:KxDataview": "KxDataview"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "finspace/kxEnvironment",
   "fqn": "pulumi_aws.finspace",
   "classes": {
@@ -5105,10 +5308,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "finspace/kxScalingGroup",
+  "fqn": "pulumi_aws.finspace",
+  "classes": {
+   "aws:finspace/kxScalingGroup:KxScalingGroup": "KxScalingGroup"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "finspace/kxUser",
   "fqn": "pulumi_aws.finspace",
   "classes": {
    "aws:finspace/kxUser:KxUser": "KxUser"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "finspace/kxVolume",
+  "fqn": "pulumi_aws.finspace",
+  "classes": {
+   "aws:finspace/kxVolume:KxVolume": "KxVolume"
   }
  },
  {
@@ -5929,6 +6148,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "imagebuilder/workflow",
+  "fqn": "pulumi_aws.imagebuilder",
+  "classes": {
+   "aws:imagebuilder/workflow:Workflow": "Workflow"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "inspector/assessmentTarget",
   "fqn": "pulumi_aws.inspector",
   "classes": {
@@ -6257,6 +6484,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "kinesis/resourcePolicy",
+  "fqn": "pulumi_aws.kinesis",
+  "classes": {
+   "aws:kinesis/resourcePolicy:ResourcePolicy": "ResourcePolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "kinesis/stream",
   "fqn": "pulumi_aws.kinesis",
   "classes": {
@@ -6365,6 +6600,14 @@ _utilities.register(
   "fqn": "pulumi_aws.kms",
   "classes": {
    "aws:kms/replicaKey:ReplicaKey": "ReplicaKey"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lakeformation/dataCellsFilter",
+  "fqn": "pulumi_aws.lakeformation",
+  "classes": {
+   "aws:lakeformation/dataCellsFilter:DataCellsFilter": "DataCellsFilter"
   }
  },
  {
@@ -6545,6 +6788,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lb/trustStore",
+  "fqn": "pulumi_aws.lb",
+  "classes": {
+   "aws:lb/trustStore:TrustStore": "TrustStore"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lb/trustStoreRevocation",
+  "fqn": "pulumi_aws.lb",
+  "classes": {
+   "aws:lb/trustStoreRevocation:TrustStoreRevocation": "TrustStoreRevocation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lex/bot",
   "fqn": "pulumi_aws.lex",
   "classes": {
@@ -6589,6 +6848,38 @@ _utilities.register(
   "fqn": "pulumi_aws.lex",
   "classes": {
    "aws:lex/v2modelsBotLocale:V2modelsBotLocale": "V2modelsBotLocale"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lex/v2modelsBotVersion",
+  "fqn": "pulumi_aws.lex",
+  "classes": {
+   "aws:lex/v2modelsBotVersion:V2modelsBotVersion": "V2modelsBotVersion"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lex/v2modelsIntent",
+  "fqn": "pulumi_aws.lex",
+  "classes": {
+   "aws:lex/v2modelsIntent:V2modelsIntent": "V2modelsIntent"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lex/v2modelsSlot",
+  "fqn": "pulumi_aws.lex",
+  "classes": {
+   "aws:lex/v2modelsSlot:V2modelsSlot": "V2modelsSlot"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lex/v2modelsSlotType",
+  "fqn": "pulumi_aws.lex",
+  "classes": {
+   "aws:lex/v2modelsSlotType:V2modelsSlotType": "V2modelsSlotType"
   }
  },
  {
@@ -7537,6 +7828,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "opensearchingest/pipeline",
+  "fqn": "pulumi_aws.opensearchingest",
+  "classes": {
+   "aws:opensearchingest/pipeline:Pipeline": "Pipeline"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "opsworks/application",
   "fqn": "pulumi_aws.opsworks",
   "classes": {
@@ -8257,6 +8556,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "redshift/dataShareAuthorization",
+  "fqn": "pulumi_aws.redshift",
+  "classes": {
+   "aws:redshift/dataShareAuthorization:DataShareAuthorization": "DataShareAuthorization"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "redshift/dataShareConsumerAssociation",
+  "fqn": "pulumi_aws.redshift",
+  "classes": {
+   "aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation": "DataShareConsumerAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "redshift/endpointAccess",
   "fqn": "pulumi_aws.redshift",
   "classes": {
@@ -8421,6 +8736,22 @@ _utilities.register(
   "fqn": "pulumi_aws.redshiftserverless",
   "classes": {
    "aws:redshiftserverless/workgroup:Workgroup": "Workgroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "rekognition/collection",
+  "fqn": "pulumi_aws.rekognition",
+  "classes": {
+   "aws:rekognition/collection:Collection": "Collection"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "rekognition/project",
+  "fqn": "pulumi_aws.rekognition",
+  "classes": {
+   "aws:rekognition/project:Project": "Project"
   }
  },
  {
@@ -8669,6 +9000,14 @@ _utilities.register(
   "fqn": "pulumi_aws.route53",
   "classes": {
    "aws:route53/zoneAssociation:ZoneAssociation": "ZoneAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "route53domains/delegationSignerRecord",
+  "fqn": "pulumi_aws.route53domains",
+  "classes": {
+   "aws:route53domains/delegationSignerRecord:DelegationSignerRecord": "DelegationSignerRecord"
   }
  },
  {
@@ -8953,6 +9292,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "s3/directoryBucket",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/directoryBucket:DirectoryBucket": "DirectoryBucket"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "s3/inventory",
   "fqn": "pulumi_aws.s3",
   "classes": {
@@ -8965,6 +9312,38 @@ _utilities.register(
   "fqn": "pulumi_aws.s3",
   "classes": {
    "aws:s3/objectCopy:ObjectCopy": "ObjectCopy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3control/accessGrant",
+  "fqn": "pulumi_aws.s3control",
+  "classes": {
+   "aws:s3control/accessGrant:AccessGrant": "AccessGrant"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3control/accessGrantsInstance",
+  "fqn": "pulumi_aws.s3control",
+  "classes": {
+   "aws:s3control/accessGrantsInstance:AccessGrantsInstance": "AccessGrantsInstance"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3control/accessGrantsInstanceResourcePolicy",
+  "fqn": "pulumi_aws.s3control",
+  "classes": {
+   "aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy": "AccessGrantsInstanceResourcePolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3control/accessGrantsLocation",
+  "fqn": "pulumi_aws.s3control",
+  "classes": {
+   "aws:s3control/accessGrantsLocation:AccessGrantsLocation": "AccessGrantsLocation"
   }
  },
  {
@@ -9369,6 +9748,30 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "securityhub/automationRule",
+  "fqn": "pulumi_aws.securityhub",
+  "classes": {
+   "aws:securityhub/automationRule:AutomationRule": "AutomationRule"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "securityhub/configurationPolicy",
+  "fqn": "pulumi_aws.securityhub",
+  "classes": {
+   "aws:securityhub/configurationPolicy:ConfigurationPolicy": "ConfigurationPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "securityhub/configurationPolicyAssociation",
+  "fqn": "pulumi_aws.securityhub",
+  "classes": {
+   "aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation": "ConfigurationPolicyAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "securityhub/findingAggregator",
   "fqn": "pulumi_aws.securityhub",
   "classes": {
@@ -9437,6 +9840,46 @@ _utilities.register(
   "fqn": "pulumi_aws.securityhub",
   "classes": {
    "aws:securityhub/standardsSubscription:StandardsSubscription": "StandardsSubscription"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "securitylake/awsLogSource",
+  "fqn": "pulumi_aws.securitylake",
+  "classes": {
+   "aws:securitylake/awsLogSource:AwsLogSource": "AwsLogSource"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "securitylake/customLogSource",
+  "fqn": "pulumi_aws.securitylake",
+  "classes": {
+   "aws:securitylake/customLogSource:CustomLogSource": "CustomLogSource"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "securitylake/dataLake",
+  "fqn": "pulumi_aws.securitylake",
+  "classes": {
+   "aws:securitylake/dataLake:DataLake": "DataLake"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "securitylake/subscriber",
+  "fqn": "pulumi_aws.securitylake",
+  "classes": {
+   "aws:securitylake/subscriber:Subscriber": "Subscriber"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "securitylake/subscriberNotification",
+  "fqn": "pulumi_aws.securitylake",
+  "classes": {
+   "aws:securitylake/subscriberNotification:SubscriberNotification": "SubscriberNotification"
   }
  },
  {
@@ -9801,6 +10244,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "sesv2/emailIdentityPolicy",
+  "fqn": "pulumi_aws.sesv2",
+  "classes": {
+   "aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy": "EmailIdentityPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "sfn/activity",
   "fqn": "pulumi_aws.sfn",
   "classes": {
@@ -9845,6 +10296,14 @@ _utilities.register(
   "fqn": "pulumi_aws.shield",
   "classes": {
    "aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation": "DrtAccessRoleArnAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "shield/proactiveEngagement",
+  "fqn": "pulumi_aws.shield",
+  "classes": {
+   "aws:shield/proactiveEngagement:ProactiveEngagement": "ProactiveEngagement"
   }
  },
  {
@@ -10001,6 +10460,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ssm/contactsRotation",
+  "fqn": "pulumi_aws.ssm",
+  "classes": {
+   "aws:ssm/contactsRotation:ContactsRotation": "ContactsRotation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ssm/defaultPatchBaseline",
   "fqn": "pulumi_aws.ssm",
   "classes": {
@@ -10129,6 +10596,38 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ssoadmin/application",
+  "fqn": "pulumi_aws.ssoadmin",
+  "classes": {
+   "aws:ssoadmin/application:Application": "Application"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ssoadmin/applicationAccessScope",
+  "fqn": "pulumi_aws.ssoadmin",
+  "classes": {
+   "aws:ssoadmin/applicationAccessScope:ApplicationAccessScope": "ApplicationAccessScope"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ssoadmin/applicationAssignment",
+  "fqn": "pulumi_aws.ssoadmin",
+  "classes": {
+   "aws:ssoadmin/applicationAssignment:ApplicationAssignment": "ApplicationAssignment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ssoadmin/applicationAssignmentConfiguration",
+  "fqn": "pulumi_aws.ssoadmin",
+  "classes": {
+   "aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration": "ApplicationAssignmentConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ssoadmin/customerManagedPolicyAttachment",
   "fqn": "pulumi_aws.ssoadmin",
   "classes": {
@@ -10173,6 +10672,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ssoadmin",
   "classes": {
    "aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment": "PermissionsBoundaryAttachment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ssoadmin/trustedTokenIssuer",
+  "fqn": "pulumi_aws.ssoadmin",
+  "classes": {
+   "aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer": "TrustedTokenIssuer"
   }
  },
  {
@@ -10461,6 +10968,30 @@ _utilities.register(
   "fqn": "pulumi_aws.verifiedaccess",
   "classes": {
    "aws:verifiedaccess/trustProvider:TrustProvider": "TrustProvider"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "verifiedpermissions/policyStore",
+  "fqn": "pulumi_aws.verifiedpermissions",
+  "classes": {
+   "aws:verifiedpermissions/policyStore:PolicyStore": "PolicyStore"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "verifiedpermissions/policyTemplate",
+  "fqn": "pulumi_aws.verifiedpermissions",
+  "classes": {
+   "aws:verifiedpermissions/policyTemplate:PolicyTemplate": "PolicyTemplate"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "verifiedpermissions/schema",
+  "fqn": "pulumi_aws.verifiedpermissions",
+  "classes": {
+   "aws:verifiedpermissions/schema:Schema": "Schema"
   }
  },
  {

@@ -629,21 +629,24 @@ class Integration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        my_demo_resource = aws.apigateway.Resource("myDemoResource",
+        my_demo_api = aws.apigateway.RestApi("MyDemoAPI",
+            name="MyDemoAPI",
+            description="This is my API for demonstration purposes")
+        my_demo_resource = aws.apigateway.Resource("MyDemoResource",
             rest_api=my_demo_api.id,
             parent_id=my_demo_api.root_resource_id,
             path_part="mydemoresource")
-        my_demo_method = aws.apigateway.Method("myDemoMethod",
+        my_demo_method = aws.apigateway.Method("MyDemoMethod",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method="GET",
             authorization="NONE")
-        my_demo_integration = aws.apigateway.Integration("myDemoIntegration",
+        my_demo_integration = aws.apigateway.Integration("MyDemoIntegration",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method=my_demo_method.http_method,
@@ -661,17 +664,21 @@ class Integration(pulumi.CustomResource):
         \"\"\",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Lambda integration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         config = pulumi.Config()
         myregion = config.require_object("myregion")
         account_id = config.require_object("accountId")
         # API Gateway
-        api = aws.apigateway.RestApi("api")
+        api = aws.apigateway.RestApi("api", name="myapi")
         resource = aws.apigateway.Resource("resource",
             path_part="resource",
             parent_id=api.root_resource_id,
@@ -681,6 +688,7 @@ class Integration(pulumi.CustomResource):
             resource_id=resource.id,
             http_method="GET",
             authorization="NONE")
+        # IAM
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -689,12 +697,16 @@ class Integration(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
+        role = aws.iam.Role("role",
+            name="myrole",
+            assume_role_policy=assume_role.json)
         lambda_ = aws.lambda_.Function("lambda",
             code=pulumi.FileArchive("lambda.zip"),
+            name="mylambda",
             role=role.arn,
             handler="lambda.lambda_handler",
-            runtime="python3.7")
+            runtime=aws.lambda_.Runtime.PYTHON3D7,
+            source_code_hash=std.filebase64sha256(input="lambda.zip").result)
         integration = aws.apigateway.Integration("integration",
             rest_api=api.id,
             resource_id=resource.id,
@@ -703,19 +715,75 @@ class Integration(pulumi.CustomResource):
             type="AWS_PROXY",
             uri=lambda_.invoke_arn)
         # Lambda
-        apigw_lambda = aws.lambda_.Permission("apigwLambda",
+        apigw_lambda = aws.lambda_.Permission("apigw_lambda",
+            statement_id="AllowExecutionFromAPIGateway",
             action="lambda:InvokeFunction",
             function=lambda_.name,
             principal="apigateway.amazonaws.com",
             source_arn=pulumi.Output.all(api.id, method.http_method, resource.path).apply(lambda id, http_method, path: f"arn:aws:execute-api:{myregion}:{account_id}:{id}/*/{http_method}{path}"))
         ```
+        <!--End PulumiCodeChooser -->
+
+        ## VPC Link
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        config = pulumi.Config()
+        name = config.require_object("name")
+        subnet_id = config.require_object("subnetId")
+        test = aws.lb.LoadBalancer("test",
+            name=name,
+            internal=True,
+            load_balancer_type="network",
+            subnets=[subnet_id])
+        test_vpc_link = aws.apigateway.VpcLink("test",
+            name=name,
+            target_arn=test.arn)
+        test_rest_api = aws.apigateway.RestApi("test", name=name)
+        test_resource = aws.apigateway.Resource("test",
+            rest_api=test_rest_api.id,
+            parent_id=test_rest_api.root_resource_id,
+            path_part="test")
+        test_method = aws.apigateway.Method("test",
+            rest_api=test_rest_api.id,
+            resource_id=test_resource.id,
+            http_method="GET",
+            authorization="NONE",
+            request_models={
+                "application/json": "Error",
+            })
+        test_integration = aws.apigateway.Integration("test",
+            rest_api=test_rest_api.id,
+            resource_id=test_resource.id,
+            http_method=test_method.http_method,
+            request_templates={
+                "application/json": "",
+                "application/xml": \"\"\"#set($inputRoot = $input.path('$'))
+        { }\"\"\",
+            },
+            request_parameters={
+                "integration.request.header.X-Authorization": "'static'",
+                "integration.request.header.X-Foo": "'Bar'",
+            },
+            type="HTTP",
+            uri="https://www.google.de",
+            integration_http_method="GET",
+            passthrough_behavior="WHEN_NO_MATCH",
+            content_handling="CONVERT_TO_TEXT",
+            connection_type="VPC_LINK",
+            connection_id=test_vpc_link.id)
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_integration` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/integration:Integration example 12345abcde/67890fghij/GET
+        $ pulumi import aws:apigateway/integration:Integration example 12345abcde/67890fghij/GET
         ```
 
         :param str resource_name: The name of the resource.
@@ -757,21 +825,24 @@ class Integration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        my_demo_resource = aws.apigateway.Resource("myDemoResource",
+        my_demo_api = aws.apigateway.RestApi("MyDemoAPI",
+            name="MyDemoAPI",
+            description="This is my API for demonstration purposes")
+        my_demo_resource = aws.apigateway.Resource("MyDemoResource",
             rest_api=my_demo_api.id,
             parent_id=my_demo_api.root_resource_id,
             path_part="mydemoresource")
-        my_demo_method = aws.apigateway.Method("myDemoMethod",
+        my_demo_method = aws.apigateway.Method("MyDemoMethod",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method="GET",
             authorization="NONE")
-        my_demo_integration = aws.apigateway.Integration("myDemoIntegration",
+        my_demo_integration = aws.apigateway.Integration("MyDemoIntegration",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method=my_demo_method.http_method,
@@ -789,17 +860,21 @@ class Integration(pulumi.CustomResource):
         \"\"\",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Lambda integration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         config = pulumi.Config()
         myregion = config.require_object("myregion")
         account_id = config.require_object("accountId")
         # API Gateway
-        api = aws.apigateway.RestApi("api")
+        api = aws.apigateway.RestApi("api", name="myapi")
         resource = aws.apigateway.Resource("resource",
             path_part="resource",
             parent_id=api.root_resource_id,
@@ -809,6 +884,7 @@ class Integration(pulumi.CustomResource):
             resource_id=resource.id,
             http_method="GET",
             authorization="NONE")
+        # IAM
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -817,12 +893,16 @@ class Integration(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
+        role = aws.iam.Role("role",
+            name="myrole",
+            assume_role_policy=assume_role.json)
         lambda_ = aws.lambda_.Function("lambda",
             code=pulumi.FileArchive("lambda.zip"),
+            name="mylambda",
             role=role.arn,
             handler="lambda.lambda_handler",
-            runtime="python3.7")
+            runtime=aws.lambda_.Runtime.PYTHON3D7,
+            source_code_hash=std.filebase64sha256(input="lambda.zip").result)
         integration = aws.apigateway.Integration("integration",
             rest_api=api.id,
             resource_id=resource.id,
@@ -831,19 +911,75 @@ class Integration(pulumi.CustomResource):
             type="AWS_PROXY",
             uri=lambda_.invoke_arn)
         # Lambda
-        apigw_lambda = aws.lambda_.Permission("apigwLambda",
+        apigw_lambda = aws.lambda_.Permission("apigw_lambda",
+            statement_id="AllowExecutionFromAPIGateway",
             action="lambda:InvokeFunction",
             function=lambda_.name,
             principal="apigateway.amazonaws.com",
             source_arn=pulumi.Output.all(api.id, method.http_method, resource.path).apply(lambda id, http_method, path: f"arn:aws:execute-api:{myregion}:{account_id}:{id}/*/{http_method}{path}"))
         ```
+        <!--End PulumiCodeChooser -->
+
+        ## VPC Link
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        config = pulumi.Config()
+        name = config.require_object("name")
+        subnet_id = config.require_object("subnetId")
+        test = aws.lb.LoadBalancer("test",
+            name=name,
+            internal=True,
+            load_balancer_type="network",
+            subnets=[subnet_id])
+        test_vpc_link = aws.apigateway.VpcLink("test",
+            name=name,
+            target_arn=test.arn)
+        test_rest_api = aws.apigateway.RestApi("test", name=name)
+        test_resource = aws.apigateway.Resource("test",
+            rest_api=test_rest_api.id,
+            parent_id=test_rest_api.root_resource_id,
+            path_part="test")
+        test_method = aws.apigateway.Method("test",
+            rest_api=test_rest_api.id,
+            resource_id=test_resource.id,
+            http_method="GET",
+            authorization="NONE",
+            request_models={
+                "application/json": "Error",
+            })
+        test_integration = aws.apigateway.Integration("test",
+            rest_api=test_rest_api.id,
+            resource_id=test_resource.id,
+            http_method=test_method.http_method,
+            request_templates={
+                "application/json": "",
+                "application/xml": \"\"\"#set($inputRoot = $input.path('$'))
+        { }\"\"\",
+            },
+            request_parameters={
+                "integration.request.header.X-Authorization": "'static'",
+                "integration.request.header.X-Foo": "'Bar'",
+            },
+            type="HTTP",
+            uri="https://www.google.de",
+            integration_http_method="GET",
+            passthrough_behavior="WHEN_NO_MATCH",
+            content_handling="CONVERT_TO_TEXT",
+            connection_type="VPC_LINK",
+            connection_id=test_vpc_link.id)
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_integration` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/integration:Integration example 12345abcde/67890fghij/GET
+        $ pulumi import aws:apigateway/integration:Integration example 12345abcde/67890fghij/GET
         ```
 
         :param str resource_name: The name of the resource.

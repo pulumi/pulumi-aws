@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -57,19 +58,25 @@ public final class ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy {
 
         @CustomType.Setter
         public Builder override(Boolean override) {
-            this.override = Objects.requireNonNull(override);
+            if (override == null) {
+              throw new MissingRequiredPropertyException("ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy", "override");
+            }
+            this.override = override;
             return this;
         }
         @CustomType.Setter
         public Builder referrerPolicy(String referrerPolicy) {
-            this.referrerPolicy = Objects.requireNonNull(referrerPolicy);
+            if (referrerPolicy == null) {
+              throw new MissingRequiredPropertyException("ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy", "referrerPolicy");
+            }
+            this.referrerPolicy = referrerPolicy;
             return this;
         }
         public ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy build() {
-            final var o = new ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy();
-            o.override = override;
-            o.referrerPolicy = referrerPolicy;
-            return o;
+            final var _resultValue = new ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy();
+            _resultValue.override = override;
+            _resultValue.referrerPolicy = referrerPolicy;
+            return _resultValue;
         }
     }
 }

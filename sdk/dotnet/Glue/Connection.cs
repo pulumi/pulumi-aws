@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Glue
     /// Provides a Glue Connection resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Non-VPC Connection
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,14 +33,18 @@ namespace Pulumi.Aws.Glue
     ///             { "PASSWORD", "examplepassword" },
     ///             { "USERNAME", "exampleusername" },
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### VPC Connection
     /// 
     /// For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,30 +57,32 @@ namespace Pulumi.Aws.Glue
     ///     {
     ///         ConnectionProperties = 
     ///         {
-    ///             { "JDBC_CONNECTION_URL", $"jdbc:mysql://{aws_rds_cluster.Example.Endpoint}/exampledatabase" },
+    ///             { "JDBC_CONNECTION_URL", $"jdbc:mysql://{exampleAwsRdsCluster.Endpoint}/exampledatabase" },
     ///             { "PASSWORD", "examplepassword" },
     ///             { "USERNAME", "exampleusername" },
     ///         },
+    ///         Name = "example",
     ///         PhysicalConnectionRequirements = new Aws.Glue.Inputs.ConnectionPhysicalConnectionRequirementsArgs
     ///         {
-    ///             AvailabilityZone = aws_subnet.Example.Availability_zone,
+    ///             AvailabilityZone = exampleAwsSubnet.AvailabilityZone,
     ///             SecurityGroupIdLists = new[]
     ///             {
-    ///                 aws_security_group.Example.Id,
+    ///                 exampleAwsSecurityGroup.Id,
     ///             },
-    ///             SubnetId = aws_subnet.Example.Id,
+    ///             SubnetId = exampleAwsSubnet.Id,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Connections using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection
+    /// $ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/connection:Connection")]
@@ -99,7 +107,7 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableDictionary<string, string>?> ConnectionProperties { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
+        /// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
         /// </summary>
         [Output("connectionType")]
         public Output<string?> ConnectionType { get; private set; } = null!;
@@ -166,7 +174,6 @@ namespace Pulumi.Aws.Glue
                 AdditionalSecretOutputs =
                 {
                     "connectionProperties",
-                    "tagsAll",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -214,7 +221,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
+        /// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
         /// </summary>
         [Input("connectionType")]
         public Input<string>? ConnectionType { get; set; }
@@ -298,7 +305,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
+        /// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
         /// </summary>
         [Input("connectionType")]
         public Input<string>? ConnectionType { get; set; }
@@ -355,11 +362,7 @@ namespace Pulumi.Aws.Glue
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ConnectionState()

@@ -17,26 +17,21 @@ namespace Pulumi.Aws.ApiGateway
     /// ## Example Usage
     /// 
     /// ### End-to-end
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
-    /// using System.Security.Cryptography;
-    /// using System.Text;
     /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	private static string ComputeSHA1(string input) {
-    /// 		return BitConverter.ToString(
-    /// 			SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input))
-    /// 		).Replace("-","").ToLowerInvariant());
-    /// 	}
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new()
+    ///     var example = new Aws.ApiGateway.RestApi("example", new()
     ///     {
     ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -63,27 +58,31 @@ namespace Pulumi.Aws.ApiGateway
     ///                 },
     ///             },
     ///         }),
+    ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("example", new()
     ///     {
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         Triggers = 
     ///         {
-    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///             { "redeployment", Std.Sha1.Invoke(new()
+    ///             {
+    ///                 Input = Output.JsonSerialize(Output.Create(example.Body)),
+    ///             }).Apply(invoke =&gt; invoke.Result) },
     ///         },
     ///     });
     /// 
-    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     var exampleStage = new Aws.ApiGateway.Stage("example", new()
     ///     {
     ///         Deployment = exampleDeployment.Id,
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         StageName = "example",
     ///     });
     /// 
     ///     var all = new Aws.ApiGateway.MethodSettings("all", new()
     ///     {
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         StageName = exampleStage.StageName,
     ///         MethodPath = "*/*",
     ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
@@ -93,9 +92,9 @@ namespace Pulumi.Aws.ApiGateway
     ///         },
     ///     });
     /// 
-    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("pathSpecific", new()
+    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("path_specific", new()
     ///     {
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         StageName = exampleStage.StageName,
     ///         MethodPath = "path1/GET",
     ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
@@ -107,11 +106,15 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### CloudWatch Logging and Tracing
     /// 
     /// The AWS Console API Gateway Editor displays multiple options for CloudWatch Logs that don't directly map to the options in the AWS API and Pulumi. These examples show the `settings` blocks that are equivalent to the options the AWS Console gives for CloudWatch Logs.
+    /// 
     /// ### Off
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -120,10 +123,10 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("pathSpecific", new()
+    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("path_specific", new()
     ///     {
-    ///         RestApi = aws_api_gateway_rest_api.Example.Id,
-    ///         StageName = aws_api_gateway_stage.Example.Stage_name,
+    ///         RestApi = example.Id,
+    ///         StageName = exampleAwsApiGatewayStage.StageName,
     ///         MethodPath = "path1/GET",
     ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
     ///         {
@@ -133,8 +136,11 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Errors Only
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -143,10 +149,10 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("pathSpecific", new()
+    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("path_specific", new()
     ///     {
-    ///         RestApi = aws_api_gateway_rest_api.Example.Id,
-    ///         StageName = aws_api_gateway_stage.Example.Stage_name,
+    ///         RestApi = example.Id,
+    ///         StageName = exampleAwsApiGatewayStage.StageName,
     ///         MethodPath = "path1/GET",
     ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
     ///         {
@@ -158,8 +164,11 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Errors and Info Logs
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -168,10 +177,10 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("pathSpecific", new()
+    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("path_specific", new()
     ///     {
-    ///         RestApi = aws_api_gateway_rest_api.Example.Id,
-    ///         StageName = aws_api_gateway_stage.Example.Stage_name,
+    ///         RestApi = example.Id,
+    ///         StageName = exampleAwsApiGatewayStage.StageName,
     ///         MethodPath = "path1/GET",
     ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
     ///         {
@@ -183,8 +192,11 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Full Request and Response Logs
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -193,10 +205,10 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("pathSpecific", new()
+    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("path_specific", new()
     ///     {
-    ///         RestApi = aws_api_gateway_rest_api.Example.Id,
-    ///         StageName = aws_api_gateway_stage.Example.Stage_name,
+    ///         RestApi = example.Id,
+    ///         StageName = exampleAwsApiGatewayStage.StageName,
     ///         MethodPath = "path1/GET",
     ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
     ///         {
@@ -208,13 +220,14 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_api_gateway_method_settings` using `REST-API-ID/STAGE-NAME/METHOD-PATH`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
+    /// $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/methodSettings:MethodSettings")]

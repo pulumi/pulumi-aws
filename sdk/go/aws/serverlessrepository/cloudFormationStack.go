@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,23 +32,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentPartition, err := aws.GetPartition(ctx, nil, nil)
+//			current, err := aws.GetPartition(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			currentGetRegion, err := aws.GetRegion(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = serverlessrepository.NewCloudFormationStack(ctx, "postgres-rotator", &serverlessrepository.CloudFormationStackArgs{
+//				Name:          pulumi.String("postgres-rotator"),
 //				ApplicationId: pulumi.String("arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser"),
 //				Capabilities: pulumi.StringArray{
 //					pulumi.String("CAPABILITY_IAM"),
 //					pulumi.String("CAPABILITY_RESOURCE_POLICY"),
 //				},
 //				Parameters: pulumi.StringMap{
-//					"endpoint":     pulumi.String(fmt.Sprintf("secretsmanager.%v.%v", currentRegion.Name, currentPartition.DnsSuffix)),
 //					"functionName": pulumi.String("func-postgres-rotator"),
+//					"endpoint":     pulumi.String(fmt.Sprintf("secretsmanager.%v.%v", currentGetRegion.Name, current.DnsSuffix)),
 //				},
 //			})
 //			if err != nil {
@@ -58,15 +60,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Serverless Application Repository Stack using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
-//
+// $ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
 // ```
 type CloudFormationStack struct {
 	pulumi.CustomResourceState
@@ -104,10 +105,6 @@ func NewCloudFormationStack(ctx *pulumi.Context,
 	if args.Capabilities == nil {
 		return nil, errors.New("invalid value for required argument 'Capabilities'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CloudFormationStack
 	err := ctx.RegisterResource("aws:serverlessrepository/cloudFormationStack:CloudFormationStack", name, args, &resource, opts...)

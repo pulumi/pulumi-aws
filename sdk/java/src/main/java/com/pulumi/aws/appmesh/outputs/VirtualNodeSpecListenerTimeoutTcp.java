@@ -44,13 +44,14 @@ public final class VirtualNodeSpecListenerTimeoutTcp {
 
         @CustomType.Setter
         public Builder idle(@Nullable VirtualNodeSpecListenerTimeoutTcpIdle idle) {
+
             this.idle = idle;
             return this;
         }
         public VirtualNodeSpecListenerTimeoutTcp build() {
-            final var o = new VirtualNodeSpecListenerTimeoutTcp();
-            o.idle = idle;
-            return o;
+            final var _resultValue = new VirtualNodeSpecListenerTimeoutTcp();
+            _resultValue.idle = idle;
+            return _resultValue;
         }
     }
 }

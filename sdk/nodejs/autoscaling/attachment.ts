@@ -11,27 +11,31 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * // Create a new load balancer attachment
  * const example = new aws.autoscaling.Attachment("example", {
- *     autoscalingGroupName: aws_autoscaling_group.example.id,
- *     elb: aws_elb.example.id,
+ *     autoscalingGroupName: exampleAwsAutoscalingGroup.id,
+ *     elb: exampleAwsElb.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * // Create a new ALB Target Group attachment
  * const example = new aws.autoscaling.Attachment("example", {
- *     autoscalingGroupName: aws_autoscaling_group.example.id,
- *     lbTargetGroupArn: aws_lb_target_group.example.arn,
+ *     autoscalingGroupName: exampleAwsAutoscalingGroup.id,
+ *     lbTargetGroupArn: exampleAwsLbTargetGroup.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class Attachment extends pulumi.CustomResource {
     /**

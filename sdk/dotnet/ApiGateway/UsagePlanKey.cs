@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,22 +23,29 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.ApiGateway.RestApi("test");
+    ///     var test = new Aws.ApiGateway.RestApi("test", new()
+    ///     {
+    ///         Name = "MyDemoAPI",
+    ///     });
     /// 
     ///     // ...
     ///     var myusageplan = new Aws.ApiGateway.UsagePlan("myusageplan", new()
     ///     {
+    ///         Name = "my_usage_plan",
     ///         ApiStages = new[]
     ///         {
     ///             new Aws.ApiGateway.Inputs.UsagePlanApiStageArgs
     ///             {
     ///                 ApiId = test.Id,
-    ///                 Stage = aws_api_gateway_stage.Foo.Stage_name,
+    ///                 Stage = foo.StageName,
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var mykey = new Aws.ApiGateway.ApiKey("mykey");
+    ///     var mykey = new Aws.ApiGateway.ApiKey("mykey", new()
+    ///     {
+    ///         Name = "my_key",
+    ///     });
     /// 
     ///     var main = new Aws.ApiGateway.UsagePlanKey("main", new()
     ///     {
@@ -48,13 +56,14 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS API Gateway Usage Plan Key using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
+    /// $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/usagePlanKey:UsagePlanKey")]

@@ -58,19 +58,21 @@ public final class NodeGroupUpdateConfig {
 
         @CustomType.Setter
         public Builder maxUnavailable(@Nullable Integer maxUnavailable) {
+
             this.maxUnavailable = maxUnavailable;
             return this;
         }
         @CustomType.Setter
         public Builder maxUnavailablePercentage(@Nullable Integer maxUnavailablePercentage) {
+
             this.maxUnavailablePercentage = maxUnavailablePercentage;
             return this;
         }
         public NodeGroupUpdateConfig build() {
-            final var o = new NodeGroupUpdateConfig();
-            o.maxUnavailable = maxUnavailable;
-            o.maxUnavailablePercentage = maxUnavailablePercentage;
-            return o;
+            final var _resultValue = new NodeGroupUpdateConfig();
+            _resultValue.maxUnavailable = maxUnavailable;
+            _resultValue.maxUnavailablePercentage = maxUnavailablePercentage;
+            return _resultValue;
         }
     }
 }

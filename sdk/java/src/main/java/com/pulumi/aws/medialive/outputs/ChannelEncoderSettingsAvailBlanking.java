@@ -59,19 +59,21 @@ public final class ChannelEncoderSettingsAvailBlanking {
 
         @CustomType.Setter
         public Builder availBlankingImage(@Nullable ChannelEncoderSettingsAvailBlankingAvailBlankingImage availBlankingImage) {
+
             this.availBlankingImage = availBlankingImage;
             return this;
         }
         @CustomType.Setter
         public Builder state(@Nullable String state) {
+
             this.state = state;
             return this;
         }
         public ChannelEncoderSettingsAvailBlanking build() {
-            final var o = new ChannelEncoderSettingsAvailBlanking();
-            o.availBlankingImage = availBlankingImage;
-            o.state = state;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsAvailBlanking();
+            _resultValue.availBlankingImage = availBlankingImage;
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

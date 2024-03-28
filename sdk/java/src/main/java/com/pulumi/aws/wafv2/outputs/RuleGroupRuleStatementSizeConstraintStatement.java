@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.outputs;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatch;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSizeConstraintStatementTextTransformation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -94,34 +95,44 @@ public final class RuleGroupRuleStatementSizeConstraintStatement {
 
         @CustomType.Setter
         public Builder comparisonOperator(String comparisonOperator) {
-            this.comparisonOperator = Objects.requireNonNull(comparisonOperator);
+            if (comparisonOperator == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleStatementSizeConstraintStatement", "comparisonOperator");
+            }
+            this.comparisonOperator = comparisonOperator;
             return this;
         }
         @CustomType.Setter
         public Builder fieldToMatch(@Nullable RuleGroupRuleStatementSizeConstraintStatementFieldToMatch fieldToMatch) {
+
             this.fieldToMatch = fieldToMatch;
             return this;
         }
         @CustomType.Setter
         public Builder size(Integer size) {
-            this.size = Objects.requireNonNull(size);
+            if (size == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleStatementSizeConstraintStatement", "size");
+            }
+            this.size = size;
             return this;
         }
         @CustomType.Setter
         public Builder textTransformations(List<RuleGroupRuleStatementSizeConstraintStatementTextTransformation> textTransformations) {
-            this.textTransformations = Objects.requireNonNull(textTransformations);
+            if (textTransformations == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleStatementSizeConstraintStatement", "textTransformations");
+            }
+            this.textTransformations = textTransformations;
             return this;
         }
         public Builder textTransformations(RuleGroupRuleStatementSizeConstraintStatementTextTransformation... textTransformations) {
             return textTransformations(List.of(textTransformations));
         }
         public RuleGroupRuleStatementSizeConstraintStatement build() {
-            final var o = new RuleGroupRuleStatementSizeConstraintStatement();
-            o.comparisonOperator = comparisonOperator;
-            o.fieldToMatch = fieldToMatch;
-            o.size = size;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSizeConstraintStatement();
+            _resultValue.comparisonOperator = comparisonOperator;
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.size = size;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

@@ -14,12 +14,93 @@ namespace Pulumi.Aws.Msk
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Msk.Replicator("test", new()
+    ///     {
+    ///         ReplicatorName = "test-name",
+    ///         Description = "test-description",
+    ///         ServiceExecutionRoleArn = sourceAwsIamRole.Arn,
+    ///         KafkaClusters = new[]
+    ///         {
+    ///             new Aws.Msk.Inputs.ReplicatorKafkaClusterArgs
+    ///             {
+    ///                 AmazonMskCluster = new Aws.Msk.Inputs.ReplicatorKafkaClusterAmazonMskClusterArgs
+    ///                 {
+    ///                     MskClusterArn = source.Arn,
+    ///                 },
+    ///                 VpcConfig = new Aws.Msk.Inputs.ReplicatorKafkaClusterVpcConfigArgs
+    ///                 {
+    ///                     SubnetIds = sourceAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
+    ///                     SecurityGroupsIds = new[]
+    ///                     {
+    ///                         sourceAwsSecurityGroup.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Aws.Msk.Inputs.ReplicatorKafkaClusterArgs
+    ///             {
+    ///                 AmazonMskCluster = new Aws.Msk.Inputs.ReplicatorKafkaClusterAmazonMskClusterArgs
+    ///                 {
+    ///                     MskClusterArn = target.Arn,
+    ///                 },
+    ///                 VpcConfig = new Aws.Msk.Inputs.ReplicatorKafkaClusterVpcConfigArgs
+    ///                 {
+    ///                     SubnetIds = targetAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
+    ///                     SecurityGroupsIds = new[]
+    ///                     {
+    ///                         targetAwsSecurityGroup.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ReplicationInfoList = new Aws.Msk.Inputs.ReplicatorReplicationInfoListArgs
+    ///         {
+    ///             SourceKafkaClusterArn = source.Arn,
+    ///             TargetKafkaClusterArn = target.Arn,
+    ///             TargetCompressionType = "NONE",
+    ///             TopicReplications = new[]
+    ///             {
+    ///                 new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationArgs
+    ///                 {
+    ///                     TopicsToReplicates = new[]
+    ///                     {
+    ///                         ".*",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ConsumerGroupReplications = new[]
+    ///             {
+    ///                 new Aws.Msk.Inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs
+    ///                 {
+    ///                     ConsumerGroupsToReplicates = new[]
+    ///                     {
+    ///                         ".*",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MSK replicators using the replicator ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:msk/replicator:Replicator example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+    /// $ pulumi import aws:msk/replicator:Replicator example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
     /// ```
     /// </summary>
     [AwsResourceType("aws:msk/replicator:Replicator")]
@@ -93,10 +174,6 @@ namespace Pulumi.Aws.Msk
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -231,11 +308,7 @@ namespace Pulumi.Aws.Msk
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ReplicatorState()

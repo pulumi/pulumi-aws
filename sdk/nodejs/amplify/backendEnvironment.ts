@@ -9,25 +9,27 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleApp = new aws.amplify.App("exampleApp", {});
- * const exampleBackendEnvironment = new aws.amplify.BackendEnvironment("exampleBackendEnvironment", {
- *     appId: exampleApp.id,
+ * const example = new aws.amplify.App("example", {name: "example"});
+ * const exampleBackendEnvironment = new aws.amplify.BackendEnvironment("example", {
+ *     appId: example.id,
  *     environmentName: "example",
  *     deploymentArtifacts: "app-example-deployment",
  *     stackName: "amplify-app-example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Amplify backend environment using `app_id` and `environment_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example
+ * $ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example
  * ```
  */
 export class BackendEnvironment extends pulumi.CustomResource {

@@ -16,6 +16,7 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,10 +29,10 @@ namespace Pulumi.Aws.DataSync
     ///     {
     ///         AgentArns = new[]
     ///         {
-    ///             aws_datasync_agent.Example.Arn,
+    ///             exampleAwsDatasyncAgent.Arn,
     ///         },
     ///         AuthenticationType = "SAS",
-    ///         ContainerUrl = "https://example.com/path",
+    ///         ContainerUrl = "https://myaccount.blob.core.windows.net/mycontainer",
     ///         SasConfiguration = new Aws.DataSync.Inputs.LocationAzureBlobSasConfigurationArgs
     ///         {
     ///             Token = "sp=r&amp;st=2023-12-20T14:54:52Z&amp;se=2023-12-20T22:54:52Z&amp;spr=https&amp;sv=2021-06-08&amp;sr=c&amp;sig=aBBKDWQvyuVcTPH9EBp%2FXTI9E%2F%2Fmq171%2BZU178wcwqU%3D",
@@ -40,13 +41,14 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_datasync_location_azure_blob` using the Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:datasync/locationAzureBlob:LocationAzureBlob example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+    /// $ pulumi import aws:datasync/locationAzureBlob:LocationAzureBlob example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
     /// ```
     /// </summary>
     [AwsResourceType("aws:datasync/locationAzureBlob:LocationAzureBlob")]
@@ -138,10 +140,6 @@ namespace Pulumi.Aws.DataSync
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -309,11 +307,7 @@ namespace Pulumi.Aws.DataSync
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("uri")]

@@ -5,6 +5,7 @@ package com.pulumi.aws.servicecatalog.outputs;
 
 import com.pulumi.aws.servicecatalog.outputs.GetLaunchPathsSummaryConstraintSummary;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -87,7 +88,10 @@ public final class GetLaunchPathsSummary {
 
         @CustomType.Setter
         public Builder constraintSummaries(List<GetLaunchPathsSummaryConstraintSummary> constraintSummaries) {
-            this.constraintSummaries = Objects.requireNonNull(constraintSummaries);
+            if (constraintSummaries == null) {
+              throw new MissingRequiredPropertyException("GetLaunchPathsSummary", "constraintSummaries");
+            }
+            this.constraintSummaries = constraintSummaries;
             return this;
         }
         public Builder constraintSummaries(GetLaunchPathsSummaryConstraintSummary... constraintSummaries) {
@@ -95,26 +99,35 @@ public final class GetLaunchPathsSummary {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetLaunchPathsSummary", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder pathId(String pathId) {
-            this.pathId = Objects.requireNonNull(pathId);
+            if (pathId == null) {
+              throw new MissingRequiredPropertyException("GetLaunchPathsSummary", "pathId");
+            }
+            this.pathId = pathId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetLaunchPathsSummary", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetLaunchPathsSummary build() {
-            final var o = new GetLaunchPathsSummary();
-            o.constraintSummaries = constraintSummaries;
-            o.name = name;
-            o.pathId = pathId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetLaunchPathsSummary();
+            _resultValue.constraintSummaries = constraintSummaries;
+            _resultValue.name = name;
+            _resultValue.pathId = pathId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

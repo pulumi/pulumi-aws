@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS VPC Lattice Listener.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupListener(ctx *pulumi.Context, args *LookupListenerArgs, opts ...pulumi.InvokeOption) (*LookupListenerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupListenerResult

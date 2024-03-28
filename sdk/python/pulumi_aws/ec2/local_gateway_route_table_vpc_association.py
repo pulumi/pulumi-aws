@@ -177,23 +177,25 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_local_gateway_route_table = aws.ec2.get_local_gateway_route_table(outpost_arn="arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef")
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
-        example_local_gateway_route_table_vpc_association = aws.ec2.LocalGatewayRouteTableVpcAssociation("exampleLocalGatewayRouteTableVpcAssociation",
-            local_gateway_route_table_id=example_local_gateway_route_table.id,
+        example = aws.ec2.get_local_gateway_route_table(outpost_arn="arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef")
+        example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
+        example_local_gateway_route_table_vpc_association = aws.ec2.LocalGatewayRouteTableVpcAssociation("example",
+            local_gateway_route_table_id=example.id,
             vpc_id=example_vpc.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_local_gateway_route_table_vpc_association` using the Local Gateway Route Table VPC Association identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation example lgw-vpc-assoc-1234567890abcdef
+        $ pulumi import aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation example lgw-vpc-assoc-1234567890abcdef
         ```
 
         :param str resource_name: The name of the resource.
@@ -215,23 +217,25 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_local_gateway_route_table = aws.ec2.get_local_gateway_route_table(outpost_arn="arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef")
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
-        example_local_gateway_route_table_vpc_association = aws.ec2.LocalGatewayRouteTableVpcAssociation("exampleLocalGatewayRouteTableVpcAssociation",
-            local_gateway_route_table_id=example_local_gateway_route_table.id,
+        example = aws.ec2.get_local_gateway_route_table(outpost_arn="arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef")
+        example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
+        example_local_gateway_route_table_vpc_association = aws.ec2.LocalGatewayRouteTableVpcAssociation("example",
+            local_gateway_route_table_id=example.id,
             vpc_id=example_vpc.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_local_gateway_route_table_vpc_association` using the Local Gateway Route Table VPC Association identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation example lgw-vpc-assoc-1234567890abcdef
+        $ pulumi import aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation example lgw-vpc-assoc-1234567890abcdef
         ```
 
         :param str resource_name: The name of the resource.
@@ -270,8 +274,6 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["local_gateway_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LocalGatewayRouteTableVpcAssociation, __self__).__init__(
             'aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation',
             resource_name,

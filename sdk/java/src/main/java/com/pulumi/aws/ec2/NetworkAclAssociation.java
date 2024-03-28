@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,12 +45,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var main = new NetworkAclAssociation(&#34;main&#34;, NetworkAclAssociationArgs.builder()        
- *             .networkAclId(aws_network_acl.main().id())
- *             .subnetId(aws_subnet.main().id())
+ *             .networkAclId(mainAwsNetworkAcl.id())
+ *             .subnetId(mainAwsSubnet.id())
  *             .build());
  * 
  *     }
  * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Import
+ * 
+ * Using `pulumi import`, import Network ACL associations using the `id`. For example:
+ * 
+ * ```sh
+ * $ pulumi import aws:ec2/networkAclAssociation:NetworkAclAssociation main aclassoc-02baf37f20966b3e6
  * ```
  * 
  */

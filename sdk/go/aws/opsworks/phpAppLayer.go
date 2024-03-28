@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsworks.NewPhpAppLayer(ctx, "app", &opsworks.PhpAppLayerArgs{
-//				StackId: pulumi.Any(aws_opsworks_stack.Main.Id),
+//				StackId: pulumi.Any(main.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import OpsWorks PHP Application Layers using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:opsworks/phpAppLayer:PhpAppLayer bar 00000000-0000-0000-0000-000000000000
-//
+// $ pulumi import aws:opsworks/phpAppLayer:PhpAppLayer bar 00000000-0000-0000-0000-000000000000
 // ```
 type PhpAppLayer struct {
 	pulumi.CustomResourceState
@@ -113,10 +113,6 @@ func NewPhpAppLayer(ctx *pulumi.Context,
 	if args.StackId == nil {
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PhpAppLayer
 	err := ctx.RegisterResource("aws:opsworks/phpAppLayer:PhpAppLayer", name, args, &resource, opts...)

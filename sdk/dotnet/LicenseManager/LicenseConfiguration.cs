@@ -16,6 +16,7 @@ namespace Pulumi.Aws.LicenseManager
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,6 +27,7 @@ namespace Pulumi.Aws.LicenseManager
     /// {
     ///     var example = new Aws.LicenseManager.LicenseConfiguration("example", new()
     ///     {
+    ///         Name = "Example",
     ///         Description = "Example",
     ///         LicenseCount = 10,
     ///         LicenseCountHardLimit = true,
@@ -42,6 +44,8 @@ namespace Pulumi.Aws.LicenseManager
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Rules
     /// 
     /// License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:
@@ -59,7 +63,7 @@ namespace Pulumi.Aws.LicenseManager
     /// Using `pulumi import`, import license configurations using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+    /// $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
     /// ```
     /// </summary>
     [AwsResourceType("aws:licensemanager/licenseConfiguration:LicenseConfiguration")]
@@ -148,10 +152,6 @@ namespace Pulumi.Aws.LicenseManager
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -313,11 +313,7 @@ namespace Pulumi.Aws.LicenseManager
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public LicenseConfigurationState()

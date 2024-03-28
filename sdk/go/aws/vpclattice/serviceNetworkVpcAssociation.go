@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS VPC Lattice Service Network VPC Association.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,10 +32,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.NewServiceNetworkVpcAssociation(ctx, "example", &vpclattice.ServiceNetworkVpcAssociationArgs{
-//				VpcIdentifier:            pulumi.Any(aws_vpc.Example.Id),
-//				ServiceNetworkIdentifier: pulumi.Any(aws_vpclattice_service_network.Example.Id),
+//				VpcIdentifier:            pulumi.Any(exampleAwsVpc.Id),
+//				ServiceNetworkIdentifier: pulumi.Any(exampleAwsVpclatticeServiceNetwork.Id),
 //				SecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Example.Id,
+//					exampleAwsSecurityGroup.Id,
 //				},
 //			})
 //			if err != nil {
@@ -44,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import VPC Lattice Service Network VPC Association using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation example snsa-05e2474658a88f6ba
-//
+// $ pulumi import aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation example snsa-05e2474658a88f6ba
 // ```
 type ServiceNetworkVpcAssociation struct {
 	pulumi.CustomResourceState
@@ -91,10 +92,6 @@ func NewServiceNetworkVpcAssociation(ctx *pulumi.Context,
 	if args.VpcIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'VpcIdentifier'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceNetworkVpcAssociation
 	err := ctx.RegisterResource("aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation", name, args, &resource, opts...)

@@ -72,25 +72,28 @@ public final class SiteLocation {
 
         @CustomType.Setter
         public Builder address(@Nullable String address) {
+
             this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder latitude(@Nullable String latitude) {
+
             this.latitude = latitude;
             return this;
         }
         @CustomType.Setter
         public Builder longitude(@Nullable String longitude) {
+
             this.longitude = longitude;
             return this;
         }
         public SiteLocation build() {
-            final var o = new SiteLocation();
-            o.address = address;
-            o.latitude = latitude;
-            o.longitude = longitude;
-            return o;
+            final var _resultValue = new SiteLocation();
+            _resultValue.address = address;
+            _resultValue.latitude = latitude;
+            _resultValue.longitude = longitude;
+            return _resultValue;
         }
     }
 }

@@ -63,31 +63,35 @@ public final class ClusterNode {
 
         @CustomType.Setter
         public Builder address(@Nullable String address) {
+
             this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder availabilityZone(@Nullable String availabilityZone) {
+
             this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         public ClusterNode build() {
-            final var o = new ClusterNode();
-            o.address = address;
-            o.availabilityZone = availabilityZone;
-            o.id = id;
-            o.port = port;
-            return o;
+            final var _resultValue = new ClusterNode();
+            _resultValue.address = address;
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.id = id;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

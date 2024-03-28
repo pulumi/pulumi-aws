@@ -315,18 +315,20 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.User("example",
-            email="author@example.com",
-            iam_arn="arn:aws:iam::123456789012:user/Example",
-            identity_type="IAM",
-            namespace="foo",
             session_name="an-author",
+            email="author@example.com",
+            namespace="foo",
+            identity_type="IAM",
+            iam_arn="arn:aws:iam::123456789012:user/Example",
             user_role="AUTHOR")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -354,18 +356,20 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.User("example",
-            email="author@example.com",
-            iam_arn="arn:aws:iam::123456789012:user/Example",
-            identity_type="IAM",
-            namespace="foo",
             session_name="an-author",
+            email="author@example.com",
+            namespace="foo",
+            identity_type="IAM",
+            iam_arn="arn:aws:iam::123456789012:user/Example",
             user_role="AUTHOR")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

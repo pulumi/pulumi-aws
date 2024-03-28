@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3control.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -48,25 +49,30 @@ public final class MultiRegionAccessPointDetailsRegion {
 
         @CustomType.Setter
         public Builder bucket(String bucket) {
-            this.bucket = Objects.requireNonNull(bucket);
+            if (bucket == null) {
+              throw new MissingRequiredPropertyException("MultiRegionAccessPointDetailsRegion", "bucket");
+            }
+            this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
         public Builder bucketAccountId(@Nullable String bucketAccountId) {
+
             this.bucketAccountId = bucketAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder region(@Nullable String region) {
+
             this.region = region;
             return this;
         }
         public MultiRegionAccessPointDetailsRegion build() {
-            final var o = new MultiRegionAccessPointDetailsRegion();
-            o.bucket = bucket;
-            o.bucketAccountId = bucketAccountId;
-            o.region = region;
-            return o;
+            final var _resultValue = new MultiRegionAccessPointDetailsRegion();
+            _resultValue.bucket = bucket;
+            _resultValue.bucketAccountId = bucketAccountId;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

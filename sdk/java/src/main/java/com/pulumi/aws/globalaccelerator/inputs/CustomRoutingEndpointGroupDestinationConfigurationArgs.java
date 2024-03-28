@@ -5,6 +5,7 @@ package com.pulumi.aws.globalaccelerator.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -160,9 +161,15 @@ public final class CustomRoutingEndpointGroupDestinationConfigurationArgs extend
         }
 
         public CustomRoutingEndpointGroupDestinationConfigurationArgs build() {
-            $.fromPort = Objects.requireNonNull($.fromPort, "expected parameter 'fromPort' to be non-null");
-            $.protocols = Objects.requireNonNull($.protocols, "expected parameter 'protocols' to be non-null");
-            $.toPort = Objects.requireNonNull($.toPort, "expected parameter 'toPort' to be non-null");
+            if ($.fromPort == null) {
+                throw new MissingRequiredPropertyException("CustomRoutingEndpointGroupDestinationConfigurationArgs", "fromPort");
+            }
+            if ($.protocols == null) {
+                throw new MissingRequiredPropertyException("CustomRoutingEndpointGroupDestinationConfigurationArgs", "protocols");
+            }
+            if ($.toPort == null) {
+                throw new MissingRequiredPropertyException("CustomRoutingEndpointGroupDestinationConfigurationArgs", "toPort");
+            }
             return $;
         }
     }

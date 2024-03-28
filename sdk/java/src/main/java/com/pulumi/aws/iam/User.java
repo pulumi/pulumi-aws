@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,6 +22,8 @@ import javax.annotation.Nullable;
  * &gt; *NOTE:* If policies are attached to the user via the `aws.iam.PolicyAttachment` resource and you are modifying the user `name` or `path`, the `force_destroy` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `aws.iam.UserPolicyAttachment` resource (recommended) does not have this requirement.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,16 +51,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lbUser = new User(&#34;lbUser&#34;, UserArgs.builder()        
+ *         var lb = new User(&#34;lb&#34;, UserArgs.builder()        
+ *             .name(&#34;loadbalancer&#34;)
  *             .path(&#34;/system/&#34;)
  *             .tags(Map.of(&#34;tag-key&#34;, &#34;tag-value&#34;))
  *             .build());
  * 
  *         var lbAccessKey = new AccessKey(&#34;lbAccessKey&#34;, AccessKeyArgs.builder()        
- *             .user(lbUser.name())
+ *             .user(lb.name())
  *             .build());
  * 
- *         final var lbRoPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var lbRo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(&#34;ec2:Describe*&#34;)
@@ -68,20 +70,22 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var lbRoUserPolicy = new UserPolicy(&#34;lbRoUserPolicy&#34;, UserPolicyArgs.builder()        
- *             .user(lbUser.name())
- *             .policy(lbRoPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .name(&#34;test&#34;)
+ *             .user(lb.name())
+ *             .policy(lbRo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IAM Users using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iam/user:User lb loadbalancer
+ * $ pulumi import aws:iam/user:User lb loadbalancer
  * ```
  * 
  */
@@ -240,9 +244,6 @@ public class User extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

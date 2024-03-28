@@ -60,6 +60,7 @@ public final class ContainerRecipeInstanceConfiguration {
 
         @CustomType.Setter
         public Builder blockDeviceMappings(@Nullable List<ContainerRecipeInstanceConfigurationBlockDeviceMapping> blockDeviceMappings) {
+
             this.blockDeviceMappings = blockDeviceMappings;
             return this;
         }
@@ -68,14 +69,15 @@ public final class ContainerRecipeInstanceConfiguration {
         }
         @CustomType.Setter
         public Builder image(@Nullable String image) {
+
             this.image = image;
             return this;
         }
         public ContainerRecipeInstanceConfiguration build() {
-            final var o = new ContainerRecipeInstanceConfiguration();
-            o.blockDeviceMappings = blockDeviceMappings;
-            o.image = image;
-            return o;
+            final var _resultValue = new ContainerRecipeInstanceConfiguration();
+            _resultValue.blockDeviceMappings = blockDeviceMappings;
+            _resultValue.image = image;
+            return _resultValue;
         }
     }
 }

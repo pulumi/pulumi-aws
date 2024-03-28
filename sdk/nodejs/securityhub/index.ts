@@ -15,6 +15,21 @@ export type ActionTarget = import("./actionTarget").ActionTarget;
 export const ActionTarget: typeof import("./actionTarget").ActionTarget = null as any;
 utilities.lazyLoad(exports, ["ActionTarget"], () => require("./actionTarget"));
 
+export { AutomationRuleArgs, AutomationRuleState } from "./automationRule";
+export type AutomationRule = import("./automationRule").AutomationRule;
+export const AutomationRule: typeof import("./automationRule").AutomationRule = null as any;
+utilities.lazyLoad(exports, ["AutomationRule"], () => require("./automationRule"));
+
+export { ConfigurationPolicyArgs, ConfigurationPolicyState } from "./configurationPolicy";
+export type ConfigurationPolicy = import("./configurationPolicy").ConfigurationPolicy;
+export const ConfigurationPolicy: typeof import("./configurationPolicy").ConfigurationPolicy = null as any;
+utilities.lazyLoad(exports, ["ConfigurationPolicy"], () => require("./configurationPolicy"));
+
+export { ConfigurationPolicyAssociationArgs, ConfigurationPolicyAssociationState } from "./configurationPolicyAssociation";
+export type ConfigurationPolicyAssociation = import("./configurationPolicyAssociation").ConfigurationPolicyAssociation;
+export const ConfigurationPolicyAssociation: typeof import("./configurationPolicyAssociation").ConfigurationPolicyAssociation = null as any;
+utilities.lazyLoad(exports, ["ConfigurationPolicyAssociation"], () => require("./configurationPolicyAssociation"));
+
 export { FindingAggregatorArgs, FindingAggregatorState } from "./findingAggregator";
 export type FindingAggregator = import("./findingAggregator").FindingAggregator;
 export const FindingAggregator: typeof import("./findingAggregator").FindingAggregator = null as any;
@@ -69,6 +84,12 @@ const _module = {
                 return new Account(name, <any>undefined, { urn })
             case "aws:securityhub/actionTarget:ActionTarget":
                 return new ActionTarget(name, <any>undefined, { urn })
+            case "aws:securityhub/automationRule:AutomationRule":
+                return new AutomationRule(name, <any>undefined, { urn })
+            case "aws:securityhub/configurationPolicy:ConfigurationPolicy":
+                return new ConfigurationPolicy(name, <any>undefined, { urn })
+            case "aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation":
+                return new ConfigurationPolicyAssociation(name, <any>undefined, { urn })
             case "aws:securityhub/findingAggregator:FindingAggregator":
                 return new FindingAggregator(name, <any>undefined, { urn })
             case "aws:securityhub/insight:Insight":
@@ -94,6 +115,9 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "securityhub/account", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/actionTarget", _module)
+pulumi.runtime.registerResourceModule("aws", "securityhub/automationRule", _module)
+pulumi.runtime.registerResourceModule("aws", "securityhub/configurationPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "securityhub/configurationPolicyAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/findingAggregator", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/insight", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/inviteAccepter", _module)

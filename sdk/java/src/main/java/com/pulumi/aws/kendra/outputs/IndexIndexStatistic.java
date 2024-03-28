@@ -59,6 +59,7 @@ public final class IndexIndexStatistic {
 
         @CustomType.Setter
         public Builder faqStatistics(@Nullable List<IndexIndexStatisticFaqStatistic> faqStatistics) {
+
             this.faqStatistics = faqStatistics;
             return this;
         }
@@ -67,6 +68,7 @@ public final class IndexIndexStatistic {
         }
         @CustomType.Setter
         public Builder textDocumentStatistics(@Nullable List<IndexIndexStatisticTextDocumentStatistic> textDocumentStatistics) {
+
             this.textDocumentStatistics = textDocumentStatistics;
             return this;
         }
@@ -74,10 +76,10 @@ public final class IndexIndexStatistic {
             return textDocumentStatistics(List.of(textDocumentStatistics));
         }
         public IndexIndexStatistic build() {
-            final var o = new IndexIndexStatistic();
-            o.faqStatistics = faqStatistics;
-            o.textDocumentStatistics = textDocumentStatistics;
-            return o;
+            final var _resultValue = new IndexIndexStatistic();
+            _resultValue.faqStatistics = faqStatistics;
+            _resultValue.textDocumentStatistics = textDocumentStatistics;
+            return _resultValue;
         }
     }
 }

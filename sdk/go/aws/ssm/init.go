@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Activation{}
 	case "aws:ssm/association:Association":
 		r = &Association{}
+	case "aws:ssm/contactsRotation:ContactsRotation":
+		r = &ContactsRotation{}
 	case "aws:ssm/defaultPatchBaseline:DefaultPatchBaseline":
 		r = &DefaultPatchBaseline{}
 	case "aws:ssm/document:Document":
@@ -66,6 +68,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ssm/association",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ssm/contactsRotation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

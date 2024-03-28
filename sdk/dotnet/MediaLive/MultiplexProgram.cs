@@ -13,8 +13,10 @@ namespace Pulumi.Aws.MediaLive
     /// Resource for managing an AWS MediaLive MultiplexProgram.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,8 +30,9 @@ namespace Pulumi.Aws.MediaLive
     ///         State = "available",
     ///     });
     /// 
-    ///     var exampleMultiplex = new Aws.MediaLive.Multiplex("exampleMultiplex", new()
+    ///     var example = new Aws.MediaLive.Multiplex("example", new()
     ///     {
+    ///         Name = "example-multiplex-changed",
     ///         AvailabilityZones = new[]
     ///         {
     ///             available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
@@ -49,10 +52,10 @@ namespace Pulumi.Aws.MediaLive
     ///         },
     ///     });
     /// 
-    ///     var exampleMultiplexProgram = new Aws.MediaLive.MultiplexProgram("exampleMultiplexProgram", new()
+    ///     var exampleMultiplexProgram = new Aws.MediaLive.MultiplexProgram("example", new()
     ///     {
     ///         ProgramName = "example_program",
-    ///         MultiplexId = exampleMultiplex.Id,
+    ///         MultiplexId = example.Id,
     ///         MultiplexProgramSettings = new Aws.MediaLive.Inputs.MultiplexProgramMultiplexProgramSettingsArgs
     ///         {
     ///             ProgramNumber = 1,
@@ -66,13 +69,14 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of "`program_name`/`multiplex_id`". For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
+    /// $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
     /// ```
     /// </summary>
     [AwsResourceType("aws:medialive/multiplexProgram:MultiplexProgram")]

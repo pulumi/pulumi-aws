@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.NewLink(ctx, "example", &networkmanager.LinkArgs{
-//				GlobalNetworkId: pulumi.Any(aws_networkmanager_global_network.Example.Id),
-//				SiteId:          pulumi.Any(aws_networkmanager_site.Example.Id),
+//				GlobalNetworkId: pulumi.Any(exampleAwsNetworkmanagerGlobalNetwork.Id),
+//				SiteId:          pulumi.Any(exampleAwsNetworkmanagerSite.Id),
 //				Bandwidth: &networkmanager.LinkBandwidthArgs{
 //					UploadSpeed:   pulumi.Int(10),
 //					DownloadSpeed: pulumi.Int(50),
@@ -45,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_networkmanager_link` using the link ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:networkmanager/link:Link example arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223
-//
+// $ pulumi import aws:networkmanager/link:Link example arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223
 // ```
 type Link struct {
 	pulumi.CustomResourceState
@@ -96,10 +96,6 @@ func NewLink(ctx *pulumi.Context,
 	if args.SiteId == nil {
 		return nil, errors.New("invalid value for required argument 'SiteId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Link
 	err := ctx.RegisterResource("aws:networkmanager/link:Link", name, args, &resource, opts...)

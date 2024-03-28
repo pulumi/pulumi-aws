@@ -170,8 +170,10 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     Get information about the organization that the user's account belongs to
 
     ## Example Usage
+
     ### List all account IDs for the organization
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -179,15 +181,18 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     example = aws.organizations.get_organization()
     pulumi.export("accountIds", [__item.id for __item in example.accounts])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### SNS topic that can be interacted by the organization only
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.organizations.get_organization()
-    sns_topic = aws.sns.Topic("snsTopic")
-    sns_topic_policy_policy_document = sns_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+    sns_topic = aws.sns.Topic("sns_topic", name="my-sns-topic")
+    sns_topic_policy = sns_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
         effect="Allow",
         actions=[
             "SNS:Subscribe",
@@ -204,10 +209,11 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
         )],
         resources=[arn],
     )]))
-    sns_topic_policy_topic_policy = aws.sns.TopicPolicy("snsTopicPolicyTopicPolicy",
+    sns_topic_policy_topic_policy = aws.sns.TopicPolicy("sns_topic_policy",
         arn=sns_topic.arn,
-        policy=sns_topic_policy_policy_document.json)
+        policy=sns_topic_policy.json)
     ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -233,8 +239,10 @@ def get_organization_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulu
     Get information about the organization that the user's account belongs to
 
     ## Example Usage
+
     ### List all account IDs for the organization
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -242,15 +250,18 @@ def get_organization_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulu
     example = aws.organizations.get_organization()
     pulumi.export("accountIds", [__item.id for __item in example.accounts])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### SNS topic that can be interacted by the organization only
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.organizations.get_organization()
-    sns_topic = aws.sns.Topic("snsTopic")
-    sns_topic_policy_policy_document = sns_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+    sns_topic = aws.sns.Topic("sns_topic", name="my-sns-topic")
+    sns_topic_policy = sns_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
         effect="Allow",
         actions=[
             "SNS:Subscribe",
@@ -267,9 +278,10 @@ def get_organization_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulu
         )],
         resources=[arn],
     )]))
-    sns_topic_policy_topic_policy = aws.sns.TopicPolicy("snsTopicPolicyTopicPolicy",
+    sns_topic_policy_topic_policy = aws.sns.TopicPolicy("sns_topic_policy",
         arn=sns_topic.arn,
-        policy=sns_topic_policy_policy_document.json)
+        policy=sns_topic_policy.json)
     ```
+    <!--End PulumiCodeChooser -->
     """
     ...

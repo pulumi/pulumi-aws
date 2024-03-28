@@ -74,25 +74,28 @@ public final class GatewayRouteSpecHttpRouteActionRewrite {
 
         @CustomType.Setter
         public Builder hostname(@Nullable GatewayRouteSpecHttpRouteActionRewriteHostname hostname) {
+
             this.hostname = hostname;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable GatewayRouteSpecHttpRouteActionRewritePath path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable GatewayRouteSpecHttpRouteActionRewritePrefix prefix) {
+
             this.prefix = prefix;
             return this;
         }
         public GatewayRouteSpecHttpRouteActionRewrite build() {
-            final var o = new GatewayRouteSpecHttpRouteActionRewrite();
-            o.hostname = hostname;
-            o.path = path;
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new GatewayRouteSpecHttpRouteActionRewrite();
+            _resultValue.hostname = hostname;
+            _resultValue.path = path;
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

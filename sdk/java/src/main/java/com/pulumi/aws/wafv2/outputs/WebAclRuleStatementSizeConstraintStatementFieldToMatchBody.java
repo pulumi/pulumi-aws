@@ -44,13 +44,14 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatchBody {
 
         @CustomType.Setter
         public Builder oversizeHandling(@Nullable String oversizeHandling) {
+
             this.oversizeHandling = oversizeHandling;
             return this;
         }
         public WebAclRuleStatementSizeConstraintStatementFieldToMatchBody build() {
-            final var o = new WebAclRuleStatementSizeConstraintStatementFieldToMatchBody();
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementSizeConstraintStatementFieldToMatchBody();
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
         @CustomType.Setter
         public Builder apiKey(String apiKey) {
-            this.apiKey = Objects.requireNonNull(apiKey);
+            if (apiKey == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog", "apiKey");
+            }
+            this.apiKey = apiKey;
             return this;
         }
         @CustomType.Setter
         public Builder applicationKey(String applicationKey) {
-            this.applicationKey = Objects.requireNonNull(applicationKey);
+            if (applicationKey == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog", "applicationKey");
+            }
+            this.applicationKey = applicationKey;
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog();
-            o.apiKey = apiKey;
-            o.applicationKey = applicationKey;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog();
+            _resultValue.apiKey = apiKey;
+            _resultValue.applicationKey = applicationKey;
+            return _resultValue;
         }
     }
 }

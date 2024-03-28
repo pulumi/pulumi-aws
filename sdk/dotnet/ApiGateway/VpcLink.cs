@@ -15,12 +15,48 @@ namespace Pulumi.Aws.ApiGateway
     /// &gt; **Note:** Amazon API Gateway Version 1 VPC Links enable private integrations that connect REST APIs to private resources in a VPC.
     /// To enable private integration for HTTP APIs, use the Amazon API Gateway Version 2 VPC Link resource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.LB.LoadBalancer("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         Internal = true,
+    ///         LoadBalancerType = "network",
+    ///         SubnetMappings = new[]
+    ///         {
+    ///             new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
+    ///             {
+    ///                 SubnetId = "12345",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVpcLink = new Aws.ApiGateway.VpcLink("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         Description = "example description",
+    ///         TargetArn = example.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import API Gateway VPC Link using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
+    /// $ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/vpcLink:VpcLink")]
@@ -82,10 +118,6 @@ namespace Pulumi.Aws.ApiGateway
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -184,11 +216,7 @@ namespace Pulumi.Aws.ApiGateway
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

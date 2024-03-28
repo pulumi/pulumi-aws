@@ -12,12 +12,15 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.resourcegroups.Group("test", {resourceQuery: {
- *     query: `{
+ * const test = new aws.resourcegroups.Group("test", {
+ *     name: "test-group",
+ *     resourceQuery: {
+ *         query: `{
  *   "ResourceTypeFilters": [
  *     "AWS::EC2::Instance"
  *   ],
@@ -28,17 +31,18 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- *
  * `,
- * }});
+ *     },
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import resource groups using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
+ * $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
  * ```
  */
 export class Group extends pulumi.CustomResource {
@@ -131,8 +135,6 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Group.__pulumiType, name, resourceInputs, opts);
     }
 }

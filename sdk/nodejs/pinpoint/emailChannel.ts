@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -31,7 +32,7 @@ import * as utilities from "../utilities";
  *     roleArn: role.arn,
  * });
  * const identity = new aws.ses.DomainIdentity("identity", {domain: "example.com"});
- * const rolePolicyPolicyDocument = aws.iam.getPolicyDocument({
+ * const rolePolicy = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: [
@@ -41,18 +42,20 @@ import * as utilities from "../utilities";
  *         resources: ["*"],
  *     }],
  * });
- * const rolePolicyRolePolicy = new aws.iam.RolePolicy("rolePolicyRolePolicy", {
+ * const rolePolicyRolePolicy = new aws.iam.RolePolicy("role_policy", {
+ *     name: "role_policy",
  *     role: role.id,
- *     policy: rolePolicyPolicyDocument.then(rolePolicyPolicyDocument => rolePolicyPolicyDocument.json),
+ *     policy: rolePolicy.then(rolePolicy => rolePolicy.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Pinpoint Email Channel using the `application-id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
+ * $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
  * ```
  */
 export class EmailChannel extends pulumi.CustomResource {

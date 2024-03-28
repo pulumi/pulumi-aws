@@ -15,8 +15,10 @@ import (
 // Provides an SNS platform application resource
 //
 // ## Example Usage
+//
 // ### Apple Push Notification Service (APNS) using certificate-based authentication
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +31,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewPlatformApplication(ctx, "apnsApplication", &sns.PlatformApplicationArgs{
+//			_, err := sns.NewPlatformApplication(ctx, "apns_application", &sns.PlatformApplicationArgs{
+//				Name:               pulumi.String("apns_application"),
 //				Platform:           pulumi.String("APNS"),
 //				PlatformCredential: pulumi.String("<APNS PRIVATE KEY>"),
 //				PlatformPrincipal:  pulumi.String("<APNS CERTIFICATE>"),
@@ -42,8 +45,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Apple Push Notification Service (APNS) using token-based authentication
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,12 +62,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewPlatformApplication(ctx, "apnsApplication", &sns.PlatformApplicationArgs{
-//				ApplePlatformBundleId: pulumi.String("<APPLE BUNDLE ID>"),
-//				ApplePlatformTeamId:   pulumi.String("<APPLE TEAM ID>"),
+//			_, err := sns.NewPlatformApplication(ctx, "apns_application", &sns.PlatformApplicationArgs{
+//				Name:                  pulumi.String("apns_application"),
 //				Platform:              pulumi.String("APNS"),
 //				PlatformCredential:    pulumi.String("<APNS SIGNING KEY>"),
 //				PlatformPrincipal:     pulumi.String("<APNS SIGNING KEY ID>"),
+//				ApplePlatformTeamId:   pulumi.String("<APPLE TEAM ID>"),
+//				ApplePlatformBundleId: pulumi.String("<APPLE BUNDLE ID>"),
 //			})
 //			if err != nil {
 //				return err
@@ -71,8 +78,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Google Cloud Messaging (GCM)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -85,7 +95,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewPlatformApplication(ctx, "gcmApplication", &sns.PlatformApplicationArgs{
+//			_, err := sns.NewPlatformApplication(ctx, "gcm_application", &sns.PlatformApplicationArgs{
+//				Name:               pulumi.String("gcm_application"),
 //				Platform:           pulumi.String("GCM"),
 //				PlatformCredential: pulumi.String("<GCM API KEY>"),
 //			})
@@ -97,15 +108,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SNS platform applications using the ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
-//
+// $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
 // ```
 type PlatformApplication struct {
 	pulumi.CustomResourceState

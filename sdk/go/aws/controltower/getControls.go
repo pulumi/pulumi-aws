@@ -12,43 +12,6 @@ import (
 )
 
 // List of Control Tower controls applied to an OU.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/controltower"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			thisOrganization, err := organizations.LookupOrganization(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			thisOrganizationalUnits, err := organizations.GetOrganizationalUnits(ctx, &organizations.GetOrganizationalUnitsArgs{
-//				ParentId: thisOrganization.Roots[0].Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = controltower.GetControls(ctx, &controltower.GetControlsArgs{
-//				TargetIdentifier: "TODO: For expression"[0],
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetControls(ctx *pulumi.Context, args *GetControlsArgs, opts ...pulumi.InvokeOption) (*GetControlsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetControlsResult

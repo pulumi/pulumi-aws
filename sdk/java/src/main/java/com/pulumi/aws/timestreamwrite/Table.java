@@ -14,7 +14,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,7 +22,10 @@ import javax.annotation.Nullable;
  * Provides a Timestream table resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,14 +48,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
- *             .databaseName(aws_timestreamwrite_database.example().database_name())
+ *             .databaseName(exampleAwsTimestreamwriteDatabase.databaseName())
  *             .tableName(&#34;example&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Full usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -77,7 +83,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
- *             .databaseName(aws_timestreamwrite_database.example().database_name())
+ *             .databaseName(exampleAwsTimestreamwriteDatabase.databaseName())
  *             .tableName(&#34;example&#34;)
  *             .retentionProperties(TableRetentionPropertiesArgs.builder()
  *                 .magneticStoreRetentionPeriodInDays(30)
@@ -89,7 +95,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Customer-defined Partition Key
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -114,7 +124,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
- *             .databaseName(aws_timestreamwrite_database.example().database_name())
+ *             .databaseName(exampleAwsTimestreamwriteDatabase.databaseName())
  *             .tableName(&#34;example&#34;)
  *             .schema(TableSchemaArgs.builder()
  *                 .compositePartitionKey(TableSchemaCompositePartitionKeyArgs.builder()
@@ -128,13 +138,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Timestream tables using the `table_name` and `database_name` separate by a colon (`:`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
+ * $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
  * ```
  * 
  */
@@ -289,9 +300,6 @@ public class Table extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

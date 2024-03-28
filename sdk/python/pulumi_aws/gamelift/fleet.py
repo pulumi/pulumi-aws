@@ -599,14 +599,16 @@ class Fleet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.gamelift.Fleet("example",
-            build_id=aws_gamelift_build["example"]["id"],
+            build_id=example_aws_gamelift_build["id"],
             ec2_instance_type="t2.micro",
             fleet_type="ON_DEMAND",
+            name="example-fleet-name",
             runtime_configuration=aws.gamelift.FleetRuntimeConfigurationArgs(
                 server_processes=[aws.gamelift.FleetRuntimeConfigurationServerProcessArgs(
                     concurrent_executions=1,
@@ -614,13 +616,14 @@ class Fleet(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GameLift Fleets using the ID. For example:
 
         ```sh
-         $ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
+        $ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -651,14 +654,16 @@ class Fleet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.gamelift.Fleet("example",
-            build_id=aws_gamelift_build["example"]["id"],
+            build_id=example_aws_gamelift_build["id"],
             ec2_instance_type="t2.micro",
             fleet_type="ON_DEMAND",
+            name="example-fleet-name",
             runtime_configuration=aws.gamelift.FleetRuntimeConfigurationArgs(
                 server_processes=[aws.gamelift.FleetRuntimeConfigurationServerProcessArgs(
                     concurrent_executions=1,
@@ -666,13 +671,14 @@ class Fleet(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GameLift Fleets using the ID. For example:
 
         ```sh
-         $ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
+        $ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -735,8 +741,6 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["operating_system"] = None
             __props__.__dict__["script_arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Fleet, __self__).__init__(
             'aws:gamelift/fleet:Fleet',
             resource_name,

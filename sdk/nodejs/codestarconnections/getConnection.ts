@@ -8,26 +8,32 @@ import * as utilities from "../utilities";
  * Provides details about CodeStar Connection.
  *
  * ## Example Usage
+ *
  * ### By ARN
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.codestarconnections.getConnection({
- *     arn: aws_codestarconnections_connection.example.arn,
+ *     arn: exampleAwsCodestarconnectionsConnection.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### By Name
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.codestarconnections.getConnection({
- *     name: aws_codestarconnections_connection.example.name,
+ *     name: exampleAwsCodestarconnectionsConnection.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getConnection(args?: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
     args = args || {};
@@ -82,7 +88,7 @@ export interface GetConnectionResult {
      */
     readonly name: string;
     /**
-     * Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket` and `GitHub`. For connections to a GitHub Enterprise Server instance, you must create an aws.codestarconnections.Host resource and use `hostArn` instead.
+     * Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket`, `GitHub` and `GitLab`. For connections to GitHub Enterprise Server or GitLab Self-Managed instances, you must create an aws.codestarconnections.Host resource and use `hostArn` instead.
      */
     readonly providerType: string;
     /**
@@ -94,26 +100,32 @@ export interface GetConnectionResult {
  * Provides details about CodeStar Connection.
  *
  * ## Example Usage
+ *
  * ### By ARN
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.codestarconnections.getConnection({
- *     arn: aws_codestarconnections_connection.example.arn,
+ *     arn: exampleAwsCodestarconnectionsConnection.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### By Name
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.codestarconnections.getConnection({
- *     name: aws_codestarconnections_connection.example.name,
+ *     name: exampleAwsCodestarconnectionsConnection.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getConnectionOutput(args?: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
     return pulumi.output(args).apply((a: any) => getConnection(a, opts))

@@ -20,8 +20,10 @@ namespace Pulumi.Aws.Connect
     /// See example below which uses `jq` to extract the `Content` attribute and saves it to a local file.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,65 +36,66 @@ namespace Pulumi.Aws.Connect
     ///     var example = new Aws.Connect.ContactFlowModule("example", new()
     ///     {
     ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Name = "Example",
     ///         Description = "Example Contact Flow Module Description",
     ///         Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2019-10-30",
-    ///             ["StartAction"] = "12345678-1234-1234-1234-123456789012",
-    ///             ["Actions"] = new[]
+    ///             ["version"] = "2019-10-30",
+    ///             ["startAction"] = "12345678-1234-1234-1234-123456789012",
+    ///             ["actions"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Identifier"] = "12345678-1234-1234-1234-123456789012",
-    ///                     ["Parameters"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["identifier"] = "12345678-1234-1234-1234-123456789012",
+    ///                     ["parameters"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Text"] = "Hello contact flow module",
+    ///                         ["text"] = "Hello contact flow module",
     ///                     },
-    ///                     ["Transitions"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["transitions"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["NextAction"] = "abcdef-abcd-abcd-abcd-abcdefghijkl",
-    ///                         ["Errors"] = new[]
+    ///                         ["nextAction"] = "abcdef-abcd-abcd-abcd-abcdefghijkl",
+    ///                         ["errors"] = new[]
     ///                         {
     ///                         },
-    ///                         ["Conditions"] = new[]
+    ///                         ["conditions"] = new[]
     ///                         {
     ///                         },
     ///                     },
-    ///                     ["Type"] = "MessageParticipant",
+    ///                     ["type"] = "MessageParticipant",
     ///                 },
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Identifier"] = "abcdef-abcd-abcd-abcd-abcdefghijkl",
-    ///                     ["Type"] = "DisconnectParticipant",
-    ///                     ["Parameters"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["identifier"] = "abcdef-abcd-abcd-abcd-abcdefghijkl",
+    ///                     ["type"] = "DisconnectParticipant",
+    ///                     ["parameters"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                     },
-    ///                     ["Transitions"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["transitions"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                     },
     ///                 },
     ///             },
-    ///             ["Settings"] = new Dictionary&lt;string, object?&gt;
+    ///             ["settings"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["InputParameters"] = new[]
+    ///                 ["inputParameters"] = new[]
     ///                 {
     ///                 },
-    ///                 ["OutputParameters"] = new[]
+    ///                 ["outputParameters"] = new[]
     ///                 {
     ///                 },
-    ///                 ["Transitions"] = new[]
+    ///                 ["transitions"] = new[]
     ///                 {
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["DisplayName"] = "Success",
-    ///                         ["ReferenceName"] = "Success",
-    ///                         ["Description"] = "",
+    ///                         ["displayName"] = "Success",
+    ///                         ["referenceName"] = "Success",
+    ///                         ["description"] = "",
     ///                     },
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["DisplayName"] = "Error",
-    ///                         ["ReferenceName"] = "Error",
-    ///                         ["Description"] = "",
+    ///                         ["displayName"] = "Error",
+    ///                         ["referenceName"] = "Error",
+    ///                         ["description"] = "",
     ///                     },
     ///                 },
     ///             },
@@ -107,13 +110,52 @@ namespace Pulumi.Aws.Connect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### With External Content
+    /// 
+    /// Use the AWS CLI to extract Contact Flow Content:
+    /// 
+    /// Use the generated file as input:
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Connect.ContactFlowModule("example", new()
+    ///     {
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Name = "Example",
+    ///         Description = "Example Contact Flow Module Description",
+    ///         Filename = "contact_flow_module.json",
+    ///         ContentHash = Std.Filebase64sha256.Invoke(new()
+    ///         {
+    ///             Input = "contact_flow_module.json",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Example Contact Flow Module" },
+    ///             { "Application", "Example" },
+    ///             { "Method", "Create" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon Connect Contact Flow Modules using the `instance_id` and `contact_flow_module_id` separated by a colon (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:connect/contactFlowModule:ContactFlowModule example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+    /// $ pulumi import aws:connect/contactFlowModule:ContactFlowModule example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
     /// ```
     /// </summary>
     [AwsResourceType("aws:connect/contactFlowModule:ContactFlowModule")]
@@ -202,10 +244,6 @@ namespace Pulumi.Aws.Connect
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -355,11 +393,7 @@ namespace Pulumi.Aws.Connect
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ContactFlowModuleState()

@@ -25,8 +25,8 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
         }
 
         public StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3 build() {
-            final var o = new StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3();
-            return o;
+            final var _resultValue = new StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3();
+            return _resultValue;
         }
     }
 }

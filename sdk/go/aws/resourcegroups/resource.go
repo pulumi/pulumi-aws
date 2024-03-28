@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS Resource Groups Resource.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDedicatedHost, err := ec2.NewDedicatedHost(ctx, "exampleDedicatedHost", &ec2.DedicatedHostArgs{
+//			example, err := ec2.NewDedicatedHost(ctx, "example", &ec2.DedicatedHostArgs{
 //				InstanceFamily:   pulumi.String("t3"),
 //				AvailabilityZone: pulumi.String("us-east-1a"),
 //				HostRecovery:     pulumi.String("off"),
@@ -39,13 +41,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleGroup, err := resourcegroups.NewGroup(ctx, "exampleGroup", nil)
+//			exampleGroup, err := resourcegroups.NewGroup(ctx, "example", &resourcegroups.GroupArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = resourcegroups.NewResource(ctx, "exampleResource", &resourcegroups.ResourceArgs{
+//			_, err = resourcegroups.NewResource(ctx, "example", &resourcegroups.ResourceArgs{
 //				GroupArn:    exampleGroup.Arn,
-//				ResourceArn: exampleDedicatedHost.Arn,
+//				ResourceArn: example.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -55,6 +59,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type Resource struct {
 	pulumi.CustomResourceState
 

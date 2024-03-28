@@ -10,12 +10,41 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Iot.TopicRuleDestination("example", new()
+    ///     {
+    ///         VpcConfiguration = new Aws.Iot.Inputs.TopicRuleDestinationVpcConfigurationArgs
+    ///         {
+    ///             RoleArn = exampleAwsIamRole.Arn,
+    ///             SecurityGroups = new[]
+    ///             {
+    ///                 exampleAwsSecurityGroup.Id,
+    ///             },
+    ///             SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
+    ///             VpcId = exampleAwsVpc.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IoT topic rule destinations using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iot/topicRuleDestination:TopicRuleDestination example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
+    /// $ pulumi import aws:iot/topicRuleDestination:TopicRuleDestination example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/topicRuleDestination:TopicRuleDestination")]

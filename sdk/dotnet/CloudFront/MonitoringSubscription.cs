@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,7 +25,7 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.MonitoringSubscription("example", new()
     ///     {
-    ///         DistributionId = aws_cloudfront_distribution.Example.Id,
+    ///         DistributionId = exampleAwsCloudfrontDistribution.Id,
     ///         MonitoringSubscriptionDetails = new Aws.CloudFront.Inputs.MonitoringSubscriptionMonitoringSubscriptionArgs
     ///         {
     ///             RealtimeMetricsSubscriptionConfig = new Aws.CloudFront.Inputs.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs
@@ -36,13 +37,14 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudFront monitoring subscription using the id. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
+    /// $ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/monitoringSubscription:MonitoringSubscription")]

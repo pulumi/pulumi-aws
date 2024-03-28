@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,11 +29,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			dada, err := cloudwatch.NewLogGroup(ctx, "dada", nil)
+//			dada, err := cloudwatch.NewLogGroup(ctx, "dada", &cloudwatch.LogGroupArgs{
+//				Name: pulumi.String("MyApp/access.log"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = cloudwatch.NewLogMetricFilter(ctx, "yada", &cloudwatch.LogMetricFilterArgs{
+//				Name:         pulumi.String("MyAppAccessCount"),
 //				Pattern:      pulumi.String(""),
 //				LogGroupName: dada.Name,
 //				MetricTransformation: &cloudwatch.LogMetricFilterMetricTransformationArgs{
@@ -49,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudWatch Log Metric Filter using the `log_group_name:name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
-//
+// $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
 // ```
 type LogMetricFilter struct {
 	pulumi.CustomResourceState

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			lb, err := elb.NewLoadBalancer(ctx, "lb", &elb.LoadBalancerArgs{
+//				Name: pulumi.String("test-lb"),
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-east-1a"),
 //				},
@@ -45,6 +47,7 @@ import (
 //				return err
 //			}
 //			_, err = elb.NewAppCookieStickinessPolicy(ctx, "foo", &elb.AppCookieStickinessPolicyArgs{
+//				Name:         pulumi.String("foo_policy"),
 //				LoadBalancer: lb.Name,
 //				LbPort:       pulumi.Int(80),
 //				CookieName:   pulumi.String("MyAppCookie"),
@@ -57,15 +60,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import application cookie stickiness policies using the ELB name, port, and policy name separated by colons (`:`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy example my-elb:80:my-policy
-//
+// $ pulumi import aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy example my-elb:80:my-policy
 // ```
 type AppCookieStickinessPolicy struct {
 	pulumi.CustomResourceState

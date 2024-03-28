@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,7 +44,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			myIPSet, err := s3.NewBucketObjectv2(ctx, "myIPSet", &s3.BucketObjectv2Args{
+//			myIPSet, err := s3.NewBucketObjectv2(ctx, "MyIPSet", &s3.BucketObjectv2Args{
 //				Content: pulumi.String("10.0.0.0/8\n"),
 //				Bucket:  bucket.ID(),
 //				Key:     pulumi.String("MyIPSet"),
@@ -60,11 +61,12 @@ import (
 //					key := _args[1].(string)
 //					return fmt.Sprintf("https://s3.amazonaws.com/%v/%v", bucket, key), nil
 //				}).(pulumi.StringOutput),
+//				Name: pulumi.String("MyIPSet"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "bucketAcl", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAclV2(ctx, "bucket_acl", &s3.BucketAclV2Args{
 //				Bucket: bucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
@@ -76,15 +78,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import GuardDuty IPSet using the primary GuardDuty detector ID and IPSet ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
-//
+// $ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
 // ```
 type IPSet struct {
 	pulumi.CustomResourceState
@@ -128,10 +129,6 @@ func NewIPSet(ctx *pulumi.Context,
 	if args.Location == nil {
 		return nil, errors.New("invalid value for required argument 'Location'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IPSet
 	err := ctx.RegisterResource("aws:guardduty/iPSet:IPSet", name, args, &resource, opts...)

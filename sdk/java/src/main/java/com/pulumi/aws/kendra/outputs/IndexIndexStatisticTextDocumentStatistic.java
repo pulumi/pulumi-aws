@@ -58,19 +58,21 @@ public final class IndexIndexStatisticTextDocumentStatistic {
 
         @CustomType.Setter
         public Builder indexedTextBytes(@Nullable Integer indexedTextBytes) {
+
             this.indexedTextBytes = indexedTextBytes;
             return this;
         }
         @CustomType.Setter
         public Builder indexedTextDocumentsCount(@Nullable Integer indexedTextDocumentsCount) {
+
             this.indexedTextDocumentsCount = indexedTextDocumentsCount;
             return this;
         }
         public IndexIndexStatisticTextDocumentStatistic build() {
-            final var o = new IndexIndexStatisticTextDocumentStatistic();
-            o.indexedTextBytes = indexedTextBytes;
-            o.indexedTextDocumentsCount = indexedTextDocumentsCount;
-            return o;
+            final var _resultValue = new IndexIndexStatisticTextDocumentStatistic();
+            _resultValue.indexedTextBytes = indexedTextBytes;
+            _resultValue.indexedTextDocumentsCount = indexedTextDocumentsCount;
+            return _resultValue;
         }
     }
 }

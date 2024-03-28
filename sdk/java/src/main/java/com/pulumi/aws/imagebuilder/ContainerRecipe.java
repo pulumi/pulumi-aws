@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * Manages an Image Builder Container Recipe.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,15 +50,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ContainerRecipe(&#34;example&#34;, ContainerRecipeArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .version(&#34;1.0.0&#34;)
  *             .containerType(&#34;DOCKER&#34;)
  *             .parentImage(&#34;arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x&#34;)
  *             .targetRepository(ContainerRecipeTargetRepositoryArgs.builder()
- *                 .repositoryName(aws_ecr_repository.example().name())
+ *                 .repositoryName(exampleAwsEcrRepository.name())
  *                 .service(&#34;ECR&#34;)
  *                 .build())
  *             .components(ContainerRecipeComponentArgs.builder()
- *                 .componentArn(aws_imagebuilder_component.example().arn())
+ *                 .componentArn(exampleAwsImagebuilderComponent.arn())
  *                 .parameters(                
  *                     ContainerRecipeComponentParameterArgs.builder()
  *                         .name(&#34;Parameter1&#34;)
@@ -77,13 +80,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_imagebuilder_container_recipe` resources using the Amazon Resource Name (ARN). For example:
  * 
  * ```sh
- *  $ pulumi import aws:imagebuilder/containerRecipe:ContainerRecipe example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
+ * $ pulumi import aws:imagebuilder/containerRecipe:ContainerRecipe example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
  * ```
  * 
  */
@@ -410,9 +414,6 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

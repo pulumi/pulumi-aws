@@ -18,6 +18,7 @@ import (
 //
 // The following example below creates an HSM module in CloudHSM cluster.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,14 +32,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cluster, err := cloudhsmv2.LookupCluster(ctx, &cloudhsmv2.LookupClusterArgs{
-//				ClusterId: _var.Cloudhsm_cluster_id,
+//				ClusterId: cloudhsmClusterId,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudhsmv2.NewHsm(ctx, "cloudhsmV2Hsm", &cloudhsmv2.HsmArgs{
-//				SubnetId:  *pulumi.String(cluster.SubnetIds[0]),
-//				ClusterId: *pulumi.String(cluster.ClusterId),
+//			_, err = cloudhsmv2.NewHsm(ctx, "cloudhsm_v2_hsm", &cloudhsmv2.HsmArgs{
+//				SubnetId:  pulumi.String(cluster.SubnetIds[0]),
+//				ClusterId: pulumi.String(cluster.ClusterId),
 //			})
 //			if err != nil {
 //				return err
@@ -48,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import HSM modules using their HSM ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
-//
+// $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
 // ```
 type Hsm struct {
 	pulumi.CustomResourceState

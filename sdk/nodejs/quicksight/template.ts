@@ -11,29 +11,33 @@ import * as utilities from "../utilities";
  * Resource for managing a QuickSight Template.
  *
  * ## Example Usage
+ *
  * ### From Source Template
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.Template("example", {
  *     templateId: "example-id",
+ *     name: "example-name",
  *     versionDescription: "version",
  *     sourceEntity: {
  *         sourceTemplate: {
- *             arn: aws_quicksight_template.source.arn,
+ *             arn: source.arn,
  *         },
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
+ * $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
  * ```
  */
 export class Template extends pulumi.CustomResource {
@@ -176,8 +180,6 @@ export class Template extends pulumi.CustomResource {
             resourceInputs["versionNumber"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Template.__pulumiType, name, resourceInputs, opts);
     }
 }

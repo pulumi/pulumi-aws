@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Auditmanager
     /// Resource for managing an AWS Audit Manager Assessment Report.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,18 +27,20 @@ namespace Pulumi.Aws.Auditmanager
     /// {
     ///     var test = new Aws.Auditmanager.AssessmentReport("test", new()
     ///     {
-    ///         AssessmentId = aws_auditmanager_assessment.Test.Id,
+    ///         Name = "example",
+    ///         AssessmentId = testAwsAuditmanagerAssessment.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Audit Manager Assessment Reports using the assessment report `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:auditmanager/assessmentReport:AssessmentReport example abc123-de45
+    /// $ pulumi import aws:auditmanager/assessmentReport:AssessmentReport example abc123-de45
     /// ```
     /// </summary>
     [AwsResourceType("aws:auditmanager/assessmentReport:AssessmentReport")]

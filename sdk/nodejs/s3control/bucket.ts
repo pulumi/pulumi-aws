@@ -11,22 +11,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3control.Bucket("example", {
  *     bucket: "example",
- *     outpostId: data.aws_outposts_outpost.example.id,
+ *     outpostId: exampleAwsOutpostsOutpost.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import S3 Control Buckets using Amazon Resource Name (ARN). For example:
  *
  * ```sh
- *  $ pulumi import aws:s3control/bucket:Bucket example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+ * $ pulumi import aws:s3control/bucket:Bucket example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
  * ```
  */
 export class Bucket extends pulumi.CustomResource {
@@ -125,8 +127,6 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Bucket.__pulumiType, name, resourceInputs, opts);
     }
 }

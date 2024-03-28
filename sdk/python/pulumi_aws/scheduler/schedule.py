@@ -460,52 +460,60 @@ class Schedule(pulumi.CustomResource):
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.scheduler.Schedule("example",
+            name="my-schedule",
             group_name="default",
             flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
                 mode="OFF",
             ),
             schedule_expression="rate(1 hours)",
             target=aws.scheduler.ScheduleTargetArgs(
-                arn=aws_sqs_queue["example"]["arn"],
-                role_arn=aws_iam_role["example"]["arn"],
+                arn=example_aws_sqs_queue["arn"],
+                role_arn=example_aws_iam_role["arn"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Universal Target
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        example_queue = aws.sqs.Queue("exampleQueue")
-        example_schedule = aws.scheduler.Schedule("exampleSchedule",
+        example = aws.sqs.Queue("example")
+        example_schedule = aws.scheduler.Schedule("example",
+            name="my-schedule",
             flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
                 mode="OFF",
             ),
             schedule_expression="rate(1 hours)",
             target=aws.scheduler.ScheduleTargetArgs(
                 arn="arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
-                role_arn=aws_iam_role["example"]["arn"],
-                input=example_queue.url.apply(lambda url: json.dumps({
-                    "MessageBody": "Greetings, programs!",
-                    "QueueUrl": url,
-                })),
+                role_arn=example_aws_iam_role["arn"],
+                input=pulumi.Output.json_dumps({
+                    "messageBody": "Greetings, programs!",
+                    "queueUrl": example.url,
+                }),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
 
         ```sh
-         $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
+        $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
         ```
 
         :param str resource_name: The name of the resource.
@@ -539,52 +547,60 @@ class Schedule(pulumi.CustomResource):
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.scheduler.Schedule("example",
+            name="my-schedule",
             group_name="default",
             flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
                 mode="OFF",
             ),
             schedule_expression="rate(1 hours)",
             target=aws.scheduler.ScheduleTargetArgs(
-                arn=aws_sqs_queue["example"]["arn"],
-                role_arn=aws_iam_role["example"]["arn"],
+                arn=example_aws_sqs_queue["arn"],
+                role_arn=example_aws_iam_role["arn"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Universal Target
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        example_queue = aws.sqs.Queue("exampleQueue")
-        example_schedule = aws.scheduler.Schedule("exampleSchedule",
+        example = aws.sqs.Queue("example")
+        example_schedule = aws.scheduler.Schedule("example",
+            name="my-schedule",
             flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
                 mode="OFF",
             ),
             schedule_expression="rate(1 hours)",
             target=aws.scheduler.ScheduleTargetArgs(
                 arn="arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
-                role_arn=aws_iam_role["example"]["arn"],
-                input=example_queue.url.apply(lambda url: json.dumps({
-                    "MessageBody": "Greetings, programs!",
-                    "QueueUrl": url,
-                })),
+                role_arn=example_aws_iam_role["arn"],
+                input=pulumi.Output.json_dumps({
+                    "messageBody": "Greetings, programs!",
+                    "queueUrl": example.url,
+                }),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
 
         ```sh
-         $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
+        $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
         ```
 
         :param str resource_name: The name of the resource.

@@ -6,6 +6,7 @@ package com.pulumi.aws.mskconnect.inputs;
 import com.pulumi.aws.mskconnect.inputs.ConnectorLogDeliveryWorkerLogDeliveryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class ConnectorLogDeliveryArgs extends com.pulumi.resources.Resourc
         }
 
         public ConnectorLogDeliveryArgs build() {
-            $.workerLogDelivery = Objects.requireNonNull($.workerLogDelivery, "expected parameter 'workerLogDelivery' to be non-null");
+            if ($.workerLogDelivery == null) {
+                throw new MissingRequiredPropertyException("ConnectorLogDeliveryArgs", "workerLogDelivery");
+            }
             return $;
         }
     }

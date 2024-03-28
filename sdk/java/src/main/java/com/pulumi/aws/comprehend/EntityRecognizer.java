@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,7 +21,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Comprehend Entity Recognizer.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -35,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.comprehend.inputs.EntityRecognizerInputDataConfigArgs;
  * import com.pulumi.aws.comprehend.inputs.EntityRecognizerInputDataConfigDocumentsArgs;
  * import com.pulumi.aws.comprehend.inputs.EntityRecognizerInputDataConfigEntityListArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -54,7 +55,8 @@ import javax.annotation.Nullable;
  *         var entities = new BucketObjectv2(&#34;entities&#34;);
  * 
  *         var example = new EntityRecognizer(&#34;example&#34;, EntityRecognizerArgs.builder()        
- *             .dataAccessRoleArn(aws_iam_role.example().arn())
+ *             .name(&#34;example&#34;)
+ *             .dataAccessRoleArn(exampleAwsIamRole.arn())
  *             .languageCode(&#34;en&#34;)
  *             .inputDataConfig(EntityRecognizerInputDataConfigArgs.builder()
  *                 .entityTypes(                
@@ -65,26 +67,25 @@ import javax.annotation.Nullable;
  *                         .type(&#34;ENTITY_2&#34;)
  *                         .build())
  *                 .documents(EntityRecognizerInputDataConfigDocumentsArgs.builder()
- *                     .s3Uri(documents.id().applyValue(id -&gt; String.format(&#34;s3://%s/%s&#34;, aws_s3_bucket.documents().bucket(),id)))
+ *                     .s3Uri(documents.id().applyValue(id -&gt; String.format(&#34;s3://%s/%s&#34;, documentsAwsS3Bucket.bucket(),id)))
  *                     .build())
  *                 .entityList(EntityRecognizerInputDataConfigEntityListArgs.builder()
- *                     .s3Uri(entities.id().applyValue(id -&gt; String.format(&#34;s3://%s/%s&#34;, aws_s3_bucket.entities().bucket(),id)))
+ *                     .s3Uri(entities.id().applyValue(id -&gt; String.format(&#34;s3://%s/%s&#34;, entitiesAwsS3Bucket.bucket(),id)))
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_iam_role_policy.example())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
+ * $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
  * ```
  * 
  */
@@ -327,9 +328,6 @@ public class EntityRecognizer extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

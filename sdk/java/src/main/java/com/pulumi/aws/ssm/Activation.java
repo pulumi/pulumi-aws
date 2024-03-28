@@ -13,7 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +21,8 @@ import javax.annotation.Nullable;
  * Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -36,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
  * import com.pulumi.aws.ssm.Activation;
  * import com.pulumi.aws.ssm.ActivationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -62,6 +62,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testRole = new Role(&#34;testRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;test_role&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
@@ -71,25 +72,25 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var foo = new Activation(&#34;foo&#34;, ActivationArgs.builder()        
+ *             .name(&#34;test_ssm_activation&#34;)
  *             .description(&#34;Test&#34;)
  *             .iamRole(testRole.id())
  *             .registrationLimit(&#34;5&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(testAttach)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AWS SSM Activation using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
+ * $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
  * ```
- *  -&gt; __Note:__ The `activation_code` attribute cannot be imported.
+ * -&gt; __Note:__ The `activation_code` attribute cannot be imported.
  * 
  */
 @ResourceType(type="aws:ssm/activation:Activation")
@@ -271,9 +272,6 @@ public class Activation extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

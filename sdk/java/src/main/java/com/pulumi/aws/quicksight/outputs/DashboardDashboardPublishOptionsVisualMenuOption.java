@@ -44,13 +44,14 @@ public final class DashboardDashboardPublishOptionsVisualMenuOption {
 
         @CustomType.Setter
         public Builder availabilityStatus(@Nullable String availabilityStatus) {
+
             this.availabilityStatus = availabilityStatus;
             return this;
         }
         public DashboardDashboardPublishOptionsVisualMenuOption build() {
-            final var o = new DashboardDashboardPublishOptionsVisualMenuOption();
-            o.availabilityStatus = availabilityStatus;
-            return o;
+            final var _resultValue = new DashboardDashboardPublishOptionsVisualMenuOption();
+            _resultValue.availabilityStatus = availabilityStatus;
+            return _resultValue;
         }
     }
 }

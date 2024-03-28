@@ -23,6 +23,10 @@ import javax.annotation.Nullable;
  * Provides an SES configuration set resource.
  * 
  * ## Example Usage
+ * 
+ * ### Basic Example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -30,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ses.ConfigurationSet;
+ * import com.pulumi.aws.ses.ConfigurationSetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -43,12 +48,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ConfigurationSet(&#34;test&#34;);
+ *         var test = new ConfigurationSet(&#34;test&#34;, ConfigurationSetArgs.builder()        
+ *             .name(&#34;some-configuration-set-test&#34;)
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Require TLS Connections
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -72,6 +83,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ConfigurationSet(&#34;test&#34;, ConfigurationSetArgs.builder()        
+ *             .name(&#34;some-configuration-set-test&#34;)
  *             .deliveryOptions(ConfigurationSetDeliveryOptionsArgs.builder()
  *                 .tlsPolicy(&#34;Require&#34;)
  *                 .build())
@@ -80,13 +92,51 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Tracking Options
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ses.ConfigurationSet;
+ * import com.pulumi.aws.ses.ConfigurationSetArgs;
+ * import com.pulumi.aws.ses.inputs.ConfigurationSetTrackingOptionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new ConfigurationSet(&#34;test&#34;, ConfigurationSetArgs.builder()        
+ *             .name(&#34;some-configuration-set-test&#34;)
+ *             .trackingOptions(ConfigurationSetTrackingOptionsArgs.builder()
+ *                 .customRedirectDomain(&#34;sub.example.com&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SES Configuration Sets using their `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
+ * $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
  * ```
  * 
  */

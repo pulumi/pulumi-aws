@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := keyspaces.NewKeyspace(ctx, "example", nil)
+//			_, err := keyspaces.NewKeyspace(ctx, "example", &keyspaces.KeyspaceArgs{
+//				Name: pulumi.String("my_keyspace"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -38,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a keyspace using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
-//
+// $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
 // ```
 type Keyspace struct {
 	pulumi.CustomResourceState
@@ -72,10 +74,6 @@ func NewKeyspace(ctx *pulumi.Context,
 		args = &KeyspaceArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Keyspace
 	err := ctx.RegisterResource("aws:keyspaces/keyspace:Keyspace", name, args, &resource, opts...)

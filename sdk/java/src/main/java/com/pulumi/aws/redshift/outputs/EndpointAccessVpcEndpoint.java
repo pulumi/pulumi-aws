@@ -74,6 +74,7 @@ public final class EndpointAccessVpcEndpoint {
 
         @CustomType.Setter
         public Builder networkInterfaces(@Nullable List<EndpointAccessVpcEndpointNetworkInterface> networkInterfaces) {
+
             this.networkInterfaces = networkInterfaces;
             return this;
         }
@@ -82,20 +83,22 @@ public final class EndpointAccessVpcEndpoint {
         }
         @CustomType.Setter
         public Builder vpcEndpointId(@Nullable String vpcEndpointId) {
+
             this.vpcEndpointId = vpcEndpointId;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(@Nullable String vpcId) {
+
             this.vpcId = vpcId;
             return this;
         }
         public EndpointAccessVpcEndpoint build() {
-            final var o = new EndpointAccessVpcEndpoint();
-            o.networkInterfaces = networkInterfaces;
-            o.vpcEndpointId = vpcEndpointId;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new EndpointAccessVpcEndpoint();
+            _resultValue.networkInterfaces = networkInterfaces;
+            _resultValue.vpcEndpointId = vpcEndpointId;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

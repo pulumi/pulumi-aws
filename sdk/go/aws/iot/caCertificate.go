@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,13 +30,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			caPrivateKey, err := tls.NewPrivateKey(ctx, "caPrivateKey", &tls.PrivateKeyArgs{
+//			caPrivateKey, err := tls.NewPrivateKey(ctx, "ca", &tls.PrivateKeyArgs{
 //				Algorithm: pulumi.String("RSA"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			caSelfSignedCert, err := tls.NewSelfSignedCert(ctx, "caSelfSignedCert", &tls.SelfSignedCertArgs{
+//			ca, err := tls.NewSelfSignedCert(ctx, "ca", &tls.SelfSignedCertArgs{
 //				PrivateKeyPem: caPrivateKey.PrivateKeyPem,
 //				Subject: &tls.SelfSignedCertSubjectArgs{
 //					CommonName:   pulumi.String("example.com"),
@@ -52,29 +53,29 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			verificationPrivateKey, err := tls.NewPrivateKey(ctx, "verificationPrivateKey", &tls.PrivateKeyArgs{
+//			verificationPrivateKey, err := tls.NewPrivateKey(ctx, "verification", &tls.PrivateKeyArgs{
 //				Algorithm: pulumi.String("RSA"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleRegistrationCode, err := iot.GetRegistrationCode(ctx, nil, nil)
+//			example, err := iot.GetRegistrationCode(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			verificationCertRequest, err := tls.NewCertRequest(ctx, "verificationCertRequest", &tls.CertRequestArgs{
+//			verification, err := tls.NewCertRequest(ctx, "verification", &tls.CertRequestArgs{
 //				PrivateKeyPem: verificationPrivateKey.PrivateKeyPem,
 //				Subject: &tls.CertRequestSubjectArgs{
-//					CommonName: *pulumi.String(exampleRegistrationCode.RegistrationCode),
+//					CommonName: pulumi.String(example.RegistrationCode),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			verificationLocallySignedCert, err := tls.NewLocallySignedCert(ctx, "verificationLocallySignedCert", &tls.LocallySignedCertArgs{
-//				CertRequestPem:      verificationCertRequest.CertRequestPem,
+//			verificationLocallySignedCert, err := tls.NewLocallySignedCert(ctx, "verification", &tls.LocallySignedCertArgs{
+//				CertRequestPem:      verification.CertRequestPem,
 //				CaPrivateKeyPem:     caPrivateKey.PrivateKeyPem,
-//				CaCertPem:           caSelfSignedCert.CertPem,
+//				CaCertPem:           ca.CertPem,
 //				ValidityPeriodHours: pulumi.Int(12),
 //				AllowedUses: pulumi.StringArray{
 //					pulumi.String("key_encipherment"),
@@ -85,9 +86,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iot.NewCaCertificate(ctx, "exampleCaCertificate", &iot.CaCertificateArgs{
+//			_, err = iot.NewCaCertificate(ctx, "example", &iot.CaCertificateArgs{
 //				Active:                     pulumi.Bool(true),
-//				CaCertificatePem:           caSelfSignedCert.CertPem,
+//				CaCertificatePem:           ca.CertPem,
 //				VerificationCertificatePem: verificationLocallySignedCert.CertPem,
 //				AllowAutoRegistration:      pulumi.Bool(true),
 //			})
@@ -99,6 +100,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type CaCertificate struct {
 	pulumi.CustomResourceState
 
@@ -155,7 +157,6 @@ func NewCaCertificate(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"caCertificatePem",
-		"tagsAll",
 		"verificationCertificatePem",
 	})
 	opts = append(opts, secrets)

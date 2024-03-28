@@ -14,12 +14,53 @@ namespace Pulumi.Aws.Msk
     /// 
     /// &gt; **Note:** To manage a _provisioned_ Amazon MSK cluster, use the `aws.msk.Cluster` resource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Msk.ServerlessCluster("example", new()
+    ///     {
+    ///         ClusterName = "Example",
+    ///         VpcConfigs = new[]
+    ///         {
+    ///             new Aws.Msk.Inputs.ServerlessClusterVpcConfigArgs
+    ///             {
+    ///                 SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
+    ///                 SecurityGroupIds = new[]
+    ///                 {
+    ///                     exampleAwsSecurityGroup.Id,
+    ///                 },
+    ///             },
+    ///         },
+    ///         ClientAuthentication = new Aws.Msk.Inputs.ServerlessClusterClientAuthenticationArgs
+    ///         {
+    ///             Sasl = new Aws.Msk.Inputs.ServerlessClusterClientAuthenticationSaslArgs
+    ///             {
+    ///                 Iam = new Aws.Msk.Inputs.ServerlessClusterClientAuthenticationSaslIamArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MSK serverless clusters using the cluster `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:msk/serverlessCluster:ServerlessCluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+    /// $ pulumi import aws:msk/serverlessCluster:ServerlessCluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
     /// ```
     /// </summary>
     [AwsResourceType("aws:msk/serverlessCluster:ServerlessCluster")]
@@ -90,10 +131,6 @@ namespace Pulumi.Aws.Msk
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -207,11 +244,7 @@ namespace Pulumi.Aws.Msk
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("vpcConfigs")]

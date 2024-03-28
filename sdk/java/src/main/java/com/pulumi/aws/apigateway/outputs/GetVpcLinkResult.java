@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigateway.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -120,52 +121,73 @@ public final class GetVpcLinkResult {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetVpcLinkResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVpcLinkResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVpcLinkResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetVpcLinkResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder statusMessage(String statusMessage) {
-            this.statusMessage = Objects.requireNonNull(statusMessage);
+            if (statusMessage == null) {
+              throw new MissingRequiredPropertyException("GetVpcLinkResult", "statusMessage");
+            }
+            this.statusMessage = statusMessage;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetVpcLinkResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder targetArns(List<String> targetArns) {
-            this.targetArns = Objects.requireNonNull(targetArns);
+            if (targetArns == null) {
+              throw new MissingRequiredPropertyException("GetVpcLinkResult", "targetArns");
+            }
+            this.targetArns = targetArns;
             return this;
         }
         public Builder targetArns(String... targetArns) {
             return targetArns(List.of(targetArns));
         }
         public GetVpcLinkResult build() {
-            final var o = new GetVpcLinkResult();
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.status = status;
-            o.statusMessage = statusMessage;
-            o.tags = tags;
-            o.targetArns = targetArns;
-            return o;
+            final var _resultValue = new GetVpcLinkResult();
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.status = status;
+            _resultValue.statusMessage = statusMessage;
+            _resultValue.tags = tags;
+            _resultValue.targetArns = targetArns;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class QuickConnectQuickConnectConfigUserConfig {
 
         @CustomType.Setter
         public Builder contactFlowId(String contactFlowId) {
-            this.contactFlowId = Objects.requireNonNull(contactFlowId);
+            if (contactFlowId == null) {
+              throw new MissingRequiredPropertyException("QuickConnectQuickConnectConfigUserConfig", "contactFlowId");
+            }
+            this.contactFlowId = contactFlowId;
             return this;
         }
         @CustomType.Setter
         public Builder userId(String userId) {
-            this.userId = Objects.requireNonNull(userId);
+            if (userId == null) {
+              throw new MissingRequiredPropertyException("QuickConnectQuickConnectConfigUserConfig", "userId");
+            }
+            this.userId = userId;
             return this;
         }
         public QuickConnectQuickConnectConfigUserConfig build() {
-            final var o = new QuickConnectQuickConnectConfigUserConfig();
-            o.contactFlowId = contactFlowId;
-            o.userId = userId;
-            return o;
+            final var _resultValue = new QuickConnectQuickConnectConfigUserConfig();
+            _resultValue.contactFlowId = contactFlowId;
+            _resultValue.userId = userId;
+            return _resultValue;
         }
     }
 }

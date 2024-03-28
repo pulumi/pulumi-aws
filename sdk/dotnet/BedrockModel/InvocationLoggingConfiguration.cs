@@ -18,17 +18,17 @@ namespace Pulumi.Aws.BedrockModel
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Bedrock custom model using the `id` set to the AWS region. For example:
+    /// Using `pulumi import`, import Bedrock custom model using the `id` set to the AWS Region. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration my_config us-east-1
+    /// $ pulumi import aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration my_config us-east-1
     /// ```
     /// </summary>
     [AwsResourceType("aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration")]
     public partial class InvocationLoggingConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The logging configuration values to set. See `logging_config`.
+        /// The logging configuration values to set.
         /// </summary>
         [Output("loggingConfig")]
         public Output<Outputs.InvocationLoggingConfigurationLoggingConfig?> LoggingConfig { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.BedrockModel
     public sealed class InvocationLoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The logging configuration values to set. See `logging_config`.
+        /// The logging configuration values to set.
         /// </summary>
         [Input("loggingConfig")]
         public Input<Inputs.InvocationLoggingConfigurationLoggingConfigArgs>? LoggingConfig { get; set; }
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.BedrockModel
     public sealed class InvocationLoggingConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The logging configuration values to set. See `logging_config`.
+        /// The logging configuration values to set.
         /// </summary>
         [Input("loggingConfig")]
         public Input<Inputs.InvocationLoggingConfigurationLoggingConfigGetArgs>? LoggingConfig { get; set; }

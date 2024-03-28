@@ -304,31 +304,45 @@ class KeyPair(pulumi.CustomResource):
         > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
 
         ## Example Usage
+
         ### Create New Key Pair
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # Create a new Lightsail Key Pair
-        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair")
+        lg_key_pair = aws.lightsail.KeyPair("lg_key_pair", name="lg_key_pair")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create New Key Pair with PGP Encrypted Private Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair", pgp_key="keybase:keybaseusername")
+        lg_key_pair = aws.lightsail.KeyPair("lg_key_pair",
+            name="lg_key_pair",
+            pgp_key="keybase:keybaseusername")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Existing Public Key Import
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair", public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
+        lg_key_pair = aws.lightsail.KeyPair("lg_key_pair",
+            name="importing",
+            public_key=std.file(input="~/.ssh/id_rsa.pub").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -357,31 +371,45 @@ class KeyPair(pulumi.CustomResource):
         > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
 
         ## Example Usage
+
         ### Create New Key Pair
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # Create a new Lightsail Key Pair
-        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair")
+        lg_key_pair = aws.lightsail.KeyPair("lg_key_pair", name="lg_key_pair")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create New Key Pair with PGP Encrypted Private Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair", pgp_key="keybase:keybaseusername")
+        lg_key_pair = aws.lightsail.KeyPair("lg_key_pair",
+            name="lg_key_pair",
+            pgp_key="keybase:keybaseusername")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Existing Public Key Import
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair", public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
+        lg_key_pair = aws.lightsail.KeyPair("lg_key_pair",
+            name="importing",
+            public_key=std.file(input="~/.ssh/id_rsa.pub").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -427,8 +455,6 @@ class KeyPair(pulumi.CustomResource):
             __props__.__dict__["fingerprint"] = None
             __props__.__dict__["private_key"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(KeyPair, __self__).__init__(
             'aws:lightsail/keyPair:KeyPair',
             resource_name,

@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,10 +26,11 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testStream = new Aws.Kinesis.Stream("testStream", new()
+    ///     var testStream = new Aws.Kinesis.Stream("test_stream", new()
     ///     {
-    ///         RetentionPeriod = 48,
+    ///         Name = "kinesis-test",
     ///         ShardCount = 1,
+    ///         RetentionPeriod = 48,
     ///         ShardLevelMetrics = new[]
     ///         {
     ///             "IncomingBytes",
@@ -46,13 +48,14 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Kinesis Streams using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
+    /// $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
     /// ```
     /// </summary>
     [AwsResourceType("aws:kinesis/stream:Stream")]
@@ -148,10 +151,6 @@ namespace Pulumi.Aws.Kinesis
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -339,11 +338,7 @@ namespace Pulumi.Aws.Kinesis
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public StreamState()

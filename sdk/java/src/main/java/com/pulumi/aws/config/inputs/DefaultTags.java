@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DefaultTags {
+    /**
+     * @return Resource tags to default across all resources
+     * 
+     */
     private @Nullable Map<String,String> tags;
 
     private DefaultTags() {}
+    /**
+     * @return Resource tags to default across all resources
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
@@ -36,13 +44,14 @@ public final class DefaultTags {
 
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         public DefaultTags build() {
-            final var o = new DefaultTags();
-            o.tags = tags;
-            return o;
+            final var _resultValue = new DefaultTags();
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

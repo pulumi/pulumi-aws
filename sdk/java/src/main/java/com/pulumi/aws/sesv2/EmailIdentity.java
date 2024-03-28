@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -24,7 +23,10 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * ### Basic Usage
+ * 
  * ### Email Address Identity
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,7 +55,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Domain Identity
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -82,7 +88,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Configuration Set
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -106,19 +116,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleConfigurationSet = new ConfigurationSet(&#34;exampleConfigurationSet&#34;, ConfigurationSetArgs.builder()        
+ *         var example = new ConfigurationSet(&#34;example&#34;, ConfigurationSetArgs.builder()        
  *             .configurationSetName(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleEmailIdentity = new EmailIdentity(&#34;exampleEmailIdentity&#34;, EmailIdentityArgs.builder()        
  *             .emailIdentity(&#34;example.com&#34;)
- *             .configurationSetName(exampleConfigurationSet.configurationSetName())
+ *             .configurationSetName(example.configurationSetName())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### DKIM Signing Attributes (BYODKIM)
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -142,23 +156,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EmailIdentity(&#34;example&#34;, EmailIdentityArgs.builder()        
+ *             .emailIdentity(&#34;example.com&#34;)
  *             .dkimSigningAttributes(EmailIdentityDkimSigningAttributesArgs.builder()
  *                 .domainSigningPrivateKey(&#34;MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...&#34;)
  *                 .domainSigningSelector(&#34;example&#34;)
  *                 .build())
- *             .emailIdentity(&#34;example.com&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity using the `email_identity`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
+ * $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
  * ```
  * 
  */
@@ -317,9 +332,6 @@ public class EmailIdentity extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

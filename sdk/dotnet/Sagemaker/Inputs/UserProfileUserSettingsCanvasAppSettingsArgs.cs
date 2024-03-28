@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<Inputs.UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs>? ModelRegisterSettings { get; set; }
 
         /// <summary>
-        /// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+        /// Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
         /// </summary>
         [Input("timeSeriesForecastingSettings")]
         public Input<Inputs.UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs>? TimeSeriesForecastingSettings { get; set; }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.ssoadmin.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,19 +59,23 @@ public final class CustomerManagedPolicyAttachmentCustomerManagedPolicyReference
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("CustomerManagedPolicyAttachmentCustomerManagedPolicyReference", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         public CustomerManagedPolicyAttachmentCustomerManagedPolicyReference build() {
-            final var o = new CustomerManagedPolicyAttachmentCustomerManagedPolicyReference();
-            o.name = name;
-            o.path = path;
-            return o;
+            final var _resultValue = new CustomerManagedPolicyAttachmentCustomerManagedPolicyReference();
+            _resultValue.name = name;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

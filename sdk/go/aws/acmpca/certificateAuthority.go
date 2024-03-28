@@ -17,8 +17,10 @@ import (
 // > **NOTE:** Creating this resource will leave the certificate authority in a `PENDING_CERTIFICATE` status, which means it cannot yet issue certificates. To complete this setup, you must fully sign the certificate authority CSR available in the `certificateSigningRequest` attribute. The `acmpca.CertificateAuthorityCertificate` resource can be used for this purpose.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,8 +51,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Short-lived certificate
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,6 +69,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := acmpca.NewCertificateAuthority(ctx, "example", &acmpca.CertificateAuthorityArgs{
+//				UsageMode: pulumi.String("SHORT_LIVED_CERTIFICATE"),
 //				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
 //					KeyAlgorithm:     pulumi.String("RSA_4096"),
 //					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
@@ -71,7 +77,6 @@ import (
 //						CommonName: pulumi.String("example.com"),
 //					},
 //				},
-//				UsageMode: pulumi.String("SHORT_LIVED_CERTIFICATE"),
 //			})
 //			if err != nil {
 //				return err
@@ -81,8 +86,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Enable Certificate Revocation List
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -99,7 +107,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket:       pulumi.String("example"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -115,8 +124,8 @@ import (
 //							pulumi.String("s3:PutObjectAcl"),
 //						},
 //						Resources: pulumi.StringArray{
-//							exampleBucketV2.Arn,
-//							exampleBucketV2.Arn.ApplyT(func(arn string) (string, error) {
+//							example.Arn,
+//							example.Arn.ApplyT(func(arn string) (string, error) {
 //								return fmt.Sprintf("%v/*", arn), nil
 //							}).(pulumi.StringOutput),
 //						},
@@ -131,8 +140,8 @@ import (
 //					},
 //				},
 //			}, nil)
-//			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleBucketPolicy", &s3.BucketPolicyArgs{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
+//				Bucket: example.ID(),
 //				Policy: acmpcaBucketAccess.ApplyT(func(acmpcaBucketAccess iam.GetPolicyDocumentResult) (*string, error) {
 //					return &acmpcaBucketAccess.Json, nil
 //				}).(pulumi.StringPtrOutput),
@@ -140,7 +149,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = acmpca.NewCertificateAuthority(ctx, "exampleCertificateAuthority", &acmpca.CertificateAuthorityArgs{
+//			_, err = acmpca.NewCertificateAuthority(ctx, "example", &acmpca.CertificateAuthorityArgs{
 //				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
 //					KeyAlgorithm:     pulumi.String("RSA_4096"),
 //					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
@@ -153,13 +162,11 @@ import (
 //						CustomCname:      pulumi.String("crl.example.com"),
 //						Enabled:          pulumi.Bool(true),
 //						ExpirationInDays: pulumi.Int(7),
-//						S3BucketName:     exampleBucketV2.ID(),
+//						S3BucketName:     example.ID(),
 //						S3ObjectAcl:      pulumi.String("BUCKET_OWNER_FULL_CONTROL"),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleBucketPolicy,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -168,15 +175,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_acmpca_certificate_authority` using the certificate authority ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:acmpca/certificateAuthority:CertificateAuthority example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
-//
+// $ pulumi import aws:acmpca/certificateAuthority:CertificateAuthority example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
 // ```
 type CertificateAuthority struct {
 	pulumi.CustomResourceState
@@ -227,10 +233,6 @@ func NewCertificateAuthority(ctx *pulumi.Context,
 	if args.CertificateAuthorityConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'CertificateAuthorityConfiguration'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CertificateAuthority
 	err := ctx.RegisterResource("aws:acmpca/certificateAuthority:CertificateAuthority", name, args, &resource, opts...)

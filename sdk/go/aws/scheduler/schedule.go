@@ -19,8 +19,10 @@ import (
 // > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,14 +36,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := scheduler.NewSchedule(ctx, "example", &scheduler.ScheduleArgs{
+//				Name:      pulumi.String("my-schedule"),
 //				GroupName: pulumi.String("default"),
 //				FlexibleTimeWindow: &scheduler.ScheduleFlexibleTimeWindowArgs{
 //					Mode: pulumi.String("OFF"),
 //				},
 //				ScheduleExpression: pulumi.String("rate(1 hours)"),
 //				Target: &scheduler.ScheduleTargetArgs{
-//					Arn:     pulumi.Any(aws_sqs_queue.Example.Arn),
-//					RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//					Arn:     pulumi.Any(exampleAwsSqsQueue.Arn),
+//					RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				},
 //			})
 //			if err != nil {
@@ -52,8 +55,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Universal Target
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -69,23 +75,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleQueue, err := sqs.NewQueue(ctx, "exampleQueue", nil)
+//			example, err := sqs.NewQueue(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = scheduler.NewSchedule(ctx, "exampleSchedule", &scheduler.ScheduleArgs{
+//			_, err = scheduler.NewSchedule(ctx, "example", &scheduler.ScheduleArgs{
+//				Name: pulumi.String("my-schedule"),
 //				FlexibleTimeWindow: &scheduler.ScheduleFlexibleTimeWindowArgs{
 //					Mode: pulumi.String("OFF"),
 //				},
 //				ScheduleExpression: pulumi.String("rate(1 hours)"),
 //				Target: &scheduler.ScheduleTargetArgs{
 //					Arn:     pulumi.String("arn:aws:scheduler:::aws-sdk:sqs:sendMessage"),
-//					RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//					Input: exampleQueue.Url.ApplyT(func(url string) (pulumi.String, error) {
+//					RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//					Input: example.Url.ApplyT(func(url string) (pulumi.String, error) {
 //						var _zero pulumi.String
 //						tmpJSON0, err := json.Marshal(map[string]interface{}{
-//							"MessageBody": "Greetings, programs!",
-//							"QueueUrl":    url,
+//							"messageBody": "Greetings, programs!",
+//							"queueUrl":    url,
 //						})
 //						if err != nil {
 //							return _zero, err
@@ -103,15 +110,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
-//
+// $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
 // ```
 type Schedule struct {
 	pulumi.CustomResourceState

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,21 +31,22 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := imagebuilder.NewInfrastructureConfiguration(ctx, "example", &imagebuilder.InfrastructureConfigurationArgs{
 //				Description:         pulumi.String("example description"),
-//				InstanceProfileName: pulumi.Any(aws_iam_instance_profile.Example.Name),
+//				InstanceProfileName: pulumi.Any(exampleAwsIamInstanceProfile.Name),
 //				InstanceTypes: pulumi.StringArray{
 //					pulumi.String("t2.nano"),
 //					pulumi.String("t3.micro"),
 //				},
-//				KeyPair: pulumi.Any(aws_key_pair.Example.Key_name),
+//				KeyPair: pulumi.Any(exampleAwsKeyPair.KeyName),
+//				Name:    pulumi.String("example"),
 //				SecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Example.Id,
+//					exampleAwsSecurityGroup.Id,
 //				},
-//				SnsTopicArn:                pulumi.Any(aws_sns_topic.Example.Arn),
-//				SubnetId:                   pulumi.Any(aws_subnet.Main.Id),
+//				SnsTopicArn:                pulumi.Any(exampleAwsSnsTopic.Arn),
+//				SubnetId:                   pulumi.Any(main.Id),
 //				TerminateInstanceOnFailure: pulumi.Bool(true),
 //				Logging: &imagebuilder.InfrastructureConfigurationLoggingArgs{
 //					S3Logs: &imagebuilder.InfrastructureConfigurationLoggingS3LogsArgs{
-//						S3BucketName: pulumi.Any(aws_s3_bucket.Example.Bucket),
+//						S3BucketName: pulumi.Any(exampleAwsS3Bucket.Bucket),
 //						S3KeyPrefix:  pulumi.String("logs"),
 //					},
 //				},
@@ -60,15 +62,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_imagebuilder_infrastructure_configuration` using the Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
-//
+// $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
 // ```
 type InfrastructureConfiguration struct {
 	pulumi.CustomResourceState
@@ -123,10 +124,6 @@ func NewInfrastructureConfiguration(ctx *pulumi.Context,
 	if args.InstanceProfileName == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceProfileName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InfrastructureConfiguration
 	err := ctx.RegisterResource("aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration", name, args, &resource, opts...)

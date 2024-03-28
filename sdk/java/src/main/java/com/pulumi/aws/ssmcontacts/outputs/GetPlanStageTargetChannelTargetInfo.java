@@ -4,6 +4,7 @@
 package com.pulumi.aws.ssmcontacts.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -41,19 +42,25 @@ public final class GetPlanStageTargetChannelTargetInfo {
 
         @CustomType.Setter
         public Builder contactChannelId(String contactChannelId) {
-            this.contactChannelId = Objects.requireNonNull(contactChannelId);
+            if (contactChannelId == null) {
+              throw new MissingRequiredPropertyException("GetPlanStageTargetChannelTargetInfo", "contactChannelId");
+            }
+            this.contactChannelId = contactChannelId;
             return this;
         }
         @CustomType.Setter
         public Builder retryIntervalInMinutes(Integer retryIntervalInMinutes) {
-            this.retryIntervalInMinutes = Objects.requireNonNull(retryIntervalInMinutes);
+            if (retryIntervalInMinutes == null) {
+              throw new MissingRequiredPropertyException("GetPlanStageTargetChannelTargetInfo", "retryIntervalInMinutes");
+            }
+            this.retryIntervalInMinutes = retryIntervalInMinutes;
             return this;
         }
         public GetPlanStageTargetChannelTargetInfo build() {
-            final var o = new GetPlanStageTargetChannelTargetInfo();
-            o.contactChannelId = contactChannelId;
-            o.retryIntervalInMinutes = retryIntervalInMinutes;
-            return o;
+            final var _resultValue = new GetPlanStageTargetChannelTargetInfo();
+            _resultValue.contactChannelId = contactChannelId;
+            _resultValue.retryIntervalInMinutes = retryIntervalInMinutes;
+            return _resultValue;
         }
     }
 }

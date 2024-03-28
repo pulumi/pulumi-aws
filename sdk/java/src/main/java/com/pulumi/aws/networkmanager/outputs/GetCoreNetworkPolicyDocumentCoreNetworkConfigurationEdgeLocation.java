@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkmanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -65,11 +66,13 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocat
 
         @CustomType.Setter
         public Builder asn(@Nullable String asn) {
+
             this.asn = asn;
             return this;
         }
         @CustomType.Setter
         public Builder insideCidrBlocks(@Nullable List<String> insideCidrBlocks) {
+
             this.insideCidrBlocks = insideCidrBlocks;
             return this;
         }
@@ -78,15 +81,18 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocat
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation", "location");
+            }
+            this.location = location;
             return this;
         }
         public GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation build() {
-            final var o = new GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation();
-            o.asn = asn;
-            o.insideCidrBlocks = insideCidrBlocks;
-            o.location = location;
-            return o;
+            final var _resultValue = new GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation();
+            _resultValue.asn = asn;
+            _resultValue.insideCidrBlocks = insideCidrBlocks;
+            _resultValue.location = location;
+            return _resultValue;
         }
     }
 }

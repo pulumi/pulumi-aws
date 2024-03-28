@@ -15,7 +15,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -29,7 +28,10 @@ import javax.annotation.Nullable;
  * see [&#34;Regions and Availability Zones in Amazon Lightsail&#34;](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail).
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,9 +54,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myContainerService = new ContainerService(&#34;myContainerService&#34;, ContainerServiceArgs.builder()        
- *             .isDisabled(false)
+ *             .name(&#34;container-service-1&#34;)
  *             .power(&#34;nano&#34;)
  *             .scale(1)
+ *             .isDisabled(false)
  *             .tags(Map.ofEntries(
  *                 Map.entry(&#34;foo1&#34;, &#34;bar1&#34;),
  *                 Map.entry(&#34;foo2&#34;, &#34;&#34;)
@@ -64,7 +67,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Public Domain Names
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -99,7 +106,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Private Registry Access
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -135,7 +146,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         final var defaultPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var default = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -149,20 +160,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var defaultRepositoryPolicy = new RepositoryPolicy(&#34;defaultRepositoryPolicy&#34;, RepositoryPolicyArgs.builder()        
- *             .repository(aws_ecr_repository.default().name())
- *             .policy(defaultPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(defaultPolicyDocument -&gt; defaultPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .repository(defaultAwsEcrRepository.name())
+ *             .policy(default_.applyValue(default_ -&gt; default_.json()))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Lightsail Container Service using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lightsail/containerService:ContainerService my_container_service container-service-1
+ * $ pulumi import aws:lightsail/containerService:ContainerService my_container_service container-service-1
  * ```
  * 
  */
@@ -467,9 +479,6 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

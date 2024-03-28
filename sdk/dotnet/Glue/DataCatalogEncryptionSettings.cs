@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,26 +29,27 @@ namespace Pulumi.Aws.Glue
     ///         {
     ///             ConnectionPasswordEncryption = new Aws.Glue.Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs
     ///             {
-    ///                 AwsKmsKeyId = aws_kms_key.Test.Arn,
+    ///                 AwsKmsKeyId = test.Arn,
     ///                 ReturnConnectionPasswordEncrypted = true,
     ///             },
     ///             EncryptionAtRest = new Aws.Glue.Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs
     ///             {
     ///                 CatalogEncryptionMode = "SSE-KMS",
-    ///                 SseAwsKmsKeyId = aws_kms_key.Test.Arn,
+    ///                 SseAwsKmsKeyId = test.Arn,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Data Catalog Encryption Settings using `CATALOG-ID` (AWS account ID if not custom). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings example 123456789012
+    /// $ pulumi import aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings example 123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings")]

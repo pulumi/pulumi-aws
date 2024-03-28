@@ -11,24 +11,27 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS VPC Lattice Service Network Service Association.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.vpclattice.ServiceNetworkServiceAssociation("example", {
- *     serviceIdentifier: aws_vpclattice_service.example.id,
- *     serviceNetworkIdentifier: aws_vpclattice_service_network.example.id,
+ *     serviceIdentifier: exampleAwsVpclatticeService.id,
+ *     serviceNetworkIdentifier: exampleAwsVpclatticeServiceNetwork.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import VPC Lattice Service Network Service Association using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation example snsa-05e2474658a88f6ba
+ * $ pulumi import aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation example snsa-05e2474658a88f6ba
  * ```
  */
 export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
@@ -140,8 +143,6 @@ export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServiceNetworkServiceAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

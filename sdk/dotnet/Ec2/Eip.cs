@@ -17,8 +17,10 @@ namespace Pulumi.Aws.Ec2
     /// &gt; **Note:** Do not use `network_interface` to associate the EIP to `aws.lb.LoadBalancer` or `aws.ec2.NatGateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Single EIP associated with an instance
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,14 +31,17 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var lb = new Aws.Ec2.Eip("lb", new()
     ///     {
-    ///         Instance = aws_instance.Web.Id,
+    ///         Instance = web.Id,
     ///         Domain = "vpc",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Multiple EIPs associated with a single network interface
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,7 +52,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var multi_ip = new Aws.Ec2.NetworkInterface("multi-ip", new()
     ///     {
-    ///         SubnetId = aws_subnet.Main.Id,
+    ///         SubnetId = main.Id,
     ///         PrivateIps = new[]
     ///         {
     ///             "10.0.0.10",
@@ -71,8 +76,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -92,23 +100,17 @@ namespace Pulumi.Aws.Ec2
     ///         VpcId = @default.Id,
     ///     });
     /// 
-    ///     var myTestSubnet = new Aws.Ec2.Subnet("myTestSubnet", new()
+    ///     var myTestSubnet = new Aws.Ec2.Subnet("my_test_subnet", new()
     ///     {
     ///         VpcId = @default.Id,
     ///         CidrBlock = "10.0.0.0/24",
     ///         MapPublicIpOnLaunch = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             gw,
-    ///         },
     ///     });
     /// 
     ///     var foo = new Aws.Ec2.Instance("foo", new()
     ///     {
     ///         Ami = "ami-5189a661",
-    ///         InstanceType = "t2.micro",
+    ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
     ///         PrivateIp = "10.0.0.12",
     ///         SubnetId = myTestSubnet.Id,
     ///     });
@@ -118,18 +120,15 @@ namespace Pulumi.Aws.Ec2
     ///         Domain = "vpc",
     ///         Instance = foo.Id,
     ///         AssociateWithPrivateIp = "10.0.0.12",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             gw,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Allocating EIP from the BYOIP pool
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -146,13 +145,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
+    /// $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/eip:Eip")]
@@ -302,10 +302,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -529,11 +525,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

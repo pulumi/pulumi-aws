@@ -4,6 +4,7 @@
 package com.pulumi.aws.eks.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class ClusterEncryptionConfigProvider {
 
         @CustomType.Setter
         public Builder keyArn(String keyArn) {
-            this.keyArn = Objects.requireNonNull(keyArn);
+            if (keyArn == null) {
+              throw new MissingRequiredPropertyException("ClusterEncryptionConfigProvider", "keyArn");
+            }
+            this.keyArn = keyArn;
             return this;
         }
         public ClusterEncryptionConfigProvider build() {
-            final var o = new ClusterEncryptionConfigProvider();
-            o.keyArn = keyArn;
-            return o;
+            final var _resultValue = new ClusterEncryptionConfigProvider();
+            _resultValue.keyArn = keyArn;
+            return _resultValue;
         }
     }
 }

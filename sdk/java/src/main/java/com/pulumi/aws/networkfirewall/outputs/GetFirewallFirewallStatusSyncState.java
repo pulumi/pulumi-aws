@@ -5,6 +5,7 @@ package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallFirewallStatusSyncStateAttachment;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class GetFirewallFirewallStatusSyncState {
 
         @CustomType.Setter
         public Builder attachments(List<GetFirewallFirewallStatusSyncStateAttachment> attachments) {
-            this.attachments = Objects.requireNonNull(attachments);
+            if (attachments == null) {
+              throw new MissingRequiredPropertyException("GetFirewallFirewallStatusSyncState", "attachments");
+            }
+            this.attachments = attachments;
             return this;
         }
         public Builder attachments(GetFirewallFirewallStatusSyncStateAttachment... attachments) {
@@ -66,14 +70,17 @@ public final class GetFirewallFirewallStatusSyncState {
         }
         @CustomType.Setter
         public Builder availabilityZone(String availabilityZone) {
-            this.availabilityZone = Objects.requireNonNull(availabilityZone);
+            if (availabilityZone == null) {
+              throw new MissingRequiredPropertyException("GetFirewallFirewallStatusSyncState", "availabilityZone");
+            }
+            this.availabilityZone = availabilityZone;
             return this;
         }
         public GetFirewallFirewallStatusSyncState build() {
-            final var o = new GetFirewallFirewallStatusSyncState();
-            o.attachments = attachments;
-            o.availabilityZone = availabilityZone;
-            return o;
+            final var _resultValue = new GetFirewallFirewallStatusSyncState();
+            _resultValue.attachments = attachments;
+            _resultValue.availabilityZone = availabilityZone;
+            return _resultValue;
         }
     }
 }

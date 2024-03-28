@@ -10,14 +10,15 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleCatalogDatabase = new aws.glue.CatalogDatabase("exampleCatalogDatabase", {name: "example"});
- * const exampleCatalogTable = new aws.glue.CatalogTable("exampleCatalogTable", {
+ * const example = new aws.glue.CatalogDatabase("example", {name: "example"});
+ * const exampleCatalogTable = new aws.glue.CatalogTable("example", {
  *     name: "example",
- *     databaseName: exampleCatalogDatabase.name,
+ *     databaseName: example.name,
  *     owner: "my_owner",
  *     retention: 1,
  *     tableType: "VIRTUAL_VIEW",
@@ -81,8 +82,8 @@ import * as utilities from "../utilities";
  *         param1: "param1_val",
  *     },
  * });
- * const examplePartitionIndex = new aws.glue.PartitionIndex("examplePartitionIndex", {
- *     databaseName: exampleCatalogDatabase.name,
+ * const examplePartitionIndex = new aws.glue.PartitionIndex("example", {
+ *     databaseName: example.name,
  *     tableName: exampleCatalogTable.name,
  *     partitionIndex: {
  *         indexName: "example",
@@ -93,13 +94,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Glue Partition Indexes using the catalog ID (usually AWS account ID), database name, table name, and index name. For example:
  *
  * ```sh
- *  $ pulumi import aws:glue/partitionIndex:PartitionIndex example 123456789012:MyDatabase:MyTable:index-name
+ * $ pulumi import aws:glue/partitionIndex:PartitionIndex example 123456789012:MyDatabase:MyTable:index-name
  * ```
  */
 export class PartitionIndex extends pulumi.CustomResource {

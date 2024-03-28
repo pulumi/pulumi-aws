@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,13 +24,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import App Runner Connections using the `connection_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:apprunner/connection:Connection example example
+ * $ pulumi import aws:apprunner/connection:Connection example example
  * ```
  */
 export class Connection extends pulumi.CustomResource {
@@ -122,8 +124,6 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Connection.__pulumiType, name, resourceInputs, opts);
     }
 }

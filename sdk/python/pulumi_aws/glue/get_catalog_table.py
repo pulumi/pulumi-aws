@@ -254,13 +254,15 @@ def get_catalog_table(catalog_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.glue.get_catalog_table(database_name="MyCatalogDatabase",
-        name="MyCatalogTable")
+    example = aws.glue.get_catalog_table(name="MyCatalogTable",
+        database_name="MyCatalogDatabase")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str catalog_id: ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
@@ -311,13 +313,15 @@ def get_catalog_table_output(catalog_id: Optional[pulumi.Input[Optional[str]]] =
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.glue.get_catalog_table(database_name="MyCatalogDatabase",
-        name="MyCatalogTable")
+    example = aws.glue.get_catalog_table(name="MyCatalogTable",
+        database_name="MyCatalogDatabase")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str catalog_id: ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.

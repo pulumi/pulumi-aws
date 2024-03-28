@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicy;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -42,7 +43,10 @@ public final class GetVirtualNodeSpecBackendVirtualService {
 
         @CustomType.Setter
         public Builder clientPolicies(List<GetVirtualNodeSpecBackendVirtualServiceClientPolicy> clientPolicies) {
-            this.clientPolicies = Objects.requireNonNull(clientPolicies);
+            if (clientPolicies == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendVirtualService", "clientPolicies");
+            }
+            this.clientPolicies = clientPolicies;
             return this;
         }
         public Builder clientPolicies(GetVirtualNodeSpecBackendVirtualServiceClientPolicy... clientPolicies) {
@@ -50,14 +54,17 @@ public final class GetVirtualNodeSpecBackendVirtualService {
         }
         @CustomType.Setter
         public Builder virtualServiceName(String virtualServiceName) {
-            this.virtualServiceName = Objects.requireNonNull(virtualServiceName);
+            if (virtualServiceName == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendVirtualService", "virtualServiceName");
+            }
+            this.virtualServiceName = virtualServiceName;
             return this;
         }
         public GetVirtualNodeSpecBackendVirtualService build() {
-            final var o = new GetVirtualNodeSpecBackendVirtualService();
-            o.clientPolicies = clientPolicies;
-            o.virtualServiceName = virtualServiceName;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecBackendVirtualService();
+            _resultValue.clientPolicies = clientPolicies;
+            _resultValue.virtualServiceName = virtualServiceName;
+            return _resultValue;
         }
     }
 }

@@ -5,6 +5,7 @@ package com.pulumi.aws.elasticsearch;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class DomainPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DomainPolicyArgs build() {
-            $.accessPolicies = Objects.requireNonNull($.accessPolicies, "expected parameter 'accessPolicies' to be non-null");
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
+            if ($.accessPolicies == null) {
+                throw new MissingRequiredPropertyException("DomainPolicyArgs", "accessPolicies");
+            }
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("DomainPolicyArgs", "domainName");
+            }
             return $;
         }
     }

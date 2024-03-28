@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupClusterResult
@@ -53,7 +55,7 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getCluster.
 type LookupClusterArgs struct {
-	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the cluster.
 	Name string `pulumi:"name"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -61,6 +63,8 @@ type LookupClusterArgs struct {
 
 // A collection of values returned by getCluster.
 type LookupClusterResult struct {
+	// Configuration block for access config.
+	AccessConfigs []GetClusterAccessConfig `pulumi:"accessConfigs"`
 	// ARN of the cluster.
 	Arn string `pulumi:"arn"`
 	// Nested attribute containing `certificate-authority-data` for your cluster.
@@ -111,7 +115,7 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 
 // A collection of arguments for invoking getCluster.
 type LookupClusterOutputArgs struct {
-	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the cluster.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Key-value map of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -134,6 +138,11 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutput() LookupClusterRe
 
 func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx context.Context) LookupClusterResultOutput {
 	return o
+}
+
+// Configuration block for access config.
+func (o LookupClusterResultOutput) AccessConfigs() GetClusterAccessConfigArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []GetClusterAccessConfig { return v.AccessConfigs }).(GetClusterAccessConfigArrayOutput)
 }
 
 // ARN of the cluster.

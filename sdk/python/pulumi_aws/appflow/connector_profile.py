@@ -261,12 +261,65 @@ class ConnectorProfile(pulumi.CustomResource):
         For specific information about creating an AppFlow connector profile, see the
         [CreateConnectorProfile](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html) page in the Amazon AppFlow API Reference.
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.iam.get_policy(name="AmazonRedshiftAllCommandsFullAccess")
+        example_role = aws.iam.Role("example",
+            name="example_role",
+            managed_policy_arns=[test["arn"]],
+            assume_role_policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "ec2.amazonaws.com",
+                    },
+                }],
+            }))
+        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example_bucket")
+        example_cluster = aws.redshift.Cluster("example",
+            cluster_identifier="example_cluster",
+            database_name="example_db",
+            master_username="exampleuser",
+            master_password="examplePassword123!",
+            node_type="dc1.large",
+            cluster_type="single-node")
+        example_connector_profile = aws.appflow.ConnectorProfile("example",
+            name="example_profile",
+            connector_type="Redshift",
+            connection_mode="Public",
+            connector_profile_config=aws.appflow.ConnectorProfileConnectorProfileConfigArgs(
+                connector_profile_credentials=aws.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs(
+                    redshift=aws.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs(
+                        password=example_cluster.master_password,
+                        username=example_cluster.master_username,
+                    ),
+                ),
+                connector_profile_properties=aws.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs(
+                    redshift=aws.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs(
+                        bucket_name=example_bucket_v2.name,
+                        database_url=pulumi.Output.all(example_cluster.endpoint, example_cluster.database_name).apply(lambda endpoint, database_name: f"jdbc:redshift://{endpoint}/{database_name}"),
+                        role_arn=example_role.arn,
+                    ),
+                ),
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Using `pulumi import`, import AppFlow Connector Profile using the connector profile `arn`. For example:
 
         ```sh
-         $ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
+        $ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
         ```
 
         :param str resource_name: The name of the resource.
@@ -290,12 +343,65 @@ class ConnectorProfile(pulumi.CustomResource):
         For specific information about creating an AppFlow connector profile, see the
         [CreateConnectorProfile](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html) page in the Amazon AppFlow API Reference.
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.iam.get_policy(name="AmazonRedshiftAllCommandsFullAccess")
+        example_role = aws.iam.Role("example",
+            name="example_role",
+            managed_policy_arns=[test["arn"]],
+            assume_role_policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "ec2.amazonaws.com",
+                    },
+                }],
+            }))
+        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example_bucket")
+        example_cluster = aws.redshift.Cluster("example",
+            cluster_identifier="example_cluster",
+            database_name="example_db",
+            master_username="exampleuser",
+            master_password="examplePassword123!",
+            node_type="dc1.large",
+            cluster_type="single-node")
+        example_connector_profile = aws.appflow.ConnectorProfile("example",
+            name="example_profile",
+            connector_type="Redshift",
+            connection_mode="Public",
+            connector_profile_config=aws.appflow.ConnectorProfileConnectorProfileConfigArgs(
+                connector_profile_credentials=aws.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs(
+                    redshift=aws.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs(
+                        password=example_cluster.master_password,
+                        username=example_cluster.master_username,
+                    ),
+                ),
+                connector_profile_properties=aws.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs(
+                    redshift=aws.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs(
+                        bucket_name=example_bucket_v2.name,
+                        database_url=pulumi.Output.all(example_cluster.endpoint, example_cluster.database_name).apply(lambda endpoint, database_name: f"jdbc:redshift://{endpoint}/{database_name}"),
+                        role_arn=example_role.arn,
+                    ),
+                ),
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Using `pulumi import`, import AppFlow Connector Profile using the connector profile `arn`. For example:
 
         ```sh
-         $ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
+        $ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
         ```
 
         :param str resource_name: The name of the resource.

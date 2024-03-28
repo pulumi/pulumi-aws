@@ -6,6 +6,7 @@ package com.pulumi.aws.imagebuilder.outputs;
 import com.pulumi.aws.imagebuilder.outputs.GetImageOutputResourceAmi;
 import com.pulumi.aws.imagebuilder.outputs.GetImageOutputResourceContainer;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -58,7 +59,10 @@ public final class GetImageOutputResource {
 
         @CustomType.Setter
         public Builder amis(List<GetImageOutputResourceAmi> amis) {
-            this.amis = Objects.requireNonNull(amis);
+            if (amis == null) {
+              throw new MissingRequiredPropertyException("GetImageOutputResource", "amis");
+            }
+            this.amis = amis;
             return this;
         }
         public Builder amis(GetImageOutputResourceAmi... amis) {
@@ -66,17 +70,20 @@ public final class GetImageOutputResource {
         }
         @CustomType.Setter
         public Builder containers(List<GetImageOutputResourceContainer> containers) {
-            this.containers = Objects.requireNonNull(containers);
+            if (containers == null) {
+              throw new MissingRequiredPropertyException("GetImageOutputResource", "containers");
+            }
+            this.containers = containers;
             return this;
         }
         public Builder containers(GetImageOutputResourceContainer... containers) {
             return containers(List.of(containers));
         }
         public GetImageOutputResource build() {
-            final var o = new GetImageOutputResource();
-            o.amis = amis;
-            o.containers = containers;
-            return o;
+            final var _resultValue = new GetImageOutputResource();
+            _resultValue.amis = amis;
+            _resultValue.containers = containers;
+            return _resultValue;
         }
     }
 }

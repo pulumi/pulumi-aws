@@ -14,6 +14,7 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,13 +23,15 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRule = new Aws.WafRegional.Rule("exampleRule", new()
+    ///     var example = new Aws.WafRegional.Rule("example", new()
     ///     {
+    ///         Name = "example",
     ///         MetricName = "example",
     ///     });
     /// 
-    ///     var exampleRuleGroup = new Aws.WafRegional.RuleGroup("exampleRuleGroup", new()
+    ///     var exampleRuleGroup = new Aws.WafRegional.RuleGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         MetricName = "example",
     ///         ActivatedRules = new[]
     ///         {
@@ -39,20 +42,21 @@ namespace Pulumi.Aws.WafRegional
     ///                     Type = "COUNT",
     ///                 },
     ///                 Priority = 50,
-    ///                 RuleId = exampleRule.Id,
+    ///                 RuleId = example.Id,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WAF Regional Rule Group using the id. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:wafregional/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+    /// $ pulumi import aws:wafregional/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
     /// ```
     /// </summary>
     [AwsResourceType("aws:wafregional/ruleGroup:RuleGroup")]
@@ -117,10 +121,6 @@ namespace Pulumi.Aws.WafRegional
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -240,11 +240,7 @@ namespace Pulumi.Aws.WafRegional
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public RuleGroupState()

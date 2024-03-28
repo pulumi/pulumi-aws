@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift Serverless Endpoint Access using the `endpoint_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
-//
+// $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
 // ```
 type EndpointAccess struct {
 	pulumi.CustomResourceState
@@ -59,6 +59,8 @@ type EndpointAccess struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the endpoint.
 	EndpointName pulumi.StringOutput `pulumi:"endpointName"`
+	// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+	OwnerAccount pulumi.StringPtrOutput `pulumi:"ownerAccount"`
 	// The port that Amazon Redshift Serverless listens on.
 	Port pulumi.IntOutput `pulumi:"port"`
 	// An array of VPC subnet IDs to associate with the endpoint.
@@ -116,6 +118,8 @@ type endpointAccessState struct {
 	Arn *string `pulumi:"arn"`
 	// The name of the endpoint.
 	EndpointName *string `pulumi:"endpointName"`
+	// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+	OwnerAccount *string `pulumi:"ownerAccount"`
 	// The port that Amazon Redshift Serverless listens on.
 	Port *int `pulumi:"port"`
 	// An array of VPC subnet IDs to associate with the endpoint.
@@ -135,6 +139,8 @@ type EndpointAccessState struct {
 	Arn pulumi.StringPtrInput
 	// The name of the endpoint.
 	EndpointName pulumi.StringPtrInput
+	// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+	OwnerAccount pulumi.StringPtrInput
 	// The port that Amazon Redshift Serverless listens on.
 	Port pulumi.IntPtrInput
 	// An array of VPC subnet IDs to associate with the endpoint.
@@ -154,6 +160,8 @@ func (EndpointAccessState) ElementType() reflect.Type {
 type endpointAccessArgs struct {
 	// The name of the endpoint.
 	EndpointName string `pulumi:"endpointName"`
+	// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+	OwnerAccount *string `pulumi:"ownerAccount"`
 	// An array of VPC subnet IDs to associate with the endpoint.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// An array of security group IDs to associate with the workgroup.
@@ -166,6 +174,8 @@ type endpointAccessArgs struct {
 type EndpointAccessArgs struct {
 	// The name of the endpoint.
 	EndpointName pulumi.StringInput
+	// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+	OwnerAccount pulumi.StringPtrInput
 	// An array of VPC subnet IDs to associate with the endpoint.
 	SubnetIds pulumi.StringArrayInput
 	// An array of security group IDs to associate with the workgroup.
@@ -274,6 +284,11 @@ func (o EndpointAccessOutput) Arn() pulumi.StringOutput {
 // The name of the endpoint.
 func (o EndpointAccessOutput) EndpointName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.EndpointName }).(pulumi.StringOutput)
+}
+
+// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+func (o EndpointAccessOutput) OwnerAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointAccess) pulumi.StringPtrOutput { return v.OwnerAccount }).(pulumi.StringPtrOutput)
 }
 
 // The port that Amazon Redshift Serverless listens on.

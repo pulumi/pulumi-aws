@@ -23,8 +23,10 @@ import javax.annotation.Nullable;
  * Resource for managing a QuickSight Theme.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,6 +51,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Theme(&#34;example&#34;, ThemeArgs.builder()        
+ *             .themeId(&#34;example&#34;)
+ *             .name(&#34;example&#34;)
  *             .baseThemeId(&#34;MIDNIGHT&#34;)
  *             .configuration(ThemeConfigurationArgs.builder()
  *                 .dataColorPalette(ThemeConfigurationDataColorPaletteArgs.builder()
@@ -64,24 +68,24 @@ import javax.annotation.Nullable;
  *                         &#34;#888888&#34;,
  *                         &#34;#999999&#34;)
  *                     .emptyFillColor(&#34;#FFFFFF&#34;)
- *                     .minMaxGradient(                    
+ *                     .minMaxGradients(                    
  *                         &#34;#FFFFFF&#34;,
  *                         &#34;#111111&#34;)
  *                     .build())
  *                 .build())
- *             .themeId(&#34;example&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a QuickSight Theme using the AWS account ID and theme ID separated by a comma (`,`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
+ * $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
  * ```
  * 
  */
@@ -324,9 +328,6 @@ public class Theme extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

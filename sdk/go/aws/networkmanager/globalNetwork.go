@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,15 +39,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_networkmanager_global_network` using the global network ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:networkmanager/globalNetwork:GlobalNetwork example global-network-0d47f6t230mz46dy4
-//
+// $ pulumi import aws:networkmanager/globalNetwork:GlobalNetwork example global-network-0d47f6t230mz46dy4
 // ```
 type GlobalNetwork struct {
 	pulumi.CustomResourceState
@@ -70,10 +70,6 @@ func NewGlobalNetwork(ctx *pulumi.Context,
 		args = &GlobalNetworkArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GlobalNetwork
 	err := ctx.RegisterResource("aws:networkmanager/globalNetwork:GlobalNetwork", name, args, &resource, opts...)

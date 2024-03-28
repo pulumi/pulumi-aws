@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,6 +59,7 @@ public final class DistributionRestrictionsGeoRestriction {
 
         @CustomType.Setter
         public Builder locations(@Nullable List<String> locations) {
+
             this.locations = locations;
             return this;
         }
@@ -66,14 +68,17 @@ public final class DistributionRestrictionsGeoRestriction {
         }
         @CustomType.Setter
         public Builder restrictionType(String restrictionType) {
-            this.restrictionType = Objects.requireNonNull(restrictionType);
+            if (restrictionType == null) {
+              throw new MissingRequiredPropertyException("DistributionRestrictionsGeoRestriction", "restrictionType");
+            }
+            this.restrictionType = restrictionType;
             return this;
         }
         public DistributionRestrictionsGeoRestriction build() {
-            final var o = new DistributionRestrictionsGeoRestriction();
-            o.locations = locations;
-            o.restrictionType = restrictionType;
-            return o;
+            final var _resultValue = new DistributionRestrictionsGeoRestriction();
+            _resultValue.locations = locations;
+            _resultValue.restrictionType = restrictionType;
+            return _resultValue;
         }
     }
 }

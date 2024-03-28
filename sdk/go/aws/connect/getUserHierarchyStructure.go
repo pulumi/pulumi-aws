@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.LookupUserHierarchyStructure(ctx, &connect.LookupUserHierarchyStructureArgs{
-//				InstanceId: aws_connect_instance.Test.Id,
+//				InstanceId: testAwsConnectInstance.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupUserHierarchyStructure(ctx *pulumi.Context, args *LookupUserHierarchyStructureArgs, opts ...pulumi.InvokeOption) (*LookupUserHierarchyStructureResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserHierarchyStructureResult

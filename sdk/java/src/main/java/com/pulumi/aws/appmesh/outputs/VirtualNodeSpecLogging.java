@@ -44,13 +44,14 @@ public final class VirtualNodeSpecLogging {
 
         @CustomType.Setter
         public Builder accessLog(@Nullable VirtualNodeSpecLoggingAccessLog accessLog) {
+
             this.accessLog = accessLog;
             return this;
         }
         public VirtualNodeSpecLogging build() {
-            final var o = new VirtualNodeSpecLogging();
-            o.accessLog = accessLog;
-            return o;
+            final var _resultValue = new VirtualNodeSpecLogging();
+            _resultValue.accessLog = accessLog;
+            return _resultValue;
         }
     }
 }

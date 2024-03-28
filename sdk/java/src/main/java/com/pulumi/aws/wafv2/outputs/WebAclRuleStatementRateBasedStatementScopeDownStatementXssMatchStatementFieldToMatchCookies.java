@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -72,7 +73,10 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
 
         @CustomType.Setter
         public Builder matchPatterns(List<WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern> matchPatterns) {
-            this.matchPatterns = Objects.requireNonNull(matchPatterns);
+            if (matchPatterns == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies", "matchPatterns");
+            }
+            this.matchPatterns = matchPatterns;
             return this;
         }
         public Builder matchPatterns(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern... matchPatterns) {
@@ -80,20 +84,26 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
         }
         @CustomType.Setter
         public Builder matchScope(String matchScope) {
-            this.matchScope = Objects.requireNonNull(matchScope);
+            if (matchScope == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies", "matchScope");
+            }
+            this.matchScope = matchScope;
             return this;
         }
         @CustomType.Setter
         public Builder oversizeHandling(String oversizeHandling) {
-            this.oversizeHandling = Objects.requireNonNull(oversizeHandling);
+            if (oversizeHandling == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies", "oversizeHandling");
+            }
+            this.oversizeHandling = oversizeHandling;
             return this;
         }
         public WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies();
-            o.matchPatterns = matchPatterns;
-            o.matchScope = matchScope;
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies();
+            _resultValue.matchPatterns = matchPatterns;
+            _resultValue.matchScope = matchScope;
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

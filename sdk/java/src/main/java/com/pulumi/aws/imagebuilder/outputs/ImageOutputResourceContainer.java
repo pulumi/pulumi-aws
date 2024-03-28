@@ -59,6 +59,7 @@ public final class ImageOutputResourceContainer {
 
         @CustomType.Setter
         public Builder imageUris(@Nullable List<String> imageUris) {
+
             this.imageUris = imageUris;
             return this;
         }
@@ -67,14 +68,15 @@ public final class ImageOutputResourceContainer {
         }
         @CustomType.Setter
         public Builder region(@Nullable String region) {
+
             this.region = region;
             return this;
         }
         public ImageOutputResourceContainer build() {
-            final var o = new ImageOutputResourceContainer();
-            o.imageUris = imageUris;
-            o.region = region;
-            return o;
+            final var _resultValue = new ImageOutputResourceContainer();
+            _resultValue.imageUris = imageUris;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

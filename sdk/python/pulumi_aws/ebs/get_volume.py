@@ -230,11 +230,13 @@ def get_volume(filters: Optional[Sequence[pulumi.InputType['GetVolumeFilterArgs'
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    ebs_volume = aws.ebs.get_volume(filters=[
+    ebs_volume = aws.ebs.get_volume(most_recent=True,
+        filters=[
             aws.ebs.GetVolumeFilterArgs(
                 name="volume-type",
                 values=["gp2"],
@@ -243,9 +245,9 @@ def get_volume(filters: Optional[Sequence[pulumi.InputType['GetVolumeFilterArgs'
                 name="tag:Name",
                 values=["Example"],
             ),
-        ],
-        most_recent=True)
+        ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetVolumeFilterArgs']] filters: One or more name/value pairs to filter off of. There are
@@ -292,11 +294,13 @@ def get_volume_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.In
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    ebs_volume = aws.ebs.get_volume(filters=[
+    ebs_volume = aws.ebs.get_volume(most_recent=True,
+        filters=[
             aws.ebs.GetVolumeFilterArgs(
                 name="volume-type",
                 values=["gp2"],
@@ -305,9 +309,9 @@ def get_volume_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.In
                 name="tag:Name",
                 values=["Example"],
             ),
-        ],
-        most_recent=True)
+        ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetVolumeFilterArgs']] filters: One or more name/value pairs to filter off of. There are

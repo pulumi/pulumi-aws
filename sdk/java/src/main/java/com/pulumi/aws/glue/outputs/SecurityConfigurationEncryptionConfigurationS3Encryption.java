@@ -58,19 +58,21 @@ public final class SecurityConfigurationEncryptionConfigurationS3Encryption {
 
         @CustomType.Setter
         public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
+
             this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         @CustomType.Setter
         public Builder s3EncryptionMode(@Nullable String s3EncryptionMode) {
+
             this.s3EncryptionMode = s3EncryptionMode;
             return this;
         }
         public SecurityConfigurationEncryptionConfigurationS3Encryption build() {
-            final var o = new SecurityConfigurationEncryptionConfigurationS3Encryption();
-            o.kmsKeyArn = kmsKeyArn;
-            o.s3EncryptionMode = s3EncryptionMode;
-            return o;
+            final var _resultValue = new SecurityConfigurationEncryptionConfigurationS3Encryption();
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.s3EncryptionMode = s3EncryptionMode;
+            return _resultValue;
         }
     }
 }

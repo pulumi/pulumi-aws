@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeader;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -75,16 +76,21 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
 
         @CustomType.Setter
         public Builder customResponseBodyKey(@Nullable String customResponseBodyKey) {
+
             this.customResponseBodyKey = customResponseBodyKey;
             return this;
         }
         @CustomType.Setter
         public Builder responseCode(Integer responseCode) {
-            this.responseCode = Objects.requireNonNull(responseCode);
+            if (responseCode == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponse", "responseCode");
+            }
+            this.responseCode = responseCode;
             return this;
         }
         @CustomType.Setter
         public Builder responseHeaders(@Nullable List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeader> responseHeaders) {
+
             this.responseHeaders = responseHeaders;
             return this;
         }
@@ -92,11 +98,11 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
             return responseHeaders(List.of(responseHeaders));
         }
         public WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponse build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponse();
-            o.customResponseBodyKey = customResponseBodyKey;
-            o.responseCode = responseCode;
-            o.responseHeaders = responseHeaders;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponse();
+            _resultValue.customResponseBodyKey = customResponseBodyKey;
+            _resultValue.responseCode = responseCode;
+            _resultValue.responseHeaders = responseHeaders;
+            return _resultValue;
         }
     }
 }

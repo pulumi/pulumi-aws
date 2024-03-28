@@ -202,12 +202,13 @@ class UserGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        main_user_pool = aws.cognito.UserPool("mainUserPool")
-        group_role_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        main = aws.cognito.UserPool("main", name="identity pool")
+        group_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="Federated",
@@ -227,20 +228,24 @@ class UserGroup(pulumi.CustomResource):
                 ),
             ],
         )])
-        group_role_role = aws.iam.Role("groupRoleRole", assume_role_policy=group_role_policy_document.json)
-        main_user_group = aws.cognito.UserGroup("mainUserGroup",
-            user_pool_id=main_user_pool.id,
+        group_role_role = aws.iam.Role("group_role",
+            name="user-group-role",
+            assume_role_policy=group_role.json)
+        main_user_group = aws.cognito.UserGroup("main",
+            name="user-group",
+            user_pool_id=main.id,
             description="Managed by Pulumi",
             precedence=42,
             role_arn=group_role_role.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cognito User Groups using the `user_pool_id`/`name` attributes concatenated. For example:
 
         ```sh
-         $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
+        $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
         ```
 
         :param str resource_name: The name of the resource.
@@ -262,12 +267,13 @@ class UserGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        main_user_pool = aws.cognito.UserPool("mainUserPool")
-        group_role_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        main = aws.cognito.UserPool("main", name="identity pool")
+        group_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="Federated",
@@ -287,20 +293,24 @@ class UserGroup(pulumi.CustomResource):
                 ),
             ],
         )])
-        group_role_role = aws.iam.Role("groupRoleRole", assume_role_policy=group_role_policy_document.json)
-        main_user_group = aws.cognito.UserGroup("mainUserGroup",
-            user_pool_id=main_user_pool.id,
+        group_role_role = aws.iam.Role("group_role",
+            name="user-group-role",
+            assume_role_policy=group_role.json)
+        main_user_group = aws.cognito.UserGroup("main",
+            name="user-group",
+            user_pool_id=main.id,
             description="Managed by Pulumi",
             precedence=42,
             role_arn=group_role_role.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cognito User Groups using the `user_pool_id`/`name` attributes concatenated. For example:
 
         ```sh
-         $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
+        $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
         ```
 
         :param str resource_name: The name of the resource.

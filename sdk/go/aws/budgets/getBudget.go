@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS Web Services Budgets Budget.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := budgets.LookupBudget(ctx, &budgets.LookupBudgetArgs{
-//				Name: aws_budgets_budget.Test.Name,
+//				Name: testAwsBudgetsBudget.Name,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupBudget(ctx *pulumi.Context, args *LookupBudgetArgs, opts ...pulumi.InvokeOption) (*LookupBudgetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBudgetResult

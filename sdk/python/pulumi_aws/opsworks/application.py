@@ -599,13 +599,16 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         foo_app = aws.opsworks.Application("foo-app",
+            name="foobar application",
             short_name="foobar",
-            stack_id=aws_opsworks_stack["main"]["id"],
+            stack_id=main["id"],
             type="rails",
             description="This is a Rails application",
             domains=[
@@ -624,20 +627,21 @@ class Application(pulumi.CustomResource):
             )],
             enable_ssl=True,
             ssl_configurations=[aws.opsworks.ApplicationSslConfigurationArgs(
-                private_key=(lambda path: open(path).read())("./foobar.key"),
-                certificate=(lambda path: open(path).read())("./foobar.crt"),
+                private_key=std.file(input="./foobar.key").result,
+                certificate=std.file(input="./foobar.crt").result,
             )],
             document_root="public",
             auto_bundle_on_deploy="true",
             rails_env="staging")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Opsworks Application using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:opsworks/application:Application test <id>
+        $ pulumi import aws:opsworks/application:Application test <id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -671,13 +675,16 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         foo_app = aws.opsworks.Application("foo-app",
+            name="foobar application",
             short_name="foobar",
-            stack_id=aws_opsworks_stack["main"]["id"],
+            stack_id=main["id"],
             type="rails",
             description="This is a Rails application",
             domains=[
@@ -696,20 +703,21 @@ class Application(pulumi.CustomResource):
             )],
             enable_ssl=True,
             ssl_configurations=[aws.opsworks.ApplicationSslConfigurationArgs(
-                private_key=(lambda path: open(path).read())("./foobar.key"),
-                certificate=(lambda path: open(path).read())("./foobar.crt"),
+                private_key=std.file(input="./foobar.key").result,
+                certificate=std.file(input="./foobar.crt").result,
             )],
             document_root="public",
             auto_bundle_on_deploy="true",
             rails_env="staging")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Opsworks Application using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:opsworks/application:Application test <id>
+        $ pulumi import aws:opsworks/application:Application test <id>
         ```
 
         :param str resource_name: The name of the resource.

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,15 +29,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
+//			_, err := chime.NewVoiceConnector(ctx, "default", &chime.VoiceConnectorArgs{
+//				Name:              pulumi.String("test"),
 //				RequireEncryption: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = chime.NewVoiceConnectorOrganization(ctx, "defaultVoiceConnectorOrganization", &chime.VoiceConnectorOrganizationArgs{
+//			_, err = chime.NewVoiceConnectorOrganization(ctx, "default", &chime.VoiceConnectorOrganizationArgs{
 //				Disabled:         pulumi.Bool(false),
-//				VoiceConnectorId: defaultVoiceConnector.ID(),
+//				VoiceConnectorId: _default.ID(),
 //				Routes: chime.VoiceConnectorOrganizationRouteArray{
 //					&chime.VoiceConnectorOrganizationRouteArgs{
 //						Host:     pulumi.String("127.0.0.1"),
@@ -62,15 +64,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Chime Voice Connector Origination using the `voice_connector_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization default abcdef1ghij2klmno3pqr4
-//
+// $ pulumi import aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization default abcdef1ghij2klmno3pqr4
 // ```
 type VoiceConnectorOrganization struct {
 	pulumi.CustomResourceState

@@ -8,26 +8,29 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Audit Manager Assessment Delegation.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.auditmanager.AssessmentDelegation("example", {
- *     assessmentId: aws_auditmanager_assessment.example.id,
- *     roleArn: aws_iam_role.example.arn,
+ *     assessmentId: exampleAwsAuditmanagerAssessment.id,
+ *     roleArn: exampleAwsIamRole.arn,
  *     roleType: "RESOURCE_OWNER",
  *     controlSetId: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Audit Manager Assessment Delegation using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:auditmanager/assessmentDelegation:AssessmentDelegation example abcdef-123456,arn:aws:iam::012345678901:role/example,example
+ * $ pulumi import aws:auditmanager/assessmentDelegation:AssessmentDelegation example abcdef-123456,arn:aws:iam::012345678901:role/example,example
  * ```
  */
 export class AssessmentDelegation extends pulumi.CustomResource {

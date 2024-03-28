@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesis.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -17,7 +18,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationProces
     /**
      * @return Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
      * 
-     * &gt; **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+     * &gt; **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
      * 
      */
     private String parameterValue;
@@ -33,7 +34,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationProces
     /**
      * @return Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
      * 
-     * &gt; **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+     * &gt; **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
      * 
      */
     public String parameterValue() {
@@ -60,19 +61,25 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationProces
 
         @CustomType.Setter
         public Builder parameterName(String parameterName) {
-            this.parameterName = Objects.requireNonNull(parameterName);
+            if (parameterName == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter", "parameterName");
+            }
+            this.parameterName = parameterName;
             return this;
         }
         @CustomType.Setter
         public Builder parameterValue(String parameterValue) {
-            this.parameterValue = Objects.requireNonNull(parameterValue);
+            if (parameterValue == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter", "parameterValue");
+            }
+            this.parameterValue = parameterValue;
             return this;
         }
         public FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter build() {
-            final var o = new FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter();
-            o.parameterName = parameterName;
-            o.parameterValue = parameterValue;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter();
+            _resultValue.parameterName = parameterName;
+            _resultValue.parameterValue = parameterValue;
+            return _resultValue;
         }
     }
 }

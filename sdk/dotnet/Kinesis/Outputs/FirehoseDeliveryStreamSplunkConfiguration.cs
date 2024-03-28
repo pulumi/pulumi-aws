@@ -14,7 +14,15 @@ namespace Pulumi.Aws.Kinesis.Outputs
     public sealed class FirehoseDeliveryStreamSplunkConfiguration
     {
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
+        /// Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+        /// </summary>
+        public readonly int? BufferingInterval;
+        /// <summary>
+        /// Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+        /// </summary>
+        public readonly int? BufferingSize;
+        /// <summary>
+        /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions;
         /// <summary>
@@ -34,7 +42,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string HecToken;
         /// <summary>
-        /// The data processing configuration.  More details are given below.
+        /// The data processing configuration.  See `processing_configuration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration? ProcessingConfiguration;
         /// <summary>
@@ -46,12 +54,16 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? S3BackupMode;
         /// <summary>
-        /// The S3 Configuration. See s3_configuration for more details.
+        /// The S3 Configuration. See `s3_configuration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSplunkConfigurationS3Configuration S3Configuration;
 
         [OutputConstructor]
         private FirehoseDeliveryStreamSplunkConfiguration(
+            int? bufferingInterval,
+
+            int? bufferingSize,
+
             Outputs.FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions? cloudwatchLoggingOptions,
 
             int? hecAcknowledgmentTimeout,
@@ -70,6 +82,8 @@ namespace Pulumi.Aws.Kinesis.Outputs
 
             Outputs.FirehoseDeliveryStreamSplunkConfigurationS3Configuration s3Configuration)
         {
+            BufferingInterval = bufferingInterval;
+            BufferingSize = bufferingSize;
             CloudwatchLoggingOptions = cloudwatchLoggingOptions;
             HecAcknowledgmentTimeout = hecAcknowledgmentTimeout;
             HecEndpoint = hecEndpoint;

@@ -88,31 +88,35 @@ public final class WorkgroupConfigurationResultConfiguration {
 
         @CustomType.Setter
         public Builder aclConfiguration(@Nullable WorkgroupConfigurationResultConfigurationAclConfiguration aclConfiguration) {
+
             this.aclConfiguration = aclConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionConfiguration(@Nullable WorkgroupConfigurationResultConfigurationEncryptionConfiguration encryptionConfiguration) {
+
             this.encryptionConfiguration = encryptionConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder expectedBucketOwner(@Nullable String expectedBucketOwner) {
+
             this.expectedBucketOwner = expectedBucketOwner;
             return this;
         }
         @CustomType.Setter
         public Builder outputLocation(@Nullable String outputLocation) {
+
             this.outputLocation = outputLocation;
             return this;
         }
         public WorkgroupConfigurationResultConfiguration build() {
-            final var o = new WorkgroupConfigurationResultConfiguration();
-            o.aclConfiguration = aclConfiguration;
-            o.encryptionConfiguration = encryptionConfiguration;
-            o.expectedBucketOwner = expectedBucketOwner;
-            o.outputLocation = outputLocation;
-            return o;
+            final var _resultValue = new WorkgroupConfigurationResultConfiguration();
+            _resultValue.aclConfiguration = aclConfiguration;
+            _resultValue.encryptionConfiguration = encryptionConfiguration;
+            _resultValue.expectedBucketOwner = expectedBucketOwner;
+            _resultValue.outputLocation = outputLocation;
+            return _resultValue;
         }
     }
 }

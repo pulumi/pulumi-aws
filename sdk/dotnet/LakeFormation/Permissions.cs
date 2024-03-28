@@ -27,6 +27,7 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `create_database_default_permissions` and `create_table_default_permissions` are not set in the `aws.lakeformation.DataLakeSettings` resource, they are cleared.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,23 +36,24 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var currentSessionContext = Aws.Iam.GetSessionContext.Invoke(new()
+    ///     var currentGetSessionContext = Aws.Iam.GetSessionContext.Invoke(new()
     ///     {
-    ///         Arn = currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.Arn),
+    ///         Arn = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.Arn),
     ///     });
     /// 
     ///     var test = new Aws.LakeFormation.DataLakeSettings("test", new()
     ///     {
     ///         Admins = new[]
     ///         {
-    ///             currentSessionContext.Apply(getSessionContextResult =&gt; getSessionContextResult.IssuerArn),
+    ///             currentGetSessionContext.Apply(getSessionContextResult =&gt; getSessionContextResult.IssuerArn),
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// To remove existing `IAMAllowedPrincipals` permissions, use the [AWS Lake Formation Console](https://console.aws.amazon.com/lakeformation/) or [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lakeformation/batch-revoke-permissions.html).
     /// 
@@ -68,6 +70,7 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// AWS does not support combining `IAMAllowedPrincipals` permissions and non-`IAMAllowedPrincipals` permissions. Doing so results in unexpected permissions and behaviors. For example, this configuration grants a user `SELECT` on a column in a table.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -76,15 +79,15 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCatalogDatabase = new Aws.Glue.CatalogDatabase("exampleCatalogDatabase", new()
+    ///     var example = new Aws.Glue.CatalogDatabase("example", new()
     ///     {
     ///         Name = "sadabate",
     ///     });
     /// 
-    ///     var exampleCatalogTable = new Aws.Glue.CatalogTable("exampleCatalogTable", new()
+    ///     var exampleCatalogTable = new Aws.Glue.CatalogTable("example", new()
     ///     {
     ///         Name = "abelt",
-    ///         DatabaseName = aws_glue_catalog_database.Test.Name,
+    ///         DatabaseName = test.Name,
     ///         StorageDescriptor = new Aws.Glue.Inputs.CatalogTableStorageDescriptorArgs
     ///         {
     ///             Columns = new[]
@@ -98,7 +101,7 @@ namespace Pulumi.Aws.LakeFormation
     ///         },
     ///     });
     /// 
-    ///     var examplePermissions = new Aws.LakeFormation.Permissions("examplePermissions", new()
+    ///     var examplePermissions = new Aws.LakeFormation.Permissions("example", new()
     ///     {
     ///         PermissionDetails = new[]
     ///         {
@@ -118,6 +121,7 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// The resulting permissions depend on whether the table had `IAMAllowedPrincipals` (IAP) permissions or not.
     /// 
@@ -134,8 +138,10 @@ namespace Pulumi.Aws.LakeFormation
     /// If the `principal` is also a data lake administrator, AWS grants implicit permissions that can cause errors using this resource. For example, AWS implicitly grants a `principal`/administrator `permissions` and `permissions_with_grant_option` of `ALL`, `ALTER`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT` on a table. If you use this resource to explicitly grant the `principal`/administrator `permissions` but _not_ `permissions_with_grant_option` of `ALL`, `ALTER`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT` on the table, this resource will read the implicit `permissions_with_grant_option` and attempt to revoke them when the resource is destroyed. Doing so will cause an `InvalidInputException: No permissions revoked` error because you cannot revoke implicit permissions _per se_. To workaround this problem, explicitly grant the `principal`/administrator `permissions` _and_ `permissions_with_grant_option`, which can then be revoked. Similarly, granting a `principal`/administrator permissions on a table with columns and providing `column_names`, will result in a `InvalidInputException: Permissions modification is invalid` error because you are narrowing the implicit permissions. Instead, set `wildcard` to `true` and remove the `column_names`.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Grant Permissions For A Lake Formation S3 Resource
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -146,21 +152,24 @@ namespace Pulumi.Aws.LakeFormation
     /// {
     ///     var example = new Aws.LakeFormation.Permissions("example", new()
     ///     {
-    ///         Principal = aws_iam_role.Workflow_role.Arn,
+    ///         Principal = workflowRole.Arn,
     ///         PermissionDetails = new[]
     ///         {
-    ///             "ALL",
+    ///             "DATA_LOCATION_ACCESS",
     ///         },
     ///         DataLocation = new Aws.LakeFormation.Inputs.PermissionsDataLocationArgs
     ///         {
-    ///             Arn = aws_lakeformation_resource.Example.Arn,
+    ///             Arn = exampleAwsLakeformationResource.Arn,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Grant Permissions For A Glue Catalog Database
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -171,7 +180,7 @@ namespace Pulumi.Aws.LakeFormation
     /// {
     ///     var example = new Aws.LakeFormation.Permissions("example", new()
     ///     {
-    ///         Principal = aws_iam_role.Workflow_role.Arn,
+    ///         Principal = workflowRole.Arn,
     ///         PermissionDetails = new[]
     ///         {
     ///             "CREATE_TABLE",
@@ -180,15 +189,18 @@ namespace Pulumi.Aws.LakeFormation
     ///         },
     ///         Database = new Aws.LakeFormation.Inputs.PermissionsDatabaseArgs
     ///         {
-    ///             Name = aws_glue_catalog_database.Example.Name,
+    ///             Name = exampleAwsGlueCatalogDatabase.Name,
     ///             CatalogId = "110376042874",
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Grant Permissions Using Tag-Based Access Control
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -199,7 +211,7 @@ namespace Pulumi.Aws.LakeFormation
     /// {
     ///     var test = new Aws.LakeFormation.Permissions("test", new()
     ///     {
-    ///         Principal = aws_iam_role.Sales_role.Arn,
+    ///         Principal = salesRole.Arn,
     ///         PermissionDetails = new[]
     ///         {
     ///             "CREATE_TABLE",
@@ -234,6 +246,7 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:lakeformation/permissions:Permissions")]
     public partial class Permissions : global::Pulumi.CustomResource
@@ -249,6 +262,12 @@ namespace Pulumi.Aws.LakeFormation
         /// </summary>
         [Output("catalogResource")]
         public Output<bool?> CatalogResource { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block for a data cells filter resource. Detailed below.
+        /// </summary>
+        [Output("dataCellsFilter")]
+        public Output<Outputs.PermissionsDataCellsFilter?> DataCellsFilter { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for a data location resource. Detailed below.
@@ -369,6 +388,12 @@ namespace Pulumi.Aws.LakeFormation
         public Input<bool>? CatalogResource { get; set; }
 
         /// <summary>
+        /// Configuration block for a data cells filter resource. Detailed below.
+        /// </summary>
+        [Input("dataCellsFilter")]
+        public Input<Inputs.PermissionsDataCellsFilterArgs>? DataCellsFilter { get; set; }
+
+        /// <summary>
         /// Configuration block for a data location resource. Detailed below.
         /// </summary>
         [Input("dataLocation")]
@@ -459,6 +484,12 @@ namespace Pulumi.Aws.LakeFormation
         /// </summary>
         [Input("catalogResource")]
         public Input<bool>? CatalogResource { get; set; }
+
+        /// <summary>
+        /// Configuration block for a data cells filter resource. Detailed below.
+        /// </summary>
+        [Input("dataCellsFilter")]
+        public Input<Inputs.PermissionsDataCellsFilterGetArgs>? DataCellsFilter { get; set; }
 
         /// <summary>
         /// Configuration block for a data location resource. Detailed below.

@@ -6,6 +6,7 @@ package com.pulumi.aws.route53;
 import com.pulumi.aws.route53.inputs.ResolverEndpointIpAddressArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -70,6 +71,36 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+     * 
+     */
+    @Import(name="protocols")
+    private @Nullable Output<List<String>> protocols;
+
+    /**
+     * @return The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+     * 
+     */
+    public Optional<Output<List<String>>> protocols() {
+        return Optional.ofNullable(this.protocols);
+    }
+
+    /**
+     * The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+     * 
+     */
+    @Import(name="resolverEndpointType")
+    private @Nullable Output<String> resolverEndpointType;
+
+    /**
+     * @return The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+     * 
+     */
+    public Optional<Output<String>> resolverEndpointType() {
+        return Optional.ofNullable(this.resolverEndpointType);
+    }
+
+    /**
      * The ID of one or more security groups that you want to use to control access to this VPC.
      * 
      */
@@ -105,6 +136,8 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
         this.direction = $.direction;
         this.ipAddresses = $.ipAddresses;
         this.name = $.name;
+        this.protocols = $.protocols;
+        this.resolverEndpointType = $.resolverEndpointType;
         this.securityGroupIds = $.securityGroupIds;
         this.tags = $.tags;
     }
@@ -208,6 +241,58 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param protocols The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protocols(@Nullable Output<List<String>> protocols) {
+            $.protocols = protocols;
+            return this;
+        }
+
+        /**
+         * @param protocols The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protocols(List<String> protocols) {
+            return protocols(Output.of(protocols));
+        }
+
+        /**
+         * @param protocols The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protocols(String... protocols) {
+            return protocols(List.of(protocols));
+        }
+
+        /**
+         * @param resolverEndpointType The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resolverEndpointType(@Nullable Output<String> resolverEndpointType) {
+            $.resolverEndpointType = resolverEndpointType;
+            return this;
+        }
+
+        /**
+         * @param resolverEndpointType The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resolverEndpointType(String resolverEndpointType) {
+            return resolverEndpointType(Output.of(resolverEndpointType));
+        }
+
+        /**
          * @param securityGroupIds The ID of one or more security groups that you want to use to control access to this VPC.
          * 
          * @return builder
@@ -260,9 +345,15 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         public ResolverEndpointArgs build() {
-            $.direction = Objects.requireNonNull($.direction, "expected parameter 'direction' to be non-null");
-            $.ipAddresses = Objects.requireNonNull($.ipAddresses, "expected parameter 'ipAddresses' to be non-null");
-            $.securityGroupIds = Objects.requireNonNull($.securityGroupIds, "expected parameter 'securityGroupIds' to be non-null");
+            if ($.direction == null) {
+                throw new MissingRequiredPropertyException("ResolverEndpointArgs", "direction");
+            }
+            if ($.ipAddresses == null) {
+                throw new MissingRequiredPropertyException("ResolverEndpointArgs", "ipAddresses");
+            }
+            if ($.securityGroupIds == null) {
+                throw new MissingRequiredPropertyException("ResolverEndpointArgs", "securityGroupIds");
+            }
             return $;
         }
     }

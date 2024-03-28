@@ -48,13 +48,14 @@ public final class SmbFileShareCacheAttributes {
 
         @CustomType.Setter
         public Builder cacheStaleTimeoutInSeconds(@Nullable Integer cacheStaleTimeoutInSeconds) {
+
             this.cacheStaleTimeoutInSeconds = cacheStaleTimeoutInSeconds;
             return this;
         }
         public SmbFileShareCacheAttributes build() {
-            final var o = new SmbFileShareCacheAttributes();
-            o.cacheStaleTimeoutInSeconds = cacheStaleTimeoutInSeconds;
-            return o;
+            final var _resultValue = new SmbFileShareCacheAttributes();
+            _resultValue.cacheStaleTimeoutInSeconds = cacheStaleTimeoutInSeconds;
+            return _resultValue;
         }
     }
 }

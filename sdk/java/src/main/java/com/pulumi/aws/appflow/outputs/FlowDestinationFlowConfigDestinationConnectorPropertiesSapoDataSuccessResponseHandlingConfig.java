@@ -58,19 +58,21 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
 
         @CustomType.Setter
         public Builder bucketName(@Nullable String bucketName) {
+
             this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder bucketPrefix(@Nullable String bucketPrefix) {
+
             this.bucketPrefix = bucketPrefix;
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig();
-            o.bucketName = bucketName;
-            o.bucketPrefix = bucketPrefix;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig();
+            _resultValue.bucketName = bucketName;
+            _resultValue.bucketPrefix = bucketPrefix;
+            return _resultValue;
         }
     }
 }

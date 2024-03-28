@@ -16,12 +16,12 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -29,24 +29,18 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "primary", &aws.ProviderArgs{
-//				Region: pulumi.String("us-east-1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			primaryKey, err := kms.NewKey(ctx, "primaryKey", &kms.KeyArgs{
+//			primary, err := kms.NewKey(ctx, "primary", &kms.KeyArgs{
 //				Description:          pulumi.String("Multi-Region primary key"),
 //				DeletionWindowInDays: pulumi.Int(30),
 //				MultiRegion:          pulumi.Bool(true),
-//			}, pulumi.Provider(aws.Primary))
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = kms.NewReplicaKey(ctx, "replica", &kms.ReplicaKeyArgs{
 //				Description:          pulumi.String("Multi-Region replica key"),
 //				DeletionWindowInDays: pulumi.Int(7),
-//				PrimaryKeyArn:        primaryKey.Arn,
+//				PrimaryKeyArn:        primary.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -56,15 +50,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import KMS multi-Region replica keys using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:kms/replicaKey:ReplicaKey example 1234abcd-12ab-34cd-56ef-1234567890ab
-//
+// $ pulumi import aws:kms/replicaKey:ReplicaKey example 1234abcd-12ab-34cd-56ef-1234567890ab
 // ```
 type ReplicaKey struct {
 	pulumi.CustomResourceState
@@ -113,10 +106,6 @@ func NewReplicaKey(ctx *pulumi.Context,
 	if args.PrimaryKeyArn == nil {
 		return nil, errors.New("invalid value for required argument 'PrimaryKeyArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicaKey
 	err := ctx.RegisterResource("aws:kms/replicaKey:ReplicaKey", name, args, &resource, opts...)

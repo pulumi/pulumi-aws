@@ -201,28 +201,36 @@ class AmiLaunchPermission(pulumi.CustomResource):
         Adds a launch permission to an Amazon Machine Image (AMI).
 
         ## Example Usage
+
         ### AWS Account ID
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2.AmiLaunchPermission("example",
-            account_id="123456789012",
-            image_id="ami-12345678")
+            image_id="ami-12345678",
+            account_id="123456789012")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Public Access
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2.AmiLaunchPermission("example",
-            group="all",
-            image_id="ami-12345678")
+            image_id="ami-12345678",
+            group="all")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Organization Access
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -232,13 +240,14 @@ class AmiLaunchPermission(pulumi.CustomResource):
             image_id="ami-12345678",
             organization_arn=current.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AMI Launch Permissions using `[ACCOUNT-ID|GROUP-NAME|ORGANIZATION-ARN|ORGANIZATIONAL-UNIT-ARN]/IMAGE-ID`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
+        $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -259,28 +268,36 @@ class AmiLaunchPermission(pulumi.CustomResource):
         Adds a launch permission to an Amazon Machine Image (AMI).
 
         ## Example Usage
+
         ### AWS Account ID
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2.AmiLaunchPermission("example",
-            account_id="123456789012",
-            image_id="ami-12345678")
+            image_id="ami-12345678",
+            account_id="123456789012")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Public Access
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2.AmiLaunchPermission("example",
-            group="all",
-            image_id="ami-12345678")
+            image_id="ami-12345678",
+            group="all")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Organization Access
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -290,13 +307,14 @@ class AmiLaunchPermission(pulumi.CustomResource):
             image_id="ami-12345678",
             organization_arn=current.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AMI Launch Permissions using `[ACCOUNT-ID|GROUP-NAME|ORGANIZATION-ARN|ORGANIZATIONAL-UNIT-ARN]/IMAGE-ID`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
+        $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
         ```
 
         :param str resource_name: The name of the resource.

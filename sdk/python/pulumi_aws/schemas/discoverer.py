@@ -176,22 +176,24 @@ class Discoverer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        messenger = aws.cloudwatch.EventBus("messenger")
+        messenger = aws.cloudwatch.EventBus("messenger", name="chat-messages")
         test = aws.schemas.Discoverer("test",
             source_arn=messenger.arn,
             description="Auto discover event schemas")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge discoverers using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:schemas/discoverer:Discoverer test 123
+        $ pulumi import aws:schemas/discoverer:Discoverer test 123
         ```
 
         :param str resource_name: The name of the resource.
@@ -213,22 +215,24 @@ class Discoverer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        messenger = aws.cloudwatch.EventBus("messenger")
+        messenger = aws.cloudwatch.EventBus("messenger", name="chat-messages")
         test = aws.schemas.Discoverer("test",
             source_arn=messenger.arn,
             description="Auto discover event schemas")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge discoverers using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:schemas/discoverer:Discoverer test 123
+        $ pulumi import aws:schemas/discoverer:Discoverer test 123
         ```
 
         :param str resource_name: The name of the resource.
@@ -265,8 +269,6 @@ class Discoverer(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Discoverer, __self__).__init__(
             'aws:schemas/discoverer:Discoverer',
             resource_name,

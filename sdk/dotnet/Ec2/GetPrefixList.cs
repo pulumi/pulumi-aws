@@ -22,10 +22,9 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,40 +33,41 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var privateS3VpcEndpoint = new Aws.Ec2.VpcEndpoint("privateS3VpcEndpoint", new()
+        ///     var privateS3VpcEndpoint = new Aws.Ec2.VpcEndpoint("private_s3", new()
         ///     {
-        ///         VpcId = aws_vpc.Foo.Id,
+        ///         VpcId = foo.Id,
         ///         ServiceName = "com.amazonaws.us-west-2.s3",
         ///     });
         /// 
-        ///     var privateS3PrefixList = Aws.Ec2.GetPrefixList.Invoke(new()
+        ///     var privateS3 = Aws.Ec2.GetPrefixList.Invoke(new()
         ///     {
         ///         PrefixListId = privateS3VpcEndpoint.PrefixListId,
         ///     });
         /// 
         ///     var bar = new Aws.Ec2.NetworkAcl("bar", new()
         ///     {
-        ///         VpcId = aws_vpc.Foo.Id,
+        ///         VpcId = foo.Id,
         ///     });
         /// 
-        ///     var privateS3NetworkAclRule = new Aws.Ec2.NetworkAclRule("privateS3NetworkAclRule", new()
+        ///     var privateS3NetworkAclRule = new Aws.Ec2.NetworkAclRule("private_s3", new()
         ///     {
         ///         NetworkAclId = bar.Id,
         ///         RuleNumber = 200,
         ///         Egress = false,
         ///         Protocol = "tcp",
         ///         RuleAction = "allow",
-        ///         CidrBlock = privateS3PrefixList.Apply(getPrefixListResult =&gt; getPrefixListResult.CidrBlocks[0]),
+        ///         CidrBlock = privateS3.Apply(getPrefixListResult =&gt; getPrefixListResult.CidrBlocks[0]),
         ///         FromPort = 443,
         ///         ToPort = 443,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Filter
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -93,8 +93,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPrefixListResult> InvokeAsync(GetPrefixListArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrefixListResult>("aws:ec2/getPrefixList:getPrefixList", args ?? new GetPrefixListArgs(), options.WithDefaults());
@@ -110,10 +109,9 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -122,40 +120,41 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var privateS3VpcEndpoint = new Aws.Ec2.VpcEndpoint("privateS3VpcEndpoint", new()
+        ///     var privateS3VpcEndpoint = new Aws.Ec2.VpcEndpoint("private_s3", new()
         ///     {
-        ///         VpcId = aws_vpc.Foo.Id,
+        ///         VpcId = foo.Id,
         ///         ServiceName = "com.amazonaws.us-west-2.s3",
         ///     });
         /// 
-        ///     var privateS3PrefixList = Aws.Ec2.GetPrefixList.Invoke(new()
+        ///     var privateS3 = Aws.Ec2.GetPrefixList.Invoke(new()
         ///     {
         ///         PrefixListId = privateS3VpcEndpoint.PrefixListId,
         ///     });
         /// 
         ///     var bar = new Aws.Ec2.NetworkAcl("bar", new()
         ///     {
-        ///         VpcId = aws_vpc.Foo.Id,
+        ///         VpcId = foo.Id,
         ///     });
         /// 
-        ///     var privateS3NetworkAclRule = new Aws.Ec2.NetworkAclRule("privateS3NetworkAclRule", new()
+        ///     var privateS3NetworkAclRule = new Aws.Ec2.NetworkAclRule("private_s3", new()
         ///     {
         ///         NetworkAclId = bar.Id,
         ///         RuleNumber = 200,
         ///         Egress = false,
         ///         Protocol = "tcp",
         ///         RuleAction = "allow",
-        ///         CidrBlock = privateS3PrefixList.Apply(getPrefixListResult =&gt; getPrefixListResult.CidrBlocks[0]),
+        ///         CidrBlock = privateS3.Apply(getPrefixListResult =&gt; getPrefixListResult.CidrBlocks[0]),
         ///         FromPort = 443,
         ///         ToPort = 443,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Filter
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -181,8 +180,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPrefixListResult> Invoke(GetPrefixListInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrefixListResult>("aws:ec2/getPrefixList:getPrefixList", args ?? new GetPrefixListInvokeArgs(), options.WithDefaults());

@@ -116,31 +116,37 @@ public final class StackSetOperationPreferences {
 
         @CustomType.Setter
         public Builder failureToleranceCount(@Nullable Integer failureToleranceCount) {
+
             this.failureToleranceCount = failureToleranceCount;
             return this;
         }
         @CustomType.Setter
         public Builder failureTolerancePercentage(@Nullable Integer failureTolerancePercentage) {
+
             this.failureTolerancePercentage = failureTolerancePercentage;
             return this;
         }
         @CustomType.Setter
         public Builder maxConcurrentCount(@Nullable Integer maxConcurrentCount) {
+
             this.maxConcurrentCount = maxConcurrentCount;
             return this;
         }
         @CustomType.Setter
         public Builder maxConcurrentPercentage(@Nullable Integer maxConcurrentPercentage) {
+
             this.maxConcurrentPercentage = maxConcurrentPercentage;
             return this;
         }
         @CustomType.Setter
         public Builder regionConcurrencyType(@Nullable String regionConcurrencyType) {
+
             this.regionConcurrencyType = regionConcurrencyType;
             return this;
         }
         @CustomType.Setter
         public Builder regionOrders(@Nullable List<String> regionOrders) {
+
             this.regionOrders = regionOrders;
             return this;
         }
@@ -148,14 +154,14 @@ public final class StackSetOperationPreferences {
             return regionOrders(List.of(regionOrders));
         }
         public StackSetOperationPreferences build() {
-            final var o = new StackSetOperationPreferences();
-            o.failureToleranceCount = failureToleranceCount;
-            o.failureTolerancePercentage = failureTolerancePercentage;
-            o.maxConcurrentCount = maxConcurrentCount;
-            o.maxConcurrentPercentage = maxConcurrentPercentage;
-            o.regionConcurrencyType = regionConcurrencyType;
-            o.regionOrders = regionOrders;
-            return o;
+            final var _resultValue = new StackSetOperationPreferences();
+            _resultValue.failureToleranceCount = failureToleranceCount;
+            _resultValue.failureTolerancePercentage = failureTolerancePercentage;
+            _resultValue.maxConcurrentCount = maxConcurrentCount;
+            _resultValue.maxConcurrentPercentage = maxConcurrentPercentage;
+            _resultValue.regionConcurrencyType = regionConcurrencyType;
+            _resultValue.regionOrders = regionOrders;
+            return _resultValue;
         }
     }
 }

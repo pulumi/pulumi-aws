@@ -557,30 +557,46 @@ class CatalogTable(pulumi.CustomResource):
         Provides a Glue Catalog Table Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality.
 
         ## Example Usage
+
         ### Basic Table
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        aws_glue_catalog_table = aws.glue.CatalogTable("awsGlueCatalogTable",
-            database_name="MyCatalogDatabase",
-            name="MyCatalogTable")
+        aws_glue_catalog_table = aws.glue.CatalogTable("aws_glue_catalog_table",
+            name="MyCatalogTable",
+            database_name="MyCatalogDatabase")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Parquet Table for Athena
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        aws_glue_catalog_table = aws.glue.CatalogTable("awsGlueCatalogTable",
-            database_name="MyCatalogDatabase",
+        aws_glue_catalog_table = aws.glue.CatalogTable("aws_glue_catalog_table",
             name="MyCatalogTable",
+            database_name="MyCatalogDatabase",
+            table_type="EXTERNAL_TABLE",
             parameters={
                 "EXTERNAL": "TRUE",
                 "parquet.compression": "SNAPPY",
             },
             storage_descriptor=aws.glue.CatalogTableStorageDescriptorArgs(
+                location="s3://my-bucket/event-streams/my-stream",
+                input_format="org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                output_format="org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                ser_de_info=aws.glue.CatalogTableStorageDescriptorSerDeInfoArgs(
+                    name="my-stream",
+                    serialization_library="org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    parameters={
+                        "serialization.format": "1",
+                    },
+                ),
                 columns=[
                     aws.glue.CatalogTableStorageDescriptorColumnArgs(
                         name="my_string",
@@ -591,41 +607,31 @@ class CatalogTable(pulumi.CustomResource):
                         type="double",
                     ),
                     aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        comment="",
                         name="my_date",
                         type="date",
+                        comment="",
                     ),
                     aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        comment="",
                         name="my_bigint",
                         type="bigint",
+                        comment="",
                     ),
                     aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        comment="",
                         name="my_struct",
                         type="struct<my_nested_string:string>",
+                        comment="",
                     ),
                 ],
-                input_format="org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
-                location="s3://my-bucket/event-streams/my-stream",
-                output_format="org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
-                ser_de_info=aws.glue.CatalogTableStorageDescriptorSerDeInfoArgs(
-                    name="my-stream",
-                    parameters={
-                        "serialization.format": "1",
-                    },
-                    serialization_library="org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
-                ),
-            ),
-            table_type="EXTERNAL_TABLE")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
 
         ```sh
-         $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
+        $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
         ```
 
         :param str resource_name: The name of the resource.
@@ -658,30 +664,46 @@ class CatalogTable(pulumi.CustomResource):
         Provides a Glue Catalog Table Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality.
 
         ## Example Usage
+
         ### Basic Table
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        aws_glue_catalog_table = aws.glue.CatalogTable("awsGlueCatalogTable",
-            database_name="MyCatalogDatabase",
-            name="MyCatalogTable")
+        aws_glue_catalog_table = aws.glue.CatalogTable("aws_glue_catalog_table",
+            name="MyCatalogTable",
+            database_name="MyCatalogDatabase")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Parquet Table for Athena
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        aws_glue_catalog_table = aws.glue.CatalogTable("awsGlueCatalogTable",
-            database_name="MyCatalogDatabase",
+        aws_glue_catalog_table = aws.glue.CatalogTable("aws_glue_catalog_table",
             name="MyCatalogTable",
+            database_name="MyCatalogDatabase",
+            table_type="EXTERNAL_TABLE",
             parameters={
                 "EXTERNAL": "TRUE",
                 "parquet.compression": "SNAPPY",
             },
             storage_descriptor=aws.glue.CatalogTableStorageDescriptorArgs(
+                location="s3://my-bucket/event-streams/my-stream",
+                input_format="org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                output_format="org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                ser_de_info=aws.glue.CatalogTableStorageDescriptorSerDeInfoArgs(
+                    name="my-stream",
+                    serialization_library="org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    parameters={
+                        "serialization.format": "1",
+                    },
+                ),
                 columns=[
                     aws.glue.CatalogTableStorageDescriptorColumnArgs(
                         name="my_string",
@@ -692,41 +714,31 @@ class CatalogTable(pulumi.CustomResource):
                         type="double",
                     ),
                     aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        comment="",
                         name="my_date",
                         type="date",
+                        comment="",
                     ),
                     aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        comment="",
                         name="my_bigint",
                         type="bigint",
+                        comment="",
                     ),
                     aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        comment="",
                         name="my_struct",
                         type="struct<my_nested_string:string>",
+                        comment="",
                     ),
                 ],
-                input_format="org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
-                location="s3://my-bucket/event-streams/my-stream",
-                output_format="org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
-                ser_de_info=aws.glue.CatalogTableStorageDescriptorSerDeInfoArgs(
-                    name="my-stream",
-                    parameters={
-                        "serialization.format": "1",
-                    },
-                    serialization_library="org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
-                ),
-            ),
-            table_type="EXTERNAL_TABLE")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
 
         ```sh
-         $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
+        $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
         ```
 
         :param str resource_name: The name of the resource.

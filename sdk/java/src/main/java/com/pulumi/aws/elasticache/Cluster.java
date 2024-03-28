@@ -42,7 +42,10 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `apply_immediately`.
  * 
  * ## Example Usage
+ * 
  * ### Memcached Cluster
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -65,6 +68,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
+ *             .clusterId(&#34;cluster-example&#34;)
  *             .engine(&#34;memcached&#34;)
  *             .nodeType(&#34;cache.m4.large&#34;)
  *             .numCacheNodes(2)
@@ -75,7 +79,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Redis Instance
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -98,20 +106,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
+ *             .clusterId(&#34;cluster-example&#34;)
  *             .engine(&#34;redis&#34;)
- *             .engineVersion(&#34;3.2.10&#34;)
  *             .nodeType(&#34;cache.m4.large&#34;)
  *             .numCacheNodes(1)
  *             .parameterGroupName(&#34;default.redis3.2&#34;)
+ *             .engineVersion(&#34;3.2.10&#34;)
  *             .port(6379)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Redis Cluster Mode Disabled Read Replica Instance
  * 
  * These inherit their settings from the replication group.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -134,13 +147,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var replica = new Cluster(&#34;replica&#34;, ClusterArgs.builder()        
- *             .replicationGroupId(aws_elasticache_replication_group.example().id())
+ *             .clusterId(&#34;cluster-example&#34;)
+ *             .replicationGroupId(example.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Redis Log Delivery configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -164,6 +182,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Cluster(&#34;test&#34;, ClusterArgs.builder()        
+ *             .clusterId(&#34;mycluster&#34;)
  *             .engine(&#34;redis&#34;)
  *             .nodeType(&#34;cache.t3.micro&#34;)
  *             .numCacheNodes(1)
@@ -171,13 +190,13 @@ import javax.annotation.Nullable;
  *             .applyImmediately(true)
  *             .logDeliveryConfigurations(            
  *                 ClusterLogDeliveryConfigurationArgs.builder()
- *                     .destination(aws_cloudwatch_log_group.example().name())
+ *                     .destination(example.name())
  *                     .destinationType(&#34;cloudwatch-logs&#34;)
  *                     .logFormat(&#34;text&#34;)
  *                     .logType(&#34;slow-log&#34;)
  *                     .build(),
  *                 ClusterLogDeliveryConfigurationArgs.builder()
- *                     .destination(aws_kinesis_firehose_delivery_stream.example().name())
+ *                     .destination(exampleAwsKinesisFirehoseDeliveryStream.name())
  *                     .destinationType(&#34;kinesis-firehose&#34;)
  *                     .logFormat(&#34;json&#34;)
  *                     .logType(&#34;engine-log&#34;)
@@ -187,13 +206,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
+ * $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
  * ```
  * 
  */
@@ -752,9 +772,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

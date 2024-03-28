@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides a Glue Data Catalog Encryption Settings resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,12 +47,12 @@ import javax.annotation.Nullable;
  *         var example = new DataCatalogEncryptionSettings(&#34;example&#34;, DataCatalogEncryptionSettingsArgs.builder()        
  *             .dataCatalogEncryptionSettings(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs.builder()
  *                 .connectionPasswordEncryption(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs.builder()
- *                     .awsKmsKeyId(aws_kms_key.test().arn())
+ *                     .awsKmsKeyId(test.arn())
  *                     .returnConnectionPasswordEncrypted(true)
  *                     .build())
  *                 .encryptionAtRest(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs.builder()
  *                     .catalogEncryptionMode(&#34;SSE-KMS&#34;)
- *                     .sseAwsKmsKeyId(aws_kms_key.test().arn())
+ *                     .sseAwsKmsKeyId(test.arn())
  *                     .build())
  *                 .build())
  *             .build());
@@ -58,13 +60,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Glue Data Catalog Encryption Settings using `CATALOG-ID` (AWS account ID if not custom). For example:
  * 
  * ```sh
- *  $ pulumi import aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings example 123456789012
+ * $ pulumi import aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings example 123456789012
  * ```
  * 
  */

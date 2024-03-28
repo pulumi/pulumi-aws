@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Ecr
         /// <summary>
         /// The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,14 +27,13 @@ namespace Pulumi.Aws.Ecr
         /// {
         ///     var serviceImage = Aws.Ecr.GetImage.Invoke(new()
         ///     {
-        ///         ImageTag = "latest",
         ///         RepositoryName = "my/service",
+        ///         ImageTag = "latest",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetImageResult> InvokeAsync(GetImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("aws:ecr/getImage:getImage", args ?? new GetImageArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Aws.Ecr
         /// <summary>
         /// The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -57,14 +54,13 @@ namespace Pulumi.Aws.Ecr
         /// {
         ///     var serviceImage = Aws.Ecr.GetImage.Invoke(new()
         ///     {
-        ///         ImageTag = "latest",
         ///         RepositoryName = "my/service",
+        ///         ImageTag = "latest",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("aws:ecr/getImage:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
@@ -169,6 +165,10 @@ namespace Pulumi.Aws.Ecr
         /// List of tags associated with this image.
         /// </summary>
         public readonly ImmutableArray<string> ImageTags;
+        /// <summary>
+        /// The URI for the specific image version specified by `image_tag` or `image_digest`.
+        /// </summary>
+        public readonly string ImageUri;
         public readonly bool? MostRecent;
         public readonly string RegistryId;
         public readonly string RepositoryName;
@@ -187,6 +187,8 @@ namespace Pulumi.Aws.Ecr
 
             ImmutableArray<string> imageTags,
 
+            string imageUri,
+
             bool? mostRecent,
 
             string registryId,
@@ -199,6 +201,7 @@ namespace Pulumi.Aws.Ecr
             ImageSizeInBytes = imageSizeInBytes;
             ImageTag = imageTag;
             ImageTags = imageTags;
+            ImageUri = imageUri;
             MostRecent = mostRecent;
             RegistryId = registryId;
             RepositoryName = repositoryName;

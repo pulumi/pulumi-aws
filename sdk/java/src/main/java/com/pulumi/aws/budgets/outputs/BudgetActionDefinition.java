@@ -74,25 +74,28 @@ public final class BudgetActionDefinition {
 
         @CustomType.Setter
         public Builder iamActionDefinition(@Nullable BudgetActionDefinitionIamActionDefinition iamActionDefinition) {
+
             this.iamActionDefinition = iamActionDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder scpActionDefinition(@Nullable BudgetActionDefinitionScpActionDefinition scpActionDefinition) {
+
             this.scpActionDefinition = scpActionDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder ssmActionDefinition(@Nullable BudgetActionDefinitionSsmActionDefinition ssmActionDefinition) {
+
             this.ssmActionDefinition = ssmActionDefinition;
             return this;
         }
         public BudgetActionDefinition build() {
-            final var o = new BudgetActionDefinition();
-            o.iamActionDefinition = iamActionDefinition;
-            o.scpActionDefinition = scpActionDefinition;
-            o.ssmActionDefinition = ssmActionDefinition;
-            return o;
+            final var _resultValue = new BudgetActionDefinition();
+            _resultValue.iamActionDefinition = iamActionDefinition;
+            _resultValue.scpActionDefinition = scpActionDefinition;
+            _resultValue.ssmActionDefinition = ssmActionDefinition;
+            return _resultValue;
         }
     }
 }

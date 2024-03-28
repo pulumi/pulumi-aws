@@ -123,6 +123,7 @@ class Account(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -135,9 +136,11 @@ class Account(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        cloudwatch_role = aws.iam.Role("cloudwatchRole", assume_role_policy=assume_role.json)
+        cloudwatch_role = aws.iam.Role("cloudwatch",
+            name="api_gateway_cloudwatch_global",
+            assume_role_policy=assume_role.json)
         demo = aws.apigateway.Account("demo", cloudwatch_role_arn=cloudwatch_role.arn)
-        cloudwatch_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        cloudwatch = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=[
                 "logs:CreateLogGroup",
@@ -150,17 +153,19 @@ class Account(pulumi.CustomResource):
             ],
             resources=["*"],
         )])
-        cloudwatch_role_policy = aws.iam.RolePolicy("cloudwatchRolePolicy",
+        cloudwatch_role_policy = aws.iam.RolePolicy("cloudwatch",
+            name="default",
             role=cloudwatch_role.id,
-            policy=cloudwatch_policy_document.json)
+            policy=cloudwatch.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import API Gateway Accounts using the word `api-gateway-account`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/account:Account demo api-gateway-account
+        $ pulumi import aws:apigateway/account:Account demo api-gateway-account
         ```
 
         :param str resource_name: The name of the resource.
@@ -180,6 +185,7 @@ class Account(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -192,9 +198,11 @@ class Account(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        cloudwatch_role = aws.iam.Role("cloudwatchRole", assume_role_policy=assume_role.json)
+        cloudwatch_role = aws.iam.Role("cloudwatch",
+            name="api_gateway_cloudwatch_global",
+            assume_role_policy=assume_role.json)
         demo = aws.apigateway.Account("demo", cloudwatch_role_arn=cloudwatch_role.arn)
-        cloudwatch_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        cloudwatch = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=[
                 "logs:CreateLogGroup",
@@ -207,17 +215,19 @@ class Account(pulumi.CustomResource):
             ],
             resources=["*"],
         )])
-        cloudwatch_role_policy = aws.iam.RolePolicy("cloudwatchRolePolicy",
+        cloudwatch_role_policy = aws.iam.RolePolicy("cloudwatch",
+            name="default",
             role=cloudwatch_role.id,
-            policy=cloudwatch_policy_document.json)
+            policy=cloudwatch.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import API Gateway Accounts using the word `api-gateway-account`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/account:Account demo api-gateway-account
+        $ pulumi import aws:apigateway/account:Account demo api-gateway-account
         ```
 
         :param str resource_name: The name of the resource.

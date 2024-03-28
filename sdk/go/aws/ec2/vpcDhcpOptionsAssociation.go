@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,9 +29,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpcDhcpOptionsAssociation(ctx, "dnsResolver", &ec2.VpcDhcpOptionsAssociationArgs{
-//				VpcId:         pulumi.Any(aws_vpc.Foo.Id),
-//				DhcpOptionsId: pulumi.Any(aws_vpc_dhcp_options.Foo.Id),
+//			_, err := ec2.NewVpcDhcpOptionsAssociation(ctx, "dns_resolver", &ec2.VpcDhcpOptionsAssociationArgs{
+//				VpcId:         pulumi.Any(fooAwsVpc.Id),
+//				DhcpOptionsId: pulumi.Any(foo.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -40,6 +41,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Remarks
 //
 // * You can only associate one DHCP Options Set to a given VPC ID.
@@ -50,9 +53,7 @@ import (
 // Using `pulumi import`, import DHCP associations using the VPC ID associated with the options. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
-//
+// $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
 // ```
 type VpcDhcpOptionsAssociation struct {
 	pulumi.CustomResourceState

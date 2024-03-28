@@ -19,7 +19,7 @@ namespace Pulumi.Aws.FinSpace
     /// Using `pulumi import`, import an AWS FinSpace Kx Cluster using the `id` (environment ID and cluster name, comma-delimited). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:finspace/kxCluster:KxCluster example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-cluster
+    /// $ pulumi import aws:finspace/kxCluster:KxCluster example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-cluster
     /// ```
     /// </summary>
     [AwsResourceType("aws:finspace/kxCluster:KxCluster")]
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.FinSpace
         /// Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
         /// </summary>
         [Output("capacityConfiguration")]
-        public Output<Outputs.KxClusterCapacityConfiguration> CapacityConfiguration { get; private set; } = null!;
+        public Output<Outputs.KxClusterCapacityConfiguration?> CapacityConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
@@ -135,6 +135,12 @@ namespace Pulumi.Aws.FinSpace
         [Output("savedownStorageConfiguration")]
         public Output<Outputs.KxClusterSavedownStorageConfiguration?> SavedownStorageConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The structure that stores the configuration details of a scaling group.
+        /// </summary>
+        [Output("scalingGroupConfiguration")]
+        public Output<Outputs.KxClusterScalingGroupConfiguration?> ScalingGroupConfiguration { get; private set; } = null!;
+
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -154,10 +160,18 @@ namespace Pulumi.Aws.FinSpace
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
+        /// A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+        /// </summary>
+        [Output("tickerplantLogConfigurations")]
+        public Output<ImmutableArray<Outputs.KxClusterTickerplantLogConfiguration>> TickerplantLogConfigurations { get; private set; } = null!;
+
+        /// <summary>
         /// Type of KDB database. The following types are available:
         /// * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
         /// * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
         /// * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
+        /// * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
+        /// * Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -193,10 +207,6 @@ namespace Pulumi.Aws.FinSpace
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -255,8 +265,8 @@ namespace Pulumi.Aws.FinSpace
         /// <summary>
         /// Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
         /// </summary>
-        [Input("capacityConfiguration", required: true)]
-        public Input<Inputs.KxClusterCapacityConfigurationArgs> CapacityConfiguration { get; set; } = null!;
+        [Input("capacityConfiguration")]
+        public Input<Inputs.KxClusterCapacityConfigurationArgs>? CapacityConfiguration { get; set; }
 
         /// <summary>
         /// Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
@@ -330,6 +340,12 @@ namespace Pulumi.Aws.FinSpace
         [Input("savedownStorageConfiguration")]
         public Input<Inputs.KxClusterSavedownStorageConfigurationArgs>? SavedownStorageConfiguration { get; set; }
 
+        /// <summary>
+        /// The structure that stores the configuration details of a scaling group.
+        /// </summary>
+        [Input("scalingGroupConfiguration")]
+        public Input<Inputs.KxClusterScalingGroupConfigurationArgs>? ScalingGroupConfiguration { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -342,11 +358,25 @@ namespace Pulumi.Aws.FinSpace
             set => _tags = value;
         }
 
+        [Input("tickerplantLogConfigurations")]
+        private InputList<Inputs.KxClusterTickerplantLogConfigurationArgs>? _tickerplantLogConfigurations;
+
+        /// <summary>
+        /// A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+        /// </summary>
+        public InputList<Inputs.KxClusterTickerplantLogConfigurationArgs> TickerplantLogConfigurations
+        {
+            get => _tickerplantLogConfigurations ?? (_tickerplantLogConfigurations = new InputList<Inputs.KxClusterTickerplantLogConfigurationArgs>());
+            set => _tickerplantLogConfigurations = value;
+        }
+
         /// <summary>
         /// Type of KDB database. The following types are available:
         /// * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
         /// * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
         /// * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
+        /// * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
+        /// * Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -495,6 +525,12 @@ namespace Pulumi.Aws.FinSpace
         [Input("savedownStorageConfiguration")]
         public Input<Inputs.KxClusterSavedownStorageConfigurationGetArgs>? SavedownStorageConfiguration { get; set; }
 
+        /// <summary>
+        /// The structure that stores the configuration details of a scaling group.
+        /// </summary>
+        [Input("scalingGroupConfiguration")]
+        public Input<Inputs.KxClusterScalingGroupConfigurationGetArgs>? ScalingGroupConfiguration { get; set; }
+
         [Input("status")]
         public Input<string>? Status { get; set; }
 
@@ -523,11 +559,19 @@ namespace Pulumi.Aws.FinSpace
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
+        }
+
+        [Input("tickerplantLogConfigurations")]
+        private InputList<Inputs.KxClusterTickerplantLogConfigurationGetArgs>? _tickerplantLogConfigurations;
+
+        /// <summary>
+        /// A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+        /// </summary>
+        public InputList<Inputs.KxClusterTickerplantLogConfigurationGetArgs> TickerplantLogConfigurations
+        {
+            get => _tickerplantLogConfigurations ?? (_tickerplantLogConfigurations = new InputList<Inputs.KxClusterTickerplantLogConfigurationGetArgs>());
+            set => _tickerplantLogConfigurations = value;
         }
 
         /// <summary>
@@ -535,6 +579,8 @@ namespace Pulumi.Aws.FinSpace
         /// * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
         /// * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
         /// * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
+        /// * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
+        /// * Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

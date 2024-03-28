@@ -58,19 +58,21 @@ public final class IndexingConfigurationThingGroupIndexingConfigurationManagedFi
 
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         public IndexingConfigurationThingGroupIndexingConfigurationManagedField build() {
-            final var o = new IndexingConfigurationThingGroupIndexingConfigurationManagedField();
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new IndexingConfigurationThingGroupIndexingConfigurationManagedField();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

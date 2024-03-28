@@ -4,6 +4,7 @@
 package com.pulumi.aws.codegurureviewer.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,25 +71,34 @@ public final class RepositoryAssociationRepositoryGithubEnterpriseServer {
 
         @CustomType.Setter
         public Builder connectionArn(String connectionArn) {
-            this.connectionArn = Objects.requireNonNull(connectionArn);
+            if (connectionArn == null) {
+              throw new MissingRequiredPropertyException("RepositoryAssociationRepositoryGithubEnterpriseServer", "connectionArn");
+            }
+            this.connectionArn = connectionArn;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("RepositoryAssociationRepositoryGithubEnterpriseServer", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+            if (owner == null) {
+              throw new MissingRequiredPropertyException("RepositoryAssociationRepositoryGithubEnterpriseServer", "owner");
+            }
+            this.owner = owner;
             return this;
         }
         public RepositoryAssociationRepositoryGithubEnterpriseServer build() {
-            final var o = new RepositoryAssociationRepositoryGithubEnterpriseServer();
-            o.connectionArn = connectionArn;
-            o.name = name;
-            o.owner = owner;
-            return o;
+            final var _resultValue = new RepositoryAssociationRepositoryGithubEnterpriseServer();
+            _resultValue.connectionArn = connectionArn;
+            _resultValue.name = name;
+            _resultValue.owner = owner;
+            return _resultValue;
         }
     }
 }

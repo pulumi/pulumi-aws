@@ -58,19 +58,21 @@ public final class PipeSourceParametersSqsQueueParameters {
 
         @CustomType.Setter
         public Builder batchSize(@Nullable Integer batchSize) {
+
             this.batchSize = batchSize;
             return this;
         }
         @CustomType.Setter
         public Builder maximumBatchingWindowInSeconds(@Nullable Integer maximumBatchingWindowInSeconds) {
+
             this.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
             return this;
         }
         public PipeSourceParametersSqsQueueParameters build() {
-            final var o = new PipeSourceParametersSqsQueueParameters();
-            o.batchSize = batchSize;
-            o.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
-            return o;
+            final var _resultValue = new PipeSourceParametersSqsQueueParameters();
+            _resultValue.batchSize = batchSize;
+            _resultValue.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
+            return _resultValue;
         }
     }
 }

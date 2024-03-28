@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecGrpcRouteAction;
 import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecGrpcRouteMatch;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetGatewayRouteSpecGrpcRoute {
 
         @CustomType.Setter
         public Builder actions(List<GetGatewayRouteSpecGrpcRouteAction> actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecGrpcRoute", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         public Builder actions(GetGatewayRouteSpecGrpcRouteAction... actions) {
@@ -50,17 +54,20 @@ public final class GetGatewayRouteSpecGrpcRoute {
         }
         @CustomType.Setter
         public Builder matches(List<GetGatewayRouteSpecGrpcRouteMatch> matches) {
-            this.matches = Objects.requireNonNull(matches);
+            if (matches == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecGrpcRoute", "matches");
+            }
+            this.matches = matches;
             return this;
         }
         public Builder matches(GetGatewayRouteSpecGrpcRouteMatch... matches) {
             return matches(List.of(matches));
         }
         public GetGatewayRouteSpecGrpcRoute build() {
-            final var o = new GetGatewayRouteSpecGrpcRoute();
-            o.actions = actions;
-            o.matches = matches;
-            return o;
+            final var _resultValue = new GetGatewayRouteSpecGrpcRoute();
+            _resultValue.actions = actions;
+            _resultValue.matches = matches;
+            return _resultValue;
         }
     }
 }

@@ -6,6 +6,7 @@ package com.pulumi.aws.quicksight.outputs;
 import com.pulumi.aws.quicksight.outputs.DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties;
 import com.pulumi.aws.quicksight.outputs.DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -116,43 +117,57 @@ public final class DataSetLogicalTableMapSourceJoinInstruction {
 
         @CustomType.Setter
         public Builder leftJoinKeyProperties(@Nullable DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties leftJoinKeyProperties) {
+
             this.leftJoinKeyProperties = leftJoinKeyProperties;
             return this;
         }
         @CustomType.Setter
         public Builder leftOperand(String leftOperand) {
-            this.leftOperand = Objects.requireNonNull(leftOperand);
+            if (leftOperand == null) {
+              throw new MissingRequiredPropertyException("DataSetLogicalTableMapSourceJoinInstruction", "leftOperand");
+            }
+            this.leftOperand = leftOperand;
             return this;
         }
         @CustomType.Setter
         public Builder onClause(String onClause) {
-            this.onClause = Objects.requireNonNull(onClause);
+            if (onClause == null) {
+              throw new MissingRequiredPropertyException("DataSetLogicalTableMapSourceJoinInstruction", "onClause");
+            }
+            this.onClause = onClause;
             return this;
         }
         @CustomType.Setter
         public Builder rightJoinKeyProperties(@Nullable DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties rightJoinKeyProperties) {
+
             this.rightJoinKeyProperties = rightJoinKeyProperties;
             return this;
         }
         @CustomType.Setter
         public Builder rightOperand(String rightOperand) {
-            this.rightOperand = Objects.requireNonNull(rightOperand);
+            if (rightOperand == null) {
+              throw new MissingRequiredPropertyException("DataSetLogicalTableMapSourceJoinInstruction", "rightOperand");
+            }
+            this.rightOperand = rightOperand;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("DataSetLogicalTableMapSourceJoinInstruction", "type");
+            }
+            this.type = type;
             return this;
         }
         public DataSetLogicalTableMapSourceJoinInstruction build() {
-            final var o = new DataSetLogicalTableMapSourceJoinInstruction();
-            o.leftJoinKeyProperties = leftJoinKeyProperties;
-            o.leftOperand = leftOperand;
-            o.onClause = onClause;
-            o.rightJoinKeyProperties = rightJoinKeyProperties;
-            o.rightOperand = rightOperand;
-            o.type = type;
-            return o;
+            final var _resultValue = new DataSetLogicalTableMapSourceJoinInstruction();
+            _resultValue.leftJoinKeyProperties = leftJoinKeyProperties;
+            _resultValue.leftOperand = leftOperand;
+            _resultValue.onClause = onClause;
+            _resultValue.rightJoinKeyProperties = rightJoinKeyProperties;
+            _resultValue.rightOperand = rightOperand;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

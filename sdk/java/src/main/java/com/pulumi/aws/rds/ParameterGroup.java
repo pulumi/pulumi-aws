@@ -26,14 +26,18 @@ import javax.annotation.Nullable;
  * * [Oracle Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ModifyInstance.Oracle.html#USER_ModifyInstance.Oracle.sqlnet)
  * * [PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Parameters)
  * 
- * &gt; **NOTE:** After applying your changes, you may encounter a perpetual diff in your pulumi preview
- * output for a `parameter` whose `value` remains unchanged but whose `apply_method` is changing
- * (e.g., from `immediate` to `pending-reboot`, or `pending-reboot` to `immediate`). If only the
- * apply method of a parameter is changing, the AWS API will not register this change. To change
- * the `apply_method` of a parameter, its value must also change.
+ * &gt; **Hands-on:** For an example of the `aws.rds.ParameterGroup` in use, follow the Manage AWS RDS Instances tutorial on HashiCorp Learn.
+ * 
+ * &gt; **NOTE**: to make diffs less confusing, the AWS provider will ignore changes for a `parameter` whose `value` remains
+ * unchanged but whose `apply_method` is changing (e.g., from `immediate` to `pending-reboot`, or `pending-reboot` to
+ * `immediate`). This matches the cloud: if only the apply method of a parameter is changing, the AWS API will not register
+ * this change. To change the `apply_method` of a parameter, its value must also change.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -57,6 +61,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new ParameterGroup(&#34;default&#34;, ParameterGroupArgs.builder()        
+ *             .name(&#34;rds-pg&#34;)
  *             .family(&#34;mysql5.6&#34;)
  *             .parameters(            
  *                 ParameterGroupParameterArgs.builder()
@@ -72,6 +77,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### `create_before_destroy` Lifecycle Configuration
  * 
  * The `create_before_destroy`
@@ -79,6 +86,8 @@ import javax.annotation.Nullable;
  * in-use parameter group. This includes common situations like changing the group `name` or
  * bumping the `family` version during a major version upgrade. This configuration will prevent destruction
  * of the deposed parameter group while still in use by the database during upgrade.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -103,7 +112,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleParameterGroup = new ParameterGroup(&#34;exampleParameterGroup&#34;, ParameterGroupArgs.builder()        
+ *         var example = new ParameterGroup(&#34;example&#34;, ParameterGroupArgs.builder()        
+ *             .name(&#34;my-pg&#34;)
  *             .family(&#34;postgres13&#34;)
  *             .parameters(ParameterGroupParameterArgs.builder()
  *                 .name(&#34;log_connections&#34;)
@@ -112,20 +122,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
- *             .parameterGroupName(exampleParameterGroup.name())
+ *             .parameterGroupName(example.name())
  *             .applyImmediately(true)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import DB Parameter groups using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
+ * $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
  * ```
  * 
  */
@@ -174,14 +185,14 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
         return this.family;
     }
     /**
-     * The name of the DB parameter.
+     * The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the DB parameter.
+     * @return The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
      * 
      */
     public Output<String> name() {
@@ -202,14 +213,14 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
         return this.namePrefix;
     }
     /**
-     * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+     * The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
      * 
      */
     @Export(name="parameters", refs={List.class,ParameterGroupParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ParameterGroupParameter>> parameters;
 
     /**
-     * @return A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+     * @return The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
      * 
      */
     public Output<Optional<List<ParameterGroupParameter>>> parameters() {
@@ -280,9 +291,6 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

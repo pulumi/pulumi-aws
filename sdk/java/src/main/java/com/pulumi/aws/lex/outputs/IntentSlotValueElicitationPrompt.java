@@ -5,6 +5,7 @@ package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.aws.lex.outputs.IntentSlotValueElicitationPromptMessage;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -83,12 +84,18 @@ public final class IntentSlotValueElicitationPrompt {
 
         @CustomType.Setter
         public Builder maxAttempts(Integer maxAttempts) {
-            this.maxAttempts = Objects.requireNonNull(maxAttempts);
+            if (maxAttempts == null) {
+              throw new MissingRequiredPropertyException("IntentSlotValueElicitationPrompt", "maxAttempts");
+            }
+            this.maxAttempts = maxAttempts;
             return this;
         }
         @CustomType.Setter
         public Builder messages(List<IntentSlotValueElicitationPromptMessage> messages) {
-            this.messages = Objects.requireNonNull(messages);
+            if (messages == null) {
+              throw new MissingRequiredPropertyException("IntentSlotValueElicitationPrompt", "messages");
+            }
+            this.messages = messages;
             return this;
         }
         public Builder messages(IntentSlotValueElicitationPromptMessage... messages) {
@@ -96,15 +103,16 @@ public final class IntentSlotValueElicitationPrompt {
         }
         @CustomType.Setter
         public Builder responseCard(@Nullable String responseCard) {
+
             this.responseCard = responseCard;
             return this;
         }
         public IntentSlotValueElicitationPrompt build() {
-            final var o = new IntentSlotValueElicitationPrompt();
-            o.maxAttempts = maxAttempts;
-            o.messages = messages;
-            o.responseCard = responseCard;
-            return o;
+            final var _resultValue = new IntentSlotValueElicitationPrompt();
+            _resultValue.maxAttempts = maxAttempts;
+            _resultValue.messages = messages;
+            _resultValue.responseCard = responseCard;
+            return _resultValue;
         }
     }
 }

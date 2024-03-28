@@ -15,8 +15,10 @@ import (
 // Provides a Batch Job Definition resource.
 //
 // ## Example Usage
+//
 // ### Job definition of type container
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,6 +83,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
+//				Name:                pulumi.String("my_test_batch_job_definition"),
 //				Type:                pulumi.String("container"),
 //				ContainerProperties: pulumi.String(json0),
 //			})
@@ -92,8 +95,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Job definition of type multinode
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -143,6 +149,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
+//				Name:           pulumi.String("tf_test_batch_job_definition_multinode"),
 //				Type:           pulumi.String("multinode"),
 //				NodeProperties: pulumi.String(json0),
 //			})
@@ -154,8 +161,63 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Job Definitionn of type EKS
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
+//				Name: pulumi.String(" tf_test_batch_job_definition_eks"),
+//				Type: pulumi.String("container"),
+//				EksProperties: &batch.JobDefinitionEksPropertiesArgs{
+//					PodProperties: &batch.JobDefinitionEksPropertiesPodPropertiesArgs{
+//						HostNetwork: pulumi.Bool(true),
+//						Containers: &batch.JobDefinitionEksPropertiesPodPropertiesContainersArgs{
+//							Image: pulumi.String("public.ecr.aws/amazonlinux/amazonlinux:1"),
+//							Commands: pulumi.StringArray{
+//								pulumi.String("sleep"),
+//								pulumi.String("60"),
+//							},
+//							Resources: &batch.JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs{
+//								Limits: pulumi.StringMap{
+//									"cpu":    pulumi.String("1"),
+//									"memory": pulumi.String("1024Mi"),
+//								},
+//							},
+//						},
+//						Metadata: &batch.JobDefinitionEksPropertiesPodPropertiesMetadataArgs{
+//							Labels: pulumi.StringMap{
+//								"environment": pulumi.String("test"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Fargate Platform Capability
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -191,13 +253,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ecsTaskExecutionRole, err := iam.NewRole(ctx, "ecsTaskExecutionRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRolePolicy.Json),
+//			ecsTaskExecutionRole, err := iam.NewRole(ctx, "ecs_task_execution_role", &iam.RoleArgs{
+//				Name:             pulumi.String("my_test_batch_exec_role"),
+//				AssumeRolePolicy: pulumi.String(assumeRolePolicy.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "ecsTaskExecutionRolePolicy", &iam.RolePolicyAttachmentArgs{
+//			_, err = iam.NewRolePolicyAttachment(ctx, "ecs_task_execution_role_policy", &iam.RolePolicyAttachmentArgs{
 //				Role:      ecsTaskExecutionRole.Name,
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"),
 //			})
@@ -205,6 +268,7 @@ import (
 //				return err
 //			}
 //			_, err = batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
+//				Name: pulumi.String("my_test_batch_job_definition"),
 //				Type: pulumi.String("container"),
 //				PlatformCapabilities: pulumi.StringArray{
 //					pulumi.String("FARGATE"),
@@ -248,24 +312,27 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
-//
+// $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
 // ```
 type JobDefinition struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name of the job definition.
+	// The Amazon Resource Name of the job definition, includes revision (`:#`).
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ARN without the revision number.
+	ArnPrefix pulumi.StringOutput `pulumi:"arnPrefix"`
 	// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-	// provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+	// provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
 	ContainerProperties pulumi.StringPtrOutput `pulumi:"containerProperties"`
+	// A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+	EksProperties JobDefinitionEksPropertiesPtrOutput `pulumi:"eksProperties"`
 	// Specifies the name of the job definition.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
@@ -282,6 +349,8 @@ type JobDefinition struct {
 	RetryStrategy JobDefinitionRetryStrategyPtrOutput `pulumi:"retryStrategy"`
 	// The revision of the job definition.
 	Revision pulumi.IntOutput `pulumi:"revision"`
+	// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+	SchedulingPriority pulumi.IntPtrOutput `pulumi:"schedulingPriority"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -306,10 +375,6 @@ func NewJobDefinition(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource JobDefinition
 	err := ctx.RegisterResource("aws:batch/jobDefinition:JobDefinition", name, args, &resource, opts...)
@@ -333,11 +398,15 @@ func GetJobDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering JobDefinition resources.
 type jobDefinitionState struct {
-	// The Amazon Resource Name of the job definition.
+	// The Amazon Resource Name of the job definition, includes revision (`:#`).
 	Arn *string `pulumi:"arn"`
+	// The ARN without the revision number.
+	ArnPrefix *string `pulumi:"arnPrefix"`
 	// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-	// provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+	// provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
 	ContainerProperties *string `pulumi:"containerProperties"`
+	// A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+	EksProperties *JobDefinitionEksProperties `pulumi:"eksProperties"`
 	// Specifies the name of the job definition.
 	Name *string `pulumi:"name"`
 	// A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
@@ -354,6 +423,8 @@ type jobDefinitionState struct {
 	RetryStrategy *JobDefinitionRetryStrategy `pulumi:"retryStrategy"`
 	// The revision of the job definition.
 	Revision *int `pulumi:"revision"`
+	// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+	SchedulingPriority *int `pulumi:"schedulingPriority"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -369,11 +440,15 @@ type jobDefinitionState struct {
 }
 
 type JobDefinitionState struct {
-	// The Amazon Resource Name of the job definition.
+	// The Amazon Resource Name of the job definition, includes revision (`:#`).
 	Arn pulumi.StringPtrInput
+	// The ARN without the revision number.
+	ArnPrefix pulumi.StringPtrInput
 	// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-	// provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+	// provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
 	ContainerProperties pulumi.StringPtrInput
+	// A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+	EksProperties JobDefinitionEksPropertiesPtrInput
 	// Specifies the name of the job definition.
 	Name pulumi.StringPtrInput
 	// A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
@@ -390,6 +465,8 @@ type JobDefinitionState struct {
 	RetryStrategy JobDefinitionRetryStrategyPtrInput
 	// The revision of the job definition.
 	Revision pulumi.IntPtrInput
+	// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+	SchedulingPriority pulumi.IntPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -410,8 +487,10 @@ func (JobDefinitionState) ElementType() reflect.Type {
 
 type jobDefinitionArgs struct {
 	// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-	// provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+	// provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
 	ContainerProperties *string `pulumi:"containerProperties"`
+	// A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+	EksProperties *JobDefinitionEksProperties `pulumi:"eksProperties"`
 	// Specifies the name of the job definition.
 	Name *string `pulumi:"name"`
 	// A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
@@ -426,6 +505,8 @@ type jobDefinitionArgs struct {
 	// Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
 	// Maximum number of `retryStrategy` is `1`.  Defined below.
 	RetryStrategy *JobDefinitionRetryStrategy `pulumi:"retryStrategy"`
+	// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+	SchedulingPriority *int `pulumi:"schedulingPriority"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
@@ -439,8 +520,10 @@ type jobDefinitionArgs struct {
 // The set of arguments for constructing a JobDefinition resource.
 type JobDefinitionArgs struct {
 	// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-	// provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+	// provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
 	ContainerProperties pulumi.StringPtrInput
+	// A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+	EksProperties JobDefinitionEksPropertiesPtrInput
 	// Specifies the name of the job definition.
 	Name pulumi.StringPtrInput
 	// A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
@@ -455,6 +538,8 @@ type JobDefinitionArgs struct {
 	// Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
 	// Maximum number of `retryStrategy` is `1`.  Defined below.
 	RetryStrategy JobDefinitionRetryStrategyPtrInput
+	// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+	SchedulingPriority pulumi.IntPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
@@ -552,15 +637,25 @@ func (o JobDefinitionOutput) ToJobDefinitionOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The Amazon Resource Name of the job definition.
+// The Amazon Resource Name of the job definition, includes revision (`:#`).
 func (o JobDefinitionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ARN without the revision number.
+func (o JobDefinitionOutput) ArnPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobDefinition) pulumi.StringOutput { return v.ArnPrefix }).(pulumi.StringOutput)
+}
+
 // A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-// provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+// provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
 func (o JobDefinitionOutput) ContainerProperties() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.StringPtrOutput { return v.ContainerProperties }).(pulumi.StringPtrOutput)
+}
+
+// A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+func (o JobDefinitionOutput) EksProperties() JobDefinitionEksPropertiesPtrOutput {
+	return o.ApplyT(func(v *JobDefinition) JobDefinitionEksPropertiesPtrOutput { return v.EksProperties }).(JobDefinitionEksPropertiesPtrOutput)
 }
 
 // Specifies the name of the job definition.
@@ -598,6 +693,11 @@ func (o JobDefinitionOutput) RetryStrategy() JobDefinitionRetryStrategyPtrOutput
 // The revision of the job definition.
 func (o JobDefinitionOutput) Revision() pulumi.IntOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.IntOutput { return v.Revision }).(pulumi.IntOutput)
+}
+
+// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+func (o JobDefinitionOutput) SchedulingPriority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobDefinition) pulumi.IntPtrOutput { return v.SchedulingPriority }).(pulumi.IntPtrOutput)
 }
 
 // Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -49,25 +50,30 @@ public final class LaunchConfigurationEphemeralBlockDevice {
 
         @CustomType.Setter
         public Builder deviceName(String deviceName) {
-            this.deviceName = Objects.requireNonNull(deviceName);
+            if (deviceName == null) {
+              throw new MissingRequiredPropertyException("LaunchConfigurationEphemeralBlockDevice", "deviceName");
+            }
+            this.deviceName = deviceName;
             return this;
         }
         @CustomType.Setter
         public Builder noDevice(@Nullable Boolean noDevice) {
+
             this.noDevice = noDevice;
             return this;
         }
         @CustomType.Setter
         public Builder virtualName(@Nullable String virtualName) {
+
             this.virtualName = virtualName;
             return this;
         }
         public LaunchConfigurationEphemeralBlockDevice build() {
-            final var o = new LaunchConfigurationEphemeralBlockDevice();
-            o.deviceName = deviceName;
-            o.noDevice = noDevice;
-            o.virtualName = virtualName;
-            return o;
+            final var _resultValue = new LaunchConfigurationEphemeralBlockDevice();
+            _resultValue.deviceName = deviceName;
+            _resultValue.noDevice = noDevice;
+            _resultValue.virtualName = virtualName;
+            return _resultValue;
         }
     }
 }

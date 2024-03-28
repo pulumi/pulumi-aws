@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,30 +23,34 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Amplify.App("example");
+    ///     var example = new Aws.Amplify.App("example", new()
+    ///     {
+    ///         Name = "app",
+    ///     });
     /// 
-    ///     var masterBranch = new Aws.Amplify.Branch("masterBranch", new()
+    ///     var master = new Aws.Amplify.Branch("master", new()
     ///     {
     ///         AppId = example.Id,
     ///         BranchName = "master",
     ///     });
     /// 
-    ///     var masterWebhook = new Aws.Amplify.Webhook("masterWebhook", new()
+    ///     var masterWebhook = new Aws.Amplify.Webhook("master", new()
     ///     {
     ///         AppId = example.Id,
-    ///         BranchName = masterBranch.BranchName,
+    ///         BranchName = master.BranchName,
     ///         Description = "triggermaster",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amplify webhook using a webhook ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
+    /// $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
     /// ```
     /// </summary>
     [AwsResourceType("aws:amplify/webhook:Webhook")]

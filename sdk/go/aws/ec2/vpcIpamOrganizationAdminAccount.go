@@ -18,6 +18,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,12 +37,8 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewVpcIpamOrganizationAdminAccount(ctx, "example", &ec2.VpcIpamOrganizationAdminAccountArgs{
-//				DelegatedAdminAccountId: *pulumi.String(delegated.AccountId),
+//				DelegatedAdminAccountId: pulumi.String(delegated.AccountId),
 //			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = aws.NewProvider(ctx, "ipamDelegateAccount", nil)
 //			if err != nil {
 //				return err
 //			}
@@ -50,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IPAMs using the delegate account `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
-//
+// $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
 // ```
 type VpcIpamOrganizationAdminAccount struct {
 	pulumi.CustomResourceState

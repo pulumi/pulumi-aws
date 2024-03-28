@@ -4,6 +4,7 @@
 package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -170,67 +171,85 @@ public final class TopicRuleDynamodb {
 
         @CustomType.Setter
         public Builder hashKeyField(String hashKeyField) {
-            this.hashKeyField = Objects.requireNonNull(hashKeyField);
+            if (hashKeyField == null) {
+              throw new MissingRequiredPropertyException("TopicRuleDynamodb", "hashKeyField");
+            }
+            this.hashKeyField = hashKeyField;
             return this;
         }
         @CustomType.Setter
         public Builder hashKeyType(@Nullable String hashKeyType) {
+
             this.hashKeyType = hashKeyType;
             return this;
         }
         @CustomType.Setter
         public Builder hashKeyValue(String hashKeyValue) {
-            this.hashKeyValue = Objects.requireNonNull(hashKeyValue);
+            if (hashKeyValue == null) {
+              throw new MissingRequiredPropertyException("TopicRuleDynamodb", "hashKeyValue");
+            }
+            this.hashKeyValue = hashKeyValue;
             return this;
         }
         @CustomType.Setter
         public Builder operation(@Nullable String operation) {
+
             this.operation = operation;
             return this;
         }
         @CustomType.Setter
         public Builder payloadField(@Nullable String payloadField) {
+
             this.payloadField = payloadField;
             return this;
         }
         @CustomType.Setter
         public Builder rangeKeyField(@Nullable String rangeKeyField) {
+
             this.rangeKeyField = rangeKeyField;
             return this;
         }
         @CustomType.Setter
         public Builder rangeKeyType(@Nullable String rangeKeyType) {
+
             this.rangeKeyType = rangeKeyType;
             return this;
         }
         @CustomType.Setter
         public Builder rangeKeyValue(@Nullable String rangeKeyValue) {
+
             this.rangeKeyValue = rangeKeyValue;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("TopicRuleDynamodb", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder tableName(String tableName) {
-            this.tableName = Objects.requireNonNull(tableName);
+            if (tableName == null) {
+              throw new MissingRequiredPropertyException("TopicRuleDynamodb", "tableName");
+            }
+            this.tableName = tableName;
             return this;
         }
         public TopicRuleDynamodb build() {
-            final var o = new TopicRuleDynamodb();
-            o.hashKeyField = hashKeyField;
-            o.hashKeyType = hashKeyType;
-            o.hashKeyValue = hashKeyValue;
-            o.operation = operation;
-            o.payloadField = payloadField;
-            o.rangeKeyField = rangeKeyField;
-            o.rangeKeyType = rangeKeyType;
-            o.rangeKeyValue = rangeKeyValue;
-            o.roleArn = roleArn;
-            o.tableName = tableName;
-            return o;
+            final var _resultValue = new TopicRuleDynamodb();
+            _resultValue.hashKeyField = hashKeyField;
+            _resultValue.hashKeyType = hashKeyType;
+            _resultValue.hashKeyValue = hashKeyValue;
+            _resultValue.operation = operation;
+            _resultValue.payloadField = payloadField;
+            _resultValue.rangeKeyField = rangeKeyField;
+            _resultValue.rangeKeyType = rangeKeyType;
+            _resultValue.rangeKeyValue = rangeKeyValue;
+            _resultValue.roleArn = roleArn;
+            _resultValue.tableName = tableName;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.auditmanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class AssessmentRole {
 
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("AssessmentRole", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder roleType(String roleType) {
-            this.roleType = Objects.requireNonNull(roleType);
+            if (roleType == null) {
+              throw new MissingRequiredPropertyException("AssessmentRole", "roleType");
+            }
+            this.roleType = roleType;
             return this;
         }
         public AssessmentRole build() {
-            final var o = new AssessmentRole();
-            o.roleArn = roleArn;
-            o.roleType = roleType;
-            return o;
+            final var _resultValue = new AssessmentRole();
+            _resultValue.roleArn = roleArn;
+            _resultValue.roleType = roleType;
+            return _resultValue;
         }
     }
 }

@@ -123,14 +123,17 @@ def get_replication_subnet_group(replication_subnet_group_id: Optional[str] = No
     Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dms.get_replication_subnet_group(replication_subnet_group_id=aws_dms_replication_subnet_group["test"]["replication_subnet_group_id"])
+    test = aws.dms.get_replication_subnet_group(replication_subnet_group_id=test_aws_dms_replication_subnet_group["replicationSubnetGroupId"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str replication_subnet_group_id: Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
@@ -160,14 +163,17 @@ def get_replication_subnet_group_output(replication_subnet_group_id: Optional[pu
     Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dms.get_replication_subnet_group(replication_subnet_group_id=aws_dms_replication_subnet_group["test"]["replication_subnet_group_id"])
+    test = aws.dms.get_replication_subnet_group(replication_subnet_group_id=test_aws_dms_replication_subnet_group["replicationSubnetGroupId"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str replication_subnet_group_id: Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.

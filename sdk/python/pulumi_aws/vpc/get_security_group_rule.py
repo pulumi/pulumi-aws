@@ -213,12 +213,14 @@ def get_security_group_rule(filters: Optional[Sequence[pulumi.InputType['GetSecu
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.vpc.get_security_group_rule(security_group_rule_id=var["security_group_rule_id"])
+    example = aws.vpc.get_security_group_rule(security_group_rule_id=security_group_rule_id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetSecurityGroupRuleFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
@@ -257,12 +259,14 @@ def get_security_group_rule_output(filters: Optional[pulumi.Input[Optional[Seque
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.vpc.get_security_group_rule(security_group_rule_id=var["security_group_rule_id"])
+    example = aws.vpc.get_security_group_rule(security_group_rule_id=security_group_rule_id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetSecurityGroupRuleFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

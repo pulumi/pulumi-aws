@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Quicksight
     /// Resource for managing an AWS QuickSight Ingestion.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,20 +27,21 @@ namespace Pulumi.Aws.Quicksight
     /// {
     ///     var example = new Aws.Quicksight.Ingestion("example", new()
     ///     {
-    ///         DataSetId = aws_quicksight_data_set.Example.Data_set_id,
+    ///         DataSetId = exampleAwsQuicksightDataSet.DataSetId,
     ///         IngestionId = "example-id",
     ///         IngestionType = "FULL_REFRESH",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import QuickSight Ingestion using the AWS account ID, data set ID, and ingestion ID separated by commas (`,`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:quicksight/ingestion:Ingestion example 123456789012,example-dataset-id,example-ingestion-id
+    /// $ pulumi import aws:quicksight/ingestion:Ingestion example 123456789012,example-dataset-id,example-ingestion-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:quicksight/ingestion:Ingestion")]

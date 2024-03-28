@@ -59,11 +59,13 @@ public final class TableImportTableInputFormatOptionsCsv {
 
         @CustomType.Setter
         public Builder delimiter(@Nullable String delimiter) {
+
             this.delimiter = delimiter;
             return this;
         }
         @CustomType.Setter
         public Builder headerLists(@Nullable List<String> headerLists) {
+
             this.headerLists = headerLists;
             return this;
         }
@@ -71,10 +73,10 @@ public final class TableImportTableInputFormatOptionsCsv {
             return headerLists(List.of(headerLists));
         }
         public TableImportTableInputFormatOptionsCsv build() {
-            final var o = new TableImportTableInputFormatOptionsCsv();
-            o.delimiter = delimiter;
-            o.headerLists = headerLists;
-            return o;
+            final var _resultValue = new TableImportTableInputFormatOptionsCsv();
+            _resultValue.delimiter = delimiter;
+            _resultValue.headerLists = headerLists;
+            return _resultValue;
         }
     }
 }

@@ -16,12 +16,11 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// This resource can prove useful when finding the resource associated with a CIDR. For example, finding the peering connection associated with a CIDR value.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,7 +38,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         ///     var route = Aws.Ec2.GetRoute.Invoke(new()
         ///     {
-        ///         RouteTableId = aws_route_table.Selected.Id,
+        ///         RouteTableId = selectedAwsRouteTable.Id,
         ///         DestinationCidrBlock = "10.0.1.0/24",
         ///     });
         /// 
@@ -50,8 +49,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("aws:ec2/getRoute:getRoute", args ?? new GetRouteArgs(), options.WithDefaults());
@@ -61,12 +59,11 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// This resource can prove useful when finding the resource associated with a CIDR. For example, finding the peering connection associated with a CIDR value.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -84,7 +81,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         ///     var route = Aws.Ec2.GetRoute.Invoke(new()
         ///     {
-        ///         RouteTableId = aws_route_table.Selected.Id,
+        ///         RouteTableId = selectedAwsRouteTable.Id,
         ///         DestinationCidrBlock = "10.0.1.0/24",
         ///     });
         /// 
@@ -95,8 +92,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("aws:ec2/getRoute:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());

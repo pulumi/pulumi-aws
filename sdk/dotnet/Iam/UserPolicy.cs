@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,46 +24,49 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var lbUser = new Aws.Iam.User("lbUser", new()
+    ///     var lb = new Aws.Iam.User("lb", new()
     ///     {
+    ///         Name = "loadbalancer",
     ///         Path = "/system/",
     ///     });
     /// 
-    ///     var lbRo = new Aws.Iam.UserPolicy("lbRo", new()
+    ///     var lbRo = new Aws.Iam.UserPolicy("lb_ro", new()
     ///     {
-    ///         User = lbUser.Name,
+    ///         Name = "test",
+    ///         User = lb.Name,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "ec2:Describe*",
     ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = "*",
+    ///                     ["effect"] = "Allow",
+    ///                     ["resource"] = "*",
     ///                 },
     ///             },
     ///         }),
     ///     });
     /// 
-    ///     var lbAccessKey = new Aws.Iam.AccessKey("lbAccessKey", new()
+    ///     var lbAccessKey = new Aws.Iam.AccessKey("lb", new()
     ///     {
-    ///         User = lbUser.Name,
+    ///         User = lb.Name,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM User Policies using the `user_name:user_policy_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
+    /// $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/userPolicy:UserPolicy")]

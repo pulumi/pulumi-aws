@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS DMS (Database Migration) Endpoint.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupEndpoint(ctx *pulumi.Context, args *LookupEndpointArgs, opts ...pulumi.InvokeOption) (*LookupEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEndpointResult
@@ -74,6 +77,7 @@ type LookupEndpointResult struct {
 	MongodbSettings             []GetEndpointMongodbSetting  `pulumi:"mongodbSettings"`
 	Password                    string                       `pulumi:"password"`
 	Port                        int                          `pulumi:"port"`
+	PostgresSettings            []GetEndpointPostgresSetting `pulumi:"postgresSettings"`
 	RedisSettings               []GetEndpointRedisSetting    `pulumi:"redisSettings"`
 	RedshiftSettings            []GetEndpointRedshiftSetting `pulumi:"redshiftSettings"`
 	S3Settings                  []GetEndpointS3Setting       `pulumi:"s3Settings"`
@@ -184,6 +188,10 @@ func (o LookupEndpointResultOutput) Password() pulumi.StringOutput {
 
 func (o LookupEndpointResultOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupEndpointResult) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o LookupEndpointResultOutput) PostgresSettings() GetEndpointPostgresSettingArrayOutput {
+	return o.ApplyT(func(v LookupEndpointResult) []GetEndpointPostgresSetting { return v.PostgresSettings }).(GetEndpointPostgresSettingArrayOutput)
 }
 
 func (o LookupEndpointResultOutput) RedisSettings() GetEndpointRedisSettingArrayOutput {

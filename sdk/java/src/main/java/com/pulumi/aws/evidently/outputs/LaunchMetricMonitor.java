@@ -5,6 +5,7 @@ package com.pulumi.aws.evidently.outputs;
 
 import com.pulumi.aws.evidently.outputs.LaunchMetricMonitorMetricDefinition;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,13 +43,16 @@ public final class LaunchMetricMonitor {
 
         @CustomType.Setter
         public Builder metricDefinition(LaunchMetricMonitorMetricDefinition metricDefinition) {
-            this.metricDefinition = Objects.requireNonNull(metricDefinition);
+            if (metricDefinition == null) {
+              throw new MissingRequiredPropertyException("LaunchMetricMonitor", "metricDefinition");
+            }
+            this.metricDefinition = metricDefinition;
             return this;
         }
         public LaunchMetricMonitor build() {
-            final var o = new LaunchMetricMonitor();
-            o.metricDefinition = metricDefinition;
-            return o;
+            final var _resultValue = new LaunchMetricMonitor();
+            _resultValue.metricDefinition = metricDefinition;
+            return _resultValue;
         }
     }
 }

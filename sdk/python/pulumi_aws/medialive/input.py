@@ -474,33 +474,37 @@ class Input(pulumi.CustomResource):
         Resource for managing an AWS MediaLive Input.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_input_security_group = aws.medialive.InputSecurityGroup("exampleInputSecurityGroup",
+        example = aws.medialive.InputSecurityGroup("example",
             whitelist_rules=[aws.medialive.InputSecurityGroupWhitelistRuleArgs(
                 cidr="10.0.0.8/32",
             )],
             tags={
                 "ENVIRONMENT": "prod",
             })
-        example_input = aws.medialive.Input("exampleInput",
-            input_security_groups=[example_input_security_group.id],
+        example_input = aws.medialive.Input("example",
+            name="example-input",
+            input_security_groups=[example.id],
             type="UDP_PUSH",
             tags={
                 "ENVIRONMENT": "prod",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MediaLive Input using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:medialive/input:Input example 12345678
+        $ pulumi import aws:medialive/input:Input example 12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -528,33 +532,37 @@ class Input(pulumi.CustomResource):
         Resource for managing an AWS MediaLive Input.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_input_security_group = aws.medialive.InputSecurityGroup("exampleInputSecurityGroup",
+        example = aws.medialive.InputSecurityGroup("example",
             whitelist_rules=[aws.medialive.InputSecurityGroupWhitelistRuleArgs(
                 cidr="10.0.0.8/32",
             )],
             tags={
                 "ENVIRONMENT": "prod",
             })
-        example_input = aws.medialive.Input("exampleInput",
-            input_security_groups=[example_input_security_group.id],
+        example_input = aws.medialive.Input("example",
+            name="example-input",
+            input_security_groups=[example.id],
             type="UDP_PUSH",
             tags={
                 "ENVIRONMENT": "prod",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MediaLive Input using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:medialive/input:Input example 12345678
+        $ pulumi import aws:medialive/input:Input example 12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -609,8 +617,6 @@ class Input(pulumi.CustomResource):
             __props__.__dict__["input_partner_ids"] = None
             __props__.__dict__["input_source_type"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Input, __self__).__init__(
             'aws:medialive/input:Input',
             resource_name,

@@ -4,6 +4,7 @@
 package com.pulumi.aws.msk.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -59,19 +60,23 @@ public final class ClusterLoggingInfoBrokerLogsFirehose {
 
         @CustomType.Setter
         public Builder deliveryStream(@Nullable String deliveryStream) {
+
             this.deliveryStream = deliveryStream;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("ClusterLoggingInfoBrokerLogsFirehose", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         public ClusterLoggingInfoBrokerLogsFirehose build() {
-            final var o = new ClusterLoggingInfoBrokerLogsFirehose();
-            o.deliveryStream = deliveryStream;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new ClusterLoggingInfoBrokerLogsFirehose();
+            _resultValue.deliveryStream = deliveryStream;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

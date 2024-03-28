@@ -63,19 +63,21 @@ public final class ContainerServicePrivateRegistryAccessEcrImagePullerRole {
 
         @CustomType.Setter
         public Builder isActive(@Nullable Boolean isActive) {
+
             this.isActive = isActive;
             return this;
         }
         @CustomType.Setter
         public Builder principalArn(@Nullable String principalArn) {
+
             this.principalArn = principalArn;
             return this;
         }
         public ContainerServicePrivateRegistryAccessEcrImagePullerRole build() {
-            final var o = new ContainerServicePrivateRegistryAccessEcrImagePullerRole();
-            o.isActive = isActive;
-            o.principalArn = principalArn;
-            return o;
+            final var _resultValue = new ContainerServicePrivateRegistryAccessEcrImagePullerRole();
+            _resultValue.isActive = isActive;
+            _resultValue.principalArn = principalArn;
+            return _resultValue;
         }
     }
 }

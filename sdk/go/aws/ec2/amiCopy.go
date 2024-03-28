@@ -26,6 +26,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewAmiCopy(ctx, "example", &ec2.AmiCopyArgs{
+//				Name:            pulumi.String("example"),
 //				Description:     pulumi.String("A copy of ami-xxxxxxxx"),
 //				SourceAmiId:     pulumi.String("ami-xxxxxxxx"),
 //				SourceAmiRegion: pulumi.String("us-west-1"),
@@ -54,6 +56,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type AmiCopy struct {
 	pulumi.CustomResourceState
 
@@ -141,10 +144,6 @@ func NewAmiCopy(ctx *pulumi.Context,
 	if args.SourceAmiRegion == nil {
 		return nil, errors.New("invalid value for required argument 'SourceAmiRegion'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AmiCopy
 	err := ctx.RegisterResource("aws:ec2/amiCopy:AmiCopy", name, args, &resource, opts...)

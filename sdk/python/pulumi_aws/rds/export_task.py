@@ -426,42 +426,51 @@ class ExportTask(pulumi.CustomResource):
         Resource for managing an AWS RDS (Relational Database) Export Task.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.rds.ExportTask("example",
             export_task_identifier="example",
-            source_arn=aws_db_snapshot["example"]["db_snapshot_arn"],
-            s3_bucket_name=aws_s3_bucket["example"]["id"],
-            iam_role_arn=aws_iam_role["example"]["arn"],
-            kms_key_id=aws_kms_key["example"]["arn"])
+            source_arn=example_aws_db_snapshot["dbSnapshotArn"],
+            s3_bucket_name=example_aws_s3_bucket["id"],
+            iam_role_arn=example_aws_iam_role["arn"],
+            kms_key_id=example_aws_kms_key["arn"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Complete Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        example_bucket_v2 = aws.s3.BucketV2("example",
+            bucket="example",
+            force_destroy=True)
+        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example_bucket_v2.id,
             acl="private")
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "export.rds.amazonaws.com",
-                },
-            }],
-        }))
-        example_policy_document = aws.iam.get_policy_document_output(statements=[
+        example_role = aws.iam.Role("example",
+            name="example",
+            assume_role_policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "export.rds.amazonaws.com",
+                    },
+                }],
+            }))
+        example = aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 actions=["s3:ListAllMyBuckets"],
                 resources=["*"],
@@ -482,26 +491,28 @@ class ExportTask(pulumi.CustomResource):
                 resources=[example_bucket_v2.arn.apply(lambda arn: f"{arn}/*")],
             ),
         ])
-        example_policy = aws.iam.Policy("examplePolicy", policy=example_policy_document.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
+        example_policy = aws.iam.Policy("example",
+            name="example",
+            policy=example.json)
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
             role=example_role.name,
             policy_arn=example_policy.arn)
-        example_key = aws.kms.Key("exampleKey", deletion_window_in_days=10)
-        example_instance = aws.rds.Instance("exampleInstance",
+        example_key = aws.kms.Key("example", deletion_window_in_days=10)
+        example_instance = aws.rds.Instance("example",
             identifier="example",
             allocated_storage=10,
             db_name="test",
             engine="mysql",
             engine_version="5.7",
-            instance_class="db.t3.micro",
+            instance_class=aws.rds.InstanceType.T3_MICRO,
             username="foo",
             password="foobarbaz",
             parameter_group_name="default.mysql5.7",
             skip_final_snapshot=True)
-        example_snapshot = aws.rds.Snapshot("exampleSnapshot",
+        example_snapshot = aws.rds.Snapshot("example",
             db_instance_identifier=example_instance.identifier,
             db_snapshot_identifier="example")
-        example_export_task = aws.rds.ExportTask("exampleExportTask",
+        example_export_task = aws.rds.ExportTask("example",
             export_task_identifier="example",
             source_arn=example_snapshot.db_snapshot_arn,
             s3_bucket_name=example_bucket_v2.id,
@@ -510,13 +521,14 @@ class ExportTask(pulumi.CustomResource):
             export_onlies=["database"],
             s3_prefix="my_prefix/example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a RDS (Relational Database) Export Task using the `export_task_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:rds/exportTask:ExportTask example example
+        $ pulumi import aws:rds/exportTask:ExportTask example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -541,42 +553,51 @@ class ExportTask(pulumi.CustomResource):
         Resource for managing an AWS RDS (Relational Database) Export Task.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.rds.ExportTask("example",
             export_task_identifier="example",
-            source_arn=aws_db_snapshot["example"]["db_snapshot_arn"],
-            s3_bucket_name=aws_s3_bucket["example"]["id"],
-            iam_role_arn=aws_iam_role["example"]["arn"],
-            kms_key_id=aws_kms_key["example"]["arn"])
+            source_arn=example_aws_db_snapshot["dbSnapshotArn"],
+            s3_bucket_name=example_aws_s3_bucket["id"],
+            iam_role_arn=example_aws_iam_role["arn"],
+            kms_key_id=example_aws_kms_key["arn"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Complete Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        example_bucket_v2 = aws.s3.BucketV2("example",
+            bucket="example",
+            force_destroy=True)
+        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example_bucket_v2.id,
             acl="private")
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "export.rds.amazonaws.com",
-                },
-            }],
-        }))
-        example_policy_document = aws.iam.get_policy_document_output(statements=[
+        example_role = aws.iam.Role("example",
+            name="example",
+            assume_role_policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "export.rds.amazonaws.com",
+                    },
+                }],
+            }))
+        example = aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 actions=["s3:ListAllMyBuckets"],
                 resources=["*"],
@@ -597,26 +618,28 @@ class ExportTask(pulumi.CustomResource):
                 resources=[example_bucket_v2.arn.apply(lambda arn: f"{arn}/*")],
             ),
         ])
-        example_policy = aws.iam.Policy("examplePolicy", policy=example_policy_document.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
+        example_policy = aws.iam.Policy("example",
+            name="example",
+            policy=example.json)
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
             role=example_role.name,
             policy_arn=example_policy.arn)
-        example_key = aws.kms.Key("exampleKey", deletion_window_in_days=10)
-        example_instance = aws.rds.Instance("exampleInstance",
+        example_key = aws.kms.Key("example", deletion_window_in_days=10)
+        example_instance = aws.rds.Instance("example",
             identifier="example",
             allocated_storage=10,
             db_name="test",
             engine="mysql",
             engine_version="5.7",
-            instance_class="db.t3.micro",
+            instance_class=aws.rds.InstanceType.T3_MICRO,
             username="foo",
             password="foobarbaz",
             parameter_group_name="default.mysql5.7",
             skip_final_snapshot=True)
-        example_snapshot = aws.rds.Snapshot("exampleSnapshot",
+        example_snapshot = aws.rds.Snapshot("example",
             db_instance_identifier=example_instance.identifier,
             db_snapshot_identifier="example")
-        example_export_task = aws.rds.ExportTask("exampleExportTask",
+        example_export_task = aws.rds.ExportTask("example",
             export_task_identifier="example",
             source_arn=example_snapshot.db_snapshot_arn,
             s3_bucket_name=example_bucket_v2.id,
@@ -625,13 +648,14 @@ class ExportTask(pulumi.CustomResource):
             export_onlies=["database"],
             s3_prefix="my_prefix/example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a RDS (Relational Database) Export Task using the `export_task_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:rds/exportTask:ExportTask example example
+        $ pulumi import aws:rds/exportTask:ExportTask example example
         ```
 
         :param str resource_name: The name of the resource.

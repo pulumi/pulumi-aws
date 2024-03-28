@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * this provider will resize any Instance Group to zero when destroying the resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,21 +51,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var task = new InstanceGroup(&#34;task&#34;, InstanceGroupArgs.builder()        
- *             .clusterId(aws_emr_cluster.tf-test-cluster().id())
+ *             .clusterId(tf_test_cluster.id())
  *             .instanceCount(1)
  *             .instanceType(&#34;m5.xlarge&#34;)
+ *             .name(&#34;my little instance group&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import EMR task instance group using their EMR Cluster id and Instance Group id separated by a forward-slash `/`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
+ * $ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
  * ```
  * 
  */
@@ -113,6 +117,8 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
     }
     /**
      * A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -150,13 +156,13 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
      * &#34;Properties&#34;: {}
      * }
      * ]
-     * 
      *             &#34;&#34;&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Export(name="configurationsJson", refs={String.class}, tree="[0]")
@@ -164,6 +170,8 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
 
     /**
      * @return A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -201,13 +209,13 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
      * &#34;Properties&#34;: {}
      * }
      * ]
-     * 
      *             &#34;&#34;&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Output<Optional<String>> configurationsJson() {

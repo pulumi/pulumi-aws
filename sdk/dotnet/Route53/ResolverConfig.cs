@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,28 +23,29 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var example = new Aws.Ec2.Vpc("example", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///         EnableDnsSupport = true,
     ///         EnableDnsHostnames = true,
     ///     });
     /// 
-    ///     var exampleResolverConfig = new Aws.Route53.ResolverConfig("exampleResolverConfig", new()
+    ///     var exampleResolverConfig = new Aws.Route53.ResolverConfig("example", new()
     ///     {
-    ///         ResourceId = exampleVpc.Id,
+    ///         ResourceId = example.Id,
     ///         AutodefinedReverseFlag = "DISABLE",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route 53 Resolver configs using the Route 53 Resolver config ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53/resolverConfig:ResolverConfig example rslvr-rc-715aa20c73a23da7
+    /// $ pulumi import aws:route53/resolverConfig:ResolverConfig example rslvr-rc-715aa20c73a23da7
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverConfig:ResolverConfig")]

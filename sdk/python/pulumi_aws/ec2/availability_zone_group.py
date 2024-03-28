@@ -104,6 +104,7 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -112,13 +113,14 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
             group_name="us-west-2-lax-1",
             opt_in_status="opted-in")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EC2 Availability Zone Groups using the group name. For example:
 
         ```sh
-         $ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1
+        $ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1
         ```
 
         :param str resource_name: The name of the resource.
@@ -139,6 +141,7 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -147,13 +150,14 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
             group_name="us-west-2-lax-1",
             opt_in_status="opted-in")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EC2 Availability Zone Groups using the group name. For example:
 
         ```sh
-         $ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1
+        $ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1
         ```
 
         :param str resource_name: The name of the resource.

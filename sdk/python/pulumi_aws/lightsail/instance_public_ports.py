@@ -108,22 +108,25 @@ class InstancePublicPorts(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_instance = aws.lightsail.Instance("testInstance",
-            availability_zone=data["aws_availability_zones"]["available"]["names"],
+        test = aws.lightsail.Instance("test",
+            name="yak_sail",
+            availability_zone=available["names"],
             blueprint_id="amazon_linux_2",
             bundle_id="nano_1_0")
-        test_instance_public_ports = aws.lightsail.InstancePublicPorts("testInstancePublicPorts",
-            instance_name=test_instance.name,
+        test_instance_public_ports = aws.lightsail.InstancePublicPorts("test",
+            instance_name=test.name,
             port_infos=[aws.lightsail.InstancePublicPortsPortInfoArgs(
                 protocol="tcp",
                 from_port=80,
                 to_port=80,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,22 +148,25 @@ class InstancePublicPorts(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_instance = aws.lightsail.Instance("testInstance",
-            availability_zone=data["aws_availability_zones"]["available"]["names"],
+        test = aws.lightsail.Instance("test",
+            name="yak_sail",
+            availability_zone=available["names"],
             blueprint_id="amazon_linux_2",
             bundle_id="nano_1_0")
-        test_instance_public_ports = aws.lightsail.InstancePublicPorts("testInstancePublicPorts",
-            instance_name=test_instance.name,
+        test_instance_public_ports = aws.lightsail.InstancePublicPorts("test",
+            instance_name=test.name,
             port_infos=[aws.lightsail.InstancePublicPortsPortInfoArgs(
                 protocol="tcp",
                 from_port=80,
                 to_port=80,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param InstancePublicPortsArgs args: The arguments to use to populate this resource's properties.

@@ -63,19 +63,21 @@ public final class SpotInstanceRequestCapacityReservationSpecification {
 
         @CustomType.Setter
         public Builder capacityReservationPreference(@Nullable String capacityReservationPreference) {
+
             this.capacityReservationPreference = capacityReservationPreference;
             return this;
         }
         @CustomType.Setter
         public Builder capacityReservationTarget(@Nullable SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget capacityReservationTarget) {
+
             this.capacityReservationTarget = capacityReservationTarget;
             return this;
         }
         public SpotInstanceRequestCapacityReservationSpecification build() {
-            final var o = new SpotInstanceRequestCapacityReservationSpecification();
-            o.capacityReservationPreference = capacityReservationPreference;
-            o.capacityReservationTarget = capacityReservationTarget;
-            return o;
+            final var _resultValue = new SpotInstanceRequestCapacityReservationSpecification();
+            _resultValue.capacityReservationPreference = capacityReservationPreference;
+            _resultValue.capacityReservationTarget = capacityReservationTarget;
+            return _resultValue;
         }
     }
 }

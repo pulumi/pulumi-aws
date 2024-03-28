@@ -5,6 +5,7 @@ package com.pulumi.aws.docdb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -66,14 +67,14 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * (Optional) The identifier of the CA certificate for the DB instance.
+     * The identifier of the certificate authority (CA) certificate for the DB instance.
      * 
      */
     @Import(name="caCertIdentifier")
     private @Nullable Output<String> caCertIdentifier;
 
     /**
-     * @return (Optional) The identifier of the CA certificate for the DB instance.
+     * @return The identifier of the certificate authority (CA) certificate for the DB instance.
      * 
      */
     public Optional<Output<String>> caCertIdentifier() {
@@ -397,7 +398,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param caCertIdentifier (Optional) The identifier of the CA certificate for the DB instance.
+         * @param caCertIdentifier The identifier of the certificate authority (CA) certificate for the DB instance.
          * 
          * @return builder
          * 
@@ -408,7 +409,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param caCertIdentifier (Optional) The identifier of the CA certificate for the DB instance.
+         * @param caCertIdentifier The identifier of the certificate authority (CA) certificate for the DB instance.
          * 
          * @return builder
          * 
@@ -697,8 +698,12 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ClusterInstanceArgs build() {
-            $.clusterIdentifier = Objects.requireNonNull($.clusterIdentifier, "expected parameter 'clusterIdentifier' to be non-null");
-            $.instanceClass = Objects.requireNonNull($.instanceClass, "expected parameter 'instanceClass' to be non-null");
+            if ($.clusterIdentifier == null) {
+                throw new MissingRequiredPropertyException("ClusterInstanceArgs", "clusterIdentifier");
+            }
+            if ($.instanceClass == null) {
+                throw new MissingRequiredPropertyException("ClusterInstanceArgs", "instanceClass");
+            }
             return $;
         }
     }

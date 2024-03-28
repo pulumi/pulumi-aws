@@ -161,23 +161,26 @@ class ImageVersion(pulumi.CustomResource):
         Provides a SageMaker Image Version resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.sagemaker.ImageVersion("test",
-            image_name=aws_sagemaker_image["test"]["id"],
+            image_name=test_aws_sagemaker_image["id"],
             base_image="012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Image Versions using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
+        $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -195,23 +198,26 @@ class ImageVersion(pulumi.CustomResource):
         Provides a SageMaker Image Version resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.sagemaker.ImageVersion("test",
-            image_name=aws_sagemaker_image["test"]["id"],
+            image_name=test_aws_sagemaker_image["id"],
             base_image="012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Image Versions using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
+        $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
         ```
 
         :param str resource_name: The name of the resource.

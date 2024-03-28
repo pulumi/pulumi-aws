@@ -12,13 +12,15 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appintegrations.DataIntegration("example", {
+ *     name: "example",
  *     description: "example",
- *     kmsKey: aws_kms_key.test.arn,
+ *     kmsKey: test.arn,
  *     sourceUri: "Salesforce://AppFlow/example",
  *     scheduleConfig: {
  *         firstExecutionFrom: "1439788442681",
@@ -30,13 +32,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Amazon AppIntegrations Data Integrations using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:appintegrations/dataIntegration:DataIntegration example 12345678-1234-1234-1234-123456789123
+ * $ pulumi import aws:appintegrations/dataIntegration:DataIntegration example 12345678-1234-1234-1234-123456789123
  * ```
  */
 export class DataIntegration extends pulumi.CustomResource {
@@ -144,8 +147,6 @@ export class DataIntegration extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(DataIntegration.__pulumiType, name, resourceInputs, opts);
     }
 }

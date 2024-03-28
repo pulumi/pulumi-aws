@@ -4,6 +4,7 @@
 package com.pulumi.aws.lakeformation.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -62,19 +63,23 @@ public final class ResourceLfTagsDatabase {
 
         @CustomType.Setter
         public Builder catalogId(@Nullable String catalogId) {
+
             this.catalogId = catalogId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ResourceLfTagsDatabase", "name");
+            }
+            this.name = name;
             return this;
         }
         public ResourceLfTagsDatabase build() {
-            final var o = new ResourceLfTagsDatabase();
-            o.catalogId = catalogId;
-            o.name = name;
-            return o;
+            final var _resultValue = new ResourceLfTagsDatabase();
+            _resultValue.catalogId = catalogId;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

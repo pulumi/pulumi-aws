@@ -270,109 +270,126 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDv
 
         @CustomType.Setter
         public Builder alignment(@Nullable String alignment) {
+
             this.alignment = alignment;
             return this;
         }
         @CustomType.Setter
         public Builder backgroundColor(@Nullable String backgroundColor) {
+
             this.backgroundColor = backgroundColor;
             return this;
         }
         @CustomType.Setter
         public Builder backgroundOpacity(@Nullable Integer backgroundOpacity) {
+
             this.backgroundOpacity = backgroundOpacity;
             return this;
         }
         @CustomType.Setter
         public Builder font(@Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont font) {
+
             this.font = font;
             return this;
         }
         @CustomType.Setter
         public Builder fontColor(@Nullable String fontColor) {
+
             this.fontColor = fontColor;
             return this;
         }
         @CustomType.Setter
         public Builder fontOpacity(@Nullable Integer fontOpacity) {
+
             this.fontOpacity = fontOpacity;
             return this;
         }
         @CustomType.Setter
         public Builder fontResolution(@Nullable Integer fontResolution) {
+
             this.fontResolution = fontResolution;
             return this;
         }
         @CustomType.Setter
         public Builder fontSize(@Nullable String fontSize) {
+
             this.fontSize = fontSize;
             return this;
         }
         @CustomType.Setter
         public Builder outlineColor(@Nullable String outlineColor) {
+
             this.outlineColor = outlineColor;
             return this;
         }
         @CustomType.Setter
         public Builder outlineSize(@Nullable Integer outlineSize) {
+
             this.outlineSize = outlineSize;
             return this;
         }
         @CustomType.Setter
         public Builder shadowColor(@Nullable String shadowColor) {
+
             this.shadowColor = shadowColor;
             return this;
         }
         @CustomType.Setter
         public Builder shadowOpacity(@Nullable Integer shadowOpacity) {
+
             this.shadowOpacity = shadowOpacity;
             return this;
         }
         @CustomType.Setter
         public Builder shadowXOffset(@Nullable Integer shadowXOffset) {
+
             this.shadowXOffset = shadowXOffset;
             return this;
         }
         @CustomType.Setter
         public Builder shadowYOffset(@Nullable Integer shadowYOffset) {
+
             this.shadowYOffset = shadowYOffset;
             return this;
         }
         @CustomType.Setter
         public Builder teletextGridControl(@Nullable String teletextGridControl) {
+
             this.teletextGridControl = teletextGridControl;
             return this;
         }
         @CustomType.Setter
         public Builder xPosition(@Nullable Integer xPosition) {
+
             this.xPosition = xPosition;
             return this;
         }
         @CustomType.Setter
         public Builder yPosition(@Nullable Integer yPosition) {
+
             this.yPosition = yPosition;
             return this;
         }
         public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings build() {
-            final var o = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings();
-            o.alignment = alignment;
-            o.backgroundColor = backgroundColor;
-            o.backgroundOpacity = backgroundOpacity;
-            o.font = font;
-            o.fontColor = fontColor;
-            o.fontOpacity = fontOpacity;
-            o.fontResolution = fontResolution;
-            o.fontSize = fontSize;
-            o.outlineColor = outlineColor;
-            o.outlineSize = outlineSize;
-            o.shadowColor = shadowColor;
-            o.shadowOpacity = shadowOpacity;
-            o.shadowXOffset = shadowXOffset;
-            o.shadowYOffset = shadowYOffset;
-            o.teletextGridControl = teletextGridControl;
-            o.xPosition = xPosition;
-            o.yPosition = yPosition;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings();
+            _resultValue.alignment = alignment;
+            _resultValue.backgroundColor = backgroundColor;
+            _resultValue.backgroundOpacity = backgroundOpacity;
+            _resultValue.font = font;
+            _resultValue.fontColor = fontColor;
+            _resultValue.fontOpacity = fontOpacity;
+            _resultValue.fontResolution = fontResolution;
+            _resultValue.fontSize = fontSize;
+            _resultValue.outlineColor = outlineColor;
+            _resultValue.outlineSize = outlineSize;
+            _resultValue.shadowColor = shadowColor;
+            _resultValue.shadowOpacity = shadowOpacity;
+            _resultValue.shadowXOffset = shadowXOffset;
+            _resultValue.shadowYOffset = shadowYOffset;
+            _resultValue.teletextGridControl = teletextGridControl;
+            _resultValue.xPosition = xPosition;
+            _resultValue.yPosition = yPosition;
+            return _resultValue;
         }
     }
 }

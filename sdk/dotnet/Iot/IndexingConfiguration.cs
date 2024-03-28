@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,6 +27,17 @@ namespace Pulumi.Aws.Iot
     ///     {
     ///         ThingIndexingConfiguration = new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationArgs
     ///         {
+    ///             ThingIndexingMode = "REGISTRY_AND_SHADOW",
+    ///             ThingConnectivityIndexingMode = "STATUS",
+    ///             DeviceDefenderIndexingMode = "VIOLATIONS",
+    ///             NamedShadowIndexingMode = "ON",
+    ///             Filter = new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationFilterArgs
+    ///             {
+    ///                 NamedShadowNames = new[]
+    ///                 {
+    ///                     "thing1shadow",
+    ///                 },
+    ///             },
     ///             CustomFields = new[]
     ///             {
     ///                 new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs
@@ -49,22 +61,12 @@ namespace Pulumi.Aws.Iot
     ///                     Type = "Number",
     ///                 },
     ///             },
-    ///             DeviceDefenderIndexingMode = "VIOLATIONS",
-    ///             Filter = new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationFilterArgs
-    ///             {
-    ///                 NamedShadowNames = new[]
-    ///                 {
-    ///                     "thing1shadow",
-    ///                 },
-    ///             },
-    ///             NamedShadowIndexingMode = "ON",
-    ///             ThingConnectivityIndexingMode = "STATUS",
-    ///             ThingIndexingMode = "REGISTRY_AND_SHADOW",
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:iot/indexingConfiguration:IndexingConfiguration")]
     public partial class IndexingConfiguration : global::Pulumi.CustomResource

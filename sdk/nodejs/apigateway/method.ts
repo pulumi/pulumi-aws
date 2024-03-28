@@ -11,44 +11,52 @@ import {RestApi} from "./index";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myDemoAPI = new aws.apigateway.RestApi("myDemoAPI", {description: "This is my API for demonstration purposes"});
- * const myDemoResource = new aws.apigateway.Resource("myDemoResource", {
+ * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
+ *     name: "MyDemoAPI",
+ *     description: "This is my API for demonstration purposes",
+ * });
+ * const myDemoResource = new aws.apigateway.Resource("MyDemoResource", {
  *     restApi: myDemoAPI.id,
  *     parentId: myDemoAPI.rootResourceId,
  *     pathPart: "mydemoresource",
  * });
- * const myDemoMethod = new aws.apigateway.Method("myDemoMethod", {
+ * const myDemoMethod = new aws.apigateway.Method("MyDemoMethod", {
  *     restApi: myDemoAPI.id,
  *     resourceId: myDemoResource.id,
  *     httpMethod: "GET",
  *     authorization: "NONE",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Usage with Cognito User Pool Authorizer
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
  * const cognitoUserPoolName = config.requireObject("cognitoUserPoolName");
- * const thisUserPools = aws.cognito.getUserPools({
+ * const this = aws.cognito.getUserPools({
  *     name: cognitoUserPoolName,
  * });
- * const thisRestApi = new aws.apigateway.RestApi("thisRestApi", {});
- * const thisResource = new aws.apigateway.Resource("thisResource", {
+ * const thisRestApi = new aws.apigateway.RestApi("this", {name: "with-authorizer"});
+ * const thisResource = new aws.apigateway.Resource("this", {
  *     restApi: thisRestApi.id,
  *     parentId: thisRestApi.rootResourceId,
  *     pathPart: "{proxy+}",
  * });
- * const thisAuthorizer = new aws.apigateway.Authorizer("thisAuthorizer", {
+ * const thisAuthorizer = new aws.apigateway.Authorizer("this", {
+ *     name: "CognitoUserPoolAuthorizer",
  *     type: "COGNITO_USER_POOLS",
  *     restApi: thisRestApi.id,
- *     providerArns: thisUserPools.then(thisUserPools => thisUserPools.arns),
+ *     providerArns: _this.then(_this => _this.arns),
  * });
  * const any = new aws.apigateway.Method("any", {
  *     restApi: thisRestApi.id,
@@ -61,13 +69,14 @@ import {RestApi} from "./index";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_api_gateway_method` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
+ * $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
  * ```
  */
 export class Method extends pulumi.CustomResource {

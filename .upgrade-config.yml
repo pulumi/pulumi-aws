@@ -5,4 +5,3 @@ upstream-provider-name: terraform-provider-aws
 pulumi-infer-version: true
 remove-plugins: true
 pr-reviewers: iwahbe # Team: pulumi/Providers
-javaVersion: "v0.9.5"

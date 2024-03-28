@@ -104,6 +104,7 @@ public final class UserHierarchyGroupHierarchyPath {
 
         @CustomType.Setter
         public Builder levelFives(@Nullable List<UserHierarchyGroupHierarchyPathLevelFife> levelFives) {
+
             this.levelFives = levelFives;
             return this;
         }
@@ -112,6 +113,7 @@ public final class UserHierarchyGroupHierarchyPath {
         }
         @CustomType.Setter
         public Builder levelFours(@Nullable List<UserHierarchyGroupHierarchyPathLevelFour> levelFours) {
+
             this.levelFours = levelFours;
             return this;
         }
@@ -120,6 +122,7 @@ public final class UserHierarchyGroupHierarchyPath {
         }
         @CustomType.Setter
         public Builder levelOnes(@Nullable List<UserHierarchyGroupHierarchyPathLevelOne> levelOnes) {
+
             this.levelOnes = levelOnes;
             return this;
         }
@@ -128,6 +131,7 @@ public final class UserHierarchyGroupHierarchyPath {
         }
         @CustomType.Setter
         public Builder levelThrees(@Nullable List<UserHierarchyGroupHierarchyPathLevelThree> levelThrees) {
+
             this.levelThrees = levelThrees;
             return this;
         }
@@ -136,6 +140,7 @@ public final class UserHierarchyGroupHierarchyPath {
         }
         @CustomType.Setter
         public Builder levelTwos(@Nullable List<UserHierarchyGroupHierarchyPathLevelTwo> levelTwos) {
+
             this.levelTwos = levelTwos;
             return this;
         }
@@ -143,13 +148,13 @@ public final class UserHierarchyGroupHierarchyPath {
             return levelTwos(List.of(levelTwos));
         }
         public UserHierarchyGroupHierarchyPath build() {
-            final var o = new UserHierarchyGroupHierarchyPath();
-            o.levelFives = levelFives;
-            o.levelFours = levelFours;
-            o.levelOnes = levelOnes;
-            o.levelThrees = levelThrees;
-            o.levelTwos = levelTwos;
-            return o;
+            final var _resultValue = new UserHierarchyGroupHierarchyPath();
+            _resultValue.levelFives = levelFives;
+            _resultValue.levelFours = levelFours;
+            _resultValue.levelOnes = levelOnes;
+            _resultValue.levelThrees = levelThrees;
+            _resultValue.levelTwos = levelTwos;
+            return _resultValue;
         }
     }
 }

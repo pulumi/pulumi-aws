@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -24,6 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * To create a basic traffic mirror session
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -55,12 +56,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var target = new TrafficMirrorTarget(&#34;target&#34;, TrafficMirrorTargetArgs.builder()        
- *             .networkLoadBalancerArn(aws_lb.lb().arn())
+ *             .networkLoadBalancerArn(lb.arn())
  *             .build());
  * 
  *         var session = new TrafficMirrorSession(&#34;session&#34;, TrafficMirrorSessionArgs.builder()        
  *             .description(&#34;traffic mirror session - example&#34;)
- *             .networkInterfaceId(aws_instance.test().primary_network_interface_id())
+ *             .networkInterfaceId(test.primaryNetworkInterfaceId())
  *             .sessionNumber(1)
  *             .trafficMirrorFilterId(filter.id())
  *             .trafficMirrorTargetId(target.id())
@@ -69,13 +70,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import traffic mirror sessions using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
+ * $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
  * ```
  * 
  */
@@ -272,9 +274,6 @@ public class TrafficMirrorSession extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

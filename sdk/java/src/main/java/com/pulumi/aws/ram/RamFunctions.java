@@ -18,6 +18,8 @@ public final class RamFunctions {
      * `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -47,7 +49,11 @@ public final class RamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Search by filters
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -70,17 +76,17 @@ public final class RamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var tagFilter = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
+     *             .resourceOwner(&#34;SELF&#34;)
      *             .filters(GetResourceShareFilterArgs.builder()
      *                 .name(&#34;NameOfTag&#34;)
      *                 .values(&#34;exampleNameTagValue&#34;)
      *                 .build())
-     *             .name(&#34;MyResourceName&#34;)
-     *             .resourceOwner(&#34;SELF&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResourceShareResult> getResourceShare(GetResourceShareArgs args) {
@@ -90,6 +96,8 @@ public final class RamFunctions {
      * `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -119,7 +127,11 @@ public final class RamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Search by filters
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -142,17 +154,17 @@ public final class RamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var tagFilter = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
+     *             .resourceOwner(&#34;SELF&#34;)
      *             .filters(GetResourceShareFilterArgs.builder()
      *                 .name(&#34;NameOfTag&#34;)
      *                 .values(&#34;exampleNameTagValue&#34;)
      *                 .build())
-     *             .name(&#34;MyResourceName&#34;)
-     *             .resourceOwner(&#34;SELF&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResourceShareResult> getResourceSharePlain(GetResourceSharePlainArgs args) {
@@ -162,6 +174,8 @@ public final class RamFunctions {
      * `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -191,7 +205,11 @@ public final class RamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Search by filters
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -214,17 +232,17 @@ public final class RamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var tagFilter = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
+     *             .resourceOwner(&#34;SELF&#34;)
      *             .filters(GetResourceShareFilterArgs.builder()
      *                 .name(&#34;NameOfTag&#34;)
      *                 .values(&#34;exampleNameTagValue&#34;)
      *                 .build())
-     *             .name(&#34;MyResourceName&#34;)
-     *             .resourceOwner(&#34;SELF&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResourceShareResult> getResourceShare(GetResourceShareArgs args, InvokeOptions options) {
@@ -234,6 +252,8 @@ public final class RamFunctions {
      * `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -263,7 +283,11 @@ public final class RamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Search by filters
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -286,17 +310,17 @@ public final class RamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var tagFilter = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
+     *             .resourceOwner(&#34;SELF&#34;)
      *             .filters(GetResourceShareFilterArgs.builder()
      *                 .name(&#34;NameOfTag&#34;)
      *                 .values(&#34;exampleNameTagValue&#34;)
      *                 .build())
-     *             .name(&#34;MyResourceName&#34;)
-     *             .resourceOwner(&#34;SELF&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResourceShareResult> getResourceSharePlain(GetResourceSharePlainArgs args, InvokeOptions options) {

@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,8 +31,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewLambdaFunctionAssociation(ctx, "example", &connect.LambdaFunctionAssociationArgs{
-//				FunctionArn: pulumi.Any(aws_lambda_function.Example.Arn),
-//				InstanceId:  pulumi.Any(aws_connect_instance.Example.Id),
+//				FunctionArn: pulumi.Any(exampleAwsLambdaFunction.Arn),
+//				InstanceId:  pulumi.Any(exampleAwsConnectInstance.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -41,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_connect_lambda_function_association` using the `instance_id` and `function_arn` separated by a comma (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
-//
+// $ pulumi import aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
 // ```
 type LambdaFunctionAssociation struct {
 	pulumi.CustomResourceState

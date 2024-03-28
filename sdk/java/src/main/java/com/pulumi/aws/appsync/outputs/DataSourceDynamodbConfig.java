@@ -5,6 +5,7 @@ package com.pulumi.aws.appsync.outputs;
 
 import com.pulumi.aws.appsync.outputs.DataSourceDynamodbConfigDeltaSyncConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -102,37 +103,44 @@ public final class DataSourceDynamodbConfig {
 
         @CustomType.Setter
         public Builder deltaSyncConfig(@Nullable DataSourceDynamodbConfigDeltaSyncConfig deltaSyncConfig) {
+
             this.deltaSyncConfig = deltaSyncConfig;
             return this;
         }
         @CustomType.Setter
         public Builder region(@Nullable String region) {
+
             this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder tableName(String tableName) {
-            this.tableName = Objects.requireNonNull(tableName);
+            if (tableName == null) {
+              throw new MissingRequiredPropertyException("DataSourceDynamodbConfig", "tableName");
+            }
+            this.tableName = tableName;
             return this;
         }
         @CustomType.Setter
         public Builder useCallerCredentials(@Nullable Boolean useCallerCredentials) {
+
             this.useCallerCredentials = useCallerCredentials;
             return this;
         }
         @CustomType.Setter
         public Builder versioned(@Nullable Boolean versioned) {
+
             this.versioned = versioned;
             return this;
         }
         public DataSourceDynamodbConfig build() {
-            final var o = new DataSourceDynamodbConfig();
-            o.deltaSyncConfig = deltaSyncConfig;
-            o.region = region;
-            o.tableName = tableName;
-            o.useCallerCredentials = useCallerCredentials;
-            o.versioned = versioned;
-            return o;
+            final var _resultValue = new DataSourceDynamodbConfig();
+            _resultValue.deltaSyncConfig = deltaSyncConfig;
+            _resultValue.region = region;
+            _resultValue.tableName = tableName;
+            _resultValue.useCallerCredentials = useCallerCredentials;
+            _resultValue.versioned = versioned;
+            return _resultValue;
         }
     }
 }

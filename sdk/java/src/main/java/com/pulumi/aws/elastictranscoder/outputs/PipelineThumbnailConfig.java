@@ -58,19 +58,21 @@ public final class PipelineThumbnailConfig {
 
         @CustomType.Setter
         public Builder bucket(@Nullable String bucket) {
+
             this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
         public Builder storageClass(@Nullable String storageClass) {
+
             this.storageClass = storageClass;
             return this;
         }
         public PipelineThumbnailConfig build() {
-            final var o = new PipelineThumbnailConfig();
-            o.bucket = bucket;
-            o.storageClass = storageClass;
-            return o;
+            final var _resultValue = new PipelineThumbnailConfig();
+            _resultValue.bucket = bucket;
+            _resultValue.storageClass = storageClass;
+            return _resultValue;
         }
     }
 }

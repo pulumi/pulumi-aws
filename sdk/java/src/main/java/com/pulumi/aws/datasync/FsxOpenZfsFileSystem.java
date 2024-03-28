@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Manages an AWS DataSync FSx OpenZfs Location.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,8 +48,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FsxOpenZfsFileSystem(&#34;example&#34;, FsxOpenZfsFileSystemArgs.builder()        
- *             .fsxFilesystemArn(aws_fsx_openzfs_file_system.example().arn())
- *             .securityGroupArns(aws_security_group.example().arn())
+ *             .fsxFilesystemArn(exampleAwsFsxOpenzfsFileSystem.arn())
+ *             .securityGroupArns(exampleAwsSecurityGroup.arn())
  *             .protocol(FsxOpenZfsFileSystemProtocolArgs.builder()
  *                 .nfs(FsxOpenZfsFileSystemProtocolNfsArgs.builder()
  *                     .mountOptions(FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs.builder()
@@ -60,13 +62,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_datasync_location_fsx_openzfs_file_system` using the `DataSync-ARN#FSx-openzfs-ARN`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:file-system/fs-08e04cd442c1bb94a
+ * $ pulumi import aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:file-system/fs-08e04cd442c1bb94a
  * ```
  * 
  */
@@ -235,9 +238,6 @@ public class FsxOpenZfsFileSystem extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

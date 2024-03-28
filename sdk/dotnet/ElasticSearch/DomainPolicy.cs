@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,6 +25,7 @@ namespace Pulumi.Aws.ElasticSearch
     /// {
     ///     var example = new Aws.ElasticSearch.Domain("example", new()
     ///     {
+    ///         DomainName = "tf-test",
     ///         ElasticsearchVersion = "2.3",
     ///     });
     /// 
@@ -49,6 +51,7 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:elasticsearch/domainPolicy:DomainPolicy")]
     public partial class DomainPolicy : global::Pulumi.CustomResource

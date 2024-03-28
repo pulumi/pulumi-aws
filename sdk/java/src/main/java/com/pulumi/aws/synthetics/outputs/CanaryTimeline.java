@@ -86,31 +86,35 @@ public final class CanaryTimeline {
 
         @CustomType.Setter
         public Builder created(@Nullable String created) {
+
             this.created = created;
             return this;
         }
         @CustomType.Setter
         public Builder lastModified(@Nullable String lastModified) {
+
             this.lastModified = lastModified;
             return this;
         }
         @CustomType.Setter
         public Builder lastStarted(@Nullable String lastStarted) {
+
             this.lastStarted = lastStarted;
             return this;
         }
         @CustomType.Setter
         public Builder lastStopped(@Nullable String lastStopped) {
+
             this.lastStopped = lastStopped;
             return this;
         }
         public CanaryTimeline build() {
-            final var o = new CanaryTimeline();
-            o.created = created;
-            o.lastModified = lastModified;
-            o.lastStarted = lastStarted;
-            o.lastStopped = lastStopped;
-            return o;
+            final var _resultValue = new CanaryTimeline();
+            _resultValue.created = created;
+            _resultValue.lastModified = lastModified;
+            _resultValue.lastStarted = lastStarted;
+            _resultValue.lastStopped = lastStopped;
+            return _resultValue;
         }
     }
 }

@@ -16,8 +16,10 @@ namespace Pulumi.Aws.Lambda
     /// For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
     /// 
     /// ## Example Usage
+    /// 
     /// ### DynamoDB
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,15 +30,18 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
     ///     {
-    ///         EventSourceArn = aws_dynamodb_table.Example.Stream_arn,
-    ///         FunctionName = aws_lambda_function.Example.Arn,
+    ///         EventSourceArn = exampleAwsDynamodbTable.StreamArn,
+    ///         FunctionName = exampleAwsLambdaFunction.Arn,
     ///         StartingPosition = "LATEST",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Kinesis
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,15 +52,18 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
     ///     {
-    ///         EventSourceArn = aws_kinesis_stream.Example.Arn,
-    ///         FunctionName = aws_lambda_function.Example.Arn,
+    ///         EventSourceArn = exampleAwsKinesisStream.Arn,
+    ///         FunctionName = exampleAwsLambdaFunction.Arn,
     ///         StartingPosition = "LATEST",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Managed Streaming for Apache Kafka (MSK)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -66,8 +74,8 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
     ///     {
-    ///         EventSourceArn = aws_msk_cluster.Example.Arn,
-    ///         FunctionName = aws_lambda_function.Example.Arn,
+    ///         EventSourceArn = exampleAwsMskCluster.Arn,
+    ///         FunctionName = exampleAwsLambdaFunction.Arn,
     ///         Topics = new[]
     ///         {
     ///             "Example",
@@ -77,8 +85,11 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Self Managed Apache Kafka
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -89,7 +100,7 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
     ///     {
-    ///         FunctionName = aws_lambda_function.Example.Arn,
+    ///         FunctionName = exampleAwsLambdaFunction.Arn,
     ///         Topics = new[]
     ///         {
     ///             "Example",
@@ -124,8 +135,11 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### SQS
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -136,14 +150,17 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
     ///     {
-    ///         EventSourceArn = aws_sqs_queue.Sqs_queue_test.Arn,
-    ///         FunctionName = aws_lambda_function.Example.Arn,
+    ///         EventSourceArn = sqsQueueTest.Arn,
+    ///         FunctionName = exampleAwsLambdaFunction.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### SQS with event filter
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -155,8 +172,8 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
     ///     {
-    ///         EventSourceArn = aws_sqs_queue.Sqs_queue_test.Arn,
-    ///         FunctionName = aws_lambda_function.Example.Arn,
+    ///         EventSourceArn = sqsQueueTest.Arn,
+    ///         FunctionName = exampleAwsLambdaFunction.Arn,
     ///         FilterCriteria = new Aws.Lambda.Inputs.EventSourceMappingFilterCriteriaArgs
     ///         {
     ///             Filters = new[]
@@ -167,11 +184,11 @@ namespace Pulumi.Aws.Lambda
     ///                     {
     ///                         ["body"] = new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             ["Temperature"] = new[]
+    ///                             ["temperature"] = new[]
     ///                             {
     ///                                 new Dictionary&lt;string, object?&gt;
     ///                                 {
-    ///                                     ["numeric"] = new[]
+    ///                                     ["numeric"] = new object?[]
     ///                                     {
     ///                                         "&gt;",
     ///                                         0,
@@ -180,7 +197,7 @@ namespace Pulumi.Aws.Lambda
     ///                                     },
     ///                                 },
     ///                             },
-    ///                             ["Location"] = new[]
+    ///                             ["location"] = new[]
     ///                             {
     ///                                 "New York",
     ///                             },
@@ -193,13 +210,83 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Amazon MQ (ActiveMQ)
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
+    ///     {
+    ///         BatchSize = 10,
+    ///         EventSourceArn = exampleAwsMqBroker.Arn,
+    ///         Enabled = true,
+    ///         FunctionName = exampleAwsLambdaFunction.Arn,
+    ///         Queues = "example",
+    ///         SourceAccessConfigurations = new[]
+    ///         {
+    ///             new Aws.Lambda.Inputs.EventSourceMappingSourceAccessConfigurationArgs
+    ///             {
+    ///                 Type = "BASIC_AUTH",
+    ///                 Uri = exampleAwsSecretsmanagerSecretVersion.Arn,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Amazon MQ (RabbitMQ)
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
+    ///     {
+    ///         BatchSize = 1,
+    ///         EventSourceArn = exampleAwsMqBroker.Arn,
+    ///         Enabled = true,
+    ///         FunctionName = exampleAwsLambdaFunction.Arn,
+    ///         Queues = "example",
+    ///         SourceAccessConfigurations = new[]
+    ///         {
+    ///             new Aws.Lambda.Inputs.EventSourceMappingSourceAccessConfigurationArgs
+    ///             {
+    ///                 Type = "VIRTUAL_HOST",
+    ///                 Uri = "/example",
+    ///             },
+    ///             new Aws.Lambda.Inputs.EventSourceMappingSourceAccessConfigurationArgs
+    ///             {
+    ///                 Type = "BASIC_AUTH",
+    ///                 Uri = exampleAwsSecretsmanagerSecretVersion.Arn,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Lambda event source mappings using the `UUID` (event source mapping identifier). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
+    /// $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
     /// ```
     /// </summary>
     [AwsResourceType("aws:lambda/eventSourceMapping:EventSourceMapping")]
@@ -224,7 +311,7 @@ namespace Pulumi.Aws.Lambda
         public Output<bool?> BisectBatchOnFunctionError { get; private set; } = null!;
 
         /// <summary>
-        /// - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+        /// - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
         /// </summary>
         [Output("destinationConfig")]
         public Output<Outputs.EventSourceMappingDestinationConfig?> DestinationConfig { get; private set; } = null!;
@@ -444,7 +531,7 @@ namespace Pulumi.Aws.Lambda
         public Input<bool>? BisectBatchOnFunctionError { get; set; }
 
         /// <summary>
-        /// - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+        /// - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
         /// </summary>
         [Input("destinationConfig")]
         public Input<Inputs.EventSourceMappingDestinationConfigArgs>? DestinationConfig { get; set; }
@@ -608,7 +695,7 @@ namespace Pulumi.Aws.Lambda
         public Input<bool>? BisectBatchOnFunctionError { get; set; }
 
         /// <summary>
-        /// - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+        /// - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
         /// </summary>
         [Input("destinationConfig")]
         public Input<Inputs.EventSourceMappingDestinationConfigGetArgs>? DestinationConfig { get; set; }

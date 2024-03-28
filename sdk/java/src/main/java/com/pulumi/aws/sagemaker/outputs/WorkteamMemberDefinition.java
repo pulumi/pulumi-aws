@@ -59,19 +59,21 @@ public final class WorkteamMemberDefinition {
 
         @CustomType.Setter
         public Builder cognitoMemberDefinition(@Nullable WorkteamMemberDefinitionCognitoMemberDefinition cognitoMemberDefinition) {
+
             this.cognitoMemberDefinition = cognitoMemberDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder oidcMemberDefinition(@Nullable WorkteamMemberDefinitionOidcMemberDefinition oidcMemberDefinition) {
+
             this.oidcMemberDefinition = oidcMemberDefinition;
             return this;
         }
         public WorkteamMemberDefinition build() {
-            final var o = new WorkteamMemberDefinition();
-            o.cognitoMemberDefinition = cognitoMemberDefinition;
-            o.oidcMemberDefinition = oidcMemberDefinition;
-            return o;
+            final var _resultValue = new WorkteamMemberDefinition();
+            _resultValue.cognitoMemberDefinition = cognitoMemberDefinition;
+            _resultValue.oidcMemberDefinition = oidcMemberDefinition;
+            return _resultValue;
         }
     }
 }

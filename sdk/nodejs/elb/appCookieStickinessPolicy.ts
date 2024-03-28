@@ -9,11 +9,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const lb = new aws.elb.LoadBalancer("lb", {
+ *     name: "test-lb",
  *     availabilityZones: ["us-east-1a"],
  *     listeners: [{
  *         instancePort: 8000,
@@ -23,18 +25,20 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const foo = new aws.elb.AppCookieStickinessPolicy("foo", {
+ *     name: "foo_policy",
  *     loadBalancer: lb.name,
  *     lbPort: 80,
  *     cookieName: "MyAppCookie",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import application cookie stickiness policies using the ELB name, port, and policy name separated by colons (`:`). For example:
  *
  * ```sh
- *  $ pulumi import aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy example my-elb:80:my-policy
+ * $ pulumi import aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy example my-elb:80:my-policy
  * ```
  */
 export class AppCookieStickinessPolicy extends pulumi.CustomResource {

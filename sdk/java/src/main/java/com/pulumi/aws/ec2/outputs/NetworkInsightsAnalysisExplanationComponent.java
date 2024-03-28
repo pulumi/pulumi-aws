@@ -64,25 +64,28 @@ public final class NetworkInsightsAnalysisExplanationComponent {
 
         @CustomType.Setter
         public Builder arn(@Nullable String arn) {
+
             this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         public NetworkInsightsAnalysisExplanationComponent build() {
-            final var o = new NetworkInsightsAnalysisExplanationComponent();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisExplanationComponent();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

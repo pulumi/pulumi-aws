@@ -12,12 +12,49 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides an IPAM resource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// Basic usage:
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetRegion.Invoke();
+    /// 
+    ///     var main = new Aws.Ec2.VpcIpam("main", new()
+    ///     {
+    ///         Description = "My IPAM",
+    ///         OperatingRegions = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
+    ///             {
+    ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Test", "Main" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// Shared with multiple operating_regions:
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IPAMs using the IPAM `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/vpcIpam:VpcIpam example ipam-0178368ad2146a492
+    /// $ pulumi import aws:ec2/vpcIpam:VpcIpam example ipam-0178368ad2146a492
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcIpam:VpcIpam")]
@@ -113,10 +150,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -267,11 +300,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public VpcIpamState()

@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * See the [AWS Lambda documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html) for more information.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,12 +46,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testLatest = new FunctionUrl(&#34;testLatest&#34;, FunctionUrlArgs.builder()        
- *             .functionName(aws_lambda_function.test().function_name())
+ *             .functionName(test.functionName())
  *             .authorizationType(&#34;NONE&#34;)
  *             .build());
  * 
  *         var testLive = new FunctionUrl(&#34;testLive&#34;, FunctionUrlArgs.builder()        
- *             .functionName(aws_lambda_function.test().function_name())
+ *             .functionName(test.functionName())
  *             .qualifier(&#34;my_alias&#34;)
  *             .authorizationType(&#34;AWS_IAM&#34;)
  *             .cors(FunctionUrlCorsArgs.builder()
@@ -69,13 +71,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Lambda function URLs using the `function_name` or `function_name/qualifier`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
+ * $ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
  * ```
  * 
  */
@@ -138,14 +141,14 @@ public class FunctionUrl extends com.pulumi.resources.CustomResource {
         return this.functionName;
     }
     /**
-     * The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
+     * The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
      * 
      */
     @Export(name="functionUrl", refs={String.class}, tree="[0]")
     private Output<String> functionUrl;
 
     /**
-     * @return The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
+     * @return The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
      * 
      */
     public Output<String> functionUrl() {

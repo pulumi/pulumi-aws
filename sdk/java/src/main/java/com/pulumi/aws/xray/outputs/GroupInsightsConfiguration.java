@@ -4,6 +4,7 @@
 package com.pulumi.aws.xray.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,19 +59,23 @@ public final class GroupInsightsConfiguration {
 
         @CustomType.Setter
         public Builder insightsEnabled(Boolean insightsEnabled) {
-            this.insightsEnabled = Objects.requireNonNull(insightsEnabled);
+            if (insightsEnabled == null) {
+              throw new MissingRequiredPropertyException("GroupInsightsConfiguration", "insightsEnabled");
+            }
+            this.insightsEnabled = insightsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder notificationsEnabled(@Nullable Boolean notificationsEnabled) {
+
             this.notificationsEnabled = notificationsEnabled;
             return this;
         }
         public GroupInsightsConfiguration build() {
-            final var o = new GroupInsightsConfiguration();
-            o.insightsEnabled = insightsEnabled;
-            o.notificationsEnabled = notificationsEnabled;
-            return o;
+            final var _resultValue = new GroupInsightsConfiguration();
+            _resultValue.insightsEnabled = insightsEnabled;
+            _resultValue.notificationsEnabled = notificationsEnabled;
+            return _resultValue;
         }
     }
 }

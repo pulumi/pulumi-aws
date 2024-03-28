@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,6 +25,7 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var example = new Aws.CloudWatch.QueryDefinition("example", new()
     ///     {
+    ///         Name = "custom_query",
     ///         LogGroupNames = new[]
     ///         {
     ///             "/aws/logGroup1",
@@ -32,19 +34,19 @@ namespace Pulumi.Aws.CloudWatch
     ///         QueryString = @"fields @timestamp, @message
     /// | sort @timestamp desc
     /// | limit 25
-    /// 
     /// ",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudWatch query definitions using the query definition ARN. The ARN can be found on the "Edit Query" page for the query in the AWS Console. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudwatch/queryDefinition:QueryDefinition example arn:aws:logs:us-west-2:123456789012:query-definition:269951d7-6f75-496d-9d7b-6b7a5486bdbd
+    /// $ pulumi import aws:cloudwatch/queryDefinition:QueryDefinition example arn:aws:logs:us-west-2:123456789012:query-definition:269951d7-6f75-496d-9d7b-6b7a5486bdbd
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/queryDefinition:QueryDefinition")]

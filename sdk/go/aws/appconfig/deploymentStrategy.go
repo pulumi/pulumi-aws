@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appconfig.NewDeploymentStrategy(ctx, "example", &appconfig.DeploymentStrategyArgs{
-//				DeploymentDurationInMinutes: pulumi.Int(3),
+//				Name:                        pulumi.String("example-deployment-strategy-tf"),
 //				Description:                 pulumi.String("Example Deployment Strategy"),
+//				DeploymentDurationInMinutes: pulumi.Int(3),
 //				FinalBakeTimeInMinutes:      pulumi.Int(4),
 //				GrowthFactor:                pulumi.Float64(10),
 //				GrowthType:                  pulumi.String("LINEAR"),
@@ -47,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AppConfig Deployment Strategies using their deployment strategy ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
-//
+// $ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
 // ```
 type DeploymentStrategy struct {
 	pulumi.CustomResourceState
@@ -100,10 +101,6 @@ func NewDeploymentStrategy(ctx *pulumi.Context,
 	if args.ReplicateTo == nil {
 		return nil, errors.New("invalid value for required argument 'ReplicateTo'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DeploymentStrategy
 	err := ctx.RegisterResource("aws:appconfig/deploymentStrategy:DeploymentStrategy", name, args, &resource, opts...)

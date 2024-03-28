@@ -16,8 +16,10 @@ import (
 // [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,7 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewPhoneNumber(ctx, "example", &connect.PhoneNumberArgs{
-//				TargetArn:   pulumi.Any(aws_connect_instance.Example.Arn),
+//				TargetArn:   pulumi.Any(exampleAwsConnectInstance.Arn),
 //				CountryCode: pulumi.String("US"),
 //				Type:        pulumi.String("DID"),
 //				Tags: pulumi.StringMap{
@@ -46,8 +48,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Description
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,7 +66,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewPhoneNumber(ctx, "example", &connect.PhoneNumberArgs{
-//				TargetArn:   pulumi.Any(aws_connect_instance.Example.Arn),
+//				TargetArn:   pulumi.Any(exampleAwsConnectInstance.Arn),
 //				CountryCode: pulumi.String("US"),
 //				Type:        pulumi.String("DID"),
 //				Description: pulumi.String("example description"),
@@ -74,8 +79,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Prefix to filter phone numbers
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -89,7 +97,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewPhoneNumber(ctx, "example", &connect.PhoneNumberArgs{
-//				TargetArn:   pulumi.Any(aws_connect_instance.Example.Arn),
+//				TargetArn:   pulumi.Any(exampleAwsConnectInstance.Arn),
 //				CountryCode: pulumi.String("US"),
 //				Type:        pulumi.String("DID"),
 //				Prefix:      pulumi.String("+18005"),
@@ -102,15 +110,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Amazon Connect Phone Numbers using its `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab
-//
+// $ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab
 // ```
 type PhoneNumber struct {
 	pulumi.CustomResourceState
@@ -155,10 +162,6 @@ func NewPhoneNumber(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PhoneNumber
 	err := ctx.RegisterResource("aws:connect/phoneNumber:PhoneNumber", name, args, &resource, opts...)

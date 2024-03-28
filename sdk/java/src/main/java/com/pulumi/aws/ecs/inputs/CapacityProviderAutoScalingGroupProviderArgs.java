@@ -6,6 +6,7 @@ package com.pulumi.aws.ecs.inputs;
 import com.pulumi.aws.ecs.inputs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -29,6 +30,21 @@ public final class CapacityProviderAutoScalingGroupProviderArgs extends com.pulu
      */
     public Output<String> autoScalingGroupArn() {
         return this.autoScalingGroupArn;
+    }
+
+    /**
+     * Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
+     * 
+     */
+    @Import(name="managedDraining")
+    private @Nullable Output<String> managedDraining;
+
+    /**
+     * @return Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
+     * 
+     */
+    public Optional<Output<String>> managedDraining() {
+        return Optional.ofNullable(this.managedDraining);
     }
 
     /**
@@ -65,6 +81,7 @@ public final class CapacityProviderAutoScalingGroupProviderArgs extends com.pulu
 
     private CapacityProviderAutoScalingGroupProviderArgs(CapacityProviderAutoScalingGroupProviderArgs $) {
         this.autoScalingGroupArn = $.autoScalingGroupArn;
+        this.managedDraining = $.managedDraining;
         this.managedScaling = $.managedScaling;
         this.managedTerminationProtection = $.managedTerminationProtection;
     }
@@ -106,6 +123,27 @@ public final class CapacityProviderAutoScalingGroupProviderArgs extends com.pulu
          */
         public Builder autoScalingGroupArn(String autoScalingGroupArn) {
             return autoScalingGroupArn(Output.of(autoScalingGroupArn));
+        }
+
+        /**
+         * @param managedDraining Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedDraining(@Nullable Output<String> managedDraining) {
+            $.managedDraining = managedDraining;
+            return this;
+        }
+
+        /**
+         * @param managedDraining Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedDraining(String managedDraining) {
+            return managedDraining(Output.of(managedDraining));
         }
 
         /**
@@ -151,7 +189,9 @@ public final class CapacityProviderAutoScalingGroupProviderArgs extends com.pulu
         }
 
         public CapacityProviderAutoScalingGroupProviderArgs build() {
-            $.autoScalingGroupArn = Objects.requireNonNull($.autoScalingGroupArn, "expected parameter 'autoScalingGroupArn' to be non-null");
+            if ($.autoScalingGroupArn == null) {
+                throw new MissingRequiredPropertyException("CapacityProviderAutoScalingGroupProviderArgs", "autoScalingGroupArn");
+            }
             return $;
         }
     }

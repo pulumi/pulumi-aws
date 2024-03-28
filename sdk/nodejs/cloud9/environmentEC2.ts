@@ -11,15 +11,22 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cloud9.EnvironmentEC2("example", {instanceType: "t2.micro"});
+ * const example = new aws.cloud9.EnvironmentEC2("example", {
+ *     instanceType: "t2.micro",
+ *     name: "example-env",
+ *     imageId: "amazonlinux-2023-x86_64",
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Get the URL of the Cloud9 environment after creation:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -31,11 +38,13 @@ import * as utilities from "../utilities";
  *         values: [example.id],
  *     }],
  * });
- * export const cloud9Url = pulumi.interpolate`https://${_var.region}.console.aws.amazon.com/cloud9/ide/${example.id}`;
+ * export const cloud9Url = pulumi.interpolate`https://${region}.console.aws.amazon.com/cloud9/ide/${example.id}`;
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Allocate a static IP to the Cloud9 environment:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -47,12 +56,13 @@ import * as utilities from "../utilities";
  *         values: [example.id],
  *     }],
  * });
- * const cloud9Eip = new aws.ec2.Eip("cloud9Eip", {
+ * const cloud9Eip = new aws.ec2.Eip("cloud9_eip", {
  *     instance: cloud9Instance.apply(cloud9Instance => cloud9Instance.id),
  *     domain: "vpc",
  * });
  * export const cloud9PublicIp = cloud9Eip.publicIp;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class EnvironmentEC2 extends pulumi.CustomResource {
     /**
@@ -102,14 +112,16 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
      * The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
      * * `amazonlinux-1-x86_64`
      * * `amazonlinux-2-x86_64`
+     * * `amazonlinux-2023-x86_64`
      * * `ubuntu-18.04-x86_64`
      * * `ubuntu-22.04-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+     * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
      */
-    public readonly imageId!: pulumi.Output<string | undefined>;
+    public readonly imageId!: pulumi.Output<string>;
     /**
      * The type of instance to connect to the environment, e.g., `t2.micro`.
      */
@@ -137,7 +149,7 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The type of the environment (e.g., `ssh` or `ec2`)
+     * The type of the environment (e.g., `ssh` or `ec2`).
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -168,6 +180,9 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
             resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as EnvironmentEC2Args | undefined;
+            if ((!args || args.imageId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'imageId'");
+            }
             if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
@@ -185,8 +200,6 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(EnvironmentEC2.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -215,10 +228,12 @@ export interface EnvironmentEC2State {
      * The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
      * * `amazonlinux-1-x86_64`
      * * `amazonlinux-2-x86_64`
+     * * `amazonlinux-2023-x86_64`
      * * `ubuntu-18.04-x86_64`
      * * `ubuntu-22.04-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+     * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
      */
@@ -250,7 +265,7 @@ export interface EnvironmentEC2State {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of the environment (e.g., `ssh` or `ec2`)
+     * The type of the environment (e.g., `ssh` or `ec2`).
      */
     type?: pulumi.Input<string>;
 }
@@ -275,14 +290,16 @@ export interface EnvironmentEC2Args {
      * The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
      * * `amazonlinux-1-x86_64`
      * * `amazonlinux-2-x86_64`
+     * * `amazonlinux-2023-x86_64`
      * * `ubuntu-18.04-x86_64`
      * * `ubuntu-22.04-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+     * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
      */
-    imageId?: pulumi.Input<string>;
+    imageId: pulumi.Input<string>;
     /**
      * The type of instance to connect to the environment, e.g., `t2.micro`.
      */

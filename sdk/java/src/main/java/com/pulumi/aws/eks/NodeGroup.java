@@ -28,6 +28,8 @@ import javax.annotation.Nullable;
  * Manages an EKS Node Group, which can provision and optionally update an Auto Scaling Group of Kubernetes worker nodes compatible with EKS. Additional documentation about this functionality can be found in the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -38,7 +40,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.eks.NodeGroupArgs;
  * import com.pulumi.aws.eks.inputs.NodeGroupScalingConfigArgs;
  * import com.pulumi.aws.eks.inputs.NodeGroupUpdateConfigArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,9 +54,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new NodeGroup(&#34;example&#34;, NodeGroupArgs.builder()        
- *             .clusterName(aws_eks_cluster.example().name())
- *             .nodeRoleArn(aws_iam_role.example().arn())
- *             .subnetIds(aws_subnet.example().stream().map(element -&gt; element.id()).collect(toList()))
+ *             .clusterName(exampleAwsEksCluster.name())
+ *             .nodeGroupName(&#34;example&#34;)
+ *             .nodeRoleArn(exampleAwsIamRole.arn())
+ *             .subnetIds(exampleAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
  *             .scalingConfig(NodeGroupScalingConfigArgs.builder()
  *                 .desiredSize(1)
  *                 .maxSize(2)
@@ -64,19 +66,18 @@ import javax.annotation.Nullable;
  *             .updateConfig(NodeGroupUpdateConfigArgs.builder()
  *                 .maxUnavailable(1)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     aws_iam_role_policy_attachment.example-AmazonEKSWorkerNodePolicy(),
- *                     aws_iam_role_policy_attachment.example-AmazonEKS_CNI_Policy(),
- *                     aws_iam_role_policy_attachment.example-AmazonEC2ContainerRegistryReadOnly())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Ignoring Changes to Desired Size
  * 
  * You can utilize [ignoreChanges](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -108,7 +109,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Example IAM Role for EKS Node Group
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -134,16 +139,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
+ *             .name(&#34;eks-node-group-example&#34;)
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;ec2.amazonaws.com&#34;)
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;action&#34;, &#34;sts:AssumeRole&#34;),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;service&#34;, &#34;ec2.amazonaws.com&#34;)
  *                         ))
  *                     ))),
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;)
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;)
  *                 )))
  *             .build());
  * 
@@ -165,13 +171,63 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Example Subnets for EKS Node Group
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+ * import com.pulumi.aws.ec2.Subnet;
+ * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.codegen.internal.KeyedValue;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+ *             .state(&#34;available&#34;)
+ *             .build());
+ * 
+ *         for (var i = 0; i &lt; 2; i++) {
+ *             new Subnet(&#34;example-&#34; + i, SubnetArgs.builder()            
+ *                 .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names())[range.value()])
+ *                 .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+ *                     .input(exampleAwsVpc.cidrBlock())
+ *                     .newbits(8)
+ *                     .netnum(range.value())
+ *                     .build()).result())
+ *                 .vpcId(exampleAwsVpc.id())
+ *                 .build());
+ * 
+ *         
+ * }
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
+ * $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
  * ```
  * 
  */
@@ -220,14 +276,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
         return this.capacityType;
     }
     /**
-     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the EKS Cluster.
      * 
      */
     @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
     /**
-     * @return Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * @return Name of the EKS Cluster.
      * 
      */
     public Output<String> clusterName() {
@@ -290,14 +346,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.labels);
     }
     /**
-     * Configuration block with Launch Template settings. See `launch_template` below for details.
+     * Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
      * 
      */
     @Export(name="launchTemplate", refs={NodeGroupLaunchTemplate.class}, tree="[0]")
     private Output</* @Nullable */ NodeGroupLaunchTemplate> launchTemplate;
 
     /**
-     * @return Configuration block with Launch Template settings. See `launch_template` below for details.
+     * @return Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
      * 
      */
     public Output<Optional<NodeGroupLaunchTemplate>> launchTemplate() {
@@ -360,14 +416,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
         return this.releaseVersion;
     }
     /**
-     * Configuration block with remote access settings. See `remote_access` below for details.
+     * Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
      * 
      */
     @Export(name="remoteAccess", refs={NodeGroupRemoteAccess.class}, tree="[0]")
     private Output</* @Nullable */ NodeGroupRemoteAccess> remoteAccess;
 
     /**
-     * @return Configuration block with remote access settings. See `remote_access` below for details.
+     * @return Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
      * 
      */
     public Output<Optional<NodeGroupRemoteAccess>> remoteAccess() {
@@ -540,9 +596,6 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

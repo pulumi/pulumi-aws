@@ -17,7 +17,10 @@ import javax.annotation.Nullable;
  * Provides a resource to accept a pending VPC Endpoint Connection accept request to VPC Endpoint Service.
  * 
  * ## Example Usage
+ * 
  * ### Accept cross-account request
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -30,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.VpcEndpointArgs;
  * import com.pulumi.aws.ec2.VpcEndpointConnectionAccepter;
  * import com.pulumi.aws.ec2.VpcEndpointConnectionAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,36 +46,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVpcEndpointService = new VpcEndpointService(&#34;exampleVpcEndpointService&#34;, VpcEndpointServiceArgs.builder()        
+ *         var example = new VpcEndpointService(&#34;example&#34;, VpcEndpointServiceArgs.builder()        
  *             .acceptanceRequired(false)
- *             .networkLoadBalancerArns(aws_lb.example().arn())
+ *             .networkLoadBalancerArns(exampleAwsLb.arn())
  *             .build());
  * 
  *         var exampleVpcEndpoint = new VpcEndpoint(&#34;exampleVpcEndpoint&#34;, VpcEndpointArgs.builder()        
- *             .vpcId(aws_vpc.test_alternate().id())
- *             .serviceName(aws_vpc_endpoint_service.test().service_name())
+ *             .vpcId(testAlternate.id())
+ *             .serviceName(testAwsVpcEndpointService.serviceName())
  *             .vpcEndpointType(&#34;Interface&#34;)
  *             .privateDnsEnabled(false)
- *             .securityGroupIds(aws_security_group.test().id())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.alternate())
- *                 .build());
+ *             .securityGroupIds(test.id())
+ *             .build());
  * 
  *         var exampleVpcEndpointConnectionAccepter = new VpcEndpointConnectionAccepter(&#34;exampleVpcEndpointConnectionAccepter&#34;, VpcEndpointConnectionAccepterArgs.builder()        
- *             .vpcEndpointServiceId(exampleVpcEndpointService.id())
+ *             .vpcEndpointServiceId(example.id())
  *             .vpcEndpointId(exampleVpcEndpoint.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import VPC Endpoint Services using ID of the connection, which is the `VPC Endpoint Service ID` and `VPC Endpoint ID` separated by underscore (`_`).. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
+ * $ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
  * ```
  * 
  */

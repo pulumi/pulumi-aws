@@ -19,6 +19,7 @@ import (
 //
 // The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,11 +42,11 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewSecurityGroup(ctx, "subnet", &ec2.SecurityGroupArgs{
-//				VpcId: *pulumi.String(selected.VpcId),
+//				VpcId: pulumi.String(selected.VpcId),
 //				Ingress: ec2.SecurityGroupIngressArray{
 //					&ec2.SecurityGroupIngressArgs{
 //						CidrBlocks: pulumi.StringArray{
-//							*pulumi.String(selected.CidrBlock),
+//							pulumi.String(selected.CidrBlock),
 //						},
 //						FromPort: pulumi.Int(80),
 //						ToPort:   pulumi.Int(80),
@@ -61,10 +62,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Filter Example
 //
 // If you want to match against tag `Name`, use:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -95,6 +99,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.InvokeOption) (*LookupSubnetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSubnetResult

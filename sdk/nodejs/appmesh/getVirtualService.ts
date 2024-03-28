@@ -12,16 +12,19 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.appmesh.getVirtualService({
- *     meshName: "example-mesh",
  *     name: "example.mesh.local",
+ *     meshName: "example-mesh",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,6 +36,7 @@ import * as utilities from "../utilities";
  *     meshOwner: current.accountId,
  * }));
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualService(args: GetVirtualServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualServiceResult> {
 
@@ -108,16 +112,19 @@ export interface GetVirtualServiceResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.appmesh.getVirtualService({
- *     meshName: "example-mesh",
  *     name: "example.mesh.local",
+ *     meshName: "example-mesh",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -129,6 +136,7 @@ export interface GetVirtualServiceResult {
  *     meshOwner: current.accountId,
  * }));
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualServiceOutput(args: GetVirtualServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualServiceResult> {
     return pulumi.output(args).apply((a: any) => getVirtualService(a, opts))

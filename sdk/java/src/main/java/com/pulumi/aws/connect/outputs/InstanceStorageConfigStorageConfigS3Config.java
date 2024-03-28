@@ -5,6 +5,7 @@ package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.aws.connect.outputs.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -73,25 +74,32 @@ public final class InstanceStorageConfigStorageConfigS3Config {
 
         @CustomType.Setter
         public Builder bucketName(String bucketName) {
-            this.bucketName = Objects.requireNonNull(bucketName);
+            if (bucketName == null) {
+              throw new MissingRequiredPropertyException("InstanceStorageConfigStorageConfigS3Config", "bucketName");
+            }
+            this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder bucketPrefix(String bucketPrefix) {
-            this.bucketPrefix = Objects.requireNonNull(bucketPrefix);
+            if (bucketPrefix == null) {
+              throw new MissingRequiredPropertyException("InstanceStorageConfigStorageConfigS3Config", "bucketPrefix");
+            }
+            this.bucketPrefix = bucketPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionConfig(@Nullable InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig encryptionConfig) {
+
             this.encryptionConfig = encryptionConfig;
             return this;
         }
         public InstanceStorageConfigStorageConfigS3Config build() {
-            final var o = new InstanceStorageConfigStorageConfigS3Config();
-            o.bucketName = bucketName;
-            o.bucketPrefix = bucketPrefix;
-            o.encryptionConfig = encryptionConfig;
-            return o;
+            final var _resultValue = new InstanceStorageConfigStorageConfigS3Config();
+            _resultValue.bucketName = bucketName;
+            _resultValue.bucketPrefix = bucketPrefix;
+            _resultValue.encryptionConfig = encryptionConfig;
+            return _resultValue;
         }
     }
 }

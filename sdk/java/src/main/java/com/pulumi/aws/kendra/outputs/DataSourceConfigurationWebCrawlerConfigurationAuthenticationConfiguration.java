@@ -44,6 +44,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationAuthenticationC
 
         @CustomType.Setter
         public Builder basicAuthentications(@Nullable List<DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication> basicAuthentications) {
+
             this.basicAuthentications = basicAuthentications;
             return this;
         }
@@ -51,9 +52,9 @@ public final class DataSourceConfigurationWebCrawlerConfigurationAuthenticationC
             return basicAuthentications(List.of(basicAuthentications));
         }
         public DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration build() {
-            final var o = new DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration();
-            o.basicAuthentications = basicAuthentications;
-            return o;
+            final var _resultValue = new DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration();
+            _resultValue.basicAuthentications = basicAuthentications;
+            return _resultValue;
         }
     }
 }

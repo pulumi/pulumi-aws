@@ -5,6 +5,7 @@ package com.pulumi.aws.ssmcontacts.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ContactChannelDeliveryAddressArgs extends com.pulumi.resource
         }
 
         public ContactChannelDeliveryAddressArgs build() {
-            $.simpleAddress = Objects.requireNonNull($.simpleAddress, "expected parameter 'simpleAddress' to be non-null");
+            if ($.simpleAddress == null) {
+                throw new MissingRequiredPropertyException("ContactChannelDeliveryAddressArgs", "simpleAddress");
+            }
             return $;
         }
     }

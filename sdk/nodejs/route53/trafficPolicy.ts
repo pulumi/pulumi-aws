@@ -9,11 +9,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.route53.TrafficPolicy("example", {
+ *     name: "example",
  *     comment: "example comment",
  *     document: `{
  *   "AWSPolicyFormatVersion": "2015-10-01",
@@ -26,17 +28,17 @@ import * as utilities from "../utilities";
  *   },
  *   "StartEndpoint": "endpoint-start-NkPh"
  * }
- *
  * `,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Route53 Traffic Policy using the `id` and `version`. For example:
  *
  * ```sh
- *  $ pulumi import aws:route53/trafficPolicy:TrafficPolicy example 01a52019-d16f-422a-ae72-c306d2b6df7e/1
+ * $ pulumi import aws:route53/trafficPolicy:TrafficPolicy example 01a52019-d16f-422a-ae72-c306d2b6df7e/1
  * ```
  */
 export class TrafficPolicy extends pulumi.CustomResource {

@@ -6,6 +6,7 @@ package com.pulumi.aws.appstream;
 import com.pulumi.aws.appstream.inputs.DirectoryConfigServiceAccountCredentialsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -160,9 +161,15 @@ public final class DirectoryConfigArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public DirectoryConfigArgs build() {
-            $.directoryName = Objects.requireNonNull($.directoryName, "expected parameter 'directoryName' to be non-null");
-            $.organizationalUnitDistinguishedNames = Objects.requireNonNull($.organizationalUnitDistinguishedNames, "expected parameter 'organizationalUnitDistinguishedNames' to be non-null");
-            $.serviceAccountCredentials = Objects.requireNonNull($.serviceAccountCredentials, "expected parameter 'serviceAccountCredentials' to be non-null");
+            if ($.directoryName == null) {
+                throw new MissingRequiredPropertyException("DirectoryConfigArgs", "directoryName");
+            }
+            if ($.organizationalUnitDistinguishedNames == null) {
+                throw new MissingRequiredPropertyException("DirectoryConfigArgs", "organizationalUnitDistinguishedNames");
+            }
+            if ($.serviceAccountCredentials == null) {
+                throw new MissingRequiredPropertyException("DirectoryConfigArgs", "serviceAccountCredentials");
+            }
             return $;
         }
     }

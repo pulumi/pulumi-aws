@@ -15,8 +15,10 @@ namespace Pulumi.Aws.Transcribe
     /// &gt; This resource can take a significant amount of time to provision. See Language Model [FAQ](https://aws.amazon.com/transcribe/faqs/) for more details.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,7 +28,7 @@ namespace Pulumi.Aws.Transcribe
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -51,28 +53,30 @@ namespace Pulumi.Aws.Transcribe
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
-    ///         AssumeRolePolicy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "example",
+    ///         AssumeRolePolicy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var testPolicy = new Aws.Iam.RolePolicy("testPolicy", new()
+    ///     var testPolicy = new Aws.Iam.RolePolicy("test_policy", new()
     ///     {
+    ///         Name = "example",
     ///         Role = exampleRole.Id,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "s3:GetObject",
     ///                         "s3:ListBucket",
     ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = new[]
+    ///                     ["effect"] = "Allow",
+    ///                     ["resource"] = new[]
     ///                     {
     ///                         "*",
     ///                     },
@@ -81,8 +85,9 @@ namespace Pulumi.Aws.Transcribe
     ///         }),
     ///     });
     /// 
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
     ///     {
+    ///         Bucket = "example-transcribe",
     ///         ForceDestroy = true,
     ///     });
     /// 
@@ -93,7 +98,7 @@ namespace Pulumi.Aws.Transcribe
     ///         Source = new FileAsset("test1.txt"),
     ///     });
     /// 
-    ///     var exampleLanguageModel = new Aws.Transcribe.LanguageModel("exampleLanguageModel", new()
+    ///     var exampleLanguageModel = new Aws.Transcribe.LanguageModel("example", new()
     ///     {
     ///         ModelName = "example",
     ///         BaseModelName = "NarrowBand",
@@ -111,13 +116,14 @@ namespace Pulumi.Aws.Transcribe
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Transcribe LanguageModel using the `model_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
+    /// $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:transcribe/languageModel:LanguageModel")]
@@ -185,10 +191,6 @@ namespace Pulumi.Aws.Transcribe
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -304,11 +306,7 @@ namespace Pulumi.Aws.Transcribe
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public LanguageModelState()

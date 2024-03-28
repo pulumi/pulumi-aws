@@ -15,8 +15,10 @@ import (
 // Provides a WAF Regional Web ACL Resource for use with Application Load Balancer.
 //
 // ## Example Usage
+//
 // ### Regular Rule
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			ipset, err := wafregional.NewIpSet(ctx, "ipset", &wafregional.IpSetArgs{
+//				Name: pulumi.String("tfIPSet"),
 //				IpSetDescriptors: wafregional.IpSetIpSetDescriptorArray{
 //					&wafregional.IpSetIpSetDescriptorArgs{
 //						Type:  pulumi.String("IPV4"),
@@ -41,6 +44,7 @@ import (
 //				return err
 //			}
 //			wafrule, err := wafregional.NewRule(ctx, "wafrule", &wafregional.RuleArgs{
+//				Name:       pulumi.String("tfWAFRule"),
 //				MetricName: pulumi.String("tfWAFRule"),
 //				Predicates: wafregional.RulePredicateArray{
 //					&wafregional.RulePredicateArgs{
@@ -54,6 +58,7 @@ import (
 //				return err
 //			}
 //			_, err = wafregional.NewWebAcl(ctx, "wafacl", &wafregional.WebAclArgs{
+//				Name:       pulumi.String("tfWebACL"),
 //				MetricName: pulumi.String("tfWebACL"),
 //				DefaultAction: &wafregional.WebAclDefaultActionArgs{
 //					Type: pulumi.String("ALLOW"),
@@ -77,8 +82,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Group Rule
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -92,6 +100,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := wafregional.NewWebAcl(ctx, "example", &wafregional.WebAclArgs{
+//				Name:       pulumi.String("example"),
 //				MetricName: pulumi.String("example"),
 //				DefaultAction: &wafregional.WebAclDefaultActionArgs{
 //					Type: pulumi.String("ALLOW"),
@@ -99,7 +108,7 @@ import (
 //				Rules: wafregional.WebAclRuleArray{
 //					&wafregional.WebAclRuleArgs{
 //						Priority: pulumi.Int(1),
-//						RuleId:   pulumi.Any(aws_wafregional_rule_group.Example.Id),
+//						RuleId:   pulumi.Any(exampleAwsWafregionalRuleGroup.Id),
 //						Type:     pulumi.String("GROUP"),
 //						OverrideAction: &wafregional.WebAclRuleOverrideActionArgs{
 //							Type: pulumi.String("NONE"),
@@ -115,10 +124,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Logging
 //
 // > *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-`. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -133,7 +145,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := wafregional.NewWebAcl(ctx, "example", &wafregional.WebAclArgs{
 //				LoggingConfiguration: &wafregional.WebAclLoggingConfigurationArgs{
-//					LogDestination: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
+//					LogDestination: pulumi.Any(exampleAwsKinesisFirehoseDeliveryStream.Arn),
 //					RedactedFields: &wafregional.WebAclLoggingConfigurationRedactedFieldsArgs{
 //						FieldToMatches: wafregional.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArray{
 //							&wafregional.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{
@@ -155,15 +167,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import WAF Regional Web ACL using the id. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:wafregional/webAcl:WebAcl wafacl a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-//
+// $ pulumi import aws:wafregional/webAcl:WebAcl wafacl a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 // ```
 type WebAcl struct {
 	pulumi.CustomResourceState
@@ -201,10 +212,6 @@ func NewWebAcl(ctx *pulumi.Context,
 	if args.MetricName == nil {
 		return nil, errors.New("invalid value for required argument 'MetricName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WebAcl
 	err := ctx.RegisterResource("aws:wafregional/webAcl:WebAcl", name, args, &resource, opts...)

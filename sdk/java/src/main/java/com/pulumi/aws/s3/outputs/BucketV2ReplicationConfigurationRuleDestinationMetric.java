@@ -59,19 +59,21 @@ public final class BucketV2ReplicationConfigurationRuleDestinationMetric {
 
         @CustomType.Setter
         public Builder minutes(@Nullable Integer minutes) {
+
             this.minutes = minutes;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         public BucketV2ReplicationConfigurationRuleDestinationMetric build() {
-            final var o = new BucketV2ReplicationConfigurationRuleDestinationMetric();
-            o.minutes = minutes;
-            o.status = status;
-            return o;
+            final var _resultValue = new BucketV2ReplicationConfigurationRuleDestinationMetric();
+            _resultValue.minutes = minutes;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

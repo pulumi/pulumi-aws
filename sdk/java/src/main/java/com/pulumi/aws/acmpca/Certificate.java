@@ -24,8 +24,10 @@ import javax.annotation.Nullable;
  * with the parameter `certificate_authority_arn`.
  * 
  * ## Example Usage
+ * 
  * ### Basic
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -72,7 +74,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
+ *         var example = new Certificate(&#34;example&#34;, CertificateArgs.builder()        
  *             .certificateAuthorityArn(exampleCertificateAuthority.arn())
  *             .certificateSigningRequest(csr.certRequestPem())
  *             .signingAlgorithm(&#34;SHA256WITHRSA&#34;)
@@ -85,13 +87,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import ACM PCA Certificates using their ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:acmpca/certificate:Certificate cert arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a
+ * $ pulumi import aws:acmpca/certificate:Certificate cert arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a
  * ```
  * 
  */

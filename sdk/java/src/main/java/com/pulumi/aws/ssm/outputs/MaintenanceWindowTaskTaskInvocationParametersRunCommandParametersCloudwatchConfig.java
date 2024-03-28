@@ -59,19 +59,21 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
 
         @CustomType.Setter
         public Builder cloudwatchLogGroupName(@Nullable String cloudwatchLogGroupName) {
+
             this.cloudwatchLogGroupName = cloudwatchLogGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder cloudwatchOutputEnabled(@Nullable Boolean cloudwatchOutputEnabled) {
+
             this.cloudwatchOutputEnabled = cloudwatchOutputEnabled;
             return this;
         }
         public MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig build() {
-            final var o = new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig();
-            o.cloudwatchLogGroupName = cloudwatchLogGroupName;
-            o.cloudwatchOutputEnabled = cloudwatchOutputEnabled;
-            return o;
+            final var _resultValue = new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig();
+            _resultValue.cloudwatchLogGroupName = cloudwatchLogGroupName;
+            _resultValue.cloudwatchOutputEnabled = cloudwatchOutputEnabled;
+            return _resultValue;
         }
     }
 }

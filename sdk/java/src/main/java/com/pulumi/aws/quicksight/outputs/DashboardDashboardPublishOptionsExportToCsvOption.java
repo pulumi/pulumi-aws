@@ -44,13 +44,14 @@ public final class DashboardDashboardPublishOptionsExportToCsvOption {
 
         @CustomType.Setter
         public Builder availabilityStatus(@Nullable String availabilityStatus) {
+
             this.availabilityStatus = availabilityStatus;
             return this;
         }
         public DashboardDashboardPublishOptionsExportToCsvOption build() {
-            final var o = new DashboardDashboardPublishOptionsExportToCsvOption();
-            o.availabilityStatus = availabilityStatus;
-            return o;
+            final var _resultValue = new DashboardDashboardPublishOptionsExportToCsvOption();
+            _resultValue.availabilityStatus = availabilityStatus;
+            return _resultValue;
         }
     }
 }

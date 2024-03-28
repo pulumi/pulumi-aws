@@ -60,11 +60,13 @@ public final class DistributionTrustedSigner {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder items(@Nullable List<DistributionTrustedSignerItem> items) {
+
             this.items = items;
             return this;
         }
@@ -72,10 +74,10 @@ public final class DistributionTrustedSigner {
             return items(List.of(items));
         }
         public DistributionTrustedSigner build() {
-            final var o = new DistributionTrustedSigner();
-            o.enabled = enabled;
-            o.items = items;
-            return o;
+            final var _resultValue = new DistributionTrustedSigner();
+            _resultValue.enabled = enabled;
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

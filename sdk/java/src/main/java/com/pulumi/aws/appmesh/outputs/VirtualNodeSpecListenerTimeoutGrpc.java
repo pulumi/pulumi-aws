@@ -59,19 +59,21 @@ public final class VirtualNodeSpecListenerTimeoutGrpc {
 
         @CustomType.Setter
         public Builder idle(@Nullable VirtualNodeSpecListenerTimeoutGrpcIdle idle) {
+
             this.idle = idle;
             return this;
         }
         @CustomType.Setter
         public Builder perRequest(@Nullable VirtualNodeSpecListenerTimeoutGrpcPerRequest perRequest) {
+
             this.perRequest = perRequest;
             return this;
         }
         public VirtualNodeSpecListenerTimeoutGrpc build() {
-            final var o = new VirtualNodeSpecListenerTimeoutGrpc();
-            o.idle = idle;
-            o.perRequest = perRequest;
-            return o;
+            final var _resultValue = new VirtualNodeSpecListenerTimeoutGrpc();
+            _resultValue.idle = idle;
+            _resultValue.perRequest = perRequest;
+            return _resultValue;
         }
     }
 }

@@ -519,22 +519,26 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        example_rule_group = aws.wafregional.RuleGroup("exampleRuleGroup", metric_name="WAFRuleGroupExample")
-        example_policy = aws.fms.Policy("examplePolicy",
+        example_rule_group = aws.wafregional.RuleGroup("example",
+            metric_name="WAFRuleGroupExample",
+            name="WAF-Rule-Group-Example")
+        example = aws.fms.Policy("example",
+            name="FMS-Policy-Example",
             exclude_resource_tags=False,
             remediation_enabled=False,
             resource_type="AWS::ElasticLoadBalancingV2::LoadBalancer",
             security_service_policy_data=aws.fms.PolicySecurityServicePolicyDataArgs(
                 type="WAF",
-                managed_service_data=example_rule_group.id.apply(lambda id: json.dumps({
+                managed_service_data=pulumi.Output.json_dumps({
                     "type": "WAF",
                     "ruleGroups": [{
-                        "id": id,
+                        "id": example_rule_group.id,
                         "overrideAction": {
                             "type": "COUNT",
                         },
@@ -543,19 +547,20 @@ class Policy(pulumi.CustomResource):
                         "type": "BLOCK",
                     },
                     "overrideCustomerWebACLAssociation": False,
-                })),
+                }),
             ),
             tags={
                 "Name": "example-fms-policy",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Firewall Manager policies using the policy ID. For example:
 
         ```sh
-         $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
+        $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
         ```
 
         :param str resource_name: The name of the resource.
@@ -587,22 +592,26 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        example_rule_group = aws.wafregional.RuleGroup("exampleRuleGroup", metric_name="WAFRuleGroupExample")
-        example_policy = aws.fms.Policy("examplePolicy",
+        example_rule_group = aws.wafregional.RuleGroup("example",
+            metric_name="WAFRuleGroupExample",
+            name="WAF-Rule-Group-Example")
+        example = aws.fms.Policy("example",
+            name="FMS-Policy-Example",
             exclude_resource_tags=False,
             remediation_enabled=False,
             resource_type="AWS::ElasticLoadBalancingV2::LoadBalancer",
             security_service_policy_data=aws.fms.PolicySecurityServicePolicyDataArgs(
                 type="WAF",
-                managed_service_data=example_rule_group.id.apply(lambda id: json.dumps({
+                managed_service_data=pulumi.Output.json_dumps({
                     "type": "WAF",
                     "ruleGroups": [{
-                        "id": id,
+                        "id": example_rule_group.id,
                         "overrideAction": {
                             "type": "COUNT",
                         },
@@ -611,19 +620,20 @@ class Policy(pulumi.CustomResource):
                         "type": "BLOCK",
                     },
                     "overrideCustomerWebACLAssociation": False,
-                })),
+                }),
             ),
             tags={
                 "Name": "example-fms-policy",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Firewall Manager policies using the policy ID. For example:
 
         ```sh
-         $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
+        $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
         ```
 
         :param str resource_name: The name of the resource.
@@ -683,8 +693,6 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["policy_update_token"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Policy, __self__).__init__(
             'aws:fms/policy:Policy',
             resource_name,

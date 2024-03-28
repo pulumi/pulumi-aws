@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,16 +29,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			_, err := securityhub.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securityhub.NewActionTarget(ctx, "exampleActionTarget", &securityhub.ActionTargetArgs{
+//			_, err = securityhub.NewActionTarget(ctx, "example", &securityhub.ActionTargetArgs{
+//				Name:        pulumi.String("Send notification to chat"),
 //				Identifier:  pulumi.String("SendToChat"),
 //				Description: pulumi.String("This is custom action sends selected findings to chat"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -46,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Security Hub custom action using the action target ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
-//
+// $ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
 // ```
 type ActionTarget struct {
 	pulumi.CustomResourceState

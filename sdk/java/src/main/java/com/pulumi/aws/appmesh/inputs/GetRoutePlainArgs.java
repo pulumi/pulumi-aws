@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -174,9 +175,15 @@ public final class GetRoutePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetRoutePlainArgs build() {
-            $.meshName = Objects.requireNonNull($.meshName, "expected parameter 'meshName' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.virtualRouterName = Objects.requireNonNull($.virtualRouterName, "expected parameter 'virtualRouterName' to be non-null");
+            if ($.meshName == null) {
+                throw new MissingRequiredPropertyException("GetRoutePlainArgs", "meshName");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetRoutePlainArgs", "name");
+            }
+            if ($.virtualRouterName == null) {
+                throw new MissingRequiredPropertyException("GetRoutePlainArgs", "virtualRouterName");
+            }
             return $;
         }
     }

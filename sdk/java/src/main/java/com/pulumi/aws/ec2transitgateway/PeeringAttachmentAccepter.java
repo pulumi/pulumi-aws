@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Manages the accepter&#39;s side of an EC2 Transit Gateway Peering Attachment.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,20 +45,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PeeringAttachmentAccepter(&#34;example&#34;, PeeringAttachmentAccepterArgs.builder()        
- *             .transitGatewayAttachmentId(aws_ec2_transit_gateway_peering_attachment.example().id())
+ *             .transitGatewayAttachmentId(exampleAwsEc2TransitGatewayPeeringAttachment.id())
  *             .tags(Map.of(&#34;Name&#34;, &#34;Example cross-account attachment&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment_accepter` using the EC2 Transit Gateway Attachment identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter example tgw-attach-12345678
+ * $ pulumi import aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter example tgw-attach-12345678
  * ```
  * 
  */
@@ -191,9 +194,6 @@ public class PeeringAttachmentAccepter extends com.pulumi.resources.CustomResour
             .version(Utilities.getVersion())
             .aliases(List.of(
                 Output.of(Alias.builder().type("aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter").build())
-            ))
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,6 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var lb = new LoadBalancer(&#34;lb&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;test-lb&#34;)
  *             .availabilityZones(&#34;us-east-1a&#34;)
  *             .listeners(            
  *                 LoadBalancerListenerArgs.builder()
@@ -69,6 +72,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy")

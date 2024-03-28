@@ -11,16 +11,19 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS Web Services Budgets Budget.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.budgets.getBudget({
- *     name: aws_budgets_budget.test.name,
+ *     name: testAwsBudgetsBudget.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBudget(args: GetBudgetArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetResult> {
 
@@ -117,16 +120,19 @@ export interface GetBudgetResult {
  * Data source for managing an AWS Web Services Budgets Budget.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.budgets.getBudget({
- *     name: aws_budgets_budget.test.name,
+ *     name: testAwsBudgetsBudget.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBudgetOutput(args: GetBudgetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetResult> {
     return pulumi.output(args).apply((a: any) => getBudget(a, opts))

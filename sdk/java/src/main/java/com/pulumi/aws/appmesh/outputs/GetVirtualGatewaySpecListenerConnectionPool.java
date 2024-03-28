@@ -7,6 +7,7 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListenerConnectionPoo
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListenerConnectionPoolHttp2;
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListenerConnectionPoolHttp;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -49,7 +50,10 @@ public final class GetVirtualGatewaySpecListenerConnectionPool {
 
         @CustomType.Setter
         public Builder grpcs(List<GetVirtualGatewaySpecListenerConnectionPoolGrpc> grpcs) {
-            this.grpcs = Objects.requireNonNull(grpcs);
+            if (grpcs == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerConnectionPool", "grpcs");
+            }
+            this.grpcs = grpcs;
             return this;
         }
         public Builder grpcs(GetVirtualGatewaySpecListenerConnectionPoolGrpc... grpcs) {
@@ -57,7 +61,10 @@ public final class GetVirtualGatewaySpecListenerConnectionPool {
         }
         @CustomType.Setter
         public Builder http2s(List<GetVirtualGatewaySpecListenerConnectionPoolHttp2> http2s) {
-            this.http2s = Objects.requireNonNull(http2s);
+            if (http2s == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerConnectionPool", "http2s");
+            }
+            this.http2s = http2s;
             return this;
         }
         public Builder http2s(GetVirtualGatewaySpecListenerConnectionPoolHttp2... http2s) {
@@ -65,18 +72,21 @@ public final class GetVirtualGatewaySpecListenerConnectionPool {
         }
         @CustomType.Setter
         public Builder https(List<GetVirtualGatewaySpecListenerConnectionPoolHttp> https) {
-            this.https = Objects.requireNonNull(https);
+            if (https == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerConnectionPool", "https");
+            }
+            this.https = https;
             return this;
         }
         public Builder https(GetVirtualGatewaySpecListenerConnectionPoolHttp... https) {
             return https(List.of(https));
         }
         public GetVirtualGatewaySpecListenerConnectionPool build() {
-            final var o = new GetVirtualGatewaySpecListenerConnectionPool();
-            o.grpcs = grpcs;
-            o.http2s = http2s;
-            o.https = https;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecListenerConnectionPool();
+            _resultValue.grpcs = grpcs;
+            _resultValue.http2s = http2s;
+            _resultValue.https = https;
+            return _resultValue;
         }
     }
 }

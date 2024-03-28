@@ -108,37 +108,42 @@ public final class UserHierarchyStructureHierarchyStructure {
 
         @CustomType.Setter
         public Builder levelFive(@Nullable UserHierarchyStructureHierarchyStructureLevelFive levelFive) {
+
             this.levelFive = levelFive;
             return this;
         }
         @CustomType.Setter
         public Builder levelFour(@Nullable UserHierarchyStructureHierarchyStructureLevelFour levelFour) {
+
             this.levelFour = levelFour;
             return this;
         }
         @CustomType.Setter
         public Builder levelOne(@Nullable UserHierarchyStructureHierarchyStructureLevelOne levelOne) {
+
             this.levelOne = levelOne;
             return this;
         }
         @CustomType.Setter
         public Builder levelThree(@Nullable UserHierarchyStructureHierarchyStructureLevelThree levelThree) {
+
             this.levelThree = levelThree;
             return this;
         }
         @CustomType.Setter
         public Builder levelTwo(@Nullable UserHierarchyStructureHierarchyStructureLevelTwo levelTwo) {
+
             this.levelTwo = levelTwo;
             return this;
         }
         public UserHierarchyStructureHierarchyStructure build() {
-            final var o = new UserHierarchyStructureHierarchyStructure();
-            o.levelFive = levelFive;
-            o.levelFour = levelFour;
-            o.levelOne = levelOne;
-            o.levelThree = levelThree;
-            o.levelTwo = levelTwo;
-            return o;
+            final var _resultValue = new UserHierarchyStructureHierarchyStructure();
+            _resultValue.levelFive = levelFive;
+            _resultValue.levelFour = levelFour;
+            _resultValue.levelOne = levelOne;
+            _resultValue.levelThree = levelThree;
+            _resultValue.levelTwo = levelTwo;
+            return _resultValue;
         }
     }
 }

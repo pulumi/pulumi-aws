@@ -4,6 +4,7 @@
 package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -75,25 +76,32 @@ public final class IntentConclusionStatementMessage {
 
         @CustomType.Setter
         public Builder content(String content) {
-            this.content = Objects.requireNonNull(content);
+            if (content == null) {
+              throw new MissingRequiredPropertyException("IntentConclusionStatementMessage", "content");
+            }
+            this.content = content;
             return this;
         }
         @CustomType.Setter
         public Builder contentType(String contentType) {
-            this.contentType = Objects.requireNonNull(contentType);
+            if (contentType == null) {
+              throw new MissingRequiredPropertyException("IntentConclusionStatementMessage", "contentType");
+            }
+            this.contentType = contentType;
             return this;
         }
         @CustomType.Setter
         public Builder groupNumber(@Nullable Integer groupNumber) {
+
             this.groupNumber = groupNumber;
             return this;
         }
         public IntentConclusionStatementMessage build() {
-            final var o = new IntentConclusionStatementMessage();
-            o.content = content;
-            o.contentType = contentType;
-            o.groupNumber = groupNumber;
-            return o;
+            final var _resultValue = new IntentConclusionStatementMessage();
+            _resultValue.content = content;
+            _resultValue.contentType = contentType;
+            _resultValue.groupNumber = groupNumber;
+            return _resultValue;
         }
     }
 }

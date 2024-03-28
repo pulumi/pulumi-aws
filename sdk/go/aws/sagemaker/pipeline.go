@@ -15,8 +15,10 @@ import (
 // Provides a SageMaker Pipeline resource.
 //
 // ## Example Usage
+//
 // ### Basic usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,13 +34,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2020-12-01",
-//				"Steps": []map[string]interface{}{
+//				"version": "2020-12-01",
+//				"steps": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Name": "Test",
-//						"Type": "Fail",
-//						"Arguments": map[string]interface{}{
-//							"ErrorMessage": "test",
+//						"name": "Test",
+//						"type": "Fail",
+//						"arguments": map[string]interface{}{
+//							"errorMessage": "test",
 //						},
 //					},
 //				},
@@ -50,7 +52,7 @@ import (
 //			_, err = sagemaker.NewPipeline(ctx, "example", &sagemaker.PipelineArgs{
 //				PipelineName:        pulumi.String("example"),
 //				PipelineDisplayName: pulumi.String("example"),
-//				RoleArn:             pulumi.Any(aws_iam_role.Example.Arn),
+//				RoleArn:             pulumi.Any(exampleAwsIamRole.Arn),
 //				PipelineDefinition:  pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -61,15 +63,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import pipelines using the `pipeline_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
-//
+// $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
 // ```
 type Pipeline struct {
 	pulumi.CustomResourceState
@@ -111,10 +112,6 @@ func NewPipeline(ctx *pulumi.Context,
 	if args.PipelineName == nil {
 		return nil, errors.New("invalid value for required argument 'PipelineName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Pipeline
 	err := ctx.RegisterResource("aws:sagemaker/pipeline:Pipeline", name, args, &resource, opts...)

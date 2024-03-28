@@ -17,6 +17,7 @@ import (
 //
 // By `name`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,9 +42,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // By `contactFlowModuleId`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,8 +60,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.LookupContactFlowModule(ctx, &connect.LookupContactFlowModuleArgs{
-//				ContactFlowModuleId: pulumi.StringRef("cccccccc-bbbb-cccc-dddd-111111111111"),
 //				InstanceId:          "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+//				ContactFlowModuleId: pulumi.StringRef("cccccccc-bbbb-cccc-dddd-111111111111"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -68,6 +71,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupContactFlowModule(ctx *pulumi.Context, args *LookupContactFlowModuleArgs, opts ...pulumi.InvokeOption) (*LookupContactFlowModuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupContactFlowModuleResult

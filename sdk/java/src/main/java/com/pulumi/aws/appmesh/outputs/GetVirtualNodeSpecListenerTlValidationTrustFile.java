@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -34,13 +35,16 @@ public final class GetVirtualNodeSpecListenerTlValidationTrustFile {
 
         @CustomType.Setter
         public Builder certificateChain(String certificateChain) {
-            this.certificateChain = Objects.requireNonNull(certificateChain);
+            if (certificateChain == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerTlValidationTrustFile", "certificateChain");
+            }
+            this.certificateChain = certificateChain;
             return this;
         }
         public GetVirtualNodeSpecListenerTlValidationTrustFile build() {
-            final var o = new GetVirtualNodeSpecListenerTlValidationTrustFile();
-            o.certificateChain = certificateChain;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListenerTlValidationTrustFile();
+            _resultValue.certificateChain = certificateChain;
+            return _resultValue;
         }
     }
 }

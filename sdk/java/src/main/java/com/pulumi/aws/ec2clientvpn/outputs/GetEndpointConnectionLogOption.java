@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2clientvpn.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -47,25 +48,34 @@ public final class GetEndpointConnectionLogOption {
 
         @CustomType.Setter
         public Builder cloudwatchLogGroup(String cloudwatchLogGroup) {
-            this.cloudwatchLogGroup = Objects.requireNonNull(cloudwatchLogGroup);
+            if (cloudwatchLogGroup == null) {
+              throw new MissingRequiredPropertyException("GetEndpointConnectionLogOption", "cloudwatchLogGroup");
+            }
+            this.cloudwatchLogGroup = cloudwatchLogGroup;
             return this;
         }
         @CustomType.Setter
         public Builder cloudwatchLogStream(String cloudwatchLogStream) {
-            this.cloudwatchLogStream = Objects.requireNonNull(cloudwatchLogStream);
+            if (cloudwatchLogStream == null) {
+              throw new MissingRequiredPropertyException("GetEndpointConnectionLogOption", "cloudwatchLogStream");
+            }
+            this.cloudwatchLogStream = cloudwatchLogStream;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetEndpointConnectionLogOption", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         public GetEndpointConnectionLogOption build() {
-            final var o = new GetEndpointConnectionLogOption();
-            o.cloudwatchLogGroup = cloudwatchLogGroup;
-            o.cloudwatchLogStream = cloudwatchLogStream;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new GetEndpointConnectionLogOption();
+            _resultValue.cloudwatchLogGroup = cloudwatchLogGroup;
+            _resultValue.cloudwatchLogStream = cloudwatchLogStream;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

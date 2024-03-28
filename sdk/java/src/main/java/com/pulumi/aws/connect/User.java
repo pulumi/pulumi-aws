@@ -23,7 +23,10 @@ import javax.annotation.Nullable;
  * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,10 +51,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new User(&#34;example&#34;, UserArgs.builder()        
- *             .instanceId(aws_connect_instance.example().id())
+ *             .instanceId(exampleAwsConnectInstance.id())
+ *             .name(&#34;example&#34;)
  *             .password(&#34;Password123&#34;)
- *             .routingProfileId(aws_connect_routing_profile.example().routing_profile_id())
- *             .securityProfileIds(aws_connect_security_profile.example().security_profile_id())
+ *             .routingProfileId(exampleAwsConnectRoutingProfile.routingProfileId())
+ *             .securityProfileIds(exampleAwsConnectSecurityProfile.securityProfileId())
  *             .identityInfo(UserIdentityInfoArgs.builder()
  *                 .firstName(&#34;example&#34;)
  *                 .lastName(&#34;example2&#34;)
@@ -65,7 +69,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With hierarchy_group_id
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -90,11 +98,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new User(&#34;example&#34;, UserArgs.builder()        
- *             .instanceId(aws_connect_instance.example().id())
+ *             .instanceId(exampleAwsConnectInstance.id())
+ *             .name(&#34;example&#34;)
  *             .password(&#34;Password123&#34;)
- *             .routingProfileId(aws_connect_routing_profile.example().routing_profile_id())
- *             .hierarchyGroupId(aws_connect_user_hierarchy_group.example().hierarchy_group_id())
- *             .securityProfileIds(aws_connect_security_profile.example().security_profile_id())
+ *             .routingProfileId(exampleAwsConnectRoutingProfile.routingProfileId())
+ *             .hierarchyGroupId(exampleAwsConnectUserHierarchyGroup.hierarchyGroupId())
+ *             .securityProfileIds(exampleAwsConnectSecurityProfile.securityProfileId())
  *             .identityInfo(UserIdentityInfoArgs.builder()
  *                 .firstName(&#34;example&#34;)
  *                 .lastName(&#34;example2&#34;)
@@ -108,7 +117,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With identity_info filled
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -133,10 +146,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new User(&#34;example&#34;, UserArgs.builder()        
- *             .instanceId(aws_connect_instance.example().id())
+ *             .instanceId(exampleAwsConnectInstance.id())
+ *             .name(&#34;example&#34;)
  *             .password(&#34;Password123&#34;)
- *             .routingProfileId(aws_connect_routing_profile.example().routing_profile_id())
- *             .securityProfileIds(aws_connect_security_profile.example().security_profile_id())
+ *             .routingProfileId(exampleAwsConnectRoutingProfile.routingProfileId())
+ *             .securityProfileIds(exampleAwsConnectSecurityProfile.securityProfileId())
  *             .identityInfo(UserIdentityInfoArgs.builder()
  *                 .email(&#34;example@example.com&#34;)
  *                 .firstName(&#34;example&#34;)
@@ -151,7 +165,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With phone_config phone type as desk phone
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -175,10 +193,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new User(&#34;example&#34;, UserArgs.builder()        
- *             .instanceId(aws_connect_instance.example().id())
+ *             .instanceId(exampleAwsConnectInstance.id())
+ *             .name(&#34;example&#34;)
  *             .password(&#34;Password123&#34;)
- *             .routingProfileId(aws_connect_routing_profile.example().routing_profile_id())
- *             .securityProfileIds(aws_connect_security_profile.example().security_profile_id())
+ *             .routingProfileId(exampleAwsConnectRoutingProfile.routingProfileId())
+ *             .securityProfileIds(exampleAwsConnectSecurityProfile.securityProfileId())
  *             .phoneConfig(UserPhoneConfigArgs.builder()
  *                 .afterContactWorkTimeLimit(0)
  *                 .phoneType(&#34;SOFT_PHONE&#34;)
@@ -188,7 +207,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With multiple Security profile ids specified in security_profile_ids
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -212,12 +235,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new User(&#34;example&#34;, UserArgs.builder()        
- *             .instanceId(aws_connect_instance.example().id())
+ *             .instanceId(exampleAwsConnectInstance.id())
+ *             .name(&#34;example&#34;)
  *             .password(&#34;Password123&#34;)
- *             .routingProfileId(aws_connect_routing_profile.example().routing_profile_id())
+ *             .routingProfileId(exampleAwsConnectRoutingProfile.routingProfileId())
  *             .securityProfileIds(            
- *                 aws_connect_security_profile.example().security_profile_id(),
- *                 aws_connect_security_profile.example2().security_profile_id())
+ *                 exampleAwsConnectSecurityProfile.securityProfileId(),
+ *                 example2.securityProfileId())
  *             .phoneConfig(UserPhoneConfigArgs.builder()
  *                 .afterContactWorkTimeLimit(0)
  *                 .autoAccept(false)
@@ -229,13 +253,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Amazon Connect Users using the `instance_id` and `user_id` separated by a colon (`:`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:connect/user:User example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+ * $ pulumi import aws:connect/user:User example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
  * ```
  * 
  */
@@ -463,8 +488,7 @@ public class User extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "password",
-                "tagsAll"
+                "password"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

@@ -9,6 +9,7 @@ import com.pulumi.aws.codepipeline.inputs.CustomActionTypeOutputArtifactDetailsA
 import com.pulumi.aws.codepipeline.inputs.CustomActionTypeSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -351,11 +352,21 @@ public final class CustomActionTypeArgs extends com.pulumi.resources.ResourceArg
         }
 
         public CustomActionTypeArgs build() {
-            $.category = Objects.requireNonNull($.category, "expected parameter 'category' to be non-null");
-            $.inputArtifactDetails = Objects.requireNonNull($.inputArtifactDetails, "expected parameter 'inputArtifactDetails' to be non-null");
-            $.outputArtifactDetails = Objects.requireNonNull($.outputArtifactDetails, "expected parameter 'outputArtifactDetails' to be non-null");
-            $.providerName = Objects.requireNonNull($.providerName, "expected parameter 'providerName' to be non-null");
-            $.version = Objects.requireNonNull($.version, "expected parameter 'version' to be non-null");
+            if ($.category == null) {
+                throw new MissingRequiredPropertyException("CustomActionTypeArgs", "category");
+            }
+            if ($.inputArtifactDetails == null) {
+                throw new MissingRequiredPropertyException("CustomActionTypeArgs", "inputArtifactDetails");
+            }
+            if ($.outputArtifactDetails == null) {
+                throw new MissingRequiredPropertyException("CustomActionTypeArgs", "outputArtifactDetails");
+            }
+            if ($.providerName == null) {
+                throw new MissingRequiredPropertyException("CustomActionTypeArgs", "providerName");
+            }
+            if ($.version == null) {
+                throw new MissingRequiredPropertyException("CustomActionTypeArgs", "version");
+            }
             return $;
         }
     }

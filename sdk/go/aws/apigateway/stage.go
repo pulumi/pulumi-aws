@@ -16,24 +16,19 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"crypto/sha1"
 //	"encoding/json"
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func sha1Hash(input string) string {
-//		hash := sha1.Sum([]byte(input))
-//		return hex.EncodeToString(hash[:])
-//	}
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
@@ -60,41 +55,44 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", &apigateway.RestApiArgs{
+//			example, err := apigateway.NewRestApi(ctx, "example", &apigateway.RestApiArgs{
 //				Body: pulumi.String(json0),
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDeployment, err := apigateway.NewDeployment(ctx, "exampleDeployment", &apigateway.DeploymentArgs{
-//				RestApi: exampleRestApi.ID(),
+//			exampleDeployment, err := apigateway.NewDeployment(ctx, "example", &apigateway.DeploymentArgs{
+//				RestApi: example.ID(),
 //				Triggers: pulumi.StringMap{
-//					"redeployment": exampleRestApi.Body.ApplyT(func(body *string) (pulumi.String, error) {
-//						var _zero pulumi.String
-//						tmpJSON1, err := json.Marshal(body)
-//						if err != nil {
-//							return _zero, err
-//						}
-//						json1 := string(tmpJSON1)
-//						return pulumi.String(json1), nil
-//					}).(pulumi.StringOutput).ApplyT(func(toJSON string) (pulumi.String, error) {
-//						return pulumi.String(sha1Hash(toJSON)), nil
-//					}).(pulumi.StringOutput),
+//					"redeployment": std.Sha1Output(ctx, std.Sha1OutputArgs{
+//						Input: example.Body.ApplyT(func(body *string) (pulumi.String, error) {
+//							var _zero pulumi.String
+//							tmpJSON1, err := json.Marshal(body)
+//							if err != nil {
+//								return _zero, err
+//							}
+//							json1 := string(tmpJSON1)
+//							return pulumi.String(json1), nil
+//						}).(pulumi.StringOutput),
+//					}, nil).ApplyT(func(invoke std.Sha1Result) (*string, error) {
+//						return invoke.Result, nil
+//					}).(pulumi.StringPtrOutput),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleStage, err := apigateway.NewStage(ctx, "exampleStage", &apigateway.StageArgs{
+//			exampleStage, err := apigateway.NewStage(ctx, "example", &apigateway.StageArgs{
 //				Deployment: exampleDeployment.ID(),
-//				RestApi:    exampleRestApi.ID(),
+//				RestApi:    example.ID(),
 //				StageName:  pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigateway.NewMethodSettings(ctx, "exampleMethodSettings", &apigateway.MethodSettingsArgs{
-//				RestApi:    exampleRestApi.ID(),
+//			_, err = apigateway.NewMethodSettings(ctx, "example", &apigateway.MethodSettingsArgs{
+//				RestApi:    example.ID(),
 //				StageName:  exampleStage.StageName,
 //				MethodPath: pulumi.String("*/*"),
 //				Settings: &apigateway.MethodSettingsSettingsArgs{
@@ -110,14 +108,19 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Managing the API Logging CloudWatch Log Group
 //
 // API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, import the `cloudwatch.LogGroup` resource into Pulumi as a one time operation. You can recreate the environment without import.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
+//
+//	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
@@ -133,21 +136,22 @@ import (
 //			if param := cfg.Get("stageName"); param != "" {
 //				stageName = param
 //			}
-//			_, err := apigateway.NewRestApi(ctx, "exampleRestApi", nil)
+//			example, err := apigateway.NewRestApi(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", &cloudwatch.LogGroupArgs{
-//				RetentionInDays: pulumi.Int(7),
+//			_, err = apigateway.NewStage(ctx, "example", &apigateway.StageArgs{
+//				StageName: pulumi.String(stageName),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigateway.NewStage(ctx, "exampleStage", &apigateway.StageArgs{
-//				StageName: pulumi.String(stageName),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleLogGroup,
-//			}))
+//			_, err = cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
+//				Name: example.ID().ApplyT(func(id string) (string, error) {
+//					return fmt.Sprintf("API-Gateway-Execution-Logs_%v/%v", id, stageName), nil
+//				}).(pulumi.StringOutput),
+//				RetentionInDays: pulumi.Int(7),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -156,15 +160,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_api_gateway_stage` using `REST-API-ID/STAGE-NAME`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
-//
+// $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
 // ```
 type Stage struct {
 	pulumi.CustomResourceState
@@ -228,10 +231,6 @@ func NewStage(ctx *pulumi.Context,
 	if args.StageName == nil {
 		return nil, errors.New("invalid value for required argument 'StageName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Stage
 	err := ctx.RegisterResource("aws:apigateway/stage:Stage", name, args, &resource, opts...)

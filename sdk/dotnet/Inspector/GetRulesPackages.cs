@@ -16,10 +16,9 @@ namespace Pulumi.Aws.Inspector
         /// Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
         /// configured in the provider.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,6 +27,7 @@ namespace Pulumi.Aws.Inspector
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Declare the data source
         ///     var rules = Aws.Inspector.GetRulesPackages.Invoke();
         /// 
         ///     // e.g., Use in aws_inspector_assessment_template
@@ -39,22 +39,23 @@ namespace Pulumi.Aws.Inspector
         ///         },
         ///     });
         /// 
-        ///     var assessmentAssessmentTarget = new Aws.Inspector.AssessmentTarget("assessmentAssessmentTarget", new()
+        ///     var assessment = new Aws.Inspector.AssessmentTarget("assessment", new()
         ///     {
+        ///         Name = "test",
         ///         ResourceGroupArn = @group.Arn,
         ///     });
         /// 
-        ///     var assessmentAssessmentTemplate = new Aws.Inspector.AssessmentTemplate("assessmentAssessmentTemplate", new()
+        ///     var assessmentAssessmentTemplate = new Aws.Inspector.AssessmentTemplate("assessment", new()
         ///     {
-        ///         TargetArn = assessmentAssessmentTarget.Arn,
+        ///         Name = "Test",
+        ///         TargetArn = assessment.Arn,
         ///         Duration = 60,
         ///         RulesPackageArns = rules.Apply(getRulesPackagesResult =&gt; getRulesPackagesResult.Arns),
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRulesPackagesResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRulesPackagesResult>("aws:inspector/getRulesPackages:getRulesPackages", InvokeArgs.Empty, options.WithDefaults());
@@ -64,10 +65,9 @@ namespace Pulumi.Aws.Inspector
         /// Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
         /// configured in the provider.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -76,6 +76,7 @@ namespace Pulumi.Aws.Inspector
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Declare the data source
         ///     var rules = Aws.Inspector.GetRulesPackages.Invoke();
         /// 
         ///     // e.g., Use in aws_inspector_assessment_template
@@ -87,22 +88,23 @@ namespace Pulumi.Aws.Inspector
         ///         },
         ///     });
         /// 
-        ///     var assessmentAssessmentTarget = new Aws.Inspector.AssessmentTarget("assessmentAssessmentTarget", new()
+        ///     var assessment = new Aws.Inspector.AssessmentTarget("assessment", new()
         ///     {
+        ///         Name = "test",
         ///         ResourceGroupArn = @group.Arn,
         ///     });
         /// 
-        ///     var assessmentAssessmentTemplate = new Aws.Inspector.AssessmentTemplate("assessmentAssessmentTemplate", new()
+        ///     var assessmentAssessmentTemplate = new Aws.Inspector.AssessmentTemplate("assessment", new()
         ///     {
-        ///         TargetArn = assessmentAssessmentTarget.Arn,
+        ///         Name = "Test",
+        ///         TargetArn = assessment.Arn,
         ///         Duration = 60,
         ///         RulesPackageArns = rules.Apply(getRulesPackagesResult =&gt; getRulesPackagesResult.Arns),
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRulesPackagesResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRulesPackagesResult>("aws:inspector/getRulesPackages:getRulesPackages", InvokeArgs.Empty, options.WithDefaults());

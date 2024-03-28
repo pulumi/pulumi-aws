@@ -4,6 +4,7 @@
 package com.pulumi.aws.elasticsearch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class GetDomainClusterConfigZoneAwarenessConfig {
 
         @CustomType.Setter
         public Builder availabilityZoneCount(Integer availabilityZoneCount) {
-            this.availabilityZoneCount = Objects.requireNonNull(availabilityZoneCount);
+            if (availabilityZoneCount == null) {
+              throw new MissingRequiredPropertyException("GetDomainClusterConfigZoneAwarenessConfig", "availabilityZoneCount");
+            }
+            this.availabilityZoneCount = availabilityZoneCount;
             return this;
         }
         public GetDomainClusterConfigZoneAwarenessConfig build() {
-            final var o = new GetDomainClusterConfigZoneAwarenessConfig();
-            o.availabilityZoneCount = availabilityZoneCount;
-            return o;
+            final var _resultValue = new GetDomainClusterConfigZoneAwarenessConfig();
+            _resultValue.availabilityZoneCount = availabilityZoneCount;
+            return _resultValue;
         }
     }
 }

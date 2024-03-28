@@ -9,27 +9,29 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleConnect = new aws.ec2transitgateway.Connect("exampleConnect", {
- *     transportAttachmentId: aws_ec2_transit_gateway_vpc_attachment.example.id,
- *     transitGatewayId: aws_ec2_transit_gateway.example.id,
+ * const example = new aws.ec2transitgateway.Connect("example", {
+ *     transportAttachmentId: exampleAwsEc2TransitGatewayVpcAttachment.id,
+ *     transitGatewayId: exampleAwsEc2TransitGateway.id,
  * });
- * const exampleConnectPeer = new aws.ec2transitgateway.ConnectPeer("exampleConnectPeer", {
+ * const exampleConnectPeer = new aws.ec2transitgateway.ConnectPeer("example", {
  *     peerAddress: "10.1.2.3",
  *     insideCidrBlocks: ["169.254.100.0/29"],
- *     transitGatewayAttachmentId: exampleConnect.id,
+ *     transitGatewayAttachmentId: example.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ec2_transit_gateway_connect_peer` using the EC2 Transit Gateway Connect Peer identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2transitgateway/connectPeer:ConnectPeer example tgw-connect-peer-12345678
+ * $ pulumi import aws:ec2transitgateway/connectPeer:ConnectPeer example tgw-connect-peer-12345678
  * ```
  */
 export class ConnectPeer extends pulumi.CustomResource {
@@ -149,8 +151,6 @@ export class ConnectPeer extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ConnectPeer.__pulumiType, name, resourceInputs, opts);
     }
 }

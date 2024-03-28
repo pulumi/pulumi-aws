@@ -6,6 +6,7 @@ package com.pulumi.aws.fis.outputs;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateActionParameter;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateActionTarget;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -117,21 +118,29 @@ public final class ExperimentTemplateAction {
 
         @CustomType.Setter
         public Builder actionId(String actionId) {
-            this.actionId = Objects.requireNonNull(actionId);
+            if (actionId == null) {
+              throw new MissingRequiredPropertyException("ExperimentTemplateAction", "actionId");
+            }
+            this.actionId = actionId;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ExperimentTemplateAction", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable List<ExperimentTemplateActionParameter> parameters) {
+
             this.parameters = parameters;
             return this;
         }
@@ -140,6 +149,7 @@ public final class ExperimentTemplateAction {
         }
         @CustomType.Setter
         public Builder startAfters(@Nullable List<String> startAfters) {
+
             this.startAfters = startAfters;
             return this;
         }
@@ -148,18 +158,19 @@ public final class ExperimentTemplateAction {
         }
         @CustomType.Setter
         public Builder target(@Nullable ExperimentTemplateActionTarget target) {
+
             this.target = target;
             return this;
         }
         public ExperimentTemplateAction build() {
-            final var o = new ExperimentTemplateAction();
-            o.actionId = actionId;
-            o.description = description;
-            o.name = name;
-            o.parameters = parameters;
-            o.startAfters = startAfters;
-            o.target = target;
-            return o;
+            final var _resultValue = new ExperimentTemplateAction();
+            _resultValue.actionId = actionId;
+            _resultValue.description = description;
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.startAfters = startAfters;
+            _resultValue.target = target;
+            return _resultValue;
         }
     }
 }

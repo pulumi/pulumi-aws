@@ -4,6 +4,7 @@
 package com.pulumi.aws.efs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -203,67 +204,104 @@ public final class GetMountTargetResult {
 
         @CustomType.Setter
         public Builder accessPointId(@Nullable String accessPointId) {
+
             this.accessPointId = accessPointId;
             return this;
         }
         @CustomType.Setter
         public Builder availabilityZoneId(String availabilityZoneId) {
-            this.availabilityZoneId = Objects.requireNonNull(availabilityZoneId);
+            if (availabilityZoneId == null) {
+              throw new MissingRequiredPropertyException("GetMountTargetResult", "availabilityZoneId");
+            }
+            this.availabilityZoneId = availabilityZoneId;
             return this;
         }
         @CustomType.Setter
         public Builder availabilityZoneName(String availabilityZoneName) {
-            this.availabilityZoneName = Objects.requireNonNull(availabilityZoneName);
+            if (availabilityZoneName == null) {
+              throw new MissingRequiredPropertyException("GetMountTargetResult", "availabilityZoneName");
+            }
+            this.availabilityZoneName = availabilityZoneName;
             return this;
         }
         @CustomType.Setter
         public Builder dnsName(String dnsName) {
-            this.dnsName = Objects.requireNonNull(dnsName);
+            if (dnsName == null) {
+              throw new MissingRequiredPropertyException("GetMountTargetResult", "dnsName");
+            }
+            this.dnsName = dnsName;
             return this;
         }
         @CustomType.Setter
         public Builder fileSystemArn(String fileSystemArn) {
-            this.fileSystemArn = Objects.requireNonNull(fileSystemArn);
+            if (fileSystemArn == null) {
+              throw new MissingRequiredPropertyException("GetMountTargetResult", "fileSystemArn");
+            }
+            this.fileSystemArn = fileSystemArn;
             return this;
         }
         @CustomType.Setter
         public Builder fileSystemId(String fileSystemId) {
-            this.fileSystemId = Objects.requireNonNull(fileSystemId);
+            if (fileSystemId == null) {
+              throw new MissingRequiredPropertyException("GetMountTargetResult", "fileSystemId");
+            }
+            this.fileSystemId = fileSystemId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetMountTargetResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
-            this.ipAddress = Objects.requireNonNull(ipAddress);
+            if (ipAddress == null) {
+              throw new MissingRequiredPropertyException("GetMountTargetResult", "ipAddress");
+            }
+            this.ipAddress = ipAddress;
             return this;
         }
         @CustomType.Setter
         public Builder mountTargetDnsName(String mountTargetDnsName) {
-            this.mountTargetDnsName = Objects.requireNonNull(mountTargetDnsName);
+            if (mountTargetDnsName == null) {
+              throw new MissingRequiredPropertyException("GetMountTargetResult", "mountTargetDnsName");
+            }
+            this.mountTargetDnsName = mountTargetDnsName;
             return this;
         }
         @CustomType.Setter
         public Builder mountTargetId(String mountTargetId) {
-            this.mountTargetId = Objects.requireNonNull(mountTargetId);
+            if (mountTargetId == null) {
+              throw new MissingRequiredPropertyException("GetMountTargetResult", "mountTargetId");
+            }
+            this.mountTargetId = mountTargetId;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaceId(String networkInterfaceId) {
-            this.networkInterfaceId = Objects.requireNonNull(networkInterfaceId);
+            if (networkInterfaceId == null) {
+              throw new MissingRequiredPropertyException("GetMountTargetResult", "networkInterfaceId");
+            }
+            this.networkInterfaceId = networkInterfaceId;
             return this;
         }
         @CustomType.Setter
         public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+            if (ownerId == null) {
+              throw new MissingRequiredPropertyException("GetMountTargetResult", "ownerId");
+            }
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroups(List<String> securityGroups) {
-            this.securityGroups = Objects.requireNonNull(securityGroups);
+            if (securityGroups == null) {
+              throw new MissingRequiredPropertyException("GetMountTargetResult", "securityGroups");
+            }
+            this.securityGroups = securityGroups;
             return this;
         }
         public Builder securityGroups(String... securityGroups) {
@@ -271,26 +309,29 @@ public final class GetMountTargetResult {
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("GetMountTargetResult", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         public GetMountTargetResult build() {
-            final var o = new GetMountTargetResult();
-            o.accessPointId = accessPointId;
-            o.availabilityZoneId = availabilityZoneId;
-            o.availabilityZoneName = availabilityZoneName;
-            o.dnsName = dnsName;
-            o.fileSystemArn = fileSystemArn;
-            o.fileSystemId = fileSystemId;
-            o.id = id;
-            o.ipAddress = ipAddress;
-            o.mountTargetDnsName = mountTargetDnsName;
-            o.mountTargetId = mountTargetId;
-            o.networkInterfaceId = networkInterfaceId;
-            o.ownerId = ownerId;
-            o.securityGroups = securityGroups;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new GetMountTargetResult();
+            _resultValue.accessPointId = accessPointId;
+            _resultValue.availabilityZoneId = availabilityZoneId;
+            _resultValue.availabilityZoneName = availabilityZoneName;
+            _resultValue.dnsName = dnsName;
+            _resultValue.fileSystemArn = fileSystemArn;
+            _resultValue.fileSystemId = fileSystemId;
+            _resultValue.id = id;
+            _resultValue.ipAddress = ipAddress;
+            _resultValue.mountTargetDnsName = mountTargetDnsName;
+            _resultValue.mountTargetId = mountTargetId;
+            _resultValue.networkInterfaceId = networkInterfaceId;
+            _resultValue.ownerId = ownerId;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

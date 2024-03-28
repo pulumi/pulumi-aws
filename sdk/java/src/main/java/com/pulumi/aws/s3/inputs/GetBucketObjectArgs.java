@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -20,10 +21,10 @@ public final class GetBucketObjectArgs extends com.pulumi.resources.InvokeArgs {
      * Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      * 
      * @deprecated
-     * Use the aws_s3_object data source instead
+     * Use the aws.s3.BucketObjectv2 data source instead
      * 
      */
-    @Deprecated /* Use the aws_s3_object data source instead */
+    @Deprecated /* Use the aws.s3.BucketObjectv2 data source instead */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
@@ -31,10 +32,10 @@ public final class GetBucketObjectArgs extends com.pulumi.resources.InvokeArgs {
      * @return Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      * 
      * @deprecated
-     * Use the aws_s3_object data source instead
+     * Use the aws.s3.BucketObjectv2 data source instead
      * 
      */
-    @Deprecated /* Use the aws_s3_object data source instead */
+    @Deprecated /* Use the aws.s3.BucketObjectv2 data source instead */
     public Output<String> bucket() {
         return this.bucket;
     }
@@ -125,10 +126,10 @@ public final class GetBucketObjectArgs extends com.pulumi.resources.InvokeArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_object data source instead
+         * Use the aws.s3.BucketObjectv2 data source instead
          * 
          */
-        @Deprecated /* Use the aws_s3_object data source instead */
+        @Deprecated /* Use the aws.s3.BucketObjectv2 data source instead */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
@@ -140,10 +141,10 @@ public final class GetBucketObjectArgs extends com.pulumi.resources.InvokeArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_object data source instead
+         * Use the aws.s3.BucketObjectv2 data source instead
          * 
          */
-        @Deprecated /* Use the aws_s3_object data source instead */
+        @Deprecated /* Use the aws.s3.BucketObjectv2 data source instead */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
@@ -221,8 +222,12 @@ public final class GetBucketObjectArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetBucketObjectArgs build() {
-            $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
+            if ($.bucket == null) {
+                throw new MissingRequiredPropertyException("GetBucketObjectArgs", "bucket");
+            }
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("GetBucketObjectArgs", "key");
+            }
             return $;
         }
     }

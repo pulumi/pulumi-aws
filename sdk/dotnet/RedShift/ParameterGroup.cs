@@ -14,6 +14,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,6 +25,7 @@ namespace Pulumi.Aws.RedShift
     /// {
     ///     var bar = new Aws.RedShift.ParameterGroup("bar", new()
     ///     {
+    ///         Name = "parameter-group-test",
     ///         Family = "redshift-1.0",
     ///         Parameters = new[]
     ///         {
@@ -47,13 +49,14 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Parameter Groups using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test-pulumi
+    /// $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test-pulumi
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/parameterGroup:ParameterGroup")]
@@ -126,10 +129,6 @@ namespace Pulumi.Aws.RedShift
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -266,11 +265,7 @@ namespace Pulumi.Aws.RedShift
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ParameterGroupState()

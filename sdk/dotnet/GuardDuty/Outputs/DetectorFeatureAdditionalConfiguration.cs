@@ -14,7 +14,7 @@ namespace Pulumi.Aws.GuardDuty.Outputs
     public sealed class DetectorFeatureAdditionalConfiguration
     {
         /// <summary>
-        /// The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+        /// The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
         /// </summary>
         public readonly string Name;
         /// <summary>

@@ -50,13 +50,14 @@ public final class LaunchTemplateCreditSpecification {
 
         @CustomType.Setter
         public Builder cpuCredits(@Nullable String cpuCredits) {
+
             this.cpuCredits = cpuCredits;
             return this;
         }
         public LaunchTemplateCreditSpecification build() {
-            final var o = new LaunchTemplateCreditSpecification();
-            o.cpuCredits = cpuCredits;
-            return o;
+            final var _resultValue = new LaunchTemplateCreditSpecification();
+            _resultValue.cpuCredits = cpuCredits;
+            return _resultValue;
         }
     }
 }

@@ -14,30 +14,30 @@ import * as utilities from "../utilities";
  * Once the second Trust is created, the first will update to the correct state.
  *
  * ## Example Usage
+ *
  * ### Two-Way Trust
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const oneDirectory = new aws.directoryservice.Directory("oneDirectory", {
+ * const oneDirectory = new aws.directoryservice.Directory("one", {
  *     name: "one.example.com",
  *     type: "MicrosoftAD",
  * });
- * // ...
- * const twoDirectory = new aws.directoryservice.Directory("twoDirectory", {
+ * const twoDirectory = new aws.directoryservice.Directory("two", {
  *     name: "two.example.com",
  *     type: "MicrosoftAD",
  * });
- * // ...
- * const oneTrust = new aws.directoryservice.Trust("oneTrust", {
+ * const one = new aws.directoryservice.Trust("one", {
  *     directoryId: oneDirectory.id,
  *     remoteDomainName: twoDirectory.name,
  *     trustDirection: "Two-Way",
  *     trustPassword: "Some0therPassword",
  *     conditionalForwarderIpAddrs: twoDirectory.dnsIpAddresses,
  * });
- * const twoTrust = new aws.directoryservice.Trust("twoTrust", {
+ * const two = new aws.directoryservice.Trust("two", {
  *     directoryId: twoDirectory.id,
  *     remoteDomainName: oneDirectory.name,
  *     trustDirection: "Two-Way",
@@ -45,30 +45,31 @@ import * as utilities from "../utilities";
  *     conditionalForwarderIpAddrs: oneDirectory.dnsIpAddresses,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### One-Way Trust
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const oneDirectory = new aws.directoryservice.Directory("oneDirectory", {
+ * const oneDirectory = new aws.directoryservice.Directory("one", {
  *     name: "one.example.com",
  *     type: "MicrosoftAD",
  * });
- * // ...
- * const twoDirectory = new aws.directoryservice.Directory("twoDirectory", {
+ * const twoDirectory = new aws.directoryservice.Directory("two", {
  *     name: "two.example.com",
  *     type: "MicrosoftAD",
  * });
- * // ...
- * const oneTrust = new aws.directoryservice.Trust("oneTrust", {
+ * const one = new aws.directoryservice.Trust("one", {
  *     directoryId: oneDirectory.id,
  *     remoteDomainName: twoDirectory.name,
  *     trustDirection: "One-Way: Incoming",
  *     trustPassword: "Some0therPassword",
  *     conditionalForwarderIpAddrs: twoDirectory.dnsIpAddresses,
  * });
- * const twoTrust = new aws.directoryservice.Trust("twoTrust", {
+ * const two = new aws.directoryservice.Trust("two", {
  *     directoryId: twoDirectory.id,
  *     remoteDomainName: oneDirectory.name,
  *     trustDirection: "One-Way: Outgoing",
@@ -76,13 +77,14 @@ import * as utilities from "../utilities";
  *     conditionalForwarderIpAddrs: oneDirectory.dnsIpAddresses,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import the Trust relationship using the directory ID and remote domain name, separated by a `/`. For example:
  *
  * ```sh
- *  $ pulumi import aws:directoryservice/trust:Trust example d-926724cf57/directory.example.com
+ * $ pulumi import aws:directoryservice/trust:Trust example d-926724cf57/directory.example.com
  * ```
  */
 export class Trust extends pulumi.CustomResource {

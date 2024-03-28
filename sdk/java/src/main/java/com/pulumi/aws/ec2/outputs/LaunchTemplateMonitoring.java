@@ -44,13 +44,14 @@ public final class LaunchTemplateMonitoring {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         public LaunchTemplateMonitoring build() {
-            final var o = new LaunchTemplateMonitoring();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new LaunchTemplateMonitoring();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

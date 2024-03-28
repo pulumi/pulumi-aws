@@ -20,10 +20,9 @@ namespace Pulumi.Aws.Alb
         /// input variable and needs to know its attributes. It can also be used to get the ARN of
         /// an LB Target Group for use in other resources, given LB Target Group name.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -43,8 +42,7 @@ namespace Pulumi.Aws.Alb
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTargetGroupResult> InvokeAsync(GetTargetGroupArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTargetGroupResult>("aws:alb/getTargetGroup:getTargetGroup", args ?? new GetTargetGroupArgs(), options.WithDefaults());
@@ -58,10 +56,9 @@ namespace Pulumi.Aws.Alb
         /// input variable and needs to know its attributes. It can also be used to get the ARN of
         /// an LB Target Group for use in other resources, given LB Target Group name.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -81,8 +78,7 @@ namespace Pulumi.Aws.Alb
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTargetGroupResult> Invoke(GetTargetGroupInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTargetGroupResult>("aws:alb/getTargetGroup:getTargetGroup", args ?? new GetTargetGroupInvokeArgs(), options.WithDefaults());
@@ -96,6 +92,9 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
+
+        [Input("loadBalancingAnomalyMitigation")]
+        public string? LoadBalancingAnomalyMitigation { get; set; }
 
         /// <summary>
         /// Unique name of the target group.
@@ -131,6 +130,9 @@ namespace Pulumi.Aws.Alb
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        [Input("loadBalancingAnomalyMitigation")]
+        public Input<string>? LoadBalancingAnomalyMitigation { get; set; }
+
         /// <summary>
         /// Unique name of the target group.
         /// </summary>
@@ -164,14 +166,16 @@ namespace Pulumi.Aws.Alb
         public readonly string Arn;
         public readonly string ArnSuffix;
         public readonly bool ConnectionTermination;
-        public readonly int DeregistrationDelay;
+        public readonly string DeregistrationDelay;
         public readonly Outputs.GetTargetGroupHealthCheckResult HealthCheck;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly bool LambdaMultiValueHeadersEnabled;
+        public readonly ImmutableArray<string> LoadBalancerArns;
         public readonly string LoadBalancingAlgorithmType;
+        public readonly string LoadBalancingAnomalyMitigation;
         public readonly string LoadBalancingCrossZoneEnabled;
         public readonly string Name;
         public readonly int Port;
@@ -193,7 +197,7 @@ namespace Pulumi.Aws.Alb
 
             bool connectionTermination,
 
-            int deregistrationDelay,
+            string deregistrationDelay,
 
             Outputs.GetTargetGroupHealthCheckResult healthCheck,
 
@@ -201,7 +205,11 @@ namespace Pulumi.Aws.Alb
 
             bool lambdaMultiValueHeadersEnabled,
 
+            ImmutableArray<string> loadBalancerArns,
+
             string loadBalancingAlgorithmType,
+
+            string loadBalancingAnomalyMitigation,
 
             string loadBalancingCrossZoneEnabled,
 
@@ -234,7 +242,9 @@ namespace Pulumi.Aws.Alb
             HealthCheck = healthCheck;
             Id = id;
             LambdaMultiValueHeadersEnabled = lambdaMultiValueHeadersEnabled;
+            LoadBalancerArns = loadBalancerArns;
             LoadBalancingAlgorithmType = loadBalancingAlgorithmType;
+            LoadBalancingAnomalyMitigation = loadBalancingAnomalyMitigation;
             LoadBalancingCrossZoneEnabled = loadBalancingCrossZoneEnabled;
             Name = name;
             Port = port;

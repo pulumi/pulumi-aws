@@ -59,19 +59,21 @@ public final class ResourceSetResourceDnsTargetResourceTargetResource {
 
         @CustomType.Setter
         public Builder nlbResource(@Nullable ResourceSetResourceDnsTargetResourceTargetResourceNlbResource nlbResource) {
+
             this.nlbResource = nlbResource;
             return this;
         }
         @CustomType.Setter
         public Builder r53Resource(@Nullable ResourceSetResourceDnsTargetResourceTargetResourceR53Resource r53Resource) {
+
             this.r53Resource = r53Resource;
             return this;
         }
         public ResourceSetResourceDnsTargetResourceTargetResource build() {
-            final var o = new ResourceSetResourceDnsTargetResourceTargetResource();
-            o.nlbResource = nlbResource;
-            o.r53Resource = r53Resource;
-            return o;
+            final var _resultValue = new ResourceSetResourceDnsTargetResourceTargetResource();
+            _resultValue.nlbResource = nlbResource;
+            _resultValue.r53Resource = r53Resource;
+            return _resultValue;
         }
     }
 }

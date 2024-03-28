@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS VPC Lattice Listener.
 //
 // ## Example Usage
-// ### Forward action
 //
+// ### Fixed response action
+//
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,24 +31,69 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewService(ctx, "test", nil)
+//			example, err := vpclattice.NewService(ctx, "example", &vpclattice.ServiceArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleTargetGroup, err := vpclattice.NewTargetGroup(ctx, "exampleTargetGroup", &vpclattice.TargetGroupArgs{
-//				Type: pulumi.String("INSTANCE"),
-//				Config: &vpclattice.TargetGroupConfigArgs{
-//					Port:          pulumi.Int(80),
-//					Protocol:      pulumi.String("HTTP"),
-//					VpcIdentifier: pulumi.Any(aws_vpc.Test.Id),
+//			_, err = vpclattice.NewListener(ctx, "example", &vpclattice.ListenerArgs{
+//				Name:              pulumi.String("example"),
+//				Protocol:          pulumi.String("HTTPS"),
+//				ServiceIdentifier: example.ID(),
+//				DefaultAction: &vpclattice.ListenerDefaultActionArgs{
+//					FixedResponse: &vpclattice.ListenerDefaultActionFixedResponseArgs{
+//						StatusCode: pulumi.Int(404),
+//					},
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = vpclattice.NewListener(ctx, "exampleListener", &vpclattice.ListenerArgs{
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Forward action
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := vpclattice.NewService(ctx, "example", &vpclattice.ServiceArgs{
+//				Name: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTargetGroup, err := vpclattice.NewTargetGroup(ctx, "example", &vpclattice.TargetGroupArgs{
+//				Name: pulumi.String("example-target-group-1"),
+//				Type: pulumi.String("INSTANCE"),
+//				Config: &vpclattice.TargetGroupConfigArgs{
+//					Port:          pulumi.Int(80),
+//					Protocol:      pulumi.String("HTTP"),
+//					VpcIdentifier: pulumi.Any(exampleAwsVpc.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = vpclattice.NewListener(ctx, "example", &vpclattice.ListenerArgs{
+//				Name:              pulumi.String("example"),
 //				Protocol:          pulumi.String("HTTP"),
-//				ServiceIdentifier: pulumi.Any(aws_vpclattice_service.Example.Id),
+//				ServiceIdentifier: example.ID(),
 //				DefaultAction: &vpclattice.ListenerDefaultActionArgs{
 //					Forwards: vpclattice.ListenerDefaultActionForwardArray{
 //						&vpclattice.ListenerDefaultActionForwardArgs{
@@ -67,8 +114,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Forward action with weighted target groups
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,35 +131,40 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewService(ctx, "test", nil)
+//			example, err := vpclattice.NewService(ctx, "example", &vpclattice.ServiceArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			example1, err := vpclattice.NewTargetGroup(ctx, "example1", &vpclattice.TargetGroupArgs{
+//				Name: pulumi.String("example-target-group-1"),
 //				Type: pulumi.String("INSTANCE"),
 //				Config: &vpclattice.TargetGroupConfigArgs{
 //					Port:          pulumi.Int(80),
 //					Protocol:      pulumi.String("HTTP"),
-//					VpcIdentifier: pulumi.Any(aws_vpc.Test.Id),
+//					VpcIdentifier: pulumi.Any(exampleAwsVpc.Id),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			example2, err := vpclattice.NewTargetGroup(ctx, "example2", &vpclattice.TargetGroupArgs{
+//				Name: pulumi.String("example-target-group-2"),
 //				Type: pulumi.String("INSTANCE"),
 //				Config: &vpclattice.TargetGroupConfigArgs{
 //					Port:          pulumi.Int(8080),
 //					Protocol:      pulumi.String("HTTP"),
-//					VpcIdentifier: pulumi.Any(aws_vpc.Test.Id),
+//					VpcIdentifier: pulumi.Any(exampleAwsVpc.Id),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = vpclattice.NewListener(ctx, "example", &vpclattice.ListenerArgs{
+//				Name:              pulumi.String("example"),
 //				Protocol:          pulumi.String("HTTP"),
-//				ServiceIdentifier: pulumi.Any(aws_vpclattice_service.Example.Id),
+//				ServiceIdentifier: example.ID(),
 //				DefaultAction: &vpclattice.ListenerDefaultActionArgs{
 //					Forwards: vpclattice.ListenerDefaultActionForwardArray{
 //						&vpclattice.ListenerDefaultActionForwardArgs{
@@ -135,15 +190,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import VPC Lattice Listener using the `listener_id` of the listener and the `id` of the VPC Lattice service combined with a `/` character. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
-//
+// $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
 // ```
 type Listener struct {
 	pulumi.CustomResourceState
@@ -187,10 +241,6 @@ func NewListener(ctx *pulumi.Context,
 	if args.Protocol == nil {
 		return nil, errors.New("invalid value for required argument 'Protocol'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Listener
 	err := ctx.RegisterResource("aws:vpclattice/listener:Listener", name, args, &resource, opts...)

@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS Audit Manager Control.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,8 +42,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Framework Resource
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,7 +59,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleControl, err := auditmanager.LookupControl(ctx, &auditmanager.LookupControlArgs{
+//			example, err := auditmanager.LookupControl(ctx, &auditmanager.LookupControlArgs{
 //				Name: "1. Risk Management",
 //				Type: "Standard",
 //			}, nil)
@@ -68,13 +73,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = auditmanager.NewFramework(ctx, "exampleFramework", &auditmanager.FrameworkArgs{
+//			_, err = auditmanager.NewFramework(ctx, "example", &auditmanager.FrameworkArgs{
+//				Name: pulumi.String("example"),
 //				ControlSets: auditmanager.FrameworkControlSetArray{
 //					&auditmanager.FrameworkControlSetArgs{
 //						Name: pulumi.String("example"),
 //						Controls: auditmanager.FrameworkControlSetControlArray{
 //							&auditmanager.FrameworkControlSetControlArgs{
-//								Id: *pulumi.String(exampleControl.Id),
+//								Id: pulumi.String(example.Id),
 //							},
 //						},
 //					},
@@ -82,7 +88,7 @@ import (
 //						Name: pulumi.String("example2"),
 //						Controls: auditmanager.FrameworkControlSetControlArray{
 //							&auditmanager.FrameworkControlSetControlArgs{
-//								Id: *pulumi.String(example2.Id),
+//								Id: pulumi.String(example2.Id),
 //							},
 //						},
 //					},
@@ -96,6 +102,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupControl(ctx *pulumi.Context, args *LookupControlArgs, opts ...pulumi.InvokeOption) (*LookupControlResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupControlResult

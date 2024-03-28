@@ -242,19 +242,23 @@ class Ledger(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        sample_ledger = aws.qldb.Ledger("sample-ledger", permissions_mode="STANDARD")
+        sample_ledger = aws.qldb.Ledger("sample-ledger",
+            name="sample-ledger",
+            permissions_mode="STANDARD")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import QLDB Ledgers using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
+        $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
         ```
 
         :param str resource_name: The name of the resource.
@@ -278,19 +282,23 @@ class Ledger(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        sample_ledger = aws.qldb.Ledger("sample-ledger", permissions_mode="STANDARD")
+        sample_ledger = aws.qldb.Ledger("sample-ledger",
+            name="sample-ledger",
+            permissions_mode="STANDARD")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import QLDB Ledgers using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
+        $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
         ```
 
         :param str resource_name: The name of the resource.
@@ -331,8 +339,6 @@ class Ledger(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Ledger, __self__).__init__(
             'aws:qldb/ledger:Ledger',
             resource_name,

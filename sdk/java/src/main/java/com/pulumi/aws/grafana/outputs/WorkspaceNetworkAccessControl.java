@@ -4,6 +4,7 @@
 package com.pulumi.aws.grafana.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class WorkspaceNetworkAccessControl {
 
         @CustomType.Setter
         public Builder prefixListIds(List<String> prefixListIds) {
-            this.prefixListIds = Objects.requireNonNull(prefixListIds);
+            if (prefixListIds == null) {
+              throw new MissingRequiredPropertyException("WorkspaceNetworkAccessControl", "prefixListIds");
+            }
+            this.prefixListIds = prefixListIds;
             return this;
         }
         public Builder prefixListIds(String... prefixListIds) {
@@ -65,17 +69,20 @@ public final class WorkspaceNetworkAccessControl {
         }
         @CustomType.Setter
         public Builder vpceIds(List<String> vpceIds) {
-            this.vpceIds = Objects.requireNonNull(vpceIds);
+            if (vpceIds == null) {
+              throw new MissingRequiredPropertyException("WorkspaceNetworkAccessControl", "vpceIds");
+            }
+            this.vpceIds = vpceIds;
             return this;
         }
         public Builder vpceIds(String... vpceIds) {
             return vpceIds(List.of(vpceIds));
         }
         public WorkspaceNetworkAccessControl build() {
-            final var o = new WorkspaceNetworkAccessControl();
-            o.prefixListIds = prefixListIds;
-            o.vpceIds = vpceIds;
-            return o;
+            final var _resultValue = new WorkspaceNetworkAccessControl();
+            _resultValue.prefixListIds = prefixListIds;
+            _resultValue.vpceIds = vpceIds;
+            return _resultValue;
         }
     }
 }

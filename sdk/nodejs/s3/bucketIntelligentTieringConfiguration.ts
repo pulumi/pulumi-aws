@@ -10,16 +10,21 @@ import * as utilities from "../utilities";
 /**
  * Provides an [S3 Intelligent-Tiering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html) configuration resource.
  *
+ * > This resource cannot be used with S3 directory buckets.
+ *
  * ## Example Usage
+ *
  * ### Add intelligent tiering configuration for entire S3 bucket
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {});
+ * const example = new aws.s3.BucketV2("example", {bucket: "example"});
  * const example_entire_bucket = new aws.s3.BucketIntelligentTieringConfiguration("example-entire-bucket", {
  *     bucket: example.id,
+ *     name: "EntireBucket",
  *     tierings: [
  *         {
  *             accessTier: "DEEP_ARCHIVE_ACCESS",
@@ -32,15 +37,19 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Add intelligent tiering configuration with S3 object filter
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {});
+ * const example = new aws.s3.BucketV2("example", {bucket: "example"});
  * const example_filtered = new aws.s3.BucketIntelligentTieringConfiguration("example-filtered", {
  *     bucket: example.id,
+ *     name: "ImportantBlueDocuments",
  *     status: "Disabled",
  *     filter: {
  *         prefix: "documents/",
@@ -55,13 +64,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import S3 bucket intelligent tiering configurations using `bucket:name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
+ * $ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
  * ```
  */
 export class BucketIntelligentTieringConfiguration extends pulumi.CustomResource {

@@ -174,20 +174,24 @@ class Alias(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        key = aws.kms.Key("key")
-        alias = aws.kms.Alias("alias", target_key_id=key.key_id)
+        a = aws.kms.Key("a")
+        a_alias = aws.kms.Alias("a",
+            name="alias/my-key-alias",
+            target_key_id=a.key_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import KMS aliases using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
+        $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
         ```
 
         :param str resource_name: The name of the resource.
@@ -210,20 +214,24 @@ class Alias(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        key = aws.kms.Key("key")
-        alias = aws.kms.Alias("alias", target_key_id=key.key_id)
+        a = aws.kms.Key("a")
+        a_alias = aws.kms.Alias("a",
+            name="alias/my-key-alias",
+            target_key_id=a.key_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import KMS aliases using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
+        $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
         ```
 
         :param str resource_name: The name of the resource.

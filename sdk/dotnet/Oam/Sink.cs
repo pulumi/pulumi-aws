@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Oam
     /// Resource for managing an AWS CloudWatch Observability Access Manager Sink.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,6 +27,7 @@ namespace Pulumi.Aws.Oam
     /// {
     ///     var example = new Aws.Oam.Sink("example", new()
     ///     {
+    ///         Name = "ExampleSink",
     ///         Tags = 
     ///         {
     ///             { "Env", "prod" },
@@ -33,13 +36,14 @@ namespace Pulumi.Aws.Oam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudWatch Observability Access Manager Sink using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:oam/sink:Sink example arn:aws:oam:us-west-2:123456789012:sink/sink-id
+    /// $ pulumi import aws:oam/sink:Sink example arn:aws:oam:us-west-2:123456789012:sink/sink-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:oam/sink:Sink")]
@@ -97,10 +101,6 @@ namespace Pulumi.Aws.Oam
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -190,11 +190,7 @@ namespace Pulumi.Aws.Oam
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public SinkState()

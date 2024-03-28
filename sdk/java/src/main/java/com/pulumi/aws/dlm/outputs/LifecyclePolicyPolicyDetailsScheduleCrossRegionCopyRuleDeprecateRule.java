@@ -4,6 +4,7 @@
 package com.pulumi.aws.dlm.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -57,19 +58,25 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprec
 
         @CustomType.Setter
         public Builder interval(Integer interval) {
-            this.interval = Objects.requireNonNull(interval);
+            if (interval == null) {
+              throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule", "interval");
+            }
+            this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder intervalUnit(String intervalUnit) {
-            this.intervalUnit = Objects.requireNonNull(intervalUnit);
+            if (intervalUnit == null) {
+              throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule", "intervalUnit");
+            }
+            this.intervalUnit = intervalUnit;
             return this;
         }
         public LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule build() {
-            final var o = new LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule();
-            o.interval = interval;
-            o.intervalUnit = intervalUnit;
-            return o;
+            final var _resultValue = new LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule();
+            _resultValue.interval = interval;
+            _resultValue.intervalUnit = intervalUnit;
+            return _resultValue;
         }
     }
 }

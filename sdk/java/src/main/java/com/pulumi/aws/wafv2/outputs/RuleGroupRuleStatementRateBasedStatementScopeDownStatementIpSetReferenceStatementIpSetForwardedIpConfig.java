@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,25 +71,34 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpS
 
         @CustomType.Setter
         public Builder fallbackBehavior(String fallbackBehavior) {
-            this.fallbackBehavior = Objects.requireNonNull(fallbackBehavior);
+            if (fallbackBehavior == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig", "fallbackBehavior");
+            }
+            this.fallbackBehavior = fallbackBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder headerName(String headerName) {
-            this.headerName = Objects.requireNonNull(headerName);
+            if (headerName == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig", "headerName");
+            }
+            this.headerName = headerName;
             return this;
         }
         @CustomType.Setter
         public Builder position(String position) {
-            this.position = Objects.requireNonNull(position);
+            if (position == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig", "position");
+            }
+            this.position = position;
             return this;
         }
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig();
-            o.fallbackBehavior = fallbackBehavior;
-            o.headerName = headerName;
-            o.position = position;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig();
+            _resultValue.fallbackBehavior = fallbackBehavior;
+            _resultValue.headerName = headerName;
+            _resultValue.position = position;
+            return _resultValue;
         }
     }
 }

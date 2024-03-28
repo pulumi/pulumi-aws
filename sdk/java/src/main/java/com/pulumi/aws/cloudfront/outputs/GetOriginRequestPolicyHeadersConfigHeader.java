@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -35,16 +36,19 @@ public final class GetOriginRequestPolicyHeadersConfigHeader {
 
         @CustomType.Setter
         public Builder items(List<String> items) {
-            this.items = Objects.requireNonNull(items);
+            if (items == null) {
+              throw new MissingRequiredPropertyException("GetOriginRequestPolicyHeadersConfigHeader", "items");
+            }
+            this.items = items;
             return this;
         }
         public Builder items(String... items) {
             return items(List.of(items));
         }
         public GetOriginRequestPolicyHeadersConfigHeader build() {
-            final var o = new GetOriginRequestPolicyHeadersConfigHeader();
-            o.items = items;
-            return o;
+            final var _resultValue = new GetOriginRequestPolicyHeadersConfigHeader();
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

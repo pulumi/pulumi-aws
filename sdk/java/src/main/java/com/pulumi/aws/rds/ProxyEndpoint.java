@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides an RDS DB proxy endpoint resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy-endpoints.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,22 +45,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ProxyEndpoint(&#34;example&#34;, ProxyEndpointArgs.builder()        
- *             .dbProxyName(aws_db_proxy.test().name())
+ *             .dbProxyName(test.name())
  *             .dbProxyEndpointName(&#34;example&#34;)
- *             .vpcSubnetIds(aws_subnet.test().stream().map(element -&gt; element.id()).collect(toList()))
+ *             .vpcSubnetIds(testAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
  *             .targetRole(&#34;READ_ONLY&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import DB proxy endpoints using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
+ * $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
  * ```
  * 
  */
@@ -249,9 +252,6 @@ public class ProxyEndpoint extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

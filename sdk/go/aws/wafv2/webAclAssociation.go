@@ -18,25 +18,20 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"crypto/sha1"
 //	"encoding/json"
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafv2"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func sha1Hash(input string) string {
-//		hash := sha1.Sum([]byte(input))
-//		return hex.EncodeToString(hash[:])
-//	}
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
@@ -63,40 +58,44 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", &apigateway.RestApiArgs{
+//			example, err := apigateway.NewRestApi(ctx, "example", &apigateway.RestApiArgs{
 //				Body: pulumi.String(json0),
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDeployment, err := apigateway.NewDeployment(ctx, "exampleDeployment", &apigateway.DeploymentArgs{
-//				RestApi: exampleRestApi.ID(),
+//			exampleDeployment, err := apigateway.NewDeployment(ctx, "example", &apigateway.DeploymentArgs{
+//				RestApi: example.ID(),
 //				Triggers: pulumi.StringMap{
-//					"redeployment": exampleRestApi.Body.ApplyT(func(body *string) (pulumi.String, error) {
-//						var _zero pulumi.String
-//						tmpJSON1, err := json.Marshal(body)
-//						if err != nil {
-//							return _zero, err
-//						}
-//						json1 := string(tmpJSON1)
-//						return pulumi.String(json1), nil
-//					}).(pulumi.StringOutput).ApplyT(func(toJSON string) (pulumi.String, error) {
-//						return pulumi.String(sha1Hash(toJSON)), nil
-//					}).(pulumi.StringOutput),
+//					"redeployment": std.Sha1Output(ctx, std.Sha1OutputArgs{
+//						Input: example.Body.ApplyT(func(body *string) (pulumi.String, error) {
+//							var _zero pulumi.String
+//							tmpJSON1, err := json.Marshal(body)
+//							if err != nil {
+//								return _zero, err
+//							}
+//							json1 := string(tmpJSON1)
+//							return pulumi.String(json1), nil
+//						}).(pulumi.StringOutput),
+//					}, nil).ApplyT(func(invoke std.Sha1Result) (*string, error) {
+//						return invoke.Result, nil
+//					}).(pulumi.StringPtrOutput),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleStage, err := apigateway.NewStage(ctx, "exampleStage", &apigateway.StageArgs{
+//			exampleStage, err := apigateway.NewStage(ctx, "example", &apigateway.StageArgs{
 //				Deployment: exampleDeployment.ID(),
-//				RestApi:    exampleRestApi.ID(),
+//				RestApi:    example.ID(),
 //				StageName:  pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleWebAcl, err := wafv2.NewWebAcl(ctx, "exampleWebAcl", &wafv2.WebAclArgs{
+//			exampleWebAcl, err := wafv2.NewWebAcl(ctx, "example", &wafv2.WebAclArgs{
+//				Name:  pulumi.String("web-acl-association-example"),
 //				Scope: pulumi.String("REGIONAL"),
 //				DefaultAction: &wafv2.WebAclDefaultActionArgs{
 //					Allow: nil,
@@ -110,7 +109,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = wafv2.NewWebAclAssociation(ctx, "exampleWebAclAssociation", &wafv2.WebAclAssociationArgs{
+//			_, err = wafv2.NewWebAclAssociation(ctx, "example", &wafv2.WebAclAssociationArgs{
 //				ResourceArn: exampleStage.Arn,
 //				WebAclArn:   exampleWebAcl.Arn,
 //			})
@@ -122,22 +121,21 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import WAFv2 Web ACL Association using `WEB_ACL_ARN,RESOURCE_ARN`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:wafv2/webAclAssociation:WebAclAssociation example arn:aws:wafv2:...7ce849ea,arn:aws:apigateway:...ages/name
-//
+// $ pulumi import aws:wafv2/webAclAssociation:WebAclAssociation example arn:aws:wafv2:...7ce849ea,arn:aws:apigateway:...ages/name
 // ```
 //
 // [1]: https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html
 type WebAclAssociation struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
+	// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
 	WebAclArn pulumi.StringOutput `pulumi:"webAclArn"`
@@ -179,14 +177,14 @@ func GetWebAclAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAclAssociation resources.
 type webAclAssociationState struct {
-	// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
+	// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
 	WebAclArn *string `pulumi:"webAclArn"`
 }
 
 type WebAclAssociationState struct {
-	// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
+	// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
 	ResourceArn pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
 	WebAclArn pulumi.StringPtrInput
@@ -197,7 +195,7 @@ func (WebAclAssociationState) ElementType() reflect.Type {
 }
 
 type webAclAssociationArgs struct {
-	// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
+	// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
 	ResourceArn string `pulumi:"resourceArn"`
 	// The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
 	WebAclArn string `pulumi:"webAclArn"`
@@ -205,7 +203,7 @@ type webAclAssociationArgs struct {
 
 // The set of arguments for constructing a WebAclAssociation resource.
 type WebAclAssociationArgs struct {
-	// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
+	// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
 	ResourceArn pulumi.StringInput
 	// The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
 	WebAclArn pulumi.StringInput
@@ -298,7 +296,7 @@ func (o WebAclAssociationOutput) ToWebAclAssociationOutputWithContext(ctx contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
+// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
 func (o WebAclAssociationOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAclAssociation) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }

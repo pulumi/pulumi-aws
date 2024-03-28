@@ -4,6 +4,7 @@
 package com.pulumi.aws.kendra.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -43,16 +44,19 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsCon
 
         @CustomType.Setter
         public Builder siteMaps(List<String> siteMaps) {
-            this.siteMaps = Objects.requireNonNull(siteMaps);
+            if (siteMaps == null) {
+              throw new MissingRequiredPropertyException("DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration", "siteMaps");
+            }
+            this.siteMaps = siteMaps;
             return this;
         }
         public Builder siteMaps(String... siteMaps) {
             return siteMaps(List.of(siteMaps));
         }
         public DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration build() {
-            final var o = new DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration();
-            o.siteMaps = siteMaps;
-            return o;
+            final var _resultValue = new DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration();
+            _resultValue.siteMaps = siteMaps;
+            return _resultValue;
         }
     }
 }

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2transitgateway.NewPeeringAttachmentAccepter(ctx, "example", &ec2transitgateway.PeeringAttachmentAccepterArgs{
-//				TransitGatewayAttachmentId: pulumi.Any(aws_ec2_transit_gateway_peering_attachment.Example.Id),
+//				TransitGatewayAttachmentId: pulumi.Any(exampleAwsEc2TransitGatewayPeeringAttachment.Id),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example cross-account attachment"),
 //				},
@@ -42,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment_accepter` using the EC2 Transit Gateway Attachment identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter example tgw-attach-12345678
-//
+// $ pulumi import aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter example tgw-attach-12345678
 // ```
 type PeeringAttachmentAccepter struct {
 	pulumi.CustomResourceState
@@ -88,10 +88,6 @@ func NewPeeringAttachmentAccepter(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PeeringAttachmentAccepter
 	err := ctx.RegisterResource("aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter", name, args, &resource, opts...)

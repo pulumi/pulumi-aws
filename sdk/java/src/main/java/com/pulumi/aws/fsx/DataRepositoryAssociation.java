@@ -14,7 +14,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -25,6 +24,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Data Repository Associations are only compatible with AWS FSx for Lustre File Systems and `PERSISTENT_2` deployment type.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -32,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.fsx.LustreFileSystem;
@@ -54,23 +56,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-bucket&#34;)
+ *             .build());
  * 
  *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .acl(&#34;private&#34;)
  *             .build());
  * 
  *         var exampleLustreFileSystem = new LustreFileSystem(&#34;exampleLustreFileSystem&#34;, LustreFileSystemArgs.builder()        
  *             .storageCapacity(1200)
- *             .subnetIds(aws_subnet.example().id())
+ *             .subnetIds(exampleAwsSubnet.id())
  *             .deploymentType(&#34;PERSISTENT_2&#34;)
  *             .perUnitStorageThroughput(125)
  *             .build());
  * 
  *         var exampleDataRepositoryAssociation = new DataRepositoryAssociation(&#34;exampleDataRepositoryAssociation&#34;, DataRepositoryAssociationArgs.builder()        
  *             .fileSystemId(exampleLustreFileSystem.id())
- *             .dataRepositoryPath(exampleBucketV2.id().applyValue(id -&gt; String.format(&#34;s3://%s&#34;, id)))
+ *             .dataRepositoryPath(example.id().applyValue(id -&gt; String.format(&#34;s3://%s&#34;, id)))
  *             .fileSystemPath(&#34;/my-bucket&#34;)
  *             .s3(DataRepositoryAssociationS3Args.builder()
  *                 .autoExportPolicy(DataRepositoryAssociationS3AutoExportPolicyArgs.builder()
@@ -91,13 +95,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import FSx Data Repository Associations using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation example dra-0b1cfaeca11088b10
+ * $ pulumi import aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation example dra-0b1cfaeca11088b10
  * ```
  * 
  */
@@ -288,9 +293,6 @@ public class DataRepositoryAssociation extends com.pulumi.resources.CustomResour
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

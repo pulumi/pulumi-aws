@@ -306,26 +306,28 @@ class Link(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.networkmanager.Link("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            site_id=aws_networkmanager_site["example"]["id"],
+            global_network_id=example_aws_networkmanager_global_network["id"],
+            site_id=example_aws_networkmanager_site["id"],
             bandwidth=aws.networkmanager.LinkBandwidthArgs(
                 upload_speed=10,
                 download_speed=50,
             ),
             provider_name="MegaCorp")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_link` using the link ARN. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/link:Link example arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223
+        $ pulumi import aws:networkmanager/link:Link example arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223
         ```
 
         :param str resource_name: The name of the resource.
@@ -349,26 +351,28 @@ class Link(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.networkmanager.Link("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            site_id=aws_networkmanager_site["example"]["id"],
+            global_network_id=example_aws_networkmanager_global_network["id"],
+            site_id=example_aws_networkmanager_site["id"],
             bandwidth=aws.networkmanager.LinkBandwidthArgs(
                 upload_speed=10,
                 download_speed=50,
             ),
             provider_name="MegaCorp")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_link` using the link ARN. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/link:Link example arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223
+        $ pulumi import aws:networkmanager/link:Link example arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223
         ```
 
         :param str resource_name: The name of the resource.
@@ -417,8 +421,6 @@ class Link(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Link, __self__).__init__(
             'aws:networkmanager/link:Link',
             resource_name,

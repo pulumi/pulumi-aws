@@ -9,19 +9,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.location.GeofenceCollection("example", {collectionName: "example"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Location Geofence Collection using the `collection_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:location/geofenceCollection:GeofenceCollection example example
+ * $ pulumi import aws:location/geofenceCollection:GeofenceCollection example example
  * ```
  */
 export class GeofenceCollection extends pulumi.CustomResource {
@@ -123,8 +125,6 @@ export class GeofenceCollection extends pulumi.CustomResource {
             resourceInputs["updateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(GeofenceCollection.__pulumiType, name, resourceInputs, opts);
     }
 }

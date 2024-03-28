@@ -15,10 +15,9 @@ namespace Pulumi.Aws.Batch
         /// The Batch Compute Environment data source allows access to details of a specific
         /// compute environment within AWS Batch.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Aws.Batch
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetComputeEnvironmentResult> InvokeAsync(GetComputeEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetComputeEnvironmentResult>("aws:batch/getComputeEnvironment:getComputeEnvironment", args ?? new GetComputeEnvironmentArgs(), options.WithDefaults());
@@ -44,10 +42,9 @@ namespace Pulumi.Aws.Batch
         /// The Batch Compute Environment data source allows access to details of a specific
         /// compute environment within AWS Batch.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Aws.Batch
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetComputeEnvironmentResult> Invoke(GetComputeEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComputeEnvironmentResult>("aws:batch/getComputeEnvironment:getComputeEnvironment", args ?? new GetComputeEnvironmentInvokeArgs(), options.WithDefaults());
@@ -164,6 +160,10 @@ namespace Pulumi.Aws.Batch
         /// Type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Specifies the infrastructure update policy for the compute environment.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetComputeEnvironmentUpdatePolicyResult> UpdatePolicies;
 
         [OutputConstructor]
         private GetComputeEnvironmentResult(
@@ -185,7 +185,9 @@ namespace Pulumi.Aws.Batch
 
             ImmutableDictionary<string, string> tags,
 
-            string type)
+            string type,
+
+            ImmutableArray<Outputs.GetComputeEnvironmentUpdatePolicyResult> updatePolicies)
         {
             Arn = arn;
             ComputeEnvironmentName = computeEnvironmentName;
@@ -197,6 +199,7 @@ namespace Pulumi.Aws.Batch
             StatusReason = statusReason;
             Tags = tags;
             Type = type;
+            UpdatePolicies = updatePolicies;
         }
     }
 }

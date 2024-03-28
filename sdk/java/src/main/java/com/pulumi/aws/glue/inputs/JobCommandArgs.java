@@ -5,6 +5,7 @@ package com.pulumi.aws.glue.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,7 +188,9 @@ public final class JobCommandArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public JobCommandArgs build() {
-            $.scriptLocation = Objects.requireNonNull($.scriptLocation, "expected parameter 'scriptLocation' to be non-null");
+            if ($.scriptLocation == null) {
+                throw new MissingRequiredPropertyException("JobCommandArgs", "scriptLocation");
+            }
             return $;
         }
     }

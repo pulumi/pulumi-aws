@@ -44,13 +44,14 @@ public final class DomainConfigurationTlsConfig {
 
         @CustomType.Setter
         public Builder securityPolicy(@Nullable String securityPolicy) {
+
             this.securityPolicy = securityPolicy;
             return this;
         }
         public DomainConfigurationTlsConfig build() {
-            final var o = new DomainConfigurationTlsConfig();
-            o.securityPolicy = securityPolicy;
-            return o;
+            final var _resultValue = new DomainConfigurationTlsConfig();
+            _resultValue.securityPolicy = securityPolicy;
+            return _resultValue;
         }
     }
 }

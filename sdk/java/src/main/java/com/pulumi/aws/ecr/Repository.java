@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Provides an Elastic Container Registry Repository.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,22 +48,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Repository(&#34;foo&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;bar&#34;)
+ *             .imageTagMutability(&#34;MUTABLE&#34;)
  *             .imageScanningConfiguration(RepositoryImageScanningConfigurationArgs.builder()
  *                 .scanOnPush(true)
  *                 .build())
- *             .imageTagMutability(&#34;MUTABLE&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import ECR Repositories using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ecr/repository:Repository service test-service
+ * $ pulumi import aws:ecr/repository:Repository service test-service
  * ```
  * 
  */
@@ -246,9 +250,6 @@ public class Repository extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

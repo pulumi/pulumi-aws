@@ -14,6 +14,7 @@ namespace Pulumi.Aws.MediaStore
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,17 +23,21 @@ namespace Pulumi.Aws.MediaStore
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.MediaStore.Container("example");
+    ///     var example = new Aws.MediaStore.Container("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MediaStore Container using the MediaStore Container Name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:mediastore/container:Container example example
+    /// $ pulumi import aws:mediastore/container:Container example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:mediastore/container:Container")]
@@ -91,10 +96,6 @@ namespace Pulumi.Aws.MediaStore
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -184,11 +185,7 @@ namespace Pulumi.Aws.MediaStore
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ContainerState()

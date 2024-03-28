@@ -8,29 +8,35 @@ import * as utilities from "../utilities";
  * Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source.
  *
  * ## Example Usage
+ *
  * ### Retrieve Current Secret Version
  *
  * By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const secret-version = aws.secretsmanager.getSecretVersion({
- *     secretId: data.aws_secretsmanager_secret.example.id,
+ *     secretId: example.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Retrieve Specific Secret Version
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const by-version-stage = aws.secretsmanager.getSecretVersion({
- *     secretId: data.aws_secretsmanager_secret.example.id,
+ *     secretId: example.id,
  *     versionStage: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSecretVersion(args: GetSecretVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretVersionResult> {
 
@@ -69,6 +75,10 @@ export interface GetSecretVersionResult {
      */
     readonly arn: string;
     /**
+     * Created date of the secret in UTC.
+     */
+    readonly createdDate: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
@@ -92,29 +102,35 @@ export interface GetSecretVersionResult {
  * Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source.
  *
  * ## Example Usage
+ *
  * ### Retrieve Current Secret Version
  *
  * By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const secret-version = aws.secretsmanager.getSecretVersion({
- *     secretId: data.aws_secretsmanager_secret.example.id,
+ *     secretId: example.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Retrieve Specific Secret Version
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const by-version-stage = aws.secretsmanager.getSecretVersion({
- *     secretId: data.aws_secretsmanager_secret.example.id,
+ *     secretId: example.id,
  *     versionStage: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSecretVersionOutput(args: GetSecretVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretVersionResult> {
     return pulumi.output(args).apply((a: any) => getSecretVersion(a, opts))

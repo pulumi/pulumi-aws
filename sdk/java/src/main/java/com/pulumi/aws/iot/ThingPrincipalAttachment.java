@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Attaches Principal to AWS IoT Thing.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -24,6 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iot.Thing;
+ * import com.pulumi.aws.iot.ThingArgs;
  * import com.pulumi.aws.iot.Certificate;
  * import com.pulumi.aws.iot.CertificateArgs;
  * import com.pulumi.aws.iot.ThingPrincipalAttachment;
@@ -41,10 +44,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Thing(&#34;example&#34;);
+ *         var example = new Thing(&#34;example&#34;, ThingArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var cert = new Certificate(&#34;cert&#34;, CertificateArgs.builder()        
- *             .csr(Files.readString(Paths.get(&#34;csr.pem&#34;)))
+ *             .csr(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;csr.pem&#34;)
+ *                 .build()).result())
  *             .active(true)
  *             .build());
  * 
@@ -56,6 +63,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment")

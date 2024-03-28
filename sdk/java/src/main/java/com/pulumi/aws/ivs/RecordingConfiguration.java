@@ -14,7 +14,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,7 +22,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS IVS (Interactive Video) Recording Configuration.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,6 +50,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RecordingConfiguration(&#34;example&#34;, RecordingConfigurationArgs.builder()        
+ *             .name(&#34;recording_configuration-1&#34;)
  *             .destinationConfiguration(RecordingConfigurationDestinationConfigurationArgs.builder()
  *                 .s3(RecordingConfigurationDestinationConfigurationS3Args.builder()
  *                     .bucketName(&#34;ivs-stream-archive&#34;)
@@ -58,13 +61,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IVS (Interactive Video) Recording Configuration using the ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
+ * $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
  * ```
  * 
  */
@@ -219,9 +223,6 @@ public class RecordingConfiguration extends com.pulumi.resources.CustomResource 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

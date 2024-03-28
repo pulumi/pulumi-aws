@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec {
     /**
-     * @return The instance type.
+     * @return The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
      * 
      */
     private @Nullable String instanceType;
@@ -22,10 +22,15 @@ public final class UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec
      */
     private @Nullable String lifecycleConfigArn;
     /**
-     * @return The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+     * @return The ARN of the SageMaker image that the image version belongs to.
      * 
      */
     private @Nullable String sagemakerImageArn;
+    /**
+     * @return The SageMaker Image Version Alias.
+     * 
+     */
+    private @Nullable String sagemakerImageVersionAlias;
     /**
      * @return The ARN of the image version created on the instance.
      * 
@@ -34,7 +39,7 @@ public final class UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec
 
     private UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec() {}
     /**
-     * @return The instance type.
+     * @return The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
      * 
      */
     public Optional<String> instanceType() {
@@ -48,11 +53,18 @@ public final class UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec
         return Optional.ofNullable(this.lifecycleConfigArn);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+     * @return The ARN of the SageMaker image that the image version belongs to.
      * 
      */
     public Optional<String> sagemakerImageArn() {
         return Optional.ofNullable(this.sagemakerImageArn);
+    }
+    /**
+     * @return The SageMaker Image Version Alias.
+     * 
+     */
+    public Optional<String> sagemakerImageVersionAlias() {
+        return Optional.ofNullable(this.sagemakerImageVersionAlias);
     }
     /**
      * @return The ARN of the image version created on the instance.
@@ -74,6 +86,7 @@ public final class UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec
         private @Nullable String instanceType;
         private @Nullable String lifecycleConfigArn;
         private @Nullable String sagemakerImageArn;
+        private @Nullable String sagemakerImageVersionAlias;
         private @Nullable String sagemakerImageVersionArn;
         public Builder() {}
         public Builder(UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec defaults) {
@@ -81,36 +94,48 @@ public final class UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec
     	      this.instanceType = defaults.instanceType;
     	      this.lifecycleConfigArn = defaults.lifecycleConfigArn;
     	      this.sagemakerImageArn = defaults.sagemakerImageArn;
+    	      this.sagemakerImageVersionAlias = defaults.sagemakerImageVersionAlias;
     	      this.sagemakerImageVersionArn = defaults.sagemakerImageVersionArn;
         }
 
         @CustomType.Setter
         public Builder instanceType(@Nullable String instanceType) {
+
             this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder lifecycleConfigArn(@Nullable String lifecycleConfigArn) {
+
             this.lifecycleConfigArn = lifecycleConfigArn;
             return this;
         }
         @CustomType.Setter
         public Builder sagemakerImageArn(@Nullable String sagemakerImageArn) {
+
             this.sagemakerImageArn = sagemakerImageArn;
             return this;
         }
         @CustomType.Setter
+        public Builder sagemakerImageVersionAlias(@Nullable String sagemakerImageVersionAlias) {
+
+            this.sagemakerImageVersionAlias = sagemakerImageVersionAlias;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sagemakerImageVersionArn(@Nullable String sagemakerImageVersionArn) {
+
             this.sagemakerImageVersionArn = sagemakerImageVersionArn;
             return this;
         }
         public UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec build() {
-            final var o = new UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec();
-            o.instanceType = instanceType;
-            o.lifecycleConfigArn = lifecycleConfigArn;
-            o.sagemakerImageArn = sagemakerImageArn;
-            o.sagemakerImageVersionArn = sagemakerImageVersionArn;
-            return o;
+            final var _resultValue = new UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec();
+            _resultValue.instanceType = instanceType;
+            _resultValue.lifecycleConfigArn = lifecycleConfigArn;
+            _resultValue.sagemakerImageArn = sagemakerImageArn;
+            _resultValue.sagemakerImageVersionAlias = sagemakerImageVersionAlias;
+            _resultValue.sagemakerImageVersionArn = sagemakerImageVersionArn;
+            return _resultValue;
         }
     }
 }

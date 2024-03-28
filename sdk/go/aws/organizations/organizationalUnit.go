@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := organizations.NewOrganizationalUnit(ctx, "example", &organizations.OrganizationalUnitArgs{
-//				ParentId: pulumi.Any(aws_organizations_organization.Example.Roots[0].Id),
+//				Name:     pulumi.String("example"),
+//				ParentId: pulumi.Any(exampleAwsOrganizationsOrganization.Roots[0].Id),
 //			})
 //			if err != nil {
 //				return err
@@ -39,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AWS Organizations Organizational Units using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
-//
+// $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
 // ```
 type OrganizationalUnit struct {
 	pulumi.CustomResourceState
@@ -78,10 +79,6 @@ func NewOrganizationalUnit(ctx *pulumi.Context,
 	if args.ParentId == nil {
 		return nil, errors.New("invalid value for required argument 'ParentId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationalUnit
 	err := ctx.RegisterResource("aws:organizations/organizationalUnit:OrganizationalUnit", name, args, &resource, opts...)

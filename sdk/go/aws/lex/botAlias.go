@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lex.NewBotAlias(ctx, "orderFlowersProd", &lex.BotAliasArgs{
+//			_, err := lex.NewBotAlias(ctx, "order_flowers_prod", &lex.BotAliasArgs{
 //				BotName:     pulumi.String("OrderFlowers"),
 //				BotVersion:  pulumi.String("1"),
 //				Description: pulumi.String("Production Version of the OrderFlowers Bot."),
@@ -43,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import bot aliases using an ID with the format `bot_name:bot_alias_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
-//
+// $ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
 // ```
 type BotAlias struct {
 	pulumi.CustomResourceState

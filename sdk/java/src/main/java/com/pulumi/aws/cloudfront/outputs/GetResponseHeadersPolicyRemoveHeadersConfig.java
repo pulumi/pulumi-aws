@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.aws.cloudfront.outputs.GetResponseHeadersPolicyRemoveHeadersConfigItem;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,16 +36,19 @@ public final class GetResponseHeadersPolicyRemoveHeadersConfig {
 
         @CustomType.Setter
         public Builder items(List<GetResponseHeadersPolicyRemoveHeadersConfigItem> items) {
-            this.items = Objects.requireNonNull(items);
+            if (items == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicyRemoveHeadersConfig", "items");
+            }
+            this.items = items;
             return this;
         }
         public Builder items(GetResponseHeadersPolicyRemoveHeadersConfigItem... items) {
             return items(List.of(items));
         }
         public GetResponseHeadersPolicyRemoveHeadersConfig build() {
-            final var o = new GetResponseHeadersPolicyRemoveHeadersConfig();
-            o.items = items;
-            return o;
+            final var _resultValue = new GetResponseHeadersPolicyRemoveHeadersConfig();
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

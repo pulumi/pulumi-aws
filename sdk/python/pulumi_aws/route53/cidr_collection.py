@@ -103,19 +103,21 @@ class CidrCollection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53.CidrCollection("example")
+        example = aws.route53.CidrCollection("example", name="collection-1")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CIDR collections using their ID. For example:
 
         ```sh
-         $ pulumi import aws:route53/cidrCollection:CidrCollection example 9ac32814-3e67-0932-6048-8d779cc6f511
+        $ pulumi import aws:route53/cidrCollection:CidrCollection example 9ac32814-3e67-0932-6048-8d779cc6f511
         ```
 
         :param str resource_name: The name of the resource.
@@ -133,19 +135,21 @@ class CidrCollection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53.CidrCollection("example")
+        example = aws.route53.CidrCollection("example", name="collection-1")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CIDR collections using their ID. For example:
 
         ```sh
-         $ pulumi import aws:route53/cidrCollection:CidrCollection example 9ac32814-3e67-0932-6048-8d779cc6f511
+        $ pulumi import aws:route53/cidrCollection:CidrCollection example 9ac32814-3e67-0932-6048-8d779cc6f511
         ```
 
         :param str resource_name: The name of the resource.

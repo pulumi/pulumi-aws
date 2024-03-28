@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,7 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := keyspaces.NewTable(ctx, "example", &keyspaces.TableArgs{
-//				KeyspaceName: pulumi.Any(aws_keyspaces_keyspace.Example.Name),
+//				KeyspaceName: pulumi.Any(exampleAwsKeyspacesKeyspace.Name),
 //				TableName:    pulumi.String("my_table"),
 //				SchemaDefinition: &keyspaces.TableSchemaDefinitionArgs{
 //					Columns: keyspaces.TableSchemaDefinitionColumnArray{
@@ -55,15 +56,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
-//
+// $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
 // ```
 type Table struct {
 	pulumi.CustomResourceState
@@ -116,10 +116,6 @@ func NewTable(ctx *pulumi.Context,
 	if args.TableName == nil {
 		return nil, errors.New("invalid value for required argument 'TableName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Table
 	err := ctx.RegisterResource("aws:keyspaces/table:Table", name, args, &resource, opts...)

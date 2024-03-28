@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,24 +23,21 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testFleet = new Aws.AppStream.Fleet("testFleet", new()
+    ///     var testFleet = new Aws.AppStream.Fleet("test_fleet", new()
     ///     {
+    ///         Name = "test-fleet",
     ///         ComputeCapacity = new Aws.AppStream.Inputs.FleetComputeCapacityArgs
     ///         {
     ///             DesiredInstances = 1,
     ///         },
     ///         Description = "test fleet",
+    ///         IdleDisconnectTimeoutInSeconds = 60,
     ///         DisplayName = "test-fleet",
     ///         EnableDefaultInternetAccess = false,
     ///         FleetType = "ON_DEMAND",
-    ///         IdleDisconnectTimeoutInSeconds = 60,
     ///         ImageName = "Amazon-AppStream2-Sample-Image-03-11-2023",
     ///         InstanceType = "stream.standard.large",
     ///         MaxUserDurationInSeconds = 600,
-    ///         Tags = 
-    ///         {
-    ///             { "TagName", "tag-value" },
-    ///         },
     ///         VpcConfig = new Aws.AppStream.Inputs.FleetVpcConfigArgs
     ///         {
     ///             SubnetIds = new[]
@@ -47,17 +45,22 @@ namespace Pulumi.Aws.AppStream
     ///                 "subnet-06e9b13400c225127",
     ///             },
     ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "TagName", "tag-value" },
+    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_appstream_fleet` using the id. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
+    /// $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
     /// ```
     /// </summary>
     [AwsResourceType("aws:appstream/fleet:Fleet")]
@@ -124,7 +127,7 @@ namespace Pulumi.Aws.AppStream
         public Output<string> IamRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
+        /// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to 60 seconds.
         /// </summary>
         [Output("idleDisconnectTimeoutInSeconds")]
         public Output<int?> IdleDisconnectTimeoutInSeconds { get; private set; } = null!;
@@ -211,10 +214,6 @@ namespace Pulumi.Aws.AppStream
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -287,7 +286,7 @@ namespace Pulumi.Aws.AppStream
         public Input<string>? IamRoleArn { get; set; }
 
         /// <summary>
-        /// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
+        /// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to 60 seconds.
         /// </summary>
         [Input("idleDisconnectTimeoutInSeconds")]
         public Input<int>? IdleDisconnectTimeoutInSeconds { get; set; }
@@ -417,7 +416,7 @@ namespace Pulumi.Aws.AppStream
         public Input<string>? IamRoleArn { get; set; }
 
         /// <summary>
-        /// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
+        /// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to 60 seconds.
         /// </summary>
         [Input("idleDisconnectTimeoutInSeconds")]
         public Input<int>? IdleDisconnectTimeoutInSeconds { get; set; }
@@ -484,11 +483,7 @@ namespace Pulumi.Aws.AppStream
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

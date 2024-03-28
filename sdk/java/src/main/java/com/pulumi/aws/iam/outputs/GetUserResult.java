@@ -4,6 +4,7 @@
 package com.pulumi.aws.iam.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -127,49 +128,70 @@ public final class GetUserResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder permissionsBoundary(String permissionsBoundary) {
-            this.permissionsBoundary = Objects.requireNonNull(permissionsBoundary);
+            if (permissionsBoundary == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "permissionsBoundary");
+            }
+            this.permissionsBoundary = permissionsBoundary;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder userId(String userId) {
-            this.userId = Objects.requireNonNull(userId);
+            if (userId == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "userId");
+            }
+            this.userId = userId;
             return this;
         }
         @CustomType.Setter
         public Builder userName(String userName) {
-            this.userName = Objects.requireNonNull(userName);
+            if (userName == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "userName");
+            }
+            this.userName = userName;
             return this;
         }
         public GetUserResult build() {
-            final var o = new GetUserResult();
-            o.arn = arn;
-            o.id = id;
-            o.path = path;
-            o.permissionsBoundary = permissionsBoundary;
-            o.tags = tags;
-            o.userId = userId;
-            o.userName = userName;
-            return o;
+            final var _resultValue = new GetUserResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.path = path;
+            _resultValue.permissionsBoundary = permissionsBoundary;
+            _resultValue.tags = tags;
+            _resultValue.userId = userId;
+            _resultValue.userName = userName;
+            return _resultValue;
         }
     }
 }

@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides an API Gateway Authorizer.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -27,6 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.RestApiArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
@@ -51,7 +54,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var demoRestApi = new RestApi(&#34;demoRestApi&#34;);
+ *         var demoRestApi = new RestApi(&#34;demoRestApi&#34;, RestApiArgs.builder()        
+ *             .name(&#34;auth-demo&#34;)
+ *             .build());
  * 
  *         final var invocationAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
@@ -65,6 +70,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var invocationRole = new Role(&#34;invocationRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;api_gateway_auth_invocation&#34;)
  *             .path(&#34;/&#34;)
  *             .assumeRolePolicy(invocationAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
@@ -81,22 +87,28 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var lambda = new Role(&#34;lambda&#34;, RoleArgs.builder()        
+ *             .name(&#34;demo-lambda&#34;)
  *             .assumeRolePolicy(lambdaAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var authorizer = new Function(&#34;authorizer&#34;, FunctionArgs.builder()        
  *             .code(new FileArchive(&#34;lambda-function.zip&#34;))
+ *             .name(&#34;api_gateway_authorizer&#34;)
  *             .role(lambda.arn())
  *             .handler(&#34;exports.example&#34;)
+ *             .sourceCodeHash(StdFunctions.filebase64sha256(Filebase64sha256Args.builder()
+ *                 .input(&#34;lambda-function.zip&#34;)
+ *                 .build()).result())
  *             .build());
  * 
- *         var demoAuthorizer = new Authorizer(&#34;demoAuthorizer&#34;, AuthorizerArgs.builder()        
+ *         var demo = new Authorizer(&#34;demo&#34;, AuthorizerArgs.builder()        
+ *             .name(&#34;demo&#34;)
  *             .restApi(demoRestApi.id())
  *             .authorizerUri(authorizer.invokeArn())
  *             .authorizerCredentials(invocationRole.arn())
  *             .build());
  * 
- *         final var invocationPolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var invocationPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(&#34;lambda:InvokeFunction&#34;)
@@ -105,20 +117,22 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var invocationPolicyRolePolicy = new RolePolicy(&#34;invocationPolicyRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;default&#34;)
  *             .role(invocationRole.id())
- *             .policy(invocationPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(invocationPolicyPolicyDocument -&gt; invocationPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(invocationPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(invocationPolicy -&gt; invocationPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AWS API Gateway Authorizer using the `REST-API-ID/AUTHORIZER-ID`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
+ * $ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
  * ```
  * 
  */

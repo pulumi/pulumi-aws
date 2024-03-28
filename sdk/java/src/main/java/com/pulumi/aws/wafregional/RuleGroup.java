@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides a WAF Regional Rule Group Resource
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,31 +48,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRule = new Rule(&#34;exampleRule&#34;, RuleArgs.builder()        
+ *         var example = new Rule(&#34;example&#34;, RuleArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .metricName(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleRuleGroup = new RuleGroup(&#34;exampleRuleGroup&#34;, RuleGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .metricName(&#34;example&#34;)
  *             .activatedRules(RuleGroupActivatedRuleArgs.builder()
  *                 .action(RuleGroupActivatedRuleActionArgs.builder()
  *                     .type(&#34;COUNT&#34;)
  *                     .build())
  *                 .priority(50)
- *                 .ruleId(exampleRule.id())
+ *                 .ruleId(example.id())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import WAF Regional Rule Group using the id. For example:
  * 
  * ```sh
- *  $ pulumi import aws:wafregional/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * $ pulumi import aws:wafregional/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
  * ```
  * 
  */
@@ -197,9 +202,6 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

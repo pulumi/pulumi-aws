@@ -4,6 +4,7 @@
 package com.pulumi.aws.alb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -92,37 +93,44 @@ public final class LoadBalancerSubnetMapping {
 
         @CustomType.Setter
         public Builder allocationId(@Nullable String allocationId) {
+
             this.allocationId = allocationId;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6Address(@Nullable String ipv6Address) {
+
             this.ipv6Address = ipv6Address;
             return this;
         }
         @CustomType.Setter
         public Builder outpostId(@Nullable String outpostId) {
+
             this.outpostId = outpostId;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpv4Address(@Nullable String privateIpv4Address) {
+
             this.privateIpv4Address = privateIpv4Address;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("LoadBalancerSubnetMapping", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         public LoadBalancerSubnetMapping build() {
-            final var o = new LoadBalancerSubnetMapping();
-            o.allocationId = allocationId;
-            o.ipv6Address = ipv6Address;
-            o.outpostId = outpostId;
-            o.privateIpv4Address = privateIpv4Address;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new LoadBalancerSubnetMapping();
+            _resultValue.allocationId = allocationId;
+            _resultValue.ipv6Address = ipv6Address;
+            _resultValue.outpostId = outpostId;
+            _resultValue.privateIpv4Address = privateIpv4Address;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

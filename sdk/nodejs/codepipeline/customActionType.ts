@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,13 +31,14 @@ import * as utilities from "../utilities";
  *     version: "1",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CodeDeploy CustomActionType using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:pulumi:1
+ * $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:pulumi:1
  * ```
  */
 export class CustomActionType extends pulumi.CustomResource {
@@ -168,8 +170,6 @@ export class CustomActionType extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(CustomActionType.__pulumiType, name, resourceInputs, opts);
     }
 }

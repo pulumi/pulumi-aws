@@ -18,11 +18,10 @@ import (
 	"context"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"pgregory.net/rapid"
 
-	"github.com/hashicorp/terraform-provider-aws/shim"
-	"github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	tfshim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
@@ -300,7 +299,16 @@ func TestAddingEmptyTagProducesChangeDiff(t *testing.T) {
 	    },
 	    "response": {
 	      "changes": "DIFF_SOME",
-              "hasDetailedDiff": true
+		  "hasDetailedDiff": true,
+		  "detailedDiff": {
+			"tags": {
+			  "kind": "UPDATE"
+			},
+			"tagsAll": {
+			  "kind": "UPDATE"
+			}
+		  },
+		  "diffs": ["*", "*"]
 	    }
 	  }
 	]`
@@ -309,28 +317,13 @@ func TestAddingEmptyTagProducesChangeDiff(t *testing.T) {
 }
 
 func TestTagsAllNoLongerComputed(t *testing.T) {
-	ctx := context.Background()
-	upstreamProvider, err := shim.NewUpstreamProvider(ctx)
-	require.NoError(t, err)
-
-	t.Run("sdk_v2", func(t *testing.T) {
-		for key, res := range upstreamProvider.SDKV2Provider.ResourcesMap {
-			tagsAll, ok := res.Schema["tags_all"]
-			if ok {
-				require.Falsef(t, tagsAll.Computed, "tags_all is Computed for %s", key)
-			}
-		}
-	})
-
-	// Note: when this test starts failing, see ./scripts/patch_computed_only.sh
-	t.Run("plugin_framework", func(t *testing.T) {
-		p := tfbridge.ShimProviderWithContext(ctx, upstreamProvider.PluginFrameworkProvider)
-		p.ResourcesMap().Range(func(key string, res tfshim.Resource) bool {
-			tagsAll, ok := res.Schema().GetOk("tags_all")
-			if ok {
-				require.Falsef(t, tagsAll.Computed(), "tags_all is Computed for %s", key)
-			}
+	p := Provider().P
+	p.ResourcesMap().Range(func(key string, res tfshim.Resource) bool {
+		tagsAll, ok := res.Schema().GetOk("tags_all")
+		if !ok {
 			return true
-		})
+		}
+		assert.Falsef(t, tagsAll.Computed(), "Computed tags_all for resource: %s", key)
+		return true
 	})
 }

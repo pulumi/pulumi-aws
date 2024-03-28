@@ -18,6 +18,7 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,19 +27,10 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var us_east_1 = new Aws.Provider("us-east-1", new()
-    ///     {
-    ///         Region = "us-east-1",
-    ///     });
-    /// 
-    ///     var us_west_2 = new Aws.Provider("us-west-2", new()
-    ///     {
-    ///         Region = "us-west-2",
-    ///     });
-    /// 
-    ///     var us_east_1Table = new Aws.DynamoDB.Table("us-east-1Table", new()
+    ///     var us_east_1 = new Aws.DynamoDB.Table("us-east-1", new()
     ///     {
     ///         HashKey = "myAttribute",
+    ///         Name = "myTable",
     ///         StreamEnabled = true,
     ///         StreamViewType = "NEW_AND_OLD_IMAGES",
     ///         ReadCapacity = 1,
@@ -51,14 +43,12 @@ namespace Pulumi.Aws.DynamoDB
     ///                 Type = "S",
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Us_east_1,
     ///     });
     /// 
-    ///     var us_west_2Table = new Aws.DynamoDB.Table("us-west-2Table", new()
+    ///     var us_west_2 = new Aws.DynamoDB.Table("us-west-2", new()
     ///     {
     ///         HashKey = "myAttribute",
+    ///         Name = "myTable",
     ///         StreamEnabled = true,
     ///         StreamViewType = "NEW_AND_OLD_IMAGES",
     ///         ReadCapacity = 1,
@@ -71,13 +61,11 @@ namespace Pulumi.Aws.DynamoDB
     ///                 Type = "S",
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Us_west_2,
     ///     });
     /// 
     ///     var myTable = new Aws.DynamoDB.GlobalTable("myTable", new()
     ///     {
+    ///         Name = "myTable",
     ///         Replicas = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.GlobalTableReplicaArgs
@@ -89,25 +77,18 @@ namespace Pulumi.Aws.DynamoDB
     ///                 RegionName = "us-west-2",
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Us_east_1,
-    ///         DependsOn = new[]
-    ///         {
-    ///             us_east_1Table,
-    ///             us_west_2Table,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DynamoDB Global Tables using the global table name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
+    /// $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
     /// ```
     /// </summary>
     [AwsResourceType("aws:dynamodb/globalTable:GlobalTable")]

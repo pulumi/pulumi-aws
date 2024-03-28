@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,9 +23,12 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var hogeBucketV2 = new Aws.S3.BucketV2("hogeBucketV2");
+    ///     var hogeBucketV2 = new Aws.S3.BucketV2("hoge", new()
+    ///     {
+    ///         Bucket = "tf-test-bucket-1234",
+    ///     });
     /// 
-    ///     var hogePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var hoge = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -91,14 +95,15 @@ namespace Pulumi.Aws.Ssm
     ///         },
     ///     });
     /// 
-    ///     var hogeBucketPolicy = new Aws.S3.BucketPolicy("hogeBucketPolicy", new()
+    ///     var hogeBucketPolicy = new Aws.S3.BucketPolicy("hoge", new()
     ///     {
     ///         Bucket = hogeBucketV2.Id,
-    ///         Policy = hogePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = hoge.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var foo = new Aws.Ssm.ResourceDataSync("foo", new()
     ///     {
+    ///         Name = "foo",
     ///         S3Destination = new Aws.Ssm.Inputs.ResourceDataSyncS3DestinationArgs
     ///         {
     ///             BucketName = hogeBucketV2.Bucket,
@@ -108,13 +113,14 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SSM resource data sync using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
+    /// $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssm/resourceDataSync:ResourceDataSync")]

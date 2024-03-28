@@ -73,19 +73,21 @@ class SerialConsoleAccess(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2.SerialConsoleAccess("example", enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import serial console access state. For example:
 
         ```sh
-         $ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
+        $ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
         ```
 
         :param str resource_name: The name of the resource.
@@ -105,19 +107,21 @@ class SerialConsoleAccess(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2.SerialConsoleAccess("example", enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import serial console access state. For example:
 
         ```sh
-         $ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
+        $ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
         ```
 
         :param str resource_name: The name of the resource.

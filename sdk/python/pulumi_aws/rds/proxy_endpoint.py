@@ -315,23 +315,25 @@ class ProxyEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.rds.ProxyEndpoint("example",
-            db_proxy_name=aws_db_proxy["test"]["name"],
+            db_proxy_name=test["name"],
             db_proxy_endpoint_name="example",
-            vpc_subnet_ids=[__item["id"] for __item in aws_subnet["test"]],
+            vpc_subnet_ids=[__item["id"] for __item in test_aws_subnet],
             target_role="READ_ONLY")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DB proxy endpoints using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`. For example:
 
         ```sh
-         $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
+        $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -354,23 +356,25 @@ class ProxyEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.rds.ProxyEndpoint("example",
-            db_proxy_name=aws_db_proxy["test"]["name"],
+            db_proxy_name=test["name"],
             db_proxy_endpoint_name="example",
-            vpc_subnet_ids=[__item["id"] for __item in aws_subnet["test"]],
+            vpc_subnet_ids=[__item["id"] for __item in test_aws_subnet],
             target_role="READ_ONLY")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DB proxy endpoints using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`. For example:
 
         ```sh
-         $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
+        $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -420,8 +424,6 @@ class ProxyEndpoint(pulumi.CustomResource):
             __props__.__dict__["is_default"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ProxyEndpoint, __self__).__init__(
             'aws:rds/proxyEndpoint:ProxyEndpoint',
             resource_name,

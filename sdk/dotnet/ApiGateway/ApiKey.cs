@@ -16,6 +16,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,17 +25,21 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ApiGateway.ApiKey("example");
+    ///     var example = new Aws.ApiGateway.ApiKey("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import API Gateway Keys using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/apiKey:ApiKey example 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk
+    /// $ pulumi import aws:apigateway/apiKey:ApiKey example 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/apiKey:ApiKey")]
@@ -125,7 +130,6 @@ namespace Pulumi.Aws.ApiGateway
                 Version = Utilities.Version,
                 AdditionalSecretOutputs =
                 {
-                    "tagsAll",
                     "value",
                 },
             };
@@ -276,11 +280,7 @@ namespace Pulumi.Aws.ApiGateway
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("value")]

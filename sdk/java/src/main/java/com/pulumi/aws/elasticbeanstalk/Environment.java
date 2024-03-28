@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * `production`.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,10 +53,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var tftest = new Application(&#34;tftest&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;tf-test-name&#34;)
  *             .description(&#34;tf-test-desc&#34;)
  *             .build());
  * 
  *         var tfenvtest = new Environment(&#34;tfenvtest&#34;, EnvironmentArgs.builder()        
+ *             .name(&#34;tf-test-name&#34;)
  *             .application(tftest.name())
  *             .solutionStackName(&#34;64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4&#34;)
  *             .build());
@@ -62,6 +66,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Option Settings
  * 
  * Some options can be stack-specific, check [AWS Docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html)
@@ -75,6 +81,8 @@ import javax.annotation.Nullable;
  * * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
  * 
  * ### Example With Options
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -100,10 +108,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var tftest = new Application(&#34;tftest&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;tf-test-name&#34;)
  *             .description(&#34;tf-test-desc&#34;)
  *             .build());
  * 
  *         var tfenvtest = new Environment(&#34;tfenvtest&#34;, EnvironmentArgs.builder()        
+ *             .name(&#34;tf-test-name&#34;)
  *             .application(tftest.name())
  *             .solutionStackName(&#34;64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4&#34;)
  *             .settings(            
@@ -122,13 +132,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Elastic Beanstalk Environments using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
+ * $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
  * ```
  * 
  */
@@ -535,9 +546,6 @@ public class Environment extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

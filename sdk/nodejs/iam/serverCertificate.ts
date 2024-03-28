@@ -20,36 +20,44 @@ import * as utilities from "../utilities";
  *
  * **Using certs on file:**
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const testCert = new aws.iam.ServerCertificate("testCert", {
- *     certificateBody: fs.readFileSync("self-ca-cert.pem"),
- *     privateKey: fs.readFileSync("test-key.pem"),
+ * const testCert = new aws.iam.ServerCertificate("test_cert", {
+ *     name: "some_test_cert",
+ *     certificateBody: std.file({
+ *         input: "self-ca-cert.pem",
+ *     }).then(invoke => invoke.result),
+ *     privateKey: std.file({
+ *         input: "test-key.pem",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * **Example with cert in-line:**
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testCertAlt = new aws.iam.ServerCertificate("testCertAlt", {
+ * const testCertAlt = new aws.iam.ServerCertificate("test_cert_alt", {
+ *     name: "alt_test_cert",
  *     certificateBody: `-----BEGIN CERTIFICATE-----
  * [......] # cert contents
  * -----END CERTIFICATE-----
- *
  * `,
  *     privateKey: `-----BEGIN RSA PRIVATE KEY-----
  * [......] # cert contents
  * -----END RSA PRIVATE KEY-----
- *
  * `,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * **Use in combination with an AWS ELB resource:**
  *
@@ -60,17 +68,23 @@ import * as utilities from "../utilities";
  * to create a new, updated `aws.iam.ServerCertificate` resource and replace it in
  * dependant resources before attempting to destroy the old version.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const testCert = new aws.iam.ServerCertificate("testCert", {
+ * const testCert = new aws.iam.ServerCertificate("test_cert", {
  *     namePrefix: "example-cert",
- *     certificateBody: fs.readFileSync("self-ca-cert.pem"),
- *     privateKey: fs.readFileSync("test-key.pem"),
+ *     certificateBody: std.file({
+ *         input: "self-ca-cert.pem",
+ *     }).then(invoke => invoke.result),
+ *     privateKey: std.file({
+ *         input: "test-key.pem",
+ *     }).then(invoke => invoke.result),
  * });
  * const ourapp = new aws.elb.LoadBalancer("ourapp", {
+ *     name: "asg-deployment-example",
  *     availabilityZones: ["us-west-2a"],
  *     crossZoneLoadBalancing: true,
  *     listeners: [{
@@ -82,13 +96,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IAM Server Certificates using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
+ * $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
  * ```
  */
 export class ServerCertificate extends pulumi.CustomResource {
@@ -221,7 +236,7 @@ export class ServerCertificate extends pulumi.CustomResource {
             resourceInputs["uploadDate"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["privateKey", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["privateKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServerCertificate.__pulumiType, name, resourceInputs, opts);
     }

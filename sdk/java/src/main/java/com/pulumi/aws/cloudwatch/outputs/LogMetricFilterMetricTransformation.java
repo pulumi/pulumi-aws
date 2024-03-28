@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -115,43 +116,55 @@ public final class LogMetricFilterMetricTransformation {
 
         @CustomType.Setter
         public Builder defaultValue(@Nullable String defaultValue) {
+
             this.defaultValue = defaultValue;
             return this;
         }
         @CustomType.Setter
         public Builder dimensions(@Nullable Map<String,String> dimensions) {
+
             this.dimensions = dimensions;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("LogMetricFilterMetricTransformation", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder namespace(String namespace) {
-            this.namespace = Objects.requireNonNull(namespace);
+            if (namespace == null) {
+              throw new MissingRequiredPropertyException("LogMetricFilterMetricTransformation", "namespace");
+            }
+            this.namespace = namespace;
             return this;
         }
         @CustomType.Setter
         public Builder unit(@Nullable String unit) {
+
             this.unit = unit;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("LogMetricFilterMetricTransformation", "value");
+            }
+            this.value = value;
             return this;
         }
         public LogMetricFilterMetricTransformation build() {
-            final var o = new LogMetricFilterMetricTransformation();
-            o.defaultValue = defaultValue;
-            o.dimensions = dimensions;
-            o.name = name;
-            o.namespace = namespace;
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new LogMetricFilterMetricTransformation();
+            _resultValue.defaultValue = defaultValue;
+            _resultValue.dimensions = dimensions;
+            _resultValue.name = name;
+            _resultValue.namespace = namespace;
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

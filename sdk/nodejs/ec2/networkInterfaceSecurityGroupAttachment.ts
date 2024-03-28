@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  * primary network interface via the `aws.ec2.NetworkInterfaceSecurityGroupAttachment` resource,
  * named `sgAttachment`:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,7 +38,7 @@ import * as utilities from "../utilities";
  *     owners: ["amazon"],
  * });
  * const instance = new aws.ec2.Instance("instance", {
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     ami: ami.then(ami => ami.id),
  *     tags: {
  *         type: "test-instance",
@@ -46,16 +47,18 @@ import * as utilities from "../utilities";
  * const sg = new aws.ec2.SecurityGroup("sg", {tags: {
  *     type: "test-security-group",
  * }});
- * const sgAttachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", {
+ * const sgAttachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sg_attachment", {
  *     securityGroupId: sg.id,
  *     networkInterfaceId: instance.primaryNetworkInterfaceId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * In this example, `instance` is provided by the `aws.ec2.Instance` data source,
  * fetching an external instance, possibly not managed by this provider.
  * `sgAttachment` then attaches to the output instance's `networkInterfaceId`:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -66,18 +69,19 @@ import * as utilities from "../utilities";
  * const sg = new aws.ec2.SecurityGroup("sg", {tags: {
  *     type: "test-security-group",
  * }});
- * const sgAttachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", {
+ * const sgAttachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sg_attachment", {
  *     securityGroupId: sg.id,
  *     networkInterfaceId: instance.then(instance => instance.networkInterfaceId),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Network Interface Security Group attachments using the associated network interface ID and security group ID, separated by an underscore (`_`). For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment sg_attachment eni-1234567890abcdef0_sg-1234567890abcdef0
+ * $ pulumi import aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment sg_attachment eni-1234567890abcdef0_sg-1234567890abcdef0
  * ```
  */
 export class NetworkInterfaceSecurityGroupAttachment extends pulumi.CustomResource {

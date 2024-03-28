@@ -4,6 +4,7 @@
 package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -98,37 +99,52 @@ public final class TopicRuleErrorActionElasticsearch {
 
         @CustomType.Setter
         public Builder endpoint(String endpoint) {
-            this.endpoint = Objects.requireNonNull(endpoint);
+            if (endpoint == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionElasticsearch", "endpoint");
+            }
+            this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionElasticsearch", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder index(String index) {
-            this.index = Objects.requireNonNull(index);
+            if (index == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionElasticsearch", "index");
+            }
+            this.index = index;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionElasticsearch", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionElasticsearch", "type");
+            }
+            this.type = type;
             return this;
         }
         public TopicRuleErrorActionElasticsearch build() {
-            final var o = new TopicRuleErrorActionElasticsearch();
-            o.endpoint = endpoint;
-            o.id = id;
-            o.index = index;
-            o.roleArn = roleArn;
-            o.type = type;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionElasticsearch();
+            _resultValue.endpoint = endpoint;
+            _resultValue.id = id;
+            _resultValue.index = index;
+            _resultValue.roleArn = roleArn;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

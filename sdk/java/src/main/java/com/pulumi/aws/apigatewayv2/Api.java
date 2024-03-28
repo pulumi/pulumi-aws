@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -24,7 +23,10 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Amazon API Gateway Version 2 resources are used for creating and deploying WebSocket and HTTP APIs. To create and deploy REST APIs, use Amazon API Gateway Version 1 resources.
  * 
  * ## Example Usage
+ * 
  * ### Basic WebSocket API
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,6 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Api(&#34;example&#34;, ApiArgs.builder()        
+ *             .name(&#34;example-websocket-api&#34;)
  *             .protocolType(&#34;WEBSOCKET&#34;)
  *             .routeSelectionExpression(&#34;$request.body.action&#34;)
  *             .build());
@@ -54,7 +57,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Basic HTTP API
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -77,19 +84,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Api(&#34;example&#34;, ApiArgs.builder()        
+ *             .name(&#34;example-http-api&#34;)
  *             .protocolType(&#34;HTTP&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_apigatewayv2_api` using the API identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigatewayv2/api:Api example aabbccddee
+ * $ pulumi import aws:apigatewayv2/api:Api example aabbccddee
  * ```
  * 
  */
@@ -402,9 +411,6 @@ public class Api extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

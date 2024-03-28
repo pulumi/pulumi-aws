@@ -4,6 +4,7 @@
 package com.pulumi.aws.vpclattice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class ListenerDefaultActionFixedResponse {
 
         @CustomType.Setter
         public Builder statusCode(Integer statusCode) {
-            this.statusCode = Objects.requireNonNull(statusCode);
+            if (statusCode == null) {
+              throw new MissingRequiredPropertyException("ListenerDefaultActionFixedResponse", "statusCode");
+            }
+            this.statusCode = statusCode;
             return this;
         }
         public ListenerDefaultActionFixedResponse build() {
-            final var o = new ListenerDefaultActionFixedResponse();
-            o.statusCode = statusCode;
-            return o;
+            final var _resultValue = new ListenerDefaultActionFixedResponse();
+            _resultValue.statusCode = statusCode;
+            return _resultValue;
         }
     }
 }

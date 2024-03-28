@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
-//
+// $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
 // ```
 type Workgroup struct {
 	pulumi.CustomResourceState
@@ -63,8 +63,12 @@ type Workgroup struct {
 	Endpoints WorkgroupEndpointArrayOutput `pulumi:"endpoints"`
 	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 	EnhancedVpcRouting pulumi.BoolPtrOutput `pulumi:"enhancedVpcRouting"`
+	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+	MaxCapacity pulumi.IntPtrOutput `pulumi:"maxCapacity"`
 	// The name of the namespace.
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
+	// The port number on which the cluster accepts incoming connections.
+	Port pulumi.IntOutput `pulumi:"port"`
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// An array of security group IDs to associate with the workgroup.
@@ -98,10 +102,6 @@ func NewWorkgroup(ctx *pulumi.Context,
 	if args.WorkgroupName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkgroupName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workgroup
 	err := ctx.RegisterResource("aws:redshiftserverless/workgroup:Workgroup", name, args, &resource, opts...)
@@ -135,8 +135,12 @@ type workgroupState struct {
 	Endpoints []WorkgroupEndpoint `pulumi:"endpoints"`
 	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 	EnhancedVpcRouting *bool `pulumi:"enhancedVpcRouting"`
+	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+	MaxCapacity *int `pulumi:"maxCapacity"`
 	// The name of the namespace.
 	NamespaceName *string `pulumi:"namespaceName"`
+	// The port number on which the cluster accepts incoming connections.
+	Port *int `pulumi:"port"`
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// An array of security group IDs to associate with the workgroup.
@@ -168,8 +172,12 @@ type WorkgroupState struct {
 	Endpoints WorkgroupEndpointArrayInput
 	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 	EnhancedVpcRouting pulumi.BoolPtrInput
+	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+	MaxCapacity pulumi.IntPtrInput
 	// The name of the namespace.
 	NamespaceName pulumi.StringPtrInput
+	// The port number on which the cluster accepts incoming connections.
+	Port pulumi.IntPtrInput
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible pulumi.BoolPtrInput
 	// An array of security group IDs to associate with the workgroup.
@@ -201,8 +209,12 @@ type workgroupArgs struct {
 	ConfigParameters []WorkgroupConfigParameter `pulumi:"configParameters"`
 	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 	EnhancedVpcRouting *bool `pulumi:"enhancedVpcRouting"`
+	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+	MaxCapacity *int `pulumi:"maxCapacity"`
 	// The name of the namespace.
 	NamespaceName string `pulumi:"namespaceName"`
+	// The port number on which the cluster accepts incoming connections.
+	Port *int `pulumi:"port"`
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// An array of security group IDs to associate with the workgroup.
@@ -225,8 +237,12 @@ type WorkgroupArgs struct {
 	ConfigParameters WorkgroupConfigParameterArrayInput
 	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 	EnhancedVpcRouting pulumi.BoolPtrInput
+	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+	MaxCapacity pulumi.IntPtrInput
 	// The name of the namespace.
 	NamespaceName pulumi.StringInput
+	// The port number on which the cluster accepts incoming connections.
+	Port pulumi.IntPtrInput
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible pulumi.BoolPtrInput
 	// An array of security group IDs to associate with the workgroup.
@@ -353,9 +369,19 @@ func (o WorkgroupOutput) EnhancedVpcRouting() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.BoolPtrOutput { return v.EnhancedVpcRouting }).(pulumi.BoolPtrOutput)
 }
 
+// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+func (o WorkgroupOutput) MaxCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Workgroup) pulumi.IntPtrOutput { return v.MaxCapacity }).(pulumi.IntPtrOutput)
+}
+
 // The name of the namespace.
 func (o WorkgroupOutput) NamespaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringOutput { return v.NamespaceName }).(pulumi.StringOutput)
+}
+
+// The port number on which the cluster accepts incoming connections.
+func (o WorkgroupOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v *Workgroup) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
 }
 
 // A value that specifies whether the workgroup can be accessed from a public network.

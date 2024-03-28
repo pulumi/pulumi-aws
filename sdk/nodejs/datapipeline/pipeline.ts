@@ -9,19 +9,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.datapipeline.Pipeline("default", {});
+ * const _default = new aws.datapipeline.Pipeline("default", {name: "tf-pipeline-default"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_datapipeline_pipeline` using the id (Pipeline ID). For example:
  *
  * ```sh
- *  $ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
+ * $ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
  * ```
  */
 export class Pipeline extends pulumi.CustomResource {
@@ -96,8 +98,6 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Pipeline.__pulumiType, name, resourceInputs, opts);
     }
 }

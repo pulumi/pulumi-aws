@@ -4,6 +4,7 @@
 package com.pulumi.aws.autoscaling.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class GetGroupWarmPoolInstanceReusePolicy {
 
         @CustomType.Setter
         public Builder reuseOnScaleIn(Boolean reuseOnScaleIn) {
-            this.reuseOnScaleIn = Objects.requireNonNull(reuseOnScaleIn);
+            if (reuseOnScaleIn == null) {
+              throw new MissingRequiredPropertyException("GetGroupWarmPoolInstanceReusePolicy", "reuseOnScaleIn");
+            }
+            this.reuseOnScaleIn = reuseOnScaleIn;
             return this;
         }
         public GetGroupWarmPoolInstanceReusePolicy build() {
-            final var o = new GetGroupWarmPoolInstanceReusePolicy();
-            o.reuseOnScaleIn = reuseOnScaleIn;
-            return o;
+            final var _resultValue = new GetGroupWarmPoolInstanceReusePolicy();
+            _resultValue.reuseOnScaleIn = reuseOnScaleIn;
+            return _resultValue;
         }
     }
 }

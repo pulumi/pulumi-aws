@@ -12,32 +12,36 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ipset = new aws.waf.IpSet("ipset", {ipSetDescriptors: [{
- *     type: "IPV4",
- *     value: "192.0.7.0/24",
- * }]});
+ * const ipset = new aws.waf.IpSet("ipset", {
+ *     name: "tfIPSet",
+ *     ipSetDescriptors: [{
+ *         type: "IPV4",
+ *         value: "192.0.7.0/24",
+ *     }],
+ * });
  * const wafrule = new aws.waf.Rule("wafrule", {
+ *     name: "tfWAFRule",
  *     metricName: "tfWAFRule",
  *     predicates: [{
  *         dataId: ipset.id,
  *         negated: false,
  *         type: "IPMatch",
  *     }],
- * }, {
- *     dependsOn: [ipset],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import WAF rules using the id. For example:
  *
  * ```sh
- *  $ pulumi import aws:waf/rule:Rule example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * $ pulumi import aws:waf/rule:Rule example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
  * ```
  */
 export class Rule extends pulumi.CustomResource {
@@ -127,8 +131,6 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Rule.__pulumiType, name, resourceInputs, opts);
     }
 }

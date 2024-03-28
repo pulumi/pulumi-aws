@@ -422,35 +422,41 @@ class Directory(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        workspaces = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["workspaces.amazonaws.com"],
-            )],
-        )])
-        workspaces_default = aws.iam.Role("workspacesDefault", assume_role_policy=workspaces.json)
-        workspaces_default_service_access = aws.iam.RolePolicyAttachment("workspacesDefaultServiceAccess",
-            role=workspaces_default.name,
-            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess")
-        workspaces_default_self_service_access = aws.iam.RolePolicyAttachment("workspacesDefaultSelfServiceAccess",
-            role=workspaces_default.name,
-            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess")
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
-        example_c = aws.ec2.Subnet("exampleC",
+        example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
+        example_a = aws.ec2.Subnet("example_a",
+            vpc_id=example_vpc.id,
+            availability_zone="us-east-1a",
+            cidr_block="10.0.0.0/24")
+        example_b = aws.ec2.Subnet("example_b",
+            vpc_id=example_vpc.id,
+            availability_zone="us-east-1b",
+            cidr_block="10.0.1.0/24")
+        example_directory = aws.directoryservice.Directory("example",
+            name="corp.example.com",
+            password="#S1ncerely",
+            size="Small",
+            vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
+                vpc_id=example_vpc.id,
+                subnet_ids=[
+                    example_a.id,
+                    example_b.id,
+                ],
+            ))
+        example_c = aws.ec2.Subnet("example_c",
             vpc_id=example_vpc.id,
             availability_zone="us-east-1c",
             cidr_block="10.0.2.0/24")
-        example_d = aws.ec2.Subnet("exampleD",
+        example_d = aws.ec2.Subnet("example_d",
             vpc_id=example_vpc.id,
             availability_zone="us-east-1d",
             cidr_block="10.0.3.0/24")
-        example_directory = aws.workspaces.Directory("exampleDirectory",
-            directory_id=example_directoryservice / directory_directory["id"],
+        example = aws.workspaces.Directory("example",
+            directory_id=example_directory.id,
             subnet_ids=[
                 example_c.id,
                 example_d.id,
@@ -476,54 +482,51 @@ class Directory(pulumi.CustomResource):
                 device_type_zeroclient="DENY",
             ),
             workspace_creation_properties=aws.workspaces.DirectoryWorkspaceCreationPropertiesArgs(
-                custom_security_group_id=aws_security_group["example"]["id"],
+                custom_security_group_id=example_aws_security_group["id"],
                 default_ou="OU=AWS,DC=Workgroup,DC=Example,DC=com",
                 enable_internet_access=True,
                 enable_maintenance_mode=True,
                 user_enabled_as_local_administrator=True,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[
-                    workspaces_default_service_access,
-                    workspaces_default_self_service_access,
-                ]))
-        example_a = aws.ec2.Subnet("exampleA",
-            vpc_id=example_vpc.id,
-            availability_zone="us-east-1a",
-            cidr_block="10.0.0.0/24")
-        example_b = aws.ec2.Subnet("exampleB",
-            vpc_id=example_vpc.id,
-            availability_zone="us-east-1b",
-            cidr_block="10.0.1.0/24")
-        example_directoryservice_directory_directory = aws.directoryservice.Directory("exampleDirectoryservice/directoryDirectory",
-            name="corp.example.com",
-            password="#S1ncerely",
-            size="Small",
-            vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
-                vpc_id=example_vpc.id,
-                subnet_ids=[
-                    example_a.id,
-                    example_b.id,
-                ],
             ))
+        workspaces = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["sts:AssumeRole"],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["workspaces.amazonaws.com"],
+            )],
+        )])
+        workspaces_default = aws.iam.Role("workspaces_default",
+            name="workspaces_DefaultRole",
+            assume_role_policy=workspaces.json)
+        workspaces_default_service_access = aws.iam.RolePolicyAttachment("workspaces_default_service_access",
+            role=workspaces_default.name,
+            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess")
+        workspaces_default_self_service_access = aws.iam.RolePolicyAttachment("workspaces_default_self_service_access",
+            role=workspaces_default.name,
+            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### IP Groups
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_ip_group = aws.workspaces.IpGroup("exampleIpGroup")
-        example_directory = aws.workspaces.Directory("exampleDirectory",
-            directory_id=aws_directory_service_directory["example"]["id"],
+        example_ip_group = aws.workspaces.IpGroup("example", name="example")
+        example = aws.workspaces.Directory("example",
+            directory_id=example_aws_directory_service_directory["id"],
             ip_group_ids=[example_ip_group.id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Workspaces directory using the directory ID. For example:
 
         ```sh
-         $ pulumi import aws:workspaces/directory:Directory main d-4444444444
+        $ pulumi import aws:workspaces/directory:Directory main d-4444444444
         ```
 
         :param str resource_name: The name of the resource.
@@ -549,35 +552,41 @@ class Directory(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        workspaces = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["workspaces.amazonaws.com"],
-            )],
-        )])
-        workspaces_default = aws.iam.Role("workspacesDefault", assume_role_policy=workspaces.json)
-        workspaces_default_service_access = aws.iam.RolePolicyAttachment("workspacesDefaultServiceAccess",
-            role=workspaces_default.name,
-            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess")
-        workspaces_default_self_service_access = aws.iam.RolePolicyAttachment("workspacesDefaultSelfServiceAccess",
-            role=workspaces_default.name,
-            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess")
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
-        example_c = aws.ec2.Subnet("exampleC",
+        example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
+        example_a = aws.ec2.Subnet("example_a",
+            vpc_id=example_vpc.id,
+            availability_zone="us-east-1a",
+            cidr_block="10.0.0.0/24")
+        example_b = aws.ec2.Subnet("example_b",
+            vpc_id=example_vpc.id,
+            availability_zone="us-east-1b",
+            cidr_block="10.0.1.0/24")
+        example_directory = aws.directoryservice.Directory("example",
+            name="corp.example.com",
+            password="#S1ncerely",
+            size="Small",
+            vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
+                vpc_id=example_vpc.id,
+                subnet_ids=[
+                    example_a.id,
+                    example_b.id,
+                ],
+            ))
+        example_c = aws.ec2.Subnet("example_c",
             vpc_id=example_vpc.id,
             availability_zone="us-east-1c",
             cidr_block="10.0.2.0/24")
-        example_d = aws.ec2.Subnet("exampleD",
+        example_d = aws.ec2.Subnet("example_d",
             vpc_id=example_vpc.id,
             availability_zone="us-east-1d",
             cidr_block="10.0.3.0/24")
-        example_directory = aws.workspaces.Directory("exampleDirectory",
-            directory_id=example_directoryservice / directory_directory["id"],
+        example = aws.workspaces.Directory("example",
+            directory_id=example_directory.id,
             subnet_ids=[
                 example_c.id,
                 example_d.id,
@@ -603,54 +612,51 @@ class Directory(pulumi.CustomResource):
                 device_type_zeroclient="DENY",
             ),
             workspace_creation_properties=aws.workspaces.DirectoryWorkspaceCreationPropertiesArgs(
-                custom_security_group_id=aws_security_group["example"]["id"],
+                custom_security_group_id=example_aws_security_group["id"],
                 default_ou="OU=AWS,DC=Workgroup,DC=Example,DC=com",
                 enable_internet_access=True,
                 enable_maintenance_mode=True,
                 user_enabled_as_local_administrator=True,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[
-                    workspaces_default_service_access,
-                    workspaces_default_self_service_access,
-                ]))
-        example_a = aws.ec2.Subnet("exampleA",
-            vpc_id=example_vpc.id,
-            availability_zone="us-east-1a",
-            cidr_block="10.0.0.0/24")
-        example_b = aws.ec2.Subnet("exampleB",
-            vpc_id=example_vpc.id,
-            availability_zone="us-east-1b",
-            cidr_block="10.0.1.0/24")
-        example_directoryservice_directory_directory = aws.directoryservice.Directory("exampleDirectoryservice/directoryDirectory",
-            name="corp.example.com",
-            password="#S1ncerely",
-            size="Small",
-            vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
-                vpc_id=example_vpc.id,
-                subnet_ids=[
-                    example_a.id,
-                    example_b.id,
-                ],
             ))
+        workspaces = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["sts:AssumeRole"],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["workspaces.amazonaws.com"],
+            )],
+        )])
+        workspaces_default = aws.iam.Role("workspaces_default",
+            name="workspaces_DefaultRole",
+            assume_role_policy=workspaces.json)
+        workspaces_default_service_access = aws.iam.RolePolicyAttachment("workspaces_default_service_access",
+            role=workspaces_default.name,
+            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess")
+        workspaces_default_self_service_access = aws.iam.RolePolicyAttachment("workspaces_default_self_service_access",
+            role=workspaces_default.name,
+            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### IP Groups
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_ip_group = aws.workspaces.IpGroup("exampleIpGroup")
-        example_directory = aws.workspaces.Directory("exampleDirectory",
-            directory_id=aws_directory_service_directory["example"]["id"],
+        example_ip_group = aws.workspaces.IpGroup("example", name="example")
+        example = aws.workspaces.Directory("example",
+            directory_id=example_aws_directory_service_directory["id"],
             ip_group_ids=[example_ip_group.id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Workspaces directory using the directory ID. For example:
 
         ```sh
-         $ pulumi import aws:workspaces/directory:Directory main d-4444444444
+        $ pulumi import aws:workspaces/directory:Directory main d-4444444444
         ```
 
         :param str resource_name: The name of the resource.
@@ -702,8 +708,6 @@ class Directory(pulumi.CustomResource):
             __props__.__dict__["registration_code"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["workspace_security_group_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Directory, __self__).__init__(
             'aws:workspaces/directory:Directory',
             resource_name,

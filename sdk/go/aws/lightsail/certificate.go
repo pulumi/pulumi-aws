@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lightsail.NewCertificate(ctx, "test", &lightsail.CertificateArgs{
+//				Name:       pulumi.String("test"),
 //				DomainName: pulumi.String("testdomain.com"),
 //				SubjectAlternativeNames: pulumi.StringArray{
 //					pulumi.String("www.testdomain.com"),
@@ -41,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lightsail/certificate:Certificate test CertificateName
-//
+// $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
 // ```
 type Certificate struct {
 	pulumi.CustomResourceState
@@ -81,10 +82,6 @@ func NewCertificate(ctx *pulumi.Context,
 		args = &CertificateArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Certificate
 	err := ctx.RegisterResource("aws:lightsail/certificate:Certificate", name, args, &resource, opts...)

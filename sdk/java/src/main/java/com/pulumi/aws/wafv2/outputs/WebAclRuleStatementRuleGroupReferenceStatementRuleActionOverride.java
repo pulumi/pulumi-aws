@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -57,19 +58,25 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
 
         @CustomType.Setter
         public Builder actionToUse(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse actionToUse) {
-            this.actionToUse = Objects.requireNonNull(actionToUse);
+            if (actionToUse == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride", "actionToUse");
+            }
+            this.actionToUse = actionToUse;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride", "name");
+            }
+            this.name = name;
             return this;
         }
         public WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride build() {
-            final var o = new WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride();
-            o.actionToUse = actionToUse;
-            o.name = name;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride();
+            _resultValue.actionToUse = actionToUse;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

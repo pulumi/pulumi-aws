@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dms.LookupReplicationSubnetGroup(ctx, &dms.LookupReplicationSubnetGroupArgs{
-//				ReplicationSubnetGroupId: aws_dms_replication_subnet_group.Test.Replication_subnet_group_id,
+//				ReplicationSubnetGroupId: testAwsDmsReplicationSubnetGroup.ReplicationSubnetGroupId,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupReplicationSubnetGroup(ctx *pulumi.Context, args *LookupReplicationSubnetGroupArgs, opts ...pulumi.InvokeOption) (*LookupReplicationSubnetGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReplicationSubnetGroupResult

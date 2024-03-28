@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,6 +44,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // > **NOTE:** At least one of `size` or `snapshotId` is required when specifying an EBS volume
 //
@@ -51,9 +53,7 @@ import (
 // Using `pulumi import`, import EBS Volumes using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
-//
+// $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
 // ```
 type Volume struct {
 	pulumi.CustomResourceState
@@ -102,10 +102,6 @@ func NewVolume(ctx *pulumi.Context,
 	if args.AvailabilityZone == nil {
 		return nil, errors.New("invalid value for required argument 'AvailabilityZone'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Volume
 	err := ctx.RegisterResource("aws:ebs/volume:Volume", name, args, &resource, opts...)

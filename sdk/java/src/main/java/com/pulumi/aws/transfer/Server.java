@@ -28,7 +28,10 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Use the `aws.transfer.Tag` resource to manage the system tags used for [custom hostnames](https://docs.aws.amazon.com/transfer/latest/userguide/requirements-dns.html#tag-custom-hostname-cdk).
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -57,7 +60,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Security Policy Name
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -86,7 +93,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### VPC Endpoint
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -112,16 +123,20 @@ import javax.annotation.Nullable;
  *         var example = new Server(&#34;example&#34;, ServerArgs.builder()        
  *             .endpointType(&#34;VPC&#34;)
  *             .endpointDetails(ServerEndpointDetailsArgs.builder()
- *                 .addressAllocationIds(aws_eip.example().id())
- *                 .subnetIds(aws_subnet.example().id())
- *                 .vpcId(aws_vpc.example().id())
+ *                 .addressAllocationIds(exampleAwsEip.id())
+ *                 .subnetIds(exampleAwsSubnet.id())
+ *                 .vpcId(exampleAwsVpc.id())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### AWS Directory authentication
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -145,13 +160,17 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Server(&#34;example&#34;, ServerArgs.builder()        
  *             .identityProviderType(&#34;AWS_DIRECTORY_SERVICE&#34;)
- *             .directoryId(aws_directory_service_directory.example().id())
+ *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### AWS Lambda authentication
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -175,13 +194,17 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Server(&#34;example&#34;, ServerArgs.builder()        
  *             .identityProviderType(&#34;AWS_LAMBDA&#34;)
- *             .function(aws_lambda_identity_provider.example().arn())
+ *             .function(exampleAwsLambdaIdentityProvider.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Protocols
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -207,21 +230,25 @@ import javax.annotation.Nullable;
  *         var example = new Server(&#34;example&#34;, ServerArgs.builder()        
  *             .endpointType(&#34;VPC&#34;)
  *             .endpointDetails(ServerEndpointDetailsArgs.builder()
- *                 .subnetIds(aws_subnet.example().id())
- *                 .vpcId(aws_vpc.example().id())
+ *                 .subnetIds(exampleAwsSubnet.id())
+ *                 .vpcId(exampleAwsVpc.id())
  *                 .build())
  *             .protocols(            
  *                 &#34;FTP&#34;,
  *                 &#34;FTPS&#34;)
- *             .certificate(aws_acm_certificate.example().arn())
+ *             .certificate(exampleAwsAcmCertificate.arn())
  *             .identityProviderType(&#34;API_GATEWAY&#34;)
- *             .url(String.format(&#34;%s%s&#34;, aws_api_gateway_deployment.example().invoke_url(),aws_api_gateway_resource.example().path()))
+ *             .url(String.format(&#34;%s%s&#34;, exampleAwsApiGatewayDeployment.invokeUrl(),exampleAwsApiGatewayResource.path()))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Using Structured Logging Destinations
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -249,7 +276,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var transferLogGroup = new LogGroup(&#34;transferLogGroup&#34;, LogGroupArgs.builder()        
+ *         var transfer = new LogGroup(&#34;transfer&#34;, LogGroupArgs.builder()        
  *             .namePrefix(&#34;transfer_test_&#34;)
  *             .build());
  * 
@@ -274,21 +301,22 @@ import javax.annotation.Nullable;
  *             .endpointType(&#34;PUBLIC&#34;)
  *             .loggingRole(iamForTransfer.arn())
  *             .protocols(&#34;SFTP&#34;)
- *             .structuredLogDestinations(transferLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
+ *             .structuredLogDestinations(transfer.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Transfer Servers using the server `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:transfer/server:Server example s-12345678
+ * $ pulumi import aws:transfer/server:Server example s-12345678
  * ```
- *  Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
+ * Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
  * 
  */
 @ResourceType(type="aws:transfer/server:Server")
@@ -546,14 +574,34 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.protocols;
     }
     /**
-     * Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
+     * Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+     * * `TransferSecurityPolicy-2024-01`
+     * * `TransferSecurityPolicy-2023-05`
+     * * `TransferSecurityPolicy-2022-03`
+     * * `TransferSecurityPolicy-2020-06`
+     * * `TransferSecurityPolicy-2018-11`
+     * * `TransferSecurityPolicy-FIPS-2024-01`
+     * * `TransferSecurityPolicy-FIPS-2023-05`
+     * * `TransferSecurityPolicy-FIPS-2020-06`
+     * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+     * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
      * 
      */
     @Export(name="securityPolicyName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> securityPolicyName;
 
     /**
-     * @return Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
+     * @return Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+     * * `TransferSecurityPolicy-2024-01`
+     * * `TransferSecurityPolicy-2023-05`
+     * * `TransferSecurityPolicy-2022-03`
+     * * `TransferSecurityPolicy-2020-06`
+     * * `TransferSecurityPolicy-2018-11`
+     * * `TransferSecurityPolicy-FIPS-2024-01`
+     * * `TransferSecurityPolicy-FIPS-2023-05`
+     * * `TransferSecurityPolicy-FIPS-2020-06`
+     * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+     * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
      * 
      */
     public Output<Optional<String>> securityPolicyName() {
@@ -669,8 +717,7 @@ public class Server extends com.pulumi.resources.CustomResource {
             .additionalSecretOutputs(List.of(
                 "hostKey",
                 "postAuthenticationLoginBanner",
-                "preAuthenticationLoginBanner",
-                "tagsAll"
+                "preAuthenticationLoginBanner"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

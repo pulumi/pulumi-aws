@@ -18,8 +18,11 @@ import (
 // > **Note:** Amazon S3 supports server access logging, AWS CloudTrail, or a combination of both. Refer to the [Logging options for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/logging-with-S3.html)
 // to decide which method meets your requirements.
 //
+// > This resource cannot be used with S3 directory buckets.
+//
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,30 +35,34 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("my-tf-example-bucket"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//				Bucket: example.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			logBucket, err := s3.NewBucketV2(ctx, "logBucket", nil)
+//			logBucket, err := s3.NewBucketV2(ctx, "log_bucket", &s3.BucketV2Args{
+//				Bucket: pulumi.String("my-tf-log-bucket"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "logBucketAcl", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAclV2(ctx, "log_bucket_acl", &s3.BucketAclV2Args{
 //				Bucket: logBucket.ID(),
 //				Acl:    pulumi.String("log-delivery-write"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketLoggingV2(ctx, "exampleBucketLoggingV2", &s3.BucketLoggingV2Args{
-//				Bucket:       exampleBucketV2.ID(),
+//			_, err = s3.NewBucketLoggingV2(ctx, "example", &s3.BucketLoggingV2Args{
+//				Bucket:       example.ID(),
 //				TargetBucket: logBucket.ID(),
 //				TargetPrefix: pulumi.String("log/"),
 //			})
@@ -67,6 +74,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -77,17 +85,12 @@ import (
 // If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name
-//
+// $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name
 // ```
-//
-//	If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name,123456789012
-//
+// $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name,123456789012
 // ```
 type BucketLoggingV2 struct {
 	pulumi.CustomResourceState
@@ -100,6 +103,8 @@ type BucketLoggingV2 struct {
 	TargetBucket pulumi.StringOutput `pulumi:"targetBucket"`
 	// Set of configuration blocks with information for granting permissions. See below.
 	TargetGrants BucketLoggingV2TargetGrantArrayOutput `pulumi:"targetGrants"`
+	// Amazon S3 key format for log objects. See below.
+	TargetObjectKeyFormat BucketLoggingV2TargetObjectKeyFormatPtrOutput `pulumi:"targetObjectKeyFormat"`
 	// Prefix for all log object keys.
 	TargetPrefix pulumi.StringOutput `pulumi:"targetPrefix"`
 }
@@ -151,6 +156,8 @@ type bucketLoggingV2State struct {
 	TargetBucket *string `pulumi:"targetBucket"`
 	// Set of configuration blocks with information for granting permissions. See below.
 	TargetGrants []BucketLoggingV2TargetGrant `pulumi:"targetGrants"`
+	// Amazon S3 key format for log objects. See below.
+	TargetObjectKeyFormat *BucketLoggingV2TargetObjectKeyFormat `pulumi:"targetObjectKeyFormat"`
 	// Prefix for all log object keys.
 	TargetPrefix *string `pulumi:"targetPrefix"`
 }
@@ -164,6 +171,8 @@ type BucketLoggingV2State struct {
 	TargetBucket pulumi.StringPtrInput
 	// Set of configuration blocks with information for granting permissions. See below.
 	TargetGrants BucketLoggingV2TargetGrantArrayInput
+	// Amazon S3 key format for log objects. See below.
+	TargetObjectKeyFormat BucketLoggingV2TargetObjectKeyFormatPtrInput
 	// Prefix for all log object keys.
 	TargetPrefix pulumi.StringPtrInput
 }
@@ -181,6 +190,8 @@ type bucketLoggingV2Args struct {
 	TargetBucket string `pulumi:"targetBucket"`
 	// Set of configuration blocks with information for granting permissions. See below.
 	TargetGrants []BucketLoggingV2TargetGrant `pulumi:"targetGrants"`
+	// Amazon S3 key format for log objects. See below.
+	TargetObjectKeyFormat *BucketLoggingV2TargetObjectKeyFormat `pulumi:"targetObjectKeyFormat"`
 	// Prefix for all log object keys.
 	TargetPrefix string `pulumi:"targetPrefix"`
 }
@@ -195,6 +206,8 @@ type BucketLoggingV2Args struct {
 	TargetBucket pulumi.StringInput
 	// Set of configuration blocks with information for granting permissions. See below.
 	TargetGrants BucketLoggingV2TargetGrantArrayInput
+	// Amazon S3 key format for log objects. See below.
+	TargetObjectKeyFormat BucketLoggingV2TargetObjectKeyFormatPtrInput
 	// Prefix for all log object keys.
 	TargetPrefix pulumi.StringInput
 }
@@ -304,6 +317,11 @@ func (o BucketLoggingV2Output) TargetBucket() pulumi.StringOutput {
 // Set of configuration blocks with information for granting permissions. See below.
 func (o BucketLoggingV2Output) TargetGrants() BucketLoggingV2TargetGrantArrayOutput {
 	return o.ApplyT(func(v *BucketLoggingV2) BucketLoggingV2TargetGrantArrayOutput { return v.TargetGrants }).(BucketLoggingV2TargetGrantArrayOutput)
+}
+
+// Amazon S3 key format for log objects. See below.
+func (o BucketLoggingV2Output) TargetObjectKeyFormat() BucketLoggingV2TargetObjectKeyFormatPtrOutput {
+	return o.ApplyT(func(v *BucketLoggingV2) BucketLoggingV2TargetObjectKeyFormatPtrOutput { return v.TargetObjectKeyFormat }).(BucketLoggingV2TargetObjectKeyFormatPtrOutput)
 }
 
 // Prefix for all log object keys.

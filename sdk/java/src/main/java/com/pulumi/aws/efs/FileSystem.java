@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.efs.FileSystemArgs;
 import com.pulumi.aws.efs.inputs.FileSystemState;
 import com.pulumi.aws.efs.outputs.FileSystemLifecyclePolicy;
+import com.pulumi.aws.efs.outputs.FileSystemProtection;
 import com.pulumi.aws.efs.outputs.FileSystemSizeInByte;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -25,7 +26,10 @@ import javax.annotation.Nullable;
  * Provides an Elastic File System (EFS) File System resource.
  * 
  * ## Example Usage
+ * 
  * ### EFS File System w/ tags
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,13 +52,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new FileSystem(&#34;foo&#34;, FileSystemArgs.builder()        
+ *             .creationToken(&#34;my-product&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;MyProduct&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Using lifecycle policy
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -78,6 +87,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var fooWithLifecylePolicy = new FileSystem(&#34;fooWithLifecylePolicy&#34;, FileSystemArgs.builder()        
+ *             .creationToken(&#34;my-product&#34;)
  *             .lifecyclePolicies(FileSystemLifecyclePolicyArgs.builder()
  *                 .transitionToIa(&#34;AFTER_30_DAYS&#34;)
  *                 .build())
@@ -86,13 +96,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import the EFS file systems using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
+ * $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
  * ```
  * 
  */
@@ -127,14 +138,14 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
         return this.availabilityZoneId;
     }
     /**
-     * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+     * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
      * 
      */
     @Export(name="availabilityZoneName", refs={String.class}, tree="[0]")
     private Output<String> availabilityZoneName;
 
     /**
-     * @return the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+     * @return the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
      * 
      */
     public Output<String> availabilityZoneName() {
@@ -203,14 +214,14 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
         return this.kmsKeyId;
     }
     /**
-     * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+     * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
      * 
      */
     @Export(name="lifecyclePolicies", refs={List.class,FileSystemLifecyclePolicy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FileSystemLifecyclePolicy>> lifecyclePolicies;
 
     /**
-     * @return A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+     * @return A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
      * 
      */
     public Output<Optional<List<FileSystemLifecyclePolicy>>> lifecyclePolicies() {
@@ -271,6 +282,20 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      */
     public Output<String> performanceMode() {
         return this.performanceMode;
+    }
+    /**
+     * A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
+     * 
+     */
+    @Export(name="protection", refs={FileSystemProtection.class}, tree="[0]")
+    private Output<FileSystemProtection> protection;
+
+    /**
+     * @return A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
+     * 
+     */
+    public Output<FileSystemProtection> protection() {
+        return this.protection;
     }
     /**
      * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
@@ -379,9 +404,6 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

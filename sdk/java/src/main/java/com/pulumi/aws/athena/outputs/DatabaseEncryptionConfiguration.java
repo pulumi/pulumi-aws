@@ -4,6 +4,7 @@
 package com.pulumi.aws.athena.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,19 +59,23 @@ public final class DatabaseEncryptionConfiguration {
 
         @CustomType.Setter
         public Builder encryptionOption(String encryptionOption) {
-            this.encryptionOption = Objects.requireNonNull(encryptionOption);
+            if (encryptionOption == null) {
+              throw new MissingRequiredPropertyException("DatabaseEncryptionConfiguration", "encryptionOption");
+            }
+            this.encryptionOption = encryptionOption;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKey(@Nullable String kmsKey) {
+
             this.kmsKey = kmsKey;
             return this;
         }
         public DatabaseEncryptionConfiguration build() {
-            final var o = new DatabaseEncryptionConfiguration();
-            o.encryptionOption = encryptionOption;
-            o.kmsKey = kmsKey;
-            return o;
+            final var _resultValue = new DatabaseEncryptionConfiguration();
+            _resultValue.encryptionOption = encryptionOption;
+            _resultValue.kmsKey = kmsKey;
+            return _resultValue;
         }
     }
 }

@@ -5,6 +5,7 @@ package com.pulumi.aws.lex.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class V2modelsBotDataPrivacyArgs extends com.pulumi.resources.Resou
         }
 
         public V2modelsBotDataPrivacyArgs build() {
-            $.childDirected = Objects.requireNonNull($.childDirected, "expected parameter 'childDirected' to be non-null");
+            if ($.childDirected == null) {
+                throw new MissingRequiredPropertyException("V2modelsBotDataPrivacyArgs", "childDirected");
+            }
             return $;
         }
     }

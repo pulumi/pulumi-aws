@@ -10,22 +10,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kinesisanalyticsv2.ApplicationSnapshot("example", {
- *     applicationName: aws_kinesisanalyticsv2_application.example.name,
+ *     applicationName: exampleAwsKinesisanalyticsv2Application.name,
  *     snapshotName: "example-snapshot",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using `application_name` together with `snapshot_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
+ * $ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
  * ```
  */
 export class ApplicationSnapshot extends pulumi.CustomResource {

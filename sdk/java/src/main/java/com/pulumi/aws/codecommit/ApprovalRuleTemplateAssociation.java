@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Associates a CodeCommit Approval Rule Template with a Repository.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -39,20 +41,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ApprovalRuleTemplateAssociation(&#34;example&#34;, ApprovalRuleTemplateAssociationArgs.builder()        
- *             .approvalRuleTemplateName(aws_codecommit_approval_rule_template.example().name())
- *             .repositoryName(aws_codecommit_repository.example().repository_name())
+ *             .approvalRuleTemplateName(exampleAwsCodecommitApprovalRuleTemplate.name())
+ *             .repositoryName(exampleAwsCodecommitRepository.repositoryName())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CodeCommit approval rule template associations using the `approval_rule_template_name` and `repository_name` separated by a comma (`,`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation example approver-rule-for-example,MyExampleRepo
+ * $ pulumi import aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation example approver-rule-for-example,MyExampleRepo
  * ```
  * 
  */

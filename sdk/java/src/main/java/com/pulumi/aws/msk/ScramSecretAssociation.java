@@ -28,6 +28,8 @@ import javax.annotation.Nullable;
  * resource](/docs/providers/aws/r/secretsmanager_secret_policy.html) as shown below in order to ensure that the state is in a clean state after the creation of secret and the association to the cluster.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,16 +44,15 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.secretsmanager.Secret;
  * import com.pulumi.aws.secretsmanager.SecretArgs;
- * import com.pulumi.aws.secretsmanager.SecretVersion;
- * import com.pulumi.aws.secretsmanager.SecretVersionArgs;
  * import com.pulumi.aws.msk.ScramSecretAssociation;
  * import com.pulumi.aws.msk.ScramSecretAssociationArgs;
+ * import com.pulumi.aws.secretsmanager.SecretVersion;
+ * import com.pulumi.aws.secretsmanager.SecretVersionArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.secretsmanager.SecretPolicy;
  * import com.pulumi.aws.secretsmanager.SecretPolicyArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -66,6 +67,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
+ *             .clusterName(&#34;example&#34;)
  *             .clientAuthentication(ClusterClientAuthenticationArgs.builder()
  *                 .sasl(ClusterClientAuthenticationSaslArgs.builder()
  *                     .scram(true)
@@ -78,7 +80,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSecret = new Secret(&#34;exampleSecret&#34;, SecretArgs.builder()        
+ *             .name(&#34;AmazonMSK_example&#34;)
  *             .kmsKeyId(exampleKey.keyId())
+ *             .build());
+ * 
+ *         var exampleScramSecretAssociation = new ScramSecretAssociation(&#34;exampleScramSecretAssociation&#34;, ScramSecretAssociationArgs.builder()        
+ *             .clusterArn(exampleCluster.arn())
+ *             .secretArnLists(exampleSecret.arn())
  *             .build());
  * 
  *         var exampleSecretVersion = new SecretVersion(&#34;exampleSecretVersion&#34;, SecretVersionArgs.builder()        
@@ -90,14 +98,7 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var exampleScramSecretAssociation = new ScramSecretAssociation(&#34;exampleScramSecretAssociation&#34;, ScramSecretAssociationArgs.builder()        
- *             .clusterArn(exampleCluster.arn())
- *             .secretArnLists(exampleSecret.arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleSecretVersion)
- *                 .build());
- * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;AWSKafkaResourcePolicy&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -112,19 +113,20 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSecretPolicy = new SecretPolicy(&#34;exampleSecretPolicy&#34;, SecretPolicyArgs.builder()        
  *             .secretArn(exampleSecret.arn())
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(examplePolicyDocument -&gt; examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import MSK SCRAM Secret Associations using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+ * $ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
  * ```
  * 
  */

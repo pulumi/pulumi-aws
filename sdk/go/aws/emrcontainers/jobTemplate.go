@@ -15,8 +15,10 @@ import (
 // Manages an EMR Containers (EMR on EKS) Job Template.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,7 +33,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emrcontainers.NewJobTemplate(ctx, "example", &emrcontainers.JobTemplateArgs{
 //				JobTemplateData: &emrcontainers.JobTemplateJobTemplateDataArgs{
-//					ExecutionRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//					ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //					ReleaseLabel:     pulumi.String("emr-6.10.0-latest"),
 //					JobDriver: &emrcontainers.JobTemplateJobTemplateDataJobDriverArgs{
 //						SparkSqlJobDriver: &emrcontainers.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs{
@@ -39,6 +41,7 @@ import (
 //						},
 //					},
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -48,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EKS job templates using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
-//
+// $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
 // ```
 type JobTemplate struct {
 	pulumi.CustomResourceState
@@ -87,10 +89,6 @@ func NewJobTemplate(ctx *pulumi.Context,
 	if args.JobTemplateData == nil {
 		return nil, errors.New("invalid value for required argument 'JobTemplateData'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource JobTemplate
 	err := ctx.RegisterResource("aws:emrcontainers/jobTemplate:JobTemplate", name, args, &resource, opts...)

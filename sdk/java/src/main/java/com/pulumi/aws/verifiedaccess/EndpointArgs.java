@@ -8,6 +8,7 @@ import com.pulumi.aws.verifiedaccess.inputs.EndpointNetworkInterfaceOptionsArgs;
 import com.pulumi.aws.verifiedaccess.inputs.EndpointSseSpecificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -141,6 +142,21 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The policy document that is associated with this resource.
+     * 
+     */
+    @Import(name="policyDocument")
+    private @Nullable Output<String> policyDocument;
+
+    /**
+     * @return The policy document that is associated with this resource.
+     * 
+     */
+    public Optional<Output<String>> policyDocument() {
+        return Optional.ofNullable(this.policyDocument);
+    }
+
+    /**
      * List of the the security groups IDs to associate with the Verified Access endpoint.
      * 
      */
@@ -215,6 +231,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         this.endpointType = $.endpointType;
         this.loadBalancerOptions = $.loadBalancerOptions;
         this.networkInterfaceOptions = $.networkInterfaceOptions;
+        this.policyDocument = $.policyDocument;
         this.securityGroupIds = $.securityGroupIds;
         this.sseSpecification = $.sseSpecification;
         this.tags = $.tags;
@@ -408,6 +425,27 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param policyDocument The policy document that is associated with this resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policyDocument(@Nullable Output<String> policyDocument) {
+            $.policyDocument = policyDocument;
+            return this;
+        }
+
+        /**
+         * @param policyDocument The policy document that is associated with this resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policyDocument(String policyDocument) {
+            return policyDocument(Output.of(policyDocument));
+        }
+
+        /**
          * @param securityGroupIds List of the the security groups IDs to associate with the Verified Access endpoint.
          * 
          * @return builder
@@ -506,12 +544,24 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EndpointArgs build() {
-            $.applicationDomain = Objects.requireNonNull($.applicationDomain, "expected parameter 'applicationDomain' to be non-null");
-            $.attachmentType = Objects.requireNonNull($.attachmentType, "expected parameter 'attachmentType' to be non-null");
-            $.domainCertificateArn = Objects.requireNonNull($.domainCertificateArn, "expected parameter 'domainCertificateArn' to be non-null");
-            $.endpointDomainPrefix = Objects.requireNonNull($.endpointDomainPrefix, "expected parameter 'endpointDomainPrefix' to be non-null");
-            $.endpointType = Objects.requireNonNull($.endpointType, "expected parameter 'endpointType' to be non-null");
-            $.verifiedAccessGroupId = Objects.requireNonNull($.verifiedAccessGroupId, "expected parameter 'verifiedAccessGroupId' to be non-null");
+            if ($.applicationDomain == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "applicationDomain");
+            }
+            if ($.attachmentType == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "attachmentType");
+            }
+            if ($.domainCertificateArn == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "domainCertificateArn");
+            }
+            if ($.endpointDomainPrefix == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "endpointDomainPrefix");
+            }
+            if ($.endpointType == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "endpointType");
+            }
+            if ($.verifiedAccessGroupId == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "verifiedAccessGroupId");
+            }
             return $;
         }
     }

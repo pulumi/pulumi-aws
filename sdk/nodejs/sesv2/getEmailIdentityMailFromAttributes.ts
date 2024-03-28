@@ -8,19 +8,22 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleEmailIdentity = aws.sesv2.getEmailIdentity({
+ * const example = aws.sesv2.getEmailIdentity({
  *     emailIdentity: "example.com",
  * });
- * const exampleEmailIdentityMailFromAttributes = exampleEmailIdentity.then(exampleEmailIdentity => aws.sesv2.getEmailIdentityMailFromAttributes({
- *     emailIdentity: exampleEmailIdentity.emailIdentity,
+ * const exampleGetEmailIdentityMailFromAttributes = example.then(example => aws.sesv2.getEmailIdentityMailFromAttributes({
+ *     emailIdentity: example.emailIdentity,
  * }));
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEmailIdentityMailFromAttributes(args: GetEmailIdentityMailFromAttributesArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailIdentityMailFromAttributesResult> {
 
@@ -62,19 +65,22 @@ export interface GetEmailIdentityMailFromAttributesResult {
  * Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleEmailIdentity = aws.sesv2.getEmailIdentity({
+ * const example = aws.sesv2.getEmailIdentity({
  *     emailIdentity: "example.com",
  * });
- * const exampleEmailIdentityMailFromAttributes = exampleEmailIdentity.then(exampleEmailIdentity => aws.sesv2.getEmailIdentityMailFromAttributes({
- *     emailIdentity: exampleEmailIdentity.emailIdentity,
+ * const exampleGetEmailIdentityMailFromAttributes = example.then(example => aws.sesv2.getEmailIdentityMailFromAttributes({
+ *     emailIdentity: example.emailIdentity,
  * }));
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEmailIdentityMailFromAttributesOutput(args: GetEmailIdentityMailFromAttributesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailIdentityMailFromAttributesResult> {
     return pulumi.output(args).apply((a: any) => getEmailIdentityMailFromAttributes(a, opts))

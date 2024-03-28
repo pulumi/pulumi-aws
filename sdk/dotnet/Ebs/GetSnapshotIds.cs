@@ -15,10 +15,9 @@ namespace Pulumi.Aws.Ebs
         /// Use this data source to get a list of EBS Snapshot IDs matching the specified
         /// criteria.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -29,6 +28,10 @@ namespace Pulumi.Aws.Ebs
         /// {
         ///     var ebsVolumes = Aws.Ebs.GetSnapshotIds.Invoke(new()
         ///     {
+        ///         Owners = new[]
+        ///         {
+        ///             "self",
+        ///         },
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ebs.Inputs.GetSnapshotIdsFilterInputArgs
@@ -48,16 +51,11 @@ namespace Pulumi.Aws.Ebs
         ///                 },
         ///             },
         ///         },
-        ///         Owners = new[]
-        ///         {
-        ///             "self",
-        ///         },
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSnapshotIdsResult> InvokeAsync(GetSnapshotIdsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotIdsResult>("aws:ebs/getSnapshotIds:getSnapshotIds", args ?? new GetSnapshotIdsArgs(), options.WithDefaults());
@@ -66,10 +64,9 @@ namespace Pulumi.Aws.Ebs
         /// Use this data source to get a list of EBS Snapshot IDs matching the specified
         /// criteria.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -80,6 +77,10 @@ namespace Pulumi.Aws.Ebs
         /// {
         ///     var ebsVolumes = Aws.Ebs.GetSnapshotIds.Invoke(new()
         ///     {
+        ///         Owners = new[]
+        ///         {
+        ///             "self",
+        ///         },
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ebs.Inputs.GetSnapshotIdsFilterInputArgs
@@ -99,16 +100,11 @@ namespace Pulumi.Aws.Ebs
         ///                 },
         ///             },
         ///         },
-        ///         Owners = new[]
-        ///         {
-        ///             "self",
-        ///         },
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSnapshotIdsResult> Invoke(GetSnapshotIdsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotIdsResult>("aws:ebs/getSnapshotIds:getSnapshotIds", args ?? new GetSnapshotIdsInvokeArgs(), options.WithDefaults());

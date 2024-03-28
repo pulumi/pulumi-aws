@@ -59,19 +59,21 @@ public final class ImagePipelineImageScanningConfiguration {
 
         @CustomType.Setter
         public Builder ecrConfiguration(@Nullable ImagePipelineImageScanningConfigurationEcrConfiguration ecrConfiguration) {
+
             this.ecrConfiguration = ecrConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder imageScanningEnabled(@Nullable Boolean imageScanningEnabled) {
+
             this.imageScanningEnabled = imageScanningEnabled;
             return this;
         }
         public ImagePipelineImageScanningConfiguration build() {
-            final var o = new ImagePipelineImageScanningConfiguration();
-            o.ecrConfiguration = ecrConfiguration;
-            o.imageScanningEnabled = imageScanningEnabled;
-            return o;
+            final var _resultValue = new ImagePipelineImageScanningConfiguration();
+            _resultValue.ecrConfiguration = ecrConfiguration;
+            _resultValue.imageScanningEnabled = imageScanningEnabled;
+            return _resultValue;
         }
     }
 }

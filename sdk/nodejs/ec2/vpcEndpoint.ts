@@ -19,71 +19,83 @@ import * as utilities from "../utilities";
  * Doing so will cause a conflict of associations and will overwrite the association.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const s3 = new aws.ec2.VpcEndpoint("s3", {
- *     vpcId: aws_vpc.main.id,
+ *     vpcId: main.id,
  *     serviceName: "com.amazonaws.us-west-2.s3",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Basic w/ Tags
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const s3 = new aws.ec2.VpcEndpoint("s3", {
- *     vpcId: aws_vpc.main.id,
+ *     vpcId: main.id,
  *     serviceName: "com.amazonaws.us-west-2.s3",
  *     tags: {
  *         Environment: "test",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Interface Endpoint Type
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const ec2 = new aws.ec2.VpcEndpoint("ec2", {
- *     vpcId: aws_vpc.main.id,
+ *     vpcId: main.id,
  *     serviceName: "com.amazonaws.us-west-2.ec2",
  *     vpcEndpointType: "Interface",
- *     securityGroupIds: [aws_security_group.sg1.id],
+ *     securityGroupIds: [sg1.id],
  *     privateDnsEnabled: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Gateway Load Balancer Endpoint Type
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getCallerIdentity({});
- * const exampleVpcEndpointService = new aws.ec2.VpcEndpointService("exampleVpcEndpointService", {
+ * const example = new aws.ec2.VpcEndpointService("example", {
  *     acceptanceRequired: false,
  *     allowedPrincipals: [current.then(current => current.arn)],
- *     gatewayLoadBalancerArns: [aws_lb.example.arn],
+ *     gatewayLoadBalancerArns: [exampleAwsLb.arn],
  * });
- * const exampleVpcEndpoint = new aws.ec2.VpcEndpoint("exampleVpcEndpoint", {
- *     serviceName: exampleVpcEndpointService.serviceName,
- *     subnetIds: [aws_subnet.example.id],
- *     vpcEndpointType: exampleVpcEndpointService.serviceType,
- *     vpcId: aws_vpc.example.id,
+ * const exampleVpcEndpoint = new aws.ec2.VpcEndpoint("example", {
+ *     serviceName: example.serviceName,
+ *     subnetIds: [exampleAwsSubnet.id],
+ *     vpcEndpointType: example.serviceType,
+ *     vpcId: exampleAwsVpc.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint endpoint1 vpce-3ecf2a57
+ * $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint endpoint1 vpce-3ecf2a57
  * ```
  */
 export class VpcEndpoint extends pulumi.CustomResource {
@@ -268,8 +280,6 @@ export class VpcEndpoint extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VpcEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }

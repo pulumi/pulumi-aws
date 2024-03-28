@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTlCertificate;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTlValidation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -49,7 +50,10 @@ public final class GetVirtualNodeSpecListenerTl {
 
         @CustomType.Setter
         public Builder certificates(List<GetVirtualNodeSpecListenerTlCertificate> certificates) {
-            this.certificates = Objects.requireNonNull(certificates);
+            if (certificates == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerTl", "certificates");
+            }
+            this.certificates = certificates;
             return this;
         }
         public Builder certificates(GetVirtualNodeSpecListenerTlCertificate... certificates) {
@@ -57,23 +61,29 @@ public final class GetVirtualNodeSpecListenerTl {
         }
         @CustomType.Setter
         public Builder mode(String mode) {
-            this.mode = Objects.requireNonNull(mode);
+            if (mode == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerTl", "mode");
+            }
+            this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder validations(List<GetVirtualNodeSpecListenerTlValidation> validations) {
-            this.validations = Objects.requireNonNull(validations);
+            if (validations == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerTl", "validations");
+            }
+            this.validations = validations;
             return this;
         }
         public Builder validations(GetVirtualNodeSpecListenerTlValidation... validations) {
             return validations(List.of(validations));
         }
         public GetVirtualNodeSpecListenerTl build() {
-            final var o = new GetVirtualNodeSpecListenerTl();
-            o.certificates = certificates;
-            o.mode = mode;
-            o.validations = validations;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListenerTl();
+            _resultValue.certificates = certificates;
+            _resultValue.mode = mode;
+            _resultValue.validations = validations;
+            return _resultValue;
         }
     }
 }

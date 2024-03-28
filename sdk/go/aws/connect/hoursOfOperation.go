@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,6 +31,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewHoursOfOperation(ctx, "test", &connect.HoursOfOperationArgs{
+//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:        pulumi.String("Office Hours"),
+//				Description: pulumi.String("Monday office hours"),
+//				TimeZone:    pulumi.String("EST"),
 //				Configs: connect.HoursOfOperationConfigArray{
 //					&connect.HoursOfOperationConfigArgs{
 //						Day: pulumi.String("MONDAY"),
@@ -54,12 +59,9 @@ import (
 //						},
 //					},
 //				},
-//				Description: pulumi.String("Monday office hours"),
-//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example Hours of Operation"),
 //				},
-//				TimeZone: pulumi.String("EST"),
 //			})
 //			if err != nil {
 //				return err
@@ -69,15 +71,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Amazon Connect Hours of Operations using the `instance_id` and `hours_of_operation_id` separated by a colon (`:`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:connect/hoursOfOperation:HoursOfOperation example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-//
+// $ pulumi import aws:connect/hoursOfOperation:HoursOfOperation example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 // ```
 type HoursOfOperation struct {
 	pulumi.CustomResourceState
@@ -120,10 +121,6 @@ func NewHoursOfOperation(ctx *pulumi.Context,
 	if args.TimeZone == nil {
 		return nil, errors.New("invalid value for required argument 'TimeZone'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HoursOfOperation
 	err := ctx.RegisterResource("aws:connect/hoursOfOperation:HoursOfOperation", name, args, &resource, opts...)

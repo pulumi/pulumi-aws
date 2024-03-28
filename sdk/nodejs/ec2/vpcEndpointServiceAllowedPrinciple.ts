@@ -17,16 +17,18 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getCallerIdentity({});
- * const allowMeToFoo = new aws.ec2.VpcEndpointServiceAllowedPrinciple("allowMeToFoo", {
- *     vpcEndpointServiceId: aws_vpc_endpoint_service.foo.id,
+ * const allowMeToFoo = new aws.ec2.VpcEndpointServiceAllowedPrinciple("allow_me_to_foo", {
+ *     vpcEndpointServiceId: foo.id,
  *     principalArn: current.then(current => current.arn),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
     /**

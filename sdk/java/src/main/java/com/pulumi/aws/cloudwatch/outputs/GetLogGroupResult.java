@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -31,6 +32,11 @@ public final class GetLogGroupResult {
      * 
      */
     private String kmsKeyId;
+    /**
+     * @return The log class of the log group.
+     * 
+     */
+    private String logGroupClass;
     private String name;
     /**
      * @return Number of days log events retained in the specified log group.
@@ -72,6 +78,13 @@ public final class GetLogGroupResult {
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
+    /**
+     * @return The log class of the log group.
+     * 
+     */
+    public String logGroupClass() {
+        return this.logGroupClass;
+    }
     public String name() {
         return this.name;
     }
@@ -103,6 +116,7 @@ public final class GetLogGroupResult {
         private Integer creationTime;
         private String id;
         private String kmsKeyId;
+        private String logGroupClass;
         private String name;
         private Integer retentionInDays;
         private Map<String,String> tags;
@@ -113,6 +127,7 @@ public final class GetLogGroupResult {
     	      this.creationTime = defaults.creationTime;
     	      this.id = defaults.id;
     	      this.kmsKeyId = defaults.kmsKeyId;
+    	      this.logGroupClass = defaults.logGroupClass;
     	      this.name = defaults.name;
     	      this.retentionInDays = defaults.retentionInDays;
     	      this.tags = defaults.tags;
@@ -120,49 +135,79 @@ public final class GetLogGroupResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetLogGroupResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder creationTime(Integer creationTime) {
-            this.creationTime = Objects.requireNonNull(creationTime);
+            if (creationTime == null) {
+              throw new MissingRequiredPropertyException("GetLogGroupResult", "creationTime");
+            }
+            this.creationTime = creationTime;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLogGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+            if (kmsKeyId == null) {
+              throw new MissingRequiredPropertyException("GetLogGroupResult", "kmsKeyId");
+            }
+            this.kmsKeyId = kmsKeyId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder logGroupClass(String logGroupClass) {
+            if (logGroupClass == null) {
+              throw new MissingRequiredPropertyException("GetLogGroupResult", "logGroupClass");
+            }
+            this.logGroupClass = logGroupClass;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetLogGroupResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder retentionInDays(Integer retentionInDays) {
-            this.retentionInDays = Objects.requireNonNull(retentionInDays);
+            if (retentionInDays == null) {
+              throw new MissingRequiredPropertyException("GetLogGroupResult", "retentionInDays");
+            }
+            this.retentionInDays = retentionInDays;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetLogGroupResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetLogGroupResult build() {
-            final var o = new GetLogGroupResult();
-            o.arn = arn;
-            o.creationTime = creationTime;
-            o.id = id;
-            o.kmsKeyId = kmsKeyId;
-            o.name = name;
-            o.retentionInDays = retentionInDays;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetLogGroupResult();
+            _resultValue.arn = arn;
+            _resultValue.creationTime = creationTime;
+            _resultValue.id = id;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.logGroupClass = logGroupClass;
+            _resultValue.name = name;
+            _resultValue.retentionInDays = retentionInDays;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

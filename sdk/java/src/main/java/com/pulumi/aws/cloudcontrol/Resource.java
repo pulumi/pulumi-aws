@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Manages a Cloud Control API Resource. The configuration and lifecycle handling of these resources is proxied through Cloud Control API handlers to the backend service.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,10 +47,10 @@ import javax.annotation.Nullable;
  *             .typeName(&#34;AWS::ECS::Cluster&#34;)
  *             .desiredState(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;ClusterName&#34;, &#34;example&#34;),
- *                     jsonProperty(&#34;Tags&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Key&#34;, &#34;CostCenter&#34;),
- *                         jsonProperty(&#34;Value&#34;, &#34;IT&#34;)
+ *                     jsonProperty(&#34;clusterName&#34;, &#34;example&#34;),
+ *                     jsonProperty(&#34;tags&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;key&#34;, &#34;CostCenter&#34;),
+ *                         jsonProperty(&#34;value&#34;, &#34;IT&#34;)
  *                     )))
  *                 )))
  *             .build());
@@ -56,6 +58,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:cloudcontrol/resource:Resource")

@@ -58,19 +58,21 @@ public final class LaunchTemplateCapacityReservationSpecificationCapacityReserva
 
         @CustomType.Setter
         public Builder capacityReservationId(@Nullable String capacityReservationId) {
+
             this.capacityReservationId = capacityReservationId;
             return this;
         }
         @CustomType.Setter
         public Builder capacityReservationResourceGroupArn(@Nullable String capacityReservationResourceGroupArn) {
+
             this.capacityReservationResourceGroupArn = capacityReservationResourceGroupArn;
             return this;
         }
         public LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget build() {
-            final var o = new LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget();
-            o.capacityReservationId = capacityReservationId;
-            o.capacityReservationResourceGroupArn = capacityReservationResourceGroupArn;
-            return o;
+            final var _resultValue = new LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget();
+            _resultValue.capacityReservationId = capacityReservationId;
+            _resultValue.capacityReservationResourceGroupArn = capacityReservationResourceGroupArn;
+            return _resultValue;
         }
     }
 }

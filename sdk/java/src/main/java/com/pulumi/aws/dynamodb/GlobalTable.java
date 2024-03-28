@@ -23,21 +23,20 @@ import javax.annotation.Nullable;
  * &gt; Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
  * import com.pulumi.aws.dynamodb.Table;
  * import com.pulumi.aws.dynamodb.TableArgs;
  * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
  * import com.pulumi.aws.dynamodb.GlobalTable;
  * import com.pulumi.aws.dynamodb.GlobalTableArgs;
  * import com.pulumi.aws.dynamodb.inputs.GlobalTableReplicaArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,16 +50,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var us_east_1 = new Provider(&#34;us-east-1&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-east-1&#34;)
- *             .build());
- * 
- *         var us_west_2 = new Provider(&#34;us-west-2&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-west-2&#34;)
- *             .build());
- * 
- *         var us_east_1Table = new Table(&#34;us-east-1Table&#34;, TableArgs.builder()        
+ *         var us_east_1 = new Table(&#34;us-east-1&#34;, TableArgs.builder()        
  *             .hashKey(&#34;myAttribute&#34;)
+ *             .name(&#34;myTable&#34;)
  *             .streamEnabled(true)
  *             .streamViewType(&#34;NEW_AND_OLD_IMAGES&#34;)
  *             .readCapacity(1)
@@ -69,12 +61,11 @@ import javax.annotation.Nullable;
  *                 .name(&#34;myAttribute&#34;)
  *                 .type(&#34;S&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.us-east-1())
- *                 .build());
+ *             .build());
  * 
- *         var us_west_2Table = new Table(&#34;us-west-2Table&#34;, TableArgs.builder()        
+ *         var us_west_2 = new Table(&#34;us-west-2&#34;, TableArgs.builder()        
  *             .hashKey(&#34;myAttribute&#34;)
+ *             .name(&#34;myTable&#34;)
  *             .streamEnabled(true)
  *             .streamViewType(&#34;NEW_AND_OLD_IMAGES&#34;)
  *             .readCapacity(1)
@@ -83,11 +74,10 @@ import javax.annotation.Nullable;
  *                 .name(&#34;myAttribute&#34;)
  *                 .type(&#34;S&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.us-west-2())
- *                 .build());
+ *             .build());
  * 
  *         var myTable = new GlobalTable(&#34;myTable&#34;, GlobalTableArgs.builder()        
+ *             .name(&#34;myTable&#34;)
  *             .replicas(            
  *                 GlobalTableReplicaArgs.builder()
  *                     .regionName(&#34;us-east-1&#34;)
@@ -95,23 +85,19 @@ import javax.annotation.Nullable;
  *                 GlobalTableReplicaArgs.builder()
  *                     .regionName(&#34;us-west-2&#34;)
  *                     .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.us-east-1())
- *                 .dependsOn(                
- *                     us_east_1Table,
- *                     us_west_2Table)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import DynamoDB Global Tables using the global table name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
+ * $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
  * ```
  * 
  */

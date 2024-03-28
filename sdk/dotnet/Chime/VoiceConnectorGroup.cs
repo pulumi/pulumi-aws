@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Chime
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,18 +27,21 @@ namespace Pulumi.Aws.Chime
     /// {
     ///     var vc1 = new Aws.Chime.VoiceConnector("vc1", new()
     ///     {
+    ///         Name = "connector-test-1",
     ///         RequireEncryption = true,
     ///         AwsRegion = "us-east-1",
     ///     });
     /// 
     ///     var vc2 = new Aws.Chime.VoiceConnector("vc2", new()
     ///     {
+    ///         Name = "connector-test-2",
     ///         RequireEncryption = true,
     ///         AwsRegion = "us-west-2",
     ///     });
     /// 
     ///     var @group = new Aws.Chime.VoiceConnectorGroup("group", new()
     ///     {
+    ///         Name = "test-group",
     ///         Connectors = new[]
     ///         {
     ///             new Aws.Chime.Inputs.VoiceConnectorGroupConnectorArgs
@@ -55,13 +59,14 @@ namespace Pulumi.Aws.Chime
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Configuration Recorder using the name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
+    /// $ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
     /// ```
     /// </summary>
     [AwsResourceType("aws:chime/voiceConnectorGroup:VoiceConnectorGroup")]

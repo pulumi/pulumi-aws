@@ -1276,17 +1276,20 @@ class Instance(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         my_instance = aws.opsworks.Instance("my-instance",
-            stack_id=aws_opsworks_stack["main"]["id"],
-            layer_ids=[aws_opsworks_custom_layer["my-layer"]["id"]],
+            stack_id=main["id"],
+            layer_ids=[my_layer["id"]],
             instance_type="t2.micro",
             os="Amazon Linux 2015.09",
             state="stopped")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Block devices
 
         Each of the `*_block_device` attributes controls a portion of the AWS
@@ -1336,7 +1339,7 @@ class Instance(pulumi.CustomResource):
         Using `pulumi import`, import Opsworks Instances using the instance `id`. For example:
 
         ```sh
-         $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
+        $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
         ```
 
         :param str resource_name: The name of the resource.
@@ -1385,17 +1388,20 @@ class Instance(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         my_instance = aws.opsworks.Instance("my-instance",
-            stack_id=aws_opsworks_stack["main"]["id"],
-            layer_ids=[aws_opsworks_custom_layer["my-layer"]["id"]],
+            stack_id=main["id"],
+            layer_ids=[my_layer["id"]],
             instance_type="t2.micro",
             os="Amazon Linux 2015.09",
             state="stopped")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Block devices
 
         Each of the `*_block_device` attributes controls a portion of the AWS
@@ -1445,7 +1451,7 @@ class Instance(pulumi.CustomResource):
         Using `pulumi import`, import Opsworks Instances using the instance `id`. For example:
 
         ```sh
-         $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
+        $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
         ```
 
         :param str resource_name: The name of the resource.

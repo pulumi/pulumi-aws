@@ -62,12 +62,14 @@ def get_serial_console_access(opts: Optional[pulumi.InvokeOptions] = None) -> Aw
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     current = aws.ec2.get_serial_console_access()
     ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -85,11 +87,13 @@ def get_serial_console_access_output(opts: Optional[pulumi.InvokeOptions] = None
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     current = aws.ec2.get_serial_console_access()
     ```
+    <!--End PulumiCodeChooser -->
     """
     ...

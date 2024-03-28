@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,7 +22,10 @@ import javax.annotation.Nullable;
  * interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
  * 
  * ## Example Usage
+ * 
  * ### CloudWatch Logging
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -31,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
@@ -52,7 +55,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
+ *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;, LogGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
@@ -66,6 +71,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
@@ -73,10 +79,10 @@ import javax.annotation.Nullable;
  *             .iamRoleArn(exampleRole.arn())
  *             .logDestination(exampleLogGroup.arn())
  *             .trafficType(&#34;ALL&#34;)
- *             .vpcId(aws_vpc.example().id())
+ *             .vpcId(exampleAwsVpc.id())
  *             .build());
  * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(                
@@ -90,15 +96,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .role(exampleRole.id())
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Amazon Kinesis Data Firehose logging
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -106,6 +116,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
@@ -132,7 +143,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
+ *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
@@ -146,10 +159,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;firehose_test_role&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var exampleFirehoseDeliveryStream = new FirehoseDeliveryStream(&#34;exampleFirehoseDeliveryStream&#34;, FirehoseDeliveryStreamArgs.builder()        
+ *             .name(&#34;kinesis_firehose_test&#34;)
  *             .destination(&#34;extended_s3&#34;)
  *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
  *                 .roleArn(exampleRole.arn())
@@ -162,7 +177,7 @@ import javax.annotation.Nullable;
  *             .logDestination(exampleFirehoseDeliveryStream.arn())
  *             .logDestinationType(&#34;kinesis-data-firehose&#34;)
  *             .trafficType(&#34;ALL&#34;)
- *             .vpcId(aws_vpc.example().id())
+ *             .vpcId(exampleAwsVpc.id())
  *             .build());
  * 
  *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
@@ -170,7 +185,7 @@ import javax.annotation.Nullable;
  *             .acl(&#34;private&#34;)
  *             .build());
  * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .effect(&#34;Allow&#34;)
  *             .actions(            
  *                 &#34;logs:CreateLogDelivery&#34;,
@@ -182,14 +197,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .role(exampleRole.id())
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### S3 Logging
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -197,6 +217,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.ec2.FlowLog;
  * import com.pulumi.aws.ec2.FlowLogArgs;
  * import java.util.List;
@@ -212,19 +233,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
+ *             .build());
  * 
- *         var exampleFlowLog = new FlowLog(&#34;exampleFlowLog&#34;, FlowLogArgs.builder()        
+ *         var example = new FlowLog(&#34;example&#34;, FlowLogArgs.builder()        
  *             .logDestination(exampleBucketV2.arn())
  *             .logDestinationType(&#34;s3&#34;)
  *             .trafficType(&#34;ALL&#34;)
- *             .vpcId(aws_vpc.example().id())
+ *             .vpcId(exampleAwsVpc.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### S3 Logging in Apache Parquet format with per-hour partitions
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -232,6 +259,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.ec2.FlowLog;
  * import com.pulumi.aws.ec2.FlowLogArgs;
  * import com.pulumi.aws.ec2.inputs.FlowLogDestinationOptionsArgs;
@@ -248,13 +276,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
+ *             .build());
  * 
- *         var exampleFlowLog = new FlowLog(&#34;exampleFlowLog&#34;, FlowLogArgs.builder()        
+ *         var example = new FlowLog(&#34;example&#34;, FlowLogArgs.builder()        
  *             .logDestination(exampleBucketV2.arn())
  *             .logDestinationType(&#34;s3&#34;)
  *             .trafficType(&#34;ALL&#34;)
- *             .vpcId(aws_vpc.example().id())
+ *             .vpcId(exampleAwsVpc.id())
  *             .destinationOptions(FlowLogDestinationOptionsArgs.builder()
  *                 .fileFormat(&#34;parquet&#34;)
  *                 .perHourPartition(true)
@@ -264,13 +294,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Flow Logs using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
+ * $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
  * ```
  * 
  */
@@ -375,14 +406,14 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.logDestinationType);
     }
     /**
-     * The fields to include in the flow log record, in the order in which they should appear.
+     * The fields to include in the flow log record. Accepted format example: `&#34;$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}&#34;`.
      * 
      */
     @Export(name="logFormat", refs={String.class}, tree="[0]")
     private Output<String> logFormat;
 
     /**
-     * @return The fields to include in the flow log record, in the order in which they should appear.
+     * @return The fields to include in the flow log record. Accepted format example: `&#34;$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}&#34;`.
      * 
      */
     public Output<String> logFormat() {
@@ -561,9 +592,6 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

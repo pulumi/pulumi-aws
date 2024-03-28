@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * More information about snapshot and restore can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/snapshots.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,19 +47,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Snapshot(&#34;example&#34;, SnapshotArgs.builder()        
- *             .clusterName(aws_memorydb_cluster.example().name())
+ *             .clusterName(exampleAwsMemorydbCluster.name())
+ *             .name(&#34;my-snapshot&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a snapshot using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
+ * $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
  * ```
  * 
  */
@@ -226,9 +230,6 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

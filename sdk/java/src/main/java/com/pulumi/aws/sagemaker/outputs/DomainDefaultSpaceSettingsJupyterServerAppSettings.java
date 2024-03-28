@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainDefaultSpaceSettingsJupyterServerAppSettings {
     /**
-     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
      * 
      */
     private @Nullable List<DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository> codeRepositories;
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
      * 
      */
     private @Nullable DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec;
@@ -32,14 +32,14 @@ public final class DomainDefaultSpaceSettingsJupyterServerAppSettings {
 
     private DomainDefaultSpaceSettingsJupyterServerAppSettings() {}
     /**
-     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
      * 
      */
     public List<DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository> codeRepositories() {
         return this.codeRepositories == null ? List.of() : this.codeRepositories;
     }
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
      * 
      */
     public Optional<DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec> defaultResourceSpec() {
@@ -75,6 +75,7 @@ public final class DomainDefaultSpaceSettingsJupyterServerAppSettings {
 
         @CustomType.Setter
         public Builder codeRepositories(@Nullable List<DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository> codeRepositories) {
+
             this.codeRepositories = codeRepositories;
             return this;
         }
@@ -83,11 +84,13 @@ public final class DomainDefaultSpaceSettingsJupyterServerAppSettings {
         }
         @CustomType.Setter
         public Builder defaultResourceSpec(@Nullable DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec) {
+
             this.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
         @CustomType.Setter
         public Builder lifecycleConfigArns(@Nullable List<String> lifecycleConfigArns) {
+
             this.lifecycleConfigArns = lifecycleConfigArns;
             return this;
         }
@@ -95,11 +98,11 @@ public final class DomainDefaultSpaceSettingsJupyterServerAppSettings {
             return lifecycleConfigArns(List.of(lifecycleConfigArns));
         }
         public DomainDefaultSpaceSettingsJupyterServerAppSettings build() {
-            final var o = new DomainDefaultSpaceSettingsJupyterServerAppSettings();
-            o.codeRepositories = codeRepositories;
-            o.defaultResourceSpec = defaultResourceSpec;
-            o.lifecycleConfigArns = lifecycleConfigArns;
-            return o;
+            final var _resultValue = new DomainDefaultSpaceSettingsJupyterServerAppSettings();
+            _resultValue.codeRepositories = codeRepositories;
+            _resultValue.defaultResourceSpec = defaultResourceSpec;
+            _resultValue.lifecycleConfigArns = lifecycleConfigArns;
+            return _resultValue;
         }
     }
 }

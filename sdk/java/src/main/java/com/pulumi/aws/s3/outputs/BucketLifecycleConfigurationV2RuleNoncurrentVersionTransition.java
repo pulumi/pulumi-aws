@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,25 +74,30 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
 
         @CustomType.Setter
         public Builder newerNoncurrentVersions(@Nullable String newerNoncurrentVersions) {
+
             this.newerNoncurrentVersions = newerNoncurrentVersions;
             return this;
         }
         @CustomType.Setter
         public Builder noncurrentDays(@Nullable Integer noncurrentDays) {
+
             this.noncurrentDays = noncurrentDays;
             return this;
         }
         @CustomType.Setter
         public Builder storageClass(String storageClass) {
-            this.storageClass = Objects.requireNonNull(storageClass);
+            if (storageClass == null) {
+              throw new MissingRequiredPropertyException("BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition", "storageClass");
+            }
+            this.storageClass = storageClass;
             return this;
         }
         public BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition build() {
-            final var o = new BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition();
-            o.newerNoncurrentVersions = newerNoncurrentVersions;
-            o.noncurrentDays = noncurrentDays;
-            o.storageClass = storageClass;
-            return o;
+            final var _resultValue = new BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition();
+            _resultValue.newerNoncurrentVersions = newerNoncurrentVersions;
+            _resultValue.noncurrentDays = noncurrentDays;
+            _resultValue.storageClass = storageClass;
+            return _resultValue;
         }
     }
 }

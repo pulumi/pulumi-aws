@@ -12,55 +12,61 @@ import * as utilities from "../utilities";
  * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.UserHierarchyStructure("example", {
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     hierarchyStructure: {
  *         levelOne: {
  *             name: "levelone",
  *         },
  *     },
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Five Levels
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.UserHierarchyStructure("example", {
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     hierarchyStructure: {
- *         levelFive: {
- *             name: "levelfive",
- *         },
- *         levelFour: {
- *             name: "levelfour",
- *         },
  *         levelOne: {
  *             name: "levelone",
- *         },
- *         levelThree: {
- *             name: "levelthree",
  *         },
  *         levelTwo: {
  *             name: "leveltwo",
  *         },
+ *         levelThree: {
+ *             name: "levelthree",
+ *         },
+ *         levelFour: {
+ *             name: "levelfour",
+ *         },
+ *         levelFive: {
+ *             name: "levelfive",
+ *         },
  *     },
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Amazon Connect User Hierarchy Structures using the `instance_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
+ * $ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
  * ```
  */
 export class UserHierarchyStructure extends pulumi.CustomResource {

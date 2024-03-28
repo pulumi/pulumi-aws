@@ -14,6 +14,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,24 +26,25 @@ namespace Pulumi.Aws.S3
     ///     var test = new Aws.S3.ObjectCopy("test", new()
     ///     {
     ///         Bucket = "destination_bucket",
+    ///         Key = "destination_key",
+    ///         Source = "source_bucket/source_key",
     ///         Grants = new[]
     ///         {
     ///             new Aws.S3.Inputs.ObjectCopyGrantArgs
     ///             {
+    ///                 Uri = "http://acs.amazonaws.com/groups/global/AllUsers",
+    ///                 Type = "Group",
     ///                 Permissions = new[]
     ///                 {
     ///                     "READ",
     ///                 },
-    ///                 Type = "Group",
-    ///                 Uri = "http://acs.amazonaws.com/groups/global/AllUsers",
     ///             },
     ///         },
-    ///         Key = "destination_key",
-    ///         Source = "source_bucket/source_key",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:s3/objectCopy:ObjectCopy")]
     public partial class ObjectCopy : global::Pulumi.CustomResource
@@ -52,6 +54,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Output("acl")]
         public Output<string> Acl { get; private set; } = null!;
+
+        /// <summary>
+        /// ARN of the object.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Name of the bucket to put the file in.
@@ -375,7 +383,6 @@ namespace Pulumi.Aws.S3
                     "kmsEncryptionContext",
                     "kmsKeyId",
                     "sourceCustomerKey",
-                    "tagsAll",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -704,6 +711,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("acl")]
         public Input<string>? Acl { get; set; }
+
+        /// <summary>
+        /// ARN of the object.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         /// <summary>
         /// Name of the bucket to put the file in.
@@ -1048,11 +1061,7 @@ namespace Pulumi.Aws.S3
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

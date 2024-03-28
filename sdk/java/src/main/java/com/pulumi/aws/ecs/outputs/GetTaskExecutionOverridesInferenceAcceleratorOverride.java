@@ -58,19 +58,21 @@ public final class GetTaskExecutionOverridesInferenceAcceleratorOverride {
 
         @CustomType.Setter
         public Builder deviceName(@Nullable String deviceName) {
+
             this.deviceName = deviceName;
             return this;
         }
         @CustomType.Setter
         public Builder deviceType(@Nullable String deviceType) {
+
             this.deviceType = deviceType;
             return this;
         }
         public GetTaskExecutionOverridesInferenceAcceleratorOverride build() {
-            final var o = new GetTaskExecutionOverridesInferenceAcceleratorOverride();
-            o.deviceName = deviceName;
-            o.deviceType = deviceType;
-            return o;
+            final var _resultValue = new GetTaskExecutionOverridesInferenceAcceleratorOverride();
+            _resultValue.deviceName = deviceName;
+            _resultValue.deviceType = deviceType;
+            return _resultValue;
         }
     }
 }

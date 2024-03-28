@@ -12,21 +12,23 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.s3.ObjectCopy("test", {
  *     bucket: "destination_bucket",
- *     grants: [{
- *         permissions: ["READ"],
- *         type: "Group",
- *         uri: "http://acs.amazonaws.com/groups/global/AllUsers",
- *     }],
  *     key: "destination_key",
  *     source: "source_bucket/source_key",
+ *     grants: [{
+ *         uri: "http://acs.amazonaws.com/groups/global/AllUsers",
+ *         type: "Group",
+ *         permissions: ["READ"],
+ *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class ObjectCopy extends pulumi.CustomResource {
     /**
@@ -60,6 +62,10 @@ export class ObjectCopy extends pulumi.CustomResource {
      * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
      */
     public readonly acl!: pulumi.Output<string>;
+    /**
+     * ARN of the object.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Name of the bucket to put the file in.
      */
@@ -272,6 +278,7 @@ export class ObjectCopy extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ObjectCopyState | undefined;
             resourceInputs["acl"] = state ? state.acl : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["bucketKeyEnabled"] = state ? state.bucketKeyEnabled : undefined;
             resourceInputs["cacheControl"] = state ? state.cacheControl : undefined;
@@ -371,6 +378,7 @@ export class ObjectCopy extends pulumi.CustomResource {
             resourceInputs["taggingDirective"] = args ? args.taggingDirective : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["websiteRedirect"] = args ? args.websiteRedirect : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["checksumCrc32"] = undefined /*out*/;
             resourceInputs["checksumCrc32c"] = undefined /*out*/;
             resourceInputs["checksumSha1"] = undefined /*out*/;
@@ -384,7 +392,7 @@ export class ObjectCopy extends pulumi.CustomResource {
             resourceInputs["versionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["customerKey", "kmsEncryptionContext", "kmsKeyId", "sourceCustomerKey", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["customerKey", "kmsEncryptionContext", "kmsKeyId", "sourceCustomerKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(ObjectCopy.__pulumiType, name, resourceInputs, opts);
     }
@@ -398,6 +406,10 @@ export interface ObjectCopyState {
      * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
      */
     acl?: pulumi.Input<string>;
+    /**
+     * ARN of the object.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * Name of the bucket to put the file in.
      */

@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides a resource to create an organizational unit.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,19 +45,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new OrganizationalUnit(&#34;example&#34;, OrganizationalUnitArgs.builder()        
- *             .parentId(aws_organizations_organization.example().roots()[0].id())
+ *             .name(&#34;example&#34;)
+ *             .parentId(exampleAwsOrganizationsOrganization.roots()[0].id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AWS Organizations Organizational Units using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
+ * $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
  * ```
  * 
  */
@@ -182,9 +186,6 @@ public class OrganizationalUnit extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

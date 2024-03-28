@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,7 +20,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage - Logging to CloudWatch
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,12 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
+ *         var example = new LogGroup(&#34;example&#34;);
  * 
  *         var exampleLoggingConfiguration = new LoggingConfiguration(&#34;exampleLoggingConfiguration&#34;, LoggingConfigurationArgs.builder()        
  *             .destinationConfiguration(LoggingConfigurationDestinationConfigurationArgs.builder()
  *                 .cloudwatchLogs(LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs.builder()
- *                     .logGroupName(exampleLogGroup.name())
+ *                     .logGroupName(example.name())
  *                     .build())
  *                 .build())
  *             .build());
@@ -59,7 +61,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Basic Usage - Logging to Kinesis Firehose with Extended S3
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -110,10 +116,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;firehose_example_role&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleFirehoseDeliveryStream = new FirehoseDeliveryStream(&#34;exampleFirehoseDeliveryStream&#34;, FirehoseDeliveryStreamArgs.builder()        
+ *         var example = new FirehoseDeliveryStream(&#34;example&#34;, FirehoseDeliveryStreamArgs.builder()        
+ *             .name(&#34;pulumi-kinesis-firehose-extended-s3-example-stream&#34;)
  *             .destination(&#34;extended_s3&#34;)
  *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
  *                 .roleArn(exampleRole.arn())
@@ -130,7 +138,7 @@ import javax.annotation.Nullable;
  *         var exampleLoggingConfiguration = new LoggingConfiguration(&#34;exampleLoggingConfiguration&#34;, LoggingConfigurationArgs.builder()        
  *             .destinationConfiguration(LoggingConfigurationDestinationConfigurationArgs.builder()
  *                 .firehose(LoggingConfigurationDestinationConfigurationFirehoseArgs.builder()
- *                     .deliveryStreamName(exampleFirehoseDeliveryStream.name())
+ *                     .deliveryStreamName(example.name())
  *                     .build())
  *                 .build())
  *             .build());
@@ -138,8 +146,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Basic Usage - Logging to S3
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -165,7 +176,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
  *             .bucketName(&#34;tf-ivschat-logging&#34;)
  *             .forceDestroy(true)
  *             .build());
@@ -173,7 +184,7 @@ import javax.annotation.Nullable;
  *         var exampleLoggingConfiguration = new LoggingConfiguration(&#34;exampleLoggingConfiguration&#34;, LoggingConfigurationArgs.builder()        
  *             .destinationConfiguration(LoggingConfigurationDestinationConfigurationArgs.builder()
  *                 .s3(LoggingConfigurationDestinationConfigurationS3Args.builder()
- *                     .bucketName(exampleBucketV2.id())
+ *                     .bucketName(example.id())
  *                     .build())
  *                 .build())
  *             .build());
@@ -181,13 +192,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ivschat/loggingConfiguration:LoggingConfiguration example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
+ * $ pulumi import aws:ivschat/loggingConfiguration:LoggingConfiguration example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
  * ```
  * 
  */
@@ -314,9 +326,6 @@ public class LoggingConfiguration extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

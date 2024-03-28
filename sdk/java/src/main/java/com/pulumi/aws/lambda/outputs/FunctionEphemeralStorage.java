@@ -44,13 +44,14 @@ public final class FunctionEphemeralStorage {
 
         @CustomType.Setter
         public Builder size(@Nullable Integer size) {
+
             this.size = size;
             return this;
         }
         public FunctionEphemeralStorage build() {
-            final var o = new FunctionEphemeralStorage();
-            o.size = size;
-            return o;
+            final var _resultValue = new FunctionEphemeralStorage();
+            _resultValue.size = size;
+            return _resultValue;
         }
     }
 }

@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,8 +31,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewVocabulary(ctx, "example", &connect.VocabularyArgs{
-//				Content:      pulumi.String("Phrase	IPA	SoundsLike	DisplayAs\nLos-Angeles			Los Angeles\nF.B.I.	ɛ f b i aɪ		FBI\nEtienne		eh-tee-en	\n"),
 //				InstanceId:   pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:         pulumi.String("example"),
+//				Content:      pulumi.String("Phrase	IPA	SoundsLike	DisplayAs\nLos-Angeles			Los Angeles\nF.B.I.	ɛ f b i aɪ		FBI\nEtienne		eh-tee-en	"),
 //				LanguageCode: pulumi.String("en-US"),
 //				Tags: pulumi.StringMap{
 //					"Key1": pulumi.String("Value1"),
@@ -45,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Amazon Connect Vocabularies using the `instance_id` and `vocabulary_id` separated by a colon (`:`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:connect/vocabulary:Vocabulary example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-//
+// $ pulumi import aws:connect/vocabulary:Vocabulary example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 // ```
 type Vocabulary struct {
 	pulumi.CustomResourceState
@@ -101,10 +102,6 @@ func NewVocabulary(ctx *pulumi.Context,
 	if args.LanguageCode == nil {
 		return nil, errors.New("invalid value for required argument 'LanguageCode'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Vocabulary
 	err := ctx.RegisterResource("aws:connect/vocabulary:Vocabulary", name, args, &resource, opts...)

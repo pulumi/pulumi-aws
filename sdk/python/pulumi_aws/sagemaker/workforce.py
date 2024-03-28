@@ -237,33 +237,40 @@ class Workforce(pulumi.CustomResource):
         Provides a SageMaker Workforce resource.
 
         ## Example Usage
+
         ### Cognito Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool")
-        example_user_pool_client = aws.cognito.UserPoolClient("exampleUserPoolClient",
+        example_user_pool = aws.cognito.UserPool("example", name="example")
+        example_user_pool_client = aws.cognito.UserPoolClient("example",
+            name="example",
             generate_secret=True,
             user_pool_id=example_user_pool.id)
-        example_user_pool_domain = aws.cognito.UserPoolDomain("exampleUserPoolDomain",
+        example_user_pool_domain = aws.cognito.UserPoolDomain("example",
             domain="example",
             user_pool_id=example_user_pool.id)
-        example_workforce = aws.sagemaker.Workforce("exampleWorkforce",
+        example = aws.sagemaker.Workforce("example",
             workforce_name="example",
             cognito_config=aws.sagemaker.WorkforceCognitoConfigArgs(
                 client_id=example_user_pool_client.id,
                 user_pool=example_user_pool_domain.user_pool_id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Oidc Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sagemaker.Workforce("example",
+            workforce_name="example",
             oidc_config=aws.sagemaker.WorkforceOidcConfigArgs(
                 authorization_endpoint="https://example.com",
                 client_id="example",
@@ -273,16 +280,16 @@ class Workforce(pulumi.CustomResource):
                 logout_endpoint="https://example.com",
                 token_endpoint="https://example.com",
                 user_info_endpoint="https://example.com",
-            ),
-            workforce_name="example")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Workforces using the `workforce_name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/workforce:Workforce example example
+        $ pulumi import aws:sagemaker/workforce:Workforce example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -303,33 +310,40 @@ class Workforce(pulumi.CustomResource):
         Provides a SageMaker Workforce resource.
 
         ## Example Usage
+
         ### Cognito Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool")
-        example_user_pool_client = aws.cognito.UserPoolClient("exampleUserPoolClient",
+        example_user_pool = aws.cognito.UserPool("example", name="example")
+        example_user_pool_client = aws.cognito.UserPoolClient("example",
+            name="example",
             generate_secret=True,
             user_pool_id=example_user_pool.id)
-        example_user_pool_domain = aws.cognito.UserPoolDomain("exampleUserPoolDomain",
+        example_user_pool_domain = aws.cognito.UserPoolDomain("example",
             domain="example",
             user_pool_id=example_user_pool.id)
-        example_workforce = aws.sagemaker.Workforce("exampleWorkforce",
+        example = aws.sagemaker.Workforce("example",
             workforce_name="example",
             cognito_config=aws.sagemaker.WorkforceCognitoConfigArgs(
                 client_id=example_user_pool_client.id,
                 user_pool=example_user_pool_domain.user_pool_id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Oidc Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sagemaker.Workforce("example",
+            workforce_name="example",
             oidc_config=aws.sagemaker.WorkforceOidcConfigArgs(
                 authorization_endpoint="https://example.com",
                 client_id="example",
@@ -339,16 +353,16 @@ class Workforce(pulumi.CustomResource):
                 logout_endpoint="https://example.com",
                 token_endpoint="https://example.com",
                 user_info_endpoint="https://example.com",
-            ),
-            workforce_name="example")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Workforces using the `workforce_name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/workforce:Workforce example example
+        $ pulumi import aws:sagemaker/workforce:Workforce example example
         ```
 
         :param str resource_name: The name of the resource.

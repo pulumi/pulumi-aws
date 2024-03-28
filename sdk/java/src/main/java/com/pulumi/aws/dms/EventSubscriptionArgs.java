@@ -5,6 +5,7 @@ package com.pulumi.aws.dms;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -79,14 +80,14 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Ids of sources to listen to.
+     * Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
      * 
      */
     @Import(name="sourceIds")
     private @Nullable Output<List<String>> sourceIds;
 
     /**
-     * @return Ids of sources to listen to.
+     * @return Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
      * 
      */
     public Optional<Output<List<String>>> sourceIds() {
@@ -97,15 +98,15 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
      * Type of source for events. Valid values: `replication-instance` or `replication-task`
      * 
      */
-    @Import(name="sourceType")
-    private @Nullable Output<String> sourceType;
+    @Import(name="sourceType", required=true)
+    private Output<String> sourceType;
 
     /**
      * @return Type of source for events. Valid values: `replication-instance` or `replication-task`
      * 
      */
-    public Optional<Output<String>> sourceType() {
-        return Optional.ofNullable(this.sourceType);
+    public Output<String> sourceType() {
+        return this.sourceType;
     }
 
     /**
@@ -248,7 +249,7 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sourceIds Ids of sources to listen to.
+         * @param sourceIds Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
          * 
          * @return builder
          * 
@@ -259,7 +260,7 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sourceIds Ids of sources to listen to.
+         * @param sourceIds Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
          * 
          * @return builder
          * 
@@ -269,7 +270,7 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sourceIds Ids of sources to listen to.
+         * @param sourceIds Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
          * 
          * @return builder
          * 
@@ -284,7 +285,7 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder sourceType(@Nullable Output<String> sourceType) {
+        public Builder sourceType(Output<String> sourceType) {
             $.sourceType = sourceType;
             return this;
         }
@@ -321,8 +322,15 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         public EventSubscriptionArgs build() {
-            $.eventCategories = Objects.requireNonNull($.eventCategories, "expected parameter 'eventCategories' to be non-null");
-            $.snsTopicArn = Objects.requireNonNull($.snsTopicArn, "expected parameter 'snsTopicArn' to be non-null");
+            if ($.eventCategories == null) {
+                throw new MissingRequiredPropertyException("EventSubscriptionArgs", "eventCategories");
+            }
+            if ($.snsTopicArn == null) {
+                throw new MissingRequiredPropertyException("EventSubscriptionArgs", "snsTopicArn");
+            }
+            if ($.sourceType == null) {
+                throw new MissingRequiredPropertyException("EventSubscriptionArgs", "sourceType");
+            }
             return $;
         }
     }

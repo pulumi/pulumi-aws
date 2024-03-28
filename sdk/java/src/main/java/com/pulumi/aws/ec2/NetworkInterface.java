@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Provides an Elastic network interface (ENI) resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,11 +48,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new NetworkInterface(&#34;test&#34;, NetworkInterfaceArgs.builder()        
- *             .subnetId(aws_subnet.public_a().id())
+ *             .subnetId(publicA.id())
  *             .privateIps(&#34;10.0.0.50&#34;)
- *             .securityGroups(aws_security_group.web().id())
+ *             .securityGroups(web.id())
  *             .attachments(NetworkInterfaceAttachmentArgs.builder()
- *                 .instance(aws_instance.test().id())
+ *                 .instance(testAwsInstance.id())
  *                 .deviceIndex(1)
  *                 .build())
  *             .build());
@@ -58,6 +60,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Example of Managing Multiple IPs on a Network Interface
  * 
  * By default, private IPs are managed through the `private_ips` and `private_ips_count` arguments which manage IPs as a set of IPs that are configured without regard to order. For a new network interface, the same primary IP address is consistently selected from a given set of addresses, regardless of the order provided. However, modifications of the set of addresses of an existing interface will not alter the current primary IP address unless it has been removed from the set.
@@ -80,7 +84,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import Network Interfaces using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
+ * $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
  * ```
  * 
  */
@@ -475,9 +479,6 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

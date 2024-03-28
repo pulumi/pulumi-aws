@@ -5,6 +5,7 @@ package com.pulumi.aws.apigatewayv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class StageAccessLogSettingsArgs extends com.pulumi.resources.Resou
         }
 
         public StageAccessLogSettingsArgs build() {
-            $.destinationArn = Objects.requireNonNull($.destinationArn, "expected parameter 'destinationArn' to be non-null");
-            $.format = Objects.requireNonNull($.format, "expected parameter 'format' to be non-null");
+            if ($.destinationArn == null) {
+                throw new MissingRequiredPropertyException("StageAccessLogSettingsArgs", "destinationArn");
+            }
+            if ($.format == null) {
+                throw new MissingRequiredPropertyException("StageAccessLogSettingsArgs", "format");
+            }
             return $;
         }
     }

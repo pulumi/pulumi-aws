@@ -63,14 +63,14 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * Specifies whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
+     * Specifies whether to exclude the following punctuation characters from the password: ``! &#34; # $ %!&amp;(MISSING) &#39; ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
      * 
      */
     @Import(name="excludePunctuation")
     private @Nullable Output<Boolean> excludePunctuation;
 
     /**
-     * @return Specifies whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
+     * @return Specifies whether to exclude the following punctuation characters from the password: ``! &#34; # $ %!&amp;(MISSING) &#39; ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
      * 
      */
     public Optional<Output<Boolean>> excludePunctuation() {
@@ -123,21 +123,6 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * Random password.
-     * 
-     */
-    @Import(name="randomPassword")
-    private @Nullable Output<String> randomPassword;
-
-    /**
-     * @return Random password.
-     * 
-     */
-    public Optional<Output<String>> randomPassword() {
-        return Optional.ofNullable(this.randomPassword);
-    }
-
-    /**
      * Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
      * 
      */
@@ -162,7 +147,6 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         this.excludeUppercase = $.excludeUppercase;
         this.includeSpace = $.includeSpace;
         this.passwordLength = $.passwordLength;
-        this.randomPassword = $.randomPassword;
         this.requireEachIncludedType = $.requireEachIncludedType;
     }
 
@@ -248,7 +232,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param excludePunctuation Specifies whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
+         * @param excludePunctuation Specifies whether to exclude the following punctuation characters from the password: ``! &#34; # $ %!&amp;(MISSING) &#39; ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
          * 
          * @return builder
          * 
@@ -259,7 +243,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param excludePunctuation Specifies whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
+         * @param excludePunctuation Specifies whether to exclude the following punctuation characters from the password: ``! &#34; # $ %!&amp;(MISSING) &#39; ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
          * 
          * @return builder
          * 
@@ -329,27 +313,6 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder passwordLength(Integer passwordLength) {
             return passwordLength(Output.of(passwordLength));
-        }
-
-        /**
-         * @param randomPassword Random password.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder randomPassword(@Nullable Output<String> randomPassword) {
-            $.randomPassword = randomPassword;
-            return this;
-        }
-
-        /**
-         * @param randomPassword Random password.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder randomPassword(String randomPassword) {
-            return randomPassword(Output.of(randomPassword));
         }
 
         /**

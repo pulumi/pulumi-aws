@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.inputs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,8 +189,12 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         public WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs build() {
-            $.matchPattern = Objects.requireNonNull($.matchPattern, "expected parameter 'matchPattern' to be non-null");
-            $.matchScope = Objects.requireNonNull($.matchScope, "expected parameter 'matchScope' to be non-null");
+            if ($.matchPattern == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs", "matchPattern");
+            }
+            if ($.matchScope == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs", "matchScope");
+            }
             return $;
         }
     }

@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -25,7 +24,10 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** The [Application Auto Scaling service automatically attempts to manage IAM Service-Linked Roles](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) when registering certain service namespaces for the first time. To manually manage this role, see the `aws.iam.ServiceLinkedRole` resource.
  * 
  * ## Example Usage
+ * 
  * ### DynamoDB Table Autoscaling
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,7 +52,7 @@ import javax.annotation.Nullable;
  *         var dynamodbTableReadTarget = new Target(&#34;dynamodbTableReadTarget&#34;, TargetArgs.builder()        
  *             .maxCapacity(100)
  *             .minCapacity(5)
- *             .resourceId(String.format(&#34;table/%s&#34;, aws_dynamodb_table.example().name()))
+ *             .resourceId(String.format(&#34;table/%s&#34;, example.name()))
  *             .scalableDimension(&#34;dynamodb:table:ReadCapacityUnits&#34;)
  *             .serviceNamespace(&#34;dynamodb&#34;)
  *             .build());
@@ -58,7 +60,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### DynamoDB Index Autoscaling
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -83,7 +89,7 @@ import javax.annotation.Nullable;
  *         var dynamodbIndexReadTarget = new Target(&#34;dynamodbIndexReadTarget&#34;, TargetArgs.builder()        
  *             .maxCapacity(100)
  *             .minCapacity(5)
- *             .resourceId(String.format(&#34;table/%s/index/%s&#34;, aws_dynamodb_table.example().name(),var_.index_name()))
+ *             .resourceId(String.format(&#34;table/%s/index/%s&#34;, example.name(),indexName))
  *             .scalableDimension(&#34;dynamodb:index:ReadCapacityUnits&#34;)
  *             .serviceNamespace(&#34;dynamodb&#34;)
  *             .build());
@@ -91,7 +97,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### ECS Service Autoscaling
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -116,7 +126,7 @@ import javax.annotation.Nullable;
  *         var ecsTarget = new Target(&#34;ecsTarget&#34;, TargetArgs.builder()        
  *             .maxCapacity(4)
  *             .minCapacity(1)
- *             .resourceId(String.format(&#34;service/%s/%s&#34;, aws_ecs_cluster.example().name(),aws_ecs_service.example().name()))
+ *             .resourceId(String.format(&#34;service/%s/%s&#34;, example.name(),exampleAwsEcsService.name()))
  *             .scalableDimension(&#34;ecs:service:DesiredCount&#34;)
  *             .serviceNamespace(&#34;ecs&#34;)
  *             .build());
@@ -124,7 +134,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Aurora Read Replica Autoscaling
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -147,17 +161,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var replicas = new Target(&#34;replicas&#34;, TargetArgs.builder()        
- *             .maxCapacity(15)
- *             .minCapacity(1)
- *             .resourceId(String.format(&#34;cluster:%s&#34;, aws_rds_cluster.example().id()))
- *             .scalableDimension(&#34;rds:cluster:ReadReplicaCount&#34;)
  *             .serviceNamespace(&#34;rds&#34;)
+ *             .scalableDimension(&#34;rds:cluster:ReadReplicaCount&#34;)
+ *             .resourceId(String.format(&#34;cluster:%s&#34;, example.id()))
+ *             .minCapacity(1)
+ *             .maxCapacity(15)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Suppressing `tags_all` Differences For Older Resources
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -182,7 +200,7 @@ import javax.annotation.Nullable;
  *         var ecsTarget = new Target(&#34;ecsTarget&#34;, TargetArgs.builder()        
  *             .maxCapacity(4)
  *             .minCapacity(1)
- *             .resourceId(String.format(&#34;service/%s/%s&#34;, aws_ecs_cluster.example().name(),aws_ecs_service.example().name()))
+ *             .resourceId(String.format(&#34;service/%s/%s&#34;, example.name(),exampleAwsEcsService.name()))
  *             .scalableDimension(&#34;ecs:service:DesiredCount&#34;)
  *             .serviceNamespace(&#34;ecs&#34;)
  *             .build());
@@ -190,7 +208,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### MSK / Kafka Autoscaling
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -213,23 +235,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var mskTarget = new Target(&#34;mskTarget&#34;, TargetArgs.builder()        
- *             .maxCapacity(8)
- *             .minCapacity(1)
- *             .resourceId(aws_msk_cluster.example().arn())
- *             .scalableDimension(&#34;kafka:broker-storage:VolumeSize&#34;)
  *             .serviceNamespace(&#34;kafka&#34;)
+ *             .scalableDimension(&#34;kafka:broker-storage:VolumeSize&#34;)
+ *             .resourceId(example.arn())
+ *             .minCapacity(1)
+ *             .maxCapacity(8)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Application AutoScaling Target using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appautoscaling/target:Target test-target service-namespace/resource-id/scalable-dimension
+ * $ pulumi import aws:appautoscaling/target:Target test-target service-namespace/resource-id/scalable-dimension
  * ```
  * 
  */
@@ -398,9 +421,6 @@ public class Target extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

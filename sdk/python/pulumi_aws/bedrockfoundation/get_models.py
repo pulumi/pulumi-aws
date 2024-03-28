@@ -9,7 +9,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetModelsResult',
@@ -73,7 +72,7 @@ class GetModelsResult:
 
     @property
     @pulumi.getter(name="modelSummaries")
-    def model_summaries(self) -> Optional[Sequence['outputs.GetModelsModelSummaryResult']]:
+    def model_summaries(self) -> Sequence['outputs.GetModelsModelSummaryResult']:
         """
         List of model summary objects. See `model_summaries`.
         """
@@ -98,42 +97,45 @@ def get_models(by_customization_type: Optional[str] = None,
                by_inference_type: Optional[str] = None,
                by_output_modality: Optional[str] = None,
                by_provider: Optional[str] = None,
-               model_summaries: Optional[Sequence[pulumi.InputType['GetModelsModelSummaryArgs']]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetModelsResult:
     """
     Data source for managing AWS Bedrock Foundation Models.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.bedrockfoundation.get_models()
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Filter by Inference Type
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.bedrockfoundation.get_models(by_inference_type="ON_DEMAND")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str by_customization_type: Customization type to filter on. Valid values are `FINE_TUNING`.
     :param str by_inference_type: Inference type to filter on. Valid values are `ON_DEMAND` and `PROVISIONED`.
     :param str by_output_modality: Output modality to filter on. Valid values are `TEXT`, `IMAGE`, and `EMBEDDING`.
     :param str by_provider: Model provider to filter on.
-    :param Sequence[pulumi.InputType['GetModelsModelSummaryArgs']] model_summaries: List of model summary objects. See `model_summaries`.
     """
     __args__ = dict()
     __args__['byCustomizationType'] = by_customization_type
     __args__['byInferenceType'] = by_inference_type
     __args__['byOutputModality'] = by_output_modality
     __args__['byProvider'] = by_provider
-    __args__['modelSummaries'] = model_summaries
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:bedrockfoundation/getModels:getModels', __args__, opts=opts, typ=GetModelsResult).value
 
@@ -151,34 +153,38 @@ def get_models_output(by_customization_type: Optional[pulumi.Input[Optional[str]
                       by_inference_type: Optional[pulumi.Input[Optional[str]]] = None,
                       by_output_modality: Optional[pulumi.Input[Optional[str]]] = None,
                       by_provider: Optional[pulumi.Input[Optional[str]]] = None,
-                      model_summaries: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetModelsModelSummaryArgs']]]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelsResult]:
     """
     Data source for managing AWS Bedrock Foundation Models.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.bedrockfoundation.get_models()
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Filter by Inference Type
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.bedrockfoundation.get_models(by_inference_type="ON_DEMAND")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str by_customization_type: Customization type to filter on. Valid values are `FINE_TUNING`.
     :param str by_inference_type: Inference type to filter on. Valid values are `ON_DEMAND` and `PROVISIONED`.
     :param str by_output_modality: Output modality to filter on. Valid values are `TEXT`, `IMAGE`, and `EMBEDDING`.
     :param str by_provider: Model provider to filter on.
-    :param Sequence[pulumi.InputType['GetModelsModelSummaryArgs']] model_summaries: List of model summary objects. See `model_summaries`.
     """
     ...

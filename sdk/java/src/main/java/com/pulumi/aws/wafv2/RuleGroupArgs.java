@@ -8,6 +8,7 @@ import com.pulumi.aws.wafv2.inputs.RuleGroupRuleArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupVisibilityConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -378,9 +379,15 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RuleGroupArgs build() {
-            $.capacity = Objects.requireNonNull($.capacity, "expected parameter 'capacity' to be non-null");
-            $.scope = Objects.requireNonNull($.scope, "expected parameter 'scope' to be non-null");
-            $.visibilityConfig = Objects.requireNonNull($.visibilityConfig, "expected parameter 'visibilityConfig' to be non-null");
+            if ($.capacity == null) {
+                throw new MissingRequiredPropertyException("RuleGroupArgs", "capacity");
+            }
+            if ($.scope == null) {
+                throw new MissingRequiredPropertyException("RuleGroupArgs", "scope");
+            }
+            if ($.visibilityConfig == null) {
+                throw new MissingRequiredPropertyException("RuleGroupArgs", "visibilityConfig");
+            }
             return $;
         }
     }

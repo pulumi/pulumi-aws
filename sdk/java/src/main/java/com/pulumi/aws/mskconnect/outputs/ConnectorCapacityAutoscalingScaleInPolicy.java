@@ -44,13 +44,14 @@ public final class ConnectorCapacityAutoscalingScaleInPolicy {
 
         @CustomType.Setter
         public Builder cpuUtilizationPercentage(@Nullable Integer cpuUtilizationPercentage) {
+
             this.cpuUtilizationPercentage = cpuUtilizationPercentage;
             return this;
         }
         public ConnectorCapacityAutoscalingScaleInPolicy build() {
-            final var o = new ConnectorCapacityAutoscalingScaleInPolicy();
-            o.cpuUtilizationPercentage = cpuUtilizationPercentage;
-            return o;
+            final var _resultValue = new ConnectorCapacityAutoscalingScaleInPolicy();
+            _resultValue.cpuUtilizationPercentage = cpuUtilizationPercentage;
+            return _resultValue;
         }
     }
 }

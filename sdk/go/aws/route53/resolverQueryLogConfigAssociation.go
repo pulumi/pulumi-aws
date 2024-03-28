@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53.NewResolverQueryLogConfigAssociation(ctx, "example", &route53.ResolverQueryLogConfigAssociationArgs{
-//				ResolverQueryLogConfigId: pulumi.Any(aws_route53_resolver_query_log_config.Example.Id),
-//				ResourceId:               pulumi.Any(aws_vpc.Example.Id),
+//				ResolverQueryLogConfigId: pulumi.Any(exampleAwsRoute53ResolverQueryLogConfig.Id),
+//				ResourceId:               pulumi.Any(exampleAwsVpc.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -40,17 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// # Using `pulumi import`, import
-//
-// Route 53 Resolver query logging configuration associations using the Route 53 Resolver query logging configuration association ID. For example:
+// Using `pulumi import`, import  Route 53 Resolver query logging configuration associations using the Route 53 Resolver query logging configuration association ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
-//
+// $ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
 // ```
 type ResolverQueryLogConfigAssociation struct {
 	pulumi.CustomResourceState

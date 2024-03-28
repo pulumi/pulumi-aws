@@ -14,55 +14,63 @@ import * as utilities from "../utilities";
  * ## Example Usage
  *
  * > **NOTE:** These examples are referencing the `aws.storagegateway.Cache` resource `gatewayArn` attribute to ensure this provider properly adds cache before creating the volume. If you are not using this method, you may need to declare an expicit dependency (e.g. via `dependsOn = [aws_storagegateway_cache.example]`) to ensure proper ordering.
+ *
  * ### Create Empty Cached iSCSI Volume
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.storagegateway.CachesIscsiVolume("example", {
- *     gatewayArn: aws_storagegateway_cache.example.gateway_arn,
- *     networkInterfaceId: aws_instance.example.private_ip,
+ *     gatewayArn: exampleAwsStoragegatewayCache.gatewayArn,
+ *     networkInterfaceId: exampleAwsInstance.privateIp,
  *     targetName: "example",
  *     volumeSizeInBytes: 5368709120,
  * });
- * // 5 GB
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Create Cached iSCSI Volume From Snapshot
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.storagegateway.CachesIscsiVolume("example", {
- *     gatewayArn: aws_storagegateway_cache.example.gateway_arn,
- *     networkInterfaceId: aws_instance.example.private_ip,
- *     snapshotId: aws_ebs_snapshot.example.id,
+ *     gatewayArn: exampleAwsStoragegatewayCache.gatewayArn,
+ *     networkInterfaceId: exampleAwsInstance.privateIp,
+ *     snapshotId: exampleAwsEbsSnapshot.id,
  *     targetName: "example",
- *     volumeSizeInBytes: aws_ebs_snapshot.example.volume_size * 1024 * 1024 * 1024,
+ *     volumeSizeInBytes: exampleAwsEbsSnapshot.volumeSize * 1024 * 1024 * 1024,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Create Cached iSCSI Volume From Source Volume
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.storagegateway.CachesIscsiVolume("example", {
- *     gatewayArn: aws_storagegateway_cache.example.gateway_arn,
- *     networkInterfaceId: aws_instance.example.private_ip,
- *     sourceVolumeArn: aws_storagegateway_cached_iscsi_volume.existing.arn,
+ *     gatewayArn: exampleAwsStoragegatewayCache.gatewayArn,
+ *     networkInterfaceId: exampleAwsInstance.privateIp,
+ *     sourceVolumeArn: existing.arn,
  *     targetName: "example",
- *     volumeSizeInBytes: aws_storagegateway_cached_iscsi_volume.existing.volume_size_in_bytes,
+ *     volumeSizeInBytes: existing.volumeSizeInBytes,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_storagegateway_cached_iscsi_volume` using the volume Amazon Resource Name (ARN). For example:
  *
  * ```sh
- *  $ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
+ * $ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
  * ```
  */
 export class CachesIscsiVolume extends pulumi.CustomResource {
@@ -227,8 +235,6 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
             resourceInputs["volumeId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(CachesIscsiVolume.__pulumiType, name, resourceInputs, opts);
     }
 }

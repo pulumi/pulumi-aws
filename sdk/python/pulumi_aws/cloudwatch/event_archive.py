@@ -220,36 +220,44 @@ class EventArchive(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        order_event_bus = aws.cloudwatch.EventBus("orderEventBus")
-        order_event_archive = aws.cloudwatch.EventArchive("orderEventArchive", event_source_arn=order_event_bus.arn)
+        order = aws.cloudwatch.EventBus("order", name="orders")
+        order_event_archive = aws.cloudwatch.EventArchive("order",
+            name="order-archive",
+            event_source_arn=order.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Example all optional arguments
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        order_event_bus = aws.cloudwatch.EventBus("orderEventBus")
-        order_event_archive = aws.cloudwatch.EventArchive("orderEventArchive",
+        order = aws.cloudwatch.EventBus("order", name="orders")
+        order_event_archive = aws.cloudwatch.EventArchive("order",
+            name="order-archive",
             description="Archived events from order service",
-            event_source_arn=order_event_bus.arn,
+            event_source_arn=order.arn,
             retention_days=7,
             event_pattern=json.dumps({
                 "source": ["company.team.order"],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an EventBridge archive using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
+        $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
         ```
 
         :param str resource_name: The name of the resource.
@@ -273,36 +281,44 @@ class EventArchive(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        order_event_bus = aws.cloudwatch.EventBus("orderEventBus")
-        order_event_archive = aws.cloudwatch.EventArchive("orderEventArchive", event_source_arn=order_event_bus.arn)
+        order = aws.cloudwatch.EventBus("order", name="orders")
+        order_event_archive = aws.cloudwatch.EventArchive("order",
+            name="order-archive",
+            event_source_arn=order.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Example all optional arguments
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        order_event_bus = aws.cloudwatch.EventBus("orderEventBus")
-        order_event_archive = aws.cloudwatch.EventArchive("orderEventArchive",
+        order = aws.cloudwatch.EventBus("order", name="orders")
+        order_event_archive = aws.cloudwatch.EventArchive("order",
+            name="order-archive",
             description="Archived events from order service",
-            event_source_arn=order_event_bus.arn,
+            event_source_arn=order.arn,
             retention_days=7,
             event_pattern=json.dumps({
                 "source": ["company.team.order"],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an EventBridge archive using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
+        $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
         ```
 
         :param str resource_name: The name of the resource.

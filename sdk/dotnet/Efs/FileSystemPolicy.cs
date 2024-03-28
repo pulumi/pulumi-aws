@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Efs
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,9 +23,12 @@ namespace Pulumi.Aws.Efs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fs = new Aws.Efs.FileSystem("fs");
+    ///     var fs = new Aws.Efs.FileSystem("fs", new()
+    ///     {
+    ///         CreationToken = "my-product",
+    ///     });
     /// 
-    ///     var policyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var policy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -68,21 +72,22 @@ namespace Pulumi.Aws.Efs
     ///         },
     ///     });
     /// 
-    ///     var policyFileSystemPolicy = new Aws.Efs.FileSystemPolicy("policyFileSystemPolicy", new()
+    ///     var policyFileSystemPolicy = new Aws.Efs.FileSystemPolicy("policy", new()
     ///     {
     ///         FileSystemId = fs.Id,
-    ///         Policy = policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import the EFS file system policies using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
+    /// $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
     /// ```
     /// </summary>
     [AwsResourceType("aws:efs/fileSystemPolicy:FileSystemPolicy")]

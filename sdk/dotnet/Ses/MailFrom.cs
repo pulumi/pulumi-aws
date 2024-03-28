@@ -15,8 +15,10 @@ namespace Pulumi.Aws.Ses
     /// &gt; **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the aws.ses.DomainIdentity resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/dg/mail-from.html) for more information.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Domain Identity MAIL FROM
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,23 +28,23 @@ namespace Pulumi.Aws.Ses
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Example SES Domain Identity
-    ///     var exampleDomainIdentity = new Aws.Ses.DomainIdentity("exampleDomainIdentity", new()
+    ///     var exampleDomainIdentity = new Aws.Ses.DomainIdentity("example", new()
     ///     {
     ///         Domain = "example.com",
     ///     });
     /// 
-    ///     var exampleMailFrom = new Aws.Ses.MailFrom("exampleMailFrom", new()
+    ///     var example = new Aws.Ses.MailFrom("example", new()
     ///     {
     ///         Domain = exampleDomainIdentity.Domain,
     ///         MailFromDomain = exampleDomainIdentity.Domain.Apply(domain =&gt; $"bounce.{domain}"),
     ///     });
     /// 
     ///     // Example Route53 MX record
-    ///     var exampleSesDomainMailFromMx = new Aws.Route53.Record("exampleSesDomainMailFromMx", new()
+    ///     var exampleSesDomainMailFromMx = new Aws.Route53.Record("example_ses_domain_mail_from_mx", new()
     ///     {
-    ///         ZoneId = aws_route53_zone.Example.Id,
-    ///         Name = exampleMailFrom.MailFromDomain,
-    ///         Type = "MX",
+    ///         ZoneId = exampleAwsRoute53Zone.Id,
+    ///         Name = example.MailFromDomain,
+    ///         Type = Aws.Route53.RecordType.MX,
     ///         Ttl = 600,
     ///         Records = new[]
     ///         {
@@ -50,13 +52,12 @@ namespace Pulumi.Aws.Ses
     ///         },
     ///     });
     /// 
-    ///     // Change to the region in which `aws_ses_domain_identity.example` is created
     ///     // Example Route53 TXT record for SPF
-    ///     var exampleSesDomainMailFromTxt = new Aws.Route53.Record("exampleSesDomainMailFromTxt", new()
+    ///     var exampleSesDomainMailFromTxt = new Aws.Route53.Record("example_ses_domain_mail_from_txt", new()
     ///     {
-    ///         ZoneId = aws_route53_zone.Example.Id,
-    ///         Name = exampleMailFrom.MailFromDomain,
-    ///         Type = "TXT",
+    ///         ZoneId = exampleAwsRoute53Zone.Id,
+    ///         Name = example.MailFromDomain,
+    ///         Type = Aws.Route53.RecordType.TXT,
     ///         Ttl = 600,
     ///         Records = new[]
     ///         {
@@ -66,8 +67,11 @@ namespace Pulumi.Aws.Ses
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Email Identity MAIL FROM
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -77,26 +81,27 @@ namespace Pulumi.Aws.Ses
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Example SES Email Identity
-    ///     var exampleEmailIdentity = new Aws.Ses.EmailIdentity("exampleEmailIdentity", new()
+    ///     var example = new Aws.Ses.EmailIdentity("example", new()
     ///     {
     ///         Email = "user@example.com",
     ///     });
     /// 
-    ///     var exampleMailFrom = new Aws.Ses.MailFrom("exampleMailFrom", new()
+    ///     var exampleMailFrom = new Aws.Ses.MailFrom("example", new()
     ///     {
-    ///         Domain = exampleEmailIdentity.Email,
+    ///         Domain = example.Email,
     ///         MailFromDomain = "mail.example.com",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MAIL FROM domain using the `domain` attribute. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ses/mailFrom:MailFrom example example.com
+    /// $ pulumi import aws:ses/mailFrom:MailFrom example example.com
     /// ```
     /// </summary>
     [AwsResourceType("aws:ses/mailFrom:MailFrom")]

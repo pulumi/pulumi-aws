@@ -52,11 +52,13 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
 
         @CustomType.Setter
         public Builder all(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll all) {
+
             this.all = all;
             return this;
         }
         @CustomType.Setter
         public Builder includedPaths(@Nullable List<String> includedPaths) {
+
             this.includedPaths = includedPaths;
             return this;
         }
@@ -64,10 +66,10 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
             return includedPaths(List.of(includedPaths));
         }
         public WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern();
-            o.all = all;
-            o.includedPaths = includedPaths;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern();
+            _resultValue.all = all;
+            _resultValue.includedPaths = includedPaths;
+            return _resultValue;
         }
     }
 }

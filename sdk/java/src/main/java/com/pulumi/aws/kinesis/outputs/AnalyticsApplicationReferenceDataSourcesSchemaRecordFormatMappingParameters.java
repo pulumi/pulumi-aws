@@ -63,19 +63,21 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMap
 
         @CustomType.Setter
         public Builder csv(@Nullable AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv csv) {
+
             this.csv = csv;
             return this;
         }
         @CustomType.Setter
         public Builder json(@Nullable AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson json) {
+
             this.json = json;
             return this;
         }
         public AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters build() {
-            final var o = new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters();
-            o.csv = csv;
-            o.json = json;
-            return o;
+            final var _resultValue = new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters();
+            _resultValue.csv = csv;
+            _resultValue.json = json;
+            return _resultValue;
         }
     }
 }

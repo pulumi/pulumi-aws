@@ -192,26 +192,31 @@ class LoggingConfiguration(pulumi.CustomResource):
         Resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration.
 
         ## Example Usage
+
         ### Basic Usage - Logging to CloudWatch
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
+        example = aws.cloudwatch.LogGroup("example")
+        example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
             cloudwatch_logs=aws.ivschat.LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs(
-                log_group_name=example_log_group.name,
+                log_group_name=example.name,
             ),
         ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Basic Usage - Logging to Kinesis Firehose with Extended S3
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket_prefix="tf-ivschat-logging-bucket")
+        example_bucket_v2 = aws.s3.BucketV2("example", bucket_prefix="tf-ivschat-logging-bucket")
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -220,8 +225,11 @@ class LoggingConfiguration(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream",
+        example_role = aws.iam.Role("example",
+            name="firehose_example_role",
+            assume_role_policy=assume_role.json)
+        example = aws.kinesis.FirehoseDeliveryStream("example",
+            name="pulumi-kinesis-firehose-extended-s3-example-stream",
             destination="extended_s3",
             extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
                 role_arn=example_role.arn,
@@ -230,22 +238,23 @@ class LoggingConfiguration(pulumi.CustomResource):
             tags={
                 "LogDeliveryEnabled": "true",
             })
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example_bucket_v2.id,
             acl="private")
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
+        example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
             firehose=aws.ivschat.LoggingConfigurationDestinationConfigurationFirehoseArgs(
-                delivery_stream_name=example_firehose_delivery_stream.name,
+                delivery_stream_name=example.name,
             ),
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:ivschat/loggingConfiguration:LoggingConfiguration example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
+        $ pulumi import aws:ivschat/loggingConfiguration:LoggingConfiguration example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
         ```
 
         :param str resource_name: The name of the resource.
@@ -264,26 +273,31 @@ class LoggingConfiguration(pulumi.CustomResource):
         Resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration.
 
         ## Example Usage
+
         ### Basic Usage - Logging to CloudWatch
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
+        example = aws.cloudwatch.LogGroup("example")
+        example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
             cloudwatch_logs=aws.ivschat.LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs(
-                log_group_name=example_log_group.name,
+                log_group_name=example.name,
             ),
         ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Basic Usage - Logging to Kinesis Firehose with Extended S3
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket_prefix="tf-ivschat-logging-bucket")
+        example_bucket_v2 = aws.s3.BucketV2("example", bucket_prefix="tf-ivschat-logging-bucket")
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -292,8 +306,11 @@ class LoggingConfiguration(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream",
+        example_role = aws.iam.Role("example",
+            name="firehose_example_role",
+            assume_role_policy=assume_role.json)
+        example = aws.kinesis.FirehoseDeliveryStream("example",
+            name="pulumi-kinesis-firehose-extended-s3-example-stream",
             destination="extended_s3",
             extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
                 role_arn=example_role.arn,
@@ -302,22 +319,23 @@ class LoggingConfiguration(pulumi.CustomResource):
             tags={
                 "LogDeliveryEnabled": "true",
             })
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example_bucket_v2.id,
             acl="private")
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
+        example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
             firehose=aws.ivschat.LoggingConfigurationDestinationConfigurationFirehoseArgs(
-                delivery_stream_name=example_firehose_delivery_stream.name,
+                delivery_stream_name=example.name,
             ),
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:ivschat/loggingConfiguration:LoggingConfiguration example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
+        $ pulumi import aws:ivschat/loggingConfiguration:LoggingConfiguration example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
         ```
 
         :param str resource_name: The name of the resource.
@@ -353,8 +371,6 @@ class LoggingConfiguration(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LoggingConfiguration, __self__).__init__(
             'aws:ivschat/loggingConfiguration:LoggingConfiguration',
             resource_name,

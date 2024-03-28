@@ -14,12 +14,11 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Provides details about a specific Amazon Connect Contact Flow Module.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// By `name`
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,9 +35,11 @@ namespace Pulumi.Aws.Connect
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// By `contact_flow_module_id`
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -49,14 +50,13 @@ namespace Pulumi.Aws.Connect
         /// {
         ///     var example = Aws.Connect.GetContactFlowModule.Invoke(new()
         ///     {
-        ///         ContactFlowModuleId = "cccccccc-bbbb-cccc-dddd-111111111111",
         ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         ContactFlowModuleId = "cccccccc-bbbb-cccc-dddd-111111111111",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetContactFlowModuleResult> InvokeAsync(GetContactFlowModuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContactFlowModuleResult>("aws:connect/getContactFlowModule:getContactFlowModule", args ?? new GetContactFlowModuleArgs(), options.WithDefaults());
@@ -64,12 +64,11 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Provides details about a specific Amazon Connect Contact Flow Module.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// By `name`
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -86,9 +85,11 @@ namespace Pulumi.Aws.Connect
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// By `contact_flow_module_id`
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -99,14 +100,13 @@ namespace Pulumi.Aws.Connect
         /// {
         ///     var example = Aws.Connect.GetContactFlowModule.Invoke(new()
         ///     {
-        ///         ContactFlowModuleId = "cccccccc-bbbb-cccc-dddd-111111111111",
         ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         ContactFlowModuleId = "cccccccc-bbbb-cccc-dddd-111111111111",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetContactFlowModuleResult> Invoke(GetContactFlowModuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContactFlowModuleResult>("aws:connect/getContactFlowModule:getContactFlowModule", args ?? new GetContactFlowModuleInvokeArgs(), options.WithDefaults());

@@ -17,6 +17,7 @@ import (
 //
 // Enabled AWS Regions:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,9 +39,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // # All the regions regardless of the availability
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,9 +67,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // To see regions that are filtered by `"not-opted-in"`, the `allRegions` argument needs to be set to `true` or no results will be returned.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -98,6 +103,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetRegions(ctx *pulumi.Context, args *GetRegionsArgs, opts ...pulumi.InvokeOption) (*GetRegionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRegionsResult

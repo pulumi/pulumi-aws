@@ -25,8 +25,8 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode();
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode();
+            return _resultValue;
         }
     }
 }

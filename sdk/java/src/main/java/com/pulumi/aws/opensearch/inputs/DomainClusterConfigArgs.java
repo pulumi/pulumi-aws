@@ -109,9 +109,17 @@ public final class DomainClusterConfigArgs extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.instanceType);
     }
 
+    /**
+     * Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
+     * 
+     */
     @Import(name="multiAzWithStandbyEnabled")
     private @Nullable Output<Boolean> multiAzWithStandbyEnabled;
 
+    /**
+     * @return Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
+     * 
+     */
     public Optional<Output<Boolean>> multiAzWithStandbyEnabled() {
         return Optional.ofNullable(this.multiAzWithStandbyEnabled);
     }
@@ -352,11 +360,23 @@ public final class DomainClusterConfigArgs extends com.pulumi.resources.Resource
             return instanceType(Output.of(instanceType));
         }
 
+        /**
+         * @param multiAzWithStandbyEnabled Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder multiAzWithStandbyEnabled(@Nullable Output<Boolean> multiAzWithStandbyEnabled) {
             $.multiAzWithStandbyEnabled = multiAzWithStandbyEnabled;
             return this;
         }
 
+        /**
+         * @param multiAzWithStandbyEnabled Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder multiAzWithStandbyEnabled(Boolean multiAzWithStandbyEnabled) {
             return multiAzWithStandbyEnabled(Output.of(multiAzWithStandbyEnabled));
         }

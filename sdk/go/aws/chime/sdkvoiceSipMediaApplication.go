@@ -15,8 +15,10 @@ import (
 // A ChimeSDKVoice SIP Media Application is a managed object that passes values from a SIP rule to a target AWS Lambda function.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,8 +33,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := chime.NewSdkvoiceSipMediaApplication(ctx, "example", &chime.SdkvoiceSipMediaApplicationArgs{
 //				AwsRegion: pulumi.String("us-east-1"),
+//				Name:      pulumi.String("example-sip-media-application"),
 //				Endpoints: &chime.SdkvoiceSipMediaApplicationEndpointsArgs{
-//					LambdaArn: pulumi.Any(aws_lambda_function.Test.Arn),
+//					LambdaArn: pulumi.Any(test.Arn),
 //				},
 //			})
 //			if err != nil {
@@ -43,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a ChimeSDKVoice SIP Media Application using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication example abcdef123456
-//
+// $ pulumi import aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication example abcdef123456
 // ```
 type SdkvoiceSipMediaApplication struct {
 	pulumi.CustomResourceState
@@ -87,10 +89,6 @@ func NewSdkvoiceSipMediaApplication(ctx *pulumi.Context,
 	if args.Endpoints == nil {
 		return nil, errors.New("invalid value for required argument 'Endpoints'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SdkvoiceSipMediaApplication
 	err := ctx.RegisterResource("aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication", name, args, &resource, opts...)

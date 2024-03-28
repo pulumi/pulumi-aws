@@ -13,7 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,32 +21,8 @@ import javax.annotation.Nullable;
  * Provides an SNS topic resource
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
  * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sns.Topic;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var userUpdates = new Topic(&#34;userUpdates&#34;);
- * 
- *     }
- * }
- * ```
- * ## Example with Delivery Policy
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -70,6 +45,40 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var userUpdates = new Topic(&#34;userUpdates&#34;, TopicArgs.builder()        
+ *             .name(&#34;user-updates-topic&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Example with Delivery Policy
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.sns.TopicArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var userUpdates = new Topic(&#34;userUpdates&#34;, TopicArgs.builder()        
+ *             .name(&#34;user-updates-topic&#34;)
  *             .deliveryPolicy(&#34;&#34;&#34;
  * {
  *   &#34;http&#34;: {
@@ -88,15 +97,17 @@ import javax.annotation.Nullable;
  *     }
  *   }
  * }
- * 
  *             &#34;&#34;&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example with Server-side encryption (SSE)
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -119,14 +130,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var userUpdates = new Topic(&#34;userUpdates&#34;, TopicArgs.builder()        
+ *             .name(&#34;user-updates-topic&#34;)
  *             .kmsMasterKeyId(&#34;alias/aws/sns&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example with First-In-First-Out (FIFO)
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -149,13 +164,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var userUpdates = new Topic(&#34;userUpdates&#34;, TopicArgs.builder()        
- *             .contentBasedDeduplication(true)
+ *             .name(&#34;user-updates-topic.fifo&#34;)
  *             .fifoTopic(true)
+ *             .contentBasedDeduplication(true)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Message Delivery Status Arguments
  * 
@@ -166,7 +183,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import SNS Topics using the topic `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
+ * $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
  * ```
  * 
  */
@@ -643,9 +660,6 @@ public class Topic extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

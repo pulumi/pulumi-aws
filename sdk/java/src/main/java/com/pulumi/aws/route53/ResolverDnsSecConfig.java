@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a Route 53 Resolver DNSSEC config resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -40,28 +42,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+ *         var example = new Vpc(&#34;example&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.0.0.0/16&#34;)
  *             .enableDnsSupport(true)
  *             .enableDnsHostnames(true)
  *             .build());
  * 
  *         var exampleResolverDnsSecConfig = new ResolverDnsSecConfig(&#34;exampleResolverDnsSecConfig&#34;, ResolverDnsSecConfigArgs.builder()        
- *             .resourceId(exampleVpc.id())
+ *             .resourceId(example.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import
- * 
- * Route 53 Resolver DNSSEC configs using the Route 53 Resolver DNSSEC config ID. For example:
+ * Using `pulumi import`, import  Route 53 Resolver DNSSEC configs using the Route 53 Resolver DNSSEC config ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
+ * $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
  * ```
  * 
  */

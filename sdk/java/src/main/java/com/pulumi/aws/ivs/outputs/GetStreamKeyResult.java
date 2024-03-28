@@ -4,6 +4,7 @@
 package com.pulumi.aws.ivs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -91,37 +92,52 @@ public final class GetStreamKeyResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetStreamKeyResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder channelArn(String channelArn) {
-            this.channelArn = Objects.requireNonNull(channelArn);
+            if (channelArn == null) {
+              throw new MissingRequiredPropertyException("GetStreamKeyResult", "channelArn");
+            }
+            this.channelArn = channelArn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetStreamKeyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetStreamKeyResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("GetStreamKeyResult", "value");
+            }
+            this.value = value;
             return this;
         }
         public GetStreamKeyResult build() {
-            final var o = new GetStreamKeyResult();
-            o.arn = arn;
-            o.channelArn = channelArn;
-            o.id = id;
-            o.tags = tags;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetStreamKeyResult();
+            _resultValue.arn = arn;
+            _resultValue.channelArn = channelArn;
+            _resultValue.id = id;
+            _resultValue.tags = tags;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

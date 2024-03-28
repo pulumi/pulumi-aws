@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  *     name: "my_example_backup_report_plan_name",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getReportPlan(args: GetReportPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetReportPlanResult> {
 
@@ -87,6 +89,7 @@ export interface GetReportPlanResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -95,6 +98,7 @@ export interface GetReportPlanResult {
  *     name: "my_example_backup_report_plan_name",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getReportPlanOutput(args: GetReportPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportPlanResult> {
     return pulumi.output(args).apply((a: any) => getReportPlan(a, opts))

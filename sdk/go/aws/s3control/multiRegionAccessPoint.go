@@ -14,15 +14,18 @@ import (
 
 // Provides a resource to manage an S3 Multi-Region Access Point associated with specified buckets.
 //
+// > This resource cannot be used with S3 directory buckets.
+//
 // ## Example Usage
+//
 // ### Multiple AWS Buckets in Different Regions
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -31,23 +34,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "primaryRegion", &aws.ProviderArgs{
-//				Region: pulumi.String("us-east-1"),
+//			fooBucket, err := s3.NewBucketV2(ctx, "foo_bucket", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example-bucket-foo"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = aws.NewProvider(ctx, "secondaryRegion", &aws.ProviderArgs{
-//				Region: pulumi.String("us-west-2"),
+//			barBucket, err := s3.NewBucketV2(ctx, "bar_bucket", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example-bucket-bar"),
 //			})
-//			if err != nil {
-//				return err
-//			}
-//			fooBucket, err := s3.NewBucketV2(ctx, "fooBucket", nil, pulumi.Provider(aws.Primary_region))
-//			if err != nil {
-//				return err
-//			}
-//			barBucket, err := s3.NewBucketV2(ctx, "barBucket", nil, pulumi.Provider(aws.Secondary_region))
 //			if err != nil {
 //				return err
 //			}
@@ -72,15 +67,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Multi-Region Access Points using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint example 123456789012:example
-//
+// $ pulumi import aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint example 123456789012:example
 // ```
 type MultiRegionAccessPoint struct {
 	pulumi.CustomResourceState

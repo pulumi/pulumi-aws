@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Manages an AWS DataSync FSx Windows Location.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,22 +44,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LocationFsxWindows(&#34;example&#34;, LocationFsxWindowsArgs.builder()        
- *             .fsxFilesystemArn(aws_fsx_windows_file_system.example().arn())
+ *             .fsxFilesystemArn(exampleAwsFsxWindowsFileSystem.arn())
  *             .user(&#34;SomeUser&#34;)
  *             .password(&#34;SuperSecretPassw0rd&#34;)
- *             .securityGroupArns(aws_security_group.example().arn())
+ *             .securityGroupArns(exampleAwsSecurityGroup.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_datasync_location_fsx_windows_file_system` using the `DataSync-ARN#FSx-Windows-ARN`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:datasync/locationFsxWindows:LocationFsxWindows example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:476956259333:file-system/fs-08e04cd442c1bb94a
+ * $ pulumi import aws:datasync/locationFsxWindows:LocationFsxWindows example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:476956259333:file-system/fs-08e04cd442c1bb94a
  * ```
  * 
  */
@@ -255,8 +258,7 @@ public class LocationFsxWindows extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "password",
-                "tagsAll"
+                "password"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

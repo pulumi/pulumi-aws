@@ -20,6 +20,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,8 +34,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewVpcIpamResourceDiscoveryAssociation(ctx, "test", &ec2.VpcIpamResourceDiscoveryAssociationArgs{
-//				IpamId:                  pulumi.Any(aws_vpc_ipam.Test.Id),
-//				IpamResourceDiscoveryId: pulumi.Any(aws_vpc_ipam_resource_discovery.Test.Id),
+//				IpamId:                  pulumi.Any(testAwsVpcIpam.Id),
+//				IpamResourceDiscoveryId: pulumi.Any(testAwsVpcIpamResourceDiscovery.Id),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("test"),
 //				},
@@ -47,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IPAMs using the IPAM resource discovery association `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation example ipam-res-disco-assoc-0178368ad2146a492
-//
+// $ pulumi import aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation example ipam-res-disco-assoc-0178368ad2146a492
 // ```
 type VpcIpamResourceDiscoveryAssociation struct {
 	pulumi.CustomResourceState
@@ -97,10 +97,6 @@ func NewVpcIpamResourceDiscoveryAssociation(ctx *pulumi.Context,
 	if args.IpamResourceDiscoveryId == nil {
 		return nil, errors.New("invalid value for required argument 'IpamResourceDiscoveryId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcIpamResourceDiscoveryAssociation
 	err := ctx.RegisterResource("aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation", name, args, &resource, opts...)

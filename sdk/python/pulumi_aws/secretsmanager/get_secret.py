@@ -21,10 +21,13 @@ class GetSecretResult:
     """
     A collection of values returned by getSecret.
     """
-    def __init__(__self__, arn=None, description=None, id=None, kms_key_id=None, name=None, policy=None, tags=None):
+    def __init__(__self__, arn=None, created_date=None, description=None, id=None, kms_key_id=None, last_changed_date=None, name=None, policy=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        pulumi.set(__self__, "created_date", created_date)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -34,6 +37,9 @@ class GetSecretResult:
         if kms_key_id and not isinstance(kms_key_id, str):
             raise TypeError("Expected argument 'kms_key_id' to be a str")
         pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if last_changed_date and not isinstance(last_changed_date, str):
+            raise TypeError("Expected argument 'last_changed_date' to be a str")
+        pulumi.set(__self__, "last_changed_date", last_changed_date)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -51,6 +57,14 @@ class GetSecretResult:
         ARN of the secret.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        Created date of the secret in UTC.
+        """
+        return pulumi.get(self, "created_date")
 
     @property
     @pulumi.getter
@@ -75,6 +89,14 @@ class GetSecretResult:
         Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
         """
         return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="lastChangedDate")
+    def last_changed_date(self) -> str:
+        """
+        Last updated date of the secret in UTC.
+        """
+        return pulumi.get(self, "last_changed_date")
 
     @property
     @pulumi.getter
@@ -105,9 +127,11 @@ class AwaitableGetSecretResult(GetSecretResult):
             yield self
         return GetSecretResult(
             arn=self.arn,
+            created_date=self.created_date,
             description=self.description,
             id=self.id,
             kms_key_id=self.kms_key_id,
+            last_changed_date=self.last_changed_date,
             name=self.name,
             policy=self.policy,
             tags=self.tags)
@@ -115,43 +139,54 @@ class AwaitableGetSecretResult(GetSecretResult):
 
 def get_secret(arn: Optional[str] = None,
                name: Optional[str] = None,
+               tags: Optional[Mapping[str, str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretResult:
     """
     Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `secretsmanager.SecretVersion` data source.
 
     ## Example Usage
+
     ### ARN
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     by_arn = aws.secretsmanager.get_secret(arn="arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Name
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     by_name = aws.secretsmanager.get_secret(name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the secret to retrieve.
     :param str name: Name of the secret to retrieve.
+    :param Mapping[str, str] tags: Tags of the secret.
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['name'] = name
+    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getSecret:getSecret', __args__, opts=opts, typ=GetSecretResult).value
 
     return AwaitableGetSecretResult(
         arn=pulumi.get(__ret__, 'arn'),
+        created_date=pulumi.get(__ret__, 'created_date'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        last_changed_date=pulumi.get(__ret__, 'last_changed_date'),
         name=pulumi.get(__ret__, 'name'),
         policy=pulumi.get(__ret__, 'policy'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -160,30 +195,38 @@ def get_secret(arn: Optional[str] = None,
 @_utilities.lift_output_func(get_secret)
 def get_secret_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                       name: Optional[pulumi.Input[Optional[str]]] = None,
+                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretResult]:
     """
     Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `secretsmanager.SecretVersion` data source.
 
     ## Example Usage
+
     ### ARN
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     by_arn = aws.secretsmanager.get_secret(arn="arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Name
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     by_name = aws.secretsmanager.get_secret(name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the secret to retrieve.
     :param str name: Name of the secret to retrieve.
+    :param Mapping[str, str] tags: Tags of the secret.
     """
     ...

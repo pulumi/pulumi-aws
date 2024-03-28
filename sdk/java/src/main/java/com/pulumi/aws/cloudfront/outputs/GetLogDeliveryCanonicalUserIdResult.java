@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -50,19 +51,23 @@ public final class GetLogDeliveryCanonicalUserIdResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLogDeliveryCanonicalUserIdResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder region(@Nullable String region) {
+
             this.region = region;
             return this;
         }
         public GetLogDeliveryCanonicalUserIdResult build() {
-            final var o = new GetLogDeliveryCanonicalUserIdResult();
-            o.id = id;
-            o.region = region;
-            return o;
+            final var _resultValue = new GetLogDeliveryCanonicalUserIdResult();
+            _resultValue.id = id;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

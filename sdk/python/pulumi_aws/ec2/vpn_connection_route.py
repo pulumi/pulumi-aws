@@ -102,13 +102,14 @@ class VpnConnectionRoute(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         vpc = aws.ec2.Vpc("vpc", cidr_block="10.0.0.0/16")
-        vpn_gateway = aws.ec2.VpnGateway("vpnGateway", vpc_id=vpc.id)
-        customer_gateway = aws.ec2.CustomerGateway("customerGateway",
+        vpn_gateway = aws.ec2.VpnGateway("vpn_gateway", vpc_id=vpc.id)
+        customer_gateway = aws.ec2.CustomerGateway("customer_gateway",
             bgp_asn="65000",
             ip_address="172.0.0.1",
             type="ipsec.1")
@@ -121,6 +122,7 @@ class VpnConnectionRoute(pulumi.CustomResource):
             destination_cidr_block="192.168.10.0/24",
             vpn_connection_id=main.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,13 +140,14 @@ class VpnConnectionRoute(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         vpc = aws.ec2.Vpc("vpc", cidr_block="10.0.0.0/16")
-        vpn_gateway = aws.ec2.VpnGateway("vpnGateway", vpc_id=vpc.id)
-        customer_gateway = aws.ec2.CustomerGateway("customerGateway",
+        vpn_gateway = aws.ec2.VpnGateway("vpn_gateway", vpc_id=vpc.id)
+        customer_gateway = aws.ec2.CustomerGateway("customer_gateway",
             bgp_asn="65000",
             ip_address="172.0.0.1",
             type="ipsec.1")
@@ -157,6 +160,7 @@ class VpnConnectionRoute(pulumi.CustomResource):
             destination_cidr_block="192.168.10.0/24",
             vpn_connection_id=main.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param VpnConnectionRouteInitArgs args: The arguments to use to populate this resource's properties.

@@ -12,11 +12,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.batch.SchedulingPolicy("example", {
+ *     name: "example",
  *     fairSharePolicy: {
  *         computeReservation: 1,
  *         shareDecaySeconds: 3600,
@@ -36,13 +38,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Batch Scheduling Policy using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:batch/schedulingPolicy:SchedulingPolicy test_policy arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample
+ * $ pulumi import aws:batch/schedulingPolicy:SchedulingPolicy test_policy arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample
  * ```
  */
 export class SchedulingPolicy extends pulumi.CustomResource {
@@ -120,8 +123,6 @@ export class SchedulingPolicy extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SchedulingPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

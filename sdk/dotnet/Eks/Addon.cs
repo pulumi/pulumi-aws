@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Eks
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,16 +25,19 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Eks.Addon("example", new()
     ///     {
-    ///         ClusterName = aws_eks_cluster.Example.Name,
+    ///         ClusterName = exampleAwsEksCluster.Name,
     ///         AddonName = "vpc-cni",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Example Update add-on usage with resolve_conflicts_on_update and PRESERVE
     /// 
     /// `resolve_conflicts_on_update` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,7 +48,7 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Eks.Addon("example", new()
     ///     {
-    ///         ClusterName = aws_eks_cluster.Example.Name,
+    ///         ClusterName = exampleAwsEksCluster.Name,
     ///         AddonName = "coredns",
     ///         AddonVersion = "v1.10.1-eksbuild.1",
     ///         ResolveConflictsOnUpdate = "PRESERVE",
@@ -52,6 +56,7 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Example add-on usage with custom configuration_values
     /// 
@@ -62,18 +67,9 @@ namespace Pulumi.Aws.Eks
     /// To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
     /// This below is an example for extracting the `configuration_values` schema for `coredns`.
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    /// });
-    /// ```
-    /// 
     /// Example to create a `coredns` managed addon with custom `configuration_values`.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -110,13 +106,106 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Example IAM Role for EKS Addon "vpc-cni" with AWS managed policy
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// using Tls = Pulumi.Tls;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleCluster = new Aws.Eks.Cluster("example");
+    /// 
+    ///     var example = Tls.GetCertificate.Invoke(new()
+    ///     {
+    ///         Url = exampleCluster.Identities[0].Oidcs[0]?.Issuer,
+    ///     });
+    /// 
+    ///     var exampleOpenIdConnectProvider = new Aws.Iam.OpenIdConnectProvider("example", new()
+    ///     {
+    ///         ClientIdLists = new[]
+    ///         {
+    ///             "sts.amazonaws.com",
+    ///         },
+    ///         ThumbprintLists = new[]
+    ///         {
+    ///             example.Apply(getCertificateResult =&gt; getCertificateResult.Certificates[0]?.Sha1Fingerprint),
+    ///         },
+    ///         Url = exampleCluster.Identities.Apply(identities =&gt; identities[0].Oidcs[0]?.Issuer),
+    ///     });
+    /// 
+    ///     var exampleAssumeRolePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRoleWithWebIdentity",
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = $"{Std.Replace.Invoke(new()
+    ///                         {
+    ///                             Text = exampleOpenIdConnectProvider.Url,
+    ///                             Search = "https://",
+    ///                             Replace = "",
+    ///                         }).Result}:sub",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "system:serviceaccount:kube-system:aws-node",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             exampleOpenIdConnectProvider.Arn,
+    ///                         },
+    ///                         Type = "Federated",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
+    ///     {
+    ///         AssumeRolePolicy = exampleAssumeRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "example-vpc-cni-role",
+    ///     });
+    /// 
+    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("example", new()
+    ///     {
+    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
+    ///         Role = exampleRole.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EKS add-on using the `cluster_name` and `addon_name` separated by a colon (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
+    /// $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
     /// ```
     /// </summary>
     [AwsResourceType("aws:eks/addon:Addon")]
@@ -143,7 +232,7 @@ namespace Pulumi.Aws.Eks
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// Name of the EKS Cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -243,10 +332,6 @@ namespace Pulumi.Aws.Eks
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -285,7 +370,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? AddonVersion { get; set; }
 
         /// <summary>
-        /// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// Name of the EKS Cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -379,7 +464,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// Name of the EKS Cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -466,11 +551,7 @@ namespace Pulumi.Aws.Eks
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public AddonState()

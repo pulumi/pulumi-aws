@@ -24,7 +24,10 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** It is only valid to create one type of classifier (csv, grok, JSON, or XML). Changing classifier types will recreate the classifier.
  * 
  * ## Example Usage
+ * 
  * ### Csv Classifier
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,6 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Classifier(&#34;example&#34;, ClassifierArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .csvClassifier(ClassifierCsvClassifierArgs.builder()
  *                 .allowSingleColumn(false)
  *                 .containsHeader(&#34;PRESENT&#34;)
@@ -63,7 +67,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Grok Classifier
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -87,6 +95,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Classifier(&#34;example&#34;, ClassifierArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .grokClassifier(ClassifierGrokClassifierArgs.builder()
  *                 .classification(&#34;example&#34;)
  *                 .grokPattern(&#34;example&#34;)
@@ -96,7 +105,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### JSON Classifier
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -120,6 +133,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Classifier(&#34;example&#34;, ClassifierArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .jsonClassifier(ClassifierJsonClassifierArgs.builder()
  *                 .jsonPath(&#34;example&#34;)
  *                 .build())
@@ -128,7 +142,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### XML Classifier
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -152,6 +170,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Classifier(&#34;example&#34;, ClassifierArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .xmlClassifier(ClassifierXmlClassifierArgs.builder()
  *                 .classification(&#34;example&#34;)
  *                 .rowTag(&#34;example&#34;)
@@ -161,13 +180,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Glue Classifiers using their name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
+ * $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
  * ```
  * 
  */

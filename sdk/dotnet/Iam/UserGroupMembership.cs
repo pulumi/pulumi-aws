@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,11 +28,20 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var user1 = new Aws.Iam.User("user1");
+    ///     var user1 = new Aws.Iam.User("user1", new()
+    ///     {
+    ///         Name = "user1",
+    ///     });
     /// 
-    ///     var group1 = new Aws.Iam.Group("group1");
+    ///     var group1 = new Aws.Iam.Group("group1", new()
+    ///     {
+    ///         Name = "group1",
+    ///     });
     /// 
-    ///     var group2 = new Aws.Iam.Group("group2");
+    ///     var group2 = new Aws.Iam.Group("group2", new()
+    ///     {
+    ///         Name = "group2",
+    ///     });
     /// 
     ///     var example1 = new Aws.Iam.UserGroupMembership("example1", new()
     ///     {
@@ -43,7 +53,10 @@ namespace Pulumi.Aws.Iam
     ///         },
     ///     });
     /// 
-    ///     var group3 = new Aws.Iam.Group("group3");
+    ///     var group3 = new Aws.Iam.Group("group3", new()
+    ///     {
+    ///         Name = "group3",
+    ///     });
     /// 
     ///     var example2 = new Aws.Iam.UserGroupMembership("example2", new()
     ///     {
@@ -56,13 +69,14 @@ namespace Pulumi.Aws.Iam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
+    /// $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/userGroupMembership:UserGroupMembership")]

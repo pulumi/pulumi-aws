@@ -5,6 +5,7 @@ package com.pulumi.aws.directconnect;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -345,8 +346,12 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ConnectionArgs build() {
-            $.bandwidth = Objects.requireNonNull($.bandwidth, "expected parameter 'bandwidth' to be non-null");
-            $.location = Objects.requireNonNull($.location, "expected parameter 'location' to be non-null");
+            if ($.bandwidth == null) {
+                throw new MissingRequiredPropertyException("ConnectionArgs", "bandwidth");
+            }
+            if ($.location == null) {
+                throw new MissingRequiredPropertyException("ConnectionArgs", "location");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -48,19 +49,25 @@ public final class GetLaunchTemplateIamInstanceProfile {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateIamInstanceProfile", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateIamInstanceProfile", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetLaunchTemplateIamInstanceProfile build() {
-            final var o = new GetLaunchTemplateIamInstanceProfile();
-            o.arn = arn;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetLaunchTemplateIamInstanceProfile();
+            _resultValue.arn = arn;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

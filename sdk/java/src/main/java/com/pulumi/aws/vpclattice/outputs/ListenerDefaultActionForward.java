@@ -44,6 +44,7 @@ public final class ListenerDefaultActionForward {
 
         @CustomType.Setter
         public Builder targetGroups(@Nullable List<ListenerDefaultActionForwardTargetGroup> targetGroups) {
+
             this.targetGroups = targetGroups;
             return this;
         }
@@ -51,9 +52,9 @@ public final class ListenerDefaultActionForward {
             return targetGroups(List.of(targetGroups));
         }
         public ListenerDefaultActionForward build() {
-            final var o = new ListenerDefaultActionForward();
-            o.targetGroups = targetGroups;
-            return o;
+            final var _resultValue = new ListenerDefaultActionForward();
+            _resultValue.targetGroups = targetGroups;
+            return _resultValue;
         }
     }
 }

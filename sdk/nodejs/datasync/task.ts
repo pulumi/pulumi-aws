@@ -13,29 +13,52 @@ import {ARN} from "..";
  * Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
  *
  * ## Example Usage
- * ### With Scheduling
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datasync.Task("example", {
- *     destinationLocationArn: aws_datasync_location_s3.destination.arn,
- *     sourceLocationArn: aws_datasync_location_nfs.source.arn,
+ *     destinationLocationArn: destination.arn,
+ *     name: "example",
+ *     sourceLocationArn: source.arn,
+ *     options: {
+ *         bytesPerSecond: -1,
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### With Scheduling
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.datasync.Task("example", {
+ *     destinationLocationArn: destination.arn,
+ *     name: "example",
+ *     sourceLocationArn: source.arn,
  *     schedule: {
  *         scheduleExpression: "cron(0 12 ? * SUN,WED *)",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Filtering
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datasync.Task("example", {
- *     destinationLocationArn: aws_datasync_location_s3.destination.arn,
- *     sourceLocationArn: aws_datasync_location_nfs.source.arn,
+ *     destinationLocationArn: destination.arn,
+ *     name: "example",
+ *     sourceLocationArn: source.arn,
  *     excludes: {
  *         filterType: "SIMPLE_PATTERN",
  *         value: "/folder1|/folder2",
@@ -46,13 +69,14 @@ import {ARN} from "..";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_datasync_task` using the DataSync Task Amazon Resource Name (ARN). For example:
  *
  * ```sh
- *  $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
+ * $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
  * ```
  */
 export class Task extends pulumi.CustomResource {
@@ -181,8 +205,6 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Task.__pulumiType, name, resourceInputs, opts);
     }
 }

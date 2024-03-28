@@ -4,6 +4,7 @@
 package com.pulumi.aws.lb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -65,7 +66,10 @@ public final class GetLbsResult {
 
         @CustomType.Setter
         public Builder arns(List<String> arns) {
-            this.arns = Objects.requireNonNull(arns);
+            if (arns == null) {
+              throw new MissingRequiredPropertyException("GetLbsResult", "arns");
+            }
+            this.arns = arns;
             return this;
         }
         public Builder arns(String... arns) {
@@ -73,20 +77,24 @@ public final class GetLbsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLbsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         public GetLbsResult build() {
-            final var o = new GetLbsResult();
-            o.arns = arns;
-            o.id = id;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetLbsResult();
+            _resultValue.arns = arns;
+            _resultValue.id = id;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

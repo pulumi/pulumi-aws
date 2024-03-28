@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS AccessAnalyzer Archive Rule.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,6 +33,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := accessanalyzer.NewArchiveRule(ctx, "example", &accessanalyzer.ArchiveRuleArgs{
 //				AnalyzerName: pulumi.String("example-analyzer"),
+//				RuleName:     pulumi.String("example-rule"),
 //				Filters: accessanalyzer.ArchiveRuleFilterArray{
 //					&accessanalyzer.ArchiveRuleFilterArgs{
 //						Criteria: pulumi.String("condition.aws:UserId"),
@@ -49,7 +52,6 @@ import (
 //						},
 //					},
 //				},
-//				RuleName: pulumi.String("example-rule"),
 //			})
 //			if err != nil {
 //				return err
@@ -59,15 +61,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AccessAnalyzer ArchiveRule using the `analyzer_name/rule_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
-//
+// $ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
 // ```
 type ArchiveRule struct {
 	pulumi.CustomResourceState

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,7 +23,7 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
+    ///     var example = new Aws.Organizations.Organization("example", new()
     ///     {
     ///         AwsServiceAccessPrincipals = new[]
     ///         {
@@ -31,28 +32,23 @@ namespace Pulumi.Aws.GuardDuty
     ///         FeatureSet = "ALL",
     ///     });
     /// 
-    ///     var exampleDetector = new Aws.GuardDuty.Detector("exampleDetector");
+    ///     var exampleDetector = new Aws.GuardDuty.Detector("example");
     /// 
-    ///     var exampleOrganizationAdminAccount = new Aws.GuardDuty.OrganizationAdminAccount("exampleOrganizationAdminAccount", new()
+    ///     var exampleOrganizationAdminAccount = new Aws.GuardDuty.OrganizationAdminAccount("example", new()
     ///     {
     ///         AdminAccountId = "123456789012",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleOrganization,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import GuardDuty Organization Admin Account using the AWS account ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:guardduty/organizationAdminAccount:OrganizationAdminAccount example 123456789012
+    /// $ pulumi import aws:guardduty/organizationAdminAccount:OrganizationAdminAccount example 123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:guardduty/organizationAdminAccount:OrganizationAdminAccount")]

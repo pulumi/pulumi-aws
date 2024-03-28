@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,13 +24,14 @@ import * as utilities from "../utilities";
  *     mapName: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_location_map` resources using the map name. For example:
  *
  * ```sh
- *  $ pulumi import aws:location/map:Map example example
+ * $ pulumi import aws:location/map:Map example example
  * ```
  */
 export class Map extends pulumi.CustomResource {
@@ -136,8 +138,6 @@ export class Map extends pulumi.CustomResource {
             resourceInputs["updateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Map.__pulumiType, name, resourceInputs, opts);
     }
 }

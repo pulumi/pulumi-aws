@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -46,25 +47,34 @@ public final class GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation
 
         @CustomType.Setter
         public Builder columnName(String columnName) {
-            this.columnName = Objects.requireNonNull(columnName);
+            if (columnName == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation", "columnName");
+            }
+            this.columnName = columnName;
             return this;
         }
         @CustomType.Setter
         public Builder format(String format) {
-            this.format = Objects.requireNonNull(format);
+            if (format == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation", "format");
+            }
+            this.format = format;
             return this;
         }
         @CustomType.Setter
         public Builder newColumnType(String newColumnType) {
-            this.newColumnType = Objects.requireNonNull(newColumnType);
+            if (newColumnType == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation", "newColumnType");
+            }
+            this.newColumnType = newColumnType;
             return this;
         }
         public GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation build() {
-            final var o = new GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation();
-            o.columnName = columnName;
-            o.format = format;
-            o.newColumnType = newColumnType;
-            return o;
+            final var _resultValue = new GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation();
+            _resultValue.columnName = columnName;
+            _resultValue.format = format;
+            _resultValue.newColumnType = newColumnType;
+            return _resultValue;
         }
     }
 }

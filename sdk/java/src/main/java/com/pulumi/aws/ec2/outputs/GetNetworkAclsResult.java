@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetNetworkAclsFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -79,6 +80,7 @@ public final class GetNetworkAclsResult {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<GetNetworkAclsFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -87,12 +89,18 @@ public final class GetNetworkAclsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAclsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+            if (ids == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAclsResult", "ids");
+            }
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {
@@ -100,22 +108,26 @@ public final class GetNetworkAclsResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAclsResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(@Nullable String vpcId) {
+
             this.vpcId = vpcId;
             return this;
         }
         public GetNetworkAclsResult build() {
-            final var o = new GetNetworkAclsResult();
-            o.filters = filters;
-            o.id = id;
-            o.ids = ids;
-            o.tags = tags;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetNetworkAclsResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.tags = tags;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

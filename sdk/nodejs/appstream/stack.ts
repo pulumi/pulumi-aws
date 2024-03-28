@@ -12,15 +12,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appstream.Stack("example", {
- *     applicationSettings: {
- *         enabled: true,
- *         settingsGroup: "SettingsGroup",
- *     },
+ *     name: "stack name",
  *     description: "stack description",
  *     displayName: "stack display name",
  *     feedbackUrl: "http://your-domain/feedback",
@@ -28,9 +26,6 @@ import * as utilities from "../utilities";
  *     storageConnectors: [{
  *         connectorType: "HOMEFOLDERS",
  *     }],
- *     tags: {
- *         TagName: "TagValue",
- *     },
  *     userSettings: [
  *         {
  *             action: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
@@ -61,15 +56,23 @@ import * as utilities from "../utilities";
  *             permission: "ENABLED",
  *         },
  *     ],
+ *     applicationSettings: {
+ *         enabled: true,
+ *         settingsGroup: "SettingsGroup",
+ *     },
+ *     tags: {
+ *         TagName: "TagValue",
+ *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_appstream_stack` using the id. For example:
  *
  * ```sh
- *  $ pulumi import aws:appstream/stack:Stack example stackID
+ * $ pulumi import aws:appstream/stack:Stack example stackID
  * ```
  */
 export class Stack extends pulumi.CustomResource {
@@ -215,8 +218,6 @@ export class Stack extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Stack.__pulumiType, name, resourceInputs, opts);
     }
 }

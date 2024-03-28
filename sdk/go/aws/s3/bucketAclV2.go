@@ -16,9 +16,13 @@ import (
 //
 // > **Note:** destroy does not delete the S3 Bucket ACL but does remove the resource from state.
 //
+// > This resource cannot be used with S3 directory buckets.
+//
 // ## Example Usage
+//
 // ### With `private` ACL
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,12 +35,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("my-tf-example-bucket"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketOwnershipControls, err := s3.NewBucketOwnershipControls(ctx, "exampleBucketOwnershipControls", &s3.BucketOwnershipControlsArgs{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewBucketOwnershipControls(ctx, "example", &s3.BucketOwnershipControlsArgs{
+//				Bucket: example.ID(),
 //				Rule: &s3.BucketOwnershipControlsRuleArgs{
 //					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
 //				},
@@ -44,12 +50,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//				Bucket: example.ID(),
 //				Acl:    pulumi.String("private"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleBucketOwnershipControls,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -58,11 +62,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With `public-read` ACL
 //
 // > This example explicitly disables the default S3 bucket security settings. This
 // should be done with caution, as all bucket objects become publicly exposed.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -75,12 +82,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("my-tf-example-bucket"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketOwnershipControls, err := s3.NewBucketOwnershipControls(ctx, "exampleBucketOwnershipControls", &s3.BucketOwnershipControlsArgs{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewBucketOwnershipControls(ctx, "example", &s3.BucketOwnershipControlsArgs{
+//				Bucket: example.ID(),
 //				Rule: &s3.BucketOwnershipControlsRuleArgs{
 //					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
 //				},
@@ -88,8 +97,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketPublicAccessBlock, err := s3.NewBucketPublicAccessBlock(ctx, "exampleBucketPublicAccessBlock", &s3.BucketPublicAccessBlockArgs{
-//				Bucket:                exampleBucketV2.ID(),
+//			_, err = s3.NewBucketPublicAccessBlock(ctx, "example", &s3.BucketPublicAccessBlockArgs{
+//				Bucket:                example.ID(),
 //				BlockPublicAcls:       pulumi.Bool(false),
 //				BlockPublicPolicy:     pulumi.Bool(false),
 //				IgnorePublicAcls:      pulumi.Bool(false),
@@ -98,13 +107,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//				Bucket: example.ID(),
 //				Acl:    pulumi.String("public-read"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleBucketOwnershipControls,
-//				exampleBucketPublicAccessBlock,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -113,8 +119,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Grants
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -131,12 +140,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("my-tf-example-bucket"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketOwnershipControls, err := s3.NewBucketOwnershipControls(ctx, "exampleBucketOwnershipControls", &s3.BucketOwnershipControlsArgs{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewBucketOwnershipControls(ctx, "example", &s3.BucketOwnershipControlsArgs{
+//				Bucket: example.ID(),
 //				Rule: &s3.BucketOwnershipControlsRuleArgs{
 //					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
 //				},
@@ -144,13 +155,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//				Bucket: example.ID(),
 //				AccessControlPolicy: &s3.BucketAclV2AccessControlPolicyArgs{
 //					Grants: s3.BucketAclV2AccessControlPolicyGrantArray{
 //						&s3.BucketAclV2AccessControlPolicyGrantArgs{
 //							Grantee: &s3.BucketAclV2AccessControlPolicyGrantGranteeArgs{
-//								Id:   *pulumi.String(current.Id),
+//								Id:   pulumi.String(current.Id),
 //								Type: pulumi.String("CanonicalUser"),
 //							},
 //							Permission: pulumi.String("READ"),
@@ -164,12 +175,10 @@ import (
 //						},
 //					},
 //					Owner: &s3.BucketAclV2AccessControlPolicyOwnerArgs{
-//						Id: *pulumi.String(current.Id),
+//						Id: pulumi.String(current.Id),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleBucketOwnershipControls,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -178,47 +187,40 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is __configured__ with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), import using the `bucket` and `acl` separated by a comma (`,`):
+// If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is __configured__ with a
+// [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), import using the `bucket` and `acl` separated by a comma (`,`):
 //
 // If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is __not configured__ with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 //
-// If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is __configured__ with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), imported using the `bucket`, `expected_bucket_owner`, and `acl` separated by commas (`,`):
+// If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is __configured__ with a
+// [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), imported using the `bucket`, `expected_bucket_owner`, and `acl` separated by commas (`,`):
 //
 // __Using `pulumi import` to import__ using `bucket`, `expected_bucket_owner`, and/or `acl`, depending on your situation. For example:
 //
-// If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is __not configured__ with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), import using the `bucket`:
+// If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is __not configured__ with a
+// [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), import using the `bucket`:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name
-//
+// $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name
 // ```
-//
-//	If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is __configured__ with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), import using the `bucket` and `acl` separated by a comma (`,`):
+// If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is __configured__ with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), import using the `bucket` and `acl` separated by a comma (`,`):
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,private
-//
+// $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,private
 // ```
-//
-//	If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is __not configured__ with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+// If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is __not configured__ with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,123456789012
-//
+// $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,123456789012
 // ```
-//
-//	If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is __configured__ with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), imported using the `bucket`, `expected_bucket_owner`, and `acl` separated by commas (`,`):
+// If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is __configured__ with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), imported using the `bucket`, `expected_bucket_owner`, and `acl` separated by commas (`,`):
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,123456789012,private
-//
+// $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,123456789012,private
 // ```
 type BucketAclV2 struct {
 	pulumi.CustomResourceState
@@ -227,7 +229,7 @@ type BucketAclV2 struct {
 	AccessControlPolicy BucketAclV2AccessControlPolicyOutput `pulumi:"accessControlPolicy"`
 	// Canned ACL to apply to the bucket.
 	Acl pulumi.StringPtrOutput `pulumi:"acl"`
-	// Name of the bucket.
+	// Bucket to which to apply the ACL.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
@@ -270,7 +272,7 @@ type bucketAclV2State struct {
 	AccessControlPolicy *BucketAclV2AccessControlPolicy `pulumi:"accessControlPolicy"`
 	// Canned ACL to apply to the bucket.
 	Acl *string `pulumi:"acl"`
-	// Name of the bucket.
+	// Bucket to which to apply the ACL.
 	Bucket *string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
@@ -281,7 +283,7 @@ type BucketAclV2State struct {
 	AccessControlPolicy BucketAclV2AccessControlPolicyPtrInput
 	// Canned ACL to apply to the bucket.
 	Acl pulumi.StringPtrInput
-	// Name of the bucket.
+	// Bucket to which to apply the ACL.
 	Bucket pulumi.StringPtrInput
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
@@ -296,7 +298,7 @@ type bucketAclV2Args struct {
 	AccessControlPolicy *BucketAclV2AccessControlPolicy `pulumi:"accessControlPolicy"`
 	// Canned ACL to apply to the bucket.
 	Acl *string `pulumi:"acl"`
-	// Name of the bucket.
+	// Bucket to which to apply the ACL.
 	Bucket string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
@@ -308,7 +310,7 @@ type BucketAclV2Args struct {
 	AccessControlPolicy BucketAclV2AccessControlPolicyPtrInput
 	// Canned ACL to apply to the bucket.
 	Acl pulumi.StringPtrInput
-	// Name of the bucket.
+	// Bucket to which to apply the ACL.
 	Bucket pulumi.StringInput
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
@@ -411,7 +413,7 @@ func (o BucketAclV2Output) Acl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAclV2) pulumi.StringPtrOutput { return v.Acl }).(pulumi.StringPtrOutput)
 }
 
-// Name of the bucket.
+// Bucket to which to apply the ACL.
 func (o BucketAclV2Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketAclV2) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }

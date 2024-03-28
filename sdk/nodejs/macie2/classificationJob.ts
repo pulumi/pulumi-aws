@@ -12,30 +12,31 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testAccount = new aws.macie2.Account("testAccount", {});
- * const testClassificationJob = new aws.macie2.ClassificationJob("testClassificationJob", {
+ * const test = new aws.macie2.Account("test", {});
+ * const testClassificationJob = new aws.macie2.ClassificationJob("test", {
  *     jobType: "ONE_TIME",
+ *     name: "NAME OF THE CLASSIFICATION JOB",
  *     s3JobDefinition: {
  *         bucketDefinitions: [{
  *             accountId: "ACCOUNT ID",
  *             buckets: ["S3 BUCKET NAME"],
  *         }],
  *     },
- * }, {
- *     dependsOn: [testAccount],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_macie2_classification_job` using the id. For example:
  *
  * ```sh
- *  $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
+ * $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
  * ```
  */
 export class ClassificationJob extends pulumi.CustomResource {
@@ -180,8 +181,6 @@ export class ClassificationJob extends pulumi.CustomResource {
             resourceInputs["userPausedDetails"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ClassificationJob.__pulumiType, name, resourceInputs, opts);
     }
 }

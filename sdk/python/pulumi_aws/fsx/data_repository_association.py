@@ -357,22 +357,23 @@ class DataRepositoryAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="my-bucket")
+        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
+            bucket=example.id,
             acl="private")
-        example_lustre_file_system = aws.fsx.LustreFileSystem("exampleLustreFileSystem",
+        example_lustre_file_system = aws.fsx.LustreFileSystem("example",
             storage_capacity=1200,
-            subnet_ids=[aws_subnet["example"]["id"]],
+            subnet_ids=example_aws_subnet["id"],
             deployment_type="PERSISTENT_2",
             per_unit_storage_throughput=125)
-        example_data_repository_association = aws.fsx.DataRepositoryAssociation("exampleDataRepositoryAssociation",
+        example_data_repository_association = aws.fsx.DataRepositoryAssociation("example",
             file_system_id=example_lustre_file_system.id,
-            data_repository_path=example_bucket_v2.id.apply(lambda id: f"s3://{id}"),
+            data_repository_path=example.id.apply(lambda id: f"s3://{id}"),
             file_system_path="/my-bucket",
             s3=aws.fsx.DataRepositoryAssociationS3Args(
                 auto_export_policy=aws.fsx.DataRepositoryAssociationS3AutoExportPolicyArgs(
@@ -391,13 +392,14 @@ class DataRepositoryAssociation(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import FSx Data Repository Associations using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation example dra-0b1cfaeca11088b10
+        $ pulumi import aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation example dra-0b1cfaeca11088b10
         ```
 
         :param str resource_name: The name of the resource.
@@ -425,22 +427,23 @@ class DataRepositoryAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="my-bucket")
+        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
+            bucket=example.id,
             acl="private")
-        example_lustre_file_system = aws.fsx.LustreFileSystem("exampleLustreFileSystem",
+        example_lustre_file_system = aws.fsx.LustreFileSystem("example",
             storage_capacity=1200,
-            subnet_ids=[aws_subnet["example"]["id"]],
+            subnet_ids=example_aws_subnet["id"],
             deployment_type="PERSISTENT_2",
             per_unit_storage_throughput=125)
-        example_data_repository_association = aws.fsx.DataRepositoryAssociation("exampleDataRepositoryAssociation",
+        example_data_repository_association = aws.fsx.DataRepositoryAssociation("example",
             file_system_id=example_lustre_file_system.id,
-            data_repository_path=example_bucket_v2.id.apply(lambda id: f"s3://{id}"),
+            data_repository_path=example.id.apply(lambda id: f"s3://{id}"),
             file_system_path="/my-bucket",
             s3=aws.fsx.DataRepositoryAssociationS3Args(
                 auto_export_policy=aws.fsx.DataRepositoryAssociationS3AutoExportPolicyArgs(
@@ -459,13 +462,14 @@ class DataRepositoryAssociation(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import FSx Data Repository Associations using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation example dra-0b1cfaeca11088b10
+        $ pulumi import aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation example dra-0b1cfaeca11088b10
         ```
 
         :param str resource_name: The name of the resource.
@@ -517,8 +521,6 @@ class DataRepositoryAssociation(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["association_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(DataRepositoryAssociation, __self__).__init__(
             'aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation',
             resource_name,

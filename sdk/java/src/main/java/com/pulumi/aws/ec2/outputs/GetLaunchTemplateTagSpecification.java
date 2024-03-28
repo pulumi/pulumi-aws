@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -49,19 +50,25 @@ public final class GetLaunchTemplateTagSpecification {
 
         @CustomType.Setter
         public Builder resourceType(String resourceType) {
-            this.resourceType = Objects.requireNonNull(resourceType);
+            if (resourceType == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateTagSpecification", "resourceType");
+            }
+            this.resourceType = resourceType;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateTagSpecification", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetLaunchTemplateTagSpecification build() {
-            final var o = new GetLaunchTemplateTagSpecification();
-            o.resourceType = resourceType;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetLaunchTemplateTagSpecification();
+            _resultValue.resourceType = resourceType;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

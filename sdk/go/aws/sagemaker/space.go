@@ -15,8 +15,10 @@ import (
 // Provides a SageMaker Space resource.
 //
 // ## Example Usage
+//
 // ### Basic usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewSpace(ctx, "example", &sagemaker.SpaceArgs{
-//				DomainId:  pulumi.Any(aws_sagemaker_domain.Test.Id),
+//				DomainId:  pulumi.Any(test.Id),
 //				SpaceName: pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -41,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SageMaker Spaces using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
-//
+// $ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
 // ```
 type Space struct {
 	pulumi.CustomResourceState
@@ -60,16 +61,24 @@ type Space struct {
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// The ID of the space's profile in the Amazon Elastic File System volume.
 	HomeEfsFileSystemUid pulumi.StringOutput `pulumi:"homeEfsFileSystemUid"`
+	// A collection of ownership settings. See Ownership Settings below.
+	OwnershipSettings SpaceOwnershipSettingsPtrOutput `pulumi:"ownershipSettings"`
+	// The name of the space that appears in the SageMaker Studio UI.
+	SpaceDisplayName pulumi.StringPtrOutput `pulumi:"spaceDisplayName"`
 	// The name of the space.
 	SpaceName pulumi.StringOutput `pulumi:"spaceName"`
 	// A collection of space settings. See Space Settings below.
 	SpaceSettings SpaceSpaceSettingsPtrOutput `pulumi:"spaceSettings"`
+	// A collection of space sharing settings. See Space Sharing Settings below.
+	SpaceSharingSettings SpaceSpaceSharingSettingsPtrOutput `pulumi:"spaceSharingSettings"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+	Url pulumi.StringOutput `pulumi:"url"`
 }
 
 // NewSpace registers a new resource with the given unique name, arguments, and options.
@@ -85,10 +94,6 @@ func NewSpace(ctx *pulumi.Context,
 	if args.SpaceName == nil {
 		return nil, errors.New("invalid value for required argument 'SpaceName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Space
 	err := ctx.RegisterResource("aws:sagemaker/space:Space", name, args, &resource, opts...)
@@ -118,16 +123,24 @@ type spaceState struct {
 	DomainId *string `pulumi:"domainId"`
 	// The ID of the space's profile in the Amazon Elastic File System volume.
 	HomeEfsFileSystemUid *string `pulumi:"homeEfsFileSystemUid"`
+	// A collection of ownership settings. See Ownership Settings below.
+	OwnershipSettings *SpaceOwnershipSettings `pulumi:"ownershipSettings"`
+	// The name of the space that appears in the SageMaker Studio UI.
+	SpaceDisplayName *string `pulumi:"spaceDisplayName"`
 	// The name of the space.
 	SpaceName *string `pulumi:"spaceName"`
 	// A collection of space settings. See Space Settings below.
 	SpaceSettings *SpaceSpaceSettings `pulumi:"spaceSettings"`
+	// A collection of space sharing settings. See Space Sharing Settings below.
+	SpaceSharingSettings *SpaceSpaceSharingSettings `pulumi:"spaceSharingSettings"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+	Url *string `pulumi:"url"`
 }
 
 type SpaceState struct {
@@ -137,16 +150,24 @@ type SpaceState struct {
 	DomainId pulumi.StringPtrInput
 	// The ID of the space's profile in the Amazon Elastic File System volume.
 	HomeEfsFileSystemUid pulumi.StringPtrInput
+	// A collection of ownership settings. See Ownership Settings below.
+	OwnershipSettings SpaceOwnershipSettingsPtrInput
+	// The name of the space that appears in the SageMaker Studio UI.
+	SpaceDisplayName pulumi.StringPtrInput
 	// The name of the space.
 	SpaceName pulumi.StringPtrInput
 	// A collection of space settings. See Space Settings below.
 	SpaceSettings SpaceSpaceSettingsPtrInput
+	// A collection of space sharing settings. See Space Sharing Settings below.
+	SpaceSharingSettings SpaceSpaceSharingSettingsPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
+	// Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+	Url pulumi.StringPtrInput
 }
 
 func (SpaceState) ElementType() reflect.Type {
@@ -156,10 +177,16 @@ func (SpaceState) ElementType() reflect.Type {
 type spaceArgs struct {
 	// The ID of the associated Domain.
 	DomainId string `pulumi:"domainId"`
+	// A collection of ownership settings. See Ownership Settings below.
+	OwnershipSettings *SpaceOwnershipSettings `pulumi:"ownershipSettings"`
+	// The name of the space that appears in the SageMaker Studio UI.
+	SpaceDisplayName *string `pulumi:"spaceDisplayName"`
 	// The name of the space.
 	SpaceName string `pulumi:"spaceName"`
 	// A collection of space settings. See Space Settings below.
 	SpaceSettings *SpaceSpaceSettings `pulumi:"spaceSettings"`
+	// A collection of space sharing settings. See Space Sharing Settings below.
+	SpaceSharingSettings *SpaceSpaceSharingSettings `pulumi:"spaceSharingSettings"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -168,10 +195,16 @@ type spaceArgs struct {
 type SpaceArgs struct {
 	// The ID of the associated Domain.
 	DomainId pulumi.StringInput
+	// A collection of ownership settings. See Ownership Settings below.
+	OwnershipSettings SpaceOwnershipSettingsPtrInput
+	// The name of the space that appears in the SageMaker Studio UI.
+	SpaceDisplayName pulumi.StringPtrInput
 	// The name of the space.
 	SpaceName pulumi.StringInput
 	// A collection of space settings. See Space Settings below.
 	SpaceSettings SpaceSpaceSettingsPtrInput
+	// A collection of space sharing settings. See Space Sharing Settings below.
+	SpaceSharingSettings SpaceSpaceSharingSettingsPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -278,6 +311,16 @@ func (o SpaceOutput) HomeEfsFileSystemUid() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.HomeEfsFileSystemUid }).(pulumi.StringOutput)
 }
 
+// A collection of ownership settings. See Ownership Settings below.
+func (o SpaceOutput) OwnershipSettings() SpaceOwnershipSettingsPtrOutput {
+	return o.ApplyT(func(v *Space) SpaceOwnershipSettingsPtrOutput { return v.OwnershipSettings }).(SpaceOwnershipSettingsPtrOutput)
+}
+
+// The name of the space that appears in the SageMaker Studio UI.
+func (o SpaceOutput) SpaceDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Space) pulumi.StringPtrOutput { return v.SpaceDisplayName }).(pulumi.StringPtrOutput)
+}
+
 // The name of the space.
 func (o SpaceOutput) SpaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.SpaceName }).(pulumi.StringOutput)
@@ -286,6 +329,11 @@ func (o SpaceOutput) SpaceName() pulumi.StringOutput {
 // A collection of space settings. See Space Settings below.
 func (o SpaceOutput) SpaceSettings() SpaceSpaceSettingsPtrOutput {
 	return o.ApplyT(func(v *Space) SpaceSpaceSettingsPtrOutput { return v.SpaceSettings }).(SpaceSpaceSettingsPtrOutput)
+}
+
+// A collection of space sharing settings. See Space Sharing Settings below.
+func (o SpaceOutput) SpaceSharingSettings() SpaceSpaceSharingSettingsPtrOutput {
+	return o.ApplyT(func(v *Space) SpaceSpaceSharingSettingsPtrOutput { return v.SpaceSharingSettings }).(SpaceSpaceSharingSettingsPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -298,6 +346,11 @@ func (o SpaceOutput) Tags() pulumi.StringMapOutput {
 // Deprecated: Please use `tags` instead.
 func (o SpaceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+func (o SpaceOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }
 
 type SpaceArrayOutput struct{ *pulumi.OutputState }

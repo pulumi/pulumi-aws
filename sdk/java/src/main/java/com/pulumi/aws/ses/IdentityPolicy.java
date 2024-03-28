@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Manages a SES Identity Policy. More information about SES Sending Authorization Policies can be found in the [SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,7 +48,7 @@ import javax.annotation.Nullable;
  *             .domain(&#34;example.com&#34;)
  *             .build());
  * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(                
  *                     &#34;SES:SendEmail&#34;,
@@ -61,19 +63,21 @@ import javax.annotation.Nullable;
  * 
  *         var exampleIdentityPolicy = new IdentityPolicy(&#34;exampleIdentityPolicy&#34;, IdentityPolicyArgs.builder()        
  *             .identity(exampleDomainIdentity.arn())
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(examplePolicyDocument -&gt; examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .name(&#34;example&#34;)
+ *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SES Identity Policies using the identity and policy name, separated by a pipe character (`|`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:ses/identityPolicy:IdentityPolicy example &#39;example.com|example&#39;
+ * $ pulumi import aws:ses/identityPolicy:IdentityPolicy example &#39;example.com|example&#39;
  * ```
  * 
  */

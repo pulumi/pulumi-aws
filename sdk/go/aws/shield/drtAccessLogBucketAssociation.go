@@ -12,11 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Shield DRT Access Log Bucket Association. Up to 10 log buckets can be associated for DRT Access sharing with the Shield Response Team (SRT).
+// Resource for managing an AWS Shield DRT Access Log Bucket Association.
+// Up to 10 log buckets can be associated for DRT Access sharing with the Shield Response Team (SRT).
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,15 +34,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testDrtAccessRoleArnAssociation, err := shield.NewDrtAccessRoleArnAssociation(ctx, "testDrtAccessRoleArnAssociation", &shield.DrtAccessRoleArnAssociationArgs{
-//				RoleArn: pulumi.String(fmt.Sprintf("arn:aws:iam:%v:%v:%v", data.Aws_region.Current.Name, data.Aws_caller_identity.Current.Account_id, _var.Shield_drt_access_role_name)),
+//			test, err := shield.NewDrtAccessRoleArnAssociation(ctx, "test", &shield.DrtAccessRoleArnAssociationArgs{
+//				RoleArn: pulumi.String(fmt.Sprintf("arn:aws:iam:%v:%v:%v", current.Name, currentAwsCallerIdentity.AccountId, shieldDrtAccessRoleName)),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = shield.NewDrtAccessLogBucketAssociation(ctx, "testDrtAccessLogBucketAssociation", &shield.DrtAccessLogBucketAssociationArgs{
-//				LogBucket:            pulumi.Any(_var.Shield_drt_access_log_bucket),
-//				RoleArnAssociationId: testDrtAccessRoleArnAssociation.ID(),
+//			_, err = shield.NewDrtAccessLogBucketAssociation(ctx, "test", &shield.DrtAccessLogBucketAssociationArgs{
+//				LogBucket:            pulumi.Any(shieldDrtAccessLogBucket),
+//				RoleArnAssociationId: test.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -48,6 +51,15 @@ import (
 //		})
 //	}
 //
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ## Import
+//
+// Using `pulumi import`, import Shield DRT access log bucket associations using the `log_bucket`. For example:
+//
+// ```sh
+// $ pulumi import aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation example example-bucket
 // ```
 type DrtAccessLogBucketAssociation struct {
 	pulumi.CustomResourceState

@@ -87,11 +87,13 @@ public final class RuleScope {
 
         @CustomType.Setter
         public Builder complianceResourceId(@Nullable String complianceResourceId) {
+
             this.complianceResourceId = complianceResourceId;
             return this;
         }
         @CustomType.Setter
         public Builder complianceResourceTypes(@Nullable List<String> complianceResourceTypes) {
+
             this.complianceResourceTypes = complianceResourceTypes;
             return this;
         }
@@ -100,21 +102,23 @@ public final class RuleScope {
         }
         @CustomType.Setter
         public Builder tagKey(@Nullable String tagKey) {
+
             this.tagKey = tagKey;
             return this;
         }
         @CustomType.Setter
         public Builder tagValue(@Nullable String tagValue) {
+
             this.tagValue = tagValue;
             return this;
         }
         public RuleScope build() {
-            final var o = new RuleScope();
-            o.complianceResourceId = complianceResourceId;
-            o.complianceResourceTypes = complianceResourceTypes;
-            o.tagKey = tagKey;
-            o.tagValue = tagValue;
-            return o;
+            final var _resultValue = new RuleScope();
+            _resultValue.complianceResourceId = complianceResourceId;
+            _resultValue.complianceResourceTypes = complianceResourceTypes;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagValue = tagValue;
+            return _resultValue;
         }
     }
 }

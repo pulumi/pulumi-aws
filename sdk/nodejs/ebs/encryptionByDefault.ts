@@ -11,19 +11,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ebs.EncryptionByDefault("example", {enabled: true});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import the default EBS encryption state. For example:
  *
  * ```sh
- *  $ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
+ * $ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
  * ```
  */
 export class EncryptionByDefault extends pulumi.CustomResource {

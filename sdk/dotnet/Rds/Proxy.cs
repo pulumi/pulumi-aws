@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,18 +25,19 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var example = new Aws.Rds.Proxy("example", new()
     ///     {
+    ///         Name = "example",
     ///         DebugLogging = false,
     ///         EngineFamily = "MYSQL",
     ///         IdleClientTimeout = 1800,
     ///         RequireTls = true,
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         VpcSecurityGroupIds = new[]
     ///         {
-    ///             aws_security_group.Example.Id,
+    ///             exampleAwsSecurityGroup.Id,
     ///         },
     ///         VpcSubnetIds = new[]
     ///         {
-    ///             aws_subnet.Example.Id,
+    ///             exampleAwsSubnet.Id,
     ///         },
     ///         Auths = new[]
     ///         {
@@ -44,7 +46,7 @@ namespace Pulumi.Aws.Rds
     ///                 AuthScheme = "SECRETS",
     ///                 Description = "example",
     ///                 IamAuth = "DISABLED",
-    ///                 SecretArn = aws_secretsmanager_secret.Example.Arn,
+    ///                 SecretArn = exampleAwsSecretsmanagerSecret.Arn,
     ///             },
     ///         },
     ///         Tags = 
@@ -56,13 +58,14 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DB proxies using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rds/proxy:Proxy example example
+    /// $ pulumi import aws:rds/proxy:Proxy example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/proxy:Proxy")]
@@ -169,10 +172,6 @@ namespace Pulumi.Aws.Rds
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -370,11 +369,7 @@ namespace Pulumi.Aws.Rds
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("vpcSecurityGroupIds")]

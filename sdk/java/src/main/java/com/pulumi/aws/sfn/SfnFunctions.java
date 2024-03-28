@@ -27,6 +27,8 @@ public final class SfnFunctions {
      * Provides a Step Functions Activity data source
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -55,6 +57,7 @@ public final class SfnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActivityResult> getActivity() {
@@ -64,6 +67,8 @@ public final class SfnFunctions {
      * Provides a Step Functions Activity data source
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -92,6 +97,7 @@ public final class SfnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActivityResult> getActivityPlain() {
@@ -101,6 +107,8 @@ public final class SfnFunctions {
      * Provides a Step Functions Activity data source
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -129,6 +137,7 @@ public final class SfnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActivityResult> getActivity(GetActivityArgs args) {
@@ -138,6 +147,8 @@ public final class SfnFunctions {
      * Provides a Step Functions Activity data source
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -166,6 +177,7 @@ public final class SfnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActivityResult> getActivityPlain(GetActivityPlainArgs args) {
@@ -175,6 +187,8 @@ public final class SfnFunctions {
      * Provides a Step Functions Activity data source
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -203,6 +217,7 @@ public final class SfnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActivityResult> getActivity(GetActivityArgs args, InvokeOptions options) {
@@ -212,6 +227,8 @@ public final class SfnFunctions {
      * Provides a Step Functions Activity data source
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -240,6 +257,7 @@ public final class SfnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActivityResult> getActivityPlain(GetActivityPlainArgs args, InvokeOptions options) {
@@ -249,7 +267,10 @@ public final class SfnFunctions {
      * Data source for managing an AWS SFN (Step Functions) State Machine Alias.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -273,12 +294,13 @@ public final class SfnFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SfnFunctions.getAlias(GetAliasArgs.builder()
      *             .name(&#34;my_sfn_alias&#34;)
-     *             .statemachineArn(aws_sfn_state_machine.sfn_test().arn())
+     *             .statemachineArn(sfnTest.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAliasResult> getAlias(GetAliasArgs args) {
@@ -288,7 +310,10 @@ public final class SfnFunctions {
      * Data source for managing an AWS SFN (Step Functions) State Machine Alias.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -312,12 +337,13 @@ public final class SfnFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SfnFunctions.getAlias(GetAliasArgs.builder()
      *             .name(&#34;my_sfn_alias&#34;)
-     *             .statemachineArn(aws_sfn_state_machine.sfn_test().arn())
+     *             .statemachineArn(sfnTest.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAliasResult> getAliasPlain(GetAliasPlainArgs args) {
@@ -327,7 +353,10 @@ public final class SfnFunctions {
      * Data source for managing an AWS SFN (Step Functions) State Machine Alias.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -351,12 +380,13 @@ public final class SfnFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SfnFunctions.getAlias(GetAliasArgs.builder()
      *             .name(&#34;my_sfn_alias&#34;)
-     *             .statemachineArn(aws_sfn_state_machine.sfn_test().arn())
+     *             .statemachineArn(sfnTest.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAliasResult> getAlias(GetAliasArgs args, InvokeOptions options) {
@@ -366,7 +396,10 @@ public final class SfnFunctions {
      * Data source for managing an AWS SFN (Step Functions) State Machine Alias.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -390,12 +423,13 @@ public final class SfnFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SfnFunctions.getAlias(GetAliasArgs.builder()
      *             .name(&#34;my_sfn_alias&#34;)
-     *             .statemachineArn(aws_sfn_state_machine.sfn_test().arn())
+     *             .statemachineArn(sfnTest.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAliasResult> getAliasPlain(GetAliasPlainArgs args, InvokeOptions options) {
@@ -407,6 +441,8 @@ public final class SfnFunctions {
      * state machine without having to hard code the ARNs as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -435,6 +471,7 @@ public final class SfnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStateMachineResult> getStateMachine(GetStateMachineArgs args) {
@@ -446,6 +483,8 @@ public final class SfnFunctions {
      * state machine without having to hard code the ARNs as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -474,6 +513,7 @@ public final class SfnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStateMachineResult> getStateMachinePlain(GetStateMachinePlainArgs args) {
@@ -485,6 +525,8 @@ public final class SfnFunctions {
      * state machine without having to hard code the ARNs as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -513,6 +555,7 @@ public final class SfnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStateMachineResult> getStateMachine(GetStateMachineArgs args, InvokeOptions options) {
@@ -524,6 +567,8 @@ public final class SfnFunctions {
      * state machine without having to hard code the ARNs as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -552,6 +597,7 @@ public final class SfnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStateMachineResult> getStateMachinePlain(GetStateMachinePlainArgs args, InvokeOptions options) {
@@ -561,7 +607,10 @@ public final class SfnFunctions {
      * Data source for managing an AWS SFN (Step Functions) State Machine Versions.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -584,12 +633,13 @@ public final class SfnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SfnFunctions.getStateMachineVersions(GetStateMachineVersionsArgs.builder()
-     *             .statemachineArn(aws_sfn_state_machine.test().arn())
+     *             .statemachineArn(testAwsSfnStateMachine.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStateMachineVersionsResult> getStateMachineVersions(GetStateMachineVersionsArgs args) {
@@ -599,7 +649,10 @@ public final class SfnFunctions {
      * Data source for managing an AWS SFN (Step Functions) State Machine Versions.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -622,12 +675,13 @@ public final class SfnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SfnFunctions.getStateMachineVersions(GetStateMachineVersionsArgs.builder()
-     *             .statemachineArn(aws_sfn_state_machine.test().arn())
+     *             .statemachineArn(testAwsSfnStateMachine.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStateMachineVersionsResult> getStateMachineVersionsPlain(GetStateMachineVersionsPlainArgs args) {
@@ -637,7 +691,10 @@ public final class SfnFunctions {
      * Data source for managing an AWS SFN (Step Functions) State Machine Versions.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -660,12 +717,13 @@ public final class SfnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SfnFunctions.getStateMachineVersions(GetStateMachineVersionsArgs.builder()
-     *             .statemachineArn(aws_sfn_state_machine.test().arn())
+     *             .statemachineArn(testAwsSfnStateMachine.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStateMachineVersionsResult> getStateMachineVersions(GetStateMachineVersionsArgs args, InvokeOptions options) {
@@ -675,7 +733,10 @@ public final class SfnFunctions {
      * Data source for managing an AWS SFN (Step Functions) State Machine Versions.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -698,12 +759,13 @@ public final class SfnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SfnFunctions.getStateMachineVersions(GetStateMachineVersionsArgs.builder()
-     *             .statemachineArn(aws_sfn_state_machine.test().arn())
+     *             .statemachineArn(testAwsSfnStateMachine.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStateMachineVersionsResult> getStateMachineVersionsPlain(GetStateMachineVersionsPlainArgs args, InvokeOptions options) {

@@ -115,43 +115,49 @@ public final class VpnConnectionVgwTelemetry {
 
         @CustomType.Setter
         public Builder acceptedRouteCount(@Nullable Integer acceptedRouteCount) {
+
             this.acceptedRouteCount = acceptedRouteCount;
             return this;
         }
         @CustomType.Setter
         public Builder certificateArn(@Nullable String certificateArn) {
+
             this.certificateArn = certificateArn;
             return this;
         }
         @CustomType.Setter
         public Builder lastStatusChange(@Nullable String lastStatusChange) {
+
             this.lastStatusChange = lastStatusChange;
             return this;
         }
         @CustomType.Setter
         public Builder outsideIpAddress(@Nullable String outsideIpAddress) {
+
             this.outsideIpAddress = outsideIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder statusMessage(@Nullable String statusMessage) {
+
             this.statusMessage = statusMessage;
             return this;
         }
         public VpnConnectionVgwTelemetry build() {
-            final var o = new VpnConnectionVgwTelemetry();
-            o.acceptedRouteCount = acceptedRouteCount;
-            o.certificateArn = certificateArn;
-            o.lastStatusChange = lastStatusChange;
-            o.outsideIpAddress = outsideIpAddress;
-            o.status = status;
-            o.statusMessage = statusMessage;
-            return o;
+            final var _resultValue = new VpnConnectionVgwTelemetry();
+            _resultValue.acceptedRouteCount = acceptedRouteCount;
+            _resultValue.certificateArn = certificateArn;
+            _resultValue.lastStatusChange = lastStatusChange;
+            _resultValue.outsideIpAddress = outsideIpAddress;
+            _resultValue.status = status;
+            _resultValue.statusMessage = statusMessage;
+            return _resultValue;
         }
     }
 }

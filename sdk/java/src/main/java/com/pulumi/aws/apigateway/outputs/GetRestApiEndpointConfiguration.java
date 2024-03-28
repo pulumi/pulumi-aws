@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigateway.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -41,7 +42,10 @@ public final class GetRestApiEndpointConfiguration {
 
         @CustomType.Setter
         public Builder types(List<String> types) {
-            this.types = Objects.requireNonNull(types);
+            if (types == null) {
+              throw new MissingRequiredPropertyException("GetRestApiEndpointConfiguration", "types");
+            }
+            this.types = types;
             return this;
         }
         public Builder types(String... types) {
@@ -49,17 +53,20 @@ public final class GetRestApiEndpointConfiguration {
         }
         @CustomType.Setter
         public Builder vpcEndpointIds(List<String> vpcEndpointIds) {
-            this.vpcEndpointIds = Objects.requireNonNull(vpcEndpointIds);
+            if (vpcEndpointIds == null) {
+              throw new MissingRequiredPropertyException("GetRestApiEndpointConfiguration", "vpcEndpointIds");
+            }
+            this.vpcEndpointIds = vpcEndpointIds;
             return this;
         }
         public Builder vpcEndpointIds(String... vpcEndpointIds) {
             return vpcEndpointIds(List.of(vpcEndpointIds));
         }
         public GetRestApiEndpointConfiguration build() {
-            final var o = new GetRestApiEndpointConfiguration();
-            o.types = types;
-            o.vpcEndpointIds = vpcEndpointIds;
-            return o;
+            final var _resultValue = new GetRestApiEndpointConfiguration();
+            _resultValue.types = types;
+            _resultValue.vpcEndpointIds = vpcEndpointIds;
+            return _resultValue;
         }
     }
 }

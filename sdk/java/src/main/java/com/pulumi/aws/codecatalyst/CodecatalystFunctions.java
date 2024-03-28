@@ -18,7 +18,10 @@ public final class CodecatalystFunctions {
      * Data source for managing an AWS CodeCatalyst Dev Environment.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -43,12 +46,13 @@ public final class CodecatalystFunctions {
      *         final var example = CodecatalystFunctions.getDevEnvironment(GetDevEnvironmentArgs.builder()
      *             .spaceName(&#34;myspace&#34;)
      *             .projectName(&#34;myproject&#34;)
-     *             .envId(aws_codecatalyst_dev_environment.example().id())
+     *             .envId(exampleAwsCodecatalystDevEnvironment.id())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDevEnvironmentResult> getDevEnvironment(GetDevEnvironmentArgs args) {
@@ -58,7 +62,10 @@ public final class CodecatalystFunctions {
      * Data source for managing an AWS CodeCatalyst Dev Environment.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -83,12 +90,13 @@ public final class CodecatalystFunctions {
      *         final var example = CodecatalystFunctions.getDevEnvironment(GetDevEnvironmentArgs.builder()
      *             .spaceName(&#34;myspace&#34;)
      *             .projectName(&#34;myproject&#34;)
-     *             .envId(aws_codecatalyst_dev_environment.example().id())
+     *             .envId(exampleAwsCodecatalystDevEnvironment.id())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDevEnvironmentResult> getDevEnvironmentPlain(GetDevEnvironmentPlainArgs args) {
@@ -98,7 +106,10 @@ public final class CodecatalystFunctions {
      * Data source for managing an AWS CodeCatalyst Dev Environment.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -123,12 +134,13 @@ public final class CodecatalystFunctions {
      *         final var example = CodecatalystFunctions.getDevEnvironment(GetDevEnvironmentArgs.builder()
      *             .spaceName(&#34;myspace&#34;)
      *             .projectName(&#34;myproject&#34;)
-     *             .envId(aws_codecatalyst_dev_environment.example().id())
+     *             .envId(exampleAwsCodecatalystDevEnvironment.id())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDevEnvironmentResult> getDevEnvironment(GetDevEnvironmentArgs args, InvokeOptions options) {
@@ -138,7 +150,10 @@ public final class CodecatalystFunctions {
      * Data source for managing an AWS CodeCatalyst Dev Environment.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -163,12 +178,13 @@ public final class CodecatalystFunctions {
      *         final var example = CodecatalystFunctions.getDevEnvironment(GetDevEnvironmentArgs.builder()
      *             .spaceName(&#34;myspace&#34;)
      *             .projectName(&#34;myproject&#34;)
-     *             .envId(aws_codecatalyst_dev_environment.example().id())
+     *             .envId(exampleAwsCodecatalystDevEnvironment.id())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDevEnvironmentResult> getDevEnvironmentPlain(GetDevEnvironmentPlainArgs args, InvokeOptions options) {

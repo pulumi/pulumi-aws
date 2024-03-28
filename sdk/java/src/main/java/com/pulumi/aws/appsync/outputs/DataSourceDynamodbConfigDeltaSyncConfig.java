@@ -4,6 +4,7 @@
 package com.pulumi.aws.appsync.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,25 +74,30 @@ public final class DataSourceDynamodbConfigDeltaSyncConfig {
 
         @CustomType.Setter
         public Builder baseTableTtl(@Nullable Integer baseTableTtl) {
+
             this.baseTableTtl = baseTableTtl;
             return this;
         }
         @CustomType.Setter
         public Builder deltaSyncTableName(String deltaSyncTableName) {
-            this.deltaSyncTableName = Objects.requireNonNull(deltaSyncTableName);
+            if (deltaSyncTableName == null) {
+              throw new MissingRequiredPropertyException("DataSourceDynamodbConfigDeltaSyncConfig", "deltaSyncTableName");
+            }
+            this.deltaSyncTableName = deltaSyncTableName;
             return this;
         }
         @CustomType.Setter
         public Builder deltaSyncTableTtl(@Nullable Integer deltaSyncTableTtl) {
+
             this.deltaSyncTableTtl = deltaSyncTableTtl;
             return this;
         }
         public DataSourceDynamodbConfigDeltaSyncConfig build() {
-            final var o = new DataSourceDynamodbConfigDeltaSyncConfig();
-            o.baseTableTtl = baseTableTtl;
-            o.deltaSyncTableName = deltaSyncTableName;
-            o.deltaSyncTableTtl = deltaSyncTableTtl;
-            return o;
+            final var _resultValue = new DataSourceDynamodbConfigDeltaSyncConfig();
+            _resultValue.baseTableTtl = baseTableTtl;
+            _resultValue.deltaSyncTableName = deltaSyncTableName;
+            _resultValue.deltaSyncTableTtl = deltaSyncTableTtl;
+            return _resultValue;
         }
     }
 }

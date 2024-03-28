@@ -19,36 +19,38 @@ import (
 // > **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
 //
 // ## Example Usage
+//
 // ### Dynamic Invocation Example Using Triggers
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"crypto/sha1"
 //	"encoding/json"
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func sha1Hash(input string) string {
-//		hash := sha1.Sum([]byte(input))
-//		return hex.EncodeToString(hash[:])
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal([]interface{}{
-//				aws_lambda_function.Example.Environment,
+//				exampleAwsLambdaFunction.Environment,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
+//			invokeSha1, err := std.Sha1(ctx, &std.Sha1Args{
+//				Input: json0,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			tmpJSON1, err := json.Marshal(map[string]interface{}{
 //				"key1": "value1",
 //				"key2": "value2",
@@ -58,9 +60,9 @@ import (
 //			}
 //			json1 := string(tmpJSON1)
 //			_, err = lambda.NewInvocation(ctx, "example", &lambda.InvocationArgs{
-//				FunctionName: pulumi.Any(aws_lambda_function.Lambda_function_test.Function_name),
+//				FunctionName: pulumi.Any(lambdaFunctionTest.FunctionName),
 //				Triggers: pulumi.StringMap{
-//					"redeployment": sha1Hash(json0),
+//					"redeployment": invokeSha1.Result,
 //				},
 //				Input: pulumi.String(json1),
 //			})
@@ -72,8 +74,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### CRUD Lifecycle Scope
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -97,7 +102,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = lambda.NewInvocation(ctx, "example", &lambda.InvocationArgs{
-//				FunctionName:   pulumi.Any(aws_lambda_function.Lambda_function_test.Function_name),
+//				FunctionName:   pulumi.Any(lambdaFunctionTest.FunctionName),
 //				Input:          pulumi.String(json0),
 //				LifecycleScope: pulumi.String("CRUD"),
 //			})
@@ -109,6 +114,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // > **NOTE:** `lifecycleScope = "CRUD"` will inject a key `tf` in the input event to pass lifecycle information! This allows the lambda function to handle different lifecycle transitions uniquely.  If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `pulumiKey` argument.
 //
@@ -119,60 +125,9 @@ import (
 //
 // When the resource from the example above is created, the Lambda will get following JSON payload:
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // If the input value of `key1` changes to "valueB", then the lambda will be invoked again with the following JSON payload:
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // When the invocation resource is removed, the final invocation will have the following JSON payload:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 type Invocation struct {
 	pulumi.CustomResourceState
 

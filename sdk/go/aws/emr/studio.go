@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,15 +33,16 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emr.NewStudio(ctx, "example", &emr.StudioArgs{
 //				AuthMode:              pulumi.String("SSO"),
-//				DefaultS3Location:     pulumi.String(fmt.Sprintf("s3://%v/test", aws_s3_bucket.Test.Bucket)),
-//				EngineSecurityGroupId: pulumi.Any(aws_security_group.Test.Id),
-//				ServiceRole:           pulumi.Any(aws_iam_role.Test.Arn),
+//				DefaultS3Location:     pulumi.String(fmt.Sprintf("s3://%v/test", test.Bucket)),
+//				EngineSecurityGroupId: pulumi.Any(testAwsSecurityGroup.Id),
+//				Name:                  pulumi.String("example"),
+//				ServiceRole:           pulumi.Any(testAwsIamRole.Arn),
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Test.Id,
+//					testAwsSubnet.Id,
 //				},
-//				UserRole:                 pulumi.Any(aws_iam_role.Test.Arn),
-//				VpcId:                    pulumi.Any(aws_vpc.Test.Id),
-//				WorkspaceSecurityGroupId: pulumi.Any(aws_security_group.Test.Id),
+//				UserRole:                 pulumi.Any(testAwsIamRole.Arn),
+//				VpcId:                    pulumi.Any(testAwsVpc.Id),
+//				WorkspaceSecurityGroupId: pulumi.Any(testAwsSecurityGroup.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -50,15 +52,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EMR studios using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
-//
+// $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
 // ```
 type Studio struct {
 	pulumi.CustomResourceState
@@ -127,10 +128,6 @@ func NewStudio(ctx *pulumi.Context,
 	if args.WorkspaceSecurityGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceSecurityGroupId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Studio
 	err := ctx.RegisterResource("aws:emr/studio:Studio", name, args, &resource, opts...)

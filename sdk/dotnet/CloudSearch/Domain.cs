@@ -16,6 +16,7 @@ namespace Pulumi.Aws.CloudSearch
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,44 +27,46 @@ namespace Pulumi.Aws.CloudSearch
     /// {
     ///     var example = new Aws.CloudSearch.Domain("example", new()
     ///     {
+    ///         Name = "example-domain",
+    ///         ScalingParameters = new Aws.CloudSearch.Inputs.DomainScalingParametersArgs
+    ///         {
+    ///             DesiredInstanceType = "search.medium",
+    ///         },
     ///         IndexFields = new[]
     ///         {
     ///             new Aws.CloudSearch.Inputs.DomainIndexFieldArgs
     ///             {
-    ///                 AnalysisScheme = "_en_default_",
-    ///                 Highlight = false,
     ///                 Name = "headline",
-    ///                 Return = true,
-    ///                 Search = true,
-    ///                 Sort = true,
     ///                 Type = "text",
+    ///                 Search = true,
+    ///                 Return = true,
+    ///                 Sort = true,
+    ///                 Highlight = false,
+    ///                 AnalysisScheme = "_en_default_",
     ///             },
     ///             new Aws.CloudSearch.Inputs.DomainIndexFieldArgs
     ///             {
-    ///                 Facet = true,
     ///                 Name = "price",
-    ///                 Return = true,
+    ///                 Type = "double",
     ///                 Search = true,
+    ///                 Facet = true,
+    ///                 Return = true,
     ///                 Sort = true,
     ///                 SourceFields = "headline",
-    ///                 Type = "double",
     ///             },
-    ///         },
-    ///         ScalingParameters = new Aws.CloudSearch.Inputs.DomainScalingParametersArgs
-    ///         {
-    ///             DesiredInstanceType = "search.medium",
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudSearch Domains using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudsearch/domain:Domain example example-domain
+    /// $ pulumi import aws:cloudsearch/domain:Domain example example-domain
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudsearch/domain:Domain")]

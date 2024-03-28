@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * The following example shows how to get a firewall domain list from its ID.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  *     firewallDomainListId: "rslvr-fdl-example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getResolverFirewallDomainList(args: GetResolverFirewallDomainListArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverFirewallDomainListResult> {
 
@@ -70,6 +72,7 @@ export interface GetResolverFirewallDomainListResult {
  *
  * The following example shows how to get a firewall domain list from its ID.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -78,6 +81,7 @@ export interface GetResolverFirewallDomainListResult {
  *     firewallDomainListId: "rslvr-fdl-example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getResolverFirewallDomainListOutput(args: GetResolverFirewallDomainListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverFirewallDomainListResult> {
     return pulumi.output(args).apply((a: any) => getResolverFirewallDomainList(a, opts))

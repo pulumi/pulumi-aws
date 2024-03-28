@@ -5,6 +5,7 @@ package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.aws.glue.outputs.GetConnectionPhysicalConnectionRequirement;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -155,37 +156,58 @@ public final class GetConnectionResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder catalogId(String catalogId) {
-            this.catalogId = Objects.requireNonNull(catalogId);
+            if (catalogId == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "catalogId");
+            }
+            this.catalogId = catalogId;
             return this;
         }
         @CustomType.Setter
         public Builder connectionProperties(Map<String,String> connectionProperties) {
-            this.connectionProperties = Objects.requireNonNull(connectionProperties);
+            if (connectionProperties == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "connectionProperties");
+            }
+            this.connectionProperties = connectionProperties;
             return this;
         }
         @CustomType.Setter
         public Builder connectionType(String connectionType) {
-            this.connectionType = Objects.requireNonNull(connectionType);
+            if (connectionType == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "connectionType");
+            }
+            this.connectionType = connectionType;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder matchCriterias(List<String> matchCriterias) {
-            this.matchCriterias = Objects.requireNonNull(matchCriterias);
+            if (matchCriterias == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "matchCriterias");
+            }
+            this.matchCriterias = matchCriterias;
             return this;
         }
         public Builder matchCriterias(String... matchCriterias) {
@@ -193,12 +215,18 @@ public final class GetConnectionResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder physicalConnectionRequirements(List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements) {
-            this.physicalConnectionRequirements = Objects.requireNonNull(physicalConnectionRequirements);
+            if (physicalConnectionRequirements == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "physicalConnectionRequirements");
+            }
+            this.physicalConnectionRequirements = physicalConnectionRequirements;
             return this;
         }
         public Builder physicalConnectionRequirements(GetConnectionPhysicalConnectionRequirement... physicalConnectionRequirements) {
@@ -206,22 +234,25 @@ public final class GetConnectionResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetConnectionResult build() {
-            final var o = new GetConnectionResult();
-            o.arn = arn;
-            o.catalogId = catalogId;
-            o.connectionProperties = connectionProperties;
-            o.connectionType = connectionType;
-            o.description = description;
-            o.id = id;
-            o.matchCriterias = matchCriterias;
-            o.name = name;
-            o.physicalConnectionRequirements = physicalConnectionRequirements;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetConnectionResult();
+            _resultValue.arn = arn;
+            _resultValue.catalogId = catalogId;
+            _resultValue.connectionProperties = connectionProperties;
+            _resultValue.connectionType = connectionType;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.matchCriterias = matchCriterias;
+            _resultValue.name = name;
+            _resultValue.physicalConnectionRequirements = physicalConnectionRequirements;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

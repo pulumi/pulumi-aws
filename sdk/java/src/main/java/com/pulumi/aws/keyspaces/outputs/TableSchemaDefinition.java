@@ -8,6 +8,7 @@ import com.pulumi.aws.keyspaces.outputs.TableSchemaDefinitionColumn;
 import com.pulumi.aws.keyspaces.outputs.TableSchemaDefinitionPartitionKey;
 import com.pulumi.aws.keyspaces.outputs.TableSchemaDefinitionStaticColumn;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import javax.annotation.Nullable;
@@ -89,6 +90,7 @@ public final class TableSchemaDefinition {
 
         @CustomType.Setter
         public Builder clusteringKeys(@Nullable List<TableSchemaDefinitionClusteringKey> clusteringKeys) {
+
             this.clusteringKeys = clusteringKeys;
             return this;
         }
@@ -97,7 +99,10 @@ public final class TableSchemaDefinition {
         }
         @CustomType.Setter
         public Builder columns(List<TableSchemaDefinitionColumn> columns) {
-            this.columns = Objects.requireNonNull(columns);
+            if (columns == null) {
+              throw new MissingRequiredPropertyException("TableSchemaDefinition", "columns");
+            }
+            this.columns = columns;
             return this;
         }
         public Builder columns(TableSchemaDefinitionColumn... columns) {
@@ -105,7 +110,10 @@ public final class TableSchemaDefinition {
         }
         @CustomType.Setter
         public Builder partitionKeys(List<TableSchemaDefinitionPartitionKey> partitionKeys) {
-            this.partitionKeys = Objects.requireNonNull(partitionKeys);
+            if (partitionKeys == null) {
+              throw new MissingRequiredPropertyException("TableSchemaDefinition", "partitionKeys");
+            }
+            this.partitionKeys = partitionKeys;
             return this;
         }
         public Builder partitionKeys(TableSchemaDefinitionPartitionKey... partitionKeys) {
@@ -113,6 +121,7 @@ public final class TableSchemaDefinition {
         }
         @CustomType.Setter
         public Builder staticColumns(@Nullable List<TableSchemaDefinitionStaticColumn> staticColumns) {
+
             this.staticColumns = staticColumns;
             return this;
         }
@@ -120,12 +129,12 @@ public final class TableSchemaDefinition {
             return staticColumns(List.of(staticColumns));
         }
         public TableSchemaDefinition build() {
-            final var o = new TableSchemaDefinition();
-            o.clusteringKeys = clusteringKeys;
-            o.columns = columns;
-            o.partitionKeys = partitionKeys;
-            o.staticColumns = staticColumns;
-            return o;
+            final var _resultValue = new TableSchemaDefinition();
+            _resultValue.clusteringKeys = clusteringKeys;
+            _resultValue.columns = columns;
+            _resultValue.partitionKeys = partitionKeys;
+            _resultValue.staticColumns = staticColumns;
+            return _resultValue;
         }
     }
 }

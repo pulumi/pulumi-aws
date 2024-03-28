@@ -72,25 +72,28 @@ public final class DomainAdvancedSecurityOptionsMasterUserOptions {
 
         @CustomType.Setter
         public Builder masterUserArn(@Nullable String masterUserArn) {
+
             this.masterUserArn = masterUserArn;
             return this;
         }
         @CustomType.Setter
         public Builder masterUserName(@Nullable String masterUserName) {
+
             this.masterUserName = masterUserName;
             return this;
         }
         @CustomType.Setter
         public Builder masterUserPassword(@Nullable String masterUserPassword) {
+
             this.masterUserPassword = masterUserPassword;
             return this;
         }
         public DomainAdvancedSecurityOptionsMasterUserOptions build() {
-            final var o = new DomainAdvancedSecurityOptionsMasterUserOptions();
-            o.masterUserArn = masterUserArn;
-            o.masterUserName = masterUserName;
-            o.masterUserPassword = masterUserPassword;
-            return o;
+            final var _resultValue = new DomainAdvancedSecurityOptionsMasterUserOptions();
+            _resultValue.masterUserArn = masterUserArn;
+            _resultValue.masterUserName = masterUserName;
+            _resultValue.masterUserPassword = masterUserPassword;
+            return _resultValue;
         }
     }
 }

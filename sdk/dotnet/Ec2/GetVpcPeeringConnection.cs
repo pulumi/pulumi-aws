@@ -15,10 +15,9 @@ namespace Pulumi.Aws.Ec2
         /// The VPC Peering Connection data source provides details about
         /// a specific VPC peering connection.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -27,20 +26,21 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Declare the data source
         ///     var pc = Aws.Ec2.GetVpcPeeringConnection.Invoke(new()
         ///     {
-        ///         VpcId = aws_vpc.Foo.Id,
+        ///         VpcId = foo.Id,
         ///         PeerCidrBlock = "10.0.1.0/22",
         ///     });
         /// 
         ///     // Create a route table
         ///     var rt = new Aws.Ec2.RouteTable("rt", new()
         ///     {
-        ///         VpcId = aws_vpc.Foo.Id,
+        ///         VpcId = foo.Id,
         ///     });
         /// 
         ///     // Create a route
-        ///     var route = new Aws.Ec2.Route("route", new()
+        ///     var r = new Aws.Ec2.Route("r", new()
         ///     {
         ///         RouteTableId = rt.Id,
         ///         DestinationCidrBlock = pc.Apply(getVpcPeeringConnectionResult =&gt; getVpcPeeringConnectionResult.PeerCidrBlock),
@@ -49,8 +49,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVpcPeeringConnectionResult> InvokeAsync(GetVpcPeeringConnectionArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcPeeringConnectionResult>("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", args ?? new GetVpcPeeringConnectionArgs(), options.WithDefaults());
@@ -59,10 +58,9 @@ namespace Pulumi.Aws.Ec2
         /// The VPC Peering Connection data source provides details about
         /// a specific VPC peering connection.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,20 +69,21 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Declare the data source
         ///     var pc = Aws.Ec2.GetVpcPeeringConnection.Invoke(new()
         ///     {
-        ///         VpcId = aws_vpc.Foo.Id,
+        ///         VpcId = foo.Id,
         ///         PeerCidrBlock = "10.0.1.0/22",
         ///     });
         /// 
         ///     // Create a route table
         ///     var rt = new Aws.Ec2.RouteTable("rt", new()
         ///     {
-        ///         VpcId = aws_vpc.Foo.Id,
+        ///         VpcId = foo.Id,
         ///     });
         /// 
         ///     // Create a route
-        ///     var route = new Aws.Ec2.Route("route", new()
+        ///     var r = new Aws.Ec2.Route("r", new()
         ///     {
         ///         RouteTableId = rt.Id,
         ///         DestinationCidrBlock = pc.Apply(getVpcPeeringConnectionResult =&gt; getVpcPeeringConnectionResult.PeerCidrBlock),
@@ -93,8 +92,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVpcPeeringConnectionResult> Invoke(GetVpcPeeringConnectionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcPeeringConnectionResult>("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", args ?? new GetVpcPeeringConnectionInvokeArgs(), options.WithDefaults());
@@ -307,17 +305,25 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string CidrBlock;
         /// <summary>
-        /// List of objects with CIDR blocks of the requester VPC.
+        /// List of objects with IPv4 CIDR blocks of the requester VPC.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionCidrBlockSetResult> CidrBlockSets;
         public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionFilterResult> Filters;
         public readonly string Id;
+        /// <summary>
+        /// List of objects with IPv6 CIDR blocks of the requester VPC.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionIpv6CidrBlockSetResult> Ipv6CidrBlockSets;
         public readonly string OwnerId;
         public readonly string PeerCidrBlock;
         /// <summary>
-        /// List of objects with CIDR blocks of the accepter VPC.
+        /// List of objects with IPv4 CIDR blocks of the accepter VPC.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionPeerCidrBlockSetResult> PeerCidrBlockSets;
+        /// <summary>
+        /// List of objects with IPv6 CIDR blocks of the accepter VPC.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionPeerIpv6CidrBlockSetResult> PeerIpv6CidrBlockSets;
         public readonly string PeerOwnerId;
         public readonly string PeerRegion;
         public readonly string PeerVpcId;
@@ -343,11 +349,15 @@ namespace Pulumi.Aws.Ec2
 
             string id,
 
+            ImmutableArray<Outputs.GetVpcPeeringConnectionIpv6CidrBlockSetResult> ipv6CidrBlockSets,
+
             string ownerId,
 
             string peerCidrBlock,
 
             ImmutableArray<Outputs.GetVpcPeeringConnectionPeerCidrBlockSetResult> peerCidrBlockSets,
+
+            ImmutableArray<Outputs.GetVpcPeeringConnectionPeerIpv6CidrBlockSetResult> peerIpv6CidrBlockSets,
 
             string peerOwnerId,
 
@@ -370,9 +380,11 @@ namespace Pulumi.Aws.Ec2
             CidrBlockSets = cidrBlockSets;
             Filters = filters;
             Id = id;
+            Ipv6CidrBlockSets = ipv6CidrBlockSets;
             OwnerId = ownerId;
             PeerCidrBlock = peerCidrBlock;
             PeerCidrBlockSets = peerCidrBlockSets;
+            PeerIpv6CidrBlockSets = peerIpv6CidrBlockSets;
             PeerOwnerId = peerOwnerId;
             PeerRegion = peerRegion;
             PeerVpcId = peerVpcId;

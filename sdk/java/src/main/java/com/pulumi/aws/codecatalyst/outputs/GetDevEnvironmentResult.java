@@ -7,6 +7,7 @@ import com.pulumi.aws.codecatalyst.outputs.GetDevEnvironmentIde;
 import com.pulumi.aws.codecatalyst.outputs.GetDevEnvironmentPersistentStorage;
 import com.pulumi.aws.codecatalyst.outputs.GetDevEnvironmentRepository;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -214,27 +215,38 @@ public final class GetDevEnvironmentResult {
 
         @CustomType.Setter
         public Builder alias(@Nullable String alias) {
+
             this.alias = alias;
             return this;
         }
         @CustomType.Setter
         public Builder creatorId(@Nullable String creatorId) {
+
             this.creatorId = creatorId;
             return this;
         }
         @CustomType.Setter
         public Builder envId(String envId) {
-            this.envId = Objects.requireNonNull(envId);
+            if (envId == null) {
+              throw new MissingRequiredPropertyException("GetDevEnvironmentResult", "envId");
+            }
+            this.envId = envId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDevEnvironmentResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ides(List<GetDevEnvironmentIde> ides) {
-            this.ides = Objects.requireNonNull(ides);
+            if (ides == null) {
+              throw new MissingRequiredPropertyException("GetDevEnvironmentResult", "ides");
+            }
+            this.ides = ides;
             return this;
         }
         public Builder ides(GetDevEnvironmentIde... ides) {
@@ -242,22 +254,34 @@ public final class GetDevEnvironmentResult {
         }
         @CustomType.Setter
         public Builder inactivityTimeoutMinutes(Integer inactivityTimeoutMinutes) {
-            this.inactivityTimeoutMinutes = Objects.requireNonNull(inactivityTimeoutMinutes);
+            if (inactivityTimeoutMinutes == null) {
+              throw new MissingRequiredPropertyException("GetDevEnvironmentResult", "inactivityTimeoutMinutes");
+            }
+            this.inactivityTimeoutMinutes = inactivityTimeoutMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder instanceType(String instanceType) {
-            this.instanceType = Objects.requireNonNull(instanceType);
+            if (instanceType == null) {
+              throw new MissingRequiredPropertyException("GetDevEnvironmentResult", "instanceType");
+            }
+            this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder lastUpdatedTime(String lastUpdatedTime) {
-            this.lastUpdatedTime = Objects.requireNonNull(lastUpdatedTime);
+            if (lastUpdatedTime == null) {
+              throw new MissingRequiredPropertyException("GetDevEnvironmentResult", "lastUpdatedTime");
+            }
+            this.lastUpdatedTime = lastUpdatedTime;
             return this;
         }
         @CustomType.Setter
         public Builder persistentStorages(List<GetDevEnvironmentPersistentStorage> persistentStorages) {
-            this.persistentStorages = Objects.requireNonNull(persistentStorages);
+            if (persistentStorages == null) {
+              throw new MissingRequiredPropertyException("GetDevEnvironmentResult", "persistentStorages");
+            }
+            this.persistentStorages = persistentStorages;
             return this;
         }
         public Builder persistentStorages(GetDevEnvironmentPersistentStorage... persistentStorages) {
@@ -265,11 +289,15 @@ public final class GetDevEnvironmentResult {
         }
         @CustomType.Setter
         public Builder projectName(String projectName) {
-            this.projectName = Objects.requireNonNull(projectName);
+            if (projectName == null) {
+              throw new MissingRequiredPropertyException("GetDevEnvironmentResult", "projectName");
+            }
+            this.projectName = projectName;
             return this;
         }
         @CustomType.Setter
         public Builder repositories(@Nullable List<GetDevEnvironmentRepository> repositories) {
+
             this.repositories = repositories;
             return this;
         }
@@ -278,42 +306,54 @@ public final class GetDevEnvironmentResult {
         }
         @CustomType.Setter
         public Builder spaceName(String spaceName) {
-            this.spaceName = Objects.requireNonNull(spaceName);
+            if (spaceName == null) {
+              throw new MissingRequiredPropertyException("GetDevEnvironmentResult", "spaceName");
+            }
+            this.spaceName = spaceName;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetDevEnvironmentResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder statusReason(String statusReason) {
-            this.statusReason = Objects.requireNonNull(statusReason);
+            if (statusReason == null) {
+              throw new MissingRequiredPropertyException("GetDevEnvironmentResult", "statusReason");
+            }
+            this.statusReason = statusReason;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetDevEnvironmentResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetDevEnvironmentResult build() {
-            final var o = new GetDevEnvironmentResult();
-            o.alias = alias;
-            o.creatorId = creatorId;
-            o.envId = envId;
-            o.id = id;
-            o.ides = ides;
-            o.inactivityTimeoutMinutes = inactivityTimeoutMinutes;
-            o.instanceType = instanceType;
-            o.lastUpdatedTime = lastUpdatedTime;
-            o.persistentStorages = persistentStorages;
-            o.projectName = projectName;
-            o.repositories = repositories;
-            o.spaceName = spaceName;
-            o.status = status;
-            o.statusReason = statusReason;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetDevEnvironmentResult();
+            _resultValue.alias = alias;
+            _resultValue.creatorId = creatorId;
+            _resultValue.envId = envId;
+            _resultValue.id = id;
+            _resultValue.ides = ides;
+            _resultValue.inactivityTimeoutMinutes = inactivityTimeoutMinutes;
+            _resultValue.instanceType = instanceType;
+            _resultValue.lastUpdatedTime = lastUpdatedTime;
+            _resultValue.persistentStorages = persistentStorages;
+            _resultValue.projectName = projectName;
+            _resultValue.repositories = repositories;
+            _resultValue.spaceName = spaceName;
+            _resultValue.status = status;
+            _resultValue.statusReason = statusReason;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

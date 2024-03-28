@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Manages an EC2 Transit Gateway Policy Table association.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -39,20 +41,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PolicyTableAssociation(&#34;example&#34;, PolicyTableAssociationArgs.builder()        
- *             .transitGatewayAttachmentId(aws_networkmanager_transit_gateway_peering.example().transit_gateway_peering_attachment_id())
- *             .transitGatewayPolicyTableId(aws_ec2_transit_gateway_policy_table.example().id())
+ *             .transitGatewayAttachmentId(exampleAwsNetworkmanagerTransitGatewayPeering.transitGatewayPeeringAttachmentId())
+ *             .transitGatewayPolicyTableId(exampleAwsEc2TransitGatewayPolicyTable.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_ec2_transit_gateway_policy_table_association` using the EC2 Transit Gateway Policy Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
+ * $ pulumi import aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
  * ```
  * 
  */

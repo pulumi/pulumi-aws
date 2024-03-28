@@ -12,14 +12,16 @@ import * as utilities from "../utilities";
  * !> **WARNING:** Once a Glacier Vault Lock is completed, it is immutable. The deletion of the Glacier Vault Lock is not be possible and attempting to remove it from this provider will return an error. Set the `ignoreDeletionError` argument to `true` and apply this configuration before attempting to delete this resource via this provider or remove this resource from this provider's management.
  *
  * ## Example Usage
+ *
  * ### Testing Glacier Vault Lock Policy
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleVault = new aws.glacier.Vault("exampleVault", {});
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const exampleVault = new aws.glacier.Vault("example", {name: "example"});
+ * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         actions: ["glacier:DeleteArchive"],
  *         effect: "Deny",
@@ -31,31 +33,35 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const exampleVaultLock = new aws.glacier.VaultLock("exampleVaultLock", {
+ * const exampleVaultLock = new aws.glacier.VaultLock("example", {
  *     completeLock: false,
- *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
+ *     policy: example.apply(example => example.json),
  *     vaultName: exampleVault.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Permanently Applying Glacier Vault Lock Policy
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glacier.VaultLock("example", {
  *     completeLock: true,
- *     policy: data.aws_iam_policy_document.example.json,
- *     vaultName: aws_glacier_vault.example.name,
+ *     policy: exampleAwsIamPolicyDocument.json,
+ *     vaultName: exampleAwsGlacierVault.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Glacier Vault Locks using the Glacier Vault name. For example:
  *
  * ```sh
- *  $ pulumi import aws:glacier/vaultLock:VaultLock example example-vault
+ * $ pulumi import aws:glacier/vaultLock:VaultLock example example-vault
  * ```
  */
 export class VaultLock extends pulumi.CustomResource {

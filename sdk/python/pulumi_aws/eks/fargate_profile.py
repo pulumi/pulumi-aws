@@ -24,7 +24,7 @@ class FargateProfileArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a FargateProfile resource.
-        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[str] pod_execution_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
         :param pulumi.Input[Sequence[pulumi.Input['FargateProfileSelectorArgs']]] selectors: Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
         :param pulumi.Input[str] fargate_profile_name: Name of the EKS Fargate Profile.
@@ -47,7 +47,7 @@ class FargateProfileArgs:
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Input[str]:
         """
-        Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        Name of the EKS Cluster.
         """
         return pulumi.get(self, "cluster_name")
 
@@ -133,7 +133,7 @@ class _FargateProfileState:
         """
         Input properties used for looking up and filtering FargateProfile resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EKS Fargate Profile.
-        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[str] fargate_profile_name: Name of the EKS Fargate Profile.
         :param pulumi.Input[str] pod_execution_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
         :param pulumi.Input[Sequence[pulumi.Input['FargateProfileSelectorArgs']]] selectors: Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
@@ -182,7 +182,7 @@ class _FargateProfileState:
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        Name of the EKS Cluster.
         """
         return pulumi.get(self, "cluster_name")
 
@@ -297,51 +297,59 @@ class FargateProfile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.eks.FargateProfile("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
-            pod_execution_role_arn=aws_iam_role["example"]["arn"],
-            subnet_ids=[__item["id"] for __item in aws_subnet["example"]],
+            cluster_name=example_aws_eks_cluster["name"],
+            fargate_profile_name="example",
+            pod_execution_role_arn=example_aws_iam_role["arn"],
+            subnet_ids=[__item["id"] for __item in example_aws_subnet],
             selectors=[aws.eks.FargateProfileSelectorArgs(
                 namespace="example",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example IAM Role for EKS Fargate Profile
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        example = aws.iam.Role("example", assume_role_policy=json.dumps({
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Principal": {
-                    "Service": "eks-fargate-pods.amazonaws.com",
-                },
-            }],
-            "Version": "2012-10-17",
-        }))
+        example = aws.iam.Role("example",
+            name="eks-fargate-profile-example",
+            assume_role_policy=json.dumps({
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "principal": {
+                        "service": "eks-fargate-pods.amazonaws.com",
+                    },
+                }],
+                "version": "2012-10-17",
+            }))
         example__amazon_eks_fargate_pod_execution_role_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy",
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
             role=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EKS Fargate Profiles using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
+        $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[str] fargate_profile_name: Name of the EKS Fargate Profile.
         :param pulumi.Input[str] pod_execution_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FargateProfileSelectorArgs']]]] selectors: Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
@@ -361,46 +369,54 @@ class FargateProfile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.eks.FargateProfile("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
-            pod_execution_role_arn=aws_iam_role["example"]["arn"],
-            subnet_ids=[__item["id"] for __item in aws_subnet["example"]],
+            cluster_name=example_aws_eks_cluster["name"],
+            fargate_profile_name="example",
+            pod_execution_role_arn=example_aws_iam_role["arn"],
+            subnet_ids=[__item["id"] for __item in example_aws_subnet],
             selectors=[aws.eks.FargateProfileSelectorArgs(
                 namespace="example",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example IAM Role for EKS Fargate Profile
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        example = aws.iam.Role("example", assume_role_policy=json.dumps({
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Principal": {
-                    "Service": "eks-fargate-pods.amazonaws.com",
-                },
-            }],
-            "Version": "2012-10-17",
-        }))
+        example = aws.iam.Role("example",
+            name="eks-fargate-profile-example",
+            assume_role_policy=json.dumps({
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "principal": {
+                        "service": "eks-fargate-pods.amazonaws.com",
+                    },
+                }],
+                "version": "2012-10-17",
+            }))
         example__amazon_eks_fargate_pod_execution_role_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy",
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
             role=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EKS Fargate Profiles using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
+        $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
         ```
 
         :param str resource_name: The name of the resource.
@@ -448,8 +464,6 @@ class FargateProfile(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(FargateProfile, __self__).__init__(
             'aws:eks/fargateProfile:FargateProfile',
             resource_name,
@@ -477,7 +491,7 @@ class FargateProfile(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EKS Fargate Profile.
-        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[str] fargate_profile_name: Name of the EKS Fargate Profile.
         :param pulumi.Input[str] pod_execution_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FargateProfileSelectorArgs']]]] selectors: Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
@@ -515,7 +529,7 @@ class FargateProfile(pulumi.CustomResource):
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Output[str]:
         """
-        Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        Name of the EKS Cluster.
         """
         return pulumi.get(self, "cluster_name")
 

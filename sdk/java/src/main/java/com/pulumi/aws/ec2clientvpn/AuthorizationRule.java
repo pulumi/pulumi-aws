@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * [AWS Client VPN Administrator&#39;s Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,14 +44,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AuthorizationRule(&#34;example&#34;, AuthorizationRuleArgs.builder()        
- *             .clientVpnEndpointId(aws_ec2_client_vpn_endpoint.example().id())
- *             .targetNetworkCidr(aws_subnet.example().cidr_block())
+ *             .clientVpnEndpointId(exampleAwsEc2ClientVpnEndpoint.id())
+ *             .targetNetworkCidr(exampleAwsSubnet.cidrBlock())
  *             .authorizeAllGroups(true)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -60,12 +63,12 @@ import javax.annotation.Nullable;
  * Using the endpoint ID and target network CIDR:
  * 
  * ```sh
- *  $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24
+ * $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24
  * ```
- *  Using the endpoint ID, target network CIDR, and group name:
+ * Using the endpoint ID, target network CIDR, and group name:
  * 
  * ```sh
- *  $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
+ * $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
  * ```
  * 
  */

@@ -72,25 +72,28 @@ public final class UserPoolClientTokenValidityUnits {
 
         @CustomType.Setter
         public Builder accessToken(@Nullable String accessToken) {
+
             this.accessToken = accessToken;
             return this;
         }
         @CustomType.Setter
         public Builder idToken(@Nullable String idToken) {
+
             this.idToken = idToken;
             return this;
         }
         @CustomType.Setter
         public Builder refreshToken(@Nullable String refreshToken) {
+
             this.refreshToken = refreshToken;
             return this;
         }
         public UserPoolClientTokenValidityUnits build() {
-            final var o = new UserPoolClientTokenValidityUnits();
-            o.accessToken = accessToken;
-            o.idToken = idToken;
-            o.refreshToken = refreshToken;
-            return o;
+            final var _resultValue = new UserPoolClientTokenValidityUnits();
+            _resultValue.accessToken = accessToken;
+            _resultValue.idToken = idToken;
+            _resultValue.refreshToken = refreshToken;
+            return _resultValue;
         }
     }
 }

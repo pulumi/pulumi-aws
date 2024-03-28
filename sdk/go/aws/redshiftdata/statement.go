@@ -15,8 +15,10 @@ import (
 // Executes a Redshift Data Statement.
 //
 // ## Example Usage
+//
 // ### clusterIdentifier
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,9 +32,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshiftdata.NewStatement(ctx, "example", &redshiftdata.StatementArgs{
-//				ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Cluster_identifier),
-//				Database:          pulumi.Any(aws_redshift_cluster.Example.Database_name),
-//				DbUser:            pulumi.Any(aws_redshift_cluster.Example.Master_username),
+//				ClusterIdentifier: pulumi.Any(exampleAwsRedshiftCluster.ClusterIdentifier),
+//				Database:          pulumi.Any(exampleAwsRedshiftCluster.DatabaseName),
+//				DbUser:            pulumi.Any(exampleAwsRedshiftCluster.MasterUsername),
 //				Sql:               pulumi.String("CREATE GROUP group_name;"),
 //			})
 //			if err != nil {
@@ -43,8 +45,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### workgroupName
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,7 +63,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshiftdata.NewStatement(ctx, "example", &redshiftdata.StatementArgs{
-//				WorkgroupName: pulumi.Any(aws_redshiftserverless_workgroup.Example.Workgroup_name),
+//				WorkgroupName: pulumi.Any(exampleAwsRedshiftserverlessWorkgroup.WorkgroupName),
 //				Database:      pulumi.String("dev"),
 //				Sql:           pulumi.String("CREATE GROUP group_name;"),
 //			})
@@ -70,15 +75,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift Data Statements using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshiftdata/statement:Statement example example
-//
+// $ pulumi import aws:redshiftdata/statement:Statement example example
 // ```
 type Statement struct {
 	pulumi.CustomResourceState

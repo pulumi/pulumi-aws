@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,9 +31,10 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53recoverycontrol.NewSafetyRule(ctx, "example", &route53recoverycontrol.SafetyRuleArgs{
 //				AssertedControls: pulumi.StringArray{
-//					aws_route53recoverycontrolconfig_routing_control.Example.Arn,
+//					exampleAwsRoute53recoverycontrolconfigRoutingControl.Arn,
 //				},
 //				ControlPanelArn: pulumi.String("arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8"),
+//				Name:            pulumi.String("daisyguttridge"),
 //				WaitPeriodMs:    pulumi.Int(5000),
 //				RuleConfig: &route53recoverycontrol.SafetyRuleRuleConfigArgs{
 //					Inverted:  pulumi.Bool(false),
@@ -48,7 +50,9 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,13 +66,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53recoverycontrol.NewSafetyRule(ctx, "example", &route53recoverycontrol.SafetyRuleArgs{
+//				Name:            pulumi.String("i_o"),
 //				ControlPanelArn: pulumi.String("arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8"),
 //				WaitPeriodMs:    pulumi.Int(5000),
 //				GatingControls: pulumi.StringArray{
-//					aws_route53recoverycontrolconfig_routing_control.Example.Arn,
+//					exampleAwsRoute53recoverycontrolconfigRoutingControl.Arn,
 //				},
 //				TargetControls: pulumi.StringArray{
-//					aws_route53recoverycontrolconfig_routing_control.Example.Arn,
+//					exampleAwsRoute53recoverycontrolconfigRoutingControl.Arn,
 //				},
 //				RuleConfig: &route53recoverycontrol.SafetyRuleRuleConfigArgs{
 //					Inverted:  pulumi.Bool(false),
@@ -84,15 +89,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Route53 Recovery Control Config Safety Rule using the safety rule ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53recoverycontrol/safetyRule:SafetyRule myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
-//
+// $ pulumi import aws:route53recoverycontrol/safetyRule:SafetyRule myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
 // ```
 type SafetyRule struct {
 	pulumi.CustomResourceState

@@ -45,13 +45,14 @@ public final class AliasRoutingConfig {
 
         @CustomType.Setter
         public Builder additionalVersionWeights(@Nullable Map<String,Double> additionalVersionWeights) {
+
             this.additionalVersionWeights = additionalVersionWeights;
             return this;
         }
         public AliasRoutingConfig build() {
-            final var o = new AliasRoutingConfig();
-            o.additionalVersionWeights = additionalVersionWeights;
-            return o;
+            final var _resultValue = new AliasRoutingConfig();
+            _resultValue.additionalVersionWeights = additionalVersionWeights;
+            return _resultValue;
         }
     }
 }

@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides an ElastiCache user group resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testUser = new User(&#34;testUser&#34;, UserArgs.builder()        
+ *         var test = new User(&#34;test&#34;, UserArgs.builder()        
  *             .userId(&#34;testUserId&#34;)
  *             .userName(&#34;default&#34;)
  *             .accessString(&#34;on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember&#34;)
@@ -54,19 +56,20 @@ import javax.annotation.Nullable;
  *         var testUserGroup = new UserGroup(&#34;testUserGroup&#34;, UserGroupArgs.builder()        
  *             .engine(&#34;REDIS&#34;)
  *             .userGroupId(&#34;userGroupId&#34;)
- *             .userIds(testUser.userId())
+ *             .userIds(test.userId())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import ElastiCache user groups using the `user_group_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
+ * $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
  * ```
  * 
  */
@@ -197,9 +200,6 @@ public class UserGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

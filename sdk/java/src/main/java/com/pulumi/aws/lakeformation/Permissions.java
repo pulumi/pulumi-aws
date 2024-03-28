@@ -6,6 +6,7 @@ package com.pulumi.aws.lakeformation;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.lakeformation.PermissionsArgs;
 import com.pulumi.aws.lakeformation.inputs.PermissionsState;
+import com.pulumi.aws.lakeformation.outputs.PermissionsDataCellsFilter;
 import com.pulumi.aws.lakeformation.outputs.PermissionsDataLocation;
 import com.pulumi.aws.lakeformation.outputs.PermissionsDatabase;
 import com.pulumi.aws.lakeformation.outputs.PermissionsLfTag;
@@ -39,6 +40,8 @@ import javax.annotation.Nullable;
  * 2. Use `IAMAllowedPrincipals` without `aws.lakeformation.Permissions`
  * 
  * This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `create_database_default_permissions` and `create_table_default_permissions` are not set in the `aws.lakeformation.DataLakeSettings` resource, they are cleared.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -64,19 +67,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         final var currentSessionContext = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
- *             .arn(currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
+ *         final var currentGetSessionContext = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
+ *             .arn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
  *             .build());
  * 
  *         var test = new DataLakeSettings(&#34;test&#34;, DataLakeSettingsArgs.builder()        
- *             .admins(currentSessionContext.applyValue(getSessionContextResult -&gt; getSessionContextResult.issuerArn()))
+ *             .admins(currentGetSessionContext.applyValue(getSessionContextResult -&gt; getSessionContextResult.issuerArn()))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * To remove existing `IAMAllowedPrincipals` permissions, use the [AWS Lake Formation Console](https://console.aws.amazon.com/lakeformation/) or [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lakeformation/batch-revoke-permissions.html).
  * 
@@ -92,6 +96,8 @@ import javax.annotation.Nullable;
  * ### Problem Using `IAMAllowedPrincipals`
  * 
  * AWS does not support combining `IAMAllowedPrincipals` permissions and non-`IAMAllowedPrincipals` permissions. Doing so results in unexpected permissions and behaviors. For example, this configuration grants a user `SELECT` on a column in a table.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -119,13 +125,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCatalogDatabase = new CatalogDatabase(&#34;exampleCatalogDatabase&#34;, CatalogDatabaseArgs.builder()        
+ *         var example = new CatalogDatabase(&#34;example&#34;, CatalogDatabaseArgs.builder()        
  *             .name(&#34;sadabate&#34;)
  *             .build());
  * 
  *         var exampleCatalogTable = new CatalogTable(&#34;exampleCatalogTable&#34;, CatalogTableArgs.builder()        
  *             .name(&#34;abelt&#34;)
- *             .databaseName(aws_glue_catalog_database.test().name())
+ *             .databaseName(test.name())
  *             .storageDescriptor(CatalogTableStorageDescriptorArgs.builder()
  *                 .columns(CatalogTableStorageDescriptorColumnArgs.builder()
  *                     .name(&#34;event&#34;)
@@ -147,6 +153,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * The resulting permissions depend on whether the table had `IAMAllowedPrincipals` (IAP) permissions or not.
  * 
@@ -163,7 +170,10 @@ import javax.annotation.Nullable;
  * If the `principal` is also a data lake administrator, AWS grants implicit permissions that can cause errors using this resource. For example, AWS implicitly grants a `principal`/administrator `permissions` and `permissions_with_grant_option` of `ALL`, `ALTER`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT` on a table. If you use this resource to explicitly grant the `principal`/administrator `permissions` but _not_ `permissions_with_grant_option` of `ALL`, `ALTER`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT` on the table, this resource will read the implicit `permissions_with_grant_option` and attempt to revoke them when the resource is destroyed. Doing so will cause an `InvalidInputException: No permissions revoked` error because you cannot revoke implicit permissions _per se_. To workaround this problem, explicitly grant the `principal`/administrator `permissions` _and_ `permissions_with_grant_option`, which can then be revoked. Similarly, granting a `principal`/administrator permissions on a table with columns and providing `column_names`, will result in a `InvalidInputException: Permissions modification is invalid` error because you are narrowing the implicit permissions. Instead, set `wildcard` to `true` and remove the `column_names`.
  * 
  * ## Example Usage
+ * 
  * ### Grant Permissions For A Lake Formation S3 Resource
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -187,17 +197,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Permissions(&#34;example&#34;, PermissionsArgs.builder()        
- *             .principal(aws_iam_role.workflow_role().arn())
- *             .permissions(&#34;ALL&#34;)
+ *             .principal(workflowRole.arn())
+ *             .permissions(&#34;DATA_LOCATION_ACCESS&#34;)
  *             .dataLocation(PermissionsDataLocationArgs.builder()
- *                 .arn(aws_lakeformation_resource.example().arn())
+ *                 .arn(exampleAwsLakeformationResource.arn())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Grant Permissions For A Glue Catalog Database
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -221,13 +235,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Permissions(&#34;example&#34;, PermissionsArgs.builder()        
- *             .principal(aws_iam_role.workflow_role().arn())
+ *             .principal(workflowRole.arn())
  *             .permissions(            
  *                 &#34;CREATE_TABLE&#34;,
  *                 &#34;ALTER&#34;,
  *                 &#34;DROP&#34;)
  *             .database(PermissionsDatabaseArgs.builder()
- *                 .name(aws_glue_catalog_database.example().name())
+ *                 .name(exampleAwsGlueCatalogDatabase.name())
  *                 .catalogId(&#34;110376042874&#34;)
  *                 .build())
  *             .build());
@@ -235,7 +249,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Grant Permissions Using Tag-Based Access Control
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -259,7 +277,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Permissions(&#34;test&#34;, PermissionsArgs.builder()        
- *             .principal(aws_iam_role.sales_role().arn())
+ *             .principal(salesRole.arn())
  *             .permissions(            
  *                 &#34;CREATE_TABLE&#34;,
  *                 &#34;ALTER&#34;,
@@ -283,6 +301,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:lakeformation/permissions:Permissions")
@@ -314,6 +333,20 @@ public class Permissions extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> catalogResource() {
         return Codegen.optional(this.catalogResource);
+    }
+    /**
+     * Configuration block for a data cells filter resource. Detailed below.
+     * 
+     */
+    @Export(name="dataCellsFilter", refs={PermissionsDataCellsFilter.class}, tree="[0]")
+    private Output</* @Nullable */ PermissionsDataCellsFilter> dataCellsFilter;
+
+    /**
+     * @return Configuration block for a data cells filter resource. Detailed below.
+     * 
+     */
+    public Output<Optional<PermissionsDataCellsFilter>> dataCellsFilter() {
+        return Codegen.optional(this.dataCellsFilter);
     }
     /**
      * Configuration block for a data location resource. Detailed below.

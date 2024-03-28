@@ -4,6 +4,7 @@
 package com.pulumi.aws.redshift.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -104,21 +105,27 @@ public final class ClusterLogging {
 
         @CustomType.Setter
         public Builder bucketName(@Nullable String bucketName) {
+
             this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder enable(Boolean enable) {
-            this.enable = Objects.requireNonNull(enable);
+            if (enable == null) {
+              throw new MissingRequiredPropertyException("ClusterLogging", "enable");
+            }
+            this.enable = enable;
             return this;
         }
         @CustomType.Setter
         public Builder logDestinationType(@Nullable String logDestinationType) {
+
             this.logDestinationType = logDestinationType;
             return this;
         }
         @CustomType.Setter
         public Builder logExports(@Nullable List<String> logExports) {
+
             this.logExports = logExports;
             return this;
         }
@@ -127,17 +134,18 @@ public final class ClusterLogging {
         }
         @CustomType.Setter
         public Builder s3KeyPrefix(@Nullable String s3KeyPrefix) {
+
             this.s3KeyPrefix = s3KeyPrefix;
             return this;
         }
         public ClusterLogging build() {
-            final var o = new ClusterLogging();
-            o.bucketName = bucketName;
-            o.enable = enable;
-            o.logDestinationType = logDestinationType;
-            o.logExports = logExports;
-            o.s3KeyPrefix = s3KeyPrefix;
-            return o;
+            final var _resultValue = new ClusterLogging();
+            _resultValue.bucketName = bucketName;
+            _resultValue.enable = enable;
+            _resultValue.logDestinationType = logDestinationType;
+            _resultValue.logExports = logExports;
+            _resultValue.s3KeyPrefix = s3KeyPrefix;
+            return _resultValue;
         }
     }
 }

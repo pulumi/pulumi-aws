@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,14 +31,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleConnection, err := codestarconnections.NewConnection(ctx, "exampleConnection", &codestarconnections.ConnectionArgs{
+//			example, err := codestarconnections.NewConnection(ctx, "example", &codestarconnections.ConnectionArgs{
+//				Name:         pulumi.String("example-connection"),
 //				ProviderType: pulumi.String("Bitbucket"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = codepipeline.NewPipeline(ctx, "examplePipeline", &codepipeline.PipelineArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.Codepipeline_role.Arn),
+//			_, err = codepipeline.NewPipeline(ctx, "example", &codepipeline.PipelineArgs{
 //				ArtifactStores: codepipeline.PipelineArtifactStoreArray{
 //					nil,
 //				},
@@ -55,7 +56,7 @@ import (
 //									pulumi.String("source_output"),
 //								},
 //								Configuration: pulumi.StringMap{
-//									"ConnectionArn":    exampleConnection.Arn,
+//									"ConnectionArn":    example.Arn,
 //									"FullRepositoryId": pulumi.String("my-organization/test"),
 //									"BranchName":       pulumi.String("main"),
 //								},
@@ -63,18 +64,20 @@ import (
 //						},
 //					},
 //					&codepipeline.PipelineStageArgs{
-//						Name: pulumi.String("Build"),
 //						Actions: codepipeline.PipelineStageActionArray{
 //							nil,
 //						},
+//						Name: pulumi.String("Build"),
 //					},
 //					&codepipeline.PipelineStageArgs{
-//						Name: pulumi.String("Deploy"),
 //						Actions: codepipeline.PipelineStageActionArray{
 //							nil,
 //						},
+//						Name: pulumi.String("Deploy"),
 //					},
 //				},
+//				Name:    pulumi.String("tf-test-pipeline"),
+//				RoleArn: pulumi.Any(codepipelineRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -84,15 +87,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CodeStar connections using the ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:codestarconnections/connection:Connection test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
-//
+// $ pulumi import aws:codestarconnections/connection:Connection test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
 // ```
 type Connection struct {
 	pulumi.CustomResourceState
@@ -105,7 +107,7 @@ type Connection struct {
 	HostArn pulumi.StringPtrOutput `pulumi:"hostArn"`
 	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
+	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
 	ProviderType pulumi.StringOutput `pulumi:"providerType"`
 	// Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -122,10 +124,6 @@ func NewConnection(ctx *pulumi.Context,
 		args = &ConnectionArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Connection
 	err := ctx.RegisterResource("aws:codestarconnections/connection:Connection", name, args, &resource, opts...)
@@ -157,7 +155,7 @@ type connectionState struct {
 	HostArn *string `pulumi:"hostArn"`
 	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
 	Name *string `pulumi:"name"`
-	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
+	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
 	ProviderType *string `pulumi:"providerType"`
 	// Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -176,7 +174,7 @@ type ConnectionState struct {
 	HostArn pulumi.StringPtrInput
 	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
 	Name pulumi.StringPtrInput
-	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
+	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
 	ProviderType pulumi.StringPtrInput
 	// Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -195,7 +193,7 @@ type connectionArgs struct {
 	HostArn *string `pulumi:"hostArn"`
 	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
 	Name *string `pulumi:"name"`
-	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
+	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
 	ProviderType *string `pulumi:"providerType"`
 	// Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -207,7 +205,7 @@ type ConnectionArgs struct {
 	HostArn pulumi.StringPtrInput
 	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
 	Name pulumi.StringPtrInput
-	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
+	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
 	ProviderType pulumi.StringPtrInput
 	// Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -320,7 +318,7 @@ func (o ConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
+// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
 func (o ConnectionOutput) ProviderType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.ProviderType }).(pulumi.StringOutput)
 }

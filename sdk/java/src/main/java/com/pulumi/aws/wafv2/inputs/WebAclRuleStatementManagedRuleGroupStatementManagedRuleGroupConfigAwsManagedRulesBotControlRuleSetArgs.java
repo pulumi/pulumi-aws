@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs build() {
-            $.inspectionLevel = Objects.requireNonNull($.inspectionLevel, "expected parameter 'inspectionLevel' to be non-null");
+            if ($.inspectionLevel == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs", "inspectionLevel");
+            }
             return $;
         }
     }

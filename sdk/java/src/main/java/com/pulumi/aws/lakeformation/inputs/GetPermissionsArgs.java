@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.lakeformation.inputs;
 
+import com.pulumi.aws.lakeformation.inputs.GetPermissionsDataCellsFilterArgs;
 import com.pulumi.aws.lakeformation.inputs.GetPermissionsDataLocationArgs;
 import com.pulumi.aws.lakeformation.inputs.GetPermissionsDatabaseArgs;
 import com.pulumi.aws.lakeformation.inputs.GetPermissionsLfTagArgs;
@@ -11,6 +12,7 @@ import com.pulumi.aws.lakeformation.inputs.GetPermissionsTableArgs;
 import com.pulumi.aws.lakeformation.inputs.GetPermissionsTableWithColumnsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -50,6 +52,21 @@ public final class GetPermissionsArgs extends com.pulumi.resources.InvokeArgs {
      */
     public Optional<Output<Boolean>> catalogResource() {
         return Optional.ofNullable(this.catalogResource);
+    }
+
+    /**
+     * Configuration block for a data cells filter resource. Detailed below.
+     * 
+     */
+    @Import(name="dataCellsFilter")
+    private @Nullable Output<GetPermissionsDataCellsFilterArgs> dataCellsFilter;
+
+    /**
+     * @return Configuration block for a data cells filter resource. Detailed below.
+     * 
+     */
+    public Optional<Output<GetPermissionsDataCellsFilterArgs>> dataCellsFilter() {
+        return Optional.ofNullable(this.dataCellsFilter);
     }
 
     /**
@@ -170,6 +187,7 @@ public final class GetPermissionsArgs extends com.pulumi.resources.InvokeArgs {
     private GetPermissionsArgs(GetPermissionsArgs $) {
         this.catalogId = $.catalogId;
         this.catalogResource = $.catalogResource;
+        this.dataCellsFilter = $.dataCellsFilter;
         this.dataLocation = $.dataLocation;
         this.database = $.database;
         this.lfTag = $.lfTag;
@@ -237,6 +255,27 @@ public final class GetPermissionsArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder catalogResource(Boolean catalogResource) {
             return catalogResource(Output.of(catalogResource));
+        }
+
+        /**
+         * @param dataCellsFilter Configuration block for a data cells filter resource. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataCellsFilter(@Nullable Output<GetPermissionsDataCellsFilterArgs> dataCellsFilter) {
+            $.dataCellsFilter = dataCellsFilter;
+            return this;
+        }
+
+        /**
+         * @param dataCellsFilter Configuration block for a data cells filter resource. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataCellsFilter(GetPermissionsDataCellsFilterArgs dataCellsFilter) {
+            return dataCellsFilter(Output.of(dataCellsFilter));
         }
 
         /**
@@ -395,7 +434,9 @@ public final class GetPermissionsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetPermissionsArgs build() {
-            $.principal = Objects.requireNonNull($.principal, "expected parameter 'principal' to be non-null");
+            if ($.principal == null) {
+                throw new MissingRequiredPropertyException("GetPermissionsArgs", "principal");
+            }
             return $;
         }
     }

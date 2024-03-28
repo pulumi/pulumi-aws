@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS Bedrock Foundation Model.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,12 +30,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testModels, err := bedrockfoundation.GetModels(ctx, nil, nil)
+//			test, err := bedrockfoundation.GetModels(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = bedrockfoundation.GetModel(ctx, &bedrockfoundation.GetModelArgs{
-//				ModelId: testModels.ModelSummaries[0].ModelId,
+//				ModelId: test.ModelSummaries[0].ModelId,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -43,6 +45,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetModel(ctx *pulumi.Context, args *GetModelArgs, opts ...pulumi.InvokeOption) (*GetModelResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetModelResult

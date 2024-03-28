@@ -44,13 +44,14 @@ public final class ContainerServicePrivateRegistryAccess {
 
         @CustomType.Setter
         public Builder ecrImagePullerRole(@Nullable ContainerServicePrivateRegistryAccessEcrImagePullerRole ecrImagePullerRole) {
+
             this.ecrImagePullerRole = ecrImagePullerRole;
             return this;
         }
         public ContainerServicePrivateRegistryAccess build() {
-            final var o = new ContainerServicePrivateRegistryAccess();
-            o.ecrImagePullerRole = ecrImagePullerRole;
-            return o;
+            final var _resultValue = new ContainerServicePrivateRegistryAccess();
+            _resultValue.ecrImagePullerRole = ecrImagePullerRole;
+            return _resultValue;
         }
     }
 }

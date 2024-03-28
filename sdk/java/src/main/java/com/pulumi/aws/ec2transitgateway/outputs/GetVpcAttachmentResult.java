@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2transitgateway.outputs;
 
 import com.pulumi.aws.ec2transitgateway.outputs.GetVpcAttachmentFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -164,16 +165,23 @@ public final class GetVpcAttachmentResult {
 
         @CustomType.Setter
         public Builder applianceModeSupport(String applianceModeSupport) {
-            this.applianceModeSupport = Objects.requireNonNull(applianceModeSupport);
+            if (applianceModeSupport == null) {
+              throw new MissingRequiredPropertyException("GetVpcAttachmentResult", "applianceModeSupport");
+            }
+            this.applianceModeSupport = applianceModeSupport;
             return this;
         }
         @CustomType.Setter
         public Builder dnsSupport(String dnsSupport) {
-            this.dnsSupport = Objects.requireNonNull(dnsSupport);
+            if (dnsSupport == null) {
+              throw new MissingRequiredPropertyException("GetVpcAttachmentResult", "dnsSupport");
+            }
+            this.dnsSupport = dnsSupport;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetVpcAttachmentFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -182,17 +190,26 @@ public final class GetVpcAttachmentResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVpcAttachmentResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6Support(String ipv6Support) {
-            this.ipv6Support = Objects.requireNonNull(ipv6Support);
+            if (ipv6Support == null) {
+              throw new MissingRequiredPropertyException("GetVpcAttachmentResult", "ipv6Support");
+            }
+            this.ipv6Support = ipv6Support;
             return this;
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("GetVpcAttachmentResult", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
@@ -200,37 +217,49 @@ public final class GetVpcAttachmentResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetVpcAttachmentResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayId(String transitGatewayId) {
-            this.transitGatewayId = Objects.requireNonNull(transitGatewayId);
+            if (transitGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetVpcAttachmentResult", "transitGatewayId");
+            }
+            this.transitGatewayId = transitGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetVpcAttachmentResult", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         @CustomType.Setter
         public Builder vpcOwnerId(String vpcOwnerId) {
-            this.vpcOwnerId = Objects.requireNonNull(vpcOwnerId);
+            if (vpcOwnerId == null) {
+              throw new MissingRequiredPropertyException("GetVpcAttachmentResult", "vpcOwnerId");
+            }
+            this.vpcOwnerId = vpcOwnerId;
             return this;
         }
         public GetVpcAttachmentResult build() {
-            final var o = new GetVpcAttachmentResult();
-            o.applianceModeSupport = applianceModeSupport;
-            o.dnsSupport = dnsSupport;
-            o.filters = filters;
-            o.id = id;
-            o.ipv6Support = ipv6Support;
-            o.subnetIds = subnetIds;
-            o.tags = tags;
-            o.transitGatewayId = transitGatewayId;
-            o.vpcId = vpcId;
-            o.vpcOwnerId = vpcOwnerId;
-            return o;
+            final var _resultValue = new GetVpcAttachmentResult();
+            _resultValue.applianceModeSupport = applianceModeSupport;
+            _resultValue.dnsSupport = dnsSupport;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ipv6Support = ipv6Support;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.tags = tags;
+            _resultValue.transitGatewayId = transitGatewayId;
+            _resultValue.vpcId = vpcId;
+            _resultValue.vpcOwnerId = vpcOwnerId;
+            return _resultValue;
         }
     }
 }

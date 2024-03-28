@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -49,17 +50,17 @@ import * as utilities from "../utilities";
  * });
  * const instance1 = new aws.ec2.Instance("instance1", {
  *     ami: amazonLinux.then(amazonLinux => amazonLinux.id),
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     subnetId: subnet1.id,
  * });
  * const instance2 = new aws.ec2.Instance("instance2", {
  *     ami: amazonLinux.then(amazonLinux => amazonLinux.id),
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     subnetId: subnet2.id,
  * });
  * const instance3 = new aws.ec2.Instance("instance3", {
  *     ami: amazonLinux.then(amazonLinux => amazonLinux.id),
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     subnetId: subnet3.id,
  * });
  * const tgw = new aws.ec2transitgateway.TransitGateway("tgw", {multicastSupport: "enable"});
@@ -114,13 +115,14 @@ import * as utilities from "../utilities";
  *     transitGatewayMulticastDomainId: association1.transitGatewayMulticastDomainId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ec2_transit_gateway_multicast_domain` using the EC2 Transit Gateway Multicast Domain identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2transitgateway/multicastDomain:MulticastDomain example tgw-mcast-domain-12345
+ * $ pulumi import aws:ec2transitgateway/multicastDomain:MulticastDomain example tgw-mcast-domain-12345
  * ```
  */
 export class MulticastDomain extends pulumi.CustomResource {
@@ -222,8 +224,6 @@ export class MulticastDomain extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(MulticastDomain.__pulumiType, name, resourceInputs, opts);
     }
 }

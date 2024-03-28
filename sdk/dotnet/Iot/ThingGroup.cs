@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,10 +23,14 @@ namespace Pulumi.Aws.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var parent = new Aws.Iot.ThingGroup("parent");
+    ///     var parent = new Aws.Iot.ThingGroup("parent", new()
+    ///     {
+    ///         Name = "parent",
+    ///     });
     /// 
     ///     var example = new Aws.Iot.ThingGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         ParentGroupName = parent.Name,
     ///         Properties = new Aws.Iot.Inputs.ThingGroupPropertiesArgs
     ///         {
@@ -47,13 +52,14 @@ namespace Pulumi.Aws.Iot
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IoT Things Groups using the name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iot/thingGroup:ThingGroup example example
+    /// $ pulumi import aws:iot/thingGroup:ThingGroup example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/thingGroup:ThingGroup")]
@@ -124,10 +130,6 @@ namespace Pulumi.Aws.Iot
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -239,11 +241,7 @@ namespace Pulumi.Aws.Iot
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

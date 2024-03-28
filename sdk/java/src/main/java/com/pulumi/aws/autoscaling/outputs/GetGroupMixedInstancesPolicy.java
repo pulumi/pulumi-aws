@@ -6,6 +6,7 @@ package com.pulumi.aws.autoscaling.outputs;
 import com.pulumi.aws.autoscaling.outputs.GetGroupMixedInstancesPolicyInstancesDistribution;
 import com.pulumi.aws.autoscaling.outputs.GetGroupMixedInstancesPolicyLaunchTemplate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -58,7 +59,10 @@ public final class GetGroupMixedInstancesPolicy {
 
         @CustomType.Setter
         public Builder instancesDistributions(List<GetGroupMixedInstancesPolicyInstancesDistribution> instancesDistributions) {
-            this.instancesDistributions = Objects.requireNonNull(instancesDistributions);
+            if (instancesDistributions == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicy", "instancesDistributions");
+            }
+            this.instancesDistributions = instancesDistributions;
             return this;
         }
         public Builder instancesDistributions(GetGroupMixedInstancesPolicyInstancesDistribution... instancesDistributions) {
@@ -66,17 +70,20 @@ public final class GetGroupMixedInstancesPolicy {
         }
         @CustomType.Setter
         public Builder launchTemplates(List<GetGroupMixedInstancesPolicyLaunchTemplate> launchTemplates) {
-            this.launchTemplates = Objects.requireNonNull(launchTemplates);
+            if (launchTemplates == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicy", "launchTemplates");
+            }
+            this.launchTemplates = launchTemplates;
             return this;
         }
         public Builder launchTemplates(GetGroupMixedInstancesPolicyLaunchTemplate... launchTemplates) {
             return launchTemplates(List.of(launchTemplates));
         }
         public GetGroupMixedInstancesPolicy build() {
-            final var o = new GetGroupMixedInstancesPolicy();
-            o.instancesDistributions = instancesDistributions;
-            o.launchTemplates = launchTemplates;
-            return o;
+            final var _resultValue = new GetGroupMixedInstancesPolicy();
+            _resultValue.instancesDistributions = instancesDistributions;
+            _resultValue.launchTemplates = launchTemplates;
+            return _resultValue;
         }
     }
 }

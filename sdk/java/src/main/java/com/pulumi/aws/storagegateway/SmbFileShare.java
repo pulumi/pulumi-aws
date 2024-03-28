@@ -22,9 +22,12 @@ import javax.annotation.Nullable;
  * Manages an AWS Storage Gateway SMB File Share.
  * 
  * ## Example Usage
+ * 
  * ### Active Directory Authentication
  * 
  * &gt; **NOTE:** The gateway must have already joined the Active Directory domain prior to SMB file share creationE.g., via &#34;SMB Settings&#34; in the AWS Storage Gateway console or `smb_active_directory_settings` in the `aws.storagegateway.Gateway` resource.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,17 +51,21 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new SmbFileShare(&#34;example&#34;, SmbFileShareArgs.builder()        
  *             .authentication(&#34;ActiveDirectory&#34;)
- *             .gatewayArn(aws_storagegateway_gateway.example().arn())
- *             .locationArn(aws_s3_bucket.example().arn())
- *             .roleArn(aws_iam_role.example().arn())
+ *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
+ *             .locationArn(exampleAwsS3Bucket.arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Guest Authentication
  * 
  * &gt; **NOTE:** The gateway must have already had the SMB guest password set prior to SMB file share creationE.g., via &#34;SMB Settings&#34; in the AWS Storage Gateway console or `smb_guest_password` in the `aws.storagegateway.Gateway` resource.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -82,21 +89,22 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new SmbFileShare(&#34;example&#34;, SmbFileShareArgs.builder()        
  *             .authentication(&#34;GuestAccess&#34;)
- *             .gatewayArn(aws_storagegateway_gateway.example().arn())
- *             .locationArn(aws_s3_bucket.example().arn())
- *             .roleArn(aws_iam_role.example().arn())
+ *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
+ *             .locationArn(exampleAwsS3Bucket.arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_storagegateway_smb_file_share` using the SMB File Share Amazon Resource Name (ARN). For example:
  * 
  * ```sh
- *  $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
+ * $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
  * ```
  * 
  */
@@ -545,9 +553,6 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

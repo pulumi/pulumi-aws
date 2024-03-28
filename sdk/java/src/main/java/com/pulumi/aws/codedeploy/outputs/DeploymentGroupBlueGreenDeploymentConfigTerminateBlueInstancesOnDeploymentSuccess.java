@@ -59,19 +59,21 @@ public final class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstance
 
         @CustomType.Setter
         public Builder action(@Nullable String action) {
+
             this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder terminationWaitTimeInMinutes(@Nullable Integer terminationWaitTimeInMinutes) {
+
             this.terminationWaitTimeInMinutes = terminationWaitTimeInMinutes;
             return this;
         }
         public DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess build() {
-            final var o = new DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess();
-            o.action = action;
-            o.terminationWaitTimeInMinutes = terminationWaitTimeInMinutes;
-            return o;
+            final var _resultValue = new DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess();
+            _resultValue.action = action;
+            _resultValue.terminationWaitTimeInMinutes = terminationWaitTimeInMinutes;
+            return _resultValue;
         }
     }
 }

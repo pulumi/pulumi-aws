@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides access to an AppConfig Configuration Profile.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,6 +24,7 @@ import * as utilities from "../utilities";
  *     configurationProfileId: "qrbb1c1",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getConfigurationProfile(args: GetConfigurationProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileResult> {
 
@@ -69,6 +72,7 @@ export interface GetConfigurationProfileResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly kmsKeyIdentifier: string;
     /**
      * Location URI of the Configuration Profile.
      */
@@ -98,8 +102,10 @@ export interface GetConfigurationProfileResult {
  * Provides access to an AppConfig Configuration Profile.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -109,6 +115,7 @@ export interface GetConfigurationProfileResult {
  *     configurationProfileId: "qrbb1c1",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getConfigurationProfileOutput(args: GetConfigurationProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationProfile(a, opts))

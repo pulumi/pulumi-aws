@@ -209,30 +209,34 @@ class Rule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        ipset = aws.waf.IpSet("ipset", ip_set_descriptors=[aws.waf.IpSetIpSetDescriptorArgs(
-            type="IPV4",
-            value="192.0.7.0/24",
-        )])
+        ipset = aws.waf.IpSet("ipset",
+            name="tfIPSet",
+            ip_set_descriptors=[aws.waf.IpSetIpSetDescriptorArgs(
+                type="IPV4",
+                value="192.0.7.0/24",
+            )])
         wafrule = aws.waf.Rule("wafrule",
+            name="tfWAFRule",
             metric_name="tfWAFRule",
             predicates=[aws.waf.RulePredicateArgs(
                 data_id=ipset.id,
                 negated=False,
                 type="IPMatch",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[ipset]))
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WAF rules using the id. For example:
 
         ```sh
-         $ pulumi import aws:waf/rule:Rule example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        $ pulumi import aws:waf/rule:Rule example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
         :param str resource_name: The name of the resource.
@@ -253,30 +257,34 @@ class Rule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        ipset = aws.waf.IpSet("ipset", ip_set_descriptors=[aws.waf.IpSetIpSetDescriptorArgs(
-            type="IPV4",
-            value="192.0.7.0/24",
-        )])
+        ipset = aws.waf.IpSet("ipset",
+            name="tfIPSet",
+            ip_set_descriptors=[aws.waf.IpSetIpSetDescriptorArgs(
+                type="IPV4",
+                value="192.0.7.0/24",
+            )])
         wafrule = aws.waf.Rule("wafrule",
+            name="tfWAFRule",
             metric_name="tfWAFRule",
             predicates=[aws.waf.RulePredicateArgs(
                 data_id=ipset.id,
                 negated=False,
                 type="IPMatch",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[ipset]))
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WAF rules using the id. For example:
 
         ```sh
-         $ pulumi import aws:waf/rule:Rule example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        $ pulumi import aws:waf/rule:Rule example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
         :param str resource_name: The name of the resource.
@@ -315,8 +323,6 @@ class Rule(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Rule, __self__).__init__(
             'aws:waf/rule:Rule',
             resource_name,

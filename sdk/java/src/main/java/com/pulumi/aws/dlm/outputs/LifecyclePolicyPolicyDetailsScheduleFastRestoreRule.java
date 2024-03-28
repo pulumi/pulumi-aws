@@ -4,6 +4,7 @@
 package com.pulumi.aws.dlm.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -88,7 +89,10 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRule {
 
         @CustomType.Setter
         public Builder availabilityZones(List<String> availabilityZones) {
-            this.availabilityZones = Objects.requireNonNull(availabilityZones);
+            if (availabilityZones == null) {
+              throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailsScheduleFastRestoreRule", "availabilityZones");
+            }
+            this.availabilityZones = availabilityZones;
             return this;
         }
         public Builder availabilityZones(String... availabilityZones) {
@@ -96,26 +100,29 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRule {
         }
         @CustomType.Setter
         public Builder count(@Nullable Integer count) {
+
             this.count = count;
             return this;
         }
         @CustomType.Setter
         public Builder interval(@Nullable Integer interval) {
+
             this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder intervalUnit(@Nullable String intervalUnit) {
+
             this.intervalUnit = intervalUnit;
             return this;
         }
         public LifecyclePolicyPolicyDetailsScheduleFastRestoreRule build() {
-            final var o = new LifecyclePolicyPolicyDetailsScheduleFastRestoreRule();
-            o.availabilityZones = availabilityZones;
-            o.count = count;
-            o.interval = interval;
-            o.intervalUnit = intervalUnit;
-            return o;
+            final var _resultValue = new LifecyclePolicyPolicyDetailsScheduleFastRestoreRule();
+            _resultValue.availabilityZones = availabilityZones;
+            _resultValue.count = count;
+            _resultValue.interval = interval;
+            _resultValue.intervalUnit = intervalUnit;
+            return _resultValue;
         }
     }
 }

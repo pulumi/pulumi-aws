@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := xray.NewGroup(ctx, "example", &xray.GroupArgs{
-//				FilterExpression: pulumi.String("responsetime > 5"),
 //				GroupName:        pulumi.String("example"),
+//				FilterExpression: pulumi.String("responsetime > 5"),
 //				InsightsConfiguration: &xray.GroupInsightsConfigurationArgs{
 //					InsightsEnabled:      pulumi.Bool(true),
 //					NotificationsEnabled: pulumi.Bool(true),
@@ -44,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import XRay Groups using the ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:xray/group:Group example arn:aws:xray:us-west-2:1234567890:group/example-group/TNGX7SW5U6QY36T4ZMOUA3HVLBYCZTWDIOOXY3CJAXTHSS3YCWUA
-//
+// $ pulumi import aws:xray/group:Group example arn:aws:xray:us-west-2:1234567890:group/example-group/TNGX7SW5U6QY36T4ZMOUA3HVLBYCZTWDIOOXY3CJAXTHSS3YCWUA
 // ```
 type Group struct {
 	pulumi.CustomResourceState
@@ -86,10 +86,6 @@ func NewGroup(ctx *pulumi.Context,
 	if args.GroupName == nil {
 		return nil, errors.New("invalid value for required argument 'GroupName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Group
 	err := ctx.RegisterResource("aws:xray/group:Group", name, args, &resource, opts...)

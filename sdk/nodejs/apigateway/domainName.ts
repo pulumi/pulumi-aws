@@ -36,63 +36,68 @@ import * as utilities from "../utilities";
  * `regionalCertificateArn = aws_acm_certificate_validation.cert.certificate_arn`.
  *
  * ## Example Usage
+ *
  * ### Edge Optimized (ACM Certificate)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleDomainName = new aws.apigateway.DomainName("exampleDomainName", {
- *     certificateArn: aws_acm_certificate_validation.example.certificate_arn,
+ * const example = new aws.apigateway.DomainName("example", {
+ *     certificateArn: exampleAwsAcmCertificateValidation.certificateArn,
  *     domainName: "api.example.com",
  * });
  * // Example DNS record using Route53.
  * // Route53 is not specifically required; any DNS host can be used.
- * const exampleRecord = new aws.route53.Record("exampleRecord", {
- *     name: exampleDomainName.domainName,
- *     type: "A",
- *     zoneId: aws_route53_zone.example.id,
+ * const exampleRecord = new aws.route53.Record("example", {
+ *     name: example.domainName,
+ *     type: aws.route53.RecordType.A,
+ *     zoneId: exampleAwsRoute53Zone.id,
  *     aliases: [{
  *         evaluateTargetHealth: true,
- *         name: exampleDomainName.cloudfrontDomainName,
- *         zoneId: exampleDomainName.cloudfrontZoneId,
+ *         name: example.cloudfrontDomainName,
+ *         zoneId: example.cloudfrontZoneId,
  *     }],
  * });
  * ```
- * ### Edge Optimized (IAM Certificate)
+ * <!--End PulumiCodeChooser -->
  *
+ * ### Regional (ACM Certificate)
+ *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
  *
- * const exampleDomainName = new aws.apigateway.DomainName("exampleDomainName", {
+ * const example = new aws.apigateway.DomainName("example", {
  *     domainName: "api.example.com",
- *     certificateName: "example-api",
- *     certificateBody: fs.readFileSync(`${path.module}/example.com/example.crt`),
- *     certificateChain: fs.readFileSync(`${path.module}/example.com/ca.crt`),
- *     certificatePrivateKey: fs.readFileSync(`${path.module}/example.com/example.key`),
+ *     regionalCertificateArn: exampleAwsAcmCertificateValidation.certificateArn,
+ *     endpointConfiguration: {
+ *         types: "REGIONAL",
+ *     },
  * });
  * // Example DNS record using Route53.
  * // Route53 is not specifically required; any DNS host can be used.
- * const exampleRecord = new aws.route53.Record("exampleRecord", {
- *     zoneId: aws_route53_zone.example.id,
- *     name: exampleDomainName.domainName,
- *     type: "A",
+ * const exampleRecord = new aws.route53.Record("example", {
+ *     name: example.domainName,
+ *     type: aws.route53.RecordType.A,
+ *     zoneId: exampleAwsRoute53Zone.id,
  *     aliases: [{
- *         name: exampleDomainName.cloudfrontDomainName,
- *         zoneId: exampleDomainName.cloudfrontZoneId,
  *         evaluateTargetHealth: true,
+ *         name: example.regionalDomainName,
+ *         zoneId: example.regionalZoneId,
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import API Gateway domain names using their `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
+ * $ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
  * ```
  */
 export class DomainName extends pulumi.CustomResource {
@@ -270,7 +275,7 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["certificatePrivateKey", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["certificatePrivateKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(DomainName.__pulumiType, name, resourceInputs, opts);
     }

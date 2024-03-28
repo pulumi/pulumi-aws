@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := iam.NewGroup(ctx, "developers", &iam.GroupArgs{
+//				Name: pulumi.String("developers"),
 //				Path: pulumi.String("/users/"),
 //			})
 //			if err != nil {
@@ -40,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IAM Groups using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iam/group:Group developers developers
-//
+// $ pulumi import aws:iam/group:Group developers developers
 // ```
 type Group struct {
 	pulumi.CustomResourceState

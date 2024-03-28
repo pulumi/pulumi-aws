@@ -15,8 +15,10 @@ import (
 // Resource for managing a Verified Access Logging Configuration.
 //
 // ## Example Usage
+//
 // ### With CloudWatch Logging
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,10 +35,10 @@ import (
 //				AccessLogs: &verifiedaccess.InstanceLoggingConfigurationAccessLogsArgs{
 //					CloudwatchLogs: &verifiedaccess.InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs{
 //						Enabled:  pulumi.Bool(true),
-//						LogGroup: pulumi.Any(aws_cloudwatch_log_group.Example.Id),
+//						LogGroup: pulumi.Any(exampleAwsCloudwatchLogGroup.Id),
 //					},
 //				},
-//				VerifiedaccessInstanceId: pulumi.Any(aws_verifiedaccess_instance.Example.Id),
+//				VerifiedaccessInstanceId: pulumi.Any(exampleAwsVerifiedaccessInstance.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -46,8 +48,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Kinesis Data Firehose Logging
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,11 +68,11 @@ import (
 //			_, err := verifiedaccess.NewInstanceLoggingConfiguration(ctx, "example", &verifiedaccess.InstanceLoggingConfigurationArgs{
 //				AccessLogs: &verifiedaccess.InstanceLoggingConfigurationAccessLogsArgs{
 //					KinesisDataFirehose: &verifiedaccess.InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs{
-//						DeliveryStream: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Name),
+//						DeliveryStream: pulumi.Any(exampleAwsKinesisFirehoseDeliveryStream.Name),
 //						Enabled:        pulumi.Bool(true),
 //					},
 //				},
-//				VerifiedaccessInstanceId: pulumi.Any(aws_verifiedaccess_instance.Example.Id),
+//				VerifiedaccessInstanceId: pulumi.Any(exampleAwsVerifiedaccessInstance.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -77,8 +82,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With S3 logging
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -94,12 +102,12 @@ import (
 //			_, err := verifiedaccess.NewInstanceLoggingConfiguration(ctx, "example", &verifiedaccess.InstanceLoggingConfigurationArgs{
 //				AccessLogs: &verifiedaccess.InstanceLoggingConfigurationAccessLogsArgs{
 //					S3: &verifiedaccess.InstanceLoggingConfigurationAccessLogsS3Args{
-//						BucketName: pulumi.Any(aws_s3_bucket.Example.Id),
+//						BucketName: pulumi.Any(exampleAwsS3Bucket.Id),
 //						Enabled:    pulumi.Bool(true),
 //						Prefix:     pulumi.String("example"),
 //					},
 //				},
-//				VerifiedaccessInstanceId: pulumi.Any(aws_verifiedaccess_instance.Example.Id),
+//				VerifiedaccessInstanceId: pulumi.Any(exampleAwsVerifiedaccessInstance.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -109,8 +117,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With all three logging options
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -127,18 +138,18 @@ import (
 //				AccessLogs: &verifiedaccess.InstanceLoggingConfigurationAccessLogsArgs{
 //					CloudwatchLogs: &verifiedaccess.InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs{
 //						Enabled:  pulumi.Bool(true),
-//						LogGroup: pulumi.Any(aws_cloudwatch_log_group.Example.Id),
+//						LogGroup: pulumi.Any(exampleAwsCloudwatchLogGroup.Id),
 //					},
 //					KinesisDataFirehose: &verifiedaccess.InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs{
-//						DeliveryStream: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Name),
+//						DeliveryStream: pulumi.Any(exampleAwsKinesisFirehoseDeliveryStream.Name),
 //						Enabled:        pulumi.Bool(true),
 //					},
 //					S3: &verifiedaccess.InstanceLoggingConfigurationAccessLogsS3Args{
-//						BucketName: pulumi.Any(aws_s3_bucket.Example.Id),
+//						BucketName: pulumi.Any(exampleAwsS3Bucket.Id),
 //						Enabled:    pulumi.Bool(true),
 //					},
 //				},
-//				VerifiedaccessInstanceId: pulumi.Any(aws_verifiedaccess_instance.Example.Id),
+//				VerifiedaccessInstanceId: pulumi.Any(exampleAwsVerifiedaccessInstance.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -148,8 +159,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With `includeTrustContext`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -166,7 +180,7 @@ import (
 //				AccessLogs: &verifiedaccess.InstanceLoggingConfigurationAccessLogsArgs{
 //					IncludeTrustContext: pulumi.Bool(true),
 //				},
-//				VerifiedaccessInstanceId: pulumi.Any(aws_verifiedaccess_instance.Example.Id),
+//				VerifiedaccessInstanceId: pulumi.Any(exampleAwsVerifiedaccessInstance.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -176,8 +190,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With `logVersion`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -194,7 +211,7 @@ import (
 //				AccessLogs: &verifiedaccess.InstanceLoggingConfigurationAccessLogsArgs{
 //					LogVersion: pulumi.String("ocsf-1.0.0-rc.2"),
 //				},
-//				VerifiedaccessInstanceId: pulumi.Any(aws_verifiedaccess_instance.Example.Id),
+//				VerifiedaccessInstanceId: pulumi.Any(exampleAwsVerifiedaccessInstance.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -204,15 +221,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Verified Access Logging Configuration using the Verified Access Instance `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0
-//
+// $ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0
 // ```
 type InstanceLoggingConfiguration struct {
 	pulumi.CustomResourceState

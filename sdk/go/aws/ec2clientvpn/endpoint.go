@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,18 +32,18 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2clientvpn.NewEndpoint(ctx, "example", &ec2clientvpn.EndpointArgs{
 //				Description:          pulumi.String("clientvpn-example"),
-//				ServerCertificateArn: pulumi.Any(aws_acm_certificate.Cert.Arn),
+//				ServerCertificateArn: pulumi.Any(cert.Arn),
 //				ClientCidrBlock:      pulumi.String("10.0.0.0/16"),
 //				AuthenticationOptions: ec2clientvpn.EndpointAuthenticationOptionArray{
 //					&ec2clientvpn.EndpointAuthenticationOptionArgs{
 //						Type:                    pulumi.String("certificate-authentication"),
-//						RootCertificateChainArn: pulumi.Any(aws_acm_certificate.Root_cert.Arn),
+//						RootCertificateChainArn: pulumi.Any(rootCert.Arn),
 //					},
 //				},
 //				ConnectionLogOptions: &ec2clientvpn.EndpointConnectionLogOptionsArgs{
 //					Enabled:             pulumi.Bool(true),
-//					CloudwatchLogGroup:  pulumi.Any(aws_cloudwatch_log_group.Lg.Name),
-//					CloudwatchLogStream: pulumi.Any(aws_cloudwatch_log_stream.Ls.Name),
+//					CloudwatchLogGroup:  pulumi.Any(lg.Name),
+//					CloudwatchLogStream: pulumi.Any(ls.Name),
 //				},
 //			})
 //			if err != nil {
@@ -53,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AWS Client VPN endpoints using the `id` value found via `aws ec2 describe-client-vpn-endpoints`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
-//
+// $ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
 // ```
 type Endpoint struct {
 	pulumi.CustomResourceState
@@ -129,10 +129,6 @@ func NewEndpoint(ctx *pulumi.Context,
 	if args.ServerCertificateArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServerCertificateArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Endpoint
 	err := ctx.RegisterResource("aws:ec2clientvpn/endpoint:Endpoint", name, args, &resource, opts...)

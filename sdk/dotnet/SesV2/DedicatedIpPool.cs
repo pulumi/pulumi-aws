@@ -13,8 +13,10 @@ namespace Pulumi.Aws.SesV2
     /// Resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,8 +32,11 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Managed Pool
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,13 +53,14 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SESv2 (Simple Email V2) Dedicated IP Pool using the `pool_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sesv2/dedicatedIpPool:DedicatedIpPool example my-pool
+    /// $ pulumi import aws:sesv2/dedicatedIpPool:DedicatedIpPool example my-pool
     /// ```
     /// </summary>
     [AwsResourceType("aws:sesv2/dedicatedIpPool:DedicatedIpPool")]
@@ -112,10 +118,6 @@ namespace Pulumi.Aws.SesV2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -211,11 +213,7 @@ namespace Pulumi.Aws.SesV2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public DedicatedIpPoolState()

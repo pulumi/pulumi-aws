@@ -5,6 +5,7 @@ package com.pulumi.aws.redshiftserverless;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SnapshotArgs build() {
-            $.namespaceName = Objects.requireNonNull($.namespaceName, "expected parameter 'namespaceName' to be non-null");
-            $.snapshotName = Objects.requireNonNull($.snapshotName, "expected parameter 'snapshotName' to be non-null");
+            if ($.namespaceName == null) {
+                throw new MissingRequiredPropertyException("SnapshotArgs", "namespaceName");
+            }
+            if ($.snapshotName == null) {
+                throw new MissingRequiredPropertyException("SnapshotArgs", "snapshotName");
+            }
             return $;
         }
     }

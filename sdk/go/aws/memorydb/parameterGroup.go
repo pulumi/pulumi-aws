@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := memorydb.NewParameterGroup(ctx, "example", &memorydb.ParameterGroupArgs{
+//				Name:   pulumi.String("my-parameter-group"),
 //				Family: pulumi.String("memorydb_redis6"),
 //				Parameters: memorydb.ParameterGroupParameterArray{
 //					&memorydb.ParameterGroupParameterArgs{
@@ -47,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a parameter group using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
-//
+// $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
 // ```
 type ParameterGroup struct {
 	pulumi.CustomResourceState
@@ -92,10 +93,6 @@ func NewParameterGroup(ctx *pulumi.Context,
 	if args.Family == nil {
 		return nil, errors.New("invalid value for required argument 'Family'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ParameterGroup
 	err := ctx.RegisterResource("aws:memorydb/parameterGroup:ParameterGroup", name, args, &resource, opts...)

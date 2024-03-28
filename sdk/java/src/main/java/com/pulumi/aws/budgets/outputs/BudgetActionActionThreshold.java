@@ -4,6 +4,7 @@
 package com.pulumi.aws.budgets.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
@@ -57,19 +58,25 @@ public final class BudgetActionActionThreshold {
 
         @CustomType.Setter
         public Builder actionThresholdType(String actionThresholdType) {
-            this.actionThresholdType = Objects.requireNonNull(actionThresholdType);
+            if (actionThresholdType == null) {
+              throw new MissingRequiredPropertyException("BudgetActionActionThreshold", "actionThresholdType");
+            }
+            this.actionThresholdType = actionThresholdType;
             return this;
         }
         @CustomType.Setter
         public Builder actionThresholdValue(Double actionThresholdValue) {
-            this.actionThresholdValue = Objects.requireNonNull(actionThresholdValue);
+            if (actionThresholdValue == null) {
+              throw new MissingRequiredPropertyException("BudgetActionActionThreshold", "actionThresholdValue");
+            }
+            this.actionThresholdValue = actionThresholdValue;
             return this;
         }
         public BudgetActionActionThreshold build() {
-            final var o = new BudgetActionActionThreshold();
-            o.actionThresholdType = actionThresholdType;
-            o.actionThresholdValue = actionThresholdValue;
-            return o;
+            final var _resultValue = new BudgetActionActionThreshold();
+            _resultValue.actionThresholdType = actionThresholdType;
+            _resultValue.actionThresholdValue = actionThresholdValue;
+            return _resultValue;
         }
     }
 }

@@ -10,11 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager
 {
     /// <summary>
-    /// Resource for managing an AWS NetworkManager SiteToSiteAttachment.
+    /// Resource for managing an AWS Network Manager SiteToSiteAttachment.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,19 +27,20 @@ namespace Pulumi.Aws.NetworkManager
     /// {
     ///     var example = new Aws.NetworkManager.SiteToSiteVpnAttachment("example", new()
     ///     {
-    ///         CoreNetworkId = awscc_networkmanager_core_network.Example.Id,
-    ///         VpnConnectionArn = aws_vpn_connection.Example.Arn,
+    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
+    ///         VpnConnectionArn = exampleAwsVpnConnection.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_networkmanager_site_to_site_vpn_attachment` using the attachment ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment example attachment-0f8fa60d2238d1bd8
+    /// $ pulumi import aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment example attachment-0f8fa60d2238d1bd8
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment")]
@@ -146,10 +149,6 @@ namespace Pulumi.Aws.NetworkManager
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -289,11 +288,7 @@ namespace Pulumi.Aws.NetworkManager
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

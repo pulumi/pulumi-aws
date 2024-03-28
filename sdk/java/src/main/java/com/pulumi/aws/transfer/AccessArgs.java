@@ -7,6 +7,7 @@ import com.pulumi.aws.transfer.inputs.AccessHomeDirectoryMappingArgs;
 import com.pulumi.aws.transfer.inputs.AccessPosixProfileArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -348,8 +349,12 @@ public final class AccessArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AccessArgs build() {
-            $.externalId = Objects.requireNonNull($.externalId, "expected parameter 'externalId' to be non-null");
-            $.serverId = Objects.requireNonNull($.serverId, "expected parameter 'serverId' to be non-null");
+            if ($.externalId == null) {
+                throw new MissingRequiredPropertyException("AccessArgs", "externalId");
+            }
+            if ($.serverId == null) {
+                throw new MissingRequiredPropertyException("AccessArgs", "serverId");
+            }
             return $;
         }
     }

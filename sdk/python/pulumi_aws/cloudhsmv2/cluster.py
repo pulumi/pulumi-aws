@@ -294,7 +294,7 @@ class Cluster(pulumi.CustomResource):
         Using `pulumi import`, import CloudHSM v2 Clusters using the cluster `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudhsmv2/cluster:Cluster test_cluster cluster-aeb282a201
+        $ pulumi import aws:cloudhsmv2/cluster:Cluster test_cluster cluster-aeb282a201
         ```
 
         :param str resource_name: The name of the resource.
@@ -327,7 +327,7 @@ class Cluster(pulumi.CustomResource):
         Using `pulumi import`, import CloudHSM v2 Clusters using the cluster `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudhsmv2/cluster:Cluster test_cluster cluster-aeb282a201
+        $ pulumi import aws:cloudhsmv2/cluster:Cluster test_cluster cluster-aeb282a201
         ```
 
         :param str resource_name: The name of the resource.
@@ -372,8 +372,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["security_group_id"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Cluster, __self__).__init__(
             'aws:cloudhsmv2/cluster:Cluster',
             resource_name,

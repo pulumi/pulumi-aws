@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,8 +23,9 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleApplication = new Aws.AppConfig.Application("exampleApplication", new()
+    ///     var exampleApplication = new Aws.AppConfig.Application("example", new()
     ///     {
+    ///         Name = "example-application-tf",
     ///         Description = "Example AppConfig Application",
     ///         Tags = 
     ///         {
@@ -31,16 +33,17 @@ namespace Pulumi.Aws.AppConfig
     ///         },
     ///     });
     /// 
-    ///     var exampleEnvironment = new Aws.AppConfig.Environment("exampleEnvironment", new()
+    ///     var example = new Aws.AppConfig.Environment("example", new()
     ///     {
+    ///         Name = "example-environment-tf",
     ///         Description = "Example AppConfig Environment",
     ///         ApplicationId = exampleApplication.Id,
     ///         Monitors = new[]
     ///         {
     ///             new Aws.AppConfig.Inputs.EnvironmentMonitorArgs
     ///             {
-    ///                 AlarmArn = aws_cloudwatch_metric_alarm.Example.Arn,
-    ///                 AlarmRoleArn = aws_iam_role.Example.Arn,
+    ///                 AlarmArn = exampleAwsCloudwatchMetricAlarm.Arn,
+    ///                 AlarmRoleArn = exampleAwsIamRole.Arn,
     ///             },
     ///         },
     ///         Tags = 
@@ -51,13 +54,14 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AppConfig Environments using the environment ID and application ID separated by a colon (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
+    /// $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
     /// ```
     /// </summary>
     [AwsResourceType("aws:appconfig/environment:Environment")]
@@ -141,10 +145,6 @@ namespace Pulumi.Aws.AppConfig
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -289,11 +289,7 @@ namespace Pulumi.Aws.AppConfig
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public EnvironmentState()

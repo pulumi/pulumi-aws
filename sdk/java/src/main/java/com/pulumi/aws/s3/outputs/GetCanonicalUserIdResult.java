@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class GetCanonicalUserIdResult {
 
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetCanonicalUserIdResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCanonicalUserIdResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetCanonicalUserIdResult build() {
-            final var o = new GetCanonicalUserIdResult();
-            o.displayName = displayName;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetCanonicalUserIdResult();
+            _resultValue.displayName = displayName;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -74,25 +75,32 @@ public final class GetEndpointResult {
 
         @CustomType.Setter
         public Builder endpointAddress(String endpointAddress) {
-            this.endpointAddress = Objects.requireNonNull(endpointAddress);
+            if (endpointAddress == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "endpointAddress");
+            }
+            this.endpointAddress = endpointAddress;
             return this;
         }
         @CustomType.Setter
         public Builder endpointType(@Nullable String endpointType) {
+
             this.endpointType = endpointType;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetEndpointResult build() {
-            final var o = new GetEndpointResult();
-            o.endpointAddress = endpointAddress;
-            o.endpointType = endpointType;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetEndpointResult();
+            _resultValue.endpointAddress = endpointAddress;
+            _resultValue.endpointType = endpointType;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

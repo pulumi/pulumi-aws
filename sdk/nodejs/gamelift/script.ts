@@ -12,23 +12,28 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.gamelift.Script("example", {storageLocation: {
- *     bucket: aws_s3_bucket.example.id,
- *     key: aws_s3_object.example.key,
- *     roleArn: aws_iam_role.example.arn,
- * }});
+ * const example = new aws.gamelift.Script("example", {
+ *     name: "example-script",
+ *     storageLocation: {
+ *         bucket: exampleAwsS3Bucket.id,
+ *         key: exampleAwsS3Object.key,
+ *         roleArn: exampleAwsIamRole.arn,
+ *     },
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import GameLift Scripts using the ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:gamelift/script:Script example <script-id>
+ * $ pulumi import aws:gamelift/script:Script example <script-id>
  * ```
  */
 export class Script extends pulumi.CustomResource {
@@ -121,8 +126,6 @@ export class Script extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Script.__pulumiType, name, resourceInputs, opts);
     }
 }

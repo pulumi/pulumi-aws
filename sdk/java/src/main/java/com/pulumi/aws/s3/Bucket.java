@@ -31,8 +31,13 @@ import javax.annotation.Nullable;
  * 
  * &gt; This functionality is for managing S3 in an AWS Partition. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), see the `aws.s3control.Bucket` resource.
  * 
+ * &gt; **NOTE:** This resource might not work well if using an alternative s3-compatible provider. Please use `aws.s3.BucketV2` instead.
+ * 
  * ## Example Usage
+ * 
  * ### Private Bucket w/ Tags
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,18 +59,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucket = new Bucket(&#34;bucket&#34;, BucketArgs.builder()        
+ *         var b = new Bucket(&#34;b&#34;, BucketArgs.builder()        
+ *             .bucket(&#34;my-tf-test-bucket&#34;)
  *             .acl(&#34;private&#34;)
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Environment&#34;, &#34;Dev&#34;),
- *                 Map.entry(&#34;Name&#34;, &#34;My bucket&#34;)
+ *                 Map.entry(&#34;Name&#34;, &#34;My bucket&#34;),
+ *                 Map.entry(&#34;Environment&#34;, &#34;Dev&#34;)
  *             ))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Static Website Hosting
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -88,9 +98,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucket = new Bucket(&#34;bucket&#34;, BucketArgs.builder()        
+ *         var b = new Bucket(&#34;b&#34;, BucketArgs.builder()        
+ *             .bucket(&#34;s3-website-test.mydomain.com&#34;)
  *             .acl(&#34;public-read&#34;)
- *             .policy(Files.readString(Paths.get(&#34;policy.json&#34;)))
+ *             .policy(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;policy.json&#34;)
+ *                 .build()).result())
  *             .website(BucketWebsiteArgs.builder()
  *                 .indexDocument(&#34;index.html&#34;)
  *                 .errorDocument(&#34;error.html&#34;)
@@ -110,7 +123,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Using CORS
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -133,7 +150,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucket = new Bucket(&#34;bucket&#34;, BucketArgs.builder()        
+ *         var b = new Bucket(&#34;b&#34;, BucketArgs.builder()        
+ *             .bucket(&#34;s3-website-test.mydomain.com&#34;)
  *             .acl(&#34;public-read&#34;)
  *             .corsRules(BucketCorsRuleArgs.builder()
  *                 .allowedHeaders(&#34;*&#34;)
@@ -149,7 +167,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Using versioning
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -172,7 +194,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucket = new Bucket(&#34;bucket&#34;, BucketArgs.builder()        
+ *         var b = new Bucket(&#34;b&#34;, BucketArgs.builder()        
+ *             .bucket(&#34;my-tf-test-bucket&#34;)
  *             .acl(&#34;private&#34;)
  *             .versioning(BucketVersioningArgs.builder()
  *                 .enabled(true)
@@ -182,7 +205,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Enable Logging
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -206,10 +233,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var logBucket = new Bucket(&#34;logBucket&#34;, BucketArgs.builder()        
+ *             .bucket(&#34;my-tf-log-bucket&#34;)
  *             .acl(&#34;log-delivery-write&#34;)
  *             .build());
  * 
- *         var bucket = new Bucket(&#34;bucket&#34;, BucketArgs.builder()        
+ *         var b = new Bucket(&#34;b&#34;, BucketArgs.builder()        
+ *             .bucket(&#34;my-tf-test-bucket&#34;)
  *             .acl(&#34;private&#34;)
  *             .loggings(BucketLoggingArgs.builder()
  *                 .targetBucket(logBucket.id())
@@ -220,7 +249,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Using object lifecycle
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -231,8 +264,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.s3.inputs.BucketLifecycleRuleArgs;
  * import com.pulumi.aws.s3.inputs.BucketLifecycleRuleExpirationArgs;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleRuleNoncurrentVersionExpirationArgs;
  * import com.pulumi.aws.s3.inputs.BucketVersioningArgs;
+ * import com.pulumi.aws.s3.inputs.BucketLifecycleRuleNoncurrentVersionExpirationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -247,18 +280,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var bucket = new Bucket(&#34;bucket&#34;, BucketArgs.builder()        
+ *             .bucket(&#34;my-bucket&#34;)
  *             .acl(&#34;private&#34;)
  *             .lifecycleRules(            
  *                 BucketLifecycleRuleArgs.builder()
- *                     .enabled(true)
- *                     .expiration(BucketLifecycleRuleExpirationArgs.builder()
- *                         .days(90)
- *                         .build())
  *                     .id(&#34;log&#34;)
+ *                     .enabled(true)
  *                     .prefix(&#34;log/&#34;)
  *                     .tags(Map.ofEntries(
- *                         Map.entry(&#34;autoclean&#34;, &#34;true&#34;),
- *                         Map.entry(&#34;rule&#34;, &#34;log&#34;)
+ *                         Map.entry(&#34;rule&#34;, &#34;log&#34;),
+ *                         Map.entry(&#34;autoclean&#34;, &#34;true&#34;)
  *                     ))
  *                     .transitions(                    
  *                         BucketLifecycleRuleTransitionArgs.builder()
@@ -269,24 +300,29 @@ import javax.annotation.Nullable;
  *                             .days(60)
  *                             .storageClass(&#34;GLACIER&#34;)
  *                             .build())
+ *                     .expiration(BucketLifecycleRuleExpirationArgs.builder()
+ *                         .days(90)
+ *                         .build())
  *                     .build(),
  *                 BucketLifecycleRuleArgs.builder()
+ *                     .id(&#34;tmp&#34;)
+ *                     .prefix(&#34;tmp/&#34;)
  *                     .enabled(true)
  *                     .expiration(BucketLifecycleRuleExpirationArgs.builder()
  *                         .date(&#34;2016-01-12&#34;)
  *                         .build())
- *                     .id(&#34;tmp&#34;)
- *                     .prefix(&#34;tmp/&#34;)
  *                     .build())
  *             .build());
  * 
  *         var versioningBucket = new Bucket(&#34;versioningBucket&#34;, BucketArgs.builder()        
+ *             .bucket(&#34;my-versioning-bucket&#34;)
  *             .acl(&#34;private&#34;)
- *             .lifecycleRules(BucketLifecycleRuleArgs.builder()
+ *             .versioning(BucketVersioningArgs.builder()
  *                 .enabled(true)
- *                 .noncurrentVersionExpiration(BucketLifecycleRuleNoncurrentVersionExpirationArgs.builder()
- *                     .days(90)
- *                     .build())
+ *                 .build())
+ *             .lifecycleRules(BucketLifecycleRuleArgs.builder()
+ *                 .prefix(&#34;config/&#34;)
+ *                 .enabled(true)
  *                 .noncurrentVersionTransitions(                
  *                     BucketLifecycleRuleNoncurrentVersionTransitionArgs.builder()
  *                         .days(30)
@@ -296,27 +332,28 @@ import javax.annotation.Nullable;
  *                         .days(60)
  *                         .storageClass(&#34;GLACIER&#34;)
  *                         .build())
- *                 .prefix(&#34;config/&#34;)
- *                 .build())
- *             .versioning(BucketVersioningArgs.builder()
- *                 .enabled(true)
+ *                 .noncurrentVersionExpiration(BucketLifecycleRuleNoncurrentVersionExpirationArgs.builder()
+ *                     .days(90)
+ *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Using replication configuration
  * 
  * &gt; **NOTE:** See the `aws.s3.BucketReplicationConfig` resource to support bi-directional replication configuration and additional features.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.s3.Bucket;
@@ -327,7 +364,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.PolicyArgs;
  * import com.pulumi.aws.iam.RolePolicyAttachment;
  * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -341,11 +377,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var central = new Provider(&#34;central&#34;, ProviderArgs.builder()        
- *             .region(&#34;eu-central-1&#34;)
- *             .build());
- * 
- *         var replicationRole = new Role(&#34;replicationRole&#34;, RoleArgs.builder()        
+ *         var replication = new Role(&#34;replication&#34;, RoleArgs.builder()        
+ *             .name(&#34;tf-iam-role-replication-12345&#34;)
  *             .assumeRolePolicy(&#34;&#34;&#34;
  * {
  *   &#34;Version&#34;: &#34;2012-10-17&#34;,
@@ -364,18 +397,20 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var destination = new Bucket(&#34;destination&#34;, BucketArgs.builder()        
+ *             .bucket(&#34;tf-test-bucket-destination-12345&#34;)
  *             .versioning(BucketVersioningArgs.builder()
  *                 .enabled(true)
  *                 .build())
  *             .build());
  * 
  *         var source = new Bucket(&#34;source&#34;, BucketArgs.builder()        
+ *             .bucket(&#34;tf-test-bucket-source-12345&#34;)
  *             .acl(&#34;private&#34;)
  *             .versioning(BucketVersioningArgs.builder()
  *                 .enabled(true)
  *                 .build())
  *             .replicationConfiguration(BucketReplicationConfigurationArgs.builder()
- *                 .role(replicationRole.arn())
+ *                 .role(replication.arn())
  *                 .rules(BucketReplicationConfigurationRuleArgs.builder()
  *                     .id(&#34;foobar&#34;)
  *                     .status(&#34;Enabled&#34;)
@@ -396,11 +431,10 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.central())
- *                 .build());
+ *             .build());
  * 
  *         var replicationPolicy = new Policy(&#34;replicationPolicy&#34;, PolicyArgs.builder()        
+ *             .name(&#34;tf-iam-role-policy-replication-12345&#34;)
  *             .policy(Output.tuple(source.arn(), source.arn(), destination.arn()).applyValue(values -&gt; {
  *                 var sourceArn = values.t1;
  *                 var sourceArn1 = values.t2;
@@ -446,14 +480,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var replicationRolePolicyAttachment = new RolePolicyAttachment(&#34;replicationRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
- *             .role(replicationRole.name())
+ *             .role(replication.name())
  *             .policyArn(replicationPolicy.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Enable Default Server Side Encryption
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -486,6 +524,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var mybucket = new Bucket(&#34;mybucket&#34;, BucketArgs.builder()        
+ *             .bucket(&#34;mybucket&#34;)
  *             .serverSideEncryptionConfiguration(BucketServerSideEncryptionConfigurationArgs.builder()
  *                 .rule(BucketServerSideEncryptionConfigurationRuleArgs.builder()
  *                     .applyServerSideEncryptionByDefault(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs.builder()
@@ -499,7 +538,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Using ACL policy grants
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -526,6 +569,7 @@ import javax.annotation.Nullable;
  *         final var currentUser = S3Functions.getCanonicalUserId();
  * 
  *         var bucket = new Bucket(&#34;bucket&#34;, BucketArgs.builder()        
+ *             .bucket(&#34;mybucket&#34;)
  *             .grants(            
  *                 BucketGrantArgs.builder()
  *                     .id(currentUser.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()))
@@ -544,15 +588,16 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * S3 bucket can be imported using the `bucket`, e.g.,
  * 
  * ```sh
- *  $ pulumi import aws:s3/bucket:Bucket bucket bucket-name
+ * $ pulumi import aws:s3/bucket:Bucket bucket bucket-name
  * ```
- *  The `policy` argument is not imported and will be deprecated in a future version of the provider. Use the `aws_s3_bucket_policy` resource to manage the S3 Bucket Policy instead.
+ * The `policy` argument is not imported and will be deprecated in a future version of the provider. Use the `aws_s3_bucket_policy` resource to manage the S3 Bucket Policy instead.
  * 
  */
 @ResourceType(type="aws:s3/bucket:Bucket")
@@ -954,9 +999,6 @@ public class Bucket extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

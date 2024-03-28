@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// Provides information about a Lambda Function.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,8 +34,7 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFunctionResult> InvokeAsync(GetFunctionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionResult>("aws:lambda/getFunction:getFunction", args ?? new GetFunctionArgs(), options.WithDefaults());
@@ -44,10 +42,9 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// Provides information about a Lambda Function.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,8 +62,7 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFunctionResult> Invoke(GetFunctionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFunctionResult>("aws:lambda/getFunction:getFunction", args ?? new GetFunctionInvokeArgs(), options.WithDefaults());
@@ -195,6 +191,10 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly ImmutableArray<string> Layers;
         /// <summary>
+        /// Advanced logging settings.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetFunctionLoggingConfigResult> LoggingConfigs;
+        /// <summary>
         /// Amount of memory in MB your Lambda Function can use at runtime.
         /// </summary>
         public readonly int MemorySize;
@@ -287,6 +287,8 @@ namespace Pulumi.Aws.Lambda
 
             ImmutableArray<string> layers,
 
+            ImmutableArray<Outputs.GetFunctionLoggingConfigResult> loggingConfigs,
+
             int memorySize,
 
             string qualifiedArn,
@@ -335,6 +337,7 @@ namespace Pulumi.Aws.Lambda
             KmsKeyArn = kmsKeyArn;
             LastModified = lastModified;
             Layers = layers;
+            LoggingConfigs = loggingConfigs;
             MemorySize = memorySize;
             QualifiedArn = qualifiedArn;
             QualifiedInvokeArn = qualifiedInvokeArn;

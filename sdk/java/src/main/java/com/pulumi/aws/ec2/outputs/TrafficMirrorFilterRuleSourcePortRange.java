@@ -58,19 +58,21 @@ public final class TrafficMirrorFilterRuleSourcePortRange {
 
         @CustomType.Setter
         public Builder fromPort(@Nullable Integer fromPort) {
+
             this.fromPort = fromPort;
             return this;
         }
         @CustomType.Setter
         public Builder toPort(@Nullable Integer toPort) {
+
             this.toPort = toPort;
             return this;
         }
         public TrafficMirrorFilterRuleSourcePortRange build() {
-            final var o = new TrafficMirrorFilterRuleSourcePortRange();
-            o.fromPort = fromPort;
-            o.toPort = toPort;
-            return o;
+            final var _resultValue = new TrafficMirrorFilterRuleSourcePortRange();
+            _resultValue.fromPort = fromPort;
+            _resultValue.toPort = toPort;
+            return _resultValue;
         }
     }
 }

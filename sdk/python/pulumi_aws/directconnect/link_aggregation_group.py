@@ -355,22 +355,25 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         hoge = aws.directconnect.LinkAggregationGroup("hoge",
+            name="tf-dx-lag",
             connections_bandwidth="1Gbps",
-            force_destroy=True,
-            location="EqDC2")
+            location="EqDC2",
+            force_destroy=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Direct Connect LAGs using the LAG `id`. For example:
 
         ```sh
-         $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
+        $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
         ```
 
         :param str resource_name: The name of the resource.
@@ -396,22 +399,25 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         hoge = aws.directconnect.LinkAggregationGroup("hoge",
+            name="tf-dx-lag",
             connections_bandwidth="1Gbps",
-            force_destroy=True,
-            location="EqDC2")
+            location="EqDC2",
+            force_destroy=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Direct Connect LAGs using the LAG `id`. For example:
 
         ```sh
-         $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
+        $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
         ```
 
         :param str resource_name: The name of the resource.
@@ -461,8 +467,6 @@ class LinkAggregationGroup(pulumi.CustomResource):
             __props__.__dict__["jumbo_frame_capable"] = None
             __props__.__dict__["owner_account_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LinkAggregationGroup, __self__).__init__(
             'aws:directconnect/linkAggregationGroup:LinkAggregationGroup',
             resource_name,

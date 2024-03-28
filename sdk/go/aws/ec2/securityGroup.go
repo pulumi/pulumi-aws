@@ -22,53 +22,66 @@ import (
 // > **NOTE:** The `cidrBlocks` and `ipv6CidrBlocks` parameters are optional in the `ingress` and `egress` blocks. If nothing is specified, traffic will be blocked as described in _NOTE on Egress rules_ later.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewSecurityGroup(ctx, "allowTls", &ec2.SecurityGroupArgs{
-//				Description: pulumi.String("Allow TLS inbound traffic"),
-//				VpcId:       pulumi.Any(aws_vpc.Main.Id),
-//				Ingress: ec2.SecurityGroupIngressArray{
-//					&ec2.SecurityGroupIngressArgs{
-//						Description: pulumi.String("TLS from VPC"),
-//						FromPort:    pulumi.Int(443),
-//						ToPort:      pulumi.Int(443),
-//						Protocol:    pulumi.String("tcp"),
-//						CidrBlocks: pulumi.StringArray{
-//							aws_vpc.Main.Cidr_block,
-//						},
-//						Ipv6CidrBlocks: pulumi.StringArray{
-//							aws_vpc.Main.Ipv6_cidr_block,
-//						},
-//					},
-//				},
-//				Egress: ec2.SecurityGroupEgressArray{
-//					&ec2.SecurityGroupEgressArgs{
-//						FromPort: pulumi.Int(0),
-//						ToPort:   pulumi.Int(0),
-//						Protocol: pulumi.String("-1"),
-//						CidrBlocks: pulumi.StringArray{
-//							pulumi.String("0.0.0.0/0"),
-//						},
-//						Ipv6CidrBlocks: pulumi.StringArray{
-//							pulumi.String("::/0"),
-//						},
-//					},
-//				},
+//			allowTls, err := ec2.NewSecurityGroup(ctx, "allow_tls", &ec2.SecurityGroupArgs{
+//				Name:        pulumi.String("allow_tls"),
+//				Description: pulumi.String("Allow TLS inbound traffic and all outbound traffic"),
+//				VpcId:       pulumi.Any(main.Id),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("allow_tls"),
 //				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = vpc.NewSecurityGroupIngressRule(ctx, "allow_tls_ipv4", &vpc.SecurityGroupIngressRuleArgs{
+//				SecurityGroupId: allowTls.ID(),
+//				CidrIpv4:        pulumi.Any(main.CidrBlock),
+//				FromPort:        pulumi.Int(443),
+//				IpProtocol:      pulumi.String("tcp"),
+//				ToPort:          pulumi.Int(443),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = vpc.NewSecurityGroupIngressRule(ctx, "allow_tls_ipv6", &vpc.SecurityGroupIngressRuleArgs{
+//				SecurityGroupId: allowTls.ID(),
+//				CidrIpv6:        pulumi.Any(main.Ipv6CidrBlock),
+//				FromPort:        pulumi.Int(443),
+//				IpProtocol:      pulumi.String("tcp"),
+//				ToPort:          pulumi.Int(443),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = vpc.NewSecurityGroupEgressRule(ctx, "allow_all_traffic_ipv4", &vpc.SecurityGroupEgressRuleArgs{
+//				SecurityGroupId: allowTls.ID(),
+//				CidrIpv4:        pulumi.String("0.0.0.0/0"),
+//				IpProtocol:      pulumi.String("-1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = vpc.NewSecurityGroupEgressRule(ctx, "allow_all_traffic_ipv6", &vpc.SecurityGroupEgressRuleArgs{
+//				SecurityGroupId: allowTls.ID(),
+//				CidrIpv6:        pulumi.String("::/0"),
+//				IpProtocol:      pulumi.String("-1"),
 //			})
 //			if err != nil {
 //				return err
@@ -78,9 +91,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // > **NOTE on Egress rules:** By default, AWS creates an `ALLOW ALL` egress rule when creating a new Security Group inside of a VPC. When creating a new Security Group inside a VPC, **this provider will remove this default rule**, and require you specifically re-create it if you desire that rule. We feel this leads to fewer surprises in terms of controlling your egress rules. If you desire this rule to be in place, you can use this `egress` block:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -96,15 +111,15 @@ import (
 //			_, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
 //				Egress: ec2.SecurityGroupEgressArray{
 //					&ec2.SecurityGroupEgressArgs{
+//						FromPort: pulumi.Int(0),
+//						ToPort:   pulumi.Int(0),
+//						Protocol: pulumi.String("-1"),
 //						CidrBlocks: pulumi.StringArray{
 //							pulumi.String("0.0.0.0/0"),
 //						},
-//						FromPort: pulumi.Int(0),
 //						Ipv6CidrBlocks: pulumi.StringArray{
 //							pulumi.String("::/0"),
 //						},
-//						Protocol: pulumi.String("-1"),
-//						ToPort:   pulumi.Int(0),
 //					},
 //				},
 //			})
@@ -116,6 +131,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Usage With Prefix List IDs
 //
 // Prefix Lists are either managed by AWS internally, or created by the customer using a
@@ -123,6 +140,7 @@ import (
 // AWS are associated with a prefix list name, or service name, that is linked to a specific region.
 // Prefix list IDs are exported on VPC Endpoints, so you can use this format:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -135,7 +153,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myEndpoint, err := ec2.NewVpcEndpoint(ctx, "myEndpoint", nil)
+//			myEndpoint, err := ec2.NewVpcEndpoint(ctx, "my_endpoint", nil)
 //			if err != nil {
 //				return err
 //			}
@@ -159,12 +177,15 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // You can also find a specific Prefix List using the `ec2.getPrefixList` data source.
+//
 // ### Removing All Ingress and Egress Rules
 //
 // The `ingress` and `egress` arguments are processed in attributes-as-blocks mode. Due to this, removing these arguments from the configuration will **not** cause the provider to destroy the managed rules. To subsequently remove all managed ingress and egress rules:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -178,7 +199,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
-//				VpcId:   pulumi.Any(aws_vpc.Example.Id),
+//				Name:    pulumi.String("sg"),
+//				VpcId:   pulumi.Any(exampleAwsVpc.Id),
 //				Ingress: ec2.SecurityGroupIngressArray{},
 //				Egress:  ec2.SecurityGroupEgressArray{},
 //			})
@@ -190,6 +212,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Recreating a Security Group
 //
 // A simple security group `name` change "forces new" the security group--the provider destroys the security group and creates a new one. (Likewise, `description`, `namePrefix`, or `vpcId` [cannot be changed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group).) Attempting to recreate the security group leads to a variety of complications depending on how it is used.
@@ -201,12 +225,14 @@ import (
 // The provider does not model bi-directional dependencies like this, but, even if it did, simply knowing the dependency situation would not be enough to solve it. For example, some resources must always have an associated security group while others don't need to. In addition, when the `ec2.SecurityGroup` resource attempts to recreate, it receives a dependent object error, which does not provide information on whether the dependent object is a security group rule or, for example, an associated EC2 instance. Within the provider, the associated resource (_e.g._, `ec2.Instance`) does not receive an error when the `ec2.SecurityGroup` is trying to recreate even though that is where changes to the associated resource would need to take place (_e.g._, removing the security group association).
 //
 // Despite these sticky problems, below are some ways to improve your experience when you find it necessary to recreate a security group.
+//
 // ### `createBeforeDestroy`
 //
 // (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
 //
 // Normally, the provider first deletes the existing security group resource and then creates a new one. When a security group is associated with a resource, the delete won't succeed. You can invert the default behavior using the `createBeforeDestroy` meta argument:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -219,7 +245,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewSecurityGroup(ctx, "example", nil)
+//			_, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
+//				Name: pulumi.String("changeable-name"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -228,12 +256,15 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### `replaceTriggeredBy`
 //
 // (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
 //
 // To replace a resource when a security group changes, use the `replaceTriggeredBy` meta argument. Note that in this example, the `ec2.Instance` will be destroyed and created again when the `ec2.SecurityGroup` changes.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -246,14 +277,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewSecurityGroup(ctx, "exampleSecurityGroup", nil)
+//			_, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
+//				Name: pulumi.String("sg"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewInstance(ctx, "exampleInstance", &ec2.InstanceArgs{
-//				InstanceType: pulumi.String("t3.small"),
+//			_, err = ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
+//				InstanceType: pulumi.String(ec2.InstanceType_T3_Small),
 //				VpcSecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Test.Id,
+//					test.Id,
 //				},
 //			})
 //			if err != nil {
@@ -264,12 +297,15 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Shorter timeout
 //
 // (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
 //
 // If destroying a security group takes a long time, it may be because the provider cannot distinguish between a dependent object (_e.g._, a security group rule or EC2 instance) that is _in the process of being deleted_ and one that is not. In other words, it may be waiting for a train that isn't scheduled to arrive. To fail faster, shorten the `delete` timeout from the default timeout:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -282,7 +318,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewSecurityGroup(ctx, "example", nil)
+//			_, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
+//				Name: pulumi.String("izizavle"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -291,15 +329,92 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Provisioners
+//
+// (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
+//
+// **DISCLAIMER:** We **_HIGHLY_** recommend using one of the above approaches and _NOT_ using local provisioners. Provisioners, like the one shown below, should be considered a **last resort** since they are _not readable_, _require skills outside standard configuration_, are _error prone_ and _difficult to maintain_, are not compatible with cloud environments and upgrade tools, require AWS CLI installation, and are subject to changes outside the AWS Provider.
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-command/sdk/v1/go/command/local"
+//	"github.com/pulumi/pulumi-null/sdk/v1/go/null"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _default, err := ec2.LookupSecurityGroup(ctx, &ec2.LookupSecurityGroupArgs{
+// Name: pulumi.StringRef("default"),
+// }, nil);
+// if err != nil {
+// return err
+// }
+// example, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
+// Name: pulumi.String("sg"),
+// Tags: pulumi.StringMap{
+// "workaround1": pulumi.String("tagged-name"),
+// "workaround2": pulumi.String(_default.Id),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = local.NewCommand(ctx, "exampleProvisioner0", &local.CommandArgs{
+// Create: "true",
+// Update: "true",
+// Delete: fmt.Sprintf("            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters \"Name=tag:Name,Values=%v\" --query \"VpcEndpoints[0].VpcEndpointId\" --output text` &&\n            aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${ENDPOINT_ID} --add-security-group-ids %v --remove-security-group-ids %v\n", tags.Workaround1, tags.Workaround2, id),
+// }, pulumi.DependsOn([]pulumi.Resource{
+// example,
+// }))
+// if err != nil {
+// return err
+// }
+// exampleResource, err := index.NewResource(ctx, "example", &index.ResourceArgs{
+// Triggers: invokeJoin, err := std.Join(ctx, &std.JoinArgs{
+// Separator: ",",
+// Input: exampleAwsVpcEndpoint.SecurityGroupIds,
+// }, nil)
+// if err != nil {
+// return err
+// }
+// map[string]interface{}{
+// "rerunUponChangeOf": invokeJoin.Result,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = local.NewCommand(ctx, "exampleResourceProvisioner0", &local.CommandArgs{
+// Create: fmt.Sprintf("            aws ec2 modify-vpc-endpoint --vpc-endpoint-id %v --remove-security-group-ids %v\n", exampleAwsVpcEndpoint.Id, _default.Id),
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleResource,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Security Groups using the security group `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/securityGroup:SecurityGroup elb_sg sg-903004f8
-//
+// $ pulumi import aws:ec2/securityGroup:SecurityGroup elb_sg sg-903004f8
 // ```
 type SecurityGroup struct {
 	pulumi.CustomResourceState
@@ -309,8 +424,12 @@ type SecurityGroup struct {
 	// Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+	//
+	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Egress SecurityGroupEgressArrayOutput `pulumi:"egress"`
 	// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+	//
+	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Ingress SecurityGroupIngressArrayOutput `pulumi:"ingress"`
 	// Name of the security group. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -340,10 +459,6 @@ func NewSecurityGroup(ctx *pulumi.Context,
 	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityGroup
 	err := ctx.RegisterResource("aws:ec2/securityGroup:SecurityGroup", name, args, &resource, opts...)
@@ -372,8 +487,12 @@ type securityGroupState struct {
 	// Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
 	Description *string `pulumi:"description"`
 	// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+	//
+	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Egress []SecurityGroupEgress `pulumi:"egress"`
 	// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+	//
+	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Ingress []SecurityGroupIngress `pulumi:"ingress"`
 	// Name of the security group. If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
@@ -399,8 +518,12 @@ type SecurityGroupState struct {
 	// Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
 	Description pulumi.StringPtrInput
 	// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+	//
+	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Egress SecurityGroupEgressArrayInput
 	// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+	//
+	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Ingress SecurityGroupIngressArrayInput
 	// Name of the security group. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
@@ -428,8 +551,12 @@ type securityGroupArgs struct {
 	// Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
 	Description *string `pulumi:"description"`
 	// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+	//
+	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Egress []SecurityGroupEgress `pulumi:"egress"`
 	// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+	//
+	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Ingress []SecurityGroupIngress `pulumi:"ingress"`
 	// Name of the security group. If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
@@ -448,8 +575,12 @@ type SecurityGroupArgs struct {
 	// Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
 	Description pulumi.StringPtrInput
 	// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+	//
+	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Egress SecurityGroupEgressArrayInput
 	// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+	//
+	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Ingress SecurityGroupIngressArrayInput
 	// Name of the security group. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
@@ -561,11 +692,15 @@ func (o SecurityGroupOutput) Description() pulumi.StringOutput {
 }
 
 // Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+//
+// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
 func (o SecurityGroupOutput) Egress() SecurityGroupEgressArrayOutput {
 	return o.ApplyT(func(v *SecurityGroup) SecurityGroupEgressArrayOutput { return v.Egress }).(SecurityGroupEgressArrayOutput)
 }
 
 // Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+//
+// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
 func (o SecurityGroupOutput) Ingress() SecurityGroupIngressArrayOutput {
 	return o.ApplyT(func(v *SecurityGroup) SecurityGroupIngressArrayOutput { return v.Ingress }).(SecurityGroupIngressArrayOutput)
 }

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,21 +52,22 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			iotFleetProvisioning, err := iam.NewRole(ctx, "iotFleetProvisioning", &iam.RoleArgs{
+//			iotFleetProvisioning, err := iam.NewRole(ctx, "iot_fleet_provisioning", &iam.RoleArgs{
+//				Name:             pulumi.String("IoTProvisioningServiceRole"),
 //				Path:             pulumi.String("/service-role/"),
-//				AssumeRolePolicy: *pulumi.String(iotAssumeRolePolicy.Json),
+//				AssumeRolePolicy: pulumi.String(iotAssumeRolePolicy.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "iotFleetProvisioningRegistration", &iam.RolePolicyAttachmentArgs{
+//			_, err = iam.NewRolePolicyAttachment(ctx, "iot_fleet_provisioning_registration", &iam.RolePolicyAttachmentArgs{
 //				Role:      iotFleetProvisioning.Name,
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSIoTThingsRegistration"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			devicePolicyPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			devicePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Actions: []string{
@@ -80,39 +82,41 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			devicePolicyPolicy, err := iot.NewPolicy(ctx, "devicePolicyPolicy", &iot.PolicyArgs{
-//				Policy: *pulumi.String(devicePolicyPolicyDocument.Json),
+//			devicePolicyPolicy, err := iot.NewPolicy(ctx, "device_policy", &iot.PolicyArgs{
+//				Name:   pulumi.String("DevicePolicy"),
+//				Policy: pulumi.String(devicePolicy.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = iot.NewProvisioningTemplate(ctx, "fleet", &iot.ProvisioningTemplateArgs{
+//				Name:                pulumi.String("FleetTemplate"),
 //				Description:         pulumi.String("My provisioning template"),
 //				ProvisioningRoleArn: iotFleetProvisioning.Arn,
 //				Enabled:             pulumi.Bool(true),
 //				TemplateBody: devicePolicyPolicy.Name.ApplyT(func(name string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"Parameters": map[string]interface{}{
-//							"SerialNumber": map[string]interface{}{
-//								"Type": "String",
+//						"parameters": map[string]interface{}{
+//							"serialNumber": map[string]interface{}{
+//								"type": "String",
 //							},
 //						},
-//						"Resources": map[string]interface{}{
+//						"resources": map[string]interface{}{
 //							"certificate": map[string]interface{}{
-//								"Properties": map[string]interface{}{
-//									"CertificateId": map[string]interface{}{
-//										"Ref": "AWS::IoT::Certificate::Id",
+//								"properties": map[string]interface{}{
+//									"certificateId": map[string]interface{}{
+//										"ref": "AWS::IoT::Certificate::Id",
 //									},
-//									"Status": "Active",
+//									"status": "Active",
 //								},
-//								"Type": "AWS::IoT::Certificate",
+//								"type": "AWS::IoT::Certificate",
 //							},
 //							"policy": map[string]interface{}{
-//								"Properties": map[string]interface{}{
-//									"PolicyName": name,
+//								"properties": map[string]interface{}{
+//									"policyName": name,
 //								},
-//								"Type": "AWS::IoT::Policy",
+//								"type": "AWS::IoT::Policy",
 //							},
 //						},
 //					})
@@ -131,15 +135,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IoT fleet provisioning templates using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
-//
+// $ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
 // ```
 type ProvisioningTemplate struct {
 	pulumi.CustomResourceState
@@ -183,10 +186,6 @@ func NewProvisioningTemplate(ctx *pulumi.Context,
 	if args.TemplateBody == nil {
 		return nil, errors.New("invalid value for required argument 'TemplateBody'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProvisioningTemplate
 	err := ctx.RegisterResource("aws:iot/provisioningTemplate:ProvisioningTemplate", name, args, &resource, opts...)

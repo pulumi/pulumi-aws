@@ -4,6 +4,7 @@
 package com.pulumi.aws.sesv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class GetConfigurationSetVdmOptionDashboardOption {
 
         @CustomType.Setter
         public Builder engagementMetrics(String engagementMetrics) {
-            this.engagementMetrics = Objects.requireNonNull(engagementMetrics);
+            if (engagementMetrics == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationSetVdmOptionDashboardOption", "engagementMetrics");
+            }
+            this.engagementMetrics = engagementMetrics;
             return this;
         }
         public GetConfigurationSetVdmOptionDashboardOption build() {
-            final var o = new GetConfigurationSetVdmOptionDashboardOption();
-            o.engagementMetrics = engagementMetrics;
-            return o;
+            final var _resultValue = new GetConfigurationSetVdmOptionDashboardOption();
+            _resultValue.engagementMetrics = engagementMetrics;
+            return _resultValue;
         }
     }
 }

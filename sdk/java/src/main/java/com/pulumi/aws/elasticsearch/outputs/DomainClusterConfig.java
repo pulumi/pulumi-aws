@@ -188,73 +188,84 @@ public final class DomainClusterConfig {
 
         @CustomType.Setter
         public Builder coldStorageOptions(@Nullable DomainClusterConfigColdStorageOptions coldStorageOptions) {
+
             this.coldStorageOptions = coldStorageOptions;
             return this;
         }
         @CustomType.Setter
         public Builder dedicatedMasterCount(@Nullable Integer dedicatedMasterCount) {
+
             this.dedicatedMasterCount = dedicatedMasterCount;
             return this;
         }
         @CustomType.Setter
         public Builder dedicatedMasterEnabled(@Nullable Boolean dedicatedMasterEnabled) {
+
             this.dedicatedMasterEnabled = dedicatedMasterEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder dedicatedMasterType(@Nullable String dedicatedMasterType) {
+
             this.dedicatedMasterType = dedicatedMasterType;
             return this;
         }
         @CustomType.Setter
         public Builder instanceCount(@Nullable Integer instanceCount) {
+
             this.instanceCount = instanceCount;
             return this;
         }
         @CustomType.Setter
         public Builder instanceType(@Nullable String instanceType) {
+
             this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder warmCount(@Nullable Integer warmCount) {
+
             this.warmCount = warmCount;
             return this;
         }
         @CustomType.Setter
         public Builder warmEnabled(@Nullable Boolean warmEnabled) {
+
             this.warmEnabled = warmEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder warmType(@Nullable String warmType) {
+
             this.warmType = warmType;
             return this;
         }
         @CustomType.Setter
         public Builder zoneAwarenessConfig(@Nullable DomainClusterConfigZoneAwarenessConfig zoneAwarenessConfig) {
+
             this.zoneAwarenessConfig = zoneAwarenessConfig;
             return this;
         }
         @CustomType.Setter
         public Builder zoneAwarenessEnabled(@Nullable Boolean zoneAwarenessEnabled) {
+
             this.zoneAwarenessEnabled = zoneAwarenessEnabled;
             return this;
         }
         public DomainClusterConfig build() {
-            final var o = new DomainClusterConfig();
-            o.coldStorageOptions = coldStorageOptions;
-            o.dedicatedMasterCount = dedicatedMasterCount;
-            o.dedicatedMasterEnabled = dedicatedMasterEnabled;
-            o.dedicatedMasterType = dedicatedMasterType;
-            o.instanceCount = instanceCount;
-            o.instanceType = instanceType;
-            o.warmCount = warmCount;
-            o.warmEnabled = warmEnabled;
-            o.warmType = warmType;
-            o.zoneAwarenessConfig = zoneAwarenessConfig;
-            o.zoneAwarenessEnabled = zoneAwarenessEnabled;
-            return o;
+            final var _resultValue = new DomainClusterConfig();
+            _resultValue.coldStorageOptions = coldStorageOptions;
+            _resultValue.dedicatedMasterCount = dedicatedMasterCount;
+            _resultValue.dedicatedMasterEnabled = dedicatedMasterEnabled;
+            _resultValue.dedicatedMasterType = dedicatedMasterType;
+            _resultValue.instanceCount = instanceCount;
+            _resultValue.instanceType = instanceType;
+            _resultValue.warmCount = warmCount;
+            _resultValue.warmEnabled = warmEnabled;
+            _resultValue.warmType = warmType;
+            _resultValue.zoneAwarenessConfig = zoneAwarenessConfig;
+            _resultValue.zoneAwarenessEnabled = zoneAwarenessEnabled;
+            return _resultValue;
         }
     }
 }

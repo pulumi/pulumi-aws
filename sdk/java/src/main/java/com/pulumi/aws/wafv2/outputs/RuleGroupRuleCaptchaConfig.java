@@ -44,13 +44,14 @@ public final class RuleGroupRuleCaptchaConfig {
 
         @CustomType.Setter
         public Builder immunityTimeProperty(@Nullable RuleGroupRuleCaptchaConfigImmunityTimeProperty immunityTimeProperty) {
+
             this.immunityTimeProperty = immunityTimeProperty;
             return this;
         }
         public RuleGroupRuleCaptchaConfig build() {
-            final var o = new RuleGroupRuleCaptchaConfig();
-            o.immunityTimeProperty = immunityTimeProperty;
-            return o;
+            final var _resultValue = new RuleGroupRuleCaptchaConfig();
+            _resultValue.immunityTimeProperty = immunityTimeProperty;
+            return _resultValue;
         }
     }
 }

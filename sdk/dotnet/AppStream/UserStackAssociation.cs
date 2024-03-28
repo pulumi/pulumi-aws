@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,30 +23,34 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testStack = new Aws.AppStream.Stack("testStack");
+    ///     var test = new Aws.AppStream.Stack("test", new()
+    ///     {
+    ///         Name = "STACK NAME",
+    ///     });
     /// 
-    ///     var testUser = new Aws.AppStream.User("testUser", new()
+    ///     var testUser = new Aws.AppStream.User("test", new()
     ///     {
     ///         AuthenticationType = "USERPOOL",
     ///         UserName = "EMAIL",
     ///     });
     /// 
-    ///     var testUserStackAssociation = new Aws.AppStream.UserStackAssociation("testUserStackAssociation", new()
+    ///     var testUserStackAssociation = new Aws.AppStream.UserStackAssociation("test", new()
     ///     {
     ///         AuthenticationType = testUser.AuthenticationType,
-    ///         StackName = testStack.Name,
+    ///         StackName = test.Name,
     ///         UserName = testUser.UserName,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AppStream User Stack Association using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
+    /// $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
     /// ```
     /// </summary>
     [AwsResourceType("aws:appstream/userStackAssociation:UserStackAssociation")]

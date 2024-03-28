@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,7 +24,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var topicPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var topic = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -53,23 +54,24 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var topicTopic = new Aws.Sns.Topic("topicTopic", new()
+    ///     var topicTopic = new Aws.Sns.Topic("topic", new()
     ///     {
-    ///         Policy = topicPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "vpce-notification-topic",
+    ///         Policy = topic.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var fooVpcEndpointService = new Aws.Ec2.VpcEndpointService("fooVpcEndpointService", new()
+    ///     var foo = new Aws.Ec2.VpcEndpointService("foo", new()
     ///     {
     ///         AcceptanceRequired = false,
     ///         NetworkLoadBalancerArns = new[]
     ///         {
-    ///             aws_lb.Test.Arn,
+    ///             test.Arn,
     ///         },
     ///     });
     /// 
-    ///     var fooVpcEndpointConnectionNotification = new Aws.Ec2.VpcEndpointConnectionNotification("fooVpcEndpointConnectionNotification", new()
+    ///     var fooVpcEndpointConnectionNotification = new Aws.Ec2.VpcEndpointConnectionNotification("foo", new()
     ///     {
-    ///         VpcEndpointServiceId = fooVpcEndpointService.Id,
+    ///         VpcEndpointServiceId = foo.Id,
     ///         ConnectionNotificationArn = topicTopic.Arn,
     ///         ConnectionEvents = new[]
     ///         {
@@ -80,13 +82,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import VPC Endpoint connection notifications using the VPC endpoint connection notification `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263
+    /// $ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification")]

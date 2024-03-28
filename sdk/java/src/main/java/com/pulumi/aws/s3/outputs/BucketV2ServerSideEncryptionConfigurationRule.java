@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.aws.s3.outputs.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -60,7 +61,10 @@ public final class BucketV2ServerSideEncryptionConfigurationRule {
 
         @CustomType.Setter
         public Builder applyServerSideEncryptionByDefaults(List<BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault> applyServerSideEncryptionByDefaults) {
-            this.applyServerSideEncryptionByDefaults = Objects.requireNonNull(applyServerSideEncryptionByDefaults);
+            if (applyServerSideEncryptionByDefaults == null) {
+              throw new MissingRequiredPropertyException("BucketV2ServerSideEncryptionConfigurationRule", "applyServerSideEncryptionByDefaults");
+            }
+            this.applyServerSideEncryptionByDefaults = applyServerSideEncryptionByDefaults;
             return this;
         }
         public Builder applyServerSideEncryptionByDefaults(BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault... applyServerSideEncryptionByDefaults) {
@@ -68,14 +72,15 @@ public final class BucketV2ServerSideEncryptionConfigurationRule {
         }
         @CustomType.Setter
         public Builder bucketKeyEnabled(@Nullable Boolean bucketKeyEnabled) {
+
             this.bucketKeyEnabled = bucketKeyEnabled;
             return this;
         }
         public BucketV2ServerSideEncryptionConfigurationRule build() {
-            final var o = new BucketV2ServerSideEncryptionConfigurationRule();
-            o.applyServerSideEncryptionByDefaults = applyServerSideEncryptionByDefaults;
-            o.bucketKeyEnabled = bucketKeyEnabled;
-            return o;
+            final var _resultValue = new BucketV2ServerSideEncryptionConfigurationRule();
+            _resultValue.applyServerSideEncryptionByDefaults = applyServerSideEncryptionByDefaults;
+            _resultValue.bucketKeyEnabled = bucketKeyEnabled;
+            return _resultValue;
         }
     }
 }

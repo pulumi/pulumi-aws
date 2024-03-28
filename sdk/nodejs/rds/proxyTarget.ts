@@ -9,31 +9,33 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleProxy = new aws.rds.Proxy("exampleProxy", {
+ * const example = new aws.rds.Proxy("example", {
+ *     name: "example",
  *     debugLogging: false,
  *     engineFamily: "MYSQL",
  *     idleClientTimeout: 1800,
  *     requireTls: true,
- *     roleArn: aws_iam_role.example.arn,
- *     vpcSecurityGroupIds: [aws_security_group.example.id],
- *     vpcSubnetIds: [aws_subnet.example.id],
+ *     roleArn: exampleAwsIamRole.arn,
+ *     vpcSecurityGroupIds: [exampleAwsSecurityGroup.id],
+ *     vpcSubnetIds: [exampleAwsSubnet.id],
  *     auths: [{
  *         authScheme: "SECRETS",
  *         description: "example",
  *         iamAuth: "DISABLED",
- *         secretArn: aws_secretsmanager_secret.example.arn,
+ *         secretArn: exampleAwsSecretsmanagerSecret.arn,
  *     }],
  *     tags: {
  *         Name: "example",
  *         Key: "value",
  *     },
  * });
- * const exampleProxyDefaultTargetGroup = new aws.rds.ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup", {
- *     dbProxyName: exampleProxy.name,
+ * const exampleProxyDefaultTargetGroup = new aws.rds.ProxyDefaultTargetGroup("example", {
+ *     dbProxyName: example.name,
  *     connectionPoolConfig: {
  *         connectionBorrowTimeout: 120,
  *         initQuery: "SET x=1, y=2",
@@ -42,12 +44,13 @@ import * as utilities from "../utilities";
  *         sessionPinningFilters: ["EXCLUDE_VARIABLE_SETS"],
  *     },
  * });
- * const exampleProxyTarget = new aws.rds.ProxyTarget("exampleProxyTarget", {
- *     dbInstanceIdentifier: aws_db_instance.example.identifier,
- *     dbProxyName: exampleProxy.name,
+ * const exampleProxyTarget = new aws.rds.ProxyTarget("example", {
+ *     dbInstanceIdentifier: exampleAwsDbInstance.identifier,
+ *     dbProxyName: example.name,
  *     targetGroupName: exampleProxyDefaultTargetGroup.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -58,12 +61,12 @@ import * as utilities from "../utilities";
  * Instances:
  *
  * ```sh
- *  $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
+ * $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
  * ```
- *  Provisioned Clusters:
+ * Provisioned Clusters:
  *
  * ```sh
- *  $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
+ * $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
  * ```
  */
 export class ProxyTarget extends pulumi.CustomResource {

@@ -18,6 +18,7 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,7 +29,7 @@ namespace Pulumi.Aws.S3Control
     /// {
     ///     var example = new Aws.S3Control.BucketLifecycleConfiguration("example", new()
     ///     {
-    ///         Bucket = aws_s3control_bucket.Example.Arn,
+    ///         Bucket = exampleAwsS3controlBucket.Arn,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleArgs
@@ -60,13 +61,14 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import S3 Control Bucket Lifecycle Configurations using the Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+    /// $ pulumi import aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration")]

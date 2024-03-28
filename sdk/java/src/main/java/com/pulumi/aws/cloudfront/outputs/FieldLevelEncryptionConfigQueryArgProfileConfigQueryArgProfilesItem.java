@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfil
 
         @CustomType.Setter
         public Builder profileId(String profileId) {
-            this.profileId = Objects.requireNonNull(profileId);
+            if (profileId == null) {
+              throw new MissingRequiredPropertyException("FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem", "profileId");
+            }
+            this.profileId = profileId;
             return this;
         }
         @CustomType.Setter
         public Builder queryArg(String queryArg) {
-            this.queryArg = Objects.requireNonNull(queryArg);
+            if (queryArg == null) {
+              throw new MissingRequiredPropertyException("FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem", "queryArg");
+            }
+            this.queryArg = queryArg;
             return this;
         }
         public FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem build() {
-            final var o = new FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem();
-            o.profileId = profileId;
-            o.queryArg = queryArg;
-            return o;
+            final var _resultValue = new FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem();
+            _resultValue.profileId = profileId;
+            _resultValue.queryArg = queryArg;
+            return _resultValue;
         }
     }
 }

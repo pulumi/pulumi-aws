@@ -11,28 +11,31 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS MediaLive InputSecurityGroup.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.medialive.InputSecurityGroup("example", {
- *     tags: {
- *         ENVIRONMENT: "prod",
- *     },
  *     whitelistRules: [{
  *         cidr: "10.0.0.8/32",
  *     }],
+ *     tags: {
+ *         ENVIRONMENT: "prod",
+ *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
+ * $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
  * ```
  */
 export class InputSecurityGroup extends pulumi.CustomResource {
@@ -116,8 +119,6 @@ export class InputSecurityGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(InputSecurityGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

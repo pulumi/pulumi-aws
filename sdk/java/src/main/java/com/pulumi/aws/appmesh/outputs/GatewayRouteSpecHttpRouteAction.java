@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecHttpRouteActionRewrite;
 import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecHttpRouteActionTarget;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -59,19 +60,23 @@ public final class GatewayRouteSpecHttpRouteAction {
 
         @CustomType.Setter
         public Builder rewrite(@Nullable GatewayRouteSpecHttpRouteActionRewrite rewrite) {
+
             this.rewrite = rewrite;
             return this;
         }
         @CustomType.Setter
         public Builder target(GatewayRouteSpecHttpRouteActionTarget target) {
-            this.target = Objects.requireNonNull(target);
+            if (target == null) {
+              throw new MissingRequiredPropertyException("GatewayRouteSpecHttpRouteAction", "target");
+            }
+            this.target = target;
             return this;
         }
         public GatewayRouteSpecHttpRouteAction build() {
-            final var o = new GatewayRouteSpecHttpRouteAction();
-            o.rewrite = rewrite;
-            o.target = target;
-            return o;
+            final var _resultValue = new GatewayRouteSpecHttpRouteAction();
+            _resultValue.rewrite = rewrite;
+            _resultValue.target = target;
+            return _resultValue;
         }
     }
 }

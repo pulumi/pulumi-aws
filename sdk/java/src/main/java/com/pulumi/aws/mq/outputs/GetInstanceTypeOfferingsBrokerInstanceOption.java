@@ -5,6 +5,7 @@ package com.pulumi.aws.mq.outputs;
 
 import com.pulumi.aws.mq.outputs.GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -114,7 +115,10 @@ public final class GetInstanceTypeOfferingsBrokerInstanceOption {
 
         @CustomType.Setter
         public Builder availabilityZones(List<GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone> availabilityZones) {
-            this.availabilityZones = Objects.requireNonNull(availabilityZones);
+            if (availabilityZones == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeOfferingsBrokerInstanceOption", "availabilityZones");
+            }
+            this.availabilityZones = availabilityZones;
             return this;
         }
         public Builder availabilityZones(GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone... availabilityZones) {
@@ -122,22 +126,34 @@ public final class GetInstanceTypeOfferingsBrokerInstanceOption {
         }
         @CustomType.Setter
         public Builder engineType(String engineType) {
-            this.engineType = Objects.requireNonNull(engineType);
+            if (engineType == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeOfferingsBrokerInstanceOption", "engineType");
+            }
+            this.engineType = engineType;
             return this;
         }
         @CustomType.Setter
         public Builder hostInstanceType(String hostInstanceType) {
-            this.hostInstanceType = Objects.requireNonNull(hostInstanceType);
+            if (hostInstanceType == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeOfferingsBrokerInstanceOption", "hostInstanceType");
+            }
+            this.hostInstanceType = hostInstanceType;
             return this;
         }
         @CustomType.Setter
         public Builder storageType(String storageType) {
-            this.storageType = Objects.requireNonNull(storageType);
+            if (storageType == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeOfferingsBrokerInstanceOption", "storageType");
+            }
+            this.storageType = storageType;
             return this;
         }
         @CustomType.Setter
         public Builder supportedDeploymentModes(List<String> supportedDeploymentModes) {
-            this.supportedDeploymentModes = Objects.requireNonNull(supportedDeploymentModes);
+            if (supportedDeploymentModes == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeOfferingsBrokerInstanceOption", "supportedDeploymentModes");
+            }
+            this.supportedDeploymentModes = supportedDeploymentModes;
             return this;
         }
         public Builder supportedDeploymentModes(String... supportedDeploymentModes) {
@@ -145,21 +161,24 @@ public final class GetInstanceTypeOfferingsBrokerInstanceOption {
         }
         @CustomType.Setter
         public Builder supportedEngineVersions(List<String> supportedEngineVersions) {
-            this.supportedEngineVersions = Objects.requireNonNull(supportedEngineVersions);
+            if (supportedEngineVersions == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeOfferingsBrokerInstanceOption", "supportedEngineVersions");
+            }
+            this.supportedEngineVersions = supportedEngineVersions;
             return this;
         }
         public Builder supportedEngineVersions(String... supportedEngineVersions) {
             return supportedEngineVersions(List.of(supportedEngineVersions));
         }
         public GetInstanceTypeOfferingsBrokerInstanceOption build() {
-            final var o = new GetInstanceTypeOfferingsBrokerInstanceOption();
-            o.availabilityZones = availabilityZones;
-            o.engineType = engineType;
-            o.hostInstanceType = hostInstanceType;
-            o.storageType = storageType;
-            o.supportedDeploymentModes = supportedDeploymentModes;
-            o.supportedEngineVersions = supportedEngineVersions;
-            return o;
+            final var _resultValue = new GetInstanceTypeOfferingsBrokerInstanceOption();
+            _resultValue.availabilityZones = availabilityZones;
+            _resultValue.engineType = engineType;
+            _resultValue.hostInstanceType = hostInstanceType;
+            _resultValue.storageType = storageType;
+            _resultValue.supportedDeploymentModes = supportedDeploymentModes;
+            _resultValue.supportedEngineVersions = supportedEngineVersions;
+            return _resultValue;
         }
     }
 }

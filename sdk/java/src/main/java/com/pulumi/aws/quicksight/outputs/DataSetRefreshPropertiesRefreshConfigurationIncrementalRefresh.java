@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.aws.quicksight.outputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,13 +43,16 @@ public final class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefres
 
         @CustomType.Setter
         public Builder lookbackWindow(DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow lookbackWindow) {
-            this.lookbackWindow = Objects.requireNonNull(lookbackWindow);
+            if (lookbackWindow == null) {
+              throw new MissingRequiredPropertyException("DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh", "lookbackWindow");
+            }
+            this.lookbackWindow = lookbackWindow;
             return this;
         }
         public DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh build() {
-            final var o = new DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh();
-            o.lookbackWindow = lookbackWindow;
-            return o;
+            final var _resultValue = new DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh();
+            _resultValue.lookbackWindow = lookbackWindow;
+            return _resultValue;
         }
     }
 }

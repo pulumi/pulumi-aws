@@ -4,6 +4,7 @@
 package com.pulumi.aws.vpclattice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -59,19 +60,23 @@ public final class TargetGroupAttachmentTarget {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("TargetGroupAttachmentTarget", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         public TargetGroupAttachmentTarget build() {
-            final var o = new TargetGroupAttachmentTarget();
-            o.id = id;
-            o.port = port;
-            return o;
+            final var _resultValue = new TargetGroupAttachmentTarget();
+            _resultValue.id = id;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

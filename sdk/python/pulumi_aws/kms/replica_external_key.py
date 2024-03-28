@@ -453,32 +453,31 @@ class ReplicaExternalKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.Provider("primary", region="us-east-1")
-        primary_external_key = aws.kms.ExternalKey("primaryExternalKey",
+        primary = aws.kms.ExternalKey("primary",
             description="Multi-Region primary key",
             deletion_window_in_days=30,
             multi_region=True,
             enabled=True,
-            key_material_base64="...",
-            opts=pulumi.ResourceOptions(provider=aws["primary"]))
+            key_material_base64="...")
         replica = aws.kms.ReplicaExternalKey("replica",
             description="Multi-Region replica key",
             deletion_window_in_days=7,
-            primary_key_arn=aws_kms_external["primary"]["arn"],
+            primary_key_arn=primary_aws_kms_external["arn"],
             key_material_base64="...")
-        # Must be the same key material as the primary's.
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import KMS multi-Region replica keys using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:kms/replicaExternalKey:ReplicaExternalKey example 1234abcd-12ab-34cd-56ef-1234567890ab
+        $ pulumi import aws:kms/replicaExternalKey:ReplicaExternalKey example 1234abcd-12ab-34cd-56ef-1234567890ab
         ```
 
         :param str resource_name: The name of the resource.
@@ -509,32 +508,31 @@ class ReplicaExternalKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.Provider("primary", region="us-east-1")
-        primary_external_key = aws.kms.ExternalKey("primaryExternalKey",
+        primary = aws.kms.ExternalKey("primary",
             description="Multi-Region primary key",
             deletion_window_in_days=30,
             multi_region=True,
             enabled=True,
-            key_material_base64="...",
-            opts=pulumi.ResourceOptions(provider=aws["primary"]))
+            key_material_base64="...")
         replica = aws.kms.ReplicaExternalKey("replica",
             description="Multi-Region replica key",
             deletion_window_in_days=7,
-            primary_key_arn=aws_kms_external["primary"]["arn"],
+            primary_key_arn=primary_aws_kms_external["arn"],
             key_material_base64="...")
-        # Must be the same key material as the primary's.
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import KMS multi-Region replica keys using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:kms/replicaExternalKey:ReplicaExternalKey example 1234abcd-12ab-34cd-56ef-1234567890ab
+        $ pulumi import aws:kms/replicaExternalKey:ReplicaExternalKey example 1234abcd-12ab-34cd-56ef-1234567890ab
         ```
 
         :param str resource_name: The name of the resource.
@@ -587,7 +585,7 @@ class ReplicaExternalKey(pulumi.CustomResource):
             __props__.__dict__["key_state"] = None
             __props__.__dict__["key_usage"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["keyMaterialBase64", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["keyMaterialBase64"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ReplicaExternalKey, __self__).__init__(
             'aws:kms/replicaExternalKey:ReplicaExternalKey',

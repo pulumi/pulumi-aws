@@ -14,11 +14,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.memorydb.ParameterGroup("example", {
+ *     name: "my-parameter-group",
  *     family: "memorydb_redis6",
  *     parameters: [{
  *         name: "activedefrag",
@@ -26,13 +28,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a parameter group using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
+ * $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
  * ```
  */
 export class ParameterGroup extends pulumi.CustomResource {
@@ -136,8 +139,6 @@ export class ParameterGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ParameterGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

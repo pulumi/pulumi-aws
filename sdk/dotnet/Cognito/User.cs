@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Cognito
     /// Provides a Cognito User Resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,18 +25,24 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool");
-    /// 
-    ///     var exampleUser = new Aws.Cognito.User("exampleUser", new()
+    ///     var example = new Aws.Cognito.UserPool("example", new()
     ///     {
-    ///         UserPoolId = exampleUserPool.Id,
+    ///         Name = "MyExamplePool",
+    ///     });
+    /// 
+    ///     var exampleUser = new Aws.Cognito.User("example", new()
+    ///     {
+    ///         UserPoolId = example.Id,
     ///         Username = "example",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Setting user attributes
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,8 +51,9 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool", new()
+    ///     var example = new Aws.Cognito.UserPool("example", new()
     ///     {
+    ///         Name = "mypool",
     ///         Schemas = new[]
     ///         {
     ///             new Aws.Cognito.Inputs.UserPoolSchemaArgs
@@ -67,28 +76,29 @@ namespace Pulumi.Aws.Cognito
     ///         },
     ///     });
     /// 
-    ///     var exampleUser = new Aws.Cognito.User("exampleUser", new()
+    ///     var exampleUser = new Aws.Cognito.User("example", new()
     ///     {
-    ///         UserPoolId = exampleUserPool.Id,
+    ///         UserPoolId = example.Id,
     ///         Username = "example",
     ///         Attributes = 
     ///         {
     ///             { "example", "true" },
     ///             { "foo", "bar" },
-    ///             { "email", "no-reply@domain.example" },
+    ///             { "email", "no-reply@example.com" },
     ///             { "email_verified", "true" },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cognito User using the `user_pool_id`/`name` attributes concatenated. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
+    /// $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/user:User")]

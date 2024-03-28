@@ -12,13 +12,18 @@ import * as utilities from "../utilities";
  * Consult the [Call analytics developer guide](https://docs.aws.amazon.com/chime-sdk/latest/dg/call-analytics.html) for more detailed information about usage.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.kinesis.Stream("example", {shardCount: 2});
+ * const example = new aws.kinesis.Stream("example", {
+ *     name: "example",
+ *     shardCount: 2,
+ * });
  * const mediaPipelinesAssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -29,8 +34,12 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const callAnalyticsRole = new aws.iam.Role("callAnalyticsRole", {assumeRolePolicy: mediaPipelinesAssumeRole.then(mediaPipelinesAssumeRole => mediaPipelinesAssumeRole.json)});
- * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("myConfiguration", {
+ * const callAnalyticsRole = new aws.iam.Role("call_analytics_role", {
+ *     name: "CallAnalyticsRole",
+ *     assumeRolePolicy: mediaPipelinesAssumeRole.then(mediaPipelinesAssumeRole => mediaPipelinesAssumeRole.json),
+ * });
+ * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration", {
+ *     name: "MyBasicConfiguration",
  *     resourceAccessRoleArn: callAnalyticsRole.arn,
  *     elements: [
  *         {
@@ -52,10 +61,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * - The required policies on `callAnalyticsRole` will vary based on the selected processors. See [Call analytics resource access role](https://docs.aws.amazon.com/chime-sdk/latest/dg/ca-resource-access-role.html) for directions on choosing appropriate policies.
+ *
  * ### Transcribe Call Analytics processor usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -70,9 +82,13 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const postCallRole = new aws.iam.Role("postCallRole", {assumeRolePolicy: transcribeAssumeRole.then(transcribeAssumeRole => transcribeAssumeRole.json)});
- * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("myConfiguration", {
- *     resourceAccessRoleArn: aws_iam_role.example.arn,
+ * const postCallRole = new aws.iam.Role("post_call_role", {
+ *     name: "PostCallAccessRole",
+ *     assumeRolePolicy: transcribeAssumeRole.then(transcribeAssumeRole => transcribeAssumeRole.json),
+ * });
+ * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration", {
+ *     name: "MyCallAnalyticsConfiguration",
+ *     resourceAccessRoleArn: exampleAwsIamRole.arn,
  *     elements: [
  *         {
  *             type: "AmazonTranscribeCallAnalyticsProcessor",
@@ -102,20 +118,24 @@ import * as utilities from "../utilities";
  *         {
  *             type: "KinesisDataStreamSink",
  *             kinesisDataStreamSinkConfiguration: {
- *                 insightsTarget: aws_kinesis_stream.example.arn,
+ *                 insightsTarget: example.arn,
  *             },
  *         },
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Real time alerts usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("myConfiguration", {
- *     resourceAccessRoleArn: aws_iam_role.call_analytics_role.arn,
+ * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration", {
+ *     name: "MyRealTimeAlertConfiguration",
+ *     resourceAccessRoleArn: callAnalyticsRole.arn,
  *     elements: [
  *         {
  *             type: "AmazonTranscribeCallAnalyticsProcessor",
@@ -126,7 +146,7 @@ import * as utilities from "../utilities";
  *         {
  *             type: "KinesisDataStreamSink",
  *             kinesisDataStreamSinkConfiguration: {
- *                 insightsTarget: aws_kinesis_stream.example.arn,
+ *                 insightsTarget: example.arn,
  *             },
  *         },
  *     ],
@@ -162,14 +182,18 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Transcribe processor usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("myConfiguration", {
- *     resourceAccessRoleArn: aws_iam_role.example.arn,
+ * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration", {
+ *     name: "MyTranscribeConfiguration",
+ *     resourceAccessRoleArn: exampleAwsIamRole.arn,
  *     elements: [
  *         {
  *             type: "AmazonTranscribeProcessor",
@@ -190,20 +214,24 @@ import * as utilities from "../utilities";
  *         {
  *             type: "KinesisDataStreamSink",
  *             kinesisDataStreamSinkConfiguration: {
- *                 insightsTarget: aws_kinesis_stream.example.arn,
+ *                 insightsTarget: example.arn,
  *             },
  *         },
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Voice analytics processor usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("myConfiguration", {
- *     resourceAccessRoleArn: aws_iam_role.example.arn,
+ * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration", {
+ *     name: "MyVoiceAnalyticsConfiguration",
+ *     resourceAccessRoleArn: example.arn,
  *     elements: [
  *         {
  *             type: "VoiceAnalyticsProcessor",
@@ -233,20 +261,24 @@ import * as utilities from "../utilities";
  *         {
  *             type: "KinesisDataStreamSink",
  *             kinesisDataStreamSinkConfiguration: {
- *                 insightsTarget: aws_kinesis_stream.test.arn,
+ *                 insightsTarget: test.arn,
  *             },
  *         },
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### S3 Recording sink usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("myConfiguration", {
- *     resourceAccessRoleArn: aws_iam_role.example.arn,
+ * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration", {
+ *     name: "MyS3RecordingConfiguration",
+ *     resourceAccessRoleArn: example.arn,
  *     elements: [{
  *         type: "S3RecordingSink",
  *         s3RecordingSinkConfiguration: {
@@ -255,13 +287,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Chime SDK Media Pipelines Media Insights Pipeline Configuration using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration example abcdef123456
+ * $ pulumi import aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration example abcdef123456
  * ```
  */
 export class MediaInsightsPipelineConfiguration extends pulumi.CustomResource {
@@ -358,8 +391,6 @@ export class MediaInsightsPipelineConfiguration extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(MediaInsightsPipelineConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

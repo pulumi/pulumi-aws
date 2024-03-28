@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,13 +28,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := waf.NewSqlInjectionMatchSet(ctx, "sqlInjectionMatchSet", &waf.SqlInjectionMatchSetArgs{
+//			_, err := waf.NewSqlInjectionMatchSet(ctx, "sql_injection_match_set", &waf.SqlInjectionMatchSetArgs{
+//				Name: pulumi.String("tf-sql_injection_match_set"),
 //				SqlInjectionMatchTuples: waf.SqlInjectionMatchSetSqlInjectionMatchTupleArray{
 //					&waf.SqlInjectionMatchSetSqlInjectionMatchTupleArgs{
+//						TextTransformation: pulumi.String("URL_DECODE"),
 //						FieldToMatch: &waf.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs{
 //							Type: pulumi.String("QUERY_STRING"),
 //						},
-//						TextTransformation: pulumi.String("URL_DECODE"),
 //					},
 //				},
 //			})
@@ -45,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AWS WAF SQL Injection Match Set using their ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-//
+// $ pulumi import aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 // ```
 type SqlInjectionMatchSet struct {
 	pulumi.CustomResourceState

@@ -15,8 +15,10 @@ import (
 // Provides a SageMaker Device Fleet resource.
 //
 // ## Example Usage
+//
 // ### Basic usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,9 +35,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewDeviceFleet(ctx, "example", &sagemaker.DeviceFleetArgs{
 //				DeviceFleetName: pulumi.String("example"),
-//				RoleArn:         pulumi.Any(aws_iam_role.Test.Arn),
+//				RoleArn:         pulumi.Any(test.Arn),
 //				OutputConfig: &sagemaker.DeviceFleetOutputConfigArgs{
-//					S3OutputLocation: pulumi.String(fmt.Sprintf("s3://%v/prefix/", aws_s3_bucket.Example.Bucket)),
+//					S3OutputLocation: pulumi.String(fmt.Sprintf("s3://%v/prefix/", exampleAwsS3Bucket.Bucket)),
 //				},
 //			})
 //			if err != nil {
@@ -46,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SageMaker Device Fleets using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
-//
+// $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
 // ```
 type DeviceFleet struct {
 	pulumi.CustomResourceState
@@ -96,10 +97,6 @@ func NewDeviceFleet(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DeviceFleet
 	err := ctx.RegisterResource("aws:sagemaker/deviceFleet:DeviceFleet", name, args, &resource, opts...)

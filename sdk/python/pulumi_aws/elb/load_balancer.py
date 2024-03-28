@@ -727,12 +727,14 @@ class LoadBalancer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # Create a new load balancer
         bar = aws.elb.LoadBalancer("bar",
+            name="foobar-elb",
             availability_zones=[
                 "us-west-2a",
                 "us-west-2b",
@@ -765,7 +767,7 @@ class LoadBalancer(pulumi.CustomResource):
                 target="HTTP:8000/",
                 interval=30,
             ),
-            instances=[aws_instance["foo"]["id"]],
+            instances=[foo["id"]],
             cross_zone_load_balancing=True,
             idle_timeout=400,
             connection_draining=True,
@@ -774,6 +776,8 @@ class LoadBalancer(pulumi.CustomResource):
                 "Name": "foobar-elb",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Note on ECDSA Key Algorithm
 
         If the ARN of the `ssl_certificate_id` that is pointed to references a
@@ -787,7 +791,7 @@ class LoadBalancer(pulumi.CustomResource):
         Using `pulumi import`, import ELBs using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
+        $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
         ```
 
         :param str resource_name: The name of the resource.
@@ -837,12 +841,14 @@ class LoadBalancer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # Create a new load balancer
         bar = aws.elb.LoadBalancer("bar",
+            name="foobar-elb",
             availability_zones=[
                 "us-west-2a",
                 "us-west-2b",
@@ -875,7 +881,7 @@ class LoadBalancer(pulumi.CustomResource):
                 target="HTTP:8000/",
                 interval=30,
             ),
-            instances=[aws_instance["foo"]["id"]],
+            instances=[foo["id"]],
             cross_zone_load_balancing=True,
             idle_timeout=400,
             connection_draining=True,
@@ -884,6 +890,8 @@ class LoadBalancer(pulumi.CustomResource):
                 "Name": "foobar-elb",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Note on ECDSA Key Algorithm
 
         If the ARN of the `ssl_certificate_id` that is pointed to references a
@@ -897,7 +905,7 @@ class LoadBalancer(pulumi.CustomResource):
         Using `pulumi import`, import ELBs using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
+        $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
         ```
 
         :param str resource_name: The name of the resource.
@@ -967,8 +975,6 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["zone_id"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:elasticloadbalancing/loadBalancer:LoadBalancer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LoadBalancer, __self__).__init__(
             'aws:elb/loadBalancer:LoadBalancer',
             resource_name,

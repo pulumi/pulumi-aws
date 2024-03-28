@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// Create required roles and then create a DMS instance, setting the depends_on to the required role policy attachments.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,6 +25,12 @@ namespace Pulumi.Aws.Dms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // Database Migration Service requires the below IAM Roles to be created before
+    ///     // replication instances can be created. See the DMS Documentation for
+    ///     // additional information: https://docs.aws.amazon.com/dms/latest/userguide/security-iam.html#CHAP_Security.APIRole
+    ///     //  * dms-vpc-role
+    ///     //  * dms-cloudwatch-logs-role
+    ///     //  * dms-access-for-endpoint
     ///     var dmsAssumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
@@ -52,6 +59,7 @@ namespace Pulumi.Aws.Dms
     ///     var dms_access_for_endpoint = new Aws.Iam.Role("dms-access-for-endpoint", new()
     ///     {
     ///         AssumeRolePolicy = dmsAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "dms-access-for-endpoint",
     ///     });
     /// 
     ///     var dms_access_for_endpoint_AmazonDMSRedshiftS3Role = new Aws.Iam.RolePolicyAttachment("dms-access-for-endpoint-AmazonDMSRedshiftS3Role", new()
@@ -63,6 +71,7 @@ namespace Pulumi.Aws.Dms
     ///     var dms_cloudwatch_logs_role = new Aws.Iam.Role("dms-cloudwatch-logs-role", new()
     ///     {
     ///         AssumeRolePolicy = dmsAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "dms-cloudwatch-logs-role",
     ///     });
     /// 
     ///     var dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole = new Aws.Iam.RolePolicyAttachment("dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole", new()
@@ -74,6 +83,7 @@ namespace Pulumi.Aws.Dms
     ///     var dms_vpc_role = new Aws.Iam.Role("dms-vpc-role", new()
     ///     {
     ///         AssumeRolePolicy = dmsAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "dms-vpc-role",
     ///     });
     /// 
     ///     var dms_vpc_role_AmazonDMSVPCManagementRole = new Aws.Iam.RolePolicyAttachment("dms-vpc-role-AmazonDMSVPCManagementRole", new()
@@ -96,7 +106,7 @@ namespace Pulumi.Aws.Dms
     ///         PubliclyAccessible = true,
     ///         ReplicationInstanceClass = "dms.t2.micro",
     ///         ReplicationInstanceId = "test-dms-replication-instance-tf",
-    ///         ReplicationSubnetGroupId = aws_dms_replication_subnet_group.Test_dms_replication_subnet_group_tf.Id,
+    ///         ReplicationSubnetGroupId = test_dms_replication_subnet_group_tf.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "test" },
@@ -105,25 +115,18 @@ namespace Pulumi.Aws.Dms
     ///         {
     ///             "sg-12345678",
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             dms_access_for_endpoint_AmazonDMSRedshiftS3Role,
-    ///             dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole,
-    ///             dms_vpc_role_AmazonDMSVPCManagementRole,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import replication instances using the `replication_instance_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
+    /// $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
     /// ```
     /// </summary>
     [AwsResourceType("aws:dms/replicationInstance:ReplicationInstance")]
@@ -282,10 +285,6 @@ namespace Pulumi.Aws.Dms
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -581,11 +580,7 @@ namespace Pulumi.Aws.Dms
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("vpcSecurityGroupIds")]

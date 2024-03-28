@@ -70,27 +70,27 @@ class InvitationAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        primary_graph = aws.detective.Graph("primaryGraph")
-        primary_member = aws.detective.Member("primaryMember",
+        primary = aws.detective.Graph("primary")
+        primary_member = aws.detective.Member("primary",
             account_id="ACCOUNT ID",
             email_address="EMAIL",
-            graph_arn=primary_graph.id,
+            graph_arn=primary.id,
             message="Message of the invite")
-        member = aws.detective.InvitationAccepter("member", graph_arn=primary_graph.graph_arn,
-        opts=pulumi.ResourceOptions(provider="awsalternate",
-            depends_on=[primary_member]))
+        member = aws.detective.InvitationAccepter("member", graph_arn=primary.graph_arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_detective_invitation_accepter` using the graph ARN. For example:
 
         ```sh
-         $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
+        $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
         ```
 
         :param str resource_name: The name of the resource.
@@ -108,27 +108,27 @@ class InvitationAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        primary_graph = aws.detective.Graph("primaryGraph")
-        primary_member = aws.detective.Member("primaryMember",
+        primary = aws.detective.Graph("primary")
+        primary_member = aws.detective.Member("primary",
             account_id="ACCOUNT ID",
             email_address="EMAIL",
-            graph_arn=primary_graph.id,
+            graph_arn=primary.id,
             message="Message of the invite")
-        member = aws.detective.InvitationAccepter("member", graph_arn=primary_graph.graph_arn,
-        opts=pulumi.ResourceOptions(provider="awsalternate",
-            depends_on=[primary_member]))
+        member = aws.detective.InvitationAccepter("member", graph_arn=primary.graph_arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_detective_invitation_accepter` using the graph ARN. For example:
 
         ```sh
-         $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
+        $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
         ```
 
         :param str resource_name: The name of the resource.

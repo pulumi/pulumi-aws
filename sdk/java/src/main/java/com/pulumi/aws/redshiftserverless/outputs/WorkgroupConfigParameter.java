@@ -4,6 +4,7 @@
 package com.pulumi.aws.redshiftserverless.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class WorkgroupConfigParameter {
 
         @CustomType.Setter
         public Builder parameterKey(String parameterKey) {
-            this.parameterKey = Objects.requireNonNull(parameterKey);
+            if (parameterKey == null) {
+              throw new MissingRequiredPropertyException("WorkgroupConfigParameter", "parameterKey");
+            }
+            this.parameterKey = parameterKey;
             return this;
         }
         @CustomType.Setter
         public Builder parameterValue(String parameterValue) {
-            this.parameterValue = Objects.requireNonNull(parameterValue);
+            if (parameterValue == null) {
+              throw new MissingRequiredPropertyException("WorkgroupConfigParameter", "parameterValue");
+            }
+            this.parameterValue = parameterValue;
             return this;
         }
         public WorkgroupConfigParameter build() {
-            final var o = new WorkgroupConfigParameter();
-            o.parameterKey = parameterKey;
-            o.parameterValue = parameterValue;
-            return o;
+            final var _resultValue = new WorkgroupConfigParameter();
+            _resultValue.parameterKey = parameterKey;
+            _resultValue.parameterValue = parameterValue;
+            return _resultValue;
         }
     }
 }

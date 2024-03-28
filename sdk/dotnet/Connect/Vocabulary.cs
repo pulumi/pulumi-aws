@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Connect
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,12 +26,12 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.Vocabulary("example", new()
     ///     {
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Name = "example",
     ///         Content = @"Phrase	IPA	SoundsLike	DisplayAs
     /// Los-Angeles			Los Angeles
     /// F.B.I.	ɛ f b i aɪ		FBI
-    /// Etienne		eh-tee-en	
-    /// ",
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    /// Etienne		eh-tee-en	",
     ///         LanguageCode = "en-US",
     ///         Tags = 
     ///         {
@@ -40,13 +41,14 @@ namespace Pulumi.Aws.Connect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon Connect Vocabularies using the `instance_id` and `vocabulary_id` separated by a colon (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:connect/vocabulary:Vocabulary example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+    /// $ pulumi import aws:connect/vocabulary:Vocabulary example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
     /// ```
     /// </summary>
     [AwsResourceType("aws:connect/vocabulary:Vocabulary")]
@@ -142,10 +144,6 @@ namespace Pulumi.Aws.Connect
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -285,11 +283,7 @@ namespace Pulumi.Aws.Connect
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides an GameLift Build resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,24 +45,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Build(&#34;test&#34;, BuildArgs.builder()        
+ *             .name(&#34;example-build&#34;)
  *             .operatingSystem(&#34;WINDOWS_2012&#34;)
  *             .storageLocation(BuildStorageLocationArgs.builder()
- *                 .bucket(aws_s3_bucket.test().id())
- *                 .key(aws_s3_object.test().key())
- *                 .roleArn(aws_iam_role.test().arn())
+ *                 .bucket(testAwsS3Bucket.id())
+ *                 .key(testAwsS3Object.key())
+ *                 .roleArn(testAwsIamRole.arn())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import GameLift Builds using the ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:gamelift/build:Build example &lt;build-id&gt;
+ * $ pulumi import aws:gamelift/build:Build example &lt;build-id&gt;
  * ```
  * 
  */
@@ -202,9 +205,6 @@ public class Build extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

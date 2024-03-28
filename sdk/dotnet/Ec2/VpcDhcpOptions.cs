@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// Basic usage:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,7 +25,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dnsResolver = new Aws.Ec2.VpcDhcpOptions("dnsResolver", new()
+    ///     var dnsResolver = new Aws.Ec2.VpcDhcpOptions("dns_resolver", new()
     ///     {
     ///         DomainNameServers = new[]
     ///         {
@@ -35,9 +36,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Full usage:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,15 +57,15 @@ namespace Pulumi.Aws.Ec2
     ///             "127.0.0.1",
     ///             "10.0.0.2",
     ///         },
+    ///         NtpServers = new[]
+    ///         {
+    ///             "127.0.0.1",
+    ///         },
     ///         NetbiosNameServers = new[]
     ///         {
     ///             "127.0.0.1",
     ///         },
     ///         NetbiosNodeType = "2",
-    ///         NtpServers = new[]
-    ///         {
-    ///             "127.0.0.1",
-    ///         },
     ///         Tags = 
     ///         {
     ///             { "Name", "foo-name" },
@@ -71,6 +74,8 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Remarks
     /// 
     /// * Notice that all arguments are optional but you have to specify at least one argument.
@@ -84,7 +89,7 @@ namespace Pulumi.Aws.Ec2
     /// Using `pulumi import`, import VPC DHCP Options using the DHCP Options `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/vpcDhcpOptions:VpcDhcpOptions my_options dopt-d9070ebb
+    /// $ pulumi import aws:ec2/vpcDhcpOptions:VpcDhcpOptions my_options dopt-d9070ebb
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcDhcpOptions:VpcDhcpOptions")]
@@ -167,10 +172,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -344,11 +345,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public VpcDhcpOptionsState()

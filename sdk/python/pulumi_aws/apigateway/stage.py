@@ -558,42 +558,45 @@ class Stage(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
-        import hashlib
         import json
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi", body=json.dumps({
-            "openapi": "3.0.1",
-            "info": {
-                "title": "example",
-                "version": "1.0",
-            },
-            "paths": {
-                "/path1": {
-                    "get": {
-                        "x-amazon-apigateway-integration": {
-                            "httpMethod": "GET",
-                            "payloadFormatVersion": "1.0",
-                            "type": "HTTP_PROXY",
-                            "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+        example = aws.apigateway.RestApi("example",
+            body=json.dumps({
+                "openapi": "3.0.1",
+                "info": {
+                    "title": "example",
+                    "version": "1.0",
+                },
+                "paths": {
+                    "/path1": {
+                        "get": {
+                            "x-amazon-apigateway-integration": {
+                                "httpMethod": "GET",
+                                "payloadFormatVersion": "1.0",
+                                "type": "HTTP_PROXY",
+                                "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+                            },
                         },
                     },
                 },
-            },
-        }))
-        example_deployment = aws.apigateway.Deployment("exampleDeployment",
-            rest_api=example_rest_api.id,
+            }),
+            name="example")
+        example_deployment = aws.apigateway.Deployment("example",
+            rest_api=example.id,
             triggers={
-                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+                "redeployment": std.sha1_output(input=pulumi.Output.json_dumps(example.body)).apply(lambda invoke: invoke.result),
             })
-        example_stage = aws.apigateway.Stage("exampleStage",
+        example_stage = aws.apigateway.Stage("example",
             deployment=example_deployment.id,
-            rest_api=example_rest_api.id,
+            rest_api=example.id,
             stage_name="example")
-        example_method_settings = aws.apigateway.MethodSettings("exampleMethodSettings",
-            rest_api=example_rest_api.id,
+        example_method_settings = aws.apigateway.MethodSettings("example",
+            rest_api=example.id,
             stage_name=example_stage.stage_name,
             method_path="*/*",
             settings=aws.apigateway.MethodSettingsSettingsArgs(
@@ -601,10 +604,13 @@ class Stage(pulumi.CustomResource):
                 logging_level="INFO",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Managing the API Logging CloudWatch Log Group
 
         API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, import the `cloudwatch.LogGroup` resource into Pulumi as a one time operation. You can recreate the environment without import.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -613,21 +619,20 @@ class Stage(pulumi.CustomResource):
         stage_name = config.get("stageName")
         if stage_name is None:
             stage_name = "example"
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi")
-        # ... other configuration ...
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=7)
-        # ... potentially other configuration ...
-        example_stage = aws.apigateway.Stage("exampleStage", stage_name=stage_name,
-        opts=pulumi.ResourceOptions(depends_on=[example_log_group]))
-        # ... other configuration ...
+        example = aws.apigateway.RestApi("example")
+        example_stage = aws.apigateway.Stage("example", stage_name=stage_name)
+        example_log_group = aws.cloudwatch.LogGroup("example",
+            name=example.id.apply(lambda id: f"API-Gateway-Execution-Logs_{id}/{stage_name}"),
+            retention_in_days=7)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_stage` using `REST-API-ID/STAGE-NAME`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
+        $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -657,42 +662,45 @@ class Stage(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
-        import hashlib
         import json
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi", body=json.dumps({
-            "openapi": "3.0.1",
-            "info": {
-                "title": "example",
-                "version": "1.0",
-            },
-            "paths": {
-                "/path1": {
-                    "get": {
-                        "x-amazon-apigateway-integration": {
-                            "httpMethod": "GET",
-                            "payloadFormatVersion": "1.0",
-                            "type": "HTTP_PROXY",
-                            "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+        example = aws.apigateway.RestApi("example",
+            body=json.dumps({
+                "openapi": "3.0.1",
+                "info": {
+                    "title": "example",
+                    "version": "1.0",
+                },
+                "paths": {
+                    "/path1": {
+                        "get": {
+                            "x-amazon-apigateway-integration": {
+                                "httpMethod": "GET",
+                                "payloadFormatVersion": "1.0",
+                                "type": "HTTP_PROXY",
+                                "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+                            },
                         },
                     },
                 },
-            },
-        }))
-        example_deployment = aws.apigateway.Deployment("exampleDeployment",
-            rest_api=example_rest_api.id,
+            }),
+            name="example")
+        example_deployment = aws.apigateway.Deployment("example",
+            rest_api=example.id,
             triggers={
-                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+                "redeployment": std.sha1_output(input=pulumi.Output.json_dumps(example.body)).apply(lambda invoke: invoke.result),
             })
-        example_stage = aws.apigateway.Stage("exampleStage",
+        example_stage = aws.apigateway.Stage("example",
             deployment=example_deployment.id,
-            rest_api=example_rest_api.id,
+            rest_api=example.id,
             stage_name="example")
-        example_method_settings = aws.apigateway.MethodSettings("exampleMethodSettings",
-            rest_api=example_rest_api.id,
+        example_method_settings = aws.apigateway.MethodSettings("example",
+            rest_api=example.id,
             stage_name=example_stage.stage_name,
             method_path="*/*",
             settings=aws.apigateway.MethodSettingsSettingsArgs(
@@ -700,10 +708,13 @@ class Stage(pulumi.CustomResource):
                 logging_level="INFO",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Managing the API Logging CloudWatch Log Group
 
         API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, import the `cloudwatch.LogGroup` resource into Pulumi as a one time operation. You can recreate the environment without import.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -712,21 +723,20 @@ class Stage(pulumi.CustomResource):
         stage_name = config.get("stageName")
         if stage_name is None:
             stage_name = "example"
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi")
-        # ... other configuration ...
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=7)
-        # ... potentially other configuration ...
-        example_stage = aws.apigateway.Stage("exampleStage", stage_name=stage_name,
-        opts=pulumi.ResourceOptions(depends_on=[example_log_group]))
-        # ... other configuration ...
+        example = aws.apigateway.RestApi("example")
+        example_stage = aws.apigateway.Stage("example", stage_name=stage_name)
+        example_log_group = aws.cloudwatch.LogGroup("example",
+            name=example.id.apply(lambda id: f"API-Gateway-Execution-Logs_{id}/{stage_name}"),
+            retention_in_days=7)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_stage` using `REST-API-ID/STAGE-NAME`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
+        $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -790,8 +800,6 @@ class Stage(pulumi.CustomResource):
             __props__.__dict__["invoke_url"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["web_acl_arn"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Stage, __self__).__init__(
             'aws:apigateway/stage:Stage',
             resource_name,

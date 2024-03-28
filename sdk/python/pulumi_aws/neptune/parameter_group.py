@@ -19,6 +19,7 @@ class ParameterGroupArgs:
                  family: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -26,6 +27,7 @@ class ParameterGroupArgs:
         :param pulumi.Input[str] family: The family of the Neptune parameter group.
         :param pulumi.Input[str] description: The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] name: The name of the Neptune parameter.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: A list of Neptune parameters to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -34,6 +36,8 @@ class ParameterGroupArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if name_prefix is not None:
+            pulumi.set(__self__, "name_prefix", name_prefix)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if tags is not None:
@@ -76,6 +80,18 @@ class ParameterGroupArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @name_prefix.setter
+    def name_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name_prefix", value)
+
+    @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]]:
         """
@@ -107,6 +123,7 @@ class _ParameterGroupState:
                  description: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -116,6 +133,7 @@ class _ParameterGroupState:
         :param pulumi.Input[str] description: The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] family: The family of the Neptune parameter group.
         :param pulumi.Input[str] name: The name of the Neptune parameter.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: A list of Neptune parameters to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -128,6 +146,8 @@ class _ParameterGroupState:
             pulumi.set(__self__, "family", family)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if name_prefix is not None:
+            pulumi.set(__self__, "name_prefix", name_prefix)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if tags is not None:
@@ -187,6 +207,18 @@ class _ParameterGroupState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @name_prefix.setter
+    def name_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name_prefix", value)
+
+    @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]]:
         """
@@ -234,6 +266,7 @@ class ParameterGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -242,24 +275,27 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.neptune.ParameterGroup("example",
             family="neptune1",
+            name="example",
             parameters=[aws.neptune.ParameterGroupParameterArgs(
                 name="neptune_query_timeout",
                 value="25",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Neptune Parameter Groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
+        $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
         ```
 
         :param str resource_name: The name of the resource.
@@ -267,6 +303,7 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] family: The family of the Neptune parameter group.
         :param pulumi.Input[str] name: The name of the Neptune parameter.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: A list of Neptune parameters to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -281,24 +318,27 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.neptune.ParameterGroup("example",
             family="neptune1",
+            name="example",
             parameters=[aws.neptune.ParameterGroupParameterArgs(
                 name="neptune_query_timeout",
                 value="25",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Neptune Parameter Groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
+        $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
         ```
 
         :param str resource_name: The name of the resource.
@@ -319,6 +359,7 @@ class ParameterGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -335,12 +376,11 @@ class ParameterGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'family'")
             __props__.__dict__["family"] = family
             __props__.__dict__["name"] = name
+            __props__.__dict__["name_prefix"] = name_prefix
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ParameterGroup, __self__).__init__(
             'aws:neptune/parameterGroup:ParameterGroup',
             resource_name,
@@ -355,6 +395,7 @@ class ParameterGroup(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             family: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            name_prefix: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ParameterGroup':
@@ -369,6 +410,7 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] family: The family of the Neptune parameter group.
         :param pulumi.Input[str] name: The name of the Neptune parameter.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: A list of Neptune parameters to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -381,6 +423,7 @@ class ParameterGroup(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["family"] = family
         __props__.__dict__["name"] = name
+        __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["parameters"] = parameters
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -417,6 +460,14 @@ class ParameterGroup(pulumi.CustomResource):
         The name of the Neptune parameter.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> pulumi.Output[str]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
+        return pulumi.get(self, "name_prefix")
 
     @property
     @pulumi.getter

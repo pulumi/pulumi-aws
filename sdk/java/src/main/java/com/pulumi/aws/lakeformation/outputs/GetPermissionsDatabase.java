@@ -4,6 +4,7 @@
 package com.pulumi.aws.lakeformation.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -60,19 +61,25 @@ public final class GetPermissionsDatabase {
 
         @CustomType.Setter
         public Builder catalogId(String catalogId) {
-            this.catalogId = Objects.requireNonNull(catalogId);
+            if (catalogId == null) {
+              throw new MissingRequiredPropertyException("GetPermissionsDatabase", "catalogId");
+            }
+            this.catalogId = catalogId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetPermissionsDatabase", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetPermissionsDatabase build() {
-            final var o = new GetPermissionsDatabase();
-            o.catalogId = catalogId;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetPermissionsDatabase();
+            _resultValue.catalogId = catalogId;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -17,8 +17,10 @@ namespace Pulumi.Aws.OpenSearch
     /// &gt; **NOTE:** An `aws.opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,8 +30,9 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleServerlessSecurityPolicy = new Aws.OpenSearch.ServerlessSecurityPolicy("exampleServerlessSecurityPolicy", new()
+    ///     var example = new Aws.OpenSearch.ServerlessSecurityPolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "encryption",
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -48,25 +51,21 @@ namespace Pulumi.Aws.OpenSearch
     ///         }),
     ///     });
     /// 
-    ///     var exampleServerlessCollection = new Aws.OpenSearch.ServerlessCollection("exampleServerlessCollection", new()
+    ///     var exampleServerlessCollection = new Aws.OpenSearch.ServerlessCollection("example", new()
     ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleServerlessSecurityPolicy,
-    ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
+    /// $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:opensearch/serverlessCollection:ServerlessCollection")]
@@ -111,6 +110,12 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+        /// </summary>
+        [Output("standbyReplicas")]
+        public Output<string> StandbyReplicas { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -151,10 +156,6 @@ namespace Pulumi.Aws.OpenSearch
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -191,6 +192,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+        /// </summary>
+        [Input("standbyReplicas")]
+        public Input<string>? StandbyReplicas { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -259,6 +266,12 @@ namespace Pulumi.Aws.OpenSearch
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+        /// </summary>
+        [Input("standbyReplicas")]
+        public Input<string>? StandbyReplicas { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -277,11 +290,7 @@ namespace Pulumi.Aws.OpenSearch
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("timeouts")]

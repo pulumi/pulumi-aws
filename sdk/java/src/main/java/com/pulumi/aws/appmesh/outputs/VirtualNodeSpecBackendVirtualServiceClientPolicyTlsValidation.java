@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames;
 import com.pulumi.aws.appmesh.outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -59,19 +60,23 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
 
         @CustomType.Setter
         public Builder subjectAlternativeNames(@Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames subjectAlternativeNames) {
+
             this.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
         @CustomType.Setter
         public Builder trust(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust trust) {
-            this.trust = Objects.requireNonNull(trust);
+            if (trust == null) {
+              throw new MissingRequiredPropertyException("VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation", "trust");
+            }
+            this.trust = trust;
             return this;
         }
         public VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation build() {
-            final var o = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation();
-            o.subjectAlternativeNames = subjectAlternativeNames;
-            o.trust = trust;
-            return o;
+            final var _resultValue = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation();
+            _resultValue.subjectAlternativeNames = subjectAlternativeNames;
+            _resultValue.trust = trust;
+            return _resultValue;
         }
     }
 }

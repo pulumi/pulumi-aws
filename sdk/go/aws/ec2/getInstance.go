@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.LookupInstance(ctx, &ec2.LookupInstanceArgs{
+//				InstanceId: pulumi.StringRef("i-instanceid"),
 //				Filters: []ec2.GetInstanceFilter{
 //					{
 //						Name: "image-id",
@@ -42,7 +44,6 @@ import (
 //						},
 //					},
 //				},
-//				InstanceId: pulumi.StringRef("i-instanceid"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -52,6 +53,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupInstance(ctx *pulumi.Context, args *LookupInstanceArgs, opts ...pulumi.InvokeOption) (*LookupInstanceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInstanceResult

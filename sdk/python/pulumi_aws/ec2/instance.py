@@ -1800,8 +1800,10 @@ class Instance(pulumi.CustomResource):
         Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
 
         ## Example Usage
+
         ### Basic example using AMI lookup
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1810,7 +1812,7 @@ class Instance(pulumi.CustomResource):
             filters=[
                 aws.ec2.GetAmiFilterArgs(
                     name="name",
-                    values=["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"],
+                    values=["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"],
                 ),
                 aws.ec2.GetAmiFilterArgs(
                     name="virtualization-type",
@@ -1820,18 +1822,21 @@ class Instance(pulumi.CustomResource):
             owners=["099720109477"])
         web = aws.ec2.Instance("web",
             ami=ubuntu.id,
-            instance_type="t3.micro",
+            instance_type=aws.ec2.InstanceType.T3_MICRO,
             tags={
                 "Name": "HelloWorld",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Spot instance example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        this_ami = aws.ec2.get_ami(most_recent=True,
+        this = aws.ec2.get_ami(most_recent=True,
             owners=["amazon"],
             filters=[
                 aws.ec2.GetAmiFilterArgs(
@@ -1843,66 +1848,72 @@ class Instance(pulumi.CustomResource):
                     values=["al2023-ami-2023*"],
                 ),
             ])
-        this_instance = aws.ec2.Instance("thisInstance",
-            ami=this_ami.id,
+        this_instance = aws.ec2.Instance("this",
+            ami=this.id,
             instance_market_options=aws.ec2.InstanceInstanceMarketOptionsArgs(
                 spot_options=aws.ec2.InstanceInstanceMarketOptionsSpotOptionsArgs(
                     max_price="0.0031",
                 ),
             ),
-            instance_type="t4g.nano",
+            instance_type=aws.ec2.InstanceType.T4G_NANO,
             tags={
                 "Name": "test-spot",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Network and credit specification example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        my_vpc = aws.ec2.Vpc("myVpc",
+        my_vpc = aws.ec2.Vpc("my_vpc",
             cidr_block="172.16.0.0/16",
             tags={
                 "Name": "tf-example",
             })
-        my_subnet = aws.ec2.Subnet("mySubnet",
+        my_subnet = aws.ec2.Subnet("my_subnet",
             vpc_id=my_vpc.id,
             cidr_block="172.16.10.0/24",
             availability_zone="us-west-2a",
             tags={
                 "Name": "tf-example",
             })
-        foo_network_interface = aws.ec2.NetworkInterface("fooNetworkInterface",
+        foo = aws.ec2.NetworkInterface("foo",
             subnet_id=my_subnet.id,
             private_ips=["172.16.10.100"],
             tags={
                 "Name": "primary_network_interface",
             })
-        foo_instance = aws.ec2.Instance("fooInstance",
+        foo_instance = aws.ec2.Instance("foo",
             ami="ami-005e54dee72cc1d00",
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             network_interfaces=[aws.ec2.InstanceNetworkInterfaceArgs(
-                network_interface_id=foo_network_interface.id,
+                network_interface_id=foo.id,
                 device_index=0,
             )],
             credit_specification=aws.ec2.InstanceCreditSpecificationArgs(
                 cpu_credits="unlimited",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### CPU options example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
+        example = aws.ec2.Vpc("example",
             cidr_block="172.16.0.0/16",
             tags={
                 "Name": "tf-example",
             })
-        example_subnet = aws.ec2.Subnet("exampleSubnet",
-            vpc_id=example_vpc.id,
+        example_subnet = aws.ec2.Subnet("example",
+            vpc_id=example.id,
             cidr_block="172.16.10.0/24",
             availability_zone="us-east-2a",
             tags={
@@ -1914,9 +1925,9 @@ class Instance(pulumi.CustomResource):
                 name="name",
                 values=["al2023-ami-2023.*-x86_64"],
             )])
-        example_instance = aws.ec2.Instance("exampleInstance",
+        example_instance = aws.ec2.Instance("example",
             ami=amzn_linux_2023_ami.id,
-            instance_type="c6a.2xlarge",
+            instance_type=aws.ec2.InstanceType.C6A_2_X_LARGE,
             subnet_id=example_subnet.id,
             cpu_options=aws.ec2.InstanceCpuOptionsArgs(
                 core_count=2,
@@ -1926,29 +1937,45 @@ class Instance(pulumi.CustomResource):
                 "Name": "tf-example",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Host resource group or Licence Manager registered AMI example
 
         A host resource group is a collection of Dedicated Hosts that you can manage as a single entity. As you launch instances, License Manager allocates the hosts and launches instances on them based on the settings that you configured. You can add existing Dedicated Hosts to a host resource group and take advantage of automated host management through License Manager.
 
         > **NOTE:** A dedicated host is automatically associated with a License Manager host resource group if **Allocate hosts automatically** is enabled. Otherwise, use the `host_resource_group_arn` argument to explicitly associate the instance with the host resource group.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         this = aws.ec2.Instance("this",
             ami="ami-0dcc1e21636832c5d",
+            instance_type=aws.ec2.InstanceType.M5_LARGE,
             host_resource_group_arn="arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
-            instance_type="m5.large",
             tenancy="host")
         ```
+        <!--End PulumiCodeChooser -->
+
+        ## Tag Guide
+
+        These are the five types of tags you might encounter relative to an `ec2.Instance`:
+
+        1. **Instance tags**: Applied to instances but not to `ebs_block_device` and `root_block_device` volumes.
+        2. **Default tags**: Applied to the instance and to `ebs_block_device` and `root_block_device` volumes.
+        3. **Volume tags**: Applied during creation to `ebs_block_device` and `root_block_device` volumes.
+        4. **Root block device tags**: Applied only to the `root_block_device` volume. These conflict with `volume_tags`.
+        5. **EBS block device tags**: Applied only to the specific `ebs_block_device` volume you configure them for and cannot be updated. These conflict with `volume_tags`.
+
+        Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
 
         ## Import
 
         Using `pulumi import`, import instances using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/instance:Instance web i-12345678
+        $ pulumi import aws:ec2/instance:Instance web i-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -2016,8 +2043,10 @@ class Instance(pulumi.CustomResource):
         Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
 
         ## Example Usage
+
         ### Basic example using AMI lookup
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2026,7 +2055,7 @@ class Instance(pulumi.CustomResource):
             filters=[
                 aws.ec2.GetAmiFilterArgs(
                     name="name",
-                    values=["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"],
+                    values=["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"],
                 ),
                 aws.ec2.GetAmiFilterArgs(
                     name="virtualization-type",
@@ -2036,18 +2065,21 @@ class Instance(pulumi.CustomResource):
             owners=["099720109477"])
         web = aws.ec2.Instance("web",
             ami=ubuntu.id,
-            instance_type="t3.micro",
+            instance_type=aws.ec2.InstanceType.T3_MICRO,
             tags={
                 "Name": "HelloWorld",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Spot instance example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        this_ami = aws.ec2.get_ami(most_recent=True,
+        this = aws.ec2.get_ami(most_recent=True,
             owners=["amazon"],
             filters=[
                 aws.ec2.GetAmiFilterArgs(
@@ -2059,66 +2091,72 @@ class Instance(pulumi.CustomResource):
                     values=["al2023-ami-2023*"],
                 ),
             ])
-        this_instance = aws.ec2.Instance("thisInstance",
-            ami=this_ami.id,
+        this_instance = aws.ec2.Instance("this",
+            ami=this.id,
             instance_market_options=aws.ec2.InstanceInstanceMarketOptionsArgs(
                 spot_options=aws.ec2.InstanceInstanceMarketOptionsSpotOptionsArgs(
                     max_price="0.0031",
                 ),
             ),
-            instance_type="t4g.nano",
+            instance_type=aws.ec2.InstanceType.T4G_NANO,
             tags={
                 "Name": "test-spot",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Network and credit specification example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        my_vpc = aws.ec2.Vpc("myVpc",
+        my_vpc = aws.ec2.Vpc("my_vpc",
             cidr_block="172.16.0.0/16",
             tags={
                 "Name": "tf-example",
             })
-        my_subnet = aws.ec2.Subnet("mySubnet",
+        my_subnet = aws.ec2.Subnet("my_subnet",
             vpc_id=my_vpc.id,
             cidr_block="172.16.10.0/24",
             availability_zone="us-west-2a",
             tags={
                 "Name": "tf-example",
             })
-        foo_network_interface = aws.ec2.NetworkInterface("fooNetworkInterface",
+        foo = aws.ec2.NetworkInterface("foo",
             subnet_id=my_subnet.id,
             private_ips=["172.16.10.100"],
             tags={
                 "Name": "primary_network_interface",
             })
-        foo_instance = aws.ec2.Instance("fooInstance",
+        foo_instance = aws.ec2.Instance("foo",
             ami="ami-005e54dee72cc1d00",
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             network_interfaces=[aws.ec2.InstanceNetworkInterfaceArgs(
-                network_interface_id=foo_network_interface.id,
+                network_interface_id=foo.id,
                 device_index=0,
             )],
             credit_specification=aws.ec2.InstanceCreditSpecificationArgs(
                 cpu_credits="unlimited",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### CPU options example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
+        example = aws.ec2.Vpc("example",
             cidr_block="172.16.0.0/16",
             tags={
                 "Name": "tf-example",
             })
-        example_subnet = aws.ec2.Subnet("exampleSubnet",
-            vpc_id=example_vpc.id,
+        example_subnet = aws.ec2.Subnet("example",
+            vpc_id=example.id,
             cidr_block="172.16.10.0/24",
             availability_zone="us-east-2a",
             tags={
@@ -2130,9 +2168,9 @@ class Instance(pulumi.CustomResource):
                 name="name",
                 values=["al2023-ami-2023.*-x86_64"],
             )])
-        example_instance = aws.ec2.Instance("exampleInstance",
+        example_instance = aws.ec2.Instance("example",
             ami=amzn_linux_2023_ami.id,
-            instance_type="c6a.2xlarge",
+            instance_type=aws.ec2.InstanceType.C6A_2_X_LARGE,
             subnet_id=example_subnet.id,
             cpu_options=aws.ec2.InstanceCpuOptionsArgs(
                 core_count=2,
@@ -2142,29 +2180,45 @@ class Instance(pulumi.CustomResource):
                 "Name": "tf-example",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Host resource group or Licence Manager registered AMI example
 
         A host resource group is a collection of Dedicated Hosts that you can manage as a single entity. As you launch instances, License Manager allocates the hosts and launches instances on them based on the settings that you configured. You can add existing Dedicated Hosts to a host resource group and take advantage of automated host management through License Manager.
 
         > **NOTE:** A dedicated host is automatically associated with a License Manager host resource group if **Allocate hosts automatically** is enabled. Otherwise, use the `host_resource_group_arn` argument to explicitly associate the instance with the host resource group.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         this = aws.ec2.Instance("this",
             ami="ami-0dcc1e21636832c5d",
+            instance_type=aws.ec2.InstanceType.M5_LARGE,
             host_resource_group_arn="arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
-            instance_type="m5.large",
             tenancy="host")
         ```
+        <!--End PulumiCodeChooser -->
+
+        ## Tag Guide
+
+        These are the five types of tags you might encounter relative to an `ec2.Instance`:
+
+        1. **Instance tags**: Applied to instances but not to `ebs_block_device` and `root_block_device` volumes.
+        2. **Default tags**: Applied to the instance and to `ebs_block_device` and `root_block_device` volumes.
+        3. **Volume tags**: Applied during creation to `ebs_block_device` and `root_block_device` volumes.
+        4. **Root block device tags**: Applied only to the `root_block_device` volume. These conflict with `volume_tags`.
+        5. **EBS block device tags**: Applied only to the specific `ebs_block_device` volume you configure them for and cannot be updated. These conflict with `volume_tags`.
+
+        Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
 
         ## Import
 
         Using `pulumi import`, import instances using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/instance:Instance web i-12345678
+        $ pulumi import aws:ec2/instance:Instance web i-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -2294,8 +2348,6 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["public_ip"] = None
             __props__.__dict__["spot_instance_request_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Instance, __self__).__init__(
             'aws:ec2/instance:Instance',
             resource_name,

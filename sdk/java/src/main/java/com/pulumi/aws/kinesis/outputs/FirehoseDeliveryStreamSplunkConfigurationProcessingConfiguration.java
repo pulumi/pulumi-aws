@@ -19,7 +19,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurat
      */
     private @Nullable Boolean enabled;
     /**
-     * @return Array of data processors. More details are given below
+     * @return Specifies the data processors as multiple blocks. See `processors` block below for details.
      * 
      */
     private @Nullable List<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor> processors;
@@ -33,7 +33,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurat
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return Array of data processors. More details are given below
+     * @return Specifies the data processors as multiple blocks. See `processors` block below for details.
      * 
      */
     public List<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor> processors() {
@@ -60,11 +60,13 @@ public final class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurat
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder processors(@Nullable List<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor> processors) {
+
             this.processors = processors;
             return this;
         }
@@ -72,10 +74,10 @@ public final class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurat
             return processors(List.of(processors));
         }
         public FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration build() {
-            final var o = new FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration();
-            o.enabled = enabled;
-            o.processors = processors;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.processors = processors;
+            return _resultValue;
         }
     }
 }

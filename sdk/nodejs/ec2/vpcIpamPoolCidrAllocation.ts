@@ -11,65 +11,65 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegion({});
- * const exampleVpcIpam = new aws.ec2.VpcIpam("exampleVpcIpam", {operatingRegions: [{
+ * const exampleVpcIpam = new aws.ec2.VpcIpam("example", {operatingRegions: [{
  *     regionName: current.then(current => current.name),
  * }]});
- * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("exampleVpcIpamPool", {
+ * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("example", {
  *     addressFamily: "ipv4",
  *     ipamScopeId: exampleVpcIpam.privateDefaultScopeId,
  *     locale: current.then(current => current.name),
  * });
- * const exampleVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr", {
+ * const example = new aws.ec2.VpcIpamPoolCidrAllocation("example", {
+ *     ipamPoolId: exampleVpcIpamPool.id,
+ *     cidr: "172.20.0.0/24",
+ * });
+ * const exampleVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("example", {
  *     ipamPoolId: exampleVpcIpamPool.id,
  *     cidr: "172.20.0.0/16",
  * });
- * const exampleVpcIpamPoolCidrAllocation = new aws.ec2.VpcIpamPoolCidrAllocation("exampleVpcIpamPoolCidrAllocation", {
- *     ipamPoolId: exampleVpcIpamPool.id,
- *     cidr: "172.20.0.0/24",
- * }, {
- *     dependsOn: [exampleVpcIpamPoolCidr],
- * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * With the `disallowedCidrs` attribute:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegion({});
- * const exampleVpcIpam = new aws.ec2.VpcIpam("exampleVpcIpam", {operatingRegions: [{
+ * const exampleVpcIpam = new aws.ec2.VpcIpam("example", {operatingRegions: [{
  *     regionName: current.then(current => current.name),
  * }]});
- * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("exampleVpcIpamPool", {
+ * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("example", {
  *     addressFamily: "ipv4",
  *     ipamScopeId: exampleVpcIpam.privateDefaultScopeId,
  *     locale: current.then(current => current.name),
  * });
- * const exampleVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr", {
- *     ipamPoolId: exampleVpcIpamPool.id,
- *     cidr: "172.20.0.0/16",
- * });
- * const exampleVpcIpamPoolCidrAllocation = new aws.ec2.VpcIpamPoolCidrAllocation("exampleVpcIpamPoolCidrAllocation", {
+ * const example = new aws.ec2.VpcIpamPoolCidrAllocation("example", {
  *     ipamPoolId: exampleVpcIpamPool.id,
  *     netmaskLength: 28,
  *     disallowedCidrs: ["172.20.0.0/28"],
- * }, {
- *     dependsOn: [exampleVpcIpamPoolCidr],
+ * });
+ * const exampleVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("example", {
+ *     ipamPoolId: exampleVpcIpamPool.id,
+ *     cidr: "172.20.0.0/16",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IPAM allocations using the allocation `id` and `pool id`, separated by `_`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation example ipam-pool-alloc-0dc6d196509c049ba8b549ff99f639736_ipam-pool-07cfb559e0921fcbe
+ * $ pulumi import aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation example ipam-pool-alloc-0dc6d196509c049ba8b549ff99f639736_ipam-pool-07cfb559e0921fcbe
  * ```
  */
 export class VpcIpamPoolCidrAllocation extends pulumi.CustomResource {

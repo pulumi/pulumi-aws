@@ -213,6 +213,8 @@ class DomainAutoTuneOptions(dict):
             suggest = "maintenance_schedules"
         elif key == "rollbackOnDisable":
             suggest = "rollback_on_disable"
+        elif key == "useOffPeakWindow":
+            suggest = "use_off_peak_window"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DomainAutoTuneOptions. Access the value via the '{suggest}' property getter instead.")
@@ -228,17 +230,23 @@ class DomainAutoTuneOptions(dict):
     def __init__(__self__, *,
                  desired_state: str,
                  maintenance_schedules: Optional[Sequence['outputs.DomainAutoTuneOptionsMaintenanceSchedule']] = None,
-                 rollback_on_disable: Optional[str] = None):
+                 rollback_on_disable: Optional[str] = None,
+                 use_off_peak_window: Optional[bool] = None):
         """
         :param str desired_state: Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
         :param Sequence['DomainAutoTuneOptionsMaintenanceScheduleArgs'] maintenance_schedules: Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+               
+               **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenance_schedule` configuration blocks cannot be specified when `use_off_peak_window` is set to `true`.
         :param str rollback_on_disable: Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
+        :param bool use_off_peak_window: Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window. Defaults to `false`.
         """
         pulumi.set(__self__, "desired_state", desired_state)
         if maintenance_schedules is not None:
             pulumi.set(__self__, "maintenance_schedules", maintenance_schedules)
         if rollback_on_disable is not None:
             pulumi.set(__self__, "rollback_on_disable", rollback_on_disable)
+        if use_off_peak_window is not None:
+            pulumi.set(__self__, "use_off_peak_window", use_off_peak_window)
 
     @property
     @pulumi.getter(name="desiredState")
@@ -253,6 +261,8 @@ class DomainAutoTuneOptions(dict):
     def maintenance_schedules(self) -> Optional[Sequence['outputs.DomainAutoTuneOptionsMaintenanceSchedule']]:
         """
         Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+
+        **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenance_schedule` configuration blocks cannot be specified when `use_off_peak_window` is set to `true`.
         """
         return pulumi.get(self, "maintenance_schedules")
 
@@ -263,6 +273,14 @@ class DomainAutoTuneOptions(dict):
         Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
         """
         return pulumi.get(self, "rollback_on_disable")
+
+    @property
+    @pulumi.getter(name="useOffPeakWindow")
+    def use_off_peak_window(self) -> Optional[bool]:
+        """
+        Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window. Defaults to `false`.
+        """
+        return pulumi.get(self, "use_off_peak_window")
 
 
 @pulumi.output_type
@@ -414,6 +432,7 @@ class DomainClusterConfig(dict):
         :param str dedicated_master_type: Instance type of the dedicated main nodes in the cluster.
         :param int instance_count: Number of instances in the cluster.
         :param str instance_type: Instance type of data nodes in the cluster.
+        :param bool multi_az_with_standby_enabled: Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
         :param int warm_count: Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
         :param bool warm_enabled: Whether to enable warm storage.
         :param str warm_type: Instance type for the OpenSearch cluster's warm nodes. Valid values are `ultrawarm1.medium.search`, `ultrawarm1.large.search` and `ultrawarm1.xlarge.search`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
@@ -496,6 +515,9 @@ class DomainClusterConfig(dict):
     @property
     @pulumi.getter(name="multiAzWithStandbyEnabled")
     def multi_az_with_standby_enabled(self) -> Optional[bool]:
+        """
+        Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
+        """
         return pulumi.get(self, "multi_az_with_standby_enabled")
 
     @property
@@ -705,7 +727,7 @@ class DomainDomainEndpointOptions(dict):
         :param str custom_endpoint_certificate_arn: ACM certificate ARN for your custom endpoint.
         :param bool custom_endpoint_enabled: Whether to enable custom endpoint for the OpenSearch domain.
         :param bool enforce_https: Whether or not to require HTTPS. Defaults to `true`.
-        :param str tls_security_policy: Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+        :param str tls_security_policy: Name of the TLS security policy that needs to be applied to the HTTPS endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DomainEndpointOptions.html#opensearchservice-Type-DomainEndpointOptions-TLSSecurityPolicy). Pulumi will only perform drift detection if a configuration value is provided.
         """
         if custom_endpoint is not None:
             pulumi.set(__self__, "custom_endpoint", custom_endpoint)
@@ -754,7 +776,7 @@ class DomainDomainEndpointOptions(dict):
     @pulumi.getter(name="tlsSecurityPolicy")
     def tls_security_policy(self) -> Optional[str]:
         """
-        Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+        Name of the TLS security policy that needs to be applied to the HTTPS endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DomainEndpointOptions.html#opensearchservice-Type-DomainEndpointOptions-TLSSecurityPolicy). Pulumi will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "tls_security_policy")
 
@@ -1642,6 +1664,10 @@ class ServerlessCollectionTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[str] = None,
                  delete: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
         if create is not None:
             pulumi.set(__self__, "create", create)
         if delete is not None:
@@ -1650,11 +1676,17 @@ class ServerlessCollectionTimeouts(dict):
     @property
     @pulumi.getter
     def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
         return pulumi.get(self, "create")
 
     @property
     @pulumi.getter
     def delete(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
         return pulumi.get(self, "delete")
 
 
@@ -1739,6 +1771,11 @@ class ServerlessVpcEndpointTimeouts(dict):
                  create: Optional[str] = None,
                  delete: Optional[str] = None,
                  update: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
         if create is not None:
             pulumi.set(__self__, "create", create)
         if delete is not None:
@@ -1749,16 +1786,25 @@ class ServerlessVpcEndpointTimeouts(dict):
     @property
     @pulumi.getter
     def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
         return pulumi.get(self, "create")
 
     @property
     @pulumi.getter
     def delete(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
         return pulumi.get(self, "delete")
 
     @property
     @pulumi.getter
     def update(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
         return pulumi.get(self, "update")
 
 
@@ -1872,15 +1918,18 @@ class GetDomainAutoTuneOptionResult(dict):
     def __init__(__self__, *,
                  desired_state: str,
                  maintenance_schedules: Sequence['outputs.GetDomainAutoTuneOptionMaintenanceScheduleResult'],
-                 rollback_on_disable: str):
+                 rollback_on_disable: str,
+                 use_off_peak_window: bool):
         """
         :param str desired_state: Auto-Tune desired state for the domain.
         :param Sequence['GetDomainAutoTuneOptionMaintenanceScheduleArgs'] maintenance_schedules: A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
         :param str rollback_on_disable: Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
+        :param bool use_off_peak_window: Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window.
         """
         pulumi.set(__self__, "desired_state", desired_state)
         pulumi.set(__self__, "maintenance_schedules", maintenance_schedules)
         pulumi.set(__self__, "rollback_on_disable", rollback_on_disable)
+        pulumi.set(__self__, "use_off_peak_window", use_off_peak_window)
 
     @property
     @pulumi.getter(name="desiredState")
@@ -1905,6 +1954,14 @@ class GetDomainAutoTuneOptionResult(dict):
         Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
         """
         return pulumi.get(self, "rollback_on_disable")
+
+    @property
+    @pulumi.getter(name="useOffPeakWindow")
+    def use_off_peak_window(self) -> bool:
+        """
+        Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window.
+        """
+        return pulumi.get(self, "use_off_peak_window")
 
 
 @pulumi.output_type
@@ -1998,6 +2055,7 @@ class GetDomainClusterConfigResult(dict):
         :param str dedicated_master_type: Instance type of the dedicated master nodes in the cluster.
         :param int instance_count: Number of instances in the cluster.
         :param str instance_type: Instance type of data nodes in the cluster.
+        :param bool multi_az_with_standby_enabled: Whether a multi-AZ domain is turned on with a standby AZ.
         :param int warm_count: Number of warm nodes in the cluster.
         :param str warm_type: Instance type for the OpenSearch cluster's warm nodes.
         :param Sequence['GetDomainClusterConfigZoneAwarenessConfigArgs'] zone_awareness_configs: Configuration block containing zone awareness settings.
@@ -2069,6 +2127,9 @@ class GetDomainClusterConfigResult(dict):
     @property
     @pulumi.getter(name="multiAzWithStandbyEnabled")
     def multi_az_with_standby_enabled(self) -> bool:
+        """
+        Whether a multi-AZ domain is turned on with a standby AZ.
+        """
         return pulumi.get(self, "multi_az_with_standby_enabled")
 
     @property

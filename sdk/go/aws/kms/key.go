@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,9 +32,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kms.NewKey(ctx, "key", &kms.KeyArgs{
-//				DeletionWindowInDays: pulumi.Int(10),
+//			_, err := kms.NewKey(ctx, "a", &kms.KeyArgs{
 //				Description:          pulumi.String("KMS key 1"),
+//				DeletionWindowInDays: pulumi.Int(10),
 //			})
 //			if err != nil {
 //				return err
@@ -43,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import KMS Keys using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:kms/key:Key a 1234abcd-12ab-34cd-56ef-1234567890ab
-//
+// $ pulumi import aws:kms/key:Key a 1234abcd-12ab-34cd-56ef-1234567890ab
 // ```
 type Key struct {
 	pulumi.CustomResourceState
@@ -95,6 +95,8 @@ type Key struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Identifies the external key that serves as key material for the KMS key in an external key store.
+	XksKeyId pulumi.StringPtrOutput `pulumi:"xksKeyId"`
 }
 
 // NewKey registers a new resource with the given unique name, arguments, and options.
@@ -104,10 +106,6 @@ func NewKey(ctx *pulumi.Context,
 		args = &KeyArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Key
 	err := ctx.RegisterResource("aws:kms/key:Key", name, args, &resource, opts...)
@@ -170,6 +168,8 @@ type keyState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Identifies the external key that serves as key material for the KMS key in an external key store.
+	XksKeyId *string `pulumi:"xksKeyId"`
 }
 
 type KeyState struct {
@@ -212,6 +212,8 @@ type KeyState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
+	// Identifies the external key that serves as key material for the KMS key in an external key store.
+	XksKeyId pulumi.StringPtrInput
 }
 
 func (KeyState) ElementType() reflect.Type {
@@ -250,6 +252,8 @@ type keyArgs struct {
 	Policy *string `pulumi:"policy"`
 	// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Identifies the external key that serves as key material for the KMS key in an external key store.
+	XksKeyId *string `pulumi:"xksKeyId"`
 }
 
 // The set of arguments for constructing a Key resource.
@@ -285,6 +289,8 @@ type KeyArgs struct {
 	Policy pulumi.StringPtrInput
 	// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Identifies the external key that serves as key material for the KMS key in an external key store.
+	XksKeyId pulumi.StringPtrInput
 }
 
 func (KeyArgs) ElementType() reflect.Type {
@@ -453,6 +459,11 @@ func (o KeyOutput) Tags() pulumi.StringMapOutput {
 // Deprecated: Please use `tags` instead.
 func (o KeyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// Identifies the external key that serves as key material for the KMS key in an external key store.
+func (o KeyOutput) XksKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringPtrOutput { return v.XksKeyId }).(pulumi.StringPtrOutput)
 }
 
 type KeyArrayOutput struct{ *pulumi.OutputState }

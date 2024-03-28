@@ -14,6 +14,7 @@ env:
   NODEVERSION: 20.x
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   NUGET_PUBLISH_KEY: ${{ secrets.NUGET_PUBLISH_KEY }}
+  OIDC_ROLE_ARN: ${{ secrets.OIDC_ROLE_ARN }}
   PUBLISH_REPO_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
   PUBLISH_REPO_USERNAME: ${{ secrets.OSSRH_USERNAME }}
   PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
@@ -21,8 +22,9 @@ env:
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
   PULUMI_MISSING_DOCS_ERROR: true
-  PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-  PYTHONVERSION: "3.9"
+  PYPI_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+  PYPI_USERNAME: __token__
+  PYTHONVERSION: "3.11"
   SIGNING_KEY: ${{ secrets.JAVA_SIGNING_KEY }}
   SIGNING_KEY_ID: ${{ secrets.JAVA_SIGNING_KEY_ID }}
   SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
@@ -33,58 +35,60 @@ jobs:
   build_sdk:
     name: build_sdk
     needs: prerequisites
-    runs-on: pulumi-ubuntu-8core
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         submodules: true
     - name: Checkout Scripts Repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ci-scripts
         repository: pulumi/scripts
+        ref: deca2c5c6015ad7aaea6f572a1c2b198ca323592
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v4
+      uses: actions/setup-go@v5
       with:
         cache-dependency-path: |
             sdk/go.sum
         go-version: 1.21.x
     - name: Install pulumictl
-      uses: jaxxstorm/action-install-gh-release@v1.5.0
+      uses: jaxxstorm/action-install-gh-release@v1.11.0
       with:
+        tag: v0.0.46
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
-      uses: pulumi/actions@v4
+      uses: pulumi/actions@v5
       with:
-        pulumi-version: v3.77.1
+        pulumi-version: ^3
     - name: Setup Node
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ env.NODEVERSION }}
         registry-url: https://registry.npmjs.org
     - name: Setup DotNet
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: ${{ env.DOTNETVERSION }}
     - name: Setup Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ env.PYTHONVERSION }}
     - name: Setup Java
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4
       with:
         cache: gradle
         distribution: temurin
         java-version: ${{ env.JAVAVERSION }}
     - name: Setup Gradle
-      uses: gradle/gradle-build-action@v2
+      uses: gradle/gradle-build-action@v3
       with:
         gradle-version: ${{ env.GRADLEVERSION }}
     - name: Download provider + tfgen binaries
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4
       with:
         name: ${{ env.PROVIDER }}-provider.tar.gz
         path: ${{ github.workspace }}/bin
@@ -108,7 +112,7 @@ jobs:
     - name: Compress SDK folder
       run: tar -zcf sdk/${{ matrix.language }}.tar.gz -C sdk/${{ matrix.language }} .
     - name: Upload artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: ${{ matrix.language  }}-sdk.tar.gz
         path: ${{ github.workspace}}/sdk/${{ matrix.language }}.tar.gz
@@ -135,43 +139,42 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         submodules: true
     - name: Checkout Scripts Repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ci-scripts
         repository: pulumi/scripts
+        ref: deca2c5c6015ad7aaea6f572a1c2b198ca323592
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v4
+      uses: actions/setup-go@v5
       with:
         cache-dependency-path: |
             sdk/go.sum
         go-version: 1.21.x
     - name: Install pulumictl
-      uses: jaxxstorm/action-install-gh-release@v1.5.0
+      uses: jaxxstorm/action-install-gh-release@v1.11.0
       with:
+        tag: v0.0.46
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
-      uses: pulumi/actions@v4
+      uses: pulumi/actions@v5
       with:
-        pulumi-version: v3.77.1
+        pulumi-version: ^3
     - if: github.event_name == 'pull_request'
       name: Install Schema Tools
-      uses: jaxxstorm/action-install-gh-release@v1.5.0
+      uses: jaxxstorm/action-install-gh-release@v1.11.0
       with:
         repo: pulumi/schema-tools
-    - name: Clear GitHub Actions Ubuntu runner disk space
+    - name: Free Disk Space (Ubuntu)
       uses: jlumbroso/free-disk-space@main
       with:
-        android: true
-        dotnet: false
-        haskell: true
-        large-packages: false
-        swap-storage: true
+        dotnet: ${{ matrix.language != 'dotnet' }}
+        swap-storage: false
         tool-cache: false
     - name: Build tfgen & provider binaries
       run: make provider
@@ -201,12 +204,39 @@ jobs:
 
           Maintainer note: consult the [runbook](https://github.com/pulumi/platform-providers-team/blob/main/playbooks/tf-provider-updating.md) for dealing with any breaking changes.
 
+    - if: github.event_name == 'pull_request'
+      name: Check Configuration section
+      run: |
+        sed -n '/## Configuration/,$p' README.md | sed -n '/## Reference/q;p' >> config_section.txt
+        jq -r '.config[] | keys[]' < provider/cmd/pulumi-resource-${{ env.PROVIDER }}/schema.json >> keys.txt
+        EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+        {
+          echo "MISSING_CONFIG<<$EOF";
+          xargs -I {} sh -c "grep -q {} config_section.txt || echo \\\`{}\\\` not found in Configuration section" < keys.txt
+          echo "$EOF";
+        } >> "$GITHUB_ENV"
+
+    - if: github.event_name == 'pull_request' && github.actor != 'dependabot[bot]'
+      name: Comment on PR with Details of Configuration check
+      uses: thollander/actions-comment-pull-request@v2
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        comment_tag: configurationCheck
+        message: >+
+          ### Is README.md missing any configuration options?
+
+          ${{ env.MISSING_CONFIG || 'No missing config!' }}
+
+
+          ${{ env.MISSING_CONFIG && 'Please add a description for each of these options to `README.md`.' }}
+          ${{ env.MISSING_CONFIG && 'Details about them can be found in either the upstream docs or `schema.json`.' }}
+
     - name: Tar provider binaries
       run: tar -zcf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
         github.workspace }}/bin/ pulumi-resource-${{ env.PROVIDER }}
         pulumi-tfgen-${{ env.PROVIDER }}
     - name: Upload artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: ${{ env.PROVIDER }}-provider.tar.gz
         path: ${{ github.workspace }}/bin/provider.tar.gz
@@ -226,58 +256,60 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    runs-on: pulumi-ubuntu-8core
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         submodules: true
     - name: Checkout Scripts Repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ci-scripts
         repository: pulumi/scripts
+        ref: deca2c5c6015ad7aaea6f572a1c2b198ca323592
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v4
+      uses: actions/setup-go@v5
       with:
         cache-dependency-path: |
             sdk/go.sum
         go-version: 1.21.x
     - name: Install pulumictl
-      uses: jaxxstorm/action-install-gh-release@v1.5.0
+      uses: jaxxstorm/action-install-gh-release@v1.11.0
       with:
+        tag: v0.0.46
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
-      uses: pulumi/actions@v4
+      uses: pulumi/actions@v5
       with:
-        pulumi-version: v3.77.1
+        pulumi-version: ^3
     - name: Setup Node
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ env.NODEVERSION }}
         registry-url: https://registry.npmjs.org
     - name: Setup DotNet
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: ${{ env.DOTNETVERSION }}
     - name: Setup Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ env.PYTHONVERSION }}
     - name: Setup Java
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4
       with:
         cache: gradle
         distribution: temurin
         java-version: ${{ env.JAVAVERSION }}
     - name: Setup Gradle
-      uses: gradle/gradle-build-action@v2
+      uses: gradle/gradle-build-action@v3
       with:
         gradle-version: ${{ env.GRADLEVERSION }}
     - name: Download provider + tfgen binaries
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4
       with:
         name: ${{ env.PROVIDER }}-provider.tar.gz
         path: ${{ github.workspace }}/bin
@@ -289,7 +321,7 @@ jobs:
         find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print -exec chmod +x {} \;
     - run: dotnet nuget add source ${{ github.workspace }}/nuget
     - name: Download SDK
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4
       with:
         name: ${{ matrix.language }}-sdk.tar.gz
         path: ${{ github.workspace}}/sdk/
@@ -308,9 +340,19 @@ jobs:
       uses: GoTestTools/gotestfmt-action@v2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        version: v2.4.0
+        version: v2.5.0
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@main
+      with:
+        swap-storage: false
+        tool-cache: false
+    - if: ${{ matrix.language == 'dotnet' }}
+      name: Setup DotNet
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ env.DOTNETVERSION }}
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v1
+      uses: aws-actions/configure-aws-credentials@v4
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-region: ${{ env.AWS_REGION }}
@@ -320,9 +362,6 @@ jobs:
         role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
     - name: Make upstream
       run: make upstream
-    - name: Run provider tests
-      run: |
-        cd provider && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
     - name: Run tests
       run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{
         matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt

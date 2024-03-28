@@ -92,12 +92,14 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        domain_test = aws.lightsail.Domain("domainTest", domain_name="mydomain.com")
+        domain_test = aws.lightsail.Domain("domain_test", domain_name="mydomain.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -120,12 +122,14 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        domain_test = aws.lightsail.Domain("domainTest", domain_name="mydomain.com")
+        domain_test = aws.lightsail.Domain("domain_test", domain_name="mydomain.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.

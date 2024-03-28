@@ -44,13 +44,14 @@ public final class ConnectorKafkaClusterEncryptionInTransit {
 
         @CustomType.Setter
         public Builder encryptionType(@Nullable String encryptionType) {
+
             this.encryptionType = encryptionType;
             return this;
         }
         public ConnectorKafkaClusterEncryptionInTransit build() {
-            final var o = new ConnectorKafkaClusterEncryptionInTransit();
-            o.encryptionType = encryptionType;
-            return o;
+            final var _resultValue = new ConnectorKafkaClusterEncryptionInTransit();
+            _resultValue.encryptionType = encryptionType;
+            return _resultValue;
         }
     }
 }

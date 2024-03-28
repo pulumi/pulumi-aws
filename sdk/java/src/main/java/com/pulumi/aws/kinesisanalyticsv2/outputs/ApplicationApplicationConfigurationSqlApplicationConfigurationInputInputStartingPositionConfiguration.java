@@ -44,13 +44,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
         @CustomType.Setter
         public Builder inputStartingPosition(@Nullable String inputStartingPosition) {
+
             this.inputStartingPosition = inputStartingPosition;
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration();
-            o.inputStartingPosition = inputStartingPosition;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration();
+            _resultValue.inputStartingPosition = inputStartingPosition;
+            return _resultValue;
         }
     }
 }

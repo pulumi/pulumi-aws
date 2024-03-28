@@ -15,6 +15,7 @@ import (
 //
 // The following shows outputting all network interface ids in a region.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,19 +28,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleNetworkInterfaces, err := ec2.GetNetworkInterfaces(ctx, nil, nil)
+//			example, err := ec2.GetNetworkInterfaces(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("example", exampleNetworkInterfaces.Ids)
+//			ctx.Export("example", example.Ids)
 //			return nil
 //		})
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,10 +69,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // The following example retrieves a network interface ids which associated
 // with specific subnet.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,12 +86,12 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// exampleNetworkInterfaces, err := ec2.GetNetworkInterfaces(ctx, &ec2.GetNetworkInterfacesArgs{
+// example, err := ec2.GetNetworkInterfaces(ctx, &ec2.GetNetworkInterfacesArgs{
 // Filters: []ec2.GetNetworkInterfacesFilter{
 // {
 // Name: "subnet-id",
 // Values: interface{}{
-// aws_subnet.Test.Id,
+// test.Id,
 // },
 // },
 // },
@@ -94,11 +99,12 @@ import (
 // if err != nil {
 // return err
 // }
-// ctx.Export("example", exampleNetworkInterfaces.Ids)
+// ctx.Export("example", example.Ids)
 // return nil
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 func GetNetworkInterfaces(ctx *pulumi.Context, args *GetNetworkInterfacesArgs, opts ...pulumi.InvokeOption) (*GetNetworkInterfacesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetNetworkInterfacesResult

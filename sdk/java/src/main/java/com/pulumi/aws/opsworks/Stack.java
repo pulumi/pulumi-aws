@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Provides an OpsWorks stack resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,9 +46,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var main = new Stack(&#34;main&#34;, StackArgs.builder()        
+ *             .name(&#34;awesome-stack&#34;)
  *             .region(&#34;us-west-1&#34;)
- *             .serviceRoleArn(aws_iam_role.opsworks().arn())
- *             .defaultInstanceProfileArn(aws_iam_instance_profile.opsworks().arn())
+ *             .serviceRoleArn(opsworksAwsIamRole.arn())
+ *             .defaultInstanceProfileArn(opsworks.arn())
  *             .tags(Map.of(&#34;Name&#34;, &#34;foobar-stack&#34;))
  *             .customJson(&#34;&#34;&#34;
  * {
@@ -60,13 +63,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import OpsWorks stacks using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000
+ * $ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000
  * ```
  * 
  */
@@ -451,9 +455,6 @@ public class Stack extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

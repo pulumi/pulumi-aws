@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +24,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const main = new aws.ec2.VpnGateway("main", {
- *     vpcId: aws_vpc.main.id,
+ *     vpcId: mainAwsVpc.id,
  *     amazonSideAsn: "7224",
  * });
  * const transit = new aws.ec2.VpnConnection("transit", {
@@ -33,6 +34,7 @@ import * as utilities from "../utilities";
  *     staticRoutesOnly: false,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCustomerGateway(args?: GetCustomerGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerGatewayResult> {
     args = args || {};
@@ -105,6 +107,7 @@ export interface GetCustomerGatewayResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -116,7 +119,7 @@ export interface GetCustomerGatewayResult {
  *     }],
  * });
  * const main = new aws.ec2.VpnGateway("main", {
- *     vpcId: aws_vpc.main.id,
+ *     vpcId: mainAwsVpc.id,
  *     amazonSideAsn: "7224",
  * });
  * const transit = new aws.ec2.VpnConnection("transit", {
@@ -126,6 +129,7 @@ export interface GetCustomerGatewayResult {
  *     staticRoutesOnly: false,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCustomerGatewayOutput(args?: GetCustomerGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerGatewayResult> {
     return pulumi.output(args).apply((a: any) => getCustomerGateway(a, opts))

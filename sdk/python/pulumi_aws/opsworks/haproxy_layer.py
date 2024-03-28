@@ -993,14 +993,16 @@ class HaproxyLayer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         lb = aws.opsworks.HaproxyLayer("lb",
-            stack_id=aws_opsworks_stack["main"]["id"],
+            stack_id=main["id"],
             stats_password="foobarbaz")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1042,14 +1044,16 @@ class HaproxyLayer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         lb = aws.opsworks.HaproxyLayer("lb",
-            stack_id=aws_opsworks_stack["main"]["id"],
+            stack_id=main["id"],
             stats_password="foobarbaz")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param HaproxyLayerArgs args: The arguments to use to populate this resource's properties.
@@ -1139,8 +1143,6 @@ class HaproxyLayer(pulumi.CustomResource):
             __props__.__dict__["use_ebs_optimized_instances"] = use_ebs_optimized_instances
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(HaproxyLayer, __self__).__init__(
             'aws:opsworks/haproxyLayer:HaproxyLayer',
             resource_name,

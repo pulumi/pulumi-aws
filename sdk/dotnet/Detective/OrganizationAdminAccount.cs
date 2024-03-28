@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Detective
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,7 +23,7 @@ namespace Pulumi.Aws.Detective
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
+    ///     var example = new Aws.Organizations.Organization("example", new()
     ///     {
     ///         AwsServiceAccessPrincipals = new[]
     ///         {
@@ -31,26 +32,21 @@ namespace Pulumi.Aws.Detective
     ///         FeatureSet = "ALL",
     ///     });
     /// 
-    ///     var exampleOrganizationAdminAccount = new Aws.Detective.OrganizationAdminAccount("exampleOrganizationAdminAccount", new()
+    ///     var exampleOrganizationAdminAccount = new Aws.Detective.OrganizationAdminAccount("example", new()
     ///     {
     ///         AccountId = "123456789012",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleOrganization,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_detective_organization_admin_account` using `account_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:detective/organizationAdminAccount:OrganizationAdminAccount example 123456789012
+    /// $ pulumi import aws:detective/organizationAdminAccount:OrganizationAdminAccount example 123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:detective/organizationAdminAccount:OrganizationAdminAccount")]

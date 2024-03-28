@@ -4,6 +4,7 @@
 package com.pulumi.aws.appsync.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -100,37 +101,46 @@ public final class DataSourceRelationalDatabaseConfigHttpEndpointConfig {
 
         @CustomType.Setter
         public Builder awsSecretStoreArn(String awsSecretStoreArn) {
-            this.awsSecretStoreArn = Objects.requireNonNull(awsSecretStoreArn);
+            if (awsSecretStoreArn == null) {
+              throw new MissingRequiredPropertyException("DataSourceRelationalDatabaseConfigHttpEndpointConfig", "awsSecretStoreArn");
+            }
+            this.awsSecretStoreArn = awsSecretStoreArn;
             return this;
         }
         @CustomType.Setter
         public Builder databaseName(@Nullable String databaseName) {
+
             this.databaseName = databaseName;
             return this;
         }
         @CustomType.Setter
         public Builder dbClusterIdentifier(String dbClusterIdentifier) {
-            this.dbClusterIdentifier = Objects.requireNonNull(dbClusterIdentifier);
+            if (dbClusterIdentifier == null) {
+              throw new MissingRequiredPropertyException("DataSourceRelationalDatabaseConfigHttpEndpointConfig", "dbClusterIdentifier");
+            }
+            this.dbClusterIdentifier = dbClusterIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder region(@Nullable String region) {
+
             this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder schema(@Nullable String schema) {
+
             this.schema = schema;
             return this;
         }
         public DataSourceRelationalDatabaseConfigHttpEndpointConfig build() {
-            final var o = new DataSourceRelationalDatabaseConfigHttpEndpointConfig();
-            o.awsSecretStoreArn = awsSecretStoreArn;
-            o.databaseName = databaseName;
-            o.dbClusterIdentifier = dbClusterIdentifier;
-            o.region = region;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new DataSourceRelationalDatabaseConfigHttpEndpointConfig();
+            _resultValue.awsSecretStoreArn = awsSecretStoreArn;
+            _resultValue.databaseName = databaseName;
+            _resultValue.dbClusterIdentifier = dbClusterIdentifier;
+            _resultValue.region = region;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

@@ -13,8 +13,10 @@ namespace Pulumi.Aws.OpenSearch
     /// Resource for managing an AWS OpenSearchServerless VPC Endpoint.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,22 +27,24 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var example = new Aws.OpenSearch.ServerlessVpcEndpoint("example", new()
     ///     {
+    ///         Name = "myendpoint",
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Example.Id,
+    ///             exampleAwsSubnet.Id,
     ///         },
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         VpcId = exampleAwsVpc.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import OpenSearchServerless Vpc Endpointa using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
+    /// $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
     /// ```
     /// </summary>
     [AwsResourceType("aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint")]

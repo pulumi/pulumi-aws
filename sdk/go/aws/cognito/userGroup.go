@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,11 +30,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			mainUserPool, err := cognito.NewUserPool(ctx, "mainUserPool", nil)
+//			main, err := cognito.NewUserPool(ctx, "main", &cognito.UserPoolArgs{
+//				Name: pulumi.String("identity pool"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			groupRolePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			groupRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Effect: pulumi.StringRef("Allow"),
@@ -70,14 +73,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			groupRoleRole, err := iam.NewRole(ctx, "groupRoleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(groupRolePolicyDocument.Json),
+//			groupRoleRole, err := iam.NewRole(ctx, "group_role", &iam.RoleArgs{
+//				Name:             pulumi.String("user-group-role"),
+//				AssumeRolePolicy: pulumi.String(groupRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cognito.NewUserGroup(ctx, "mainUserGroup", &cognito.UserGroupArgs{
-//				UserPoolId:  mainUserPool.ID(),
+//			_, err = cognito.NewUserGroup(ctx, "main", &cognito.UserGroupArgs{
+//				Name:        pulumi.String("user-group"),
+//				UserPoolId:  main.ID(),
 //				Description: pulumi.String("Managed by Pulumi"),
 //				Precedence:  pulumi.Int(42),
 //				RoleArn:     groupRoleRole.Arn,
@@ -90,15 +95,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Cognito User Groups using the `user_pool_id`/`name` attributes concatenated. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
-//
+// $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
 // ```
 type UserGroup struct {
 	pulumi.CustomResourceState

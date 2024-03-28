@@ -4,6 +4,7 @@
 package com.pulumi.aws.cognito.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -84,31 +85,43 @@ public final class IdentityPoolRoleAttachmentRoleMappingMappingRule {
 
         @CustomType.Setter
         public Builder claim(String claim) {
-            this.claim = Objects.requireNonNull(claim);
+            if (claim == null) {
+              throw new MissingRequiredPropertyException("IdentityPoolRoleAttachmentRoleMappingMappingRule", "claim");
+            }
+            this.claim = claim;
             return this;
         }
         @CustomType.Setter
         public Builder matchType(String matchType) {
-            this.matchType = Objects.requireNonNull(matchType);
+            if (matchType == null) {
+              throw new MissingRequiredPropertyException("IdentityPoolRoleAttachmentRoleMappingMappingRule", "matchType");
+            }
+            this.matchType = matchType;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("IdentityPoolRoleAttachmentRoleMappingMappingRule", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("IdentityPoolRoleAttachmentRoleMappingMappingRule", "value");
+            }
+            this.value = value;
             return this;
         }
         public IdentityPoolRoleAttachmentRoleMappingMappingRule build() {
-            final var o = new IdentityPoolRoleAttachmentRoleMappingMappingRule();
-            o.claim = claim;
-            o.matchType = matchType;
-            o.roleArn = roleArn;
-            o.value = value;
-            return o;
+            final var _resultValue = new IdentityPoolRoleAttachmentRoleMappingMappingRule();
+            _resultValue.claim = claim;
+            _resultValue.matchType = matchType;
+            _resultValue.roleArn = roleArn;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

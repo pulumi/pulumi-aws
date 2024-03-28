@@ -14,10 +14,9 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// <summary>
         /// Provides details about a specific Amazon API Gateway Version 2 API.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetApiResult> InvokeAsync(GetApiArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiResult>("aws:apigatewayv2/getApi:getApi", args ?? new GetApiArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// <summary>
         /// Provides details about a specific Amazon API Gateway Version 2 API.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetApiResult> Invoke(GetApiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiResult>("aws:apigatewayv2/getApi:getApi", args ?? new GetApiInvokeArgs(), options.WithDefaults());

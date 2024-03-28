@@ -15,6 +15,11 @@ export const getControls: typeof import("./getControls").getControls = null as a
 export const getControlsOutput: typeof import("./getControls").getControlsOutput = null as any;
 utilities.lazyLoad(exports, ["getControls","getControlsOutput"], () => require("./getControls"));
 
+export { LandingZoneArgs, LandingZoneState } from "./landingZone";
+export type LandingZone = import("./landingZone").LandingZone;
+export const LandingZone: typeof import("./landingZone").LandingZone = null as any;
+utilities.lazyLoad(exports, ["LandingZone"], () => require("./landingZone"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -22,9 +27,12 @@ const _module = {
         switch (type) {
             case "aws:controltower/controlTowerControl:ControlTowerControl":
                 return new ControlTowerControl(name, <any>undefined, { urn })
+            case "aws:controltower/landingZone:LandingZone":
+                return new LandingZone(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "controltower/controlTowerControl", _module)
+pulumi.runtime.registerResourceModule("aws", "controltower/landingZone", _module)

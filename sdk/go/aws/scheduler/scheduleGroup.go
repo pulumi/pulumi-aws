@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,7 +32,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := scheduler.NewScheduleGroup(ctx, "example", nil)
+//			_, err := scheduler.NewScheduleGroup(ctx, "example", &scheduler.ScheduleGroupArgs{
+//				Name: pulumi.String("my-schedule-group"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -40,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import schedule groups using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:scheduler/scheduleGroup:ScheduleGroup example my-schedule-group
-//
+// $ pulumi import aws:scheduler/scheduleGroup:ScheduleGroup example my-schedule-group
 // ```
 type ScheduleGroup struct {
 	pulumi.CustomResourceState
@@ -80,10 +82,6 @@ func NewScheduleGroup(ctx *pulumi.Context,
 		args = &ScheduleGroupArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScheduleGroup
 	err := ctx.RegisterResource("aws:scheduler/scheduleGroup:ScheduleGroup", name, args, &resource, opts...)

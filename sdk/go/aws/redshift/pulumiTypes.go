@@ -1644,6 +1644,242 @@ func (o GetClusterClusterNodeArrayOutput) Index(i pulumi.IntInput) GetClusterClu
 	}).(GetClusterClusterNodeOutput)
 }
 
+type GetDataSharesDataShare struct {
+	// ARN (Amazon Resource Name) of the data share.
+	DataShareArn string `pulumi:"dataShareArn"`
+	// Identifier of a datashare to show its managing entity.
+	ManagedBy string `pulumi:"managedBy"`
+	// ARN (Amazon Resource Name) of the producer.
+	ProducerArn string `pulumi:"producerArn"`
+}
+
+// GetDataSharesDataShareInput is an input type that accepts GetDataSharesDataShareArgs and GetDataSharesDataShareOutput values.
+// You can construct a concrete instance of `GetDataSharesDataShareInput` via:
+//
+//	GetDataSharesDataShareArgs{...}
+type GetDataSharesDataShareInput interface {
+	pulumi.Input
+
+	ToGetDataSharesDataShareOutput() GetDataSharesDataShareOutput
+	ToGetDataSharesDataShareOutputWithContext(context.Context) GetDataSharesDataShareOutput
+}
+
+type GetDataSharesDataShareArgs struct {
+	// ARN (Amazon Resource Name) of the data share.
+	DataShareArn pulumi.StringInput `pulumi:"dataShareArn"`
+	// Identifier of a datashare to show its managing entity.
+	ManagedBy pulumi.StringInput `pulumi:"managedBy"`
+	// ARN (Amazon Resource Name) of the producer.
+	ProducerArn pulumi.StringInput `pulumi:"producerArn"`
+}
+
+func (GetDataSharesDataShareArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSharesDataShare)(nil)).Elem()
+}
+
+func (i GetDataSharesDataShareArgs) ToGetDataSharesDataShareOutput() GetDataSharesDataShareOutput {
+	return i.ToGetDataSharesDataShareOutputWithContext(context.Background())
+}
+
+func (i GetDataSharesDataShareArgs) ToGetDataSharesDataShareOutputWithContext(ctx context.Context) GetDataSharesDataShareOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSharesDataShareOutput)
+}
+
+// GetDataSharesDataShareArrayInput is an input type that accepts GetDataSharesDataShareArray and GetDataSharesDataShareArrayOutput values.
+// You can construct a concrete instance of `GetDataSharesDataShareArrayInput` via:
+//
+//	GetDataSharesDataShareArray{ GetDataSharesDataShareArgs{...} }
+type GetDataSharesDataShareArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSharesDataShareArrayOutput() GetDataSharesDataShareArrayOutput
+	ToGetDataSharesDataShareArrayOutputWithContext(context.Context) GetDataSharesDataShareArrayOutput
+}
+
+type GetDataSharesDataShareArray []GetDataSharesDataShareInput
+
+func (GetDataSharesDataShareArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSharesDataShare)(nil)).Elem()
+}
+
+func (i GetDataSharesDataShareArray) ToGetDataSharesDataShareArrayOutput() GetDataSharesDataShareArrayOutput {
+	return i.ToGetDataSharesDataShareArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSharesDataShareArray) ToGetDataSharesDataShareArrayOutputWithContext(ctx context.Context) GetDataSharesDataShareArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSharesDataShareArrayOutput)
+}
+
+type GetDataSharesDataShareOutput struct{ *pulumi.OutputState }
+
+func (GetDataSharesDataShareOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSharesDataShare)(nil)).Elem()
+}
+
+func (o GetDataSharesDataShareOutput) ToGetDataSharesDataShareOutput() GetDataSharesDataShareOutput {
+	return o
+}
+
+func (o GetDataSharesDataShareOutput) ToGetDataSharesDataShareOutputWithContext(ctx context.Context) GetDataSharesDataShareOutput {
+	return o
+}
+
+// ARN (Amazon Resource Name) of the data share.
+func (o GetDataSharesDataShareOutput) DataShareArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSharesDataShare) string { return v.DataShareArn }).(pulumi.StringOutput)
+}
+
+// Identifier of a datashare to show its managing entity.
+func (o GetDataSharesDataShareOutput) ManagedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSharesDataShare) string { return v.ManagedBy }).(pulumi.StringOutput)
+}
+
+// ARN (Amazon Resource Name) of the producer.
+func (o GetDataSharesDataShareOutput) ProducerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSharesDataShare) string { return v.ProducerArn }).(pulumi.StringOutput)
+}
+
+type GetDataSharesDataShareArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSharesDataShareArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSharesDataShare)(nil)).Elem()
+}
+
+func (o GetDataSharesDataShareArrayOutput) ToGetDataSharesDataShareArrayOutput() GetDataSharesDataShareArrayOutput {
+	return o
+}
+
+func (o GetDataSharesDataShareArrayOutput) ToGetDataSharesDataShareArrayOutputWithContext(ctx context.Context) GetDataSharesDataShareArrayOutput {
+	return o
+}
+
+func (o GetDataSharesDataShareArrayOutput) Index(i pulumi.IntInput) GetDataSharesDataShareOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSharesDataShare {
+		return vs[0].([]GetDataSharesDataShare)[vs[1].(int)]
+	}).(GetDataSharesDataShareOutput)
+}
+
+type GetProducerDataSharesDataShare struct {
+	// ARN (Amazon Resource Name) of the data share.
+	DataShareArn string `pulumi:"dataShareArn"`
+	// Identifier of a datashare to show its managing entity.
+	ManagedBy string `pulumi:"managedBy"`
+	// Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+	//
+	// The following arguments are optional:
+	ProducerArn string `pulumi:"producerArn"`
+}
+
+// GetProducerDataSharesDataShareInput is an input type that accepts GetProducerDataSharesDataShareArgs and GetProducerDataSharesDataShareOutput values.
+// You can construct a concrete instance of `GetProducerDataSharesDataShareInput` via:
+//
+//	GetProducerDataSharesDataShareArgs{...}
+type GetProducerDataSharesDataShareInput interface {
+	pulumi.Input
+
+	ToGetProducerDataSharesDataShareOutput() GetProducerDataSharesDataShareOutput
+	ToGetProducerDataSharesDataShareOutputWithContext(context.Context) GetProducerDataSharesDataShareOutput
+}
+
+type GetProducerDataSharesDataShareArgs struct {
+	// ARN (Amazon Resource Name) of the data share.
+	DataShareArn pulumi.StringInput `pulumi:"dataShareArn"`
+	// Identifier of a datashare to show its managing entity.
+	ManagedBy pulumi.StringInput `pulumi:"managedBy"`
+	// Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+	//
+	// The following arguments are optional:
+	ProducerArn pulumi.StringInput `pulumi:"producerArn"`
+}
+
+func (GetProducerDataSharesDataShareArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProducerDataSharesDataShare)(nil)).Elem()
+}
+
+func (i GetProducerDataSharesDataShareArgs) ToGetProducerDataSharesDataShareOutput() GetProducerDataSharesDataShareOutput {
+	return i.ToGetProducerDataSharesDataShareOutputWithContext(context.Background())
+}
+
+func (i GetProducerDataSharesDataShareArgs) ToGetProducerDataSharesDataShareOutputWithContext(ctx context.Context) GetProducerDataSharesDataShareOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProducerDataSharesDataShareOutput)
+}
+
+// GetProducerDataSharesDataShareArrayInput is an input type that accepts GetProducerDataSharesDataShareArray and GetProducerDataSharesDataShareArrayOutput values.
+// You can construct a concrete instance of `GetProducerDataSharesDataShareArrayInput` via:
+//
+//	GetProducerDataSharesDataShareArray{ GetProducerDataSharesDataShareArgs{...} }
+type GetProducerDataSharesDataShareArrayInput interface {
+	pulumi.Input
+
+	ToGetProducerDataSharesDataShareArrayOutput() GetProducerDataSharesDataShareArrayOutput
+	ToGetProducerDataSharesDataShareArrayOutputWithContext(context.Context) GetProducerDataSharesDataShareArrayOutput
+}
+
+type GetProducerDataSharesDataShareArray []GetProducerDataSharesDataShareInput
+
+func (GetProducerDataSharesDataShareArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProducerDataSharesDataShare)(nil)).Elem()
+}
+
+func (i GetProducerDataSharesDataShareArray) ToGetProducerDataSharesDataShareArrayOutput() GetProducerDataSharesDataShareArrayOutput {
+	return i.ToGetProducerDataSharesDataShareArrayOutputWithContext(context.Background())
+}
+
+func (i GetProducerDataSharesDataShareArray) ToGetProducerDataSharesDataShareArrayOutputWithContext(ctx context.Context) GetProducerDataSharesDataShareArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProducerDataSharesDataShareArrayOutput)
+}
+
+type GetProducerDataSharesDataShareOutput struct{ *pulumi.OutputState }
+
+func (GetProducerDataSharesDataShareOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProducerDataSharesDataShare)(nil)).Elem()
+}
+
+func (o GetProducerDataSharesDataShareOutput) ToGetProducerDataSharesDataShareOutput() GetProducerDataSharesDataShareOutput {
+	return o
+}
+
+func (o GetProducerDataSharesDataShareOutput) ToGetProducerDataSharesDataShareOutputWithContext(ctx context.Context) GetProducerDataSharesDataShareOutput {
+	return o
+}
+
+// ARN (Amazon Resource Name) of the data share.
+func (o GetProducerDataSharesDataShareOutput) DataShareArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProducerDataSharesDataShare) string { return v.DataShareArn }).(pulumi.StringOutput)
+}
+
+// Identifier of a datashare to show its managing entity.
+func (o GetProducerDataSharesDataShareOutput) ManagedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProducerDataSharesDataShare) string { return v.ManagedBy }).(pulumi.StringOutput)
+}
+
+// Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+//
+// The following arguments are optional:
+func (o GetProducerDataSharesDataShareOutput) ProducerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProducerDataSharesDataShare) string { return v.ProducerArn }).(pulumi.StringOutput)
+}
+
+type GetProducerDataSharesDataShareArrayOutput struct{ *pulumi.OutputState }
+
+func (GetProducerDataSharesDataShareArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProducerDataSharesDataShare)(nil)).Elem()
+}
+
+func (o GetProducerDataSharesDataShareArrayOutput) ToGetProducerDataSharesDataShareArrayOutput() GetProducerDataSharesDataShareArrayOutput {
+	return o
+}
+
+func (o GetProducerDataSharesDataShareArrayOutput) ToGetProducerDataSharesDataShareArrayOutputWithContext(ctx context.Context) GetProducerDataSharesDataShareArrayOutput {
+	return o
+}
+
+func (o GetProducerDataSharesDataShareArrayOutput) Index(i pulumi.IntInput) GetProducerDataSharesDataShareOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetProducerDataSharesDataShare {
+		return vs[0].([]GetProducerDataSharesDataShare)[vs[1].(int)]
+	}).(GetProducerDataSharesDataShareOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterClusterNodeInput)(nil)).Elem(), ClusterClusterNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterClusterNodeArrayInput)(nil)).Elem(), ClusterClusterNodeArray{})
@@ -1667,6 +1903,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionTargetActionResumeClusterPtrInput)(nil)).Elem(), ScheduledActionTargetActionResumeClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterClusterNodeInput)(nil)).Elem(), GetClusterClusterNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterClusterNodeArrayInput)(nil)).Elem(), GetClusterClusterNodeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSharesDataShareInput)(nil)).Elem(), GetDataSharesDataShareArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSharesDataShareArrayInput)(nil)).Elem(), GetDataSharesDataShareArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProducerDataSharesDataShareInput)(nil)).Elem(), GetProducerDataSharesDataShareArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProducerDataSharesDataShareArrayInput)(nil)).Elem(), GetProducerDataSharesDataShareArray{})
 	pulumi.RegisterOutputType(ClusterClusterNodeOutput{})
 	pulumi.RegisterOutputType(ClusterClusterNodeArrayOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingOutput{})
@@ -1689,4 +1929,8 @@ func init() {
 	pulumi.RegisterOutputType(ScheduledActionTargetActionResumeClusterPtrOutput{})
 	pulumi.RegisterOutputType(GetClusterClusterNodeOutput{})
 	pulumi.RegisterOutputType(GetClusterClusterNodeArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSharesDataShareOutput{})
+	pulumi.RegisterOutputType(GetDataSharesDataShareArrayOutput{})
+	pulumi.RegisterOutputType(GetProducerDataSharesDataShareOutput{})
+	pulumi.RegisterOutputType(GetProducerDataSharesDataShareArrayOutput{})
 }

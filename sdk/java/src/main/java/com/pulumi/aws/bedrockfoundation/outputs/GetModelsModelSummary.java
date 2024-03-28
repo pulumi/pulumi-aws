@@ -4,7 +4,9 @@
 package com.pulumi.aws.bedrockfoundation.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -15,17 +17,17 @@ public final class GetModelsModelSummary {
      * @return Customizations that the model supports.
      * 
      */
-    private List<String> customizationsSupporteds;
+    private List<Object> customizationsSupporteds;
     /**
      * @return Inference types that the model supports.
      * 
      */
-    private List<String> inferenceTypesSupporteds;
+    private List<Object> inferenceTypesSupporteds;
     /**
      * @return Input modalities that the model supports.
      * 
      */
-    private List<String> inputModalities;
+    private List<Object> inputModalities;
     /**
      * @return Model ARN.
      * 
@@ -45,7 +47,7 @@ public final class GetModelsModelSummary {
      * @return Output modalities that the model supports.
      * 
      */
-    private List<String> outputModalities;
+    private List<Object> outputModalities;
     /**
      * @return Model provider name.
      * 
@@ -62,21 +64,21 @@ public final class GetModelsModelSummary {
      * @return Customizations that the model supports.
      * 
      */
-    public List<String> customizationsSupporteds() {
+    public List<Object> customizationsSupporteds() {
         return this.customizationsSupporteds;
     }
     /**
      * @return Inference types that the model supports.
      * 
      */
-    public List<String> inferenceTypesSupporteds() {
+    public List<Object> inferenceTypesSupporteds() {
         return this.inferenceTypesSupporteds;
     }
     /**
      * @return Input modalities that the model supports.
      * 
      */
-    public List<String> inputModalities() {
+    public List<Object> inputModalities() {
         return this.inputModalities;
     }
     /**
@@ -104,7 +106,7 @@ public final class GetModelsModelSummary {
      * @return Output modalities that the model supports.
      * 
      */
-    public List<String> outputModalities() {
+    public List<Object> outputModalities() {
         return this.outputModalities;
     }
     /**
@@ -131,13 +133,13 @@ public final class GetModelsModelSummary {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> customizationsSupporteds;
-        private List<String> inferenceTypesSupporteds;
-        private List<String> inputModalities;
+        private List<Object> customizationsSupporteds;
+        private List<Object> inferenceTypesSupporteds;
+        private List<Object> inputModalities;
         private String modelArn;
         private String modelId;
         private String modelName;
-        private List<String> outputModalities;
+        private List<Object> outputModalities;
         private String providerName;
         private Boolean responseStreamingSupported;
         public Builder() {}
@@ -155,74 +157,101 @@ public final class GetModelsModelSummary {
         }
 
         @CustomType.Setter
-        public Builder customizationsSupporteds(List<String> customizationsSupporteds) {
-            this.customizationsSupporteds = Objects.requireNonNull(customizationsSupporteds);
+        public Builder customizationsSupporteds(List<Object> customizationsSupporteds) {
+            if (customizationsSupporteds == null) {
+              throw new MissingRequiredPropertyException("GetModelsModelSummary", "customizationsSupporteds");
+            }
+            this.customizationsSupporteds = customizationsSupporteds;
             return this;
         }
-        public Builder customizationsSupporteds(String... customizationsSupporteds) {
+        public Builder customizationsSupporteds(Object... customizationsSupporteds) {
             return customizationsSupporteds(List.of(customizationsSupporteds));
         }
         @CustomType.Setter
-        public Builder inferenceTypesSupporteds(List<String> inferenceTypesSupporteds) {
-            this.inferenceTypesSupporteds = Objects.requireNonNull(inferenceTypesSupporteds);
+        public Builder inferenceTypesSupporteds(List<Object> inferenceTypesSupporteds) {
+            if (inferenceTypesSupporteds == null) {
+              throw new MissingRequiredPropertyException("GetModelsModelSummary", "inferenceTypesSupporteds");
+            }
+            this.inferenceTypesSupporteds = inferenceTypesSupporteds;
             return this;
         }
-        public Builder inferenceTypesSupporteds(String... inferenceTypesSupporteds) {
+        public Builder inferenceTypesSupporteds(Object... inferenceTypesSupporteds) {
             return inferenceTypesSupporteds(List.of(inferenceTypesSupporteds));
         }
         @CustomType.Setter
-        public Builder inputModalities(List<String> inputModalities) {
-            this.inputModalities = Objects.requireNonNull(inputModalities);
+        public Builder inputModalities(List<Object> inputModalities) {
+            if (inputModalities == null) {
+              throw new MissingRequiredPropertyException("GetModelsModelSummary", "inputModalities");
+            }
+            this.inputModalities = inputModalities;
             return this;
         }
-        public Builder inputModalities(String... inputModalities) {
+        public Builder inputModalities(Object... inputModalities) {
             return inputModalities(List.of(inputModalities));
         }
         @CustomType.Setter
         public Builder modelArn(String modelArn) {
-            this.modelArn = Objects.requireNonNull(modelArn);
+            if (modelArn == null) {
+              throw new MissingRequiredPropertyException("GetModelsModelSummary", "modelArn");
+            }
+            this.modelArn = modelArn;
             return this;
         }
         @CustomType.Setter
         public Builder modelId(String modelId) {
-            this.modelId = Objects.requireNonNull(modelId);
+            if (modelId == null) {
+              throw new MissingRequiredPropertyException("GetModelsModelSummary", "modelId");
+            }
+            this.modelId = modelId;
             return this;
         }
         @CustomType.Setter
         public Builder modelName(String modelName) {
-            this.modelName = Objects.requireNonNull(modelName);
+            if (modelName == null) {
+              throw new MissingRequiredPropertyException("GetModelsModelSummary", "modelName");
+            }
+            this.modelName = modelName;
             return this;
         }
         @CustomType.Setter
-        public Builder outputModalities(List<String> outputModalities) {
-            this.outputModalities = Objects.requireNonNull(outputModalities);
+        public Builder outputModalities(List<Object> outputModalities) {
+            if (outputModalities == null) {
+              throw new MissingRequiredPropertyException("GetModelsModelSummary", "outputModalities");
+            }
+            this.outputModalities = outputModalities;
             return this;
         }
-        public Builder outputModalities(String... outputModalities) {
+        public Builder outputModalities(Object... outputModalities) {
             return outputModalities(List.of(outputModalities));
         }
         @CustomType.Setter
         public Builder providerName(String providerName) {
-            this.providerName = Objects.requireNonNull(providerName);
+            if (providerName == null) {
+              throw new MissingRequiredPropertyException("GetModelsModelSummary", "providerName");
+            }
+            this.providerName = providerName;
             return this;
         }
         @CustomType.Setter
         public Builder responseStreamingSupported(Boolean responseStreamingSupported) {
-            this.responseStreamingSupported = Objects.requireNonNull(responseStreamingSupported);
+            if (responseStreamingSupported == null) {
+              throw new MissingRequiredPropertyException("GetModelsModelSummary", "responseStreamingSupported");
+            }
+            this.responseStreamingSupported = responseStreamingSupported;
             return this;
         }
         public GetModelsModelSummary build() {
-            final var o = new GetModelsModelSummary();
-            o.customizationsSupporteds = customizationsSupporteds;
-            o.inferenceTypesSupporteds = inferenceTypesSupporteds;
-            o.inputModalities = inputModalities;
-            o.modelArn = modelArn;
-            o.modelId = modelId;
-            o.modelName = modelName;
-            o.outputModalities = outputModalities;
-            o.providerName = providerName;
-            o.responseStreamingSupported = responseStreamingSupported;
-            return o;
+            final var _resultValue = new GetModelsModelSummary();
+            _resultValue.customizationsSupporteds = customizationsSupporteds;
+            _resultValue.inferenceTypesSupporteds = inferenceTypesSupporteds;
+            _resultValue.inputModalities = inputModalities;
+            _resultValue.modelArn = modelArn;
+            _resultValue.modelId = modelId;
+            _resultValue.modelName = modelName;
+            _resultValue.outputModalities = outputModalities;
+            _resultValue.providerName = providerName;
+            _resultValue.responseStreamingSupported = responseStreamingSupported;
+            return _resultValue;
         }
     }
 }

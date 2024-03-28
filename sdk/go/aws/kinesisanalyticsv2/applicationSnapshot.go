@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kinesisanalyticsv2.NewApplicationSnapshot(ctx, "example", &kinesisanalyticsv2.ApplicationSnapshotArgs{
-//				ApplicationName: pulumi.Any(aws_kinesisanalyticsv2_application.Example.Name),
+//				ApplicationName: pulumi.Any(exampleAwsKinesisanalyticsv2Application.Name),
 //				SnapshotName:    pulumi.String("example-snapshot"),
 //			})
 //			if err != nil {
@@ -41,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using `application_name` together with `snapshot_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
-//
+// $ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
 // ```
 type ApplicationSnapshot struct {
 	pulumi.CustomResourceState

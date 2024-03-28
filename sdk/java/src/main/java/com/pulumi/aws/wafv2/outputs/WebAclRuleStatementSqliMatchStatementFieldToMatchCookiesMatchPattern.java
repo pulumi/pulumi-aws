@@ -58,11 +58,13 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatch
 
         @CustomType.Setter
         public Builder all(@Nullable WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll all) {
+
             this.all = all;
             return this;
         }
         @CustomType.Setter
         public Builder excludedCookies(@Nullable List<String> excludedCookies) {
+
             this.excludedCookies = excludedCookies;
             return this;
         }
@@ -71,6 +73,7 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatch
         }
         @CustomType.Setter
         public Builder includedCookies(@Nullable List<String> includedCookies) {
+
             this.includedCookies = includedCookies;
             return this;
         }
@@ -78,11 +81,11 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatch
             return includedCookies(List.of(includedCookies));
         }
         public WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern build() {
-            final var o = new WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern();
-            o.all = all;
-            o.excludedCookies = excludedCookies;
-            o.includedCookies = includedCookies;
-            return o;
+            final var _resultValue = new WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern();
+            _resultValue.all = all;
+            _resultValue.excludedCookies = excludedCookies;
+            _resultValue.includedCookies = includedCookies;
+            return _resultValue;
         }
     }
 }

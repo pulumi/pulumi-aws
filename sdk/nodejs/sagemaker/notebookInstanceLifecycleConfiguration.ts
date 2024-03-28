@@ -7,12 +7,34 @@ import * as utilities from "../utilities";
 /**
  * Provides a lifecycle configuration for SageMaker Notebook Instances.
  *
+ * ## Example Usage
+ *
+ * Usage:
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const lc = new aws.sagemaker.NotebookInstanceLifecycleConfiguration("lc", {
+ *     name: "foo",
+ *     onCreate: std.base64encode({
+ *         input: "echo foo",
+ *     }).then(invoke => invoke.result),
+ *     onStart: std.base64encode({
+ *         input: "echo bar",
+ *     }).then(invoke => invoke.result),
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Import
  *
  * Using `pulumi import`, import models using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
+ * $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
  * ```
  */
 export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResource {

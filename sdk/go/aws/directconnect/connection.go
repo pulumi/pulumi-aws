@@ -15,8 +15,10 @@ import (
 // Provides a Connection of Direct Connect.
 //
 // ## Example Usage
+//
 // ### Create a connection
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := directconnect.NewConnection(ctx, "hoge", &directconnect.ConnectionArgs{
+//				Name:      pulumi.String("tf-dx-connection"),
 //				Bandwidth: pulumi.String("1Gbps"),
 //				Location:  pulumi.String("EqDC2"),
 //			})
@@ -41,8 +44,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Request a MACsec-capable connection
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,6 +62,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := directconnect.NewConnection(ctx, "example", &directconnect.ConnectionArgs{
+//				Name:          pulumi.String("tf-dx-connection"),
 //				Bandwidth:     pulumi.String("10Gbps"),
 //				Location:      pulumi.String("EqDA2"),
 //				RequestMacsec: pulumi.Bool(true),
@@ -68,10 +75,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Configure encryption mode for MACsec-capable connections
 //
 // > **NOTE:** You can only specify the `encryptionMode` argument once the connection is in an `Available` state.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -85,10 +95,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := directconnect.NewConnection(ctx, "example", &directconnect.ConnectionArgs{
+//				Name:           pulumi.String("tf-dx-connection"),
 //				Bandwidth:      pulumi.String("10Gbps"),
-//				EncryptionMode: pulumi.String("must_encrypt"),
 //				Location:       pulumi.String("EqDC2"),
 //				RequestMacsec:  pulumi.Bool(true),
+//				EncryptionMode: pulumi.String("must_encrypt"),
 //			})
 //			if err != nil {
 //				return err
@@ -98,15 +109,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Direct Connect connections using the connection `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3
-//
+// $ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3
 // ```
 type Connection struct {
 	pulumi.CustomResourceState
@@ -166,10 +176,6 @@ func NewConnection(ctx *pulumi.Context,
 	if args.Location == nil {
 		return nil, errors.New("invalid value for required argument 'Location'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Connection
 	err := ctx.RegisterResource("aws:directconnect/connection:Connection", name, args, &resource, opts...)

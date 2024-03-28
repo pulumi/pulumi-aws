@@ -30,6 +30,8 @@ public final class EbsFunctions {
      * Use this data source to get the default EBS encryption KMS key in the current region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -63,6 +65,7 @@ public final class EbsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDefaultKmsKeyResult> getDefaultKmsKey() {
@@ -72,6 +75,8 @@ public final class EbsFunctions {
      * Use this data source to get the default EBS encryption KMS key in the current region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -105,6 +110,7 @@ public final class EbsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDefaultKmsKeyResult> getDefaultKmsKeyPlain() {
@@ -114,6 +120,8 @@ public final class EbsFunctions {
      * Use this data source to get the default EBS encryption KMS key in the current region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -147,6 +155,7 @@ public final class EbsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDefaultKmsKeyResult> getDefaultKmsKey(InvokeArgs args) {
@@ -156,6 +165,8 @@ public final class EbsFunctions {
      * Use this data source to get the default EBS encryption KMS key in the current region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -189,6 +200,7 @@ public final class EbsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDefaultKmsKeyResult> getDefaultKmsKeyPlain(InvokeArgs args) {
@@ -198,6 +210,8 @@ public final class EbsFunctions {
      * Use this data source to get the default EBS encryption KMS key in the current region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -231,6 +245,7 @@ public final class EbsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDefaultKmsKeyResult> getDefaultKmsKey(InvokeArgs args, InvokeOptions options) {
@@ -240,6 +255,8 @@ public final class EbsFunctions {
      * Use this data source to get the default EBS encryption KMS key in the current region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -273,6 +290,7 @@ public final class EbsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDefaultKmsKeyResult> getDefaultKmsKeyPlain(InvokeArgs args, InvokeOptions options) {
@@ -285,6 +303,11 @@ public final class EbsFunctions {
      * 
      * ## Example Usage
      * 
+     * The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetEbsVolumesResult> getEbsVolumes() {
         return getEbsVolumes(GetEbsVolumesArgs.Empty, InvokeOptions.Empty);
@@ -295,6 +318,11 @@ public final class EbsFunctions {
      * This data source can be useful for getting a list of volume IDs with (for example) matching tags.
      * 
      * ## Example Usage
+     * 
+     * The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEbsVolumesResult> getEbsVolumesPlain() {
@@ -307,6 +335,11 @@ public final class EbsFunctions {
      * 
      * ## Example Usage
      * 
+     * The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetEbsVolumesResult> getEbsVolumes(GetEbsVolumesArgs args) {
         return getEbsVolumes(args, InvokeOptions.Empty);
@@ -317,6 +350,11 @@ public final class EbsFunctions {
      * This data source can be useful for getting a list of volume IDs with (for example) matching tags.
      * 
      * ## Example Usage
+     * 
+     * The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEbsVolumesResult> getEbsVolumesPlain(GetEbsVolumesPlainArgs args) {
@@ -329,6 +367,11 @@ public final class EbsFunctions {
      * 
      * ## Example Usage
      * 
+     * The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetEbsVolumesResult> getEbsVolumes(GetEbsVolumesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ebs/getEbsVolumes:getEbsVolumes", TypeShape.of(GetEbsVolumesResult.class), args, Utilities.withVersion(options));
@@ -340,6 +383,11 @@ public final class EbsFunctions {
      * 
      * ## Example Usage
      * 
+     * The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static CompletableFuture<GetEbsVolumesResult> getEbsVolumesPlain(GetEbsVolumesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ebs/getEbsVolumes:getEbsVolumes", TypeShape.of(GetEbsVolumesResult.class), args, Utilities.withVersion(options));
@@ -348,6 +396,8 @@ public final class EbsFunctions {
      * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -373,6 +423,7 @@ public final class EbsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEncryptionByDefaultResult> getEncryptionByDefault() {
@@ -382,6 +433,8 @@ public final class EbsFunctions {
      * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -407,6 +460,7 @@ public final class EbsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEncryptionByDefaultResult> getEncryptionByDefaultPlain() {
@@ -416,6 +470,8 @@ public final class EbsFunctions {
      * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -441,6 +497,7 @@ public final class EbsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEncryptionByDefaultResult> getEncryptionByDefault(InvokeArgs args) {
@@ -450,6 +507,8 @@ public final class EbsFunctions {
      * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -475,6 +534,7 @@ public final class EbsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEncryptionByDefaultResult> getEncryptionByDefaultPlain(InvokeArgs args) {
@@ -484,6 +544,8 @@ public final class EbsFunctions {
      * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -509,6 +571,7 @@ public final class EbsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEncryptionByDefaultResult> getEncryptionByDefault(InvokeArgs args, InvokeOptions options) {
@@ -518,6 +581,8 @@ public final class EbsFunctions {
      * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -543,6 +608,7 @@ public final class EbsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEncryptionByDefaultResult> getEncryptionByDefaultPlain(InvokeArgs args, InvokeOptions options) {
@@ -552,6 +618,8 @@ public final class EbsFunctions {
      * Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -574,6 +642,8 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *             .mostRecent(true)
+     *             .owners(&#34;self&#34;)
      *             .filters(            
      *                 GetSnapshotFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -583,13 +653,12 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .mostRecent(true)
-     *             .owners(&#34;self&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSnapshotResult> getSnapshot() {
@@ -599,6 +668,8 @@ public final class EbsFunctions {
      * Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -621,6 +692,8 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *             .mostRecent(true)
+     *             .owners(&#34;self&#34;)
      *             .filters(            
      *                 GetSnapshotFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -630,13 +703,12 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .mostRecent(true)
-     *             .owners(&#34;self&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSnapshotResult> getSnapshotPlain() {
@@ -646,6 +718,8 @@ public final class EbsFunctions {
      * Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -668,6 +742,8 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *             .mostRecent(true)
+     *             .owners(&#34;self&#34;)
      *             .filters(            
      *                 GetSnapshotFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -677,13 +753,12 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .mostRecent(true)
-     *             .owners(&#34;self&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args) {
@@ -693,6 +768,8 @@ public final class EbsFunctions {
      * Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -715,6 +792,8 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *             .mostRecent(true)
+     *             .owners(&#34;self&#34;)
      *             .filters(            
      *                 GetSnapshotFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -724,13 +803,12 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .mostRecent(true)
-     *             .owners(&#34;self&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSnapshotResult> getSnapshotPlain(GetSnapshotPlainArgs args) {
@@ -740,6 +818,8 @@ public final class EbsFunctions {
      * Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -762,6 +842,8 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *             .mostRecent(true)
+     *             .owners(&#34;self&#34;)
      *             .filters(            
      *                 GetSnapshotFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -771,13 +853,12 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .mostRecent(true)
-     *             .owners(&#34;self&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args, InvokeOptions options) {
@@ -787,6 +868,8 @@ public final class EbsFunctions {
      * Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -809,6 +892,8 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *             .mostRecent(true)
+     *             .owners(&#34;self&#34;)
      *             .filters(            
      *                 GetSnapshotFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -818,13 +903,12 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .mostRecent(true)
-     *             .owners(&#34;self&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSnapshotResult> getSnapshotPlain(GetSnapshotPlainArgs args, InvokeOptions options) {
@@ -835,6 +919,8 @@ public final class EbsFunctions {
      * criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -857,6 +943,7 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolumes = EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
+     *             .owners(&#34;self&#34;)
      *             .filters(            
      *                 GetSnapshotIdsFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -866,12 +953,12 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .owners(&#34;self&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSnapshotIdsResult> getSnapshotIds() {
@@ -882,6 +969,8 @@ public final class EbsFunctions {
      * criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -904,6 +993,7 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolumes = EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
+     *             .owners(&#34;self&#34;)
      *             .filters(            
      *                 GetSnapshotIdsFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -913,12 +1003,12 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .owners(&#34;self&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSnapshotIdsResult> getSnapshotIdsPlain() {
@@ -929,6 +1019,8 @@ public final class EbsFunctions {
      * criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -951,6 +1043,7 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolumes = EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
+     *             .owners(&#34;self&#34;)
      *             .filters(            
      *                 GetSnapshotIdsFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -960,12 +1053,12 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .owners(&#34;self&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSnapshotIdsResult> getSnapshotIds(GetSnapshotIdsArgs args) {
@@ -976,6 +1069,8 @@ public final class EbsFunctions {
      * criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -998,6 +1093,7 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolumes = EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
+     *             .owners(&#34;self&#34;)
      *             .filters(            
      *                 GetSnapshotIdsFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -1007,12 +1103,12 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .owners(&#34;self&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSnapshotIdsResult> getSnapshotIdsPlain(GetSnapshotIdsPlainArgs args) {
@@ -1023,6 +1119,8 @@ public final class EbsFunctions {
      * criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1045,6 +1143,7 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolumes = EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
+     *             .owners(&#34;self&#34;)
      *             .filters(            
      *                 GetSnapshotIdsFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -1054,12 +1153,12 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .owners(&#34;self&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSnapshotIdsResult> getSnapshotIds(GetSnapshotIdsArgs args, InvokeOptions options) {
@@ -1070,6 +1169,8 @@ public final class EbsFunctions {
      * criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1092,6 +1193,7 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolumes = EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
+     *             .owners(&#34;self&#34;)
      *             .filters(            
      *                 GetSnapshotIdsFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -1101,12 +1203,12 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .owners(&#34;self&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSnapshotIdsResult> getSnapshotIdsPlain(GetSnapshotIdsPlainArgs args, InvokeOptions options) {
@@ -1117,6 +1219,8 @@ public final class EbsFunctions {
      * resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1139,6 +1243,7 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getVolume(GetVolumeArgs.builder()
+     *             .mostRecent(true)
      *             .filters(            
      *                 GetVolumeFilterArgs.builder()
      *                     .name(&#34;volume-type&#34;)
@@ -1148,12 +1253,12 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .mostRecent(true)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVolumeResult> getVolume() {
@@ -1164,6 +1269,8 @@ public final class EbsFunctions {
      * resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1186,6 +1293,7 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getVolume(GetVolumeArgs.builder()
+     *             .mostRecent(true)
      *             .filters(            
      *                 GetVolumeFilterArgs.builder()
      *                     .name(&#34;volume-type&#34;)
@@ -1195,12 +1303,12 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .mostRecent(true)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVolumeResult> getVolumePlain() {
@@ -1211,6 +1319,8 @@ public final class EbsFunctions {
      * resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1233,6 +1343,7 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getVolume(GetVolumeArgs.builder()
+     *             .mostRecent(true)
      *             .filters(            
      *                 GetVolumeFilterArgs.builder()
      *                     .name(&#34;volume-type&#34;)
@@ -1242,12 +1353,12 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .mostRecent(true)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVolumeResult> getVolume(GetVolumeArgs args) {
@@ -1258,6 +1369,8 @@ public final class EbsFunctions {
      * resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1280,6 +1393,7 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getVolume(GetVolumeArgs.builder()
+     *             .mostRecent(true)
      *             .filters(            
      *                 GetVolumeFilterArgs.builder()
      *                     .name(&#34;volume-type&#34;)
@@ -1289,12 +1403,12 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .mostRecent(true)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVolumeResult> getVolumePlain(GetVolumePlainArgs args) {
@@ -1305,6 +1419,8 @@ public final class EbsFunctions {
      * resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1327,6 +1443,7 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getVolume(GetVolumeArgs.builder()
+     *             .mostRecent(true)
      *             .filters(            
      *                 GetVolumeFilterArgs.builder()
      *                     .name(&#34;volume-type&#34;)
@@ -1336,12 +1453,12 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .mostRecent(true)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVolumeResult> getVolume(GetVolumeArgs args, InvokeOptions options) {
@@ -1352,6 +1469,8 @@ public final class EbsFunctions {
      * resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1374,6 +1493,7 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getVolume(GetVolumeArgs.builder()
+     *             .mostRecent(true)
      *             .filters(            
      *                 GetVolumeFilterArgs.builder()
      *                     .name(&#34;volume-type&#34;)
@@ -1383,12 +1503,12 @@ public final class EbsFunctions {
      *                     .name(&#34;tag:Name&#34;)
      *                     .values(&#34;Example&#34;)
      *                     .build())
-     *             .mostRecent(true)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVolumeResult> getVolumePlain(GetVolumePlainArgs args, InvokeOptions options) {

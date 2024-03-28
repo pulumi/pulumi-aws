@@ -6,12 +6,12 @@ package com.pulumi.aws.verifiedaccess;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.verifiedaccess.GroupArgs;
 import com.pulumi.aws.verifiedaccess.inputs.GroupState;
+import com.pulumi.aws.verifiedaccess.outputs.GroupSseConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * Resource for managing a Verified Access Group.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,12 +46,53 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Group(&#34;example&#34;, GroupArgs.builder()        
- *             .verifiedaccessInstanceId(aws_verifiedaccess_instance.example().id())
+ *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Usage with KMS Key
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.verifiedaccess.Group;
+ * import com.pulumi.aws.verifiedaccess.GroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testKey = new Key(&#34;testKey&#34;, KeyArgs.builder()        
+ *             .description(&#34;KMS key for Verified Access Group test&#34;)
+ *             .build());
+ * 
+ *         var test = new Group(&#34;test&#34;, GroupArgs.builder()        
+ *             .verifiedaccessInstanceId(testAwsVerifiedaccessInstanceTrustProviderAttachment.verifiedaccessInstanceId())
+ *             .serverSideEncryptionConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:verifiedaccess/group:Group")
@@ -123,11 +167,33 @@ public class Group extends com.pulumi.resources.CustomResource {
     public Output<String> owner() {
         return this.owner;
     }
+    /**
+     * The policy document that is associated with this resource.
+     * 
+     */
     @Export(name="policyDocument", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyDocument;
 
+    /**
+     * @return The policy document that is associated with this resource.
+     * 
+     */
     public Output<Optional<String>> policyDocument() {
         return Codegen.optional(this.policyDocument);
+    }
+    /**
+     * Configuration block to use KMS keys for server-side encryption.
+     * 
+     */
+    @Export(name="sseConfiguration", refs={GroupSseConfiguration.class}, tree="[0]")
+    private Output<GroupSseConfiguration> sseConfiguration;
+
+    /**
+     * @return Configuration block to use KMS keys for server-side encryption.
+     * 
+     */
+    public Output<GroupSseConfiguration> sseConfiguration() {
+        return this.sseConfiguration;
     }
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -234,9 +300,6 @@ public class Group extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

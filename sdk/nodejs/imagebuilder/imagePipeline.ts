@@ -12,25 +12,28 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.imagebuilder.ImagePipeline("example", {
- *     imageRecipeArn: aws_imagebuilder_image_recipe.example.arn,
- *     infrastructureConfigurationArn: aws_imagebuilder_infrastructure_configuration.example.arn,
+ *     imageRecipeArn: exampleAwsImagebuilderImageRecipe.arn,
+ *     infrastructureConfigurationArn: exampleAwsImagebuilderInfrastructureConfiguration.arn,
+ *     name: "example",
  *     schedule: {
  *         scheduleExpression: "cron(0 0 * * ? *)",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_imagebuilder_image_pipeline` resources using the Amazon Resource Name (ARN). For example:
  *
  * ```sh
- *  $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
+ * $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
  * ```
  */
 export class ImagePipeline extends pulumi.CustomResource {
@@ -200,8 +203,6 @@ export class ImagePipeline extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ImagePipeline.__pulumiType, name, resourceInputs, opts);
     }
 }

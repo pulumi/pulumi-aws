@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see [&#34;Regions and Availability Zones in Amazon Lightsail&#34;](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -26,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lightsail.StaticIp;
+ * import com.pulumi.aws.lightsail.StaticIpArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -39,11 +42,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new StaticIp(&#34;test&#34;);
+ *         var test = new StaticIp(&#34;test&#34;, StaticIpArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:lightsail/staticIp:StaticIp")

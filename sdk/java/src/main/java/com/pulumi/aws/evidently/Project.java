@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,7 +21,10 @@ import javax.annotation.Nullable;
  * Provides a CloudWatch Evidently Project resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,6 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example&#34;)
  *             .description(&#34;Example Description&#34;)
  *             .tags(Map.of(&#34;Key1&#34;, &#34;example Project&#34;))
  *             .build());
@@ -52,7 +55,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Store evaluation events in a CloudWatch Log Group
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -77,19 +84,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example&#34;)
+ *             .description(&#34;Example Description&#34;)
  *             .dataDelivery(ProjectDataDeliveryArgs.builder()
  *                 .cloudwatchLogs(ProjectDataDeliveryCloudwatchLogsArgs.builder()
  *                     .logGroup(&#34;example-log-group-name&#34;)
  *                     .build())
  *                 .build())
- *             .description(&#34;Example Description&#34;)
  *             .tags(Map.of(&#34;Key1&#34;, &#34;example Project&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Store evaluation events in an S3 bucket
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -114,26 +126,28 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .name(&#34;Example&#34;)
+ *             .description(&#34;Example Description&#34;)
  *             .dataDelivery(ProjectDataDeliveryArgs.builder()
  *                 .s3Destination(ProjectDataDeliveryS3DestinationArgs.builder()
  *                     .bucket(&#34;example-bucket-name&#34;)
  *                     .prefix(&#34;example&#34;)
  *                     .build())
  *                 .build())
- *             .description(&#34;Example Description&#34;)
  *             .tags(Map.of(&#34;Key1&#34;, &#34;example Project&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudWatch Evidently Project using the `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:evidently/project:Project example arn:aws:evidently:us-east-1:123456789012:segment/example
+ * $ pulumi import aws:evidently/project:Project example arn:aws:evidently:us-east-1:123456789012:segment/example
  * ```
  * 
  */
@@ -372,9 +386,6 @@ public class Project extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

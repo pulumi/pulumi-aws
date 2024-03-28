@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,19 +59,23 @@ public final class EndpointConfigurationProductionVariantCoreDumpConfig {
 
         @CustomType.Setter
         public Builder destinationS3Uri(String destinationS3Uri) {
-            this.destinationS3Uri = Objects.requireNonNull(destinationS3Uri);
+            if (destinationS3Uri == null) {
+              throw new MissingRequiredPropertyException("EndpointConfigurationProductionVariantCoreDumpConfig", "destinationS3Uri");
+            }
+            this.destinationS3Uri = destinationS3Uri;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         public EndpointConfigurationProductionVariantCoreDumpConfig build() {
-            final var o = new EndpointConfigurationProductionVariantCoreDumpConfig();
-            o.destinationS3Uri = destinationS3Uri;
-            o.kmsKeyId = kmsKeyId;
-            return o;
+            final var _resultValue = new EndpointConfigurationProductionVariantCoreDumpConfig();
+            _resultValue.destinationS3Uri = destinationS3Uri;
+            _resultValue.kmsKeyId = kmsKeyId;
+            return _resultValue;
         }
     }
 }

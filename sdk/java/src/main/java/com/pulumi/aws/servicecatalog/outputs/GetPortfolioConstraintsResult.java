@@ -5,6 +5,7 @@ package com.pulumi.aws.servicecatalog.outputs;
 
 import com.pulumi.aws.servicecatalog.outputs.GetPortfolioConstraintsDetail;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -94,12 +95,16 @@ public final class GetPortfolioConstraintsResult {
 
         @CustomType.Setter
         public Builder acceptLanguage(@Nullable String acceptLanguage) {
+
             this.acceptLanguage = acceptLanguage;
             return this;
         }
         @CustomType.Setter
         public Builder details(List<GetPortfolioConstraintsDetail> details) {
-            this.details = Objects.requireNonNull(details);
+            if (details == null) {
+              throw new MissingRequiredPropertyException("GetPortfolioConstraintsResult", "details");
+            }
+            this.details = details;
             return this;
         }
         public Builder details(GetPortfolioConstraintsDetail... details) {
@@ -107,27 +112,34 @@ public final class GetPortfolioConstraintsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPortfolioConstraintsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder portfolioId(String portfolioId) {
-            this.portfolioId = Objects.requireNonNull(portfolioId);
+            if (portfolioId == null) {
+              throw new MissingRequiredPropertyException("GetPortfolioConstraintsResult", "portfolioId");
+            }
+            this.portfolioId = portfolioId;
             return this;
         }
         @CustomType.Setter
         public Builder productId(@Nullable String productId) {
+
             this.productId = productId;
             return this;
         }
         public GetPortfolioConstraintsResult build() {
-            final var o = new GetPortfolioConstraintsResult();
-            o.acceptLanguage = acceptLanguage;
-            o.details = details;
-            o.id = id;
-            o.portfolioId = portfolioId;
-            o.productId = productId;
-            return o;
+            final var _resultValue = new GetPortfolioConstraintsResult();
+            _resultValue.acceptLanguage = acceptLanguage;
+            _resultValue.details = details;
+            _resultValue.id = id;
+            _resultValue.portfolioId = portfolioId;
+            _resultValue.productId = productId;
+            return _resultValue;
         }
     }
 }

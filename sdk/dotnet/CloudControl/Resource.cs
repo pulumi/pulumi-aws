@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CloudControl
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,13 +29,13 @@ namespace Pulumi.Aws.CloudControl
     ///         TypeName = "AWS::ECS::Cluster",
     ///         DesiredState = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["ClusterName"] = "example",
-    ///             ["Tags"] = new[]
+    ///             ["clusterName"] = "example",
+    ///             ["tags"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Key"] = "CostCenter",
-    ///                     ["Value"] = "IT",
+    ///                     ["key"] = "CostCenter",
+    ///                     ["value"] = "IT",
     ///                 },
     ///             },
     ///         }),
@@ -42,6 +43,7 @@ namespace Pulumi.Aws.CloudControl
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:cloudcontrol/resource:Resource")]
     public partial class Resource : global::Pulumi.CustomResource

@@ -12695,6 +12695,8 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig struct {
 	// Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
 	AggregationType *string `pulumi:"aggregationType"`
+	// The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+	TargetFileSize *int `pulumi:"targetFileSize"`
 }
 
 // FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigOutput values.
@@ -12711,6 +12713,8 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConf
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs struct {
 	// Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
 	AggregationType pulumi.StringPtrInput `pulumi:"aggregationType"`
+	// The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+	TargetFileSize pulumi.IntPtrInput `pulumi:"targetFileSize"`
 }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs) ElementType() reflect.Type {
@@ -12797,6 +12801,13 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 	}).(pulumi.StringPtrOutput)
 }
 
+// The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigOutput) TargetFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig) *int {
+		return v.TargetFileSize
+	}).(pulumi.IntPtrOutput)
+}
+
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrOutput) ElementType() reflect.Type {
@@ -12829,6 +12840,16 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 		}
 		return v.AggregationType
 	}).(pulumi.StringPtrOutput)
+}
+
+// The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrOutput) TargetFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TargetFileSize
+	}).(pulumi.IntPtrOutput)
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig struct {
@@ -17143,7 +17164,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesS3 struct {
 	// Name of the Amazon S3 bucket.
 	BucketName string `pulumi:"bucketName"`
 	// Amazon S3 bucket prefix.
-	BucketPrefix *string `pulumi:"bucketPrefix"`
+	BucketPrefix string `pulumi:"bucketPrefix"`
 	// When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
 	S3InputFormatConfig *FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig `pulumi:"s3InputFormatConfig"`
 }
@@ -17163,7 +17184,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesS3Args struct {
 	// Name of the Amazon S3 bucket.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
 	// Amazon S3 bucket prefix.
-	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
+	BucketPrefix pulumi.StringInput `pulumi:"bucketPrefix"`
 	// When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
 	S3InputFormatConfig FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrInput `pulumi:"s3InputFormatConfig"`
 }
@@ -17251,8 +17272,8 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesS3Output) BucketName() pulu
 }
 
 // Amazon S3 bucket prefix.
-func (o FlowSourceFlowConfigSourceConnectorPropertiesS3Output) BucketPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesS3) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
+func (o FlowSourceFlowConfigSourceConnectorPropertiesS3Output) BucketPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesS3) string { return v.BucketPrefix }).(pulumi.StringOutput)
 }
 
 // When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
@@ -17302,7 +17323,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput) BucketPrefix()
 		if v == nil {
 			return nil
 		}
-		return v.BucketPrefix
+		return &v.BucketPrefix
 	}).(pulumi.StringPtrOutput)
 }
 

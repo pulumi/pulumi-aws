@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,10 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appstream.NewStack(ctx, "example", &appstream.StackArgs{
-//				ApplicationSettings: &appstream.StackApplicationSettingsArgs{
-//					Enabled:       pulumi.Bool(true),
-//					SettingsGroup: pulumi.String("SettingsGroup"),
-//				},
+//				Name:        pulumi.String("stack name"),
 //				Description: pulumi.String("stack description"),
 //				DisplayName: pulumi.String("stack display name"),
 //				FeedbackUrl: pulumi.String("http://your-domain/feedback"),
@@ -40,9 +38,6 @@ import (
 //					&appstream.StackStorageConnectorArgs{
 //						ConnectorType: pulumi.String("HOMEFOLDERS"),
 //					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"TagName": pulumi.String("TagValue"),
 //				},
 //				UserSettings: appstream.StackUserSettingArray{
 //					&appstream.StackUserSettingArgs{
@@ -74,6 +69,13 @@ import (
 //						Permission: pulumi.String("ENABLED"),
 //					},
 //				},
+//				ApplicationSettings: &appstream.StackApplicationSettingsArgs{
+//					Enabled:       pulumi.Bool(true),
+//					SettingsGroup: pulumi.String("SettingsGroup"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"TagName": pulumi.String("TagValue"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -83,15 +85,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_appstream_stack` using the id. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appstream/stack:Stack example stackID
-//
+// $ pulumi import aws:appstream/stack:Stack example stackID
 // ```
 type Stack struct {
 	pulumi.CustomResourceState
@@ -142,10 +143,6 @@ func NewStack(ctx *pulumi.Context,
 		args = &StackArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Stack
 	err := ctx.RegisterResource("aws:appstream/stack:Stack", name, args, &resource, opts...)

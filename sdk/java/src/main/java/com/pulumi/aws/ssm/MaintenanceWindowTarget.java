@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * Provides an SSM Maintenance Window Target resource
  * 
  * ## Example Usage
+ * 
  * ### Instance Target
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,6 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var window = new MaintenanceWindow(&#34;window&#34;, MaintenanceWindowArgs.builder()        
+ *             .name(&#34;maintenance-window-webapp&#34;)
  *             .schedule(&#34;cron(0 16 ? * TUE *)&#34;)
  *             .duration(3)
  *             .cutoff(1)
@@ -53,6 +57,7 @@ import javax.annotation.Nullable;
  * 
  *         var target1 = new MaintenanceWindowTarget(&#34;target1&#34;, MaintenanceWindowTargetArgs.builder()        
  *             .windowId(window.id())
+ *             .name(&#34;maintenance-window-target&#34;)
  *             .description(&#34;This is a maintenance window target&#34;)
  *             .resourceType(&#34;INSTANCE&#34;)
  *             .targets(MaintenanceWindowTargetTargetArgs.builder()
@@ -64,7 +69,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Resource Group Target
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -90,6 +99,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var window = new MaintenanceWindow(&#34;window&#34;, MaintenanceWindowArgs.builder()        
+ *             .name(&#34;maintenance-window-webapp&#34;)
  *             .schedule(&#34;cron(0 16 ? * TUE *)&#34;)
  *             .duration(3)
  *             .cutoff(1)
@@ -97,6 +107,7 @@ import javax.annotation.Nullable;
  * 
  *         var target1 = new MaintenanceWindowTarget(&#34;target1&#34;, MaintenanceWindowTargetArgs.builder()        
  *             .windowId(window.id())
+ *             .name(&#34;maintenance-window-target&#34;)
  *             .description(&#34;This is a maintenance window target&#34;)
  *             .resourceType(&#34;RESOURCE_GROUP&#34;)
  *             .targets(MaintenanceWindowTargetTargetArgs.builder()
@@ -108,13 +119,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SSM Maintenance Window targets using `WINDOW_ID/WINDOW_TARGET_ID`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
+ * $ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
  * ```
  * 
  */

@@ -4,6 +4,7 @@
 package com.pulumi.aws.organizations.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -98,37 +99,52 @@ public final class GetOrganizationAccount {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationAccount", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder email(String email) {
-            this.email = Objects.requireNonNull(email);
+            if (email == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationAccount", "email");
+            }
+            this.email = email;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationAccount", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationAccount", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationAccount", "status");
+            }
+            this.status = status;
             return this;
         }
         public GetOrganizationAccount build() {
-            final var o = new GetOrganizationAccount();
-            o.arn = arn;
-            o.email = email;
-            o.id = id;
-            o.name = name;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetOrganizationAccount();
+            _resultValue.arn = arn;
+            _resultValue.email = email;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

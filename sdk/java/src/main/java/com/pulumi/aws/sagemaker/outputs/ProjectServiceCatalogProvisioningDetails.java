@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.ProjectServiceCatalogProvisioningDetailsProvisioningParameter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -88,21 +89,27 @@ public final class ProjectServiceCatalogProvisioningDetails {
 
         @CustomType.Setter
         public Builder pathId(@Nullable String pathId) {
+
             this.pathId = pathId;
             return this;
         }
         @CustomType.Setter
         public Builder productId(String productId) {
-            this.productId = Objects.requireNonNull(productId);
+            if (productId == null) {
+              throw new MissingRequiredPropertyException("ProjectServiceCatalogProvisioningDetails", "productId");
+            }
+            this.productId = productId;
             return this;
         }
         @CustomType.Setter
         public Builder provisioningArtifactId(@Nullable String provisioningArtifactId) {
+
             this.provisioningArtifactId = provisioningArtifactId;
             return this;
         }
         @CustomType.Setter
         public Builder provisioningParameters(@Nullable List<ProjectServiceCatalogProvisioningDetailsProvisioningParameter> provisioningParameters) {
+
             this.provisioningParameters = provisioningParameters;
             return this;
         }
@@ -110,12 +117,12 @@ public final class ProjectServiceCatalogProvisioningDetails {
             return provisioningParameters(List.of(provisioningParameters));
         }
         public ProjectServiceCatalogProvisioningDetails build() {
-            final var o = new ProjectServiceCatalogProvisioningDetails();
-            o.pathId = pathId;
-            o.productId = productId;
-            o.provisioningArtifactId = provisioningArtifactId;
-            o.provisioningParameters = provisioningParameters;
-            return o;
+            final var _resultValue = new ProjectServiceCatalogProvisioningDetails();
+            _resultValue.pathId = pathId;
+            _resultValue.productId = productId;
+            _resultValue.provisioningArtifactId = provisioningArtifactId;
+            _resultValue.provisioningParameters = provisioningParameters;
+            return _resultValue;
         }
     }
 }

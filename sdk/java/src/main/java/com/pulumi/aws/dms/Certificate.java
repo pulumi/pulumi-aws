@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a DMS (Data Migration Service) certificate resource. DMS certificates can be created, deleted, and imported.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,13 +52,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import certificates using the `certificate_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
+ * $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
  * ```
  * 
  */
@@ -189,8 +192,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
                 "certificatePem",
-                "certificateWallet",
-                "tagsAll"
+                "certificateWallet"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

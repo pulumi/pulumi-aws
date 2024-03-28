@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * A hosted virtual interface is a virtual interface that is owned by another AWS account.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,27 +44,29 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new HostedPublicVirtualInterface(&#34;foo&#34;, HostedPublicVirtualInterfaceArgs.builder()        
- *             .addressFamily(&#34;ipv4&#34;)
- *             .amazonAddress(&#34;175.45.176.2/30&#34;)
- *             .bgpAsn(65352)
  *             .connectionId(&#34;dxcon-zzzzzzzz&#34;)
+ *             .name(&#34;vif-foo&#34;)
+ *             .vlan(4094)
+ *             .addressFamily(&#34;ipv4&#34;)
+ *             .bgpAsn(65352)
  *             .customerAddress(&#34;175.45.176.1/30&#34;)
+ *             .amazonAddress(&#34;175.45.176.2/30&#34;)
  *             .routeFilterPrefixes(            
  *                 &#34;210.52.109.0/24&#34;,
  *                 &#34;175.45.176.0/22&#34;)
- *             .vlan(4094)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Direct Connect hosted public virtual interfaces using the VIF `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface test dxvif-33cc44dd
+ * $ pulumi import aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface test dxvif-33cc44dd
  * ```
  * 
  */

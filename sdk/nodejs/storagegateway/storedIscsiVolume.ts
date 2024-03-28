@@ -10,42 +10,48 @@ import * as utilities from "../utilities";
  * > **NOTE:** The gateway must have a working storage added (e.g., via the `aws.storagegateway.WorkingStorage` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `WORKING STORAGE NOT CONFIGURED`.
  *
  * ## Example Usage
+ *
  * ### Create Empty Stored iSCSI Volume
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.storagegateway.StoredIscsiVolume("example", {
- *     gatewayArn: aws_storagegateway_cache.example.gateway_arn,
- *     networkInterfaceId: aws_instance.example.private_ip,
+ *     gatewayArn: exampleAwsStoragegatewayCache.gatewayArn,
+ *     networkInterfaceId: exampleAwsInstance.privateIp,
  *     targetName: "example",
  *     preserveExistingData: false,
- *     diskId: data.aws_storagegateway_local_disk.test.id,
+ *     diskId: test.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Create Stored iSCSI Volume From Snapshot
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.storagegateway.StoredIscsiVolume("example", {
- *     gatewayArn: aws_storagegateway_cache.example.gateway_arn,
- *     networkInterfaceId: aws_instance.example.private_ip,
- *     snapshotId: aws_ebs_snapshot.example.id,
+ *     gatewayArn: exampleAwsStoragegatewayCache.gatewayArn,
+ *     networkInterfaceId: exampleAwsInstance.privateIp,
+ *     snapshotId: exampleAwsEbsSnapshot.id,
  *     targetName: "example",
  *     preserveExistingData: false,
- *     diskId: data.aws_storagegateway_local_disk.test.id,
+ *     diskId: test.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_storagegateway_stored_iscsi_volume` using the volume Amazon Resource Name (ARN). For example:
  *
  * ```sh
- *  $ pulumi import aws:storagegateway/storedIscsiVolume:StoredIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
+ * $ pulumi import aws:storagegateway/storedIscsiVolume:StoredIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
  * ```
  */
 export class StoredIscsiVolume extends pulumi.CustomResource {
@@ -231,8 +237,6 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
             resourceInputs["volumeType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(StoredIscsiVolume.__pulumiType, name, resourceInputs, opts);
     }
 }

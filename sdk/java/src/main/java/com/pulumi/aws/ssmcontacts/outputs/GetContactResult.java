@@ -4,6 +4,7 @@
 package com.pulumi.aws.ssmcontacts.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -105,43 +106,61 @@ public final class GetContactResult {
 
         @CustomType.Setter
         public Builder alias(String alias) {
-            this.alias = Objects.requireNonNull(alias);
+            if (alias == null) {
+              throw new MissingRequiredPropertyException("GetContactResult", "alias");
+            }
+            this.alias = alias;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetContactResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetContactResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetContactResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetContactResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetContactResult", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetContactResult build() {
-            final var o = new GetContactResult();
-            o.alias = alias;
-            o.arn = arn;
-            o.displayName = displayName;
-            o.id = id;
-            o.tags = tags;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetContactResult();
+            _resultValue.alias = alias;
+            _resultValue.arn = arn;
+            _resultValue.displayName = displayName;
+            _resultValue.id = id;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

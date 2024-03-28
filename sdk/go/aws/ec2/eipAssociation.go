@@ -21,6 +21,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,7 +37,7 @@ import (
 //			web, err := ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
 //				Ami:              pulumi.String("ami-21f78e11"),
 //				AvailabilityZone: pulumi.String("us-west-2a"),
-//				InstanceType:     pulumi.String("t2.micro"),
+//				InstanceType:     pulumi.String(ec2.InstanceType_T2_Micro),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("HelloWorld"),
 //				},
@@ -50,7 +51,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewEipAssociation(ctx, "eipAssoc", &ec2.EipAssociationArgs{
+//			_, err = ec2.NewEipAssociation(ctx, "eip_assoc", &ec2.EipAssociationArgs{
 //				InstanceId:   web.ID(),
 //				AllocationId: example.ID(),
 //			})
@@ -62,15 +63,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EIP Assocations using their association IDs. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
-//
+// $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
 // ```
 type EipAssociation struct {
 	pulumi.CustomResourceState

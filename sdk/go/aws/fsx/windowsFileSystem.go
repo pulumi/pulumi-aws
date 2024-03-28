@@ -17,10 +17,12 @@ import (
 // > **NOTE:** Either the `activeDirectoryId` argument or `selfManagedActiveDirectory` configuration block must be specified.
 //
 // ## Example Usage
+//
 // ### Using AWS Directory Service
 //
 // Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/fsx-aws-managed-ad.html).
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,11 +36,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
-//				ActiveDirectoryId: pulumi.Any(aws_directory_service_directory.Example.Id),
-//				KmsKeyId:          pulumi.Any(aws_kms_key.Example.Arn),
+//				ActiveDirectoryId: pulumi.Any(exampleAwsDirectoryServiceDirectory.Id),
+//				KmsKeyId:          pulumi.Any(exampleAwsKmsKey.Arn),
 //				StorageCapacity:   pulumi.Int(300),
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Example.Id,
+//					exampleAwsSubnet.Id,
 //				},
 //				ThroughputCapacity: pulumi.Int(1024),
 //			})
@@ -50,10 +52,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Using a Self-Managed Microsoft Active Directory
 //
 // Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html).
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,10 +72,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
-//				KmsKeyId:        pulumi.Any(aws_kms_key.Example.Arn),
+//				KmsKeyId:        pulumi.Any(exampleAwsKmsKey.Arn),
 //				StorageCapacity: pulumi.Int(300),
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Example.Id,
+//					exampleAwsSubnet.Id,
 //				},
 //				ThroughputCapacity: pulumi.Int(1024),
 //				SelfManagedActiveDirectory: &fsx.WindowsFileSystemSelfManagedActiveDirectoryArgs{
@@ -91,18 +96,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import FSx File Systems using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:fsx/windowsFileSystem:WindowsFileSystem example fs-543ab12b1ca672f33
-//
+// $ pulumi import aws:fsx/windowsFileSystem:WindowsFileSystem example fs-543ab12b1ca672f33
 // ```
-//
-//	Certain resource arguments, like `security_group_ids` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+// Certain resource arguments, like `security_group_ids` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 type WindowsFileSystem struct {
 	pulumi.CustomResourceState
 
@@ -181,10 +184,6 @@ func NewWindowsFileSystem(ctx *pulumi.Context,
 	if args.ThroughputCapacity == nil {
 		return nil, errors.New("invalid value for required argument 'ThroughputCapacity'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WindowsFileSystem
 	err := ctx.RegisterResource("aws:fsx/windowsFileSystem:WindowsFileSystem", name, args, &resource, opts...)

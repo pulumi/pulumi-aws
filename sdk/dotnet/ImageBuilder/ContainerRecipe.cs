@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,19 +25,20 @@ namespace Pulumi.Aws.ImageBuilder
     /// {
     ///     var example = new Aws.ImageBuilder.ContainerRecipe("example", new()
     ///     {
+    ///         Name = "example",
     ///         Version = "1.0.0",
     ///         ContainerType = "DOCKER",
     ///         ParentImage = "arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
     ///         TargetRepository = new Aws.ImageBuilder.Inputs.ContainerRecipeTargetRepositoryArgs
     ///         {
-    ///             RepositoryName = aws_ecr_repository.Example.Name,
+    ///             RepositoryName = exampleAwsEcrRepository.Name,
     ///             Service = "ECR",
     ///         },
     ///         Components = new[]
     ///         {
     ///             new Aws.ImageBuilder.Inputs.ContainerRecipeComponentArgs
     ///             {
-    ///                 ComponentArn = aws_imagebuilder_component.Example.Arn,
+    ///                 ComponentArn = exampleAwsImagebuilderComponent.Arn,
     ///                 Parameters = new[]
     ///                 {
     ///                     new Aws.ImageBuilder.Inputs.ContainerRecipeComponentParameterArgs
@@ -60,13 +62,14 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_imagebuilder_container_recipe` resources using the Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:imagebuilder/containerRecipe:ContainerRecipe example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
+    /// $ pulumi import aws:imagebuilder/containerRecipe:ContainerRecipe example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
     /// ```
     /// </summary>
     [AwsResourceType("aws:imagebuilder/containerRecipe:ContainerRecipe")]
@@ -217,10 +220,6 @@ namespace Pulumi.Aws.ImageBuilder
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -468,11 +467,7 @@ namespace Pulumi.Aws.ImageBuilder
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

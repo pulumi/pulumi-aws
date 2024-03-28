@@ -12,10 +12,12 @@ import * as utilities from "../utilities";
  * > **Note:** Some of this resource's arguments have default values that come from the AWS Provider. Other default values are provided by AWS and subject to change without notice. When relying on AWS defaults, the provider state will often have a zero value. For example, the AWS Provider does not provide a default for `cdcMaxBatchInterval` but the AWS default is `60` (seconds). However, the provider state will show `0` since this is the value return by AWS when no value is present. Below, we aim to flag the defaults that come from AWS (_e.g._, "AWS default...").
  *
  * ## Example Usage
+ *
  * ### Minimal Configuration
  *
  * This is the minimal configuration for an `aws.dms.S3Endpoint`. This endpoint will rely on the AWS Provider and AWS defaults.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,13 +26,14 @@ import * as utilities from "../utilities";
  *     endpointId: "donnedtipi",
  *     endpointType: "target",
  *     bucketName: "beckut_name",
- *     serviceAccessRoleArn: aws_iam_role.example.arn,
- * }, {
- *     dependsOn: [aws_iam_role_policy.example],
+ *     serviceAccessRoleArn: exampleAwsIamRole.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Complete Configuration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -69,7 +72,7 @@ import * as utilities from "../utilities";
  *     enableStatistics: false,
  *     encodingType: "plain",
  *     encryptionMode: "SSE_S3",
- *     expectedBucketOwner: data.aws_caller_identity.current.account_id,
+ *     expectedBucketOwner: current.accountId,
  *     externalTableDefinition: "etd",
  *     ignoreHeaderRows: 1,
  *     includeOpForFullLoad: true,
@@ -79,23 +82,22 @@ import * as utilities from "../utilities";
  *     preserveTransactions: false,
  *     rfc4180: false,
  *     rowGroupLength: 11000,
- *     serverSideEncryptionKmsKeyId: aws_kms_key.example.arn,
- *     serviceAccessRoleArn: aws_iam_role.example.arn,
+ *     serverSideEncryptionKmsKeyId: exampleAwsKmsKey.arn,
+ *     serviceAccessRoleArn: exampleAwsIamRole.arn,
  *     timestampColumnName: "tx_commit_time",
  *     useCsvNoSupValue: false,
  *     useTaskStartTimeForFullLoadTimestamp: true,
  *     glueCatalogGeneration: true,
- * }, {
- *     dependsOn: [aws_iam_role_policy.example],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
+ * $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
  * ```
  */
 export class S3Endpoint extends pulumi.CustomResource {
@@ -478,8 +480,6 @@ export class S3Endpoint extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(S3Endpoint.__pulumiType, name, resourceInputs, opts);
     }
 }

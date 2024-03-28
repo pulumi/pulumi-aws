@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a Pinpoint Event Stream resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,6 +52,7 @@ import javax.annotation.Nullable;
  *         var app = new App(&#34;app&#34;);
  * 
  *         var testStream = new Stream(&#34;testStream&#34;, StreamArgs.builder()        
+ *             .name(&#34;pinpoint-kinesis-test&#34;)
  *             .shardCount(1)
  *             .build());
  * 
@@ -74,7 +77,7 @@ import javax.annotation.Nullable;
  *             .roleArn(testRole.arn())
  *             .build());
  * 
- *         final var testRolePolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var testRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(                
@@ -85,20 +88,22 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testRolePolicyRolePolicy = new RolePolicy(&#34;testRolePolicyRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;test_policy&#34;)
  *             .role(testRole.id())
- *             .policy(testRolePolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(testRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Pinpoint Event Stream using the `application-id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
+ * $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
  * ```
  * 
  */

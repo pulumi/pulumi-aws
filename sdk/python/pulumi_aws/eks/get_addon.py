@@ -153,19 +153,21 @@ def get_addon(addon_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.eks.get_addon(addon_name="vpc-cni",
-        cluster_name=aws_eks_cluster["example"]["name"])
-    pulumi.export("eksAddonOutputs", aws_eks_addon["example"])
+        cluster_name=example_aws_eks_cluster["name"])
+    pulumi.export("eksAddonOutputs", example_aws_eks_addon)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str addon_name: Name of the EKS add-on. The name must match one of
            the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
-    :param str cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+    :param str cluster_name: Name of the EKS Cluster.
     """
     __args__ = dict()
     __args__['addonName'] = addon_name
@@ -197,18 +199,20 @@ def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.eks.get_addon(addon_name="vpc-cni",
-        cluster_name=aws_eks_cluster["example"]["name"])
-    pulumi.export("eksAddonOutputs", aws_eks_addon["example"])
+        cluster_name=example_aws_eks_cluster["name"])
+    pulumi.export("eksAddonOutputs", example_aws_eks_addon)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str addon_name: Name of the EKS add-on. The name must match one of
            the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
-    :param str cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+    :param str cluster_name: Name of the EKS Cluster.
     """
     ...

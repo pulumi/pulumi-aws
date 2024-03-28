@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CodePipeline
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,10 +25,14 @@ namespace Pulumi.Aws.CodePipeline
     /// {
     ///     var example = new Aws.CodeStarConnections.Connection("example", new()
     ///     {
+    ///         Name = "example-connection",
     ///         ProviderType = "GitHub",
     ///     });
     /// 
-    ///     var codepipelineBucket = new Aws.S3.BucketV2("codepipelineBucket");
+    ///     var codepipelineBucket = new Aws.S3.BucketV2("codepipeline_bucket", new()
+    ///     {
+    ///         Bucket = "test-bucket",
+    ///     });
     /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
@@ -55,8 +60,9 @@ namespace Pulumi.Aws.CodePipeline
     ///         },
     ///     });
     /// 
-    ///     var codepipelineRole = new Aws.Iam.Role("codepipelineRole", new()
+    ///     var codepipelineRole = new Aws.Iam.Role("codepipeline_role", new()
     ///     {
+    ///         Name = "test-role",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
@@ -67,6 +73,7 @@ namespace Pulumi.Aws.CodePipeline
     /// 
     ///     var codepipeline = new Aws.CodePipeline.Pipeline("codepipeline", new()
     ///     {
+    ///         Name = "tf-test-pipeline",
     ///         RoleArn = codepipelineRole.Arn,
     ///         ArtifactStores = new[]
     ///         {
@@ -165,13 +172,16 @@ namespace Pulumi.Aws.CodePipeline
     ///         },
     ///     });
     /// 
-    ///     var codepipelineBucketAcl = new Aws.S3.BucketAclV2("codepipelineBucketAcl", new()
+    ///     var codepipelineBucketPab = new Aws.S3.BucketPublicAccessBlock("codepipeline_bucket_pab", new()
     ///     {
     ///         Bucket = codepipelineBucket.Id,
-    ///         Acl = "private",
+    ///         BlockPublicAcls = true,
+    ///         BlockPublicPolicy = true,
+    ///         IgnorePublicAcls = true,
+    ///         RestrictPublicBuckets = true,
     ///     });
     /// 
-    ///     var codepipelinePolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var codepipelinePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -220,21 +230,23 @@ namespace Pulumi.Aws.CodePipeline
     ///         },
     ///     });
     /// 
-    ///     var codepipelinePolicyRolePolicy = new Aws.Iam.RolePolicy("codepipelinePolicyRolePolicy", new()
+    ///     var codepipelinePolicyRolePolicy = new Aws.Iam.RolePolicy("codepipeline_policy", new()
     ///     {
+    ///         Name = "codepipeline_policy",
     ///         Role = codepipelineRole.Id,
-    ///         Policy = codepipelinePolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = codepipelinePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodePipelines using the name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
+    /// $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
     /// ```
     /// </summary>
     [AwsResourceType("aws:codepipeline/pipeline:Pipeline")]
@@ -253,10 +265,24 @@ namespace Pulumi.Aws.CodePipeline
         public Output<ImmutableArray<Outputs.PipelineArtifactStore>> ArtifactStores { get; private set; } = null!;
 
         /// <summary>
+        /// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+        /// 
+        /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+        /// </summary>
+        [Output("executionMode")]
+        public Output<string?> ExecutionMode { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the pipeline.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+        /// </summary>
+        [Output("pipelineType")]
+        public Output<string?> PipelineType { get; private set; } = null!;
 
         /// <summary>
         /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
@@ -282,6 +308,18 @@ namespace Pulumi.Aws.CodePipeline
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+        /// </summary>
+        [Output("triggers")]
+        public Output<ImmutableArray<Outputs.PipelineTrigger>> Triggers { get; private set; } = null!;
+
+        /// <summary>
+        /// A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+        /// </summary>
+        [Output("variables")]
+        public Output<ImmutableArray<Outputs.PipelineVariable>> Variables { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Pipeline resource with the given unique name, arguments, and options.
@@ -305,10 +343,6 @@ namespace Pulumi.Aws.CodePipeline
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -345,10 +379,24 @@ namespace Pulumi.Aws.CodePipeline
         }
 
         /// <summary>
+        /// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+        /// 
+        /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+        /// </summary>
+        [Input("executionMode")]
+        public Input<string>? ExecutionMode { get; set; }
+
+        /// <summary>
         /// The name of the pipeline.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+        /// </summary>
+        [Input("pipelineType")]
+        public Input<string>? PipelineType { get; set; }
 
         /// <summary>
         /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
@@ -380,6 +428,30 @@ namespace Pulumi.Aws.CodePipeline
             set => _tags = value;
         }
 
+        [Input("triggers")]
+        private InputList<Inputs.PipelineTriggerArgs>? _triggers;
+
+        /// <summary>
+        /// A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+        /// </summary>
+        public InputList<Inputs.PipelineTriggerArgs> Triggers
+        {
+            get => _triggers ?? (_triggers = new InputList<Inputs.PipelineTriggerArgs>());
+            set => _triggers = value;
+        }
+
+        [Input("variables")]
+        private InputList<Inputs.PipelineVariableArgs>? _variables;
+
+        /// <summary>
+        /// A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+        /// </summary>
+        public InputList<Inputs.PipelineVariableArgs> Variables
+        {
+            get => _variables ?? (_variables = new InputList<Inputs.PipelineVariableArgs>());
+            set => _variables = value;
+        }
+
         public PipelineArgs()
         {
         }
@@ -407,10 +479,24 @@ namespace Pulumi.Aws.CodePipeline
         }
 
         /// <summary>
+        /// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+        /// 
+        /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+        /// </summary>
+        [Input("executionMode")]
+        public Input<string>? ExecutionMode { get; set; }
+
+        /// <summary>
         /// The name of the pipeline.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+        /// </summary>
+        [Input("pipelineType")]
+        public Input<string>? PipelineType { get; set; }
 
         /// <summary>
         /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
@@ -452,11 +538,31 @@ namespace Pulumi.Aws.CodePipeline
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
+        }
+
+        [Input("triggers")]
+        private InputList<Inputs.PipelineTriggerGetArgs>? _triggers;
+
+        /// <summary>
+        /// A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+        /// </summary>
+        public InputList<Inputs.PipelineTriggerGetArgs> Triggers
+        {
+            get => _triggers ?? (_triggers = new InputList<Inputs.PipelineTriggerGetArgs>());
+            set => _triggers = value;
+        }
+
+        [Input("variables")]
+        private InputList<Inputs.PipelineVariableGetArgs>? _variables;
+
+        /// <summary>
+        /// A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+        /// </summary>
+        public InputList<Inputs.PipelineVariableGetArgs> Variables
+        {
+            get => _variables ?? (_variables = new InputList<Inputs.PipelineVariableGetArgs>());
+            set => _variables = value;
         }
 
         public PipelineState()

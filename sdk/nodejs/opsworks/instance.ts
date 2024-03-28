@@ -12,18 +12,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const my_instance = new aws.opsworks.Instance("my-instance", {
- *     stackId: aws_opsworks_stack.main.id,
- *     layerIds: [aws_opsworks_custom_layer["my-layer"].id],
+ *     stackId: main.id,
+ *     layerIds: [my_layer.id],
  *     instanceType: "t2.micro",
  *     os: "Amazon Linux 2015.09",
  *     state: "stopped",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Block devices
  *
  * Each of the `*_block_device` attributes controls a portion of the AWS
@@ -73,7 +76,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import Opsworks Instances using the instance `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
+ * $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
  * ```
  */
 export class Instance extends pulumi.CustomResource {

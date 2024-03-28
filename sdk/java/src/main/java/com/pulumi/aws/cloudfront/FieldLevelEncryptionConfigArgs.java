@@ -7,6 +7,7 @@ import com.pulumi.aws.cloudfront.inputs.FieldLevelEncryptionConfigContentTypePro
 import com.pulumi.aws.cloudfront.inputs.FieldLevelEncryptionConfigQueryArgProfileConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -152,8 +153,12 @@ public final class FieldLevelEncryptionConfigArgs extends com.pulumi.resources.R
         }
 
         public FieldLevelEncryptionConfigArgs build() {
-            $.contentTypeProfileConfig = Objects.requireNonNull($.contentTypeProfileConfig, "expected parameter 'contentTypeProfileConfig' to be non-null");
-            $.queryArgProfileConfig = Objects.requireNonNull($.queryArgProfileConfig, "expected parameter 'queryArgProfileConfig' to be non-null");
+            if ($.contentTypeProfileConfig == null) {
+                throw new MissingRequiredPropertyException("FieldLevelEncryptionConfigArgs", "contentTypeProfileConfig");
+            }
+            if ($.queryArgProfileConfig == null) {
+                throw new MissingRequiredPropertyException("FieldLevelEncryptionConfigArgs", "queryArgProfileConfig");
+            }
             return $;
         }
     }

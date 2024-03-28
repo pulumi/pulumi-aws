@@ -57,10 +57,6 @@ func NewRuleGroup(ctx *pulumi.Context,
 	if args.VisibilityConfig == nil {
 		return nil, errors.New("invalid value for required argument 'VisibilityConfig'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RuleGroup
 	err := ctx.RegisterResource("aws:wafv2/ruleGroup:RuleGroup", name, args, &resource, opts...)

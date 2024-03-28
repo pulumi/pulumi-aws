@@ -96,20 +96,22 @@ def get_container_recipes(filters: Optional[Sequence[pulumi.InputType['GetContai
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.imagebuilder.get_container_recipes(filters=[aws.imagebuilder.GetContainerRecipesFilterArgs(
+    example = aws.imagebuilder.get_container_recipes(owner="Self",
+        filters=[aws.imagebuilder.GetContainerRecipesFilterArgs(
             name="platform",
             values=["Linux"],
-        )],
-        owner="Self")
+        )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetContainerRecipesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str owner: Owner of the container recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+    :param str owner: Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -134,19 +136,21 @@ def get_container_recipes_output(filters: Optional[pulumi.Input[Optional[Sequenc
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.imagebuilder.get_container_recipes(filters=[aws.imagebuilder.GetContainerRecipesFilterArgs(
+    example = aws.imagebuilder.get_container_recipes(owner="Self",
+        filters=[aws.imagebuilder.GetContainerRecipesFilterArgs(
             name="platform",
             values=["Linux"],
-        )],
-        owner="Self")
+        )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetContainerRecipesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str owner: Owner of the container recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+    :param str owner: Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
     """
     ...

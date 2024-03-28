@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -126,43 +127,55 @@ public final class MetricAlarmMetricQueryMetric {
 
         @CustomType.Setter
         public Builder dimensions(@Nullable Map<String,String> dimensions) {
+
             this.dimensions = dimensions;
             return this;
         }
         @CustomType.Setter
         public Builder metricName(String metricName) {
-            this.metricName = Objects.requireNonNull(metricName);
+            if (metricName == null) {
+              throw new MissingRequiredPropertyException("MetricAlarmMetricQueryMetric", "metricName");
+            }
+            this.metricName = metricName;
             return this;
         }
         @CustomType.Setter
         public Builder namespace(@Nullable String namespace) {
+
             this.namespace = namespace;
             return this;
         }
         @CustomType.Setter
         public Builder period(Integer period) {
-            this.period = Objects.requireNonNull(period);
+            if (period == null) {
+              throw new MissingRequiredPropertyException("MetricAlarmMetricQueryMetric", "period");
+            }
+            this.period = period;
             return this;
         }
         @CustomType.Setter
         public Builder stat(String stat) {
-            this.stat = Objects.requireNonNull(stat);
+            if (stat == null) {
+              throw new MissingRequiredPropertyException("MetricAlarmMetricQueryMetric", "stat");
+            }
+            this.stat = stat;
             return this;
         }
         @CustomType.Setter
         public Builder unit(@Nullable String unit) {
+
             this.unit = unit;
             return this;
         }
         public MetricAlarmMetricQueryMetric build() {
-            final var o = new MetricAlarmMetricQueryMetric();
-            o.dimensions = dimensions;
-            o.metricName = metricName;
-            o.namespace = namespace;
-            o.period = period;
-            o.stat = stat;
-            o.unit = unit;
-            return o;
+            final var _resultValue = new MetricAlarmMetricQueryMetric();
+            _resultValue.dimensions = dimensions;
+            _resultValue.metricName = metricName;
+            _resultValue.namespace = namespace;
+            _resultValue.period = period;
+            _resultValue.stat = stat;
+            _resultValue.unit = unit;
+            return _resultValue;
         }
     }
 }

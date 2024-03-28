@@ -16,10 +16,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Bedrock custom model using the `id` set to the AWS region. For example:
+ * Using `pulumi import`, import Bedrock custom model using the `id` set to the AWS Region. For example:
  *
  * ```sh
- *  $ pulumi import aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration my_config us-east-1
+ * $ pulumi import aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration my_config us-east-1
  * ```
  */
 export class InvocationLoggingConfiguration extends pulumi.CustomResource {
@@ -51,7 +51,7 @@ export class InvocationLoggingConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * The logging configuration values to set. See `loggingConfig`.
+     * The logging configuration values to set.
      */
     public readonly loggingConfig!: pulumi.Output<outputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfig | undefined>;
 
@@ -83,7 +83,7 @@ export class InvocationLoggingConfiguration extends pulumi.CustomResource {
  */
 export interface InvocationLoggingConfigurationState {
     /**
-     * The logging configuration values to set. See `loggingConfig`.
+     * The logging configuration values to set.
      */
     loggingConfig?: pulumi.Input<inputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfig>;
 }
@@ -93,7 +93,7 @@ export interface InvocationLoggingConfigurationState {
  */
 export interface InvocationLoggingConfigurationArgs {
     /**
-     * The logging configuration values to set. See `loggingConfig`.
+     * The logging configuration values to set.
      */
     loggingConfig?: pulumi.Input<inputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfig>;
 }

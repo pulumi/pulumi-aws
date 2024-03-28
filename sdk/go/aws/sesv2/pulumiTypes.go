@@ -2385,13 +2385,13 @@ func (o ConfigurationSetVdmOptionsGuardianOptionsPtrOutput) OptimizedSharedDeliv
 }
 
 type ContactListTopic struct {
-	// The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+	// Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
 	DefaultSubscriptionStatus string `pulumi:"defaultSubscriptionStatus"`
-	// A description of what the topic is about, which the contact will see.
+	// Description of what the topic is about, which the contact will see.
 	Description *string `pulumi:"description"`
-	// The name of the topic the contact will see.
+	// Name of the topic the contact will see.
 	DisplayName string `pulumi:"displayName"`
-	// The name of the topic.
+	// Name of the topic.
 	//
 	// The following arguments are optional:
 	TopicName string `pulumi:"topicName"`
@@ -2409,13 +2409,13 @@ type ContactListTopicInput interface {
 }
 
 type ContactListTopicArgs struct {
-	// The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+	// Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
 	DefaultSubscriptionStatus pulumi.StringInput `pulumi:"defaultSubscriptionStatus"`
-	// A description of what the topic is about, which the contact will see.
+	// Description of what the topic is about, which the contact will see.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The name of the topic the contact will see.
+	// Name of the topic the contact will see.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// The name of the topic.
+	// Name of the topic.
 	//
 	// The following arguments are optional:
 	TopicName pulumi.StringInput `pulumi:"topicName"`
@@ -2472,22 +2472,22 @@ func (o ContactListTopicOutput) ToContactListTopicOutputWithContext(ctx context.
 	return o
 }
 
-// The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+// Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
 func (o ContactListTopicOutput) DefaultSubscriptionStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactListTopic) string { return v.DefaultSubscriptionStatus }).(pulumi.StringOutput)
 }
 
-// A description of what the topic is about, which the contact will see.
+// Description of what the topic is about, which the contact will see.
 func (o ContactListTopicOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactListTopic) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the topic the contact will see.
+// Name of the topic the contact will see.
 func (o ContactListTopicOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactListTopic) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The name of the topic.
+// Name of the topic.
 //
 // The following arguments are optional:
 func (o ContactListTopicOutput) TopicName() pulumi.StringOutput {

@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides an IAM OpenID Connect provider.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,21 +44,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new OpenIdConnectProvider(&#34;default&#34;, OpenIdConnectProviderArgs.builder()        
+ *             .url(&#34;https://accounts.google.com&#34;)
  *             .clientIdLists(&#34;266362248691-342342xasdasdasda-apps.googleusercontent.com&#34;)
  *             .thumbprintLists(&#34;cf23df2207d99a74fbe169e3eba035e633b65d94&#34;)
- *             .url(&#34;https://accounts.google.com&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IAM OpenID Connect Providers using the `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iam/openIdConnectProvider:OpenIdConnectProvider default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
+ * $ pulumi import aws:iam/openIdConnectProvider:OpenIdConnectProvider default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
  * ```
  * 
  */
@@ -183,9 +186,6 @@ public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

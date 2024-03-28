@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,13 +29,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
+//			_, err := chime.NewVoiceConnector(ctx, "default", &chime.VoiceConnectorArgs{
+//				Name:              pulumi.String("vc-name-test"),
 //				RequireEncryption: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = chime.NewVoiceConnectorTermination(ctx, "defaultVoiceConnectorTermination", &chime.VoiceConnectorTerminationArgs{
+//			_, err = chime.NewVoiceConnectorTermination(ctx, "default", &chime.VoiceConnectorTerminationArgs{
 //				Disabled: pulumi.Bool(false),
 //				CpsLimit: pulumi.Int(1),
 //				CidrAllowLists: pulumi.StringArray{
@@ -44,7 +46,7 @@ import (
 //					pulumi.String("US"),
 //					pulumi.String("CA"),
 //				},
-//				VoiceConnectorId: defaultVoiceConnector.ID(),
+//				VoiceConnectorId: _default.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -54,15 +56,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Chime Voice Connector Termination using the `voice_connector_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:chime/voiceConnectorTermination:VoiceConnectorTermination default abcdef1ghij2klmno3pqr4
-//
+// $ pulumi import aws:chime/voiceConnectorTermination:VoiceConnectorTermination default abcdef1ghij2klmno3pqr4
 // ```
 type VoiceConnectorTermination struct {
 	pulumi.CustomResourceState

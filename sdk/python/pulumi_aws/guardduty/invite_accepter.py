@@ -102,33 +102,30 @@ class InviteAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.Provider("primary")
-        member = aws.Provider("member")
-        primary_detector = aws.guardduty.Detector("primaryDetector", opts=pulumi.ResourceOptions(provider=aws["primary"]))
-        member_detector = aws.guardduty.Detector("memberDetector", opts=pulumi.ResourceOptions(provider=aws["member"]))
-        member_member = aws.guardduty.Member("memberMember",
-            account_id=member_detector.account_id,
-            detector_id=primary_detector.id,
-            email="required@example.com",
-            invite=True,
-            opts=pulumi.ResourceOptions(provider=aws["primary"]))
-        member_invite_accepter = aws.guardduty.InviteAccepter("memberInviteAccepter",
+        primary = aws.guardduty.Detector("primary")
+        member_detector = aws.guardduty.Detector("member")
+        member = aws.guardduty.InviteAccepter("member",
             detector_id=member_detector.id,
-            master_account_id=primary_detector.account_id,
-            opts=pulumi.ResourceOptions(provider=aws["member"],
-                depends_on=[member_member]))
+            master_account_id=primary.account_id)
+        member_member = aws.guardduty.Member("member",
+            account_id=member_detector.account_id,
+            detector_id=primary.id,
+            email="required@example.com",
+            invite=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_guardduty_invite_accepter` using the member GuardDuty detector ID. For example:
 
         ```sh
-         $ pulumi import aws:guardduty/inviteAccepter:InviteAccepter member 00b00fd5aecc0ab60a708659477e9617
+        $ pulumi import aws:guardduty/inviteAccepter:InviteAccepter member 00b00fd5aecc0ab60a708659477e9617
         ```
 
         :param str resource_name: The name of the resource.
@@ -147,33 +144,30 @@ class InviteAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.Provider("primary")
-        member = aws.Provider("member")
-        primary_detector = aws.guardduty.Detector("primaryDetector", opts=pulumi.ResourceOptions(provider=aws["primary"]))
-        member_detector = aws.guardduty.Detector("memberDetector", opts=pulumi.ResourceOptions(provider=aws["member"]))
-        member_member = aws.guardduty.Member("memberMember",
-            account_id=member_detector.account_id,
-            detector_id=primary_detector.id,
-            email="required@example.com",
-            invite=True,
-            opts=pulumi.ResourceOptions(provider=aws["primary"]))
-        member_invite_accepter = aws.guardduty.InviteAccepter("memberInviteAccepter",
+        primary = aws.guardduty.Detector("primary")
+        member_detector = aws.guardduty.Detector("member")
+        member = aws.guardduty.InviteAccepter("member",
             detector_id=member_detector.id,
-            master_account_id=primary_detector.account_id,
-            opts=pulumi.ResourceOptions(provider=aws["member"],
-                depends_on=[member_member]))
+            master_account_id=primary.account_id)
+        member_member = aws.guardduty.Member("member",
+            account_id=member_detector.account_id,
+            detector_id=primary.id,
+            email="required@example.com",
+            invite=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_guardduty_invite_accepter` using the member GuardDuty detector ID. For example:
 
         ```sh
-         $ pulumi import aws:guardduty/inviteAccepter:InviteAccepter member 00b00fd5aecc0ab60a708659477e9617
+        $ pulumi import aws:guardduty/inviteAccepter:InviteAccepter member 00b00fd5aecc0ab60a708659477e9617
         ```
 
         :param str resource_name: The name of the resource.

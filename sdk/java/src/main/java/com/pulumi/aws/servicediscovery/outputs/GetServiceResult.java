@@ -7,6 +7,7 @@ import com.pulumi.aws.servicediscovery.outputs.GetServiceDnsConfig;
 import com.pulumi.aws.servicediscovery.outputs.GetServiceHealthCheckConfig;
 import com.pulumi.aws.servicediscovery.outputs.GetServiceHealthCheckCustomConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -174,17 +175,26 @@ public final class GetServiceResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder dnsConfigs(List<GetServiceDnsConfig> dnsConfigs) {
-            this.dnsConfigs = Objects.requireNonNull(dnsConfigs);
+            if (dnsConfigs == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "dnsConfigs");
+            }
+            this.dnsConfigs = dnsConfigs;
             return this;
         }
         public Builder dnsConfigs(GetServiceDnsConfig... dnsConfigs) {
@@ -192,7 +202,10 @@ public final class GetServiceResult {
         }
         @CustomType.Setter
         public Builder healthCheckConfigs(List<GetServiceHealthCheckConfig> healthCheckConfigs) {
-            this.healthCheckConfigs = Objects.requireNonNull(healthCheckConfigs);
+            if (healthCheckConfigs == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "healthCheckConfigs");
+            }
+            this.healthCheckConfigs = healthCheckConfigs;
             return this;
         }
         public Builder healthCheckConfigs(GetServiceHealthCheckConfig... healthCheckConfigs) {
@@ -200,7 +213,10 @@ public final class GetServiceResult {
         }
         @CustomType.Setter
         public Builder healthCheckCustomConfigs(List<GetServiceHealthCheckCustomConfig> healthCheckCustomConfigs) {
-            this.healthCheckCustomConfigs = Objects.requireNonNull(healthCheckCustomConfigs);
+            if (healthCheckCustomConfigs == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "healthCheckCustomConfigs");
+            }
+            this.healthCheckCustomConfigs = healthCheckCustomConfigs;
             return this;
         }
         public Builder healthCheckCustomConfigs(GetServiceHealthCheckCustomConfig... healthCheckCustomConfigs) {
@@ -208,42 +224,55 @@ public final class GetServiceResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder namespaceId(String namespaceId) {
-            this.namespaceId = Objects.requireNonNull(namespaceId);
+            if (namespaceId == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "namespaceId");
+            }
+            this.namespaceId = namespaceId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder tagsAll(Map<String,String> tagsAll) {
-            this.tagsAll = Objects.requireNonNull(tagsAll);
+            if (tagsAll == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "tagsAll");
+            }
+            this.tagsAll = tagsAll;
             return this;
         }
         public GetServiceResult build() {
-            final var o = new GetServiceResult();
-            o.arn = arn;
-            o.description = description;
-            o.dnsConfigs = dnsConfigs;
-            o.healthCheckConfigs = healthCheckConfigs;
-            o.healthCheckCustomConfigs = healthCheckCustomConfigs;
-            o.id = id;
-            o.name = name;
-            o.namespaceId = namespaceId;
-            o.tags = tags;
-            o.tagsAll = tagsAll;
-            return o;
+            final var _resultValue = new GetServiceResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.dnsConfigs = dnsConfigs;
+            _resultValue.healthCheckConfigs = healthCheckConfigs;
+            _resultValue.healthCheckCustomConfigs = healthCheckCustomConfigs;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.namespaceId = namespaceId;
+            _resultValue.tags = tags;
+            _resultValue.tagsAll = tagsAll;
+            return _resultValue;
         }
     }
 }

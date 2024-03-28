@@ -14,35 +14,38 @@ __all__ = ['EnvironmentEC2Args', 'EnvironmentEC2']
 @pulumi.input_type
 class EnvironmentEC2Args:
     def __init__(__self__, *,
+                 image_id: pulumi.Input[str],
                  instance_type: pulumi.Input[str],
                  automatic_stop_time_minutes: Optional[pulumi.Input[int]] = None,
                  connection_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 image_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner_arn: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a EnvironmentEC2 resource.
-        :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g., `t2.micro`.
-        :param pulumi.Input[int] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
-        :param pulumi.Input[str] connection_type: The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
-        :param pulumi.Input[str] description: The description of the environment.
         :param pulumi.Input[str] image_id: The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
                * `amazonlinux-1-x86_64`
                * `amazonlinux-2-x86_64`
+               * `amazonlinux-2023-x86_64`
                * `ubuntu-18.04-x86_64`
                * `ubuntu-22.04-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
+        :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g., `t2.micro`.
+        :param pulumi.Input[int] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
+        :param pulumi.Input[str] connection_type: The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
+        :param pulumi.Input[str] description: The description of the environment.
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] owner_arn: The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
         :param pulumi.Input[str] subnet_id: The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        pulumi.set(__self__, "image_id", image_id)
         pulumi.set(__self__, "instance_type", instance_type)
         if automatic_stop_time_minutes is not None:
             pulumi.set(__self__, "automatic_stop_time_minutes", automatic_stop_time_minutes)
@@ -50,8 +53,6 @@ class EnvironmentEC2Args:
             pulumi.set(__self__, "connection_type", connection_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if image_id is not None:
-            pulumi.set(__self__, "image_id", image_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if owner_arn is not None:
@@ -60,6 +61,28 @@ class EnvironmentEC2Args:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="imageId")
+    def image_id(self) -> pulumi.Input[str]:
+        """
+        The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+        * `amazonlinux-1-x86_64`
+        * `amazonlinux-2-x86_64`
+        * `amazonlinux-2023-x86_64`
+        * `ubuntu-18.04-x86_64`
+        * `ubuntu-22.04-x86_64`
+        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
+        * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+        * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
+        """
+        return pulumi.get(self, "image_id")
+
+    @image_id.setter
+    def image_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_id", value)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -108,26 +131,6 @@ class EnvironmentEC2Args:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="imageId")
-    def image_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-        * `amazonlinux-1-x86_64`
-        * `amazonlinux-2-x86_64`
-        * `ubuntu-18.04-x86_64`
-        * `ubuntu-22.04-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
-        """
-        return pulumi.get(self, "image_id")
-
-    @image_id.setter
-    def image_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "image_id", value)
 
     @property
     @pulumi.getter
@@ -202,10 +205,12 @@ class _EnvironmentEC2State:
         :param pulumi.Input[str] image_id: The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
                * `amazonlinux-1-x86_64`
                * `amazonlinux-2-x86_64`
+               * `amazonlinux-2023-x86_64`
                * `ubuntu-18.04-x86_64`
                * `ubuntu-22.04-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g., `t2.micro`.
@@ -214,7 +219,7 @@ class _EnvironmentEC2State:
         :param pulumi.Input[str] subnet_id: The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] type: The type of the environment (e.g., `ssh` or `ec2`)
+        :param pulumi.Input[str] type: The type of the environment (e.g., `ssh` or `ec2`).
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -299,10 +304,12 @@ class _EnvironmentEC2State:
         The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
         * `amazonlinux-1-x86_64`
         * `amazonlinux-2-x86_64`
+        * `amazonlinux-2023-x86_64`
         * `ubuntu-18.04-x86_64`
         * `ubuntu-22.04-x86_64`
         * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
         * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
         * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
         * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         """
@@ -391,7 +398,7 @@ class _EnvironmentEC2State:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the environment (e.g., `ssh` or `ec2`)
+        The type of the environment (e.g., `ssh` or `ec2`).
         """
         return pulumi.get(self, "type")
 
@@ -422,15 +429,21 @@ class EnvironmentEC2(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
+        example = aws.cloud9.EnvironmentEC2("example",
+            instance_type="t2.micro",
+            name="example-env",
+            image_id="amazonlinux-2023-x86_64")
         ```
+        <!--End PulumiCodeChooser -->
 
         Get the URL of the Cloud9 environment after creation:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -440,11 +453,13 @@ class EnvironmentEC2(pulumi.CustomResource):
             name="tag:aws:cloud9:environment",
             values=[example.id],
         )])
-        pulumi.export("cloud9Url", example.id.apply(lambda id: f"https://{var['region']}.console.aws.amazon.com/cloud9/ide/{id}"))
+        pulumi.export("cloud9Url", example.id.apply(lambda id: f"https://{region}.console.aws.amazon.com/cloud9/ide/{id}"))
         ```
+        <!--End PulumiCodeChooser -->
 
         Allocate a static IP to the Cloud9 environment:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -454,11 +469,12 @@ class EnvironmentEC2(pulumi.CustomResource):
             name="tag:aws:cloud9:environment",
             values=[example.id],
         )])
-        cloud9_eip = aws.ec2.Eip("cloud9Eip",
+        cloud9_eip = aws.ec2.Eip("cloud9_eip",
             instance=cloud9_instance.id,
             domain="vpc")
         pulumi.export("cloud9PublicIp", cloud9_eip.public_ip)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -468,10 +484,12 @@ class EnvironmentEC2(pulumi.CustomResource):
         :param pulumi.Input[str] image_id: The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
                * `amazonlinux-1-x86_64`
                * `amazonlinux-2-x86_64`
+               * `amazonlinux-2023-x86_64`
                * `ubuntu-18.04-x86_64`
                * `ubuntu-22.04-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g., `t2.micro`.
@@ -493,15 +511,21 @@ class EnvironmentEC2(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
+        example = aws.cloud9.EnvironmentEC2("example",
+            instance_type="t2.micro",
+            name="example-env",
+            image_id="amazonlinux-2023-x86_64")
         ```
+        <!--End PulumiCodeChooser -->
 
         Get the URL of the Cloud9 environment after creation:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -511,11 +535,13 @@ class EnvironmentEC2(pulumi.CustomResource):
             name="tag:aws:cloud9:environment",
             values=[example.id],
         )])
-        pulumi.export("cloud9Url", example.id.apply(lambda id: f"https://{var['region']}.console.aws.amazon.com/cloud9/ide/{id}"))
+        pulumi.export("cloud9Url", example.id.apply(lambda id: f"https://{region}.console.aws.amazon.com/cloud9/ide/{id}"))
         ```
+        <!--End PulumiCodeChooser -->
 
         Allocate a static IP to the Cloud9 environment:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -525,11 +551,12 @@ class EnvironmentEC2(pulumi.CustomResource):
             name="tag:aws:cloud9:environment",
             values=[example.id],
         )])
-        cloud9_eip = aws.ec2.Eip("cloud9Eip",
+        cloud9_eip = aws.ec2.Eip("cloud9_eip",
             instance=cloud9_instance.id,
             domain="vpc")
         pulumi.export("cloud9PublicIp", cloud9_eip.public_ip)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param EnvironmentEC2Args args: The arguments to use to populate this resource's properties.
@@ -567,6 +594,8 @@ class EnvironmentEC2(pulumi.CustomResource):
             __props__.__dict__["automatic_stop_time_minutes"] = automatic_stop_time_minutes
             __props__.__dict__["connection_type"] = connection_type
             __props__.__dict__["description"] = description
+            if image_id is None and not opts.urn:
+                raise TypeError("Missing required property 'image_id'")
             __props__.__dict__["image_id"] = image_id
             if instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_type'")
@@ -578,8 +607,6 @@ class EnvironmentEC2(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["type"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EnvironmentEC2, __self__).__init__(
             'aws:cloud9/environmentEC2:EnvironmentEC2',
             resource_name,
@@ -616,10 +643,12 @@ class EnvironmentEC2(pulumi.CustomResource):
         :param pulumi.Input[str] image_id: The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
                * `amazonlinux-1-x86_64`
                * `amazonlinux-2-x86_64`
+               * `amazonlinux-2023-x86_64`
                * `ubuntu-18.04-x86_64`
                * `ubuntu-22.04-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g., `t2.micro`.
@@ -628,7 +657,7 @@ class EnvironmentEC2(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_id: The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] type: The type of the environment (e.g., `ssh` or `ec2`)
+        :param pulumi.Input[str] type: The type of the environment (e.g., `ssh` or `ec2`).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -682,15 +711,17 @@ class EnvironmentEC2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageId")
-    def image_id(self) -> pulumi.Output[Optional[str]]:
+    def image_id(self) -> pulumi.Output[str]:
         """
         The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
         * `amazonlinux-1-x86_64`
         * `amazonlinux-2-x86_64`
+        * `amazonlinux-2023-x86_64`
         * `ubuntu-18.04-x86_64`
         * `ubuntu-22.04-x86_64`
         * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
         * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
         * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
         * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         """
@@ -751,7 +782,7 @@ class EnvironmentEC2(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the environment (e.g., `ssh` or `ec2`)
+        The type of the environment (e.g., `ssh` or `ec2`).
         """
         return pulumi.get(self, "type")
 

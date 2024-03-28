@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Information about RDS orderable DB instances and valid parameter combinations.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -31,20 +30,22 @@ namespace Pulumi.Aws.Rds
         ///         Engine = "mysql",
         ///         EngineVersion = "5.7.22",
         ///         LicenseModel = "general-public-license",
+        ///         StorageType = "standard",
         ///         PreferredInstanceClasses = new[]
         ///         {
         ///             "db.r6.xlarge",
         ///             "db.m4.large",
         ///             "db.t3.small",
         ///         },
-        ///         StorageType = "standard",
         ///     });
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -73,8 +74,7 @@ namespace Pulumi.Aws.Rds
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetOrderableDbInstanceResult> InvokeAsync(GetOrderableDbInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrderableDbInstanceResult>("aws:rds/getOrderableDbInstance:getOrderableDbInstance", args ?? new GetOrderableDbInstanceArgs(), options.WithDefaults());
@@ -82,10 +82,9 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Information about RDS orderable DB instances and valid parameter combinations.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -99,20 +98,22 @@ namespace Pulumi.Aws.Rds
         ///         Engine = "mysql",
         ///         EngineVersion = "5.7.22",
         ///         LicenseModel = "general-public-license",
+        ///         StorageType = "standard",
         ///         PreferredInstanceClasses = new[]
         ///         {
         ///             "db.r6.xlarge",
         ///             "db.m4.large",
         ///             "db.t3.small",
         ///         },
-        ///         StorageType = "standard",
         ///     });
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -141,8 +142,7 @@ namespace Pulumi.Aws.Rds
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetOrderableDbInstanceResult> Invoke(GetOrderableDbInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrderableDbInstanceResult>("aws:rds/getOrderableDbInstance:getOrderableDbInstance", args ?? new GetOrderableDbInstanceInvokeArgs(), options.WithDefaults());
@@ -164,7 +164,13 @@ namespace Pulumi.Aws.Rds
         public string Engine { get; set; } = null!;
 
         /// <summary>
-        /// Version of the DB engine. If none is provided, the AWS-defined default version will be used.
+        /// When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. You must use `engine_latest_version` with `preferred_instance_classes` and/or `preferred_engine_versions`. Using `engine_latest_version` will avoid `multiple RDS DB Instance Classes` errors. If you use `engine_latest_version` with `preferred_instance_classes`, the data source returns the latest version for the _first_ matching instance class (instance class priority). **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines, using `engine_latest_version` may _not_ return the latest version in every situation.
+        /// </summary>
+        [Input("engineLatestVersion")]
+        public bool? EngineLatestVersion { get; set; }
+
+        /// <summary>
+        /// Version of the DB engine. If none is provided, the data source tries to use the AWS-defined default version that matches any other criteria.
         /// </summary>
         [Input("engineVersion")]
         public string? EngineVersion { get; set; }
@@ -185,7 +191,7 @@ namespace Pulumi.Aws.Rds
         private List<string>? _preferredEngineVersions;
 
         /// <summary>
-        /// Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+        /// Ordered list of preferred RDS DB instance engine versions. When `engine_latest_version` is not set, the data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. **CAUTION:** We don't recommend using `preferred_engine_versions` without `preferred_instance_classes` since the data source returns an arbitrary `instance_class` based on the first one AWS returns that matches the engine version and any other criteria.
         /// </summary>
         public List<string> PreferredEngineVersions
         {
@@ -197,7 +203,7 @@ namespace Pulumi.Aws.Rds
         private List<string>? _preferredInstanceClasses;
 
         /// <summary>
-        /// Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+        /// Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. If you use `preferred_instance_classes` without `preferred_engine_versions` or `engine_latest_version`, the data source returns an arbitrary `engine_version` based on the first one AWS returns matching the instance class and any other criteria.
         /// </summary>
         public List<string> PreferredInstanceClasses
         {
@@ -206,10 +212,46 @@ namespace Pulumi.Aws.Rds
         }
 
         /// <summary>
+        /// Whether a DB instance can have a read replica.
+        /// </summary>
+        [Input("readReplicaCapable")]
+        public bool? ReadReplicaCapable { get; set; }
+
+        /// <summary>
         /// Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
         /// </summary>
         [Input("storageType")]
         public string? StorageType { get; set; }
+
+        [Input("supportedEngineModes")]
+        private List<string>? _supportedEngineModes;
+
+        /// <summary>
+        /// Use to limit results to engine modes such as `provisioned`.
+        /// </summary>
+        public List<string> SupportedEngineModes
+        {
+            get => _supportedEngineModes ?? (_supportedEngineModes = new List<string>());
+            set => _supportedEngineModes = value;
+        }
+
+        [Input("supportedNetworkTypes")]
+        private List<string>? _supportedNetworkTypes;
+
+        /// <summary>
+        /// Use to limit results to network types `IPV4` or `DUAL`.
+        /// </summary>
+        public List<string> SupportedNetworkTypes
+        {
+            get => _supportedNetworkTypes ?? (_supportedNetworkTypes = new List<string>());
+            set => _supportedNetworkTypes = value;
+        }
+
+        /// <summary>
+        /// Whether to limit results to instances that support clusters.
+        /// </summary>
+        [Input("supportsClusters")]
+        public bool? SupportsClusters { get; set; }
 
         /// <summary>
         /// Enable this to ensure a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
@@ -240,6 +282,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("supportsKerberosAuthentication")]
         public bool? SupportsKerberosAuthentication { get; set; }
+
+        /// <summary>
+        /// Whether to limit results to instances that are multi-AZ capable.
+        /// </summary>
+        [Input("supportsMultiAz")]
+        public bool? SupportsMultiAz { get; set; }
 
         /// <summary>
         /// Enable this to ensure a DB instance supports Performance Insights.
@@ -286,7 +334,13 @@ namespace Pulumi.Aws.Rds
         public Input<string> Engine { get; set; } = null!;
 
         /// <summary>
-        /// Version of the DB engine. If none is provided, the AWS-defined default version will be used.
+        /// When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. You must use `engine_latest_version` with `preferred_instance_classes` and/or `preferred_engine_versions`. Using `engine_latest_version` will avoid `multiple RDS DB Instance Classes` errors. If you use `engine_latest_version` with `preferred_instance_classes`, the data source returns the latest version for the _first_ matching instance class (instance class priority). **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines, using `engine_latest_version` may _not_ return the latest version in every situation.
+        /// </summary>
+        [Input("engineLatestVersion")]
+        public Input<bool>? EngineLatestVersion { get; set; }
+
+        /// <summary>
+        /// Version of the DB engine. If none is provided, the data source tries to use the AWS-defined default version that matches any other criteria.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -307,7 +361,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _preferredEngineVersions;
 
         /// <summary>
-        /// Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+        /// Ordered list of preferred RDS DB instance engine versions. When `engine_latest_version` is not set, the data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. **CAUTION:** We don't recommend using `preferred_engine_versions` without `preferred_instance_classes` since the data source returns an arbitrary `instance_class` based on the first one AWS returns that matches the engine version and any other criteria.
         /// </summary>
         public InputList<string> PreferredEngineVersions
         {
@@ -319,7 +373,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _preferredInstanceClasses;
 
         /// <summary>
-        /// Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+        /// Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. If you use `preferred_instance_classes` without `preferred_engine_versions` or `engine_latest_version`, the data source returns an arbitrary `engine_version` based on the first one AWS returns matching the instance class and any other criteria.
         /// </summary>
         public InputList<string> PreferredInstanceClasses
         {
@@ -328,10 +382,46 @@ namespace Pulumi.Aws.Rds
         }
 
         /// <summary>
+        /// Whether a DB instance can have a read replica.
+        /// </summary>
+        [Input("readReplicaCapable")]
+        public Input<bool>? ReadReplicaCapable { get; set; }
+
+        /// <summary>
         /// Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
+
+        [Input("supportedEngineModes")]
+        private InputList<string>? _supportedEngineModes;
+
+        /// <summary>
+        /// Use to limit results to engine modes such as `provisioned`.
+        /// </summary>
+        public InputList<string> SupportedEngineModes
+        {
+            get => _supportedEngineModes ?? (_supportedEngineModes = new InputList<string>());
+            set => _supportedEngineModes = value;
+        }
+
+        [Input("supportedNetworkTypes")]
+        private InputList<string>? _supportedNetworkTypes;
+
+        /// <summary>
+        /// Use to limit results to network types `IPV4` or `DUAL`.
+        /// </summary>
+        public InputList<string> SupportedNetworkTypes
+        {
+            get => _supportedNetworkTypes ?? (_supportedNetworkTypes = new InputList<string>());
+            set => _supportedNetworkTypes = value;
+        }
+
+        /// <summary>
+        /// Whether to limit results to instances that support clusters.
+        /// </summary>
+        [Input("supportsClusters")]
+        public Input<bool>? SupportsClusters { get; set; }
 
         /// <summary>
         /// Enable this to ensure a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
@@ -362,6 +452,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("supportsKerberosAuthentication")]
         public Input<bool>? SupportsKerberosAuthentication { get; set; }
+
+        /// <summary>
+        /// Whether to limit results to instances that are multi-AZ capable.
+        /// </summary>
+        [Input("supportsMultiAz")]
+        public Input<bool>? SupportsMultiAz { get; set; }
 
         /// <summary>
         /// Enable this to ensure a DB instance supports Performance Insights.
@@ -403,6 +499,7 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         public readonly string Engine;
+        public readonly bool? EngineLatestVersion;
         public readonly string EngineVersion;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -444,24 +541,17 @@ namespace Pulumi.Aws.Rds
         public readonly bool OutpostCapable;
         public readonly ImmutableArray<string> PreferredEngineVersions;
         public readonly ImmutableArray<string> PreferredInstanceClasses;
-        /// <summary>
-        /// Whether a DB instance can have a read replica.
-        /// </summary>
         public readonly bool ReadReplicaCapable;
         public readonly string StorageType;
-        /// <summary>
-        /// A list of the supported DB engine modes.
-        /// </summary>
         public readonly ImmutableArray<string> SupportedEngineModes;
-        /// <summary>
-        /// The network types supported by the DB instance (`IPV4` or `DUAL`).
-        /// </summary>
         public readonly ImmutableArray<string> SupportedNetworkTypes;
+        public readonly bool SupportsClusters;
         public readonly bool SupportsEnhancedMonitoring;
         public readonly bool SupportsGlobalDatabases;
         public readonly bool SupportsIamDatabaseAuthentication;
         public readonly bool SupportsIops;
         public readonly bool SupportsKerberosAuthentication;
+        public readonly bool SupportsMultiAz;
         public readonly bool SupportsPerformanceInsights;
         public readonly bool SupportsStorageAutoscaling;
         public readonly bool SupportsStorageEncryption;
@@ -474,6 +564,8 @@ namespace Pulumi.Aws.Rds
             ImmutableArray<string> availabilityZones,
 
             string engine,
+
+            bool? engineLatestVersion,
 
             string engineVersion,
 
@@ -511,6 +603,8 @@ namespace Pulumi.Aws.Rds
 
             ImmutableArray<string> supportedNetworkTypes,
 
+            bool supportsClusters,
+
             bool supportsEnhancedMonitoring,
 
             bool supportsGlobalDatabases,
@@ -520,6 +614,8 @@ namespace Pulumi.Aws.Rds
             bool supportsIops,
 
             bool supportsKerberosAuthentication,
+
+            bool supportsMultiAz,
 
             bool supportsPerformanceInsights,
 
@@ -532,6 +628,7 @@ namespace Pulumi.Aws.Rds
             AvailabilityZoneGroup = availabilityZoneGroup;
             AvailabilityZones = availabilityZones;
             Engine = engine;
+            EngineLatestVersion = engineLatestVersion;
             EngineVersion = engineVersion;
             Id = id;
             InstanceClass = instanceClass;
@@ -550,11 +647,13 @@ namespace Pulumi.Aws.Rds
             StorageType = storageType;
             SupportedEngineModes = supportedEngineModes;
             SupportedNetworkTypes = supportedNetworkTypes;
+            SupportsClusters = supportsClusters;
             SupportsEnhancedMonitoring = supportsEnhancedMonitoring;
             SupportsGlobalDatabases = supportsGlobalDatabases;
             SupportsIamDatabaseAuthentication = supportsIamDatabaseAuthentication;
             SupportsIops = supportsIops;
             SupportsKerberosAuthentication = supportsKerberosAuthentication;
+            SupportsMultiAz = supportsMultiAz;
             SupportsPerformanceInsights = supportsPerformanceInsights;
             SupportsStorageAutoscaling = supportsStorageAutoscaling;
             SupportsStorageEncryption = supportsStorageEncryption;

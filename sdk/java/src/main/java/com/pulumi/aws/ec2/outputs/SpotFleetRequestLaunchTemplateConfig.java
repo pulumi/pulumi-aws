@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.aws.ec2.outputs.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification;
 import com.pulumi.aws.ec2.outputs.SpotFleetRequestLaunchTemplateConfigOverride;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import javax.annotation.Nullable;
@@ -59,11 +60,15 @@ public final class SpotFleetRequestLaunchTemplateConfig {
 
         @CustomType.Setter
         public Builder launchTemplateSpecification(SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification launchTemplateSpecification) {
-            this.launchTemplateSpecification = Objects.requireNonNull(launchTemplateSpecification);
+            if (launchTemplateSpecification == null) {
+              throw new MissingRequiredPropertyException("SpotFleetRequestLaunchTemplateConfig", "launchTemplateSpecification");
+            }
+            this.launchTemplateSpecification = launchTemplateSpecification;
             return this;
         }
         @CustomType.Setter
         public Builder overrides(@Nullable List<SpotFleetRequestLaunchTemplateConfigOverride> overrides) {
+
             this.overrides = overrides;
             return this;
         }
@@ -71,10 +76,10 @@ public final class SpotFleetRequestLaunchTemplateConfig {
             return overrides(List.of(overrides));
         }
         public SpotFleetRequestLaunchTemplateConfig build() {
-            final var o = new SpotFleetRequestLaunchTemplateConfig();
-            o.launchTemplateSpecification = launchTemplateSpecification;
-            o.overrides = overrides;
-            return o;
+            final var _resultValue = new SpotFleetRequestLaunchTemplateConfig();
+            _resultValue.launchTemplateSpecification = launchTemplateSpecification;
+            _resultValue.overrides = overrides;
+            return _resultValue;
         }
     }
 }

@@ -15,8 +15,10 @@ import (
 // Provides an Amazon MSK Connect Worker Configuration Resource.
 //
 // ## Example Usage
+//
 // ### Basic configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +32,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := mskconnect.NewWorkerConfiguration(ctx, "example", &mskconnect.WorkerConfigurationArgs{
-//				PropertiesFileContent: pulumi.String("key.converter=org.apache.kafka.connect.storage.StringConverter\nvalue.converter=org.apache.kafka.connect.storage.StringConverter\n\n"),
+//				Name:                  pulumi.String("example"),
+//				PropertiesFileContent: pulumi.String("key.converter=org.apache.kafka.connect.storage.StringConverter\nvalue.converter=org.apache.kafka.connect.storage.StringConverter\n"),
 //			})
 //			if err != nil {
 //				return err
@@ -40,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import MSK Connect Worker Configuration using the plugin's `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'
-//
+// $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'
 // ```
 type WorkerConfiguration struct {
 	pulumi.CustomResourceState

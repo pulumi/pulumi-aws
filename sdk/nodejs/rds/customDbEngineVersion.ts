@@ -8,19 +8,21 @@ import * as utilities from "../utilities";
  * Provides an custom engine version (CEV) resource for Amazon RDS Custom. For additional information, see [Working with CEVs for RDS Custom for Oracle](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html) and [Working with CEVs for RDS Custom for SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev-sqlserver.html) in the the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html).
  *
  * ## Example Usage
+ *
  * ### RDS Custom for Oracle Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {description: "KMS symmetric key for RDS Custom for Oracle"});
- * const exampleCustomDbEngineVersion = new aws.rds.CustomDbEngineVersion("exampleCustomDbEngineVersion", {
+ * const example = new aws.kms.Key("example", {description: "KMS symmetric key for RDS Custom for Oracle"});
+ * const exampleCustomDbEngineVersion = new aws.rds.CustomDbEngineVersion("example", {
  *     databaseInstallationFilesS3BucketName: "DOC-EXAMPLE-BUCKET",
  *     databaseInstallationFilesS3Prefix: "1915_GI/",
  *     engine: "custom-oracle-ee-cdb",
  *     engineVersion: "19.cdb_cev1",
- *     kmsKeyId: exampleKey.arn,
+ *     kmsKeyId: example.arn,
  *     manifest: `  {
  * 	"databaseInstallationFileNames":["V982063-01.zip"]
  *   }
@@ -31,36 +33,38 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### RDS Custom for Oracle External Manifest Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as crypto from "crypto";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * function computeFilebase64sha256(path string) string {
- * 	const fileData = Buffer.from(fs.readFileSync(path), 'binary')
- * 	return crypto.createHash('sha256').update(fileData).digest('hex')
- * }
- *
- * const exampleKey = new aws.kms.Key("exampleKey", {description: "KMS symmetric key for RDS Custom for Oracle"});
- * const exampleCustomDbEngineVersion = new aws.rds.CustomDbEngineVersion("exampleCustomDbEngineVersion", {
+ * const example = new aws.kms.Key("example", {description: "KMS symmetric key for RDS Custom for Oracle"});
+ * const exampleCustomDbEngineVersion = new aws.rds.CustomDbEngineVersion("example", {
  *     databaseInstallationFilesS3BucketName: "DOC-EXAMPLE-BUCKET",
  *     databaseInstallationFilesS3Prefix: "1915_GI/",
  *     engine: "custom-oracle-ee-cdb",
  *     engineVersion: "19.cdb_cev1",
- *     kmsKeyId: exampleKey.arn,
+ *     kmsKeyId: example.arn,
  *     filename: "manifest_1915_GI.json",
- *     manifestHash: computeFilebase64sha256(manifest_1915_GI.json),
+ *     manifestHash: std.filebase64sha256({
+ *         input: json,
+ *     }).then(invoke => invoke.result),
  *     tags: {
  *         Name: "example",
  *         Key: "value",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### RDS Custom for SQL Server Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -72,13 +76,17 @@ import * as utilities from "../utilities";
  *     sourceImageId: "ami-0aa12345678a12ab1",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### RDS Custom for SQL Server Usage with AMI from another region
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.AmiCopy("example", {
+ *     name: "sqlserver-se-2019-15.00.4249.2",
  *     description: "A copy of ami-xxxxxxxx",
  *     sourceAmiId: "ami-xxxxxxxx",
  *     sourceAmiRegion: "us-east-1",
@@ -90,13 +98,14 @@ import * as utilities from "../utilities";
  *     sourceImageId: example.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import custom engine versions for Amazon RDS custom using the `engine` and `engine_version` separated by a colon (`:`). For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/customDbEngineVersion:CustomDbEngineVersion example custom-oracle-ee-cdb:19.cdb_cev1
+ * $ pulumi import aws:rds/customDbEngineVersion:CustomDbEngineVersion example custom-oracle-ee-cdb:19.cdb_cev1
  * ```
  */
 export class CustomDbEngineVersion extends pulumi.CustomResource {
@@ -267,8 +276,6 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(CustomDbEngineVersion.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,6 +34,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewAccountSettingDefault(ctx, "test", &ecs.AccountSettingDefaultArgs{
+//				Name:  pulumi.String("taskLongArnFormat"),
 //				Value: pulumi.String("enabled"),
 //			})
 //			if err != nil {
@@ -43,23 +45,22 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ECS Account Setting defaults using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
-//
+// $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
 // ```
 type AccountSettingDefault struct {
 	pulumi.CustomResourceState
 
-	// Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+	// Name of the account setting to set.
 	Name         pulumi.StringOutput `pulumi:"name"`
 	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
-	// State of the setting. Valid values are `enabled` and `disabled`.
+	// State of the setting.
 	Value pulumi.StringOutput `pulumi:"value"`
 }
 
@@ -96,18 +97,18 @@ func GetAccountSettingDefault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountSettingDefault resources.
 type accountSettingDefaultState struct {
-	// Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+	// Name of the account setting to set.
 	Name         *string `pulumi:"name"`
 	PrincipalArn *string `pulumi:"principalArn"`
-	// State of the setting. Valid values are `enabled` and `disabled`.
+	// State of the setting.
 	Value *string `pulumi:"value"`
 }
 
 type AccountSettingDefaultState struct {
-	// Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+	// Name of the account setting to set.
 	Name         pulumi.StringPtrInput
 	PrincipalArn pulumi.StringPtrInput
-	// State of the setting. Valid values are `enabled` and `disabled`.
+	// State of the setting.
 	Value pulumi.StringPtrInput
 }
 
@@ -116,17 +117,17 @@ func (AccountSettingDefaultState) ElementType() reflect.Type {
 }
 
 type accountSettingDefaultArgs struct {
-	// Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+	// Name of the account setting to set.
 	Name *string `pulumi:"name"`
-	// State of the setting. Valid values are `enabled` and `disabled`.
+	// State of the setting.
 	Value string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a AccountSettingDefault resource.
 type AccountSettingDefaultArgs struct {
-	// Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+	// Name of the account setting to set.
 	Name pulumi.StringPtrInput
-	// State of the setting. Valid values are `enabled` and `disabled`.
+	// State of the setting.
 	Value pulumi.StringInput
 }
 
@@ -217,7 +218,7 @@ func (o AccountSettingDefaultOutput) ToAccountSettingDefaultOutputWithContext(ct
 	return o
 }
 
-// Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+// Name of the account setting to set.
 func (o AccountSettingDefaultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSettingDefault) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -226,7 +227,7 @@ func (o AccountSettingDefaultOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSettingDefault) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
 }
 
-// State of the setting. Valid values are `enabled` and `disabled`.
+// State of the setting.
 func (o AccountSettingDefaultOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSettingDefault) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

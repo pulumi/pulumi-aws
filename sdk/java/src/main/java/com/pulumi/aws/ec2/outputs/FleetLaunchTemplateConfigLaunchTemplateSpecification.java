@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,30 @@ public final class FleetLaunchTemplateConfigLaunchTemplateSpecification {
 
         @CustomType.Setter
         public Builder launchTemplateId(@Nullable String launchTemplateId) {
+
             this.launchTemplateId = launchTemplateId;
             return this;
         }
         @CustomType.Setter
         public Builder launchTemplateName(@Nullable String launchTemplateName) {
+
             this.launchTemplateName = launchTemplateName;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("FleetLaunchTemplateConfigLaunchTemplateSpecification", "version");
+            }
+            this.version = version;
             return this;
         }
         public FleetLaunchTemplateConfigLaunchTemplateSpecification build() {
-            final var o = new FleetLaunchTemplateConfigLaunchTemplateSpecification();
-            o.launchTemplateId = launchTemplateId;
-            o.launchTemplateName = launchTemplateName;
-            o.version = version;
-            return o;
+            final var _resultValue = new FleetLaunchTemplateConfigLaunchTemplateSpecification();
+            _resultValue.launchTemplateId = launchTemplateId;
+            _resultValue.launchTemplateName = launchTemplateName;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

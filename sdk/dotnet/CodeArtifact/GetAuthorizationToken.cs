@@ -14,10 +14,9 @@ namespace Pulumi.Aws.CodeArtifact
         /// <summary>
         /// The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,13 +27,12 @@ namespace Pulumi.Aws.CodeArtifact
         /// {
         ///     var test = Aws.CodeArtifact.GetAuthorizationToken.Invoke(new()
         ///     {
-        ///         Domain = aws_codeartifact_domain.Test.Domain,
+        ///         Domain = testAwsCodeartifactDomain.Domain,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAuthorizationTokenResult> InvokeAsync(GetAuthorizationTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationTokenResult>("aws:codeartifact/getAuthorizationToken:getAuthorizationToken", args ?? new GetAuthorizationTokenArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.CodeArtifact
         /// <summary>
         /// The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -56,13 +53,12 @@ namespace Pulumi.Aws.CodeArtifact
         /// {
         ///     var test = Aws.CodeArtifact.GetAuthorizationToken.Invoke(new()
         ///     {
-        ///         Domain = aws_codeartifact_domain.Test.Domain,
+        ///         Domain = testAwsCodeartifactDomain.Domain,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAuthorizationTokenResult> Invoke(GetAuthorizationTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationTokenResult>("aws:codeartifact/getAuthorizationToken:getAuthorizationToken", args ?? new GetAuthorizationTokenInvokeArgs(), options.WithDefaults());

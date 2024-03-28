@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,13 +36,14 @@ namespace Pulumi.Aws.Dms
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import certificates using the `certificate_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
+    /// $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
     /// ```
     /// </summary>
     [AwsResourceType("aws:dms/certificate:Certificate")]
@@ -112,7 +114,6 @@ namespace Pulumi.Aws.Dms
                 {
                     "certificatePem",
                     "certificateWallet",
-                    "tagsAll",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -265,11 +266,7 @@ namespace Pulumi.Aws.Dms
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public CertificateState()

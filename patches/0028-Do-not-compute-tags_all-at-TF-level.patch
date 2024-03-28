@@ -1,14 +1,14 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Mon, 6 Nov 2023 11:17:16 -0500
-Subject: [PATCH 28/29] Do not compute tags_all at TF level
+Subject: [PATCH 28/46] Do not compute tags_all at TF level
 
 
 diff --git a/internal/framework/base.go b/internal/framework/base.go
-index 34065d9285..5225f639af 100644
+index d1c4c7d1ab..3e51e53f87 100644
 --- a/internal/framework/base.go
 +++ b/internal/framework/base.go
-@@ -69,6 +69,12 @@ func (r *ResourceWithConfigure) Configure(_ context.Context, request resource.Co
+@@ -70,6 +70,12 @@ func (r *ResourceWithConfigure) Configure(_ context.Context, request resource.Co
  
  // SetTagsAll calculates the new value for the `tags_all` attribute.
  func (r *ResourceWithConfigure) SetTagsAll(ctx context.Context, request resource.ModifyPlanRequest, response *resource.ModifyPlanResponse) {
@@ -22,10 +22,10 @@ index 34065d9285..5225f639af 100644
  	if request.Plan.Raw.IsNull() {
  		return
 diff --git a/internal/provider/fwprovider/provider.go b/internal/provider/fwprovider/provider.go
-index 85a814022b..b119e21c46 100644
+index 027b39dd43..07c0c9ce31 100644
 --- a/internal/provider/fwprovider/provider.go
 +++ b/internal/provider/fwprovider/provider.go
-@@ -413,8 +413,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
+@@ -430,8 +430,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
  					continue
  				}
  				if v, ok := schemaResponse.Schema.Attributes[names.AttrTagsAll]; ok {
@@ -37,7 +37,7 @@ index 85a814022b..b119e21c46 100644
  					}
  				} else {
 diff --git a/internal/service/appconfig/environment.go b/internal/service/appconfig/environment.go
-index 16549b639d..880ddb5d12 100644
+index e5ca16ef49..e7e2bbc9ba 100644
 --- a/internal/service/appconfig/environment.go
 +++ b/internal/service/appconfig/environment.go
 @@ -105,7 +105,7 @@ func (r *resourceEnvironment) Schema(ctx context.Context, request resource.Schem
@@ -89,10 +89,10 @@ index 942630acae..45b72fc158 100644
  		Blocks: map[string]schema.Block{
  			"control_sets": schema.SetNestedBlock{
 diff --git a/internal/service/batch/job_queue.go b/internal/service/batch/job_queue.go
-index 504a6f5ac3..955cfb4816 100644
+index 728e0ffa3c..67e2411288 100644
 --- a/internal/service/batch/job_queue.go
 +++ b/internal/service/batch/job_queue.go
-@@ -96,7 +96,7 @@ func (r *resourceJobQueue) Schema(ctx context.Context, request resource.SchemaRe
+@@ -109,7 +109,7 @@ func (r *resourceJobQueue) Schema(ctx context.Context, request resource.SchemaRe
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -102,7 +102,7 @@ index 504a6f5ac3..955cfb4816 100644
  	}
  
 diff --git a/internal/service/batch/job_queue_schema.go b/internal/service/batch/job_queue_schema.go
-index bd19814922..45c6b8cadc 100644
+index 8b11271ab7..0ded1f6052 100644
 --- a/internal/service/batch/job_queue_schema.go
 +++ b/internal/service/batch/job_queue_schema.go
 @@ -58,7 +58,7 @@ func jobQueueSchema0(ctx context.Context) schema.Schema {
@@ -141,23 +141,23 @@ index 0b867c6616..0bf0c7ec63 100644
  				Optional: true,
  				Validators: []validator.Int64{
 diff --git a/internal/service/lexv2models/bot.go b/internal/service/lexv2models/bot.go
-index d806a8c907..ce0d41325e 100644
+index fc553b56bc..997a513b50 100644
 --- a/internal/service/lexv2models/bot.go
 +++ b/internal/service/lexv2models/bot.go
-@@ -78,7 +78,7 @@ func (r *resourceBot) Schema(ctx context.Context, req resource.SchemaRequest, re
- 				},
+@@ -82,7 +82,7 @@ func (r *resourceBot) Schema(ctx context.Context, req resource.SchemaRequest, re
+ 				Required:   true,
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
 +			names.AttrTagsAll: tftags.TagsAttribute(),
- 			"role_arn": schema.StringAttribute{
- 				CustomType: fwtypes.ARNType,
- 				Required:   true,
+ 			"test_bot_alias_tags": schema.MapAttribute{
+ 				ElementType: types.StringType,
+ 				Optional:    true,
 diff --git a/internal/service/opensearchserverless/collection.go b/internal/service/opensearchserverless/collection.go
-index e661616cd7..7744b48ac4 100644
+index d2e7d7dbe1..0ee4daefda 100644
 --- a/internal/service/opensearchserverless/collection.go
 +++ b/internal/service/opensearchserverless/collection.go
-@@ -111,7 +111,7 @@ func (r *resourceCollection) Schema(ctx context.Context, req resource.SchemaRequ
+@@ -123,7 +123,7 @@ func (r *resourceCollection) Schema(ctx context.Context, req resource.SchemaRequ
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -232,10 +232,10 @@ index 33d374f4e2..b2e1c97096 100644
  		Blocks: map[string]schema.Block{
  			"timeouts": timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/verify/diff.go b/internal/verify/diff.go
-index 5e9c779a28..87a57e6076 100644
+index 776355f900..ae851b099a 100644
 --- a/internal/verify/diff.go
 +++ b/internal/verify/diff.go
-@@ -5,103 +5,14 @@ package verify
+@@ -5,102 +5,13 @@ package verify
  
  import (
  	"context"
@@ -243,7 +243,6 @@ index 5e9c779a28..87a57e6076 100644
  	"strings"
  	"time"
  
- 	"github.com/aws/aws-sdk-go/aws"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 -	"github.com/hashicorp/terraform-provider-aws/internal/conns"
 -	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
@@ -295,8 +294,8 @@ index 5e9c779a28..87a57e6076 100644
 -		}
 -
 -		if len(allTags) == 0 {
--			if err := diff.SetNewComputed("tags_all"); err != nil {
--				return fmt.Errorf("setting tags_all to computed: %w", err)
+-			if err := diff.SetNew("tags_all", allTags.Map()); err != nil {
+-				return fmt.Errorf("setting new tags_all diff: %w", err)
 -			}
 -		}
 -	} else if !diff.HasChange("tags") {

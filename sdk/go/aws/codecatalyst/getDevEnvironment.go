@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS CodeCatalyst Dev Environment.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,7 +33,7 @@ import (
 //			_, err := codecatalyst.LookupDevEnvironment(ctx, &codecatalyst.LookupDevEnvironmentArgs{
 //				SpaceName:   "myspace",
 //				ProjectName: "myproject",
-//				EnvId:       aws_codecatalyst_dev_environment.Example.Id,
+//				EnvId:       exampleAwsCodecatalystDevEnvironment.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -41,6 +43,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupDevEnvironment(ctx *pulumi.Context, args *LookupDevEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupDevEnvironmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDevEnvironmentResult

@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS VPC Lattice Service Network VPC Association.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,21 +46,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ServiceNetworkVpcAssociation(&#34;example&#34;, ServiceNetworkVpcAssociationArgs.builder()        
- *             .vpcIdentifier(aws_vpc.example().id())
- *             .serviceNetworkIdentifier(aws_vpclattice_service_network.example().id())
- *             .securityGroupIds(aws_security_group.example().id())
+ *             .vpcIdentifier(exampleAwsVpc.id())
+ *             .serviceNetworkIdentifier(exampleAwsVpclatticeServiceNetwork.id())
+ *             .securityGroupIds(exampleAwsSecurityGroup.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import VPC Lattice Service Network VPC Association using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation example snsa-05e2474658a88f6ba
+ * $ pulumi import aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation example snsa-05e2474658a88f6ba
  * ```
  * 
  */
@@ -214,9 +218,6 @@ public class ServiceNetworkVpcAssociation extends com.pulumi.resources.CustomRes
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

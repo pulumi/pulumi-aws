@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,31 +87,39 @@ public final class MLTransformInputRecordTable {
 
         @CustomType.Setter
         public Builder catalogId(@Nullable String catalogId) {
+
             this.catalogId = catalogId;
             return this;
         }
         @CustomType.Setter
         public Builder connectionName(@Nullable String connectionName) {
+
             this.connectionName = connectionName;
             return this;
         }
         @CustomType.Setter
         public Builder databaseName(String databaseName) {
-            this.databaseName = Objects.requireNonNull(databaseName);
+            if (databaseName == null) {
+              throw new MissingRequiredPropertyException("MLTransformInputRecordTable", "databaseName");
+            }
+            this.databaseName = databaseName;
             return this;
         }
         @CustomType.Setter
         public Builder tableName(String tableName) {
-            this.tableName = Objects.requireNonNull(tableName);
+            if (tableName == null) {
+              throw new MissingRequiredPropertyException("MLTransformInputRecordTable", "tableName");
+            }
+            this.tableName = tableName;
             return this;
         }
         public MLTransformInputRecordTable build() {
-            final var o = new MLTransformInputRecordTable();
-            o.catalogId = catalogId;
-            o.connectionName = connectionName;
-            o.databaseName = databaseName;
-            o.tableName = tableName;
-            return o;
+            final var _resultValue = new MLTransformInputRecordTable();
+            _resultValue.catalogId = catalogId;
+            _resultValue.connectionName = connectionName;
+            _resultValue.databaseName = databaseName;
+            _resultValue.tableName = tableName;
+            return _resultValue;
         }
     }
 }

@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a resource to create a VPC Internet Gateway Attachment.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,7 +49,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleInternetGateway = new InternetGateway(&#34;exampleInternetGateway&#34;);
  * 
- *         var exampleInternetGatewayAttachment = new InternetGatewayAttachment(&#34;exampleInternetGatewayAttachment&#34;, InternetGatewayAttachmentArgs.builder()        
+ *         var example = new InternetGatewayAttachment(&#34;example&#34;, InternetGatewayAttachmentArgs.builder()        
  *             .internetGatewayId(exampleInternetGateway.id())
  *             .vpcId(exampleVpc.id())
  *             .build());
@@ -55,13 +57,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Internet Gateway Attachments using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/internetGatewayAttachment:InternetGatewayAttachment example igw-c0a643a9:vpc-123456
+ * $ pulumi import aws:ec2/internetGatewayAttachment:InternetGatewayAttachment example igw-c0a643a9:vpc-123456
  * ```
  * 
  */

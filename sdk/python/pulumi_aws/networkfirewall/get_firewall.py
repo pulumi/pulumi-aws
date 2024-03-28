@@ -78,7 +78,7 @@ class GetFirewallResult:
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> bool:
         """
-        Boolean flag indicating whether it is possible to delete the firewall.
+        A flag indicating whether the firewall is protected against deletion.
         """
         return pulumi.get(self, "delete_protection")
 
@@ -110,7 +110,7 @@ class GetFirewallResult:
     @pulumi.getter(name="firewallPolicyChangeProtection")
     def firewall_policy_change_protection(self) -> bool:
         """
-        A boolean flag indicating whether it is possible to change the associated firewall policy.
+        A flag indicating whether the firewall is protected against a change to the firewall policy association.
         """
         return pulumi.get(self, "firewall_policy_change_protection")
 
@@ -142,7 +142,7 @@ class GetFirewallResult:
     @pulumi.getter(name="subnetChangeProtection")
     def subnet_change_protection(self) -> bool:
         """
-        A boolean flag indicating whether it is possible to change the associated subnet(s).
+        A flag indicating whether the firewall is protected against changes to the subnet associations.
         """
         return pulumi.get(self, "subnet_change_protection")
 
@@ -209,31 +209,40 @@ def get_firewall(arn: Optional[str] = None,
     Retrieve information about a firewall.
 
     ## Example Usage
+
     ### Find firewall policy by ARN
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_firewall(arn=aws_networkfirewall_firewall["arn"])
+    example = aws.networkfirewall.get_firewall(arn=arn)
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Find firewall policy by Name
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.networkfirewall.get_firewall(name="Test")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Find firewall policy by ARN and Name
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_firewall(arn=aws_networkfirewall_firewall["arn"],
+    example = aws.networkfirewall.get_firewall(arn=arn,
         name="Test")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the firewall.
@@ -273,31 +282,40 @@ def get_firewall_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     Retrieve information about a firewall.
 
     ## Example Usage
+
     ### Find firewall policy by ARN
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_firewall(arn=aws_networkfirewall_firewall["arn"])
+    example = aws.networkfirewall.get_firewall(arn=arn)
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Find firewall policy by Name
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.networkfirewall.get_firewall(name="Test")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Find firewall policy by ARN and Name
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_firewall(arn=aws_networkfirewall_firewall["arn"],
+    example = aws.networkfirewall.get_firewall(arn=arn,
         name="Test")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the firewall.

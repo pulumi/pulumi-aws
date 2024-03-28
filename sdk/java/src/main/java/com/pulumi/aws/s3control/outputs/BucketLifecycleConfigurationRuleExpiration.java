@@ -74,25 +74,28 @@ public final class BucketLifecycleConfigurationRuleExpiration {
 
         @CustomType.Setter
         public Builder date(@Nullable String date) {
+
             this.date = date;
             return this;
         }
         @CustomType.Setter
         public Builder days(@Nullable Integer days) {
+
             this.days = days;
             return this;
         }
         @CustomType.Setter
         public Builder expiredObjectDeleteMarker(@Nullable Boolean expiredObjectDeleteMarker) {
+
             this.expiredObjectDeleteMarker = expiredObjectDeleteMarker;
             return this;
         }
         public BucketLifecycleConfigurationRuleExpiration build() {
-            final var o = new BucketLifecycleConfigurationRuleExpiration();
-            o.date = date;
-            o.days = days;
-            o.expiredObjectDeleteMarker = expiredObjectDeleteMarker;
-            return o;
+            final var _resultValue = new BucketLifecycleConfigurationRuleExpiration();
+            _resultValue.date = date;
+            _resultValue.days = days;
+            _resultValue.expiredObjectDeleteMarker = expiredObjectDeleteMarker;
+            return _resultValue;
         }
     }
 }

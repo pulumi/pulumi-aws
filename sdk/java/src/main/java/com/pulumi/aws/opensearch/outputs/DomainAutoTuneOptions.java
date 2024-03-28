@@ -5,6 +5,8 @@ package com.pulumi.aws.opensearch.outputs;
 
 import com.pulumi.aws.opensearch.outputs.DomainAutoTuneOptionsMaintenanceSchedule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -21,6 +23,8 @@ public final class DomainAutoTuneOptions {
     /**
      * @return Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
      * 
+     * **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenance_schedule` configuration blocks cannot be specified when `use_off_peak_window` is set to `true`.
+     * 
      */
     private @Nullable List<DomainAutoTuneOptionsMaintenanceSchedule> maintenanceSchedules;
     /**
@@ -28,6 +32,11 @@ public final class DomainAutoTuneOptions {
      * 
      */
     private @Nullable String rollbackOnDisable;
+    /**
+     * @return Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain&#39;s configured daily off-peak window. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean useOffPeakWindow;
 
     private DomainAutoTuneOptions() {}
     /**
@@ -40,6 +49,8 @@ public final class DomainAutoTuneOptions {
     /**
      * @return Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
      * 
+     * **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenance_schedule` configuration blocks cannot be specified when `use_off_peak_window` is set to `true`.
+     * 
      */
     public List<DomainAutoTuneOptionsMaintenanceSchedule> maintenanceSchedules() {
         return this.maintenanceSchedules == null ? List.of() : this.maintenanceSchedules;
@@ -50,6 +61,13 @@ public final class DomainAutoTuneOptions {
      */
     public Optional<String> rollbackOnDisable() {
         return Optional.ofNullable(this.rollbackOnDisable);
+    }
+    /**
+     * @return Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain&#39;s configured daily off-peak window. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> useOffPeakWindow() {
+        return Optional.ofNullable(this.useOffPeakWindow);
     }
 
     public static Builder builder() {
@@ -64,21 +82,27 @@ public final class DomainAutoTuneOptions {
         private String desiredState;
         private @Nullable List<DomainAutoTuneOptionsMaintenanceSchedule> maintenanceSchedules;
         private @Nullable String rollbackOnDisable;
+        private @Nullable Boolean useOffPeakWindow;
         public Builder() {}
         public Builder(DomainAutoTuneOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.desiredState = defaults.desiredState;
     	      this.maintenanceSchedules = defaults.maintenanceSchedules;
     	      this.rollbackOnDisable = defaults.rollbackOnDisable;
+    	      this.useOffPeakWindow = defaults.useOffPeakWindow;
         }
 
         @CustomType.Setter
         public Builder desiredState(String desiredState) {
-            this.desiredState = Objects.requireNonNull(desiredState);
+            if (desiredState == null) {
+              throw new MissingRequiredPropertyException("DomainAutoTuneOptions", "desiredState");
+            }
+            this.desiredState = desiredState;
             return this;
         }
         @CustomType.Setter
         public Builder maintenanceSchedules(@Nullable List<DomainAutoTuneOptionsMaintenanceSchedule> maintenanceSchedules) {
+
             this.maintenanceSchedules = maintenanceSchedules;
             return this;
         }
@@ -87,15 +111,23 @@ public final class DomainAutoTuneOptions {
         }
         @CustomType.Setter
         public Builder rollbackOnDisable(@Nullable String rollbackOnDisable) {
+
             this.rollbackOnDisable = rollbackOnDisable;
             return this;
         }
+        @CustomType.Setter
+        public Builder useOffPeakWindow(@Nullable Boolean useOffPeakWindow) {
+
+            this.useOffPeakWindow = useOffPeakWindow;
+            return this;
+        }
         public DomainAutoTuneOptions build() {
-            final var o = new DomainAutoTuneOptions();
-            o.desiredState = desiredState;
-            o.maintenanceSchedules = maintenanceSchedules;
-            o.rollbackOnDisable = rollbackOnDisable;
-            return o;
+            final var _resultValue = new DomainAutoTuneOptions();
+            _resultValue.desiredState = desiredState;
+            _resultValue.maintenanceSchedules = maintenanceSchedules;
+            _resultValue.rollbackOnDisable = rollbackOnDisable;
+            _resultValue.useOffPeakWindow = useOffPeakWindow;
+            return _resultValue;
         }
     }
 }

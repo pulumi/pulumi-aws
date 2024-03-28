@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,7 +37,7 @@ import (
 //						},
 //					},
 //				},
-//				TransitGatewayRouteTableId: aws_ec2_transit_gateway_route_table.Example.Id,
+//				TransitGatewayRouteTableId: example.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -46,6 +47,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetRouteTableRoutes(ctx *pulumi.Context, args *GetRouteTableRoutesArgs, opts ...pulumi.InvokeOption) (*GetRouteTableRoutesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRouteTableRoutesResult

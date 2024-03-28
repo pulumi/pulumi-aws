@@ -175,23 +175,26 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.appconfig.Application("example",
+            name="example-application-tf",
             description="Example AppConfig Application",
             tags={
                 "Type": "AppConfig Application",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AppConfig Applications using their application ID. For example:
 
         ```sh
-         $ pulumi import aws:appconfig/application:Application example 71rxuzt
+        $ pulumi import aws:appconfig/application:Application example 71rxuzt
         ```
 
         :param str resource_name: The name of the resource.
@@ -211,23 +214,26 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.appconfig.Application("example",
+            name="example-application-tf",
             description="Example AppConfig Application",
             tags={
                 "Type": "AppConfig Application",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AppConfig Applications using their application ID. For example:
 
         ```sh
-         $ pulumi import aws:appconfig/application:Application example 71rxuzt
+        $ pulumi import aws:appconfig/application:Application example 71rxuzt
         ```
 
         :param str resource_name: The name of the resource.
@@ -262,8 +268,6 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Application, __self__).__init__(
             'aws:appconfig/application:Application',
             resource_name,

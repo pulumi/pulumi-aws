@@ -72,25 +72,28 @@ public final class FeatureGroupOfflineStoreConfigDataCatalogConfig {
 
         @CustomType.Setter
         public Builder catalog(@Nullable String catalog) {
+
             this.catalog = catalog;
             return this;
         }
         @CustomType.Setter
         public Builder database(@Nullable String database) {
+
             this.database = database;
             return this;
         }
         @CustomType.Setter
         public Builder tableName(@Nullable String tableName) {
+
             this.tableName = tableName;
             return this;
         }
         public FeatureGroupOfflineStoreConfigDataCatalogConfig build() {
-            final var o = new FeatureGroupOfflineStoreConfigDataCatalogConfig();
-            o.catalog = catalog;
-            o.database = database;
-            o.tableName = tableName;
-            return o;
+            final var _resultValue = new FeatureGroupOfflineStoreConfigDataCatalogConfig();
+            _resultValue.catalog = catalog;
+            _resultValue.database = database;
+            _resultValue.tableName = tableName;
+            return _resultValue;
         }
     }
 }

@@ -18,7 +18,10 @@ import javax.annotation.Nullable;
  * Provides a Cognito User Pool Domain resource.
  * 
  * ## Example Usage
+ * 
  * ### Amazon Cognito domain
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -26,6 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cognito.UserPool;
+ * import com.pulumi.aws.cognito.UserPoolArgs;
  * import com.pulumi.aws.cognito.UserPoolDomain;
  * import com.pulumi.aws.cognito.UserPoolDomainArgs;
  * import java.util.List;
@@ -41,7 +45,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserPool(&#34;example&#34;);
+ *         var example = new UserPool(&#34;example&#34;, UserPoolArgs.builder()        
+ *             .name(&#34;example-pool&#34;)
+ *             .build());
  * 
  *         var main = new UserPoolDomain(&#34;main&#34;, UserPoolDomainArgs.builder()        
  *             .domain(&#34;example-domain&#34;)
@@ -51,7 +57,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Custom Cognito domain
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -59,6 +69,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cognito.UserPool;
+ * import com.pulumi.aws.cognito.UserPoolArgs;
  * import com.pulumi.aws.cognito.UserPoolDomain;
  * import com.pulumi.aws.cognito.UserPoolDomainArgs;
  * import com.pulumi.aws.route53.Route53Functions;
@@ -79,22 +90,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleUserPool = new UserPool(&#34;exampleUserPool&#34;);
+ *         var exampleUserPool = new UserPool(&#34;exampleUserPool&#34;, UserPoolArgs.builder()        
+ *             .name(&#34;example-pool&#34;)
+ *             .build());
  * 
  *         var main = new UserPoolDomain(&#34;main&#34;, UserPoolDomainArgs.builder()        
  *             .domain(&#34;example-domain&#34;)
- *             .certificateArn(aws_acm_certificate.cert().arn())
+ *             .certificateArn(cert.arn())
  *             .userPoolId(exampleUserPool.id())
  *             .build());
  * 
- *         final var exampleZone = Route53Functions.getZone(GetZoneArgs.builder()
+ *         final var example = Route53Functions.getZone(GetZoneArgs.builder()
  *             .name(&#34;example.com&#34;)
  *             .build());
  * 
  *         var auth_cognito_A = new Record(&#34;auth-cognito-A&#34;, RecordArgs.builder()        
  *             .name(main.domain())
  *             .type(&#34;A&#34;)
- *             .zoneId(exampleZone.applyValue(getZoneResult -&gt; getZoneResult.zoneId()))
+ *             .zoneId(example.applyValue(getZoneResult -&gt; getZoneResult.zoneId()))
  *             .aliases(RecordAliasArgs.builder()
  *                 .evaluateTargetHealth(false)
  *                 .name(main.cloudfrontDistribution())
@@ -105,13 +118,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Cognito User Pool Domains using the `domain`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
+ * $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
  * ```
  * 
  */

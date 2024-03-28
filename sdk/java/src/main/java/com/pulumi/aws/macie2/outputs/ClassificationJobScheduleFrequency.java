@@ -78,25 +78,28 @@ public final class ClassificationJobScheduleFrequency {
 
         @CustomType.Setter
         public Builder dailySchedule(@Nullable Boolean dailySchedule) {
+
             this.dailySchedule = dailySchedule;
             return this;
         }
         @CustomType.Setter
         public Builder monthlySchedule(@Nullable Integer monthlySchedule) {
+
             this.monthlySchedule = monthlySchedule;
             return this;
         }
         @CustomType.Setter
         public Builder weeklySchedule(@Nullable String weeklySchedule) {
+
             this.weeklySchedule = weeklySchedule;
             return this;
         }
         public ClassificationJobScheduleFrequency build() {
-            final var o = new ClassificationJobScheduleFrequency();
-            o.dailySchedule = dailySchedule;
-            o.monthlySchedule = monthlySchedule;
-            o.weeklySchedule = weeklySchedule;
-            return o;
+            final var _resultValue = new ClassificationJobScheduleFrequency();
+            _resultValue.dailySchedule = dailySchedule;
+            _resultValue.monthlySchedule = monthlySchedule;
+            _resultValue.weeklySchedule = weeklySchedule;
+            return _resultValue;
         }
     }
 }

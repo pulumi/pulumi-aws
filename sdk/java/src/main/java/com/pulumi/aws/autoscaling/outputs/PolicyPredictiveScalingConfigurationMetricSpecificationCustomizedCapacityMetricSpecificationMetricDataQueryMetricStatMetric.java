@@ -5,6 +5,7 @@ package com.pulumi.aws.autoscaling.outputs;
 
 import com.pulumi.aws.autoscaling.outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -73,6 +74,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
 
         @CustomType.Setter
         public Builder dimensions(@Nullable List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension> dimensions) {
+
             this.dimensions = dimensions;
             return this;
         }
@@ -81,20 +83,26 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
         @CustomType.Setter
         public Builder metricName(String metricName) {
-            this.metricName = Objects.requireNonNull(metricName);
+            if (metricName == null) {
+              throw new MissingRequiredPropertyException("PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric", "metricName");
+            }
+            this.metricName = metricName;
             return this;
         }
         @CustomType.Setter
         public Builder namespace(String namespace) {
-            this.namespace = Objects.requireNonNull(namespace);
+            if (namespace == null) {
+              throw new MissingRequiredPropertyException("PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric", "namespace");
+            }
+            this.namespace = namespace;
             return this;
         }
         public PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric build() {
-            final var o = new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric();
-            o.dimensions = dimensions;
-            o.metricName = metricName;
-            o.namespace = namespace;
-            return o;
+            final var _resultValue = new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric();
+            _resultValue.dimensions = dimensions;
+            _resultValue.metricName = metricName;
+            _resultValue.namespace = namespace;
+            return _resultValue;
         }
     }
 }

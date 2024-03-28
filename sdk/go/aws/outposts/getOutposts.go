@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := outposts.GetOutposts(ctx, &outposts.GetOutpostsArgs{
-//				SiteId: pulumi.StringRef(data.Aws_outposts_site.Id),
+//				SiteId: pulumi.StringRef(id),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetOutposts(ctx *pulumi.Context, args *GetOutpostsArgs, opts ...pulumi.InvokeOption) (*GetOutpostsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOutpostsResult

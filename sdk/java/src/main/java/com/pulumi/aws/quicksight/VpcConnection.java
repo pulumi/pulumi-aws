@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS QuickSight VPC Connection.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,12 +53,12 @@ import javax.annotation.Nullable;
  *         var vpcConnectionRole = new Role(&#34;vpcConnectionRole&#34;, RoleArgs.builder()        
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;quicksight.amazonaws.com&#34;)
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;action&#34;, &#34;sts:AssumeRole&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;service&#34;, &#34;quicksight.amazonaws.com&#34;)
  *                         ))
  *                     )))
  *                 )))
@@ -63,17 +66,17 @@ import javax.annotation.Nullable;
  *                 .name(&#34;QuickSightVPCConnectionRolePolicy&#34;)
  *                 .policy(serializeJson(
  *                     jsonObject(
- *                         jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                         jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                             jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                             jsonProperty(&#34;Action&#34;, jsonArray(
+ *                         jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                         jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                             jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                             jsonProperty(&#34;action&#34;, jsonArray(
  *                                 &#34;ec2:CreateNetworkInterface&#34;, 
  *                                 &#34;ec2:ModifyNetworkInterfaceAttribute&#34;, 
  *                                 &#34;ec2:DeleteNetworkInterface&#34;, 
  *                                 &#34;ec2:DescribeSubnets&#34;, 
  *                                 &#34;ec2:DescribeSecurityGroups&#34;
  *                             )),
- *                             jsonProperty(&#34;Resource&#34;, jsonArray(&#34;*&#34;))
+ *                             jsonProperty(&#34;resource&#34;, jsonArray(&#34;*&#34;))
  *                         )))
  *                     )))
  *                 .build())
@@ -81,6 +84,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new VpcConnection(&#34;example&#34;, VpcConnectionArgs.builder()        
  *             .vpcConnectionId(&#34;example-connection-id&#34;)
+ *             .name(&#34;Example Connection&#34;)
  *             .roleArn(vpcConnectionRole.arn())
  *             .securityGroupIds(&#34;sg-00000000000000000&#34;)
  *             .subnetIds(            
@@ -91,13 +95,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import QuickSight VPC connection using the AWS account ID and VPC connection ID separated by commas (`,`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
+ * $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
  * ```
  * 
  */
@@ -304,9 +309,6 @@ public class VpcConnection extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

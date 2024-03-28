@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a resource to manage an [Amazon Detective Invitation Accepter](https://docs.aws.amazon.com/detective/latest/APIReference/API_AcceptInvitation.html). Ensure that the accepter is configured to use the AWS account you wish to _accept_ the invitation from the primary graph owner account.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -28,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.detective.MemberArgs;
  * import com.pulumi.aws.detective.InvitationAccepter;
  * import com.pulumi.aws.detective.InvitationAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -42,32 +43,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primaryGraph = new Graph(&#34;primaryGraph&#34;);
+ *         var primary = new Graph(&#34;primary&#34;);
  * 
  *         var primaryMember = new Member(&#34;primaryMember&#34;, MemberArgs.builder()        
  *             .accountId(&#34;ACCOUNT ID&#34;)
  *             .emailAddress(&#34;EMAIL&#34;)
- *             .graphArn(primaryGraph.id())
+ *             .graphArn(primary.id())
  *             .message(&#34;Message of the invite&#34;)
  *             .build());
  * 
  *         var member = new InvitationAccepter(&#34;member&#34;, InvitationAccepterArgs.builder()        
- *             .graphArn(primaryGraph.graphArn())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;awsalternate&#34;)
- *                 .dependsOn(primaryMember)
- *                 .build());
+ *             .graphArn(primary.graphArn())
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_detective_invitation_accepter` using the graph ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
+ * $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
  * ```
  * 
  */

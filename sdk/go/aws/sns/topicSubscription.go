@@ -28,6 +28,7 @@ import (
 //
 // You can directly supply a topic and ARN by hand in the `topicArn` property along with the queue ARN:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,10 +41,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewTopicSubscription(ctx, "userUpdatesSqsTarget", &sns.TopicSubscriptionArgs{
-//				Endpoint: pulumi.String("arn:aws:sqs:us-west-2:432981146916:queue-too"),
-//				Protocol: pulumi.String("sqs"),
+//			_, err := sns.NewTopicSubscription(ctx, "user_updates_sqs_target", &sns.TopicSubscriptionArgs{
 //				Topic:    pulumi.Any("arn:aws:sns:us-west-2:432981146916:user-updates-topic"),
+//				Protocol: pulumi.String("sqs"),
+//				Endpoint: pulumi.String("arn:aws:sqs:us-west-2:432981146916:queue-too"),
 //			})
 //			if err != nil {
 //				return err
@@ -53,9 +54,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -69,15 +72,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			userUpdates, err := sns.NewTopic(ctx, "userUpdates", nil)
+//			userUpdates, err := sns.NewTopic(ctx, "user_updates", &sns.TopicArgs{
+//				Name: pulumi.String("user-updates-topic"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			userUpdatesQueue, err := sqs.NewQueue(ctx, "userUpdatesQueue", nil)
+//			userUpdatesQueue, err := sqs.NewQueue(ctx, "user_updates_queue", &sqs.QueueArgs{
+//				Name: pulumi.String("user-updates-queue"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sns.NewTopicSubscription(ctx, "userUpdatesSqsTarget", &sns.TopicSubscriptionArgs{
+//			_, err = sns.NewTopicSubscription(ctx, "user_updates_sqs_target", &sns.TopicSubscriptionArgs{
 //				Topic:    userUpdates.Arn,
 //				Protocol: pulumi.String("sqs"),
 //				Endpoint: userUpdatesQueue.Arn,
@@ -90,9 +97,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // You can subscribe SNS topics to SQS queues in different Amazon accounts and regions:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -100,7 +109,6 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
@@ -113,21 +121,21 @@ import (
 // cfg := config.New(ctx, "")
 // sns := map[string]interface{}{
 // "account-id": "111111111111",
-// "role-name": "service/service",
+// "displayName": "example",
 // "name": "example-sns-topic",
-// "display_name": "example",
 // "region": "us-west-1",
+// "role-name": "service/service",
 // };
-// if param := cfg.GetBool("sns"); param != nil {
+// if param := cfg.GetObject("sns"); param != nil {
 // sns = param
 // }
 // sqs := map[string]interface{}{
 // "account-id": "222222222222",
-// "role-name": "service/service",
 // "name": "example-sqs-queue",
 // "region": "us-east-1",
+// "role-name": "service/service",
 // };
-// if param := cfg.GetBool("sqs"); param != nil {
+// if param := cfg.GetObject("sqs"); param != nil {
 // sqs = param
 // }
 // sns_topic_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
@@ -235,54 +243,26 @@ import (
 // if err != nil {
 // return err
 // }
-// _, err = aws.NewProvider(ctx, "awsSns", &aws.ProviderArgs{
-// Region: *pulumi.String(sns.Region),
-// AssumeRole: &aws.ProviderAssumeRoleArgs{
-// RoleArn: pulumi.String(fmt.Sprintf("arn:aws:iam::%v:role/%v", sns.AccountId, sns.RoleName)),
-// SessionName: pulumi.String(fmt.Sprintf("sns-%v", sns.Region)),
-// },
+// _, err = sns.NewTopic(ctx, "sns-topic", &sns.TopicArgs{
+// Name: pulumi.Any(sns.Name),
+// DisplayName: pulumi.Any(sns.Display_name),
+// Policy: pulumi.String(sns_topic_policy.Json),
 // })
-// if err != nil {
-// return err
-// }
-// _, err = aws.NewProvider(ctx, "awsSqs", &aws.ProviderArgs{
-// Region: *pulumi.String(sqs.Region),
-// AssumeRole: &aws.ProviderAssumeRoleArgs{
-// RoleArn: pulumi.String(fmt.Sprintf("arn:aws:iam::%v:role/%v", sqs.AccountId, sqs.RoleName)),
-// SessionName: pulumi.String(fmt.Sprintf("sqs-%v", sqs.Region)),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = aws.NewProvider(ctx, "sns2sqs", &aws.ProviderArgs{
-// Region: *pulumi.String(sns.Region),
-// AssumeRole: &aws.ProviderAssumeRoleArgs{
-// RoleArn: pulumi.String(fmt.Sprintf("arn:aws:iam::%v:role/%v", sqs.AccountId, sqs.RoleName)),
-// SessionName: pulumi.String(fmt.Sprintf("sns2sqs-%v", sns.Region)),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = sns.NewTopic(ctx, "sns-topicTopic", &sns.TopicArgs{
-// DisplayName: *pulumi.String(sns.Display_name),
-// Policy: *pulumi.String(sns_topic_policy.Json),
-// }, pulumi.Provider(aws.Sns))
 // if err != nil {
 // return err
 // }
 // _, err = sqs.NewQueue(ctx, "sqs-queue", &sqs.QueueArgs{
-// Policy: *pulumi.String(sqs_queue_policy.Json),
-// }, pulumi.Provider(aws.Sqs))
+// Name: pulumi.Any(sqs.Name),
+// Policy: pulumi.String(sqs_queue_policy.Json),
+// })
 // if err != nil {
 // return err
 // }
-// _, err = sns.NewTopicSubscription(ctx, "sns-topicTopicSubscription", &sns.TopicSubscriptionArgs{
-// Topic: sns_topicTopic.Arn,
+// _, err = sns.NewTopicSubscription(ctx, "sns-topic", &sns.TopicSubscriptionArgs{
+// Topic: sns_topic.Arn,
 // Protocol: pulumi.String("sqs"),
 // Endpoint: sqs_queue.Arn,
-// }, pulumi.Provider(aws.Sns2sqs))
+// })
 // if err != nil {
 // return err
 // }
@@ -290,15 +270,14 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
-//
+// $ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
 // ```
 type TopicSubscription struct {
 	pulumi.CustomResourceState

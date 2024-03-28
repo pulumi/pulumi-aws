@@ -36,13 +36,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
 
         @CustomType.Setter
         public Builder repInterval(@Nullable Integer repInterval) {
+
             this.repInterval = repInterval;
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings();
-            o.repInterval = repInterval;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings();
+            _resultValue.repInterval = repInterval;
+            return _resultValue;
         }
     }
 }

@@ -8,39 +8,48 @@ import * as utilities from "../utilities";
  * Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
  *
  * ## Example Usage
+ *
  * ### Organization Account
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const account = new aws.organizations.PolicyAttachment("account", {
- *     policyId: aws_organizations_policy.example.id,
+ *     policyId: example.id,
  *     targetId: "123456789012",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Organization Root
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const root = new aws.organizations.PolicyAttachment("root", {
- *     policyId: aws_organizations_policy.example.id,
- *     targetId: aws_organizations_organization.example.roots[0].id,
+ *     policyId: example.id,
+ *     targetId: exampleAwsOrganizationsOrganization.roots[0].id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Organization Unit
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const unit = new aws.organizations.PolicyAttachment("unit", {
- *     policyId: aws_organizations_policy.example.id,
- *     targetId: aws_organizations_organizational_unit.example.id,
+ *     policyId: example.id,
+ *     targetId: exampleAwsOrganizationsOrganizationalUnit.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -49,7 +58,7 @@ import * as utilities from "../utilities";
  * With an account target:
  *
  * ```sh
- *  $ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
+ * $ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
  * ```
  */
 export class PolicyAttachment extends pulumi.CustomResource {

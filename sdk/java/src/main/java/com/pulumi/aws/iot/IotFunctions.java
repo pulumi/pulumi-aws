@@ -20,6 +20,8 @@ public final class IotFunctions {
      * Returns a unique endpoint specific to the AWS account making the call.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -28,8 +30,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.kubernetes_pod;
-     * import com.pulumi.kubernetes.Kubernetes_podArgs;
+     * import com.pulumi.kubernetes.pod;
+     * import com.pulumi.kubernetes.PodArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -45,7 +47,7 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getEndpoint();
      * 
-     *         var agent = new Kubernetes_pod(&#34;agent&#34;, Kubernetes_podArgs.builder()        
+     *         var agent = new Pod(&#34;agent&#34;, PodArgs.builder()        
      *             .metadata(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
@@ -53,6 +55,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEndpointResult> getEndpoint() {
@@ -62,6 +65,8 @@ public final class IotFunctions {
      * Returns a unique endpoint specific to the AWS account making the call.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -70,8 +75,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.kubernetes_pod;
-     * import com.pulumi.kubernetes.Kubernetes_podArgs;
+     * import com.pulumi.kubernetes.pod;
+     * import com.pulumi.kubernetes.PodArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -87,7 +92,7 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getEndpoint();
      * 
-     *         var agent = new Kubernetes_pod(&#34;agent&#34;, Kubernetes_podArgs.builder()        
+     *         var agent = new Pod(&#34;agent&#34;, PodArgs.builder()        
      *             .metadata(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
@@ -95,6 +100,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEndpointResult> getEndpointPlain() {
@@ -104,6 +110,8 @@ public final class IotFunctions {
      * Returns a unique endpoint specific to the AWS account making the call.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -112,8 +120,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.kubernetes_pod;
-     * import com.pulumi.kubernetes.Kubernetes_podArgs;
+     * import com.pulumi.kubernetes.pod;
+     * import com.pulumi.kubernetes.PodArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -129,7 +137,7 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getEndpoint();
      * 
-     *         var agent = new Kubernetes_pod(&#34;agent&#34;, Kubernetes_podArgs.builder()        
+     *         var agent = new Pod(&#34;agent&#34;, PodArgs.builder()        
      *             .metadata(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
@@ -137,6 +145,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEndpointResult> getEndpoint(GetEndpointArgs args) {
@@ -146,6 +155,8 @@ public final class IotFunctions {
      * Returns a unique endpoint specific to the AWS account making the call.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -154,8 +165,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.kubernetes_pod;
-     * import com.pulumi.kubernetes.Kubernetes_podArgs;
+     * import com.pulumi.kubernetes.pod;
+     * import com.pulumi.kubernetes.PodArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -171,7 +182,7 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getEndpoint();
      * 
-     *         var agent = new Kubernetes_pod(&#34;agent&#34;, Kubernetes_podArgs.builder()        
+     *         var agent = new Pod(&#34;agent&#34;, PodArgs.builder()        
      *             .metadata(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
@@ -179,6 +190,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEndpointResult> getEndpointPlain(GetEndpointPlainArgs args) {
@@ -188,6 +200,8 @@ public final class IotFunctions {
      * Returns a unique endpoint specific to the AWS account making the call.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -196,8 +210,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.kubernetes_pod;
-     * import com.pulumi.kubernetes.Kubernetes_podArgs;
+     * import com.pulumi.kubernetes.pod;
+     * import com.pulumi.kubernetes.PodArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -213,7 +227,7 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getEndpoint();
      * 
-     *         var agent = new Kubernetes_pod(&#34;agent&#34;, Kubernetes_podArgs.builder()        
+     *         var agent = new Pod(&#34;agent&#34;, PodArgs.builder()        
      *             .metadata(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
@@ -221,6 +235,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEndpointResult> getEndpoint(GetEndpointArgs args, InvokeOptions options) {
@@ -230,6 +245,8 @@ public final class IotFunctions {
      * Returns a unique endpoint specific to the AWS account making the call.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -238,8 +255,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.kubernetes_pod;
-     * import com.pulumi.kubernetes.Kubernetes_podArgs;
+     * import com.pulumi.kubernetes.pod;
+     * import com.pulumi.kubernetes.PodArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -255,7 +272,7 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getEndpoint();
      * 
-     *         var agent = new Kubernetes_pod(&#34;agent&#34;, Kubernetes_podArgs.builder()        
+     *         var agent = new Pod(&#34;agent&#34;, PodArgs.builder()        
      *             .metadata(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
@@ -263,6 +280,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEndpointResult> getEndpointPlain(GetEndpointPlainArgs args, InvokeOptions options) {
@@ -272,6 +290,8 @@ public final class IotFunctions {
      * Gets a registration code used to register a CA certificate with AWS IoT.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -299,13 +319,13 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getRegistrationCode();
      * 
-     *         var verificationPrivateKey = new PrivateKey(&#34;verificationPrivateKey&#34;, PrivateKeyArgs.builder()        
+     *         var verification = new PrivateKey(&#34;verification&#34;, PrivateKeyArgs.builder()        
      *             .algorithm(&#34;RSA&#34;)
      *             .build());
      * 
      *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
      *             .keyAlgorithm(&#34;RSA&#34;)
-     *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
+     *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(CertRequestSubjectArgs.builder()
      *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
      *                 .build())
@@ -314,6 +334,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRegistrationCodeResult> getRegistrationCode() {
@@ -323,6 +344,8 @@ public final class IotFunctions {
      * Gets a registration code used to register a CA certificate with AWS IoT.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -350,13 +373,13 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getRegistrationCode();
      * 
-     *         var verificationPrivateKey = new PrivateKey(&#34;verificationPrivateKey&#34;, PrivateKeyArgs.builder()        
+     *         var verification = new PrivateKey(&#34;verification&#34;, PrivateKeyArgs.builder()        
      *             .algorithm(&#34;RSA&#34;)
      *             .build());
      * 
      *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
      *             .keyAlgorithm(&#34;RSA&#34;)
-     *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
+     *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(CertRequestSubjectArgs.builder()
      *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
      *                 .build())
@@ -365,6 +388,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRegistrationCodeResult> getRegistrationCodePlain() {
@@ -374,6 +398,8 @@ public final class IotFunctions {
      * Gets a registration code used to register a CA certificate with AWS IoT.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -401,13 +427,13 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getRegistrationCode();
      * 
-     *         var verificationPrivateKey = new PrivateKey(&#34;verificationPrivateKey&#34;, PrivateKeyArgs.builder()        
+     *         var verification = new PrivateKey(&#34;verification&#34;, PrivateKeyArgs.builder()        
      *             .algorithm(&#34;RSA&#34;)
      *             .build());
      * 
      *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
      *             .keyAlgorithm(&#34;RSA&#34;)
-     *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
+     *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(CertRequestSubjectArgs.builder()
      *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
      *                 .build())
@@ -416,6 +442,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRegistrationCodeResult> getRegistrationCode(InvokeArgs args) {
@@ -425,6 +452,8 @@ public final class IotFunctions {
      * Gets a registration code used to register a CA certificate with AWS IoT.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -452,13 +481,13 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getRegistrationCode();
      * 
-     *         var verificationPrivateKey = new PrivateKey(&#34;verificationPrivateKey&#34;, PrivateKeyArgs.builder()        
+     *         var verification = new PrivateKey(&#34;verification&#34;, PrivateKeyArgs.builder()        
      *             .algorithm(&#34;RSA&#34;)
      *             .build());
      * 
      *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
      *             .keyAlgorithm(&#34;RSA&#34;)
-     *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
+     *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(CertRequestSubjectArgs.builder()
      *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
      *                 .build())
@@ -467,6 +496,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRegistrationCodeResult> getRegistrationCodePlain(InvokeArgs args) {
@@ -476,6 +506,8 @@ public final class IotFunctions {
      * Gets a registration code used to register a CA certificate with AWS IoT.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -503,13 +535,13 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getRegistrationCode();
      * 
-     *         var verificationPrivateKey = new PrivateKey(&#34;verificationPrivateKey&#34;, PrivateKeyArgs.builder()        
+     *         var verification = new PrivateKey(&#34;verification&#34;, PrivateKeyArgs.builder()        
      *             .algorithm(&#34;RSA&#34;)
      *             .build());
      * 
      *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
      *             .keyAlgorithm(&#34;RSA&#34;)
-     *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
+     *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(CertRequestSubjectArgs.builder()
      *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
      *                 .build())
@@ -518,6 +550,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRegistrationCodeResult> getRegistrationCode(InvokeArgs args, InvokeOptions options) {
@@ -527,6 +560,8 @@ public final class IotFunctions {
      * Gets a registration code used to register a CA certificate with AWS IoT.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -554,13 +589,13 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getRegistrationCode();
      * 
-     *         var verificationPrivateKey = new PrivateKey(&#34;verificationPrivateKey&#34;, PrivateKeyArgs.builder()        
+     *         var verification = new PrivateKey(&#34;verification&#34;, PrivateKeyArgs.builder()        
      *             .algorithm(&#34;RSA&#34;)
      *             .build());
      * 
      *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
      *             .keyAlgorithm(&#34;RSA&#34;)
-     *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
+     *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(CertRequestSubjectArgs.builder()
      *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
      *                 .build())
@@ -569,6 +604,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRegistrationCodeResult> getRegistrationCodePlain(InvokeArgs args, InvokeOptions options) {

@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames;
 import com.pulumi.aws.appmesh.outputs.VirtualNodeSpecListenerTlsValidationTrust;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -59,19 +60,23 @@ public final class VirtualNodeSpecListenerTlsValidation {
 
         @CustomType.Setter
         public Builder subjectAlternativeNames(@Nullable VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames subjectAlternativeNames) {
+
             this.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
         @CustomType.Setter
         public Builder trust(VirtualNodeSpecListenerTlsValidationTrust trust) {
-            this.trust = Objects.requireNonNull(trust);
+            if (trust == null) {
+              throw new MissingRequiredPropertyException("VirtualNodeSpecListenerTlsValidation", "trust");
+            }
+            this.trust = trust;
             return this;
         }
         public VirtualNodeSpecListenerTlsValidation build() {
-            final var o = new VirtualNodeSpecListenerTlsValidation();
-            o.subjectAlternativeNames = subjectAlternativeNames;
-            o.trust = trust;
-            return o;
+            final var _resultValue = new VirtualNodeSpecListenerTlsValidation();
+            _resultValue.subjectAlternativeNames = subjectAlternativeNames;
+            _resultValue.trust = trust;
+            return _resultValue;
         }
     }
 }

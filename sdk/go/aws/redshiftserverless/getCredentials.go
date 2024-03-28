@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshiftserverless.GetCredentials(ctx, &redshiftserverless.GetCredentialsArgs{
-//				WorkgroupName: aws_redshiftserverless_workgroup.Example.Workgroup_name,
+//				WorkgroupName: exampleAwsRedshiftserverlessWorkgroup.WorkgroupName,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetCredentials(ctx *pulumi.Context, args *GetCredentialsArgs, opts ...pulumi.InvokeOption) (*GetCredentialsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCredentialsResult

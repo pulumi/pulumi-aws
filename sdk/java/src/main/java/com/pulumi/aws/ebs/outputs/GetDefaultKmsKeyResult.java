@@ -4,6 +4,7 @@
 package com.pulumi.aws.ebs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class GetDefaultKmsKeyResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDefaultKmsKeyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder keyArn(String keyArn) {
-            this.keyArn = Objects.requireNonNull(keyArn);
+            if (keyArn == null) {
+              throw new MissingRequiredPropertyException("GetDefaultKmsKeyResult", "keyArn");
+            }
+            this.keyArn = keyArn;
             return this;
         }
         public GetDefaultKmsKeyResult build() {
-            final var o = new GetDefaultKmsKeyResult();
-            o.id = id;
-            o.keyArn = keyArn;
-            return o;
+            final var _resultValue = new GetDefaultKmsKeyResult();
+            _resultValue.id = id;
+            _resultValue.keyArn = keyArn;
+            return _resultValue;
         }
     }
 }

@@ -239,11 +239,17 @@ class DeliveryChannel(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2", force_destroy=True)
+        b = aws.s3.BucketV2("b",
+            bucket="example-awsconfig",
+            force_destroy=True)
+        foo = aws.cfg.DeliveryChannel("foo",
+            name="example",
+            s3_bucket_name=b.bucket)
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -252,29 +258,33 @@ class DeliveryChannel(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
-        foo_recorder = aws.cfg.Recorder("fooRecorder", role_arn=role.arn)
-        foo_delivery_channel = aws.cfg.DeliveryChannel("fooDeliveryChannel", s3_bucket_name=bucket_v2.bucket,
-        opts=pulumi.ResourceOptions(depends_on=[foo_recorder]))
-        policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        r = aws.iam.Role("r",
+            name="awsconfig-example",
+            assume_role_policy=assume_role.json)
+        foo_recorder = aws.cfg.Recorder("foo",
+            name="example",
+            role_arn=r.arn)
+        p = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["s3:*"],
             resources=[
-                bucket_v2.arn,
-                bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
+                b.arn,
+                b.arn.apply(lambda arn: f"{arn}/*"),
             ],
         )])
-        role_policy = aws.iam.RolePolicy("rolePolicy",
-            role=role.id,
-            policy=policy_document.json)
+        p_role_policy = aws.iam.RolePolicy("p",
+            name="awsconfig-example",
+            role=r.id,
+            policy=p.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Delivery Channel using the name. For example:
 
         ```sh
-         $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
+        $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
         ```
 
         :param str resource_name: The name of the resource.
@@ -299,11 +309,17 @@ class DeliveryChannel(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2", force_destroy=True)
+        b = aws.s3.BucketV2("b",
+            bucket="example-awsconfig",
+            force_destroy=True)
+        foo = aws.cfg.DeliveryChannel("foo",
+            name="example",
+            s3_bucket_name=b.bucket)
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -312,29 +328,33 @@ class DeliveryChannel(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
-        foo_recorder = aws.cfg.Recorder("fooRecorder", role_arn=role.arn)
-        foo_delivery_channel = aws.cfg.DeliveryChannel("fooDeliveryChannel", s3_bucket_name=bucket_v2.bucket,
-        opts=pulumi.ResourceOptions(depends_on=[foo_recorder]))
-        policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        r = aws.iam.Role("r",
+            name="awsconfig-example",
+            assume_role_policy=assume_role.json)
+        foo_recorder = aws.cfg.Recorder("foo",
+            name="example",
+            role_arn=r.arn)
+        p = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["s3:*"],
             resources=[
-                bucket_v2.arn,
-                bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
+                b.arn,
+                b.arn.apply(lambda arn: f"{arn}/*"),
             ],
         )])
-        role_policy = aws.iam.RolePolicy("rolePolicy",
-            role=role.id,
-            policy=policy_document.json)
+        p_role_policy = aws.iam.RolePolicy("p",
+            name="awsconfig-example",
+            role=r.id,
+            policy=p.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Delivery Channel using the name. For example:
 
         ```sh
-         $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
+        $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
         ```
 
         :param str resource_name: The name of the resource.

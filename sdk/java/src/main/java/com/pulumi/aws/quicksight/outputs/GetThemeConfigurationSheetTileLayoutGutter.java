@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class GetThemeConfigurationSheetTileLayoutGutter {
 
         @CustomType.Setter
         public Builder show(Boolean show) {
-            this.show = Objects.requireNonNull(show);
+            if (show == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationSheetTileLayoutGutter", "show");
+            }
+            this.show = show;
             return this;
         }
         public GetThemeConfigurationSheetTileLayoutGutter build() {
-            final var o = new GetThemeConfigurationSheetTileLayoutGutter();
-            o.show = show;
-            return o;
+            final var _resultValue = new GetThemeConfigurationSheetTileLayoutGutter();
+            _resultValue.show = show;
+            return _resultValue;
         }
     }
 }

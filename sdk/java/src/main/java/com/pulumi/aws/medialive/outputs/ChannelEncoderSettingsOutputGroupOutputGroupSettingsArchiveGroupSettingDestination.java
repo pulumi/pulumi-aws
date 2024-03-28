@@ -4,6 +4,7 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
 
         @CustomType.Setter
         public Builder destinationRefId(String destinationRefId) {
-            this.destinationRefId = Objects.requireNonNull(destinationRefId);
+            if (destinationRefId == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination", "destinationRefId");
+            }
+            this.destinationRefId = destinationRefId;
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination();
-            o.destinationRefId = destinationRefId;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination();
+            _resultValue.destinationRefId = destinationRefId;
+            return _resultValue;
         }
     }
 }

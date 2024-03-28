@@ -25,16 +25,18 @@ import * as utilities from "../utilities";
  *
  * This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `createDatabaseDefaultPermissions` and `createTableDefaultPermissions` are not set in the `aws.lakeformation.DataLakeSettings` resource, they are cleared.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentSessionContext = currentCallerIdentity.then(currentCallerIdentity => aws.iam.getSessionContext({
- *     arn: currentCallerIdentity.arn,
+ * const current = aws.getCallerIdentity({});
+ * const currentGetSessionContext = current.then(current => aws.iam.getSessionContext({
+ *     arn: current.arn,
  * }));
- * const test = new aws.lakeformation.DataLakeSettings("test", {admins: [currentSessionContext.then(currentSessionContext => currentSessionContext.issuerArn)]});
+ * const test = new aws.lakeformation.DataLakeSettings("test", {admins: [currentGetSessionContext.then(currentGetSessionContext => currentGetSessionContext.issuerArn)]});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * To remove existing `IAMAllowedPrincipals` permissions, use the [AWS Lake Formation Console](https://console.aws.amazon.com/lakeformation/) or [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lakeformation/batch-revoke-permissions.html).
  *
@@ -51,14 +53,15 @@ import * as utilities from "../utilities";
  *
  * AWS does not support combining `IAMAllowedPrincipals` permissions and non-`IAMAllowedPrincipals` permissions. Doing so results in unexpected permissions and behaviors. For example, this configuration grants a user `SELECT` on a column in a table.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleCatalogDatabase = new aws.glue.CatalogDatabase("exampleCatalogDatabase", {name: "sadabate"});
- * const exampleCatalogTable = new aws.glue.CatalogTable("exampleCatalogTable", {
+ * const example = new aws.glue.CatalogDatabase("example", {name: "sadabate"});
+ * const exampleCatalogTable = new aws.glue.CatalogTable("example", {
  *     name: "abelt",
- *     databaseName: aws_glue_catalog_database.test.name,
+ *     databaseName: test.name,
  *     storageDescriptor: {
  *         columns: [{
  *             name: "event",
@@ -66,7 +69,7 @@ import * as utilities from "../utilities";
  *         }],
  *     },
  * });
- * const examplePermissions = new aws.lakeformation.Permissions("examplePermissions", {
+ * const examplePermissions = new aws.lakeformation.Permissions("example", {
  *     permissions: ["SELECT"],
  *     principal: "arn:aws:iam:us-east-1:123456789012:user/SanHolo",
  *     tableWithColumns: {
@@ -76,6 +79,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * The resulting permissions depend on whether the table had `IAMAllowedPrincipals` (IAP) permissions or not.
  *
@@ -92,47 +96,55 @@ import * as utilities from "../utilities";
  * If the `principal` is also a data lake administrator, AWS grants implicit permissions that can cause errors using this resource. For example, AWS implicitly grants a `principal`/administrator `permissions` and `permissionsWithGrantOption` of `ALL`, `ALTER`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT` on a table. If you use this resource to explicitly grant the `principal`/administrator `permissions` but _not_ `permissionsWithGrantOption` of `ALL`, `ALTER`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT` on the table, this resource will read the implicit `permissionsWithGrantOption` and attempt to revoke them when the resource is destroyed. Doing so will cause an `InvalidInputException: No permissions revoked` error because you cannot revoke implicit permissions _per se_. To workaround this problem, explicitly grant the `principal`/administrator `permissions` _and_ `permissionsWithGrantOption`, which can then be revoked. Similarly, granting a `principal`/administrator permissions on a table with columns and providing `columnNames`, will result in a `InvalidInputException: Permissions modification is invalid` error because you are narrowing the implicit permissions. Instead, set `wildcard` to `true` and remove the `columnNames`.
  *
  * ## Example Usage
+ *
  * ### Grant Permissions For A Lake Formation S3 Resource
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lakeformation.Permissions("example", {
- *     principal: aws_iam_role.workflow_role.arn,
- *     permissions: ["ALL"],
+ *     principal: workflowRole.arn,
+ *     permissions: ["DATA_LOCATION_ACCESS"],
  *     dataLocation: {
- *         arn: aws_lakeformation_resource.example.arn,
+ *         arn: exampleAwsLakeformationResource.arn,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Grant Permissions For A Glue Catalog Database
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lakeformation.Permissions("example", {
- *     principal: aws_iam_role.workflow_role.arn,
+ *     principal: workflowRole.arn,
  *     permissions: [
  *         "CREATE_TABLE",
  *         "ALTER",
  *         "DROP",
  *     ],
  *     database: {
- *         name: aws_glue_catalog_database.example.name,
+ *         name: exampleAwsGlueCatalogDatabase.name,
  *         catalogId: "110376042874",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Grant Permissions Using Tag-Based Access Control
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.lakeformation.Permissions("test", {
- *     principal: aws_iam_role.sales_role.arn,
+ *     principal: salesRole.arn,
  *     permissions: [
  *         "CREATE_TABLE",
  *         "ALTER",
@@ -156,6 +168,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class Permissions extends pulumi.CustomResource {
     /**
@@ -193,6 +206,10 @@ export class Permissions extends pulumi.CustomResource {
      * Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
      */
     public readonly catalogResource!: pulumi.Output<boolean | undefined>;
+    /**
+     * Configuration block for a data cells filter resource. Detailed below.
+     */
+    public readonly dataCellsFilter!: pulumi.Output<outputs.lakeformation.PermissionsDataCellsFilter | undefined>;
     /**
      * Configuration block for a data location resource. Detailed below.
      */
@@ -251,6 +268,7 @@ export class Permissions extends pulumi.CustomResource {
             const state = argsOrState as PermissionsState | undefined;
             resourceInputs["catalogId"] = state ? state.catalogId : undefined;
             resourceInputs["catalogResource"] = state ? state.catalogResource : undefined;
+            resourceInputs["dataCellsFilter"] = state ? state.dataCellsFilter : undefined;
             resourceInputs["dataLocation"] = state ? state.dataLocation : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["lfTag"] = state ? state.lfTag : undefined;
@@ -270,6 +288,7 @@ export class Permissions extends pulumi.CustomResource {
             }
             resourceInputs["catalogId"] = args ? args.catalogId : undefined;
             resourceInputs["catalogResource"] = args ? args.catalogResource : undefined;
+            resourceInputs["dataCellsFilter"] = args ? args.dataCellsFilter : undefined;
             resourceInputs["dataLocation"] = args ? args.dataLocation : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["lfTag"] = args ? args.lfTag : undefined;
@@ -297,6 +316,10 @@ export interface PermissionsState {
      * Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
      */
     catalogResource?: pulumi.Input<boolean>;
+    /**
+     * Configuration block for a data cells filter resource. Detailed below.
+     */
+    dataCellsFilter?: pulumi.Input<inputs.lakeformation.PermissionsDataCellsFilter>;
     /**
      * Configuration block for a data location resource. Detailed below.
      */
@@ -353,6 +376,10 @@ export interface PermissionsArgs {
      * Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
      */
     catalogResource?: pulumi.Input<boolean>;
+    /**
+     * Configuration block for a data cells filter resource. Detailed below.
+     */
+    dataCellsFilter?: pulumi.Input<inputs.lakeformation.PermissionsDataCellsFilter>;
     /**
      * Configuration block for a data location resource. Detailed below.
      */

@@ -273,24 +273,29 @@ class Table(pulumi.CustomResource):
         Provides a Timestream table resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.timestreamwrite.Table("example",
-            database_name=aws_timestreamwrite_database["example"]["database_name"],
+            database_name=example_aws_timestreamwrite_database["databaseName"],
             table_name="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Full usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.timestreamwrite.Table("example",
-            database_name=aws_timestreamwrite_database["example"]["database_name"],
+            database_name=example_aws_timestreamwrite_database["databaseName"],
             table_name="example",
             retention_properties=aws.timestreamwrite.TableRetentionPropertiesArgs(
                 magnetic_store_retention_period_in_days=30,
@@ -300,14 +305,17 @@ class Table(pulumi.CustomResource):
                 "Name": "example-timestream-table",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Customer-defined Partition Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.timestreamwrite.Table("example",
-            database_name=aws_timestreamwrite_database["example"]["database_name"],
+            database_name=example_aws_timestreamwrite_database["databaseName"],
             table_name="example",
             schema=aws.timestreamwrite.TableSchemaArgs(
                 composite_partition_key=aws.timestreamwrite.TableSchemaCompositePartitionKeyArgs(
@@ -317,13 +325,14 @@ class Table(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Timestream tables using the `table_name` and `database_name` separate by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
+        $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
         ```
 
         :param str resource_name: The name of the resource.
@@ -345,24 +354,29 @@ class Table(pulumi.CustomResource):
         Provides a Timestream table resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.timestreamwrite.Table("example",
-            database_name=aws_timestreamwrite_database["example"]["database_name"],
+            database_name=example_aws_timestreamwrite_database["databaseName"],
             table_name="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Full usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.timestreamwrite.Table("example",
-            database_name=aws_timestreamwrite_database["example"]["database_name"],
+            database_name=example_aws_timestreamwrite_database["databaseName"],
             table_name="example",
             retention_properties=aws.timestreamwrite.TableRetentionPropertiesArgs(
                 magnetic_store_retention_period_in_days=30,
@@ -372,14 +386,17 @@ class Table(pulumi.CustomResource):
                 "Name": "example-timestream-table",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Customer-defined Partition Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.timestreamwrite.Table("example",
-            database_name=aws_timestreamwrite_database["example"]["database_name"],
+            database_name=example_aws_timestreamwrite_database["databaseName"],
             table_name="example",
             schema=aws.timestreamwrite.TableSchemaArgs(
                 composite_partition_key=aws.timestreamwrite.TableSchemaCompositePartitionKeyArgs(
@@ -389,13 +406,14 @@ class Table(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Timestream tables using the `table_name` and `database_name` separate by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
+        $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
         ```
 
         :param str resource_name: The name of the resource.
@@ -440,8 +458,6 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Table, __self__).__init__(
             'aws:timestreamwrite/table:Table',
             resource_name,

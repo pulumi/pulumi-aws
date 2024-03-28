@@ -6,6 +6,7 @@ package com.pulumi.aws.rds.inputs;
 import com.pulumi.aws.rds.inputs.GetEngineVersionFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -19,14 +20,14 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetEngineVersionArgs Empty = new GetEngineVersionArgs();
 
     /**
-     * When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
+     * Whether the engine version must be an AWS-defined default version. Some engines have multiple default versions, such as for each major version. Using `default_only` may help avoid `multiple RDS engine versions` errors. See also `latest`.
      * 
      */
     @Import(name="defaultOnly")
     private @Nullable Output<Boolean> defaultOnly;
 
     /**
-     * @return When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
+     * @return Whether the engine version must be an AWS-defined default version. Some engines have multiple default versions, such as for each major version. Using `default_only` may help avoid `multiple RDS engine versions` errors. See also `latest`.
      * 
      */
     public Optional<Output<Boolean>> defaultOnly() {
@@ -34,14 +35,18 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+     * Database engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="engine", required=true)
     private Output<String> engine;
 
     /**
-     * @return DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+     * @return Database engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> engine() {
@@ -49,14 +54,14 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+     * One or more name/value pairs to use in filtering versions. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
      * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetEngineVersionFilterArgs>> filters;
 
     /**
-     * @return One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+     * @return One or more name/value pairs to use in filtering versions. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
      * 
      */
     public Optional<Output<List<GetEngineVersionFilterArgs>>> filters() {
@@ -64,14 +69,44 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * When set to `true`, the specified `version` or member of `preferred_versions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
+     * Whether the engine version must have one or more major upgrade targets. Not including `has_major_target` or setting it to `false` doesn&#39;t imply that there&#39;s no corresponding major upgrade target for the engine version.
+     * 
+     */
+    @Import(name="hasMajorTarget")
+    private @Nullable Output<Boolean> hasMajorTarget;
+
+    /**
+     * @return Whether the engine version must have one or more major upgrade targets. Not including `has_major_target` or setting it to `false` doesn&#39;t imply that there&#39;s no corresponding major upgrade target for the engine version.
+     * 
+     */
+    public Optional<Output<Boolean>> hasMajorTarget() {
+        return Optional.ofNullable(this.hasMajorTarget);
+    }
+
+    /**
+     * Whether the engine version must have one or more minor upgrade targets. Not including `has_minor_target` or setting it to `false` doesn&#39;t imply that there&#39;s no corresponding minor upgrade target for the engine version.
+     * 
+     */
+    @Import(name="hasMinorTarget")
+    private @Nullable Output<Boolean> hasMinorTarget;
+
+    /**
+     * @return Whether the engine version must have one or more minor upgrade targets. Not including `has_minor_target` or setting it to `false` doesn&#39;t imply that there&#39;s no corresponding minor upgrade target for the engine version.
+     * 
+     */
+    public Optional<Output<Boolean>> hasMinorTarget() {
+        return Optional.ofNullable(this.hasMinorTarget);
+    }
+
+    /**
+     * Whether the engine version `status` can either be `deprecated` or `available`. When not set or set to `false`, the engine version `status` will always be `available`.
      * 
      */
     @Import(name="includeAll")
     private @Nullable Output<Boolean> includeAll;
 
     /**
-     * @return When set to `true`, the specified `version` or member of `preferred_versions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
+     * @return Whether the engine version `status` can either be `deprecated` or `available`. When not set or set to `false`, the engine version `status` will always be `available`.
      * 
      */
     public Optional<Output<Boolean>> includeAll() {
@@ -79,14 +114,29 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
+     * Whether the engine version is the most recent version matching the other criteria. This is different from `default_only` in important ways: &#34;default&#34; relies on AWS-defined defaults, the latest version isn&#39;t always the default, and AWS might have multiple default versions for an engine. As a result, `default_only` might not prevent errors from `multiple RDS engine versions`, while `latest` will. (`latest` can be used with `default_only`.) **Note:** The data source uses a best-effort approach at selecting the latest version. Due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may not always result in the engine version being the actual latest version.
+     * 
+     */
+    @Import(name="latest")
+    private @Nullable Output<Boolean> latest;
+
+    /**
+     * @return Whether the engine version is the most recent version matching the other criteria. This is different from `default_only` in important ways: &#34;default&#34; relies on AWS-defined defaults, the latest version isn&#39;t always the default, and AWS might have multiple default versions for an engine. As a result, `default_only` might not prevent errors from `multiple RDS engine versions`, while `latest` will. (`latest` can be used with `default_only`.) **Note:** The data source uses a best-effort approach at selecting the latest version. Due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may not always result in the engine version being the actual latest version.
+     * 
+     */
+    public Optional<Output<Boolean>> latest() {
+        return Optional.ofNullable(this.latest);
+    }
+
+    /**
+     * Name of a specific database parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
      * 
      */
     @Import(name="parameterGroupFamily")
     private @Nullable Output<String> parameterGroupFamily;
 
     /**
-     * @return Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
+     * @return Name of a specific database parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
      * 
      */
     public Optional<Output<String>> parameterGroupFamily() {
@@ -94,31 +144,53 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+     * Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_major_targets`.
+     * 
+     */
+    @Import(name="preferredMajorTargets")
+    private @Nullable Output<List<String>> preferredMajorTargets;
+
+    /**
+     * @return Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_major_targets`.
+     * 
+     */
+    public Optional<Output<List<String>>> preferredMajorTargets() {
+        return Optional.ofNullable(this.preferredMajorTargets);
+    }
+
+    /**
+     * Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_upgrade_targets`.
+     * 
+     */
+    @Import(name="preferredUpgradeTargets")
+    private @Nullable Output<List<String>> preferredUpgradeTargets;
+
+    /**
+     * @return Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_upgrade_targets`.
+     * 
+     */
+    public Optional<Output<List<String>>> preferredUpgradeTargets() {
+        return Optional.ofNullable(this.preferredUpgradeTargets);
+    }
+
+    /**
+     * Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_versions`.
      * 
      */
     @Import(name="preferredVersions")
     private @Nullable Output<List<String>> preferredVersions;
 
     /**
-     * @return Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+     * @return Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_versions`.
      * 
      */
     public Optional<Output<List<String>>> preferredVersions() {
         return Optional.ofNullable(this.preferredVersions);
     }
 
-    /**
-     * Version of the DB engine. For example, `5.7.22`, `10.1.34`, and `12.3`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
-     * 
-     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
-    /**
-     * @return Version of the DB engine. For example, `5.7.22`, `10.1.34`, and `12.3`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
-     * 
-     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -129,8 +201,13 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         this.defaultOnly = $.defaultOnly;
         this.engine = $.engine;
         this.filters = $.filters;
+        this.hasMajorTarget = $.hasMajorTarget;
+        this.hasMinorTarget = $.hasMinorTarget;
         this.includeAll = $.includeAll;
+        this.latest = $.latest;
         this.parameterGroupFamily = $.parameterGroupFamily;
+        this.preferredMajorTargets = $.preferredMajorTargets;
+        this.preferredUpgradeTargets = $.preferredUpgradeTargets;
         this.preferredVersions = $.preferredVersions;
         this.version = $.version;
     }
@@ -154,7 +231,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param defaultOnly When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
+         * @param defaultOnly Whether the engine version must be an AWS-defined default version. Some engines have multiple default versions, such as for each major version. Using `default_only` may help avoid `multiple RDS engine versions` errors. See also `latest`.
          * 
          * @return builder
          * 
@@ -165,7 +242,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param defaultOnly When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
+         * @param defaultOnly Whether the engine version must be an AWS-defined default version. Some engines have multiple default versions, such as for each major version. Using `default_only` may help avoid `multiple RDS engine versions` errors. See also `latest`.
          * 
          * @return builder
          * 
@@ -175,7 +252,9 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param engine DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+         * @param engine Database engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -186,7 +265,9 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param engine DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+         * @param engine Database engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -196,7 +277,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param filters One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+         * @param filters One or more name/value pairs to use in filtering versions. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
          * 
          * @return builder
          * 
@@ -207,7 +288,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param filters One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+         * @param filters One or more name/value pairs to use in filtering versions. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
          * 
          * @return builder
          * 
@@ -217,7 +298,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param filters One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+         * @param filters One or more name/value pairs to use in filtering versions. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
          * 
          * @return builder
          * 
@@ -227,7 +308,49 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param includeAll When set to `true`, the specified `version` or member of `preferred_versions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
+         * @param hasMajorTarget Whether the engine version must have one or more major upgrade targets. Not including `has_major_target` or setting it to `false` doesn&#39;t imply that there&#39;s no corresponding major upgrade target for the engine version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hasMajorTarget(@Nullable Output<Boolean> hasMajorTarget) {
+            $.hasMajorTarget = hasMajorTarget;
+            return this;
+        }
+
+        /**
+         * @param hasMajorTarget Whether the engine version must have one or more major upgrade targets. Not including `has_major_target` or setting it to `false` doesn&#39;t imply that there&#39;s no corresponding major upgrade target for the engine version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hasMajorTarget(Boolean hasMajorTarget) {
+            return hasMajorTarget(Output.of(hasMajorTarget));
+        }
+
+        /**
+         * @param hasMinorTarget Whether the engine version must have one or more minor upgrade targets. Not including `has_minor_target` or setting it to `false` doesn&#39;t imply that there&#39;s no corresponding minor upgrade target for the engine version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hasMinorTarget(@Nullable Output<Boolean> hasMinorTarget) {
+            $.hasMinorTarget = hasMinorTarget;
+            return this;
+        }
+
+        /**
+         * @param hasMinorTarget Whether the engine version must have one or more minor upgrade targets. Not including `has_minor_target` or setting it to `false` doesn&#39;t imply that there&#39;s no corresponding minor upgrade target for the engine version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hasMinorTarget(Boolean hasMinorTarget) {
+            return hasMinorTarget(Output.of(hasMinorTarget));
+        }
+
+        /**
+         * @param includeAll Whether the engine version `status` can either be `deprecated` or `available`. When not set or set to `false`, the engine version `status` will always be `available`.
          * 
          * @return builder
          * 
@@ -238,7 +361,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param includeAll When set to `true`, the specified `version` or member of `preferred_versions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
+         * @param includeAll Whether the engine version `status` can either be `deprecated` or `available`. When not set or set to `false`, the engine version `status` will always be `available`.
          * 
          * @return builder
          * 
@@ -248,7 +371,28 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param parameterGroupFamily Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
+         * @param latest Whether the engine version is the most recent version matching the other criteria. This is different from `default_only` in important ways: &#34;default&#34; relies on AWS-defined defaults, the latest version isn&#39;t always the default, and AWS might have multiple default versions for an engine. As a result, `default_only` might not prevent errors from `multiple RDS engine versions`, while `latest` will. (`latest` can be used with `default_only`.) **Note:** The data source uses a best-effort approach at selecting the latest version. Due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may not always result in the engine version being the actual latest version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder latest(@Nullable Output<Boolean> latest) {
+            $.latest = latest;
+            return this;
+        }
+
+        /**
+         * @param latest Whether the engine version is the most recent version matching the other criteria. This is different from `default_only` in important ways: &#34;default&#34; relies on AWS-defined defaults, the latest version isn&#39;t always the default, and AWS might have multiple default versions for an engine. As a result, `default_only` might not prevent errors from `multiple RDS engine versions`, while `latest` will. (`latest` can be used with `default_only`.) **Note:** The data source uses a best-effort approach at selecting the latest version. Due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may not always result in the engine version being the actual latest version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder latest(Boolean latest) {
+            return latest(Output.of(latest));
+        }
+
+        /**
+         * @param parameterGroupFamily Name of a specific database parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
          * 
          * @return builder
          * 
@@ -259,7 +403,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param parameterGroupFamily Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
+         * @param parameterGroupFamily Name of a specific database parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
          * 
          * @return builder
          * 
@@ -269,7 +413,69 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param preferredVersions Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+         * @param preferredMajorTargets Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_major_targets`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preferredMajorTargets(@Nullable Output<List<String>> preferredMajorTargets) {
+            $.preferredMajorTargets = preferredMajorTargets;
+            return this;
+        }
+
+        /**
+         * @param preferredMajorTargets Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_major_targets`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preferredMajorTargets(List<String> preferredMajorTargets) {
+            return preferredMajorTargets(Output.of(preferredMajorTargets));
+        }
+
+        /**
+         * @param preferredMajorTargets Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_major_targets`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preferredMajorTargets(String... preferredMajorTargets) {
+            return preferredMajorTargets(List.of(preferredMajorTargets));
+        }
+
+        /**
+         * @param preferredUpgradeTargets Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_upgrade_targets`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preferredUpgradeTargets(@Nullable Output<List<String>> preferredUpgradeTargets) {
+            $.preferredUpgradeTargets = preferredUpgradeTargets;
+            return this;
+        }
+
+        /**
+         * @param preferredUpgradeTargets Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_upgrade_targets`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preferredUpgradeTargets(List<String> preferredUpgradeTargets) {
+            return preferredUpgradeTargets(Output.of(preferredUpgradeTargets));
+        }
+
+        /**
+         * @param preferredUpgradeTargets Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_upgrade_targets`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preferredUpgradeTargets(String... preferredUpgradeTargets) {
+            return preferredUpgradeTargets(List.of(preferredUpgradeTargets));
+        }
+
+        /**
+         * @param preferredVersions Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_versions`.
          * 
          * @return builder
          * 
@@ -280,7 +486,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param preferredVersions Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+         * @param preferredVersions Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_versions`.
          * 
          * @return builder
          * 
@@ -290,7 +496,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param preferredVersions Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+         * @param preferredVersions Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_versions`.
          * 
          * @return builder
          * 
@@ -299,29 +505,19 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
             return preferredVersions(List.of(preferredVersions));
         }
 
-        /**
-         * @param version Version of the DB engine. For example, `5.7.22`, `10.1.34`, and `12.3`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version Version of the DB engine. For example, `5.7.22`, `10.1.34`, and `12.3`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }
 
         public GetEngineVersionArgs build() {
-            $.engine = Objects.requireNonNull($.engine, "expected parameter 'engine' to be non-null");
+            if ($.engine == null) {
+                throw new MissingRequiredPropertyException("GetEngineVersionArgs", "engine");
+            }
             return $;
         }
     }

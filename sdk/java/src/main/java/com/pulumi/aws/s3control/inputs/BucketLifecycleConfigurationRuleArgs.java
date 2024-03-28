@@ -8,6 +8,7 @@ import com.pulumi.aws.s3control.inputs.BucketLifecycleConfigurationRuleExpiratio
 import com.pulumi.aws.s3control.inputs.BucketLifecycleConfigurationRuleFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -227,7 +228,9 @@ public final class BucketLifecycleConfigurationRuleArgs extends com.pulumi.resou
         }
 
         public BucketLifecycleConfigurationRuleArgs build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("BucketLifecycleConfigurationRuleArgs", "id");
+            }
             return $;
         }
     }

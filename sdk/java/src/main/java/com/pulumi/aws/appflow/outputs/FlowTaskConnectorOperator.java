@@ -254,103 +254,119 @@ public final class FlowTaskConnectorOperator {
 
         @CustomType.Setter
         public Builder amplitude(@Nullable String amplitude) {
+
             this.amplitude = amplitude;
             return this;
         }
         @CustomType.Setter
         public Builder customConnector(@Nullable String customConnector) {
+
             this.customConnector = customConnector;
             return this;
         }
         @CustomType.Setter
         public Builder datadog(@Nullable String datadog) {
+
             this.datadog = datadog;
             return this;
         }
         @CustomType.Setter
         public Builder dynatrace(@Nullable String dynatrace) {
+
             this.dynatrace = dynatrace;
             return this;
         }
         @CustomType.Setter
         public Builder googleAnalytics(@Nullable String googleAnalytics) {
+
             this.googleAnalytics = googleAnalytics;
             return this;
         }
         @CustomType.Setter
         public Builder inforNexus(@Nullable String inforNexus) {
+
             this.inforNexus = inforNexus;
             return this;
         }
         @CustomType.Setter
         public Builder marketo(@Nullable String marketo) {
+
             this.marketo = marketo;
             return this;
         }
         @CustomType.Setter
         public Builder s3(@Nullable String s3) {
+
             this.s3 = s3;
             return this;
         }
         @CustomType.Setter
         public Builder salesforce(@Nullable String salesforce) {
+
             this.salesforce = salesforce;
             return this;
         }
         @CustomType.Setter
         public Builder sapoData(@Nullable String sapoData) {
+
             this.sapoData = sapoData;
             return this;
         }
         @CustomType.Setter
         public Builder serviceNow(@Nullable String serviceNow) {
+
             this.serviceNow = serviceNow;
             return this;
         }
         @CustomType.Setter
         public Builder singular(@Nullable String singular) {
+
             this.singular = singular;
             return this;
         }
         @CustomType.Setter
         public Builder slack(@Nullable String slack) {
+
             this.slack = slack;
             return this;
         }
         @CustomType.Setter
         public Builder trendmicro(@Nullable String trendmicro) {
+
             this.trendmicro = trendmicro;
             return this;
         }
         @CustomType.Setter
         public Builder veeva(@Nullable String veeva) {
+
             this.veeva = veeva;
             return this;
         }
         @CustomType.Setter
         public Builder zendesk(@Nullable String zendesk) {
+
             this.zendesk = zendesk;
             return this;
         }
         public FlowTaskConnectorOperator build() {
-            final var o = new FlowTaskConnectorOperator();
-            o.amplitude = amplitude;
-            o.customConnector = customConnector;
-            o.datadog = datadog;
-            o.dynatrace = dynatrace;
-            o.googleAnalytics = googleAnalytics;
-            o.inforNexus = inforNexus;
-            o.marketo = marketo;
-            o.s3 = s3;
-            o.salesforce = salesforce;
-            o.sapoData = sapoData;
-            o.serviceNow = serviceNow;
-            o.singular = singular;
-            o.slack = slack;
-            o.trendmicro = trendmicro;
-            o.veeva = veeva;
-            o.zendesk = zendesk;
-            return o;
+            final var _resultValue = new FlowTaskConnectorOperator();
+            _resultValue.amplitude = amplitude;
+            _resultValue.customConnector = customConnector;
+            _resultValue.datadog = datadog;
+            _resultValue.dynatrace = dynatrace;
+            _resultValue.googleAnalytics = googleAnalytics;
+            _resultValue.inforNexus = inforNexus;
+            _resultValue.marketo = marketo;
+            _resultValue.s3 = s3;
+            _resultValue.salesforce = salesforce;
+            _resultValue.sapoData = sapoData;
+            _resultValue.serviceNow = serviceNow;
+            _resultValue.singular = singular;
+            _resultValue.slack = slack;
+            _resultValue.trendmicro = trendmicro;
+            _resultValue.veeva = veeva;
+            _resultValue.zendesk = zendesk;
+            return _resultValue;
         }
     }
 }

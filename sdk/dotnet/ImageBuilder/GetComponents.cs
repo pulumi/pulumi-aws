@@ -14,10 +14,9 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,6 +27,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// {
         ///     var example = Aws.ImageBuilder.GetComponents.Invoke(new()
         ///     {
+        ///         Owner = "Self",
         ///         Filters = new[]
         ///         {
         ///             new Aws.ImageBuilder.Inputs.GetComponentsFilterInputArgs
@@ -39,13 +39,11 @@ namespace Pulumi.Aws.ImageBuilder
         ///                 },
         ///             },
         ///         },
-        ///         Owner = "Self",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetComponentsResult> InvokeAsync(GetComponentsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetComponentsResult>("aws:imagebuilder/getComponents:getComponents", args ?? new GetComponentsArgs(), options.WithDefaults());
@@ -53,10 +51,9 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -67,6 +64,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// {
         ///     var example = Aws.ImageBuilder.GetComponents.Invoke(new()
         ///     {
+        ///         Owner = "Self",
         ///         Filters = new[]
         ///         {
         ///             new Aws.ImageBuilder.Inputs.GetComponentsFilterInputArgs
@@ -78,13 +76,11 @@ namespace Pulumi.Aws.ImageBuilder
         ///                 },
         ///             },
         ///         },
-        ///         Owner = "Self",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetComponentsResult> Invoke(GetComponentsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComponentsResult>("aws:imagebuilder/getComponents:getComponents", args ?? new GetComponentsInvokeArgs(), options.WithDefaults());
@@ -106,7 +102,7 @@ namespace Pulumi.Aws.ImageBuilder
         }
 
         /// <summary>
-        /// Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+        /// Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
         /// </summary>
         [Input("owner")]
         public string? Owner { get; set; }
@@ -132,7 +128,7 @@ namespace Pulumi.Aws.ImageBuilder
         }
 
         /// <summary>
-        /// Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+        /// Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
         /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }

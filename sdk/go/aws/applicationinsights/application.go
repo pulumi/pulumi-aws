@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,13 +33,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"ResourceTypeFilters": []string{
+//				"resourceTypeFilters": []string{
 //					"AWS::EC2::Instance",
 //				},
-//				"TagFilters": []map[string]interface{}{
+//				"tagFilters": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Key": "Stage",
-//						"Values": []string{
+//						"key": "Stage",
+//						"values": []string{
 //							"Test",
 //						},
 //					},
@@ -48,7 +49,8 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			exampleGroup, err := resourcegroups.NewGroup(ctx, "exampleGroup", &resourcegroups.GroupArgs{
+//			exampleGroup, err := resourcegroups.NewGroup(ctx, "example", &resourcegroups.GroupArgs{
+//				Name: pulumi.String("example"),
 //				ResourceQuery: &resourcegroups.GroupResourceQueryArgs{
 //					Query: pulumi.String(json0),
 //				},
@@ -56,7 +58,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = applicationinsights.NewApplication(ctx, "exampleApplication", &applicationinsights.ApplicationArgs{
+//			_, err = applicationinsights.NewApplication(ctx, "example", &applicationinsights.ApplicationArgs{
 //				ResourceGroupName: exampleGroup.Name,
 //			})
 //			if err != nil {
@@ -67,15 +69,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:applicationinsights/application:Application some some-application
-//
+// $ pulumi import aws:applicationinsights/application:Application some some-application
 // ```
 type Application struct {
 	pulumi.CustomResourceState
@@ -116,10 +117,6 @@ func NewApplication(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Application
 	err := ctx.RegisterResource("aws:applicationinsights/application:Application", name, args, &resource, opts...)

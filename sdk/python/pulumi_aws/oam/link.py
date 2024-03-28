@@ -256,8 +256,10 @@ class Link(pulumi.CustomResource):
         Resource for managing an AWS CloudWatch Observability Access Manager Link.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -265,18 +267,19 @@ class Link(pulumi.CustomResource):
         example = aws.oam.Link("example",
             label_template="$AccountName",
             resource_types=["AWS::CloudWatch::Metric"],
-            sink_identifier=aws_oam_sink["test"]["id"],
+            sink_identifier=test["id"],
             tags={
                 "Env": "prod",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
+        $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -298,8 +301,10 @@ class Link(pulumi.CustomResource):
         Resource for managing an AWS CloudWatch Observability Access Manager Link.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -307,18 +312,19 @@ class Link(pulumi.CustomResource):
         example = aws.oam.Link("example",
             label_template="$AccountName",
             resource_types=["AWS::CloudWatch::Metric"],
-            sink_identifier=aws_oam_sink["test"]["id"],
+            sink_identifier=test["id"],
             tags={
                 "Env": "prod",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
+        $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -364,8 +370,6 @@ class Link(pulumi.CustomResource):
             __props__.__dict__["link_id"] = None
             __props__.__dict__["sink_arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Link, __self__).__init__(
             'aws:oam/link:Link',
             resource_name,

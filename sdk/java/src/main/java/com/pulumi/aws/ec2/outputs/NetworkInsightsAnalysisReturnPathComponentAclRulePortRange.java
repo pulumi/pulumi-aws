@@ -42,19 +42,21 @@ public final class NetworkInsightsAnalysisReturnPathComponentAclRulePortRange {
 
         @CustomType.Setter
         public Builder from(@Nullable Integer from) {
+
             this.from = from;
             return this;
         }
         @CustomType.Setter
         public Builder to(@Nullable Integer to) {
+
             this.to = to;
             return this;
         }
         public NetworkInsightsAnalysisReturnPathComponentAclRulePortRange build() {
-            final var o = new NetworkInsightsAnalysisReturnPathComponentAclRulePortRange();
-            o.from = from;
-            o.to = to;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisReturnPathComponentAclRulePortRange();
+            _resultValue.from = from;
+            _resultValue.to = to;
+            return _resultValue;
         }
     }
 }

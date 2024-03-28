@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,31 +54,36 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("example-role"),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "aWSCodeDeployRole", &iam.RolePolicyAttachmentArgs{
+//			_, err = iam.NewRolePolicyAttachment(ctx, "AWSCodeDeployRole", &iam.RolePolicyAttachmentArgs{
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole"),
-//				Role:      exampleRole.Name,
+//				Role:      example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleApplication, err := codedeploy.NewApplication(ctx, "exampleApplication", nil)
+//			exampleApplication, err := codedeploy.NewApplication(ctx, "example", &codedeploy.ApplicationArgs{
+//				Name: pulumi.String("example-app"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleTopic, err := sns.NewTopic(ctx, "exampleTopic", nil)
+//			exampleTopic, err := sns.NewTopic(ctx, "example", &sns.TopicArgs{
+//				Name: pulumi.String("example-topic"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = codedeploy.NewDeploymentGroup(ctx, "exampleDeploymentGroup", &codedeploy.DeploymentGroupArgs{
+//			_, err = codedeploy.NewDeploymentGroup(ctx, "example", &codedeploy.DeploymentGroupArgs{
 //				AppName:             exampleApplication.Name,
 //				DeploymentGroupName: pulumi.String("example-group"),
-//				ServiceRoleArn:      exampleRole.Arn,
+//				ServiceRoleArn:      example.Arn,
 //				Ec2TagSets: codedeploy.DeploymentGroupEc2TagSetArray{
 //					&codedeploy.DeploymentGroupEc2TagSetArgs{
 //						Ec2TagFilters: codedeploy.DeploymentGroupEc2TagSetEc2TagFilterArray{
@@ -125,8 +131,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Blue Green Deployments with ECS
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -139,17 +148,18 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApplication, err := codedeploy.NewApplication(ctx, "exampleApplication", &codedeploy.ApplicationArgs{
+//			example, err := codedeploy.NewApplication(ctx, "example", &codedeploy.ApplicationArgs{
 //				ComputePlatform: pulumi.String("ECS"),
+//				Name:            pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = codedeploy.NewDeploymentGroup(ctx, "exampleDeploymentGroup", &codedeploy.DeploymentGroupArgs{
-//				AppName:              exampleApplication.Name,
+//			_, err = codedeploy.NewDeploymentGroup(ctx, "example", &codedeploy.DeploymentGroupArgs{
+//				AppName:              example.Name,
 //				DeploymentConfigName: pulumi.String("CodeDeployDefault.ECSAllAtOnce"),
 //				DeploymentGroupName:  pulumi.String("example"),
-//				ServiceRoleArn:       pulumi.Any(aws_iam_role.Example.Arn),
+//				ServiceRoleArn:       pulumi.Any(exampleAwsIamRole.Arn),
 //				AutoRollbackConfiguration: &codedeploy.DeploymentGroupAutoRollbackConfigurationArgs{
 //					Enabled: pulumi.Bool(true),
 //					Events: pulumi.StringArray{
@@ -170,22 +180,22 @@ import (
 //					DeploymentType:   pulumi.String("BLUE_GREEN"),
 //				},
 //				EcsService: &codedeploy.DeploymentGroupEcsServiceArgs{
-//					ClusterName: pulumi.Any(aws_ecs_cluster.Example.Name),
-//					ServiceName: pulumi.Any(aws_ecs_service.Example.Name),
+//					ClusterName: pulumi.Any(exampleAwsEcsCluster.Name),
+//					ServiceName: pulumi.Any(exampleAwsEcsService.Name),
 //				},
 //				LoadBalancerInfo: &codedeploy.DeploymentGroupLoadBalancerInfoArgs{
 //					TargetGroupPairInfo: &codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs{
 //						ProdTrafficRoute: &codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs{
 //							ListenerArns: pulumi.StringArray{
-//								aws_lb_listener.Example.Arn,
+//								exampleAwsLbListener.Arn,
 //							},
 //						},
 //						TargetGroups: codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArray{
 //							&codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs{
-//								Name: pulumi.Any(aws_lb_target_group.Blue.Name),
+//								Name: pulumi.Any(blue.Name),
 //							},
 //							&codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs{
-//								Name: pulumi.Any(aws_lb_target_group.Green.Name),
+//								Name: pulumi.Any(green.Name),
 //							},
 //						},
 //					},
@@ -199,8 +209,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Blue Green Deployments with Servers and Classic ELB
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -213,14 +226,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApplication, err := codedeploy.NewApplication(ctx, "exampleApplication", nil)
+//			example, err := codedeploy.NewApplication(ctx, "example", &codedeploy.ApplicationArgs{
+//				Name: pulumi.String("example-app"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = codedeploy.NewDeploymentGroup(ctx, "exampleDeploymentGroup", &codedeploy.DeploymentGroupArgs{
-//				AppName:             exampleApplication.Name,
+//			_, err = codedeploy.NewDeploymentGroup(ctx, "example", &codedeploy.DeploymentGroupArgs{
+//				AppName:             example.Name,
 //				DeploymentGroupName: pulumi.String("example-group"),
-//				ServiceRoleArn:      pulumi.Any(aws_iam_role.Example.Arn),
+//				ServiceRoleArn:      pulumi.Any(exampleAwsIamRole.Arn),
 //				DeploymentStyle: &codedeploy.DeploymentGroupDeploymentStyleArgs{
 //					DeploymentOption: pulumi.String("WITH_TRAFFIC_CONTROL"),
 //					DeploymentType:   pulumi.String("BLUE_GREEN"),
@@ -228,7 +243,7 @@ import (
 //				LoadBalancerInfo: &codedeploy.DeploymentGroupLoadBalancerInfoArgs{
 //					ElbInfos: codedeploy.DeploymentGroupLoadBalancerInfoElbInfoArray{
 //						&codedeploy.DeploymentGroupLoadBalancerInfoElbInfoArgs{
-//							Name: pulumi.Any(aws_elb.Example.Name),
+//							Name: pulumi.Any(exampleAwsElb.Name),
 //						},
 //					},
 //				},
@@ -253,15 +268,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CodeDeploy Deployment Groups using `app_name`, a colon, and `deployment_group_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
-//
+// $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
 // ```
 type DeploymentGroup struct {
 	pulumi.CustomResourceState
@@ -328,10 +342,6 @@ func NewDeploymentGroup(ctx *pulumi.Context,
 	if args.ServiceRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceRoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DeploymentGroup
 	err := ctx.RegisterResource("aws:codedeploy/deploymentGroup:DeploymentGroup", name, args, &resource, opts...)

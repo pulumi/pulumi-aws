@@ -233,11 +233,12 @@ class SigningProfilePermission(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        prod_sp = aws.signer.SigningProfile("prodSp",
+        prod_sp = aws.signer.SigningProfile("prod_sp",
             platform_id="AWSLambda-SHA384-ECDSA",
             name_prefix="prod_sp_",
             signature_validity_period=aws.signer.SigningProfileSignatureValidityPeriodArgs(
@@ -248,29 +249,30 @@ class SigningProfilePermission(pulumi.CustomResource):
                 "tag1": "value1",
                 "tag2": "value2",
             })
-        sp_permission1 = aws.signer.SigningProfilePermission("spPermission1",
+        sp_permission1 = aws.signer.SigningProfilePermission("sp_permission_1",
             profile_name=prod_sp.name,
             action="signer:StartSigningJob",
-            principal=var["aws_account"])
-        sp_permission2 = aws.signer.SigningProfilePermission("spPermission2",
+            principal=aws_account)
+        sp_permission2 = aws.signer.SigningProfilePermission("sp_permission_2",
             profile_name=prod_sp.name,
             action="signer:GetSigningProfile",
-            principal=var["aws_team_role_arn"],
+            principal=aws_team_role_arn,
             statement_id="ProdAccountStartSigningJob_StatementId")
-        sp_permission3 = aws.signer.SigningProfilePermission("spPermission3",
+        sp_permission3 = aws.signer.SigningProfilePermission("sp_permission_3",
             profile_name=prod_sp.name,
             action="signer:RevokeSignature",
             principal="123456789012",
             profile_version=prod_sp.version,
             statement_id_prefix="version-permission-")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Signer signing profile permission statements using profile_name/statement_id. For example:
 
         ```sh
-         $ pulumi import aws:signer/signingProfilePermission:SigningProfilePermission test_signer_signing_profile_permission prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK/ProdAccountStartSigningJobStatementId
+        $ pulumi import aws:signer/signingProfilePermission:SigningProfilePermission test_signer_signing_profile_permission prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK/ProdAccountStartSigningJobStatementId
         ```
 
         :param str resource_name: The name of the resource.
@@ -293,11 +295,12 @@ class SigningProfilePermission(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        prod_sp = aws.signer.SigningProfile("prodSp",
+        prod_sp = aws.signer.SigningProfile("prod_sp",
             platform_id="AWSLambda-SHA384-ECDSA",
             name_prefix="prod_sp_",
             signature_validity_period=aws.signer.SigningProfileSignatureValidityPeriodArgs(
@@ -308,29 +311,30 @@ class SigningProfilePermission(pulumi.CustomResource):
                 "tag1": "value1",
                 "tag2": "value2",
             })
-        sp_permission1 = aws.signer.SigningProfilePermission("spPermission1",
+        sp_permission1 = aws.signer.SigningProfilePermission("sp_permission_1",
             profile_name=prod_sp.name,
             action="signer:StartSigningJob",
-            principal=var["aws_account"])
-        sp_permission2 = aws.signer.SigningProfilePermission("spPermission2",
+            principal=aws_account)
+        sp_permission2 = aws.signer.SigningProfilePermission("sp_permission_2",
             profile_name=prod_sp.name,
             action="signer:GetSigningProfile",
-            principal=var["aws_team_role_arn"],
+            principal=aws_team_role_arn,
             statement_id="ProdAccountStartSigningJob_StatementId")
-        sp_permission3 = aws.signer.SigningProfilePermission("spPermission3",
+        sp_permission3 = aws.signer.SigningProfilePermission("sp_permission_3",
             profile_name=prod_sp.name,
             action="signer:RevokeSignature",
             principal="123456789012",
             profile_version=prod_sp.version,
             statement_id_prefix="version-permission-")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Signer signing profile permission statements using profile_name/statement_id. For example:
 
         ```sh
-         $ pulumi import aws:signer/signingProfilePermission:SigningProfilePermission test_signer_signing_profile_permission prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK/ProdAccountStartSigningJobStatementId
+        $ pulumi import aws:signer/signingProfilePermission:SigningProfilePermission test_signer_signing_profile_permission prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK/ProdAccountStartSigningJobStatementId
         ```
 
         :param str resource_name: The name of the resource.

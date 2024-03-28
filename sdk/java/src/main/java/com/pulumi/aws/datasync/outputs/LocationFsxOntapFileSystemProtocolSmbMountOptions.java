@@ -44,13 +44,14 @@ public final class LocationFsxOntapFileSystemProtocolSmbMountOptions {
 
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }
         public LocationFsxOntapFileSystemProtocolSmbMountOptions build() {
-            final var o = new LocationFsxOntapFileSystemProtocolSmbMountOptions();
-            o.version = version;
-            return o;
+            final var _resultValue = new LocationFsxOntapFileSystemProtocolSmbMountOptions();
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

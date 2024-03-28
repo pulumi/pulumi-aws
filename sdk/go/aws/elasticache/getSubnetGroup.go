@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupSubnetGroup(ctx *pulumi.Context, args *LookupSubnetGroupArgs, opts ...pulumi.InvokeOption) (*LookupSubnetGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSubnetGroupResult
@@ -69,6 +71,8 @@ type LookupSubnetGroupResult struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Map of tags assigned to the subnet group.
 	Tags map[string]string `pulumi:"tags"`
+	// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+	VpcId string `pulumi:"vpcId"`
 }
 
 func LookupSubnetGroupOutput(ctx *pulumi.Context, args LookupSubnetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetGroupResultOutput {
@@ -138,6 +142,11 @@ func (o LookupSubnetGroupResultOutput) SubnetIds() pulumi.StringArrayOutput {
 // Map of tags assigned to the subnet group.
 func (o LookupSubnetGroupResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+func (o LookupSubnetGroupResultOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.VpcId }).(pulumi.StringOutput)
 }
 
 func init() {

@@ -201,27 +201,32 @@ class Model(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        my_demo_model = aws.apigateway.Model("myDemoModel",
+        my_demo_api = aws.apigateway.RestApi("MyDemoAPI",
+            name="MyDemoAPI",
+            description="This is my API for demonstration purposes")
+        my_demo_model = aws.apigateway.Model("MyDemoModel",
             rest_api=my_demo_api.id,
+            name="user",
             description="a JSON schema",
             content_type="application/json",
             schema=json.dumps({
                 "type": "object",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_model` using `REST-API-ID/NAME`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/model:Model example 12345abcde/example
+        $ pulumi import aws:apigateway/model:Model example 12345abcde/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -243,27 +248,32 @@ class Model(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        my_demo_model = aws.apigateway.Model("myDemoModel",
+        my_demo_api = aws.apigateway.RestApi("MyDemoAPI",
+            name="MyDemoAPI",
+            description="This is my API for demonstration purposes")
+        my_demo_model = aws.apigateway.Model("MyDemoModel",
             rest_api=my_demo_api.id,
+            name="user",
             description="a JSON schema",
             content_type="application/json",
             schema=json.dumps({
                 "type": "object",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_model` using `REST-API-ID/NAME`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/model:Model example 12345abcde/example
+        $ pulumi import aws:apigateway/model:Model example 12345abcde/example
         ```
 
         :param str resource_name: The name of the resource.

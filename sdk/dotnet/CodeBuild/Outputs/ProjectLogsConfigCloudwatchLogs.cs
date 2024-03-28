@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly string? Status;
         /// <summary>
-        /// Stream name of the logs in CloudWatch Logs.
+        /// Prefix of the log stream name of the logs in CloudWatch Logs.
         /// </summary>
         public readonly string? StreamName;
 

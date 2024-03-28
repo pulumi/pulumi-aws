@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,7 +34,7 @@ import (
 //			_, err := sagemaker.NewProject(ctx, "example", &sagemaker.ProjectArgs{
 //				ProjectName: pulumi.String("example"),
 //				ServiceCatalogProvisioningDetails: &sagemaker.ProjectServiceCatalogProvisioningDetailsArgs{
-//					ProductId: pulumi.Any(aws_servicecatalog_product.Example.Id),
+//					ProductId: pulumi.Any(exampleAwsServicecatalogProduct.Id),
 //				},
 //			})
 //			if err != nil {
@@ -44,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SageMaker Projects using the `project_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/project:Project example example
-//
+// $ pulumi import aws:sagemaker/project:Project example example
 // ```
 type Project struct {
 	pulumi.CustomResourceState
@@ -88,10 +88,6 @@ func NewProject(ctx *pulumi.Context,
 	if args.ServiceCatalogProvisioningDetails == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceCatalogProvisioningDetails'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Project
 	err := ctx.RegisterResource("aws:sagemaker/project:Project", name, args, &resource, opts...)

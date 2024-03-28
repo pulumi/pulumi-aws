@@ -44,13 +44,14 @@ public final class EndpointConfigurationAsyncInferenceConfigClientConfig {
 
         @CustomType.Setter
         public Builder maxConcurrentInvocationsPerInstance(@Nullable Integer maxConcurrentInvocationsPerInstance) {
+
             this.maxConcurrentInvocationsPerInstance = maxConcurrentInvocationsPerInstance;
             return this;
         }
         public EndpointConfigurationAsyncInferenceConfigClientConfig build() {
-            final var o = new EndpointConfigurationAsyncInferenceConfigClientConfig();
-            o.maxConcurrentInvocationsPerInstance = maxConcurrentInvocationsPerInstance;
-            return o;
+            final var _resultValue = new EndpointConfigurationAsyncInferenceConfigClientConfig();
+            _resultValue.maxConcurrentInvocationsPerInstance = maxConcurrentInvocationsPerInstance;
+            return _resultValue;
         }
     }
 }

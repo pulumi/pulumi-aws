@@ -25,6 +25,10 @@ namespace Pulumi.Aws.AppRunner.Outputs
         /// Version that should be used within the source code repository. See Source Code Version below for more details.
         /// </summary>
         public readonly Outputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersion SourceCodeVersion;
+        /// <summary>
+        /// The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+        /// </summary>
+        public readonly string? SourceDirectory;
 
         [OutputConstructor]
         private ServiceSourceConfigurationCodeRepository(
@@ -32,11 +36,14 @@ namespace Pulumi.Aws.AppRunner.Outputs
 
             string repositoryUrl,
 
-            Outputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersion sourceCodeVersion)
+            Outputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersion sourceCodeVersion,
+
+            string? sourceDirectory)
         {
             CodeConfiguration = codeConfiguration;
             RepositoryUrl = repositoryUrl;
             SourceCodeVersion = sourceCodeVersion;
+            SourceDirectory = sourceDirectory;
         }
     }
 }

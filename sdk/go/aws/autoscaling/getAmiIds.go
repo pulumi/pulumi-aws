@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,7 +48,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = autoscaling.NewNotification(ctx, "slackNotifications", &autoscaling.NotificationArgs{
+//			_, err = autoscaling.NewNotification(ctx, "slack_notifications", &autoscaling.NotificationArgs{
 //				GroupNames: interface{}(groups.Names),
 //				Notifications: pulumi.StringArray{
 //					pulumi.String("autoscaling:EC2_INSTANCE_LAUNCH"),
@@ -65,6 +66,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetAmiIds(ctx *pulumi.Context, args *GetAmiIdsArgs, opts ...pulumi.InvokeOption) (*GetAmiIdsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAmiIdsResult

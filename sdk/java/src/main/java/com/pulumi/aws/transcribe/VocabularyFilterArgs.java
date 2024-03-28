@@ -5,6 +5,7 @@ package com.pulumi.aws.transcribe;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -244,8 +245,12 @@ public final class VocabularyFilterArgs extends com.pulumi.resources.ResourceArg
         }
 
         public VocabularyFilterArgs build() {
-            $.languageCode = Objects.requireNonNull($.languageCode, "expected parameter 'languageCode' to be non-null");
-            $.vocabularyFilterName = Objects.requireNonNull($.vocabularyFilterName, "expected parameter 'vocabularyFilterName' to be non-null");
+            if ($.languageCode == null) {
+                throw new MissingRequiredPropertyException("VocabularyFilterArgs", "languageCode");
+            }
+            if ($.vocabularyFilterName == null) {
+                throw new MissingRequiredPropertyException("VocabularyFilterArgs", "vocabularyFilterName");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.glue.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ClassifierXmlClassifierArgs extends com.pulumi.resources.Reso
         }
 
         public ClassifierXmlClassifierArgs build() {
-            $.classification = Objects.requireNonNull($.classification, "expected parameter 'classification' to be non-null");
-            $.rowTag = Objects.requireNonNull($.rowTag, "expected parameter 'rowTag' to be non-null");
+            if ($.classification == null) {
+                throw new MissingRequiredPropertyException("ClassifierXmlClassifierArgs", "classification");
+            }
+            if ($.rowTag == null) {
+                throw new MissingRequiredPropertyException("ClassifierXmlClassifierArgs", "rowTag");
+            }
             return $;
         }
     }

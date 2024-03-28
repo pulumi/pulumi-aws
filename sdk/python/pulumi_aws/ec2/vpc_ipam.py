@@ -289,12 +289,35 @@ class VpcIpam(pulumi.CustomResource):
         """
         Provides an IPAM resource.
 
+        ## Example Usage
+
+        Basic usage:
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_region()
+        main = aws.ec2.VpcIpam("main",
+            description="My IPAM",
+            operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+                region_name=current.name,
+            )],
+            tags={
+                "Test": "Main",
+            })
+        ```
+        <!--End PulumiCodeChooser -->
+
+        Shared with multiple operating_regions:
+
         ## Import
 
         Using `pulumi import`, import IPAMs using the IPAM `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcIpam:VpcIpam example ipam-0178368ad2146a492
+        $ pulumi import aws:ec2/vpcIpam:VpcIpam example ipam-0178368ad2146a492
         ```
 
         :param str resource_name: The name of the resource.
@@ -313,12 +336,35 @@ class VpcIpam(pulumi.CustomResource):
         """
         Provides an IPAM resource.
 
+        ## Example Usage
+
+        Basic usage:
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_region()
+        main = aws.ec2.VpcIpam("main",
+            description="My IPAM",
+            operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+                region_name=current.name,
+            )],
+            tags={
+                "Test": "Main",
+            })
+        ```
+        <!--End PulumiCodeChooser -->
+
+        Shared with multiple operating_regions:
+
         ## Import
 
         Using `pulumi import`, import IPAMs using the IPAM `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcIpam:VpcIpam example ipam-0178368ad2146a492
+        $ pulumi import aws:ec2/vpcIpam:VpcIpam example ipam-0178368ad2146a492
         ```
 
         :param str resource_name: The name of the resource.
@@ -362,8 +408,6 @@ class VpcIpam(pulumi.CustomResource):
             __props__.__dict__["public_default_scope_id"] = None
             __props__.__dict__["scope_count"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VpcIpam, __self__).__init__(
             'aws:ec2/vpcIpam:VpcIpam',
             resource_name,

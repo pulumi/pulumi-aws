@@ -12,47 +12,56 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.eks.FargateProfile("example", {
- *     clusterName: aws_eks_cluster.example.name,
- *     podExecutionRoleArn: aws_iam_role.example.arn,
- *     subnetIds: aws_subnet.example.map(__item => __item.id),
+ *     clusterName: exampleAwsEksCluster.name,
+ *     fargateProfileName: "example",
+ *     podExecutionRoleArn: exampleAwsIamRole.arn,
+ *     subnetIds: exampleAwsSubnet.map(__item => __item.id),
  *     selectors: [{
  *         namespace: "example",
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example IAM Role for EKS Fargate Profile
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.iam.Role("example", {assumeRolePolicy: JSON.stringify({
- *     Statement: [{
- *         Action: "sts:AssumeRole",
- *         Effect: "Allow",
- *         Principal: {
- *             Service: "eks-fargate-pods.amazonaws.com",
- *         },
- *     }],
- *     Version: "2012-10-17",
- * })});
+ * const example = new aws.iam.Role("example", {
+ *     name: "eks-fargate-profile-example",
+ *     assumeRolePolicy: JSON.stringify({
+ *         statement: [{
+ *             action: "sts:AssumeRole",
+ *             effect: "Allow",
+ *             principal: {
+ *                 service: "eks-fargate-pods.amazonaws.com",
+ *             },
+ *         }],
+ *         version: "2012-10-17",
+ *     }),
+ * });
  * const example_AmazonEKSFargatePodExecutionRolePolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy", {
  *     policyArn: "arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
  *     role: example.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EKS Fargate Profiles using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`). For example:
  *
  * ```sh
- *  $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
+ * $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
  * ```
  */
 export class FargateProfile extends pulumi.CustomResource {
@@ -88,7 +97,7 @@ export class FargateProfile extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the EKS Cluster.
      */
     public readonly clusterName!: pulumi.Output<string>;
     /**
@@ -168,8 +177,6 @@ export class FargateProfile extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(FargateProfile.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -183,7 +190,7 @@ export interface FargateProfileState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the EKS Cluster.
      */
     clusterName?: pulumi.Input<string>;
     /**
@@ -225,7 +232,7 @@ export interface FargateProfileState {
  */
 export interface FargateProfileArgs {
     /**
-     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the EKS Cluster.
      */
     clusterName: pulumi.Input<string>;
     /**

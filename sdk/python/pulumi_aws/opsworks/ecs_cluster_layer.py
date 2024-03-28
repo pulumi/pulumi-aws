@@ -824,14 +824,16 @@ class EcsClusterLayer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.opsworks.EcsClusterLayer("example",
-            stack_id=aws_opsworks_stack["example"]["id"],
-            ecs_cluster_arn=aws_ecs_cluster["example"]["arn"])
+            stack_id=example_aws_opsworks_stack["id"],
+            ecs_cluster_arn=example_aws_ecs_cluster["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -868,14 +870,16 @@ class EcsClusterLayer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.opsworks.EcsClusterLayer("example",
-            stack_id=aws_opsworks_stack["example"]["id"],
-            ecs_cluster_arn=aws_ecs_cluster["example"]["arn"])
+            stack_id=example_aws_opsworks_stack["id"],
+            ecs_cluster_arn=example_aws_ecs_cluster["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param EcsClusterLayerArgs args: The arguments to use to populate this resource's properties.
@@ -955,8 +959,6 @@ class EcsClusterLayer(pulumi.CustomResource):
             __props__.__dict__["use_ebs_optimized_instances"] = use_ebs_optimized_instances
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EcsClusterLayer, __self__).__init__(
             'aws:opsworks/ecsClusterLayer:EcsClusterLayer',
             resource_name,

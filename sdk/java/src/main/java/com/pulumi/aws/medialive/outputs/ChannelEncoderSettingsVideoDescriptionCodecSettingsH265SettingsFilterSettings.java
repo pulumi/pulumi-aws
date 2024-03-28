@@ -44,13 +44,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
 
         @CustomType.Setter
         public Builder temporalFilterSettings(@Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings temporalFilterSettings) {
+
             this.temporalFilterSettings = temporalFilterSettings;
             return this;
         }
         public ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings build() {
-            final var o = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings();
-            o.temporalFilterSettings = temporalFilterSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings();
+            _resultValue.temporalFilterSettings = temporalFilterSettings;
+            return _resultValue;
         }
     }
 }

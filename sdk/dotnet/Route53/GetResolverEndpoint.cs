@@ -16,10 +16,9 @@ namespace Pulumi.Aws.Route53
         /// 
         /// This data source allows to find a list of IPaddresses associated with a specific Route53 Resolver Endpoint.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,7 +34,9 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +62,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetResolverEndpointResult> InvokeAsync(GetResolverEndpointArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverEndpointResult>("aws:route53/getResolverEndpoint:getResolverEndpoint", args ?? new GetResolverEndpointArgs(), options.WithDefaults());
@@ -72,10 +72,9 @@ namespace Pulumi.Aws.Route53
         /// 
         /// This data source allows to find a list of IPaddresses associated with a specific Route53 Resolver Endpoint.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -91,7 +90,9 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -117,8 +118,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetResolverEndpointResult> Invoke(GetResolverEndpointInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverEndpointResult>("aws:route53/getResolverEndpoint:getResolverEndpoint", args ?? new GetResolverEndpointInvokeArgs(), options.WithDefaults());
@@ -198,7 +198,9 @@ namespace Pulumi.Aws.Route53
         public readonly string Id;
         public readonly ImmutableArray<string> IpAddresses;
         public readonly string Name;
+        public readonly ImmutableArray<string> Protocols;
         public readonly string? ResolverEndpointId;
+        public readonly string ResolverEndpointType;
         public readonly string Status;
         public readonly string VpcId;
 
@@ -216,7 +218,11 @@ namespace Pulumi.Aws.Route53
 
             string name,
 
+            ImmutableArray<string> protocols,
+
             string? resolverEndpointId,
+
+            string resolverEndpointType,
 
             string status,
 
@@ -228,7 +234,9 @@ namespace Pulumi.Aws.Route53
             Id = id;
             IpAddresses = ipAddresses;
             Name = name;
+            Protocols = protocols;
             ResolverEndpointId = resolverEndpointId;
+            ResolverEndpointType = resolverEndpointType;
             Status = status;
             VpcId = vpcId;
         }

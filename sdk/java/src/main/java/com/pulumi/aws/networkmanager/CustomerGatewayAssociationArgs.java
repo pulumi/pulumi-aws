@@ -5,6 +5,7 @@ package com.pulumi.aws.networkmanager;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class CustomerGatewayAssociationArgs extends com.pulumi.resources.R
         }
 
         public CustomerGatewayAssociationArgs build() {
-            $.customerGatewayArn = Objects.requireNonNull($.customerGatewayArn, "expected parameter 'customerGatewayArn' to be non-null");
-            $.deviceId = Objects.requireNonNull($.deviceId, "expected parameter 'deviceId' to be non-null");
-            $.globalNetworkId = Objects.requireNonNull($.globalNetworkId, "expected parameter 'globalNetworkId' to be non-null");
+            if ($.customerGatewayArn == null) {
+                throw new MissingRequiredPropertyException("CustomerGatewayAssociationArgs", "customerGatewayArn");
+            }
+            if ($.deviceId == null) {
+                throw new MissingRequiredPropertyException("CustomerGatewayAssociationArgs", "deviceId");
+            }
+            if ($.globalNetworkId == null) {
+                throw new MissingRequiredPropertyException("CustomerGatewayAssociationArgs", "globalNetworkId");
+            }
             return $;
         }
     }

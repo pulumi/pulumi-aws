@@ -9,6 +9,7 @@ import com.pulumi.aws.lightsail.inputs.DistributionDefaultCacheBehaviorArgs;
 import com.pulumi.aws.lightsail.inputs.DistributionOriginArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -446,9 +447,15 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DistributionArgs build() {
-            $.bundleId = Objects.requireNonNull($.bundleId, "expected parameter 'bundleId' to be non-null");
-            $.defaultCacheBehavior = Objects.requireNonNull($.defaultCacheBehavior, "expected parameter 'defaultCacheBehavior' to be non-null");
-            $.origin = Objects.requireNonNull($.origin, "expected parameter 'origin' to be non-null");
+            if ($.bundleId == null) {
+                throw new MissingRequiredPropertyException("DistributionArgs", "bundleId");
+            }
+            if ($.defaultCacheBehavior == null) {
+                throw new MissingRequiredPropertyException("DistributionArgs", "defaultCacheBehavior");
+            }
+            if ($.origin == null) {
+                throw new MissingRequiredPropertyException("DistributionArgs", "origin");
+            }
             return $;
         }
     }

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Macie
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,6 +27,7 @@ namespace Pulumi.Aws.Macie
     /// 
     ///     var test = new Aws.Macie.FindingsFilter("test", new()
     ///     {
+    ///         Name = "NAME OF THE FINDINGS FILTER",
     ///         Description = "DESCRIPTION",
     ///         Position = 1,
     ///         Action = "ARCHIVE",
@@ -38,28 +40,23 @@ namespace Pulumi.Aws.Macie
     ///                     Field = "region",
     ///                     Eqs = new[]
     ///                     {
-    ///                         data.Aws_region.Current.Name,
+    ///                         current.Name,
     ///                     },
     ///                 },
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_macie2_account.Test,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_macie2_findings_filter` using the id. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
+    /// $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
     /// ```
     /// </summary>
     [AwsResourceType("aws:macie/findingsFilter:FindingsFilter")]
@@ -139,10 +136,6 @@ namespace Pulumi.Aws.Macie
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -282,11 +275,7 @@ namespace Pulumi.Aws.Macie
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public FindingsFilterState()

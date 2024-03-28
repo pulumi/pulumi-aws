@@ -22,7 +22,10 @@ import javax.annotation.Nullable;
  * Manages an attachment between one or more existing LF-tags and an existing Lake Formation resource.
  * 
  * ## Example Usage
+ * 
  * ### Database Example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLfTag = new LfTag(&#34;exampleLfTag&#34;, LfTagArgs.builder()        
+ *         var example = new LfTag(&#34;example&#34;, LfTagArgs.builder()        
  *             .key(&#34;right&#34;)
  *             .values(            
  *                 &#34;abbey&#34;,
@@ -63,10 +66,10 @@ import javax.annotation.Nullable;
  * 
  *         var exampleResourceLfTags = new ResourceLfTags(&#34;exampleResourceLfTags&#34;, ResourceLfTagsArgs.builder()        
  *             .database(ResourceLfTagsDatabaseArgs.builder()
- *                 .name(aws_glue_catalog_database.example().name())
+ *                 .name(exampleAwsGlueCatalogDatabase.name())
  *                 .build())
  *             .lfTags(ResourceLfTagsLfTagArgs.builder()
- *                 .key(exampleLfTag.key())
+ *                 .key(example.key())
  *                 .value(&#34;stowe&#34;)
  *                 .build())
  *             .build());
@@ -74,7 +77,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Multiple Tags Example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -100,7 +107,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLfTag = new LfTag(&#34;exampleLfTag&#34;, LfTagArgs.builder()        
+ *         var example = new LfTag(&#34;example&#34;, LfTagArgs.builder()        
  *             .key(&#34;right&#34;)
  *             .values(            
  *                 &#34;abbey&#34;,
@@ -127,7 +134,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleResourceLfTags = new ResourceLfTags(&#34;exampleResourceLfTags&#34;, ResourceLfTagsArgs.builder()        
  *             .database(ResourceLfTagsDatabaseArgs.builder()
- *                 .name(aws_glue_catalog_database.example().name())
+ *                 .name(exampleAwsGlueCatalogDatabase.name())
  *                 .build())
  *             .lfTags(            
  *                 ResourceLfTagsLfTagArgs.builder()
@@ -143,6 +150,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:lakeformation/resourceLfTags:ResourceLfTags")

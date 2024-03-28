@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.aws.imagebuilder.outputs.GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -86,12 +87,18 @@ public final class GetContainerRecipeInstanceConfigurationBlockDeviceMapping {
 
         @CustomType.Setter
         public Builder deviceName(String deviceName) {
-            this.deviceName = Objects.requireNonNull(deviceName);
+            if (deviceName == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeInstanceConfigurationBlockDeviceMapping", "deviceName");
+            }
+            this.deviceName = deviceName;
             return this;
         }
         @CustomType.Setter
         public Builder ebs(List<GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb> ebs) {
-            this.ebs = Objects.requireNonNull(ebs);
+            if (ebs == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeInstanceConfigurationBlockDeviceMapping", "ebs");
+            }
+            this.ebs = ebs;
             return this;
         }
         public Builder ebs(GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb... ebs) {
@@ -99,21 +106,27 @@ public final class GetContainerRecipeInstanceConfigurationBlockDeviceMapping {
         }
         @CustomType.Setter
         public Builder noDevice(String noDevice) {
-            this.noDevice = Objects.requireNonNull(noDevice);
+            if (noDevice == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeInstanceConfigurationBlockDeviceMapping", "noDevice");
+            }
+            this.noDevice = noDevice;
             return this;
         }
         @CustomType.Setter
         public Builder virtualName(String virtualName) {
-            this.virtualName = Objects.requireNonNull(virtualName);
+            if (virtualName == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeInstanceConfigurationBlockDeviceMapping", "virtualName");
+            }
+            this.virtualName = virtualName;
             return this;
         }
         public GetContainerRecipeInstanceConfigurationBlockDeviceMapping build() {
-            final var o = new GetContainerRecipeInstanceConfigurationBlockDeviceMapping();
-            o.deviceName = deviceName;
-            o.ebs = ebs;
-            o.noDevice = noDevice;
-            o.virtualName = virtualName;
-            return o;
+            final var _resultValue = new GetContainerRecipeInstanceConfigurationBlockDeviceMapping();
+            _resultValue.deviceName = deviceName;
+            _resultValue.ebs = ebs;
+            _resultValue.noDevice = noDevice;
+            _resultValue.virtualName = virtualName;
+            return _resultValue;
         }
     }
 }

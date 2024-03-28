@@ -13,55 +13,67 @@ import * as utilities from "../utilities";
  * ## Example Usage
  *
  * ### Basic Usage
+ *
  * ### Email Address Identity
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sesv2.EmailIdentity("example", {emailIdentity: "testing@example.com"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Domain Identity
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sesv2.EmailIdentity("example", {emailIdentity: "example.com"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Configuration Set
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleConfigurationSet = new aws.sesv2.ConfigurationSet("exampleConfigurationSet", {configurationSetName: "example"});
- * const exampleEmailIdentity = new aws.sesv2.EmailIdentity("exampleEmailIdentity", {
+ * const example = new aws.sesv2.ConfigurationSet("example", {configurationSetName: "example"});
+ * const exampleEmailIdentity = new aws.sesv2.EmailIdentity("example", {
  *     emailIdentity: "example.com",
- *     configurationSetName: exampleConfigurationSet.configurationSetName,
+ *     configurationSetName: example.configurationSetName,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### DKIM Signing Attributes (BYODKIM)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sesv2.EmailIdentity("example", {
+ *     emailIdentity: "example.com",
  *     dkimSigningAttributes: {
  *         domainSigningPrivateKey: "MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...",
  *         domainSigningSelector: "example",
  *     },
- *     emailIdentity: "example.com",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity using the `email_identity`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
+ * $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
  * ```
  */
 export class EmailIdentity extends pulumi.CustomResource {
@@ -165,8 +177,6 @@ export class EmailIdentity extends pulumi.CustomResource {
             resourceInputs["verifiedForSendingStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(EmailIdentity.__pulumiType, name, resourceInputs, opts);
     }
 }

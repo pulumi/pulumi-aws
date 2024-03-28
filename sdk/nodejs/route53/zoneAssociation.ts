@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,19 +23,23 @@ import * as utilities from "../utilities";
  *     enableDnsHostnames: true,
  *     enableDnsSupport: true,
  * });
- * const secondaryVpc = new aws.ec2.Vpc("secondaryVpc", {
+ * const secondary = new aws.ec2.Vpc("secondary", {
  *     cidrBlock: "10.7.0.0/16",
  *     enableDnsHostnames: true,
  *     enableDnsSupport: true,
  * });
- * const example = new aws.route53.Zone("example", {vpcs: [{
- *     vpcId: primary.id,
- * }]});
- * const secondaryZoneAssociation = new aws.route53.ZoneAssociation("secondaryZoneAssociation", {
+ * const example = new aws.route53.Zone("example", {
+ *     name: "example.com",
+ *     vpcs: [{
+ *         vpcId: primary.id,
+ *     }],
+ * });
+ * const secondaryZoneAssociation = new aws.route53.ZoneAssociation("secondary", {
  *     zoneId: example.zoneId,
- *     vpcId: secondaryVpc.id,
+ *     vpcId: secondary.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -45,12 +50,12 @@ import * as utilities from "../utilities";
  * The VPC is in the same region where you have configured the AWS Provider:
  *
  * ```sh
- *  $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
+ * $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
  * ```
- *  The VPC is _not_ in the same region where you have configured the AWS Provider:
+ * The VPC is _not_ in the same region where you have configured the AWS Provider:
  *
  * ```sh
- *  $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
+ * $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
  * ```
  */
 export class ZoneAssociation extends pulumi.CustomResource {

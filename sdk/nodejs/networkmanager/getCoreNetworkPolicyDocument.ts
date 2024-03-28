@@ -13,83 +13,82 @@ import * as utilities from "../utilities";
  * Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
  *
  * ## Example Usage
+ *
  * ### Basic Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.networkmanager.getCoreNetworkPolicyDocument({
- *     attachmentPolicies: [
- *         {
- *             action: {
- *                 associationMethod: "constant",
- *                 segment: "shared",
- *             },
- *             conditionLogic: "or",
- *             conditions: [{
- *                 key: "segment",
- *                 operator: "equals",
- *                 type: "tag-value",
- *                 value: "shared",
- *             }],
- *             ruleNumber: 100,
- *         },
- *         {
- *             action: {
- *                 associationMethod: "constant",
- *                 segment: "prod",
- *             },
- *             conditionLogic: "or",
- *             conditions: [{
- *                 key: "segment",
- *                 operator: "equals",
- *                 type: "tag-value",
- *                 value: "prod",
- *             }],
- *             ruleNumber: 200,
- *         },
- *     ],
  *     coreNetworkConfigurations: [{
+ *         vpnEcmpSupport: false,
  *         asnRanges: ["64512-64555"],
  *         edgeLocations: [
  *             {
- *                 asn: "64512",
  *                 location: "us-east-1",
+ *                 asn: "64512",
  *             },
  *             {
- *                 asn: "64513",
  *                 location: "eu-central-1",
+ *                 asn: "64513",
  *             },
  *         ],
- *         vpnEcmpSupport: false,
  *     }],
+ *     segments: [
+ *         {
+ *             name: "shared",
+ *             description: "Segment for shared services",
+ *             requireAttachmentAcceptance: true,
+ *         },
+ *         {
+ *             name: "prod",
+ *             description: "Segment for prod services",
+ *             requireAttachmentAcceptance: true,
+ *         },
+ *     ],
  *     segmentActions: [{
  *         action: "share",
  *         mode: "attachment-route",
  *         segment: "shared",
  *         shareWiths: ["*"],
  *     }],
- *     segments: [
+ *     attachmentPolicies: [
  *         {
- *             description: "Segment for shared services",
- *             name: "shared",
- *             requireAttachmentAcceptance: true,
+ *             ruleNumber: 100,
+ *             conditionLogic: "or",
+ *             conditions: [{
+ *                 type: "tag-value",
+ *                 operator: "equals",
+ *                 key: "segment",
+ *                 value: "shared",
+ *             }],
+ *             action: {
+ *                 associationMethod: "constant",
+ *                 segment: "shared",
+ *             },
  *         },
  *         {
- *             description: "Segment for prod services",
- *             name: "prod",
- *             requireAttachmentAcceptance: true,
+ *             ruleNumber: 200,
+ *             conditionLogic: "or",
+ *             conditions: [{
+ *                 type: "tag-value",
+ *                 operator: "equals",
+ *                 key: "segment",
+ *                 value: "prod",
+ *             }],
+ *             action: {
+ *                 associationMethod: "constant",
+ *                 segment: "prod",
+ *             },
  *         },
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
  */
 export function getCoreNetworkPolicyDocument(args: GetCoreNetworkPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetCoreNetworkPolicyDocumentResult> {
 
@@ -150,83 +149,82 @@ export interface GetCoreNetworkPolicyDocumentResult {
  * Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
  *
  * ## Example Usage
+ *
  * ### Basic Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.networkmanager.getCoreNetworkPolicyDocument({
- *     attachmentPolicies: [
- *         {
- *             action: {
- *                 associationMethod: "constant",
- *                 segment: "shared",
- *             },
- *             conditionLogic: "or",
- *             conditions: [{
- *                 key: "segment",
- *                 operator: "equals",
- *                 type: "tag-value",
- *                 value: "shared",
- *             }],
- *             ruleNumber: 100,
- *         },
- *         {
- *             action: {
- *                 associationMethod: "constant",
- *                 segment: "prod",
- *             },
- *             conditionLogic: "or",
- *             conditions: [{
- *                 key: "segment",
- *                 operator: "equals",
- *                 type: "tag-value",
- *                 value: "prod",
- *             }],
- *             ruleNumber: 200,
- *         },
- *     ],
  *     coreNetworkConfigurations: [{
+ *         vpnEcmpSupport: false,
  *         asnRanges: ["64512-64555"],
  *         edgeLocations: [
  *             {
- *                 asn: "64512",
  *                 location: "us-east-1",
+ *                 asn: "64512",
  *             },
  *             {
- *                 asn: "64513",
  *                 location: "eu-central-1",
+ *                 asn: "64513",
  *             },
  *         ],
- *         vpnEcmpSupport: false,
  *     }],
+ *     segments: [
+ *         {
+ *             name: "shared",
+ *             description: "Segment for shared services",
+ *             requireAttachmentAcceptance: true,
+ *         },
+ *         {
+ *             name: "prod",
+ *             description: "Segment for prod services",
+ *             requireAttachmentAcceptance: true,
+ *         },
+ *     ],
  *     segmentActions: [{
  *         action: "share",
  *         mode: "attachment-route",
  *         segment: "shared",
  *         shareWiths: ["*"],
  *     }],
- *     segments: [
+ *     attachmentPolicies: [
  *         {
- *             description: "Segment for shared services",
- *             name: "shared",
- *             requireAttachmentAcceptance: true,
+ *             ruleNumber: 100,
+ *             conditionLogic: "or",
+ *             conditions: [{
+ *                 type: "tag-value",
+ *                 operator: "equals",
+ *                 key: "segment",
+ *                 value: "shared",
+ *             }],
+ *             action: {
+ *                 associationMethod: "constant",
+ *                 segment: "shared",
+ *             },
  *         },
  *         {
- *             description: "Segment for prod services",
- *             name: "prod",
- *             requireAttachmentAcceptance: true,
+ *             ruleNumber: 200,
+ *             conditionLogic: "or",
+ *             conditions: [{
+ *                 type: "tag-value",
+ *                 operator: "equals",
+ *                 key: "segment",
+ *                 value: "prod",
+ *             }],
+ *             action: {
+ *                 associationMethod: "constant",
+ *                 segment: "prod",
+ *             },
  *         },
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
  */
 export function getCoreNetworkPolicyDocumentOutput(args: GetCoreNetworkPolicyDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCoreNetworkPolicyDocumentResult> {
     return pulumi.output(args).apply((a: any) => getCoreNetworkPolicyDocument(a, opts))

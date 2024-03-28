@@ -218,8 +218,10 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         > **Note:** AWS requires a special IAM role called `dms-vpc-role` when using this resource. See the example below to create it as part of your configuration.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -236,31 +238,35 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Creating special IAM role
 
         If your account does not already include the `dms-vpc-role` IAM role, you will need to create it to allow DMS to manage subnets in the VPC.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         dms_vpc_role = aws.iam.Role("dms-vpc-role",
+            name="dms-vpc-role",
             description="Allows DMS to manage VPC",
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "dms.amazonaws.com",
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "principal": {
+                        "service": "dms.amazonaws.com",
                     },
-                    "Action": "sts:AssumeRole",
+                    "action": "sts:AssumeRole",
                 }],
             }))
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
+        example = aws.iam.RolePolicyAttachment("example",
             role=dms_vpc_role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole")
-        example_replication_subnet_group = aws.dms.ReplicationSubnetGroup("exampleReplicationSubnetGroup",
+        example_replication_subnet_group = aws.dms.ReplicationSubnetGroup("example",
             replication_subnet_group_description="Example",
             replication_subnet_group_id="example-id",
             subnet_ids=[
@@ -269,16 +275,16 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
             ],
             tags={
                 "Name": "example-id",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_role_policy_attachment]))
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import replication subnet groups using the `replication_subnet_group_id`. For example:
 
         ```sh
-         $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
+        $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
         ```
 
         :param str resource_name: The name of the resource.
@@ -300,8 +306,10 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         > **Note:** AWS requires a special IAM role called `dms-vpc-role` when using this resource. See the example below to create it as part of your configuration.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -318,31 +326,35 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Creating special IAM role
 
         If your account does not already include the `dms-vpc-role` IAM role, you will need to create it to allow DMS to manage subnets in the VPC.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         dms_vpc_role = aws.iam.Role("dms-vpc-role",
+            name="dms-vpc-role",
             description="Allows DMS to manage VPC",
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "dms.amazonaws.com",
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "principal": {
+                        "service": "dms.amazonaws.com",
                     },
-                    "Action": "sts:AssumeRole",
+                    "action": "sts:AssumeRole",
                 }],
             }))
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
+        example = aws.iam.RolePolicyAttachment("example",
             role=dms_vpc_role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole")
-        example_replication_subnet_group = aws.dms.ReplicationSubnetGroup("exampleReplicationSubnetGroup",
+        example_replication_subnet_group = aws.dms.ReplicationSubnetGroup("example",
             replication_subnet_group_description="Example",
             replication_subnet_group_id="example-id",
             subnet_ids=[
@@ -351,16 +363,16 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
             ],
             tags={
                 "Name": "example-id",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_role_policy_attachment]))
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import replication subnet groups using the `replication_subnet_group_id`. For example:
 
         ```sh
-         $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
+        $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
         ```
 
         :param str resource_name: The name of the resource.
@@ -404,8 +416,6 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
             __props__.__dict__["replication_subnet_group_arn"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ReplicationSubnetGroup, __self__).__init__(
             'aws:dms/replicationSubnetGroup:ReplicationSubnetGroup',
             resource_name,

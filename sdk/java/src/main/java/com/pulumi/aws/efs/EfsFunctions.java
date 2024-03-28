@@ -27,6 +27,8 @@ public final class EfsFunctions {
      * Provides information about an Elastic File System (EFS) Access Point.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -55,6 +57,7 @@ public final class EfsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccessPointResult> getAccessPoint(GetAccessPointArgs args) {
@@ -64,6 +67,8 @@ public final class EfsFunctions {
      * Provides information about an Elastic File System (EFS) Access Point.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -92,6 +97,7 @@ public final class EfsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccessPointResult> getAccessPointPlain(GetAccessPointPlainArgs args) {
@@ -101,6 +107,8 @@ public final class EfsFunctions {
      * Provides information about an Elastic File System (EFS) Access Point.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -129,6 +137,7 @@ public final class EfsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccessPointResult> getAccessPoint(GetAccessPointArgs args, InvokeOptions options) {
@@ -138,6 +147,8 @@ public final class EfsFunctions {
      * Provides information about an Elastic File System (EFS) Access Point.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -166,6 +177,7 @@ public final class EfsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccessPointResult> getAccessPointPlain(GetAccessPointPlainArgs args, InvokeOptions options) {
@@ -175,6 +187,8 @@ public final class EfsFunctions {
      * Provides information about multiple Elastic File System (EFS) Access Points.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -203,6 +217,7 @@ public final class EfsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccessPointsResult> getAccessPoints(GetAccessPointsArgs args) {
@@ -212,6 +227,8 @@ public final class EfsFunctions {
      * Provides information about multiple Elastic File System (EFS) Access Points.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -240,6 +257,7 @@ public final class EfsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccessPointsResult> getAccessPointsPlain(GetAccessPointsPlainArgs args) {
@@ -249,6 +267,8 @@ public final class EfsFunctions {
      * Provides information about multiple Elastic File System (EFS) Access Points.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -277,6 +297,7 @@ public final class EfsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccessPointsResult> getAccessPoints(GetAccessPointsArgs args, InvokeOptions options) {
@@ -286,6 +307,8 @@ public final class EfsFunctions {
      * Provides information about multiple Elastic File System (EFS) Access Points.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -314,6 +337,7 @@ public final class EfsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccessPointsResult> getAccessPointsPlain(GetAccessPointsPlainArgs args, InvokeOptions options) {
@@ -323,6 +347,8 @@ public final class EfsFunctions {
      * Provides information about an Elastic File System (EFS) File System.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -357,6 +383,7 @@ public final class EfsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFileSystemResult> getFileSystem() {
@@ -366,6 +393,8 @@ public final class EfsFunctions {
      * Provides information about an Elastic File System (EFS) File System.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -400,6 +429,7 @@ public final class EfsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFileSystemResult> getFileSystemPlain() {
@@ -409,6 +439,8 @@ public final class EfsFunctions {
      * Provides information about an Elastic File System (EFS) File System.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -443,6 +475,7 @@ public final class EfsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFileSystemResult> getFileSystem(GetFileSystemArgs args) {
@@ -452,6 +485,8 @@ public final class EfsFunctions {
      * Provides information about an Elastic File System (EFS) File System.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -486,6 +521,7 @@ public final class EfsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFileSystemResult> getFileSystemPlain(GetFileSystemPlainArgs args) {
@@ -495,6 +531,8 @@ public final class EfsFunctions {
      * Provides information about an Elastic File System (EFS) File System.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -529,6 +567,7 @@ public final class EfsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFileSystemResult> getFileSystem(GetFileSystemArgs args, InvokeOptions options) {
@@ -538,6 +577,8 @@ public final class EfsFunctions {
      * Provides information about an Elastic File System (EFS) File System.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -572,6 +613,7 @@ public final class EfsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFileSystemResult> getFileSystemPlain(GetFileSystemPlainArgs args, InvokeOptions options) {
@@ -581,6 +623,8 @@ public final class EfsFunctions {
      * Provides information about an Elastic File System Mount Target (EFS).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -611,6 +655,7 @@ public final class EfsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMountTargetResult> getMountTarget() {
@@ -620,6 +665,8 @@ public final class EfsFunctions {
      * Provides information about an Elastic File System Mount Target (EFS).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -650,6 +697,7 @@ public final class EfsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMountTargetResult> getMountTargetPlain() {
@@ -659,6 +707,8 @@ public final class EfsFunctions {
      * Provides information about an Elastic File System Mount Target (EFS).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -689,6 +739,7 @@ public final class EfsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMountTargetResult> getMountTarget(GetMountTargetArgs args) {
@@ -698,6 +749,8 @@ public final class EfsFunctions {
      * Provides information about an Elastic File System Mount Target (EFS).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -728,6 +781,7 @@ public final class EfsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMountTargetResult> getMountTargetPlain(GetMountTargetPlainArgs args) {
@@ -737,6 +791,8 @@ public final class EfsFunctions {
      * Provides information about an Elastic File System Mount Target (EFS).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -767,6 +823,7 @@ public final class EfsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMountTargetResult> getMountTarget(GetMountTargetArgs args, InvokeOptions options) {
@@ -776,6 +833,8 @@ public final class EfsFunctions {
      * Provides information about an Elastic File System Mount Target (EFS).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -806,6 +865,7 @@ public final class EfsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMountTargetResult> getMountTargetPlain(GetMountTargetPlainArgs args, InvokeOptions options) {

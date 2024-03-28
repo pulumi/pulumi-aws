@@ -4,6 +4,7 @@
 package com.pulumi.aws.codepipeline.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class WebhookFilter {
 
         @CustomType.Setter
         public Builder jsonPath(String jsonPath) {
-            this.jsonPath = Objects.requireNonNull(jsonPath);
+            if (jsonPath == null) {
+              throw new MissingRequiredPropertyException("WebhookFilter", "jsonPath");
+            }
+            this.jsonPath = jsonPath;
             return this;
         }
         @CustomType.Setter
         public Builder matchEquals(String matchEquals) {
-            this.matchEquals = Objects.requireNonNull(matchEquals);
+            if (matchEquals == null) {
+              throw new MissingRequiredPropertyException("WebhookFilter", "matchEquals");
+            }
+            this.matchEquals = matchEquals;
             return this;
         }
         public WebhookFilter build() {
-            final var o = new WebhookFilter();
-            o.jsonPath = jsonPath;
-            o.matchEquals = matchEquals;
-            return o;
+            final var _resultValue = new WebhookFilter();
+            _resultValue.jsonPath = jsonPath;
+            _resultValue.matchEquals = matchEquals;
+            return _resultValue;
         }
     }
 }

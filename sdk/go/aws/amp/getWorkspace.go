@@ -14,8 +14,10 @@ import (
 // Provides an Amazon Managed Prometheus workspace data source.
 //
 // ## Example Usage
+//
 // ### Basic configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWorkspaceResult
@@ -67,6 +70,8 @@ type LookupWorkspaceResult struct {
 	CreatedDate string `pulumi:"createdDate"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// ARN of the KMS key used to encrypt data in the Prometheus workspace.
+	KmsKeyArn string `pulumi:"kmsKeyArn"`
 	// Endpoint of the Prometheus workspace.
 	PrometheusEndpoint string `pulumi:"prometheusEndpoint"`
 	// Status of the Prometheus workspace.
@@ -134,6 +139,11 @@ func (o LookupWorkspaceResultOutput) CreatedDate() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupWorkspaceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// ARN of the KMS key used to encrypt data in the Prometheus workspace.
+func (o LookupWorkspaceResultOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
 
 // Endpoint of the Prometheus workspace.

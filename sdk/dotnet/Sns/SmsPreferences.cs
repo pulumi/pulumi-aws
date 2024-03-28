@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Sns
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,10 +23,15 @@ namespace Pulumi.Aws.Sns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var updateSmsPrefs = new Aws.Sns.SmsPreferences("updateSmsPrefs");
+    ///     var updateSmsPrefs = new Aws.Sns.SmsPreferences("update_sms_prefs");
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ## Import
+    /// 
+    /// You cannot import the SMS preferences.
     /// </summary>
     [AwsResourceType("aws:sns/smsPreferences:SmsPreferences")]
     public partial class SmsPreferences : global::Pulumi.CustomResource

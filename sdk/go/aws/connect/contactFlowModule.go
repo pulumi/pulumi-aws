@@ -22,8 +22,10 @@ import (
 // See example below which uses `jq` to extract the `Content` attribute and saves it to a local file.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,41 +41,41 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version":     "2019-10-30",
-//				"StartAction": "12345678-1234-1234-1234-123456789012",
-//				"Actions": []interface{}{
+//				"version":     "2019-10-30",
+//				"startAction": "12345678-1234-1234-1234-123456789012",
+//				"actions": []interface{}{
 //					map[string]interface{}{
-//						"Identifier": "12345678-1234-1234-1234-123456789012",
-//						"Parameters": map[string]interface{}{
-//							"Text": "Hello contact flow module",
+//						"identifier": "12345678-1234-1234-1234-123456789012",
+//						"parameters": map[string]interface{}{
+//							"text": "Hello contact flow module",
 //						},
-//						"Transitions": map[string]interface{}{
-//							"NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-//							"Errors":     []interface{}{},
-//							"Conditions": []interface{}{},
+//						"transitions": map[string]interface{}{
+//							"nextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+//							"errors":     []interface{}{},
+//							"conditions": []interface{}{},
 //						},
-//						"Type": "MessageParticipant",
+//						"type": "MessageParticipant",
 //					},
 //					map[string]interface{}{
-//						"Identifier":  "abcdef-abcd-abcd-abcd-abcdefghijkl",
-//						"Type":        "DisconnectParticipant",
-//						"Parameters":  nil,
-//						"Transitions": nil,
+//						"identifier":  "abcdef-abcd-abcd-abcd-abcdefghijkl",
+//						"type":        "DisconnectParticipant",
+//						"parameters":  nil,
+//						"transitions": nil,
 //					},
 //				},
-//				"Settings": map[string]interface{}{
-//					"InputParameters":  []interface{}{},
-//					"OutputParameters": []interface{}{},
-//					"Transitions": []map[string]interface{}{
+//				"settings": map[string]interface{}{
+//					"inputParameters":  []interface{}{},
+//					"outputParameters": []interface{}{},
+//					"transitions": []map[string]interface{}{
 //						map[string]interface{}{
-//							"DisplayName":   "Success",
-//							"ReferenceName": "Success",
-//							"Description":   "",
+//							"displayName":   "Success",
+//							"referenceName": "Success",
+//							"description":   "",
 //						},
 //						map[string]interface{}{
-//							"DisplayName":   "Error",
-//							"ReferenceName": "Error",
-//							"Description":   "",
+//							"displayName":   "Error",
+//							"referenceName": "Error",
+//							"description":   "",
 //						},
 //					},
 //				},
@@ -84,6 +86,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = connect.NewContactFlowModule(ctx, "example", &connect.ContactFlowModuleArgs{
 //				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:        pulumi.String("Example"),
 //				Description: pulumi.String("Example Contact Flow Module Description"),
 //				Content:     pulumi.String(json0),
 //				Tags: pulumi.StringMap{
@@ -100,15 +103,62 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ### With External Content
+//
+// Use the AWS CLI to extract Contact Flow Content:
+//
+// Use the generated file as input:
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFilebase64sha256, err := std.Filebase64sha256(ctx, &std.Filebase64sha256Args{
+//				Input: "contact_flow_module.json",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = connect.NewContactFlowModule(ctx, "example", &connect.ContactFlowModuleArgs{
+//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:        pulumi.String("Example"),
+//				Description: pulumi.String("Example Contact Flow Module Description"),
+//				Filename:    pulumi.String("contact_flow_module.json"),
+//				ContentHash: invokeFilebase64sha256.Result,
+//				Tags: pulumi.StringMap{
+//					"Name":        pulumi.String("Example Contact Flow Module"),
+//					"Application": pulumi.String("Example"),
+//					"Method":      pulumi.String("Create"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Amazon Connect Contact Flow Modules using the `instance_id` and `contact_flow_module_id` separated by a colon (`:`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:connect/contactFlowModule:ContactFlowModule example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-//
+// $ pulumi import aws:connect/contactFlowModule:ContactFlowModule example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 // ```
 type ContactFlowModule struct {
 	pulumi.CustomResourceState
@@ -147,10 +197,6 @@ func NewContactFlowModule(ctx *pulumi.Context,
 	if args.InstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContactFlowModule
 	err := ctx.RegisterResource("aws:connect/contactFlowModule:ContactFlowModule", name, args, &resource, opts...)

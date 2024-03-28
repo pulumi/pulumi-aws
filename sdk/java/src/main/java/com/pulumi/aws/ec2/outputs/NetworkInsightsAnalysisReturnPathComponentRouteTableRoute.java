@@ -90,67 +90,77 @@ public final class NetworkInsightsAnalysisReturnPathComponentRouteTableRoute {
 
         @CustomType.Setter
         public Builder destinationCidr(@Nullable String destinationCidr) {
+
             this.destinationCidr = destinationCidr;
             return this;
         }
         @CustomType.Setter
         public Builder destinationPrefixListId(@Nullable String destinationPrefixListId) {
+
             this.destinationPrefixListId = destinationPrefixListId;
             return this;
         }
         @CustomType.Setter
         public Builder egressOnlyInternetGatewayId(@Nullable String egressOnlyInternetGatewayId) {
+
             this.egressOnlyInternetGatewayId = egressOnlyInternetGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder gatewayId(@Nullable String gatewayId) {
+
             this.gatewayId = gatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder instanceId(@Nullable String instanceId) {
+
             this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
         public Builder natGatewayId(@Nullable String natGatewayId) {
+
             this.natGatewayId = natGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaceId(@Nullable String networkInterfaceId) {
+
             this.networkInterfaceId = networkInterfaceId;
             return this;
         }
         @CustomType.Setter
         public Builder origin(@Nullable String origin) {
+
             this.origin = origin;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayId(@Nullable String transitGatewayId) {
+
             this.transitGatewayId = transitGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder vpcPeeringConnectionId(@Nullable String vpcPeeringConnectionId) {
+
             this.vpcPeeringConnectionId = vpcPeeringConnectionId;
             return this;
         }
         public NetworkInsightsAnalysisReturnPathComponentRouteTableRoute build() {
-            final var o = new NetworkInsightsAnalysisReturnPathComponentRouteTableRoute();
-            o.destinationCidr = destinationCidr;
-            o.destinationPrefixListId = destinationPrefixListId;
-            o.egressOnlyInternetGatewayId = egressOnlyInternetGatewayId;
-            o.gatewayId = gatewayId;
-            o.instanceId = instanceId;
-            o.natGatewayId = natGatewayId;
-            o.networkInterfaceId = networkInterfaceId;
-            o.origin = origin;
-            o.transitGatewayId = transitGatewayId;
-            o.vpcPeeringConnectionId = vpcPeeringConnectionId;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisReturnPathComponentRouteTableRoute();
+            _resultValue.destinationCidr = destinationCidr;
+            _resultValue.destinationPrefixListId = destinationPrefixListId;
+            _resultValue.egressOnlyInternetGatewayId = egressOnlyInternetGatewayId;
+            _resultValue.gatewayId = gatewayId;
+            _resultValue.instanceId = instanceId;
+            _resultValue.natGatewayId = natGatewayId;
+            _resultValue.networkInterfaceId = networkInterfaceId;
+            _resultValue.origin = origin;
+            _resultValue.transitGatewayId = transitGatewayId;
+            _resultValue.vpcPeeringConnectionId = vpcPeeringConnectionId;
+            return _resultValue;
         }
     }
 }

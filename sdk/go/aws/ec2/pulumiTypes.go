@@ -6177,6 +6177,8 @@ type InstanceEbsBlockDevice struct {
 	SnapshotId *string `pulumi:"snapshotId"`
 	// Map of tags to assign to the device.
 	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput *int `pulumi:"throughput"`
 	// ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
@@ -6215,6 +6217,8 @@ type InstanceEbsBlockDeviceArgs struct {
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
 	// Map of tags to assign to the device.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput `pulumi:"tagsAll"`
 	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
 	// ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
@@ -6311,6 +6315,11 @@ func (o InstanceEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
 // Map of tags to assign to the device.
 func (o InstanceEbsBlockDeviceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o InstanceEbsBlockDeviceOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InstanceEbsBlockDevice) map[string]string { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 // Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
@@ -6622,7 +6631,7 @@ func (o InstanceEphemeralBlockDeviceArrayOutput) Index(i pulumi.IntInput) Instan
 }
 
 type InstanceInstanceMarketOptions struct {
-	// Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+	// Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spotOptions` is specified.
 	MarketType *string `pulumi:"marketType"`
 	// Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
 	SpotOptions *InstanceInstanceMarketOptionsSpotOptions `pulumi:"spotOptions"`
@@ -6640,7 +6649,7 @@ type InstanceInstanceMarketOptionsInput interface {
 }
 
 type InstanceInstanceMarketOptionsArgs struct {
-	// Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+	// Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spotOptions` is specified.
 	MarketType pulumi.StringPtrInput `pulumi:"marketType"`
 	// Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
 	SpotOptions InstanceInstanceMarketOptionsSpotOptionsPtrInput `pulumi:"spotOptions"`
@@ -6723,7 +6732,7 @@ func (o InstanceInstanceMarketOptionsOutput) ToInstanceInstanceMarketOptionsPtrO
 	}).(InstanceInstanceMarketOptionsPtrOutput)
 }
 
-// Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+// Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spotOptions` is specified.
 func (o InstanceInstanceMarketOptionsOutput) MarketType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceInstanceMarketOptions) *string { return v.MarketType }).(pulumi.StringPtrOutput)
 }
@@ -6757,7 +6766,7 @@ func (o InstanceInstanceMarketOptionsPtrOutput) Elem() InstanceInstanceMarketOpt
 	}).(InstanceInstanceMarketOptionsOutput)
 }
 
-// Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+// Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spotOptions` is specified.
 func (o InstanceInstanceMarketOptionsPtrOutput) MarketType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceInstanceMarketOptions) *string {
 		if v == nil {
@@ -7816,6 +7825,8 @@ type InstanceRootBlockDevice struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Map of tags to assign to the device.
 	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput *int `pulumi:"throughput"`
 	// ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
@@ -7852,6 +7863,8 @@ type InstanceRootBlockDeviceArgs struct {
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Map of tags to assign to the device.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput `pulumi:"tagsAll"`
 	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
 	// ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
@@ -7971,6 +7984,11 @@ func (o InstanceRootBlockDeviceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o InstanceRootBlockDeviceOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InstanceRootBlockDevice) map[string]string { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
 // Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 func (o InstanceRootBlockDeviceOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *int { return v.Throughput }).(pulumi.IntPtrOutput)
@@ -8074,6 +8092,16 @@ func (o InstanceRootBlockDevicePtrOutput) Tags() pulumi.StringMapOutput {
 			return nil
 		}
 		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o InstanceRootBlockDevicePtrOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *InstanceRootBlockDevice) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.TagsAll
 	}).(pulumi.StringMapOutput)
 }
 
@@ -10879,54 +10907,12 @@ type LaunchTemplateInstanceRequirements struct {
 	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
 	AcceleratorCount *LaunchTemplateInstanceRequirementsAcceleratorCount `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorManufacturers []string `pulumi:"acceleratorManufacturers"`
 	// List of accelerator names. Default is any acclerator.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorNames []string `pulumi:"acceleratorNames"`
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib *LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
 	// List of accelerator types. Default is any accelerator type.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
 	// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
 	//
@@ -10941,58 +10927,16 @@ type LaunchTemplateInstanceRequirements struct {
 	// List of CPU manufacturer names. Default is any manufacturer.
 	//
 	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	CpuManufacturers []string `pulumi:"cpuManufacturers"`
 	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 	//
 	// > **NOTE:** If you specify `excludedInstanceTypes`, you can't specify `allowedInstanceTypes`.
 	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
 	// List of instance generation names. Default is any generation.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	InstanceGenerations []string `pulumi:"instanceGenerations"`
 	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
 	LocalStorage *string `pulumi:"localStorage"`
 	// List of local storage type names. Default any storage type.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	LocalStorageTypes []string `pulumi:"localStorageTypes"`
 	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
 	MemoryGibPerVcpu *LaunchTemplateInstanceRequirementsMemoryGibPerVcpu `pulumi:"memoryGibPerVcpu"`
@@ -11033,54 +10977,12 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
 	AcceleratorCount LaunchTemplateInstanceRequirementsAcceleratorCountPtrInput `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorManufacturers pulumi.StringArrayInput `pulumi:"acceleratorManufacturers"`
 	// List of accelerator names. Default is any acclerator.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorNames pulumi.StringArrayInput `pulumi:"acceleratorNames"`
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
 	// List of accelerator types. Default is any accelerator type.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorTypes pulumi.StringArrayInput `pulumi:"acceleratorTypes"`
 	// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
 	//
@@ -11095,58 +10997,16 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	// List of CPU manufacturer names. Default is any manufacturer.
 	//
 	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	CpuManufacturers pulumi.StringArrayInput `pulumi:"cpuManufacturers"`
 	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 	//
 	// > **NOTE:** If you specify `excludedInstanceTypes`, you can't specify `allowedInstanceTypes`.
 	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
 	// List of instance generation names. Default is any generation.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	InstanceGenerations pulumi.StringArrayInput `pulumi:"instanceGenerations"`
 	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
 	LocalStorage pulumi.StringPtrInput `pulumi:"localStorage"`
 	// List of local storage type names. Default any storage type.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	LocalStorageTypes pulumi.StringArrayInput `pulumi:"localStorageTypes"`
 	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
 	MemoryGibPerVcpu LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrInput `pulumi:"memoryGibPerVcpu"`
@@ -11257,45 +11117,11 @@ func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorCount() LaunchTempl
 }
 
 // List of accelerator manufacturer names. Default is any manufacturer.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AcceleratorManufacturers }).(pulumi.StringArrayOutput)
 }
 
 // List of accelerator names. Default is any acclerator.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AcceleratorNames }).(pulumi.StringArrayOutput)
 }
@@ -11308,23 +11134,6 @@ func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorTotalMemoryMib() La
 }
 
 // List of accelerator types. Default is any accelerator type.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AcceleratorTypes }).(pulumi.StringArrayOutput)
 }
@@ -11356,23 +11165,6 @@ func (o LaunchTemplateInstanceRequirementsOutput) BurstablePerformance() pulumi.
 // List of CPU manufacturer names. Default is any manufacturer.
 //
 // > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o LaunchTemplateInstanceRequirementsOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.CpuManufacturers }).(pulumi.StringArrayOutput)
 }
@@ -11385,23 +11177,6 @@ func (o LaunchTemplateInstanceRequirementsOutput) ExcludedInstanceTypes() pulumi
 }
 
 // List of instance generation names. Default is any generation.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o LaunchTemplateInstanceRequirementsOutput) InstanceGenerations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.InstanceGenerations }).(pulumi.StringArrayOutput)
 }
@@ -11412,23 +11187,6 @@ func (o LaunchTemplateInstanceRequirementsOutput) LocalStorage() pulumi.StringPt
 }
 
 // List of local storage type names. Default any storage type.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o LaunchTemplateInstanceRequirementsOutput) LocalStorageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.LocalStorageTypes }).(pulumi.StringArrayOutput)
 }
@@ -11529,23 +11287,6 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorCount() LaunchTe
 }
 
 // List of accelerator manufacturer names. Default is any manufacturer.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -11556,23 +11297,6 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorManufacturers() 
 }
 
 // List of accelerator names. Default is any acclerator.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -11593,23 +11317,6 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTotalMemoryMib()
 }
 
 // List of accelerator types. Default is any accelerator type.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -11664,23 +11371,6 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) BurstablePerformance() pulu
 // List of CPU manufacturer names. Default is any manufacturer.
 //
 // > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o LaunchTemplateInstanceRequirementsPtrOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -11703,23 +11393,6 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) ExcludedInstanceTypes() pul
 }
 
 // List of instance generation names. Default is any generation.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o LaunchTemplateInstanceRequirementsPtrOutput) InstanceGenerations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -11740,23 +11413,6 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) LocalStorage() pulumi.Strin
 }
 
 // List of local storage type names. Default any storage type.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o LaunchTemplateInstanceRequirementsPtrOutput) LocalStorageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -25369,7 +25025,7 @@ type SecurityGroupEgress struct {
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds []string `pulumi:"prefixListIds"`
-	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
 	Protocol string `pulumi:"protocol"`
 	// List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -25405,7 +25061,7 @@ type SecurityGroupEgressArgs struct {
 	Ipv6CidrBlocks pulumi.StringArrayInput `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
-	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
@@ -25495,7 +25151,7 @@ func (o SecurityGroupEgressOutput) PrefixListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) []string { return v.PrefixListIds }).(pulumi.StringArrayOutput)
 }
 
-// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
 func (o SecurityGroupEgressOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -25550,7 +25206,7 @@ type SecurityGroupIngress struct {
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds []string `pulumi:"prefixListIds"`
-	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0. The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
 	//
 	// The following arguments are optional:
 	//
@@ -25586,7 +25242,7 @@ type SecurityGroupIngressArgs struct {
 	Ipv6CidrBlocks pulumi.StringArrayInput `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
-	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0. The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
 	//
 	// The following arguments are optional:
 	//
@@ -25676,7 +25332,7 @@ func (o SecurityGroupIngressOutput) PrefixListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) []string { return v.PrefixListIds }).(pulumi.StringArrayOutput)
 }
 
-// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0. The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
 //
 // The following arguments are optional:
 //
@@ -26673,54 +26329,12 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements struct {
 	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
 	AcceleratorCount *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorManufacturers []string `pulumi:"acceleratorManufacturers"`
 	// List of accelerator names. Default is any acclerator.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorNames []string `pulumi:"acceleratorNames"`
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
 	// List of accelerator types. Default is any accelerator type.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
 	// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
 	//
@@ -26735,58 +26349,16 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements struct {
 	// List of CPU manufacturer names. Default is any manufacturer.
 	//
 	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	CpuManufacturers []string `pulumi:"cpuManufacturers"`
 	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 	//
 	// > **NOTE:** If you specify `excludedInstanceTypes`, you can't specify `allowedInstanceTypes`.
 	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
 	// List of instance generation names. Default is any generation.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	InstanceGenerations []string `pulumi:"instanceGenerations"`
 	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
 	LocalStorage *string `pulumi:"localStorage"`
 	// List of local storage type names. Default any storage type.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	LocalStorageTypes []string `pulumi:"localStorageTypes"`
 	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
 	MemoryGibPerVcpu *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu `pulumi:"memoryGibPerVcpu"`
@@ -26827,54 +26399,12 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs struct
 	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
 	AcceleratorCount SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrInput `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorManufacturers pulumi.StringArrayInput `pulumi:"acceleratorManufacturers"`
 	// List of accelerator names. Default is any acclerator.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorNames pulumi.StringArrayInput `pulumi:"acceleratorNames"`
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
 	// List of accelerator types. Default is any accelerator type.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorTypes pulumi.StringArrayInput `pulumi:"acceleratorTypes"`
 	// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
 	//
@@ -26889,58 +26419,16 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs struct
 	// List of CPU manufacturer names. Default is any manufacturer.
 	//
 	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	CpuManufacturers pulumi.StringArrayInput `pulumi:"cpuManufacturers"`
 	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 	//
 	// > **NOTE:** If you specify `excludedInstanceTypes`, you can't specify `allowedInstanceTypes`.
 	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
 	// List of instance generation names. Default is any generation.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	InstanceGenerations pulumi.StringArrayInput `pulumi:"instanceGenerations"`
 	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
 	LocalStorage pulumi.StringPtrInput `pulumi:"localStorage"`
 	// List of local storage type names. Default any storage type.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	LocalStorageTypes pulumi.StringArrayInput `pulumi:"localStorageTypes"`
 	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
 	MemoryGibPerVcpu SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput `pulumi:"memoryGibPerVcpu"`
@@ -27051,23 +26539,6 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) 
 }
 
 // List of accelerator manufacturer names. Default is any manufacturer.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		return v.AcceleratorManufacturers
@@ -27075,23 +26546,6 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) 
 }
 
 // List of accelerator names. Default is any acclerator.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		return v.AcceleratorNames
@@ -27106,23 +26560,6 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) 
 }
 
 // List of accelerator types. Default is any accelerator type.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		return v.AcceleratorTypes
@@ -27160,23 +26597,6 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) 
 // List of CPU manufacturer names. Default is any manufacturer.
 //
 // > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		return v.CpuManufacturers
@@ -27193,23 +26613,6 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) 
 }
 
 // List of instance generation names. Default is any generation.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) InstanceGenerations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		return v.InstanceGenerations
@@ -27224,23 +26627,6 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) 
 }
 
 // List of local storage type names. Default any storage type.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) LocalStorageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		return v.LocalStorageTypes
@@ -27349,23 +26735,6 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 }
 
 // List of accelerator manufacturer names. Default is any manufacturer.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -27376,23 +26745,6 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 }
 
 // List of accelerator names. Default is any acclerator.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -27413,23 +26765,6 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 }
 
 // List of accelerator types. Default is any accelerator type.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -27484,23 +26819,6 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 // List of CPU manufacturer names. Default is any manufacturer.
 //
 // > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -27523,23 +26841,6 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 }
 
 // List of instance generation names. Default is any generation.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) InstanceGenerations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -27560,23 +26861,6 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 }
 
 // List of local storage type names. Default any storage type.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) LocalStorageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -30053,6 +29337,8 @@ type SpotInstanceRequestEbsBlockDevice struct {
 	SnapshotId *string `pulumi:"snapshotId"`
 	// Map of tags to assign to the device.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput *int    `pulumi:"throughput"`
 	VolumeId   *string `pulumi:"volumeId"`
@@ -30090,6 +29376,8 @@ type SpotInstanceRequestEbsBlockDeviceArgs struct {
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
 	// Map of tags to assign to the device.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput `pulumi:"tagsAll"`
 	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput pulumi.IntPtrInput    `pulumi:"throughput"`
 	VolumeId   pulumi.StringPtrInput `pulumi:"volumeId"`
@@ -30185,6 +29473,11 @@ func (o SpotInstanceRequestEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOu
 // Map of tags to assign to the device.
 func (o SpotInstanceRequestEbsBlockDeviceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o SpotInstanceRequestEbsBlockDeviceOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) map[string]string { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 // Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
@@ -31339,6 +30632,8 @@ type SpotInstanceRequestRootBlockDevice struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Map of tags to assign to the device.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput *int    `pulumi:"throughput"`
 	VolumeId   *string `pulumi:"volumeId"`
@@ -31374,6 +30669,8 @@ type SpotInstanceRequestRootBlockDeviceArgs struct {
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Map of tags to assign to the device.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput `pulumi:"tagsAll"`
 	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput pulumi.IntPtrInput    `pulumi:"throughput"`
 	VolumeId   pulumi.StringPtrInput `pulumi:"volumeId"`
@@ -31492,6 +30789,11 @@ func (o SpotInstanceRequestRootBlockDeviceOutput) Tags() pulumi.StringMapOutput 
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o SpotInstanceRequestRootBlockDeviceOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) map[string]string { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
 // Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 func (o SpotInstanceRequestRootBlockDeviceOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *int { return v.Throughput }).(pulumi.IntPtrOutput)
@@ -31594,6 +30896,16 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) Tags() pulumi.StringMapOutp
 			return nil
 		}
 		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o SpotInstanceRequestRootBlockDevicePtrOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.TagsAll
 	}).(pulumi.StringMapOutput)
 }
 
@@ -54643,6 +53955,7 @@ type GetSubnetsFilter struct {
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 	// For example, if matching against tag `Name`, use:
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -54670,6 +53983,7 @@ type GetSubnetsFilter struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	// Subnet IDs will be selected if any one of the given values match.
@@ -54692,6 +54006,7 @@ type GetSubnetsFilterArgs struct {
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 	// For example, if matching against tag `Name`, use:
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -54719,6 +54034,7 @@ type GetSubnetsFilterArgs struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	// Subnet IDs will be selected if any one of the given values match.
@@ -54780,6 +54096,7 @@ func (o GetSubnetsFilterOutput) ToGetSubnetsFilterOutputWithContext(ctx context.
 // [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 // For example, if matching against tag `Name`, use:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54810,6 +54127,7 @@ func (o GetSubnetsFilterOutput) ToGetSubnetsFilterOutputWithContext(ctx context.
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func (o GetSubnetsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSubnetsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -57245,6 +56563,100 @@ func (o GetVpcPeeringConnectionFilterArrayOutput) Index(i pulumi.IntInput) GetVp
 	}).(GetVpcPeeringConnectionFilterOutput)
 }
 
+type GetVpcPeeringConnectionIpv6CidrBlockSet struct {
+	Ipv6CidrBlock string `pulumi:"ipv6CidrBlock"`
+}
+
+// GetVpcPeeringConnectionIpv6CidrBlockSetInput is an input type that accepts GetVpcPeeringConnectionIpv6CidrBlockSetArgs and GetVpcPeeringConnectionIpv6CidrBlockSetOutput values.
+// You can construct a concrete instance of `GetVpcPeeringConnectionIpv6CidrBlockSetInput` via:
+//
+//	GetVpcPeeringConnectionIpv6CidrBlockSetArgs{...}
+type GetVpcPeeringConnectionIpv6CidrBlockSetInput interface {
+	pulumi.Input
+
+	ToGetVpcPeeringConnectionIpv6CidrBlockSetOutput() GetVpcPeeringConnectionIpv6CidrBlockSetOutput
+	ToGetVpcPeeringConnectionIpv6CidrBlockSetOutputWithContext(context.Context) GetVpcPeeringConnectionIpv6CidrBlockSetOutput
+}
+
+type GetVpcPeeringConnectionIpv6CidrBlockSetArgs struct {
+	Ipv6CidrBlock pulumi.StringInput `pulumi:"ipv6CidrBlock"`
+}
+
+func (GetVpcPeeringConnectionIpv6CidrBlockSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcPeeringConnectionIpv6CidrBlockSet)(nil)).Elem()
+}
+
+func (i GetVpcPeeringConnectionIpv6CidrBlockSetArgs) ToGetVpcPeeringConnectionIpv6CidrBlockSetOutput() GetVpcPeeringConnectionIpv6CidrBlockSetOutput {
+	return i.ToGetVpcPeeringConnectionIpv6CidrBlockSetOutputWithContext(context.Background())
+}
+
+func (i GetVpcPeeringConnectionIpv6CidrBlockSetArgs) ToGetVpcPeeringConnectionIpv6CidrBlockSetOutputWithContext(ctx context.Context) GetVpcPeeringConnectionIpv6CidrBlockSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcPeeringConnectionIpv6CidrBlockSetOutput)
+}
+
+// GetVpcPeeringConnectionIpv6CidrBlockSetArrayInput is an input type that accepts GetVpcPeeringConnectionIpv6CidrBlockSetArray and GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput values.
+// You can construct a concrete instance of `GetVpcPeeringConnectionIpv6CidrBlockSetArrayInput` via:
+//
+//	GetVpcPeeringConnectionIpv6CidrBlockSetArray{ GetVpcPeeringConnectionIpv6CidrBlockSetArgs{...} }
+type GetVpcPeeringConnectionIpv6CidrBlockSetArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput() GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput
+	ToGetVpcPeeringConnectionIpv6CidrBlockSetArrayOutputWithContext(context.Context) GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput
+}
+
+type GetVpcPeeringConnectionIpv6CidrBlockSetArray []GetVpcPeeringConnectionIpv6CidrBlockSetInput
+
+func (GetVpcPeeringConnectionIpv6CidrBlockSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcPeeringConnectionIpv6CidrBlockSet)(nil)).Elem()
+}
+
+func (i GetVpcPeeringConnectionIpv6CidrBlockSetArray) ToGetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput() GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput {
+	return i.ToGetVpcPeeringConnectionIpv6CidrBlockSetArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcPeeringConnectionIpv6CidrBlockSetArray) ToGetVpcPeeringConnectionIpv6CidrBlockSetArrayOutputWithContext(ctx context.Context) GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput)
+}
+
+type GetVpcPeeringConnectionIpv6CidrBlockSetOutput struct{ *pulumi.OutputState }
+
+func (GetVpcPeeringConnectionIpv6CidrBlockSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcPeeringConnectionIpv6CidrBlockSet)(nil)).Elem()
+}
+
+func (o GetVpcPeeringConnectionIpv6CidrBlockSetOutput) ToGetVpcPeeringConnectionIpv6CidrBlockSetOutput() GetVpcPeeringConnectionIpv6CidrBlockSetOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionIpv6CidrBlockSetOutput) ToGetVpcPeeringConnectionIpv6CidrBlockSetOutputWithContext(ctx context.Context) GetVpcPeeringConnectionIpv6CidrBlockSetOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionIpv6CidrBlockSetOutput) Ipv6CidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcPeeringConnectionIpv6CidrBlockSet) string { return v.Ipv6CidrBlock }).(pulumi.StringOutput)
+}
+
+type GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcPeeringConnectionIpv6CidrBlockSet)(nil)).Elem()
+}
+
+func (o GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput) ToGetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput() GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput) ToGetVpcPeeringConnectionIpv6CidrBlockSetArrayOutputWithContext(ctx context.Context) GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput) Index(i pulumi.IntInput) GetVpcPeeringConnectionIpv6CidrBlockSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcPeeringConnectionIpv6CidrBlockSet {
+		return vs[0].([]GetVpcPeeringConnectionIpv6CidrBlockSet)[vs[1].(int)]
+	}).(GetVpcPeeringConnectionIpv6CidrBlockSetOutput)
+}
+
 type GetVpcPeeringConnectionPeerCidrBlockSet struct {
 	// Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
 	CidrBlock string `pulumi:"cidrBlock"`
@@ -57340,6 +56752,100 @@ func (o GetVpcPeeringConnectionPeerCidrBlockSetArrayOutput) Index(i pulumi.IntIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcPeeringConnectionPeerCidrBlockSet {
 		return vs[0].([]GetVpcPeeringConnectionPeerCidrBlockSet)[vs[1].(int)]
 	}).(GetVpcPeeringConnectionPeerCidrBlockSetOutput)
+}
+
+type GetVpcPeeringConnectionPeerIpv6CidrBlockSet struct {
+	Ipv6CidrBlock string `pulumi:"ipv6CidrBlock"`
+}
+
+// GetVpcPeeringConnectionPeerIpv6CidrBlockSetInput is an input type that accepts GetVpcPeeringConnectionPeerIpv6CidrBlockSetArgs and GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput values.
+// You can construct a concrete instance of `GetVpcPeeringConnectionPeerIpv6CidrBlockSetInput` via:
+//
+//	GetVpcPeeringConnectionPeerIpv6CidrBlockSetArgs{...}
+type GetVpcPeeringConnectionPeerIpv6CidrBlockSetInput interface {
+	pulumi.Input
+
+	ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput() GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput
+	ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetOutputWithContext(context.Context) GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput
+}
+
+type GetVpcPeeringConnectionPeerIpv6CidrBlockSetArgs struct {
+	Ipv6CidrBlock pulumi.StringInput `pulumi:"ipv6CidrBlock"`
+}
+
+func (GetVpcPeeringConnectionPeerIpv6CidrBlockSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcPeeringConnectionPeerIpv6CidrBlockSet)(nil)).Elem()
+}
+
+func (i GetVpcPeeringConnectionPeerIpv6CidrBlockSetArgs) ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput() GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput {
+	return i.ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetOutputWithContext(context.Background())
+}
+
+func (i GetVpcPeeringConnectionPeerIpv6CidrBlockSetArgs) ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetOutputWithContext(ctx context.Context) GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput)
+}
+
+// GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayInput is an input type that accepts GetVpcPeeringConnectionPeerIpv6CidrBlockSetArray and GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput values.
+// You can construct a concrete instance of `GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayInput` via:
+//
+//	GetVpcPeeringConnectionPeerIpv6CidrBlockSetArray{ GetVpcPeeringConnectionPeerIpv6CidrBlockSetArgs{...} }
+type GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput() GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput
+	ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutputWithContext(context.Context) GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput
+}
+
+type GetVpcPeeringConnectionPeerIpv6CidrBlockSetArray []GetVpcPeeringConnectionPeerIpv6CidrBlockSetInput
+
+func (GetVpcPeeringConnectionPeerIpv6CidrBlockSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcPeeringConnectionPeerIpv6CidrBlockSet)(nil)).Elem()
+}
+
+func (i GetVpcPeeringConnectionPeerIpv6CidrBlockSetArray) ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput() GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput {
+	return i.ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcPeeringConnectionPeerIpv6CidrBlockSetArray) ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutputWithContext(ctx context.Context) GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput)
+}
+
+type GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput struct{ *pulumi.OutputState }
+
+func (GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcPeeringConnectionPeerIpv6CidrBlockSet)(nil)).Elem()
+}
+
+func (o GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput) ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput() GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput) ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetOutputWithContext(ctx context.Context) GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput) Ipv6CidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcPeeringConnectionPeerIpv6CidrBlockSet) string { return v.Ipv6CidrBlock }).(pulumi.StringOutput)
+}
+
+type GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcPeeringConnectionPeerIpv6CidrBlockSet)(nil)).Elem()
+}
+
+func (o GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput) ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput() GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput) ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutputWithContext(ctx context.Context) GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput) Index(i pulumi.IntInput) GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcPeeringConnectionPeerIpv6CidrBlockSet {
+		return vs[0].([]GetVpcPeeringConnectionPeerIpv6CidrBlockSet)[vs[1].(int)]
+	}).(GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput)
 }
 
 type GetVpcPeeringConnectionsFilter struct {
@@ -58512,8 +58018,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionCidrBlockSetArrayInput)(nil)).Elem(), GetVpcPeeringConnectionCidrBlockSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionFilterInput)(nil)).Elem(), GetVpcPeeringConnectionFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionFilterArrayInput)(nil)).Elem(), GetVpcPeeringConnectionFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionIpv6CidrBlockSetInput)(nil)).Elem(), GetVpcPeeringConnectionIpv6CidrBlockSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionIpv6CidrBlockSetArrayInput)(nil)).Elem(), GetVpcPeeringConnectionIpv6CidrBlockSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionPeerCidrBlockSetInput)(nil)).Elem(), GetVpcPeeringConnectionPeerCidrBlockSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionPeerCidrBlockSetArrayInput)(nil)).Elem(), GetVpcPeeringConnectionPeerCidrBlockSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionPeerIpv6CidrBlockSetInput)(nil)).Elem(), GetVpcPeeringConnectionPeerIpv6CidrBlockSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayInput)(nil)).Elem(), GetVpcPeeringConnectionPeerIpv6CidrBlockSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionsFilterInput)(nil)).Elem(), GetVpcPeeringConnectionsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionsFilterArrayInput)(nil)).Elem(), GetVpcPeeringConnectionsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcsFilterInput)(nil)).Elem(), GetVpcsFilterArgs{})
@@ -59353,8 +58863,12 @@ func init() {
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionCidrBlockSetArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcPeeringConnectionIpv6CidrBlockSetOutput{})
+	pulumi.RegisterOutputType(GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionPeerCidrBlockSetOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionPeerCidrBlockSetArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput{})
+	pulumi.RegisterOutputType(GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionsFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcsFilterOutput{})

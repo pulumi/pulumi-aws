@@ -5,6 +5,7 @@ package com.pulumi.aws.ssmincidents.outputs;
 
 import com.pulumi.aws.ssmincidents.outputs.GetReplicationSetRegion;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -138,32 +139,50 @@ public final class GetReplicationSetResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetReplicationSetResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder createdBy(String createdBy) {
-            this.createdBy = Objects.requireNonNull(createdBy);
+            if (createdBy == null) {
+              throw new MissingRequiredPropertyException("GetReplicationSetResult", "createdBy");
+            }
+            this.createdBy = createdBy;
             return this;
         }
         @CustomType.Setter
         public Builder deletionProtected(Boolean deletionProtected) {
-            this.deletionProtected = Objects.requireNonNull(deletionProtected);
+            if (deletionProtected == null) {
+              throw new MissingRequiredPropertyException("GetReplicationSetResult", "deletionProtected");
+            }
+            this.deletionProtected = deletionProtected;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetReplicationSetResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder lastModifiedBy(String lastModifiedBy) {
-            this.lastModifiedBy = Objects.requireNonNull(lastModifiedBy);
+            if (lastModifiedBy == null) {
+              throw new MissingRequiredPropertyException("GetReplicationSetResult", "lastModifiedBy");
+            }
+            this.lastModifiedBy = lastModifiedBy;
             return this;
         }
         @CustomType.Setter
         public Builder regions(List<GetReplicationSetRegion> regions) {
-            this.regions = Objects.requireNonNull(regions);
+            if (regions == null) {
+              throw new MissingRequiredPropertyException("GetReplicationSetResult", "regions");
+            }
+            this.regions = regions;
             return this;
         }
         public Builder regions(GetReplicationSetRegion... regions) {
@@ -171,25 +190,31 @@ public final class GetReplicationSetResult {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetReplicationSetResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetReplicationSetResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetReplicationSetResult build() {
-            final var o = new GetReplicationSetResult();
-            o.arn = arn;
-            o.createdBy = createdBy;
-            o.deletionProtected = deletionProtected;
-            o.id = id;
-            o.lastModifiedBy = lastModifiedBy;
-            o.regions = regions;
-            o.status = status;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetReplicationSetResult();
+            _resultValue.arn = arn;
+            _resultValue.createdBy = createdBy;
+            _resultValue.deletionProtected = deletionProtected;
+            _resultValue.id = id;
+            _resultValue.lastModifiedBy = lastModifiedBy;
+            _resultValue.regions = regions;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

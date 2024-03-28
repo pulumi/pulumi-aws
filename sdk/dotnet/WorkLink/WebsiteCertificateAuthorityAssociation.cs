@@ -12,32 +12,40 @@ namespace Pulumi.Aws.WorkLink
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.WorkLink.Fleet("example");
+    ///     var example = new Aws.WorkLink.Fleet("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
     ///     var test = new Aws.WorkLink.WebsiteCertificateAuthorityAssociation("test", new()
     ///     {
-    ///         FleetArn = aws_worklink_fleet.Test.Arn,
-    ///         Certificate = File.ReadAllText("certificate.pem"),
+    ///         FleetArn = testAwsWorklinkFleet.Arn,
+    ///         Certificate = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "certificate.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WorkLink Website Certificate Authority using `FLEET-ARN,WEBSITE-CA-ID`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
+    /// $ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
     /// ```
     /// </summary>
     [AwsResourceType("aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation")]

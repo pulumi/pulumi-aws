@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS CloudWatch Observability Access Manager Link.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,19 +19,20 @@ import * as utilities from "../utilities";
  * const example = new aws.oam.Link("example", {
  *     labelTemplate: "$AccountName",
  *     resourceTypes: ["AWS::CloudWatch::Metric"],
- *     sinkIdentifier: aws_oam_sink.test.id,
+ *     sinkIdentifier: test.id,
  *     tags: {
  *         Env: "prod",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
+ * $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
  * ```
  */
 export class Link extends pulumi.CustomResource {
@@ -143,8 +146,6 @@ export class Link extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Link.__pulumiType, name, resourceInputs, opts);
     }
 }

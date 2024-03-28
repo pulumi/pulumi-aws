@@ -44,13 +44,14 @@ public final class ClusterIdentityOidc {
 
         @CustomType.Setter
         public Builder issuer(@Nullable String issuer) {
+
             this.issuer = issuer;
             return this;
         }
         public ClusterIdentityOidc build() {
-            final var o = new ClusterIdentityOidc();
-            o.issuer = issuer;
-            return o;
+            final var _resultValue = new ClusterIdentityOidc();
+            _resultValue.issuer = issuer;
+            return _resultValue;
         }
     }
 }

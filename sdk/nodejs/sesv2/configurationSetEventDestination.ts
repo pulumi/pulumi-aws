@@ -11,15 +11,17 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination.
  *
  * ## Example Usage
+ *
  * ### Cloud Watch Destination
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleConfigurationSet = new aws.sesv2.ConfigurationSet("exampleConfigurationSet", {configurationSetName: "example"});
- * const exampleConfigurationSetEventDestination = new aws.sesv2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", {
- *     configurationSetName: exampleConfigurationSet.configurationSetName,
+ * const example = new aws.sesv2.ConfigurationSet("example", {configurationSetName: "example"});
+ * const exampleConfigurationSetEventDestination = new aws.sesv2.ConfigurationSetEventDestination("example", {
+ *     configurationSetName: example.configurationSetName,
  *     eventDestinationName: "example",
  *     eventDestination: {
  *         cloudWatchDestination: {
@@ -34,71 +36,81 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Kinesis Firehose Destination
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleConfigurationSet = new aws.sesv2.ConfigurationSet("exampleConfigurationSet", {configurationSetName: "example"});
- * const exampleConfigurationSetEventDestination = new aws.sesv2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", {
- *     configurationSetName: exampleConfigurationSet.configurationSetName,
+ * const example = new aws.sesv2.ConfigurationSet("example", {configurationSetName: "example"});
+ * const exampleConfigurationSetEventDestination = new aws.sesv2.ConfigurationSetEventDestination("example", {
+ *     configurationSetName: example.configurationSetName,
  *     eventDestinationName: "example",
  *     eventDestination: {
  *         kinesisFirehoseDestination: {
- *             deliveryStreamArn: aws_kinesis_firehose_delivery_stream.example.arn,
- *             iamRoleArn: aws_iam_role.example.arn,
+ *             deliveryStreamArn: exampleAwsKinesisFirehoseDeliveryStream.arn,
+ *             iamRoleArn: exampleAwsIamRole.arn,
  *         },
  *         enabled: true,
  *         matchingEventTypes: ["SEND"],
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Pinpoint Destination
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleConfigurationSet = new aws.sesv2.ConfigurationSet("exampleConfigurationSet", {configurationSetName: "example"});
- * const exampleConfigurationSetEventDestination = new aws.sesv2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", {
- *     configurationSetName: exampleConfigurationSet.configurationSetName,
+ * const example = new aws.sesv2.ConfigurationSet("example", {configurationSetName: "example"});
+ * const exampleConfigurationSetEventDestination = new aws.sesv2.ConfigurationSetEventDestination("example", {
+ *     configurationSetName: example.configurationSetName,
  *     eventDestinationName: "example",
  *     eventDestination: {
  *         pinpointDestination: {
- *             applicationArn: aws_pinpoint_app.example.arn,
+ *             applicationArn: exampleAwsPinpointApp.arn,
  *         },
  *         enabled: true,
  *         matchingEventTypes: ["SEND"],
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### SNS Destination
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleConfigurationSet = new aws.sesv2.ConfigurationSet("exampleConfigurationSet", {configurationSetName: "example"});
- * const exampleConfigurationSetEventDestination = new aws.sesv2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", {
- *     configurationSetName: exampleConfigurationSet.configurationSetName,
+ * const example = new aws.sesv2.ConfigurationSet("example", {configurationSetName: "example"});
+ * const exampleConfigurationSetEventDestination = new aws.sesv2.ConfigurationSetEventDestination("example", {
+ *     configurationSetName: example.configurationSetName,
  *     eventDestinationName: "example",
  *     eventDestination: {
  *         snsDestination: {
- *             topicArn: aws_sns_topic.example.arn,
+ *             topicArn: exampleAwsSnsTopic.arn,
  *         },
  *         enabled: true,
  *         matchingEventTypes: ["SEND"],
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SESv2 (Simple Email V2) Configuration Set Event Destination using the `id` (`configuration_set_name|event_destination_name`). For example:
  *
  * ```sh
- *  $ pulumi import aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination example example_configuration_set|example_event_destination
+ * $ pulumi import aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination example example_configuration_set|example_event_destination
  * ```
  */
 export class ConfigurationSetEventDestination extends pulumi.CustomResource {

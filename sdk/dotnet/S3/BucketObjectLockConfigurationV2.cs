@@ -12,13 +12,15 @@ namespace Pulumi.Aws.S3
     /// <summary>
     /// Provides an S3 bucket Object Lock configuration resource. For more information about Object Locking, go to [Using S3 Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html) in the Amazon S3 User Guide.
     /// 
-    /// &gt; **NOTE:** This resource **does not enable** Object Lock for **new** buckets. It configures a default retention period for objects placed in the specified bucket.
-    /// Thus, to **enable** Object Lock for a **new** bucket, see the Using object lock configuration section in  the `aws.s3.BucketV2` resource or the Object Lock configuration for a new bucket example below.
-    /// If you want to **enable** Object Lock for an **existing** bucket, contact AWS Support and see the Object Lock configuration for an existing bucket example below.
+    /// &gt; This resource can be used enable Object Lock for **new** and **existing** buckets.
+    /// 
+    /// &gt; This resource cannot be used with S3 directory buckets.
     /// 
     /// ## Example Usage
-    /// ### Object Lock configuration for a new bucket
     /// 
+    /// ### Object Lock configuration for new or existing buckets
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,72 +29,23 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
+    ///     var example = new Aws.S3.BucketV2("example", new()
     ///     {
-    ///         ObjectLockEnabled = true,
+    ///         Bucket = "mybucket",
     ///     });
     /// 
-    ///     var exampleBucketObjectLockConfigurationV2 = new Aws.S3.BucketObjectLockConfigurationV2("exampleBucketObjectLockConfigurationV2", new()
+    ///     var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
-    ///         Rule = new Aws.S3.Inputs.BucketObjectLockConfigurationV2RuleArgs
-    ///         {
-    ///             DefaultRetention = new Aws.S3.Inputs.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs
-    ///             {
-    ///                 Mode = "COMPLIANCE",
-    ///                 Days = 5,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Object Lock configuration for an existing bucket
-    /// 
-    /// This is a multistep process that requires AWS Support intervention.
-    /// 
-    /// 1. Enable versioning on your S3 bucket, if you have not already done so.
-    ///    Doing so will generate an "Object Lock token" in the back-end.
-    /// 
-    /// &lt;!-- markdownlint-disable MD029 --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("exampleBucketVersioningV2", new()
-    ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = example.Id,
     ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
     ///     });
     /// 
-    /// });
-    /// ```
-    /// &lt;!-- markdownlint-disable MD029 --&gt;
-    /// 
-    /// 2. Contact AWS Support to provide you with the "Object Lock token" for the specified bucket and use the token (or token ID) within your new `aws.s3.BucketObjectLockConfigurationV2` resource.
-    ///    Notice the `object_lock_enabled` argument does not need to be specified as it defaults to `Enabled`.
-    /// 
-    /// &lt;!-- markdownlint-disable MD029 --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3.BucketObjectLockConfigurationV2("example", new()
+    ///     var exampleBucketObjectLockConfigurationV2 = new Aws.S3.BucketObjectLockConfigurationV2("example", new()
     ///     {
-    ///         Bucket = aws_s3_bucket.Example.Id,
+    ///         Bucket = example.Id,
     ///         Rule = new Aws.S3.Inputs.BucketObjectLockConfigurationV2RuleArgs
     ///         {
     ///             DefaultRetention = new Aws.S3.Inputs.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs
@@ -101,34 +54,32 @@ namespace Pulumi.Aws.S3
     ///                 Days = 5,
     ///             },
     ///         },
-    ///         Token = "NG2MKsfoLqV3A+aquXneSG4LOu/ekrlXkRXwIPFVfERT7XOPos+/k444d7RIH0E3W3p5QU6ml2exS2F/eYCFmMWHJ3hFZGk6al1sIJkmNhUMYmsv0jYVQyTTZNLM+DnfooA6SATt39mM1VW1yJh4E+XljMlWzaBwHKbss3/EjlGDjOmVhaSs4Z6427mMCaFD0RLwsYY7zX49gEc31YfOMJGxbXCXSeyNwAhhM/A8UH7gQf38RmjHjjAFbbbLtl8arsxTPW8F1IYohqwmKIr9DnotLLj8Tg44U2SPwujVaqmlKKP9s41rfgb4UbIm7khSafDBng0LGfxC4pMlT9Ny2w==",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!-- markdownlint-disable MD029 --&gt;
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
     /// 
     /// import {
-    /// 
-    ///  to = aws_s3_bucket_object_lock_configuration.example
-    /// 
-    ///  id = "bucket-name,123456789012" }
+    ///   to = aws_s3_bucket_object_lock_configuration.example
+    ///   id = "bucket-name,123456789012"
+    /// }
     /// 
     /// __Using `pulumi import` to import__ S3 bucket Object Lock configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
     /// 
     /// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2 example bucket-name
+    /// $ pulumi import aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2 example bucket-name
     /// ```
-    ///  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+    /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2 example bucket-name,123456789012
+    /// $ pulumi import aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2 example bucket-name,123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2")]

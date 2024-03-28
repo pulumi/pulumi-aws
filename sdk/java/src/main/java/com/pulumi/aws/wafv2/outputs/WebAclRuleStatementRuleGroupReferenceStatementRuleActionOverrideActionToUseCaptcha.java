@@ -44,13 +44,14 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
 
         @CustomType.Setter
         public Builder customRequestHandling(@Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandling customRequestHandling) {
+
             this.customRequestHandling = customRequestHandling;
             return this;
         }
         public WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha build() {
-            final var o = new WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha();
-            o.customRequestHandling = customRequestHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha();
+            _resultValue.customRequestHandling = customRequestHandling;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -88,17 +89,22 @@ public final class CrawlerDeltaTarget {
 
         @CustomType.Setter
         public Builder connectionName(@Nullable String connectionName) {
+
             this.connectionName = connectionName;
             return this;
         }
         @CustomType.Setter
         public Builder createNativeDeltaTable(@Nullable Boolean createNativeDeltaTable) {
+
             this.createNativeDeltaTable = createNativeDeltaTable;
             return this;
         }
         @CustomType.Setter
         public Builder deltaTables(List<String> deltaTables) {
-            this.deltaTables = Objects.requireNonNull(deltaTables);
+            if (deltaTables == null) {
+              throw new MissingRequiredPropertyException("CrawlerDeltaTarget", "deltaTables");
+            }
+            this.deltaTables = deltaTables;
             return this;
         }
         public Builder deltaTables(String... deltaTables) {
@@ -106,16 +112,19 @@ public final class CrawlerDeltaTarget {
         }
         @CustomType.Setter
         public Builder writeManifest(Boolean writeManifest) {
-            this.writeManifest = Objects.requireNonNull(writeManifest);
+            if (writeManifest == null) {
+              throw new MissingRequiredPropertyException("CrawlerDeltaTarget", "writeManifest");
+            }
+            this.writeManifest = writeManifest;
             return this;
         }
         public CrawlerDeltaTarget build() {
-            final var o = new CrawlerDeltaTarget();
-            o.connectionName = connectionName;
-            o.createNativeDeltaTable = createNativeDeltaTable;
-            o.deltaTables = deltaTables;
-            o.writeManifest = writeManifest;
-            return o;
+            final var _resultValue = new CrawlerDeltaTarget();
+            _resultValue.connectionName = connectionName;
+            _resultValue.createNativeDeltaTable = createNativeDeltaTable;
+            _resultValue.deltaTables = deltaTables;
+            _resultValue.writeManifest = writeManifest;
+            return _resultValue;
         }
     }
 }

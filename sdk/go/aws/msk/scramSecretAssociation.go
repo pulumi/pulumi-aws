@@ -26,6 +26,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,7 +44,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCluster, err := msk.NewCluster(ctx, "exampleCluster", &msk.ClusterArgs{
+//			exampleCluster, err := msk.NewCluster(ctx, "example", &msk.ClusterArgs{
+//				ClusterName: pulumi.String("example"),
 //				ClientAuthentication: &msk.ClusterClientAuthenticationArgs{
 //					Sasl: &msk.ClusterClientAuthenticationSaslArgs{
 //						Scram: pulumi.Bool(true),
@@ -53,14 +55,24 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			exampleKey, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				Description: pulumi.String("Example Key for MSK Cluster Scram Secret Association"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSecret, err := secretsmanager.NewSecret(ctx, "exampleSecret", &secretsmanager.SecretArgs{
+//			exampleSecret, err := secretsmanager.NewSecret(ctx, "example", &secretsmanager.SecretArgs{
+//				Name:     pulumi.String("AmazonMSK_example"),
 //				KmsKeyId: exampleKey.KeyId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = msk.NewScramSecretAssociation(ctx, "example", &msk.ScramSecretAssociationArgs{
+//				ClusterArn: exampleCluster.Arn,
+//				SecretArnLists: pulumi.StringArray{
+//					exampleSecret.Arn,
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -73,25 +85,14 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			exampleSecretVersion, err := secretsmanager.NewSecretVersion(ctx, "exampleSecretVersion", &secretsmanager.SecretVersionArgs{
+//			_, err = secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
 //				SecretId:     exampleSecret.ID(),
 //				SecretString: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = msk.NewScramSecretAssociation(ctx, "exampleScramSecretAssociation", &msk.ScramSecretAssociationArgs{
-//				ClusterArn: exampleCluster.Arn,
-//				SecretArnLists: pulumi.StringArray{
-//					exampleSecret.Arn,
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleSecretVersion,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
 //						Sid:    pulumi.String("AWSKafkaResourcePolicy"),
@@ -113,10 +114,10 @@ import (
 //					},
 //				},
 //			}, nil)
-//			_, err = secretsmanager.NewSecretPolicy(ctx, "exampleSecretPolicy", &secretsmanager.SecretPolicyArgs{
+//			_, err = secretsmanager.NewSecretPolicy(ctx, "example", &secretsmanager.SecretPolicyArgs{
 //				SecretArn: exampleSecret.Arn,
-//				Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &examplePolicyDocument.Json, nil
+//				Policy: example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
+//					return &example.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
@@ -127,15 +128,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import MSK SCRAM Secret Associations using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
-//
+// $ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
 // ```
 type ScramSecretAssociation struct {
 	pulumi.CustomResourceState

@@ -88,17 +88,19 @@ def get_partition(id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     current = aws.get_partition()
     s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        sid="1",
         actions=["s3:ListBucket"],
         resources=[f"arn:{current.partition}:s3:::my-bucket"],
-        sid="1",
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
@@ -124,17 +126,19 @@ def get_partition_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     current = aws.get_partition()
     s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        sid="1",
         actions=["s3:ListBucket"],
         resources=[f"arn:{current.partition}:s3:::my-bucket"],
-        sid="1",
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).

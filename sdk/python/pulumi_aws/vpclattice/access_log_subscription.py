@@ -176,23 +176,26 @@ class AccessLogSubscription(pulumi.CustomResource):
         Resource for managing an AWS VPC Lattice Service Network or Service Access log subscription.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.vpclattice.AccessLogSubscription("example",
-            resource_identifier=aws_vpclattice_service_network["example"]["id"],
-            destination_arn=aws_s3["bucket"]["arn"])
+            resource_identifier=example_aws_vpclattice_service_network["id"],
+            destination_arn=bucket["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Lattice Access Log Subscription using the access log subscription ID. For example:
 
         ```sh
-         $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
+        $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
         ```
 
         :param str resource_name: The name of the resource.
@@ -210,23 +213,26 @@ class AccessLogSubscription(pulumi.CustomResource):
         Resource for managing an AWS VPC Lattice Service Network or Service Access log subscription.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.vpclattice.AccessLogSubscription("example",
-            resource_identifier=aws_vpclattice_service_network["example"]["id"],
-            destination_arn=aws_s3["bucket"]["arn"])
+            resource_identifier=example_aws_vpclattice_service_network["id"],
+            destination_arn=bucket["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Lattice Access Log Subscription using the access log subscription ID. For example:
 
         ```sh
-         $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
+        $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
         ```
 
         :param str resource_name: The name of the resource.
@@ -266,8 +272,6 @@ class AccessLogSubscription(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["resource_arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AccessLogSubscription, __self__).__init__(
             'aws:vpclattice/accessLogSubscription:AccessLogSubscription',
             resource_name,

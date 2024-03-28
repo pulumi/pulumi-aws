@@ -60,11 +60,13 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagC
 
         @CustomType.Setter
         public Builder comparator(@Nullable String comparator) {
+
             this.comparator = comparator;
             return this;
         }
         @CustomType.Setter
         public Builder tagValues(@Nullable List<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue> tagValues) {
+
             this.tagValues = tagValues;
             return this;
         }
@@ -72,10 +74,10 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagC
             return tagValues(List.of(tagValues));
         }
         public ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion build() {
-            final var o = new ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion();
-            o.comparator = comparator;
-            o.tagValues = tagValues;
-            return o;
+            final var _resultValue = new ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion();
+            _resultValue.comparator = comparator;
+            _resultValue.tagValues = tagValues;
+            return _resultValue;
         }
     }
 }

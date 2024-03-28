@@ -44,6 +44,7 @@ public final class PipeSourceParametersFilterCriteria {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<PipeSourceParametersFilterCriteriaFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -51,9 +52,9 @@ public final class PipeSourceParametersFilterCriteria {
             return filters(List.of(filters));
         }
         public PipeSourceParametersFilterCriteria build() {
-            final var o = new PipeSourceParametersFilterCriteria();
-            o.filters = filters;
-            return o;
+            final var _resultValue = new PipeSourceParametersFilterCriteria();
+            _resultValue.filters = filters;
+            return _resultValue;
         }
     }
 }

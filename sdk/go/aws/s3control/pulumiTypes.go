@@ -13,6 +13,299 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AccessGrantAccessGrantsLocationConfiguration struct {
+	// Sub-prefix.
+	S3SubPrefix *string `pulumi:"s3SubPrefix"`
+}
+
+// AccessGrantAccessGrantsLocationConfigurationInput is an input type that accepts AccessGrantAccessGrantsLocationConfigurationArgs and AccessGrantAccessGrantsLocationConfigurationOutput values.
+// You can construct a concrete instance of `AccessGrantAccessGrantsLocationConfigurationInput` via:
+//
+//	AccessGrantAccessGrantsLocationConfigurationArgs{...}
+type AccessGrantAccessGrantsLocationConfigurationInput interface {
+	pulumi.Input
+
+	ToAccessGrantAccessGrantsLocationConfigurationOutput() AccessGrantAccessGrantsLocationConfigurationOutput
+	ToAccessGrantAccessGrantsLocationConfigurationOutputWithContext(context.Context) AccessGrantAccessGrantsLocationConfigurationOutput
+}
+
+type AccessGrantAccessGrantsLocationConfigurationArgs struct {
+	// Sub-prefix.
+	S3SubPrefix pulumi.StringPtrInput `pulumi:"s3SubPrefix"`
+}
+
+func (AccessGrantAccessGrantsLocationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantAccessGrantsLocationConfiguration)(nil)).Elem()
+}
+
+func (i AccessGrantAccessGrantsLocationConfigurationArgs) ToAccessGrantAccessGrantsLocationConfigurationOutput() AccessGrantAccessGrantsLocationConfigurationOutput {
+	return i.ToAccessGrantAccessGrantsLocationConfigurationOutputWithContext(context.Background())
+}
+
+func (i AccessGrantAccessGrantsLocationConfigurationArgs) ToAccessGrantAccessGrantsLocationConfigurationOutputWithContext(ctx context.Context) AccessGrantAccessGrantsLocationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantAccessGrantsLocationConfigurationOutput)
+}
+
+func (i AccessGrantAccessGrantsLocationConfigurationArgs) ToAccessGrantAccessGrantsLocationConfigurationPtrOutput() AccessGrantAccessGrantsLocationConfigurationPtrOutput {
+	return i.ToAccessGrantAccessGrantsLocationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AccessGrantAccessGrantsLocationConfigurationArgs) ToAccessGrantAccessGrantsLocationConfigurationPtrOutputWithContext(ctx context.Context) AccessGrantAccessGrantsLocationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantAccessGrantsLocationConfigurationOutput).ToAccessGrantAccessGrantsLocationConfigurationPtrOutputWithContext(ctx)
+}
+
+// AccessGrantAccessGrantsLocationConfigurationPtrInput is an input type that accepts AccessGrantAccessGrantsLocationConfigurationArgs, AccessGrantAccessGrantsLocationConfigurationPtr and AccessGrantAccessGrantsLocationConfigurationPtrOutput values.
+// You can construct a concrete instance of `AccessGrantAccessGrantsLocationConfigurationPtrInput` via:
+//
+//	        AccessGrantAccessGrantsLocationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccessGrantAccessGrantsLocationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAccessGrantAccessGrantsLocationConfigurationPtrOutput() AccessGrantAccessGrantsLocationConfigurationPtrOutput
+	ToAccessGrantAccessGrantsLocationConfigurationPtrOutputWithContext(context.Context) AccessGrantAccessGrantsLocationConfigurationPtrOutput
+}
+
+type accessGrantAccessGrantsLocationConfigurationPtrType AccessGrantAccessGrantsLocationConfigurationArgs
+
+func AccessGrantAccessGrantsLocationConfigurationPtr(v *AccessGrantAccessGrantsLocationConfigurationArgs) AccessGrantAccessGrantsLocationConfigurationPtrInput {
+	return (*accessGrantAccessGrantsLocationConfigurationPtrType)(v)
+}
+
+func (*accessGrantAccessGrantsLocationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessGrantAccessGrantsLocationConfiguration)(nil)).Elem()
+}
+
+func (i *accessGrantAccessGrantsLocationConfigurationPtrType) ToAccessGrantAccessGrantsLocationConfigurationPtrOutput() AccessGrantAccessGrantsLocationConfigurationPtrOutput {
+	return i.ToAccessGrantAccessGrantsLocationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *accessGrantAccessGrantsLocationConfigurationPtrType) ToAccessGrantAccessGrantsLocationConfigurationPtrOutputWithContext(ctx context.Context) AccessGrantAccessGrantsLocationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantAccessGrantsLocationConfigurationPtrOutput)
+}
+
+type AccessGrantAccessGrantsLocationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantAccessGrantsLocationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantAccessGrantsLocationConfiguration)(nil)).Elem()
+}
+
+func (o AccessGrantAccessGrantsLocationConfigurationOutput) ToAccessGrantAccessGrantsLocationConfigurationOutput() AccessGrantAccessGrantsLocationConfigurationOutput {
+	return o
+}
+
+func (o AccessGrantAccessGrantsLocationConfigurationOutput) ToAccessGrantAccessGrantsLocationConfigurationOutputWithContext(ctx context.Context) AccessGrantAccessGrantsLocationConfigurationOutput {
+	return o
+}
+
+func (o AccessGrantAccessGrantsLocationConfigurationOutput) ToAccessGrantAccessGrantsLocationConfigurationPtrOutput() AccessGrantAccessGrantsLocationConfigurationPtrOutput {
+	return o.ToAccessGrantAccessGrantsLocationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantAccessGrantsLocationConfigurationOutput) ToAccessGrantAccessGrantsLocationConfigurationPtrOutputWithContext(ctx context.Context) AccessGrantAccessGrantsLocationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessGrantAccessGrantsLocationConfiguration) *AccessGrantAccessGrantsLocationConfiguration {
+		return &v
+	}).(AccessGrantAccessGrantsLocationConfigurationPtrOutput)
+}
+
+// Sub-prefix.
+func (o AccessGrantAccessGrantsLocationConfigurationOutput) S3SubPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessGrantAccessGrantsLocationConfiguration) *string { return v.S3SubPrefix }).(pulumi.StringPtrOutput)
+}
+
+type AccessGrantAccessGrantsLocationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantAccessGrantsLocationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessGrantAccessGrantsLocationConfiguration)(nil)).Elem()
+}
+
+func (o AccessGrantAccessGrantsLocationConfigurationPtrOutput) ToAccessGrantAccessGrantsLocationConfigurationPtrOutput() AccessGrantAccessGrantsLocationConfigurationPtrOutput {
+	return o
+}
+
+func (o AccessGrantAccessGrantsLocationConfigurationPtrOutput) ToAccessGrantAccessGrantsLocationConfigurationPtrOutputWithContext(ctx context.Context) AccessGrantAccessGrantsLocationConfigurationPtrOutput {
+	return o
+}
+
+func (o AccessGrantAccessGrantsLocationConfigurationPtrOutput) Elem() AccessGrantAccessGrantsLocationConfigurationOutput {
+	return o.ApplyT(func(v *AccessGrantAccessGrantsLocationConfiguration) AccessGrantAccessGrantsLocationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AccessGrantAccessGrantsLocationConfiguration
+		return ret
+	}).(AccessGrantAccessGrantsLocationConfigurationOutput)
+}
+
+// Sub-prefix.
+func (o AccessGrantAccessGrantsLocationConfigurationPtrOutput) S3SubPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessGrantAccessGrantsLocationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3SubPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessGrantGrantee struct {
+	// Grantee identifier.
+	GranteeIdentifier string `pulumi:"granteeIdentifier"`
+	// Grantee types. Valid values: `DIRECTORY_USER`, `DIRECTORY_GROUP`, `IAM`.
+	GranteeType string `pulumi:"granteeType"`
+}
+
+// AccessGrantGranteeInput is an input type that accepts AccessGrantGranteeArgs and AccessGrantGranteeOutput values.
+// You can construct a concrete instance of `AccessGrantGranteeInput` via:
+//
+//	AccessGrantGranteeArgs{...}
+type AccessGrantGranteeInput interface {
+	pulumi.Input
+
+	ToAccessGrantGranteeOutput() AccessGrantGranteeOutput
+	ToAccessGrantGranteeOutputWithContext(context.Context) AccessGrantGranteeOutput
+}
+
+type AccessGrantGranteeArgs struct {
+	// Grantee identifier.
+	GranteeIdentifier pulumi.StringInput `pulumi:"granteeIdentifier"`
+	// Grantee types. Valid values: `DIRECTORY_USER`, `DIRECTORY_GROUP`, `IAM`.
+	GranteeType pulumi.StringInput `pulumi:"granteeType"`
+}
+
+func (AccessGrantGranteeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantGrantee)(nil)).Elem()
+}
+
+func (i AccessGrantGranteeArgs) ToAccessGrantGranteeOutput() AccessGrantGranteeOutput {
+	return i.ToAccessGrantGranteeOutputWithContext(context.Background())
+}
+
+func (i AccessGrantGranteeArgs) ToAccessGrantGranteeOutputWithContext(ctx context.Context) AccessGrantGranteeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantGranteeOutput)
+}
+
+func (i AccessGrantGranteeArgs) ToAccessGrantGranteePtrOutput() AccessGrantGranteePtrOutput {
+	return i.ToAccessGrantGranteePtrOutputWithContext(context.Background())
+}
+
+func (i AccessGrantGranteeArgs) ToAccessGrantGranteePtrOutputWithContext(ctx context.Context) AccessGrantGranteePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantGranteeOutput).ToAccessGrantGranteePtrOutputWithContext(ctx)
+}
+
+// AccessGrantGranteePtrInput is an input type that accepts AccessGrantGranteeArgs, AccessGrantGranteePtr and AccessGrantGranteePtrOutput values.
+// You can construct a concrete instance of `AccessGrantGranteePtrInput` via:
+//
+//	        AccessGrantGranteeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccessGrantGranteePtrInput interface {
+	pulumi.Input
+
+	ToAccessGrantGranteePtrOutput() AccessGrantGranteePtrOutput
+	ToAccessGrantGranteePtrOutputWithContext(context.Context) AccessGrantGranteePtrOutput
+}
+
+type accessGrantGranteePtrType AccessGrantGranteeArgs
+
+func AccessGrantGranteePtr(v *AccessGrantGranteeArgs) AccessGrantGranteePtrInput {
+	return (*accessGrantGranteePtrType)(v)
+}
+
+func (*accessGrantGranteePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessGrantGrantee)(nil)).Elem()
+}
+
+func (i *accessGrantGranteePtrType) ToAccessGrantGranteePtrOutput() AccessGrantGranteePtrOutput {
+	return i.ToAccessGrantGranteePtrOutputWithContext(context.Background())
+}
+
+func (i *accessGrantGranteePtrType) ToAccessGrantGranteePtrOutputWithContext(ctx context.Context) AccessGrantGranteePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantGranteePtrOutput)
+}
+
+type AccessGrantGranteeOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantGranteeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantGrantee)(nil)).Elem()
+}
+
+func (o AccessGrantGranteeOutput) ToAccessGrantGranteeOutput() AccessGrantGranteeOutput {
+	return o
+}
+
+func (o AccessGrantGranteeOutput) ToAccessGrantGranteeOutputWithContext(ctx context.Context) AccessGrantGranteeOutput {
+	return o
+}
+
+func (o AccessGrantGranteeOutput) ToAccessGrantGranteePtrOutput() AccessGrantGranteePtrOutput {
+	return o.ToAccessGrantGranteePtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantGranteeOutput) ToAccessGrantGranteePtrOutputWithContext(ctx context.Context) AccessGrantGranteePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessGrantGrantee) *AccessGrantGrantee {
+		return &v
+	}).(AccessGrantGranteePtrOutput)
+}
+
+// Grantee identifier.
+func (o AccessGrantGranteeOutput) GranteeIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessGrantGrantee) string { return v.GranteeIdentifier }).(pulumi.StringOutput)
+}
+
+// Grantee types. Valid values: `DIRECTORY_USER`, `DIRECTORY_GROUP`, `IAM`.
+func (o AccessGrantGranteeOutput) GranteeType() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessGrantGrantee) string { return v.GranteeType }).(pulumi.StringOutput)
+}
+
+type AccessGrantGranteePtrOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantGranteePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessGrantGrantee)(nil)).Elem()
+}
+
+func (o AccessGrantGranteePtrOutput) ToAccessGrantGranteePtrOutput() AccessGrantGranteePtrOutput {
+	return o
+}
+
+func (o AccessGrantGranteePtrOutput) ToAccessGrantGranteePtrOutputWithContext(ctx context.Context) AccessGrantGranteePtrOutput {
+	return o
+}
+
+func (o AccessGrantGranteePtrOutput) Elem() AccessGrantGranteeOutput {
+	return o.ApplyT(func(v *AccessGrantGrantee) AccessGrantGrantee {
+		if v != nil {
+			return *v
+		}
+		var ret AccessGrantGrantee
+		return ret
+	}).(AccessGrantGranteeOutput)
+}
+
+// Grantee identifier.
+func (o AccessGrantGranteePtrOutput) GranteeIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessGrantGrantee) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GranteeIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Grantee types. Valid values: `DIRECTORY_USER`, `DIRECTORY_GROUP`, `IAM`.
+func (o AccessGrantGranteePtrOutput) GranteeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessGrantGrantee) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GranteeType
+	}).(pulumi.StringPtrOutput)
+}
+
 type BucketLifecycleConfigurationRule struct {
 	// Configuration block containing settings for abort incomplete multipart upload.
 	AbortIncompleteMultipartUpload *BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload `pulumi:"abortIncompleteMultipartUpload"`
@@ -5573,6 +5866,10 @@ func (o GetMultiRegionAccessPointRegionArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantAccessGrantsLocationConfigurationInput)(nil)).Elem(), AccessGrantAccessGrantsLocationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantAccessGrantsLocationConfigurationPtrInput)(nil)).Elem(), AccessGrantAccessGrantsLocationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantGranteeInput)(nil)).Elem(), AccessGrantGranteeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantGranteePtrInput)(nil)).Elem(), AccessGrantGranteeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleInput)(nil)).Elem(), BucketLifecycleConfigurationRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleArrayInput)(nil)).Elem(), BucketLifecycleConfigurationRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadInput)(nil)).Elem(), BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs{})
@@ -5645,6 +5942,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMultiRegionAccessPointPublicAccessBlockArrayInput)(nil)).Elem(), GetMultiRegionAccessPointPublicAccessBlockArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMultiRegionAccessPointRegionInput)(nil)).Elem(), GetMultiRegionAccessPointRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMultiRegionAccessPointRegionArrayInput)(nil)).Elem(), GetMultiRegionAccessPointRegionArray{})
+	pulumi.RegisterOutputType(AccessGrantAccessGrantsLocationConfigurationOutput{})
+	pulumi.RegisterOutputType(AccessGrantAccessGrantsLocationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AccessGrantGranteeOutput{})
+	pulumi.RegisterOutputType(AccessGrantGranteePtrOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleArrayOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput{})

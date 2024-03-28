@@ -105,24 +105,26 @@ class BackupPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        fs = aws.efs.FileSystem("fs")
+        fs = aws.efs.FileSystem("fs", creation_token="my-product")
         policy = aws.efs.BackupPolicy("policy",
             file_system_id=fs.id,
             backup_policy=aws.efs.BackupPolicyBackupPolicyArgs(
                 status="ENABLED",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the EFS backup policies using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
+        $ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
         ```
 
         :param str resource_name: The name of the resource.
@@ -142,24 +144,26 @@ class BackupPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        fs = aws.efs.FileSystem("fs")
+        fs = aws.efs.FileSystem("fs", creation_token="my-product")
         policy = aws.efs.BackupPolicy("policy",
             file_system_id=fs.id,
             backup_policy=aws.efs.BackupPolicyBackupPolicyArgs(
                 status="ENABLED",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the EFS backup policies using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
+        $ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
         ```
 
         :param str resource_name: The name of the resource.

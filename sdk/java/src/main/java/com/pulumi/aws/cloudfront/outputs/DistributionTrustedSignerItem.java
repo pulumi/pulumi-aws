@@ -59,11 +59,13 @@ public final class DistributionTrustedSignerItem {
 
         @CustomType.Setter
         public Builder awsAccountNumber(@Nullable String awsAccountNumber) {
+
             this.awsAccountNumber = awsAccountNumber;
             return this;
         }
         @CustomType.Setter
         public Builder keyPairIds(@Nullable List<String> keyPairIds) {
+
             this.keyPairIds = keyPairIds;
             return this;
         }
@@ -71,10 +73,10 @@ public final class DistributionTrustedSignerItem {
             return keyPairIds(List.of(keyPairIds));
         }
         public DistributionTrustedSignerItem build() {
-            final var o = new DistributionTrustedSignerItem();
-            o.awsAccountNumber = awsAccountNumber;
-            o.keyPairIds = keyPairIds;
-            return o;
+            final var _resultValue = new DistributionTrustedSignerItem();
+            _resultValue.awsAccountNumber = awsAccountNumber;
+            _resultValue.keyPairIds = keyPairIds;
+            return _resultValue;
         }
     }
 }

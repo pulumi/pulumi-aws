@@ -448,12 +448,13 @@ class Table(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.keyspaces.Table("example",
-            keyspace_name=aws_keyspaces_keyspace["example"]["name"],
+            keyspace_name=example_aws_keyspaces_keyspace["name"],
             table_name="my_table",
             schema_definition=aws.keyspaces.TableSchemaDefinitionArgs(
                 columns=[aws.keyspaces.TableSchemaDefinitionColumnArgs(
@@ -465,13 +466,14 @@ class Table(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
+        $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
         ```
 
         :param str resource_name: The name of the resource.
@@ -503,12 +505,13 @@ class Table(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.keyspaces.Table("example",
-            keyspace_name=aws_keyspaces_keyspace["example"]["name"],
+            keyspace_name=example_aws_keyspaces_keyspace["name"],
             table_name="my_table",
             schema_definition=aws.keyspaces.TableSchemaDefinitionArgs(
                 columns=[aws.keyspaces.TableSchemaDefinitionColumnArgs(
@@ -520,13 +523,14 @@ class Table(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
+        $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
         ```
 
         :param str resource_name: The name of the resource.
@@ -583,8 +587,6 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["ttl"] = ttl
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Table, __self__).__init__(
             'aws:keyspaces/table:Table',
             resource_name,

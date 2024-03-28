@@ -13,8 +13,8 @@ namespace Pulumi.Aws.DataSync
     /// Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
     /// 
     /// ## Example Usage
-    /// ### With Scheduling
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,8 +25,35 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var example = new Aws.DataSync.Task("example", new()
     ///     {
-    ///         DestinationLocationArn = aws_datasync_location_s3.Destination.Arn,
-    ///         SourceLocationArn = aws_datasync_location_nfs.Source.Arn,
+    ///         DestinationLocationArn = destination.Arn,
+    ///         Name = "example",
+    ///         SourceLocationArn = source.Arn,
+    ///         Options = new Aws.DataSync.Inputs.TaskOptionsArgs
+    ///         {
+    ///             BytesPerSecond = -1,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### With Scheduling
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.DataSync.Task("example", new()
+    ///     {
+    ///         DestinationLocationArn = destination.Arn,
+    ///         Name = "example",
+    ///         SourceLocationArn = source.Arn,
     ///         Schedule = new Aws.DataSync.Inputs.TaskScheduleArgs
     ///         {
     ///             ScheduleExpression = "cron(0 12 ? * SUN,WED *)",
@@ -35,8 +62,11 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Filtering
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,8 +77,9 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var example = new Aws.DataSync.Task("example", new()
     ///     {
-    ///         DestinationLocationArn = aws_datasync_location_s3.Destination.Arn,
-    ///         SourceLocationArn = aws_datasync_location_nfs.Source.Arn,
+    ///         DestinationLocationArn = destination.Arn,
+    ///         Name = "example",
+    ///         SourceLocationArn = source.Arn,
     ///         Excludes = new Aws.DataSync.Inputs.TaskExcludesArgs
     ///         {
     ///             FilterType = "SIMPLE_PATTERN",
@@ -63,13 +94,14 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_datasync_task` using the DataSync Task Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
+    /// $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
     /// ```
     /// </summary>
     [AwsResourceType("aws:datasync/task:Task")]
@@ -170,10 +202,6 @@ namespace Pulumi.Aws.DataSync
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -347,11 +375,7 @@ namespace Pulumi.Aws.DataSync
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

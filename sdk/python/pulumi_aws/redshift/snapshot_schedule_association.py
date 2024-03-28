@@ -100,31 +100,33 @@ class SnapshotScheduleAssociation(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        default_cluster = aws.redshift.Cluster("defaultCluster",
+        default = aws.redshift.Cluster("default",
             cluster_identifier="tf-redshift-cluster",
             database_name="mydb",
             master_username="foo",
             master_password="Mustbe8characters",
             node_type="dc1.large",
             cluster_type="single-node")
-        default_snapshot_schedule = aws.redshift.SnapshotSchedule("defaultSnapshotSchedule",
+        default_snapshot_schedule = aws.redshift.SnapshotSchedule("default",
             identifier="tf-redshift-snapshot-schedule",
             definitions=["rate(12 hours)"])
-        default_snapshot_schedule_association = aws.redshift.SnapshotScheduleAssociation("defaultSnapshotScheduleAssociation",
-            cluster_identifier=default_cluster.id,
+        default_snapshot_schedule_association = aws.redshift.SnapshotScheduleAssociation("default",
+            cluster_identifier=default.id,
             schedule_identifier=default_snapshot_schedule.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Snapshot Schedule Association using the `<cluster-identifier>/<schedule-identifier>`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
+        $ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
         ```
 
         :param str resource_name: The name of the resource.
@@ -141,31 +143,33 @@ class SnapshotScheduleAssociation(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        default_cluster = aws.redshift.Cluster("defaultCluster",
+        default = aws.redshift.Cluster("default",
             cluster_identifier="tf-redshift-cluster",
             database_name="mydb",
             master_username="foo",
             master_password="Mustbe8characters",
             node_type="dc1.large",
             cluster_type="single-node")
-        default_snapshot_schedule = aws.redshift.SnapshotSchedule("defaultSnapshotSchedule",
+        default_snapshot_schedule = aws.redshift.SnapshotSchedule("default",
             identifier="tf-redshift-snapshot-schedule",
             definitions=["rate(12 hours)"])
-        default_snapshot_schedule_association = aws.redshift.SnapshotScheduleAssociation("defaultSnapshotScheduleAssociation",
-            cluster_identifier=default_cluster.id,
+        default_snapshot_schedule_association = aws.redshift.SnapshotScheduleAssociation("default",
+            cluster_identifier=default.id,
             schedule_identifier=default_snapshot_schedule.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Snapshot Schedule Association using the `<cluster-identifier>/<schedule-identifier>`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
+        $ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
         ```
 
         :param str resource_name: The name of the resource.

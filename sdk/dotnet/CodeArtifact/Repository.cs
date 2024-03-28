@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,15 +23,15 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var example = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "domain key",
     ///     });
     /// 
-    ///     var exampleDomain = new Aws.CodeArtifact.Domain("exampleDomain", new()
+    ///     var exampleDomain = new Aws.CodeArtifact.Domain("example", new()
     ///     {
     ///         DomainName = "example",
-    ///         EncryptionKey = exampleKey.Arn,
+    ///         EncryptionKey = example.Arn,
     ///     });
     /// 
     ///     var test = new Aws.CodeArtifact.Repository("test", new()
@@ -41,8 +42,11 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Upstream Repository
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,13 +58,13 @@ namespace Pulumi.Aws.CodeArtifact
     ///     var upstream = new Aws.CodeArtifact.Repository("upstream", new()
     ///     {
     ///         RepositoryName = "upstream",
-    ///         Domain = aws_codeartifact_domain.Test.Domain,
+    ///         Domain = testAwsCodeartifactDomain.Domain,
     ///     });
     /// 
     ///     var test = new Aws.CodeArtifact.Repository("test", new()
     ///     {
     ///         RepositoryName = "example",
-    ///         Domain = aws_codeartifact_domain.Example.Domain,
+    ///         Domain = example.Domain,
     ///         Upstreams = new[]
     ///         {
     ///             new Aws.CodeArtifact.Inputs.RepositoryUpstreamArgs
@@ -72,8 +76,11 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With External Connection
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -85,13 +92,13 @@ namespace Pulumi.Aws.CodeArtifact
     ///     var upstream = new Aws.CodeArtifact.Repository("upstream", new()
     ///     {
     ///         RepositoryName = "upstream",
-    ///         Domain = aws_codeartifact_domain.Test.Domain,
+    ///         Domain = testAwsCodeartifactDomain.Domain,
     ///     });
     /// 
     ///     var test = new Aws.CodeArtifact.Repository("test", new()
     ///     {
     ///         RepositoryName = "example",
-    ///         Domain = aws_codeartifact_domain.Example.Domain,
+    ///         Domain = example.Domain,
     ///         ExternalConnections = new Aws.CodeArtifact.Inputs.RepositoryExternalConnectionsArgs
     ///         {
     ///             ExternalConnectionName = "public:npmjs",
@@ -100,13 +107,14 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeArtifact Repository using the CodeArtifact Repository ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:codeartifact/repository:Repository example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
+    /// $ pulumi import aws:codeartifact/repository:Repository example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
     /// ```
     /// </summary>
     [AwsResourceType("aws:codeartifact/repository:Repository")]
@@ -195,10 +203,6 @@ namespace Pulumi.Aws.CodeArtifact
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -348,11 +352,7 @@ namespace Pulumi.Aws.CodeArtifact
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("upstreams")]

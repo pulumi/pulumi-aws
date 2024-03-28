@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,11 +59,15 @@ public final class DistributionDefaultCacheBehaviorForwardedValuesCookies {
 
         @CustomType.Setter
         public Builder forward(String forward) {
-            this.forward = Objects.requireNonNull(forward);
+            if (forward == null) {
+              throw new MissingRequiredPropertyException("DistributionDefaultCacheBehaviorForwardedValuesCookies", "forward");
+            }
+            this.forward = forward;
             return this;
         }
         @CustomType.Setter
         public Builder whitelistedNames(@Nullable List<String> whitelistedNames) {
+
             this.whitelistedNames = whitelistedNames;
             return this;
         }
@@ -70,10 +75,10 @@ public final class DistributionDefaultCacheBehaviorForwardedValuesCookies {
             return whitelistedNames(List.of(whitelistedNames));
         }
         public DistributionDefaultCacheBehaviorForwardedValuesCookies build() {
-            final var o = new DistributionDefaultCacheBehaviorForwardedValuesCookies();
-            o.forward = forward;
-            o.whitelistedNames = whitelistedNames;
-            return o;
+            final var _resultValue = new DistributionDefaultCacheBehaviorForwardedValuesCookies();
+            _resultValue.forward = forward;
+            _resultValue.whitelistedNames = whitelistedNames;
+            return _resultValue;
         }
     }
 }

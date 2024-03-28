@@ -289,23 +289,26 @@ class UserProfile(pulumi.CustomResource):
         Provides a SageMaker User Profile resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sagemaker.UserProfile("example",
-            domain_id=aws_sagemaker_domain["test"]["id"],
+            domain_id=test["id"],
             user_profile_name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker User Profiles using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/userProfile:UserProfile test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
+        $ pulumi import aws:sagemaker/userProfile:UserProfile test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -327,23 +330,26 @@ class UserProfile(pulumi.CustomResource):
         Provides a SageMaker User Profile resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sagemaker.UserProfile("example",
-            domain_id=aws_sagemaker_domain["test"]["id"],
+            domain_id=test["id"],
             user_profile_name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker User Profiles using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/userProfile:UserProfile test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
+        $ pulumi import aws:sagemaker/userProfile:UserProfile test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -389,8 +395,6 @@ class UserProfile(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["home_efs_file_system_uid"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(UserProfile, __self__).__init__(
             'aws:sagemaker/userProfile:UserProfile',
             resource_name,

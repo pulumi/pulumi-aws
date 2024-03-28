@@ -242,21 +242,24 @@ class Domain(pulumi.CustomResource):
 
         To register a basic SWF domain:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         foo = aws.swf.Domain("foo",
+            name="foo",
             description="SWF Domain",
             workflow_execution_retention_period_in_days="30")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SWF Domains using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:swf/domain:Domain foo test-domain
+        $ pulumi import aws:swf/domain:Domain foo test-domain
         ```
 
         :param str resource_name: The name of the resource.
@@ -280,21 +283,24 @@ class Domain(pulumi.CustomResource):
 
         To register a basic SWF domain:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         foo = aws.swf.Domain("foo",
+            name="foo",
             description="SWF Domain",
             workflow_execution_retention_period_in_days="30")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SWF Domains using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:swf/domain:Domain foo test-domain
+        $ pulumi import aws:swf/domain:Domain foo test-domain
         ```
 
         :param str resource_name: The name of the resource.
@@ -335,8 +341,6 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["workflow_execution_retention_period_in_days"] = workflow_execution_retention_period_in_days
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Domain, __self__).__init__(
             'aws:swf/domain:Domain',
             resource_name,

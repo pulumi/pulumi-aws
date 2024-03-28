@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Cognito
         /// <summary>
         /// Data source for managing an AWS Cognito Identity Pool.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +34,7 @@ namespace Pulumi.Aws.Cognito
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetIdentityPoolResult> InvokeAsync(GetIdentityPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIdentityPoolResult>("aws:cognito/getIdentityPool:getIdentityPool", args ?? new GetIdentityPoolArgs(), options.WithDefaults());
@@ -43,11 +42,11 @@ namespace Pulumi.Aws.Cognito
         /// <summary>
         /// Data source for managing an AWS Cognito Identity Pool.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +62,7 @@ namespace Pulumi.Aws.Cognito
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetIdentityPoolResult> Invoke(GetIdentityPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentityPoolResult>("aws:cognito/getIdentityPool:getIdentityPool", args ?? new GetIdentityPoolInvokeArgs(), options.WithDefaults());

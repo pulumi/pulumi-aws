@@ -19,44 +19,10 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** The Storage Gateway API provides no method to remove an upload buffer disk. Destroying this resource does not perform any Storage Gateway actions.
  * 
  * ## Example Usage
+ * 
  * ### Cached and VTL Gateway Type
- * ```java
- * package generated_program;
  * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.storagegateway.StoragegatewayFunctions;
- * import com.pulumi.aws.storagegateway.inputs.GetLocalDiskArgs;
- * import com.pulumi.aws.storagegateway.UploadBuffer;
- * import com.pulumi.aws.storagegateway.UploadBufferArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var testLocalDisk = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
- *             .diskNode(aws_volume_attachment.test().device_name())
- *             .gatewayArn(aws_storagegateway_gateway.test().arn())
- *             .build());
- * 
- *         var testUploadBuffer = new UploadBuffer(&#34;testUploadBuffer&#34;, UploadBufferArgs.builder()        
- *             .diskPath(testLocalDisk.applyValue(getLocalDiskResult -&gt; getLocalDiskResult.diskPath()))
- *             .gatewayArn(aws_storagegateway_gateway.test().arn())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Stored Gateway Type
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -81,25 +47,67 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
- *             .diskNode(aws_volume_attachment.test().device_name())
- *             .gatewayArn(aws_storagegateway_gateway.test().arn())
+ *             .diskNode(testAwsVolumeAttachment.deviceName())
+ *             .gatewayArn(testAwsStoragegatewayGateway.arn())
  *             .build());
  * 
- *         var example = new UploadBuffer(&#34;example&#34;, UploadBufferArgs.builder()        
- *             .diskId(data.aws_storagegateway_local_disk().example().id())
- *             .gatewayArn(aws_storagegateway_gateway.example().arn())
+ *         var testUploadBuffer = new UploadBuffer(&#34;testUploadBuffer&#34;, UploadBufferArgs.builder()        
+ *             .diskPath(test.applyValue(getLocalDiskResult -&gt; getLocalDiskResult.diskPath()))
+ *             .gatewayArn(testAwsStoragegatewayGateway.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Stored Gateway Type
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.storagegateway.StoragegatewayFunctions;
+ * import com.pulumi.aws.storagegateway.inputs.GetLocalDiskArgs;
+ * import com.pulumi.aws.storagegateway.UploadBuffer;
+ * import com.pulumi.aws.storagegateway.UploadBufferArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
+ *             .diskNode(testAwsVolumeAttachment.deviceName())
+ *             .gatewayArn(testAwsStoragegatewayGateway.arn())
+ *             .build());
+ * 
+ *         var example = new UploadBuffer(&#34;example&#34;, UploadBufferArgs.builder()        
+ *             .diskId(exampleAwsStoragegatewayLocalDisk.id())
+ *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_storagegateway_upload_buffer` using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:storagegateway/uploadBuffer:UploadBuffer example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
+ * $ pulumi import aws:storagegateway/uploadBuffer:UploadBuffer example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
  * ```
  * 
  */

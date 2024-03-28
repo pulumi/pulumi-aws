@@ -4,6 +4,7 @@
 package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig
 
         @CustomType.Setter
         public Builder encryptionType(String encryptionType) {
-            this.encryptionType = Objects.requireNonNull(encryptionType);
+            if (encryptionType == null) {
+              throw new MissingRequiredPropertyException("GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig", "encryptionType");
+            }
+            this.encryptionType = encryptionType;
             return this;
         }
         @CustomType.Setter
         public Builder keyId(String keyId) {
-            this.keyId = Objects.requireNonNull(keyId);
+            if (keyId == null) {
+              throw new MissingRequiredPropertyException("GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig", "keyId");
+            }
+            this.keyId = keyId;
             return this;
         }
         public GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig build() {
-            final var o = new GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig();
-            o.encryptionType = encryptionType;
-            o.keyId = keyId;
-            return o;
+            final var _resultValue = new GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig();
+            _resultValue.encryptionType = encryptionType;
+            _resultValue.keyId = keyId;
+            return _resultValue;
         }
     }
 }

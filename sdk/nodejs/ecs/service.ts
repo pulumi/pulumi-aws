@@ -16,21 +16,23 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const mongo = new aws.ecs.Service("mongo", {
- *     cluster: aws_ecs_cluster.foo.id,
- *     taskDefinition: aws_ecs_task_definition.mongo.arn,
+ *     name: "mongodb",
+ *     cluster: fooAwsEcsCluster.id,
+ *     taskDefinition: mongoAwsEcsTaskDefinition.arn,
  *     desiredCount: 3,
- *     iamRole: aws_iam_role.foo.arn,
+ *     iamRole: fooAwsIamRole.arn,
  *     orderedPlacementStrategies: [{
  *         type: "binpack",
  *         field: "cpu",
  *     }],
  *     loadBalancers: [{
- *         targetGroupArn: aws_lb_target_group.foo.arn,
+ *         targetGroupArn: foo.arn,
  *         containerName: "mongo",
  *         containerPort: 8080,
  *     }],
@@ -38,68 +40,81 @@ import * as utilities from "../utilities";
  *         type: "memberOf",
  *         expression: "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
  *     }],
- * }, {
- *     dependsOn: [aws_iam_role_policy.foo],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Ignoring Changes to Desired Count
  *
  * You can use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // ... other configurations ...
  * const example = new aws.ecs.Service("example", {desiredCount: 2});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Daemon Scheduling Strategy
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const bar = new aws.ecs.Service("bar", {
- *     cluster: aws_ecs_cluster.foo.id,
- *     taskDefinition: aws_ecs_task_definition.bar.arn,
+ *     name: "bar",
+ *     cluster: foo.id,
+ *     taskDefinition: barAwsEcsTaskDefinition.arn,
  *     schedulingStrategy: "DAEMON",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### CloudWatch Deployment Alarms
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ecs.Service("example", {
- *     cluster: aws_ecs_cluster.example.id,
+ *     name: "example",
+ *     cluster: exampleAwsEcsCluster.id,
  *     alarms: {
  *         enable: true,
  *         rollback: true,
- *         alarmNames: [aws_cloudwatch_metric_alarm.example.alarm_name],
+ *         alarmNames: [exampleAwsCloudwatchMetricAlarm.alarmName],
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### External Deployment Controller
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ecs.Service("example", {
- *     cluster: aws_ecs_cluster.example.id,
+ *     name: "example",
+ *     cluster: exampleAwsEcsCluster.id,
  *     deploymentController: {
  *         type: "EXTERNAL",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
+ * $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
  * ```
  */
 export class Service extends pulumi.CustomResource {
@@ -135,7 +150,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly alarms!: pulumi.Output<outputs.ecs.ServiceAlarms | undefined>;
     /**
-     * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below.
+     * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launchType`.
      */
     public readonly capacityProviderStrategies!: pulumi.Output<outputs.ecs.ServiceCapacityProviderStrategy[] | undefined>;
     /**
@@ -183,7 +198,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly iamRole!: pulumi.Output<string>;
     /**
-     * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+     * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacityProviderStrategy`.
      */
     public readonly launchType!: pulumi.Output<string>;
     /**
@@ -243,7 +258,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly taskDefinition!: pulumi.Output<string | undefined>;
     /**
-     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
      */
     public readonly triggers!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -326,8 +341,6 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -341,7 +354,7 @@ export interface ServiceState {
      */
     alarms?: pulumi.Input<inputs.ecs.ServiceAlarms>;
     /**
-     * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below.
+     * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launchType`.
      */
     capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceCapacityProviderStrategy>[]>;
     /**
@@ -389,7 +402,7 @@ export interface ServiceState {
      */
     iamRole?: pulumi.Input<string>;
     /**
-     * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+     * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacityProviderStrategy`.
      */
     launchType?: pulumi.Input<string>;
     /**
@@ -449,7 +462,7 @@ export interface ServiceState {
      */
     taskDefinition?: pulumi.Input<string>;
     /**
-     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
      */
     triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -467,7 +480,7 @@ export interface ServiceArgs {
      */
     alarms?: pulumi.Input<inputs.ecs.ServiceAlarms>;
     /**
-     * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below.
+     * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launchType`.
      */
     capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceCapacityProviderStrategy>[]>;
     /**
@@ -515,7 +528,7 @@ export interface ServiceArgs {
      */
     iamRole?: pulumi.Input<string>;
     /**
-     * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+     * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacityProviderStrategy`.
      */
     launchType?: pulumi.Input<string>;
     /**
@@ -569,7 +582,7 @@ export interface ServiceArgs {
      */
     taskDefinition?: pulumi.Input<string>;
     /**
-     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
      */
     triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

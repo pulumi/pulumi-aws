@@ -23,12 +23,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const main = new aws.ec2.NetworkAcl("main", {
- *     vpcId: aws_vpc.main.id,
+ *     vpcId: mainAwsVpc.id,
  *     egress: [{
  *         protocol: "tcp",
  *         ruleNo: 200,
@@ -50,13 +51,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Network ACLs using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
+ * $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
  * ```
  */
 export class NetworkAcl extends pulumi.CustomResource {
@@ -93,10 +95,14 @@ export class NetworkAcl extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specifies an egress rule. Parameters defined below.
+     *
+     * @deprecated Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
      */
     public readonly egress!: pulumi.Output<outputs.ec2.NetworkAclEgress[]>;
     /**
      * Specifies an ingress rule. Parameters defined below.
+     *
+     * @deprecated Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
      */
     public readonly ingress!: pulumi.Output<outputs.ec2.NetworkAclIngress[]>;
     /**
@@ -158,8 +164,6 @@ export class NetworkAcl extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(NetworkAcl.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -174,10 +178,14 @@ export interface NetworkAclState {
     arn?: pulumi.Input<string>;
     /**
      * Specifies an egress rule. Parameters defined below.
+     *
+     * @deprecated Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
      */
     egress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclEgress>[]>;
     /**
      * Specifies an ingress rule. Parameters defined below.
+     *
+     * @deprecated Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
      */
     ingress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclIngress>[]>;
     /**
@@ -210,10 +218,14 @@ export interface NetworkAclState {
 export interface NetworkAclArgs {
     /**
      * Specifies an egress rule. Parameters defined below.
+     *
+     * @deprecated Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
      */
     egress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclEgress>[]>;
     /**
      * Specifies an ingress rule. Parameters defined below.
+     *
+     * @deprecated Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
      */
     ingress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclIngress>[]>;
     /**

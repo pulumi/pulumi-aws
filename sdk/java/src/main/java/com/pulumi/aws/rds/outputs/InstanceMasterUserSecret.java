@@ -74,25 +74,28 @@ public final class InstanceMasterUserSecret {
 
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder secretArn(@Nullable String secretArn) {
+
             this.secretArn = secretArn;
             return this;
         }
         @CustomType.Setter
         public Builder secretStatus(@Nullable String secretStatus) {
+
             this.secretStatus = secretStatus;
             return this;
         }
         public InstanceMasterUserSecret build() {
-            final var o = new InstanceMasterUserSecret();
-            o.kmsKeyId = kmsKeyId;
-            o.secretArn = secretArn;
-            o.secretStatus = secretStatus;
-            return o;
+            final var _resultValue = new InstanceMasterUserSecret();
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.secretArn = secretArn;
+            _resultValue.secretStatus = secretStatus;
+            return _resultValue;
         }
     }
 }

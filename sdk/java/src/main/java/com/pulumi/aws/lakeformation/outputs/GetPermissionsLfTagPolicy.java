@@ -5,6 +5,7 @@ package com.pulumi.aws.lakeformation.outputs;
 
 import com.pulumi.aws.lakeformation.outputs.GetPermissionsLfTagPolicyExpression;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -76,12 +77,18 @@ public final class GetPermissionsLfTagPolicy {
 
         @CustomType.Setter
         public Builder catalogId(String catalogId) {
-            this.catalogId = Objects.requireNonNull(catalogId);
+            if (catalogId == null) {
+              throw new MissingRequiredPropertyException("GetPermissionsLfTagPolicy", "catalogId");
+            }
+            this.catalogId = catalogId;
             return this;
         }
         @CustomType.Setter
         public Builder expressions(List<GetPermissionsLfTagPolicyExpression> expressions) {
-            this.expressions = Objects.requireNonNull(expressions);
+            if (expressions == null) {
+              throw new MissingRequiredPropertyException("GetPermissionsLfTagPolicy", "expressions");
+            }
+            this.expressions = expressions;
             return this;
         }
         public Builder expressions(GetPermissionsLfTagPolicyExpression... expressions) {
@@ -89,15 +96,18 @@ public final class GetPermissionsLfTagPolicy {
         }
         @CustomType.Setter
         public Builder resourceType(String resourceType) {
-            this.resourceType = Objects.requireNonNull(resourceType);
+            if (resourceType == null) {
+              throw new MissingRequiredPropertyException("GetPermissionsLfTagPolicy", "resourceType");
+            }
+            this.resourceType = resourceType;
             return this;
         }
         public GetPermissionsLfTagPolicy build() {
-            final var o = new GetPermissionsLfTagPolicy();
-            o.catalogId = catalogId;
-            o.expressions = expressions;
-            o.resourceType = resourceType;
-            return o;
+            final var _resultValue = new GetPermissionsLfTagPolicy();
+            _resultValue.catalogId = catalogId;
+            _resultValue.expressions = expressions;
+            _resultValue.resourceType = resourceType;
+            return _resultValue;
         }
     }
 }

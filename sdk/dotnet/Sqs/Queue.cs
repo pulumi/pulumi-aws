@@ -12,6 +12,7 @@ namespace Pulumi.Aws.Sqs
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,13 +24,14 @@ namespace Pulumi.Aws.Sqs
     /// {
     ///     var queue = new Aws.Sqs.Queue("queue", new()
     ///     {
+    ///         Name = "example-queue",
     ///         DelaySeconds = 90,
     ///         MaxMessageSize = 2048,
     ///         MessageRetentionSeconds = 86400,
     ///         ReceiveWaitTimeSeconds = 10,
     ///         RedrivePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["deadLetterTargetArn"] = aws_sqs_queue.Queue_deadletter.Arn,
+    ///             ["deadLetterTargetArn"] = queueDeadletter.Arn,
     ///             ["maxReceiveCount"] = 4,
     ///         }),
     ///         Tags = 
@@ -40,8 +42,11 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## FIFO queue
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,15 +57,18 @@ namespace Pulumi.Aws.Sqs
     /// {
     ///     var queue = new Aws.Sqs.Queue("queue", new()
     ///     {
-    ///         ContentBasedDeduplication = true,
+    ///         Name = "example-queue.fifo",
     ///         FifoQueue = true,
+    ///         ContentBasedDeduplication = true,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## High-throughput FIFO queue
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -71,16 +79,19 @@ namespace Pulumi.Aws.Sqs
     /// {
     ///     var queue = new Aws.Sqs.Queue("queue", new()
     ///     {
-    ///         DeduplicationScope = "messageGroup",
+    ///         Name = "pulumi-example-queue.fifo",
     ///         FifoQueue = true,
+    ///         DeduplicationScope = "messageGroup",
     ///         FifoThroughputLimit = "perMessageGroupId",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Dead-letter queue
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -90,25 +101,43 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleQueueDeadletter = new Aws.Sqs.Queue("exampleQueueDeadletter", new()
+    ///     var queue = new Aws.Sqs.Queue("queue", new()
     ///     {
-    ///         RedriveAllowPolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         Name = "pulumi-example-queue",
+    ///         RedrivePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["deadLetterTargetArn"] = queueDeadletter.Arn,
+    ///             ["maxReceiveCount"] = 4,
+    ///         }),
+    ///     });
+    /// 
+    ///     var exampleQueueDeadletter = new Aws.Sqs.Queue("example_queue_deadletter", new()
+    ///     {
+    ///         Name = "pulumi-example-deadletter-queue",
+    ///     });
+    /// 
+    ///     var exampleQueueRedriveAllowPolicy = new Aws.Sqs.RedriveAllowPolicy("example_queue_redrive_allow_policy", new()
+    ///     {
+    ///         QueueUrl = exampleQueueDeadletter.Id,
+    ///         RedriveAllowPolicyName = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["redrivePermission"] = "byQueue",
     ///             ["sourceQueueArns"] = new[]
     ///             {
-    ///                 aws_sqs_queue.Example_queue.Arn,
+    ///                 exampleQueue.Arn,
     ///             },
     ///         }),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Server-side encryption (SSE)
     /// 
     /// Using [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html):
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -119,14 +148,17 @@ namespace Pulumi.Aws.Sqs
     /// {
     ///     var queue = new Aws.Sqs.Queue("queue", new()
     ///     {
+    ///         Name = "pulumi-example-queue",
     ///         SqsManagedSseEnabled = true,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -137,19 +169,21 @@ namespace Pulumi.Aws.Sqs
     /// {
     ///     var queue = new Aws.Sqs.Queue("queue", new()
     ///     {
-    ///         KmsDataKeyReusePeriodSeconds = 300,
+    ///         Name = "example-queue",
     ///         KmsMasterKeyId = "alias/aws/sqs",
+    ///         KmsDataKeyReusePeriodSeconds = 300,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SQS Queues using the queue `url`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
+    /// $ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
     /// ```
     /// </summary>
     [AwsResourceType("aws:sqs/queue:Queue")]
@@ -304,10 +338,6 @@ namespace Pulumi.Aws.Sqs
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -577,11 +607,7 @@ namespace Pulumi.Aws.Sqs
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

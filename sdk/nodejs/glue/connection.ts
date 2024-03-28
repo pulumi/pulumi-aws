@@ -11,46 +11,56 @@ import * as utilities from "../utilities";
  * Provides a Glue Connection resource.
  *
  * ## Example Usage
+ *
  * ### Non-VPC Connection
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.Connection("example", {connectionProperties: {
- *     JDBC_CONNECTION_URL: "jdbc:mysql://example.com/exampledatabase",
- *     PASSWORD: "examplepassword",
- *     USERNAME: "exampleusername",
- * }});
- * ```
- * ### VPC Connection
- *
- * For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
- *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Connection("example", {
  *     connectionProperties: {
- *         JDBC_CONNECTION_URL: `jdbc:mysql://${aws_rds_cluster.example.endpoint}/exampledatabase`,
+ *         JDBC_CONNECTION_URL: "jdbc:mysql://example.com/exampledatabase",
  *         PASSWORD: "examplepassword",
  *         USERNAME: "exampleusername",
  *     },
+ *     name: "example",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### VPC Connection
+ *
+ * For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.glue.Connection("example", {
+ *     connectionProperties: {
+ *         JDBC_CONNECTION_URL: `jdbc:mysql://${exampleAwsRdsCluster.endpoint}/exampledatabase`,
+ *         PASSWORD: "examplepassword",
+ *         USERNAME: "exampleusername",
+ *     },
+ *     name: "example",
  *     physicalConnectionRequirements: {
- *         availabilityZone: aws_subnet.example.availability_zone,
- *         securityGroupIdLists: [aws_security_group.example.id],
- *         subnetId: aws_subnet.example.id,
+ *         availabilityZone: exampleAwsSubnet.availabilityZone,
+ *         securityGroupIdLists: [exampleAwsSecurityGroup.id],
+ *         subnetId: exampleAwsSubnet.id,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Glue Connections using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`. For example:
  *
  * ```sh
- *  $ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection
+ * $ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection
  * ```
  */
 export class Connection extends pulumi.CustomResource {
@@ -94,7 +104,7 @@ export class Connection extends pulumi.CustomResource {
      */
     public readonly connectionProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
+     * The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
      */
     public readonly connectionType!: pulumi.Output<string | undefined>;
     /**
@@ -161,7 +171,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["connectionProperties", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["connectionProperties"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Connection.__pulumiType, name, resourceInputs, opts);
     }
@@ -184,7 +194,7 @@ export interface ConnectionState {
      */
     connectionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
+     * The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
      */
     connectionType?: pulumi.Input<string>;
     /**
@@ -228,7 +238,7 @@ export interface ConnectionArgs {
      */
     connectionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
+     * The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
      */
     connectionType?: pulumi.Input<string>;
     /**

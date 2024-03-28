@@ -25,8 +25,8 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchP
         }
 
         public WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll build() {
-            final var o = new WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll();
-            return o;
+            final var _resultValue = new WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll();
+            return _resultValue;
         }
     }
 }

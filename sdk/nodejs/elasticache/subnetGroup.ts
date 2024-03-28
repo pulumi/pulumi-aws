@@ -9,33 +9,38 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooVpc = new aws.ec2.Vpc("fooVpc", {
+ * const foo = new aws.ec2.Vpc("foo", {
  *     cidrBlock: "10.0.0.0/16",
  *     tags: {
  *         Name: "tf-test",
  *     },
  * });
- * const fooSubnet = new aws.ec2.Subnet("fooSubnet", {
- *     vpcId: fooVpc.id,
+ * const fooSubnet = new aws.ec2.Subnet("foo", {
+ *     vpcId: foo.id,
  *     cidrBlock: "10.0.0.0/24",
  *     availabilityZone: "us-west-2a",
  *     tags: {
  *         Name: "tf-test",
  *     },
  * });
- * const bar = new aws.elasticache.SubnetGroup("bar", {subnetIds: [fooSubnet.id]});
+ * const bar = new aws.elasticache.SubnetGroup("bar", {
+ *     name: "tf-test-cache-subnet",
+ *     subnetIds: [fooSubnet.id],
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ElastiCache Subnet Groups using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
+ * $ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
  * ```
  */
 export class SubnetGroup extends pulumi.CustomResource {
@@ -89,6 +94,10 @@ export class SubnetGroup extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+     */
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a SubnetGroup resource with the given unique name, arguments, and options.
@@ -109,6 +118,7 @@ export class SubnetGroup extends pulumi.CustomResource {
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as SubnetGroupArgs | undefined;
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
@@ -120,10 +130,9 @@ export class SubnetGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SubnetGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -155,6 +164,10 @@ export interface SubnetGroupState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+     */
+    vpcId?: pulumi.Input<string>;
 }
 
 /**

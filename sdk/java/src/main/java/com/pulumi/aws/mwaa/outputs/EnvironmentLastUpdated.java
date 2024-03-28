@@ -68,11 +68,13 @@ public final class EnvironmentLastUpdated {
 
         @CustomType.Setter
         public Builder createdAt(@Nullable String createdAt) {
+
             this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
         public Builder errors(@Nullable List<EnvironmentLastUpdatedError> errors) {
+
             this.errors = errors;
             return this;
         }
@@ -81,15 +83,16 @@ public final class EnvironmentLastUpdated {
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         public EnvironmentLastUpdated build() {
-            final var o = new EnvironmentLastUpdated();
-            o.createdAt = createdAt;
-            o.errors = errors;
-            o.status = status;
-            return o;
+            final var _resultValue = new EnvironmentLastUpdated();
+            _resultValue.createdAt = createdAt;
+            _resultValue.errors = errors;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

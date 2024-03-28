@@ -353,11 +353,12 @@ class EventSubscription(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        default_cluster = aws.neptune.Cluster("defaultCluster",
+        default = aws.neptune.Cluster("default",
             cluster_identifier="neptune-cluster-demo",
             engine="neptune",
             backup_retention_period=5,
@@ -366,12 +367,13 @@ class EventSubscription(pulumi.CustomResource):
             iam_database_authentication_enabled=True,
             apply_immediately=True)
         example = aws.neptune.ClusterInstance("example",
-            cluster_identifier=default_cluster.id,
+            cluster_identifier=default.id,
             engine="neptune",
             instance_class="db.r4.large",
             apply_immediately=True)
-        default_topic = aws.sns.Topic("defaultTopic")
-        default_event_subscription = aws.neptune.EventSubscription("defaultEventSubscription",
+        default_topic = aws.sns.Topic("default", name="neptune-events")
+        default_event_subscription = aws.neptune.EventSubscription("default",
+            name="neptune-event-sub",
             sns_topic_arn=default_topic.arn,
             source_type="db-instance",
             source_ids=[example.id],
@@ -393,13 +395,14 @@ class EventSubscription(pulumi.CustomResource):
                 "env": "test",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_neptune_event_subscription` using the event subscription name. For example:
 
         ```sh
-         $ pulumi import aws:neptune/eventSubscription:EventSubscription example my-event-subscription
+        $ pulumi import aws:neptune/eventSubscription:EventSubscription example my-event-subscription
         ```
 
         :param str resource_name: The name of the resource.
@@ -422,11 +425,12 @@ class EventSubscription(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        default_cluster = aws.neptune.Cluster("defaultCluster",
+        default = aws.neptune.Cluster("default",
             cluster_identifier="neptune-cluster-demo",
             engine="neptune",
             backup_retention_period=5,
@@ -435,12 +439,13 @@ class EventSubscription(pulumi.CustomResource):
             iam_database_authentication_enabled=True,
             apply_immediately=True)
         example = aws.neptune.ClusterInstance("example",
-            cluster_identifier=default_cluster.id,
+            cluster_identifier=default.id,
             engine="neptune",
             instance_class="db.r4.large",
             apply_immediately=True)
-        default_topic = aws.sns.Topic("defaultTopic")
-        default_event_subscription = aws.neptune.EventSubscription("defaultEventSubscription",
+        default_topic = aws.sns.Topic("default", name="neptune-events")
+        default_event_subscription = aws.neptune.EventSubscription("default",
+            name="neptune-event-sub",
             sns_topic_arn=default_topic.arn,
             source_type="db-instance",
             source_ids=[example.id],
@@ -462,13 +467,14 @@ class EventSubscription(pulumi.CustomResource):
                 "env": "test",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_neptune_event_subscription` using the event subscription name. For example:
 
         ```sh
-         $ pulumi import aws:neptune/eventSubscription:EventSubscription example my-event-subscription
+        $ pulumi import aws:neptune/eventSubscription:EventSubscription example my-event-subscription
         ```
 
         :param str resource_name: The name of the resource.
@@ -516,8 +522,6 @@ class EventSubscription(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["customer_aws_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EventSubscription, __self__).__init__(
             'aws:neptune/eventSubscription:EventSubscription',
             resource_name,

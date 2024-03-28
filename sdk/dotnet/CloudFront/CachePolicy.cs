@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// Use the `aws.cloudfront.CachePolicy` resource to create a cache policy for CloudFront.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,6 +25,7 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.CachePolicy("example", new()
     ///     {
+    ///         Name = "example-policy",
     ///         Comment = "test comment",
     ///         DefaultTtl = 50,
     ///         MaxTtl = 100,
@@ -68,13 +70,14 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudFront cache policies using the `id` of the cache policy. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudfront/cachePolicy:CachePolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f6
+    /// $ pulumi import aws:cloudfront/cachePolicy:CachePolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f6
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/cachePolicy:CachePolicy")]

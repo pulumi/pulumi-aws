@@ -84,17 +84,20 @@ def get_user_pools(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    selected_rest_api = aws.apigateway.get_rest_api(name=var["api_gateway_name"])
-    selected_user_pools = aws.cognito.get_user_pools(name=var["cognito_user_pool_name"])
+    selected = aws.apigateway.get_rest_api(name=api_gateway_name)
+    selected_get_user_pools = aws.cognito.get_user_pools(name=cognito_user_pool_name)
     cognito = aws.apigateway.Authorizer("cognito",
+        name="cognito",
         type="COGNITO_USER_POOLS",
-        rest_api=selected_rest_api.id,
-        provider_arns=selected_user_pools.arns)
+        rest_api=selected.id,
+        provider_arns=selected_get_user_pools.arns)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
@@ -119,17 +122,20 @@ def get_user_pools_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    selected_rest_api = aws.apigateway.get_rest_api(name=var["api_gateway_name"])
-    selected_user_pools = aws.cognito.get_user_pools(name=var["cognito_user_pool_name"])
+    selected = aws.apigateway.get_rest_api(name=api_gateway_name)
+    selected_get_user_pools = aws.cognito.get_user_pools(name=cognito_user_pool_name)
     cognito = aws.apigateway.Authorizer("cognito",
+        name="cognito",
         type="COGNITO_USER_POOLS",
-        rest_api=selected_rest_api.id,
-        provider_arns=selected_user_pools.arns)
+        rest_api=selected.id,
+        provider_arns=selected_get_user_pools.arns)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```

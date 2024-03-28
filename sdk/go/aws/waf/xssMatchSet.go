@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,19 +28,20 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := waf.NewXssMatchSet(ctx, "xssMatchSet", &waf.XssMatchSetArgs{
+//			_, err := waf.NewXssMatchSet(ctx, "xss_match_set", &waf.XssMatchSetArgs{
+//				Name: pulumi.String("xss_match_set"),
 //				XssMatchTuples: waf.XssMatchSetXssMatchTupleArray{
 //					&waf.XssMatchSetXssMatchTupleArgs{
+//						TextTransformation: pulumi.String("NONE"),
 //						FieldToMatch: &waf.XssMatchSetXssMatchTupleFieldToMatchArgs{
 //							Type: pulumi.String("URI"),
 //						},
-//						TextTransformation: pulumi.String("NONE"),
 //					},
 //					&waf.XssMatchSetXssMatchTupleArgs{
+//						TextTransformation: pulumi.String("NONE"),
 //						FieldToMatch: &waf.XssMatchSetXssMatchTupleFieldToMatchArgs{
 //							Type: pulumi.String("QUERY_STRING"),
 //						},
-//						TextTransformation: pulumi.String("NONE"),
 //					},
 //				},
 //			})
@@ -51,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import WAF XSS Match Set using their ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:waf/xssMatchSet:XssMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-//
+// $ pulumi import aws:waf/xssMatchSet:XssMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 // ```
 type XssMatchSet struct {
 	pulumi.CustomResourceState

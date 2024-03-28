@@ -14,8 +14,10 @@ import (
 // Provides a CodeDeploy deployment config for an application
 //
 // ## Example Usage
+//
 // ### Server Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooDeploymentConfig, err := codedeploy.NewDeploymentConfig(ctx, "fooDeploymentConfig", &codedeploy.DeploymentConfigArgs{
+//			foo, err := codedeploy.NewDeploymentConfig(ctx, "foo", &codedeploy.DeploymentConfigArgs{
 //				DeploymentConfigName: pulumi.String("test-deployment-config"),
 //				MinimumHealthyHosts: &codedeploy.DeploymentConfigMinimumHealthyHostsArgs{
 //					Type:  pulumi.String("HOST_COUNT"),
@@ -38,11 +40,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = codedeploy.NewDeploymentGroup(ctx, "fooDeploymentGroup", &codedeploy.DeploymentGroupArgs{
-//				AppName:              pulumi.Any(aws_codedeploy_app.Foo_app.Name),
+//			_, err = codedeploy.NewDeploymentGroup(ctx, "foo", &codedeploy.DeploymentGroupArgs{
+//				AppName:              pulumi.Any(fooApp.Name),
 //				DeploymentGroupName:  pulumi.String("bar"),
-//				ServiceRoleArn:       pulumi.Any(aws_iam_role.Foo_role.Arn),
-//				DeploymentConfigName: fooDeploymentConfig.ID(),
+//				ServiceRoleArn:       pulumi.Any(fooRole.Arn),
+//				DeploymentConfigName: foo.ID(),
 //				Ec2TagFilters: codedeploy.DeploymentGroupEc2TagFilterArray{
 //					&codedeploy.DeploymentGroupEc2TagFilterArgs{
 //						Key:   pulumi.String("filterkey"),
@@ -80,8 +82,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Lambda Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -94,7 +99,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooDeploymentConfig, err := codedeploy.NewDeploymentConfig(ctx, "fooDeploymentConfig", &codedeploy.DeploymentConfigArgs{
+//			foo, err := codedeploy.NewDeploymentConfig(ctx, "foo", &codedeploy.DeploymentConfigArgs{
 //				DeploymentConfigName: pulumi.String("test-deployment-config"),
 //				ComputePlatform:      pulumi.String("Lambda"),
 //				TrafficRoutingConfig: &codedeploy.DeploymentConfigTrafficRoutingConfigArgs{
@@ -108,11 +113,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = codedeploy.NewDeploymentGroup(ctx, "fooDeploymentGroup", &codedeploy.DeploymentGroupArgs{
-//				AppName:              pulumi.Any(aws_codedeploy_app.Foo_app.Name),
+//			_, err = codedeploy.NewDeploymentGroup(ctx, "foo", &codedeploy.DeploymentGroupArgs{
+//				AppName:              pulumi.Any(fooApp.Name),
 //				DeploymentGroupName:  pulumi.String("bar"),
-//				ServiceRoleArn:       pulumi.Any(aws_iam_role.Foo_role.Arn),
-//				DeploymentConfigName: fooDeploymentConfig.ID(),
+//				ServiceRoleArn:       pulumi.Any(fooRole.Arn),
+//				DeploymentConfigName: foo.ID(),
 //				AutoRollbackConfiguration: &codedeploy.DeploymentGroupAutoRollbackConfigurationArgs{
 //					Enabled: pulumi.Bool(true),
 //					Events: pulumi.StringArray{
@@ -134,19 +139,20 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CodeDeploy Deployment Configurations using the `deployment_config_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
-//
+// $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
 // ```
 type DeploymentConfig struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the deployment config.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
 	ComputePlatform pulumi.StringPtrOutput `pulumi:"computePlatform"`
 	// The AWS Assigned deployment config id
@@ -189,6 +195,8 @@ func GetDeploymentConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DeploymentConfig resources.
 type deploymentConfigState struct {
+	// The ARN of the deployment config.
+	Arn *string `pulumi:"arn"`
 	// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
 	ComputePlatform *string `pulumi:"computePlatform"`
 	// The AWS Assigned deployment config id
@@ -202,6 +210,8 @@ type deploymentConfigState struct {
 }
 
 type DeploymentConfigState struct {
+	// The ARN of the deployment config.
+	Arn pulumi.StringPtrInput
 	// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
 	ComputePlatform pulumi.StringPtrInput
 	// The AWS Assigned deployment config id
@@ -326,6 +336,11 @@ func (o DeploymentConfigOutput) ToDeploymentConfigOutput() DeploymentConfigOutpu
 
 func (o DeploymentConfigOutput) ToDeploymentConfigOutputWithContext(ctx context.Context) DeploymentConfigOutput {
 	return o
+}
+
+// The ARN of the deployment config.
+func (o DeploymentConfigOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeploymentConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.

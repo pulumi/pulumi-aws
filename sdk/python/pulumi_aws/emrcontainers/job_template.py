@@ -208,29 +208,34 @@ class JobTemplate(pulumi.CustomResource):
         Manages an EMR Containers (EMR on EKS) Job Template.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emrcontainers.JobTemplate("example", job_template_data=aws.emrcontainers.JobTemplateJobTemplateDataArgs(
-            execution_role_arn=aws_iam_role["example"]["arn"],
-            release_label="emr-6.10.0-latest",
-            job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverArgs(
-                spark_sql_job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs(
-                    entry_point="default",
+        example = aws.emrcontainers.JobTemplate("example",
+            job_template_data=aws.emrcontainers.JobTemplateJobTemplateDataArgs(
+                execution_role_arn=example_aws_iam_role["arn"],
+                release_label="emr-6.10.0-latest",
+                job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverArgs(
+                    spark_sql_job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs(
+                        entry_point="default",
+                    ),
                 ),
             ),
-        ))
+            name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EKS job templates using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
+        $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
         ```
 
         :param str resource_name: The name of the resource.
@@ -250,29 +255,34 @@ class JobTemplate(pulumi.CustomResource):
         Manages an EMR Containers (EMR on EKS) Job Template.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emrcontainers.JobTemplate("example", job_template_data=aws.emrcontainers.JobTemplateJobTemplateDataArgs(
-            execution_role_arn=aws_iam_role["example"]["arn"],
-            release_label="emr-6.10.0-latest",
-            job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverArgs(
-                spark_sql_job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs(
-                    entry_point="default",
+        example = aws.emrcontainers.JobTemplate("example",
+            job_template_data=aws.emrcontainers.JobTemplateJobTemplateDataArgs(
+                execution_role_arn=example_aws_iam_role["arn"],
+                release_label="emr-6.10.0-latest",
+                job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverArgs(
+                    spark_sql_job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs(
+                        entry_point="default",
+                    ),
                 ),
             ),
-        ))
+            name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EKS job templates using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
+        $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
         ```
 
         :param str resource_name: The name of the resource.
@@ -311,8 +321,6 @@ class JobTemplate(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(JobTemplate, __self__).__init__(
             'aws:emrcontainers/jobTemplate:JobTemplate',
             resource_name,

@@ -18,6 +18,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -35,40 +36,38 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleVpcIpam, err := ec2.NewVpcIpam(ctx, "exampleVpcIpam", &ec2.VpcIpamArgs{
+//			exampleVpcIpam, err := ec2.NewVpcIpam(ctx, "example", &ec2.VpcIpamArgs{
 //				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
 //					&ec2.VpcIpamOperatingRegionArgs{
-//						RegionName: *pulumi.String(current.Name),
+//						RegionName: pulumi.String(current.Name),
 //					},
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "exampleVpcIpamPool", &ec2.VpcIpamPoolArgs{
+//			exampleVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "example", &ec2.VpcIpamPoolArgs{
 //				AddressFamily: pulumi.String("ipv4"),
 //				IpamScopeId:   exampleVpcIpam.PrivateDefaultScopeId,
-//				Locale:        *pulumi.String(current.Name),
+//				Locale:        pulumi.String(current.Name),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVpcIpamPoolCidr, err := ec2.NewVpcIpamPoolCidr(ctx, "exampleVpcIpamPoolCidr", &ec2.VpcIpamPoolCidrArgs{
-//				IpamPoolId: exampleVpcIpamPool.ID(),
-//				Cidr:       pulumi.String("172.20.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpcIpamPreviewNextCidr(ctx, "exampleVpcIpamPreviewNextCidr", &ec2.VpcIpamPreviewNextCidrArgs{
+//			_, err = ec2.NewVpcIpamPreviewNextCidr(ctx, "example", &ec2.VpcIpamPreviewNextCidrArgs{
 //				IpamPoolId:    exampleVpcIpamPool.ID(),
 //				NetmaskLength: pulumi.Int(28),
 //				DisallowedCidrs: pulumi.StringArray{
 //					pulumi.String("172.2.0.0/32"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleVpcIpamPoolCidr,
-//			}))
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpcIpamPoolCidr(ctx, "example", &ec2.VpcIpamPoolCidrArgs{
+//				IpamPoolId: exampleVpcIpamPool.ID(),
+//				Cidr:       pulumi.String("172.20.0.0/16"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -77,6 +76,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type VpcIpamPreviewNextCidr struct {
 	pulumi.CustomResourceState
 

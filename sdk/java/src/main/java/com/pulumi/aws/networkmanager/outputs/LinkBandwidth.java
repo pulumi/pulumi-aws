@@ -58,19 +58,21 @@ public final class LinkBandwidth {
 
         @CustomType.Setter
         public Builder downloadSpeed(@Nullable Integer downloadSpeed) {
+
             this.downloadSpeed = downloadSpeed;
             return this;
         }
         @CustomType.Setter
         public Builder uploadSpeed(@Nullable Integer uploadSpeed) {
+
             this.uploadSpeed = uploadSpeed;
             return this;
         }
         public LinkBandwidth build() {
-            final var o = new LinkBandwidth();
-            o.downloadSpeed = downloadSpeed;
-            o.uploadSpeed = uploadSpeed;
-            return o;
+            final var _resultValue = new LinkBandwidth();
+            _resultValue.downloadSpeed = downloadSpeed;
+            _resultValue.uploadSpeed = uploadSpeed;
+            return _resultValue;
         }
     }
 }

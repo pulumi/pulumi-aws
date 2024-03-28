@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,20 +31,21 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     ///         {
     ///             new Aws.Route53RecoveryReadiness.Inputs.ResourceSetResourceArgs
     ///             {
-    ///                 ResourceArn = aws_cloudwatch_metric_alarm.Example.Arn,
+    ///                 ResourceArn = exampleAwsCloudwatchMetricAlarm.Arn,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route53 Recovery Readiness resource set name using the resource set name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set example
+    /// $ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set example
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53recoveryreadiness/resourceSet:ResourceSet")]
@@ -110,10 +112,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -237,11 +235,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ResourceSetState()

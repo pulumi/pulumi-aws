@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Lex
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,7 +24,7 @@ namespace Pulumi.Aws.Lex
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var orderFlowersProd = new Aws.Lex.BotAlias("orderFlowersProd", new()
+    ///     var orderFlowersProd = new Aws.Lex.BotAlias("order_flowers_prod", new()
     ///     {
     ///         BotName = "OrderFlowers",
     ///         BotVersion = "1",
@@ -33,13 +34,14 @@ namespace Pulumi.Aws.Lex
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import bot aliases using an ID with the format `bot_name:bot_alias_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
+    /// $ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
     /// ```
     /// </summary>
     [AwsResourceType("aws:lex/botAlias:BotAlias")]

@@ -10,26 +10,29 @@ import * as utilities from "../utilities";
  * > Only the management account of an organization can alter Service Quota templates, and this must be done from the `us-east-1` region.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.servicequotas.Template("example", {
- *     quotaCode: "L-2ACBD22F",
  *     region: "us-east-1",
+ *     quotaCode: "L-2ACBD22F",
  *     serviceCode: "lambda",
  *     value: 80,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Service Quotas Template using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:servicequotas/template:Template example us-east-1,L-2ACBD22F,lambda
+ * $ pulumi import aws:servicequotas/template:Template example us-east-1,L-2ACBD22F,lambda
  * ```
  */
 export class Template extends pulumi.CustomResource {

@@ -4,6 +4,7 @@
 package com.pulumi.aws.opsworks.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -73,25 +74,32 @@ public final class ApplicationEnvironment {
 
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("ApplicationEnvironment", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder secure(@Nullable Boolean secure) {
+
             this.secure = secure;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("ApplicationEnvironment", "value");
+            }
+            this.value = value;
             return this;
         }
         public ApplicationEnvironment build() {
-            final var o = new ApplicationEnvironment();
-            o.key = key;
-            o.secure = secure;
-            o.value = value;
-            return o;
+            final var _resultValue = new ApplicationEnvironment();
+            _resultValue.key = key;
+            _resultValue.secure = secure;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

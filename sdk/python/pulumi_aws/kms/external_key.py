@@ -422,19 +422,21 @@ class ExternalKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kms.ExternalKey("example", description="KMS EXTERNAL for AMI encryption")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import KMS External Keys using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:kms/externalKey:ExternalKey a arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
+        $ pulumi import aws:kms/externalKey:ExternalKey a arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
         ```
 
         :param str resource_name: The name of the resource.
@@ -461,19 +463,21 @@ class ExternalKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kms.ExternalKey("example", description="KMS EXTERNAL for AMI encryption")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import KMS External Keys using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:kms/externalKey:ExternalKey a arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
+        $ pulumi import aws:kms/externalKey:ExternalKey a arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
         ```
 
         :param str resource_name: The name of the resource.
@@ -523,7 +527,7 @@ class ExternalKey(pulumi.CustomResource):
             __props__.__dict__["key_state"] = None
             __props__.__dict__["key_usage"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["keyMaterialBase64", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["keyMaterialBase64"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ExternalKey, __self__).__init__(
             'aws:kms/externalKey:ExternalKey',

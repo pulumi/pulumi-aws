@@ -44,13 +44,14 @@ public final class RuleGroupRuleActionCaptcha {
 
         @CustomType.Setter
         public Builder customRequestHandling(@Nullable RuleGroupRuleActionCaptchaCustomRequestHandling customRequestHandling) {
+
             this.customRequestHandling = customRequestHandling;
             return this;
         }
         public RuleGroupRuleActionCaptcha build() {
-            final var o = new RuleGroupRuleActionCaptcha();
-            o.customRequestHandling = customRequestHandling;
-            return o;
+            final var _resultValue = new RuleGroupRuleActionCaptcha();
+            _resultValue.customRequestHandling = customRequestHandling;
+            return _resultValue;
         }
     }
 }

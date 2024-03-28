@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Chime
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,15 +24,16 @@ namespace Pulumi.Aws.Chime
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var defaultVoiceConnector = new Aws.Chime.VoiceConnector("defaultVoiceConnector", new()
+    ///     var @default = new Aws.Chime.VoiceConnector("default", new()
     ///     {
+    ///         Name = "vc-name-test",
     ///         RequireEncryption = true,
     ///     });
     /// 
-    ///     var defaultVoiceConnectorStreaming = new Aws.Chime.VoiceConnectorStreaming("defaultVoiceConnectorStreaming", new()
+    ///     var defaultVoiceConnectorStreaming = new Aws.Chime.VoiceConnectorStreaming("default", new()
     ///     {
     ///         Disabled = false,
-    ///         VoiceConnectorId = defaultVoiceConnector.Id,
+    ///         VoiceConnectorId = @default.Id,
     ///         DataRetention = 7,
     ///         StreamingNotificationTargets = new[]
     ///         {
@@ -41,8 +43,11 @@ namespace Pulumi.Aws.Chime
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example Usage With Media Insights
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,8 +56,9 @@ namespace Pulumi.Aws.Chime
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var defaultVoiceConnector = new Aws.Chime.VoiceConnector("defaultVoiceConnector", new()
+    ///     var @default = new Aws.Chime.VoiceConnector("default", new()
     ///     {
+    ///         Name = "vc-name-test",
     ///         RequireEncryption = true,
     ///     });
     /// 
@@ -82,18 +88,21 @@ namespace Pulumi.Aws.Chime
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "ExampleResourceAccessRole",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleStream = new Aws.Kinesis.Stream("exampleStream", new()
+    ///     var exampleStream = new Aws.Kinesis.Stream("example", new()
     ///     {
+    ///         Name = "ExampleStream",
     ///         ShardCount = 2,
     ///     });
     /// 
-    ///     var exampleMediaInsightsPipelineConfiguration = new Aws.ChimeSDKMediaPipelines.MediaInsightsPipelineConfiguration("exampleMediaInsightsPipelineConfiguration", new()
+    ///     var example = new Aws.ChimeSDKMediaPipelines.MediaInsightsPipelineConfiguration("example", new()
     ///     {
+    ///         Name = "ExampleConfig",
     ///         ResourceAccessRoleArn = exampleRole.Arn,
     ///         Elements = new[]
     ///         {
@@ -116,10 +125,10 @@ namespace Pulumi.Aws.Chime
     ///         },
     ///     });
     /// 
-    ///     var defaultVoiceConnectorStreaming = new Aws.Chime.VoiceConnectorStreaming("defaultVoiceConnectorStreaming", new()
+    ///     var defaultVoiceConnectorStreaming = new Aws.Chime.VoiceConnectorStreaming("default", new()
     ///     {
     ///         Disabled = false,
-    ///         VoiceConnectorId = defaultVoiceConnector.Id,
+    ///         VoiceConnectorId = @default.Id,
     ///         DataRetention = 7,
     ///         StreamingNotificationTargets = new[]
     ///         {
@@ -128,19 +137,20 @@ namespace Pulumi.Aws.Chime
     ///         MediaInsightsConfiguration = new Aws.Chime.Inputs.VoiceConnectorStreamingMediaInsightsConfigurationArgs
     ///         {
     ///             Disabled = false,
-    ///             ConfigurationArn = exampleMediaInsightsPipelineConfiguration.Arn,
+    ///             ConfigurationArn = example.Arn,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Chime Voice Connector Streaming using the `voice_connector_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming default abcdef1ghij2klmno3pqr4
+    /// $ pulumi import aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming default abcdef1ghij2klmno3pqr4
     /// ```
     /// </summary>
     [AwsResourceType("aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming")]

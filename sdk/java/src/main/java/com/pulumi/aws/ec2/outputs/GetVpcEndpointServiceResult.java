@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetVpcEndpointServiceFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -226,17 +227,26 @@ public final class GetVpcEndpointServiceResult {
 
         @CustomType.Setter
         public Builder acceptanceRequired(Boolean acceptanceRequired) {
-            this.acceptanceRequired = Objects.requireNonNull(acceptanceRequired);
+            if (acceptanceRequired == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointServiceResult", "acceptanceRequired");
+            }
+            this.acceptanceRequired = acceptanceRequired;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointServiceResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder availabilityZones(List<String> availabilityZones) {
-            this.availabilityZones = Objects.requireNonNull(availabilityZones);
+            if (availabilityZones == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointServiceResult", "availabilityZones");
+            }
+            this.availabilityZones = availabilityZones;
             return this;
         }
         public Builder availabilityZones(String... availabilityZones) {
@@ -244,7 +254,10 @@ public final class GetVpcEndpointServiceResult {
         }
         @CustomType.Setter
         public Builder baseEndpointDnsNames(List<String> baseEndpointDnsNames) {
-            this.baseEndpointDnsNames = Objects.requireNonNull(baseEndpointDnsNames);
+            if (baseEndpointDnsNames == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointServiceResult", "baseEndpointDnsNames");
+            }
+            this.baseEndpointDnsNames = baseEndpointDnsNames;
             return this;
         }
         public Builder baseEndpointDnsNames(String... baseEndpointDnsNames) {
@@ -252,6 +265,7 @@ public final class GetVpcEndpointServiceResult {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetVpcEndpointServiceFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -260,47 +274,72 @@ public final class GetVpcEndpointServiceResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointServiceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder managesVpcEndpoints(Boolean managesVpcEndpoints) {
-            this.managesVpcEndpoints = Objects.requireNonNull(managesVpcEndpoints);
+            if (managesVpcEndpoints == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointServiceResult", "managesVpcEndpoints");
+            }
+            this.managesVpcEndpoints = managesVpcEndpoints;
             return this;
         }
         @CustomType.Setter
         public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+            if (owner == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointServiceResult", "owner");
+            }
+            this.owner = owner;
             return this;
         }
         @CustomType.Setter
         public Builder privateDnsName(String privateDnsName) {
-            this.privateDnsName = Objects.requireNonNull(privateDnsName);
+            if (privateDnsName == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointServiceResult", "privateDnsName");
+            }
+            this.privateDnsName = privateDnsName;
             return this;
         }
         @CustomType.Setter
         public Builder service(@Nullable String service) {
+
             this.service = service;
             return this;
         }
         @CustomType.Setter
         public Builder serviceId(String serviceId) {
-            this.serviceId = Objects.requireNonNull(serviceId);
+            if (serviceId == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointServiceResult", "serviceId");
+            }
+            this.serviceId = serviceId;
             return this;
         }
         @CustomType.Setter
         public Builder serviceName(String serviceName) {
-            this.serviceName = Objects.requireNonNull(serviceName);
+            if (serviceName == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointServiceResult", "serviceName");
+            }
+            this.serviceName = serviceName;
             return this;
         }
         @CustomType.Setter
         public Builder serviceType(String serviceType) {
-            this.serviceType = Objects.requireNonNull(serviceType);
+            if (serviceType == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointServiceResult", "serviceType");
+            }
+            this.serviceType = serviceType;
             return this;
         }
         @CustomType.Setter
         public Builder supportedIpAddressTypes(List<String> supportedIpAddressTypes) {
-            this.supportedIpAddressTypes = Objects.requireNonNull(supportedIpAddressTypes);
+            if (supportedIpAddressTypes == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointServiceResult", "supportedIpAddressTypes");
+            }
+            this.supportedIpAddressTypes = supportedIpAddressTypes;
             return this;
         }
         public Builder supportedIpAddressTypes(String... supportedIpAddressTypes) {
@@ -308,33 +347,39 @@ public final class GetVpcEndpointServiceResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointServiceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vpcEndpointPolicySupported(Boolean vpcEndpointPolicySupported) {
-            this.vpcEndpointPolicySupported = Objects.requireNonNull(vpcEndpointPolicySupported);
+            if (vpcEndpointPolicySupported == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointServiceResult", "vpcEndpointPolicySupported");
+            }
+            this.vpcEndpointPolicySupported = vpcEndpointPolicySupported;
             return this;
         }
         public GetVpcEndpointServiceResult build() {
-            final var o = new GetVpcEndpointServiceResult();
-            o.acceptanceRequired = acceptanceRequired;
-            o.arn = arn;
-            o.availabilityZones = availabilityZones;
-            o.baseEndpointDnsNames = baseEndpointDnsNames;
-            o.filters = filters;
-            o.id = id;
-            o.managesVpcEndpoints = managesVpcEndpoints;
-            o.owner = owner;
-            o.privateDnsName = privateDnsName;
-            o.service = service;
-            o.serviceId = serviceId;
-            o.serviceName = serviceName;
-            o.serviceType = serviceType;
-            o.supportedIpAddressTypes = supportedIpAddressTypes;
-            o.tags = tags;
-            o.vpcEndpointPolicySupported = vpcEndpointPolicySupported;
-            return o;
+            final var _resultValue = new GetVpcEndpointServiceResult();
+            _resultValue.acceptanceRequired = acceptanceRequired;
+            _resultValue.arn = arn;
+            _resultValue.availabilityZones = availabilityZones;
+            _resultValue.baseEndpointDnsNames = baseEndpointDnsNames;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.managesVpcEndpoints = managesVpcEndpoints;
+            _resultValue.owner = owner;
+            _resultValue.privateDnsName = privateDnsName;
+            _resultValue.service = service;
+            _resultValue.serviceId = serviceId;
+            _resultValue.serviceName = serviceName;
+            _resultValue.serviceType = serviceType;
+            _resultValue.supportedIpAddressTypes = supportedIpAddressTypes;
+            _resultValue.tags = tags;
+            _resultValue.vpcEndpointPolicySupported = vpcEndpointPolicySupported;
+            return _resultValue;
         }
     }
 }

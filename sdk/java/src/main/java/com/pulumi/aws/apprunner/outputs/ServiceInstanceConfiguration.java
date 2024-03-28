@@ -72,25 +72,28 @@ public final class ServiceInstanceConfiguration {
 
         @CustomType.Setter
         public Builder cpu(@Nullable String cpu) {
+
             this.cpu = cpu;
             return this;
         }
         @CustomType.Setter
         public Builder instanceRoleArn(@Nullable String instanceRoleArn) {
+
             this.instanceRoleArn = instanceRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder memory(@Nullable String memory) {
+
             this.memory = memory;
             return this;
         }
         public ServiceInstanceConfiguration build() {
-            final var o = new ServiceInstanceConfiguration();
-            o.cpu = cpu;
-            o.instanceRoleArn = instanceRoleArn;
-            o.memory = memory;
-            return o;
+            final var _resultValue = new ServiceInstanceConfiguration();
+            _resultValue.cpu = cpu;
+            _resultValue.instanceRoleArn = instanceRoleArn;
+            _resultValue.memory = memory;
+            return _resultValue;
         }
     }
 }

@@ -424,23 +424,26 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         foo = aws.directconnect.HostedPrivateVirtualInterface("foo",
-            address_family="ipv4",
-            bgp_asn=65352,
             connection_id="dxcon-zzzzzzzz",
-            vlan=4094)
+            name="vif-foo",
+            vlan=4094,
+            address_family="ipv4",
+            bgp_asn=65352)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Direct Connect hosted private virtual interfaces using the VIF `id`. For example:
 
         ```sh
-         $ pulumi import aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface test dxvif-33cc44dd
+        $ pulumi import aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface test dxvif-33cc44dd
         ```
 
         :param str resource_name: The name of the resource.
@@ -468,23 +471,26 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         foo = aws.directconnect.HostedPrivateVirtualInterface("foo",
-            address_family="ipv4",
-            bgp_asn=65352,
             connection_id="dxcon-zzzzzzzz",
-            vlan=4094)
+            name="vif-foo",
+            vlan=4094,
+            address_family="ipv4",
+            bgp_asn=65352)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Direct Connect hosted private virtual interfaces using the VIF `id`. For example:
 
         ```sh
-         $ pulumi import aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface test dxvif-33cc44dd
+        $ pulumi import aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface test dxvif-33cc44dd
         ```
 
         :param str resource_name: The name of the resource.

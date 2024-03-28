@@ -106,27 +106,31 @@ class ByteMatchSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        byte_set = aws.wafregional.ByteMatchSet("byteSet", byte_match_tuples=[aws.wafregional.ByteMatchSetByteMatchTupleArgs(
-            field_to_match=aws.wafregional.ByteMatchSetByteMatchTupleFieldToMatchArgs(
-                data="referer",
-                type="HEADER",
-            ),
-            positional_constraint="CONTAINS",
-            target_string="badrefer1",
-            text_transformation="NONE",
-        )])
+        byte_set = aws.wafregional.ByteMatchSet("byte_set",
+            name="my_waf_byte_match_set",
+            byte_match_tuples=[aws.wafregional.ByteMatchSetByteMatchTupleArgs(
+                text_transformation="NONE",
+                target_string="badrefer1",
+                positional_constraint="CONTAINS",
+                field_to_match=aws.wafregional.ByteMatchSetByteMatchTupleFieldToMatchArgs(
+                    type="HEADER",
+                    data="referer",
+                ),
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WAF Regional Byte Match Set using the id. For example:
 
         ```sh
-         $ pulumi import aws:wafregional/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        $ pulumi import aws:wafregional/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
         :param str resource_name: The name of the resource.
@@ -145,27 +149,31 @@ class ByteMatchSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        byte_set = aws.wafregional.ByteMatchSet("byteSet", byte_match_tuples=[aws.wafregional.ByteMatchSetByteMatchTupleArgs(
-            field_to_match=aws.wafregional.ByteMatchSetByteMatchTupleFieldToMatchArgs(
-                data="referer",
-                type="HEADER",
-            ),
-            positional_constraint="CONTAINS",
-            target_string="badrefer1",
-            text_transformation="NONE",
-        )])
+        byte_set = aws.wafregional.ByteMatchSet("byte_set",
+            name="my_waf_byte_match_set",
+            byte_match_tuples=[aws.wafregional.ByteMatchSetByteMatchTupleArgs(
+                text_transformation="NONE",
+                target_string="badrefer1",
+                positional_constraint="CONTAINS",
+                field_to_match=aws.wafregional.ByteMatchSetByteMatchTupleFieldToMatchArgs(
+                    type="HEADER",
+                    data="referer",
+                ),
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WAF Regional Byte Match Set using the id. For example:
 
         ```sh
-         $ pulumi import aws:wafregional/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        $ pulumi import aws:wafregional/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
         :param str resource_name: The name of the resource.

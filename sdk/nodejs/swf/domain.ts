@@ -11,22 +11,25 @@ import * as utilities from "../utilities";
  *
  * To register a basic SWF domain:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.swf.Domain("foo", {
+ *     name: "foo",
  *     description: "SWF Domain",
  *     workflowExecutionRetentionPeriodInDays: "30",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SWF Domains using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:swf/domain:Domain foo test-domain
+ * $ pulumi import aws:swf/domain:Domain foo test-domain
  * ```
  */
 export class Domain extends pulumi.CustomResource {
@@ -122,8 +125,6 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Domain.__pulumiType, name, resourceInputs, opts);
     }
 }

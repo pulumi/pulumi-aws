@@ -14,6 +14,7 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,19 +25,20 @@ namespace Pulumi.Aws.RedshiftServerless
     /// {
     ///     var example = new Aws.RedshiftServerless.Snapshot("example", new()
     ///     {
-    ///         NamespaceName = aws_redshiftserverless_workgroup.Example.Namespace_name,
+    ///         NamespaceName = exampleAwsRedshiftserverlessWorkgroup.NamespaceName,
     ///         SnapshotName = "example",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Serverless Snapshots using the `snapshot_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
+    /// $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshiftserverless/snapshot:Snapshot")]

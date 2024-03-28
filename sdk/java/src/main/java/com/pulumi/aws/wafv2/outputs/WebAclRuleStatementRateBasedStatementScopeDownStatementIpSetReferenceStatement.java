@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,19 +60,23 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetR
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder ipSetForwardedIpConfig(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig ipSetForwardedIpConfig) {
+
             this.ipSetForwardedIpConfig = ipSetForwardedIpConfig;
             return this;
         }
         public WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement();
-            o.arn = arn;
-            o.ipSetForwardedIpConfig = ipSetForwardedIpConfig;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement();
+            _resultValue.arn = arn;
+            _resultValue.ipSetForwardedIpConfig = ipSetForwardedIpConfig;
+            return _resultValue;
         }
     }
 }

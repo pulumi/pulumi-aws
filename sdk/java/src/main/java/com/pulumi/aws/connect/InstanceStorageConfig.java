@@ -19,7 +19,10 @@ import javax.annotation.Nullable;
  * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
  * 
  * ## Example Usage
+ * 
  * ### Storage Config Kinesis Firehose Config
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,11 +47,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new InstanceStorageConfig(&#34;example&#34;, InstanceStorageConfigArgs.builder()        
- *             .instanceId(aws_connect_instance.example().id())
+ *             .instanceId(exampleAwsConnectInstance.id())
  *             .resourceType(&#34;CONTACT_TRACE_RECORDS&#34;)
  *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
  *                 .kinesisFirehoseConfig(InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs.builder()
- *                     .firehoseArn(aws_kinesis_firehose_delivery_stream.example().arn())
+ *                     .firehoseArn(exampleAwsKinesisFirehoseDeliveryStream.arn())
  *                     .build())
  *                 .storageType(&#34;KINESIS_FIREHOSE&#34;)
  *                 .build())
@@ -57,7 +60,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Storage Config Kinesis Stream Config
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -82,11 +89,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new InstanceStorageConfig(&#34;example&#34;, InstanceStorageConfigArgs.builder()        
- *             .instanceId(aws_connect_instance.example().id())
+ *             .instanceId(exampleAwsConnectInstance.id())
  *             .resourceType(&#34;CONTACT_TRACE_RECORDS&#34;)
  *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
  *                 .kinesisStreamConfig(InstanceStorageConfigStorageConfigKinesisStreamConfigArgs.builder()
- *                     .streamArn(aws_kinesis_stream.example().arn())
+ *                     .streamArn(exampleAwsKinesisStream.arn())
  *                     .build())
  *                 .storageType(&#34;KINESIS_STREAM&#34;)
  *                 .build())
@@ -95,7 +102,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Storage Config Kinesis Video Stream Config
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -121,7 +132,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new InstanceStorageConfig(&#34;example&#34;, InstanceStorageConfigArgs.builder()        
- *             .instanceId(aws_connect_instance.example().id())
+ *             .instanceId(exampleAwsConnectInstance.id())
  *             .resourceType(&#34;MEDIA_STREAMS&#34;)
  *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
  *                 .kinesisVideoStreamConfig(InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs.builder()
@@ -129,7 +140,7 @@ import javax.annotation.Nullable;
  *                     .retentionPeriodHours(3)
  *                     .encryptionConfig(InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs.builder()
  *                         .encryptionType(&#34;KMS&#34;)
- *                         .keyId(aws_kms_key.example().arn())
+ *                         .keyId(exampleAwsKmsKey.arn())
  *                         .build())
  *                     .build())
  *                 .storageType(&#34;KINESIS_VIDEO_STREAM&#34;)
@@ -139,7 +150,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Storage Config S3 Config
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -164,11 +179,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new InstanceStorageConfig(&#34;example&#34;, InstanceStorageConfigArgs.builder()        
- *             .instanceId(aws_connect_instance.example().id())
+ *             .instanceId(exampleAwsConnectInstance.id())
  *             .resourceType(&#34;CHAT_TRANSCRIPTS&#34;)
  *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
  *                 .s3Config(InstanceStorageConfigStorageConfigS3ConfigArgs.builder()
- *                     .bucketName(aws_s3_bucket.example().id())
+ *                     .bucketName(exampleAwsS3Bucket.id())
  *                     .bucketPrefix(&#34;example&#34;)
  *                     .build())
  *                 .storageType(&#34;S3&#34;)
@@ -178,7 +193,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Storage Config S3 Config with Encryption Config
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -204,15 +223,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new InstanceStorageConfig(&#34;example&#34;, InstanceStorageConfigArgs.builder()        
- *             .instanceId(aws_connect_instance.example().id())
+ *             .instanceId(exampleAwsConnectInstance.id())
  *             .resourceType(&#34;CHAT_TRANSCRIPTS&#34;)
  *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
  *                 .s3Config(InstanceStorageConfigStorageConfigS3ConfigArgs.builder()
- *                     .bucketName(aws_s3_bucket.example().id())
+ *                     .bucketName(exampleAwsS3Bucket.id())
  *                     .bucketPrefix(&#34;example&#34;)
  *                     .encryptionConfig(InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs.builder()
  *                         .encryptionType(&#34;KMS&#34;)
- *                         .keyId(aws_kms_key.example().arn())
+ *                         .keyId(exampleAwsKmsKey.arn())
  *                         .build())
  *                     .build())
  *                 .storageType(&#34;S3&#34;)
@@ -222,13 +241,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Amazon Connect Instance Storage Configs using the `instance_id`, `association_id`, and `resource_type` separated by a colon (`:`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:connect/instanceStorageConfig:InstanceStorageConfig example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5:CHAT_TRANSCRIPTS
+ * $ pulumi import aws:connect/instanceStorageConfig:InstanceStorageConfig example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5:CHAT_TRANSCRIPTS
  * ```
  * 
  */

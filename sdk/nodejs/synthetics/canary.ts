@@ -14,28 +14,31 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const some = new aws.synthetics.Canary("some", {
+ *     name: "some-canary",
  *     artifactS3Location: "s3://some-bucket/",
  *     executionRoleArn: "some-role",
  *     handler: "exports.handler",
+ *     zipFile: "test-fixtures/lambdatest.zip",
  *     runtimeVersion: "syn-1.0",
  *     schedule: {
  *         expression: "rate(0 minute)",
  *     },
- *     zipFile: "test-fixtures/lambdatest.zip",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Synthetics Canaries using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:synthetics/canary:Canary some some-canary
+ * $ pulumi import aws:synthetics/canary:Canary some some-canary
  * ```
  */
 export class Canary extends pulumi.CustomResource {
@@ -247,8 +250,6 @@ export class Canary extends pulumi.CustomResource {
             resourceInputs["timelines"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Canary.__pulumiType, name, resourceInputs, opts);
     }
 }

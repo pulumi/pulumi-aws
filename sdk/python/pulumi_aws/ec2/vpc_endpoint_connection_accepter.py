@@ -117,33 +117,35 @@ class VpcEndpointConnectionAccepter(pulumi.CustomResource):
         Provides a resource to accept a pending VPC Endpoint Connection accept request to VPC Endpoint Service.
 
         ## Example Usage
+
         ### Accept cross-account request
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc_endpoint_service = aws.ec2.VpcEndpointService("exampleVpcEndpointService",
+        example = aws.ec2.VpcEndpointService("example",
             acceptance_required=False,
-            network_load_balancer_arns=[aws_lb["example"]["arn"]])
-        example_vpc_endpoint = aws.ec2.VpcEndpoint("exampleVpcEndpoint",
-            vpc_id=aws_vpc["test_alternate"]["id"],
-            service_name=aws_vpc_endpoint_service["test"]["service_name"],
+            network_load_balancer_arns=[example_aws_lb["arn"]])
+        example_vpc_endpoint = aws.ec2.VpcEndpoint("example",
+            vpc_id=test_alternate["id"],
+            service_name=test_aws_vpc_endpoint_service["serviceName"],
             vpc_endpoint_type="Interface",
             private_dns_enabled=False,
-            security_group_ids=[aws_security_group["test"]["id"]],
-            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
-        example_vpc_endpoint_connection_accepter = aws.ec2.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter",
-            vpc_endpoint_service_id=example_vpc_endpoint_service.id,
+            security_group_ids=[test["id"]])
+        example_vpc_endpoint_connection_accepter = aws.ec2.VpcEndpointConnectionAccepter("example",
+            vpc_endpoint_service_id=example.id,
             vpc_endpoint_id=example_vpc_endpoint.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Endpoint Services using ID of the connection, which is the `VPC Endpoint Service ID` and `VPC Endpoint ID` separated by underscore (`_`).. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
+        $ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
         ```
 
         :param str resource_name: The name of the resource.
@@ -161,33 +163,35 @@ class VpcEndpointConnectionAccepter(pulumi.CustomResource):
         Provides a resource to accept a pending VPC Endpoint Connection accept request to VPC Endpoint Service.
 
         ## Example Usage
+
         ### Accept cross-account request
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc_endpoint_service = aws.ec2.VpcEndpointService("exampleVpcEndpointService",
+        example = aws.ec2.VpcEndpointService("example",
             acceptance_required=False,
-            network_load_balancer_arns=[aws_lb["example"]["arn"]])
-        example_vpc_endpoint = aws.ec2.VpcEndpoint("exampleVpcEndpoint",
-            vpc_id=aws_vpc["test_alternate"]["id"],
-            service_name=aws_vpc_endpoint_service["test"]["service_name"],
+            network_load_balancer_arns=[example_aws_lb["arn"]])
+        example_vpc_endpoint = aws.ec2.VpcEndpoint("example",
+            vpc_id=test_alternate["id"],
+            service_name=test_aws_vpc_endpoint_service["serviceName"],
             vpc_endpoint_type="Interface",
             private_dns_enabled=False,
-            security_group_ids=[aws_security_group["test"]["id"]],
-            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
-        example_vpc_endpoint_connection_accepter = aws.ec2.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter",
-            vpc_endpoint_service_id=example_vpc_endpoint_service.id,
+            security_group_ids=[test["id"]])
+        example_vpc_endpoint_connection_accepter = aws.ec2.VpcEndpointConnectionAccepter("example",
+            vpc_endpoint_service_id=example.id,
             vpc_endpoint_id=example_vpc_endpoint.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Endpoint Services using ID of the connection, which is the `VPC Endpoint Service ID` and `VPC Endpoint ID` separated by underscore (`_`).. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
+        $ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
         ```
 
         :param str resource_name: The name of the resource.

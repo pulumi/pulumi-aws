@@ -48,13 +48,14 @@ public final class SpotInstanceRequestEnclaveOptions {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         public SpotInstanceRequestEnclaveOptions build() {
-            final var o = new SpotInstanceRequestEnclaveOptions();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new SpotInstanceRequestEnclaveOptions();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

@@ -13,28 +13,33 @@ import * as utilities from "../utilities";
  * > **NOTE:** The Storage Gateway API requires the gateway to be connected to properly return information after activation. If you are receiving `The specified gateway is not connected` errors during resource creation (gateway activation), ensure your gateway instance meets the [Storage Gateway requirements](https://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html).
  *
  * ## Example Usage
+ *
  * ### Local Cache
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testVolumeAttachment = new aws.ec2.VolumeAttachment("testVolumeAttachment", {
+ * const testVolumeAttachment = new aws.ec2.VolumeAttachment("test", {
  *     deviceName: "/dev/xvdb",
- *     volumeId: aws_ebs_volume.test.id,
- *     instanceId: aws_instance.test.id,
+ *     volumeId: testAwsEbsVolume.id,
+ *     instanceId: testAwsInstance.id,
  * });
- * const testLocalDisk = testVolumeAttachment.deviceName.apply(deviceName => aws.storagegateway.getLocalDiskOutput({
- *     diskNode: deviceName,
- *     gatewayArn: aws_storagegateway_gateway.test.arn,
- * }));
- * const testCache = new aws.storagegateway.Cache("testCache", {
- *     diskId: testLocalDisk.apply(testLocalDisk => testLocalDisk.diskId),
- *     gatewayArn: aws_storagegateway_gateway.test.arn,
+ * const test = aws.storagegateway.getLocalDisk({
+ *     diskNode: testAwsVolumeAttachment.deviceName,
+ *     gatewayArn: testAwsStoragegatewayGateway.arn,
+ * });
+ * const testCache = new aws.storagegateway.Cache("test", {
+ *     diskId: test.then(test => test.diskId),
+ *     gatewayArn: testAwsStoragegatewayGateway.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### FSx File Gateway
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -51,8 +56,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### S3 File Gateway
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -64,8 +72,11 @@ import * as utilities from "../utilities";
  *     gatewayType: "FILE_S3",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Tape Gateway
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -79,8 +90,11 @@ import * as utilities from "../utilities";
  *     tapeDriveType: "IBM-ULT3580-TD5",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Volume Gateway (Cached)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -92,8 +106,11 @@ import * as utilities from "../utilities";
  *     gatewayType: "CACHED",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Volume Gateway (Stored)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -105,15 +122,16 @@ import * as utilities from "../utilities";
  *     gatewayType: "STORED",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_storagegateway_gateway` using the gateway Amazon Resource Name (ARN). For example:
  *
  * ```sh
- *  $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
+ * $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
  * ```
- *  Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+ * Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
  */
 export class Gateway extends pulumi.CustomResource {
     /**
@@ -313,7 +331,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["smbGuestPassword", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["smbGuestPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Gateway.__pulumiType, name, resourceInputs, opts);
     }

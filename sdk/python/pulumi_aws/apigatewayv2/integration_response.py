@@ -233,24 +233,27 @@ class IntegrationResponse(pulumi.CustomResource):
         More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.apigatewayv2.IntegrationResponse("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            integration_id=aws_apigatewayv2_integration["example"]["id"],
+            api_id=example_aws_apigatewayv2_api["id"],
+            integration_id=example_aws_apigatewayv2_integration["id"],
             integration_response_key="/200/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_apigatewayv2_integration_response` using the API identifier, integration identifier and integration response identifier. For example:
 
         ```sh
-         $ pulumi import aws:apigatewayv2/integrationResponse:IntegrationResponse example aabbccddee/1122334/998877
+        $ pulumi import aws:apigatewayv2/integrationResponse:IntegrationResponse example aabbccddee/1122334/998877
         ```
 
         :param str resource_name: The name of the resource.
@@ -273,24 +276,27 @@ class IntegrationResponse(pulumi.CustomResource):
         More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.apigatewayv2.IntegrationResponse("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            integration_id=aws_apigatewayv2_integration["example"]["id"],
+            api_id=example_aws_apigatewayv2_api["id"],
+            integration_id=example_aws_apigatewayv2_integration["id"],
             integration_response_key="/200/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_apigatewayv2_integration_response` using the API identifier, integration identifier and integration response identifier. For example:
 
         ```sh
-         $ pulumi import aws:apigatewayv2/integrationResponse:IntegrationResponse example aabbccddee/1122334/998877
+        $ pulumi import aws:apigatewayv2/integrationResponse:IntegrationResponse example aabbccddee/1122334/998877
         ```
 
         :param str resource_name: The name of the resource.

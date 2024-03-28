@@ -28,6 +28,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,10 +43,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foobarGroup, err := autoscaling.NewGroup(ctx, "foobarGroup", &autoscaling.GroupArgs{
+//			foobar, err := autoscaling.NewGroup(ctx, "foobar", &autoscaling.GroupArgs{
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-west-2a"),
 //				},
+//				Name:            pulumi.String("test-foobar5"),
 //				HealthCheckType: pulumi.String("EC2"),
 //				TerminationPolicies: pulumi.StringArray{
 //					pulumi.String("OldestInstance"),
@@ -68,8 +70,9 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = autoscaling.NewLifecycleHook(ctx, "foobarLifecycleHook", &autoscaling.LifecycleHookArgs{
-//				AutoscalingGroupName:  foobarGroup.Name,
+//			_, err = autoscaling.NewLifecycleHook(ctx, "foobar", &autoscaling.LifecycleHookArgs{
+//				Name:                  pulumi.String("foobar"),
+//				AutoscalingGroupName:  foobar.Name,
 //				DefaultResult:         pulumi.String("CONTINUE"),
 //				HeartbeatTimeout:      pulumi.Int(2000),
 //				LifecycleTransition:   pulumi.String("autoscaling:EC2_INSTANCE_LAUNCHING"),
@@ -85,15 +88,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AutoScaling Lifecycle Hooks using the role autoscaling_group_name and name separated by `/`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook test-lifecycle-hook asg-name/lifecycle-hook-name
-//
+// $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook test-lifecycle-hook asg-name/lifecycle-hook-name
 // ```
 type LifecycleHook struct {
 	pulumi.CustomResourceState

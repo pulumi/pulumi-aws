@@ -14,10 +14,9 @@ namespace Pulumi.Aws.NetworkManager
         /// <summary>
         /// Retrieve information about a link.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,14 +27,13 @@ namespace Pulumi.Aws.NetworkManager
         /// {
         ///     var example = Aws.NetworkManager.GetLink.Invoke(new()
         ///     {
-        ///         GlobalNetworkId = @var.Global_network_id,
-        ///         LinkId = @var.Link_id,
+        ///         GlobalNetworkId = globalNetworkId,
+        ///         LinkId = linkId,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLinkResult> InvokeAsync(GetLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinkResult>("aws:networkmanager/getLink:getLink", args ?? new GetLinkArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Aws.NetworkManager
         /// <summary>
         /// Retrieve information about a link.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -57,14 +54,13 @@ namespace Pulumi.Aws.NetworkManager
         /// {
         ///     var example = Aws.NetworkManager.GetLink.Invoke(new()
         ///     {
-        ///         GlobalNetworkId = @var.Global_network_id,
-        ///         LinkId = @var.Link_id,
+        ///         GlobalNetworkId = globalNetworkId,
+        ///         LinkId = linkId,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLinkResult> Invoke(GetLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkResult>("aws:networkmanager/getLink:getLink", args ?? new GetLinkInvokeArgs(), options.WithDefaults());

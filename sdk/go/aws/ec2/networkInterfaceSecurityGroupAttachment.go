@@ -31,6 +31,7 @@ import (
 // primary network interface via the `ec2.NetworkInterfaceSecurityGroupAttachment` resource,
 // named `sgAttachment`:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,8 +62,8 @@ import (
 //				return err
 //			}
 //			instance, err := ec2.NewInstance(ctx, "instance", &ec2.InstanceArgs{
-//				InstanceType: pulumi.String("t2.micro"),
-//				Ami:          *pulumi.String(ami.Id),
+//				InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
+//				Ami:          pulumi.String(ami.Id),
 //				Tags: pulumi.StringMap{
 //					"type": pulumi.String("test-instance"),
 //				},
@@ -78,7 +79,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewNetworkInterfaceSecurityGroupAttachment(ctx, "sgAttachment", &ec2.NetworkInterfaceSecurityGroupAttachmentArgs{
+//			_, err = ec2.NewNetworkInterfaceSecurityGroupAttachment(ctx, "sg_attachment", &ec2.NetworkInterfaceSecurityGroupAttachmentArgs{
 //				SecurityGroupId:    sg.ID(),
 //				NetworkInterfaceId: instance.PrimaryNetworkInterfaceId,
 //			})
@@ -90,11 +91,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // In this example, `instance` is provided by the `ec2.Instance` data source,
 // fetching an external instance, possibly not managed by this provider.
 // `sgAttachment` then attaches to the output instance's `networkInterfaceId`:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -121,9 +124,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewNetworkInterfaceSecurityGroupAttachment(ctx, "sgAttachment", &ec2.NetworkInterfaceSecurityGroupAttachmentArgs{
+//			_, err = ec2.NewNetworkInterfaceSecurityGroupAttachment(ctx, "sg_attachment", &ec2.NetworkInterfaceSecurityGroupAttachmentArgs{
 //				SecurityGroupId:    sg.ID(),
-//				NetworkInterfaceId: *pulumi.String(instance.NetworkInterfaceId),
+//				NetworkInterfaceId: pulumi.String(instance.NetworkInterfaceId),
 //			})
 //			if err != nil {
 //				return err
@@ -133,15 +136,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Network Interface Security Group attachments using the associated network interface ID and security group ID, separated by an underscore (`_`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment sg_attachment eni-1234567890abcdef0_sg-1234567890abcdef0
-//
+// $ pulumi import aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment sg_attachment eni-1234567890abcdef0_sg-1234567890abcdef0
 // ```
 type NetworkInterfaceSecurityGroupAttachment struct {
 	pulumi.CustomResourceState

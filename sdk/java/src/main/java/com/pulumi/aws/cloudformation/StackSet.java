@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -68,30 +70,32 @@ import javax.annotation.Nullable;
  * 
  *         var aWSCloudFormationStackSetAdministrationRole = new Role(&#34;aWSCloudFormationStackSetAdministrationRole&#34;, RoleArgs.builder()        
  *             .assumeRolePolicy(aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .name(&#34;AWSCloudFormationStackSetAdministrationRole&#34;)
  *             .build());
  * 
  *         var example = new StackSet(&#34;example&#34;, StackSetArgs.builder()        
  *             .administrationRoleArn(aWSCloudFormationStackSetAdministrationRole.arn())
+ *             .name(&#34;example&#34;)
  *             .parameters(Map.of(&#34;VPCCidr&#34;, &#34;10.0.0.0/16&#34;))
  *             .templateBody(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Parameters&#34;, jsonObject(
- *                         jsonProperty(&#34;VPCCidr&#34;, jsonObject(
- *                             jsonProperty(&#34;Type&#34;, &#34;String&#34;),
- *                             jsonProperty(&#34;Default&#34;, &#34;10.0.0.0/16&#34;),
- *                             jsonProperty(&#34;Description&#34;, &#34;Enter the CIDR block for the VPC. Default is 10.0.0.0/16.&#34;)
+ *                     jsonProperty(&#34;parameters&#34;, jsonObject(
+ *                         jsonProperty(&#34;vPCCidr&#34;, jsonObject(
+ *                             jsonProperty(&#34;type&#34;, &#34;String&#34;),
+ *                             jsonProperty(&#34;default&#34;, &#34;10.0.0.0/16&#34;),
+ *                             jsonProperty(&#34;description&#34;, &#34;Enter the CIDR block for the VPC. Default is 10.0.0.0/16.&#34;)
  *                         ))
  *                     )),
- *                     jsonProperty(&#34;Resources&#34;, jsonObject(
+ *                     jsonProperty(&#34;resources&#34;, jsonObject(
  *                         jsonProperty(&#34;myVpc&#34;, jsonObject(
- *                             jsonProperty(&#34;Type&#34;, &#34;AWS::EC2::VPC&#34;),
- *                             jsonProperty(&#34;Properties&#34;, jsonObject(
- *                                 jsonProperty(&#34;CidrBlock&#34;, jsonObject(
- *                                     jsonProperty(&#34;Ref&#34;, &#34;VPCCidr&#34;)
+ *                             jsonProperty(&#34;type&#34;, &#34;AWS::EC2::VPC&#34;),
+ *                             jsonProperty(&#34;properties&#34;, jsonObject(
+ *                                 jsonProperty(&#34;cidrBlock&#34;, jsonObject(
+ *                                     jsonProperty(&#34;ref&#34;, &#34;VPCCidr&#34;)
  *                                 )),
- *                                 jsonProperty(&#34;Tags&#34;, jsonArray(jsonObject(
- *                                     jsonProperty(&#34;Key&#34;, &#34;Name&#34;),
- *                                     jsonProperty(&#34;Value&#34;, &#34;Primary_CF_VPC&#34;)
+ *                                 jsonProperty(&#34;tags&#34;, jsonArray(jsonObject(
+ *                                     jsonProperty(&#34;key&#34;, &#34;Name&#34;),
+ *                                     jsonProperty(&#34;value&#34;, &#34;Primary_CF_VPC&#34;)
  *                                 )))
  *                             ))
  *                         ))
@@ -99,7 +103,7 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         final var aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var aWSCloudFormationStackSetAdministrationRoleExecutionPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(&#34;sts:AssumeRole&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -108,13 +112,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy = new RolePolicy(&#34;aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .policy(aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument -&gt; aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .name(&#34;ExecutionPolicy&#34;)
+ *             .policy(aWSCloudFormationStackSetAdministrationRoleExecutionPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(aWSCloudFormationStackSetAdministrationRoleExecutionPolicy -&gt; aWSCloudFormationStackSetAdministrationRoleExecutionPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .role(aWSCloudFormationStackSetAdministrationRole.name())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -123,12 +129,12 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import CloudFormation StackSets using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudformation/stackSet:StackSet example example
+ * $ pulumi import aws:cloudformation/stackSet:StackSet example example
  * ```
- *  Using `pulumi import`, import CloudFormation StackSets when acting a delegated administrator in a member account using the `name` and `call_as` values separated by a comma (`,`). For example:
+ * Using `pulumi import`, import CloudFormation StackSets when acting a delegated administrator in a member account using the `name` and `call_as` values separated by a comma (`,`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudformation/stackSet:StackSet example example,DELEGATED_ADMIN
+ * $ pulumi import aws:cloudformation/stackSet:StackSet example example,DELEGATED_ADMIN
  * ```
  * 
  */
@@ -409,9 +415,6 @@ public class StackSet extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

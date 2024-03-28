@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,29 +23,28 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var example = new Aws.Ec2.Vpc("example", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///         EnableDnsSupport = true,
     ///         EnableDnsHostnames = true,
     ///     });
     /// 
-    ///     var exampleResolverDnsSecConfig = new Aws.Route53.ResolverDnsSecConfig("exampleResolverDnsSecConfig", new()
+    ///     var exampleResolverDnsSecConfig = new Aws.Route53.ResolverDnsSecConfig("example", new()
     ///     {
-    ///         ResourceId = exampleVpc.Id,
+    ///         ResourceId = example.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import
-    /// 
-    /// Route 53 Resolver DNSSEC configs using the Route 53 Resolver DNSSEC config ID. For example:
+    /// Using `pulumi import`, import  Route 53 Resolver DNSSEC configs using the Route 53 Resolver DNSSEC config ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
+    /// $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig")]

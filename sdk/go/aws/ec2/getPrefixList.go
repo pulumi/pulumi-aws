@@ -23,6 +23,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -35,30 +36,30 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			privateS3VpcEndpoint, err := ec2.NewVpcEndpoint(ctx, "privateS3VpcEndpoint", &ec2.VpcEndpointArgs{
-//				VpcId:       pulumi.Any(aws_vpc.Foo.Id),
+//			privateS3VpcEndpoint, err := ec2.NewVpcEndpoint(ctx, "private_s3", &ec2.VpcEndpointArgs{
+//				VpcId:       pulumi.Any(foo.Id),
 //				ServiceName: pulumi.String("com.amazonaws.us-west-2.s3"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			privateS3PrefixList := ec2.GetPrefixListOutput(ctx, ec2.GetPrefixListOutputArgs{
+//			privateS3 := ec2.GetPrefixListOutput(ctx, ec2.GetPrefixListOutputArgs{
 //				PrefixListId: privateS3VpcEndpoint.PrefixListId,
 //			}, nil)
 //			bar, err := ec2.NewNetworkAcl(ctx, "bar", &ec2.NetworkAclArgs{
-//				VpcId: pulumi.Any(aws_vpc.Foo.Id),
+//				VpcId: pulumi.Any(foo.Id),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewNetworkAclRule(ctx, "privateS3NetworkAclRule", &ec2.NetworkAclRuleArgs{
+//			_, err = ec2.NewNetworkAclRule(ctx, "private_s3", &ec2.NetworkAclRuleArgs{
 //				NetworkAclId: bar.ID(),
 //				RuleNumber:   pulumi.Int(200),
 //				Egress:       pulumi.Bool(false),
 //				Protocol:     pulumi.String("tcp"),
 //				RuleAction:   pulumi.String("allow"),
-//				CidrBlock: privateS3PrefixList.ApplyT(func(privateS3PrefixList ec2.GetPrefixListResult) (*string, error) {
-//					return &privateS3PrefixList.CidrBlocks[0], nil
+//				CidrBlock: privateS3.ApplyT(func(privateS3 ec2.GetPrefixListResult) (*string, error) {
+//					return &privateS3.CidrBlocks[0], nil
 //				}).(pulumi.StringPtrOutput),
 //				FromPort: pulumi.Int(443),
 //				ToPort:   pulumi.Int(443),
@@ -71,8 +72,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Filter
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -103,6 +107,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetPrefixList(ctx *pulumi.Context, args *GetPrefixListArgs, opts ...pulumi.InvokeOption) (*GetPrefixListResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPrefixListResult

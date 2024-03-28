@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.aws.quicksight.outputs.GetThemeConfigurationTypographyFontFamily;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,16 +44,19 @@ public final class GetThemeConfigurationTypography {
 
         @CustomType.Setter
         public Builder fontFamilies(List<GetThemeConfigurationTypographyFontFamily> fontFamilies) {
-            this.fontFamilies = Objects.requireNonNull(fontFamilies);
+            if (fontFamilies == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationTypography", "fontFamilies");
+            }
+            this.fontFamilies = fontFamilies;
             return this;
         }
         public Builder fontFamilies(GetThemeConfigurationTypographyFontFamily... fontFamilies) {
             return fontFamilies(List.of(fontFamilies));
         }
         public GetThemeConfigurationTypography build() {
-            final var o = new GetThemeConfigurationTypography();
-            o.fontFamilies = fontFamilies;
-            return o;
+            final var _resultValue = new GetThemeConfigurationTypography();
+            _resultValue.fontFamilies = fontFamilies;
+            return _resultValue;
         }
     }
 }

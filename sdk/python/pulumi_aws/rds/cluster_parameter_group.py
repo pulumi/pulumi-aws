@@ -282,13 +282,15 @@ class ClusterParameterGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         default = aws.rds.ClusterParameterGroup("default",
-            description="RDS default cluster parameter group",
+            name="rds-cluster-pg",
             family="aurora5.6",
+            description="RDS default cluster parameter group",
             parameters=[
                 aws.rds.ClusterParameterGroupParameterArgs(
                     name="character_set_server",
@@ -300,13 +302,14 @@ class ClusterParameterGroup(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import RDS Cluster Parameter Groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:rds/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
+        $ pulumi import aws:rds/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
         ```
 
         :param str resource_name: The name of the resource.
@@ -332,13 +335,15 @@ class ClusterParameterGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         default = aws.rds.ClusterParameterGroup("default",
-            description="RDS default cluster parameter group",
+            name="rds-cluster-pg",
             family="aurora5.6",
+            description="RDS default cluster parameter group",
             parameters=[
                 aws.rds.ClusterParameterGroupParameterArgs(
                     name="character_set_server",
@@ -350,13 +355,14 @@ class ClusterParameterGroup(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import RDS Cluster Parameter Groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:rds/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
+        $ pulumi import aws:rds/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
         ```
 
         :param str resource_name: The name of the resource.
@@ -401,8 +407,6 @@ class ClusterParameterGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ClusterParameterGroup, __self__).__init__(
             'aws:rds/clusterParameterGroup:ClusterParameterGroup',
             resource_name,

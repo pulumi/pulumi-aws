@@ -25,7 +25,10 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** The user or role that use this resource must have the `cloudformation:GetTemplate` IAM policy permission. This policy permission is required when using the `template_physical_id` argument.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,21 +51,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ProvisioningArtifact(&#34;example&#34;, ProvisioningArtifactArgs.builder()        
- *             .productId(aws_servicecatalog_product.example().id())
+ *             .name(&#34;example&#34;)
+ *             .productId(exampleAwsServicecatalogProduct.id())
  *             .type(&#34;CLOUD_FORMATION_TEMPLATE&#34;)
- *             .templateUrl(String.format(&#34;https://%s/%s&#34;, aws_s3_bucket.example().bucket_regional_domain_name(),aws_s3_object.example().key()))
+ *             .templateUrl(String.format(&#34;https://%s/%s&#34;, exampleAwsS3Bucket.bucketRegionalDomainName(),exampleAwsS3Object.key()))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_servicecatalog_provisioning_artifact` using the provisioning artifact ID and product ID separated by a colon. For example:
  * 
  * ```sh
- *  $ pulumi import aws:servicecatalog/provisioningArtifact:ProvisioningArtifact example pa-ij2b6lusy6dec:prod-el3an0rma3
+ * $ pulumi import aws:servicecatalog/provisioningArtifact:ProvisioningArtifact example pa-ij2b6lusy6dec:prod-el3an0rma3
  * ```
  * 
  */

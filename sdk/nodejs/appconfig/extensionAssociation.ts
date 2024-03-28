@@ -9,12 +9,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testTopic = new aws.sns.Topic("testTopic", {});
- * const testPolicyDocument = aws.iam.getPolicyDocument({
+ * const testTopic = new aws.sns.Topic("test", {name: "test"});
+ * const test = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
  *         principals: [{
@@ -23,8 +24,12 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: testPolicyDocument.then(testPolicyDocument => testPolicyDocument.json)});
- * const testExtension = new aws.appconfig.Extension("testExtension", {
+ * const testRole = new aws.iam.Role("test", {
+ *     name: "test",
+ *     assumeRolePolicy: test.then(test => test.json),
+ * });
+ * const testExtension = new aws.appconfig.Extension("test", {
+ *     name: "test",
  *     description: "test description",
  *     actionPoints: [{
  *         point: "ON_DEPLOYMENT_COMPLETE",
@@ -38,19 +43,20 @@ import * as utilities from "../utilities";
  *         Type: "AppConfig Extension",
  *     },
  * });
- * const testApplication = new aws.appconfig.Application("testApplication", {});
- * const testExtensionAssociation = new aws.appconfig.ExtensionAssociation("testExtensionAssociation", {
+ * const testApplication = new aws.appconfig.Application("test", {name: "test"});
+ * const testExtensionAssociation = new aws.appconfig.ExtensionAssociation("test", {
  *     extensionArn: testExtension.arn,
  *     resourceArn: testApplication.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
+ * $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
  * ```
  */
 export class ExtensionAssociation extends pulumi.CustomResource {

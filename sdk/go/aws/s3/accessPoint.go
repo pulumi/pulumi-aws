@@ -18,9 +18,13 @@ import (
 //
 // > Advanced usage: To use a custom API endpoint for this resource, use the `s3control` endpoint provider configuration), not the `s3` endpoint provider configuration.
 //
-// ## Example Usage
-// ### AWS Partition Bucket
+// > This resource cannot be used with S3 directory buckets.
 //
+// ## Example Usage
+//
+// ### AWS Partition General Purpose Bucket
+//
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,12 +37,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewAccessPoint(ctx, "exampleAccessPoint", &s3.AccessPointArgs{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewAccessPoint(ctx, "example", &s3.AccessPointArgs{
+//				Bucket: example.ID(),
+//				Name:   pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -48,8 +55,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### S3 on Outposts Bucket
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,20 +74,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucket, err := s3control.NewBucket(ctx, "exampleBucket", &s3control.BucketArgs{
+//			example, err := s3control.NewBucket(ctx, "example", &s3control.BucketArgs{
 //				Bucket: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//			exampleVpc, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("10.0.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewAccessPoint(ctx, "exampleAccessPoint", &s3.AccessPointArgs{
-//				Bucket: exampleBucket.Arn,
+//			_, err = s3.NewAccessPoint(ctx, "example", &s3.AccessPointArgs{
+//				Bucket: example.Arn,
+//				Name:   pulumi.String("example"),
 //				VpcConfiguration: &s3.AccessPointVpcConfigurationArgs{
 //					VpcId: exampleVpc.ID(),
 //				},
@@ -90,6 +101,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -100,17 +112,12 @@ import (
 // Import using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucket:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
-//
+// $ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
 // ```
-//
-//	Import using the ARN for Access Points associated with an S3 on Outposts Bucket:
+// Import using the ARN for Access Points associated with an S3 on Outposts Bucket:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
-//
+// $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
 // ```
 type AccessPoint struct {
 	pulumi.CustomResourceState
@@ -121,7 +128,7 @@ type AccessPoint struct {
 	Alias pulumi.StringOutput `pulumi:"alias"`
 	// ARN of the S3 Access Point.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+	// Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// AWS account ID associated with the S3 bucket associated with this access point.
 	BucketAccountId pulumi.StringOutput `pulumi:"bucketAccountId"`
@@ -185,7 +192,7 @@ type accessPointState struct {
 	Alias *string `pulumi:"alias"`
 	// ARN of the S3 Access Point.
 	Arn *string `pulumi:"arn"`
-	// Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+	// Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
 	Bucket *string `pulumi:"bucket"`
 	// AWS account ID associated with the S3 bucket associated with this access point.
 	BucketAccountId *string `pulumi:"bucketAccountId"`
@@ -217,7 +224,7 @@ type AccessPointState struct {
 	Alias pulumi.StringPtrInput
 	// ARN of the S3 Access Point.
 	Arn pulumi.StringPtrInput
-	// Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+	// Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
 	Bucket pulumi.StringPtrInput
 	// AWS account ID associated with the S3 bucket associated with this access point.
 	BucketAccountId pulumi.StringPtrInput
@@ -249,7 +256,7 @@ func (AccessPointState) ElementType() reflect.Type {
 type accessPointArgs struct {
 	// AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`
-	// Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+	// Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
 	Bucket string `pulumi:"bucket"`
 	// AWS account ID associated with the S3 bucket associated with this access point.
 	BucketAccountId *string `pulumi:"bucketAccountId"`
@@ -269,7 +276,7 @@ type accessPointArgs struct {
 type AccessPointArgs struct {
 	// AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringPtrInput
-	// Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+	// Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
 	Bucket pulumi.StringInput
 	// AWS account ID associated with the S3 bucket associated with this access point.
 	BucketAccountId pulumi.StringPtrInput
@@ -387,7 +394,7 @@ func (o AccessPointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+// Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
 func (o AccessPointOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }

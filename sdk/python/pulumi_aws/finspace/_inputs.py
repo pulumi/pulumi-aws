@@ -17,12 +17,17 @@ __all__ = [
     'KxClusterDatabaseArgs',
     'KxClusterDatabaseCacheConfigurationArgs',
     'KxClusterSavedownStorageConfigurationArgs',
+    'KxClusterScalingGroupConfigurationArgs',
+    'KxClusterTickerplantLogConfigurationArgs',
     'KxClusterVpcConfigurationArgs',
+    'KxDataviewSegmentConfigurationArgs',
     'KxEnvironmentCustomDnsConfigurationArgs',
     'KxEnvironmentTransitGatewayConfigurationArgs',
     'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs',
     'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs',
     'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs',
+    'KxVolumeAttachedClusterArgs',
+    'KxVolumeNas1ConfigurationArgs',
 ]
 
 @pulumi.input_type
@@ -136,6 +141,8 @@ class KxClusterCacheStorageConfigurationArgs:
                * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
                * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
                * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
+               * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
+               * Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
         """
         pulumi.set(__self__, "size", size)
         pulumi.set(__self__, "type", type)
@@ -163,6 +170,8 @@ class KxClusterCacheStorageConfigurationArgs:
         * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
         * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
         * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
+        * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
+        * Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
         """
         return pulumi.get(self, "type")
 
@@ -284,17 +293,21 @@ class KxClusterDatabaseArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  cache_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseCacheConfigurationArgs']]]] = None,
-                 changeset_id: Optional[pulumi.Input[str]] = None):
+                 changeset_id: Optional[pulumi.Input[str]] = None,
+                 dataview_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] database_name: Name of the KX database.
         :param pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseCacheConfigurationArgs']]] cache_configurations: Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
         :param pulumi.Input[str] changeset_id: A unique identifier of the changeset that is associated with the cluster.
+        :param pulumi.Input[str] dataview_name: The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignore_changes` for database to prevent any undesirable behaviors.
         """
         pulumi.set(__self__, "database_name", database_name)
         if cache_configurations is not None:
             pulumi.set(__self__, "cache_configurations", cache_configurations)
         if changeset_id is not None:
             pulumi.set(__self__, "changeset_id", changeset_id)
+        if dataview_name is not None:
+            pulumi.set(__self__, "dataview_name", dataview_name)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -331,6 +344,18 @@ class KxClusterDatabaseArgs:
     @changeset_id.setter
     def changeset_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "changeset_id", value)
+
+    @property
+    @pulumi.getter(name="dataviewName")
+    def dataview_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignore_changes` for database to prevent any undesirable behaviors.
+        """
+        return pulumi.get(self, "dataview_name")
+
+    @dataview_name.setter
+    def dataview_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dataview_name", value)
 
 
 @pulumi.input_type
@@ -374,31 +399,37 @@ class KxClusterDatabaseCacheConfigurationArgs:
 @pulumi.input_type
 class KxClusterSavedownStorageConfigurationArgs:
     def __init__(__self__, *,
-                 size: pulumi.Input[int],
-                 type: pulumi.Input[str]):
+                 size: Optional[pulumi.Input[int]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 volume_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] size: Size of temporary storage in gigabytes. Must be between 10 and 16000.
         :param pulumi.Input[str] type: Type of writeable storage space for temporarily storing your savedown data. The valid values are:
                * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
+        :param pulumi.Input[str] volume_name: The name of the kdb volume that you want to use as writeable save-down storage for clusters.
         """
-        pulumi.set(__self__, "size", size)
-        pulumi.set(__self__, "type", type)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if volume_name is not None:
+            pulumi.set(__self__, "volume_name", volume_name)
 
     @property
     @pulumi.getter
-    def size(self) -> pulumi.Input[int]:
+    def size(self) -> Optional[pulumi.Input[int]]:
         """
         Size of temporary storage in gigabytes. Must be between 10 and 16000.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: pulumi.Input[int]):
+    def size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "size", value)
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> Optional[pulumi.Input[str]]:
         """
         Type of writeable storage space for temporarily storing your savedown data. The valid values are:
         * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
@@ -406,8 +437,120 @@ class KxClusterSavedownStorageConfigurationArgs:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="volumeName")
+    def volume_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the kdb volume that you want to use as writeable save-down storage for clusters.
+        """
+        return pulumi.get(self, "volume_name")
+
+    @volume_name.setter
+    def volume_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "volume_name", value)
+
+
+@pulumi.input_type
+class KxClusterScalingGroupConfigurationArgs:
+    def __init__(__self__, *,
+                 memory_reservation: pulumi.Input[int],
+                 node_count: pulumi.Input[int],
+                 scaling_group_name: pulumi.Input[str],
+                 cpu: Optional[pulumi.Input[float]] = None,
+                 memory_limit: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] memory_reservation: A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
+        :param pulumi.Input[int] node_count: The number of kdb cluster nodes.
+        :param pulumi.Input[str] scaling_group_name: A unique identifier for the kdb scaling group.
+        :param pulumi.Input[float] cpu: The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
+        :param pulumi.Input[int] memory_limit: An optional hard limit on the amount of memory a kdb cluster can use.
+        """
+        pulumi.set(__self__, "memory_reservation", memory_reservation)
+        pulumi.set(__self__, "node_count", node_count)
+        pulumi.set(__self__, "scaling_group_name", scaling_group_name)
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if memory_limit is not None:
+            pulumi.set(__self__, "memory_limit", memory_limit)
+
+    @property
+    @pulumi.getter(name="memoryReservation")
+    def memory_reservation(self) -> pulumi.Input[int]:
+        """
+        A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
+        """
+        return pulumi.get(self, "memory_reservation")
+
+    @memory_reservation.setter
+    def memory_reservation(self, value: pulumi.Input[int]):
+        pulumi.set(self, "memory_reservation", value)
+
+    @property
+    @pulumi.getter(name="nodeCount")
+    def node_count(self) -> pulumi.Input[int]:
+        """
+        The number of kdb cluster nodes.
+        """
+        return pulumi.get(self, "node_count")
+
+    @node_count.setter
+    def node_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "node_count", value)
+
+    @property
+    @pulumi.getter(name="scalingGroupName")
+    def scaling_group_name(self) -> pulumi.Input[str]:
+        """
+        A unique identifier for the kdb scaling group.
+        """
+        return pulumi.get(self, "scaling_group_name")
+
+    @scaling_group_name.setter
+    def scaling_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scaling_group_name", value)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
+        """
+        return pulumi.get(self, "cpu")
+
+    @cpu.setter
+    def cpu(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "cpu", value)
+
+    @property
+    @pulumi.getter(name="memoryLimit")
+    def memory_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        An optional hard limit on the amount of memory a kdb cluster can use.
+        """
+        return pulumi.get(self, "memory_limit")
+
+    @memory_limit.setter
+    def memory_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "memory_limit", value)
+
+
+@pulumi.input_type
+class KxClusterTickerplantLogConfigurationArgs:
+    def __init__(__self__, *,
+                 tickerplant_log_volumes: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(__self__, "tickerplant_log_volumes", tickerplant_log_volumes)
+
+    @property
+    @pulumi.getter(name="tickerplantLogVolumes")
+    def tickerplant_log_volumes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "tickerplant_log_volumes")
+
+    @tickerplant_log_volumes.setter
+    def tickerplant_log_volumes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "tickerplant_log_volumes", value)
 
 
 @pulumi.input_type
@@ -473,6 +616,59 @@ class KxClusterVpcConfigurationArgs:
     @vpc_id.setter
     def vpc_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "vpc_id", value)
+
+
+@pulumi.input_type
+class KxDataviewSegmentConfigurationArgs:
+    def __init__(__self__, *,
+                 db_paths: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 volume_name: pulumi.Input[str],
+                 on_demand: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] db_paths: The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
+        :param pulumi.Input[str] volume_name: The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
+        :param pulumi.Input[bool] on_demand: Enables on-demand caching on the selected database path when a particular file or a column of the database is accessed. When on demand caching is **True**, dataviews perform minimal loading of files on the filesystem as needed. When it is set to **False**, everything is cached. The default value is **False**.
+        """
+        pulumi.set(__self__, "db_paths", db_paths)
+        pulumi.set(__self__, "volume_name", volume_name)
+        if on_demand is not None:
+            pulumi.set(__self__, "on_demand", on_demand)
+
+    @property
+    @pulumi.getter(name="dbPaths")
+    def db_paths(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
+        """
+        return pulumi.get(self, "db_paths")
+
+    @db_paths.setter
+    def db_paths(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "db_paths", value)
+
+    @property
+    @pulumi.getter(name="volumeName")
+    def volume_name(self) -> pulumi.Input[str]:
+        """
+        The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
+        """
+        return pulumi.get(self, "volume_name")
+
+    @volume_name.setter
+    def volume_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "volume_name", value)
+
+    @property
+    @pulumi.getter(name="onDemand")
+    def on_demand(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables on-demand caching on the selected database path when a particular file or a column of the database is accessed. When on demand caching is **True**, dataviews perform minimal loading of files on the filesystem as needed. When it is set to **False**, everything is cached. The default value is **False**.
+        """
+        return pulumi.get(self, "on_demand")
+
+    @on_demand.setter
+    def on_demand(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "on_demand", value)
 
 
 @pulumi.input_type
@@ -736,5 +932,80 @@ class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationP
     @to.setter
     def to(self, value: pulumi.Input[int]):
         pulumi.set(self, "to", value)
+
+
+@pulumi.input_type
+class KxVolumeAttachedClusterArgs:
+    def __init__(__self__, *,
+                 cluster_name: pulumi.Input[str],
+                 cluster_status: pulumi.Input[str],
+                 cluster_type: pulumi.Input[str]):
+        pulumi.set(__self__, "cluster_name", cluster_name)
+        pulumi.set(__self__, "cluster_status", cluster_status)
+        pulumi.set(__self__, "cluster_type", cluster_type)
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter(name="clusterStatus")
+    def cluster_status(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "cluster_status")
+
+    @cluster_status.setter
+    def cluster_status(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_status", value)
+
+    @property
+    @pulumi.getter(name="clusterType")
+    def cluster_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "cluster_type")
+
+    @cluster_type.setter
+    def cluster_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_type", value)
+
+
+@pulumi.input_type
+class KxVolumeNas1ConfigurationArgs:
+    def __init__(__self__, *,
+                 size: pulumi.Input[int],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] size: The size of the network attached storage.
+        :param pulumi.Input[str] type: The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
+        """
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def size(self) -> pulumi.Input[int]:
+        """
+        The size of the network attached storage.
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: pulumi.Input[int]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 

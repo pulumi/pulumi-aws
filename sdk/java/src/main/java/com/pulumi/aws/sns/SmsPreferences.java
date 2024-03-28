@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a way to set SNS SMS preferences.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,6 +46,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Import
+ * 
+ * You cannot import the SMS preferences.
  * 
  */
 @ResourceType(type="aws:sns/smsPreferences:SmsPreferences")

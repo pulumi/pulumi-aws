@@ -309,11 +309,13 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
 
         The example below creates a CloudFront response headers policy.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cloudfront.ResponseHeadersPolicy("example",
+            name="example-policy",
             comment="test comment",
             cors_config=aws.cloudfront.ResponseHeadersPolicyCorsConfigArgs(
                 access_control_allow_credentials=True,
@@ -329,36 +331,43 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                 origin_override=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         The example below creates a CloudFront response headers policy with a custom headers config.
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudfront.ResponseHeadersPolicy("example", custom_headers_config=aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs(
-            items=[
-                aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
-                    header="X-Permitted-Cross-Domain-Policies",
-                    override=True,
-                    value="none",
-                ),
-                aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
-                    header="X-Test",
-                    override=True,
-                    value="none",
-                ),
-            ],
-        ))
-        ```
-
-        The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
-
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cloudfront.ResponseHeadersPolicy("example",
+            name="example-headers-policy",
+            custom_headers_config=aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs(
+                items=[
+                    aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
+                        header="X-Permitted-Cross-Domain-Policies",
+                        override=True,
+                        value="none",
+                    ),
+                    aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
+                        header="X-Test",
+                        override=True,
+                        value="none",
+                    ),
+                ],
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
+        The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudfront.ResponseHeadersPolicy("example",
+            name="example-headers-policy",
             custom_headers_config=aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs(
                 items=[aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
                     header="X-Permitted-Cross-Domain-Policies",
@@ -371,13 +380,14 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                 sampling_rate=50,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cloudfront Response Headers Policies using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f9
+        $ pulumi import aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f9
         ```
 
         :param str resource_name: The name of the resource.
@@ -407,11 +417,13 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
 
         The example below creates a CloudFront response headers policy.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cloudfront.ResponseHeadersPolicy("example",
+            name="example-policy",
             comment="test comment",
             cors_config=aws.cloudfront.ResponseHeadersPolicyCorsConfigArgs(
                 access_control_allow_credentials=True,
@@ -427,36 +439,43 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                 origin_override=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         The example below creates a CloudFront response headers policy with a custom headers config.
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudfront.ResponseHeadersPolicy("example", custom_headers_config=aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs(
-            items=[
-                aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
-                    header="X-Permitted-Cross-Domain-Policies",
-                    override=True,
-                    value="none",
-                ),
-                aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
-                    header="X-Test",
-                    override=True,
-                    value="none",
-                ),
-            ],
-        ))
-        ```
-
-        The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
-
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cloudfront.ResponseHeadersPolicy("example",
+            name="example-headers-policy",
+            custom_headers_config=aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs(
+                items=[
+                    aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
+                        header="X-Permitted-Cross-Domain-Policies",
+                        override=True,
+                        value="none",
+                    ),
+                    aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
+                        header="X-Test",
+                        override=True,
+                        value="none",
+                    ),
+                ],
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
+        The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudfront.ResponseHeadersPolicy("example",
+            name="example-headers-policy",
             custom_headers_config=aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs(
                 items=[aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
                     header="X-Permitted-Cross-Domain-Policies",
@@ -469,13 +488,14 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                 sampling_rate=50,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cloudfront Response Headers Policies using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f9
+        $ pulumi import aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f9
         ```
 
         :param str resource_name: The name of the resource.

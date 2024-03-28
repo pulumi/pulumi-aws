@@ -4,6 +4,7 @@
 package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class HoursOfOperationConfigStartTime {
 
         @CustomType.Setter
         public Builder hours(Integer hours) {
-            this.hours = Objects.requireNonNull(hours);
+            if (hours == null) {
+              throw new MissingRequiredPropertyException("HoursOfOperationConfigStartTime", "hours");
+            }
+            this.hours = hours;
             return this;
         }
         @CustomType.Setter
         public Builder minutes(Integer minutes) {
-            this.minutes = Objects.requireNonNull(minutes);
+            if (minutes == null) {
+              throw new MissingRequiredPropertyException("HoursOfOperationConfigStartTime", "minutes");
+            }
+            this.minutes = minutes;
             return this;
         }
         public HoursOfOperationConfigStartTime build() {
-            final var o = new HoursOfOperationConfigStartTime();
-            o.hours = hours;
-            o.minutes = minutes;
-            return o;
+            final var _resultValue = new HoursOfOperationConfigStartTime();
+            _resultValue.hours = hours;
+            _resultValue.minutes = minutes;
+            return _resultValue;
         }
     }
 }

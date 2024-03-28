@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Retrieve information about an EKS add-on.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -29,17 +28,16 @@ namespace Pulumi.Aws.Eks
         ///     var example = Aws.Eks.GetAddon.Invoke(new()
         ///     {
         ///         AddonName = "vpc-cni",
-        ///         ClusterName = aws_eks_cluster.Example.Name,
+        ///         ClusterName = exampleAwsEksCluster.Name,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["eksAddonOutputs"] = aws_eks_addon.Example,
+        ///         ["eksAddonOutputs"] = exampleAwsEksAddon,
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAddonResult> InvokeAsync(GetAddonArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAddonResult>("aws:eks/getAddon:getAddon", args ?? new GetAddonArgs(), options.WithDefaults());
@@ -47,10 +45,9 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Retrieve information about an EKS add-on.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,17 +59,16 @@ namespace Pulumi.Aws.Eks
         ///     var example = Aws.Eks.GetAddon.Invoke(new()
         ///     {
         ///         AddonName = "vpc-cni",
-        ///         ClusterName = aws_eks_cluster.Example.Name,
+        ///         ClusterName = exampleAwsEksCluster.Name,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["eksAddonOutputs"] = aws_eks_addon.Example,
+        ///         ["eksAddonOutputs"] = exampleAwsEksAddon,
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAddonResult> Invoke(GetAddonInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAddonResult>("aws:eks/getAddon:getAddon", args ?? new GetAddonInvokeArgs(), options.WithDefaults());
@@ -89,7 +85,7 @@ namespace Pulumi.Aws.Eks
         public string AddonName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// Name of the EKS Cluster.
         /// </summary>
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
@@ -118,7 +114,7 @@ namespace Pulumi.Aws.Eks
         public Input<string> AddonName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// Name of the EKS Cluster.
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;

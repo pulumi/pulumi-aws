@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,19 +28,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := macie2.NewAccount(ctx, "exampleAccount", nil)
+//			_, err := macie2.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = macie2.NewClassificationExportConfiguration(ctx, "exampleClassificationExportConfiguration", &macie2.ClassificationExportConfigurationArgs{
+//			_, err = macie2.NewClassificationExportConfiguration(ctx, "example", &macie2.ClassificationExportConfigurationArgs{
 //				S3Destination: &macie2.ClassificationExportConfigurationS3DestinationArgs{
-//					BucketName: pulumi.Any(aws_s3_bucket.Example.Bucket),
+//					BucketName: pulumi.Any(exampleAwsS3Bucket.Bucket),
 //					KeyPrefix:  pulumi.String("exampleprefix/"),
-//					KmsKeyArn:  pulumi.Any(aws_kms_key.Example.Arn),
+//					KmsKeyArn:  pulumi.Any(exampleAwsKmsKey.Arn),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -48,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_macie2_classification_export_configuration` using the account ID and region. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
-//
+// $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
 // ```
 type ClassificationExportConfiguration struct {
 	pulumi.CustomResourceState

@@ -10,6 +10,11 @@ export type Channel = import("./channel").Channel;
 export const Channel: typeof import("./channel").Channel = null as any;
 utilities.lazyLoad(exports, ["Channel"], () => require("./channel"));
 
+export { GetInputArgs, GetInputResult, GetInputOutputArgs } from "./getInput";
+export const getInput: typeof import("./getInput").getInput = null as any;
+export const getInputOutput: typeof import("./getInput").getInputOutput = null as any;
+utilities.lazyLoad(exports, ["getInput","getInputOutput"], () => require("./getInput"));
+
 export { InputArgs, InputState } from "./input";
 export type Input = import("./input").Input;
 export const Input: typeof import("./input").Input = null as any;

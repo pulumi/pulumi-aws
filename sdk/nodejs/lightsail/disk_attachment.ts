@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,28 +21,31 @@ import * as utilities from "../utilities";
  *         values: ["opt-in-not-required"],
  *     }],
  * });
- * const testDisk = new aws.lightsail.Disk("testDisk", {
+ * const test = new aws.lightsail.Disk("test", {
+ *     name: "test-disk",
  *     sizeInGb: 8,
  *     availabilityZone: available.then(available => available.names?.[0]),
  * });
- * const testInstance = new aws.lightsail.Instance("testInstance", {
+ * const testInstance = new aws.lightsail.Instance("test", {
+ *     name: "test-instance",
  *     availabilityZone: available.then(available => available.names?.[0]),
  *     blueprintId: "amazon_linux_2",
  *     bundleId: "nano_1_0",
  * });
- * const testDisk_attachment = new aws.lightsail.Disk_attachment("testDisk_attachment", {
- *     diskName: testDisk.name,
+ * const testDisk_attachment = new aws.lightsail.Disk_attachment("test", {
+ *     diskName: test.name,
  *     instanceName: testInstance.name,
  *     diskPath: "/dev/xvdf",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_lightsail_disk` using the id attribute. For example:
  *
  * ```sh
- *  $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
+ * $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
  * ```
  */
 export class Disk_attachment extends pulumi.CustomResource {

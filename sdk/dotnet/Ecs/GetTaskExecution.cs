@@ -16,9 +16,39 @@ namespace Pulumi.Aws.Ecs
         /// 
         /// &gt; **NOTE on preview operations:** This data source calls the `RunTask` API on every read operation, which means new task(s) may be created from a `pulumi preview` command if all attributes are known. Placing this functionality behind a data source is an intentional trade off to enable use cases requiring a one-time task execution without relying on provisioners. Caution should be taken to ensure the data source is only executed once, or that the resulting tasks can safely run in parallel.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% /examples %}}
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ecs.GetTaskExecution.Invoke(new()
+        ///     {
+        ///         Cluster = exampleAwsEcsCluster.Id,
+        ///         TaskDefinition = exampleAwsEcsTaskDefinition.Arn,
+        ///         DesiredCount = 1,
+        ///         LaunchType = "FARGATE",
+        ///         NetworkConfiguration = new Aws.Ecs.Inputs.GetTaskExecutionNetworkConfigurationInputArgs
+        ///         {
+        ///             Subnets = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
+        ///             SecurityGroups = new[]
+        ///             {
+        ///                 exampleAwsSecurityGroup.Id,
+        ///             },
+        ///             AssignPublicIp = false,
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTaskExecutionResult> InvokeAsync(GetTaskExecutionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTaskExecutionResult>("aws:ecs/getTaskExecution:getTaskExecution", args ?? new GetTaskExecutionArgs(), options.WithDefaults());
@@ -28,9 +58,39 @@ namespace Pulumi.Aws.Ecs
         /// 
         /// &gt; **NOTE on preview operations:** This data source calls the `RunTask` API on every read operation, which means new task(s) may be created from a `pulumi preview` command if all attributes are known. Placing this functionality behind a data source is an intentional trade off to enable use cases requiring a one-time task execution without relying on provisioners. Caution should be taken to ensure the data source is only executed once, or that the resulting tasks can safely run in parallel.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% /examples %}}
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ecs.GetTaskExecution.Invoke(new()
+        ///     {
+        ///         Cluster = exampleAwsEcsCluster.Id,
+        ///         TaskDefinition = exampleAwsEcsTaskDefinition.Arn,
+        ///         DesiredCount = 1,
+        ///         LaunchType = "FARGATE",
+        ///         NetworkConfiguration = new Aws.Ecs.Inputs.GetTaskExecutionNetworkConfigurationInputArgs
+        ///         {
+        ///             Subnets = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
+        ///             SecurityGroups = new[]
+        ///             {
+        ///                 exampleAwsSecurityGroup.Id,
+        ///             },
+        ///             AssignPublicIp = false,
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTaskExecutionResult> Invoke(GetTaskExecutionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTaskExecutionResult>("aws:ecs/getTaskExecution:getTaskExecution", args ?? new GetTaskExecutionInvokeArgs(), options.WithDefaults());
@@ -50,6 +110,12 @@ namespace Pulumi.Aws.Ecs
             get => _capacityProviderStrategies ?? (_capacityProviderStrategies = new List<Inputs.GetTaskExecutionCapacityProviderStrategyArgs>());
             set => _capacityProviderStrategies = value;
         }
+
+        /// <summary>
+        /// An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+        /// </summary>
+        [Input("clientToken")]
+        public string? ClientToken { get; set; }
 
         /// <summary>
         /// Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
@@ -188,6 +254,12 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
+        /// An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+        /// </summary>
+        [Input("clientToken")]
+        public Input<string>? ClientToken { get; set; }
+
+        /// <summary>
         /// Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
         /// </summary>
         [Input("cluster", required: true)]
@@ -314,6 +386,7 @@ namespace Pulumi.Aws.Ecs
     public sealed class GetTaskExecutionResult
     {
         public readonly ImmutableArray<Outputs.GetTaskExecutionCapacityProviderStrategyResult> CapacityProviderStrategies;
+        public readonly string? ClientToken;
         public readonly string Cluster;
         public readonly int? DesiredCount;
         public readonly bool? EnableEcsManagedTags;
@@ -342,6 +415,8 @@ namespace Pulumi.Aws.Ecs
         [OutputConstructor]
         private GetTaskExecutionResult(
             ImmutableArray<Outputs.GetTaskExecutionCapacityProviderStrategyResult> capacityProviderStrategies,
+
+            string? clientToken,
 
             string cluster,
 
@@ -380,6 +455,7 @@ namespace Pulumi.Aws.Ecs
             string taskDefinition)
         {
             CapacityProviderStrategies = capacityProviderStrategies;
+            ClientToken = clientToken;
             Cluster = cluster;
             DesiredCount = desiredCount;
             EnableEcsManagedTags = enableEcsManagedTags;

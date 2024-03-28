@@ -16,6 +16,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,7 +37,7 @@ namespace Pulumi.Aws.ElastiCache
     ///         },
     ///     });
     /// 
-    ///     var exampleUserGroup = new Aws.ElastiCache.UserGroup("exampleUserGroup", new()
+    ///     var example = new Aws.ElastiCache.UserGroup("example", new()
     ///     {
     ///         Engine = "REDIS",
     ///         UserGroupId = "userGroupId",
@@ -46,7 +47,7 @@ namespace Pulumi.Aws.ElastiCache
     ///         },
     ///     });
     /// 
-    ///     var exampleUser = new Aws.ElastiCache.User("exampleUser", new()
+    ///     var exampleUser = new Aws.ElastiCache.User("example", new()
     ///     {
     ///         UserId = "exampleUserID",
     ///         UserName = "exampleuser",
@@ -58,21 +59,22 @@ namespace Pulumi.Aws.ElastiCache
     ///         },
     ///     });
     /// 
-    ///     var exampleUserGroupAssociation = new Aws.ElastiCache.UserGroupAssociation("exampleUserGroupAssociation", new()
+    ///     var exampleUserGroupAssociation = new Aws.ElastiCache.UserGroupAssociation("example", new()
     ///     {
-    ///         UserGroupId = exampleUserGroup.UserGroupId,
+    ///         UserGroupId = example.UserGroupId,
     ///         UserId = exampleUser.UserId,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
+    /// $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticache/userGroupAssociation:UserGroupAssociation")]

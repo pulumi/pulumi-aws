@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Attaches a Lightsail disk to a Lightsail Instance
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,19 +54,21 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testDisk = new Disk(&#34;testDisk&#34;, DiskArgs.builder()        
+ *         var test = new Disk(&#34;test&#34;, DiskArgs.builder()        
+ *             .name(&#34;test-disk&#34;)
  *             .sizeInGb(8)
  *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
  *             .build());
  * 
  *         var testInstance = new Instance(&#34;testInstance&#34;, InstanceArgs.builder()        
+ *             .name(&#34;test-instance&#34;)
  *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
  *             .blueprintId(&#34;amazon_linux_2&#34;)
  *             .bundleId(&#34;nano_1_0&#34;)
  *             .build());
  * 
  *         var testDisk_attachment = new Disk_attachment(&#34;testDisk_attachment&#34;, Disk_attachmentArgs.builder()        
- *             .diskName(testDisk.name())
+ *             .diskName(test.name())
  *             .instanceName(testInstance.name())
  *             .diskPath(&#34;/dev/xvdf&#34;)
  *             .build());
@@ -72,13 +76,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_lightsail_disk` using the id attribute. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
+ * $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
  * ```
  * 
  */

@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetLocalGatewayVirtualInterfaceGroupsFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -86,6 +87,7 @@ public final class GetLocalGatewayVirtualInterfaceGroupsResult {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<GetLocalGatewayVirtualInterfaceGroupsFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -94,12 +96,18 @@ public final class GetLocalGatewayVirtualInterfaceGroupsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayVirtualInterfaceGroupsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+            if (ids == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayVirtualInterfaceGroupsResult", "ids");
+            }
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {
@@ -107,7 +115,10 @@ public final class GetLocalGatewayVirtualInterfaceGroupsResult {
         }
         @CustomType.Setter
         public Builder localGatewayVirtualInterfaceIds(List<String> localGatewayVirtualInterfaceIds) {
-            this.localGatewayVirtualInterfaceIds = Objects.requireNonNull(localGatewayVirtualInterfaceIds);
+            if (localGatewayVirtualInterfaceIds == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayVirtualInterfaceGroupsResult", "localGatewayVirtualInterfaceIds");
+            }
+            this.localGatewayVirtualInterfaceIds = localGatewayVirtualInterfaceIds;
             return this;
         }
         public Builder localGatewayVirtualInterfaceIds(String... localGatewayVirtualInterfaceIds) {
@@ -115,17 +126,20 @@ public final class GetLocalGatewayVirtualInterfaceGroupsResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayVirtualInterfaceGroupsResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetLocalGatewayVirtualInterfaceGroupsResult build() {
-            final var o = new GetLocalGatewayVirtualInterfaceGroupsResult();
-            o.filters = filters;
-            o.id = id;
-            o.ids = ids;
-            o.localGatewayVirtualInterfaceIds = localGatewayVirtualInterfaceIds;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetLocalGatewayVirtualInterfaceGroupsResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.localGatewayVirtualInterfaceIds = localGatewayVirtualInterfaceIds;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

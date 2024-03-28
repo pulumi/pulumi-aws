@@ -10,6 +10,7 @@ import com.pulumi.aws.dms.outputs.EndpointElasticsearchSettings;
 import com.pulumi.aws.dms.outputs.EndpointKafkaSettings;
 import com.pulumi.aws.dms.outputs.EndpointKinesisSettings;
 import com.pulumi.aws.dms.outputs.EndpointMongodbSettings;
+import com.pulumi.aws.dms.outputs.EndpointPostgresSettings;
 import com.pulumi.aws.dms.outputs.EndpointRedisSettings;
 import com.pulumi.aws.dms.outputs.EndpointRedshiftSettings;
 import com.pulumi.aws.dms.outputs.EndpointS3Settings;
@@ -31,6 +32,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** All arguments including the password will be stored in the raw state as plain-text. &gt; **Note:** The `s3_settings` argument is deprecated, may not be maintained, and will be removed in a future version. Use the `aws.dms.S3Endpoint` resource instead.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -71,13 +74,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
+ * $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
  * ```
  * 
  */
@@ -289,6 +293,20 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
     public Output<Optional<Integer>> port() {
         return Codegen.optional(this.port);
     }
+    /**
+     * Configuration block for Postgres settings. See below.
+     * 
+     */
+    @Export(name="postgresSettings", refs={EndpointPostgresSettings.class}, tree="[0]")
+    private Output</* @Nullable */ EndpointPostgresSettings> postgresSettings;
+
+    /**
+     * @return Configuration block for Postgres settings. See below.
+     * 
+     */
+    public Output<Optional<EndpointPostgresSettings>> postgresSettings() {
+        return Codegen.optional(this.postgresSettings);
+    }
     @Export(name="redisSettings", refs={EndpointRedisSettings.class}, tree="[0]")
     private Output</* @Nullable */ EndpointRedisSettings> redisSettings;
 
@@ -324,28 +342,32 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.s3Settings);
     }
     /**
-     * ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+     * ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
+     * 
+     * &gt; **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can&#39;t specify both.
      * 
      */
     @Export(name="secretsManagerAccessRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secretsManagerAccessRoleArn;
 
     /**
-     * @return ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+     * @return ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
+     * 
+     * &gt; **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can&#39;t specify both.
      * 
      */
     public Output<Optional<String>> secretsManagerAccessRoleArn() {
         return Codegen.optional(this.secretsManagerAccessRoleArn);
     }
     /**
-     * Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+     * Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
      * 
      */
     @Export(name="secretsManagerArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secretsManagerArn;
 
     /**
-     * @return Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+     * @return Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
      * 
      */
     public Output<Optional<String>> secretsManagerArn() {
@@ -473,8 +495,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "password",
-                "tagsAll"
+                "password"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,6 +20,8 @@ import javax.annotation.Nullable;
  * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,13 +44,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Vocabulary(&#34;example&#34;, VocabularyArgs.builder()        
+ *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *             .name(&#34;example&#34;)
  *             .content(&#34;&#34;&#34;
  * Phrase	IPA	SoundsLike	DisplayAs
  * Los-Angeles			Los Angeles
  * F.B.I.	ɛ f b i aɪ		FBI
- * Etienne		eh-tee-en	
- *             &#34;&#34;&#34;)
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ * Etienne		eh-tee-en	            &#34;&#34;&#34;)
  *             .languageCode(&#34;en-US&#34;)
  *             .tags(Map.of(&#34;Key1&#34;, &#34;Value1&#34;))
  *             .build());
@@ -57,13 +58,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Amazon Connect Vocabularies using the `instance_id` and `vocabulary_id` separated by a colon (`:`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:connect/vocabulary:Vocabulary example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+ * $ pulumi import aws:connect/vocabulary:Vocabulary example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
  * ```
  * 
  */
@@ -262,9 +264,6 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -13,89 +13,110 @@ import * as utilities from "../utilities";
  * > Glue functionality, such as monitoring and logging of jobs, is typically managed with the `defaultArguments` argument. See the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the Glue developer guide for additional information.
  *
  * ## Example Usage
+ *
  * ### Python Job
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Job("example", {
- *     roleArn: aws_iam_role.example.arn,
+ *     name: "example",
+ *     roleArn: exampleAwsIamRole.arn,
  *     command: {
- *         scriptLocation: `s3://${aws_s3_bucket.example.bucket}/example.py`,
+ *         scriptLocation: `s3://${exampleAwsS3Bucket.bucket}/example.py`,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Ray Job
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Job("example", {
- *     roleArn: aws_iam_role.example.arn,
+ *     name: "example",
+ *     roleArn: exampleAwsIamRole.arn,
  *     glueVersion: "4.0",
  *     workerType: "Z.2X",
  *     command: {
  *         name: "glueray",
  *         pythonVersion: "3.9",
  *         runtime: "Ray2.4",
- *         scriptLocation: `s3://${aws_s3_bucket.example.bucket}/example.py`,
+ *         scriptLocation: `s3://${exampleAwsS3Bucket.bucket}/example.py`,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Scala Job
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Job("example", {
- *     roleArn: aws_iam_role.example.arn,
+ *     name: "example",
+ *     roleArn: exampleAwsIamRole.arn,
  *     command: {
- *         scriptLocation: `s3://${aws_s3_bucket.example.bucket}/example.scala`,
+ *         scriptLocation: `s3://${exampleAwsS3Bucket.bucket}/example.scala`,
  *     },
  *     defaultArguments: {
  *         "--job-language": "scala",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Streaming Job
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Job("example", {
- *     roleArn: aws_iam_role.example.arn,
+ *     name: "example streaming job",
+ *     roleArn: exampleAwsIamRole.arn,
  *     command: {
  *         name: "gluestreaming",
- *         scriptLocation: `s3://${aws_s3_bucket.example.bucket}/example.script`,
+ *         scriptLocation: `s3://${exampleAwsS3Bucket.bucket}/example.script`,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Enabling CloudWatch Logs and Metrics
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {retentionInDays: 14});
- * // ... other configuration ...
- * const exampleJob = new aws.glue.Job("exampleJob", {defaultArguments: {
- *     "--continuous-log-logGroup": exampleLogGroup.name,
+ * const example = new aws.cloudwatch.LogGroup("example", {
+ *     name: "example",
+ *     retentionInDays: 14,
+ * });
+ * const exampleJob = new aws.glue.Job("example", {defaultArguments: {
+ *     "--continuous-log-logGroup": example.name,
  *     "--enable-continuous-cloudwatch-log": "true",
  *     "--enable-continuous-log-filter": "true",
  *     "--enable-metrics": "",
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Glue Jobs using `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:glue/job:Job MyJob MyJob
+ * $ pulumi import aws:glue/job:Job MyJob MyJob
  * ```
  */
 export class Job extends pulumi.CustomResource {
@@ -277,8 +298,6 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Job.__pulumiType, name, resourceInputs, opts);
     }
 }

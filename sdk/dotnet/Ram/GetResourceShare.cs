@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Ram
         /// <summary>
         /// `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,10 +33,11 @@ namespace Pulumi.Aws.Ram
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ## Search by filters
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -48,6 +48,7 @@ namespace Pulumi.Aws.Ram
         /// {
         ///     var tagFilter = Aws.Ram.GetResourceShare.Invoke(new()
         ///     {
+        ///         ResourceOwner = "SELF",
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ram.Inputs.GetResourceShareFilterInputArgs
@@ -59,12 +60,11 @@ namespace Pulumi.Aws.Ram
         ///                 },
         ///             },
         ///         },
-        ///         Name = "MyResourceName",
-        ///         ResourceOwner = "SELF",
         ///     });
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetResourceShareResult> InvokeAsync(GetResourceShareArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceShareResult>("aws:ram/getResourceShare:getResourceShare", args ?? new GetResourceShareArgs(), options.WithDefaults());
@@ -72,10 +72,9 @@ namespace Pulumi.Aws.Ram
         /// <summary>
         /// `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -92,10 +91,11 @@ namespace Pulumi.Aws.Ram
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ## Search by filters
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -106,6 +106,7 @@ namespace Pulumi.Aws.Ram
         /// {
         ///     var tagFilter = Aws.Ram.GetResourceShare.Invoke(new()
         ///     {
+        ///         ResourceOwner = "SELF",
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ram.Inputs.GetResourceShareFilterInputArgs
@@ -117,12 +118,11 @@ namespace Pulumi.Aws.Ram
         ///                 },
         ///             },
         ///         },
-        ///         Name = "MyResourceName",
-        ///         ResourceOwner = "SELF",
         ///     });
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetResourceShareResult> Invoke(GetResourceShareInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceShareResult>("aws:ram/getResourceShare:getResourceShare", args ?? new GetResourceShareInvokeArgs(), options.WithDefaults());
@@ -146,8 +146,8 @@ namespace Pulumi.Aws.Ram
         /// <summary>
         /// Name of the tag key to filter on.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("name")]
+        public string? Name { get; set; }
 
         /// <summary>
         /// Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
@@ -196,8 +196,8 @@ namespace Pulumi.Aws.Ram
         /// <summary>
         /// Name of the tag key to filter on.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.

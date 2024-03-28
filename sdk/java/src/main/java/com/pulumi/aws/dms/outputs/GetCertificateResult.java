@@ -4,6 +4,7 @@
 package com.pulumi.aws.dms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -182,79 +183,115 @@ public final class GetCertificateResult {
 
         @CustomType.Setter
         public Builder certificateArn(String certificateArn) {
-            this.certificateArn = Objects.requireNonNull(certificateArn);
+            if (certificateArn == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "certificateArn");
+            }
+            this.certificateArn = certificateArn;
             return this;
         }
         @CustomType.Setter
         public Builder certificateCreationDate(String certificateCreationDate) {
-            this.certificateCreationDate = Objects.requireNonNull(certificateCreationDate);
+            if (certificateCreationDate == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "certificateCreationDate");
+            }
+            this.certificateCreationDate = certificateCreationDate;
             return this;
         }
         @CustomType.Setter
         public Builder certificateId(String certificateId) {
-            this.certificateId = Objects.requireNonNull(certificateId);
+            if (certificateId == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "certificateId");
+            }
+            this.certificateId = certificateId;
             return this;
         }
         @CustomType.Setter
         public Builder certificateOwner(String certificateOwner) {
-            this.certificateOwner = Objects.requireNonNull(certificateOwner);
+            if (certificateOwner == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "certificateOwner");
+            }
+            this.certificateOwner = certificateOwner;
             return this;
         }
         @CustomType.Setter
         public Builder certificatePem(String certificatePem) {
-            this.certificatePem = Objects.requireNonNull(certificatePem);
+            if (certificatePem == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "certificatePem");
+            }
+            this.certificatePem = certificatePem;
             return this;
         }
         @CustomType.Setter
         public Builder certificateWallet(String certificateWallet) {
-            this.certificateWallet = Objects.requireNonNull(certificateWallet);
+            if (certificateWallet == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "certificateWallet");
+            }
+            this.certificateWallet = certificateWallet;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder keyLength(Integer keyLength) {
-            this.keyLength = Objects.requireNonNull(keyLength);
+            if (keyLength == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "keyLength");
+            }
+            this.keyLength = keyLength;
             return this;
         }
         @CustomType.Setter
         public Builder signingAlgorithm(String signingAlgorithm) {
-            this.signingAlgorithm = Objects.requireNonNull(signingAlgorithm);
+            if (signingAlgorithm == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "signingAlgorithm");
+            }
+            this.signingAlgorithm = signingAlgorithm;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder validFromDate(String validFromDate) {
-            this.validFromDate = Objects.requireNonNull(validFromDate);
+            if (validFromDate == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "validFromDate");
+            }
+            this.validFromDate = validFromDate;
             return this;
         }
         @CustomType.Setter
         public Builder validToDate(String validToDate) {
-            this.validToDate = Objects.requireNonNull(validToDate);
+            if (validToDate == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "validToDate");
+            }
+            this.validToDate = validToDate;
             return this;
         }
         public GetCertificateResult build() {
-            final var o = new GetCertificateResult();
-            o.certificateArn = certificateArn;
-            o.certificateCreationDate = certificateCreationDate;
-            o.certificateId = certificateId;
-            o.certificateOwner = certificateOwner;
-            o.certificatePem = certificatePem;
-            o.certificateWallet = certificateWallet;
-            o.id = id;
-            o.keyLength = keyLength;
-            o.signingAlgorithm = signingAlgorithm;
-            o.tags = tags;
-            o.validFromDate = validFromDate;
-            o.validToDate = validToDate;
-            return o;
+            final var _resultValue = new GetCertificateResult();
+            _resultValue.certificateArn = certificateArn;
+            _resultValue.certificateCreationDate = certificateCreationDate;
+            _resultValue.certificateId = certificateId;
+            _resultValue.certificateOwner = certificateOwner;
+            _resultValue.certificatePem = certificatePem;
+            _resultValue.certificateWallet = certificateWallet;
+            _resultValue.id = id;
+            _resultValue.keyLength = keyLength;
+            _resultValue.signingAlgorithm = signingAlgorithm;
+            _resultValue.tags = tags;
+            _resultValue.validFromDate = validFromDate;
+            _resultValue.validToDate = validToDate;
+            return _resultValue;
         }
     }
 }

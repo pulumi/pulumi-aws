@@ -8,44 +8,58 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // See https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html
 type Runtime string
 
 const (
+	RuntimeDotnet6      = Runtime("dotnet6")
+	RuntimeDotnet7      = Runtime("dotnet7")
+	RuntimeDotnet8      = Runtime("dotnet8")
+	RuntimeJava11       = Runtime("java11")
+	RuntimeJava17       = Runtime("java17")
+	RuntimeJava21       = Runtime("java21")
+	RuntimeJava8AL2     = Runtime("java8.al2")
+	RuntimeNodeJS16dX   = Runtime("nodejs16.x")
+	RuntimeNodeJS18dX   = Runtime("nodejs18.x")
+	RuntimeNodeJS20dX   = Runtime("nodejs20.x")
+	RuntimeCustomAL2    = Runtime("provided.al2")
+	RuntimeCustomAL2023 = Runtime("provided.al2023")
+	RuntimePython3d10   = Runtime("python3.10")
+	RuntimePython3d11   = Runtime("python3.11")
+	RuntimePython3d12   = Runtime("python3.12")
+	RuntimePython3d8    = Runtime("python3.8")
+	RuntimePython3d9    = Runtime("python3.9")
+	RuntimeRuby3d2      = Runtime("ruby3.2")
+	// Deprecated: This runtime is now deprecated
+	RuntimeDotnet5d0 = Runtime("dotnet5.0")
 	// Deprecated: This runtime is now deprecated
 	RuntimeDotnetCore2d1 = Runtime("dotnetcore2.1")
-	RuntimeDotnetCore3d1 = Runtime("dotnetcore3.1")
-	RuntimeDotnet5d0     = Runtime("dotnet5.0")
-	RuntimeDotnet6       = Runtime("dotnet6")
-	RuntimeGo1dx         = Runtime("go1.x")
-	RuntimeJava8         = Runtime("java8")
-	RuntimeJava8AL2      = Runtime("java8.al2")
-	RuntimeJava11        = Runtime("java11")
-	RuntimeJava17        = Runtime("java17")
 	// Deprecated: This runtime is now deprecated
-	RuntimeRuby2d5 = Runtime("ruby2.5")
-	RuntimeRuby2d7 = Runtime("ruby2.7")
-	RuntimeRuby3d2 = Runtime("ruby3.2")
+	RuntimeDotnetCore3d1 = Runtime("dotnetcore3.1")
+	// Deprecated: This runtime is now deprecated
+	RuntimeGo1dx = Runtime("go1.x")
+	// Deprecated: This runtime is now deprecated
+	RuntimeJava8 = Runtime("java8")
 	// Deprecated: This runtime is now deprecated
 	RuntimeNodeJS10dX = Runtime("nodejs10.x")
+	// Deprecated: This runtime is now deprecated
 	RuntimeNodeJS12dX = Runtime("nodejs12.x")
+	// Deprecated: This runtime is now deprecated
 	RuntimeNodeJS14dX = Runtime("nodejs14.x")
-	RuntimeNodeJS16dX = Runtime("nodejs16.x")
-	RuntimeNodeJS18dX = Runtime("nodejs18.x")
+	// Deprecated: This runtime is now deprecated
+	RuntimeCustom = Runtime("provided")
 	// Deprecated: This runtime is now deprecated
 	RuntimePython2d7 = Runtime("python2.7")
 	// Deprecated: This runtime is now deprecated
-	RuntimePython3d6  = Runtime("python3.6")
-	RuntimePython3d7  = Runtime("python3.7")
-	RuntimePython3d8  = Runtime("python3.8")
-	RuntimePython3d9  = Runtime("python3.9")
-	RuntimePython3d10 = Runtime("python3.10")
-	RuntimePython3d11 = Runtime("python3.11")
-	RuntimeCustom     = Runtime("provided")
-	RuntimeCustomAL2  = Runtime("provided.al2")
+	RuntimePython3d6 = Runtime("python3.6")
+	// Deprecated: This runtime is now deprecated
+	RuntimePython3d7 = Runtime("python3.7")
+	// Deprecated: This runtime is now deprecated
+	RuntimeRuby2d5 = Runtime("ruby2.5")
+	// Deprecated: This runtime is now deprecated
+	RuntimeRuby2d7 = Runtime("ruby2.7")
 )
 
 func (Runtime) ElementType() reflect.Type {
@@ -167,10 +181,27 @@ func (o RuntimePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuntimeInput is an input type that accepts RuntimeArgs and RuntimeOutput values.
-// You can construct a concrete instance of `RuntimeInput` via:
+// RuntimeInput is an input type that accepts values of the Runtime enum
+// A concrete instance of `RuntimeInput` can be one of the following:
 //
-//	RuntimeArgs{...}
+//	RuntimeDotnet6
+//	RuntimeDotnet7
+//	RuntimeDotnet8
+//	RuntimeJava11
+//	RuntimeJava17
+//	RuntimeJava21
+//	RuntimeJava8AL2
+//	RuntimeNodeJS16dX
+//	RuntimeNodeJS18dX
+//	RuntimeNodeJS20dX
+//	RuntimeCustomAL2
+//	RuntimeCustomAL2023
+//	RuntimePython3d10
+//	RuntimePython3d11
+//	RuntimePython3d12
+//	RuntimePython3d8
+//	RuntimePython3d9
+//	RuntimeRuby3d2
 type RuntimeInput interface {
 	pulumi.Input
 
@@ -205,15 +236,9 @@ func (in *runtimePtr) ToRuntimePtrOutputWithContext(ctx context.Context) Runtime
 	return pulumi.ToOutputWithContext(ctx, in).(RuntimePtrOutput)
 }
 
-func (in *runtimePtr) ToOutput(ctx context.Context) pulumix.Output[*Runtime] {
-	return pulumix.Output[*Runtime]{
-		OutputState: in.ToRuntimePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeInput)(nil)).Elem(), Runtime("dotnetcore2.1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RuntimePtrInput)(nil)).Elem(), Runtime("dotnetcore2.1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeInput)(nil)).Elem(), Runtime("dotnet6"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimePtrInput)(nil)).Elem(), Runtime("dotnet6"))
 	pulumi.RegisterOutputType(RuntimeOutput{})
 	pulumi.RegisterOutputType(RuntimePtrOutput{})
 }

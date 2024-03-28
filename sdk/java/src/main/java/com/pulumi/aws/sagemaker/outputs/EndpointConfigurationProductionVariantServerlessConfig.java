@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,32 @@ public final class EndpointConfigurationProductionVariantServerlessConfig {
 
         @CustomType.Setter
         public Builder maxConcurrency(Integer maxConcurrency) {
-            this.maxConcurrency = Objects.requireNonNull(maxConcurrency);
+            if (maxConcurrency == null) {
+              throw new MissingRequiredPropertyException("EndpointConfigurationProductionVariantServerlessConfig", "maxConcurrency");
+            }
+            this.maxConcurrency = maxConcurrency;
             return this;
         }
         @CustomType.Setter
         public Builder memorySizeInMb(Integer memorySizeInMb) {
-            this.memorySizeInMb = Objects.requireNonNull(memorySizeInMb);
+            if (memorySizeInMb == null) {
+              throw new MissingRequiredPropertyException("EndpointConfigurationProductionVariantServerlessConfig", "memorySizeInMb");
+            }
+            this.memorySizeInMb = memorySizeInMb;
             return this;
         }
         @CustomType.Setter
         public Builder provisionedConcurrency(@Nullable Integer provisionedConcurrency) {
+
             this.provisionedConcurrency = provisionedConcurrency;
             return this;
         }
         public EndpointConfigurationProductionVariantServerlessConfig build() {
-            final var o = new EndpointConfigurationProductionVariantServerlessConfig();
-            o.maxConcurrency = maxConcurrency;
-            o.memorySizeInMb = memorySizeInMb;
-            o.provisionedConcurrency = provisionedConcurrency;
-            return o;
+            final var _resultValue = new EndpointConfigurationProductionVariantServerlessConfig();
+            _resultValue.maxConcurrency = maxConcurrency;
+            _resultValue.memorySizeInMb = memorySizeInMb;
+            _resultValue.provisionedConcurrency = provisionedConcurrency;
+            return _resultValue;
         }
     }
 }

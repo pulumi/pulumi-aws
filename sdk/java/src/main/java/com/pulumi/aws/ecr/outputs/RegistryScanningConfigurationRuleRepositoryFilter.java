@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,19 +41,25 @@ public final class RegistryScanningConfigurationRuleRepositoryFilter {
 
         @CustomType.Setter
         public Builder filter(String filter) {
-            this.filter = Objects.requireNonNull(filter);
+            if (filter == null) {
+              throw new MissingRequiredPropertyException("RegistryScanningConfigurationRuleRepositoryFilter", "filter");
+            }
+            this.filter = filter;
             return this;
         }
         @CustomType.Setter
         public Builder filterType(String filterType) {
-            this.filterType = Objects.requireNonNull(filterType);
+            if (filterType == null) {
+              throw new MissingRequiredPropertyException("RegistryScanningConfigurationRuleRepositoryFilter", "filterType");
+            }
+            this.filterType = filterType;
             return this;
         }
         public RegistryScanningConfigurationRuleRepositoryFilter build() {
-            final var o = new RegistryScanningConfigurationRuleRepositoryFilter();
-            o.filter = filter;
-            o.filterType = filterType;
-            return o;
+            final var _resultValue = new RegistryScanningConfigurationRuleRepositoryFilter();
+            _resultValue.filter = filter;
+            _resultValue.filterType = filterType;
+            return _resultValue;
         }
     }
 }

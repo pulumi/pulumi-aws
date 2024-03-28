@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
         @CustomType.Setter
         public Builder identifier(String identifier) {
-            this.identifier = Objects.requireNonNull(identifier);
+            if (identifier == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField", "identifier");
+            }
+            this.identifier = identifier;
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField();
-            o.identifier = identifier;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField();
+            _resultValue.identifier = identifier;
+            return _resultValue;
         }
     }
 }

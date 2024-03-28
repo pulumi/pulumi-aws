@@ -44,13 +44,14 @@ public final class DashboardDashboardPublishOptionsSheetControlsOption {
 
         @CustomType.Setter
         public Builder visibilityState(@Nullable String visibilityState) {
+
             this.visibilityState = visibilityState;
             return this;
         }
         public DashboardDashboardPublishOptionsSheetControlsOption build() {
-            final var o = new DashboardDashboardPublishOptionsSheetControlsOption();
-            o.visibilityState = visibilityState;
-            return o;
+            final var _resultValue = new DashboardDashboardPublishOptionsSheetControlsOption();
+            _resultValue.visibilityState = visibilityState;
+            return _resultValue;
         }
     }
 }

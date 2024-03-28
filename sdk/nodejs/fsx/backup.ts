@@ -9,71 +9,80 @@ import * as utilities from "../utilities";
  *
  * ## Lustre Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLustreFileSystem = new aws.fsx.LustreFileSystem("exampleLustreFileSystem", {
+ * const exampleLustreFileSystem = new aws.fsx.LustreFileSystem("example", {
  *     storageCapacity: 1200,
- *     subnetIds: [aws_subnet.example.id],
+ *     subnetIds: exampleAwsSubnet.id,
  *     deploymentType: "PERSISTENT_1",
  *     perUnitStorageThroughput: 50,
  * });
- * const exampleBackup = new aws.fsx.Backup("exampleBackup", {fileSystemId: exampleLustreFileSystem.id});
+ * const example = new aws.fsx.Backup("example", {fileSystemId: exampleLustreFileSystem.id});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Windows Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleWindowsFileSystem = new aws.fsx.WindowsFileSystem("exampleWindowsFileSystem", {
- *     activeDirectoryId: aws_directory_service_directory.eample.id,
+ * const exampleWindowsFileSystem = new aws.fsx.WindowsFileSystem("example", {
+ *     activeDirectoryId: eample.id,
  *     skipFinalBackup: true,
  *     storageCapacity: 32,
- *     subnetIds: [aws_subnet.example1.id],
+ *     subnetIds: [example1.id],
  *     throughputCapacity: 8,
  * });
- * const exampleBackup = new aws.fsx.Backup("exampleBackup", {fileSystemId: exampleWindowsFileSystem.id});
+ * const example = new aws.fsx.Backup("example", {fileSystemId: exampleWindowsFileSystem.id});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## ONTAP Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleOntapVolume = new aws.fsx.OntapVolume("exampleOntapVolume", {
+ * const exampleOntapVolume = new aws.fsx.OntapVolume("example", {
+ *     name: "example",
  *     junctionPath: "/example",
  *     sizeInMegabytes: 1024,
  *     storageEfficiencyEnabled: true,
- *     storageVirtualMachineId: aws_fsx_ontap_storage_virtual_machine.test.id,
+ *     storageVirtualMachineId: test.id,
  * });
- * const exampleBackup = new aws.fsx.Backup("exampleBackup", {volumeId: exampleOntapVolume.id});
+ * const example = new aws.fsx.Backup("example", {volumeId: exampleOntapVolume.id});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## OpenZFS Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleOpenZfsFileSystem = new aws.fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem", {
+ * const exampleOpenZfsFileSystem = new aws.fsx.OpenZfsFileSystem("example", {
  *     storageCapacity: 64,
- *     subnetIds: [aws_subnet.example.id],
+ *     subnetIds: exampleAwsSubnet.id,
  *     deploymentType: "SINGLE_AZ_1",
  *     throughputCapacity: 64,
  * });
- * const exampleBackup = new aws.fsx.Backup("exampleBackup", {fileSystemId: exampleOpenZfsFileSystem.id});
+ * const example = new aws.fsx.Backup("example", {fileSystemId: exampleOpenZfsFileSystem.id});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import FSx Backups using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
+ * $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
  * ```
  */
 export class Backup extends pulumi.CustomResource {
@@ -172,8 +181,6 @@ export class Backup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Backup.__pulumiType, name, resourceInputs, opts);
     }
 }

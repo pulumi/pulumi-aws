@@ -8,6 +8,7 @@ import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigura
 import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput;
 import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -110,43 +111,53 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
         @CustomType.Setter
         public Builder destinationSchema(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema destinationSchema) {
-            this.destinationSchema = Objects.requireNonNull(destinationSchema);
+            if (destinationSchema == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationOutput", "destinationSchema");
+            }
+            this.destinationSchema = destinationSchema;
             return this;
         }
         @CustomType.Setter
         public Builder kinesisFirehoseOutput(@Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput kinesisFirehoseOutput) {
+
             this.kinesisFirehoseOutput = kinesisFirehoseOutput;
             return this;
         }
         @CustomType.Setter
         public Builder kinesisStreamsOutput(@Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput kinesisStreamsOutput) {
+
             this.kinesisStreamsOutput = kinesisStreamsOutput;
             return this;
         }
         @CustomType.Setter
         public Builder lambdaOutput(@Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput lambdaOutput) {
+
             this.lambdaOutput = lambdaOutput;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationOutput", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder outputId(@Nullable String outputId) {
+
             this.outputId = outputId;
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationOutput build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationOutput();
-            o.destinationSchema = destinationSchema;
-            o.kinesisFirehoseOutput = kinesisFirehoseOutput;
-            o.kinesisStreamsOutput = kinesisStreamsOutput;
-            o.lambdaOutput = lambdaOutput;
-            o.name = name;
-            o.outputId = outputId;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationOutput();
+            _resultValue.destinationSchema = destinationSchema;
+            _resultValue.kinesisFirehoseOutput = kinesisFirehoseOutput;
+            _resultValue.kinesisStreamsOutput = kinesisStreamsOutput;
+            _resultValue.lambdaOutput = lambdaOutput;
+            _resultValue.name = name;
+            _resultValue.outputId = outputId;
+            return _resultValue;
         }
     }
 }

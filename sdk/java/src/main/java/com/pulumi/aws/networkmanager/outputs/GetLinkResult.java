@@ -5,6 +5,7 @@ package com.pulumi.aws.networkmanager.outputs;
 
 import com.pulumi.aws.networkmanager.outputs.GetLinkBandwidth;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -155,12 +156,18 @@ public final class GetLinkResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetLinkResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder bandwidths(List<GetLinkBandwidth> bandwidths) {
-            this.bandwidths = Objects.requireNonNull(bandwidths);
+            if (bandwidths == null) {
+              throw new MissingRequiredPropertyException("GetLinkResult", "bandwidths");
+            }
+            this.bandwidths = bandwidths;
             return this;
         }
         public Builder bandwidths(GetLinkBandwidth... bandwidths) {
@@ -168,57 +175,81 @@ public final class GetLinkResult {
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetLinkResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder globalNetworkId(String globalNetworkId) {
-            this.globalNetworkId = Objects.requireNonNull(globalNetworkId);
+            if (globalNetworkId == null) {
+              throw new MissingRequiredPropertyException("GetLinkResult", "globalNetworkId");
+            }
+            this.globalNetworkId = globalNetworkId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLinkResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder linkId(String linkId) {
-            this.linkId = Objects.requireNonNull(linkId);
+            if (linkId == null) {
+              throw new MissingRequiredPropertyException("GetLinkResult", "linkId");
+            }
+            this.linkId = linkId;
             return this;
         }
         @CustomType.Setter
         public Builder providerName(String providerName) {
-            this.providerName = Objects.requireNonNull(providerName);
+            if (providerName == null) {
+              throw new MissingRequiredPropertyException("GetLinkResult", "providerName");
+            }
+            this.providerName = providerName;
             return this;
         }
         @CustomType.Setter
         public Builder siteId(String siteId) {
-            this.siteId = Objects.requireNonNull(siteId);
+            if (siteId == null) {
+              throw new MissingRequiredPropertyException("GetLinkResult", "siteId");
+            }
+            this.siteId = siteId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetLinkResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetLinkResult", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetLinkResult build() {
-            final var o = new GetLinkResult();
-            o.arn = arn;
-            o.bandwidths = bandwidths;
-            o.description = description;
-            o.globalNetworkId = globalNetworkId;
-            o.id = id;
-            o.linkId = linkId;
-            o.providerName = providerName;
-            o.siteId = siteId;
-            o.tags = tags;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetLinkResult();
+            _resultValue.arn = arn;
+            _resultValue.bandwidths = bandwidths;
+            _resultValue.description = description;
+            _resultValue.globalNetworkId = globalNetworkId;
+            _resultValue.id = id;
+            _resultValue.linkId = linkId;
+            _resultValue.providerName = providerName;
+            _resultValue.siteId = siteId;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

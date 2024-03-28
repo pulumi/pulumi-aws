@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,23 +26,27 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var defaultBucketV2 = new Aws.S3.BucketV2("defaultBucketV2");
-    /// 
-    ///     var defaultSpotDatafeedSubscription = new Aws.Ec2.SpotDatafeedSubscription("defaultSpotDatafeedSubscription", new()
+    ///     var @default = new Aws.S3.BucketV2("default", new()
     ///     {
-    ///         Bucket = defaultBucketV2.Id,
+    ///         Bucket = "tf-spot-datafeed",
+    ///     });
+    /// 
+    ///     var defaultSpotDatafeedSubscription = new Aws.Ec2.SpotDatafeedSubscription("default", new()
+    ///     {
+    ///         Bucket = @default.Id,
     ///         Prefix = "my_subdirectory",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a Spot Datafeed Subscription using the word `spot-datafeed-subscription`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
+    /// $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription")]

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,12 +25,13 @@ namespace Pulumi.Aws.GameLift
     /// {
     ///     var test = new Aws.GameLift.GameSessionQueue("test", new()
     ///     {
+    ///         Name = "example-session-queue",
     ///         Destinations = new[]
     ///         {
-    ///             aws_gamelift_fleet.Us_west_2_fleet.Arn,
-    ///             aws_gamelift_fleet.Eu_central_1_fleet.Arn,
+    ///             usWest2Fleet.Arn,
+    ///             euCentral1Fleet.Arn,
     ///         },
-    ///         NotificationTarget = aws_sns_topic.Game_session_queue_notifications.Arn,
+    ///         NotificationTarget = gameSessionQueueNotifications.Arn,
     ///         PlayerLatencyPolicies = new[]
     ///         {
     ///             new Aws.GameLift.Inputs.GameSessionQueuePlayerLatencyPolicyArgs
@@ -47,13 +49,14 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import GameLift Game Session Queues using their `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
+    /// $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:gamelift/gameSessionQueue:GameSessionQueue")]
@@ -136,10 +139,6 @@ namespace Pulumi.Aws.GameLift
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -301,11 +300,7 @@ namespace Pulumi.Aws.GameLift
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

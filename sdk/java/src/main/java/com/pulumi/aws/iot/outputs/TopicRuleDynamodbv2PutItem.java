@@ -4,6 +4,7 @@
 package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class TopicRuleDynamodbv2PutItem {
 
         @CustomType.Setter
         public Builder tableName(String tableName) {
-            this.tableName = Objects.requireNonNull(tableName);
+            if (tableName == null) {
+              throw new MissingRequiredPropertyException("TopicRuleDynamodbv2PutItem", "tableName");
+            }
+            this.tableName = tableName;
             return this;
         }
         public TopicRuleDynamodbv2PutItem build() {
-            final var o = new TopicRuleDynamodbv2PutItem();
-            o.tableName = tableName;
-            return o;
+            final var _resultValue = new TopicRuleDynamodbv2PutItem();
+            _resultValue.tableName = tableName;
+            return _resultValue;
         }
     }
 }

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Data source for managing an AWS OpenSearch Serverless Access Policy.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -29,14 +29,13 @@ namespace Pulumi.Aws.OpenSearch
         /// {
         ///     var example = Aws.OpenSearch.GetServerlessAccessPolicy.Invoke(new()
         ///     {
-        ///         Name = aws_opensearchserverless_access_policy.Example.Name,
-        ///         Type = aws_opensearchserverless_access_policy.Example.Type,
+        ///         Name = exampleAwsOpensearchserverlessAccessPolicy.Name,
+        ///         Type = exampleAwsOpensearchserverlessAccessPolicy.Type,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServerlessAccessPolicyResult> InvokeAsync(GetServerlessAccessPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerlessAccessPolicyResult>("aws:opensearch/getServerlessAccessPolicy:getServerlessAccessPolicy", args ?? new GetServerlessAccessPolicyArgs(), options.WithDefaults());
@@ -44,11 +43,11 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Data source for managing an AWS OpenSearch Serverless Access Policy.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -59,14 +58,13 @@ namespace Pulumi.Aws.OpenSearch
         /// {
         ///     var example = Aws.OpenSearch.GetServerlessAccessPolicy.Invoke(new()
         ///     {
-        ///         Name = aws_opensearchserverless_access_policy.Example.Name,
-        ///         Type = aws_opensearchserverless_access_policy.Example.Type,
+        ///         Name = exampleAwsOpensearchserverlessAccessPolicy.Name,
+        ///         Type = exampleAwsOpensearchserverlessAccessPolicy.Type,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServerlessAccessPolicyResult> Invoke(GetServerlessAccessPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessAccessPolicyResult>("aws:opensearch/getServerlessAccessPolicy:getServerlessAccessPolicy", args ?? new GetServerlessAccessPolicyInvokeArgs(), options.WithDefaults());

@@ -13,8 +13,10 @@ namespace Pulumi.Aws.OpenSearch
     /// Resource for managing an AWS OpenSearch Serverless Lifecycle Policy. See AWS documentation for [lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,6 +28,7 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var example = new Aws.OpenSearch.ServerlessLifecyclePolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "retention",
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -55,13 +58,14 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import OpenSearch Serverless Lifecycle Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy example example/retention
+    /// $ pulumi import aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy example example/retention
     /// ```
     /// </summary>
     [AwsResourceType("aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy")]

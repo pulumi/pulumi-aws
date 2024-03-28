@@ -13,8 +13,10 @@ namespace Pulumi.Aws.VpcLattice
     /// Resource for managing an AWS VPC Lattice Service Network.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,18 +27,20 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.ServiceNetwork("example", new()
     ///     {
+    ///         Name = "example",
     ///         AuthType = "AWS_IAM",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import VPC Lattice Service Network using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:vpclattice/serviceNetwork:ServiceNetwork example sn-0158f91c1e3358dba
+    /// $ pulumi import aws:vpclattice/serviceNetwork:ServiceNetwork example sn-0158f91c1e3358dba
     /// ```
     /// </summary>
     [AwsResourceType("aws:vpclattice/serviceNetwork:ServiceNetwork")]
@@ -97,10 +101,6 @@ namespace Pulumi.Aws.VpcLattice
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -200,11 +200,7 @@ namespace Pulumi.Aws.VpcLattice
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ServiceNetworkState()

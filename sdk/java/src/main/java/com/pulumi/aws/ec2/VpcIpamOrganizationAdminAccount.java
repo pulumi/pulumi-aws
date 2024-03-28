@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * Basic usage:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -29,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.ec2.VpcIpamOrganizationAdminAccount;
  * import com.pulumi.aws.ec2.VpcIpamOrganizationAdminAccountArgs;
- * import com.pulumi.aws.Provider;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,18 +50,17 @@ import javax.annotation.Nullable;
  *             .delegatedAdminAccountId(delegated.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
  *             .build());
  * 
- *         var ipamDelegateAccount = new Provider(&#34;ipamDelegateAccount&#34;);
- * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IPAMs using the delegate account `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
+ * $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
  * ```
  * 
  */

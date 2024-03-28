@@ -4,6 +4,7 @@
 package com.pulumi.aws.route53domains.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,6 +59,7 @@ public final class RegisteredDomainNameServer {
 
         @CustomType.Setter
         public Builder glueIps(@Nullable List<String> glueIps) {
+
             this.glueIps = glueIps;
             return this;
         }
@@ -66,14 +68,17 @@ public final class RegisteredDomainNameServer {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("RegisteredDomainNameServer", "name");
+            }
+            this.name = name;
             return this;
         }
         public RegisteredDomainNameServer build() {
-            final var o = new RegisteredDomainNameServer();
-            o.glueIps = glueIps;
-            o.name = name;
-            return o;
+            final var _resultValue = new RegisteredDomainNameServer();
+            _resultValue.glueIps = glueIps;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

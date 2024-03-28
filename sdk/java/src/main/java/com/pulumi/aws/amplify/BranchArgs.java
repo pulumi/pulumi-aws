@@ -5,6 +5,7 @@ package com.pulumi.aws.amplify;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -670,8 +671,12 @@ public final class BranchArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BranchArgs build() {
-            $.appId = Objects.requireNonNull($.appId, "expected parameter 'appId' to be non-null");
-            $.branchName = Objects.requireNonNull($.branchName, "expected parameter 'branchName' to be non-null");
+            if ($.appId == null) {
+                throw new MissingRequiredPropertyException("BranchArgs", "appId");
+            }
+            if ($.branchName == null) {
+                throw new MissingRequiredPropertyException("BranchArgs", "branchName");
+            }
             return $;
         }
     }

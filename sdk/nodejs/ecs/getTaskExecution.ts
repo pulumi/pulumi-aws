@@ -13,12 +13,34 @@ import * as utilities from "../utilities";
  * > **NOTE on preview operations:** This data source calls the `RunTask` API on every read operation, which means new task(s) may be created from a `pulumi preview` command if all attributes are known. Placing this functionality behind a data source is an intentional trade off to enable use cases requiring a one-time task execution without relying on provisioners. Caution should be taken to ensure the data source is only executed once, or that the resulting tasks can safely run in parallel.
  *
  * ## Example Usage
+ *
+ * ### Basic Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ecs.getTaskExecution({
+ *     cluster: exampleAwsEcsCluster.id,
+ *     taskDefinition: exampleAwsEcsTaskDefinition.arn,
+ *     desiredCount: 1,
+ *     launchType: "FARGATE",
+ *     networkConfiguration: {
+ *         subnets: exampleAwsSubnet.map(__item => __item.id),
+ *         securityGroups: [exampleAwsSecurityGroup.id],
+ *         assignPublicIp: false,
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTaskExecution(args: GetTaskExecutionArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskExecutionResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecs/getTaskExecution:getTaskExecution", {
         "capacityProviderStrategies": args.capacityProviderStrategies,
+        "clientToken": args.clientToken,
         "cluster": args.cluster,
         "desiredCount": args.desiredCount,
         "enableEcsManagedTags": args.enableEcsManagedTags,
@@ -46,6 +68,10 @@ export interface GetTaskExecutionArgs {
      * Set of capacity provider strategies to use for the cluster. See below.
      */
     capacityProviderStrategies?: inputs.ecs.GetTaskExecutionCapacityProviderStrategy[];
+    /**
+     * An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+     */
+    clientToken?: string;
     /**
      * Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
      */
@@ -119,6 +145,7 @@ export interface GetTaskExecutionArgs {
  */
 export interface GetTaskExecutionResult {
     readonly capacityProviderStrategies?: outputs.ecs.GetTaskExecutionCapacityProviderStrategy[];
+    readonly clientToken?: string;
     readonly cluster: string;
     readonly desiredCount?: number;
     readonly enableEcsManagedTags?: boolean;
@@ -150,6 +177,27 @@ export interface GetTaskExecutionResult {
  * > **NOTE on preview operations:** This data source calls the `RunTask` API on every read operation, which means new task(s) may be created from a `pulumi preview` command if all attributes are known. Placing this functionality behind a data source is an intentional trade off to enable use cases requiring a one-time task execution without relying on provisioners. Caution should be taken to ensure the data source is only executed once, or that the resulting tasks can safely run in parallel.
  *
  * ## Example Usage
+ *
+ * ### Basic Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ecs.getTaskExecution({
+ *     cluster: exampleAwsEcsCluster.id,
+ *     taskDefinition: exampleAwsEcsTaskDefinition.arn,
+ *     desiredCount: 1,
+ *     launchType: "FARGATE",
+ *     networkConfiguration: {
+ *         subnets: exampleAwsSubnet.map(__item => __item.id),
+ *         securityGroups: [exampleAwsSecurityGroup.id],
+ *         assignPublicIp: false,
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTaskExecutionOutput(args: GetTaskExecutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskExecutionResult> {
     return pulumi.output(args).apply((a: any) => getTaskExecution(a, opts))
@@ -163,6 +211,10 @@ export interface GetTaskExecutionOutputArgs {
      * Set of capacity provider strategies to use for the cluster. See below.
      */
     capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.GetTaskExecutionCapacityProviderStrategyArgs>[]>;
+    /**
+     * An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+     */
+    clientToken?: pulumi.Input<string>;
     /**
      * Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
      */

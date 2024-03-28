@@ -14,18 +14,23 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var @default = new Aws.Iam.SamlProvider("default", new()
     ///     {
-    ///         SamlMetadataDocument = File.ReadAllText("saml-metadata.xml"),
+    ///         Name = "my-saml-provider",
+    ///         SamlMetadataDocument = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "saml-metadata.xml",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     ///     var main = new Aws.Cognito.IdentityPool("main", new()
@@ -65,13 +70,14 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cognito Identity Pool using its ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3
+    /// $ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/identityPool:IdentityPool")]
@@ -167,10 +173,6 @@ namespace Pulumi.Aws.Cognito
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -388,11 +390,7 @@ namespace Pulumi.Aws.Cognito
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public IdentityPoolState()

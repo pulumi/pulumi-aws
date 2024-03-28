@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,11 +30,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := gamelift.NewBuild(ctx, "test", &gamelift.BuildArgs{
+//				Name:            pulumi.String("example-build"),
 //				OperatingSystem: pulumi.String("WINDOWS_2012"),
 //				StorageLocation: &gamelift.BuildStorageLocationArgs{
-//					Bucket:  pulumi.Any(aws_s3_bucket.Test.Id),
-//					Key:     pulumi.Any(aws_s3_object.Test.Key),
-//					RoleArn: pulumi.Any(aws_iam_role.Test.Arn),
+//					Bucket:  pulumi.Any(testAwsS3Bucket.Id),
+//					Key:     pulumi.Any(testAwsS3Object.Key),
+//					RoleArn: pulumi.Any(testAwsIamRole.Arn),
 //				},
 //			})
 //			if err != nil {
@@ -44,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import GameLift Builds using the ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:gamelift/build:Build example <build-id>
-//
+// $ pulumi import aws:gamelift/build:Build example <build-id>
 // ```
 type Build struct {
 	pulumi.CustomResourceState
@@ -88,10 +89,6 @@ func NewBuild(ctx *pulumi.Context,
 	if args.StorageLocation == nil {
 		return nil, errors.New("invalid value for required argument 'StorageLocation'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Build
 	err := ctx.RegisterResource("aws:gamelift/build:Build", name, args, &resource, opts...)

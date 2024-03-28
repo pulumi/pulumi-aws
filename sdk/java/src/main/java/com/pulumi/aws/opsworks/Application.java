@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Provides an OpsWorks application resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,8 +50,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo_app = new Application(&#34;foo-app&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;foobar application&#34;)
  *             .shortName(&#34;foobar&#34;)
- *             .stackId(aws_opsworks_stack.main().id())
+ *             .stackId(main.id())
  *             .type(&#34;rails&#34;)
  *             .description(&#34;This is a Rails application&#34;)
  *             .domains(            
@@ -67,8 +70,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .enableSsl(true)
  *             .sslConfigurations(ApplicationSslConfigurationArgs.builder()
- *                 .privateKey(Files.readString(Paths.get(&#34;./foobar.key&#34;)))
- *                 .certificate(Files.readString(Paths.get(&#34;./foobar.crt&#34;)))
+ *                 .privateKey(StdFunctions.file(FileArgs.builder()
+ *                     .input(&#34;./foobar.key&#34;)
+ *                     .build()).result())
+ *                 .certificate(StdFunctions.file(FileArgs.builder()
+ *                     .input(&#34;./foobar.crt&#34;)
+ *                     .build()).result())
  *                 .build())
  *             .documentRoot(&#34;public&#34;)
  *             .autoBundleOnDeploy(true)
@@ -78,13 +85,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Opsworks Application using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:opsworks/application:Application test &lt;id&gt;
+ * $ pulumi import aws:opsworks/application:Application test &lt;id&gt;
  * ```
  * 
  */

@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Removing this resource from the provider has no effect to the encryption configuration within X-Ray.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,7 +50,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With KMS Key
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -78,7 +84,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;Enable IAM User Permissions&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -94,7 +100,7 @@ import javax.annotation.Nullable;
  *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
  *             .description(&#34;Some Key&#34;)
  *             .deletionWindowInDays(7)
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var exampleEncryptionConfig = new EncryptionConfig(&#34;exampleEncryptionConfig&#34;, EncryptionConfigArgs.builder()        
@@ -105,13 +111,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import XRay Encryption Config using the region name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
+ * $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
  * ```
  * 
  */

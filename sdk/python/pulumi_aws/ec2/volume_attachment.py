@@ -272,6 +272,7 @@ class VolumeAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -279,25 +280,26 @@ class VolumeAttachment(pulumi.CustomResource):
         web = aws.ec2.Instance("web",
             ami="ami-21f78e11",
             availability_zone="us-west-2a",
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             tags={
                 "Name": "HelloWorld",
             })
         example = aws.ebs.Volume("example",
             availability_zone="us-west-2a",
             size=1)
-        ebs_att = aws.ec2.VolumeAttachment("ebsAtt",
+        ebs_att = aws.ec2.VolumeAttachment("ebs_att",
             device_name="/dev/sdh",
             volume_id=example.id,
             instance_id=web.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EBS Volume Attachments using `DEVICE_NAME:VOLUME_ID:INSTANCE_ID`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/volumeAttachment:VolumeAttachment example /dev/sdh:vol-049df61146c4d7901:i-12345678
+        $ pulumi import aws:ec2/volumeAttachment:VolumeAttachment example /dev/sdh:vol-049df61146c4d7901:i-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -332,6 +334,7 @@ class VolumeAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -339,25 +342,26 @@ class VolumeAttachment(pulumi.CustomResource):
         web = aws.ec2.Instance("web",
             ami="ami-21f78e11",
             availability_zone="us-west-2a",
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             tags={
                 "Name": "HelloWorld",
             })
         example = aws.ebs.Volume("example",
             availability_zone="us-west-2a",
             size=1)
-        ebs_att = aws.ec2.VolumeAttachment("ebsAtt",
+        ebs_att = aws.ec2.VolumeAttachment("ebs_att",
             device_name="/dev/sdh",
             volume_id=example.id,
             instance_id=web.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EBS Volume Attachments using `DEVICE_NAME:VOLUME_ID:INSTANCE_ID`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/volumeAttachment:VolumeAttachment example /dev/sdh:vol-049df61146c4d7901:i-12345678
+        $ pulumi import aws:ec2/volumeAttachment:VolumeAttachment example /dev/sdh:vol-049df61146c4d7901:i-12345678
         ```
 
         :param str resource_name: The name of the resource.

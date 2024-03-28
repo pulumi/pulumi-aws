@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,23 +45,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new EventApiDestination(&#34;test&#34;, EventApiDestinationArgs.builder()        
+ *             .name(&#34;api-destination&#34;)
  *             .description(&#34;An API Destination&#34;)
  *             .invocationEndpoint(&#34;https://api.destination.com/endpoint&#34;)
  *             .httpMethod(&#34;POST&#34;)
  *             .invocationRateLimitPerSecond(20)
- *             .connectionArn(aws_cloudwatch_event_connection.test().arn())
+ *             .connectionArn(testAwsCloudwatchEventConnection.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import EventBridge API Destinations using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination
+ * $ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination
  * ```
  * 
  */

@@ -44,13 +44,14 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
 
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         public ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess build() {
-            final var o = new ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess();
-            o.type = type;
-            return o;
+            final var _resultValue = new ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess();
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

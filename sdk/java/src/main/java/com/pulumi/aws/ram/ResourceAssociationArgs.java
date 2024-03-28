@@ -5,6 +5,7 @@ package com.pulumi.aws.ram;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ResourceAssociationArgs extends com.pulumi.resources.Resource
         }
 
         public ResourceAssociationArgs build() {
-            $.resourceArn = Objects.requireNonNull($.resourceArn, "expected parameter 'resourceArn' to be non-null");
-            $.resourceShareArn = Objects.requireNonNull($.resourceShareArn, "expected parameter 'resourceShareArn' to be non-null");
+            if ($.resourceArn == null) {
+                throw new MissingRequiredPropertyException("ResourceAssociationArgs", "resourceArn");
+            }
+            if ($.resourceShareArn == null) {
+                throw new MissingRequiredPropertyException("ResourceAssociationArgs", "resourceShareArn");
+            }
             return $;
         }
     }

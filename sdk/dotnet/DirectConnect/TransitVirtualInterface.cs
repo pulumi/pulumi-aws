@@ -15,6 +15,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,15 +24,17 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGateway = new Aws.DirectConnect.Gateway("exampleGateway", new()
+    ///     var example = new Aws.DirectConnect.Gateway("example", new()
     ///     {
+    ///         Name = "tf-dxg-example",
     ///         AmazonSideAsn = "64512",
     ///     });
     /// 
-    ///     var exampleTransitVirtualInterface = new Aws.DirectConnect.TransitVirtualInterface("exampleTransitVirtualInterface", new()
+    ///     var exampleTransitVirtualInterface = new Aws.DirectConnect.TransitVirtualInterface("example", new()
     ///     {
-    ///         ConnectionId = aws_dx_connection.Example.Id,
-    ///         DxGatewayId = exampleGateway.Id,
+    ///         ConnectionId = exampleAwsDxConnection.Id,
+    ///         DxGatewayId = example.Id,
+    ///         Name = "tf-transit-vif-example",
     ///         Vlan = 4094,
     ///         AddressFamily = "ipv4",
     ///         BgpAsn = 65352,
@@ -39,13 +42,14 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Direct Connect transit virtual interfaces using the VIF `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
+    /// $ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
     /// ```
     /// </summary>
     [AwsResourceType("aws:directconnect/transitVirtualInterface:TransitVirtualInterface")]
@@ -174,10 +178,6 @@ namespace Pulumi.Aws.DirectConnect
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -392,11 +392,7 @@ namespace Pulumi.Aws.DirectConnect
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

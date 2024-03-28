@@ -6,6 +6,7 @@ package com.pulumi.aws.msk.outputs;
 import com.pulumi.aws.msk.outputs.ReplicatorReplicationInfoListConsumerGroupReplication;
 import com.pulumi.aws.msk.outputs.ReplicatorReplicationInfoListTopicReplication;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -115,7 +116,10 @@ public final class ReplicatorReplicationInfoList {
 
         @CustomType.Setter
         public Builder consumerGroupReplications(List<ReplicatorReplicationInfoListConsumerGroupReplication> consumerGroupReplications) {
-            this.consumerGroupReplications = Objects.requireNonNull(consumerGroupReplications);
+            if (consumerGroupReplications == null) {
+              throw new MissingRequiredPropertyException("ReplicatorReplicationInfoList", "consumerGroupReplications");
+            }
+            this.consumerGroupReplications = consumerGroupReplications;
             return this;
         }
         public Builder consumerGroupReplications(ReplicatorReplicationInfoListConsumerGroupReplication... consumerGroupReplications) {
@@ -123,47 +127,61 @@ public final class ReplicatorReplicationInfoList {
         }
         @CustomType.Setter
         public Builder sourceKafkaClusterAlias(@Nullable String sourceKafkaClusterAlias) {
+
             this.sourceKafkaClusterAlias = sourceKafkaClusterAlias;
             return this;
         }
         @CustomType.Setter
         public Builder sourceKafkaClusterArn(String sourceKafkaClusterArn) {
-            this.sourceKafkaClusterArn = Objects.requireNonNull(sourceKafkaClusterArn);
+            if (sourceKafkaClusterArn == null) {
+              throw new MissingRequiredPropertyException("ReplicatorReplicationInfoList", "sourceKafkaClusterArn");
+            }
+            this.sourceKafkaClusterArn = sourceKafkaClusterArn;
             return this;
         }
         @CustomType.Setter
         public Builder targetCompressionType(String targetCompressionType) {
-            this.targetCompressionType = Objects.requireNonNull(targetCompressionType);
+            if (targetCompressionType == null) {
+              throw new MissingRequiredPropertyException("ReplicatorReplicationInfoList", "targetCompressionType");
+            }
+            this.targetCompressionType = targetCompressionType;
             return this;
         }
         @CustomType.Setter
         public Builder targetKafkaClusterAlias(@Nullable String targetKafkaClusterAlias) {
+
             this.targetKafkaClusterAlias = targetKafkaClusterAlias;
             return this;
         }
         @CustomType.Setter
         public Builder targetKafkaClusterArn(String targetKafkaClusterArn) {
-            this.targetKafkaClusterArn = Objects.requireNonNull(targetKafkaClusterArn);
+            if (targetKafkaClusterArn == null) {
+              throw new MissingRequiredPropertyException("ReplicatorReplicationInfoList", "targetKafkaClusterArn");
+            }
+            this.targetKafkaClusterArn = targetKafkaClusterArn;
             return this;
         }
         @CustomType.Setter
         public Builder topicReplications(List<ReplicatorReplicationInfoListTopicReplication> topicReplications) {
-            this.topicReplications = Objects.requireNonNull(topicReplications);
+            if (topicReplications == null) {
+              throw new MissingRequiredPropertyException("ReplicatorReplicationInfoList", "topicReplications");
+            }
+            this.topicReplications = topicReplications;
             return this;
         }
         public Builder topicReplications(ReplicatorReplicationInfoListTopicReplication... topicReplications) {
             return topicReplications(List.of(topicReplications));
         }
         public ReplicatorReplicationInfoList build() {
-            final var o = new ReplicatorReplicationInfoList();
-            o.consumerGroupReplications = consumerGroupReplications;
-            o.sourceKafkaClusterAlias = sourceKafkaClusterAlias;
-            o.sourceKafkaClusterArn = sourceKafkaClusterArn;
-            o.targetCompressionType = targetCompressionType;
-            o.targetKafkaClusterAlias = targetKafkaClusterAlias;
-            o.targetKafkaClusterArn = targetKafkaClusterArn;
-            o.topicReplications = topicReplications;
-            return o;
+            final var _resultValue = new ReplicatorReplicationInfoList();
+            _resultValue.consumerGroupReplications = consumerGroupReplications;
+            _resultValue.sourceKafkaClusterAlias = sourceKafkaClusterAlias;
+            _resultValue.sourceKafkaClusterArn = sourceKafkaClusterArn;
+            _resultValue.targetCompressionType = targetCompressionType;
+            _resultValue.targetKafkaClusterAlias = targetKafkaClusterAlias;
+            _resultValue.targetKafkaClusterArn = targetKafkaClusterArn;
+            _resultValue.topicReplications = topicReplications;
+            return _resultValue;
         }
     }
 }

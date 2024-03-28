@@ -12,28 +12,31 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.globalaccelerator.CustomRoutingAccelerator("example", {
+ *     name: "Example",
+ *     ipAddressType: "IPV4",
+ *     ipAddresses: ["1.2.3.4"],
+ *     enabled: true,
  *     attributes: {
  *         flowLogsEnabled: true,
  *         flowLogsS3Bucket: "example-bucket",
  *         flowLogsS3Prefix: "flow-logs/",
  *     },
- *     enabled: true,
- *     ipAddressType: "IPV4",
- *     ipAddresses: ["1.2.3.4"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Global Accelerator custom routing accelerators using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+ * $ pulumi import aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
  * ```
  */
 export class CustomRoutingAccelerator extends pulumi.CustomResource {
@@ -146,8 +149,6 @@ export class CustomRoutingAccelerator extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(CustomRoutingAccelerator.__pulumiType, name, resourceInputs, opts);
     }
 }

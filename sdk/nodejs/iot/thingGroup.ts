@@ -12,12 +12,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const parent = new aws.iot.ThingGroup("parent", {});
+ * const parent = new aws.iot.ThingGroup("parent", {name: "parent"});
  * const example = new aws.iot.ThingGroup("example", {
+ *     name: "example",
  *     parentGroupName: parent.name,
  *     properties: {
  *         attributePayload: {
@@ -33,13 +35,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IoT Things Groups using the name. For example:
  *
  * ```sh
- *  $ pulumi import aws:iot/thingGroup:ThingGroup example example
+ * $ pulumi import aws:iot/thingGroup:ThingGroup example example
  * ```
  */
 export class ThingGroup extends pulumi.CustomResource {
@@ -133,8 +136,6 @@ export class ThingGroup extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ThingGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

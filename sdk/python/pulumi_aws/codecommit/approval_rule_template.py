@@ -216,30 +216,33 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         example = aws.codecommit.ApprovalRuleTemplate("example",
+            name="MyExampleApprovalRuleTemplate",
             description="This is an example approval rule template",
             content=json.dumps({
-                "Version": "2018-11-08",
-                "DestinationReferences": ["refs/heads/master"],
-                "Statements": [{
-                    "Type": "Approvers",
-                    "NumberOfApprovalsNeeded": 2,
-                    "ApprovalPoolMembers": ["arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*"],
+                "version": "2018-11-08",
+                "destinationReferences": ["refs/heads/master"],
+                "statements": [{
+                    "type": "Approvers",
+                    "numberOfApprovalsNeeded": 2,
+                    "approvalPoolMembers": ["arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*"],
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeCommit approval rule templates using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
+        $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
         ```
 
         :param str resource_name: The name of the resource.
@@ -259,30 +262,33 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         example = aws.codecommit.ApprovalRuleTemplate("example",
+            name="MyExampleApprovalRuleTemplate",
             description="This is an example approval rule template",
             content=json.dumps({
-                "Version": "2018-11-08",
-                "DestinationReferences": ["refs/heads/master"],
-                "Statements": [{
-                    "Type": "Approvers",
-                    "NumberOfApprovalsNeeded": 2,
-                    "ApprovalPoolMembers": ["arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*"],
+                "version": "2018-11-08",
+                "destinationReferences": ["refs/heads/master"],
+                "statements": [{
+                    "type": "Approvers",
+                    "numberOfApprovalsNeeded": 2,
+                    "approvalPoolMembers": ["arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*"],
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeCommit approval rule templates using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
+        $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
         ```
 
         :param str resource_name: The name of the resource.

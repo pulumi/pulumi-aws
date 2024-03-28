@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,30 +29,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			primaryAccount, err := macie2.NewAccount(ctx, "primaryAccount", nil, pulumi.Provider("awsalternate"))
+//			_, err := macie2.NewAccount(ctx, "primary", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = macie2.NewAccount(ctx, "memberAccount", nil)
+//			_, err = macie2.NewAccount(ctx, "member", nil)
 //			if err != nil {
 //				return err
 //			}
-//			primaryMember, err := macie2.NewMember(ctx, "primaryMember", &macie2.MemberArgs{
+//			_, err = macie2.NewMember(ctx, "primary", &macie2.MemberArgs{
 //				AccountId:         pulumi.String("ACCOUNT ID"),
 //				Email:             pulumi.String("EMAIL"),
 //				Invite:            pulumi.Bool(true),
 //				InvitationMessage: pulumi.String("Message of the invite"),
-//			}, pulumi.Provider("awsalternate"), pulumi.DependsOn([]pulumi.Resource{
-//				primaryAccount,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = macie2.NewInvitationAccepter(ctx, "memberInvitationAccepter", &macie2.InvitationAccepterArgs{
+//			_, err = macie2.NewInvitationAccepter(ctx, "member", &macie2.InvitationAccepterArgs{
 //				AdministratorAccountId: pulumi.String("ADMINISTRATOR ACCOUNT ID"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				primaryMember,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -60,15 +57,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_macie2_invitation_accepter` using the admin account ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
-//
+// $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
 // ```
 type InvitationAccepter struct {
 	pulumi.CustomResourceState

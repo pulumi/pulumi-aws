@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -48,25 +49,30 @@ public final class InternetMonitorInternetMeasurementsLogDeliveryS3Config {
 
         @CustomType.Setter
         public Builder bucketName(String bucketName) {
-            this.bucketName = Objects.requireNonNull(bucketName);
+            if (bucketName == null) {
+              throw new MissingRequiredPropertyException("InternetMonitorInternetMeasurementsLogDeliveryS3Config", "bucketName");
+            }
+            this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder bucketPrefix(@Nullable String bucketPrefix) {
+
             this.bucketPrefix = bucketPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder logDeliveryStatus(@Nullable String logDeliveryStatus) {
+
             this.logDeliveryStatus = logDeliveryStatus;
             return this;
         }
         public InternetMonitorInternetMeasurementsLogDeliveryS3Config build() {
-            final var o = new InternetMonitorInternetMeasurementsLogDeliveryS3Config();
-            o.bucketName = bucketName;
-            o.bucketPrefix = bucketPrefix;
-            o.logDeliveryStatus = logDeliveryStatus;
-            return o;
+            final var _resultValue = new InternetMonitorInternetMeasurementsLogDeliveryS3Config();
+            _resultValue.bucketName = bucketName;
+            _resultValue.bucketPrefix = bucketPrefix;
+            _resultValue.logDeliveryStatus = logDeliveryStatus;
+            return _resultValue;
         }
     }
 }

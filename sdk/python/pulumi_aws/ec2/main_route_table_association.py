@@ -125,14 +125,17 @@ class MainRouteTableAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        main_route_table_association = aws.ec2.MainRouteTableAssociation("mainRouteTableAssociation",
-            vpc_id=aws_vpc["foo"]["id"],
-            route_table_id=aws_route_table["bar"]["id"])
+        a = aws.ec2.MainRouteTableAssociation("a",
+            vpc_id=foo["id"],
+            route_table_id=bar["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Notes
 
         On VPC creation, the AWS API always creates an initial Main Route Table. This
@@ -162,14 +165,17 @@ class MainRouteTableAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        main_route_table_association = aws.ec2.MainRouteTableAssociation("mainRouteTableAssociation",
-            vpc_id=aws_vpc["foo"]["id"],
-            route_table_id=aws_route_table["bar"]["id"])
+        a = aws.ec2.MainRouteTableAssociation("a",
+            vpc_id=foo["id"],
+            route_table_id=bar["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Notes
 
         On VPC creation, the AWS API always creates an initial Main Route Table. This

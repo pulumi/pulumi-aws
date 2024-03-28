@@ -70,16 +70,19 @@ public final class NetworkInsightsAnalysisForwardPathComponentAclRule {
 
         @CustomType.Setter
         public Builder cidr(@Nullable String cidr) {
+
             this.cidr = cidr;
             return this;
         }
         @CustomType.Setter
         public Builder egress(@Nullable Boolean egress) {
+
             this.egress = egress;
             return this;
         }
         @CustomType.Setter
         public Builder portRanges(@Nullable List<NetworkInsightsAnalysisForwardPathComponentAclRulePortRange> portRanges) {
+
             this.portRanges = portRanges;
             return this;
         }
@@ -88,28 +91,31 @@ public final class NetworkInsightsAnalysisForwardPathComponentAclRule {
         }
         @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
+
             this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder ruleAction(@Nullable String ruleAction) {
+
             this.ruleAction = ruleAction;
             return this;
         }
         @CustomType.Setter
         public Builder ruleNumber(@Nullable Integer ruleNumber) {
+
             this.ruleNumber = ruleNumber;
             return this;
         }
         public NetworkInsightsAnalysisForwardPathComponentAclRule build() {
-            final var o = new NetworkInsightsAnalysisForwardPathComponentAclRule();
-            o.cidr = cidr;
-            o.egress = egress;
-            o.portRanges = portRanges;
-            o.protocol = protocol;
-            o.ruleAction = ruleAction;
-            o.ruleNumber = ruleNumber;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisForwardPathComponentAclRule();
+            _resultValue.cidr = cidr;
+            _resultValue.egress = egress;
+            _resultValue.portRanges = portRanges;
+            _resultValue.protocol = protocol;
+            _resultValue.ruleAction = ruleAction;
+            _resultValue.ruleNumber = ruleNumber;
+            return _resultValue;
         }
     }
 }

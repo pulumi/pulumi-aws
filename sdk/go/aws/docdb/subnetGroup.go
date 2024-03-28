@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,9 +30,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := docdb.NewSubnetGroup(ctx, "default", &docdb.SubnetGroupArgs{
+//				Name: pulumi.String("main"),
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Frontend.Id,
-//					aws_subnet.Backend.Id,
+//					frontend.Id,
+//					backend.Id,
 //				},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("My docdb subnet group"),
@@ -45,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DocumentDB Subnet groups using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group
-//
+// $ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group
 // ```
 type SubnetGroup struct {
 	pulumi.CustomResourceState
@@ -89,10 +90,6 @@ func NewSubnetGroup(ctx *pulumi.Context,
 	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SubnetGroup
 	err := ctx.RegisterResource("aws:docdb/subnetGroup:SubnetGroup", name, args, &resource, opts...)

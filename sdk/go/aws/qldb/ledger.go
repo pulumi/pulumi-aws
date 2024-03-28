@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := qldb.NewLedger(ctx, "sample-ledger", &qldb.LedgerArgs{
+//				Name:            pulumi.String("sample-ledger"),
 //				PermissionsMode: pulumi.String("STANDARD"),
 //			})
 //			if err != nil {
@@ -41,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import QLDB Ledgers using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
-//
+// $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
 // ```
 type Ledger struct {
 	pulumi.CustomResourceState
@@ -82,10 +83,6 @@ func NewLedger(ctx *pulumi.Context,
 	if args.PermissionsMode == nil {
 		return nil, errors.New("invalid value for required argument 'PermissionsMode'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Ledger
 	err := ctx.RegisterResource("aws:qldb/ledger:Ledger", name, args, &resource, opts...)

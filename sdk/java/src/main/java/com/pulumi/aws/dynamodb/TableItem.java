@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  *   You should perform **regular backups** of all data in the table, see [AWS docs for more](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BackupRestore.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,6 +48,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleTable = new Table(&#34;exampleTable&#34;, TableArgs.builder()        
+ *             .name(&#34;example-name&#34;)
  *             .readCapacity(10)
  *             .writeCapacity(10)
  *             .hashKey(&#34;exampleHashKey&#34;)
@@ -55,7 +58,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleTableItem = new TableItem(&#34;exampleTableItem&#34;, TableItemArgs.builder()        
+ *         var example = new TableItem(&#34;example&#34;, TableItemArgs.builder()        
  *             .tableName(exampleTable.name())
  *             .hashKey(exampleTable.hashKey())
  *             .item(&#34;&#34;&#34;
@@ -72,6 +75,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

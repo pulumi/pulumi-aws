@@ -15,8 +15,10 @@ namespace Pulumi.Aws.Cfg
     /// &gt; **NOTE:** This resource must be created in the Organization master account or a delegated administrator account, and the Organization must have all features enabled. Every Organization account except those configured in the `excluded_accounts` argument must have a Configuration Recorder with proper IAM permissions before the Organization Conformance Pack will successfully create or update. See also the `aws.cfg.Recorder` resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Using Template Body
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,17 +27,9 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
+    ///     var example = new Aws.Cfg.OrganizationConformancePack("example", new()
     ///     {
-    ///         AwsServiceAccessPrincipals = new[]
-    ///         {
-    ///             "config-multiaccountsetup.amazonaws.com",
-    ///         },
-    ///         FeatureSet = "ALL",
-    ///     });
-    /// 
-    ///     var exampleOrganizationConformancePack = new Aws.Cfg.OrganizationConformancePack("exampleOrganizationConformancePack", new()
-    ///     {
+    ///         Name = "example",
     ///         InputParameters = new[]
     ///         {
     ///             new Aws.Cfg.Inputs.OrganizationConformancePackInputParameterArgs
@@ -56,28 +50,9 @@ namespace Pulumi.Aws.Cfg
     ///         SourceIdentifier: IAM_PASSWORD_POLICY
     ///     Type: AWS::Config::ConfigRule
     /// ",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_config_configuration_recorder.Example,
-    ///             exampleOrganization,
-    ///         },
     ///     });
     /// 
-    /// });
-    /// ```
-    /// ### Using Template S3 URI
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
+    ///     var exampleOrganization = new Aws.Organizations.Organization("example", new()
     ///     {
     ///         AwsServiceAccessPrincipals = new[]
     ///         {
@@ -86,9 +61,27 @@ namespace Pulumi.Aws.Cfg
     ///         FeatureSet = "ALL",
     ///     });
     /// 
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
-    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
+    /// ### Using Template S3 URI
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     {
+    ///         Bucket = "example",
+    ///     });
+    /// 
+    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("example", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
     ///         Key = "example-key",
@@ -103,32 +96,36 @@ namespace Pulumi.Aws.Cfg
     /// ",
     ///     });
     /// 
-    ///     var exampleOrganizationConformancePack = new Aws.Cfg.OrganizationConformancePack("exampleOrganizationConformancePack", new()
+    ///     var example = new Aws.Cfg.OrganizationConformancePack("example", new()
     ///     {
+    ///         Name = "example",
     ///         TemplateS3Uri = Output.Tuple(exampleBucketV2.Bucket, exampleBucketObjectv2.Key).Apply(values =&gt;
     ///         {
     ///             var bucket = values.Item1;
     ///             var key = values.Item2;
     ///             return $"s3://{bucket}/{key}";
     ///         }),
-    ///     }, new CustomResourceOptions
+    ///     });
+    /// 
+    ///     var exampleOrganization = new Aws.Organizations.Organization("example", new()
     ///     {
-    ///         DependsOn = new[]
+    ///         AwsServiceAccessPrincipals = new[]
     ///         {
-    ///             aws_config_configuration_recorder.Example,
-    ///             exampleOrganization,
+    ///             "config-multiaccountsetup.amazonaws.com",
     ///         },
+    ///         FeatureSet = "ALL",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Config Organization Conformance Packs using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
+    /// $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/organizationConformancePack:OrganizationConformancePack")]

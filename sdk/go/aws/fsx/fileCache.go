@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,7 +65,7 @@ import (
 //					},
 //				},
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Test1.Id,
+//					test1.Id,
 //				},
 //				StorageCapacity: pulumi.Int(1200),
 //			})
@@ -76,15 +77,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Amazon File Cache cache using the resource `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
-//
+// $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
 // ```
 type FileCache struct {
 	pulumi.CustomResourceState
@@ -148,10 +148,6 @@ func NewFileCache(ctx *pulumi.Context,
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FileCache
 	err := ctx.RegisterResource("aws:fsx/fileCache:FileCache", name, args, &resource, opts...)

@@ -42,19 +42,21 @@ public final class ThingGroupMetadataRootToParentGroup {
 
         @CustomType.Setter
         public Builder groupArn(@Nullable String groupArn) {
+
             this.groupArn = groupArn;
             return this;
         }
         @CustomType.Setter
         public Builder groupName(@Nullable String groupName) {
+
             this.groupName = groupName;
             return this;
         }
         public ThingGroupMetadataRootToParentGroup build() {
-            final var o = new ThingGroupMetadataRootToParentGroup();
-            o.groupArn = groupArn;
-            o.groupName = groupName;
-            return o;
+            final var _resultValue = new ThingGroupMetadataRootToParentGroup();
+            _resultValue.groupArn = groupArn;
+            _resultValue.groupName = groupName;
+            return _resultValue;
         }
     }
 }

@@ -16,43 +16,52 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** If you are enabling versioning on the bucket for the first time, AWS recommends that you wait for 15 minutes after enabling versioning before issuing write operations (PUT or DELETE) on objects in the bucket.
  *
+ * > This resource cannot be used with S3 directory buckets.
+ *
  * ## Example Usage
+ *
  * ### With Versioning Enabled
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
- *     bucket: exampleBucketV2.id,
+ * const example = new aws.s3.BucketV2("example", {bucket: "example-bucket"});
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
+ *     bucket: example.id,
  *     acl: "private",
  * });
- * const versioningExample = new aws.s3.BucketVersioningV2("versioningExample", {
- *     bucket: exampleBucketV2.id,
+ * const versioningExample = new aws.s3.BucketVersioningV2("versioning_example", {
+ *     bucket: example.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Versioning Disabled
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
- *     bucket: exampleBucketV2.id,
+ * const example = new aws.s3.BucketV2("example", {bucket: "example-bucket"});
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
+ *     bucket: example.id,
  *     acl: "private",
  * });
- * const versioningExample = new aws.s3.BucketVersioningV2("versioningExample", {
- *     bucket: exampleBucketV2.id,
+ * const versioningExample = new aws.s3.BucketVersioningV2("versioning_example", {
+ *     bucket: example.id,
  *     versioningConfiguration: {
  *         status: "Disabled",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Object Dependency On Versioning
  *
  * When you create an object whose `versionId` you need and an `aws.s3.BucketVersioningV2` resource in the same configuration, you are more likely to have success by ensuring the `s3Object` depends either implicitly (see below) or explicitly (i.e., using `dependsOn = [aws_s3_bucket_versioning.example]`) on the `aws.s3.BucketVersioningV2` resource.
@@ -61,23 +70,25 @@ import * as utilities from "../utilities";
  *
  * This example shows the `aws_s3_object.example` depending implicitly on the versioning resource through the reference to `aws_s3_bucket_versioning.example.bucket` to define `bucket`:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketVersioningV2 = new aws.s3.BucketVersioningV2("exampleBucketVersioningV2", {
- *     bucket: exampleBucketV2.id,
+ * const example = new aws.s3.BucketV2("example", {bucket: "yotto"});
+ * const exampleBucketVersioningV2 = new aws.s3.BucketVersioningV2("example", {
+ *     bucket: example.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
  * });
- * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
+ * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("example", {
  *     bucket: exampleBucketVersioningV2.id,
  *     key: "droeloe",
  *     source: new pulumi.asset.FileAsset("example.txt"),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -88,12 +99,12 @@ import * as utilities from "../utilities";
  * If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
  *
  * ```sh
- *  $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name
+ * $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name
  * ```
- *  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+ * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
  *
  * ```sh
- *  $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name,123456789012
+ * $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name,123456789012
  * ```
  */
 export class BucketVersioningV2 extends pulumi.CustomResource {

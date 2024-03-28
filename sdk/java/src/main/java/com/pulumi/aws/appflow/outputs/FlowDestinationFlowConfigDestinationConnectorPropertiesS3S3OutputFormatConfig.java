@@ -89,31 +89,35 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
 
         @CustomType.Setter
         public Builder aggregationConfig(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig aggregationConfig) {
+
             this.aggregationConfig = aggregationConfig;
             return this;
         }
         @CustomType.Setter
         public Builder fileType(@Nullable String fileType) {
+
             this.fileType = fileType;
             return this;
         }
         @CustomType.Setter
         public Builder prefixConfig(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig prefixConfig) {
+
             this.prefixConfig = prefixConfig;
             return this;
         }
         @CustomType.Setter
         public Builder preserveSourceDataTyping(@Nullable Boolean preserveSourceDataTyping) {
+
             this.preserveSourceDataTyping = preserveSourceDataTyping;
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig();
-            o.aggregationConfig = aggregationConfig;
-            o.fileType = fileType;
-            o.prefixConfig = prefixConfig;
-            o.preserveSourceDataTyping = preserveSourceDataTyping;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig();
+            _resultValue.aggregationConfig = aggregationConfig;
+            _resultValue.fileType = fileType;
+            _resultValue.prefixConfig = prefixConfig;
+            _resultValue.preserveSourceDataTyping = preserveSourceDataTyping;
+            return _resultValue;
         }
     }
 }

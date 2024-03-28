@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,9 +30,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewRouteTableAssociation(ctx, "routeTableAssociation", &ec2.RouteTableAssociationArgs{
-//				SubnetId:     pulumi.Any(aws_subnet.Foo.Id),
-//				RouteTableId: pulumi.Any(aws_route_table.Bar.Id),
+//			_, err := ec2.NewRouteTableAssociation(ctx, "a", &ec2.RouteTableAssociationArgs{
+//				SubnetId:     pulumi.Any(foo.Id),
+//				RouteTableId: pulumi.Any(bar.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -41,7 +42,9 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,9 +57,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewRouteTableAssociation(ctx, "routeTableAssociation", &ec2.RouteTableAssociationArgs{
-//				GatewayId:    pulumi.Any(aws_internet_gateway.Foo.Id),
-//				RouteTableId: pulumi.Any(aws_route_table.Bar.Id),
+//			_, err := ec2.NewRouteTableAssociation(ctx, "b", &ec2.RouteTableAssociationArgs{
+//				GatewayId:    pulumi.Any(foo.Id),
+//				RouteTableId: pulumi.Any(bar.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -66,6 +69,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -76,17 +80,12 @@ import (
 // With EC2 Subnets:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
-//
+// $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
 // ```
-//
-//	With EC2 Internet Gateways:
+// With EC2 Internet Gateways:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
-//
+// $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
 // ```
 type RouteTableAssociation struct {
 	pulumi.CustomResourceState

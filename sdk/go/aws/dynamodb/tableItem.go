@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,7 +33,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTable, err := dynamodb.NewTable(ctx, "exampleTable", &dynamodb.TableArgs{
+//			exampleTable, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
+//				Name:          pulumi.String("example-name"),
 //				ReadCapacity:  pulumi.Int(10),
 //				WriteCapacity: pulumi.Int(10),
 //				HashKey:       pulumi.String("exampleHashKey"),
@@ -46,7 +48,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = dynamodb.NewTableItem(ctx, "exampleTableItem", &dynamodb.TableItemArgs{
+//			_, err = dynamodb.NewTableItem(ctx, "example", &dynamodb.TableItemArgs{
 //				TableName: exampleTable.Name,
 //				HashKey:   exampleTable.HashKey,
 //				Item: pulumi.String(`{
@@ -68,6 +70,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

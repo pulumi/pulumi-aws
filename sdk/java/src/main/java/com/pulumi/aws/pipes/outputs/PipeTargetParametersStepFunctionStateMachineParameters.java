@@ -4,6 +4,7 @@
 package com.pulumi.aws.pipes.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class PipeTargetParametersStepFunctionStateMachineParameters {
 
         @CustomType.Setter
         public Builder invocationType(String invocationType) {
-            this.invocationType = Objects.requireNonNull(invocationType);
+            if (invocationType == null) {
+              throw new MissingRequiredPropertyException("PipeTargetParametersStepFunctionStateMachineParameters", "invocationType");
+            }
+            this.invocationType = invocationType;
             return this;
         }
         public PipeTargetParametersStepFunctionStateMachineParameters build() {
-            final var o = new PipeTargetParametersStepFunctionStateMachineParameters();
-            o.invocationType = invocationType;
-            return o;
+            final var _resultValue = new PipeTargetParametersStepFunctionStateMachineParameters();
+            _resultValue.invocationType = invocationType;
+            return _resultValue;
         }
     }
 }

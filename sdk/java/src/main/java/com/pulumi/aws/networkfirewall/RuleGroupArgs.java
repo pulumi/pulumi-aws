@@ -7,6 +7,7 @@ import com.pulumi.aws.networkfirewall.inputs.RuleGroupEncryptionConfigurationArg
 import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -339,8 +340,12 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RuleGroupArgs build() {
-            $.capacity = Objects.requireNonNull($.capacity, "expected parameter 'capacity' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.capacity == null) {
+                throw new MissingRequiredPropertyException("RuleGroupArgs", "capacity");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("RuleGroupArgs", "type");
+            }
             return $;
         }
     }

@@ -11,13 +11,15 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleAccessPoint = new aws.s3.AccessPoint("exampleAccessPoint", {
- *     bucket: exampleBucketV2.id,
+ * const example = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleAccessPoint = new aws.s3.AccessPoint("example", {
+ *     bucket: example.id,
+ *     name: "example",
  *     publicAccessBlockConfiguration: {
  *         blockPublicAcls: true,
  *         blockPublicPolicy: false,
@@ -25,28 +27,29 @@ import * as utilities from "../utilities";
  *         restrictPublicBuckets: false,
  *     },
  * });
- * const exampleAccessPointPolicy = new aws.s3control.AccessPointPolicy("exampleAccessPointPolicy", {
+ * const exampleAccessPointPolicy = new aws.s3control.AccessPointPolicy("example", {
  *     accessPointArn: exampleAccessPoint.arn,
- *     policy: exampleAccessPoint.arn.apply(arn => JSON.stringify({
- *         Version: "2008-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Action: "s3:GetObjectTagging",
- *             Principal: {
+ *     policy: pulumi.jsonStringify({
+ *         version: "2008-10-17",
+ *         statement: [{
+ *             effect: "Allow",
+ *             action: "s3:GetObjectTagging",
+ *             principal: {
  *                 AWS: "*",
  *             },
- *             Resource: `${arn}/object/*`,
+ *             resource: pulumi.interpolate`${exampleAccessPoint.arn}/object/*`,
  *         }],
- *     })),
+ *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Access Point policies using the `access_point_arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
+ * $ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
  * ```
  */
 export class AccessPointPolicy extends pulumi.CustomResource {

@@ -297,13 +297,14 @@ class ExperimentTemplate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.fis.ExperimentTemplate("example",
             description="example",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             stop_conditions=[aws.fis.ExperimentTemplateStopConditionArgs(
                 source="none",
             )],
@@ -325,13 +326,14 @@ class ExperimentTemplate(pulumi.CustomResource):
                 )],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import FIS Experiment Templates using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
+        $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
         ```
 
         :param str resource_name: The name of the resource.
@@ -361,13 +363,14 @@ class ExperimentTemplate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.fis.ExperimentTemplate("example",
             description="example",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             stop_conditions=[aws.fis.ExperimentTemplateStopConditionArgs(
                 source="none",
             )],
@@ -389,13 +392,14 @@ class ExperimentTemplate(pulumi.CustomResource):
                 )],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import FIS Experiment Templates using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
+        $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
         ```
 
         :param str resource_name: The name of the resource.
@@ -445,8 +449,6 @@ class ExperimentTemplate(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["targets"] = targets
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ExperimentTemplate, __self__).__init__(
             'aws:fis/experimentTemplate:ExperimentTemplate',
             resource_name,

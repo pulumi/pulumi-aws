@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Emr
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,6 +27,7 @@ namespace Pulumi.Aws.Emr
     /// {
     ///     var cluster = new Aws.Emr.Cluster("cluster", new()
     ///     {
+    ///         Name = "emr-test-arn",
     ///         ReleaseLabel = "emr-4.6.0",
     ///         Applications = new[]
     ///         {
@@ -42,10 +44,10 @@ namespace Pulumi.Aws.Emr
     ///         KeepJobFlowAliveWhenNoSteps = true,
     ///         Ec2Attributes = new Aws.Emr.Inputs.ClusterEc2AttributesArgs
     ///         {
-    ///             SubnetId = aws_subnet.Main.Id,
-    ///             EmrManagedMasterSecurityGroup = aws_security_group.Sg.Id,
-    ///             EmrManagedSlaveSecurityGroup = aws_security_group.Sg.Id,
-    ///             InstanceProfile = aws_iam_instance_profile.Emr_profile.Arn,
+    ///             SubnetId = main.Id,
+    ///             EmrManagedMasterSecurityGroup = sg.Id,
+    ///             EmrManagedSlaveSecurityGroup = sg.Id,
+    ///             InstanceProfile = emrProfile.Arn,
     ///         },
     ///         MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
     ///         {
@@ -144,17 +146,20 @@ namespace Pulumi.Aws.Emr
     ///     }
     ///   ]
     /// ",
-    ///         ServiceRole = aws_iam_role.Iam_emr_service_role.Arn,
+    ///         ServiceRole = iamEmrServiceRole.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// The `aws.emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster to use as a service role, and another is assigned to every EC2 instance in a cluster and each application process that runs on a cluster assumes this role for permissions to interact with other AWS services. An additional role, the Auto Scaling role, is required if your cluster uses automatic scaling in Amazon EMR.
     /// 
     /// The default AWS managed EMR service role is called `EMR_DefaultRole` with Amazon managed policy `AmazonEMRServicePolicy_v2` attached. The name of default instance profile role is `EMR_EC2_DefaultRole` with default managed policy `AmazonElasticMapReduceforEC2Role` attached, but it is on the path to deprecation and will not be replaced with another default managed policy. You'll need to create and specify an instance profile to replace the deprecated role and default policy. See the [Configure IAM service roles for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-roles.html) guide for more information on these IAM roles. There is also a fully-bootable example Pulumi configuration at the bottom of this page.
+    /// 
     /// ### Instance Fleet
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -294,16 +299,20 @@ namespace Pulumi.Aws.Emr
     ///                 },
     ///             },
     ///         },
+    ///         Name = "task fleet",
     ///         TargetOnDemandCapacity = 1,
     ///         TargetSpotCapacity = 1,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Enable Debug Logging
     /// 
     /// [Debug logging in EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html) is implemented as a step. It is highly recommended that you utilize the resource options configuration with `ignoreChanges` if other steps are being managed outside of this provider.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -312,7 +321,6 @@ namespace Pulumi.Aws.Emr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // ... other configuration ...
     ///     var example = new Aws.Emr.Cluster("example", new()
     ///     {
     ///         Steps = new[]
@@ -335,10 +343,13 @@ namespace Pulumi.Aws.Emr
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Multiple Node Master Instance Group
     /// 
     /// Available in EMR version 5.23.0 and later, an EMR Cluster can be launched with three master nodes for high availability. Additional information about this functionality and its requirements can be found in the [EMR Management Guide](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ha.html).
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -350,20 +361,18 @@ namespace Pulumi.Aws.Emr
     ///     // This configuration is for illustrative purposes and highlights
     ///     // only relevant configurations for working with this functionality.
     ///     // Map public IP on launch must be enabled for public (Internet accessible) subnets
-    ///     // ... other configuration ...
-    ///     var exampleSubnet = new Aws.Ec2.Subnet("exampleSubnet", new()
+    ///     var example = new Aws.Ec2.Subnet("example", new()
     ///     {
     ///         MapPublicIpOnLaunch = true,
     ///     });
     /// 
-    ///     // ... other configuration ...
-    ///     var exampleCluster = new Aws.Emr.Cluster("exampleCluster", new()
+    ///     var exampleCluster = new Aws.Emr.Cluster("example", new()
     ///     {
     ///         ReleaseLabel = "emr-5.24.1",
     ///         TerminationProtection = true,
     ///         Ec2Attributes = new Aws.Emr.Inputs.ClusterEc2AttributesArgs
     ///         {
-    ///             SubnetId = exampleSubnet.Id,
+    ///             SubnetId = example.Id,
     ///         },
     ///         MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
     ///         {
@@ -374,15 +383,16 @@ namespace Pulumi.Aws.Emr
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EMR clusters using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
+    /// $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
     /// ```
-    ///  Since the API does not return the actual values for Kerberos configurations, environments with those options set will need to use the `lifecycle` configuration block `ignore_changes` argument available to all Pulumi resources to prevent perpetual differences. For example:
+    /// Since the API does not return the actual values for Kerberos configurations, environments with those options set will need to use the `lifecycle` configuration block `ignore_changes` argument available to all Pulumi resources to prevent perpetual differences. For example:
     /// </summary>
     [AwsResourceType("aws:emr/cluster:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
@@ -437,6 +447,7 @@ namespace Pulumi.Aws.Emr
         /// 
         /// &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -461,12 +472,12 @@ namespace Pulumi.Aws.Emr
         /// ""Properties"": {}
         /// }
         /// ]
-        /// 
         /// ",
         ///     });
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Output("configurationsJson")]
         public Output<string?> ConfigurationsJson { get; private set; } = null!;
@@ -646,10 +657,6 @@ namespace Pulumi.Aws.Emr
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -726,6 +733,7 @@ namespace Pulumi.Aws.Emr
         /// 
         /// &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -750,12 +758,12 @@ namespace Pulumi.Aws.Emr
         /// ""Properties"": {}
         /// }
         /// ]
-        /// 
         /// ",
         ///     });
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Input("configurationsJson")]
         public Input<string>? ConfigurationsJson { get; set; }
@@ -994,6 +1002,7 @@ namespace Pulumi.Aws.Emr
         /// 
         /// &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -1018,12 +1027,12 @@ namespace Pulumi.Aws.Emr
         /// ""Properties"": {}
         /// }
         /// ]
-        /// 
         /// ",
         ///     });
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Input("configurationsJson")]
         public Input<string>? ConfigurationsJson { get; set; }
@@ -1196,11 +1205,7 @@ namespace Pulumi.Aws.Emr
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

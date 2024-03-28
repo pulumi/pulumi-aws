@@ -278,7 +278,7 @@ class Partition(pulumi.CustomResource):
         Using `pulumi import`, import Glue Partitions using the catalog ID (usually AWS account ID), database name, table name and partition values. For example:
 
         ```sh
-         $ pulumi import aws:glue/partition:Partition part 123456789012:MyDatabase:MyTable:val1#val2
+        $ pulumi import aws:glue/partition:Partition part 123456789012:MyDatabase:MyTable:val1#val2
         ```
 
         :param str resource_name: The name of the resource.
@@ -303,7 +303,7 @@ class Partition(pulumi.CustomResource):
         Using `pulumi import`, import Glue Partitions using the catalog ID (usually AWS account ID), database name, table name and partition values. For example:
 
         ```sh
-         $ pulumi import aws:glue/partition:Partition part 123456789012:MyDatabase:MyTable:val1#val2
+        $ pulumi import aws:glue/partition:Partition part 123456789012:MyDatabase:MyTable:val1#val2
         ```
 
         :param str resource_name: The name of the resource.

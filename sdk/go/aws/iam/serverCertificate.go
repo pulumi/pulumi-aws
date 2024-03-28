@@ -27,31 +27,36 @@ import (
 //
 // **Using certs on file:**
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.NewServerCertificate(ctx, "testCert", &iam.ServerCertificateArgs{
-//				CertificateBody: readFileOrPanic("self-ca-cert.pem"),
-//				PrivateKey:      readFileOrPanic("test-key.pem"),
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "self-ca-cert.pem",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeFile1, err := std.File(ctx, &std.FileArgs{
+//				Input: "test-key.pem",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewServerCertificate(ctx, "test_cert", &iam.ServerCertificateArgs{
+//				Name:            pulumi.String("some_test_cert"),
+//				CertificateBody: invokeFile.Result,
+//				PrivateKey:      invokeFile1.Result,
 //			})
 //			if err != nil {
 //				return err
@@ -61,9 +66,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // **Example with cert in-line:**
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -76,9 +83,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.NewServerCertificate(ctx, "testCertAlt", &iam.ServerCertificateArgs{
-//				CertificateBody: pulumi.String("-----BEGIN CERTIFICATE-----\n[......] # cert contents\n-----END CERTIFICATE-----\n\n"),
-//				PrivateKey:      pulumi.String("-----BEGIN RSA PRIVATE KEY-----\n[......] # cert contents\n-----END RSA PRIVATE KEY-----\n\n"),
+//			_, err := iam.NewServerCertificate(ctx, "test_cert_alt", &iam.ServerCertificateArgs{
+//				Name:            pulumi.String("alt_test_cert"),
+//				CertificateBody: pulumi.String("-----BEGIN CERTIFICATE-----\n[......] # cert contents\n-----END CERTIFICATE-----\n"),
+//				PrivateKey:      pulumi.String("-----BEGIN RSA PRIVATE KEY-----\n[......] # cert contents\n-----END RSA PRIVATE KEY-----\n"),
 //			})
 //			if err != nil {
 //				return err
@@ -88,6 +96,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // **Use in combination with an AWS ELB resource:**
 //
@@ -98,38 +107,43 @@ import (
 // to create a new, updated `iam.ServerCertificate` resource and replace it in
 // dependant resources before attempting to destroy the old version.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testCert, err := iam.NewServerCertificate(ctx, "testCert", &iam.ServerCertificateArgs{
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "self-ca-cert.pem",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeFile1, err := std.File(ctx, &std.FileArgs{
+//				Input: "test-key.pem",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			testCert, err := iam.NewServerCertificate(ctx, "test_cert", &iam.ServerCertificateArgs{
 //				NamePrefix:      pulumi.String("example-cert"),
-//				CertificateBody: readFileOrPanic("self-ca-cert.pem"),
-//				PrivateKey:      readFileOrPanic("test-key.pem"),
+//				CertificateBody: invokeFile.Result,
+//				PrivateKey:      invokeFile1.Result,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = elb.NewLoadBalancer(ctx, "ourapp", &elb.LoadBalancerArgs{
+//				Name: pulumi.String("asg-deployment-example"),
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-west-2a"),
 //				},
@@ -152,15 +166,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IAM Server Certificates using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
-//
+// $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
 // ```
 type ServerCertificate struct {
 	pulumi.CustomResourceState
@@ -219,7 +232,6 @@ func NewServerCertificate(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"privateKey",
-		"tagsAll",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)

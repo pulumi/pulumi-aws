@@ -6,6 +6,7 @@ package com.pulumi.aws.networkfirewall.inputs;
 import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefini
         }
 
         public FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs build() {
-            $.publishMetricAction = Objects.requireNonNull($.publishMetricAction, "expected parameter 'publishMetricAction' to be non-null");
+            if ($.publishMetricAction == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs", "publishMetricAction");
+            }
             return $;
         }
     }

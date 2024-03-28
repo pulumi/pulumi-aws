@@ -4,6 +4,7 @@
 package com.pulumi.aws.elasticsearch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class GetDomainAdvancedSecurityOption {
 
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetDomainAdvancedSecurityOption", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder internalUserDatabaseEnabled(Boolean internalUserDatabaseEnabled) {
-            this.internalUserDatabaseEnabled = Objects.requireNonNull(internalUserDatabaseEnabled);
+            if (internalUserDatabaseEnabled == null) {
+              throw new MissingRequiredPropertyException("GetDomainAdvancedSecurityOption", "internalUserDatabaseEnabled");
+            }
+            this.internalUserDatabaseEnabled = internalUserDatabaseEnabled;
             return this;
         }
         public GetDomainAdvancedSecurityOption build() {
-            final var o = new GetDomainAdvancedSecurityOption();
-            o.enabled = enabled;
-            o.internalUserDatabaseEnabled = internalUserDatabaseEnabled;
-            return o;
+            final var _resultValue = new GetDomainAdvancedSecurityOption();
+            _resultValue.enabled = enabled;
+            _resultValue.internalUserDatabaseEnabled = internalUserDatabaseEnabled;
+            return _resultValue;
         }
     }
 }

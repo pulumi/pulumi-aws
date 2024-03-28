@@ -101,6 +101,7 @@ public final class ServerEndpointDetails {
 
         @CustomType.Setter
         public Builder addressAllocationIds(@Nullable List<String> addressAllocationIds) {
+
             this.addressAllocationIds = addressAllocationIds;
             return this;
         }
@@ -109,6 +110,7 @@ public final class ServerEndpointDetails {
         }
         @CustomType.Setter
         public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
+
             this.securityGroupIds = securityGroupIds;
             return this;
         }
@@ -117,6 +119,7 @@ public final class ServerEndpointDetails {
         }
         @CustomType.Setter
         public Builder subnetIds(@Nullable List<String> subnetIds) {
+
             this.subnetIds = subnetIds;
             return this;
         }
@@ -125,22 +128,24 @@ public final class ServerEndpointDetails {
         }
         @CustomType.Setter
         public Builder vpcEndpointId(@Nullable String vpcEndpointId) {
+
             this.vpcEndpointId = vpcEndpointId;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(@Nullable String vpcId) {
+
             this.vpcId = vpcId;
             return this;
         }
         public ServerEndpointDetails build() {
-            final var o = new ServerEndpointDetails();
-            o.addressAllocationIds = addressAllocationIds;
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            o.vpcEndpointId = vpcEndpointId;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new ServerEndpointDetails();
+            _resultValue.addressAllocationIds = addressAllocationIds;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcEndpointId = vpcEndpointId;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

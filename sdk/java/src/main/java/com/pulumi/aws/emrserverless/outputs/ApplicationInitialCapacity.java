@@ -5,6 +5,7 @@ package com.pulumi.aws.emrserverless.outputs;
 
 import com.pulumi.aws.emrserverless.outputs.ApplicationInitialCapacityInitialCapacityConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,19 +60,23 @@ public final class ApplicationInitialCapacity {
 
         @CustomType.Setter
         public Builder initialCapacityConfig(@Nullable ApplicationInitialCapacityInitialCapacityConfig initialCapacityConfig) {
+
             this.initialCapacityConfig = initialCapacityConfig;
             return this;
         }
         @CustomType.Setter
         public Builder initialCapacityType(String initialCapacityType) {
-            this.initialCapacityType = Objects.requireNonNull(initialCapacityType);
+            if (initialCapacityType == null) {
+              throw new MissingRequiredPropertyException("ApplicationInitialCapacity", "initialCapacityType");
+            }
+            this.initialCapacityType = initialCapacityType;
             return this;
         }
         public ApplicationInitialCapacity build() {
-            final var o = new ApplicationInitialCapacity();
-            o.initialCapacityConfig = initialCapacityConfig;
-            o.initialCapacityType = initialCapacityType;
-            return o;
+            final var _resultValue = new ApplicationInitialCapacity();
+            _resultValue.initialCapacityConfig = initialCapacityConfig;
+            _resultValue.initialCapacityType = initialCapacityType;
+            return _resultValue;
         }
     }
 }

@@ -288,26 +288,28 @@ class MountTarget(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         foo = aws.ec2.Vpc("foo", cidr_block="10.0.0.0/16")
-        alpha_subnet = aws.ec2.Subnet("alphaSubnet",
+        alpha_subnet = aws.ec2.Subnet("alpha",
             vpc_id=foo.id,
             availability_zone="us-west-2a",
             cidr_block="10.0.1.0/24")
-        alpha_mount_target = aws.efs.MountTarget("alphaMountTarget",
-            file_system_id=aws_efs_file_system["foo"]["id"],
+        alpha = aws.efs.MountTarget("alpha",
+            file_system_id=foo_aws_efs_file_system["id"],
             subnet_id=alpha_subnet.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the EFS mount targets using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
+        $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
         ```
 
         :param str resource_name: The name of the resource.
@@ -330,26 +332,28 @@ class MountTarget(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         foo = aws.ec2.Vpc("foo", cidr_block="10.0.0.0/16")
-        alpha_subnet = aws.ec2.Subnet("alphaSubnet",
+        alpha_subnet = aws.ec2.Subnet("alpha",
             vpc_id=foo.id,
             availability_zone="us-west-2a",
             cidr_block="10.0.1.0/24")
-        alpha_mount_target = aws.efs.MountTarget("alphaMountTarget",
-            file_system_id=aws_efs_file_system["foo"]["id"],
+        alpha = aws.efs.MountTarget("alpha",
+            file_system_id=foo_aws_efs_file_system["id"],
             subnet_id=alpha_subnet.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the EFS mount targets using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
+        $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
         ```
 
         :param str resource_name: The name of the resource.

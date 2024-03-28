@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,9 +35,10 @@ import (
 //					pulumi.String("creation"),
 //					pulumi.String("failure"),
 //				},
-//				SnsTopicArn: pulumi.Any(aws_sns_topic.Example.Arn),
+//				Name:        pulumi.String("my-favorite-event-subscription"),
+//				SnsTopicArn: pulumi.Any(exampleAwsSnsTopic.Arn),
 //				SourceIds: pulumi.StringArray{
-//					aws_dms_replication_task.Example.Replication_task_id,
+//					exampleAwsDmsReplicationTask.ReplicationTaskId,
 //				},
 //				SourceType: pulumi.String("replication-task"),
 //				Tags: pulumi.StringMap{
@@ -51,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import event subscriptions using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
-//
+// $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
 // ```
 type EventSubscription struct {
 	pulumi.CustomResourceState
@@ -74,10 +75,10 @@ type EventSubscription struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// SNS topic arn to send events on.
 	SnsTopicArn pulumi.StringOutput `pulumi:"snsTopicArn"`
-	// Ids of sources to listen to.
+	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
 	SourceIds pulumi.StringArrayOutput `pulumi:"sourceIds"`
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
-	SourceType pulumi.StringPtrOutput `pulumi:"sourceType"`
+	SourceType pulumi.StringOutput `pulumi:"sourceType"`
 	// Map of resource tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -99,10 +100,9 @@ func NewEventSubscription(ctx *pulumi.Context,
 	if args.SnsTopicArn == nil {
 		return nil, errors.New("invalid value for required argument 'SnsTopicArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
+	if args.SourceType == nil {
+		return nil, errors.New("invalid value for required argument 'SourceType'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventSubscription
 	err := ctx.RegisterResource("aws:dms/eventSubscription:EventSubscription", name, args, &resource, opts...)
@@ -136,7 +136,7 @@ type eventSubscriptionState struct {
 	Name *string `pulumi:"name"`
 	// SNS topic arn to send events on.
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
-	// Ids of sources to listen to.
+	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
 	SourceIds []string `pulumi:"sourceIds"`
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
 	SourceType *string `pulumi:"sourceType"`
@@ -159,7 +159,7 @@ type EventSubscriptionState struct {
 	Name pulumi.StringPtrInput
 	// SNS topic arn to send events on.
 	SnsTopicArn pulumi.StringPtrInput
-	// Ids of sources to listen to.
+	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
 	SourceIds pulumi.StringArrayInput
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
 	SourceType pulumi.StringPtrInput
@@ -184,10 +184,10 @@ type eventSubscriptionArgs struct {
 	Name *string `pulumi:"name"`
 	// SNS topic arn to send events on.
 	SnsTopicArn string `pulumi:"snsTopicArn"`
-	// Ids of sources to listen to.
+	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
 	SourceIds []string `pulumi:"sourceIds"`
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
-	SourceType *string `pulumi:"sourceType"`
+	SourceType string `pulumi:"sourceType"`
 	// Map of resource tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -202,10 +202,10 @@ type EventSubscriptionArgs struct {
 	Name pulumi.StringPtrInput
 	// SNS topic arn to send events on.
 	SnsTopicArn pulumi.StringInput
-	// Ids of sources to listen to.
+	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
 	SourceIds pulumi.StringArrayInput
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
-	SourceType pulumi.StringPtrInput
+	SourceType pulumi.StringInput
 	// Map of resource tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -322,14 +322,14 @@ func (o EventSubscriptionOutput) SnsTopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.SnsTopicArn }).(pulumi.StringOutput)
 }
 
-// Ids of sources to listen to.
+// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
 func (o EventSubscriptionOutput) SourceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringArrayOutput { return v.SourceIds }).(pulumi.StringArrayOutput)
 }
 
 // Type of source for events. Valid values: `replication-instance` or `replication-task`
-func (o EventSubscriptionOutput) SourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EventSubscription) pulumi.StringPtrOutput { return v.SourceType }).(pulumi.StringPtrOutput)
+func (o EventSubscriptionOutput) SourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.SourceType }).(pulumi.StringOutput)
 }
 
 // Map of resource tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

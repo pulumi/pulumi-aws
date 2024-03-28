@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,23 +21,24 @@ import * as utilities from "../utilities";
  * const test = new aws.fsx.OntapFileSystem("test", {
  *     storageCapacity: 1024,
  *     subnetIds: [
- *         aws_subnet.test1.id,
- *         aws_subnet.test2.id,
+ *         test1.id,
+ *         test2.id,
  *     ],
  *     deploymentType: "MULTI_AZ_1",
  *     throughputCapacity: 512,
- *     preferredSubnetId: aws_subnet.test1.id,
+ *     preferredSubnetId: test1.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import FSx File Systems using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:fsx/ontapFileSystem:OntapFileSystem example fs-543ab12b1ca672f33
+ * $ pulumi import aws:fsx/ontapFileSystem:OntapFileSystem example fs-543ab12b1ca672f33
  * ```
- *  Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+ * Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
  */
 export class OntapFileSystem extends pulumi.CustomResource {
     /**
@@ -103,6 +105,10 @@ export class OntapFileSystem extends pulumi.CustomResource {
      */
     public readonly fsxAdminPassword!: pulumi.Output<string | undefined>;
     /**
+     * The number of haPairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+     */
+    public readonly haPairs!: pulumi.Output<number>;
+    /**
      * ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
@@ -135,7 +141,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
      */
     public readonly storageType!: pulumi.Output<string | undefined>;
     /**
-     * A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
+     * A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
@@ -149,9 +155,13 @@ export class OntapFileSystem extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`.
+     * Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
      */
-    public readonly throughputCapacity!: pulumi.Output<number>;
+    public readonly throughputCapacity!: pulumi.Output<number | undefined>;
+    /**
+     * Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
+     */
+    public readonly throughputCapacityPerHaPair!: pulumi.Output<number | undefined>;
     /**
      * Identifier of the Virtual Private Cloud for the file system.
      */
@@ -183,6 +193,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
             resourceInputs["endpointIpAddressRange"] = state ? state.endpointIpAddressRange : undefined;
             resourceInputs["endpoints"] = state ? state.endpoints : undefined;
             resourceInputs["fsxAdminPassword"] = state ? state.fsxAdminPassword : undefined;
+            resourceInputs["haPairs"] = state ? state.haPairs : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
@@ -195,6 +206,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["throughputCapacity"] = state ? state.throughputCapacity : undefined;
+            resourceInputs["throughputCapacityPerHaPair"] = state ? state.throughputCapacityPerHaPair : undefined;
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
             resourceInputs["weeklyMaintenanceStartTime"] = state ? state.weeklyMaintenanceStartTime : undefined;
         } else {
@@ -208,15 +220,13 @@ export class OntapFileSystem extends pulumi.CustomResource {
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            if ((!args || args.throughputCapacity === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'throughputCapacity'");
-            }
             resourceInputs["automaticBackupRetentionDays"] = args ? args.automaticBackupRetentionDays : undefined;
             resourceInputs["dailyAutomaticBackupStartTime"] = args ? args.dailyAutomaticBackupStartTime : undefined;
             resourceInputs["deploymentType"] = args ? args.deploymentType : undefined;
             resourceInputs["diskIopsConfiguration"] = args ? args.diskIopsConfiguration : undefined;
             resourceInputs["endpointIpAddressRange"] = args ? args.endpointIpAddressRange : undefined;
             resourceInputs["fsxAdminPassword"] = args?.fsxAdminPassword ? pulumi.secret(args.fsxAdminPassword) : undefined;
+            resourceInputs["haPairs"] = args ? args.haPairs : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["preferredSubnetId"] = args ? args.preferredSubnetId : undefined;
             resourceInputs["routeTableIds"] = args ? args.routeTableIds : undefined;
@@ -226,6 +236,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["throughputCapacity"] = args ? args.throughputCapacity : undefined;
+            resourceInputs["throughputCapacityPerHaPair"] = args ? args.throughputCapacityPerHaPair : undefined;
             resourceInputs["weeklyMaintenanceStartTime"] = args ? args.weeklyMaintenanceStartTime : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
@@ -236,7 +247,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["fsxAdminPassword", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["fsxAdminPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(OntapFileSystem.__pulumiType, name, resourceInputs, opts);
     }
@@ -283,6 +294,10 @@ export interface OntapFileSystemState {
      */
     fsxAdminPassword?: pulumi.Input<string>;
     /**
+     * The number of haPairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+     */
+    haPairs?: pulumi.Input<number>;
+    /**
      * ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
      */
     kmsKeyId?: pulumi.Input<string>;
@@ -315,7 +330,7 @@ export interface OntapFileSystemState {
      */
     storageType?: pulumi.Input<string>;
     /**
-     * A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
+     * A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -329,9 +344,13 @@ export interface OntapFileSystemState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`.
+     * Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
      */
     throughputCapacity?: pulumi.Input<number>;
+    /**
+     * Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
+     */
+    throughputCapacityPerHaPair?: pulumi.Input<number>;
     /**
      * Identifier of the Virtual Private Cloud for the file system.
      */
@@ -371,6 +390,10 @@ export interface OntapFileSystemArgs {
      */
     fsxAdminPassword?: pulumi.Input<string>;
     /**
+     * The number of haPairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+     */
+    haPairs?: pulumi.Input<number>;
+    /**
      * ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
      */
     kmsKeyId?: pulumi.Input<string>;
@@ -395,7 +418,7 @@ export interface OntapFileSystemArgs {
      */
     storageType?: pulumi.Input<string>;
     /**
-     * A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
+     * A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -403,9 +426,13 @@ export interface OntapFileSystemArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`.
+     * Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
      */
-    throughputCapacity: pulumi.Input<number>;
+    throughputCapacity?: pulumi.Input<number>;
+    /**
+     * Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
+     */
+    throughputCapacityPerHaPair?: pulumi.Input<number>;
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */

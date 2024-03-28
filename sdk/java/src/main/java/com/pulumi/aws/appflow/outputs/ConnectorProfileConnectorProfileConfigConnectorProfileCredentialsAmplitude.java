@@ -4,6 +4,7 @@
 package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
         @CustomType.Setter
         public Builder apiKey(String apiKey) {
-            this.apiKey = Objects.requireNonNull(apiKey);
+            if (apiKey == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude", "apiKey");
+            }
+            this.apiKey = apiKey;
             return this;
         }
         @CustomType.Setter
         public Builder secretKey(String secretKey) {
-            this.secretKey = Objects.requireNonNull(secretKey);
+            if (secretKey == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude", "secretKey");
+            }
+            this.secretKey = secretKey;
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude();
-            o.apiKey = apiKey;
-            o.secretKey = secretKey;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude();
+            _resultValue.apiKey = apiKey;
+            _resultValue.secretKey = secretKey;
+            return _resultValue;
         }
     }
 }

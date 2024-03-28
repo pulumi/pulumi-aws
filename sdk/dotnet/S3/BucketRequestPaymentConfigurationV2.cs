@@ -14,8 +14,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// &gt; **NOTE:** Destroying an `aws.s3.BucketRequestPaymentConfigurationV2` resource resets the bucket's `payer` to the S3 default: the bucket owner.
     /// 
+    /// &gt; This resource cannot be used with S3 directory buckets.
+    /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,12 +29,13 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketRequestPaymentConfigurationV2("example", new()
     ///     {
-    ///         Bucket = aws_s3_bucket.Example.Id,
+    ///         Bucket = exampleAwsS3Bucket.Id,
     ///         Payer = "Requester",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -42,12 +46,12 @@ namespace Pulumi.Aws.S3
     /// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name
+    /// $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name
     /// ```
-    ///  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+    /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name,123456789012
+    /// $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name,123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2")]

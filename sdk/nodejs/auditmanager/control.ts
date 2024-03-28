@@ -11,25 +11,31 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Audit Manager Control.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.auditmanager.Control("example", {controlMappingSources: [{
- *     sourceName: "example",
- *     sourceSetUpOption: "Procedural_Controls_Mapping",
- *     sourceType: "MANUAL",
- * }]});
+ * const example = new aws.auditmanager.Control("example", {
+ *     name: "example",
+ *     controlMappingSources: [{
+ *         sourceName: "example",
+ *         sourceSetUpOption: "Procedural_Controls_Mapping",
+ *         sourceType: "MANUAL",
+ *     }],
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import an Audit Manager Control using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:auditmanager/control:Control example abc123-de45
+ * $ pulumi import aws:auditmanager/control:Control example abc123-de45
  * ```
  */
 export class Control extends pulumi.CustomResource {
@@ -141,8 +147,6 @@ export class Control extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Control.__pulumiType, name, resourceInputs, opts);
     }
 }

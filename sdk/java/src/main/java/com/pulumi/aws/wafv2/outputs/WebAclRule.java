@@ -10,6 +10,7 @@ import com.pulumi.aws.wafv2.outputs.WebAclRuleRuleLabel;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleVisibilityConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -150,31 +151,41 @@ public final class WebAclRule {
 
         @CustomType.Setter
         public Builder action(@Nullable WebAclRuleAction action) {
+
             this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder captchaConfig(@Nullable WebAclRuleCaptchaConfig captchaConfig) {
+
             this.captchaConfig = captchaConfig;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("WebAclRule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder overrideAction(@Nullable WebAclRuleOverrideAction overrideAction) {
+
             this.overrideAction = overrideAction;
             return this;
         }
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("WebAclRule", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder ruleLabels(@Nullable List<WebAclRuleRuleLabel> ruleLabels) {
+
             this.ruleLabels = ruleLabels;
             return this;
         }
@@ -183,25 +194,31 @@ public final class WebAclRule {
         }
         @CustomType.Setter
         public Builder statement(WebAclRuleStatement statement) {
-            this.statement = Objects.requireNonNull(statement);
+            if (statement == null) {
+              throw new MissingRequiredPropertyException("WebAclRule", "statement");
+            }
+            this.statement = statement;
             return this;
         }
         @CustomType.Setter
         public Builder visibilityConfig(WebAclRuleVisibilityConfig visibilityConfig) {
-            this.visibilityConfig = Objects.requireNonNull(visibilityConfig);
+            if (visibilityConfig == null) {
+              throw new MissingRequiredPropertyException("WebAclRule", "visibilityConfig");
+            }
+            this.visibilityConfig = visibilityConfig;
             return this;
         }
         public WebAclRule build() {
-            final var o = new WebAclRule();
-            o.action = action;
-            o.captchaConfig = captchaConfig;
-            o.name = name;
-            o.overrideAction = overrideAction;
-            o.priority = priority;
-            o.ruleLabels = ruleLabels;
-            o.statement = statement;
-            o.visibilityConfig = visibilityConfig;
-            return o;
+            final var _resultValue = new WebAclRule();
+            _resultValue.action = action;
+            _resultValue.captchaConfig = captchaConfig;
+            _resultValue.name = name;
+            _resultValue.overrideAction = overrideAction;
+            _resultValue.priority = priority;
+            _resultValue.ruleLabels = ruleLabels;
+            _resultValue.statement = statement;
+            _resultValue.visibilityConfig = visibilityConfig;
+            return _resultValue;
         }
     }
 }

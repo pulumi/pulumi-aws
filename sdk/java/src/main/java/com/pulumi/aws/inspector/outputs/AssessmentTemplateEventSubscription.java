@@ -4,6 +4,7 @@
 package com.pulumi.aws.inspector.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class AssessmentTemplateEventSubscription {
 
         @CustomType.Setter
         public Builder event(String event) {
-            this.event = Objects.requireNonNull(event);
+            if (event == null) {
+              throw new MissingRequiredPropertyException("AssessmentTemplateEventSubscription", "event");
+            }
+            this.event = event;
             return this;
         }
         @CustomType.Setter
         public Builder topicArn(String topicArn) {
-            this.topicArn = Objects.requireNonNull(topicArn);
+            if (topicArn == null) {
+              throw new MissingRequiredPropertyException("AssessmentTemplateEventSubscription", "topicArn");
+            }
+            this.topicArn = topicArn;
             return this;
         }
         public AssessmentTemplateEventSubscription build() {
-            final var o = new AssessmentTemplateEventSubscription();
-            o.event = event;
-            o.topicArn = topicArn;
-            return o;
+            final var _resultValue = new AssessmentTemplateEventSubscription();
+            _resultValue.event = event;
+            _resultValue.topicArn = topicArn;
+            return _resultValue;
         }
     }
 }

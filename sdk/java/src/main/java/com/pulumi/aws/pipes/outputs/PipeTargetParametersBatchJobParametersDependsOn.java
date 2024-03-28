@@ -58,19 +58,21 @@ public final class PipeTargetParametersBatchJobParametersDependsOn {
 
         @CustomType.Setter
         public Builder jobId(@Nullable String jobId) {
+
             this.jobId = jobId;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         public PipeTargetParametersBatchJobParametersDependsOn build() {
-            final var o = new PipeTargetParametersBatchJobParametersDependsOn();
-            o.jobId = jobId;
-            o.type = type;
-            return o;
+            final var _resultValue = new PipeTargetParametersBatchJobParametersDependsOn();
+            _resultValue.jobId = jobId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

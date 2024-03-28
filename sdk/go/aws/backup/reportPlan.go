@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.NewReportPlan(ctx, "example", &backup.ReportPlanArgs{
+//				Name:        pulumi.String("example_name"),
 //				Description: pulumi.String("example description"),
 //				ReportDeliveryChannel: &backup.ReportPlanReportDeliveryChannelArgs{
 //					Formats: pulumi.StringArray{
@@ -52,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Backup Report Plan using the `id` which corresponds to the name of the Backup Report Plan. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:backup/reportPlan:ReportPlan test <id>
-//
+// $ pulumi import aws:backup/reportPlan:ReportPlan test <id>
 // ```
 type ReportPlan struct {
 	pulumi.CustomResourceState
@@ -100,10 +101,6 @@ func NewReportPlan(ctx *pulumi.Context,
 	if args.ReportSetting == nil {
 		return nil, errors.New("invalid value for required argument 'ReportSetting'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReportPlan
 	err := ctx.RegisterResource("aws:backup/reportPlan:ReportPlan", name, args, &resource, opts...)

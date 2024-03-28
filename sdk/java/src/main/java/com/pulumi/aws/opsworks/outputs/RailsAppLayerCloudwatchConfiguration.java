@@ -44,11 +44,13 @@ public final class RailsAppLayerCloudwatchConfiguration {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder logStreams(@Nullable List<RailsAppLayerCloudwatchConfigurationLogStream> logStreams) {
+
             this.logStreams = logStreams;
             return this;
         }
@@ -56,10 +58,10 @@ public final class RailsAppLayerCloudwatchConfiguration {
             return logStreams(List.of(logStreams));
         }
         public RailsAppLayerCloudwatchConfiguration build() {
-            final var o = new RailsAppLayerCloudwatchConfiguration();
-            o.enabled = enabled;
-            o.logStreams = logStreams;
-            return o;
+            final var _resultValue = new RailsAppLayerCloudwatchConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.logStreams = logStreams;
+            return _resultValue;
         }
     }
 }

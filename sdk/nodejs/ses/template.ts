@@ -9,25 +9,27 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myTemplate = new aws.ses.Template("myTemplate", {
- *     html: "<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>",
+ * const myTemplate = new aws.ses.Template("MyTemplate", {
+ *     name: "MyTemplate",
  *     subject: "Greetings, {{name}}!",
+ *     html: "<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>",
  *     text: `Hello {{name}},
- * Your favorite animal is {{favoriteanimal}}.
- * `,
+ * Your favorite animal is {{favoriteanimal}}.`,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SES templates using the template name. For example:
  *
  * ```sh
- *  $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
+ * $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
  * ```
  */
 export class Template extends pulumi.CustomResource {

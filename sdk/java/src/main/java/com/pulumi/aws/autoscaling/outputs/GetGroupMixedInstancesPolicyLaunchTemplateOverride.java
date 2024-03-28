@@ -6,6 +6,7 @@ package com.pulumi.aws.autoscaling.outputs;
 import com.pulumi.aws.autoscaling.outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement;
 import com.pulumi.aws.autoscaling.outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -89,7 +90,10 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverride {
 
         @CustomType.Setter
         public Builder instanceRequirements(List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement> instanceRequirements) {
-            this.instanceRequirements = Objects.requireNonNull(instanceRequirements);
+            if (instanceRequirements == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverride", "instanceRequirements");
+            }
+            this.instanceRequirements = instanceRequirements;
             return this;
         }
         public Builder instanceRequirements(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement... instanceRequirements) {
@@ -97,12 +101,18 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverride {
         }
         @CustomType.Setter
         public Builder instanceType(String instanceType) {
-            this.instanceType = Objects.requireNonNull(instanceType);
+            if (instanceType == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverride", "instanceType");
+            }
+            this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder launchTemplateSpecifications(List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification> launchTemplateSpecifications) {
-            this.launchTemplateSpecifications = Objects.requireNonNull(launchTemplateSpecifications);
+            if (launchTemplateSpecifications == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverride", "launchTemplateSpecifications");
+            }
+            this.launchTemplateSpecifications = launchTemplateSpecifications;
             return this;
         }
         public Builder launchTemplateSpecifications(GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification... launchTemplateSpecifications) {
@@ -110,16 +120,19 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverride {
         }
         @CustomType.Setter
         public Builder weightedCapacity(String weightedCapacity) {
-            this.weightedCapacity = Objects.requireNonNull(weightedCapacity);
+            if (weightedCapacity == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverride", "weightedCapacity");
+            }
+            this.weightedCapacity = weightedCapacity;
             return this;
         }
         public GetGroupMixedInstancesPolicyLaunchTemplateOverride build() {
-            final var o = new GetGroupMixedInstancesPolicyLaunchTemplateOverride();
-            o.instanceRequirements = instanceRequirements;
-            o.instanceType = instanceType;
-            o.launchTemplateSpecifications = launchTemplateSpecifications;
-            o.weightedCapacity = weightedCapacity;
-            return o;
+            final var _resultValue = new GetGroupMixedInstancesPolicyLaunchTemplateOverride();
+            _resultValue.instanceRequirements = instanceRequirements;
+            _resultValue.instanceType = instanceType;
+            _resultValue.launchTemplateSpecifications = launchTemplateSpecifications;
+            _resultValue.weightedCapacity = weightedCapacity;
+            return _resultValue;
         }
     }
 }

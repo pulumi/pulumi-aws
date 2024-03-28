@@ -13,6 +13,35 @@ import * as utilities from "../utilities";
  * This resource can prove useful when a module accepts a vpc id as
  * an input variable and needs to, for example, determine the CIDR block of that
  * VPC.
+ *
+ * ## Example Usage
+ *
+ * The following example shows how one might accept a VPC id as a variable
+ * and use this data source to obtain the data necessary to create a subnet
+ * within it.
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const config = new pulumi.Config();
+ * const vpcId = config.requireObject("vpcId");
+ * const selected = aws.ec2.getVpc({
+ *     id: vpcId,
+ * });
+ * const example = new aws.ec2.Subnet("example", {
+ *     vpcId: selected.then(selected => selected.id),
+ *     availabilityZone: "us-west-2a",
+ *     cidrBlock: selected.then(selected => std.cidrsubnet({
+ *         input: selected.cidrBlock,
+ *         newbits: 4,
+ *         netnum: 1,
+ *     })).then(invoke => invoke.result),
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVpc(args?: GetVpcArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcResult> {
     args = args || {};
@@ -131,6 +160,35 @@ export interface GetVpcResult {
  * This resource can prove useful when a module accepts a vpc id as
  * an input variable and needs to, for example, determine the CIDR block of that
  * VPC.
+ *
+ * ## Example Usage
+ *
+ * The following example shows how one might accept a VPC id as a variable
+ * and use this data source to obtain the data necessary to create a subnet
+ * within it.
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const config = new pulumi.Config();
+ * const vpcId = config.requireObject("vpcId");
+ * const selected = aws.ec2.getVpc({
+ *     id: vpcId,
+ * });
+ * const example = new aws.ec2.Subnet("example", {
+ *     vpcId: selected.then(selected => selected.id),
+ *     availabilityZone: "us-west-2a",
+ *     cidrBlock: selected.then(selected => std.cidrsubnet({
+ *         input: selected.cidrBlock,
+ *         newbits: 4,
+ *         netnum: 1,
+ *     })).then(invoke => invoke.result),
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVpcOutput(args?: GetVpcOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcResult> {
     return pulumi.output(args).apply((a: any) => getVpc(a, opts))

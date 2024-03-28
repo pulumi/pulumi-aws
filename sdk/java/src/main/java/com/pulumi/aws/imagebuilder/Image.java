@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * Manages an Image Builder Image.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,21 +48,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Image(&#34;example&#34;, ImageArgs.builder()        
- *             .distributionConfigurationArn(aws_imagebuilder_distribution_configuration.example().arn())
- *             .imageRecipeArn(aws_imagebuilder_image_recipe.example().arn())
- *             .infrastructureConfigurationArn(aws_imagebuilder_infrastructure_configuration.example().arn())
+ *             .distributionConfigurationArn(exampleAwsImagebuilderDistributionConfiguration.arn())
+ *             .imageRecipeArn(exampleAwsImagebuilderImageRecipe.arn())
+ *             .infrastructureConfigurationArn(exampleAwsImagebuilderInfrastructureConfiguration.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_imagebuilder_image` resources using the Amazon Resource Name (ARN). For example:
  * 
  * ```sh
- *  $ pulumi import aws:imagebuilder/image:Image example arn:aws:imagebuilder:us-east-1:123456789012:image/example/1.0.0/1
+ * $ pulumi import aws:imagebuilder/image:Image example arn:aws:imagebuilder:us-east-1:123456789012:image/example/1.0.0/1
  * ```
  * 
  */
@@ -331,9 +334,6 @@ public class Image extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

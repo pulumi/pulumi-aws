@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,13 +20,14 @@ import * as utilities from "../utilities";
  * });
  * const web = new aws.ec2.Instance("web", {
  *     ami: "ami-abb07bcb",
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     subnetId: network.then(network => network.outputs?.SubnetId),
  *     tags: {
  *         Name: "HelloWorld",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getStack(args: GetStackArgs, opts?: pulumi.InvokeOptions): Promise<GetStackResult> {
 
@@ -106,6 +108,7 @@ export interface GetStackResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -115,13 +118,14 @@ export interface GetStackResult {
  * });
  * const web = new aws.ec2.Instance("web", {
  *     ami: "ami-abb07bcb",
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     subnetId: network.then(network => network.outputs?.SubnetId),
  *     tags: {
  *         Name: "HelloWorld",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getStackOutput(args: GetStackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStackResult> {
     return pulumi.output(args).apply((a: any) => getStack(a, opts))

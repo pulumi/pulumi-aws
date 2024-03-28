@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * Resource for managing QuickSight Data Source
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,6 +53,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var default_ = new DataSource(&#34;default&#34;, DataSourceArgs.builder()        
  *             .dataSourceId(&#34;example-id&#34;)
+ *             .name(&#34;My Cool Data in S3&#34;)
  *             .parameters(DataSourceParametersArgs.builder()
  *                 .s3(DataSourceParametersS3Args.builder()
  *                     .manifestFileLocation(DataSourceParametersS3ManifestFileLocationArgs.builder()
@@ -65,13 +68,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a QuickSight data source using the AWS account ID, and data source ID separated by a slash (`/`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
+ * $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
  * ```
  * 
  */
@@ -286,9 +290,6 @@ public class DataSource extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

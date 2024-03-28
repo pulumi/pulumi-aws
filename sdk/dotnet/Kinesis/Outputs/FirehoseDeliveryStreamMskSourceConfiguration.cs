@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
     public sealed class FirehoseDeliveryStreamMskSourceConfiguration
     {
         /// <summary>
-        /// The authentication configuration of the Amazon MSK cluster. More details are given below.
+        /// The authentication configuration of the Amazon MSK cluster. See `authentication_configuration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration AuthenticationConfiguration;
         /// <summary>

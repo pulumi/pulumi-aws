@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.aws.s3.outputs.BucketReplicationConfigRuleDestinationReplicationTimeTime;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -57,19 +58,25 @@ public final class BucketReplicationConfigRuleDestinationReplicationTime {
 
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("BucketReplicationConfigRuleDestinationReplicationTime", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder time(BucketReplicationConfigRuleDestinationReplicationTimeTime time) {
-            this.time = Objects.requireNonNull(time);
+            if (time == null) {
+              throw new MissingRequiredPropertyException("BucketReplicationConfigRuleDestinationReplicationTime", "time");
+            }
+            this.time = time;
             return this;
         }
         public BucketReplicationConfigRuleDestinationReplicationTime build() {
-            final var o = new BucketReplicationConfigRuleDestinationReplicationTime();
-            o.status = status;
-            o.time = time;
-            return o;
+            final var _resultValue = new BucketReplicationConfigRuleDestinationReplicationTime();
+            _resultValue.status = status;
+            _resultValue.time = time;
+            return _resultValue;
         }
     }
 }

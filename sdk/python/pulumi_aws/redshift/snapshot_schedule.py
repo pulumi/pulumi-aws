@@ -275,21 +275,23 @@ class SnapshotSchedule(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         default = aws.redshift.SnapshotSchedule("default",
-            definitions=["rate(12 hours)"],
-            identifier="tf-redshift-snapshot-schedule")
+            identifier="tf-redshift-snapshot-schedule",
+            definitions=["rate(12 hours)"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Snapshot Schedule using the `identifier`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
+        $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
         ```
 
         :param str resource_name: The name of the resource.
@@ -311,21 +313,23 @@ class SnapshotSchedule(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         default = aws.redshift.SnapshotSchedule("default",
-            definitions=["rate(12 hours)"],
-            identifier="tf-redshift-snapshot-schedule")
+            identifier="tf-redshift-snapshot-schedule",
+            definitions=["rate(12 hours)"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Snapshot Schedule using the `identifier`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
+        $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
         ```
 
         :param str resource_name: The name of the resource.
@@ -368,8 +372,6 @@ class SnapshotSchedule(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SnapshotSchedule, __self__).__init__(
             'aws:redshift/snapshotSchedule:SnapshotSchedule',
             resource_name,

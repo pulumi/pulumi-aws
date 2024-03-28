@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides an AppConfig Configuration Profile resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,11 +46,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ConfigurationProfile(&#34;example&#34;, ConfigurationProfileArgs.builder()        
- *             .applicationId(aws_appconfig_application.example().id())
+ *             .applicationId(exampleAwsAppconfigApplication.id())
  *             .description(&#34;Example Configuration Profile&#34;)
+ *             .name(&#34;example-configuration-profile-tf&#34;)
  *             .locationUri(&#34;hosted&#34;)
  *             .validators(ConfigurationProfileValidatorArgs.builder()
- *                 .content(aws_lambda_function.example().arn())
+ *                 .content(exampleAwsLambdaFunction.arn())
  *                 .type(&#34;LAMBDA&#34;)
  *                 .build())
  *             .tags(Map.of(&#34;Type&#34;, &#34;AppConfig Configuration Profile&#34;))
@@ -57,13 +60,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AppConfig Configuration Profiles using the configuration profile ID and application ID separated by a colon (`:`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:appconfig/configurationProfile:ConfigurationProfile example 71abcde:11xxxxx
+ * $ pulumi import aws:appconfig/configurationProfile:ConfigurationProfile example 71abcde:11xxxxx
  * ```
  * 
  */
@@ -124,6 +128,20 @@ public class ConfigurationProfile extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
+    }
+    /**
+     * The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+     * 
+     */
+    @Export(name="kmsKeyIdentifier", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> kmsKeyIdentifier;
+
+    /**
+     * @return The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+     * 
+     */
+    public Output<Optional<String>> kmsKeyIdentifier() {
+        return Codegen.optional(this.kmsKeyIdentifier);
     }
     /**
      * URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://&lt;Document_name&gt;` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://&lt;Parameter_name&gt;` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://&lt;bucket&gt;/&lt;objectKey&gt;`.
@@ -260,9 +278,6 @@ public class ConfigurationProfile extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

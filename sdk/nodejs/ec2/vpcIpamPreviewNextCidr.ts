@@ -11,31 +11,31 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegion({});
- * const exampleVpcIpam = new aws.ec2.VpcIpam("exampleVpcIpam", {operatingRegions: [{
+ * const exampleVpcIpam = new aws.ec2.VpcIpam("example", {operatingRegions: [{
  *     regionName: current.then(current => current.name),
  * }]});
- * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("exampleVpcIpamPool", {
+ * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("example", {
  *     addressFamily: "ipv4",
  *     ipamScopeId: exampleVpcIpam.privateDefaultScopeId,
  *     locale: current.then(current => current.name),
  * });
- * const exampleVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr", {
- *     ipamPoolId: exampleVpcIpamPool.id,
- *     cidr: "172.20.0.0/16",
- * });
- * const exampleVpcIpamPreviewNextCidr = new aws.ec2.VpcIpamPreviewNextCidr("exampleVpcIpamPreviewNextCidr", {
+ * const example = new aws.ec2.VpcIpamPreviewNextCidr("example", {
  *     ipamPoolId: exampleVpcIpamPool.id,
  *     netmaskLength: 28,
  *     disallowedCidrs: ["172.2.0.0/32"],
- * }, {
- *     dependsOn: [exampleVpcIpamPoolCidr],
+ * });
+ * const exampleVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("example", {
+ *     ipamPoolId: exampleVpcIpamPool.id,
+ *     cidr: "172.20.0.0/16",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class VpcIpamPreviewNextCidr extends pulumi.CustomResource {
     /**

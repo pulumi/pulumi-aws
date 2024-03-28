@@ -150,24 +150,28 @@ class EnvironmentMembership(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_environment_ec2 = aws.cloud9.EnvironmentEC2("testEnvironmentEC2", instance_type="t2.micro")
-        test_user = aws.iam.User("testUser")
-        test_environment_membership = aws.cloud9.EnvironmentMembership("testEnvironmentMembership",
-            environment_id=test_environment_ec2.id,
+        test = aws.cloud9.EnvironmentEC2("test",
+            instance_type="t2.micro",
+            name="some-env")
+        test_user = aws.iam.User("test", name="some-user")
+        test_environment_membership = aws.cloud9.EnvironmentMembership("test",
+            environment_id=test.id,
             permissions="read-only",
             user_arn=test_user.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cloud9 environment membership using the `environment-id#user-arn`. For example:
 
         ```sh
-         $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
+        $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
         ```
 
         :param str resource_name: The name of the resource.
@@ -187,24 +191,28 @@ class EnvironmentMembership(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_environment_ec2 = aws.cloud9.EnvironmentEC2("testEnvironmentEC2", instance_type="t2.micro")
-        test_user = aws.iam.User("testUser")
-        test_environment_membership = aws.cloud9.EnvironmentMembership("testEnvironmentMembership",
-            environment_id=test_environment_ec2.id,
+        test = aws.cloud9.EnvironmentEC2("test",
+            instance_type="t2.micro",
+            name="some-env")
+        test_user = aws.iam.User("test", name="some-user")
+        test_environment_membership = aws.cloud9.EnvironmentMembership("test",
+            environment_id=test.id,
             permissions="read-only",
             user_arn=test_user.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cloud9 environment membership using the `environment-id#user-arn`. For example:
 
         ```sh
-         $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
+        $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
         ```
 
         :param str resource_name: The name of the resource.

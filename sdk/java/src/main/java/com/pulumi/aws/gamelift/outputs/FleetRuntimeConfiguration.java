@@ -74,16 +74,19 @@ public final class FleetRuntimeConfiguration {
 
         @CustomType.Setter
         public Builder gameSessionActivationTimeoutSeconds(@Nullable Integer gameSessionActivationTimeoutSeconds) {
+
             this.gameSessionActivationTimeoutSeconds = gameSessionActivationTimeoutSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder maxConcurrentGameSessionActivations(@Nullable Integer maxConcurrentGameSessionActivations) {
+
             this.maxConcurrentGameSessionActivations = maxConcurrentGameSessionActivations;
             return this;
         }
         @CustomType.Setter
         public Builder serverProcesses(@Nullable List<FleetRuntimeConfigurationServerProcess> serverProcesses) {
+
             this.serverProcesses = serverProcesses;
             return this;
         }
@@ -91,11 +94,11 @@ public final class FleetRuntimeConfiguration {
             return serverProcesses(List.of(serverProcesses));
         }
         public FleetRuntimeConfiguration build() {
-            final var o = new FleetRuntimeConfiguration();
-            o.gameSessionActivationTimeoutSeconds = gameSessionActivationTimeoutSeconds;
-            o.maxConcurrentGameSessionActivations = maxConcurrentGameSessionActivations;
-            o.serverProcesses = serverProcesses;
-            return o;
+            final var _resultValue = new FleetRuntimeConfiguration();
+            _resultValue.gameSessionActivationTimeoutSeconds = gameSessionActivationTimeoutSeconds;
+            _resultValue.maxConcurrentGameSessionActivations = maxConcurrentGameSessionActivations;
+            _resultValue.serverProcesses = serverProcesses;
+            return _resultValue;
         }
     }
 }

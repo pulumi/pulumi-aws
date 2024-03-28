@@ -12,15 +12,17 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.glue.getCatalogTable({
- *     databaseName: "MyCatalogDatabase",
  *     name: "MyCatalogTable",
+ *     databaseName: "MyCatalogDatabase",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCatalogTable(args: GetCatalogTableArgs, opts?: pulumi.InvokeOptions): Promise<GetCatalogTableResult> {
 
@@ -136,15 +138,17 @@ export interface GetCatalogTableResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.glue.getCatalogTable({
- *     databaseName: "MyCatalogDatabase",
  *     name: "MyCatalogTable",
+ *     databaseName: "MyCatalogDatabase",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCatalogTableOutput(args: GetCatalogTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCatalogTableResult> {
     return pulumi.output(args).apply((a: any) => getCatalogTable(a, opts))

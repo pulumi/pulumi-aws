@@ -44,13 +44,14 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
 
         @CustomType.Setter
         public Builder oversizeHandling(@Nullable String oversizeHandling) {
+
             this.oversizeHandling = oversizeHandling;
             return this;
         }
         public RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody build() {
-            final var o = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody();
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody();
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

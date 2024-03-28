@@ -167,17 +167,19 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
         """
         Provides a resource to manage an S3 Multi-Region Access Point associated with specified buckets.
 
+        > This resource cannot be used with S3 directory buckets.
+
         ## Example Usage
+
         ### Multiple AWS Buckets in Different Regions
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        primary_region = aws.Provider("primaryRegion", region="us-east-1")
-        secondary_region = aws.Provider("secondaryRegion", region="us-west-2")
-        foo_bucket = aws.s3.BucketV2("fooBucket", opts=pulumi.ResourceOptions(provider=aws["primary_region"]))
-        bar_bucket = aws.s3.BucketV2("barBucket", opts=pulumi.ResourceOptions(provider=aws["secondary_region"]))
+        foo_bucket = aws.s3.BucketV2("foo_bucket", bucket="example-bucket-foo")
+        bar_bucket = aws.s3.BucketV2("bar_bucket", bucket="example-bucket-bar")
         example = aws.s3control.MultiRegionAccessPoint("example", details=aws.s3control.MultiRegionAccessPointDetailsArgs(
             name="example",
             regions=[
@@ -190,13 +192,14 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
             ],
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Multi-Region Access Points using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint example 123456789012:example
+        $ pulumi import aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint example 123456789012:example
         ```
 
         :param str resource_name: The name of the resource.
@@ -213,17 +216,19 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
         """
         Provides a resource to manage an S3 Multi-Region Access Point associated with specified buckets.
 
+        > This resource cannot be used with S3 directory buckets.
+
         ## Example Usage
+
         ### Multiple AWS Buckets in Different Regions
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        primary_region = aws.Provider("primaryRegion", region="us-east-1")
-        secondary_region = aws.Provider("secondaryRegion", region="us-west-2")
-        foo_bucket = aws.s3.BucketV2("fooBucket", opts=pulumi.ResourceOptions(provider=aws["primary_region"]))
-        bar_bucket = aws.s3.BucketV2("barBucket", opts=pulumi.ResourceOptions(provider=aws["secondary_region"]))
+        foo_bucket = aws.s3.BucketV2("foo_bucket", bucket="example-bucket-foo")
+        bar_bucket = aws.s3.BucketV2("bar_bucket", bucket="example-bucket-bar")
         example = aws.s3control.MultiRegionAccessPoint("example", details=aws.s3control.MultiRegionAccessPointDetailsArgs(
             name="example",
             regions=[
@@ -236,13 +241,14 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
             ],
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Multi-Region Access Points using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint example 123456789012:example
+        $ pulumi import aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint example 123456789012:example
         ```
 
         :param str resource_name: The name of the resource.

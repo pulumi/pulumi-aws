@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
         }
 
         public RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll build() {
-            final var o = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll();
+            return _resultValue;
         }
     }
 }

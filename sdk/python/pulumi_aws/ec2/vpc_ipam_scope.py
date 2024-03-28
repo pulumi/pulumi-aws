@@ -232,25 +232,27 @@ class VpcIpamScope(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+        example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
             region_name=current.name,
         )])
-        example_vpc_ipam_scope = aws.ec2.VpcIpamScope("exampleVpcIpamScope",
-            ipam_id=example_vpc_ipam.id,
+        example_vpc_ipam_scope = aws.ec2.VpcIpamScope("example",
+            ipam_id=example.id,
             description="Another Scope")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IPAMs using the `scope_id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
+        $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
         ```
 
         :param str resource_name: The name of the resource.
@@ -272,25 +274,27 @@ class VpcIpamScope(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+        example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
             region_name=current.name,
         )])
-        example_vpc_ipam_scope = aws.ec2.VpcIpamScope("exampleVpcIpamScope",
-            ipam_id=example_vpc_ipam.id,
+        example_vpc_ipam_scope = aws.ec2.VpcIpamScope("example",
+            ipam_id=example.id,
             description="Another Scope")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IPAMs using the `scope_id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
+        $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
         ```
 
         :param str resource_name: The name of the resource.
@@ -331,8 +335,6 @@ class VpcIpamScope(pulumi.CustomResource):
             __props__.__dict__["is_default"] = None
             __props__.__dict__["pool_count"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VpcIpamScope, __self__).__init__(
             'aws:ec2/vpcIpamScope:VpcIpamScope',
             resource_name,

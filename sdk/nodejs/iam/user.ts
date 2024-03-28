@@ -11,36 +11,40 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const lbUser = new aws.iam.User("lbUser", {
+ * const lb = new aws.iam.User("lb", {
+ *     name: "loadbalancer",
  *     path: "/system/",
  *     tags: {
  *         "tag-key": "tag-value",
  *     },
  * });
- * const lbAccessKey = new aws.iam.AccessKey("lbAccessKey", {user: lbUser.name});
- * const lbRoPolicyDocument = aws.iam.getPolicyDocument({
+ * const lbAccessKey = new aws.iam.AccessKey("lb", {user: lb.name});
+ * const lbRo = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: ["ec2:Describe*"],
  *         resources: ["*"],
  *     }],
  * });
- * const lbRoUserPolicy = new aws.iam.UserPolicy("lbRoUserPolicy", {
- *     user: lbUser.name,
- *     policy: lbRoPolicyDocument.then(lbRoPolicyDocument => lbRoPolicyDocument.json),
+ * const lbRoUserPolicy = new aws.iam.UserPolicy("lb_ro", {
+ *     name: "test",
+ *     user: lb.name,
+ *     policy: lbRo.then(lbRo => lbRo.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IAM Users using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:iam/user:User lb loadbalancer
+ * $ pulumi import aws:iam/user:User lb loadbalancer
  * ```
  */
 export class User extends pulumi.CustomResource {
@@ -141,8 +145,6 @@ export class User extends pulumi.CustomResource {
             resourceInputs["uniqueId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(User.__pulumiType, name, resourceInputs, opts);
     }
 }

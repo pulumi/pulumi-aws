@@ -21,45 +21,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// Basic usage:
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetRegion.Invoke();
-    /// 
-    ///     var exampleVpcIpam = new Aws.Ec2.VpcIpam("exampleVpcIpam", new()
-    ///     {
-    ///         OperatingRegions = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
-    ///             {
-    ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Name),
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleVpcIpamPool = new Aws.Ec2.VpcIpamPool("exampleVpcIpamPool", new()
-    ///     {
-    ///         AddressFamily = "ipv4",
-    ///         IpamScopeId = exampleVpcIpam.PrivateDefaultScopeId,
-    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Name),
-    ///     });
-    /// 
-    ///     var exampleVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr", new()
-    ///     {
-    ///         IpamPoolId = exampleVpcIpamPool.Id,
-    ///         Cidr = "172.20.0.0/16",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// Provision Public IPv6 Pool CIDRs:
-    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -81,7 +43,48 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var ipv6TestPublicVpcIpamPool = new Aws.Ec2.VpcIpamPool("ipv6TestPublicVpcIpamPool", new()
+    ///     var exampleVpcIpamPool = new Aws.Ec2.VpcIpamPool("example", new()
+    ///     {
+    ///         AddressFamily = "ipv4",
+    ///         IpamScopeId = example.PrivateDefaultScopeId,
+    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///     });
+    /// 
+    ///     var exampleVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("example", new()
+    ///     {
+    ///         IpamPoolId = exampleVpcIpamPool.Id,
+    ///         Cidr = "172.20.0.0/16",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// Provision Public IPv6 Pool CIDRs:
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetRegion.Invoke();
+    /// 
+    ///     var example = new Aws.Ec2.VpcIpam("example", new()
+    ///     {
+    ///         OperatingRegions = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
+    ///             {
+    ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var ipv6TestPublic = new Aws.Ec2.VpcIpamPool("ipv6_test_public", new()
     ///     {
     ///         AddressFamily = "ipv6",
     ///         IpamScopeId = example.PublicDefaultScopeId,
@@ -92,14 +95,15 @@ namespace Pulumi.Aws.Ec2
     ///         AwsService = "ec2",
     ///     });
     /// 
-    ///     var ipv6TestPublicVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("ipv6TestPublicVpcIpamPoolCidr", new()
+    ///     var ipv6TestPublicVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("ipv6_test_public", new()
     ///     {
-    ///         IpamPoolId = ipv6TestPublicVpcIpamPool.Id,
+    ///         IpamPoolId = ipv6TestPublic.Id,
     ///         NetmaskLength = 52,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -108,7 +112,7 @@ namespace Pulumi.Aws.Ec2
     /// __NOTE:__ Do not use the IPAM Pool Cidr ID as this was introduced after the resource already existed.
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
+    /// $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr")]

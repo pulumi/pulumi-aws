@@ -4,6 +4,7 @@
 package com.pulumi.aws.directoryservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -105,7 +106,10 @@ public final class GetDirectoryConnectSetting {
 
         @CustomType.Setter
         public Builder availabilityZones(List<String> availabilityZones) {
-            this.availabilityZones = Objects.requireNonNull(availabilityZones);
+            if (availabilityZones == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryConnectSetting", "availabilityZones");
+            }
+            this.availabilityZones = availabilityZones;
             return this;
         }
         public Builder availabilityZones(String... availabilityZones) {
@@ -113,7 +117,10 @@ public final class GetDirectoryConnectSetting {
         }
         @CustomType.Setter
         public Builder connectIps(List<String> connectIps) {
-            this.connectIps = Objects.requireNonNull(connectIps);
+            if (connectIps == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryConnectSetting", "connectIps");
+            }
+            this.connectIps = connectIps;
             return this;
         }
         public Builder connectIps(String... connectIps) {
@@ -121,7 +128,10 @@ public final class GetDirectoryConnectSetting {
         }
         @CustomType.Setter
         public Builder customerDnsIps(List<String> customerDnsIps) {
-            this.customerDnsIps = Objects.requireNonNull(customerDnsIps);
+            if (customerDnsIps == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryConnectSetting", "customerDnsIps");
+            }
+            this.customerDnsIps = customerDnsIps;
             return this;
         }
         public Builder customerDnsIps(String... customerDnsIps) {
@@ -129,12 +139,18 @@ public final class GetDirectoryConnectSetting {
         }
         @CustomType.Setter
         public Builder customerUsername(String customerUsername) {
-            this.customerUsername = Objects.requireNonNull(customerUsername);
+            if (customerUsername == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryConnectSetting", "customerUsername");
+            }
+            this.customerUsername = customerUsername;
             return this;
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryConnectSetting", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
@@ -142,18 +158,21 @@ public final class GetDirectoryConnectSetting {
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryConnectSetting", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public GetDirectoryConnectSetting build() {
-            final var o = new GetDirectoryConnectSetting();
-            o.availabilityZones = availabilityZones;
-            o.connectIps = connectIps;
-            o.customerDnsIps = customerDnsIps;
-            o.customerUsername = customerUsername;
-            o.subnetIds = subnetIds;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetDirectoryConnectSetting();
+            _resultValue.availabilityZones = availabilityZones;
+            _resultValue.connectIps = connectIps;
+            _resultValue.customerDnsIps = customerDnsIps;
+            _resultValue.customerUsername = customerUsername;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

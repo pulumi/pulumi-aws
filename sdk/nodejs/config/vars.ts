@@ -49,7 +49,7 @@ Object.defineProperty(exports, "assumeRoleWithWebIdentity", {
 
 /**
  * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
- * variable. (Setting `ca_bundle` in the shared config file is not supported.)
+ * variable. (Setting `caBundle` in the shared config file is not supported.)
  */
 export declare const customCaBundle: string | undefined;
 Object.defineProperty(exports, "customCaBundle", {
@@ -112,7 +112,7 @@ Object.defineProperty(exports, "forbiddenAccountIds", {
 
 /**
  * URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
- * `http_proxy` environment variables.
+ * `httpProxy` environment variables.
  */
 export declare const httpProxy: string | undefined;
 Object.defineProperty(exports, "httpProxy", {
@@ -124,7 +124,7 @@ Object.defineProperty(exports, "httpProxy", {
 
 /**
  * URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
- * `https_proxy` environment variables.
+ * `httpsProxy` environment variables.
  */
 export declare const httpsProxy: string | undefined;
 Object.defineProperty(exports, "httpsProxy", {
@@ -169,7 +169,7 @@ Object.defineProperty(exports, "maxRetries", {
 
 /**
  * Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
- * `no_proxy` environment variables.
+ * `noProxy` environment variables.
  */
 export declare const noProxy: string | undefined;
 Object.defineProperty(exports, "noProxy", {
@@ -216,7 +216,7 @@ Object.defineProperty(exports, "retryMode", {
 /**
  * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
  * values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
- * variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+ * variable or the `s3UsEast1RegionalEndpoint` shared config file parameter
  */
 export declare const s3UsEast1RegionalEndpoint: string | undefined;
 Object.defineProperty(exports, "s3UsEast1RegionalEndpoint", {
@@ -336,6 +336,17 @@ export declare const token: string | undefined;
 Object.defineProperty(exports, "token", {
     get() {
         return __config.get("token");
+    },
+    enumerable: true,
+});
+
+/**
+ * The capacity of the AWS SDK's token bucket rate limiter.
+ */
+export declare const tokenBucketRateLimiterCapacity: number | undefined;
+Object.defineProperty(exports, "tokenBucketRateLimiterCapacity", {
+    get() {
+        return __config.getObject<number>("tokenBucketRateLimiterCapacity");
     },
     enumerable: true,
 });

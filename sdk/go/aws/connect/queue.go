@@ -16,8 +16,10 @@ import (
 // [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,9 +33,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewQueue(ctx, "test", &connect.QueueArgs{
+//				InstanceId:         pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:               pulumi.String("Example Name"),
 //				Description:        pulumi.String("Example Description"),
 //				HoursOfOperationId: pulumi.String("12345678-1234-1234-1234-123456789012"),
-//				InstanceId:         pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example Queue"),
 //				},
@@ -46,8 +49,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Quick Connect IDs
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,9 +67,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewQueue(ctx, "test", &connect.QueueArgs{
+//				InstanceId:         pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:               pulumi.String("Example Name"),
 //				Description:        pulumi.String("Example Description"),
 //				HoursOfOperationId: pulumi.String("12345678-1234-1234-1234-123456789012"),
-//				InstanceId:         pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
 //				QuickConnectIds: pulumi.StringArray{
 //					pulumi.String("12345678-abcd-1234-abcd-123456789012"),
 //				},
@@ -79,8 +86,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Outbound Caller Config
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -94,9 +104,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewQueue(ctx, "test", &connect.QueueArgs{
+//				InstanceId:         pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:               pulumi.String("Example Name"),
 //				Description:        pulumi.String("Example Description"),
 //				HoursOfOperationId: pulumi.String("12345678-1234-1234-1234-123456789012"),
-//				InstanceId:         pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
 //				OutboundCallerConfig: &connect.QueueOutboundCallerConfigArgs{
 //					OutboundCallerIdName:     pulumi.String("example"),
 //					OutboundCallerIdNumberId: pulumi.String("12345678-abcd-1234-abcd-123456789012"),
@@ -114,15 +125,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Amazon Connect Queues using the `instance_id` and `queue_id` separated by a colon (`:`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:connect/queue:Queue example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-//
+// $ pulumi import aws:connect/queue:Queue example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 // ```
 type Queue struct {
 	pulumi.CustomResourceState
@@ -168,10 +178,6 @@ func NewQueue(ctx *pulumi.Context,
 	if args.InstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Queue
 	err := ctx.RegisterResource("aws:connect/queue:Queue", name, args, &resource, opts...)

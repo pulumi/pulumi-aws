@@ -340,14 +340,44 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`&#39;s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+     * The ID of the Directory Service Active Directory domain to create the cluster in.
+     * 
+     */
+    @Import(name="domain")
+    private @Nullable Output<String> domain;
+
+    /**
+     * @return The ID of the Directory Service Active Directory domain to create the cluster in.
+     * 
+     */
+    public Optional<Output<String>> domain() {
+        return Optional.ofNullable(this.domain);
+    }
+
+    /**
+     * The name of the IAM role to be used when making API calls to the Directory Service.
+     * 
+     */
+    @Import(name="domainIamRoleName")
+    private @Nullable Output<String> domainIamRoleName;
+
+    /**
+     * @return The name of the IAM role to be used when making API calls to the Directory Service.
+     * 
+     */
+    public Optional<Output<String>> domainIamRoleName() {
+        return Optional.ofNullable(this.domainIamRoleName);
+    }
+
+    /**
+     * Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`&#39;s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
      * 
      */
     @Import(name="enableGlobalWriteForwarding")
     private @Nullable Output<Boolean> enableGlobalWriteForwarding;
 
     /**
-     * @return Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`&#39;s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+     * @return Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`&#39;s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
      * 
      */
     public Optional<Output<Boolean>> enableGlobalWriteForwarding() {
@@ -367,6 +397,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> enableHttpEndpoint() {
         return Optional.ofNullable(this.enableHttpEndpoint);
+    }
+
+    /**
+     * Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren&#39;t allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
+     * 
+     */
+    @Import(name="enableLocalWriteForwarding")
+    private @Nullable Output<Boolean> enableLocalWriteForwarding;
+
+    /**
+     * @return Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren&#39;t allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
+     * 
+     */
+    public Optional<Output<Boolean>> enableLocalWriteForwarding() {
+        return Optional.ofNullable(this.enableLocalWriteForwarding);
     }
 
     /**
@@ -415,14 +460,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      * 
      */
     @Import(name="engineMode")
     private @Nullable Output<Either<String,EngineMode>> engineMode;
 
     /**
-     * @return Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * @return Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      * 
      */
     public Optional<Output<Either<String,EngineMode>>> engineMode() {
@@ -844,14 +889,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `&#34;&#34;`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `&#34;&#34;` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+     * (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `&#34;&#34;`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `&#34;&#34;` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
      * 
      */
     @Import(name="storageType")
     private @Nullable Output<String> storageType;
 
     /**
-     * @return (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `&#34;&#34;`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `&#34;&#34;` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+     * @return (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `&#34;&#34;`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `&#34;&#34;` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
      * 
      */
     public Optional<Output<String>> storageType() {
@@ -934,8 +979,11 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.dbSystemId = $.dbSystemId;
         this.deleteAutomatedBackups = $.deleteAutomatedBackups;
         this.deletionProtection = $.deletionProtection;
+        this.domain = $.domain;
+        this.domainIamRoleName = $.domainIamRoleName;
         this.enableGlobalWriteForwarding = $.enableGlobalWriteForwarding;
         this.enableHttpEndpoint = $.enableHttpEndpoint;
+        this.enableLocalWriteForwarding = $.enableLocalWriteForwarding;
         this.enabledCloudwatchLogsExports = $.enabledCloudwatchLogsExports;
         this.endpoint = $.endpoint;
         this.engine = $.engine;
@@ -1448,7 +1496,49 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableGlobalWriteForwarding Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`&#39;s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+         * @param domain The ID of the Directory Service Active Directory domain to create the cluster in.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domain(@Nullable Output<String> domain) {
+            $.domain = domain;
+            return this;
+        }
+
+        /**
+         * @param domain The ID of the Directory Service Active Directory domain to create the cluster in.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domain(String domain) {
+            return domain(Output.of(domain));
+        }
+
+        /**
+         * @param domainIamRoleName The name of the IAM role to be used when making API calls to the Directory Service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainIamRoleName(@Nullable Output<String> domainIamRoleName) {
+            $.domainIamRoleName = domainIamRoleName;
+            return this;
+        }
+
+        /**
+         * @param domainIamRoleName The name of the IAM role to be used when making API calls to the Directory Service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainIamRoleName(String domainIamRoleName) {
+            return domainIamRoleName(Output.of(domainIamRoleName));
+        }
+
+        /**
+         * @param enableGlobalWriteForwarding Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`&#39;s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
          * 
          * @return builder
          * 
@@ -1459,7 +1549,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableGlobalWriteForwarding Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`&#39;s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+         * @param enableGlobalWriteForwarding Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`&#39;s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
          * 
          * @return builder
          * 
@@ -1487,6 +1577,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enableHttpEndpoint(Boolean enableHttpEndpoint) {
             return enableHttpEndpoint(Output.of(enableHttpEndpoint));
+        }
+
+        /**
+         * @param enableLocalWriteForwarding Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren&#39;t allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableLocalWriteForwarding(@Nullable Output<Boolean> enableLocalWriteForwarding) {
+            $.enableLocalWriteForwarding = enableLocalWriteForwarding;
+            return this;
+        }
+
+        /**
+         * @param enableLocalWriteForwarding Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren&#39;t allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableLocalWriteForwarding(Boolean enableLocalWriteForwarding) {
+            return enableLocalWriteForwarding(Output.of(enableLocalWriteForwarding));
         }
 
         /**
@@ -1583,7 +1694,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineMode Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+         * @param engineMode Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
          * 
          * @return builder
          * 
@@ -1594,7 +1705,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineMode Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+         * @param engineMode Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
          * 
          * @return builder
          * 
@@ -1604,7 +1715,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineMode Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+         * @param engineMode Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
          * 
          * @return builder
          * 
@@ -1614,7 +1725,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineMode Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+         * @param engineMode Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
          * 
          * @return builder
          * 
@@ -2222,7 +2333,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageType (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `&#34;&#34;`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `&#34;&#34;` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+         * @param storageType (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `&#34;&#34;`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `&#34;&#34;` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
          * 
          * @return builder
          * 
@@ -2233,7 +2344,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageType (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `&#34;&#34;`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `&#34;&#34;` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+         * @param storageType (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `&#34;&#34;`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `&#34;&#34;` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
          * 
          * @return builder
          * 

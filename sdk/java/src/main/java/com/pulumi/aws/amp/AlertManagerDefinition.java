@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Manages an Amazon Managed Service for Prometheus (AMP) Alert Manager Definition
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -39,10 +41,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var demoWorkspace = new Workspace(&#34;demoWorkspace&#34;);
+ *         var demo = new Workspace(&#34;demo&#34;);
  * 
  *         var demoAlertManagerDefinition = new AlertManagerDefinition(&#34;demoAlertManagerDefinition&#34;, AlertManagerDefinitionArgs.builder()        
- *             .workspaceId(demoWorkspace.id())
+ *             .workspaceId(demo.id())
  *             .definition(&#34;&#34;&#34;
  * alertmanager_config: |
  *   route:
@@ -55,13 +57,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import the prometheus alert manager definition using the workspace identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:amp/alertManagerDefinition:AlertManagerDefinition demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
+ * $ pulumi import aws:amp/alertManagerDefinition:AlertManagerDefinition demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
  * ```
  * 
  */

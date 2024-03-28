@@ -106,32 +106,36 @@ class XssMatchSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        xss_match_set = aws.wafregional.XssMatchSet("xssMatchSet", xss_match_tuples=[
-            aws.wafregional.XssMatchSetXssMatchTupleArgs(
-                field_to_match=aws.wafregional.XssMatchSetXssMatchTupleFieldToMatchArgs(
-                    type="URI",
+        xss_match_set = aws.wafregional.XssMatchSet("xss_match_set",
+            name="xss_match_set",
+            xss_match_tuples=[
+                aws.wafregional.XssMatchSetXssMatchTupleArgs(
+                    text_transformation="NONE",
+                    field_to_match=aws.wafregional.XssMatchSetXssMatchTupleFieldToMatchArgs(
+                        type="URI",
+                    ),
                 ),
-                text_transformation="NONE",
-            ),
-            aws.wafregional.XssMatchSetXssMatchTupleArgs(
-                field_to_match=aws.wafregional.XssMatchSetXssMatchTupleFieldToMatchArgs(
-                    type="QUERY_STRING",
+                aws.wafregional.XssMatchSetXssMatchTupleArgs(
+                    text_transformation="NONE",
+                    field_to_match=aws.wafregional.XssMatchSetXssMatchTupleFieldToMatchArgs(
+                        type="QUERY_STRING",
+                    ),
                 ),
-                text_transformation="NONE",
-            ),
-        ])
+            ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS WAF Regional XSS Match using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
+        $ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
         ```
 
         :param str resource_name: The name of the resource.
@@ -150,32 +154,36 @@ class XssMatchSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        xss_match_set = aws.wafregional.XssMatchSet("xssMatchSet", xss_match_tuples=[
-            aws.wafregional.XssMatchSetXssMatchTupleArgs(
-                field_to_match=aws.wafregional.XssMatchSetXssMatchTupleFieldToMatchArgs(
-                    type="URI",
+        xss_match_set = aws.wafregional.XssMatchSet("xss_match_set",
+            name="xss_match_set",
+            xss_match_tuples=[
+                aws.wafregional.XssMatchSetXssMatchTupleArgs(
+                    text_transformation="NONE",
+                    field_to_match=aws.wafregional.XssMatchSetXssMatchTupleFieldToMatchArgs(
+                        type="URI",
+                    ),
                 ),
-                text_transformation="NONE",
-            ),
-            aws.wafregional.XssMatchSetXssMatchTupleArgs(
-                field_to_match=aws.wafregional.XssMatchSetXssMatchTupleFieldToMatchArgs(
-                    type="QUERY_STRING",
+                aws.wafregional.XssMatchSetXssMatchTupleArgs(
+                    text_transformation="NONE",
+                    field_to_match=aws.wafregional.XssMatchSetXssMatchTupleFieldToMatchArgs(
+                        type="QUERY_STRING",
+                    ),
                 ),
-                text_transformation="NONE",
-            ),
-        ])
+            ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS WAF Regional XSS Match using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
+        $ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
         ```
 
         :param str resource_name: The name of the resource.

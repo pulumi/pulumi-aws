@@ -4,6 +4,7 @@
 package com.pulumi.aws.lambda.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -147,7 +148,9 @@ public final class GetLayerVersionPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         public GetLayerVersionPlainArgs build() {
-            $.layerName = Objects.requireNonNull($.layerName, "expected parameter 'layerName' to be non-null");
+            if ($.layerName == null) {
+                throw new MissingRequiredPropertyException("GetLayerVersionPlainArgs", "layerName");
+            }
             return $;
         }
     }

@@ -184,15 +184,16 @@ class DomainPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey", description="domain key")
-        example_domain = aws.codeartifact.Domain("exampleDomain",
+        example = aws.kms.Key("example", description="domain key")
+        example_domain = aws.codeartifact.Domain("example",
             domain="example",
-            encryption_key=example_key.arn)
-        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            encryption_key=example.arn)
+        test = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="*",
@@ -201,17 +202,18 @@ class DomainPermissions(pulumi.CustomResource):
             actions=["codeartifact:CreateRepository"],
             resources=[example_domain.arn],
         )])
-        test_domain_permissions = aws.codeartifact.DomainPermissions("testDomainPermissions",
+        test_domain_permissions = aws.codeartifact.DomainPermissions("test",
             domain=example_domain.domain,
-            policy_document=test_policy_document.json)
+            policy_document=test.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeArtifact Domain Permissions Policies using the CodeArtifact Domain ARN. For example:
 
         ```sh
-         $ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
+        $ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
         ```
 
         :param str resource_name: The name of the resource.
@@ -232,15 +234,16 @@ class DomainPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey", description="domain key")
-        example_domain = aws.codeartifact.Domain("exampleDomain",
+        example = aws.kms.Key("example", description="domain key")
+        example_domain = aws.codeartifact.Domain("example",
             domain="example",
-            encryption_key=example_key.arn)
-        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            encryption_key=example.arn)
+        test = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="*",
@@ -249,17 +252,18 @@ class DomainPermissions(pulumi.CustomResource):
             actions=["codeartifact:CreateRepository"],
             resources=[example_domain.arn],
         )])
-        test_domain_permissions = aws.codeartifact.DomainPermissions("testDomainPermissions",
+        test_domain_permissions = aws.codeartifact.DomainPermissions("test",
             domain=example_domain.domain,
-            policy_document=test_policy_document.json)
+            policy_document=test.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeArtifact Domain Permissions Policies using the CodeArtifact Domain ARN. For example:
 
         ```sh
-         $ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
+        $ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
         ```
 
         :param str resource_name: The name of the resource.

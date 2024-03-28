@@ -258,30 +258,33 @@ class QuickConnect(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.connect.QuickConnect("test",
-            description="quick connect phone number",
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="Example Name",
+            description="quick connect phone number",
             quick_connect_config=aws.connect.QuickConnectQuickConnectConfigArgs(
+                quick_connect_type="PHONE_NUMBER",
                 phone_configs=[aws.connect.QuickConnectQuickConnectConfigPhoneConfigArgs(
                     phone_number="+12345678912",
                 )],
-                quick_connect_type="PHONE_NUMBER",
             ),
             tags={
                 "Name": "Example Quick Connect",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Connect Quick Connects using the `instance_id` and `quick_connect_id` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:connect/quickConnect:QuickConnect example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+        $ pulumi import aws:connect/quickConnect:QuickConnect example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
         ```
 
         :param str resource_name: The name of the resource.
@@ -304,30 +307,33 @@ class QuickConnect(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.connect.QuickConnect("test",
-            description="quick connect phone number",
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="Example Name",
+            description="quick connect phone number",
             quick_connect_config=aws.connect.QuickConnectQuickConnectConfigArgs(
+                quick_connect_type="PHONE_NUMBER",
                 phone_configs=[aws.connect.QuickConnectQuickConnectConfigPhoneConfigArgs(
                     phone_number="+12345678912",
                 )],
-                quick_connect_type="PHONE_NUMBER",
             ),
             tags={
                 "Name": "Example Quick Connect",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Connect Quick Connects using the `instance_id` and `quick_connect_id` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:connect/quickConnect:QuickConnect example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+        $ pulumi import aws:connect/quickConnect:QuickConnect example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
         ```
 
         :param str resource_name: The name of the resource.
@@ -371,8 +377,6 @@ class QuickConnect(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["quick_connect_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(QuickConnect, __self__).__init__(
             'aws:connect/quickConnect:QuickConnect',
             resource_name,

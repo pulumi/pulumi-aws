@@ -11,13 +11,15 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Domain resource.
  *
  * ## Example Usage
+ *
  * ### Basic usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ * const example = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
  *         principals: [{
@@ -26,31 +28,35 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "example",
  *     path: "/",
- *     assumeRolePolicy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
+ *     assumeRolePolicy: example.then(example => example.json),
  * });
- * const exampleDomain = new aws.sagemaker.Domain("exampleDomain", {
+ * const exampleDomain = new aws.sagemaker.Domain("example", {
  *     domainName: "example",
  *     authMode: "IAM",
- *     vpcId: aws_vpc.example.id,
- *     subnetIds: [aws_subnet.example.id],
+ *     vpcId: exampleAwsVpc.id,
+ *     subnetIds: [exampleAwsSubnet.id],
  *     defaultUserSettings: {
  *         executionRole: exampleRole.arn,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Using Custom Images
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleImage = new aws.sagemaker.Image("exampleImage", {
+ * const example = new aws.sagemaker.Image("example", {
  *     imageName: "example",
- *     roleArn: aws_iam_role.example.arn,
+ *     roleArn: exampleAwsIamRole.arn,
  * });
- * const exampleAppImageConfig = new aws.sagemaker.AppImageConfig("exampleAppImageConfig", {
+ * const exampleAppImageConfig = new aws.sagemaker.AppImageConfig("example", {
  *     appImageConfigName: "example",
  *     kernelGatewayImageConfig: {
  *         kernelSpec: {
@@ -58,17 +64,17 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * });
- * const exampleImageVersion = new aws.sagemaker.ImageVersion("exampleImageVersion", {
- *     imageName: exampleImage.id,
+ * const exampleImageVersion = new aws.sagemaker.ImageVersion("example", {
+ *     imageName: example.id,
  *     baseImage: "base-image",
  * });
- * const exampleDomain = new aws.sagemaker.Domain("exampleDomain", {
+ * const exampleDomain = new aws.sagemaker.Domain("example", {
  *     domainName: "example",
  *     authMode: "IAM",
- *     vpcId: aws_vpc.example.id,
- *     subnetIds: [aws_subnet.example.id],
+ *     vpcId: exampleAwsVpc.id,
+ *     subnetIds: [exampleAwsSubnet.id],
  *     defaultUserSettings: {
- *         executionRole: aws_iam_role.example.arn,
+ *         executionRole: exampleAwsIamRole.arn,
  *         kernelGatewayAppSettings: {
  *             customImages: [{
  *                 appImageConfigName: exampleAppImageConfig.appImageConfigName,
@@ -78,13 +84,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SageMaker Domains using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
+ * $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
  * ```
  */
 export class Domain extends pulumi.CustomResource {
@@ -132,16 +139,19 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly authMode!: pulumi.Output<string>;
     /**
-     * The default space settings. See Default Space Settings below.
+     * The default space settings. See `defaultSpaceSettings` Block below.
      */
     public readonly defaultSpaceSettings!: pulumi.Output<outputs.sagemaker.DomainDefaultSpaceSettings | undefined>;
     /**
-     * The default user settings. See Default User Settings below.* `domainName` - (Required) The domain name.
+     * The default user settings. See `defaultUserSettings` Block below.
      */
     public readonly defaultUserSettings!: pulumi.Output<outputs.sagemaker.DomainDefaultUserSettings>;
+    /**
+     * The domain name.
+     */
     public readonly domainName!: pulumi.Output<string>;
     /**
-     * The domain's settings.
+     * The domain settings. See `domainSettings` Block below.
      */
     public readonly domainSettings!: pulumi.Output<outputs.sagemaker.DomainDomainSettings | undefined>;
     /**
@@ -153,13 +163,17 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
-     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
      */
     public readonly retentionPolicy!: pulumi.Output<outputs.sagemaker.DomainRetentionPolicy | undefined>;
     /**
      * The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
      */
     public /*out*/ readonly securityGroupIdForDomainBoundary!: pulumi.Output<string>;
+    /**
+     * The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+     */
+    public /*out*/ readonly singleSignOnApplicationArn!: pulumi.Output<string>;
     /**
      * The SSO managed application instance ID.
      */
@@ -214,6 +228,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["retentionPolicy"] = state ? state.retentionPolicy : undefined;
             resourceInputs["securityGroupIdForDomainBoundary"] = state ? state.securityGroupIdForDomainBoundary : undefined;
+            resourceInputs["singleSignOnApplicationArn"] = state ? state.singleSignOnApplicationArn : undefined;
             resourceInputs["singleSignOnManagedApplicationInstanceId"] = state ? state.singleSignOnManagedApplicationInstanceId : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -252,13 +267,12 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["homeEfsFileSystemId"] = undefined /*out*/;
             resourceInputs["securityGroupIdForDomainBoundary"] = undefined /*out*/;
+            resourceInputs["singleSignOnApplicationArn"] = undefined /*out*/;
             resourceInputs["singleSignOnManagedApplicationInstanceId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Domain.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -284,16 +298,19 @@ export interface DomainState {
      */
     authMode?: pulumi.Input<string>;
     /**
-     * The default space settings. See Default Space Settings below.
+     * The default space settings. See `defaultSpaceSettings` Block below.
      */
     defaultSpaceSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettings>;
     /**
-     * The default user settings. See Default User Settings below.* `domainName` - (Required) The domain name.
+     * The default user settings. See `defaultUserSettings` Block below.
      */
     defaultUserSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettings>;
+    /**
+     * The domain name.
+     */
     domainName?: pulumi.Input<string>;
     /**
-     * The domain's settings.
+     * The domain settings. See `domainSettings` Block below.
      */
     domainSettings?: pulumi.Input<inputs.sagemaker.DomainDomainSettings>;
     /**
@@ -305,13 +322,17 @@ export interface DomainState {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
      */
     retentionPolicy?: pulumi.Input<inputs.sagemaker.DomainRetentionPolicy>;
     /**
      * The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
      */
     securityGroupIdForDomainBoundary?: pulumi.Input<string>;
+    /**
+     * The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+     */
+    singleSignOnApplicationArn?: pulumi.Input<string>;
     /**
      * The SSO managed application instance ID.
      */
@@ -359,16 +380,19 @@ export interface DomainArgs {
      */
     authMode: pulumi.Input<string>;
     /**
-     * The default space settings. See Default Space Settings below.
+     * The default space settings. See `defaultSpaceSettings` Block below.
      */
     defaultSpaceSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettings>;
     /**
-     * The default user settings. See Default User Settings below.* `domainName` - (Required) The domain name.
+     * The default user settings. See `defaultUserSettings` Block below.
      */
     defaultUserSettings: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettings>;
+    /**
+     * The domain name.
+     */
     domainName: pulumi.Input<string>;
     /**
-     * The domain's settings.
+     * The domain settings. See `domainSettings` Block below.
      */
     domainSettings?: pulumi.Input<inputs.sagemaker.DomainDomainSettings>;
     /**
@@ -376,7 +400,7 @@ export interface DomainArgs {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
      */
     retentionPolicy?: pulumi.Input<inputs.sagemaker.DomainRetentionPolicy>;
     /**

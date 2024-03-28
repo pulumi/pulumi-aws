@@ -15,24 +15,19 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"crypto/sha1"
 //	"encoding/json"
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func sha1Hash(input string) string {
-//		hash := sha1.Sum([]byte(input))
-//		return hex.EncodeToString(hash[:])
-//	}
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
@@ -59,26 +54,29 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", &apigateway.RestApiArgs{
+//			example, err := apigateway.NewRestApi(ctx, "example", &apigateway.RestApiArgs{
 //				Body: pulumi.String(json0),
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDeployment, err := apigateway.NewDeployment(ctx, "exampleDeployment", &apigateway.DeploymentArgs{
-//				RestApi: exampleRestApi.ID(),
+//			exampleDeployment, err := apigateway.NewDeployment(ctx, "example", &apigateway.DeploymentArgs{
+//				RestApi: example.ID(),
 //				Triggers: pulumi.StringMap{
-//					"redeployment": exampleRestApi.Body.ApplyT(func(body *string) (pulumi.String, error) {
-//						var _zero pulumi.String
-//						tmpJSON1, err := json.Marshal(body)
-//						if err != nil {
-//							return _zero, err
-//						}
-//						json1 := string(tmpJSON1)
-//						return pulumi.String(json1), nil
-//					}).(pulumi.StringOutput).ApplyT(func(toJSON string) (pulumi.String, error) {
-//						return pulumi.String(sha1Hash(toJSON)), nil
-//					}).(pulumi.StringOutput),
+//					"redeployment": std.Sha1Output(ctx, std.Sha1OutputArgs{
+//						Input: example.Body.ApplyT(func(body *string) (pulumi.String, error) {
+//							var _zero pulumi.String
+//							tmpJSON1, err := json.Marshal(body)
+//							if err != nil {
+//								return _zero, err
+//							}
+//							json1 := string(tmpJSON1)
+//							return pulumi.String(json1), nil
+//						}).(pulumi.StringOutput),
+//					}, nil).ApplyT(func(invoke std.Sha1Result) (*string, error) {
+//						return invoke.Result, nil
+//					}).(pulumi.StringPtrOutput),
 //				},
 //			})
 //			if err != nil {
@@ -86,7 +84,7 @@ import (
 //			}
 //			development, err := apigateway.NewStage(ctx, "development", &apigateway.StageArgs{
 //				Deployment: exampleDeployment.ID(),
-//				RestApi:    exampleRestApi.ID(),
+//				RestApi:    example.ID(),
 //				StageName:  pulumi.String("development"),
 //			})
 //			if err != nil {
@@ -94,22 +92,23 @@ import (
 //			}
 //			production, err := apigateway.NewStage(ctx, "production", &apigateway.StageArgs{
 //				Deployment: exampleDeployment.ID(),
-//				RestApi:    exampleRestApi.ID(),
+//				RestApi:    example.ID(),
 //				StageName:  pulumi.String("production"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigateway.NewUsagePlan(ctx, "exampleUsagePlan", &apigateway.UsagePlanArgs{
+//			_, err = apigateway.NewUsagePlan(ctx, "example", &apigateway.UsagePlanArgs{
+//				Name:        pulumi.String("my-usage-plan"),
 //				Description: pulumi.String("my description"),
 //				ProductCode: pulumi.String("MYCODE"),
 //				ApiStages: apigateway.UsagePlanApiStageArray{
 //					&apigateway.UsagePlanApiStageArgs{
-//						ApiId: exampleRestApi.ID(),
+//						ApiId: example.ID(),
 //						Stage: development.StageName,
 //					},
 //					&apigateway.UsagePlanApiStageArgs{
-//						ApiId: exampleRestApi.ID(),
+//						ApiId: example.ID(),
 //						Stage: production.StageName,
 //					},
 //				},
@@ -131,15 +130,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AWS API Gateway Usage Plan using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan <usage_plan_id>
-//
+// $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan <usage_plan_id>
 // ```
 type UsagePlan struct {
 	pulumi.CustomResourceState
@@ -173,10 +171,6 @@ func NewUsagePlan(ctx *pulumi.Context,
 		args = &UsagePlanArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UsagePlan
 	err := ctx.RegisterResource("aws:apigateway/usagePlan:UsagePlan", name, args, &resource, opts...)

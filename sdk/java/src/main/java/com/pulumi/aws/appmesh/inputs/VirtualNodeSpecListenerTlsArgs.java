@@ -7,6 +7,7 @@ import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerTlsCertificateArgs;
 import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerTlsValidationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -152,8 +153,12 @@ public final class VirtualNodeSpecListenerTlsArgs extends com.pulumi.resources.R
         }
 
         public VirtualNodeSpecListenerTlsArgs build() {
-            $.certificate = Objects.requireNonNull($.certificate, "expected parameter 'certificate' to be non-null");
-            $.mode = Objects.requireNonNull($.mode, "expected parameter 'mode' to be non-null");
+            if ($.certificate == null) {
+                throw new MissingRequiredPropertyException("VirtualNodeSpecListenerTlsArgs", "certificate");
+            }
+            if ($.mode == null) {
+                throw new MissingRequiredPropertyException("VirtualNodeSpecListenerTlsArgs", "mode");
+            }
             return $;
         }
     }

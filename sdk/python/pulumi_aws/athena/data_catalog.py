@@ -242,67 +242,82 @@ class DataCatalog(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.athena.DataCatalog("example",
+            name="athena-data-catalog",
             description="Example Athena data catalog",
+            type="LAMBDA",
             parameters={
                 "function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function",
             },
             tags={
                 "Name": "example-athena-data-catalog",
-            },
-            type="LAMBDA")
+            })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Hive based Data Catalog
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.athena.DataCatalog("example",
+            name="hive-data-catalog",
             description="Hive based Data Catalog",
+            type="HIVE",
             parameters={
                 "metadata-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function",
-            },
-            type="HIVE")
+            })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Glue based Data Catalog
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.athena.DataCatalog("example",
+            name="glue-data-catalog",
             description="Glue based Data Catalog",
+            type="GLUE",
             parameters={
                 "catalog-id": "123456789012",
-            },
-            type="GLUE")
+            })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda based Data Catalog
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.athena.DataCatalog("example",
+            name="lambda-data-catalog",
             description="Lambda based Data Catalog",
+            type="LAMBDA",
             parameters={
                 "metadata-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1",
                 "record-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2",
-            },
-            type="LAMBDA")
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import data catalogs using their `name`. For example:
 
         ```sh
-         $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
+        $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
         ```
 
         :param str resource_name: The name of the resource.
@@ -328,67 +343,82 @@ class DataCatalog(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.athena.DataCatalog("example",
+            name="athena-data-catalog",
             description="Example Athena data catalog",
+            type="LAMBDA",
             parameters={
                 "function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function",
             },
             tags={
                 "Name": "example-athena-data-catalog",
-            },
-            type="LAMBDA")
+            })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Hive based Data Catalog
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.athena.DataCatalog("example",
+            name="hive-data-catalog",
             description="Hive based Data Catalog",
+            type="HIVE",
             parameters={
                 "metadata-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function",
-            },
-            type="HIVE")
+            })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Glue based Data Catalog
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.athena.DataCatalog("example",
+            name="glue-data-catalog",
             description="Glue based Data Catalog",
+            type="GLUE",
             parameters={
                 "catalog-id": "123456789012",
-            },
-            type="GLUE")
+            })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda based Data Catalog
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.athena.DataCatalog("example",
+            name="lambda-data-catalog",
             description="Lambda based Data Catalog",
+            type="LAMBDA",
             parameters={
                 "metadata-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1",
                 "record-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2",
-            },
-            type="LAMBDA")
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import data catalogs using their `name`. For example:
 
         ```sh
-         $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
+        $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
         ```
 
         :param str resource_name: The name of the resource.
@@ -433,8 +463,6 @@ class DataCatalog(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(DataCatalog, __self__).__init__(
             'aws:athena/dataCatalog:DataCatalog',
             resource_name,

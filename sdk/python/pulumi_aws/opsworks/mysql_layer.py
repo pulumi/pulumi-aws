@@ -862,12 +862,14 @@ class MysqlLayer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        db = aws.opsworks.MysqlLayer("db", stack_id=aws_opsworks_stack["main"]["id"])
+        db = aws.opsworks.MysqlLayer("db", stack_id=main["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -905,12 +907,14 @@ class MysqlLayer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        db = aws.opsworks.MysqlLayer("db", stack_id=aws_opsworks_stack["main"]["id"])
+        db = aws.opsworks.MysqlLayer("db", stack_id=main["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param MysqlLayerArgs args: The arguments to use to populate this resource's properties.
@@ -990,8 +994,6 @@ class MysqlLayer(pulumi.CustomResource):
             __props__.__dict__["use_ebs_optimized_instances"] = use_ebs_optimized_instances
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(MysqlLayer, __self__).__init__(
             'aws:opsworks/mysqlLayer:MysqlLayer',
             resource_name,

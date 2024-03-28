@@ -7,19 +7,24 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.servicediscovery.HttpNamespace("example", {description: "example"});
+ * const example = new aws.servicediscovery.HttpNamespace("example", {
+ *     name: "development",
+ *     description: "example",
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Service Discovery HTTP Namespace using the namespace ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
+ * $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
  * ```
  */
 export class HttpNamespace extends pulumi.CustomResource {
@@ -106,8 +111,6 @@ export class HttpNamespace extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(HttpNamespace.__pulumiType, name, resourceInputs, opts);
     }
 }

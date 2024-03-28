@@ -58,19 +58,21 @@ public final class DevEnvironmentIdes {
 
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder runtime(@Nullable String runtime) {
+
             this.runtime = runtime;
             return this;
         }
         public DevEnvironmentIdes build() {
-            final var o = new DevEnvironmentIdes();
-            o.name = name;
-            o.runtime = runtime;
-            return o;
+            final var _resultValue = new DevEnvironmentIdes();
+            _resultValue.name = name;
+            _resultValue.runtime = runtime;
+            return _resultValue;
         }
     }
 }

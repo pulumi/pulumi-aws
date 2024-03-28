@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttp2RouteAction;
 import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttp2RouteMatch;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetGatewayRouteSpecHttp2Route {
 
         @CustomType.Setter
         public Builder actions(List<GetGatewayRouteSpecHttp2RouteAction> actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttp2Route", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         public Builder actions(GetGatewayRouteSpecHttp2RouteAction... actions) {
@@ -50,17 +54,20 @@ public final class GetGatewayRouteSpecHttp2Route {
         }
         @CustomType.Setter
         public Builder matches(List<GetGatewayRouteSpecHttp2RouteMatch> matches) {
-            this.matches = Objects.requireNonNull(matches);
+            if (matches == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttp2Route", "matches");
+            }
+            this.matches = matches;
             return this;
         }
         public Builder matches(GetGatewayRouteSpecHttp2RouteMatch... matches) {
             return matches(List.of(matches));
         }
         public GetGatewayRouteSpecHttp2Route build() {
-            final var o = new GetGatewayRouteSpecHttp2Route();
-            o.actions = actions;
-            o.matches = matches;
-            return o;
+            final var _resultValue = new GetGatewayRouteSpecHttp2Route();
+            _resultValue.actions = actions;
+            _resultValue.matches = matches;
+            return _resultValue;
         }
     }
 }

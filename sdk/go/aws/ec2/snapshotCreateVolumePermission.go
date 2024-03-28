@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,13 +37,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSnapshot, err := ebs.NewSnapshot(ctx, "exampleSnapshot", &ebs.SnapshotArgs{
+//			exampleSnapshot, err := ebs.NewSnapshot(ctx, "example_snapshot", &ebs.SnapshotArgs{
 //				VolumeId: example.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewSnapshotCreateVolumePermission(ctx, "examplePerm", &ec2.SnapshotCreateVolumePermissionArgs{
+//			_, err = ec2.NewSnapshotCreateVolumePermission(ctx, "example_perm", &ec2.SnapshotCreateVolumePermissionArgs{
 //				SnapshotId: exampleSnapshot.ID(),
 //				AccountId:  pulumi.String("12345678"),
 //			})
@@ -54,6 +55,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type SnapshotCreateVolumePermission struct {
 	pulumi.CustomResourceState
 

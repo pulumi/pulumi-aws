@@ -5,6 +5,7 @@ package com.pulumi.aws.lambda.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class CodeSigningConfigPoliciesArgs extends com.pulumi.resources.Re
         }
 
         public CodeSigningConfigPoliciesArgs build() {
-            $.untrustedArtifactOnDeployment = Objects.requireNonNull($.untrustedArtifactOnDeployment, "expected parameter 'untrustedArtifactOnDeployment' to be non-null");
+            if ($.untrustedArtifactOnDeployment == null) {
+                throw new MissingRequiredPropertyException("CodeSigningConfigPoliciesArgs", "untrustedArtifactOnDeployment");
+            }
             return $;
         }
     }

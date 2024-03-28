@@ -11,33 +11,33 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Comprehend Document Classifier.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const documents = new aws.s3.BucketObjectv2("documents", {});
- * // ...
  * const example = new aws.comprehend.DocumentClassifier("example", {
- *     dataAccessRoleArn: aws_iam_role.example.arn,
+ *     name: "example",
+ *     dataAccessRoleArn: exampleAwsIamRole.arn,
  *     languageCode: "en",
  *     inputDataConfig: {
- *         s3Uri: pulumi.interpolate`s3://${aws_s3_bucket.test.bucket}/${documents.id}`,
+ *         s3Uri: pulumi.interpolate`s3://${test.bucket}/${documents.id}`,
  *     },
- * }, {
- *     dependsOn: [aws_iam_role_policy.example],
  * });
  * const entities = new aws.s3.BucketObjectv2("entities", {});
- * // ...
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Comprehend Document Classifier using the ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
+ * $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
  * ```
  */
 export class DocumentClassifier extends pulumi.CustomResource {
@@ -202,8 +202,6 @@ export class DocumentClassifier extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(DocumentClassifier.__pulumiType, name, resourceInputs, opts);
     }
 }

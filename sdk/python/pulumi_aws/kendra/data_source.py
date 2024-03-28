@@ -493,14 +493,17 @@ class DataSource(pulumi.CustomResource):
         Resource for managing an AWS Kendra Data Source.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             description="example",
             language_code="en",
             type="CUSTOM",
@@ -508,56 +511,69 @@ class DataSource(pulumi.CustomResource):
                 "hello": "world",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### S3 Connector
+
         ### With Schedule
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             type="S3",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             schedule="cron(9 10 1 * ? *)",
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 s3_configuration=aws.kendra.DataSourceConfigurationS3ConfigurationArgs(
-                    bucket_name=aws_s3_bucket["example"]["id"],
+                    bucket_name=example_aws_s3_bucket["id"],
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Access Control List
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             type="S3",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 s3_configuration=aws.kendra.DataSourceConfigurationS3ConfigurationArgs(
-                    bucket_name=aws_s3_bucket["example"]["id"],
+                    bucket_name=example_aws_s3_bucket["id"],
                     access_control_list_configuration=aws.kendra.DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs(
-                        key_path=f"s3://{aws_s3_bucket['example']['id']}/path-1",
+                        key_path=f"s3://{example_aws_s3_bucket['id']}/path-1",
                     ),
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Documents Metadata Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             type="S3",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 s3_configuration=aws.kendra.DataSourceConfigurationS3ConfigurationArgs(
-                    bucket_name=aws_s3_bucket["example"]["id"],
+                    bucket_name=example_aws_s3_bucket["id"],
                     exclusion_patterns=["example"],
                     inclusion_patterns=["hello"],
                     inclusion_prefixes=["world"],
@@ -567,17 +583,22 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Web Crawler Connector
+
         ### With Seed URLs
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             type="WEBCRAWLER",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     urls=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(
@@ -588,16 +609,20 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Site Maps
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             type="WEBCRAWLER",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     urls=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(
@@ -608,16 +633,20 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Web Crawler Mode
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             type="WEBCRAWLER",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     urls=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(
@@ -629,21 +658,25 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Authentication Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             type="WEBCRAWLER",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     authentication_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs(
                         basic_authentications=[aws.kendra.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs(
-                            credentials=aws_secretsmanager_secret["example"]["arn"],
+                            credentials=example_aws_secretsmanager_secret["arn"],
                             host="a.example.com",
                             port=443,
                         )],
@@ -654,19 +687,22 @@ class DataSource(pulumi.CustomResource):
                         ),
                     ),
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[aws_secretsmanager_secret_version["example"]]))
+            ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Crawl Depth
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             type="WEBCRAWLER",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     crawl_depth=3,
@@ -678,16 +714,20 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Max Links Per Page
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             type="WEBCRAWLER",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     max_links_per_page=100,
@@ -699,16 +739,20 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Max Urls Per Minute Crawl Rate
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             type="WEBCRAWLER",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     max_urls_per_minute_crawl_rate=300,
@@ -720,20 +764,24 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Proxy Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             type="WEBCRAWLER",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     proxy_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs(
-                        credentials=aws_secretsmanager_secret["example"]["arn"],
+                        credentials=example_aws_secretsmanager_secret["arn"],
                         host="a.example.com",
                         port=443,
                     ),
@@ -743,19 +791,22 @@ class DataSource(pulumi.CustomResource):
                         ),
                     ),
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[aws_secretsmanager_secret_version["example"]]))
+            ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With URL Exclusion and Inclusion Patterns
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             type="WEBCRAWLER",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     url_exclusion_patterns=["example"],
@@ -768,13 +819,14 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Kendra Data Source using the unique identifiers of the data_source and index separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:kendra/dataSource:DataSource example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
+        $ pulumi import aws:kendra/dataSource:DataSource example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
         ```
 
         :param str resource_name: The name of the resource.
@@ -802,14 +854,17 @@ class DataSource(pulumi.CustomResource):
         Resource for managing an AWS Kendra Data Source.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             description="example",
             language_code="en",
             type="CUSTOM",
@@ -817,56 +872,69 @@ class DataSource(pulumi.CustomResource):
                 "hello": "world",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### S3 Connector
+
         ### With Schedule
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             type="S3",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             schedule="cron(9 10 1 * ? *)",
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 s3_configuration=aws.kendra.DataSourceConfigurationS3ConfigurationArgs(
-                    bucket_name=aws_s3_bucket["example"]["id"],
+                    bucket_name=example_aws_s3_bucket["id"],
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Access Control List
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             type="S3",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 s3_configuration=aws.kendra.DataSourceConfigurationS3ConfigurationArgs(
-                    bucket_name=aws_s3_bucket["example"]["id"],
+                    bucket_name=example_aws_s3_bucket["id"],
                     access_control_list_configuration=aws.kendra.DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs(
-                        key_path=f"s3://{aws_s3_bucket['example']['id']}/path-1",
+                        key_path=f"s3://{example_aws_s3_bucket['id']}/path-1",
                     ),
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Documents Metadata Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             type="S3",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 s3_configuration=aws.kendra.DataSourceConfigurationS3ConfigurationArgs(
-                    bucket_name=aws_s3_bucket["example"]["id"],
+                    bucket_name=example_aws_s3_bucket["id"],
                     exclusion_patterns=["example"],
                     inclusion_patterns=["hello"],
                     inclusion_prefixes=["world"],
@@ -876,17 +944,22 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Web Crawler Connector
+
         ### With Seed URLs
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             type="WEBCRAWLER",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     urls=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(
@@ -897,16 +970,20 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Site Maps
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             type="WEBCRAWLER",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     urls=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(
@@ -917,16 +994,20 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Web Crawler Mode
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             type="WEBCRAWLER",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     urls=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(
@@ -938,21 +1019,25 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Authentication Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             type="WEBCRAWLER",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     authentication_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs(
                         basic_authentications=[aws.kendra.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs(
-                            credentials=aws_secretsmanager_secret["example"]["arn"],
+                            credentials=example_aws_secretsmanager_secret["arn"],
                             host="a.example.com",
                             port=443,
                         )],
@@ -963,19 +1048,22 @@ class DataSource(pulumi.CustomResource):
                         ),
                     ),
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[aws_secretsmanager_secret_version["example"]]))
+            ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Crawl Depth
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             type="WEBCRAWLER",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     crawl_depth=3,
@@ -987,16 +1075,20 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Max Links Per Page
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             type="WEBCRAWLER",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     max_links_per_page=100,
@@ -1008,16 +1100,20 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Max Urls Per Minute Crawl Rate
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             type="WEBCRAWLER",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     max_urls_per_minute_crawl_rate=300,
@@ -1029,20 +1125,24 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Proxy Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             type="WEBCRAWLER",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     proxy_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs(
-                        credentials=aws_secretsmanager_secret["example"]["arn"],
+                        credentials=example_aws_secretsmanager_secret["arn"],
                         host="a.example.com",
                         port=443,
                     ),
@@ -1052,19 +1152,22 @@ class DataSource(pulumi.CustomResource):
                         ),
                     ),
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[aws_secretsmanager_secret_version["example"]]))
+            ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With URL Exclusion and Inclusion Patterns
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.DataSource("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="example",
             type="WEBCRAWLER",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     url_exclusion_patterns=["example"],
@@ -1077,13 +1180,14 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Kendra Data Source using the unique identifiers of the data_source and index separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:kendra/dataSource:DataSource example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
+        $ pulumi import aws:kendra/dataSource:DataSource example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
         ```
 
         :param str resource_name: The name of the resource.
@@ -1141,8 +1245,6 @@ class DataSource(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["updated_at"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(DataSource, __self__).__init__(
             'aws:kendra/dataSource:DataSource',
             resource_name,

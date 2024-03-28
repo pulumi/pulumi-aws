@@ -59,11 +59,13 @@ public final class DistributionTrustedKeyGroupItem {
 
         @CustomType.Setter
         public Builder keyGroupId(@Nullable String keyGroupId) {
+
             this.keyGroupId = keyGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder keyPairIds(@Nullable List<String> keyPairIds) {
+
             this.keyPairIds = keyPairIds;
             return this;
         }
@@ -71,10 +73,10 @@ public final class DistributionTrustedKeyGroupItem {
             return keyPairIds(List.of(keyPairIds));
         }
         public DistributionTrustedKeyGroupItem build() {
-            final var o = new DistributionTrustedKeyGroupItem();
-            o.keyGroupId = keyGroupId;
-            o.keyPairIds = keyPairIds;
-            return o;
+            final var _resultValue = new DistributionTrustedKeyGroupItem();
+            _resultValue.keyGroupId = keyGroupId;
+            _resultValue.keyPairIds = keyPairIds;
+            return _resultValue;
         }
     }
 }

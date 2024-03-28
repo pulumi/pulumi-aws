@@ -12,24 +12,26 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.qldb.Stream("example", {
+ *     ledgerName: "existing-ledger-name",
+ *     streamName: "sample-ledger-stream",
+ *     roleArn: "sample-role-arn",
  *     inclusiveStartTime: "2021-01-01T00:00:00Z",
  *     kinesisConfiguration: {
  *         aggregationEnabled: false,
  *         streamArn: "arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream",
  *     },
- *     ledgerName: "existing-ledger-name",
- *     roleArn: "sample-role-arn",
- *     streamName: "sample-ledger-stream",
  *     tags: {
  *         example: "tag",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class Stream extends pulumi.CustomResource {
     /**
@@ -148,8 +150,6 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Stream.__pulumiType, name, resourceInputs, opts);
     }
 }

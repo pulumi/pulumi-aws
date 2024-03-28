@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +21,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -29,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.EventBus;
+ * import com.pulumi.aws.cloudwatch.EventBusArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -42,11 +44,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var messenger = new EventBus(&#34;messenger&#34;);
+ *         var messenger = new EventBus(&#34;messenger&#34;, EventBusArgs.builder()        
+ *             .name(&#34;chat-messages&#34;)
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -70,24 +77,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var examplepartnerEventSource = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
+ *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
  *             .namePrefix(&#34;aws.partner/examplepartner.com&#34;)
  *             .build());
  * 
  *         var examplepartnerEventBus = new EventBus(&#34;examplepartnerEventBus&#34;, EventBusArgs.builder()        
- *             .eventSourceName(examplepartnerEventSource.applyValue(getEventSourceResult -&gt; getEventSourceResult.name()))
+ *             .name(examplepartner.applyValue(getEventSourceResult -&gt; getEventSourceResult.name()))
+ *             .eventSourceName(examplepartner.applyValue(getEventSourceResult -&gt; getEventSourceResult.name()))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import EventBridge event buses using the `name` (which can also be a partner event source name). For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
+ * $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
  * ```
  * 
  */
@@ -200,9 +209,6 @@ public class EventBus extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

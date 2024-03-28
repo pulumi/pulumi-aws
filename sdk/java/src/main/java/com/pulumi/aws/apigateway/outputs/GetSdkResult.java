@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigateway.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -110,55 +111,77 @@ public final class GetSdkResult {
 
         @CustomType.Setter
         public Builder body(String body) {
-            this.body = Objects.requireNonNull(body);
+            if (body == null) {
+              throw new MissingRequiredPropertyException("GetSdkResult", "body");
+            }
+            this.body = body;
             return this;
         }
         @CustomType.Setter
         public Builder contentDisposition(String contentDisposition) {
-            this.contentDisposition = Objects.requireNonNull(contentDisposition);
+            if (contentDisposition == null) {
+              throw new MissingRequiredPropertyException("GetSdkResult", "contentDisposition");
+            }
+            this.contentDisposition = contentDisposition;
             return this;
         }
         @CustomType.Setter
         public Builder contentType(String contentType) {
-            this.contentType = Objects.requireNonNull(contentType);
+            if (contentType == null) {
+              throw new MissingRequiredPropertyException("GetSdkResult", "contentType");
+            }
+            this.contentType = contentType;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSdkResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
+
             this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
         public Builder restApiId(String restApiId) {
-            this.restApiId = Objects.requireNonNull(restApiId);
+            if (restApiId == null) {
+              throw new MissingRequiredPropertyException("GetSdkResult", "restApiId");
+            }
+            this.restApiId = restApiId;
             return this;
         }
         @CustomType.Setter
         public Builder sdkType(String sdkType) {
-            this.sdkType = Objects.requireNonNull(sdkType);
+            if (sdkType == null) {
+              throw new MissingRequiredPropertyException("GetSdkResult", "sdkType");
+            }
+            this.sdkType = sdkType;
             return this;
         }
         @CustomType.Setter
         public Builder stageName(String stageName) {
-            this.stageName = Objects.requireNonNull(stageName);
+            if (stageName == null) {
+              throw new MissingRequiredPropertyException("GetSdkResult", "stageName");
+            }
+            this.stageName = stageName;
             return this;
         }
         public GetSdkResult build() {
-            final var o = new GetSdkResult();
-            o.body = body;
-            o.contentDisposition = contentDisposition;
-            o.contentType = contentType;
-            o.id = id;
-            o.parameters = parameters;
-            o.restApiId = restApiId;
-            o.sdkType = sdkType;
-            o.stageName = stageName;
-            return o;
+            final var _resultValue = new GetSdkResult();
+            _resultValue.body = body;
+            _resultValue.contentDisposition = contentDisposition;
+            _resultValue.contentType = contentType;
+            _resultValue.id = id;
+            _resultValue.parameters = parameters;
+            _resultValue.restApiId = restApiId;
+            _resultValue.sdkType = sdkType;
+            _resultValue.stageName = stageName;
+            return _resultValue;
         }
     }
 }

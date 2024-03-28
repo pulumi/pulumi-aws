@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,7 +44,7 @@ import (
 //				},
 //				Components: imagebuilder.ImageRecipeComponentArray{
 //					&imagebuilder.ImageRecipeComponentArgs{
-//						ComponentArn: pulumi.Any(aws_imagebuilder_component.Example.Arn),
+//						ComponentArn: pulumi.Any(exampleAwsImagebuilderComponent.Arn),
 //						Parameters: imagebuilder.ImageRecipeComponentParameterArray{
 //							&imagebuilder.ImageRecipeComponentParameterArgs{
 //								Name:  pulumi.String("Parameter1"),
@@ -56,7 +57,8 @@ import (
 //						},
 //					},
 //				},
-//				ParentImage: pulumi.String(fmt.Sprintf("arn:%v:imagebuilder:%v:aws:image/amazon-linux-2-x86/x.x.x", data.Aws_partition.Current.Partition, data.Aws_region.Current.Name)),
+//				Name:        pulumi.String("example"),
+//				ParentImage: pulumi.String(fmt.Sprintf("arn:%v:imagebuilder:%v:aws:image/amazon-linux-2-x86/x.x.x", current.Partition, currentAwsRegion.Name)),
 //				Version:     pulumi.String("1.0.0"),
 //			})
 //			if err != nil {
@@ -67,15 +69,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_imagebuilder_image_recipe` resources using the Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
-//
+// $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
 // ```
 type ImageRecipe struct {
 	pulumi.CustomResourceState
@@ -132,10 +133,6 @@ func NewImageRecipe(ctx *pulumi.Context,
 	if args.Version == nil {
 		return nil, errors.New("invalid value for required argument 'Version'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ImageRecipe
 	err := ctx.RegisterResource("aws:imagebuilder/imageRecipe:ImageRecipe", name, args, &resource, opts...)

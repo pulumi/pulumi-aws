@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  * ## RDS Instance Class Types
  * 
- * Amazon RDS supports three types of instance classes: Standard, Memory Optimized, and Burstable Performance.
+ * Amazon RDS supports instance classes for the following use cases: General-purpose, Memory-optimized, Burstable Performance, and Optimized-reads.
  * For more information please read the AWS RDS documentation about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
  * 
  * ## Low-Downtime Updates
@@ -55,13 +55,17 @@ import javax.annotation.Nullable;
  * 
  * Low-downtime updates are only available for DB Instances using MySQL and MariaDB,
  * as other engines are not supported by RDS Blue/Green deployments.
+ * They cannot be used with DB Instances with replicas.
  * 
  * Backups must be enabled to use low-downtime updates.
  * 
  * Enable low-downtime updates by setting `blue_green_update.enabled` to `true`.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -89,17 +93,20 @@ import javax.annotation.Nullable;
  *             .engine(&#34;mysql&#34;)
  *             .engineVersion(&#34;5.7&#34;)
  *             .instanceClass(&#34;db.t3.micro&#34;)
- *             .parameterGroupName(&#34;default.mysql5.7&#34;)
- *             .password(&#34;foobarbaz&#34;)
- *             .skipFinalSnapshot(true)
  *             .username(&#34;foo&#34;)
+ *             .password(&#34;foobarbaz&#34;)
+ *             .parameterGroupName(&#34;default.mysql5.7&#34;)
+ *             .skipFinalSnapshot(true)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### RDS Custom for Oracle Usage with Replica
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -145,7 +152,7 @@ import javax.annotation.Nullable;
  *             .autoMinorVersionUpgrade(false)
  *             .customIamInstanceProfile(&#34;AWSRDSCustomInstanceProfile&#34;)
  *             .backupRetentionPeriod(7)
- *             .dbSubnetGroupName(local.db_subnet_group_name())
+ *             .dbSubnetGroupName(dbSubnetGroupName)
  *             .engine(custom_oracle.engine())
  *             .engineVersion(custom_oracle.engineVersion())
  *             .identifier(&#34;ee-instance-demo&#34;)
@@ -156,7 +163,6 @@ import javax.annotation.Nullable;
  *             .password(&#34;avoid-plaintext-passwords&#34;)
  *             .username(&#34;test&#34;)
  *             .storageEncrypted(true)
- *             .timeouts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var test_replica = new Instance(&#34;test-replica&#34;, InstanceArgs.builder()        
@@ -171,14 +177,16 @@ import javax.annotation.Nullable;
  *             .multiAz(false)
  *             .skipFinalSnapshot(true)
  *             .storageEncrypted(true)
- *             .timeouts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### RDS Custom for SQL Server
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -221,9 +229,9 @@ import javax.annotation.Nullable;
  *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
  *             .allocatedStorage(500)
  *             .autoMinorVersionUpgrade(false)
- *             .customIamInstanceProfile(&#34;AWSRDSCustomSQLServerInstanceRole&#34;)
+ *             .customIamInstanceProfile(&#34;AWSRDSCustomSQLServerInstanceProfile&#34;)
  *             .backupRetentionPeriod(7)
- *             .dbSubnetGroupName(local.db_subnet_group_name())
+ *             .dbSubnetGroupName(dbSubnetGroupName)
  *             .engine(custom_sqlserver.engine())
  *             .engineVersion(custom_sqlserver.engineVersion())
  *             .identifier(&#34;sql-instance-demo&#34;)
@@ -233,15 +241,97 @@ import javax.annotation.Nullable;
  *             .password(&#34;avoid-plaintext-passwords&#34;)
  *             .storageEncrypted(true)
  *             .username(&#34;test&#34;)
- *             .timeouts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### RDS Db2 Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.rds.RdsFunctions;
+ * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
+ * import com.pulumi.aws.rds.inputs.GetOrderableDbInstanceArgs;
+ * import com.pulumi.aws.rds.ParameterGroup;
+ * import com.pulumi.aws.rds.ParameterGroupArgs;
+ * import com.pulumi.aws.rds.inputs.ParameterGroupParameterArgs;
+ * import com.pulumi.aws.rds.Instance;
+ * import com.pulumi.aws.rds.InstanceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var default = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+ *             .engine(&#34;db2-se&#34;)
+ *             .build());
+ * 
+ *         final var example = RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
+ *             .engine(default_.engine())
+ *             .engineVersion(default_.version())
+ *             .licenseModel(&#34;bring-your-own-license&#34;)
+ *             .storageType(&#34;gp3&#34;)
+ *             .preferredInstanceClasses(            
+ *                 &#34;db.t3.small&#34;,
+ *                 &#34;db.r6i.large&#34;,
+ *                 &#34;db.m6i.large&#34;)
+ *             .build());
+ * 
+ *         var exampleParameterGroup = new ParameterGroup(&#34;exampleParameterGroup&#34;, ParameterGroupArgs.builder()        
+ *             .name(&#34;db-db2-params&#34;)
+ *             .family(default_.parameterGroupFamily())
+ *             .parameters(            
+ *                 ParameterGroupParameterArgs.builder()
+ *                     .applyMethod(&#34;immediate&#34;)
+ *                     .name(&#34;rds.ibm_customer_id&#34;)
+ *                     .value(0)
+ *                     .build(),
+ *                 ParameterGroupParameterArgs.builder()
+ *                     .applyMethod(&#34;immediate&#34;)
+ *                     .name(&#34;rds.ibm_site_id&#34;)
+ *                     .value(0)
+ *                     .build())
+ *             .build());
+ * 
+ *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
+ *             .allocatedStorage(100)
+ *             .backupRetentionPeriod(7)
+ *             .dbName(&#34;test&#34;)
+ *             .engine(example.applyValue(getOrderableDbInstanceResult -&gt; getOrderableDbInstanceResult.engine()))
+ *             .engineVersion(example.applyValue(getOrderableDbInstanceResult -&gt; getOrderableDbInstanceResult.engineVersion()))
+ *             .identifier(&#34;db2-instance-demo&#34;)
+ *             .instanceClass(example.applyValue(getOrderableDbInstanceResult -&gt; getOrderableDbInstanceResult.instanceClass()))
+ *             .parameterGroupName(exampleParameterGroup.name())
+ *             .password(&#34;avoid-plaintext-passwords&#34;)
+ *             .username(&#34;test&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Storage Autoscaling
  * 
  * To enable Storage Autoscaling with instances that support the feature, define the `max_allocated_storage` argument higher than the `allocated_storage` argument. This provider will automatically hide differences with the `allocated_storage` argument value if autoscaling occurs.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -271,11 +361,15 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Managed Master Passwords via Secrets Manager, default KMS Key
  * 
  * &gt; More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
  * 
  * You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `password` attribute (removal is required).
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -304,18 +398,22 @@ import javax.annotation.Nullable;
  *             .engineVersion(&#34;5.7&#34;)
  *             .instanceClass(&#34;db.t3.micro&#34;)
  *             .manageMasterUserPassword(true)
- *             .parameterGroupName(&#34;default.mysql5.7&#34;)
  *             .username(&#34;foo&#34;)
+ *             .parameterGroupName(&#34;default.mysql5.7&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Managed Master Passwords via Secrets Manager, specific KMS Key
  * 
  * &gt; More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
  * 
  * You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -358,13 +456,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import DB Instances using the `identifier`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
+ * $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
  * ```
  * 
  */
@@ -705,42 +804,98 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deletionProtection);
     }
     /**
-     * The ID of the Directory Service Active Directory domain to create the instance in.
+     * The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
      * 
      */
     @Export(name="domain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> domain;
 
     /**
-     * @return The ID of the Directory Service Active Directory domain to create the instance in.
+     * @return The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
      * 
      */
     public Output<Optional<String>> domain() {
         return Codegen.optional(this.domain);
     }
     /**
-     * The name of the IAM role to be used when making API calls to the Directory Service.
+     * The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+     * 
+     */
+    @Export(name="domainAuthSecretArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> domainAuthSecretArn;
+
+    /**
+     * @return The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+     * 
+     */
+    public Output<Optional<String>> domainAuthSecretArn() {
+        return Codegen.optional(this.domainAuthSecretArn);
+    }
+    /**
+     * The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+     * 
+     */
+    @Export(name="domainDnsIps", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> domainDnsIps;
+
+    /**
+     * @return The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+     * 
+     */
+    public Output<Optional<List<String>>> domainDnsIps() {
+        return Codegen.optional(this.domainDnsIps);
+    }
+    /**
+     * The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+     * 
+     */
+    @Export(name="domainFqdn", refs={String.class}, tree="[0]")
+    private Output<String> domainFqdn;
+
+    /**
+     * @return The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+     * 
+     */
+    public Output<String> domainFqdn() {
+        return this.domainFqdn;
+    }
+    /**
+     * The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
      * 
      */
     @Export(name="domainIamRoleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> domainIamRoleName;
 
     /**
-     * @return The name of the IAM role to be used when making API calls to the Directory Service.
+     * @return The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
      * 
      */
     public Output<Optional<String>> domainIamRoleName() {
         return Codegen.optional(this.domainIamRoleName);
     }
     /**
-     * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+     * The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+     * 
+     */
+    @Export(name="domainOu", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> domainOu;
+
+    /**
+     * @return The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+     * 
+     */
+    public Output<Optional<String>> domainOu() {
+        return Codegen.optional(this.domainOu);
+    }
+    /**
+     * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      * 
      */
     @Export(name="enabledCloudwatchLogsExports", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> enabledCloudwatchLogsExports;
 
     /**
-     * @return Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+     * @return Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      * 
      */
     public Output<Optional<List<String>>> enabledCloudwatchLogsExports() {
@@ -1171,16 +1326,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.optionGroupName;
     }
     /**
-     * Name of the DB parameter group to
-     * associate.
+     * Name of the DB parameter group to associate.
      * 
      */
     @Export(name="parameterGroupName", refs={String.class}, tree="[0]")
     private Output<String> parameterGroupName;
 
     /**
-     * @return Name of the DB parameter group to
-     * associate.
+     * @return Name of the DB parameter group to associate.
      * 
      */
     public Output<String> parameterGroupName() {
@@ -1598,8 +1751,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "password",
-                "tagsAll"
+                "password"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

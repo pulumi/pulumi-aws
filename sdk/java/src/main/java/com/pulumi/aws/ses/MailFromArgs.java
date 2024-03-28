@@ -5,6 +5,7 @@ package com.pulumi.aws.ses;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -158,8 +159,12 @@ public final class MailFromArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MailFromArgs build() {
-            $.domain = Objects.requireNonNull($.domain, "expected parameter 'domain' to be non-null");
-            $.mailFromDomain = Objects.requireNonNull($.mailFromDomain, "expected parameter 'mailFromDomain' to be non-null");
+            if ($.domain == null) {
+                throw new MissingRequiredPropertyException("MailFromArgs", "domain");
+            }
+            if ($.mailFromDomain == null) {
+                throw new MissingRequiredPropertyException("MailFromArgs", "mailFromDomain");
+            }
             return $;
         }
     }

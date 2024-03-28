@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Transcribe VocabularyFilter.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,27 +46,28 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VocabularyFilter(&#34;example&#34;, VocabularyFilterArgs.builder()        
+ *             .vocabularyFilterName(&#34;example&#34;)
  *             .languageCode(&#34;en-US&#34;)
+ *             .words(            
+ *                 &#34;cars&#34;,
+ *                 &#34;bucket&#34;)
  *             .tags(Map.ofEntries(
  *                 Map.entry(&#34;tag1&#34;, &#34;value1&#34;),
  *                 Map.entry(&#34;tag2&#34;, &#34;value3&#34;)
  *             ))
- *             .vocabularyFilterName(&#34;example&#34;)
- *             .words(            
- *                 &#34;cars&#34;,
- *                 &#34;bucket&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Transcribe VocabularyFilter using the `vocabulary_filter_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
+ * $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
  * ```
  * 
  */
@@ -216,9 +220,6 @@ public class VocabularyFilter extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

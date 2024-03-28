@@ -607,20 +607,22 @@ class ContainerRecipe(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.imagebuilder.ContainerRecipe("example",
+            name="example",
             version="1.0.0",
             container_type="DOCKER",
             parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
             target_repository=aws.imagebuilder.ContainerRecipeTargetRepositoryArgs(
-                repository_name=aws_ecr_repository["example"]["name"],
+                repository_name=example_aws_ecr_repository["name"],
                 service="ECR",
             ),
             components=[aws.imagebuilder.ContainerRecipeComponentArgs(
-                component_arn=aws_imagebuilder_component["example"]["arn"],
+                component_arn=example_aws_imagebuilder_component["arn"],
                 parameters=[
                     aws.imagebuilder.ContainerRecipeComponentParameterArgs(
                         name="Parameter1",
@@ -637,13 +639,14 @@ class ContainerRecipe(pulumi.CustomResource):
         {{{ imagebuilder:components }}}
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_imagebuilder_container_recipe` resources using the Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:imagebuilder/containerRecipe:ContainerRecipe example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
+        $ pulumi import aws:imagebuilder/containerRecipe:ContainerRecipe example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
         ```
 
         :param str resource_name: The name of the resource.
@@ -676,20 +679,22 @@ class ContainerRecipe(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.imagebuilder.ContainerRecipe("example",
+            name="example",
             version="1.0.0",
             container_type="DOCKER",
             parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
             target_repository=aws.imagebuilder.ContainerRecipeTargetRepositoryArgs(
-                repository_name=aws_ecr_repository["example"]["name"],
+                repository_name=example_aws_ecr_repository["name"],
                 service="ECR",
             ),
             components=[aws.imagebuilder.ContainerRecipeComponentArgs(
-                component_arn=aws_imagebuilder_component["example"]["arn"],
+                component_arn=example_aws_imagebuilder_component["arn"],
                 parameters=[
                     aws.imagebuilder.ContainerRecipeComponentParameterArgs(
                         name="Parameter1",
@@ -706,13 +711,14 @@ class ContainerRecipe(pulumi.CustomResource):
         {{{ imagebuilder:components }}}
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_imagebuilder_container_recipe` resources using the Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:imagebuilder/containerRecipe:ContainerRecipe example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
+        $ pulumi import aws:imagebuilder/containerRecipe:ContainerRecipe example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
         ```
 
         :param str resource_name: The name of the resource.
@@ -783,8 +789,6 @@ class ContainerRecipe(pulumi.CustomResource):
             __props__.__dict__["owner"] = None
             __props__.__dict__["platform"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ContainerRecipe, __self__).__init__(
             'aws:imagebuilder/containerRecipe:ContainerRecipe',
             resource_name,

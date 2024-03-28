@@ -554,31 +554,32 @@ class DocumentClassifier(pulumi.CustomResource):
         Resource for managing an AWS Comprehend Document Classifier.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         documents = aws.s3.BucketObjectv2("documents")
-        # ...
         example = aws.comprehend.DocumentClassifier("example",
-            data_access_role_arn=aws_iam_role["example"]["arn"],
+            name="example",
+            data_access_role_arn=example_aws_iam_role["arn"],
             language_code="en",
             input_data_config=aws.comprehend.DocumentClassifierInputDataConfigArgs(
-                s3_uri=documents.id.apply(lambda id: f"s3://{aws_s3_bucket['test']['bucket']}/{id}"),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["example"]]))
+                s3_uri=documents.id.apply(lambda id: f"s3://{test['bucket']}/{id}"),
+            ))
         entities = aws.s3.BucketObjectv2("entities")
-        # ...
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Comprehend Document Classifier using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
+        $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -627,31 +628,32 @@ class DocumentClassifier(pulumi.CustomResource):
         Resource for managing an AWS Comprehend Document Classifier.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         documents = aws.s3.BucketObjectv2("documents")
-        # ...
         example = aws.comprehend.DocumentClassifier("example",
-            data_access_role_arn=aws_iam_role["example"]["arn"],
+            name="example",
+            data_access_role_arn=example_aws_iam_role["arn"],
             language_code="en",
             input_data_config=aws.comprehend.DocumentClassifierInputDataConfigArgs(
-                s3_uri=documents.id.apply(lambda id: f"s3://{aws_s3_bucket['test']['bucket']}/{id}"),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["example"]]))
+                s3_uri=documents.id.apply(lambda id: f"s3://{test['bucket']}/{id}"),
+            ))
         entities = aws.s3.BucketObjectv2("entities")
-        # ...
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Comprehend Document Classifier using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
+        $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -710,8 +712,6 @@ class DocumentClassifier(pulumi.CustomResource):
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(DocumentClassifier, __self__).__init__(
             'aws:comprehend/documentClassifier:DocumentClassifier',
             resource_name,

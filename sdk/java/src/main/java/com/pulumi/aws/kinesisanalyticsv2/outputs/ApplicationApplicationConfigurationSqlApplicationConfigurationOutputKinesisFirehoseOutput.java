@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesisanalyticsv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
         @CustomType.Setter
         public Builder resourceArn(String resourceArn) {
-            this.resourceArn = Objects.requireNonNull(resourceArn);
+            if (resourceArn == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput", "resourceArn");
+            }
+            this.resourceArn = resourceArn;
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput();
-            o.resourceArn = resourceArn;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput();
+            _resultValue.resourceArn = resourceArn;
+            return _resultValue;
         }
     }
 }

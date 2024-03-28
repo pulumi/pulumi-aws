@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,9 +22,10 @@ import * as utilities from "../utilities";
  *         name: "type",
  *         values: ["propagated"],
  *     }],
- *     transitGatewayRouteTableId: aws_ec2_transit_gateway_route_table.example.id,
+ *     transitGatewayRouteTableId: example.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRouteTableRoutes(args: GetRouteTableRoutesArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableRoutesResult> {
 
@@ -71,6 +73,7 @@ export interface GetRouteTableRoutesResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -80,9 +83,10 @@ export interface GetRouteTableRoutesResult {
  *         name: "type",
  *         values: ["propagated"],
  *     }],
- *     transitGatewayRouteTableId: aws_ec2_transit_gateway_route_table.example.id,
+ *     transitGatewayRouteTableId: example.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRouteTableRoutesOutput(args: GetRouteTableRoutesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableRoutesResult> {
     return pulumi.output(args).apply((a: any) => getRouteTableRoutes(a, opts))

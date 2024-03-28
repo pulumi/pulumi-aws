@@ -299,11 +299,12 @@ class SlotType(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        flower_types = aws.lex.SlotType("flowerTypes",
+        flower_types = aws.lex.SlotType("flower_types",
             create_version=True,
             description="Types of flowers to order",
             enumeration_values=[
@@ -325,13 +326,14 @@ class SlotType(pulumi.CustomResource):
             name="FlowerTypes",
             value_selection_strategy="ORIGINAL_VALUE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import slot types using their name. For example:
 
         ```sh
-         $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
+        $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
         ```
 
         :param str resource_name: The name of the resource.
@@ -361,11 +363,12 @@ class SlotType(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        flower_types = aws.lex.SlotType("flowerTypes",
+        flower_types = aws.lex.SlotType("flower_types",
             create_version=True,
             description="Types of flowers to order",
             enumeration_values=[
@@ -387,13 +390,14 @@ class SlotType(pulumi.CustomResource):
             name="FlowerTypes",
             value_selection_strategy="ORIGINAL_VALUE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import slot types using their name. For example:
 
         ```sh
-         $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
+        $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
         ```
 
         :param str resource_name: The name of the resource.

@@ -14,8 +14,10 @@ namespace Pulumi.Aws.Connect
     /// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,9 +28,10 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var test = new Aws.Connect.Queue("test", new()
     ///     {
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Name = "Example Name",
     ///         Description = "Example Description",
     ///         HoursOfOperationId = "12345678-1234-1234-1234-123456789012",
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
     ///         Tags = 
     ///         {
     ///             { "Name", "Example Queue" },
@@ -37,8 +40,11 @@ namespace Pulumi.Aws.Connect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Quick Connect IDs
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,9 +55,10 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var test = new Aws.Connect.Queue("test", new()
     ///     {
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Name = "Example Name",
     ///         Description = "Example Description",
     ///         HoursOfOperationId = "12345678-1234-1234-1234-123456789012",
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
     ///         QuickConnectIds = new[]
     ///         {
     ///             "12345678-abcd-1234-abcd-123456789012",
@@ -64,8 +71,11 @@ namespace Pulumi.Aws.Connect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Outbound Caller Config
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -76,9 +86,10 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var test = new Aws.Connect.Queue("test", new()
     ///     {
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Name = "Example Name",
     ///         Description = "Example Description",
     ///         HoursOfOperationId = "12345678-1234-1234-1234-123456789012",
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
     ///         OutboundCallerConfig = new Aws.Connect.Inputs.QueueOutboundCallerConfigArgs
     ///         {
     ///             OutboundCallerIdName = "example",
@@ -93,13 +104,14 @@ namespace Pulumi.Aws.Connect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon Connect Queues using the `instance_id` and `queue_id` separated by a colon (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:connect/queue:Queue example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+    /// $ pulumi import aws:connect/queue:Queue example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
     /// ```
     /// </summary>
     [AwsResourceType("aws:connect/queue:Queue")]
@@ -200,10 +212,6 @@ namespace Pulumi.Aws.Connect
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -389,11 +397,7 @@ namespace Pulumi.Aws.Connect
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public QueueState()

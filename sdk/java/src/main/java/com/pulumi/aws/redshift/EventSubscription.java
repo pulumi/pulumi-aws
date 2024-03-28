@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides a Redshift event subscription resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -30,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.redshift.Cluster;
  * import com.pulumi.aws.redshift.ClusterArgs;
  * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.redshift.EventSubscription;
  * import com.pulumi.aws.redshift.EventSubscriptionArgs;
  * import java.util.List;
@@ -45,17 +48,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var defaultCluster = new Cluster(&#34;defaultCluster&#34;, ClusterArgs.builder()        
+ *         var default_ = new Cluster(&#34;default&#34;, ClusterArgs.builder()        
  *             .clusterIdentifier(&#34;default&#34;)
  *             .databaseName(&#34;default&#34;)
  *             .build());
  * 
- *         var defaultTopic = new Topic(&#34;defaultTopic&#34;);
+ *         var defaultTopic = new Topic(&#34;defaultTopic&#34;, TopicArgs.builder()        
+ *             .name(&#34;redshift-events&#34;)
+ *             .build());
  * 
  *         var defaultEventSubscription = new EventSubscription(&#34;defaultEventSubscription&#34;, EventSubscriptionArgs.builder()        
+ *             .name(&#34;redshift-event-sub&#34;)
  *             .snsTopicArn(defaultTopic.arn())
  *             .sourceType(&#34;cluster&#34;)
- *             .sourceIds(defaultCluster.id())
+ *             .sourceIds(default_.id())
  *             .severity(&#34;INFO&#34;)
  *             .eventCategories(            
  *                 &#34;configuration&#34;,
@@ -68,13 +74,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift Event Subscriptions using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub
+ * $ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub
  * ```
  * 
  */
@@ -277,9 +284,6 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.aws.glue.outputs.GetCatalogTableStorageDescriptorSchemaReferenceSchemaId;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -73,7 +74,10 @@ public final class GetCatalogTableStorageDescriptorSchemaReference {
 
         @CustomType.Setter
         public Builder schemaIds(List<GetCatalogTableStorageDescriptorSchemaReferenceSchemaId> schemaIds) {
-            this.schemaIds = Objects.requireNonNull(schemaIds);
+            if (schemaIds == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptorSchemaReference", "schemaIds");
+            }
+            this.schemaIds = schemaIds;
             return this;
         }
         public Builder schemaIds(GetCatalogTableStorageDescriptorSchemaReferenceSchemaId... schemaIds) {
@@ -81,20 +85,26 @@ public final class GetCatalogTableStorageDescriptorSchemaReference {
         }
         @CustomType.Setter
         public Builder schemaVersionId(String schemaVersionId) {
-            this.schemaVersionId = Objects.requireNonNull(schemaVersionId);
+            if (schemaVersionId == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptorSchemaReference", "schemaVersionId");
+            }
+            this.schemaVersionId = schemaVersionId;
             return this;
         }
         @CustomType.Setter
         public Builder schemaVersionNumber(Integer schemaVersionNumber) {
-            this.schemaVersionNumber = Objects.requireNonNull(schemaVersionNumber);
+            if (schemaVersionNumber == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptorSchemaReference", "schemaVersionNumber");
+            }
+            this.schemaVersionNumber = schemaVersionNumber;
             return this;
         }
         public GetCatalogTableStorageDescriptorSchemaReference build() {
-            final var o = new GetCatalogTableStorageDescriptorSchemaReference();
-            o.schemaIds = schemaIds;
-            o.schemaVersionId = schemaVersionId;
-            o.schemaVersionNumber = schemaVersionNumber;
-            return o;
+            final var _resultValue = new GetCatalogTableStorageDescriptorSchemaReference();
+            _resultValue.schemaIds = schemaIds;
+            _resultValue.schemaVersionId = schemaVersionId;
+            _resultValue.schemaVersionNumber = schemaVersionNumber;
+            return _resultValue;
         }
     }
 }

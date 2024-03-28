@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,13 +33,14 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := memorydb.NewCluster(ctx, "example", &memorydb.ClusterArgs{
 //				AclName:   pulumi.String("open-access"),
+//				Name:      pulumi.String("my-cluster"),
 //				NodeType:  pulumi.String("db.t4g.small"),
 //				NumShards: pulumi.Int(2),
 //				SecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Example.Id,
+//					exampleAwsSecurityGroup.Id,
 //				},
 //				SnapshotRetentionLimit: pulumi.Int(7),
-//				SubnetGroupName:        pulumi.Any(aws_memorydb_subnet_group.Example.Id),
+//				SubnetGroupName:        pulumi.Any(exampleAwsMemorydbSubnetGroup.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -48,15 +50,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a cluster using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:memorydb/cluster:Cluster example my-cluster
-//
+// $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
 // ```
 type Cluster struct {
 	pulumi.CustomResourceState
@@ -137,10 +138,6 @@ func NewCluster(ctx *pulumi.Context,
 	if args.NodeType == nil {
 		return nil, errors.New("invalid value for required argument 'NodeType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("aws:memorydb/cluster:Cluster", name, args, &resource, opts...)

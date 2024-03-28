@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class ModelPrimaryContainerImageConfigRepositoryAuthConfig {
 
         @CustomType.Setter
         public Builder repositoryCredentialsProviderArn(String repositoryCredentialsProviderArn) {
-            this.repositoryCredentialsProviderArn = Objects.requireNonNull(repositoryCredentialsProviderArn);
+            if (repositoryCredentialsProviderArn == null) {
+              throw new MissingRequiredPropertyException("ModelPrimaryContainerImageConfigRepositoryAuthConfig", "repositoryCredentialsProviderArn");
+            }
+            this.repositoryCredentialsProviderArn = repositoryCredentialsProviderArn;
             return this;
         }
         public ModelPrimaryContainerImageConfigRepositoryAuthConfig build() {
-            final var o = new ModelPrimaryContainerImageConfigRepositoryAuthConfig();
-            o.repositoryCredentialsProviderArn = repositoryCredentialsProviderArn;
-            return o;
+            final var _resultValue = new ModelPrimaryContainerImageConfigRepositoryAuthConfig();
+            _resultValue.repositoryCredentialsProviderArn = repositoryCredentialsProviderArn;
+            return _resultValue;
         }
     }
 }

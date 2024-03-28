@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * A hosted virtual interface is a virtual interface that is owned by another AWS account.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,7 +46,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new HostedTransitVirtualInterface(&#34;example&#34;, HostedTransitVirtualInterfaceArgs.builder()        
- *             .connectionId(aws_dx_connection.example().id())
+ *             .connectionId(exampleAwsDxConnection.id())
+ *             .name(&#34;tf-transit-vif-example&#34;)
  *             .vlan(4094)
  *             .addressFamily(&#34;ipv4&#34;)
  *             .bgpAsn(65352)
@@ -53,13 +56,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Direct Connect hosted transit virtual interfaces using the VIF `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface test dxvif-33cc44dd
+ * $ pulumi import aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface test dxvif-33cc44dd
  * ```
  * 
  */

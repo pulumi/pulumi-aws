@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScop
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethod;
@@ -37,6 +38,11 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
      * 
      */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies cookies;
+    /**
+     * @return Inspect the request headers. See Header Order below for details.
+     * 
+     */
+    private @Nullable List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder> headerOrders;
     /**
      * @return Inspect the request headers. See Headers below for details.
      * 
@@ -95,6 +101,13 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
      */
     public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies> cookies() {
         return Optional.ofNullable(this.cookies);
+    }
+    /**
+     * @return Inspect the request headers. See Header Order below for details.
+     * 
+     */
+    public List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder> headerOrders() {
+        return this.headerOrders == null ? List.of() : this.headerOrders;
     }
     /**
      * @return Inspect the request headers. See Headers below for details.
@@ -161,6 +174,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments allQueryArguments;
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody body;
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies cookies;
+        private @Nullable List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder> headerOrders;
         private @Nullable List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader> headers;
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody jsonBody;
@@ -175,6 +189,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
     	      this.allQueryArguments = defaults.allQueryArguments;
     	      this.body = defaults.body;
     	      this.cookies = defaults.cookies;
+    	      this.headerOrders = defaults.headerOrders;
     	      this.headers = defaults.headers;
     	      this.ja3Fingerprint = defaults.ja3Fingerprint;
     	      this.jsonBody = defaults.jsonBody;
@@ -187,21 +202,34 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
 
         @CustomType.Setter
         public Builder allQueryArguments(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments allQueryArguments) {
+
             this.allQueryArguments = allQueryArguments;
             return this;
         }
         @CustomType.Setter
         public Builder body(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody body) {
+
             this.body = body;
             return this;
         }
         @CustomType.Setter
         public Builder cookies(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies cookies) {
+
             this.cookies = cookies;
             return this;
         }
         @CustomType.Setter
+        public Builder headerOrders(@Nullable List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder> headerOrders) {
+
+            this.headerOrders = headerOrders;
+            return this;
+        }
+        public Builder headerOrders(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder... headerOrders) {
+            return headerOrders(List.of(headerOrders));
+        }
+        @CustomType.Setter
         public Builder headers(@Nullable List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -210,53 +238,61 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
         }
         @CustomType.Setter
         public Builder ja3Fingerprint(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint) {
+
             this.ja3Fingerprint = ja3Fingerprint;
             return this;
         }
         @CustomType.Setter
         public Builder jsonBody(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody jsonBody) {
+
             this.jsonBody = jsonBody;
             return this;
         }
         @CustomType.Setter
         public Builder method(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethod method) {
+
             this.method = method;
             return this;
         }
         @CustomType.Setter
         public Builder queryString(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString queryString) {
+
             this.queryString = queryString;
             return this;
         }
         @CustomType.Setter
         public Builder singleHeader(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader singleHeader) {
+
             this.singleHeader = singleHeader;
             return this;
         }
         @CustomType.Setter
         public Builder singleQueryArgument(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument singleQueryArgument) {
+
             this.singleQueryArgument = singleQueryArgument;
             return this;
         }
         @CustomType.Setter
         public Builder uriPath(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath uriPath) {
+
             this.uriPath = uriPath;
             return this;
         }
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch();
-            o.allQueryArguments = allQueryArguments;
-            o.body = body;
-            o.cookies = cookies;
-            o.headers = headers;
-            o.ja3Fingerprint = ja3Fingerprint;
-            o.jsonBody = jsonBody;
-            o.method = method;
-            o.queryString = queryString;
-            o.singleHeader = singleHeader;
-            o.singleQueryArgument = singleQueryArgument;
-            o.uriPath = uriPath;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch();
+            _resultValue.allQueryArguments = allQueryArguments;
+            _resultValue.body = body;
+            _resultValue.cookies = cookies;
+            _resultValue.headerOrders = headerOrders;
+            _resultValue.headers = headers;
+            _resultValue.ja3Fingerprint = ja3Fingerprint;
+            _resultValue.jsonBody = jsonBody;
+            _resultValue.method = method;
+            _resultValue.queryString = queryString;
+            _resultValue.singleHeader = singleHeader;
+            _resultValue.singleQueryArgument = singleQueryArgument;
+            _resultValue.uriPath = uriPath;
+            return _resultValue;
         }
     }
 }

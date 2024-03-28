@@ -5,6 +5,7 @@ package com.pulumi.aws.glue.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class DataQualityRulesetTargetTableArgs extends com.pulumi.resource
         }
 
         public DataQualityRulesetTargetTableArgs build() {
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.tableName = Objects.requireNonNull($.tableName, "expected parameter 'tableName' to be non-null");
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("DataQualityRulesetTargetTableArgs", "databaseName");
+            }
+            if ($.tableName == null) {
+                throw new MissingRequiredPropertyException("DataQualityRulesetTargetTableArgs", "tableName");
+            }
             return $;
         }
     }

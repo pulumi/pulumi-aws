@@ -4,18 +4,35 @@
 package com.pulumi.aws.iam.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class GetPrincipalPolicySimulationResultMatchedStatement {
+    /**
+     * @return Identifier of one of the policies used as input to the simulation.
+     * 
+     */
     private String sourcePolicyId;
+    /**
+     * @return The type of the policy identified in source_policy_id.
+     * 
+     */
     private String sourcePolicyType;
 
     private GetPrincipalPolicySimulationResultMatchedStatement() {}
+    /**
+     * @return Identifier of one of the policies used as input to the simulation.
+     * 
+     */
     public String sourcePolicyId() {
         return this.sourcePolicyId;
     }
+    /**
+     * @return The type of the policy identified in source_policy_id.
+     * 
+     */
     public String sourcePolicyType() {
         return this.sourcePolicyType;
     }
@@ -40,19 +57,25 @@ public final class GetPrincipalPolicySimulationResultMatchedStatement {
 
         @CustomType.Setter
         public Builder sourcePolicyId(String sourcePolicyId) {
-            this.sourcePolicyId = Objects.requireNonNull(sourcePolicyId);
+            if (sourcePolicyId == null) {
+              throw new MissingRequiredPropertyException("GetPrincipalPolicySimulationResultMatchedStatement", "sourcePolicyId");
+            }
+            this.sourcePolicyId = sourcePolicyId;
             return this;
         }
         @CustomType.Setter
         public Builder sourcePolicyType(String sourcePolicyType) {
-            this.sourcePolicyType = Objects.requireNonNull(sourcePolicyType);
+            if (sourcePolicyType == null) {
+              throw new MissingRequiredPropertyException("GetPrincipalPolicySimulationResultMatchedStatement", "sourcePolicyType");
+            }
+            this.sourcePolicyType = sourcePolicyType;
             return this;
         }
         public GetPrincipalPolicySimulationResultMatchedStatement build() {
-            final var o = new GetPrincipalPolicySimulationResultMatchedStatement();
-            o.sourcePolicyId = sourcePolicyId;
-            o.sourcePolicyType = sourcePolicyType;
-            return o;
+            final var _resultValue = new GetPrincipalPolicySimulationResultMatchedStatement();
+            _resultValue.sourcePolicyId = sourcePolicyId;
+            _resultValue.sourcePolicyType = sourcePolicyType;
+            return _resultValue;
         }
     }
 }

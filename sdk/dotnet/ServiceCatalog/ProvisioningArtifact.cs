@@ -19,8 +19,10 @@ namespace Pulumi.Aws.ServiceCatalog
     /// &gt; **NOTE:** The user or role that use this resource must have the `cloudformation:GetTemplate` IAM policy permission. This policy permission is required when using the `template_physical_id` argument.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,20 +33,22 @@ namespace Pulumi.Aws.ServiceCatalog
     /// {
     ///     var example = new Aws.ServiceCatalog.ProvisioningArtifact("example", new()
     ///     {
-    ///         ProductId = aws_servicecatalog_product.Example.Id,
+    ///         Name = "example",
+    ///         ProductId = exampleAwsServicecatalogProduct.Id,
     ///         Type = "CLOUD_FORMATION_TEMPLATE",
-    ///         TemplateUrl = $"https://{aws_s3_bucket.Example.Bucket_regional_domain_name}/{aws_s3_object.Example.Key}",
+    ///         TemplateUrl = $"https://{exampleAwsS3Bucket.BucketRegionalDomainName}/{exampleAwsS3Object.Key}",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_servicecatalog_provisioning_artifact` using the provisioning artifact ID and product ID separated by a colon. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:servicecatalog/provisioningArtifact:ProvisioningArtifact example pa-ij2b6lusy6dec:prod-el3an0rma3
+    /// $ pulumi import aws:servicecatalog/provisioningArtifact:ProvisioningArtifact example pa-ij2b6lusy6dec:prod-el3an0rma3
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicecatalog/provisioningArtifact:ProvisioningArtifact")]

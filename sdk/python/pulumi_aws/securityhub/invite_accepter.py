@@ -88,27 +88,27 @@ class InviteAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_member = aws.securityhub.Member("exampleMember",
+        example = aws.securityhub.Account("example")
+        example_member = aws.securityhub.Member("example",
             account_id="123456789012",
             email="example@example.com",
             invite=True)
-        invitee_account = aws.securityhub.Account("inviteeAccount", opts=pulumi.ResourceOptions(provider="aws.invitee"))
-        invitee_invite_accepter = aws.securityhub.InviteAccepter("inviteeInviteAccepter", master_id=example_member.master_id,
-        opts=pulumi.ResourceOptions(provider="aws.invitee",
-            depends_on=[invitee_account]))
+        invitee = aws.securityhub.Account("invitee")
+        invitee_invite_accepter = aws.securityhub.InviteAccepter("invitee", master_id=example_member.master_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Security Hub invite acceptance using the account ID. For example:
 
         ```sh
-         $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
+        $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -128,27 +128,27 @@ class InviteAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_member = aws.securityhub.Member("exampleMember",
+        example = aws.securityhub.Account("example")
+        example_member = aws.securityhub.Member("example",
             account_id="123456789012",
             email="example@example.com",
             invite=True)
-        invitee_account = aws.securityhub.Account("inviteeAccount", opts=pulumi.ResourceOptions(provider="aws.invitee"))
-        invitee_invite_accepter = aws.securityhub.InviteAccepter("inviteeInviteAccepter", master_id=example_member.master_id,
-        opts=pulumi.ResourceOptions(provider="aws.invitee",
-            depends_on=[invitee_account]))
+        invitee = aws.securityhub.Account("invitee")
+        invitee_invite_accepter = aws.securityhub.InviteAccepter("invitee", master_id=example_member.master_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Security Hub invite acceptance using the account ID. For example:
 
         ```sh
-         $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
+        $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

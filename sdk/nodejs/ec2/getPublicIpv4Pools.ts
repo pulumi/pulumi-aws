@@ -11,16 +11,22 @@ import * as utilities from "../utilities";
  * Data source for getting information about AWS EC2 Public IPv4 Pools.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Returns all public IPv4 pools.
  * const example = aws.ec2.getPublicIpv4Pools({});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Usage with Filter
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,6 +38,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPublicIpv4Pools(args?: GetPublicIpv4PoolsArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIpv4PoolsResult> {
     args = args || {};
@@ -79,16 +86,22 @@ export interface GetPublicIpv4PoolsResult {
  * Data source for getting information about AWS EC2 Public IPv4 Pools.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Returns all public IPv4 pools.
  * const example = aws.ec2.getPublicIpv4Pools({});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Usage with Filter
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -100,6 +113,7 @@ export interface GetPublicIpv4PoolsResult {
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPublicIpv4PoolsOutput(args?: GetPublicIpv4PoolsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIpv4PoolsResult> {
     return pulumi.output(args).apply((a: any) => getPublicIpv4Pools(a, opts))

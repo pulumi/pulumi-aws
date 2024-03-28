@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class BucketReplicationConfigurationRuleDestinationAccessControlTra
 
         @CustomType.Setter
         public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+            if (owner == null) {
+              throw new MissingRequiredPropertyException("BucketReplicationConfigurationRuleDestinationAccessControlTranslation", "owner");
+            }
+            this.owner = owner;
             return this;
         }
         public BucketReplicationConfigurationRuleDestinationAccessControlTranslation build() {
-            final var o = new BucketReplicationConfigurationRuleDestinationAccessControlTranslation();
-            o.owner = owner;
-            return o;
+            final var _resultValue = new BucketReplicationConfigurationRuleDestinationAccessControlTranslation();
+            _resultValue.owner = owner;
+            return _resultValue;
         }
     }
 }

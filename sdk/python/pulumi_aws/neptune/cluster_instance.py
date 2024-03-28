@@ -30,6 +30,7 @@ class ClusterInstanceArgs:
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  promotion_tier: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
+                 skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ClusterInstance resource.
@@ -51,6 +52,7 @@ class ClusterInstanceArgs:
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         :param pulumi.Input[int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly accessible. Default is `false`.
+        :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB instance is deleted.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
@@ -83,6 +85,8 @@ class ClusterInstanceArgs:
             pulumi.set(__self__, "promotion_tier", promotion_tier)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if skip_final_snapshot is not None:
+            pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -281,6 +285,18 @@ class ClusterInstanceArgs:
         pulumi.set(self, "publicly_accessible", value)
 
     @property
+    @pulumi.getter(name="skipFinalSnapshot")
+    def skip_final_snapshot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines whether a final DB snapshot is created before the DB instance is deleted.
+        """
+        return pulumi.get(self, "skip_final_snapshot")
+
+    @skip_final_snapshot.setter
+    def skip_final_snapshot(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_final_snapshot", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -317,7 +333,9 @@ class _ClusterInstanceState:
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  promotion_tier: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
+                 skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
+                 storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  writer: Optional[pulumi.Input[bool]] = None):
@@ -346,7 +364,9 @@ class _ClusterInstanceState:
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         :param pulumi.Input[int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly accessible. Default is `false`.
+        :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB instance is deleted.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the neptune cluster is encrypted.
+        :param pulumi.Input[str] storage_type: Storage type associated with the cluster `standard/iopt1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] writer: Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
@@ -393,8 +413,12 @@ class _ClusterInstanceState:
             pulumi.set(__self__, "promotion_tier", promotion_tier)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if skip_final_snapshot is not None:
+            pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
         if storage_encrypted is not None:
             pulumi.set(__self__, "storage_encrypted", storage_encrypted)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -660,6 +684,18 @@ class _ClusterInstanceState:
         pulumi.set(self, "publicly_accessible", value)
 
     @property
+    @pulumi.getter(name="skipFinalSnapshot")
+    def skip_final_snapshot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines whether a final DB snapshot is created before the DB instance is deleted.
+        """
+        return pulumi.get(self, "skip_final_snapshot")
+
+    @skip_final_snapshot.setter
+    def skip_final_snapshot(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_final_snapshot", value)
+
+    @property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -670,6 +706,18 @@ class _ClusterInstanceState:
     @storage_encrypted.setter
     def storage_encrypted(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "storage_encrypted", value)
+
+    @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Storage type associated with the cluster `standard/iopt1`.
+        """
+        return pulumi.get(self, "storage_type")
+
+    @storage_type.setter
+    def storage_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_type", value)
 
     @property
     @pulumi.getter
@@ -732,6 +780,7 @@ class ClusterInstance(pulumi.CustomResource):
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  promotion_tier: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
+                 skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -744,6 +793,7 @@ class ClusterInstance(pulumi.CustomResource):
 
         The following example will create a neptune cluster with two neptune instances(one writer and one reader).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -764,13 +814,14 @@ class ClusterInstance(pulumi.CustomResource):
                 instance_class="db.r4.large",
                 apply_immediately=True))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_neptune_cluster_instance` using the instance identifier. For example:
 
         ```sh
-         $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
+        $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
         ```
 
         :param str resource_name: The name of the resource.
@@ -793,6 +844,7 @@ class ClusterInstance(pulumi.CustomResource):
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         :param pulumi.Input[int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly accessible. Default is `false`.
+        :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB instance is deleted.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -811,6 +863,7 @@ class ClusterInstance(pulumi.CustomResource):
 
         The following example will create a neptune cluster with two neptune instances(one writer and one reader).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -831,13 +884,14 @@ class ClusterInstance(pulumi.CustomResource):
                 instance_class="db.r4.large",
                 apply_immediately=True))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_neptune_cluster_instance` using the instance identifier. For example:
 
         ```sh
-         $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
+        $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
         ```
 
         :param str resource_name: The name of the resource.
@@ -871,6 +925,7 @@ class ClusterInstance(pulumi.CustomResource):
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  promotion_tier: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
+                 skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -901,6 +956,7 @@ class ClusterInstance(pulumi.CustomResource):
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["promotion_tier"] = promotion_tier
             __props__.__dict__["publicly_accessible"] = publicly_accessible
+            __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
             __props__.__dict__["tags"] = tags
             __props__.__dict__["address"] = None
             __props__.__dict__["arn"] = None
@@ -908,10 +964,9 @@ class ClusterInstance(pulumi.CustomResource):
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["kms_key_arn"] = None
             __props__.__dict__["storage_encrypted"] = None
+            __props__.__dict__["storage_type"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["writer"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ClusterInstance, __self__).__init__(
             'aws:neptune/clusterInstance:ClusterInstance',
             resource_name,
@@ -943,7 +998,9 @@ class ClusterInstance(pulumi.CustomResource):
             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
             promotion_tier: Optional[pulumi.Input[int]] = None,
             publicly_accessible: Optional[pulumi.Input[bool]] = None,
+            skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
             storage_encrypted: Optional[pulumi.Input[bool]] = None,
+            storage_type: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             writer: Optional[pulumi.Input[bool]] = None) -> 'ClusterInstance':
@@ -977,7 +1034,9 @@ class ClusterInstance(pulumi.CustomResource):
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         :param pulumi.Input[int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly accessible. Default is `false`.
+        :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB instance is deleted.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the neptune cluster is encrypted.
+        :param pulumi.Input[str] storage_type: Storage type associated with the cluster `standard/iopt1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] writer: Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
@@ -1007,7 +1066,9 @@ class ClusterInstance(pulumi.CustomResource):
         __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
         __props__.__dict__["promotion_tier"] = promotion_tier
         __props__.__dict__["publicly_accessible"] = publicly_accessible
+        __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
         __props__.__dict__["storage_encrypted"] = storage_encrypted
+        __props__.__dict__["storage_type"] = storage_type
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["writer"] = writer
@@ -1184,12 +1245,28 @@ class ClusterInstance(pulumi.CustomResource):
         return pulumi.get(self, "publicly_accessible")
 
     @property
+    @pulumi.getter(name="skipFinalSnapshot")
+    def skip_final_snapshot(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Determines whether a final DB snapshot is created before the DB instance is deleted.
+        """
+        return pulumi.get(self, "skip_final_snapshot")
+
+    @property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> pulumi.Output[bool]:
         """
         Specifies whether the neptune cluster is encrypted.
         """
         return pulumi.get(self, "storage_encrypted")
+
+    @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> pulumi.Output[str]:
+        """
+        Storage type associated with the cluster `standard/iopt1`.
+        """
+        return pulumi.get(self, "storage_type")
 
     @property
     @pulumi.getter

@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSd;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertific
 
         @CustomType.Setter
         public Builder files(List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile> files) {
-            this.files = Objects.requireNonNull(files);
+            if (files == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate", "files");
+            }
+            this.files = files;
             return this;
         }
         public Builder files(GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile... files) {
@@ -50,17 +54,20 @@ public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertific
         }
         @CustomType.Setter
         public Builder sds(List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSd> sds) {
-            this.sds = Objects.requireNonNull(sds);
+            if (sds == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate", "sds");
+            }
+            this.sds = sds;
             return this;
         }
         public Builder sds(GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSd... sds) {
             return sds(List.of(sds));
         }
         public GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate build() {
-            final var o = new GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate();
-            o.files = files;
-            o.sds = sds;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate();
+            _resultValue.files = files;
+            _resultValue.sds = sds;
+            return _resultValue;
         }
     }
 }

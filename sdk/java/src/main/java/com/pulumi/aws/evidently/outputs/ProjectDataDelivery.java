@@ -59,19 +59,21 @@ public final class ProjectDataDelivery {
 
         @CustomType.Setter
         public Builder cloudwatchLogs(@Nullable ProjectDataDeliveryCloudwatchLogs cloudwatchLogs) {
+
             this.cloudwatchLogs = cloudwatchLogs;
             return this;
         }
         @CustomType.Setter
         public Builder s3Destination(@Nullable ProjectDataDeliveryS3Destination s3Destination) {
+
             this.s3Destination = s3Destination;
             return this;
         }
         public ProjectDataDelivery build() {
-            final var o = new ProjectDataDelivery();
-            o.cloudwatchLogs = cloudwatchLogs;
-            o.s3Destination = s3Destination;
-            return o;
+            final var _resultValue = new ProjectDataDelivery();
+            _resultValue.cloudwatchLogs = cloudwatchLogs;
+            _resultValue.s3Destination = s3Destination;
+            return _resultValue;
         }
     }
 }

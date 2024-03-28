@@ -11,29 +11,35 @@ import * as utilities from "../utilities";
  * Manages an EMR Containers (EMR on EKS) Virtual Cluster.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.emrcontainers.VirtualCluster("example", {containerProvider: {
- *     id: aws_eks_cluster.example.name,
- *     type: "EKS",
- *     info: {
- *         eksInfo: {
- *             namespace: "default",
+ * const example = new aws.emrcontainers.VirtualCluster("example", {
+ *     containerProvider: {
+ *         id: exampleAwsEksCluster.name,
+ *         type: "EKS",
+ *         info: {
+ *             eksInfo: {
+ *                 namespace: "default",
+ *             },
  *         },
  *     },
- * }});
+ *     name: "example",
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EKS Clusters using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
+ * $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
  * ```
  */
 export class VirtualCluster extends pulumi.CustomResource {
@@ -117,8 +123,6 @@ export class VirtualCluster extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VirtualCluster.__pulumiType, name, resourceInputs, opts);
     }
 }

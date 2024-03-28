@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecLoggingAccessLog;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,16 +36,19 @@ public final class GetVirtualNodeSpecLogging {
 
         @CustomType.Setter
         public Builder accessLogs(List<GetVirtualNodeSpecLoggingAccessLog> accessLogs) {
-            this.accessLogs = Objects.requireNonNull(accessLogs);
+            if (accessLogs == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecLogging", "accessLogs");
+            }
+            this.accessLogs = accessLogs;
             return this;
         }
         public Builder accessLogs(GetVirtualNodeSpecLoggingAccessLog... accessLogs) {
             return accessLogs(List.of(accessLogs));
         }
         public GetVirtualNodeSpecLogging build() {
-            final var o = new GetVirtualNodeSpecLogging();
-            o.accessLogs = accessLogs;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecLogging();
+            _resultValue.accessLogs = accessLogs;
+            return _resultValue;
         }
     }
 }

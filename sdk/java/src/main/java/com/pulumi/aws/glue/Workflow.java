@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,6 +22,8 @@ import javax.annotation.Nullable;
  * See the example below for creating a graph with four nodes (two triggers and two jobs).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -30,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Workflow;
+ * import com.pulumi.aws.glue.WorkflowArgs;
  * import com.pulumi.aws.glue.Trigger;
  * import com.pulumi.aws.glue.TriggerArgs;
  * import com.pulumi.aws.glue.inputs.TriggerActionArgs;
@@ -47,9 +49,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Workflow(&#34;example&#34;);
+ *         var example = new Workflow(&#34;example&#34;, WorkflowArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *         var example_start = new Trigger(&#34;example-start&#34;, TriggerArgs.builder()        
+ *             .name(&#34;trigger-start&#34;)
  *             .type(&#34;ON_DEMAND&#34;)
  *             .workflowName(example.name())
  *             .actions(TriggerActionArgs.builder()
@@ -58,6 +63,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example_inner = new Trigger(&#34;example-inner&#34;, TriggerArgs.builder()        
+ *             .name(&#34;trigger-inner&#34;)
  *             .type(&#34;CONDITIONAL&#34;)
  *             .workflowName(example.name())
  *             .predicate(TriggerPredicateArgs.builder()
@@ -74,13 +80,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Glue Workflows using `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
+ * $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
  * ```
  * 
  */
@@ -221,9 +228,6 @@ public class Workflow extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

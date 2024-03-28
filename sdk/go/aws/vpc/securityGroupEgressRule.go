@@ -23,6 +23,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,7 +37,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpc.NewSecurityGroupEgressRule(ctx, "example", &vpc.SecurityGroupEgressRuleArgs{
-//				SecurityGroupId: pulumi.Any(aws_security_group.Example.Id),
+//				SecurityGroupId: pulumi.Any(exampleAwsSecurityGroup.Id),
 //				CidrIpv4:        pulumi.String("10.0.0.0/8"),
 //				FromPort:        pulumi.Int(80),
 //				IpProtocol:      pulumi.String("tcp"),
@@ -50,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import security group egress rules using the `security_group_rule_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule example sgr-02108b27edd666983
-//
+// $ pulumi import aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule example sgr-02108b27edd666983
 // ```
 type SecurityGroupEgressRule struct {
 	pulumi.CustomResourceState
@@ -106,10 +106,6 @@ func NewSecurityGroupEgressRule(ctx *pulumi.Context,
 	if args.SecurityGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'SecurityGroupId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityGroupEgressRule
 	err := ctx.RegisterResource("aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule", name, args, &resource, opts...)

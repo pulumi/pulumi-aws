@@ -5,6 +5,7 @@ package com.pulumi.aws.pipes.outputs;
 
 import com.pulumi.aws.pipes.outputs.PipeSourceParametersActivemqBrokerParametersCredentials;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -88,31 +89,39 @@ public final class PipeSourceParametersActivemqBrokerParameters {
 
         @CustomType.Setter
         public Builder batchSize(@Nullable Integer batchSize) {
+
             this.batchSize = batchSize;
             return this;
         }
         @CustomType.Setter
         public Builder credentials(PipeSourceParametersActivemqBrokerParametersCredentials credentials) {
-            this.credentials = Objects.requireNonNull(credentials);
+            if (credentials == null) {
+              throw new MissingRequiredPropertyException("PipeSourceParametersActivemqBrokerParameters", "credentials");
+            }
+            this.credentials = credentials;
             return this;
         }
         @CustomType.Setter
         public Builder maximumBatchingWindowInSeconds(@Nullable Integer maximumBatchingWindowInSeconds) {
+
             this.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder queueName(String queueName) {
-            this.queueName = Objects.requireNonNull(queueName);
+            if (queueName == null) {
+              throw new MissingRequiredPropertyException("PipeSourceParametersActivemqBrokerParameters", "queueName");
+            }
+            this.queueName = queueName;
             return this;
         }
         public PipeSourceParametersActivemqBrokerParameters build() {
-            final var o = new PipeSourceParametersActivemqBrokerParameters();
-            o.batchSize = batchSize;
-            o.credentials = credentials;
-            o.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
-            o.queueName = queueName;
-            return o;
+            final var _resultValue = new PipeSourceParametersActivemqBrokerParameters();
+            _resultValue.batchSize = batchSize;
+            _resultValue.credentials = credentials;
+            _resultValue.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
+            _resultValue.queueName = queueName;
+            return _resultValue;
         }
     }
 }

@@ -13,11 +13,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.pricing.getProduct({
+ *     serviceCode: "AmazonEC2",
  *     filters: [
  *         {
  *             field: "instanceType",
@@ -48,15 +50,17 @@ import * as utilities from "../utilities";
  *             value: "Used",
  *         },
  *     ],
- *     serviceCode: "AmazonEC2",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.pricing.getProduct({
+ *     serviceCode: "AmazonRedshift",
  *     filters: [
  *         {
  *             field: "instanceType",
@@ -67,9 +71,9 @@ import * as utilities from "../utilities";
  *             value: "US East (N. Virginia)",
  *         },
  *     ],
- *     serviceCode: "AmazonRedshift",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
 
@@ -115,11 +119,13 @@ export interface GetProductResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.pricing.getProduct({
+ *     serviceCode: "AmazonEC2",
  *     filters: [
  *         {
  *             field: "instanceType",
@@ -150,15 +156,17 @@ export interface GetProductResult {
  *             value: "Used",
  *         },
  *     ],
- *     serviceCode: "AmazonEC2",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.pricing.getProduct({
+ *     serviceCode: "AmazonRedshift",
  *     filters: [
  *         {
  *             field: "instanceType",
@@ -169,9 +177,9 @@ export interface GetProductResult {
  *             value: "US East (N. Virginia)",
  *         },
  *     ],
- *     serviceCode: "AmazonRedshift",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductResult> {
     return pulumi.output(args).apply((a: any) => getProduct(a, opts))

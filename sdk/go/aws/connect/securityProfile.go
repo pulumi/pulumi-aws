@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,8 +31,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewSecurityProfile(ctx, "example", &connect.SecurityProfileArgs{
-//				Description: pulumi.String("example description"),
 //				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:        pulumi.String("example"),
+//				Description: pulumi.String("example description"),
 //				Permissions: pulumi.StringArray{
 //					pulumi.String("BasicAgentAccess"),
 //					pulumi.String("OutboundCallAccess"),
@@ -48,15 +50,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Amazon Connect Security Profiles using the `instance_id` and `security_profile_id` separated by a colon (`:`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:connect/securityProfile:SecurityProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-//
+// $ pulumi import aws:connect/securityProfile:SecurityProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 // ```
 type SecurityProfile struct {
 	pulumi.CustomResourceState
@@ -94,10 +95,6 @@ func NewSecurityProfile(ctx *pulumi.Context,
 	if args.InstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityProfile
 	err := ctx.RegisterResource("aws:connect/securityProfile:SecurityProfile", name, args, &resource, opts...)

@@ -11,61 +11,76 @@ import * as utilities from "../utilities";
  * Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
  *
  * ## Example Usage
+ *
  * ### DynamoDB Target Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Crawler("example", {
- *     databaseName: aws_glue_catalog_database.example.name,
- *     role: aws_iam_role.example.arn,
+ *     databaseName: exampleAwsGlueCatalogDatabase.name,
+ *     name: "example",
+ *     role: exampleAwsIamRole.arn,
  *     dynamodbTargets: [{
  *         path: "table-name",
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### JDBC Target Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Crawler("example", {
- *     databaseName: aws_glue_catalog_database.example.name,
- *     role: aws_iam_role.example.arn,
+ *     databaseName: exampleAwsGlueCatalogDatabase.name,
+ *     name: "example",
+ *     role: exampleAwsIamRole.arn,
  *     jdbcTargets: [{
- *         connectionName: aws_glue_connection.example.name,
+ *         connectionName: exampleAwsGlueConnection.name,
  *         path: "database-name/%",
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### S3 Target Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Crawler("example", {
- *     databaseName: aws_glue_catalog_database.example.name,
- *     role: aws_iam_role.example.arn,
+ *     databaseName: exampleAwsGlueCatalogDatabase.name,
+ *     name: "example",
+ *     role: exampleAwsIamRole.arn,
  *     s3Targets: [{
- *         path: `s3://${aws_s3_bucket.example.bucket}`,
+ *         path: `s3://${exampleAwsS3Bucket.bucket}`,
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Catalog Target Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Crawler("example", {
- *     databaseName: aws_glue_catalog_database.example.name,
- *     role: aws_iam_role.example.arn,
+ *     databaseName: exampleAwsGlueCatalogDatabase.name,
+ *     name: "example",
+ *     role: exampleAwsIamRole.arn,
  *     catalogTargets: [{
- *         databaseName: aws_glue_catalog_database.example.name,
- *         tables: [aws_glue_catalog_table.example.name],
+ *         databaseName: exampleAwsGlueCatalogDatabase.name,
+ *         tables: [exampleAwsGlueCatalogTable.name],
  *     }],
  *     schemaChangePolicy: {
  *         deleteBehavior: "LOG",
@@ -79,55 +94,64 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### MongoDB Target Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Crawler("example", {
- *     databaseName: aws_glue_catalog_database.example.name,
- *     role: aws_iam_role.example.arn,
+ *     databaseName: exampleAwsGlueCatalogDatabase.name,
+ *     name: "example",
+ *     role: exampleAwsIamRole.arn,
  *     mongodbTargets: [{
- *         connectionName: aws_glue_connection.example.name,
+ *         connectionName: exampleAwsGlueConnection.name,
  *         path: "database-name/%",
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Configuration Settings Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const eventsCrawler = new aws.glue.Crawler("eventsCrawler", {
- *     databaseName: aws_glue_catalog_database.glue_database.name,
+ * const eventsCrawler = new aws.glue.Crawler("events_crawler", {
+ *     databaseName: glueDatabase.name,
  *     schedule: "cron(0 1 * * ? *)",
- *     role: aws_iam_role.glue_role.arn,
- *     tags: _var.tags,
+ *     name: `events_crawler_${environmentName}`,
+ *     role: glueRole.arn,
+ *     tags: tags,
  *     configuration: JSON.stringify({
- *         Grouping: {
- *             TableGroupingPolicy: "CombineCompatibleSchemas",
+ *         grouping: {
+ *             tableGroupingPolicy: "CombineCompatibleSchemas",
  *         },
- *         CrawlerOutput: {
- *             Partitions: {
- *                 AddOrUpdateBehavior: "InheritFromTable",
+ *         crawlerOutput: {
+ *             partitions: {
+ *                 addOrUpdateBehavior: "InheritFromTable",
  *             },
  *         },
- *         Version: 1,
+ *         version: 1,
  *     }),
  *     s3Targets: [{
- *         path: `s3://${aws_s3_bucket.data_lake_bucket.bucket}`,
+ *         path: `s3://${dataLakeBucket.bucket}`,
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Glue Crawlers using `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
+ * $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
  * ```
  */
 export class Crawler extends pulumi.CustomResource {
@@ -199,7 +223,7 @@ export class Crawler extends pulumi.CustomResource {
      */
     public readonly icebergTargets!: pulumi.Output<outputs.glue.CrawlerIcebergTarget[] | undefined>;
     /**
-     * List of nested JBDC target arguments. See JDBC Target below.
+     * List of nested JDBC target arguments. See JDBC Target below.
      */
     public readonly jdbcTargets!: pulumi.Output<outputs.glue.CrawlerJdbcTarget[] | undefined>;
     /**
@@ -328,8 +352,6 @@ export class Crawler extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Crawler.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -379,7 +401,7 @@ export interface CrawlerState {
      */
     icebergTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerIcebergTarget>[]>;
     /**
-     * List of nested JBDC target arguments. See JDBC Target below.
+     * List of nested JDBC target arguments. See JDBC Target below.
      */
     jdbcTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerJdbcTarget>[]>;
     /**
@@ -479,7 +501,7 @@ export interface CrawlerArgs {
      */
     icebergTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerIcebergTarget>[]>;
     /**
-     * List of nested JBDC target arguments. See JDBC Target below.
+     * List of nested JDBC target arguments. See JDBC Target below.
      */
     jdbcTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerJdbcTarget>[]>;
     /**

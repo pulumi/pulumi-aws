@@ -9,22 +9,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.codecommit.ApprovalRuleTemplateAssociation("example", {
- *     approvalRuleTemplateName: aws_codecommit_approval_rule_template.example.name,
- *     repositoryName: aws_codecommit_repository.example.repository_name,
+ *     approvalRuleTemplateName: exampleAwsCodecommitApprovalRuleTemplate.name,
+ *     repositoryName: exampleAwsCodecommitRepository.repositoryName,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CodeCommit approval rule template associations using the `approval_rule_template_name` and `repository_name` separated by a comma (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation example approver-rule-for-example,MyExampleRepo
+ * $ pulumi import aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation example approver-rule-for-example,MyExampleRepo
  * ```
  */
 export class ApprovalRuleTemplateAssociation extends pulumi.CustomResource {

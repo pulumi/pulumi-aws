@@ -10,14 +10,16 @@ import * as utilities from "../utilities";
  * > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 resources.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testRestApi = new aws.apigateway.RestApi("testRestApi", {});
- * const testPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const testRestApi = new aws.apigateway.RestApi("test", {name: "example-rest-api"});
+ * const test = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -33,18 +35,19 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const testRestApiPolicy = new aws.apigateway.RestApiPolicy("testRestApiPolicy", {
+ * const testRestApiPolicy = new aws.apigateway.RestApiPolicy("test", {
  *     restApiId: testRestApi.id,
- *     policy: testPolicyDocument.apply(testPolicyDocument => testPolicyDocument.json),
+ *     policy: test.apply(test => test.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_api_gateway_rest_api_policy` using the REST API ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
+ * $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
  * ```
  */
 export class RestApiPolicy extends pulumi.CustomResource {

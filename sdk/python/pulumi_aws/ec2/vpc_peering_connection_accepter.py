@@ -321,44 +321,42 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        peer = aws.Provider("peer", region="us-west-2")
-        # Accepter's credentials.
         main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        peer_vpc = aws.ec2.Vpc("peerVpc", cidr_block="10.1.0.0/16",
-        opts=pulumi.ResourceOptions(provider=aws["peer"]))
-        peer_caller_identity = aws.get_caller_identity()
+        peer_vpc = aws.ec2.Vpc("peer", cidr_block="10.1.0.0/16")
+        peer = aws.get_caller_identity()
         # Requester's side of the connection.
-        peer_vpc_peering_connection = aws.ec2.VpcPeeringConnection("peerVpcPeeringConnection",
+        peer_vpc_peering_connection = aws.ec2.VpcPeeringConnection("peer",
             vpc_id=main.id,
             peer_vpc_id=peer_vpc.id,
-            peer_owner_id=peer_caller_identity.account_id,
+            peer_owner_id=peer.account_id,
             peer_region="us-west-2",
             auto_accept=False,
             tags={
                 "Side": "Requester",
             })
         # Accepter's side of the connection.
-        peer_vpc_peering_connection_accepter = aws.ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter",
+        peer_vpc_peering_connection_accepter = aws.ec2.VpcPeeringConnectionAccepter("peer",
             vpc_peering_connection_id=peer_vpc_peering_connection.id,
             auto_accept=True,
             tags={
                 "Side": "Accepter",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["peer"]))
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Peering Connection Accepters using the Peering Connection ID. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter example pcx-12345678
+        $ pulumi import aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter example pcx-12345678
         ```
-         Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+        Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -388,44 +386,42 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        peer = aws.Provider("peer", region="us-west-2")
-        # Accepter's credentials.
         main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        peer_vpc = aws.ec2.Vpc("peerVpc", cidr_block="10.1.0.0/16",
-        opts=pulumi.ResourceOptions(provider=aws["peer"]))
-        peer_caller_identity = aws.get_caller_identity()
+        peer_vpc = aws.ec2.Vpc("peer", cidr_block="10.1.0.0/16")
+        peer = aws.get_caller_identity()
         # Requester's side of the connection.
-        peer_vpc_peering_connection = aws.ec2.VpcPeeringConnection("peerVpcPeeringConnection",
+        peer_vpc_peering_connection = aws.ec2.VpcPeeringConnection("peer",
             vpc_id=main.id,
             peer_vpc_id=peer_vpc.id,
-            peer_owner_id=peer_caller_identity.account_id,
+            peer_owner_id=peer.account_id,
             peer_region="us-west-2",
             auto_accept=False,
             tags={
                 "Side": "Requester",
             })
         # Accepter's side of the connection.
-        peer_vpc_peering_connection_accepter = aws.ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter",
+        peer_vpc_peering_connection_accepter = aws.ec2.VpcPeeringConnectionAccepter("peer",
             vpc_peering_connection_id=peer_vpc_peering_connection.id,
             auto_accept=True,
             tags={
                 "Side": "Accepter",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["peer"]))
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Peering Connection Accepters using the Peering Connection ID. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter example pcx-12345678
+        $ pulumi import aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter example pcx-12345678
         ```
-         Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+        Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
         :param VpcPeeringConnectionAccepterInitArgs args: The arguments to use to populate this resource's properties.
@@ -469,8 +465,6 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
             __props__.__dict__["peer_vpc_id"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VpcPeeringConnectionAccepter, __self__).__init__(
             'aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter',
             resource_name,

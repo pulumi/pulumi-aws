@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2;
 import com.pulumi.aws.ec2.inputs.DefaultRouteTableRouteArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -218,7 +219,9 @@ public final class DefaultRouteTableArgs extends com.pulumi.resources.ResourceAr
         }
 
         public DefaultRouteTableArgs build() {
-            $.defaultRouteTableId = Objects.requireNonNull($.defaultRouteTableId, "expected parameter 'defaultRouteTableId' to be non-null");
+            if ($.defaultRouteTableId == null) {
+                throw new MissingRequiredPropertyException("DefaultRouteTableArgs", "defaultRouteTableId");
+            }
             return $;
         }
     }

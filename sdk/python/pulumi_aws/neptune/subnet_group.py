@@ -244,26 +244,29 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         default = aws.neptune.SubnetGroup("default",
+            name="main",
             subnet_ids=[
-                aws_subnet["frontend"]["id"],
-                aws_subnet["backend"]["id"],
+                frontend["id"],
+                backend["id"],
             ],
             tags={
                 "Name": "My neptune subnet group",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Neptune Subnet groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:neptune/subnetGroup:SubnetGroup default production-subnet-group
+        $ pulumi import aws:neptune/subnetGroup:SubnetGroup default production-subnet-group
         ```
 
         :param str resource_name: The name of the resource.
@@ -285,26 +288,29 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         default = aws.neptune.SubnetGroup("default",
+            name="main",
             subnet_ids=[
-                aws_subnet["frontend"]["id"],
-                aws_subnet["backend"]["id"],
+                frontend["id"],
+                backend["id"],
             ],
             tags={
                 "Name": "My neptune subnet group",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Neptune Subnet groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:neptune/subnetGroup:SubnetGroup default production-subnet-group
+        $ pulumi import aws:neptune/subnetGroup:SubnetGroup default production-subnet-group
         ```
 
         :param str resource_name: The name of the resource.
@@ -347,8 +353,6 @@ class SubnetGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SubnetGroup, __self__).__init__(
             'aws:neptune/subnetGroup:SubnetGroup',
             resource_name,

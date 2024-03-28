@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class DataSourceVpcConnectionProperties {
 
         @CustomType.Setter
         public Builder vpcConnectionArn(String vpcConnectionArn) {
-            this.vpcConnectionArn = Objects.requireNonNull(vpcConnectionArn);
+            if (vpcConnectionArn == null) {
+              throw new MissingRequiredPropertyException("DataSourceVpcConnectionProperties", "vpcConnectionArn");
+            }
+            this.vpcConnectionArn = vpcConnectionArn;
             return this;
         }
         public DataSourceVpcConnectionProperties build() {
-            final var o = new DataSourceVpcConnectionProperties();
-            o.vpcConnectionArn = vpcConnectionArn;
-            return o;
+            final var _resultValue = new DataSourceVpcConnectionProperties();
+            _resultValue.vpcConnectionArn = vpcConnectionArn;
+            return _resultValue;
         }
     }
 }

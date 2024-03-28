@@ -44,13 +44,14 @@ public final class DataSourceParametersAthena {
 
         @CustomType.Setter
         public Builder workGroup(@Nullable String workGroup) {
+
             this.workGroup = workGroup;
             return this;
         }
         public DataSourceParametersAthena build() {
-            final var o = new DataSourceParametersAthena();
-            o.workGroup = workGroup;
-            return o;
+            final var _resultValue = new DataSourceParametersAthena();
+            _resultValue.workGroup = workGroup;
+            return _resultValue;
         }
     }
 }

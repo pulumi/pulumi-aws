@@ -12,31 +12,34 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testFleet = new aws.appstream.ImageBuilder("testFleet", {
+ * const testFleet = new aws.appstream.ImageBuilder("test_fleet", {
+ *     name: "Name",
  *     description: "Description of a ImageBuilder",
  *     displayName: "Display name of a ImageBuilder",
  *     enableDefaultInternetAccess: false,
  *     imageName: "AppStream-WinServer2019-10-05-2022",
  *     instanceType: "stream.standard.large",
  *     vpcConfig: {
- *         subnetIds: [aws_subnet.example.id],
+ *         subnetIds: [example.id],
  *     },
  *     tags: {
  *         Name: "Example Image Builder",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
+ * $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
  * ```
  */
 export class ImageBuilder extends pulumi.CustomResource {
@@ -122,7 +125,7 @@ export class ImageBuilder extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
+     * State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
@@ -194,8 +197,6 @@ export class ImageBuilder extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ImageBuilder.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -259,7 +260,7 @@ export interface ImageBuilderState {
      */
     name?: pulumi.Input<string>;
     /**
-     * State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
+     * State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
      */
     state?: pulumi.Input<string>;
     /**

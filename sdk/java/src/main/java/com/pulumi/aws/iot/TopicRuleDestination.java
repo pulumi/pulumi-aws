@@ -17,12 +17,51 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iot.TopicRuleDestination;
+ * import com.pulumi.aws.iot.TopicRuleDestinationArgs;
+ * import com.pulumi.aws.iot.inputs.TopicRuleDestinationVpcConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new TopicRuleDestination(&#34;example&#34;, TopicRuleDestinationArgs.builder()        
+ *             .vpcConfiguration(TopicRuleDestinationVpcConfigurationArgs.builder()
+ *                 .roleArn(exampleAwsIamRole.arn())
+ *                 .securityGroups(exampleAwsSecurityGroup.id())
+ *                 .subnetIds(exampleAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+ *                 .vpcId(exampleAwsVpc.id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import IoT topic rule destinations using the `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iot/topicRuleDestination:TopicRuleDestination example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
+ * $ pulumi import aws:iot/topicRuleDestination:TopicRuleDestination example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
  * ```
  * 
  */

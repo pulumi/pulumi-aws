@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class DataSetPhysicalTableMapRelationalTableInputColumn {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("DataSetPhysicalTableMapRelationalTableInputColumn", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("DataSetPhysicalTableMapRelationalTableInputColumn", "type");
+            }
+            this.type = type;
             return this;
         }
         public DataSetPhysicalTableMapRelationalTableInputColumn build() {
-            final var o = new DataSetPhysicalTableMapRelationalTableInputColumn();
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new DataSetPhysicalTableMapRelationalTableInputColumn();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

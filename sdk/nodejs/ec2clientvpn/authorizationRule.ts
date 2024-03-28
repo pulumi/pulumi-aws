@@ -10,16 +10,18 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2clientvpn.AuthorizationRule("example", {
- *     clientVpnEndpointId: aws_ec2_client_vpn_endpoint.example.id,
- *     targetNetworkCidr: aws_subnet.example.cidr_block,
+ *     clientVpnEndpointId: exampleAwsEc2ClientVpnEndpoint.id,
+ *     targetNetworkCidr: exampleAwsSubnet.cidrBlock,
  *     authorizeAllGroups: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -30,12 +32,12 @@ import * as utilities from "../utilities";
  * Using the endpoint ID and target network CIDR:
  *
  * ```sh
- *  $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24
+ * $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24
  * ```
- *  Using the endpoint ID, target network CIDR, and group name:
+ * Using the endpoint ID, target network CIDR, and group name:
  *
  * ```sh
- *  $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
+ * $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
  * ```
  */
 export class AuthorizationRule extends pulumi.CustomResource {

@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,37 +32,34 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "accepter", nil)
+//			accepter, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			accepterCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			vpnGw, err := ec2.NewVpnGateway(ctx, "vpnGw", nil, pulumi.Provider(aws.Accepter))
-//			if err != nil {
-//				return err
-//			}
+//			// Creator's side of the VIF
 //			creator, err := directconnect.NewHostedPrivateVirtualInterface(ctx, "creator", &directconnect.HostedPrivateVirtualInterfaceArgs{
 //				ConnectionId:   pulumi.String("dxcon-zzzzzzzz"),
-//				OwnerAccountId: *pulumi.String(accepterCallerIdentity.AccountId),
+//				OwnerAccountId: pulumi.String(accepter.AccountId),
+//				Name:           pulumi.String("vif-foo"),
 //				Vlan:           pulumi.Int(4094),
 //				AddressFamily:  pulumi.String("ipv4"),
 //				BgpAsn:         pulumi.Int(65352),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				vpnGw,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = directconnect.NewHostedPrivateVirtualInterfaceAccepter(ctx, "accepterHostedPrivateVirtualInterfaceAccepter", &directconnect.HostedPrivateVirtualInterfaceAccepterArgs{
+//			// Accepter's side of the VIF.
+//			vpnGw, err := ec2.NewVpnGateway(ctx, "vpn_gw", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = directconnect.NewHostedPrivateVirtualInterfaceAccepter(ctx, "accepter", &directconnect.HostedPrivateVirtualInterfaceAccepterArgs{
 //				VirtualInterfaceId: creator.ID(),
 //				VpnGatewayId:       vpnGw.ID(),
 //				Tags: pulumi.StringMap{
 //					"Side": pulumi.String("Accepter"),
 //				},
-//			}, pulumi.Provider(aws.Accepter))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -70,15 +68,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Direct Connect hosted private virtual interfaces using the VIF `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter test dxvif-33cc44dd
-//
+// $ pulumi import aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter test dxvif-33cc44dd
 // ```
 type HostedPrivateVirtualInterfaceAccepter struct {
 	pulumi.CustomResourceState
@@ -109,10 +106,6 @@ func NewHostedPrivateVirtualInterfaceAccepter(ctx *pulumi.Context,
 	if args.VirtualInterfaceId == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualInterfaceId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HostedPrivateVirtualInterfaceAccepter
 	err := ctx.RegisterResource("aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter", name, args, &resource, opts...)

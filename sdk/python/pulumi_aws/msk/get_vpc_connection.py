@@ -133,12 +133,14 @@ def get_vpc_connection(arn: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.msk.get_vpc_connection(arn=aws_msk_vpc_connection["example"]["arn"])
+    example = aws.msk.get_vpc_connection(arn=example_aws_msk_vpc_connection["arn"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the VPC Connection.
@@ -170,12 +172,14 @@ def get_vpc_connection_output(arn: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.msk.get_vpc_connection(arn=aws_msk_vpc_connection["example"]["arn"])
+    example = aws.msk.get_vpc_connection(arn=example_aws_msk_vpc_connection["arn"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the VPC Connection.

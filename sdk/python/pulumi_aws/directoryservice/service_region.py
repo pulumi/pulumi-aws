@@ -223,12 +223,84 @@ class ServiceRegion(pulumi.CustomResource):
         Manages a replicated Region and directory for Multi-Region replication.
         Multi-Region replication is only supported for the Enterprise Edition of AWS Managed Microsoft AD.
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.get_region()
+        available = aws.get_availability_zones(state="available",
+            filters=[aws.GetAvailabilityZonesFilterArgs(
+                name="opt-in-status",
+                values=["opt-in-not-required"],
+            )])
+        example_vpc = aws.ec2.Vpc("example",
+            cidr_block="10.0.0.0/16",
+            tags={
+                "Name": "Primary",
+            })
+        example_subnet = []
+        for range in [{"value": i} for i in range(0, 2)]:
+            example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
+                vpc_id=example_vpc.id,
+                availability_zone=available.names[range["value"]],
+                cidr_block=example_vpc.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
+                    newbits=8,
+                    netnum=range["value"])).apply(lambda invoke: invoke.result),
+                tags={
+                    "Name": "Primary",
+                }))
+        example_directory = aws.directoryservice.Directory("example",
+            name="example.com",
+            password="SuperSecretPassw0rd",
+            type="MicrosoftAD",
+            vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
+                vpc_id=example_vpc.id,
+                subnet_ids=[__item.id for __item in example_subnet],
+            ))
+        available_secondary = aws.get_availability_zones(state="available",
+            filters=[aws.GetAvailabilityZonesFilterArgs(
+                name="opt-in-status",
+                values=["opt-in-not-required"],
+            )])
+        example_secondary = aws.ec2.Vpc("example-secondary",
+            cidr_block="10.1.0.0/16",
+            tags={
+                "Name": "Secondary",
+            })
+        example_secondary_subnet = []
+        for range in [{"value": i} for i in range(0, 2)]:
+            example_secondary_subnet.append(aws.ec2.Subnet(f"example-secondary-{range['value']}",
+                vpc_id=example_secondary.id,
+                availability_zone=available_secondary.names[range["value"]],
+                cidr_block=example_secondary.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
+                    newbits=8,
+                    netnum=range["value"])).apply(lambda invoke: invoke.result),
+                tags={
+                    "Name": "Secondary",
+                }))
+        example_service_region = aws.directoryservice.ServiceRegion("example",
+            directory_id=example_directory.id,
+            region_name=example.name,
+            vpc_settings=aws.directoryservice.ServiceRegionVpcSettingsArgs(
+                vpc_id=example_secondary.id,
+                subnet_ids=[__item.id for __item in example_secondary_subnet],
+            ),
+            tags={
+                "Name": "Secondary",
+            })
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Using `pulumi import`, import Replicated Regions using directory ID,Region name. For example:
 
         ```sh
-         $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
+        $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
         ```
 
         :param str resource_name: The name of the resource.
@@ -249,12 +321,84 @@ class ServiceRegion(pulumi.CustomResource):
         Manages a replicated Region and directory for Multi-Region replication.
         Multi-Region replication is only supported for the Enterprise Edition of AWS Managed Microsoft AD.
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.get_region()
+        available = aws.get_availability_zones(state="available",
+            filters=[aws.GetAvailabilityZonesFilterArgs(
+                name="opt-in-status",
+                values=["opt-in-not-required"],
+            )])
+        example_vpc = aws.ec2.Vpc("example",
+            cidr_block="10.0.0.0/16",
+            tags={
+                "Name": "Primary",
+            })
+        example_subnet = []
+        for range in [{"value": i} for i in range(0, 2)]:
+            example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
+                vpc_id=example_vpc.id,
+                availability_zone=available.names[range["value"]],
+                cidr_block=example_vpc.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
+                    newbits=8,
+                    netnum=range["value"])).apply(lambda invoke: invoke.result),
+                tags={
+                    "Name": "Primary",
+                }))
+        example_directory = aws.directoryservice.Directory("example",
+            name="example.com",
+            password="SuperSecretPassw0rd",
+            type="MicrosoftAD",
+            vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
+                vpc_id=example_vpc.id,
+                subnet_ids=[__item.id for __item in example_subnet],
+            ))
+        available_secondary = aws.get_availability_zones(state="available",
+            filters=[aws.GetAvailabilityZonesFilterArgs(
+                name="opt-in-status",
+                values=["opt-in-not-required"],
+            )])
+        example_secondary = aws.ec2.Vpc("example-secondary",
+            cidr_block="10.1.0.0/16",
+            tags={
+                "Name": "Secondary",
+            })
+        example_secondary_subnet = []
+        for range in [{"value": i} for i in range(0, 2)]:
+            example_secondary_subnet.append(aws.ec2.Subnet(f"example-secondary-{range['value']}",
+                vpc_id=example_secondary.id,
+                availability_zone=available_secondary.names[range["value"]],
+                cidr_block=example_secondary.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
+                    newbits=8,
+                    netnum=range["value"])).apply(lambda invoke: invoke.result),
+                tags={
+                    "Name": "Secondary",
+                }))
+        example_service_region = aws.directoryservice.ServiceRegion("example",
+            directory_id=example_directory.id,
+            region_name=example.name,
+            vpc_settings=aws.directoryservice.ServiceRegionVpcSettingsArgs(
+                vpc_id=example_secondary.id,
+                subnet_ids=[__item.id for __item in example_secondary_subnet],
+            ),
+            tags={
+                "Name": "Secondary",
+            })
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Using `pulumi import`, import Replicated Regions using directory ID,Region name. For example:
 
         ```sh
-         $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
+        $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
         ```
 
         :param str resource_name: The name of the resource.
@@ -298,8 +442,6 @@ class ServiceRegion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vpc_settings'")
             __props__.__dict__["vpc_settings"] = vpc_settings
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceRegion, __self__).__init__(
             'aws:directoryservice/serviceRegion:ServiceRegion',
             resource_name,

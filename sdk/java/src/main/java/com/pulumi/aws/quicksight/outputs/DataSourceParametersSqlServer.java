@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,25 +72,34 @@ public final class DataSourceParametersSqlServer {
 
         @CustomType.Setter
         public Builder database(String database) {
-            this.database = Objects.requireNonNull(database);
+            if (database == null) {
+              throw new MissingRequiredPropertyException("DataSourceParametersSqlServer", "database");
+            }
+            this.database = database;
             return this;
         }
         @CustomType.Setter
         public Builder host(String host) {
-            this.host = Objects.requireNonNull(host);
+            if (host == null) {
+              throw new MissingRequiredPropertyException("DataSourceParametersSqlServer", "host");
+            }
+            this.host = host;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("DataSourceParametersSqlServer", "port");
+            }
+            this.port = port;
             return this;
         }
         public DataSourceParametersSqlServer build() {
-            final var o = new DataSourceParametersSqlServer();
-            o.database = database;
-            o.host = host;
-            o.port = port;
-            return o;
+            final var _resultValue = new DataSourceParametersSqlServer();
+            _resultValue.database = database;
+            _resultValue.host = host;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

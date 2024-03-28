@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Kms
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,41 +24,33 @@ namespace Pulumi.Aws.Kms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary = new Aws.Provider("primary", new()
-    ///     {
-    ///         Region = "us-east-1",
-    ///     });
-    /// 
-    ///     var primaryExternalKey = new Aws.Kms.ExternalKey("primaryExternalKey", new()
+    ///     var primary = new Aws.Kms.ExternalKey("primary", new()
     ///     {
     ///         Description = "Multi-Region primary key",
     ///         DeletionWindowInDays = 30,
     ///         MultiRegion = true,
     ///         Enabled = true,
     ///         KeyMaterialBase64 = "...",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Primary,
     ///     });
     /// 
     ///     var replica = new Aws.Kms.ReplicaExternalKey("replica", new()
     ///     {
     ///         Description = "Multi-Region replica key",
     ///         DeletionWindowInDays = 7,
-    ///         PrimaryKeyArn = aws_kms_external.Primary.Arn,
+    ///         PrimaryKeyArn = primaryAwsKmsExternal.Arn,
     ///         KeyMaterialBase64 = "...",
     ///     });
     /// 
-    ///     // Must be the same key material as the primary's.
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import KMS multi-Region replica keys using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:kms/replicaExternalKey:ReplicaExternalKey example 1234abcd-12ab-34cd-56ef-1234567890ab
+    /// $ pulumi import aws:kms/replicaExternalKey:ReplicaExternalKey example 1234abcd-12ab-34cd-56ef-1234567890ab
     /// ```
     /// </summary>
     [AwsResourceType("aws:kms/replicaExternalKey:ReplicaExternalKey")]
@@ -183,7 +176,6 @@ namespace Pulumi.Aws.Kms
                 AdditionalSecretOutputs =
                 {
                     "keyMaterialBase64",
-                    "tagsAll",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -398,11 +390,7 @@ namespace Pulumi.Aws.Kms
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

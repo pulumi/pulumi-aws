@@ -12,18 +12,20 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.imagebuilder.getComponents({
+ *     owner: "Self",
  *     filters: [{
  *         name: "platform",
  *         values: ["Linux"],
  *     }],
- *     owner: "Self",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getComponents(args?: GetComponentsArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentsResult> {
     args = args || {};
@@ -44,7 +46,7 @@ export interface GetComponentsArgs {
      */
     filters?: inputs.imagebuilder.GetComponentsFilter[];
     /**
-     * Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+     * Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
      */
     owner?: string;
 }
@@ -73,18 +75,20 @@ export interface GetComponentsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.imagebuilder.getComponents({
+ *     owner: "Self",
  *     filters: [{
  *         name: "platform",
  *         values: ["Linux"],
  *     }],
- *     owner: "Self",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getComponentsOutput(args?: GetComponentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentsResult> {
     return pulumi.output(args).apply((a: any) => getComponents(a, opts))
@@ -99,7 +103,7 @@ export interface GetComponentsOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.imagebuilder.GetComponentsFilterArgs>[]>;
     /**
-     * Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+     * Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
      */
     owner?: pulumi.Input<string>;
 }

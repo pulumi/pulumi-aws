@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -58,19 +59,25 @@ public final class GetRealtimeLogConfigEndpointKinesisStreamConfig {
 
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("GetRealtimeLogConfigEndpointKinesisStreamConfig", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder streamArn(String streamArn) {
-            this.streamArn = Objects.requireNonNull(streamArn);
+            if (streamArn == null) {
+              throw new MissingRequiredPropertyException("GetRealtimeLogConfigEndpointKinesisStreamConfig", "streamArn");
+            }
+            this.streamArn = streamArn;
             return this;
         }
         public GetRealtimeLogConfigEndpointKinesisStreamConfig build() {
-            final var o = new GetRealtimeLogConfigEndpointKinesisStreamConfig();
-            o.roleArn = roleArn;
-            o.streamArn = streamArn;
-            return o;
+            final var _resultValue = new GetRealtimeLogConfigEndpointKinesisStreamConfig();
+            _resultValue.roleArn = roleArn;
+            _resultValue.streamArn = streamArn;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetIpSetPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetIpSetPlainArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.scope = Objects.requireNonNull($.scope, "expected parameter 'scope' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetIpSetPlainArgs", "name");
+            }
+            if ($.scope == null) {
+                throw new MissingRequiredPropertyException("GetIpSetPlainArgs", "scope");
+            }
             return $;
         }
     }

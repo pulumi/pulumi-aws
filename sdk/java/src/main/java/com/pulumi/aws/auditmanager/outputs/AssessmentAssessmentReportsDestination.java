@@ -4,6 +4,7 @@
 package com.pulumi.aws.auditmanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class AssessmentAssessmentReportsDestination {
 
         @CustomType.Setter
         public Builder destination(String destination) {
-            this.destination = Objects.requireNonNull(destination);
+            if (destination == null) {
+              throw new MissingRequiredPropertyException("AssessmentAssessmentReportsDestination", "destination");
+            }
+            this.destination = destination;
             return this;
         }
         @CustomType.Setter
         public Builder destinationType(String destinationType) {
-            this.destinationType = Objects.requireNonNull(destinationType);
+            if (destinationType == null) {
+              throw new MissingRequiredPropertyException("AssessmentAssessmentReportsDestination", "destinationType");
+            }
+            this.destinationType = destinationType;
             return this;
         }
         public AssessmentAssessmentReportsDestination build() {
-            final var o = new AssessmentAssessmentReportsDestination();
-            o.destination = destination;
-            o.destinationType = destinationType;
-            return o;
+            final var _resultValue = new AssessmentAssessmentReportsDestination();
+            _resultValue.destination = destination;
+            _resultValue.destinationType = destinationType;
+            return _resultValue;
         }
     }
 }

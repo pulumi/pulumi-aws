@@ -9,30 +9,33 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testLb = new aws.lightsail.Lb("testLb", {
+ * const test = new aws.lightsail.Lb("test", {
+ *     name: "test-load-balancer",
  *     healthCheckPath: "/",
  *     instancePort: 80,
  *     tags: {
  *         foo: "bar",
  *     },
  * });
- * const testLbStickinessPolicy = new aws.lightsail.LbStickinessPolicy("testLbStickinessPolicy", {
- *     lbName: testLb.name,
+ * const testLbStickinessPolicy = new aws.lightsail.LbStickinessPolicy("test", {
+ *     lbName: test.name,
  *     cookieDuration: 900,
  *     enabled: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_lightsail_lb_stickiness_policy` using the `lb_name` attribute. For example:
  *
  * ```sh
- *  $ pulumi import aws:lightsail/lbStickinessPolicy:LbStickinessPolicy test example-load-balancer
+ * $ pulumi import aws:lightsail/lbStickinessPolicy:LbStickinessPolicy test example-load-balancer
  * ```
  */
 export class LbStickinessPolicy extends pulumi.CustomResource {

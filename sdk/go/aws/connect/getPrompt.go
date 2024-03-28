@@ -17,6 +17,7 @@ import (
 //
 // By `name`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetPrompt(ctx *pulumi.Context, args *GetPromptArgs, opts ...pulumi.InvokeOption) (*GetPromptResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPromptResult

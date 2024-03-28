@@ -37,6 +37,9 @@ public final class PolicyStepScalingPolicyConfiguration {
     /**
      * @return Set of adjustments that manage scaling. These have the following structure:
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     private @Nullable List<PolicyStepScalingPolicyConfigurationStepAdjustment> stepAdjustments;
 
@@ -72,6 +75,9 @@ public final class PolicyStepScalingPolicyConfiguration {
     /**
      * @return Set of adjustments that manage scaling. These have the following structure:
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public List<PolicyStepScalingPolicyConfigurationStepAdjustment> stepAdjustments() {
         return this.stepAdjustments == null ? List.of() : this.stepAdjustments;
@@ -103,26 +109,31 @@ public final class PolicyStepScalingPolicyConfiguration {
 
         @CustomType.Setter
         public Builder adjustmentType(@Nullable String adjustmentType) {
+
             this.adjustmentType = adjustmentType;
             return this;
         }
         @CustomType.Setter
         public Builder cooldown(@Nullable Integer cooldown) {
+
             this.cooldown = cooldown;
             return this;
         }
         @CustomType.Setter
         public Builder metricAggregationType(@Nullable String metricAggregationType) {
+
             this.metricAggregationType = metricAggregationType;
             return this;
         }
         @CustomType.Setter
         public Builder minAdjustmentMagnitude(@Nullable Integer minAdjustmentMagnitude) {
+
             this.minAdjustmentMagnitude = minAdjustmentMagnitude;
             return this;
         }
         @CustomType.Setter
         public Builder stepAdjustments(@Nullable List<PolicyStepScalingPolicyConfigurationStepAdjustment> stepAdjustments) {
+
             this.stepAdjustments = stepAdjustments;
             return this;
         }
@@ -130,13 +141,13 @@ public final class PolicyStepScalingPolicyConfiguration {
             return stepAdjustments(List.of(stepAdjustments));
         }
         public PolicyStepScalingPolicyConfiguration build() {
-            final var o = new PolicyStepScalingPolicyConfiguration();
-            o.adjustmentType = adjustmentType;
-            o.cooldown = cooldown;
-            o.metricAggregationType = metricAggregationType;
-            o.minAdjustmentMagnitude = minAdjustmentMagnitude;
-            o.stepAdjustments = stepAdjustments;
-            return o;
+            final var _resultValue = new PolicyStepScalingPolicyConfiguration();
+            _resultValue.adjustmentType = adjustmentType;
+            _resultValue.cooldown = cooldown;
+            _resultValue.metricAggregationType = metricAggregationType;
+            _resultValue.minAdjustmentMagnitude = minAdjustmentMagnitude;
+            _resultValue.stepAdjustments = stepAdjustments;
+            return _resultValue;
         }
     }
 }

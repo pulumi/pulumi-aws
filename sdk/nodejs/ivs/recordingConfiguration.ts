@@ -11,25 +11,31 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS IVS (Interactive Video) Recording Configuration.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ivs.RecordingConfiguration("example", {destinationConfiguration: {
- *     s3: {
- *         bucketName: "ivs-stream-archive",
+ * const example = new aws.ivs.RecordingConfiguration("example", {
+ *     name: "recording_configuration-1",
+ *     destinationConfiguration: {
+ *         s3: {
+ *             bucketName: "ivs-stream-archive",
+ *         },
  *     },
- * }});
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IVS (Interactive Video) Recording Configuration using the ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
+ * $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
  * ```
  */
 export class RecordingConfiguration extends pulumi.CustomResource {
@@ -131,8 +137,6 @@ export class RecordingConfiguration extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(RecordingConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

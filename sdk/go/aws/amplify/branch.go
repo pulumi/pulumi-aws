@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := amplify.NewApp(ctx, "example", nil)
+//			example, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+//				Name: pulumi.String("app"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -49,10 +52,57 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Basic Authentication
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+//				Name: pulumi.String("app"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeBase64encode, err := std.Base64encode(ctx, &std.Base64encodeArgs{
+//				Input: "username:password",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
+//				AppId:                example.ID(),
+//				BranchName:           pulumi.String("master"),
+//				EnableBasicAuth:      pulumi.Bool(true),
+//				BasicAuthCredentials: invokeBase64encode.Result,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Notifications
 //
 // Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enableNotification` in a `amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -70,7 +120,9 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// example, err := amplify.NewApp(ctx, "example", nil)
+// example, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+// Name: pulumi.String("app"),
+// })
 // if err != nil {
 // return err
 // }
@@ -82,9 +134,13 @@ import (
 // if err != nil {
 // return err
 // }
-// amplifyAppMasterEventRule, err := cloudwatch.NewEventRule(ctx, "amplifyAppMasterEventRule", &cloudwatch.EventRuleArgs{
+// // EventBridge Rule for Amplify notifications
+// amplifyAppMasterEventRule, err := cloudwatch.NewEventRule(ctx, "amplify_app_master", &cloudwatch.EventRuleArgs{
+// Name: master.BranchName.ApplyT(func(branchName string) (string, error) {
+// return fmt.Sprintf("amplify-%v-%v-branch-notification", app.Id, branchName), nil
+// }).(pulumi.StringOutput),
 // Description: master.BranchName.ApplyT(func(branchName string) (string, error) {
-// return fmt.Sprintf("AWS Amplify build notifications for :  App: %v Branch: %v", aws_amplify_app.App.Id, branchName), nil
+// return fmt.Sprintf("AWS Amplify build notifications for :  App: %v Branch: %v", app.Id, branchName), nil
 // }).(pulumi.StringOutput),
 // EventPattern: pulumi.All(example.ID(),master.BranchName).ApplyT(func(_args []interface{}) (string, error) {
 // id := _args[0].(string)
@@ -121,12 +177,18 @@ import (
 // if err != nil {
 // return err
 // }
-// amplifyAppMasterTopic, err := sns.NewTopic(ctx, "amplifyAppMasterTopic", nil)
+// // SNS Topic for Amplify notifications
+// amplifyAppMasterTopic, err := sns.NewTopic(ctx, "amplify_app_master", &sns.TopicArgs{
+// Name: master.BranchName.ApplyT(func(branchName string) (string, error) {
+// return fmt.Sprintf("amplify-%v_%v", app.Id, branchName), nil
+// }).(pulumi.StringOutput),
+// })
 // if err != nil {
 // return err
 // }
-// _, err = cloudwatch.NewEventTarget(ctx, "amplifyAppMasterEventTarget", &cloudwatch.EventTargetArgs{
+// _, err = cloudwatch.NewEventTarget(ctx, "amplify_app_master", &cloudwatch.EventTargetArgs{
 // Rule: amplifyAppMasterEventRule.Name,
+// TargetId: master.BranchName,
 // Arn: amplifyAppMasterTopic.Arn,
 // InputTransformer: &cloudwatch.EventTargetInputTransformerArgs{
 // InputPaths: pulumi.StringMap{
@@ -142,7 +204,7 @@ import (
 // if err != nil {
 // return err
 // }
-// amplifyAppMasterPolicyDocument := pulumi.All(master.Arn,amplifyAppMasterTopic.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
+// amplifyAppMaster := pulumi.All(master.Arn,amplifyAppMasterTopic.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
 // masterArn := _args[0].(string)
 // amplifyAppMasterTopicArn := _args[1].(string)
 // return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
@@ -168,10 +230,10 @@ import (
 // },
 // }, nil), nil
 // }).(iam.GetPolicyDocumentResultOutput)
-// _, err = sns.NewTopicPolicy(ctx, "amplifyAppMasterTopicPolicy", &sns.TopicPolicyArgs{
+// _, err = sns.NewTopicPolicy(ctx, "amplify_app_master", &sns.TopicPolicyArgs{
 // Arn: amplifyAppMasterTopic.Arn,
-// Policy: amplifyAppMasterPolicyDocument.ApplyT(func(amplifyAppMasterPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-// return &amplifyAppMasterPolicyDocument.Json, nil
+// Policy: amplifyAppMaster.ApplyT(func(amplifyAppMaster iam.GetPolicyDocumentResult) (*string, error) {
+// return &amplifyAppMaster.Json, nil
 // }).(pulumi.StringPtrOutput),
 // })
 // if err != nil {
@@ -189,15 +251,14 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Amplify branch using `app_id` and `branch_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
-//
+// $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
 // ```
 type Branch struct {
 	pulumi.CustomResourceState
@@ -270,7 +331,6 @@ func NewBranch(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"basicAuthCredentials",
-		"tagsAll",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)

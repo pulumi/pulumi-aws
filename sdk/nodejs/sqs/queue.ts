@@ -7,17 +7,19 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const queue = new aws.sqs.Queue("queue", {
+ *     name: "example-queue",
  *     delaySeconds: 90,
  *     maxMessageSize: 2048,
  *     messageRetentionSeconds: 86400,
  *     receiveWaitTimeSeconds: 10,
  *     redrivePolicy: JSON.stringify({
- *         deadLetterTargetArn: aws_sqs_queue.queue_deadletter.arn,
+ *         deadLetterTargetArn: queueDeadletter.arn,
  *         maxReceiveCount: 4,
  *     }),
  *     tags: {
@@ -25,72 +27,101 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## FIFO queue
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const queue = new aws.sqs.Queue("queue", {
- *     contentBasedDeduplication: true,
+ *     name: "example-queue.fifo",
  *     fifoQueue: true,
+ *     contentBasedDeduplication: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## High-throughput FIFO queue
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const queue = new aws.sqs.Queue("queue", {
- *     deduplicationScope: "messageGroup",
+ *     name: "pulumi-example-queue.fifo",
  *     fifoQueue: true,
+ *     deduplicationScope: "messageGroup",
  *     fifoThroughputLimit: "perMessageGroupId",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Dead-letter queue
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleQueueDeadletter = new aws.sqs.Queue("exampleQueueDeadletter", {redriveAllowPolicy: JSON.stringify({
- *     redrivePermission: "byQueue",
- *     sourceQueueArns: [aws_sqs_queue.example_queue.arn],
- * })});
+ * const queue = new aws.sqs.Queue("queue", {
+ *     name: "pulumi-example-queue",
+ *     redrivePolicy: JSON.stringify({
+ *         deadLetterTargetArn: queueDeadletter.arn,
+ *         maxReceiveCount: 4,
+ *     }),
+ * });
+ * const exampleQueueDeadletter = new aws.sqs.Queue("example_queue_deadletter", {name: "pulumi-example-deadletter-queue"});
+ * const exampleQueueRedriveAllowPolicy = new aws.sqs.RedriveAllowPolicy("example_queue_redrive_allow_policy", {
+ *     queueUrl: exampleQueueDeadletter.id,
+ *     redriveAllowPolicy: JSON.stringify({
+ *         redrivePermission: "byQueue",
+ *         sourceQueueArns: [exampleQueue.arn],
+ *     }),
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Server-side encryption (SSE)
  *
  * Using [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html):
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const queue = new aws.sqs.Queue("queue", {sqsManagedSseEnabled: true});
- * ```
- *
- * Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):
- *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const queue = new aws.sqs.Queue("queue", {
- *     kmsDataKeyReusePeriodSeconds: 300,
- *     kmsMasterKeyId: "alias/aws/sqs",
+ *     name: "pulumi-example-queue",
+ *     sqsManagedSseEnabled: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const queue = new aws.sqs.Queue("queue", {
+ *     name: "example-queue",
+ *     kmsMasterKeyId: "alias/aws/sqs",
+ *     kmsDataKeyReusePeriodSeconds: 300,
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SQS Queues using the queue `url`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
+ * $ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
  * ```
  */
 export class Queue extends pulumi.CustomResource {
@@ -267,8 +298,6 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Queue.__pulumiType, name, resourceInputs, opts);
     }
 }

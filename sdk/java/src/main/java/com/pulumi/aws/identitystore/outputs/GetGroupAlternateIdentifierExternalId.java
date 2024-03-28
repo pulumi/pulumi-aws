@@ -4,6 +4,7 @@
 package com.pulumi.aws.identitystore.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class GetGroupAlternateIdentifierExternalId {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetGroupAlternateIdentifierExternalId", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder issuer(String issuer) {
-            this.issuer = Objects.requireNonNull(issuer);
+            if (issuer == null) {
+              throw new MissingRequiredPropertyException("GetGroupAlternateIdentifierExternalId", "issuer");
+            }
+            this.issuer = issuer;
             return this;
         }
         public GetGroupAlternateIdentifierExternalId build() {
-            final var o = new GetGroupAlternateIdentifierExternalId();
-            o.id = id;
-            o.issuer = issuer;
-            return o;
+            final var _resultValue = new GetGroupAlternateIdentifierExternalId();
+            _resultValue.id = id;
+            _resultValue.issuer = issuer;
+            return _resultValue;
         }
     }
 }

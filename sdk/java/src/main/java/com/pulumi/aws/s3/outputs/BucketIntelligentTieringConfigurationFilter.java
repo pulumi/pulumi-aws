@@ -59,19 +59,21 @@ public final class BucketIntelligentTieringConfigurationFilter {
 
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         public BucketIntelligentTieringConfigurationFilter build() {
-            final var o = new BucketIntelligentTieringConfigurationFilter();
-            o.prefix = prefix;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new BucketIntelligentTieringConfigurationFilter();
+            _resultValue.prefix = prefix;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -102,6 +102,7 @@ def get_instance_type_offerings(engine_type: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -110,10 +111,11 @@ def get_instance_type_offerings(engine_type: Optional[str] = None,
     engine = aws.mq.get_instance_type_offerings(engine_type="ACTIVEMQ")
     storage = aws.mq.get_instance_type_offerings(storage_type="EBS")
     instance = aws.mq.get_instance_type_offerings(host_instance_type="mq.m5.large")
-    all = aws.mq.get_instance_type_offerings(engine_type="ACTIVEMQ",
-        host_instance_type="mq.m5.large",
-        storage_type="EBS")
+    all = aws.mq.get_instance_type_offerings(host_instance_type="mq.m5.large",
+        storage_type="EBS",
+        engine_type="ACTIVEMQ")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str engine_type: Filter response by engine type.
@@ -145,6 +147,7 @@ def get_instance_type_offerings_output(engine_type: Optional[pulumi.Input[Option
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -153,10 +156,11 @@ def get_instance_type_offerings_output(engine_type: Optional[pulumi.Input[Option
     engine = aws.mq.get_instance_type_offerings(engine_type="ACTIVEMQ")
     storage = aws.mq.get_instance_type_offerings(storage_type="EBS")
     instance = aws.mq.get_instance_type_offerings(host_instance_type="mq.m5.large")
-    all = aws.mq.get_instance_type_offerings(engine_type="ACTIVEMQ",
-        host_instance_type="mq.m5.large",
-        storage_type="EBS")
+    all = aws.mq.get_instance_type_offerings(host_instance_type="mq.m5.large",
+        storage_type="EBS",
+        engine_type="ACTIVEMQ")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str engine_type: Filter response by engine type.

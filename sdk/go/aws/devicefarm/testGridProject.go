@@ -15,14 +15,43 @@ import (
 //
 // > **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
 //
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/devicefarm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := devicefarm.NewTestGridProject(ctx, "example", &devicefarm.TestGridProjectArgs{
+// Name: pulumi.String("example"),
+// VpcConfig: &devicefarm.TestGridProjectVpcConfigArgs{
+// VpcId: pulumi.Any(exampleAwsVpc.Id),
+// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:4,24-46),
+// SecurityGroupIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:5,24-53),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Import
 //
 // Using `pulumi import`, import DeviceFarm Test Grid Projects using their ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:devicefarm/testGridProject:TestGridProject example arn:aws:devicefarm:us-west-2:123456789012:testgrid-project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-//
+// $ pulumi import aws:devicefarm/testGridProject:TestGridProject example arn:aws:devicefarm:us-west-2:123456789012:testgrid-project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
 // ```
 type TestGridProject struct {
 	pulumi.CustomResourceState
@@ -50,10 +79,6 @@ func NewTestGridProject(ctx *pulumi.Context,
 		args = &TestGridProjectArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TestGridProject
 	err := ctx.RegisterResource("aws:devicefarm/testGridProject:TestGridProject", name, args, &resource, opts...)

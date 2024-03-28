@@ -4,6 +4,7 @@
 package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -73,25 +74,30 @@ public final class DistributionConfigurationDistributionLaunchTemplateConfigurat
 
         @CustomType.Setter
         public Builder accountId(@Nullable String accountId) {
+
             this.accountId = accountId;
             return this;
         }
         @CustomType.Setter("default")
         public Builder default_(@Nullable Boolean default_) {
+
             this.default_ = default_;
             return this;
         }
         @CustomType.Setter
         public Builder launchTemplateId(String launchTemplateId) {
-            this.launchTemplateId = Objects.requireNonNull(launchTemplateId);
+            if (launchTemplateId == null) {
+              throw new MissingRequiredPropertyException("DistributionConfigurationDistributionLaunchTemplateConfiguration", "launchTemplateId");
+            }
+            this.launchTemplateId = launchTemplateId;
             return this;
         }
         public DistributionConfigurationDistributionLaunchTemplateConfiguration build() {
-            final var o = new DistributionConfigurationDistributionLaunchTemplateConfiguration();
-            o.accountId = accountId;
-            o.default_ = default_;
-            o.launchTemplateId = launchTemplateId;
-            return o;
+            final var _resultValue = new DistributionConfigurationDistributionLaunchTemplateConfiguration();
+            _resultValue.accountId = accountId;
+            _resultValue.default_ = default_;
+            _resultValue.launchTemplateId = launchTemplateId;
+            return _resultValue;
         }
     }
 }

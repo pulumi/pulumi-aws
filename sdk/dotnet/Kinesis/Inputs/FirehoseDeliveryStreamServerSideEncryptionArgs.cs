@@ -20,8 +20,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
-        /// 
-        /// The `extended_s3_configuration` object supports the same fields from s3_configuration as well as the following:
         /// </summary>
         [Input("keyArn")]
         public Input<string>? KeyArn { get; set; }

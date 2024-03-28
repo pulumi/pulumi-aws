@@ -5,6 +5,7 @@ package com.pulumi.aws.redshiftserverless;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -29,6 +30,21 @@ public final class EndpointAccessArgs extends com.pulumi.resources.ResourceArgs 
      */
     public Output<String> endpointName() {
         return this.endpointName;
+    }
+
+    /**
+     * The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+     * 
+     */
+    @Import(name="ownerAccount")
+    private @Nullable Output<String> ownerAccount;
+
+    /**
+     * @return The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+     * 
+     */
+    public Optional<Output<String>> ownerAccount() {
+        return Optional.ofNullable(this.ownerAccount);
     }
 
     /**
@@ -80,6 +96,7 @@ public final class EndpointAccessArgs extends com.pulumi.resources.ResourceArgs 
 
     private EndpointAccessArgs(EndpointAccessArgs $) {
         this.endpointName = $.endpointName;
+        this.ownerAccount = $.ownerAccount;
         this.subnetIds = $.subnetIds;
         this.vpcSecurityGroupIds = $.vpcSecurityGroupIds;
         this.workgroupName = $.workgroupName;
@@ -122,6 +139,27 @@ public final class EndpointAccessArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder endpointName(String endpointName) {
             return endpointName(Output.of(endpointName));
+        }
+
+        /**
+         * @param ownerAccount The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ownerAccount(@Nullable Output<String> ownerAccount) {
+            $.ownerAccount = ownerAccount;
+            return this;
+        }
+
+        /**
+         * @param ownerAccount The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ownerAccount(String ownerAccount) {
+            return ownerAccount(Output.of(ownerAccount));
         }
 
         /**
@@ -208,9 +246,15 @@ public final class EndpointAccessArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public EndpointAccessArgs build() {
-            $.endpointName = Objects.requireNonNull($.endpointName, "expected parameter 'endpointName' to be non-null");
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
-            $.workgroupName = Objects.requireNonNull($.workgroupName, "expected parameter 'workgroupName' to be non-null");
+            if ($.endpointName == null) {
+                throw new MissingRequiredPropertyException("EndpointAccessArgs", "endpointName");
+            }
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("EndpointAccessArgs", "subnetIds");
+            }
+            if ($.workgroupName == null) {
+                throw new MissingRequiredPropertyException("EndpointAccessArgs", "workgroupName");
+            }
             return $;
         }
     }

@@ -21,9 +21,7 @@ import (
 // Using `pulumi import`, import SSO Permission Sets using the `arn` and `instance_arn` separated by a comma (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ssoadmin/permissionSet:PermissionSet example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
-//
+// $ pulumi import aws:ssoadmin/permissionSet:PermissionSet example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
 // ```
 type PermissionSet struct {
 	pulumi.CustomResourceState
@@ -60,10 +58,6 @@ func NewPermissionSet(ctx *pulumi.Context,
 	if args.InstanceArn == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PermissionSet
 	err := ctx.RegisterResource("aws:ssoadmin/permissionSet:PermissionSet", name, args, &resource, opts...)

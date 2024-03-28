@@ -44,13 +44,14 @@ public final class EventEndpointReplicationConfig {
 
         @CustomType.Setter
         public Builder state(@Nullable String state) {
+
             this.state = state;
             return this;
         }
         public EventEndpointReplicationConfig build() {
-            final var o = new EventEndpointReplicationConfig();
-            o.state = state;
-            return o;
+            final var _resultValue = new EventEndpointReplicationConfig();
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

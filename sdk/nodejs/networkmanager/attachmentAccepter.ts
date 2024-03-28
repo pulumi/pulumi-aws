@@ -5,31 +5,37 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS NetworkManager Attachment Accepter.
+ * Resource for managing an AWS Network Manager Attachment Accepter.
  *
  * ## Example Usage
+ *
  * ### Example with VPC attachment
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.networkmanager.AttachmentAccepter("test", {
- *     attachmentId: aws_networkmanager_vpc_attachment.vpc.id,
- *     attachmentType: aws_networkmanager_vpc_attachment.vpc.attachment_type,
+ *     attachmentId: vpc.id,
+ *     attachmentType: vpc.attachmentType,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example with site-to-site VPN attachment
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.networkmanager.AttachmentAccepter("test", {
- *     attachmentId: aws_networkmanager_site_to_site_vpn_attachment.vpn.id,
- *     attachmentType: aws_networkmanager_site_to_site_vpn_attachment.vpn.attachment_type,
+ *     attachmentId: vpn.id,
+ *     attachmentType: vpn.attachmentType,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class AttachmentAccepter extends pulumi.CustomResource {
     /**

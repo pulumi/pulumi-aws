@@ -15,8 +15,10 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// &gt; **Note:** Amazon API Gateway Version 2 resources are used for creating and deploying WebSocket and HTTP APIs. To create and deploy REST APIs, use Amazon API Gateway Version 1 resources.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic WebSocket API
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,14 +29,18 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// {
     ///     var example = new Aws.ApiGatewayV2.Api("example", new()
     ///     {
+    ///         Name = "example-websocket-api",
     ///         ProtocolType = "WEBSOCKET",
     ///         RouteSelectionExpression = "$request.body.action",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Basic HTTP API
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,18 +51,20 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// {
     ///     var example = new Aws.ApiGatewayV2.Api("example", new()
     ///     {
+    ///         Name = "example-http-api",
     ///         ProtocolType = "HTTP",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_apigatewayv2_api` using the API identifier. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigatewayv2/api:Api example aabbccddee
+    /// $ pulumi import aws:apigatewayv2/api:Api example aabbccddee
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/api:Api")]
@@ -202,10 +210,6 @@ namespace Pulumi.Aws.ApiGatewayV2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -447,11 +451,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

@@ -151,35 +151,37 @@ class KeyPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey", description="example")
-        example_key_policy = aws.kms.KeyPolicy("exampleKeyPolicy",
-            key_id=example_key.id,
+        example = aws.kms.Key("example", description="example")
+        example_key_policy = aws.kms.KeyPolicy("example",
+            key_id=example.id,
             policy=json.dumps({
-                "Id": "example",
-                "Statement": [{
-                    "Action": "kms:*",
-                    "Effect": "Allow",
-                    "Principal": {
+                "id": "example",
+                "statement": [{
+                    "action": "kms:*",
+                    "effect": "Allow",
+                    "principal": {
                         "AWS": "*",
                     },
-                    "Resource": "*",
-                    "Sid": "Enable IAM User Permissions",
+                    "resource": "*",
+                    "sid": "Enable IAM User Permissions",
                 }],
-                "Version": "2012-10-17",
+                "version": "2012-10-17",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import KMS Key Policies using the `key_id`. For example:
 
         ```sh
-         $ pulumi import aws:kms/keyPolicy:KeyPolicy a 1234abcd-12ab-34cd-56ef-1234567890ab
+        $ pulumi import aws:kms/keyPolicy:KeyPolicy a 1234abcd-12ab-34cd-56ef-1234567890ab
         ```
 
         :param str resource_name: The name of the resource.
@@ -203,35 +205,37 @@ class KeyPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey", description="example")
-        example_key_policy = aws.kms.KeyPolicy("exampleKeyPolicy",
-            key_id=example_key.id,
+        example = aws.kms.Key("example", description="example")
+        example_key_policy = aws.kms.KeyPolicy("example",
+            key_id=example.id,
             policy=json.dumps({
-                "Id": "example",
-                "Statement": [{
-                    "Action": "kms:*",
-                    "Effect": "Allow",
-                    "Principal": {
+                "id": "example",
+                "statement": [{
+                    "action": "kms:*",
+                    "effect": "Allow",
+                    "principal": {
                         "AWS": "*",
                     },
-                    "Resource": "*",
-                    "Sid": "Enable IAM User Permissions",
+                    "resource": "*",
+                    "sid": "Enable IAM User Permissions",
                 }],
-                "Version": "2012-10-17",
+                "version": "2012-10-17",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import KMS Key Policies using the `key_id`. For example:
 
         ```sh
-         $ pulumi import aws:kms/keyPolicy:KeyPolicy a 1234abcd-12ab-34cd-56ef-1234567890ab
+        $ pulumi import aws:kms/keyPolicy:KeyPolicy a 1234abcd-12ab-34cd-56ef-1234567890ab
         ```
 
         :param str resource_name: The name of the resource.

@@ -30,7 +30,10 @@ import javax.annotation.Nullable;
  * [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
  * 
  * ## Example Usage
+ * 
  * ### EC2 Transit Gateway
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -55,7 +58,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleTransitGateway = new TransitGateway(&#34;exampleTransitGateway&#34;);
+ *         var example = new TransitGateway(&#34;example&#34;);
  * 
  *         var exampleCustomerGateway = new CustomerGateway(&#34;exampleCustomerGateway&#34;, CustomerGatewayArgs.builder()        
  *             .bgpAsn(65000)
@@ -65,14 +68,18 @@ import javax.annotation.Nullable;
  * 
  *         var exampleVpnConnection = new VpnConnection(&#34;exampleVpnConnection&#34;, VpnConnectionArgs.builder()        
  *             .customerGatewayId(exampleCustomerGateway.id())
- *             .transitGatewayId(exampleTransitGateway.id())
+ *             .transitGatewayId(example.id())
  *             .type(exampleCustomerGateway.type())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Virtual Private Gateway
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -124,7 +131,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### AWS Site to Site Private VPN
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -157,6 +168,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleGateway = new Gateway(&#34;exampleGateway&#34;, GatewayArgs.builder()        
+ *             .name(&#34;example_ipsec_vpn_example&#34;)
  *             .amazonSideAsn(&#34;64512&#34;)
  *             .build());
  * 
@@ -179,7 +191,7 @@ import javax.annotation.Nullable;
  *             .allowedPrefixes(&#34;10.0.0.0/8&#34;)
  *             .build());
  * 
- *         final var exampleDirectConnectGatewayAttachment = Ec2transitgatewayFunctions.getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs.builder()
+ *         final var example = Ec2transitgatewayFunctions.getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs.builder()
  *             .transitGatewayId(exampleTransitGateway.id())
  *             .dxGatewayId(exampleGateway.id())
  *             .build());
@@ -188,7 +200,7 @@ import javax.annotation.Nullable;
  *             .customerGatewayId(exampleCustomerGateway.id())
  *             .outsideIpAddressType(&#34;PrivateIpv4&#34;)
  *             .transitGatewayId(exampleTransitGateway.id())
- *             .transportTransitGatewayAttachmentId(exampleDirectConnectGatewayAttachment.applyValue(getDirectConnectGatewayAttachmentResult -&gt; getDirectConnectGatewayAttachmentResult).applyValue(exampleDirectConnectGatewayAttachment -&gt; exampleDirectConnectGatewayAttachment.applyValue(getDirectConnectGatewayAttachmentResult -&gt; getDirectConnectGatewayAttachmentResult.id())))
+ *             .transportTransitGatewayAttachmentId(example.applyValue(getDirectConnectGatewayAttachmentResult -&gt; getDirectConnectGatewayAttachmentResult).applyValue(example -&gt; example.applyValue(getDirectConnectGatewayAttachmentResult -&gt; getDirectConnectGatewayAttachmentResult.id())))
  *             .type(&#34;ipsec.1&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;example_ipsec_vpn_example&#34;))
  *             .build());
@@ -196,13 +208,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import VPN Connections using the VPN connection `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
+ * $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
  * ```
  * 
  */
@@ -1255,7 +1268,6 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
                 "customerGatewayConfiguration",
-                "tagsAll",
                 "tunnel1PresharedKey",
                 "tunnel2PresharedKey"
             ))

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Emr
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,27 +26,29 @@ namespace Pulumi.Aws.Emr
     ///     var example = new Aws.Emr.Studio("example", new()
     ///     {
     ///         AuthMode = "SSO",
-    ///         DefaultS3Location = $"s3://{aws_s3_bucket.Test.Bucket}/test",
-    ///         EngineSecurityGroupId = aws_security_group.Test.Id,
-    ///         ServiceRole = aws_iam_role.Test.Arn,
+    ///         DefaultS3Location = $"s3://{test.Bucket}/test",
+    ///         EngineSecurityGroupId = testAwsSecurityGroup.Id,
+    ///         Name = "example",
+    ///         ServiceRole = testAwsIamRole.Arn,
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Test.Id,
+    ///             testAwsSubnet.Id,
     ///         },
-    ///         UserRole = aws_iam_role.Test.Arn,
-    ///         VpcId = aws_vpc.Test.Id,
-    ///         WorkspaceSecurityGroupId = aws_security_group.Test.Id,
+    ///         UserRole = testAwsIamRole.Arn,
+    ///         VpcId = testAwsVpc.Id,
+    ///         WorkspaceSecurityGroupId = testAwsSecurityGroup.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EMR studios using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
+    /// $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
     /// ```
     /// </summary>
     [AwsResourceType("aws:emr/studio:Studio")]
@@ -169,10 +172,6 @@ namespace Pulumi.Aws.Emr
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -380,11 +379,7 @@ namespace Pulumi.Aws.Emr
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

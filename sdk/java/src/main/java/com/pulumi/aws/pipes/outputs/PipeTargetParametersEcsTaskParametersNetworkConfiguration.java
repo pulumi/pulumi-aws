@@ -44,13 +44,14 @@ public final class PipeTargetParametersEcsTaskParametersNetworkConfiguration {
 
         @CustomType.Setter
         public Builder awsVpcConfiguration(@Nullable PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration awsVpcConfiguration) {
+
             this.awsVpcConfiguration = awsVpcConfiguration;
             return this;
         }
         public PipeTargetParametersEcsTaskParametersNetworkConfiguration build() {
-            final var o = new PipeTargetParametersEcsTaskParametersNetworkConfiguration();
-            o.awsVpcConfiguration = awsVpcConfiguration;
-            return o;
+            final var _resultValue = new PipeTargetParametersEcsTaskParametersNetworkConfiguration();
+            _resultValue.awsVpcConfiguration = awsVpcConfiguration;
+            return _resultValue;
         }
     }
 }

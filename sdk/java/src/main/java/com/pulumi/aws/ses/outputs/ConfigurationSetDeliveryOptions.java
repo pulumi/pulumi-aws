@@ -44,13 +44,14 @@ public final class ConfigurationSetDeliveryOptions {
 
         @CustomType.Setter
         public Builder tlsPolicy(@Nullable String tlsPolicy) {
+
             this.tlsPolicy = tlsPolicy;
             return this;
         }
         public ConfigurationSetDeliveryOptions build() {
-            final var o = new ConfigurationSetDeliveryOptions();
-            o.tlsPolicy = tlsPolicy;
-            return o;
+            final var _resultValue = new ConfigurationSetDeliveryOptions();
+            _resultValue.tlsPolicy = tlsPolicy;
+            return _resultValue;
         }
     }
 }

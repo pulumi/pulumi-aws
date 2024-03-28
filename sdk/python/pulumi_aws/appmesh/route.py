@@ -320,15 +320,18 @@ class Route(pulumi.CustomResource):
         Provides an AWS App Mesh route resource.
 
         ## Example Usage
+
         ### HTTP Routing
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         serviceb = aws.appmesh.Route("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
+            name="serviceB-route",
+            mesh_name=simple["id"],
+            virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
             spec=aws.appmesh.RouteSpecArgs(
                 http_route=aws.appmesh.RouteSpecHttpRouteArgs(
                     match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
@@ -337,11 +340,11 @@ class Route(pulumi.CustomResource):
                     action=aws.appmesh.RouteSpecHttpRouteActionArgs(
                         weighted_targets=[
                             aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                                virtual_node=aws_appmesh_virtual_node["serviceb1"]["name"],
+                                virtual_node=serviceb1["name"],
                                 weight=90,
                             ),
                             aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                                virtual_node=aws_appmesh_virtual_node["serviceb2"]["name"],
+                                virtual_node=serviceb2["name"],
                                 weight=10,
                             ),
                         ],
@@ -349,15 +352,19 @@ class Route(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### HTTP Header Routing
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         serviceb = aws.appmesh.Route("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
+            name="serviceB-route",
+            mesh_name=simple["id"],
+            virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
             spec=aws.appmesh.RouteSpecArgs(
                 http_route=aws.appmesh.RouteSpecHttpRouteArgs(
                     match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
@@ -373,22 +380,26 @@ class Route(pulumi.CustomResource):
                     ),
                     action=aws.appmesh.RouteSpecHttpRouteActionArgs(
                         weighted_targets=[aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                            virtual_node=aws_appmesh_virtual_node["serviceb"]["name"],
+                            virtual_node=serviceb_aws_appmesh_virtual_node["name"],
                             weight=100,
                         )],
                     ),
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Retry Policy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         serviceb = aws.appmesh.Route("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
+            name="serviceB-route",
+            mesh_name=simple["id"],
+            virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
             spec=aws.appmesh.RouteSpecArgs(
                 http_route=aws.appmesh.RouteSpecHttpRouteArgs(
                     match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
@@ -404,40 +415,45 @@ class Route(pulumi.CustomResource):
                     ),
                     action=aws.appmesh.RouteSpecHttpRouteActionArgs(
                         weighted_targets=[aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                            virtual_node=aws_appmesh_virtual_node["serviceb"]["name"],
+                            virtual_node=serviceb_aws_appmesh_virtual_node["name"],
                             weight=100,
                         )],
                     ),
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### TCP Routing
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         serviceb = aws.appmesh.Route("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
+            name="serviceB-route",
+            mesh_name=simple["id"],
+            virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
             spec=aws.appmesh.RouteSpecArgs(
                 tcp_route=aws.appmesh.RouteSpecTcpRouteArgs(
                     action=aws.appmesh.RouteSpecTcpRouteActionArgs(
                         weighted_targets=[aws.appmesh.RouteSpecTcpRouteActionWeightedTargetArgs(
-                            virtual_node=aws_appmesh_virtual_node["serviceb1"]["name"],
+                            virtual_node=serviceb1["name"],
                             weight=100,
                         )],
                     ),
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Mesh virtual routes using `mesh_name` and `virtual_router_name` together with the route's `name`. For example:
 
         ```sh
-         $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
+        $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
         ```
 
         :param str resource_name: The name of the resource.
@@ -459,15 +475,18 @@ class Route(pulumi.CustomResource):
         Provides an AWS App Mesh route resource.
 
         ## Example Usage
+
         ### HTTP Routing
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         serviceb = aws.appmesh.Route("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
+            name="serviceB-route",
+            mesh_name=simple["id"],
+            virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
             spec=aws.appmesh.RouteSpecArgs(
                 http_route=aws.appmesh.RouteSpecHttpRouteArgs(
                     match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
@@ -476,11 +495,11 @@ class Route(pulumi.CustomResource):
                     action=aws.appmesh.RouteSpecHttpRouteActionArgs(
                         weighted_targets=[
                             aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                                virtual_node=aws_appmesh_virtual_node["serviceb1"]["name"],
+                                virtual_node=serviceb1["name"],
                                 weight=90,
                             ),
                             aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                                virtual_node=aws_appmesh_virtual_node["serviceb2"]["name"],
+                                virtual_node=serviceb2["name"],
                                 weight=10,
                             ),
                         ],
@@ -488,15 +507,19 @@ class Route(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### HTTP Header Routing
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         serviceb = aws.appmesh.Route("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
+            name="serviceB-route",
+            mesh_name=simple["id"],
+            virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
             spec=aws.appmesh.RouteSpecArgs(
                 http_route=aws.appmesh.RouteSpecHttpRouteArgs(
                     match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
@@ -512,22 +535,26 @@ class Route(pulumi.CustomResource):
                     ),
                     action=aws.appmesh.RouteSpecHttpRouteActionArgs(
                         weighted_targets=[aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                            virtual_node=aws_appmesh_virtual_node["serviceb"]["name"],
+                            virtual_node=serviceb_aws_appmesh_virtual_node["name"],
                             weight=100,
                         )],
                     ),
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Retry Policy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         serviceb = aws.appmesh.Route("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
+            name="serviceB-route",
+            mesh_name=simple["id"],
+            virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
             spec=aws.appmesh.RouteSpecArgs(
                 http_route=aws.appmesh.RouteSpecHttpRouteArgs(
                     match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
@@ -543,40 +570,45 @@ class Route(pulumi.CustomResource):
                     ),
                     action=aws.appmesh.RouteSpecHttpRouteActionArgs(
                         weighted_targets=[aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                            virtual_node=aws_appmesh_virtual_node["serviceb"]["name"],
+                            virtual_node=serviceb_aws_appmesh_virtual_node["name"],
                             weight=100,
                         )],
                     ),
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### TCP Routing
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         serviceb = aws.appmesh.Route("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
+            name="serviceB-route",
+            mesh_name=simple["id"],
+            virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
             spec=aws.appmesh.RouteSpecArgs(
                 tcp_route=aws.appmesh.RouteSpecTcpRouteArgs(
                     action=aws.appmesh.RouteSpecTcpRouteActionArgs(
                         weighted_targets=[aws.appmesh.RouteSpecTcpRouteActionWeightedTargetArgs(
-                            virtual_node=aws_appmesh_virtual_node["serviceb1"]["name"],
+                            virtual_node=serviceb1["name"],
                             weight=100,
                         )],
                     ),
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Mesh virtual routes using `mesh_name` and `virtual_router_name` together with the route's `name`. For example:
 
         ```sh
-         $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
+        $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
         ```
 
         :param str resource_name: The name of the resource.
@@ -626,8 +658,6 @@ class Route(pulumi.CustomResource):
             __props__.__dict__["last_updated_date"] = None
             __props__.__dict__["resource_owner"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Route, __self__).__init__(
             'aws:appmesh/route:Route',
             resource_name,

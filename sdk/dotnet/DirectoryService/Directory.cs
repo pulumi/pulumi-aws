@@ -13,8 +13,10 @@ namespace Pulumi.Aws.DirectoryService
     /// Provides a Simple or Managed Microsoft directory in AWS Directory Service.
     /// 
     /// ## Example Usage
+    /// 
     /// ### SimpleAD
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,14 +37,14 @@ namespace Pulumi.Aws.DirectoryService
     ///         CidrBlock = "10.0.1.0/24",
     ///     });
     /// 
-    ///     var barSubnet = new Aws.Ec2.Subnet("barSubnet", new()
+    ///     var barSubnet = new Aws.Ec2.Subnet("bar", new()
     ///     {
     ///         VpcId = main.Id,
     ///         AvailabilityZone = "us-west-2b",
     ///         CidrBlock = "10.0.2.0/24",
     ///     });
     /// 
-    ///     var barDirectory = new Aws.DirectoryService.Directory("barDirectory", new()
+    ///     var bar = new Aws.DirectoryService.Directory("bar", new()
     ///     {
     ///         Name = "corp.notexample.com",
     ///         Password = "SuperSecretPassw0rd",
@@ -64,8 +66,11 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Microsoft Active Directory (MicrosoftAD)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -86,14 +91,14 @@ namespace Pulumi.Aws.DirectoryService
     ///         CidrBlock = "10.0.1.0/24",
     ///     });
     /// 
-    ///     var barSubnet = new Aws.Ec2.Subnet("barSubnet", new()
+    ///     var barSubnet = new Aws.Ec2.Subnet("bar", new()
     ///     {
     ///         VpcId = main.Id,
     ///         AvailabilityZone = "us-west-2b",
     ///         CidrBlock = "10.0.2.0/24",
     ///     });
     /// 
-    ///     var barDirectory = new Aws.DirectoryService.Directory("barDirectory", new()
+    ///     var bar = new Aws.DirectoryService.Directory("bar", new()
     ///     {
     ///         Name = "corp.notexample.com",
     ///         Password = "SuperSecretPassw0rd",
@@ -116,8 +121,11 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Microsoft Active Directory Connector (ADConnector)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -169,13 +177,14 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DirectoryService directories using the directory `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
+    /// $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
     /// ```
     /// </summary>
     [AwsResourceType("aws:directoryservice/directory:Directory")]
@@ -309,7 +318,6 @@ namespace Pulumi.Aws.DirectoryService
                 AdditionalSecretOutputs =
                 {
                     "password",
-                    "tagsAll",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -552,11 +560,7 @@ namespace Pulumi.Aws.DirectoryService
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

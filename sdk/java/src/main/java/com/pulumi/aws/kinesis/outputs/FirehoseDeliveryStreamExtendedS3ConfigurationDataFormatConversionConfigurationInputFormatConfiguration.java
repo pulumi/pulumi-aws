@@ -5,19 +5,20 @@ package com.pulumi.aws.kinesis.outputs;
 
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
 public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration {
     /**
-     * @return Nested argument that specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. More details below.
+     * @return Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. See `deserializer` block below for details.
      * 
      */
     private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer deserializer;
 
     private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration() {}
     /**
-     * @return Nested argument that specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. More details below.
+     * @return Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. See `deserializer` block below for details.
      * 
      */
     public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer deserializer() {
@@ -42,13 +43,16 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
 
         @CustomType.Setter
         public Builder deserializer(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer deserializer) {
-            this.deserializer = Objects.requireNonNull(deserializer);
+            if (deserializer == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration", "deserializer");
+            }
+            this.deserializer = deserializer;
             return this;
         }
         public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration build() {
-            final var o = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration();
-            o.deserializer = deserializer;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration();
+            _resultValue.deserializer = deserializer;
+            return _resultValue;
         }
     }
 }

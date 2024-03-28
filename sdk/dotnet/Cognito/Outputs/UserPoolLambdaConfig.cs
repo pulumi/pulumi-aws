@@ -54,9 +54,13 @@ namespace Pulumi.Aws.Cognito.Outputs
         /// </summary>
         public readonly string? PreSignUp;
         /// <summary>
-        /// Allow to customize identity token claims before token generation.
+        /// Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
         /// </summary>
         public readonly string? PreTokenGeneration;
+        /// <summary>
+        /// Allow to customize access tokens. See pre_token_configuration_type
+        /// </summary>
+        public readonly Outputs.UserPoolLambdaConfigPreTokenGenerationConfig? PreTokenGenerationConfig;
         /// <summary>
         /// User migration Lambda config type.
         /// </summary>
@@ -90,6 +94,8 @@ namespace Pulumi.Aws.Cognito.Outputs
 
             string? preTokenGeneration,
 
+            Outputs.UserPoolLambdaConfigPreTokenGenerationConfig? preTokenGenerationConfig,
+
             string? userMigration,
 
             string? verifyAuthChallengeResponse)
@@ -105,6 +111,7 @@ namespace Pulumi.Aws.Cognito.Outputs
             PreAuthentication = preAuthentication;
             PreSignUp = preSignUp;
             PreTokenGeneration = preTokenGeneration;
+            PreTokenGenerationConfig = preTokenGenerationConfig;
             UserMigration = userMigration;
             VerifyAuthChallengeResponse = verifyAuthChallengeResponse;
         }

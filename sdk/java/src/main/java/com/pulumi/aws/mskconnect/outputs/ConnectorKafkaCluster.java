@@ -5,6 +5,7 @@ package com.pulumi.aws.mskconnect.outputs;
 
 import com.pulumi.aws.mskconnect.outputs.ConnectorKafkaClusterApacheKafkaCluster;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,13 +43,16 @@ public final class ConnectorKafkaCluster {
 
         @CustomType.Setter
         public Builder apacheKafkaCluster(ConnectorKafkaClusterApacheKafkaCluster apacheKafkaCluster) {
-            this.apacheKafkaCluster = Objects.requireNonNull(apacheKafkaCluster);
+            if (apacheKafkaCluster == null) {
+              throw new MissingRequiredPropertyException("ConnectorKafkaCluster", "apacheKafkaCluster");
+            }
+            this.apacheKafkaCluster = apacheKafkaCluster;
             return this;
         }
         public ConnectorKafkaCluster build() {
-            final var o = new ConnectorKafkaCluster();
-            o.apacheKafkaCluster = apacheKafkaCluster;
-            return o;
+            final var _resultValue = new ConnectorKafkaCluster();
+            _resultValue.apacheKafkaCluster = apacheKafkaCluster;
+            return _resultValue;
         }
     }
 }

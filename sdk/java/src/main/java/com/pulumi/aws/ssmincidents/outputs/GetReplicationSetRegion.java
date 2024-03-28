@@ -4,6 +4,7 @@
 package com.pulumi.aws.ssmincidents.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -86,31 +87,43 @@ public final class GetReplicationSetRegion {
 
         @CustomType.Setter
         public Builder kmsKeyArn(String kmsKeyArn) {
-            this.kmsKeyArn = Objects.requireNonNull(kmsKeyArn);
+            if (kmsKeyArn == null) {
+              throw new MissingRequiredPropertyException("GetReplicationSetRegion", "kmsKeyArn");
+            }
+            this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetReplicationSetRegion", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetReplicationSetRegion", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder statusMessage(String statusMessage) {
-            this.statusMessage = Objects.requireNonNull(statusMessage);
+            if (statusMessage == null) {
+              throw new MissingRequiredPropertyException("GetReplicationSetRegion", "statusMessage");
+            }
+            this.statusMessage = statusMessage;
             return this;
         }
         public GetReplicationSetRegion build() {
-            final var o = new GetReplicationSetRegion();
-            o.kmsKeyArn = kmsKeyArn;
-            o.name = name;
-            o.status = status;
-            o.statusMessage = statusMessage;
-            return o;
+            final var _resultValue = new GetReplicationSetRegion();
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.name = name;
+            _resultValue.status = status;
+            _resultValue.statusMessage = statusMessage;
+            return _resultValue;
         }
     }
 }

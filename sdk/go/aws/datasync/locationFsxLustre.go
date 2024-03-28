@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,9 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewLocationFsxLustre(ctx, "example", &datasync.LocationFsxLustreArgs{
-//				FsxFilesystemArn: pulumi.Any(aws_fsx_lustre_file_system.Example.Arn),
+//				FsxFilesystemArn: pulumi.Any(exampleAwsFsxLustreFileSystem.Arn),
 //				SecurityGroupArns: pulumi.StringArray{
-//					aws_security_group.Example.Arn,
+//					exampleAwsSecurityGroup.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -42,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_datasync_location_fsx_lustre_file_system` using the `DataSync-ARN#FSx-Lustre-ARN`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:datasync/locationFsxLustre:LocationFsxLustre example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:476956259333:file-system/fs-08e04cd442c1bb94a
-//
+// $ pulumi import aws:datasync/locationFsxLustre:LocationFsxLustre example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:476956259333:file-system/fs-08e04cd442c1bb94a
 // ```
 type LocationFsxLustre struct {
 	pulumi.CustomResourceState
@@ -88,10 +88,6 @@ func NewLocationFsxLustre(ctx *pulumi.Context,
 	if args.SecurityGroupArns == nil {
 		return nil, errors.New("invalid value for required argument 'SecurityGroupArns'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocationFsxLustre
 	err := ctx.RegisterResource("aws:datasync/locationFsxLustre:LocationFsxLustre", name, args, &resource, opts...)

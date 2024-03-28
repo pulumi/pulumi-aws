@@ -58,19 +58,21 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
 
         @CustomType.Setter
         public Builder postFilterSharpening(@Nullable String postFilterSharpening) {
+
             this.postFilterSharpening = postFilterSharpening;
             return this;
         }
         @CustomType.Setter
         public Builder strength(@Nullable String strength) {
+
             this.strength = strength;
             return this;
         }
         public ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings build() {
-            final var o = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings();
-            o.postFilterSharpening = postFilterSharpening;
-            o.strength = strength;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings();
+            _resultValue.postFilterSharpening = postFilterSharpening;
+            _resultValue.strength = strength;
+            return _resultValue;
         }
     }
 }

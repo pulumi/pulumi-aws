@@ -21,6 +21,7 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,18 +32,19 @@ namespace Pulumi.Aws.Ebs
     /// {
     ///     var example = new Aws.Ebs.DefaultKmsKey("example", new()
     ///     {
-    ///         KeyArn = aws_kms_key.Example.Arn,
+    ///         KeyArn = exampleAwsKmsKey.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import the EBS default KMS CMK using the KMS key ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ebs/defaultKmsKey:DefaultKmsKey example arn:aws:kms:us-east-1:123456789012:key/abcd-1234
+    /// $ pulumi import aws:ebs/defaultKmsKey:DefaultKmsKey example arn:aws:kms:us-east-1:123456789012:key/abcd-1234
     /// ```
     /// </summary>
     [AwsResourceType("aws:ebs/defaultKmsKey:DefaultKmsKey")]

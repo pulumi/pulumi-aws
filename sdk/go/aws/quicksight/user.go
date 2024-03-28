@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,11 +30,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewUser(ctx, "example", &quicksight.UserArgs{
-//				Email:        pulumi.String("author@example.com"),
-//				IamArn:       pulumi.String("arn:aws:iam::123456789012:user/Example"),
-//				IdentityType: pulumi.String("IAM"),
-//				Namespace:    pulumi.String("foo"),
 //				SessionName:  pulumi.String("an-author"),
+//				Email:        pulumi.String("author@example.com"),
+//				Namespace:    pulumi.String("foo"),
+//				IdentityType: pulumi.String("IAM"),
+//				IamArn:       pulumi.String("arn:aws:iam::123456789012:user/Example"),
 //				UserRole:     pulumi.String("AUTHOR"),
 //			})
 //			if err != nil {
@@ -44,6 +45,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

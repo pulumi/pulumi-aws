@@ -16,14 +16,53 @@ import (
 //
 // > **Note:** To manage a _provisioned_ Amazon MSK cluster, use the `msk.Cluster` resource.
 //
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/msk"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := msk.NewServerlessCluster(ctx, "example", &msk.ServerlessClusterArgs{
+// ClusterName: pulumi.String("Example"),
+// VpcConfigs: msk.ServerlessClusterVpcConfigArray{
+// &msk.ServerlessClusterVpcConfigArgs{
+// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,24-46),
+// SecurityGroupIds: pulumi.StringArray{
+// exampleAwsSecurityGroup.Id,
+// },
+// },
+// },
+// ClientAuthentication: &msk.ServerlessClusterClientAuthenticationArgs{
+// Sasl: &msk.ServerlessClusterClientAuthenticationSaslArgs{
+// Iam: &msk.ServerlessClusterClientAuthenticationSaslIamArgs{
+// Enabled: pulumi.Bool(true),
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Import
 //
 // Using `pulumi import`, import MSK serverless clusters using the cluster `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:msk/serverlessCluster:ServerlessCluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
-//
+// $ pulumi import aws:msk/serverlessCluster:ServerlessCluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
 // ```
 type ServerlessCluster struct {
 	pulumi.CustomResourceState
@@ -59,10 +98,6 @@ func NewServerlessCluster(ctx *pulumi.Context,
 	if args.VpcConfigs == nil {
 		return nil, errors.New("invalid value for required argument 'VpcConfigs'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServerlessCluster
 	err := ctx.RegisterResource("aws:msk/serverlessCluster:ServerlessCluster", name, args, &resource, opts...)

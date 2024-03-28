@@ -13,7 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -27,6 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * The following example will create a neptune cluster with two neptune instances(one writer and one reader).
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -74,13 +75,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_neptune_cluster_instance` using the instance identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
+ * $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
  * ```
  * 
  */
@@ -385,6 +387,20 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.publiclyAccessible);
     }
     /**
+     * Determines whether a final DB snapshot is created before the DB instance is deleted.
+     * 
+     */
+    @Export(name="skipFinalSnapshot", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> skipFinalSnapshot;
+
+    /**
+     * @return Determines whether a final DB snapshot is created before the DB instance is deleted.
+     * 
+     */
+    public Output<Optional<Boolean>> skipFinalSnapshot() {
+        return Codegen.optional(this.skipFinalSnapshot);
+    }
+    /**
      * Specifies whether the neptune cluster is encrypted.
      * 
      */
@@ -397,6 +413,20 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      */
     public Output<Boolean> storageEncrypted() {
         return this.storageEncrypted;
+    }
+    /**
+     * Storage type associated with the cluster `standard/iopt1`.
+     * 
+     */
+    @Export(name="storageType", refs={String.class}, tree="[0]")
+    private Output<String> storageType;
+
+    /**
+     * @return Storage type associated with the cluster `standard/iopt1`.
+     * 
+     */
+    public Output<String> storageType() {
+        return this.storageType;
     }
     /**
      * A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -477,9 +507,6 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -98,14 +98,17 @@ def get_portfolio_constraints(accept_language: Optional[str] = None,
     Provides information on Service Catalog Portfolio Constraints.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.servicecatalog.get_portfolio_constraints(portfolio_id="port-3lli3b3an")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -138,14 +141,17 @@ def get_portfolio_constraints_output(accept_language: Optional[pulumi.Input[Opti
     Provides information on Service Catalog Portfolio Constraints.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.servicecatalog.get_portfolio_constraints(portfolio_id="port-3lli3b3an")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.

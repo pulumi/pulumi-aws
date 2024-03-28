@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQ
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument", "name");
+            }
+            this.name = name;
             return this;
         }
         public WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument build() {
-            final var o = new WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument();
-            o.name = name;
-            return o;
+            final var _resultValue = new WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

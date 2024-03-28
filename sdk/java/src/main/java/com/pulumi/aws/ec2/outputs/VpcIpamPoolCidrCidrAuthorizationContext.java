@@ -58,19 +58,21 @@ public final class VpcIpamPoolCidrCidrAuthorizationContext {
 
         @CustomType.Setter
         public Builder message(@Nullable String message) {
+
             this.message = message;
             return this;
         }
         @CustomType.Setter
         public Builder signature(@Nullable String signature) {
+
             this.signature = signature;
             return this;
         }
         public VpcIpamPoolCidrCidrAuthorizationContext build() {
-            final var o = new VpcIpamPoolCidrCidrAuthorizationContext();
-            o.message = message;
-            o.signature = signature;
-            return o;
+            final var _resultValue = new VpcIpamPoolCidrCidrAuthorizationContext();
+            _resultValue.message = message;
+            _resultValue.signature = signature;
+            return _resultValue;
         }
     }
 }

@@ -104,37 +104,42 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
 
         @CustomType.Setter
         public Builder allow(@Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllow allow) {
+
             this.allow = allow;
             return this;
         }
         @CustomType.Setter
         public Builder block(@Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock block) {
+
             this.block = block;
             return this;
         }
         @CustomType.Setter
         public Builder captcha(@Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha captcha) {
+
             this.captcha = captcha;
             return this;
         }
         @CustomType.Setter
         public Builder challenge(@Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge challenge) {
+
             this.challenge = challenge;
             return this;
         }
         @CustomType.Setter
         public Builder count(@Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount count) {
+
             this.count = count;
             return this;
         }
         public WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse build() {
-            final var o = new WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse();
-            o.allow = allow;
-            o.block = block;
-            o.captcha = captcha;
-            o.challenge = challenge;
-            o.count = count;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse();
+            _resultValue.allow = allow;
+            _resultValue.block = block;
+            _resultValue.captcha = captcha;
+            _resultValue.challenge = challenge;
+            _resultValue.count = count;
+            return _resultValue;
         }
     }
 }

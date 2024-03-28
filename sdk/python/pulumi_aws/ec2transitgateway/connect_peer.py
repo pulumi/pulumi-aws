@@ -303,25 +303,27 @@ class ConnectPeer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_connect = aws.ec2transitgateway.Connect("exampleConnect",
-            transport_attachment_id=aws_ec2_transit_gateway_vpc_attachment["example"]["id"],
-            transit_gateway_id=aws_ec2_transit_gateway["example"]["id"])
-        example_connect_peer = aws.ec2transitgateway.ConnectPeer("exampleConnectPeer",
+        example = aws.ec2transitgateway.Connect("example",
+            transport_attachment_id=example_aws_ec2_transit_gateway_vpc_attachment["id"],
+            transit_gateway_id=example_aws_ec2_transit_gateway["id"])
+        example_connect_peer = aws.ec2transitgateway.ConnectPeer("example",
             peer_address="10.1.2.3",
             inside_cidr_blocks=["169.254.100.0/29"],
-            transit_gateway_attachment_id=example_connect.id)
+            transit_gateway_attachment_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_connect_peer` using the EC2 Transit Gateway Connect Peer identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/connectPeer:ConnectPeer example tgw-connect-peer-12345678
+        $ pulumi import aws:ec2transitgateway/connectPeer:ConnectPeer example tgw-connect-peer-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -344,25 +346,27 @@ class ConnectPeer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_connect = aws.ec2transitgateway.Connect("exampleConnect",
-            transport_attachment_id=aws_ec2_transit_gateway_vpc_attachment["example"]["id"],
-            transit_gateway_id=aws_ec2_transit_gateway["example"]["id"])
-        example_connect_peer = aws.ec2transitgateway.ConnectPeer("exampleConnectPeer",
+        example = aws.ec2transitgateway.Connect("example",
+            transport_attachment_id=example_aws_ec2_transit_gateway_vpc_attachment["id"],
+            transit_gateway_id=example_aws_ec2_transit_gateway["id"])
+        example_connect_peer = aws.ec2transitgateway.ConnectPeer("example",
             peer_address="10.1.2.3",
             inside_cidr_blocks=["169.254.100.0/29"],
-            transit_gateway_attachment_id=example_connect.id)
+            transit_gateway_attachment_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_connect_peer` using the EC2 Transit Gateway Connect Peer identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/connectPeer:ConnectPeer example tgw-connect-peer-12345678
+        $ pulumi import aws:ec2transitgateway/connectPeer:ConnectPeer example tgw-connect-peer-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -411,8 +415,6 @@ class ConnectPeer(pulumi.CustomResource):
             __props__.__dict__["bgp_peer_address"] = None
             __props__.__dict__["bgp_transit_gateway_addresses"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ConnectPeer, __self__).__init__(
             'aws:ec2transitgateway/connectPeer:ConnectPeer',
             resource_name,

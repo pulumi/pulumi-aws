@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,12 +29,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := pinpoint.NewApp(ctx, "example", &pinpoint.AppArgs{
+//				Name: pulumi.String("test-app"),
 //				Limits: &pinpoint.AppLimitsArgs{
 //					MaximumDuration: pulumi.Int(600),
 //				},
 //				QuietTime: &pinpoint.AppQuietTimeArgs{
-//					End:   pulumi.String("06:00"),
 //					Start: pulumi.String("00:00"),
+//					End:   pulumi.String("06:00"),
 //				},
 //			})
 //			if err != nil {
@@ -44,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Pinpoint App using the `application-id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:pinpoint/app:App name application-id
-//
+// $ pulumi import aws:pinpoint/app:App name application-id
 // ```
 type App struct {
 	pulumi.CustomResourceState
@@ -86,10 +87,6 @@ func NewApp(ctx *pulumi.Context,
 		args = &AppArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource App
 	err := ctx.RegisterResource("aws:pinpoint/app:App", name, args, &resource, opts...)

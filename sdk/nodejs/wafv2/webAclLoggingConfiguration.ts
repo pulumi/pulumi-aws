@@ -13,15 +13,17 @@ import * as utilities from "../utilities";
  * !> **WARNING:** When logging from a WAFv2 Web ACL to a CloudWatch Log Group, the WAFv2 service tries to create or update a generic Log Resource Policy named `AWSWAF-LOGS`. However, if there are a large number of Web ACLs or if the account frequently creates and deletes Web ACLs, this policy may exceed the maximum policy size. As a result, this resource type will fail to be created. More details about this issue can be found in this issue. To prevent this issue, you can manage a specific resource policy. Please refer to the example below for managing a CloudWatch Log Group with a managed CloudWatch Log Resource Policy.
  *
  * ## Example Usage
+ *
  * ### With Redacted Fields
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.wafv2.WebAclLoggingConfiguration("example", {
- *     logDestinationConfigs: [aws_kinesis_firehose_delivery_stream.example.arn],
- *     resourceArn: aws_wafv2_web_acl.example.arn,
+ *     logDestinationConfigs: [exampleAwsKinesisFirehoseDeliveryStream.arn],
+ *     resourceArn: exampleAwsWafv2WebAcl.arn,
  *     redactedFields: [{
  *         singleHeader: {
  *             name: "user-agent",
@@ -29,15 +31,18 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Logging Filter
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.wafv2.WebAclLoggingConfiguration("example", {
- *     logDestinationConfigs: [aws_kinesis_firehose_delivery_stream.example.arn],
- *     resourceArn: aws_wafv2_web_acl.example.arn,
+ *     logDestinationConfigs: [exampleAwsKinesisFirehoseDeliveryStream.arn],
+ *     resourceArn: exampleAwsWafv2WebAcl.arn,
  *     loggingFilter: {
  *         defaultBehavior: "KEEP",
  *         filters: [
@@ -70,13 +75,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import WAFv2 Web ACL Logging Configurations using the ARN of the WAFv2 Web ACL. For example:
  *
  * ```sh
- *  $ pulumi import aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration example arn:aws:wafv2:us-west-2:123456789012:regional/webacl/test-logs/a1b2c3d4-5678-90ab-cdef
+ * $ pulumi import aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration example arn:aws:wafv2:us-west-2:123456789012:regional/webacl/test-logs/a1b2c3d4-5678-90ab-cdef
  * ```
  */
 export class WebAclLoggingConfiguration extends pulumi.CustomResource {

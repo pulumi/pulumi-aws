@@ -141,14 +141,17 @@ def get_link(link_identifier: Optional[str] = None,
     Data source for managing an AWS CloudWatch Observability Access Manager Link.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.oam.get_link(link_identifier="arn:aws:oam:us-west-1:111111111111:link/abcd1234-a123-456a-a12b-a123b456c789")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str link_identifier: ARN of the link.
@@ -179,14 +182,17 @@ def get_link_output(link_identifier: Optional[pulumi.Input[str]] = None,
     Data source for managing an AWS CloudWatch Observability Access Manager Link.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.oam.get_link(link_identifier="arn:aws:oam:us-west-1:111111111111:link/abcd1234-a123-456a-a12b-a123b456c789")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str link_identifier: ARN of the link.

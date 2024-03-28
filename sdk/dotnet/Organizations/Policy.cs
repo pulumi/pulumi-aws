@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,7 +23,7 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -41,20 +42,22 @@ namespace Pulumi.Aws.Organizations
     ///         },
     ///     });
     /// 
-    ///     var examplePolicy = new Aws.Organizations.Policy("examplePolicy", new()
+    ///     var examplePolicy = new Aws.Organizations.Policy("example", new()
     ///     {
-    ///         Content = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "example",
+    ///         Content = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_organizations_policy` using the policy ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:organizations/policy:Policy example p-12345678
+    /// $ pulumi import aws:organizations/policy:Policy example p-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:organizations/policy:Policy")]
@@ -131,10 +134,6 @@ namespace Pulumi.Aws.Organizations
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -260,11 +259,7 @@ namespace Pulumi.Aws.Organizations
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Elb
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,6 +25,7 @@ namespace Pulumi.Aws.Elb
     /// {
     ///     var lb = new Aws.Elb.LoadBalancer("lb", new()
     ///     {
+    ///         Name = "test-lb",
     ///         AvailabilityZones = new[]
     ///         {
     ///             "us-east-1a",
@@ -43,6 +45,7 @@ namespace Pulumi.Aws.Elb
     /// 
     ///     var foo = new Aws.Elb.SslNegotiationPolicy("foo", new()
     ///     {
+    ///         Name = "foo-policy",
     ///         LoadBalancer = lb.Id,
     ///         LbPort = 443,
     ///         Attributes = new[]
@@ -87,6 +90,7 @@ namespace Pulumi.Aws.Elb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:elb/sslNegotiationPolicy:SslNegotiationPolicy")]
     public partial class SslNegotiationPolicy : global::Pulumi.CustomResource
@@ -153,7 +157,7 @@ namespace Pulumi.Aws.Elb
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy"},
+                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

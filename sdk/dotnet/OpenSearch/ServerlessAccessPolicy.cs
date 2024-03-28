@@ -13,8 +13,10 @@ namespace Pulumi.Aws.OpenSearch
     /// Resource for managing an AWS OpenSearch Serverless Access Policy. See AWS documentation for [data access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html) and [supported data access policy permissions](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html#serverless-data-supported-permissions).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Grant all collection and index permissions
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,40 +30,41 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     ///     var example = new Aws.OpenSearch.ServerlessAccessPolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "data",
     ///         Description = "read and write permissions",
     ///         Policy = JsonSerializer.Serialize(new[]
     ///         {
     ///             new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["Rules"] = new[]
+    ///                 ["rules"] = new[]
     ///                 {
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["ResourceType"] = "index",
-    ///                         ["Resource"] = new[]
+    ///                         ["resourceType"] = "index",
+    ///                         ["resource"] = new[]
     ///                         {
     ///                             "index/example-collection/*",
     ///                         },
-    ///                         ["Permission"] = new[]
+    ///                         ["permission"] = new[]
     ///                         {
     ///                             "aoss:*",
     ///                         },
     ///                     },
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["ResourceType"] = "collection",
-    ///                         ["Resource"] = new[]
+    ///                         ["resourceType"] = "collection",
+    ///                         ["resource"] = new[]
     ///                         {
     ///                             "collection/example-collection",
     ///                         },
-    ///                         ["Permission"] = new[]
+    ///                         ["permission"] = new[]
     ///                         {
     ///                             "aoss:*",
     ///                         },
     ///                     },
     ///                 },
-    ///                 ["Principal"] = new[]
+    ///                 ["principal"] = new[]
     ///                 {
     ///                     current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.Arn),
     ///                 },
@@ -71,8 +74,11 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Grant read-only collection and index permissions
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -86,22 +92,23 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     ///     var example = new Aws.OpenSearch.ServerlessAccessPolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "data",
     ///         Description = "read-only permissions",
     ///         Policy = JsonSerializer.Serialize(new[]
     ///         {
     ///             new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["Rules"] = new[]
+    ///                 ["rules"] = new[]
     ///                 {
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["ResourceType"] = "index",
-    ///                         ["Resource"] = new[]
+    ///                         ["resourceType"] = "index",
+    ///                         ["resource"] = new[]
     ///                         {
     ///                             "index/example-collection/*",
     ///                         },
-    ///                         ["Permission"] = new[]
+    ///                         ["permission"] = new[]
     ///                         {
     ///                             "aoss:DescribeIndex",
     ///                             "aoss:ReadDocument",
@@ -109,18 +116,18 @@ namespace Pulumi.Aws.OpenSearch
     ///                     },
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["ResourceType"] = "collection",
-    ///                         ["Resource"] = new[]
+    ///                         ["resourceType"] = "collection",
+    ///                         ["resource"] = new[]
     ///                         {
     ///                             "collection/example-collection",
     ///                         },
-    ///                         ["Permission"] = new[]
+    ///                         ["permission"] = new[]
     ///                         {
     ///                             "aoss:DescribeCollectionItems",
     ///                         },
     ///                     },
     ///                 },
-    ///                 ["Principal"] = new[]
+    ///                 ["principal"] = new[]
     ///                 {
     ///                     current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.Arn),
     ///                 },
@@ -130,8 +137,11 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Grant SAML identity permissions
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -143,40 +153,41 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var example = new Aws.OpenSearch.ServerlessAccessPolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "data",
     ///         Description = "saml permissions",
     ///         Policy = JsonSerializer.Serialize(new[]
     ///         {
     ///             new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["Rules"] = new[]
+    ///                 ["rules"] = new[]
     ///                 {
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["ResourceType"] = "index",
-    ///                         ["Resource"] = new[]
+    ///                         ["resourceType"] = "index",
+    ///                         ["resource"] = new[]
     ///                         {
     ///                             "index/example-collection/*",
     ///                         },
-    ///                         ["Permission"] = new[]
+    ///                         ["permission"] = new[]
     ///                         {
     ///                             "aoss:*",
     ///                         },
     ///                     },
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["ResourceType"] = "collection",
-    ///                         ["Resource"] = new[]
+    ///                         ["resourceType"] = "collection",
+    ///                         ["resource"] = new[]
     ///                         {
     ///                             "collection/example-collection",
     ///                         },
-    ///                         ["Permission"] = new[]
+    ///                         ["permission"] = new[]
     ///                         {
     ///                             "aoss:*",
     ///                         },
     ///                     },
     ///                 },
-    ///                 ["Principal"] = new[]
+    ///                 ["principal"] = new[]
     ///                 {
     ///                     "saml/123456789012/myprovider/user/Annie",
     ///                     "saml/123456789012/anotherprovider/group/Accounting",
@@ -187,13 +198,14 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import OpenSearchServerless Access Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy example example/data
+    /// $ pulumi import aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy example example/data
     /// ```
     /// </summary>
     [AwsResourceType("aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy")]

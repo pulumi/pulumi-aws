@@ -19,8 +19,10 @@ import (
 // a particular domain name. An API stage can be associated with the domain name using the `apigatewayv2.ApiMapping` resource.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,7 +38,7 @@ import (
 //			_, err := apigatewayv2.NewDomainName(ctx, "example", &apigatewayv2.DomainNameArgs{
 //				DomainName: pulumi.String("ws-api.example.com"),
 //				DomainNameConfiguration: &apigatewayv2.DomainNameDomainNameConfigurationArgs{
-//					CertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
+//					CertificateArn: pulumi.Any(exampleAwsAcmCertificate.Arn),
 //					EndpointType:   pulumi.String("REGIONAL"),
 //					SecurityPolicy: pulumi.String("TLS_1_2"),
 //				},
@@ -49,8 +51,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Associated Route 53 Resource Record
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,10 +69,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomainName, err := apigatewayv2.NewDomainName(ctx, "exampleDomainName", &apigatewayv2.DomainNameArgs{
+//			example, err := apigatewayv2.NewDomainName(ctx, "example", &apigatewayv2.DomainNameArgs{
 //				DomainName: pulumi.String("http-api.example.com"),
 //				DomainNameConfiguration: &apigatewayv2.DomainNameDomainNameConfigurationArgs{
-//					CertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
+//					CertificateArn: pulumi.Any(exampleAwsAcmCertificate.Arn),
 //					EndpointType:   pulumi.String("REGIONAL"),
 //					SecurityPolicy: pulumi.String("TLS_1_2"),
 //				},
@@ -75,16 +80,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
-//				Name:   exampleDomainName.DomainName,
-//				Type:   pulumi.String("A"),
-//				ZoneId: pulumi.Any(aws_route53_zone.Example.Zone_id),
+//			_, err = route53.NewRecord(ctx, "example", &route53.RecordArgs{
+//				Name:   example.DomainName,
+//				Type:   pulumi.String(route53.RecordTypeA),
+//				ZoneId: pulumi.Any(exampleAwsRoute53Zone.ZoneId),
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{
-//						Name: exampleDomainName.DomainNameConfiguration.ApplyT(func(domainNameConfiguration apigatewayv2.DomainNameDomainNameConfiguration) (*string, error) {
+//						Name: example.DomainNameConfiguration.ApplyT(func(domainNameConfiguration apigatewayv2.DomainNameDomainNameConfiguration) (*string, error) {
 //							return &domainNameConfiguration.TargetDomainName, nil
 //						}).(pulumi.StringPtrOutput),
-//						ZoneId: exampleDomainName.DomainNameConfiguration.ApplyT(func(domainNameConfiguration apigatewayv2.DomainNameDomainNameConfiguration) (*string, error) {
+//						ZoneId: example.DomainNameConfiguration.ApplyT(func(domainNameConfiguration apigatewayv2.DomainNameDomainNameConfiguration) (*string, error) {
 //							return &domainNameConfiguration.HostedZoneId, nil
 //						}).(pulumi.StringPtrOutput),
 //						EvaluateTargetHealth: pulumi.Bool(false),
@@ -99,15 +104,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_apigatewayv2_domain_name` using the domain name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
-//
+// $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
 // ```
 type DomainName struct {
 	pulumi.CustomResourceState
@@ -143,10 +147,6 @@ func NewDomainName(ctx *pulumi.Context,
 	if args.DomainNameConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'DomainNameConfiguration'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DomainName
 	err := ctx.RegisterResource("aws:apigatewayv2/domainName:DomainName", name, args, &resource, opts...)

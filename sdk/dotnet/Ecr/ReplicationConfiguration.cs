@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,9 +25,9 @@ namespace Pulumi.Aws.Ecr
     /// {
     ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var exampleRegions = Aws.GetRegions.Invoke();
+    ///     var example = Aws.GetRegions.Invoke();
     /// 
-    ///     var exampleReplicationConfiguration = new Aws.Ecr.ReplicationConfiguration("exampleReplicationConfiguration", new()
+    ///     var exampleReplicationConfiguration = new Aws.Ecr.ReplicationConfiguration("example", new()
     ///     {
     ///         ReplicationConfigurationDetails = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationArgs
     ///         {
@@ -38,7 +39,7 @@ namespace Pulumi.Aws.Ecr
     ///                     {
     ///                         new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
     ///                         {
-    ///                             Region = exampleRegions.Apply(getRegionsResult =&gt; getRegionsResult.Names[0]),
+    ///                             Region = example.Apply(getRegionsResult =&gt; getRegionsResult.Names[0]),
     ///                             RegistryId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///                         },
     ///                     },
@@ -49,8 +50,11 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Multiple Region Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -61,9 +65,9 @@ namespace Pulumi.Aws.Ecr
     /// {
     ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var exampleRegions = Aws.GetRegions.Invoke();
+    ///     var example = Aws.GetRegions.Invoke();
     /// 
-    ///     var exampleReplicationConfiguration = new Aws.Ecr.ReplicationConfiguration("exampleReplicationConfiguration", new()
+    ///     var exampleReplicationConfiguration = new Aws.Ecr.ReplicationConfiguration("example", new()
     ///     {
     ///         ReplicationConfigurationDetails = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationArgs
     ///         {
@@ -75,12 +79,12 @@ namespace Pulumi.Aws.Ecr
     ///                     {
     ///                         new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
     ///                         {
-    ///                             Region = exampleRegions.Apply(getRegionsResult =&gt; getRegionsResult.Names[0]),
+    ///                             Region = example.Apply(getRegionsResult =&gt; getRegionsResult.Names[0]),
     ///                             RegistryId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///                         },
     ///                         new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
     ///                         {
-    ///                             Region = exampleRegions.Apply(getRegionsResult =&gt; getRegionsResult.Names[1]),
+    ///                             Region = example.Apply(getRegionsResult =&gt; getRegionsResult.Names[1]),
     ///                             RegistryId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///                         },
     ///                     },
@@ -91,9 +95,11 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Repository Filter Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -104,9 +110,9 @@ namespace Pulumi.Aws.Ecr
     /// {
     ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var exampleRegions = Aws.GetRegions.Invoke();
+    ///     var example = Aws.GetRegions.Invoke();
     /// 
-    ///     var exampleReplicationConfiguration = new Aws.Ecr.ReplicationConfiguration("exampleReplicationConfiguration", new()
+    ///     var exampleReplicationConfiguration = new Aws.Ecr.ReplicationConfiguration("example", new()
     ///     {
     ///         ReplicationConfigurationDetails = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationArgs
     ///         {
@@ -118,7 +124,7 @@ namespace Pulumi.Aws.Ecr
     ///                     {
     ///                         new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
     ///                         {
-    ///                             Region = exampleRegions.Apply(getRegionsResult =&gt; getRegionsResult.Names[0]),
+    ///                             Region = example.Apply(getRegionsResult =&gt; getRegionsResult.Names[0]),
     ///                             RegistryId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///                         },
     ///                     },
@@ -137,13 +143,14 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ECR Replication Configuration using the `registry_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
+    /// $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecr/replicationConfiguration:ReplicationConfiguration")]

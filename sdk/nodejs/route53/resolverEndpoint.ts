@@ -12,39 +12,44 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.route53.ResolverEndpoint("foo", {
+ *     name: "foo",
  *     direction: "INBOUND",
  *     securityGroupIds: [
- *         aws_security_group.sg1.id,
- *         aws_security_group.sg2.id,
+ *         sg1.id,
+ *         sg2.id,
  *     ],
  *     ipAddresses: [
  *         {
- *             subnetId: aws_subnet.sn1.id,
+ *             subnetId: sn1.id,
  *         },
  *         {
- *             subnetId: aws_subnet.sn2.id,
+ *             subnetId: sn2.id,
  *             ip: "10.0.64.4",
  *         },
+ *     ],
+ *     protocols: [
+ *         "Do53",
+ *         "DoH",
  *     ],
  *     tags: {
  *         Environment: "Prod",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Using `pulumi import`, import
- *
- * Route 53 Resolver endpoints using the Route 53 Resolver endpoint ID. For example:
+ * Using `pulumi import`, import  Route 53 Resolver endpoints using the Route 53 Resolver endpoint ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
+ * $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
  * ```
  */
 export class ResolverEndpoint extends pulumi.CustomResource {
@@ -99,6 +104,14 @@ export class ResolverEndpoint extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+     */
+    public readonly protocols!: pulumi.Output<string[]>;
+    /**
+     * The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+     */
+    public readonly resolverEndpointType!: pulumi.Output<string>;
+    /**
      * The ID of one or more security groups that you want to use to control access to this VPC.
      */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
@@ -131,6 +144,8 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             resourceInputs["hostVpcId"] = state ? state.hostVpcId : undefined;
             resourceInputs["ipAddresses"] = state ? state.ipAddresses : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["protocols"] = state ? state.protocols : undefined;
+            resourceInputs["resolverEndpointType"] = state ? state.resolverEndpointType : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -148,6 +163,8 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             resourceInputs["direction"] = args ? args.direction : undefined;
             resourceInputs["ipAddresses"] = args ? args.ipAddresses : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["protocols"] = args ? args.protocols : undefined;
+            resourceInputs["resolverEndpointType"] = args ? args.resolverEndpointType : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -155,8 +172,6 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ResolverEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -188,6 +203,14 @@ export interface ResolverEndpointState {
      * The friendly name of the Route 53 Resolver endpoint.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+     */
+    protocols?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+     */
+    resolverEndpointType?: pulumi.Input<string>;
     /**
      * The ID of one or more security groups that you want to use to control access to this VPC.
      */
@@ -223,6 +246,14 @@ export interface ResolverEndpointArgs {
      * The friendly name of the Route 53 Resolver endpoint.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+     */
+    protocols?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+     */
+    resolverEndpointType?: pulumi.Input<string>;
     /**
      * The ID of one or more security groups that you want to use to control access to this VPC.
      */

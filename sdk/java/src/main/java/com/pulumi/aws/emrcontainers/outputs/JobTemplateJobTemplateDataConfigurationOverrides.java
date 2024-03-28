@@ -60,6 +60,7 @@ public final class JobTemplateJobTemplateDataConfigurationOverrides {
 
         @CustomType.Setter
         public Builder applicationConfigurations(@Nullable List<JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration> applicationConfigurations) {
+
             this.applicationConfigurations = applicationConfigurations;
             return this;
         }
@@ -68,14 +69,15 @@ public final class JobTemplateJobTemplateDataConfigurationOverrides {
         }
         @CustomType.Setter
         public Builder monitoringConfiguration(@Nullable JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration monitoringConfiguration) {
+
             this.monitoringConfiguration = monitoringConfiguration;
             return this;
         }
         public JobTemplateJobTemplateDataConfigurationOverrides build() {
-            final var o = new JobTemplateJobTemplateDataConfigurationOverrides();
-            o.applicationConfigurations = applicationConfigurations;
-            o.monitoringConfiguration = monitoringConfiguration;
-            return o;
+            final var _resultValue = new JobTemplateJobTemplateDataConfigurationOverrides();
+            _resultValue.applicationConfigurations = applicationConfigurations;
+            _resultValue.monitoringConfiguration = monitoringConfiguration;
+            return _resultValue;
         }
     }
 }

@@ -8,6 +8,7 @@ import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSplunkConfigurationPr
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -20,14 +21,44 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
     public static final FirehoseDeliveryStreamSplunkConfigurationArgs Empty = new FirehoseDeliveryStreamSplunkConfigurationArgs();
 
     /**
-     * The CloudWatch Logging Options for the delivery stream. More details are given below.
+     * Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+     * 
+     */
+    @Import(name="bufferingInterval")
+    private @Nullable Output<Integer> bufferingInterval;
+
+    /**
+     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+     * 
+     */
+    public Optional<Output<Integer>> bufferingInterval() {
+        return Optional.ofNullable(this.bufferingInterval);
+    }
+
+    /**
+     * Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+     * 
+     */
+    @Import(name="bufferingSize")
+    private @Nullable Output<Integer> bufferingSize;
+
+    /**
+     * @return Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+     * 
+     */
+    public Optional<Output<Integer>> bufferingSize() {
+        return Optional.ofNullable(this.bufferingSize);
+    }
+
+    /**
+     * The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -95,14 +126,14 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
     }
 
     /**
-     * The data processing configuration.  More details are given below.
+     * The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     @Import(name="processingConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs> processingConfiguration;
 
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs>> processingConfiguration() {
@@ -140,14 +171,14 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
     }
 
     /**
-     * The S3 Configuration. See s3_configuration for more details.
+     * The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     @Import(name="s3Configuration", required=true)
     private Output<FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs> s3Configuration;
 
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     public Output<FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs> s3Configuration() {
@@ -157,6 +188,8 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
     private FirehoseDeliveryStreamSplunkConfigurationArgs() {}
 
     private FirehoseDeliveryStreamSplunkConfigurationArgs(FirehoseDeliveryStreamSplunkConfigurationArgs $) {
+        this.bufferingInterval = $.bufferingInterval;
+        this.bufferingSize = $.bufferingSize;
         this.cloudwatchLoggingOptions = $.cloudwatchLoggingOptions;
         this.hecAcknowledgmentTimeout = $.hecAcknowledgmentTimeout;
         this.hecEndpoint = $.hecEndpoint;
@@ -187,7 +220,49 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below.
+         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bufferingInterval(@Nullable Output<Integer> bufferingInterval) {
+            $.bufferingInterval = bufferingInterval;
+            return this;
+        }
+
+        /**
+         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bufferingInterval(Integer bufferingInterval) {
+            return bufferingInterval(Output.of(bufferingInterval));
+        }
+
+        /**
+         * @param bufferingSize Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bufferingSize(@Nullable Output<Integer> bufferingSize) {
+            $.bufferingSize = bufferingSize;
+            return this;
+        }
+
+        /**
+         * @param bufferingSize Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bufferingSize(Integer bufferingSize) {
+            return bufferingSize(Output.of(bufferingSize));
+        }
+
+        /**
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
          * 
          * @return builder
          * 
@@ -198,7 +273,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below.
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
          * 
          * @return builder
          * 
@@ -292,7 +367,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  More details are given below.
+         * @param processingConfiguration The data processing configuration.  See `processing_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -303,7 +378,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  More details are given below.
+         * @param processingConfiguration The data processing configuration.  See `processing_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -355,7 +430,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See s3_configuration for more details.
+         * @param s3Configuration The S3 Configuration. See `s3_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -366,7 +441,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See s3_configuration for more details.
+         * @param s3Configuration The S3 Configuration. See `s3_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -376,9 +451,15 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         public FirehoseDeliveryStreamSplunkConfigurationArgs build() {
-            $.hecEndpoint = Objects.requireNonNull($.hecEndpoint, "expected parameter 'hecEndpoint' to be non-null");
-            $.hecToken = Objects.requireNonNull($.hecToken, "expected parameter 'hecToken' to be non-null");
-            $.s3Configuration = Objects.requireNonNull($.s3Configuration, "expected parameter 's3Configuration' to be non-null");
+            if ($.hecEndpoint == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSplunkConfigurationArgs", "hecEndpoint");
+            }
+            if ($.hecToken == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSplunkConfigurationArgs", "hecToken");
+            }
+            if ($.s3Configuration == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSplunkConfigurationArgs", "s3Configuration");
+            }
             return $;
         }
     }

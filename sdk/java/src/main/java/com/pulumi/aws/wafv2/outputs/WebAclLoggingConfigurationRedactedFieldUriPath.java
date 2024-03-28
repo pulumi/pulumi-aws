@@ -25,8 +25,8 @@ public final class WebAclLoggingConfigurationRedactedFieldUriPath {
         }
 
         public WebAclLoggingConfigurationRedactedFieldUriPath build() {
-            final var o = new WebAclLoggingConfigurationRedactedFieldUriPath();
-            return o;
+            final var _resultValue = new WebAclLoggingConfigurationRedactedFieldUriPath();
+            return _resultValue;
         }
     }
 }

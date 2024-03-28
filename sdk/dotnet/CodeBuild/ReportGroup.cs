@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,7 +25,7 @@ namespace Pulumi.Aws.CodeBuild
     /// {
     ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -55,17 +56,21 @@ namespace Pulumi.Aws.CodeBuild
     ///         },
     ///     });
     /// 
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var exampleKey = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "my test kms key",
     ///         DeletionWindowInDays = 7,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleReportGroup = new Aws.CodeBuild.ReportGroup("exampleReportGroup", new()
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
     ///     {
+    ///         Bucket = "my-test",
+    ///     });
+    /// 
+    ///     var exampleReportGroup = new Aws.CodeBuild.ReportGroup("example", new()
+    ///     {
+    ///         Name = "my test report group",
     ///         Type = "TEST",
     ///         ExportConfig = new Aws.CodeBuild.Inputs.ReportGroupExportConfigArgs
     ///         {
@@ -83,13 +88,14 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
+    /// $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:codebuild/reportGroup:ReportGroup")]
@@ -166,10 +172,6 @@ namespace Pulumi.Aws.CodeBuild
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -289,11 +291,7 @@ namespace Pulumi.Aws.CodeBuild
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

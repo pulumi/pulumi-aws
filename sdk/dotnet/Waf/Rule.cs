@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Waf
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,6 +25,7 @@ namespace Pulumi.Aws.Waf
     /// {
     ///     var ipset = new Aws.Waf.IpSet("ipset", new()
     ///     {
+    ///         Name = "tfIPSet",
     ///         IpSetDescriptors = new[]
     ///         {
     ///             new Aws.Waf.Inputs.IpSetIpSetDescriptorArgs
@@ -36,6 +38,7 @@ namespace Pulumi.Aws.Waf
     /// 
     ///     var wafrule = new Aws.Waf.Rule("wafrule", new()
     ///     {
+    ///         Name = "tfWAFRule",
     ///         MetricName = "tfWAFRule",
     ///         Predicates = new[]
     ///         {
@@ -46,23 +49,18 @@ namespace Pulumi.Aws.Waf
     ///                 Type = "IPMatch",
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             ipset,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WAF rules using the id. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:waf/rule:Rule example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+    /// $ pulumi import aws:waf/rule:Rule example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
     /// ```
     /// </summary>
     [AwsResourceType("aws:waf/rule:Rule")]
@@ -127,10 +125,6 @@ namespace Pulumi.Aws.Waf
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -250,11 +244,7 @@ namespace Pulumi.Aws.Waf
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public RuleState()

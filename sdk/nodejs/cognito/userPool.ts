@@ -11,27 +11,31 @@ import * as utilities from "../utilities";
  * Provides a Cognito User Pool resource.
  *
  * ## Example Usage
+ *
  * ### Basic configuration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const pool = new aws.cognito.UserPool("pool", {});
+ * const pool = new aws.cognito.UserPool("pool", {name: "mypool"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Enabling SMS and Software Token Multi-Factor Authentication
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // ... other configuration ...
  * const example = new aws.cognito.UserPool("example", {
  *     mfaConfiguration: "ON",
  *     smsAuthenticationMessage: "Your code is {####}",
  *     smsConfiguration: {
  *         externalId: "example",
- *         snsCallerArn: aws_iam_role.example.arn,
+ *         snsCallerArn: exampleAwsIamRole.arn,
  *         snsRegion: "us-east-1",
  *     },
  *     softwareTokenMfaConfiguration: {
@@ -39,32 +43,39 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Using Account Recovery Setting
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.cognito.UserPool("test", {accountRecoverySetting: {
- *     recoveryMechanisms: [
- *         {
- *             name: "verified_email",
- *             priority: 1,
- *         },
- *         {
- *             name: "verified_phone_number",
- *             priority: 2,
- *         },
- *     ],
- * }});
+ * const test = new aws.cognito.UserPool("test", {
+ *     name: "mypool",
+ *     accountRecoverySetting: {
+ *         recoveryMechanisms: [
+ *             {
+ *                 name: "verified_email",
+ *                 priority: 1,
+ *             },
+ *             {
+ *                 name: "verified_phone_number",
+ *                 priority: 2,
+ *             },
+ *         ],
+ *     },
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Cognito User Pools using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
+ * $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
  * ```
  */
 export class UserPool extends pulumi.CustomResource {
@@ -309,8 +320,6 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(UserPool.__pulumiType, name, resourceInputs, opts);
     }
 }

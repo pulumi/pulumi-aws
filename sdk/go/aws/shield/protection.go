@@ -16,8 +16,10 @@ import (
 // The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.
 //
 // ## Example Usage
+//
 // ### Create protection
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,23 +40,24 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			current, err := aws.GetRegion(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			currentGetCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleEip, err := ec2.NewEip(ctx, "exampleEip", &ec2.EipArgs{
+//			example, err := ec2.NewEip(ctx, "example", &ec2.EipArgs{
 //				Domain: pulumi.String("vpc"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = shield.NewProtection(ctx, "exampleProtection", &shield.ProtectionArgs{
-//				ResourceArn: exampleEip.ID().ApplyT(func(id string) (string, error) {
-//					return fmt.Sprintf("arn:aws:ec2:%v:%v:eip-allocation/%v", currentRegion.Name, currentCallerIdentity.AccountId, id), nil
+//			_, err = shield.NewProtection(ctx, "example", &shield.ProtectionArgs{
+//				Name: pulumi.String("example"),
+//				ResourceArn: example.ID().ApplyT(func(id string) (string, error) {
+//					return fmt.Sprintf("arn:aws:ec2:%v:%v:eip-allocation/%v", current.Name, currentGetCallerIdentity.AccountId, id), nil
 //				}).(pulumi.StringOutput),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("Dev"),
@@ -68,15 +71,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Shield protection resources using specifying their ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
-//
+// $ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
 // ```
 type Protection struct {
 	pulumi.CustomResourceState
@@ -105,10 +107,6 @@ func NewProtection(ctx *pulumi.Context,
 	if args.ResourceArn == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Protection
 	err := ctx.RegisterResource("aws:shield/protection:Protection", name, args, &resource, opts...)

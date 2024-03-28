@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,22 +58,28 @@ public final class GetDedicatedHostFilter {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedHostFilter", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder values(List<String> values) {
-            this.values = Objects.requireNonNull(values);
+            if (values == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedHostFilter", "values");
+            }
+            this.values = values;
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
         }
         public GetDedicatedHostFilter build() {
-            final var o = new GetDedicatedHostFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetDedicatedHostFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

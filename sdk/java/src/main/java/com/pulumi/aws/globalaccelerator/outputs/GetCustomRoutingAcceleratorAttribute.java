@@ -4,6 +4,7 @@
 package com.pulumi.aws.globalaccelerator.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -47,25 +48,34 @@ public final class GetCustomRoutingAcceleratorAttribute {
 
         @CustomType.Setter
         public Builder flowLogsEnabled(Boolean flowLogsEnabled) {
-            this.flowLogsEnabled = Objects.requireNonNull(flowLogsEnabled);
+            if (flowLogsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetCustomRoutingAcceleratorAttribute", "flowLogsEnabled");
+            }
+            this.flowLogsEnabled = flowLogsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder flowLogsS3Bucket(String flowLogsS3Bucket) {
-            this.flowLogsS3Bucket = Objects.requireNonNull(flowLogsS3Bucket);
+            if (flowLogsS3Bucket == null) {
+              throw new MissingRequiredPropertyException("GetCustomRoutingAcceleratorAttribute", "flowLogsS3Bucket");
+            }
+            this.flowLogsS3Bucket = flowLogsS3Bucket;
             return this;
         }
         @CustomType.Setter
         public Builder flowLogsS3Prefix(String flowLogsS3Prefix) {
-            this.flowLogsS3Prefix = Objects.requireNonNull(flowLogsS3Prefix);
+            if (flowLogsS3Prefix == null) {
+              throw new MissingRequiredPropertyException("GetCustomRoutingAcceleratorAttribute", "flowLogsS3Prefix");
+            }
+            this.flowLogsS3Prefix = flowLogsS3Prefix;
             return this;
         }
         public GetCustomRoutingAcceleratorAttribute build() {
-            final var o = new GetCustomRoutingAcceleratorAttribute();
-            o.flowLogsEnabled = flowLogsEnabled;
-            o.flowLogsS3Bucket = flowLogsS3Bucket;
-            o.flowLogsS3Prefix = flowLogsS3Prefix;
-            return o;
+            final var _resultValue = new GetCustomRoutingAcceleratorAttribute();
+            _resultValue.flowLogsEnabled = flowLogsEnabled;
+            _resultValue.flowLogsS3Bucket = flowLogsS3Bucket;
+            _resultValue.flowLogsS3Prefix = flowLogsS3Prefix;
+            return _resultValue;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Elb
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,6 +25,7 @@ namespace Pulumi.Aws.Elb
     /// {
     ///     var lb = new Aws.Elb.LoadBalancer("lb", new()
     ///     {
+    ///         Name = "test-lb",
     ///         AvailabilityZones = new[]
     ///         {
     ///             "us-east-1a",
@@ -42,6 +44,7 @@ namespace Pulumi.Aws.Elb
     /// 
     ///     var foo = new Aws.Elb.LoadBalancerCookieStickinessPolicy("foo", new()
     ///     {
+    ///         Name = "foo-policy",
     ///         LoadBalancer = lb.Id,
     ///         LbPort = 80,
     ///         CookieExpirationPeriod = 600,
@@ -49,6 +52,7 @@ namespace Pulumi.Aws.Elb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:elb/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy")]
     public partial class LoadBalancerCookieStickinessPolicy : global::Pulumi.CustomResource
@@ -106,7 +110,7 @@ namespace Pulumi.Aws.Elb
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancing/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy"},
+                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancing/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

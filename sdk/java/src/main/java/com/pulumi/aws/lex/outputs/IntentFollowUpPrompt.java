@@ -6,6 +6,7 @@ package com.pulumi.aws.lex.outputs;
 import com.pulumi.aws.lex.outputs.IntentFollowUpPromptPrompt;
 import com.pulumi.aws.lex.outputs.IntentFollowUpPromptRejectionStatement;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -61,19 +62,25 @@ public final class IntentFollowUpPrompt {
 
         @CustomType.Setter
         public Builder prompt(IntentFollowUpPromptPrompt prompt) {
-            this.prompt = Objects.requireNonNull(prompt);
+            if (prompt == null) {
+              throw new MissingRequiredPropertyException("IntentFollowUpPrompt", "prompt");
+            }
+            this.prompt = prompt;
             return this;
         }
         @CustomType.Setter
         public Builder rejectionStatement(IntentFollowUpPromptRejectionStatement rejectionStatement) {
-            this.rejectionStatement = Objects.requireNonNull(rejectionStatement);
+            if (rejectionStatement == null) {
+              throw new MissingRequiredPropertyException("IntentFollowUpPrompt", "rejectionStatement");
+            }
+            this.rejectionStatement = rejectionStatement;
             return this;
         }
         public IntentFollowUpPrompt build() {
-            final var o = new IntentFollowUpPrompt();
-            o.prompt = prompt;
-            o.rejectionStatement = rejectionStatement;
-            return o;
+            final var _resultValue = new IntentFollowUpPrompt();
+            _resultValue.prompt = prompt;
+            _resultValue.rejectionStatement = rejectionStatement;
+            return _resultValue;
         }
     }
 }

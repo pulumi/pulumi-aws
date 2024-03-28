@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,7 +23,10 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Amplify.App("example");
+    ///     var example = new Aws.Amplify.App("example", new()
+    ///     {
+    ///         Name = "app",
+    ///     });
     /// 
     ///     var master = new Aws.Amplify.Branch("master", new()
     ///     {
@@ -38,10 +42,45 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Basic Authentication
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Amplify.App("example", new()
+    ///     {
+    ///         Name = "app",
+    ///     });
+    /// 
+    ///     var master = new Aws.Amplify.Branch("master", new()
+    ///     {
+    ///         AppId = example.Id,
+    ///         BranchName = "master",
+    ///         EnableBasicAuth = true,
+    ///         BasicAuthCredentials = Std.Base64encode.Invoke(new()
+    ///         {
+    ///             Input = "username:password",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Notifications
     /// 
     /// Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enable_notification` in a `aws.amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,7 +90,10 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Amplify.App("example");
+    ///     var example = new Aws.Amplify.App("example", new()
+    ///     {
+    ///         Name = "app",
+    ///     });
     /// 
     ///     var master = new Aws.Amplify.Branch("master", new()
     ///     {
@@ -61,49 +103,50 @@ namespace Pulumi.Aws.Amplify
     ///     });
     /// 
     ///     // EventBridge Rule for Amplify notifications
-    ///     var amplifyAppMasterEventRule = new Aws.CloudWatch.EventRule("amplifyAppMasterEventRule", new()
+    ///     var amplifyAppMasterEventRule = new Aws.CloudWatch.EventRule("amplify_app_master", new()
     ///     {
-    ///         Description = master.BranchName.Apply(branchName =&gt; $"AWS Amplify build notifications for :  App: {aws_amplify_app.App.Id} Branch: {branchName}"),
-    ///         EventPattern = Output.Tuple(example.Id, master.BranchName).Apply(values =&gt;
+    ///         Name = master.BranchName.Apply(branchName =&gt; $"amplify-{app.Id}-{branchName}-branch-notification"),
+    ///         Description = master.BranchName.Apply(branchName =&gt; $"AWS Amplify build notifications for :  App: {app.Id} Branch: {branchName}"),
+    ///         EventPattern = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             var id = values.Item1;
-    ///             var branchName = values.Item2;
-    ///             return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["detail"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["detail"] = new Dictionary&lt;string, object?&gt;
+    ///                 ["appId"] = new[]
     ///                 {
-    ///                     ["appId"] = new[]
-    ///                     {
-    ///                         id,
-    ///                     },
-    ///                     ["branchName"] = new[]
-    ///                     {
-    ///                         branchName,
-    ///                     },
-    ///                     ["jobStatus"] = new[]
-    ///                     {
-    ///                         "SUCCEED",
-    ///                         "FAILED",
-    ///                         "STARTED",
-    ///                     },
+    ///                     example.Id,
     ///                 },
-    ///                 ["detail-type"] = new[]
+    ///                 ["branchName"] = new[]
     ///                 {
-    ///                     "Amplify Deployment Status Change",
+    ///                     master.BranchName,
     ///                 },
-    ///                 ["source"] = new[]
+    ///                 ["jobStatus"] = new[]
     ///                 {
-    ///                     "aws.amplify",
+    ///                     "SUCCEED",
+    ///                     "FAILED",
+    ///                     "STARTED",
     ///                 },
-    ///             });
-    ///         }),
+    ///             },
+    ///             ["detail-type"] = new[]
+    ///             {
+    ///                 "Amplify Deployment Status Change",
+    ///             },
+    ///             ["source"] = new[]
+    ///             {
+    ///                 "aws.amplify",
+    ///             },
+    ///         })),
     ///     });
     /// 
-    ///     var amplifyAppMasterTopic = new Aws.Sns.Topic("amplifyAppMasterTopic");
+    ///     // SNS Topic for Amplify notifications
+    ///     var amplifyAppMasterTopic = new Aws.Sns.Topic("amplify_app_master", new()
+    ///     {
+    ///         Name = master.BranchName.Apply(branchName =&gt; $"amplify-{app.Id}_{branchName}"),
+    ///     });
     /// 
-    ///     var amplifyAppMasterEventTarget = new Aws.CloudWatch.EventTarget("amplifyAppMasterEventTarget", new()
+    ///     var amplifyAppMasterEventTarget = new Aws.CloudWatch.EventTarget("amplify_app_master", new()
     ///     {
     ///         Rule = amplifyAppMasterEventRule.Name,
+    ///         TargetId = master.BranchName,
     ///         Arn = amplifyAppMasterTopic.Arn,
     ///         InputTransformer = new Aws.CloudWatch.Inputs.EventTargetInputTransformerArgs
     ///         {
@@ -119,8 +162,7 @@ namespace Pulumi.Aws.Amplify
     ///         },
     ///     });
     /// 
-    ///     // SNS Topic for Amplify notifications
-    ///     var amplifyAppMasterPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var amplifyAppMaster = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -151,10 +193,10 @@ namespace Pulumi.Aws.Amplify
     ///         },
     ///     });
     /// 
-    ///     var amplifyAppMasterTopicPolicy = new Aws.Sns.TopicPolicy("amplifyAppMasterTopicPolicy", new()
+    ///     var amplifyAppMasterTopicPolicy = new Aws.Sns.TopicPolicy("amplify_app_master", new()
     ///     {
     ///         Arn = amplifyAppMasterTopic.Arn,
-    ///         Policy = amplifyAppMasterPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = amplifyAppMaster.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var @this = new Aws.Sns.TopicSubscription("this", new()
@@ -166,13 +208,14 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amplify branch using `app_id` and `branch_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
+    /// $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
     /// ```
     /// </summary>
     [AwsResourceType("aws:amplify/branch:Branch")]
@@ -342,7 +385,6 @@ namespace Pulumi.Aws.Amplify
                 AdditionalSecretOutputs =
                 {
                     "basicAuthCredentials",
-                    "tagsAll",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -669,11 +711,7 @@ namespace Pulumi.Aws.Amplify
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

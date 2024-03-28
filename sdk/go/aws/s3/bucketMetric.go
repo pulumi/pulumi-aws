@@ -14,9 +14,13 @@ import (
 
 // Provides a S3 bucket [metrics configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html) resource.
 //
+// > This resource cannot be used with S3 directory buckets.
+//
 // ## Example Usage
+//
 // ### Add metrics configuration for entire S3 bucket
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,12 +33,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucketMetric(ctx, "example-entire-bucket", &s3.BucketMetricArgs{
 //				Bucket: example.ID(),
+//				Name:   pulumi.String("EntireBucket"),
 //			})
 //			if err != nil {
 //				return err
@@ -44,8 +51,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Add metrics configuration with S3 object filter
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,12 +68,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucketMetric(ctx, "example-filtered", &s3.BucketMetricArgs{
 //				Bucket: example.ID(),
+//				Name:   pulumi.String("ImportantBlueDocuments"),
 //				Filter: &s3.BucketMetricFilterArgs{
 //					Prefix: pulumi.String("documents/"),
 //					Tags: pulumi.StringMap{
@@ -80,15 +93,63 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Add metrics configuration with S3 object filter for S3 Access Point
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewAccessPoint(ctx, "example-access-point", &s3.AccessPointArgs{
+//				Bucket: example.ID(),
+//				Name:   pulumi.String("example-access-point"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketMetric(ctx, "example-filtered", &s3.BucketMetricArgs{
+//				Bucket: example.ID(),
+//				Name:   pulumi.String("ImportantBlueDocuments"),
+//				Filter: &s3.BucketMetricFilterArgs{
+//					AccessPoint: example_access_point.Arn,
+//					Tags: pulumi.StringMap{
+//						"priority": pulumi.String("high"),
+//						"class":    pulumi.String("blue"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import S3 bucket metric configurations using `bucket:metric`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket
-//
+// $ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket
 // ```
 type BucketMetric struct {
 	pulumi.CustomResourceState

@@ -16,11 +16,11 @@ namespace Pulumi.Aws.Quicksight
         /// QuickSight user. By using this data source, you can reference QuickSight user
         /// properties without having to hard code ARNs or unique IDs as input.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,8 +36,7 @@ namespace Pulumi.Aws.Quicksight
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetQuicksightUserResult> InvokeAsync(GetQuicksightUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQuicksightUserResult>("aws:quicksight/getQuicksightUser:getQuicksightUser", args ?? new GetQuicksightUserArgs(), options.WithDefaults());
@@ -47,11 +46,11 @@ namespace Pulumi.Aws.Quicksight
         /// QuickSight user. By using this data source, you can reference QuickSight user
         /// properties without having to hard code ARNs or unique IDs as input.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -67,8 +66,7 @@ namespace Pulumi.Aws.Quicksight
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetQuicksightUserResult> Invoke(GetQuicksightUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQuicksightUserResult>("aws:quicksight/getQuicksightUser:getQuicksightUser", args ?? new GetQuicksightUserInvokeArgs(), options.WithDefaults());

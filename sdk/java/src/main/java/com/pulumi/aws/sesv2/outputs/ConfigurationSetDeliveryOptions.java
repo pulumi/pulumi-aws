@@ -58,19 +58,21 @@ public final class ConfigurationSetDeliveryOptions {
 
         @CustomType.Setter
         public Builder sendingPoolName(@Nullable String sendingPoolName) {
+
             this.sendingPoolName = sendingPoolName;
             return this;
         }
         @CustomType.Setter
         public Builder tlsPolicy(@Nullable String tlsPolicy) {
+
             this.tlsPolicy = tlsPolicy;
             return this;
         }
         public ConfigurationSetDeliveryOptions build() {
-            final var o = new ConfigurationSetDeliveryOptions();
-            o.sendingPoolName = sendingPoolName;
-            o.tlsPolicy = tlsPolicy;
-            return o;
+            final var _resultValue = new ConfigurationSetDeliveryOptions();
+            _resultValue.sendingPoolName = sendingPoolName;
+            _resultValue.tlsPolicy = tlsPolicy;
+            return _resultValue;
         }
     }
 }

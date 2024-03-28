@@ -13,8 +13,10 @@ namespace Pulumi.Aws.EmrServerless
     /// Manages an EMR Serverless Application.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,14 +27,18 @@ namespace Pulumi.Aws.EmrServerless
     /// {
     ///     var example = new Aws.EmrServerless.Application("example", new()
     ///     {
+    ///         Name = "example",
     ///         ReleaseLabel = "emr-6.6.0",
     ///         Type = "hive",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Initial Capacity Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,30 +49,34 @@ namespace Pulumi.Aws.EmrServerless
     /// {
     ///     var example = new Aws.EmrServerless.Application("example", new()
     ///     {
+    ///         Name = "example",
+    ///         ReleaseLabel = "emr-6.6.0",
+    ///         Type = "hive",
     ///         InitialCapacities = new[]
     ///         {
     ///             new Aws.EmrServerless.Inputs.ApplicationInitialCapacityArgs
     ///             {
+    ///                 InitialCapacityType = "HiveDriver",
     ///                 InitialCapacityConfig = new Aws.EmrServerless.Inputs.ApplicationInitialCapacityInitialCapacityConfigArgs
     ///                 {
+    ///                     WorkerCount = 1,
     ///                     WorkerConfiguration = new Aws.EmrServerless.Inputs.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs
     ///                     {
     ///                         Cpu = "2 vCPU",
     ///                         Memory = "10 GB",
     ///                     },
-    ///                     WorkerCount = 1,
     ///                 },
-    ///                 InitialCapacityType = "HiveDriver",
     ///             },
     ///         },
-    ///         ReleaseLabel = "emr-6.6.0",
-    ///         Type = "hive",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Maximum Capacity Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -77,24 +87,26 @@ namespace Pulumi.Aws.EmrServerless
     /// {
     ///     var example = new Aws.EmrServerless.Application("example", new()
     ///     {
+    ///         Name = "example",
+    ///         ReleaseLabel = "emr-6.6.0",
+    ///         Type = "hive",
     ///         MaximumCapacity = new Aws.EmrServerless.Inputs.ApplicationMaximumCapacityArgs
     ///         {
     ///             Cpu = "2 vCPU",
     ///             Memory = "10 GB",
     ///         },
-    ///         ReleaseLabel = "emr-6.6.0",
-    ///         Type = "hive",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EMR Severless applications using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:emrserverless/application:Application example id
+    /// $ pulumi import aws:emrserverless/application:Application example id
     /// ```
     /// </summary>
     [AwsResourceType("aws:emrserverless/application:Application")]
@@ -201,10 +213,6 @@ namespace Pulumi.Aws.EmrServerless
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -402,11 +410,7 @@ namespace Pulumi.Aws.EmrServerless
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

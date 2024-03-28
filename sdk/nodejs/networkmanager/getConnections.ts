@@ -9,17 +9,19 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkmanager.getConnections({
- *     globalNetworkId: _var.global_network_id,
+ *     globalNetworkId: globalNetworkId,
  *     tags: {
  *         Env: "test",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getConnections(args: GetConnectionsArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionsResult> {
 
@@ -70,17 +72,19 @@ export interface GetConnectionsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkmanager.getConnections({
- *     globalNetworkId: _var.global_network_id,
+ *     globalNetworkId: globalNetworkId,
  *     tags: {
  *         Env: "test",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getConnectionsOutput(args: GetConnectionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionsResult> {
     return pulumi.output(args).apply((a: any) => getConnections(a, opts))

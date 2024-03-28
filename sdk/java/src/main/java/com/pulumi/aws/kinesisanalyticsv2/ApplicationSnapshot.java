@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Snapshots are the AWS implementation of [Flink Savepoints](https://ci.apache.org/projects/flink/flink-docs-release-1.11/ops/state/savepoints.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -41,20 +43,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ApplicationSnapshot(&#34;example&#34;, ApplicationSnapshotArgs.builder()        
- *             .applicationName(aws_kinesisanalyticsv2_application.example().name())
+ *             .applicationName(exampleAwsKinesisanalyticsv2Application.name())
  *             .snapshotName(&#34;example-snapshot&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using `application_name` together with `snapshot_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
+ * $ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
  * ```
  * 
  */

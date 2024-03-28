@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Creates a Lightsail load balancer Certificate resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,27 +44,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testLb = new Lb(&#34;testLb&#34;, LbArgs.builder()        
+ *         var test = new Lb(&#34;test&#34;, LbArgs.builder()        
+ *             .name(&#34;test-load-balancer&#34;)
  *             .healthCheckPath(&#34;/&#34;)
  *             .instancePort(&#34;80&#34;)
  *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
  *             .build());
  * 
  *         var testLbCertificate = new LbCertificate(&#34;testLbCertificate&#34;, LbCertificateArgs.builder()        
- *             .lbName(testLb.id())
+ *             .name(&#34;test-load-balancer-certificate&#34;)
+ *             .lbName(test.id())
  *             .domainName(&#34;test.com&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_lightsail_lb_certificate` using the id attribute. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
+ * $ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
  * ```
  * 
  */

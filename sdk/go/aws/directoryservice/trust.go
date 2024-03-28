@@ -21,8 +21,10 @@ import (
 // Once the second Trust is created, the first will update to the correct state.
 //
 // ## Example Usage
+//
 // ### Two-Way Trust
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -35,21 +37,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			oneDirectory, err := directoryservice.NewDirectory(ctx, "oneDirectory", &directoryservice.DirectoryArgs{
+//			oneDirectory, err := directoryservice.NewDirectory(ctx, "one", &directoryservice.DirectoryArgs{
 //				Name: pulumi.String("one.example.com"),
 //				Type: pulumi.String("MicrosoftAD"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			twoDirectory, err := directoryservice.NewDirectory(ctx, "twoDirectory", &directoryservice.DirectoryArgs{
+//			twoDirectory, err := directoryservice.NewDirectory(ctx, "two", &directoryservice.DirectoryArgs{
 //				Name: pulumi.String("two.example.com"),
 //				Type: pulumi.String("MicrosoftAD"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = directoryservice.NewTrust(ctx, "oneTrust", &directoryservice.TrustArgs{
+//			_, err = directoryservice.NewTrust(ctx, "one", &directoryservice.TrustArgs{
 //				DirectoryId:                 oneDirectory.ID(),
 //				RemoteDomainName:            twoDirectory.Name,
 //				TrustDirection:              pulumi.String("Two-Way"),
@@ -59,7 +61,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = directoryservice.NewTrust(ctx, "twoTrust", &directoryservice.TrustArgs{
+//			_, err = directoryservice.NewTrust(ctx, "two", &directoryservice.TrustArgs{
 //				DirectoryId:                 twoDirectory.ID(),
 //				RemoteDomainName:            oneDirectory.Name,
 //				TrustDirection:              pulumi.String("Two-Way"),
@@ -74,8 +76,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### One-Way Trust
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -88,21 +93,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			oneDirectory, err := directoryservice.NewDirectory(ctx, "oneDirectory", &directoryservice.DirectoryArgs{
+//			oneDirectory, err := directoryservice.NewDirectory(ctx, "one", &directoryservice.DirectoryArgs{
 //				Name: pulumi.String("one.example.com"),
 //				Type: pulumi.String("MicrosoftAD"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			twoDirectory, err := directoryservice.NewDirectory(ctx, "twoDirectory", &directoryservice.DirectoryArgs{
+//			twoDirectory, err := directoryservice.NewDirectory(ctx, "two", &directoryservice.DirectoryArgs{
 //				Name: pulumi.String("two.example.com"),
 //				Type: pulumi.String("MicrosoftAD"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = directoryservice.NewTrust(ctx, "oneTrust", &directoryservice.TrustArgs{
+//			_, err = directoryservice.NewTrust(ctx, "one", &directoryservice.TrustArgs{
 //				DirectoryId:                 oneDirectory.ID(),
 //				RemoteDomainName:            twoDirectory.Name,
 //				TrustDirection:              pulumi.String("One-Way: Incoming"),
@@ -112,7 +117,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = directoryservice.NewTrust(ctx, "twoTrust", &directoryservice.TrustArgs{
+//			_, err = directoryservice.NewTrust(ctx, "two", &directoryservice.TrustArgs{
 //				DirectoryId:                 twoDirectory.ID(),
 //				RemoteDomainName:            oneDirectory.Name,
 //				TrustDirection:              pulumi.String("One-Way: Outgoing"),
@@ -127,15 +132,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import the Trust relationship using the directory ID and remote domain name, separated by a `/`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:directoryservice/trust:Trust example d-926724cf57/directory.example.com
-//
+// $ pulumi import aws:directoryservice/trust:Trust example d-926724cf57/directory.example.com
 // ```
 type Trust struct {
 	pulumi.CustomResourceState

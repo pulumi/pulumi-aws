@@ -4,6 +4,7 @@
 package com.pulumi.aws.verifiedaccess.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -87,31 +88,37 @@ public final class InstanceLoggingConfigurationAccessLogsS3 {
 
         @CustomType.Setter
         public Builder bucketName(@Nullable String bucketName) {
+
             this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder bucketOwner(@Nullable String bucketOwner) {
+
             this.bucketOwner = bucketOwner;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("InstanceLoggingConfigurationAccessLogsS3", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         public InstanceLoggingConfigurationAccessLogsS3 build() {
-            final var o = new InstanceLoggingConfigurationAccessLogsS3();
-            o.bucketName = bucketName;
-            o.bucketOwner = bucketOwner;
-            o.enabled = enabled;
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new InstanceLoggingConfigurationAccessLogsS3();
+            _resultValue.bucketName = bucketName;
+            _resultValue.bucketOwner = bucketOwner;
+            _resultValue.enabled = enabled;
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

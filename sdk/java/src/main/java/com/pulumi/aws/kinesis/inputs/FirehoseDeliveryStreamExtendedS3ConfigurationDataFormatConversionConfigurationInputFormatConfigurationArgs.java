@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesis.inputs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -14,14 +15,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
     public static final FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationArgs Empty = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationArgs();
 
     /**
-     * Nested argument that specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. More details below.
+     * Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. See `deserializer` block below for details.
      * 
      */
     @Import(name="deserializer", required=true)
     private Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs> deserializer;
 
     /**
-     * @return Nested argument that specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. More details below.
+     * @return Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. See `deserializer` block below for details.
      * 
      */
     public Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs> deserializer() {
@@ -53,7 +54,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param deserializer Nested argument that specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. More details below.
+         * @param deserializer Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. See `deserializer` block below for details.
          * 
          * @return builder
          * 
@@ -64,7 +65,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param deserializer Nested argument that specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. More details below.
+         * @param deserializer Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. See `deserializer` block below for details.
          * 
          * @return builder
          * 
@@ -74,7 +75,9 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationArgs build() {
-            $.deserializer = Objects.requireNonNull($.deserializer, "expected parameter 'deserializer' to be non-null");
+            if ($.deserializer == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationArgs", "deserializer");
+            }
             return $;
         }
     }

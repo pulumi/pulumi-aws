@@ -13,7 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -24,6 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * Basic usage:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,7 +53,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var exampleVpcIpam = new VpcIpam(&#34;exampleVpcIpam&#34;, VpcIpamArgs.builder()        
+ *         var example = new VpcIpam(&#34;example&#34;, VpcIpamArgs.builder()        
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
  *                 .regionName(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
  *                 .build())
@@ -60,15 +61,18 @@ import javax.annotation.Nullable;
  * 
  *         var exampleVpcIpamPool = new VpcIpamPool(&#34;exampleVpcIpamPool&#34;, VpcIpamPoolArgs.builder()        
  *             .addressFamily(&#34;ipv4&#34;)
- *             .ipamScopeId(exampleVpcIpam.privateDefaultScopeId())
+ *             .ipamScopeId(example.privateDefaultScopeId())
  *             .locale(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Nested Pools:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -130,13 +134,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IPAMs using the IPAM pool `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/vpcIpamPool:VpcIpamPool example ipam-pool-0958f95207d978e1e
+ * $ pulumi import aws:ec2/vpcIpamPool:VpcIpamPool example ipam-pool-0958f95207d978e1e
  * ```
  * 
  */
@@ -431,9 +436,6 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

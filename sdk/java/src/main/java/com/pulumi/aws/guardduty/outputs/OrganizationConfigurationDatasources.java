@@ -74,25 +74,28 @@ public final class OrganizationConfigurationDatasources {
 
         @CustomType.Setter
         public Builder kubernetes(@Nullable OrganizationConfigurationDatasourcesKubernetes kubernetes) {
+
             this.kubernetes = kubernetes;
             return this;
         }
         @CustomType.Setter
         public Builder malwareProtection(@Nullable OrganizationConfigurationDatasourcesMalwareProtection malwareProtection) {
+
             this.malwareProtection = malwareProtection;
             return this;
         }
         @CustomType.Setter
         public Builder s3Logs(@Nullable OrganizationConfigurationDatasourcesS3Logs s3Logs) {
+
             this.s3Logs = s3Logs;
             return this;
         }
         public OrganizationConfigurationDatasources build() {
-            final var o = new OrganizationConfigurationDatasources();
-            o.kubernetes = kubernetes;
-            o.malwareProtection = malwareProtection;
-            o.s3Logs = s3Logs;
-            return o;
+            final var _resultValue = new OrganizationConfigurationDatasources();
+            _resultValue.kubernetes = kubernetes;
+            _resultValue.malwareProtection = malwareProtection;
+            _resultValue.s3Logs = s3Logs;
+            return _resultValue;
         }
     }
 }

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appsync.NewDomainNameApiAssociation(ctx, "example", &appsync.DomainNameApiAssociationArgs{
-//				ApiId:      pulumi.Any(aws_appsync_graphql_api.Example.Id),
-//				DomainName: pulumi.Any(aws_appsync_domain_name.Example.Domain_name),
+//				ApiId:      pulumi.Any(exampleAwsAppsyncGraphqlApi.Id),
+//				DomainName: pulumi.Any(exampleAwsAppsyncDomainName.DomainName),
 //			})
 //			if err != nil {
 //				return err
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_appsync_domain_name_api_association` using the AppSync domain name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com
-//
+// $ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com
 // ```
 type DomainNameApiAssociation struct {
 	pulumi.CustomResourceState

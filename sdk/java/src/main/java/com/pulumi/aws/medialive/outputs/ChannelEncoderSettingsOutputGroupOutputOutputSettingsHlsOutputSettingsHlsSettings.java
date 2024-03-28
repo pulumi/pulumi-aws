@@ -57,31 +57,35 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
 
         @CustomType.Setter
         public Builder audioOnlyHlsSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings audioOnlyHlsSettings) {
+
             this.audioOnlyHlsSettings = audioOnlyHlsSettings;
             return this;
         }
         @CustomType.Setter
         public Builder fmp4HlsSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings fmp4HlsSettings) {
+
             this.fmp4HlsSettings = fmp4HlsSettings;
             return this;
         }
         @CustomType.Setter
         public Builder frameCaptureHlsSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettings frameCaptureHlsSettings) {
+
             this.frameCaptureHlsSettings = frameCaptureHlsSettings;
             return this;
         }
         @CustomType.Setter
         public Builder standardHlsSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings standardHlsSettings) {
+
             this.standardHlsSettings = standardHlsSettings;
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings();
-            o.audioOnlyHlsSettings = audioOnlyHlsSettings;
-            o.fmp4HlsSettings = fmp4HlsSettings;
-            o.frameCaptureHlsSettings = frameCaptureHlsSettings;
-            o.standardHlsSettings = standardHlsSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings();
+            _resultValue.audioOnlyHlsSettings = audioOnlyHlsSettings;
+            _resultValue.fmp4HlsSettings = fmp4HlsSettings;
+            _resultValue.frameCaptureHlsSettings = frameCaptureHlsSettings;
+            _resultValue.standardHlsSettings = standardHlsSettings;
+            return _resultValue;
         }
     }
 }

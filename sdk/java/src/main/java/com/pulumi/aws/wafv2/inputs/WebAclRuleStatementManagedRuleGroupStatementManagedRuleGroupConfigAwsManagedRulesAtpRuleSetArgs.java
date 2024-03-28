@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementM
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -190,7 +191,9 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs build() {
-            $.loginPath = Objects.requireNonNull($.loginPath, "expected parameter 'loginPath' to be non-null");
+            if ($.loginPath == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs", "loginPath");
+            }
             return $;
         }
     }

@@ -12,19 +12,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const app = new aws.opsworks.PhpAppLayer("app", {stackId: aws_opsworks_stack.main.id});
+ * const app = new aws.opsworks.PhpAppLayer("app", {stackId: main.id});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import OpsWorks PHP Application Layers using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:opsworks/phpAppLayer:PhpAppLayer bar 00000000-0000-0000-0000-000000000000
+ * $ pulumi import aws:opsworks/phpAppLayer:PhpAppLayer bar 00000000-0000-0000-0000-000000000000
  * ```
  */
 export class PhpAppLayer extends pulumi.CustomResource {
@@ -211,8 +213,6 @@ export class PhpAppLayer extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(PhpAppLayer.__pulumiType, name, resourceInputs, opts);
     }
 }

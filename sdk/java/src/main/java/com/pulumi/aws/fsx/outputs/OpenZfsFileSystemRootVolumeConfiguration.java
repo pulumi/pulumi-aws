@@ -119,31 +119,37 @@ public final class OpenZfsFileSystemRootVolumeConfiguration {
 
         @CustomType.Setter
         public Builder copyTagsToSnapshots(@Nullable Boolean copyTagsToSnapshots) {
+
             this.copyTagsToSnapshots = copyTagsToSnapshots;
             return this;
         }
         @CustomType.Setter
         public Builder dataCompressionType(@Nullable String dataCompressionType) {
+
             this.dataCompressionType = dataCompressionType;
             return this;
         }
         @CustomType.Setter
         public Builder nfsExports(@Nullable OpenZfsFileSystemRootVolumeConfigurationNfsExports nfsExports) {
+
             this.nfsExports = nfsExports;
             return this;
         }
         @CustomType.Setter
         public Builder readOnly(@Nullable Boolean readOnly) {
+
             this.readOnly = readOnly;
             return this;
         }
         @CustomType.Setter
         public Builder recordSizeKib(@Nullable Integer recordSizeKib) {
+
             this.recordSizeKib = recordSizeKib;
             return this;
         }
         @CustomType.Setter
         public Builder userAndGroupQuotas(@Nullable List<OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota> userAndGroupQuotas) {
+
             this.userAndGroupQuotas = userAndGroupQuotas;
             return this;
         }
@@ -151,14 +157,14 @@ public final class OpenZfsFileSystemRootVolumeConfiguration {
             return userAndGroupQuotas(List.of(userAndGroupQuotas));
         }
         public OpenZfsFileSystemRootVolumeConfiguration build() {
-            final var o = new OpenZfsFileSystemRootVolumeConfiguration();
-            o.copyTagsToSnapshots = copyTagsToSnapshots;
-            o.dataCompressionType = dataCompressionType;
-            o.nfsExports = nfsExports;
-            o.readOnly = readOnly;
-            o.recordSizeKib = recordSizeKib;
-            o.userAndGroupQuotas = userAndGroupQuotas;
-            return o;
+            final var _resultValue = new OpenZfsFileSystemRootVolumeConfiguration();
+            _resultValue.copyTagsToSnapshots = copyTagsToSnapshots;
+            _resultValue.dataCompressionType = dataCompressionType;
+            _resultValue.nfsExports = nfsExports;
+            _resultValue.readOnly = readOnly;
+            _resultValue.recordSizeKib = recordSizeKib;
+            _resultValue.userAndGroupQuotas = userAndGroupQuotas;
+            return _resultValue;
         }
     }
 }

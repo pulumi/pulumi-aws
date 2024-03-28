@@ -36,13 +36,14 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings 
 
         @CustomType.Setter
         public Builder nielsenWatermarksSettings(@Nullable ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings nielsenWatermarksSettings) {
+
             this.nielsenWatermarksSettings = nielsenWatermarksSettings;
             return this;
         }
         public ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings build() {
-            final var o = new ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings();
-            o.nielsenWatermarksSettings = nielsenWatermarksSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings();
+            _resultValue.nielsenWatermarksSettings = nielsenWatermarksSettings;
+            return _resultValue;
         }
     }
 }

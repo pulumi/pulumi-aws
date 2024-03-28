@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,9 +32,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"AllowDBUserOverride": "1",
-//				"Client_ID":           "ExampleClientID",
-//				"App_ID":              "example",
+//				"allowDBUserOverride": "1",
+//				"clientID":            "ExampleClientID",
+//				"appID":               "example",
 //			})
 //			if err != nil {
 //				return err
@@ -51,15 +52,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
-//
+// $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
 // ```
 type AuthenticationProfile struct {
 	pulumi.CustomResourceState

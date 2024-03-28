@@ -4,6 +4,7 @@
 package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class GetInfrastructureConfigurationLoggingS3Log {
 
         @CustomType.Setter
         public Builder s3BucketName(String s3BucketName) {
-            this.s3BucketName = Objects.requireNonNull(s3BucketName);
+            if (s3BucketName == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationLoggingS3Log", "s3BucketName");
+            }
+            this.s3BucketName = s3BucketName;
             return this;
         }
         @CustomType.Setter
         public Builder s3KeyPrefix(String s3KeyPrefix) {
-            this.s3KeyPrefix = Objects.requireNonNull(s3KeyPrefix);
+            if (s3KeyPrefix == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationLoggingS3Log", "s3KeyPrefix");
+            }
+            this.s3KeyPrefix = s3KeyPrefix;
             return this;
         }
         public GetInfrastructureConfigurationLoggingS3Log build() {
-            final var o = new GetInfrastructureConfigurationLoggingS3Log();
-            o.s3BucketName = s3BucketName;
-            o.s3KeyPrefix = s3KeyPrefix;
-            return o;
+            final var _resultValue = new GetInfrastructureConfigurationLoggingS3Log();
+            _resultValue.s3BucketName = s3BucketName;
+            _resultValue.s3KeyPrefix = s3KeyPrefix;
+            return _resultValue;
         }
     }
 }

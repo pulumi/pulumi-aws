@@ -11,6 +11,7 @@ import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsScheduleRetainRuleA
 import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsScheduleShareRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -428,9 +429,15 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         public LifecyclePolicyPolicyDetailsScheduleArgs build() {
-            $.createRule = Objects.requireNonNull($.createRule, "expected parameter 'createRule' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.retainRule = Objects.requireNonNull($.retainRule, "expected parameter 'retainRule' to be non-null");
+            if ($.createRule == null) {
+                throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailsScheduleArgs", "createRule");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailsScheduleArgs", "name");
+            }
+            if ($.retainRule == null) {
+                throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailsScheduleArgs", "retainRule");
+            }
             return $;
         }
     }

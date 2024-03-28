@@ -12,11 +12,11 @@ namespace Pulumi.Aws.CloudFront
     public static class GetOriginRequestPolicy
     {
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,12 +32,13 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### AWS-Managed Policies
         /// 
         /// AWS managed origin request policy names are prefixed with `Managed-`:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -53,18 +54,17 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetOriginRequestPolicyResult> InvokeAsync(GetOriginRequestPolicyArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOriginRequestPolicyResult>("aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy", args ?? new GetOriginRequestPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -80,12 +80,13 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### AWS-Managed Policies
         /// 
         /// AWS managed origin request policy names are prefixed with `Managed-`:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -101,8 +102,7 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetOriginRequestPolicyResult> Invoke(GetOriginRequestPolicyInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOriginRequestPolicyResult>("aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy", args ?? new GetOriginRequestPolicyInvokeArgs(), options.WithDefaults());

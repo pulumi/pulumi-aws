@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides an RDS DB subnet group resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,22 +44,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new SubnetGroup(&#34;default&#34;, SubnetGroupArgs.builder()        
+ *             .name(&#34;main&#34;)
  *             .subnetIds(            
- *                 aws_subnet.frontend().id(),
- *                 aws_subnet.backend().id())
+ *                 frontend.id(),
+ *                 backend.id())
  *             .tags(Map.of(&#34;Name&#34;, &#34;My DB subnet group&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import DB Subnet groups using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rds/subnetGroup:SubnetGroup default production-subnet-group
+ * $ pulumi import aws:rds/subnetGroup:SubnetGroup default production-subnet-group
  * ```
  * 
  */
@@ -226,9 +230,6 @@ public class SubnetGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

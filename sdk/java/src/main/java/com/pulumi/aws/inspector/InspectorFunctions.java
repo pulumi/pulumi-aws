@@ -19,6 +19,8 @@ public final class InspectorFunctions {
      * configured in the provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -51,12 +53,14 @@ public final class InspectorFunctions {
      *             .tags(Map.of(&#34;test&#34;, &#34;test&#34;))
      *             .build());
      * 
-     *         var assessmentAssessmentTarget = new AssessmentTarget(&#34;assessmentAssessmentTarget&#34;, AssessmentTargetArgs.builder()        
+     *         var assessment = new AssessmentTarget(&#34;assessment&#34;, AssessmentTargetArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .resourceGroupArn(group.arn())
      *             .build());
      * 
      *         var assessmentAssessmentTemplate = new AssessmentTemplate(&#34;assessmentAssessmentTemplate&#34;, AssessmentTemplateArgs.builder()        
-     *             .targetArn(assessmentAssessmentTarget.arn())
+     *             .name(&#34;Test&#34;)
+     *             .targetArn(assessment.arn())
      *             .duration(&#34;60&#34;)
      *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -&gt; getRulesPackagesResult.arns()))
      *             .build());
@@ -64,6 +68,7 @@ public final class InspectorFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRulesPackagesResult> getRulesPackages() {
@@ -75,6 +80,8 @@ public final class InspectorFunctions {
      * configured in the provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -107,12 +114,14 @@ public final class InspectorFunctions {
      *             .tags(Map.of(&#34;test&#34;, &#34;test&#34;))
      *             .build());
      * 
-     *         var assessmentAssessmentTarget = new AssessmentTarget(&#34;assessmentAssessmentTarget&#34;, AssessmentTargetArgs.builder()        
+     *         var assessment = new AssessmentTarget(&#34;assessment&#34;, AssessmentTargetArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .resourceGroupArn(group.arn())
      *             .build());
      * 
      *         var assessmentAssessmentTemplate = new AssessmentTemplate(&#34;assessmentAssessmentTemplate&#34;, AssessmentTemplateArgs.builder()        
-     *             .targetArn(assessmentAssessmentTarget.arn())
+     *             .name(&#34;Test&#34;)
+     *             .targetArn(assessment.arn())
      *             .duration(&#34;60&#34;)
      *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -&gt; getRulesPackagesResult.arns()))
      *             .build());
@@ -120,6 +129,7 @@ public final class InspectorFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRulesPackagesResult> getRulesPackagesPlain() {
@@ -131,6 +141,8 @@ public final class InspectorFunctions {
      * configured in the provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -163,12 +175,14 @@ public final class InspectorFunctions {
      *             .tags(Map.of(&#34;test&#34;, &#34;test&#34;))
      *             .build());
      * 
-     *         var assessmentAssessmentTarget = new AssessmentTarget(&#34;assessmentAssessmentTarget&#34;, AssessmentTargetArgs.builder()        
+     *         var assessment = new AssessmentTarget(&#34;assessment&#34;, AssessmentTargetArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .resourceGroupArn(group.arn())
      *             .build());
      * 
      *         var assessmentAssessmentTemplate = new AssessmentTemplate(&#34;assessmentAssessmentTemplate&#34;, AssessmentTemplateArgs.builder()        
-     *             .targetArn(assessmentAssessmentTarget.arn())
+     *             .name(&#34;Test&#34;)
+     *             .targetArn(assessment.arn())
      *             .duration(&#34;60&#34;)
      *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -&gt; getRulesPackagesResult.arns()))
      *             .build());
@@ -176,6 +190,7 @@ public final class InspectorFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRulesPackagesResult> getRulesPackages(InvokeArgs args) {
@@ -187,6 +202,8 @@ public final class InspectorFunctions {
      * configured in the provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -219,12 +236,14 @@ public final class InspectorFunctions {
      *             .tags(Map.of(&#34;test&#34;, &#34;test&#34;))
      *             .build());
      * 
-     *         var assessmentAssessmentTarget = new AssessmentTarget(&#34;assessmentAssessmentTarget&#34;, AssessmentTargetArgs.builder()        
+     *         var assessment = new AssessmentTarget(&#34;assessment&#34;, AssessmentTargetArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .resourceGroupArn(group.arn())
      *             .build());
      * 
      *         var assessmentAssessmentTemplate = new AssessmentTemplate(&#34;assessmentAssessmentTemplate&#34;, AssessmentTemplateArgs.builder()        
-     *             .targetArn(assessmentAssessmentTarget.arn())
+     *             .name(&#34;Test&#34;)
+     *             .targetArn(assessment.arn())
      *             .duration(&#34;60&#34;)
      *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -&gt; getRulesPackagesResult.arns()))
      *             .build());
@@ -232,6 +251,7 @@ public final class InspectorFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRulesPackagesResult> getRulesPackagesPlain(InvokeArgs args) {
@@ -243,6 +263,8 @@ public final class InspectorFunctions {
      * configured in the provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -275,12 +297,14 @@ public final class InspectorFunctions {
      *             .tags(Map.of(&#34;test&#34;, &#34;test&#34;))
      *             .build());
      * 
-     *         var assessmentAssessmentTarget = new AssessmentTarget(&#34;assessmentAssessmentTarget&#34;, AssessmentTargetArgs.builder()        
+     *         var assessment = new AssessmentTarget(&#34;assessment&#34;, AssessmentTargetArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .resourceGroupArn(group.arn())
      *             .build());
      * 
      *         var assessmentAssessmentTemplate = new AssessmentTemplate(&#34;assessmentAssessmentTemplate&#34;, AssessmentTemplateArgs.builder()        
-     *             .targetArn(assessmentAssessmentTarget.arn())
+     *             .name(&#34;Test&#34;)
+     *             .targetArn(assessment.arn())
      *             .duration(&#34;60&#34;)
      *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -&gt; getRulesPackagesResult.arns()))
      *             .build());
@@ -288,6 +312,7 @@ public final class InspectorFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRulesPackagesResult> getRulesPackages(InvokeArgs args, InvokeOptions options) {
@@ -299,6 +324,8 @@ public final class InspectorFunctions {
      * configured in the provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -331,12 +358,14 @@ public final class InspectorFunctions {
      *             .tags(Map.of(&#34;test&#34;, &#34;test&#34;))
      *             .build());
      * 
-     *         var assessmentAssessmentTarget = new AssessmentTarget(&#34;assessmentAssessmentTarget&#34;, AssessmentTargetArgs.builder()        
+     *         var assessment = new AssessmentTarget(&#34;assessment&#34;, AssessmentTargetArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .resourceGroupArn(group.arn())
      *             .build());
      * 
      *         var assessmentAssessmentTemplate = new AssessmentTemplate(&#34;assessmentAssessmentTemplate&#34;, AssessmentTemplateArgs.builder()        
-     *             .targetArn(assessmentAssessmentTarget.arn())
+     *             .name(&#34;Test&#34;)
+     *             .targetArn(assessment.arn())
      *             .duration(&#34;60&#34;)
      *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -&gt; getRulesPackagesResult.arns()))
      *             .build());
@@ -344,6 +373,7 @@ public final class InspectorFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRulesPackagesResult> getRulesPackagesPlain(InvokeArgs args, InvokeOptions options) {

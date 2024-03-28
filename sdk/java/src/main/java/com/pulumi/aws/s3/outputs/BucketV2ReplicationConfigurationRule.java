@@ -7,6 +7,7 @@ import com.pulumi.aws.s3.outputs.BucketV2ReplicationConfigurationRuleDestination
 import com.pulumi.aws.s3.outputs.BucketV2ReplicationConfigurationRuleFilter;
 import com.pulumi.aws.s3.outputs.BucketV2ReplicationConfigurationRuleSourceSelectionCriteria;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -147,12 +148,16 @@ public final class BucketV2ReplicationConfigurationRule {
 
         @CustomType.Setter
         public Builder deleteMarkerReplicationStatus(@Nullable String deleteMarkerReplicationStatus) {
+
             this.deleteMarkerReplicationStatus = deleteMarkerReplicationStatus;
             return this;
         }
         @CustomType.Setter
         public Builder destinations(List<BucketV2ReplicationConfigurationRuleDestination> destinations) {
-            this.destinations = Objects.requireNonNull(destinations);
+            if (destinations == null) {
+              throw new MissingRequiredPropertyException("BucketV2ReplicationConfigurationRule", "destinations");
+            }
+            this.destinations = destinations;
             return this;
         }
         public Builder destinations(BucketV2ReplicationConfigurationRuleDestination... destinations) {
@@ -160,6 +165,7 @@ public final class BucketV2ReplicationConfigurationRule {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<BucketV2ReplicationConfigurationRuleFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -168,21 +174,25 @@ public final class BucketV2ReplicationConfigurationRule {
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
+
             this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder sourceSelectionCriterias(@Nullable List<BucketV2ReplicationConfigurationRuleSourceSelectionCriteria> sourceSelectionCriterias) {
+
             this.sourceSelectionCriterias = sourceSelectionCriterias;
             return this;
         }
@@ -191,20 +201,23 @@ public final class BucketV2ReplicationConfigurationRule {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("BucketV2ReplicationConfigurationRule", "status");
+            }
+            this.status = status;
             return this;
         }
         public BucketV2ReplicationConfigurationRule build() {
-            final var o = new BucketV2ReplicationConfigurationRule();
-            o.deleteMarkerReplicationStatus = deleteMarkerReplicationStatus;
-            o.destinations = destinations;
-            o.filters = filters;
-            o.id = id;
-            o.prefix = prefix;
-            o.priority = priority;
-            o.sourceSelectionCriterias = sourceSelectionCriterias;
-            o.status = status;
-            return o;
+            final var _resultValue = new BucketV2ReplicationConfigurationRule();
+            _resultValue.deleteMarkerReplicationStatus = deleteMarkerReplicationStatus;
+            _resultValue.destinations = destinations;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.prefix = prefix;
+            _resultValue.priority = priority;
+            _resultValue.sourceSelectionCriterias = sourceSelectionCriterias;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,7 +54,7 @@ namespace Pulumi.Aws.S3Control
     ///                 S3BucketDestination = new Aws.S3Control.Inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs
     ///                 {
     ///                     AccountId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                     Arn = aws_s3_bucket.Target.Arn,
+    ///                     Arn = target.Arn,
     ///                     Format = "CSV",
     ///                     OutputSchemaVersion = "V_1",
     ///                     Encryption = new Aws.S3Control.Inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs
@@ -69,8 +70,8 @@ namespace Pulumi.Aws.S3Control
     ///             {
     ///                 Buckets = new[]
     ///                 {
-    ///                     aws_s3_bucket.B1.Arn,
-    ///                     aws_s3_bucket.B2.Arn,
+    ///                     b1.Arn,
+    ///                     b2.Arn,
     ///                 },
     ///                 Regions = new[]
     ///                 {
@@ -82,13 +83,14 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import S3 Storage Lens configurations using the `account_id` and `config_id`, separated by a colon (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1
+    /// $ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3control/storageLensConfiguration:StorageLensConfiguration")]
@@ -153,10 +155,6 @@ namespace Pulumi.Aws.S3Control
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -264,11 +262,7 @@ namespace Pulumi.Aws.S3Control
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public StorageLensConfigurationState()

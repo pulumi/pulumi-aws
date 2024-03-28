@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS MediaLive MultiplexProgram.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,7 +22,8 @@ import * as utilities from "../utilities";
  * const available = aws.getAvailabilityZones({
  *     state: "available",
  * });
- * const exampleMultiplex = new aws.medialive.Multiplex("exampleMultiplex", {
+ * const example = new aws.medialive.Multiplex("example", {
+ *     name: "example-multiplex-changed",
  *     availabilityZones: [
  *         available.then(available => available.names?.[0]),
  *         available.then(available => available.names?.[1]),
@@ -36,9 +39,9 @@ import * as utilities from "../utilities";
  *         tag1: "value1",
  *     },
  * });
- * const exampleMultiplexProgram = new aws.medialive.MultiplexProgram("exampleMultiplexProgram", {
+ * const exampleMultiplexProgram = new aws.medialive.MultiplexProgram("example", {
  *     programName: "example_program",
- *     multiplexId: exampleMultiplex.id,
+ *     multiplexId: example.id,
  *     multiplexProgramSettings: {
  *         programNumber: 1,
  *         preferredChannelPipeline: "CURRENTLY_ACTIVE",
@@ -48,13 +51,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of "`program_name`/`multiplex_id`". For example:
  *
  * ```sh
- *  $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
+ * $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
  * ```
  */
 export class MultiplexProgram extends pulumi.CustomResource {

@@ -4,6 +4,7 @@
 package com.pulumi.aws.vpclattice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -154,67 +155,97 @@ public final class GetServiceNetworkResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetServiceNetworkResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder authType(String authType) {
-            this.authType = Objects.requireNonNull(authType);
+            if (authType == null) {
+              throw new MissingRequiredPropertyException("GetServiceNetworkResult", "authType");
+            }
+            this.authType = authType;
             return this;
         }
         @CustomType.Setter
         public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
+            if (createdAt == null) {
+              throw new MissingRequiredPropertyException("GetServiceNetworkResult", "createdAt");
+            }
+            this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceNetworkResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder lastUpdatedAt(String lastUpdatedAt) {
-            this.lastUpdatedAt = Objects.requireNonNull(lastUpdatedAt);
+            if (lastUpdatedAt == null) {
+              throw new MissingRequiredPropertyException("GetServiceNetworkResult", "lastUpdatedAt");
+            }
+            this.lastUpdatedAt = lastUpdatedAt;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetServiceNetworkResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder numberOfAssociatedServices(Integer numberOfAssociatedServices) {
-            this.numberOfAssociatedServices = Objects.requireNonNull(numberOfAssociatedServices);
+            if (numberOfAssociatedServices == null) {
+              throw new MissingRequiredPropertyException("GetServiceNetworkResult", "numberOfAssociatedServices");
+            }
+            this.numberOfAssociatedServices = numberOfAssociatedServices;
             return this;
         }
         @CustomType.Setter
         public Builder numberOfAssociatedVpcs(Integer numberOfAssociatedVpcs) {
-            this.numberOfAssociatedVpcs = Objects.requireNonNull(numberOfAssociatedVpcs);
+            if (numberOfAssociatedVpcs == null) {
+              throw new MissingRequiredPropertyException("GetServiceNetworkResult", "numberOfAssociatedVpcs");
+            }
+            this.numberOfAssociatedVpcs = numberOfAssociatedVpcs;
             return this;
         }
         @CustomType.Setter
         public Builder serviceNetworkIdentifier(String serviceNetworkIdentifier) {
-            this.serviceNetworkIdentifier = Objects.requireNonNull(serviceNetworkIdentifier);
+            if (serviceNetworkIdentifier == null) {
+              throw new MissingRequiredPropertyException("GetServiceNetworkResult", "serviceNetworkIdentifier");
+            }
+            this.serviceNetworkIdentifier = serviceNetworkIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetServiceNetworkResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetServiceNetworkResult build() {
-            final var o = new GetServiceNetworkResult();
-            o.arn = arn;
-            o.authType = authType;
-            o.createdAt = createdAt;
-            o.id = id;
-            o.lastUpdatedAt = lastUpdatedAt;
-            o.name = name;
-            o.numberOfAssociatedServices = numberOfAssociatedServices;
-            o.numberOfAssociatedVpcs = numberOfAssociatedVpcs;
-            o.serviceNetworkIdentifier = serviceNetworkIdentifier;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetServiceNetworkResult();
+            _resultValue.arn = arn;
+            _resultValue.authType = authType;
+            _resultValue.createdAt = createdAt;
+            _resultValue.id = id;
+            _resultValue.lastUpdatedAt = lastUpdatedAt;
+            _resultValue.name = name;
+            _resultValue.numberOfAssociatedServices = numberOfAssociatedServices;
+            _resultValue.numberOfAssociatedVpcs = numberOfAssociatedVpcs;
+            _resultValue.serviceNetworkIdentifier = serviceNetworkIdentifier;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

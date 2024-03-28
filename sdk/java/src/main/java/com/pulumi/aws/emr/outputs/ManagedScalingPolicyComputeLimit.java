@@ -4,6 +4,7 @@
 package com.pulumi.aws.emr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -101,37 +102,48 @@ public final class ManagedScalingPolicyComputeLimit {
 
         @CustomType.Setter
         public Builder maximumCapacityUnits(Integer maximumCapacityUnits) {
-            this.maximumCapacityUnits = Objects.requireNonNull(maximumCapacityUnits);
+            if (maximumCapacityUnits == null) {
+              throw new MissingRequiredPropertyException("ManagedScalingPolicyComputeLimit", "maximumCapacityUnits");
+            }
+            this.maximumCapacityUnits = maximumCapacityUnits;
             return this;
         }
         @CustomType.Setter
         public Builder maximumCoreCapacityUnits(@Nullable Integer maximumCoreCapacityUnits) {
+
             this.maximumCoreCapacityUnits = maximumCoreCapacityUnits;
             return this;
         }
         @CustomType.Setter
         public Builder maximumOndemandCapacityUnits(@Nullable Integer maximumOndemandCapacityUnits) {
+
             this.maximumOndemandCapacityUnits = maximumOndemandCapacityUnits;
             return this;
         }
         @CustomType.Setter
         public Builder minimumCapacityUnits(Integer minimumCapacityUnits) {
-            this.minimumCapacityUnits = Objects.requireNonNull(minimumCapacityUnits);
+            if (minimumCapacityUnits == null) {
+              throw new MissingRequiredPropertyException("ManagedScalingPolicyComputeLimit", "minimumCapacityUnits");
+            }
+            this.minimumCapacityUnits = minimumCapacityUnits;
             return this;
         }
         @CustomType.Setter
         public Builder unitType(String unitType) {
-            this.unitType = Objects.requireNonNull(unitType);
+            if (unitType == null) {
+              throw new MissingRequiredPropertyException("ManagedScalingPolicyComputeLimit", "unitType");
+            }
+            this.unitType = unitType;
             return this;
         }
         public ManagedScalingPolicyComputeLimit build() {
-            final var o = new ManagedScalingPolicyComputeLimit();
-            o.maximumCapacityUnits = maximumCapacityUnits;
-            o.maximumCoreCapacityUnits = maximumCoreCapacityUnits;
-            o.maximumOndemandCapacityUnits = maximumOndemandCapacityUnits;
-            o.minimumCapacityUnits = minimumCapacityUnits;
-            o.unitType = unitType;
-            return o;
+            final var _resultValue = new ManagedScalingPolicyComputeLimit();
+            _resultValue.maximumCapacityUnits = maximumCapacityUnits;
+            _resultValue.maximumCoreCapacityUnits = maximumCoreCapacityUnits;
+            _resultValue.maximumOndemandCapacityUnits = maximumOndemandCapacityUnits;
+            _resultValue.minimumCapacityUnits = minimumCapacityUnits;
+            _resultValue.unitType = unitType;
+            return _resultValue;
         }
     }
 }

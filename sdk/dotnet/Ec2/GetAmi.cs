@@ -15,10 +15,9 @@ namespace Pulumi.Aws.Ec2
         /// Use this data source to get the ID of a registered AMI for use in other
         /// resources.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -30,6 +29,12 @@ namespace Pulumi.Aws.Ec2
         ///     var example = Aws.Ec2.GetAmi.Invoke(new()
         ///     {
         ///         ExecutableUsers = new[]
+        ///         {
+        ///             "self",
+        ///         },
+        ///         MostRecent = true,
+        ///         NameRegex = "^myami-\\d{3}",
+        ///         Owners = new[]
         ///         {
         ///             "self",
         ///         },
@@ -60,18 +65,11 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
-        ///         MostRecent = true,
-        ///         NameRegex = "^myami-\\d{3}",
-        ///         Owners = new[]
-        ///         {
-        ///             "self",
-        ///         },
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAmiResult> InvokeAsync(GetAmiArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAmiResult>("aws:ec2/getAmi:getAmi", args ?? new GetAmiArgs(), options.WithDefaults());
@@ -80,10 +78,9 @@ namespace Pulumi.Aws.Ec2
         /// Use this data source to get the ID of a registered AMI for use in other
         /// resources.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -95,6 +92,12 @@ namespace Pulumi.Aws.Ec2
         ///     var example = Aws.Ec2.GetAmi.Invoke(new()
         ///     {
         ///         ExecutableUsers = new[]
+        ///         {
+        ///             "self",
+        ///         },
+        ///         MostRecent = true,
+        ///         NameRegex = "^myami-\\d{3}",
+        ///         Owners = new[]
         ///         {
         ///             "self",
         ///         },
@@ -125,18 +128,11 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
-        ///         MostRecent = true,
-        ///         NameRegex = "^myami-\\d{3}",
-        ///         Owners = new[]
-        ///         {
-        ///             "self",
-        ///         },
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAmiResult> Invoke(GetAmiInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAmiResult>("aws:ec2/getAmi:getAmi", args ?? new GetAmiInvokeArgs(), options.WithDefaults());

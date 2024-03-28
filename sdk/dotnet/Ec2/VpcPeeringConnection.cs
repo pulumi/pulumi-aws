@@ -28,6 +28,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,16 +39,18 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var foo = new Aws.Ec2.VpcPeeringConnection("foo", new()
     ///     {
-    ///         PeerOwnerId = @var.Peer_owner_id,
-    ///         PeerVpcId = aws_vpc.Bar.Id,
-    ///         VpcId = aws_vpc.Foo.Id,
+    ///         PeerOwnerId = peerOwnerId,
+    ///         PeerVpcId = bar.Id,
+    ///         VpcId = fooAwsVpc.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Basic usage with connection options:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,9 +61,9 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var foo = new Aws.Ec2.VpcPeeringConnection("foo", new()
     ///     {
-    ///         PeerOwnerId = @var.Peer_owner_id,
-    ///         PeerVpcId = aws_vpc.Bar.Id,
-    ///         VpcId = aws_vpc.Foo.Id,
+    ///         PeerOwnerId = peerOwnerId,
+    ///         PeerVpcId = bar.Id,
+    ///         VpcId = fooAwsVpc.Id,
     ///         Accepter = new Aws.Ec2.Inputs.VpcPeeringConnectionAccepterArgs
     ///         {
     ///             AllowRemoteVpcDnsResolution = true,
@@ -73,9 +76,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Basic usage with tags:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -84,7 +89,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooVpc = new Aws.Ec2.Vpc("fooVpc", new()
+    ///     var fooVpc = new Aws.Ec2.Vpc("foo", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
     ///     });
@@ -94,9 +99,9 @@ namespace Pulumi.Aws.Ec2
     ///         CidrBlock = "10.2.0.0/16",
     ///     });
     /// 
-    ///     var fooVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("fooVpcPeeringConnection", new()
+    ///     var foo = new Aws.Ec2.VpcPeeringConnection("foo", new()
     ///     {
-    ///         PeerOwnerId = @var.Peer_owner_id,
+    ///         PeerOwnerId = peerOwnerId,
     ///         PeerVpcId = bar.Id,
     ///         VpcId = fooVpc.Id,
     ///         AutoAccept = true,
@@ -108,9 +113,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Basic usage with region:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -119,25 +126,19 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooVpc = new Aws.Ec2.Vpc("fooVpc", new()
+    ///     var fooVpc = new Aws.Ec2.Vpc("foo", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Us_west_2,
     ///     });
     /// 
     ///     var bar = new Aws.Ec2.Vpc("bar", new()
     ///     {
     ///         CidrBlock = "10.2.0.0/16",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Us_east_1,
     ///     });
     /// 
-    ///     var fooVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("fooVpcPeeringConnection", new()
+    ///     var foo = new Aws.Ec2.VpcPeeringConnection("foo", new()
     ///     {
-    ///         PeerOwnerId = @var.Peer_owner_id,
+    ///         PeerOwnerId = peerOwnerId,
     ///         PeerVpcId = bar.Id,
     ///         VpcId = fooVpc.Id,
     ///         PeerRegion = "us-east-1",
@@ -145,6 +146,8 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Notes
     /// 
     /// If both VPCs are not in the same AWS account and region do not enable the `auto_accept` attribute.
@@ -156,7 +159,7 @@ namespace Pulumi.Aws.Ec2
     /// Using `pulumi import`, import VPC Peering resources using the VPC peering `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
+    /// $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcPeeringConnection:VpcPeeringConnection")]
@@ -182,8 +185,8 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> AutoAccept { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS account ID of the owner of the peer VPC.
-        /// Defaults to the account ID the AWS provider is currently connected to.
+        /// The AWS account ID of the target peer VPC.
+        /// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
         /// </summary>
         [Output("peerOwnerId")]
         public Output<string> PeerOwnerId { get; private set; } = null!;
@@ -196,7 +199,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PeerRegion { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the VPC with which you are creating the VPC Peering Connection.
+        /// The ID of the target VPC with which you are creating the VPC Peering Connection.
         /// </summary>
         [Output("peerVpcId")]
         public Output<string> PeerVpcId { get; private set; } = null!;
@@ -249,10 +252,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -290,8 +289,8 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? AutoAccept { get; set; }
 
         /// <summary>
-        /// The AWS account ID of the owner of the peer VPC.
-        /// Defaults to the account ID the AWS provider is currently connected to.
+        /// The AWS account ID of the target peer VPC.
+        /// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
         /// </summary>
         [Input("peerOwnerId")]
         public Input<string>? PeerOwnerId { get; set; }
@@ -304,7 +303,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PeerRegion { get; set; }
 
         /// <summary>
-        /// The ID of the VPC with which you are creating the VPC Peering Connection.
+        /// The ID of the target VPC with which you are creating the VPC Peering Connection.
         /// </summary>
         [Input("peerVpcId", required: true)]
         public Input<string> PeerVpcId { get; set; } = null!;
@@ -362,8 +361,8 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? AutoAccept { get; set; }
 
         /// <summary>
-        /// The AWS account ID of the owner of the peer VPC.
-        /// Defaults to the account ID the AWS provider is currently connected to.
+        /// The AWS account ID of the target peer VPC.
+        /// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
         /// </summary>
         [Input("peerOwnerId")]
         public Input<string>? PeerOwnerId { get; set; }
@@ -376,7 +375,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PeerRegion { get; set; }
 
         /// <summary>
-        /// The ID of the VPC with which you are creating the VPC Peering Connection.
+        /// The ID of the target VPC with which you are creating the VPC Peering Connection.
         /// </summary>
         [Input("peerVpcId")]
         public Input<string>? PeerVpcId { get; set; }
@@ -410,11 +409,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

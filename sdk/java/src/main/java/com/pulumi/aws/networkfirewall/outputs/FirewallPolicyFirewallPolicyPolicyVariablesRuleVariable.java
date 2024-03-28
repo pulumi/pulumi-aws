@@ -5,6 +5,7 @@ package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -57,19 +58,25 @@ public final class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable {
 
         @CustomType.Setter
         public Builder ipSet(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet ipSet) {
-            this.ipSet = Objects.requireNonNull(ipSet);
+            if (ipSet == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable", "ipSet");
+            }
+            this.ipSet = ipSet;
             return this;
         }
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable", "key");
+            }
+            this.key = key;
             return this;
         }
         public FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable build() {
-            final var o = new FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable();
-            o.ipSet = ipSet;
-            o.key = key;
-            return o;
+            final var _resultValue = new FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable();
+            _resultValue.ipSet = ipSet;
+            _resultValue.key = key;
+            return _resultValue;
         }
     }
 }

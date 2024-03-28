@@ -80,16 +80,19 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtraction
 
         @CustomType.Setter
         public Builder dateValue(@Nullable String dateValue) {
+
             this.dateValue = dateValue;
             return this;
         }
         @CustomType.Setter
         public Builder longValue(@Nullable Integer longValue) {
+
             this.longValue = longValue;
             return this;
         }
         @CustomType.Setter
         public Builder stringListValues(@Nullable List<String> stringListValues) {
+
             this.stringListValues = stringListValues;
             return this;
         }
@@ -98,16 +101,17 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtraction
         }
         @CustomType.Setter
         public Builder stringValue(@Nullable String stringValue) {
+
             this.stringValue = stringValue;
             return this;
         }
         public DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue build() {
-            final var o = new DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue();
-            o.dateValue = dateValue;
-            o.longValue = longValue;
-            o.stringListValues = stringListValues;
-            o.stringValue = stringValue;
-            return o;
+            final var _resultValue = new DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue();
+            _resultValue.dateValue = dateValue;
+            _resultValue.longValue = longValue;
+            _resultValue.stringListValues = stringListValues;
+            _resultValue.stringValue = stringValue;
+            return _resultValue;
         }
     }
 }

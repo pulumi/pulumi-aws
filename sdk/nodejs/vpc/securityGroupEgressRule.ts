@@ -16,25 +16,27 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.vpc.SecurityGroupEgressRule("example", {
- *     securityGroupId: aws_security_group.example.id,
+ *     securityGroupId: exampleAwsSecurityGroup.id,
  *     cidrIpv4: "10.0.0.0/8",
  *     fromPort: 80,
  *     ipProtocol: "tcp",
  *     toPort: 80,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import security group egress rules using the `security_group_rule_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule example sgr-02108b27edd666983
+ * $ pulumi import aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule example sgr-02108b27edd666983
  * ```
  */
 export class SecurityGroupEgressRule extends pulumi.CustomResource {
@@ -169,8 +171,6 @@ export class SecurityGroupEgressRule extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SecurityGroupEgressRule.__pulumiType, name, resourceInputs, opts);
     }
 }

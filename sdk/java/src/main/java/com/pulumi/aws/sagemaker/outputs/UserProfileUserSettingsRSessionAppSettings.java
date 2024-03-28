@@ -60,6 +60,7 @@ public final class UserProfileUserSettingsRSessionAppSettings {
 
         @CustomType.Setter
         public Builder customImages(@Nullable List<UserProfileUserSettingsRSessionAppSettingsCustomImage> customImages) {
+
             this.customImages = customImages;
             return this;
         }
@@ -68,14 +69,15 @@ public final class UserProfileUserSettingsRSessionAppSettings {
         }
         @CustomType.Setter
         public Builder defaultResourceSpec(@Nullable UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec defaultResourceSpec) {
+
             this.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
         public UserProfileUserSettingsRSessionAppSettings build() {
-            final var o = new UserProfileUserSettingsRSessionAppSettings();
-            o.customImages = customImages;
-            o.defaultResourceSpec = defaultResourceSpec;
-            return o;
+            final var _resultValue = new UserProfileUserSettingsRSessionAppSettings();
+            _resultValue.customImages = customImages;
+            _resultValue.defaultResourceSpec = defaultResourceSpec;
+            return _resultValue;
         }
     }
 }

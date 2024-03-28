@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Cloud9
     /// 
     /// Basic usage:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,13 +28,17 @@ namespace Pulumi.Aws.Cloud9
     ///     var example = new Aws.Cloud9.EnvironmentEC2("example", new()
     ///     {
     ///         InstanceType = "t2.micro",
+    ///         Name = "example-env",
+    ///         ImageId = "amazonlinux-2023-x86_64",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Get the URL of the Cloud9 environment after creation:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -64,13 +69,15 @@ namespace Pulumi.Aws.Cloud9
     /// 
     ///     return new Dictionary&lt;string, object?&gt;
     ///     {
-    ///         ["cloud9Url"] = example.Id.Apply(id =&gt; $"https://{@var.Region}.console.aws.amazon.com/cloud9/ide/{id}"),
+    ///         ["cloud9Url"] = example.Id.Apply(id =&gt; $"https://{region}.console.aws.amazon.com/cloud9/ide/{id}"),
     ///     };
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Allocate a static IP to the Cloud9 environment:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -99,7 +106,7 @@ namespace Pulumi.Aws.Cloud9
     ///         },
     ///     });
     /// 
-    ///     var cloud9Eip = new Aws.Ec2.Eip("cloud9Eip", new()
+    ///     var cloud9Eip = new Aws.Ec2.Eip("cloud9_eip", new()
     ///     {
     ///         Instance = cloud9Instance.Apply(getInstanceResult =&gt; getInstanceResult.Id),
     ///         Domain = "vpc",
@@ -111,6 +118,7 @@ namespace Pulumi.Aws.Cloud9
     ///     };
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:cloud9/environmentEC2:EnvironmentEC2")]
     public partial class EnvironmentEC2 : global::Pulumi.CustomResource
@@ -143,15 +151,17 @@ namespace Pulumi.Aws.Cloud9
         /// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
         /// * `amazonlinux-1-x86_64`
         /// * `amazonlinux-2-x86_64`
+        /// * `amazonlinux-2023-x86_64`
         /// * `ubuntu-18.04-x86_64`
         /// * `ubuntu-22.04-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+        /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         /// </summary>
         [Output("imageId")]
-        public Output<string?> ImageId { get; private set; } = null!;
+        public Output<string> ImageId { get; private set; } = null!;
 
         /// <summary>
         /// The type of instance to connect to the environment, e.g., `t2.micro`.
@@ -190,7 +200,7 @@ namespace Pulumi.Aws.Cloud9
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the environment (e.g., `ssh` or `ec2`)
+        /// The type of the environment (e.g., `ssh` or `ec2`).
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -218,10 +228,6 @@ namespace Pulumi.Aws.Cloud9
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -267,15 +273,17 @@ namespace Pulumi.Aws.Cloud9
         /// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
         /// * `amazonlinux-1-x86_64`
         /// * `amazonlinux-2-x86_64`
+        /// * `amazonlinux-2023-x86_64`
         /// * `ubuntu-18.04-x86_64`
         /// * `ubuntu-22.04-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+        /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         /// </summary>
-        [Input("imageId")]
-        public Input<string>? ImageId { get; set; }
+        [Input("imageId", required: true)]
+        public Input<string> ImageId { get; set; } = null!;
 
         /// <summary>
         /// The type of instance to connect to the environment, e.g., `t2.micro`.
@@ -349,10 +357,12 @@ namespace Pulumi.Aws.Cloud9
         /// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
         /// * `amazonlinux-1-x86_64`
         /// * `amazonlinux-2-x86_64`
+        /// * `amazonlinux-2023-x86_64`
         /// * `ubuntu-18.04-x86_64`
         /// * `ubuntu-22.04-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+        /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         /// </summary>
@@ -405,15 +415,11 @@ namespace Pulumi.Aws.Cloud9
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>
-        /// The type of the environment (e.g., `ssh` or `ec2`)
+        /// The type of the environment (e.g., `ssh` or `ec2`).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

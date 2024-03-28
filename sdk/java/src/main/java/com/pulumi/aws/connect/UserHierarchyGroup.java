@@ -24,7 +24,10 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** The User Hierarchy Structure must be created before creating a User Hierarchy Group.
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,13 +51,18 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new UserHierarchyGroup(&#34;example&#34;, UserHierarchyGroupArgs.builder()        
  *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *             .name(&#34;example&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;Example User Hierarchy Group&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With a parent group
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -78,11 +86,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var parent = new UserHierarchyGroup(&#34;parent&#34;, UserHierarchyGroupArgs.builder()        
  *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *             .name(&#34;parent&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;Example User Hierarchy Group Parent&#34;))
  *             .build());
  * 
  *         var child = new UserHierarchyGroup(&#34;child&#34;, UserHierarchyGroupArgs.builder()        
  *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *             .name(&#34;child&#34;)
  *             .parentGroupId(parent.hierarchyGroupId())
  *             .tags(Map.of(&#34;Name&#34;, &#34;Example User Hierarchy Group Child&#34;))
  *             .build());
@@ -90,13 +100,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Amazon Connect User Hierarchy Groups using the `instance_id` and `hierarchy_group_id` separated by a colon (`:`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:connect/userHierarchyGroup:UserHierarchyGroup example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+ * $ pulumi import aws:connect/userHierarchyGroup:UserHierarchyGroup example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
  * ```
  * 
  */
@@ -267,9 +278,6 @@ public class UserHierarchyGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

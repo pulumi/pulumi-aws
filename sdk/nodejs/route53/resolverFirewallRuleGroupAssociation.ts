@@ -9,24 +9,27 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleResolverFirewallRuleGroup = new aws.route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", {});
- * const exampleResolverFirewallRuleGroupAssociation = new aws.route53.ResolverFirewallRuleGroupAssociation("exampleResolverFirewallRuleGroupAssociation", {
- *     firewallRuleGroupId: exampleResolverFirewallRuleGroup.id,
+ * const example = new aws.route53.ResolverFirewallRuleGroup("example", {name: "example"});
+ * const exampleResolverFirewallRuleGroupAssociation = new aws.route53.ResolverFirewallRuleGroupAssociation("example", {
+ *     name: "example",
+ *     firewallRuleGroupId: example.id,
  *     priority: 100,
- *     vpcId: aws_vpc.example.id,
+ *     vpcId: exampleAwsVpc.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation example rslvr-frgassoc-0123456789abcdef
+ * $ pulumi import aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation example rslvr-frgassoc-0123456789abcdef
  * ```
  */
 export class ResolverFirewallRuleGroupAssociation extends pulumi.CustomResource {
@@ -134,8 +137,6 @@ export class ResolverFirewallRuleGroupAssociation extends pulumi.CustomResource 
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ResolverFirewallRuleGroupAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

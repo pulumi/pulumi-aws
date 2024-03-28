@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,15 +23,18 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var awsGlueCatalogDatabase = new Aws.Glue.CatalogDatabase("awsGlueCatalogDatabase", new()
+    ///     var example = new Aws.Glue.CatalogDatabase("example", new()
     ///     {
     ///         Name = "MyCatalogDatabase",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Create Table Default Permissions
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,8 +43,9 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var awsGlueCatalogDatabase = new Aws.Glue.CatalogDatabase("awsGlueCatalogDatabase", new()
+    ///     var example = new Aws.Glue.CatalogDatabase("example", new()
     ///     {
+    ///         Name = "MyCatalogDatabase",
     ///         CreateTableDefaultPermissions = new[]
     ///         {
     ///             new Aws.Glue.Inputs.CatalogDatabaseCreateTableDefaultPermissionArgs
@@ -55,18 +60,18 @@ namespace Pulumi.Aws.Glue
     ///                 },
     ///             },
     ///         },
-    ///         Name = "MyCatalogDatabase",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Catalog Databases using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
+    /// $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/catalogDatabase:CatalogDatabase")]
@@ -95,6 +100,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
+        /// </summary>
+        [Output("federatedDatabase")]
+        public Output<Outputs.CatalogDatabaseFederatedDatabase?> FederatedDatabase { get; private set; } = null!;
 
         /// <summary>
         /// Location of the database (for example, an HDFS path).
@@ -155,10 +166,6 @@ namespace Pulumi.Aws.Glue
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -205,6 +212,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
+        /// </summary>
+        [Input("federatedDatabase")]
+        public Input<Inputs.CatalogDatabaseFederatedDatabaseArgs>? FederatedDatabase { get; set; }
 
         /// <summary>
         /// Location of the database (for example, an HDFS path).
@@ -287,6 +300,12 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
+        /// </summary>
+        [Input("federatedDatabase")]
+        public Input<Inputs.CatalogDatabaseFederatedDatabaseGetArgs>? FederatedDatabase { get; set; }
+
+        /// <summary>
         /// Location of the database (for example, an HDFS path).
         /// </summary>
         [Input("locationUri")]
@@ -332,11 +351,7 @@ namespace Pulumi.Aws.Glue
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

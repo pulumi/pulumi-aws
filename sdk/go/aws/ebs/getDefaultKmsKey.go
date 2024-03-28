@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,7 +35,7 @@ import (
 //			_, err = ebs.NewVolume(ctx, "example", &ebs.VolumeArgs{
 //				AvailabilityZone: pulumi.String("us-west-2a"),
 //				Encrypted:        pulumi.Bool(true),
-//				KmsKeyId:         *pulumi.String(current.KeyArn),
+//				KmsKeyId:         pulumi.String(current.KeyArn),
 //			})
 //			if err != nil {
 //				return err
@@ -44,6 +45,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupDefaultKmsKey(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupDefaultKmsKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDefaultKmsKeyResult

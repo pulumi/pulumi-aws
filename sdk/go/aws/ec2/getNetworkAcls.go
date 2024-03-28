@@ -15,6 +15,7 @@ import (
 //
 // The following shows outputting all network ACL ids in a vpc.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,22 +28,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleNetworkAcls, err := ec2.GetNetworkAcls(ctx, &ec2.GetNetworkAclsArgs{
-//				VpcId: pulumi.StringRef(_var.Vpc_id),
+//			example, err := ec2.GetNetworkAcls(ctx, &ec2.GetNetworkAclsArgs{
+//				VpcId: pulumi.StringRef(vpcId),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("example", exampleNetworkAcls.Ids)
+//			ctx.Export("example", example.Ids)
 //			return nil
 //		})
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // The following example retrieves a list of all network ACL ids in a VPC with a custom
 // tag of `Tier` set to a value of "Private".
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,7 +59,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.GetNetworkAcls(ctx, &ec2.GetNetworkAclsArgs{
-//				VpcId: pulumi.StringRef(_var.Vpc_id),
+//				VpcId: pulumi.StringRef(vpcId),
 //				Tags: map[string]interface{}{
 //					"Tier": "Private",
 //				},
@@ -69,10 +72,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // The following example retrieves a network ACL id in a VPC which associated
 // with specific subnet.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -85,12 +90,12 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := ec2.GetNetworkAcls(ctx, &ec2.GetNetworkAclsArgs{
-// VpcId: pulumi.StringRef(_var.Vpc_id),
+// VpcId: pulumi.StringRef(vpcId),
 // Filters: []ec2.GetNetworkAclsFilter{
 // {
 // Name: "association.subnet-id",
 // Values: interface{}{
-// aws_subnet.Test.Id,
+// test.Id,
 // },
 // },
 // },
@@ -102,6 +107,7 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 func GetNetworkAcls(ctx *pulumi.Context, args *GetNetworkAclsArgs, opts ...pulumi.InvokeOption) (*GetNetworkAclsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetNetworkAclsResult

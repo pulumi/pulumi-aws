@@ -273,12 +273,14 @@ class AssessmentTemplate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.inspector.AssessmentTemplate("example",
-            target_arn=aws_inspector_assessment_target["example"]["arn"],
+            name="example",
+            target_arn=example_aws_inspector_assessment_target["arn"],
             duration=3600,
             rules_package_arns=[
                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
@@ -288,16 +290,17 @@ class AssessmentTemplate(pulumi.CustomResource):
             ],
             event_subscriptions=[aws.inspector.AssessmentTemplateEventSubscriptionArgs(
                 event="ASSESSMENT_RUN_COMPLETED",
-                topic_arn=aws_sns_topic["example"]["arn"],
+                topic_arn=example_aws_sns_topic["arn"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_inspector_assessment_template` using the template assessment ARN. For example:
 
         ```sh
-         $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
+        $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
         ```
 
         :param str resource_name: The name of the resource.
@@ -320,12 +323,14 @@ class AssessmentTemplate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.inspector.AssessmentTemplate("example",
-            target_arn=aws_inspector_assessment_target["example"]["arn"],
+            name="example",
+            target_arn=example_aws_inspector_assessment_target["arn"],
             duration=3600,
             rules_package_arns=[
                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
@@ -335,16 +340,17 @@ class AssessmentTemplate(pulumi.CustomResource):
             ],
             event_subscriptions=[aws.inspector.AssessmentTemplateEventSubscriptionArgs(
                 event="ASSESSMENT_RUN_COMPLETED",
-                topic_arn=aws_sns_topic["example"]["arn"],
+                topic_arn=example_aws_sns_topic["arn"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_inspector_assessment_template` using the template assessment ARN. For example:
 
         ```sh
-         $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
+        $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
         ```
 
         :param str resource_name: The name of the resource.
@@ -391,8 +397,6 @@ class AssessmentTemplate(pulumi.CustomResource):
             __props__.__dict__["target_arn"] = target_arn
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AssessmentTemplate, __self__).__init__(
             'aws:inspector/assessmentTemplate:AssessmentTemplate',
             resource_name,

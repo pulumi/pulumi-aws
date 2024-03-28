@@ -17,8 +17,10 @@ import (
 // > Glue functionality, such as monitoring and logging of jobs, is typically managed with the `defaultArguments` argument. See the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the Glue developer guide for additional information.
 //
 // ## Example Usage
+//
 // ### Python Job
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,9 +36,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewJob(ctx, "example", &glue.JobArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Command: &glue.JobCommandArgs{
-//					ScriptLocation: pulumi.String(fmt.Sprintf("s3://%v/example.py", aws_s3_bucket.Example.Bucket)),
+//					ScriptLocation: pulumi.String(fmt.Sprintf("s3://%v/example.py", exampleAwsS3Bucket.Bucket)),
 //				},
 //			})
 //			if err != nil {
@@ -47,8 +50,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Ray Job
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,14 +70,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewJob(ctx, "example", &glue.JobArgs{
-//				RoleArn:     pulumi.Any(aws_iam_role.Example.Arn),
+//				Name:        pulumi.String("example"),
+//				RoleArn:     pulumi.Any(exampleAwsIamRole.Arn),
 //				GlueVersion: pulumi.String("4.0"),
 //				WorkerType:  pulumi.String("Z.2X"),
 //				Command: &glue.JobCommandArgs{
 //					Name:           pulumi.String("glueray"),
 //					PythonVersion:  pulumi.String("3.9"),
 //					Runtime:        pulumi.String("Ray2.4"),
-//					ScriptLocation: pulumi.String(fmt.Sprintf("s3://%v/example.py", aws_s3_bucket.Example.Bucket)),
+//					ScriptLocation: pulumi.String(fmt.Sprintf("s3://%v/example.py", exampleAwsS3Bucket.Bucket)),
 //				},
 //			})
 //			if err != nil {
@@ -82,8 +89,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Scala Job
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -99,9 +109,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewJob(ctx, "example", &glue.JobArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Command: &glue.JobCommandArgs{
-//					ScriptLocation: pulumi.String(fmt.Sprintf("s3://%v/example.scala", aws_s3_bucket.Example.Bucket)),
+//					ScriptLocation: pulumi.String(fmt.Sprintf("s3://%v/example.scala", exampleAwsS3Bucket.Bucket)),
 //				},
 //				DefaultArguments: pulumi.StringMap{
 //					"--job-language": pulumi.String("scala"),
@@ -115,8 +126,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Streaming Job
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -132,10 +146,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewJob(ctx, "example", &glue.JobArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				Name:    pulumi.String("example streaming job"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Command: &glue.JobCommandArgs{
 //					Name:           pulumi.String("gluestreaming"),
-//					ScriptLocation: pulumi.String(fmt.Sprintf("s3://%v/example.script", aws_s3_bucket.Example.Bucket)),
+//					ScriptLocation: pulumi.String(fmt.Sprintf("s3://%v/example.script", exampleAwsS3Bucket.Bucket)),
 //				},
 //			})
 //			if err != nil {
@@ -146,8 +161,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Enabling CloudWatch Logs and Metrics
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -161,15 +179,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", &cloudwatch.LogGroupArgs{
+//			example, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
+//				Name:            pulumi.String("example"),
 //				RetentionInDays: pulumi.Int(14),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = glue.NewJob(ctx, "exampleJob", &glue.JobArgs{
+//			_, err = glue.NewJob(ctx, "example", &glue.JobArgs{
 //				DefaultArguments: pulumi.StringMap{
-//					"--continuous-log-logGroup":          exampleLogGroup.Name,
+//					"--continuous-log-logGroup":          example.Name,
 //					"--enable-continuous-cloudwatch-log": pulumi.String("true"),
 //					"--enable-continuous-log-filter":     pulumi.String("true"),
 //					"--enable-metrics":                   pulumi.String(""),
@@ -183,15 +202,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glue Jobs using `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glue/job:Job MyJob MyJob
-//
+// $ pulumi import aws:glue/job:Job MyJob MyJob
 // ```
 type Job struct {
 	pulumi.CustomResourceState
@@ -258,10 +276,6 @@ func NewJob(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Job
 	err := ctx.RegisterResource("aws:glue/job:Job", name, args, &resource, opts...)

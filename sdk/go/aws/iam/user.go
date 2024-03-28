@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			lbUser, err := iam.NewUser(ctx, "lbUser", &iam.UserArgs{
+//			lb, err := iam.NewUser(ctx, "lb", &iam.UserArgs{
+//				Name: pulumi.String("loadbalancer"),
 //				Path: pulumi.String("/system/"),
 //				Tags: pulumi.StringMap{
 //					"tag-key": pulumi.String("tag-value"),
@@ -38,13 +40,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewAccessKey(ctx, "lbAccessKey", &iam.AccessKeyArgs{
-//				User: lbUser.Name,
+//			_, err = iam.NewAccessKey(ctx, "lb", &iam.AccessKeyArgs{
+//				User: lb.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			lbRoPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			lbRo, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Effect: pulumi.StringRef("Allow"),
@@ -60,9 +62,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewUserPolicy(ctx, "lbRoUserPolicy", &iam.UserPolicyArgs{
-//				User:   lbUser.Name,
-//				Policy: *pulumi.String(lbRoPolicyDocument.Json),
+//			_, err = iam.NewUserPolicy(ctx, "lb_ro", &iam.UserPolicyArgs{
+//				Name:   pulumi.String("test"),
+//				User:   lb.Name,
+//				Policy: pulumi.String(lbRo.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -72,15 +75,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IAM Users using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iam/user:User lb loadbalancer
-//
+// $ pulumi import aws:iam/user:User lb loadbalancer
 // ```
 type User struct {
 	pulumi.CustomResourceState
@@ -114,10 +116,6 @@ func NewUser(ctx *pulumi.Context,
 		args = &UserArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource User
 	err := ctx.RegisterResource("aws:iam/user:User", name, args, &resource, opts...)

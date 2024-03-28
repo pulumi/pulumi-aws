@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,7 +32,7 @@ import (
 // {
 // Name: "transit-gateway-id",
 // Values: interface{}{
-// aws_ec2_transit_gateway.Example.Id,
+// exampleAwsEc2TransitGateway.Id,
 // },
 // },
 // {
@@ -49,6 +50,7 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 func GetAttachment(ctx *pulumi.Context, args *GetAttachmentArgs, opts ...pulumi.InvokeOption) (*GetAttachmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAttachmentResult

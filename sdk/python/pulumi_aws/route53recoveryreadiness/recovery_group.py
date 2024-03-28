@@ -182,19 +182,21 @@ class RecoveryGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.route53recoveryreadiness.RecoveryGroup("example", recovery_group_name="my-high-availability-app")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 Recovery Readiness recovery groups using the recovery group name. For example:
 
         ```sh
-         $ pulumi import aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup my-high-availability-app my-high-availability-app
+        $ pulumi import aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup my-high-availability-app my-high-availability-app
         ```
 
         :param str resource_name: The name of the resource.
@@ -216,19 +218,21 @@ class RecoveryGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.route53recoveryreadiness.RecoveryGroup("example", recovery_group_name="my-high-availability-app")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 Recovery Readiness recovery groups using the recovery group name. For example:
 
         ```sh
-         $ pulumi import aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup my-high-availability-app my-high-availability-app
+        $ pulumi import aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup my-high-availability-app my-high-availability-app
         ```
 
         :param str resource_name: The name of the resource.
@@ -265,8 +269,6 @@ class RecoveryGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(RecoveryGroup, __self__).__init__(
             'aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup',
             resource_name,

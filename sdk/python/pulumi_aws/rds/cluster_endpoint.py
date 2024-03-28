@@ -288,6 +288,7 @@ class ClusterEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -308,21 +309,21 @@ class ClusterEndpoint(pulumi.CustomResource):
             apply_immediately=True,
             cluster_identifier=default.id,
             identifier="test1",
-            instance_class="db.t2.small",
+            instance_class=aws.rds.InstanceType.T2_SMALL,
             engine=default.engine,
             engine_version=default.engine_version)
         test2 = aws.rds.ClusterInstance("test2",
             apply_immediately=True,
             cluster_identifier=default.id,
             identifier="test2",
-            instance_class="db.t2.small",
+            instance_class=aws.rds.InstanceType.T2_SMALL,
             engine=default.engine,
             engine_version=default.engine_version)
         test3 = aws.rds.ClusterInstance("test3",
             apply_immediately=True,
             cluster_identifier=default.id,
             identifier="test3",
-            instance_class="db.t2.small",
+            instance_class=aws.rds.InstanceType.T2_SMALL,
             engine=default.engine,
             engine_version=default.engine_version)
         eligible = aws.rds.ClusterEndpoint("eligible",
@@ -342,13 +343,14 @@ class ClusterEndpoint(pulumi.CustomResource):
                 test3.id,
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import RDS Clusters Endpoint using the `cluster_endpoint_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:rds/clusterEndpoint:ClusterEndpoint custom_reader aurora-prod-cluster-custom-reader
+        $ pulumi import aws:rds/clusterEndpoint:ClusterEndpoint custom_reader aurora-prod-cluster-custom-reader
         ```
 
         :param str resource_name: The name of the resource.
@@ -372,6 +374,7 @@ class ClusterEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -392,21 +395,21 @@ class ClusterEndpoint(pulumi.CustomResource):
             apply_immediately=True,
             cluster_identifier=default.id,
             identifier="test1",
-            instance_class="db.t2.small",
+            instance_class=aws.rds.InstanceType.T2_SMALL,
             engine=default.engine,
             engine_version=default.engine_version)
         test2 = aws.rds.ClusterInstance("test2",
             apply_immediately=True,
             cluster_identifier=default.id,
             identifier="test2",
-            instance_class="db.t2.small",
+            instance_class=aws.rds.InstanceType.T2_SMALL,
             engine=default.engine,
             engine_version=default.engine_version)
         test3 = aws.rds.ClusterInstance("test3",
             apply_immediately=True,
             cluster_identifier=default.id,
             identifier="test3",
-            instance_class="db.t2.small",
+            instance_class=aws.rds.InstanceType.T2_SMALL,
             engine=default.engine,
             engine_version=default.engine_version)
         eligible = aws.rds.ClusterEndpoint("eligible",
@@ -426,13 +429,14 @@ class ClusterEndpoint(pulumi.CustomResource):
                 test3.id,
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import RDS Clusters Endpoint using the `cluster_endpoint_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:rds/clusterEndpoint:ClusterEndpoint custom_reader aurora-prod-cluster-custom-reader
+        $ pulumi import aws:rds/clusterEndpoint:ClusterEndpoint custom_reader aurora-prod-cluster-custom-reader
         ```
 
         :param str resource_name: The name of the resource.
@@ -480,8 +484,6 @@ class ClusterEndpoint(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ClusterEndpoint, __self__).__init__(
             'aws:rds/clusterEndpoint:ClusterEndpoint',
             resource_name,

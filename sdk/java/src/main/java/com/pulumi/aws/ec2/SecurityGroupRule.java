@@ -33,6 +33,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * Basic usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -59,14 +61,16 @@ import javax.annotation.Nullable;
  *             .fromPort(0)
  *             .toPort(65535)
  *             .protocol(&#34;tcp&#34;)
- *             .cidrBlocks(aws_vpc.example().cidr_block())
- *             .ipv6CidrBlocks(aws_vpc.example().ipv6_cidr_block())
+ *             .cidrBlocks(exampleAwsVpc.cidrBlock())
+ *             .ipv6CidrBlocks(exampleAwsVpc.ipv6CidrBlock())
  *             .securityGroupId(&#34;sg-123456&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Usage With Prefix List IDs
  * 
  * Prefix Lists are either managed by AWS internally, or created by the customer using a
@@ -74,6 +78,8 @@ import javax.annotation.Nullable;
  * AWS are associated with a prefix list name, or service name, that is linked to a specific region.
  * 
  * Prefix list IDs are exported on VPC Endpoints, so you can use this format:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -110,9 +116,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * You can also find a specific Prefix List using the `aws.ec2.getPrefixList`
  * or `ec2_managed_prefix_list` data sources:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -157,12 +166,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Import a rule with various IPv4 and IPv6 source CIDR blocks:
  * 
- * Import a rule, applicable to all ports, with a protocol other than TCP/UDP/ICMP/ICMPV6/ALL, e.g., Multicast Transport Protocol (MTP), using the IANA protocol number. For example92.
+ * Import a rule, applicable to all ports, with a protocol other than TCP/UDP/ICMP/ICMPV6/ALL, e.g., Multicast Transport Protocol (MTP), using the IANA protocol number. For example: 92.
  * 
  * Import a default any/any egress rule to 0.0.0.0/0:
  * 
@@ -179,37 +189,37 @@ import javax.annotation.Nullable;
  * Import an ingress rule in security group `sg-6e616f6d69` for TCP port 8000 with an IPv4 destination CIDR of `10.0.3.0/24`:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-6e616f6d69_ingress_tcp_8000_8000_10.0.3.0/24
+ * $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-6e616f6d69_ingress_tcp_8000_8000_10.0.3.0/24
  * ```
- *  Import a rule with various IPv4 and IPv6 source CIDR blocks:
+ * Import a rule with various IPv4 and IPv6 source CIDR blocks:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-4973616163_ingress_tcp_100_121_10.1.0.0/16_2001:db8::/48_10.2.0.0/16_2002:db8::/48
+ * $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-4973616163_ingress_tcp_100_121_10.1.0.0/16_2001:db8::/48_10.2.0.0/16_2002:db8::/48
  * ```
- *  Import a rule, applicable to all ports, with a protocol other than TCP/UDP/ICMP/ICMPV6/ALL, e.g., Multicast Transport Protocol (MTP), using the IANA protocol number. For example92.
+ * Import a rule, applicable to all ports, with a protocol other than TCP/UDP/ICMP/ICMPV6/ALL, e.g., Multicast Transport Protocol (MTP), using the IANA protocol number. For example: 92.
  * 
  * ```sh
- *  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-6777656e646f6c796e_ingress_92_0_65536_10.0.3.0/24_10.0.4.0/24
+ * $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-6777656e646f6c796e_ingress_92_0_65536_10.0.3.0/24_10.0.4.0/24
  * ```
- *  Import a default any/any egress rule to 0.0.0.0/0:
+ * Import a default any/any egress rule to 0.0.0.0/0:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule default_egress sg-6777656e646f6c796e_egress_all_0_0_0.0.0.0/0
+ * $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule default_egress sg-6777656e646f6c796e_egress_all_0_0_0.0.0.0/0
  * ```
- *  Import an egress rule with a prefix list ID destination:
+ * Import an egress rule with a prefix list ID destination:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule egress sg-62726f6479_egress_tcp_8000_8000_pl-6469726b
+ * $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule egress sg-62726f6479_egress_tcp_8000_8000_pl-6469726b
  * ```
- *  Import a rule applicable to all protocols and ports with a security group source:
+ * Import a rule applicable to all protocols and ports with a security group source:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress_rule sg-7472697374616e_ingress_all_0_65536_sg-6176657279
+ * $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress_rule sg-7472697374616e_ingress_all_0_65536_sg-6176657279
  * ```
- *  Import a rule that has itself and an IPv6 CIDR block as sources:
+ * Import a rule that has itself and an IPv6 CIDR block as sources:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule rule_name sg-656c65616e6f72_ingress_tcp_80_80_self_2001:db8::/48
+ * $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule rule_name sg-656c65616e6f72_ingress_tcp_80_80_self_2001:db8::/48
  * ```
  * 
  */

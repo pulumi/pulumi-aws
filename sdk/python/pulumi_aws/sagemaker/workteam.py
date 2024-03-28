@@ -287,33 +287,38 @@ class Workteam(pulumi.CustomResource):
         Provides a SageMaker Workteam resource.
 
         ## Example Usage
+
         ### Cognito Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sagemaker.Workteam("example",
             workteam_name="example",
-            workforce_name=aws_sagemaker_workforce["example"]["id"],
+            workforce_name=example_aws_sagemaker_workforce["id"],
             description="example",
             member_definitions=[aws.sagemaker.WorkteamMemberDefinitionArgs(
                 cognito_member_definition=aws.sagemaker.WorkteamMemberDefinitionCognitoMemberDefinitionArgs(
-                    client_id=aws_cognito_user_pool_client["example"]["id"],
-                    user_pool=aws_cognito_user_pool_domain["example"]["user_pool_id"],
-                    user_group=aws_cognito_user_group["example"]["id"],
+                    client_id=example_aws_cognito_user_pool_client["id"],
+                    user_pool=example_aws_cognito_user_pool_domain["userPoolId"],
+                    user_group=example_aws_cognito_user_group["id"],
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Oidc Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sagemaker.Workteam("example",
             workteam_name="example",
-            workforce_name=aws_sagemaker_workforce["example"]["id"],
+            workforce_name=example_aws_sagemaker_workforce["id"],
             description="example",
             member_definitions=[aws.sagemaker.WorkteamMemberDefinitionArgs(
                 oidc_member_definition=aws.sagemaker.WorkteamMemberDefinitionOidcMemberDefinitionArgs(
@@ -321,13 +326,14 @@ class Workteam(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Workteams using the `workteam_name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/workteam:Workteam example example
+        $ pulumi import aws:sagemaker/workteam:Workteam example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -349,33 +355,38 @@ class Workteam(pulumi.CustomResource):
         Provides a SageMaker Workteam resource.
 
         ## Example Usage
+
         ### Cognito Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sagemaker.Workteam("example",
             workteam_name="example",
-            workforce_name=aws_sagemaker_workforce["example"]["id"],
+            workforce_name=example_aws_sagemaker_workforce["id"],
             description="example",
             member_definitions=[aws.sagemaker.WorkteamMemberDefinitionArgs(
                 cognito_member_definition=aws.sagemaker.WorkteamMemberDefinitionCognitoMemberDefinitionArgs(
-                    client_id=aws_cognito_user_pool_client["example"]["id"],
-                    user_pool=aws_cognito_user_pool_domain["example"]["user_pool_id"],
-                    user_group=aws_cognito_user_group["example"]["id"],
+                    client_id=example_aws_cognito_user_pool_client["id"],
+                    user_pool=example_aws_cognito_user_pool_domain["userPoolId"],
+                    user_group=example_aws_cognito_user_group["id"],
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Oidc Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sagemaker.Workteam("example",
             workteam_name="example",
-            workforce_name=aws_sagemaker_workforce["example"]["id"],
+            workforce_name=example_aws_sagemaker_workforce["id"],
             description="example",
             member_definitions=[aws.sagemaker.WorkteamMemberDefinitionArgs(
                 oidc_member_definition=aws.sagemaker.WorkteamMemberDefinitionOidcMemberDefinitionArgs(
@@ -383,13 +394,14 @@ class Workteam(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Workteams using the `workteam_name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/workteam:Workteam example example
+        $ pulumi import aws:sagemaker/workteam:Workteam example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -439,8 +451,6 @@ class Workteam(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["subdomain"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Workteam, __self__).__init__(
             'aws:sagemaker/workteam:Workteam',
             resource_name,

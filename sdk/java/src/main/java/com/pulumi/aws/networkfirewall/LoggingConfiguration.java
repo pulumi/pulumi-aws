@@ -18,7 +18,10 @@ import javax.annotation.Nullable;
  * Provides an AWS Network Firewall Logging Configuration Resource
  * 
  * ## Example Usage
+ * 
  * ### Logging to S3
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,11 +45,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LoggingConfiguration(&#34;example&#34;, LoggingConfigurationArgs.builder()        
- *             .firewallArn(aws_networkfirewall_firewall.example().arn())
+ *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
  *             .loggingConfiguration(LoggingConfigurationLoggingConfigurationArgs.builder()
  *                 .logDestinationConfigs(LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs.builder()
  *                     .logDestination(Map.ofEntries(
- *                         Map.entry(&#34;bucketName&#34;, aws_s3_bucket.example().bucket()),
+ *                         Map.entry(&#34;bucketName&#34;, exampleAwsS3Bucket.bucket()),
  *                         Map.entry(&#34;prefix&#34;, &#34;/example&#34;)
  *                     ))
  *                     .logDestinationType(&#34;S3&#34;)
@@ -58,7 +61,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Logging to CloudWatch
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -82,10 +89,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LoggingConfiguration(&#34;example&#34;, LoggingConfigurationArgs.builder()        
- *             .firewallArn(aws_networkfirewall_firewall.example().arn())
+ *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
  *             .loggingConfiguration(LoggingConfigurationLoggingConfigurationArgs.builder()
  *                 .logDestinationConfigs(LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs.builder()
- *                     .logDestination(Map.of(&#34;logGroup&#34;, aws_cloudwatch_log_group.example().name()))
+ *                     .logDestination(Map.of(&#34;logGroup&#34;, exampleAwsCloudwatchLogGroup.name()))
  *                     .logDestinationType(&#34;CloudWatchLogs&#34;)
  *                     .logType(&#34;ALERT&#34;)
  *                     .build())
@@ -95,7 +102,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Logging to Kinesis Data Firehose
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -119,10 +130,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LoggingConfiguration(&#34;example&#34;, LoggingConfigurationArgs.builder()        
- *             .firewallArn(aws_networkfirewall_firewall.example().arn())
+ *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
  *             .loggingConfiguration(LoggingConfigurationLoggingConfigurationArgs.builder()
  *                 .logDestinationConfigs(LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs.builder()
- *                     .logDestination(Map.of(&#34;deliveryStream&#34;, aws_kinesis_firehose_delivery_stream.example().name()))
+ *                     .logDestination(Map.of(&#34;deliveryStream&#34;, exampleAwsKinesisFirehoseDeliveryStream.name()))
  *                     .logDestinationType(&#34;KinesisDataFirehose&#34;)
  *                     .logType(&#34;ALERT&#34;)
  *                     .build())
@@ -132,13 +143,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Network Firewall Logging Configurations using the `firewall_arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
+ * $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
  * ```
  * 
  */

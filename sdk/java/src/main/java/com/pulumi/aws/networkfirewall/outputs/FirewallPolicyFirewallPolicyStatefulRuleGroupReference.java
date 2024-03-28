@@ -5,6 +5,7 @@ package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -74,25 +75,30 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReference {
 
         @CustomType.Setter
         public Builder override(@Nullable FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride override) {
+
             this.override = override;
             return this;
         }
         @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
+
             this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder resourceArn(String resourceArn) {
-            this.resourceArn = Objects.requireNonNull(resourceArn);
+            if (resourceArn == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyFirewallPolicyStatefulRuleGroupReference", "resourceArn");
+            }
+            this.resourceArn = resourceArn;
             return this;
         }
         public FirewallPolicyFirewallPolicyStatefulRuleGroupReference build() {
-            final var o = new FirewallPolicyFirewallPolicyStatefulRuleGroupReference();
-            o.override = override;
-            o.priority = priority;
-            o.resourceArn = resourceArn;
-            return o;
+            final var _resultValue = new FirewallPolicyFirewallPolicyStatefulRuleGroupReference();
+            _resultValue.override = override;
+            _resultValue.priority = priority;
+            _resultValue.resourceArn = resourceArn;
+            return _resultValue;
         }
     }
 }

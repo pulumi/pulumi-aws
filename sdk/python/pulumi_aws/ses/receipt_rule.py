@@ -517,33 +517,36 @@ class ReceiptRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # Add a header to the email and store it in S3
         store = aws.ses.ReceiptRule("store",
+            name="store",
+            rule_set_name="default-rule-set",
+            recipients=["karen@example.com"],
+            enabled=True,
+            scan_enabled=True,
             add_header_actions=[aws.ses.ReceiptRuleAddHeaderActionArgs(
                 header_name="Custom-Header",
                 header_value="Added by SES",
                 position=1,
             )],
-            enabled=True,
-            recipients=["karen@example.com"],
-            rule_set_name="default-rule-set",
             s3_actions=[aws.ses.ReceiptRuleS3ActionArgs(
                 bucket_name="emails",
                 position=2,
-            )],
-            scan_enabled=True)
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SES receipt rules using the ruleset name and rule name separated by `:`. For example:
 
         ```sh
-         $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
+        $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
         ```
 
         :param str resource_name: The name of the resource.
@@ -574,33 +577,36 @@ class ReceiptRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # Add a header to the email and store it in S3
         store = aws.ses.ReceiptRule("store",
+            name="store",
+            rule_set_name="default-rule-set",
+            recipients=["karen@example.com"],
+            enabled=True,
+            scan_enabled=True,
             add_header_actions=[aws.ses.ReceiptRuleAddHeaderActionArgs(
                 header_name="Custom-Header",
                 header_value="Added by SES",
                 position=1,
             )],
-            enabled=True,
-            recipients=["karen@example.com"],
-            rule_set_name="default-rule-set",
             s3_actions=[aws.ses.ReceiptRuleS3ActionArgs(
                 bucket_name="emails",
                 position=2,
-            )],
-            scan_enabled=True)
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SES receipt rules using the ruleset name and rule name separated by `:`. For example:
 
         ```sh
-         $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
+        $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
         ```
 
         :param str resource_name: The name of the resource.

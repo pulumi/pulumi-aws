@@ -9,27 +9,30 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.rds.SubnetGroup("default", {
+ *     name: "main",
  *     subnetIds: [
- *         aws_subnet.frontend.id,
- *         aws_subnet.backend.id,
+ *         frontend.id,
+ *         backend.id,
  *     ],
  *     tags: {
  *         Name: "My DB subnet group",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import DB Subnet groups using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/subnetGroup:SubnetGroup default production-subnet-group
+ * $ pulumi import aws:rds/subnetGroup:SubnetGroup default production-subnet-group
  * ```
  */
 export class SubnetGroup extends pulumi.CustomResource {
@@ -137,8 +140,6 @@ export class SubnetGroup extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SubnetGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -13,12 +13,14 @@ namespace Pulumi.Aws.Backup
     /// Manages selection conditions for AWS Backup plan resources.
     /// 
     /// ## Example Usage
+    /// 
     /// ### IAM Role
     /// 
     /// &gt; For more information about creating and managing IAM Roles for backups and restores, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/iam-service-roles.html).
     /// 
     /// The below example creates an IAM role with the default managed IAM Policy for allowing AWS Backup to create backups.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,27 +55,30 @@ namespace Pulumi.Aws.Backup
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var example = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "example",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new()
+    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("example", new()
     ///     {
     ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup",
-    ///         Role = exampleRole.Name,
+    ///         Role = example.Name,
     ///     });
     /// 
-    ///     // ... other configuration ...
-    ///     var exampleSelection = new Aws.Backup.Selection("exampleSelection", new()
+    ///     var exampleSelection = new Aws.Backup.Selection("example", new()
     ///     {
-    ///         IamRoleArn = exampleRole.Arn,
+    ///         IamRoleArn = example.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Selecting Backups By Tag
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -84,8 +89,9 @@ namespace Pulumi.Aws.Backup
     /// {
     ///     var example = new Aws.Backup.Selection("example", new()
     ///     {
-    ///         IamRoleArn = aws_iam_role.Example.Arn,
-    ///         PlanId = aws_backup_plan.Example.Id,
+    ///         IamRoleArn = exampleAwsIamRole.Arn,
+    ///         Name = "my_example_backup_selection",
+    ///         PlanId = exampleAwsBackupPlan.Id,
     ///         SelectionTags = new[]
     ///         {
     ///             new Aws.Backup.Inputs.SelectionSelectionTagArgs
@@ -99,8 +105,11 @@ namespace Pulumi.Aws.Backup
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Selecting Backups By Conditions
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -111,8 +120,9 @@ namespace Pulumi.Aws.Backup
     /// {
     ///     var example = new Aws.Backup.Selection("example", new()
     ///     {
-    ///         IamRoleArn = aws_iam_role.Example.Arn,
-    ///         PlanId = aws_backup_plan.Example.Id,
+    ///         IamRoleArn = exampleAwsIamRole.Arn,
+    ///         Name = "my_example_backup_selection",
+    ///         PlanId = exampleAwsBackupPlan.Id,
     ///         Resources = new[]
     ///         {
     ///             "*",
@@ -159,8 +169,11 @@ namespace Pulumi.Aws.Backup
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Selecting Backups By Resource
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -171,20 +184,24 @@ namespace Pulumi.Aws.Backup
     /// {
     ///     var example = new Aws.Backup.Selection("example", new()
     ///     {
-    ///         IamRoleArn = aws_iam_role.Example.Arn,
-    ///         PlanId = aws_backup_plan.Example.Id,
+    ///         IamRoleArn = exampleAwsIamRole.Arn,
+    ///         Name = "my_example_backup_selection",
+    ///         PlanId = exampleAwsBackupPlan.Id,
     ///         Resources = new[]
     ///         {
-    ///             aws_db_instance.Example.Arn,
-    ///             aws_ebs_volume.Example.Arn,
-    ///             aws_efs_file_system.Example.Arn,
+    ///             exampleAwsDbInstance.Arn,
+    ///             exampleAwsEbsVolume.Arn,
+    ///             exampleAwsEfsFileSystem.Arn,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Selecting Backups By Not Resource
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -195,25 +212,27 @@ namespace Pulumi.Aws.Backup
     /// {
     ///     var example = new Aws.Backup.Selection("example", new()
     ///     {
-    ///         IamRoleArn = aws_iam_role.Example.Arn,
-    ///         PlanId = aws_backup_plan.Example.Id,
+    ///         IamRoleArn = exampleAwsIamRole.Arn,
+    ///         Name = "my_example_backup_selection",
+    ///         PlanId = exampleAwsBackupPlan.Id,
     ///         NotResources = new[]
     ///         {
-    ///             aws_db_instance.Example.Arn,
-    ///             aws_ebs_volume.Example.Arn,
-    ///             aws_efs_file_system.Example.Arn,
+    ///             exampleAwsDbInstance.Arn,
+    ///             exampleAwsEbsVolume.Arn,
+    ///             exampleAwsEfsFileSystem.Arn,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Backup selection using the role plan_id and id separated by `|`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:backup/selection:Selection example plan-id|selection-id
+    /// $ pulumi import aws:backup/selection:Selection example plan-id|selection-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:backup/selection:Selection")]

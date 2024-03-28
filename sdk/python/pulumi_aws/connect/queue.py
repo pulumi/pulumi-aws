@@ -389,45 +389,56 @@ class Queue(pulumi.CustomResource):
         [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.connect.Queue("test",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="Example Name",
             description="Example Description",
             hours_of_operation_id="12345678-1234-1234-1234-123456789012",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             tags={
                 "Name": "Example Queue",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Quick Connect IDs
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.connect.Queue("test",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="Example Name",
             description="Example Description",
             hours_of_operation_id="12345678-1234-1234-1234-123456789012",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             quick_connect_ids=["12345678-abcd-1234-abcd-123456789012"],
             tags={
                 "Name": "Example Queue with Quick Connect IDs",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Outbound Caller Config
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.connect.Queue("test",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="Example Name",
             description="Example Description",
             hours_of_operation_id="12345678-1234-1234-1234-123456789012",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             outbound_caller_config=aws.connect.QueueOutboundCallerConfigArgs(
                 outbound_caller_id_name="example",
                 outbound_caller_id_number_id="12345678-abcd-1234-abcd-123456789012",
@@ -437,13 +448,14 @@ class Queue(pulumi.CustomResource):
                 "Name": "Example Queue with Outbound Caller Config",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Connect Queues using the `instance_id` and `queue_id` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:connect/queue:Queue example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+        $ pulumi import aws:connect/queue:Queue example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
         ```
 
         :param str resource_name: The name of the resource.
@@ -469,45 +481,56 @@ class Queue(pulumi.CustomResource):
         [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.connect.Queue("test",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="Example Name",
             description="Example Description",
             hours_of_operation_id="12345678-1234-1234-1234-123456789012",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             tags={
                 "Name": "Example Queue",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Quick Connect IDs
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.connect.Queue("test",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="Example Name",
             description="Example Description",
             hours_of_operation_id="12345678-1234-1234-1234-123456789012",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             quick_connect_ids=["12345678-abcd-1234-abcd-123456789012"],
             tags={
                 "Name": "Example Queue with Quick Connect IDs",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Outbound Caller Config
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.connect.Queue("test",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="Example Name",
             description="Example Description",
             hours_of_operation_id="12345678-1234-1234-1234-123456789012",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             outbound_caller_config=aws.connect.QueueOutboundCallerConfigArgs(
                 outbound_caller_id_name="example",
                 outbound_caller_id_number_id="12345678-abcd-1234-abcd-123456789012",
@@ -517,13 +540,14 @@ class Queue(pulumi.CustomResource):
                 "Name": "Example Queue with Outbound Caller Config",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Connect Queues using the `instance_id` and `queue_id` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:connect/queue:Queue example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+        $ pulumi import aws:connect/queue:Queue example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
         ```
 
         :param str resource_name: The name of the resource.
@@ -575,8 +599,6 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["queue_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Queue, __self__).__init__(
             'aws:connect/queue:Queue',
             resource_name,

@@ -16,6 +16,7 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,7 +29,7 @@ namespace Pulumi.Aws.DataSync
     ///     {
     ///         AgentArns = new[]
     ///         {
-    ///             aws_datasync_agent.Example.Arn,
+    ///             exampleAwsDatasyncAgent.Arn,
     ///         },
     ///         AuthenticationType = "SIMPLE",
     ///         SimpleUser = "example",
@@ -36,7 +37,7 @@ namespace Pulumi.Aws.DataSync
     ///         {
     ///             new Aws.DataSync.Inputs.LocationHdfsNameNodeArgs
     ///             {
-    ///                 Hostname = aws_instance.Example.Private_dns,
+    ///                 Hostname = exampleAwsInstance.PrivateDns,
     ///                 Port = 80,
     ///             },
     ///         },
@@ -44,13 +45,56 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Kerberos Authentication
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.DataSync.LocationHdfs("example", new()
+    ///     {
+    ///         AgentArns = new[]
+    ///         {
+    ///             exampleAwsDatasyncAgent.Arn,
+    ///         },
+    ///         AuthenticationType = "KERBEROS",
+    ///         NameNodes = new[]
+    ///         {
+    ///             new Aws.DataSync.Inputs.LocationHdfsNameNodeArgs
+    ///             {
+    ///                 Hostname = exampleAwsInstance.PrivateDns,
+    ///                 Port = 80,
+    ///             },
+    ///         },
+    ///         KerberosPrincipal = "user@example.com",
+    ///         KerberosKeytabBase64 = Std.Filebase64.Invoke(new()
+    ///         {
+    ///             Input = "user.keytab",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         KerberosKrb5Conf = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "krb5.conf",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_datasync_location_hdfs` using the Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:datasync/locationHdfs:LocationHdfs example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+    /// $ pulumi import aws:datasync/locationHdfs:LocationHdfs example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
     /// ```
     /// </summary>
     [AwsResourceType("aws:datasync/locationHdfs:LocationHdfs")]
@@ -81,16 +125,28 @@ namespace Pulumi.Aws.DataSync
         public Output<int?> BlockSize { get; private set; } = null!;
 
         /// <summary>
-        /// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+        /// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
         /// </summary>
         [Output("kerberosKeytab")]
         public Output<string?> KerberosKeytab { get; private set; } = null!;
 
         /// <summary>
-        /// The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+        /// Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
+        /// </summary>
+        [Output("kerberosKeytabBase64")]
+        public Output<string?> KerberosKeytabBase64 { get; private set; } = null!;
+
+        /// <summary>
+        /// The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
         /// </summary>
         [Output("kerberosKrb5Conf")]
         public Output<string?> KerberosKrb5Conf { get; private set; } = null!;
+
+        /// <summary>
+        /// Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
+        /// </summary>
+        [Output("kerberosKrb5ConfBase64")]
+        public Output<string?> KerberosKrb5ConfBase64 { get; private set; } = null!;
 
         /// <summary>
         /// The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
@@ -114,7 +170,7 @@ namespace Pulumi.Aws.DataSync
         /// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
         /// </summary>
         [Output("qopConfiguration")]
-        public Output<Outputs.LocationHdfsQopConfiguration?> QopConfiguration { get; private set; } = null!;
+        public Output<Outputs.LocationHdfsQopConfiguration> QopConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
@@ -172,10 +228,6 @@ namespace Pulumi.Aws.DataSync
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -224,16 +276,28 @@ namespace Pulumi.Aws.DataSync
         public Input<int>? BlockSize { get; set; }
 
         /// <summary>
-        /// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+        /// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
         /// </summary>
         [Input("kerberosKeytab")]
         public Input<string>? KerberosKeytab { get; set; }
 
         /// <summary>
-        /// The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+        /// Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
+        /// </summary>
+        [Input("kerberosKeytabBase64")]
+        public Input<string>? KerberosKeytabBase64 { get; set; }
+
+        /// <summary>
+        /// The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
         /// </summary>
         [Input("kerberosKrb5Conf")]
         public Input<string>? KerberosKrb5Conf { get; set; }
+
+        /// <summary>
+        /// Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
+        /// </summary>
+        [Input("kerberosKrb5ConfBase64")]
+        public Input<string>? KerberosKrb5ConfBase64 { get; set; }
 
         /// <summary>
         /// The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
@@ -334,16 +398,28 @@ namespace Pulumi.Aws.DataSync
         public Input<int>? BlockSize { get; set; }
 
         /// <summary>
-        /// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+        /// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
         /// </summary>
         [Input("kerberosKeytab")]
         public Input<string>? KerberosKeytab { get; set; }
 
         /// <summary>
-        /// The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+        /// Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
+        /// </summary>
+        [Input("kerberosKeytabBase64")]
+        public Input<string>? KerberosKeytabBase64 { get; set; }
+
+        /// <summary>
+        /// The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
         /// </summary>
         [Input("kerberosKrb5Conf")]
         public Input<string>? KerberosKrb5Conf { get; set; }
+
+        /// <summary>
+        /// Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
+        /// </summary>
+        [Input("kerberosKrb5ConfBase64")]
+        public Input<string>? KerberosKrb5ConfBase64 { get; set; }
 
         /// <summary>
         /// The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
@@ -415,11 +491,7 @@ namespace Pulumi.Aws.DataSync
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("uri")]

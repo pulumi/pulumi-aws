@@ -22,7 +22,7 @@ class GetPatchBaselineResult:
     """
     A collection of values returned by getPatchBaseline.
     """
-    def __init__(__self__, approval_rules=None, approved_patches=None, approved_patches_compliance_level=None, approved_patches_enable_non_security=None, default_baseline=None, description=None, global_filters=None, id=None, name=None, name_prefix=None, operating_system=None, owner=None, rejected_patches=None, rejected_patches_action=None, sources=None):
+    def __init__(__self__, approval_rules=None, approved_patches=None, approved_patches_compliance_level=None, approved_patches_enable_non_security=None, default_baseline=None, description=None, global_filters=None, id=None, json=None, name=None, name_prefix=None, operating_system=None, owner=None, rejected_patches=None, rejected_patches_action=None, sources=None):
         if approval_rules and not isinstance(approval_rules, list):
             raise TypeError("Expected argument 'approval_rules' to be a list")
         pulumi.set(__self__, "approval_rules", approval_rules)
@@ -47,6 +47,9 @@ class GetPatchBaselineResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if json and not isinstance(json, str):
+            raise TypeError("Expected argument 'json' to be a str")
+        pulumi.set(__self__, "json", json)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -89,7 +92,7 @@ class GetPatchBaselineResult:
     @pulumi.getter(name="approvedPatchesComplianceLevel")
     def approved_patches_compliance_level(self) -> str:
         """
-        The compliance level for approved patches.
+        Compliance level for approved patches.
         """
         return pulumi.get(self, "approved_patches_compliance_level")
 
@@ -132,9 +135,17 @@ class GetPatchBaselineResult:
 
     @property
     @pulumi.getter
+    def json(self) -> str:
+        """
+        JSON representation of the baseline.
+        """
+        return pulumi.get(self, "json")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
-        The name specified to identify the patch source.
+        Name specified to identify the patch source.
         """
         return pulumi.get(self, "name")
 
@@ -165,7 +176,7 @@ class GetPatchBaselineResult:
     @pulumi.getter(name="rejectedPatchesAction")
     def rejected_patches_action(self) -> str:
         """
-        The action specified to take on patches included in the `rejected_patches` list.
+        Action specified to take on patches included in the `rejected_patches` list.
         """
         return pulumi.get(self, "rejected_patches_action")
 
@@ -192,6 +203,7 @@ class AwaitableGetPatchBaselineResult(GetPatchBaselineResult):
             description=self.description,
             global_filters=self.global_filters,
             id=self.id,
+            json=self.json,
             name=self.name,
             name_prefix=self.name_prefix,
             operating_system=self.operating_system,
@@ -213,32 +225,38 @@ def get_patch_baseline(default_baseline: Optional[bool] = None,
 
     To retrieve a baseline provided by AWS:
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    centos = aws.ssm.get_patch_baseline(name_prefix="AWS-",
-        operating_system="CENTOS",
-        owner="AWS")
+    centos = aws.ssm.get_patch_baseline(owner="AWS",
+        name_prefix="AWS-",
+        operating_system="CENTOS")
     ```
+    <!--End PulumiCodeChooser -->
 
     To retrieve a baseline on your account:
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    default_custom = aws.ssm.get_patch_baseline(default_baseline=True,
+    default_custom = aws.ssm.get_patch_baseline(owner="Self",
         name_prefix="MyCustomBaseline",
-        operating_system="WINDOWS",
-        owner="Self")
+        default_baseline=True,
+        operating_system="WINDOWS")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool default_baseline: Filters the results against the baselines default_baseline field.
     :param str name_prefix: Filter results by the baseline name prefix.
     :param str operating_system: Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.
     :param str owner: Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+           
+           The following arguments are optional:
     """
     __args__ = dict()
     __args__['defaultBaseline'] = default_baseline
@@ -257,6 +275,7 @@ def get_patch_baseline(default_baseline: Optional[bool] = None,
         description=pulumi.get(__ret__, 'description'),
         global_filters=pulumi.get(__ret__, 'global_filters'),
         id=pulumi.get(__ret__, 'id'),
+        json=pulumi.get(__ret__, 'json'),
         name=pulumi.get(__ret__, 'name'),
         name_prefix=pulumi.get(__ret__, 'name_prefix'),
         operating_system=pulumi.get(__ret__, 'operating_system'),
@@ -279,31 +298,37 @@ def get_patch_baseline_output(default_baseline: Optional[pulumi.Input[Optional[b
 
     To retrieve a baseline provided by AWS:
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    centos = aws.ssm.get_patch_baseline(name_prefix="AWS-",
-        operating_system="CENTOS",
-        owner="AWS")
+    centos = aws.ssm.get_patch_baseline(owner="AWS",
+        name_prefix="AWS-",
+        operating_system="CENTOS")
     ```
+    <!--End PulumiCodeChooser -->
 
     To retrieve a baseline on your account:
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    default_custom = aws.ssm.get_patch_baseline(default_baseline=True,
+    default_custom = aws.ssm.get_patch_baseline(owner="Self",
         name_prefix="MyCustomBaseline",
-        operating_system="WINDOWS",
-        owner="Self")
+        default_baseline=True,
+        operating_system="WINDOWS")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool default_baseline: Filters the results against the baselines default_baseline field.
     :param str name_prefix: Filter results by the baseline name prefix.
     :param str operating_system: Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.
     :param str owner: Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+           
+           The following arguments are optional:
     """
     ...

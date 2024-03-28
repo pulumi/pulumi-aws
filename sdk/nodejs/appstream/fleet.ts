@@ -12,37 +12,40 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testFleet = new aws.appstream.Fleet("testFleet", {
+ * const testFleet = new aws.appstream.Fleet("test_fleet", {
+ *     name: "test-fleet",
  *     computeCapacity: {
  *         desiredInstances: 1,
  *     },
  *     description: "test fleet",
+ *     idleDisconnectTimeoutInSeconds: 60,
  *     displayName: "test-fleet",
  *     enableDefaultInternetAccess: false,
  *     fleetType: "ON_DEMAND",
- *     idleDisconnectTimeoutInSeconds: 60,
  *     imageName: "Amazon-AppStream2-Sample-Image-03-11-2023",
  *     instanceType: "stream.standard.large",
  *     maxUserDurationInSeconds: 600,
- *     tags: {
- *         TagName: "tag-value",
- *     },
  *     vpcConfig: {
  *         subnetIds: ["subnet-06e9b13400c225127"],
  *     },
+ *     tags: {
+ *         TagName: "tag-value",
+ *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_appstream_fleet` using the id. For example:
  *
  * ```sh
- *  $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
+ * $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
  * ```
  */
 export class Fleet extends pulumi.CustomResource {
@@ -114,7 +117,7 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly iamRoleArn!: pulumi.Output<string>;
     /**
-     * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins.
+     * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins. Defaults to 60 seconds.
      */
     public readonly idleDisconnectTimeoutInSeconds!: pulumi.Output<number | undefined>;
     /**
@@ -225,8 +228,6 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Fleet.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -276,7 +277,7 @@ export interface FleetState {
      */
     iamRoleArn?: pulumi.Input<string>;
     /**
-     * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins.
+     * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins. Defaults to 60 seconds.
      */
     idleDisconnectTimeoutInSeconds?: pulumi.Input<number>;
     /**
@@ -360,7 +361,7 @@ export interface FleetArgs {
      */
     iamRoleArn?: pulumi.Input<string>;
     /**
-     * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins.
+     * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins. Defaults to 60 seconds.
      */
     idleDisconnectTimeoutInSeconds?: pulumi.Input<number>;
     /**

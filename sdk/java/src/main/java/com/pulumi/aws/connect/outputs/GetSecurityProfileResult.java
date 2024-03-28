@@ -4,6 +4,7 @@
 package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -132,37 +133,58 @@ public final class GetSecurityProfileResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetSecurityProfileResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetSecurityProfileResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSecurityProfileResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("GetSecurityProfileResult", "instanceId");
+            }
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSecurityProfileResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder organizationResourceId(String organizationResourceId) {
-            this.organizationResourceId = Objects.requireNonNull(organizationResourceId);
+            if (organizationResourceId == null) {
+              throw new MissingRequiredPropertyException("GetSecurityProfileResult", "organizationResourceId");
+            }
+            this.organizationResourceId = organizationResourceId;
             return this;
         }
         @CustomType.Setter
         public Builder permissions(List<String> permissions) {
-            this.permissions = Objects.requireNonNull(permissions);
+            if (permissions == null) {
+              throw new MissingRequiredPropertyException("GetSecurityProfileResult", "permissions");
+            }
+            this.permissions = permissions;
             return this;
         }
         public Builder permissions(String... permissions) {
@@ -170,26 +192,32 @@ public final class GetSecurityProfileResult {
         }
         @CustomType.Setter
         public Builder securityProfileId(String securityProfileId) {
-            this.securityProfileId = Objects.requireNonNull(securityProfileId);
+            if (securityProfileId == null) {
+              throw new MissingRequiredPropertyException("GetSecurityProfileResult", "securityProfileId");
+            }
+            this.securityProfileId = securityProfileId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetSecurityProfileResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetSecurityProfileResult build() {
-            final var o = new GetSecurityProfileResult();
-            o.arn = arn;
-            o.description = description;
-            o.id = id;
-            o.instanceId = instanceId;
-            o.name = name;
-            o.organizationResourceId = organizationResourceId;
-            o.permissions = permissions;
-            o.securityProfileId = securityProfileId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetSecurityProfileResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.instanceId = instanceId;
+            _resultValue.name = name;
+            _resultValue.organizationResourceId = organizationResourceId;
+            _resultValue.permissions = permissions;
+            _resultValue.securityProfileId = securityProfileId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

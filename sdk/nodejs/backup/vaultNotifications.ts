@@ -9,12 +9,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testTopic = new aws.sns.Topic("testTopic", {});
- * const testPolicyDocument = testTopic.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
+ * const testTopic = new aws.sns.Topic("test", {name: "backup-vault-events"});
+ * const test = testTopic.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
  *     policyId: "__default_policy_ID",
  *     statements: [{
  *         actions: ["SNS:Publish"],
@@ -27,11 +28,11 @@ import * as utilities from "../utilities";
  *         sid: "__default_statement_ID",
  *     }],
  * }));
- * const testTopicPolicy = new aws.sns.TopicPolicy("testTopicPolicy", {
+ * const testTopicPolicy = new aws.sns.TopicPolicy("test", {
  *     arn: testTopic.arn,
- *     policy: testPolicyDocument.apply(testPolicyDocument => testPolicyDocument.json),
+ *     policy: test.apply(test => test.json),
  * });
- * const testVaultNotifications = new aws.backup.VaultNotifications("testVaultNotifications", {
+ * const testVaultNotifications = new aws.backup.VaultNotifications("test", {
  *     backupVaultName: "example_backup_vault",
  *     snsTopicArn: testTopic.arn,
  *     backupVaultEvents: [
@@ -40,13 +41,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Backup vault notifications using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
+ * $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
  * ```
  */
 export class VaultNotifications extends pulumi.CustomResource {

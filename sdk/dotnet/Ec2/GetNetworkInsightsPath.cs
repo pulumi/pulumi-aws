@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// `aws.ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,13 +27,12 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetNetworkInsightsPath.Invoke(new()
         ///     {
-        ///         NetworkInsightsPathId = aws_ec2_network_insights_path.Example.Id,
+        ///         NetworkInsightsPathId = exampleAwsEc2NetworkInsightsPath.Id,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetNetworkInsightsPathResult> InvokeAsync(GetNetworkInsightsPathArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInsightsPathResult>("aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath", args ?? new GetNetworkInsightsPathArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// `aws.ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -56,13 +53,12 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetNetworkInsightsPath.Invoke(new()
         ///     {
-        ///         NetworkInsightsPathId = aws_ec2_network_insights_path.Example.Id,
+        ///         NetworkInsightsPathId = exampleAwsEc2NetworkInsightsPath.Id,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetNetworkInsightsPathResult> Invoke(GetNetworkInsightsPathInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInsightsPathResult>("aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath", args ?? new GetNetworkInsightsPathInvokeArgs(), options.WithDefaults());

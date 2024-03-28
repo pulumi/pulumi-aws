@@ -22,14 +22,17 @@ import * as utilities from "../utilities";
  * The state associated with existing resources will automatically be migrated.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
- *     meshName: aws_appmesh_mesh.simple.id,
+ *     name: "serviceBv1",
+ *     meshName: simple.id,
  *     spec: {
  *         backends: [{
  *             virtualService: {
@@ -50,15 +53,19 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### AWS Cloud Map Service Discovery
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.servicediscovery.HttpNamespace("example", {});
+ * const example = new aws.servicediscovery.HttpNamespace("example", {name: "example-ns"});
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
- *     meshName: aws_appmesh_mesh.simple.id,
+ *     name: "serviceBv1",
+ *     meshName: simple.id,
  *     spec: {
  *         backends: [{
  *             virtualService: {
@@ -83,14 +90,18 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Listener Health Check
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
- *     meshName: aws_appmesh_mesh.simple.id,
+ *     name: "serviceBv1",
+ *     meshName: simple.id,
  *     spec: {
  *         backends: [{
  *             virtualService: {
@@ -119,14 +130,18 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Logging
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
- *     meshName: aws_appmesh_mesh.simple.id,
+ *     name: "serviceBv1",
+ *     meshName: simple.id,
  *     spec: {
  *         backends: [{
  *             virtualService: {
@@ -154,13 +169,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import App Mesh virtual nodes using `mesh_name` together with the virtual node's `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
+ * $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
  * ```
  */
 export class VirtualNode extends pulumi.CustomResource {
@@ -277,8 +293,6 @@ export class VirtualNode extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VirtualNode.__pulumiType, name, resourceInputs, opts);
     }
 }

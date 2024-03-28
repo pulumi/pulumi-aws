@@ -12,14 +12,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.eks.NodeGroup("example", {
- *     clusterName: aws_eks_cluster.example.name,
- *     nodeRoleArn: aws_iam_role.example.arn,
- *     subnetIds: aws_subnet.example.map(__item => __item.id),
+ *     clusterName: exampleAwsEksCluster.name,
+ *     nodeGroupName: "example",
+ *     nodeRoleArn: exampleAwsIamRole.arn,
+ *     subnetIds: exampleAwsSubnet.map(__item => __item.id),
  *     scalingConfig: {
  *         desiredSize: 1,
  *         maxSize: 2,
@@ -28,48 +30,50 @@ import * as utilities from "../utilities";
  *     updateConfig: {
  *         maxUnavailable: 1,
  *     },
- * }, {
- *     dependsOn: [
- *         aws_iam_role_policy_attachment["example-AmazonEKSWorkerNodePolicy"],
- *         aws_iam_role_policy_attachment["example-AmazonEKS_CNI_Policy"],
- *         aws_iam_role_policy_attachment["example-AmazonEC2ContainerRegistryReadOnly"],
- *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Ignoring Changes to Desired Size
  *
  * You can utilize [ignoreChanges](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // ... other configurations ...
  * const example = new aws.eks.NodeGroup("example", {scalingConfig: {
  *     desiredSize: 2,
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example IAM Role for EKS Node Group
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.iam.Role("example", {assumeRolePolicy: JSON.stringify({
- *     Statement: [{
- *         Action: "sts:AssumeRole",
- *         Effect: "Allow",
- *         Principal: {
- *             Service: "ec2.amazonaws.com",
- *         },
- *     }],
- *     Version: "2012-10-17",
- * })});
+ * const example = new aws.iam.Role("example", {
+ *     name: "eks-node-group-example",
+ *     assumeRolePolicy: JSON.stringify({
+ *         statement: [{
+ *             action: "sts:AssumeRole",
+ *             effect: "Allow",
+ *             principal: {
+ *                 service: "ec2.amazonaws.com",
+ *             },
+ *         }],
+ *         version: "2012-10-17",
+ *     }),
+ * });
  * const example_AmazonEKSWorkerNodePolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSWorkerNodePolicy", {
  *     policyArn: "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
  *     role: example.name,
  * });
- * const example_AmazonEKSCNIPolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSCNIPolicy", {
+ * const example_AmazonEKSCNIPolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKS_CNI_Policy", {
  *     policyArn: "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
  *     role: example.name,
  * });
@@ -78,13 +82,40 @@ import * as utilities from "../utilities";
  *     role: example.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Example Subnets for EKS Node Group
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const available = aws.getAvailabilityZones({
+ *     state: "available",
+ * });
+ * const example: aws.ec2.Subnet[] = [];
+ * for (const range = {value: 0}; range.value < 2; range.value++) {
+ *     example.push(new aws.ec2.Subnet(`example-${range.value}`, {
+ *         availabilityZone: available.then(available => available.names[range.value]),
+ *         cidrBlock: std.cidrsubnet({
+ *             input: exampleAwsVpc.cidrBlock,
+ *             newbits: 8,
+ *             netnum: range.value,
+ *         }).then(invoke => invoke.result),
+ *         vpcId: exampleAwsVpc.id,
+ *     }));
+ * }
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For example:
  *
  * ```sh
- *  $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
+ * $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
  * ```
  */
 export class NodeGroup extends pulumi.CustomResource {
@@ -128,7 +159,7 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     public readonly capacityType!: pulumi.Output<string>;
     /**
-     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the EKS Cluster.
      */
     public readonly clusterName!: pulumi.Output<string>;
     /**
@@ -148,7 +179,7 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Configuration block with Launch Template settings. See `launchTemplate` below for details.
+     * Configuration block with Launch Template settings. See `launchTemplate` below for details. Conflicts with `remoteAccess`.
      */
     public readonly launchTemplate!: pulumi.Output<outputs.eks.NodeGroupLaunchTemplate | undefined>;
     /**
@@ -168,7 +199,7 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     public readonly releaseVersion!: pulumi.Output<string>;
     /**
-     * Configuration block with remote access settings. See `remoteAccess` below for details.
+     * Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
      */
     public readonly remoteAccess!: pulumi.Output<outputs.eks.NodeGroupRemoteAccess | undefined>;
     /**
@@ -287,8 +318,6 @@ export class NodeGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(NodeGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -310,7 +339,7 @@ export interface NodeGroupState {
      */
     capacityType?: pulumi.Input<string>;
     /**
-     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the EKS Cluster.
      */
     clusterName?: pulumi.Input<string>;
     /**
@@ -330,7 +359,7 @@ export interface NodeGroupState {
      */
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Configuration block with Launch Template settings. See `launchTemplate` below for details.
+     * Configuration block with Launch Template settings. See `launchTemplate` below for details. Conflicts with `remoteAccess`.
      */
     launchTemplate?: pulumi.Input<inputs.eks.NodeGroupLaunchTemplate>;
     /**
@@ -350,7 +379,7 @@ export interface NodeGroupState {
      */
     releaseVersion?: pulumi.Input<string>;
     /**
-     * Configuration block with remote access settings. See `remoteAccess` below for details.
+     * Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
      */
     remoteAccess?: pulumi.Input<inputs.eks.NodeGroupRemoteAccess>;
     /**
@@ -408,7 +437,7 @@ export interface NodeGroupArgs {
      */
     capacityType?: pulumi.Input<string>;
     /**
-     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the EKS Cluster.
      */
     clusterName: pulumi.Input<string>;
     /**
@@ -428,7 +457,7 @@ export interface NodeGroupArgs {
      */
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Configuration block with Launch Template settings. See `launchTemplate` below for details.
+     * Configuration block with Launch Template settings. See `launchTemplate` below for details. Conflicts with `remoteAccess`.
      */
     launchTemplate?: pulumi.Input<inputs.eks.NodeGroupLaunchTemplate>;
     /**
@@ -448,7 +477,7 @@ export interface NodeGroupArgs {
      */
     releaseVersion?: pulumi.Input<string>;
     /**
-     * Configuration block with remote access settings. See `remoteAccess` below for details.
+     * Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
      */
     remoteAccess?: pulumi.Input<inputs.eks.NodeGroupRemoteAccess>;
     /**

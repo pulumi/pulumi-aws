@@ -13,8 +13,10 @@ import * as utilities from "../utilities";
  * > **NOTE:** Creating this resource will leave the certificate authority in a `PENDING_CERTIFICATE` status, which means it cannot yet issue certificates. To complete this setup, you must fully sign the certificate authority CSR available in the `certificateSigningRequest` attribute. The `aws.acmpca.CertificateAuthorityCertificate` resource can be used for this purpose.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,13 +32,17 @@ import * as utilities from "../utilities";
  *     permanentDeletionTimeInDays: 7,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Short-lived certificate
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.acmpca.CertificateAuthority("example", {
+ *     usageMode: "SHORT_LIVED_CERTIFICATE",
  *     certificateAuthorityConfiguration: {
  *         keyAlgorithm: "RSA_4096",
  *         signingAlgorithm: "SHA512WITHRSA",
@@ -44,16 +50,21 @@ import * as utilities from "../utilities";
  *             commonName: "example.com",
  *         },
  *     },
- *     usageMode: "SHORT_LIVED_CERTIFICATE",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Enable Certificate Revocation List
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {forceDestroy: true});
+ * const example = new aws.s3.BucketV2("example", {
+ *     bucket: "example",
+ *     forceDestroy: true,
+ * });
  * const acmpcaBucketAccess = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         actions: [
@@ -63,8 +74,8 @@ import * as utilities from "../utilities";
  *             "s3:PutObjectAcl",
  *         ],
  *         resources: [
- *             exampleBucketV2.arn,
- *             pulumi.interpolate`${exampleBucketV2.arn}/*`,
+ *             example.arn,
+ *             pulumi.interpolate`${example.arn}/*`,
  *         ],
  *         principals: [{
  *             identifiers: ["acm-pca.amazonaws.com"],
@@ -72,11 +83,11 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const exampleBucketPolicy = new aws.s3.BucketPolicy("exampleBucketPolicy", {
- *     bucket: exampleBucketV2.id,
+ * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
+ *     bucket: example.id,
  *     policy: acmpcaBucketAccess.apply(acmpcaBucketAccess => acmpcaBucketAccess.json),
  * });
- * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("exampleCertificateAuthority", {
+ * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("example", {
  *     certificateAuthorityConfiguration: {
  *         keyAlgorithm: "RSA_4096",
  *         signingAlgorithm: "SHA512WITHRSA",
@@ -89,21 +100,20 @@ import * as utilities from "../utilities";
  *             customCname: "crl.example.com",
  *             enabled: true,
  *             expirationInDays: 7,
- *             s3BucketName: exampleBucketV2.id,
+ *             s3BucketName: example.id,
  *             s3ObjectAcl: "BUCKET_OWNER_FULL_CONTROL",
  *         },
  *     },
- * }, {
- *     dependsOn: [exampleBucketPolicy],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_acmpca_certificate_authority` using the certificate authority ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:acmpca/certificateAuthority:CertificateAuthority example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
+ * $ pulumi import aws:acmpca/certificateAuthority:CertificateAuthority example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
  * ```
  */
 export class CertificateAuthority extends pulumi.CustomResource {
@@ -253,8 +263,6 @@ export class CertificateAuthority extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(CertificateAuthority.__pulumiType, name, resourceInputs, opts);
     }
 }

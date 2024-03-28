@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * ## RDS Instance Class Types
  *
- * Amazon RDS supports three types of instance classes: Standard, Memory Optimized, and Burstable Performance.
+ * Amazon RDS supports instance classes for the following use cases: General-purpose, Memory-optimized, Burstable Performance, and Optimized-reads.
  * For more information please read the AWS RDS documentation about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
  *
  * ## Low-Downtime Updates
@@ -39,14 +39,17 @@ import * as utilities from "../utilities";
  *
  * Low-downtime updates are only available for DB Instances using MySQL and MariaDB,
  * as other engines are not supported by RDS Blue/Green deployments.
+ * They cannot be used with DB Instances with replicas.
  *
  * Backups must be enabled to use low-downtime updates.
  *
  * Enable low-downtime updates by setting `blue_green_update.enabled` to `true`.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -56,17 +59,173 @@ import * as utilities from "../utilities";
  *     dbName: "mydb",
  *     engine: "mysql",
  *     engineVersion: "5.7",
- *     instanceClass: "db.t3.micro",
- *     parameterGroupName: "default.mysql5.7",
- *     password: "foobarbaz",
- *     skipFinalSnapshot: true,
+ *     instanceClass: aws.rds.InstanceType.T3_Micro,
  *     username: "foo",
+ *     password: "foobarbaz",
+ *     parameterGroupName: "default.mysql5.7",
+ *     skipFinalSnapshot: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### RDS Custom for Oracle Usage with Replica
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Lookup the available instance classes for the custom engine for the region being operated in
+ * const custom-oracle = aws.rds.getOrderableDbInstance({
+ *     engine: "custom-oracle-ee",
+ *     engineVersion: "19.c.ee.002",
+ *     licenseModel: "bring-your-own-license",
+ *     storageType: "gp3",
+ *     preferredInstanceClasses: [
+ *         "db.r5.xlarge",
+ *         "db.r5.2xlarge",
+ *         "db.r5.4xlarge",
+ *     ],
+ * });
+ * // The RDS instance resource requires an ARN. Look up the ARN of the KMS key associated with the CEV.
+ * const byId = aws.kms.getKey({
+ *     keyId: "example-ef278353ceba4a5a97de6784565b9f78",
+ * });
+ * const _default = new aws.rds.Instance("default", {
+ *     allocatedStorage: 50,
+ *     autoMinorVersionUpgrade: false,
+ *     customIamInstanceProfile: "AWSRDSCustomInstanceProfile",
+ *     backupRetentionPeriod: 7,
+ *     dbSubnetGroupName: dbSubnetGroupName,
+ *     engine: custom_oracle.then(custom_oracle => custom_oracle.engine),
+ *     engineVersion: custom_oracle.then(custom_oracle => custom_oracle.engineVersion),
+ *     identifier: "ee-instance-demo",
+ *     instanceClass: custom_oracle.then(custom_oracle => custom_oracle.instanceClass).apply((x) => aws.rds.InstanceType[x]),
+ *     kmsKeyId: byId.then(byId => byId.arn),
+ *     licenseModel: custom_oracle.then(custom_oracle => custom_oracle.licenseModel),
+ *     multiAz: false,
+ *     password: "avoid-plaintext-passwords",
+ *     username: "test",
+ *     storageEncrypted: true,
+ * });
+ * const test_replica = new aws.rds.Instance("test-replica", {
+ *     replicateSourceDb: _default.identifier,
+ *     replicaMode: "mounted",
+ *     autoMinorVersionUpgrade: false,
+ *     customIamInstanceProfile: "AWSRDSCustomInstanceProfile",
+ *     backupRetentionPeriod: 7,
+ *     identifier: "ee-instance-replica",
+ *     instanceClass: custom_oracle.then(custom_oracle => custom_oracle.instanceClass).apply((x) => aws.rds.InstanceType[x]),
+ *     kmsKeyId: byId.then(byId => byId.arn),
+ *     multiAz: false,
+ *     skipFinalSnapshot: true,
+ *     storageEncrypted: true,
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### RDS Custom for SQL Server
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Lookup the available instance classes for the custom engine for the region being operated in
+ * const custom-sqlserver = aws.rds.getOrderableDbInstance({
+ *     engine: "custom-sqlserver-se",
+ *     engineVersion: "15.00.4249.2.v1",
+ *     storageType: "gp3",
+ *     preferredInstanceClasses: [
+ *         "db.r5.xlarge",
+ *         "db.r5.2xlarge",
+ *         "db.r5.4xlarge",
+ *     ],
+ * });
+ * // The RDS instance resource requires an ARN. Look up the ARN of the KMS key.
+ * const byId = aws.kms.getKey({
+ *     keyId: "example-ef278353ceba4a5a97de6784565b9f78",
+ * });
+ * const example = new aws.rds.Instance("example", {
+ *     allocatedStorage: 500,
+ *     autoMinorVersionUpgrade: false,
+ *     customIamInstanceProfile: "AWSRDSCustomSQLServerInstanceProfile",
+ *     backupRetentionPeriod: 7,
+ *     dbSubnetGroupName: dbSubnetGroupName,
+ *     engine: custom_sqlserver.then(custom_sqlserver => custom_sqlserver.engine),
+ *     engineVersion: custom_sqlserver.then(custom_sqlserver => custom_sqlserver.engineVersion),
+ *     identifier: "sql-instance-demo",
+ *     instanceClass: custom_sqlserver.then(custom_sqlserver => custom_sqlserver.instanceClass).apply((x) => aws.rds.InstanceType[x]),
+ *     kmsKeyId: byId.then(byId => byId.arn),
+ *     multiAz: false,
+ *     password: "avoid-plaintext-passwords",
+ *     storageEncrypted: true,
+ *     username: "test",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### RDS Db2 Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Lookup the default version for the engine. Db2 Standard Edition is `db2-se`, Db2 Advanced Edition is `db2-ae`.
+ * const default = aws.rds.getEngineVersion({
+ *     engine: "db2-se",
+ * });
+ * // Lookup the available instance classes for the engine in the region being operated in
+ * const example = Promise.all([_default, _default]).then(([_default, _default1]) => aws.rds.getOrderableDbInstance({
+ *     engine: _default.engine,
+ *     engineVersion: _default1.version,
+ *     licenseModel: "bring-your-own-license",
+ *     storageType: "gp3",
+ *     preferredInstanceClasses: [
+ *         "db.t3.small",
+ *         "db.r6i.large",
+ *         "db.m6i.large",
+ *     ],
+ * }));
+ * // The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
+ * const exampleParameterGroup = new aws.rds.ParameterGroup("example", {
+ *     name: "db-db2-params",
+ *     family: _default.then(_default => _default.parameterGroupFamily),
+ *     parameters: [
+ *         {
+ *             applyMethod: "immediate",
+ *             name: "rds.ibm_customer_id",
+ *             value: "0",
+ *         },
+ *         {
+ *             applyMethod: "immediate",
+ *             name: "rds.ibm_site_id",
+ *             value: "0",
+ *         },
+ *     ],
+ * });
+ * // Create the RDS Db2 instance, use the data sources defined to set attributes
+ * const exampleInstance = new aws.rds.Instance("example", {
+ *     allocatedStorage: 100,
+ *     backupRetentionPeriod: 7,
+ *     dbName: "test",
+ *     engine: example.then(example => example.engine),
+ *     engineVersion: example.then(example => example.engineVersion),
+ *     identifier: "db2-instance-demo",
+ *     instanceClass: example.then(example => example.instanceClass).apply((x) => aws.rds.InstanceType[x]),
+ *     parameterGroupName: exampleParameterGroup.name,
+ *     password: "avoid-plaintext-passwords",
+ *     username: "test",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Storage Autoscaling
  *
  * To enable Storage Autoscaling with instances that support the feature, define the `maxAllocatedStorage` argument higher than the `allocatedStorage` argument. This provider will automatically hide differences with the `allocatedStorage` argument value if autoscaling occurs.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -76,12 +235,15 @@ import * as utilities from "../utilities";
  *     maxAllocatedStorage: 100,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Managed Master Passwords via Secrets Manager, default KMS Key
  *
  * > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
  *
  * You can specify the `manageMasterUserPassword` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manageMasterUserPassword` attribute and removing the `password` attribute (removal is required).
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -91,18 +253,21 @@ import * as utilities from "../utilities";
  *     dbName: "mydb",
  *     engine: "mysql",
  *     engineVersion: "5.7",
- *     instanceClass: "db.t3.micro",
+ *     instanceClass: aws.rds.InstanceType.T3_Micro,
  *     manageMasterUserPassword: true,
- *     parameterGroupName: "default.mysql5.7",
  *     username: "foo",
+ *     parameterGroupName: "default.mysql5.7",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Managed Master Passwords via Secrets Manager, specific KMS Key
  *
  * > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
  *
  * You can specify the `masterUserSecretKmsKeyId` attribute to specify a specific KMS Key.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -113,20 +278,21 @@ import * as utilities from "../utilities";
  *     dbName: "mydb",
  *     engine: "mysql",
  *     engineVersion: "5.7",
- *     instanceClass: "db.t3.micro",
+ *     instanceClass: aws.rds.InstanceType.T3_Micro,
  *     manageMasterUserPassword: true,
  *     masterUserSecretKmsKeyId: example.keyId,
  *     username: "foo",
  *     parameterGroupName: "default.mysql5.7",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import DB Instances using the `identifier`. For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
+ * $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
  * ```
  */
 export class Instance extends pulumi.CustomResource {
@@ -265,15 +431,31 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
     /**
-     * The ID of the Directory Service Active Directory domain to create the instance in.
+     * The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
      */
     public readonly domain!: pulumi.Output<string | undefined>;
     /**
-     * The name of the IAM role to be used when making API calls to the Directory Service.
+     * The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domainIamRoleName`.
+     */
+    public readonly domainAuthSecretArn!: pulumi.Output<string | undefined>;
+    /**
+     * The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domainIamRoleName`.
+     */
+    public readonly domainDnsIps!: pulumi.Output<string[] | undefined>;
+    /**
+     * The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domainIamRoleName`.
+     */
+    public readonly domainFqdn!: pulumi.Output<string>;
+    /**
+     * The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
      */
     public readonly domainIamRoleName!: pulumi.Output<string | undefined>;
     /**
-     * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+     * The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domainIamRoleName`.
+     */
+    public readonly domainOu!: pulumi.Output<string | undefined>;
+    /**
+     * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      */
     public readonly enabledCloudwatchLogsExports!: pulumi.Output<string[] | undefined>;
     /**
@@ -409,8 +591,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly optionGroupName!: pulumi.Output<string>;
     /**
-     * Name of the DB parameter group to
-     * associate.
+     * Name of the DB parameter group to associate.
      */
     public readonly parameterGroupName!: pulumi.Output<string>;
     /**
@@ -569,7 +750,11 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["deleteAutomatedBackups"] = state ? state.deleteAutomatedBackups : undefined;
             resourceInputs["deletionProtection"] = state ? state.deletionProtection : undefined;
             resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["domainAuthSecretArn"] = state ? state.domainAuthSecretArn : undefined;
+            resourceInputs["domainDnsIps"] = state ? state.domainDnsIps : undefined;
+            resourceInputs["domainFqdn"] = state ? state.domainFqdn : undefined;
             resourceInputs["domainIamRoleName"] = state ? state.domainIamRoleName : undefined;
+            resourceInputs["domainOu"] = state ? state.domainOu : undefined;
             resourceInputs["enabledCloudwatchLogsExports"] = state ? state.enabledCloudwatchLogsExports : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
             resourceInputs["engine"] = state ? state.engine : undefined;
@@ -646,7 +831,11 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["deleteAutomatedBackups"] = args ? args.deleteAutomatedBackups : undefined;
             resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["domainAuthSecretArn"] = args ? args.domainAuthSecretArn : undefined;
+            resourceInputs["domainDnsIps"] = args ? args.domainDnsIps : undefined;
+            resourceInputs["domainFqdn"] = args ? args.domainFqdn : undefined;
             resourceInputs["domainIamRoleName"] = args ? args.domainIamRoleName : undefined;
+            resourceInputs["domainOu"] = args ? args.domainOu : undefined;
             resourceInputs["enabledCloudwatchLogsExports"] = args ? args.enabledCloudwatchLogsExports : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
@@ -703,7 +892,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["password", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["password"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Instance.__pulumiType, name, resourceInputs, opts);
     }
@@ -821,15 +1010,31 @@ export interface InstanceState {
      */
     deletionProtection?: pulumi.Input<boolean>;
     /**
-     * The ID of the Directory Service Active Directory domain to create the instance in.
+     * The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
      */
     domain?: pulumi.Input<string>;
     /**
-     * The name of the IAM role to be used when making API calls to the Directory Service.
+     * The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domainIamRoleName`.
+     */
+    domainAuthSecretArn?: pulumi.Input<string>;
+    /**
+     * The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domainIamRoleName`.
+     */
+    domainDnsIps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domainIamRoleName`.
+     */
+    domainFqdn?: pulumi.Input<string>;
+    /**
+     * The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
      */
     domainIamRoleName?: pulumi.Input<string>;
     /**
-     * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+     * The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domainIamRoleName`.
+     */
+    domainOu?: pulumi.Input<string>;
+    /**
+     * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      */
     enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -965,8 +1170,7 @@ export interface InstanceState {
      */
     optionGroupName?: pulumi.Input<string>;
     /**
-     * Name of the DB parameter group to
-     * associate.
+     * Name of the DB parameter group to associate.
      */
     parameterGroupName?: pulumi.Input<string>;
     /**
@@ -1196,15 +1400,31 @@ export interface InstanceArgs {
      */
     deletionProtection?: pulumi.Input<boolean>;
     /**
-     * The ID of the Directory Service Active Directory domain to create the instance in.
+     * The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
      */
     domain?: pulumi.Input<string>;
     /**
-     * The name of the IAM role to be used when making API calls to the Directory Service.
+     * The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domainIamRoleName`.
+     */
+    domainAuthSecretArn?: pulumi.Input<string>;
+    /**
+     * The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domainIamRoleName`.
+     */
+    domainDnsIps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domainIamRoleName`.
+     */
+    domainFqdn?: pulumi.Input<string>;
+    /**
+     * The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
      */
     domainIamRoleName?: pulumi.Input<string>;
     /**
-     * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+     * The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domainIamRoleName`.
+     */
+    domainOu?: pulumi.Input<string>;
+    /**
+     * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      */
     enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -1316,8 +1536,7 @@ export interface InstanceArgs {
      */
     optionGroupName?: pulumi.Input<string>;
     /**
-     * Name of the DB parameter group to
-     * associate.
+     * Name of the DB parameter group to associate.
      */
     parameterGroupName?: pulumi.Input<string>;
     /**

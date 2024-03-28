@@ -13,8 +13,10 @@ namespace Pulumi.Aws.AppMesh
     /// Provides an AWS App Mesh virtual gateway resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,6 +27,7 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var example = new Aws.AppMesh.VirtualGateway("example", new()
     ///     {
+    ///         Name = "example-virtual-gateway",
     ///         MeshName = "example-service-mesh",
     ///         Spec = new Aws.AppMesh.Inputs.VirtualGatewaySpecArgs
     ///         {
@@ -48,8 +51,11 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Access Logs and TLS
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -60,6 +66,7 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var example = new Aws.AppMesh.VirtualGateway("example", new()
     ///     {
+    ///         Name = "example-virtual-gateway",
     ///         MeshName = "example-service-mesh",
     ///         Spec = new Aws.AppMesh.Inputs.VirtualGatewaySpecArgs
     ///         {
@@ -78,7 +85,7 @@ namespace Pulumi.Aws.AppMesh
     ///                         {
     ///                             Acm = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsCertificateAcmArgs
     ///                             {
-    ///                                 CertificateArn = aws_acm_certificate.Example.Arn,
+    ///                                 CertificateArn = exampleAwsAcmCertificate.Arn,
     ///                             },
     ///                         },
     ///                         Mode = "STRICT",
@@ -100,13 +107,14 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import App Mesh virtual gateway using `mesh_name` together with the virtual gateway's `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
+    /// $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
     /// ```
     /// </summary>
     [AwsResourceType("aws:appmesh/virtualGateway:VirtualGateway")]
@@ -195,10 +203,6 @@ namespace Pulumi.Aws.AppMesh
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -336,11 +340,7 @@ namespace Pulumi.Aws.AppMesh
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public VirtualGatewayState()

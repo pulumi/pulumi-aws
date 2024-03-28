@@ -4,6 +4,7 @@
 package com.pulumi.aws.finspace.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class KxEnvironmentCustomDnsConfiguration {
 
         @CustomType.Setter
         public Builder customDnsServerIp(String customDnsServerIp) {
-            this.customDnsServerIp = Objects.requireNonNull(customDnsServerIp);
+            if (customDnsServerIp == null) {
+              throw new MissingRequiredPropertyException("KxEnvironmentCustomDnsConfiguration", "customDnsServerIp");
+            }
+            this.customDnsServerIp = customDnsServerIp;
             return this;
         }
         @CustomType.Setter
         public Builder customDnsServerName(String customDnsServerName) {
-            this.customDnsServerName = Objects.requireNonNull(customDnsServerName);
+            if (customDnsServerName == null) {
+              throw new MissingRequiredPropertyException("KxEnvironmentCustomDnsConfiguration", "customDnsServerName");
+            }
+            this.customDnsServerName = customDnsServerName;
             return this;
         }
         public KxEnvironmentCustomDnsConfiguration build() {
-            final var o = new KxEnvironmentCustomDnsConfiguration();
-            o.customDnsServerIp = customDnsServerIp;
-            o.customDnsServerName = customDnsServerName;
-            return o;
+            final var _resultValue = new KxEnvironmentCustomDnsConfiguration();
+            _resultValue.customDnsServerIp = customDnsServerIp;
+            _resultValue.customDnsServerName = customDnsServerName;
+            return _resultValue;
         }
     }
 }

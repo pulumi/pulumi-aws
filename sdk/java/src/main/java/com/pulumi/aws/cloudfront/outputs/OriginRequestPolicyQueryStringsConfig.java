@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.aws.cloudfront.outputs.OriginRequestPolicyQueryStringsConfigQueryStrings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -43,19 +44,23 @@ public final class OriginRequestPolicyQueryStringsConfig {
 
         @CustomType.Setter
         public Builder queryStringBehavior(String queryStringBehavior) {
-            this.queryStringBehavior = Objects.requireNonNull(queryStringBehavior);
+            if (queryStringBehavior == null) {
+              throw new MissingRequiredPropertyException("OriginRequestPolicyQueryStringsConfig", "queryStringBehavior");
+            }
+            this.queryStringBehavior = queryStringBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder queryStrings(@Nullable OriginRequestPolicyQueryStringsConfigQueryStrings queryStrings) {
+
             this.queryStrings = queryStrings;
             return this;
         }
         public OriginRequestPolicyQueryStringsConfig build() {
-            final var o = new OriginRequestPolicyQueryStringsConfig();
-            o.queryStringBehavior = queryStringBehavior;
-            o.queryStrings = queryStrings;
-            return o;
+            final var _resultValue = new OriginRequestPolicyQueryStringsConfig();
+            _resultValue.queryStringBehavior = queryStringBehavior;
+            _resultValue.queryStrings = queryStrings;
+            return _resultValue;
         }
     }
 }

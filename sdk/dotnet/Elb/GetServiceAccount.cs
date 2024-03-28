@@ -17,10 +17,9 @@ namespace Pulumi.Aws.Elb
         /// 
         /// &gt; **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -31,15 +30,18 @@ namespace Pulumi.Aws.Elb
         /// {
         ///     var main = Aws.Elb.GetServiceAccount.Invoke();
         /// 
-        ///     var elbLogs = new Aws.S3.BucketV2("elbLogs");
+        ///     var elbLogs = new Aws.S3.BucketV2("elb_logs", new()
+        ///     {
+        ///         Bucket = "my-elb-tf-test-bucket",
+        ///     });
         /// 
-        ///     var elbLogsAcl = new Aws.S3.BucketAclV2("elbLogsAcl", new()
+        ///     var elbLogsAcl = new Aws.S3.BucketAclV2("elb_logs_acl", new()
         ///     {
         ///         Bucket = elbLogs.Id,
         ///         Acl = "private",
         ///     });
         /// 
-        ///     var allowElbLoggingPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     var allowElbLogging = Aws.Iam.GetPolicyDocument.Invoke(new()
         ///     {
         ///         Statements = new[]
         ///         {
@@ -69,14 +71,15 @@ namespace Pulumi.Aws.Elb
         ///         },
         ///     });
         /// 
-        ///     var allowElbLoggingBucketPolicy = new Aws.S3.BucketPolicy("allowElbLoggingBucketPolicy", new()
+        ///     var allowElbLoggingBucketPolicy = new Aws.S3.BucketPolicy("allow_elb_logging", new()
         ///     {
         ///         Bucket = elbLogs.Id,
-        ///         Policy = allowElbLoggingPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///         Policy = allowElbLogging.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
         ///     });
         /// 
         ///     var bar = new Aws.Elb.LoadBalancer("bar", new()
         ///     {
+        ///         Name = "my-foobar-elb",
         ///         AvailabilityZones = new[]
         ///         {
         ///             "us-west-2a",
@@ -100,8 +103,7 @@ namespace Pulumi.Aws.Elb
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServiceAccountResult> InvokeAsync(GetServiceAccountArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceAccountResult>("aws:elb/getServiceAccount:getServiceAccount", args ?? new GetServiceAccountArgs(), options.WithDefaults());
@@ -112,10 +114,9 @@ namespace Pulumi.Aws.Elb
         /// 
         /// &gt; **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -126,15 +127,18 @@ namespace Pulumi.Aws.Elb
         /// {
         ///     var main = Aws.Elb.GetServiceAccount.Invoke();
         /// 
-        ///     var elbLogs = new Aws.S3.BucketV2("elbLogs");
+        ///     var elbLogs = new Aws.S3.BucketV2("elb_logs", new()
+        ///     {
+        ///         Bucket = "my-elb-tf-test-bucket",
+        ///     });
         /// 
-        ///     var elbLogsAcl = new Aws.S3.BucketAclV2("elbLogsAcl", new()
+        ///     var elbLogsAcl = new Aws.S3.BucketAclV2("elb_logs_acl", new()
         ///     {
         ///         Bucket = elbLogs.Id,
         ///         Acl = "private",
         ///     });
         /// 
-        ///     var allowElbLoggingPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     var allowElbLogging = Aws.Iam.GetPolicyDocument.Invoke(new()
         ///     {
         ///         Statements = new[]
         ///         {
@@ -164,14 +168,15 @@ namespace Pulumi.Aws.Elb
         ///         },
         ///     });
         /// 
-        ///     var allowElbLoggingBucketPolicy = new Aws.S3.BucketPolicy("allowElbLoggingBucketPolicy", new()
+        ///     var allowElbLoggingBucketPolicy = new Aws.S3.BucketPolicy("allow_elb_logging", new()
         ///     {
         ///         Bucket = elbLogs.Id,
-        ///         Policy = allowElbLoggingPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///         Policy = allowElbLogging.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
         ///     });
         /// 
         ///     var bar = new Aws.Elb.LoadBalancer("bar", new()
         ///     {
+        ///         Name = "my-foobar-elb",
         ///         AvailabilityZones = new[]
         ///         {
         ///             "us-west-2a",
@@ -195,8 +200,7 @@ namespace Pulumi.Aws.Elb
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServiceAccountResult> Invoke(GetServiceAccountInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceAccountResult>("aws:elb/getServiceAccount:getServiceAccount", args ?? new GetServiceAccountInvokeArgs(), options.WithDefaults());

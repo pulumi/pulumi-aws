@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS SSM Contact.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,9 +34,7 @@ import (
 //			_, err := ssmcontacts.NewContact(ctx, "example", &ssmcontacts.ContactArgs{
 //				Alias: pulumi.String("alias"),
 //				Type:  pulumi.String("PERSONAL"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_ssmincidents_replication_set.Example,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -43,8 +43,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Usage With All Fields
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,9 +67,7 @@ import (
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_ssmincidents_replication_set.Example,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -75,15 +76,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SSM Contact using the `ARN`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
-//
+// $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
 // ```
 type Contact struct {
 	pulumi.CustomResourceState
@@ -120,10 +120,6 @@ func NewContact(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Contact
 	err := ctx.RegisterResource("aws:ssmcontacts/contact:Contact", name, args, &resource, opts...)

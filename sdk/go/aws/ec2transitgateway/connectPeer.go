@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,19 +29,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleConnect, err := ec2transitgateway.NewConnect(ctx, "exampleConnect", &ec2transitgateway.ConnectArgs{
-//				TransportAttachmentId: pulumi.Any(aws_ec2_transit_gateway_vpc_attachment.Example.Id),
-//				TransitGatewayId:      pulumi.Any(aws_ec2_transit_gateway.Example.Id),
+//			example, err := ec2transitgateway.NewConnect(ctx, "example", &ec2transitgateway.ConnectArgs{
+//				TransportAttachmentId: pulumi.Any(exampleAwsEc2TransitGatewayVpcAttachment.Id),
+//				TransitGatewayId:      pulumi.Any(exampleAwsEc2TransitGateway.Id),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2transitgateway.NewConnectPeer(ctx, "exampleConnectPeer", &ec2transitgateway.ConnectPeerArgs{
+//			_, err = ec2transitgateway.NewConnectPeer(ctx, "example", &ec2transitgateway.ConnectPeerArgs{
 //				PeerAddress: pulumi.String("10.1.2.3"),
 //				InsideCidrBlocks: pulumi.StringArray{
 //					pulumi.String("169.254.100.0/29"),
 //				},
-//				TransitGatewayAttachmentId: exampleConnect.ID(),
+//				TransitGatewayAttachmentId: example.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -50,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_ec2_transit_gateway_connect_peer` using the EC2 Transit Gateway Connect Peer identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2transitgateway/connectPeer:ConnectPeer example tgw-connect-peer-12345678
-//
+// $ pulumi import aws:ec2transitgateway/connectPeer:ConnectPeer example tgw-connect-peer-12345678
 // ```
 type ConnectPeer struct {
 	pulumi.CustomResourceState
@@ -103,10 +103,6 @@ func NewConnectPeer(ctx *pulumi.Context,
 	if args.TransitGatewayAttachmentId == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayAttachmentId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConnectPeer
 	err := ctx.RegisterResource("aws:ec2transitgateway/connectPeer:ConnectPeer", name, args, &resource, opts...)

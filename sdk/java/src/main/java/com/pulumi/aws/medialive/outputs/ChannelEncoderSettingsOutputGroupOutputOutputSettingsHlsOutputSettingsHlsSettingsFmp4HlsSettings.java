@@ -48,25 +48,28 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
 
         @CustomType.Setter
         public Builder audioRenditionSets(@Nullable String audioRenditionSets) {
+
             this.audioRenditionSets = audioRenditionSets;
             return this;
         }
         @CustomType.Setter
         public Builder nielsenId3Behavior(@Nullable String nielsenId3Behavior) {
+
             this.nielsenId3Behavior = nielsenId3Behavior;
             return this;
         }
         @CustomType.Setter
         public Builder timedMetadataBehavior(@Nullable String timedMetadataBehavior) {
+
             this.timedMetadataBehavior = timedMetadataBehavior;
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings();
-            o.audioRenditionSets = audioRenditionSets;
-            o.nielsenId3Behavior = nielsenId3Behavior;
-            o.timedMetadataBehavior = timedMetadataBehavior;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings();
+            _resultValue.audioRenditionSets = audioRenditionSets;
+            _resultValue.nielsenId3Behavior = nielsenId3Behavior;
+            _resultValue.timedMetadataBehavior = timedMetadataBehavior;
+            return _resultValue;
         }
     }
 }

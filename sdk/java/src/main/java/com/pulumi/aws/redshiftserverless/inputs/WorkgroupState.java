@@ -97,6 +97,21 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+     * 
+     */
+    @Import(name="maxCapacity")
+    private @Nullable Output<Integer> maxCapacity;
+
+    /**
+     * @return The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+     * 
+     */
+    public Optional<Output<Integer>> maxCapacity() {
+        return Optional.ofNullable(this.maxCapacity);
+    }
+
+    /**
      * The name of the namespace.
      * 
      */
@@ -109,6 +124,21 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> namespaceName() {
         return Optional.ofNullable(this.namespaceName);
+    }
+
+    /**
+     * The port number on which the cluster accepts incoming connections.
+     * 
+     */
+    @Import(name="port")
+    private @Nullable Output<Integer> port;
+
+    /**
+     * @return The port number on which the cluster accepts incoming connections.
+     * 
+     */
+    public Optional<Output<Integer>> port() {
+        return Optional.ofNullable(this.port);
     }
 
     /**
@@ -236,7 +266,9 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
         this.configParameters = $.configParameters;
         this.endpoints = $.endpoints;
         this.enhancedVpcRouting = $.enhancedVpcRouting;
+        this.maxCapacity = $.maxCapacity;
         this.namespaceName = $.namespaceName;
+        this.port = $.port;
         this.publiclyAccessible = $.publiclyAccessible;
         this.securityGroupIds = $.securityGroupIds;
         this.subnetIds = $.subnetIds;
@@ -390,6 +422,27 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param maxCapacity The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxCapacity(@Nullable Output<Integer> maxCapacity) {
+            $.maxCapacity = maxCapacity;
+            return this;
+        }
+
+        /**
+         * @param maxCapacity The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxCapacity(Integer maxCapacity) {
+            return maxCapacity(Output.of(maxCapacity));
+        }
+
+        /**
          * @param namespaceName The name of the namespace.
          * 
          * @return builder
@@ -408,6 +461,27 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder namespaceName(String namespaceName) {
             return namespaceName(Output.of(namespaceName));
+        }
+
+        /**
+         * @param port The port number on which the cluster accepts incoming connections.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder port(@Nullable Output<Integer> port) {
+            $.port = port;
+            return this;
+        }
+
+        /**
+         * @param port The port number on which the cluster accepts incoming connections.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder port(Integer port) {
+            return port(Output.of(port));
         }
 
         /**

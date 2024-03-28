@@ -3,8 +3,10 @@
 
 package com.pulumi.aws.verifiedaccess;
 
+import com.pulumi.aws.verifiedaccess.inputs.GroupSseConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -31,11 +33,34 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * The policy document that is associated with this resource.
+     * 
+     */
     @Import(name="policyDocument")
     private @Nullable Output<String> policyDocument;
 
+    /**
+     * @return The policy document that is associated with this resource.
+     * 
+     */
     public Optional<Output<String>> policyDocument() {
         return Optional.ofNullable(this.policyDocument);
+    }
+
+    /**
+     * Configuration block to use KMS keys for server-side encryption.
+     * 
+     */
+    @Import(name="sseConfiguration")
+    private @Nullable Output<GroupSseConfigurationArgs> sseConfiguration;
+
+    /**
+     * @return Configuration block to use KMS keys for server-side encryption.
+     * 
+     */
+    public Optional<Output<GroupSseConfigurationArgs>> sseConfiguration() {
+        return Optional.ofNullable(this.sseConfiguration);
     }
 
     /**
@@ -77,6 +102,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     private GroupArgs(GroupArgs $) {
         this.description = $.description;
         this.policyDocument = $.policyDocument;
+        this.sseConfiguration = $.sseConfiguration;
         this.tags = $.tags;
         this.verifiedaccessInstanceId = $.verifiedaccessInstanceId;
     }
@@ -120,13 +146,46 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
             return description(Output.of(description));
         }
 
+        /**
+         * @param policyDocument The policy document that is associated with this resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policyDocument(@Nullable Output<String> policyDocument) {
             $.policyDocument = policyDocument;
             return this;
         }
 
+        /**
+         * @param policyDocument The policy document that is associated with this resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policyDocument(String policyDocument) {
             return policyDocument(Output.of(policyDocument));
+        }
+
+        /**
+         * @param sseConfiguration Configuration block to use KMS keys for server-side encryption.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sseConfiguration(@Nullable Output<GroupSseConfigurationArgs> sseConfiguration) {
+            $.sseConfiguration = sseConfiguration;
+            return this;
+        }
+
+        /**
+         * @param sseConfiguration Configuration block to use KMS keys for server-side encryption.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sseConfiguration(GroupSseConfigurationArgs sseConfiguration) {
+            return sseConfiguration(Output.of(sseConfiguration));
         }
 
         /**
@@ -176,7 +235,9 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public GroupArgs build() {
-            $.verifiedaccessInstanceId = Objects.requireNonNull($.verifiedaccessInstanceId, "expected parameter 'verifiedaccessInstanceId' to be non-null");
+            if ($.verifiedaccessInstanceId == null) {
+                throw new MissingRequiredPropertyException("GroupArgs", "verifiedaccessInstanceId");
+            }
             return $;
         }
     }

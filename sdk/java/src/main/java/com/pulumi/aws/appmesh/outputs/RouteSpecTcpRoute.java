@@ -7,6 +7,7 @@ import com.pulumi.aws.appmesh.outputs.RouteSpecTcpRouteAction;
 import com.pulumi.aws.appmesh.outputs.RouteSpecTcpRouteMatch;
 import com.pulumi.aws.appmesh.outputs.RouteSpecTcpRouteTimeout;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -74,25 +75,30 @@ public final class RouteSpecTcpRoute {
 
         @CustomType.Setter
         public Builder action(RouteSpecTcpRouteAction action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("RouteSpecTcpRoute", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder match(@Nullable RouteSpecTcpRouteMatch match) {
+
             this.match = match;
             return this;
         }
         @CustomType.Setter
         public Builder timeout(@Nullable RouteSpecTcpRouteTimeout timeout) {
+
             this.timeout = timeout;
             return this;
         }
         public RouteSpecTcpRoute build() {
-            final var o = new RouteSpecTcpRoute();
-            o.action = action;
-            o.match = match;
-            o.timeout = timeout;
-            return o;
+            final var _resultValue = new RouteSpecTcpRoute();
+            _resultValue.action = action;
+            _resultValue.match = match;
+            _resultValue.timeout = timeout;
+            return _resultValue;
         }
     }
 }

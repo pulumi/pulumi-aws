@@ -22,7 +22,10 @@ import javax.annotation.Nullable;
  * Provides a AWS Transfer Workflow resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic single step example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -59,7 +62,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Multistep example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -90,7 +97,7 @@ import javax.annotation.Nullable;
  *                     .customStepDetails(WorkflowStepCustomStepDetailsArgs.builder()
  *                         .name(&#34;example&#34;)
  *                         .sourceFileLocation(&#34;${original.file}&#34;)
- *                         .target(aws_lambda_function.example().arn())
+ *                         .target(exampleAwsLambdaFunction.arn())
  *                         .timeoutSeconds(60)
  *                         .build())
  *                     .type(&#34;CUSTOM&#34;)
@@ -111,13 +118,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Transfer Workflows using the `worflow_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:transfer/workflow:Workflow example example
+ * $ pulumi import aws:transfer/workflow:Workflow example example
  * ```
  * 
  */
@@ -244,9 +252,6 @@ public class Workflow extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

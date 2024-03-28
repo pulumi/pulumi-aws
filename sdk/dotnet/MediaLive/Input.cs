@@ -13,8 +13,10 @@ namespace Pulumi.Aws.MediaLive
     /// Resource for managing an AWS MediaLive Input.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,7 +25,7 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleInputSecurityGroup = new Aws.MediaLive.InputSecurityGroup("exampleInputSecurityGroup", new()
+    ///     var example = new Aws.MediaLive.InputSecurityGroup("example", new()
     ///     {
     ///         WhitelistRules = new[]
     ///         {
@@ -38,11 +40,12 @@ namespace Pulumi.Aws.MediaLive
     ///         },
     ///     });
     /// 
-    ///     var exampleInput = new Aws.MediaLive.Input("exampleInput", new()
+    ///     var exampleInput = new Aws.MediaLive.Input("example", new()
     ///     {
+    ///         Name = "example-input",
     ///         InputSecurityGroups = new[]
     ///         {
-    ///             exampleInputSecurityGroup.Id,
+    ///             example.Id,
     ///         },
     ///         Type = "UDP_PUSH",
     ///         Tags = 
@@ -53,13 +56,14 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MediaLive Input using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:medialive/input:Input example 12345678
+    /// $ pulumi import aws:medialive/input:Input example 12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:medialive/input:Input")]
@@ -183,10 +187,6 @@ namespace Pulumi.Aws.MediaLive
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -448,11 +448,7 @@ namespace Pulumi.Aws.MediaLive
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

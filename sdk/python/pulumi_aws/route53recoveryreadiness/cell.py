@@ -198,19 +198,21 @@ class Cell(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.route53recoveryreadiness.Cell("example", cell_name="us-west-2-failover-cell")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 Recovery Readiness cells using the cell name. For example:
 
         ```sh
-         $ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
+        $ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
         ```
 
         :param str resource_name: The name of the resource.
@@ -232,19 +234,21 @@ class Cell(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.route53recoveryreadiness.Cell("example", cell_name="us-west-2-failover-cell")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 Recovery Readiness cells using the cell name. For example:
 
         ```sh
-         $ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
+        $ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
         ```
 
         :param str resource_name: The name of the resource.
@@ -282,8 +286,6 @@ class Cell(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["parent_readiness_scopes"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Cell, __self__).__init__(
             'aws:route53recoveryreadiness/cell:Cell',
             resource_name,

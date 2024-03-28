@@ -59,19 +59,21 @@ public final class VirtualServiceSpecProvider {
 
         @CustomType.Setter
         public Builder virtualNode(@Nullable VirtualServiceSpecProviderVirtualNode virtualNode) {
+
             this.virtualNode = virtualNode;
             return this;
         }
         @CustomType.Setter
         public Builder virtualRouter(@Nullable VirtualServiceSpecProviderVirtualRouter virtualRouter) {
+
             this.virtualRouter = virtualRouter;
             return this;
         }
         public VirtualServiceSpecProvider build() {
-            final var o = new VirtualServiceSpecProvider();
-            o.virtualNode = virtualNode;
-            o.virtualRouter = virtualRouter;
-            return o;
+            final var _resultValue = new VirtualServiceSpecProvider();
+            _resultValue.virtualNode = virtualNode;
+            _resultValue.virtualRouter = virtualRouter;
+            return _resultValue;
         }
     }
 }

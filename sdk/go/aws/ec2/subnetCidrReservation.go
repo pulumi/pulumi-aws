@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,7 +32,7 @@ import (
 //			_, err := ec2.NewSubnetCidrReservation(ctx, "example", &ec2.SubnetCidrReservationArgs{
 //				CidrBlock:       pulumi.String("10.0.0.16/28"),
 //				ReservationType: pulumi.String("prefix"),
-//				SubnetId:        pulumi.Any(aws_subnet.Example.Id),
+//				SubnetId:        pulumi.Any(exampleAwsSubnet.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -41,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Existing CIDR reservations using `SUBNET_ID:RESERVATION_ID`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
-//
+// $ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
 // ```
 type SubnetCidrReservation struct {
 	pulumi.CustomResourceState

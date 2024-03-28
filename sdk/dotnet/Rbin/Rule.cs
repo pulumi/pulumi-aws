@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Rbin
     /// Resource for managing an AWS RBin Rule.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,6 +28,7 @@ namespace Pulumi.Aws.Rbin
     ///     var example = new Aws.Rbin.Rule("example", new()
     ///     {
     ///         Description = "example_rule",
+    ///         ResourceType = "EBS_SNAPSHOT",
     ///         ResourceTags = new[]
     ///         {
     ///             new Aws.Rbin.Inputs.RuleResourceTagArgs
@@ -34,11 +37,10 @@ namespace Pulumi.Aws.Rbin
     ///                 ResourceTagValue = "tag_value",
     ///             },
     ///         },
-    ///         ResourceType = "EBS_SNAPSHOT",
     ///         RetentionPeriod = new Aws.Rbin.Inputs.RuleRetentionPeriodArgs
     ///         {
-    ///             RetentionPeriodUnit = "DAYS",
     ///             RetentionPeriodValue = 10,
+    ///             RetentionPeriodUnit = "DAYS",
     ///         },
     ///         Tags = 
     ///         {
@@ -48,13 +50,14 @@ namespace Pulumi.Aws.Rbin
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import RBin Rule using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rbin/rule:Rule example examplerule
+    /// $ pulumi import aws:rbin/rule:Rule example examplerule
     /// ```
     /// </summary>
     [AwsResourceType("aws:rbin/rule:Rule")]
@@ -142,10 +145,6 @@ namespace Pulumi.Aws.Rbin
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -296,11 +295,7 @@ namespace Pulumi.Aws.Rbin
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public RuleState()

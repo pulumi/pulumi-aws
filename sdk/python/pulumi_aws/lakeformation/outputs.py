@@ -11,8 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'DataCellsFilterTableData',
+    'DataCellsFilterTableDataColumnWildcard',
+    'DataCellsFilterTableDataRowFilter',
+    'DataCellsFilterTableDataRowFilterAllRowsWildcard',
+    'DataCellsFilterTimeouts',
     'DataLakeSettingsCreateDatabaseDefaultPermission',
     'DataLakeSettingsCreateTableDefaultPermission',
+    'PermissionsDataCellsFilter',
     'PermissionsDataLocation',
     'PermissionsDatabase',
     'PermissionsLfTag',
@@ -26,6 +32,7 @@ __all__ = [
     'ResourceLfTagsTableWithColumns',
     'GetDataLakeSettingsCreateDatabaseDefaultPermissionResult',
     'GetDataLakeSettingsCreateTableDefaultPermissionResult',
+    'GetPermissionsDataCellsFilterResult',
     'GetPermissionsDataLocationResult',
     'GetPermissionsDatabaseResult',
     'GetPermissionsLfTagResult',
@@ -34,6 +41,241 @@ __all__ = [
     'GetPermissionsTableResult',
     'GetPermissionsTableWithColumnsResult',
 ]
+
+@pulumi.output_type
+class DataCellsFilterTableData(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "tableCatalogId":
+            suggest = "table_catalog_id"
+        elif key == "tableName":
+            suggest = "table_name"
+        elif key == "columnNames":
+            suggest = "column_names"
+        elif key == "columnWildcard":
+            suggest = "column_wildcard"
+        elif key == "rowFilter":
+            suggest = "row_filter"
+        elif key == "versionId":
+            suggest = "version_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCellsFilterTableData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCellsFilterTableData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCellsFilterTableData.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database_name: str,
+                 name: str,
+                 table_catalog_id: str,
+                 table_name: str,
+                 column_names: Optional[Sequence[str]] = None,
+                 column_wildcard: Optional['outputs.DataCellsFilterTableDataColumnWildcard'] = None,
+                 row_filter: Optional['outputs.DataCellsFilterTableDataRowFilter'] = None,
+                 version_id: Optional[str] = None):
+        """
+        :param str database_name: The name of the database.
+        :param str name: The name of the data cells filter.
+        :param str table_catalog_id: The ID of the Data Catalog.
+        :param str table_name: The name of the table.
+        :param Sequence[str] column_names: A list of column names and/or nested column attributes.
+        :param 'DataCellsFilterTableDataRowFilterArgs' row_filter: A PartiQL predicate. See Row Filter below for details.
+        :param str version_id: ID of the data cells filter version.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "table_catalog_id", table_catalog_id)
+        pulumi.set(__self__, "table_name", table_name)
+        if column_names is not None:
+            pulumi.set(__self__, "column_names", column_names)
+        if column_wildcard is not None:
+            pulumi.set(__self__, "column_wildcard", column_wildcard)
+        if row_filter is not None:
+            pulumi.set(__self__, "row_filter", row_filter)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        The name of the database.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the data cells filter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="tableCatalogId")
+    def table_catalog_id(self) -> str:
+        """
+        The ID of the Data Catalog.
+        """
+        return pulumi.get(self, "table_catalog_id")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        The name of the table.
+        """
+        return pulumi.get(self, "table_name")
+
+    @property
+    @pulumi.getter(name="columnNames")
+    def column_names(self) -> Optional[Sequence[str]]:
+        """
+        A list of column names and/or nested column attributes.
+        """
+        return pulumi.get(self, "column_names")
+
+    @property
+    @pulumi.getter(name="columnWildcard")
+    def column_wildcard(self) -> Optional['outputs.DataCellsFilterTableDataColumnWildcard']:
+        return pulumi.get(self, "column_wildcard")
+
+    @property
+    @pulumi.getter(name="rowFilter")
+    def row_filter(self) -> Optional['outputs.DataCellsFilterTableDataRowFilter']:
+        """
+        A PartiQL predicate. See Row Filter below for details.
+        """
+        return pulumi.get(self, "row_filter")
+
+    @property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> Optional[str]:
+        """
+        ID of the data cells filter version.
+        """
+        return pulumi.get(self, "version_id")
+
+
+@pulumi.output_type
+class DataCellsFilterTableDataColumnWildcard(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludedColumnNames":
+            suggest = "excluded_column_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCellsFilterTableDataColumnWildcard. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCellsFilterTableDataColumnWildcard.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCellsFilterTableDataColumnWildcard.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 excluded_column_names: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] excluded_column_names: (Optional) Excludes column names. Any column with this name will be excluded.
+        """
+        if excluded_column_names is not None:
+            pulumi.set(__self__, "excluded_column_names", excluded_column_names)
+
+    @property
+    @pulumi.getter(name="excludedColumnNames")
+    def excluded_column_names(self) -> Optional[Sequence[str]]:
+        """
+        (Optional) Excludes column names. Any column with this name will be excluded.
+        """
+        return pulumi.get(self, "excluded_column_names")
+
+
+@pulumi.output_type
+class DataCellsFilterTableDataRowFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allRowsWildcard":
+            suggest = "all_rows_wildcard"
+        elif key == "filterExpression":
+            suggest = "filter_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCellsFilterTableDataRowFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCellsFilterTableDataRowFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCellsFilterTableDataRowFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 all_rows_wildcard: Optional['outputs.DataCellsFilterTableDataRowFilterAllRowsWildcard'] = None,
+                 filter_expression: Optional[str] = None):
+        """
+        :param 'DataCellsFilterTableDataRowFilterAllRowsWildcardArgs' all_rows_wildcard: (Optional) A wildcard that matches all rows.
+        :param str filter_expression: (Optional) A filter expression.
+        """
+        if all_rows_wildcard is not None:
+            pulumi.set(__self__, "all_rows_wildcard", all_rows_wildcard)
+        if filter_expression is not None:
+            pulumi.set(__self__, "filter_expression", filter_expression)
+
+    @property
+    @pulumi.getter(name="allRowsWildcard")
+    def all_rows_wildcard(self) -> Optional['outputs.DataCellsFilterTableDataRowFilterAllRowsWildcard']:
+        """
+        (Optional) A wildcard that matches all rows.
+        """
+        return pulumi.get(self, "all_rows_wildcard")
+
+    @property
+    @pulumi.getter(name="filterExpression")
+    def filter_expression(self) -> Optional[str]:
+        """
+        (Optional) A filter expression.
+        """
+        return pulumi.get(self, "filter_expression")
+
+
+@pulumi.output_type
+class DataCellsFilterTableDataRowFilterAllRowsWildcard(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class DataCellsFilterTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
 
 @pulumi.output_type
 class DataLakeSettingsCreateDatabaseDefaultPermission(dict):
@@ -95,6 +337,78 @@ class DataLakeSettingsCreateTableDefaultPermission(dict):
         Principal who is granted permissions. To enforce metadata and underlying data access control only by IAM on new databases and tables set `principal` to `IAM_ALLOWED_PRINCIPALS` and `permissions` to `["ALL"]`.
         """
         return pulumi.get(self, "principal")
+
+
+@pulumi.output_type
+class PermissionsDataCellsFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "tableCatalogId":
+            suggest = "table_catalog_id"
+        elif key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PermissionsDataCellsFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PermissionsDataCellsFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PermissionsDataCellsFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database_name: str,
+                 name: str,
+                 table_catalog_id: str,
+                 table_name: str):
+        """
+        :param str database_name: The name of the database.
+        :param str name: The name of the data cells filter.
+        :param str table_catalog_id: The ID of the Data Catalog.
+        :param str table_name: The name of the table.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "table_catalog_id", table_catalog_id)
+        pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        The name of the database.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the data cells filter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="tableCatalogId")
+    def table_catalog_id(self) -> str:
+        """
+        The ID of the Data Catalog.
+        """
+        return pulumi.get(self, "table_catalog_id")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        The name of the table.
+        """
+        return pulumi.get(self, "table_name")
 
 
 @pulumi.output_type
@@ -885,6 +1199,57 @@ class GetDataLakeSettingsCreateTableDefaultPermissionResult(dict):
         Principal who is granted permissions.
         """
         return pulumi.get(self, "principal")
+
+
+@pulumi.output_type
+class GetPermissionsDataCellsFilterResult(dict):
+    def __init__(__self__, *,
+                 database_name: str,
+                 name: str,
+                 table_catalog_id: str,
+                 table_name: str):
+        """
+        :param str database_name: The name of the database.
+        :param str name: The name of the data cells filter.
+        :param str table_catalog_id: The ID of the Data Catalog.
+        :param str table_name: The name of the table.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "table_catalog_id", table_catalog_id)
+        pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        The name of the database.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the data cells filter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="tableCatalogId")
+    def table_catalog_id(self) -> str:
+        """
+        The ID of the Data Catalog.
+        """
+        return pulumi.get(self, "table_catalog_id")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        The name of the table.
+        """
+        return pulumi.get(self, "table_name")
 
 
 @pulumi.output_type

@@ -19,23 +19,41 @@ class PipelineArgs:
                  artifact_stores: pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]],
                  role_arn: pulumi.Input[str],
                  stages: pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]],
+                 execution_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 pipeline_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTriggerArgs']]]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineVariableArgs']]]] = None):
         """
         The set of arguments for constructing a Pipeline resource.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]] stages: A stage block. Stages are documented below.
+        :param pulumi.Input[str] execution_mode: The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+               
+               **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         :param pulumi.Input[str] name: The name of the pipeline.
+        :param pulumi.Input[str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineTriggerArgs']]] triggers: A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineVariableArgs']]] variables: A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
         """
         pulumi.set(__self__, "artifact_stores", artifact_stores)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "stages", stages)
+        if execution_mode is not None:
+            pulumi.set(__self__, "execution_mode", execution_mode)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if pipeline_type is not None:
+            pulumi.set(__self__, "pipeline_type", pipeline_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if triggers is not None:
+            pulumi.set(__self__, "triggers", triggers)
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
 
     @property
     @pulumi.getter(name="artifactStores")
@@ -74,6 +92,20 @@ class PipelineArgs:
         pulumi.set(self, "stages", value)
 
     @property
+    @pulumi.getter(name="executionMode")
+    def execution_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+
+        **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+        """
+        return pulumi.get(self, "execution_mode")
+
+    @execution_mode.setter
+    def execution_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_mode", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -84,6 +116,18 @@ class PipelineArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="pipelineType")
+    def pipeline_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+        """
+        return pulumi.get(self, "pipeline_type")
+
+    @pipeline_type.setter
+    def pipeline_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pipeline_type", value)
 
     @property
     @pulumi.getter
@@ -97,33 +141,71 @@ class PipelineArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter
+    def triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTriggerArgs']]]]:
+        """
+        A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+        """
+        return pulumi.get(self, "triggers")
+
+    @triggers.setter
+    def triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTriggerArgs']]]]):
+        pulumi.set(self, "triggers", value)
+
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineVariableArgs']]]]:
+        """
+        A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+        """
+        return pulumi.get(self, "variables")
+
+    @variables.setter
+    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineVariableArgs']]]]):
+        pulumi.set(self, "variables", value)
+
 
 @pulumi.input_type
 class _PipelineState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]]] = None,
+                 execution_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 pipeline_type: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stages: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTriggerArgs']]]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineVariableArgs']]]] = None):
         """
         Input properties used for looking up and filtering Pipeline resources.
         :param pulumi.Input[str] arn: The codepipeline ARN.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
+        :param pulumi.Input[str] execution_mode: The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+               
+               **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         :param pulumi.Input[str] name: The name of the pipeline.
+        :param pulumi.Input[str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]] stages: A stage block. Stages are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineTriggerArgs']]] triggers: A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineVariableArgs']]] variables: A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if artifact_stores is not None:
             pulumi.set(__self__, "artifact_stores", artifact_stores)
+        if execution_mode is not None:
+            pulumi.set(__self__, "execution_mode", execution_mode)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if pipeline_type is not None:
+            pulumi.set(__self__, "pipeline_type", pipeline_type)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if stages is not None:
@@ -135,6 +217,10 @@ class _PipelineState:
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if triggers is not None:
+            pulumi.set(__self__, "triggers", triggers)
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
 
     @property
     @pulumi.getter
@@ -161,6 +247,20 @@ class _PipelineState:
         pulumi.set(self, "artifact_stores", value)
 
     @property
+    @pulumi.getter(name="executionMode")
+    def execution_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+
+        **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+        """
+        return pulumi.get(self, "execution_mode")
+
+    @execution_mode.setter
+    def execution_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_mode", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -171,6 +271,18 @@ class _PipelineState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="pipelineType")
+    def pipeline_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+        """
+        return pulumi.get(self, "pipeline_type")
+
+    @pipeline_type.setter
+    def pipeline_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pipeline_type", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -223,6 +335,30 @@ class _PipelineState:
     def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags_all", value)
 
+    @property
+    @pulumi.getter
+    def triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTriggerArgs']]]]:
+        """
+        A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+        """
+        return pulumi.get(self, "triggers")
+
+    @triggers.setter
+    def triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTriggerArgs']]]]):
+        pulumi.set(self, "triggers", value)
+
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineVariableArgs']]]]:
+        """
+        A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+        """
+        return pulumi.get(self, "variables")
+
+    @variables.setter
+    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineVariableArgs']]]]):
+        pulumi.set(self, "variables", value)
+
 
 class Pipeline(pulumi.CustomResource):
     @overload
@@ -230,22 +366,29 @@ class Pipeline(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]]]] = None,
+                 execution_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 pipeline_type: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineTriggerArgs']]]]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineVariableArgs']]]]] = None,
                  __props__=None):
         """
         Provides a CodePipeline.
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.codestarconnections.Connection("example", provider_type="GitHub")
-        codepipeline_bucket = aws.s3.BucketV2("codepipelineBucket")
+        example = aws.codestarconnections.Connection("example",
+            name="example-connection",
+            provider_type="GitHub")
+        codepipeline_bucket = aws.s3.BucketV2("codepipeline_bucket", bucket="test-bucket")
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -254,9 +397,12 @@ class Pipeline(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        codepipeline_role = aws.iam.Role("codepipelineRole", assume_role_policy=assume_role.json)
+        codepipeline_role = aws.iam.Role("codepipeline_role",
+            name="test-role",
+            assume_role_policy=assume_role.json)
         s3kmskey = aws.kms.get_alias(name="alias/myKmsKey")
         codepipeline = aws.codepipeline.Pipeline("codepipeline",
+            name="tf-test-pipeline",
             role_arn=codepipeline_role.arn,
             artifact_stores=[aws.codepipeline.PipelineArtifactStoreArgs(
                 location=codepipeline_bucket.bucket,
@@ -317,10 +463,13 @@ class Pipeline(pulumi.CustomResource):
                     )],
                 ),
             ])
-        codepipeline_bucket_acl = aws.s3.BucketAclV2("codepipelineBucketAcl",
+        codepipeline_bucket_pab = aws.s3.BucketPublicAccessBlock("codepipeline_bucket_pab",
             bucket=codepipeline_bucket.id,
-            acl="private")
-        codepipeline_policy_policy_document = aws.iam.get_policy_document_output(statements=[
+            block_public_acls=True,
+            block_public_policy=True,
+            ignore_public_acls=True,
+            restrict_public_buckets=True)
+        codepipeline_policy = aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=[
@@ -349,26 +498,34 @@ class Pipeline(pulumi.CustomResource):
                 resources=["*"],
             ),
         ])
-        codepipeline_policy_role_policy = aws.iam.RolePolicy("codepipelinePolicyRolePolicy",
+        codepipeline_policy_role_policy = aws.iam.RolePolicy("codepipeline_policy",
+            name="codepipeline_policy",
             role=codepipeline_role.id,
-            policy=codepipeline_policy_policy_document.json)
+            policy=codepipeline_policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodePipelines using the name. For example:
 
         ```sh
-         $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
+        $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
+        :param pulumi.Input[str] execution_mode: The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+               
+               **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         :param pulumi.Input[str] name: The name of the pipeline.
+        :param pulumi.Input[str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageArgs']]]] stages: A stage block. Stages are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineTriggerArgs']]]] triggers: A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineVariableArgs']]]] variables: A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
         """
         ...
     @overload
@@ -381,12 +538,15 @@ class Pipeline(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.codestarconnections.Connection("example", provider_type="GitHub")
-        codepipeline_bucket = aws.s3.BucketV2("codepipelineBucket")
+        example = aws.codestarconnections.Connection("example",
+            name="example-connection",
+            provider_type="GitHub")
+        codepipeline_bucket = aws.s3.BucketV2("codepipeline_bucket", bucket="test-bucket")
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -395,9 +555,12 @@ class Pipeline(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        codepipeline_role = aws.iam.Role("codepipelineRole", assume_role_policy=assume_role.json)
+        codepipeline_role = aws.iam.Role("codepipeline_role",
+            name="test-role",
+            assume_role_policy=assume_role.json)
         s3kmskey = aws.kms.get_alias(name="alias/myKmsKey")
         codepipeline = aws.codepipeline.Pipeline("codepipeline",
+            name="tf-test-pipeline",
             role_arn=codepipeline_role.arn,
             artifact_stores=[aws.codepipeline.PipelineArtifactStoreArgs(
                 location=codepipeline_bucket.bucket,
@@ -458,10 +621,13 @@ class Pipeline(pulumi.CustomResource):
                     )],
                 ),
             ])
-        codepipeline_bucket_acl = aws.s3.BucketAclV2("codepipelineBucketAcl",
+        codepipeline_bucket_pab = aws.s3.BucketPublicAccessBlock("codepipeline_bucket_pab",
             bucket=codepipeline_bucket.id,
-            acl="private")
-        codepipeline_policy_policy_document = aws.iam.get_policy_document_output(statements=[
+            block_public_acls=True,
+            block_public_policy=True,
+            ignore_public_acls=True,
+            restrict_public_buckets=True)
+        codepipeline_policy = aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=[
@@ -490,17 +656,19 @@ class Pipeline(pulumi.CustomResource):
                 resources=["*"],
             ),
         ])
-        codepipeline_policy_role_policy = aws.iam.RolePolicy("codepipelinePolicyRolePolicy",
+        codepipeline_policy_role_policy = aws.iam.RolePolicy("codepipeline_policy",
+            name="codepipeline_policy",
             role=codepipeline_role.id,
-            policy=codepipeline_policy_policy_document.json)
+            policy=codepipeline_policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodePipelines using the name. For example:
 
         ```sh
-         $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
+        $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
         ```
 
         :param str resource_name: The name of the resource.
@@ -519,10 +687,14 @@ class Pipeline(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]]]] = None,
+                 execution_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 pipeline_type: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineTriggerArgs']]]]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineVariableArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -535,7 +707,9 @@ class Pipeline(pulumi.CustomResource):
             if artifact_stores is None and not opts.urn:
                 raise TypeError("Missing required property 'artifact_stores'")
             __props__.__dict__["artifact_stores"] = artifact_stores
+            __props__.__dict__["execution_mode"] = execution_mode
             __props__.__dict__["name"] = name
+            __props__.__dict__["pipeline_type"] = pipeline_type
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -543,10 +717,10 @@ class Pipeline(pulumi.CustomResource):
                 raise TypeError("Missing required property 'stages'")
             __props__.__dict__["stages"] = stages
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["triggers"] = triggers
+            __props__.__dict__["variables"] = variables
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Pipeline, __self__).__init__(
             'aws:codepipeline/pipeline:Pipeline',
             resource_name,
@@ -559,11 +733,15 @@ class Pipeline(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]]]] = None,
+            execution_mode: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            pipeline_type: Optional[pulumi.Input[str]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
             stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Pipeline':
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineTriggerArgs']]]]] = None,
+            variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineVariableArgs']]]]] = None) -> 'Pipeline':
         """
         Get an existing Pipeline resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -573,11 +751,17 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The codepipeline ARN.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
+        :param pulumi.Input[str] execution_mode: The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+               
+               **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         :param pulumi.Input[str] name: The name of the pipeline.
+        :param pulumi.Input[str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageArgs']]]] stages: A stage block. Stages are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineTriggerArgs']]]] triggers: A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineVariableArgs']]]] variables: A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -585,11 +769,15 @@ class Pipeline(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["artifact_stores"] = artifact_stores
+        __props__.__dict__["execution_mode"] = execution_mode
         __props__.__dict__["name"] = name
+        __props__.__dict__["pipeline_type"] = pipeline_type
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["stages"] = stages
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["triggers"] = triggers
+        __props__.__dict__["variables"] = variables
         return Pipeline(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -609,12 +797,30 @@ class Pipeline(pulumi.CustomResource):
         return pulumi.get(self, "artifact_stores")
 
     @property
+    @pulumi.getter(name="executionMode")
+    def execution_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+
+        **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+        """
+        return pulumi.get(self, "execution_mode")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         The name of the pipeline.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="pipelineType")
+    def pipeline_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+        """
+        return pulumi.get(self, "pipeline_type")
 
     @property
     @pulumi.getter(name="roleArn")
@@ -650,4 +856,20 @@ class Pipeline(pulumi.CustomResource):
         pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
 
         return pulumi.get(self, "tags_all")
+
+    @property
+    @pulumi.getter
+    def triggers(self) -> pulumi.Output[Optional[Sequence['outputs.PipelineTrigger']]]:
+        """
+        A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+        """
+        return pulumi.get(self, "triggers")
+
+    @property
+    @pulumi.getter
+    def variables(self) -> pulumi.Output[Optional[Sequence['outputs.PipelineVariable']]]:
+        """
+        A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+        """
+        return pulumi.get(self, "variables")
 

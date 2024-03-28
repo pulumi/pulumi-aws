@@ -72,25 +72,28 @@ public final class ProvisionedProductOutput {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder key(@Nullable String key) {
+
             this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }
         public ProvisionedProductOutput build() {
-            final var o = new ProvisionedProductOutput();
-            o.description = description;
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new ProvisionedProductOutput();
+            _resultValue.description = description;
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

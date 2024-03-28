@@ -102,23 +102,23 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.route53.ResolverQueryLogConfigAssociation("example",
-            resolver_query_log_config_id=aws_route53_resolver_query_log_config["example"]["id"],
-            resource_id=aws_vpc["example"]["id"])
+            resolver_query_log_config_id=example_aws_route53_resolver_query_log_config["id"],
+            resource_id=example_aws_vpc["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import
-
-        Route 53 Resolver query logging configuration associations using the Route 53 Resolver query logging configuration association ID. For example:
+        Using `pulumi import`, import  Route 53 Resolver query logging configuration associations using the Route 53 Resolver query logging configuration association ID. For example:
 
         ```sh
-         $ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
+        $ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
         ```
 
         :param str resource_name: The name of the resource.
@@ -137,23 +137,23 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.route53.ResolverQueryLogConfigAssociation("example",
-            resolver_query_log_config_id=aws_route53_resolver_query_log_config["example"]["id"],
-            resource_id=aws_vpc["example"]["id"])
+            resolver_query_log_config_id=example_aws_route53_resolver_query_log_config["id"],
+            resource_id=example_aws_vpc["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import
-
-        Route 53 Resolver query logging configuration associations using the Route 53 Resolver query logging configuration association ID. For example:
+        Using `pulumi import`, import  Route 53 Resolver query logging configuration associations using the Route 53 Resolver query logging configuration association ID. For example:
 
         ```sh
-         $ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
+        $ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
         ```
 
         :param str resource_name: The name of the resource.

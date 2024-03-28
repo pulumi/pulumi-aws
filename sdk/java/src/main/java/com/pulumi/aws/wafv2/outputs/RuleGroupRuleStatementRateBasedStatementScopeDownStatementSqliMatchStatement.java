@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.outputs;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -64,22 +65,26 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSql
 
         @CustomType.Setter
         public Builder fieldToMatch(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch fieldToMatch) {
+
             this.fieldToMatch = fieldToMatch;
             return this;
         }
         @CustomType.Setter
         public Builder textTransformations(List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation> textTransformations) {
-            this.textTransformations = Objects.requireNonNull(textTransformations);
+            if (textTransformations == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement", "textTransformations");
+            }
+            this.textTransformations = textTransformations;
             return this;
         }
         public Builder textTransformations(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation... textTransformations) {
             return textTransformations(List.of(textTransformations));
         }
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement();
-            o.fieldToMatch = fieldToMatch;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement();
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

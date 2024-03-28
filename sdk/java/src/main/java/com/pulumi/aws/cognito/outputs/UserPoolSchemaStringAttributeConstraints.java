@@ -58,19 +58,21 @@ public final class UserPoolSchemaStringAttributeConstraints {
 
         @CustomType.Setter
         public Builder maxLength(@Nullable String maxLength) {
+
             this.maxLength = maxLength;
             return this;
         }
         @CustomType.Setter
         public Builder minLength(@Nullable String minLength) {
+
             this.minLength = minLength;
             return this;
         }
         public UserPoolSchemaStringAttributeConstraints build() {
-            final var o = new UserPoolSchemaStringAttributeConstraints();
-            o.maxLength = maxLength;
-            o.minLength = minLength;
-            return o;
+            final var _resultValue = new UserPoolSchemaStringAttributeConstraints();
+            _resultValue.maxLength = maxLength;
+            _resultValue.minLength = minLength;
+            return _resultValue;
         }
     }
 }

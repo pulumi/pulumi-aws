@@ -122,32 +122,36 @@ class XssMatchSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        xss_match_set = aws.waf.XssMatchSet("xssMatchSet", xss_match_tuples=[
-            aws.waf.XssMatchSetXssMatchTupleArgs(
-                field_to_match=aws.waf.XssMatchSetXssMatchTupleFieldToMatchArgs(
-                    type="URI",
+        xss_match_set = aws.waf.XssMatchSet("xss_match_set",
+            name="xss_match_set",
+            xss_match_tuples=[
+                aws.waf.XssMatchSetXssMatchTupleArgs(
+                    text_transformation="NONE",
+                    field_to_match=aws.waf.XssMatchSetXssMatchTupleFieldToMatchArgs(
+                        type="URI",
+                    ),
                 ),
-                text_transformation="NONE",
-            ),
-            aws.waf.XssMatchSetXssMatchTupleArgs(
-                field_to_match=aws.waf.XssMatchSetXssMatchTupleFieldToMatchArgs(
-                    type="QUERY_STRING",
+                aws.waf.XssMatchSetXssMatchTupleArgs(
+                    text_transformation="NONE",
+                    field_to_match=aws.waf.XssMatchSetXssMatchTupleFieldToMatchArgs(
+                        type="QUERY_STRING",
+                    ),
                 ),
-                text_transformation="NONE",
-            ),
-        ])
+            ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WAF XSS Match Set using their ID. For example:
 
         ```sh
-         $ pulumi import aws:waf/xssMatchSet:XssMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        $ pulumi import aws:waf/xssMatchSet:XssMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
         :param str resource_name: The name of the resource.
@@ -166,32 +170,36 @@ class XssMatchSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        xss_match_set = aws.waf.XssMatchSet("xssMatchSet", xss_match_tuples=[
-            aws.waf.XssMatchSetXssMatchTupleArgs(
-                field_to_match=aws.waf.XssMatchSetXssMatchTupleFieldToMatchArgs(
-                    type="URI",
+        xss_match_set = aws.waf.XssMatchSet("xss_match_set",
+            name="xss_match_set",
+            xss_match_tuples=[
+                aws.waf.XssMatchSetXssMatchTupleArgs(
+                    text_transformation="NONE",
+                    field_to_match=aws.waf.XssMatchSetXssMatchTupleFieldToMatchArgs(
+                        type="URI",
+                    ),
                 ),
-                text_transformation="NONE",
-            ),
-            aws.waf.XssMatchSetXssMatchTupleArgs(
-                field_to_match=aws.waf.XssMatchSetXssMatchTupleFieldToMatchArgs(
-                    type="QUERY_STRING",
+                aws.waf.XssMatchSetXssMatchTupleArgs(
+                    text_transformation="NONE",
+                    field_to_match=aws.waf.XssMatchSetXssMatchTupleFieldToMatchArgs(
+                        type="QUERY_STRING",
+                    ),
                 ),
-                text_transformation="NONE",
-            ),
-        ])
+            ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WAF XSS Match Set using their ID. For example:
 
         ```sh
-         $ pulumi import aws:waf/xssMatchSet:XssMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        $ pulumi import aws:waf/xssMatchSet:XssMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
         :param str resource_name: The name of the resource.

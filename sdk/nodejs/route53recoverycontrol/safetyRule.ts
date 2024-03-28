@@ -12,13 +12,15 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.route53recoverycontrol.SafetyRule("example", {
- *     assertedControls: [aws_route53recoverycontrolconfig_routing_control.example.arn],
+ *     assertedControls: [exampleAwsRoute53recoverycontrolconfigRoutingControl.arn],
  *     controlPanelArn: "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
+ *     name: "daisyguttridge",
  *     waitPeriodMs: 5000,
  *     ruleConfig: {
  *         inverted: false,
@@ -27,16 +29,19 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.route53recoverycontrol.SafetyRule("example", {
+ *     name: "i_o",
  *     controlPanelArn: "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
  *     waitPeriodMs: 5000,
- *     gatingControls: [aws_route53recoverycontrolconfig_routing_control.example.arn],
- *     targetControls: [aws_route53recoverycontrolconfig_routing_control.example.arn],
+ *     gatingControls: [exampleAwsRoute53recoverycontrolconfigRoutingControl.arn],
+ *     targetControls: [exampleAwsRoute53recoverycontrolconfigRoutingControl.arn],
  *     ruleConfig: {
  *         inverted: false,
  *         threshold: 1,
@@ -44,13 +49,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Route53 Recovery Control Config Safety Rule using the safety rule ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:route53recoverycontrol/safetyRule:SafetyRule myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
+ * $ pulumi import aws:route53recoverycontrol/safetyRule:SafetyRule myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
  * ```
  */
 export class SafetyRule extends pulumi.CustomResource {

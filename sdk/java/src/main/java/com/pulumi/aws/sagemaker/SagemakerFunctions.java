@@ -22,6 +22,8 @@ public final class SagemakerFunctions {
      * ## Example Usage
      * 
      * Basic usage:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -44,13 +46,14 @@ public final class SagemakerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SagemakerFunctions.getPrebuiltEcrImage(GetPrebuiltEcrImageArgs.builder()
-     *             .imageTag(&#34;2.2-1.0.11.0&#34;)
      *             .repositoryName(&#34;sagemaker-scikit-learn&#34;)
+     *             .imageTag(&#34;2.2-1.0.11.0&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPrebuiltEcrImageResult> getPrebuiltEcrImage(GetPrebuiltEcrImageArgs args) {
@@ -64,6 +67,8 @@ public final class SagemakerFunctions {
      * ## Example Usage
      * 
      * Basic usage:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -86,13 +91,14 @@ public final class SagemakerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SagemakerFunctions.getPrebuiltEcrImage(GetPrebuiltEcrImageArgs.builder()
-     *             .imageTag(&#34;2.2-1.0.11.0&#34;)
      *             .repositoryName(&#34;sagemaker-scikit-learn&#34;)
+     *             .imageTag(&#34;2.2-1.0.11.0&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPrebuiltEcrImageResult> getPrebuiltEcrImagePlain(GetPrebuiltEcrImagePlainArgs args) {
@@ -106,6 +112,8 @@ public final class SagemakerFunctions {
      * ## Example Usage
      * 
      * Basic usage:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -128,13 +136,14 @@ public final class SagemakerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SagemakerFunctions.getPrebuiltEcrImage(GetPrebuiltEcrImageArgs.builder()
-     *             .imageTag(&#34;2.2-1.0.11.0&#34;)
      *             .repositoryName(&#34;sagemaker-scikit-learn&#34;)
+     *             .imageTag(&#34;2.2-1.0.11.0&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPrebuiltEcrImageResult> getPrebuiltEcrImage(GetPrebuiltEcrImageArgs args, InvokeOptions options) {
@@ -148,6 +157,8 @@ public final class SagemakerFunctions {
      * ## Example Usage
      * 
      * Basic usage:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -170,13 +181,14 @@ public final class SagemakerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SagemakerFunctions.getPrebuiltEcrImage(GetPrebuiltEcrImageArgs.builder()
-     *             .imageTag(&#34;2.2-1.0.11.0&#34;)
      *             .repositoryName(&#34;sagemaker-scikit-learn&#34;)
+     *             .imageTag(&#34;2.2-1.0.11.0&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPrebuiltEcrImageResult> getPrebuiltEcrImagePlain(GetPrebuiltEcrImagePlainArgs args, InvokeOptions options) {

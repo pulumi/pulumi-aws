@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Amp
         /// <summary>
         /// Provides an Amazon Managed Prometheus workspace data source.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic configuration
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +34,7 @@ namespace Pulumi.Aws.Amp
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("aws:amp/getWorkspace:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
@@ -43,11 +42,11 @@ namespace Pulumi.Aws.Amp
         /// <summary>
         /// Provides an Amazon Managed Prometheus workspace data source.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic configuration
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +62,7 @@ namespace Pulumi.Aws.Amp
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("aws:amp/getWorkspace:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
@@ -144,6 +142,10 @@ namespace Pulumi.Aws.Amp
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// ARN of the KMS key used to encrypt data in the Prometheus workspace.
+        /// </summary>
+        public readonly string KmsKeyArn;
+        /// <summary>
         /// Endpoint of the Prometheus workspace.
         /// </summary>
         public readonly string PrometheusEndpoint;
@@ -167,6 +169,8 @@ namespace Pulumi.Aws.Amp
 
             string id,
 
+            string kmsKeyArn,
+
             string prometheusEndpoint,
 
             string status,
@@ -179,6 +183,7 @@ namespace Pulumi.Aws.Amp
             Arn = arn;
             CreatedDate = createdDate;
             Id = id;
+            KmsKeyArn = kmsKeyArn;
             PrometheusEndpoint = prometheusEndpoint;
             Status = status;
             Tags = tags;

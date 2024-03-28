@@ -70,24 +70,25 @@ class OrganizationAdminAccount(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_organization = aws.organizations.Organization("exampleOrganization",
+        example = aws.organizations.Organization("example",
             aws_service_access_principals=["guardduty.amazonaws.com"],
             feature_set="ALL")
-        example_detector = aws.guardduty.Detector("exampleDetector")
-        example_organization_admin_account = aws.guardduty.OrganizationAdminAccount("exampleOrganizationAdminAccount", admin_account_id="123456789012",
-        opts=pulumi.ResourceOptions(depends_on=[example_organization]))
+        example_detector = aws.guardduty.Detector("example")
+        example_organization_admin_account = aws.guardduty.OrganizationAdminAccount("example", admin_account_id="123456789012")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GuardDuty Organization Admin Account using the AWS account ID. For example:
 
         ```sh
-         $ pulumi import aws:guardduty/organizationAdminAccount:OrganizationAdminAccount example 123456789012
+        $ pulumi import aws:guardduty/organizationAdminAccount:OrganizationAdminAccount example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -105,24 +106,25 @@ class OrganizationAdminAccount(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_organization = aws.organizations.Organization("exampleOrganization",
+        example = aws.organizations.Organization("example",
             aws_service_access_principals=["guardduty.amazonaws.com"],
             feature_set="ALL")
-        example_detector = aws.guardduty.Detector("exampleDetector")
-        example_organization_admin_account = aws.guardduty.OrganizationAdminAccount("exampleOrganizationAdminAccount", admin_account_id="123456789012",
-        opts=pulumi.ResourceOptions(depends_on=[example_organization]))
+        example_detector = aws.guardduty.Detector("example")
+        example_organization_admin_account = aws.guardduty.OrganizationAdminAccount("example", admin_account_id="123456789012")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GuardDuty Organization Admin Account using the AWS account ID. For example:
 
         ```sh
-         $ pulumi import aws:guardduty/organizationAdminAccount:OrganizationAdminAccount example 123456789012
+        $ pulumi import aws:guardduty/organizationAdminAccount:OrganizationAdminAccount example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

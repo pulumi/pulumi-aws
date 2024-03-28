@@ -363,22 +363,30 @@ class Folder(pulumi.CustomResource):
         Resource for managing a QuickSight Folder.
 
         ## Example Usage
+
         ### Basic Usage
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.Folder("example", folder_id="example-id")
-        ```
-        ### With Permissions
-
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.Folder("example",
             folder_id="example-id",
+            name="example-name")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### With Permissions
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.quicksight.Folder("example",
+            folder_id="example-id",
+            name="example-name",
             permissions=[aws.quicksight.FolderPermissionArgs(
                 actions=[
                     "quicksight:CreateFolder",
@@ -390,27 +398,34 @@ class Folder(pulumi.CustomResource):
                     "quicksight:DescribeFolderPermissions",
                     "quicksight:UpdateFolderPermissions",
                 ],
-                principal=aws_quicksight_user["example"]["arn"],
+                principal=example_aws_quicksight_user["arn"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Parent Folder
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        parent = aws.quicksight.Folder("parent", folder_id="parent-id")
+        parent = aws.quicksight.Folder("parent",
+            folder_id="parent-id",
+            name="parent-name")
         example = aws.quicksight.Folder("example",
             folder_id="example-id",
+            name="example-name",
             parent_folder_arn=parent.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a QuickSight folder using the AWS account ID and folder ID name separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
+        $ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -435,22 +450,30 @@ class Folder(pulumi.CustomResource):
         Resource for managing a QuickSight Folder.
 
         ## Example Usage
+
         ### Basic Usage
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.Folder("example", folder_id="example-id")
-        ```
-        ### With Permissions
-
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.Folder("example",
             folder_id="example-id",
+            name="example-name")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### With Permissions
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.quicksight.Folder("example",
+            folder_id="example-id",
+            name="example-name",
             permissions=[aws.quicksight.FolderPermissionArgs(
                 actions=[
                     "quicksight:CreateFolder",
@@ -462,27 +485,34 @@ class Folder(pulumi.CustomResource):
                     "quicksight:DescribeFolderPermissions",
                     "quicksight:UpdateFolderPermissions",
                 ],
-                principal=aws_quicksight_user["example"]["arn"],
+                principal=example_aws_quicksight_user["arn"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Parent Folder
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        parent = aws.quicksight.Folder("parent", folder_id="parent-id")
+        parent = aws.quicksight.Folder("parent",
+            folder_id="parent-id",
+            name="parent-name")
         example = aws.quicksight.Folder("example",
             folder_id="example-id",
+            name="example-name",
             parent_folder_arn=parent.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a QuickSight folder using the AWS account ID and folder ID name separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
+        $ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -530,8 +560,6 @@ class Folder(pulumi.CustomResource):
             __props__.__dict__["folder_paths"] = None
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Folder, __self__).__init__(
             'aws:quicksight/folder:Folder',
             resource_name,

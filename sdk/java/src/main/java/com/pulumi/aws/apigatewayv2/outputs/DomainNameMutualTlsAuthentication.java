@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigatewayv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,19 +59,23 @@ public final class DomainNameMutualTlsAuthentication {
 
         @CustomType.Setter
         public Builder truststoreUri(String truststoreUri) {
-            this.truststoreUri = Objects.requireNonNull(truststoreUri);
+            if (truststoreUri == null) {
+              throw new MissingRequiredPropertyException("DomainNameMutualTlsAuthentication", "truststoreUri");
+            }
+            this.truststoreUri = truststoreUri;
             return this;
         }
         @CustomType.Setter
         public Builder truststoreVersion(@Nullable String truststoreVersion) {
+
             this.truststoreVersion = truststoreVersion;
             return this;
         }
         public DomainNameMutualTlsAuthentication build() {
-            final var o = new DomainNameMutualTlsAuthentication();
-            o.truststoreUri = truststoreUri;
-            o.truststoreVersion = truststoreVersion;
-            return o;
+            final var _resultValue = new DomainNameMutualTlsAuthentication();
+            _resultValue.truststoreUri = truststoreUri;
+            _resultValue.truststoreVersion = truststoreVersion;
+            return _resultValue;
         }
     }
 }

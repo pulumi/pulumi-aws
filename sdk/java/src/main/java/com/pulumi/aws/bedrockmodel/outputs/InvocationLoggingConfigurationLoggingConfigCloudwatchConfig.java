@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
     /**
-     * @return S3 configuration for delivering a large amount of data. See `s3_config`.
+     * @return S3 configuration for delivering a large amount of data.
      * 
      */
     private @Nullable InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config largeDataDeliveryS3Config;
@@ -23,16 +23,14 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
      */
     private @Nullable String logGroupName;
     /**
-     * @return IAM Role ARN.
-     * 
-     * The following arguments are optional:
+     * @return The role ARN.
      * 
      */
     private @Nullable String roleArn;
 
     private InvocationLoggingConfigurationLoggingConfigCloudwatchConfig() {}
     /**
-     * @return S3 configuration for delivering a large amount of data. See `s3_config`.
+     * @return S3 configuration for delivering a large amount of data.
      * 
      */
     public Optional<InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config> largeDataDeliveryS3Config() {
@@ -46,9 +44,7 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
         return Optional.ofNullable(this.logGroupName);
     }
     /**
-     * @return IAM Role ARN.
-     * 
-     * The following arguments are optional:
+     * @return The role ARN.
      * 
      */
     public Optional<String> roleArn() {
@@ -77,25 +73,28 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
 
         @CustomType.Setter
         public Builder largeDataDeliveryS3Config(@Nullable InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config largeDataDeliveryS3Config) {
+
             this.largeDataDeliveryS3Config = largeDataDeliveryS3Config;
             return this;
         }
         @CustomType.Setter
         public Builder logGroupName(@Nullable String logGroupName) {
+
             this.logGroupName = logGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(@Nullable String roleArn) {
+
             this.roleArn = roleArn;
             return this;
         }
         public InvocationLoggingConfigurationLoggingConfigCloudwatchConfig build() {
-            final var o = new InvocationLoggingConfigurationLoggingConfigCloudwatchConfig();
-            o.largeDataDeliveryS3Config = largeDataDeliveryS3Config;
-            o.logGroupName = logGroupName;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new InvocationLoggingConfigurationLoggingConfigCloudwatchConfig();
+            _resultValue.largeDataDeliveryS3Config = largeDataDeliveryS3Config;
+            _resultValue.logGroupName = logGroupName;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

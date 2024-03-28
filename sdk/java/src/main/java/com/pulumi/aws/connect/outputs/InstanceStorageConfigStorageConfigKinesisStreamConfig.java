@@ -4,6 +4,7 @@
 package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class InstanceStorageConfigStorageConfigKinesisStreamConfig {
 
         @CustomType.Setter
         public Builder streamArn(String streamArn) {
-            this.streamArn = Objects.requireNonNull(streamArn);
+            if (streamArn == null) {
+              throw new MissingRequiredPropertyException("InstanceStorageConfigStorageConfigKinesisStreamConfig", "streamArn");
+            }
+            this.streamArn = streamArn;
             return this;
         }
         public InstanceStorageConfigStorageConfigKinesisStreamConfig build() {
-            final var o = new InstanceStorageConfigStorageConfigKinesisStreamConfig();
-            o.streamArn = streamArn;
-            return o;
+            final var _resultValue = new InstanceStorageConfigStorageConfigKinesisStreamConfig();
+            _resultValue.streamArn = streamArn;
+            return _resultValue;
         }
     }
 }

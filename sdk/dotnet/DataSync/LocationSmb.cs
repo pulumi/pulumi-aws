@@ -16,6 +16,7 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,19 +33,20 @@ namespace Pulumi.Aws.DataSync
     ///         Password = "ANotGreatPassword",
     ///         AgentArns = new[]
     ///         {
-    ///             aws_datasync_agent.Example.Arn,
+    ///             exampleAwsDatasyncAgent.Arn,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_datasync_location_smb` using the Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+    /// $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
     /// ```
     /// </summary>
     [AwsResourceType("aws:datasync/locationSmb:LocationSmb")]
@@ -139,7 +141,6 @@ namespace Pulumi.Aws.DataSync
                 AdditionalSecretOutputs =
                 {
                     "password",
-                    "tagsAll",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -322,11 +323,7 @@ namespace Pulumi.Aws.DataSync
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("uri")]

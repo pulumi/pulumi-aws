@@ -12,39 +12,44 @@ import * as utilities from "../utilities";
  *
  * **Using certs on file:**
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const testCert = new aws.iam.SigningCertificate("testCert", {
+ * const testCert = new aws.iam.SigningCertificate("test_cert", {
  *     username: "some_test_cert",
- *     certificateBody: fs.readFileSync("self-ca-cert.pem"),
+ *     certificateBody: std.file({
+ *         input: "self-ca-cert.pem",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * **Example with cert in-line:**
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testCertAlt = new aws.iam.SigningCertificate("testCertAlt", {
+ * const testCertAlt = new aws.iam.SigningCertificate("test_cert_alt", {
+ *     username: "some_test_cert",
  *     certificateBody: `-----BEGIN CERTIFICATE-----
  * [......] # cert contents
  * -----END CERTIFICATE-----
- *
  * `,
- *     username: "some_test_cert",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IAM Signing Certificates using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
+ * $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
  * ```
  */
 export class SigningCertificate extends pulumi.CustomResource {

@@ -4,6 +4,7 @@
 package com.pulumi.aws.opensearch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -59,19 +60,23 @@ public final class DomainEncryptAtRest {
 
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("DomainEncryptAtRest", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         public DomainEncryptAtRest build() {
-            final var o = new DomainEncryptAtRest();
-            o.enabled = enabled;
-            o.kmsKeyId = kmsKeyId;
-            return o;
+            final var _resultValue = new DomainEncryptAtRest();
+            _resultValue.enabled = enabled;
+            _resultValue.kmsKeyId = kmsKeyId;
+            return _resultValue;
         }
     }
 }

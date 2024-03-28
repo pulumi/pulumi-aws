@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -156,61 +157,88 @@ public final class GetLaunchConfigurationEbsBlockDevice {
 
         @CustomType.Setter
         public Builder deleteOnTermination(Boolean deleteOnTermination) {
-            this.deleteOnTermination = Objects.requireNonNull(deleteOnTermination);
+            if (deleteOnTermination == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationEbsBlockDevice", "deleteOnTermination");
+            }
+            this.deleteOnTermination = deleteOnTermination;
             return this;
         }
         @CustomType.Setter
         public Builder deviceName(String deviceName) {
-            this.deviceName = Objects.requireNonNull(deviceName);
+            if (deviceName == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationEbsBlockDevice", "deviceName");
+            }
+            this.deviceName = deviceName;
             return this;
         }
         @CustomType.Setter
         public Builder encrypted(Boolean encrypted) {
-            this.encrypted = Objects.requireNonNull(encrypted);
+            if (encrypted == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationEbsBlockDevice", "encrypted");
+            }
+            this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
         public Builder iops(Integer iops) {
-            this.iops = Objects.requireNonNull(iops);
+            if (iops == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationEbsBlockDevice", "iops");
+            }
+            this.iops = iops;
             return this;
         }
         @CustomType.Setter
         public Builder noDevice(Boolean noDevice) {
-            this.noDevice = Objects.requireNonNull(noDevice);
+            if (noDevice == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationEbsBlockDevice", "noDevice");
+            }
+            this.noDevice = noDevice;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotId(String snapshotId) {
-            this.snapshotId = Objects.requireNonNull(snapshotId);
+            if (snapshotId == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationEbsBlockDevice", "snapshotId");
+            }
+            this.snapshotId = snapshotId;
             return this;
         }
         @CustomType.Setter
         public Builder throughput(Integer throughput) {
-            this.throughput = Objects.requireNonNull(throughput);
+            if (throughput == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationEbsBlockDevice", "throughput");
+            }
+            this.throughput = throughput;
             return this;
         }
         @CustomType.Setter
         public Builder volumeSize(Integer volumeSize) {
-            this.volumeSize = Objects.requireNonNull(volumeSize);
+            if (volumeSize == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationEbsBlockDevice", "volumeSize");
+            }
+            this.volumeSize = volumeSize;
             return this;
         }
         @CustomType.Setter
         public Builder volumeType(String volumeType) {
-            this.volumeType = Objects.requireNonNull(volumeType);
+            if (volumeType == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationEbsBlockDevice", "volumeType");
+            }
+            this.volumeType = volumeType;
             return this;
         }
         public GetLaunchConfigurationEbsBlockDevice build() {
-            final var o = new GetLaunchConfigurationEbsBlockDevice();
-            o.deleteOnTermination = deleteOnTermination;
-            o.deviceName = deviceName;
-            o.encrypted = encrypted;
-            o.iops = iops;
-            o.noDevice = noDevice;
-            o.snapshotId = snapshotId;
-            o.throughput = throughput;
-            o.volumeSize = volumeSize;
-            o.volumeType = volumeType;
-            return o;
+            final var _resultValue = new GetLaunchConfigurationEbsBlockDevice();
+            _resultValue.deleteOnTermination = deleteOnTermination;
+            _resultValue.deviceName = deviceName;
+            _resultValue.encrypted = encrypted;
+            _resultValue.iops = iops;
+            _resultValue.noDevice = noDevice;
+            _resultValue.snapshotId = snapshotId;
+            _resultValue.throughput = throughput;
+            _resultValue.volumeSize = volumeSize;
+            _resultValue.volumeType = volumeType;
+            return _resultValue;
         }
     }
 }

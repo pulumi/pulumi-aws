@@ -278,11 +278,12 @@ def get_vpc_ipam_pool(allocation_resource_tags: Optional[Mapping[str, str]] = No
     via RAM, and using that pool id to create a VPC with a CIDR derived from
     AWS IPAM.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test_vpc_ipam_pool = aws.ec2.get_vpc_ipam_pool(filters=[
+    test = aws.ec2.get_vpc_ipam_pool(filters=[
         aws.ec2.GetVpcIpamPoolFilterArgs(
             name="description",
             values=["*test*"],
@@ -292,10 +293,11 @@ def get_vpc_ipam_pool(allocation_resource_tags: Optional[Mapping[str, str]] = No
             values=["ipv4"],
         ),
     ])
-    test_vpc = aws.ec2.Vpc("testVpc",
-        ipv4_ipam_pool_id=test_vpc_ipam_pool.id,
+    test_vpc = aws.ec2.Vpc("test",
+        ipv4_ipam_pool_id=test.id,
         ipv4_netmask_length=28)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] allocation_resource_tags: Tags that are required to create resources in using this pool.
@@ -356,11 +358,12 @@ def get_vpc_ipam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Opt
     via RAM, and using that pool id to create a VPC with a CIDR derived from
     AWS IPAM.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test_vpc_ipam_pool = aws.ec2.get_vpc_ipam_pool(filters=[
+    test = aws.ec2.get_vpc_ipam_pool(filters=[
         aws.ec2.GetVpcIpamPoolFilterArgs(
             name="description",
             values=["*test*"],
@@ -370,10 +373,11 @@ def get_vpc_ipam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Opt
             values=["ipv4"],
         ),
     ])
-    test_vpc = aws.ec2.Vpc("testVpc",
-        ipv4_ipam_pool_id=test_vpc_ipam_pool.id,
+    test_vpc = aws.ec2.Vpc("test",
+        ipv4_ipam_pool_id=test.id,
         ipv4_netmask_length=28)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] allocation_resource_tags: Tags that are required to create resources in using this pool.

@@ -5,6 +5,7 @@ package com.pulumi.aws.msk.outputs;
 
 import com.pulumi.aws.msk.outputs.ClusterLoggingInfoBrokerLogs;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,13 +43,16 @@ public final class ClusterLoggingInfo {
 
         @CustomType.Setter
         public Builder brokerLogs(ClusterLoggingInfoBrokerLogs brokerLogs) {
-            this.brokerLogs = Objects.requireNonNull(brokerLogs);
+            if (brokerLogs == null) {
+              throw new MissingRequiredPropertyException("ClusterLoggingInfo", "brokerLogs");
+            }
+            this.brokerLogs = brokerLogs;
             return this;
         }
         public ClusterLoggingInfo build() {
-            final var o = new ClusterLoggingInfo();
-            o.brokerLogs = brokerLogs;
-            return o;
+            final var _resultValue = new ClusterLoggingInfo();
+            _resultValue.brokerLogs = brokerLogs;
+            return _resultValue;
         }
     }
 }

@@ -185,14 +185,15 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_detector = aws.guardduty.Detector("exampleDetector", enable=True)
-        example_organization_configuration = aws.guardduty.OrganizationConfiguration("exampleOrganizationConfiguration",
+        example = aws.guardduty.Detector("example", enable=True)
+        example_organization_configuration = aws.guardduty.OrganizationConfiguration("example",
             auto_enable_organization_members="ALL",
-            detector_id=example_detector.id,
+            detector_id=example.id,
             datasources=aws.guardduty.OrganizationConfigurationDatasourcesArgs(
                 s3_logs=aws.guardduty.OrganizationConfigurationDatasourcesS3LogsArgs(
                     auto_enable=True,
@@ -211,13 +212,14 @@ class OrganizationConfiguration(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GuardDuty Organization Configurations using the GuardDuty Detector ID. For example:
 
         ```sh
-         $ pulumi import aws:guardduty/organizationConfiguration:OrganizationConfiguration example 00b00fd5aecc0ab60a708659477e9617
+        $ pulumi import aws:guardduty/organizationConfiguration:OrganizationConfiguration example 00b00fd5aecc0ab60a708659477e9617
         ```
 
         :param str resource_name: The name of the resource.
@@ -240,14 +242,15 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_detector = aws.guardduty.Detector("exampleDetector", enable=True)
-        example_organization_configuration = aws.guardduty.OrganizationConfiguration("exampleOrganizationConfiguration",
+        example = aws.guardduty.Detector("example", enable=True)
+        example_organization_configuration = aws.guardduty.OrganizationConfiguration("example",
             auto_enable_organization_members="ALL",
-            detector_id=example_detector.id,
+            detector_id=example.id,
             datasources=aws.guardduty.OrganizationConfigurationDatasourcesArgs(
                 s3_logs=aws.guardduty.OrganizationConfigurationDatasourcesS3LogsArgs(
                     auto_enable=True,
@@ -266,13 +269,14 @@ class OrganizationConfiguration(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GuardDuty Organization Configurations using the GuardDuty Detector ID. For example:
 
         ```sh
-         $ pulumi import aws:guardduty/organizationConfiguration:OrganizationConfiguration example 00b00fd5aecc0ab60a708659477e9617
+        $ pulumi import aws:guardduty/organizationConfiguration:OrganizationConfiguration example 00b00fd5aecc0ab60a708659477e9617
         ```
 
         :param str resource_name: The name of the resource.

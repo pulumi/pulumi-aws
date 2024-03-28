@@ -44,13 +44,14 @@ public final class ServiceHealthCheckCustomConfig {
 
         @CustomType.Setter
         public Builder failureThreshold(@Nullable Integer failureThreshold) {
+
             this.failureThreshold = failureThreshold;
             return this;
         }
         public ServiceHealthCheckCustomConfig build() {
-            final var o = new ServiceHealthCheckCustomConfig();
-            o.failureThreshold = failureThreshold;
-            return o;
+            final var _resultValue = new ServiceHealthCheckCustomConfig();
+            _resultValue.failureThreshold = failureThreshold;
+            return _resultValue;
         }
     }
 }

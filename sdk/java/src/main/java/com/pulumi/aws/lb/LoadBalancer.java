@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.lb.LoadBalancerArgs;
 import com.pulumi.aws.lb.inputs.LoadBalancerState;
 import com.pulumi.aws.lb.outputs.LoadBalancerAccessLogs;
+import com.pulumi.aws.lb.outputs.LoadBalancerConnectionLogs;
 import com.pulumi.aws.lb.outputs.LoadBalancerSubnetMapping;
 import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
@@ -27,7 +28,20 @@ import javax.annotation.Nullable;
  * &gt; **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
  * 
  * ## Example Usage
+ * 
+ * ### Application Load Balancer
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Network Load Balancer
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Specifying Elastic IPs
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,22 +65,27 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LoadBalancer(&#34;example&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .loadBalancerType(&#34;network&#34;)
  *             .subnetMappings(            
  *                 LoadBalancerSubnetMappingArgs.builder()
- *                     .subnetId(aws_subnet.example1().id())
- *                     .allocationId(aws_eip.example1().id())
+ *                     .subnetId(example1AwsSubnet.id())
+ *                     .allocationId(example1.id())
  *                     .build(),
  *                 LoadBalancerSubnetMappingArgs.builder()
- *                     .subnetId(aws_subnet.example2().id())
- *                     .allocationId(aws_eip.example2().id())
+ *                     .subnetId(example2AwsSubnet.id())
+ *                     .allocationId(example2.id())
  *                     .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Specifying private IP addresses for an internal-facing load balancer
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -90,14 +109,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LoadBalancer(&#34;example&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .loadBalancerType(&#34;network&#34;)
  *             .subnetMappings(            
  *                 LoadBalancerSubnetMappingArgs.builder()
- *                     .subnetId(aws_subnet.example1().id())
+ *                     .subnetId(example1.id())
  *                     .privateIpv4Address(&#34;10.0.1.15&#34;)
  *                     .build(),
  *                 LoadBalancerSubnetMappingArgs.builder()
- *                     .subnetId(aws_subnet.example2().id())
+ *                     .subnetId(example2.id())
  *                     .privateIpv4Address(&#34;10.0.2.15&#34;)
  *                     .build())
  *             .build());
@@ -105,13 +125,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import LBs using their ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lb/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
+ * $ pulumi import aws:lb/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
  * ```
  * 
  */
@@ -158,6 +179,20 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arnSuffix() {
         return this.arnSuffix;
+    }
+    /**
+     * A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+     * 
+     */
+    @Export(name="connectionLogs", refs={LoadBalancerConnectionLogs.class}, tree="[0]")
+    private Output</* @Nullable */ LoadBalancerConnectionLogs> connectionLogs;
+
+    /**
+     * @return A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+     * 
+     */
+    public Output<Optional<LoadBalancerConnectionLogs>> connectionLogs() {
+        return Codegen.optional(this.connectionLogs);
     }
     /**
      * The ID of the customer owned ipv4 pool to use for this load balancer.
@@ -314,6 +349,20 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableXffClientPort);
     }
     /**
+     * Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+     * 
+     */
+    @Export(name="enforceSecurityGroupInboundRulesOnPrivateLinkTraffic", refs={String.class}, tree="[0]")
+    private Output<String> enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+
+    /**
+     * @return Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+     * 
+     */
+    public Output<String> enforceSecurityGroupInboundRulesOnPrivateLinkTraffic() {
+        return this.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+    }
+    /**
      * The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      * 
      */
@@ -430,32 +479,28 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return this.securityGroups;
     }
     /**
-     * A subnet mapping block as documented below.
+     * A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
      * 
      */
     @Export(name="subnetMappings", refs={List.class,LoadBalancerSubnetMapping.class}, tree="[0,1]")
     private Output<List<LoadBalancerSubnetMapping>> subnetMappings;
 
     /**
-     * @return A subnet mapping block as documented below.
+     * @return A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
      * 
      */
     public Output<List<LoadBalancerSubnetMapping>> subnetMappings() {
         return this.subnetMappings;
     }
     /**
-     * A list of subnet IDs to attach to the LB. Subnets
-     * cannot be updated for Load Balancers of type `network`. Changing this value
-     * for load balancers of type `network` will force a recreation of the resource.
+     * A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
      * 
      */
     @Export(name="subnets", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnets;
 
     /**
-     * @return A list of subnet IDs to attach to the LB. Subnets
-     * cannot be updated for Load Balancers of type `network`. Changing this value
-     * for load balancers of type `network` will force a recreation of the resource.
+     * @return A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
      * 
      */
     public Output<List<String>> subnets() {
@@ -562,9 +607,6 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
             .version(Utilities.getVersion())
             .aliases(List.of(
                 Output.of(Alias.builder().type("aws:elasticloadbalancingv2/loadBalancer:LoadBalancer").build())
-            ))
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

@@ -4,6 +4,7 @@
 package com.pulumi.aws.sesv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,25 +71,34 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
 
         @CustomType.Setter
         public Builder defaultDimensionValue(String defaultDimensionValue) {
-            this.defaultDimensionValue = Objects.requireNonNull(defaultDimensionValue);
+            if (defaultDimensionValue == null) {
+              throw new MissingRequiredPropertyException("ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration", "defaultDimensionValue");
+            }
+            this.defaultDimensionValue = defaultDimensionValue;
             return this;
         }
         @CustomType.Setter
         public Builder dimensionName(String dimensionName) {
-            this.dimensionName = Objects.requireNonNull(dimensionName);
+            if (dimensionName == null) {
+              throw new MissingRequiredPropertyException("ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration", "dimensionName");
+            }
+            this.dimensionName = dimensionName;
             return this;
         }
         @CustomType.Setter
         public Builder dimensionValueSource(String dimensionValueSource) {
-            this.dimensionValueSource = Objects.requireNonNull(dimensionValueSource);
+            if (dimensionValueSource == null) {
+              throw new MissingRequiredPropertyException("ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration", "dimensionValueSource");
+            }
+            this.dimensionValueSource = dimensionValueSource;
             return this;
         }
         public ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration build() {
-            final var o = new ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration();
-            o.defaultDimensionValue = defaultDimensionValue;
-            o.dimensionName = dimensionName;
-            o.dimensionValueSource = dimensionValueSource;
-            return o;
+            final var _resultValue = new ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration();
+            _resultValue.defaultDimensionValue = defaultDimensionValue;
+            _resultValue.dimensionName = dimensionName;
+            _resultValue.dimensionValueSource = dimensionValueSource;
+            return _resultValue;
         }
     }
 }

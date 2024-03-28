@@ -16,8 +16,10 @@ import (
 // > **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
 //
 // ## Example Usage
+//
 // ### Permissions For A Lake Formation S3 Resource
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,9 +33,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.LookupPermissions(ctx, &lakeformation.LookupPermissionsArgs{
-//				Principal: aws_iam_role.Workflow_role.Arn,
+//				Principal: workflowRole.Arn,
 //				DataLocation: lakeformation.GetPermissionsDataLocation{
-//					Arn: aws_lakeformation_resource.Test.Arn,
+//					Arn: testAwsLakeformationResource.Arn,
 //				},
 //			}, nil)
 //			if err != nil {
@@ -44,8 +46,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Permissions For A Glue Catalog Database
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,9 +64,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.LookupPermissions(ctx, &lakeformation.LookupPermissionsArgs{
-//				Principal: aws_iam_role.Workflow_role.Arn,
+//				Principal: workflowRole.Arn,
 //				Database: lakeformation.GetPermissionsDatabase{
-//					Name:      aws_glue_catalog_database.Test.Name,
+//					Name:      testAwsGlueCatalogDatabase.Name,
 //					CatalogId: "110376042874",
 //				},
 //			}, nil)
@@ -73,8 +78,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Permissions For Tag-Based Access Control
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -88,7 +96,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.LookupPermissions(ctx, &lakeformation.LookupPermissionsArgs{
-//				Principal: aws_iam_role.Workflow_role.Arn,
+//				Principal: workflowRole.Arn,
 //				LfTagPolicy: lakeformation.GetPermissionsLfTagPolicy{
 //					ResourceType: "DATABASE",
 //					Expressions: []lakeformation.GetPermissionsLfTagPolicyExpression{
@@ -116,6 +124,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupPermissions(ctx *pulumi.Context, args *LookupPermissionsArgs, opts ...pulumi.InvokeOption) (*LookupPermissionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPermissionsResult
@@ -132,6 +141,8 @@ type LookupPermissionsArgs struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
 	CatalogResource *bool `pulumi:"catalogResource"`
+	// Configuration block for a data cells filter resource. Detailed below.
+	DataCellsFilter *GetPermissionsDataCellsFilter `pulumi:"dataCellsFilter"`
 	// Configuration block for a data location resource. Detailed below.
 	DataLocation *GetPermissionsDataLocation `pulumi:"dataLocation"`
 	// Configuration block for a database resource. Detailed below.
@@ -154,10 +165,11 @@ type LookupPermissionsArgs struct {
 
 // A collection of values returned by getPermissions.
 type LookupPermissionsResult struct {
-	CatalogId       *string                    `pulumi:"catalogId"`
-	CatalogResource *bool                      `pulumi:"catalogResource"`
-	DataLocation    GetPermissionsDataLocation `pulumi:"dataLocation"`
-	Database        GetPermissionsDatabase     `pulumi:"database"`
+	CatalogId       *string                       `pulumi:"catalogId"`
+	CatalogResource *bool                         `pulumi:"catalogResource"`
+	DataCellsFilter GetPermissionsDataCellsFilter `pulumi:"dataCellsFilter"`
+	DataLocation    GetPermissionsDataLocation    `pulumi:"dataLocation"`
+	Database        GetPermissionsDatabase        `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
 	Id          string                    `pulumi:"id"`
 	LfTag       GetPermissionsLfTag       `pulumi:"lfTag"`
@@ -190,6 +202,8 @@ type LookupPermissionsOutputArgs struct {
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
 	// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
 	CatalogResource pulumi.BoolPtrInput `pulumi:"catalogResource"`
+	// Configuration block for a data cells filter resource. Detailed below.
+	DataCellsFilter GetPermissionsDataCellsFilterPtrInput `pulumi:"dataCellsFilter"`
 	// Configuration block for a data location resource. Detailed below.
 	DataLocation GetPermissionsDataLocationPtrInput `pulumi:"dataLocation"`
 	// Configuration block for a database resource. Detailed below.
@@ -235,6 +249,10 @@ func (o LookupPermissionsResultOutput) CatalogId() pulumi.StringPtrOutput {
 
 func (o LookupPermissionsResultOutput) CatalogResource() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupPermissionsResult) *bool { return v.CatalogResource }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupPermissionsResultOutput) DataCellsFilter() GetPermissionsDataCellsFilterOutput {
+	return o.ApplyT(func(v LookupPermissionsResult) GetPermissionsDataCellsFilter { return v.DataCellsFilter }).(GetPermissionsDataCellsFilterOutput)
 }
 
 func (o LookupPermissionsResultOutput) DataLocation() GetPermissionsDataLocationOutput {

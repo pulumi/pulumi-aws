@@ -25,6 +25,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,7 +36,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var main = new Aws.Ec2.NetworkAcl("main", new()
     ///     {
-    ///         VpcId = aws_vpc.Main.Id,
+    ///         VpcId = mainAwsVpc.Id,
     ///         Egress = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.NetworkAclEgressArgs
@@ -68,13 +69,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Network ACLs using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
+    /// $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/networkAcl:NetworkAcl")]
@@ -151,10 +153,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -184,6 +182,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Specifies an egress rule. Parameters defined below.
         /// </summary>
+        [Obsolete(@"Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.")]
         public InputList<Inputs.NetworkAclEgressArgs> Egress
         {
             get => _egress ?? (_egress = new InputList<Inputs.NetworkAclEgressArgs>());
@@ -196,6 +195,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Specifies an ingress rule. Parameters defined below.
         /// </summary>
+        [Obsolete(@"Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.")]
         public InputList<Inputs.NetworkAclIngressArgs> Ingress
         {
             get => _ingress ?? (_ingress = new InputList<Inputs.NetworkAclIngressArgs>());
@@ -252,6 +252,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Specifies an egress rule. Parameters defined below.
         /// </summary>
+        [Obsolete(@"Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.")]
         public InputList<Inputs.NetworkAclEgressGetArgs> Egress
         {
             get => _egress ?? (_egress = new InputList<Inputs.NetworkAclEgressGetArgs>());
@@ -264,6 +265,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Specifies an ingress rule. Parameters defined below.
         /// </summary>
+        [Obsolete(@"Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.")]
         public InputList<Inputs.NetworkAclIngressGetArgs> Ingress
         {
             get => _ingress ?? (_ingress = new InputList<Inputs.NetworkAclIngressGetArgs>());
@@ -310,11 +312,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

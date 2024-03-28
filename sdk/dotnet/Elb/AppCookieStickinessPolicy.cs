@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Elb
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,6 +25,7 @@ namespace Pulumi.Aws.Elb
     /// {
     ///     var lb = new Aws.Elb.LoadBalancer("lb", new()
     ///     {
+    ///         Name = "test-lb",
     ///         AvailabilityZones = new[]
     ///         {
     ///             "us-east-1a",
@@ -42,6 +44,7 @@ namespace Pulumi.Aws.Elb
     /// 
     ///     var foo = new Aws.Elb.AppCookieStickinessPolicy("foo", new()
     ///     {
+    ///         Name = "foo_policy",
     ///         LoadBalancer = lb.Name,
     ///         LbPort = 80,
     ///         CookieName = "MyAppCookie",
@@ -49,13 +52,14 @@ namespace Pulumi.Aws.Elb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import application cookie stickiness policies using the ELB name, port, and policy name separated by colons (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy example my-elb:80:my-policy
+    /// $ pulumi import aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy example my-elb:80:my-policy
     /// ```
     /// </summary>
     [AwsResourceType("aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy")]
@@ -113,7 +117,7 @@ namespace Pulumi.Aws.Elb
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy"},
+                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

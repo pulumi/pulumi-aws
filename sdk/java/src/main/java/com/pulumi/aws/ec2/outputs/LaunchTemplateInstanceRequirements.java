@@ -13,6 +13,7 @@ import com.pulumi.aws.ec2.outputs.LaunchTemplateInstanceRequirementsNetworkInter
 import com.pulumi.aws.ec2.outputs.LaunchTemplateInstanceRequirementsTotalLocalStorageGb;
 import com.pulumi.aws.ec2.outputs.LaunchTemplateInstanceRequirementsVcpuCount;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -30,55 +31,11 @@ public final class LaunchTemplateInstanceRequirements {
     private @Nullable LaunchTemplateInstanceRequirementsAcceleratorCount acceleratorCount;
     /**
      * @return List of accelerator manufacturer names. Default is any manufacturer.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     private @Nullable List<String> acceleratorManufacturers;
     /**
      * @return List of accelerator names. Default is any acclerator.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     private @Nullable List<String> acceleratorNames;
@@ -89,28 +46,6 @@ public final class LaunchTemplateInstanceRequirements {
     private @Nullable LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib acceleratorTotalMemoryMib;
     /**
      * @return List of accelerator types. Default is any accelerator type.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     private @Nullable List<String> acceleratorTypes;
@@ -140,28 +75,6 @@ public final class LaunchTemplateInstanceRequirements {
      * @return List of CPU manufacturer names. Default is any manufacturer.
      * 
      * &gt; **NOTE:** Don&#39;t confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     private @Nullable List<String> cpuManufacturers;
@@ -174,28 +87,6 @@ public final class LaunchTemplateInstanceRequirements {
     private @Nullable List<String> excludedInstanceTypes;
     /**
      * @return List of instance generation names. Default is any generation.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     private @Nullable List<String> instanceGenerations;
@@ -206,28 +97,6 @@ public final class LaunchTemplateInstanceRequirements {
     private @Nullable String localStorage;
     /**
      * @return List of local storage type names. Default any storage type.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     private @Nullable List<String> localStorageTypes;
@@ -291,28 +160,6 @@ public final class LaunchTemplateInstanceRequirements {
     }
     /**
      * @return List of accelerator manufacturer names. Default is any manufacturer.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     public List<String> acceleratorManufacturers() {
@@ -320,28 +167,6 @@ public final class LaunchTemplateInstanceRequirements {
     }
     /**
      * @return List of accelerator names. Default is any acclerator.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     public List<String> acceleratorNames() {
@@ -356,28 +181,6 @@ public final class LaunchTemplateInstanceRequirements {
     }
     /**
      * @return List of accelerator types. Default is any accelerator type.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     public List<String> acceleratorTypes() {
@@ -417,28 +220,6 @@ public final class LaunchTemplateInstanceRequirements {
      * @return List of CPU manufacturer names. Default is any manufacturer.
      * 
      * &gt; **NOTE:** Don&#39;t confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     public List<String> cpuManufacturers() {
@@ -455,28 +236,6 @@ public final class LaunchTemplateInstanceRequirements {
     }
     /**
      * @return List of instance generation names. Default is any generation.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     public List<String> instanceGenerations() {
@@ -491,28 +250,6 @@ public final class LaunchTemplateInstanceRequirements {
     }
     /**
      * @return List of local storage type names. Default any storage type.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     public List<String> localStorageTypes() {
@@ -648,11 +385,13 @@ public final class LaunchTemplateInstanceRequirements {
 
         @CustomType.Setter
         public Builder acceleratorCount(@Nullable LaunchTemplateInstanceRequirementsAcceleratorCount acceleratorCount) {
+
             this.acceleratorCount = acceleratorCount;
             return this;
         }
         @CustomType.Setter
         public Builder acceleratorManufacturers(@Nullable List<String> acceleratorManufacturers) {
+
             this.acceleratorManufacturers = acceleratorManufacturers;
             return this;
         }
@@ -661,6 +400,7 @@ public final class LaunchTemplateInstanceRequirements {
         }
         @CustomType.Setter
         public Builder acceleratorNames(@Nullable List<String> acceleratorNames) {
+
             this.acceleratorNames = acceleratorNames;
             return this;
         }
@@ -669,11 +409,13 @@ public final class LaunchTemplateInstanceRequirements {
         }
         @CustomType.Setter
         public Builder acceleratorTotalMemoryMib(@Nullable LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib acceleratorTotalMemoryMib) {
+
             this.acceleratorTotalMemoryMib = acceleratorTotalMemoryMib;
             return this;
         }
         @CustomType.Setter
         public Builder acceleratorTypes(@Nullable List<String> acceleratorTypes) {
+
             this.acceleratorTypes = acceleratorTypes;
             return this;
         }
@@ -682,6 +424,7 @@ public final class LaunchTemplateInstanceRequirements {
         }
         @CustomType.Setter
         public Builder allowedInstanceTypes(@Nullable List<String> allowedInstanceTypes) {
+
             this.allowedInstanceTypes = allowedInstanceTypes;
             return this;
         }
@@ -690,21 +433,25 @@ public final class LaunchTemplateInstanceRequirements {
         }
         @CustomType.Setter
         public Builder bareMetal(@Nullable String bareMetal) {
+
             this.bareMetal = bareMetal;
             return this;
         }
         @CustomType.Setter
         public Builder baselineEbsBandwidthMbps(@Nullable LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps baselineEbsBandwidthMbps) {
+
             this.baselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
             return this;
         }
         @CustomType.Setter
         public Builder burstablePerformance(@Nullable String burstablePerformance) {
+
             this.burstablePerformance = burstablePerformance;
             return this;
         }
         @CustomType.Setter
         public Builder cpuManufacturers(@Nullable List<String> cpuManufacturers) {
+
             this.cpuManufacturers = cpuManufacturers;
             return this;
         }
@@ -713,6 +460,7 @@ public final class LaunchTemplateInstanceRequirements {
         }
         @CustomType.Setter
         public Builder excludedInstanceTypes(@Nullable List<String> excludedInstanceTypes) {
+
             this.excludedInstanceTypes = excludedInstanceTypes;
             return this;
         }
@@ -721,6 +469,7 @@ public final class LaunchTemplateInstanceRequirements {
         }
         @CustomType.Setter
         public Builder instanceGenerations(@Nullable List<String> instanceGenerations) {
+
             this.instanceGenerations = instanceGenerations;
             return this;
         }
@@ -729,11 +478,13 @@ public final class LaunchTemplateInstanceRequirements {
         }
         @CustomType.Setter
         public Builder localStorage(@Nullable String localStorage) {
+
             this.localStorage = localStorage;
             return this;
         }
         @CustomType.Setter
         public Builder localStorageTypes(@Nullable List<String> localStorageTypes) {
+
             this.localStorageTypes = localStorageTypes;
             return this;
         }
@@ -742,75 +493,88 @@ public final class LaunchTemplateInstanceRequirements {
         }
         @CustomType.Setter
         public Builder memoryGibPerVcpu(@Nullable LaunchTemplateInstanceRequirementsMemoryGibPerVcpu memoryGibPerVcpu) {
+
             this.memoryGibPerVcpu = memoryGibPerVcpu;
             return this;
         }
         @CustomType.Setter
         public Builder memoryMib(LaunchTemplateInstanceRequirementsMemoryMib memoryMib) {
-            this.memoryMib = Objects.requireNonNull(memoryMib);
+            if (memoryMib == null) {
+              throw new MissingRequiredPropertyException("LaunchTemplateInstanceRequirements", "memoryMib");
+            }
+            this.memoryMib = memoryMib;
             return this;
         }
         @CustomType.Setter
         public Builder networkBandwidthGbps(@Nullable LaunchTemplateInstanceRequirementsNetworkBandwidthGbps networkBandwidthGbps) {
+
             this.networkBandwidthGbps = networkBandwidthGbps;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaceCount(@Nullable LaunchTemplateInstanceRequirementsNetworkInterfaceCount networkInterfaceCount) {
+
             this.networkInterfaceCount = networkInterfaceCount;
             return this;
         }
         @CustomType.Setter
         public Builder onDemandMaxPricePercentageOverLowestPrice(@Nullable Integer onDemandMaxPricePercentageOverLowestPrice) {
+
             this.onDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
             return this;
         }
         @CustomType.Setter
         public Builder requireHibernateSupport(@Nullable Boolean requireHibernateSupport) {
+
             this.requireHibernateSupport = requireHibernateSupport;
             return this;
         }
         @CustomType.Setter
         public Builder spotMaxPricePercentageOverLowestPrice(@Nullable Integer spotMaxPricePercentageOverLowestPrice) {
+
             this.spotMaxPricePercentageOverLowestPrice = spotMaxPricePercentageOverLowestPrice;
             return this;
         }
         @CustomType.Setter
         public Builder totalLocalStorageGb(@Nullable LaunchTemplateInstanceRequirementsTotalLocalStorageGb totalLocalStorageGb) {
+
             this.totalLocalStorageGb = totalLocalStorageGb;
             return this;
         }
         @CustomType.Setter
         public Builder vcpuCount(LaunchTemplateInstanceRequirementsVcpuCount vcpuCount) {
-            this.vcpuCount = Objects.requireNonNull(vcpuCount);
+            if (vcpuCount == null) {
+              throw new MissingRequiredPropertyException("LaunchTemplateInstanceRequirements", "vcpuCount");
+            }
+            this.vcpuCount = vcpuCount;
             return this;
         }
         public LaunchTemplateInstanceRequirements build() {
-            final var o = new LaunchTemplateInstanceRequirements();
-            o.acceleratorCount = acceleratorCount;
-            o.acceleratorManufacturers = acceleratorManufacturers;
-            o.acceleratorNames = acceleratorNames;
-            o.acceleratorTotalMemoryMib = acceleratorTotalMemoryMib;
-            o.acceleratorTypes = acceleratorTypes;
-            o.allowedInstanceTypes = allowedInstanceTypes;
-            o.bareMetal = bareMetal;
-            o.baselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
-            o.burstablePerformance = burstablePerformance;
-            o.cpuManufacturers = cpuManufacturers;
-            o.excludedInstanceTypes = excludedInstanceTypes;
-            o.instanceGenerations = instanceGenerations;
-            o.localStorage = localStorage;
-            o.localStorageTypes = localStorageTypes;
-            o.memoryGibPerVcpu = memoryGibPerVcpu;
-            o.memoryMib = memoryMib;
-            o.networkBandwidthGbps = networkBandwidthGbps;
-            o.networkInterfaceCount = networkInterfaceCount;
-            o.onDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
-            o.requireHibernateSupport = requireHibernateSupport;
-            o.spotMaxPricePercentageOverLowestPrice = spotMaxPricePercentageOverLowestPrice;
-            o.totalLocalStorageGb = totalLocalStorageGb;
-            o.vcpuCount = vcpuCount;
-            return o;
+            final var _resultValue = new LaunchTemplateInstanceRequirements();
+            _resultValue.acceleratorCount = acceleratorCount;
+            _resultValue.acceleratorManufacturers = acceleratorManufacturers;
+            _resultValue.acceleratorNames = acceleratorNames;
+            _resultValue.acceleratorTotalMemoryMib = acceleratorTotalMemoryMib;
+            _resultValue.acceleratorTypes = acceleratorTypes;
+            _resultValue.allowedInstanceTypes = allowedInstanceTypes;
+            _resultValue.bareMetal = bareMetal;
+            _resultValue.baselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
+            _resultValue.burstablePerformance = burstablePerformance;
+            _resultValue.cpuManufacturers = cpuManufacturers;
+            _resultValue.excludedInstanceTypes = excludedInstanceTypes;
+            _resultValue.instanceGenerations = instanceGenerations;
+            _resultValue.localStorage = localStorage;
+            _resultValue.localStorageTypes = localStorageTypes;
+            _resultValue.memoryGibPerVcpu = memoryGibPerVcpu;
+            _resultValue.memoryMib = memoryMib;
+            _resultValue.networkBandwidthGbps = networkBandwidthGbps;
+            _resultValue.networkInterfaceCount = networkInterfaceCount;
+            _resultValue.onDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
+            _resultValue.requireHibernateSupport = requireHibernateSupport;
+            _resultValue.spotMaxPricePercentageOverLowestPrice = spotMaxPricePercentageOverLowestPrice;
+            _resultValue.totalLocalStorageGb = totalLocalStorageGb;
+            _resultValue.vcpuCount = vcpuCount;
+            return _resultValue;
         }
     }
 }

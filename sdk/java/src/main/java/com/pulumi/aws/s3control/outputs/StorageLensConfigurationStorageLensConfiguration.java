@@ -9,6 +9,7 @@ import com.pulumi.aws.s3control.outputs.StorageLensConfigurationStorageLensConfi
 import com.pulumi.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationExclude;
 import com.pulumi.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationInclude;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -119,43 +120,53 @@ public final class StorageLensConfigurationStorageLensConfiguration {
 
         @CustomType.Setter
         public Builder accountLevel(StorageLensConfigurationStorageLensConfigurationAccountLevel accountLevel) {
-            this.accountLevel = Objects.requireNonNull(accountLevel);
+            if (accountLevel == null) {
+              throw new MissingRequiredPropertyException("StorageLensConfigurationStorageLensConfiguration", "accountLevel");
+            }
+            this.accountLevel = accountLevel;
             return this;
         }
         @CustomType.Setter
         public Builder awsOrg(@Nullable StorageLensConfigurationStorageLensConfigurationAwsOrg awsOrg) {
+
             this.awsOrg = awsOrg;
             return this;
         }
         @CustomType.Setter
         public Builder dataExport(@Nullable StorageLensConfigurationStorageLensConfigurationDataExport dataExport) {
+
             this.dataExport = dataExport;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("StorageLensConfigurationStorageLensConfiguration", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder exclude(@Nullable StorageLensConfigurationStorageLensConfigurationExclude exclude) {
+
             this.exclude = exclude;
             return this;
         }
         @CustomType.Setter
         public Builder include(@Nullable StorageLensConfigurationStorageLensConfigurationInclude include) {
+
             this.include = include;
             return this;
         }
         public StorageLensConfigurationStorageLensConfiguration build() {
-            final var o = new StorageLensConfigurationStorageLensConfiguration();
-            o.accountLevel = accountLevel;
-            o.awsOrg = awsOrg;
-            o.dataExport = dataExport;
-            o.enabled = enabled;
-            o.exclude = exclude;
-            o.include = include;
-            return o;
+            final var _resultValue = new StorageLensConfigurationStorageLensConfiguration();
+            _resultValue.accountLevel = accountLevel;
+            _resultValue.awsOrg = awsOrg;
+            _resultValue.dataExport = dataExport;
+            _resultValue.enabled = enabled;
+            _resultValue.exclude = exclude;
+            _resultValue.include = include;
+            return _resultValue;
         }
     }
 }

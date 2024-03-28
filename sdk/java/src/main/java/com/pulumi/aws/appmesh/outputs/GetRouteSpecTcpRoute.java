@@ -7,6 +7,7 @@ import com.pulumi.aws.appmesh.outputs.GetRouteSpecTcpRouteAction;
 import com.pulumi.aws.appmesh.outputs.GetRouteSpecTcpRouteMatch;
 import com.pulumi.aws.appmesh.outputs.GetRouteSpecTcpRouteTimeout;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -49,7 +50,10 @@ public final class GetRouteSpecTcpRoute {
 
         @CustomType.Setter
         public Builder actions(List<GetRouteSpecTcpRouteAction> actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecTcpRoute", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         public Builder actions(GetRouteSpecTcpRouteAction... actions) {
@@ -57,7 +61,10 @@ public final class GetRouteSpecTcpRoute {
         }
         @CustomType.Setter
         public Builder matches(List<GetRouteSpecTcpRouteMatch> matches) {
-            this.matches = Objects.requireNonNull(matches);
+            if (matches == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecTcpRoute", "matches");
+            }
+            this.matches = matches;
             return this;
         }
         public Builder matches(GetRouteSpecTcpRouteMatch... matches) {
@@ -65,18 +72,21 @@ public final class GetRouteSpecTcpRoute {
         }
         @CustomType.Setter
         public Builder timeouts(List<GetRouteSpecTcpRouteTimeout> timeouts) {
-            this.timeouts = Objects.requireNonNull(timeouts);
+            if (timeouts == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecTcpRoute", "timeouts");
+            }
+            this.timeouts = timeouts;
             return this;
         }
         public Builder timeouts(GetRouteSpecTcpRouteTimeout... timeouts) {
             return timeouts(List.of(timeouts));
         }
         public GetRouteSpecTcpRoute build() {
-            final var o = new GetRouteSpecTcpRoute();
-            o.actions = actions;
-            o.matches = matches;
-            o.timeouts = timeouts;
-            return o;
+            final var _resultValue = new GetRouteSpecTcpRoute();
+            _resultValue.actions = actions;
+            _resultValue.matches = matches;
+            _resultValue.timeouts = timeouts;
+            return _resultValue;
         }
     }
 }

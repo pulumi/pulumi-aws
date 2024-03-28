@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Detective
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,26 +23,27 @@ namespace Pulumi.Aws.Detective
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGraph = new Aws.Detective.Graph("exampleGraph");
+    ///     var example = new Aws.Detective.Graph("example");
     /// 
-    ///     var exampleMember = new Aws.Detective.Member("exampleMember", new()
+    ///     var exampleMember = new Aws.Detective.Member("example", new()
     ///     {
     ///         AccountId = "AWS ACCOUNT ID",
     ///         EmailAddress = "EMAIL",
-    ///         GraphArn = exampleGraph.Id,
+    ///         GraphArn = example.Id,
     ///         Message = "Message of the invitation",
     ///         DisableEmailNotification = true,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_detective_member` using the ARN of the graph followed by the account ID of the member account. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:detective/member:Member example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d/123456789012
+    /// $ pulumi import aws:detective/member:Member example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d/123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:detective/member:Member")]

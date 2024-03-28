@@ -202,23 +202,26 @@ class DomainEntry(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_domain = aws.lightsail.Domain("testDomain", domain_name="mydomain.com")
-        test_domain_entry = aws.lightsail.DomainEntry("testDomainEntry",
-            domain_name=aws_lightsail_domain["domain_test"]["domain_name"],
+        test = aws.lightsail.Domain("test", domain_name="mydomain.com")
+        test_domain_entry = aws.lightsail.DomainEntry("test",
+            domain_name=domain_test["domainName"],
+            name="www",
             type="A",
             target="127.0.0.1")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_domain_entry` using the id attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
+        $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
         ```
 
         :param str resource_name: The name of the resource.
@@ -242,23 +245,26 @@ class DomainEntry(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_domain = aws.lightsail.Domain("testDomain", domain_name="mydomain.com")
-        test_domain_entry = aws.lightsail.DomainEntry("testDomainEntry",
-            domain_name=aws_lightsail_domain["domain_test"]["domain_name"],
+        test = aws.lightsail.Domain("test", domain_name="mydomain.com")
+        test_domain_entry = aws.lightsail.DomainEntry("test",
+            domain_name=domain_test["domainName"],
+            name="www",
             type="A",
             target="127.0.0.1")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_domain_entry` using the id attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
+        $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
         ```
 
         :param str resource_name: The name of the resource.

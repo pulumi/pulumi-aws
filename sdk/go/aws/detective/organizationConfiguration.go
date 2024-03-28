@@ -12,14 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
 // ## Import
 //
 // Using `pulumi import`, import `aws_detective_organization_admin_account` using the Detective Graph ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:detective/organizationConfiguration:OrganizationConfiguration example 00b00fd5aecc0ab60a708659477e9617
-//
+// $ pulumi import aws:detective/organizationConfiguration:OrganizationConfiguration example 00b00fd5aecc0ab60a708659477e9617
 // ```
 type OrganizationConfiguration struct {
 	pulumi.CustomResourceState

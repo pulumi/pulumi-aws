@@ -13,14 +13,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.RoutingProfile("example", {
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "example",
  *     defaultOutboundQueueId: "12345678-1234-1234-1234-123456789012",
  *     description: "example description",
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     mediaConcurrencies: [{
  *         channel: "VOICE",
  *         concurrency: 1,
@@ -36,13 +38,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Amazon Connect Routing Profiles using the `instance_id` and `routing_profile_id` separated by a colon (`:`). For example:
  *
  * ```sh
- *  $ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+ * $ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
  * ```
  */
 export class RoutingProfile extends pulumi.CustomResource {
@@ -166,8 +169,6 @@ export class RoutingProfile extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(RoutingProfile.__pulumiType, name, resourceInputs, opts);
     }
 }

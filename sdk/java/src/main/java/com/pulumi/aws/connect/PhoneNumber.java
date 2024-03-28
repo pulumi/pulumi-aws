@@ -22,7 +22,10 @@ import javax.annotation.Nullable;
  * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,7 +48,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PhoneNumber(&#34;example&#34;, PhoneNumberArgs.builder()        
- *             .targetArn(aws_connect_instance.example().arn())
+ *             .targetArn(exampleAwsConnectInstance.arn())
  *             .countryCode(&#34;US&#34;)
  *             .type(&#34;DID&#34;)
  *             .tags(Map.of(&#34;hello&#34;, &#34;world&#34;))
@@ -54,7 +57,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Description
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -77,7 +84,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PhoneNumber(&#34;example&#34;, PhoneNumberArgs.builder()        
- *             .targetArn(aws_connect_instance.example().arn())
+ *             .targetArn(exampleAwsConnectInstance.arn())
  *             .countryCode(&#34;US&#34;)
  *             .type(&#34;DID&#34;)
  *             .description(&#34;example description&#34;)
@@ -86,7 +93,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Prefix to filter phone numbers
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -109,7 +120,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PhoneNumber(&#34;example&#34;, PhoneNumberArgs.builder()        
- *             .targetArn(aws_connect_instance.example().arn())
+ *             .targetArn(exampleAwsConnectInstance.arn())
  *             .countryCode(&#34;US&#34;)
  *             .type(&#34;DID&#34;)
  *             .prefix(&#34;+18005&#34;)
@@ -118,13 +129,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Amazon Connect Phone Numbers using its `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab
+ * $ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab
  * ```
  * 
  */
@@ -307,9 +319,6 @@ public class PhoneNumber extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

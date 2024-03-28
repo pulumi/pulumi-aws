@@ -14,10 +14,9 @@ namespace Pulumi.Aws.AppMesh
         /// <summary>
         /// The App Mesh Virtual Router data source allows details of an App Mesh Virtual Service to be retrieved by its name and mesh_name.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,14 +27,13 @@ namespace Pulumi.Aws.AppMesh
         /// {
         ///     var test = Aws.AppMesh.GetVirtualRouter.Invoke(new()
         ///     {
-        ///         MeshName = "example-mesh-name",
         ///         Name = "example-router-name",
+        ///         MeshName = "example-mesh-name",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVirtualRouterResult> InvokeAsync(GetVirtualRouterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualRouterResult>("aws:appmesh/getVirtualRouter:getVirtualRouter", args ?? new GetVirtualRouterArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Aws.AppMesh
         /// <summary>
         /// The App Mesh Virtual Router data source allows details of an App Mesh Virtual Service to be retrieved by its name and mesh_name.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -57,14 +54,13 @@ namespace Pulumi.Aws.AppMesh
         /// {
         ///     var test = Aws.AppMesh.GetVirtualRouter.Invoke(new()
         ///     {
-        ///         MeshName = "example-mesh-name",
         ///         Name = "example-router-name",
+        ///         MeshName = "example-mesh-name",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVirtualRouterResult> Invoke(GetVirtualRouterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualRouterResult>("aws:appmesh/getVirtualRouter:getVirtualRouter", args ?? new GetVirtualRouterInvokeArgs(), options.WithDefaults());

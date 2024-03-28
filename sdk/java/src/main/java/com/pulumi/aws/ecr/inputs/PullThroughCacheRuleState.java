@@ -16,6 +16,21 @@ public final class PullThroughCacheRuleState extends com.pulumi.resources.Resour
     public static final PullThroughCacheRuleState Empty = new PullThroughCacheRuleState();
 
     /**
+     * ARN of the Secret which will be used to authenticate against the registry.
+     * 
+     */
+    @Import(name="credentialArn")
+    private @Nullable Output<String> credentialArn;
+
+    /**
+     * @return ARN of the Secret which will be used to authenticate against the registry.
+     * 
+     */
+    public Optional<Output<String>> credentialArn() {
+        return Optional.ofNullable(this.credentialArn);
+    }
+
+    /**
      * The repository name prefix to use when caching images from the source registry.
      * 
      */
@@ -63,6 +78,7 @@ public final class PullThroughCacheRuleState extends com.pulumi.resources.Resour
     private PullThroughCacheRuleState() {}
 
     private PullThroughCacheRuleState(PullThroughCacheRuleState $) {
+        this.credentialArn = $.credentialArn;
         this.ecrRepositoryPrefix = $.ecrRepositoryPrefix;
         this.registryId = $.registryId;
         this.upstreamRegistryUrl = $.upstreamRegistryUrl;
@@ -84,6 +100,27 @@ public final class PullThroughCacheRuleState extends com.pulumi.resources.Resour
 
         public Builder(PullThroughCacheRuleState defaults) {
             $ = new PullThroughCacheRuleState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param credentialArn ARN of the Secret which will be used to authenticate against the registry.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder credentialArn(@Nullable Output<String> credentialArn) {
+            $.credentialArn = credentialArn;
+            return this;
+        }
+
+        /**
+         * @param credentialArn ARN of the Secret which will be used to authenticate against the registry.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder credentialArn(String credentialArn) {
+            return credentialArn(Output.of(credentialArn));
         }
 
         /**

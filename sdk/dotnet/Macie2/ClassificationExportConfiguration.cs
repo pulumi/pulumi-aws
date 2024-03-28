@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,33 +23,28 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = new Aws.Macie2.Account("exampleAccount");
+    ///     var example = new Aws.Macie2.Account("example");
     /// 
-    ///     var exampleClassificationExportConfiguration = new Aws.Macie2.ClassificationExportConfiguration("exampleClassificationExportConfiguration", new()
+    ///     var exampleClassificationExportConfiguration = new Aws.Macie2.ClassificationExportConfiguration("example", new()
     ///     {
     ///         S3Destination = new Aws.Macie2.Inputs.ClassificationExportConfigurationS3DestinationArgs
     ///         {
-    ///             BucketName = aws_s3_bucket.Example.Bucket,
+    ///             BucketName = exampleAwsS3Bucket.Bucket,
     ///             KeyPrefix = "exampleprefix/",
-    ///             KmsKeyArn = aws_kms_key.Example.Arn,
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccount,
+    ///             KmsKeyArn = exampleAwsKmsKey.Arn,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_macie2_classification_export_configuration` using the account ID and region. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
+    /// $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
     /// ```
     /// </summary>
     [AwsResourceType("aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration")]

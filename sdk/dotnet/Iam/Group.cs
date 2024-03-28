@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,18 +27,20 @@ namespace Pulumi.Aws.Iam
     /// {
     ///     var developers = new Aws.Iam.Group("developers", new()
     ///     {
+    ///         Name = "developers",
     ///         Path = "/users/",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM Groups using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iam/group:Group developers developers
+    /// $ pulumi import aws:iam/group:Group developers developers
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/group:Group")]

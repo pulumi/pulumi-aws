@@ -74,25 +74,28 @@ public final class DeploymentConfigTrafficRoutingConfig {
 
         @CustomType.Setter
         public Builder timeBasedCanary(@Nullable DeploymentConfigTrafficRoutingConfigTimeBasedCanary timeBasedCanary) {
+
             this.timeBasedCanary = timeBasedCanary;
             return this;
         }
         @CustomType.Setter
         public Builder timeBasedLinear(@Nullable DeploymentConfigTrafficRoutingConfigTimeBasedLinear timeBasedLinear) {
+
             this.timeBasedLinear = timeBasedLinear;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         public DeploymentConfigTrafficRoutingConfig build() {
-            final var o = new DeploymentConfigTrafficRoutingConfig();
-            o.timeBasedCanary = timeBasedCanary;
-            o.timeBasedLinear = timeBasedLinear;
-            o.type = type;
-            return o;
+            final var _resultValue = new DeploymentConfigTrafficRoutingConfig();
+            _resultValue.timeBasedCanary = timeBasedCanary;
+            _resultValue.timeBasedLinear = timeBasedLinear;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

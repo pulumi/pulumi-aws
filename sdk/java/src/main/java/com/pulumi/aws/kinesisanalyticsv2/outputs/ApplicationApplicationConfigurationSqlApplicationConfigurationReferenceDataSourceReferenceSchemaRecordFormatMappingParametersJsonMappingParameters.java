@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesisanalyticsv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
         @CustomType.Setter
         public Builder recordRowPath(String recordRowPath) {
-            this.recordRowPath = Objects.requireNonNull(recordRowPath);
+            if (recordRowPath == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters", "recordRowPath");
+            }
+            this.recordRowPath = recordRowPath;
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters();
-            o.recordRowPath = recordRowPath;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters();
+            _resultValue.recordRowPath = recordRowPath;
+            return _resultValue;
         }
     }
 }

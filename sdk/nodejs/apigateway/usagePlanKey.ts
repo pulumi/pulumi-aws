@@ -9,30 +9,35 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.apigateway.RestApi("test", {});
+ * const test = new aws.apigateway.RestApi("test", {name: "MyDemoAPI"});
  * // ...
- * const myusageplan = new aws.apigateway.UsagePlan("myusageplan", {apiStages: [{
- *     apiId: test.id,
- *     stage: aws_api_gateway_stage.foo.stage_name,
- * }]});
- * const mykey = new aws.apigateway.ApiKey("mykey", {});
+ * const myusageplan = new aws.apigateway.UsagePlan("myusageplan", {
+ *     name: "my_usage_plan",
+ *     apiStages: [{
+ *         apiId: test.id,
+ *         stage: foo.stageName,
+ *     }],
+ * });
+ * const mykey = new aws.apigateway.ApiKey("mykey", {name: "my_key"});
  * const main = new aws.apigateway.UsagePlanKey("main", {
  *     keyId: mykey.id,
  *     keyType: "API_KEY",
  *     usagePlanId: myusageplan.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AWS API Gateway Usage Plan Key using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
+ * $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
  * ```
  */
 export class UsagePlanKey extends pulumi.CustomResource {

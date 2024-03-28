@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.aws.cloudfront.outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,22 +59,28 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQuerySt
 
         @CustomType.Setter
         public Builder queryStringBehavior(String queryStringBehavior) {
-            this.queryStringBehavior = Objects.requireNonNull(queryStringBehavior);
+            if (queryStringBehavior == null) {
+              throw new MissingRequiredPropertyException("GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig", "queryStringBehavior");
+            }
+            this.queryStringBehavior = queryStringBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder queryStrings(List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString> queryStrings) {
-            this.queryStrings = Objects.requireNonNull(queryStrings);
+            if (queryStrings == null) {
+              throw new MissingRequiredPropertyException("GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig", "queryStrings");
+            }
+            this.queryStrings = queryStrings;
             return this;
         }
         public Builder queryStrings(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString... queryStrings) {
             return queryStrings(List.of(queryStrings));
         }
         public GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig build() {
-            final var o = new GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig();
-            o.queryStringBehavior = queryStringBehavior;
-            o.queryStrings = queryStrings;
-            return o;
+            final var _resultValue = new GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig();
+            _resultValue.queryStringBehavior = queryStringBehavior;
+            _resultValue.queryStrings = queryStrings;
+            return _resultValue;
         }
     }
 }

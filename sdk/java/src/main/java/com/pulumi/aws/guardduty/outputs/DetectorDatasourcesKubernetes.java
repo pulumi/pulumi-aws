@@ -5,6 +5,7 @@ package com.pulumi.aws.guardduty.outputs;
 
 import com.pulumi.aws.guardduty.outputs.DetectorDatasourcesKubernetesAuditLogs;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -44,13 +45,16 @@ public final class DetectorDatasourcesKubernetes {
 
         @CustomType.Setter
         public Builder auditLogs(DetectorDatasourcesKubernetesAuditLogs auditLogs) {
-            this.auditLogs = Objects.requireNonNull(auditLogs);
+            if (auditLogs == null) {
+              throw new MissingRequiredPropertyException("DetectorDatasourcesKubernetes", "auditLogs");
+            }
+            this.auditLogs = auditLogs;
             return this;
         }
         public DetectorDatasourcesKubernetes build() {
-            final var o = new DetectorDatasourcesKubernetes();
-            o.auditLogs = auditLogs;
-            return o;
+            final var _resultValue = new DetectorDatasourcesKubernetes();
+            _resultValue.auditLogs = auditLogs;
+            return _resultValue;
         }
     }
 }

@@ -58,19 +58,21 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
 
         @CustomType.Setter
         public Builder max(@Nullable Integer max) {
+
             this.max = max;
             return this;
         }
         @CustomType.Setter
         public Builder min(@Nullable Integer min) {
+
             this.min = min;
             return this;
         }
         public GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps build() {
-            final var o = new GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

@@ -17,6 +17,7 @@ import (
 //
 // The following shows outputting all Elastic IPs with the a specific tag value.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,6 +45,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetEips(ctx *pulumi.Context, args *GetEipsArgs, opts ...pulumi.InvokeOption) (*GetEipsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEipsResult

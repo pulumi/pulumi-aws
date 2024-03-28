@@ -24,8 +24,13 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** If you are enabling versioning on the bucket for the first time, AWS recommends that you wait for 15 minutes after enabling versioning before issuing write operations (PUT or DELETE) on objects in the bucket.
  * 
+ * &gt; This resource cannot be used with S3 directory buckets.
+ * 
  * ## Example Usage
+ * 
  * ### With Versioning Enabled
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -33,6 +38,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.s3.BucketVersioningV2;
@@ -51,15 +57,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example-bucket&#34;)
+ *             .build());
  * 
  *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .acl(&#34;private&#34;)
  *             .build());
  * 
  *         var versioningExample = new BucketVersioningV2(&#34;versioningExample&#34;, BucketVersioningV2Args.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
  *                 .status(&#34;Enabled&#34;)
  *                 .build())
@@ -68,7 +76,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With Versioning Disabled
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -76,6 +88,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.s3.BucketVersioningV2;
@@ -94,15 +107,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example-bucket&#34;)
+ *             .build());
  * 
  *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .acl(&#34;private&#34;)
  *             .build());
  * 
  *         var versioningExample = new BucketVersioningV2(&#34;versioningExample&#34;, BucketVersioningV2Args.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
  *                 .status(&#34;Disabled&#34;)
  *                 .build())
@@ -111,6 +126,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Object Dependency On Versioning
  * 
  * When you create an object whose `version_id` you need and an `aws.s3.BucketVersioningV2` resource in the same configuration, you are more likely to have success by ensuring the `s3_object` depends either implicitly (see below) or explicitly (i.e., using `depends_on = [aws_s3_bucket_versioning.example]`) on the `aws.s3.BucketVersioningV2` resource.
@@ -118,6 +135,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** For critical and/or production S3 objects, do not create a bucket, enable versioning, and create an object in the bucket within the same configuration. Doing so will not allow the AWS-recommended 15 minutes between enabling versioning and writing to the bucket.
  * 
  * This example shows the `aws_s3_object.example` depending implicitly on the versioning resource through the reference to `aws_s3_bucket_versioning.example.bucket` to define `bucket`:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -125,6 +144,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketVersioningV2;
  * import com.pulumi.aws.s3.BucketVersioningV2Args;
  * import com.pulumi.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
@@ -144,10 +164,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;yotto&#34;)
+ *             .build());
  * 
  *         var exampleBucketVersioningV2 = new BucketVersioningV2(&#34;exampleBucketVersioningV2&#34;, BucketVersioningV2Args.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
  *                 .status(&#34;Enabled&#34;)
  *                 .build())
@@ -162,6 +184,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -172,12 +195,12 @@ import javax.annotation.Nullable;
  * If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
  * 
  * ```sh
- *  $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name
+ * $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name
  * ```
- *  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+ * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
  * 
  * ```sh
- *  $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name,123456789012
+ * $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name,123456789012
  * ```
  * 
  */

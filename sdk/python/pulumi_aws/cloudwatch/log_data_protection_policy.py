@@ -104,51 +104,53 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy",
-            log_group_name=example_log_group.name,
-            policy_document=example_bucket_v2.bucket.apply(lambda bucket: json.dumps({
-                "Name": "Example",
-                "Version": "2021-06-01",
-                "Statement": [
+        example = aws.cloudwatch.LogGroup("example", name="example")
+        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("example",
+            log_group_name=example.name,
+            policy_document=pulumi.Output.json_dumps({
+                "name": "Example",
+                "version": "2021-06-01",
+                "statement": [
                     {
-                        "Sid": "Audit",
-                        "DataIdentifier": ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
-                        "Operation": {
-                            "Audit": {
-                                "FindingsDestination": {
+                        "sid": "Audit",
+                        "dataIdentifier": ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
+                        "operation": {
+                            "audit": {
+                                "findingsDestination": {
                                     "S3": {
-                                        "Bucket": bucket,
+                                        "bucket": example_bucket_v2.bucket,
                                     },
                                 },
                             },
                         },
                     },
                     {
-                        "Sid": "Redact",
-                        "DataIdentifier": ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
-                        "Operation": {
-                            "Deidentify": {
-                                "MaskConfig": {},
+                        "sid": "Redact",
+                        "dataIdentifier": ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
+                        "operation": {
+                            "deidentify": {
+                                "maskConfig": {},
                             },
                         },
                     },
                 ],
-            })))
+            }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import this resource using the `log_group_name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
+        $ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
         ```
 
         :param str resource_name: The name of the resource.
@@ -169,51 +171,53 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy",
-            log_group_name=example_log_group.name,
-            policy_document=example_bucket_v2.bucket.apply(lambda bucket: json.dumps({
-                "Name": "Example",
-                "Version": "2021-06-01",
-                "Statement": [
+        example = aws.cloudwatch.LogGroup("example", name="example")
+        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("example",
+            log_group_name=example.name,
+            policy_document=pulumi.Output.json_dumps({
+                "name": "Example",
+                "version": "2021-06-01",
+                "statement": [
                     {
-                        "Sid": "Audit",
-                        "DataIdentifier": ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
-                        "Operation": {
-                            "Audit": {
-                                "FindingsDestination": {
+                        "sid": "Audit",
+                        "dataIdentifier": ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
+                        "operation": {
+                            "audit": {
+                                "findingsDestination": {
                                     "S3": {
-                                        "Bucket": bucket,
+                                        "bucket": example_bucket_v2.bucket,
                                     },
                                 },
                             },
                         },
                     },
                     {
-                        "Sid": "Redact",
-                        "DataIdentifier": ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
-                        "Operation": {
-                            "Deidentify": {
-                                "MaskConfig": {},
+                        "sid": "Redact",
+                        "dataIdentifier": ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
+                        "operation": {
+                            "deidentify": {
+                                "maskConfig": {},
                             },
                         },
                     },
                 ],
-            })))
+            }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import this resource using the `log_group_name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
+        $ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
         ```
 
         :param str resource_name: The name of the resource.

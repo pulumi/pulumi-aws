@@ -8,15 +8,17 @@ import * as utilities from "../utilities";
  * Provides an AppConfig Hosted Configuration Version resource.
  *
  * ## Example Usage
+ *
  * ### Freeform
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appconfig.HostedConfigurationVersion("example", {
- *     applicationId: aws_appconfig_application.example.id,
- *     configurationProfileId: aws_appconfig_configuration_profile.example.configuration_profile_id,
+ *     applicationId: exampleAwsAppconfigApplication.id,
+ *     configurationProfileId: exampleAwsAppconfigConfigurationProfile.configurationProfileId,
  *     description: "Example Freeform Hosted Configuration Version",
  *     contentType: "application/json",
  *     content: JSON.stringify({
@@ -30,15 +32,18 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Feature Flags
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appconfig.HostedConfigurationVersion("example", {
- *     applicationId: aws_appconfig_application.example.id,
- *     configurationProfileId: aws_appconfig_configuration_profile.example.configuration_profile_id,
+ *     applicationId: exampleAwsAppconfigApplication.id,
+ *     configurationProfileId: exampleAwsAppconfigConfigurationProfile.configurationProfileId,
  *     description: "Example Feature Flag Configuration Version",
  *     contentType: "application/json",
  *     content: JSON.stringify({
@@ -81,13 +86,14 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AppConfig Hosted Configuration Versions using the application ID, configuration profile ID, and version number separated by a slash (`/`). For example:
  *
  * ```sh
- *  $ pulumi import aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion example 71abcde/11xxxxx/2
+ * $ pulumi import aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion example 71abcde/11xxxxx/2
  * ```
  */
 export class HostedConfigurationVersion extends pulumi.CustomResource {

@@ -13,7 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -28,7 +27,10 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &gt; **NOTE:** These examples are referencing the `aws.storagegateway.Cache` resource `gateway_arn` attribute to ensure this provider properly adds cache before creating the volume. If you are not using this method, you may need to declare an expicit dependency (e.g. via `depends_on = [aws_storagegateway_cache.example]`) to ensure proper ordering.
+ * 
  * ### Create Empty Cached iSCSI Volume
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,8 +53,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CachesIscsiVolume(&#34;example&#34;, CachesIscsiVolumeArgs.builder()        
- *             .gatewayArn(aws_storagegateway_cache.example().gateway_arn())
- *             .networkInterfaceId(aws_instance.example().private_ip())
+ *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
+ *             .networkInterfaceId(exampleAwsInstance.privateIp())
  *             .targetName(&#34;example&#34;)
  *             .volumeSizeInBytes(5368709120)
  *             .build());
@@ -60,7 +62,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Create Cached iSCSI Volume From Snapshot
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -83,17 +89,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CachesIscsiVolume(&#34;example&#34;, CachesIscsiVolumeArgs.builder()        
- *             .gatewayArn(aws_storagegateway_cache.example().gateway_arn())
- *             .networkInterfaceId(aws_instance.example().private_ip())
- *             .snapshotId(aws_ebs_snapshot.example().id())
+ *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
+ *             .networkInterfaceId(exampleAwsInstance.privateIp())
+ *             .snapshotId(exampleAwsEbsSnapshot.id())
  *             .targetName(&#34;example&#34;)
- *             .volumeSizeInBytes(aws_ebs_snapshot.example().volume_size() * 1024 * 1024 * 1024)
+ *             .volumeSizeInBytes(exampleAwsEbsSnapshot.volumeSize() * 1024 * 1024 * 1024)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Create Cached iSCSI Volume From Source Volume
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -116,23 +126,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CachesIscsiVolume(&#34;example&#34;, CachesIscsiVolumeArgs.builder()        
- *             .gatewayArn(aws_storagegateway_cache.example().gateway_arn())
- *             .networkInterfaceId(aws_instance.example().private_ip())
- *             .sourceVolumeArn(aws_storagegateway_cached_iscsi_volume.existing().arn())
+ *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
+ *             .networkInterfaceId(exampleAwsInstance.privateIp())
+ *             .sourceVolumeArn(existing.arn())
  *             .targetName(&#34;example&#34;)
- *             .volumeSizeInBytes(aws_storagegateway_cached_iscsi_volume.existing().volume_size_in_bytes())
+ *             .volumeSizeInBytes(existing.volumeSizeInBytes())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_storagegateway_cached_iscsi_volume` using the volume Amazon Resource Name (ARN). For example:
  * 
  * ```sh
- *  $ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
+ * $ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
  * ```
  * 
  */
@@ -413,9 +424,6 @@ public class CachesIscsiVolume extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

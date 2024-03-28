@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,16 +28,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafregional.NewByteMatchSet(ctx, "byteSet", &wafregional.ByteMatchSetArgs{
+//			_, err := wafregional.NewByteMatchSet(ctx, "byte_set", &wafregional.ByteMatchSetArgs{
+//				Name: pulumi.String("my_waf_byte_match_set"),
 //				ByteMatchTuples: wafregional.ByteMatchSetByteMatchTupleArray{
 //					&wafregional.ByteMatchSetByteMatchTupleArgs{
-//						FieldToMatch: &wafregional.ByteMatchSetByteMatchTupleFieldToMatchArgs{
-//							Data: pulumi.String("referer"),
-//							Type: pulumi.String("HEADER"),
-//						},
-//						PositionalConstraint: pulumi.String("CONTAINS"),
-//						TargetString:         pulumi.String("badrefer1"),
 //						TextTransformation:   pulumi.String("NONE"),
+//						TargetString:         pulumi.String("badrefer1"),
+//						PositionalConstraint: pulumi.String("CONTAINS"),
+//						FieldToMatch: &wafregional.ByteMatchSetByteMatchTupleFieldToMatchArgs{
+//							Type: pulumi.String("HEADER"),
+//							Data: pulumi.String("referer"),
+//						},
 //					},
 //				},
 //			})
@@ -48,15 +50,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import WAF Regional Byte Match Set using the id. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:wafregional/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-//
+// $ pulumi import aws:wafregional/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 // ```
 type ByteMatchSet struct {
 	pulumi.CustomResourceState

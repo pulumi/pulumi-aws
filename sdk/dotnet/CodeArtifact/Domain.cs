@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,13 +30,14 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeArtifact Domain using the CodeArtifact Domain arn. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:codeartifact/domain:Domain example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
+    /// $ pulumi import aws:codeartifact/domain:Domain example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
     /// ```
     /// </summary>
     [AwsResourceType("aws:codeartifact/domain:Domain")]
@@ -84,6 +86,12 @@ namespace Pulumi.Aws.CodeArtifact
         public Output<int> RepositoryCount { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
+        /// </summary>
+        [Output("s3BucketArn")]
+        public Output<string> S3BucketArn { get; private set; } = null!;
+
+        /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -118,10 +126,6 @@ namespace Pulumi.Aws.CodeArtifact
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -219,6 +223,12 @@ namespace Pulumi.Aws.CodeArtifact
         [Input("repositoryCount")]
         public Input<int>? RepositoryCount { get; set; }
 
+        /// <summary>
+        /// The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
+        /// </summary>
+        [Input("s3BucketArn")]
+        public Input<string>? S3BucketArn { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -241,11 +251,7 @@ namespace Pulumi.Aws.CodeArtifact
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public DomainState()

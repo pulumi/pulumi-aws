@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Transfer
     /// Provides a AWS Transfer Access resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic S3
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,15 +28,18 @@ namespace Pulumi.Aws.Transfer
     ///     var example = new Aws.Transfer.Access("example", new()
     ///     {
     ///         ExternalId = "S-1-1-12-1234567890-123456789-1234567890-1234",
-    ///         ServerId = aws_transfer_server.Example.Id,
-    ///         Role = aws_iam_role.Example.Arn,
-    ///         HomeDirectory = $"/{aws_s3_bucket.Example.Id}/",
+    ///         ServerId = exampleAwsTransferServer.Id,
+    ///         Role = exampleAwsIamRole.Arn,
+    ///         HomeDirectory = $"/{exampleAwsS3Bucket.Id}/",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Basic EFS
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,9 +51,9 @@ namespace Pulumi.Aws.Transfer
     ///     var test = new Aws.Transfer.Access("test", new()
     ///     {
     ///         ExternalId = "S-1-1-12-1234567890-123456789-1234567890-1234",
-    ///         ServerId = aws_transfer_server.Test.Id,
-    ///         Role = aws_iam_role.Test.Arn,
-    ///         HomeDirectory = $"/{aws_efs_file_system.Test.Id}/",
+    ///         ServerId = testAwsTransferServer.Id,
+    ///         Role = testAwsIamRole.Arn,
+    ///         HomeDirectory = $"/{testAwsEfsFileSystem.Id}/",
     ///         PosixProfile = new Aws.Transfer.Inputs.AccessPosixProfileArgs
     ///         {
     ///             Gid = 1000,
@@ -58,13 +63,14 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Transfer Accesses using the `server_id` and `external_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:transfer/access:Access example s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234
+    /// $ pulumi import aws:transfer/access:Access example s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234
     /// ```
     /// </summary>
     [AwsResourceType("aws:transfer/access:Access")]

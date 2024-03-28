@@ -25,8 +25,8 @@ public final class WebAclRuleOverrideActionCount {
         }
 
         public WebAclRuleOverrideActionCount build() {
-            final var o = new WebAclRuleOverrideActionCount();
-            return o;
+            final var _resultValue = new WebAclRuleOverrideActionCount();
+            return _resultValue;
         }
     }
 }

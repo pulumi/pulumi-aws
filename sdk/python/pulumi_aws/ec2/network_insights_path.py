@@ -344,22 +344,24 @@ class NetworkInsightsPath(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.ec2.NetworkInsightsPath("test",
-            source=aws_network_interface["source"]["id"],
-            destination=aws_network_interface["destination"]["id"],
+            source=source["id"],
+            destination=destination["id"],
             protocol="tcp")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Network Insights Paths using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/networkInsightsPath:NetworkInsightsPath test nip-00edfba169923aefd
+        $ pulumi import aws:ec2/networkInsightsPath:NetworkInsightsPath test nip-00edfba169923aefd
         ```
 
         :param str resource_name: The name of the resource.
@@ -385,22 +387,24 @@ class NetworkInsightsPath(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.ec2.NetworkInsightsPath("test",
-            source=aws_network_interface["source"]["id"],
-            destination=aws_network_interface["destination"]["id"],
+            source=source["id"],
+            destination=destination["id"],
             protocol="tcp")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Network Insights Paths using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/networkInsightsPath:NetworkInsightsPath test nip-00edfba169923aefd
+        $ pulumi import aws:ec2/networkInsightsPath:NetworkInsightsPath test nip-00edfba169923aefd
         ```
 
         :param str resource_name: The name of the resource.
@@ -451,8 +455,6 @@ class NetworkInsightsPath(pulumi.CustomResource):
             __props__.__dict__["destination_arn"] = None
             __props__.__dict__["source_arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(NetworkInsightsPath, __self__).__init__(
             'aws:ec2/networkInsightsPath:NetworkInsightsPath',
             resource_name,

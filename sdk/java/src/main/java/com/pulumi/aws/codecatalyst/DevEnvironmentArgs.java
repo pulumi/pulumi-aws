@@ -8,6 +8,7 @@ import com.pulumi.aws.codecatalyst.inputs.DevEnvironmentPersistentStorageArgs;
 import com.pulumi.aws.codecatalyst.inputs.DevEnvironmentRepositoryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -338,11 +339,21 @@ public final class DevEnvironmentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public DevEnvironmentArgs build() {
-            $.ides = Objects.requireNonNull($.ides, "expected parameter 'ides' to be non-null");
-            $.instanceType = Objects.requireNonNull($.instanceType, "expected parameter 'instanceType' to be non-null");
-            $.persistentStorage = Objects.requireNonNull($.persistentStorage, "expected parameter 'persistentStorage' to be non-null");
-            $.projectName = Objects.requireNonNull($.projectName, "expected parameter 'projectName' to be non-null");
-            $.spaceName = Objects.requireNonNull($.spaceName, "expected parameter 'spaceName' to be non-null");
+            if ($.ides == null) {
+                throw new MissingRequiredPropertyException("DevEnvironmentArgs", "ides");
+            }
+            if ($.instanceType == null) {
+                throw new MissingRequiredPropertyException("DevEnvironmentArgs", "instanceType");
+            }
+            if ($.persistentStorage == null) {
+                throw new MissingRequiredPropertyException("DevEnvironmentArgs", "persistentStorage");
+            }
+            if ($.projectName == null) {
+                throw new MissingRequiredPropertyException("DevEnvironmentArgs", "projectName");
+            }
+            if ($.spaceName == null) {
+                throw new MissingRequiredPropertyException("DevEnvironmentArgs", "spaceName");
+            }
             return $;
         }
     }

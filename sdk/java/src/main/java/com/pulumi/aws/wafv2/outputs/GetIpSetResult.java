@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -111,7 +112,10 @@ public final class GetIpSetResult {
 
         @CustomType.Setter
         public Builder addresses(List<String> addresses) {
-            this.addresses = Objects.requireNonNull(addresses);
+            if (addresses == null) {
+              throw new MissingRequiredPropertyException("GetIpSetResult", "addresses");
+            }
+            this.addresses = addresses;
             return this;
         }
         public Builder addresses(String... addresses) {
@@ -119,44 +123,62 @@ public final class GetIpSetResult {
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetIpSetResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetIpSetResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetIpSetResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddressVersion(String ipAddressVersion) {
-            this.ipAddressVersion = Objects.requireNonNull(ipAddressVersion);
+            if (ipAddressVersion == null) {
+              throw new MissingRequiredPropertyException("GetIpSetResult", "ipAddressVersion");
+            }
+            this.ipAddressVersion = ipAddressVersion;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetIpSetResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder scope(String scope) {
-            this.scope = Objects.requireNonNull(scope);
+            if (scope == null) {
+              throw new MissingRequiredPropertyException("GetIpSetResult", "scope");
+            }
+            this.scope = scope;
             return this;
         }
         public GetIpSetResult build() {
-            final var o = new GetIpSetResult();
-            o.addresses = addresses;
-            o.arn = arn;
-            o.description = description;
-            o.id = id;
-            o.ipAddressVersion = ipAddressVersion;
-            o.name = name;
-            o.scope = scope;
-            return o;
+            final var _resultValue = new GetIpSetResult();
+            _resultValue.addresses = addresses;
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.ipAddressVersion = ipAddressVersion;
+            _resultValue.name = name;
+            _resultValue.scope = scope;
+            return _resultValue;
         }
     }
 }

@@ -15,8 +15,10 @@ import * as utilities from "../utilities";
  * a particular domain name. An API stage can be associated with the domain name using the `aws.apigatewayv2.ApiMapping` resource.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,44 +26,48 @@ import * as utilities from "../utilities";
  * const example = new aws.apigatewayv2.DomainName("example", {
  *     domainName: "ws-api.example.com",
  *     domainNameConfiguration: {
- *         certificateArn: aws_acm_certificate.example.arn,
+ *         certificateArn: exampleAwsAcmCertificate.arn,
  *         endpointType: "REGIONAL",
  *         securityPolicy: "TLS_1_2",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Associated Route 53 Resource Record
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleDomainName = new aws.apigatewayv2.DomainName("exampleDomainName", {
+ * const example = new aws.apigatewayv2.DomainName("example", {
  *     domainName: "http-api.example.com",
  *     domainNameConfiguration: {
- *         certificateArn: aws_acm_certificate.example.arn,
+ *         certificateArn: exampleAwsAcmCertificate.arn,
  *         endpointType: "REGIONAL",
  *         securityPolicy: "TLS_1_2",
  *     },
  * });
- * const exampleRecord = new aws.route53.Record("exampleRecord", {
- *     name: exampleDomainName.domainName,
- *     type: "A",
- *     zoneId: aws_route53_zone.example.zone_id,
+ * const exampleRecord = new aws.route53.Record("example", {
+ *     name: example.domainName,
+ *     type: aws.route53.RecordType.A,
+ *     zoneId: exampleAwsRoute53Zone.zoneId,
  *     aliases: [{
- *         name: exampleDomainName.domainNameConfiguration.apply(domainNameConfiguration => domainNameConfiguration.targetDomainName),
- *         zoneId: exampleDomainName.domainNameConfiguration.apply(domainNameConfiguration => domainNameConfiguration.hostedZoneId),
+ *         name: example.domainNameConfiguration.apply(domainNameConfiguration => domainNameConfiguration.targetDomainName),
+ *         zoneId: example.domainNameConfiguration.apply(domainNameConfiguration => domainNameConfiguration.hostedZoneId),
  *         evaluateTargetHealth: false,
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_apigatewayv2_domain_name` using the domain name. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
+ * $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
  * ```
  */
 export class DomainName extends pulumi.CustomResource {
@@ -160,8 +166,6 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(DomainName.__pulumiType, name, resourceInputs, opts);
     }
 }

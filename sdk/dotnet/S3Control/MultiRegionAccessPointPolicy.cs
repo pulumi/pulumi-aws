@@ -13,84 +13,13 @@ namespace Pulumi.Aws.S3Control
     /// Provides a resource to manage an S3 Multi-Region Access Point access control policy.
     /// 
     /// ## Example Usage
-    /// ### Basic Example
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var currentPartition = Aws.GetPartition.Invoke();
-    /// 
-    ///     var fooBucket = new Aws.S3.BucketV2("fooBucket");
-    /// 
-    ///     var exampleMultiRegionAccessPoint = new Aws.S3Control.MultiRegionAccessPoint("exampleMultiRegionAccessPoint", new()
-    ///     {
-    ///         Details = new Aws.S3Control.Inputs.MultiRegionAccessPointDetailsArgs
-    ///         {
-    ///             Name = "example",
-    ///             Regions = new[]
-    ///             {
-    ///                 new Aws.S3Control.Inputs.MultiRegionAccessPointDetailsRegionArgs
-    ///                 {
-    ///                     Bucket = fooBucket.Id,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleMultiRegionAccessPointPolicy = new Aws.S3Control.MultiRegionAccessPointPolicy("exampleMultiRegionAccessPointPolicy", new()
-    ///     {
-    ///         Details = new Aws.S3Control.Inputs.MultiRegionAccessPointPolicyDetailsArgs
-    ///         {
-    ///             Name = exampleMultiRegionAccessPoint.Id.Apply(id =&gt; id.Split(":"))[1],
-    ///             Policy = Output.Tuple(currentCallerIdentity, currentPartition, currentCallerIdentity, exampleMultiRegionAccessPoint.Alias).Apply(values =&gt;
-    ///             {
-    ///                 var currentCallerIdentity = values.Item1;
-    ///                 var currentPartition = values.Item2;
-    ///                 var currentCallerIdentity1 = values.Item3;
-    ///                 var @alias = values.Item4;
-    ///                 return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Version"] = "2012-10-17",
-    ///                     ["Statement"] = new[]
-    ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["Sid"] = "Example",
-    ///                             ["Effect"] = "Allow",
-    ///                             ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 ["AWS"] = currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                             },
-    ///                             ["Action"] = new[]
-    ///                             {
-    ///                                 "s3:GetObject",
-    ///                                 "s3:PutObject",
-    ///                             },
-    ///                             ["Resource"] = $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:s3::{currentCallerIdentity1.AccountId}:accesspoint/{@alias}/object/*",
-    ///                         },
-    ///                     },
-    ///                 });
-    ///             }),
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Multi-Region Access Point Policies using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy example 123456789012:example
+    /// $ pulumi import aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy example 123456789012:example
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy")]

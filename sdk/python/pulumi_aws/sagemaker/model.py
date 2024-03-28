@@ -351,6 +351,7 @@ class Model(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -362,14 +363,17 @@ class Model(pulumi.CustomResource):
                 identifiers=["sagemaker.amazonaws.com"],
             )],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
+        example_role = aws.iam.Role("example", assume_role_policy=assume_role.json)
         test = aws.sagemaker.get_prebuilt_ecr_image(repository_name="kmeans")
-        example_model = aws.sagemaker.Model("exampleModel",
+        example = aws.sagemaker.Model("example",
+            name="my-model",
             execution_role_arn=example_role.arn,
             primary_container=aws.sagemaker.ModelPrimaryContainerArgs(
                 image=test.registry_path,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Inference Execution Config
 
         * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
@@ -379,7 +383,7 @@ class Model(pulumi.CustomResource):
         Using `pulumi import`, import models using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/model:Model test_model model-foo
+        $ pulumi import aws:sagemaker/model:Model test_model model-foo
         ```
 
         :param str resource_name: The name of the resource.
@@ -408,6 +412,7 @@ class Model(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -419,14 +424,17 @@ class Model(pulumi.CustomResource):
                 identifiers=["sagemaker.amazonaws.com"],
             )],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
+        example_role = aws.iam.Role("example", assume_role_policy=assume_role.json)
         test = aws.sagemaker.get_prebuilt_ecr_image(repository_name="kmeans")
-        example_model = aws.sagemaker.Model("exampleModel",
+        example = aws.sagemaker.Model("example",
+            name="my-model",
             execution_role_arn=example_role.arn,
             primary_container=aws.sagemaker.ModelPrimaryContainerArgs(
                 image=test.registry_path,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Inference Execution Config
 
         * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
@@ -436,7 +444,7 @@ class Model(pulumi.CustomResource):
         Using `pulumi import`, import models using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/model:Model test_model model-foo
+        $ pulumi import aws:sagemaker/model:Model test_model model-foo
         ```
 
         :param str resource_name: The name of the resource.
@@ -483,8 +491,6 @@ class Model(pulumi.CustomResource):
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Model, __self__).__init__(
             'aws:sagemaker/model:Model',
             resource_name,

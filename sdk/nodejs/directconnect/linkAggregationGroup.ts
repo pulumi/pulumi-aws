@@ -11,23 +11,26 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const hoge = new aws.directconnect.LinkAggregationGroup("hoge", {
+ *     name: "tf-dx-lag",
  *     connectionsBandwidth: "1Gbps",
- *     forceDestroy: true,
  *     location: "EqDC2",
+ *     forceDestroy: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Direct Connect LAGs using the LAG `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
+ * $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
  * ```
  */
 export class LinkAggregationGroup extends pulumi.CustomResource {
@@ -156,8 +159,6 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LinkAggregationGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

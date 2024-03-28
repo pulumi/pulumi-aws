@@ -44,13 +44,14 @@ public final class DistributionConfigurationDistributionFastLaunchConfigurationS
 
         @CustomType.Setter
         public Builder targetResourceCount(@Nullable Integer targetResourceCount) {
+
             this.targetResourceCount = targetResourceCount;
             return this;
         }
         public DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration build() {
-            final var o = new DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration();
-            o.targetResourceCount = targetResourceCount;
-            return o;
+            final var _resultValue = new DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration();
+            _resultValue.targetResourceCount = targetResourceCount;
+            return _resultValue;
         }
     }
 }

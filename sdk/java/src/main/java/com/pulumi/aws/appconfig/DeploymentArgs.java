@@ -5,6 +5,7 @@ package com.pulumi.aws.appconfig;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -107,6 +108,21 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+     * 
+     */
+    @Import(name="kmsKeyIdentifier")
+    private @Nullable Output<String> kmsKeyIdentifier;
+
+    /**
+     * @return The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+     * 
+     */
+    public Optional<Output<String>> kmsKeyIdentifier() {
+        return Optional.ofNullable(this.kmsKeyIdentifier);
+    }
+
+    /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -130,6 +146,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         this.deploymentStrategyId = $.deploymentStrategyId;
         this.description = $.description;
         this.environmentId = $.environmentId;
+        this.kmsKeyIdentifier = $.kmsKeyIdentifier;
         this.tags = $.tags;
     }
 
@@ -278,6 +295,27 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param kmsKeyIdentifier The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyIdentifier(@Nullable Output<String> kmsKeyIdentifier) {
+            $.kmsKeyIdentifier = kmsKeyIdentifier;
+            return this;
+        }
+
+        /**
+         * @param kmsKeyIdentifier The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyIdentifier(String kmsKeyIdentifier) {
+            return kmsKeyIdentifier(Output.of(kmsKeyIdentifier));
+        }
+
+        /**
          * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
@@ -299,11 +337,21 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DeploymentArgs build() {
-            $.applicationId = Objects.requireNonNull($.applicationId, "expected parameter 'applicationId' to be non-null");
-            $.configurationProfileId = Objects.requireNonNull($.configurationProfileId, "expected parameter 'configurationProfileId' to be non-null");
-            $.configurationVersion = Objects.requireNonNull($.configurationVersion, "expected parameter 'configurationVersion' to be non-null");
-            $.deploymentStrategyId = Objects.requireNonNull($.deploymentStrategyId, "expected parameter 'deploymentStrategyId' to be non-null");
-            $.environmentId = Objects.requireNonNull($.environmentId, "expected parameter 'environmentId' to be non-null");
+            if ($.applicationId == null) {
+                throw new MissingRequiredPropertyException("DeploymentArgs", "applicationId");
+            }
+            if ($.configurationProfileId == null) {
+                throw new MissingRequiredPropertyException("DeploymentArgs", "configurationProfileId");
+            }
+            if ($.configurationVersion == null) {
+                throw new MissingRequiredPropertyException("DeploymentArgs", "configurationVersion");
+            }
+            if ($.deploymentStrategyId == null) {
+                throw new MissingRequiredPropertyException("DeploymentArgs", "deploymentStrategyId");
+            }
+            if ($.environmentId == null) {
+                throw new MissingRequiredPropertyException("DeploymentArgs", "environmentId");
+            }
             return $;
         }
     }

@@ -56,31 +56,35 @@ public final class InstanceRootBlockDevice {
 
         @CustomType.Setter
         public Builder deleteOnTermination(@Nullable Boolean deleteOnTermination) {
+
             this.deleteOnTermination = deleteOnTermination;
             return this;
         }
         @CustomType.Setter
         public Builder iops(@Nullable Integer iops) {
+
             this.iops = iops;
             return this;
         }
         @CustomType.Setter
         public Builder volumeSize(@Nullable Integer volumeSize) {
+
             this.volumeSize = volumeSize;
             return this;
         }
         @CustomType.Setter
         public Builder volumeType(@Nullable String volumeType) {
+
             this.volumeType = volumeType;
             return this;
         }
         public InstanceRootBlockDevice build() {
-            final var o = new InstanceRootBlockDevice();
-            o.deleteOnTermination = deleteOnTermination;
-            o.iops = iops;
-            o.volumeSize = volumeSize;
-            o.volumeType = volumeType;
-            return o;
+            final var _resultValue = new InstanceRootBlockDevice();
+            _resultValue.deleteOnTermination = deleteOnTermination;
+            _resultValue.iops = iops;
+            _resultValue.volumeSize = volumeSize;
+            _resultValue.volumeType = volumeType;
+            return _resultValue;
         }
     }
 }

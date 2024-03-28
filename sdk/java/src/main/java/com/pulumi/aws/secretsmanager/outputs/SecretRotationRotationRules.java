@@ -73,25 +73,28 @@ public final class SecretRotationRotationRules {
 
         @CustomType.Setter
         public Builder automaticallyAfterDays(@Nullable Integer automaticallyAfterDays) {
+
             this.automaticallyAfterDays = automaticallyAfterDays;
             return this;
         }
         @CustomType.Setter
         public Builder duration(@Nullable String duration) {
+
             this.duration = duration;
             return this;
         }
         @CustomType.Setter
         public Builder scheduleExpression(@Nullable String scheduleExpression) {
+
             this.scheduleExpression = scheduleExpression;
             return this;
         }
         public SecretRotationRotationRules build() {
-            final var o = new SecretRotationRotationRules();
-            o.automaticallyAfterDays = automaticallyAfterDays;
-            o.duration = duration;
-            o.scheduleExpression = scheduleExpression;
-            return o;
+            final var _resultValue = new SecretRotationRotationRules();
+            _resultValue.automaticallyAfterDays = automaticallyAfterDays;
+            _resultValue.duration = duration;
+            _resultValue.scheduleExpression = scheduleExpression;
+            return _resultValue;
         }
     }
 }

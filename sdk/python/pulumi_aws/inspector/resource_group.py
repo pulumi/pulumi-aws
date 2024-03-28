@@ -86,15 +86,17 @@ class ResourceGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.inspector.ResourceGroup("example", tags={
-            "Env": "bar",
             "Name": "foo",
+            "Env": "bar",
         })
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -111,15 +113,17 @@ class ResourceGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.inspector.ResourceGroup("example", tags={
-            "Env": "bar",
             "Name": "foo",
+            "Env": "bar",
         })
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param ResourceGroupArgs args: The arguments to use to populate this resource's properties.

@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecGrpcRouteAction;
 import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecGrpcRouteMatch;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -57,19 +58,25 @@ public final class GatewayRouteSpecGrpcRoute {
 
         @CustomType.Setter
         public Builder action(GatewayRouteSpecGrpcRouteAction action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("GatewayRouteSpecGrpcRoute", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder match(GatewayRouteSpecGrpcRouteMatch match) {
-            this.match = Objects.requireNonNull(match);
+            if (match == null) {
+              throw new MissingRequiredPropertyException("GatewayRouteSpecGrpcRoute", "match");
+            }
+            this.match = match;
             return this;
         }
         public GatewayRouteSpecGrpcRoute build() {
-            final var o = new GatewayRouteSpecGrpcRoute();
-            o.action = action;
-            o.match = match;
-            return o;
+            final var _resultValue = new GatewayRouteSpecGrpcRoute();
+            _resultValue.action = action;
+            _resultValue.match = match;
+            return _resultValue;
         }
     }
 }

@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Provides a WAF Rate Based Rule Resource
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -34,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafregional.RateBasedRule;
  * import com.pulumi.aws.wafregional.RateBasedRuleArgs;
  * import com.pulumi.aws.wafregional.inputs.RateBasedRulePredicateArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,6 +50,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ipset = new IpSet(&#34;ipset&#34;, IpSetArgs.builder()        
+ *             .name(&#34;tfIPSet&#34;)
  *             .ipSetDescriptors(IpSetIpSetDescriptorArgs.builder()
  *                 .type(&#34;IPV4&#34;)
  *                 .value(&#34;192.0.7.0/24&#34;)
@@ -56,6 +58,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var wafrule = new RateBasedRule(&#34;wafrule&#34;, RateBasedRuleArgs.builder()        
+ *             .name(&#34;tfWAFRule&#34;)
  *             .metricName(&#34;tfWAFRule&#34;)
  *             .rateKey(&#34;IP&#34;)
  *             .rateLimit(100)
@@ -64,20 +67,19 @@ import javax.annotation.Nullable;
  *                 .negated(false)
  *                 .type(&#34;IPMatch&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(ipset)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import WAF Regional Rate Based Rule using the id. For example:
  * 
  * ```sh
- *  $ pulumi import aws:wafregional/rateBasedRule:RateBasedRule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * $ pulumi import aws:wafregional/rateBasedRule:RateBasedRule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
  * ```
  * 
  */
@@ -232,9 +234,6 @@ public class RateBasedRule extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

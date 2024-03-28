@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesisanalyticsv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,32 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
 
         @CustomType.Setter
         public Builder bucketArn(String bucketArn) {
-            this.bucketArn = Objects.requireNonNull(bucketArn);
+            if (bucketArn == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation", "bucketArn");
+            }
+            this.bucketArn = bucketArn;
             return this;
         }
         @CustomType.Setter
         public Builder fileKey(String fileKey) {
-            this.fileKey = Objects.requireNonNull(fileKey);
+            if (fileKey == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation", "fileKey");
+            }
+            this.fileKey = fileKey;
             return this;
         }
         @CustomType.Setter
         public Builder objectVersion(@Nullable String objectVersion) {
+
             this.objectVersion = objectVersion;
             return this;
         }
         public ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation build() {
-            final var o = new ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation();
-            o.bucketArn = bucketArn;
-            o.fileKey = fileKey;
-            o.objectVersion = objectVersion;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation();
+            _resultValue.bucketArn = bucketArn;
+            _resultValue.fileKey = fileKey;
+            _resultValue.objectVersion = objectVersion;
+            return _resultValue;
         }
     }
 }

@@ -660,6 +660,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -676,10 +677,13 @@ class LaunchConfiguration(pulumi.CustomResource):
                 ),
             ],
             owners=["099720109477"])
-        as_conf = aws.ec2.LaunchConfiguration("asConf",
+        as_conf = aws.ec2.LaunchConfiguration("as_conf",
+            name="web_config",
             image_id=ubuntu.id,
             instance_type="t2.micro")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Using with AutoScaling Groups
 
         Launch Configurations cannot be updated after creation with the Amazon
@@ -690,6 +694,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         Either omit the Launch Configuration `name` attribute, or specify a partial name
         with `name_prefix`.  Example:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -706,15 +711,17 @@ class LaunchConfiguration(pulumi.CustomResource):
                 ),
             ],
             owners=["099720109477"])
-        as_conf = aws.ec2.LaunchConfiguration("asConf",
+        as_conf = aws.ec2.LaunchConfiguration("as_conf",
             name_prefix="lc-example-",
             image_id=ubuntu.id,
             instance_type="t2.micro")
         bar = aws.autoscaling.Group("bar",
+            name="asg-example",
             launch_configuration=as_conf.name,
             min_size=1,
             max_size=2)
         ```
+        <!--End PulumiCodeChooser -->
 
         With this setup this provider generates a unique name for your Launch
         Configuration and can then update the AutoScaling Group without conflict before
@@ -729,6 +736,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
         for more information or how to launch [Spot Instances][3] with this provider.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -745,12 +753,15 @@ class LaunchConfiguration(pulumi.CustomResource):
                 ),
             ],
             owners=["099720109477"])
-        as_conf = aws.ec2.LaunchConfiguration("asConf",
+        as_conf = aws.ec2.LaunchConfiguration("as_conf",
             image_id=ubuntu.id,
             instance_type="m4.large",
             spot_price="0.001")
-        bar = aws.autoscaling.Group("bar", launch_configuration=as_conf.name)
+        bar = aws.autoscaling.Group("bar",
+            name="asg-example",
+            launch_configuration=as_conf.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Block devices
 
@@ -809,7 +820,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         Using `pulumi import`, import launch configurations using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf pulumi-lg-123456
+        $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf pulumi-lg-123456
         ```
 
         :param str resource_name: The name of the resource.
@@ -850,6 +861,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -866,10 +878,13 @@ class LaunchConfiguration(pulumi.CustomResource):
                 ),
             ],
             owners=["099720109477"])
-        as_conf = aws.ec2.LaunchConfiguration("asConf",
+        as_conf = aws.ec2.LaunchConfiguration("as_conf",
+            name="web_config",
             image_id=ubuntu.id,
             instance_type="t2.micro")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Using with AutoScaling Groups
 
         Launch Configurations cannot be updated after creation with the Amazon
@@ -880,6 +895,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         Either omit the Launch Configuration `name` attribute, or specify a partial name
         with `name_prefix`.  Example:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -896,15 +912,17 @@ class LaunchConfiguration(pulumi.CustomResource):
                 ),
             ],
             owners=["099720109477"])
-        as_conf = aws.ec2.LaunchConfiguration("asConf",
+        as_conf = aws.ec2.LaunchConfiguration("as_conf",
             name_prefix="lc-example-",
             image_id=ubuntu.id,
             instance_type="t2.micro")
         bar = aws.autoscaling.Group("bar",
+            name="asg-example",
             launch_configuration=as_conf.name,
             min_size=1,
             max_size=2)
         ```
+        <!--End PulumiCodeChooser -->
 
         With this setup this provider generates a unique name for your Launch
         Configuration and can then update the AutoScaling Group without conflict before
@@ -919,6 +937,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
         for more information or how to launch [Spot Instances][3] with this provider.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -935,12 +954,15 @@ class LaunchConfiguration(pulumi.CustomResource):
                 ),
             ],
             owners=["099720109477"])
-        as_conf = aws.ec2.LaunchConfiguration("asConf",
+        as_conf = aws.ec2.LaunchConfiguration("as_conf",
             image_id=ubuntu.id,
             instance_type="m4.large",
             spot_price="0.001")
-        bar = aws.autoscaling.Group("bar", launch_configuration=as_conf.name)
+        bar = aws.autoscaling.Group("bar",
+            name="asg-example",
+            launch_configuration=as_conf.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Block devices
 
@@ -999,7 +1021,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         Using `pulumi import`, import launch configurations using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf pulumi-lg-123456
+        $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf pulumi-lg-123456
         ```
 
         :param str resource_name: The name of the resource.

@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a Global Accelerator custom routing listener.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,7 +46,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCustomRoutingAccelerator = new CustomRoutingAccelerator(&#34;exampleCustomRoutingAccelerator&#34;, CustomRoutingAcceleratorArgs.builder()        
+ *         var example = new CustomRoutingAccelerator(&#34;example&#34;, CustomRoutingAcceleratorArgs.builder()        
+ *             .name(&#34;Example&#34;)
  *             .ipAddressType(&#34;IPV4&#34;)
  *             .enabled(true)
  *             .attributes(CustomRoutingAcceleratorAttributesArgs.builder()
@@ -55,7 +58,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCustomRoutingListener = new CustomRoutingListener(&#34;exampleCustomRoutingListener&#34;, CustomRoutingListenerArgs.builder()        
- *             .acceleratorArn(exampleCustomRoutingAccelerator.id())
+ *             .acceleratorArn(example.id())
  *             .portRanges(CustomRoutingListenerPortRangeArgs.builder()
  *                 .fromPort(80)
  *                 .toPort(80)
@@ -65,13 +68,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Global Accelerator custom routing listeners using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:globalaccelerator/customRoutingListener:CustomRoutingListener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
+ * $ pulumi import aws:globalaccelerator/customRoutingListener:CustomRoutingListener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
  * ```
  * 
  */

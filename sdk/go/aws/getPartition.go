@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,13 +39,13 @@ import (
 //			_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
+//						Sid: pulumi.StringRef("1"),
 //						Actions: []string{
 //							"s3:ListBucket",
 //						},
 //						Resources: []string{
 //							fmt.Sprintf("arn:%v:s3:::my-bucket", current.Partition),
 //						},
-//						Sid: pulumi.StringRef("1"),
 //					},
 //				},
 //			}, nil)
@@ -56,6 +57,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetPartition(ctx *pulumi.Context, args *GetPartitionArgs, opts ...pulumi.InvokeOption) (*GetPartitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPartitionResult

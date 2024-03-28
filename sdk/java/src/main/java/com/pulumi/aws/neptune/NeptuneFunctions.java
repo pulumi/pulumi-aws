@@ -21,6 +21,8 @@ public final class NeptuneFunctions {
      * Information about a Neptune engine version.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -52,6 +54,7 @@ public final class NeptuneFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEngineVersionResult> getEngineVersion() {
@@ -61,6 +64,8 @@ public final class NeptuneFunctions {
      * Information about a Neptune engine version.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -92,6 +97,7 @@ public final class NeptuneFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEngineVersionResult> getEngineVersionPlain() {
@@ -101,6 +107,8 @@ public final class NeptuneFunctions {
      * Information about a Neptune engine version.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -132,6 +140,7 @@ public final class NeptuneFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEngineVersionResult> getEngineVersion(GetEngineVersionArgs args) {
@@ -141,6 +150,8 @@ public final class NeptuneFunctions {
      * Information about a Neptune engine version.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -172,6 +183,7 @@ public final class NeptuneFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEngineVersionResult> getEngineVersionPlain(GetEngineVersionPlainArgs args) {
@@ -181,6 +193,8 @@ public final class NeptuneFunctions {
      * Information about a Neptune engine version.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -212,6 +226,7 @@ public final class NeptuneFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEngineVersionResult> getEngineVersion(GetEngineVersionArgs args, InvokeOptions options) {
@@ -221,6 +236,8 @@ public final class NeptuneFunctions {
      * Information about a Neptune engine version.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -252,6 +269,7 @@ public final class NeptuneFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEngineVersionResult> getEngineVersionPlain(GetEngineVersionPlainArgs args, InvokeOptions options) {
@@ -261,6 +279,8 @@ public final class NeptuneFunctions {
      * Information about Neptune orderable DB instances.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -293,6 +313,7 @@ public final class NeptuneFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrderableDbInstanceResult> getOrderableDbInstance() {
@@ -302,6 +323,8 @@ public final class NeptuneFunctions {
      * Information about Neptune orderable DB instances.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -334,6 +357,7 @@ public final class NeptuneFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrderableDbInstanceResult> getOrderableDbInstancePlain() {
@@ -343,6 +367,8 @@ public final class NeptuneFunctions {
      * Information about Neptune orderable DB instances.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -375,6 +401,7 @@ public final class NeptuneFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrderableDbInstanceResult> getOrderableDbInstance(GetOrderableDbInstanceArgs args) {
@@ -384,6 +411,8 @@ public final class NeptuneFunctions {
      * Information about Neptune orderable DB instances.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -416,6 +445,7 @@ public final class NeptuneFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrderableDbInstanceResult> getOrderableDbInstancePlain(GetOrderableDbInstancePlainArgs args) {
@@ -425,6 +455,8 @@ public final class NeptuneFunctions {
      * Information about Neptune orderable DB instances.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -457,6 +489,7 @@ public final class NeptuneFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrderableDbInstanceResult> getOrderableDbInstance(GetOrderableDbInstanceArgs args, InvokeOptions options) {
@@ -466,6 +499,8 @@ public final class NeptuneFunctions {
      * Information about Neptune orderable DB instances.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -498,6 +533,7 @@ public final class NeptuneFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrderableDbInstanceResult> getOrderableDbInstancePlain(GetOrderableDbInstancePlainArgs args, InvokeOptions options) {

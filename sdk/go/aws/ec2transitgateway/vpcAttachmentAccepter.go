@@ -22,6 +22,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -35,7 +36,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2transitgateway.NewVpcAttachmentAccepter(ctx, "example", &ec2transitgateway.VpcAttachmentAccepterArgs{
-//				TransitGatewayAttachmentId: pulumi.Any(aws_ec2_transit_gateway_vpc_attachment.Example.Id),
+//				TransitGatewayAttachmentId: pulumi.Any(exampleAwsEc2TransitGatewayVpcAttachment.Id),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example cross-account attachment"),
 //				},
@@ -48,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment_accepter` using the EC2 Transit Gateway Attachment identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter example tgw-attach-12345678
-//
+// $ pulumi import aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter example tgw-attach-12345678
 // ```
 type VpcAttachmentAccepter struct {
 	pulumi.CustomResourceState
@@ -99,10 +99,6 @@ func NewVpcAttachmentAccepter(ctx *pulumi.Context,
 	if args.TransitGatewayAttachmentId == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayAttachmentId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcAttachmentAccepter
 	err := ctx.RegisterResource("aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter", name, args, &resource, opts...)

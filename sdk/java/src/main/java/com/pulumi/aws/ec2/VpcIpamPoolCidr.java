@@ -27,58 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * Basic usage:
- * ```java
- * package generated_program;
  * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.ec2.VpcIpam;
- * import com.pulumi.aws.ec2.VpcIpamArgs;
- * import com.pulumi.aws.ec2.inputs.VpcIpamOperatingRegionArgs;
- * import com.pulumi.aws.ec2.VpcIpamPool;
- * import com.pulumi.aws.ec2.VpcIpamPoolArgs;
- * import com.pulumi.aws.ec2.VpcIpamPoolCidr;
- * import com.pulumi.aws.ec2.VpcIpamPoolCidrArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion();
- * 
- *         var exampleVpcIpam = new VpcIpam(&#34;exampleVpcIpam&#34;, VpcIpamArgs.builder()        
- *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
- *                 .build())
- *             .build());
- * 
- *         var exampleVpcIpamPool = new VpcIpamPool(&#34;exampleVpcIpamPool&#34;, VpcIpamPoolArgs.builder()        
- *             .addressFamily(&#34;ipv4&#34;)
- *             .ipamScopeId(exampleVpcIpam.privateDefaultScopeId())
- *             .locale(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
- *             .build());
- * 
- *         var exampleVpcIpamPoolCidr = new VpcIpamPoolCidr(&#34;exampleVpcIpamPoolCidr&#34;, VpcIpamPoolCidrArgs.builder()        
- *             .ipamPoolId(exampleVpcIpamPool.id())
- *             .cidr(&#34;172.20.0.0/16&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * Provision Public IPv6 Pool CIDRs:
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -115,7 +65,62 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var ipv6TestPublicVpcIpamPool = new VpcIpamPool(&#34;ipv6TestPublicVpcIpamPool&#34;, VpcIpamPoolArgs.builder()        
+ *         var exampleVpcIpamPool = new VpcIpamPool(&#34;exampleVpcIpamPool&#34;, VpcIpamPoolArgs.builder()        
+ *             .addressFamily(&#34;ipv4&#34;)
+ *             .ipamScopeId(example.privateDefaultScopeId())
+ *             .locale(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *             .build());
+ * 
+ *         var exampleVpcIpamPoolCidr = new VpcIpamPoolCidr(&#34;exampleVpcIpamPoolCidr&#34;, VpcIpamPoolCidrArgs.builder()        
+ *             .ipamPoolId(exampleVpcIpamPool.id())
+ *             .cidr(&#34;172.20.0.0/16&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * Provision Public IPv6 Pool CIDRs:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.ec2.VpcIpam;
+ * import com.pulumi.aws.ec2.VpcIpamArgs;
+ * import com.pulumi.aws.ec2.inputs.VpcIpamOperatingRegionArgs;
+ * import com.pulumi.aws.ec2.VpcIpamPool;
+ * import com.pulumi.aws.ec2.VpcIpamPoolArgs;
+ * import com.pulumi.aws.ec2.VpcIpamPoolCidr;
+ * import com.pulumi.aws.ec2.VpcIpamPoolCidrArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getRegion();
+ * 
+ *         var example = new VpcIpam(&#34;example&#34;, VpcIpamArgs.builder()        
+ *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
+ *                 .regionName(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *                 .build())
+ *             .build());
+ * 
+ *         var ipv6TestPublic = new VpcIpamPool(&#34;ipv6TestPublic&#34;, VpcIpamPoolArgs.builder()        
  *             .addressFamily(&#34;ipv6&#34;)
  *             .ipamScopeId(example.publicDefaultScopeId())
  *             .locale(&#34;us-east-1&#34;)
@@ -126,13 +131,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var ipv6TestPublicVpcIpamPoolCidr = new VpcIpamPoolCidr(&#34;ipv6TestPublicVpcIpamPoolCidr&#34;, VpcIpamPoolCidrArgs.builder()        
- *             .ipamPoolId(ipv6TestPublicVpcIpamPool.id())
+ *             .ipamPoolId(ipv6TestPublic.id())
  *             .netmaskLength(52)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -141,7 +147,7 @@ import javax.annotation.Nullable;
  * __NOTE:__ Do not use the IPAM Pool Cidr ID as this was introduced after the resource already existed.
  * 
  * ```sh
- *  $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
+ * $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
  * ```
  * 
  */

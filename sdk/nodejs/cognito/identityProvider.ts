@@ -9,12 +9,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cognito.UserPool("example", {autoVerifiedAttributes: ["email"]});
- * const exampleProvider = new aws.cognito.IdentityProvider("exampleProvider", {
+ * const example = new aws.cognito.UserPool("example", {
+ *     name: "example-pool",
+ *     autoVerifiedAttributes: ["email"],
+ * });
+ * const exampleProvider = new aws.cognito.IdentityProvider("example_provider", {
  *     userPoolId: example.id,
  *     providerName: "Google",
  *     providerType: "Google",
@@ -29,13 +33,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_cognito_identity_provider` resources using their User Pool ID and Provider Name. For example:
  *
  * ```sh
- *  $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
+ * $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
  * ```
  */
 export class IdentityProvider extends pulumi.CustomResource {

@@ -16,6 +16,7 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,14 +32,13 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     ///     var bucket = new Aws.S3.BucketV2("bucket");
     /// 
-    ///     // ... other configuration ...
-    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new()
+    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucket_acl", new()
     ///     {
     ///         Bucket = bucket.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var myThreatIntelSetBucketObjectv2 = new Aws.S3.BucketObjectv2("myThreatIntelSetBucketObjectv2", new()
+    ///     var myThreatIntelSet = new Aws.S3.BucketObjectv2("MyThreatIntelSet", new()
     ///     {
     ///         Acl = "public-read",
     ///         Content = @"10.0.0.0/8
@@ -47,28 +47,30 @@ namespace Pulumi.Aws.GuardDuty
     ///         Key = "MyThreatIntelSet",
     ///     });
     /// 
-    ///     var myThreatIntelSetThreatIntelSet = new Aws.GuardDuty.ThreatIntelSet("myThreatIntelSetThreatIntelSet", new()
+    ///     var myThreatIntelSetThreatIntelSet = new Aws.GuardDuty.ThreatIntelSet("MyThreatIntelSet", new()
     ///     {
     ///         Activate = true,
     ///         DetectorId = primary.Id,
     ///         Format = "TXT",
-    ///         Location = Output.Tuple(myThreatIntelSetBucketObjectv2.Bucket, myThreatIntelSetBucketObjectv2.Key).Apply(values =&gt;
+    ///         Location = Output.Tuple(myThreatIntelSet.Bucket, myThreatIntelSet.Key).Apply(values =&gt;
     ///         {
     ///             var bucket = values.Item1;
     ///             var key = values.Item2;
     ///             return $"https://s3.amazonaws.com/{bucket}/{key}";
     ///         }),
+    ///         Name = "MyThreatIntelSet",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import GuardDuty ThreatIntelSet using the primary GuardDuty detector ID and ThreatIntelSetID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:guardduty/threatIntelSet:ThreatIntelSet MyThreatIntelSet 00b00fd5aecc0ab60a708659477e9617:123456789012
+    /// $ pulumi import aws:guardduty/threatIntelSet:ThreatIntelSet MyThreatIntelSet 00b00fd5aecc0ab60a708659477e9617:123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:guardduty/threatIntelSet:ThreatIntelSet")]
@@ -145,10 +147,6 @@ namespace Pulumi.Aws.GuardDuty
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -280,11 +278,7 @@ namespace Pulumi.Aws.GuardDuty
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ThreatIntelSetState()

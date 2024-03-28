@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,22 +30,30 @@ namespace Pulumi.Aws.Ecr
     ///     {
     ///         EcrRepositoryPrefix = "ecr-public",
     ///         UpstreamRegistryUrl = "public.ecr.aws",
+    ///         CredentialArn = "arn:aws:secretsmanager:us-east-1:123456789:secret:ecr-pullthroughcache/ecrpublic",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a pull-through cache rule using the `ecr_repository_prefix`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
+    /// $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecr/pullThroughCacheRule:PullThroughCacheRule")]
     public partial class PullThroughCacheRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ARN of the Secret which will be used to authenticate against the registry.
+        /// </summary>
+        [Output("credentialArn")]
+        public Output<string?> CredentialArn { get; private set; } = null!;
+
         /// <summary>
         /// The repository name prefix to use when caching images from the source registry.
         /// </summary>
@@ -110,6 +119,12 @@ namespace Pulumi.Aws.Ecr
     public sealed class PullThroughCacheRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// ARN of the Secret which will be used to authenticate against the registry.
+        /// </summary>
+        [Input("credentialArn")]
+        public Input<string>? CredentialArn { get; set; }
+
+        /// <summary>
         /// The repository name prefix to use when caching images from the source registry.
         /// </summary>
         [Input("ecrRepositoryPrefix", required: true)]
@@ -129,6 +144,12 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class PullThroughCacheRuleState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the Secret which will be used to authenticate against the registry.
+        /// </summary>
+        [Input("credentialArn")]
+        public Input<string>? CredentialArn { get; set; }
+
         /// <summary>
         /// The repository name prefix to use when caching images from the source registry.
         /// </summary>

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,13 +30,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomainIdentity, err := ses.NewDomainIdentity(ctx, "exampleDomainIdentity", &ses.DomainIdentityArgs{
+//			exampleDomainIdentity, err := ses.NewDomainIdentity(ctx, "example", &ses.DomainIdentityArgs{
 //				Domain: pulumi.String("example.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
 //						Actions: pulumi.StringArray{
@@ -56,10 +57,11 @@ import (
 //					},
 //				},
 //			}, nil)
-//			_, err = ses.NewIdentityPolicy(ctx, "exampleIdentityPolicy", &ses.IdentityPolicyArgs{
+//			_, err = ses.NewIdentityPolicy(ctx, "example", &ses.IdentityPolicyArgs{
 //				Identity: exampleDomainIdentity.Arn,
-//				Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &examplePolicyDocument.Json, nil
+//				Name:     pulumi.String("example"),
+//				Policy: example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
+//					return &example.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
@@ -70,15 +72,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SES Identity Policies using the identity and policy name, separated by a pipe character (`|`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
-//
+// $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
 // ```
 type IdentityPolicy struct {
 	pulumi.CustomResourceState

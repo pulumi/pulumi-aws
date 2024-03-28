@@ -251,19 +251,19 @@ class StandardsControl(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.securityhub.Account("example")
-        cis_aws_foundations_benchmark = aws.securityhub.StandardsSubscription("cisAwsFoundationsBenchmark", standards_arn="arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
-        opts=pulumi.ResourceOptions(depends_on=[example]))
-        ensure_iam_password_policy_prevents_password_reuse = aws.securityhub.StandardsControl("ensureIamPasswordPolicyPreventsPasswordReuse",
+        cis_aws_foundations_benchmark = aws.securityhub.StandardsSubscription("cis_aws_foundations_benchmark", standards_arn="arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0")
+        ensure_iam_password_policy_prevents_password_reuse = aws.securityhub.StandardsControl("ensure_iam_password_policy_prevents_password_reuse",
             standards_control_arn="arn:aws:securityhub:us-east-1:111111111111:control/cis-aws-foundations-benchmark/v/1.2.0/1.10",
             control_status="DISABLED",
-            disabled_reason="We handle password policies within Okta",
-            opts=pulumi.ResourceOptions(depends_on=[cis_aws_foundations_benchmark]))
+            disabled_reason="We handle password policies within Okta")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -286,19 +286,19 @@ class StandardsControl(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.securityhub.Account("example")
-        cis_aws_foundations_benchmark = aws.securityhub.StandardsSubscription("cisAwsFoundationsBenchmark", standards_arn="arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
-        opts=pulumi.ResourceOptions(depends_on=[example]))
-        ensure_iam_password_policy_prevents_password_reuse = aws.securityhub.StandardsControl("ensureIamPasswordPolicyPreventsPasswordReuse",
+        cis_aws_foundations_benchmark = aws.securityhub.StandardsSubscription("cis_aws_foundations_benchmark", standards_arn="arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0")
+        ensure_iam_password_policy_prevents_password_reuse = aws.securityhub.StandardsControl("ensure_iam_password_policy_prevents_password_reuse",
             standards_control_arn="arn:aws:securityhub:us-east-1:111111111111:control/cis-aws-foundations-benchmark/v/1.2.0/1.10",
             control_status="DISABLED",
-            disabled_reason="We handle password policies within Okta",
-            opts=pulumi.ResourceOptions(depends_on=[cis_aws_foundations_benchmark]))
+            disabled_reason="We handle password policies within Okta")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param StandardsControlArgs args: The arguments to use to populate this resource's properties.

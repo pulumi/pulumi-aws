@@ -59,6 +59,7 @@ public final class ImageOutputResource {
 
         @CustomType.Setter
         public Builder amis(@Nullable List<ImageOutputResourceAmi> amis) {
+
             this.amis = amis;
             return this;
         }
@@ -67,6 +68,7 @@ public final class ImageOutputResource {
         }
         @CustomType.Setter
         public Builder containers(@Nullable List<ImageOutputResourceContainer> containers) {
+
             this.containers = containers;
             return this;
         }
@@ -74,10 +76,10 @@ public final class ImageOutputResource {
             return containers(List.of(containers));
         }
         public ImageOutputResource build() {
-            final var o = new ImageOutputResource();
-            o.amis = amis;
-            o.containers = containers;
-            return o;
+            final var _resultValue = new ImageOutputResource();
+            _resultValue.amis = amis;
+            _resultValue.containers = containers;
+            return _resultValue;
         }
     }
 }

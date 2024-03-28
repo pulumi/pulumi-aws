@@ -9,26 +9,26 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {
+ * const example = new aws.ec2.Vpc("example", {
  *     cidrBlock: "10.0.0.0/16",
  *     enableDnsSupport: true,
  *     enableDnsHostnames: true,
  * });
- * const exampleResolverDnsSecConfig = new aws.route53.ResolverDnsSecConfig("exampleResolverDnsSecConfig", {resourceId: exampleVpc.id});
+ * const exampleResolverDnsSecConfig = new aws.route53.ResolverDnsSecConfig("example", {resourceId: example.id});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Using `pulumi import`, import
- *
- * Route 53 Resolver DNSSEC configs using the Route 53 Resolver DNSSEC config ID. For example:
+ * Using `pulumi import`, import  Route 53 Resolver DNSSEC configs using the Route 53 Resolver DNSSEC config ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
+ * $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
  * ```
  */
 export class ResolverDnsSecConfig extends pulumi.CustomResource {

@@ -12,20 +12,22 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ * const example = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: ["ec2:Describe*"],
  *         resources: ["*"],
  *     }],
  * });
- * const examplePolicy = new aws.iam.Policy("examplePolicy", {
+ * const examplePolicy = new aws.iam.Policy("example", {
+ *     name: "example",
  *     description: "My example policy",
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
+ *     policy: example.then(example => example.json),
  * });
  * const current = aws.getPartition({});
  * const assumeRole = current.then(current => aws.iam.getPolicyDocument({
@@ -38,15 +40,19 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * }));
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const exampleBudget = new aws.budgets.Budget("exampleBudget", {
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "example",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const exampleBudget = new aws.budgets.Budget("example", {
+ *     name: "example",
  *     budgetType: "USAGE",
  *     limitAmount: "10.0",
  *     limitUnit: "dollars",
  *     timePeriodStart: "2006-01-02_15:04",
  *     timeUnit: "MONTHLY",
  * });
- * const exampleBudgetAction = new aws.budgets.BudgetAction("exampleBudgetAction", {
+ * const exampleBudgetAction = new aws.budgets.BudgetAction("example", {
  *     budgetName: exampleBudget.name,
  *     actionType: "APPLY_IAM_POLICY",
  *     approvalModel: "AUTOMATIC",
@@ -68,13 +74,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import budget actions using `AccountID:ActionID:BudgetName`. For example:
  *
  * ```sh
- *  $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget
+ * $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget
  * ```
  */
 export class BudgetAction extends pulumi.CustomResource {

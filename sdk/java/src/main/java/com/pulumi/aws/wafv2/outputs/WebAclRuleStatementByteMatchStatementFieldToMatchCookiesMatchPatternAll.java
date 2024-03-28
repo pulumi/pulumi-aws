@@ -25,8 +25,8 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatch
         }
 
         public WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll build() {
-            final var o = new WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll();
-            return o;
+            final var _resultValue = new WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll();
+            return _resultValue;
         }
     }
 }

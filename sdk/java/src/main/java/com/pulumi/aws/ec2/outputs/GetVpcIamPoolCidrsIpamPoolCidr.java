@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class GetVpcIamPoolCidrsIpamPoolCidr {
 
         @CustomType.Setter
         public Builder cidr(String cidr) {
-            this.cidr = Objects.requireNonNull(cidr);
+            if (cidr == null) {
+              throw new MissingRequiredPropertyException("GetVpcIamPoolCidrsIpamPoolCidr", "cidr");
+            }
+            this.cidr = cidr;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetVpcIamPoolCidrsIpamPoolCidr", "state");
+            }
+            this.state = state;
             return this;
         }
         public GetVpcIamPoolCidrsIpamPoolCidr build() {
-            final var o = new GetVpcIamPoolCidrsIpamPoolCidr();
-            o.cidr = cidr;
-            o.state = state;
-            return o;
+            final var _resultValue = new GetVpcIamPoolCidrsIpamPoolCidr();
+            _resultValue.cidr = cidr;
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

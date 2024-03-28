@@ -17,71 +17,208 @@ namespace Pulumi.Aws.ApiGateway
     /// !&gt; **WARN:** When importing Open API Specifications with the `body` argument, by default the API Gateway REST API will be replaced with the Open API Specification thus removing any existing methods, resources, integrations, or endpoints. Endpoint mutations are asynchronous operations, and race conditions with DNS are possible. To overcome this limitation, use the `put_rest_api_mode` attribute and set it to `merge`.
     /// 
     /// ## Example Usage
-    /// ### Resources
     /// 
+    /// ### OpenAPI Specification
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
-    /// using System.Security.Cryptography;
-    /// using System.Text;
     /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	private static string ComputeSHA1(string input) {
-    /// 		return BitConverter.ToString(
-    /// 			SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input))
-    /// 		).Replace("-","").ToLowerInvariant());
-    /// 	}
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi");
-    /// 
-    ///     var exampleResource = new Aws.ApiGateway.Resource("exampleResource", new()
+    ///     var example = new Aws.ApiGateway.RestApi("example", new()
     ///     {
-    ///         ParentId = exampleRestApi.RootResourceId,
-    ///         PathPart = "example",
-    ///         RestApi = exampleRestApi.Id,
+    ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["openapi"] = "3.0.1",
+    ///             ["info"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["title"] = "example",
+    ///                 ["version"] = "1.0",
+    ///             },
+    ///             ["paths"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["/path1"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["get"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["x-amazon-apigateway-integration"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["httpMethod"] = "GET",
+    ///                             ["payloadFormatVersion"] = "1.0",
+    ///                             ["type"] = "HTTP_PROXY",
+    ///                             ["uri"] = "https://ip-ranges.amazonaws.com/ip-ranges.json",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///         Name = "example",
+    ///         EndpointConfiguration = new Aws.ApiGateway.Inputs.RestApiEndpointConfigurationArgs
+    ///         {
+    ///             Types = "REGIONAL",
+    ///         },
     ///     });
     /// 
-    ///     var exampleMethod = new Aws.ApiGateway.Method("exampleMethod", new()
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("example", new()
     ///     {
-    ///         Authorization = "NONE",
-    ///         HttpMethod = "GET",
-    ///         ResourceId = exampleResource.Id,
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
+    ///         Triggers = 
+    ///         {
+    ///             { "redeployment", Std.Sha1.Invoke(new()
+    ///             {
+    ///                 Input = Output.JsonSerialize(Output.Create(example.Body)),
+    ///             }).Apply(invoke =&gt; invoke.Result) },
+    ///         },
     ///     });
     /// 
-    ///     var exampleIntegration = new Aws.ApiGateway.Integration("exampleIntegration", new()
+    ///     var exampleStage = new Aws.ApiGateway.Stage("example", new()
     ///     {
-    ///         HttpMethod = exampleMethod.HttpMethod,
-    ///         ResourceId = exampleResource.Id,
-    ///         RestApi = exampleRestApi.Id,
-    ///         Type = "MOCK",
+    ///         Deployment = exampleDeployment.Id,
+    ///         RestApi = example.Id,
+    ///         StageName = "example",
     ///     });
     /// 
-    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### OpenAPI Specification with Private Endpoints
+    /// 
+    /// Using `put_rest_api_mode` = `merge` when importing the OpenAPI Specification, the AWS control plane will not delete all existing literal properties that are not explicitly set in the OpenAPI definition. Impacted API Gateway properties: ApiKeySourceType, BinaryMediaTypes, Description, EndpointConfiguration, MinimumCompressionSize, Name, Policy).
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
+    ///     {
+    ///         State = "available",
+    ///         Filters = new[]
+    ///         {
+    ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
+    ///             {
+    ///                 Name = "opt-in-status",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "opt-in-not-required",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var current = Aws.GetRegion.Invoke();
+    /// 
+    ///     var example = new Aws.Ec2.Vpc("example", new()
+    ///     {
+    ///         CidrBlock = "10.0.0.0/16",
+    ///         EnableDnsSupport = true,
+    ///         EnableDnsHostnames = true,
+    ///     });
+    /// 
+    ///     var exampleDefaultSecurityGroup = new Aws.Ec2.DefaultSecurityGroup("example", new()
+    ///     {
+    ///         VpcId = example.Id,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Aws.Ec2.Subnet("example", new()
+    ///     {
+    ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
+    ///         CidrBlock = example.CidrBlock.Apply(cidrBlock =&gt; Std.Cidrsubnet.Invoke(new()
+    ///         {
+    ///             Input = cidrBlock,
+    ///             Newbits = 8,
+    ///             Netnum = 0,
+    ///         })).Apply(invoke =&gt; invoke.Result),
+    ///         VpcId = example.Id,
+    ///     });
+    /// 
+    ///     var exampleVpcEndpoint = new List&lt;Aws.Ec2.VpcEndpoint&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; 3; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         exampleVpcEndpoint.Add(new Aws.Ec2.VpcEndpoint($"example-{range.Value}", new()
+    ///         {
+    ///             PrivateDnsEnabled = false,
+    ///             SecurityGroupIds = new[]
+    ///             {
+    ///                 exampleDefaultSecurityGroup.Id,
+    ///             },
+    ///             ServiceName = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Name)}.execute-api",
+    ///             SubnetIds = new[]
+    ///             {
+    ///                 exampleSubnet.Id,
+    ///             },
+    ///             VpcEndpointType = "Interface",
+    ///             VpcId = example.Id,
+    ///         }));
+    ///     }
+    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("example", new()
+    ///     {
+    ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["openapi"] = "3.0.1",
+    ///             ["info"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["title"] = "example",
+    ///                 ["version"] = "1.0",
+    ///             },
+    ///             ["paths"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["/path1"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["get"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["x-amazon-apigateway-integration"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["httpMethod"] = "GET",
+    ///                             ["payloadFormatVersion"] = "1.0",
+    ///                             ["type"] = "HTTP_PROXY",
+    ///                             ["uri"] = "https://ip-ranges.amazonaws.com/ip-ranges.json",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///         Name = "example",
+    ///         PutRestApiMode = "merge",
+    ///         EndpointConfiguration = new Aws.ApiGateway.Inputs.RestApiEndpointConfigurationArgs
+    ///         {
+    ///             Types = "PRIVATE",
+    ///             VpcEndpointIds = new[]
+    ///             {
+    ///                 exampleVpcEndpoint[0].Id,
+    ///                 exampleVpcEndpoint[1].Id,
+    ///                 exampleVpcEndpoint[2].Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("example", new()
     ///     {
     ///         RestApi = exampleRestApi.Id,
     ///         Triggers = 
     ///         {
-    ///             { "redeployment", Output.Tuple(exampleResource.Id, exampleMethod.Id, exampleIntegration.Id).Apply(values =&gt;
+    ///             { "redeployment", Std.Sha1.Invoke(new()
     ///             {
-    ///                 var exampleResourceId = values.Item1;
-    ///                 var exampleMethodId = values.Item2;
-    ///                 var exampleIntegrationId = values.Item3;
-    ///                 return JsonSerializer.Serialize(new[]
-    ///                 {
-    ///                     exampleResourceId,
-    ///                     exampleMethodId,
-    ///                     exampleIntegrationId,
-    ///                 });
-    ///             }).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///                 Input = Output.JsonSerialize(Output.Create(exampleRestApi.Body)),
+    ///             }).Apply(invoke =&gt; invoke.Result) },
     ///         },
     ///     });
     /// 
-    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     var exampleStage = new Aws.ApiGateway.Stage("example", new()
     ///     {
     ///         Deployment = exampleDeployment.Id,
     ///         RestApi = exampleRestApi.Id,
@@ -90,15 +227,85 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Resources
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.ApiGateway.RestApi("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var exampleResource = new Aws.ApiGateway.Resource("example", new()
+    ///     {
+    ///         ParentId = example.RootResourceId,
+    ///         PathPart = "example",
+    ///         RestApi = example.Id,
+    ///     });
+    /// 
+    ///     var exampleMethod = new Aws.ApiGateway.Method("example", new()
+    ///     {
+    ///         Authorization = "NONE",
+    ///         HttpMethod = "GET",
+    ///         ResourceId = exampleResource.Id,
+    ///         RestApi = example.Id,
+    ///     });
+    /// 
+    ///     var exampleIntegration = new Aws.ApiGateway.Integration("example", new()
+    ///     {
+    ///         HttpMethod = exampleMethod.HttpMethod,
+    ///         ResourceId = exampleResource.Id,
+    ///         RestApi = example.Id,
+    ///         Type = "MOCK",
+    ///     });
+    /// 
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("example", new()
+    ///     {
+    ///         RestApi = example.Id,
+    ///         Triggers = 
+    ///         {
+    ///             { "redeployment", Std.Sha1.Invoke(new()
+    ///             {
+    ///                 Input = Output.JsonSerialize(Output.Create(new[]
+    ///                 {
+    ///                     exampleResource.Id,
+    ///                     exampleMethod.Id,
+    ///                     exampleIntegration.Id,
+    ///                 })),
+    ///             }).Apply(invoke =&gt; invoke.Result) },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleStage = new Aws.ApiGateway.Stage("example", new()
+    ///     {
+    ///         Deployment = exampleDeployment.Id,
+    ///         RestApi = example.Id,
+    ///         StageName = "example",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_api_gateway_rest_api` using the REST API ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
+    /// $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
     /// ```
-    ///  ~&gt; __NOTE:__ Resource import does not currently support the `body` attribute.
+    /// ~&gt; __NOTE:__ Resource import does not currently support the `body` attribute.
     /// </summary>
     [AwsResourceType("aws:apigateway/restApi:RestApi")]
     public partial class RestApi : global::Pulumi.CustomResource
@@ -236,10 +443,6 @@ namespace Pulumi.Aws.ApiGateway
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -499,11 +702,7 @@ namespace Pulumi.Aws.ApiGateway
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public RestApiState()

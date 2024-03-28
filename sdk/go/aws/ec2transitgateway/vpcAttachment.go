@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,10 +31,10 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2transitgateway.NewVpcAttachment(ctx, "example", &ec2transitgateway.VpcAttachmentArgs{
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Example.Id,
+//					exampleAwsSubnet.Id,
 //				},
-//				TransitGatewayId: pulumi.Any(aws_ec2_transit_gateway.Example.Id),
-//				VpcId:            pulumi.Any(aws_vpc.Example.Id),
+//				TransitGatewayId: pulumi.Any(exampleAwsEc2TransitGateway.Id),
+//				VpcId:            pulumi.Any(exampleAwsVpc.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -43,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment` using the EC2 Transit Gateway Attachment identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2transitgateway/vpcAttachment:VpcAttachment example tgw-attach-12345678
-//
+// $ pulumi import aws:ec2transitgateway/vpcAttachment:VpcAttachment example tgw-attach-12345678
 // ```
 type VpcAttachment struct {
 	pulumi.CustomResourceState
@@ -98,10 +98,6 @@ func NewVpcAttachment(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcAttachment
 	err := ctx.RegisterResource("aws:ec2transitgateway/vpcAttachment:VpcAttachment", name, args, &resource, opts...)

@@ -5,6 +5,7 @@ package com.pulumi.aws.elasticsearch.outputs;
 
 import com.pulumi.aws.elasticsearch.outputs.DomainAutoTuneOptionsMaintenanceScheduleDuration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -71,25 +72,34 @@ public final class DomainAutoTuneOptionsMaintenanceSchedule {
 
         @CustomType.Setter
         public Builder cronExpressionForRecurrence(String cronExpressionForRecurrence) {
-            this.cronExpressionForRecurrence = Objects.requireNonNull(cronExpressionForRecurrence);
+            if (cronExpressionForRecurrence == null) {
+              throw new MissingRequiredPropertyException("DomainAutoTuneOptionsMaintenanceSchedule", "cronExpressionForRecurrence");
+            }
+            this.cronExpressionForRecurrence = cronExpressionForRecurrence;
             return this;
         }
         @CustomType.Setter
         public Builder duration(DomainAutoTuneOptionsMaintenanceScheduleDuration duration) {
-            this.duration = Objects.requireNonNull(duration);
+            if (duration == null) {
+              throw new MissingRequiredPropertyException("DomainAutoTuneOptionsMaintenanceSchedule", "duration");
+            }
+            this.duration = duration;
             return this;
         }
         @CustomType.Setter
         public Builder startAt(String startAt) {
-            this.startAt = Objects.requireNonNull(startAt);
+            if (startAt == null) {
+              throw new MissingRequiredPropertyException("DomainAutoTuneOptionsMaintenanceSchedule", "startAt");
+            }
+            this.startAt = startAt;
             return this;
         }
         public DomainAutoTuneOptionsMaintenanceSchedule build() {
-            final var o = new DomainAutoTuneOptionsMaintenanceSchedule();
-            o.cronExpressionForRecurrence = cronExpressionForRecurrence;
-            o.duration = duration;
-            o.startAt = startAt;
-            return o;
+            final var _resultValue = new DomainAutoTuneOptionsMaintenanceSchedule();
+            _resultValue.cronExpressionForRecurrence = cronExpressionForRecurrence;
+            _resultValue.duration = duration;
+            _resultValue.startAt = startAt;
+            return _resultValue;
         }
     }
 }

@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS Chime SDK Voice Profile Domain.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,16 +32,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				Description:          pulumi.String("KMS Key for Voice Profile Domain"),
 //				DeletionWindowInDays: pulumi.Int(7),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = chime.NewSdkvoiceVoiceProfileDomain(ctx, "exampleSdkvoiceVoiceProfileDomain", &chime.SdkvoiceVoiceProfileDomainArgs{
+//			_, err = chime.NewSdkvoiceVoiceProfileDomain(ctx, "example", &chime.SdkvoiceVoiceProfileDomainArgs{
+//				Name: pulumi.String("ExampleVoiceProfileDomain"),
 //				ServerSideEncryptionConfiguration: &chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs{
-//					KmsKeyArn: exampleKey.Arn,
+//					KmsKeyArn: example.Arn,
 //				},
 //				Description: pulumi.String("My Voice Profile Domain"),
 //				Tags: pulumi.StringMap{
@@ -54,15 +57,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AWS Chime SDK Voice Profile Domain using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
-//
+// $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
 // ```
 type SdkvoiceVoiceProfileDomain struct {
 	pulumi.CustomResourceState
@@ -90,10 +92,6 @@ func NewSdkvoiceVoiceProfileDomain(ctx *pulumi.Context,
 	if args.ServerSideEncryptionConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'ServerSideEncryptionConfiguration'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SdkvoiceVoiceProfileDomain
 	err := ctx.RegisterResource("aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain", name, args, &resource, opts...)

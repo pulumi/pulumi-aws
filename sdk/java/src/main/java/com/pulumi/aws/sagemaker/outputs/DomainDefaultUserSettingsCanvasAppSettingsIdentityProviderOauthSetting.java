@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,30 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOau
 
         @CustomType.Setter
         public Builder dataSourceName(@Nullable String dataSourceName) {
+
             this.dataSourceName = dataSourceName;
             return this;
         }
         @CustomType.Setter
         public Builder secretArn(String secretArn) {
-            this.secretArn = Objects.requireNonNull(secretArn);
+            if (secretArn == null) {
+              throw new MissingRequiredPropertyException("DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting", "secretArn");
+            }
+            this.secretArn = secretArn;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         public DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting build() {
-            final var o = new DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting();
-            o.dataSourceName = dataSourceName;
-            o.secretArn = secretArn;
-            o.status = status;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting();
+            _resultValue.dataSourceName = dataSourceName;
+            _resultValue.secretArn = secretArn;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

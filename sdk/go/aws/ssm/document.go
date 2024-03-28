@@ -18,8 +18,10 @@ import (
 // or greater can update their content once created, see [SSM Schema Features](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html#document-schemas-features). To update a document with an older schema version you must recreate the resource. Not all document types support a schema version of 2.0 or greater. Refer to [SSM document schema features and examples](https://docs.aws.amazon.com/systems-manager/latest/userguide/document-schemas-features.html) for information about which schema versions are supported for the respective `documentType`.
 //
 // ## Example Usage
+//
 // ### Create an ssm document in JSON format
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,6 +35,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewDocument(ctx, "foo", &ssm.DocumentArgs{
+//				Name:         pulumi.String("test_document"),
+//				DocumentType: pulumi.String("Command"),
 //				Content: pulumi.String(`  {
 //	    "schemaVersion": "1.2",
 //	    "description": "Check ip configuration of a Linux instance.",
@@ -53,7 +57,6 @@ import (
 //
 // `),
 //
-//				DocumentType: pulumi.String("Command"),
 //			})
 //			if err != nil {
 //				return err
@@ -63,8 +66,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Create an ssm document in YAML format
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -78,6 +84,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewDocument(ctx, "foo", &ssm.DocumentArgs{
+//				Name:           pulumi.String("test_document"),
+//				DocumentFormat: pulumi.String("YAML"),
+//				DocumentType:   pulumi.String("Command"),
 //				Content: pulumi.String(`schemaVersion: '1.2'
 //
 // description: Check ip configuration of a Linux instance.
@@ -92,8 +101,6 @@ import (
 //
 // `),
 //
-//				DocumentFormat: pulumi.String("YAML"),
-//				DocumentType:   pulumi.String("Command"),
 //			})
 //			if err != nil {
 //				return err
@@ -103,6 +110,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Permissions
 //
 // The permissions attribute specifies how you want to share the document. If you share a document privately,
@@ -119,12 +128,9 @@ import (
 // Using `pulumi import`, import SSM Documents using the name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ssm/document:Document example example
-//
+// $ pulumi import aws:ssm/document:Document example example
 // ```
-//
-//	The `attachments_source` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+// The `attachments_source` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 type Document struct {
 	pulumi.CustomResourceState
 
@@ -190,10 +196,6 @@ func NewDocument(ctx *pulumi.Context,
 	if args.DocumentType == nil {
 		return nil, errors.New("invalid value for required argument 'DocumentType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Document
 	err := ctx.RegisterResource("aws:ssm/document:Document", name, args, &resource, opts...)

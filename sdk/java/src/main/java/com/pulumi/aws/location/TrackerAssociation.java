@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Location Tracker Association.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGeofenceCollection = new GeofenceCollection(&#34;exampleGeofenceCollection&#34;, GeofenceCollectionArgs.builder()        
+ *         var example = new GeofenceCollection(&#34;example&#34;, GeofenceCollectionArgs.builder()        
  *             .collectionName(&#34;example&#34;)
  *             .build());
  * 
@@ -51,20 +53,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTrackerAssociation = new TrackerAssociation(&#34;exampleTrackerAssociation&#34;, TrackerAssociationArgs.builder()        
- *             .consumerArn(exampleGeofenceCollection.collectionArn())
+ *             .consumerArn(example.collectionArn())
  *             .trackerName(exampleTracker.trackerName())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Location Tracker Association using the `tracker_name|consumer_arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:location/trackerAssociation:TrackerAssociation example &#34;tracker_name|consumer_arn&#34;
+ * $ pulumi import aws:location/trackerAssociation:TrackerAssociation example &#34;tracker_name|consumer_arn&#34;
  * ```
  * 
  */

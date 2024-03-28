@@ -18,8 +18,10 @@ import (
 // > **Note:** Kinesis Data Analytics for SQL applications created using this resource cannot currently be viewed in the AWS Console. To manage Kinesis Data Analytics for SQL applications that can also be viewed in the AWS Console, use the `kinesis.AnalyticsApplication` resource.
 //
 // ## Example Usage
+//
 // ### Apache Flink Application
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,26 +35,29 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example-flink-application"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
-//				Bucket: exampleBucketV2.ID(),
+//			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
+//				Bucket: example.ID(),
 //				Key:    pulumi.String("example-flink-application"),
 //				Source: pulumi.NewFileAsset("flink-app.jar"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = kinesisanalyticsv2.NewApplication(ctx, "exampleApplication", &kinesisanalyticsv2.ApplicationArgs{
+//			_, err = kinesisanalyticsv2.NewApplication(ctx, "example", &kinesisanalyticsv2.ApplicationArgs{
+//				Name:                 pulumi.String("example-flink-application"),
 //				RuntimeEnvironment:   pulumi.String("FLINK-1_8"),
-//				ServiceExecutionRole: pulumi.Any(aws_iam_role.Example.Arn),
+//				ServiceExecutionRole: pulumi.Any(exampleAwsIamRole.Arn),
 //				ApplicationConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationArgs{
 //					ApplicationCodeConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs{
 //						CodeContent: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs{
 //							S3ContentLocation: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs{
-//								BucketArn: exampleBucketV2.Arn,
+//								BucketArn: example.Arn,
 //								FileKey:   exampleBucketObjectv2.Key,
 //							},
 //						},
@@ -104,8 +109,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### SQL Application
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -119,19 +127,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleLogStream, err := cloudwatch.NewLogStream(ctx, "exampleLogStream", &cloudwatch.LogStreamArgs{
-//				LogGroupName: exampleLogGroup.Name,
+//			example, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
+//				Name: pulumi.String("example-sql-application"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = kinesisanalyticsv2.NewApplication(ctx, "exampleApplication", &kinesisanalyticsv2.ApplicationArgs{
+//			exampleLogStream, err := cloudwatch.NewLogStream(ctx, "example", &cloudwatch.LogStreamArgs{
+//				Name:         pulumi.String("example-sql-application"),
+//				LogGroupName: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kinesisanalyticsv2.NewApplication(ctx, "example", &kinesisanalyticsv2.ApplicationArgs{
+//				Name:                 pulumi.String("example-sql-application"),
 //				RuntimeEnvironment:   pulumi.String("SQL-1_0"),
-//				ServiceExecutionRole: pulumi.Any(aws_iam_role.Example.Arn),
+//				ServiceExecutionRole: pulumi.Any(exampleAwsIamRole.Arn),
 //				ApplicationConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationArgs{
 //					ApplicationCodeConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs{
 //						CodeContent: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs{
@@ -169,7 +181,7 @@ import (
 //								},
 //							},
 //							KinesisStreamsInput: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs{
-//								ResourceArn: pulumi.Any(aws_kinesis_stream.Example.Arn),
+//								ResourceArn: pulumi.Any(exampleAwsKinesisStream.Arn),
 //							},
 //						},
 //						Outputs: kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArray{
@@ -179,7 +191,7 @@ import (
 //									RecordFormatType: pulumi.String("JSON"),
 //								},
 //								LambdaOutput: kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs{
-//									ResourceArn: pulumi.Any(aws_lambda_function.Example.Arn),
+//									ResourceArn: pulumi.Any(exampleAwsLambdaFunction.Arn),
 //								},
 //							},
 //							&kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArgs{
@@ -188,7 +200,7 @@ import (
 //									RecordFormatType: pulumi.String("CSV"),
 //								},
 //								KinesisFirehoseOutput: kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs{
-//									ResourceArn: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
+//									ResourceArn: pulumi.Any(exampleAwsKinesisFirehoseDeliveryStream.Arn),
 //								},
 //							},
 //						},
@@ -211,7 +223,7 @@ import (
 //								},
 //							},
 //							S3ReferenceDataSource: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs{
-//								BucketArn: pulumi.Any(aws_s3_bucket.Example.Arn),
+//								BucketArn: pulumi.Any(exampleAwsS3Bucket.Arn),
 //								FileKey:   pulumi.String("KEY-1"),
 //							},
 //						},
@@ -229,8 +241,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### VPC Configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -244,26 +259,29 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example-flink-application"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
-//				Bucket: exampleBucketV2.ID(),
+//			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
+//				Bucket: example.ID(),
 //				Key:    pulumi.String("example-flink-application"),
 //				Source: pulumi.NewFileAsset("flink-app.jar"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = kinesisanalyticsv2.NewApplication(ctx, "exampleApplication", &kinesisanalyticsv2.ApplicationArgs{
+//			_, err = kinesisanalyticsv2.NewApplication(ctx, "example", &kinesisanalyticsv2.ApplicationArgs{
+//				Name:                 pulumi.String("example-flink-application"),
 //				RuntimeEnvironment:   pulumi.String("FLINK-1_8"),
-//				ServiceExecutionRole: pulumi.Any(aws_iam_role.Example.Arn),
+//				ServiceExecutionRole: pulumi.Any(exampleAwsIamRole.Arn),
 //				ApplicationConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationArgs{
 //					ApplicationCodeConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs{
 //						CodeContent: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs{
 //							S3ContentLocation: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs{
-//								BucketArn: exampleBucketV2.Arn,
+//								BucketArn: example.Arn,
 //								FileKey:   exampleBucketObjectv2.Key,
 //							},
 //						},
@@ -271,11 +289,11 @@ import (
 //					},
 //					VpcConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationVpcConfigurationArgs{
 //						SecurityGroupIds: pulumi.StringArray{
-//							aws_security_group.Example[0].Id,
-//							aws_security_group.Example[1].Id,
+//							exampleAwsSecurityGroup[0].Id,
+//							exampleAwsSecurityGroup[1].Id,
 //						},
 //						SubnetIds: pulumi.StringArray{
-//							aws_subnet.Example.Id,
+//							exampleAwsSubnet.Id,
 //						},
 //					},
 //				},
@@ -288,15 +306,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using the application ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
-//
+// $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
 // ```
 type Application struct {
 	pulumi.CustomResourceState
@@ -348,10 +365,6 @@ func NewApplication(ctx *pulumi.Context,
 	if args.ServiceExecutionRole == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceExecutionRole'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Application
 	err := ctx.RegisterResource("aws:kinesisanalyticsv2/application:Application", name, args, &resource, opts...)

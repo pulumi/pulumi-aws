@@ -4,6 +4,7 @@
 package com.pulumi.aws.backup.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -57,19 +58,25 @@ public final class PlanAdvancedBackupSetting {
 
         @CustomType.Setter
         public Builder backupOptions(Map<String,String> backupOptions) {
-            this.backupOptions = Objects.requireNonNull(backupOptions);
+            if (backupOptions == null) {
+              throw new MissingRequiredPropertyException("PlanAdvancedBackupSetting", "backupOptions");
+            }
+            this.backupOptions = backupOptions;
             return this;
         }
         @CustomType.Setter
         public Builder resourceType(String resourceType) {
-            this.resourceType = Objects.requireNonNull(resourceType);
+            if (resourceType == null) {
+              throw new MissingRequiredPropertyException("PlanAdvancedBackupSetting", "resourceType");
+            }
+            this.resourceType = resourceType;
             return this;
         }
         public PlanAdvancedBackupSetting build() {
-            final var o = new PlanAdvancedBackupSetting();
-            o.backupOptions = backupOptions;
-            o.resourceType = resourceType;
-            return o;
+            final var _resultValue = new PlanAdvancedBackupSetting();
+            _resultValue.backupOptions = backupOptions;
+            _resultValue.resourceType = resourceType;
+            return _resultValue;
         }
     }
 }

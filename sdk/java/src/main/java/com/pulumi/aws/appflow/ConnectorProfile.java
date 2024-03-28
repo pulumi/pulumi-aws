@@ -22,12 +22,114 @@ import javax.annotation.Nullable;
  * For specific information about creating an AppFlow connector profile, see the
  * [CreateConnectorProfile](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html) page in the Amazon AppFlow API Reference.
  * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.redshift.Cluster;
+ * import com.pulumi.aws.redshift.ClusterArgs;
+ * import com.pulumi.aws.appflow.ConnectorProfile;
+ * import com.pulumi.aws.appflow.ConnectorProfileArgs;
+ * import com.pulumi.aws.appflow.inputs.ConnectorProfileConnectorProfileConfigArgs;
+ * import com.pulumi.aws.appflow.inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs;
+ * import com.pulumi.aws.appflow.inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs;
+ * import com.pulumi.aws.appflow.inputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs;
+ * import com.pulumi.aws.appflow.inputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
+ *             .name(&#34;AmazonRedshiftAllCommandsFullAccess&#34;)
+ *             .build());
+ * 
+ *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;example_role&#34;)
+ *             .managedPolicyArns(test.arn())
+ *             .assumeRolePolicy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;action&#34;, &#34;sts:AssumeRole&#34;),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;sid&#34;, &#34;&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;service&#34;, &#34;ec2.amazonaws.com&#34;)
+ *                         ))
+ *                     )))
+ *                 )))
+ *             .build());
+ * 
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example_bucket&#34;)
+ *             .build());
+ * 
+ *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
+ *             .clusterIdentifier(&#34;example_cluster&#34;)
+ *             .databaseName(&#34;example_db&#34;)
+ *             .masterUsername(&#34;exampleuser&#34;)
+ *             .masterPassword(&#34;examplePassword123!&#34;)
+ *             .nodeType(&#34;dc1.large&#34;)
+ *             .clusterType(&#34;single-node&#34;)
+ *             .build());
+ * 
+ *         var exampleConnectorProfile = new ConnectorProfile(&#34;exampleConnectorProfile&#34;, ConnectorProfileArgs.builder()        
+ *             .name(&#34;example_profile&#34;)
+ *             .connectorType(&#34;Redshift&#34;)
+ *             .connectionMode(&#34;Public&#34;)
+ *             .connectorProfileConfig(ConnectorProfileConnectorProfileConfigArgs.builder()
+ *                 .connectorProfileCredentials(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs.builder()
+ *                     .redshift(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs.builder()
+ *                         .password(exampleCluster.masterPassword())
+ *                         .username(exampleCluster.masterUsername())
+ *                         .build())
+ *                     .build())
+ *                 .connectorProfileProperties(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs.builder()
+ *                     .redshift(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs.builder()
+ *                         .bucketName(exampleBucketV2.name())
+ *                         .databaseUrl(Output.tuple(exampleCluster.endpoint(), exampleCluster.databaseName()).applyValue(values -&gt; {
+ *                             var endpoint = values.t1;
+ *                             var databaseName = values.t2;
+ *                             return String.format(&#34;jdbc:redshift://%s/%s&#34;, endpoint,databaseName);
+ *                         }))
+ *                         .roleArn(exampleRole.arn())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import AppFlow Connector Profile using the connector profile `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
+ * $ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
  * ```
  * 
  */

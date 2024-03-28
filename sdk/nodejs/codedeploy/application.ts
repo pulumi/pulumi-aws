@@ -8,37 +8,55 @@ import * as utilities from "../utilities";
  * Provides a CodeDeploy application to be used as a basis for deployments
  *
  * ## Example Usage
+ *
  * ### ECS Application
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.codedeploy.Application("example", {computePlatform: "ECS"});
+ * const example = new aws.codedeploy.Application("example", {
+ *     computePlatform: "ECS",
+ *     name: "example",
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Lambda Application
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.codedeploy.Application("example", {computePlatform: "Lambda"});
+ * const example = new aws.codedeploy.Application("example", {
+ *     computePlatform: "Lambda",
+ *     name: "example",
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Server Application
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.codedeploy.Application("example", {computePlatform: "Server"});
+ * const example = new aws.codedeploy.Application("example", {
+ *     computePlatform: "Server",
+ *     name: "example",
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CodeDeploy Applications using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:codedeploy/application:Application example my-application
+ * $ pulumi import aws:codedeploy/application:Application example my-application
  * ```
  */
 export class Application extends pulumi.CustomResource {
@@ -137,8 +155,6 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }
 }

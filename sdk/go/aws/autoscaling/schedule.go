@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,10 +29,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foobarGroup, err := autoscaling.NewGroup(ctx, "foobarGroup", &autoscaling.GroupArgs{
+//			foobar, err := autoscaling.NewGroup(ctx, "foobar", &autoscaling.GroupArgs{
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-west-2a"),
 //				},
+//				Name:                   pulumi.String("test-foobar5"),
 //				MaxSize:                pulumi.Int(1),
 //				MinSize:                pulumi.Int(1),
 //				HealthCheckGracePeriod: pulumi.Int(300),
@@ -44,14 +46,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = autoscaling.NewSchedule(ctx, "foobarSchedule", &autoscaling.ScheduleArgs{
+//			_, err = autoscaling.NewSchedule(ctx, "foobar", &autoscaling.ScheduleArgs{
 //				ScheduledActionName:  pulumi.String("foobar"),
 //				MinSize:              pulumi.Int(0),
 //				MaxSize:              pulumi.Int(1),
 //				DesiredCapacity:      pulumi.Int(0),
 //				StartTime:            pulumi.String("2016-12-11T18:00:00Z"),
 //				EndTime:              pulumi.String("2016-12-12T06:00:00Z"),
-//				AutoscalingGroupName: foobarGroup.Name,
+//				AutoscalingGroupName: foobar.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -61,15 +63,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AutoScaling ScheduledAction using the `auto-scaling-group-name` and `scheduled-action-name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
-//
+// $ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
 // ```
 type Schedule struct {
 	pulumi.CustomResourceState

@@ -19,7 +19,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS QuickSight IAM Policy Assignment.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,22 +48,23 @@ import javax.annotation.Nullable;
  *         var example = new IamPolicyAssignment(&#34;example&#34;, IamPolicyAssignmentArgs.builder()        
  *             .assignmentName(&#34;example&#34;)
  *             .assignmentStatus(&#34;ENABLED&#34;)
- *             .policyArn(aws_iam_policy.example().arn())
+ *             .policyArn(exampleAwsIamPolicy.arn())
  *             .identities(IamPolicyAssignmentIdentitiesArgs.builder()
- *                 .users(aws_quicksight_user.example().user_name())
+ *                 .users(exampleAwsQuicksightUser.userName())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import QuickSight IAM Policy Assignment using the AWS account ID, namespace, and assignment name separated by commas (`,`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
+ * $ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
  * ```
  * 
  */
@@ -127,14 +131,14 @@ public class IamPolicyAssignment extends com.pulumi.resources.CustomResource {
         return this.awsAccountId;
     }
     /**
-     * Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+     * Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
      * 
      */
     @Export(name="identities", refs={IamPolicyAssignmentIdentities.class}, tree="[0]")
     private Output</* @Nullable */ IamPolicyAssignmentIdentities> identities;
 
     /**
-     * @return Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+     * @return Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
      * 
      */
     public Output<Optional<IamPolicyAssignmentIdentities>> identities() {

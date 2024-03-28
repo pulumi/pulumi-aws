@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesis.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -79,12 +80,18 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig {
 
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+            if (securityGroupIds == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig", "securityGroupIds");
+            }
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {
@@ -92,7 +99,10 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig {
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
@@ -100,16 +110,17 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig {
         }
         @CustomType.Setter
         public Builder vpcId(@Nullable String vpcId) {
+
             this.vpcId = vpcId;
             return this;
         }
         public FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig build() {
-            final var o = new FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig();
-            o.roleArn = roleArn;
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig();
+            _resultValue.roleArn = roleArn;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

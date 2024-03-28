@@ -5,6 +5,7 @@ package com.pulumi.aws.ses.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class EventDestinationCloudwatchDestinationArgs extends com.pulumi.
         }
 
         public EventDestinationCloudwatchDestinationArgs build() {
-            $.defaultValue = Objects.requireNonNull($.defaultValue, "expected parameter 'defaultValue' to be non-null");
-            $.dimensionName = Objects.requireNonNull($.dimensionName, "expected parameter 'dimensionName' to be non-null");
-            $.valueSource = Objects.requireNonNull($.valueSource, "expected parameter 'valueSource' to be non-null");
+            if ($.defaultValue == null) {
+                throw new MissingRequiredPropertyException("EventDestinationCloudwatchDestinationArgs", "defaultValue");
+            }
+            if ($.dimensionName == null) {
+                throw new MissingRequiredPropertyException("EventDestinationCloudwatchDestinationArgs", "dimensionName");
+            }
+            if ($.valueSource == null) {
+                throw new MissingRequiredPropertyException("EventDestinationCloudwatchDestinationArgs", "valueSource");
+            }
             return $;
         }
     }

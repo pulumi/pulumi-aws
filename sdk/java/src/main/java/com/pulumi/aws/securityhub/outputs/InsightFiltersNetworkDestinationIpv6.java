@@ -4,6 +4,7 @@
 package com.pulumi.aws.securityhub.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class InsightFiltersNetworkDestinationIpv6 {
 
         @CustomType.Setter
         public Builder cidr(String cidr) {
-            this.cidr = Objects.requireNonNull(cidr);
+            if (cidr == null) {
+              throw new MissingRequiredPropertyException("InsightFiltersNetworkDestinationIpv6", "cidr");
+            }
+            this.cidr = cidr;
             return this;
         }
         public InsightFiltersNetworkDestinationIpv6 build() {
-            final var o = new InsightFiltersNetworkDestinationIpv6();
-            o.cidr = cidr;
-            return o;
+            final var _resultValue = new InsightFiltersNetworkDestinationIpv6();
+            _resultValue.cidr = cidr;
+            return _resultValue;
         }
     }
 }

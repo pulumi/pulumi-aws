@@ -44,13 +44,14 @@ public final class AnalyticsApplicationInputsParallelism {
 
         @CustomType.Setter
         public Builder count(@Nullable Integer count) {
+
             this.count = count;
             return this;
         }
         public AnalyticsApplicationInputsParallelism build() {
-            final var o = new AnalyticsApplicationInputsParallelism();
-            o.count = count;
-            return o;
+            final var _resultValue = new AnalyticsApplicationInputsParallelism();
+            _resultValue.count = count;
+            return _resultValue;
         }
     }
 }

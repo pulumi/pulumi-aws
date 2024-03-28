@@ -14,11 +14,11 @@ namespace Pulumi.Aws.VpcLattice
         /// <summary>
         /// Data source for managing an AWS VPC Lattice Resource Policy.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -29,13 +29,12 @@ namespace Pulumi.Aws.VpcLattice
         /// {
         ///     var example = Aws.VpcLattice.GetResourcePolicy.Invoke(new()
         ///     {
-        ///         ResourceArn = aws_vpclattice_service_network.Example.Arn,
+        ///         ResourceArn = exampleAwsVpclatticeServiceNetwork.Arn,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetResourcePolicyResult> InvokeAsync(GetResourcePolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourcePolicyResult>("aws:vpclattice/getResourcePolicy:getResourcePolicy", args ?? new GetResourcePolicyArgs(), options.WithDefaults());
@@ -43,11 +42,11 @@ namespace Pulumi.Aws.VpcLattice
         /// <summary>
         /// Data source for managing an AWS VPC Lattice Resource Policy.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,13 +57,12 @@ namespace Pulumi.Aws.VpcLattice
         /// {
         ///     var example = Aws.VpcLattice.GetResourcePolicy.Invoke(new()
         ///     {
-        ///         ResourceArn = aws_vpclattice_service_network.Example.Arn,
+        ///         ResourceArn = exampleAwsVpclatticeServiceNetwork.Arn,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetResourcePolicyResult> Invoke(GetResourcePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourcePolicyResult>("aws:vpclattice/getResourcePolicy:getResourcePolicy", args ?? new GetResourcePolicyInvokeArgs(), options.WithDefaults());

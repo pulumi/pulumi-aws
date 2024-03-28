@@ -85,11 +85,13 @@ def get_product(filters: Optional[Sequence[pulumi.InputType['GetProductFilterArg
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.pricing.get_product(filters=[
+    example = aws.pricing.get_product(service_code="AmazonEC2",
+        filters=[
             aws.pricing.GetProductFilterArgs(
                 field="instanceType",
                 value="c5.xlarge",
@@ -118,15 +120,17 @@ def get_product(filters: Optional[Sequence[pulumi.InputType['GetProductFilterArg
                 field="capacitystatus",
                 value="Used",
             ),
-        ],
-        service_code="AmazonEC2")
+        ])
     ```
+    <!--End PulumiCodeChooser -->
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.pricing.get_product(filters=[
+    example = aws.pricing.get_product(service_code="AmazonRedshift",
+        filters=[
             aws.pricing.GetProductFilterArgs(
                 field="instanceType",
                 value="ds1.xlarge",
@@ -135,9 +139,9 @@ def get_product(filters: Optional[Sequence[pulumi.InputType['GetProductFilterArg
                 field="location",
                 value="US East (N. Virginia)",
             ),
-        ],
-        service_code="AmazonRedshift")
+        ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetProductFilterArgs']] filters: List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
@@ -166,11 +170,13 @@ def get_product_output(filters: Optional[pulumi.Input[Sequence[pulumi.InputType[
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.pricing.get_product(filters=[
+    example = aws.pricing.get_product(service_code="AmazonEC2",
+        filters=[
             aws.pricing.GetProductFilterArgs(
                 field="instanceType",
                 value="c5.xlarge",
@@ -199,15 +205,17 @@ def get_product_output(filters: Optional[pulumi.Input[Sequence[pulumi.InputType[
                 field="capacitystatus",
                 value="Used",
             ),
-        ],
-        service_code="AmazonEC2")
+        ])
     ```
+    <!--End PulumiCodeChooser -->
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.pricing.get_product(filters=[
+    example = aws.pricing.get_product(service_code="AmazonRedshift",
+        filters=[
             aws.pricing.GetProductFilterArgs(
                 field="instanceType",
                 value="ds1.xlarge",
@@ -216,9 +224,9 @@ def get_product_output(filters: Optional[pulumi.Input[Sequence[pulumi.InputType[
                 field="location",
                 value="US East (N. Virginia)",
             ),
-        ],
-        service_code="AmazonRedshift")
+        ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetProductFilterArgs']] filters: List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.

@@ -63,6 +63,20 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
         return Optional.ofNullable(this.autoScalingConfigurationRevision);
     }
 
+    @Import(name="hasAssociatedService")
+    private @Nullable Output<Boolean> hasAssociatedService;
+
+    public Optional<Output<Boolean>> hasAssociatedService() {
+        return Optional.ofNullable(this.hasAssociatedService);
+    }
+
+    @Import(name="isDefault")
+    private @Nullable Output<Boolean> isDefault;
+
+    public Optional<Output<Boolean>> isDefault() {
+        return Optional.ofNullable(this.isDefault);
+    }
+
     /**
      * Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.
      * 
@@ -182,6 +196,8 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
         this.arn = $.arn;
         this.autoScalingConfigurationName = $.autoScalingConfigurationName;
         this.autoScalingConfigurationRevision = $.autoScalingConfigurationRevision;
+        this.hasAssociatedService = $.hasAssociatedService;
+        this.isDefault = $.isDefault;
         this.latest = $.latest;
         this.maxConcurrency = $.maxConcurrency;
         this.maxSize = $.maxSize;
@@ -270,6 +286,24 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
          */
         public Builder autoScalingConfigurationRevision(Integer autoScalingConfigurationRevision) {
             return autoScalingConfigurationRevision(Output.of(autoScalingConfigurationRevision));
+        }
+
+        public Builder hasAssociatedService(@Nullable Output<Boolean> hasAssociatedService) {
+            $.hasAssociatedService = hasAssociatedService;
+            return this;
+        }
+
+        public Builder hasAssociatedService(Boolean hasAssociatedService) {
+            return hasAssociatedService(Output.of(hasAssociatedService));
+        }
+
+        public Builder isDefault(@Nullable Output<Boolean> isDefault) {
+            $.isDefault = isDefault;
+            return this;
+        }
+
+        public Builder isDefault(Boolean isDefault) {
+            return isDefault(Output.of(isDefault));
         }
 
         /**

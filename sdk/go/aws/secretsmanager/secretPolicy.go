@@ -15,8 +15,10 @@ import (
 // Provides a resource to manage AWS Secrets Manager secret policy.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,11 +32,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSecret, err := secretsmanager.NewSecret(ctx, "exampleSecret", nil)
+//			exampleSecret, err := secretsmanager.NewSecret(ctx, "example", &secretsmanager.SecretArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Sid:    pulumi.StringRef("EnableAnotherAWSAccountToReadTheSecret"),
@@ -59,9 +63,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = secretsmanager.NewSecretPolicy(ctx, "exampleSecretPolicy", &secretsmanager.SecretPolicyArgs{
+//			_, err = secretsmanager.NewSecretPolicy(ctx, "example", &secretsmanager.SecretPolicyArgs{
 //				SecretArn: exampleSecret.Arn,
-//				Policy:    *pulumi.String(examplePolicyDocument.Json),
+//				Policy:    pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -71,15 +75,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_secretsmanager_secret_policy` using the secret Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:secretsmanager/secretPolicy:SecretPolicy example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
-//
+// $ pulumi import aws:secretsmanager/secretPolicy:SecretPolicy example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
 // ```
 type SecretPolicy struct {
 	pulumi.CustomResourceState

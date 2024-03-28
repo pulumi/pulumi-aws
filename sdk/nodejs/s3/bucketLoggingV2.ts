@@ -14,28 +14,32 @@ import * as utilities from "../utilities";
  * > **Note:** Amazon S3 supports server access logging, AWS CloudTrail, or a combination of both. Refer to the [Logging options for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/logging-with-S3.html)
  * to decide which method meets your requirements.
  *
+ * > This resource cannot be used with S3 directory buckets.
+ *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
- *     bucket: exampleBucketV2.id,
+ * const example = new aws.s3.BucketV2("example", {bucket: "my-tf-example-bucket"});
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
+ *     bucket: example.id,
  *     acl: "private",
  * });
- * const logBucket = new aws.s3.BucketV2("logBucket", {});
- * const logBucketAcl = new aws.s3.BucketAclV2("logBucketAcl", {
+ * const logBucket = new aws.s3.BucketV2("log_bucket", {bucket: "my-tf-log-bucket"});
+ * const logBucketAcl = new aws.s3.BucketAclV2("log_bucket_acl", {
  *     bucket: logBucket.id,
  *     acl: "log-delivery-write",
  * });
- * const exampleBucketLoggingV2 = new aws.s3.BucketLoggingV2("exampleBucketLoggingV2", {
- *     bucket: exampleBucketV2.id,
+ * const exampleBucketLoggingV2 = new aws.s3.BucketLoggingV2("example", {
+ *     bucket: example.id,
  *     targetBucket: logBucket.id,
  *     targetPrefix: "log/",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -46,12 +50,12 @@ import * as utilities from "../utilities";
  * If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
  *
  * ```sh
- *  $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name
+ * $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name
  * ```
- *  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+ * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
  *
  * ```sh
- *  $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name,123456789012
+ * $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name,123456789012
  * ```
  */
 export class BucketLoggingV2 extends pulumi.CustomResource {
@@ -99,6 +103,10 @@ export class BucketLoggingV2 extends pulumi.CustomResource {
      */
     public readonly targetGrants!: pulumi.Output<outputs.s3.BucketLoggingV2TargetGrant[] | undefined>;
     /**
+     * Amazon S3 key format for log objects. See below.
+     */
+    public readonly targetObjectKeyFormat!: pulumi.Output<outputs.s3.BucketLoggingV2TargetObjectKeyFormat | undefined>;
+    /**
      * Prefix for all log object keys.
      */
     public readonly targetPrefix!: pulumi.Output<string>;
@@ -120,6 +128,7 @@ export class BucketLoggingV2 extends pulumi.CustomResource {
             resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
             resourceInputs["targetBucket"] = state ? state.targetBucket : undefined;
             resourceInputs["targetGrants"] = state ? state.targetGrants : undefined;
+            resourceInputs["targetObjectKeyFormat"] = state ? state.targetObjectKeyFormat : undefined;
             resourceInputs["targetPrefix"] = state ? state.targetPrefix : undefined;
         } else {
             const args = argsOrState as BucketLoggingV2Args | undefined;
@@ -136,6 +145,7 @@ export class BucketLoggingV2 extends pulumi.CustomResource {
             resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
             resourceInputs["targetBucket"] = args ? args.targetBucket : undefined;
             resourceInputs["targetGrants"] = args ? args.targetGrants : undefined;
+            resourceInputs["targetObjectKeyFormat"] = args ? args.targetObjectKeyFormat : undefined;
             resourceInputs["targetPrefix"] = args ? args.targetPrefix : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -164,6 +174,10 @@ export interface BucketLoggingV2State {
      */
     targetGrants?: pulumi.Input<pulumi.Input<inputs.s3.BucketLoggingV2TargetGrant>[]>;
     /**
+     * Amazon S3 key format for log objects. See below.
+     */
+    targetObjectKeyFormat?: pulumi.Input<inputs.s3.BucketLoggingV2TargetObjectKeyFormat>;
+    /**
      * Prefix for all log object keys.
      */
     targetPrefix?: pulumi.Input<string>;
@@ -189,6 +203,10 @@ export interface BucketLoggingV2Args {
      * Set of configuration blocks with information for granting permissions. See below.
      */
     targetGrants?: pulumi.Input<pulumi.Input<inputs.s3.BucketLoggingV2TargetGrant>[]>;
+    /**
+     * Amazon S3 key format for log objects. See below.
+     */
+    targetObjectKeyFormat?: pulumi.Input<inputs.s3.BucketLoggingV2TargetObjectKeyFormat>;
     /**
      * Prefix for all log object keys.
      */

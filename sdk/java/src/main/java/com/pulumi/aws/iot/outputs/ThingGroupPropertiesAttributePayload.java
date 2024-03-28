@@ -44,13 +44,14 @@ public final class ThingGroupPropertiesAttributePayload {
 
         @CustomType.Setter
         public Builder attributes(@Nullable Map<String,String> attributes) {
+
             this.attributes = attributes;
             return this;
         }
         public ThingGroupPropertiesAttributePayload build() {
-            final var o = new ThingGroupPropertiesAttributePayload();
-            o.attributes = attributes;
-            return o;
+            final var _resultValue = new ThingGroupPropertiesAttributePayload();
+            _resultValue.attributes = attributes;
+            return _resultValue;
         }
     }
 }

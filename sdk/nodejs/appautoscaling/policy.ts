@@ -11,20 +11,23 @@ import * as utilities from "../utilities";
  * Provides an Application AutoScaling Policy resource.
  *
  * ## Example Usage
+ *
  * ### DynamoDB Table Autoscaling
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const dynamodbTableReadTarget = new aws.appautoscaling.Target("dynamodbTableReadTarget", {
+ * const dynamodbTableReadTarget = new aws.appautoscaling.Target("dynamodb_table_read_target", {
  *     maxCapacity: 100,
  *     minCapacity: 5,
  *     resourceId: "table/tableName",
  *     scalableDimension: "dynamodb:table:ReadCapacityUnits",
  *     serviceNamespace: "dynamodb",
  * });
- * const dynamodbTableReadPolicy = new aws.appautoscaling.Policy("dynamodbTableReadPolicy", {
+ * const dynamodbTableReadPolicy = new aws.appautoscaling.Policy("dynamodb_table_read_policy", {
+ *     name: pulumi.interpolate`DynamoDBReadCapacityUtilization:${dynamodbTableReadTarget.resourceId}`,
  *     policyType: "TargetTrackingScaling",
  *     resourceId: dynamodbTableReadTarget.resourceId,
  *     scalableDimension: dynamodbTableReadTarget.scalableDimension,
@@ -37,20 +40,24 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### ECS Service Autoscaling
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ecsTarget = new aws.appautoscaling.Target("ecsTarget", {
+ * const ecsTarget = new aws.appautoscaling.Target("ecs_target", {
  *     maxCapacity: 4,
  *     minCapacity: 1,
  *     resourceId: "service/clusterName/serviceName",
  *     scalableDimension: "ecs:service:DesiredCount",
  *     serviceNamespace: "ecs",
  * });
- * const ecsPolicy = new aws.appautoscaling.Policy("ecsPolicy", {
+ * const ecsPolicy = new aws.appautoscaling.Policy("ecs_policy", {
+ *     name: "scale-down",
  *     policyType: "StepScaling",
  *     resourceId: ecsTarget.resourceId,
  *     scalableDimension: ecsTarget.scalableDimension,
@@ -66,35 +73,43 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Preserve desired count when updating an autoscaled ECS Service
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ecsService = new aws.ecs.Service("ecsService", {
+ * const ecsService = new aws.ecs.Service("ecs_service", {
+ *     name: "serviceName",
  *     cluster: "clusterName",
  *     taskDefinition: "taskDefinitionFamily:1",
  *     desiredCount: 2,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Aurora Read Replica Autoscaling
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const replicasTarget = new aws.appautoscaling.Target("replicasTarget", {
+ * const replicas = new aws.appautoscaling.Target("replicas", {
  *     serviceNamespace: "rds",
  *     scalableDimension: "rds:cluster:ReadReplicaCount",
- *     resourceId: `cluster:${aws_rds_cluster.example.id}`,
+ *     resourceId: `cluster:${example.id}`,
  *     minCapacity: 1,
  *     maxCapacity: 15,
  * });
- * const replicasPolicy = new aws.appautoscaling.Policy("replicasPolicy", {
- *     serviceNamespace: replicasTarget.serviceNamespace,
- *     scalableDimension: replicasTarget.scalableDimension,
- *     resourceId: replicasTarget.resourceId,
+ * const replicasPolicy = new aws.appautoscaling.Policy("replicas", {
+ *     name: "cpu-auto-scaling",
+ *     serviceNamespace: replicas.serviceNamespace,
+ *     scalableDimension: replicas.scalableDimension,
+ *     resourceId: replicas.resourceId,
  *     policyType: "TargetTrackingScaling",
  *     targetTrackingScalingPolicyConfiguration: {
  *         predefinedMetricSpecification: {
@@ -106,13 +121,16 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Create target tracking scaling policy using metric math
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ecsTarget = new aws.appautoscaling.Target("ecsTarget", {
+ * const ecsTarget = new aws.appautoscaling.Target("ecs_target", {
  *     maxCapacity: 4,
  *     minCapacity: 1,
  *     resourceId: "service/clusterName/serviceName",
@@ -120,6 +138,7 @@ import * as utilities from "../utilities";
  *     serviceNamespace: "ecs",
  * });
  * const example = new aws.appautoscaling.Policy("example", {
+ *     name: "foo",
  *     policyType: "TargetTrackingScaling",
  *     resourceId: ecsTarget.resourceId,
  *     scalableDimension: ecsTarget.scalableDimension,
@@ -177,20 +196,24 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### MSK / Kafka Autoscaling
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const mskTarget = new aws.appautoscaling.Target("mskTarget", {
+ * const mskTarget = new aws.appautoscaling.Target("msk_target", {
  *     serviceNamespace: "kafka",
  *     scalableDimension: "kafka:broker-storage:VolumeSize",
- *     resourceId: aws_msk_cluster.example.arn,
+ *     resourceId: example.arn,
  *     minCapacity: 1,
  *     maxCapacity: 8,
  * });
  * const targets = new aws.appautoscaling.Policy("targets", {
+ *     name: "storage-size-auto-scaling",
  *     serviceNamespace: mskTarget.serviceNamespace,
  *     scalableDimension: mskTarget.scalableDimension,
  *     resourceId: mskTarget.resourceId,
@@ -203,13 +226,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Application AutoScaling Policy using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`. For example:
  *
  * ```sh
- *  $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name
+ * $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name
  * ```
  */
 export class Policy extends pulumi.CustomResource {

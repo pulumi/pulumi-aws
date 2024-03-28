@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,12 +33,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := iam.NewAccountPasswordPolicy(ctx, "strict", &iam.AccountPasswordPolicyArgs{
-//				AllowUsersToChangePassword: pulumi.Bool(true),
 //				MinimumPasswordLength:      pulumi.Int(8),
 //				RequireLowercaseCharacters: pulumi.Bool(true),
 //				RequireNumbers:             pulumi.Bool(true),
-//				RequireSymbols:             pulumi.Bool(true),
 //				RequireUppercaseCharacters: pulumi.Bool(true),
+//				RequireSymbols:             pulumi.Bool(true),
+//				AllowUsersToChangePassword: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -47,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IAM Account Password Policy using the word `iam-account-password-policy`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
-//
+// $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
 // ```
 type AccountPasswordPolicy struct {
 	pulumi.CustomResourceState

@@ -19,6 +19,7 @@ import (
 //
 // The following example shows how to get a firewall rule group association from its id.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,6 +43,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupResolverFirewallRuleGroupAssociation(ctx *pulumi.Context, args *LookupResolverFirewallRuleGroupAssociationArgs, opts ...pulumi.InvokeOption) (*LookupResolverFirewallRuleGroupAssociationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverFirewallRuleGroupAssociationResult

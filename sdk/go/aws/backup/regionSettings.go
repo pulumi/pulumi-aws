@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,10 +30,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.NewRegionSettings(ctx, "test", &backup.RegionSettingsArgs{
-//				ResourceTypeManagementPreference: pulumi.BoolMap{
-//					"DynamoDB": pulumi.Bool(true),
-//					"EFS":      pulumi.Bool(true),
-//				},
 //				ResourceTypeOptInPreference: pulumi.BoolMap{
 //					"Aurora":          pulumi.Bool(true),
 //					"DocumentDB":      pulumi.Bool(true),
@@ -46,6 +43,10 @@ import (
 //					"Storage Gateway": pulumi.Bool(true),
 //					"VirtualMachine":  pulumi.Bool(true),
 //				},
+//				ResourceTypeManagementPreference: pulumi.BoolMap{
+//					"DynamoDB": pulumi.Bool(true),
+//					"EFS":      pulumi.Bool(true),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -55,15 +56,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Backup Region Settings using the `region`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
-//
+// $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
 // ```
 type RegionSettings struct {
 	pulumi.CustomResourceState

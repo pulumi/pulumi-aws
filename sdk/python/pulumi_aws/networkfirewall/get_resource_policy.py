@@ -72,12 +72,14 @@ def get_resource_policy(resource_arn: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_resource_policy(resource_arn=var["resource_policy_arn"])
+    example = aws.networkfirewall.get_resource_policy(resource_arn=resource_policy_arn)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str resource_arn: The Amazon Resource Name (ARN) that identifies the resource policy.
@@ -101,12 +103,14 @@ def get_resource_policy_output(resource_arn: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_resource_policy(resource_arn=var["resource_policy_arn"])
+    example = aws.networkfirewall.get_resource_policy(resource_arn=resource_policy_arn)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str resource_arn: The Amazon Resource Name (ARN) that identifies the resource policy.

@@ -8,6 +8,7 @@ import com.pulumi.aws.appstream.inputs.FleetDomainJoinInfoArgs;
 import com.pulumi.aws.appstream.inputs.FleetVpcConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -142,14 +143,14 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
+     * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to 60 seconds.
      * 
      */
     @Import(name="idleDisconnectTimeoutInSeconds")
     private @Nullable Output<Integer> idleDisconnectTimeoutInSeconds;
 
     /**
-     * @return Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
+     * @return Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to 60 seconds.
      * 
      */
     public Optional<Output<Integer>> idleDisconnectTimeoutInSeconds() {
@@ -489,7 +490,7 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param idleDisconnectTimeoutInSeconds Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
+         * @param idleDisconnectTimeoutInSeconds Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to 60 seconds.
          * 
          * @return builder
          * 
@@ -500,7 +501,7 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param idleDisconnectTimeoutInSeconds Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
+         * @param idleDisconnectTimeoutInSeconds Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to 60 seconds.
          * 
          * @return builder
          * 
@@ -682,8 +683,12 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FleetArgs build() {
-            $.computeCapacity = Objects.requireNonNull($.computeCapacity, "expected parameter 'computeCapacity' to be non-null");
-            $.instanceType = Objects.requireNonNull($.instanceType, "expected parameter 'instanceType' to be non-null");
+            if ($.computeCapacity == null) {
+                throw new MissingRequiredPropertyException("FleetArgs", "computeCapacity");
+            }
+            if ($.instanceType == null) {
+                throw new MissingRequiredPropertyException("FleetArgs", "instanceType");
+            }
             return $;
         }
     }

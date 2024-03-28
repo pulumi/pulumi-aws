@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Oam
     /// Resource for managing an AWS CloudWatch Observability Access Manager Link.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,7 +32,7 @@ namespace Pulumi.Aws.Oam
     ///         {
     ///             "AWS::CloudWatch::Metric",
     ///         },
-    ///         SinkIdentifier = aws_oam_sink.Test.Id,
+    ///         SinkIdentifier = test.Id,
     ///         Tags = 
     ///         {
     ///             { "Env", "prod" },
@@ -39,13 +41,14 @@ namespace Pulumi.Aws.Oam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
+    /// $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:oam/link:Link")]
@@ -127,10 +130,6 @@ namespace Pulumi.Aws.Oam
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -268,11 +267,7 @@ namespace Pulumi.Aws.Oam
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public LinkState()

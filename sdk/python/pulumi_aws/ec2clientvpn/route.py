@@ -200,36 +200,38 @@ class Route(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_endpoint = aws.ec2clientvpn.Endpoint("exampleEndpoint",
+        example_endpoint = aws.ec2clientvpn.Endpoint("example",
             description="Example Client VPN endpoint",
-            server_certificate_arn=aws_acm_certificate["example"]["arn"],
+            server_certificate_arn=example_aws_acm_certificate["arn"],
             client_cidr_block="10.0.0.0/16",
             authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArgs(
                 type="certificate-authentication",
-                root_certificate_chain_arn=aws_acm_certificate["example"]["arn"],
+                root_certificate_chain_arn=example_aws_acm_certificate["arn"],
             )],
             connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArgs(
                 enabled=False,
             ))
-        example_network_association = aws.ec2clientvpn.NetworkAssociation("exampleNetworkAssociation",
+        example_network_association = aws.ec2clientvpn.NetworkAssociation("example",
             client_vpn_endpoint_id=example_endpoint.id,
-            subnet_id=aws_subnet["example"]["id"])
-        example_route = aws.ec2clientvpn.Route("exampleRoute",
+            subnet_id=example_aws_subnet["id"])
+        example = aws.ec2clientvpn.Route("example",
             client_vpn_endpoint_id=example_endpoint.id,
             destination_cidr_block="0.0.0.0/0",
             target_vpc_subnet_id=example_network_association.subnet_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS Client VPN routes using the endpoint ID, target subnet ID, and destination CIDR block. All values are separated by a `,`. For example:
 
         ```sh
-         $ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
+        $ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
         ```
 
         :param str resource_name: The name of the resource.
@@ -251,36 +253,38 @@ class Route(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_endpoint = aws.ec2clientvpn.Endpoint("exampleEndpoint",
+        example_endpoint = aws.ec2clientvpn.Endpoint("example",
             description="Example Client VPN endpoint",
-            server_certificate_arn=aws_acm_certificate["example"]["arn"],
+            server_certificate_arn=example_aws_acm_certificate["arn"],
             client_cidr_block="10.0.0.0/16",
             authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArgs(
                 type="certificate-authentication",
-                root_certificate_chain_arn=aws_acm_certificate["example"]["arn"],
+                root_certificate_chain_arn=example_aws_acm_certificate["arn"],
             )],
             connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArgs(
                 enabled=False,
             ))
-        example_network_association = aws.ec2clientvpn.NetworkAssociation("exampleNetworkAssociation",
+        example_network_association = aws.ec2clientvpn.NetworkAssociation("example",
             client_vpn_endpoint_id=example_endpoint.id,
-            subnet_id=aws_subnet["example"]["id"])
-        example_route = aws.ec2clientvpn.Route("exampleRoute",
+            subnet_id=example_aws_subnet["id"])
+        example = aws.ec2clientvpn.Route("example",
             client_vpn_endpoint_id=example_endpoint.id,
             destination_cidr_block="0.0.0.0/0",
             target_vpc_subnet_id=example_network_association.subnet_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS Client VPN routes using the endpoint ID, target subnet ID, and destination CIDR block. All values are separated by a `,`. For example:
 
         ```sh
-         $ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
+        $ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
         ```
 
         :param str resource_name: The name of the resource.

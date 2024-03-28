@@ -15,8 +15,10 @@ import (
 // Manages an Image Builder Component.
 //
 // ## Example Usage
+//
 // ### URI Document
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,8 +34,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := imagebuilder.NewComponent(ctx, "example", &imagebuilder.ComponentArgs{
+//				Name:     pulumi.String("example"),
 //				Platform: pulumi.String("Linux"),
-//				Uri:      pulumi.String(fmt.Sprintf("s3://%v/%v", aws_s3_object.Example.Bucket, aws_s3_object.Example.Key)),
+//				Uri:      pulumi.String(fmt.Sprintf("s3://%v/%v", exampleAwsS3Object.Bucket, exampleAwsS3Object.Key)),
 //				Version:  pulumi.String("1.0.0"),
 //			})
 //			if err != nil {
@@ -44,18 +47,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_imagebuilder_components` resources using the Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
-//
+// $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
 // ```
-//
-//	Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
+// Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
 type Component struct {
 	pulumi.CustomResourceState
 
@@ -114,10 +115,6 @@ func NewComponent(ctx *pulumi.Context,
 	if args.Version == nil {
 		return nil, errors.New("invalid value for required argument 'Version'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Component
 	err := ctx.RegisterResource("aws:imagebuilder/component:Component", name, args, &resource, opts...)

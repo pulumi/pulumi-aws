@@ -72,25 +72,28 @@ public final class DeviceLocation {
 
         @CustomType.Setter
         public Builder address(@Nullable String address) {
+
             this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder latitude(@Nullable String latitude) {
+
             this.latitude = latitude;
             return this;
         }
         @CustomType.Setter
         public Builder longitude(@Nullable String longitude) {
+
             this.longitude = longitude;
             return this;
         }
         public DeviceLocation build() {
-            final var o = new DeviceLocation();
-            o.address = address;
-            o.latitude = latitude;
-            o.longitude = longitude;
-            return o;
+            final var _resultValue = new DeviceLocation();
+            _resultValue.address = address;
+            _resultValue.latitude = latitude;
+            _resultValue.longitude = longitude;
+            return _resultValue;
         }
     }
 }

@@ -13,8 +13,10 @@ namespace Pulumi.Aws.VpcLattice
     /// Resource for managing an AWS VPC Lattice Service.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,26 +27,28 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.Service("example", new()
     ///     {
+    ///         Name = "example",
     ///         AuthType = "AWS_IAM",
     ///         CustomDomainName = "example.com",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import VPC Lattice Service using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
+    /// $ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
     /// ```
     /// </summary>
     [AwsResourceType("aws:vpclattice/service:Service")]
     public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ARN of the service. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        /// ARN of the service.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -68,7 +72,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string?> CustomDomainName { get; private set; } = null!;
 
         /// <summary>
-        /// Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        /// DNS name of the service.
         /// </summary>
         [Output("dnsEntries")]
         public Output<ImmutableArray<Outputs.ServiceDnsEntry>> DnsEntries { get; private set; } = null!;
@@ -122,10 +126,6 @@ namespace Pulumi.Aws.VpcLattice
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class ServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the service. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        /// ARN of the service.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.VpcLattice
         private InputList<Inputs.ServiceDnsEntryGetArgs>? _dnsEntries;
 
         /// <summary>
-        /// Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        /// DNS name of the service.
         /// </summary>
         public InputList<Inputs.ServiceDnsEntryGetArgs> DnsEntries
         {
@@ -267,11 +267,7 @@ namespace Pulumi.Aws.VpcLattice
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ServiceState()

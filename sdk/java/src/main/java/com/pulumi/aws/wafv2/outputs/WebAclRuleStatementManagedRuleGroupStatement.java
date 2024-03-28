@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatement
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -118,6 +119,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
 
         @CustomType.Setter
         public Builder managedRuleGroupConfigs(@Nullable List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig> managedRuleGroupConfigs) {
+
             this.managedRuleGroupConfigs = managedRuleGroupConfigs;
             return this;
         }
@@ -126,11 +128,15 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatement", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder ruleActionOverrides(@Nullable List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride> ruleActionOverrides) {
+
             this.ruleActionOverrides = ruleActionOverrides;
             return this;
         }
@@ -139,28 +145,33 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
         }
         @CustomType.Setter
         public Builder scopeDownStatement(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement scopeDownStatement) {
+
             this.scopeDownStatement = scopeDownStatement;
             return this;
         }
         @CustomType.Setter
         public Builder vendorName(String vendorName) {
-            this.vendorName = Objects.requireNonNull(vendorName);
+            if (vendorName == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatement", "vendorName");
+            }
+            this.vendorName = vendorName;
             return this;
         }
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatement build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatement();
-            o.managedRuleGroupConfigs = managedRuleGroupConfigs;
-            o.name = name;
-            o.ruleActionOverrides = ruleActionOverrides;
-            o.scopeDownStatement = scopeDownStatement;
-            o.vendorName = vendorName;
-            o.version = version;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatement();
+            _resultValue.managedRuleGroupConfigs = managedRuleGroupConfigs;
+            _resultValue.name = name;
+            _resultValue.ruleActionOverrides = ruleActionOverrides;
+            _resultValue.scopeDownStatement = scopeDownStatement;
+            _resultValue.vendorName = vendorName;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

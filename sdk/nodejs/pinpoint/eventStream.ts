@@ -9,12 +9,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const app = new aws.pinpoint.App("app", {});
- * const testStream = new aws.kinesis.Stream("testStream", {shardCount: 1});
+ * const testStream = new aws.kinesis.Stream("test_stream", {
+ *     name: "pinpoint-kinesis-test",
+ *     shardCount: 1,
+ * });
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -25,13 +29,13 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const testRole = new aws.iam.Role("test_role", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
  * const stream = new aws.pinpoint.EventStream("stream", {
  *     applicationId: app.applicationId,
  *     destinationStreamArn: testStream.arn,
  *     roleArn: testRole.arn,
  * });
- * const testRolePolicyPolicyDocument = aws.iam.getPolicyDocument({
+ * const testRolePolicy = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: [
@@ -41,18 +45,20 @@ import * as utilities from "../utilities";
  *         resources: ["arn:aws:kinesis:us-east-1:*:*&#47;*"],
  *     }],
  * });
- * const testRolePolicyRolePolicy = new aws.iam.RolePolicy("testRolePolicyRolePolicy", {
+ * const testRolePolicyRolePolicy = new aws.iam.RolePolicy("test_role_policy", {
+ *     name: "test_policy",
  *     role: testRole.id,
- *     policy: testRolePolicyPolicyDocument.then(testRolePolicyPolicyDocument => testRolePolicyPolicyDocument.json),
+ *     policy: testRolePolicy.then(testRolePolicy => testRolePolicy.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Pinpoint Event Stream using the `application-id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
+ * $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
  * ```
  */
 export class EventStream extends pulumi.CustomResource {

@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.inputs.WebAclLoggingConfigurationLoggingFilterArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclLoggingConfigurationRedactedFieldArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -210,8 +211,12 @@ public final class WebAclLoggingConfigurationArgs extends com.pulumi.resources.R
         }
 
         public WebAclLoggingConfigurationArgs build() {
-            $.logDestinationConfigs = Objects.requireNonNull($.logDestinationConfigs, "expected parameter 'logDestinationConfigs' to be non-null");
-            $.resourceArn = Objects.requireNonNull($.resourceArn, "expected parameter 'resourceArn' to be non-null");
+            if ($.logDestinationConfigs == null) {
+                throw new MissingRequiredPropertyException("WebAclLoggingConfigurationArgs", "logDestinationConfigs");
+            }
+            if ($.resourceArn == null) {
+                throw new MissingRequiredPropertyException("WebAclLoggingConfigurationArgs", "resourceArn");
+            }
             return $;
         }
     }

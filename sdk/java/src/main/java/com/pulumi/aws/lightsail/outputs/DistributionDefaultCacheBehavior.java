@@ -4,6 +4,7 @@
 package com.pulumi.aws.lightsail.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class DistributionDefaultCacheBehavior {
 
         @CustomType.Setter
         public Builder behavior(String behavior) {
-            this.behavior = Objects.requireNonNull(behavior);
+            if (behavior == null) {
+              throw new MissingRequiredPropertyException("DistributionDefaultCacheBehavior", "behavior");
+            }
+            this.behavior = behavior;
             return this;
         }
         public DistributionDefaultCacheBehavior build() {
-            final var o = new DistributionDefaultCacheBehavior();
-            o.behavior = behavior;
-            return o;
+            final var _resultValue = new DistributionDefaultCacheBehavior();
+            _resultValue.behavior = behavior;
+            return _resultValue;
         }
     }
 }

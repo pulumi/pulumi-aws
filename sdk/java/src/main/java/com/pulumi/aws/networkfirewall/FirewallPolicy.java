@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides an AWS Network Firewall Firewall Policy Resource
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,13 +46,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FirewallPolicy(&#34;example&#34;, FirewallPolicyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
  *                 .statelessDefaultActions(&#34;aws:pass&#34;)
  *                 .statelessFragmentDefaultActions(&#34;aws:drop&#34;)
  *                 .statelessRuleGroupReferences(FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs.builder()
  *                     .priority(1)
- *                     .resourceArn(aws_networkfirewall_rule_group.example().arn())
+ *                     .resourceArn(exampleAwsNetworkfirewallRuleGroup.arn())
  *                     .build())
+ *                 .tlsInspectionConfigurationArn(&#34;arn:aws:network-firewall:REGION:ACCT:tls-configuration/example&#34;)
  *                 .build())
  *             .tags(Map.ofEntries(
  *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
@@ -62,7 +65,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Policy with a HOME_NET Override
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -87,6 +94,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FirewallPolicy(&#34;example&#34;, FirewallPolicyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
  *                 .policyVariables(FirewallPolicyFirewallPolicyPolicyVariablesArgs.builder()
  *                     .ruleVariables(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs.builder()
@@ -102,7 +110,7 @@ import javax.annotation.Nullable;
  *                 .statelessFragmentDefaultActions(&#34;aws:drop&#34;)
  *                 .statelessRuleGroupReferences(FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs.builder()
  *                     .priority(1)
- *                     .resourceArn(aws_networkfirewall_rule_group.example().arn())
+ *                     .resourceArn(exampleAwsNetworkfirewallRuleGroup.arn())
  *                     .build())
  *                 .build())
  *             .tags(Map.ofEntries(
@@ -114,9 +122,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Policy with a Custom Action for Stateless Inspection
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -140,32 +150,36 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new FirewallPolicy(&#34;test&#34;, FirewallPolicyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
- *                 .statelessCustomActions(FirewallPolicyFirewallPolicyStatelessCustomActionArgs.builder()
- *                     .actionDefinition(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs.builder()
- *                         .publishMetricAction(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs.builder()
- *                             .dimension(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                             .build())
- *                         .build())
- *                     .actionName(&#34;ExampleCustomAction&#34;)
- *                     .build())
  *                 .statelessDefaultActions(                
  *                     &#34;aws:pass&#34;,
  *                     &#34;ExampleCustomAction&#34;)
  *                 .statelessFragmentDefaultActions(&#34;aws:drop&#34;)
+ *                 .statelessCustomActions(FirewallPolicyFirewallPolicyStatelessCustomActionArgs.builder()
+ *                     .actionDefinition(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs.builder()
+ *                         .publishMetricAction(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs.builder()
+ *                             .dimensions(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs.builder()
+ *                                 .value(&#34;1&#34;)
+ *                                 .build())
+ *                             .build())
+ *                         .build())
+ *                     .actionName(&#34;ExampleCustomAction&#34;)
+ *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Network Firewall Policies using their `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
+ * $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
  * ```
  * 
  */
@@ -320,9 +334,6 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

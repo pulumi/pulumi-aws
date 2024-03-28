@@ -17,8 +17,10 @@ import (
 // Distribution.
 //
 // ## Example Usage
+//
 // ### Route53 Record
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,13 +47,13 @@ import (
 //				return err
 //			}
 //			_, err = route53.NewRecord(ctx, "example", &route53.RecordArgs{
-//				ZoneId: *pulumi.String(testZone.Id),
+//				ZoneId: pulumi.String(testZone.Id),
 //				Name:   pulumi.String("bucket"),
-//				Type:   pulumi.String("A"),
+//				Type:   pulumi.String(route53.RecordTypeA),
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{
-//						Name:   *pulumi.String(selected.WebsiteDomain),
-//						ZoneId: *pulumi.String(selected.HostedZoneId),
+//						Name:   pulumi.String(selected.WebsiteDomain),
+//						ZoneId: pulumi.String(selected.HostedZoneId),
 //					},
 //				},
 //			})
@@ -63,8 +65,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### CloudFront Origin
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -87,7 +92,7 @@ import (
 //			_, err = cloudfront.NewDistribution(ctx, "test", &cloudfront.DistributionArgs{
 //				Origins: cloudfront.DistributionOriginArray{
 //					&cloudfront.DistributionOriginArgs{
-//						DomainName: *pulumi.String(selected.BucketDomainName),
+//						DomainName: pulumi.String(selected.BucketDomainName),
 //						OriginId:   pulumi.String("s3-selected-bucket"),
 //					},
 //				},
@@ -100,6 +105,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupBucket(ctx *pulumi.Context, args *LookupBucketArgs, opts ...pulumi.InvokeOption) (*LookupBucketResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBucketResult

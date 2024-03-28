@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,7 +19,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Transcribe MedicalVocabulary.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -33,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.aws.transcribe.MedicalVocabulary;
  * import com.pulumi.aws.transcribe.MedicalVocabularyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import com.pulumi.asset.FileAsset;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -48,12 +49,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example-medical-vocab-123&#34;)
  *             .forceDestroy(true)
  *             .build());
  * 
  *         var object = new BucketObjectv2(&#34;object&#34;, BucketObjectv2Args.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .key(&#34;transcribe/test1.txt&#34;)
  *             .source(new FileAsset(&#34;test.txt&#34;))
  *             .build());
@@ -61,7 +63,7 @@ import javax.annotation.Nullable;
  *         var exampleMedicalVocabulary = new MedicalVocabulary(&#34;exampleMedicalVocabulary&#34;, MedicalVocabularyArgs.builder()        
  *             .vocabularyName(&#34;example&#34;)
  *             .languageCode(&#34;en-US&#34;)
- *             .vocabularyFileUri(Output.tuple(exampleBucketV2.id(), object.key()).applyValue(values -&gt; {
+ *             .vocabularyFileUri(Output.tuple(example.id(), object.key()).applyValue(values -&gt; {
  *                 var id = values.t1;
  *                 var key = values.t2;
  *                 return String.format(&#34;s3://%s/%s&#34;, id,key);
@@ -70,20 +72,19 @@ import javax.annotation.Nullable;
  *                 Map.entry(&#34;tag1&#34;, &#34;value1&#34;),
  *                 Map.entry(&#34;tag2&#34;, &#34;value3&#34;)
  *             ))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(object)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Transcribe MedicalVocabulary using the `vocabulary_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
+ * $ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
  * ```
  * 
  */
@@ -222,9 +223,6 @@ public class MedicalVocabulary extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

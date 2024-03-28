@@ -50,25 +50,28 @@ public final class ClusterLoggingInfoBrokerLogs {
 
         @CustomType.Setter
         public Builder cloudwatchLogs(@Nullable ClusterLoggingInfoBrokerLogsCloudwatchLogs cloudwatchLogs) {
+
             this.cloudwatchLogs = cloudwatchLogs;
             return this;
         }
         @CustomType.Setter
         public Builder firehose(@Nullable ClusterLoggingInfoBrokerLogsFirehose firehose) {
+
             this.firehose = firehose;
             return this;
         }
         @CustomType.Setter
         public Builder s3(@Nullable ClusterLoggingInfoBrokerLogsS3 s3) {
+
             this.s3 = s3;
             return this;
         }
         public ClusterLoggingInfoBrokerLogs build() {
-            final var o = new ClusterLoggingInfoBrokerLogs();
-            o.cloudwatchLogs = cloudwatchLogs;
-            o.firehose = firehose;
-            o.s3 = s3;
-            return o;
+            final var _resultValue = new ClusterLoggingInfoBrokerLogs();
+            _resultValue.cloudwatchLogs = cloudwatchLogs;
+            _resultValue.firehose = firehose;
+            _resultValue.s3 = s3;
+            return _resultValue;
         }
     }
 }

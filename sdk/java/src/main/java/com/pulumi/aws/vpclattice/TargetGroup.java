@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,7 +20,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS VPC Lattice Target Group.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,9 +47,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TargetGroup(&#34;example&#34;, TargetGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .type(&#34;INSTANCE&#34;)
  *             .config(TargetGroupConfigArgs.builder()
- *                 .vpcIdentifier(aws_vpc.example().id())
+ *                 .vpcIdentifier(exampleAwsVpc.id())
  *                 .port(443)
  *                 .protocol(&#34;HTTPS&#34;)
  *                 .build())
@@ -56,7 +59,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Basic usage with Health check
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -82,9 +89,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TargetGroup(&#34;example&#34;, TargetGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .type(&#34;IP&#34;)
  *             .config(TargetGroupConfigArgs.builder()
- *                 .vpcIdentifier(aws_vpc.example().id())
+ *                 .vpcIdentifier(exampleAwsVpc.id())
  *                 .ipAddressType(&#34;IPV4&#34;)
  *                 .port(443)
  *                 .protocol(&#34;HTTPS&#34;)
@@ -109,9 +117,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### ALB
  * 
  * If the type is ALB, `health_check` block is not supported.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -135,9 +147,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TargetGroup(&#34;example&#34;, TargetGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .type(&#34;ALB&#34;)
  *             .config(TargetGroupConfigArgs.builder()
- *                 .vpcIdentifier(aws_vpc.example().id())
+ *                 .vpcIdentifier(exampleAwsVpc.id())
  *                 .port(443)
  *                 .protocol(&#34;HTTPS&#34;)
  *                 .protocolVersion(&#34;HTTP1&#34;)
@@ -147,9 +160,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Lambda
  * 
  * If the type is Lambda, `config` block is not supported.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -172,19 +189,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TargetGroup(&#34;example&#34;, TargetGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .type(&#34;LAMBDA&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import VPC Lattice Target Group using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:vpclattice/targetGroup:TargetGroup example tg-0c11d4dc16ed96bdb
+ * $ pulumi import aws:vpclattice/targetGroup:TargetGroup example tg-0c11d4dc16ed96bdb
  * ```
  * 
  */
@@ -329,9 +348,6 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

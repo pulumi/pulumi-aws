@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Provides a resource to manage a Resource Explorer view.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -35,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.resourceexplorer.ViewArgs;
  * import com.pulumi.aws.resourceexplorer.inputs.ViewFiltersArgs;
  * import com.pulumi.aws.resourceexplorer.inputs.ViewIncludedPropertyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,31 +50,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleIndex = new Index(&#34;exampleIndex&#34;, IndexArgs.builder()        
+ *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
  *             .type(&#34;LOCAL&#34;)
  *             .build());
  * 
  *         var exampleView = new View(&#34;exampleView&#34;, ViewArgs.builder()        
+ *             .name(&#34;exampleview&#34;)
  *             .filters(ViewFiltersArgs.builder()
  *                 .filterString(&#34;resourcetype:ec2:instance&#34;)
  *                 .build())
  *             .includedProperties(ViewIncludedPropertyArgs.builder()
  *                 .name(&#34;tags&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleIndex)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Resource Explorer views using the `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:resourceexplorer/view:View example arn:aws:resource-explorer-2:us-west-2:123456789012:view/exampleview/e0914f6c-6c27-4b47-b5d4-6b28381a2421
+ * $ pulumi import aws:resourceexplorer/view:View example arn:aws:resource-explorer-2:us-west-2:123456789012:view/exampleview/e0914f6c-6c27-4b47-b5d4-6b28381a2421
  * ```
  * 
  */
@@ -214,9 +215,6 @@ public class View extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

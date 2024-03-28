@@ -100,37 +100,42 @@ public final class EndpointRedshiftSettings {
 
         @CustomType.Setter
         public Builder bucketFolder(@Nullable String bucketFolder) {
+
             this.bucketFolder = bucketFolder;
             return this;
         }
         @CustomType.Setter
         public Builder bucketName(@Nullable String bucketName) {
+
             this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionMode(@Nullable String encryptionMode) {
+
             this.encryptionMode = encryptionMode;
             return this;
         }
         @CustomType.Setter
         public Builder serverSideEncryptionKmsKeyId(@Nullable String serverSideEncryptionKmsKeyId) {
+
             this.serverSideEncryptionKmsKeyId = serverSideEncryptionKmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder serviceAccessRoleArn(@Nullable String serviceAccessRoleArn) {
+
             this.serviceAccessRoleArn = serviceAccessRoleArn;
             return this;
         }
         public EndpointRedshiftSettings build() {
-            final var o = new EndpointRedshiftSettings();
-            o.bucketFolder = bucketFolder;
-            o.bucketName = bucketName;
-            o.encryptionMode = encryptionMode;
-            o.serverSideEncryptionKmsKeyId = serverSideEncryptionKmsKeyId;
-            o.serviceAccessRoleArn = serviceAccessRoleArn;
-            return o;
+            final var _resultValue = new EndpointRedshiftSettings();
+            _resultValue.bucketFolder = bucketFolder;
+            _resultValue.bucketName = bucketName;
+            _resultValue.encryptionMode = encryptionMode;
+            _resultValue.serverSideEncryptionKmsKeyId = serverSideEncryptionKmsKeyId;
+            _resultValue.serviceAccessRoleArn = serviceAccessRoleArn;
+            return _resultValue;
         }
     }
 }

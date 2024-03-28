@@ -4,6 +4,7 @@
 package com.pulumi.aws.emrserverless.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class ApplicationImageConfiguration {
 
         @CustomType.Setter
         public Builder imageUri(String imageUri) {
-            this.imageUri = Objects.requireNonNull(imageUri);
+            if (imageUri == null) {
+              throw new MissingRequiredPropertyException("ApplicationImageConfiguration", "imageUri");
+            }
+            this.imageUri = imageUri;
             return this;
         }
         public ApplicationImageConfiguration build() {
-            final var o = new ApplicationImageConfiguration();
-            o.imageUri = imageUri;
-            return o;
+            final var _resultValue = new ApplicationImageConfiguration();
+            _resultValue.imageUri = imageUri;
+            return _resultValue;
         }
     }
 }

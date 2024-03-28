@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -100,37 +101,44 @@ public final class BucketAclV2AccessControlPolicyGrantGrantee {
 
         @CustomType.Setter
         public Builder displayName(@Nullable String displayName) {
+
             this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder emailAddress(@Nullable String emailAddress) {
+
             this.emailAddress = emailAddress;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("BucketAclV2AccessControlPolicyGrantGrantee", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder uri(@Nullable String uri) {
+
             this.uri = uri;
             return this;
         }
         public BucketAclV2AccessControlPolicyGrantGrantee build() {
-            final var o = new BucketAclV2AccessControlPolicyGrantGrantee();
-            o.displayName = displayName;
-            o.emailAddress = emailAddress;
-            o.id = id;
-            o.type = type;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new BucketAclV2AccessControlPolicyGrantGrantee();
+            _resultValue.displayName = displayName;
+            _resultValue.emailAddress = emailAddress;
+            _resultValue.id = id;
+            _resultValue.type = type;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

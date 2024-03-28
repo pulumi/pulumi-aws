@@ -11,20 +11,25 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleProject = new aws.devicefarm.Project("exampleProject", {});
- * const exampleNetworkProfile = new aws.devicefarm.NetworkProfile("exampleNetworkProfile", {projectArn: exampleProject.arn});
+ * const example = new aws.devicefarm.Project("example", {name: "example"});
+ * const exampleNetworkProfile = new aws.devicefarm.NetworkProfile("example", {
+ *     name: "example",
+ *     projectArn: example.arn,
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import DeviceFarm Network Profiles using their ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:devicefarm/networkProfile:NetworkProfile example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+ * $ pulumi import aws:devicefarm/networkProfile:NetworkProfile example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
  * ```
  */
 export class NetworkProfile extends pulumi.CustomResource {
@@ -168,8 +173,6 @@ export class NetworkProfile extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(NetworkProfile.__pulumiType, name, resourceInputs, opts);
     }
 }

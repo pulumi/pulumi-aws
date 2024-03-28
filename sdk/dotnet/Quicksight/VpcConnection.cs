@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Quicksight
     /// Resource for managing an AWS QuickSight VPC Connection.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,20 +26,20 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var vpcConnectionRole = new Aws.Iam.Role("vpcConnectionRole", new()
+    ///     var vpcConnectionRole = new Aws.Iam.Role("vpc_connection_role", new()
     ///     {
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["effect"] = "Allow",
+    ///                     ["action"] = "sts:AssumeRole",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "quicksight.amazonaws.com",
+    ///                         ["service"] = "quicksight.amazonaws.com",
     ///                     },
     ///                 },
     ///             },
@@ -49,13 +51,13 @@ namespace Pulumi.Aws.Quicksight
     ///                 Name = "QuickSightVPCConnectionRolePolicy",
     ///                 Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Version"] = "2012-10-17",
-    ///                     ["Statement"] = new[]
+    ///                     ["version"] = "2012-10-17",
+    ///                     ["statement"] = new[]
     ///                     {
     ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             ["Effect"] = "Allow",
-    ///                             ["Action"] = new[]
+    ///                             ["effect"] = "Allow",
+    ///                             ["action"] = new[]
     ///                             {
     ///                                 "ec2:CreateNetworkInterface",
     ///                                 "ec2:ModifyNetworkInterfaceAttribute",
@@ -63,7 +65,7 @@ namespace Pulumi.Aws.Quicksight
     ///                                 "ec2:DescribeSubnets",
     ///                                 "ec2:DescribeSecurityGroups",
     ///                             },
-    ///                             ["Resource"] = new[]
+    ///                             ["resource"] = new[]
     ///                             {
     ///                                 "*",
     ///                             },
@@ -77,6 +79,7 @@ namespace Pulumi.Aws.Quicksight
     ///     var example = new Aws.Quicksight.VpcConnection("example", new()
     ///     {
     ///         VpcConnectionId = "example-connection-id",
+    ///         Name = "Example Connection",
     ///         RoleArn = vpcConnectionRole.Arn,
     ///         SecurityGroupIds = new[]
     ///         {
@@ -91,13 +94,14 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import QuickSight VPC connection using the AWS account ID and VPC connection ID separated by commas (`,`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
+    /// $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
     /// ```
     /// </summary>
     [AwsResourceType("aws:quicksight/vpcConnection:VpcConnection")]
@@ -197,10 +201,6 @@ namespace Pulumi.Aws.Quicksight
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -399,11 +399,7 @@ namespace Pulumi.Aws.Quicksight
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("timeouts")]

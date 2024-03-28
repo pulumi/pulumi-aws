@@ -44,6 +44,7 @@ public final class ScheduleTargetSagemakerPipelineParameters {
 
         @CustomType.Setter
         public Builder pipelineParameters(@Nullable List<ScheduleTargetSagemakerPipelineParametersPipelineParameter> pipelineParameters) {
+
             this.pipelineParameters = pipelineParameters;
             return this;
         }
@@ -51,9 +52,9 @@ public final class ScheduleTargetSagemakerPipelineParameters {
             return pipelineParameters(List.of(pipelineParameters));
         }
         public ScheduleTargetSagemakerPipelineParameters build() {
-            final var o = new ScheduleTargetSagemakerPipelineParameters();
-            o.pipelineParameters = pipelineParameters;
-            return o;
+            final var _resultValue = new ScheduleTargetSagemakerPipelineParameters();
+            _resultValue.pipelineParameters = pipelineParameters;
+            return _resultValue;
         }
     }
 }

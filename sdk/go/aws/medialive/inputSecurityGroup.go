@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS MediaLive InputSecurityGroup.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,13 +32,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := medialive.NewInputSecurityGroup(ctx, "example", &medialive.InputSecurityGroupArgs{
-//				Tags: pulumi.StringMap{
-//					"ENVIRONMENT": pulumi.String("prod"),
-//				},
 //				WhitelistRules: medialive.InputSecurityGroupWhitelistRuleArray{
 //					&medialive.InputSecurityGroupWhitelistRuleArgs{
 //						Cidr: pulumi.String("10.0.0.8/32"),
 //					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"ENVIRONMENT": pulumi.String("prod"),
 //				},
 //			})
 //			if err != nil {
@@ -47,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
-//
+// $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
 // ```
 type InputSecurityGroup struct {
 	pulumi.CustomResourceState
@@ -84,10 +85,6 @@ func NewInputSecurityGroup(ctx *pulumi.Context,
 	if args.WhitelistRules == nil {
 		return nil, errors.New("invalid value for required argument 'WhitelistRules'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InputSecurityGroup
 	err := ctx.RegisterResource("aws:medialive/inputSecurityGroup:InputSecurityGroup", name, args, &resource, opts...)

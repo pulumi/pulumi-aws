@@ -5,8 +5,11 @@ package com.pulumi.aws.codepipeline;
 
 import com.pulumi.aws.codepipeline.inputs.PipelineArtifactStoreArgs;
 import com.pulumi.aws.codepipeline.inputs.PipelineStageArgs;
+import com.pulumi.aws.codepipeline.inputs.PipelineTriggerArgs;
+import com.pulumi.aws.codepipeline.inputs.PipelineVariableArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -35,6 +38,25 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+     * 
+     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+     * 
+     */
+    @Import(name="executionMode")
+    private @Nullable Output<String> executionMode;
+
+    /**
+     * @return The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+     * 
+     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+     * 
+     */
+    public Optional<Output<String>> executionMode() {
+        return Optional.ofNullable(this.executionMode);
+    }
+
+    /**
      * The name of the pipeline.
      * 
      */
@@ -47,6 +69,21 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+     * 
+     */
+    @Import(name="pipelineType")
+    private @Nullable Output<String> pipelineType;
+
+    /**
+     * @return Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+     * 
+     */
+    public Optional<Output<String>> pipelineType() {
+        return Optional.ofNullable(this.pipelineType);
     }
 
     /**
@@ -94,14 +131,48 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+     * 
+     */
+    @Import(name="triggers")
+    private @Nullable Output<List<PipelineTriggerArgs>> triggers;
+
+    /**
+     * @return A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+     * 
+     */
+    public Optional<Output<List<PipelineTriggerArgs>>> triggers() {
+        return Optional.ofNullable(this.triggers);
+    }
+
+    /**
+     * A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+     * 
+     */
+    @Import(name="variables")
+    private @Nullable Output<List<PipelineVariableArgs>> variables;
+
+    /**
+     * @return A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+     * 
+     */
+    public Optional<Output<List<PipelineVariableArgs>>> variables() {
+        return Optional.ofNullable(this.variables);
+    }
+
     private PipelineArgs() {}
 
     private PipelineArgs(PipelineArgs $) {
         this.artifactStores = $.artifactStores;
+        this.executionMode = $.executionMode;
         this.name = $.name;
+        this.pipelineType = $.pipelineType;
         this.roleArn = $.roleArn;
         this.stages = $.stages;
         this.tags = $.tags;
+        this.triggers = $.triggers;
+        this.variables = $.variables;
     }
 
     public static Builder builder() {
@@ -154,6 +225,31 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param executionMode The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+         * 
+         * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder executionMode(@Nullable Output<String> executionMode) {
+            $.executionMode = executionMode;
+            return this;
+        }
+
+        /**
+         * @param executionMode The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+         * 
+         * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder executionMode(String executionMode) {
+            return executionMode(Output.of(executionMode));
+        }
+
+        /**
          * @param name The name of the pipeline.
          * 
          * @return builder
@@ -172,6 +268,27 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param pipelineType Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pipelineType(@Nullable Output<String> pipelineType) {
+            $.pipelineType = pipelineType;
+            return this;
+        }
+
+        /**
+         * @param pipelineType Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pipelineType(String pipelineType) {
+            return pipelineType(Output.of(pipelineType));
         }
 
         /**
@@ -247,10 +364,78 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param triggers A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggers(@Nullable Output<List<PipelineTriggerArgs>> triggers) {
+            $.triggers = triggers;
+            return this;
+        }
+
+        /**
+         * @param triggers A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggers(List<PipelineTriggerArgs> triggers) {
+            return triggers(Output.of(triggers));
+        }
+
+        /**
+         * @param triggers A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggers(PipelineTriggerArgs... triggers) {
+            return triggers(List.of(triggers));
+        }
+
+        /**
+         * @param variables A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder variables(@Nullable Output<List<PipelineVariableArgs>> variables) {
+            $.variables = variables;
+            return this;
+        }
+
+        /**
+         * @param variables A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder variables(List<PipelineVariableArgs> variables) {
+            return variables(Output.of(variables));
+        }
+
+        /**
+         * @param variables A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder variables(PipelineVariableArgs... variables) {
+            return variables(List.of(variables));
+        }
+
         public PipelineArgs build() {
-            $.artifactStores = Objects.requireNonNull($.artifactStores, "expected parameter 'artifactStores' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.stages = Objects.requireNonNull($.stages, "expected parameter 'stages' to be non-null");
+            if ($.artifactStores == null) {
+                throw new MissingRequiredPropertyException("PipelineArgs", "artifactStores");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("PipelineArgs", "roleArn");
+            }
+            if ($.stages == null) {
+                throw new MissingRequiredPropertyException("PipelineArgs", "stages");
+            }
             return $;
         }
     }

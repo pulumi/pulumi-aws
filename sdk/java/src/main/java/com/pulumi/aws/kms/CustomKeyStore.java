@@ -17,7 +17,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS KMS (Key Management) Custom Key Store.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -40,22 +43,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new CustomKeyStore(&#34;test&#34;, CustomKeyStoreArgs.builder()        
- *             .cloudHsmClusterId(var_.cloud_hsm_cluster_id())
+ *             .cloudHsmClusterId(cloudHsmClusterId)
  *             .customKeyStoreName(&#34;kms-custom-key-store-test&#34;)
  *             .keyStorePassword(&#34;noplaintextpasswords1&#34;)
- *             .trustAnchorCertificate(Files.readString(Paths.get(&#34;anchor-certificate.crt&#34;)))
+ *             .trustAnchorCertificate(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;anchor-certificate.crt&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
+ * $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
  * ```
  * 
  */

@@ -7,6 +7,7 @@ import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputO
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -81,31 +82,39 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
 
         @CustomType.Setter
         public Builder bufferMsec(@Nullable Integer bufferMsec) {
+
             this.bufferMsec = bufferMsec;
             return this;
         }
         @CustomType.Setter
         public Builder containerSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings containerSettings) {
-            this.containerSettings = Objects.requireNonNull(containerSettings);
+            if (containerSettings == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings", "containerSettings");
+            }
+            this.containerSettings = containerSettings;
             return this;
         }
         @CustomType.Setter
         public Builder destination(ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination destination) {
-            this.destination = Objects.requireNonNull(destination);
+            if (destination == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings", "destination");
+            }
+            this.destination = destination;
             return this;
         }
         @CustomType.Setter
         public Builder fecOutputSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings fecOutputSettings) {
+
             this.fecOutputSettings = fecOutputSettings;
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings();
-            o.bufferMsec = bufferMsec;
-            o.containerSettings = containerSettings;
-            o.destination = destination;
-            o.fecOutputSettings = fecOutputSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings();
+            _resultValue.bufferMsec = bufferMsec;
+            _resultValue.containerSettings = containerSettings;
+            _resultValue.destination = destination;
+            _resultValue.fecOutputSettings = fecOutputSettings;
+            return _resultValue;
         }
     }
 }

@@ -9,17 +9,18 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentPartition = aws.getPartition({});
- * const currentRegion = aws.getRegion({});
- * const glue-example-policy = Promise.all([currentPartition, currentRegion, currentCallerIdentity]).then(([currentPartition, currentRegion, currentCallerIdentity]) => aws.iam.getPolicyDocument({
+ * const current = aws.getCallerIdentity({});
+ * const currentGetPartition = aws.getPartition({});
+ * const currentGetRegion = aws.getRegion({});
+ * const glue-example-policy = Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["glue:CreateTable"],
- *         resources: [`arn:${currentPartition.partition}:glue:${currentRegion.name}:${currentCallerIdentity.accountId}:*`],
+ *         resources: [`arn:${currentGetPartition.partition}:glue:${currentGetRegion.name}:${current.accountId}:*`],
  *         principals: [{
  *             identifiers: ["*"],
  *             type: "AWS",
@@ -28,13 +29,14 @@ import * as utilities from "../utilities";
  * }));
  * const example = new aws.glue.ResourcePolicy("example", {policy: glue_example_policy.then(glue_example_policy => glue_example_policy.json)});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Glue Resource Policy using the account ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
+ * $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
  * ```
  */
 export class ResourcePolicy extends pulumi.CustomResource {

@@ -25,8 +25,8 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
         }
 
         public WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethod build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethod();
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethod();
+            return _resultValue;
         }
     }
 }

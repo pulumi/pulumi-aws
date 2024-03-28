@@ -59,19 +59,21 @@ public final class ThemeConfigurationSheet {
 
         @CustomType.Setter
         public Builder tile(@Nullable ThemeConfigurationSheetTile tile) {
+
             this.tile = tile;
             return this;
         }
         @CustomType.Setter
         public Builder tileLayout(@Nullable ThemeConfigurationSheetTileLayout tileLayout) {
+
             this.tileLayout = tileLayout;
             return this;
         }
         public ThemeConfigurationSheet build() {
-            final var o = new ThemeConfigurationSheet();
-            o.tile = tile;
-            o.tileLayout = tileLayout;
-            return o;
+            final var _resultValue = new ThemeConfigurationSheet();
+            _resultValue.tile = tile;
+            _resultValue.tileLayout = tileLayout;
+            return _resultValue;
         }
     }
 }

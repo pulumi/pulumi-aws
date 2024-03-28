@@ -15,13 +15,15 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testLambdaAlias = new aws.lambda.Alias("testLambdaAlias", {
+ * const testLambdaAlias = new aws.lambda.Alias("test_lambda_alias", {
+ *     name: "my_alias",
  *     description: "a sample description",
- *     functionName: aws_lambda_function.lambda_function_test.arn,
+ *     functionName: lambdaFunctionTest.arn,
  *     functionVersion: "1",
  *     routingConfig: {
  *         additionalVersionWeights: {
@@ -30,13 +32,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Lambda Function Aliases using the `function_name/alias`. For example:
  *
  * ```sh
- *  $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
+ * $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
  * ```
  */
 export class Alias extends pulumi.CustomResource {

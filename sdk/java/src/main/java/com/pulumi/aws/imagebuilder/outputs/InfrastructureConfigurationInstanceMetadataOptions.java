@@ -59,19 +59,21 @@ public final class InfrastructureConfigurationInstanceMetadataOptions {
 
         @CustomType.Setter
         public Builder httpPutResponseHopLimit(@Nullable Integer httpPutResponseHopLimit) {
+
             this.httpPutResponseHopLimit = httpPutResponseHopLimit;
             return this;
         }
         @CustomType.Setter
         public Builder httpTokens(@Nullable String httpTokens) {
+
             this.httpTokens = httpTokens;
             return this;
         }
         public InfrastructureConfigurationInstanceMetadataOptions build() {
-            final var o = new InfrastructureConfigurationInstanceMetadataOptions();
-            o.httpPutResponseHopLimit = httpPutResponseHopLimit;
-            o.httpTokens = httpTokens;
-            return o;
+            final var _resultValue = new InfrastructureConfigurationInstanceMetadataOptions();
+            _resultValue.httpPutResponseHopLimit = httpPutResponseHopLimit;
+            _resultValue.httpTokens = httpTokens;
+            return _resultValue;
         }
     }
 }

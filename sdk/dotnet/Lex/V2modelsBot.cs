@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Lex
     /// Resource for managing an AWS Lex V2 Models Bot.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,6 +27,7 @@ namespace Pulumi.Aws.Lex
     /// {
     ///     var example = new Aws.Lex.V2modelsBot("example", new()
     ///     {
+    ///         Name = "example",
     ///         DataPrivacies = new[]
     ///         {
     ///             new Aws.Lex.Inputs.V2modelsBotDataPrivacyArgs
@@ -34,17 +37,22 @@ namespace Pulumi.Aws.Lex
     ///         },
     ///         IdleSessionTtlInSeconds = 10,
     ///         RoleArn = "bot_example_arn",
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Lex V2 Models Bot using the `example_id_arg`. For example:
+    /// Using `pulumi import`, import Lex V2 Models Bot using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
+    /// $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:lex/v2modelsBot:V2modelsBot")]
@@ -91,6 +99,9 @@ namespace Pulumi.Aws.Lex
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// List of tags to add to the bot. You can only add tags when you create a bot.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -106,6 +117,9 @@ namespace Pulumi.Aws.Lex
         [Output("timeouts")]
         public Output<Outputs.V2modelsBotTimeouts?> Timeouts { get; private set; } = null!;
 
+        /// <summary>
+        /// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
+        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -132,10 +146,6 @@ namespace Pulumi.Aws.Lex
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -211,6 +221,10 @@ namespace Pulumi.Aws.Lex
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// List of tags to add to the bot. You can only add tags when you create a bot.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -232,6 +246,9 @@ namespace Pulumi.Aws.Lex
         [Input("timeouts")]
         public Input<Inputs.V2modelsBotTimeoutsArgs>? Timeouts { get; set; }
 
+        /// <summary>
+        /// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -298,6 +315,10 @@ namespace Pulumi.Aws.Lex
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// List of tags to add to the bot. You can only add tags when you create a bot.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -310,11 +331,7 @@ namespace Pulumi.Aws.Lex
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("testBotAliasTags")]
@@ -332,6 +349,9 @@ namespace Pulumi.Aws.Lex
         [Input("timeouts")]
         public Input<Inputs.V2modelsBotTimeoutsGetArgs>? Timeouts { get; set; }
 
+        /// <summary>
+        /// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

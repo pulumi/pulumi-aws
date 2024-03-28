@@ -18,15 +18,18 @@ namespace Pulumi.Aws.Rds
     /// * [Oracle Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ModifyInstance.Oracle.html#USER_ModifyInstance.Oracle.sqlnet)
     /// * [PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Parameters)
     /// 
-    /// &gt; **NOTE:** After applying your changes, you may encounter a perpetual diff in your pulumi preview
-    /// output for a `parameter` whose `value` remains unchanged but whose `apply_method` is changing
-    /// (e.g., from `immediate` to `pending-reboot`, or `pending-reboot` to `immediate`). If only the
-    /// apply method of a parameter is changing, the AWS API will not register this change. To change
-    /// the `apply_method` of a parameter, its value must also change.
+    /// &gt; **Hands-on:** For an example of the `aws.rds.ParameterGroup` in use, follow the Manage AWS RDS Instances tutorial on HashiCorp Learn.
+    /// 
+    /// &gt; **NOTE**: to make diffs less confusing, the AWS provider will ignore changes for a `parameter` whose `value` remains
+    /// unchanged but whose `apply_method` is changing (e.g., from `immediate` to `pending-reboot`, or `pending-reboot` to
+    /// `immediate`). This matches the cloud: if only the apply method of a parameter is changing, the AWS API will not register
+    /// this change. To change the `apply_method` of a parameter, its value must also change.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,6 +40,7 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var @default = new Aws.Rds.ParameterGroup("default", new()
     ///     {
+    ///         Name = "rds-pg",
     ///         Family = "mysql5.6",
     ///         Parameters = new[]
     ///         {
@@ -55,6 +59,8 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### `create_before_destroy` Lifecycle Configuration
     /// 
     /// The `create_before_destroy`
@@ -63,6 +69,7 @@ namespace Pulumi.Aws.Rds
     /// bumping the `family` version during a major version upgrade. This configuration will prevent destruction
     /// of the deposed parameter group while still in use by the database during upgrade.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -71,8 +78,9 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleParameterGroup = new Aws.Rds.ParameterGroup("exampleParameterGroup", new()
+    ///     var example = new Aws.Rds.ParameterGroup("example", new()
     ///     {
+    ///         Name = "my-pg",
     ///         Family = "postgres13",
     ///         Parameters = new[]
     ///         {
@@ -84,21 +92,22 @@ namespace Pulumi.Aws.Rds
     ///         },
     ///     });
     /// 
-    ///     var exampleInstance = new Aws.Rds.Instance("exampleInstance", new()
+    ///     var exampleInstance = new Aws.Rds.Instance("example", new()
     ///     {
-    ///         ParameterGroupName = exampleParameterGroup.Name,
+    ///         ParameterGroupName = example.Name,
     ///         ApplyImmediately = true,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DB Parameter groups using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
+    /// $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/parameterGroup:ParameterGroup")]
@@ -123,7 +132,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Family { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the DB parameter.
+        /// The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -135,7 +144,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+        /// The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableArray<Outputs.ParameterGroupParameter>> Parameters { get; private set; } = null!;
@@ -175,10 +184,6 @@ namespace Pulumi.Aws.Rds
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -215,7 +220,7 @@ namespace Pulumi.Aws.Rds
         public Input<string> Family { get; set; } = null!;
 
         /// <summary>
-        /// The name of the DB parameter.
+        /// The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -230,7 +235,7 @@ namespace Pulumi.Aws.Rds
         private InputList<Inputs.ParameterGroupParameterArgs>? _parameters;
 
         /// <summary>
-        /// A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+        /// The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
         /// </summary>
         public InputList<Inputs.ParameterGroupParameterArgs> Parameters
         {
@@ -278,7 +283,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Family { get; set; }
 
         /// <summary>
-        /// The name of the DB parameter.
+        /// The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -293,7 +298,7 @@ namespace Pulumi.Aws.Rds
         private InputList<Inputs.ParameterGroupParameterGetArgs>? _parameters;
 
         /// <summary>
-        /// A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+        /// The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
         /// </summary>
         public InputList<Inputs.ParameterGroupParameterGetArgs> Parameters
         {
@@ -323,11 +328,7 @@ namespace Pulumi.Aws.Rds
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ParameterGroupState()

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * To create a basic traffic mirror session
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,22 +21,23 @@ import * as utilities from "../utilities";
  *     description: "traffic mirror filter - example",
  *     networkServices: ["amazon-dns"],
  * });
- * const target = new aws.ec2.TrafficMirrorTarget("target", {networkLoadBalancerArn: aws_lb.lb.arn});
+ * const target = new aws.ec2.TrafficMirrorTarget("target", {networkLoadBalancerArn: lb.arn});
  * const session = new aws.ec2.TrafficMirrorSession("session", {
  *     description: "traffic mirror session - example",
- *     networkInterfaceId: aws_instance.test.primary_network_interface_id,
+ *     networkInterfaceId: test.primaryNetworkInterfaceId,
  *     sessionNumber: 1,
  *     trafficMirrorFilterId: filter.id,
  *     trafficMirrorTargetId: target.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import traffic mirror sessions using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
+ * $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
  * ```
  */
 export class TrafficMirrorSession extends pulumi.CustomResource {
@@ -164,8 +166,6 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(TrafficMirrorSession.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigateway.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -156,61 +157,88 @@ public final class GetKeyResult {
 
         @CustomType.Setter
         public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+            if (createdDate == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "createdDate");
+            }
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
         public Builder customerId(String customerId) {
-            this.customerId = Objects.requireNonNull(customerId);
+            if (customerId == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "customerId");
+            }
+            this.customerId = customerId;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder lastUpdatedDate(String lastUpdatedDate) {
-            this.lastUpdatedDate = Objects.requireNonNull(lastUpdatedDate);
+            if (lastUpdatedDate == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "lastUpdatedDate");
+            }
+            this.lastUpdatedDate = lastUpdatedDate;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "value");
+            }
+            this.value = value;
             return this;
         }
         public GetKeyResult build() {
-            final var o = new GetKeyResult();
-            o.createdDate = createdDate;
-            o.customerId = customerId;
-            o.description = description;
-            o.enabled = enabled;
-            o.id = id;
-            o.lastUpdatedDate = lastUpdatedDate;
-            o.name = name;
-            o.tags = tags;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetKeyResult();
+            _resultValue.createdDate = createdDate;
+            _resultValue.customerId = customerId;
+            _resultValue.description = description;
+            _resultValue.enabled = enabled;
+            _resultValue.id = id;
+            _resultValue.lastUpdatedDate = lastUpdatedDate;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

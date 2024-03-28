@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,7 +33,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = kubernetes.NewKubernetes_pod(ctx, "agent", &kubernetes.Kubernetes_podArgs{
+//			_, err = kubernetes.NewPod(ctx, "agent", &kubernetes.PodArgs{
 //				Metadata: []map[string]interface{}{
 //					map[string]interface{}{
 //						"name": "my-device",
@@ -63,6 +64,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetEndpoint(ctx *pulumi.Context, args *GetEndpointArgs, opts ...pulumi.InvokeOption) (*GetEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEndpointResult

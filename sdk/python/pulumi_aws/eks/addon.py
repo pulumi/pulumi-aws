@@ -28,7 +28,7 @@ class AddonArgs:
         The set of arguments for constructing a Addon resource.
         :param pulumi.Input[str] addon_name: Name of the EKS add-on. The name must match one of
                the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
-        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
                
                The following arguments are optional:
         :param pulumi.Input[str] addon_version: The version of the EKS add-on. The version must
@@ -90,7 +90,7 @@ class AddonArgs:
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Input[str]:
         """
-        Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        Name of the EKS Cluster.
 
         The following arguments are optional:
         """
@@ -235,7 +235,7 @@ class _AddonState:
         :param pulumi.Input[str] addon_version: The version of the EKS add-on. The version must
                match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EKS add-on.
-        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
                
                The following arguments are optional:
         :param pulumi.Input[str] configuration_values: custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
@@ -336,7 +336,7 @@ class _AddonState:
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        Name of the EKS Cluster.
 
         The following arguments are optional:
         """
@@ -504,28 +504,33 @@ class Addon(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.eks.Addon("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
+            cluster_name=example_aws_eks_cluster["name"],
             addon_name="vpc-cni")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Example Update add-on usage with resolve_conflicts_on_update and PRESERVE
 
         `resolve_conflicts_on_update` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.eks.Addon("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
+            cluster_name=example_aws_eks_cluster["name"],
             addon_name="coredns",
             addon_version="v1.10.1-eksbuild.1",
             resolve_conflicts_on_update="PRESERVE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Example add-on usage with custom configuration_values
 
@@ -536,12 +541,9 @@ class Addon(pulumi.CustomResource):
         To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
         This below is an example for extracting the `configuration_values` schema for `coredns`.
 
-        ```python
-        import pulumi
-        ```
-
         Example to create a `coredns` managed addon with custom `configuration_values`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -566,13 +568,53 @@ class Addon(pulumi.CustomResource):
                 },
             }))
         ```
+        <!--End PulumiCodeChooser -->
+
+        ### Example IAM Role for EKS Addon "vpc-cni" with AWS managed policy
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+        import pulumi_tls as tls
+
+        example_cluster = aws.eks.Cluster("example")
+        example = example_cluster.identities.apply(lambda identities: tls.get_certificate_output(url=identities[0].oidcs[0].issuer))
+        example_open_id_connect_provider = aws.iam.OpenIdConnectProvider("example",
+            client_id_lists=["sts.amazonaws.com"],
+            thumbprint_lists=[example.certificates[0].sha1_fingerprint],
+            url=example_cluster.identities[0].oidcs[0].issuer)
+        example_assume_role_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["sts:AssumeRoleWithWebIdentity"],
+            effect="Allow",
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="StringEquals",
+                variable=std.replace_output(text=example_open_id_connect_provider.url,
+                    search="https://",
+                    replace="").apply(lambda invoke: f"{invoke.result}:sub"),
+                values=["system:serviceaccount:kube-system:aws-node"],
+            )],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                identifiers=[example_open_id_connect_provider.arn],
+                type="Federated",
+            )],
+        )])
+        example_role = aws.iam.Role("example",
+            assume_role_policy=example_assume_role_policy.json,
+            name="example-vpc-cni-role")
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
+            role=example_role.name)
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EKS add-on using the `cluster_name` and `addon_name` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
+        $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
         ```
 
         :param str resource_name: The name of the resource.
@@ -581,7 +623,7 @@ class Addon(pulumi.CustomResource):
                the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[str] addon_version: The version of the EKS add-on. The version must
                match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
-        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
                
                The following arguments are optional:
         :param pulumi.Input[str] configuration_values: custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
@@ -613,28 +655,33 @@ class Addon(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.eks.Addon("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
+            cluster_name=example_aws_eks_cluster["name"],
             addon_name="vpc-cni")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Example Update add-on usage with resolve_conflicts_on_update and PRESERVE
 
         `resolve_conflicts_on_update` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.eks.Addon("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
+            cluster_name=example_aws_eks_cluster["name"],
             addon_name="coredns",
             addon_version="v1.10.1-eksbuild.1",
             resolve_conflicts_on_update="PRESERVE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Example add-on usage with custom configuration_values
 
@@ -645,12 +692,9 @@ class Addon(pulumi.CustomResource):
         To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
         This below is an example for extracting the `configuration_values` schema for `coredns`.
 
-        ```python
-        import pulumi
-        ```
-
         Example to create a `coredns` managed addon with custom `configuration_values`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -675,13 +719,53 @@ class Addon(pulumi.CustomResource):
                 },
             }))
         ```
+        <!--End PulumiCodeChooser -->
+
+        ### Example IAM Role for EKS Addon "vpc-cni" with AWS managed policy
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+        import pulumi_tls as tls
+
+        example_cluster = aws.eks.Cluster("example")
+        example = example_cluster.identities.apply(lambda identities: tls.get_certificate_output(url=identities[0].oidcs[0].issuer))
+        example_open_id_connect_provider = aws.iam.OpenIdConnectProvider("example",
+            client_id_lists=["sts.amazonaws.com"],
+            thumbprint_lists=[example.certificates[0].sha1_fingerprint],
+            url=example_cluster.identities[0].oidcs[0].issuer)
+        example_assume_role_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["sts:AssumeRoleWithWebIdentity"],
+            effect="Allow",
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="StringEquals",
+                variable=std.replace_output(text=example_open_id_connect_provider.url,
+                    search="https://",
+                    replace="").apply(lambda invoke: f"{invoke.result}:sub"),
+                values=["system:serviceaccount:kube-system:aws-node"],
+            )],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                identifiers=[example_open_id_connect_provider.arn],
+                type="Federated",
+            )],
+        )])
+        example_role = aws.iam.Role("example",
+            assume_role_policy=example_assume_role_policy.json,
+            name="example-vpc-cni-role")
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
+            role=example_role.name)
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EKS add-on using the `cluster_name` and `addon_name` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
+        $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
         ```
 
         :param str resource_name: The name of the resource.
@@ -736,8 +820,6 @@ class Addon(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["modified_at"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Addon, __self__).__init__(
             'aws:eks/addon:Addon',
             resource_name,
@@ -774,7 +856,7 @@ class Addon(pulumi.CustomResource):
         :param pulumi.Input[str] addon_version: The version of the EKS add-on. The version must
                match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EKS add-on.
-        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
                
                The following arguments are optional:
         :param pulumi.Input[str] configuration_values: custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
@@ -848,7 +930,7 @@ class Addon(pulumi.CustomResource):
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Output[str]:
         """
-        Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        Name of the EKS Cluster.
 
         The following arguments are optional:
         """

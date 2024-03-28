@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.aws.imagebuilder.outputs.GetImageRecipesFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -86,7 +87,10 @@ public final class GetImageRecipesResult {
 
         @CustomType.Setter
         public Builder arns(List<String> arns) {
-            this.arns = Objects.requireNonNull(arns);
+            if (arns == null) {
+              throw new MissingRequiredPropertyException("GetImageRecipesResult", "arns");
+            }
+            this.arns = arns;
             return this;
         }
         public Builder arns(String... arns) {
@@ -94,6 +98,7 @@ public final class GetImageRecipesResult {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetImageRecipesFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -102,12 +107,18 @@ public final class GetImageRecipesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetImageRecipesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder names(List<String> names) {
-            this.names = Objects.requireNonNull(names);
+            if (names == null) {
+              throw new MissingRequiredPropertyException("GetImageRecipesResult", "names");
+            }
+            this.names = names;
             return this;
         }
         public Builder names(String... names) {
@@ -115,17 +126,18 @@ public final class GetImageRecipesResult {
         }
         @CustomType.Setter
         public Builder owner(@Nullable String owner) {
+
             this.owner = owner;
             return this;
         }
         public GetImageRecipesResult build() {
-            final var o = new GetImageRecipesResult();
-            o.arns = arns;
-            o.filters = filters;
-            o.id = id;
-            o.names = names;
-            o.owner = owner;
-            return o;
+            final var _resultValue = new GetImageRecipesResult();
+            _resultValue.arns = arns;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.names = names;
+            _resultValue.owner = owner;
+            return _resultValue;
         }
     }
 }

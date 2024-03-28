@@ -4,6 +4,7 @@
 package com.pulumi.aws.cleanrooms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -55,17 +56,26 @@ public final class CollaborationMember {
 
         @CustomType.Setter
         public Builder accountId(String accountId) {
-            this.accountId = Objects.requireNonNull(accountId);
+            if (accountId == null) {
+              throw new MissingRequiredPropertyException("CollaborationMember", "accountId");
+            }
+            this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("CollaborationMember", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder memberAbilities(List<String> memberAbilities) {
-            this.memberAbilities = Objects.requireNonNull(memberAbilities);
+            if (memberAbilities == null) {
+              throw new MissingRequiredPropertyException("CollaborationMember", "memberAbilities");
+            }
+            this.memberAbilities = memberAbilities;
             return this;
         }
         public Builder memberAbilities(String... memberAbilities) {
@@ -73,16 +83,17 @@ public final class CollaborationMember {
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         public CollaborationMember build() {
-            final var o = new CollaborationMember();
-            o.accountId = accountId;
-            o.displayName = displayName;
-            o.memberAbilities = memberAbilities;
-            o.status = status;
-            return o;
+            final var _resultValue = new CollaborationMember();
+            _resultValue.accountId = accountId;
+            _resultValue.displayName = displayName;
+            _resultValue.memberAbilities = memberAbilities;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

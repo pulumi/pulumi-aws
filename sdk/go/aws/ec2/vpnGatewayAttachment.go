@@ -21,6 +21,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,7 +48,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewVpnGatewayAttachment(ctx, "vpnAttachment", &ec2.VpnGatewayAttachmentArgs{
+//			_, err = ec2.NewVpnGatewayAttachment(ctx, "vpn_attachment", &ec2.VpnGatewayAttachmentArgs{
 //				VpcId:        network.ID(),
 //				VpnGatewayId: vpn.ID(),
 //			})
@@ -59,6 +60,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
 // and [Virtual Private Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) user

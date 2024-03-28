@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS DMS (Database Migration) Replication Task.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dms.LookupReplicationTask(ctx, &dms.LookupReplicationTaskArgs{
-//				ReplicationTaskId: aws_dms_replication_task.Test.Replication_task_id,
+//				ReplicationTaskId: testAwsDmsReplicationTask.ReplicationTaskId,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupReplicationTask(ctx *pulumi.Context, args *LookupReplicationTaskArgs, opts ...pulumi.InvokeOption) (*LookupReplicationTaskResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReplicationTaskResult

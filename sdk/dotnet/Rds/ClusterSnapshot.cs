@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,19 +25,20 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var example = new Aws.Rds.ClusterSnapshot("example", new()
     ///     {
-    ///         DbClusterIdentifier = aws_rds_cluster.Example.Id,
+    ///         DbClusterIdentifier = exampleAwsRdsCluster.Id,
     ///         DbClusterSnapshotIdentifier = "resourcetestsnapshot1234",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_db_cluster_snapshot` using the cluster snapshot identifier. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+    /// $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/clusterSnapshot:ClusterSnapshot")]
@@ -161,10 +163,6 @@ namespace Pulumi.Aws.Rds
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -326,11 +324,7 @@ namespace Pulumi.Aws.Rds
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

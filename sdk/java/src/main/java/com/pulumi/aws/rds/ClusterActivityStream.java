@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** This resource is available in all regions except the following: `cn-north-1`, `cn-northwest-1`, `us-gov-east-1`, `us-gov-west-1`
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -41,7 +43,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.rds.ClusterActivityStream;
  * import com.pulumi.aws.rds.ClusterActivityStreamArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,7 +56,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var defaultCluster = new Cluster(&#34;defaultCluster&#34;, ClusterArgs.builder()        
+ *         var default_ = new Cluster(&#34;default&#34;, ClusterArgs.builder()        
  *             .clusterIdentifier(&#34;aurora-cluster-demo&#34;)
  *             .availabilityZones(            
  *                 &#34;us-west-2a&#34;,
@@ -70,8 +71,8 @@ import javax.annotation.Nullable;
  * 
  *         var defaultClusterInstance = new ClusterInstance(&#34;defaultClusterInstance&#34;, ClusterInstanceArgs.builder()        
  *             .identifier(&#34;aurora-instance-demo&#34;)
- *             .clusterIdentifier(defaultCluster.clusterIdentifier())
- *             .engine(defaultCluster.engine())
+ *             .clusterIdentifier(default_.clusterIdentifier())
+ *             .engine(default_.engine())
  *             .instanceClass(&#34;db.r6g.large&#34;)
  *             .build());
  * 
@@ -80,23 +81,22 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var defaultClusterActivityStream = new ClusterActivityStream(&#34;defaultClusterActivityStream&#34;, ClusterActivityStreamArgs.builder()        
- *             .resourceArn(defaultCluster.arn())
+ *             .resourceArn(default_.arn())
  *             .mode(&#34;async&#34;)
  *             .kmsKeyId(defaultKey.keyId())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(defaultClusterInstance)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import RDS Aurora Cluster Database Activity Streams using the `resource_arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rds/clusterActivityStream:ClusterActivityStream default arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo
+ * $ pulumi import aws:rds/clusterActivityStream:ClusterActivityStream default arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo
  * ```
  * 
  */

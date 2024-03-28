@@ -15,8 +15,10 @@ import (
 // Provides a Timestream database resource.
 //
 // ## Example Usage
+//
 // ### Basic usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,8 +42,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Full usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,7 +61,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := timestreamwrite.NewDatabase(ctx, "example", &timestreamwrite.DatabaseArgs{
 //				DatabaseName: pulumi.String("database-example"),
-//				KmsKeyId:     pulumi.Any(aws_kms_key.Example.Arn),
+//				KmsKeyId:     pulumi.Any(exampleAwsKmsKey.Arn),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("value"),
 //				},
@@ -69,15 +74,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Timestream databases using the `database_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:timestreamwrite/database:Database example example
-//
+// $ pulumi import aws:timestreamwrite/database:Database example example
 // ```
 type Database struct {
 	pulumi.CustomResourceState
@@ -108,10 +112,6 @@ func NewDatabase(ctx *pulumi.Context,
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Database
 	err := ctx.RegisterResource("aws:timestreamwrite/database:Database", name, args, &resource, opts...)

@@ -4,6 +4,7 @@
 package com.pulumi.aws.mq.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -47,12 +48,18 @@ public final class GetBrokerInstance {
 
         @CustomType.Setter
         public Builder consoleUrl(String consoleUrl) {
-            this.consoleUrl = Objects.requireNonNull(consoleUrl);
+            if (consoleUrl == null) {
+              throw new MissingRequiredPropertyException("GetBrokerInstance", "consoleUrl");
+            }
+            this.consoleUrl = consoleUrl;
             return this;
         }
         @CustomType.Setter
         public Builder endpoints(List<String> endpoints) {
-            this.endpoints = Objects.requireNonNull(endpoints);
+            if (endpoints == null) {
+              throw new MissingRequiredPropertyException("GetBrokerInstance", "endpoints");
+            }
+            this.endpoints = endpoints;
             return this;
         }
         public Builder endpoints(String... endpoints) {
@@ -60,15 +67,18 @@ public final class GetBrokerInstance {
         }
         @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
-            this.ipAddress = Objects.requireNonNull(ipAddress);
+            if (ipAddress == null) {
+              throw new MissingRequiredPropertyException("GetBrokerInstance", "ipAddress");
+            }
+            this.ipAddress = ipAddress;
             return this;
         }
         public GetBrokerInstance build() {
-            final var o = new GetBrokerInstance();
-            o.consoleUrl = consoleUrl;
-            o.endpoints = endpoints;
-            o.ipAddress = ipAddress;
-            return o;
+            final var _resultValue = new GetBrokerInstance();
+            _resultValue.consoleUrl = consoleUrl;
+            _resultValue.endpoints = endpoints;
+            _resultValue.ipAddress = ipAddress;
+            return _resultValue;
         }
     }
 }

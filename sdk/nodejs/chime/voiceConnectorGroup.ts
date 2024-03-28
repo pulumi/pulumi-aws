@@ -14,36 +14,43 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const vc1 = new aws.chime.VoiceConnector("vc1", {
+ *     name: "connector-test-1",
  *     requireEncryption: true,
  *     awsRegion: "us-east-1",
  * });
  * const vc2 = new aws.chime.VoiceConnector("vc2", {
+ *     name: "connector-test-2",
  *     requireEncryption: true,
  *     awsRegion: "us-west-2",
  * });
- * const group = new aws.chime.VoiceConnectorGroup("group", {connectors: [
- *     {
- *         voiceConnectorId: vc1.id,
- *         priority: 1,
- *     },
- *     {
- *         voiceConnectorId: vc2.id,
- *         priority: 3,
- *     },
- * ]});
+ * const group = new aws.chime.VoiceConnectorGroup("group", {
+ *     name: "test-group",
+ *     connectors: [
+ *         {
+ *             voiceConnectorId: vc1.id,
+ *             priority: 1,
+ *         },
+ *         {
+ *             voiceConnectorId: vc2.id,
+ *             priority: 3,
+ *         },
+ *     ],
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Configuration Recorder using the name. For example:
  *
  * ```sh
- *  $ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
+ * $ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
  * ```
  */
 export class VoiceConnectorGroup extends pulumi.CustomResource {

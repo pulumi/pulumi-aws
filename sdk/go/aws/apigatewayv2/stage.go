@@ -16,8 +16,10 @@ import (
 // More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,7 +33,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigatewayv2.NewStage(ctx, "example", &apigatewayv2.StageArgs{
-//				ApiId: pulumi.Any(aws_apigatewayv2_api.Example.Id),
+//				ApiId: pulumi.Any(exampleAwsApigatewayv2Api.Id),
+//				Name:  pulumi.String("example-stage"),
 //			})
 //			if err != nil {
 //				return err
@@ -41,18 +44,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_apigatewayv2_stage` using the API identifier and stage name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
-//
+// $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
 // ```
-//
-//	-> __Note:__ The API Gateway managed stage created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
+// -> __Note:__ The API Gateway managed stage created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
 type Stage struct {
 	pulumi.CustomResourceState
 
@@ -107,10 +108,6 @@ func NewStage(ctx *pulumi.Context,
 	if args.ApiId == nil {
 		return nil, errors.New("invalid value for required argument 'ApiId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Stage
 	err := ctx.RegisterResource("aws:apigatewayv2/stage:Stage", name, args, &resource, opts...)

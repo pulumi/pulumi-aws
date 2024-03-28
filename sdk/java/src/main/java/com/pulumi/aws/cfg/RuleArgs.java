@@ -8,6 +8,7 @@ import com.pulumi.aws.cfg.inputs.RuleScopeArgs;
 import com.pulumi.aws.cfg.inputs.RuleSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -96,14 +97,14 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+     * Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
      * 
      */
     @Import(name="scope")
     private @Nullable Output<RuleScopeArgs> scope;
 
     /**
-     * @return Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+     * @return Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
      * 
      */
     public Optional<Output<RuleScopeArgs>> scope() {
@@ -111,14 +112,14 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+     * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
      * 
      */
     @Import(name="source", required=true)
     private Output<RuleSourceArgs> source;
 
     /**
-     * @return Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+     * @return Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
      * 
      */
     public Output<RuleSourceArgs> source() {
@@ -287,7 +288,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scope Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+         * @param scope Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
          * 
          * @return builder
          * 
@@ -298,7 +299,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scope Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+         * @param scope Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
          * 
          * @return builder
          * 
@@ -308,7 +309,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+         * @param source Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
          * 
          * @return builder
          * 
@@ -319,7 +320,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+         * @param source Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
          * 
          * @return builder
          * 
@@ -350,7 +351,9 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RuleArgs build() {
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("RuleArgs", "source");
+            }
             return $;
         }
     }

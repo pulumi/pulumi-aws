@@ -15,8 +15,10 @@ import (
 // Provides an Amazon MSK Connect Custom Plugin Resource.
 //
 // ## Example Usage
+//
 // ### Basic configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,23 +32,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
-//				Bucket: exampleBucketV2.ID(),
+//			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
+//				Bucket: example.ID(),
 //				Key:    pulumi.String("debezium.zip"),
 //				Source: pulumi.NewFileAsset("debezium.zip"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mskconnect.NewCustomPlugin(ctx, "exampleCustomPlugin", &mskconnect.CustomPluginArgs{
+//			_, err = mskconnect.NewCustomPlugin(ctx, "example", &mskconnect.CustomPluginArgs{
+//				Name:        pulumi.String("debezium-example"),
 //				ContentType: pulumi.String("ZIP"),
 //				Location: &mskconnect.CustomPluginLocationArgs{
 //					S3: &mskconnect.CustomPluginLocationS3Args{
-//						BucketArn: exampleBucketV2.Arn,
+//						BucketArn: example.Arn,
 //						FileKey:   exampleBucketObjectv2.Key,
 //					},
 //				},
@@ -59,15 +64,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import MSK Connect Custom Plugin using the plugin's `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:mskconnect/customPlugin:CustomPlugin example 'arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4'
-//
+// $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example 'arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4'
 // ```
 type CustomPlugin struct {
 	pulumi.CustomResourceState

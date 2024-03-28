@@ -12,13 +12,15 @@ import * as utilities from "../utilities";
  * interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
  *
  * ## Example Usage
+ *
  * ### CloudWatch Logging
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {name: "example"});
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -29,14 +31,17 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const exampleFlowLog = new aws.ec2.FlowLog("exampleFlowLog", {
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "example",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const exampleFlowLog = new aws.ec2.FlowLog("example", {
  *     iamRoleArn: exampleRole.arn,
  *     logDestination: exampleLogGroup.arn,
  *     trafficType: "ALL",
- *     vpcId: aws_vpc.example.id,
+ *     vpcId: exampleAwsVpc.id,
  * });
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ * const example = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: [
@@ -49,50 +54,58 @@ import * as utilities from "../utilities";
  *         resources: ["*"],
  *     }],
  * });
- * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
+ * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
+ *     name: "example",
  *     role: exampleRole.id,
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
+ *     policy: example.then(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### S3 Logging
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleFlowLog = new aws.ec2.FlowLog("exampleFlowLog", {
+ * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const example = new aws.ec2.FlowLog("example", {
  *     logDestination: exampleBucketV2.arn,
  *     logDestinationType: "s3",
  *     trafficType: "ALL",
- *     vpcId: aws_vpc.example.id,
+ *     vpcId: exampleAwsVpc.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### S3 Logging in Apache Parquet format with per-hour partitions
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleFlowLog = new aws.ec2.FlowLog("exampleFlowLog", {
+ * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const example = new aws.ec2.FlowLog("example", {
  *     logDestination: exampleBucketV2.arn,
  *     logDestinationType: "s3",
  *     trafficType: "ALL",
- *     vpcId: aws_vpc.example.id,
+ *     vpcId: exampleAwsVpc.id,
  *     destinationOptions: {
  *         fileFormat: "parquet",
  *         perHourPartition: true,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Flow Logs using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
+ * $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
  * ```
  */
 export class FlowLog extends pulumi.CustomResource {
@@ -152,7 +165,7 @@ export class FlowLog extends pulumi.CustomResource {
      */
     public readonly logDestinationType!: pulumi.Output<string | undefined>;
     /**
-     * The fields to include in the flow log record, in the order in which they should appear.
+     * The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
      */
     public readonly logFormat!: pulumi.Output<string>;
     /**
@@ -250,8 +263,6 @@ export class FlowLog extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(FlowLog.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -289,7 +300,7 @@ export interface FlowLogState {
      */
     logDestinationType?: pulumi.Input<string>;
     /**
-     * The fields to include in the flow log record, in the order in which they should appear.
+     * The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
      */
     logFormat?: pulumi.Input<string>;
     /**
@@ -366,7 +377,7 @@ export interface FlowLogArgs {
      */
     logDestinationType?: pulumi.Input<string>;
     /**
-     * The fields to include in the flow log record, in the order in which they should appear.
+     * The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
      */
     logFormat?: pulumi.Input<string>;
     /**

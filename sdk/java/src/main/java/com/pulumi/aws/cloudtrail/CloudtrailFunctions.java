@@ -18,7 +18,11 @@ public final class CloudtrailFunctions {
      * Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
      * in a given region for the purpose of allowing CloudTrail to store trail data in S3.
      * 
+     * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html#troubleshooting-s3-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+     * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -49,10 +53,11 @@ public final class CloudtrailFunctions {
      *         final var main = CloudtrailFunctions.getServiceAccount();
      * 
      *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;tf-cloudtrail-logging-test-bucket&#34;)
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowCloudtrailLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowCloudtrailLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;Put bucket policy needed for trails&#34;)
@@ -78,12 +83,13 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy(&#34;allowCloudtrailLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLoggingPolicyDocument -&gt; allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLogging -&gt; allowCloudtrailLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceAccountResult> getServiceAccount() {
@@ -93,7 +99,11 @@ public final class CloudtrailFunctions {
      * Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
      * in a given region for the purpose of allowing CloudTrail to store trail data in S3.
      * 
+     * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html#troubleshooting-s3-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+     * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -124,10 +134,11 @@ public final class CloudtrailFunctions {
      *         final var main = CloudtrailFunctions.getServiceAccount();
      * 
      *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;tf-cloudtrail-logging-test-bucket&#34;)
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowCloudtrailLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowCloudtrailLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;Put bucket policy needed for trails&#34;)
@@ -153,12 +164,13 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy(&#34;allowCloudtrailLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLoggingPolicyDocument -&gt; allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLogging -&gt; allowCloudtrailLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain() {
@@ -168,7 +180,11 @@ public final class CloudtrailFunctions {
      * Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
      * in a given region for the purpose of allowing CloudTrail to store trail data in S3.
      * 
+     * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html#troubleshooting-s3-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+     * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -199,10 +215,11 @@ public final class CloudtrailFunctions {
      *         final var main = CloudtrailFunctions.getServiceAccount();
      * 
      *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;tf-cloudtrail-logging-test-bucket&#34;)
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowCloudtrailLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowCloudtrailLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;Put bucket policy needed for trails&#34;)
@@ -228,12 +245,13 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy(&#34;allowCloudtrailLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLoggingPolicyDocument -&gt; allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLogging -&gt; allowCloudtrailLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceAccountResult> getServiceAccount(GetServiceAccountArgs args) {
@@ -243,7 +261,11 @@ public final class CloudtrailFunctions {
      * Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
      * in a given region for the purpose of allowing CloudTrail to store trail data in S3.
      * 
+     * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html#troubleshooting-s3-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+     * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -274,10 +296,11 @@ public final class CloudtrailFunctions {
      *         final var main = CloudtrailFunctions.getServiceAccount();
      * 
      *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;tf-cloudtrail-logging-test-bucket&#34;)
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowCloudtrailLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowCloudtrailLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;Put bucket policy needed for trails&#34;)
@@ -303,12 +326,13 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy(&#34;allowCloudtrailLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLoggingPolicyDocument -&gt; allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLogging -&gt; allowCloudtrailLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain(GetServiceAccountPlainArgs args) {
@@ -318,7 +342,11 @@ public final class CloudtrailFunctions {
      * Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
      * in a given region for the purpose of allowing CloudTrail to store trail data in S3.
      * 
+     * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html#troubleshooting-s3-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+     * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -349,10 +377,11 @@ public final class CloudtrailFunctions {
      *         final var main = CloudtrailFunctions.getServiceAccount();
      * 
      *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;tf-cloudtrail-logging-test-bucket&#34;)
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowCloudtrailLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowCloudtrailLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;Put bucket policy needed for trails&#34;)
@@ -378,12 +407,13 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy(&#34;allowCloudtrailLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLoggingPolicyDocument -&gt; allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLogging -&gt; allowCloudtrailLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceAccountResult> getServiceAccount(GetServiceAccountArgs args, InvokeOptions options) {
@@ -393,7 +423,11 @@ public final class CloudtrailFunctions {
      * Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
      * in a given region for the purpose of allowing CloudTrail to store trail data in S3.
      * 
+     * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html#troubleshooting-s3-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+     * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -424,10 +458,11 @@ public final class CloudtrailFunctions {
      *         final var main = CloudtrailFunctions.getServiceAccount();
      * 
      *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+     *             .bucket(&#34;tf-cloudtrail-logging-test-bucket&#34;)
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowCloudtrailLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowCloudtrailLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;Put bucket policy needed for trails&#34;)
@@ -453,12 +488,13 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy(&#34;allowCloudtrailLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLoggingPolicyDocument -&gt; allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLogging -&gt; allowCloudtrailLogging.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain(GetServiceAccountPlainArgs args, InvokeOptions options) {

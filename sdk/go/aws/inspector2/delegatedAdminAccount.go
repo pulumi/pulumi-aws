@@ -15,8 +15,10 @@ import (
 // Resource for managing an Amazon Inspector Delegated Admin Account.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -35,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = inspector2.NewDelegatedAdminAccount(ctx, "example", &inspector2.DelegatedAdminAccountArgs{
-//				AccountId: *pulumi.String(current.AccountId),
+//				AccountId: pulumi.String(current.AccountId),
 //			})
 //			if err != nil {
 //				return err
@@ -45,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Inspector Delegated Admin Account using the `account_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 012345678901
-//
+// $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 012345678901
 // ```
 type DelegatedAdminAccount struct {
 	pulumi.CustomResourceState

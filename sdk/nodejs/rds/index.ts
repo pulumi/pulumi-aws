@@ -102,6 +102,11 @@ export const getOrderableDbInstance: typeof import("./getOrderableDbInstance").g
 export const getOrderableDbInstanceOutput: typeof import("./getOrderableDbInstance").getOrderableDbInstanceOutput = null as any;
 utilities.lazyLoad(exports, ["getOrderableDbInstance","getOrderableDbInstanceOutput"], () => require("./getOrderableDbInstance"));
 
+export { GetParameterGroupArgs, GetParameterGroupResult, GetParameterGroupOutputArgs } from "./getParameterGroup";
+export const getParameterGroup: typeof import("./getParameterGroup").getParameterGroup = null as any;
+export const getParameterGroupOutput: typeof import("./getParameterGroup").getParameterGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getParameterGroup","getParameterGroupOutput"], () => require("./getParameterGroup"));
+
 export { GetProxyArgs, GetProxyResult, GetProxyOutputArgs } from "./getProxy";
 export const getProxy: typeof import("./getProxy").getProxy = null as any;
 export const getProxyOutput: typeof import("./getProxy").getProxyOutput = null as any;

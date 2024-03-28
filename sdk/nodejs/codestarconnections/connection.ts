@@ -11,13 +11,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleConnection = new aws.codestarconnections.Connection("exampleConnection", {providerType: "Bitbucket"});
- * const examplePipeline = new aws.codepipeline.Pipeline("examplePipeline", {
- *     roleArn: aws_iam_role.codepipeline_role.arn,
+ * const example = new aws.codestarconnections.Connection("example", {
+ *     name: "example-connection",
+ *     providerType: "Bitbucket",
+ * });
+ * const examplePipeline = new aws.codepipeline.Pipeline("example", {
  *     artifactStores: [{}],
  *     stages: [
  *         {
@@ -30,30 +33,33 @@ import * as utilities from "../utilities";
  *                 version: "1",
  *                 outputArtifacts: ["source_output"],
  *                 configuration: {
- *                     ConnectionArn: exampleConnection.arn,
+ *                     ConnectionArn: example.arn,
  *                     FullRepositoryId: "my-organization/test",
  *                     BranchName: "main",
  *                 },
  *             }],
  *         },
  *         {
- *             name: "Build",
  *             actions: [{}],
+ *             name: "Build",
  *         },
  *         {
- *             name: "Deploy",
  *             actions: [{}],
+ *             name: "Deploy",
  *         },
  *     ],
+ *     name: "tf-test-pipeline",
+ *     roleArn: codepipelineRole.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CodeStar connections using the ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:codestarconnections/connection:Connection test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
+ * $ pulumi import aws:codestarconnections/connection:Connection test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
  * ```
  */
 export class Connection extends pulumi.CustomResource {
@@ -101,7 +107,7 @@ export class Connection extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
+     * The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
      */
     public readonly providerType!: pulumi.Output<string>;
     /**
@@ -146,8 +152,6 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Connection.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -173,7 +177,7 @@ export interface ConnectionState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
+     * The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
      */
     providerType?: pulumi.Input<string>;
     /**
@@ -201,7 +205,7 @@ export interface ConnectionArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
+     * The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
      */
     providerType?: pulumi.Input<string>;
     /**

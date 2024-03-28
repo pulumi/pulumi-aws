@@ -8,6 +8,7 @@ import com.pulumi.aws.ec2transitgateway.outputs.GetMulticastDomainFilter;
 import com.pulumi.aws.ec2transitgateway.outputs.GetMulticastDomainMember;
 import com.pulumi.aws.ec2transitgateway.outputs.GetMulticastDomainSource;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -221,12 +222,18 @@ public final class GetMulticastDomainResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetMulticastDomainResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder associations(List<GetMulticastDomainAssociation> associations) {
-            this.associations = Objects.requireNonNull(associations);
+            if (associations == null) {
+              throw new MissingRequiredPropertyException("GetMulticastDomainResult", "associations");
+            }
+            this.associations = associations;
             return this;
         }
         public Builder associations(GetMulticastDomainAssociation... associations) {
@@ -234,11 +241,15 @@ public final class GetMulticastDomainResult {
         }
         @CustomType.Setter
         public Builder autoAcceptSharedAssociations(String autoAcceptSharedAssociations) {
-            this.autoAcceptSharedAssociations = Objects.requireNonNull(autoAcceptSharedAssociations);
+            if (autoAcceptSharedAssociations == null) {
+              throw new MissingRequiredPropertyException("GetMulticastDomainResult", "autoAcceptSharedAssociations");
+            }
+            this.autoAcceptSharedAssociations = autoAcceptSharedAssociations;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetMulticastDomainFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -247,17 +258,26 @@ public final class GetMulticastDomainResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetMulticastDomainResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder igmpv2Support(String igmpv2Support) {
-            this.igmpv2Support = Objects.requireNonNull(igmpv2Support);
+            if (igmpv2Support == null) {
+              throw new MissingRequiredPropertyException("GetMulticastDomainResult", "igmpv2Support");
+            }
+            this.igmpv2Support = igmpv2Support;
             return this;
         }
         @CustomType.Setter
         public Builder members(List<GetMulticastDomainMember> members) {
-            this.members = Objects.requireNonNull(members);
+            if (members == null) {
+              throw new MissingRequiredPropertyException("GetMulticastDomainResult", "members");
+            }
+            this.members = members;
             return this;
         }
         public Builder members(GetMulticastDomainMember... members) {
@@ -265,12 +285,18 @@ public final class GetMulticastDomainResult {
         }
         @CustomType.Setter
         public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+            if (ownerId == null) {
+              throw new MissingRequiredPropertyException("GetMulticastDomainResult", "ownerId");
+            }
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
         public Builder sources(List<GetMulticastDomainSource> sources) {
-            this.sources = Objects.requireNonNull(sources);
+            if (sources == null) {
+              throw new MissingRequiredPropertyException("GetMulticastDomainResult", "sources");
+            }
+            this.sources = sources;
             return this;
         }
         public Builder sources(GetMulticastDomainSource... sources) {
@@ -278,52 +304,70 @@ public final class GetMulticastDomainResult {
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetMulticastDomainResult", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder staticSourcesSupport(String staticSourcesSupport) {
-            this.staticSourcesSupport = Objects.requireNonNull(staticSourcesSupport);
+            if (staticSourcesSupport == null) {
+              throw new MissingRequiredPropertyException("GetMulticastDomainResult", "staticSourcesSupport");
+            }
+            this.staticSourcesSupport = staticSourcesSupport;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetMulticastDomainResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayAttachmentId(String transitGatewayAttachmentId) {
-            this.transitGatewayAttachmentId = Objects.requireNonNull(transitGatewayAttachmentId);
+            if (transitGatewayAttachmentId == null) {
+              throw new MissingRequiredPropertyException("GetMulticastDomainResult", "transitGatewayAttachmentId");
+            }
+            this.transitGatewayAttachmentId = transitGatewayAttachmentId;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayId(String transitGatewayId) {
-            this.transitGatewayId = Objects.requireNonNull(transitGatewayId);
+            if (transitGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetMulticastDomainResult", "transitGatewayId");
+            }
+            this.transitGatewayId = transitGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayMulticastDomainId(String transitGatewayMulticastDomainId) {
-            this.transitGatewayMulticastDomainId = Objects.requireNonNull(transitGatewayMulticastDomainId);
+            if (transitGatewayMulticastDomainId == null) {
+              throw new MissingRequiredPropertyException("GetMulticastDomainResult", "transitGatewayMulticastDomainId");
+            }
+            this.transitGatewayMulticastDomainId = transitGatewayMulticastDomainId;
             return this;
         }
         public GetMulticastDomainResult build() {
-            final var o = new GetMulticastDomainResult();
-            o.arn = arn;
-            o.associations = associations;
-            o.autoAcceptSharedAssociations = autoAcceptSharedAssociations;
-            o.filters = filters;
-            o.id = id;
-            o.igmpv2Support = igmpv2Support;
-            o.members = members;
-            o.ownerId = ownerId;
-            o.sources = sources;
-            o.state = state;
-            o.staticSourcesSupport = staticSourcesSupport;
-            o.tags = tags;
-            o.transitGatewayAttachmentId = transitGatewayAttachmentId;
-            o.transitGatewayId = transitGatewayId;
-            o.transitGatewayMulticastDomainId = transitGatewayMulticastDomainId;
-            return o;
+            final var _resultValue = new GetMulticastDomainResult();
+            _resultValue.arn = arn;
+            _resultValue.associations = associations;
+            _resultValue.autoAcceptSharedAssociations = autoAcceptSharedAssociations;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.igmpv2Support = igmpv2Support;
+            _resultValue.members = members;
+            _resultValue.ownerId = ownerId;
+            _resultValue.sources = sources;
+            _resultValue.state = state;
+            _resultValue.staticSourcesSupport = staticSourcesSupport;
+            _resultValue.tags = tags;
+            _resultValue.transitGatewayAttachmentId = transitGatewayAttachmentId;
+            _resultValue.transitGatewayId = transitGatewayId;
+            _resultValue.transitGatewayMulticastDomainId = transitGatewayMulticastDomainId;
+            return _resultValue;
         }
     }
 }

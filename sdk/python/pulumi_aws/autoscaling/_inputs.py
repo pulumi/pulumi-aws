@@ -277,6 +277,7 @@ class GroupInstanceRefreshPreferencesArgs:
                  checkpoint_delay: Optional[pulumi.Input[str]] = None,
                  checkpoint_percentages: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  instance_warmup: Optional[pulumi.Input[str]] = None,
+                 max_healthy_percentage: Optional[pulumi.Input[int]] = None,
                  min_healthy_percentage: Optional[pulumi.Input[int]] = None,
                  scale_in_protected_instances: Optional[pulumi.Input[str]] = None,
                  skip_matching: Optional[pulumi.Input[bool]] = None,
@@ -286,6 +287,7 @@ class GroupInstanceRefreshPreferencesArgs:
         :param pulumi.Input[str] checkpoint_delay: Number of seconds to wait after a checkpoint. Defaults to `3600`.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] checkpoint_percentages: List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
         :param pulumi.Input[str] instance_warmup: Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
+        :param pulumi.Input[int] max_healthy_percentage: Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
         :param pulumi.Input[int] min_healthy_percentage: Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
         :param pulumi.Input[str] scale_in_protected_instances: Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
         :param pulumi.Input[bool] skip_matching: Replace instances that already have your desired configuration. Defaults to `false`.
@@ -299,6 +301,8 @@ class GroupInstanceRefreshPreferencesArgs:
             pulumi.set(__self__, "checkpoint_percentages", checkpoint_percentages)
         if instance_warmup is not None:
             pulumi.set(__self__, "instance_warmup", instance_warmup)
+        if max_healthy_percentage is not None:
+            pulumi.set(__self__, "max_healthy_percentage", max_healthy_percentage)
         if min_healthy_percentage is not None:
             pulumi.set(__self__, "min_healthy_percentage", min_healthy_percentage)
         if scale_in_protected_instances is not None:
@@ -355,6 +359,18 @@ class GroupInstanceRefreshPreferencesArgs:
     @instance_warmup.setter
     def instance_warmup(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance_warmup", value)
+
+    @property
+    @pulumi.getter(name="maxHealthyPercentage")
+    def max_healthy_percentage(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+        """
+        return pulumi.get(self, "max_healthy_percentage")
+
+    @max_healthy_percentage.setter
+    def max_healthy_percentage(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_healthy_percentage", value)
 
     @property
     @pulumi.getter(name="minHealthyPercentage")
@@ -794,21 +810,9 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
         """
         :param pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs'] accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_names: List of accelerator names. Default is any acclerator.
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs'] accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_types: List of accelerator types. Default is any accelerator type.
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_instance_types: List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
                
                > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
@@ -818,24 +822,12 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
                
                > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_instance_types: List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
                
                > **NOTE:** If you specify `excluded_instance_types`, you can't specify `allowed_instance_types`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_generations: List of instance generation names. Default is any generation.
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[str] local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] local_storage_types: List of local storage type names. Default any storage type.
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs'] memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
         :param pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs'] memory_mib: Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
         :param pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsArgs'] network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
@@ -914,10 +906,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     def accelerator_manufacturers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of accelerator manufacturer names. Default is any manufacturer.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "accelerator_manufacturers")
 
@@ -930,10 +918,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     def accelerator_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of accelerator names. Default is any acclerator.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "accelerator_names")
 
@@ -958,10 +942,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     def accelerator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of accelerator types. Default is any accelerator type.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "accelerator_types")
 
@@ -1026,10 +1006,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
         List of CPU manufacturer names. Default is any manufacturer.
 
         > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "cpu_manufacturers")
 
@@ -1056,10 +1032,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     def instance_generations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of instance generation names. Default is any generation.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "instance_generations")
 
@@ -1084,10 +1056,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     def local_storage_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of local storage type names. Default any storage type.
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "local_storage_types")
 
@@ -2905,7 +2873,7 @@ class PolicyStepAdjustmentArgs:
                Without a value, AWS will treat this bound as positive infinity. The upper bound
                must be greater than the lower bound.
                
-               Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%, but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
+               Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%!,(MISSING) but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
                
                The following arguments are only available to "TargetTrackingScaling" type policies:
         """
@@ -2952,7 +2920,7 @@ class PolicyStepAdjustmentArgs:
         Without a value, AWS will treat this bound as positive infinity. The upper bound
         must be greater than the lower bound.
 
-        Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%, but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
+        Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%!,(MISSING) but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
 
         The following arguments are only available to "TargetTrackingScaling" type policies:
         """

@@ -14,8 +14,10 @@ import (
 // Provides an Elastic File System (EFS) File System resource.
 //
 // ## Example Usage
+//
 // ### EFS File System w/ tags
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := efs.NewFileSystem(ctx, "foo", &efs.FileSystemArgs{
+//				CreationToken: pulumi.String("my-product"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("MyProduct"),
 //				},
@@ -41,8 +44,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Using lifecycle policy
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,7 +61,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := efs.NewFileSystem(ctx, "fooWithLifecylePolicy", &efs.FileSystemArgs{
+//			_, err := efs.NewFileSystem(ctx, "foo_with_lifecyle_policy", &efs.FileSystemArgs{
+//				CreationToken: pulumi.String("my-product"),
 //				LifecyclePolicies: efs.FileSystemLifecyclePolicyArray{
 //					&efs.FileSystemLifecyclePolicyArgs{
 //						TransitionToIa: pulumi.String("AFTER_30_DAYS"),
@@ -70,15 +77,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import the EFS file systems using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
-//
+// $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
 // ```
 type FileSystem struct {
 	pulumi.CustomResourceState
@@ -87,7 +93,7 @@ type FileSystem struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
 	AvailabilityZoneId pulumi.StringOutput `pulumi:"availabilityZoneId"`
-	// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+	// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
 	AvailabilityZoneName pulumi.StringOutput `pulumi:"availabilityZoneName"`
 	// A unique name (a maximum of 64 characters are allowed)
 	// used as reference when creating the Elastic File System to ensure idempotent file
@@ -100,7 +106,7 @@ type FileSystem struct {
 	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
 	// The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecyclePolicy` block below for details.
 	LifecyclePolicies FileSystemLifecyclePolicyArrayOutput `pulumi:"lifecyclePolicies"`
 	// The value of the file system's `Name` tag.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -110,6 +116,8 @@ type FileSystem struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 	PerformanceMode pulumi.StringOutput `pulumi:"performanceMode"`
+	// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
+	Protection FileSystemProtectionOutput `pulumi:"protection"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps pulumi.Float64PtrOutput `pulumi:"provisionedThroughputInMibps"`
 	// The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
@@ -131,10 +139,6 @@ func NewFileSystem(ctx *pulumi.Context,
 		args = &FileSystemArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FileSystem
 	err := ctx.RegisterResource("aws:efs/fileSystem:FileSystem", name, args, &resource, opts...)
@@ -162,7 +166,7 @@ type fileSystemState struct {
 	Arn *string `pulumi:"arn"`
 	// The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
-	// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+	// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
 	AvailabilityZoneName *string `pulumi:"availabilityZoneName"`
 	// A unique name (a maximum of 64 characters are allowed)
 	// used as reference when creating the Elastic File System to ensure idempotent file
@@ -175,7 +179,7 @@ type fileSystemState struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecyclePolicy` block below for details.
 	LifecyclePolicies []FileSystemLifecyclePolicy `pulumi:"lifecyclePolicies"`
 	// The value of the file system's `Name` tag.
 	Name *string `pulumi:"name"`
@@ -185,6 +189,8 @@ type fileSystemState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 	PerformanceMode *string `pulumi:"performanceMode"`
+	// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
+	Protection *FileSystemProtection `pulumi:"protection"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps *float64 `pulumi:"provisionedThroughputInMibps"`
 	// The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
@@ -204,7 +210,7 @@ type FileSystemState struct {
 	Arn pulumi.StringPtrInput
 	// The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
 	AvailabilityZoneId pulumi.StringPtrInput
-	// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+	// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
 	AvailabilityZoneName pulumi.StringPtrInput
 	// A unique name (a maximum of 64 characters are allowed)
 	// used as reference when creating the Elastic File System to ensure idempotent file
@@ -217,7 +223,7 @@ type FileSystemState struct {
 	Encrypted pulumi.BoolPtrInput
 	// The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
-	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecyclePolicy` block below for details.
 	LifecyclePolicies FileSystemLifecyclePolicyArrayInput
 	// The value of the file system's `Name` tag.
 	Name pulumi.StringPtrInput
@@ -227,6 +233,8 @@ type FileSystemState struct {
 	OwnerId pulumi.StringPtrInput
 	// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 	PerformanceMode pulumi.StringPtrInput
+	// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
+	Protection FileSystemProtectionPtrInput
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps pulumi.Float64PtrInput
 	// The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
@@ -246,7 +254,7 @@ func (FileSystemState) ElementType() reflect.Type {
 }
 
 type fileSystemArgs struct {
-	// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+	// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
 	AvailabilityZoneName *string `pulumi:"availabilityZoneName"`
 	// A unique name (a maximum of 64 characters are allowed)
 	// used as reference when creating the Elastic File System to ensure idempotent file
@@ -257,10 +265,12 @@ type fileSystemArgs struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecyclePolicy` block below for details.
 	LifecyclePolicies []FileSystemLifecyclePolicy `pulumi:"lifecyclePolicies"`
 	// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 	PerformanceMode *string `pulumi:"performanceMode"`
+	// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
+	Protection *FileSystemProtection `pulumi:"protection"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps *float64 `pulumi:"provisionedThroughputInMibps"`
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -271,7 +281,7 @@ type fileSystemArgs struct {
 
 // The set of arguments for constructing a FileSystem resource.
 type FileSystemArgs struct {
-	// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+	// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
 	AvailabilityZoneName pulumi.StringPtrInput
 	// A unique name (a maximum of 64 characters are allowed)
 	// used as reference when creating the Elastic File System to ensure idempotent file
@@ -282,10 +292,12 @@ type FileSystemArgs struct {
 	Encrypted pulumi.BoolPtrInput
 	// The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
-	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecyclePolicy` block below for details.
 	LifecyclePolicies FileSystemLifecyclePolicyArrayInput
 	// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 	PerformanceMode pulumi.StringPtrInput
+	// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
+	Protection FileSystemProtectionPtrInput
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps pulumi.Float64PtrInput
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -391,7 +403,7 @@ func (o FileSystemOutput) AvailabilityZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.AvailabilityZoneId }).(pulumi.StringOutput)
 }
 
-// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
 func (o FileSystemOutput) AvailabilityZoneName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.AvailabilityZoneName }).(pulumi.StringOutput)
 }
@@ -419,7 +431,7 @@ func (o FileSystemOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecyclePolicy` block below for details.
 func (o FileSystemOutput) LifecyclePolicies() FileSystemLifecyclePolicyArrayOutput {
 	return o.ApplyT(func(v *FileSystem) FileSystemLifecyclePolicyArrayOutput { return v.LifecyclePolicies }).(FileSystemLifecyclePolicyArrayOutput)
 }
@@ -442,6 +454,11 @@ func (o FileSystemOutput) OwnerId() pulumi.StringOutput {
 // The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 func (o FileSystemOutput) PerformanceMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.PerformanceMode }).(pulumi.StringOutput)
+}
+
+// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
+func (o FileSystemOutput) Protection() FileSystemProtectionOutput {
+	return o.ApplyT(func(v *FileSystem) FileSystemProtectionOutput { return v.Protection }).(FileSystemProtectionOutput)
 }
 
 // The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.

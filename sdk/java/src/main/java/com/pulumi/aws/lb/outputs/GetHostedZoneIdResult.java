@@ -4,6 +4,7 @@
 package com.pulumi.aws.lb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -56,25 +57,30 @@ public final class GetHostedZoneIdResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetHostedZoneIdResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder loadBalancerType(@Nullable String loadBalancerType) {
+
             this.loadBalancerType = loadBalancerType;
             return this;
         }
         @CustomType.Setter
         public Builder region(@Nullable String region) {
+
             this.region = region;
             return this;
         }
         public GetHostedZoneIdResult build() {
-            final var o = new GetHostedZoneIdResult();
-            o.id = id;
-            o.loadBalancerType = loadBalancerType;
-            o.region = region;
-            return o;
+            final var _resultValue = new GetHostedZoneIdResult();
+            _resultValue.id = id;
+            _resultValue.loadBalancerType = loadBalancerType;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

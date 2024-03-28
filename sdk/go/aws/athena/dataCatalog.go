@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,14 +34,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := athena.NewDataCatalog(ctx, "example", &athena.DataCatalogArgs{
+//				Name:        pulumi.String("athena-data-catalog"),
 //				Description: pulumi.String("Example Athena data catalog"),
+//				Type:        pulumi.String("LAMBDA"),
 //				Parameters: pulumi.StringMap{
 //					"function": pulumi.String("arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function"),
 //				},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example-athena-data-catalog"),
 //				},
-//				Type: pulumi.String("LAMBDA"),
 //			})
 //			if err != nil {
 //				return err
@@ -50,8 +52,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Hive based Data Catalog
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -65,11 +70,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := athena.NewDataCatalog(ctx, "example", &athena.DataCatalogArgs{
+//				Name:        pulumi.String("hive-data-catalog"),
 //				Description: pulumi.String("Hive based Data Catalog"),
+//				Type:        pulumi.String("HIVE"),
 //				Parameters: pulumi.StringMap{
 //					"metadata-function": pulumi.String("arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function"),
 //				},
-//				Type: pulumi.String("HIVE"),
 //			})
 //			if err != nil {
 //				return err
@@ -79,8 +85,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Glue based Data Catalog
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -94,11 +103,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := athena.NewDataCatalog(ctx, "example", &athena.DataCatalogArgs{
+//				Name:        pulumi.String("glue-data-catalog"),
 //				Description: pulumi.String("Glue based Data Catalog"),
+//				Type:        pulumi.String("GLUE"),
 //				Parameters: pulumi.StringMap{
 //					"catalog-id": pulumi.String("123456789012"),
 //				},
-//				Type: pulumi.String("GLUE"),
 //			})
 //			if err != nil {
 //				return err
@@ -108,8 +118,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Lambda based Data Catalog
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -123,12 +136,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := athena.NewDataCatalog(ctx, "example", &athena.DataCatalogArgs{
+//				Name:        pulumi.String("lambda-data-catalog"),
 //				Description: pulumi.String("Lambda based Data Catalog"),
+//				Type:        pulumi.String("LAMBDA"),
 //				Parameters: pulumi.StringMap{
 //					"metadata-function": pulumi.String("arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1"),
 //					"record-function":   pulumi.String("arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2"),
 //				},
-//				Type: pulumi.String("LAMBDA"),
 //			})
 //			if err != nil {
 //				return err
@@ -138,15 +152,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import data catalogs using their `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
-//
+// $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
 // ```
 type DataCatalog struct {
 	pulumi.CustomResourceState
@@ -185,10 +198,6 @@ func NewDataCatalog(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataCatalog
 	err := ctx.RegisterResource("aws:athena/dataCatalog:DataCatalog", name, args, &resource, opts...)

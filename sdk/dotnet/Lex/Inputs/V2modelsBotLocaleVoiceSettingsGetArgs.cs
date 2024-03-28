@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsBotLocaleVoiceSettingsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. Valid values are `standard` and `neural`. If not specified, the default is `standard`.
+        /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
+        /// <summary>
+        /// Identifier of the Amazon Polly voice to use.
+        /// </summary>
         [Input("voiceId", required: true)]
         public Input<string> VoiceId { get; set; } = null!;
 

@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,7 +20,10 @@ import javax.annotation.Nullable;
  * A ChimeSDKVoice SIP Media Application is a managed object that passes values from a SIP rule to a target AWS Lambda function.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,21 +48,23 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new SdkvoiceSipMediaApplication(&#34;example&#34;, SdkvoiceSipMediaApplicationArgs.builder()        
  *             .awsRegion(&#34;us-east-1&#34;)
+ *             .name(&#34;example-sip-media-application&#34;)
  *             .endpoints(SdkvoiceSipMediaApplicationEndpointsArgs.builder()
- *                 .lambdaArn(aws_lambda_function.test().arn())
+ *                 .lambdaArn(test.arn())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a ChimeSDKVoice SIP Media Application using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication example abcdef123456
+ * $ pulumi import aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication example abcdef123456
  * ```
  * 
  */
@@ -191,9 +195,6 @@ public class SdkvoiceSipMediaApplication extends com.pulumi.resources.CustomReso
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

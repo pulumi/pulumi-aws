@@ -13,8 +13,10 @@ namespace Pulumi.Aws.SesV2
     /// Resource for managing an AWS SESv2 (Simple Email V2) Contact List.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,8 +32,11 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Extended Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,13 +63,14 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SESv2 (Simple Email V2) Contact List using the `example_id_arg`. For example:
+    /// Using `pulumi import`, import SESv2 (Simple Email V2) Contact List using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sesv2/contactList:ContactList example example
+    /// $ pulumi import aws:sesv2/contactList:ContactList example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:sesv2/contactList:ContactList")]
@@ -74,7 +80,7 @@ namespace Pulumi.Aws.SesV2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the contact list.
+        /// Name of the contact list.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -82,19 +88,19 @@ namespace Pulumi.Aws.SesV2
         public Output<string> ContactListName { get; private set; } = null!;
 
         /// <summary>
-        /// A timestamp noting when the contact list was created in ISO 8601 format.
+        /// Timestamp noting when the contact list was created in ISO 8601 format.
         /// </summary>
         [Output("createdTimestamp")]
         public Output<string> CreatedTimestamp { get; private set; } = null!;
 
         /// <summary>
-        /// A description of what the contact list is about.
+        /// Description of what the contact list is about.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A timestamp noting the last time the contact list was updated in ISO 8601 format.
+        /// Timestamp noting the last time the contact list was updated in ISO 8601 format.
         /// </summary>
         [Output("lastUpdatedTimestamp")]
         public Output<string> LastUpdatedTimestamp { get; private set; } = null!;
@@ -137,10 +143,6 @@ namespace Pulumi.Aws.SesV2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -165,7 +167,7 @@ namespace Pulumi.Aws.SesV2
     public sealed class ContactListArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the contact list.
+        /// Name of the contact list.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -173,7 +175,7 @@ namespace Pulumi.Aws.SesV2
         public Input<string> ContactListName { get; set; } = null!;
 
         /// <summary>
-        /// A description of what the contact list is about.
+        /// Description of what the contact list is about.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -214,7 +216,7 @@ namespace Pulumi.Aws.SesV2
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name of the contact list.
+        /// Name of the contact list.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -222,19 +224,19 @@ namespace Pulumi.Aws.SesV2
         public Input<string>? ContactListName { get; set; }
 
         /// <summary>
-        /// A timestamp noting when the contact list was created in ISO 8601 format.
+        /// Timestamp noting when the contact list was created in ISO 8601 format.
         /// </summary>
         [Input("createdTimestamp")]
         public Input<string>? CreatedTimestamp { get; set; }
 
         /// <summary>
-        /// A description of what the contact list is about.
+        /// Description of what the contact list is about.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A timestamp noting the last time the contact list was updated in ISO 8601 format.
+        /// Timestamp noting the last time the contact list was updated in ISO 8601 format.
         /// </summary>
         [Input("lastUpdatedTimestamp")]
         public Input<string>? LastUpdatedTimestamp { get; set; }
@@ -257,11 +259,7 @@ namespace Pulumi.Aws.SesV2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("topics")]

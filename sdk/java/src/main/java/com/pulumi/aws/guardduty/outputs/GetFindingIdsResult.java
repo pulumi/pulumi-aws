@@ -4,6 +4,7 @@
 package com.pulumi.aws.guardduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -70,12 +71,18 @@ public final class GetFindingIdsResult {
 
         @CustomType.Setter
         public Builder detectorId(String detectorId) {
-            this.detectorId = Objects.requireNonNull(detectorId);
+            if (detectorId == null) {
+              throw new MissingRequiredPropertyException("GetFindingIdsResult", "detectorId");
+            }
+            this.detectorId = detectorId;
             return this;
         }
         @CustomType.Setter
         public Builder findingIds(List<String> findingIds) {
-            this.findingIds = Objects.requireNonNull(findingIds);
+            if (findingIds == null) {
+              throw new MissingRequiredPropertyException("GetFindingIdsResult", "findingIds");
+            }
+            this.findingIds = findingIds;
             return this;
         }
         public Builder findingIds(String... findingIds) {
@@ -83,21 +90,27 @@ public final class GetFindingIdsResult {
         }
         @CustomType.Setter
         public Builder hasFindings(Boolean hasFindings) {
-            this.hasFindings = Objects.requireNonNull(hasFindings);
+            if (hasFindings == null) {
+              throw new MissingRequiredPropertyException("GetFindingIdsResult", "hasFindings");
+            }
+            this.hasFindings = hasFindings;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFindingIdsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetFindingIdsResult build() {
-            final var o = new GetFindingIdsResult();
-            o.detectorId = detectorId;
-            o.findingIds = findingIds;
-            o.hasFindings = hasFindings;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetFindingIdsResult();
+            _resultValue.detectorId = detectorId;
+            _resultValue.findingIds = findingIds;
+            _resultValue.hasFindings = hasFindings;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

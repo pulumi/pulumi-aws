@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,11 +30,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewThesaurus(ctx, "example", &kendra.ThesaurusArgs{
-//				IndexId: pulumi.Any(aws_kendra_index.Example.Id),
-//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
+//				Name:    pulumi.String("Example"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				SourceS3Path: &kendra.ThesaurusSourceS3PathArgs{
-//					Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
-//					Key:    pulumi.Any(aws_s3_object.Example.Key),
+//					Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
+//					Key:    pulumi.Any(exampleAwsS3Object.Key),
 //				},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example Kendra Thesaurus"),
@@ -47,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
-//
+// $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
 // ```
 type Thesaurus struct {
 	pulumi.CustomResourceState
@@ -101,10 +102,6 @@ func NewThesaurus(ctx *pulumi.Context,
 	if args.SourceS3Path == nil {
 		return nil, errors.New("invalid value for required argument 'SourceS3Path'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Thesaurus
 	err := ctx.RegisterResource("aws:kendra/thesaurus:Thesaurus", name, args, &resource, opts...)

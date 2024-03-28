@@ -59,19 +59,21 @@ public final class AccountThrottleSetting {
 
         @CustomType.Setter
         public Builder burstLimit(@Nullable Integer burstLimit) {
+
             this.burstLimit = burstLimit;
             return this;
         }
         @CustomType.Setter
         public Builder rateLimit(@Nullable Double rateLimit) {
+
             this.rateLimit = rateLimit;
             return this;
         }
         public AccountThrottleSetting build() {
-            final var o = new AccountThrottleSetting();
-            o.burstLimit = burstLimit;
-            o.rateLimit = rateLimit;
-            return o;
+            final var _resultValue = new AccountThrottleSetting();
+            _resultValue.burstLimit = burstLimit;
+            _resultValue.rateLimit = rateLimit;
+            return _resultValue;
         }
     }
 }

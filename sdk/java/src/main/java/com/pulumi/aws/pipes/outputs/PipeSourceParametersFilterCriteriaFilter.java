@@ -4,6 +4,7 @@
 package com.pulumi.aws.pipes.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class PipeSourceParametersFilterCriteriaFilter {
 
         @CustomType.Setter
         public Builder pattern(String pattern) {
-            this.pattern = Objects.requireNonNull(pattern);
+            if (pattern == null) {
+              throw new MissingRequiredPropertyException("PipeSourceParametersFilterCriteriaFilter", "pattern");
+            }
+            this.pattern = pattern;
             return this;
         }
         public PipeSourceParametersFilterCriteriaFilter build() {
-            final var o = new PipeSourceParametersFilterCriteriaFilter();
-            o.pattern = pattern;
-            return o;
+            final var _resultValue = new PipeSourceParametersFilterCriteriaFilter();
+            _resultValue.pattern = pattern;
+            return _resultValue;
         }
     }
 }

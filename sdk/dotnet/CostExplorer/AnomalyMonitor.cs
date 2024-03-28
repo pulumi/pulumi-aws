@@ -15,8 +15,10 @@ namespace Pulumi.Aws.CostExplorer
     /// ## Example Usage
     /// 
     /// There are two main types of a Cost Anomaly Monitor: `DIMENSIONAL` and `CUSTOM`.
+    /// 
     /// ### Dimensional Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,16 +27,20 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var serviceMonitor = new Aws.CostExplorer.AnomalyMonitor("serviceMonitor", new()
+    ///     var serviceMonitor = new Aws.CostExplorer.AnomalyMonitor("service_monitor", new()
     ///     {
-    ///         MonitorDimension = "SERVICE",
+    ///         Name = "AWSServiceMonitor",
     ///         MonitorType = "DIMENSIONAL",
+    ///         MonitorDimension = "SERVICE",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Custom Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,19 +52,20 @@ namespace Pulumi.Aws.CostExplorer
     /// {
     ///     var test = new Aws.CostExplorer.AnomalyMonitor("test", new()
     ///     {
+    ///         Name = "AWSCustomAnomalyMonitor",
     ///         MonitorType = "CUSTOM",
     ///         MonitorSpecification = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["And"] = null,
-    ///             ["CostCategories"] = null,
-    ///             ["Dimensions"] = null,
-    ///             ["Not"] = null,
-    ///             ["Or"] = null,
-    ///             ["Tags"] = new Dictionary&lt;string, object?&gt;
+    ///             ["and"] = null,
+    ///             ["costCategories"] = null,
+    ///             ["dimensions"] = null,
+    ///             ["not"] = null,
+    ///             ["or"] = null,
+    ///             ["tags"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["Key"] = "CostCenter",
-    ///                 ["MatchOptions"] = null,
-    ///                 ["Values"] = new[]
+    ///                 ["key"] = "CostCenter",
+    ///                 ["matchOptions"] = null,
+    ///                 ["values"] = new[]
     ///                 {
     ///                     "10000",
     ///                 },
@@ -68,13 +75,14 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ce_anomaly_monitor` using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
+    /// $ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
     /// ```
     /// </summary>
     [AwsResourceType("aws:costexplorer/anomalyMonitor:AnomalyMonitor")]
@@ -145,10 +153,6 @@ namespace Pulumi.Aws.CostExplorer
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -268,11 +272,7 @@ namespace Pulumi.Aws.CostExplorer
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public AnomalyMonitorState()

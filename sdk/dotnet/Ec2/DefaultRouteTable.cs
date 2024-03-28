@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,18 +31,18 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.DefaultRouteTable("example", new()
     ///     {
-    ///         DefaultRouteTableId = aws_vpc.Example.Default_route_table_id,
+    ///         DefaultRouteTableId = exampleAwsVpc.DefaultRouteTableId,
     ///         Routes = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.DefaultRouteTableRouteArgs
     ///             {
     ///                 CidrBlock = "10.0.1.0/24",
-    ///                 GatewayId = aws_internet_gateway.Example.Id,
+    ///                 GatewayId = exampleAwsInternetGateway.Id,
     ///             },
     ///             new Aws.Ec2.Inputs.DefaultRouteTableRouteArgs
     ///             {
     ///                 Ipv6CidrBlock = "::/0",
-    ///                 EgressOnlyGatewayId = aws_egress_only_internet_gateway.Example.Id,
+    ///                 EgressOnlyGatewayId = exampleAwsEgressOnlyInternetGateway.Id,
     ///             },
     ///         },
     ///         Tags = 
@@ -52,9 +53,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// To subsequently remove all managed routes:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,7 +68,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.DefaultRouteTable("example", new()
     ///     {
-    ///         DefaultRouteTableId = aws_vpc.Example.Default_route_table_id,
+    ///         DefaultRouteTableId = exampleAwsVpc.DefaultRouteTableId,
     ///         Routes = new[] {},
     ///         Tags = 
     ///         {
@@ -75,13 +78,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
+    /// $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/defaultRouteTable:DefaultRouteTable")]
@@ -160,10 +164,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -305,11 +305,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

@@ -8,6 +8,7 @@ import com.pulumi.aws.connect.outputs.InstanceStorageConfigStorageConfigKinesisS
 import com.pulumi.aws.connect.outputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfig;
 import com.pulumi.aws.connect.outputs.InstanceStorageConfigStorageConfigS3Config;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -104,37 +105,44 @@ public final class InstanceStorageConfigStorageConfig {
 
         @CustomType.Setter
         public Builder kinesisFirehoseConfig(@Nullable InstanceStorageConfigStorageConfigKinesisFirehoseConfig kinesisFirehoseConfig) {
+
             this.kinesisFirehoseConfig = kinesisFirehoseConfig;
             return this;
         }
         @CustomType.Setter
         public Builder kinesisStreamConfig(@Nullable InstanceStorageConfigStorageConfigKinesisStreamConfig kinesisStreamConfig) {
+
             this.kinesisStreamConfig = kinesisStreamConfig;
             return this;
         }
         @CustomType.Setter
         public Builder kinesisVideoStreamConfig(@Nullable InstanceStorageConfigStorageConfigKinesisVideoStreamConfig kinesisVideoStreamConfig) {
+
             this.kinesisVideoStreamConfig = kinesisVideoStreamConfig;
             return this;
         }
         @CustomType.Setter
         public Builder s3Config(@Nullable InstanceStorageConfigStorageConfigS3Config s3Config) {
+
             this.s3Config = s3Config;
             return this;
         }
         @CustomType.Setter
         public Builder storageType(String storageType) {
-            this.storageType = Objects.requireNonNull(storageType);
+            if (storageType == null) {
+              throw new MissingRequiredPropertyException("InstanceStorageConfigStorageConfig", "storageType");
+            }
+            this.storageType = storageType;
             return this;
         }
         public InstanceStorageConfigStorageConfig build() {
-            final var o = new InstanceStorageConfigStorageConfig();
-            o.kinesisFirehoseConfig = kinesisFirehoseConfig;
-            o.kinesisStreamConfig = kinesisStreamConfig;
-            o.kinesisVideoStreamConfig = kinesisVideoStreamConfig;
-            o.s3Config = s3Config;
-            o.storageType = storageType;
-            return o;
+            final var _resultValue = new InstanceStorageConfigStorageConfig();
+            _resultValue.kinesisFirehoseConfig = kinesisFirehoseConfig;
+            _resultValue.kinesisStreamConfig = kinesisStreamConfig;
+            _resultValue.kinesisVideoStreamConfig = kinesisVideoStreamConfig;
+            _resultValue.s3Config = s3Config;
+            _resultValue.storageType = storageType;
+            return _resultValue;
         }
     }
 }

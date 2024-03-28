@@ -237,7 +237,7 @@ class WorkgroupEndpoint(dict):
                  vpc_endpoints: Optional[Sequence['outputs.WorkgroupEndpointVpcEndpoint']] = None):
         """
         :param str address: The DNS address of the VPC endpoint.
-        :param int port: The port that Amazon Redshift Serverless listens on.
+        :param int port: The port number on which the cluster accepts incoming connections.
         :param Sequence['WorkgroupEndpointVpcEndpointArgs'] vpc_endpoints: The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
         """
         if address is not None:
@@ -259,7 +259,7 @@ class WorkgroupEndpoint(dict):
     @pulumi.getter
     def port(self) -> Optional[int]:
         """
-        The port that Amazon Redshift Serverless listens on.
+        The port number on which the cluster accepts incoming connections.
         """
         return pulumi.get(self, "port")
 

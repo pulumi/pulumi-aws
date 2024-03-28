@@ -18,6 +18,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,8 +52,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -63,10 +64,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sagemaker.NewModel(ctx, "exampleModel", &sagemaker.ModelArgs{
+//			_, err = sagemaker.NewModel(ctx, "example", &sagemaker.ModelArgs{
+//				Name:             pulumi.String("my-model"),
 //				ExecutionRoleArn: exampleRole.Arn,
 //				PrimaryContainer: &sagemaker.ModelPrimaryContainerArgs{
-//					Image: *pulumi.String(test.RegistryPath),
+//					Image: pulumi.String(test.RegistryPath),
 //				},
 //			})
 //			if err != nil {
@@ -77,6 +79,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Inference Execution Config
 //
 // * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
@@ -86,9 +90,7 @@ import (
 // Using `pulumi import`, import models using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/model:Model test_model model-foo
-//
+// $ pulumi import aws:sagemaker/model:Model test_model model-foo
 // ```
 type Model struct {
 	pulumi.CustomResourceState
@@ -129,10 +131,6 @@ func NewModel(ctx *pulumi.Context,
 	if args.ExecutionRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ExecutionRoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Model
 	err := ctx.RegisterResource("aws:sagemaker/model:Model", name, args, &resource, opts...)

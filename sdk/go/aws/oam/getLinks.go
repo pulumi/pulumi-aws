@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS CloudWatch Observability Access Manager Links.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetLinks(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetLinksResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLinksResult

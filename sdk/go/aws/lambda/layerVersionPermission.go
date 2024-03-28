@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,12 +33,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewLayerVersionPermission(ctx, "lambdaLayerPermission", &lambda.LayerVersionPermissionArgs{
-//				Action:        pulumi.String("lambda:GetLayerVersion"),
+//			_, err := lambda.NewLayerVersionPermission(ctx, "lambda_layer_permission", &lambda.LayerVersionPermissionArgs{
 //				LayerName:     pulumi.String("arn:aws:lambda:us-west-2:123456654321:layer:test_layer1"),
-//				Principal:     pulumi.String("111111111111"),
-//				StatementId:   pulumi.String("dev-account"),
 //				VersionNumber: pulumi.Int(1),
+//				Principal:     pulumi.String("111111111111"),
+//				Action:        pulumi.String("lambda:GetLayerVersion"),
+//				StatementId:   pulumi.String("dev-account"),
 //			})
 //			if err != nil {
 //				return err
@@ -47,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Lambda Layer Permissions using `layer_name` and `version_number`, separated by a comma (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1
-//
+// $ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1
 // ```
 type LayerVersionPermission struct {
 	pulumi.CustomResourceState

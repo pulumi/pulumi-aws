@@ -7,6 +7,7 @@ import com.pulumi.aws.ecs.inputs.ServiceServiceConnectConfigurationLogConfigurat
 import com.pulumi.aws.ecs.inputs.ServiceServiceConnectConfigurationServiceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -201,7 +202,9 @@ public final class ServiceServiceConnectConfigurationArgs extends com.pulumi.res
         }
 
         public ServiceServiceConnectConfigurationArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("ServiceServiceConnectConfigurationArgs", "enabled");
+            }
             return $;
         }
     }

@@ -14,8 +14,10 @@ import (
 // Provides a Synthetics Group resource.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +30,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.NewGroup(ctx, "example", nil)
+//			_, err := synthetics.NewGroup(ctx, "example", &synthetics.GroupArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -37,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudWatch Synthetics Group using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:synthetics/group:Group example example
-//
+// $ pulumi import aws:synthetics/group:Group example example
 // ```
 type Group struct {
 	pulumi.CustomResourceState
@@ -73,10 +76,6 @@ func NewGroup(ctx *pulumi.Context,
 		args = &GroupArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Group
 	err := ctx.RegisterResource("aws:synthetics/group:Group", name, args, &resource, opts...)

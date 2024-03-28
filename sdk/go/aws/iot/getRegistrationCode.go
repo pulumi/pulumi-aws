@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,17 +33,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			verificationPrivateKey, err := tls.NewPrivateKey(ctx, "verificationPrivateKey", &tls.PrivateKeyArgs{
+//			verification, err := tls.NewPrivateKey(ctx, "verification", &tls.PrivateKeyArgs{
 //				Algorithm: pulumi.String("RSA"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = tls.NewCertRequest(ctx, "verificationCertRequest", &tls.CertRequestArgs{
+//			_, err = tls.NewCertRequest(ctx, "verification", &tls.CertRequestArgs{
 //				KeyAlgorithm:  pulumi.String("RSA"),
-//				PrivateKeyPem: verificationPrivateKey.PrivateKeyPem,
+//				PrivateKeyPem: verification.PrivateKeyPem,
 //				Subject: &tls.CertRequestSubjectArgs{
-//					CommonName: *pulumi.String(example.RegistrationCode),
+//					CommonName: pulumi.String(example.RegistrationCode),
 //				},
 //			})
 //			if err != nil {
@@ -53,6 +54,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetRegistrationCode(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetRegistrationCodeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRegistrationCodeResult

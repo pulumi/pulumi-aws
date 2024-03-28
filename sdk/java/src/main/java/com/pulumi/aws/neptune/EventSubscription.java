@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -30,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.neptune.ClusterInstance;
  * import com.pulumi.aws.neptune.ClusterInstanceArgs;
  * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.neptune.EventSubscription;
  * import com.pulumi.aws.neptune.EventSubscriptionArgs;
  * import java.util.List;
@@ -45,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var defaultCluster = new Cluster(&#34;defaultCluster&#34;, ClusterArgs.builder()        
+ *         var default_ = new Cluster(&#34;default&#34;, ClusterArgs.builder()        
  *             .clusterIdentifier(&#34;neptune-cluster-demo&#34;)
  *             .engine(&#34;neptune&#34;)
  *             .backupRetentionPeriod(5)
@@ -56,15 +59,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new ClusterInstance(&#34;example&#34;, ClusterInstanceArgs.builder()        
- *             .clusterIdentifier(defaultCluster.id())
+ *             .clusterIdentifier(default_.id())
  *             .engine(&#34;neptune&#34;)
  *             .instanceClass(&#34;db.r4.large&#34;)
  *             .applyImmediately(&#34;true&#34;)
  *             .build());
  * 
- *         var defaultTopic = new Topic(&#34;defaultTopic&#34;);
+ *         var defaultTopic = new Topic(&#34;defaultTopic&#34;, TopicArgs.builder()        
+ *             .name(&#34;neptune-events&#34;)
+ *             .build());
  * 
  *         var defaultEventSubscription = new EventSubscription(&#34;defaultEventSubscription&#34;, EventSubscriptionArgs.builder()        
+ *             .name(&#34;neptune-event-sub&#34;)
  *             .snsTopicArn(defaultTopic.arn())
  *             .sourceType(&#34;db-instance&#34;)
  *             .sourceIds(example.id())
@@ -87,13 +93,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_neptune_event_subscription` using the event subscription name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:neptune/eventSubscription:EventSubscription example my-event-subscription
+ * $ pulumi import aws:neptune/eventSubscription:EventSubscription example my-event-subscription
  * ```
  * 
  */
@@ -290,9 +297,6 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

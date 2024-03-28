@@ -14,11 +14,11 @@ namespace Pulumi.Aws.NetworkFirewall
         /// <summary>
         /// Retrieve information about a firewall.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Find firewall policy by ARN
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -29,15 +29,16 @@ namespace Pulumi.Aws.NetworkFirewall
         /// {
         ///     var example = Aws.NetworkFirewall.GetFirewall.Invoke(new()
         ///     {
-        ///         Arn = aws_networkfirewall_firewall.Arn,
+        ///         Arn = arn,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Find firewall policy by Name
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -53,10 +54,11 @@ namespace Pulumi.Aws.NetworkFirewall
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Find firewall policy by ARN and Name
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -67,14 +69,13 @@ namespace Pulumi.Aws.NetworkFirewall
         /// {
         ///     var example = Aws.NetworkFirewall.GetFirewall.Invoke(new()
         ///     {
-        ///         Arn = aws_networkfirewall_firewall.Arn,
+        ///         Arn = arn,
         ///         Name = "Test",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFirewallResult> InvokeAsync(GetFirewallArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallResult>("aws:networkfirewall/getFirewall:getFirewall", args ?? new GetFirewallArgs(), options.WithDefaults());
@@ -82,11 +83,11 @@ namespace Pulumi.Aws.NetworkFirewall
         /// <summary>
         /// Retrieve information about a firewall.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Find firewall policy by ARN
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -97,15 +98,16 @@ namespace Pulumi.Aws.NetworkFirewall
         /// {
         ///     var example = Aws.NetworkFirewall.GetFirewall.Invoke(new()
         ///     {
-        ///         Arn = aws_networkfirewall_firewall.Arn,
+        ///         Arn = arn,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Find firewall policy by Name
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -121,10 +123,11 @@ namespace Pulumi.Aws.NetworkFirewall
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Find firewall policy by ARN and Name
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -135,14 +138,13 @@ namespace Pulumi.Aws.NetworkFirewall
         /// {
         ///     var example = Aws.NetworkFirewall.GetFirewall.Invoke(new()
         ///     {
-        ///         Arn = aws_networkfirewall_firewall.Arn,
+        ///         Arn = arn,
         ///         Name = "Test",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFirewallResult> Invoke(GetFirewallInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallResult>("aws:networkfirewall/getFirewall:getFirewall", args ?? new GetFirewallInvokeArgs(), options.WithDefaults());
@@ -222,7 +224,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Boolean flag indicating whether it is possible to delete the firewall.
+        /// A flag indicating whether the firewall is protected against deletion.
         /// </summary>
         public readonly bool DeleteProtection;
         /// <summary>
@@ -238,7 +240,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         public readonly string FirewallPolicyArn;
         /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated firewall policy.
+        /// A flag indicating whether the firewall is protected against a change to the firewall policy association.
         /// </summary>
         public readonly bool FirewallPolicyChangeProtection;
         /// <summary>
@@ -254,7 +256,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated subnet(s).
+        /// A flag indicating whether the firewall is protected against changes to the subnet associations.
         /// </summary>
         public readonly bool SubnetChangeProtection;
         /// <summary>

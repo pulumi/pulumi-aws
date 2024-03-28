@@ -4,6 +4,7 @@
 package com.pulumi.aws.ses.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,25 +74,32 @@ public final class ReceiptRuleSnsAction {
 
         @CustomType.Setter
         public Builder encoding(@Nullable String encoding) {
+
             this.encoding = encoding;
             return this;
         }
         @CustomType.Setter
         public Builder position(Integer position) {
-            this.position = Objects.requireNonNull(position);
+            if (position == null) {
+              throw new MissingRequiredPropertyException("ReceiptRuleSnsAction", "position");
+            }
+            this.position = position;
             return this;
         }
         @CustomType.Setter
         public Builder topicArn(String topicArn) {
-            this.topicArn = Objects.requireNonNull(topicArn);
+            if (topicArn == null) {
+              throw new MissingRequiredPropertyException("ReceiptRuleSnsAction", "topicArn");
+            }
+            this.topicArn = topicArn;
             return this;
         }
         public ReceiptRuleSnsAction build() {
-            final var o = new ReceiptRuleSnsAction();
-            o.encoding = encoding;
-            o.position = position;
-            o.topicArn = topicArn;
-            return o;
+            final var _resultValue = new ReceiptRuleSnsAction();
+            _resultValue.encoding = encoding;
+            _resultValue.position = position;
+            _resultValue.topicArn = topicArn;
+            return _resultValue;
         }
     }
 }

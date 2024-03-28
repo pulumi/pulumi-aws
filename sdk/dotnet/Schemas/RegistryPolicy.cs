@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Schemas
     /// Resource for managing an AWS EventBridge Schemas Registry Policy.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,7 +25,7 @@ namespace Pulumi.Aws.Schemas
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -55,21 +57,22 @@ namespace Pulumi.Aws.Schemas
     ///         },
     ///     });
     /// 
-    ///     var exampleRegistryPolicy = new Aws.Schemas.RegistryPolicy("exampleRegistryPolicy", new()
+    ///     var exampleRegistryPolicy = new Aws.Schemas.RegistryPolicy("example", new()
     ///     {
     ///         RegistryName = "example",
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EventBridge Schema Registry Policy using the `registry_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
+    /// $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:schemas/registryPolicy:RegistryPolicy")]

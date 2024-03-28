@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * Basic usage:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -73,7 +75,8 @@ import javax.annotation.Nullable;
  *             .repositoryName(&#34;kmeans&#34;)
  *             .build());
  * 
- *         var exampleModel = new Model(&#34;exampleModel&#34;, ModelArgs.builder()        
+ *         var example = new Model(&#34;example&#34;, ModelArgs.builder()        
+ *             .name(&#34;my-model&#34;)
  *             .executionRoleArn(exampleRole.arn())
  *             .primaryContainer(ModelPrimaryContainerArgs.builder()
  *                 .image(test.applyValue(getPrebuiltEcrImageResult -&gt; getPrebuiltEcrImageResult.registryPath()))
@@ -83,6 +86,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Inference Execution Config
  * 
  * * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
@@ -92,7 +97,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import models using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sagemaker/model:Model test_model model-foo
+ * $ pulumi import aws:sagemaker/model:Model test_model model-foo
  * ```
  * 
  */
@@ -279,9 +284,6 @@ public class Model extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

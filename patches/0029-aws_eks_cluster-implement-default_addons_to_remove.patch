@@ -1,14 +1,14 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Wed, 15 Nov 2023 11:53:09 -0500
-Subject: [PATCH 29/29] aws_eks_cluster: implement default_addons_to_remove
+Subject: [PATCH 29/46] aws_eks_cluster: implement default_addons_to_remove
 
 
 diff --git a/internal/service/eks/cluster.go b/internal/service/eks/cluster.go
-index df297c7195..8b51502da5 100644
+index 6f4ddd9ea4..79110331b4 100644
 --- a/internal/service/eks/cluster.go
 +++ b/internal/service/eks/cluster.go
-@@ -96,6 +96,13 @@ func resourceCluster() *schema.Resource {
+@@ -118,6 +118,13 @@ func resourceCluster() *schema.Resource {
  				Type:     schema.TypeString,
  				Computed: true,
  			},
@@ -22,17 +22,19 @@ index df297c7195..8b51502da5 100644
  			"enabled_cluster_log_types": {
  				Type:     schema.TypeSet,
  				Optional: true,
-@@ -375,6 +382,10 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
- 		return diag.Errorf("waiting for EKS Cluster (%s) create: %s", d.Id(), err)
+@@ -403,7 +410,11 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
+ 		return sdkdiag.AppendErrorf(diags, "waiting for EKS Cluster (%s) create: %s", d.Id(), err)
  	}
  
+-	return append(diags, resourceClusterRead(ctx, d, meta)...)
 +	if err := removeAddons(d, conn); err != nil {
 +		return diag.Errorf("removing addons (%s): %s", d.Id(), err)
 +	}
 +
- 	return resourceClusterRead(ctx, d, meta)
++	return resourceClusterRead(ctx, d, meta)
  }
  
+ func resourceClusterRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 diff --git a/internal/service/eks/cluster_addon_removal.go b/internal/service/eks/cluster_addon_removal.go
 new file mode 100644
 index 0000000000..681579735e

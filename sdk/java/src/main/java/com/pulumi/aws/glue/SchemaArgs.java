@@ -5,6 +5,7 @@ package com.pulumi.aws.glue;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -299,10 +300,18 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SchemaArgs build() {
-            $.compatibility = Objects.requireNonNull($.compatibility, "expected parameter 'compatibility' to be non-null");
-            $.dataFormat = Objects.requireNonNull($.dataFormat, "expected parameter 'dataFormat' to be non-null");
-            $.schemaDefinition = Objects.requireNonNull($.schemaDefinition, "expected parameter 'schemaDefinition' to be non-null");
-            $.schemaName = Objects.requireNonNull($.schemaName, "expected parameter 'schemaName' to be non-null");
+            if ($.compatibility == null) {
+                throw new MissingRequiredPropertyException("SchemaArgs", "compatibility");
+            }
+            if ($.dataFormat == null) {
+                throw new MissingRequiredPropertyException("SchemaArgs", "dataFormat");
+            }
+            if ($.schemaDefinition == null) {
+                throw new MissingRequiredPropertyException("SchemaArgs", "schemaDefinition");
+            }
+            if ($.schemaName == null) {
+                throw new MissingRequiredPropertyException("SchemaArgs", "schemaName");
+            }
             return $;
         }
     }

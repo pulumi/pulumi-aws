@@ -288,13 +288,16 @@ class VirtualGateway(pulumi.CustomResource):
         Provides an AWS App Mesh virtual gateway resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.appmesh.VirtualGateway("example",
+            name="example-virtual-gateway",
             mesh_name="example-service-mesh",
             spec=aws.appmesh.VirtualGatewaySpecArgs(
                 listeners=[aws.appmesh.VirtualGatewaySpecListenerArgs(
@@ -308,13 +311,17 @@ class VirtualGateway(pulumi.CustomResource):
                 "Environment": "test",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Access Logs and TLS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.appmesh.VirtualGateway("example",
+            name="example-virtual-gateway",
             mesh_name="example-service-mesh",
             spec=aws.appmesh.VirtualGatewaySpecArgs(
                 listeners=[aws.appmesh.VirtualGatewaySpecListenerArgs(
@@ -325,7 +332,7 @@ class VirtualGateway(pulumi.CustomResource):
                     tls=aws.appmesh.VirtualGatewaySpecListenerTlsArgs(
                         certificate=aws.appmesh.VirtualGatewaySpecListenerTlsCertificateArgs(
                             acm=aws.appmesh.VirtualGatewaySpecListenerTlsCertificateAcmArgs(
-                                certificate_arn=aws_acm_certificate["example"]["arn"],
+                                certificate_arn=example_aws_acm_certificate["arn"],
                             ),
                         ),
                         mode="STRICT",
@@ -340,13 +347,14 @@ class VirtualGateway(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Mesh virtual gateway using `mesh_name` together with the virtual gateway's `name`. For example:
 
         ```sh
-         $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
+        $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
         ```
 
         :param str resource_name: The name of the resource.
@@ -367,13 +375,16 @@ class VirtualGateway(pulumi.CustomResource):
         Provides an AWS App Mesh virtual gateway resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.appmesh.VirtualGateway("example",
+            name="example-virtual-gateway",
             mesh_name="example-service-mesh",
             spec=aws.appmesh.VirtualGatewaySpecArgs(
                 listeners=[aws.appmesh.VirtualGatewaySpecListenerArgs(
@@ -387,13 +398,17 @@ class VirtualGateway(pulumi.CustomResource):
                 "Environment": "test",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Access Logs and TLS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.appmesh.VirtualGateway("example",
+            name="example-virtual-gateway",
             mesh_name="example-service-mesh",
             spec=aws.appmesh.VirtualGatewaySpecArgs(
                 listeners=[aws.appmesh.VirtualGatewaySpecListenerArgs(
@@ -404,7 +419,7 @@ class VirtualGateway(pulumi.CustomResource):
                     tls=aws.appmesh.VirtualGatewaySpecListenerTlsArgs(
                         certificate=aws.appmesh.VirtualGatewaySpecListenerTlsCertificateArgs(
                             acm=aws.appmesh.VirtualGatewaySpecListenerTlsCertificateAcmArgs(
-                                certificate_arn=aws_acm_certificate["example"]["arn"],
+                                certificate_arn=example_aws_acm_certificate["arn"],
                             ),
                         ),
                         mode="STRICT",
@@ -419,13 +434,14 @@ class VirtualGateway(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Mesh virtual gateway using `mesh_name` together with the virtual gateway's `name`. For example:
 
         ```sh
-         $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
+        $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
         ```
 
         :param str resource_name: The name of the resource.
@@ -471,8 +487,6 @@ class VirtualGateway(pulumi.CustomResource):
             __props__.__dict__["last_updated_date"] = None
             __props__.__dict__["resource_owner"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VirtualGateway, __self__).__init__(
             'aws:appmesh/virtualGateway:VirtualGateway',
             resource_name,

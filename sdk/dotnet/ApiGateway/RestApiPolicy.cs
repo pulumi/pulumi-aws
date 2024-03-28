@@ -15,8 +15,10 @@ namespace Pulumi.Aws.ApiGateway
     /// &gt; **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 resources.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,9 +27,12 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testRestApi = new Aws.ApiGateway.RestApi("testRestApi");
+    ///     var testRestApi = new Aws.ApiGateway.RestApi("test", new()
+    ///     {
+    ///         Name = "example-rest-api",
+    ///     });
     /// 
-    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var test = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -69,21 +74,22 @@ namespace Pulumi.Aws.ApiGateway
     ///         },
     ///     });
     /// 
-    ///     var testRestApiPolicy = new Aws.ApiGateway.RestApiPolicy("testRestApiPolicy", new()
+    ///     var testRestApiPolicy = new Aws.ApiGateway.RestApiPolicy("test", new()
     ///     {
     ///         RestApiId = testRestApi.Id,
-    ///         Policy = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = test.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_api_gateway_rest_api_policy` using the REST API ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
+    /// $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/restApiPolicy:RestApiPolicy")]

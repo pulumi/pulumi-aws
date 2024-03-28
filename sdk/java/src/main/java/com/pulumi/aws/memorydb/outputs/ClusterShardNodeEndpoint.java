@@ -59,19 +59,21 @@ public final class ClusterShardNodeEndpoint {
 
         @CustomType.Setter
         public Builder address(@Nullable String address) {
+
             this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         public ClusterShardNodeEndpoint build() {
-            final var o = new ClusterShardNodeEndpoint();
-            o.address = address;
-            o.port = port;
-            return o;
+            final var _resultValue = new ClusterShardNodeEndpoint();
+            _resultValue.address = address;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

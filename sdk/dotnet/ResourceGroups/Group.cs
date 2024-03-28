@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ResourceGroups
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,6 +25,7 @@ namespace Pulumi.Aws.ResourceGroups
     /// {
     ///     var test = new Aws.ResourceGroups.Group("test", new()
     ///     {
+    ///         Name = "test-group",
     ///         ResourceQuery = new Aws.ResourceGroups.Inputs.GroupResourceQueryArgs
     ///         {
     ///             Query = @"{
@@ -37,20 +39,20 @@ namespace Pulumi.Aws.ResourceGroups
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import resource groups using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
+    /// $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:resourcegroups/group:Group")]
@@ -121,10 +123,6 @@ namespace Pulumi.Aws.ResourceGroups
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -256,11 +254,7 @@ namespace Pulumi.Aws.ResourceGroups
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public GroupState()

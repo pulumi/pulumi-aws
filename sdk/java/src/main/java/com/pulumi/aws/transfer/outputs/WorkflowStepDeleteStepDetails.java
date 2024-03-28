@@ -58,19 +58,21 @@ public final class WorkflowStepDeleteStepDetails {
 
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder sourceFileLocation(@Nullable String sourceFileLocation) {
+
             this.sourceFileLocation = sourceFileLocation;
             return this;
         }
         public WorkflowStepDeleteStepDetails build() {
-            final var o = new WorkflowStepDeleteStepDetails();
-            o.name = name;
-            o.sourceFileLocation = sourceFileLocation;
-            return o;
+            final var _resultValue = new WorkflowStepDeleteStepDetails();
+            _resultValue.name = name;
+            _resultValue.sourceFileLocation = sourceFileLocation;
+            return _resultValue;
         }
     }
 }

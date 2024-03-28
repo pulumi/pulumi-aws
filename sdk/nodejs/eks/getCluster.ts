@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,6 +28,7 @@ import * as utilities from "../utilities";
  *     };
  * }
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
@@ -42,7 +44,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetClusterArgs {
     /**
-     * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the cluster.
      */
     name: string;
     /**
@@ -55,6 +57,10 @@ export interface GetClusterArgs {
  * A collection of values returned by getCluster.
  */
 export interface GetClusterResult {
+    /**
+     * Configuration block for access config.
+     */
+    readonly accessConfigs: outputs.eks.GetClusterAccessConfig[];
     /**
      * ARN of the cluster.
      */
@@ -126,6 +132,7 @@ export interface GetClusterResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -141,6 +148,7 @@ export interface GetClusterResult {
  *     };
  * }
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))
@@ -151,7 +159,7 @@ export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.Invok
  */
 export interface GetClusterOutputArgs {
     /**
-     * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the cluster.
      */
     name: pulumi.Input<string>;
     /**

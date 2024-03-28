@@ -44,6 +44,7 @@ public final class ResponsePlanIntegration {
 
         @CustomType.Setter
         public Builder pagerduties(@Nullable List<ResponsePlanIntegrationPagerduty> pagerduties) {
+
             this.pagerduties = pagerduties;
             return this;
         }
@@ -51,9 +52,9 @@ public final class ResponsePlanIntegration {
             return pagerduties(List.of(pagerduties));
         }
         public ResponsePlanIntegration build() {
-            final var o = new ResponsePlanIntegration();
-            o.pagerduties = pagerduties;
-            return o;
+            final var _resultValue = new ResponsePlanIntegration();
+            _resultValue.pagerduties = pagerduties;
+            return _resultValue;
         }
     }
 }

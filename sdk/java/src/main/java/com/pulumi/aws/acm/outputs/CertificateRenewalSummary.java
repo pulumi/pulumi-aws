@@ -64,25 +64,28 @@ public final class CertificateRenewalSummary {
 
         @CustomType.Setter
         public Builder renewalStatus(@Nullable String renewalStatus) {
+
             this.renewalStatus = renewalStatus;
             return this;
         }
         @CustomType.Setter
         public Builder renewalStatusReason(@Nullable String renewalStatusReason) {
+
             this.renewalStatusReason = renewalStatusReason;
             return this;
         }
         @CustomType.Setter
         public Builder updatedAt(@Nullable String updatedAt) {
+
             this.updatedAt = updatedAt;
             return this;
         }
         public CertificateRenewalSummary build() {
-            final var o = new CertificateRenewalSummary();
-            o.renewalStatus = renewalStatus;
-            o.renewalStatusReason = renewalStatusReason;
-            o.updatedAt = updatedAt;
-            return o;
+            final var _resultValue = new CertificateRenewalSummary();
+            _resultValue.renewalStatus = renewalStatus;
+            _resultValue.renewalStatusReason = renewalStatusReason;
+            _resultValue.updatedAt = updatedAt;
+            return _resultValue;
         }
     }
 }

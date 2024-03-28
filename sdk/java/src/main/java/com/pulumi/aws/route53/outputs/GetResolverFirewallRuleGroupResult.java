@@ -4,6 +4,7 @@
 package com.pulumi.aws.route53.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -109,79 +110,115 @@ public final class GetResolverFirewallRuleGroupResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder creationTime(String creationTime) {
-            this.creationTime = Objects.requireNonNull(creationTime);
+            if (creationTime == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupResult", "creationTime");
+            }
+            this.creationTime = creationTime;
             return this;
         }
         @CustomType.Setter
         public Builder creatorRequestId(String creatorRequestId) {
-            this.creatorRequestId = Objects.requireNonNull(creatorRequestId);
+            if (creatorRequestId == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupResult", "creatorRequestId");
+            }
+            this.creatorRequestId = creatorRequestId;
             return this;
         }
         @CustomType.Setter
         public Builder firewallRuleGroupId(String firewallRuleGroupId) {
-            this.firewallRuleGroupId = Objects.requireNonNull(firewallRuleGroupId);
+            if (firewallRuleGroupId == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupResult", "firewallRuleGroupId");
+            }
+            this.firewallRuleGroupId = firewallRuleGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder modificationTime(String modificationTime) {
-            this.modificationTime = Objects.requireNonNull(modificationTime);
+            if (modificationTime == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupResult", "modificationTime");
+            }
+            this.modificationTime = modificationTime;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+            if (ownerId == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupResult", "ownerId");
+            }
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
         public Builder ruleCount(Integer ruleCount) {
-            this.ruleCount = Objects.requireNonNull(ruleCount);
+            if (ruleCount == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupResult", "ruleCount");
+            }
+            this.ruleCount = ruleCount;
             return this;
         }
         @CustomType.Setter
         public Builder shareStatus(String shareStatus) {
-            this.shareStatus = Objects.requireNonNull(shareStatus);
+            if (shareStatus == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupResult", "shareStatus");
+            }
+            this.shareStatus = shareStatus;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder statusMessage(String statusMessage) {
-            this.statusMessage = Objects.requireNonNull(statusMessage);
+            if (statusMessage == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupResult", "statusMessage");
+            }
+            this.statusMessage = statusMessage;
             return this;
         }
         public GetResolverFirewallRuleGroupResult build() {
-            final var o = new GetResolverFirewallRuleGroupResult();
-            o.arn = arn;
-            o.creationTime = creationTime;
-            o.creatorRequestId = creatorRequestId;
-            o.firewallRuleGroupId = firewallRuleGroupId;
-            o.id = id;
-            o.modificationTime = modificationTime;
-            o.name = name;
-            o.ownerId = ownerId;
-            o.ruleCount = ruleCount;
-            o.shareStatus = shareStatus;
-            o.status = status;
-            o.statusMessage = statusMessage;
-            return o;
+            final var _resultValue = new GetResolverFirewallRuleGroupResult();
+            _resultValue.arn = arn;
+            _resultValue.creationTime = creationTime;
+            _resultValue.creatorRequestId = creatorRequestId;
+            _resultValue.firewallRuleGroupId = firewallRuleGroupId;
+            _resultValue.id = id;
+            _resultValue.modificationTime = modificationTime;
+            _resultValue.name = name;
+            _resultValue.ownerId = ownerId;
+            _resultValue.ruleCount = ruleCount;
+            _resultValue.shareStatus = shareStatus;
+            _resultValue.status = status;
+            _resultValue.statusMessage = statusMessage;
+            return _resultValue;
         }
     }
 }

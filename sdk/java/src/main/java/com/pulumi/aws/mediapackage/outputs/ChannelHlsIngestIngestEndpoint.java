@@ -72,25 +72,28 @@ public final class ChannelHlsIngestIngestEndpoint {
 
         @CustomType.Setter
         public Builder password(@Nullable String password) {
+
             this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder url(@Nullable String url) {
+
             this.url = url;
             return this;
         }
         @CustomType.Setter
         public Builder username(@Nullable String username) {
+
             this.username = username;
             return this;
         }
         public ChannelHlsIngestIngestEndpoint build() {
-            final var o = new ChannelHlsIngestIngestEndpoint();
-            o.password = password;
-            o.url = url;
-            o.username = username;
-            return o;
+            final var _resultValue = new ChannelHlsIngestIngestEndpoint();
+            _resultValue.password = password;
+            _resultValue.url = url;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

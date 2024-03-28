@@ -9,23 +9,28 @@ import * as utilities from "../utilities";
  *
  * The following example below creates a CloudFront public key.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const example = new aws.cloudfront.PublicKey("example", {
  *     comment: "test public key",
- *     encodedKey: fs.readFileSync("public_key.pem"),
+ *     encodedKey: std.file({
+ *         input: "public_key.pem",
+ *     }).then(invoke => invoke.result),
+ *     name: "test_key",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CloudFront Public Key using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON
+ * $ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON
  * ```
  */
 export class PublicKey extends pulumi.CustomResource {

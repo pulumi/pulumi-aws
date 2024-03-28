@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS QuickSight VPC Connection.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,13 +35,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Effect": "Allow",
-//						"Action": "sts:AssumeRole",
-//						"Principal": map[string]interface{}{
-//							"Service": "quicksight.amazonaws.com",
+//						"effect": "Allow",
+//						"action": "sts:AssumeRole",
+//						"principal": map[string]interface{}{
+//							"service": "quicksight.amazonaws.com",
 //						},
 //					},
 //				},
@@ -49,18 +51,18 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			tmpJSON1, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Effect": "Allow",
-//						"Action": []string{
+//						"effect": "Allow",
+//						"action": []string{
 //							"ec2:CreateNetworkInterface",
 //							"ec2:ModifyNetworkInterfaceAttribute",
 //							"ec2:DeleteNetworkInterface",
 //							"ec2:DescribeSubnets",
 //							"ec2:DescribeSecurityGroups",
 //						},
-//						"Resource": []string{
+//						"resource": []string{
 //							"*",
 //						},
 //					},
@@ -70,7 +72,7 @@ import (
 //				return err
 //			}
 //			json1 := string(tmpJSON1)
-//			vpcConnectionRole, err := iam.NewRole(ctx, "vpcConnectionRole", &iam.RoleArgs{
+//			vpcConnectionRole, err := iam.NewRole(ctx, "vpc_connection_role", &iam.RoleArgs{
 //				AssumeRolePolicy: pulumi.String(json0),
 //				InlinePolicies: iam.RoleInlinePolicyArray{
 //					&iam.RoleInlinePolicyArgs{
@@ -84,6 +86,7 @@ import (
 //			}
 //			_, err = quicksight.NewVpcConnection(ctx, "example", &quicksight.VpcConnectionArgs{
 //				VpcConnectionId: pulumi.String("example-connection-id"),
+//				Name:            pulumi.String("Example Connection"),
 //				RoleArn:         vpcConnectionRole.Arn,
 //				SecurityGroupIds: pulumi.StringArray{
 //					pulumi.String("sg-00000000000000000"),
@@ -101,15 +104,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import QuickSight VPC connection using the AWS account ID and VPC connection ID separated by commas (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
-//
+// $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
 // ```
 type VpcConnection struct {
 	pulumi.CustomResourceState
@@ -162,10 +164,6 @@ func NewVpcConnection(ctx *pulumi.Context,
 	if args.VpcConnectionId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcConnectionId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcConnection
 	err := ctx.RegisterResource("aws:quicksight/vpcConnection:VpcConnection", name, args, &resource, opts...)

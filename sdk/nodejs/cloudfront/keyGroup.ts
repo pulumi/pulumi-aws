@@ -9,27 +9,33 @@ import * as utilities from "../utilities";
  *
  * The following example below creates a CloudFront key group.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const examplePublicKey = new aws.cloudfront.PublicKey("examplePublicKey", {
+ * const example = new aws.cloudfront.PublicKey("example", {
  *     comment: "example public key",
- *     encodedKey: fs.readFileSync("public_key.pem"),
+ *     encodedKey: std.file({
+ *         input: "public_key.pem",
+ *     }).then(invoke => invoke.result),
+ *     name: "example-key",
  * });
- * const exampleKeyGroup = new aws.cloudfront.KeyGroup("exampleKeyGroup", {
+ * const exampleKeyGroup = new aws.cloudfront.KeyGroup("example", {
  *     comment: "example key group",
- *     items: [examplePublicKey.id],
+ *     items: [example.id],
+ *     name: "example-key-group",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CloudFront Key Group using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
+ * $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
  * ```
  */
 export class KeyGroup extends pulumi.CustomResource {

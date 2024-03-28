@@ -44,13 +44,14 @@ public final class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphi
 
         @CustomType.Setter
         public Builder htmlMotionGraphicsSettings(@Nullable ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings htmlMotionGraphicsSettings) {
+
             this.htmlMotionGraphicsSettings = htmlMotionGraphicsSettings;
             return this;
         }
         public ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings build() {
-            final var o = new ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings();
-            o.htmlMotionGraphicsSettings = htmlMotionGraphicsSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings();
+            _resultValue.htmlMotionGraphicsSettings = htmlMotionGraphicsSettings;
+            return _resultValue;
         }
     }
 }

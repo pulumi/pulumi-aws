@@ -4,6 +4,7 @@
 package com.pulumi.aws.memorydb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -57,19 +58,25 @@ public final class GetClusterShardNodeEndpoint {
 
         @CustomType.Setter
         public Builder address(String address) {
-            this.address = Objects.requireNonNull(address);
+            if (address == null) {
+              throw new MissingRequiredPropertyException("GetClusterShardNodeEndpoint", "address");
+            }
+            this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetClusterShardNodeEndpoint", "port");
+            }
+            this.port = port;
             return this;
         }
         public GetClusterShardNodeEndpoint build() {
-            final var o = new GetClusterShardNodeEndpoint();
-            o.address = address;
-            o.port = port;
-            return o;
+            final var _resultValue = new GetClusterShardNodeEndpoint();
+            _resultValue.address = address;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

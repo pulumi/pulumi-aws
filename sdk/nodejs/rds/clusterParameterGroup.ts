@@ -15,13 +15,15 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.rds.ClusterParameterGroup("default", {
- *     description: "RDS default cluster parameter group",
+ *     name: "rds-cluster-pg",
  *     family: "aurora5.6",
+ *     description: "RDS default cluster parameter group",
  *     parameters: [
  *         {
  *             name: "character_set_server",
@@ -34,13 +36,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import RDS Cluster Parameter Groups using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
+ * $ pulumi import aws:rds/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
  * ```
  */
 export class ClusterParameterGroup extends pulumi.CustomResource {
@@ -142,8 +145,6 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ClusterParameterGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

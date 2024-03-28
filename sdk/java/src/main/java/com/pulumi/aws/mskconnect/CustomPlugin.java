@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * Provides an Amazon MSK Connect Custom Plugin Resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -28,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.aws.mskconnect.CustomPlugin;
@@ -48,19 +52,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleBucketObjectv2 = new BucketObjectv2(&#34;exampleBucketObjectv2&#34;, BucketObjectv2Args.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .key(&#34;debezium.zip&#34;)
  *             .source(new FileAsset(&#34;debezium.zip&#34;))
  *             .build());
  * 
  *         var exampleCustomPlugin = new CustomPlugin(&#34;exampleCustomPlugin&#34;, CustomPluginArgs.builder()        
+ *             .name(&#34;debezium-example&#34;)
  *             .contentType(&#34;ZIP&#34;)
  *             .location(CustomPluginLocationArgs.builder()
  *                 .s3(CustomPluginLocationS3Args.builder()
- *                     .bucketArn(exampleBucketV2.arn())
+ *                     .bucketArn(example.arn())
  *                     .fileKey(exampleBucketObjectv2.key())
  *                     .build())
  *                 .build())
@@ -69,13 +76,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import MSK Connect Custom Plugin using the plugin&#39;s `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example &#39;arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4&#39;
+ * $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example &#39;arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4&#39;
  * ```
  * 
  */

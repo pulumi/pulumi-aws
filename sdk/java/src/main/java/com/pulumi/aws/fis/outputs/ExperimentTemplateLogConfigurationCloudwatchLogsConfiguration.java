@@ -4,6 +4,7 @@
 package com.pulumi.aws.fis.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration
 
         @CustomType.Setter
         public Builder logGroupArn(String logGroupArn) {
-            this.logGroupArn = Objects.requireNonNull(logGroupArn);
+            if (logGroupArn == null) {
+              throw new MissingRequiredPropertyException("ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration", "logGroupArn");
+            }
+            this.logGroupArn = logGroupArn;
             return this;
         }
         public ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration build() {
-            final var o = new ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration();
-            o.logGroupArn = logGroupArn;
-            return o;
+            final var _resultValue = new ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration();
+            _resultValue.logGroupArn = logGroupArn;
+            return _resultValue;
         }
     }
 }

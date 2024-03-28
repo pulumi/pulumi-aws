@@ -191,11 +191,12 @@ class ClusterActivityStream(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        default_cluster = aws.rds.Cluster("defaultCluster",
+        default = aws.rds.Cluster("default",
             cluster_identifier="aurora-cluster-demo",
             availability_zones=[
                 "us-west-2a",
@@ -205,27 +206,27 @@ class ClusterActivityStream(pulumi.CustomResource):
             database_name="mydb",
             master_username="foo",
             master_password="mustbeeightcharaters",
-            engine="aurora-postgresql",
+            engine=aws.rds.EngineType.AURORA_POSTGRESQL,
             engine_version="13.4")
-        default_cluster_instance = aws.rds.ClusterInstance("defaultClusterInstance",
+        default_cluster_instance = aws.rds.ClusterInstance("default",
             identifier="aurora-instance-demo",
-            cluster_identifier=default_cluster.cluster_identifier,
-            engine=default_cluster.engine,
-            instance_class="db.r6g.large")
-        default_key = aws.kms.Key("defaultKey", description="AWS KMS Key to encrypt Database Activity Stream")
-        default_cluster_activity_stream = aws.rds.ClusterActivityStream("defaultClusterActivityStream",
-            resource_arn=default_cluster.arn,
+            cluster_identifier=default.cluster_identifier,
+            engine=default.engine,
+            instance_class=aws.rds.InstanceType.R6_G_LARGE)
+        default_key = aws.kms.Key("default", description="AWS KMS Key to encrypt Database Activity Stream")
+        default_cluster_activity_stream = aws.rds.ClusterActivityStream("default",
+            resource_arn=default.arn,
             mode="async",
-            kms_key_id=default_key.key_id,
-            opts=pulumi.ResourceOptions(depends_on=[default_cluster_instance]))
+            kms_key_id=default_key.key_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import RDS Aurora Cluster Database Activity Streams using the `resource_arn`. For example:
 
         ```sh
-         $ pulumi import aws:rds/clusterActivityStream:ClusterActivityStream default arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo
+        $ pulumi import aws:rds/clusterActivityStream:ClusterActivityStream default arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo
         ```
 
         :param str resource_name: The name of the resource.
@@ -254,11 +255,12 @@ class ClusterActivityStream(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        default_cluster = aws.rds.Cluster("defaultCluster",
+        default = aws.rds.Cluster("default",
             cluster_identifier="aurora-cluster-demo",
             availability_zones=[
                 "us-west-2a",
@@ -268,27 +270,27 @@ class ClusterActivityStream(pulumi.CustomResource):
             database_name="mydb",
             master_username="foo",
             master_password="mustbeeightcharaters",
-            engine="aurora-postgresql",
+            engine=aws.rds.EngineType.AURORA_POSTGRESQL,
             engine_version="13.4")
-        default_cluster_instance = aws.rds.ClusterInstance("defaultClusterInstance",
+        default_cluster_instance = aws.rds.ClusterInstance("default",
             identifier="aurora-instance-demo",
-            cluster_identifier=default_cluster.cluster_identifier,
-            engine=default_cluster.engine,
-            instance_class="db.r6g.large")
-        default_key = aws.kms.Key("defaultKey", description="AWS KMS Key to encrypt Database Activity Stream")
-        default_cluster_activity_stream = aws.rds.ClusterActivityStream("defaultClusterActivityStream",
-            resource_arn=default_cluster.arn,
+            cluster_identifier=default.cluster_identifier,
+            engine=default.engine,
+            instance_class=aws.rds.InstanceType.R6_G_LARGE)
+        default_key = aws.kms.Key("default", description="AWS KMS Key to encrypt Database Activity Stream")
+        default_cluster_activity_stream = aws.rds.ClusterActivityStream("default",
+            resource_arn=default.arn,
             mode="async",
-            kms_key_id=default_key.key_id,
-            opts=pulumi.ResourceOptions(depends_on=[default_cluster_instance]))
+            kms_key_id=default_key.key_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import RDS Aurora Cluster Database Activity Streams using the `resource_arn`. For example:
 
         ```sh
-         $ pulumi import aws:rds/clusterActivityStream:ClusterActivityStream default arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo
+        $ pulumi import aws:rds/clusterActivityStream:ClusterActivityStream default arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo
         ```
 
         :param str resource_name: The name of the resource.

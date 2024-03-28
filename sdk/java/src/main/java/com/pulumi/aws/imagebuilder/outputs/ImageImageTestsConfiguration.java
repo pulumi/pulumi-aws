@@ -59,19 +59,21 @@ public final class ImageImageTestsConfiguration {
 
         @CustomType.Setter
         public Builder imageTestsEnabled(@Nullable Boolean imageTestsEnabled) {
+
             this.imageTestsEnabled = imageTestsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutMinutes(@Nullable Integer timeoutMinutes) {
+
             this.timeoutMinutes = timeoutMinutes;
             return this;
         }
         public ImageImageTestsConfiguration build() {
-            final var o = new ImageImageTestsConfiguration();
-            o.imageTestsEnabled = imageTestsEnabled;
-            o.timeoutMinutes = timeoutMinutes;
-            return o;
+            final var _resultValue = new ImageImageTestsConfiguration();
+            _resultValue.imageTestsEnabled = imageTestsEnabled;
+            _resultValue.timeoutMinutes = timeoutMinutes;
+            return _resultValue;
         }
     }
 }

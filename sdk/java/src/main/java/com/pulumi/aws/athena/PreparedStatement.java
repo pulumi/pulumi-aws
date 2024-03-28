@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Resource for managing an Athena Prepared Statement.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -27,6 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.athena.Workgroup;
+ * import com.pulumi.aws.athena.WorkgroupArgs;
  * import com.pulumi.aws.athena.Database;
  * import com.pulumi.aws.athena.DatabaseArgs;
  * import com.pulumi.aws.athena.PreparedStatement;
@@ -44,18 +47,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testBucketV2 = new BucketV2(&#34;testBucketV2&#34;, BucketV2Args.builder()        
+ *         var test = new BucketV2(&#34;test&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;tf-test&#34;)
  *             .forceDestroy(true)
  *             .build());
  * 
- *         var testWorkgroup = new Workgroup(&#34;testWorkgroup&#34;);
+ *         var testWorkgroup = new Workgroup(&#34;testWorkgroup&#34;, WorkgroupArgs.builder()        
+ *             .name(&#34;tf-test&#34;)
+ *             .build());
  * 
  *         var testDatabase = new Database(&#34;testDatabase&#34;, DatabaseArgs.builder()        
  *             .name(&#34;example&#34;)
- *             .bucket(testBucketV2.bucket())
+ *             .bucket(test.bucket())
  *             .build());
  * 
  *         var testPreparedStatement = new PreparedStatement(&#34;testPreparedStatement&#34;, PreparedStatementArgs.builder()        
+ *             .name(&#34;tf_test&#34;)
  *             .queryStatement(testDatabase.name().applyValue(name -&gt; String.format(&#34;SELECT * FROM %s WHERE x = ?&#34;, name)))
  *             .workgroup(testWorkgroup.name())
  *             .build());
@@ -63,13 +70,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Athena Prepared Statement using the `WORKGROUP-NAME/STATEMENT-NAME`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
+ * $ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
  * ```
  * 
  */

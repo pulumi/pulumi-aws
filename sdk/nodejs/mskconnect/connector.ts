@@ -11,13 +11,16 @@ import * as utilities from "../utilities";
  * Provides an Amazon MSK Connect Connector resource.
  *
  * ## Example Usage
+ *
  * ### Basic configuration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mskconnect.Connector("example", {
+ *     name: "example",
  *     kafkaconnectVersion: "2.7.1",
  *     capacity: {
  *         autoscaling: {
@@ -39,13 +42,13 @@ import * as utilities from "../utilities";
  *     },
  *     kafkaCluster: {
  *         apacheKafkaCluster: {
- *             bootstrapServers: aws_msk_cluster.example.bootstrap_brokers_tls,
+ *             bootstrapServers: exampleAwsMskCluster.bootstrapBrokersTls,
  *             vpc: {
- *                 securityGroups: [aws_security_group.example.id],
+ *                 securityGroups: [exampleAwsSecurityGroup.id],
  *                 subnets: [
- *                     aws_subnet.example1.id,
- *                     aws_subnet.example2.id,
- *                     aws_subnet.example3.id,
+ *                     example1.id,
+ *                     example2.id,
+ *                     example3.id,
  *                 ],
  *             },
  *         },
@@ -58,20 +61,21 @@ import * as utilities from "../utilities";
  *     },
  *     plugins: [{
  *         customPlugin: {
- *             arn: aws_mskconnect_custom_plugin.example.arn,
- *             revision: aws_mskconnect_custom_plugin.example.latest_revision,
+ *             arn: exampleAwsMskconnectCustomPlugin.arn,
+ *             revision: exampleAwsMskconnectCustomPlugin.latestRevision,
  *         },
  *     }],
- *     serviceExecutionRoleArn: aws_iam_role.example.arn,
+ *     serviceExecutionRoleArn: exampleAwsIamRole.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import MSK Connect Connector using the connector's `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
+ * $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
  * ```
  */
 export class Connector extends pulumi.CustomResource {

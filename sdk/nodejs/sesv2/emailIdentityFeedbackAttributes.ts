@@ -8,25 +8,28 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleEmailIdentity = new aws.sesv2.EmailIdentity("exampleEmailIdentity", {emailIdentity: "example.com"});
- * const exampleEmailIdentityFeedbackAttributes = new aws.sesv2.EmailIdentityFeedbackAttributes("exampleEmailIdentityFeedbackAttributes", {
- *     emailIdentity: exampleEmailIdentity.emailIdentity,
+ * const example = new aws.sesv2.EmailIdentity("example", {emailIdentity: "example.com"});
+ * const exampleEmailIdentityFeedbackAttributes = new aws.sesv2.EmailIdentityFeedbackAttributes("example", {
+ *     emailIdentity: example.emailIdentity,
  *     emailForwardingEnabled: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Feedback Attributes using the `email_identity`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
+ * $ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
  * ```
  */
 export class EmailIdentityFeedbackAttributes extends pulumi.CustomResource {

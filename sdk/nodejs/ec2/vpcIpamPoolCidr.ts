@@ -19,27 +19,7 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegion({});
- * const exampleVpcIpam = new aws.ec2.VpcIpam("exampleVpcIpam", {operatingRegions: [{
- *     regionName: current.then(current => current.name),
- * }]});
- * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("exampleVpcIpamPool", {
- *     addressFamily: "ipv4",
- *     ipamScopeId: exampleVpcIpam.privateDefaultScopeId,
- *     locale: current.then(current => current.name),
- * });
- * const exampleVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr", {
- *     ipamPoolId: exampleVpcIpamPool.id,
- *     cidr: "172.20.0.0/16",
- * });
- * ```
- *
- * Provision Public IPv6 Pool CIDRs:
- *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -48,7 +28,30 @@ import * as utilities from "../utilities";
  * const example = new aws.ec2.VpcIpam("example", {operatingRegions: [{
  *     regionName: current.then(current => current.name),
  * }]});
- * const ipv6TestPublicVpcIpamPool = new aws.ec2.VpcIpamPool("ipv6TestPublicVpcIpamPool", {
+ * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("example", {
+ *     addressFamily: "ipv4",
+ *     ipamScopeId: example.privateDefaultScopeId,
+ *     locale: current.then(current => current.name),
+ * });
+ * const exampleVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("example", {
+ *     ipamPoolId: exampleVpcIpamPool.id,
+ *     cidr: "172.20.0.0/16",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * Provision Public IPv6 Pool CIDRs:
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getRegion({});
+ * const example = new aws.ec2.VpcIpam("example", {operatingRegions: [{
+ *     regionName: current.then(current => current.name),
+ * }]});
+ * const ipv6TestPublic = new aws.ec2.VpcIpamPool("ipv6_test_public", {
  *     addressFamily: "ipv6",
  *     ipamScopeId: example.publicDefaultScopeId,
  *     locale: "us-east-1",
@@ -57,11 +60,12 @@ import * as utilities from "../utilities";
  *     publicIpSource: "amazon",
  *     awsService: "ec2",
  * });
- * const ipv6TestPublicVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("ipv6TestPublicVpcIpamPoolCidr", {
- *     ipamPoolId: ipv6TestPublicVpcIpamPool.id,
+ * const ipv6TestPublicVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("ipv6_test_public", {
+ *     ipamPoolId: ipv6TestPublic.id,
  *     netmaskLength: 52,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -70,7 +74,7 @@ import * as utilities from "../utilities";
  * __NOTE:__ Do not use the IPAM Pool Cidr ID as this was introduced after the resource already existed.
  *
  * ```sh
- *  $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
+ * $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
  * ```
  */
 export class VpcIpamPoolCidr extends pulumi.CustomResource {

@@ -4,6 +4,7 @@
 package com.pulumi.aws.fsx.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -57,19 +58,25 @@ public final class GetOntapFileSystemDiskIopsConfiguration {
 
         @CustomType.Setter
         public Builder iops(Integer iops) {
-            this.iops = Objects.requireNonNull(iops);
+            if (iops == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemDiskIopsConfiguration", "iops");
+            }
+            this.iops = iops;
             return this;
         }
         @CustomType.Setter
         public Builder mode(String mode) {
-            this.mode = Objects.requireNonNull(mode);
+            if (mode == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemDiskIopsConfiguration", "mode");
+            }
+            this.mode = mode;
             return this;
         }
         public GetOntapFileSystemDiskIopsConfiguration build() {
-            final var o = new GetOntapFileSystemDiskIopsConfiguration();
-            o.iops = iops;
-            o.mode = mode;
-            return o;
+            final var _resultValue = new GetOntapFileSystemDiskIopsConfiguration();
+            _resultValue.iops = iops;
+            _resultValue.mode = mode;
+            return _resultValue;
         }
     }
 }

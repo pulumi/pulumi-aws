@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -88,31 +89,37 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
 
         @CustomType.Setter
         public Builder certificateMode(@Nullable String certificateMode) {
+
             this.certificateMode = certificateMode;
             return this;
         }
         @CustomType.Setter
         public Builder connectionRetryInterval(@Nullable Integer connectionRetryInterval) {
+
             this.connectionRetryInterval = connectionRetryInterval;
             return this;
         }
         @CustomType.Setter
         public Builder destination(ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination destination) {
-            this.destination = Objects.requireNonNull(destination);
+            if (destination == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings", "destination");
+            }
+            this.destination = destination;
             return this;
         }
         @CustomType.Setter
         public Builder numRetries(@Nullable Integer numRetries) {
+
             this.numRetries = numRetries;
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings();
-            o.certificateMode = certificateMode;
-            o.connectionRetryInterval = connectionRetryInterval;
-            o.destination = destination;
-            o.numRetries = numRetries;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings();
+            _resultValue.certificateMode = certificateMode;
+            _resultValue.connectionRetryInterval = connectionRetryInterval;
+            _resultValue.destination = destination;
+            _resultValue.numRetries = numRetries;
+            return _resultValue;
         }
     }
 }

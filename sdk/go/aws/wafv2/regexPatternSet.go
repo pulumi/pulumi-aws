@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := wafv2.NewRegexPatternSet(ctx, "example", &wafv2.RegexPatternSetArgs{
+//				Name:        pulumi.String("example"),
 //				Description: pulumi.String("Example regex pattern set"),
+//				Scope:       pulumi.String("REGIONAL"),
 //				RegularExpressions: wafv2.RegexPatternSetRegularExpressionArray{
 //					&wafv2.RegexPatternSetRegularExpressionArgs{
 //						RegexString: pulumi.String("one"),
@@ -38,7 +41,6 @@ import (
 //						RegexString: pulumi.String("two"),
 //					},
 //				},
-//				Scope: pulumi.String("REGIONAL"),
 //				Tags: pulumi.StringMap{
 //					"Tag1": pulumi.String("Value1"),
 //					"Tag2": pulumi.String("Value2"),
@@ -52,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import WAFv2 Regex Pattern Sets using `ID/name/scope`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:wafv2/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
-//
+// $ pulumi import aws:wafv2/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
 // ```
 type RegexPatternSet struct {
 	pulumi.CustomResourceState
@@ -94,10 +95,6 @@ func NewRegexPatternSet(ctx *pulumi.Context,
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RegexPatternSet
 	err := ctx.RegisterResource("aws:wafv2/regexPatternSet:RegexPatternSet", name, args, &resource, opts...)

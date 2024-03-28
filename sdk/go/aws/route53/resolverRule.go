@@ -15,8 +15,10 @@ import (
 // Provides a Route53 Resolver rule.
 //
 // ## Example Usage
+//
 // ### System rule
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,8 +43,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Forward rule
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,8 +62,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53.NewResolverRule(ctx, "fwd", &route53.ResolverRuleArgs{
 //				DomainName:         pulumi.String("example.com"),
+//				Name:               pulumi.String("example"),
 //				RuleType:           pulumi.String("FORWARD"),
-//				ResolverEndpointId: pulumi.Any(aws_route53_resolver_endpoint.Foo.Id),
+//				ResolverEndpointId: pulumi.Any(foo.Id),
 //				TargetIps: route53.ResolverRuleTargetIpArray{
 //					&route53.ResolverRuleTargetIpArgs{
 //						Ip: pulumi.String("123.45.67.89"),
@@ -76,15 +82,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Route53 Resolver rules using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
-//
+// $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
 // ```
 type ResolverRule struct {
 	pulumi.CustomResourceState
@@ -129,10 +134,6 @@ func NewResolverRule(ctx *pulumi.Context,
 	if args.RuleType == nil {
 		return nil, errors.New("invalid value for required argument 'RuleType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverRule
 	err := ctx.RegisterResource("aws:route53/resolverRule:ResolverRule", name, args, &resource, opts...)

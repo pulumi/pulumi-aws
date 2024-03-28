@@ -17,8 +17,10 @@ import (
 // ## Example Usage
 //
 // ### Encryption Security Policy
+//
 // ### Applies to a single collection
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,21 +36,22 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Rules": []map[string]interface{}{
+//				"rules": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Resource": []string{
+//						"resource": []string{
 //							"collection/example-collection",
 //						},
-//						"ResourceType": "collection",
+//						"resourceType": "collection",
 //					},
 //				},
-//				"AWSOwnedKey": true,
+//				"aWSOwnedKey": true,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
+//				Name:        pulumi.String("example"),
 //				Type:        pulumi.String("encryption"),
 //				Description: pulumi.String("encryption security policy for example-collection"),
 //				Policy:      pulumi.String(json0),
@@ -61,8 +64,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Applies to multiple collections
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -78,21 +84,22 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Rules": []map[string]interface{}{
+//				"rules": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Resource": []string{
+//						"resource": []string{
 //							"collection/example*",
 //						},
-//						"ResourceType": "collection",
+//						"resourceType": "collection",
 //					},
 //				},
-//				"AWSOwnedKey": true,
+//				"aWSOwnedKey": true,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
+//				Name:        pulumi.String("example"),
 //				Type:        pulumi.String("encryption"),
 //				Description: pulumi.String("encryption security policy for collections that begin with \"example\""),
 //				Policy:      pulumi.String(json0),
@@ -105,8 +112,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Using a customer managed key
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -122,22 +132,23 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Rules": []map[string]interface{}{
+//				"rules": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Resource": []string{
+//						"resource": []string{
 //							"collection/customer-managed-key-collection",
 //						},
-//						"ResourceType": "collection",
+//						"resourceType": "collection",
 //					},
 //				},
-//				"AWSOwnedKey": false,
-//				"KmsARN":      "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
+//				"aWSOwnedKey": false,
+//				"kmsARN":      "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
+//				Name:        pulumi.String("example"),
 //				Type:        pulumi.String("encryption"),
 //				Description: pulumi.String("encryption security policy using customer KMS key"),
 //				Policy:      pulumi.String(json0),
@@ -150,9 +161,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Network Security Policy
+//
 // ### Allow public access to the collection endpoint and the Dashboards endpoint
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -169,22 +184,22 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal([]map[string]interface{}{
 //				map[string]interface{}{
-//					"Description": "Public access to collection and Dashboards endpoint for example collection",
-//					"Rules": []map[string]interface{}{
+//					"description": "Public access to collection and Dashboards endpoint for example collection",
+//					"rules": []map[string]interface{}{
 //						map[string]interface{}{
-//							"ResourceType": "collection",
-//							"Resource": []string{
+//							"resourceType": "collection",
+//							"resource": []string{
 //								"collection/example-collection",
 //							},
 //						},
 //						map[string]interface{}{
-//							"ResourceType": "dashboard",
-//							"Resource": []string{
+//							"resourceType": "dashboard",
+//							"resource": []string{
 //								"collection/example-collection",
 //							},
 //						},
 //					},
-//					"AllowFromPublic": true,
+//					"allowFromPublic": true,
 //				},
 //			})
 //			if err != nil {
@@ -192,6 +207,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
+//				Name:        pulumi.String("example"),
 //				Type:        pulumi.String("network"),
 //				Description: pulumi.String("Public access"),
 //				Policy:      pulumi.String(json0),
@@ -204,8 +220,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Allow VPC access to the collection endpoint and the Dashboards endpoint
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -222,23 +241,23 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal([]map[string]interface{}{
 //				map[string]interface{}{
-//					"Description": "VPC access to collection and Dashboards endpoint for example collection",
-//					"Rules": []map[string]interface{}{
+//					"description": "VPC access to collection and Dashboards endpoint for example collection",
+//					"rules": []map[string]interface{}{
 //						map[string]interface{}{
-//							"ResourceType": "collection",
-//							"Resource": []string{
+//							"resourceType": "collection",
+//							"resource": []string{
 //								"collection/example-collection",
 //							},
 //						},
 //						map[string]interface{}{
-//							"ResourceType": "dashboard",
-//							"Resource": []string{
+//							"resourceType": "dashboard",
+//							"resource": []string{
 //								"collection/example-collection",
 //							},
 //						},
 //					},
-//					"AllowFromPublic": false,
-//					"SourceVPCEs": []string{
+//					"allowFromPublic": false,
+//					"sourceVPCEs": []string{
 //						"vpce-050f79086ee71ac05",
 //					},
 //				},
@@ -248,6 +267,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
+//				Name:        pulumi.String("example"),
 //				Type:        pulumi.String("network"),
 //				Description: pulumi.String("VPC access"),
 //				Policy:      pulumi.String(json0),
@@ -260,8 +280,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Mixed access for different collections
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -316,6 +339,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
+//				Name:        pulumi.String("example"),
 //				Type:        pulumi.String("network"),
 //				Description: pulumi.String("Mixed access for marketing and sales"),
 //				Policy:      pulumi.String(json0),
@@ -328,15 +352,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import OpenSearchServerless Security Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
-//
+// $ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
 // ```
 type ServerlessSecurityPolicy struct {
 	pulumi.CustomResourceState

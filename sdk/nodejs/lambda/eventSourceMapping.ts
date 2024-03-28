@@ -14,51 +14,62 @@ import * as utilities from "../utilities";
  * For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
  *
  * ## Example Usage
+ *
  * ### DynamoDB
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.EventSourceMapping("example", {
- *     eventSourceArn: aws_dynamodb_table.example.stream_arn,
- *     functionName: aws_lambda_function.example.arn,
+ *     eventSourceArn: exampleAwsDynamodbTable.streamArn,
+ *     functionName: exampleAwsLambdaFunction.arn,
  *     startingPosition: "LATEST",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Kinesis
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.EventSourceMapping("example", {
- *     eventSourceArn: aws_kinesis_stream.example.arn,
- *     functionName: aws_lambda_function.example.arn,
+ *     eventSourceArn: exampleAwsKinesisStream.arn,
+ *     functionName: exampleAwsLambdaFunction.arn,
  *     startingPosition: "LATEST",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Managed Streaming for Apache Kafka (MSK)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.EventSourceMapping("example", {
- *     eventSourceArn: aws_msk_cluster.example.arn,
- *     functionName: aws_lambda_function.example.arn,
+ *     eventSourceArn: exampleAwsMskCluster.arn,
+ *     functionName: exampleAwsLambdaFunction.arn,
  *     topics: ["Example"],
  *     startingPosition: "TRIM_HORIZON",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Self Managed Apache Kafka
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.EventSourceMapping("example", {
- *     functionName: aws_lambda_function.example.arn,
+ *     functionName: exampleAwsLambdaFunction.arn,
  *     topics: ["Example"],
  *     startingPosition: "TRIM_HORIZON",
  *     selfManagedEventSource: {
@@ -82,31 +93,37 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### SQS
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.EventSourceMapping("example", {
- *     eventSourceArn: aws_sqs_queue.sqs_queue_test.arn,
- *     functionName: aws_lambda_function.example.arn,
+ *     eventSourceArn: sqsQueueTest.arn,
+ *     functionName: exampleAwsLambdaFunction.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### SQS with event filter
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.EventSourceMapping("example", {
- *     eventSourceArn: aws_sqs_queue.sqs_queue_test.arn,
- *     functionName: aws_lambda_function.example.arn,
+ *     eventSourceArn: sqsQueueTest.arn,
+ *     functionName: exampleAwsLambdaFunction.arn,
  *     filterCriteria: {
  *         filters: [{
  *             pattern: JSON.stringify({
  *                 body: {
- *                     Temperature: [{
+ *                     temperature: [{
  *                         numeric: [
  *                             ">",
  *                             0,
@@ -114,20 +131,69 @@ import * as utilities from "../utilities";
  *                             100,
  *                         ],
  *                     }],
- *                     Location: ["New York"],
+ *                     location: ["New York"],
  *                 },
  *             }),
  *         }],
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Amazon MQ (ActiveMQ)
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.EventSourceMapping("example", {
+ *     batchSize: 10,
+ *     eventSourceArn: exampleAwsMqBroker.arn,
+ *     enabled: true,
+ *     functionName: exampleAwsLambdaFunction.arn,
+ *     queues: "example",
+ *     sourceAccessConfigurations: [{
+ *         type: "BASIC_AUTH",
+ *         uri: exampleAwsSecretsmanagerSecretVersion.arn,
+ *     }],
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Amazon MQ (RabbitMQ)
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.EventSourceMapping("example", {
+ *     batchSize: 1,
+ *     eventSourceArn: exampleAwsMqBroker.arn,
+ *     enabled: true,
+ *     functionName: exampleAwsLambdaFunction.arn,
+ *     queues: "example",
+ *     sourceAccessConfigurations: [
+ *         {
+ *             type: "VIRTUAL_HOST",
+ *             uri: "/example",
+ *         },
+ *         {
+ *             type: "BASIC_AUTH",
+ *             uri: exampleAwsSecretsmanagerSecretVersion.arn,
+ *         },
+ *     ],
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Lambda event source mappings using the `UUID` (event source mapping identifier). For example:
  *
  * ```sh
- *  $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
+ * $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
  * ```
  */
 export class EventSourceMapping extends pulumi.CustomResource {
@@ -171,7 +237,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly bisectBatchOnFunctionError!: pulumi.Output<boolean | undefined>;
     /**
-     * - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     * - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
      */
     public readonly destinationConfig!: pulumi.Output<outputs.lambda.EventSourceMappingDestinationConfig | undefined>;
     /**
@@ -374,7 +440,7 @@ export interface EventSourceMappingState {
      */
     bisectBatchOnFunctionError?: pulumi.Input<boolean>;
     /**
-     * - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     * - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
      */
     destinationConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDestinationConfig>;
     /**
@@ -496,7 +562,7 @@ export interface EventSourceMappingArgs {
      */
     bisectBatchOnFunctionError?: pulumi.Input<boolean>;
     /**
-     * - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     * - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
      */
     destinationConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDestinationConfig>;
     /**

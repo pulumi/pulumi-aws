@@ -12,10 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an HTTP Method Response for an API Gateway Resource.
+// Provides an HTTP Method Response for an API Gateway Resource. More information about API Gateway method responses can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-settings-method-response.html).
 //
 // ## Example Usage
 //
+// ### Basic Response
+//
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,13 +31,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myDemoAPI, err := apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
+//			myDemoAPI, err := apigateway.NewRestApi(ctx, "MyDemoAPI", &apigateway.RestApiArgs{
+//				Name:        pulumi.String("MyDemoAPI"),
 //				Description: pulumi.String("This is my API for demonstration purposes"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			myDemoResource, err := apigateway.NewResource(ctx, "myDemoResource", &apigateway.ResourceArgs{
+//			myDemoResource, err := apigateway.NewResource(ctx, "MyDemoResource", &apigateway.ResourceArgs{
 //				RestApi:  myDemoAPI.ID(),
 //				ParentId: myDemoAPI.RootResourceId,
 //				PathPart: pulumi.String("mydemoresource"),
@@ -42,7 +46,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			myDemoMethod, err := apigateway.NewMethod(ctx, "myDemoMethod", &apigateway.MethodArgs{
+//			myDemoMethod, err := apigateway.NewMethod(ctx, "MyDemoMethod", &apigateway.MethodArgs{
 //				RestApi:       myDemoAPI.ID(),
 //				ResourceId:    myDemoResource.ID(),
 //				HttpMethod:    pulumi.String("GET"),
@@ -51,7 +55,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigateway.NewIntegration(ctx, "myDemoIntegration", &apigateway.IntegrationArgs{
+//			_, err = apigateway.NewIntegration(ctx, "MyDemoIntegration", &apigateway.IntegrationArgs{
 //				RestApi:    myDemoAPI.ID(),
 //				ResourceId: myDemoResource.ID(),
 //				HttpMethod: myDemoMethod.HttpMethod,
@@ -60,7 +64,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigateway.NewMethodResponse(ctx, "response200", &apigateway.MethodResponseArgs{
+//			_, err = apigateway.NewMethodResponse(ctx, "response_200", &apigateway.MethodResponseArgs{
 //				RestApi:    myDemoAPI.ID(),
 //				ResourceId: myDemoResource.ID(),
 //				HttpMethod: myDemoMethod.HttpMethod,
@@ -74,32 +78,128 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Response with Custom Header and Model
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myDemoAPI, err := apigateway.NewRestApi(ctx, "MyDemoAPI", &apigateway.RestApiArgs{
+//				Name:        pulumi.String("MyDemoAPI"),
+//				Description: pulumi.String("This is my API for demonstration purposes"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			myDemoResource, err := apigateway.NewResource(ctx, "MyDemoResource", &apigateway.ResourceArgs{
+//				RestApi:  myDemoAPI.ID(),
+//				ParentId: myDemoAPI.RootResourceId,
+//				PathPart: pulumi.String("mydemoresource"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			myDemoMethod, err := apigateway.NewMethod(ctx, "MyDemoMethod", &apigateway.MethodArgs{
+//				RestApi:       myDemoAPI.ID(),
+//				ResourceId:    myDemoResource.ID(),
+//				HttpMethod:    pulumi.String("GET"),
+//				Authorization: pulumi.String("NONE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewIntegration(ctx, "MyDemoIntegration", &apigateway.IntegrationArgs{
+//				RestApi:    myDemoAPI.ID(),
+//				ResourceId: myDemoResource.ID(),
+//				HttpMethod: myDemoMethod.HttpMethod,
+//				Type:       pulumi.String("MOCK"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"$schema": "http://json-schema.org/draft-04/schema#",
+//				"title":   "MyDemoResponse",
+//				"type":    "object",
+//				"properties": map[string]interface{}{
+//					"message": map[string]interface{}{
+//						"type": "string",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = apigateway.NewModel(ctx, "MyDemoResponseModel", &apigateway.ModelArgs{
+//				RestApi:     myDemoAPI.ID(),
+//				Name:        pulumi.String("MyDemoResponseModel"),
+//				Description: pulumi.String("API response for MyDemoMethod"),
+//				ContentType: pulumi.String("application/json"),
+//				Schema:      pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewMethodResponse(ctx, "response_200", &apigateway.MethodResponseArgs{
+//				RestApi:    myDemoAPI.ID(),
+//				ResourceId: myDemoResource.ID(),
+//				HttpMethod: myDemoMethod.HttpMethod,
+//				StatusCode: pulumi.String("200"),
+//				ResponseModels: pulumi.StringMap{
+//					"application-json": pulumi.String("MyDemoResponseModel"),
+//				},
+//				ResponseParameters: pulumi.BoolMap{
+//					"method.response.header.Content-Type":     pulumi.Bool(false),
+//					"method-response-header.X-My-Demo-Header": pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_api_gateway_method_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/methodResponse:MethodResponse example 12345abcde/67890fghij/GET/200
-//
+// $ pulumi import aws:apigateway/methodResponse:MethodResponse example 12345abcde/67890fghij/GET/200
 // ```
 type MethodResponse struct {
 	pulumi.CustomResourceState
 
-	// HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+	// The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
 	HttpMethod pulumi.StringOutput `pulumi:"httpMethod"`
-	// API resource ID
+	// The Resource identifier for the method resource.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// Map of the API models used for the response's content type
+	// A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
 	ResponseModels pulumi.StringMapOutput `pulumi:"responseModels"`
-	// Map of response parameters that can be sent to the caller.
-	// For example: `responseParameters = { "method.response.header.X-Some-Header" = true }`
-	// would define that the header `X-Some-Header` can be provided on the response.
+	// A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
+	//
+	// The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
 	ResponseParameters pulumi.BoolMapOutput `pulumi:"responseParameters"`
-	// ID of the associated REST API
+	// The string identifier of the associated REST API.
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
-	// HTTP status code
+	// The method response's status code.
 	StatusCode pulumi.StringOutput `pulumi:"statusCode"`
 }
 
@@ -145,36 +245,36 @@ func GetMethodResponse(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MethodResponse resources.
 type methodResponseState struct {
-	// HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+	// The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
 	HttpMethod *string `pulumi:"httpMethod"`
-	// API resource ID
+	// The Resource identifier for the method resource.
 	ResourceId *string `pulumi:"resourceId"`
-	// Map of the API models used for the response's content type
+	// A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
 	ResponseModels map[string]string `pulumi:"responseModels"`
-	// Map of response parameters that can be sent to the caller.
-	// For example: `responseParameters = { "method.response.header.X-Some-Header" = true }`
-	// would define that the header `X-Some-Header` can be provided on the response.
+	// A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
+	//
+	// The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
 	ResponseParameters map[string]bool `pulumi:"responseParameters"`
-	// ID of the associated REST API
+	// The string identifier of the associated REST API.
 	RestApi interface{} `pulumi:"restApi"`
-	// HTTP status code
+	// The method response's status code.
 	StatusCode *string `pulumi:"statusCode"`
 }
 
 type MethodResponseState struct {
-	// HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+	// The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
 	HttpMethod pulumi.StringPtrInput
-	// API resource ID
+	// The Resource identifier for the method resource.
 	ResourceId pulumi.StringPtrInput
-	// Map of the API models used for the response's content type
+	// A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
 	ResponseModels pulumi.StringMapInput
-	// Map of response parameters that can be sent to the caller.
-	// For example: `responseParameters = { "method.response.header.X-Some-Header" = true }`
-	// would define that the header `X-Some-Header` can be provided on the response.
+	// A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
+	//
+	// The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
 	ResponseParameters pulumi.BoolMapInput
-	// ID of the associated REST API
+	// The string identifier of the associated REST API.
 	RestApi pulumi.Input
-	// HTTP status code
+	// The method response's status code.
 	StatusCode pulumi.StringPtrInput
 }
 
@@ -183,37 +283,37 @@ func (MethodResponseState) ElementType() reflect.Type {
 }
 
 type methodResponseArgs struct {
-	// HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+	// The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
 	HttpMethod string `pulumi:"httpMethod"`
-	// API resource ID
+	// The Resource identifier for the method resource.
 	ResourceId string `pulumi:"resourceId"`
-	// Map of the API models used for the response's content type
+	// A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
 	ResponseModels map[string]string `pulumi:"responseModels"`
-	// Map of response parameters that can be sent to the caller.
-	// For example: `responseParameters = { "method.response.header.X-Some-Header" = true }`
-	// would define that the header `X-Some-Header` can be provided on the response.
+	// A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
+	//
+	// The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
 	ResponseParameters map[string]bool `pulumi:"responseParameters"`
-	// ID of the associated REST API
+	// The string identifier of the associated REST API.
 	RestApi interface{} `pulumi:"restApi"`
-	// HTTP status code
+	// The method response's status code.
 	StatusCode string `pulumi:"statusCode"`
 }
 
 // The set of arguments for constructing a MethodResponse resource.
 type MethodResponseArgs struct {
-	// HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+	// The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
 	HttpMethod pulumi.StringInput
-	// API resource ID
+	// The Resource identifier for the method resource.
 	ResourceId pulumi.StringInput
-	// Map of the API models used for the response's content type
+	// A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
 	ResponseModels pulumi.StringMapInput
-	// Map of response parameters that can be sent to the caller.
-	// For example: `responseParameters = { "method.response.header.X-Some-Header" = true }`
-	// would define that the header `X-Some-Header` can be provided on the response.
+	// A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
+	//
+	// The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
 	ResponseParameters pulumi.BoolMapInput
-	// ID of the associated REST API
+	// The string identifier of the associated REST API.
 	RestApi pulumi.Input
-	// HTTP status code
+	// The method response's status code.
 	StatusCode pulumi.StringInput
 }
 
@@ -304,34 +404,34 @@ func (o MethodResponseOutput) ToMethodResponseOutputWithContext(ctx context.Cont
 	return o
 }
 
-// HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+// The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
 func (o MethodResponseOutput) HttpMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v *MethodResponse) pulumi.StringOutput { return v.HttpMethod }).(pulumi.StringOutput)
 }
 
-// API resource ID
+// The Resource identifier for the method resource.
 func (o MethodResponseOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MethodResponse) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// Map of the API models used for the response's content type
+// A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
 func (o MethodResponseOutput) ResponseModels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MethodResponse) pulumi.StringMapOutput { return v.ResponseModels }).(pulumi.StringMapOutput)
 }
 
-// Map of response parameters that can be sent to the caller.
-// For example: `responseParameters = { "method.response.header.X-Some-Header" = true }`
-// would define that the header `X-Some-Header` can be provided on the response.
+// A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
+//
+// The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
 func (o MethodResponseOutput) ResponseParameters() pulumi.BoolMapOutput {
 	return o.ApplyT(func(v *MethodResponse) pulumi.BoolMapOutput { return v.ResponseParameters }).(pulumi.BoolMapOutput)
 }
 
-// ID of the associated REST API
+// The string identifier of the associated REST API.
 func (o MethodResponseOutput) RestApi() pulumi.StringOutput {
 	return o.ApplyT(func(v *MethodResponse) pulumi.StringOutput { return v.RestApi }).(pulumi.StringOutput)
 }
 
-// HTTP status code
+// The method response's status code.
 func (o MethodResponseOutput) StatusCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *MethodResponse) pulumi.StringOutput { return v.StatusCode }).(pulumi.StringOutput)
 }

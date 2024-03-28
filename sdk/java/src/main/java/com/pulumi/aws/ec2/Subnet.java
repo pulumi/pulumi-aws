@@ -13,7 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -24,7 +23,10 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), subnets associated with Lambda Functions can take up to 45 minutes to successfully delete.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,7 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var main = new Subnet(&#34;main&#34;, SubnetArgs.builder()        
- *             .vpcId(aws_vpc.main().id())
+ *             .vpcId(mainAwsVpc.id())
  *             .cidrBlock(&#34;10.0.1.0/24&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;Main&#34;))
  *             .build());
@@ -55,10 +57,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Subnets In Secondary VPC CIDR Blocks
  * 
  * When managing subnets in one of a VPC&#39;s secondary CIDR blocks created using a `aws.ec2.VpcIpv4CidrBlockAssociation`
  * resource, it is recommended to reference that resource&#39;s `vpc_id` attribute to ensure correct dependency ordering.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -83,7 +89,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var secondaryCidr = new VpcIpv4CidrBlockAssociation(&#34;secondaryCidr&#34;, VpcIpv4CidrBlockAssociationArgs.builder()        
- *             .vpcId(aws_vpc.main().id())
+ *             .vpcId(main.id())
  *             .cidrBlock(&#34;172.20.0.0/16&#34;)
  *             .build());
  * 
@@ -95,13 +101,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import subnets using the subnet `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/subnet:Subnet public_subnet subnet-9d4a7b6c
+ * $ pulumi import aws:ec2/subnet:Subnet public_subnet subnet-9d4a7b6c
  * ```
  * 
  */
@@ -448,9 +455,6 @@ public class Subnet extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

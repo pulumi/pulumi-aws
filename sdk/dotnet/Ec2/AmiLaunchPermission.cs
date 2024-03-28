@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Ec2
     /// Adds a launch permission to an Amazon Machine Image (AMI).
     /// 
     /// ## Example Usage
+    /// 
     /// ### AWS Account ID
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,14 +27,17 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.AmiLaunchPermission("example", new()
     ///     {
-    ///         AccountId = "123456789012",
     ///         ImageId = "ami-12345678",
+    ///         AccountId = "123456789012",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Public Access
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,14 +48,17 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.AmiLaunchPermission("example", new()
     ///     {
-    ///         Group = "all",
     ///         ImageId = "ami-12345678",
+    ///         Group = "all",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Organization Access
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -69,13 +77,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AMI Launch Permissions using `[ACCOUNT-ID|GROUP-NAME|ORGANIZATION-ARN|ORGANIZATIONAL-UNIT-ARN]/IMAGE-ID`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
+    /// $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/amiLaunchPermission:AmiLaunchPermission")]

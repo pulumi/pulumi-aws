@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Route53 Recovery Readiness readiness checks using the readiness check name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53recoveryreadiness/readinessCheck:ReadinessCheck my-cw-alarm-check example
-//
+// $ pulumi import aws:route53recoveryreadiness/readinessCheck:ReadinessCheck my-cw-alarm-check example
 // ```
 type ReadinessCheck struct {
 	pulumi.CustomResourceState
@@ -82,10 +82,6 @@ func NewReadinessCheck(ctx *pulumi.Context,
 	if args.ResourceSetName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceSetName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReadinessCheck
 	err := ctx.RegisterResource("aws:route53recoveryreadiness/readinessCheck:ReadinessCheck", name, args, &resource, opts...)

@@ -7,6 +7,7 @@ import com.pulumi.aws.networkfirewall.outputs.GetFirewallEncryptionConfiguration
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallFirewallStatus;
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallSubnetMapping;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -22,7 +23,7 @@ public final class GetFirewallResult {
      */
     private String arn;
     /**
-     * @return Boolean flag indicating whether it is possible to delete the firewall.
+     * @return A flag indicating whether the firewall is protected against deletion.
      * 
      */
     private Boolean deleteProtection;
@@ -42,7 +43,7 @@ public final class GetFirewallResult {
      */
     private String firewallPolicyArn;
     /**
-     * @return A boolean flag indicating whether it is possible to change the associated firewall policy.
+     * @return A flag indicating whether the firewall is protected against a change to the firewall policy association.
      * 
      */
     private Boolean firewallPolicyChangeProtection;
@@ -62,7 +63,7 @@ public final class GetFirewallResult {
      */
     private String name;
     /**
-     * @return A boolean flag indicating whether it is possible to change the associated subnet(s).
+     * @return A flag indicating whether the firewall is protected against changes to the subnet associations.
      * 
      */
     private Boolean subnetChangeProtection;
@@ -96,7 +97,7 @@ public final class GetFirewallResult {
         return this.arn;
     }
     /**
-     * @return Boolean flag indicating whether it is possible to delete the firewall.
+     * @return A flag indicating whether the firewall is protected against deletion.
      * 
      */
     public Boolean deleteProtection() {
@@ -124,7 +125,7 @@ public final class GetFirewallResult {
         return this.firewallPolicyArn;
     }
     /**
-     * @return A boolean flag indicating whether it is possible to change the associated firewall policy.
+     * @return A flag indicating whether the firewall is protected against a change to the firewall policy association.
      * 
      */
     public Boolean firewallPolicyChangeProtection() {
@@ -152,7 +153,7 @@ public final class GetFirewallResult {
         return this.name;
     }
     /**
-     * @return A boolean flag indicating whether it is possible to change the associated subnet(s).
+     * @return A flag indicating whether the firewall is protected against changes to the subnet associations.
      * 
      */
     public Boolean subnetChangeProtection() {
@@ -231,22 +232,34 @@ public final class GetFirewallResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder deleteProtection(Boolean deleteProtection) {
-            this.deleteProtection = Objects.requireNonNull(deleteProtection);
+            if (deleteProtection == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "deleteProtection");
+            }
+            this.deleteProtection = deleteProtection;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionConfigurations(List<GetFirewallEncryptionConfiguration> encryptionConfigurations) {
-            this.encryptionConfigurations = Objects.requireNonNull(encryptionConfigurations);
+            if (encryptionConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "encryptionConfigurations");
+            }
+            this.encryptionConfigurations = encryptionConfigurations;
             return this;
         }
         public Builder encryptionConfigurations(GetFirewallEncryptionConfiguration... encryptionConfigurations) {
@@ -254,17 +267,26 @@ public final class GetFirewallResult {
         }
         @CustomType.Setter
         public Builder firewallPolicyArn(String firewallPolicyArn) {
-            this.firewallPolicyArn = Objects.requireNonNull(firewallPolicyArn);
+            if (firewallPolicyArn == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "firewallPolicyArn");
+            }
+            this.firewallPolicyArn = firewallPolicyArn;
             return this;
         }
         @CustomType.Setter
         public Builder firewallPolicyChangeProtection(Boolean firewallPolicyChangeProtection) {
-            this.firewallPolicyChangeProtection = Objects.requireNonNull(firewallPolicyChangeProtection);
+            if (firewallPolicyChangeProtection == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "firewallPolicyChangeProtection");
+            }
+            this.firewallPolicyChangeProtection = firewallPolicyChangeProtection;
             return this;
         }
         @CustomType.Setter
         public Builder firewallStatuses(List<GetFirewallFirewallStatus> firewallStatuses) {
-            this.firewallStatuses = Objects.requireNonNull(firewallStatuses);
+            if (firewallStatuses == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "firewallStatuses");
+            }
+            this.firewallStatuses = firewallStatuses;
             return this;
         }
         public Builder firewallStatuses(GetFirewallFirewallStatus... firewallStatuses) {
@@ -272,22 +294,34 @@ public final class GetFirewallResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder subnetChangeProtection(Boolean subnetChangeProtection) {
-            this.subnetChangeProtection = Objects.requireNonNull(subnetChangeProtection);
+            if (subnetChangeProtection == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "subnetChangeProtection");
+            }
+            this.subnetChangeProtection = subnetChangeProtection;
             return this;
         }
         @CustomType.Setter
         public Builder subnetMappings(List<GetFirewallSubnetMapping> subnetMappings) {
-            this.subnetMappings = Objects.requireNonNull(subnetMappings);
+            if (subnetMappings == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "subnetMappings");
+            }
+            this.subnetMappings = subnetMappings;
             return this;
         }
         public Builder subnetMappings(GetFirewallSubnetMapping... subnetMappings) {
@@ -295,36 +329,43 @@ public final class GetFirewallResult {
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder updateToken(String updateToken) {
-            this.updateToken = Objects.requireNonNull(updateToken);
+            if (updateToken == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "updateToken");
+            }
+            this.updateToken = updateToken;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public GetFirewallResult build() {
-            final var o = new GetFirewallResult();
-            o.arn = arn;
-            o.deleteProtection = deleteProtection;
-            o.description = description;
-            o.encryptionConfigurations = encryptionConfigurations;
-            o.firewallPolicyArn = firewallPolicyArn;
-            o.firewallPolicyChangeProtection = firewallPolicyChangeProtection;
-            o.firewallStatuses = firewallStatuses;
-            o.id = id;
-            o.name = name;
-            o.subnetChangeProtection = subnetChangeProtection;
-            o.subnetMappings = subnetMappings;
-            o.tags = tags;
-            o.updateToken = updateToken;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetFirewallResult();
+            _resultValue.arn = arn;
+            _resultValue.deleteProtection = deleteProtection;
+            _resultValue.description = description;
+            _resultValue.encryptionConfigurations = encryptionConfigurations;
+            _resultValue.firewallPolicyArn = firewallPolicyArn;
+            _resultValue.firewallPolicyChangeProtection = firewallPolicyChangeProtection;
+            _resultValue.firewallStatuses = firewallStatuses;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.subnetChangeProtection = subnetChangeProtection;
+            _resultValue.subnetMappings = subnetMappings;
+            _resultValue.tags = tags;
+            _resultValue.updateToken = updateToken;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

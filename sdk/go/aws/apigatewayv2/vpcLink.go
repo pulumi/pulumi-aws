@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,10 +33,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigatewayv2.NewVpcLink(ctx, "example", &apigatewayv2.VpcLinkArgs{
+//				Name: pulumi.String("example"),
 //				SecurityGroupIds: pulumi.StringArray{
-//					data.Aws_security_group.Example.Id,
+//					exampleAwsSecurityGroup.Id,
 //				},
-//				SubnetIds: pulumi.Any(data.Aws_subnets.Example.Ids),
+//				SubnetIds: pulumi.Any(exampleAwsSubnets.Ids),
 //				Tags: pulumi.StringMap{
 //					"Usage": pulumi.String("example"),
 //				},
@@ -48,15 +50,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
-//
+// $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
 // ```
 type VpcLink struct {
 	pulumi.CustomResourceState
@@ -90,10 +91,6 @@ func NewVpcLink(ctx *pulumi.Context,
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcLink
 	err := ctx.RegisterResource("aws:apigatewayv2/vpcLink:VpcLink", name, args, &resource, opts...)

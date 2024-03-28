@@ -4,12 +4,15 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationShadowProductionVariantCoreDumpConfig;
+import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationShadowProductionVariantRoutingConfig;
 import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationShadowProductionVariantServerlessConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -61,6 +64,11 @@ public final class EndpointConfigurationShadowProductionVariant {
      * 
      */
     private String modelName;
+    /**
+     * @return Sets how the endpoint routes incoming traffic. See routing_config below.
+     * 
+     */
+    private @Nullable List<EndpointConfigurationShadowProductionVariantRoutingConfig> routingConfigs;
     /**
      * @return Specifies configuration for how an endpoint performs asynchronous inference.
      * 
@@ -142,6 +150,13 @@ public final class EndpointConfigurationShadowProductionVariant {
         return this.modelName;
     }
     /**
+     * @return Sets how the endpoint routes incoming traffic. See routing_config below.
+     * 
+     */
+    public List<EndpointConfigurationShadowProductionVariantRoutingConfig> routingConfigs() {
+        return this.routingConfigs == null ? List.of() : this.routingConfigs;
+    }
+    /**
      * @return Specifies configuration for how an endpoint performs asynchronous inference.
      * 
      */
@@ -181,6 +196,7 @@ public final class EndpointConfigurationShadowProductionVariant {
         private @Nullable String instanceType;
         private @Nullable Integer modelDataDownloadTimeoutInSeconds;
         private String modelName;
+        private @Nullable List<EndpointConfigurationShadowProductionVariantRoutingConfig> routingConfigs;
         private @Nullable EndpointConfigurationShadowProductionVariantServerlessConfig serverlessConfig;
         private @Nullable String variantName;
         private @Nullable Integer volumeSizeInGb;
@@ -196,6 +212,7 @@ public final class EndpointConfigurationShadowProductionVariant {
     	      this.instanceType = defaults.instanceType;
     	      this.modelDataDownloadTimeoutInSeconds = defaults.modelDataDownloadTimeoutInSeconds;
     	      this.modelName = defaults.modelName;
+    	      this.routingConfigs = defaults.routingConfigs;
     	      this.serverlessConfig = defaults.serverlessConfig;
     	      this.variantName = defaults.variantName;
     	      this.volumeSizeInGb = defaults.volumeSizeInGb;
@@ -203,79 +220,103 @@ public final class EndpointConfigurationShadowProductionVariant {
 
         @CustomType.Setter
         public Builder acceleratorType(@Nullable String acceleratorType) {
+
             this.acceleratorType = acceleratorType;
             return this;
         }
         @CustomType.Setter
         public Builder containerStartupHealthCheckTimeoutInSeconds(@Nullable Integer containerStartupHealthCheckTimeoutInSeconds) {
+
             this.containerStartupHealthCheckTimeoutInSeconds = containerStartupHealthCheckTimeoutInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder coreDumpConfig(@Nullable EndpointConfigurationShadowProductionVariantCoreDumpConfig coreDumpConfig) {
+
             this.coreDumpConfig = coreDumpConfig;
             return this;
         }
         @CustomType.Setter
         public Builder enableSsmAccess(@Nullable Boolean enableSsmAccess) {
+
             this.enableSsmAccess = enableSsmAccess;
             return this;
         }
         @CustomType.Setter
         public Builder initialInstanceCount(@Nullable Integer initialInstanceCount) {
+
             this.initialInstanceCount = initialInstanceCount;
             return this;
         }
         @CustomType.Setter
         public Builder initialVariantWeight(@Nullable Double initialVariantWeight) {
+
             this.initialVariantWeight = initialVariantWeight;
             return this;
         }
         @CustomType.Setter
         public Builder instanceType(@Nullable String instanceType) {
+
             this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder modelDataDownloadTimeoutInSeconds(@Nullable Integer modelDataDownloadTimeoutInSeconds) {
+
             this.modelDataDownloadTimeoutInSeconds = modelDataDownloadTimeoutInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder modelName(String modelName) {
-            this.modelName = Objects.requireNonNull(modelName);
+            if (modelName == null) {
+              throw new MissingRequiredPropertyException("EndpointConfigurationShadowProductionVariant", "modelName");
+            }
+            this.modelName = modelName;
             return this;
         }
         @CustomType.Setter
+        public Builder routingConfigs(@Nullable List<EndpointConfigurationShadowProductionVariantRoutingConfig> routingConfigs) {
+
+            this.routingConfigs = routingConfigs;
+            return this;
+        }
+        public Builder routingConfigs(EndpointConfigurationShadowProductionVariantRoutingConfig... routingConfigs) {
+            return routingConfigs(List.of(routingConfigs));
+        }
+        @CustomType.Setter
         public Builder serverlessConfig(@Nullable EndpointConfigurationShadowProductionVariantServerlessConfig serverlessConfig) {
+
             this.serverlessConfig = serverlessConfig;
             return this;
         }
         @CustomType.Setter
         public Builder variantName(@Nullable String variantName) {
+
             this.variantName = variantName;
             return this;
         }
         @CustomType.Setter
         public Builder volumeSizeInGb(@Nullable Integer volumeSizeInGb) {
+
             this.volumeSizeInGb = volumeSizeInGb;
             return this;
         }
         public EndpointConfigurationShadowProductionVariant build() {
-            final var o = new EndpointConfigurationShadowProductionVariant();
-            o.acceleratorType = acceleratorType;
-            o.containerStartupHealthCheckTimeoutInSeconds = containerStartupHealthCheckTimeoutInSeconds;
-            o.coreDumpConfig = coreDumpConfig;
-            o.enableSsmAccess = enableSsmAccess;
-            o.initialInstanceCount = initialInstanceCount;
-            o.initialVariantWeight = initialVariantWeight;
-            o.instanceType = instanceType;
-            o.modelDataDownloadTimeoutInSeconds = modelDataDownloadTimeoutInSeconds;
-            o.modelName = modelName;
-            o.serverlessConfig = serverlessConfig;
-            o.variantName = variantName;
-            o.volumeSizeInGb = volumeSizeInGb;
-            return o;
+            final var _resultValue = new EndpointConfigurationShadowProductionVariant();
+            _resultValue.acceleratorType = acceleratorType;
+            _resultValue.containerStartupHealthCheckTimeoutInSeconds = containerStartupHealthCheckTimeoutInSeconds;
+            _resultValue.coreDumpConfig = coreDumpConfig;
+            _resultValue.enableSsmAccess = enableSsmAccess;
+            _resultValue.initialInstanceCount = initialInstanceCount;
+            _resultValue.initialVariantWeight = initialVariantWeight;
+            _resultValue.instanceType = instanceType;
+            _resultValue.modelDataDownloadTimeoutInSeconds = modelDataDownloadTimeoutInSeconds;
+            _resultValue.modelName = modelName;
+            _resultValue.routingConfigs = routingConfigs;
+            _resultValue.serverlessConfig = serverlessConfig;
+            _resultValue.variantName = variantName;
+            _resultValue.volumeSizeInGb = volumeSizeInGb;
+            return _resultValue;
         }
     }
 }

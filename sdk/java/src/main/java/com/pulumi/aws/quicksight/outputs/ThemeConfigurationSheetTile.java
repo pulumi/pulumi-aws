@@ -44,13 +44,14 @@ public final class ThemeConfigurationSheetTile {
 
         @CustomType.Setter
         public Builder border(@Nullable ThemeConfigurationSheetTileBorder border) {
+
             this.border = border;
             return this;
         }
         public ThemeConfigurationSheetTile build() {
-            final var o = new ThemeConfigurationSheetTile();
-            o.border = border;
-            return o;
+            final var _resultValue = new ThemeConfigurationSheetTile();
+            _resultValue.border = border;
+            return _resultValue;
         }
     }
 }

@@ -9,28 +9,28 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleOrganization = new aws.organizations.Organization("exampleOrganization", {
+ * const example = new aws.organizations.Organization("example", {
  *     awsServiceAccessPrincipals: ["securityhub.amazonaws.com"],
  *     featureSet: "ALL",
  * });
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleOrganizationAdminAccount = new aws.securityhub.OrganizationAdminAccount("exampleOrganizationAdminAccount", {adminAccountId: "123456789012"}, {
- *     dependsOn: [exampleOrganization],
- * });
+ * const exampleAccount = new aws.securityhub.Account("example", {});
+ * const exampleOrganizationAdminAccount = new aws.securityhub.OrganizationAdminAccount("example", {adminAccountId: "123456789012"});
  * // Auto enable security hub in organization member accounts
- * const exampleOrganizationConfiguration = new aws.securityhub.OrganizationConfiguration("exampleOrganizationConfiguration", {autoEnable: true});
+ * const exampleOrganizationConfiguration = new aws.securityhub.OrganizationConfiguration("example", {autoEnable: true});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Security Hub Organization Admin Accounts using the AWS account ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:securityhub/organizationAdminAccount:OrganizationAdminAccount example 123456789012
+ * $ pulumi import aws:securityhub/organizationAdminAccount:OrganizationAdminAccount example 123456789012
  * ```
  */
 export class OrganizationAdminAccount extends pulumi.CustomResource {

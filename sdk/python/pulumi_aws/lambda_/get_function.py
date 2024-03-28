@@ -22,7 +22,7 @@ class GetFunctionResult:
     """
     A collection of values returned by getFunction.
     """
-    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storages=None, file_system_configs=None, function_name=None, handler=None, id=None, image_uri=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, memory_size=None, qualified_arn=None, qualified_invoke_arn=None, qualifier=None, reserved_concurrent_executions=None, role=None, runtime=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
+    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storages=None, file_system_configs=None, function_name=None, handler=None, id=None, image_uri=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, logging_configs=None, memory_size=None, qualified_arn=None, qualified_invoke_arn=None, qualifier=None, reserved_concurrent_executions=None, role=None, runtime=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
         if architectures and not isinstance(architectures, list):
             raise TypeError("Expected argument 'architectures' to be a list")
         pulumi.set(__self__, "architectures", architectures)
@@ -71,6 +71,9 @@ class GetFunctionResult:
         if layers and not isinstance(layers, list):
             raise TypeError("Expected argument 'layers' to be a list")
         pulumi.set(__self__, "layers", layers)
+        if logging_configs and not isinstance(logging_configs, list):
+            raise TypeError("Expected argument 'logging_configs' to be a list")
+        pulumi.set(__self__, "logging_configs", logging_configs)
         if memory_size and not isinstance(memory_size, int):
             raise TypeError("Expected argument 'memory_size' to be a int")
         pulumi.set(__self__, "memory_size", memory_size)
@@ -246,6 +249,14 @@ class GetFunctionResult:
         return pulumi.get(self, "layers")
 
     @property
+    @pulumi.getter(name="loggingConfigs")
+    def logging_configs(self) -> Sequence['outputs.GetFunctionLoggingConfigResult']:
+        """
+        Advanced logging settings.
+        """
+        return pulumi.get(self, "logging_configs")
+
+    @property
     @pulumi.getter(name="memorySize")
     def memory_size(self) -> int:
         """
@@ -390,6 +401,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             kms_key_arn=self.kms_key_arn,
             last_modified=self.last_modified,
             layers=self.layers,
+            logging_configs=self.logging_configs,
             memory_size=self.memory_size,
             qualified_arn=self.qualified_arn,
             qualified_invoke_arn=self.qualified_invoke_arn,
@@ -417,6 +429,7 @@ def get_function(function_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -425,6 +438,7 @@ def get_function(function_name: Optional[str] = None,
     function_name = config.require("functionName")
     existing = aws.lambda.get_function(function_name=function_name)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str function_name: Name of the lambda function.
@@ -454,6 +468,7 @@ def get_function(function_name: Optional[str] = None,
         kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         last_modified=pulumi.get(__ret__, 'last_modified'),
         layers=pulumi.get(__ret__, 'layers'),
+        logging_configs=pulumi.get(__ret__, 'logging_configs'),
         memory_size=pulumi.get(__ret__, 'memory_size'),
         qualified_arn=pulumi.get(__ret__, 'qualified_arn'),
         qualified_invoke_arn=pulumi.get(__ret__, 'qualified_invoke_arn'),
@@ -482,6 +497,7 @@ def get_function_output(function_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -490,6 +506,7 @@ def get_function_output(function_name: Optional[pulumi.Input[str]] = None,
     function_name = config.require("functionName")
     existing = aws.lambda.get_function(function_name=function_name)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str function_name: Name of the lambda function.

@@ -32,7 +32,10 @@ import javax.annotation.Nullable;
  * &gt; **Tip:** A &#34;provisioning artifact&#34; is also referred to as a &#34;version.&#34; A &#34;distributor&#34; is also referred to as a &#34;vendor.&#34;
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,6 +59,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ProvisionedProduct(&#34;example&#34;, ProvisionedProductArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .productName(&#34;Example product&#34;)
  *             .provisioningArtifactName(&#34;Example version&#34;)
  *             .provisioningParameters(ProvisionedProductProvisioningParameterArgs.builder()
@@ -68,13 +72,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_servicecatalog_provisioned_product` using the provisioned product ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
+ * $ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
  * ```
  * 
  */
@@ -485,9 +490,6 @@ public class ProvisionedProduct extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,11 +31,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testStaticIp, err := lightsail.NewStaticIp(ctx, "testStaticIp", nil)
+//			testStaticIp, err := lightsail.NewStaticIp(ctx, "test", &lightsail.StaticIpArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			testInstance, err := lightsail.NewInstance(ctx, "testInstance", &lightsail.InstanceArgs{
+//			testInstance, err := lightsail.NewInstance(ctx, "test", &lightsail.InstanceArgs{
+//				Name:             pulumi.String("example"),
 //				AvailabilityZone: pulumi.String("us-east-1b"),
 //				BlueprintId:      pulumi.String("string"),
 //				BundleId:         pulumi.String("string"),
@@ -43,7 +47,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lightsail.NewStaticIpAttachment(ctx, "testStaticIpAttachment", &lightsail.StaticIpAttachmentArgs{
+//			_, err = lightsail.NewStaticIpAttachment(ctx, "test", &lightsail.StaticIpAttachmentArgs{
 //				StaticIpName: testStaticIp.ID(),
 //				InstanceName: testInstance.ID(),
 //			})
@@ -55,6 +59,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type StaticIpAttachment struct {
 	pulumi.CustomResourceState
 

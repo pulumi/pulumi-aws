@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,9 +32,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewAlias(ctx, "testLambdaAlias", &lambda.AliasArgs{
+//			_, err := lambda.NewAlias(ctx, "test_lambda_alias", &lambda.AliasArgs{
+//				Name:            pulumi.String("my_alias"),
 //				Description:     pulumi.String("a sample description"),
-//				FunctionName:    pulumi.Any(aws_lambda_function.Lambda_function_test.Arn),
+//				FunctionName:    pulumi.Any(lambdaFunctionTest.Arn),
 //				FunctionVersion: pulumi.String("1"),
 //				RoutingConfig: &lambda.AliasRoutingConfigArgs{
 //					AdditionalVersionWeights: pulumi.Float64Map{
@@ -49,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Lambda Function Aliases using the `function_name/alias`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
-//
+// $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
 // ```
 type Alias struct {
 	pulumi.CustomResourceState

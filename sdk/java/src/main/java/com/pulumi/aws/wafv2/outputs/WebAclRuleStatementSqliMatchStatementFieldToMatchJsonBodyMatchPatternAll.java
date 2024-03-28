@@ -25,8 +25,8 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatc
         }
 
         public WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll build() {
-            final var o = new WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll();
-            return o;
+            final var _resultValue = new WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll();
+            return _resultValue;
         }
     }
 }

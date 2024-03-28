@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,11 +28,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			parent, err := iot.NewThingGroup(ctx, "parent", nil)
+//			parent, err := iot.NewThingGroup(ctx, "parent", &iot.ThingGroupArgs{
+//				Name: pulumi.String("parent"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = iot.NewThingGroup(ctx, "example", &iot.ThingGroupArgs{
+//				Name:            pulumi.String("example"),
 //				ParentGroupName: parent.Name,
 //				Properties: &iot.ThingGroupPropertiesArgs{
 //					AttributePayload: &iot.ThingGroupPropertiesAttributePayloadArgs{
@@ -54,15 +58,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IoT Things Groups using the name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iot/thingGroup:ThingGroup example example
-//
+// $ pulumi import aws:iot/thingGroup:ThingGroup example example
 // ```
 type ThingGroup struct {
 	pulumi.CustomResourceState
@@ -91,10 +94,6 @@ func NewThingGroup(ctx *pulumi.Context,
 		args = &ThingGroupArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ThingGroup
 	err := ctx.RegisterResource("aws:iot/thingGroup:ThingGroup", name, args, &resource, opts...)

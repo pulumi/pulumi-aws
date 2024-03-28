@@ -44,13 +44,14 @@ public final class ClusterAutoTerminationPolicy {
 
         @CustomType.Setter
         public Builder idleTimeout(@Nullable Integer idleTimeout) {
+
             this.idleTimeout = idleTimeout;
             return this;
         }
         public ClusterAutoTerminationPolicy build() {
-            final var o = new ClusterAutoTerminationPolicy();
-            o.idleTimeout = idleTimeout;
-            return o;
+            final var _resultValue = new ClusterAutoTerminationPolicy();
+            _resultValue.idleTimeout = idleTimeout;
+            return _resultValue;
         }
     }
 }

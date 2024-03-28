@@ -44,13 +44,14 @@ public final class CrawlerRecrawlPolicy {
 
         @CustomType.Setter
         public Builder recrawlBehavior(@Nullable String recrawlBehavior) {
+
             this.recrawlBehavior = recrawlBehavior;
             return this;
         }
         public CrawlerRecrawlPolicy build() {
-            final var o = new CrawlerRecrawlPolicy();
-            o.recrawlBehavior = recrawlBehavior;
-            return o;
+            final var _resultValue = new CrawlerRecrawlPolicy();
+            _resultValue.recrawlBehavior = recrawlBehavior;
+            return _resultValue;
         }
     }
 }

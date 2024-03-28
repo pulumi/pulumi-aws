@@ -343,56 +343,62 @@ class User(pulumi.CustomResource):
         > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.elasticache.User("test",
+            user_id="testUserId",
+            user_name="testUserName",
             access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
             engine="REDIS",
-            passwords=["password123456789"],
-            user_id="testUserId",
-            user_name="testUserName")
+            passwords=["password123456789"])
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.elasticache.User("test",
+            user_id="testUserId",
+            user_name="testUserName",
             access_string="on ~* +@all",
+            engine="REDIS",
             authentication_mode=aws.elasticache.UserAuthenticationModeArgs(
                 type="iam",
-            ),
-            engine="REDIS",
-            user_id="testUserId",
-            user_name="testUserName")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.elasticache.User("test",
+            user_id="testUserId",
+            user_name="testUserName",
             access_string="on ~* +@all",
+            engine="REDIS",
             authentication_mode=aws.elasticache.UserAuthenticationModeArgs(
+                type="password",
                 passwords=[
                     "password1",
                     "password2",
                 ],
-                type="password",
-            ),
-            engine="REDIS",
-            user_id="testUserId",
-            user_name="testUserName")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ElastiCache users using the `user_id`. For example:
 
         ```sh
-         $ pulumi import aws:elasticache/user:User my_user userId1
+        $ pulumi import aws:elasticache/user:User my_user userId1
         ```
 
         :param str resource_name: The name of the resource.
@@ -420,56 +426,62 @@ class User(pulumi.CustomResource):
         > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.elasticache.User("test",
+            user_id="testUserId",
+            user_name="testUserName",
             access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
             engine="REDIS",
-            passwords=["password123456789"],
-            user_id="testUserId",
-            user_name="testUserName")
+            passwords=["password123456789"])
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.elasticache.User("test",
+            user_id="testUserId",
+            user_name="testUserName",
             access_string="on ~* +@all",
+            engine="REDIS",
             authentication_mode=aws.elasticache.UserAuthenticationModeArgs(
                 type="iam",
-            ),
-            engine="REDIS",
-            user_id="testUserId",
-            user_name="testUserName")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.elasticache.User("test",
+            user_id="testUserId",
+            user_name="testUserName",
             access_string="on ~* +@all",
+            engine="REDIS",
             authentication_mode=aws.elasticache.UserAuthenticationModeArgs(
+                type="password",
                 passwords=[
                     "password1",
                     "password2",
                 ],
-                type="password",
-            ),
-            engine="REDIS",
-            user_id="testUserId",
-            user_name="testUserName")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ElastiCache users using the `user_id`. For example:
 
         ```sh
-         $ pulumi import aws:elasticache/user:User my_user userId1
+        $ pulumi import aws:elasticache/user:User my_user userId1
         ```
 
         :param str resource_name: The name of the resource.
@@ -522,7 +534,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["user_name"] = user_name
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["passwords", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["passwords"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(User, __self__).__init__(
             'aws:elasticache/user:User',

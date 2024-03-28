@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,11 +29,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			yada, err := cloudwatch.NewLogGroup(ctx, "yada", nil)
+//			yada, err := cloudwatch.NewLogGroup(ctx, "yada", &cloudwatch.LogGroupArgs{
+//				Name: pulumi.String("Yada"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = cloudwatch.NewLogStream(ctx, "foo", &cloudwatch.LogStreamArgs{
+//				Name:         pulumi.String("SampleLogStream1234"),
 //				LogGroupName: yada.Name,
 //			})
 //			if err != nil {
@@ -43,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Cloudwatch Log Stream using the stream's `log_group_name` and `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
-//
+// $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
 // ```
 type LogStream struct {
 	pulumi.CustomResourceState

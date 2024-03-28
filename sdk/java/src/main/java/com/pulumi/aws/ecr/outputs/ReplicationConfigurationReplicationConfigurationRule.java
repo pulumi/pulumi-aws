@@ -6,6 +6,7 @@ package com.pulumi.aws.ecr.outputs;
 import com.pulumi.aws.ecr.outputs.ReplicationConfigurationReplicationConfigurationRuleDestination;
 import com.pulumi.aws.ecr.outputs.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import javax.annotation.Nullable;
@@ -59,7 +60,10 @@ public final class ReplicationConfigurationReplicationConfigurationRule {
 
         @CustomType.Setter
         public Builder destinations(List<ReplicationConfigurationReplicationConfigurationRuleDestination> destinations) {
-            this.destinations = Objects.requireNonNull(destinations);
+            if (destinations == null) {
+              throw new MissingRequiredPropertyException("ReplicationConfigurationReplicationConfigurationRule", "destinations");
+            }
+            this.destinations = destinations;
             return this;
         }
         public Builder destinations(ReplicationConfigurationReplicationConfigurationRuleDestination... destinations) {
@@ -67,6 +71,7 @@ public final class ReplicationConfigurationReplicationConfigurationRule {
         }
         @CustomType.Setter
         public Builder repositoryFilters(@Nullable List<ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter> repositoryFilters) {
+
             this.repositoryFilters = repositoryFilters;
             return this;
         }
@@ -74,10 +79,10 @@ public final class ReplicationConfigurationReplicationConfigurationRule {
             return repositoryFilters(List.of(repositoryFilters));
         }
         public ReplicationConfigurationReplicationConfigurationRule build() {
-            final var o = new ReplicationConfigurationReplicationConfigurationRule();
-            o.destinations = destinations;
-            o.repositoryFilters = repositoryFilters;
-            return o;
+            final var _resultValue = new ReplicationConfigurationReplicationConfigurationRule();
+            _resultValue.destinations = destinations;
+            _resultValue.repositoryFilters = repositoryFilters;
+            return _resultValue;
         }
     }
 }

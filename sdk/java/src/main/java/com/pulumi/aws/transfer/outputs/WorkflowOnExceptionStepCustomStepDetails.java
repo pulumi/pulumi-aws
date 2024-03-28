@@ -87,31 +87,35 @@ public final class WorkflowOnExceptionStepCustomStepDetails {
 
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder sourceFileLocation(@Nullable String sourceFileLocation) {
+
             this.sourceFileLocation = sourceFileLocation;
             return this;
         }
         @CustomType.Setter
         public Builder target(@Nullable String target) {
+
             this.target = target;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutSeconds(@Nullable Integer timeoutSeconds) {
+
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
         public WorkflowOnExceptionStepCustomStepDetails build() {
-            final var o = new WorkflowOnExceptionStepCustomStepDetails();
-            o.name = name;
-            o.sourceFileLocation = sourceFileLocation;
-            o.target = target;
-            o.timeoutSeconds = timeoutSeconds;
-            return o;
+            final var _resultValue = new WorkflowOnExceptionStepCustomStepDetails();
+            _resultValue.name = name;
+            _resultValue.sourceFileLocation = sourceFileLocation;
+            _resultValue.target = target;
+            _resultValue.timeoutSeconds = timeoutSeconds;
+            return _resultValue;
         }
     }
 }

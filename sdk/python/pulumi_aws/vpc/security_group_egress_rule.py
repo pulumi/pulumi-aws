@@ -427,24 +427,26 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.vpc.SecurityGroupEgressRule("example",
-            security_group_id=aws_security_group["example"]["id"],
+            security_group_id=example_aws_security_group["id"],
             cidr_ipv4="10.0.0.0/8",
             from_port=80,
             ip_protocol="tcp",
             to_port=80)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import security group egress rules using the `security_group_rule_id`. For example:
 
         ```sh
-         $ pulumi import aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule example sgr-02108b27edd666983
+        $ pulumi import aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule example sgr-02108b27edd666983
         ```
 
         :param str resource_name: The name of the resource.
@@ -478,24 +480,26 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.vpc.SecurityGroupEgressRule("example",
-            security_group_id=aws_security_group["example"]["id"],
+            security_group_id=example_aws_security_group["id"],
             cidr_ipv4="10.0.0.0/8",
             from_port=80,
             ip_protocol="tcp",
             to_port=80)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import security group egress rules using the `security_group_rule_id`. For example:
 
         ```sh
-         $ pulumi import aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule example sgr-02108b27edd666983
+        $ pulumi import aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule example sgr-02108b27edd666983
         ```
 
         :param str resource_name: The name of the resource.
@@ -549,8 +553,6 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["security_group_rule_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SecurityGroupEgressRule, __self__).__init__(
             'aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule',
             resource_name,

@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,19 +60,23 @@ public final class RuleGroupRuleStatementIpSetReferenceStatement {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleStatementIpSetReferenceStatement", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder ipSetForwardedIpConfig(@Nullable RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig ipSetForwardedIpConfig) {
+
             this.ipSetForwardedIpConfig = ipSetForwardedIpConfig;
             return this;
         }
         public RuleGroupRuleStatementIpSetReferenceStatement build() {
-            final var o = new RuleGroupRuleStatementIpSetReferenceStatement();
-            o.arn = arn;
-            o.ipSetForwardedIpConfig = ipSetForwardedIpConfig;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementIpSetReferenceStatement();
+            _resultValue.arn = arn;
+            _resultValue.ipSetForwardedIpConfig = ipSetForwardedIpConfig;
+            return _resultValue;
         }
     }
 }

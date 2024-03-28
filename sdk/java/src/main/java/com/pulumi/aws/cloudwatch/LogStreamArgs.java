@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudwatch;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class LogStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LogStreamArgs build() {
-            $.logGroupName = Objects.requireNonNull($.logGroupName, "expected parameter 'logGroupName' to be non-null");
+            if ($.logGroupName == null) {
+                throw new MissingRequiredPropertyException("LogStreamArgs", "logGroupName");
+            }
             return $;
         }
     }

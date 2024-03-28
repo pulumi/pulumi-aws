@@ -119,31 +119,40 @@ def get_firewall_policy(arn: Optional[str] = None,
     Retrieve information about a firewall policy.
 
     ## Example Usage
+
     ### Find firewall policy by name
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_firewall_policy(name=var["firewall_policy_name"])
+    example = aws.networkfirewall.get_firewall_policy(name=firewall_policy_name)
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Find firewall policy by ARN
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_firewall_policy(arn=var["firewall_policy_arn"])
+    example = aws.networkfirewall.get_firewall_policy(arn=firewall_policy_arn)
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Find firewall policy by name and ARN
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_firewall_policy(arn=var["firewall_policy_arn"],
-        name=var["firewall_policy_name"])
+    example = aws.networkfirewall.get_firewall_policy(arn=firewall_policy_arn,
+        name=firewall_policy_name)
     ```
+    <!--End PulumiCodeChooser -->
 
     AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
 
@@ -180,31 +189,40 @@ def get_firewall_policy_output(arn: Optional[pulumi.Input[Optional[str]]] = None
     Retrieve information about a firewall policy.
 
     ## Example Usage
+
     ### Find firewall policy by name
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_firewall_policy(name=var["firewall_policy_name"])
+    example = aws.networkfirewall.get_firewall_policy(name=firewall_policy_name)
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Find firewall policy by ARN
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_firewall_policy(arn=var["firewall_policy_arn"])
+    example = aws.networkfirewall.get_firewall_policy(arn=firewall_policy_arn)
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Find firewall policy by name and ARN
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_firewall_policy(arn=var["firewall_policy_arn"],
-        name=var["firewall_policy_name"])
+    example = aws.networkfirewall.get_firewall_policy(arn=firewall_policy_arn,
+        name=firewall_policy_name)
     ```
+    <!--End PulumiCodeChooser -->
 
     AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
 

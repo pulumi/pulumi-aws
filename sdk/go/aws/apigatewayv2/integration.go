@@ -16,8 +16,10 @@ import (
 // More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,7 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigatewayv2.NewIntegration(ctx, "example", &apigatewayv2.IntegrationArgs{
-//				ApiId:           pulumi.Any(aws_apigatewayv2_api.Example.Id),
+//				ApiId:           pulumi.Any(exampleAwsApigatewayv2Api.Id),
 //				IntegrationType: pulumi.String("MOCK"),
 //			})
 //			if err != nil {
@@ -42,8 +44,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Lambda Integration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,23 +63,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleFunction, err := lambda.NewFunction(ctx, "exampleFunction", &lambda.FunctionArgs{
+//			example, err := lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
 //				Code:    pulumi.NewFileArchive("example.zip"),
-//				Role:    pulumi.Any(aws_iam_role.Example.Arn),
+//				Name:    pulumi.String("Example"),
+//				Role:    pulumi.Any(exampleAwsIamRole.Arn),
 //				Handler: pulumi.String("index.handler"),
-//				Runtime: pulumi.String("nodejs16.x"),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS16dX),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigatewayv2.NewIntegration(ctx, "exampleIntegration", &apigatewayv2.IntegrationArgs{
-//				ApiId:                   pulumi.Any(aws_apigatewayv2_api.Example.Id),
+//			_, err = apigatewayv2.NewIntegration(ctx, "example", &apigatewayv2.IntegrationArgs{
+//				ApiId:                   pulumi.Any(exampleAwsApigatewayv2Api.Id),
 //				IntegrationType:         pulumi.String("AWS_PROXY"),
 //				ConnectionType:          pulumi.String("INTERNET"),
 //				ContentHandlingStrategy: pulumi.String("CONVERT_TO_TEXT"),
 //				Description:             pulumi.String("Lambda example"),
 //				IntegrationMethod:       pulumi.String("POST"),
-//				IntegrationUri:          exampleFunction.InvokeArn,
+//				IntegrationUri:          example.InvokeArn,
 //				PassthroughBehavior:     pulumi.String("WHEN_NO_MATCH"),
 //			})
 //			if err != nil {
@@ -85,8 +91,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### AWS Service Integration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -100,8 +109,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigatewayv2.NewIntegration(ctx, "example", &apigatewayv2.IntegrationArgs{
-//				ApiId:              pulumi.Any(aws_apigatewayv2_api.Example.Id),
-//				CredentialsArn:     pulumi.Any(aws_iam_role.Example.Arn),
+//				ApiId:              pulumi.Any(exampleAwsApigatewayv2Api.Id),
+//				CredentialsArn:     pulumi.Any(exampleAwsIamRole.Arn),
 //				Description:        pulumi.String("SQS example"),
 //				IntegrationType:    pulumi.String("AWS_PROXY"),
 //				IntegrationSubtype: pulumi.String("SQS-SendMessage"),
@@ -118,8 +127,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Private Integration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -133,14 +145,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigatewayv2.NewIntegration(ctx, "example", &apigatewayv2.IntegrationArgs{
-//				ApiId:             pulumi.Any(aws_apigatewayv2_api.Example.Id),
-//				CredentialsArn:    pulumi.Any(aws_iam_role.Example.Arn),
+//				ApiId:             pulumi.Any(exampleAwsApigatewayv2Api.Id),
+//				CredentialsArn:    pulumi.Any(exampleAwsIamRole.Arn),
 //				Description:       pulumi.String("Example with a load balancer"),
 //				IntegrationType:   pulumi.String("HTTP_PROXY"),
-//				IntegrationUri:    pulumi.Any(aws_lb_listener.Example.Arn),
+//				IntegrationUri:    pulumi.Any(exampleAwsLbListener.Arn),
 //				IntegrationMethod: pulumi.String("ANY"),
 //				ConnectionType:    pulumi.String("VPC_LINK"),
-//				ConnectionId:      pulumi.Any(aws_apigatewayv2_vpc_link.Example.Id),
+//				ConnectionId:      pulumi.Any(exampleAwsApigatewayv2VpcLink.Id),
 //				TlsConfig: &apigatewayv2.IntegrationTlsConfigArgs{
 //					ServerNameToVerify: pulumi.String("example.com"),
 //				},
@@ -171,18 +183,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_apigatewayv2_integration` using the API identifier and integration identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigatewayv2/integration:Integration example aabbccddee/1122334
-//
+// $ pulumi import aws:apigatewayv2/integration:Integration example aabbccddee/1122334
 // ```
-//
-//	-> __Note:__ The API Gateway managed integration created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
+// -> __Note:__ The API Gateway managed integration created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
 type Integration struct {
 	pulumi.CustomResourceState
 

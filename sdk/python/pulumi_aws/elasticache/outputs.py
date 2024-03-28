@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'ClusterCacheNode',
@@ -15,6 +16,12 @@ __all__ = [
     'GlobalReplicationGroupGlobalNodeGroup',
     'ParameterGroupParameter',
     'ReplicationGroupLogDeliveryConfiguration',
+    'ServerlessCacheCacheUsageLimits',
+    'ServerlessCacheCacheUsageLimitsDataStorage',
+    'ServerlessCacheCacheUsageLimitsEcpuPerSecond',
+    'ServerlessCacheEndpoint',
+    'ServerlessCacheReaderEndpoint',
+    'ServerlessCacheTimeouts',
     'UserAuthenticationMode',
     'GetClusterCacheNodeResult',
     'GetClusterLogDeliveryConfigurationResult',
@@ -315,6 +322,204 @@ class ReplicationGroupLogDeliveryConfiguration(dict):
         Valid values are  `slow-log` or `engine-log`. Max 1 of each.
         """
         return pulumi.get(self, "log_type")
+
+
+@pulumi.output_type
+class ServerlessCacheCacheUsageLimits(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataStorage":
+            suggest = "data_storage"
+        elif key == "ecpuPerSeconds":
+            suggest = "ecpu_per_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerlessCacheCacheUsageLimits. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerlessCacheCacheUsageLimits.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerlessCacheCacheUsageLimits.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_storage: Optional['outputs.ServerlessCacheCacheUsageLimitsDataStorage'] = None,
+                 ecpu_per_seconds: Optional[Sequence['outputs.ServerlessCacheCacheUsageLimitsEcpuPerSecond']] = None):
+        """
+        :param 'ServerlessCacheCacheUsageLimitsDataStorageArgs' data_storage: The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+        :param Sequence['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs'] ecpu_per_seconds: The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+        """
+        if data_storage is not None:
+            pulumi.set(__self__, "data_storage", data_storage)
+        if ecpu_per_seconds is not None:
+            pulumi.set(__self__, "ecpu_per_seconds", ecpu_per_seconds)
+
+    @property
+    @pulumi.getter(name="dataStorage")
+    def data_storage(self) -> Optional['outputs.ServerlessCacheCacheUsageLimitsDataStorage']:
+        """
+        The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+        """
+        return pulumi.get(self, "data_storage")
+
+    @property
+    @pulumi.getter(name="ecpuPerSeconds")
+    def ecpu_per_seconds(self) -> Optional[Sequence['outputs.ServerlessCacheCacheUsageLimitsEcpuPerSecond']]:
+        """
+        The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+        """
+        return pulumi.get(self, "ecpu_per_seconds")
+
+
+@pulumi.output_type
+class ServerlessCacheCacheUsageLimitsDataStorage(dict):
+    def __init__(__self__, *,
+                 maximum: int,
+                 unit: str):
+        """
+        :param int maximum: The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
+        :param str unit: The unit that the storage is measured in, in GB.
+        """
+        pulumi.set(__self__, "maximum", maximum)
+        pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> int:
+        """
+        The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
+        """
+        return pulumi.get(self, "maximum")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The unit that the storage is measured in, in GB.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class ServerlessCacheCacheUsageLimitsEcpuPerSecond(dict):
+    def __init__(__self__, *,
+                 maximum: int):
+        """
+        :param int maximum: The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
+        """
+        pulumi.set(__self__, "maximum", maximum)
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> int:
+        """
+        The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
+        """
+        return pulumi.get(self, "maximum")
+
+
+@pulumi.output_type
+class ServerlessCacheEndpoint(dict):
+    def __init__(__self__, *,
+                 address: str,
+                 port: int):
+        """
+        :param str address: The DNS hostname of the cache node.
+        :param int port: The port number that the cache engine is listening on. Set as integer.
+        """
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def address(self) -> str:
+        """
+        The DNS hostname of the cache node.
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The port number that the cache engine is listening on. Set as integer.
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class ServerlessCacheReaderEndpoint(dict):
+    def __init__(__self__, *,
+                 address: str,
+                 port: int):
+        """
+        :param str address: The DNS hostname of the cache node.
+        :param int port: The port number that the cache engine is listening on. Set as integer.
+        """
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def address(self) -> str:
+        """
+        The DNS hostname of the cache node.
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The port number that the cache engine is listening on. Set as integer.
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class ServerlessCacheTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None,
+                 update: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
 
 
 @pulumi.output_type

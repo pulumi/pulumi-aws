@@ -11,24 +11,29 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Find a certificate that is issued
  * const issued = aws.acm.getCertificate({
  *     domain: "tf.example.com",
  *     statuses: ["ISSUED"],
  * });
+ * // Find a certificate issued by (not imported into) ACM
  * const amazonIssued = aws.acm.getCertificate({
  *     domain: "tf.example.com",
- *     mostRecent: true,
  *     types: ["AMAZON_ISSUED"],
+ *     mostRecent: true,
  * });
+ * // Find a RSA 4096 bit certificate
  * const rsa4096 = aws.acm.getCertificate({
  *     domain: "tf.example.com",
  *     keyTypes: ["RSA_4096"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
 
@@ -116,24 +121,29 @@ export interface GetCertificateResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Find a certificate that is issued
  * const issued = aws.acm.getCertificate({
  *     domain: "tf.example.com",
  *     statuses: ["ISSUED"],
  * });
+ * // Find a certificate issued by (not imported into) ACM
  * const amazonIssued = aws.acm.getCertificate({
  *     domain: "tf.example.com",
- *     mostRecent: true,
  *     types: ["AMAZON_ISSUED"],
+ *     mostRecent: true,
  * });
+ * // Find a RSA 4096 bit certificate
  * const rsa4096 = aws.acm.getCertificate({
  *     domain: "tf.example.com",
  *     keyTypes: ["RSA_4096"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
     return pulumi.output(args).apply((a: any) => getCertificate(a, opts))

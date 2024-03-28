@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.VirtualNodeSpecListenerTlsCertificate;
 import com.pulumi.aws.appmesh.outputs.VirtualNodeSpecListenerTlsValidation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -74,25 +75,32 @@ public final class VirtualNodeSpecListenerTls {
 
         @CustomType.Setter
         public Builder certificate(VirtualNodeSpecListenerTlsCertificate certificate) {
-            this.certificate = Objects.requireNonNull(certificate);
+            if (certificate == null) {
+              throw new MissingRequiredPropertyException("VirtualNodeSpecListenerTls", "certificate");
+            }
+            this.certificate = certificate;
             return this;
         }
         @CustomType.Setter
         public Builder mode(String mode) {
-            this.mode = Objects.requireNonNull(mode);
+            if (mode == null) {
+              throw new MissingRequiredPropertyException("VirtualNodeSpecListenerTls", "mode");
+            }
+            this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder validation(@Nullable VirtualNodeSpecListenerTlsValidation validation) {
+
             this.validation = validation;
             return this;
         }
         public VirtualNodeSpecListenerTls build() {
-            final var o = new VirtualNodeSpecListenerTls();
-            o.certificate = certificate;
-            o.mode = mode;
-            o.validation = validation;
-            return o;
+            final var _resultValue = new VirtualNodeSpecListenerTls();
+            _resultValue.certificate = certificate;
+            _resultValue.mode = mode;
+            _resultValue.validation = validation;
+            return _resultValue;
         }
     }
 }

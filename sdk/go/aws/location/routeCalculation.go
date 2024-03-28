@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_location_route_calculator` using the route calculator name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:location/routeCalculation:RouteCalculation example example
-//
+// $ pulumi import aws:location/routeCalculation:RouteCalculation example example
 // ```
 type RouteCalculation struct {
 	pulumi.CustomResourceState
@@ -88,10 +88,6 @@ func NewRouteCalculation(ctx *pulumi.Context,
 	if args.DataSource == nil {
 		return nil, errors.New("invalid value for required argument 'DataSource'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RouteCalculation
 	err := ctx.RegisterResource("aws:location/routeCalculation:RouteCalculation", name, args, &resource, opts...)

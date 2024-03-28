@@ -13,6 +13,7 @@ import com.pulumi.aws.lambda.inputs.EventSourceMappingSelfManagedKafkaEventSourc
 import com.pulumi.aws.lambda.inputs.EventSourceMappingSourceAccessConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -72,14 +73,14 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     * - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
      * 
      */
     @Import(name="destinationConfig")
     private @Nullable Output<EventSourceMappingDestinationConfigArgs> destinationConfig;
 
     /**
-     * @return - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     * @return - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
      * 
      */
     public Optional<Output<EventSourceMappingDestinationConfigArgs>> destinationConfig() {
@@ -481,7 +482,7 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param destinationConfig - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+         * @param destinationConfig - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
          * 
          * @return builder
          * 
@@ -492,7 +493,7 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param destinationConfig - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+         * @param destinationConfig - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
          * 
          * @return builder
          * 
@@ -931,7 +932,9 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
         }
 
         public EventSourceMappingArgs build() {
-            $.functionName = Objects.requireNonNull($.functionName, "expected parameter 'functionName' to be non-null");
+            if ($.functionName == null) {
+                throw new MissingRequiredPropertyException("EventSourceMappingArgs", "functionName");
+            }
             return $;
         }
     }

@@ -59,11 +59,13 @@ public final class ThingTypeProperties {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder searchableAttributes(@Nullable List<String> searchableAttributes) {
+
             this.searchableAttributes = searchableAttributes;
             return this;
         }
@@ -71,10 +73,10 @@ public final class ThingTypeProperties {
             return searchableAttributes(List.of(searchableAttributes));
         }
         public ThingTypeProperties build() {
-            final var o = new ThingTypeProperties();
-            o.description = description;
-            o.searchableAttributes = searchableAttributes;
-            return o;
+            final var _resultValue = new ThingTypeProperties();
+            _resultValue.description = description;
+            _resultValue.searchableAttributes = searchableAttributes;
+            return _resultValue;
         }
     }
 }

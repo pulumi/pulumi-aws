@@ -4,6 +4,7 @@
 package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -45,6 +46,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
     /**
      * @return Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -76,6 +78,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     private @Nullable String timezone;
@@ -126,6 +129,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
     /**
      * @return Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -157,6 +161,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<String> timezone() {
@@ -193,49 +198,58 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
 
         @CustomType.Setter
         public Builder dataPullMode(@Nullable String dataPullMode) {
+
             this.dataPullMode = dataPullMode;
             return this;
         }
         @CustomType.Setter
         public Builder firstExecutionFrom(@Nullable String firstExecutionFrom) {
+
             this.firstExecutionFrom = firstExecutionFrom;
             return this;
         }
         @CustomType.Setter
         public Builder scheduleEndTime(@Nullable String scheduleEndTime) {
+
             this.scheduleEndTime = scheduleEndTime;
             return this;
         }
         @CustomType.Setter
         public Builder scheduleExpression(String scheduleExpression) {
-            this.scheduleExpression = Objects.requireNonNull(scheduleExpression);
+            if (scheduleExpression == null) {
+              throw new MissingRequiredPropertyException("FlowTriggerConfigTriggerPropertiesScheduled", "scheduleExpression");
+            }
+            this.scheduleExpression = scheduleExpression;
             return this;
         }
         @CustomType.Setter
         public Builder scheduleOffset(@Nullable Integer scheduleOffset) {
+
             this.scheduleOffset = scheduleOffset;
             return this;
         }
         @CustomType.Setter
         public Builder scheduleStartTime(@Nullable String scheduleStartTime) {
+
             this.scheduleStartTime = scheduleStartTime;
             return this;
         }
         @CustomType.Setter
         public Builder timezone(@Nullable String timezone) {
+
             this.timezone = timezone;
             return this;
         }
         public FlowTriggerConfigTriggerPropertiesScheduled build() {
-            final var o = new FlowTriggerConfigTriggerPropertiesScheduled();
-            o.dataPullMode = dataPullMode;
-            o.firstExecutionFrom = firstExecutionFrom;
-            o.scheduleEndTime = scheduleEndTime;
-            o.scheduleExpression = scheduleExpression;
-            o.scheduleOffset = scheduleOffset;
-            o.scheduleStartTime = scheduleStartTime;
-            o.timezone = timezone;
-            return o;
+            final var _resultValue = new FlowTriggerConfigTriggerPropertiesScheduled();
+            _resultValue.dataPullMode = dataPullMode;
+            _resultValue.firstExecutionFrom = firstExecutionFrom;
+            _resultValue.scheduleEndTime = scheduleEndTime;
+            _resultValue.scheduleExpression = scheduleExpression;
+            _resultValue.scheduleOffset = scheduleOffset;
+            _resultValue.scheduleStartTime = scheduleStartTime;
+            _resultValue.timezone = timezone;
+            return _resultValue;
         }
     }
 }

@@ -14,12 +14,11 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following shows outputting all Local Gateway Route Table Ids.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,16 +27,15 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var fooLocalGatewayRouteTables = Aws.Ec2.GetLocalGatewayRouteTables.Invoke();
+        ///     var foo = Aws.Ec2.GetLocalGatewayRouteTables.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["foo"] = fooLocalGatewayRouteTables.Apply(getLocalGatewayRouteTablesResult =&gt; getLocalGatewayRouteTablesResult.Ids),
+        ///         ["foo"] = foo.Apply(getLocalGatewayRouteTablesResult =&gt; getLocalGatewayRouteTablesResult.Ids),
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLocalGatewayRouteTablesResult> InvokeAsync(GetLocalGatewayRouteTablesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalGatewayRouteTablesResult>("aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables", args ?? new GetLocalGatewayRouteTablesArgs(), options.WithDefaults());
@@ -45,12 +43,11 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following shows outputting all Local Gateway Route Table Ids.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -59,16 +56,15 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var fooLocalGatewayRouteTables = Aws.Ec2.GetLocalGatewayRouteTables.Invoke();
+        ///     var foo = Aws.Ec2.GetLocalGatewayRouteTables.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["foo"] = fooLocalGatewayRouteTables.Apply(getLocalGatewayRouteTablesResult =&gt; getLocalGatewayRouteTablesResult.Ids),
+        ///         ["foo"] = foo.Apply(getLocalGatewayRouteTablesResult =&gt; getLocalGatewayRouteTablesResult.Ids),
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLocalGatewayRouteTablesResult> Invoke(GetLocalGatewayRouteTablesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayRouteTablesResult>("aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables", args ?? new GetLocalGatewayRouteTablesInvokeArgs(), options.WithDefaults());

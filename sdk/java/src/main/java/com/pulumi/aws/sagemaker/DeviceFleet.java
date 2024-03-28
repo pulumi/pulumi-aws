@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,7 +21,10 @@ import javax.annotation.Nullable;
  * Provides a SageMaker Device Fleet resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,22 +49,23 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DeviceFleet(&#34;example&#34;, DeviceFleetArgs.builder()        
  *             .deviceFleetName(&#34;example&#34;)
- *             .roleArn(aws_iam_role.test().arn())
+ *             .roleArn(test.arn())
  *             .outputConfig(DeviceFleetOutputConfigArgs.builder()
- *                 .s3OutputLocation(String.format(&#34;s3://%s/prefix/&#34;, aws_s3_bucket.example().bucket()))
+ *                 .s3OutputLocation(String.format(&#34;s3://%s/prefix/&#34;, exampleAwsS3Bucket.bucket()))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SageMaker Device Fleets using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
+ * $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
  * ```
  * 
  */
@@ -223,9 +226,6 @@ public class DeviceFleet extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

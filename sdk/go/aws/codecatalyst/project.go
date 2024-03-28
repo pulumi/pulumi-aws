@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS CodeCatalyst Project.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,9 +32,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codecatalyst.NewProject(ctx, "test", &codecatalyst.ProjectArgs{
-//				Description: pulumi.String("My CodeCatalyst Project created using Pulumi"),
-//				DisplayName: pulumi.String("MyProject"),
 //				SpaceName:   pulumi.String("myproject"),
+//				DisplayName: pulumi.String("MyProject"),
+//				Description: pulumi.String("My CodeCatalyst Project created using Pulumi"),
 //			})
 //			if err != nil {
 //				return err
@@ -42,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Using `pulumi import`, import CodeCatalyst Project using the `example_id_arg`. For example:
+// Using `pulumi import`, import CodeCatalyst Project using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:codecatalyst/project:Project example project-id-12345678
-//
+// $ pulumi import aws:codecatalyst/project:Project example project-id-12345678
 // ```
 type Project struct {
 	pulumi.CustomResourceState

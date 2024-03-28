@@ -4,6 +4,7 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
 
         @CustomType.Setter
         public Builder groupId(String groupId) {
-            this.groupId = Objects.requireNonNull(groupId);
+            if (groupId == null) {
+              throw new MissingRequiredPropertyException("ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection", "groupId");
+            }
+            this.groupId = groupId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection", "name");
+            }
+            this.name = name;
             return this;
         }
         public ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection build() {
-            final var o = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection();
-            o.groupId = groupId;
-            o.name = name;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection();
+            _resultValue.groupId = groupId;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

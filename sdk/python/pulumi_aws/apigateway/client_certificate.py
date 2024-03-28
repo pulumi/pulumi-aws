@@ -190,19 +190,21 @@ class ClientCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         demo = aws.apigateway.ClientCertificate("demo", description="My client certificate")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import API Gateway Client Certificates using the id. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
+        $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
         ```
 
         :param str resource_name: The name of the resource.
@@ -221,19 +223,21 @@ class ClientCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         demo = aws.apigateway.ClientCertificate("demo", description="My client certificate")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import API Gateway Client Certificates using the id. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
+        $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
         ```
 
         :param str resource_name: The name of the resource.
@@ -269,8 +273,6 @@ class ClientCertificate(pulumi.CustomResource):
             __props__.__dict__["expiration_date"] = None
             __props__.__dict__["pem_encoded_certificate"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ClientCertificate, __self__).__init__(
             'aws:apigateway/clientCertificate:ClientCertificate',
             resource_name,

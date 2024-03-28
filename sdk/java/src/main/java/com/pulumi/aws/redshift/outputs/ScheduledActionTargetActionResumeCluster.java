@@ -4,6 +4,7 @@
 package com.pulumi.aws.redshift.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class ScheduledActionTargetActionResumeCluster {
 
         @CustomType.Setter
         public Builder clusterIdentifier(String clusterIdentifier) {
-            this.clusterIdentifier = Objects.requireNonNull(clusterIdentifier);
+            if (clusterIdentifier == null) {
+              throw new MissingRequiredPropertyException("ScheduledActionTargetActionResumeCluster", "clusterIdentifier");
+            }
+            this.clusterIdentifier = clusterIdentifier;
             return this;
         }
         public ScheduledActionTargetActionResumeCluster build() {
-            final var o = new ScheduledActionTargetActionResumeCluster();
-            o.clusterIdentifier = clusterIdentifier;
-            return o;
+            final var _resultValue = new ScheduledActionTargetActionResumeCluster();
+            _resultValue.clusterIdentifier = clusterIdentifier;
+            return _resultValue;
         }
     }
 }

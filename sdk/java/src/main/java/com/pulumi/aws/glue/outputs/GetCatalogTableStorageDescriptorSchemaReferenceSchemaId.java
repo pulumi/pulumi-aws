@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,25 +71,34 @@ public final class GetCatalogTableStorageDescriptorSchemaReferenceSchemaId {
 
         @CustomType.Setter
         public Builder registryName(String registryName) {
-            this.registryName = Objects.requireNonNull(registryName);
+            if (registryName == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptorSchemaReferenceSchemaId", "registryName");
+            }
+            this.registryName = registryName;
             return this;
         }
         @CustomType.Setter
         public Builder schemaArn(String schemaArn) {
-            this.schemaArn = Objects.requireNonNull(schemaArn);
+            if (schemaArn == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptorSchemaReferenceSchemaId", "schemaArn");
+            }
+            this.schemaArn = schemaArn;
             return this;
         }
         @CustomType.Setter
         public Builder schemaName(String schemaName) {
-            this.schemaName = Objects.requireNonNull(schemaName);
+            if (schemaName == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptorSchemaReferenceSchemaId", "schemaName");
+            }
+            this.schemaName = schemaName;
             return this;
         }
         public GetCatalogTableStorageDescriptorSchemaReferenceSchemaId build() {
-            final var o = new GetCatalogTableStorageDescriptorSchemaReferenceSchemaId();
-            o.registryName = registryName;
-            o.schemaArn = schemaArn;
-            o.schemaName = schemaName;
-            return o;
+            final var _resultValue = new GetCatalogTableStorageDescriptorSchemaReferenceSchemaId();
+            _resultValue.registryName = registryName;
+            _resultValue.schemaArn = schemaArn;
+            _resultValue.schemaName = schemaName;
+            return _resultValue;
         }
     }
 }

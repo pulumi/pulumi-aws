@@ -11,26 +11,29 @@ import * as utilities from "../utilities";
  * > **Note:** Creating a deployment for an API requires at least one `aws.apigatewayv2.Route` resource associated with that API. To avoid race conditions when all resources are being created together, you need to add implicit resource references via the `triggers` argument or explicit resource references using the [resource `dependsOn` meta-argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson).
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigatewayv2.Deployment("example", {
- *     apiId: aws_apigatewayv2_api.example.id,
+ *     apiId: exampleAwsApigatewayv2Api.id,
  *     description: "Example deployment",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_apigatewayv2_deployment` using the API identifier and deployment identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigatewayv2/deployment:Deployment example aabbccddee/1122334
+ * $ pulumi import aws:apigatewayv2/deployment:Deployment example aabbccddee/1122334
  * ```
- *  The `triggers` argument cannot be imported.
+ * The `triggers` argument cannot be imported.
  */
 export class Deployment extends pulumi.CustomResource {
     /**

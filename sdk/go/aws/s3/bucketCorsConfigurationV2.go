@@ -16,8 +16,11 @@ import (
 //
 // > **NOTE:** S3 Buckets only support a single CORS configuration. Declaring multiple `s3.BucketCorsConfigurationV2` resources to the same S3 Bucket will cause a perpetual difference in configuration.
 //
+// > This resource cannot be used with S3 directory buckets.
+//
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,12 +33,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("mybucket"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketCorsConfigurationV2(ctx, "exampleBucketCorsConfigurationV2", &s3.BucketCorsConfigurationV2Args{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewBucketCorsConfigurationV2(ctx, "example", &s3.BucketCorsConfigurationV2Args{
+//				Bucket: example.ID(),
 //				CorsRules: s3.BucketCorsConfigurationV2CorsRuleArray{
 //					&s3.BucketCorsConfigurationV2CorsRuleArgs{
 //						AllowedHeaders: pulumi.StringArray{
@@ -71,6 +76,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -81,17 +87,12 @@ import (
 // If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name
-//
+// $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name
 // ```
-//
-//	If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name,123456789012
-//
+// $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name,123456789012
 // ```
 type BucketCorsConfigurationV2 struct {
 	pulumi.CustomResourceState

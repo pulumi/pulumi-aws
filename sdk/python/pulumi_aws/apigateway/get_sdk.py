@@ -124,12 +124,13 @@ def get_sdk(parameters: Optional[Mapping[str, str]] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.apigateway.get_sdk(rest_api_id=aws_api_gateway_stage["example"]["rest_api_id"],
-        stage_name=aws_api_gateway_stage["example"]["stage_name"],
+    example = aws.apigateway.get_sdk(rest_api_id=example_aws_api_gateway_stage["restApiId"],
+        stage_name=example_aws_api_gateway_stage["stageName"],
         sdk_type="android",
         parameters={
             "groupId": "example",
@@ -138,6 +139,7 @@ def get_sdk(parameters: Optional[Mapping[str, str]] = None,
             "invokerPackage": "example",
         })
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] parameters: Key-value map of query string parameters `sdk_type` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
@@ -173,12 +175,13 @@ def get_sdk_output(parameters: Optional[pulumi.Input[Optional[Mapping[str, str]]
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.apigateway.get_sdk(rest_api_id=aws_api_gateway_stage["example"]["rest_api_id"],
-        stage_name=aws_api_gateway_stage["example"]["stage_name"],
+    example = aws.apigateway.get_sdk(rest_api_id=example_aws_api_gateway_stage["restApiId"],
+        stage_name=example_aws_api_gateway_stage["stageName"],
         sdk_type="android",
         parameters={
             "groupId": "example",
@@ -187,6 +190,7 @@ def get_sdk_output(parameters: Optional[pulumi.Input[Optional[Mapping[str, str]]
             "invokerPackage": "example",
         })
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] parameters: Key-value map of query string parameters `sdk_type` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.

@@ -238,6 +238,7 @@ class Disk(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -248,16 +249,18 @@ class Disk(pulumi.CustomResource):
                 values=["opt-in-not-required"],
             )])
         test = aws.lightsail.Disk("test",
+            name="test",
             size_in_gb=8,
             availability_zone=available.names[0])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_disk` using the name attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/disk:Disk test test
+        $ pulumi import aws:lightsail/disk:Disk test test
         ```
 
         :param str resource_name: The name of the resource.
@@ -278,6 +281,7 @@ class Disk(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -288,16 +292,18 @@ class Disk(pulumi.CustomResource):
                 values=["opt-in-not-required"],
             )])
         test = aws.lightsail.Disk("test",
+            name="test",
             size_in_gb=8,
             availability_zone=available.names[0])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_disk` using the name attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/disk:Disk test test
+        $ pulumi import aws:lightsail/disk:Disk test test
         ```
 
         :param str resource_name: The name of the resource.
@@ -340,8 +346,6 @@ class Disk(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["support_code"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Disk, __self__).__init__(
             'aws:lightsail/disk:Disk',
             resource_name,

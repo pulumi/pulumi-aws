@@ -7,6 +7,7 @@ import com.pulumi.aws.appsync.outputs.GraphQLApiAdditionalAuthenticationProvider
 import com.pulumi.aws.appsync.outputs.GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig;
 import com.pulumi.aws.appsync.outputs.GraphQLApiAdditionalAuthenticationProviderUserPoolConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -89,31 +90,37 @@ public final class GraphQLApiAdditionalAuthenticationProvider {
 
         @CustomType.Setter
         public Builder authenticationType(String authenticationType) {
-            this.authenticationType = Objects.requireNonNull(authenticationType);
+            if (authenticationType == null) {
+              throw new MissingRequiredPropertyException("GraphQLApiAdditionalAuthenticationProvider", "authenticationType");
+            }
+            this.authenticationType = authenticationType;
             return this;
         }
         @CustomType.Setter
         public Builder lambdaAuthorizerConfig(@Nullable GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig lambdaAuthorizerConfig) {
+
             this.lambdaAuthorizerConfig = lambdaAuthorizerConfig;
             return this;
         }
         @CustomType.Setter
         public Builder openidConnectConfig(@Nullable GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig openidConnectConfig) {
+
             this.openidConnectConfig = openidConnectConfig;
             return this;
         }
         @CustomType.Setter
         public Builder userPoolConfig(@Nullable GraphQLApiAdditionalAuthenticationProviderUserPoolConfig userPoolConfig) {
+
             this.userPoolConfig = userPoolConfig;
             return this;
         }
         public GraphQLApiAdditionalAuthenticationProvider build() {
-            final var o = new GraphQLApiAdditionalAuthenticationProvider();
-            o.authenticationType = authenticationType;
-            o.lambdaAuthorizerConfig = lambdaAuthorizerConfig;
-            o.openidConnectConfig = openidConnectConfig;
-            o.userPoolConfig = userPoolConfig;
-            return o;
+            final var _resultValue = new GraphQLApiAdditionalAuthenticationProvider();
+            _resultValue.authenticationType = authenticationType;
+            _resultValue.lambdaAuthorizerConfig = lambdaAuthorizerConfig;
+            _resultValue.openidConnectConfig = openidConnectConfig;
+            _resultValue.userPoolConfig = userPoolConfig;
+            return _resultValue;
         }
     }
 }

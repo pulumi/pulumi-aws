@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -13,9 +14,17 @@ public final class BucketV2ReplicationConfigurationRuleDestinationAccessControlT
 
     public static final BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs Empty = new BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs();
 
+    /**
+     * Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+     * 
+     */
     @Import(name="owner", required=true)
     private Output<String> owner;
 
+    /**
+     * @return Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+     * 
+     */
     public Output<String> owner() {
         return this.owner;
     }
@@ -44,17 +53,31 @@ public final class BucketV2ReplicationConfigurationRuleDestinationAccessControlT
             $ = new BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param owner Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder owner(Output<String> owner) {
             $.owner = owner;
             return this;
         }
 
+        /**
+         * @param owner Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder owner(String owner) {
             return owner(Output.of(owner));
         }
 
         public BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs build() {
-            $.owner = Objects.requireNonNull($.owner, "expected parameter 'owner' to be non-null");
+            if ($.owner == null) {
+                throw new MissingRequiredPropertyException("BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs", "owner");
+            }
             return $;
         }
     }

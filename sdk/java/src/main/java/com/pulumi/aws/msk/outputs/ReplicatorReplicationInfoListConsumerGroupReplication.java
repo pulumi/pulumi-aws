@@ -4,6 +4,7 @@
 package com.pulumi.aws.msk.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -88,6 +89,7 @@ public final class ReplicatorReplicationInfoListConsumerGroupReplication {
 
         @CustomType.Setter
         public Builder consumerGroupsToExcludes(@Nullable List<String> consumerGroupsToExcludes) {
+
             this.consumerGroupsToExcludes = consumerGroupsToExcludes;
             return this;
         }
@@ -96,7 +98,10 @@ public final class ReplicatorReplicationInfoListConsumerGroupReplication {
         }
         @CustomType.Setter
         public Builder consumerGroupsToReplicates(List<String> consumerGroupsToReplicates) {
-            this.consumerGroupsToReplicates = Objects.requireNonNull(consumerGroupsToReplicates);
+            if (consumerGroupsToReplicates == null) {
+              throw new MissingRequiredPropertyException("ReplicatorReplicationInfoListConsumerGroupReplication", "consumerGroupsToReplicates");
+            }
+            this.consumerGroupsToReplicates = consumerGroupsToReplicates;
             return this;
         }
         public Builder consumerGroupsToReplicates(String... consumerGroupsToReplicates) {
@@ -104,21 +109,23 @@ public final class ReplicatorReplicationInfoListConsumerGroupReplication {
         }
         @CustomType.Setter
         public Builder detectAndCopyNewConsumerGroups(@Nullable Boolean detectAndCopyNewConsumerGroups) {
+
             this.detectAndCopyNewConsumerGroups = detectAndCopyNewConsumerGroups;
             return this;
         }
         @CustomType.Setter
         public Builder synchroniseConsumerGroupOffsets(@Nullable Boolean synchroniseConsumerGroupOffsets) {
+
             this.synchroniseConsumerGroupOffsets = synchroniseConsumerGroupOffsets;
             return this;
         }
         public ReplicatorReplicationInfoListConsumerGroupReplication build() {
-            final var o = new ReplicatorReplicationInfoListConsumerGroupReplication();
-            o.consumerGroupsToExcludes = consumerGroupsToExcludes;
-            o.consumerGroupsToReplicates = consumerGroupsToReplicates;
-            o.detectAndCopyNewConsumerGroups = detectAndCopyNewConsumerGroups;
-            o.synchroniseConsumerGroupOffsets = synchroniseConsumerGroupOffsets;
-            return o;
+            final var _resultValue = new ReplicatorReplicationInfoListConsumerGroupReplication();
+            _resultValue.consumerGroupsToExcludes = consumerGroupsToExcludes;
+            _resultValue.consumerGroupsToReplicates = consumerGroupsToReplicates;
+            _resultValue.detectAndCopyNewConsumerGroups = detectAndCopyNewConsumerGroups;
+            _resultValue.synchroniseConsumerGroupOffsets = synchroniseConsumerGroupOffsets;
+            return _resultValue;
         }
     }
 }

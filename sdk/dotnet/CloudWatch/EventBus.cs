@@ -16,6 +16,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,11 +25,16 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var messenger = new Aws.CloudWatch.EventBus("messenger");
+    ///     var messenger = new Aws.CloudWatch.EventBus("messenger", new()
+    ///     {
+    ///         Name = "chat-messages",
+    ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,25 +43,27 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplepartnerEventSource = Aws.CloudWatch.GetEventSource.Invoke(new()
+    ///     var examplepartner = Aws.CloudWatch.GetEventSource.Invoke(new()
     ///     {
     ///         NamePrefix = "aws.partner/examplepartner.com",
     ///     });
     /// 
-    ///     var examplepartnerEventBus = new Aws.CloudWatch.EventBus("examplepartnerEventBus", new()
+    ///     var examplepartnerEventBus = new Aws.CloudWatch.EventBus("examplepartner", new()
     ///     {
-    ///         EventSourceName = examplepartnerEventSource.Apply(getEventSourceResult =&gt; getEventSourceResult.Name),
+    ///         Name = examplepartner.Apply(getEventSourceResult =&gt; getEventSourceResult.Name),
+    ///         EventSourceName = examplepartner.Apply(getEventSourceResult =&gt; getEventSourceResult.Name),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EventBridge event buses using the `name` (which can also be a partner event source name). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
+    /// $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/eventBus:EventBus")]
@@ -114,10 +122,6 @@ namespace Pulumi.Aws.CloudWatch
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -213,11 +217,7 @@ namespace Pulumi.Aws.CloudWatch
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public EventBusState()

@@ -12,768 +12,1647 @@ namespace Pulumi.Aws.Inputs
 
     public sealed class ProviderEndpointArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("accessanalyzer")]
         public Input<string>? Accessanalyzer { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("account")]
         public Input<string>? Account { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("acm")]
         public Input<string>? Acm { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("acmpca")]
         public Input<string>? Acmpca { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("amg")]
         public Input<string>? Amg { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("amp")]
         public Input<string>? Amp { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("amplify")]
         public Input<string>? Amplify { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("apigateway")]
         public Input<string>? Apigateway { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("apigatewayv2")]
         public Input<string>? Apigatewayv2 { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("appautoscaling")]
         public Input<string>? Appautoscaling { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("appconfig")]
         public Input<string>? Appconfig { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("appfabric")]
+        public Input<string>? Appfabric { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("appflow")]
         public Input<string>? Appflow { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("appintegrations")]
         public Input<string>? Appintegrations { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("appintegrationsservice")]
         public Input<string>? Appintegrationsservice { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("applicationautoscaling")]
         public Input<string>? Applicationautoscaling { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("applicationinsights")]
         public Input<string>? Applicationinsights { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("appmesh")]
         public Input<string>? Appmesh { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("appregistry")]
+        public Input<string>? Appregistry { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("apprunner")]
         public Input<string>? Apprunner { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("appstream")]
         public Input<string>? Appstream { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("appsync")]
         public Input<string>? Appsync { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("athena")]
         public Input<string>? Athena { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("auditmanager")]
         public Input<string>? Auditmanager { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("autoscaling")]
         public Input<string>? Autoscaling { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("autoscalingplans")]
         public Input<string>? Autoscalingplans { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("backup")]
         public Input<string>? Backup { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("batch")]
         public Input<string>? Batch { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("beanstalk")]
         public Input<string>? Beanstalk { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("bedrock")]
         public Input<string>? Bedrock { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("bedrockagent")]
+        public Input<string>? Bedrockagent { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("budgets")]
         public Input<string>? Budgets { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("ce")]
         public Input<string>? Ce { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("chime")]
         public Input<string>? Chime { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("chimesdkmediapipelines")]
         public Input<string>? Chimesdkmediapipelines { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("chimesdkvoice")]
         public Input<string>? Chimesdkvoice { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("cleanrooms")]
         public Input<string>? Cleanrooms { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("cloud9")]
         public Input<string>? Cloud9 { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("cloudcontrol")]
         public Input<string>? Cloudcontrol { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("cloudcontrolapi")]
         public Input<string>? Cloudcontrolapi { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("cloudformation")]
         public Input<string>? Cloudformation { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("cloudfront")]
         public Input<string>? Cloudfront { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("cloudfrontkeyvaluestore")]
+        public Input<string>? Cloudfrontkeyvaluestore { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("cloudhsm")]
         public Input<string>? Cloudhsm { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("cloudhsmv2")]
         public Input<string>? Cloudhsmv2 { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("cloudsearch")]
         public Input<string>? Cloudsearch { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("cloudtrail")]
         public Input<string>? Cloudtrail { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("cloudwatch")]
         public Input<string>? Cloudwatch { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("cloudwatchevents")]
         public Input<string>? Cloudwatchevents { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("cloudwatchevidently")]
         public Input<string>? Cloudwatchevidently { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("cloudwatchlog")]
         public Input<string>? Cloudwatchlog { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("cloudwatchlogs")]
         public Input<string>? Cloudwatchlogs { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("cloudwatchobservabilityaccessmanager")]
         public Input<string>? Cloudwatchobservabilityaccessmanager { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("cloudwatchrum")]
         public Input<string>? Cloudwatchrum { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("codeartifact")]
         public Input<string>? Codeartifact { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("codebuild")]
         public Input<string>? Codebuild { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("codecatalyst")]
         public Input<string>? Codecatalyst { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("codecommit")]
         public Input<string>? Codecommit { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("codedeploy")]
         public Input<string>? Codedeploy { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("codeguruprofiler")]
+        public Input<string>? Codeguruprofiler { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("codegurureviewer")]
         public Input<string>? Codegurureviewer { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("codepipeline")]
         public Input<string>? Codepipeline { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("codestarconnections")]
         public Input<string>? Codestarconnections { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("codestarnotifications")]
         public Input<string>? Codestarnotifications { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("cognitoidentity")]
         public Input<string>? Cognitoidentity { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("cognitoidentityprovider")]
         public Input<string>? Cognitoidentityprovider { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("cognitoidp")]
         public Input<string>? Cognitoidp { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("comprehend")]
         public Input<string>? Comprehend { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("computeoptimizer")]
         public Input<string>? Computeoptimizer { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("config")]
         public Input<string>? Config { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("configservice")]
         public Input<string>? Configservice { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("connect")]
         public Input<string>? Connect { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("connectcases")]
         public Input<string>? Connectcases { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("controltower")]
         public Input<string>? Controltower { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("costandusagereportservice")]
         public Input<string>? Costandusagereportservice { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("costexplorer")]
         public Input<string>? Costexplorer { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("costoptimizationhub")]
+        public Input<string>? Costoptimizationhub { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("cur")]
         public Input<string>? Cur { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("customerprofiles")]
         public Input<string>? Customerprofiles { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("databasemigration")]
         public Input<string>? Databasemigration { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("databasemigrationservice")]
         public Input<string>? Databasemigrationservice { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("dataexchange")]
         public Input<string>? Dataexchange { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("datapipeline")]
         public Input<string>? Datapipeline { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("datasync")]
         public Input<string>? Datasync { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("dax")]
         public Input<string>? Dax { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("deploy")]
         public Input<string>? Deploy { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("detective")]
         public Input<string>? Detective { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("devicefarm")]
         public Input<string>? Devicefarm { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("devopsguru")]
+        public Input<string>? Devopsguru { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("directconnect")]
         public Input<string>? Directconnect { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("directoryservice")]
         public Input<string>? Directoryservice { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("dlm")]
         public Input<string>? Dlm { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("dms")]
         public Input<string>? Dms { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("docdb")]
         public Input<string>? Docdb { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("docdbelastic")]
         public Input<string>? Docdbelastic { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("ds")]
         public Input<string>? Ds { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("dynamodb")]
         public Input<string>? Dynamodb { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("ec2")]
         public Input<string>? Ec2 { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("ecr")]
         public Input<string>? Ecr { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("ecrpublic")]
         public Input<string>? Ecrpublic { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("ecs")]
         public Input<string>? Ecs { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("efs")]
         public Input<string>? Efs { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("eks")]
         public Input<string>? Eks { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("elasticache")]
         public Input<string>? Elasticache { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("elasticbeanstalk")]
         public Input<string>? Elasticbeanstalk { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("elasticloadbalancing")]
         public Input<string>? Elasticloadbalancing { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("elasticloadbalancingv2")]
         public Input<string>? Elasticloadbalancingv2 { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("elasticsearch")]
         public Input<string>? Elasticsearch { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("elasticsearchservice")]
         public Input<string>? Elasticsearchservice { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("elastictranscoder")]
         public Input<string>? Elastictranscoder { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("elb")]
         public Input<string>? Elb { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("elbv2")]
         public Input<string>? Elbv2 { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("emr")]
         public Input<string>? Emr { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("emrcontainers")]
         public Input<string>? Emrcontainers { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("emrserverless")]
         public Input<string>? Emrserverless { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("es")]
         public Input<string>? Es { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("eventbridge")]
         public Input<string>? Eventbridge { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("events")]
         public Input<string>? Events { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("evidently")]
         public Input<string>? Evidently { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("finspace")]
         public Input<string>? Finspace { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("firehose")]
         public Input<string>? Firehose { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("fis")]
         public Input<string>? Fis { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("fms")]
         public Input<string>? Fms { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("fsx")]
         public Input<string>? Fsx { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("gamelift")]
         public Input<string>? Gamelift { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("glacier")]
         public Input<string>? Glacier { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("globalaccelerator")]
         public Input<string>? Globalaccelerator { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("glue")]
         public Input<string>? Glue { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("grafana")]
         public Input<string>? Grafana { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("greengrass")]
         public Input<string>? Greengrass { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("groundstation")]
+        public Input<string>? Groundstation { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("guardduty")]
         public Input<string>? Guardduty { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("healthlake")]
         public Input<string>? Healthlake { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("iam")]
         public Input<string>? Iam { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("identitystore")]
         public Input<string>? Identitystore { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("imagebuilder")]
         public Input<string>? Imagebuilder { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("inspector")]
         public Input<string>? Inspector { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("inspector2")]
         public Input<string>? Inspector2 { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("inspectorv2")]
         public Input<string>? Inspectorv2 { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("internetmonitor")]
         public Input<string>? Internetmonitor { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("iot")]
         public Input<string>? Iot { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("iotanalytics")]
         public Input<string>? Iotanalytics { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("iotevents")]
         public Input<string>? Iotevents { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("ivs")]
         public Input<string>? Ivs { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("ivschat")]
         public Input<string>? Ivschat { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("kafka")]
         public Input<string>? Kafka { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("kafkaconnect")]
         public Input<string>? Kafkaconnect { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("kendra")]
         public Input<string>? Kendra { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("keyspaces")]
         public Input<string>? Keyspaces { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("kinesis")]
         public Input<string>? Kinesis { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("kinesisanalytics")]
         public Input<string>? Kinesisanalytics { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("kinesisanalyticsv2")]
         public Input<string>? Kinesisanalyticsv2 { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("kinesisvideo")]
         public Input<string>? Kinesisvideo { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("kms")]
         public Input<string>? Kms { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("lakeformation")]
         public Input<string>? Lakeformation { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("lambda")]
         public Input<string>? Lambda { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("launchwizard")]
+        public Input<string>? Launchwizard { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("lex")]
         public Input<string>? Lex { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("lexmodelbuilding")]
         public Input<string>? Lexmodelbuilding { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("lexmodelbuildingservice")]
         public Input<string>? Lexmodelbuildingservice { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("lexmodels")]
         public Input<string>? Lexmodels { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("lexmodelsv2")]
         public Input<string>? Lexmodelsv2 { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("lexv2models")]
         public Input<string>? Lexv2models { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("licensemanager")]
         public Input<string>? Licensemanager { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("lightsail")]
         public Input<string>? Lightsail { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("locationservice")]
         public Input<string>? Locationservice { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("logs")]
         public Input<string>? Logs { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("lookoutmetrics")]
+        public Input<string>? Lookoutmetrics { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("m2")]
+        public Input<string>? M2 { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("macie2")]
         public Input<string>? Macie2 { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("managedgrafana")]
         public Input<string>? Managedgrafana { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("mediaconnect")]
         public Input<string>? Mediaconnect { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("mediaconvert")]
         public Input<string>? Mediaconvert { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("medialive")]
         public Input<string>? Medialive { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("mediapackage")]
         public Input<string>? Mediapackage { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("mediapackagev2")]
+        public Input<string>? Mediapackagev2 { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("mediastore")]
         public Input<string>? Mediastore { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("memorydb")]
         public Input<string>? Memorydb { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("mq")]
         public Input<string>? Mq { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("msk")]
         public Input<string>? Msk { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("mwaa")]
         public Input<string>? Mwaa { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("neptune")]
         public Input<string>? Neptune { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("networkfirewall")]
         public Input<string>? Networkfirewall { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("networkmanager")]
         public Input<string>? Networkmanager { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("oam")]
         public Input<string>? Oam { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("opensearch")]
         public Input<string>? Opensearch { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("opensearchingestion")]
         public Input<string>? Opensearchingestion { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("opensearchserverless")]
         public Input<string>? Opensearchserverless { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("opensearchservice")]
         public Input<string>? Opensearchservice { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("opsworks")]
         public Input<string>? Opsworks { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("organizations")]
         public Input<string>? Organizations { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("osis")]
         public Input<string>? Osis { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("outposts")]
         public Input<string>? Outposts { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("pcaconnectorad")]
+        public Input<string>? Pcaconnectorad { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("pinpoint")]
         public Input<string>? Pinpoint { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("pipes")]
         public Input<string>? Pipes { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("polly")]
+        public Input<string>? Polly { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("pricing")]
         public Input<string>? Pricing { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("prometheus")]
         public Input<string>? Prometheus { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("prometheusservice")]
         public Input<string>? Prometheusservice { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("qbusiness")]
+        public Input<string>? Qbusiness { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("qldb")]
         public Input<string>? Qldb { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("quicksight")]
         public Input<string>? Quicksight { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("ram")]
         public Input<string>? Ram { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("rbin")]
         public Input<string>? Rbin { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("rds")]
         public Input<string>? Rds { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("recyclebin")]
         public Input<string>? Recyclebin { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("redshift")]
         public Input<string>? Redshift { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("redshiftdata")]
         public Input<string>? Redshiftdata { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("redshiftdataapiservice")]
         public Input<string>? Redshiftdataapiservice { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("redshiftserverless")]
         public Input<string>? Redshiftserverless { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("rekognition")]
+        public Input<string>? Rekognition { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("resourceexplorer2")]
         public Input<string>? Resourceexplorer2 { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("resourcegroups")]
         public Input<string>? Resourcegroups { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("resourcegroupstagging")]
         public Input<string>? Resourcegroupstagging { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("resourcegroupstaggingapi")]
         public Input<string>? Resourcegroupstaggingapi { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("rolesanywhere")]
         public Input<string>? Rolesanywhere { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("route53")]
         public Input<string>? Route53 { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("route53domains")]
         public Input<string>? Route53domains { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("route53recoverycontrolconfig")]
         public Input<string>? Route53recoverycontrolconfig { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("route53recoveryreadiness")]
         public Input<string>? Route53recoveryreadiness { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("route53resolver")]
         public Input<string>? Route53resolver { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("rum")]
         public Input<string>? Rum { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("s3")]
         public Input<string>? S3 { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("s3api")]
         public Input<string>? S3api { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("s3control")]
         public Input<string>? S3control { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("s3outposts")]
         public Input<string>? S3outposts { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("sagemaker")]
         public Input<string>? Sagemaker { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("scheduler")]
         public Input<string>? Scheduler { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("schemas")]
         public Input<string>? Schemas { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("sdb")]
         public Input<string>? Sdb { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("secretsmanager")]
         public Input<string>? Secretsmanager { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("securityhub")]
         public Input<string>? Securityhub { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("securitylake")]
         public Input<string>? Securitylake { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("serverlessapplicationrepository")]
         public Input<string>? Serverlessapplicationrepository { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("serverlessapprepo")]
         public Input<string>? Serverlessapprepo { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("serverlessrepo")]
         public Input<string>? Serverlessrepo { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("servicecatalog")]
         public Input<string>? Servicecatalog { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("servicecatalogappregistry")]
+        public Input<string>? Servicecatalogappregistry { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("servicediscovery")]
         public Input<string>? Servicediscovery { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("servicequotas")]
         public Input<string>? Servicequotas { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("ses")]
         public Input<string>? Ses { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("sesv2")]
         public Input<string>? Sesv2 { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("sfn")]
         public Input<string>? Sfn { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("shield")]
         public Input<string>? Shield { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("signer")]
         public Input<string>? Signer { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("simpledb")]
         public Input<string>? Simpledb { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("sns")]
         public Input<string>? Sns { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("sqs")]
         public Input<string>? Sqs { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("ssm")]
         public Input<string>? Ssm { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("ssmcontacts")]
         public Input<string>? Ssmcontacts { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("ssmincidents")]
         public Input<string>? Ssmincidents { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("ssmsap")]
+        public Input<string>? Ssmsap { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("sso")]
         public Input<string>? Sso { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("ssoadmin")]
         public Input<string>? Ssoadmin { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("stepfunctions")]
         public Input<string>? Stepfunctions { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("storagegateway")]
         public Input<string>? Storagegateway { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("sts")]
         public Input<string>? Sts { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("swf")]
         public Input<string>? Swf { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("synthetics")]
         public Input<string>? Synthetics { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("timestreamwrite")]
         public Input<string>? Timestreamwrite { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("transcribe")]
         public Input<string>? Transcribe { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("transcribeservice")]
         public Input<string>? Transcribeservice { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("transfer")]
         public Input<string>? Transfer { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("verifiedpermissions")]
         public Input<string>? Verifiedpermissions { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("vpclattice")]
         public Input<string>? Vpclattice { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("waf")]
         public Input<string>? Waf { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("wafregional")]
         public Input<string>? Wafregional { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("wafv2")]
         public Input<string>? Wafv2 { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("wellarchitected")]
+        public Input<string>? Wellarchitected { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("worklink")]
         public Input<string>? Worklink { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("workspaces")]
         public Input<string>? Workspaces { get; set; }
 
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("xray")]
         public Input<string>? Xray { get; set; }
 

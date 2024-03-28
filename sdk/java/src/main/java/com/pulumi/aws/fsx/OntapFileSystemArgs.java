@@ -6,6 +6,7 @@ package com.pulumi.aws.fsx;
 import com.pulumi.aws.fsx.inputs.OntapFileSystemDiskIopsConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -110,6 +111,21 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+     * 
+     */
+    @Import(name="haPairs")
+    private @Nullable Output<Integer> haPairs;
+
+    /**
+     * @return The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+     * 
+     */
+    public Optional<Output<Integer>> haPairs() {
+        return Optional.ofNullable(this.haPairs);
+    }
+
+    /**
      * ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
      * 
      */
@@ -200,14 +216,14 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
+     * A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
      * 
      */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
     /**
-     * @return A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
+     * @return A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
      * 
      */
     public Output<List<String>> subnetIds() {
@@ -230,18 +246,33 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`.
+     * Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
      * 
      */
-    @Import(name="throughputCapacity", required=true)
-    private Output<Integer> throughputCapacity;
+    @Import(name="throughputCapacity")
+    private @Nullable Output<Integer> throughputCapacity;
 
     /**
-     * @return Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`.
+     * @return Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
      * 
      */
-    public Output<Integer> throughputCapacity() {
-        return this.throughputCapacity;
+    public Optional<Output<Integer>> throughputCapacity() {
+        return Optional.ofNullable(this.throughputCapacity);
+    }
+
+    /**
+     * Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+     * 
+     */
+    @Import(name="throughputCapacityPerHaPair")
+    private @Nullable Output<Integer> throughputCapacityPerHaPair;
+
+    /**
+     * @return Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+     * 
+     */
+    public Optional<Output<Integer>> throughputCapacityPerHaPair() {
+        return Optional.ofNullable(this.throughputCapacityPerHaPair);
     }
 
     /**
@@ -268,6 +299,7 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
         this.diskIopsConfiguration = $.diskIopsConfiguration;
         this.endpointIpAddressRange = $.endpointIpAddressRange;
         this.fsxAdminPassword = $.fsxAdminPassword;
+        this.haPairs = $.haPairs;
         this.kmsKeyId = $.kmsKeyId;
         this.preferredSubnetId = $.preferredSubnetId;
         this.routeTableIds = $.routeTableIds;
@@ -277,6 +309,7 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
         this.throughputCapacity = $.throughputCapacity;
+        this.throughputCapacityPerHaPair = $.throughputCapacityPerHaPair;
         this.weeklyMaintenanceStartTime = $.weeklyMaintenanceStartTime;
     }
 
@@ -422,6 +455,27 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder fsxAdminPassword(String fsxAdminPassword) {
             return fsxAdminPassword(Output.of(fsxAdminPassword));
+        }
+
+        /**
+         * @param haPairs The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder haPairs(@Nullable Output<Integer> haPairs) {
+            $.haPairs = haPairs;
+            return this;
+        }
+
+        /**
+         * @param haPairs The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder haPairs(Integer haPairs) {
+            return haPairs(Output.of(haPairs));
         }
 
         /**
@@ -571,7 +625,7 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
+         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
          * 
          * @return builder
          * 
@@ -582,7 +636,7 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
+         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
          * 
          * @return builder
          * 
@@ -592,7 +646,7 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
+         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
          * 
          * @return builder
          * 
@@ -623,24 +677,45 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param throughputCapacity Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`.
+         * @param throughputCapacity Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
          * 
          * @return builder
          * 
          */
-        public Builder throughputCapacity(Output<Integer> throughputCapacity) {
+        public Builder throughputCapacity(@Nullable Output<Integer> throughputCapacity) {
             $.throughputCapacity = throughputCapacity;
             return this;
         }
 
         /**
-         * @param throughputCapacity Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`.
+         * @param throughputCapacity Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
          * 
          * @return builder
          * 
          */
         public Builder throughputCapacity(Integer throughputCapacity) {
             return throughputCapacity(Output.of(throughputCapacity));
+        }
+
+        /**
+         * @param throughputCapacityPerHaPair Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder throughputCapacityPerHaPair(@Nullable Output<Integer> throughputCapacityPerHaPair) {
+            $.throughputCapacityPerHaPair = throughputCapacityPerHaPair;
+            return this;
+        }
+
+        /**
+         * @param throughputCapacityPerHaPair Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder throughputCapacityPerHaPair(Integer throughputCapacityPerHaPair) {
+            return throughputCapacityPerHaPair(Output.of(throughputCapacityPerHaPair));
         }
 
         /**
@@ -665,10 +740,15 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public OntapFileSystemArgs build() {
-            $.deploymentType = Objects.requireNonNull($.deploymentType, "expected parameter 'deploymentType' to be non-null");
-            $.preferredSubnetId = Objects.requireNonNull($.preferredSubnetId, "expected parameter 'preferredSubnetId' to be non-null");
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
-            $.throughputCapacity = Objects.requireNonNull($.throughputCapacity, "expected parameter 'throughputCapacity' to be non-null");
+            if ($.deploymentType == null) {
+                throw new MissingRequiredPropertyException("OntapFileSystemArgs", "deploymentType");
+            }
+            if ($.preferredSubnetId == null) {
+                throw new MissingRequiredPropertyException("OntapFileSystemArgs", "preferredSubnetId");
+            }
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("OntapFileSystemArgs", "subnetIds");
+            }
             return $;
         }
     }

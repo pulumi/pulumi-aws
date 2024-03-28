@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,12 +23,13 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foobarGroup = new Aws.AutoScaling.Group("foobarGroup", new()
+    ///     var foobar = new Aws.AutoScaling.Group("foobar", new()
     ///     {
     ///         AvailabilityZones = new[]
     ///         {
     ///             "us-west-2a",
     ///         },
+    ///         Name = "test-foobar5",
     ///         MaxSize = 1,
     ///         MinSize = 1,
     ///         HealthCheckGracePeriod = 300,
@@ -39,7 +41,7 @@ namespace Pulumi.Aws.AutoScaling
     ///         },
     ///     });
     /// 
-    ///     var foobarSchedule = new Aws.AutoScaling.Schedule("foobarSchedule", new()
+    ///     var foobarSchedule = new Aws.AutoScaling.Schedule("foobar", new()
     ///     {
     ///         ScheduledActionName = "foobar",
     ///         MinSize = 0,
@@ -47,18 +49,19 @@ namespace Pulumi.Aws.AutoScaling
     ///         DesiredCapacity = 0,
     ///         StartTime = "2016-12-11T18:00:00Z",
     ///         EndTime = "2016-12-12T06:00:00Z",
-    ///         AutoscalingGroupName = foobarGroup.Name,
+    ///         AutoscalingGroupName = foobar.Name,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AutoScaling ScheduledAction using the `auto-scaling-group-name` and `scheduled-action-name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
+    /// $ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:autoscaling/schedule:Schedule")]

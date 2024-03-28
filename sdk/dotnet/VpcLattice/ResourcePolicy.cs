@@ -13,8 +13,10 @@ namespace Pulumi.Aws.VpcLattice
     /// Resource for managing an AWS VPC Lattice Resource Policy.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,55 +26,58 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var currentPartition = Aws.GetPartition.Invoke();
+    ///     var currentGetPartition = Aws.GetPartition.Invoke();
     /// 
-    ///     var exampleServiceNetwork = new Aws.VpcLattice.ServiceNetwork("exampleServiceNetwork");
-    /// 
-    ///     var exampleResourcePolicy = new Aws.VpcLattice.ResourcePolicy("exampleResourcePolicy", new()
+    ///     var example = new Aws.VpcLattice.ServiceNetwork("example", new()
     ///     {
-    ///         ResourceArn = exampleServiceNetwork.Arn,
-    ///         Policy = Output.Tuple(currentPartition, currentCallerIdentity, exampleServiceNetwork.Arn).Apply(values =&gt;
+    ///         Name = "example-vpclattice-service-network",
+    ///     });
+    /// 
+    ///     var exampleResourcePolicy = new Aws.VpcLattice.ResourcePolicy("example", new()
+    ///     {
+    ///         ResourceArn = example.Arn,
+    ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             var currentPartition = values.Item1;
-    ///             var currentCallerIdentity = values.Item2;
-    ///             var arn = values.Item3;
-    ///             return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
-    ///                 ["Version"] = "2012-10-17",
-    ///                 ["Statement"] = new[]
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     ["sid"] = "test-pol-principals-6",
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Sid"] = "test-pol-principals-6",
-    ///                         ["Effect"] = "Allow",
-    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                         ["AWS"] = Output.Tuple(currentGetPartition, current).Apply(values =&gt;
     ///                         {
-    ///                             ["AWS"] = $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
-    ///                         },
-    ///                         ["Action"] = new[]
-    ///                         {
-    ///                             "vpc-lattice:CreateServiceNetworkVpcAssociation",
-    ///                             "vpc-lattice:CreateServiceNetworkServiceAssociation",
-    ///                             "vpc-lattice:GetServiceNetwork",
-    ///                         },
-    ///                         ["Resource"] = arn,
+    ///                             var currentGetPartition = values.Item1;
+    ///                             var current = values.Item2;
+    ///                             return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root";
+    ///                         }),
     ///                     },
+    ///                     ["action"] = new[]
+    ///                     {
+    ///                         "vpc-lattice:CreateServiceNetworkVpcAssociation",
+    ///                         "vpc-lattice:CreateServiceNetworkServiceAssociation",
+    ///                         "vpc-lattice:GetServiceNetwork",
+    ///                     },
+    ///                     ["resource"] = example.Arn,
     ///                 },
-    ///             });
-    ///         }),
+    ///             },
+    ///         })),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import VPC Lattice Resource Policy using the `resource_arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:vpclattice/resourcePolicy:ResourcePolicy example rft-8012925589
+    /// $ pulumi import aws:vpclattice/resourcePolicy:ResourcePolicy example rft-8012925589
     /// ```
     /// </summary>
     [AwsResourceType("aws:vpclattice/resourcePolicy:ResourcePolicy")]

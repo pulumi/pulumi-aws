@@ -74,6 +74,45 @@ def get_service_account(region: Optional[str] = None,
     > **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
     The `redshift_get_service_account` data source has been deprecated and will be removed in a future version.
 
+    ## Example Usage
+
+    <!--Start PulumiCodeChooser -->
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    main = aws.redshift.get_service_account()
+    bucket = aws.s3.BucketV2("bucket",
+        bucket="tf-redshift-logging-test-bucket",
+        force_destroy=True)
+    allow_audit_logging = bucket.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[
+        aws.iam.GetPolicyDocumentStatementArgs(
+            sid="Put bucket policy needed for audit logging",
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="AWS",
+                identifiers=[main.arn],
+            )],
+            actions=["s3:PutObject"],
+            resources=[f"{arn}/*"],
+        ),
+        aws.iam.GetPolicyDocumentStatementArgs(
+            sid="Get bucket policy needed for audit logging",
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="AWS",
+                identifiers=[main.arn],
+            )],
+            actions=["s3:GetBucketAcl"],
+            resources=bucket_aws_s3_bucket["arn"],
+        ),
+    ]))
+    allow_audit_logging_bucket_policy = aws.s3.BucketPolicy("allow_audit_logging",
+        bucket=bucket.id,
+        policy=allow_audit_logging.json)
+    ```
+    <!--End PulumiCodeChooser -->
+
 
     :param str region: Name of the region whose AWS Redshift account ID is desired.
            Defaults to the region from the AWS provider configuration.
@@ -98,6 +137,45 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = N
 
     > **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
     The `redshift_get_service_account` data source has been deprecated and will be removed in a future version.
+
+    ## Example Usage
+
+    <!--Start PulumiCodeChooser -->
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    main = aws.redshift.get_service_account()
+    bucket = aws.s3.BucketV2("bucket",
+        bucket="tf-redshift-logging-test-bucket",
+        force_destroy=True)
+    allow_audit_logging = bucket.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[
+        aws.iam.GetPolicyDocumentStatementArgs(
+            sid="Put bucket policy needed for audit logging",
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="AWS",
+                identifiers=[main.arn],
+            )],
+            actions=["s3:PutObject"],
+            resources=[f"{arn}/*"],
+        ),
+        aws.iam.GetPolicyDocumentStatementArgs(
+            sid="Get bucket policy needed for audit logging",
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="AWS",
+                identifiers=[main.arn],
+            )],
+            actions=["s3:GetBucketAcl"],
+            resources=bucket_aws_s3_bucket["arn"],
+        ),
+    ]))
+    allow_audit_logging_bucket_policy = aws.s3.BucketPolicy("allow_audit_logging",
+        bucket=bucket.id,
+        policy=allow_audit_logging.json)
+    ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str region: Name of the region whose AWS Redshift account ID is desired.

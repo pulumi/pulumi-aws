@@ -17,8 +17,10 @@ import (
 // This resource must be created in the Organization's Administrator Account.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,8 +49,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### For the Calling Account
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,7 +73,7 @@ import (
 //			}
 //			_, err = inspector2.NewEnabler(ctx, "test", &inspector2.EnablerArgs{
 //				AccountIds: pulumi.StringArray{
-//					*pulumi.String(current.AccountId),
+//					pulumi.String(current.AccountId),
 //				},
 //				ResourceTypes: pulumi.StringArray{
 //					pulumi.String("ECR"),
@@ -83,6 +88,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type Enabler struct {
 	pulumi.CustomResourceState
 

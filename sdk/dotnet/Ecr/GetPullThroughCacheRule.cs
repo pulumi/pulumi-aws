@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Ecr
         /// <summary>
         /// The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Aws.Ecr
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPullThroughCacheRuleResult> InvokeAsync(GetPullThroughCacheRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPullThroughCacheRuleResult>("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", args ?? new GetPullThroughCacheRuleArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.Ecr
         /// <summary>
         /// The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Aws.Ecr
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPullThroughCacheRuleResult> Invoke(GetPullThroughCacheRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPullThroughCacheRuleResult>("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", args ?? new GetPullThroughCacheRuleInvokeArgs(), options.WithDefaults());
@@ -101,6 +97,10 @@ namespace Pulumi.Aws.Ecr
     [OutputType]
     public sealed class GetPullThroughCacheRuleResult
     {
+        /// <summary>
+        /// ARN of the Secret which will be used to authenticate against the registry.
+        /// </summary>
+        public readonly string CredentialArn;
         public readonly string EcrRepositoryPrefix;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -117,6 +117,8 @@ namespace Pulumi.Aws.Ecr
 
         [OutputConstructor]
         private GetPullThroughCacheRuleResult(
+            string credentialArn,
+
             string ecrRepositoryPrefix,
 
             string id,
@@ -125,6 +127,7 @@ namespace Pulumi.Aws.Ecr
 
             string upstreamRegistryUrl)
         {
+            CredentialArn = credentialArn;
             EcrRepositoryPrefix = ecrRepositoryPrefix;
             Id = id;
             RegistryId = registryId;

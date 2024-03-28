@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Budgets
         /// <summary>
         /// Data source for managing an AWS Web Services Budgets Budget.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -29,13 +29,12 @@ namespace Pulumi.Aws.Budgets
         /// {
         ///     var test = Aws.Budgets.GetBudget.Invoke(new()
         ///     {
-        ///         Name = aws_budgets_budget.Test.Name,
+        ///         Name = testAwsBudgetsBudget.Name,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetBudgetResult> InvokeAsync(GetBudgetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBudgetResult>("aws:budgets/getBudget:getBudget", args ?? new GetBudgetArgs(), options.WithDefaults());
@@ -43,11 +42,11 @@ namespace Pulumi.Aws.Budgets
         /// <summary>
         /// Data source for managing an AWS Web Services Budgets Budget.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,13 +57,12 @@ namespace Pulumi.Aws.Budgets
         /// {
         ///     var test = Aws.Budgets.GetBudget.Invoke(new()
         ///     {
-        ///         Name = aws_budgets_budget.Test.Name,
+        ///         Name = testAwsBudgetsBudget.Name,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetBudgetResult> Invoke(GetBudgetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBudgetResult>("aws:budgets/getBudget:getBudget", args ?? new GetBudgetInvokeArgs(), options.WithDefaults());

@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -46,25 +47,34 @@ public final class GetVirtualNodeSpecServiceDiscoveryDn {
 
         @CustomType.Setter
         public Builder hostname(String hostname) {
-            this.hostname = Objects.requireNonNull(hostname);
+            if (hostname == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecServiceDiscoveryDn", "hostname");
+            }
+            this.hostname = hostname;
             return this;
         }
         @CustomType.Setter
         public Builder ipPreference(String ipPreference) {
-            this.ipPreference = Objects.requireNonNull(ipPreference);
+            if (ipPreference == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecServiceDiscoveryDn", "ipPreference");
+            }
+            this.ipPreference = ipPreference;
             return this;
         }
         @CustomType.Setter
         public Builder responseType(String responseType) {
-            this.responseType = Objects.requireNonNull(responseType);
+            if (responseType == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecServiceDiscoveryDn", "responseType");
+            }
+            this.responseType = responseType;
             return this;
         }
         public GetVirtualNodeSpecServiceDiscoveryDn build() {
-            final var o = new GetVirtualNodeSpecServiceDiscoveryDn();
-            o.hostname = hostname;
-            o.ipPreference = ipPreference;
-            o.responseType = responseType;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecServiceDiscoveryDn();
+            _resultValue.hostname = hostname;
+            _resultValue.ipPreference = ipPreference;
+            _resultValue.responseType = responseType;
+            return _resultValue;
         }
     }
 }

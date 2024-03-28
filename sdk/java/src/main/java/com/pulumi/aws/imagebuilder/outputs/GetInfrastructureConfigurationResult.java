@@ -6,6 +6,7 @@ package com.pulumi.aws.imagebuilder.outputs;
 import com.pulumi.aws.imagebuilder.outputs.GetInfrastructureConfigurationInstanceMetadataOption;
 import com.pulumi.aws.imagebuilder.outputs.GetInfrastructureConfigurationLogging;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -255,32 +256,50 @@ public final class GetInfrastructureConfigurationResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder dateCreated(String dateCreated) {
-            this.dateCreated = Objects.requireNonNull(dateCreated);
+            if (dateCreated == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationResult", "dateCreated");
+            }
+            this.dateCreated = dateCreated;
             return this;
         }
         @CustomType.Setter
         public Builder dateUpdated(String dateUpdated) {
-            this.dateUpdated = Objects.requireNonNull(dateUpdated);
+            if (dateUpdated == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationResult", "dateUpdated");
+            }
+            this.dateUpdated = dateUpdated;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceMetadataOptions(List<GetInfrastructureConfigurationInstanceMetadataOption> instanceMetadataOptions) {
-            this.instanceMetadataOptions = Objects.requireNonNull(instanceMetadataOptions);
+            if (instanceMetadataOptions == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationResult", "instanceMetadataOptions");
+            }
+            this.instanceMetadataOptions = instanceMetadataOptions;
             return this;
         }
         public Builder instanceMetadataOptions(GetInfrastructureConfigurationInstanceMetadataOption... instanceMetadataOptions) {
@@ -288,12 +307,18 @@ public final class GetInfrastructureConfigurationResult {
         }
         @CustomType.Setter
         public Builder instanceProfileName(String instanceProfileName) {
-            this.instanceProfileName = Objects.requireNonNull(instanceProfileName);
+            if (instanceProfileName == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationResult", "instanceProfileName");
+            }
+            this.instanceProfileName = instanceProfileName;
             return this;
         }
         @CustomType.Setter
         public Builder instanceTypes(List<String> instanceTypes) {
-            this.instanceTypes = Objects.requireNonNull(instanceTypes);
+            if (instanceTypes == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationResult", "instanceTypes");
+            }
+            this.instanceTypes = instanceTypes;
             return this;
         }
         public Builder instanceTypes(String... instanceTypes) {
@@ -301,12 +326,18 @@ public final class GetInfrastructureConfigurationResult {
         }
         @CustomType.Setter
         public Builder keyPair(String keyPair) {
-            this.keyPair = Objects.requireNonNull(keyPair);
+            if (keyPair == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationResult", "keyPair");
+            }
+            this.keyPair = keyPair;
             return this;
         }
         @CustomType.Setter
         public Builder loggings(List<GetInfrastructureConfigurationLogging> loggings) {
-            this.loggings = Objects.requireNonNull(loggings);
+            if (loggings == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationResult", "loggings");
+            }
+            this.loggings = loggings;
             return this;
         }
         public Builder loggings(GetInfrastructureConfigurationLogging... loggings) {
@@ -314,17 +345,26 @@ public final class GetInfrastructureConfigurationResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceTags(Map<String,String> resourceTags) {
-            this.resourceTags = Objects.requireNonNull(resourceTags);
+            if (resourceTags == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationResult", "resourceTags");
+            }
+            this.resourceTags = resourceTags;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+            if (securityGroupIds == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationResult", "securityGroupIds");
+            }
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {
@@ -332,44 +372,56 @@ public final class GetInfrastructureConfigurationResult {
         }
         @CustomType.Setter
         public Builder snsTopicArn(String snsTopicArn) {
-            this.snsTopicArn = Objects.requireNonNull(snsTopicArn);
+            if (snsTopicArn == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationResult", "snsTopicArn");
+            }
+            this.snsTopicArn = snsTopicArn;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationResult", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder terminateInstanceOnFailure(Boolean terminateInstanceOnFailure) {
-            this.terminateInstanceOnFailure = Objects.requireNonNull(terminateInstanceOnFailure);
+            if (terminateInstanceOnFailure == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationResult", "terminateInstanceOnFailure");
+            }
+            this.terminateInstanceOnFailure = terminateInstanceOnFailure;
             return this;
         }
         public GetInfrastructureConfigurationResult build() {
-            final var o = new GetInfrastructureConfigurationResult();
-            o.arn = arn;
-            o.dateCreated = dateCreated;
-            o.dateUpdated = dateUpdated;
-            o.description = description;
-            o.id = id;
-            o.instanceMetadataOptions = instanceMetadataOptions;
-            o.instanceProfileName = instanceProfileName;
-            o.instanceTypes = instanceTypes;
-            o.keyPair = keyPair;
-            o.loggings = loggings;
-            o.name = name;
-            o.resourceTags = resourceTags;
-            o.securityGroupIds = securityGroupIds;
-            o.snsTopicArn = snsTopicArn;
-            o.subnetId = subnetId;
-            o.tags = tags;
-            o.terminateInstanceOnFailure = terminateInstanceOnFailure;
-            return o;
+            final var _resultValue = new GetInfrastructureConfigurationResult();
+            _resultValue.arn = arn;
+            _resultValue.dateCreated = dateCreated;
+            _resultValue.dateUpdated = dateUpdated;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.instanceMetadataOptions = instanceMetadataOptions;
+            _resultValue.instanceProfileName = instanceProfileName;
+            _resultValue.instanceTypes = instanceTypes;
+            _resultValue.keyPair = keyPair;
+            _resultValue.loggings = loggings;
+            _resultValue.name = name;
+            _resultValue.resourceTags = resourceTags;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.snsTopicArn = snsTopicArn;
+            _resultValue.subnetId = subnetId;
+            _resultValue.tags = tags;
+            _resultValue.terminateInstanceOnFailure = terminateInstanceOnFailure;
+            return _resultValue;
         }
     }
 }

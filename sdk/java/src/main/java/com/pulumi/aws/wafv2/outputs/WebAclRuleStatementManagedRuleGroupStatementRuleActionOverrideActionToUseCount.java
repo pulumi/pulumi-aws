@@ -44,13 +44,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
 
         @CustomType.Setter
         public Builder customRequestHandling(@Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandling customRequestHandling) {
+
             this.customRequestHandling = customRequestHandling;
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount();
-            o.customRequestHandling = customRequestHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount();
+            _resultValue.customRequestHandling = customRequestHandling;
+            return _resultValue;
         }
     }
 }

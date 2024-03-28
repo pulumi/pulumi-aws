@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -52,31 +53,43 @@ public final class GetDataSetRowLevelPermissionTagConfigurationTagRule {
 
         @CustomType.Setter
         public Builder columnName(String columnName) {
-            this.columnName = Objects.requireNonNull(columnName);
+            if (columnName == null) {
+              throw new MissingRequiredPropertyException("GetDataSetRowLevelPermissionTagConfigurationTagRule", "columnName");
+            }
+            this.columnName = columnName;
             return this;
         }
         @CustomType.Setter
         public Builder matchAllValue(String matchAllValue) {
-            this.matchAllValue = Objects.requireNonNull(matchAllValue);
+            if (matchAllValue == null) {
+              throw new MissingRequiredPropertyException("GetDataSetRowLevelPermissionTagConfigurationTagRule", "matchAllValue");
+            }
+            this.matchAllValue = matchAllValue;
             return this;
         }
         @CustomType.Setter
         public Builder tagKey(String tagKey) {
-            this.tagKey = Objects.requireNonNull(tagKey);
+            if (tagKey == null) {
+              throw new MissingRequiredPropertyException("GetDataSetRowLevelPermissionTagConfigurationTagRule", "tagKey");
+            }
+            this.tagKey = tagKey;
             return this;
         }
         @CustomType.Setter
         public Builder tagMultiValueDelimiter(String tagMultiValueDelimiter) {
-            this.tagMultiValueDelimiter = Objects.requireNonNull(tagMultiValueDelimiter);
+            if (tagMultiValueDelimiter == null) {
+              throw new MissingRequiredPropertyException("GetDataSetRowLevelPermissionTagConfigurationTagRule", "tagMultiValueDelimiter");
+            }
+            this.tagMultiValueDelimiter = tagMultiValueDelimiter;
             return this;
         }
         public GetDataSetRowLevelPermissionTagConfigurationTagRule build() {
-            final var o = new GetDataSetRowLevelPermissionTagConfigurationTagRule();
-            o.columnName = columnName;
-            o.matchAllValue = matchAllValue;
-            o.tagKey = tagKey;
-            o.tagMultiValueDelimiter = tagMultiValueDelimiter;
-            return o;
+            final var _resultValue = new GetDataSetRowLevelPermissionTagConfigurationTagRule();
+            _resultValue.columnName = columnName;
+            _resultValue.matchAllValue = matchAllValue;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagMultiValueDelimiter = tagMultiValueDelimiter;
+            return _resultValue;
         }
     }
 }

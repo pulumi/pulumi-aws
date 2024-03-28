@@ -13,11 +13,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const ebsVolume = aws.ebs.getVolume({
+ *     mostRecent: true,
  *     filters: [
  *         {
  *             name: "volume-type",
@@ -28,9 +30,9 @@ import * as utilities from "../utilities";
  *             values: ["Example"],
  *         },
  *     ],
- *     mostRecent: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
     args = args || {};
@@ -133,11 +135,13 @@ export interface GetVolumeResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const ebsVolume = aws.ebs.getVolume({
+ *     mostRecent: true,
  *     filters: [
  *         {
  *             name: "volume-type",
@@ -148,9 +152,9 @@ export interface GetVolumeResult {
  *             values: ["Example"],
  *         },
  *     ],
- *     mostRecent: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVolumeOutput(args?: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
     return pulumi.output(args).apply((a: any) => getVolume(a, opts))

@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class DistributionOriginGroupMember {
 
         @CustomType.Setter
         public Builder originId(String originId) {
-            this.originId = Objects.requireNonNull(originId);
+            if (originId == null) {
+              throw new MissingRequiredPropertyException("DistributionOriginGroupMember", "originId");
+            }
+            this.originId = originId;
             return this;
         }
         public DistributionOriginGroupMember build() {
-            final var o = new DistributionOriginGroupMember();
-            o.originId = originId;
-            return o;
+            final var _resultValue = new DistributionOriginGroupMember();
+            _resultValue.originId = originId;
+            return _resultValue;
         }
     }
 }

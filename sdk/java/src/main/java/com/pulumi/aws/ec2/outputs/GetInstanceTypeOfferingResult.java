@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetInstanceTypeOfferingFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -78,6 +79,7 @@ public final class GetInstanceTypeOfferingResult {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<GetInstanceTypeOfferingFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -86,21 +88,29 @@ public final class GetInstanceTypeOfferingResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeOfferingResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceType(String instanceType) {
-            this.instanceType = Objects.requireNonNull(instanceType);
+            if (instanceType == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeOfferingResult", "instanceType");
+            }
+            this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder locationType(@Nullable String locationType) {
+
             this.locationType = locationType;
             return this;
         }
         @CustomType.Setter
         public Builder preferredInstanceTypes(@Nullable List<String> preferredInstanceTypes) {
+
             this.preferredInstanceTypes = preferredInstanceTypes;
             return this;
         }
@@ -108,13 +118,13 @@ public final class GetInstanceTypeOfferingResult {
             return preferredInstanceTypes(List.of(preferredInstanceTypes));
         }
         public GetInstanceTypeOfferingResult build() {
-            final var o = new GetInstanceTypeOfferingResult();
-            o.filters = filters;
-            o.id = id;
-            o.instanceType = instanceType;
-            o.locationType = locationType;
-            o.preferredInstanceTypes = preferredInstanceTypes;
-            return o;
+            final var _resultValue = new GetInstanceTypeOfferingResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.instanceType = instanceType;
+            _resultValue.locationType = locationType;
+            _resultValue.preferredInstanceTypes = preferredInstanceTypes;
+            return _resultValue;
         }
     }
 }

@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Alb
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,30 +27,28 @@ namespace Pulumi.Aws.Alb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCertificate = new Aws.Acm.Certificate("exampleCertificate");
+    ///     var example = new Aws.Acm.Certificate("example");
     /// 
-    ///     // ...
-    ///     var frontEndLoadBalancer = new Aws.LB.LoadBalancer("frontEndLoadBalancer");
+    ///     var frontEnd = new Aws.LB.LoadBalancer("front_end");
     /// 
-    ///     // ...
-    ///     var frontEndListener = new Aws.LB.Listener("frontEndListener");
+    ///     var frontEndListener = new Aws.LB.Listener("front_end");
     /// 
-    ///     // ...
-    ///     var exampleListenerCertificate = new Aws.LB.ListenerCertificate("exampleListenerCertificate", new()
+    ///     var exampleListenerCertificate = new Aws.LB.ListenerCertificate("example", new()
     ///     {
     ///         ListenerArn = frontEndListener.Arn,
-    ///         CertificateArn = exampleCertificate.Arn,
+    ///         CertificateArn = example.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Listener Certificates using the listener arn and certificate arn, separated by an underscore (`_`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:alb/listenerCertificate:ListenerCertificate example arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b_arn:aws:iam::123456789012:server-certificate/tf-acc-test-6453083910015726063
+    /// $ pulumi import aws:alb/listenerCertificate:ListenerCertificate example arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b_arn:aws:iam::123456789012:server-certificate/tf-acc-test-6453083910015726063
     /// ```
     /// </summary>
     [AwsResourceType("aws:alb/listenerCertificate:ListenerCertificate")]
@@ -92,7 +91,7 @@ namespace Pulumi.Aws.Alb
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:applicationloadbalancing/listenerCertificate:ListenerCertificate"},
+                    new global::Pulumi.Alias { Type = "aws:applicationloadbalancing/listenerCertificate:ListenerCertificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

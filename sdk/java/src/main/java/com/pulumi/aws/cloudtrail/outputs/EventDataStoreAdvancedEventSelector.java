@@ -60,6 +60,7 @@ public final class EventDataStoreAdvancedEventSelector {
 
         @CustomType.Setter
         public Builder fieldSelectors(@Nullable List<EventDataStoreAdvancedEventSelectorFieldSelector> fieldSelectors) {
+
             this.fieldSelectors = fieldSelectors;
             return this;
         }
@@ -68,14 +69,15 @@ public final class EventDataStoreAdvancedEventSelector {
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         public EventDataStoreAdvancedEventSelector build() {
-            final var o = new EventDataStoreAdvancedEventSelector();
-            o.fieldSelectors = fieldSelectors;
-            o.name = name;
-            return o;
+            final var _resultValue = new EventDataStoreAdvancedEventSelector();
+            _resultValue.fieldSelectors = fieldSelectors;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

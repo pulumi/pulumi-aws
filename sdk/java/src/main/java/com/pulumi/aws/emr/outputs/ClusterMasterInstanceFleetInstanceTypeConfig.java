@@ -6,6 +6,7 @@ package com.pulumi.aws.emr.outputs;
 import com.pulumi.aws.emr.outputs.ClusterMasterInstanceFleetInstanceTypeConfigConfiguration;
 import com.pulumi.aws.emr.outputs.ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,12 +18,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterMasterInstanceFleetInstanceTypeConfig {
     /**
-     * @return Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+     * @return Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+     * (MISSING)
      * 
      */
     private @Nullable String bidPrice;
     /**
-     * @return Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+     * @return Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+     * (MISSING)
      * 
      */
     private @Nullable Double bidPriceAsPercentageOfOnDemandPrice;
@@ -49,14 +52,16 @@ public final class ClusterMasterInstanceFleetInstanceTypeConfig {
 
     private ClusterMasterInstanceFleetInstanceTypeConfig() {}
     /**
-     * @return Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+     * @return Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+     * (MISSING)
      * 
      */
     public Optional<String> bidPrice() {
         return Optional.ofNullable(this.bidPrice);
     }
     /**
-     * @return Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+     * @return Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+     * (MISSING)
      * 
      */
     public Optional<Double> bidPriceAsPercentageOfOnDemandPrice() {
@@ -119,16 +124,19 @@ public final class ClusterMasterInstanceFleetInstanceTypeConfig {
 
         @CustomType.Setter
         public Builder bidPrice(@Nullable String bidPrice) {
+
             this.bidPrice = bidPrice;
             return this;
         }
         @CustomType.Setter
         public Builder bidPriceAsPercentageOfOnDemandPrice(@Nullable Double bidPriceAsPercentageOfOnDemandPrice) {
+
             this.bidPriceAsPercentageOfOnDemandPrice = bidPriceAsPercentageOfOnDemandPrice;
             return this;
         }
         @CustomType.Setter
         public Builder configurations(@Nullable List<ClusterMasterInstanceFleetInstanceTypeConfigConfiguration> configurations) {
+
             this.configurations = configurations;
             return this;
         }
@@ -137,6 +145,7 @@ public final class ClusterMasterInstanceFleetInstanceTypeConfig {
         }
         @CustomType.Setter
         public Builder ebsConfigs(@Nullable List<ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig> ebsConfigs) {
+
             this.ebsConfigs = ebsConfigs;
             return this;
         }
@@ -145,23 +154,27 @@ public final class ClusterMasterInstanceFleetInstanceTypeConfig {
         }
         @CustomType.Setter
         public Builder instanceType(String instanceType) {
-            this.instanceType = Objects.requireNonNull(instanceType);
+            if (instanceType == null) {
+              throw new MissingRequiredPropertyException("ClusterMasterInstanceFleetInstanceTypeConfig", "instanceType");
+            }
+            this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder weightedCapacity(@Nullable Integer weightedCapacity) {
+
             this.weightedCapacity = weightedCapacity;
             return this;
         }
         public ClusterMasterInstanceFleetInstanceTypeConfig build() {
-            final var o = new ClusterMasterInstanceFleetInstanceTypeConfig();
-            o.bidPrice = bidPrice;
-            o.bidPriceAsPercentageOfOnDemandPrice = bidPriceAsPercentageOfOnDemandPrice;
-            o.configurations = configurations;
-            o.ebsConfigs = ebsConfigs;
-            o.instanceType = instanceType;
-            o.weightedCapacity = weightedCapacity;
-            return o;
+            final var _resultValue = new ClusterMasterInstanceFleetInstanceTypeConfig();
+            _resultValue.bidPrice = bidPrice;
+            _resultValue.bidPriceAsPercentageOfOnDemandPrice = bidPriceAsPercentageOfOnDemandPrice;
+            _resultValue.configurations = configurations;
+            _resultValue.ebsConfigs = ebsConfigs;
+            _resultValue.instanceType = instanceType;
+            _resultValue.weightedCapacity = weightedCapacity;
+            return _resultValue;
         }
     }
 }

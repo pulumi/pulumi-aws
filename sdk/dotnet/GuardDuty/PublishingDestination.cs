@@ -14,6 +14,7 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,12 +23,13 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var currentRegion = Aws.GetRegion.Invoke();
+    ///     var currentGetRegion = Aws.GetRegion.Invoke();
     /// 
-    ///     var gdBucket = new Aws.S3.BucketV2("gdBucket", new()
+    ///     var gdBucket = new Aws.S3.BucketV2("gd_bucket", new()
     ///     {
+    ///         Bucket = "example",
     ///         ForceDestroy = true,
     ///     });
     /// 
@@ -97,7 +99,7 @@ namespace Pulumi.Aws.GuardDuty
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"arn:aws:kms:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:key/*",
+    ///                     $"arn:aws:kms:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:key/*",
     ///                 },
     ///                 Principals = new[]
     ///                 {
@@ -120,7 +122,7 @@ namespace Pulumi.Aws.GuardDuty
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"arn:aws:kms:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:key/*",
+    ///                     $"arn:aws:kms:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:key/*",
     ///                 },
     ///                 Principals = new[]
     ///                 {
@@ -129,7 +131,7 @@ namespace Pulumi.Aws.GuardDuty
     ///                         Type = "AWS",
     ///                         Identifiers = new[]
     ///                         {
-    ///                             $"arn:aws:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
+    ///                             $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
     ///                         },
     ///                     },
     ///                 },
@@ -137,24 +139,24 @@ namespace Pulumi.Aws.GuardDuty
     ///         },
     ///     });
     /// 
-    ///     var testGd = new Aws.GuardDuty.Detector("testGd", new()
+    ///     var testGd = new Aws.GuardDuty.Detector("test_gd", new()
     ///     {
     ///         Enable = true,
     ///     });
     /// 
-    ///     var gdBucketAcl = new Aws.S3.BucketAclV2("gdBucketAcl", new()
+    ///     var gdBucketAcl = new Aws.S3.BucketAclV2("gd_bucket_acl", new()
     ///     {
     ///         Bucket = gdBucket.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var gdBucketPolicy = new Aws.S3.BucketPolicy("gdBucketPolicy", new()
+    ///     var gdBucketPolicy = new Aws.S3.BucketPolicy("gd_bucket_policy", new()
     ///     {
     ///         Bucket = gdBucket.Id,
     ///         Policy = bucketPol.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var gdKey = new Aws.Kms.Key("gdKey", new()
+    ///     var gdKey = new Aws.Kms.Key("gd_key", new()
     ///     {
     ///         Description = "Temporary key for AccTest of TF",
     ///         DeletionWindowInDays = 7,
@@ -166,16 +168,11 @@ namespace Pulumi.Aws.GuardDuty
     ///         DetectorId = testGd.Id,
     ///         DestinationArn = gdBucket.Arn,
     ///         KmsKeyArn = gdKey.Arn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             gdBucketPolicy,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// &gt; **Note:** Please do not use this simple example for Bucket-Policy and KMS Key Policy in a production environment. It is much too open for such a use-case. Refer to the AWS documentation here: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html
     /// 
@@ -184,7 +181,7 @@ namespace Pulumi.Aws.GuardDuty
     /// Using `pulumi import`, import GuardDuty PublishingDestination using the master GuardDuty detector ID and PublishingDestinationID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:guardduty/publishingDestination:PublishingDestination test a4b86f26fa42e7e7cf0d1c333ea77777:a4b86f27a0e464e4a7e0516d242f1234
+    /// $ pulumi import aws:guardduty/publishingDestination:PublishingDestination test a4b86f26fa42e7e7cf0d1c333ea77777:a4b86f27a0e464e4a7e0516d242f1234
     /// ```
     /// </summary>
     [AwsResourceType("aws:guardduty/publishingDestination:PublishingDestination")]

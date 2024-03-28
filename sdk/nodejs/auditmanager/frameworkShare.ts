@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Audit Manager Framework Share.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,16 +19,17 @@ import * as utilities from "../utilities";
  * const example = new aws.auditmanager.FrameworkShare("example", {
  *     destinationAccount: "012345678901",
  *     destinationRegion: "us-east-1",
- *     frameworkId: aws_auditmanager_framework.example.id,
+ *     frameworkId: exampleAwsAuditmanagerFramework.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Audit Manager Framework Share using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:auditmanager/frameworkShare:FrameworkShare example abcdef-123456
+ * $ pulumi import aws:auditmanager/frameworkShare:FrameworkShare example abcdef-123456
  * ```
  */
 export class FrameworkShare extends pulumi.CustomResource {

@@ -18,8 +18,10 @@ import (
 // > **NOTE:** This resource only currently supports Amazon Lex (V1) Associations.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,7 +35,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewBotAssociation(ctx, "example", &connect.BotAssociationArgs{
-//				InstanceId: pulumi.Any(aws_connect_instance.Example.Id),
+//				InstanceId: pulumi.Any(exampleAwsConnectInstance.Id),
 //				LexBot: &connect.BotAssociationLexBotArgs{
 //					LexRegion: pulumi.String("us-west-2"),
 //					Name:      pulumi.String("Test"),
@@ -47,8 +49,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Including a sample Lex bot
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,7 +72,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleIntent, err := lex.NewIntent(ctx, "exampleIntent", &lex.IntentArgs{
+//			example, err := lex.NewIntent(ctx, "example", &lex.IntentArgs{
 //				CreateVersion: pulumi.Bool(true),
 //				Name:          pulumi.String("connect_lex_intent"),
 //				FulfillmentActivity: &lex.IntentFulfillmentActivityArgs{
@@ -80,7 +85,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleBot, err := lex.NewBot(ctx, "exampleBot", &lex.BotArgs{
+//			exampleBot, err := lex.NewBot(ctx, "example", &lex.BotArgs{
 //				AbortStatement: &lex.BotAbortStatementArgs{
 //					Messages: lex.BotAbortStatementMessageArray{
 //						&lex.BotAbortStatementMessageArgs{
@@ -100,7 +105,7 @@ import (
 //				},
 //				Intents: lex.BotIntentArray{
 //					&lex.BotIntentArgs{
-//						IntentName:    exampleIntent.Name,
+//						IntentName:    example.Name,
 //						IntentVersion: pulumi.String("1"),
 //					},
 //				},
@@ -111,10 +116,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = connect.NewBotAssociation(ctx, "exampleBotAssociation", &connect.BotAssociationArgs{
-//				InstanceId: pulumi.Any(aws_connect_instance.Example.Id),
+//			_, err = connect.NewBotAssociation(ctx, "example", &connect.BotAssociationArgs{
+//				InstanceId: pulumi.Any(exampleAwsConnectInstance.Id),
 //				LexBot: &connect.BotAssociationLexBotArgs{
-//					LexRegion: *pulumi.String(current.Name),
+//					LexRegion: pulumi.String(current.Name),
 //					Name:      exampleBot.Name,
 //				},
 //			})
@@ -126,15 +131,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_connect_bot_association` using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
-//
+// $ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
 // ```
 type BotAssociation struct {
 	pulumi.CustomResourceState

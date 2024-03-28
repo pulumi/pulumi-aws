@@ -59,19 +59,21 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
         @CustomType.Setter
         public Builder csvMappingParameters(@Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters csvMappingParameters) {
+
             this.csvMappingParameters = csvMappingParameters;
             return this;
         }
         @CustomType.Setter
         public Builder jsonMappingParameters(@Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters jsonMappingParameters) {
+
             this.jsonMappingParameters = jsonMappingParameters;
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters();
-            o.csvMappingParameters = csvMappingParameters;
-            o.jsonMappingParameters = jsonMappingParameters;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters();
+            _resultValue.csvMappingParameters = csvMappingParameters;
+            _resultValue.jsonMappingParameters = jsonMappingParameters;
+            return _resultValue;
         }
     }
 }

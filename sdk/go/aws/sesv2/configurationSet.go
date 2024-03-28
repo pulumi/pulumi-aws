@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,15 +60,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SESv2 (Simple Email V2) Configuration Set using the `configuration_set_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sesv2/configurationSet:ConfigurationSet example example
-//
+// $ pulumi import aws:sesv2/configurationSet:ConfigurationSet example example
 // ```
 type ConfigurationSet struct {
 	pulumi.CustomResourceState
@@ -103,10 +104,6 @@ func NewConfigurationSet(ctx *pulumi.Context,
 	if args.ConfigurationSetName == nil {
 		return nil, errors.New("invalid value for required argument 'ConfigurationSetName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfigurationSet
 	err := ctx.RegisterResource("aws:sesv2/configurationSet:ConfigurationSet", name, args, &resource, opts...)

@@ -11,6 +11,7 @@ import com.pulumi.aws.quicksight.outputs.GetDataSetLogicalTableMapDataTransformR
 import com.pulumi.aws.quicksight.outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperation;
 import com.pulumi.aws.quicksight.outputs.GetDataSetLogicalTableMapDataTransformUntagColumnOperation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -77,7 +78,10 @@ public final class GetDataSetLogicalTableMapDataTransform {
 
         @CustomType.Setter
         public Builder castColumnTypeOperations(List<GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation> castColumnTypeOperations) {
-            this.castColumnTypeOperations = Objects.requireNonNull(castColumnTypeOperations);
+            if (castColumnTypeOperations == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapDataTransform", "castColumnTypeOperations");
+            }
+            this.castColumnTypeOperations = castColumnTypeOperations;
             return this;
         }
         public Builder castColumnTypeOperations(GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation... castColumnTypeOperations) {
@@ -85,7 +89,10 @@ public final class GetDataSetLogicalTableMapDataTransform {
         }
         @CustomType.Setter
         public Builder createColumnsOperations(List<GetDataSetLogicalTableMapDataTransformCreateColumnsOperation> createColumnsOperations) {
-            this.createColumnsOperations = Objects.requireNonNull(createColumnsOperations);
+            if (createColumnsOperations == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapDataTransform", "createColumnsOperations");
+            }
+            this.createColumnsOperations = createColumnsOperations;
             return this;
         }
         public Builder createColumnsOperations(GetDataSetLogicalTableMapDataTransformCreateColumnsOperation... createColumnsOperations) {
@@ -93,7 +100,10 @@ public final class GetDataSetLogicalTableMapDataTransform {
         }
         @CustomType.Setter
         public Builder filterOperations(List<GetDataSetLogicalTableMapDataTransformFilterOperation> filterOperations) {
-            this.filterOperations = Objects.requireNonNull(filterOperations);
+            if (filterOperations == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapDataTransform", "filterOperations");
+            }
+            this.filterOperations = filterOperations;
             return this;
         }
         public Builder filterOperations(GetDataSetLogicalTableMapDataTransformFilterOperation... filterOperations) {
@@ -101,7 +111,10 @@ public final class GetDataSetLogicalTableMapDataTransform {
         }
         @CustomType.Setter
         public Builder projectOperations(List<GetDataSetLogicalTableMapDataTransformProjectOperation> projectOperations) {
-            this.projectOperations = Objects.requireNonNull(projectOperations);
+            if (projectOperations == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapDataTransform", "projectOperations");
+            }
+            this.projectOperations = projectOperations;
             return this;
         }
         public Builder projectOperations(GetDataSetLogicalTableMapDataTransformProjectOperation... projectOperations) {
@@ -109,7 +122,10 @@ public final class GetDataSetLogicalTableMapDataTransform {
         }
         @CustomType.Setter
         public Builder renameColumnOperations(List<GetDataSetLogicalTableMapDataTransformRenameColumnOperation> renameColumnOperations) {
-            this.renameColumnOperations = Objects.requireNonNull(renameColumnOperations);
+            if (renameColumnOperations == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapDataTransform", "renameColumnOperations");
+            }
+            this.renameColumnOperations = renameColumnOperations;
             return this;
         }
         public Builder renameColumnOperations(GetDataSetLogicalTableMapDataTransformRenameColumnOperation... renameColumnOperations) {
@@ -117,7 +133,10 @@ public final class GetDataSetLogicalTableMapDataTransform {
         }
         @CustomType.Setter
         public Builder tagColumnOperations(List<GetDataSetLogicalTableMapDataTransformTagColumnOperation> tagColumnOperations) {
-            this.tagColumnOperations = Objects.requireNonNull(tagColumnOperations);
+            if (tagColumnOperations == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapDataTransform", "tagColumnOperations");
+            }
+            this.tagColumnOperations = tagColumnOperations;
             return this;
         }
         public Builder tagColumnOperations(GetDataSetLogicalTableMapDataTransformTagColumnOperation... tagColumnOperations) {
@@ -125,22 +144,25 @@ public final class GetDataSetLogicalTableMapDataTransform {
         }
         @CustomType.Setter
         public Builder untagColumnOperations(List<GetDataSetLogicalTableMapDataTransformUntagColumnOperation> untagColumnOperations) {
-            this.untagColumnOperations = Objects.requireNonNull(untagColumnOperations);
+            if (untagColumnOperations == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapDataTransform", "untagColumnOperations");
+            }
+            this.untagColumnOperations = untagColumnOperations;
             return this;
         }
         public Builder untagColumnOperations(GetDataSetLogicalTableMapDataTransformUntagColumnOperation... untagColumnOperations) {
             return untagColumnOperations(List.of(untagColumnOperations));
         }
         public GetDataSetLogicalTableMapDataTransform build() {
-            final var o = new GetDataSetLogicalTableMapDataTransform();
-            o.castColumnTypeOperations = castColumnTypeOperations;
-            o.createColumnsOperations = createColumnsOperations;
-            o.filterOperations = filterOperations;
-            o.projectOperations = projectOperations;
-            o.renameColumnOperations = renameColumnOperations;
-            o.tagColumnOperations = tagColumnOperations;
-            o.untagColumnOperations = untagColumnOperations;
-            return o;
+            final var _resultValue = new GetDataSetLogicalTableMapDataTransform();
+            _resultValue.castColumnTypeOperations = castColumnTypeOperations;
+            _resultValue.createColumnsOperations = createColumnsOperations;
+            _resultValue.filterOperations = filterOperations;
+            _resultValue.projectOperations = projectOperations;
+            _resultValue.renameColumnOperations = renameColumnOperations;
+            _resultValue.tagColumnOperations = tagColumnOperations;
+            _resultValue.untagColumnOperations = untagColumnOperations;
+            return _resultValue;
         }
     }
 }

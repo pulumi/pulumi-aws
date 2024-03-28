@@ -37,7 +37,11 @@ class InstanceArgs:
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
+                 domain_auth_secret_arn: Optional[pulumi.Input[str]] = None,
+                 domain_dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 domain_fqdn: Optional[pulumi.Input[str]] = None,
                  domain_iam_role_name: Optional[pulumi.Input[str]] = None,
+                 domain_ou: Optional[pulumi.Input[str]] = None,
                  enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
@@ -127,9 +131,13 @@ class InstanceArgs:
                for additional read replica constraints.
         :param pulumi.Input[bool] delete_automated_backups: Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
         :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
-        :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the instance in.
-        :param pulumi.Input[str] domain_iam_role_name: The name of the IAM role to be used when making API calls to the Directory Service.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+        :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+        :param pulumi.Input[str] domain_auth_secret_arn: The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_dns_ips: The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+        :param pulumi.Input[str] domain_fqdn: The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+        :param pulumi.Input[str] domain_iam_role_name: The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+        :param pulumi.Input[str] domain_ou: The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         :param pulumi.Input[str] engine: The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
         :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
@@ -173,8 +181,7 @@ class InstanceArgs:
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         :param pulumi.Input[str] network_type: The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
-        :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
-               associate.
+        :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to associate.
         :param pulumi.Input[str] password: (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
                is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
                logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
@@ -264,8 +271,16 @@ class InstanceArgs:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
+        if domain_auth_secret_arn is not None:
+            pulumi.set(__self__, "domain_auth_secret_arn", domain_auth_secret_arn)
+        if domain_dns_ips is not None:
+            pulumi.set(__self__, "domain_dns_ips", domain_dns_ips)
+        if domain_fqdn is not None:
+            pulumi.set(__self__, "domain_fqdn", domain_fqdn)
         if domain_iam_role_name is not None:
             pulumi.set(__self__, "domain_iam_role_name", domain_iam_role_name)
+        if domain_ou is not None:
+            pulumi.set(__self__, "domain_ou", domain_ou)
         if enabled_cloudwatch_logs_exports is not None:
             pulumi.set(__self__, "enabled_cloudwatch_logs_exports", enabled_cloudwatch_logs_exports)
         if engine is not None:
@@ -611,7 +626,7 @@ class InstanceArgs:
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Directory Service Active Directory domain to create the instance in.
+        The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
         """
         return pulumi.get(self, "domain")
 
@@ -620,10 +635,46 @@ class InstanceArgs:
         pulumi.set(self, "domain", value)
 
     @property
+    @pulumi.getter(name="domainAuthSecretArn")
+    def domain_auth_secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+        """
+        return pulumi.get(self, "domain_auth_secret_arn")
+
+    @domain_auth_secret_arn.setter
+    def domain_auth_secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_auth_secret_arn", value)
+
+    @property
+    @pulumi.getter(name="domainDnsIps")
+    def domain_dns_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+        """
+        return pulumi.get(self, "domain_dns_ips")
+
+    @domain_dns_ips.setter
+    def domain_dns_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "domain_dns_ips", value)
+
+    @property
+    @pulumi.getter(name="domainFqdn")
+    def domain_fqdn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+        """
+        return pulumi.get(self, "domain_fqdn")
+
+    @domain_fqdn.setter
+    def domain_fqdn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_fqdn", value)
+
+    @property
     @pulumi.getter(name="domainIamRoleName")
     def domain_iam_role_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the IAM role to be used when making API calls to the Directory Service.
+        The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
         """
         return pulumi.get(self, "domain_iam_role_name")
 
@@ -632,10 +683,22 @@ class InstanceArgs:
         pulumi.set(self, "domain_iam_role_name", value)
 
     @property
+    @pulumi.getter(name="domainOu")
+    def domain_ou(self) -> Optional[pulumi.Input[str]]:
+        """
+        The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+        """
+        return pulumi.get(self, "domain_ou")
+
+    @domain_ou.setter
+    def domain_ou(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_ou", value)
+
+    @property
     @pulumi.getter(name="enabledCloudwatchLogsExports")
     def enabled_cloudwatch_logs_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+        Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         """
         return pulumi.get(self, "enabled_cloudwatch_logs_exports")
 
@@ -911,8 +974,7 @@ class InstanceArgs:
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the DB parameter group to
-        associate.
+        Name of the DB parameter group to associate.
         """
         return pulumi.get(self, "parameter_group_name")
 
@@ -1203,7 +1265,11 @@ class _InstanceState:
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
+                 domain_auth_secret_arn: Optional[pulumi.Input[str]] = None,
+                 domain_dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 domain_fqdn: Optional[pulumi.Input[str]] = None,
                  domain_iam_role_name: Optional[pulumi.Input[str]] = None,
+                 domain_ou: Optional[pulumi.Input[str]] = None,
                  enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
@@ -1305,9 +1371,13 @@ class _InstanceState:
                for additional read replica constraints.
         :param pulumi.Input[bool] delete_automated_backups: Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
         :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
-        :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the instance in.
-        :param pulumi.Input[str] domain_iam_role_name: The name of the IAM role to be used when making API calls to the Directory Service.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+        :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+        :param pulumi.Input[str] domain_auth_secret_arn: The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_dns_ips: The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+        :param pulumi.Input[str] domain_fqdn: The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+        :param pulumi.Input[str] domain_iam_role_name: The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+        :param pulumi.Input[str] domain_ou: The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         :param pulumi.Input[str] endpoint: The connection endpoint in `address:port` format.
         :param pulumi.Input[str] engine: The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
         :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
@@ -1358,8 +1428,7 @@ class _InstanceState:
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         :param pulumi.Input[str] network_type: The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
-        :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
-               associate.
+        :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to associate.
         :param pulumi.Input[str] password: (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
                is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
                logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
@@ -1455,8 +1524,16 @@ class _InstanceState:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
+        if domain_auth_secret_arn is not None:
+            pulumi.set(__self__, "domain_auth_secret_arn", domain_auth_secret_arn)
+        if domain_dns_ips is not None:
+            pulumi.set(__self__, "domain_dns_ips", domain_dns_ips)
+        if domain_fqdn is not None:
+            pulumi.set(__self__, "domain_fqdn", domain_fqdn)
         if domain_iam_role_name is not None:
             pulumi.set(__self__, "domain_iam_role_name", domain_iam_role_name)
+        if domain_ou is not None:
+            pulumi.set(__self__, "domain_ou", domain_ou)
         if enabled_cloudwatch_logs_exports is not None:
             pulumi.set(__self__, "enabled_cloudwatch_logs_exports", enabled_cloudwatch_logs_exports)
         if endpoint is not None:
@@ -1839,7 +1916,7 @@ class _InstanceState:
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Directory Service Active Directory domain to create the instance in.
+        The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
         """
         return pulumi.get(self, "domain")
 
@@ -1848,10 +1925,46 @@ class _InstanceState:
         pulumi.set(self, "domain", value)
 
     @property
+    @pulumi.getter(name="domainAuthSecretArn")
+    def domain_auth_secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+        """
+        return pulumi.get(self, "domain_auth_secret_arn")
+
+    @domain_auth_secret_arn.setter
+    def domain_auth_secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_auth_secret_arn", value)
+
+    @property
+    @pulumi.getter(name="domainDnsIps")
+    def domain_dns_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+        """
+        return pulumi.get(self, "domain_dns_ips")
+
+    @domain_dns_ips.setter
+    def domain_dns_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "domain_dns_ips", value)
+
+    @property
+    @pulumi.getter(name="domainFqdn")
+    def domain_fqdn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+        """
+        return pulumi.get(self, "domain_fqdn")
+
+    @domain_fqdn.setter
+    def domain_fqdn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_fqdn", value)
+
+    @property
     @pulumi.getter(name="domainIamRoleName")
     def domain_iam_role_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the IAM role to be used when making API calls to the Directory Service.
+        The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
         """
         return pulumi.get(self, "domain_iam_role_name")
 
@@ -1860,10 +1973,22 @@ class _InstanceState:
         pulumi.set(self, "domain_iam_role_name", value)
 
     @property
+    @pulumi.getter(name="domainOu")
+    def domain_ou(self) -> Optional[pulumi.Input[str]]:
+        """
+        The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+        """
+        return pulumi.get(self, "domain_ou")
+
+    @domain_ou.setter
+    def domain_ou(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_ou", value)
+
+    @property
     @pulumi.getter(name="enabledCloudwatchLogsExports")
     def enabled_cloudwatch_logs_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+        Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         """
         return pulumi.get(self, "enabled_cloudwatch_logs_exports")
 
@@ -2223,8 +2348,7 @@ class _InstanceState:
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the DB parameter group to
-        associate.
+        Name of the DB parameter group to associate.
         """
         return pulumi.get(self, "parameter_group_name")
 
@@ -2563,7 +2687,11 @@ class Instance(pulumi.CustomResource):
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
+                 domain_auth_secret_arn: Optional[pulumi.Input[str]] = None,
+                 domain_dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 domain_fqdn: Optional[pulumi.Input[str]] = None,
                  domain_iam_role_name: Optional[pulumi.Input[str]] = None,
+                 domain_ou: Optional[pulumi.Input[str]] = None,
                  enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
@@ -2629,7 +2757,7 @@ class Instance(pulumi.CustomResource):
 
         ## RDS Instance Class Types
 
-        Amazon RDS supports three types of instance classes: Standard, Memory Optimized, and Burstable Performance.
+        Amazon RDS supports instance classes for the following use cases: General-purpose, Memory-optimized, Burstable Performance, and Optimized-reads.
         For more information please read the AWS RDS documentation about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
 
         ## Low-Downtime Updates
@@ -2639,14 +2767,17 @@ class Instance(pulumi.CustomResource):
 
         Low-downtime updates are only available for DB Instances using MySQL and MariaDB,
         as other engines are not supported by RDS Blue/Green deployments.
+        They cannot be used with DB Instances with replicas.
 
         Backups must be enabled to use low-downtime updates.
 
         Enable low-downtime updates by setting `blue_green_update.enabled` to `true`.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2656,16 +2787,155 @@ class Instance(pulumi.CustomResource):
             db_name="mydb",
             engine="mysql",
             engine_version="5.7",
-            instance_class="db.t3.micro",
-            parameter_group_name="default.mysql5.7",
+            instance_class=aws.rds.InstanceType.T3_MICRO,
+            username="foo",
             password="foobarbaz",
-            skip_final_snapshot=True,
-            username="foo")
+            parameter_group_name="default.mysql5.7",
+            skip_final_snapshot=True)
         ```
+        <!--End PulumiCodeChooser -->
+
+        ### RDS Custom for Oracle Usage with Replica
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Lookup the available instance classes for the custom engine for the region being operated in
+        custom_oracle = aws.rds.get_orderable_db_instance(engine="custom-oracle-ee",
+            engine_version="19.c.ee.002",
+            license_model="bring-your-own-license",
+            storage_type="gp3",
+            preferred_instance_classes=[
+                "db.r5.xlarge",
+                "db.r5.2xlarge",
+                "db.r5.4xlarge",
+            ])
+        # The RDS instance resource requires an ARN. Look up the ARN of the KMS key associated with the CEV.
+        by_id = aws.kms.get_key(key_id="example-ef278353ceba4a5a97de6784565b9f78")
+        default = aws.rds.Instance("default",
+            allocated_storage=50,
+            auto_minor_version_upgrade=False,
+            custom_iam_instance_profile="AWSRDSCustomInstanceProfile",
+            backup_retention_period=7,
+            db_subnet_group_name=db_subnet_group_name,
+            engine=custom_oracle.engine,
+            engine_version=custom_oracle.engine_version,
+            identifier="ee-instance-demo",
+            instance_class=custom_oracle.instance_class.apply(lambda x: aws.rds.InstanceType(x)),
+            kms_key_id=by_id.arn,
+            license_model=custom_oracle.license_model,
+            multi_az=False,
+            password="avoid-plaintext-passwords",
+            username="test",
+            storage_encrypted=True)
+        test_replica = aws.rds.Instance("test-replica",
+            replicate_source_db=default.identifier,
+            replica_mode="mounted",
+            auto_minor_version_upgrade=False,
+            custom_iam_instance_profile="AWSRDSCustomInstanceProfile",
+            backup_retention_period=7,
+            identifier="ee-instance-replica",
+            instance_class=custom_oracle.instance_class.apply(lambda x: aws.rds.InstanceType(x)),
+            kms_key_id=by_id.arn,
+            multi_az=False,
+            skip_final_snapshot=True,
+            storage_encrypted=True)
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### RDS Custom for SQL Server
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Lookup the available instance classes for the custom engine for the region being operated in
+        custom_sqlserver = aws.rds.get_orderable_db_instance(engine="custom-sqlserver-se",
+            engine_version="15.00.4249.2.v1",
+            storage_type="gp3",
+            preferred_instance_classes=[
+                "db.r5.xlarge",
+                "db.r5.2xlarge",
+                "db.r5.4xlarge",
+            ])
+        # The RDS instance resource requires an ARN. Look up the ARN of the KMS key.
+        by_id = aws.kms.get_key(key_id="example-ef278353ceba4a5a97de6784565b9f78")
+        example = aws.rds.Instance("example",
+            allocated_storage=500,
+            auto_minor_version_upgrade=False,
+            custom_iam_instance_profile="AWSRDSCustomSQLServerInstanceProfile",
+            backup_retention_period=7,
+            db_subnet_group_name=db_subnet_group_name,
+            engine=custom_sqlserver.engine,
+            engine_version=custom_sqlserver.engine_version,
+            identifier="sql-instance-demo",
+            instance_class=custom_sqlserver.instance_class.apply(lambda x: aws.rds.InstanceType(x)),
+            kms_key_id=by_id.arn,
+            multi_az=False,
+            password="avoid-plaintext-passwords",
+            storage_encrypted=True,
+            username="test")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### RDS Db2 Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Lookup the default version for the engine. Db2 Standard Edition is `db2-se`, Db2 Advanced Edition is `db2-ae`.
+        default = aws.rds.get_engine_version(engine="db2-se")
+        # Lookup the available instance classes for the engine in the region being operated in
+        example = aws.rds.get_orderable_db_instance(engine=default.engine,
+            engine_version=default.version,
+            license_model="bring-your-own-license",
+            storage_type="gp3",
+            preferred_instance_classes=[
+                "db.t3.small",
+                "db.r6i.large",
+                "db.m6i.large",
+            ])
+        # The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
+        example_parameter_group = aws.rds.ParameterGroup("example",
+            name="db-db2-params",
+            family=default.parameter_group_family,
+            parameters=[
+                aws.rds.ParameterGroupParameterArgs(
+                    apply_method="immediate",
+                    name="rds.ibm_customer_id",
+                    value="0",
+                ),
+                aws.rds.ParameterGroupParameterArgs(
+                    apply_method="immediate",
+                    name="rds.ibm_site_id",
+                    value="0",
+                ),
+            ])
+        # Create the RDS Db2 instance, use the data sources defined to set attributes
+        example_instance = aws.rds.Instance("example",
+            allocated_storage=100,
+            backup_retention_period=7,
+            db_name="test",
+            engine=example.engine,
+            engine_version=example.engine_version,
+            identifier="db2-instance-demo",
+            instance_class=example.instance_class.apply(lambda x: aws.rds.InstanceType(x)),
+            parameter_group_name=example_parameter_group.name,
+            password="avoid-plaintext-passwords",
+            username="test")
+        ```
+        <!--End PulumiCodeChooser -->
+
         ### Storage Autoscaling
 
         To enable Storage Autoscaling with instances that support the feature, define the `max_allocated_storage` argument higher than the `allocated_storage` argument. This provider will automatically hide differences with the `allocated_storage` argument value if autoscaling occurs.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2674,12 +2944,15 @@ class Instance(pulumi.CustomResource):
             allocated_storage=50,
             max_allocated_storage=100)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Managed Master Passwords via Secrets Manager, default KMS Key
 
         > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
 
         You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `password` attribute (removal is required).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2689,17 +2962,20 @@ class Instance(pulumi.CustomResource):
             db_name="mydb",
             engine="mysql",
             engine_version="5.7",
-            instance_class="db.t3.micro",
+            instance_class=aws.rds.InstanceType.T3_MICRO,
             manage_master_user_password=True,
-            parameter_group_name="default.mysql5.7",
-            username="foo")
+            username="foo",
+            parameter_group_name="default.mysql5.7")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Managed Master Passwords via Secrets Manager, specific KMS Key
 
         > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
 
         You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2710,19 +2986,20 @@ class Instance(pulumi.CustomResource):
             db_name="mydb",
             engine="mysql",
             engine_version="5.7",
-            instance_class="db.t3.micro",
+            instance_class=aws.rds.InstanceType.T3_MICRO,
             manage_master_user_password=True,
             master_user_secret_kms_key_id=example.key_id,
             username="foo",
             parameter_group_name="default.mysql5.7")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DB Instances using the `identifier`. For example:
 
         ```sh
-         $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
+        $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
         ```
 
         :param str resource_name: The name of the resource.
@@ -2772,9 +3049,13 @@ class Instance(pulumi.CustomResource):
                for additional read replica constraints.
         :param pulumi.Input[bool] delete_automated_backups: Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
         :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
-        :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the instance in.
-        :param pulumi.Input[str] domain_iam_role_name: The name of the IAM role to be used when making API calls to the Directory Service.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+        :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+        :param pulumi.Input[str] domain_auth_secret_arn: The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_dns_ips: The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+        :param pulumi.Input[str] domain_fqdn: The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+        :param pulumi.Input[str] domain_iam_role_name: The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+        :param pulumi.Input[str] domain_ou: The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         :param pulumi.Input[str] engine: The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
         :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
@@ -2819,8 +3100,7 @@ class Instance(pulumi.CustomResource):
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         :param pulumi.Input[str] network_type: The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
-        :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
-               associate.
+        :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to associate.
         :param pulumi.Input[str] password: (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
                is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
                logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
@@ -2899,7 +3179,7 @@ class Instance(pulumi.CustomResource):
 
         ## RDS Instance Class Types
 
-        Amazon RDS supports three types of instance classes: Standard, Memory Optimized, and Burstable Performance.
+        Amazon RDS supports instance classes for the following use cases: General-purpose, Memory-optimized, Burstable Performance, and Optimized-reads.
         For more information please read the AWS RDS documentation about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
 
         ## Low-Downtime Updates
@@ -2909,14 +3189,17 @@ class Instance(pulumi.CustomResource):
 
         Low-downtime updates are only available for DB Instances using MySQL and MariaDB,
         as other engines are not supported by RDS Blue/Green deployments.
+        They cannot be used with DB Instances with replicas.
 
         Backups must be enabled to use low-downtime updates.
 
         Enable low-downtime updates by setting `blue_green_update.enabled` to `true`.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2926,16 +3209,155 @@ class Instance(pulumi.CustomResource):
             db_name="mydb",
             engine="mysql",
             engine_version="5.7",
-            instance_class="db.t3.micro",
-            parameter_group_name="default.mysql5.7",
+            instance_class=aws.rds.InstanceType.T3_MICRO,
+            username="foo",
             password="foobarbaz",
-            skip_final_snapshot=True,
-            username="foo")
+            parameter_group_name="default.mysql5.7",
+            skip_final_snapshot=True)
         ```
+        <!--End PulumiCodeChooser -->
+
+        ### RDS Custom for Oracle Usage with Replica
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Lookup the available instance classes for the custom engine for the region being operated in
+        custom_oracle = aws.rds.get_orderable_db_instance(engine="custom-oracle-ee",
+            engine_version="19.c.ee.002",
+            license_model="bring-your-own-license",
+            storage_type="gp3",
+            preferred_instance_classes=[
+                "db.r5.xlarge",
+                "db.r5.2xlarge",
+                "db.r5.4xlarge",
+            ])
+        # The RDS instance resource requires an ARN. Look up the ARN of the KMS key associated with the CEV.
+        by_id = aws.kms.get_key(key_id="example-ef278353ceba4a5a97de6784565b9f78")
+        default = aws.rds.Instance("default",
+            allocated_storage=50,
+            auto_minor_version_upgrade=False,
+            custom_iam_instance_profile="AWSRDSCustomInstanceProfile",
+            backup_retention_period=7,
+            db_subnet_group_name=db_subnet_group_name,
+            engine=custom_oracle.engine,
+            engine_version=custom_oracle.engine_version,
+            identifier="ee-instance-demo",
+            instance_class=custom_oracle.instance_class.apply(lambda x: aws.rds.InstanceType(x)),
+            kms_key_id=by_id.arn,
+            license_model=custom_oracle.license_model,
+            multi_az=False,
+            password="avoid-plaintext-passwords",
+            username="test",
+            storage_encrypted=True)
+        test_replica = aws.rds.Instance("test-replica",
+            replicate_source_db=default.identifier,
+            replica_mode="mounted",
+            auto_minor_version_upgrade=False,
+            custom_iam_instance_profile="AWSRDSCustomInstanceProfile",
+            backup_retention_period=7,
+            identifier="ee-instance-replica",
+            instance_class=custom_oracle.instance_class.apply(lambda x: aws.rds.InstanceType(x)),
+            kms_key_id=by_id.arn,
+            multi_az=False,
+            skip_final_snapshot=True,
+            storage_encrypted=True)
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### RDS Custom for SQL Server
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Lookup the available instance classes for the custom engine for the region being operated in
+        custom_sqlserver = aws.rds.get_orderable_db_instance(engine="custom-sqlserver-se",
+            engine_version="15.00.4249.2.v1",
+            storage_type="gp3",
+            preferred_instance_classes=[
+                "db.r5.xlarge",
+                "db.r5.2xlarge",
+                "db.r5.4xlarge",
+            ])
+        # The RDS instance resource requires an ARN. Look up the ARN of the KMS key.
+        by_id = aws.kms.get_key(key_id="example-ef278353ceba4a5a97de6784565b9f78")
+        example = aws.rds.Instance("example",
+            allocated_storage=500,
+            auto_minor_version_upgrade=False,
+            custom_iam_instance_profile="AWSRDSCustomSQLServerInstanceProfile",
+            backup_retention_period=7,
+            db_subnet_group_name=db_subnet_group_name,
+            engine=custom_sqlserver.engine,
+            engine_version=custom_sqlserver.engine_version,
+            identifier="sql-instance-demo",
+            instance_class=custom_sqlserver.instance_class.apply(lambda x: aws.rds.InstanceType(x)),
+            kms_key_id=by_id.arn,
+            multi_az=False,
+            password="avoid-plaintext-passwords",
+            storage_encrypted=True,
+            username="test")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### RDS Db2 Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Lookup the default version for the engine. Db2 Standard Edition is `db2-se`, Db2 Advanced Edition is `db2-ae`.
+        default = aws.rds.get_engine_version(engine="db2-se")
+        # Lookup the available instance classes for the engine in the region being operated in
+        example = aws.rds.get_orderable_db_instance(engine=default.engine,
+            engine_version=default.version,
+            license_model="bring-your-own-license",
+            storage_type="gp3",
+            preferred_instance_classes=[
+                "db.t3.small",
+                "db.r6i.large",
+                "db.m6i.large",
+            ])
+        # The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
+        example_parameter_group = aws.rds.ParameterGroup("example",
+            name="db-db2-params",
+            family=default.parameter_group_family,
+            parameters=[
+                aws.rds.ParameterGroupParameterArgs(
+                    apply_method="immediate",
+                    name="rds.ibm_customer_id",
+                    value="0",
+                ),
+                aws.rds.ParameterGroupParameterArgs(
+                    apply_method="immediate",
+                    name="rds.ibm_site_id",
+                    value="0",
+                ),
+            ])
+        # Create the RDS Db2 instance, use the data sources defined to set attributes
+        example_instance = aws.rds.Instance("example",
+            allocated_storage=100,
+            backup_retention_period=7,
+            db_name="test",
+            engine=example.engine,
+            engine_version=example.engine_version,
+            identifier="db2-instance-demo",
+            instance_class=example.instance_class.apply(lambda x: aws.rds.InstanceType(x)),
+            parameter_group_name=example_parameter_group.name,
+            password="avoid-plaintext-passwords",
+            username="test")
+        ```
+        <!--End PulumiCodeChooser -->
+
         ### Storage Autoscaling
 
         To enable Storage Autoscaling with instances that support the feature, define the `max_allocated_storage` argument higher than the `allocated_storage` argument. This provider will automatically hide differences with the `allocated_storage` argument value if autoscaling occurs.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2944,12 +3366,15 @@ class Instance(pulumi.CustomResource):
             allocated_storage=50,
             max_allocated_storage=100)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Managed Master Passwords via Secrets Manager, default KMS Key
 
         > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
 
         You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `password` attribute (removal is required).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2959,17 +3384,20 @@ class Instance(pulumi.CustomResource):
             db_name="mydb",
             engine="mysql",
             engine_version="5.7",
-            instance_class="db.t3.micro",
+            instance_class=aws.rds.InstanceType.T3_MICRO,
             manage_master_user_password=True,
-            parameter_group_name="default.mysql5.7",
-            username="foo")
+            username="foo",
+            parameter_group_name="default.mysql5.7")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Managed Master Passwords via Secrets Manager, specific KMS Key
 
         > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
 
         You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2980,19 +3408,20 @@ class Instance(pulumi.CustomResource):
             db_name="mydb",
             engine="mysql",
             engine_version="5.7",
-            instance_class="db.t3.micro",
+            instance_class=aws.rds.InstanceType.T3_MICRO,
             manage_master_user_password=True,
             master_user_secret_kms_key_id=example.key_id,
             username="foo",
             parameter_group_name="default.mysql5.7")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DB Instances using the `identifier`. For example:
 
         ```sh
-         $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
+        $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
         ```
 
         :param str resource_name: The name of the resource.
@@ -3029,7 +3458,11 @@ class Instance(pulumi.CustomResource):
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
+                 domain_auth_secret_arn: Optional[pulumi.Input[str]] = None,
+                 domain_dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 domain_fqdn: Optional[pulumi.Input[str]] = None,
                  domain_iam_role_name: Optional[pulumi.Input[str]] = None,
+                 domain_ou: Optional[pulumi.Input[str]] = None,
                  enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
@@ -3100,7 +3533,11 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["delete_automated_backups"] = delete_automated_backups
             __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["domain"] = domain
+            __props__.__dict__["domain_auth_secret_arn"] = domain_auth_secret_arn
+            __props__.__dict__["domain_dns_ips"] = domain_dns_ips
+            __props__.__dict__["domain_fqdn"] = domain_fqdn
             __props__.__dict__["domain_iam_role_name"] = domain_iam_role_name
+            __props__.__dict__["domain_ou"] = domain_ou
             __props__.__dict__["enabled_cloudwatch_logs_exports"] = enabled_cloudwatch_logs_exports
             __props__.__dict__["engine"] = engine
             __props__.__dict__["engine_version"] = engine_version
@@ -3157,7 +3594,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["resource_id"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Instance, __self__).__init__(
             'aws:rds/instance:Instance',
@@ -3190,7 +3627,11 @@ class Instance(pulumi.CustomResource):
             delete_automated_backups: Optional[pulumi.Input[bool]] = None,
             deletion_protection: Optional[pulumi.Input[bool]] = None,
             domain: Optional[pulumi.Input[str]] = None,
+            domain_auth_secret_arn: Optional[pulumi.Input[str]] = None,
+            domain_dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            domain_fqdn: Optional[pulumi.Input[str]] = None,
             domain_iam_role_name: Optional[pulumi.Input[str]] = None,
+            domain_ou: Optional[pulumi.Input[str]] = None,
             enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
             engine: Optional[pulumi.Input[str]] = None,
@@ -3297,9 +3738,13 @@ class Instance(pulumi.CustomResource):
                for additional read replica constraints.
         :param pulumi.Input[bool] delete_automated_backups: Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
         :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
-        :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the instance in.
-        :param pulumi.Input[str] domain_iam_role_name: The name of the IAM role to be used when making API calls to the Directory Service.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+        :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+        :param pulumi.Input[str] domain_auth_secret_arn: The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_dns_ips: The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+        :param pulumi.Input[str] domain_fqdn: The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+        :param pulumi.Input[str] domain_iam_role_name: The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+        :param pulumi.Input[str] domain_ou: The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         :param pulumi.Input[str] endpoint: The connection endpoint in `address:port` format.
         :param pulumi.Input[str] engine: The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
         :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
@@ -3350,8 +3795,7 @@ class Instance(pulumi.CustomResource):
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         :param pulumi.Input[str] network_type: The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
-        :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
-               associate.
+        :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to associate.
         :param pulumi.Input[str] password: (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
                is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
                logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
@@ -3430,7 +3874,11 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["delete_automated_backups"] = delete_automated_backups
         __props__.__dict__["deletion_protection"] = deletion_protection
         __props__.__dict__["domain"] = domain
+        __props__.__dict__["domain_auth_secret_arn"] = domain_auth_secret_arn
+        __props__.__dict__["domain_dns_ips"] = domain_dns_ips
+        __props__.__dict__["domain_fqdn"] = domain_fqdn
         __props__.__dict__["domain_iam_role_name"] = domain_iam_role_name
+        __props__.__dict__["domain_ou"] = domain_ou
         __props__.__dict__["enabled_cloudwatch_logs_exports"] = enabled_cloudwatch_logs_exports
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["engine"] = engine
@@ -3676,23 +4124,55 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter
     def domain(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of the Directory Service Active Directory domain to create the instance in.
+        The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
         """
         return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter(name="domainAuthSecretArn")
+    def domain_auth_secret_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+        """
+        return pulumi.get(self, "domain_auth_secret_arn")
+
+    @property
+    @pulumi.getter(name="domainDnsIps")
+    def domain_dns_ips(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+        """
+        return pulumi.get(self, "domain_dns_ips")
+
+    @property
+    @pulumi.getter(name="domainFqdn")
+    def domain_fqdn(self) -> pulumi.Output[str]:
+        """
+        The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+        """
+        return pulumi.get(self, "domain_fqdn")
 
     @property
     @pulumi.getter(name="domainIamRoleName")
     def domain_iam_role_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the IAM role to be used when making API calls to the Directory Service.
+        The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
         """
         return pulumi.get(self, "domain_iam_role_name")
+
+    @property
+    @pulumi.getter(name="domainOu")
+    def domain_ou(self) -> pulumi.Output[Optional[str]]:
+        """
+        The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+        """
+        return pulumi.get(self, "domain_ou")
 
     @property
     @pulumi.getter(name="enabledCloudwatchLogsExports")
     def enabled_cloudwatch_logs_exports(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+        Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         """
         return pulumi.get(self, "enabled_cloudwatch_logs_exports")
 
@@ -3940,8 +4420,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> pulumi.Output[str]:
         """
-        Name of the DB parameter group to
-        associate.
+        Name of the DB parameter group to associate.
         """
         return pulumi.get(self, "parameter_group_name")
 

@@ -5,6 +5,7 @@ package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -101,37 +102,46 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
         @CustomType.Setter
         public Builder accessToken(@Nullable String accessToken) {
+
             this.accessToken = accessToken;
             return this;
         }
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
-            this.clientSecret = Objects.requireNonNull(clientSecret);
+            if (clientSecret == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials", "clientSecret");
+            }
+            this.clientSecret = clientSecret;
             return this;
         }
         @CustomType.Setter
         public Builder oauthRequest(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest oauthRequest) {
+
             this.oauthRequest = oauthRequest;
             return this;
         }
         @CustomType.Setter
         public Builder refreshToken(@Nullable String refreshToken) {
+
             this.refreshToken = refreshToken;
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials();
-            o.accessToken = accessToken;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.oauthRequest = oauthRequest;
-            o.refreshToken = refreshToken;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials();
+            _resultValue.accessToken = accessToken;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.oauthRequest = oauthRequest;
+            _resultValue.refreshToken = refreshToken;
+            return _resultValue;
         }
     }
 }

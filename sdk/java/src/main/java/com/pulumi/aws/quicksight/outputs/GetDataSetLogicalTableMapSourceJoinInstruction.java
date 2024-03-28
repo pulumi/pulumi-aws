@@ -6,6 +6,7 @@ package com.pulumi.aws.quicksight.outputs;
 import com.pulumi.aws.quicksight.outputs.GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty;
 import com.pulumi.aws.quicksight.outputs.GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -67,7 +68,10 @@ public final class GetDataSetLogicalTableMapSourceJoinInstruction {
 
         @CustomType.Setter
         public Builder leftJoinKeyProperties(List<GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty> leftJoinKeyProperties) {
-            this.leftJoinKeyProperties = Objects.requireNonNull(leftJoinKeyProperties);
+            if (leftJoinKeyProperties == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapSourceJoinInstruction", "leftJoinKeyProperties");
+            }
+            this.leftJoinKeyProperties = leftJoinKeyProperties;
             return this;
         }
         public Builder leftJoinKeyProperties(GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty... leftJoinKeyProperties) {
@@ -75,17 +79,26 @@ public final class GetDataSetLogicalTableMapSourceJoinInstruction {
         }
         @CustomType.Setter
         public Builder leftOperand(String leftOperand) {
-            this.leftOperand = Objects.requireNonNull(leftOperand);
+            if (leftOperand == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapSourceJoinInstruction", "leftOperand");
+            }
+            this.leftOperand = leftOperand;
             return this;
         }
         @CustomType.Setter
         public Builder onClause(String onClause) {
-            this.onClause = Objects.requireNonNull(onClause);
+            if (onClause == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapSourceJoinInstruction", "onClause");
+            }
+            this.onClause = onClause;
             return this;
         }
         @CustomType.Setter
         public Builder rightJoinKeyProperties(List<GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty> rightJoinKeyProperties) {
-            this.rightJoinKeyProperties = Objects.requireNonNull(rightJoinKeyProperties);
+            if (rightJoinKeyProperties == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapSourceJoinInstruction", "rightJoinKeyProperties");
+            }
+            this.rightJoinKeyProperties = rightJoinKeyProperties;
             return this;
         }
         public Builder rightJoinKeyProperties(GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty... rightJoinKeyProperties) {
@@ -93,23 +106,29 @@ public final class GetDataSetLogicalTableMapSourceJoinInstruction {
         }
         @CustomType.Setter
         public Builder rightOperand(String rightOperand) {
-            this.rightOperand = Objects.requireNonNull(rightOperand);
+            if (rightOperand == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapSourceJoinInstruction", "rightOperand");
+            }
+            this.rightOperand = rightOperand;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapSourceJoinInstruction", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetDataSetLogicalTableMapSourceJoinInstruction build() {
-            final var o = new GetDataSetLogicalTableMapSourceJoinInstruction();
-            o.leftJoinKeyProperties = leftJoinKeyProperties;
-            o.leftOperand = leftOperand;
-            o.onClause = onClause;
-            o.rightJoinKeyProperties = rightJoinKeyProperties;
-            o.rightOperand = rightOperand;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetDataSetLogicalTableMapSourceJoinInstruction();
+            _resultValue.leftJoinKeyProperties = leftJoinKeyProperties;
+            _resultValue.leftOperand = leftOperand;
+            _resultValue.onClause = onClause;
+            _resultValue.rightJoinKeyProperties = rightJoinKeyProperties;
+            _resultValue.rightOperand = rightOperand;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

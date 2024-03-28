@@ -4,6 +4,7 @@
 package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,32 @@ public final class TopicRuleKinesis {
 
         @CustomType.Setter
         public Builder partitionKey(@Nullable String partitionKey) {
+
             this.partitionKey = partitionKey;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("TopicRuleKinesis", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder streamName(String streamName) {
-            this.streamName = Objects.requireNonNull(streamName);
+            if (streamName == null) {
+              throw new MissingRequiredPropertyException("TopicRuleKinesis", "streamName");
+            }
+            this.streamName = streamName;
             return this;
         }
         public TopicRuleKinesis build() {
-            final var o = new TopicRuleKinesis();
-            o.partitionKey = partitionKey;
-            o.roleArn = roleArn;
-            o.streamName = streamName;
-            return o;
+            final var _resultValue = new TopicRuleKinesis();
+            _resultValue.partitionKey = partitionKey;
+            _resultValue.roleArn = roleArn;
+            _resultValue.streamName = streamName;
+            return _resultValue;
         }
     }
 }

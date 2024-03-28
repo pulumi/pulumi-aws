@@ -16,8 +16,10 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// &gt; **Note:** Kinesis Data Analytics for SQL applications created using this resource cannot currently be viewed in the AWS Console. To manage Kinesis Data Analytics for SQL applications that can also be viewed in the AWS Console, use the `aws.kinesis.AnalyticsApplication` resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Apache Flink Application
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,19 +28,23 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
+    ///     var example = new Aws.S3.BucketV2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = "example-flink-application",
+    ///     });
+    /// 
+    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("example", new()
+    ///     {
+    ///         Bucket = example.Id,
     ///         Key = "example-flink-application",
     ///         Source = new FileAsset("flink-app.jar"),
     ///     });
     /// 
-    ///     var exampleApplication = new Aws.KinesisAnalyticsV2.Application("exampleApplication", new()
+    ///     var exampleApplication = new Aws.KinesisAnalyticsV2.Application("example", new()
     ///     {
+    ///         Name = "example-flink-application",
     ///         RuntimeEnvironment = "FLINK-1_8",
-    ///         ServiceExecutionRole = aws_iam_role.Example.Arn,
+    ///         ServiceExecutionRole = exampleAwsIamRole.Arn,
     ///         ApplicationConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationArgs
     ///         {
     ///             ApplicationCodeConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs
@@ -47,7 +53,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     ///                 {
     ///                     S3ContentLocation = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs
     ///                     {
-    ///                         BucketArn = exampleBucketV2.Arn,
+    ///                         BucketArn = example.Arn,
     ///                         FileKey = exampleBucketObjectv2.Key,
     ///                     },
     ///                 },
@@ -105,8 +111,11 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### SQL Application
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -115,17 +124,22 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
-    /// 
-    ///     var exampleLogStream = new Aws.CloudWatch.LogStream("exampleLogStream", new()
+    ///     var example = new Aws.CloudWatch.LogGroup("example", new()
     ///     {
-    ///         LogGroupName = exampleLogGroup.Name,
+    ///         Name = "example-sql-application",
     ///     });
     /// 
-    ///     var exampleApplication = new Aws.KinesisAnalyticsV2.Application("exampleApplication", new()
+    ///     var exampleLogStream = new Aws.CloudWatch.LogStream("example", new()
     ///     {
+    ///         Name = "example-sql-application",
+    ///         LogGroupName = example.Name,
+    ///     });
+    /// 
+    ///     var exampleApplication = new Aws.KinesisAnalyticsV2.Application("example", new()
+    ///     {
+    ///         Name = "example-sql-application",
     ///         RuntimeEnvironment = "SQL-1_0",
-    ///         ServiceExecutionRole = aws_iam_role.Example.Arn,
+    ///         ServiceExecutionRole = exampleAwsIamRole.Arn,
     ///         ApplicationConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationArgs
     ///         {
     ///             ApplicationCodeConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs
@@ -179,7 +193,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     ///                     },
     ///                     KinesisStreamsInput = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs
     ///                     {
-    ///                         ResourceArn = aws_kinesis_stream.Example.Arn,
+    ///                         ResourceArn = exampleAwsKinesisStream.Arn,
     ///                     },
     ///                 },
     ///                 Outputs = new[]
@@ -193,7 +207,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     ///                         },
     ///                         LambdaOutput = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs
     ///                         {
-    ///                             ResourceArn = aws_lambda_function.Example.Arn,
+    ///                             ResourceArn = exampleAwsLambdaFunction.Arn,
     ///                         },
     ///                     },
     ///                     new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs
@@ -205,7 +219,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     ///                         },
     ///                         KinesisFirehoseOutput = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs
     ///                         {
-    ///                             ResourceArn = aws_kinesis_firehose_delivery_stream.Example.Arn,
+    ///                             ResourceArn = exampleAwsKinesisFirehoseDeliveryStream.Arn,
     ///                         },
     ///                     },
     ///                 },
@@ -236,7 +250,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     ///                     },
     ///                     S3ReferenceDataSource = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs
     ///                     {
-    ///                         BucketArn = aws_s3_bucket.Example.Arn,
+    ///                         BucketArn = exampleAwsS3Bucket.Arn,
     ///                         FileKey = "KEY-1",
     ///                     },
     ///                 },
@@ -250,8 +264,11 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### VPC Configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -260,19 +277,23 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
+    ///     var example = new Aws.S3.BucketV2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = "example-flink-application",
+    ///     });
+    /// 
+    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("example", new()
+    ///     {
+    ///         Bucket = example.Id,
     ///         Key = "example-flink-application",
     ///         Source = new FileAsset("flink-app.jar"),
     ///     });
     /// 
-    ///     var exampleApplication = new Aws.KinesisAnalyticsV2.Application("exampleApplication", new()
+    ///     var exampleApplication = new Aws.KinesisAnalyticsV2.Application("example", new()
     ///     {
+    ///         Name = "example-flink-application",
     ///         RuntimeEnvironment = "FLINK-1_8",
-    ///         ServiceExecutionRole = aws_iam_role.Example.Arn,
+    ///         ServiceExecutionRole = exampleAwsIamRole.Arn,
     ///         ApplicationConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationArgs
     ///         {
     ///             ApplicationCodeConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs
@@ -281,7 +302,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     ///                 {
     ///                     S3ContentLocation = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs
     ///                     {
-    ///                         BucketArn = exampleBucketV2.Arn,
+    ///                         BucketArn = example.Arn,
     ///                         FileKey = exampleBucketObjectv2.Key,
     ///                     },
     ///                 },
@@ -291,12 +312,12 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     ///             {
     ///                 SecurityGroupIds = new[]
     ///                 {
-    ///                     aws_security_group.Example[0].Id,
-    ///                     aws_security_group.Example[1].Id,
+    ///                     exampleAwsSecurityGroup[0].Id,
+    ///                     exampleAwsSecurityGroup[1].Id,
     ///                 },
     ///                 SubnetIds = new[]
     ///                 {
-    ///                     aws_subnet.Example.Id,
+    ///                     exampleAwsSubnet.Id,
     ///                 },
     ///             },
     ///         },
@@ -304,13 +325,14 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using the application ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
+    /// $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
     /// ```
     /// </summary>
     [AwsResourceType("aws:kinesisanalyticsv2/application:Application")]
@@ -429,10 +451,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -618,11 +636,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

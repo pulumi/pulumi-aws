@@ -191,13 +191,42 @@ export type BaseCallbackFunctionArgs = utils.Overwrite<FunctionArgs, {
      * A list of IAM policy ARNs to attach to the Function.  Will be used if [role] is not provide.
      * If neither [role] nor [policies] is provided, a default policy of [iam.AWSLambda_FullAccess]
      * will be used instead.
+     *
+     * This can be either an array of ARNs or an object whose values are ARNs. In the latter case, the
+     * keys of the object are the names of the policies. These names are used to uniquely identify the
+     * policy attachment to create a URN. This object format can be useful when you have lifted policy ARNs that you
+     * want to attach. It doesn't matter what the keys are, as long as they are unique for each CallbackFunction.
+     *
+     * Example for object notation:
+     *
+     * ```typescript
+     * const lambda = new aws.lambda.CallbackFunction("my-function", {
+     *   // ... other arguments ...
+     *   policies: {
+     *     "my-policy": myPolicy.arn,
+     *     "other-policy": otherPolicy.arn,
+     *   }
+     * });
+     * ```
+     *
+     * Example for array notation:
+     *
+     * (this will not work if the policy ARNs are lifted, or an output from another resource)
+     *
+     * ```typescript
+     * const lambda = new aws.lambda.CallbackFunction("my-function", {
+     *  // ... other arguments ...
+     *  policies: [aws.iam.managedPolicies.S3FullAccess, aws.iam.managedPolicies.IAMFullAccess],
+     * });
+     * ```
      */
-    policies?: arn.ARN[];
+
+    policies?: Record<string, pulumi.Input<arn.ARN>> | arn.ARN[];
 
     /**
      * The Lambda runtime to use.  If not provided, will default to [NodeJS8d10Runtime]
      */
-    runtime?: Runtime;
+    runtime?: Runtime | string;
 
     /**
      * Options to control which paths/packages should be included or excluded in the zip file containing
@@ -267,7 +296,7 @@ export function createFunctionFromEventHandler<E, R>(
  * A CallbackFunction is a special type of aws.lambda.Function that can be created out of an actual
  * JavaScript function instance.  The function instance will be analyzed and packaged up (including
  * dependencies) into a form that can be used by AWS Lambda.  See
- * https://www.pulumi.com/docs/tutorials/aws/serializing-functions/ for additional
+ * https://www.pulumi.com/docs/concepts/inputs-outputs/function-serialization/ for additional
  * details on this process.
  * If no IAM Role is specified, CallbackFunction will automatically use the following managed policies:
  * `AWSLambda_FullAccess`
@@ -329,13 +358,17 @@ export class CallbackFunction<E, R> extends LambdaFunction {
             }
 
             if (args.policies) {
-                for (const policy of args.policies) {
+                const policies: [string, pulumi.Input<arn.ARN>][] = Array.isArray(args.policies)
+                    ? args.policies.map(arn => [utils.sha1hash(arn), arn])
+                    : Object.entries(args.policies);
+
+                for (const [key, policyArn] of policies) {
                     // RolePolicyAttachment objects don't have a physical identity, and create/deletes are processed
                     // structurally based on the `role` and `policyArn`.  So we need to make sure our Pulumi name matches the
                     // structural identity by using a name that includes the role name and policyArn.
-                    const attachment = new iam.RolePolicyAttachment(`${name}-${utils.sha1hash(policy)}`, {
+                    const attachment = new iam.RolePolicyAttachment(`${name}-${key}`, {
                         role: role,
-                        policyArn: policy,
+                        policyArn,
                     }, opts);
                 }
             }

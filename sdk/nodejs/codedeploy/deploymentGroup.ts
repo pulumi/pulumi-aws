@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,17 +29,20 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const aWSCodeDeployRole = new aws.iam.RolePolicyAttachment("aWSCodeDeployRole", {
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole",
- *     role: exampleRole.name,
+ * const example = new aws.iam.Role("example", {
+ *     name: "example-role",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
- * const exampleApplication = new aws.codedeploy.Application("exampleApplication", {});
- * const exampleTopic = new aws.sns.Topic("exampleTopic", {});
- * const exampleDeploymentGroup = new aws.codedeploy.DeploymentGroup("exampleDeploymentGroup", {
+ * const aWSCodeDeployRole = new aws.iam.RolePolicyAttachment("AWSCodeDeployRole", {
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole",
+ *     role: example.name,
+ * });
+ * const exampleApplication = new aws.codedeploy.Application("example", {name: "example-app"});
+ * const exampleTopic = new aws.sns.Topic("example", {name: "example-topic"});
+ * const exampleDeploymentGroup = new aws.codedeploy.DeploymentGroup("example", {
  *     appName: exampleApplication.name,
  *     deploymentGroupName: "example-group",
- *     serviceRoleArn: exampleRole.arn,
+ *     serviceRoleArn: example.arn,
  *     ec2TagSets: [{
  *         ec2TagFilters: [
  *             {
@@ -69,18 +73,24 @@ import * as utilities from "../utilities";
  *     outdatedInstancesStrategy: "UPDATE",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Blue Green Deployments with ECS
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleApplication = new aws.codedeploy.Application("exampleApplication", {computePlatform: "ECS"});
- * const exampleDeploymentGroup = new aws.codedeploy.DeploymentGroup("exampleDeploymentGroup", {
- *     appName: exampleApplication.name,
+ * const example = new aws.codedeploy.Application("example", {
+ *     computePlatform: "ECS",
+ *     name: "example",
+ * });
+ * const exampleDeploymentGroup = new aws.codedeploy.DeploymentGroup("example", {
+ *     appName: example.name,
  *     deploymentConfigName: "CodeDeployDefault.ECSAllAtOnce",
  *     deploymentGroupName: "example",
- *     serviceRoleArn: aws_iam_role.example.arn,
+ *     serviceRoleArn: exampleAwsIamRole.arn,
  *     autoRollbackConfiguration: {
  *         enabled: true,
  *         events: ["DEPLOYMENT_FAILURE"],
@@ -99,44 +109,47 @@ import * as utilities from "../utilities";
  *         deploymentType: "BLUE_GREEN",
  *     },
  *     ecsService: {
- *         clusterName: aws_ecs_cluster.example.name,
- *         serviceName: aws_ecs_service.example.name,
+ *         clusterName: exampleAwsEcsCluster.name,
+ *         serviceName: exampleAwsEcsService.name,
  *     },
  *     loadBalancerInfo: {
  *         targetGroupPairInfo: {
  *             prodTrafficRoute: {
- *                 listenerArns: [aws_lb_listener.example.arn],
+ *                 listenerArns: [exampleAwsLbListener.arn],
  *             },
  *             targetGroups: [
  *                 {
- *                     name: aws_lb_target_group.blue.name,
+ *                     name: blue.name,
  *                 },
  *                 {
- *                     name: aws_lb_target_group.green.name,
+ *                     name: green.name,
  *                 },
  *             ],
  *         },
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Blue Green Deployments with Servers and Classic ELB
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleApplication = new aws.codedeploy.Application("exampleApplication", {});
- * const exampleDeploymentGroup = new aws.codedeploy.DeploymentGroup("exampleDeploymentGroup", {
- *     appName: exampleApplication.name,
+ * const example = new aws.codedeploy.Application("example", {name: "example-app"});
+ * const exampleDeploymentGroup = new aws.codedeploy.DeploymentGroup("example", {
+ *     appName: example.name,
  *     deploymentGroupName: "example-group",
- *     serviceRoleArn: aws_iam_role.example.arn,
+ *     serviceRoleArn: exampleAwsIamRole.arn,
  *     deploymentStyle: {
  *         deploymentOption: "WITH_TRAFFIC_CONTROL",
  *         deploymentType: "BLUE_GREEN",
  *     },
  *     loadBalancerInfo: {
  *         elbInfos: [{
- *             name: aws_elb.example.name,
+ *             name: exampleAwsElb.name,
  *         }],
  *     },
  *     blueGreenDeploymentConfig: {
@@ -153,13 +166,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CodeDeploy Deployment Groups using `app_name`, a colon, and `deployment_group_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
+ * $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
  * ```
  */
 export class DeploymentGroup extends pulumi.CustomResource {
@@ -345,8 +359,6 @@ export class DeploymentGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(DeploymentGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

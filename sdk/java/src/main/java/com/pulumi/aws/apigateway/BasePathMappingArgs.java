@@ -5,6 +5,7 @@ package com.pulumi.aws.apigateway;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class BasePathMappingArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public BasePathMappingArgs build() {
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
-            $.restApi = Objects.requireNonNull($.restApi, "expected parameter 'restApi' to be non-null");
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("BasePathMappingArgs", "domainName");
+            }
+            if ($.restApi == null) {
+                throw new MissingRequiredPropertyException("BasePathMappingArgs", "restApi");
+            }
             return $;
         }
     }

@@ -75,6 +75,7 @@ public final class UserProfileUserSettingsJupyterServerAppSettings {
 
         @CustomType.Setter
         public Builder codeRepositories(@Nullable List<UserProfileUserSettingsJupyterServerAppSettingsCodeRepository> codeRepositories) {
+
             this.codeRepositories = codeRepositories;
             return this;
         }
@@ -83,11 +84,13 @@ public final class UserProfileUserSettingsJupyterServerAppSettings {
         }
         @CustomType.Setter
         public Builder defaultResourceSpec(@Nullable UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec) {
+
             this.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
         @CustomType.Setter
         public Builder lifecycleConfigArns(@Nullable List<String> lifecycleConfigArns) {
+
             this.lifecycleConfigArns = lifecycleConfigArns;
             return this;
         }
@@ -95,11 +98,11 @@ public final class UserProfileUserSettingsJupyterServerAppSettings {
             return lifecycleConfigArns(List.of(lifecycleConfigArns));
         }
         public UserProfileUserSettingsJupyterServerAppSettings build() {
-            final var o = new UserProfileUserSettingsJupyterServerAppSettings();
-            o.codeRepositories = codeRepositories;
-            o.defaultResourceSpec = defaultResourceSpec;
-            o.lifecycleConfigArns = lifecycleConfigArns;
-            return o;
+            final var _resultValue = new UserProfileUserSettingsJupyterServerAppSettings();
+            _resultValue.codeRepositories = codeRepositories;
+            _resultValue.defaultResourceSpec = defaultResourceSpec;
+            _resultValue.lifecycleConfigArns = lifecycleConfigArns;
+            return _resultValue;
         }
     }
 }

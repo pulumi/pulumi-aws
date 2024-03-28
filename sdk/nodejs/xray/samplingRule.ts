@@ -9,34 +9,36 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.xray.SamplingRule("example", {
+ *     ruleName: "example",
+ *     priority: 9999,
+ *     version: 1,
+ *     reservoirSize: 1,
+ *     fixedRate: 0.05,
+ *     urlPath: "*",
+ *     host: "*",
+ *     httpMethod: "*",
+ *     serviceType: "*",
+ *     serviceName: "*",
+ *     resourceArn: "*",
  *     attributes: {
  *         Hello: "Tris",
  *     },
- *     fixedRate: 0.05,
- *     host: "*",
- *     httpMethod: "*",
- *     priority: 9999,
- *     reservoirSize: 1,
- *     resourceArn: "*",
- *     ruleName: "example",
- *     serviceName: "*",
- *     serviceType: "*",
- *     urlPath: "*",
- *     version: 1,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import XRay Sampling Rules using the name. For example:
  *
  * ```sh
- *  $ pulumi import aws:xray/samplingRule:SamplingRule example example
+ * $ pulumi import aws:xray/samplingRule:SamplingRule example example
  * ```
  */
 export class SamplingRule extends pulumi.CustomResource {
@@ -207,8 +209,6 @@ export class SamplingRule extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SamplingRule.__pulumiType, name, resourceInputs, opts);
     }
 }

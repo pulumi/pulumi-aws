@@ -208,8 +208,10 @@ class Workflow(pulumi.CustomResource):
         Provides a AWS Transfer Workflow resource.
 
         ## Example Usage
+
         ### Basic single step example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -222,8 +224,11 @@ class Workflow(pulumi.CustomResource):
             type="DELETE",
         )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Multistep example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -233,7 +238,7 @@ class Workflow(pulumi.CustomResource):
                 custom_step_details=aws.transfer.WorkflowStepCustomStepDetailsArgs(
                     name="example",
                     source_file_location="${original.file}",
-                    target=aws_lambda_function["example"]["arn"],
+                    target=example_aws_lambda_function["arn"],
                     timeout_seconds=60,
                 ),
                 type="CUSTOM",
@@ -251,13 +256,14 @@ class Workflow(pulumi.CustomResource):
             ),
         ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transfer Workflows using the `worflow_id`. For example:
 
         ```sh
-         $ pulumi import aws:transfer/workflow:Workflow example example
+        $ pulumi import aws:transfer/workflow:Workflow example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -277,8 +283,10 @@ class Workflow(pulumi.CustomResource):
         Provides a AWS Transfer Workflow resource.
 
         ## Example Usage
+
         ### Basic single step example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -291,8 +299,11 @@ class Workflow(pulumi.CustomResource):
             type="DELETE",
         )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Multistep example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -302,7 +313,7 @@ class Workflow(pulumi.CustomResource):
                 custom_step_details=aws.transfer.WorkflowStepCustomStepDetailsArgs(
                     name="example",
                     source_file_location="${original.file}",
-                    target=aws_lambda_function["example"]["arn"],
+                    target=example_aws_lambda_function["arn"],
                     timeout_seconds=60,
                 ),
                 type="CUSTOM",
@@ -320,13 +331,14 @@ class Workflow(pulumi.CustomResource):
             ),
         ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transfer Workflows using the `worflow_id`. For example:
 
         ```sh
-         $ pulumi import aws:transfer/workflow:Workflow example example
+        $ pulumi import aws:transfer/workflow:Workflow example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -365,8 +377,6 @@ class Workflow(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Workflow, __self__).__init__(
             'aws:transfer/workflow:Workflow',
             resource_name,

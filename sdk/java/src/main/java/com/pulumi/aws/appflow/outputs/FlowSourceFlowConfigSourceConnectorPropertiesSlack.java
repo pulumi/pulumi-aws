@@ -4,6 +4,7 @@
 package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSlack {
 
         @CustomType.Setter
         public Builder object(String object) {
-            this.object = Objects.requireNonNull(object);
+            if (object == null) {
+              throw new MissingRequiredPropertyException("FlowSourceFlowConfigSourceConnectorPropertiesSlack", "object");
+            }
+            this.object = object;
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesSlack build() {
-            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesSlack();
-            o.object = object;
-            return o;
+            final var _resultValue = new FlowSourceFlowConfigSourceConnectorPropertiesSlack();
+            _resultValue.object = object;
+            return _resultValue;
         }
     }
 }

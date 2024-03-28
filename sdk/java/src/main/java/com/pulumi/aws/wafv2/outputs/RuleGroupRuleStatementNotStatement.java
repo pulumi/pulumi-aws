@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatement;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,16 +44,19 @@ public final class RuleGroupRuleStatementNotStatement {
 
         @CustomType.Setter
         public Builder statements(List<RuleGroupRuleStatement> statements) {
-            this.statements = Objects.requireNonNull(statements);
+            if (statements == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleStatementNotStatement", "statements");
+            }
+            this.statements = statements;
             return this;
         }
         public Builder statements(RuleGroupRuleStatement... statements) {
             return statements(List.of(statements));
         }
         public RuleGroupRuleStatementNotStatement build() {
-            final var o = new RuleGroupRuleStatementNotStatement();
-            o.statements = statements;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementNotStatement();
+            _resultValue.statements = statements;
+            return _resultValue;
         }
     }
 }

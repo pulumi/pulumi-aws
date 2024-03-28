@@ -13,8 +13,10 @@ namespace Pulumi.Aws.VerifiedAccess
     /// Resource for managing an AWS EC2 (Elastic Compute Cloud) Verified Access Endpoint.
     /// 
     /// ## Example Usage
+    /// 
     /// ### ALB Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,12 +30,12 @@ namespace Pulumi.Aws.VerifiedAccess
     ///         ApplicationDomain = "example.com",
     ///         AttachmentType = "vpc",
     ///         Description = "example",
-    ///         DomainCertificateArn = aws_acm_certificate.Example.Arn,
+    ///         DomainCertificateArn = exampleAwsAcmCertificate.Arn,
     ///         EndpointDomainPrefix = "example",
     ///         EndpointType = "load-balancer",
     ///         LoadBalancerOptions = new Aws.VerifiedAccess.Inputs.EndpointLoadBalancerOptionsArgs
     ///         {
-    ///             LoadBalancerArn = aws_lb.Example.Arn,
+    ///             LoadBalancerArn = exampleAwsLb.Arn,
     ///             Port = 443,
     ///             Protocol = "https",
     ///             SubnetIds = .Select(subnet =&gt; 
@@ -43,15 +45,18 @@ namespace Pulumi.Aws.VerifiedAccess
     ///         },
     ///         SecurityGroupIds = new[]
     ///         {
-    ///             aws_security_group.Example.Id,
+    ///             exampleAwsSecurityGroup.Id,
     ///         },
-    ///         VerifiedAccessGroupId = aws_verifiedaccess_group.Example.Id,
+    ///         VerifiedAccessGroupId = exampleAwsVerifiedaccessGroup.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Network Interface Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,33 +70,32 @@ namespace Pulumi.Aws.VerifiedAccess
     ///         ApplicationDomain = "example.com",
     ///         AttachmentType = "vpc",
     ///         Description = "example",
-    ///         DomainCertificateArn = aws_acm_certificate.Example.Arn,
+    ///         DomainCertificateArn = exampleAwsAcmCertificate.Arn,
     ///         EndpointDomainPrefix = "example",
     ///         EndpointType = "network-interface",
     ///         NetworkInterfaceOptions = new Aws.VerifiedAccess.Inputs.EndpointNetworkInterfaceOptionsArgs
     ///         {
-    ///             NetworkInterfaceId = aws_network_interface.Example.Id,
+    ///             NetworkInterfaceId = exampleAwsNetworkInterface.Id,
     ///             Port = 443,
     ///             Protocol = "https",
     ///         },
     ///         SecurityGroupIds = new[]
     ///         {
-    ///             aws_security_group.Example.Id,
+    ///             exampleAwsSecurityGroup.Id,
     ///         },
-    ///         VerifiedAccessGroupId = aws_verifiedaccess_group.Example.Id,
+    ///         VerifiedAccessGroupId = exampleAwsVerifiedaccessGroup.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Verified Access Instances using the
-    /// 
-    /// `id`. For example:
+    /// Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:verifiedaccess/endpoint:Endpoint example vae-8012925589
+    /// $ pulumi import aws:verifiedaccess/endpoint:Endpoint example vae-8012925589
     /// ```
     /// </summary>
     [AwsResourceType("aws:verifiedaccess/endpoint:Endpoint")]
@@ -158,6 +162,12 @@ namespace Pulumi.Aws.VerifiedAccess
         public Output<Outputs.EndpointNetworkInterfaceOptions?> NetworkInterfaceOptions { get; private set; } = null!;
 
         /// <summary>
+        /// The policy document that is associated with this resource.
+        /// </summary>
+        [Output("policyDocument")]
+        public Output<string?> PolicyDocument { get; private set; } = null!;
+
+        /// <summary>
         /// List of the the security groups IDs to associate with the Verified Access endpoint.
         /// </summary>
         [Output("securityGroupIds")]
@@ -212,10 +222,6 @@ namespace Pulumi.Aws.VerifiedAccess
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -286,6 +292,12 @@ namespace Pulumi.Aws.VerifiedAccess
         /// </summary>
         [Input("networkInterfaceOptions")]
         public Input<Inputs.EndpointNetworkInterfaceOptionsArgs>? NetworkInterfaceOptions { get; set; }
+
+        /// <summary>
+        /// The policy document that is associated with this resource.
+        /// </summary>
+        [Input("policyDocument")]
+        public Input<string>? PolicyDocument { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
@@ -393,6 +405,12 @@ namespace Pulumi.Aws.VerifiedAccess
         [Input("networkInterfaceOptions")]
         public Input<Inputs.EndpointNetworkInterfaceOptionsGetArgs>? NetworkInterfaceOptions { get; set; }
 
+        /// <summary>
+        /// The policy document that is associated with this resource.
+        /// </summary>
+        [Input("policyDocument")]
+        public Input<string>? PolicyDocument { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 
@@ -429,11 +447,7 @@ namespace Pulumi.Aws.VerifiedAccess
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

@@ -232,24 +232,28 @@ class ApiCache(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
-        example_api_cache = aws.appsync.ApiCache("exampleApiCache",
-            api_id=example_graph_ql_api.id,
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="API_KEY",
+            name="example")
+        example_api_cache = aws.appsync.ApiCache("example",
+            api_id=example.id,
             api_caching_behavior="FULL_REQUEST_CACHING",
             type="LARGE",
             ttl=900)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appsync_api_cache` using the AppSync API ID. For example:
 
         ```sh
-         $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
+        $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
         ```
 
         :param str resource_name: The name of the resource.
@@ -272,24 +276,28 @@ class ApiCache(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
-        example_api_cache = aws.appsync.ApiCache("exampleApiCache",
-            api_id=example_graph_ql_api.id,
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="API_KEY",
+            name="example")
+        example_api_cache = aws.appsync.ApiCache("example",
+            api_id=example.id,
             api_caching_behavior="FULL_REQUEST_CACHING",
             type="LARGE",
             ttl=900)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appsync_api_cache` using the AppSync API ID. For example:
 
         ```sh
-         $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
+        $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
         ```
 
         :param str resource_name: The name of the resource.

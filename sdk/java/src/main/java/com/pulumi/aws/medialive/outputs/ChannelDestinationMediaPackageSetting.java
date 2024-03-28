@@ -4,6 +4,7 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class ChannelDestinationMediaPackageSetting {
 
         @CustomType.Setter
         public Builder channelId(String channelId) {
-            this.channelId = Objects.requireNonNull(channelId);
+            if (channelId == null) {
+              throw new MissingRequiredPropertyException("ChannelDestinationMediaPackageSetting", "channelId");
+            }
+            this.channelId = channelId;
             return this;
         }
         public ChannelDestinationMediaPackageSetting build() {
-            final var o = new ChannelDestinationMediaPackageSetting();
-            o.channelId = channelId;
-            return o;
+            final var _resultValue = new ChannelDestinationMediaPackageSetting();
+            _resultValue.channelId = channelId;
+            return _resultValue;
         }
     }
 }

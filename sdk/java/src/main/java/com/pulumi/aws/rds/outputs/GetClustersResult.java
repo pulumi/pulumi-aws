@@ -5,6 +5,7 @@ package com.pulumi.aws.rds.outputs;
 
 import com.pulumi.aws.rds.outputs.GetClustersFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -79,7 +80,10 @@ public final class GetClustersResult {
 
         @CustomType.Setter
         public Builder clusterArns(List<String> clusterArns) {
-            this.clusterArns = Objects.requireNonNull(clusterArns);
+            if (clusterArns == null) {
+              throw new MissingRequiredPropertyException("GetClustersResult", "clusterArns");
+            }
+            this.clusterArns = clusterArns;
             return this;
         }
         public Builder clusterArns(String... clusterArns) {
@@ -87,7 +91,10 @@ public final class GetClustersResult {
         }
         @CustomType.Setter
         public Builder clusterIdentifiers(List<String> clusterIdentifiers) {
-            this.clusterIdentifiers = Objects.requireNonNull(clusterIdentifiers);
+            if (clusterIdentifiers == null) {
+              throw new MissingRequiredPropertyException("GetClustersResult", "clusterIdentifiers");
+            }
+            this.clusterIdentifiers = clusterIdentifiers;
             return this;
         }
         public Builder clusterIdentifiers(String... clusterIdentifiers) {
@@ -95,6 +102,7 @@ public final class GetClustersResult {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetClustersFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -103,16 +111,19 @@ public final class GetClustersResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetClustersResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetClustersResult build() {
-            final var o = new GetClustersResult();
-            o.clusterArns = clusterArns;
-            o.clusterIdentifiers = clusterIdentifiers;
-            o.filters = filters;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetClustersResult();
+            _resultValue.clusterArns = clusterArns;
+            _resultValue.clusterIdentifiers = clusterIdentifiers;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

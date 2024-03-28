@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,20 +25,20 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var test = new Aws.Ec2.NetworkInterface("test", new()
     ///     {
-    ///         SubnetId = aws_subnet.Public_a.Id,
+    ///         SubnetId = publicA.Id,
     ///         PrivateIps = new[]
     ///         {
     ///             "10.0.0.50",
     ///         },
     ///         SecurityGroups = new[]
     ///         {
-    ///             aws_security_group.Web.Id,
+    ///             web.Id,
     ///         },
     ///         Attachments = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.NetworkInterfaceAttachmentArgs
     ///             {
-    ///                 Instance = aws_instance.Test.Id,
+    ///                 Instance = testAwsInstance.Id,
     ///                 DeviceIndex = 1,
     ///             },
     ///         },
@@ -45,6 +46,8 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example of Managing Multiple IPs on a Network Interface
     /// 
     /// By default, private IPs are managed through the `private_ips` and `private_ips_count` arguments which manage IPs as a set of IPs that are configured without regard to order. For a new network interface, the same primary IP address is consistently selected from a given set of addresses, regardless of the order provided. However, modifications of the set of addresses of an existing interface will not alter the current primary IP address unless it has been removed from the set.
@@ -67,7 +70,7 @@ namespace Pulumi.Aws.Ec2
     /// Using `pulumi import`, import Network Interfaces using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
+    /// $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/networkInterface:NetworkInterface")]
@@ -248,10 +251,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -666,11 +665,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public NetworkInterfaceState()

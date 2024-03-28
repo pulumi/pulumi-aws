@@ -11,8 +11,10 @@ namespace Pulumi.Aws.RedShift
 {
     /// <summary>
     /// ## Example Usage
+    /// 
     /// ### Pause Cluster Action
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,12 +49,13 @@ namespace Pulumi.Aws.RedShift
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "redshift_scheduled_action",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -73,19 +76,21 @@ namespace Pulumi.Aws.RedShift
     ///         },
     ///     });
     /// 
-    ///     var examplePolicy = new Aws.Iam.Policy("examplePolicy", new()
+    ///     var examplePolicy = new Aws.Iam.Policy("example", new()
     ///     {
-    ///         PolicyDocument = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "redshift_scheduled_action",
+    ///         PolicyDocument = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new()
+    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("example", new()
     ///     {
     ///         PolicyArn = examplePolicy.Arn,
     ///         Role = exampleRole.Name,
     ///     });
     /// 
-    ///     var exampleScheduledAction = new Aws.RedShift.ScheduledAction("exampleScheduledAction", new()
+    ///     var exampleScheduledAction = new Aws.RedShift.ScheduledAction("example", new()
     ///     {
+    ///         Name = "tf-redshift-scheduled-action",
     ///         Schedule = "cron(00 23 * * ? *)",
     ///         IamRole = exampleRole.Arn,
     ///         TargetAction = new Aws.RedShift.Inputs.ScheduledActionTargetActionArgs
@@ -99,8 +104,11 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Resize Cluster Action
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -111,8 +119,9 @@ namespace Pulumi.Aws.RedShift
     /// {
     ///     var example = new Aws.RedShift.ScheduledAction("example", new()
     ///     {
+    ///         Name = "tf-redshift-scheduled-action",
     ///         Schedule = "cron(00 23 * * ? *)",
-    ///         IamRole = aws_iam_role.Example.Arn,
+    ///         IamRole = exampleAwsIamRole.Arn,
     ///         TargetAction = new Aws.RedShift.Inputs.ScheduledActionTargetActionArgs
     ///         {
     ///             ResizeCluster = new Aws.RedShift.Inputs.ScheduledActionTargetActionResizeClusterArgs
@@ -127,13 +136,14 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Scheduled Action using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
+    /// $ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/scheduledAction:ScheduledAction")]

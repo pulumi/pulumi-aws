@@ -367,16 +367,64 @@ class ConnectAttachment(pulumi.CustomResource):
                  transport_attachment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS NetworkManager ConnectAttachment.
+        Resource for managing an AWS Network Manager ConnectAttachment.
 
         ## Example Usage
+
+        ### Basic Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkmanager.VpcAttachment("example",
+            subnet_arns=[__item["arn"] for __item in example_aws_subnet],
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            vpc_arn=example_aws_vpc["arn"])
+        example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            transport_attachment_id=example.id,
+            edge_location=example.edge_location,
+            options=aws.networkmanager.ConnectAttachmentOptionsArgs(
+                protocol="GRE",
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### Usage with attachment accepter
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkmanager.VpcAttachment("example",
+            subnet_arns=[__item["arn"] for __item in example_aws_subnet],
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            vpc_arn=example_aws_vpc["arn"])
+        example_attachment_accepter = aws.networkmanager.AttachmentAccepter("example",
+            attachment_id=example.id,
+            attachment_type=example.attachment_type)
+        example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            transport_attachment_id=example.id,
+            edge_location=example.edge_location,
+            options=aws.networkmanager.ConnectAttachmentOptionsArgs(
+                protocol="GRE",
+            ))
+        example2 = aws.networkmanager.AttachmentAccepter("example2",
+            attachment_id=example_connect_attachment.id,
+            attachment_type=example_connect_attachment.attachment_type)
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_connect_attachment` using the attachment ID. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
+        $ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
         ```
 
         :param str resource_name: The name of the resource.
@@ -396,16 +444,64 @@ class ConnectAttachment(pulumi.CustomResource):
                  args: ConnectAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS NetworkManager ConnectAttachment.
+        Resource for managing an AWS Network Manager ConnectAttachment.
 
         ## Example Usage
+
+        ### Basic Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkmanager.VpcAttachment("example",
+            subnet_arns=[__item["arn"] for __item in example_aws_subnet],
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            vpc_arn=example_aws_vpc["arn"])
+        example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            transport_attachment_id=example.id,
+            edge_location=example.edge_location,
+            options=aws.networkmanager.ConnectAttachmentOptionsArgs(
+                protocol="GRE",
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### Usage with attachment accepter
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkmanager.VpcAttachment("example",
+            subnet_arns=[__item["arn"] for __item in example_aws_subnet],
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            vpc_arn=example_aws_vpc["arn"])
+        example_attachment_accepter = aws.networkmanager.AttachmentAccepter("example",
+            attachment_id=example.id,
+            attachment_type=example.attachment_type)
+        example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            transport_attachment_id=example.id,
+            edge_location=example.edge_location,
+            options=aws.networkmanager.ConnectAttachmentOptionsArgs(
+                protocol="GRE",
+            ))
+        example2 = aws.networkmanager.AttachmentAccepter("example2",
+            attachment_id=example_connect_attachment.id,
+            attachment_type=example_connect_attachment.attachment_type)
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_connect_attachment` using the attachment ID. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
+        $ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
         ```
 
         :param str resource_name: The name of the resource.
@@ -460,8 +556,6 @@ class ConnectAttachment(pulumi.CustomResource):
             __props__.__dict__["segment_name"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ConnectAttachment, __self__).__init__(
             'aws:networkmanager/connectAttachment:ConnectAttachment',
             resource_name,

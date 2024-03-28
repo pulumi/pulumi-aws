@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Inspector
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,18 +34,20 @@ namespace Pulumi.Aws.Inspector
     /// 
     ///     var foo = new Aws.Inspector.AssessmentTarget("foo", new()
     ///     {
+    ///         Name = "assessment target",
     ///         ResourceGroupArn = bar.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Inspector Classic Assessment Targets using their Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
+    /// $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
     /// ```
     /// </summary>
     [AwsResourceType("aws:inspector/assessmentTarget:AssessmentTarget")]

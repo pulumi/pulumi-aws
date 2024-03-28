@@ -201,11 +201,12 @@ class Response(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.apigateway.RestApi("main")
+        main = aws.apigateway.RestApi("main", name="MyDemoAPI")
         test = aws.apigateway.Response("test",
             rest_api_id=main.id,
             status_code="401",
@@ -217,13 +218,14 @@ class Response(pulumi.CustomResource):
                 "gatewayresponse.header.Authorization": "'Basic'",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
+        $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
         ```
 
         :param str resource_name: The name of the resource.
@@ -245,11 +247,12 @@ class Response(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.apigateway.RestApi("main")
+        main = aws.apigateway.RestApi("main", name="MyDemoAPI")
         test = aws.apigateway.Response("test",
             rest_api_id=main.id,
             status_code="401",
@@ -261,13 +264,14 @@ class Response(pulumi.CustomResource):
                 "gatewayresponse.header.Authorization": "'Basic'",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
+        $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
         ```
 
         :param str resource_name: The name of the resource.

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,13 +28,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleIndex, err := resourceexplorer.NewIndex(ctx, "exampleIndex", &resourceexplorer.IndexArgs{
+//			_, err := resourceexplorer.NewIndex(ctx, "example", &resourceexplorer.IndexArgs{
 //				Type: pulumi.String("LOCAL"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = resourceexplorer.NewView(ctx, "exampleView", &resourceexplorer.ViewArgs{
+//			_, err = resourceexplorer.NewView(ctx, "example", &resourceexplorer.ViewArgs{
+//				Name: pulumi.String("exampleview"),
 //				Filters: &resourceexplorer.ViewFiltersArgs{
 //					FilterString: pulumi.String("resourcetype:ec2:instance"),
 //				},
@@ -42,9 +44,7 @@ import (
 //						Name: pulumi.String("tags"),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleIndex,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -53,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Resource Explorer views using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:resourceexplorer/view:View example arn:aws:resource-explorer-2:us-west-2:123456789012:view/exampleview/e0914f6c-6c27-4b47-b5d4-6b28381a2421
-//
+// $ pulumi import aws:resourceexplorer/view:View example arn:aws:resource-explorer-2:us-west-2:123456789012:view/exampleview/e0914f6c-6c27-4b47-b5d4-6b28381a2421
 // ```
 type View struct {
 	pulumi.CustomResourceState
@@ -91,10 +90,6 @@ func NewView(ctx *pulumi.Context,
 		args = &ViewArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource View
 	err := ctx.RegisterResource("aws:resourceexplorer/view:View", name, args, &resource, opts...)

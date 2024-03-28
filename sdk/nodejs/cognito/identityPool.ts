@@ -12,12 +12,18 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const _default = new aws.iam.SamlProvider("default", {samlMetadataDocument: fs.readFileSync("saml-metadata.xml")});
+ * const _default = new aws.iam.SamlProvider("default", {
+ *     name: "my-saml-provider",
+ *     samlMetadataDocument: std.file({
+ *         input: "saml-metadata.xml",
+ *     }).then(invoke => invoke.result),
+ * });
  * const main = new aws.cognito.IdentityPool("main", {
  *     identityPoolName: "identity pool",
  *     allowUnauthenticatedIdentities: false,
@@ -42,13 +48,14 @@ import * as utilities from "../utilities";
  *     openidConnectProviderArns: ["arn:aws:iam::123456789012:oidc-provider/id.example.com"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Cognito Identity Pool using its ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3
+ * $ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3
  * ```
  */
 export class IdentityPool extends pulumi.CustomResource {
@@ -169,8 +176,6 @@ export class IdentityPool extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(IdentityPool.__pulumiType, name, resourceInputs, opts);
     }
 }

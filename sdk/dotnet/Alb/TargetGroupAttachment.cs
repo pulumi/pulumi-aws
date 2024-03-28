@@ -15,8 +15,10 @@ namespace Pulumi.Aws.Alb
     /// &gt; **Note:** `aws.alb.TargetGroupAttachment` is known as `aws.lb.TargetGroupAttachment`. The functionality is identical.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,13 +27,11 @@ namespace Pulumi.Aws.Alb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testTargetGroup = new Aws.LB.TargetGroup("testTargetGroup");
+    ///     var testTargetGroup = new Aws.LB.TargetGroup("test");
     /// 
-    ///     // ... other configuration ...
-    ///     var testInstance = new Aws.Ec2.Instance("testInstance");
+    ///     var testInstance = new Aws.Ec2.Instance("test");
     /// 
-    ///     // ... other configuration ...
-    ///     var testTargetGroupAttachment = new Aws.LB.TargetGroupAttachment("testTargetGroupAttachment", new()
+    ///     var test = new Aws.LB.TargetGroupAttachment("test", new()
     ///     {
     ///         TargetGroupArn = testTargetGroup.Arn,
     ///         TargetId = testInstance.Id,
@@ -40,8 +40,11 @@ namespace Pulumi.Aws.Alb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Lambda Target
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,38 +53,36 @@ namespace Pulumi.Aws.Alb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testTargetGroup = new Aws.LB.TargetGroup("testTargetGroup", new()
+    ///     var test = new Aws.LB.TargetGroup("test", new()
     ///     {
+    ///         Name = "test",
     ///         TargetType = "lambda",
     ///     });
     /// 
-    ///     var testFunction = new Aws.Lambda.Function("testFunction");
+    ///     var testFunction = new Aws.Lambda.Function("test");
     /// 
-    ///     // ... other configuration ...
-    ///     var withLb = new Aws.Lambda.Permission("withLb", new()
+    ///     var withLb = new Aws.Lambda.Permission("with_lb", new()
     ///     {
+    ///         StatementId = "AllowExecutionFromlb",
     ///         Action = "lambda:InvokeFunction",
     ///         Function = testFunction.Name,
     ///         Principal = "elasticloadbalancing.amazonaws.com",
-    ///         SourceArn = testTargetGroup.Arn,
+    ///         SourceArn = test.Arn,
     ///     });
     /// 
-    ///     var testTargetGroupAttachment = new Aws.LB.TargetGroupAttachment("testTargetGroupAttachment", new()
+    ///     var testTargetGroupAttachment = new Aws.LB.TargetGroupAttachment("test", new()
     ///     {
-    ///         TargetGroupArn = testTargetGroup.Arn,
+    ///         TargetGroupArn = test.Arn,
     ///         TargetId = testFunction.Arn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             withLb,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Registering Multiple Targets
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -90,22 +91,20 @@ namespace Pulumi.Aws.Alb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleInstance = new List&lt;Aws.Ec2.Instance&gt;();
+    ///     var example = new List&lt;Aws.Ec2.Instance&gt;();
     ///     for (var rangeIndex = 0; rangeIndex &lt; 3; rangeIndex++)
     ///     {
     ///         var range = new { Value = rangeIndex };
-    ///         exampleInstance.Add(new Aws.Ec2.Instance($"exampleInstance-{range.Value}", new()
+    ///         example.Add(new Aws.Ec2.Instance($"example-{range.Value}", new()
     ///         {
     ///         }));
     ///     }
-    ///     // ... other configuration ...
-    ///     var exampleTargetGroup = new Aws.LB.TargetGroup("exampleTargetGroup");
+    ///     var exampleTargetGroup = new Aws.LB.TargetGroup("example");
     /// 
-    ///     // ... other configuration ...
     ///     var exampleTargetGroupAttachment = new List&lt;Aws.LB.TargetGroupAttachment&gt;();
-    ///     foreach (var range in exampleInstance.Select((value, i) =&gt; new { Key = i.ToString(), Value = pair.Value }).Select(pair =&gt; new { pair.Key, pair.Value }))
+    ///     foreach (var range in example.Select((value, i) =&gt; new { Key = i.ToString(), Value = pair.Value }).Select(pair =&gt; new { pair.Key, pair.Value }))
     ///     {
-    ///         exampleTargetGroupAttachment.Add(new Aws.LB.TargetGroupAttachment($"exampleTargetGroupAttachment-{range.Key}", new()
+    ///         exampleTargetGroupAttachment.Add(new Aws.LB.TargetGroupAttachment($"example-{range.Key}", new()
     ///         {
     ///             TargetGroupArn = exampleTargetGroup.Arn,
     ///             TargetId = range.Value.Id,
@@ -114,6 +113,7 @@ namespace Pulumi.Aws.Alb
     ///     }
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.Alb
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:applicationloadbalancing/targetGroupAttachment:TargetGroupAttachment"},
+                    new global::Pulumi.Alias { Type = "aws:applicationloadbalancing/targetGroupAttachment:TargetGroupAttachment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

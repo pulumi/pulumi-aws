@@ -13,8 +13,10 @@ namespace Pulumi.Aws.CodeCatalyst
     /// Resource for managing an AWS CodeCatalyst Project.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,20 +27,21 @@ namespace Pulumi.Aws.CodeCatalyst
     /// {
     ///     var test = new Aws.CodeCatalyst.Project("test", new()
     ///     {
-    ///         Description = "My CodeCatalyst Project created using Pulumi",
-    ///         DisplayName = "MyProject",
     ///         SpaceName = "myproject",
+    ///         DisplayName = "MyProject",
+    ///         Description = "My CodeCatalyst Project created using Pulumi",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CodeCatalyst Project using the `example_id_arg`. For example:
+    /// Using `pulumi import`, import CodeCatalyst Project using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:codecatalyst/project:Project example project-id-12345678
+    /// $ pulumi import aws:codecatalyst/project:Project example project-id-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:codecatalyst/project:Project")]

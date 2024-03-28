@@ -14,8 +14,10 @@ import (
 // Manages an AWS Config Configuration Aggregator
 //
 // ## Example Usage
+//
 // ### Account Based Aggregation
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cfg.NewConfigurationAggregator(ctx, "account", &cfg.ConfigurationAggregatorArgs{
+//				Name: pulumi.String("example"),
 //				AccountAggregationSource: &cfg.ConfigurationAggregatorAccountAggregationSourceArgs{
 //					AccountIds: pulumi.StringArray{
 //						pulumi.String("123456789012"),
@@ -46,8 +49,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Organization Based Aggregation
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -82,27 +88,27 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			organizationRole, err := iam.NewRole(ctx, "organizationRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//			organizationRole, err := iam.NewRole(ctx, "organization", &iam.RoleArgs{
+//				Name:             pulumi.String("example"),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			organizationRolePolicyAttachment, err := iam.NewRolePolicyAttachment(ctx, "organizationRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-//				Role:      organizationRole.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cfg.NewConfigurationAggregator(ctx, "organizationConfigurationAggregator", &cfg.ConfigurationAggregatorArgs{
+//			_, err = cfg.NewConfigurationAggregator(ctx, "organization", &cfg.ConfigurationAggregatorArgs{
+//				Name: pulumi.String("example"),
 //				OrganizationAggregationSource: &cfg.ConfigurationAggregatorOrganizationAggregationSourceArgs{
 //					AllRegions: pulumi.Bool(true),
 //					RoleArn:    organizationRole.Arn,
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				organizationRolePolicyAttachment,
-//			}))
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicyAttachment(ctx, "organization", &iam.RolePolicyAttachmentArgs{
+//				Role:      organizationRole.Name,
+//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -111,15 +117,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Configuration Aggregators using the name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
-//
+// $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
 // ```
 type ConfigurationAggregator struct {
 	pulumi.CustomResourceState
@@ -149,10 +154,6 @@ func NewConfigurationAggregator(ctx *pulumi.Context,
 		args = &ConfigurationAggregatorArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfigurationAggregator
 	err := ctx.RegisterResource("aws:cfg/configurationAggregator:ConfigurationAggregator", name, args, &resource, opts...)

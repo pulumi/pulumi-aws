@@ -106,37 +106,42 @@ public final class RouteSpec {
 
         @CustomType.Setter
         public Builder grpcRoute(@Nullable RouteSpecGrpcRoute grpcRoute) {
+
             this.grpcRoute = grpcRoute;
             return this;
         }
         @CustomType.Setter
         public Builder http2Route(@Nullable RouteSpecHttp2Route http2Route) {
+
             this.http2Route = http2Route;
             return this;
         }
         @CustomType.Setter
         public Builder httpRoute(@Nullable RouteSpecHttpRoute httpRoute) {
+
             this.httpRoute = httpRoute;
             return this;
         }
         @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
+
             this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder tcpRoute(@Nullable RouteSpecTcpRoute tcpRoute) {
+
             this.tcpRoute = tcpRoute;
             return this;
         }
         public RouteSpec build() {
-            final var o = new RouteSpec();
-            o.grpcRoute = grpcRoute;
-            o.http2Route = http2Route;
-            o.httpRoute = httpRoute;
-            o.priority = priority;
-            o.tcpRoute = tcpRoute;
-            return o;
+            final var _resultValue = new RouteSpec();
+            _resultValue.grpcRoute = grpcRoute;
+            _resultValue.http2Route = http2Route;
+            _resultValue.httpRoute = httpRoute;
+            _resultValue.priority = priority;
+            _resultValue.tcpRoute = tcpRoute;
+            return _resultValue;
         }
     }
 }

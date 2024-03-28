@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,28 +23,29 @@ import * as utilities from "../utilities";
  *     replicationConfigIdentifier: "test-dms-serverless-replication-tf",
  *     resourceIdentifier: "test-dms-serverless-replication-tf",
  *     replicationType: "cdc",
- *     sourceEndpointArn: aws_dms_endpoint.source.endpoint_arn,
- *     targetEndpointArn: aws_dms_endpoint.target.endpoint_arn,
+ *     sourceEndpointArn: source.endpointArn,
+ *     targetEndpointArn: target.endpointArn,
  *     tableMappings: `  {
- *     "rules":[{"rule-type":"selection","rule-id":"1","rule-name":"1","object-locator":{"schema-name":"%%","table-name":"%%", "rule-action":"include"}]
+ *     "rules":[{"rule-type":"selection","rule-id":"1","rule-name":"1","rule-action":"include","object-locator":{"schema-name":"%%","table-name":"%%"}}]
  *   }
  * `,
  *     startReplication: true,
  *     computeConfig: {
- *         replicationSubnetGroupId: aws_dms_replication_subnet_group["default"].replication_subnet_group_id,
+ *         replicationSubnetGroupId: _default.replicationSubnetGroupId,
  *         maxCapacityUnits: 64,
  *         minCapacityUnits: 2,
  *         preferredMaintenanceWindow: "sun:23:45-mon:00:30",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a replication config using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:dms/replicationConfig:ReplicationConfig example arn:aws:dms:us-east-1:123456789012:replication-config:UX6OL6MHMMJKFFOXE3H7LLJCMEKBDUG4ZV7DRSI
+ * $ pulumi import aws:dms/replicationConfig:ReplicationConfig example arn:aws:dms:us-east-1:123456789012:replication-config:UX6OL6MHMMJKFFOXE3H7LLJCMEKBDUG4ZV7DRSI
  * ```
  */
 export class ReplicationConfig extends pulumi.CustomResource {
@@ -190,8 +192,6 @@ export class ReplicationConfig extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ReplicationConfig.__pulumiType, name, resourceInputs, opts);
     }
 }

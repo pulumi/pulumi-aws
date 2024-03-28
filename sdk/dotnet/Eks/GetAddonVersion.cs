@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -26,35 +25,34 @@ namespace Pulumi.Aws.Eks
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var defaultAddonVersion = Aws.Eks.GetAddonVersion.Invoke(new()
+        ///     var @default = Aws.Eks.GetAddonVersion.Invoke(new()
         ///     {
         ///         AddonName = "vpc-cni",
-        ///         KubernetesVersion = aws_eks_cluster.Example.Version,
+        ///         KubernetesVersion = example.Version,
         ///     });
         /// 
-        ///     var latestAddonVersion = Aws.Eks.GetAddonVersion.Invoke(new()
+        ///     var latest = Aws.Eks.GetAddonVersion.Invoke(new()
         ///     {
         ///         AddonName = "vpc-cni",
-        ///         KubernetesVersion = aws_eks_cluster.Example.Version,
+        ///         KubernetesVersion = example.Version,
         ///         MostRecent = true,
         ///     });
         /// 
-        ///     var vpcCni = new Aws.Eks.Addon("vpcCni", new()
+        ///     var vpcCni = new Aws.Eks.Addon("vpc_cni", new()
         ///     {
-        ///         ClusterName = aws_eks_cluster.Example.Name,
+        ///         ClusterName = example.Name,
         ///         AddonName = "vpc-cni",
-        ///         AddonVersion = latestAddonVersion.Apply(getAddonVersionResult =&gt; getAddonVersionResult.Version),
+        ///         AddonVersion = latest.Apply(getAddonVersionResult =&gt; getAddonVersionResult.Version),
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["default"] = defaultAddonVersion.Apply(getAddonVersionResult =&gt; getAddonVersionResult.Version),
-        ///         ["latest"] = latestAddonVersion.Apply(getAddonVersionResult =&gt; getAddonVersionResult.Version),
+        ///         ["default"] = @default.Apply(@default =&gt; @default.Apply(getAddonVersionResult =&gt; getAddonVersionResult.Version)),
+        ///         ["latest"] = latest.Apply(getAddonVersionResult =&gt; getAddonVersionResult.Version),
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAddonVersionResult> InvokeAsync(GetAddonVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAddonVersionResult>("aws:eks/getAddonVersion:getAddonVersion", args ?? new GetAddonVersionArgs(), options.WithDefaults());
@@ -62,10 +60,9 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -74,35 +71,34 @@ namespace Pulumi.Aws.Eks
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var defaultAddonVersion = Aws.Eks.GetAddonVersion.Invoke(new()
+        ///     var @default = Aws.Eks.GetAddonVersion.Invoke(new()
         ///     {
         ///         AddonName = "vpc-cni",
-        ///         KubernetesVersion = aws_eks_cluster.Example.Version,
+        ///         KubernetesVersion = example.Version,
         ///     });
         /// 
-        ///     var latestAddonVersion = Aws.Eks.GetAddonVersion.Invoke(new()
+        ///     var latest = Aws.Eks.GetAddonVersion.Invoke(new()
         ///     {
         ///         AddonName = "vpc-cni",
-        ///         KubernetesVersion = aws_eks_cluster.Example.Version,
+        ///         KubernetesVersion = example.Version,
         ///         MostRecent = true,
         ///     });
         /// 
-        ///     var vpcCni = new Aws.Eks.Addon("vpcCni", new()
+        ///     var vpcCni = new Aws.Eks.Addon("vpc_cni", new()
         ///     {
-        ///         ClusterName = aws_eks_cluster.Example.Name,
+        ///         ClusterName = example.Name,
         ///         AddonName = "vpc-cni",
-        ///         AddonVersion = latestAddonVersion.Apply(getAddonVersionResult =&gt; getAddonVersionResult.Version),
+        ///         AddonVersion = latest.Apply(getAddonVersionResult =&gt; getAddonVersionResult.Version),
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["default"] = defaultAddonVersion.Apply(getAddonVersionResult =&gt; getAddonVersionResult.Version),
-        ///         ["latest"] = latestAddonVersion.Apply(getAddonVersionResult =&gt; getAddonVersionResult.Version),
+        ///         ["default"] = @default.Apply(@default =&gt; @default.Apply(getAddonVersionResult =&gt; getAddonVersionResult.Version)),
+        ///         ["latest"] = latest.Apply(getAddonVersionResult =&gt; getAddonVersionResult.Version),
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAddonVersionResult> Invoke(GetAddonVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAddonVersionResult>("aws:eks/getAddonVersion:getAddonVersion", args ?? new GetAddonVersionInvokeArgs(), options.WithDefaults());

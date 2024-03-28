@@ -22,6 +22,7 @@ import * as utilities from "../utilities";
  *
  * The following config gives the default security group the same rules that AWS provides by default but under management by this provider. This means that any ingress or egress rules added or changed will be detected as drift.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -43,10 +44,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example Config To Deny All Egress Traffic, Allowing Ingress
  *
  * The following denies all Egress traffic by omitting any `egress` rules, while including the default `ingress` rule to allow all traffic.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -62,6 +66,8 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Removing `aws.ec2.DefaultSecurityGroup` From Your Configuration
  *
  * Removing this resource from your configuration will remove it from your statefile and management, but will not destroy the Security Group. All ingress or egress rules will be left as they are at the time of removal. You can resume managing them via the AWS Console.
@@ -71,7 +77,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import Security Groups using the security group `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/defaultSecurityGroup:DefaultSecurityGroup default_sg sg-903004f8
+ * $ pulumi import aws:ec2/defaultSecurityGroup:DefaultSecurityGroup default_sg sg-903004f8
  * ```
  */
 export class DefaultSecurityGroup extends pulumi.CustomResource {
@@ -182,8 +188,6 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(DefaultSecurityGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.route53recoverycontrol.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -72,25 +73,34 @@ public final class SafetyRuleRuleConfig {
 
         @CustomType.Setter
         public Builder inverted(Boolean inverted) {
-            this.inverted = Objects.requireNonNull(inverted);
+            if (inverted == null) {
+              throw new MissingRequiredPropertyException("SafetyRuleRuleConfig", "inverted");
+            }
+            this.inverted = inverted;
             return this;
         }
         @CustomType.Setter
         public Builder threshold(Integer threshold) {
-            this.threshold = Objects.requireNonNull(threshold);
+            if (threshold == null) {
+              throw new MissingRequiredPropertyException("SafetyRuleRuleConfig", "threshold");
+            }
+            this.threshold = threshold;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("SafetyRuleRuleConfig", "type");
+            }
+            this.type = type;
             return this;
         }
         public SafetyRuleRuleConfig build() {
-            final var o = new SafetyRuleRuleConfig();
-            o.inverted = inverted;
-            o.threshold = threshold;
-            o.type = type;
-            return o;
+            final var _resultValue = new SafetyRuleRuleConfig();
+            _resultValue.inverted = inverted;
+            _resultValue.threshold = threshold;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

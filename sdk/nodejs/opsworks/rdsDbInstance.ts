@@ -9,17 +9,19 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myInstance = new aws.opsworks.RdsDbInstance("myInstance", {
- *     stackId: aws_opsworks_stack.my_stack.id,
- *     rdsDbInstanceArn: aws_db_instance.my_instance.arn,
+ * const myInstance = new aws.opsworks.RdsDbInstance("my_instance", {
+ *     stackId: myStack.id,
+ *     rdsDbInstanceArn: myInstanceAwsDbInstance.arn,
  *     dbUser: "someUser",
  *     dbPassword: "somePass",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class RdsDbInstance extends pulumi.CustomResource {
     /**

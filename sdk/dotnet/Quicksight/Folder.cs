@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Quicksight
     /// Resource for managing a QuickSight Folder.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,12 +28,16 @@ namespace Pulumi.Aws.Quicksight
     ///     var example = new Aws.Quicksight.Folder("example", new()
     ///     {
     ///         FolderId = "example-id",
+    ///         Name = "example-name",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Permissions
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,6 +49,7 @@ namespace Pulumi.Aws.Quicksight
     ///     var example = new Aws.Quicksight.Folder("example", new()
     ///     {
     ///         FolderId = "example-id",
+    ///         Name = "example-name",
     ///         Permissions = new[]
     ///         {
     ///             new Aws.Quicksight.Inputs.FolderPermissionArgs
@@ -58,15 +65,18 @@ namespace Pulumi.Aws.Quicksight
     ///                     "quicksight:DescribeFolderPermissions",
     ///                     "quicksight:UpdateFolderPermissions",
     ///                 },
-    ///                 Principal = aws_quicksight_user.Example.Arn,
+    ///                 Principal = exampleAwsQuicksightUser.Arn,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Parent Folder
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -78,23 +88,26 @@ namespace Pulumi.Aws.Quicksight
     ///     var parent = new Aws.Quicksight.Folder("parent", new()
     ///     {
     ///         FolderId = "parent-id",
+    ///         Name = "parent-name",
     ///     });
     /// 
     ///     var example = new Aws.Quicksight.Folder("example", new()
     ///     {
     ///         FolderId = "example-id",
+    ///         Name = "example-name",
     ///         ParentFolderArn = parent.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a QuickSight folder using the AWS account ID and folder ID name separated by a comma (`,`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
+    /// $ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:quicksight/folder:Folder")]
@@ -197,10 +210,6 @@ namespace Pulumi.Aws.Quicksight
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -384,11 +393,7 @@ namespace Pulumi.Aws.Quicksight
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public FolderState()

@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides a SSM resource data sync.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -25,6 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
@@ -45,9 +48,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var hogeBucketV2 = new BucketV2(&#34;hogeBucketV2&#34;);
+ *         var hogeBucketV2 = new BucketV2(&#34;hogeBucketV2&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;tf-test-bucket-1234&#34;)
+ *             .build());
  * 
- *         final var hogePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var hoge = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .sid(&#34;SSMBucketPermissionsCheck&#34;)
@@ -78,10 +83,11 @@ import javax.annotation.Nullable;
  * 
  *         var hogeBucketPolicy = new BucketPolicy(&#34;hogeBucketPolicy&#34;, BucketPolicyArgs.builder()        
  *             .bucket(hogeBucketV2.id())
- *             .policy(hogePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(hoge.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var foo = new ResourceDataSync(&#34;foo&#34;, ResourceDataSyncArgs.builder()        
+ *             .name(&#34;foo&#34;)
  *             .s3Destination(ResourceDataSyncS3DestinationArgs.builder()
  *                 .bucketName(hogeBucketV2.bucket())
  *                 .region(hogeBucketV2.region())
@@ -91,13 +97,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SSM resource data sync using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
+ * $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
  * ```
  * 
  */

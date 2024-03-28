@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -24,6 +23,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Deleting this resource is equivalent to &#34;disabling&#34; GuardDuty for an AWS region, which removes all existing findings. You can set the `enable` attribute to `false` to instead &#34;suspend&#34; monitoring and feedback reporting while keeping existing data. See the [Suspending or Disabling Amazon GuardDuty documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_suspend-disable.html) for more information.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -33,12 +34,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.guardduty.Detector;
  * import com.pulumi.aws.guardduty.DetectorArgs;
  * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesArgs;
+ * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesS3LogsArgs;
  * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesKubernetesArgs;
  * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesKubernetesAuditLogsArgs;
  * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesMalwareProtectionArgs;
  * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs;
  * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs;
- * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesS3LogsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,7 +54,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myDetector = new Detector(&#34;myDetector&#34;, DetectorArgs.builder()        
+ *             .enable(true)
  *             .datasources(DetectorDatasourcesArgs.builder()
+ *                 .s3Logs(DetectorDatasourcesS3LogsArgs.builder()
+ *                     .enable(true)
+ *                     .build())
  *                 .kubernetes(DetectorDatasourcesKubernetesArgs.builder()
  *                     .auditLogs(DetectorDatasourcesKubernetesAuditLogsArgs.builder()
  *                         .enable(false)
@@ -66,25 +71,22 @@ import javax.annotation.Nullable;
  *                             .build())
  *                         .build())
  *                     .build())
- *                 .s3Logs(DetectorDatasourcesS3LogsArgs.builder()
- *                     .enable(true)
- *                     .build())
  *                 .build())
- *             .enable(true)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import GuardDuty detectors using the detector ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:guardduty/detector:Detector MyDetector 00b00fd5aecc0ab60a708659477e9617
+ * $ pulumi import aws:guardduty/detector:Detector MyDetector 00b00fd5aecc0ab60a708659477e9617
  * ```
- *  The ID of the detector can be retrieved via the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/list-detectors.html) using `aws guardduty list-detectors`.
+ * The ID of the detector can be retrieved via the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/list-detectors.html) using `aws guardduty list-detectors`.
  * 
  */
 @ResourceType(type="aws:guardduty/detector:Detector")
@@ -224,9 +226,6 @@ public class Detector extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

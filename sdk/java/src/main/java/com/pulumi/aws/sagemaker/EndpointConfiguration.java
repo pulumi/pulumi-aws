@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * Basic usage:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,9 +51,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ec = new EndpointConfiguration(&#34;ec&#34;, EndpointConfigurationArgs.builder()        
+ *             .name(&#34;my-endpoint-config&#34;)
  *             .productionVariants(EndpointConfigurationProductionVariantArgs.builder()
  *                 .variantName(&#34;variant-1&#34;)
- *                 .modelName(aws_sagemaker_model.m().name())
+ *                 .modelName(m.name())
  *                 .initialInstanceCount(1)
  *                 .instanceType(&#34;ml.t2.medium&#34;)
  *                 .build())
@@ -61,13 +64,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import endpoint configurations using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
+ * $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
  * ```
  * 
  */
@@ -172,14 +176,14 @@ public class EndpointConfiguration extends com.pulumi.resources.CustomResource {
         return this.productionVariants;
     }
     /**
-     * Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+     * Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
      * 
      */
     @Export(name="shadowProductionVariants", refs={List.class,EndpointConfigurationShadowProductionVariant.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EndpointConfigurationShadowProductionVariant>> shadowProductionVariants;
 
     /**
-     * @return Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+     * @return Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
      * 
      */
     public Output<Optional<List<EndpointConfigurationShadowProductionVariant>>> shadowProductionVariants() {
@@ -250,9 +254,6 @@ public class EndpointConfiguration extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

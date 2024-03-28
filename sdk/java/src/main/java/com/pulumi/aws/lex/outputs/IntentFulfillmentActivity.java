@@ -5,6 +5,7 @@ package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.aws.lex.outputs.IntentFulfillmentActivityCodeHook;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -63,19 +64,23 @@ public final class IntentFulfillmentActivity {
 
         @CustomType.Setter
         public Builder codeHook(@Nullable IntentFulfillmentActivityCodeHook codeHook) {
+
             this.codeHook = codeHook;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("IntentFulfillmentActivity", "type");
+            }
+            this.type = type;
             return this;
         }
         public IntentFulfillmentActivity build() {
-            final var o = new IntentFulfillmentActivity();
-            o.codeHook = codeHook;
-            o.type = type;
-            return o;
+            final var _resultValue = new IntentFulfillmentActivity();
+            _resultValue.codeHook = codeHook;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

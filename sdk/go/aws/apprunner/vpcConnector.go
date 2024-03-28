@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,15 +30,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apprunner.NewVpcConnector(ctx, "connector", &apprunner.VpcConnectorArgs{
-//				SecurityGroups: pulumi.StringArray{
-//					pulumi.String("sg1"),
-//					pulumi.String("sg2"),
-//				},
+//				VpcConnectorName: pulumi.String("name"),
 //				Subnets: pulumi.StringArray{
 //					pulumi.String("subnet1"),
 //					pulumi.String("subnet2"),
 //				},
-//				VpcConnectorName: pulumi.String("name"),
+//				SecurityGroups: pulumi.StringArray{
+//					pulumi.String("sg1"),
+//					pulumi.String("sg2"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -47,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import App Runner vpc connector using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apprunner/vpcConnector:VpcConnector example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
-//
+// $ pulumi import aws:apprunner/vpcConnector:VpcConnector example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
 // ```
 type VpcConnector struct {
 	pulumi.CustomResourceState
@@ -96,10 +96,6 @@ func NewVpcConnector(ctx *pulumi.Context,
 	if args.VpcConnectorName == nil {
 		return nil, errors.New("invalid value for required argument 'VpcConnectorName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcConnector
 	err := ctx.RegisterResource("aws:apprunner/vpcConnector:VpcConnector", name, args, &resource, opts...)

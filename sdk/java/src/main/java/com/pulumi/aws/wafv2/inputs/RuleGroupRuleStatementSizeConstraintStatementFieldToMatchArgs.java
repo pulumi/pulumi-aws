@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatement
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBodyArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethodArgs;
@@ -69,6 +70,21 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs
      */
     public Optional<Output<RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesArgs>> cookies() {
         return Optional.ofNullable(this.cookies);
+    }
+
+    /**
+     * Inspect the request headers. See Header Order below for details.
+     * 
+     */
+    @Import(name="headerOrders")
+    private @Nullable Output<List<RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs>> headerOrders;
+
+    /**
+     * @return Inspect the request headers. See Header Order below for details.
+     * 
+     */
+    public Optional<Output<List<RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs>>> headerOrders() {
+        return Optional.ofNullable(this.headerOrders);
     }
 
     /**
@@ -189,6 +205,7 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs
         this.allQueryArguments = $.allQueryArguments;
         this.body = $.body;
         this.cookies = $.cookies;
+        this.headerOrders = $.headerOrders;
         this.headers = $.headers;
         this.ja3Fingerprint = $.ja3Fingerprint;
         this.jsonBody = $.jsonBody;
@@ -278,6 +295,37 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs
          */
         public Builder cookies(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesArgs cookies) {
             return cookies(Output.of(cookies));
+        }
+
+        /**
+         * @param headerOrders Inspect the request headers. See Header Order below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder headerOrders(@Nullable Output<List<RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs>> headerOrders) {
+            $.headerOrders = headerOrders;
+            return this;
+        }
+
+        /**
+         * @param headerOrders Inspect the request headers. See Header Order below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder headerOrders(List<RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs> headerOrders) {
+            return headerOrders(Output.of(headerOrders));
+        }
+
+        /**
+         * @param headerOrders Inspect the request headers. See Header Order below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder headerOrders(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs... headerOrders) {
+            return headerOrders(List.of(headerOrders));
         }
 
         /**

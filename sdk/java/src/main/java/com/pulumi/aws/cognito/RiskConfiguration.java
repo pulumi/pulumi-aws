@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides a Cognito Risk Configuration resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,7 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RiskConfiguration(&#34;example&#34;, RiskConfigurationArgs.builder()        
- *             .userPoolId(aws_cognito_user_pool.example().id())
+ *             .userPoolId(exampleAwsCognitoUserPool.id())
  *             .riskExceptionConfiguration(RiskConfigurationRiskExceptionConfigurationArgs.builder()
  *                 .blockedIpRangeLists(&#34;10.10.10.10/32&#34;)
  *                 .build())
@@ -53,6 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -63,12 +66,12 @@ import javax.annotation.Nullable;
  * Import using the user pool ID:
  * 
  * ```sh
- *  $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example
+ * $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example
  * ```
- *  Import using the user pool ID and Client ID separated by a `:`:
+ * Import using the user pool ID and Client ID separated by a `:`:
  * 
  * ```sh
- *  $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
+ * $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
  * ```
  * 
  */

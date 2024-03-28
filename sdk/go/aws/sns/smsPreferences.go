@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewSmsPreferences(ctx, "updateSmsPrefs", nil)
+//			_, err := sns.NewSmsPreferences(ctx, "update_sms_prefs", nil)
 //			if err != nil {
 //				return err
 //			}
@@ -36,6 +37,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ## Import
+//
+// You cannot import the SMS preferences.
 type SmsPreferences struct {
 	pulumi.CustomResourceState
 

@@ -209,24 +209,27 @@ class VpcLink(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.apigatewayv2.VpcLink("example",
-            security_group_ids=[data["aws_security_group"]["example"]["id"]],
-            subnet_ids=data["aws_subnets"]["example"]["ids"],
+            name="example",
+            security_group_ids=[example_aws_security_group["id"]],
+            subnet_ids=example_aws_subnets["ids"],
             tags={
                 "Usage": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For example:
 
         ```sh
-         $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
+        $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
         ```
 
         :param str resource_name: The name of the resource.
@@ -250,24 +253,27 @@ class VpcLink(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.apigatewayv2.VpcLink("example",
-            security_group_ids=[data["aws_security_group"]["example"]["id"]],
-            subnet_ids=data["aws_subnets"]["example"]["ids"],
+            name="example",
+            security_group_ids=[example_aws_security_group["id"]],
+            subnet_ids=example_aws_subnets["ids"],
             tags={
                 "Usage": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For example:
 
         ```sh
-         $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
+        $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
         ```
 
         :param str resource_name: The name of the resource.
@@ -308,8 +314,6 @@ class VpcLink(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VpcLink, __self__).__init__(
             'aws:apigatewayv2/vpcLink:VpcLink',
             resource_name,

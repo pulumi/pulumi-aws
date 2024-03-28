@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a Global Accelerator listener.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,7 +47,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleAccelerator = new Accelerator(&#34;exampleAccelerator&#34;, AcceleratorArgs.builder()        
+ *         var example = new Accelerator(&#34;example&#34;, AcceleratorArgs.builder()        
+ *             .name(&#34;Example&#34;)
  *             .ipAddressType(&#34;IPV4&#34;)
  *             .enabled(true)
  *             .attributes(AcceleratorAttributesArgs.builder()
@@ -56,7 +59,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
- *             .acceleratorArn(exampleAccelerator.id())
+ *             .acceleratorArn(example.id())
  *             .clientAffinity(&#34;SOURCE_IP&#34;)
  *             .protocol(&#34;TCP&#34;)
  *             .portRanges(ListenerPortRangeArgs.builder()
@@ -68,13 +71,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Global Accelerator listeners using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
+ * $ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
  * ```
  * 
  */

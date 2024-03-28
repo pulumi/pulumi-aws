@@ -130,49 +130,56 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Setting
 
         @CustomType.Setter
         public Builder bitrate(@Nullable Double bitrate) {
+
             this.bitrate = bitrate;
             return this;
         }
         @CustomType.Setter
         public Builder bitstreamMode(@Nullable String bitstreamMode) {
+
             this.bitstreamMode = bitstreamMode;
             return this;
         }
         @CustomType.Setter
         public Builder codingMode(@Nullable String codingMode) {
+
             this.codingMode = codingMode;
             return this;
         }
         @CustomType.Setter
         public Builder dialnorm(@Nullable Integer dialnorm) {
+
             this.dialnorm = dialnorm;
             return this;
         }
         @CustomType.Setter
         public Builder drcProfile(@Nullable String drcProfile) {
+
             this.drcProfile = drcProfile;
             return this;
         }
         @CustomType.Setter
         public Builder lfeFilter(@Nullable String lfeFilter) {
+
             this.lfeFilter = lfeFilter;
             return this;
         }
         @CustomType.Setter
         public Builder metadataControl(@Nullable String metadataControl) {
+
             this.metadataControl = metadataControl;
             return this;
         }
         public ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings build() {
-            final var o = new ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings();
-            o.bitrate = bitrate;
-            o.bitstreamMode = bitstreamMode;
-            o.codingMode = codingMode;
-            o.dialnorm = dialnorm;
-            o.drcProfile = drcProfile;
-            o.lfeFilter = lfeFilter;
-            o.metadataControl = metadataControl;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings();
+            _resultValue.bitrate = bitrate;
+            _resultValue.bitstreamMode = bitstreamMode;
+            _resultValue.codingMode = codingMode;
+            _resultValue.dialnorm = dialnorm;
+            _resultValue.drcProfile = drcProfile;
+            _resultValue.lfeFilter = lfeFilter;
+            _resultValue.metadataControl = metadataControl;
+            return _resultValue;
         }
     }
 }

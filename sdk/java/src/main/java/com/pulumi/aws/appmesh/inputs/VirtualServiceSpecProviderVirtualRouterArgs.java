@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class VirtualServiceSpecProviderVirtualRouterArgs extends com.pulum
         }
 
         public VirtualServiceSpecProviderVirtualRouterArgs build() {
-            $.virtualRouterName = Objects.requireNonNull($.virtualRouterName, "expected parameter 'virtualRouterName' to be non-null");
+            if ($.virtualRouterName == null) {
+                throw new MissingRequiredPropertyException("VirtualServiceSpecProviderVirtualRouterArgs", "virtualRouterName");
+            }
             return $;
         }
     }

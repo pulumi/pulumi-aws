@@ -20,7 +20,7 @@ class ManagedPrefixListEntryInitArgs:
         """
         The set of arguments for constructing a ManagedPrefixListEntry resource.
         :param pulumi.Input[str] cidr: CIDR block of this entry.
-        :param pulumi.Input[str] prefix_list_id: CIDR block of this entry.
+        :param pulumi.Input[str] prefix_list_id: The ID of the prefix list.
         :param pulumi.Input[str] description: Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
         """
         pulumi.set(__self__, "cidr", cidr)
@@ -44,7 +44,7 @@ class ManagedPrefixListEntryInitArgs:
     @pulumi.getter(name="prefixListId")
     def prefix_list_id(self) -> pulumi.Input[str]:
         """
-        CIDR block of this entry.
+        The ID of the prefix list.
         """
         return pulumi.get(self, "prefix_list_id")
 
@@ -75,7 +75,7 @@ class _ManagedPrefixListEntryState:
         Input properties used for looking up and filtering ManagedPrefixListEntry resources.
         :param pulumi.Input[str] cidr: CIDR block of this entry.
         :param pulumi.Input[str] description: Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
-        :param pulumi.Input[str] prefix_list_id: CIDR block of this entry.
+        :param pulumi.Input[str] prefix_list_id: The ID of the prefix list.
         """
         if cidr is not None:
             pulumi.set(__self__, "cidr", cidr)
@@ -112,7 +112,7 @@ class _ManagedPrefixListEntryState:
     @pulumi.getter(name="prefixListId")
     def prefix_list_id(self) -> Optional[pulumi.Input[str]]:
         """
-        CIDR block of this entry.
+        The ID of the prefix list.
         """
         return pulumi.get(self, "prefix_list_id")
 
@@ -141,35 +141,38 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
 
         Basic usage.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2.ManagedPrefixList("example",
+            name="All VPC CIDR-s",
             address_family="IPv4",
             max_entries=5,
             tags={
                 "Env": "live",
             })
-        entry1 = aws.ec2.ManagedPrefixListEntry("entry1",
-            cidr=aws_vpc["example"]["cidr_block"],
+        entry1 = aws.ec2.ManagedPrefixListEntry("entry_1",
+            cidr=example_aws_vpc["cidrBlock"],
             description="Primary",
             prefix_list_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import prefix list entries using `prefix_list_id` and `cidr` separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
+        $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cidr: CIDR block of this entry.
         :param pulumi.Input[str] description: Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
-        :param pulumi.Input[str] prefix_list_id: CIDR block of this entry.
+        :param pulumi.Input[str] prefix_list_id: The ID of the prefix list.
         """
         ...
     @overload
@@ -188,28 +191,31 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
 
         Basic usage.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2.ManagedPrefixList("example",
+            name="All VPC CIDR-s",
             address_family="IPv4",
             max_entries=5,
             tags={
                 "Env": "live",
             })
-        entry1 = aws.ec2.ManagedPrefixListEntry("entry1",
-            cidr=aws_vpc["example"]["cidr_block"],
+        entry1 = aws.ec2.ManagedPrefixListEntry("entry_1",
+            cidr=example_aws_vpc["cidrBlock"],
             description="Primary",
             prefix_list_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import prefix list entries using `prefix_list_id` and `cidr` separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
+        $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
         ```
 
         :param str resource_name: The name of the resource.
@@ -268,7 +274,7 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cidr: CIDR block of this entry.
         :param pulumi.Input[str] description: Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
-        :param pulumi.Input[str] prefix_list_id: CIDR block of this entry.
+        :param pulumi.Input[str] prefix_list_id: The ID of the prefix list.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -299,7 +305,7 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
     @pulumi.getter(name="prefixListId")
     def prefix_list_id(self) -> pulumi.Output[str]:
         """
-        CIDR block of this entry.
+        The ID of the prefix list.
         """
         return pulumi.get(self, "prefix_list_id")
 

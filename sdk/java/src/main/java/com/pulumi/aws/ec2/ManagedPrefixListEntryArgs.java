@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -46,14 +47,14 @@ public final class ManagedPrefixListEntryArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * CIDR block of this entry.
+     * The ID of the prefix list.
      * 
      */
     @Import(name="prefixListId", required=true)
     private Output<String> prefixListId;
 
     /**
-     * @return CIDR block of this entry.
+     * @return The ID of the prefix list.
      * 
      */
     public Output<String> prefixListId() {
@@ -129,7 +130,7 @@ public final class ManagedPrefixListEntryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param prefixListId CIDR block of this entry.
+         * @param prefixListId The ID of the prefix list.
          * 
          * @return builder
          * 
@@ -140,7 +141,7 @@ public final class ManagedPrefixListEntryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param prefixListId CIDR block of this entry.
+         * @param prefixListId The ID of the prefix list.
          * 
          * @return builder
          * 
@@ -150,8 +151,12 @@ public final class ManagedPrefixListEntryArgs extends com.pulumi.resources.Resou
         }
 
         public ManagedPrefixListEntryArgs build() {
-            $.cidr = Objects.requireNonNull($.cidr, "expected parameter 'cidr' to be non-null");
-            $.prefixListId = Objects.requireNonNull($.prefixListId, "expected parameter 'prefixListId' to be non-null");
+            if ($.cidr == null) {
+                throw new MissingRequiredPropertyException("ManagedPrefixListEntryArgs", "cidr");
+            }
+            if ($.prefixListId == null) {
+                throw new MissingRequiredPropertyException("ManagedPrefixListEntryArgs", "prefixListId");
+            }
             return $;
         }
     }

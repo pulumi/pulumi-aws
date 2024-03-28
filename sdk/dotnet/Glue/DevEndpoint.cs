@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// Basic usage:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,7 +25,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -49,13 +50,15 @@ namespace Pulumi.Aws.Glue
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
-    ///         AssumeRolePolicy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "AWSGlueServiceRole-foo",
+    ///         AssumeRolePolicy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleDevEndpoint = new Aws.Glue.DevEndpoint("exampleDevEndpoint", new()
+    ///     var exampleDevEndpoint = new Aws.Glue.DevEndpoint("example", new()
     ///     {
+    ///         Name = "foo",
     ///         RoleArn = exampleRole.Arn,
     ///     });
     /// 
@@ -67,13 +70,14 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a Glue Development Endpoint using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
+    /// $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/devEndpoint:DevEndpoint")]
@@ -252,10 +256,6 @@ namespace Pulumi.Aws.Glue
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -555,11 +555,7 @@ namespace Pulumi.Aws.Glue
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

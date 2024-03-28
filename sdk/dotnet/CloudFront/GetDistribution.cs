@@ -14,10 +14,9 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// Use this data source to retrieve information about a CloudFront distribution.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDistributionResult> InvokeAsync(GetDistributionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDistributionResult>("aws:cloudfront/getDistribution:getDistribution", args ?? new GetDistributionArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// Use this data source to retrieve information about a CloudFront distribution.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDistributionResult> Invoke(GetDistributionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDistributionResult>("aws:cloudfront/getDistribution:getDistribution", args ?? new GetDistributionInvokeArgs(), options.WithDefaults());

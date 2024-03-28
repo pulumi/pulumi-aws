@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS CloudFront Continuous Deployment Policy.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +23,6 @@ import * as utilities from "../utilities";
  *     enabled: true,
  *     staging: true,
  * });
- * // ... other configuration ...
  * const example = new aws.cloudfront.ContinuousDeploymentPolicy("example", {
  *     enabled: true,
  *     stagingDistributionDnsNames: {
@@ -39,10 +40,12 @@ import * as utilities from "../utilities";
  *     enabled: true,
  *     continuousDeploymentPolicyId: example.id,
  * });
- * // ... other configuration ...
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Single Weight Config with Session Stickiness
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -50,7 +53,7 @@ import * as utilities from "../utilities";
  * const example = new aws.cloudfront.ContinuousDeploymentPolicy("example", {
  *     enabled: true,
  *     stagingDistributionDnsNames: {
- *         items: [aws_cloudfront_distribution.staging.domain_name],
+ *         items: [staging.domainName],
  *         quantity: 1,
  *     },
  *     trafficConfig: {
@@ -65,8 +68,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Single Header Config
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -74,7 +80,7 @@ import * as utilities from "../utilities";
  * const example = new aws.cloudfront.ContinuousDeploymentPolicy("example", {
  *     enabled: true,
  *     stagingDistributionDnsNames: {
- *         items: [aws_cloudfront_distribution.staging.domain_name],
+ *         items: [staging.domainName],
  *         quantity: 1,
  *     },
  *     trafficConfig: {
@@ -86,13 +92,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CloudFront Continuous Deployment Policy using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
+ * $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
  * ```
  */
 export class ContinuousDeploymentPolicy extends pulumi.CustomResource {

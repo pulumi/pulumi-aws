@@ -59,19 +59,21 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrls {
 
         @CustomType.Setter
         public Builder seedUrlConfiguration(@Nullable DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration seedUrlConfiguration) {
+
             this.seedUrlConfiguration = seedUrlConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder siteMapsConfiguration(@Nullable DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration siteMapsConfiguration) {
+
             this.siteMapsConfiguration = siteMapsConfiguration;
             return this;
         }
         public DataSourceConfigurationWebCrawlerConfigurationUrls build() {
-            final var o = new DataSourceConfigurationWebCrawlerConfigurationUrls();
-            o.seedUrlConfiguration = seedUrlConfiguration;
-            o.siteMapsConfiguration = siteMapsConfiguration;
-            return o;
+            final var _resultValue = new DataSourceConfigurationWebCrawlerConfigurationUrls();
+            _resultValue.seedUrlConfiguration = seedUrlConfiguration;
+            _resultValue.siteMapsConfiguration = siteMapsConfiguration;
+            return _resultValue;
         }
     }
 }

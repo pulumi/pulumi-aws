@@ -59,19 +59,21 @@ public final class OntapVolumeTieringPolicy {
 
         @CustomType.Setter
         public Builder coolingPeriod(@Nullable Integer coolingPeriod) {
+
             this.coolingPeriod = coolingPeriod;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         public OntapVolumeTieringPolicy build() {
-            final var o = new OntapVolumeTieringPolicy();
-            o.coolingPeriod = coolingPeriod;
-            o.name = name;
-            return o;
+            final var _resultValue = new OntapVolumeTieringPolicy();
+            _resultValue.coolingPeriod = coolingPeriod;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

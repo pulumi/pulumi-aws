@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testLb, err := lightsail.NewLb(ctx, "testLb", &lightsail.LbArgs{
+//			test, err := lightsail.NewLb(ctx, "test", &lightsail.LbArgs{
+//				Name:            pulumi.String("test-load-balancer"),
 //				HealthCheckPath: pulumi.String("/"),
 //				InstancePort:    pulumi.Int(80),
 //				Tags: pulumi.StringMap{
@@ -38,8 +40,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lightsail.NewLbStickinessPolicy(ctx, "testLbStickinessPolicy", &lightsail.LbStickinessPolicyArgs{
-//				LbName:         testLb.Name,
+//			_, err = lightsail.NewLbStickinessPolicy(ctx, "test", &lightsail.LbStickinessPolicyArgs{
+//				LbName:         test.Name,
 //				CookieDuration: pulumi.Int(900),
 //				Enabled:        pulumi.Bool(true),
 //			})
@@ -51,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_lightsail_lb_stickiness_policy` using the `lb_name` attribute. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lightsail/lbStickinessPolicy:LbStickinessPolicy test example-load-balancer
-//
+// $ pulumi import aws:lightsail/lbStickinessPolicy:LbStickinessPolicy test example-load-balancer
 // ```
 type LbStickinessPolicy struct {
 	pulumi.CustomResourceState

@@ -18,6 +18,7 @@ namespace Pulumi.Aws.EcrPublic
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,12 +27,12 @@ namespace Pulumi.Aws.EcrPublic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRepository = new Aws.EcrPublic.Repository("exampleRepository", new()
+    ///     var exampleRepository = new Aws.EcrPublic.Repository("example", new()
     ///     {
     ///         RepositoryName = "example",
     ///     });
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -71,21 +72,22 @@ namespace Pulumi.Aws.EcrPublic
     ///         },
     ///     });
     /// 
-    ///     var exampleRepositoryPolicy = new Aws.EcrPublic.RepositoryPolicy("exampleRepositoryPolicy", new()
+    ///     var exampleRepositoryPolicy = new Aws.EcrPublic.RepositoryPolicy("example", new()
     ///     {
     ///         RepositoryName = exampleRepository.RepositoryName,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ECR Public Repository Policy using the repository name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
+    /// $ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecrpublic/repositoryPolicy:RepositoryPolicy")]

@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a load balancer policy, which can be attached to an ELB listener or backend server.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,6 +52,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var wu_tang = new LoadBalancer(&#34;wu-tang&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;wu-tang&#34;)
  *             .availabilityZones(&#34;us-east-1a&#34;)
  *             .listeners(LoadBalancerListenerArgs.builder()
  *                 .instancePort(443)
@@ -67,7 +70,9 @@ import javax.annotation.Nullable;
  *             .policyTypeName(&#34;PublicKeyPolicyType&#34;)
  *             .policyAttributes(LoadBalancerPolicyPolicyAttributeArgs.builder()
  *                 .name(&#34;PublicKey&#34;)
- *                 .value(Files.readString(Paths.get(&#34;wu-tang-pubkey&#34;)))
+ *                 .value(StdFunctions.file(FileArgs.builder()
+ *                     .input(&#34;wu-tang-pubkey&#34;)
+ *                     .build()).result())
  *                 .build())
  *             .build());
  * 
@@ -77,7 +82,7 @@ import javax.annotation.Nullable;
  *             .policyTypeName(&#34;BackendServerAuthenticationPolicyType&#34;)
  *             .policyAttributes(LoadBalancerPolicyPolicyAttributeArgs.builder()
  *                 .name(&#34;PublicKeyPolicyName&#34;)
- *                 .value(aws_load_balancer_policy.wu-tang-root-ca-pubkey-policy().policy_name())
+ *                 .value(wu_tang_root_ca_pubkey_policy.policyName())
  *                 .build())
  *             .build());
  * 
@@ -121,6 +126,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:elb/loadBalancerPolicy:LoadBalancerPolicy")

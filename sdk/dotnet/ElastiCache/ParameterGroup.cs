@@ -16,6 +16,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,6 +27,7 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var @default = new Aws.ElastiCache.ParameterGroup("default", new()
     ///     {
+    ///         Name = "cache-params",
     ///         Family = "redis2.8",
     ///         Parameters = new[]
     ///         {
@@ -44,13 +46,14 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ElastiCache Parameter Groups using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params
+    /// $ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticache/parameterGroup:ParameterGroup")]
@@ -121,10 +124,6 @@ namespace Pulumi.Aws.ElastiCache
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -257,11 +256,7 @@ namespace Pulumi.Aws.ElastiCache
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ParameterGroupState()

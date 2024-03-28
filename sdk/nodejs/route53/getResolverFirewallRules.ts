@@ -14,14 +14,16 @@ import * as utilities from "../utilities";
  *
  * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.route53.getResolverFirewallRules({
- *     firewallRuleGroupId: aws_route53_resolver_firewall_rule_group.example.id,
+ *     firewallRuleGroupId: exampleAwsRoute53ResolverFirewallRuleGroup.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getResolverFirewallRules(args: GetResolverFirewallRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverFirewallRulesResult> {
 
@@ -74,14 +76,16 @@ export interface GetResolverFirewallRulesResult {
  *
  * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.route53.getResolverFirewallRules({
- *     firewallRuleGroupId: aws_route53_resolver_firewall_rule_group.example.id,
+ *     firewallRuleGroupId: exampleAwsRoute53ResolverFirewallRuleGroup.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getResolverFirewallRulesOutput(args: GetResolverFirewallRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverFirewallRulesResult> {
     return pulumi.output(args).apply((a: any) => getResolverFirewallRules(a, opts))

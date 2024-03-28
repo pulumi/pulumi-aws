@@ -17,6 +17,7 @@ import (
 //
 // The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupResolverRule(ctx *pulumi.Context, args *LookupResolverRuleArgs, opts ...pulumi.InvokeOption) (*LookupResolverRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverRuleResult

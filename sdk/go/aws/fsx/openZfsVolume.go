@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +31,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewOpenZfsVolume(ctx, "test", &fsx.OpenZfsVolumeArgs{
-//				ParentVolumeId: pulumi.Any(aws_fsx_openzfs_file_system.Test.Root_volume_id),
+//				Name:           pulumi.String("testvolume"),
+//				ParentVolumeId: pulumi.Any(testAwsFsxOpenzfsFileSystem.RootVolumeId),
 //			})
 //			if err != nil {
 //				return err
@@ -40,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import FSx Volumes using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:fsx/openZfsVolume:OpenZfsVolume example fsvol-543ab12b1ca672f33
-//
+// $ pulumi import aws:fsx/openZfsVolume:OpenZfsVolume example fsvol-543ab12b1ca672f33
 // ```
 type OpenZfsVolume struct {
 	pulumi.CustomResourceState
@@ -63,9 +64,9 @@ type OpenZfsVolume struct {
 	DeleteVolumeOptions pulumi.StringPtrOutput `pulumi:"deleteVolumeOptions"`
 	// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+	// NFS export configuration for the root volume. Exactly 1 item. See `nfsExports` Block Below for details.
 	NfsExports OpenZfsVolumeNfsExportsPtrOutput `pulumi:"nfsExports"`
-	// The ARN of the source snapshot to create the volume from.
+	// Specifies the configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
 	OriginSnapshot OpenZfsVolumeOriginSnapshotPtrOutput `pulumi:"originSnapshot"`
 	// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `fsx.OpenZfsVolume`.
 	ParentVolumeId pulumi.StringOutput `pulumi:"parentVolumeId"`
@@ -83,7 +84,7 @@ type OpenZfsVolume struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block Below.
 	UserAndGroupQuotas OpenZfsVolumeUserAndGroupQuotaArrayOutput `pulumi:"userAndGroupQuotas"`
 	VolumeType         pulumi.StringPtrOutput                    `pulumi:"volumeType"`
 }
@@ -98,10 +99,6 @@ func NewOpenZfsVolume(ctx *pulumi.Context,
 	if args.ParentVolumeId == nil {
 		return nil, errors.New("invalid value for required argument 'ParentVolumeId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OpenZfsVolume
 	err := ctx.RegisterResource("aws:fsx/openZfsVolume:OpenZfsVolume", name, args, &resource, opts...)
@@ -135,9 +132,9 @@ type openZfsVolumeState struct {
 	DeleteVolumeOptions *string `pulumi:"deleteVolumeOptions"`
 	// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
 	Name *string `pulumi:"name"`
-	// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+	// NFS export configuration for the root volume. Exactly 1 item. See `nfsExports` Block Below for details.
 	NfsExports *OpenZfsVolumeNfsExports `pulumi:"nfsExports"`
-	// The ARN of the source snapshot to create the volume from.
+	// Specifies the configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
 	OriginSnapshot *OpenZfsVolumeOriginSnapshot `pulumi:"originSnapshot"`
 	// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `fsx.OpenZfsVolume`.
 	ParentVolumeId *string `pulumi:"parentVolumeId"`
@@ -155,7 +152,7 @@ type openZfsVolumeState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block Below.
 	UserAndGroupQuotas []OpenZfsVolumeUserAndGroupQuota `pulumi:"userAndGroupQuotas"`
 	VolumeType         *string                          `pulumi:"volumeType"`
 }
@@ -171,9 +168,9 @@ type OpenZfsVolumeState struct {
 	DeleteVolumeOptions pulumi.StringPtrInput
 	// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
 	Name pulumi.StringPtrInput
-	// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+	// NFS export configuration for the root volume. Exactly 1 item. See `nfsExports` Block Below for details.
 	NfsExports OpenZfsVolumeNfsExportsPtrInput
-	// The ARN of the source snapshot to create the volume from.
+	// Specifies the configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
 	OriginSnapshot OpenZfsVolumeOriginSnapshotPtrInput
 	// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `fsx.OpenZfsVolume`.
 	ParentVolumeId pulumi.StringPtrInput
@@ -191,7 +188,7 @@ type OpenZfsVolumeState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
-	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block Below.
 	UserAndGroupQuotas OpenZfsVolumeUserAndGroupQuotaArrayInput
 	VolumeType         pulumi.StringPtrInput
 }
@@ -209,9 +206,9 @@ type openZfsVolumeArgs struct {
 	DeleteVolumeOptions *string `pulumi:"deleteVolumeOptions"`
 	// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
 	Name *string `pulumi:"name"`
-	// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+	// NFS export configuration for the root volume. Exactly 1 item. See `nfsExports` Block Below for details.
 	NfsExports *OpenZfsVolumeNfsExports `pulumi:"nfsExports"`
-	// The ARN of the source snapshot to create the volume from.
+	// Specifies the configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
 	OriginSnapshot *OpenZfsVolumeOriginSnapshot `pulumi:"originSnapshot"`
 	// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `fsx.OpenZfsVolume`.
 	ParentVolumeId string `pulumi:"parentVolumeId"`
@@ -225,7 +222,7 @@ type openZfsVolumeArgs struct {
 	StorageCapacityReservationGib *int `pulumi:"storageCapacityReservationGib"`
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block Below.
 	UserAndGroupQuotas []OpenZfsVolumeUserAndGroupQuota `pulumi:"userAndGroupQuotas"`
 	VolumeType         *string                          `pulumi:"volumeType"`
 }
@@ -240,9 +237,9 @@ type OpenZfsVolumeArgs struct {
 	DeleteVolumeOptions pulumi.StringPtrInput
 	// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
 	Name pulumi.StringPtrInput
-	// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+	// NFS export configuration for the root volume. Exactly 1 item. See `nfsExports` Block Below for details.
 	NfsExports OpenZfsVolumeNfsExportsPtrInput
-	// The ARN of the source snapshot to create the volume from.
+	// Specifies the configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
 	OriginSnapshot OpenZfsVolumeOriginSnapshotPtrInput
 	// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `fsx.OpenZfsVolume`.
 	ParentVolumeId pulumi.StringInput
@@ -256,7 +253,7 @@ type OpenZfsVolumeArgs struct {
 	StorageCapacityReservationGib pulumi.IntPtrInput
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block Below.
 	UserAndGroupQuotas OpenZfsVolumeUserAndGroupQuotaArrayInput
 	VolumeType         pulumi.StringPtrInput
 }
@@ -373,12 +370,12 @@ func (o OpenZfsVolumeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+// NFS export configuration for the root volume. Exactly 1 item. See `nfsExports` Block Below for details.
 func (o OpenZfsVolumeOutput) NfsExports() OpenZfsVolumeNfsExportsPtrOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) OpenZfsVolumeNfsExportsPtrOutput { return v.NfsExports }).(OpenZfsVolumeNfsExportsPtrOutput)
 }
 
-// The ARN of the source snapshot to create the volume from.
+// Specifies the configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
 func (o OpenZfsVolumeOutput) OriginSnapshot() OpenZfsVolumeOriginSnapshotPtrOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) OpenZfsVolumeOriginSnapshotPtrOutput { return v.OriginSnapshot }).(OpenZfsVolumeOriginSnapshotPtrOutput)
 }
@@ -420,7 +417,7 @@ func (o OpenZfsVolumeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block Below.
 func (o OpenZfsVolumeOutput) UserAndGroupQuotas() OpenZfsVolumeUserAndGroupQuotaArrayOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) OpenZfsVolumeUserAndGroupQuotaArrayOutput { return v.UserAndGroupQuotas }).(OpenZfsVolumeUserAndGroupQuotaArrayOutput)
 }

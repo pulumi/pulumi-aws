@@ -15,10 +15,12 @@ import (
 // Manages an asynchronous invocation configuration for a Lambda Function or Alias. More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
 //
 // ## Example Usage
+//
 // ### Destination Configuration
 //
 // > **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,13 +34,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
-//				FunctionName: pulumi.Any(aws_lambda_alias.Example.Function_name),
+//				FunctionName: pulumi.Any(exampleAwsLambdaAlias.FunctionName),
 //				DestinationConfig: &lambda.FunctionEventInvokeConfigDestinationConfigArgs{
 //					OnFailure: &lambda.FunctionEventInvokeConfigDestinationConfigOnFailureArgs{
-//						Destination: pulumi.Any(aws_sqs_queue.Example.Arn),
+//						Destination: pulumi.Any(exampleAwsSqsQueue.Arn),
 //					},
 //					OnSuccess: &lambda.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs{
-//						Destination: pulumi.Any(aws_sns_topic.Example.Arn),
+//						Destination: pulumi.Any(exampleAwsSnsTopic.Arn),
 //					},
 //				},
 //			})
@@ -50,8 +52,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Error Handling Configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -65,7 +70,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
-//				FunctionName:             pulumi.Any(aws_lambda_alias.Example.Function_name),
+//				FunctionName:             pulumi.Any(exampleAwsLambdaAlias.FunctionName),
 //				MaximumEventAgeInSeconds: pulumi.Int(60),
 //				MaximumRetryAttempts:     pulumi.Int(0),
 //			})
@@ -77,8 +82,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Configuration for Alias Name
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -92,8 +100,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
-//				FunctionName: pulumi.Any(aws_lambda_alias.Example.Function_name),
-//				Qualifier:    pulumi.Any(aws_lambda_alias.Example.Name),
+//				FunctionName: pulumi.Any(exampleAwsLambdaAlias.FunctionName),
+//				Qualifier:    pulumi.Any(exampleAwsLambdaAlias.Name),
 //			})
 //			if err != nil {
 //				return err
@@ -103,8 +111,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Configuration for Function Latest Unpublished Version
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -118,7 +129,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
-//				FunctionName: pulumi.Any(aws_lambda_function.Example.Function_name),
+//				FunctionName: pulumi.Any(exampleAwsLambdaFunction.FunctionName),
 //				Qualifier:    pulumi.String("$LATEST"),
 //			})
 //			if err != nil {
@@ -129,8 +140,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Configuration for Function Published Version
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -144,8 +158,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
-//				FunctionName: pulumi.Any(aws_lambda_function.Example.Function_name),
-//				Qualifier:    pulumi.Any(aws_lambda_function.Example.Version),
+//				FunctionName: pulumi.Any(exampleAwsLambdaFunction.FunctionName),
+//				Qualifier:    pulumi.Any(exampleAwsLambdaFunction.Version),
 //			})
 //			if err != nil {
 //				return err
@@ -155,6 +169,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -169,33 +184,22 @@ import (
 // ARN without qualifier (all versions and aliases):
 //
 // ```sh
-//
-//	$ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
-//
+// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
 // ```
-//
-//	ARN with qualifier:
+// ARN with qualifier:
 //
 // ```sh
-//
-//	$ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
-//
+// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
 // ```
-//
-//	Name without qualifier (all versions and aliases):
+// Name without qualifier (all versions and aliases):
 //
 // ```sh
-//
-//	$ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
-//
+// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
 // ```
-//
-//	Name with qualifier:
+// Name with qualifier:
 //
 // ```sh
-//
-//	$ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
-//
+// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
 // ```
 type FunctionEventInvokeConfig struct {
 	pulumi.CustomResourceState

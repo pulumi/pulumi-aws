@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,12 +31,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCluster, err := ecs.NewCluster(ctx, "exampleCluster", nil)
+//			example, err := ecs.NewCluster(ctx, "example", &ecs.ClusterArgs{
+//				Name: pulumi.String("my-cluster"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ecs.NewClusterCapacityProviders(ctx, "exampleClusterCapacityProviders", &ecs.ClusterCapacityProvidersArgs{
-//				ClusterName: exampleCluster.Name,
+//			_, err = ecs.NewClusterCapacityProviders(ctx, "example", &ecs.ClusterCapacityProvidersArgs{
+//				ClusterName: example.Name,
 //				CapacityProviders: pulumi.StringArray{
 //					pulumi.String("FARGATE"),
 //				},
@@ -55,15 +58,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
-//
+// $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
 // ```
 type ClusterCapacityProviders struct {
 	pulumi.CustomResourceState

@@ -59,19 +59,21 @@ public final class DataSourceRelationalDatabaseConfig {
 
         @CustomType.Setter
         public Builder httpEndpointConfig(@Nullable DataSourceRelationalDatabaseConfigHttpEndpointConfig httpEndpointConfig) {
+
             this.httpEndpointConfig = httpEndpointConfig;
             return this;
         }
         @CustomType.Setter
         public Builder sourceType(@Nullable String sourceType) {
+
             this.sourceType = sourceType;
             return this;
         }
         public DataSourceRelationalDatabaseConfig build() {
-            final var o = new DataSourceRelationalDatabaseConfig();
-            o.httpEndpointConfig = httpEndpointConfig;
-            o.sourceType = sourceType;
-            return o;
+            final var _resultValue = new DataSourceRelationalDatabaseConfig();
+            _resultValue.httpEndpointConfig = httpEndpointConfig;
+            _resultValue.sourceType = sourceType;
+            return _resultValue;
         }
     }
 }

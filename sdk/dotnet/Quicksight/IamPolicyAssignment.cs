@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Quicksight
     /// Resource for managing an AWS QuickSight IAM Policy Assignment.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,25 +29,26 @@ namespace Pulumi.Aws.Quicksight
     ///     {
     ///         AssignmentName = "example",
     ///         AssignmentStatus = "ENABLED",
-    ///         PolicyArn = aws_iam_policy.Example.Arn,
+    ///         PolicyArn = exampleAwsIamPolicy.Arn,
     ///         Identities = new Aws.Quicksight.Inputs.IamPolicyAssignmentIdentitiesArgs
     ///         {
     ///             Users = new[]
     ///             {
-    ///                 aws_quicksight_user.Example.User_name,
+    ///                 exampleAwsQuicksightUser.UserName,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import QuickSight IAM Policy Assignment using the AWS account ID, namespace, and assignment name separated by commas (`,`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
+    /// $ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
     /// ```
     /// </summary>
     [AwsResourceType("aws:quicksight/iamPolicyAssignment:IamPolicyAssignment")]
@@ -78,7 +81,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+        /// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         /// </summary>
         [Output("identities")]
         public Output<Outputs.IamPolicyAssignmentIdentities?> Identities { get; private set; } = null!;
@@ -162,7 +165,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
-        /// Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+        /// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         /// </summary>
         [Input("identities")]
         public Input<Inputs.IamPolicyAssignmentIdentitiesArgs>? Identities { get; set; }
@@ -214,7 +217,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
-        /// Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+        /// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         /// </summary>
         [Input("identities")]
         public Input<Inputs.IamPolicyAssignmentIdentitiesGetArgs>? Identities { get; set; }

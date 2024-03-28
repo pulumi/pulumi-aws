@@ -502,6 +502,158 @@ func (o EndpointSseSpecificationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GroupSseConfiguration struct {
+	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
+	// ARN of the KMS key to use.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+}
+
+// GroupSseConfigurationInput is an input type that accepts GroupSseConfigurationArgs and GroupSseConfigurationOutput values.
+// You can construct a concrete instance of `GroupSseConfigurationInput` via:
+//
+//	GroupSseConfigurationArgs{...}
+type GroupSseConfigurationInput interface {
+	pulumi.Input
+
+	ToGroupSseConfigurationOutput() GroupSseConfigurationOutput
+	ToGroupSseConfigurationOutputWithContext(context.Context) GroupSseConfigurationOutput
+}
+
+type GroupSseConfigurationArgs struct {
+	CustomerManagedKeyEnabled pulumi.BoolPtrInput `pulumi:"customerManagedKeyEnabled"`
+	// ARN of the KMS key to use.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+}
+
+func (GroupSseConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupSseConfiguration)(nil)).Elem()
+}
+
+func (i GroupSseConfigurationArgs) ToGroupSseConfigurationOutput() GroupSseConfigurationOutput {
+	return i.ToGroupSseConfigurationOutputWithContext(context.Background())
+}
+
+func (i GroupSseConfigurationArgs) ToGroupSseConfigurationOutputWithContext(ctx context.Context) GroupSseConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupSseConfigurationOutput)
+}
+
+func (i GroupSseConfigurationArgs) ToGroupSseConfigurationPtrOutput() GroupSseConfigurationPtrOutput {
+	return i.ToGroupSseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GroupSseConfigurationArgs) ToGroupSseConfigurationPtrOutputWithContext(ctx context.Context) GroupSseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupSseConfigurationOutput).ToGroupSseConfigurationPtrOutputWithContext(ctx)
+}
+
+// GroupSseConfigurationPtrInput is an input type that accepts GroupSseConfigurationArgs, GroupSseConfigurationPtr and GroupSseConfigurationPtrOutput values.
+// You can construct a concrete instance of `GroupSseConfigurationPtrInput` via:
+//
+//	        GroupSseConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GroupSseConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGroupSseConfigurationPtrOutput() GroupSseConfigurationPtrOutput
+	ToGroupSseConfigurationPtrOutputWithContext(context.Context) GroupSseConfigurationPtrOutput
+}
+
+type groupSseConfigurationPtrType GroupSseConfigurationArgs
+
+func GroupSseConfigurationPtr(v *GroupSseConfigurationArgs) GroupSseConfigurationPtrInput {
+	return (*groupSseConfigurationPtrType)(v)
+}
+
+func (*groupSseConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupSseConfiguration)(nil)).Elem()
+}
+
+func (i *groupSseConfigurationPtrType) ToGroupSseConfigurationPtrOutput() GroupSseConfigurationPtrOutput {
+	return i.ToGroupSseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *groupSseConfigurationPtrType) ToGroupSseConfigurationPtrOutputWithContext(ctx context.Context) GroupSseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupSseConfigurationPtrOutput)
+}
+
+type GroupSseConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GroupSseConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupSseConfiguration)(nil)).Elem()
+}
+
+func (o GroupSseConfigurationOutput) ToGroupSseConfigurationOutput() GroupSseConfigurationOutput {
+	return o
+}
+
+func (o GroupSseConfigurationOutput) ToGroupSseConfigurationOutputWithContext(ctx context.Context) GroupSseConfigurationOutput {
+	return o
+}
+
+func (o GroupSseConfigurationOutput) ToGroupSseConfigurationPtrOutput() GroupSseConfigurationPtrOutput {
+	return o.ToGroupSseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GroupSseConfigurationOutput) ToGroupSseConfigurationPtrOutputWithContext(ctx context.Context) GroupSseConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupSseConfiguration) *GroupSseConfiguration {
+		return &v
+	}).(GroupSseConfigurationPtrOutput)
+}
+
+func (o GroupSseConfigurationOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GroupSseConfiguration) *bool { return v.CustomerManagedKeyEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// ARN of the KMS key to use.
+func (o GroupSseConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupSseConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+type GroupSseConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupSseConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupSseConfiguration)(nil)).Elem()
+}
+
+func (o GroupSseConfigurationPtrOutput) ToGroupSseConfigurationPtrOutput() GroupSseConfigurationPtrOutput {
+	return o
+}
+
+func (o GroupSseConfigurationPtrOutput) ToGroupSseConfigurationPtrOutputWithContext(ctx context.Context) GroupSseConfigurationPtrOutput {
+	return o
+}
+
+func (o GroupSseConfigurationPtrOutput) Elem() GroupSseConfigurationOutput {
+	return o.ApplyT(func(v *GroupSseConfiguration) GroupSseConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GroupSseConfiguration
+		return ret
+	}).(GroupSseConfigurationOutput)
+}
+
+func (o GroupSseConfigurationPtrOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GroupSseConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerManagedKeyEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// ARN of the KMS key to use.
+func (o GroupSseConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupSseConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type InstanceLoggingConfigurationAccessLogs struct {
 	// A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
 	CloudwatchLogs *InstanceLoggingConfigurationAccessLogsCloudwatchLogs `pulumi:"cloudwatchLogs"`
@@ -1721,6 +1873,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointNetworkInterfaceOptionsPtrInput)(nil)).Elem(), EndpointNetworkInterfaceOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointSseSpecificationInput)(nil)).Elem(), EndpointSseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointSseSpecificationPtrInput)(nil)).Elem(), EndpointSseSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupSseConfigurationInput)(nil)).Elem(), GroupSseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupSseConfigurationPtrInput)(nil)).Elem(), GroupSseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLoggingConfigurationAccessLogsInput)(nil)).Elem(), InstanceLoggingConfigurationAccessLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLoggingConfigurationAccessLogsPtrInput)(nil)).Elem(), InstanceLoggingConfigurationAccessLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLoggingConfigurationAccessLogsCloudwatchLogsInput)(nil)).Elem(), InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs{})
@@ -1741,6 +1895,8 @@ func init() {
 	pulumi.RegisterOutputType(EndpointNetworkInterfaceOptionsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointSseSpecificationOutput{})
 	pulumi.RegisterOutputType(EndpointSseSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(GroupSseConfigurationOutput{})
+	pulumi.RegisterOutputType(GroupSseConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(InstanceLoggingConfigurationAccessLogsOutput{})
 	pulumi.RegisterOutputType(InstanceLoggingConfigurationAccessLogsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput{})

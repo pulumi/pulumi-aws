@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,20 +29,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := amplify.NewApp(ctx, "example", nil)
+//			example, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+//				Name: pulumi.String("app"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			masterBranch, err := amplify.NewBranch(ctx, "masterBranch", &amplify.BranchArgs{
+//			master, err := amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
 //				AppId:      example.ID(),
 //				BranchName: pulumi.String("master"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = amplify.NewWebhook(ctx, "masterWebhook", &amplify.WebhookArgs{
+//			_, err = amplify.NewWebhook(ctx, "master", &amplify.WebhookArgs{
 //				AppId:       example.ID(),
-//				BranchName:  masterBranch.BranchName,
+//				BranchName:  master.BranchName,
 //				Description: pulumi.String("triggermaster"),
 //			})
 //			if err != nil {
@@ -52,15 +55,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Amplify webhook using a webhook ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
-//
+// $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
 // ```
 type Webhook struct {
 	pulumi.CustomResourceState

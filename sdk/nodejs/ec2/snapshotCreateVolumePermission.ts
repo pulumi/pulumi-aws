@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,12 +18,13 @@ import * as utilities from "../utilities";
  *     availabilityZone: "us-west-2a",
  *     size: 40,
  * });
- * const exampleSnapshot = new aws.ebs.Snapshot("exampleSnapshot", {volumeId: example.id});
- * const examplePerm = new aws.ec2.SnapshotCreateVolumePermission("examplePerm", {
+ * const exampleSnapshot = new aws.ebs.Snapshot("example_snapshot", {volumeId: example.id});
+ * const examplePerm = new aws.ec2.SnapshotCreateVolumePermission("example_perm", {
  *     snapshotId: exampleSnapshot.id,
  *     accountId: "12345678",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class SnapshotCreateVolumePermission extends pulumi.CustomResource {
     /**

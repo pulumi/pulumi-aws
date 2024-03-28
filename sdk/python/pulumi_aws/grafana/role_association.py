@@ -175,30 +175,34 @@ class RoleAssociation(pulumi.CustomResource):
         Provides an Amazon Managed Grafana workspace role association resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        assume = aws.iam.Role("assume", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "grafana.amazonaws.com",
-                },
-            }],
-        }))
-        example_workspace = aws.grafana.Workspace("exampleWorkspace",
+        assume = aws.iam.Role("assume",
+            name="grafana-assume",
+            assume_role_policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "grafana.amazonaws.com",
+                    },
+                }],
+            }))
+        example_workspace = aws.grafana.Workspace("example",
             account_access_type="CURRENT_ACCOUNT",
             authentication_providers=["SAML"],
             permission_type="SERVICE_MANAGED",
             role_arn=assume.arn)
-        example_role_association = aws.grafana.RoleAssociation("exampleRoleAssociation",
+        example = aws.grafana.RoleAssociation("example",
             role="ADMIN",
             user_ids=[
                 "USER_ID_1",
@@ -206,6 +210,7 @@ class RoleAssociation(pulumi.CustomResource):
             ],
             workspace_id=example_workspace.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -226,30 +231,34 @@ class RoleAssociation(pulumi.CustomResource):
         Provides an Amazon Managed Grafana workspace role association resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        assume = aws.iam.Role("assume", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "grafana.amazonaws.com",
-                },
-            }],
-        }))
-        example_workspace = aws.grafana.Workspace("exampleWorkspace",
+        assume = aws.iam.Role("assume",
+            name="grafana-assume",
+            assume_role_policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "grafana.amazonaws.com",
+                    },
+                }],
+            }))
+        example_workspace = aws.grafana.Workspace("example",
             account_access_type="CURRENT_ACCOUNT",
             authentication_providers=["SAML"],
             permission_type="SERVICE_MANAGED",
             role_arn=assume.arn)
-        example_role_association = aws.grafana.RoleAssociation("exampleRoleAssociation",
+        example = aws.grafana.RoleAssociation("example",
             role="ADMIN",
             user_ids=[
                 "USER_ID_1",
@@ -257,6 +266,7 @@ class RoleAssociation(pulumi.CustomResource):
             ],
             workspace_id=example_workspace.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param RoleAssociationArgs args: The arguments to use to populate this resource's properties.

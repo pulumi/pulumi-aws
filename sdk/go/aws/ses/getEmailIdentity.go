@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupEmailIdentity(ctx *pulumi.Context, args *LookupEmailIdentityArgs, opts ...pulumi.InvokeOption) (*LookupEmailIdentityResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEmailIdentityResult

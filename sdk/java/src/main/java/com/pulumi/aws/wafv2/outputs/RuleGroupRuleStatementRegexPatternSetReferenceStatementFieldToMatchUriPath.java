@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
         }
 
         public RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath build() {
-            final var o = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath();
+            return _resultValue;
         }
     }
 }

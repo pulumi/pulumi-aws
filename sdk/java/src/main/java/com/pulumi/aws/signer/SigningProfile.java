@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Creates a Signer Signing Profile. A signing profile contains information about the code signing configuration parameters that can be used by a given code signing user.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,11 +52,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var prodSp = new SigningProfile(&#34;prodSp&#34;, SigningProfileArgs.builder()        
- *             .namePrefix(&#34;prod_sp_&#34;)
  *             .platformId(&#34;AWSLambda-SHA384-ECDSA&#34;)
+ *             .namePrefix(&#34;prod_sp_&#34;)
  *             .signatureValidityPeriod(SigningProfileSignatureValidityPeriodArgs.builder()
- *                 .type(&#34;YEARS&#34;)
  *                 .value(5)
+ *                 .type(&#34;YEARS&#34;)
  *                 .build())
  *             .tags(Map.ofEntries(
  *                 Map.entry(&#34;tag1&#34;, &#34;value1&#34;),
@@ -65,13 +67,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Signer signing profiles using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
+ * $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
  * ```
  * 
  */
@@ -288,9 +291,6 @@ public class SigningProfile extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

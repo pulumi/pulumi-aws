@@ -204,16 +204,18 @@ class RiskConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cognito.RiskConfiguration("example",
-            user_pool_id=aws_cognito_user_pool["example"]["id"],
+            user_pool_id=example_aws_cognito_user_pool["id"],
             risk_exception_configuration=aws.cognito.RiskConfigurationRiskExceptionConfigurationArgs(
                 blocked_ip_range_lists=["10.10.10.10/32"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -224,12 +226,12 @@ class RiskConfiguration(pulumi.CustomResource):
         Import using the user pool ID:
 
         ```sh
-         $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example
+        $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example
         ```
-         Import using the user pool ID and Client ID separated by a `:`:
+        Import using the user pool ID and Client ID separated by a `:`:
 
         ```sh
-         $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
+        $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
         ```
 
         :param str resource_name: The name of the resource.
@@ -251,16 +253,18 @@ class RiskConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cognito.RiskConfiguration("example",
-            user_pool_id=aws_cognito_user_pool["example"]["id"],
+            user_pool_id=example_aws_cognito_user_pool["id"],
             risk_exception_configuration=aws.cognito.RiskConfigurationRiskExceptionConfigurationArgs(
                 blocked_ip_range_lists=["10.10.10.10/32"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -271,12 +275,12 @@ class RiskConfiguration(pulumi.CustomResource):
         Import using the user pool ID:
 
         ```sh
-         $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example
+        $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example
         ```
-         Import using the user pool ID and Client ID separated by a `:`:
+        Import using the user pool ID and Client ID separated by a `:`:
 
         ```sh
-         $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
+        $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
         ```
 
         :param str resource_name: The name of the resource.

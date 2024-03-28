@@ -76,6 +76,7 @@ class _DomainState:
                  encryption_key: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  repository_count: Optional[pulumi.Input[int]] = None,
+                 s3_bucket_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -87,6 +88,7 @@ class _DomainState:
         :param pulumi.Input[str] encryption_key: The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
         :param pulumi.Input[str] owner: The AWS account ID that owns the domain.
         :param pulumi.Input[int] repository_count: The number of repositories in the domain.
+        :param pulumi.Input[str] s3_bucket_arn: The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -104,6 +106,8 @@ class _DomainState:
             pulumi.set(__self__, "owner", owner)
         if repository_count is not None:
             pulumi.set(__self__, "repository_count", repository_count)
+        if s3_bucket_arn is not None:
+            pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -197,6 +201,18 @@ class _DomainState:
         pulumi.set(self, "repository_count", value)
 
     @property
+    @pulumi.getter(name="s3BucketArn")
+    def s3_bucket_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
+        """
+        return pulumi.get(self, "s3_bucket_arn")
+
+    @s3_bucket_arn.setter
+    def s3_bucket_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_bucket_arn", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -238,19 +254,21 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.codeartifact.Domain("example", domain="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeArtifact Domain using the CodeArtifact Domain arn. For example:
 
         ```sh
-         $ pulumi import aws:codeartifact/domain:Domain example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
+        $ pulumi import aws:codeartifact/domain:Domain example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
         ```
 
         :param str resource_name: The name of the resource.
@@ -270,19 +288,21 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.codeartifact.Domain("example", domain="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeArtifact Domain using the CodeArtifact Domain arn. For example:
 
         ```sh
-         $ pulumi import aws:codeartifact/domain:Domain example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
+        $ pulumi import aws:codeartifact/domain:Domain example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
         ```
 
         :param str resource_name: The name of the resource.
@@ -322,9 +342,8 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["created_time"] = None
             __props__.__dict__["owner"] = None
             __props__.__dict__["repository_count"] = None
+            __props__.__dict__["s3_bucket_arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Domain, __self__).__init__(
             'aws:codeartifact/domain:Domain',
             resource_name,
@@ -342,6 +361,7 @@ class Domain(pulumi.CustomResource):
             encryption_key: Optional[pulumi.Input[str]] = None,
             owner: Optional[pulumi.Input[str]] = None,
             repository_count: Optional[pulumi.Input[int]] = None,
+            s3_bucket_arn: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Domain':
         """
@@ -358,6 +378,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] encryption_key: The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
         :param pulumi.Input[str] owner: The AWS account ID that owns the domain.
         :param pulumi.Input[int] repository_count: The number of repositories in the domain.
+        :param pulumi.Input[str] s3_bucket_arn: The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -372,6 +393,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["encryption_key"] = encryption_key
         __props__.__dict__["owner"] = owner
         __props__.__dict__["repository_count"] = repository_count
+        __props__.__dict__["s3_bucket_arn"] = s3_bucket_arn
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return Domain(resource_name, opts=opts, __props__=__props__)
@@ -431,6 +453,14 @@ class Domain(pulumi.CustomResource):
         The number of repositories in the domain.
         """
         return pulumi.get(self, "repository_count")
+
+    @property
+    @pulumi.getter(name="s3BucketArn")
+    def s3_bucket_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
+        """
+        return pulumi.get(self, "s3_bucket_arn")
 
     @property
     @pulumi.getter

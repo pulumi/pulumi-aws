@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * internet gateway or virtual private gateway.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -40,14 +42,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var routeTableAssociation = new RouteTableAssociation(&#34;routeTableAssociation&#34;, RouteTableAssociationArgs.builder()        
- *             .subnetId(aws_subnet.foo().id())
- *             .routeTableId(aws_route_table.bar().id())
+ *         var a = new RouteTableAssociation(&#34;a&#34;, RouteTableAssociationArgs.builder()        
+ *             .subnetId(foo.id())
+ *             .routeTableId(bar.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -69,14 +74,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var routeTableAssociation = new RouteTableAssociation(&#34;routeTableAssociation&#34;, RouteTableAssociationArgs.builder()        
- *             .gatewayId(aws_internet_gateway.foo().id())
- *             .routeTableId(aws_route_table.bar().id())
+ *         var b = new RouteTableAssociation(&#34;b&#34;, RouteTableAssociationArgs.builder()        
+ *             .gatewayId(foo.id())
+ *             .routeTableId(bar.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -87,12 +93,12 @@ import javax.annotation.Nullable;
  * With EC2 Subnets:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
+ * $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
  * ```
- *  With EC2 Internet Gateways:
+ * With EC2 Internet Gateways:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
+ * $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
  * ```
  * 
  */

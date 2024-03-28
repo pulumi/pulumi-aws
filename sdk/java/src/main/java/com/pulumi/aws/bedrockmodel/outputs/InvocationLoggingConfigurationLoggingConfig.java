@@ -6,6 +6,7 @@ package com.pulumi.aws.bedrockmodel.outputs;
 import com.pulumi.aws.bedrockmodel.outputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfig;
 import com.pulumi.aws.bedrockmodel.outputs.InvocationLoggingConfigurationLoggingConfigS3Config;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class InvocationLoggingConfigurationLoggingConfig {
     /**
-     * @return CloudWatch logging configuration. See `cloudwatch_config`.
+     * @return CloudWatch logging configuration.
      * 
      */
     private @Nullable InvocationLoggingConfigurationLoggingConfigCloudwatchConfig cloudwatchConfig;
@@ -29,7 +30,7 @@ public final class InvocationLoggingConfigurationLoggingConfig {
      */
     private Boolean imageDataDeliveryEnabled;
     /**
-     * @return S3 configuration for storing log data. See `s3_config`.
+     * @return S3 configuration for storing log data.
      * 
      */
     private @Nullable InvocationLoggingConfigurationLoggingConfigS3Config s3Config;
@@ -41,7 +42,7 @@ public final class InvocationLoggingConfigurationLoggingConfig {
 
     private InvocationLoggingConfigurationLoggingConfig() {}
     /**
-     * @return CloudWatch logging configuration. See `cloudwatch_config`.
+     * @return CloudWatch logging configuration.
      * 
      */
     public Optional<InvocationLoggingConfigurationLoggingConfigCloudwatchConfig> cloudwatchConfig() {
@@ -62,7 +63,7 @@ public final class InvocationLoggingConfigurationLoggingConfig {
         return this.imageDataDeliveryEnabled;
     }
     /**
-     * @return S3 configuration for storing log data. See `s3_config`.
+     * @return S3 configuration for storing log data.
      * 
      */
     public Optional<InvocationLoggingConfigurationLoggingConfigS3Config> s3Config() {
@@ -102,37 +103,48 @@ public final class InvocationLoggingConfigurationLoggingConfig {
 
         @CustomType.Setter
         public Builder cloudwatchConfig(@Nullable InvocationLoggingConfigurationLoggingConfigCloudwatchConfig cloudwatchConfig) {
+
             this.cloudwatchConfig = cloudwatchConfig;
             return this;
         }
         @CustomType.Setter
         public Builder embeddingDataDeliveryEnabled(Boolean embeddingDataDeliveryEnabled) {
-            this.embeddingDataDeliveryEnabled = Objects.requireNonNull(embeddingDataDeliveryEnabled);
+            if (embeddingDataDeliveryEnabled == null) {
+              throw new MissingRequiredPropertyException("InvocationLoggingConfigurationLoggingConfig", "embeddingDataDeliveryEnabled");
+            }
+            this.embeddingDataDeliveryEnabled = embeddingDataDeliveryEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder imageDataDeliveryEnabled(Boolean imageDataDeliveryEnabled) {
-            this.imageDataDeliveryEnabled = Objects.requireNonNull(imageDataDeliveryEnabled);
+            if (imageDataDeliveryEnabled == null) {
+              throw new MissingRequiredPropertyException("InvocationLoggingConfigurationLoggingConfig", "imageDataDeliveryEnabled");
+            }
+            this.imageDataDeliveryEnabled = imageDataDeliveryEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder s3Config(@Nullable InvocationLoggingConfigurationLoggingConfigS3Config s3Config) {
+
             this.s3Config = s3Config;
             return this;
         }
         @CustomType.Setter
         public Builder textDataDeliveryEnabled(Boolean textDataDeliveryEnabled) {
-            this.textDataDeliveryEnabled = Objects.requireNonNull(textDataDeliveryEnabled);
+            if (textDataDeliveryEnabled == null) {
+              throw new MissingRequiredPropertyException("InvocationLoggingConfigurationLoggingConfig", "textDataDeliveryEnabled");
+            }
+            this.textDataDeliveryEnabled = textDataDeliveryEnabled;
             return this;
         }
         public InvocationLoggingConfigurationLoggingConfig build() {
-            final var o = new InvocationLoggingConfigurationLoggingConfig();
-            o.cloudwatchConfig = cloudwatchConfig;
-            o.embeddingDataDeliveryEnabled = embeddingDataDeliveryEnabled;
-            o.imageDataDeliveryEnabled = imageDataDeliveryEnabled;
-            o.s3Config = s3Config;
-            o.textDataDeliveryEnabled = textDataDeliveryEnabled;
-            return o;
+            final var _resultValue = new InvocationLoggingConfigurationLoggingConfig();
+            _resultValue.cloudwatchConfig = cloudwatchConfig;
+            _resultValue.embeddingDataDeliveryEnabled = embeddingDataDeliveryEnabled;
+            _resultValue.imageDataDeliveryEnabled = imageDataDeliveryEnabled;
+            _resultValue.s3Config = s3Config;
+            _resultValue.textDataDeliveryEnabled = textDataDeliveryEnabled;
+            return _resultValue;
         }
     }
 }

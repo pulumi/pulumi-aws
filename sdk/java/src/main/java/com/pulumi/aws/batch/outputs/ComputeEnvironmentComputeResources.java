@@ -6,6 +6,7 @@ package com.pulumi.aws.batch.outputs;
 import com.pulumi.aws.batch.outputs.ComputeEnvironmentComputeResourcesEc2Configuration;
 import com.pulumi.aws.batch.outputs.ComputeEnvironmentComputeResourcesLaunchTemplate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -17,12 +18,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ComputeEnvironmentComputeResources {
     /**
-     * @return The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     private @Nullable String allocationStrategy;
     /**
-     * @return Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20%!((MISSING)`20`), then the Spot price must be below 20%!o(MISSING)f the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100%!o(MISSING)f the On-Demand price. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     private @Nullable Integer bidPercentage;
@@ -104,14 +105,14 @@ public final class ComputeEnvironmentComputeResources {
 
     private ComputeEnvironmentComputeResources() {}
     /**
-     * @return The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     public Optional<String> allocationStrategy() {
         return Optional.ofNullable(this.allocationStrategy);
     }
     /**
-     * @return Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20%!((MISSING)`20`), then the Spot price must be below 20%!o(MISSING)f the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100%!o(MISSING)f the On-Demand price. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     public Optional<Integer> bidPercentage() {
@@ -273,21 +274,25 @@ public final class ComputeEnvironmentComputeResources {
 
         @CustomType.Setter
         public Builder allocationStrategy(@Nullable String allocationStrategy) {
+
             this.allocationStrategy = allocationStrategy;
             return this;
         }
         @CustomType.Setter
         public Builder bidPercentage(@Nullable Integer bidPercentage) {
+
             this.bidPercentage = bidPercentage;
             return this;
         }
         @CustomType.Setter
         public Builder desiredVcpus(@Nullable Integer desiredVcpus) {
+
             this.desiredVcpus = desiredVcpus;
             return this;
         }
         @CustomType.Setter
         public Builder ec2Configurations(@Nullable List<ComputeEnvironmentComputeResourcesEc2Configuration> ec2Configurations) {
+
             this.ec2Configurations = ec2Configurations;
             return this;
         }
@@ -296,21 +301,25 @@ public final class ComputeEnvironmentComputeResources {
         }
         @CustomType.Setter
         public Builder ec2KeyPair(@Nullable String ec2KeyPair) {
+
             this.ec2KeyPair = ec2KeyPair;
             return this;
         }
         @CustomType.Setter
         public Builder imageId(@Nullable String imageId) {
+
             this.imageId = imageId;
             return this;
         }
         @CustomType.Setter
         public Builder instanceRole(@Nullable String instanceRole) {
+
             this.instanceRole = instanceRole;
             return this;
         }
         @CustomType.Setter
         public Builder instanceTypes(@Nullable List<String> instanceTypes) {
+
             this.instanceTypes = instanceTypes;
             return this;
         }
@@ -319,26 +328,33 @@ public final class ComputeEnvironmentComputeResources {
         }
         @CustomType.Setter
         public Builder launchTemplate(@Nullable ComputeEnvironmentComputeResourcesLaunchTemplate launchTemplate) {
+
             this.launchTemplate = launchTemplate;
             return this;
         }
         @CustomType.Setter
         public Builder maxVcpus(Integer maxVcpus) {
-            this.maxVcpus = Objects.requireNonNull(maxVcpus);
+            if (maxVcpus == null) {
+              throw new MissingRequiredPropertyException("ComputeEnvironmentComputeResources", "maxVcpus");
+            }
+            this.maxVcpus = maxVcpus;
             return this;
         }
         @CustomType.Setter
         public Builder minVcpus(@Nullable Integer minVcpus) {
+
             this.minVcpus = minVcpus;
             return this;
         }
         @CustomType.Setter
         public Builder placementGroup(@Nullable String placementGroup) {
+
             this.placementGroup = placementGroup;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
+
             this.securityGroupIds = securityGroupIds;
             return this;
         }
@@ -347,12 +363,16 @@ public final class ComputeEnvironmentComputeResources {
         }
         @CustomType.Setter
         public Builder spotIamFleetRole(@Nullable String spotIamFleetRole) {
+
             this.spotIamFleetRole = spotIamFleetRole;
             return this;
         }
         @CustomType.Setter
         public Builder subnets(List<String> subnets) {
-            this.subnets = Objects.requireNonNull(subnets);
+            if (subnets == null) {
+              throw new MissingRequiredPropertyException("ComputeEnvironmentComputeResources", "subnets");
+            }
+            this.subnets = subnets;
             return this;
         }
         public Builder subnets(String... subnets) {
@@ -360,34 +380,38 @@ public final class ComputeEnvironmentComputeResources {
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("ComputeEnvironmentComputeResources", "type");
+            }
+            this.type = type;
             return this;
         }
         public ComputeEnvironmentComputeResources build() {
-            final var o = new ComputeEnvironmentComputeResources();
-            o.allocationStrategy = allocationStrategy;
-            o.bidPercentage = bidPercentage;
-            o.desiredVcpus = desiredVcpus;
-            o.ec2Configurations = ec2Configurations;
-            o.ec2KeyPair = ec2KeyPair;
-            o.imageId = imageId;
-            o.instanceRole = instanceRole;
-            o.instanceTypes = instanceTypes;
-            o.launchTemplate = launchTemplate;
-            o.maxVcpus = maxVcpus;
-            o.minVcpus = minVcpus;
-            o.placementGroup = placementGroup;
-            o.securityGroupIds = securityGroupIds;
-            o.spotIamFleetRole = spotIamFleetRole;
-            o.subnets = subnets;
-            o.tags = tags;
-            o.type = type;
-            return o;
+            final var _resultValue = new ComputeEnvironmentComputeResources();
+            _resultValue.allocationStrategy = allocationStrategy;
+            _resultValue.bidPercentage = bidPercentage;
+            _resultValue.desiredVcpus = desiredVcpus;
+            _resultValue.ec2Configurations = ec2Configurations;
+            _resultValue.ec2KeyPair = ec2KeyPair;
+            _resultValue.imageId = imageId;
+            _resultValue.instanceRole = instanceRole;
+            _resultValue.instanceTypes = instanceTypes;
+            _resultValue.launchTemplate = launchTemplate;
+            _resultValue.maxVcpus = maxVcpus;
+            _resultValue.minVcpus = minVcpus;
+            _resultValue.placementGroup = placementGroup;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.spotIamFleetRole = spotIamFleetRole;
+            _resultValue.subnets = subnets;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

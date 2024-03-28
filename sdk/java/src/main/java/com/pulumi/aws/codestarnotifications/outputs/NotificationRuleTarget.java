@@ -4,6 +4,7 @@
 package com.pulumi.aws.codestarnotifications.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,30 @@ public final class NotificationRuleTarget {
 
         @CustomType.Setter
         public Builder address(String address) {
-            this.address = Objects.requireNonNull(address);
+            if (address == null) {
+              throw new MissingRequiredPropertyException("NotificationRuleTarget", "address");
+            }
+            this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         public NotificationRuleTarget build() {
-            final var o = new NotificationRuleTarget();
-            o.address = address;
-            o.status = status;
-            o.type = type;
-            return o;
+            final var _resultValue = new NotificationRuleTarget();
+            _resultValue.address = address;
+            _resultValue.status = status;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

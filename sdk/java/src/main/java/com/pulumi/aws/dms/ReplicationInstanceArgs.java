@@ -5,6 +5,7 @@ package com.pulumi.aws.dms;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -685,8 +686,12 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
         }
 
         public ReplicationInstanceArgs build() {
-            $.replicationInstanceClass = Objects.requireNonNull($.replicationInstanceClass, "expected parameter 'replicationInstanceClass' to be non-null");
-            $.replicationInstanceId = Objects.requireNonNull($.replicationInstanceId, "expected parameter 'replicationInstanceId' to be non-null");
+            if ($.replicationInstanceClass == null) {
+                throw new MissingRequiredPropertyException("ReplicationInstanceArgs", "replicationInstanceClass");
+            }
+            if ($.replicationInstanceId == null) {
+                throw new MissingRequiredPropertyException("ReplicationInstanceArgs", "replicationInstanceId");
+            }
             return $;
         }
     }

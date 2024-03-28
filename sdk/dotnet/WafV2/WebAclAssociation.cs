@@ -18,24 +18,18 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
-    /// using System.Security.Cryptography;
-    /// using System.Text;
     /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	private static string ComputeSHA1(string input) {
-    /// 		return BitConverter.ToString(
-    /// 			SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input))
-    /// 		).Replace("-","").ToLowerInvariant());
-    /// 	}
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new()
+    ///     var example = new Aws.ApiGateway.RestApi("example", new()
     ///     {
     ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -62,26 +56,31 @@ namespace Pulumi.Aws.WafV2
     ///                 },
     ///             },
     ///         }),
+    ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("example", new()
     ///     {
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         Triggers = 
     ///         {
-    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///             { "redeployment", Std.Sha1.Invoke(new()
+    ///             {
+    ///                 Input = Output.JsonSerialize(Output.Create(example.Body)),
+    ///             }).Apply(invoke =&gt; invoke.Result) },
     ///         },
     ///     });
     /// 
-    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     var exampleStage = new Aws.ApiGateway.Stage("example", new()
     ///     {
     ///         Deployment = exampleDeployment.Id,
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         StageName = "example",
     ///     });
     /// 
-    ///     var exampleWebAcl = new Aws.WafV2.WebAcl("exampleWebAcl", new()
+    ///     var exampleWebAcl = new Aws.WafV2.WebAcl("example", new()
     ///     {
+    ///         Name = "web-acl-association-example",
     ///         Scope = "REGIONAL",
     ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
     ///         {
@@ -95,7 +94,7 @@ namespace Pulumi.Aws.WafV2
     ///         },
     ///     });
     /// 
-    ///     var exampleWebAclAssociation = new Aws.WafV2.WebAclAssociation("exampleWebAclAssociation", new()
+    ///     var exampleWebAclAssociation = new Aws.WafV2.WebAclAssociation("example", new()
     ///     {
     ///         ResourceArn = exampleStage.Arn,
     ///         WebAclArn = exampleWebAcl.Arn,
@@ -103,20 +102,21 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WAFv2 Web ACL Association using `WEB_ACL_ARN,RESOURCE_ARN`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:wafv2/webAclAssociation:WebAclAssociation example arn:aws:wafv2:...7ce849ea,arn:aws:apigateway:...ages/name
+    /// $ pulumi import aws:wafv2/webAclAssociation:WebAclAssociation example arn:aws:wafv2:...7ce849ea,arn:aws:apigateway:...ages/name
     /// ```
     /// </summary>
     [AwsResourceType("aws:wafv2/webAclAssociation:WebAclAssociation")]
     public partial class WebAclAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
+        /// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
         /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.WafV2
     public sealed class WebAclAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
+        /// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
         /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.WafV2
     public sealed class WebAclAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
+        /// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
         /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }

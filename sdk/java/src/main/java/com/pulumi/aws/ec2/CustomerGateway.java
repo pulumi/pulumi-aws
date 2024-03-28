@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a customer gateway inside a VPC. These objects can be connected to VPN gateways via VPN connections, and allow you to establish tunnels between your network and the VPC.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,20 +45,21 @@ import javax.annotation.Nullable;
  *         var main = new CustomerGateway(&#34;main&#34;, CustomerGatewayArgs.builder()        
  *             .bgpAsn(65000)
  *             .ipAddress(&#34;172.83.124.10&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;main-customer-gateway&#34;))
  *             .type(&#34;ipsec.1&#34;)
+ *             .tags(Map.of(&#34;Name&#34;, &#34;main-customer-gateway&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Customer Gateways using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
+ * $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
  * ```
  * 
  */
@@ -214,9 +216,6 @@ public class CustomerGateway extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

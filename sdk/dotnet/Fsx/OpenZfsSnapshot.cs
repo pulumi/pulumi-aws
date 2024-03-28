@@ -14,8 +14,10 @@ namespace Pulumi.Aws.Fsx
     /// See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Root volume Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,26 +26,27 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleOpenZfsFileSystem = new Aws.Fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem", new()
+    ///     var exampleOpenZfsFileSystem = new Aws.Fsx.OpenZfsFileSystem("example", new()
     ///     {
     ///         StorageCapacity = 64,
-    ///         SubnetIds = new[]
-    ///         {
-    ///             aws_subnet.Example.Id,
-    ///         },
+    ///         SubnetIds = exampleAwsSubnet.Id,
     ///         DeploymentType = "SINGLE_AZ_1",
     ///         ThroughputCapacity = 64,
     ///     });
     /// 
-    ///     var exampleOpenZfsSnapshot = new Aws.Fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", new()
+    ///     var example = new Aws.Fsx.OpenZfsSnapshot("example", new()
     ///     {
+    ///         Name = "example",
     ///         VolumeId = exampleOpenZfsFileSystem.RootVolumeId,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Child volume Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,36 +55,36 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleOpenZfsFileSystem = new Aws.Fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem", new()
+    ///     var exampleOpenZfsFileSystem = new Aws.Fsx.OpenZfsFileSystem("example", new()
     ///     {
     ///         StorageCapacity = 64,
-    ///         SubnetIds = new[]
-    ///         {
-    ///             aws_subnet.Example.Id,
-    ///         },
+    ///         SubnetIds = exampleAwsSubnet.Id,
     ///         DeploymentType = "SINGLE_AZ_1",
     ///         ThroughputCapacity = 64,
     ///     });
     /// 
-    ///     var exampleOpenZfsVolume = new Aws.Fsx.OpenZfsVolume("exampleOpenZfsVolume", new()
+    ///     var exampleOpenZfsVolume = new Aws.Fsx.OpenZfsVolume("example", new()
     ///     {
+    ///         Name = "example",
     ///         ParentVolumeId = exampleOpenZfsFileSystem.RootVolumeId,
     ///     });
     /// 
-    ///     var exampleOpenZfsSnapshot = new Aws.Fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", new()
+    ///     var example = new Aws.Fsx.OpenZfsSnapshot("example", new()
     ///     {
+    ///         Name = "example",
     ///         VolumeId = exampleOpenZfsVolume.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import FSx OpenZFS snapshot using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:fsx/openZfsSnapshot:OpenZfsSnapshot example fs-543ab12b1ca672f33
+    /// $ pulumi import aws:fsx/openZfsSnapshot:OpenZfsSnapshot example fs-543ab12b1ca672f33
     /// ```
     /// </summary>
     [AwsResourceType("aws:fsx/openZfsSnapshot:OpenZfsSnapshot")]
@@ -143,10 +146,6 @@ namespace Pulumi.Aws.Fsx
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -239,11 +238,7 @@ namespace Pulumi.Aws.Fsx
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

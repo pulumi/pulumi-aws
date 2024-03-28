@@ -68,16 +68,19 @@ public final class NetworkInsightsAnalysisReturnPathComponentSecurityGroupRule {
 
         @CustomType.Setter
         public Builder cidr(@Nullable String cidr) {
+
             this.cidr = cidr;
             return this;
         }
         @CustomType.Setter
         public Builder direction(@Nullable String direction) {
+
             this.direction = direction;
             return this;
         }
         @CustomType.Setter
         public Builder portRanges(@Nullable List<NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRange> portRanges) {
+
             this.portRanges = portRanges;
             return this;
         }
@@ -86,28 +89,31 @@ public final class NetworkInsightsAnalysisReturnPathComponentSecurityGroupRule {
         }
         @CustomType.Setter
         public Builder prefixListId(@Nullable String prefixListId) {
+
             this.prefixListId = prefixListId;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
+
             this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroupId(@Nullable String securityGroupId) {
+
             this.securityGroupId = securityGroupId;
             return this;
         }
         public NetworkInsightsAnalysisReturnPathComponentSecurityGroupRule build() {
-            final var o = new NetworkInsightsAnalysisReturnPathComponentSecurityGroupRule();
-            o.cidr = cidr;
-            o.direction = direction;
-            o.portRanges = portRanges;
-            o.prefixListId = prefixListId;
-            o.protocol = protocol;
-            o.securityGroupId = securityGroupId;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisReturnPathComponentSecurityGroupRule();
+            _resultValue.cidr = cidr;
+            _resultValue.direction = direction;
+            _resultValue.portRanges = portRanges;
+            _resultValue.prefixListId = prefixListId;
+            _resultValue.protocol = protocol;
+            _resultValue.securityGroupId = securityGroupId;
+            return _resultValue;
         }
     }
 }

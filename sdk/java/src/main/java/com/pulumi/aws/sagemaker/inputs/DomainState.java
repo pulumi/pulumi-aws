@@ -82,14 +82,14 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The default space settings. See Default Space Settings below.
+     * The default space settings. See `default_space_settings` Block below.
      * 
      */
     @Import(name="defaultSpaceSettings")
     private @Nullable Output<DomainDefaultSpaceSettingsArgs> defaultSpaceSettings;
 
     /**
-     * @return The default space settings. See Default Space Settings below.
+     * @return The default space settings. See `default_space_settings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultSpaceSettingsArgs>> defaultSpaceSettings() {
@@ -97,36 +97,44 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+     * The default user settings. See `default_user_settings` Block below.
      * 
      */
     @Import(name="defaultUserSettings")
     private @Nullable Output<DomainDefaultUserSettingsArgs> defaultUserSettings;
 
     /**
-     * @return The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+     * @return The default user settings. See `default_user_settings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsArgs>> defaultUserSettings() {
         return Optional.ofNullable(this.defaultUserSettings);
     }
 
+    /**
+     * The domain name.
+     * 
+     */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
+    /**
+     * @return The domain name.
+     * 
+     */
     public Optional<Output<String>> domainName() {
         return Optional.ofNullable(this.domainName);
     }
 
     /**
-     * The domain&#39;s settings.
+     * The domain settings. See `domain_settings` Block below.
      * 
      */
     @Import(name="domainSettings")
     private @Nullable Output<DomainDomainSettingsArgs> domainSettings;
 
     /**
-     * @return The domain&#39;s settings.
+     * @return The domain settings. See `domain_settings` Block below.
      * 
      */
     public Optional<Output<DomainDomainSettingsArgs>> domainSettings() {
@@ -164,14 +172,14 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
      * 
      */
     @Import(name="retentionPolicy")
     private @Nullable Output<DomainRetentionPolicyArgs> retentionPolicy;
 
     /**
-     * @return The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+     * @return The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
      * 
      */
     public Optional<Output<DomainRetentionPolicyArgs>> retentionPolicy() {
@@ -191,6 +199,21 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> securityGroupIdForDomainBoundary() {
         return Optional.ofNullable(this.securityGroupIdForDomainBoundary);
+    }
+
+    /**
+     * The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+     * 
+     */
+    @Import(name="singleSignOnApplicationArn")
+    private @Nullable Output<String> singleSignOnApplicationArn;
+
+    /**
+     * @return The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+     * 
+     */
+    public Optional<Output<String>> singleSignOnApplicationArn() {
+        return Optional.ofNullable(this.singleSignOnApplicationArn);
     }
 
     /**
@@ -310,6 +333,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         this.kmsKeyId = $.kmsKeyId;
         this.retentionPolicy = $.retentionPolicy;
         this.securityGroupIdForDomainBoundary = $.securityGroupIdForDomainBoundary;
+        this.singleSignOnApplicationArn = $.singleSignOnApplicationArn;
         this.singleSignOnManagedApplicationInstanceId = $.singleSignOnManagedApplicationInstanceId;
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
@@ -421,7 +445,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultSpaceSettings The default space settings. See Default Space Settings below.
+         * @param defaultSpaceSettings The default space settings. See `default_space_settings` Block below.
          * 
          * @return builder
          * 
@@ -432,7 +456,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultSpaceSettings The default space settings. See Default Space Settings below.
+         * @param defaultSpaceSettings The default space settings. See `default_space_settings` Block below.
          * 
          * @return builder
          * 
@@ -442,7 +466,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultUserSettings The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+         * @param defaultUserSettings The default user settings. See `default_user_settings` Block below.
          * 
          * @return builder
          * 
@@ -453,7 +477,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultUserSettings The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+         * @param defaultUserSettings The default user settings. See `default_user_settings` Block below.
          * 
          * @return builder
          * 
@@ -462,17 +486,29 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
             return defaultUserSettings(Output.of(defaultUserSettings));
         }
 
+        /**
+         * @param domainName The domain name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(@Nullable Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
+        /**
+         * @param domainName The domain name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
         /**
-         * @param domainSettings The domain&#39;s settings.
+         * @param domainSettings The domain settings. See `domain_settings` Block below.
          * 
          * @return builder
          * 
@@ -483,7 +519,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainSettings The domain&#39;s settings.
+         * @param domainSettings The domain settings. See `domain_settings` Block below.
          * 
          * @return builder
          * 
@@ -535,7 +571,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionPolicy The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+         * @param retentionPolicy The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
          * 
          * @return builder
          * 
@@ -546,7 +582,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionPolicy The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+         * @param retentionPolicy The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
          * 
          * @return builder
          * 
@@ -574,6 +610,27 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder securityGroupIdForDomainBoundary(String securityGroupIdForDomainBoundary) {
             return securityGroupIdForDomainBoundary(Output.of(securityGroupIdForDomainBoundary));
+        }
+
+        /**
+         * @param singleSignOnApplicationArn The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder singleSignOnApplicationArn(@Nullable Output<String> singleSignOnApplicationArn) {
+            $.singleSignOnApplicationArn = singleSignOnApplicationArn;
+            return this;
+        }
+
+        /**
+         * @param singleSignOnApplicationArn The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder singleSignOnApplicationArn(String singleSignOnApplicationArn) {
+            return singleSignOnApplicationArn(Output.of(singleSignOnApplicationArn));
         }
 
         /**

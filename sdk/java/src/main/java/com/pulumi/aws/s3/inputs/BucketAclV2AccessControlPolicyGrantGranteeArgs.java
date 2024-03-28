@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,7 +225,9 @@ public final class BucketAclV2AccessControlPolicyGrantGranteeArgs extends com.pu
         }
 
         public BucketAclV2AccessControlPolicyGrantGranteeArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("BucketAclV2AccessControlPolicyGrantGranteeArgs", "type");
+            }
             return $;
         }
     }

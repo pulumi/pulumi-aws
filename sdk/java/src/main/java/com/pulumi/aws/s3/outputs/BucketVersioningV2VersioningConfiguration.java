@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,19 +59,23 @@ public final class BucketVersioningV2VersioningConfiguration {
 
         @CustomType.Setter
         public Builder mfaDelete(@Nullable String mfaDelete) {
+
             this.mfaDelete = mfaDelete;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("BucketVersioningV2VersioningConfiguration", "status");
+            }
+            this.status = status;
             return this;
         }
         public BucketVersioningV2VersioningConfiguration build() {
-            final var o = new BucketVersioningV2VersioningConfiguration();
-            o.mfaDelete = mfaDelete;
-            o.status = status;
-            return o;
+            final var _resultValue = new BucketVersioningV2VersioningConfiguration();
+            _resultValue.mfaDelete = mfaDelete;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

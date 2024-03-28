@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,19 +59,23 @@ public final class DeviceFleetOutputConfig {
 
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder s3OutputLocation(String s3OutputLocation) {
-            this.s3OutputLocation = Objects.requireNonNull(s3OutputLocation);
+            if (s3OutputLocation == null) {
+              throw new MissingRequiredPropertyException("DeviceFleetOutputConfig", "s3OutputLocation");
+            }
+            this.s3OutputLocation = s3OutputLocation;
             return this;
         }
         public DeviceFleetOutputConfig build() {
-            final var o = new DeviceFleetOutputConfig();
-            o.kmsKeyId = kmsKeyId;
-            o.s3OutputLocation = s3OutputLocation;
-            return o;
+            final var _resultValue = new DeviceFleetOutputConfig();
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.s3OutputLocation = s3OutputLocation;
+            return _resultValue;
         }
     }
 }

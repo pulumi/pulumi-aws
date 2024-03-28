@@ -8,24 +8,27 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Image Version resource.
  *
  * ## Example Usage
+ *
  * ### Basic usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.sagemaker.ImageVersion("test", {
- *     imageName: aws_sagemaker_image.test.id,
+ *     imageName: testAwsSagemakerImage.id,
  *     baseImage: "012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SageMaker Image Versions using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
+ * $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
  * ```
  */
 export class ImageVersion extends pulumi.CustomResource {

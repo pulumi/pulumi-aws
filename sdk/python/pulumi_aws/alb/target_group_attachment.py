@@ -177,62 +177,68 @@ class TargetGroupAttachment(pulumi.CustomResource):
         > **Note:** `alb.TargetGroupAttachment` is known as `lb.TargetGroupAttachment`. The functionality is identical.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_target_group = aws.lb.TargetGroup("testTargetGroup")
-        # ... other configuration ...
-        test_instance = aws.ec2.Instance("testInstance")
-        # ... other configuration ...
-        test_target_group_attachment = aws.lb.TargetGroupAttachment("testTargetGroupAttachment",
+        test_target_group = aws.lb.TargetGroup("test")
+        test_instance = aws.ec2.Instance("test")
+        test = aws.lb.TargetGroupAttachment("test",
             target_group_arn=test_target_group.arn,
             target_id=test_instance.id,
             port=80)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda Target
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_target_group = aws.lb.TargetGroup("testTargetGroup", target_type="lambda")
-        test_function = aws.lambda_.Function("testFunction")
-        # ... other configuration ...
-        with_lb = aws.lambda_.Permission("withLb",
+        test = aws.lb.TargetGroup("test",
+            name="test",
+            target_type="lambda")
+        test_function = aws.lambda_.Function("test")
+        with_lb = aws.lambda_.Permission("with_lb",
+            statement_id="AllowExecutionFromlb",
             action="lambda:InvokeFunction",
             function=test_function.name,
             principal="elasticloadbalancing.amazonaws.com",
-            source_arn=test_target_group.arn)
-        test_target_group_attachment = aws.lb.TargetGroupAttachment("testTargetGroupAttachment",
-            target_group_arn=test_target_group.arn,
-            target_id=test_function.arn,
-            opts=pulumi.ResourceOptions(depends_on=[with_lb]))
+            source_arn=test.arn)
+        test_target_group_attachment = aws.lb.TargetGroupAttachment("test",
+            target_group_arn=test.arn,
+            target_id=test_function.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Registering Multiple Targets
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_instance = []
+        example = []
         for range in [{"value": i} for i in range(0, 3)]:
-            example_instance.append(aws.ec2.Instance(f"exampleInstance-{range['value']}"))
-        # ... other configuration ...
-        example_target_group = aws.lb.TargetGroup("exampleTargetGroup")
-        # ... other configuration ...
+            example.append(aws.ec2.Instance(f"example-{range['value']}"))
+        example_target_group = aws.lb.TargetGroup("example")
         example_target_group_attachment = []
-        def create_example_target_group_attachment(range_body):
+        def create_example(range_body):
             for range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
-                example_target_group_attachment.append(aws.lb.TargetGroupAttachment(f"exampleTargetGroupAttachment-{range['key']}",
+                example_target_group_attachment.append(aws.lb.TargetGroupAttachment(f"example-{range['key']}",
                     target_group_arn=example_target_group.arn,
                     target_id=range["value"],
                     port=80))
 
-        pulumi.Output.all({v.id: v for k, v in example_instance}).apply(lambda resolved_outputs: create_example_target_group_attachment(resolved_outputs[0]))
+        pulumi.Output.all({v.id: v for k, v in example}).apply(lambda resolved_outputs: create_example(resolved_outputs[0]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -259,62 +265,68 @@ class TargetGroupAttachment(pulumi.CustomResource):
         > **Note:** `alb.TargetGroupAttachment` is known as `lb.TargetGroupAttachment`. The functionality is identical.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_target_group = aws.lb.TargetGroup("testTargetGroup")
-        # ... other configuration ...
-        test_instance = aws.ec2.Instance("testInstance")
-        # ... other configuration ...
-        test_target_group_attachment = aws.lb.TargetGroupAttachment("testTargetGroupAttachment",
+        test_target_group = aws.lb.TargetGroup("test")
+        test_instance = aws.ec2.Instance("test")
+        test = aws.lb.TargetGroupAttachment("test",
             target_group_arn=test_target_group.arn,
             target_id=test_instance.id,
             port=80)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda Target
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_target_group = aws.lb.TargetGroup("testTargetGroup", target_type="lambda")
-        test_function = aws.lambda_.Function("testFunction")
-        # ... other configuration ...
-        with_lb = aws.lambda_.Permission("withLb",
+        test = aws.lb.TargetGroup("test",
+            name="test",
+            target_type="lambda")
+        test_function = aws.lambda_.Function("test")
+        with_lb = aws.lambda_.Permission("with_lb",
+            statement_id="AllowExecutionFromlb",
             action="lambda:InvokeFunction",
             function=test_function.name,
             principal="elasticloadbalancing.amazonaws.com",
-            source_arn=test_target_group.arn)
-        test_target_group_attachment = aws.lb.TargetGroupAttachment("testTargetGroupAttachment",
-            target_group_arn=test_target_group.arn,
-            target_id=test_function.arn,
-            opts=pulumi.ResourceOptions(depends_on=[with_lb]))
+            source_arn=test.arn)
+        test_target_group_attachment = aws.lb.TargetGroupAttachment("test",
+            target_group_arn=test.arn,
+            target_id=test_function.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Registering Multiple Targets
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_instance = []
+        example = []
         for range in [{"value": i} for i in range(0, 3)]:
-            example_instance.append(aws.ec2.Instance(f"exampleInstance-{range['value']}"))
-        # ... other configuration ...
-        example_target_group = aws.lb.TargetGroup("exampleTargetGroup")
-        # ... other configuration ...
+            example.append(aws.ec2.Instance(f"example-{range['value']}"))
+        example_target_group = aws.lb.TargetGroup("example")
         example_target_group_attachment = []
-        def create_example_target_group_attachment(range_body):
+        def create_example(range_body):
             for range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
-                example_target_group_attachment.append(aws.lb.TargetGroupAttachment(f"exampleTargetGroupAttachment-{range['key']}",
+                example_target_group_attachment.append(aws.lb.TargetGroupAttachment(f"example-{range['key']}",
                     target_group_arn=example_target_group.arn,
                     target_id=range["value"],
                     port=80))
 
-        pulumi.Output.all({v.id: v for k, v in example_instance}).apply(lambda resolved_outputs: create_example_target_group_attachment(resolved_outputs[0]))
+        pulumi.Output.all({v.id: v for k, v in example}).apply(lambda resolved_outputs: create_example(resolved_outputs[0]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

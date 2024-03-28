@@ -44,13 +44,14 @@ public final class ClusterServerSideEncryption {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         public ClusterServerSideEncryption build() {
-            final var o = new ClusterServerSideEncryption();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new ClusterServerSideEncryption();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

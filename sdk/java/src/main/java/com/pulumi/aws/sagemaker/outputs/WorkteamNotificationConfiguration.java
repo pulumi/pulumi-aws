@@ -44,13 +44,14 @@ public final class WorkteamNotificationConfiguration {
 
         @CustomType.Setter
         public Builder notificationTopicArn(@Nullable String notificationTopicArn) {
+
             this.notificationTopicArn = notificationTopicArn;
             return this;
         }
         public WorkteamNotificationConfiguration build() {
-            final var o = new WorkteamNotificationConfiguration();
-            o.notificationTopicArn = notificationTopicArn;
-            return o;
+            final var _resultValue = new WorkteamNotificationConfiguration();
+            _resultValue.notificationTopicArn = notificationTopicArn;
+            return _resultValue;
         }
     }
 }

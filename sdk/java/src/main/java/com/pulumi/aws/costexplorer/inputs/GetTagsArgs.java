@@ -8,6 +8,7 @@ import com.pulumi.aws.costexplorer.inputs.GetTagsSortByArgs;
 import com.pulumi.aws.costexplorer.inputs.GetTagsTimePeriodArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -246,7 +247,9 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetTagsArgs build() {
-            $.timePeriod = Objects.requireNonNull($.timePeriod, "expected parameter 'timePeriod' to be non-null");
+            if ($.timePeriod == null) {
+                throw new MissingRequiredPropertyException("GetTagsArgs", "timePeriod");
+            }
             return $;
         }
     }

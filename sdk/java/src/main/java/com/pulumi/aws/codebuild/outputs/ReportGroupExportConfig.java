@@ -5,6 +5,7 @@ package com.pulumi.aws.codebuild.outputs;
 
 import com.pulumi.aws.codebuild.outputs.ReportGroupExportConfigS3Destination;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,19 +60,23 @@ public final class ReportGroupExportConfig {
 
         @CustomType.Setter
         public Builder s3Destination(@Nullable ReportGroupExportConfigS3Destination s3Destination) {
+
             this.s3Destination = s3Destination;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("ReportGroupExportConfig", "type");
+            }
+            this.type = type;
             return this;
         }
         public ReportGroupExportConfig build() {
-            final var o = new ReportGroupExportConfig();
-            o.s3Destination = s3Destination;
-            o.type = type;
-            return o;
+            final var _resultValue = new ReportGroupExportConfig();
+            _resultValue.s3Destination = s3Destination;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

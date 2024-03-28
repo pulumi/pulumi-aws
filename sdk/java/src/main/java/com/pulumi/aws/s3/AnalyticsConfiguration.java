@@ -19,8 +19,13 @@ import javax.annotation.Nullable;
 /**
  * Provides a S3 bucket [analytics configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) resource.
  * 
+ * &gt; This resource cannot be used with S3 directory buckets.
+ * 
  * ## Example Usage
+ * 
  * ### Add analytics configuration for entire S3 bucket and export results to a second S3 bucket
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -28,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.AnalyticsConfiguration;
  * import com.pulumi.aws.s3.AnalyticsConfigurationArgs;
  * import com.pulumi.aws.s3.inputs.AnalyticsConfigurationStorageClassAnalysisArgs;
@@ -47,12 +53,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
+ *             .build());
  * 
- *         var analytics = new BucketV2(&#34;analytics&#34;);
+ *         var analytics = new BucketV2(&#34;analytics&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;analytics destination&#34;)
+ *             .build());
  * 
  *         var example_entire_bucket = new AnalyticsConfiguration(&#34;example-entire-bucket&#34;, AnalyticsConfigurationArgs.builder()        
  *             .bucket(example.id())
+ *             .name(&#34;EntireBucket&#34;)
  *             .storageClassAnalysis(AnalyticsConfigurationStorageClassAnalysisArgs.builder()
  *                 .dataExport(AnalyticsConfigurationStorageClassAnalysisDataExportArgs.builder()
  *                     .destination(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs.builder()
@@ -67,7 +78,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Add analytics configuration with S3 object filter
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -75,6 +90,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.AnalyticsConfiguration;
  * import com.pulumi.aws.s3.AnalyticsConfigurationArgs;
  * import com.pulumi.aws.s3.inputs.AnalyticsConfigurationFilterArgs;
@@ -91,10 +107,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
+ *             .build());
  * 
  *         var example_filtered = new AnalyticsConfiguration(&#34;example-filtered&#34;, AnalyticsConfigurationArgs.builder()        
  *             .bucket(example.id())
+ *             .name(&#34;ImportantBlueDocuments&#34;)
  *             .filter(AnalyticsConfigurationFilterArgs.builder()
  *                 .prefix(&#34;documents/&#34;)
  *                 .tags(Map.ofEntries(
@@ -107,13 +126,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import S3 bucket analytics configurations using `bucket:analytics`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:s3/analyticsConfiguration:AnalyticsConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
+ * $ pulumi import aws:s3/analyticsConfiguration:AnalyticsConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
  * ```
  * 
  */

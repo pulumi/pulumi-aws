@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a CodeBuild Resource Policy Resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,36 +47,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleReportGroup = new ReportGroup(&#34;exampleReportGroup&#34;, ReportGroupArgs.builder()        
+ *         var example = new ReportGroup(&#34;example&#34;, ReportGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .type(&#34;TEST&#34;)
  *             .exportConfig(ReportGroupExportConfigArgs.builder()
  *                 .type(&#34;NO_EXPORT&#34;)
  *                 .build())
  *             .build());
  * 
- *         final var currentPartition = AwsFunctions.getPartition();
+ *         final var current = AwsFunctions.getPartition();
  * 
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
  * 
  *         var exampleResourcePolicy = new ResourcePolicy(&#34;exampleResourcePolicy&#34;, ResourcePolicyArgs.builder()        
- *             .resourceArn(exampleReportGroup.arn())
- *             .policy(exampleReportGroup.arn().applyValue(arn -&gt; serializeJson(
+ *             .resourceArn(example.arn())
+ *             .policy(example.arn().applyValue(arn -&gt; serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Id&#34;, &#34;default&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Sid&#34;, &#34;default&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;AWS&#34;, String.format(&#34;arn:%s:iam::%s:root&#34;, currentPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;id&#34;, &#34;default&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;sid&#34;, &#34;default&#34;),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;AWS&#34;, String.format(&#34;arn:%s:iam::%s:root&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
  *                         )),
- *                         jsonProperty(&#34;Action&#34;, jsonArray(
+ *                         jsonProperty(&#34;action&#34;, jsonArray(
  *                             &#34;codebuild:BatchGetReportGroups&#34;, 
  *                             &#34;codebuild:BatchGetReports&#34;, 
  *                             &#34;codebuild:ListReportsForReportGroup&#34;, 
  *                             &#34;codebuild:DescribeTestCases&#34;
  *                         )),
- *                         jsonProperty(&#34;Resource&#34;, arn)
+ *                         jsonProperty(&#34;resource&#34;, arn)
  *                     )))
  *                 ))))
  *             .build());
@@ -82,13 +85,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy arn. For example:
  * 
  * ```sh
- *  $ pulumi import aws:codebuild/resourcePolicy:ResourcePolicy example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
+ * $ pulumi import aws:codebuild/resourcePolicy:ResourcePolicy example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
  * ```
  * 
  */

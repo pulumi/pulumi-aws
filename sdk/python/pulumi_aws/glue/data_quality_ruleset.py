@@ -289,56 +289,73 @@ class DataQualityRuleset(pulumi.CustomResource):
         Provides a Glue Data Quality Ruleset Resource. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/glue-data-quality.html) for a full explanation of the Glue Data Quality Ruleset functionality
 
         ## Example Usage
+
         ### Basic
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.DataQualityRuleset("example", ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
-        ```
-        ### With description
-
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.DataQualityRuleset("example",
+            name="example",
+            ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### With description
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.DataQualityRuleset("example",
+            name="example",
             description="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With tags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.DataQualityRuleset("example",
+            name="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]",
             tags={
                 "hello": "world",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With target_table
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.DataQualityRuleset("example",
+            name="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]",
             target_table=aws.glue.DataQualityRulesetTargetTableArgs(
-                database_name=aws_glue_catalog_database["example"]["name"],
-                table_name=aws_glue_catalog_table["example"]["name"],
+                database_name=example_aws_glue_catalog_database["name"],
+                table_name=example_aws_glue_catalog_table["name"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Data Quality Ruleset using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName
+        $ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName
         ```
 
         :param str resource_name: The name of the resource.
@@ -359,56 +376,73 @@ class DataQualityRuleset(pulumi.CustomResource):
         Provides a Glue Data Quality Ruleset Resource. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/glue-data-quality.html) for a full explanation of the Glue Data Quality Ruleset functionality
 
         ## Example Usage
+
         ### Basic
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.DataQualityRuleset("example", ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
-        ```
-        ### With description
-
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.DataQualityRuleset("example",
+            name="example",
+            ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### With description
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.DataQualityRuleset("example",
+            name="example",
             description="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With tags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.DataQualityRuleset("example",
+            name="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]",
             tags={
                 "hello": "world",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With target_table
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.DataQualityRuleset("example",
+            name="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]",
             target_table=aws.glue.DataQualityRulesetTargetTableArgs(
-                database_name=aws_glue_catalog_database["example"]["name"],
-                table_name=aws_glue_catalog_table["example"]["name"],
+                database_name=example_aws_glue_catalog_database["name"],
+                table_name=example_aws_glue_catalog_table["name"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Data Quality Ruleset using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName
+        $ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName
         ```
 
         :param str resource_name: The name of the resource.
@@ -452,8 +486,6 @@ class DataQualityRuleset(pulumi.CustomResource):
             __props__.__dict__["last_modified_on"] = None
             __props__.__dict__["recommendation_run_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(DataQualityRuleset, __self__).__init__(
             'aws:glue/dataQualityRuleset:DataQualityRuleset',
             resource_name,

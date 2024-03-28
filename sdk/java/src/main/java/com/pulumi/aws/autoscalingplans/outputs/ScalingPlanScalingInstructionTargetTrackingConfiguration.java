@@ -6,6 +6,7 @@ package com.pulumi.aws.autoscalingplans.outputs;
 import com.pulumi.aws.autoscalingplans.outputs.ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification;
 import com.pulumi.aws.autoscalingplans.outputs.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -142,49 +143,58 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfiguration {
 
         @CustomType.Setter
         public Builder customizedScalingMetricSpecification(@Nullable ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification customizedScalingMetricSpecification) {
+
             this.customizedScalingMetricSpecification = customizedScalingMetricSpecification;
             return this;
         }
         @CustomType.Setter
         public Builder disableScaleIn(@Nullable Boolean disableScaleIn) {
+
             this.disableScaleIn = disableScaleIn;
             return this;
         }
         @CustomType.Setter
         public Builder estimatedInstanceWarmup(@Nullable Integer estimatedInstanceWarmup) {
+
             this.estimatedInstanceWarmup = estimatedInstanceWarmup;
             return this;
         }
         @CustomType.Setter
         public Builder predefinedScalingMetricSpecification(@Nullable ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification predefinedScalingMetricSpecification) {
+
             this.predefinedScalingMetricSpecification = predefinedScalingMetricSpecification;
             return this;
         }
         @CustomType.Setter
         public Builder scaleInCooldown(@Nullable Integer scaleInCooldown) {
+
             this.scaleInCooldown = scaleInCooldown;
             return this;
         }
         @CustomType.Setter
         public Builder scaleOutCooldown(@Nullable Integer scaleOutCooldown) {
+
             this.scaleOutCooldown = scaleOutCooldown;
             return this;
         }
         @CustomType.Setter
         public Builder targetValue(Double targetValue) {
-            this.targetValue = Objects.requireNonNull(targetValue);
+            if (targetValue == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanScalingInstructionTargetTrackingConfiguration", "targetValue");
+            }
+            this.targetValue = targetValue;
             return this;
         }
         public ScalingPlanScalingInstructionTargetTrackingConfiguration build() {
-            final var o = new ScalingPlanScalingInstructionTargetTrackingConfiguration();
-            o.customizedScalingMetricSpecification = customizedScalingMetricSpecification;
-            o.disableScaleIn = disableScaleIn;
-            o.estimatedInstanceWarmup = estimatedInstanceWarmup;
-            o.predefinedScalingMetricSpecification = predefinedScalingMetricSpecification;
-            o.scaleInCooldown = scaleInCooldown;
-            o.scaleOutCooldown = scaleOutCooldown;
-            o.targetValue = targetValue;
-            return o;
+            final var _resultValue = new ScalingPlanScalingInstructionTargetTrackingConfiguration();
+            _resultValue.customizedScalingMetricSpecification = customizedScalingMetricSpecification;
+            _resultValue.disableScaleIn = disableScaleIn;
+            _resultValue.estimatedInstanceWarmup = estimatedInstanceWarmup;
+            _resultValue.predefinedScalingMetricSpecification = predefinedScalingMetricSpecification;
+            _resultValue.scaleInCooldown = scaleInCooldown;
+            _resultValue.scaleOutCooldown = scaleOutCooldown;
+            _resultValue.targetValue = targetValue;
+            return _resultValue;
         }
     }
 }

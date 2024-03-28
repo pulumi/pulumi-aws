@@ -8,6 +8,8 @@ import com.pulumi.aws.codepipeline.PipelineArgs;
 import com.pulumi.aws.codepipeline.inputs.PipelineState;
 import com.pulumi.aws.codepipeline.outputs.PipelineArtifactStore;
 import com.pulumi.aws.codepipeline.outputs.PipelineStage;
+import com.pulumi.aws.codepipeline.outputs.PipelineTrigger;
+import com.pulumi.aws.codepipeline.outputs.PipelineVariable;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -22,6 +24,8 @@ import javax.annotation.Nullable;
  * Provides a CodePipeline.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -31,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codestarconnections.Connection;
  * import com.pulumi.aws.codestarconnections.ConnectionArgs;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
@@ -42,8 +47,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codepipeline.inputs.PipelineArtifactStoreArgs;
  * import com.pulumi.aws.codepipeline.inputs.PipelineArtifactStoreEncryptionKeyArgs;
  * import com.pulumi.aws.codepipeline.inputs.PipelineStageArgs;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.BucketPublicAccessBlock;
+ * import com.pulumi.aws.s3.BucketPublicAccessBlockArgs;
  * import com.pulumi.aws.iam.RolePolicy;
  * import com.pulumi.aws.iam.RolePolicyArgs;
  * import java.util.List;
@@ -60,10 +65,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Connection(&#34;example&#34;, ConnectionArgs.builder()        
+ *             .name(&#34;example-connection&#34;)
  *             .providerType(&#34;GitHub&#34;)
  *             .build());
  * 
- *         var codepipelineBucket = new BucketV2(&#34;codepipelineBucket&#34;);
+ *         var codepipelineBucket = new BucketV2(&#34;codepipelineBucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;test-bucket&#34;)
+ *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
@@ -77,6 +85,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var codepipelineRole = new Role(&#34;codepipelineRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;test-role&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
@@ -85,6 +94,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var codepipeline = new Pipeline(&#34;codepipeline&#34;, PipelineArgs.builder()        
+ *             .name(&#34;tf-test-pipeline&#34;)
  *             .roleArn(codepipelineRole.arn())
  *             .artifactStores(PipelineArtifactStoreArgs.builder()
  *                 .location(codepipelineBucket.bucket())
@@ -144,12 +154,15 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var codepipelineBucketAcl = new BucketAclV2(&#34;codepipelineBucketAcl&#34;, BucketAclV2Args.builder()        
+ *         var codepipelineBucketPab = new BucketPublicAccessBlock(&#34;codepipelineBucketPab&#34;, BucketPublicAccessBlockArgs.builder()        
  *             .bucket(codepipelineBucket.id())
- *             .acl(&#34;private&#34;)
+ *             .blockPublicAcls(true)
+ *             .blockPublicPolicy(true)
+ *             .ignorePublicAcls(true)
+ *             .restrictPublicBuckets(true)
  *             .build());
  * 
- *         final var codepipelinePolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var codepipelinePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .effect(&#34;Allow&#34;)
@@ -178,20 +191,22 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var codepipelinePolicyRolePolicy = new RolePolicy(&#34;codepipelinePolicyRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;codepipeline_policy&#34;)
  *             .role(codepipelineRole.id())
- *             .policy(codepipelinePolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(codepipelinePolicyPolicyDocument -&gt; codepipelinePolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(codepipelinePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(codepipelinePolicy -&gt; codepipelinePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CodePipelines using the name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
+ * $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
  * ```
  * 
  */
@@ -226,6 +241,24 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return this.artifactStores;
     }
     /**
+     * The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+     * 
+     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+     * 
+     */
+    @Export(name="executionMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> executionMode;
+
+    /**
+     * @return The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+     * 
+     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+     * 
+     */
+    public Output<Optional<String>> executionMode() {
+        return Codegen.optional(this.executionMode);
+    }
+    /**
      * The name of the pipeline.
      * 
      */
@@ -238,6 +271,20 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+     * 
+     */
+    @Export(name="pipelineType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> pipelineType;
+
+    /**
+     * @return Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+     * 
+     */
+    public Output<Optional<String>> pipelineType() {
+        return Codegen.optional(this.pipelineType);
     }
     /**
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
@@ -299,6 +346,34 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+     * 
+     */
+    @Export(name="triggers", refs={List.class,PipelineTrigger.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<PipelineTrigger>> triggers;
+
+    /**
+     * @return A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+     * 
+     */
+    public Output<Optional<List<PipelineTrigger>>> triggers() {
+        return Codegen.optional(this.triggers);
+    }
+    /**
+     * A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+     * 
+     */
+    @Export(name="variables", refs={List.class,PipelineVariable.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<PipelineVariable>> variables;
+
+    /**
+     * @return A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+     * 
+     */
+    public Output<Optional<List<PipelineVariable>>> variables() {
+        return Codegen.optional(this.variables);
+    }
 
     /**
      *
@@ -332,9 +407,6 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

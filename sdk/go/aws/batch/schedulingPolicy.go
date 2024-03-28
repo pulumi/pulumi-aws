@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := batch.NewSchedulingPolicy(ctx, "example", &batch.SchedulingPolicyArgs{
+//				Name: pulumi.String("example"),
 //				FairSharePolicy: &batch.SchedulingPolicyFairSharePolicyArgs{
 //					ComputeReservation: pulumi.Int(1),
 //					ShareDecaySeconds:  pulumi.Int(3600),
@@ -54,15 +56,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Batch Scheduling Policy using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:batch/schedulingPolicy:SchedulingPolicy test_policy arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample
-//
+// $ pulumi import aws:batch/schedulingPolicy:SchedulingPolicy test_policy arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample
 // ```
 type SchedulingPolicy struct {
 	pulumi.CustomResourceState
@@ -87,10 +88,6 @@ func NewSchedulingPolicy(ctx *pulumi.Context,
 		args = &SchedulingPolicyArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SchedulingPolicy
 	err := ctx.RegisterResource("aws:batch/schedulingPolicy:SchedulingPolicy", name, args, &resource, opts...)

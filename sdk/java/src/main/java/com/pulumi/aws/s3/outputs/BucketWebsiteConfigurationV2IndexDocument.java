@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -46,13 +47,16 @@ public final class BucketWebsiteConfigurationV2IndexDocument {
 
         @CustomType.Setter
         public Builder suffix(String suffix) {
-            this.suffix = Objects.requireNonNull(suffix);
+            if (suffix == null) {
+              throw new MissingRequiredPropertyException("BucketWebsiteConfigurationV2IndexDocument", "suffix");
+            }
+            this.suffix = suffix;
             return this;
         }
         public BucketWebsiteConfigurationV2IndexDocument build() {
-            final var o = new BucketWebsiteConfigurationV2IndexDocument();
-            o.suffix = suffix;
-            return o;
+            final var _resultValue = new BucketWebsiteConfigurationV2IndexDocument();
+            _resultValue.suffix = suffix;
+            return _resultValue;
         }
     }
 }

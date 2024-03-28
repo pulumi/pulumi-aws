@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,19 +25,20 @@ namespace Pulumi.Aws.CostExplorer
     /// {
     ///     var example = new Aws.CostExplorer.CostAllocationTag("example", new()
     ///     {
-    ///         Status = "Active",
     ///         TagKey = "example",
+    ///         Status = "Active",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ce_cost_allocation_tag` using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key
+    /// $ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key
     /// ```
     /// </summary>
     [AwsResourceType("aws:costexplorer/costAllocationTag:CostAllocationTag")]

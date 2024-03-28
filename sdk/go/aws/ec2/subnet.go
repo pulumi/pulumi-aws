@@ -17,8 +17,10 @@ import (
 // > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), subnets associated with Lambda Functions can take up to 45 minutes to successfully delete.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,7 +34,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewSubnet(ctx, "main", &ec2.SubnetArgs{
-//				VpcId:     pulumi.Any(aws_vpc.Main.Id),
+//				VpcId:     pulumi.Any(mainAwsVpc.Id),
 //				CidrBlock: pulumi.String("10.0.1.0/24"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Main"),
@@ -46,11 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Subnets In Secondary VPC CIDR Blocks
 //
 // When managing subnets in one of a VPC's secondary CIDR blocks created using a `ec2.VpcIpv4CidrBlockAssociation`
 // resource, it is recommended to reference that resource's `vpcId` attribute to ensure correct dependency ordering.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,14 +68,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			secondaryCidr, err := ec2.NewVpcIpv4CidrBlockAssociation(ctx, "secondaryCidr", &ec2.VpcIpv4CidrBlockAssociationArgs{
-//				VpcId:     pulumi.Any(aws_vpc.Main.Id),
+//			secondaryCidr, err := ec2.NewVpcIpv4CidrBlockAssociation(ctx, "secondary_cidr", &ec2.VpcIpv4CidrBlockAssociationArgs{
+//				VpcId:     pulumi.Any(main.Id),
 //				CidrBlock: pulumi.String("172.20.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewSubnet(ctx, "inSecondaryCidr", &ec2.SubnetArgs{
+//			_, err = ec2.NewSubnet(ctx, "in_secondary_cidr", &ec2.SubnetArgs{
 //				VpcId:     secondaryCidr.VpcId,
 //				CidrBlock: pulumi.String("172.20.0.0/24"),
 //			})
@@ -82,15 +87,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import subnets using the subnet `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/subnet:Subnet public_subnet subnet-9d4a7b6c
-//
+// $ pulumi import aws:ec2/subnet:Subnet public_subnet subnet-9d4a7b6c
 // ```
 type Subnet struct {
 	pulumi.CustomResourceState
@@ -156,10 +160,6 @@ func NewSubnet(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Subnet
 	err := ctx.RegisterResource("aws:ec2/subnet:Subnet", name, args, &resource, opts...)

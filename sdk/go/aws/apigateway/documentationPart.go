@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,11 +29,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", nil)
+//			exampleRestApi, err := apigateway.NewRestApi(ctx, "example", &apigateway.RestApiArgs{
+//				Name: pulumi.String("example_api"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigateway.NewDocumentationPart(ctx, "exampleDocumentationPart", &apigateway.DocumentationPartArgs{
+//			_, err = apigateway.NewDocumentationPart(ctx, "example", &apigateway.DocumentationPartArgs{
 //				Location: &apigateway.DocumentationPartLocationArgs{
 //					Type:   pulumi.String("METHOD"),
 //					Method: pulumi.String("GET"),
@@ -49,15 +52,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import API Gateway documentation_parts using `REST-API-ID/DOC-PART-ID`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/documentationPart:DocumentationPart example 5i4e1ko720/3oyy3t
-//
+// $ pulumi import aws:apigateway/documentationPart:DocumentationPart example 5i4e1ko720/3oyy3t
 // ```
 type DocumentationPart struct {
 	pulumi.CustomResourceState

@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Glue
     /// Provides a Glue Data Quality Ruleset Resource. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/glue-data-quality.html) for a full explanation of the Glue Data Quality Ruleset functionality
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,13 +27,17 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.DataQualityRuleset("example", new()
     ///     {
+    ///         Name = "example",
     ///         Ruleset = "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With description
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,14 +48,18 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.DataQualityRuleset("example", new()
     ///     {
+    ///         Name = "example",
     ///         Description = "example",
     ///         Ruleset = "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With tags
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -60,6 +70,7 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.DataQualityRuleset("example", new()
     ///     {
+    ///         Name = "example",
     ///         Ruleset = "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
     ///         Tags = 
     ///         {
@@ -69,8 +80,11 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With target_table
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -81,23 +95,25 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.DataQualityRuleset("example", new()
     ///     {
+    ///         Name = "example",
     ///         Ruleset = "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
     ///         TargetTable = new Aws.Glue.Inputs.DataQualityRulesetTargetTableArgs
     ///         {
-    ///             DatabaseName = aws_glue_catalog_database.Example.Name,
-    ///             TableName = aws_glue_catalog_table.Example.Name,
+    ///             DatabaseName = exampleAwsGlueCatalogDatabase.Name,
+    ///             TableName = exampleAwsGlueCatalogTable.Name,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Data Quality Ruleset using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName
+    /// $ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/dataQualityRuleset:DataQualityRuleset")]
@@ -186,10 +202,6 @@ namespace Pulumi.Aws.Glue
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -321,11 +333,7 @@ namespace Pulumi.Aws.Glue
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

@@ -4,6 +4,7 @@
 package com.pulumi.aws.datasync.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class EfsLocationEc2Config {
 
         @CustomType.Setter
         public Builder securityGroupArns(List<String> securityGroupArns) {
-            this.securityGroupArns = Objects.requireNonNull(securityGroupArns);
+            if (securityGroupArns == null) {
+              throw new MissingRequiredPropertyException("EfsLocationEc2Config", "securityGroupArns");
+            }
+            this.securityGroupArns = securityGroupArns;
             return this;
         }
         public Builder securityGroupArns(String... securityGroupArns) {
@@ -65,14 +69,17 @@ public final class EfsLocationEc2Config {
         }
         @CustomType.Setter
         public Builder subnetArn(String subnetArn) {
-            this.subnetArn = Objects.requireNonNull(subnetArn);
+            if (subnetArn == null) {
+              throw new MissingRequiredPropertyException("EfsLocationEc2Config", "subnetArn");
+            }
+            this.subnetArn = subnetArn;
             return this;
         }
         public EfsLocationEc2Config build() {
-            final var o = new EfsLocationEc2Config();
-            o.securityGroupArns = securityGroupArns;
-            o.subnetArn = subnetArn;
-            return o;
+            final var _resultValue = new EfsLocationEc2Config();
+            _resultValue.securityGroupArns = securityGroupArns;
+            _resultValue.subnetArn = subnetArn;
+            return _resultValue;
         }
     }
 }

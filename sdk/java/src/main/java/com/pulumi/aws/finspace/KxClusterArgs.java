@@ -9,9 +9,12 @@ import com.pulumi.aws.finspace.inputs.KxClusterCapacityConfigurationArgs;
 import com.pulumi.aws.finspace.inputs.KxClusterCodeArgs;
 import com.pulumi.aws.finspace.inputs.KxClusterDatabaseArgs;
 import com.pulumi.aws.finspace.inputs.KxClusterSavedownStorageConfigurationArgs;
+import com.pulumi.aws.finspace.inputs.KxClusterScalingGroupConfigurationArgs;
+import com.pulumi.aws.finspace.inputs.KxClusterTickerplantLogConfigurationArgs;
 import com.pulumi.aws.finspace.inputs.KxClusterVpcConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -92,15 +95,15 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
      * Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
      * 
      */
-    @Import(name="capacityConfiguration", required=true)
-    private Output<KxClusterCapacityConfigurationArgs> capacityConfiguration;
+    @Import(name="capacityConfiguration")
+    private @Nullable Output<KxClusterCapacityConfigurationArgs> capacityConfiguration;
 
     /**
      * @return Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
      * 
      */
-    public Output<KxClusterCapacityConfigurationArgs> capacityConfiguration() {
-        return this.capacityConfiguration;
+    public Optional<Output<KxClusterCapacityConfigurationArgs>> capacityConfiguration() {
+        return Optional.ofNullable(this.capacityConfiguration);
     }
 
     /**
@@ -254,6 +257,21 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The structure that stores the configuration details of a scaling group.
+     * 
+     */
+    @Import(name="scalingGroupConfiguration")
+    private @Nullable Output<KxClusterScalingGroupConfigurationArgs> scalingGroupConfiguration;
+
+    /**
+     * @return The structure that stores the configuration details of a scaling group.
+     * 
+     */
+    public Optional<Output<KxClusterScalingGroupConfigurationArgs>> scalingGroupConfiguration() {
+        return Optional.ofNullable(this.scalingGroupConfiguration);
+    }
+
+    /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -269,10 +287,27 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+     * 
+     */
+    @Import(name="tickerplantLogConfigurations")
+    private @Nullable Output<List<KxClusterTickerplantLogConfigurationArgs>> tickerplantLogConfigurations;
+
+    /**
+     * @return A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+     * 
+     */
+    public Optional<Output<List<KxClusterTickerplantLogConfigurationArgs>>> tickerplantLogConfigurations() {
+        return Optional.ofNullable(this.tickerplantLogConfigurations);
+    }
+
+    /**
      * Type of KDB database. The following types are available:
      * * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
      * * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
      * * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
+     * * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
+     * * Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
      * 
      */
     @Import(name="type", required=true)
@@ -283,6 +318,8 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
      * * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
      * * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
      * * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
+     * * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
+     * * Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
      * 
      */
     public Output<String> type() {
@@ -326,7 +363,9 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.releaseLabel = $.releaseLabel;
         this.savedownStorageConfiguration = $.savedownStorageConfiguration;
+        this.scalingGroupConfiguration = $.scalingGroupConfiguration;
         this.tags = $.tags;
+        this.tickerplantLogConfigurations = $.tickerplantLogConfigurations;
         this.type = $.type;
         this.vpcConfiguration = $.vpcConfiguration;
     }
@@ -453,7 +492,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder capacityConfiguration(Output<KxClusterCapacityConfigurationArgs> capacityConfiguration) {
+        public Builder capacityConfiguration(@Nullable Output<KxClusterCapacityConfigurationArgs> capacityConfiguration) {
             $.capacityConfiguration = capacityConfiguration;
             return this;
         }
@@ -689,6 +728,27 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param scalingGroupConfiguration The structure that stores the configuration details of a scaling group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scalingGroupConfiguration(@Nullable Output<KxClusterScalingGroupConfigurationArgs> scalingGroupConfiguration) {
+            $.scalingGroupConfiguration = scalingGroupConfiguration;
+            return this;
+        }
+
+        /**
+         * @param scalingGroupConfiguration The structure that stores the configuration details of a scaling group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scalingGroupConfiguration(KxClusterScalingGroupConfigurationArgs scalingGroupConfiguration) {
+            return scalingGroupConfiguration(Output.of(scalingGroupConfiguration));
+        }
+
+        /**
          * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
@@ -710,10 +770,43 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param tickerplantLogConfigurations A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tickerplantLogConfigurations(@Nullable Output<List<KxClusterTickerplantLogConfigurationArgs>> tickerplantLogConfigurations) {
+            $.tickerplantLogConfigurations = tickerplantLogConfigurations;
+            return this;
+        }
+
+        /**
+         * @param tickerplantLogConfigurations A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tickerplantLogConfigurations(List<KxClusterTickerplantLogConfigurationArgs> tickerplantLogConfigurations) {
+            return tickerplantLogConfigurations(Output.of(tickerplantLogConfigurations));
+        }
+
+        /**
+         * @param tickerplantLogConfigurations A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tickerplantLogConfigurations(KxClusterTickerplantLogConfigurationArgs... tickerplantLogConfigurations) {
+            return tickerplantLogConfigurations(List.of(tickerplantLogConfigurations));
+        }
+
+        /**
          * @param type Type of KDB database. The following types are available:
          * * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
          * * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
          * * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
+         * * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
+         * * Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
          * 
          * @return builder
          * 
@@ -728,6 +821,8 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
          * * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
          * * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
          * * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
+         * * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
+         * * Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
          * 
          * @return builder
          * 
@@ -762,12 +857,21 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public KxClusterArgs build() {
-            $.azMode = Objects.requireNonNull($.azMode, "expected parameter 'azMode' to be non-null");
-            $.capacityConfiguration = Objects.requireNonNull($.capacityConfiguration, "expected parameter 'capacityConfiguration' to be non-null");
-            $.environmentId = Objects.requireNonNull($.environmentId, "expected parameter 'environmentId' to be non-null");
-            $.releaseLabel = Objects.requireNonNull($.releaseLabel, "expected parameter 'releaseLabel' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
-            $.vpcConfiguration = Objects.requireNonNull($.vpcConfiguration, "expected parameter 'vpcConfiguration' to be non-null");
+            if ($.azMode == null) {
+                throw new MissingRequiredPropertyException("KxClusterArgs", "azMode");
+            }
+            if ($.environmentId == null) {
+                throw new MissingRequiredPropertyException("KxClusterArgs", "environmentId");
+            }
+            if ($.releaseLabel == null) {
+                throw new MissingRequiredPropertyException("KxClusterArgs", "releaseLabel");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("KxClusterArgs", "type");
+            }
+            if ($.vpcConfiguration == null) {
+                throw new MissingRequiredPropertyException("KxClusterArgs", "vpcConfiguration");
+            }
             return $;
         }
     }

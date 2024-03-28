@@ -143,55 +143,63 @@ public final class ImageRecipeBlockDeviceMappingEbs {
 
         @CustomType.Setter
         public Builder deleteOnTermination(@Nullable String deleteOnTermination) {
+
             this.deleteOnTermination = deleteOnTermination;
             return this;
         }
         @CustomType.Setter
         public Builder encrypted(@Nullable String encrypted) {
+
             this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
         public Builder iops(@Nullable Integer iops) {
+
             this.iops = iops;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotId(@Nullable String snapshotId) {
+
             this.snapshotId = snapshotId;
             return this;
         }
         @CustomType.Setter
         public Builder throughput(@Nullable Integer throughput) {
+
             this.throughput = throughput;
             return this;
         }
         @CustomType.Setter
         public Builder volumeSize(@Nullable Integer volumeSize) {
+
             this.volumeSize = volumeSize;
             return this;
         }
         @CustomType.Setter
         public Builder volumeType(@Nullable String volumeType) {
+
             this.volumeType = volumeType;
             return this;
         }
         public ImageRecipeBlockDeviceMappingEbs build() {
-            final var o = new ImageRecipeBlockDeviceMappingEbs();
-            o.deleteOnTermination = deleteOnTermination;
-            o.encrypted = encrypted;
-            o.iops = iops;
-            o.kmsKeyId = kmsKeyId;
-            o.snapshotId = snapshotId;
-            o.throughput = throughput;
-            o.volumeSize = volumeSize;
-            o.volumeType = volumeType;
-            return o;
+            final var _resultValue = new ImageRecipeBlockDeviceMappingEbs();
+            _resultValue.deleteOnTermination = deleteOnTermination;
+            _resultValue.encrypted = encrypted;
+            _resultValue.iops = iops;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.snapshotId = snapshotId;
+            _resultValue.throughput = throughput;
+            _resultValue.volumeSize = volumeSize;
+            _resultValue.volumeType = volumeType;
+            return _resultValue;
         }
     }
 }

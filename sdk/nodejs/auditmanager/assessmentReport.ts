@@ -8,21 +8,27 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Audit Manager Assessment Report.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.auditmanager.AssessmentReport("test", {assessmentId: aws_auditmanager_assessment.test.id});
+ * const test = new aws.auditmanager.AssessmentReport("test", {
+ *     name: "example",
+ *     assessmentId: testAwsAuditmanagerAssessment.id,
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Audit Manager Assessment Reports using the assessment report `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:auditmanager/assessmentReport:AssessmentReport example abc123-de45
+ * $ pulumi import aws:auditmanager/assessmentReport:AssessmentReport example abc123-de45
  * ```
  */
 export class AssessmentReport extends pulumi.CustomResource {

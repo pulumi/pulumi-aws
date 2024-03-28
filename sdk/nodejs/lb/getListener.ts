@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,6 +26,7 @@ import * as utilities from "../utilities";
  * const listener = aws.lb.getListener({
  *     arn: listenerArn,
  * });
+ * // get listener from load_balancer_arn and port
  * const selected = aws.lb.getLoadBalancer({
  *     name: "default-public",
  * });
@@ -33,6 +35,7 @@ import * as utilities from "../utilities";
  *     port: 443,
  * }));
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerResult> {
     args = args || {};
@@ -78,6 +81,7 @@ export interface GetListenerResult {
      */
     readonly id: string;
     readonly loadBalancerArn: string;
+    readonly mutualAuthentications: outputs.lb.GetListenerMutualAuthentication[];
     readonly port: number;
     readonly protocol: string;
     readonly sslPolicy: string;
@@ -92,6 +96,7 @@ export interface GetListenerResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -101,6 +106,7 @@ export interface GetListenerResult {
  * const listener = aws.lb.getListener({
  *     arn: listenerArn,
  * });
+ * // get listener from load_balancer_arn and port
  * const selected = aws.lb.getLoadBalancer({
  *     name: "default-public",
  * });
@@ -109,6 +115,7 @@ export interface GetListenerResult {
  *     port: 443,
  * }));
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getListenerOutput(args?: GetListenerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetListenerResult> {
     return pulumi.output(args).apply((a: any) => getListener(a, opts))

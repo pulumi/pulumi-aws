@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.aws.cloudfront.outputs.OriginRequestPolicyCookiesConfigCookies;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -43,19 +44,23 @@ public final class OriginRequestPolicyCookiesConfig {
 
         @CustomType.Setter
         public Builder cookieBehavior(String cookieBehavior) {
-            this.cookieBehavior = Objects.requireNonNull(cookieBehavior);
+            if (cookieBehavior == null) {
+              throw new MissingRequiredPropertyException("OriginRequestPolicyCookiesConfig", "cookieBehavior");
+            }
+            this.cookieBehavior = cookieBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder cookies(@Nullable OriginRequestPolicyCookiesConfigCookies cookies) {
+
             this.cookies = cookies;
             return this;
         }
         public OriginRequestPolicyCookiesConfig build() {
-            final var o = new OriginRequestPolicyCookiesConfig();
-            o.cookieBehavior = cookieBehavior;
-            o.cookies = cookies;
-            return o;
+            final var _resultValue = new OriginRequestPolicyCookiesConfig();
+            _resultValue.cookieBehavior = cookieBehavior;
+            _resultValue.cookies = cookies;
+            return _resultValue;
         }
     }
 }

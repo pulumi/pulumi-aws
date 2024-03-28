@@ -4,6 +4,7 @@
 package com.pulumi.aws.signer.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -46,25 +47,34 @@ public final class GetSigningProfileRevocationRecord {
 
         @CustomType.Setter
         public Builder revocationEffectiveFrom(String revocationEffectiveFrom) {
-            this.revocationEffectiveFrom = Objects.requireNonNull(revocationEffectiveFrom);
+            if (revocationEffectiveFrom == null) {
+              throw new MissingRequiredPropertyException("GetSigningProfileRevocationRecord", "revocationEffectiveFrom");
+            }
+            this.revocationEffectiveFrom = revocationEffectiveFrom;
             return this;
         }
         @CustomType.Setter
         public Builder revokedAt(String revokedAt) {
-            this.revokedAt = Objects.requireNonNull(revokedAt);
+            if (revokedAt == null) {
+              throw new MissingRequiredPropertyException("GetSigningProfileRevocationRecord", "revokedAt");
+            }
+            this.revokedAt = revokedAt;
             return this;
         }
         @CustomType.Setter
         public Builder revokedBy(String revokedBy) {
-            this.revokedBy = Objects.requireNonNull(revokedBy);
+            if (revokedBy == null) {
+              throw new MissingRequiredPropertyException("GetSigningProfileRevocationRecord", "revokedBy");
+            }
+            this.revokedBy = revokedBy;
             return this;
         }
         public GetSigningProfileRevocationRecord build() {
-            final var o = new GetSigningProfileRevocationRecord();
-            o.revocationEffectiveFrom = revocationEffectiveFrom;
-            o.revokedAt = revokedAt;
-            o.revokedBy = revokedBy;
-            return o;
+            final var _resultValue = new GetSigningProfileRevocationRecord();
+            _resultValue.revocationEffectiveFrom = revocationEffectiveFrom;
+            _resultValue.revokedAt = revokedAt;
+            _resultValue.revokedBy = revokedBy;
+            return _resultValue;
         }
     }
 }

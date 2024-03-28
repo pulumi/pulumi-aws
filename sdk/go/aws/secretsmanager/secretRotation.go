@@ -15,8 +15,10 @@ import (
 // Provides a resource to manage AWS Secrets Manager secret rotation. To manage a secret, see the `secretsmanager.Secret` resource. To manage a secret value, see the `secretsmanager.SecretVersion` resource.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,8 +32,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := secretsmanager.NewSecretRotation(ctx, "example", &secretsmanager.SecretRotationArgs{
-//				SecretId:          pulumi.Any(aws_secretsmanager_secret.Example.Id),
-//				RotationLambdaArn: pulumi.Any(aws_lambda_function.Example.Arn),
+//				SecretId:          pulumi.Any(exampleAwsSecretsmanagerSecret.Id),
+//				RotationLambdaArn: pulumi.Any(exampleAwsLambdaFunction.Arn),
 //				RotationRules: &secretsmanager.SecretRotationRotationRulesArgs{
 //					AutomaticallyAfterDays: pulumi.Int(30),
 //				},
@@ -44,6 +46,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Rotation Configuration
 //
 // To enable automatic secret rotation, the Secrets Manager service requires usage of a Lambda function. The [Rotate Secrets section in the Secrets Manager User Guide](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html) provides additional information about deploying a prebuilt Lambda functions for supported credential rotation (e.g., RDS) or deploying a custom Lambda function.
@@ -57,13 +61,13 @@ import (
 // Using `pulumi import`, import `aws_secretsmanager_secret_rotation` using the secret Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:secretsmanager/secretRotation:SecretRotation example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
-//
+// $ pulumi import aws:secretsmanager/secretRotation:SecretRotation example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
 // ```
 type SecretRotation struct {
 	pulumi.CustomResourceState
 
+	// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
+	RotateImmediately pulumi.BoolPtrOutput `pulumi:"rotateImmediately"`
 	// Specifies whether automatic rotation is enabled for this secret.
 	RotationEnabled pulumi.BoolOutput `pulumi:"rotationEnabled"`
 	// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
@@ -110,6 +114,8 @@ func GetSecretRotation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecretRotation resources.
 type secretRotationState struct {
+	// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
+	RotateImmediately *bool `pulumi:"rotateImmediately"`
 	// Specifies whether automatic rotation is enabled for this secret.
 	RotationEnabled *bool `pulumi:"rotationEnabled"`
 	// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
@@ -121,6 +127,8 @@ type secretRotationState struct {
 }
 
 type SecretRotationState struct {
+	// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
+	RotateImmediately pulumi.BoolPtrInput
 	// Specifies whether automatic rotation is enabled for this secret.
 	RotationEnabled pulumi.BoolPtrInput
 	// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
@@ -136,6 +144,8 @@ func (SecretRotationState) ElementType() reflect.Type {
 }
 
 type secretRotationArgs struct {
+	// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
+	RotateImmediately *bool `pulumi:"rotateImmediately"`
 	// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
 	RotationLambdaArn *string `pulumi:"rotationLambdaArn"`
 	// A structure that defines the rotation configuration for this secret. Defined below.
@@ -146,6 +156,8 @@ type secretRotationArgs struct {
 
 // The set of arguments for constructing a SecretRotation resource.
 type SecretRotationArgs struct {
+	// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
+	RotateImmediately pulumi.BoolPtrInput
 	// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
 	RotationLambdaArn pulumi.StringPtrInput
 	// A structure that defines the rotation configuration for this secret. Defined below.
@@ -239,6 +251,11 @@ func (o SecretRotationOutput) ToSecretRotationOutput() SecretRotationOutput {
 
 func (o SecretRotationOutput) ToSecretRotationOutputWithContext(ctx context.Context) SecretRotationOutput {
 	return o
+}
+
+// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
+func (o SecretRotationOutput) RotateImmediately() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecretRotation) pulumi.BoolPtrOutput { return v.RotateImmediately }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies whether automatic rotation is enabled for this secret.

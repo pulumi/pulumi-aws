@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides a Simple or Managed Microsoft directory in AWS Directory Service.
  *
  * ## Example Usage
+ *
  * ### SimpleAD
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,12 +25,12 @@ import * as utilities from "../utilities";
  *     availabilityZone: "us-west-2a",
  *     cidrBlock: "10.0.1.0/24",
  * });
- * const barSubnet = new aws.ec2.Subnet("barSubnet", {
+ * const barSubnet = new aws.ec2.Subnet("bar", {
  *     vpcId: main.id,
  *     availabilityZone: "us-west-2b",
  *     cidrBlock: "10.0.2.0/24",
  * });
- * const barDirectory = new aws.directoryservice.Directory("barDirectory", {
+ * const bar = new aws.directoryservice.Directory("bar", {
  *     name: "corp.notexample.com",
  *     password: "SuperSecretPassw0rd",
  *     size: "Small",
@@ -44,8 +46,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Microsoft Active Directory (MicrosoftAD)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -56,12 +61,12 @@ import * as utilities from "../utilities";
  *     availabilityZone: "us-west-2a",
  *     cidrBlock: "10.0.1.0/24",
  * });
- * const barSubnet = new aws.ec2.Subnet("barSubnet", {
+ * const barSubnet = new aws.ec2.Subnet("bar", {
  *     vpcId: main.id,
  *     availabilityZone: "us-west-2b",
  *     cidrBlock: "10.0.2.0/24",
  * });
- * const barDirectory = new aws.directoryservice.Directory("barDirectory", {
+ * const bar = new aws.directoryservice.Directory("bar", {
  *     name: "corp.notexample.com",
  *     password: "SuperSecretPassw0rd",
  *     edition: "Standard",
@@ -78,8 +83,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Microsoft Active Directory Connector (ADConnector)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -111,13 +119,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import DirectoryService directories using the directory `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
+ * $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
  * ```
  */
 export class Directory extends pulumi.CustomResource {
@@ -276,7 +285,7 @@ export class Directory extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["password", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["password"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Directory.__pulumiType, name, resourceInputs, opts);
     }

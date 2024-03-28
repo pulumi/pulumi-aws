@@ -59,6 +59,7 @@ public final class AcceleratorIpSet {
 
         @CustomType.Setter
         public Builder ipAddresses(@Nullable List<String> ipAddresses) {
+
             this.ipAddresses = ipAddresses;
             return this;
         }
@@ -67,14 +68,15 @@ public final class AcceleratorIpSet {
         }
         @CustomType.Setter
         public Builder ipFamily(@Nullable String ipFamily) {
+
             this.ipFamily = ipFamily;
             return this;
         }
         public AcceleratorIpSet build() {
-            final var o = new AcceleratorIpSet();
-            o.ipAddresses = ipAddresses;
-            o.ipFamily = ipFamily;
-            return o;
+            final var _resultValue = new AcceleratorIpSet();
+            _resultValue.ipAddresses = ipAddresses;
+            _resultValue.ipFamily = ipFamily;
+            return _resultValue;
         }
     }
 }

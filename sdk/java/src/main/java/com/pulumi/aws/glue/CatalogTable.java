@@ -26,7 +26,10 @@ import javax.annotation.Nullable;
  * Provides a Glue Catalog Table Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality.
  * 
  * ## Example Usage
+ * 
  * ### Basic Table
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,14 +52,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var awsGlueCatalogTable = new CatalogTable(&#34;awsGlueCatalogTable&#34;, CatalogTableArgs.builder()        
- *             .databaseName(&#34;MyCatalogDatabase&#34;)
  *             .name(&#34;MyCatalogTable&#34;)
+ *             .databaseName(&#34;MyCatalogDatabase&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Parquet Table for Athena
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -81,13 +88,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var awsGlueCatalogTable = new CatalogTable(&#34;awsGlueCatalogTable&#34;, CatalogTableArgs.builder()        
- *             .databaseName(&#34;MyCatalogDatabase&#34;)
  *             .name(&#34;MyCatalogTable&#34;)
+ *             .databaseName(&#34;MyCatalogDatabase&#34;)
+ *             .tableType(&#34;EXTERNAL_TABLE&#34;)
  *             .parameters(Map.ofEntries(
  *                 Map.entry(&#34;EXTERNAL&#34;, &#34;TRUE&#34;),
  *                 Map.entry(&#34;parquet.compression&#34;, &#34;SNAPPY&#34;)
  *             ))
  *             .storageDescriptor(CatalogTableStorageDescriptorArgs.builder()
+ *                 .location(&#34;s3://my-bucket/event-streams/my-stream&#34;)
+ *                 .inputFormat(&#34;org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat&#34;)
+ *                 .outputFormat(&#34;org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat&#34;)
+ *                 .serDeInfo(CatalogTableStorageDescriptorSerDeInfoArgs.builder()
+ *                     .name(&#34;my-stream&#34;)
+ *                     .serializationLibrary(&#34;org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe&#34;)
+ *                     .parameters(Map.of(&#34;serialization.format&#34;, 1))
+ *                     .build())
  *                 .columns(                
  *                     CatalogTableStorageDescriptorColumnArgs.builder()
  *                         .name(&#34;my_string&#34;)
@@ -98,42 +114,34 @@ import javax.annotation.Nullable;
  *                         .type(&#34;double&#34;)
  *                         .build(),
  *                     CatalogTableStorageDescriptorColumnArgs.builder()
- *                         .comment(&#34;&#34;)
  *                         .name(&#34;my_date&#34;)
  *                         .type(&#34;date&#34;)
+ *                         .comment(&#34;&#34;)
  *                         .build(),
  *                     CatalogTableStorageDescriptorColumnArgs.builder()
- *                         .comment(&#34;&#34;)
  *                         .name(&#34;my_bigint&#34;)
  *                         .type(&#34;bigint&#34;)
+ *                         .comment(&#34;&#34;)
  *                         .build(),
  *                     CatalogTableStorageDescriptorColumnArgs.builder()
- *                         .comment(&#34;&#34;)
  *                         .name(&#34;my_struct&#34;)
  *                         .type(&#34;struct&lt;my_nested_string:string&gt;&#34;)
+ *                         .comment(&#34;&#34;)
  *                         .build())
- *                 .inputFormat(&#34;org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat&#34;)
- *                 .location(&#34;s3://my-bucket/event-streams/my-stream&#34;)
- *                 .outputFormat(&#34;org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat&#34;)
- *                 .serDeInfo(CatalogTableStorageDescriptorSerDeInfoArgs.builder()
- *                     .name(&#34;my-stream&#34;)
- *                     .parameters(Map.of(&#34;serialization.format&#34;, 1))
- *                     .serializationLibrary(&#34;org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe&#34;)
- *                     .build())
  *                 .build())
- *             .tableType(&#34;EXTERNAL_TABLE&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
+ * $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
  * ```
  * 
  */

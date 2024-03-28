@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Outposts
         /// <summary>
         /// Information about hardware assets in an Outpost.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -29,15 +29,16 @@ namespace Pulumi.Aws.Outposts
         /// {
         ///     var example = Aws.Outposts.GetAssets.Invoke(new()
         ///     {
-        ///         Arn = data.Aws_outposts_outpost.Example.Arn,
+        ///         Arn = exampleAwsOutpostsOutpost.Arn,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### With Host ID Filter
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -48,7 +49,7 @@ namespace Pulumi.Aws.Outposts
         /// {
         ///     var example = Aws.Outposts.GetAssets.Invoke(new()
         ///     {
-        ///         Arn = data.Aws_outposts_outpost.Example.Arn,
+        ///         Arn = exampleAwsOutpostsOutpost.Arn,
         ///         HostIdFilters = new[]
         ///         {
         ///             "h-x38g5n0yd2a0ueb61",
@@ -57,10 +58,11 @@ namespace Pulumi.Aws.Outposts
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### With Status ID Filter
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,7 +73,7 @@ namespace Pulumi.Aws.Outposts
         /// {
         ///     var example = Aws.Outposts.GetAssets.Invoke(new()
         ///     {
-        ///         Arn = data.Aws_outposts_outpost.Example.Arn,
+        ///         Arn = exampleAwsOutpostsOutpost.Arn,
         ///         StatusIdFilters = new[]
         ///         {
         ///             "ACTIVE",
@@ -80,8 +82,7 @@ namespace Pulumi.Aws.Outposts
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAssetsResult> InvokeAsync(GetAssetsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssetsResult>("aws:outposts/getAssets:getAssets", args ?? new GetAssetsArgs(), options.WithDefaults());
@@ -89,11 +90,11 @@ namespace Pulumi.Aws.Outposts
         /// <summary>
         /// Information about hardware assets in an Outpost.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -104,15 +105,16 @@ namespace Pulumi.Aws.Outposts
         /// {
         ///     var example = Aws.Outposts.GetAssets.Invoke(new()
         ///     {
-        ///         Arn = data.Aws_outposts_outpost.Example.Arn,
+        ///         Arn = exampleAwsOutpostsOutpost.Arn,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### With Host ID Filter
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -123,7 +125,7 @@ namespace Pulumi.Aws.Outposts
         /// {
         ///     var example = Aws.Outposts.GetAssets.Invoke(new()
         ///     {
-        ///         Arn = data.Aws_outposts_outpost.Example.Arn,
+        ///         Arn = exampleAwsOutpostsOutpost.Arn,
         ///         HostIdFilters = new[]
         ///         {
         ///             "h-x38g5n0yd2a0ueb61",
@@ -132,10 +134,11 @@ namespace Pulumi.Aws.Outposts
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### With Status ID Filter
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -146,7 +149,7 @@ namespace Pulumi.Aws.Outposts
         /// {
         ///     var example = Aws.Outposts.GetAssets.Invoke(new()
         ///     {
-        ///         Arn = data.Aws_outposts_outpost.Example.Arn,
+        ///         Arn = exampleAwsOutpostsOutpost.Arn,
         ///         StatusIdFilters = new[]
         ///         {
         ///             "ACTIVE",
@@ -155,8 +158,7 @@ namespace Pulumi.Aws.Outposts
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAssetsResult> Invoke(GetAssetsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetsResult>("aws:outposts/getAssets:getAssets", args ?? new GetAssetsInvokeArgs(), options.WithDefaults());

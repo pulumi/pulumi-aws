@@ -5,6 +5,7 @@ package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.aws.iot.outputs.TopicRuleErrorActionHttpHttpHeader;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -74,11 +75,13 @@ public final class TopicRuleErrorActionHttp {
 
         @CustomType.Setter
         public Builder confirmationUrl(@Nullable String confirmationUrl) {
+
             this.confirmationUrl = confirmationUrl;
             return this;
         }
         @CustomType.Setter
         public Builder httpHeaders(@Nullable List<TopicRuleErrorActionHttpHttpHeader> httpHeaders) {
+
             this.httpHeaders = httpHeaders;
             return this;
         }
@@ -87,15 +90,18 @@ public final class TopicRuleErrorActionHttp {
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionHttp", "url");
+            }
+            this.url = url;
             return this;
         }
         public TopicRuleErrorActionHttp build() {
-            final var o = new TopicRuleErrorActionHttp();
-            o.confirmationUrl = confirmationUrl;
-            o.httpHeaders = httpHeaders;
-            o.url = url;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionHttp();
+            _resultValue.confirmationUrl = confirmationUrl;
+            _resultValue.httpHeaders = httpHeaders;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

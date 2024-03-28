@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS Transcribe VocabularyFilter.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,15 +32,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := transcribe.NewVocabularyFilter(ctx, "example", &transcribe.VocabularyFilterArgs{
-//				LanguageCode: pulumi.String("en-US"),
-//				Tags: pulumi.StringMap{
-//					"tag1": pulumi.String("value1"),
-//					"tag2": pulumi.String("value3"),
-//				},
 //				VocabularyFilterName: pulumi.String("example"),
+//				LanguageCode:         pulumi.String("en-US"),
 //				Words: pulumi.StringArray{
 //					pulumi.String("cars"),
 //					pulumi.String("bucket"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"tag1": pulumi.String("value1"),
+//					"tag2": pulumi.String("value3"),
 //				},
 //			})
 //			if err != nil {
@@ -49,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Transcribe VocabularyFilter using the `vocabulary_filter_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
-//
+// $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
 // ```
 type VocabularyFilter struct {
 	pulumi.CustomResourceState
@@ -95,10 +96,6 @@ func NewVocabularyFilter(ctx *pulumi.Context,
 	if args.VocabularyFilterName == nil {
 		return nil, errors.New("invalid value for required argument 'VocabularyFilterName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VocabularyFilter
 	err := ctx.RegisterResource("aws:transcribe/vocabularyFilter:VocabularyFilter", name, args, &resource, opts...)

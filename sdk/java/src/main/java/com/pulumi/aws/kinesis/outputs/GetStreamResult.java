@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesis.outputs;
 
 import com.pulumi.aws.kinesis.outputs.GetStreamStreamModeDetail;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -186,12 +187,18 @@ public final class GetStreamResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetStreamResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder closedShards(List<String> closedShards) {
-            this.closedShards = Objects.requireNonNull(closedShards);
+            if (closedShards == null) {
+              throw new MissingRequiredPropertyException("GetStreamResult", "closedShards");
+            }
+            this.closedShards = closedShards;
             return this;
         }
         public Builder closedShards(String... closedShards) {
@@ -199,22 +206,34 @@ public final class GetStreamResult {
         }
         @CustomType.Setter
         public Builder creationTimestamp(Integer creationTimestamp) {
-            this.creationTimestamp = Objects.requireNonNull(creationTimestamp);
+            if (creationTimestamp == null) {
+              throw new MissingRequiredPropertyException("GetStreamResult", "creationTimestamp");
+            }
+            this.creationTimestamp = creationTimestamp;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetStreamResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetStreamResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder openShards(List<String> openShards) {
-            this.openShards = Objects.requireNonNull(openShards);
+            if (openShards == null) {
+              throw new MissingRequiredPropertyException("GetStreamResult", "openShards");
+            }
+            this.openShards = openShards;
             return this;
         }
         public Builder openShards(String... openShards) {
@@ -222,12 +241,18 @@ public final class GetStreamResult {
         }
         @CustomType.Setter
         public Builder retentionPeriod(Integer retentionPeriod) {
-            this.retentionPeriod = Objects.requireNonNull(retentionPeriod);
+            if (retentionPeriod == null) {
+              throw new MissingRequiredPropertyException("GetStreamResult", "retentionPeriod");
+            }
+            this.retentionPeriod = retentionPeriod;
             return this;
         }
         @CustomType.Setter
         public Builder shardLevelMetrics(List<String> shardLevelMetrics) {
-            this.shardLevelMetrics = Objects.requireNonNull(shardLevelMetrics);
+            if (shardLevelMetrics == null) {
+              throw new MissingRequiredPropertyException("GetStreamResult", "shardLevelMetrics");
+            }
+            this.shardLevelMetrics = shardLevelMetrics;
             return this;
         }
         public Builder shardLevelMetrics(String... shardLevelMetrics) {
@@ -235,12 +260,18 @@ public final class GetStreamResult {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetStreamResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder streamModeDetails(List<GetStreamStreamModeDetail> streamModeDetails) {
-            this.streamModeDetails = Objects.requireNonNull(streamModeDetails);
+            if (streamModeDetails == null) {
+              throw new MissingRequiredPropertyException("GetStreamResult", "streamModeDetails");
+            }
+            this.streamModeDetails = streamModeDetails;
             return this;
         }
         public Builder streamModeDetails(GetStreamStreamModeDetail... streamModeDetails) {
@@ -248,23 +279,26 @@ public final class GetStreamResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetStreamResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetStreamResult build() {
-            final var o = new GetStreamResult();
-            o.arn = arn;
-            o.closedShards = closedShards;
-            o.creationTimestamp = creationTimestamp;
-            o.id = id;
-            o.name = name;
-            o.openShards = openShards;
-            o.retentionPeriod = retentionPeriod;
-            o.shardLevelMetrics = shardLevelMetrics;
-            o.status = status;
-            o.streamModeDetails = streamModeDetails;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetStreamResult();
+            _resultValue.arn = arn;
+            _resultValue.closedShards = closedShards;
+            _resultValue.creationTimestamp = creationTimestamp;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.openShards = openShards;
+            _resultValue.retentionPeriod = retentionPeriod;
+            _resultValue.shardLevelMetrics = shardLevelMetrics;
+            _resultValue.status = status;
+            _resultValue.streamModeDetails = streamModeDetails;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

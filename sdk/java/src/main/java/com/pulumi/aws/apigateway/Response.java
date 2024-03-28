@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides an API Gateway Gateway Response for a REST API Gateway.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -26,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.RestApiArgs;
  * import com.pulumi.aws.apigateway.Response;
  * import com.pulumi.aws.apigateway.ResponseArgs;
  * import java.util.List;
@@ -41,7 +44,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new RestApi(&#34;main&#34;);
+ *         var main = new RestApi(&#34;main&#34;, RestApiArgs.builder()        
+ *             .name(&#34;MyDemoAPI&#34;)
+ *             .build());
  * 
  *         var test = new Response(&#34;test&#34;, ResponseArgs.builder()        
  *             .restApiId(main.id())
@@ -54,13 +59,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
+ * $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
  * ```
  * 
  */

@@ -44,13 +44,14 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMa
 
         @CustomType.Setter
         public Builder oversizeHandling(@Nullable String oversizeHandling) {
+
             this.oversizeHandling = oversizeHandling;
             return this;
         }
         public WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody build() {
-            final var o = new WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody();
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody();
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

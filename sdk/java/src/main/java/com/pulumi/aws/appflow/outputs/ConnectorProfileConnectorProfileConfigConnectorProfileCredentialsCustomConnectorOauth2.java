@@ -101,37 +101,42 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
         @CustomType.Setter
         public Builder accessToken(@Nullable String accessToken) {
+
             this.accessToken = accessToken;
             return this;
         }
         @CustomType.Setter
         public Builder clientId(@Nullable String clientId) {
+
             this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecret(@Nullable String clientSecret) {
+
             this.clientSecret = clientSecret;
             return this;
         }
         @CustomType.Setter
         public Builder oauthRequest(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest oauthRequest) {
+
             this.oauthRequest = oauthRequest;
             return this;
         }
         @CustomType.Setter
         public Builder refreshToken(@Nullable String refreshToken) {
+
             this.refreshToken = refreshToken;
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2();
-            o.accessToken = accessToken;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.oauthRequest = oauthRequest;
-            o.refreshToken = refreshToken;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2();
+            _resultValue.accessToken = accessToken;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.oauthRequest = oauthRequest;
+            _resultValue.refreshToken = refreshToken;
+            return _resultValue;
         }
     }
 }

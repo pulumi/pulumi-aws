@@ -18,7 +18,11 @@ import javax.annotation.Nullable;
 /**
  * Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
  * 
+ * &gt; This resource cannot be used with S3 directory buckets.
+ * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -26,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketPublicAccessBlock;
  * import com.pulumi.aws.s3.BucketPublicAccessBlockArgs;
  * import java.util.List;
@@ -41,10 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleBucketPublicAccessBlock = new BucketPublicAccessBlock(&#34;exampleBucketPublicAccessBlock&#34;, BucketPublicAccessBlockArgs.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .blockPublicAcls(true)
  *             .blockPublicPolicy(true)
  *             .ignorePublicAcls(true)
@@ -54,13 +61,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_s3_bucket_public_access_block` using the bucket name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
+ * $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
  * ```
  * 
  */

@@ -15,8 +15,10 @@ import (
 // Provides an SES event destination
 //
 // ## Example Usage
+//
 // ### CloudWatch Destination
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +32,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ses.NewEventDestination(ctx, "cloudwatch", &ses.EventDestinationArgs{
-//				ConfigurationSetName: pulumi.Any(aws_ses_configuration_set.Example.Name),
+//				Name:                 pulumi.String("event-destination-cloudwatch"),
+//				ConfigurationSetName: pulumi.Any(example.Name),
 //				Enabled:              pulumi.Bool(true),
 //				MatchingTypes: pulumi.StringArray{
 //					pulumi.String("bounce"),
@@ -52,8 +55,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Kinesis Destination
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,15 +73,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ses.NewEventDestination(ctx, "kinesis", &ses.EventDestinationArgs{
-//				ConfigurationSetName: pulumi.Any(aws_ses_configuration_set.Example.Name),
+//				Name:                 pulumi.String("event-destination-kinesis"),
+//				ConfigurationSetName: pulumi.Any(exampleAwsSesConfigurationSet.Name),
 //				Enabled:              pulumi.Bool(true),
 //				MatchingTypes: pulumi.StringArray{
 //					pulumi.String("bounce"),
 //					pulumi.String("send"),
 //				},
 //				KinesisDestination: &ses.EventDestinationKinesisDestinationArgs{
-//					StreamArn: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
-//					RoleArn:   pulumi.Any(aws_iam_role.Example.Arn),
+//					StreamArn: pulumi.Any(exampleAwsKinesisFirehoseDeliveryStream.Arn),
+//					RoleArn:   pulumi.Any(example.Arn),
 //				},
 //			})
 //			if err != nil {
@@ -86,8 +93,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### SNS Destination
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -101,14 +111,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ses.NewEventDestination(ctx, "sns", &ses.EventDestinationArgs{
-//				ConfigurationSetName: pulumi.Any(aws_ses_configuration_set.Example.Name),
+//				Name:                 pulumi.String("event-destination-sns"),
+//				ConfigurationSetName: pulumi.Any(exampleAwsSesConfigurationSet.Name),
 //				Enabled:              pulumi.Bool(true),
 //				MatchingTypes: pulumi.StringArray{
 //					pulumi.String("bounce"),
 //					pulumi.String("send"),
 //				},
 //				SnsDestination: &ses.EventDestinationSnsDestinationArgs{
-//					TopicArn: pulumi.Any(aws_sns_topic.Example.Arn),
+//					TopicArn: pulumi.Any(example.Arn),
 //				},
 //			})
 //			if err != nil {
@@ -119,15 +130,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SES event destinations using `configuration_set_name` together with the event destination's `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
-//
+// $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
 // ```
 type EventDestination struct {
 	pulumi.CustomResourceState

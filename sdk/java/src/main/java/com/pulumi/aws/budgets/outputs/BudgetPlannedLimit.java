@@ -4,6 +4,7 @@
 package com.pulumi.aws.budgets.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,25 +71,34 @@ public final class BudgetPlannedLimit {
 
         @CustomType.Setter
         public Builder amount(String amount) {
-            this.amount = Objects.requireNonNull(amount);
+            if (amount == null) {
+              throw new MissingRequiredPropertyException("BudgetPlannedLimit", "amount");
+            }
+            this.amount = amount;
             return this;
         }
         @CustomType.Setter
         public Builder startTime(String startTime) {
-            this.startTime = Objects.requireNonNull(startTime);
+            if (startTime == null) {
+              throw new MissingRequiredPropertyException("BudgetPlannedLimit", "startTime");
+            }
+            this.startTime = startTime;
             return this;
         }
         @CustomType.Setter
         public Builder unit(String unit) {
-            this.unit = Objects.requireNonNull(unit);
+            if (unit == null) {
+              throw new MissingRequiredPropertyException("BudgetPlannedLimit", "unit");
+            }
+            this.unit = unit;
             return this;
         }
         public BudgetPlannedLimit build() {
-            final var o = new BudgetPlannedLimit();
-            o.amount = amount;
-            o.startTime = startTime;
-            o.unit = unit;
-            return o;
+            final var _resultValue = new BudgetPlannedLimit();
+            _resultValue.amount = amount;
+            _resultValue.startTime = startTime;
+            _resultValue.unit = unit;
+            return _resultValue;
         }
     }
 }

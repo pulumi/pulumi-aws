@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,9 +23,12 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testTopic = new Aws.Sns.Topic("testTopic");
+    ///     var testTopic = new Aws.Sns.Topic("test", new()
+    ///     {
+    ///         Name = "test",
+    ///     });
     /// 
-    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var test = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -49,13 +53,15 @@ namespace Pulumi.Aws.AppConfig
     ///         },
     ///     });
     /// 
-    ///     var testRole = new Aws.Iam.Role("testRole", new()
+    ///     var testRole = new Aws.Iam.Role("test", new()
     ///     {
-    ///         AssumeRolePolicy = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "test",
+    ///         AssumeRolePolicy = test.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var testExtension = new Aws.AppConfig.Extension("testExtension", new()
+    ///     var testExtension = new Aws.AppConfig.Extension("test", new()
     ///     {
+    ///         Name = "test",
     ///         Description = "test description",
     ///         ActionPoints = new[]
     ///         {
@@ -79,9 +85,12 @@ namespace Pulumi.Aws.AppConfig
     ///         },
     ///     });
     /// 
-    ///     var testApplication = new Aws.AppConfig.Application("testApplication");
+    ///     var testApplication = new Aws.AppConfig.Application("test", new()
+    ///     {
+    ///         Name = "test",
+    ///     });
     /// 
-    ///     var testExtensionAssociation = new Aws.AppConfig.ExtensionAssociation("testExtensionAssociation", new()
+    ///     var testExtensionAssociation = new Aws.AppConfig.ExtensionAssociation("test", new()
     ///     {
     ///         ExtensionArn = testExtension.Arn,
     ///         ResourceArn = testApplication.Arn,
@@ -89,13 +98,14 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
+    /// $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
     /// ```
     /// </summary>
     [AwsResourceType("aws:appconfig/extensionAssociation:ExtensionAssociation")]

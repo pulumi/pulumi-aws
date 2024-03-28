@@ -34,6 +34,8 @@ import javax.annotation.Nullable;
  * To configure [Instance Groups](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for [task nodes](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-task), see the `aws.emr.InstanceGroup` resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -60,6 +62,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var cluster = new Cluster(&#34;cluster&#34;, ClusterArgs.builder()        
+ *             .name(&#34;emr-test-arn&#34;)
  *             .releaseLabel(&#34;emr-4.6.0&#34;)
  *             .applications(&#34;Spark&#34;)
  *             .additionalInfo(&#34;&#34;&#34;
@@ -73,10 +76,10 @@ import javax.annotation.Nullable;
  *             .terminationProtection(false)
  *             .keepJobFlowAliveWhenNoSteps(true)
  *             .ec2Attributes(ClusterEc2AttributesArgs.builder()
- *                 .subnetId(aws_subnet.main().id())
- *                 .emrManagedMasterSecurityGroup(aws_security_group.sg().id())
- *                 .emrManagedSlaveSecurityGroup(aws_security_group.sg().id())
- *                 .instanceProfile(aws_iam_instance_profile.emr_profile().arn())
+ *                 .subnetId(main.id())
+ *                 .emrManagedMasterSecurityGroup(sg.id())
+ *                 .emrManagedSlaveSecurityGroup(sg.id())
+ *                 .instanceProfile(emrProfile.arn())
  *                 .build())
  *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
  *                 .instanceType(&#34;m4.large&#34;)
@@ -164,17 +167,21 @@ import javax.annotation.Nullable;
  *     }
  *   ]
  *             &#34;&#34;&#34;)
- *             .serviceRole(aws_iam_role.iam_emr_service_role().arn())
+ *             .serviceRole(iamEmrServiceRole.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * The `aws.emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster to use as a service role, and another is assigned to every EC2 instance in a cluster and each application process that runs on a cluster assumes this role for permissions to interact with other AWS services. An additional role, the Auto Scaling role, is required if your cluster uses automatic scaling in Amazon EMR.
  * 
  * The default AWS managed EMR service role is called `EMR_DefaultRole` with Amazon managed policy `AmazonEMRServicePolicy_v2` attached. The name of default instance profile role is `EMR_EC2_DefaultRole` with default managed policy `AmazonElasticMapReduceforEC2Role` attached, but it is on the path to deprecation and will not be replaced with another default managed policy. You&#39;ll need to create and specify an instance profile to replace the deprecated role and default policy. See the [Configure IAM service roles for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-roles.html) guide for more information on these IAM roles. There is also a fully-bootable example Pulumi configuration at the bottom of this page.
+ * 
  * ### Instance Fleet
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -287,6 +294,7 @@ import javax.annotation.Nullable;
  *                     .timeoutDurationMinutes(10)
  *                     .build())
  *                 .build())
+ *             .name(&#34;task fleet&#34;)
  *             .targetOnDemandCapacity(1)
  *             .targetSpotCapacity(1)
  *             .build());
@@ -294,9 +302,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Enable Debug Logging
  * 
  * [Debug logging in EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html) is implemented as a step. It is highly recommended that you utilize the resource options configuration with `ignoreChanges` if other steps are being managed outside of this provider.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -334,9 +346,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Multiple Node Master Instance Group
  * 
  * Available in EMR version 5.23.0 and later, an EMR Cluster can be launched with three master nodes for high availability. Additional information about this functionality and its requirements can be found in the [EMR Management Guide](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ha.html).
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -363,7 +379,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *         var example = new Subnet(&#34;example&#34;, SubnetArgs.builder()        
  *             .mapPublicIpOnLaunch(true)
  *             .build());
  * 
@@ -371,7 +387,7 @@ import javax.annotation.Nullable;
  *             .releaseLabel(&#34;emr-5.24.1&#34;)
  *             .terminationProtection(true)
  *             .ec2Attributes(ClusterEc2AttributesArgs.builder()
- *                 .subnetId(exampleSubnet.id())
+ *                 .subnetId(example.id())
  *                 .build())
  *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
  *                 .instanceCount(3)
@@ -382,15 +398,16 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import EMR clusters using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
+ * $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
  * ```
- *  Since the API does not return the actual values for Kerberos configurations, environments with those options set will need to use the `lifecycle` configuration block `ignore_changes` argument available to all Pulumi resources to prevent perpetual differences. For example:
+ * Since the API does not return the actual values for Kerberos configurations, environments with those options set will need to use the `lifecycle` configuration block `ignore_changes` argument available to all Pulumi resources to prevent perpetual differences. For example:
  * 
  */
 @ResourceType(type="aws:emr/cluster:Cluster")
@@ -503,6 +520,8 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * JSON string for supplying list of configurations for the EMR cluster.
      * 
      * &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `&#34;Configurations&#34;: []`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -540,13 +559,13 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * &#34;Properties&#34;: {}
      * }
      * ]
-     * 
      *             &#34;&#34;&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Export(name="configurationsJson", refs={String.class}, tree="[0]")
@@ -556,6 +575,8 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * @return JSON string for supplying list of configurations for the EMR cluster.
      * 
      * &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `&#34;Configurations&#34;: []`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -593,13 +614,13 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * &#34;Properties&#34;: {}
      * }
      * ]
-     * 
      *             &#34;&#34;&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Output<Optional<String>> configurationsJson() {
@@ -996,9 +1017,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

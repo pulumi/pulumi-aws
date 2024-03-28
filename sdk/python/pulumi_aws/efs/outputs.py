@@ -16,12 +16,14 @@ __all__ = [
     'AccessPointRootDirectoryCreationInfo',
     'BackupPolicyBackupPolicy',
     'FileSystemLifecyclePolicy',
+    'FileSystemProtection',
     'FileSystemSizeInByte',
     'ReplicationConfigurationDestination',
     'GetAccessPointPosixUserResult',
     'GetAccessPointRootDirectoryResult',
     'GetAccessPointRootDirectoryCreationInfoResult',
     'GetFileSystemLifecyclePolicyResult',
+    'GetFileSystemProtectionResult',
 ]
 
 @pulumi.output_type
@@ -212,7 +214,9 @@ class FileSystemLifecyclePolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "transitionToIa":
+        if key == "transitionToArchive":
+            suggest = "transition_to_archive"
+        elif key == "transitionToIa":
             suggest = "transition_to_ia"
         elif key == "transitionToPrimaryStorageClass":
             suggest = "transition_to_primary_storage_class"
@@ -229,22 +233,34 @@ class FileSystemLifecyclePolicy(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 transition_to_archive: Optional[str] = None,
                  transition_to_ia: Optional[str] = None,
                  transition_to_primary_storage_class: Optional[str] = None):
         """
-        :param str transition_to_ia: Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+        :param str transition_to_archive: Indicates how long it takes to transition files to the archive storage class. Requires transition_to_ia, Elastic Throughput and General Purpose performance mode. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
+        :param str transition_to_ia: Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
         :param str transition_to_primary_storage_class: Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
         """
+        if transition_to_archive is not None:
+            pulumi.set(__self__, "transition_to_archive", transition_to_archive)
         if transition_to_ia is not None:
             pulumi.set(__self__, "transition_to_ia", transition_to_ia)
         if transition_to_primary_storage_class is not None:
             pulumi.set(__self__, "transition_to_primary_storage_class", transition_to_primary_storage_class)
 
     @property
+    @pulumi.getter(name="transitionToArchive")
+    def transition_to_archive(self) -> Optional[str]:
+        """
+        Indicates how long it takes to transition files to the archive storage class. Requires transition_to_ia, Elastic Throughput and General Purpose performance mode. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
+        """
+        return pulumi.get(self, "transition_to_archive")
+
+    @property
     @pulumi.getter(name="transitionToIa")
     def transition_to_ia(self) -> Optional[str]:
         """
-        Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+        Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
         """
         return pulumi.get(self, "transition_to_ia")
 
@@ -255,6 +271,42 @@ class FileSystemLifecyclePolicy(dict):
         Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
         """
         return pulumi.get(self, "transition_to_primary_storage_class")
+
+
+@pulumi.output_type
+class FileSystemProtection(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "replicationOverwrite":
+            suggest = "replication_overwrite"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileSystemProtection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileSystemProtection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileSystemProtection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 replication_overwrite: Optional[str] = None):
+        """
+        :param str replication_overwrite: Indicates whether replication overwrite protection is enabled. Valid values: `ENABLED` or `DISABLED`.
+        """
+        if replication_overwrite is not None:
+            pulumi.set(__self__, "replication_overwrite", replication_overwrite)
+
+    @property
+    @pulumi.getter(name="replicationOverwrite")
+    def replication_overwrite(self) -> Optional[str]:
+        """
+        Indicates whether replication overwrite protection is enabled. Valid values: `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "replication_overwrite")
 
 
 @pulumi.output_type
@@ -350,6 +402,7 @@ class ReplicationConfigurationDestination(dict):
                  status: Optional[str] = None):
         """
         :param str availability_zone_name: The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
+        :param str file_system_id: The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
         :param str kms_key_id: The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
         :param str region: The region in which the replica should be created.
         """
@@ -375,6 +428,9 @@ class ReplicationConfigurationDestination(dict):
     @property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> Optional[str]:
+        """
+        The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
+        """
         return pulumi.get(self, "file_system_id")
 
     @property
@@ -511,10 +567,17 @@ class GetAccessPointRootDirectoryCreationInfoResult(dict):
 @pulumi.output_type
 class GetFileSystemLifecyclePolicyResult(dict):
     def __init__(__self__, *,
+                 transition_to_archive: str,
                  transition_to_ia: str,
                  transition_to_primary_storage_class: str):
+        pulumi.set(__self__, "transition_to_archive", transition_to_archive)
         pulumi.set(__self__, "transition_to_ia", transition_to_ia)
         pulumi.set(__self__, "transition_to_primary_storage_class", transition_to_primary_storage_class)
+
+    @property
+    @pulumi.getter(name="transitionToArchive")
+    def transition_to_archive(self) -> str:
+        return pulumi.get(self, "transition_to_archive")
 
     @property
     @pulumi.getter(name="transitionToIa")
@@ -525,5 +588,17 @@ class GetFileSystemLifecyclePolicyResult(dict):
     @pulumi.getter(name="transitionToPrimaryStorageClass")
     def transition_to_primary_storage_class(self) -> str:
         return pulumi.get(self, "transition_to_primary_storage_class")
+
+
+@pulumi.output_type
+class GetFileSystemProtectionResult(dict):
+    def __init__(__self__, *,
+                 replication_overwrite: str):
+        pulumi.set(__self__, "replication_overwrite", replication_overwrite)
+
+    @property
+    @pulumi.getter(name="replicationOverwrite")
+    def replication_overwrite(self) -> str:
+        return pulumi.get(self, "replication_overwrite")
 
 

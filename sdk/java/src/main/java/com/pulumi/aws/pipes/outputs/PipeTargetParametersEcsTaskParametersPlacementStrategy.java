@@ -58,19 +58,21 @@ public final class PipeTargetParametersEcsTaskParametersPlacementStrategy {
 
         @CustomType.Setter
         public Builder field(@Nullable String field) {
+
             this.field = field;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         public PipeTargetParametersEcsTaskParametersPlacementStrategy build() {
-            final var o = new PipeTargetParametersEcsTaskParametersPlacementStrategy();
-            o.field = field;
-            o.type = type;
-            return o;
+            final var _resultValue = new PipeTargetParametersEcsTaskParametersPlacementStrategy();
+            _resultValue.field = field;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

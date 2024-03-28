@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,15 +50,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CodeDeploy CustomActionType using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:pulumi:1
-//
+// $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:pulumi:1
 // ```
 type CustomActionType struct {
 	pulumi.CustomResourceState
@@ -110,10 +110,6 @@ func NewCustomActionType(ctx *pulumi.Context,
 	if args.Version == nil {
 		return nil, errors.New("invalid value for required argument 'Version'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomActionType
 	err := ctx.RegisterResource("aws:codepipeline/customActionType:CustomActionType", name, args, &resource, opts...)

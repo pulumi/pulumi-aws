@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,36 +30,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewEventBus(ctx, "messenger", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplepartnerEventSource, err := cloudwatch.GetEventSource(ctx, &cloudwatch.GetEventSourceArgs{
-//				NamePrefix: pulumi.StringRef("aws.partner/examplepartner.com"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewEventBus(ctx, "examplepartnerEventBus", &cloudwatch.EventBusArgs{
-//				EventSourceName: *pulumi.String(examplepartnerEventSource.Name),
+//			_, err := cloudwatch.NewEventBus(ctx, "messenger", &cloudwatch.EventBusArgs{
+//				Name: pulumi.String("chat-messages"),
 //			})
 //			if err != nil {
 //				return err
@@ -68,15 +41,47 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplepartner, err := cloudwatch.GetEventSource(ctx, &cloudwatch.GetEventSourceArgs{
+//				NamePrefix: pulumi.StringRef("aws.partner/examplepartner.com"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewEventBus(ctx, "examplepartner", &cloudwatch.EventBusArgs{
+//				Name:            pulumi.String(examplepartner.Name),
+//				EventSourceName: pulumi.String(examplepartner.Name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EventBridge event buses using the `name` (which can also be a partner event source name). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
-//
+// $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
 // ```
 type EventBus struct {
 	pulumi.CustomResourceState
@@ -102,10 +107,6 @@ func NewEventBus(ctx *pulumi.Context,
 		args = &EventBusArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventBus
 	err := ctx.RegisterResource("aws:cloudwatch/eventBus:EventBus", name, args, &resource, opts...)

@@ -237,19 +237,21 @@ class AccessPoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.efs.AccessPoint("test", file_system_id=aws_efs_file_system["foo"]["id"])
+        test = aws.efs.AccessPoint("test", file_system_id=foo["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the EFS access points using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
+        $ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
         ```
 
         :param str resource_name: The name of the resource.
@@ -270,19 +272,21 @@ class AccessPoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.efs.AccessPoint("test", file_system_id=aws_efs_file_system["foo"]["id"])
+        test = aws.efs.AccessPoint("test", file_system_id=foo["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the EFS access points using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
+        $ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
         ```
 
         :param str resource_name: The name of the resource.
@@ -323,8 +327,6 @@ class AccessPoint(pulumi.CustomResource):
             __props__.__dict__["file_system_arn"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AccessPoint, __self__).__init__(
             'aws:efs/accessPoint:AccessPoint',
             resource_name,

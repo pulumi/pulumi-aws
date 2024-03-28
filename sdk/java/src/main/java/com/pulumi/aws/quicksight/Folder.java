@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Resource for managing a QuickSight Folder.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,12 +48,17 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Folder(&#34;example&#34;, FolderArgs.builder()        
  *             .folderId(&#34;example-id&#34;)
+ *             .name(&#34;example-name&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With Permissions
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -75,6 +83,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Folder(&#34;example&#34;, FolderArgs.builder()        
  *             .folderId(&#34;example-id&#34;)
+ *             .name(&#34;example-name&#34;)
  *             .permissions(FolderPermissionArgs.builder()
  *                 .actions(                
  *                     &#34;quicksight:CreateFolder&#34;,
@@ -85,14 +94,18 @@ import javax.annotation.Nullable;
  *                     &#34;quicksight:DeleteFolderMembership&#34;,
  *                     &#34;quicksight:DescribeFolderPermissions&#34;,
  *                     &#34;quicksight:UpdateFolderPermissions&#34;)
- *                 .principal(aws_quicksight_user.example().arn())
+ *                 .principal(exampleAwsQuicksightUser.arn())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With Parent Folder
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -116,23 +129,26 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var parent = new Folder(&#34;parent&#34;, FolderArgs.builder()        
  *             .folderId(&#34;parent-id&#34;)
+ *             .name(&#34;parent-name&#34;)
  *             .build());
  * 
  *         var example = new Folder(&#34;example&#34;, FolderArgs.builder()        
  *             .folderId(&#34;example-id&#34;)
+ *             .name(&#34;example-name&#34;)
  *             .parentFolderArn(parent.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a QuickSight folder using the AWS account ID and folder ID name separated by a comma (`,`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
+ * $ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
  * ```
  * 
  */
@@ -347,9 +363,6 @@ public class Folder extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

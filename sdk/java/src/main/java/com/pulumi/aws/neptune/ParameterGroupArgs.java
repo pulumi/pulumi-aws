@@ -6,6 +6,7 @@ package com.pulumi.aws.neptune;
 import com.pulumi.aws.neptune.inputs.ParameterGroupParameterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -64,6 +65,21 @@ public final class ParameterGroupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * 
+     */
+    @Import(name="namePrefix")
+    private @Nullable Output<String> namePrefix;
+
+    /**
+     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * 
+     */
+    public Optional<Output<String>> namePrefix() {
+        return Optional.ofNullable(this.namePrefix);
+    }
+
+    /**
      * A list of Neptune parameters to apply.
      * 
      */
@@ -99,6 +115,7 @@ public final class ParameterGroupArgs extends com.pulumi.resources.ResourceArgs 
         this.description = $.description;
         this.family = $.family;
         this.name = $.name;
+        this.namePrefix = $.namePrefix;
         this.parameters = $.parameters;
         this.tags = $.tags;
     }
@@ -185,6 +202,27 @@ public final class ParameterGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder namePrefix(@Nullable Output<String> namePrefix) {
+            $.namePrefix = namePrefix;
+            return this;
+        }
+
+        /**
+         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder namePrefix(String namePrefix) {
+            return namePrefix(Output.of(namePrefix));
+        }
+
+        /**
          * @param parameters A list of Neptune parameters to apply.
          * 
          * @return builder
@@ -237,7 +275,9 @@ public final class ParameterGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ParameterGroupArgs build() {
-            $.family = Objects.requireNonNull($.family, "expected parameter 'family' to be non-null");
+            if ($.family == null) {
+                throw new MissingRequiredPropertyException("ParameterGroupArgs", "family");
+            }
             return $;
         }
     }

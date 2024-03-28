@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,14 +24,16 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new()
+    ///     var myDemoAPI = new Aws.ApiGateway.RestApi("MyDemoAPI", new()
     ///     {
+    ///         Name = "MyDemoAPI",
     ///         Description = "This is my API for demonstration purposes",
     ///     });
     /// 
-    ///     var myDemoModel = new Aws.ApiGateway.Model("myDemoModel", new()
+    ///     var myDemoModel = new Aws.ApiGateway.Model("MyDemoModel", new()
     ///     {
     ///         RestApi = myDemoAPI.Id,
+    ///         Name = "user",
     ///         Description = "a JSON schema",
     ///         ContentType = "application/json",
     ///         Schema = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -41,13 +44,14 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_api_gateway_model` using `REST-API-ID/NAME`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/model:Model example 12345abcde/example
+    /// $ pulumi import aws:apigateway/model:Model example 12345abcde/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/model:Model")]

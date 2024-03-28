@@ -105,6 +105,11 @@ export type InfrastructureConfiguration = import("./infrastructureConfiguration"
 export const InfrastructureConfiguration: typeof import("./infrastructureConfiguration").InfrastructureConfiguration = null as any;
 utilities.lazyLoad(exports, ["InfrastructureConfiguration"], () => require("./infrastructureConfiguration"));
 
+export { WorkflowArgs, WorkflowState } from "./workflow";
+export type Workflow = import("./workflow").Workflow;
+export const Workflow: typeof import("./workflow").Workflow = null as any;
+utilities.lazyLoad(exports, ["Workflow"], () => require("./workflow"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -124,6 +129,8 @@ const _module = {
                 return new ImageRecipe(name, <any>undefined, { urn })
             case "aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration":
                 return new InfrastructureConfiguration(name, <any>undefined, { urn })
+            case "aws:imagebuilder/workflow:Workflow":
+                return new Workflow(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -136,3 +143,4 @@ pulumi.runtime.registerResourceModule("aws", "imagebuilder/image", _module)
 pulumi.runtime.registerResourceModule("aws", "imagebuilder/imagePipeline", _module)
 pulumi.runtime.registerResourceModule("aws", "imagebuilder/imageRecipe", _module)
 pulumi.runtime.registerResourceModule("aws", "imagebuilder/infrastructureConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "imagebuilder/workflow", _module)

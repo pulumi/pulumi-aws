@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesis.outputs;
 
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -19,7 +20,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationS3Configurati
      */
     private String bucketArn;
     /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
     private @Nullable Integer bufferingInterval;
@@ -29,7 +30,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationS3Configurati
      */
     private @Nullable Integer bufferingSize;
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
@@ -69,7 +70,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationS3Configurati
         return this.bucketArn;
     }
     /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
     public Optional<Integer> bufferingInterval() {
@@ -83,7 +84,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationS3Configurati
         return Optional.ofNullable(this.bufferingSize);
     }
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
@@ -160,61 +161,74 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationS3Configurati
 
         @CustomType.Setter
         public Builder bucketArn(String bucketArn) {
-            this.bucketArn = Objects.requireNonNull(bucketArn);
+            if (bucketArn == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration", "bucketArn");
+            }
+            this.bucketArn = bucketArn;
             return this;
         }
         @CustomType.Setter
         public Builder bufferingInterval(@Nullable Integer bufferingInterval) {
+
             this.bufferingInterval = bufferingInterval;
             return this;
         }
         @CustomType.Setter
         public Builder bufferingSize(@Nullable Integer bufferingSize) {
+
             this.bufferingSize = bufferingSize;
             return this;
         }
         @CustomType.Setter
         public Builder cloudwatchLoggingOptions(@Nullable FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions) {
+
             this.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
             return this;
         }
         @CustomType.Setter
         public Builder compressionFormat(@Nullable String compressionFormat) {
+
             this.compressionFormat = compressionFormat;
             return this;
         }
         @CustomType.Setter
         public Builder errorOutputPrefix(@Nullable String errorOutputPrefix) {
+
             this.errorOutputPrefix = errorOutputPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
+
             this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         public FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration build() {
-            final var o = new FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration();
-            o.bucketArn = bucketArn;
-            o.bufferingInterval = bufferingInterval;
-            o.bufferingSize = bufferingSize;
-            o.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
-            o.compressionFormat = compressionFormat;
-            o.errorOutputPrefix = errorOutputPrefix;
-            o.kmsKeyArn = kmsKeyArn;
-            o.prefix = prefix;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration();
+            _resultValue.bucketArn = bucketArn;
+            _resultValue.bufferingInterval = bufferingInterval;
+            _resultValue.bufferingSize = bufferingSize;
+            _resultValue.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
+            _resultValue.compressionFormat = compressionFormat;
+            _resultValue.errorOutputPrefix = errorOutputPrefix;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.prefix = prefix;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

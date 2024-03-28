@@ -59,19 +59,21 @@ public final class ClassificationJobS3JobDefinitionScoping {
 
         @CustomType.Setter
         public Builder excludes(@Nullable ClassificationJobS3JobDefinitionScopingExcludes excludes) {
+
             this.excludes = excludes;
             return this;
         }
         @CustomType.Setter
         public Builder includes(@Nullable ClassificationJobS3JobDefinitionScopingIncludes includes) {
+
             this.includes = includes;
             return this;
         }
         public ClassificationJobS3JobDefinitionScoping build() {
-            final var o = new ClassificationJobS3JobDefinitionScoping();
-            o.excludes = excludes;
-            o.includes = includes;
-            return o;
+            final var _resultValue = new ClassificationJobS3JobDefinitionScoping();
+            _resultValue.excludes = excludes;
+            _resultValue.includes = includes;
+            return _resultValue;
         }
     }
 }

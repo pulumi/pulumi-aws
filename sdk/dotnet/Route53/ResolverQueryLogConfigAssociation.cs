@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,21 +25,20 @@ namespace Pulumi.Aws.Route53
     /// {
     ///     var example = new Aws.Route53.ResolverQueryLogConfigAssociation("example", new()
     ///     {
-    ///         ResolverQueryLogConfigId = aws_route53_resolver_query_log_config.Example.Id,
-    ///         ResourceId = aws_vpc.Example.Id,
+    ///         ResolverQueryLogConfigId = exampleAwsRoute53ResolverQueryLogConfig.Id,
+    ///         ResourceId = exampleAwsVpc.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import
-    /// 
-    /// Route 53 Resolver query logging configuration associations using the Route 53 Resolver query logging configuration association ID. For example:
+    /// Using `pulumi import`, import  Route 53 Resolver query logging configuration associations using the Route 53 Resolver query logging configuration association ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
+    /// $ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation")]

@@ -14,12 +14,11 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Provides details about an EC2 Local Gateway.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following example shows how one might accept a local gateway id as a variable.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,8 +36,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLocalGatewayResult> InvokeAsync(GetLocalGatewayArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalGatewayResult>("aws:ec2/getLocalGateway:getLocalGateway", args ?? new GetLocalGatewayArgs(), options.WithDefaults());
@@ -46,12 +44,11 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Provides details about an EC2 Local Gateway.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following example shows how one might accept a local gateway id as a variable.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -69,8 +66,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLocalGatewayResult> Invoke(GetLocalGatewayInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayResult>("aws:ec2/getLocalGateway:getLocalGateway", args ?? new GetLocalGatewayInvokeArgs(), options.WithDefaults());

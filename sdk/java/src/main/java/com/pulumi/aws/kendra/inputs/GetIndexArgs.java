@@ -5,6 +5,7 @@ package com.pulumi.aws.kendra.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class GetIndexArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetIndexArgs build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("GetIndexArgs", "id");
+            }
             return $;
         }
     }

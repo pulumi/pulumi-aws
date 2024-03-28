@@ -13,7 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -26,9 +25,12 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Some of this resource&#39;s arguments have default values that come from the AWS Provider. Other default values are provided by AWS and subject to change without notice. When relying on AWS defaults, the provider state will often have a zero value. For example, the AWS Provider does not provide a default for `cdc_max_batch_interval` but the AWS default is `60` (seconds). However, the provider state will show `0` since this is the value return by AWS when no value is present. Below, we aim to flag the defaults that come from AWS (_e.g._, &#34;AWS default...&#34;).
  * 
  * ## Example Usage
+ * 
  * ### Minimal Configuration
  * 
  * This is the minimal configuration for an `aws.dms.S3Endpoint`. This endpoint will rely on the AWS Provider and AWS defaults.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -37,7 +39,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.dms.S3Endpoint;
  * import com.pulumi.aws.dms.S3EndpointArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,15 +56,17 @@ import javax.annotation.Nullable;
  *             .endpointId(&#34;donnedtipi&#34;)
  *             .endpointType(&#34;target&#34;)
  *             .bucketName(&#34;beckut_name&#34;)
- *             .serviceAccessRoleArn(aws_iam_role.example().arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_iam_role_policy.example())
- *                 .build());
+ *             .serviceAccessRoleArn(exampleAwsIamRole.arn())
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Complete Configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -72,7 +75,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.dms.S3Endpoint;
  * import com.pulumi.aws.dms.S3EndpointArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -120,7 +122,7 @@ import javax.annotation.Nullable;
  *             .enableStatistics(false)
  *             .encodingType(&#34;plain&#34;)
  *             .encryptionMode(&#34;SSE_S3&#34;)
- *             .expectedBucketOwner(data.aws_caller_identity().current().account_id())
+ *             .expectedBucketOwner(current.accountId())
  *             .externalTableDefinition(&#34;etd&#34;)
  *             .ignoreHeaderRows(1)
  *             .includeOpForFullLoad(true)
@@ -130,26 +132,25 @@ import javax.annotation.Nullable;
  *             .preserveTransactions(false)
  *             .rfc4180(false)
  *             .rowGroupLength(11000)
- *             .serverSideEncryptionKmsKeyId(aws_kms_key.example().arn())
- *             .serviceAccessRoleArn(aws_iam_role.example().arn())
+ *             .serverSideEncryptionKmsKeyId(exampleAwsKmsKey.arn())
+ *             .serviceAccessRoleArn(exampleAwsIamRole.arn())
  *             .timestampColumnName(&#34;tx_commit_time&#34;)
  *             .useCsvNoSupValue(false)
  *             .useTaskStartTimeForFullLoadTimestamp(true)
  *             .glueCatalogGeneration(true)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_iam_role_policy.example())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
+ * $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
  * ```
  * 
  */
@@ -938,9 +939,6 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

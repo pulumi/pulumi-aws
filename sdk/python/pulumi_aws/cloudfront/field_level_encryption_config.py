@@ -169,6 +169,7 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -188,19 +189,20 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
                 forward_when_query_arg_profile_is_unknown=True,
                 query_arg_profiles=aws.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs(
                     items=[aws.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs(
-                        profile_id=aws_cloudfront_field_level_encryption_profile["test"]["id"],
+                        profile_id=test_aws_cloudfront_field_level_encryption_profile["id"],
                         query_arg="Arg1",
                     )],
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cloudfront Field Level Encryption Config using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
+        $ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
         ```
 
         :param str resource_name: The name of the resource.
@@ -220,6 +222,7 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -239,19 +242,20 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
                 forward_when_query_arg_profile_is_unknown=True,
                 query_arg_profiles=aws.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs(
                     items=[aws.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs(
-                        profile_id=aws_cloudfront_field_level_encryption_profile["test"]["id"],
+                        profile_id=test_aws_cloudfront_field_level_encryption_profile["id"],
                         query_arg="Arg1",
                     )],
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cloudfront Field Level Encryption Config using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
+        $ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
         ```
 
         :param str resource_name: The name of the resource.

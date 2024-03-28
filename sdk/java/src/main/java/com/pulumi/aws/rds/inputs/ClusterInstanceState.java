@@ -201,14 +201,16 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+     * Name of the database engine to be used for the RDS cluster instance.
+     * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      * 
      */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
     /**
-     * @return Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+     * @return Name of the database engine to be used for the RDS cluster instance.
+     * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      * 
      */
     public Optional<Output<String>> engine() {
@@ -848,7 +850,8 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param engine Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+         * @param engine Name of the database engine to be used for the RDS cluster instance.
+         * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
          * 
          * @return builder
          * 
@@ -859,7 +862,8 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param engine Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+         * @param engine Name of the database engine to be used for the RDS cluster instance.
+         * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
          * 
          * @return builder
          * 

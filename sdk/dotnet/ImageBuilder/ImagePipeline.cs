@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,8 +25,9 @@ namespace Pulumi.Aws.ImageBuilder
     /// {
     ///     var example = new Aws.ImageBuilder.ImagePipeline("example", new()
     ///     {
-    ///         ImageRecipeArn = aws_imagebuilder_image_recipe.Example.Arn,
-    ///         InfrastructureConfigurationArn = aws_imagebuilder_infrastructure_configuration.Example.Arn,
+    ///         ImageRecipeArn = exampleAwsImagebuilderImageRecipe.Arn,
+    ///         InfrastructureConfigurationArn = exampleAwsImagebuilderInfrastructureConfiguration.Arn,
+    ///         Name = "example",
     ///         Schedule = new Aws.ImageBuilder.Inputs.ImagePipelineScheduleArgs
     ///         {
     ///             ScheduleExpression = "cron(0 0 * * ? *)",
@@ -34,13 +36,14 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_imagebuilder_image_pipeline` resources using the Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
+    /// $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:imagebuilder/imagePipeline:ImagePipeline")]
@@ -185,10 +188,6 @@ namespace Pulumi.Aws.ImageBuilder
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -426,11 +425,7 @@ namespace Pulumi.Aws.ImageBuilder
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ImagePipelineState()

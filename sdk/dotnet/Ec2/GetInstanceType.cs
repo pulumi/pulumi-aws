@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Get characteristics for a single EC2 Instance Type.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetInstanceTypeResult> InvokeAsync(GetInstanceTypeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceTypeResult>("aws:ec2/getInstanceType:getInstanceType", args ?? new GetInstanceTypeArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Get characteristics for a single EC2 Instance Type.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetInstanceTypeResult> Invoke(GetInstanceTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceTypeResult>("aws:ec2/getInstanceType:getInstanceType", args ?? new GetInstanceTypeInvokeArgs(), options.WithDefaults());
@@ -245,6 +241,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly int MaximumIpv6AddressesPerInterface;
         /// <summary>
+        /// The maximum number of physical network cards that can be allocated to the instance.
+        /// </summary>
+        public readonly int MaximumNetworkCards;
+        /// <summary>
         /// The maximum number of network interfaces for the instance type.
         /// </summary>
         public readonly int MaximumNetworkInterfaces;
@@ -369,6 +369,8 @@ namespace Pulumi.Aws.Ec2
 
             int maximumIpv6AddressesPerInterface,
 
+            int maximumNetworkCards,
+
             int maximumNetworkInterfaces,
 
             int memorySize,
@@ -430,6 +432,7 @@ namespace Pulumi.Aws.Ec2
             Ipv6Supported = ipv6Supported;
             MaximumIpv4AddressesPerInterface = maximumIpv4AddressesPerInterface;
             MaximumIpv6AddressesPerInterface = maximumIpv6AddressesPerInterface;
+            MaximumNetworkCards = maximumNetworkCards;
             MaximumNetworkInterfaces = maximumNetworkInterfaces;
             MemorySize = memorySize;
             NetworkPerformance = networkPerformance;

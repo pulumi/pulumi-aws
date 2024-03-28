@@ -5,6 +5,7 @@ package com.pulumi.aws.securityhub;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class StandardsControlArgs extends com.pulumi.resources.ResourceArg
         }
 
         public StandardsControlArgs build() {
-            $.controlStatus = Objects.requireNonNull($.controlStatus, "expected parameter 'controlStatus' to be non-null");
-            $.standardsControlArn = Objects.requireNonNull($.standardsControlArn, "expected parameter 'standardsControlArn' to be non-null");
+            if ($.controlStatus == null) {
+                throw new MissingRequiredPropertyException("StandardsControlArgs", "controlStatus");
+            }
+            if ($.standardsControlArn == null) {
+                throw new MissingRequiredPropertyException("StandardsControlArgs", "standardsControlArn");
+            }
             return $;
         }
     }

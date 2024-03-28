@@ -44,13 +44,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
 
         @CustomType.Setter
         public Builder customRequestHandling(@Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandling customRequestHandling) {
+
             this.customRequestHandling = customRequestHandling;
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow();
-            o.customRequestHandling = customRequestHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow();
+            _resultValue.customRequestHandling = customRequestHandling;
+            return _resultValue;
         }
     }
 }

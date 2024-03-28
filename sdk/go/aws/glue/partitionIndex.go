@@ -14,6 +14,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -26,15 +27,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCatalogDatabase, err := glue.NewCatalogDatabase(ctx, "exampleCatalogDatabase", &glue.CatalogDatabaseArgs{
+//			example, err := glue.NewCatalogDatabase(ctx, "example", &glue.CatalogDatabaseArgs{
 //				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleCatalogTable, err := glue.NewCatalogTable(ctx, "exampleCatalogTable", &glue.CatalogTableArgs{
+//			exampleCatalogTable, err := glue.NewCatalogTable(ctx, "example", &glue.CatalogTableArgs{
 //				Name:             pulumi.String("example"),
-//				DatabaseName:     exampleCatalogDatabase.Name,
+//				DatabaseName:     example.Name,
 //				Owner:            pulumi.String("my_owner"),
 //				Retention:        pulumi.Int(1),
 //				TableType:        pulumi.String("VIRTUAL_VIEW"),
@@ -109,8 +110,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = glue.NewPartitionIndex(ctx, "examplePartitionIndex", &glue.PartitionIndexArgs{
-//				DatabaseName: exampleCatalogDatabase.Name,
+//			_, err = glue.NewPartitionIndex(ctx, "example", &glue.PartitionIndexArgs{
+//				DatabaseName: example.Name,
 //				TableName:    exampleCatalogTable.Name,
 //				PartitionIndex: &glue.PartitionIndexPartitionIndexArgs{
 //					IndexName: pulumi.String("example"),
@@ -128,15 +129,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glue Partition Indexes using the catalog ID (usually AWS account ID), database name, table name, and index name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glue/partitionIndex:PartitionIndex example 123456789012:MyDatabase:MyTable:index-name
-//
+// $ pulumi import aws:glue/partitionIndex:PartitionIndex example 123456789012:MyDatabase:MyTable:index-name
 // ```
 type PartitionIndex struct {
 	pulumi.CustomResourceState

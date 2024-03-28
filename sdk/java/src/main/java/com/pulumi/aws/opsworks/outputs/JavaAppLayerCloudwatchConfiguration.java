@@ -44,11 +44,13 @@ public final class JavaAppLayerCloudwatchConfiguration {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder logStreams(@Nullable List<JavaAppLayerCloudwatchConfigurationLogStream> logStreams) {
+
             this.logStreams = logStreams;
             return this;
         }
@@ -56,10 +58,10 @@ public final class JavaAppLayerCloudwatchConfiguration {
             return logStreams(List.of(logStreams));
         }
         public JavaAppLayerCloudwatchConfiguration build() {
-            final var o = new JavaAppLayerCloudwatchConfiguration();
-            o.enabled = enabled;
-            o.logStreams = logStreams;
-            return o;
+            final var _resultValue = new JavaAppLayerCloudwatchConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.logStreams = logStreams;
+            return _resultValue;
         }
     }
 }

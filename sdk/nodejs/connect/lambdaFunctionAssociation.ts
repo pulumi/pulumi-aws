@@ -10,22 +10,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.LambdaFunctionAssociation("example", {
- *     functionArn: aws_lambda_function.example.arn,
- *     instanceId: aws_connect_instance.example.id,
+ *     functionArn: exampleAwsLambdaFunction.arn,
+ *     instanceId: exampleAwsConnectInstance.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_connect_lambda_function_association` using the `instance_id` and `function_arn` separated by a comma (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
+ * $ pulumi import aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
  * ```
  */
 export class LambdaFunctionAssociation extends pulumi.CustomResource {

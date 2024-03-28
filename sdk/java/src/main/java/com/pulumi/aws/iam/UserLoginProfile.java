@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * &gt; To reset an IAM User login password via this provider, you can use delete and recreate this resource or change any of the arguments.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,13 +47,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
+ *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .path(&#34;/&#34;)
  *             .forceDestroy(true)
  *             .build());
  * 
  *         var exampleUserLoginProfile = new UserLoginProfile(&#34;exampleUserLoginProfile&#34;, UserLoginProfileArgs.builder()        
- *             .user(exampleUser.name())
+ *             .user(example.name())
  *             .pgpKey(&#34;keybase:some_person_that_exists&#34;)
  *             .build());
  * 
@@ -59,15 +62,16 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IAM User Login Profiles without password information via the IAM User name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
+ * $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
  * ```
- *  Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
+ * Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
  * 
  */
 @ResourceType(type="aws:iam/userLoginProfile:UserLoginProfile")

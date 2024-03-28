@@ -15,33 +15,38 @@ import * as utilities from "../utilities";
  * [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
  *
  * ## Example Usage
+ *
  * ### EC2 Transit Gateway
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {});
- * const exampleCustomerGateway = new aws.ec2.CustomerGateway("exampleCustomerGateway", {
+ * const example = new aws.ec2transitgateway.TransitGateway("example", {});
+ * const exampleCustomerGateway = new aws.ec2.CustomerGateway("example", {
  *     bgpAsn: "65000",
  *     ipAddress: "172.0.0.1",
  *     type: "ipsec.1",
  * });
- * const exampleVpnConnection = new aws.ec2.VpnConnection("exampleVpnConnection", {
+ * const exampleVpnConnection = new aws.ec2.VpnConnection("example", {
  *     customerGatewayId: exampleCustomerGateway.id,
- *     transitGatewayId: exampleTransitGateway.id,
+ *     transitGatewayId: example.id,
  *     type: exampleCustomerGateway.type,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Virtual Private Gateway
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const vpc = new aws.ec2.Vpc("vpc", {cidrBlock: "10.0.0.0/16"});
- * const vpnGateway = new aws.ec2.VpnGateway("vpnGateway", {vpcId: vpc.id});
- * const customerGateway = new aws.ec2.CustomerGateway("customerGateway", {
+ * const vpnGateway = new aws.ec2.VpnGateway("vpn_gateway", {vpcId: vpc.id});
+ * const customerGateway = new aws.ec2.CustomerGateway("customer_gateway", {
  *     bgpAsn: "65000",
  *     ipAddress: "172.0.0.1",
  *     type: "ipsec.1",
@@ -53,19 +58,25 @@ import * as utilities from "../utilities";
  *     staticRoutesOnly: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### AWS Site to Site Private VPN
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGateway = new aws.directconnect.Gateway("exampleGateway", {amazonSideAsn: "64512"});
- * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {
+ * const exampleGateway = new aws.directconnect.Gateway("example", {
+ *     name: "example_ipsec_vpn_example",
+ *     amazonSideAsn: "64512",
+ * });
+ * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("example", {
  *     amazonSideAsn: 64513,
  *     description: "example_ipsec_vpn_example",
  *     transitGatewayCidrBlocks: ["10.0.0.0/24"],
  * });
- * const exampleCustomerGateway = new aws.ec2.CustomerGateway("exampleCustomerGateway", {
+ * const exampleCustomerGateway = new aws.ec2.CustomerGateway("example", {
  *     bgpAsn: "64514",
  *     ipAddress: "10.0.0.1",
  *     type: "ipsec.1",
@@ -73,33 +84,34 @@ import * as utilities from "../utilities";
  *         Name: "example_ipsec_vpn_example",
  *     },
  * });
- * const exampleGatewayAssociation = new aws.directconnect.GatewayAssociation("exampleGatewayAssociation", {
+ * const exampleGatewayAssociation = new aws.directconnect.GatewayAssociation("example", {
  *     dxGatewayId: exampleGateway.id,
  *     associatedGatewayId: exampleTransitGateway.id,
  *     allowedPrefixes: ["10.0.0.0/8"],
  * });
- * const exampleDirectConnectGatewayAttachment = aws.ec2transitgateway.getDirectConnectGatewayAttachmentOutput({
+ * const example = aws.ec2transitgateway.getDirectConnectGatewayAttachmentOutput({
  *     transitGatewayId: exampleTransitGateway.id,
  *     dxGatewayId: exampleGateway.id,
  * });
- * const exampleVpnConnection = new aws.ec2.VpnConnection("exampleVpnConnection", {
+ * const exampleVpnConnection = new aws.ec2.VpnConnection("example", {
  *     customerGatewayId: exampleCustomerGateway.id,
  *     outsideIpAddressType: "PrivateIpv4",
  *     transitGatewayId: exampleTransitGateway.id,
- *     transportTransitGatewayAttachmentId: exampleDirectConnectGatewayAttachment.apply(exampleDirectConnectGatewayAttachment => exampleDirectConnectGatewayAttachment.id),
+ *     transportTransitGatewayAttachmentId: example.apply(example => example.id),
  *     type: "ipsec.1",
  *     tags: {
  *         Name: "example_ipsec_vpn_example",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import VPN Connections using the VPN connection `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
+ * $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
  * ```
  */
 export class VpnConnection extends pulumi.CustomResource {
@@ -588,7 +600,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["vgwTelemetries"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["customerGatewayConfiguration", "tagsAll", "tunnel1PresharedKey", "tunnel2PresharedKey"] };
+        const secretOpts = { additionalSecretOutputs: ["customerGatewayConfiguration", "tunnel1PresharedKey", "tunnel2PresharedKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(VpnConnection.__pulumiType, name, resourceInputs, opts);
     }

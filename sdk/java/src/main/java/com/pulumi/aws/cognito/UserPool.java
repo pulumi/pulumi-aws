@@ -34,7 +34,10 @@ import javax.annotation.Nullable;
  * Provides a Cognito User Pool resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,6 +45,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cognito.UserPool;
+ * import com.pulumi.aws.cognito.UserPoolArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,12 +59,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pool = new UserPool(&#34;pool&#34;);
+ *         var pool = new UserPool(&#34;pool&#34;, UserPoolArgs.builder()        
+ *             .name(&#34;mypool&#34;)
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Enabling SMS and Software Token Multi-Factor Authentication
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -89,7 +99,7 @@ import javax.annotation.Nullable;
  *             .smsAuthenticationMessage(&#34;Your code is {####}&#34;)
  *             .smsConfiguration(UserPoolSmsConfigurationArgs.builder()
  *                 .externalId(&#34;example&#34;)
- *                 .snsCallerArn(aws_iam_role.example().arn())
+ *                 .snsCallerArn(exampleAwsIamRole.arn())
  *                 .snsRegion(&#34;us-east-1&#34;)
  *                 .build())
  *             .softwareTokenMfaConfiguration(UserPoolSoftwareTokenMfaConfigurationArgs.builder()
@@ -100,7 +110,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Using Account Recovery Setting
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -124,6 +138,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new UserPool(&#34;test&#34;, UserPoolArgs.builder()        
+ *             .name(&#34;mypool&#34;)
  *             .accountRecoverySetting(UserPoolAccountRecoverySettingArgs.builder()
  *                 .recoveryMechanisms(                
  *                     UserPoolAccountRecoverySettingRecoveryMechanismArgs.builder()
@@ -140,13 +155,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Cognito User Pools using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
+ * $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
  * ```
  * 
  */
@@ -641,9 +657,6 @@ public class UserPool extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

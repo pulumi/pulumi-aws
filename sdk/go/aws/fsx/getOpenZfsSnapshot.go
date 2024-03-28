@@ -14,8 +14,10 @@ import (
 // Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
 //
 // ## Example Usage
+//
 // ### Root volume Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.LookupOpenZfsSnapshot(ctx, &fsx.LookupOpenZfsSnapshotArgs{
+//				MostRecent: pulumi.BoolRef(true),
 //				Filters: []fsx.GetOpenZfsSnapshotFilter{
 //					{
 //						Name: "volume-id",
@@ -37,7 +40,6 @@ import (
 //						},
 //					},
 //				},
-//				MostRecent: pulumi.BoolRef(true),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -47,6 +49,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupOpenZfsSnapshot(ctx *pulumi.Context, args *LookupOpenZfsSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupOpenZfsSnapshotResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOpenZfsSnapshotResult

@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Comprehend
     /// Resource for managing an AWS Comprehend Entity Recognizer.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,13 +27,12 @@ namespace Pulumi.Aws.Comprehend
     /// {
     ///     var documents = new Aws.S3.BucketObjectv2("documents");
     /// 
-    ///     // ...
     ///     var entities = new Aws.S3.BucketObjectv2("entities");
     /// 
-    ///     // ...
     ///     var example = new Aws.Comprehend.EntityRecognizer("example", new()
     ///     {
-    ///         DataAccessRoleArn = aws_iam_role.Example.Arn,
+    ///         Name = "example",
+    ///         DataAccessRoleArn = exampleAwsIamRole.Arn,
     ///         LanguageCode = "en",
     ///         InputDataConfig = new Aws.Comprehend.Inputs.EntityRecognizerInputDataConfigArgs
     ///         {
@@ -48,30 +49,25 @@ namespace Pulumi.Aws.Comprehend
     ///             },
     ///             Documents = new Aws.Comprehend.Inputs.EntityRecognizerInputDataConfigDocumentsArgs
     ///             {
-    ///                 S3Uri = documents.Id.Apply(id =&gt; $"s3://{aws_s3_bucket.Documents.Bucket}/{id}"),
+    ///                 S3Uri = documents.Id.Apply(id =&gt; $"s3://{documentsAwsS3Bucket.Bucket}/{id}"),
     ///             },
     ///             EntityList = new Aws.Comprehend.Inputs.EntityRecognizerInputDataConfigEntityListArgs
     ///             {
-    ///                 S3Uri = entities.Id.Apply(id =&gt; $"s3://{aws_s3_bucket.Entities.Bucket}/{id}"),
+    ///                 S3Uri = entities.Id.Apply(id =&gt; $"s3://{entitiesAwsS3Bucket.Bucket}/{id}"),
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_iam_role_policy.Example,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
+    /// $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:comprehend/entityRecognizer:EntityRecognizer")]
@@ -188,10 +184,6 @@ namespace Pulumi.Aws.Comprehend
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -369,11 +361,7 @@ namespace Pulumi.Aws.Comprehend
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

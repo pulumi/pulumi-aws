@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,18 +30,19 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := imagebuilder.NewDistributionConfiguration(ctx, "example", &imagebuilder.DistributionConfigurationArgs{
+//				Name: pulumi.String("example"),
 //				Distributions: imagebuilder.DistributionConfigurationDistributionArray{
 //					&imagebuilder.DistributionConfigurationDistributionArgs{
 //						AmiDistributionConfiguration: &imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationArgs{
 //							AmiTags: pulumi.StringMap{
 //								"CostCenter": pulumi.String("IT"),
 //							},
+//							Name: pulumi.String("example-{{ imagebuilder:buildDate }}"),
 //							LaunchPermission: &imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs{
 //								UserIds: pulumi.StringArray{
 //									pulumi.String("123456789012"),
 //								},
 //							},
-//							Name: pulumi.String("example-{{ imagebuilder:buildDate }}"),
 //						},
 //						LaunchTemplateConfigurations: imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArray{
 //							&imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs{
@@ -59,15 +61,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_imagebuilder_distribution_configurations` resources using the Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
-//
+// $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
 // ```
 type DistributionConfiguration struct {
 	pulumi.CustomResourceState
@@ -104,10 +105,6 @@ func NewDistributionConfiguration(ctx *pulumi.Context,
 	if args.Distributions == nil {
 		return nil, errors.New("invalid value for required argument 'Distributions'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DistributionConfiguration
 	err := ctx.RegisterResource("aws:imagebuilder/distributionConfiguration:DistributionConfiguration", name, args, &resource, opts...)

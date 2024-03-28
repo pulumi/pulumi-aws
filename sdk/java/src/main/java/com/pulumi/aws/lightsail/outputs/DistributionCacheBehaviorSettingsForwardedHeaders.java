@@ -59,6 +59,7 @@ public final class DistributionCacheBehaviorSettingsForwardedHeaders {
 
         @CustomType.Setter
         public Builder headersAllowLists(@Nullable List<String> headersAllowLists) {
+
             this.headersAllowLists = headersAllowLists;
             return this;
         }
@@ -67,14 +68,15 @@ public final class DistributionCacheBehaviorSettingsForwardedHeaders {
         }
         @CustomType.Setter
         public Builder option(@Nullable String option) {
+
             this.option = option;
             return this;
         }
         public DistributionCacheBehaviorSettingsForwardedHeaders build() {
-            final var o = new DistributionCacheBehaviorSettingsForwardedHeaders();
-            o.headersAllowLists = headersAllowLists;
-            o.option = option;
-            return o;
+            final var _resultValue = new DistributionCacheBehaviorSettingsForwardedHeaders();
+            _resultValue.headersAllowLists = headersAllowLists;
+            _resultValue.option = option;
+            return _resultValue;
         }
     }
 }

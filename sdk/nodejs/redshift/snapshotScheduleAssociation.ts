@@ -7,11 +7,12 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultCluster = new aws.redshift.Cluster("defaultCluster", {
+ * const _default = new aws.redshift.Cluster("default", {
  *     clusterIdentifier: "tf-redshift-cluster",
  *     databaseName: "mydb",
  *     masterUsername: "foo",
@@ -19,22 +20,23 @@ import * as utilities from "../utilities";
  *     nodeType: "dc1.large",
  *     clusterType: "single-node",
  * });
- * const defaultSnapshotSchedule = new aws.redshift.SnapshotSchedule("defaultSnapshotSchedule", {
+ * const defaultSnapshotSchedule = new aws.redshift.SnapshotSchedule("default", {
  *     identifier: "tf-redshift-snapshot-schedule",
  *     definitions: ["rate(12 hours)"],
  * });
- * const defaultSnapshotScheduleAssociation = new aws.redshift.SnapshotScheduleAssociation("defaultSnapshotScheduleAssociation", {
- *     clusterIdentifier: defaultCluster.id,
+ * const defaultSnapshotScheduleAssociation = new aws.redshift.SnapshotScheduleAssociation("default", {
+ *     clusterIdentifier: _default.id,
  *     scheduleIdentifier: defaultSnapshotSchedule.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Snapshot Schedule Association using the `<cluster-identifier>/<schedule-identifier>`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
+ * $ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
  * ```
  */
 export class SnapshotScheduleAssociation extends pulumi.CustomResource {

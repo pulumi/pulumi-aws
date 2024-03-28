@@ -100,37 +100,42 @@ public final class ImageOutputResourceAmi {
 
         @CustomType.Setter
         public Builder accountId(@Nullable String accountId) {
+
             this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder image(@Nullable String image) {
+
             this.image = image;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder region(@Nullable String region) {
+
             this.region = region;
             return this;
         }
         public ImageOutputResourceAmi build() {
-            final var o = new ImageOutputResourceAmi();
-            o.accountId = accountId;
-            o.description = description;
-            o.image = image;
-            o.name = name;
-            o.region = region;
-            return o;
+            final var _resultValue = new ImageOutputResourceAmi();
+            _resultValue.accountId = accountId;
+            _resultValue.description = description;
+            _resultValue.image = image;
+            _resultValue.name = name;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

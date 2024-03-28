@@ -17,11 +17,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rds.OptionGroup("example", {
+ *     name: "option-group-test",
  *     optionGroupDescription: "Option Group",
  *     engineName: "sqlserver-ee",
  *     majorEngineVersion: "11.00",
@@ -37,7 +39,7 @@ import * as utilities from "../utilities";
  *             optionName: "SQLSERVER_BACKUP_RESTORE",
  *             optionSettings: [{
  *                 name: "IAM_ROLE_ARN",
- *                 value: aws_iam_role.example.arn,
+ *                 value: exampleAwsIamRole.arn,
  *             }],
  *         },
  *         {
@@ -46,6 +48,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * > **Note:** Any modifications to the `aws.rds.OptionGroup` are set to happen immediately as we default to applying immediately.
  *
@@ -62,7 +65,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import DB option groups using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
+ * $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
  * ```
  */
 export class OptionGroup extends pulumi.CustomResource {
@@ -118,7 +121,7 @@ export class OptionGroup extends pulumi.CustomResource {
      */
     public readonly optionGroupDescription!: pulumi.Output<string>;
     /**
-     * List of options to apply.
+     * The options to apply. See `option` Block below for more details.
      */
     public readonly options!: pulumi.Output<outputs.rds.OptionGroupOption[] | undefined>;
     /**
@@ -173,8 +176,6 @@ export class OptionGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(OptionGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -208,7 +209,7 @@ export interface OptionGroupState {
      */
     optionGroupDescription?: pulumi.Input<string>;
     /**
-     * List of options to apply.
+     * The options to apply. See `option` Block below for more details.
      */
     options?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOption>[]>;
     /**
@@ -248,7 +249,7 @@ export interface OptionGroupArgs {
      */
     optionGroupDescription?: pulumi.Input<string>;
     /**
-     * List of options to apply.
+     * The options to apply. See `option` Block below for more details.
      */
     options?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOption>[]>;
     /**

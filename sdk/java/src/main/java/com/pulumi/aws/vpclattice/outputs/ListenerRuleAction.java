@@ -59,19 +59,21 @@ public final class ListenerRuleAction {
 
         @CustomType.Setter
         public Builder fixedResponse(@Nullable ListenerRuleActionFixedResponse fixedResponse) {
+
             this.fixedResponse = fixedResponse;
             return this;
         }
         @CustomType.Setter
         public Builder forward(@Nullable ListenerRuleActionForward forward) {
+
             this.forward = forward;
             return this;
         }
         public ListenerRuleAction build() {
-            final var o = new ListenerRuleAction();
-            o.fixedResponse = fixedResponse;
-            o.forward = forward;
-            return o;
+            final var _resultValue = new ListenerRuleAction();
+            _resultValue.fixedResponse = fixedResponse;
+            _resultValue.forward = forward;
+            return _resultValue;
         }
     }
 }

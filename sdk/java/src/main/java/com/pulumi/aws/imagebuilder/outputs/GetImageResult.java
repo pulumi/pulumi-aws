@@ -7,6 +7,7 @@ import com.pulumi.aws.imagebuilder.outputs.GetImageImageScanningConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.GetImageImageTestsConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.GetImageOutputResource;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -264,47 +265,74 @@ public final class GetImageResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder buildVersionArn(String buildVersionArn) {
-            this.buildVersionArn = Objects.requireNonNull(buildVersionArn);
+            if (buildVersionArn == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "buildVersionArn");
+            }
+            this.buildVersionArn = buildVersionArn;
             return this;
         }
         @CustomType.Setter
         public Builder containerRecipeArn(String containerRecipeArn) {
-            this.containerRecipeArn = Objects.requireNonNull(containerRecipeArn);
+            if (containerRecipeArn == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "containerRecipeArn");
+            }
+            this.containerRecipeArn = containerRecipeArn;
             return this;
         }
         @CustomType.Setter
         public Builder dateCreated(String dateCreated) {
-            this.dateCreated = Objects.requireNonNull(dateCreated);
+            if (dateCreated == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "dateCreated");
+            }
+            this.dateCreated = dateCreated;
             return this;
         }
         @CustomType.Setter
         public Builder distributionConfigurationArn(String distributionConfigurationArn) {
-            this.distributionConfigurationArn = Objects.requireNonNull(distributionConfigurationArn);
+            if (distributionConfigurationArn == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "distributionConfigurationArn");
+            }
+            this.distributionConfigurationArn = distributionConfigurationArn;
             return this;
         }
         @CustomType.Setter
         public Builder enhancedImageMetadataEnabled(Boolean enhancedImageMetadataEnabled) {
-            this.enhancedImageMetadataEnabled = Objects.requireNonNull(enhancedImageMetadataEnabled);
+            if (enhancedImageMetadataEnabled == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "enhancedImageMetadataEnabled");
+            }
+            this.enhancedImageMetadataEnabled = enhancedImageMetadataEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder imageRecipeArn(String imageRecipeArn) {
-            this.imageRecipeArn = Objects.requireNonNull(imageRecipeArn);
+            if (imageRecipeArn == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "imageRecipeArn");
+            }
+            this.imageRecipeArn = imageRecipeArn;
             return this;
         }
         @CustomType.Setter
         public Builder imageScanningConfigurations(List<GetImageImageScanningConfiguration> imageScanningConfigurations) {
-            this.imageScanningConfigurations = Objects.requireNonNull(imageScanningConfigurations);
+            if (imageScanningConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "imageScanningConfigurations");
+            }
+            this.imageScanningConfigurations = imageScanningConfigurations;
             return this;
         }
         public Builder imageScanningConfigurations(GetImageImageScanningConfiguration... imageScanningConfigurations) {
@@ -312,7 +340,10 @@ public final class GetImageResult {
         }
         @CustomType.Setter
         public Builder imageTestsConfigurations(List<GetImageImageTestsConfiguration> imageTestsConfigurations) {
-            this.imageTestsConfigurations = Objects.requireNonNull(imageTestsConfigurations);
+            if (imageTestsConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "imageTestsConfigurations");
+            }
+            this.imageTestsConfigurations = imageTestsConfigurations;
             return this;
         }
         public Builder imageTestsConfigurations(GetImageImageTestsConfiguration... imageTestsConfigurations) {
@@ -320,22 +351,34 @@ public final class GetImageResult {
         }
         @CustomType.Setter
         public Builder infrastructureConfigurationArn(String infrastructureConfigurationArn) {
-            this.infrastructureConfigurationArn = Objects.requireNonNull(infrastructureConfigurationArn);
+            if (infrastructureConfigurationArn == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "infrastructureConfigurationArn");
+            }
+            this.infrastructureConfigurationArn = infrastructureConfigurationArn;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder osVersion(String osVersion) {
-            this.osVersion = Objects.requireNonNull(osVersion);
+            if (osVersion == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "osVersion");
+            }
+            this.osVersion = osVersion;
             return this;
         }
         @CustomType.Setter
         public Builder outputResources(List<GetImageOutputResource> outputResources) {
-            this.outputResources = Objects.requireNonNull(outputResources);
+            if (outputResources == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "outputResources");
+            }
+            this.outputResources = outputResources;
             return this;
         }
         public Builder outputResources(GetImageOutputResource... outputResources) {
@@ -343,39 +386,48 @@ public final class GetImageResult {
         }
         @CustomType.Setter
         public Builder platform(String platform) {
-            this.platform = Objects.requireNonNull(platform);
+            if (platform == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "platform");
+            }
+            this.platform = platform;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "version");
+            }
+            this.version = version;
             return this;
         }
         public GetImageResult build() {
-            final var o = new GetImageResult();
-            o.arn = arn;
-            o.buildVersionArn = buildVersionArn;
-            o.containerRecipeArn = containerRecipeArn;
-            o.dateCreated = dateCreated;
-            o.distributionConfigurationArn = distributionConfigurationArn;
-            o.enhancedImageMetadataEnabled = enhancedImageMetadataEnabled;
-            o.id = id;
-            o.imageRecipeArn = imageRecipeArn;
-            o.imageScanningConfigurations = imageScanningConfigurations;
-            o.imageTestsConfigurations = imageTestsConfigurations;
-            o.infrastructureConfigurationArn = infrastructureConfigurationArn;
-            o.name = name;
-            o.osVersion = osVersion;
-            o.outputResources = outputResources;
-            o.platform = platform;
-            o.tags = tags;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetImageResult();
+            _resultValue.arn = arn;
+            _resultValue.buildVersionArn = buildVersionArn;
+            _resultValue.containerRecipeArn = containerRecipeArn;
+            _resultValue.dateCreated = dateCreated;
+            _resultValue.distributionConfigurationArn = distributionConfigurationArn;
+            _resultValue.enhancedImageMetadataEnabled = enhancedImageMetadataEnabled;
+            _resultValue.id = id;
+            _resultValue.imageRecipeArn = imageRecipeArn;
+            _resultValue.imageScanningConfigurations = imageScanningConfigurations;
+            _resultValue.imageTestsConfigurations = imageTestsConfigurations;
+            _resultValue.infrastructureConfigurationArn = infrastructureConfigurationArn;
+            _resultValue.name = name;
+            _resultValue.osVersion = osVersion;
+            _resultValue.outputResources = outputResources;
+            _resultValue.platform = platform;
+            _resultValue.tags = tags;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

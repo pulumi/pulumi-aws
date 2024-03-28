@@ -9,30 +9,34 @@ import * as utilities from "../utilities";
  * The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.
  *
  * ## Example Usage
+ *
  * ### Create protection
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const available = aws.getAvailabilityZones({});
- * const currentRegion = aws.getRegion({});
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const exampleEip = new aws.ec2.Eip("exampleEip", {domain: "vpc"});
- * const exampleProtection = new aws.shield.Protection("exampleProtection", {
- *     resourceArn: pulumi.all([currentRegion, currentCallerIdentity, exampleEip.id]).apply(([currentRegion, currentCallerIdentity, id]) => `arn:aws:ec2:${currentRegion.name}:${currentCallerIdentity.accountId}:eip-allocation/${id}`),
+ * const current = aws.getRegion({});
+ * const currentGetCallerIdentity = aws.getCallerIdentity({});
+ * const example = new aws.ec2.Eip("example", {domain: "vpc"});
+ * const exampleProtection = new aws.shield.Protection("example", {
+ *     name: "example",
+ *     resourceArn: pulumi.all([current, currentGetCallerIdentity, example.id]).apply(([current, currentGetCallerIdentity, id]) => `arn:aws:ec2:${current.name}:${currentGetCallerIdentity.accountId}:eip-allocation/${id}`),
  *     tags: {
  *         Environment: "Dev",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Shield protection resources using specifying their ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
+ * $ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
  * ```
  */
 export class Protection extends pulumi.CustomResource {
@@ -116,8 +120,6 @@ export class Protection extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Protection.__pulumiType, name, resourceInputs, opts);
     }
 }

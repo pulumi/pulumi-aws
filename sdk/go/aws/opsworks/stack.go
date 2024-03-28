@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,9 +30,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsworks.NewStack(ctx, "main", &opsworks.StackArgs{
+//				Name:                      pulumi.String("awesome-stack"),
 //				Region:                    pulumi.String("us-west-1"),
-//				ServiceRoleArn:            pulumi.Any(aws_iam_role.Opsworks.Arn),
-//				DefaultInstanceProfileArn: pulumi.Any(aws_iam_instance_profile.Opsworks.Arn),
+//				ServiceRoleArn:            pulumi.Any(opsworksAwsIamRole.Arn),
+//				DefaultInstanceProfileArn: pulumi.Any(opsworks.Arn),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("foobar-stack"),
 //				},
@@ -45,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import OpsWorks stacks using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000
-//
+// $ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000
 // ```
 type Stack struct {
 	pulumi.CustomResourceState
@@ -130,10 +131,6 @@ func NewStack(ctx *pulumi.Context,
 	if args.ServiceRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceRoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Stack
 	err := ctx.RegisterResource("aws:opsworks/stack:Stack", name, args, &resource, opts...)

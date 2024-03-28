@@ -5,6 +5,7 @@ package com.pulumi.aws.kendra.outputs;
 
 import com.pulumi.aws.kendra.outputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -73,25 +74,32 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
 
         @CustomType.Setter
         public Builder conditionDocumentAttributeKey(String conditionDocumentAttributeKey) {
-            this.conditionDocumentAttributeKey = Objects.requireNonNull(conditionDocumentAttributeKey);
+            if (conditionDocumentAttributeKey == null) {
+              throw new MissingRequiredPropertyException("DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition", "conditionDocumentAttributeKey");
+            }
+            this.conditionDocumentAttributeKey = conditionDocumentAttributeKey;
             return this;
         }
         @CustomType.Setter
         public Builder conditionOnValue(@Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue conditionOnValue) {
+
             this.conditionOnValue = conditionOnValue;
             return this;
         }
         @CustomType.Setter
         public Builder operator(String operator) {
-            this.operator = Objects.requireNonNull(operator);
+            if (operator == null) {
+              throw new MissingRequiredPropertyException("DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition", "operator");
+            }
+            this.operator = operator;
             return this;
         }
         public DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition build() {
-            final var o = new DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition();
-            o.conditionDocumentAttributeKey = conditionDocumentAttributeKey;
-            o.conditionOnValue = conditionOnValue;
-            o.operator = operator;
-            return o;
+            final var _resultValue = new DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition();
+            _resultValue.conditionDocumentAttributeKey = conditionDocumentAttributeKey;
+            _resultValue.conditionOnValue = conditionOnValue;
+            _resultValue.operator = operator;
+            return _resultValue;
         }
     }
 }

@@ -14,26 +14,29 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.memorydb.Cluster("example", {
  *     aclName: "open-access",
+ *     name: "my-cluster",
  *     nodeType: "db.t4g.small",
  *     numShards: 2,
- *     securityGroupIds: [aws_security_group.example.id],
+ *     securityGroupIds: [exampleAwsSecurityGroup.id],
  *     snapshotRetentionLimit: 7,
- *     subnetGroupName: aws_memorydb_subnet_group.example.id,
+ *     subnetGroupName: exampleAwsMemorydbSubnetGroup.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a cluster using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
+ * $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
  * ```
  */
 export class Cluster extends pulumi.CustomResource {
@@ -263,8 +266,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }

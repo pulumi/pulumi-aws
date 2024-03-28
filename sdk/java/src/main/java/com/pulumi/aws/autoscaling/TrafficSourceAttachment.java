@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * &gt; **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `load_balancers`, `target_group_arns` and `traffic_source` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,9 +48,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TrafficSourceAttachment(&#34;example&#34;, TrafficSourceAttachmentArgs.builder()        
- *             .autoscalingGroupName(aws_autoscaling_group.example().id())
+ *             .autoscalingGroupName(exampleAwsAutoscalingGroup.id())
  *             .trafficSource(TrafficSourceAttachmentTrafficSourceArgs.builder()
- *                 .identifier(aws_lb_target_group.example().arn())
+ *                 .identifier(exampleAwsLbTargetGroup.arn())
  *                 .type(&#34;elbv2&#34;)
  *                 .build())
  *             .build());
@@ -55,6 +58,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:autoscaling/trafficSourceAttachment:TrafficSourceAttachment")

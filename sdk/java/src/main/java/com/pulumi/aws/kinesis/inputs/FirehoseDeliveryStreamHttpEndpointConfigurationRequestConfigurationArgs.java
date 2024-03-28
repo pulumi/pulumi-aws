@@ -18,14 +18,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigu
     public static final FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs Empty = new FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs();
 
     /**
-     * Describes the metadata sent to the HTTP endpoint destination. More details are given below
+     * Describes the metadata sent to the HTTP endpoint destination. See `common_attributes` block below for details.
      * 
      */
     @Import(name="commonAttributes")
     private @Nullable Output<List<FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs>> commonAttributes;
 
     /**
-     * @return Describes the metadata sent to the HTTP endpoint destination. More details are given below
+     * @return Describes the metadata sent to the HTTP endpoint destination. See `common_attributes` block below for details.
      * 
      */
     public Optional<Output<List<FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs>>> commonAttributes() {
@@ -73,7 +73,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigu
         }
 
         /**
-         * @param commonAttributes Describes the metadata sent to the HTTP endpoint destination. More details are given below
+         * @param commonAttributes Describes the metadata sent to the HTTP endpoint destination. See `common_attributes` block below for details.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigu
         }
 
         /**
-         * @param commonAttributes Describes the metadata sent to the HTTP endpoint destination. More details are given below
+         * @param commonAttributes Describes the metadata sent to the HTTP endpoint destination. See `common_attributes` block below for details.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigu
         }
 
         /**
-         * @param commonAttributes Describes the metadata sent to the HTTP endpoint destination. More details are given below
+         * @param commonAttributes Describes the metadata sent to the HTTP endpoint destination. See `common_attributes` block below for details.
          * 
          * @return builder
          * 

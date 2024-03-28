@@ -14,8 +14,10 @@ import (
 // Data source for managing AWS Bedrock Foundation Models.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,8 +39,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Filter by Inference Type
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,6 +67,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetModels(ctx *pulumi.Context, args *GetModelsArgs, opts ...pulumi.InvokeOption) (*GetModelsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetModelsResult
@@ -82,8 +88,6 @@ type GetModelsArgs struct {
 	ByOutputModality *string `pulumi:"byOutputModality"`
 	// Model provider to filter on.
 	ByProvider *string `pulumi:"byProvider"`
-	// List of model summary objects. See `modelSummaries`.
-	ModelSummaries []GetModelsModelSummary `pulumi:"modelSummaries"`
 }
 
 // A collection of values returned by getModels.
@@ -121,8 +125,6 @@ type GetModelsOutputArgs struct {
 	ByOutputModality pulumi.StringPtrInput `pulumi:"byOutputModality"`
 	// Model provider to filter on.
 	ByProvider pulumi.StringPtrInput `pulumi:"byProvider"`
-	// List of model summary objects. See `modelSummaries`.
-	ModelSummaries GetModelsModelSummaryArrayInput `pulumi:"modelSummaries"`
 }
 
 func (GetModelsOutputArgs) ElementType() reflect.Type {

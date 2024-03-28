@@ -101,13 +101,15 @@ def get_table_item(expression_attribute_names: Optional[Mapping[str, str]] = Non
     Data source for retrieving a value from an AWS DynamoDB table.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dynamodb.get_table_item(table_name=aws_dynamodb_table["example"]["name"],
+    test = aws.dynamodb.get_table_item(table_name=example["name"],
         expression_attribute_names={
             "#P": "Percentile",
         },
@@ -117,6 +119,7 @@ def get_table_item(expression_attribute_names: Optional[Mapping[str, str]] = Non
     }
     \"\"\")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
@@ -154,13 +157,15 @@ def get_table_item_output(expression_attribute_names: Optional[pulumi.Input[Opti
     Data source for retrieving a value from an AWS DynamoDB table.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dynamodb.get_table_item(table_name=aws_dynamodb_table["example"]["name"],
+    test = aws.dynamodb.get_table_item(table_name=example["name"],
         expression_attribute_names={
             "#P": "Percentile",
         },
@@ -170,6 +175,7 @@ def get_table_item_output(expression_attribute_names: Optional[pulumi.Input[Opti
     }
     \"\"\")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.

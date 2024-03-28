@@ -14,8 +14,10 @@ namespace Pulumi.Aws.Connect
     /// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,6 +28,7 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.UserHierarchyStructure("example", new()
     ///     {
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
     ///         HierarchyStructure = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureArgs
     ///         {
     ///             LevelOne = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelOneArgs
@@ -33,13 +36,15 @@ namespace Pulumi.Aws.Connect
     ///                 Name = "levelone",
     ///             },
     ///         },
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Five Levels
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,41 +55,42 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.UserHierarchyStructure("example", new()
     ///     {
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
     ///         HierarchyStructure = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureArgs
     ///         {
-    ///             LevelFive = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelFiveArgs
-    ///             {
-    ///                 Name = "levelfive",
-    ///             },
-    ///             LevelFour = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelFourArgs
-    ///             {
-    ///                 Name = "levelfour",
-    ///             },
     ///             LevelOne = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelOneArgs
     ///             {
     ///                 Name = "levelone",
-    ///             },
-    ///             LevelThree = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelThreeArgs
-    ///             {
-    ///                 Name = "levelthree",
     ///             },
     ///             LevelTwo = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelTwoArgs
     ///             {
     ///                 Name = "leveltwo",
     ///             },
+    ///             LevelThree = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelThreeArgs
+    ///             {
+    ///                 Name = "levelthree",
+    ///             },
+    ///             LevelFour = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelFourArgs
+    ///             {
+    ///                 Name = "levelfour",
+    ///             },
+    ///             LevelFive = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelFiveArgs
+    ///             {
+    ///                 Name = "levelfive",
+    ///             },
     ///         },
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon Connect User Hierarchy Structures using the `instance_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
+    /// $ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
     /// ```
     /// </summary>
     [AwsResourceType("aws:connect/userHierarchyStructure:UserHierarchyStructure")]

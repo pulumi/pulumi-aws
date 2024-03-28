@@ -15,32 +15,10 @@ namespace Pulumi.Aws.StorageGateway
     /// &gt; **NOTE:** The Storage Gateway API provides no method to remove an upload buffer disk. Destroying this resource does not perform any Storage Gateway actions.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Cached and VTL Gateway Type
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testLocalDisk = Aws.StorageGateway.GetLocalDisk.Invoke(new()
-    ///     {
-    ///         DiskNode = aws_volume_attachment.Test.Device_name,
-    ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
-    ///     });
-    /// 
-    ///     var testUploadBuffer = new Aws.StorageGateway.UploadBuffer("testUploadBuffer", new()
-    ///     {
-    ///         DiskPath = testLocalDisk.Apply(getLocalDiskResult =&gt; getLocalDiskResult.DiskPath),
-    ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Stored Gateway Type
-    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,25 +29,53 @@ namespace Pulumi.Aws.StorageGateway
     /// {
     ///     var test = Aws.StorageGateway.GetLocalDisk.Invoke(new()
     ///     {
-    ///         DiskNode = aws_volume_attachment.Test.Device_name,
-    ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
+    ///         DiskNode = testAwsVolumeAttachment.DeviceName,
+    ///         GatewayArn = testAwsStoragegatewayGateway.Arn,
     ///     });
     /// 
-    ///     var example = new Aws.StorageGateway.UploadBuffer("example", new()
+    ///     var testUploadBuffer = new Aws.StorageGateway.UploadBuffer("test", new()
     ///     {
-    ///         DiskId = data.Aws_storagegateway_local_disk.Example.Id,
-    ///         GatewayArn = aws_storagegateway_gateway.Example.Arn,
+    ///         DiskPath = test.Apply(getLocalDiskResult =&gt; getLocalDiskResult.DiskPath),
+    ///         GatewayArn = testAwsStoragegatewayGateway.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Stored Gateway Type
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = Aws.StorageGateway.GetLocalDisk.Invoke(new()
+    ///     {
+    ///         DiskNode = testAwsVolumeAttachment.DeviceName,
+    ///         GatewayArn = testAwsStoragegatewayGateway.Arn,
+    ///     });
+    /// 
+    ///     var example = new Aws.StorageGateway.UploadBuffer("example", new()
+    ///     {
+    ///         DiskId = exampleAwsStoragegatewayLocalDisk.Id,
+    ///         GatewayArn = exampleAwsStoragegatewayGateway.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_storagegateway_upload_buffer` using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:storagegateway/uploadBuffer:UploadBuffer example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
+    /// $ pulumi import aws:storagegateway/uploadBuffer:UploadBuffer example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
     /// ```
     /// </summary>
     [AwsResourceType("aws:storagegateway/uploadBuffer:UploadBuffer")]

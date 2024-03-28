@@ -14,8 +14,10 @@ import (
 // Retrieve information about an AWS WorkSpaces bundle.
 //
 // ## Example Usage
+//
 // ### By ID
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,8 +41,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### By Owner & Name
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,8 +59,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := workspaces.GetBundle(ctx, &workspaces.GetBundleArgs{
-//				Name:  pulumi.StringRef("Value with Windows 10 and Office 2016"),
 //				Owner: pulumi.StringRef("AMAZON"),
+//				Name:  pulumi.StringRef("Value with Windows 10 and Office 2016"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -65,6 +70,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetBundle(ctx *pulumi.Context, args *GetBundleArgs, opts ...pulumi.InvokeOption) (*GetBundleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBundleResult

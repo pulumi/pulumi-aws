@@ -10,6 +10,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,12 +18,13 @@ import * as utilities from "./utilities";
  * const current = aws.getPartition({});
  * const s3Policy = current.then(current => aws.iam.getPolicyDocument({
  *     statements: [{
+ *         sid: "1",
  *         actions: ["s3:ListBucket"],
  *         resources: [`arn:${current.partition}:s3:::my-bucket`],
- *         sid: "1",
  *     }],
  * }));
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPartition(args?: GetPartitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPartitionResult> {
     args = args || {};
@@ -70,6 +72,7 @@ export interface GetPartitionResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -77,12 +80,13 @@ export interface GetPartitionResult {
  * const current = aws.getPartition({});
  * const s3Policy = current.then(current => aws.iam.getPolicyDocument({
  *     statements: [{
+ *         sid: "1",
  *         actions: ["s3:ListBucket"],
  *         resources: [`arn:${current.partition}:s3:::my-bucket`],
- *         sid: "1",
  *     }],
  * }));
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPartitionOutput(args?: GetPartitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartitionResult> {
     return pulumi.output(args).apply((a: any) => getPartition(a, opts))

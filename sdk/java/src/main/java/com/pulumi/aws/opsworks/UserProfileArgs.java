@@ -5,6 +5,7 @@ package com.pulumi.aws.opsworks;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -188,8 +189,12 @@ public final class UserProfileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public UserProfileArgs build() {
-            $.sshUsername = Objects.requireNonNull($.sshUsername, "expected parameter 'sshUsername' to be non-null");
-            $.userArn = Objects.requireNonNull($.userArn, "expected parameter 'userArn' to be non-null");
+            if ($.sshUsername == null) {
+                throw new MissingRequiredPropertyException("UserProfileArgs", "sshUsername");
+            }
+            if ($.userArn == null) {
+                throw new MissingRequiredPropertyException("UserProfileArgs", "userArn");
+            }
             return $;
         }
     }

@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides an Athena Named Query resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -25,6 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.kms.Key;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.athena.Workgroup;
@@ -49,19 +52,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var hogeBucketV2 = new BucketV2(&#34;hogeBucketV2&#34;);
+ *         var hoge = new BucketV2(&#34;hoge&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;tf-test&#34;)
+ *             .build());
  * 
- *         var testKey = new Key(&#34;testKey&#34;, KeyArgs.builder()        
+ *         var test = new Key(&#34;test&#34;, KeyArgs.builder()        
  *             .deletionWindowInDays(7)
  *             .description(&#34;Athena KMS Key&#34;)
  *             .build());
  * 
  *         var testWorkgroup = new Workgroup(&#34;testWorkgroup&#34;, WorkgroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .configuration(WorkgroupConfigurationArgs.builder()
  *                 .resultConfiguration(WorkgroupConfigurationResultConfigurationArgs.builder()
  *                     .encryptionConfiguration(WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs.builder()
  *                         .encryptionOption(&#34;SSE_KMS&#34;)
- *                         .kmsKeyArn(testKey.arn())
+ *                         .kmsKeyArn(test.arn())
  *                         .build())
  *                     .build())
  *                 .build())
@@ -69,10 +75,11 @@ import javax.annotation.Nullable;
  * 
  *         var hogeDatabase = new Database(&#34;hogeDatabase&#34;, DatabaseArgs.builder()        
  *             .name(&#34;users&#34;)
- *             .bucket(hogeBucketV2.id())
+ *             .bucket(hoge.id())
  *             .build());
  * 
  *         var foo = new NamedQuery(&#34;foo&#34;, NamedQueryArgs.builder()        
+ *             .name(&#34;bar&#34;)
  *             .workgroup(testWorkgroup.id())
  *             .database(hogeDatabase.name())
  *             .query(hogeDatabase.name().applyValue(name -&gt; String.format(&#34;SELECT * FROM %s limit 10;&#34;, name)))
@@ -81,13 +88,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Athena Named Query using the query ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
+ * $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
  * ```
  * 
  */

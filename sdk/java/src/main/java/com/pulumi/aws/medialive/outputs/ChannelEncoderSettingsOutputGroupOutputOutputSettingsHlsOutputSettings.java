@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -63,31 +64,37 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
 
         @CustomType.Setter
         public Builder h265PackagingType(@Nullable String h265PackagingType) {
+
             this.h265PackagingType = h265PackagingType;
             return this;
         }
         @CustomType.Setter
         public Builder hlsSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings hlsSettings) {
-            this.hlsSettings = Objects.requireNonNull(hlsSettings);
+            if (hlsSettings == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings", "hlsSettings");
+            }
+            this.hlsSettings = hlsSettings;
             return this;
         }
         @CustomType.Setter
         public Builder nameModifier(@Nullable String nameModifier) {
+
             this.nameModifier = nameModifier;
             return this;
         }
         @CustomType.Setter
         public Builder segmentModifier(@Nullable String segmentModifier) {
+
             this.segmentModifier = segmentModifier;
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings();
-            o.h265PackagingType = h265PackagingType;
-            o.hlsSettings = hlsSettings;
-            o.nameModifier = nameModifier;
-            o.segmentModifier = segmentModifier;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings();
+            _resultValue.h265PackagingType = h265PackagingType;
+            _resultValue.hlsSettings = hlsSettings;
+            _resultValue.nameModifier = nameModifier;
+            _resultValue.segmentModifier = segmentModifier;
+            return _resultValue;
         }
     }
 }

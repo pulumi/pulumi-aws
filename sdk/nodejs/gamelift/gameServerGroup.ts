@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,18 +28,18 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     launchTemplate: {
- *         id: aws_launch_template.example.id,
+ *         id: exampleAwsLaunchTemplate.id,
  *     },
  *     maxSize: 1,
  *     minSize: 1,
- *     roleArn: aws_iam_role.example.arn,
- * }, {
- *     dependsOn: [aws_iam_role_policy_attachment.example],
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Full usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -64,12 +65,12 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     launchTemplate: {
- *         id: aws_launch_template.example.id,
+ *         id: exampleAwsLaunchTemplate.id,
  *         version: "1",
  *     },
  *     maxSize: 1,
  *     minSize: 1,
- *     roleArn: aws_iam_role.example.arn,
+ *     roleArn: exampleAwsIamRole.arn,
  *     tags: {
  *         Name: "example",
  *     },
@@ -77,12 +78,13 @@ import * as utilities from "../utilities";
  *         "subnet-12345678",
  *         "subnet-23456789",
  *     ],
- * }, {
- *     dependsOn: [aws_iam_role_policy_attachment.example],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example IAM Role for GameLift Game Server Group
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -101,19 +103,23 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
+ * const example = new aws.iam.Role("example", {
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ *     name: "gamelift-game-server-group-example",
+ * });
+ * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
  *     policyArn: current.then(current => `arn:${current.partition}:iam::aws:policy/GameLiftGameServerGroupPolicy`),
- *     role: exampleRole.name,
+ *     role: example.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import GameLift Game Server Group using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
+ * $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
  * ```
  */
 export class GameServerGroup extends pulumi.CustomResource {
@@ -265,8 +271,6 @@ export class GameServerGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(GameServerGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class V2modelsBotDataPrivacy {
 
         @CustomType.Setter
         public Builder childDirected(Boolean childDirected) {
-            this.childDirected = Objects.requireNonNull(childDirected);
+            if (childDirected == null) {
+              throw new MissingRequiredPropertyException("V2modelsBotDataPrivacy", "childDirected");
+            }
+            this.childDirected = childDirected;
             return this;
         }
         public V2modelsBotDataPrivacy build() {
-            final var o = new V2modelsBotDataPrivacy();
-            o.childDirected = childDirected;
-            return o;
+            final var _resultValue = new V2modelsBotDataPrivacy();
+            _resultValue.childDirected = childDirected;
+            return _resultValue;
         }
     }
 }

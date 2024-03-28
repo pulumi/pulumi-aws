@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS Comprehend Entity Recognizer.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +43,8 @@ import (
 //				return err
 //			}
 //			_, err = comprehend.NewEntityRecognizer(ctx, "example", &comprehend.EntityRecognizerArgs{
-//				DataAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				Name:              pulumi.String("example"),
+//				DataAccessRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				LanguageCode:      pulumi.String("en"),
 //				InputDataConfig: &comprehend.EntityRecognizerInputDataConfigArgs{
 //					EntityTypes: comprehend.EntityRecognizerInputDataConfigEntityTypeArray{
@@ -54,18 +57,16 @@ import (
 //					},
 //					Documents: &comprehend.EntityRecognizerInputDataConfigDocumentsArgs{
 //						S3Uri: documents.ID().ApplyT(func(id string) (string, error) {
-//							return fmt.Sprintf("s3://%v/%v", aws_s3_bucket.Documents.Bucket, id), nil
+//							return fmt.Sprintf("s3://%v/%v", documentsAwsS3Bucket.Bucket, id), nil
 //						}).(pulumi.StringOutput),
 //					},
 //					EntityList: &comprehend.EntityRecognizerInputDataConfigEntityListArgs{
 //						S3Uri: entities.ID().ApplyT(func(id string) (string, error) {
-//							return fmt.Sprintf("s3://%v/%v", aws_s3_bucket.Entities.Bucket, id), nil
+//							return fmt.Sprintf("s3://%v/%v", entitiesAwsS3Bucket.Bucket, id), nil
 //						}).(pulumi.StringOutput),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_role_policy.Example,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -74,15 +75,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
-//
+// $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
 // ```
 type EntityRecognizer struct {
 	pulumi.CustomResourceState
@@ -147,10 +147,6 @@ func NewEntityRecognizer(ctx *pulumi.Context,
 	if args.LanguageCode == nil {
 		return nil, errors.New("invalid value for required argument 'LanguageCode'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EntityRecognizer
 	err := ctx.RegisterResource("aws:comprehend/entityRecognizer:EntityRecognizer", name, args, &resource, opts...)

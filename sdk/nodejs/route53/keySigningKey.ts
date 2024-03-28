@@ -9,81 +9,82 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getCallerIdentity({});
- * const exampleKey = new aws.kms.Key("exampleKey", {
+ * const example = new aws.kms.Key("example", {
  *     customerMasterKeySpec: "ECC_NIST_P256",
  *     deletionWindowInDays: 7,
  *     keyUsage: "SIGN_VERIFY",
- *     policy: Promise.all([current, current]).then(([current, current1]) => JSON.stringify({
- *         Statement: [
+ *     policy: JSON.stringify({
+ *         statement: [
  *             {
- *                 Action: [
+ *                 action: [
  *                     "kms:DescribeKey",
  *                     "kms:GetPublicKey",
  *                     "kms:Sign",
  *                 ],
- *                 Effect: "Allow",
- *                 Principal: {
- *                     Service: "dnssec-route53.amazonaws.com",
+ *                 effect: "Allow",
+ *                 principal: {
+ *                     service: "dnssec-route53.amazonaws.com",
  *                 },
- *                 Sid: "Allow Route 53 DNSSEC Service",
- *                 Resource: "*",
- *                 Condition: {
- *                     StringEquals: {
- *                         "aws:SourceAccount": current.accountId,
+ *                 sid: "Allow Route 53 DNSSEC Service",
+ *                 resource: "*",
+ *                 condition: {
+ *                     stringEquals: {
+ *                         "aws:SourceAccount": current.then(current => current.accountId),
  *                     },
- *                     ArnLike: {
+ *                     arnLike: {
  *                         "aws:SourceArn": "arn:aws:route53:::hostedzone/*",
  *                     },
  *                 },
  *             },
  *             {
- *                 Action: "kms:CreateGrant",
- *                 Effect: "Allow",
- *                 Principal: {
- *                     Service: "dnssec-route53.amazonaws.com",
+ *                 action: "kms:CreateGrant",
+ *                 effect: "Allow",
+ *                 principal: {
+ *                     service: "dnssec-route53.amazonaws.com",
  *                 },
- *                 Sid: "Allow Route 53 DNSSEC Service to CreateGrant",
- *                 Resource: "*",
- *                 Condition: {
- *                     Bool: {
+ *                 sid: "Allow Route 53 DNSSEC Service to CreateGrant",
+ *                 resource: "*",
+ *                 condition: {
+ *                     bool: {
  *                         "kms:GrantIsForAWSResource": "true",
  *                     },
  *                 },
  *             },
  *             {
- *                 Action: "kms:*",
- *                 Effect: "Allow",
- *                 Principal: {
- *                     AWS: `arn:aws:iam::${current1.accountId}:root`,
+ *                 action: "kms:*",
+ *                 effect: "Allow",
+ *                 principal: {
+ *                     AWS: current.then(current => `arn:aws:iam::${current.accountId}:root`),
  *                 },
- *                 Resource: "*",
- *                 Sid: "Enable IAM User Permissions",
+ *                 resource: "*",
+ *                 sid: "Enable IAM User Permissions",
  *             },
  *         ],
- *         Version: "2012-10-17",
- *     })),
+ *         version: "2012-10-17",
+ *     }),
  * });
- * const exampleZone = new aws.route53.Zone("exampleZone", {});
- * const exampleKeySigningKey = new aws.route53.KeySigningKey("exampleKeySigningKey", {
- *     hostedZoneId: aws_route53_zone.test.id,
- *     keyManagementServiceArn: aws_kms_key.test.arn,
+ * const exampleZone = new aws.route53.Zone("example", {name: "example.com"});
+ * const exampleKeySigningKey = new aws.route53.KeySigningKey("example", {
+ *     hostedZoneId: test.id,
+ *     keyManagementServiceArn: testAwsKmsKey.arn,
+ *     name: "example",
  * });
- * const exampleHostedZoneDnsSec = new aws.route53.HostedZoneDnsSec("exampleHostedZoneDnsSec", {hostedZoneId: exampleKeySigningKey.hostedZoneId}, {
- *     dependsOn: [exampleKeySigningKey],
- * });
+ * const exampleHostedZoneDnsSec = new aws.route53.HostedZoneDnsSec("example", {hostedZoneId: exampleKeySigningKey.hostedZoneId});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_route53_key_signing_key` resources using the Route 53 Hosted Zone identifier and KMS Key identifier, separated by a comma (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example
+ * $ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example
  * ```
  */
 export class KeySigningKey extends pulumi.CustomResource {

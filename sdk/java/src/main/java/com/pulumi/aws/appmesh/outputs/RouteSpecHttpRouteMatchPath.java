@@ -58,19 +58,21 @@ public final class RouteSpecHttpRouteMatchPath {
 
         @CustomType.Setter
         public Builder exact(@Nullable String exact) {
+
             this.exact = exact;
             return this;
         }
         @CustomType.Setter
         public Builder regex(@Nullable String regex) {
+
             this.regex = regex;
             return this;
         }
         public RouteSpecHttpRouteMatchPath build() {
-            final var o = new RouteSpecHttpRouteMatchPath();
-            o.exact = exact;
-            o.regex = regex;
-            return o;
+            final var _resultValue = new RouteSpecHttpRouteMatchPath();
+            _resultValue.exact = exact;
+            _resultValue.regex = regex;
+            return _resultValue;
         }
     }
 }

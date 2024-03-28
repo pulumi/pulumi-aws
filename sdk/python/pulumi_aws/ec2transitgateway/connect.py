@@ -256,25 +256,27 @@ class Connect(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.VpcAttachment("example",
-            subnet_ids=[aws_subnet["example"]["id"]],
-            transit_gateway_id=aws_ec2_transit_gateway["example"]["id"],
-            vpc_id=aws_vpc["example"]["id"])
+            subnet_ids=[example_aws_subnet["id"]],
+            transit_gateway_id=example_aws_ec2_transit_gateway["id"],
+            vpc_id=example_aws_vpc["id"])
         attachment = aws.ec2transitgateway.Connect("attachment",
             transport_attachment_id=example.id,
-            transit_gateway_id=aws_ec2_transit_gateway["example"]["id"])
+            transit_gateway_id=example_aws_ec2_transit_gateway["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_connect` using the EC2 Transit Gateway Connect identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
+        $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -297,25 +299,27 @@ class Connect(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.VpcAttachment("example",
-            subnet_ids=[aws_subnet["example"]["id"]],
-            transit_gateway_id=aws_ec2_transit_gateway["example"]["id"],
-            vpc_id=aws_vpc["example"]["id"])
+            subnet_ids=[example_aws_subnet["id"]],
+            transit_gateway_id=example_aws_ec2_transit_gateway["id"],
+            vpc_id=example_aws_vpc["id"])
         attachment = aws.ec2transitgateway.Connect("attachment",
             transport_attachment_id=example.id,
-            transit_gateway_id=aws_ec2_transit_gateway["example"]["id"])
+            transit_gateway_id=example_aws_ec2_transit_gateway["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_connect` using the EC2 Transit Gateway Connect identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
+        $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -359,8 +363,6 @@ class Connect(pulumi.CustomResource):
                 raise TypeError("Missing required property 'transport_attachment_id'")
             __props__.__dict__["transport_attachment_id"] = transport_attachment_id
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Connect, __self__).__init__(
             'aws:ec2transitgateway/connect:Connect',
             resource_name,

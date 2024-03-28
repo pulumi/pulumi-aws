@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer {
     /**
-     * @return Nested argument that specifies the native Hive / HCatalog JsonSerDe. More details below.
+     * @return Specifies the native Hive / HCatalog JsonSerDe. More details below. See `hive_json_ser_de` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe hiveJsonSerDe;
     /**
-     * @return Nested argument that specifies the OpenX SerDe. More details below.
+     * @return Specifies the OpenX SerDe. See `open_x_json_ser_de` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe openXJsonSerDe;
 
     private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer() {}
     /**
-     * @return Nested argument that specifies the native Hive / HCatalog JsonSerDe. More details below.
+     * @return Specifies the native Hive / HCatalog JsonSerDe. More details below. See `hive_json_ser_de` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe> hiveJsonSerDe() {
         return Optional.ofNullable(this.hiveJsonSerDe);
     }
     /**
-     * @return Nested argument that specifies the OpenX SerDe. More details below.
+     * @return Specifies the OpenX SerDe. See `open_x_json_ser_de` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe> openXJsonSerDe() {
@@ -59,19 +59,21 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
 
         @CustomType.Setter
         public Builder hiveJsonSerDe(@Nullable FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe hiveJsonSerDe) {
+
             this.hiveJsonSerDe = hiveJsonSerDe;
             return this;
         }
         @CustomType.Setter
         public Builder openXJsonSerDe(@Nullable FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe openXJsonSerDe) {
+
             this.openXJsonSerDe = openXJsonSerDe;
             return this;
         }
         public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer build() {
-            final var o = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer();
-            o.hiveJsonSerDe = hiveJsonSerDe;
-            o.openXJsonSerDe = openXJsonSerDe;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer();
+            _resultValue.hiveJsonSerDe = hiveJsonSerDe;
+            _resultValue.openXJsonSerDe = openXJsonSerDe;
+            return _resultValue;
         }
     }
 }

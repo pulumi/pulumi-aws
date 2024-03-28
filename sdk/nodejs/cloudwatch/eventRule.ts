@@ -11,19 +11,22 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const console = new aws.cloudwatch.EventRule("console", {
+ *     name: "capture-aws-sign-in",
  *     description: "Capture each AWS Console Sign In",
  *     eventPattern: JSON.stringify({
  *         "detail-type": ["AWS Console Sign In via CloudTrail"],
  *     }),
  * });
- * const awsLogins = new aws.sns.Topic("awsLogins", {});
+ * const awsLogins = new aws.sns.Topic("aws_logins", {name: "aws-console-logins"});
  * const sns = new aws.cloudwatch.EventTarget("sns", {
  *     rule: console.name,
+ *     targetId: "SendToSNS",
  *     arn: awsLogins.arn,
  * });
  * const snsTopicPolicy = awsLogins.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
@@ -42,13 +45,14 @@ import * as utilities from "../utilities";
  *     policy: snsTopicPolicy.apply(snsTopicPolicy => snsTopicPolicy.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
+ * $ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
  * ```
  */
 export class EventRule extends pulumi.CustomResource {
@@ -97,7 +101,11 @@ export class EventRule extends pulumi.CustomResource {
      */
     public readonly eventPattern!: pulumi.Output<string | undefined>;
     /**
-     * Whether the rule should be enabled (defaults to `true`).
+     * Whether the rule should be enabled.
+     * Defaults to `true`.
+     * Conflicts with `state`.
+     *
+     * @deprecated Use "state" instead
      */
     public readonly isEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -116,6 +124,17 @@ export class EventRule extends pulumi.CustomResource {
      * The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
      */
     public readonly scheduleExpression!: pulumi.Output<string | undefined>;
+    /**
+     * State of the rule.
+     * Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+     * When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+     * To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+     * Defaults to `ENABLED`.
+     * Conflicts with `isEnabled`.
+     *
+     * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `scheduleExpression` argument.
+     */
+    public readonly state!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -149,6 +168,7 @@ export class EventRule extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["scheduleExpression"] = state ? state.scheduleExpression : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -161,13 +181,12 @@ export class EventRule extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(EventRule.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -194,7 +213,11 @@ export interface EventRuleState {
      */
     eventPattern?: pulumi.Input<string>;
     /**
-     * Whether the rule should be enabled (defaults to `true`).
+     * Whether the rule should be enabled.
+     * Defaults to `true`.
+     * Conflicts with `state`.
+     *
+     * @deprecated Use "state" instead
      */
     isEnabled?: pulumi.Input<boolean>;
     /**
@@ -213,6 +236,17 @@ export interface EventRuleState {
      * The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
      */
     scheduleExpression?: pulumi.Input<string>;
+    /**
+     * State of the rule.
+     * Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+     * When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+     * To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+     * Defaults to `ENABLED`.
+     * Conflicts with `isEnabled`.
+     *
+     * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `scheduleExpression` argument.
+     */
+    state?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -243,7 +277,11 @@ export interface EventRuleArgs {
      */
     eventPattern?: pulumi.Input<string>;
     /**
-     * Whether the rule should be enabled (defaults to `true`).
+     * Whether the rule should be enabled.
+     * Defaults to `true`.
+     * Conflicts with `state`.
+     *
+     * @deprecated Use "state" instead
      */
     isEnabled?: pulumi.Input<boolean>;
     /**
@@ -262,6 +300,17 @@ export interface EventRuleArgs {
      * The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
      */
     scheduleExpression?: pulumi.Input<string>;
+    /**
+     * State of the rule.
+     * Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+     * When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+     * To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+     * Defaults to `ENABLED`.
+     * Conflicts with `isEnabled`.
+     *
+     * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `scheduleExpression` argument.
+     */
+    state?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

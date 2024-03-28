@@ -14,6 +14,7 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,9 +25,10 @@ namespace Pulumi.Aws.GameLift
     /// {
     ///     var example = new Aws.GameLift.Fleet("example", new()
     ///     {
-    ///         BuildId = aws_gamelift_build.Example.Id,
+    ///         BuildId = exampleAwsGameliftBuild.Id,
     ///         Ec2InstanceType = "t2.micro",
     ///         FleetType = "ON_DEMAND",
+    ///         Name = "example-fleet-name",
     ///         RuntimeConfiguration = new Aws.GameLift.Inputs.FleetRuntimeConfigurationArgs
     ///         {
     ///             ServerProcesses = new[]
@@ -42,13 +44,14 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import GameLift Fleets using the ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:gamelift/fleet:Fleet example &lt;fleet-id&gt;
+    /// $ pulumi import aws:gamelift/fleet:Fleet example &lt;fleet-id&gt;
     /// ```
     /// </summary>
     [AwsResourceType("aws:gamelift/fleet:Fleet")]
@@ -194,10 +197,6 @@ namespace Pulumi.Aws.GameLift
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -475,11 +474,7 @@ namespace Pulumi.Aws.GameLift
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public FleetState()

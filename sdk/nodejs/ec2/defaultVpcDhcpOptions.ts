@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  *
  * Basic usage with tags:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,13 +29,14 @@ import * as utilities from "../utilities";
  *     Name: "Default DHCP Option Set",
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import VPC DHCP Options using the DHCP Options `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions default_options dopt-d9070ebb
+ * $ pulumi import aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions default_options dopt-d9070ebb
  * ```
  */
 export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
@@ -128,8 +130,6 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(DefaultVpcDhcpOptions.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -50,25 +50,28 @@ public final class MysqlLayerLoadBasedAutoScaling {
 
         @CustomType.Setter
         public Builder downscaling(@Nullable MysqlLayerLoadBasedAutoScalingDownscaling downscaling) {
+
             this.downscaling = downscaling;
             return this;
         }
         @CustomType.Setter
         public Builder enable(@Nullable Boolean enable) {
+
             this.enable = enable;
             return this;
         }
         @CustomType.Setter
         public Builder upscaling(@Nullable MysqlLayerLoadBasedAutoScalingUpscaling upscaling) {
+
             this.upscaling = upscaling;
             return this;
         }
         public MysqlLayerLoadBasedAutoScaling build() {
-            final var o = new MysqlLayerLoadBasedAutoScaling();
-            o.downscaling = downscaling;
-            o.enable = enable;
-            o.upscaling = upscaling;
-            return o;
+            final var _resultValue = new MysqlLayerLoadBasedAutoScaling();
+            _resultValue.downscaling = downscaling;
+            _resultValue.enable = enable;
+            _resultValue.upscaling = upscaling;
+            return _resultValue;
         }
     }
 }

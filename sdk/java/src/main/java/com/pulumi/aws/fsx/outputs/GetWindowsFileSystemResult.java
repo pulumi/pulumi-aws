@@ -6,6 +6,7 @@ package com.pulumi.aws.fsx.outputs;
 import com.pulumi.aws.fsx.outputs.GetWindowsFileSystemAuditLogConfiguration;
 import com.pulumi.aws.fsx.outputs.GetWindowsFileSystemDiskIopsConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -366,12 +367,18 @@ public final class GetWindowsFileSystemResult {
 
         @CustomType.Setter
         public Builder activeDirectoryId(String activeDirectoryId) {
-            this.activeDirectoryId = Objects.requireNonNull(activeDirectoryId);
+            if (activeDirectoryId == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "activeDirectoryId");
+            }
+            this.activeDirectoryId = activeDirectoryId;
             return this;
         }
         @CustomType.Setter
         public Builder aliases(List<String> aliases) {
-            this.aliases = Objects.requireNonNull(aliases);
+            if (aliases == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "aliases");
+            }
+            this.aliases = aliases;
             return this;
         }
         public Builder aliases(String... aliases) {
@@ -379,12 +386,18 @@ public final class GetWindowsFileSystemResult {
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder auditLogConfigurations(List<GetWindowsFileSystemAuditLogConfiguration> auditLogConfigurations) {
-            this.auditLogConfigurations = Objects.requireNonNull(auditLogConfigurations);
+            if (auditLogConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "auditLogConfigurations");
+            }
+            this.auditLogConfigurations = auditLogConfigurations;
             return this;
         }
         public Builder auditLogConfigurations(GetWindowsFileSystemAuditLogConfiguration... auditLogConfigurations) {
@@ -392,32 +405,50 @@ public final class GetWindowsFileSystemResult {
         }
         @CustomType.Setter
         public Builder automaticBackupRetentionDays(Integer automaticBackupRetentionDays) {
-            this.automaticBackupRetentionDays = Objects.requireNonNull(automaticBackupRetentionDays);
+            if (automaticBackupRetentionDays == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "automaticBackupRetentionDays");
+            }
+            this.automaticBackupRetentionDays = automaticBackupRetentionDays;
             return this;
         }
         @CustomType.Setter
         public Builder backupId(String backupId) {
-            this.backupId = Objects.requireNonNull(backupId);
+            if (backupId == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "backupId");
+            }
+            this.backupId = backupId;
             return this;
         }
         @CustomType.Setter
         public Builder copyTagsToBackups(Boolean copyTagsToBackups) {
-            this.copyTagsToBackups = Objects.requireNonNull(copyTagsToBackups);
+            if (copyTagsToBackups == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "copyTagsToBackups");
+            }
+            this.copyTagsToBackups = copyTagsToBackups;
             return this;
         }
         @CustomType.Setter
         public Builder dailyAutomaticBackupStartTime(String dailyAutomaticBackupStartTime) {
-            this.dailyAutomaticBackupStartTime = Objects.requireNonNull(dailyAutomaticBackupStartTime);
+            if (dailyAutomaticBackupStartTime == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "dailyAutomaticBackupStartTime");
+            }
+            this.dailyAutomaticBackupStartTime = dailyAutomaticBackupStartTime;
             return this;
         }
         @CustomType.Setter
         public Builder deploymentType(String deploymentType) {
-            this.deploymentType = Objects.requireNonNull(deploymentType);
+            if (deploymentType == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "deploymentType");
+            }
+            this.deploymentType = deploymentType;
             return this;
         }
         @CustomType.Setter
         public Builder diskIopsConfigurations(List<GetWindowsFileSystemDiskIopsConfiguration> diskIopsConfigurations) {
-            this.diskIopsConfigurations = Objects.requireNonNull(diskIopsConfigurations);
+            if (diskIopsConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "diskIopsConfigurations");
+            }
+            this.diskIopsConfigurations = diskIopsConfigurations;
             return this;
         }
         public Builder diskIopsConfigurations(GetWindowsFileSystemDiskIopsConfiguration... diskIopsConfigurations) {
@@ -425,22 +456,34 @@ public final class GetWindowsFileSystemResult {
         }
         @CustomType.Setter
         public Builder dnsName(String dnsName) {
-            this.dnsName = Objects.requireNonNull(dnsName);
+            if (dnsName == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "dnsName");
+            }
+            this.dnsName = dnsName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+            if (kmsKeyId == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "kmsKeyId");
+            }
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaceIds(List<String> networkInterfaceIds) {
-            this.networkInterfaceIds = Objects.requireNonNull(networkInterfaceIds);
+            if (networkInterfaceIds == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "networkInterfaceIds");
+            }
+            this.networkInterfaceIds = networkInterfaceIds;
             return this;
         }
         public Builder networkInterfaceIds(String... networkInterfaceIds) {
@@ -448,22 +491,34 @@ public final class GetWindowsFileSystemResult {
         }
         @CustomType.Setter
         public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+            if (ownerId == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "ownerId");
+            }
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
         public Builder preferredFileServerIp(String preferredFileServerIp) {
-            this.preferredFileServerIp = Objects.requireNonNull(preferredFileServerIp);
+            if (preferredFileServerIp == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "preferredFileServerIp");
+            }
+            this.preferredFileServerIp = preferredFileServerIp;
             return this;
         }
         @CustomType.Setter
         public Builder preferredSubnetId(String preferredSubnetId) {
-            this.preferredSubnetId = Objects.requireNonNull(preferredSubnetId);
+            if (preferredSubnetId == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "preferredSubnetId");
+            }
+            this.preferredSubnetId = preferredSubnetId;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+            if (securityGroupIds == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "securityGroupIds");
+            }
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {
@@ -471,22 +526,34 @@ public final class GetWindowsFileSystemResult {
         }
         @CustomType.Setter
         public Builder skipFinalBackup(Boolean skipFinalBackup) {
-            this.skipFinalBackup = Objects.requireNonNull(skipFinalBackup);
+            if (skipFinalBackup == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "skipFinalBackup");
+            }
+            this.skipFinalBackup = skipFinalBackup;
             return this;
         }
         @CustomType.Setter
         public Builder storageCapacity(Integer storageCapacity) {
-            this.storageCapacity = Objects.requireNonNull(storageCapacity);
+            if (storageCapacity == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "storageCapacity");
+            }
+            this.storageCapacity = storageCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder storageType(String storageType) {
-            this.storageType = Objects.requireNonNull(storageType);
+            if (storageType == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "storageType");
+            }
+            this.storageType = storageType;
             return this;
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
@@ -494,53 +561,65 @@ public final class GetWindowsFileSystemResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder throughputCapacity(Integer throughputCapacity) {
-            this.throughputCapacity = Objects.requireNonNull(throughputCapacity);
+            if (throughputCapacity == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "throughputCapacity");
+            }
+            this.throughputCapacity = throughputCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         @CustomType.Setter
         public Builder weeklyMaintenanceStartTime(String weeklyMaintenanceStartTime) {
-            this.weeklyMaintenanceStartTime = Objects.requireNonNull(weeklyMaintenanceStartTime);
+            if (weeklyMaintenanceStartTime == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "weeklyMaintenanceStartTime");
+            }
+            this.weeklyMaintenanceStartTime = weeklyMaintenanceStartTime;
             return this;
         }
         public GetWindowsFileSystemResult build() {
-            final var o = new GetWindowsFileSystemResult();
-            o.activeDirectoryId = activeDirectoryId;
-            o.aliases = aliases;
-            o.arn = arn;
-            o.auditLogConfigurations = auditLogConfigurations;
-            o.automaticBackupRetentionDays = automaticBackupRetentionDays;
-            o.backupId = backupId;
-            o.copyTagsToBackups = copyTagsToBackups;
-            o.dailyAutomaticBackupStartTime = dailyAutomaticBackupStartTime;
-            o.deploymentType = deploymentType;
-            o.diskIopsConfigurations = diskIopsConfigurations;
-            o.dnsName = dnsName;
-            o.id = id;
-            o.kmsKeyId = kmsKeyId;
-            o.networkInterfaceIds = networkInterfaceIds;
-            o.ownerId = ownerId;
-            o.preferredFileServerIp = preferredFileServerIp;
-            o.preferredSubnetId = preferredSubnetId;
-            o.securityGroupIds = securityGroupIds;
-            o.skipFinalBackup = skipFinalBackup;
-            o.storageCapacity = storageCapacity;
-            o.storageType = storageType;
-            o.subnetIds = subnetIds;
-            o.tags = tags;
-            o.throughputCapacity = throughputCapacity;
-            o.vpcId = vpcId;
-            o.weeklyMaintenanceStartTime = weeklyMaintenanceStartTime;
-            return o;
+            final var _resultValue = new GetWindowsFileSystemResult();
+            _resultValue.activeDirectoryId = activeDirectoryId;
+            _resultValue.aliases = aliases;
+            _resultValue.arn = arn;
+            _resultValue.auditLogConfigurations = auditLogConfigurations;
+            _resultValue.automaticBackupRetentionDays = automaticBackupRetentionDays;
+            _resultValue.backupId = backupId;
+            _resultValue.copyTagsToBackups = copyTagsToBackups;
+            _resultValue.dailyAutomaticBackupStartTime = dailyAutomaticBackupStartTime;
+            _resultValue.deploymentType = deploymentType;
+            _resultValue.diskIopsConfigurations = diskIopsConfigurations;
+            _resultValue.dnsName = dnsName;
+            _resultValue.id = id;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.networkInterfaceIds = networkInterfaceIds;
+            _resultValue.ownerId = ownerId;
+            _resultValue.preferredFileServerIp = preferredFileServerIp;
+            _resultValue.preferredSubnetId = preferredSubnetId;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.skipFinalBackup = skipFinalBackup;
+            _resultValue.storageCapacity = storageCapacity;
+            _resultValue.storageType = storageType;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.tags = tags;
+            _resultValue.throughputCapacity = throughputCapacity;
+            _resultValue.vpcId = vpcId;
+            _resultValue.weeklyMaintenanceStartTime = weeklyMaintenanceStartTime;
+            return _resultValue;
         }
     }
 }

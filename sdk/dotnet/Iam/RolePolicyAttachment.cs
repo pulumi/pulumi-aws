@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,10 +55,11 @@ namespace Pulumi.Aws.Iam
     /// 
     ///     var role = new Aws.Iam.Role("role", new()
     ///     {
+    ///         Name = "test-role",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var policyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var policy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -76,10 +78,11 @@ namespace Pulumi.Aws.Iam
     ///         },
     ///     });
     /// 
-    ///     var policyPolicy = new Aws.Iam.Policy("policyPolicy", new()
+    ///     var policyPolicy = new Aws.Iam.Policy("policy", new()
     ///     {
+    ///         Name = "test-policy",
     ///         Description = "A test policy",
-    ///         PolicyDocument = policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         PolicyDocument = policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var test_attach = new Aws.Iam.RolePolicyAttachment("test-attach", new()
@@ -90,13 +93,14 @@ namespace Pulumi.Aws.Iam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+    /// $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/rolePolicyAttachment:RolePolicyAttachment")]

@@ -4,6 +4,7 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,30 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
 
         @CustomType.Setter
         public Builder passwordParam(@Nullable String passwordParam) {
+
             this.passwordParam = passwordParam;
             return this;
         }
         @CustomType.Setter
         public Builder uri(String uri) {
-            this.uri = Objects.requireNonNull(uri);
+            if (uri == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage", "uri");
+            }
+            this.uri = uri;
             return this;
         }
         @CustomType.Setter
         public Builder username(@Nullable String username) {
+
             this.username = username;
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage();
-            o.passwordParam = passwordParam;
-            o.uri = uri;
-            o.username = username;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage();
+            _resultValue.passwordParam = passwordParam;
+            _resultValue.uri = uri;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

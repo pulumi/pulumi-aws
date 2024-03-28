@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPath {
         }
 
         public RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPath build() {
-            final var o = new RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPath();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPath();
+            return _resultValue;
         }
     }
 }

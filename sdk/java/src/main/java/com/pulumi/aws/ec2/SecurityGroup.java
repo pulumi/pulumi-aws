@@ -31,7 +31,10 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** The `cidr_blocks` and `ipv6_cidr_blocks` parameters are optional in the `ingress` and `egress` blocks. If nothing is specified, traffic will be blocked as described in _NOTE on Egress rules_ later.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -40,8 +43,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.SecurityGroup;
  * import com.pulumi.aws.ec2.SecurityGroupArgs;
- * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
- * import com.pulumi.aws.ec2.inputs.SecurityGroupEgressArgs;
+ * import com.pulumi.aws.vpc.SecurityGroupIngressRule;
+ * import com.pulumi.aws.vpc.SecurityGroupIngressRuleArgs;
+ * import com.pulumi.aws.vpc.SecurityGroupEgressRule;
+ * import com.pulumi.aws.vpc.SecurityGroupEgressRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -56,31 +61,48 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var allowTls = new SecurityGroup(&#34;allowTls&#34;, SecurityGroupArgs.builder()        
- *             .description(&#34;Allow TLS inbound traffic&#34;)
- *             .vpcId(aws_vpc.main().id())
- *             .ingress(SecurityGroupIngressArgs.builder()
- *                 .description(&#34;TLS from VPC&#34;)
- *                 .fromPort(443)
- *                 .toPort(443)
- *                 .protocol(&#34;tcp&#34;)
- *                 .cidrBlocks(aws_vpc.main().cidr_block())
- *                 .ipv6CidrBlocks(aws_vpc.main().ipv6_cidr_block())
- *                 .build())
- *             .egress(SecurityGroupEgressArgs.builder()
- *                 .fromPort(0)
- *                 .toPort(0)
- *                 .protocol(&#34;-1&#34;)
- *                 .cidrBlocks(&#34;0.0.0.0/0&#34;)
- *                 .ipv6CidrBlocks(&#34;::/0&#34;)
- *                 .build())
+ *             .name(&#34;allow_tls&#34;)
+ *             .description(&#34;Allow TLS inbound traffic and all outbound traffic&#34;)
+ *             .vpcId(main.id())
  *             .tags(Map.of(&#34;Name&#34;, &#34;allow_tls&#34;))
+ *             .build());
+ * 
+ *         var allowTlsIpv4 = new SecurityGroupIngressRule(&#34;allowTlsIpv4&#34;, SecurityGroupIngressRuleArgs.builder()        
+ *             .securityGroupId(allowTls.id())
+ *             .cidrIpv4(main.cidrBlock())
+ *             .fromPort(443)
+ *             .ipProtocol(&#34;tcp&#34;)
+ *             .toPort(443)
+ *             .build());
+ * 
+ *         var allowTlsIpv6 = new SecurityGroupIngressRule(&#34;allowTlsIpv6&#34;, SecurityGroupIngressRuleArgs.builder()        
+ *             .securityGroupId(allowTls.id())
+ *             .cidrIpv6(main.ipv6CidrBlock())
+ *             .fromPort(443)
+ *             .ipProtocol(&#34;tcp&#34;)
+ *             .toPort(443)
+ *             .build());
+ * 
+ *         var allowAllTrafficIpv4 = new SecurityGroupEgressRule(&#34;allowAllTrafficIpv4&#34;, SecurityGroupEgressRuleArgs.builder()        
+ *             .securityGroupId(allowTls.id())
+ *             .cidrIpv4(&#34;0.0.0.0/0&#34;)
+ *             .ipProtocol(&#34;-1&#34;)
+ *             .build());
+ * 
+ *         var allowAllTrafficIpv6 = new SecurityGroupEgressRule(&#34;allowAllTrafficIpv6&#34;, SecurityGroupEgressRuleArgs.builder()        
+ *             .securityGroupId(allowTls.id())
+ *             .cidrIpv6(&#34;::/0&#34;)
+ *             .ipProtocol(&#34;-1&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **NOTE on Egress rules:** By default, AWS creates an `ALLOW ALL` egress rule when creating a new Security Group inside of a VPC. When creating a new Security Group inside a VPC, **this provider will remove this default rule**, and require you specifically re-create it if you desire that rule. We feel this leads to fewer surprises in terms of controlling your egress rules. If you desire this rule to be in place, you can use this `egress` block:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -105,23 +127,27 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
  *             .egress(SecurityGroupEgressArgs.builder()
- *                 .cidrBlocks(&#34;0.0.0.0/0&#34;)
  *                 .fromPort(0)
- *                 .ipv6CidrBlocks(&#34;::/0&#34;)
- *                 .protocol(&#34;-1&#34;)
  *                 .toPort(0)
+ *                 .protocol(&#34;-1&#34;)
+ *                 .cidrBlocks(&#34;0.0.0.0/0&#34;)
+ *                 .ipv6CidrBlocks(&#34;::/0&#34;)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Usage With Prefix List IDs
  * 
  * Prefix Lists are either managed by AWS internally, or created by the customer using a
  * Prefix List resource. Prefix Lists provided by
  * AWS are associated with a prefix list name, or service name, that is linked to a specific region.
  * Prefix list IDs are exported on VPC Endpoints, so you can use this format:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -159,11 +185,15 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * You can also find a specific Prefix List using the `aws.ec2.getPrefixList` data source.
+ * 
  * ### Removing All Ingress and Egress Rules
  * 
  * The `ingress` and `egress` arguments are processed in attributes-as-blocks mode. Due to this, removing these arguments from the configuration will **not** cause the provider to destroy the managed rules. To subsequently remove all managed ingress and egress rules:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -186,7 +216,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
- *             .vpcId(aws_vpc.example().id())
+ *             .name(&#34;sg&#34;)
+ *             .vpcId(exampleAwsVpc.id())
  *             .ingress()
  *             .egress()
  *             .build());
@@ -194,6 +225,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Recreating a Security Group
  * 
  * A simple security group `name` change &#34;forces new&#34; the security group--the provider destroys the security group and creates a new one. (Likewise, `description`, `name_prefix`, or `vpc_id` [cannot be changed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group).) Attempting to recreate the security group leads to a variety of complications depending on how it is used.
@@ -205,11 +238,14 @@ import javax.annotation.Nullable;
  * The provider does not model bi-directional dependencies like this, but, even if it did, simply knowing the dependency situation would not be enough to solve it. For example, some resources must always have an associated security group while others don&#39;t need to. In addition, when the `aws.ec2.SecurityGroup` resource attempts to recreate, it receives a dependent object error, which does not provide information on whether the dependent object is a security group rule or, for example, an associated EC2 instance. Within the provider, the associated resource (_e.g._, `aws.ec2.Instance`) does not receive an error when the `aws.ec2.SecurityGroup` is trying to recreate even though that is where changes to the associated resource would need to take place (_e.g._, removing the security group association).
  * 
  * Despite these sticky problems, below are some ways to improve your experience when you find it necessary to recreate a security group.
+ * 
  * ### `create_before_destroy`
  * 
  * (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
  * 
  * Normally, the provider first deletes the existing security group resource and then creates a new one. When a security group is associated with a resource, the delete won&#39;t succeed. You can invert the default behavior using the `create_before_destroy` meta argument:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -217,6 +253,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -230,16 +267,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecurityGroup(&#34;example&#34;);
+ *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
+ *             .name(&#34;changeable-name&#34;)
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### `replace_triggered_by`
  * 
  * (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
  * 
  * To replace a resource when a security group changes, use the `replace_triggered_by` meta argument. Note that in this example, the `aws.ec2.Instance` will be destroyed and created again when the `aws.ec2.SecurityGroup` changes.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -247,6 +290,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
  * import com.pulumi.aws.ec2.Instance;
  * import com.pulumi.aws.ec2.InstanceArgs;
  * import java.util.List;
@@ -262,21 +306,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleSecurityGroup = new SecurityGroup(&#34;exampleSecurityGroup&#34;);
+ *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
+ *             .name(&#34;sg&#34;)
+ *             .build());
  * 
  *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
  *             .instanceType(&#34;t3.small&#34;)
- *             .vpcSecurityGroupIds(aws_security_group.test().id())
+ *             .vpcSecurityGroupIds(test.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Shorter timeout
  * 
  * (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
  * 
  * If destroying a security group takes a long time, it may be because the provider cannot distinguish between a dependent object (_e.g._, a security group rule or EC2 instance) that is _in the process of being deleted_ and one that is not. In other words, it may be waiting for a train that isn&#39;t scheduled to arrive. To fail faster, shorten the `delete` timeout from the default timeout:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -284,6 +334,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -297,18 +348,96 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecurityGroup(&#34;example&#34;);
+ *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
+ *             .name(&#34;izizavle&#34;)
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Provisioners
+ * 
+ * (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
+ * 
+ * **DISCLAIMER:** We **_HIGHLY_** recommend using one of the above approaches and _NOT_ using local provisioners. Provisioners, like the one shown below, should be considered a **last resort** since they are _not readable_, _require skills outside standard configuration_, are _error prone_ and _difficult to maintain_, are not compatible with cloud environments and upgrade tools, require AWS CLI installation, and are subject to changes outside the AWS Provider.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Ec2Functions;
+ * import com.pulumi.aws.ec2.inputs.GetSecurityGroupArgs;
+ * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
+ * import com.pulumi.command.local.Command;
+ * import com.pulumi.command.local.CommandArgs;
+ * import com.pulumi.null.resource;
+ * import com.pulumi.null.ResourceArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var default = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
+ *             .name(&#34;default&#34;)
+ *             .build());
+ * 
+ *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
+ *             .name(&#34;sg&#34;)
+ *             .tags(Map.ofEntries(
+ *                 Map.entry(&#34;workaround1&#34;, &#34;tagged-name&#34;),
+ *                 Map.entry(&#34;workaround2&#34;, default_.id())
+ *             ))
+ *             .build());
+ * 
+ *         var exampleProvisioner0 = new Command(&#34;exampleProvisioner0&#34;, CommandArgs.builder()        
+ *             .create(&#34;true&#34;)
+ *             .update(&#34;true&#34;)
+ *             .delete(&#34;&#34;&#34;
+ *             ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters &#34;Name=tag:Name,Values=%s&#34; --query &#34;VpcEndpoints[0].VpcEndpointId&#34; --output text` &amp;&amp;
+ *             aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${ENDPOINT_ID} --add-security-group-ids %s --remove-security-group-ids %s
+ * &#34;, tags.workaround1(),tags.workaround2(),id))
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
+ * 
+ *         var exampleResource = new Resource(&#34;exampleResource&#34;, ResourceArgs.builder()        
+ *             .triggers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .build());
+ * 
+ *         var exampleResourceProvisioner0 = new Command(&#34;exampleResourceProvisioner0&#34;, CommandArgs.builder()        
+ *             .create(&#34;&#34;&#34;
+ *             aws ec2 modify-vpc-endpoint --vpc-endpoint-id %s --remove-security-group-ids %s
+ * &#34;, exampleAwsVpcEndpoint.id(),default_.id()))
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleResource)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Security Groups using the security group `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/securityGroup:SecurityGroup elb_sg sg-903004f8
+ * $ pulumi import aws:ec2/securityGroup:SecurityGroup elb_sg sg-903004f8
  * ```
  * 
  */
@@ -345,7 +474,11 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
     /**
      * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      * 
+     * @deprecated
+     * Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
+     * 
      */
+    @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules. */
     @Export(name="egress", refs={List.class,SecurityGroupEgress.class}, tree="[0,1]")
     private Output<List<SecurityGroupEgress>> egress;
 
@@ -359,7 +492,11 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
     /**
      * Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      * 
+     * @deprecated
+     * Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
+     * 
      */
+    @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules. */
     @Export(name="ingress", refs={List.class,SecurityGroupIngress.class}, tree="[0,1]")
     private Output<List<SecurityGroupIngress>> ingress;
 
@@ -505,9 +642,6 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

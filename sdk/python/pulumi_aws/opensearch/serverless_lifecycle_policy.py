@@ -191,14 +191,17 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
         Resource for managing an AWS OpenSearch Serverless Lifecycle Policy. See AWS documentation for [lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html).
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessLifecyclePolicy("example",
+            name="example",
             type="retention",
             policy=json.dumps({
                 "Rules": [
@@ -215,13 +218,14 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
                 ],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import OpenSearch Serverless Lifecycle Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy example example/retention
+        $ pulumi import aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy example example/retention
         ```
 
         :param str resource_name: The name of the resource.
@@ -243,14 +247,17 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
         Resource for managing an AWS OpenSearch Serverless Lifecycle Policy. See AWS documentation for [lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html).
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessLifecyclePolicy("example",
+            name="example",
             type="retention",
             policy=json.dumps({
                 "Rules": [
@@ -267,13 +274,14 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
                 ],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import OpenSearch Serverless Lifecycle Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy example example/retention
+        $ pulumi import aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy example example/retention
         ```
 
         :param str resource_name: The name of the resource.

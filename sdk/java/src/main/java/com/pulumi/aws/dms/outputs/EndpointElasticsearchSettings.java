@@ -4,6 +4,8 @@
 package com.pulumi.aws.dms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -32,6 +34,11 @@ public final class EndpointElasticsearchSettings {
      * 
      */
     private String serviceAccessRoleArn;
+    /**
+     * @return Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
+     * 
+     */
+    private @Nullable Boolean useNewMappingType;
 
     private EndpointElasticsearchSettings() {}
     /**
@@ -62,6 +69,13 @@ public final class EndpointElasticsearchSettings {
     public String serviceAccessRoleArn() {
         return this.serviceAccessRoleArn;
     }
+    /**
+     * @return Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
+     * 
+     */
+    public Optional<Boolean> useNewMappingType() {
+        return Optional.ofNullable(this.useNewMappingType);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -76,6 +90,7 @@ public final class EndpointElasticsearchSettings {
         private @Nullable Integer errorRetryDuration;
         private @Nullable Integer fullLoadErrorPercentage;
         private String serviceAccessRoleArn;
+        private @Nullable Boolean useNewMappingType;
         public Builder() {}
         public Builder(EndpointElasticsearchSettings defaults) {
     	      Objects.requireNonNull(defaults);
@@ -83,35 +98,51 @@ public final class EndpointElasticsearchSettings {
     	      this.errorRetryDuration = defaults.errorRetryDuration;
     	      this.fullLoadErrorPercentage = defaults.fullLoadErrorPercentage;
     	      this.serviceAccessRoleArn = defaults.serviceAccessRoleArn;
+    	      this.useNewMappingType = defaults.useNewMappingType;
         }
 
         @CustomType.Setter
         public Builder endpointUri(String endpointUri) {
-            this.endpointUri = Objects.requireNonNull(endpointUri);
+            if (endpointUri == null) {
+              throw new MissingRequiredPropertyException("EndpointElasticsearchSettings", "endpointUri");
+            }
+            this.endpointUri = endpointUri;
             return this;
         }
         @CustomType.Setter
         public Builder errorRetryDuration(@Nullable Integer errorRetryDuration) {
+
             this.errorRetryDuration = errorRetryDuration;
             return this;
         }
         @CustomType.Setter
         public Builder fullLoadErrorPercentage(@Nullable Integer fullLoadErrorPercentage) {
+
             this.fullLoadErrorPercentage = fullLoadErrorPercentage;
             return this;
         }
         @CustomType.Setter
         public Builder serviceAccessRoleArn(String serviceAccessRoleArn) {
-            this.serviceAccessRoleArn = Objects.requireNonNull(serviceAccessRoleArn);
+            if (serviceAccessRoleArn == null) {
+              throw new MissingRequiredPropertyException("EndpointElasticsearchSettings", "serviceAccessRoleArn");
+            }
+            this.serviceAccessRoleArn = serviceAccessRoleArn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder useNewMappingType(@Nullable Boolean useNewMappingType) {
+
+            this.useNewMappingType = useNewMappingType;
             return this;
         }
         public EndpointElasticsearchSettings build() {
-            final var o = new EndpointElasticsearchSettings();
-            o.endpointUri = endpointUri;
-            o.errorRetryDuration = errorRetryDuration;
-            o.fullLoadErrorPercentage = fullLoadErrorPercentage;
-            o.serviceAccessRoleArn = serviceAccessRoleArn;
-            return o;
+            final var _resultValue = new EndpointElasticsearchSettings();
+            _resultValue.endpointUri = endpointUri;
+            _resultValue.errorRetryDuration = errorRetryDuration;
+            _resultValue.fullLoadErrorPercentage = fullLoadErrorPercentage;
+            _resultValue.serviceAccessRoleArn = serviceAccessRoleArn;
+            _resultValue.useNewMappingType = useNewMappingType;
+            return _resultValue;
         }
     }
 }

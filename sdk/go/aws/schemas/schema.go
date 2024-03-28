@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,7 +33,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testRegistry, err := schemas.NewRegistry(ctx, "testRegistry", nil)
+//			test, err := schemas.NewRegistry(ctx, "test", &schemas.RegistryArgs{
+//				Name: pulumi.String("my_own_registry"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -60,8 +63,9 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = schemas.NewSchema(ctx, "testSchema", &schemas.SchemaArgs{
-//				RegistryName: testRegistry.Name,
+//			_, err = schemas.NewSchema(ctx, "test", &schemas.SchemaArgs{
+//				Name:         pulumi.String("my_schema"),
+//				RegistryName: test.Name,
 //				Type:         pulumi.String("OpenApi3"),
 //				Description:  pulumi.String("The schema definition for my event"),
 //				Content:      pulumi.String(json0),
@@ -74,15 +78,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EventBridge schema using the `name` and `registry_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:schemas/schema:Schema test name/registry
-//
+// $ pulumi import aws:schemas/schema:Schema test name/registry
 // ```
 type Schema struct {
 	pulumi.CustomResourceState
@@ -129,10 +132,6 @@ func NewSchema(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Schema
 	err := ctx.RegisterResource("aws:schemas/schema:Schema", name, args, &resource, opts...)

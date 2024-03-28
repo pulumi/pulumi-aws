@@ -88,31 +88,35 @@ public final class ContainerRecipeInstanceConfigurationBlockDeviceMapping {
 
         @CustomType.Setter
         public Builder deviceName(@Nullable String deviceName) {
+
             this.deviceName = deviceName;
             return this;
         }
         @CustomType.Setter
         public Builder ebs(@Nullable ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs ebs) {
+
             this.ebs = ebs;
             return this;
         }
         @CustomType.Setter
         public Builder noDevice(@Nullable Boolean noDevice) {
+
             this.noDevice = noDevice;
             return this;
         }
         @CustomType.Setter
         public Builder virtualName(@Nullable String virtualName) {
+
             this.virtualName = virtualName;
             return this;
         }
         public ContainerRecipeInstanceConfigurationBlockDeviceMapping build() {
-            final var o = new ContainerRecipeInstanceConfigurationBlockDeviceMapping();
-            o.deviceName = deviceName;
-            o.ebs = ebs;
-            o.noDevice = noDevice;
-            o.virtualName = virtualName;
-            return o;
+            final var _resultValue = new ContainerRecipeInstanceConfigurationBlockDeviceMapping();
+            _resultValue.deviceName = deviceName;
+            _resultValue.ebs = ebs;
+            _resultValue.noDevice = noDevice;
+            _resultValue.virtualName = virtualName;
+            return _resultValue;
         }
     }
 }

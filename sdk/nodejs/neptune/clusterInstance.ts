@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * The following example will create a neptune cluster with two neptune instances(one writer and one reader).
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,13 +38,14 @@ import * as utilities from "../utilities";
  *     }));
  * }
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_neptune_cluster_instance` using the instance identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
+ * $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
  * ```
  */
 export class ClusterInstance extends pulumi.CustomResource {
@@ -161,9 +163,17 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
     /**
+     * Determines whether a final DB snapshot is created before the DB instance is deleted.
+     */
+    public readonly skipFinalSnapshot!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies whether the neptune cluster is encrypted.
      */
     public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean>;
+    /**
+     * Storage type associated with the cluster `standard/iopt1`.
+     */
+    public /*out*/ readonly storageType!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -213,7 +223,9 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
             resourceInputs["promotionTier"] = state ? state.promotionTier : undefined;
             resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
+            resourceInputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
             resourceInputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
+            resourceInputs["storageType"] = state ? state.storageType : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["writer"] = state ? state.writer : undefined;
@@ -241,6 +253,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             resourceInputs["promotionTier"] = args ? args.promotionTier : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
+            resourceInputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["address"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -248,12 +261,11 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["storageEncrypted"] = undefined /*out*/;
+            resourceInputs["storageType"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["writer"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ClusterInstance.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -349,9 +361,17 @@ export interface ClusterInstanceState {
      */
     publiclyAccessible?: pulumi.Input<boolean>;
     /**
+     * Determines whether a final DB snapshot is created before the DB instance is deleted.
+     */
+    skipFinalSnapshot?: pulumi.Input<boolean>;
+    /**
      * Specifies whether the neptune cluster is encrypted.
      */
     storageEncrypted?: pulumi.Input<boolean>;
+    /**
+     * Storage type associated with the cluster `standard/iopt1`.
+     */
+    storageType?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -438,6 +458,10 @@ export interface ClusterInstanceArgs {
      * Bool to control if instance is publicly accessible. Default is `false`.
      */
     publiclyAccessible?: pulumi.Input<boolean>;
+    /**
+     * Determines whether a final DB snapshot is created before the DB instance is deleted.
+     */
+    skipFinalSnapshot?: pulumi.Input<boolean>;
     /**
      * A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -44,13 +44,14 @@ public final class RouteSpecHttpRouteMatchQueryParameterMatch {
 
         @CustomType.Setter
         public Builder exact(@Nullable String exact) {
+
             this.exact = exact;
             return this;
         }
         public RouteSpecHttpRouteMatchQueryParameterMatch build() {
-            final var o = new RouteSpecHttpRouteMatchQueryParameterMatch();
-            o.exact = exact;
-            return o;
+            final var _resultValue = new RouteSpecHttpRouteMatchQueryParameterMatch();
+            _resultValue.exact = exact;
+            return _resultValue;
         }
     }
 }

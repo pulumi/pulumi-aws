@@ -5,6 +5,7 @@ package com.pulumi.aws.fms.outputs;
 
 import com.pulumi.aws.fms.outputs.PolicySecurityServicePolicyDataPolicyOption;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -73,25 +74,30 @@ public final class PolicySecurityServicePolicyData {
 
         @CustomType.Setter
         public Builder managedServiceData(@Nullable String managedServiceData) {
+
             this.managedServiceData = managedServiceData;
             return this;
         }
         @CustomType.Setter
         public Builder policyOption(@Nullable PolicySecurityServicePolicyDataPolicyOption policyOption) {
+
             this.policyOption = policyOption;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("PolicySecurityServicePolicyData", "type");
+            }
+            this.type = type;
             return this;
         }
         public PolicySecurityServicePolicyData build() {
-            final var o = new PolicySecurityServicePolicyData();
-            o.managedServiceData = managedServiceData;
-            o.policyOption = policyOption;
-            o.type = type;
-            return o;
+            final var _resultValue = new PolicySecurityServicePolicyData();
+            _resultValue.managedServiceData = managedServiceData;
+            _resultValue.policyOption = policyOption;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

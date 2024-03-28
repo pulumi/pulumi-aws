@@ -4,6 +4,7 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -84,6 +85,7 @@ public final class ChannelVpc {
 
         @CustomType.Setter
         public Builder availabilityZones(@Nullable List<String> availabilityZones) {
+
             this.availabilityZones = availabilityZones;
             return this;
         }
@@ -92,6 +94,7 @@ public final class ChannelVpc {
         }
         @CustomType.Setter
         public Builder networkInterfaceIds(@Nullable List<String> networkInterfaceIds) {
+
             this.networkInterfaceIds = networkInterfaceIds;
             return this;
         }
@@ -100,7 +103,10 @@ public final class ChannelVpc {
         }
         @CustomType.Setter
         public Builder publicAddressAllocationIds(List<String> publicAddressAllocationIds) {
-            this.publicAddressAllocationIds = Objects.requireNonNull(publicAddressAllocationIds);
+            if (publicAddressAllocationIds == null) {
+              throw new MissingRequiredPropertyException("ChannelVpc", "publicAddressAllocationIds");
+            }
+            this.publicAddressAllocationIds = publicAddressAllocationIds;
             return this;
         }
         public Builder publicAddressAllocationIds(String... publicAddressAllocationIds) {
@@ -108,6 +114,7 @@ public final class ChannelVpc {
         }
         @CustomType.Setter
         public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
+
             this.securityGroupIds = securityGroupIds;
             return this;
         }
@@ -116,20 +123,23 @@ public final class ChannelVpc {
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("ChannelVpc", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
         public ChannelVpc build() {
-            final var o = new ChannelVpc();
-            o.availabilityZones = availabilityZones;
-            o.networkInterfaceIds = networkInterfaceIds;
-            o.publicAddressAllocationIds = publicAddressAllocationIds;
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            return o;
+            final var _resultValue = new ChannelVpc();
+            _resultValue.availabilityZones = availabilityZones;
+            _resultValue.networkInterfaceIds = networkInterfaceIds;
+            _resultValue.publicAddressAllocationIds = publicAddressAllocationIds;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            return _resultValue;
         }
     }
 }

@@ -549,19 +549,21 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         Provides an custom engine version (CEV) resource for Amazon RDS Custom. For additional information, see [Working with CEVs for RDS Custom for Oracle](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html) and [Working with CEVs for RDS Custom for SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev-sqlserver.html) in the the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html).
 
         ## Example Usage
+
         ### RDS Custom for Oracle Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey", description="KMS symmetric key for RDS Custom for Oracle")
-        example_custom_db_engine_version = aws.rds.CustomDbEngineVersion("exampleCustomDbEngineVersion",
+        example = aws.kms.Key("example", description="KMS symmetric key for RDS Custom for Oracle")
+        example_custom_db_engine_version = aws.rds.CustomDbEngineVersion("example",
             database_installation_files_s3_bucket_name="DOC-EXAMPLE-BUCKET",
             database_installation_files_s3_prefix="1915_GI/",
             engine="custom-oracle-ee-cdb",
             engine_version="19.cdb_cev1",
-            kms_key_id=example_key.arn,
+            kms_key_id=example.arn,
             manifest=\"\"\"  {
         	"databaseInstallationFileNames":["V982063-01.zip"]
           }
@@ -571,35 +573,35 @@ class CustomDbEngineVersion(pulumi.CustomResource):
                 "Key": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS Custom for Oracle External Manifest Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
-        import base64
-        import hashlib
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        def computeFilebase64sha256(path):
-        	fileData = open(path).read().encode()
-        	hashedData = hashlib.sha256(fileData.encode()).digest()
-        	return base64.b64encode(hashedData).decode()
-
-        example_key = aws.kms.Key("exampleKey", description="KMS symmetric key for RDS Custom for Oracle")
-        example_custom_db_engine_version = aws.rds.CustomDbEngineVersion("exampleCustomDbEngineVersion",
+        example = aws.kms.Key("example", description="KMS symmetric key for RDS Custom for Oracle")
+        example_custom_db_engine_version = aws.rds.CustomDbEngineVersion("example",
             database_installation_files_s3_bucket_name="DOC-EXAMPLE-BUCKET",
             database_installation_files_s3_prefix="1915_GI/",
             engine="custom-oracle-ee-cdb",
             engine_version="19.cdb_cev1",
-            kms_key_id=example_key.arn,
+            kms_key_id=example.arn,
             filename="manifest_1915_GI.json",
-            manifest_hash=computeFilebase64sha256(manifest_1915__gi["json"]),
+            manifest_hash=std.filebase64sha256(input=json).result,
             tags={
                 "Name": "example",
                 "Key": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS Custom for SQL Server Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -610,13 +612,17 @@ class CustomDbEngineVersion(pulumi.CustomResource):
             engine_version="15.00.4249.2.cev-1",
             source_image_id="ami-0aa12345678a12ab1")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS Custom for SQL Server Usage with AMI from another region
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2.AmiCopy("example",
+            name="sqlserver-se-2019-15.00.4249.2",
             description="A copy of ami-xxxxxxxx",
             source_ami_id="ami-xxxxxxxx",
             source_ami_region="us-east-1")
@@ -626,13 +632,14 @@ class CustomDbEngineVersion(pulumi.CustomResource):
             engine_version="15.00.4249.2.cev-1",
             source_image_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import custom engine versions for Amazon RDS custom using the `engine` and `engine_version` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:rds/customDbEngineVersion:CustomDbEngineVersion example custom-oracle-ee-cdb:19.cdb_cev1
+        $ pulumi import aws:rds/customDbEngineVersion:CustomDbEngineVersion example custom-oracle-ee-cdb:19.cdb_cev1
         ```
 
         :param str resource_name: The name of the resource.
@@ -660,19 +667,21 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         Provides an custom engine version (CEV) resource for Amazon RDS Custom. For additional information, see [Working with CEVs for RDS Custom for Oracle](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html) and [Working with CEVs for RDS Custom for SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev-sqlserver.html) in the the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html).
 
         ## Example Usage
+
         ### RDS Custom for Oracle Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey", description="KMS symmetric key for RDS Custom for Oracle")
-        example_custom_db_engine_version = aws.rds.CustomDbEngineVersion("exampleCustomDbEngineVersion",
+        example = aws.kms.Key("example", description="KMS symmetric key for RDS Custom for Oracle")
+        example_custom_db_engine_version = aws.rds.CustomDbEngineVersion("example",
             database_installation_files_s3_bucket_name="DOC-EXAMPLE-BUCKET",
             database_installation_files_s3_prefix="1915_GI/",
             engine="custom-oracle-ee-cdb",
             engine_version="19.cdb_cev1",
-            kms_key_id=example_key.arn,
+            kms_key_id=example.arn,
             manifest=\"\"\"  {
         	"databaseInstallationFileNames":["V982063-01.zip"]
           }
@@ -682,35 +691,35 @@ class CustomDbEngineVersion(pulumi.CustomResource):
                 "Key": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS Custom for Oracle External Manifest Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
-        import base64
-        import hashlib
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        def computeFilebase64sha256(path):
-        	fileData = open(path).read().encode()
-        	hashedData = hashlib.sha256(fileData.encode()).digest()
-        	return base64.b64encode(hashedData).decode()
-
-        example_key = aws.kms.Key("exampleKey", description="KMS symmetric key for RDS Custom for Oracle")
-        example_custom_db_engine_version = aws.rds.CustomDbEngineVersion("exampleCustomDbEngineVersion",
+        example = aws.kms.Key("example", description="KMS symmetric key for RDS Custom for Oracle")
+        example_custom_db_engine_version = aws.rds.CustomDbEngineVersion("example",
             database_installation_files_s3_bucket_name="DOC-EXAMPLE-BUCKET",
             database_installation_files_s3_prefix="1915_GI/",
             engine="custom-oracle-ee-cdb",
             engine_version="19.cdb_cev1",
-            kms_key_id=example_key.arn,
+            kms_key_id=example.arn,
             filename="manifest_1915_GI.json",
-            manifest_hash=computeFilebase64sha256(manifest_1915__gi["json"]),
+            manifest_hash=std.filebase64sha256(input=json).result,
             tags={
                 "Name": "example",
                 "Key": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS Custom for SQL Server Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -721,13 +730,17 @@ class CustomDbEngineVersion(pulumi.CustomResource):
             engine_version="15.00.4249.2.cev-1",
             source_image_id="ami-0aa12345678a12ab1")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS Custom for SQL Server Usage with AMI from another region
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2.AmiCopy("example",
+            name="sqlserver-se-2019-15.00.4249.2",
             description="A copy of ami-xxxxxxxx",
             source_ami_id="ami-xxxxxxxx",
             source_ami_region="us-east-1")
@@ -737,13 +750,14 @@ class CustomDbEngineVersion(pulumi.CustomResource):
             engine_version="15.00.4249.2.cev-1",
             source_image_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import custom engine versions for Amazon RDS custom using the `engine` and `engine_version` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:rds/customDbEngineVersion:CustomDbEngineVersion example custom-oracle-ee-cdb:19.cdb_cev1
+        $ pulumi import aws:rds/customDbEngineVersion:CustomDbEngineVersion example custom-oracle-ee-cdb:19.cdb_cev1
         ```
 
         :param str resource_name: The name of the resource.
@@ -805,8 +819,6 @@ class CustomDbEngineVersion(pulumi.CustomResource):
             __props__.__dict__["major_engine_version"] = None
             __props__.__dict__["manifest_computed"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(CustomDbEngineVersion, __self__).__init__(
             'aws:rds/customDbEngineVersion:CustomDbEngineVersion',
             resource_name,

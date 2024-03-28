@@ -11,31 +11,47 @@ import * as utilities from "../utilities";
  * Provides a Glue Catalog Table Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality.
  *
  * ## Example Usage
+ *
  * ### Basic Table
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const awsGlueCatalogTable = new aws.glue.CatalogTable("awsGlueCatalogTable", {
- *     databaseName: "MyCatalogDatabase",
+ * const awsGlueCatalogTable = new aws.glue.CatalogTable("aws_glue_catalog_table", {
  *     name: "MyCatalogTable",
+ *     databaseName: "MyCatalogDatabase",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Parquet Table for Athena
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const awsGlueCatalogTable = new aws.glue.CatalogTable("awsGlueCatalogTable", {
- *     databaseName: "MyCatalogDatabase",
+ * const awsGlueCatalogTable = new aws.glue.CatalogTable("aws_glue_catalog_table", {
  *     name: "MyCatalogTable",
+ *     databaseName: "MyCatalogDatabase",
+ *     tableType: "EXTERNAL_TABLE",
  *     parameters: {
  *         EXTERNAL: "TRUE",
  *         "parquet.compression": "SNAPPY",
  *     },
  *     storageDescriptor: {
+ *         location: "s3://my-bucket/event-streams/my-stream",
+ *         inputFormat: "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+ *         outputFormat: "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+ *         serDeInfo: {
+ *             name: "my-stream",
+ *             serializationLibrary: "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+ *             parameters: {
+ *                 "serialization.format": "1",
+ *             },
+ *         },
  *         columns: [
  *             {
  *                 name: "my_string",
@@ -46,42 +62,32 @@ import * as utilities from "../utilities";
  *                 type: "double",
  *             },
  *             {
- *                 comment: "",
  *                 name: "my_date",
  *                 type: "date",
+ *                 comment: "",
  *             },
  *             {
- *                 comment: "",
  *                 name: "my_bigint",
  *                 type: "bigint",
+ *                 comment: "",
  *             },
  *             {
- *                 comment: "",
  *                 name: "my_struct",
  *                 type: "struct<my_nested_string:string>",
+ *                 comment: "",
  *             },
  *         ],
- *         inputFormat: "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
- *         location: "s3://my-bucket/event-streams/my-stream",
- *         outputFormat: "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
- *         serDeInfo: {
- *             name: "my-stream",
- *             parameters: {
- *                 "serialization.format": "1",
- *             },
- *             serializationLibrary: "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
- *         },
  *     },
- *     tableType: "EXTERNAL_TABLE",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
  *
  * ```sh
- *  $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
+ * $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
  * ```
  */
 export class CatalogTable extends pulumi.CustomResource {

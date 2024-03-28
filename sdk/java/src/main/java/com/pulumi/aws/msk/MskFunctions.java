@@ -4,6 +4,8 @@
 package com.pulumi.aws.msk;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.msk.inputs.GetBootstrapBrokersArgs;
+import com.pulumi.aws.msk.inputs.GetBootstrapBrokersPlainArgs;
 import com.pulumi.aws.msk.inputs.GetBrokerNodesArgs;
 import com.pulumi.aws.msk.inputs.GetBrokerNodesPlainArgs;
 import com.pulumi.aws.msk.inputs.GetClusterArgs;
@@ -14,6 +16,7 @@ import com.pulumi.aws.msk.inputs.GetKafkaVersionArgs;
 import com.pulumi.aws.msk.inputs.GetKafkaVersionPlainArgs;
 import com.pulumi.aws.msk.inputs.GetVpcConnectionArgs;
 import com.pulumi.aws.msk.inputs.GetVpcConnectionPlainArgs;
+import com.pulumi.aws.msk.outputs.GetBootstrapBrokersResult;
 import com.pulumi.aws.msk.outputs.GetBrokerNodesResult;
 import com.pulumi.aws.msk.outputs.GetClusterResult;
 import com.pulumi.aws.msk.outputs.GetConfigurationResult;
@@ -27,9 +30,171 @@ import java.util.concurrent.CompletableFuture;
 
 public final class MskFunctions {
     /**
+     * Get a list of brokers that a client application can use to bootstrap.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetBootstrapBrokersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MskFunctions.getBootstrapBrokers(GetBootstrapBrokersArgs.builder()
+     *             .clusterArn(exampleAwsMskCluster.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetBootstrapBrokersResult> getBootstrapBrokers(GetBootstrapBrokersArgs args) {
+        return getBootstrapBrokers(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get a list of brokers that a client application can use to bootstrap.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetBootstrapBrokersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MskFunctions.getBootstrapBrokers(GetBootstrapBrokersArgs.builder()
+     *             .clusterArn(exampleAwsMskCluster.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetBootstrapBrokersResult> getBootstrapBrokersPlain(GetBootstrapBrokersPlainArgs args) {
+        return getBootstrapBrokersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get a list of brokers that a client application can use to bootstrap.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetBootstrapBrokersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MskFunctions.getBootstrapBrokers(GetBootstrapBrokersArgs.builder()
+     *             .clusterArn(exampleAwsMskCluster.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetBootstrapBrokersResult> getBootstrapBrokers(GetBootstrapBrokersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:msk/getBootstrapBrokers:getBootstrapBrokers", TypeShape.of(GetBootstrapBrokersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a list of brokers that a client application can use to bootstrap.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetBootstrapBrokersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MskFunctions.getBootstrapBrokers(GetBootstrapBrokersArgs.builder()
+     *             .clusterArn(exampleAwsMskCluster.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetBootstrapBrokersResult> getBootstrapBrokersPlain(GetBootstrapBrokersPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:msk/getBootstrapBrokers:getBootstrapBrokers", TypeShape.of(GetBootstrapBrokersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Get information on an Amazon MSK Broker Nodes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -52,12 +217,13 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getBrokerNodes(GetBrokerNodesArgs.builder()
-     *             .clusterArn(aws_msk_cluster.example().arn())
+     *             .clusterArn(exampleAwsMskCluster.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBrokerNodesResult> getBrokerNodes(GetBrokerNodesArgs args) {
@@ -67,6 +233,8 @@ public final class MskFunctions {
      * Get information on an Amazon MSK Broker Nodes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -89,12 +257,13 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getBrokerNodes(GetBrokerNodesArgs.builder()
-     *             .clusterArn(aws_msk_cluster.example().arn())
+     *             .clusterArn(exampleAwsMskCluster.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBrokerNodesResult> getBrokerNodesPlain(GetBrokerNodesPlainArgs args) {
@@ -104,6 +273,8 @@ public final class MskFunctions {
      * Get information on an Amazon MSK Broker Nodes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -126,12 +297,13 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getBrokerNodes(GetBrokerNodesArgs.builder()
-     *             .clusterArn(aws_msk_cluster.example().arn())
+     *             .clusterArn(exampleAwsMskCluster.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBrokerNodesResult> getBrokerNodes(GetBrokerNodesArgs args, InvokeOptions options) {
@@ -141,6 +313,8 @@ public final class MskFunctions {
      * Get information on an Amazon MSK Broker Nodes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -163,12 +337,13 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getBrokerNodes(GetBrokerNodesArgs.builder()
-     *             .clusterArn(aws_msk_cluster.example().arn())
+     *             .clusterArn(exampleAwsMskCluster.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBrokerNodesResult> getBrokerNodesPlain(GetBrokerNodesPlainArgs args, InvokeOptions options) {
@@ -180,6 +355,8 @@ public final class MskFunctions {
      * &gt; **Note:** This data sources returns information on _provisioned_ clusters.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -208,6 +385,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args) {
@@ -219,6 +397,8 @@ public final class MskFunctions {
      * &gt; **Note:** This data sources returns information on _provisioned_ clusters.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -247,6 +427,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args) {
@@ -258,6 +439,8 @@ public final class MskFunctions {
      * &gt; **Note:** This data sources returns information on _provisioned_ clusters.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -286,6 +469,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOptions options) {
@@ -297,6 +481,8 @@ public final class MskFunctions {
      * &gt; **Note:** This data sources returns information on _provisioned_ clusters.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -325,6 +511,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args, InvokeOptions options) {
@@ -334,6 +521,8 @@ public final class MskFunctions {
      * Get information on an Amazon MSK Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -362,6 +551,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConfigurationResult> getConfiguration(GetConfigurationArgs args) {
@@ -371,6 +561,8 @@ public final class MskFunctions {
      * Get information on an Amazon MSK Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -399,6 +591,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConfigurationResult> getConfigurationPlain(GetConfigurationPlainArgs args) {
@@ -408,6 +601,8 @@ public final class MskFunctions {
      * Get information on an Amazon MSK Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -436,6 +631,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConfigurationResult> getConfiguration(GetConfigurationArgs args, InvokeOptions options) {
@@ -445,6 +641,8 @@ public final class MskFunctions {
      * Get information on an Amazon MSK Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -473,6 +671,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConfigurationResult> getConfigurationPlain(GetConfigurationPlainArgs args, InvokeOptions options) {
@@ -482,6 +681,8 @@ public final class MskFunctions {
      * Get information on a Amazon MSK Kafka Version
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -517,6 +718,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetKafkaVersionResult> getKafkaVersion() {
@@ -526,6 +728,8 @@ public final class MskFunctions {
      * Get information on a Amazon MSK Kafka Version
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -561,6 +765,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetKafkaVersionResult> getKafkaVersionPlain() {
@@ -570,6 +775,8 @@ public final class MskFunctions {
      * Get information on a Amazon MSK Kafka Version
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -605,6 +812,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetKafkaVersionResult> getKafkaVersion(GetKafkaVersionArgs args) {
@@ -614,6 +822,8 @@ public final class MskFunctions {
      * Get information on a Amazon MSK Kafka Version
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -649,6 +859,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetKafkaVersionResult> getKafkaVersionPlain(GetKafkaVersionPlainArgs args) {
@@ -658,6 +869,8 @@ public final class MskFunctions {
      * Get information on a Amazon MSK Kafka Version
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -693,6 +906,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetKafkaVersionResult> getKafkaVersion(GetKafkaVersionArgs args, InvokeOptions options) {
@@ -702,6 +916,8 @@ public final class MskFunctions {
      * Get information on a Amazon MSK Kafka Version
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -737,6 +953,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetKafkaVersionResult> getKafkaVersionPlain(GetKafkaVersionPlainArgs args, InvokeOptions options) {
@@ -746,6 +963,8 @@ public final class MskFunctions {
      * Get information on an Amazon MSK VPC Connection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -768,12 +987,13 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getVpcConnection(GetVpcConnectionArgs.builder()
-     *             .arn(aws_msk_vpc_connection.example().arn())
+     *             .arn(exampleAwsMskVpcConnection.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVpcConnectionResult> getVpcConnection(GetVpcConnectionArgs args) {
@@ -783,6 +1003,8 @@ public final class MskFunctions {
      * Get information on an Amazon MSK VPC Connection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -805,12 +1027,13 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getVpcConnection(GetVpcConnectionArgs.builder()
-     *             .arn(aws_msk_vpc_connection.example().arn())
+     *             .arn(exampleAwsMskVpcConnection.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpcConnectionResult> getVpcConnectionPlain(GetVpcConnectionPlainArgs args) {
@@ -820,6 +1043,8 @@ public final class MskFunctions {
      * Get information on an Amazon MSK VPC Connection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -842,12 +1067,13 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getVpcConnection(GetVpcConnectionArgs.builder()
-     *             .arn(aws_msk_vpc_connection.example().arn())
+     *             .arn(exampleAwsMskVpcConnection.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVpcConnectionResult> getVpcConnection(GetVpcConnectionArgs args, InvokeOptions options) {
@@ -857,6 +1083,8 @@ public final class MskFunctions {
      * Get information on an Amazon MSK VPC Connection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -879,12 +1107,13 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getVpcConnection(GetVpcConnectionArgs.builder()
-     *             .arn(aws_msk_vpc_connection.example().arn())
+     *             .arn(exampleAwsMskVpcConnection.arn())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpcConnectionResult> getVpcConnectionPlain(GetVpcConnectionPlainArgs args, InvokeOptions options) {

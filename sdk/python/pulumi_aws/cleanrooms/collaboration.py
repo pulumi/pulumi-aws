@@ -412,42 +412,46 @@ class Collaboration(pulumi.CustomResource):
         join the collaboration and can create memberships.
 
         ## Example Usage
+
         ### Collaboration with tags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_collaboration = aws.cleanrooms.Collaboration("testCollaboration",
-            creator_display_name="Creator ",
+        test_collaboration = aws.cleanrooms.Collaboration("test_collaboration",
+            name="pulumi-example-collaboration",
             creator_member_abilities=[
                 "CAN_QUERY",
                 "CAN_RECEIVE_RESULTS",
             ],
+            creator_display_name="Creator ",
+            description="I made this collaboration with Pulumi!",
+            query_log_status="DISABLED",
             data_encryption_metadata=aws.cleanrooms.CollaborationDataEncryptionMetadataArgs(
                 allow_clear_text=True,
                 allow_duplicates=True,
                 allow_joins_on_columns_with_different_names=True,
                 preserve_nulls=False,
             ),
-            description="I made this collaboration with Pulumi!",
             members=[aws.cleanrooms.CollaborationMemberArgs(
                 account_id="123456789012",
                 display_name="Other member",
                 member_abilities=[],
             )],
-            query_log_status="DISABLED",
             tags={
                 "Project": "Pulumi",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_cleanrooms_collaboration` using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
+        $ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
         ```
 
         :param str resource_name: The name of the resource.
@@ -484,42 +488,46 @@ class Collaboration(pulumi.CustomResource):
         join the collaboration and can create memberships.
 
         ## Example Usage
+
         ### Collaboration with tags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_collaboration = aws.cleanrooms.Collaboration("testCollaboration",
-            creator_display_name="Creator ",
+        test_collaboration = aws.cleanrooms.Collaboration("test_collaboration",
+            name="pulumi-example-collaboration",
             creator_member_abilities=[
                 "CAN_QUERY",
                 "CAN_RECEIVE_RESULTS",
             ],
+            creator_display_name="Creator ",
+            description="I made this collaboration with Pulumi!",
+            query_log_status="DISABLED",
             data_encryption_metadata=aws.cleanrooms.CollaborationDataEncryptionMetadataArgs(
                 allow_clear_text=True,
                 allow_duplicates=True,
                 allow_joins_on_columns_with_different_names=True,
                 preserve_nulls=False,
             ),
-            description="I made this collaboration with Pulumi!",
             members=[aws.cleanrooms.CollaborationMemberArgs(
                 account_id="123456789012",
                 display_name="Other member",
                 member_abilities=[],
             )],
-            query_log_status="DISABLED",
             tags={
                 "Project": "Pulumi",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_cleanrooms_collaboration` using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
+        $ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
         ```
 
         :param str resource_name: The name of the resource.
@@ -574,8 +582,6 @@ class Collaboration(pulumi.CustomResource):
             __props__.__dict__["create_time"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["update_time"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Collaboration, __self__).__init__(
             'aws:cleanrooms/collaboration:Collaboration',
             resource_name,

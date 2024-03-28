@@ -217,19 +217,23 @@ class Contact(pulumi.CustomResource):
         Resource for managing an AWS SSM Contact.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ssmcontacts.Contact("example",
             alias="alias",
-            type="PERSONAL",
-            opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
+            type="PERSONAL")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage With All Fields
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -240,16 +244,16 @@ class Contact(pulumi.CustomResource):
             type="ESCALATION",
             tags={
                 "key": "value",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SSM Contact using the `ARN`. For example:
 
         ```sh
-         $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
+        $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
         ```
 
         :param str resource_name: The name of the resource.
@@ -272,19 +276,23 @@ class Contact(pulumi.CustomResource):
         Resource for managing an AWS SSM Contact.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ssmcontacts.Contact("example",
             alias="alias",
-            type="PERSONAL",
-            opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
+            type="PERSONAL")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage With All Fields
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -295,16 +303,16 @@ class Contact(pulumi.CustomResource):
             type="ESCALATION",
             tags={
                 "key": "value",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SSM Contact using the `ARN`. For example:
 
         ```sh
-         $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
+        $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
         ```
 
         :param str resource_name: The name of the resource.
@@ -345,8 +353,6 @@ class Contact(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Contact, __self__).__init__(
             'aws:ssmcontacts/contact:Contact',
             resource_name,

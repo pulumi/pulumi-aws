@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Fms
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,27 +26,29 @@ namespace Pulumi.Aws.Fms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRuleGroup = new Aws.WafRegional.RuleGroup("exampleRuleGroup", new()
+    ///     var exampleRuleGroup = new Aws.WafRegional.RuleGroup("example", new()
     ///     {
     ///         MetricName = "WAFRuleGroupExample",
+    ///         Name = "WAF-Rule-Group-Example",
     ///     });
     /// 
-    ///     var examplePolicy = new Aws.Fms.Policy("examplePolicy", new()
+    ///     var example = new Aws.Fms.Policy("example", new()
     ///     {
+    ///         Name = "FMS-Policy-Example",
     ///         ExcludeResourceTags = false,
     ///         RemediationEnabled = false,
     ///         ResourceType = "AWS::ElasticLoadBalancingV2::LoadBalancer",
     ///         SecurityServicePolicyData = new Aws.Fms.Inputs.PolicySecurityServicePolicyDataArgs
     ///         {
     ///             Type = "WAF",
-    ///             ManagedServiceData = exampleRuleGroup.Id.Apply(id =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ManagedServiceData = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///             {
     ///                 ["type"] = "WAF",
     ///                 ["ruleGroups"] = new[]
     ///                 {
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["id"] = id,
+    ///                         ["id"] = exampleRuleGroup.Id,
     ///                         ["overrideAction"] = new Dictionary&lt;string, object?&gt;
     ///                         {
     ///                             ["type"] = "COUNT",
@@ -67,13 +70,14 @@ namespace Pulumi.Aws.Fms
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Firewall Manager policies using the policy ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
+    /// $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
     /// ```
     /// </summary>
     [AwsResourceType("aws:fms/policy:Policy")]
@@ -195,10 +199,6 @@ namespace Pulumi.Aws.Fms
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -441,11 +441,7 @@ namespace Pulumi.Aws.Fms
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public PolicyState()

@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +30,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := guardduty.NewDetector(ctx, "myDetector", &guardduty.DetectorArgs{
+//			_, err := guardduty.NewDetector(ctx, "MyDetector", &guardduty.DetectorArgs{
+//				Enable: pulumi.Bool(true),
 //				Datasources: &guardduty.DetectorDatasourcesArgs{
+//					S3Logs: &guardduty.DetectorDatasourcesS3LogsArgs{
+//						Enable: pulumi.Bool(true),
+//					},
 //					Kubernetes: &guardduty.DetectorDatasourcesKubernetesArgs{
 //						AuditLogs: &guardduty.DetectorDatasourcesKubernetesAuditLogsArgs{
 //							Enable: pulumi.Bool(false),
@@ -43,11 +48,7 @@ import (
 //							},
 //						},
 //					},
-//					S3Logs: &guardduty.DetectorDatasourcesS3LogsArgs{
-//						Enable: pulumi.Bool(true),
-//					},
 //				},
-//				Enable: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -57,18 +58,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import GuardDuty detectors using the detector ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:guardduty/detector:Detector MyDetector 00b00fd5aecc0ab60a708659477e9617
-//
+// $ pulumi import aws:guardduty/detector:Detector MyDetector 00b00fd5aecc0ab60a708659477e9617
 // ```
-//
-//	The ID of the detector can be retrieved via the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/list-detectors.html) using `aws guardduty list-detectors`.
+// The ID of the detector can be retrieved via the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/list-detectors.html) using `aws guardduty list-detectors`.
 type Detector struct {
 	pulumi.CustomResourceState
 
@@ -97,10 +96,6 @@ func NewDetector(ctx *pulumi.Context,
 		args = &DetectorArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Detector
 	err := ctx.RegisterResource("aws:guardduty/detector:Detector", name, args, &resource, opts...)

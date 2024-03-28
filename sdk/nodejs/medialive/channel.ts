@@ -11,15 +11,18 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS MediaLive Channel.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.medialive.Channel("example", {
+ *     name: "example-channel",
  *     channelClass: "STANDARD",
- *     roleArn: aws_iam_role.example.arn,
+ *     roleArn: exampleAwsIamRole.arn,
  *     inputSpecification: {
  *         codec: "AVC",
  *         inputResolution: "HD",
@@ -27,16 +30,16 @@ import * as utilities from "../utilities";
  *     },
  *     inputAttachments: [{
  *         inputAttachmentName: "example-input",
- *         inputId: aws_medialive_input.example.id,
+ *         inputId: exampleAwsMedialiveInput.id,
  *     }],
  *     destinations: [{
  *         id: "destination",
  *         settings: [
  *             {
- *                 url: `s3://${aws_s3_bucket.main.id}/test1`,
+ *                 url: `s3://${main.id}/test1`,
  *             },
  *             {
- *                 url: `s3://${aws_s3_bucket.main2.id}/test2`,
+ *                 url: `s3://${main2.id}/test2`,
  *             },
  *         ],
  *     }],
@@ -81,13 +84,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import MediaLive Channel using the `channel_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:medialive/channel:Channel example 1234567
+ * $ pulumi import aws:medialive/channel:Channel example 1234567
  * ```
  */
 export class Channel extends pulumi.CustomResource {
@@ -249,8 +253,6 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Channel.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.acm.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -147,31 +148,47 @@ public final class GetCertificateResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder certificate(String certificate) {
-            this.certificate = Objects.requireNonNull(certificate);
+            if (certificate == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "certificate");
+            }
+            this.certificate = certificate;
             return this;
         }
         @CustomType.Setter
         public Builder certificateChain(String certificateChain) {
-            this.certificateChain = Objects.requireNonNull(certificateChain);
+            if (certificateChain == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "certificateChain");
+            }
+            this.certificateChain = certificateChain;
             return this;
         }
         @CustomType.Setter
         public Builder domain(String domain) {
-            this.domain = Objects.requireNonNull(domain);
+            if (domain == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "domain");
+            }
+            this.domain = domain;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder keyTypes(@Nullable List<String> keyTypes) {
+
             this.keyTypes = keyTypes;
             return this;
         }
@@ -180,16 +197,21 @@ public final class GetCertificateResult {
         }
         @CustomType.Setter
         public Builder mostRecent(@Nullable Boolean mostRecent) {
+
             this.mostRecent = mostRecent;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder statuses(@Nullable List<String> statuses) {
+
             this.statuses = statuses;
             return this;
         }
@@ -198,11 +220,15 @@ public final class GetCertificateResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder types(@Nullable List<String> types) {
+
             this.types = types;
             return this;
         }
@@ -210,19 +236,19 @@ public final class GetCertificateResult {
             return types(List.of(types));
         }
         public GetCertificateResult build() {
-            final var o = new GetCertificateResult();
-            o.arn = arn;
-            o.certificate = certificate;
-            o.certificateChain = certificateChain;
-            o.domain = domain;
-            o.id = id;
-            o.keyTypes = keyTypes;
-            o.mostRecent = mostRecent;
-            o.status = status;
-            o.statuses = statuses;
-            o.tags = tags;
-            o.types = types;
-            return o;
+            final var _resultValue = new GetCertificateResult();
+            _resultValue.arn = arn;
+            _resultValue.certificate = certificate;
+            _resultValue.certificateChain = certificateChain;
+            _resultValue.domain = domain;
+            _resultValue.id = id;
+            _resultValue.keyTypes = keyTypes;
+            _resultValue.mostRecent = mostRecent;
+            _resultValue.status = status;
+            _resultValue.statuses = statuses;
+            _resultValue.tags = tags;
+            _resultValue.types = types;
+            return _resultValue;
         }
     }
 }

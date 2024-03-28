@@ -9,25 +9,26 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const production = new aws.ssm.MaintenanceWindow("production", {
- *     cutoff: 1,
- *     duration: 3,
+ *     name: "maintenance-window-application",
  *     schedule: "cron(0 16 ? * TUE *)",
+ *     duration: 3,
+ *     cutoff: 1,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Using `pulumi import`, import SSM
- *
- * Maintenance Windows using the maintenance window `id`. For example:
+ * Using `pulumi import`, import SSM  Maintenance Windows using the maintenance window `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
+ * $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
  * ```
  */
 export class MaintenanceWindow extends pulumi.CustomResource {
@@ -165,8 +166,6 @@ export class MaintenanceWindow extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(MaintenanceWindow.__pulumiType, name, resourceInputs, opts);
     }
 }

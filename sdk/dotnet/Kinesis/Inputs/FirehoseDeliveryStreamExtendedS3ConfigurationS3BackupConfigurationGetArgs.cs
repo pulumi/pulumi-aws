@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string> BucketArn { get; set; } = null!;
 
         /// <summary>
-        /// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        /// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         /// </summary>
         [Input("bufferingInterval")]
         public Input<int>? BufferingInterval { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<int>? BufferingSize { get; set; }
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
+        /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }

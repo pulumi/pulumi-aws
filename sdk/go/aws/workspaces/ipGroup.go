@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,19 +29,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := workspaces.NewIpGroup(ctx, "contractors", &workspaces.IpGroupArgs{
+//				Name:        pulumi.String("Contractors"),
 //				Description: pulumi.String("Contractors IP access control group"),
 //				Rules: workspaces.IpGroupRuleArray{
 //					&workspaces.IpGroupRuleArgs{
-//						Description: pulumi.String("NY"),
 //						Source:      pulumi.String("150.24.14.0/24"),
+//						Description: pulumi.String("NY"),
 //					},
 //					&workspaces.IpGroupRuleArgs{
-//						Description: pulumi.String("LA"),
 //						Source:      pulumi.String("125.191.14.85/32"),
+//						Description: pulumi.String("LA"),
 //					},
 //					&workspaces.IpGroupRuleArgs{
-//						Description: pulumi.String("STL"),
 //						Source:      pulumi.String("44.98.100.0/24"),
+//						Description: pulumi.String("STL"),
 //					},
 //				},
 //			})
@@ -52,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import WorkSpaces IP groups using their GroupID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
-//
+// $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
 // ```
 type IpGroup struct {
 	pulumi.CustomResourceState
@@ -86,10 +87,6 @@ func NewIpGroup(ctx *pulumi.Context,
 		args = &IpGroupArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IpGroup
 	err := ctx.RegisterResource("aws:workspaces/ipGroup:IpGroup", name, args, &resource, opts...)

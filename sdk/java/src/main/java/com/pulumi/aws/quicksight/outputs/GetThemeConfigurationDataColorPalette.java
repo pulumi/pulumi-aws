@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,7 +72,10 @@ public final class GetThemeConfigurationDataColorPalette {
 
         @CustomType.Setter
         public Builder colors(List<String> colors) {
-            this.colors = Objects.requireNonNull(colors);
+            if (colors == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationDataColorPalette", "colors");
+            }
+            this.colors = colors;
             return this;
         }
         public Builder colors(String... colors) {
@@ -79,23 +83,29 @@ public final class GetThemeConfigurationDataColorPalette {
         }
         @CustomType.Setter
         public Builder emptyFillColor(String emptyFillColor) {
-            this.emptyFillColor = Objects.requireNonNull(emptyFillColor);
+            if (emptyFillColor == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationDataColorPalette", "emptyFillColor");
+            }
+            this.emptyFillColor = emptyFillColor;
             return this;
         }
         @CustomType.Setter
         public Builder minMaxGradients(List<String> minMaxGradients) {
-            this.minMaxGradients = Objects.requireNonNull(minMaxGradients);
+            if (minMaxGradients == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationDataColorPalette", "minMaxGradients");
+            }
+            this.minMaxGradients = minMaxGradients;
             return this;
         }
         public Builder minMaxGradients(String... minMaxGradients) {
             return minMaxGradients(List.of(minMaxGradients));
         }
         public GetThemeConfigurationDataColorPalette build() {
-            final var o = new GetThemeConfigurationDataColorPalette();
-            o.colors = colors;
-            o.emptyFillColor = emptyFillColor;
-            o.minMaxGradients = minMaxGradients;
-            return o;
+            final var _resultValue = new GetThemeConfigurationDataColorPalette();
+            _resultValue.colors = colors;
+            _resultValue.emptyFillColor = emptyFillColor;
+            _resultValue.minMaxGradients = minMaxGradients;
+            return _resultValue;
         }
     }
 }

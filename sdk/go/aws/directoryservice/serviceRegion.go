@@ -15,14 +15,165 @@ import (
 // Manages a replicated Region and directory for Multi-Region replication.
 // Multi-Region replication is only supported for the Enterprise Edition of AWS Managed Microsoft AD.
 //
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := aws.GetRegion(ctx, nil, nil);
+// if err != nil {
+// return err
+// }
+// available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
+// State: pulumi.StringRef("available"),
+// Filters: []aws.GetAvailabilityZonesFilter{
+// {
+// Name: "opt-in-status",
+// Values: []string{
+// "opt-in-not-required",
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// exampleVpc, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
+// CidrBlock: pulumi.String("10.0.0.0/16"),
+// Tags: pulumi.StringMap{
+// "Name": pulumi.String("Primary"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// var exampleSubnet []*ec2.Subnet
+//
+//	for index := 0; index < 2; index++ {
+//	    key0 := index
+//	    val0 := index
+//
+// __res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-%v", key0), &ec2.SubnetArgs{
+// VpcId: exampleVpc.ID(),
+// AvailabilityZone: available.Names[val0],
+// CidrBlock: exampleVpc.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
+// return std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
+// Input: cidrBlock,
+// Newbits: 8,
+// Netnum: val0,
+// }, nil), nil
+// }).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
+// return invoke.Result, nil
+// }).(pulumi.StringPtrOutput),
+// Tags: pulumi.StringMap{
+// "Name": pulumi.String("Primary"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet = append(exampleSubnet, __res)
+// }
+// exampleDirectory, err := directoryservice.NewDirectory(ctx, "example", &directoryservice.DirectoryArgs{
+// Name: pulumi.String("example.com"),
+// Password: pulumi.String("SuperSecretPassw0rd"),
+// Type: pulumi.String("MicrosoftAD"),
+// VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
+// VpcId: exampleVpc.ID(),
+// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:44,17-36),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// available_secondary, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
+// State: pulumi.StringRef("available"),
+// Filters: []aws.GetAvailabilityZonesFilter{
+// {
+// Name: "opt-in-status",
+// Values: []string{
+// "opt-in-not-required",
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// _, err = ec2.NewVpc(ctx, "example-secondary", &ec2.VpcArgs{
+// CidrBlock: pulumi.String("10.1.0.0/16"),
+// Tags: pulumi.StringMap{
+// "Name": pulumi.String("Secondary"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// var example_secondarySubnet []*ec2.Subnet
+//
+//	for index := 0; index < 2; index++ {
+//	    key0 := index
+//	    val0 := index
+//
+// __res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-secondary-%v", key0), &ec2.SubnetArgs{
+// VpcId: example_secondary.ID(),
+// AvailabilityZone: available_secondary.Names[val0],
+// CidrBlock: example_secondary.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
+// return std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
+// Input: cidrBlock,
+// Newbits: 8,
+// Netnum: val0,
+// }, nil), nil
+// }).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
+// return invoke.Result, nil
+// }).(pulumi.StringPtrOutput),
+// Tags: pulumi.StringMap{
+// "Name": pulumi.String("Secondary"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// example_secondarySubnet = append(example_secondarySubnet, __res)
+// }
+// _, err = directoryservice.NewServiceRegion(ctx, "example", &directoryservice.ServiceRegionArgs{
+// DirectoryId: exampleDirectory.ID(),
+// RegionName: pulumi.String(example.Name),
+// VpcSettings: &directoryservice.ServiceRegionVpcSettingsArgs{
+// VpcId: example_secondary.ID(),
+// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:87,17-46),
+// },
+// Tags: pulumi.StringMap{
+// "Name": pulumi.String("Secondary"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Import
 //
 // Using `pulumi import`, import Replicated Regions using directory ID,Region name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
-//
+// $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
 // ```
 type ServiceRegion struct {
 	pulumi.CustomResourceState
@@ -59,10 +210,6 @@ func NewServiceRegion(ctx *pulumi.Context,
 	if args.VpcSettings == nil {
 		return nil, errors.New("invalid value for required argument 'VpcSettings'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceRegion
 	err := ctx.RegisterResource("aws:directoryservice/serviceRegion:ServiceRegion", name, args, &resource, opts...)

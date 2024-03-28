@@ -21,6 +21,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,33 +30,24 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var peer = new Aws.Provider("peer", new()
-    ///     {
-    ///         Region = "us-west-2",
-    ///     });
-    /// 
-    ///     // Accepter's credentials.
     ///     var main = new Aws.Ec2.Vpc("main", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var peerVpc = new Aws.Ec2.Vpc("peerVpc", new()
+    ///     var peerVpc = new Aws.Ec2.Vpc("peer", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Peer,
     ///     });
     /// 
-    ///     var peerCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var peer = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     // Requester's side of the connection.
-    ///     var peerVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("peerVpcPeeringConnection", new()
+    ///     var peerVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("peer", new()
     ///     {
     ///         VpcId = main.Id,
     ///         PeerVpcId = peerVpc.Id,
-    ///         PeerOwnerId = peerCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///         PeerOwnerId = peer.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///         PeerRegion = "us-west-2",
     ///         AutoAccept = false,
     ///         Tags = 
@@ -65,7 +57,7 @@ namespace Pulumi.Aws.Ec2
     ///     });
     /// 
     ///     // Accepter's side of the connection.
-    ///     var peerVpcPeeringConnectionAccepter = new Aws.Ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", new()
+    ///     var peerVpcPeeringConnectionAccepter = new Aws.Ec2.VpcPeeringConnectionAccepter("peer", new()
     ///     {
     ///         VpcPeeringConnectionId = peerVpcPeeringConnection.Id,
     ///         AutoAccept = true,
@@ -73,22 +65,20 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             { "Side", "Accepter" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Peer,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import VPC Peering Connection Accepters using the Peering Connection ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter example pcx-12345678
+    /// $ pulumi import aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter example pcx-12345678
     /// ```
-    ///  Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+    /// Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
     /// </summary>
     [AwsResourceType("aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter")]
     public partial class VpcPeeringConnectionAccepter : global::Pulumi.CustomResource
@@ -184,10 +174,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -323,11 +309,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

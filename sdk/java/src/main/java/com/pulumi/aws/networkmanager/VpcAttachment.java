@@ -19,10 +19,13 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS NetworkManager VpcAttachment.
+ * Resource for managing an AWS Network Manager VPC Attachment.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,21 +48,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VpcAttachment(&#34;example&#34;, VpcAttachmentArgs.builder()        
- *             .subnetArns(aws_subnet.example().arn())
- *             .coreNetworkId(awscc_networkmanager_core_network.example().id())
- *             .vpcArn(aws_vpc.example().arn())
+ *             .subnetArns(exampleAwsSubnet.arn())
+ *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
+ *             .vpcArn(exampleAwsVpc.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_networkmanager_vpc_attachment` using the attachment ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:networkmanager/vpcAttachment:VpcAttachment example attachment-0f8fa60d2238d1bd8
+ * $ pulumi import aws:networkmanager/vpcAttachment:VpcAttachment example attachment-0f8fa60d2238d1bd8
  * ```
  * 
  */
@@ -316,9 +320,6 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

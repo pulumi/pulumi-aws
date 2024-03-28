@@ -454,6 +454,7 @@ class Snapshot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -462,7 +463,7 @@ class Snapshot(pulumi.CustomResource):
             allocated_storage=10,
             engine="mysql",
             engine_version="5.6.21",
-            instance_class="db.t2.micro",
+            instance_class=aws.rds.InstanceType.T2_MICRO,
             db_name="baz",
             password="barbarbarbar",
             username="foo",
@@ -473,13 +474,14 @@ class Snapshot(pulumi.CustomResource):
             db_instance_identifier=bar.identifier,
             db_snapshot_identifier="testsnapshot1234")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_db_snapshot` using the snapshot identifier. For example:
 
         ```sh
-         $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
+        $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
         ```
 
         :param str resource_name: The name of the resource.
@@ -500,6 +502,7 @@ class Snapshot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -508,7 +511,7 @@ class Snapshot(pulumi.CustomResource):
             allocated_storage=10,
             engine="mysql",
             engine_version="5.6.21",
-            instance_class="db.t2.micro",
+            instance_class=aws.rds.InstanceType.T2_MICRO,
             db_name="baz",
             password="barbarbarbar",
             username="foo",
@@ -519,13 +522,14 @@ class Snapshot(pulumi.CustomResource):
             db_instance_identifier=bar.identifier,
             db_snapshot_identifier="testsnapshot1234")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_db_snapshot` using the snapshot identifier. For example:
 
         ```sh
-         $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
+        $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
         ```
 
         :param str resource_name: The name of the resource.
@@ -582,8 +586,6 @@ class Snapshot(pulumi.CustomResource):
             __props__.__dict__["storage_type"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Snapshot, __self__).__init__(
             'aws:rds/snapshot:Snapshot',
             resource_name,

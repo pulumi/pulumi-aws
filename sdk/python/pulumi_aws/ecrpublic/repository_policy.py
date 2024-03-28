@@ -122,12 +122,13 @@ class RepositoryPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_repository = aws.ecrpublic.Repository("exampleRepository", repository_name="example")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_repository = aws.ecrpublic.Repository("example", repository_name="example")
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="new policy",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -151,17 +152,18 @@ class RepositoryPolicy(pulumi.CustomResource):
                 "ecr:DeleteRepositoryPolicy",
             ],
         )])
-        example_repository_policy = aws.ecrpublic.RepositoryPolicy("exampleRepositoryPolicy",
+        example_repository_policy = aws.ecrpublic.RepositoryPolicy("example",
             repository_name=example_repository.repository_name,
-            policy=example_policy_document.json)
+            policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECR Public Repository Policy using the repository name. For example:
 
         ```sh
-         $ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
+        $ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -184,12 +186,13 @@ class RepositoryPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_repository = aws.ecrpublic.Repository("exampleRepository", repository_name="example")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_repository = aws.ecrpublic.Repository("example", repository_name="example")
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="new policy",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -213,17 +216,18 @@ class RepositoryPolicy(pulumi.CustomResource):
                 "ecr:DeleteRepositoryPolicy",
             ],
         )])
-        example_repository_policy = aws.ecrpublic.RepositoryPolicy("exampleRepositoryPolicy",
+        example_repository_policy = aws.ecrpublic.RepositoryPolicy("example",
             repository_name=example_repository.repository_name,
-            policy=example_policy_document.json)
+            policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECR Public Repository Policy using the repository name. For example:
 
         ```sh
-         $ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
+        $ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
         ```
 
         :param str resource_name: The name of the resource.

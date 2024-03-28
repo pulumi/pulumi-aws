@@ -14,25 +14,29 @@ import * as utilities from "../utilities";
  *
  * This example blocks requests coming from `192.0.7.0/24` and allows everything else.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ipset = new aws.waf.IpSet("ipset", {ipSetDescriptors: [{
- *     type: "IPV4",
- *     value: "192.0.7.0/24",
- * }]});
+ * const ipset = new aws.waf.IpSet("ipset", {
+ *     name: "tfIPSet",
+ *     ipSetDescriptors: [{
+ *         type: "IPV4",
+ *         value: "192.0.7.0/24",
+ *     }],
+ * });
  * const wafrule = new aws.waf.Rule("wafrule", {
+ *     name: "tfWAFRule",
  *     metricName: "tfWAFRule",
  *     predicates: [{
  *         dataId: ipset.id,
  *         negated: false,
  *         type: "IPMatch",
  *     }],
- * }, {
- *     dependsOn: [ipset],
  * });
- * const wafAcl = new aws.waf.WebAcl("wafAcl", {
+ * const wafAcl = new aws.waf.WebAcl("waf_acl", {
+ *     name: "tfWebACL",
  *     metricName: "tfWebACL",
  *     defaultAction: {
  *         type: "ALLOW",
@@ -45,23 +49,21 @@ import * as utilities from "../utilities";
  *         ruleId: wafrule.id,
  *         type: "REGULAR",
  *     }],
- * }, {
- *     dependsOn: [
- *         ipset,
- *         wafrule,
- *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Logging
  *
  * > *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-` and be located in `us-east-1` region. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.waf.WebAcl("example", {loggingConfiguration: {
- *     logDestination: aws_kinesis_firehose_delivery_stream.example.arn,
+ *     logDestination: exampleAwsKinesisFirehoseDeliveryStream.arn,
  *     redactedFields: {
  *         fieldToMatches: [
  *             {
@@ -75,13 +77,14 @@ import * as utilities from "../utilities";
  *     },
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import WAF Web ACL using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
+ * $ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
  * ```
  */
 export class WebAcl extends pulumi.CustomResource {
@@ -186,8 +189,6 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(WebAcl.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -5,6 +5,7 @@ package com.pulumi.aws.secretsmanager.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,7 +225,9 @@ public final class SecretReplicaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SecretReplicaArgs build() {
-            $.region = Objects.requireNonNull($.region, "expected parameter 'region' to be non-null");
+            if ($.region == null) {
+                throw new MissingRequiredPropertyException("SecretReplicaArgs", "region");
+            }
             return $;
         }
     }

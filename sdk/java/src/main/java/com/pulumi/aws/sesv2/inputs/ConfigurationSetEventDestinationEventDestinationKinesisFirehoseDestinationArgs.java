@@ -5,6 +5,7 @@ package com.pulumi.aws.sesv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ConfigurationSetEventDestinationEventDestinationKinesisFireho
         }
 
         public ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs build() {
-            $.deliveryStreamArn = Objects.requireNonNull($.deliveryStreamArn, "expected parameter 'deliveryStreamArn' to be non-null");
-            $.iamRoleArn = Objects.requireNonNull($.iamRoleArn, "expected parameter 'iamRoleArn' to be non-null");
+            if ($.deliveryStreamArn == null) {
+                throw new MissingRequiredPropertyException("ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs", "deliveryStreamArn");
+            }
+            if ($.iamRoleArn == null) {
+                throw new MissingRequiredPropertyException("ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs", "iamRoleArn");
+            }
             return $;
         }
     }

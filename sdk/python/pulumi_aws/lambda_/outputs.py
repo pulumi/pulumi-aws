@@ -33,6 +33,7 @@ __all__ = [
     'FunctionEventInvokeConfigDestinationConfigOnSuccess',
     'FunctionFileSystemConfig',
     'FunctionImageConfig',
+    'FunctionLoggingConfig',
     'FunctionSnapStart',
     'FunctionTracingConfig',
     'FunctionUrlCors',
@@ -43,6 +44,7 @@ __all__ = [
     'GetFunctionEnvironmentResult',
     'GetFunctionEphemeralStorageResult',
     'GetFunctionFileSystemConfigResult',
+    'GetFunctionLoggingConfigResult',
     'GetFunctionTracingConfigResult',
     'GetFunctionUrlCorResult',
     'GetFunctionVpcConfigResult',
@@ -458,7 +460,7 @@ class EventSourceMappingSourceAccessConfiguration(dict):
                  type: str,
                  uri: str):
         """
-        :param str type: The type of this configuration.  For Self Managed Kafka you will need to supply blocks for type `VPC_SUBNET` and `VPC_SECURITY_GROUP`.
+        :param str type: The type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
         :param str uri: The URI for this configuration.  For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnet_id` is the value you would find in an ec2.Subnet resource's id attribute.  For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `security_group_id` is the value you would find in an ec2.SecurityGroup resource's id attribute.
         """
         pulumi.set(__self__, "type", type)
@@ -468,7 +470,7 @@ class EventSourceMappingSourceAccessConfiguration(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of this configuration.  For Self Managed Kafka you will need to supply blocks for type `VPC_SUBNET` and `VPC_SECURITY_GROUP`.
+        The type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
         """
         return pulumi.get(self, "type")
 
@@ -746,6 +748,83 @@ class FunctionImageConfig(dict):
         Working directory.
         """
         return pulumi.get(self, "working_directory")
+
+
+@pulumi.output_type
+class FunctionLoggingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logFormat":
+            suggest = "log_format"
+        elif key == "applicationLogLevel":
+            suggest = "application_log_level"
+        elif key == "logGroup":
+            suggest = "log_group"
+        elif key == "systemLogLevel":
+            suggest = "system_log_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionLoggingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionLoggingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionLoggingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_format: str,
+                 application_log_level: Optional[str] = None,
+                 log_group: Optional[str] = None,
+                 system_log_level: Optional[str] = None):
+        """
+        :param str log_format: select between `Text` and structured `JSON` format for your function's logs.
+        :param str application_log_level: for JSON structured logs, choose the detail level of the logs your application sends to CloudWatch when using supported logging libraries.
+        :param str log_group: the CloudWatch log group your function sends logs to.
+        :param str system_log_level: for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
+        """
+        pulumi.set(__self__, "log_format", log_format)
+        if application_log_level is not None:
+            pulumi.set(__self__, "application_log_level", application_log_level)
+        if log_group is not None:
+            pulumi.set(__self__, "log_group", log_group)
+        if system_log_level is not None:
+            pulumi.set(__self__, "system_log_level", system_log_level)
+
+    @property
+    @pulumi.getter(name="logFormat")
+    def log_format(self) -> str:
+        """
+        select between `Text` and structured `JSON` format for your function's logs.
+        """
+        return pulumi.get(self, "log_format")
+
+    @property
+    @pulumi.getter(name="applicationLogLevel")
+    def application_log_level(self) -> Optional[str]:
+        """
+        for JSON structured logs, choose the detail level of the logs your application sends to CloudWatch when using supported logging libraries.
+        """
+        return pulumi.get(self, "application_log_level")
+
+    @property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> Optional[str]:
+        """
+        the CloudWatch log group your function sends logs to.
+        """
+        return pulumi.get(self, "log_group")
+
+    @property
+    @pulumi.getter(name="systemLogLevel")
+    def system_log_level(self) -> Optional[str]:
+        """
+        for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
+        """
+        return pulumi.get(self, "system_log_level")
 
 
 @pulumi.output_type
@@ -1084,6 +1163,39 @@ class GetFunctionFileSystemConfigResult(dict):
     @pulumi.getter(name="localMountPath")
     def local_mount_path(self) -> str:
         return pulumi.get(self, "local_mount_path")
+
+
+@pulumi.output_type
+class GetFunctionLoggingConfigResult(dict):
+    def __init__(__self__, *,
+                 application_log_level: str,
+                 log_format: str,
+                 log_group: str,
+                 system_log_level: str):
+        pulumi.set(__self__, "application_log_level", application_log_level)
+        pulumi.set(__self__, "log_format", log_format)
+        pulumi.set(__self__, "log_group", log_group)
+        pulumi.set(__self__, "system_log_level", system_log_level)
+
+    @property
+    @pulumi.getter(name="applicationLogLevel")
+    def application_log_level(self) -> str:
+        return pulumi.get(self, "application_log_level")
+
+    @property
+    @pulumi.getter(name="logFormat")
+    def log_format(self) -> str:
+        return pulumi.get(self, "log_format")
+
+    @property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> str:
+        return pulumi.get(self, "log_group")
+
+    @property
+    @pulumi.getter(name="systemLogLevel")
+    def system_log_level(self) -> str:
+        return pulumi.get(self, "system_log_level")
 
 
 @pulumi.output_type

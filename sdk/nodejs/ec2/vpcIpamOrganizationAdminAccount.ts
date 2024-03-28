@@ -11,22 +11,22 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const delegated = aws.getCallerIdentity({});
  * const example = new aws.ec2.VpcIpamOrganizationAdminAccount("example", {delegatedAdminAccountId: delegated.then(delegated => delegated.accountId)});
- * const ipamDelegateAccount = new aws.Provider("ipamDelegateAccount", {});
- * // authentication arguments omitted
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IPAMs using the delegate account `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
+ * $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
  * ```
  */
 export class VpcIpamOrganizationAdminAccount extends pulumi.CustomResource {

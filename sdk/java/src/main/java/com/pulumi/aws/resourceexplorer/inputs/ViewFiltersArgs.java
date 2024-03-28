@@ -5,6 +5,7 @@ package com.pulumi.aws.resourceexplorer.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ViewFiltersArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ViewFiltersArgs build() {
-            $.filterString = Objects.requireNonNull($.filterString, "expected parameter 'filterString' to be non-null");
+            if ($.filterString == null) {
+                throw new MissingRequiredPropertyException("ViewFiltersArgs", "filterString");
+            }
             return $;
         }
     }

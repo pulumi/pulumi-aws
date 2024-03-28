@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesis.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class AnalyticsApplicationCloudwatchLoggingOptionsArgs extends com.
         }
 
         public AnalyticsApplicationCloudwatchLoggingOptionsArgs build() {
-            $.logStreamArn = Objects.requireNonNull($.logStreamArn, "expected parameter 'logStreamArn' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.logStreamArn == null) {
+                throw new MissingRequiredPropertyException("AnalyticsApplicationCloudwatchLoggingOptionsArgs", "logStreamArn");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("AnalyticsApplicationCloudwatchLoggingOptionsArgs", "roleArn");
+            }
             return $;
         }
     }

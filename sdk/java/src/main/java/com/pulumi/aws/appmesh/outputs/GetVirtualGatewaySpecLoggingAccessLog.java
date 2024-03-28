@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecLoggingAccessLogFile;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,16 +36,19 @@ public final class GetVirtualGatewaySpecLoggingAccessLog {
 
         @CustomType.Setter
         public Builder files(List<GetVirtualGatewaySpecLoggingAccessLogFile> files) {
-            this.files = Objects.requireNonNull(files);
+            if (files == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecLoggingAccessLog", "files");
+            }
+            this.files = files;
             return this;
         }
         public Builder files(GetVirtualGatewaySpecLoggingAccessLogFile... files) {
             return files(List.of(files));
         }
         public GetVirtualGatewaySpecLoggingAccessLog build() {
-            final var o = new GetVirtualGatewaySpecLoggingAccessLog();
-            o.files = files;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecLoggingAccessLog();
+            _resultValue.files = files;
+            return _resultValue;
         }
     }
 }

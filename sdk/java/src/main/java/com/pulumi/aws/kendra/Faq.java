@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,7 +20,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Kendra FAQ.
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,11 +47,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Faq(&#34;example&#34;, FaqArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
- *             .roleArn(aws_iam_role.example().arn())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name(&#34;Example&#34;)
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .s3Path(FaqS3PathArgs.builder()
- *                 .bucket(aws_s3_bucket.example().id())
- *                 .key(aws_s3_object.example().key())
+ *                 .bucket(exampleAwsS3Bucket.id())
+ *                 .key(exampleAwsS3Object.key())
  *                 .build())
  *             .tags(Map.of(&#34;Name&#34;, &#34;Example Kendra Faq&#34;))
  *             .build());
@@ -57,7 +60,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With File Format
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -81,19 +88,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Faq(&#34;example&#34;, FaqArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name(&#34;Example&#34;)
  *             .fileFormat(&#34;CSV&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .s3Path(FaqS3PathArgs.builder()
- *                 .bucket(aws_s3_bucket.example().id())
- *                 .key(aws_s3_object.example().key())
+ *                 .bucket(exampleAwsS3Bucket.id())
+ *                 .key(exampleAwsS3Object.key())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With Language Code
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -117,25 +129,27 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Faq(&#34;example&#34;, FaqArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name(&#34;Example&#34;)
  *             .languageCode(&#34;en&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .s3Path(FaqS3PathArgs.builder()
- *                 .bucket(aws_s3_bucket.example().id())
- *                 .key(aws_s3_object.example().key())
+ *                 .bucket(exampleAwsS3Bucket.id())
+ *                 .key(exampleAwsS3Object.key())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_kendra_faq` using the unique identifiers of the FAQ and index separated by a slash (`/`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
+ * $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
  * ```
  * 
  */
@@ -392,9 +406,6 @@ public class Faq extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

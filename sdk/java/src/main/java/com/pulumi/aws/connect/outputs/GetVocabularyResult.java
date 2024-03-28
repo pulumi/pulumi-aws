@@ -4,6 +4,7 @@
 package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -167,73 +168,106 @@ public final class GetVocabularyResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetVocabularyResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder content(String content) {
-            this.content = Objects.requireNonNull(content);
+            if (content == null) {
+              throw new MissingRequiredPropertyException("GetVocabularyResult", "content");
+            }
+            this.content = content;
             return this;
         }
         @CustomType.Setter
         public Builder failureReason(String failureReason) {
-            this.failureReason = Objects.requireNonNull(failureReason);
+            if (failureReason == null) {
+              throw new MissingRequiredPropertyException("GetVocabularyResult", "failureReason");
+            }
+            this.failureReason = failureReason;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVocabularyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("GetVocabularyResult", "instanceId");
+            }
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
         public Builder languageCode(String languageCode) {
-            this.languageCode = Objects.requireNonNull(languageCode);
+            if (languageCode == null) {
+              throw new MissingRequiredPropertyException("GetVocabularyResult", "languageCode");
+            }
+            this.languageCode = languageCode;
             return this;
         }
         @CustomType.Setter
         public Builder lastModifiedTime(String lastModifiedTime) {
-            this.lastModifiedTime = Objects.requireNonNull(lastModifiedTime);
+            if (lastModifiedTime == null) {
+              throw new MissingRequiredPropertyException("GetVocabularyResult", "lastModifiedTime");
+            }
+            this.lastModifiedTime = lastModifiedTime;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVocabularyResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetVocabularyResult", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetVocabularyResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vocabularyId(String vocabularyId) {
-            this.vocabularyId = Objects.requireNonNull(vocabularyId);
+            if (vocabularyId == null) {
+              throw new MissingRequiredPropertyException("GetVocabularyResult", "vocabularyId");
+            }
+            this.vocabularyId = vocabularyId;
             return this;
         }
         public GetVocabularyResult build() {
-            final var o = new GetVocabularyResult();
-            o.arn = arn;
-            o.content = content;
-            o.failureReason = failureReason;
-            o.id = id;
-            o.instanceId = instanceId;
-            o.languageCode = languageCode;
-            o.lastModifiedTime = lastModifiedTime;
-            o.name = name;
-            o.state = state;
-            o.tags = tags;
-            o.vocabularyId = vocabularyId;
-            return o;
+            final var _resultValue = new GetVocabularyResult();
+            _resultValue.arn = arn;
+            _resultValue.content = content;
+            _resultValue.failureReason = failureReason;
+            _resultValue.id = id;
+            _resultValue.instanceId = instanceId;
+            _resultValue.languageCode = languageCode;
+            _resultValue.lastModifiedTime = lastModifiedTime;
+            _resultValue.name = name;
+            _resultValue.state = state;
+            _resultValue.tags = tags;
+            _resultValue.vocabularyId = vocabularyId;
+            return _resultValue;
         }
     }
 }

@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * `aws.ec2.Eip` provides details about a specific Elastic IP.
  *
  * ## Example Usage
+ *
  * ### Search By Allocation ID (VPC only)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,8 +23,11 @@ import * as utilities from "../utilities";
  *     id: "eipalloc-12345678",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Search By Filters (EC2-Classic or VPC)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,8 +39,11 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Search By Public IP (EC2-Classic or VPC)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -44,8 +52,11 @@ import * as utilities from "../utilities";
  *     publicIp: "1.2.3.4",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Search By Tags (EC2-Classic or VPC)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -56,6 +67,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getElasticIp(args?: GetElasticIpArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticIpResult> {
     args = args || {};
@@ -161,8 +173,10 @@ export interface GetElasticIpResult {
  * `aws.ec2.Eip` provides details about a specific Elastic IP.
  *
  * ## Example Usage
+ *
  * ### Search By Allocation ID (VPC only)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -171,8 +185,11 @@ export interface GetElasticIpResult {
  *     id: "eipalloc-12345678",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Search By Filters (EC2-Classic or VPC)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -184,8 +201,11 @@ export interface GetElasticIpResult {
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Search By Public IP (EC2-Classic or VPC)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -194,8 +214,11 @@ export interface GetElasticIpResult {
  *     publicIp: "1.2.3.4",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Search By Tags (EC2-Classic or VPC)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -206,6 +229,7 @@ export interface GetElasticIpResult {
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getElasticIpOutput(args?: GetElasticIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticIpResult> {
     return pulumi.output(args).apply((a: any) => getElasticIp(a, opts))

@@ -12,13 +12,15 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.vpclattice.ListenerRule("test", {
- *     listenerIdentifier: aws_vpclattice_listener.example.listener_id,
- *     serviceIdentifier: aws_vpclattice_service.example.id,
+ *     name: "example",
+ *     listenerIdentifier: exampleAwsVpclatticeListener.listenerId,
+ *     serviceIdentifier: exampleAwsVpclatticeService.id,
  *     priority: 20,
  *     match: {
  *         httpMatch: {
@@ -41,11 +43,11 @@ import * as utilities from "../utilities";
  *         forward: {
  *             targetGroups: [
  *                 {
- *                     targetGroupIdentifier: aws_vpclattice_target_group.example.id,
+ *                     targetGroupIdentifier: example.id,
  *                     weight: 1,
  *                 },
  *                 {
- *                     targetGroupIdentifier: aws_vpclattice_target_group.example2.id,
+ *                     targetGroupIdentifier: example2.id,
  *                     weight: 2,
  *                 },
  *             ],
@@ -53,15 +55,19 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.vpclattice.ListenerRule("test", {
- *     listenerIdentifier: aws_vpclattice_listener.example.listener_id,
- *     serviceIdentifier: aws_vpclattice_service.example.id,
+ *     name: "example",
+ *     listenerIdentifier: example.listenerId,
+ *     serviceIdentifier: exampleAwsVpclatticeService.id,
  *     priority: 10,
  *     match: {
  *         httpMatch: {
@@ -80,13 +86,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Using `pulumi import`, import VPC Lattice Listener Rule using the `example_id_arg`. For example:
+ * Using `pulumi import`, import VPC Lattice Listener Rule using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:vpclattice/listenerRule:ListenerRule example rft-8012925589
+ * $ pulumi import aws:vpclattice/listenerRule:ListenerRule example service123/listener456/rule789
  * ```
  */
 export class ListenerRule extends pulumi.CustomResource {
@@ -214,8 +221,6 @@ export class ListenerRule extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ListenerRule.__pulumiType, name, resourceInputs, opts);
     }
 }

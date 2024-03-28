@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigateway.NewRequestValidator(ctx, "example", &apigateway.RequestValidatorArgs{
-//				RestApi:                   pulumi.Any(aws_api_gateway_rest_api.Example.Id),
+//				Name:                      pulumi.String("example"),
+//				RestApi:                   pulumi.Any(exampleAwsApiGatewayRestApi.Id),
 //				ValidateRequestBody:       pulumi.Bool(true),
 //				ValidateRequestParameters: pulumi.Bool(true),
 //			})
@@ -41,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_api_gateway_request_validator` using `REST-API-ID/REQUEST-VALIDATOR-ID`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
-//
+// $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
 // ```
 type RequestValidator struct {
 	pulumi.CustomResourceState

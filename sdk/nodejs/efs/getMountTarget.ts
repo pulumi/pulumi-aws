@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  *     mountTargetId: mountTargetId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getMountTarget(args?: GetMountTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetMountTargetResult> {
     args = args || {};
@@ -106,6 +108,7 @@ export interface GetMountTargetResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -116,6 +119,7 @@ export interface GetMountTargetResult {
  *     mountTargetId: mountTargetId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getMountTargetOutput(args?: GetMountTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMountTargetResult> {
     return pulumi.output(args).apply((a: any) => getMountTarget(a, opts))

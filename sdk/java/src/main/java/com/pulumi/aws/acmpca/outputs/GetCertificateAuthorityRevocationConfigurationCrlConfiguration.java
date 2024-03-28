@@ -4,6 +4,7 @@
 package com.pulumi.aws.acmpca.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -60,37 +61,52 @@ public final class GetCertificateAuthorityRevocationConfigurationCrlConfiguratio
 
         @CustomType.Setter
         public Builder customCname(String customCname) {
-            this.customCname = Objects.requireNonNull(customCname);
+            if (customCname == null) {
+              throw new MissingRequiredPropertyException("GetCertificateAuthorityRevocationConfigurationCrlConfiguration", "customCname");
+            }
+            this.customCname = customCname;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetCertificateAuthorityRevocationConfigurationCrlConfiguration", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder expirationInDays(Integer expirationInDays) {
-            this.expirationInDays = Objects.requireNonNull(expirationInDays);
+            if (expirationInDays == null) {
+              throw new MissingRequiredPropertyException("GetCertificateAuthorityRevocationConfigurationCrlConfiguration", "expirationInDays");
+            }
+            this.expirationInDays = expirationInDays;
             return this;
         }
         @CustomType.Setter
         public Builder s3BucketName(String s3BucketName) {
-            this.s3BucketName = Objects.requireNonNull(s3BucketName);
+            if (s3BucketName == null) {
+              throw new MissingRequiredPropertyException("GetCertificateAuthorityRevocationConfigurationCrlConfiguration", "s3BucketName");
+            }
+            this.s3BucketName = s3BucketName;
             return this;
         }
         @CustomType.Setter
         public Builder s3ObjectAcl(String s3ObjectAcl) {
-            this.s3ObjectAcl = Objects.requireNonNull(s3ObjectAcl);
+            if (s3ObjectAcl == null) {
+              throw new MissingRequiredPropertyException("GetCertificateAuthorityRevocationConfigurationCrlConfiguration", "s3ObjectAcl");
+            }
+            this.s3ObjectAcl = s3ObjectAcl;
             return this;
         }
         public GetCertificateAuthorityRevocationConfigurationCrlConfiguration build() {
-            final var o = new GetCertificateAuthorityRevocationConfigurationCrlConfiguration();
-            o.customCname = customCname;
-            o.enabled = enabled;
-            o.expirationInDays = expirationInDays;
-            o.s3BucketName = s3BucketName;
-            o.s3ObjectAcl = s3ObjectAcl;
-            return o;
+            final var _resultValue = new GetCertificateAuthorityRevocationConfigurationCrlConfiguration();
+            _resultValue.customCname = customCname;
+            _resultValue.enabled = enabled;
+            _resultValue.expirationInDays = expirationInDays;
+            _resultValue.s3BucketName = s3BucketName;
+            _resultValue.s3ObjectAcl = s3ObjectAcl;
+            return _resultValue;
         }
     }
 }

@@ -10,6 +10,7 @@ import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatele
 import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -145,6 +146,21 @@ public final class FirewallPolicyFirewallPolicyArgs extends com.pulumi.resources
         return Optional.ofNullable(this.statelessRuleGroupReferences);
     }
 
+    /**
+     * The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. &#34;You can only add a TLS inspection configuration to a new policy, not to an existing policy.&#34;  This cannot be removed from a FW Policy.
+     * 
+     */
+    @Import(name="tlsInspectionConfigurationArn")
+    private @Nullable Output<String> tlsInspectionConfigurationArn;
+
+    /**
+     * @return The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. &#34;You can only add a TLS inspection configuration to a new policy, not to an existing policy.&#34;  This cannot be removed from a FW Policy.
+     * 
+     */
+    public Optional<Output<String>> tlsInspectionConfigurationArn() {
+        return Optional.ofNullable(this.tlsInspectionConfigurationArn);
+    }
+
     private FirewallPolicyFirewallPolicyArgs() {}
 
     private FirewallPolicyFirewallPolicyArgs(FirewallPolicyFirewallPolicyArgs $) {
@@ -156,6 +172,7 @@ public final class FirewallPolicyFirewallPolicyArgs extends com.pulumi.resources
         this.statelessDefaultActions = $.statelessDefaultActions;
         this.statelessFragmentDefaultActions = $.statelessFragmentDefaultActions;
         this.statelessRuleGroupReferences = $.statelessRuleGroupReferences;
+        this.tlsInspectionConfigurationArn = $.tlsInspectionConfigurationArn;
     }
 
     public static Builder builder() {
@@ -410,9 +427,34 @@ public final class FirewallPolicyFirewallPolicyArgs extends com.pulumi.resources
             return statelessRuleGroupReferences(List.of(statelessRuleGroupReferences));
         }
 
+        /**
+         * @param tlsInspectionConfigurationArn The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. &#34;You can only add a TLS inspection configuration to a new policy, not to an existing policy.&#34;  This cannot be removed from a FW Policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tlsInspectionConfigurationArn(@Nullable Output<String> tlsInspectionConfigurationArn) {
+            $.tlsInspectionConfigurationArn = tlsInspectionConfigurationArn;
+            return this;
+        }
+
+        /**
+         * @param tlsInspectionConfigurationArn The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. &#34;You can only add a TLS inspection configuration to a new policy, not to an existing policy.&#34;  This cannot be removed from a FW Policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tlsInspectionConfigurationArn(String tlsInspectionConfigurationArn) {
+            return tlsInspectionConfigurationArn(Output.of(tlsInspectionConfigurationArn));
+        }
+
         public FirewallPolicyFirewallPolicyArgs build() {
-            $.statelessDefaultActions = Objects.requireNonNull($.statelessDefaultActions, "expected parameter 'statelessDefaultActions' to be non-null");
-            $.statelessFragmentDefaultActions = Objects.requireNonNull($.statelessFragmentDefaultActions, "expected parameter 'statelessFragmentDefaultActions' to be non-null");
+            if ($.statelessDefaultActions == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyFirewallPolicyArgs", "statelessDefaultActions");
+            }
+            if ($.statelessFragmentDefaultActions == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyFirewallPolicyArgs", "statelessFragmentDefaultActions");
+            }
             return $;
         }
     }

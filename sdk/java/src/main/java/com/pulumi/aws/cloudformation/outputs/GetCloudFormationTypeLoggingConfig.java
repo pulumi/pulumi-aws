@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudformation.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class GetCloudFormationTypeLoggingConfig {
 
         @CustomType.Setter
         public Builder logGroupName(String logGroupName) {
-            this.logGroupName = Objects.requireNonNull(logGroupName);
+            if (logGroupName == null) {
+              throw new MissingRequiredPropertyException("GetCloudFormationTypeLoggingConfig", "logGroupName");
+            }
+            this.logGroupName = logGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder logRoleArn(String logRoleArn) {
-            this.logRoleArn = Objects.requireNonNull(logRoleArn);
+            if (logRoleArn == null) {
+              throw new MissingRequiredPropertyException("GetCloudFormationTypeLoggingConfig", "logRoleArn");
+            }
+            this.logRoleArn = logRoleArn;
             return this;
         }
         public GetCloudFormationTypeLoggingConfig build() {
-            final var o = new GetCloudFormationTypeLoggingConfig();
-            o.logGroupName = logGroupName;
-            o.logRoleArn = logRoleArn;
-            return o;
+            final var _resultValue = new GetCloudFormationTypeLoggingConfig();
+            _resultValue.logGroupName = logGroupName;
+            _resultValue.logRoleArn = logRoleArn;
+            return _resultValue;
         }
     }
 }

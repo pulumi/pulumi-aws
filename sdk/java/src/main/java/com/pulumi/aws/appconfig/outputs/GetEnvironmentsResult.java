@@ -4,6 +4,7 @@
 package com.pulumi.aws.appconfig.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -63,12 +64,18 @@ public final class GetEnvironmentsResult {
 
         @CustomType.Setter
         public Builder applicationId(String applicationId) {
-            this.applicationId = Objects.requireNonNull(applicationId);
+            if (applicationId == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentsResult", "applicationId");
+            }
+            this.applicationId = applicationId;
             return this;
         }
         @CustomType.Setter
         public Builder environmentIds(List<String> environmentIds) {
-            this.environmentIds = Objects.requireNonNull(environmentIds);
+            if (environmentIds == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentsResult", "environmentIds");
+            }
+            this.environmentIds = environmentIds;
             return this;
         }
         public Builder environmentIds(String... environmentIds) {
@@ -76,15 +83,18 @@ public final class GetEnvironmentsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetEnvironmentsResult build() {
-            final var o = new GetEnvironmentsResult();
-            o.applicationId = applicationId;
-            o.environmentIds = environmentIds;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetEnvironmentsResult();
+            _resultValue.applicationId = applicationId;
+            _resultValue.environmentIds = environmentIds;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

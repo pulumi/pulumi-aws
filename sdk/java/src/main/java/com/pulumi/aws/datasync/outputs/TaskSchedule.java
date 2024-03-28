@@ -4,6 +4,7 @@
 package com.pulumi.aws.datasync.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class TaskSchedule {
 
         @CustomType.Setter
         public Builder scheduleExpression(String scheduleExpression) {
-            this.scheduleExpression = Objects.requireNonNull(scheduleExpression);
+            if (scheduleExpression == null) {
+              throw new MissingRequiredPropertyException("TaskSchedule", "scheduleExpression");
+            }
+            this.scheduleExpression = scheduleExpression;
             return this;
         }
         public TaskSchedule build() {
-            final var o = new TaskSchedule();
-            o.scheduleExpression = scheduleExpression;
-            return o;
+            final var _resultValue = new TaskSchedule();
+            _resultValue.scheduleExpression = scheduleExpression;
+            return _resultValue;
         }
     }
 }

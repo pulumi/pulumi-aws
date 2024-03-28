@@ -4,6 +4,7 @@
 package com.pulumi.aws.rds.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -89,31 +90,37 @@ public final class ClusterRestoreToPointInTime {
 
         @CustomType.Setter
         public Builder restoreToTime(@Nullable String restoreToTime) {
+
             this.restoreToTime = restoreToTime;
             return this;
         }
         @CustomType.Setter
         public Builder restoreType(@Nullable String restoreType) {
+
             this.restoreType = restoreType;
             return this;
         }
         @CustomType.Setter
         public Builder sourceClusterIdentifier(String sourceClusterIdentifier) {
-            this.sourceClusterIdentifier = Objects.requireNonNull(sourceClusterIdentifier);
+            if (sourceClusterIdentifier == null) {
+              throw new MissingRequiredPropertyException("ClusterRestoreToPointInTime", "sourceClusterIdentifier");
+            }
+            this.sourceClusterIdentifier = sourceClusterIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder useLatestRestorableTime(@Nullable Boolean useLatestRestorableTime) {
+
             this.useLatestRestorableTime = useLatestRestorableTime;
             return this;
         }
         public ClusterRestoreToPointInTime build() {
-            final var o = new ClusterRestoreToPointInTime();
-            o.restoreToTime = restoreToTime;
-            o.restoreType = restoreType;
-            o.sourceClusterIdentifier = sourceClusterIdentifier;
-            o.useLatestRestorableTime = useLatestRestorableTime;
-            return o;
+            final var _resultValue = new ClusterRestoreToPointInTime();
+            _resultValue.restoreToTime = restoreToTime;
+            _resultValue.restoreType = restoreType;
+            _resultValue.sourceClusterIdentifier = sourceClusterIdentifier;
+            _resultValue.useLatestRestorableTime = useLatestRestorableTime;
+            return _resultValue;
         }
     }
 }

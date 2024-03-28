@@ -102,37 +102,42 @@ public final class ClusterScalingConfiguration {
 
         @CustomType.Setter
         public Builder autoPause(@Nullable Boolean autoPause) {
+
             this.autoPause = autoPause;
             return this;
         }
         @CustomType.Setter
         public Builder maxCapacity(@Nullable Integer maxCapacity) {
+
             this.maxCapacity = maxCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder minCapacity(@Nullable Integer minCapacity) {
+
             this.minCapacity = minCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder secondsUntilAutoPause(@Nullable Integer secondsUntilAutoPause) {
+
             this.secondsUntilAutoPause = secondsUntilAutoPause;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutAction(@Nullable String timeoutAction) {
+
             this.timeoutAction = timeoutAction;
             return this;
         }
         public ClusterScalingConfiguration build() {
-            final var o = new ClusterScalingConfiguration();
-            o.autoPause = autoPause;
-            o.maxCapacity = maxCapacity;
-            o.minCapacity = minCapacity;
-            o.secondsUntilAutoPause = secondsUntilAutoPause;
-            o.timeoutAction = timeoutAction;
-            return o;
+            final var _resultValue = new ClusterScalingConfiguration();
+            _resultValue.autoPause = autoPause;
+            _resultValue.maxCapacity = maxCapacity;
+            _resultValue.minCapacity = minCapacity;
+            _resultValue.secondsUntilAutoPause = secondsUntilAutoPause;
+            _resultValue.timeoutAction = timeoutAction;
+            return _resultValue;
         }
     }
 }

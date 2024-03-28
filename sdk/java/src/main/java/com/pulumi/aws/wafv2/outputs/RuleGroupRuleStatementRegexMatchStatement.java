@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.outputs;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatch;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexMatchStatementTextTransformation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -79,28 +80,35 @@ public final class RuleGroupRuleStatementRegexMatchStatement {
 
         @CustomType.Setter
         public Builder fieldToMatch(@Nullable RuleGroupRuleStatementRegexMatchStatementFieldToMatch fieldToMatch) {
+
             this.fieldToMatch = fieldToMatch;
             return this;
         }
         @CustomType.Setter
         public Builder regexString(String regexString) {
-            this.regexString = Objects.requireNonNull(regexString);
+            if (regexString == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleStatementRegexMatchStatement", "regexString");
+            }
+            this.regexString = regexString;
             return this;
         }
         @CustomType.Setter
         public Builder textTransformations(List<RuleGroupRuleStatementRegexMatchStatementTextTransformation> textTransformations) {
-            this.textTransformations = Objects.requireNonNull(textTransformations);
+            if (textTransformations == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleStatementRegexMatchStatement", "textTransformations");
+            }
+            this.textTransformations = textTransformations;
             return this;
         }
         public Builder textTransformations(RuleGroupRuleStatementRegexMatchStatementTextTransformation... textTransformations) {
             return textTransformations(List.of(textTransformations));
         }
         public RuleGroupRuleStatementRegexMatchStatement build() {
-            final var o = new RuleGroupRuleStatementRegexMatchStatement();
-            o.fieldToMatch = fieldToMatch;
-            o.regexString = regexString;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRegexMatchStatement();
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.regexString = regexString;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

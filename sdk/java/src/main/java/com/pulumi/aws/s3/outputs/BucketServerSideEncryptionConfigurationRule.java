@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.aws.s3.outputs.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,19 +60,23 @@ public final class BucketServerSideEncryptionConfigurationRule {
 
         @CustomType.Setter
         public Builder applyServerSideEncryptionByDefault(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault applyServerSideEncryptionByDefault) {
-            this.applyServerSideEncryptionByDefault = Objects.requireNonNull(applyServerSideEncryptionByDefault);
+            if (applyServerSideEncryptionByDefault == null) {
+              throw new MissingRequiredPropertyException("BucketServerSideEncryptionConfigurationRule", "applyServerSideEncryptionByDefault");
+            }
+            this.applyServerSideEncryptionByDefault = applyServerSideEncryptionByDefault;
             return this;
         }
         @CustomType.Setter
         public Builder bucketKeyEnabled(@Nullable Boolean bucketKeyEnabled) {
+
             this.bucketKeyEnabled = bucketKeyEnabled;
             return this;
         }
         public BucketServerSideEncryptionConfigurationRule build() {
-            final var o = new BucketServerSideEncryptionConfigurationRule();
-            o.applyServerSideEncryptionByDefault = applyServerSideEncryptionByDefault;
-            o.bucketKeyEnabled = bucketKeyEnabled;
-            return o;
+            final var _resultValue = new BucketServerSideEncryptionConfigurationRule();
+            _resultValue.applyServerSideEncryptionByDefault = applyServerSideEncryptionByDefault;
+            _resultValue.bucketKeyEnabled = bucketKeyEnabled;
+            return _resultValue;
         }
     }
 }

@@ -16,6 +16,7 @@ namespace Pulumi.Aws.CloudHsmV2
     /// 
     /// The following example below creates an HSM module in CloudHSM cluster.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,10 +27,10 @@ namespace Pulumi.Aws.CloudHsmV2
     /// {
     ///     var cluster = Aws.CloudHsmV2.GetCluster.Invoke(new()
     ///     {
-    ///         ClusterId = @var.Cloudhsm_cluster_id,
+    ///         ClusterId = cloudhsmClusterId,
     ///     });
     /// 
-    ///     var cloudhsmV2Hsm = new Aws.CloudHsmV2.Hsm("cloudhsmV2Hsm", new()
+    ///     var cloudhsmV2Hsm = new Aws.CloudHsmV2.Hsm("cloudhsm_v2_hsm", new()
     ///     {
     ///         SubnetId = cluster.Apply(getClusterResult =&gt; getClusterResult.SubnetIds[0]),
     ///         ClusterId = cluster.Apply(getClusterResult =&gt; getClusterResult.ClusterId),
@@ -37,13 +38,14 @@ namespace Pulumi.Aws.CloudHsmV2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import HSM modules using their HSM ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
+    /// $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudhsmv2/hsm:Hsm")]

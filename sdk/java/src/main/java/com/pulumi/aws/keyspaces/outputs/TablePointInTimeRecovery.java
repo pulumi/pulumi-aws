@@ -44,13 +44,14 @@ public final class TablePointInTimeRecovery {
 
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         public TablePointInTimeRecovery build() {
-            final var o = new TablePointInTimeRecovery();
-            o.status = status;
-            return o;
+            final var _resultValue = new TablePointInTimeRecovery();
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

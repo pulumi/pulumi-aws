@@ -16,6 +16,10 @@ public final class ReplicationConfigurationDestination {
      * 
      */
     private @Nullable String availabilityZoneName;
+    /**
+     * @return The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
+     * 
+     */
     private @Nullable String fileSystemId;
     /**
      * @return The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
@@ -37,6 +41,10 @@ public final class ReplicationConfigurationDestination {
     public Optional<String> availabilityZoneName() {
         return Optional.ofNullable(this.availabilityZoneName);
     }
+    /**
+     * @return The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
+     * 
+     */
     public Optional<String> fileSystemId() {
         return Optional.ofNullable(this.fileSystemId);
     }
@@ -84,37 +92,42 @@ public final class ReplicationConfigurationDestination {
 
         @CustomType.Setter
         public Builder availabilityZoneName(@Nullable String availabilityZoneName) {
+
             this.availabilityZoneName = availabilityZoneName;
             return this;
         }
         @CustomType.Setter
         public Builder fileSystemId(@Nullable String fileSystemId) {
+
             this.fileSystemId = fileSystemId;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder region(@Nullable String region) {
+
             this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         public ReplicationConfigurationDestination build() {
-            final var o = new ReplicationConfigurationDestination();
-            o.availabilityZoneName = availabilityZoneName;
-            o.fileSystemId = fileSystemId;
-            o.kmsKeyId = kmsKeyId;
-            o.region = region;
-            o.status = status;
-            return o;
+            final var _resultValue = new ReplicationConfigurationDestination();
+            _resultValue.availabilityZoneName = availabilityZoneName;
+            _resultValue.fileSystemId = fileSystemId;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.region = region;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

@@ -59,19 +59,21 @@ public final class DataSourceHttpConfigAuthorizationConfig {
 
         @CustomType.Setter
         public Builder authorizationType(@Nullable String authorizationType) {
+
             this.authorizationType = authorizationType;
             return this;
         }
         @CustomType.Setter
         public Builder awsIamConfig(@Nullable DataSourceHttpConfigAuthorizationConfigAwsIamConfig awsIamConfig) {
+
             this.awsIamConfig = awsIamConfig;
             return this;
         }
         public DataSourceHttpConfigAuthorizationConfig build() {
-            final var o = new DataSourceHttpConfigAuthorizationConfig();
-            o.authorizationType = authorizationType;
-            o.awsIamConfig = awsIamConfig;
-            return o;
+            final var _resultValue = new DataSourceHttpConfigAuthorizationConfig();
+            _resultValue.authorizationType = authorizationType;
+            _resultValue.awsIamConfig = awsIamConfig;
+            return _resultValue;
         }
     }
 }

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,9 +30,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := gamelift.NewFleet(ctx, "example", &gamelift.FleetArgs{
-//				BuildId:         pulumi.Any(aws_gamelift_build.Example.Id),
+//				BuildId:         pulumi.Any(exampleAwsGameliftBuild.Id),
 //				Ec2InstanceType: pulumi.String("t2.micro"),
 //				FleetType:       pulumi.String("ON_DEMAND"),
+//				Name:            pulumi.String("example-fleet-name"),
 //				RuntimeConfiguration: &gamelift.FleetRuntimeConfigurationArgs{
 //					ServerProcesses: gamelift.FleetRuntimeConfigurationServerProcessArray{
 //						&gamelift.FleetRuntimeConfigurationServerProcessArgs{
@@ -49,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import GameLift Fleets using the ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
-//
+// $ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
 // ```
 type Fleet struct {
 	pulumi.CustomResourceState
@@ -115,10 +116,6 @@ func NewFleet(ctx *pulumi.Context,
 	if args.Ec2InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'Ec2InstanceType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Fleet
 	err := ctx.RegisterResource("aws:gamelift/fleet:Fleet", name, args, &resource, opts...)

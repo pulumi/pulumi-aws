@@ -11,14 +11,17 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS AccessAnalyzer Archive Rule.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.accessanalyzer.ArchiveRule("example", {
  *     analyzerName: "example-analyzer",
+ *     ruleName: "example-rule",
  *     filters: [
  *         {
  *             criteria: "condition.aws:UserId",
@@ -33,16 +36,16 @@ import * as utilities from "../utilities";
  *             eqs: ["false"],
  *         },
  *     ],
- *     ruleName: "example-rule",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AccessAnalyzer ArchiveRule using the `analyzer_name/rule_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
+ * $ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
  * ```
  */
 export class ArchiveRule extends pulumi.CustomResource {

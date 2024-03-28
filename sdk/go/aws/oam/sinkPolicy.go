@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS CloudWatch Observability Access Manager Sink Policy.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,27 +33,29 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSink, err := oam.NewSink(ctx, "exampleSink", nil)
+//			example, err := oam.NewSink(ctx, "example", &oam.SinkArgs{
+//				Name: pulumi.String("ExampleSink"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": []string{
+//						"action": []string{
 //							"oam:CreateLink",
 //							"oam:UpdateLink",
 //						},
-//						"Effect":   "Allow",
-//						"Resource": "*",
-//						"Principal": map[string]interface{}{
+//						"effect":   "Allow",
+//						"resource": "*",
+//						"principal": map[string]interface{}{
 //							"AWS": []string{
 //								"1111111111111",
 //								"222222222222",
 //							},
 //						},
-//						"Condition": map[string]interface{}{
+//						"condition": map[string]interface{}{
 //							"ForAllValues:StringEquals": map[string]interface{}{
 //								"oam:ResourceTypes": []string{
 //									"AWS::CloudWatch::Metric",
@@ -66,8 +70,8 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = oam.NewSinkPolicy(ctx, "exampleSinkPolicy", &oam.SinkPolicyArgs{
-//				SinkIdentifier: exampleSink.ID(),
+//			_, err = oam.NewSinkPolicy(ctx, "example", &oam.SinkPolicyArgs{
+//				SinkIdentifier: example.ID(),
 //				Policy:         pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -78,15 +82,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudWatch Observability Access Manager Sink Policy using the `sink_identifier`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:oam/sinkPolicy:SinkPolicy example arn:aws:oam:us-west-2:123456789012:sink/sink-id
-//
+// $ pulumi import aws:oam/sinkPolicy:SinkPolicy example arn:aws:oam:us-west-2:123456789012:sink/sink-id
 // ```
 type SinkPolicy struct {
 	pulumi.CustomResourceState

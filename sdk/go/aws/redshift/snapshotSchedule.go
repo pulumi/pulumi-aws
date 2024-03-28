@@ -14,6 +14,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,10 +28,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshift.NewSnapshotSchedule(ctx, "default", &redshift.SnapshotScheduleArgs{
+//				Identifier: pulumi.String("tf-redshift-snapshot-schedule"),
 //				Definitions: pulumi.StringArray{
 //					pulumi.String("rate(12 hours)"),
 //				},
-//				Identifier: pulumi.String("tf-redshift-snapshot-schedule"),
 //			})
 //			if err != nil {
 //				return err
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift Snapshot Schedule using the `identifier`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
-//
+// $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
 // ```
 type SnapshotSchedule struct {
 	pulumi.CustomResourceState
@@ -84,10 +84,6 @@ func NewSnapshotSchedule(ctx *pulumi.Context,
 	if args.Definitions == nil {
 		return nil, errors.New("invalid value for required argument 'Definitions'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SnapshotSchedule
 	err := ctx.RegisterResource("aws:redshift/snapshotSchedule:SnapshotSchedule", name, args, &resource, opts...)

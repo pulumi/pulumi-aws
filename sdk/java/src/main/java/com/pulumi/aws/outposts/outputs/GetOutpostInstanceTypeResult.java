@@ -4,6 +4,7 @@
 package com.pulumi.aws.outposts.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -62,21 +63,31 @@ public final class GetOutpostInstanceTypeResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetOutpostInstanceTypeResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetOutpostInstanceTypeResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceType(String instanceType) {
-            this.instanceType = Objects.requireNonNull(instanceType);
+            if (instanceType == null) {
+              throw new MissingRequiredPropertyException("GetOutpostInstanceTypeResult", "instanceType");
+            }
+            this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder preferredInstanceTypes(@Nullable List<String> preferredInstanceTypes) {
+
             this.preferredInstanceTypes = preferredInstanceTypes;
             return this;
         }
@@ -84,12 +95,12 @@ public final class GetOutpostInstanceTypeResult {
             return preferredInstanceTypes(List.of(preferredInstanceTypes));
         }
         public GetOutpostInstanceTypeResult build() {
-            final var o = new GetOutpostInstanceTypeResult();
-            o.arn = arn;
-            o.id = id;
-            o.instanceType = instanceType;
-            o.preferredInstanceTypes = preferredInstanceTypes;
-            return o;
+            final var _resultValue = new GetOutpostInstanceTypeResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.instanceType = instanceType;
+            _resultValue.preferredInstanceTypes = preferredInstanceTypes;
+            return _resultValue;
         }
     }
 }

@@ -45,6 +45,7 @@ __all__ = [
     'InstanceGroupEbsConfigArgs',
     'ManagedScalingPolicyComputeLimitArgs',
     'GetReleaseLabelsFiltersArgs',
+    'GetSupportedInstanceTypesSupportedInstanceTypeArgs',
 ]
 
 @pulumi.input_type
@@ -298,8 +299,10 @@ class ClusterCoreInstanceFleetInstanceTypeConfigArgs:
                  weighted_capacity: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] instance_type: EC2 instance type, such as m4.xlarge.
-        :param pulumi.Input[str] bid_price: Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
-        :param pulumi.Input[float] bid_price_as_percentage_of_on_demand_price: Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        :param pulumi.Input[str] bid_price: Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+               (MISSING)
+        :param pulumi.Input[float] bid_price_as_percentage_of_on_demand_price: Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+               (MISSING)
         :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs']]] configurations: Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs']]] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param pulumi.Input[int] weighted_capacity: Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
@@ -332,7 +335,8 @@ class ClusterCoreInstanceFleetInstanceTypeConfigArgs:
     @pulumi.getter(name="bidPrice")
     def bid_price(self) -> Optional[pulumi.Input[str]]:
         """
-        Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+        (MISSING)
         """
         return pulumi.get(self, "bid_price")
 
@@ -344,7 +348,8 @@ class ClusterCoreInstanceFleetInstanceTypeConfigArgs:
     @pulumi.getter(name="bidPriceAsPercentageOfOnDemandPrice")
     def bid_price_as_percentage_of_on_demand_price(self) -> Optional[pulumi.Input[float]]:
         """
-        Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+        (MISSING)
         """
         return pulumi.get(self, "bid_price_as_percentage_of_on_demand_price")
 
@@ -1206,8 +1211,10 @@ class ClusterMasterInstanceFleetInstanceTypeConfigArgs:
                  weighted_capacity: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] instance_type: EC2 instance type, such as m4.xlarge.
-        :param pulumi.Input[str] bid_price: Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
-        :param pulumi.Input[float] bid_price_as_percentage_of_on_demand_price: Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        :param pulumi.Input[str] bid_price: Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+               (MISSING)
+        :param pulumi.Input[float] bid_price_as_percentage_of_on_demand_price: Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+               (MISSING)
         :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs']]] configurations: Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs']]] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param pulumi.Input[int] weighted_capacity: Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
@@ -1240,7 +1247,8 @@ class ClusterMasterInstanceFleetInstanceTypeConfigArgs:
     @pulumi.getter(name="bidPrice")
     def bid_price(self) -> Optional[pulumi.Input[str]]:
         """
-        Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+        (MISSING)
         """
         return pulumi.get(self, "bid_price")
 
@@ -1252,7 +1260,8 @@ class ClusterMasterInstanceFleetInstanceTypeConfigArgs:
     @pulumi.getter(name="bidPriceAsPercentageOfOnDemandPrice")
     def bid_price_as_percentage_of_on_demand_price(self) -> Optional[pulumi.Input[float]]:
         """
-        Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+        (MISSING)
         """
         return pulumi.get(self, "bid_price_as_percentage_of_on_demand_price")
 
@@ -1892,8 +1901,10 @@ class InstanceFleetInstanceTypeConfigArgs:
                  weighted_capacity: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] instance_type: An EC2 instance type, such as m4.xlarge.
-        :param pulumi.Input[str] bid_price: The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
-        :param pulumi.Input[float] bid_price_as_percentage_of_on_demand_price: The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        :param pulumi.Input[str] bid_price: The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+               (MISSING)
+        :param pulumi.Input[float] bid_price_as_percentage_of_on_demand_price: The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+               (MISSING)
         :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigConfigurationArgs']]] configurations: A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
         :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigEbsConfigArgs']]] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param pulumi.Input[int] weighted_capacity: The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
@@ -1926,7 +1937,8 @@ class InstanceFleetInstanceTypeConfigArgs:
     @pulumi.getter(name="bidPrice")
     def bid_price(self) -> Optional[pulumi.Input[str]]:
         """
-        The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+        (MISSING)
         """
         return pulumi.get(self, "bid_price")
 
@@ -1938,7 +1950,8 @@ class InstanceFleetInstanceTypeConfigArgs:
     @pulumi.getter(name="bidPriceAsPercentageOfOnDemandPrice")
     def bid_price_as_percentage_of_on_demand_price(self) -> Optional[pulumi.Input[float]]:
         """
-        The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+        (MISSING)
         """
         return pulumi.get(self, "bid_price_as_percentage_of_on_demand_price")
 
@@ -2135,7 +2148,7 @@ class InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs:
     def __init__(__self__, *,
                  allocation_strategy: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] allocation_strategy: Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        :param pulumi.Input[str] allocation_strategy: Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
         """
         pulumi.set(__self__, "allocation_strategy", allocation_strategy)
 
@@ -2143,7 +2156,7 @@ class InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs:
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> pulumi.Input[str]:
         """
-        Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
         """
         return pulumi.get(self, "allocation_strategy")
 
@@ -2160,7 +2173,7 @@ class InstanceFleetLaunchSpecificationsSpotSpecificationArgs:
                  timeout_duration_minutes: pulumi.Input[int],
                  block_duration_minutes: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] allocation_strategy: Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        :param pulumi.Input[str] allocation_strategy: Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
         :param pulumi.Input[str] timeout_action: The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
         :param pulumi.Input[int] timeout_duration_minutes: The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
         :param pulumi.Input[int] block_duration_minutes: The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
@@ -2175,7 +2188,7 @@ class InstanceFleetLaunchSpecificationsSpotSpecificationArgs:
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> pulumi.Input[str]:
         """
-        Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
         """
         return pulumi.get(self, "allocation_strategy")
 
@@ -2410,5 +2423,177 @@ class GetReleaseLabelsFiltersArgs:
     @prefix.setter
     def prefix(self, value: Optional[str]):
         pulumi.set(self, "prefix", value)
+
+
+@pulumi.input_type
+class GetSupportedInstanceTypesSupportedInstanceTypeArgs:
+    def __init__(__self__, *,
+                 architecture: str,
+                 ebs_optimized_available: bool,
+                 ebs_optimized_by_default: bool,
+                 ebs_storage_only: bool,
+                 instance_family_id: str,
+                 is64_bits_only: bool,
+                 memory_gb: float,
+                 number_of_disks: int,
+                 storage_gb: int,
+                 type: str,
+                 vcpu: int):
+        """
+        :param str architecture: CPU architecture.
+        :param bool ebs_optimized_available: Indicates whether the instance type supports Amazon EBS optimization.
+        :param bool ebs_optimized_by_default: Indicates whether the instance type uses Amazon EBS optimization by default.
+        :param bool ebs_storage_only: Indicates whether the instance type only supports Amazon EBS.
+        :param str instance_family_id: The Amazon EC2 family and generation for the instance type.
+        :param bool is64_bits_only: Indicates whether the instance type only supports 64-bit architecture.
+        :param float memory_gb: Memory that is available to Amazon EMR from the instance type.
+        :param int number_of_disks: Number of disks for the instance type.
+        :param int storage_gb: Storage capacity of the instance type.
+        :param str type: Amazon EC2 instance type. For example, `m5.xlarge`.
+        :param int vcpu: The number of vCPUs available for the instance type.
+        """
+        pulumi.set(__self__, "architecture", architecture)
+        pulumi.set(__self__, "ebs_optimized_available", ebs_optimized_available)
+        pulumi.set(__self__, "ebs_optimized_by_default", ebs_optimized_by_default)
+        pulumi.set(__self__, "ebs_storage_only", ebs_storage_only)
+        pulumi.set(__self__, "instance_family_id", instance_family_id)
+        pulumi.set(__self__, "is64_bits_only", is64_bits_only)
+        pulumi.set(__self__, "memory_gb", memory_gb)
+        pulumi.set(__self__, "number_of_disks", number_of_disks)
+        pulumi.set(__self__, "storage_gb", storage_gb)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "vcpu", vcpu)
+
+    @property
+    @pulumi.getter
+    def architecture(self) -> str:
+        """
+        CPU architecture.
+        """
+        return pulumi.get(self, "architecture")
+
+    @architecture.setter
+    def architecture(self, value: str):
+        pulumi.set(self, "architecture", value)
+
+    @property
+    @pulumi.getter(name="ebsOptimizedAvailable")
+    def ebs_optimized_available(self) -> bool:
+        """
+        Indicates whether the instance type supports Amazon EBS optimization.
+        """
+        return pulumi.get(self, "ebs_optimized_available")
+
+    @ebs_optimized_available.setter
+    def ebs_optimized_available(self, value: bool):
+        pulumi.set(self, "ebs_optimized_available", value)
+
+    @property
+    @pulumi.getter(name="ebsOptimizedByDefault")
+    def ebs_optimized_by_default(self) -> bool:
+        """
+        Indicates whether the instance type uses Amazon EBS optimization by default.
+        """
+        return pulumi.get(self, "ebs_optimized_by_default")
+
+    @ebs_optimized_by_default.setter
+    def ebs_optimized_by_default(self, value: bool):
+        pulumi.set(self, "ebs_optimized_by_default", value)
+
+    @property
+    @pulumi.getter(name="ebsStorageOnly")
+    def ebs_storage_only(self) -> bool:
+        """
+        Indicates whether the instance type only supports Amazon EBS.
+        """
+        return pulumi.get(self, "ebs_storage_only")
+
+    @ebs_storage_only.setter
+    def ebs_storage_only(self, value: bool):
+        pulumi.set(self, "ebs_storage_only", value)
+
+    @property
+    @pulumi.getter(name="instanceFamilyId")
+    def instance_family_id(self) -> str:
+        """
+        The Amazon EC2 family and generation for the instance type.
+        """
+        return pulumi.get(self, "instance_family_id")
+
+    @instance_family_id.setter
+    def instance_family_id(self, value: str):
+        pulumi.set(self, "instance_family_id", value)
+
+    @property
+    @pulumi.getter(name="is64BitsOnly")
+    def is64_bits_only(self) -> bool:
+        """
+        Indicates whether the instance type only supports 64-bit architecture.
+        """
+        return pulumi.get(self, "is64_bits_only")
+
+    @is64_bits_only.setter
+    def is64_bits_only(self, value: bool):
+        pulumi.set(self, "is64_bits_only", value)
+
+    @property
+    @pulumi.getter(name="memoryGb")
+    def memory_gb(self) -> float:
+        """
+        Memory that is available to Amazon EMR from the instance type.
+        """
+        return pulumi.get(self, "memory_gb")
+
+    @memory_gb.setter
+    def memory_gb(self, value: float):
+        pulumi.set(self, "memory_gb", value)
+
+    @property
+    @pulumi.getter(name="numberOfDisks")
+    def number_of_disks(self) -> int:
+        """
+        Number of disks for the instance type.
+        """
+        return pulumi.get(self, "number_of_disks")
+
+    @number_of_disks.setter
+    def number_of_disks(self, value: int):
+        pulumi.set(self, "number_of_disks", value)
+
+    @property
+    @pulumi.getter(name="storageGb")
+    def storage_gb(self) -> int:
+        """
+        Storage capacity of the instance type.
+        """
+        return pulumi.get(self, "storage_gb")
+
+    @storage_gb.setter
+    def storage_gb(self, value: int):
+        pulumi.set(self, "storage_gb", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Amazon EC2 instance type. For example, `m5.xlarge`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: str):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def vcpu(self) -> int:
+        """
+        The number of vCPUs available for the instance type.
+        """
+        return pulumi.get(self, "vcpu")
+
+    @vcpu.setter
+    def vcpu(self, value: int):
+        pulumi.set(self, "vcpu", value)
 
 

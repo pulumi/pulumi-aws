@@ -75,6 +75,7 @@ public final class DeploymentGroupLoadBalancerInfo {
 
         @CustomType.Setter
         public Builder elbInfos(@Nullable List<DeploymentGroupLoadBalancerInfoElbInfo> elbInfos) {
+
             this.elbInfos = elbInfos;
             return this;
         }
@@ -83,6 +84,7 @@ public final class DeploymentGroupLoadBalancerInfo {
         }
         @CustomType.Setter
         public Builder targetGroupInfos(@Nullable List<DeploymentGroupLoadBalancerInfoTargetGroupInfo> targetGroupInfos) {
+
             this.targetGroupInfos = targetGroupInfos;
             return this;
         }
@@ -91,15 +93,16 @@ public final class DeploymentGroupLoadBalancerInfo {
         }
         @CustomType.Setter
         public Builder targetGroupPairInfo(@Nullable DeploymentGroupLoadBalancerInfoTargetGroupPairInfo targetGroupPairInfo) {
+
             this.targetGroupPairInfo = targetGroupPairInfo;
             return this;
         }
         public DeploymentGroupLoadBalancerInfo build() {
-            final var o = new DeploymentGroupLoadBalancerInfo();
-            o.elbInfos = elbInfos;
-            o.targetGroupInfos = targetGroupInfos;
-            o.targetGroupPairInfo = targetGroupPairInfo;
-            return o;
+            final var _resultValue = new DeploymentGroupLoadBalancerInfo();
+            _resultValue.elbInfos = elbInfos;
+            _resultValue.targetGroupInfos = targetGroupInfos;
+            _resultValue.targetGroupPairInfo = targetGroupPairInfo;
+            return _resultValue;
         }
     }
 }

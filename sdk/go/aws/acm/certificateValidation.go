@@ -22,108 +22,43 @@ import (
 // > **WARNING:** This resource implements a part of the validation workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
 //
 // ## Example Usage
-// ### DNS Validation with Route 53
-// ```go
-// package main
 //
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//	        exampleCertificate, err := acm.NewCertificate(ctx, "exampleCertificate", &acm.CertificateArgs{
-//	            DomainName:       pulumi.String("example.com"),
-//	            ValidationMethod: pulumi.String("DNS"),
-//	        })
-//	        if err != nil {
-//	            return err
-//	        }
-//
-//	        exampleZone, err := route53.LookupZone(ctx, &route53.LookupZoneArgs{
-//	            Name:        pulumi.StringRef("example.com"),
-//	            PrivateZone: pulumi.BoolRef(false),
-//	        }, nil)
-//	        if err != nil {
-//	            return err
-//	        }
-//
-//	        domainValidationOption := exampleCertificate.DomainValidationOptions.ApplyT(func(options []acm.CertificateDomainValidationOption) interface{} {
-//	            return options[0]
-//	        })
-//
-//	        certValidation, err := route53.NewRecord(ctx, "certValidation", &route53.RecordArgs{
-//	            Name: domainValidationOption.ApplyT(func(option interface{}) string {
-//	                return *option.(acm.CertificateDomainValidationOption).ResourceRecordName
-//	            }).(pulumi.StringOutput),
-//	            Type: domainValidationOption.ApplyT(func(option interface{}) string {
-//	                return *option.(acm.CertificateDomainValidationOption).ResourceRecordType
-//	            }).(pulumi.StringOutput),
-//	            Records: pulumi.StringArray{
-//	                domainValidationOption.ApplyT(func(option interface{}) string {
-//	                    return *option.(acm.CertificateDomainValidationOption).ResourceRecordValue
-//	                }).(pulumi.StringOutput),
-//	            },
-//	            Ttl:    pulumi.Int(10 * 60),
-//	            ZoneId: pulumi.String(exampleZone.ZoneId),
-//	        })
-//	        if err != nil {
-//	            return err
-//	        }
-//
-//	        certCertificateValidation, err := acm.NewCertificateValidation(ctx, "cert", &acm.CertificateValidationArgs{
-//	            CertificateArn: exampleCertificate.Arn,
-//	            ValidationRecordFqdns: pulumi.StringArray{
-//	                certValidation.Fqdn,
-//	            },
-//	        })
-//	        if err != nil {
-//	            return err
-//	        }
-//
-//	        ctx.Export("certificateArn", certCertificateValidation.CertificateArn)
-//
-//	        return nil
-//	    })
-//	}
-//
-// ```
 // ### Email Validation
+//
+// In this situation, the resource is simply a waiter for manual email approval of ACM certificates.
+//
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//	        exampleCertificate, err := acm.NewCertificate(ctx, "exampleCertificate", &acm.CertificateArgs{
-//	            DomainName: pulumi.String("example.com"),
-//	            ValidationMethod: pulumi.String("EMAIL"),
-//	        })
-//	        if err != nil {
-//	            return err
-//	        }
-//
-//	        _, err = acm.NewCertificateValidation(ctx, "exampleCertificateValidation", &acm.CertificateValidationArgs{
-//	            CertificateArn: exampleCertificate.Arn,
-//	        })
-//	        if err != nil {
-//	            return err
-//	        }
+//			example, err := acm.NewCertificate(ctx, "example", &acm.CertificateArgs{
+//				DomainName:       pulumi.String("example.com"),
+//				ValidationMethod: pulumi.String("EMAIL"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = acm.NewCertificateValidation(ctx, "example", &acm.CertificateValidationArgs{
+//				CertificateArn: example.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type CertificateValidation struct {
 	pulumi.CustomResourceState
 

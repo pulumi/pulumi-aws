@@ -4,6 +4,7 @@
 package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics 
 
         @CustomType.Setter
         public Builder object(String object) {
-            this.object = Objects.requireNonNull(object);
+            if (object == null) {
+              throw new MissingRequiredPropertyException("FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics", "object");
+            }
+            this.object = object;
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics build() {
-            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics();
-            o.object = object;
-            return o;
+            final var _resultValue = new FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics();
+            _resultValue.object = object;
+            return _resultValue;
         }
     }
 }

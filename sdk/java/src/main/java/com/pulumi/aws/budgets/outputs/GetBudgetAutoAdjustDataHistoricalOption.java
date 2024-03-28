@@ -4,6 +4,7 @@
 package com.pulumi.aws.budgets.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class GetBudgetAutoAdjustDataHistoricalOption {
 
         @CustomType.Setter
         public Builder budgetAdjustmentPeriod(Integer budgetAdjustmentPeriod) {
-            this.budgetAdjustmentPeriod = Objects.requireNonNull(budgetAdjustmentPeriod);
+            if (budgetAdjustmentPeriod == null) {
+              throw new MissingRequiredPropertyException("GetBudgetAutoAdjustDataHistoricalOption", "budgetAdjustmentPeriod");
+            }
+            this.budgetAdjustmentPeriod = budgetAdjustmentPeriod;
             return this;
         }
         @CustomType.Setter
         public Builder lookbackAvailablePeriods(Integer lookbackAvailablePeriods) {
-            this.lookbackAvailablePeriods = Objects.requireNonNull(lookbackAvailablePeriods);
+            if (lookbackAvailablePeriods == null) {
+              throw new MissingRequiredPropertyException("GetBudgetAutoAdjustDataHistoricalOption", "lookbackAvailablePeriods");
+            }
+            this.lookbackAvailablePeriods = lookbackAvailablePeriods;
             return this;
         }
         public GetBudgetAutoAdjustDataHistoricalOption build() {
-            final var o = new GetBudgetAutoAdjustDataHistoricalOption();
-            o.budgetAdjustmentPeriod = budgetAdjustmentPeriod;
-            o.lookbackAvailablePeriods = lookbackAvailablePeriods;
-            return o;
+            final var _resultValue = new GetBudgetAutoAdjustDataHistoricalOption();
+            _resultValue.budgetAdjustmentPeriod = budgetAdjustmentPeriod;
+            _resultValue.lookbackAvailablePeriods = lookbackAvailablePeriods;
+            return _resultValue;
         }
     }
 }

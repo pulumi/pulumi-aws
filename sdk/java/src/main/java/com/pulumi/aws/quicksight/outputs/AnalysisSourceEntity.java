@@ -44,13 +44,14 @@ public final class AnalysisSourceEntity {
 
         @CustomType.Setter
         public Builder sourceTemplate(@Nullable AnalysisSourceEntitySourceTemplate sourceTemplate) {
+
             this.sourceTemplate = sourceTemplate;
             return this;
         }
         public AnalysisSourceEntity build() {
-            final var o = new AnalysisSourceEntity();
-            o.sourceTemplate = sourceTemplate;
-            return o;
+            final var _resultValue = new AnalysisSourceEntity();
+            _resultValue.sourceTemplate = sourceTemplate;
+            return _resultValue;
         }
     }
 }

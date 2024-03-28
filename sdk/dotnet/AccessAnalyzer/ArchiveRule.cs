@@ -13,8 +13,10 @@ namespace Pulumi.Aws.AccessAnalyzer
     /// Resource for managing an AWS AccessAnalyzer Archive Rule.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,6 +28,7 @@ namespace Pulumi.Aws.AccessAnalyzer
     ///     var example = new Aws.AccessAnalyzer.ArchiveRule("example", new()
     ///     {
     ///         AnalyzerName = "example-analyzer",
+    ///         RuleName = "example-rule",
     ///         Filters = new[]
     ///         {
     ///             new Aws.AccessAnalyzer.Inputs.ArchiveRuleFilterArgs
@@ -50,18 +53,18 @@ namespace Pulumi.Aws.AccessAnalyzer
     ///                 },
     ///             },
     ///         },
-    ///         RuleName = "example-rule",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AccessAnalyzer ArchiveRule using the `analyzer_name/rule_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
+    /// $ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
     /// ```
     /// </summary>
     [AwsResourceType("aws:accessanalyzer/archiveRule:ArchiveRule")]

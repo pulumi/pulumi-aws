@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,7 +23,7 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleDirectory = new Aws.DirectoryService.Directory("exampleDirectory", new()
+    ///     var example = new Aws.DirectoryService.Directory("example", new()
     ///     {
     ///         Name = "tf-example",
     ///         Password = "SuperSecretPassw0rd",
@@ -30,30 +31,31 @@ namespace Pulumi.Aws.DirectoryService
     ///         Edition = "Standard",
     ///         VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
     ///         {
-    ///             VpcId = aws_vpc.Example.Id,
-    ///             SubnetIds = aws_subnet.Example.Select(__item =&gt; __item.Id).ToList(),
+    ///             VpcId = exampleAwsVpc.Id,
+    ///             SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///         },
     ///     });
     /// 
-    ///     var exampleSharedDirectory = new Aws.DirectoryService.SharedDirectory("exampleSharedDirectory", new()
+    ///     var exampleSharedDirectory = new Aws.DirectoryService.SharedDirectory("example", new()
     ///     {
-    ///         DirectoryId = exampleDirectory.Id,
+    ///         DirectoryId = example.Id,
     ///         Notes = "You wanna have a catch?",
     ///         Target = new Aws.DirectoryService.Inputs.SharedDirectoryTargetArgs
     ///         {
-    ///             Id = data.Aws_caller_identity.Receiver.Account_id,
+    ///             Id = receiver.AccountId,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Directory Service Shared Directories using the owner directory ID/shared directory ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:directoryservice/sharedDirectory:SharedDirectory example d-1234567890/d-9267633ece
+    /// $ pulumi import aws:directoryservice/sharedDirectory:SharedDirectory example d-1234567890/d-9267633ece
     /// ```
     /// </summary>
     [AwsResourceType("aws:directoryservice/sharedDirectory:SharedDirectory")]

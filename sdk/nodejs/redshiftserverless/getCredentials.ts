@@ -9,14 +9,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.redshiftserverless.getCredentials({
- *     workgroupName: aws_redshiftserverless_workgroup.example.workgroup_name,
+ *     workgroupName: exampleAwsRedshiftserverlessWorkgroup.workgroupName,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCredentials(args: GetCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialsResult> {
 
@@ -75,14 +77,16 @@ export interface GetCredentialsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.redshiftserverless.getCredentials({
- *     workgroupName: aws_redshiftserverless_workgroup.example.workgroup_name,
+ *     workgroupName: exampleAwsRedshiftserverlessWorkgroup.workgroupName,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCredentialsOutput(args: GetCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialsResult> {
     return pulumi.output(args).apply((a: any) => getCredentials(a, opts))

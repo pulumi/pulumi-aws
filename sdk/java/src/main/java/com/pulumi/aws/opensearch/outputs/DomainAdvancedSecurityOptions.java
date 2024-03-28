@@ -5,6 +5,7 @@ package com.pulumi.aws.opensearch.outputs;
 
 import com.pulumi.aws.opensearch.outputs.DomainAdvancedSecurityOptionsMasterUserOptions;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -87,31 +88,37 @@ public final class DomainAdvancedSecurityOptions {
 
         @CustomType.Setter
         public Builder anonymousAuthEnabled(@Nullable Boolean anonymousAuthEnabled) {
+
             this.anonymousAuthEnabled = anonymousAuthEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("DomainAdvancedSecurityOptions", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder internalUserDatabaseEnabled(@Nullable Boolean internalUserDatabaseEnabled) {
+
             this.internalUserDatabaseEnabled = internalUserDatabaseEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder masterUserOptions(@Nullable DomainAdvancedSecurityOptionsMasterUserOptions masterUserOptions) {
+
             this.masterUserOptions = masterUserOptions;
             return this;
         }
         public DomainAdvancedSecurityOptions build() {
-            final var o = new DomainAdvancedSecurityOptions();
-            o.anonymousAuthEnabled = anonymousAuthEnabled;
-            o.enabled = enabled;
-            o.internalUserDatabaseEnabled = internalUserDatabaseEnabled;
-            o.masterUserOptions = masterUserOptions;
-            return o;
+            final var _resultValue = new DomainAdvancedSecurityOptions();
+            _resultValue.anonymousAuthEnabled = anonymousAuthEnabled;
+            _resultValue.enabled = enabled;
+            _resultValue.internalUserDatabaseEnabled = internalUserDatabaseEnabled;
+            _resultValue.masterUserOptions = masterUserOptions;
+            return _resultValue;
         }
     }
 }

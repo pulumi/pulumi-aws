@@ -1383,6 +1383,208 @@ func (o GetBrokerEncryptionOptionArrayOutput) Index(i pulumi.IntInput) GetBroker
 	}).(GetBrokerEncryptionOptionOutput)
 }
 
+type GetBrokerEngineTypesBrokerEngineType struct {
+	// The MQ engine type to return version details for.
+	EngineType string `pulumi:"engineType"`
+	// The list of engine versions.
+	EngineVersions []GetBrokerEngineTypesBrokerEngineTypeEngineVersion `pulumi:"engineVersions"`
+}
+
+// GetBrokerEngineTypesBrokerEngineTypeInput is an input type that accepts GetBrokerEngineTypesBrokerEngineTypeArgs and GetBrokerEngineTypesBrokerEngineTypeOutput values.
+// You can construct a concrete instance of `GetBrokerEngineTypesBrokerEngineTypeInput` via:
+//
+//	GetBrokerEngineTypesBrokerEngineTypeArgs{...}
+type GetBrokerEngineTypesBrokerEngineTypeInput interface {
+	pulumi.Input
+
+	ToGetBrokerEngineTypesBrokerEngineTypeOutput() GetBrokerEngineTypesBrokerEngineTypeOutput
+	ToGetBrokerEngineTypesBrokerEngineTypeOutputWithContext(context.Context) GetBrokerEngineTypesBrokerEngineTypeOutput
+}
+
+type GetBrokerEngineTypesBrokerEngineTypeArgs struct {
+	// The MQ engine type to return version details for.
+	EngineType pulumi.StringInput `pulumi:"engineType"`
+	// The list of engine versions.
+	EngineVersions GetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayInput `pulumi:"engineVersions"`
+}
+
+func (GetBrokerEngineTypesBrokerEngineTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBrokerEngineTypesBrokerEngineType)(nil)).Elem()
+}
+
+func (i GetBrokerEngineTypesBrokerEngineTypeArgs) ToGetBrokerEngineTypesBrokerEngineTypeOutput() GetBrokerEngineTypesBrokerEngineTypeOutput {
+	return i.ToGetBrokerEngineTypesBrokerEngineTypeOutputWithContext(context.Background())
+}
+
+func (i GetBrokerEngineTypesBrokerEngineTypeArgs) ToGetBrokerEngineTypesBrokerEngineTypeOutputWithContext(ctx context.Context) GetBrokerEngineTypesBrokerEngineTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerEngineTypesBrokerEngineTypeOutput)
+}
+
+// GetBrokerEngineTypesBrokerEngineTypeArrayInput is an input type that accepts GetBrokerEngineTypesBrokerEngineTypeArray and GetBrokerEngineTypesBrokerEngineTypeArrayOutput values.
+// You can construct a concrete instance of `GetBrokerEngineTypesBrokerEngineTypeArrayInput` via:
+//
+//	GetBrokerEngineTypesBrokerEngineTypeArray{ GetBrokerEngineTypesBrokerEngineTypeArgs{...} }
+type GetBrokerEngineTypesBrokerEngineTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetBrokerEngineTypesBrokerEngineTypeArrayOutput() GetBrokerEngineTypesBrokerEngineTypeArrayOutput
+	ToGetBrokerEngineTypesBrokerEngineTypeArrayOutputWithContext(context.Context) GetBrokerEngineTypesBrokerEngineTypeArrayOutput
+}
+
+type GetBrokerEngineTypesBrokerEngineTypeArray []GetBrokerEngineTypesBrokerEngineTypeInput
+
+func (GetBrokerEngineTypesBrokerEngineTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBrokerEngineTypesBrokerEngineType)(nil)).Elem()
+}
+
+func (i GetBrokerEngineTypesBrokerEngineTypeArray) ToGetBrokerEngineTypesBrokerEngineTypeArrayOutput() GetBrokerEngineTypesBrokerEngineTypeArrayOutput {
+	return i.ToGetBrokerEngineTypesBrokerEngineTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetBrokerEngineTypesBrokerEngineTypeArray) ToGetBrokerEngineTypesBrokerEngineTypeArrayOutputWithContext(ctx context.Context) GetBrokerEngineTypesBrokerEngineTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerEngineTypesBrokerEngineTypeArrayOutput)
+}
+
+type GetBrokerEngineTypesBrokerEngineTypeOutput struct{ *pulumi.OutputState }
+
+func (GetBrokerEngineTypesBrokerEngineTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBrokerEngineTypesBrokerEngineType)(nil)).Elem()
+}
+
+func (o GetBrokerEngineTypesBrokerEngineTypeOutput) ToGetBrokerEngineTypesBrokerEngineTypeOutput() GetBrokerEngineTypesBrokerEngineTypeOutput {
+	return o
+}
+
+func (o GetBrokerEngineTypesBrokerEngineTypeOutput) ToGetBrokerEngineTypesBrokerEngineTypeOutputWithContext(ctx context.Context) GetBrokerEngineTypesBrokerEngineTypeOutput {
+	return o
+}
+
+// The MQ engine type to return version details for.
+func (o GetBrokerEngineTypesBrokerEngineTypeOutput) EngineType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrokerEngineTypesBrokerEngineType) string { return v.EngineType }).(pulumi.StringOutput)
+}
+
+// The list of engine versions.
+func (o GetBrokerEngineTypesBrokerEngineTypeOutput) EngineVersions() GetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayOutput {
+	return o.ApplyT(func(v GetBrokerEngineTypesBrokerEngineType) []GetBrokerEngineTypesBrokerEngineTypeEngineVersion {
+		return v.EngineVersions
+	}).(GetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayOutput)
+}
+
+type GetBrokerEngineTypesBrokerEngineTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBrokerEngineTypesBrokerEngineTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBrokerEngineTypesBrokerEngineType)(nil)).Elem()
+}
+
+func (o GetBrokerEngineTypesBrokerEngineTypeArrayOutput) ToGetBrokerEngineTypesBrokerEngineTypeArrayOutput() GetBrokerEngineTypesBrokerEngineTypeArrayOutput {
+	return o
+}
+
+func (o GetBrokerEngineTypesBrokerEngineTypeArrayOutput) ToGetBrokerEngineTypesBrokerEngineTypeArrayOutputWithContext(ctx context.Context) GetBrokerEngineTypesBrokerEngineTypeArrayOutput {
+	return o
+}
+
+func (o GetBrokerEngineTypesBrokerEngineTypeArrayOutput) Index(i pulumi.IntInput) GetBrokerEngineTypesBrokerEngineTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBrokerEngineTypesBrokerEngineType {
+		return vs[0].([]GetBrokerEngineTypesBrokerEngineType)[vs[1].(int)]
+	}).(GetBrokerEngineTypesBrokerEngineTypeOutput)
+}
+
+type GetBrokerEngineTypesBrokerEngineTypeEngineVersion struct {
+	Name string `pulumi:"name"`
+}
+
+// GetBrokerEngineTypesBrokerEngineTypeEngineVersionInput is an input type that accepts GetBrokerEngineTypesBrokerEngineTypeEngineVersionArgs and GetBrokerEngineTypesBrokerEngineTypeEngineVersionOutput values.
+// You can construct a concrete instance of `GetBrokerEngineTypesBrokerEngineTypeEngineVersionInput` via:
+//
+//	GetBrokerEngineTypesBrokerEngineTypeEngineVersionArgs{...}
+type GetBrokerEngineTypesBrokerEngineTypeEngineVersionInput interface {
+	pulumi.Input
+
+	ToGetBrokerEngineTypesBrokerEngineTypeEngineVersionOutput() GetBrokerEngineTypesBrokerEngineTypeEngineVersionOutput
+	ToGetBrokerEngineTypesBrokerEngineTypeEngineVersionOutputWithContext(context.Context) GetBrokerEngineTypesBrokerEngineTypeEngineVersionOutput
+}
+
+type GetBrokerEngineTypesBrokerEngineTypeEngineVersionArgs struct {
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetBrokerEngineTypesBrokerEngineTypeEngineVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBrokerEngineTypesBrokerEngineTypeEngineVersion)(nil)).Elem()
+}
+
+func (i GetBrokerEngineTypesBrokerEngineTypeEngineVersionArgs) ToGetBrokerEngineTypesBrokerEngineTypeEngineVersionOutput() GetBrokerEngineTypesBrokerEngineTypeEngineVersionOutput {
+	return i.ToGetBrokerEngineTypesBrokerEngineTypeEngineVersionOutputWithContext(context.Background())
+}
+
+func (i GetBrokerEngineTypesBrokerEngineTypeEngineVersionArgs) ToGetBrokerEngineTypesBrokerEngineTypeEngineVersionOutputWithContext(ctx context.Context) GetBrokerEngineTypesBrokerEngineTypeEngineVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerEngineTypesBrokerEngineTypeEngineVersionOutput)
+}
+
+// GetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayInput is an input type that accepts GetBrokerEngineTypesBrokerEngineTypeEngineVersionArray and GetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayOutput values.
+// You can construct a concrete instance of `GetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayInput` via:
+//
+//	GetBrokerEngineTypesBrokerEngineTypeEngineVersionArray{ GetBrokerEngineTypesBrokerEngineTypeEngineVersionArgs{...} }
+type GetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayInput interface {
+	pulumi.Input
+
+	ToGetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayOutput() GetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayOutput
+	ToGetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayOutputWithContext(context.Context) GetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayOutput
+}
+
+type GetBrokerEngineTypesBrokerEngineTypeEngineVersionArray []GetBrokerEngineTypesBrokerEngineTypeEngineVersionInput
+
+func (GetBrokerEngineTypesBrokerEngineTypeEngineVersionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBrokerEngineTypesBrokerEngineTypeEngineVersion)(nil)).Elem()
+}
+
+func (i GetBrokerEngineTypesBrokerEngineTypeEngineVersionArray) ToGetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayOutput() GetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayOutput {
+	return i.ToGetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayOutputWithContext(context.Background())
+}
+
+func (i GetBrokerEngineTypesBrokerEngineTypeEngineVersionArray) ToGetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayOutputWithContext(ctx context.Context) GetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayOutput)
+}
+
+type GetBrokerEngineTypesBrokerEngineTypeEngineVersionOutput struct{ *pulumi.OutputState }
+
+func (GetBrokerEngineTypesBrokerEngineTypeEngineVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBrokerEngineTypesBrokerEngineTypeEngineVersion)(nil)).Elem()
+}
+
+func (o GetBrokerEngineTypesBrokerEngineTypeEngineVersionOutput) ToGetBrokerEngineTypesBrokerEngineTypeEngineVersionOutput() GetBrokerEngineTypesBrokerEngineTypeEngineVersionOutput {
+	return o
+}
+
+func (o GetBrokerEngineTypesBrokerEngineTypeEngineVersionOutput) ToGetBrokerEngineTypesBrokerEngineTypeEngineVersionOutputWithContext(ctx context.Context) GetBrokerEngineTypesBrokerEngineTypeEngineVersionOutput {
+	return o
+}
+
+func (o GetBrokerEngineTypesBrokerEngineTypeEngineVersionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrokerEngineTypesBrokerEngineTypeEngineVersion) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBrokerEngineTypesBrokerEngineTypeEngineVersion)(nil)).Elem()
+}
+
+func (o GetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayOutput) ToGetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayOutput() GetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayOutput {
+	return o
+}
+
+func (o GetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayOutput) ToGetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayOutputWithContext(ctx context.Context) GetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayOutput {
+	return o
+}
+
+func (o GetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayOutput) Index(i pulumi.IntInput) GetBrokerEngineTypesBrokerEngineTypeEngineVersionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBrokerEngineTypesBrokerEngineTypeEngineVersion {
+		return vs[0].([]GetBrokerEngineTypesBrokerEngineTypeEngineVersion)[vs[1].(int)]
+	}).(GetBrokerEngineTypesBrokerEngineTypeEngineVersionOutput)
+}
+
 type GetBrokerInstance struct {
 	ConsoleUrl string   `pulumi:"consoleUrl"`
 	Endpoints  []string `pulumi:"endpoints"`
@@ -2130,6 +2332,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerConfigurationInput)(nil)).Elem(), GetBrokerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerEncryptionOptionInput)(nil)).Elem(), GetBrokerEncryptionOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerEncryptionOptionArrayInput)(nil)).Elem(), GetBrokerEncryptionOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerEngineTypesBrokerEngineTypeInput)(nil)).Elem(), GetBrokerEngineTypesBrokerEngineTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerEngineTypesBrokerEngineTypeArrayInput)(nil)).Elem(), GetBrokerEngineTypesBrokerEngineTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerEngineTypesBrokerEngineTypeEngineVersionInput)(nil)).Elem(), GetBrokerEngineTypesBrokerEngineTypeEngineVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayInput)(nil)).Elem(), GetBrokerEngineTypesBrokerEngineTypeEngineVersionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerInstanceInput)(nil)).Elem(), GetBrokerInstanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerInstanceArrayInput)(nil)).Elem(), GetBrokerInstanceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerLdapServerMetadataInput)(nil)).Elem(), GetBrokerLdapServerMetadataArgs{})
@@ -2159,6 +2365,10 @@ func init() {
 	pulumi.RegisterOutputType(GetBrokerConfigurationOutput{})
 	pulumi.RegisterOutputType(GetBrokerEncryptionOptionOutput{})
 	pulumi.RegisterOutputType(GetBrokerEncryptionOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetBrokerEngineTypesBrokerEngineTypeOutput{})
+	pulumi.RegisterOutputType(GetBrokerEngineTypesBrokerEngineTypeArrayOutput{})
+	pulumi.RegisterOutputType(GetBrokerEngineTypesBrokerEngineTypeEngineVersionOutput{})
+	pulumi.RegisterOutputType(GetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayOutput{})
 	pulumi.RegisterOutputType(GetBrokerInstanceOutput{})
 	pulumi.RegisterOutputType(GetBrokerInstanceArrayOutput{})
 	pulumi.RegisterOutputType(GetBrokerLdapServerMetadataOutput{})

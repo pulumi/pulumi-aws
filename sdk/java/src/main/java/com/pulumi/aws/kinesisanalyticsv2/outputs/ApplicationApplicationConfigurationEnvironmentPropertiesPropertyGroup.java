@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesisanalyticsv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -57,19 +58,25 @@ public final class ApplicationApplicationConfigurationEnvironmentPropertiesPrope
 
         @CustomType.Setter
         public Builder propertyGroupId(String propertyGroupId) {
-            this.propertyGroupId = Objects.requireNonNull(propertyGroupId);
+            if (propertyGroupId == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup", "propertyGroupId");
+            }
+            this.propertyGroupId = propertyGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder propertyMap(Map<String,String> propertyMap) {
-            this.propertyMap = Objects.requireNonNull(propertyMap);
+            if (propertyMap == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup", "propertyMap");
+            }
+            this.propertyMap = propertyMap;
             return this;
         }
         public ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup build() {
-            final var o = new ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup();
-            o.propertyGroupId = propertyGroupId;
-            o.propertyMap = propertyMap;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup();
+            _resultValue.propertyGroupId = propertyGroupId;
+            _resultValue.propertyMap = propertyMap;
+            return _resultValue;
         }
     }
 }

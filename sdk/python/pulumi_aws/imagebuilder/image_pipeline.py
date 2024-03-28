@@ -561,24 +561,27 @@ class ImagePipeline(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.imagebuilder.ImagePipeline("example",
-            image_recipe_arn=aws_imagebuilder_image_recipe["example"]["arn"],
-            infrastructure_configuration_arn=aws_imagebuilder_infrastructure_configuration["example"]["arn"],
+            image_recipe_arn=example_aws_imagebuilder_image_recipe["arn"],
+            infrastructure_configuration_arn=example_aws_imagebuilder_infrastructure_configuration["arn"],
+            name="example",
             schedule=aws.imagebuilder.ImagePipelineScheduleArgs(
                 schedule_expression="cron(0 0 * * ? *)",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_imagebuilder_image_pipeline` resources using the Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
+        $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -609,24 +612,27 @@ class ImagePipeline(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.imagebuilder.ImagePipeline("example",
-            image_recipe_arn=aws_imagebuilder_image_recipe["example"]["arn"],
-            infrastructure_configuration_arn=aws_imagebuilder_infrastructure_configuration["example"]["arn"],
+            image_recipe_arn=example_aws_imagebuilder_image_recipe["arn"],
+            infrastructure_configuration_arn=example_aws_imagebuilder_infrastructure_configuration["arn"],
+            name="example",
             schedule=aws.imagebuilder.ImagePipelineScheduleArgs(
                 schedule_expression="cron(0 0 * * ? *)",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_imagebuilder_image_pipeline` resources using the Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
+        $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -686,8 +692,6 @@ class ImagePipeline(pulumi.CustomResource):
             __props__.__dict__["date_updated"] = None
             __props__.__dict__["platform"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ImagePipeline, __self__).__init__(
             'aws:imagebuilder/imagePipeline:ImagePipeline',
             resource_name,

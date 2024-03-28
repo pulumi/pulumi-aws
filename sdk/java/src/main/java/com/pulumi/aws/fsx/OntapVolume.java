@@ -15,7 +15,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -25,7 +24,10 @@ import javax.annotation.Nullable;
  * See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html) for more information.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,18 +50,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new OntapVolume(&#34;test&#34;, OntapVolumeArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .junctionPath(&#34;/test&#34;)
  *             .sizeInMegabytes(1024)
  *             .storageEfficiencyEnabled(true)
- *             .storageVirtualMachineId(aws_fsx_ontap_storage_virtual_machine.test().id())
+ *             .storageVirtualMachineId(testAwsFsxOntapStorageVirtualMachine.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Using Tiering Policy
  * 
  * Additional information on tiering policy with ONTAP Volumes can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html).
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -83,10 +90,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new OntapVolume(&#34;test&#34;, OntapVolumeArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .junctionPath(&#34;/test&#34;)
  *             .sizeInMegabytes(1024)
  *             .storageEfficiencyEnabled(true)
- *             .storageVirtualMachineId(aws_fsx_ontap_storage_virtual_machine.test().id())
+ *             .storageVirtualMachineId(testAwsFsxOntapStorageVirtualMachine.id())
  *             .tieringPolicy(OntapVolumeTieringPolicyArgs.builder()
  *                 .name(&#34;AUTO&#34;)
  *                 .coolingPeriod(31)
@@ -96,13 +104,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import FSx ONTAP volume using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
+ * $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
  * ```
  * 
  */
@@ -425,9 +434,6 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

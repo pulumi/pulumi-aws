@@ -4,6 +4,7 @@
 package com.pulumi.aws.rds.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -64,43 +65,61 @@ public final class GetProxyAuth {
 
         @CustomType.Setter
         public Builder authScheme(String authScheme) {
-            this.authScheme = Objects.requireNonNull(authScheme);
+            if (authScheme == null) {
+              throw new MissingRequiredPropertyException("GetProxyAuth", "authScheme");
+            }
+            this.authScheme = authScheme;
             return this;
         }
         @CustomType.Setter
         public Builder clientPasswordAuthType(String clientPasswordAuthType) {
-            this.clientPasswordAuthType = Objects.requireNonNull(clientPasswordAuthType);
+            if (clientPasswordAuthType == null) {
+              throw new MissingRequiredPropertyException("GetProxyAuth", "clientPasswordAuthType");
+            }
+            this.clientPasswordAuthType = clientPasswordAuthType;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetProxyAuth", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder iamAuth(String iamAuth) {
-            this.iamAuth = Objects.requireNonNull(iamAuth);
+            if (iamAuth == null) {
+              throw new MissingRequiredPropertyException("GetProxyAuth", "iamAuth");
+            }
+            this.iamAuth = iamAuth;
             return this;
         }
         @CustomType.Setter
         public Builder secretArn(String secretArn) {
-            this.secretArn = Objects.requireNonNull(secretArn);
+            if (secretArn == null) {
+              throw new MissingRequiredPropertyException("GetProxyAuth", "secretArn");
+            }
+            this.secretArn = secretArn;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("GetProxyAuth", "username");
+            }
+            this.username = username;
             return this;
         }
         public GetProxyAuth build() {
-            final var o = new GetProxyAuth();
-            o.authScheme = authScheme;
-            o.clientPasswordAuthType = clientPasswordAuthType;
-            o.description = description;
-            o.iamAuth = iamAuth;
-            o.secretArn = secretArn;
-            o.username = username;
-            return o;
+            final var _resultValue = new GetProxyAuth();
+            _resultValue.authScheme = authScheme;
+            _resultValue.clientPasswordAuthType = clientPasswordAuthType;
+            _resultValue.description = description;
+            _resultValue.iamAuth = iamAuth;
+            _resultValue.secretArn = secretArn;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

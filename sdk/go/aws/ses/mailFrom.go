@@ -17,8 +17,10 @@ import (
 // > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the ses.DomainIdentity resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/dg/mail-from.html) for more information.
 //
 // ## Example Usage
+//
 // ### Domain Identity MAIL FROM
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,13 +36,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomainIdentity, err := ses.NewDomainIdentity(ctx, "exampleDomainIdentity", &ses.DomainIdentityArgs{
+//			// Example SES Domain Identity
+//			exampleDomainIdentity, err := ses.NewDomainIdentity(ctx, "example", &ses.DomainIdentityArgs{
 //				Domain: pulumi.String("example.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleMailFrom, err := ses.NewMailFrom(ctx, "exampleMailFrom", &ses.MailFromArgs{
+//			example, err := ses.NewMailFrom(ctx, "example", &ses.MailFromArgs{
 //				Domain: exampleDomainIdentity.Domain,
 //				MailFromDomain: exampleDomainIdentity.Domain.ApplyT(func(domain string) (string, error) {
 //					return fmt.Sprintf("bounce.%v", domain), nil
@@ -49,10 +52,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = route53.NewRecord(ctx, "exampleSesDomainMailFromMx", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
-//				Name:   exampleMailFrom.MailFromDomain,
-//				Type:   pulumi.String("MX"),
+//			// Example Route53 MX record
+//			_, err = route53.NewRecord(ctx, "example_ses_domain_mail_from_mx", &route53.RecordArgs{
+//				ZoneId: pulumi.Any(exampleAwsRoute53Zone.Id),
+//				Name:   example.MailFromDomain,
+//				Type:   pulumi.String(route53.RecordTypeMX),
 //				Ttl:    pulumi.Int(600),
 //				Records: pulumi.StringArray{
 //					pulumi.String("10 feedback-smtp.us-east-1.amazonses.com"),
@@ -61,10 +65,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = route53.NewRecord(ctx, "exampleSesDomainMailFromTxt", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
-//				Name:   exampleMailFrom.MailFromDomain,
-//				Type:   pulumi.String("TXT"),
+//			// Example Route53 TXT record for SPF
+//			_, err = route53.NewRecord(ctx, "example_ses_domain_mail_from_txt", &route53.RecordArgs{
+//				ZoneId: pulumi.Any(exampleAwsRoute53Zone.Id),
+//				Name:   example.MailFromDomain,
+//				Type:   pulumi.String(route53.RecordTypeTXT),
 //				Ttl:    pulumi.Int(600),
 //				Records: pulumi.StringArray{
 //					pulumi.String("v=spf1 include:amazonses.com -all"),
@@ -78,8 +83,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Email Identity MAIL FROM
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -92,14 +100,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleEmailIdentity, err := ses.NewEmailIdentity(ctx, "exampleEmailIdentity", &ses.EmailIdentityArgs{
+//			// Example SES Email Identity
+//			example, err := ses.NewEmailIdentity(ctx, "example", &ses.EmailIdentityArgs{
 //				Email: pulumi.String("user@example.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ses.NewMailFrom(ctx, "exampleMailFrom", &ses.MailFromArgs{
-//				Domain:         exampleEmailIdentity.Email,
+//			_, err = ses.NewMailFrom(ctx, "example", &ses.MailFromArgs{
+//				Domain:         example.Email,
 //				MailFromDomain: pulumi.String("mail.example.com"),
 //			})
 //			if err != nil {
@@ -110,15 +119,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import MAIL FROM domain using the `domain` attribute. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ses/mailFrom:MailFrom example example.com
-//
+// $ pulumi import aws:ses/mailFrom:MailFrom example example.com
 // ```
 type MailFrom struct {
 	pulumi.CustomResourceState

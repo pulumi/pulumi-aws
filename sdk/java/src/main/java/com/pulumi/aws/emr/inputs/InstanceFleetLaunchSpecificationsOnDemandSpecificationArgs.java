@@ -5,6 +5,7 @@ package com.pulumi.aws.emr.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -14,14 +15,14 @@ public final class InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs ex
     public static final InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs Empty = new InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs();
 
     /**
-     * Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+     * Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
      * 
      */
     @Import(name="allocationStrategy", required=true)
     private Output<String> allocationStrategy;
 
     /**
-     * @return Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+     * @return Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
      * 
      */
     public Output<String> allocationStrategy() {
@@ -53,7 +54,7 @@ public final class InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs ex
         }
 
         /**
-         * @param allocationStrategy Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+         * @param allocationStrategy Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
          * 
          * @return builder
          * 
@@ -64,7 +65,7 @@ public final class InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs ex
         }
 
         /**
-         * @param allocationStrategy Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+         * @param allocationStrategy Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
          * 
          * @return builder
          * 
@@ -74,7 +75,9 @@ public final class InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs ex
         }
 
         public InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs build() {
-            $.allocationStrategy = Objects.requireNonNull($.allocationStrategy, "expected parameter 'allocationStrategy' to be non-null");
+            if ($.allocationStrategy == null) {
+                throw new MissingRequiredPropertyException("InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs", "allocationStrategy");
+            }
             return $;
         }
     }

@@ -44,6 +44,7 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersCon
 
         @CustomType.Setter
         public Builder items(@Nullable List<String> items) {
+
             this.items = items;
             return this;
         }
@@ -51,9 +52,9 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersCon
             return items(List.of(items));
         }
         public CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders build() {
-            final var o = new CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders();
-            o.items = items;
-            return o;
+            final var _resultValue = new CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders();
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

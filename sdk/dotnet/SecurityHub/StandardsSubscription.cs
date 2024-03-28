@@ -14,6 +14,7 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,34 +30,23 @@ namespace Pulumi.Aws.SecurityHub
     ///     var cis = new Aws.SecurityHub.StandardsSubscription("cis", new()
     ///     {
     ///         StandardsArn = "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             example,
-    ///         },
     ///     });
     /// 
-    ///     var pci321 = new Aws.SecurityHub.StandardsSubscription("pci321", new()
+    ///     var pci321 = new Aws.SecurityHub.StandardsSubscription("pci_321", new()
     ///     {
     ///         StandardsArn = $"arn:aws:securityhub:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}::standards/pci-dss/v/3.2.1",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             example,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Security Hub standards subscriptions using the standards subscription ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
+    /// $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
     /// ```
     /// ```sh
     /// $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1

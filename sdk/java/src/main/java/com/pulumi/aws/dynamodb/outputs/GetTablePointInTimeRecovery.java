@@ -4,6 +4,7 @@
 package com.pulumi.aws.dynamodb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -34,13 +35,16 @@ public final class GetTablePointInTimeRecovery {
 
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetTablePointInTimeRecovery", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         public GetTablePointInTimeRecovery build() {
-            final var o = new GetTablePointInTimeRecovery();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new GetTablePointInTimeRecovery();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

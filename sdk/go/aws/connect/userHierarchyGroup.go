@@ -18,8 +18,10 @@ import (
 // > **NOTE:** The User Hierarchy Structure must be created before creating a User Hierarchy Group.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,6 +36,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewUserHierarchyGroup(ctx, "example", &connect.UserHierarchyGroupArgs{
 //				InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:       pulumi.String("example"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example User Hierarchy Group"),
 //				},
@@ -46,8 +49,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With a parent group
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,6 +68,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			parent, err := connect.NewUserHierarchyGroup(ctx, "parent", &connect.UserHierarchyGroupArgs{
 //				InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:       pulumi.String("parent"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example User Hierarchy Group Parent"),
 //				},
@@ -71,6 +78,7 @@ import (
 //			}
 //			_, err = connect.NewUserHierarchyGroup(ctx, "child", &connect.UserHierarchyGroupArgs{
 //				InstanceId:    pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:          pulumi.String("child"),
 //				ParentGroupId: parent.HierarchyGroupId,
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example User Hierarchy Group Child"),
@@ -84,15 +92,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Amazon Connect User Hierarchy Groups using the `instance_id` and `hierarchy_group_id` separated by a colon (`:`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:connect/userHierarchyGroup:UserHierarchyGroup example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-//
+// $ pulumi import aws:connect/userHierarchyGroup:UserHierarchyGroup example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 // ```
 type UserHierarchyGroup struct {
 	pulumi.CustomResourceState
@@ -130,10 +137,6 @@ func NewUserHierarchyGroup(ctx *pulumi.Context,
 	if args.InstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserHierarchyGroup
 	err := ctx.RegisterResource("aws:connect/userHierarchyGroup:UserHierarchyGroup", name, args, &resource, opts...)

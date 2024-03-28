@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,19 +59,23 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMi
 
         @CustomType.Setter
         public Builder max(@Nullable Integer max) {
+
             this.max = max;
             return this;
         }
         @CustomType.Setter
         public Builder min(Integer min) {
-            this.min = Objects.requireNonNull(min);
+            if (min == null) {
+              throw new MissingRequiredPropertyException("FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib", "min");
+            }
+            this.min = min;
             return this;
         }
         public FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib build() {
-            final var o = new FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

@@ -13,60 +13,61 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getCallerIdentity({});
- * const exampleKey = new aws.kms.Key("exampleKey", {
+ * const example = new aws.kms.Key("example", {
  *     customerMasterKeySpec: "ECC_NIST_P256",
  *     deletionWindowInDays: 7,
  *     keyUsage: "SIGN_VERIFY",
- *     policy: current.then(current => JSON.stringify({
- *         Statement: [
+ *     policy: JSON.stringify({
+ *         statement: [
  *             {
- *                 Action: [
+ *                 action: [
  *                     "kms:DescribeKey",
  *                     "kms:GetPublicKey",
  *                     "kms:Sign",
  *                     "kms:Verify",
  *                 ],
- *                 Effect: "Allow",
- *                 Principal: {
- *                     Service: "dnssec-route53.amazonaws.com",
+ *                 effect: "Allow",
+ *                 principal: {
+ *                     service: "dnssec-route53.amazonaws.com",
  *                 },
- *                 Resource: "*",
- *                 Sid: "Allow Route 53 DNSSEC Service",
+ *                 resource: "*",
+ *                 sid: "Allow Route 53 DNSSEC Service",
  *             },
  *             {
- *                 Action: "kms:*",
- *                 Effect: "Allow",
- *                 Principal: {
- *                     AWS: `arn:aws:iam::${current.accountId}:root`,
+ *                 action: "kms:*",
+ *                 effect: "Allow",
+ *                 principal: {
+ *                     AWS: current.then(current => `arn:aws:iam::${current.accountId}:root`),
  *                 },
- *                 Resource: "*",
- *                 Sid: "Enable IAM User Permissions",
+ *                 resource: "*",
+ *                 sid: "Enable IAM User Permissions",
  *             },
  *         ],
- *         Version: "2012-10-17",
- *     })),
+ *         version: "2012-10-17",
+ *     }),
  * });
- * const exampleZone = new aws.route53.Zone("exampleZone", {});
- * const exampleKeySigningKey = new aws.route53.KeySigningKey("exampleKeySigningKey", {
+ * const exampleZone = new aws.route53.Zone("example", {name: "example.com"});
+ * const exampleKeySigningKey = new aws.route53.KeySigningKey("example", {
  *     hostedZoneId: exampleZone.id,
- *     keyManagementServiceArn: exampleKey.arn,
+ *     keyManagementServiceArn: example.arn,
+ *     name: "example",
  * });
- * const exampleHostedZoneDnsSec = new aws.route53.HostedZoneDnsSec("exampleHostedZoneDnsSec", {hostedZoneId: exampleKeySigningKey.hostedZoneId}, {
- *     dependsOn: [exampleKeySigningKey],
- * });
+ * const exampleHostedZoneDnsSec = new aws.route53.HostedZoneDnsSec("example", {hostedZoneId: exampleKeySigningKey.hostedZoneId});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_route53_hosted_zone_dnssec` resources using the Route 53 Hosted Zone identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:route53/hostedZoneDnsSec:HostedZoneDnsSec example Z1D633PJN98FT9
+ * $ pulumi import aws:route53/hostedZoneDnsSec:HostedZoneDnsSec example Z1D633PJN98FT9
  * ```
  */
 export class HostedZoneDnsSec extends pulumi.CustomResource {

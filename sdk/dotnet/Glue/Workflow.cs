@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,10 +25,14 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glue.Workflow("example");
+    ///     var example = new Aws.Glue.Workflow("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
     ///     var example_start = new Aws.Glue.Trigger("example-start", new()
     ///     {
+    ///         Name = "trigger-start",
     ///         Type = "ON_DEMAND",
     ///         WorkflowName = example.Name,
     ///         Actions = new[]
@@ -41,6 +46,7 @@ namespace Pulumi.Aws.Glue
     /// 
     ///     var example_inner = new Aws.Glue.Trigger("example-inner", new()
     ///     {
+    ///         Name = "trigger-inner",
     ///         Type = "CONDITIONAL",
     ///         WorkflowName = example.Name,
     ///         Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
@@ -65,13 +71,14 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Workflows using `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
+    /// $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/workflow:Workflow")]
@@ -142,10 +149,6 @@ namespace Pulumi.Aws.Glue
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -277,11 +280,7 @@ namespace Pulumi.Aws.Glue
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public WorkflowState()

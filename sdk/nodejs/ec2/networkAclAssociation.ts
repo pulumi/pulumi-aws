@@ -13,14 +13,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const main = new aws.ec2.NetworkAclAssociation("main", {
- *     networkAclId: aws_network_acl.main.id,
- *     subnetId: aws_subnet.main.id,
+ *     networkAclId: mainAwsNetworkAcl.id,
+ *     subnetId: mainAwsSubnet.id,
  * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ## Import
+ *
+ * Using `pulumi import`, import Network ACL associations using the `id`. For example:
+ *
+ * ```sh
+ * $ pulumi import aws:ec2/networkAclAssociation:NetworkAclAssociation main aclassoc-02baf37f20966b3e6
  * ```
  */
 export class NetworkAclAssociation extends pulumi.CustomResource {

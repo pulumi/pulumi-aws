@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Pipeline resource.
  *
  * ## Example Usage
+ *
  * ### Basic usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,26 +22,27 @@ import * as utilities from "../utilities";
  * const example = new aws.sagemaker.Pipeline("example", {
  *     pipelineName: "example",
  *     pipelineDisplayName: "example",
- *     roleArn: aws_iam_role.example.arn,
+ *     roleArn: exampleAwsIamRole.arn,
  *     pipelineDefinition: JSON.stringify({
- *         Version: "2020-12-01",
- *         Steps: [{
- *             Name: "Test",
- *             Type: "Fail",
- *             Arguments: {
- *                 ErrorMessage: "test",
+ *         version: "2020-12-01",
+ *         steps: [{
+ *             name: "Test",
+ *             type: "Fail",
+ *             arguments: {
+ *                 errorMessage: "test",
  *             },
  *         }],
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import pipelines using the `pipeline_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
+ * $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
  * ```
  */
 export class Pipeline extends pulumi.CustomResource {
@@ -156,8 +159,6 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Pipeline.__pulumiType, name, resourceInputs, opts);
     }
 }

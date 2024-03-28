@@ -44,13 +44,14 @@ public final class FunctionEnvironment {
 
         @CustomType.Setter
         public Builder variables(@Nullable Map<String,String> variables) {
+
             this.variables = variables;
             return this;
         }
         public FunctionEnvironment build() {
-            final var o = new FunctionEnvironment();
-            o.variables = variables;
-            return o;
+            final var _resultValue = new FunctionEnvironment();
+            _resultValue.variables = variables;
+            return _resultValue;
         }
     }
 }

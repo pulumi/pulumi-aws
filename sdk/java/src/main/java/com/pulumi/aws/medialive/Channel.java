@@ -28,7 +28,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS MediaLive Channel.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,8 +59,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Channel(&#34;example&#34;, ChannelArgs.builder()        
+ *             .name(&#34;example-channel&#34;)
  *             .channelClass(&#34;STANDARD&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .inputSpecification(ChannelInputSpecificationArgs.builder()
  *                 .codec(&#34;AVC&#34;)
  *                 .inputResolution(&#34;HD&#34;)
@@ -65,16 +69,16 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .inputAttachments(ChannelInputAttachmentArgs.builder()
  *                 .inputAttachmentName(&#34;example-input&#34;)
- *                 .inputId(aws_medialive_input.example().id())
+ *                 .inputId(exampleAwsMedialiveInput.id())
  *                 .build())
  *             .destinations(ChannelDestinationArgs.builder()
  *                 .id(&#34;destination&#34;)
  *                 .settings(                
  *                     ChannelDestinationSettingArgs.builder()
- *                         .url(String.format(&#34;s3://%s/test1&#34;, aws_s3_bucket.main().id()))
+ *                         .url(String.format(&#34;s3://%s/test1&#34;, main.id()))
  *                         .build(),
  *                     ChannelDestinationSettingArgs.builder()
- *                         .url(String.format(&#34;s3://%s/test2&#34;, aws_s3_bucket.main2().id()))
+ *                         .url(String.format(&#34;s3://%s/test2&#34;, main2.id()))
  *                         .build())
  *                 .build())
  *             .encoderSettings(ChannelEncoderSettingsArgs.builder()
@@ -121,13 +125,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import MediaLive Channel using the `channel_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:medialive/channel:Channel example 1234567
+ * $ pulumi import aws:medialive/channel:Channel example 1234567
  * ```
  * 
  */
@@ -392,9 +397,6 @@ public class Channel extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

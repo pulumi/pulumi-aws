@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a Route 53 Resolver DNS Firewall rule resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,22 +46,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResolverFirewallDomainList = new ResolverFirewallDomainList(&#34;exampleResolverFirewallDomainList&#34;, ResolverFirewallDomainListArgs.builder()        
+ *         var example = new ResolverFirewallDomainList(&#34;example&#34;, ResolverFirewallDomainListArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .domains(&#34;example.com&#34;)
  *             .tags()
  *             .build());
  * 
  *         var exampleResolverFirewallRuleGroup = new ResolverFirewallRuleGroup(&#34;exampleResolverFirewallRuleGroup&#34;, ResolverFirewallRuleGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .tags()
  *             .build());
  * 
  *         var exampleResolverFirewallRule = new ResolverFirewallRule(&#34;exampleResolverFirewallRule&#34;, ResolverFirewallRuleArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .action(&#34;BLOCK&#34;)
  *             .blockOverrideDnsType(&#34;CNAME&#34;)
  *             .blockOverrideDomain(&#34;example.com&#34;)
  *             .blockOverrideTtl(1)
  *             .blockResponse(&#34;OVERRIDE&#34;)
- *             .firewallDomainListId(exampleResolverFirewallDomainList.id())
+ *             .firewallDomainListId(example.id())
  *             .firewallRuleGroupId(exampleResolverFirewallRuleGroup.id())
  *             .priority(100)
  *             .build());
@@ -67,15 +72,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import
- * 
- * Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by &#39;:&#39;. For example:
+ * Using `pulumi import`, import  Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by &#39;:&#39;. For example:
  * 
  * ```sh
- *  $ pulumi import aws:route53/resolverFirewallRule:ResolverFirewallRule example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
+ * $ pulumi import aws:route53/resolverFirewallRule:ResolverFirewallRule example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
  * ```
  * 
  */

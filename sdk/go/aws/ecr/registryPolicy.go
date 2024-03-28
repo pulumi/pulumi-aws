@@ -14,8 +14,11 @@ import (
 
 // Provides an Elastic Container Registry Policy.
 //
+// > **NOTE on ECR Registry Policies:** While the AWS Management Console interface may suggest the ability to define multiple policies by creating multiple statements, ECR registry policies are effectively managed as singular entities at the regional level by the AWS APIs. Therefore, the `ecr.RegistryPolicy` resource should be configured only once per region with all necessary statements defined in the same policy. Attempting to define multiple `ecr.RegistryPolicy` resources may result in perpetual differences, with one policy overriding another.
+//
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,32 +35,32 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			currentGetRegion, err := aws.GetRegion(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentPartition, err := aws.GetPartition(ctx, nil, nil)
+//			currentGetPartition, err := aws.GetPartition(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Sid":    "testpolicy",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentPartition.Partition, currentCallerIdentity.AccountId),
+//						"sid":    "testpolicy",
+//						"effect": "Allow",
+//						"principal": map[string]interface{}{
+//							"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentGetPartition.Partition, current.AccountId),
 //						},
-//						"Action": []string{
+//						"action": []string{
 //							"ecr:ReplicateImage",
 //						},
-//						"Resource": []string{
-//							fmt.Sprintf("arn:%v:ecr:%v:%v:repository/*", currentPartition.Partition, currentRegion.Name, currentCallerIdentity.AccountId),
+//						"resource": []string{
+//							fmt.Sprintf("arn:%v:ecr:%v:%v:repository/*", currentGetPartition.Partition, currentGetRegion.Name, current.AccountId),
 //						},
 //					},
 //				},
@@ -77,15 +80,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ECR Registry Policy using the registry id. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
-//
+// $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
 // ```
 type RegistryPolicy struct {
 	pulumi.CustomResourceState

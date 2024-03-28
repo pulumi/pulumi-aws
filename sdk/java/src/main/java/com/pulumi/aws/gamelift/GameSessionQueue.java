@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Provides an GameLift Game Session Queue resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,10 +47,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new GameSessionQueue(&#34;test&#34;, GameSessionQueueArgs.builder()        
+ *             .name(&#34;example-session-queue&#34;)
  *             .destinations(            
- *                 aws_gamelift_fleet.us_west_2_fleet().arn(),
- *                 aws_gamelift_fleet.eu_central_1_fleet().arn())
- *             .notificationTarget(aws_sns_topic.game_session_queue_notifications().arn())
+ *                 usWest2Fleet.arn(),
+ *                 euCentral1Fleet.arn())
+ *             .notificationTarget(gameSessionQueueNotifications.arn())
  *             .playerLatencyPolicies(            
  *                 GameSessionQueuePlayerLatencyPolicyArgs.builder()
  *                     .maximumIndividualPlayerLatencyMilliseconds(100)
@@ -63,13 +66,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import GameLift Game Session Queues using their `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
+ * $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
  * ```
  * 
  */
@@ -238,9 +242,6 @@ public class GameSessionQueue extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

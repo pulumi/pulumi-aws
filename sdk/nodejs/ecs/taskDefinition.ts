@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Manages a revision of an ECS task definition to be used in `aws.ecs.Service`.
  *
  * ## Example Usage
+ *
  * ### Basic Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -53,16 +55,21 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With AppMesh Proxy
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const service = new aws.ecs.TaskDefinition("service", {
  *     family: "service",
- *     containerDefinitions: fs.readFileSync("task-definitions/service.json"),
+ *     containerDefinitions: std.file({
+ *         input: "task-definitions/service.json",
+ *     }).then(invoke => invoke.result),
  *     proxyConfiguration: {
  *         type: "APPMESH",
  *         containerName: "applicationContainerName",
@@ -76,16 +83,21 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example Using `dockerVolumeConfiguration`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const service = new aws.ecs.TaskDefinition("service", {
  *     family: "service",
- *     containerDefinitions: fs.readFileSync("task-definitions/service.json"),
+ *     containerDefinitions: std.file({
+ *         input: "task-definitions/service.json",
+ *     }).then(invoke => invoke.result),
  *     volumes: [{
  *         name: "service-storage",
  *         dockerVolumeConfiguration: {
@@ -94,75 +106,89 @@ import * as utilities from "../utilities";
  *             driver: "local",
  *             driverOpts: {
  *                 type: "nfs",
- *                 device: `${aws_efs_file_system.fs.dns_name}:/`,
- *                 o: `addr=${aws_efs_file_system.fs.dns_name},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport`,
+ *                 device: `${fs.dnsName}:/`,
+ *                 o: `addr=${fs.dnsName},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport`,
  *             },
  *         },
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example Using `efsVolumeConfiguration`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const service = new aws.ecs.TaskDefinition("service", {
  *     family: "service",
- *     containerDefinitions: fs.readFileSync("task-definitions/service.json"),
+ *     containerDefinitions: std.file({
+ *         input: "task-definitions/service.json",
+ *     }).then(invoke => invoke.result),
  *     volumes: [{
  *         name: "service-storage",
  *         efsVolumeConfiguration: {
- *             fileSystemId: aws_efs_file_system.fs.id,
+ *             fileSystemId: fs.id,
  *             rootDirectory: "/opt/data",
  *             transitEncryption: "ENABLED",
  *             transitEncryptionPort: 2999,
  *             authorizationConfig: {
- *                 accessPointId: aws_efs_access_point.test.id,
+ *                 accessPointId: test.id,
  *                 iam: "ENABLED",
  *             },
  *         },
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example Using `fsxWindowsFileServerVolumeConfiguration`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const test = new aws.secretsmanager.SecretVersion("test", {
- *     secretId: aws_secretsmanager_secret.test.id,
+ *     secretId: testAwsSecretsmanagerSecret.id,
  *     secretString: JSON.stringify({
  *         username: "admin",
- *         password: aws_directory_service_directory.test.password,
+ *         password: testAwsDirectoryServiceDirectory.password,
  *     }),
  * });
  * const service = new aws.ecs.TaskDefinition("service", {
  *     family: "service",
- *     containerDefinitions: fs.readFileSync("task-definitions/service.json"),
+ *     containerDefinitions: std.file({
+ *         input: "task-definitions/service.json",
+ *     }).then(invoke => invoke.result),
  *     volumes: [{
  *         name: "service-storage",
  *         fsxWindowsFileServerVolumeConfiguration: {
- *             fileSystemId: aws_fsx_windows_file_system.test.id,
+ *             fileSystemId: testAwsFsxWindowsFileSystem.id,
  *             rootDirectory: "\\data",
  *             authorizationConfig: {
  *                 credentialsParameter: test.arn,
- *                 domain: aws_directory_service_directory.test.name,
+ *                 domain: testAwsDirectoryServiceDirectory.name,
  *             },
  *         },
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example Using `containerDefinitions` and `inferenceAccelerator`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.ecs.TaskDefinition("test", {
+ *     family: "test",
  *     containerDefinitions: `[
  *   {
  *     "cpu": 10,
@@ -189,22 +215,28 @@ import * as utilities from "../utilities";
  *         ]
  *   }
  * ]
- *
  * `,
- *     family: "test",
  *     inferenceAccelerators: [{
  *         deviceName: "device_1",
  *         deviceType: "eia1.medium",
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example Using `runtimePlatform` and `fargate`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.ecs.TaskDefinition("test", {
+ *     family: "test",
+ *     requiresCompatibilities: ["FARGATE"],
+ *     networkMode: "awsvpc",
+ *     cpu: "1024",
+ *     memory: "2048",
  *     containerDefinitions: `[
  *   {
  *     "name": "iis",
@@ -214,26 +246,21 @@ import * as utilities from "../utilities";
  *     "essential": true
  *   }
  * ]
- *
  * `,
- *     cpu: "1024",
- *     family: "test",
- *     memory: "2048",
- *     networkMode: "awsvpc",
- *     requiresCompatibilities: ["FARGATE"],
  *     runtimePlatform: {
- *         cpuArchitecture: "X86_64",
  *         operatingSystemFamily: "WINDOWS_SERVER_2019_CORE",
+ *         cpuArchitecture: "X86_64",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ECS Task Definitions using their ARNs. For example:
  *
  * ```sh
- *  $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
+ * $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
  * ```
  */
 export class TaskDefinition extends pulumi.CustomResource {
@@ -353,6 +380,10 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     public readonly taskRoleArn!: pulumi.Output<string | undefined>;
     /**
+     * Whether should track latest task definition or the one created with the resource. Default is `false`.
+     */
+    public readonly trackLatest!: pulumi.Output<boolean | undefined>;
+    /**
      * Configuration block for volumes that containers in your task may use. Detailed below.
      */
     public readonly volumes!: pulumi.Output<outputs.ecs.TaskDefinitionVolume[] | undefined>;
@@ -391,6 +422,7 @@ export class TaskDefinition extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["taskRoleArn"] = state ? state.taskRoleArn : undefined;
+            resourceInputs["trackLatest"] = state ? state.trackLatest : undefined;
             resourceInputs["volumes"] = state ? state.volumes : undefined;
         } else {
             const args = argsOrState as TaskDefinitionArgs | undefined;
@@ -417,6 +449,7 @@ export class TaskDefinition extends pulumi.CustomResource {
             resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["taskRoleArn"] = args ? args.taskRoleArn : undefined;
+            resourceInputs["trackLatest"] = args ? args.trackLatest : undefined;
             resourceInputs["volumes"] = args ? args.volumes : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["arnWithoutRevision"] = undefined /*out*/;
@@ -424,8 +457,6 @@ export class TaskDefinition extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(TaskDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -523,6 +554,10 @@ export interface TaskDefinitionState {
      */
     taskRoleArn?: pulumi.Input<string>;
     /**
+     * Whether should track latest task definition or the one created with the resource. Default is `false`.
+     */
+    trackLatest?: pulumi.Input<boolean>;
+    /**
      * Configuration block for volumes that containers in your task may use. Detailed below.
      */
     volumes?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionVolume>[]>;
@@ -602,6 +637,10 @@ export interface TaskDefinitionArgs {
      * ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
      */
     taskRoleArn?: pulumi.Input<string>;
+    /**
+     * Whether should track latest task definition or the one created with the resource. Default is `false`.
+     */
+    trackLatest?: pulumi.Input<boolean>;
     /**
      * Configuration block for volumes that containers in your task may use. Detailed below.
      */

@@ -59,19 +59,21 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
 
         @CustomType.Setter
         public Builder convert608To708(@Nullable String convert608To708) {
+
             this.convert608To708 = convert608To708;
             return this;
         }
         @CustomType.Setter
         public Builder source608ChannelNumber(@Nullable Integer source608ChannelNumber) {
+
             this.source608ChannelNumber = source608ChannelNumber;
             return this;
         }
         public ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings build() {
-            final var o = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings();
-            o.convert608To708 = convert608To708;
-            o.source608ChannelNumber = source608ChannelNumber;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings();
+            _resultValue.convert608To708 = convert608To708;
+            _resultValue.source608ChannelNumber = source608ChannelNumber;
+            return _resultValue;
         }
     }
 }

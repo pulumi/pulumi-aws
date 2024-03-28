@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,18 +23,18 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var example = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "domain key",
     ///     });
     /// 
-    ///     var exampleDomain = new Aws.CodeArtifact.Domain("exampleDomain", new()
+    ///     var exampleDomain = new Aws.CodeArtifact.Domain("example", new()
     ///     {
     ///         DomainName = "example",
-    ///         EncryptionKey = exampleKey.Arn,
+    ///         EncryptionKey = example.Arn,
     ///     });
     /// 
-    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var test = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -63,21 +64,22 @@ namespace Pulumi.Aws.CodeArtifact
     ///         },
     ///     });
     /// 
-    ///     var testDomainPermissions = new Aws.CodeArtifact.DomainPermissions("testDomainPermissions", new()
+    ///     var testDomainPermissions = new Aws.CodeArtifact.DomainPermissions("test", new()
     ///     {
     ///         Domain = exampleDomain.DomainName,
-    ///         PolicyDocument = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         PolicyDocument = test.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeArtifact Domain Permissions Policies using the CodeArtifact Domain ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
+    /// $ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
     /// ```
     /// </summary>
     [AwsResourceType("aws:codeartifact/domainPermissions:DomainPermissions")]

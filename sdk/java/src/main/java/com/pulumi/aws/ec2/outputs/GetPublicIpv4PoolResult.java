@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetPublicIpv4PoolPoolAddressRange;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -130,22 +131,34 @@ public final class GetPublicIpv4PoolResult {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetPublicIpv4PoolResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPublicIpv4PoolResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder networkBorderGroup(String networkBorderGroup) {
-            this.networkBorderGroup = Objects.requireNonNull(networkBorderGroup);
+            if (networkBorderGroup == null) {
+              throw new MissingRequiredPropertyException("GetPublicIpv4PoolResult", "networkBorderGroup");
+            }
+            this.networkBorderGroup = networkBorderGroup;
             return this;
         }
         @CustomType.Setter
         public Builder poolAddressRanges(List<GetPublicIpv4PoolPoolAddressRange> poolAddressRanges) {
-            this.poolAddressRanges = Objects.requireNonNull(poolAddressRanges);
+            if (poolAddressRanges == null) {
+              throw new MissingRequiredPropertyException("GetPublicIpv4PoolResult", "poolAddressRanges");
+            }
+            this.poolAddressRanges = poolAddressRanges;
             return this;
         }
         public Builder poolAddressRanges(GetPublicIpv4PoolPoolAddressRange... poolAddressRanges) {
@@ -153,35 +166,47 @@ public final class GetPublicIpv4PoolResult {
         }
         @CustomType.Setter
         public Builder poolId(String poolId) {
-            this.poolId = Objects.requireNonNull(poolId);
+            if (poolId == null) {
+              throw new MissingRequiredPropertyException("GetPublicIpv4PoolResult", "poolId");
+            }
+            this.poolId = poolId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetPublicIpv4PoolResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder totalAddressCount(Integer totalAddressCount) {
-            this.totalAddressCount = Objects.requireNonNull(totalAddressCount);
+            if (totalAddressCount == null) {
+              throw new MissingRequiredPropertyException("GetPublicIpv4PoolResult", "totalAddressCount");
+            }
+            this.totalAddressCount = totalAddressCount;
             return this;
         }
         @CustomType.Setter
         public Builder totalAvailableAddressCount(Integer totalAvailableAddressCount) {
-            this.totalAvailableAddressCount = Objects.requireNonNull(totalAvailableAddressCount);
+            if (totalAvailableAddressCount == null) {
+              throw new MissingRequiredPropertyException("GetPublicIpv4PoolResult", "totalAvailableAddressCount");
+            }
+            this.totalAvailableAddressCount = totalAvailableAddressCount;
             return this;
         }
         public GetPublicIpv4PoolResult build() {
-            final var o = new GetPublicIpv4PoolResult();
-            o.description = description;
-            o.id = id;
-            o.networkBorderGroup = networkBorderGroup;
-            o.poolAddressRanges = poolAddressRanges;
-            o.poolId = poolId;
-            o.tags = tags;
-            o.totalAddressCount = totalAddressCount;
-            o.totalAvailableAddressCount = totalAvailableAddressCount;
-            return o;
+            final var _resultValue = new GetPublicIpv4PoolResult();
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.networkBorderGroup = networkBorderGroup;
+            _resultValue.poolAddressRanges = poolAddressRanges;
+            _resultValue.poolId = poolId;
+            _resultValue.tags = tags;
+            _resultValue.totalAddressCount = totalAddressCount;
+            _resultValue.totalAvailableAddressCount = totalAvailableAddressCount;
+            return _resultValue;
         }
     }
 }

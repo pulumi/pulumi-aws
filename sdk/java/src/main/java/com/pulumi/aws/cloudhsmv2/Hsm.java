@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * The following example below creates an HSM module in CloudHSM cluster.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var cluster = Cloudhsmv2Functions.getCluster(GetClusterArgs.builder()
- *             .clusterId(var_.cloudhsm_cluster_id())
+ *             .clusterId(cloudhsmClusterId)
  *             .build());
  * 
  *         var cloudhsmV2Hsm = new Hsm(&#34;cloudhsmV2Hsm&#34;, HsmArgs.builder()        
@@ -54,13 +56,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import HSM modules using their HSM ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
+ * $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
  * ```
  * 
  */

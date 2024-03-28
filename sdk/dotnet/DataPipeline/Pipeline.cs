@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DataPipeline
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,17 +23,21 @@ namespace Pulumi.Aws.DataPipeline
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.DataPipeline.Pipeline("default");
+    ///     var @default = new Aws.DataPipeline.Pipeline("default", new()
+    ///     {
+    ///         Name = "tf-pipeline-default",
+    ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_datapipeline_pipeline` using the id (Pipeline ID). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
+    /// $ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
     /// ```
     /// </summary>
     [AwsResourceType("aws:datapipeline/pipeline:Pipeline")]
@@ -85,10 +90,6 @@ namespace Pulumi.Aws.DataPipeline
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -178,11 +179,7 @@ namespace Pulumi.Aws.DataPipeline
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public PipelineState()

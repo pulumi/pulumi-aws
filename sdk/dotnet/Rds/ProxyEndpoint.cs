@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,21 +25,22 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var example = new Aws.Rds.ProxyEndpoint("example", new()
     ///     {
-    ///         DbProxyName = aws_db_proxy.Test.Name,
+    ///         DbProxyName = test.Name,
     ///         DbProxyEndpointName = "example",
-    ///         VpcSubnetIds = aws_subnet.Test.Select(__item =&gt; __item.Id).ToList(),
+    ///         VpcSubnetIds = testAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///         TargetRole = "READ_ONLY",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DB proxy endpoints using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
+    /// $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/proxyEndpoint:ProxyEndpoint")]
@@ -130,10 +132,6 @@ namespace Pulumi.Aws.Rds
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -267,11 +265,7 @@ namespace Pulumi.Aws.Rds
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

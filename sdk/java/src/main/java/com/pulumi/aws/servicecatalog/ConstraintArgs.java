@@ -5,6 +5,7 @@ package com.pulumi.aws.servicecatalog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -269,10 +270,18 @@ public final class ConstraintArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ConstraintArgs build() {
-            $.parameters = Objects.requireNonNull($.parameters, "expected parameter 'parameters' to be non-null");
-            $.portfolioId = Objects.requireNonNull($.portfolioId, "expected parameter 'portfolioId' to be non-null");
-            $.productId = Objects.requireNonNull($.productId, "expected parameter 'productId' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.parameters == null) {
+                throw new MissingRequiredPropertyException("ConstraintArgs", "parameters");
+            }
+            if ($.portfolioId == null) {
+                throw new MissingRequiredPropertyException("ConstraintArgs", "portfolioId");
+            }
+            if ($.productId == null) {
+                throw new MissingRequiredPropertyException("ConstraintArgs", "productId");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ConstraintArgs", "type");
+            }
             return $;
         }
     }

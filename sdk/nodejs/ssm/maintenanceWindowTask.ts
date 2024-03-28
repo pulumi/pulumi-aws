@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides an SSM Maintenance Window Task resource
  *
  * ## Example Usage
+ *
  * ### Automation Tasks
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,24 +25,58 @@ import * as utilities from "../utilities";
  *     priority: 1,
  *     taskArn: "AWS-RestartEC2Instance",
  *     taskType: "AUTOMATION",
- *     windowId: aws_ssm_maintenance_window.example.id,
+ *     windowId: exampleAwsSsmMaintenanceWindow.id,
  *     targets: [{
  *         key: "InstanceIds",
- *         values: [aws_instance.example.id],
+ *         values: [exampleAwsInstance.id],
  *     }],
  *     taskInvocationParameters: {
  *         automationParameters: {
  *             documentVersion: "$LATEST",
  *             parameters: [{
  *                 name: "InstanceId",
- *                 values: [aws_instance.example.id],
+ *                 values: [exampleAwsInstance.id],
  *             }],
  *         },
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Lambda Tasks
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new aws.ssm.MaintenanceWindowTask("example", {
+ *     maxConcurrency: "2",
+ *     maxErrors: "1",
+ *     priority: 1,
+ *     taskArn: exampleAwsLambdaFunction.arn,
+ *     taskType: "LAMBDA",
+ *     windowId: exampleAwsSsmMaintenanceWindow.id,
+ *     targets: [{
+ *         key: "InstanceIds",
+ *         values: [exampleAwsInstance.id],
+ *     }],
+ *     taskInvocationParameters: {
+ *         lambdaParameters: {
+ *             clientContext: std.base64encode({
+ *                 input: "{\"key1\":\"value1\"}",
+ *             }).then(invoke => invoke.result),
+ *             payload: "{\"key1\":\"value1\"}",
+ *         },
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Run Command Tasks
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -51,19 +87,19 @@ import * as utilities from "../utilities";
  *     priority: 1,
  *     taskArn: "AWS-RunShellScript",
  *     taskType: "RUN_COMMAND",
- *     windowId: aws_ssm_maintenance_window.example.id,
+ *     windowId: exampleAwsSsmMaintenanceWindow.id,
  *     targets: [{
  *         key: "InstanceIds",
- *         values: [aws_instance.example.id],
+ *         values: [exampleAwsInstance.id],
  *     }],
  *     taskInvocationParameters: {
  *         runCommandParameters: {
- *             outputS3Bucket: aws_s3_bucket.example.id,
+ *             outputS3Bucket: exampleAwsS3Bucket.id,
  *             outputS3KeyPrefix: "output",
- *             serviceRoleArn: aws_iam_role.example.arn,
+ *             serviceRoleArn: exampleAwsIamRole.arn,
  *             timeoutSeconds: 600,
  *             notificationConfig: {
- *                 notificationArn: aws_sns_topic.example.arn,
+ *                 notificationArn: exampleAwsSnsTopic.arn,
  *                 notificationEvents: ["All"],
  *                 notificationType: "Command",
  *             },
@@ -75,8 +111,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Step Function Tasks
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -85,12 +124,12 @@ import * as utilities from "../utilities";
  *     maxConcurrency: "2",
  *     maxErrors: "1",
  *     priority: 1,
- *     taskArn: aws_sfn_activity.example.id,
+ *     taskArn: exampleAwsSfnActivity.id,
  *     taskType: "STEP_FUNCTIONS",
- *     windowId: aws_ssm_maintenance_window.example.id,
+ *     windowId: exampleAwsSsmMaintenanceWindow.id,
  *     targets: [{
  *         key: "InstanceIds",
- *         values: [aws_instance.example.id],
+ *         values: [exampleAwsInstance.id],
  *     }],
  *     taskInvocationParameters: {
  *         stepFunctionsParameters: {
@@ -100,13 +139,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AWS Maintenance Window Task using the `window_id` and `window_task_id` separated by `/`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ssm/maintenanceWindowTask:MaintenanceWindowTask task <window_id>/<window_task_id>
+ * $ pulumi import aws:ssm/maintenanceWindowTask:MaintenanceWindowTask task <window_id>/<window_task_id>
  * ```
  */
 export class MaintenanceWindowTask extends pulumi.CustomResource {

@@ -232,12 +232,13 @@ class Vault(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        aws_sns_topic = aws.sns.Topic("awsSnsTopic")
-        my_archive_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        aws_sns_topic = aws.sns.Topic("aws_sns_topic", name="glacier-sns-topic")
+        my_archive = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="add-read-only-perm",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -250,7 +251,8 @@ class Vault(pulumi.CustomResource):
             ],
             resources=["arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"],
         )])
-        my_archive_vault = aws.glacier.Vault("myArchiveVault",
+        my_archive_vault = aws.glacier.Vault("my_archive",
+            name="MyArchive",
             notification=aws.glacier.VaultNotificationArgs(
                 sns_topic=aws_sns_topic.arn,
                 events=[
@@ -258,18 +260,19 @@ class Vault(pulumi.CustomResource):
                     "InventoryRetrievalCompleted",
                 ],
             ),
-            access_policy=my_archive_policy_document.json,
+            access_policy=my_archive.json,
             tags={
                 "Test": "MyArchive",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glacier Vaults using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:glacier/vault:Vault archive my_archive
+        $ pulumi import aws:glacier/vault:Vault archive my_archive
         ```
 
         :param str resource_name: The name of the resource.
@@ -293,12 +296,13 @@ class Vault(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        aws_sns_topic = aws.sns.Topic("awsSnsTopic")
-        my_archive_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        aws_sns_topic = aws.sns.Topic("aws_sns_topic", name="glacier-sns-topic")
+        my_archive = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="add-read-only-perm",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -311,7 +315,8 @@ class Vault(pulumi.CustomResource):
             ],
             resources=["arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"],
         )])
-        my_archive_vault = aws.glacier.Vault("myArchiveVault",
+        my_archive_vault = aws.glacier.Vault("my_archive",
+            name="MyArchive",
             notification=aws.glacier.VaultNotificationArgs(
                 sns_topic=aws_sns_topic.arn,
                 events=[
@@ -319,18 +324,19 @@ class Vault(pulumi.CustomResource):
                     "InventoryRetrievalCompleted",
                 ],
             ),
-            access_policy=my_archive_policy_document.json,
+            access_policy=my_archive.json,
             tags={
                 "Test": "MyArchive",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glacier Vaults using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:glacier/vault:Vault archive my_archive
+        $ pulumi import aws:glacier/vault:Vault archive my_archive
         ```
 
         :param str resource_name: The name of the resource.
@@ -368,8 +374,6 @@ class Vault(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["location"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Vault, __self__).__init__(
             'aws:glacier/vault:Vault',
             resource_name,

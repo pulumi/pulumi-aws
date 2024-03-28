@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudhsmv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -58,37 +59,52 @@ public final class GetClusterClusterCertificate {
 
         @CustomType.Setter
         public Builder awsHardwareCertificate(String awsHardwareCertificate) {
-            this.awsHardwareCertificate = Objects.requireNonNull(awsHardwareCertificate);
+            if (awsHardwareCertificate == null) {
+              throw new MissingRequiredPropertyException("GetClusterClusterCertificate", "awsHardwareCertificate");
+            }
+            this.awsHardwareCertificate = awsHardwareCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder clusterCertificate(String clusterCertificate) {
-            this.clusterCertificate = Objects.requireNonNull(clusterCertificate);
+            if (clusterCertificate == null) {
+              throw new MissingRequiredPropertyException("GetClusterClusterCertificate", "clusterCertificate");
+            }
+            this.clusterCertificate = clusterCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder clusterCsr(String clusterCsr) {
-            this.clusterCsr = Objects.requireNonNull(clusterCsr);
+            if (clusterCsr == null) {
+              throw new MissingRequiredPropertyException("GetClusterClusterCertificate", "clusterCsr");
+            }
+            this.clusterCsr = clusterCsr;
             return this;
         }
         @CustomType.Setter
         public Builder hsmCertificate(String hsmCertificate) {
-            this.hsmCertificate = Objects.requireNonNull(hsmCertificate);
+            if (hsmCertificate == null) {
+              throw new MissingRequiredPropertyException("GetClusterClusterCertificate", "hsmCertificate");
+            }
+            this.hsmCertificate = hsmCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder manufacturerHardwareCertificate(String manufacturerHardwareCertificate) {
-            this.manufacturerHardwareCertificate = Objects.requireNonNull(manufacturerHardwareCertificate);
+            if (manufacturerHardwareCertificate == null) {
+              throw new MissingRequiredPropertyException("GetClusterClusterCertificate", "manufacturerHardwareCertificate");
+            }
+            this.manufacturerHardwareCertificate = manufacturerHardwareCertificate;
             return this;
         }
         public GetClusterClusterCertificate build() {
-            final var o = new GetClusterClusterCertificate();
-            o.awsHardwareCertificate = awsHardwareCertificate;
-            o.clusterCertificate = clusterCertificate;
-            o.clusterCsr = clusterCsr;
-            o.hsmCertificate = hsmCertificate;
-            o.manufacturerHardwareCertificate = manufacturerHardwareCertificate;
-            return o;
+            final var _resultValue = new GetClusterClusterCertificate();
+            _resultValue.awsHardwareCertificate = awsHardwareCertificate;
+            _resultValue.clusterCertificate = clusterCertificate;
+            _resultValue.clusterCsr = clusterCsr;
+            _resultValue.hsmCertificate = hsmCertificate;
+            _resultValue.manufacturerHardwareCertificate = manufacturerHardwareCertificate;
+            return _resultValue;
         }
     }
 }

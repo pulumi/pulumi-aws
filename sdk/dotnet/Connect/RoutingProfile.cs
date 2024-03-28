@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Connect
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,9 +26,10 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.RoutingProfile("example", new()
     ///     {
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Name = "example",
     ///         DefaultOutboundQueueId = "12345678-1234-1234-1234-123456789012",
     ///         Description = "example description",
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
     ///         MediaConcurrencies = new[]
     ///         {
     ///             new Aws.Connect.Inputs.RoutingProfileMediaConcurrencyArgs
@@ -54,13 +56,14 @@ namespace Pulumi.Aws.Connect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon Connect Routing Profiles using the `instance_id` and `routing_profile_id` separated by a colon (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+    /// $ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
     /// ```
     /// </summary>
     [AwsResourceType("aws:connect/routingProfile:RoutingProfile")]
@@ -150,10 +153,6 @@ namespace Pulumi.Aws.Connect
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -329,11 +328,7 @@ namespace Pulumi.Aws.Connect
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public RoutingProfileState()

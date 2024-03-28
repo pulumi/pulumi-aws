@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Provides a DataPipeline Pipeline Definition resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -29,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.datapipeline.Pipeline;
+ * import com.pulumi.aws.datapipeline.PipelineArgs;
  * import com.pulumi.aws.datapipeline.PipelineDefinition;
  * import com.pulumi.aws.datapipeline.PipelineDefinitionArgs;
  * import com.pulumi.aws.datapipeline.inputs.PipelineDefinitionPipelineObjectArgs;
@@ -45,7 +48,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Pipeline(&#34;default&#34;);
+ *         var default_ = new Pipeline(&#34;default&#34;, PipelineArgs.builder()        
+ *             .name(&#34;tf-pipeline-default&#34;)
+ *             .build());
  * 
  *         var example = new PipelineDefinition(&#34;example&#34;, PipelineDefinitionArgs.builder()        
  *             .pipelineId(default_.id())
@@ -105,13 +110,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_datapipeline_pipeline_definition` using the id. For example:
  * 
  * ```sh
- *  $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
+ * $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
  * ```
  * 
  */

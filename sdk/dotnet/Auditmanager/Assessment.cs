@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Auditmanager
     /// Resource for managing an AWS Audit Manager Assessment.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,17 +27,18 @@ namespace Pulumi.Aws.Auditmanager
     /// {
     ///     var test = new Aws.Auditmanager.Assessment("test", new()
     ///     {
+    ///         Name = "example",
     ///         AssessmentReportsDestination = new Aws.Auditmanager.Inputs.AssessmentAssessmentReportsDestinationArgs
     ///         {
-    ///             Destination = $"s3://{aws_s3_bucket.Test.Id}",
+    ///             Destination = $"s3://{testAwsS3Bucket.Id}",
     ///             DestinationType = "S3",
     ///         },
-    ///         FrameworkId = aws_auditmanager_framework.Test.Id,
+    ///         FrameworkId = testAwsAuditmanagerFramework.Id,
     ///         Roles = new[]
     ///         {
     ///             new Aws.Auditmanager.Inputs.AssessmentRoleArgs
     ///             {
-    ///                 RoleArn = aws_iam_role.Test.Arn,
+    ///                 RoleArn = testAwsIamRole.Arn,
     ///                 RoleType = "PROCESS_OWNER",
     ///             },
     ///         },
@@ -45,7 +48,7 @@ namespace Pulumi.Aws.Auditmanager
     ///             {
     ///                 new Aws.Auditmanager.Inputs.AssessmentScopeAwsAccountArgs
     ///                 {
-    ///                     Id = data.Aws_caller_identity.Current.Account_id,
+    ///                     Id = current.AccountId,
     ///                 },
     ///             },
     ///             AwsServices = new[]
@@ -60,13 +63,14 @@ namespace Pulumi.Aws.Auditmanager
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Audit Manager Assessments using the assessment `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:auditmanager/assessment:Assessment example abc123-de45
+    /// $ pulumi import aws:auditmanager/assessment:Assessment example abc123-de45
     /// ```
     /// </summary>
     [AwsResourceType("aws:auditmanager/assessment:Assessment")]
@@ -160,10 +164,6 @@ namespace Pulumi.Aws.Auditmanager
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -337,11 +337,7 @@ namespace Pulumi.Aws.Auditmanager
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public AssessmentState()

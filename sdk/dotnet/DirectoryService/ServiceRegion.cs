@@ -13,12 +13,147 @@ namespace Pulumi.Aws.DirectoryService
     /// Manages a replicated Region and directory for Multi-Region replication.
     /// Multi-Region replication is only supported for the Enterprise Edition of AWS Managed Microsoft AD.
     /// 
+    /// ## Example Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Aws.GetRegion.Invoke();
+    /// 
+    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
+    ///     {
+    ///         State = "available",
+    ///         Filters = new[]
+    ///         {
+    ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
+    ///             {
+    ///                 Name = "opt-in-status",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "opt-in-not-required",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVpc = new Aws.Ec2.Vpc("example", new()
+    ///     {
+    ///         CidrBlock = "10.0.0.0/16",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Primary" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new List&lt;Aws.Ec2.Subnet&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         exampleSubnet.Add(new Aws.Ec2.Subnet($"example-{range.Value}", new()
+    ///         {
+    ///             VpcId = exampleVpc.Id,
+    ///             AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names)[range.Value],
+    ///             CidrBlock = exampleVpc.CidrBlock.Apply(cidrBlock =&gt; Std.Cidrsubnet.Invoke(new()
+    ///             {
+    ///                 Input = cidrBlock,
+    ///                 Newbits = 8,
+    ///                 Netnum = range.Value,
+    ///             })).Apply(invoke =&gt; invoke.Result),
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "Primary" },
+    ///             },
+    ///         }));
+    ///     }
+    ///     var exampleDirectory = new Aws.DirectoryService.Directory("example", new()
+    ///     {
+    ///         Name = "example.com",
+    ///         Password = "SuperSecretPassw0rd",
+    ///         Type = "MicrosoftAD",
+    ///         VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
+    ///         {
+    ///             VpcId = exampleVpc.Id,
+    ///             SubnetIds = exampleSubnet.Select(__item =&gt; __item.Id).ToList(),
+    ///         },
+    ///     });
+    /// 
+    ///     var available_secondary = Aws.GetAvailabilityZones.Invoke(new()
+    ///     {
+    ///         State = "available",
+    ///         Filters = new[]
+    ///         {
+    ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
+    ///             {
+    ///                 Name = "opt-in-status",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "opt-in-not-required",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var example_secondary = new Aws.Ec2.Vpc("example-secondary", new()
+    ///     {
+    ///         CidrBlock = "10.1.0.0/16",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Secondary" },
+    ///         },
+    ///     });
+    /// 
+    ///     var example_secondarySubnet = new List&lt;Aws.Ec2.Subnet&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         example_secondarySubnet.Add(new Aws.Ec2.Subnet($"example-secondary-{range.Value}", new()
+    ///         {
+    ///             VpcId = example_secondary.Id,
+    ///             AvailabilityZone = available_secondary.Apply(available_secondary =&gt; available_secondary.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names)[range.Value]),
+    ///             CidrBlock = example_secondary.CidrBlock.Apply(cidrBlock =&gt; Std.Cidrsubnet.Invoke(new()
+    ///             {
+    ///                 Input = cidrBlock,
+    ///                 Newbits = 8,
+    ///                 Netnum = range.Value,
+    ///             })).Apply(invoke =&gt; invoke.Result),
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "Secondary" },
+    ///             },
+    ///         }));
+    ///     }
+    ///     var exampleServiceRegion = new Aws.DirectoryService.ServiceRegion("example", new()
+    ///     {
+    ///         DirectoryId = exampleDirectory.Id,
+    ///         RegionName = example.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///         VpcSettings = new Aws.DirectoryService.Inputs.ServiceRegionVpcSettingsArgs
+    ///         {
+    ///             VpcId = example_secondary.Id,
+    ///             SubnetIds = example_secondarySubnet.Select(__item =&gt; __item.Id).ToList(),
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Secondary" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Replicated Regions using directory ID,Region name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
+    /// $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
     /// ```
     /// </summary>
     [AwsResourceType("aws:directoryservice/serviceRegion:ServiceRegion")]
@@ -83,10 +218,6 @@ namespace Pulumi.Aws.DirectoryService
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -194,11 +325,7 @@ namespace Pulumi.Aws.DirectoryService
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

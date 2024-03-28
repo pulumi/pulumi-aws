@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkmanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -143,16 +144,21 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
 
         @CustomType.Setter
         public Builder action(String action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentSegmentAction", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder destinationCidrBlocks(@Nullable List<String> destinationCidrBlocks) {
+
             this.destinationCidrBlocks = destinationCidrBlocks;
             return this;
         }
@@ -161,6 +167,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
         }
         @CustomType.Setter
         public Builder destinations(@Nullable List<String> destinations) {
+
             this.destinations = destinations;
             return this;
         }
@@ -169,16 +176,21 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
         }
         @CustomType.Setter
         public Builder mode(@Nullable String mode) {
+
             this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder segment(String segment) {
-            this.segment = Objects.requireNonNull(segment);
+            if (segment == null) {
+              throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentSegmentAction", "segment");
+            }
+            this.segment = segment;
             return this;
         }
         @CustomType.Setter
         public Builder shareWithExcepts(@Nullable List<String> shareWithExcepts) {
+
             this.shareWithExcepts = shareWithExcepts;
             return this;
         }
@@ -187,6 +199,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
         }
         @CustomType.Setter
         public Builder shareWiths(@Nullable List<String> shareWiths) {
+
             this.shareWiths = shareWiths;
             return this;
         }
@@ -194,16 +207,16 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
             return shareWiths(List.of(shareWiths));
         }
         public GetCoreNetworkPolicyDocumentSegmentAction build() {
-            final var o = new GetCoreNetworkPolicyDocumentSegmentAction();
-            o.action = action;
-            o.description = description;
-            o.destinationCidrBlocks = destinationCidrBlocks;
-            o.destinations = destinations;
-            o.mode = mode;
-            o.segment = segment;
-            o.shareWithExcepts = shareWithExcepts;
-            o.shareWiths = shareWiths;
-            return o;
+            final var _resultValue = new GetCoreNetworkPolicyDocumentSegmentAction();
+            _resultValue.action = action;
+            _resultValue.description = description;
+            _resultValue.destinationCidrBlocks = destinationCidrBlocks;
+            _resultValue.destinations = destinations;
+            _resultValue.mode = mode;
+            _resultValue.segment = segment;
+            _resultValue.shareWithExcepts = shareWithExcepts;
+            _resultValue.shareWiths = shareWiths;
+            return _resultValue;
         }
     }
 }

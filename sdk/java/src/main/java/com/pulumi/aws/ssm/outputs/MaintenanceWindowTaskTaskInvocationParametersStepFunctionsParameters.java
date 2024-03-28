@@ -58,19 +58,21 @@ public final class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsPar
 
         @CustomType.Setter
         public Builder input(@Nullable String input) {
+
             this.input = input;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         public MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters build() {
-            final var o = new MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters();
-            o.input = input;
-            o.name = name;
-            return o;
+            final var _resultValue = new MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters();
+            _resultValue.input = input;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -12,23 +12,25 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultBucketV2 = new aws.s3.BucketV2("defaultBucketV2", {});
- * const defaultSpotDatafeedSubscription = new aws.ec2.SpotDatafeedSubscription("defaultSpotDatafeedSubscription", {
- *     bucket: defaultBucketV2.id,
+ * const _default = new aws.s3.BucketV2("default", {bucket: "tf-spot-datafeed"});
+ * const defaultSpotDatafeedSubscription = new aws.ec2.SpotDatafeedSubscription("default", {
+ *     bucket: _default.id,
  *     prefix: "my_subdirectory",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a Spot Datafeed Subscription using the word `spot-datafeed-subscription`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
+ * $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
  * ```
  */
 export class SpotDatafeedSubscription extends pulumi.CustomResource {

@@ -15,8 +15,10 @@ import (
 // Provides a SageMaker User Profile resource.
 //
 // ## Example Usage
+//
 // ### Basic usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewUserProfile(ctx, "example", &sagemaker.UserProfileArgs{
-//				DomainId:        pulumi.Any(aws_sagemaker_domain.Test.Id),
+//				DomainId:        pulumi.Any(test.Id),
 //				UserProfileName: pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -41,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SageMaker User Profiles using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/userProfile:UserProfile test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
-//
+// $ pulumi import aws:sagemaker/userProfile:UserProfile test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
 // ```
 type UserProfile struct {
 	pulumi.CustomResourceState
@@ -89,10 +90,6 @@ func NewUserProfile(ctx *pulumi.Context,
 	if args.UserProfileName == nil {
 		return nil, errors.New("invalid value for required argument 'UserProfileName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserProfile
 	err := ctx.RegisterResource("aws:sagemaker/userProfile:UserProfile", name, args, &resource, opts...)

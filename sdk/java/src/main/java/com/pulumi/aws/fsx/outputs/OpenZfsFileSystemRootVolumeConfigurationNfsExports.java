@@ -5,6 +5,7 @@ package com.pulumi.aws.fsx.outputs;
 
 import com.pulumi.aws.fsx.outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,16 +44,19 @@ public final class OpenZfsFileSystemRootVolumeConfigurationNfsExports {
 
         @CustomType.Setter
         public Builder clientConfigurations(List<OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration> clientConfigurations) {
-            this.clientConfigurations = Objects.requireNonNull(clientConfigurations);
+            if (clientConfigurations == null) {
+              throw new MissingRequiredPropertyException("OpenZfsFileSystemRootVolumeConfigurationNfsExports", "clientConfigurations");
+            }
+            this.clientConfigurations = clientConfigurations;
             return this;
         }
         public Builder clientConfigurations(OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration... clientConfigurations) {
             return clientConfigurations(List.of(clientConfigurations));
         }
         public OpenZfsFileSystemRootVolumeConfigurationNfsExports build() {
-            final var o = new OpenZfsFileSystemRootVolumeConfigurationNfsExports();
-            o.clientConfigurations = clientConfigurations;
-            return o;
+            final var _resultValue = new OpenZfsFileSystemRootVolumeConfigurationNfsExports();
+            _resultValue.clientConfigurations = clientConfigurations;
+            return _resultValue;
         }
     }
 }

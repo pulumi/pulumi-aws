@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,7 +35,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fis.NewExperimentTemplate(ctx, "example", &fis.ExperimentTemplateArgs{
 //				Description: pulumi.String("example"),
-//				RoleArn:     pulumi.Any(aws_iam_role.Example.Arn),
+//				RoleArn:     pulumi.Any(exampleAwsIamRole.Arn),
 //				StopConditions: fis.ExperimentTemplateStopConditionArray{
 //					&fis.ExperimentTemplateStopConditionArgs{
 //						Source: pulumi.String("none"),
@@ -72,15 +73,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import FIS Experiment Templates using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
-//
+// $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
 // ```
 type ExperimentTemplate struct {
 	pulumi.CustomResourceState
@@ -124,10 +124,6 @@ func NewExperimentTemplate(ctx *pulumi.Context,
 	if args.StopConditions == nil {
 		return nil, errors.New("invalid value for required argument 'StopConditions'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ExperimentTemplate
 	err := ctx.RegisterResource("aws:fis/experimentTemplate:ExperimentTemplate", name, args, &resource, opts...)

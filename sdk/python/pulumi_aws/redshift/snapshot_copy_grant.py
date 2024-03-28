@@ -176,23 +176,25 @@ class SnapshotCopyGrant(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_snapshot_copy_grant = aws.redshift.SnapshotCopyGrant("testSnapshotCopyGrant", snapshot_copy_grant_name="my-grant")
-        test_cluster = aws.redshift.Cluster("testCluster", snapshot_copy=aws.redshift.ClusterSnapshotCopyArgs(
+        test = aws.redshift.SnapshotCopyGrant("test", snapshot_copy_grant_name="my-grant")
+        test_cluster = aws.redshift.Cluster("test", snapshot_copy=aws.redshift.ClusterSnapshotCopyArgs(
             destination_region="us-east-2",
-            grant_name=test_snapshot_copy_grant.snapshot_copy_grant_name,
+            grant_name=test.snapshot_copy_grant_name,
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:
 
         ```sh
-         $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
+        $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
         ```
 
         :param str resource_name: The name of the resource.
@@ -214,23 +216,25 @@ class SnapshotCopyGrant(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_snapshot_copy_grant = aws.redshift.SnapshotCopyGrant("testSnapshotCopyGrant", snapshot_copy_grant_name="my-grant")
-        test_cluster = aws.redshift.Cluster("testCluster", snapshot_copy=aws.redshift.ClusterSnapshotCopyArgs(
+        test = aws.redshift.SnapshotCopyGrant("test", snapshot_copy_grant_name="my-grant")
+        test_cluster = aws.redshift.Cluster("test", snapshot_copy=aws.redshift.ClusterSnapshotCopyArgs(
             destination_region="us-east-2",
-            grant_name=test_snapshot_copy_grant.snapshot_copy_grant_name,
+            grant_name=test.snapshot_copy_grant_name,
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:
 
         ```sh
-         $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
+        $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
         ```
 
         :param str resource_name: The name of the resource.
@@ -267,8 +271,6 @@ class SnapshotCopyGrant(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SnapshotCopyGrant, __self__).__init__(
             'aws:redshift/snapshotCopyGrant:SnapshotCopyGrant',
             resource_name,

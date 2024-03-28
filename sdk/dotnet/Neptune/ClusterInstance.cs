@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// The following example will create a neptune cluster with two neptune instances(one writer and one reader).
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,13 +53,14 @@ namespace Pulumi.Aws.Neptune
     ///     }
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_neptune_cluster_instance` using the instance identifier. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
+    /// $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
     /// ```
     /// </summary>
     [AwsResourceType("aws:neptune/clusterInstance:ClusterInstance")]
@@ -193,10 +195,22 @@ namespace Pulumi.Aws.Neptune
         public Output<bool?> PubliclyAccessible { get; private set; } = null!;
 
         /// <summary>
+        /// Determines whether a final DB snapshot is created before the DB instance is deleted.
+        /// </summary>
+        [Output("skipFinalSnapshot")]
+        public Output<bool?> SkipFinalSnapshot { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether the neptune cluster is encrypted.
         /// </summary>
         [Output("storageEncrypted")]
         public Output<bool> StorageEncrypted { get; private set; } = null!;
+
+        /// <summary>
+        /// Storage type associated with the cluster `standard/iopt1`.
+        /// </summary>
+        [Output("storageType")]
+        public Output<string> StorageType { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -239,10 +253,6 @@ namespace Pulumi.Aws.Neptune
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -363,6 +373,12 @@ namespace Pulumi.Aws.Neptune
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
+
+        /// <summary>
+        /// Determines whether a final DB snapshot is created before the DB instance is deleted.
+        /// </summary>
+        [Input("skipFinalSnapshot")]
+        public Input<bool>? SkipFinalSnapshot { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -513,10 +529,22 @@ namespace Pulumi.Aws.Neptune
         public Input<bool>? PubliclyAccessible { get; set; }
 
         /// <summary>
+        /// Determines whether a final DB snapshot is created before the DB instance is deleted.
+        /// </summary>
+        [Input("skipFinalSnapshot")]
+        public Input<bool>? SkipFinalSnapshot { get; set; }
+
+        /// <summary>
         /// Specifies whether the neptune cluster is encrypted.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
+
+        /// <summary>
+        /// Storage type associated with the cluster `standard/iopt1`.
+        /// </summary>
+        [Input("storageType")]
+        public Input<string>? StorageType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -540,11 +568,7 @@ namespace Pulumi.Aws.Neptune
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

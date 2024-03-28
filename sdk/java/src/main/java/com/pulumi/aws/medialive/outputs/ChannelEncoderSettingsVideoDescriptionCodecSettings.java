@@ -66,25 +66,28 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettings {
 
         @CustomType.Setter
         public Builder frameCaptureSettings(@Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings frameCaptureSettings) {
+
             this.frameCaptureSettings = frameCaptureSettings;
             return this;
         }
         @CustomType.Setter
         public Builder h264Settings(@Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings h264Settings) {
+
             this.h264Settings = h264Settings;
             return this;
         }
         @CustomType.Setter
         public Builder h265Settings(@Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings h265Settings) {
+
             this.h265Settings = h265Settings;
             return this;
         }
         public ChannelEncoderSettingsVideoDescriptionCodecSettings build() {
-            final var o = new ChannelEncoderSettingsVideoDescriptionCodecSettings();
-            o.frameCaptureSettings = frameCaptureSettings;
-            o.h264Settings = h264Settings;
-            o.h265Settings = h265Settings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsVideoDescriptionCodecSettings();
+            _resultValue.frameCaptureSettings = frameCaptureSettings;
+            _resultValue.h264Settings = h264Settings;
+            _resultValue.h265Settings = h265Settings;
+            return _resultValue;
         }
     }
 }

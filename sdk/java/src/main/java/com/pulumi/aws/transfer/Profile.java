@@ -20,8 +20,10 @@ import javax.annotation.Nullable;
  * Provides a AWS Transfer AS2 Profile resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,20 +47,21 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Profile(&#34;example&#34;, ProfileArgs.builder()        
  *             .as2Id(&#34;example&#34;)
- *             .certificateIds(aws_transfer_certificate.example().certificate_id())
+ *             .certificateIds(exampleAwsTransferCertificate.certificateId())
  *             .usage(&#34;LOCAL&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Transfer AS2 Profile using the `profile_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:transfer/profile:Profile example p-4221a88afd5f4362a
+ * $ pulumi import aws:transfer/profile:Profile example p-4221a88afd5f4362a
  * ```
  * 
  */
@@ -193,9 +196,6 @@ public class Profile extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

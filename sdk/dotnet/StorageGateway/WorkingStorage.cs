@@ -16,6 +16,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,19 +27,20 @@ namespace Pulumi.Aws.StorageGateway
     /// {
     ///     var example = new Aws.StorageGateway.WorkingStorage("example", new()
     ///     {
-    ///         DiskId = data.Aws_storagegateway_local_disk.Example.Id,
-    ///         GatewayArn = aws_storagegateway_gateway.Example.Arn,
+    ///         DiskId = exampleAwsStoragegatewayLocalDisk.Id,
+    ///         GatewayArn = exampleAwsStoragegatewayGateway.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_storagegateway_working_storage` using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:storagegateway/workingStorage:WorkingStorage example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
+    /// $ pulumi import aws:storagegateway/workingStorage:WorkingStorage example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
     /// ```
     /// </summary>
     [AwsResourceType("aws:storagegateway/workingStorage:WorkingStorage")]

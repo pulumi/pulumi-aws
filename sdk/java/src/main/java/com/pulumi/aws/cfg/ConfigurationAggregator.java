@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,7 +21,10 @@ import javax.annotation.Nullable;
  * Manages an AWS Config Configuration Aggregator
  * 
  * ## Example Usage
+ * 
  * ### Account Based Aggregation
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,6 +48,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var account = new ConfigurationAggregator(&#34;account&#34;, ConfigurationAggregatorArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .accountAggregationSource(ConfigurationAggregatorAccountAggregationSourceArgs.builder()
  *                 .accountIds(&#34;123456789012&#34;)
  *                 .regions(&#34;us-west-2&#34;)
@@ -55,7 +58,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Organization Based Aggregation
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -66,12 +73,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
  * import com.pulumi.aws.cfg.ConfigurationAggregator;
  * import com.pulumi.aws.cfg.ConfigurationAggregatorArgs;
  * import com.pulumi.aws.cfg.inputs.ConfigurationAggregatorOrganizationAggregationSourceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -97,7 +103,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var organizationRole = new Role(&#34;organizationRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .build());
+ * 
+ *         var organization = new ConfigurationAggregator(&#34;organization&#34;, ConfigurationAggregatorArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .organizationAggregationSource(ConfigurationAggregatorOrganizationAggregationSourceArgs.builder()
+ *                 .allRegions(true)
+ *                 .roleArn(organizationRole.arn())
+ *                 .build())
  *             .build());
  * 
  *         var organizationRolePolicyAttachment = new RolePolicyAttachment(&#34;organizationRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
@@ -105,25 +120,17 @@ import javax.annotation.Nullable;
  *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations&#34;)
  *             .build());
  * 
- *         var organizationConfigurationAggregator = new ConfigurationAggregator(&#34;organizationConfigurationAggregator&#34;, ConfigurationAggregatorArgs.builder()        
- *             .organizationAggregationSource(ConfigurationAggregatorOrganizationAggregationSourceArgs.builder()
- *                 .allRegions(true)
- *                 .roleArn(organizationRole.arn())
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(organizationRolePolicyAttachment)
- *                 .build());
- * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Configuration Aggregators using the name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
+ * $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
  * ```
  * 
  */
@@ -254,9 +261,6 @@ public class ConfigurationAggregator extends com.pulumi.resources.CustomResource
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

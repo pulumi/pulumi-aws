@@ -58,19 +58,21 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
         @CustomType.Setter
         public Builder authCode(@Nullable String authCode) {
+
             this.authCode = authCode;
             return this;
         }
         @CustomType.Setter
         public Builder redirectUri(@Nullable String redirectUri) {
+
             this.redirectUri = redirectUri;
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest();
-            o.authCode = authCode;
-            o.redirectUri = redirectUri;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest();
+            _resultValue.authCode = authCode;
+            _resultValue.redirectUri = redirectUri;
+            return _resultValue;
         }
     }
 }

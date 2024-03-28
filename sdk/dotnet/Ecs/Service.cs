@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,10 +29,11 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var mongo = new Aws.Ecs.Service("mongo", new()
     ///     {
-    ///         Cluster = aws_ecs_cluster.Foo.Id,
-    ///         TaskDefinition = aws_ecs_task_definition.Mongo.Arn,
+    ///         Name = "mongodb",
+    ///         Cluster = fooAwsEcsCluster.Id,
+    ///         TaskDefinition = mongoAwsEcsTaskDefinition.Arn,
     ///         DesiredCount = 3,
-    ///         IamRole = aws_iam_role.Foo.Arn,
+    ///         IamRole = fooAwsIamRole.Arn,
     ///         OrderedPlacementStrategies = new[]
     ///         {
     ///             new Aws.Ecs.Inputs.ServiceOrderedPlacementStrategyArgs
@@ -44,7 +46,7 @@ namespace Pulumi.Aws.Ecs
     ///         {
     ///             new Aws.Ecs.Inputs.ServiceLoadBalancerArgs
     ///             {
-    ///                 TargetGroupArn = aws_lb_target_group.Foo.Arn,
+    ///                 TargetGroupArn = foo.Arn,
     ///                 ContainerName = "mongo",
     ///                 ContainerPort = 8080,
     ///             },
@@ -57,20 +59,17 @@ namespace Pulumi.Aws.Ecs
     ///                 Expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_iam_role_policy.Foo,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Ignoring Changes to Desired Count
     /// 
     /// You can use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -79,7 +78,6 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // ... other configurations ...
     ///     var example = new Aws.Ecs.Service("example", new()
     ///     {
     ///         DesiredCount = 2,
@@ -87,8 +85,11 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Daemon Scheduling Strategy
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -99,15 +100,19 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var bar = new Aws.Ecs.Service("bar", new()
     ///     {
-    ///         Cluster = aws_ecs_cluster.Foo.Id,
-    ///         TaskDefinition = aws_ecs_task_definition.Bar.Arn,
+    ///         Name = "bar",
+    ///         Cluster = foo.Id,
+    ///         TaskDefinition = barAwsEcsTaskDefinition.Arn,
     ///         SchedulingStrategy = "DAEMON",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### CloudWatch Deployment Alarms
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -118,22 +123,26 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var example = new Aws.Ecs.Service("example", new()
     ///     {
-    ///         Cluster = aws_ecs_cluster.Example.Id,
+    ///         Name = "example",
+    ///         Cluster = exampleAwsEcsCluster.Id,
     ///         Alarms = new Aws.Ecs.Inputs.ServiceAlarmsArgs
     ///         {
     ///             Enable = true,
     ///             Rollback = true,
     ///             AlarmNames = new[]
     ///             {
-    ///                 aws_cloudwatch_metric_alarm.Example.Alarm_name,
+    ///                 exampleAwsCloudwatchMetricAlarm.AlarmName,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### External Deployment Controller
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -144,7 +153,8 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var example = new Aws.Ecs.Service("example", new()
     ///     {
-    ///         Cluster = aws_ecs_cluster.Example.Id,
+    ///         Name = "example",
+    ///         Cluster = exampleAwsEcsCluster.Id,
     ///         DeploymentController = new Aws.Ecs.Inputs.ServiceDeploymentControllerArgs
     ///         {
     ///             Type = "EXTERNAL",
@@ -153,13 +163,14 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
+    /// $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecs/service:Service")]
@@ -172,7 +183,7 @@ namespace Pulumi.Aws.Ecs
         public Output<Outputs.ServiceAlarms?> Alarms { get; private set; } = null!;
 
         /// <summary>
-        /// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
+        /// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
         /// </summary>
         [Output("capacityProviderStrategies")]
         public Output<ImmutableArray<Outputs.ServiceCapacityProviderStrategy>> CapacityProviderStrategies { get; private set; } = null!;
@@ -244,7 +255,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string> IamRole { get; private set; } = null!;
 
         /// <summary>
-        /// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+        /// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
         /// </summary>
         [Output("launchType")]
         public Output<string> LaunchType { get; private set; } = null!;
@@ -330,7 +341,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string?> TaskDefinition { get; private set; } = null!;
 
         /// <summary>
-        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
         /// </summary>
         [Output("triggers")]
         public Output<ImmutableDictionary<string, string>> Triggers { get; private set; } = null!;
@@ -364,10 +375,6 @@ namespace Pulumi.Aws.Ecs
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -401,7 +408,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ServiceCapacityProviderStrategyArgs>? _capacityProviderStrategies;
 
         /// <summary>
-        /// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
+        /// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
         /// </summary>
         public InputList<Inputs.ServiceCapacityProviderStrategyArgs> CapacityProviderStrategies
         {
@@ -476,7 +483,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? IamRole { get; set; }
 
         /// <summary>
-        /// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+        /// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
         /// </summary>
         [Input("launchType")]
         public Input<string>? LaunchType { get; set; }
@@ -583,7 +590,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _triggers;
 
         /// <summary>
-        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
         /// </summary>
         public InputMap<string> Triggers
         {
@@ -615,7 +622,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ServiceCapacityProviderStrategyGetArgs>? _capacityProviderStrategies;
 
         /// <summary>
-        /// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
+        /// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
         /// </summary>
         public InputList<Inputs.ServiceCapacityProviderStrategyGetArgs> CapacityProviderStrategies
         {
@@ -690,7 +697,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? IamRole { get; set; }
 
         /// <summary>
-        /// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+        /// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
         /// </summary>
         [Input("launchType")]
         public Input<string>? LaunchType { get; set; }
@@ -797,11 +804,7 @@ namespace Pulumi.Aws.Ecs
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>
@@ -814,7 +817,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _triggers;
 
         /// <summary>
-        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
         /// </summary>
         public InputMap<string> Triggers
         {

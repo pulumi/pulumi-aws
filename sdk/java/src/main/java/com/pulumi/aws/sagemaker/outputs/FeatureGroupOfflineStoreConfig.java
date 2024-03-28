@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.outputs;
 import com.pulumi.aws.sagemaker.outputs.FeatureGroupOfflineStoreConfigDataCatalogConfig;
 import com.pulumi.aws.sagemaker.outputs.FeatureGroupOfflineStoreConfigS3StorageConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -89,31 +90,37 @@ public final class FeatureGroupOfflineStoreConfig {
 
         @CustomType.Setter
         public Builder dataCatalogConfig(@Nullable FeatureGroupOfflineStoreConfigDataCatalogConfig dataCatalogConfig) {
+
             this.dataCatalogConfig = dataCatalogConfig;
             return this;
         }
         @CustomType.Setter
         public Builder disableGlueTableCreation(@Nullable Boolean disableGlueTableCreation) {
+
             this.disableGlueTableCreation = disableGlueTableCreation;
             return this;
         }
         @CustomType.Setter
         public Builder s3StorageConfig(FeatureGroupOfflineStoreConfigS3StorageConfig s3StorageConfig) {
-            this.s3StorageConfig = Objects.requireNonNull(s3StorageConfig);
+            if (s3StorageConfig == null) {
+              throw new MissingRequiredPropertyException("FeatureGroupOfflineStoreConfig", "s3StorageConfig");
+            }
+            this.s3StorageConfig = s3StorageConfig;
             return this;
         }
         @CustomType.Setter
         public Builder tableFormat(@Nullable String tableFormat) {
+
             this.tableFormat = tableFormat;
             return this;
         }
         public FeatureGroupOfflineStoreConfig build() {
-            final var o = new FeatureGroupOfflineStoreConfig();
-            o.dataCatalogConfig = dataCatalogConfig;
-            o.disableGlueTableCreation = disableGlueTableCreation;
-            o.s3StorageConfig = s3StorageConfig;
-            o.tableFormat = tableFormat;
-            return o;
+            final var _resultValue = new FeatureGroupOfflineStoreConfig();
+            _resultValue.dataCatalogConfig = dataCatalogConfig;
+            _resultValue.disableGlueTableCreation = disableGlueTableCreation;
+            _resultValue.s3StorageConfig = s3StorageConfig;
+            _resultValue.tableFormat = tableFormat;
+            return _resultValue;
         }
     }
 }

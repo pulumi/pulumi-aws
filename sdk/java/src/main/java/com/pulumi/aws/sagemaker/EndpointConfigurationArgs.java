@@ -9,6 +9,7 @@ import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationProductionVariantArg
 import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationShadowProductionVariantArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -112,14 +113,14 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+     * Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
      * 
      */
     @Import(name="shadowProductionVariants")
     private @Nullable Output<List<EndpointConfigurationShadowProductionVariantArgs>> shadowProductionVariants;
 
     /**
-     * @return Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+     * @return Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
      * 
      */
     public Optional<Output<List<EndpointConfigurationShadowProductionVariantArgs>>> shadowProductionVariants() {
@@ -309,7 +310,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param shadowProductionVariants Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+         * @param shadowProductionVariants Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
          * 
          * @return builder
          * 
@@ -320,7 +321,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param shadowProductionVariants Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+         * @param shadowProductionVariants Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
          * 
          * @return builder
          * 
@@ -330,7 +331,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param shadowProductionVariants Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+         * @param shadowProductionVariants Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
          * 
          * @return builder
          * 
@@ -361,7 +362,9 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         public EndpointConfigurationArgs build() {
-            $.productionVariants = Objects.requireNonNull($.productionVariants, "expected parameter 'productionVariants' to be non-null");
+            if ($.productionVariants == null) {
+                throw new MissingRequiredPropertyException("EndpointConfigurationArgs", "productionVariants");
+            }
             return $;
         }
     }

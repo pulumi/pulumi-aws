@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides an IoT policy attachment.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var pubsubPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var pubsub = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(&#34;iot:*&#34;)
@@ -53,11 +55,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var pubsubPolicy = new Policy(&#34;pubsubPolicy&#34;, PolicyArgs.builder()        
- *             .policy(pubsubPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .name(&#34;PubSubToAnyTopic&#34;)
+ *             .policy(pubsub.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var cert = new Certificate(&#34;cert&#34;, CertificateArgs.builder()        
- *             .csr(Files.readString(Paths.get(&#34;csr.pem&#34;)))
+ *             .csr(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;csr.pem&#34;)
+ *                 .build()).result())
  *             .active(true)
  *             .build());
  * 
@@ -69,6 +74,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:iot/policyAttachment:PolicyAttachment")

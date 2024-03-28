@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := servicecatalog.NewPortfolio(ctx, "portfolio", &servicecatalog.PortfolioArgs{
+//				Name:         pulumi.String("My App Portfolio"),
 //				Description:  pulumi.String("List of my organizations apps"),
 //				ProviderName: pulumi.String("Brett"),
 //			})
@@ -40,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Service Catalog Portfolios using the Service Catalog Portfolio `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
-//
+// $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
 // ```
 type Portfolio struct {
 	pulumi.CustomResourceState
@@ -79,10 +80,6 @@ func NewPortfolio(ctx *pulumi.Context,
 	if args.ProviderName == nil {
 		return nil, errors.New("invalid value for required argument 'ProviderName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Portfolio
 	err := ctx.RegisterResource("aws:servicecatalog/portfolio:Portfolio", name, args, &resource, opts...)

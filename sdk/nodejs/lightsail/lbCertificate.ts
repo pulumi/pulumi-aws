@@ -12,29 +12,33 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testLb = new aws.lightsail.Lb("testLb", {
+ * const test = new aws.lightsail.Lb("test", {
+ *     name: "test-load-balancer",
  *     healthCheckPath: "/",
  *     instancePort: 80,
  *     tags: {
  *         foo: "bar",
  *     },
  * });
- * const testLbCertificate = new aws.lightsail.LbCertificate("testLbCertificate", {
- *     lbName: testLb.id,
+ * const testLbCertificate = new aws.lightsail.LbCertificate("test", {
+ *     name: "test-load-balancer-certificate",
+ *     lbName: test.id,
  *     domainName: "test.com",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_lightsail_lb_certificate` using the id attribute. For example:
  *
  * ```sh
- *  $ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
+ * $ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
  * ```
  */
 export class LbCertificate extends pulumi.CustomResource {

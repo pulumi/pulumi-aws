@@ -120,41 +120,44 @@ class AccessPointPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_access_point = aws.s3.AccessPoint("exampleAccessPoint",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="example")
+        example_access_point = aws.s3.AccessPoint("example",
+            bucket=example.id,
+            name="example",
             public_access_block_configuration=aws.s3.AccessPointPublicAccessBlockConfigurationArgs(
                 block_public_acls=True,
                 block_public_policy=False,
                 ignore_public_acls=True,
                 restrict_public_buckets=False,
             ))
-        example_access_point_policy = aws.s3control.AccessPointPolicy("exampleAccessPointPolicy",
+        example_access_point_policy = aws.s3control.AccessPointPolicy("example",
             access_point_arn=example_access_point.arn,
-            policy=example_access_point.arn.apply(lambda arn: json.dumps({
-                "Version": "2008-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": "s3:GetObjectTagging",
-                    "Principal": {
+            policy=pulumi.Output.json_dumps({
+                "version": "2008-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "action": "s3:GetObjectTagging",
+                    "principal": {
                         "AWS": "*",
                     },
-                    "Resource": f"{arn}/object/*",
+                    "resource": example_access_point.arn.apply(lambda arn: f"{arn}/object/*"),
                 }],
-            })))
+            }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Access Point policies using the `access_point_arn`. For example:
 
         ```sh
-         $ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
+        $ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -175,41 +178,44 @@ class AccessPointPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_access_point = aws.s3.AccessPoint("exampleAccessPoint",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="example")
+        example_access_point = aws.s3.AccessPoint("example",
+            bucket=example.id,
+            name="example",
             public_access_block_configuration=aws.s3.AccessPointPublicAccessBlockConfigurationArgs(
                 block_public_acls=True,
                 block_public_policy=False,
                 ignore_public_acls=True,
                 restrict_public_buckets=False,
             ))
-        example_access_point_policy = aws.s3control.AccessPointPolicy("exampleAccessPointPolicy",
+        example_access_point_policy = aws.s3control.AccessPointPolicy("example",
             access_point_arn=example_access_point.arn,
-            policy=example_access_point.arn.apply(lambda arn: json.dumps({
-                "Version": "2008-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": "s3:GetObjectTagging",
-                    "Principal": {
+            policy=pulumi.Output.json_dumps({
+                "version": "2008-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "action": "s3:GetObjectTagging",
+                    "principal": {
                         "AWS": "*",
                     },
-                    "Resource": f"{arn}/object/*",
+                    "resource": example_access_point.arn.apply(lambda arn: f"{arn}/object/*"),
                 }],
-            })))
+            }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Access Point policies using the `access_point_arn`. For example:
 
         ```sh
-         $ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
+        $ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
         ```
 
         :param str resource_name: The name of the resource.

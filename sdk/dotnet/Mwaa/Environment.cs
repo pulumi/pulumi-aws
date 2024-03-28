@@ -15,8 +15,10 @@ namespace Pulumi.Aws.Mwaa
     /// ## Example Usage
     /// 
     /// A MWAA Environment requires an IAM role (`aws.iam.Role`), two subnets in the private zone (`aws.ec2.Subnet`) and a versioned S3 bucket (`aws.s3.BucketV2`).
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,22 +30,26 @@ namespace Pulumi.Aws.Mwaa
     ///     var example = new Aws.Mwaa.Environment("example", new()
     ///     {
     ///         DagS3Path = "dags/",
-    ///         ExecutionRoleArn = aws_iam_role.Example.Arn,
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         Name = "example",
     ///         NetworkConfiguration = new Aws.Mwaa.Inputs.EnvironmentNetworkConfigurationArgs
     ///         {
     ///             SecurityGroupIds = new[]
     ///             {
-    ///                 aws_security_group.Example.Id,
+    ///                 exampleAwsSecurityGroup.Id,
     ///             },
-    ///             SubnetIds = aws_subnet.Private.Select(__item =&gt; __item.Id).ToList(),
+    ///             SubnetIds = @private.Select(__item =&gt; __item.Id).ToList(),
     ///         },
-    ///         SourceBucketArn = aws_s3_bucket.Example.Arn,
+    ///         SourceBucketArn = exampleAwsS3Bucket.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example with Airflow configuration options
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -60,24 +66,28 @@ namespace Pulumi.Aws.Mwaa
     ///             { "core.parallelism", "1" },
     ///         },
     ///         DagS3Path = "dags/",
-    ///         ExecutionRoleArn = aws_iam_role.Example.Arn,
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         Name = "example",
     ///         NetworkConfiguration = new Aws.Mwaa.Inputs.EnvironmentNetworkConfigurationArgs
     ///         {
     ///             SecurityGroupIds = new[]
     ///             {
-    ///                 aws_security_group.Example.Id,
+    ///                 exampleAwsSecurityGroup.Id,
     ///             },
-    ///             SubnetIds = aws_subnet.Private.Select(__item =&gt; __item.Id).ToList(),
+    ///             SubnetIds = @private.Select(__item =&gt; __item.Id).ToList(),
     ///         },
-    ///         SourceBucketArn = aws_s3_bucket.Example.Arn,
+    ///         SourceBucketArn = exampleAwsS3Bucket.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example with logging configurations
     /// 
     /// Note that Airflow task logs are enabled by default with the `INFO` log level.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -89,7 +99,7 @@ namespace Pulumi.Aws.Mwaa
     ///     var example = new Aws.Mwaa.Environment("example", new()
     ///     {
     ///         DagS3Path = "dags/",
-    ///         ExecutionRoleArn = aws_iam_role.Example.Arn,
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
     ///         LoggingConfiguration = new Aws.Mwaa.Inputs.EnvironmentLoggingConfigurationArgs
     ///         {
     ///             DagProcessingLogs = new Aws.Mwaa.Inputs.EnvironmentLoggingConfigurationDagProcessingLogsArgs
@@ -118,21 +128,25 @@ namespace Pulumi.Aws.Mwaa
     ///                 LogLevel = "CRITICAL",
     ///             },
     ///         },
+    ///         Name = "example",
     ///         NetworkConfiguration = new Aws.Mwaa.Inputs.EnvironmentNetworkConfigurationArgs
     ///         {
     ///             SecurityGroupIds = new[]
     ///             {
-    ///                 aws_security_group.Example.Id,
+    ///                 exampleAwsSecurityGroup.Id,
     ///             },
-    ///             SubnetIds = aws_subnet.Private.Select(__item =&gt; __item.Id).ToList(),
+    ///             SubnetIds = @private.Select(__item =&gt; __item.Id).ToList(),
     ///         },
-    ///         SourceBucketArn = aws_s3_bucket.Example.Arn,
+    ///         SourceBucketArn = exampleAwsS3Bucket.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example with tags
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -144,16 +158,17 @@ namespace Pulumi.Aws.Mwaa
     ///     var example = new Aws.Mwaa.Environment("example", new()
     ///     {
     ///         DagS3Path = "dags/",
-    ///         ExecutionRoleArn = aws_iam_role.Example.Arn,
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         Name = "example",
     ///         NetworkConfiguration = new Aws.Mwaa.Inputs.EnvironmentNetworkConfigurationArgs
     ///         {
     ///             SecurityGroupIds = new[]
     ///             {
-    ///                 aws_security_group.Example.Id,
+    ///                 exampleAwsSecurityGroup.Id,
     ///             },
-    ///             SubnetIds = aws_subnet.Private.Select(__item =&gt; __item.Id).ToList(),
+    ///             SubnetIds = @private.Select(__item =&gt; __item.Id).ToList(),
     ///         },
-    ///         SourceBucketArn = aws_s3_bucket.Example.Arn,
+    ///         SourceBucketArn = exampleAwsS3Bucket.Arn,
     ///         Tags = 
     ///         {
     ///             { "Name", "example" },
@@ -163,13 +178,14 @@ namespace Pulumi.Aws.Mwaa
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MWAA Environment using `Name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:mwaa/environment:Environment example MyAirflowEnvironment
+    /// $ pulumi import aws:mwaa/environment:Environment example MyAirflowEnvironment
     /// ```
     /// </summary>
     [AwsResourceType("aws:mwaa/environment:Environment")]
@@ -205,6 +221,9 @@ namespace Pulumi.Aws.Mwaa
         /// </summary>
         [Output("dagS3Path")]
         public Output<string> DagS3Path { get; private set; } = null!;
+
+        [Output("endpointManagement")]
+        public Output<string> EndpointManagement { get; private set; } = null!;
 
         /// <summary>
         /// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
@@ -373,7 +392,6 @@ namespace Pulumi.Aws.Mwaa
                 AdditionalSecretOutputs =
                 {
                     "airflowConfigurationOptions",
-                    "tagsAll",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -425,6 +443,9 @@ namespace Pulumi.Aws.Mwaa
         /// </summary>
         [Input("dagS3Path", required: true)]
         public Input<string> DagS3Path { get; set; } = null!;
+
+        [Input("endpointManagement")]
+        public Input<string>? EndpointManagement { get; set; }
 
         /// <summary>
         /// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
@@ -595,6 +616,9 @@ namespace Pulumi.Aws.Mwaa
         [Input("dagS3Path")]
         public Input<string>? DagS3Path { get; set; }
 
+        [Input("endpointManagement")]
+        public Input<string>? EndpointManagement { get; set; }
+
         /// <summary>
         /// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
         /// </summary>
@@ -733,11 +757,7 @@ namespace Pulumi.Aws.Mwaa
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

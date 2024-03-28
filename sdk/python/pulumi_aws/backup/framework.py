@@ -259,20 +259,24 @@ class Framework(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.backup.Framework("example",
+        example = aws.backup.Framework("Example",
+            name="exampleFramework",
+            description="this is an example framework",
             controls=[
                 aws.backup.FrameworkControlArgs(
+                    name="BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
                     input_parameters=[aws.backup.FrameworkControlInputParameterArgs(
                         name="requiredRetentionDays",
                         value="35",
                     )],
-                    name="BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
                 ),
                 aws.backup.FrameworkControlArgs(
+                    name="BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
                     input_parameters=[
                         aws.backup.FrameworkControlInputParameterArgs(
                             name="requiredFrequencyUnit",
@@ -287,7 +291,6 @@ class Framework(pulumi.CustomResource):
                             value="1",
                         ),
                     ],
-                    name="BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
                 ),
                 aws.backup.FrameworkControlArgs(
                     name="BACKUP_RECOVERY_POINT_ENCRYPTED",
@@ -302,6 +305,7 @@ class Framework(pulumi.CustomResource):
                     name="BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
                 ),
                 aws.backup.FrameworkControlArgs(
+                    name="BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
                     input_parameters=[
                         aws.backup.FrameworkControlInputParameterArgs(
                             name="maxRetentionDays",
@@ -312,12 +316,12 @@ class Framework(pulumi.CustomResource):
                             value="1",
                         ),
                     ],
-                    name="BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
                     scope=aws.backup.FrameworkControlScopeArgs(
                         compliance_resource_types=["EBS"],
                     ),
                 ),
                 aws.backup.FrameworkControlArgs(
+                    name="BACKUP_LAST_RECOVERY_POINT_CREATED",
                     input_parameters=[
                         aws.backup.FrameworkControlInputParameterArgs(
                             name="recoveryPointAgeUnit",
@@ -328,24 +332,23 @@ class Framework(pulumi.CustomResource):
                             value="1",
                         ),
                     ],
-                    name="BACKUP_LAST_RECOVERY_POINT_CREATED",
                     scope=aws.backup.FrameworkControlScopeArgs(
                         compliance_resource_types=["EBS"],
                     ),
                 ),
             ],
-            description="this is an example framework",
             tags={
                 "Name": "Example Framework",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup Framework using the `id` which corresponds to the name of the Backup Framework. For example:
 
         ```sh
-         $ pulumi import aws:backup/framework:Framework test <id>
+        $ pulumi import aws:backup/framework:Framework test <id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -368,20 +371,24 @@ class Framework(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.backup.Framework("example",
+        example = aws.backup.Framework("Example",
+            name="exampleFramework",
+            description="this is an example framework",
             controls=[
                 aws.backup.FrameworkControlArgs(
+                    name="BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
                     input_parameters=[aws.backup.FrameworkControlInputParameterArgs(
                         name="requiredRetentionDays",
                         value="35",
                     )],
-                    name="BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
                 ),
                 aws.backup.FrameworkControlArgs(
+                    name="BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
                     input_parameters=[
                         aws.backup.FrameworkControlInputParameterArgs(
                             name="requiredFrequencyUnit",
@@ -396,7 +403,6 @@ class Framework(pulumi.CustomResource):
                             value="1",
                         ),
                     ],
-                    name="BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
                 ),
                 aws.backup.FrameworkControlArgs(
                     name="BACKUP_RECOVERY_POINT_ENCRYPTED",
@@ -411,6 +417,7 @@ class Framework(pulumi.CustomResource):
                     name="BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
                 ),
                 aws.backup.FrameworkControlArgs(
+                    name="BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
                     input_parameters=[
                         aws.backup.FrameworkControlInputParameterArgs(
                             name="maxRetentionDays",
@@ -421,12 +428,12 @@ class Framework(pulumi.CustomResource):
                             value="1",
                         ),
                     ],
-                    name="BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
                     scope=aws.backup.FrameworkControlScopeArgs(
                         compliance_resource_types=["EBS"],
                     ),
                 ),
                 aws.backup.FrameworkControlArgs(
+                    name="BACKUP_LAST_RECOVERY_POINT_CREATED",
                     input_parameters=[
                         aws.backup.FrameworkControlInputParameterArgs(
                             name="recoveryPointAgeUnit",
@@ -437,24 +444,23 @@ class Framework(pulumi.CustomResource):
                             value="1",
                         ),
                     ],
-                    name="BACKUP_LAST_RECOVERY_POINT_CREATED",
                     scope=aws.backup.FrameworkControlScopeArgs(
                         compliance_resource_types=["EBS"],
                     ),
                 ),
             ],
-            description="this is an example framework",
             tags={
                 "Name": "Example Framework",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup Framework using the `id` which corresponds to the name of the Backup Framework. For example:
 
         ```sh
-         $ pulumi import aws:backup/framework:Framework test <id>
+        $ pulumi import aws:backup/framework:Framework test <id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -496,8 +502,6 @@ class Framework(pulumi.CustomResource):
             __props__.__dict__["deployment_status"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Framework, __self__).__init__(
             'aws:backup/framework:Framework',
             resource_name,

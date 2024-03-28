@@ -89,31 +89,35 @@ public final class GatewayRouteSpec {
 
         @CustomType.Setter
         public Builder grpcRoute(@Nullable GatewayRouteSpecGrpcRoute grpcRoute) {
+
             this.grpcRoute = grpcRoute;
             return this;
         }
         @CustomType.Setter
         public Builder http2Route(@Nullable GatewayRouteSpecHttp2Route http2Route) {
+
             this.http2Route = http2Route;
             return this;
         }
         @CustomType.Setter
         public Builder httpRoute(@Nullable GatewayRouteSpecHttpRoute httpRoute) {
+
             this.httpRoute = httpRoute;
             return this;
         }
         @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
+
             this.priority = priority;
             return this;
         }
         public GatewayRouteSpec build() {
-            final var o = new GatewayRouteSpec();
-            o.grpcRoute = grpcRoute;
-            o.http2Route = http2Route;
-            o.httpRoute = httpRoute;
-            o.priority = priority;
-            return o;
+            final var _resultValue = new GatewayRouteSpec();
+            _resultValue.grpcRoute = grpcRoute;
+            _resultValue.http2Route = http2Route;
+            _resultValue.httpRoute = httpRoute;
+            _resultValue.priority = priority;
+            return _resultValue;
         }
     }
 }

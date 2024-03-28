@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,22 +20,21 @@ import javax.annotation.Nullable;
  * This resource accepts ownership of a private virtual interface created by another AWS account.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.ec2.VpnGateway;
- * import com.pulumi.aws.ec2.VpnGatewayArgs;
  * import com.pulumi.aws.directconnect.HostedPrivateVirtualInterface;
  * import com.pulumi.aws.directconnect.HostedPrivateVirtualInterfaceArgs;
+ * import com.pulumi.aws.ec2.VpnGateway;
  * import com.pulumi.aws.directconnect.HostedPrivateVirtualInterfaceAccepter;
  * import com.pulumi.aws.directconnect.HostedPrivateVirtualInterfaceAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,42 +48,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var accepter = new Provider(&#34;accepter&#34;);
- * 
- *         final var accepterCallerIdentity = AwsFunctions.getCallerIdentity();
- * 
- *         var vpnGw = new VpnGateway(&#34;vpnGw&#34;, VpnGatewayArgs.Empty, CustomResourceOptions.builder()
- *             .provider(aws.accepter())
- *             .build());
+ *         final var accepter = AwsFunctions.getCallerIdentity();
  * 
  *         var creator = new HostedPrivateVirtualInterface(&#34;creator&#34;, HostedPrivateVirtualInterfaceArgs.builder()        
  *             .connectionId(&#34;dxcon-zzzzzzzz&#34;)
- *             .ownerAccountId(accepterCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *             .ownerAccountId(accepter.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *             .name(&#34;vif-foo&#34;)
  *             .vlan(4094)
  *             .addressFamily(&#34;ipv4&#34;)
  *             .bgpAsn(65352)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(vpnGw)
- *                 .build());
+ *             .build());
+ * 
+ *         var vpnGw = new VpnGateway(&#34;vpnGw&#34;);
  * 
  *         var accepterHostedPrivateVirtualInterfaceAccepter = new HostedPrivateVirtualInterfaceAccepter(&#34;accepterHostedPrivateVirtualInterfaceAccepter&#34;, HostedPrivateVirtualInterfaceAccepterArgs.builder()        
  *             .virtualInterfaceId(creator.id())
  *             .vpnGatewayId(vpnGw.id())
  *             .tags(Map.of(&#34;Side&#34;, &#34;Accepter&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.accepter())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Direct Connect hosted private virtual interfaces using the VIF `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter test dxvif-33cc44dd
+ * $ pulumi import aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter test dxvif-33cc44dd
  * ```
  * 
  */
@@ -212,9 +204,6 @@ public class HostedPrivateVirtualInterfaceAccepter extends com.pulumi.resources.
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

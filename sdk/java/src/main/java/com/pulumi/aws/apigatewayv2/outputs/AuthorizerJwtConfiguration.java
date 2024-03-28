@@ -59,6 +59,7 @@ public final class AuthorizerJwtConfiguration {
 
         @CustomType.Setter
         public Builder audiences(@Nullable List<String> audiences) {
+
             this.audiences = audiences;
             return this;
         }
@@ -67,14 +68,15 @@ public final class AuthorizerJwtConfiguration {
         }
         @CustomType.Setter
         public Builder issuer(@Nullable String issuer) {
+
             this.issuer = issuer;
             return this;
         }
         public AuthorizerJwtConfiguration build() {
-            final var o = new AuthorizerJwtConfiguration();
-            o.audiences = audiences;
-            o.issuer = issuer;
-            return o;
+            final var _resultValue = new AuthorizerJwtConfiguration();
+            _resultValue.audiences = audiences;
+            _resultValue.issuer = issuer;
+            return _resultValue;
         }
     }
 }

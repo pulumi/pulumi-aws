@@ -11,30 +11,36 @@ import {PolicyDocument} from "./index";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myDevelopers = new aws.iam.Group("myDevelopers", {path: "/users/"});
- * const myDeveloperPolicy = new aws.iam.GroupPolicy("myDeveloperPolicy", {
+ * const myDevelopers = new aws.iam.Group("my_developers", {
+ *     name: "developers",
+ *     path: "/users/",
+ * });
+ * const myDeveloperPolicy = new aws.iam.GroupPolicy("my_developer_policy", {
+ *     name: "my_developer_policy",
  *     group: myDevelopers.name,
  *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: ["ec2:Describe*"],
- *             Effect: "Allow",
- *             Resource: "*",
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: ["ec2:Describe*"],
+ *             effect: "Allow",
+ *             resource: "*",
  *         }],
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IAM Group Policies using the `group_name:group_policy_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
+ * $ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
  * ```
  */
 export class GroupPolicy extends pulumi.CustomResource {

@@ -36,6 +36,8 @@ public final class OpensearchFunctions {
      * Use this data source to get information about an OpenSearch Domain
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -64,6 +66,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDomainResult> getDomain(GetDomainArgs args) {
@@ -73,6 +76,8 @@ public final class OpensearchFunctions {
      * Use this data source to get information about an OpenSearch Domain
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -101,6 +106,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDomainResult> getDomainPlain(GetDomainPlainArgs args) {
@@ -110,6 +116,8 @@ public final class OpensearchFunctions {
      * Use this data source to get information about an OpenSearch Domain
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -138,6 +146,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDomainResult> getDomain(GetDomainArgs args, InvokeOptions options) {
@@ -147,6 +156,8 @@ public final class OpensearchFunctions {
      * Use this data source to get information about an OpenSearch Domain
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -175,6 +186,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDomainResult> getDomainPlain(GetDomainPlainArgs args, InvokeOptions options) {
@@ -184,7 +196,10 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Access Policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -207,13 +222,14 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessAccessPolicy(GetServerlessAccessPolicyArgs.builder()
-     *             .name(aws_opensearchserverless_access_policy.example().name())
-     *             .type(aws_opensearchserverless_access_policy.example().type())
+     *             .name(exampleAwsOpensearchserverlessAccessPolicy.name())
+     *             .type(exampleAwsOpensearchserverlessAccessPolicy.type())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerlessAccessPolicyResult> getServerlessAccessPolicy(GetServerlessAccessPolicyArgs args) {
@@ -223,7 +239,10 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Access Policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -246,13 +265,14 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessAccessPolicy(GetServerlessAccessPolicyArgs.builder()
-     *             .name(aws_opensearchserverless_access_policy.example().name())
-     *             .type(aws_opensearchserverless_access_policy.example().type())
+     *             .name(exampleAwsOpensearchserverlessAccessPolicy.name())
+     *             .type(exampleAwsOpensearchserverlessAccessPolicy.type())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerlessAccessPolicyResult> getServerlessAccessPolicyPlain(GetServerlessAccessPolicyPlainArgs args) {
@@ -262,7 +282,10 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Access Policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -285,13 +308,14 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessAccessPolicy(GetServerlessAccessPolicyArgs.builder()
-     *             .name(aws_opensearchserverless_access_policy.example().name())
-     *             .type(aws_opensearchserverless_access_policy.example().type())
+     *             .name(exampleAwsOpensearchserverlessAccessPolicy.name())
+     *             .type(exampleAwsOpensearchserverlessAccessPolicy.type())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerlessAccessPolicyResult> getServerlessAccessPolicy(GetServerlessAccessPolicyArgs args, InvokeOptions options) {
@@ -301,7 +325,10 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Access Policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -324,13 +351,14 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessAccessPolicy(GetServerlessAccessPolicyArgs.builder()
-     *             .name(aws_opensearchserverless_access_policy.example().name())
-     *             .type(aws_opensearchserverless_access_policy.example().type())
+     *             .name(exampleAwsOpensearchserverlessAccessPolicy.name())
+     *             .type(exampleAwsOpensearchserverlessAccessPolicy.type())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerlessAccessPolicyResult> getServerlessAccessPolicyPlain(GetServerlessAccessPolicyPlainArgs args, InvokeOptions options) {
@@ -340,7 +368,10 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Collection.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -369,6 +400,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerlessCollectionResult> getServerlessCollection() {
@@ -378,7 +410,10 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Collection.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -407,6 +442,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerlessCollectionResult> getServerlessCollectionPlain() {
@@ -416,7 +452,10 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Collection.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -445,6 +484,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerlessCollectionResult> getServerlessCollection(GetServerlessCollectionArgs args) {
@@ -454,7 +494,10 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Collection.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -483,6 +526,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerlessCollectionResult> getServerlessCollectionPlain(GetServerlessCollectionPlainArgs args) {
@@ -492,7 +536,10 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Collection.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -521,6 +568,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerlessCollectionResult> getServerlessCollection(GetServerlessCollectionArgs args, InvokeOptions options) {
@@ -530,7 +578,10 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Collection.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -559,6 +610,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerlessCollectionResult> getServerlessCollectionPlain(GetServerlessCollectionPlainArgs args, InvokeOptions options) {
@@ -568,7 +620,10 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -598,6 +653,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerlessLifecyclePolicyResult> getServerlessLifecyclePolicy(GetServerlessLifecyclePolicyArgs args) {
@@ -607,7 +663,10 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -637,6 +696,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerlessLifecyclePolicyResult> getServerlessLifecyclePolicyPlain(GetServerlessLifecyclePolicyPlainArgs args) {
@@ -646,7 +706,10 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -676,6 +739,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerlessLifecyclePolicyResult> getServerlessLifecyclePolicy(GetServerlessLifecyclePolicyArgs args, InvokeOptions options) {
@@ -685,7 +749,10 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -715,6 +782,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerlessLifecyclePolicyResult> getServerlessLifecyclePolicyPlain(GetServerlessLifecyclePolicyPlainArgs args, InvokeOptions options) {
@@ -724,7 +792,10 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Security Config.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -753,6 +824,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerlessSecurityConfigResult> getServerlessSecurityConfig(GetServerlessSecurityConfigArgs args) {
@@ -762,7 +834,10 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Security Config.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -791,6 +866,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerlessSecurityConfigResult> getServerlessSecurityConfigPlain(GetServerlessSecurityConfigPlainArgs args) {
@@ -800,7 +876,10 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Security Config.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -829,6 +908,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerlessSecurityConfigResult> getServerlessSecurityConfig(GetServerlessSecurityConfigArgs args, InvokeOptions options) {
@@ -838,7 +918,10 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Security Config.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -867,6 +950,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerlessSecurityConfigResult> getServerlessSecurityConfigPlain(GetServerlessSecurityConfigPlainArgs args, InvokeOptions options) {
@@ -876,6 +960,8 @@ public final class OpensearchFunctions {
      * Use this data source to get information about an AWS OpenSearch Serverless Security Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -905,6 +991,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerlessSecurityPolicyResult> getServerlessSecurityPolicy(GetServerlessSecurityPolicyArgs args) {
@@ -914,6 +1001,8 @@ public final class OpensearchFunctions {
      * Use this data source to get information about an AWS OpenSearch Serverless Security Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -943,6 +1032,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerlessSecurityPolicyResult> getServerlessSecurityPolicyPlain(GetServerlessSecurityPolicyPlainArgs args) {
@@ -952,6 +1042,8 @@ public final class OpensearchFunctions {
      * Use this data source to get information about an AWS OpenSearch Serverless Security Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -981,6 +1073,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerlessSecurityPolicyResult> getServerlessSecurityPolicy(GetServerlessSecurityPolicyArgs args, InvokeOptions options) {
@@ -990,6 +1083,8 @@ public final class OpensearchFunctions {
      * Use this data source to get information about an AWS OpenSearch Serverless Security Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1019,6 +1114,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerlessSecurityPolicyResult> getServerlessSecurityPolicyPlain(GetServerlessSecurityPolicyPlainArgs args, InvokeOptions options) {
@@ -1028,6 +1124,8 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless VPC Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1056,6 +1154,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerlessVpcEndpointResult> getServerlessVpcEndpoint(GetServerlessVpcEndpointArgs args) {
@@ -1065,6 +1164,8 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless VPC Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1093,6 +1194,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerlessVpcEndpointResult> getServerlessVpcEndpointPlain(GetServerlessVpcEndpointPlainArgs args) {
@@ -1102,6 +1204,8 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless VPC Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1130,6 +1234,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerlessVpcEndpointResult> getServerlessVpcEndpoint(GetServerlessVpcEndpointArgs args, InvokeOptions options) {
@@ -1139,6 +1244,8 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless VPC Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1167,6 +1274,7 @@ public final class OpensearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerlessVpcEndpointResult> getServerlessVpcEndpointPlain(GetServerlessVpcEndpointPlainArgs args, InvokeOptions options) {

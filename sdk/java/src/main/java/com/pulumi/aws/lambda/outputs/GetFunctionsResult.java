@@ -4,6 +4,7 @@
 package com.pulumi.aws.lambda.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,7 +72,10 @@ public final class GetFunctionsResult {
 
         @CustomType.Setter
         public Builder functionArns(List<String> functionArns) {
-            this.functionArns = Objects.requireNonNull(functionArns);
+            if (functionArns == null) {
+              throw new MissingRequiredPropertyException("GetFunctionsResult", "functionArns");
+            }
+            this.functionArns = functionArns;
             return this;
         }
         public Builder functionArns(String... functionArns) {
@@ -79,7 +83,10 @@ public final class GetFunctionsResult {
         }
         @CustomType.Setter
         public Builder functionNames(List<String> functionNames) {
-            this.functionNames = Objects.requireNonNull(functionNames);
+            if (functionNames == null) {
+              throw new MissingRequiredPropertyException("GetFunctionsResult", "functionNames");
+            }
+            this.functionNames = functionNames;
             return this;
         }
         public Builder functionNames(String... functionNames) {
@@ -87,15 +94,18 @@ public final class GetFunctionsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFunctionsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetFunctionsResult build() {
-            final var o = new GetFunctionsResult();
-            o.functionArns = functionArns;
-            o.functionNames = functionNames;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetFunctionsResult();
+            _resultValue.functionArns = functionArns;
+            _resultValue.functionNames = functionNames;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

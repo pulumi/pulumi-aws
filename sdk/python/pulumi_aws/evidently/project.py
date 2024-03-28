@@ -337,60 +337,72 @@ class Project(pulumi.CustomResource):
         Provides a CloudWatch Evidently Project resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Project("example",
+            name="Example",
             description="Example Description",
             tags={
                 "Key1": "example Project",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Store evaluation events in a CloudWatch Log Group
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Project("example",
+            name="Example",
+            description="Example Description",
             data_delivery=aws.evidently.ProjectDataDeliveryArgs(
                 cloudwatch_logs=aws.evidently.ProjectDataDeliveryCloudwatchLogsArgs(
                     log_group="example-log-group-name",
                 ),
             ),
-            description="Example Description",
             tags={
                 "Key1": "example Project",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Store evaluation events in an S3 bucket
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Project("example",
+            name="Example",
+            description="Example Description",
             data_delivery=aws.evidently.ProjectDataDeliveryArgs(
                 s3_destination=aws.evidently.ProjectDataDeliveryS3DestinationArgs(
                     bucket="example-bucket-name",
                     prefix="example",
                 ),
             ),
-            description="Example Description",
             tags={
                 "Key1": "example Project",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Evidently Project using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:evidently/project:Project example arn:aws:evidently:us-east-1:123456789012:segment/example
+        $ pulumi import aws:evidently/project:Project example arn:aws:evidently:us-east-1:123456789012:segment/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -410,60 +422,72 @@ class Project(pulumi.CustomResource):
         Provides a CloudWatch Evidently Project resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Project("example",
+            name="Example",
             description="Example Description",
             tags={
                 "Key1": "example Project",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Store evaluation events in a CloudWatch Log Group
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Project("example",
+            name="Example",
+            description="Example Description",
             data_delivery=aws.evidently.ProjectDataDeliveryArgs(
                 cloudwatch_logs=aws.evidently.ProjectDataDeliveryCloudwatchLogsArgs(
                     log_group="example-log-group-name",
                 ),
             ),
-            description="Example Description",
             tags={
                 "Key1": "example Project",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Store evaluation events in an S3 bucket
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Project("example",
+            name="Example",
+            description="Example Description",
             data_delivery=aws.evidently.ProjectDataDeliveryArgs(
                 s3_destination=aws.evidently.ProjectDataDeliveryS3DestinationArgs(
                     bucket="example-bucket-name",
                     prefix="example",
                 ),
             ),
-            description="Example Description",
             tags={
                 "Key1": "example Project",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Evidently Project using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:evidently/project:Project example arn:aws:evidently:us-east-1:123456789012:segment/example
+        $ pulumi import aws:evidently/project:Project example arn:aws:evidently:us-east-1:123456789012:segment/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -508,8 +532,6 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["launch_count"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Project, __self__).__init__(
             'aws:evidently/project:Project',
             resource_name,

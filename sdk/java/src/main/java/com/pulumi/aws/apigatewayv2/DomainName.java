@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -26,7 +25,10 @@ import javax.annotation.Nullable;
  * a particular domain name. An API stage can be associated with the domain name using the `aws.apigatewayv2.ApiMapping` resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,7 +54,7 @@ import javax.annotation.Nullable;
  *         var example = new DomainName(&#34;example&#34;, DomainNameArgs.builder()        
  *             .domainName(&#34;ws-api.example.com&#34;)
  *             .domainNameConfiguration(DomainNameDomainNameConfigurationArgs.builder()
- *                 .certificateArn(aws_acm_certificate.example().arn())
+ *                 .certificateArn(exampleAwsAcmCertificate.arn())
  *                 .endpointType(&#34;REGIONAL&#34;)
  *                 .securityPolicy(&#34;TLS_1_2&#34;)
  *                 .build())
@@ -61,7 +63,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Associated Route 53 Resource Record
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -87,22 +93,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleDomainName = new DomainName(&#34;exampleDomainName&#34;, DomainNameArgs.builder()        
+ *         var example = new DomainName(&#34;example&#34;, DomainNameArgs.builder()        
  *             .domainName(&#34;http-api.example.com&#34;)
  *             .domainNameConfiguration(DomainNameDomainNameConfigurationArgs.builder()
- *                 .certificateArn(aws_acm_certificate.example().arn())
+ *                 .certificateArn(exampleAwsAcmCertificate.arn())
  *                 .endpointType(&#34;REGIONAL&#34;)
  *                 .securityPolicy(&#34;TLS_1_2&#34;)
  *                 .build())
  *             .build());
  * 
  *         var exampleRecord = new Record(&#34;exampleRecord&#34;, RecordArgs.builder()        
- *             .name(exampleDomainName.domainName())
+ *             .name(example.domainName())
  *             .type(&#34;A&#34;)
- *             .zoneId(aws_route53_zone.example().zone_id())
+ *             .zoneId(exampleAwsRoute53Zone.zoneId())
  *             .aliases(RecordAliasArgs.builder()
- *                 .name(exampleDomainName.domainNameConfiguration().applyValue(domainNameConfiguration -&gt; domainNameConfiguration.targetDomainName()))
- *                 .zoneId(exampleDomainName.domainNameConfiguration().applyValue(domainNameConfiguration -&gt; domainNameConfiguration.hostedZoneId()))
+ *                 .name(example.domainNameConfiguration().applyValue(domainNameConfiguration -&gt; domainNameConfiguration.targetDomainName()))
+ *                 .zoneId(example.domainNameConfiguration().applyValue(domainNameConfiguration -&gt; domainNameConfiguration.hostedZoneId()))
  *                 .evaluateTargetHealth(false)
  *                 .build())
  *             .build());
@@ -110,13 +116,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_apigatewayv2_domain_name` using the domain name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
+ * $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
  * ```
  * 
  */
@@ -257,9 +264,6 @@ public class DomainName extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

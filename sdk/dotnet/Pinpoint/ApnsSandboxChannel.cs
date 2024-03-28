@@ -15,33 +15,41 @@ namespace Pulumi.Aws.Pinpoint
     /// &gt; **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var app = new Aws.Pinpoint.App("app");
     /// 
-    ///     var apnsSandbox = new Aws.Pinpoint.ApnsSandboxChannel("apnsSandbox", new()
+    ///     var apnsSandbox = new Aws.Pinpoint.ApnsSandboxChannel("apns_sandbox", new()
     ///     {
     ///         ApplicationId = app.ApplicationId,
-    ///         Certificate = File.ReadAllText("./certificate.pem"),
-    ///         PrivateKey = File.ReadAllText("./private_key.key"),
+    ///         Certificate = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "./certificate.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         PrivateKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "./private_key.key",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Pinpoint APNs Sandbox Channel using the `application-id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel apns_sandbox application-id
+    /// $ pulumi import aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel apns_sandbox application-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel")]

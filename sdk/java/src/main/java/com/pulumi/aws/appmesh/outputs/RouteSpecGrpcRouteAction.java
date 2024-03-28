@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.RouteSpecGrpcRouteActionWeightedTarget;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -45,16 +46,19 @@ public final class RouteSpecGrpcRouteAction {
 
         @CustomType.Setter
         public Builder weightedTargets(List<RouteSpecGrpcRouteActionWeightedTarget> weightedTargets) {
-            this.weightedTargets = Objects.requireNonNull(weightedTargets);
+            if (weightedTargets == null) {
+              throw new MissingRequiredPropertyException("RouteSpecGrpcRouteAction", "weightedTargets");
+            }
+            this.weightedTargets = weightedTargets;
             return this;
         }
         public Builder weightedTargets(RouteSpecGrpcRouteActionWeightedTarget... weightedTargets) {
             return weightedTargets(List.of(weightedTargets));
         }
         public RouteSpecGrpcRouteAction build() {
-            final var o = new RouteSpecGrpcRouteAction();
-            o.weightedTargets = weightedTargets;
-            return o;
+            final var _resultValue = new RouteSpecGrpcRouteAction();
+            _resultValue.weightedTargets = weightedTargets;
+            return _resultValue;
         }
     }
 }

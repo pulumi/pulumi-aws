@@ -7,6 +7,7 @@ import com.pulumi.aws.codedeploy.outputs.DeploymentGroupLoadBalancerInfoTargetGr
 import com.pulumi.aws.codedeploy.outputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup;
 import com.pulumi.aws.codedeploy.outputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -75,12 +76,18 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfo {
 
         @CustomType.Setter
         public Builder prodTrafficRoute(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute prodTrafficRoute) {
-            this.prodTrafficRoute = Objects.requireNonNull(prodTrafficRoute);
+            if (prodTrafficRoute == null) {
+              throw new MissingRequiredPropertyException("DeploymentGroupLoadBalancerInfoTargetGroupPairInfo", "prodTrafficRoute");
+            }
+            this.prodTrafficRoute = prodTrafficRoute;
             return this;
         }
         @CustomType.Setter
         public Builder targetGroups(List<DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup> targetGroups) {
-            this.targetGroups = Objects.requireNonNull(targetGroups);
+            if (targetGroups == null) {
+              throw new MissingRequiredPropertyException("DeploymentGroupLoadBalancerInfoTargetGroupPairInfo", "targetGroups");
+            }
+            this.targetGroups = targetGroups;
             return this;
         }
         public Builder targetGroups(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup... targetGroups) {
@@ -88,15 +95,16 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfo {
         }
         @CustomType.Setter
         public Builder testTrafficRoute(@Nullable DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute testTrafficRoute) {
+
             this.testTrafficRoute = testTrafficRoute;
             return this;
         }
         public DeploymentGroupLoadBalancerInfoTargetGroupPairInfo build() {
-            final var o = new DeploymentGroupLoadBalancerInfoTargetGroupPairInfo();
-            o.prodTrafficRoute = prodTrafficRoute;
-            o.targetGroups = targetGroups;
-            o.testTrafficRoute = testTrafficRoute;
-            return o;
+            final var _resultValue = new DeploymentGroupLoadBalancerInfoTargetGroupPairInfo();
+            _resultValue.prodTrafficRoute = prodTrafficRoute;
+            _resultValue.targetGroups = targetGroups;
+            _resultValue.testTrafficRoute = testTrafficRoute;
+            return _resultValue;
         }
     }
 }

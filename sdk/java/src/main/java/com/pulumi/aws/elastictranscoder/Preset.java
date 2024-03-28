@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * Provides an Elastic Transcoder preset resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -35,9 +37,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.elastictranscoder.PresetArgs;
  * import com.pulumi.aws.elastictranscoder.inputs.PresetAudioArgs;
  * import com.pulumi.aws.elastictranscoder.inputs.PresetAudioCodecOptionsArgs;
- * import com.pulumi.aws.elastictranscoder.inputs.PresetThumbnailsArgs;
  * import com.pulumi.aws.elastictranscoder.inputs.PresetVideoArgs;
  * import com.pulumi.aws.elastictranscoder.inputs.PresetVideoWatermarkArgs;
+ * import com.pulumi.aws.elastictranscoder.inputs.PresetThumbnailsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,6 +54,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var bar = new Preset(&#34;bar&#34;, PresetArgs.builder()        
+ *             .container(&#34;mp4&#34;)
+ *             .description(&#34;Sample Preset&#34;)
+ *             .name(&#34;sample_preset&#34;)
  *             .audio(PresetAudioArgs.builder()
  *                 .audioPackingMode(&#34;SingleTrack&#34;)
  *                 .bitRate(96)
@@ -62,60 +67,59 @@ import javax.annotation.Nullable;
  *             .audioCodecOptions(PresetAudioCodecOptionsArgs.builder()
  *                 .profile(&#34;AAC-LC&#34;)
  *                 .build())
- *             .container(&#34;mp4&#34;)
- *             .description(&#34;Sample Preset&#34;)
- *             .thumbnails(PresetThumbnailsArgs.builder()
- *                 .format(&#34;png&#34;)
- *                 .interval(120)
- *                 .maxHeight(&#34;auto&#34;)
- *                 .maxWidth(&#34;auto&#34;)
- *                 .paddingPolicy(&#34;Pad&#34;)
- *                 .sizingPolicy(&#34;Fit&#34;)
- *                 .build())
  *             .video(PresetVideoArgs.builder()
  *                 .bitRate(&#34;1600&#34;)
  *                 .codec(&#34;H.264&#34;)
  *                 .displayAspectRatio(&#34;16:9&#34;)
  *                 .fixedGop(&#34;false&#34;)
  *                 .frameRate(&#34;auto&#34;)
- *                 .keyframesMaxDist(240)
  *                 .maxFrameRate(&#34;60&#34;)
+ *                 .keyframesMaxDist(240)
  *                 .maxHeight(&#34;auto&#34;)
  *                 .maxWidth(&#34;auto&#34;)
  *                 .paddingPolicy(&#34;Pad&#34;)
  *                 .sizingPolicy(&#34;Fit&#34;)
  *                 .build())
  *             .videoCodecOptions(Map.ofEntries(
- *                 Map.entry(&#34;ColorSpaceConversionMode&#34;, &#34;None&#34;),
- *                 Map.entry(&#34;InterlacedMode&#34;, &#34;Progressive&#34;),
+ *                 Map.entry(&#34;Profile&#34;, &#34;main&#34;),
  *                 Map.entry(&#34;Level&#34;, &#34;2.2&#34;),
  *                 Map.entry(&#34;MaxReferenceFrames&#34;, 3),
- *                 Map.entry(&#34;Profile&#34;, &#34;main&#34;)
+ *                 Map.entry(&#34;InterlacedMode&#34;, &#34;Progressive&#34;),
+ *                 Map.entry(&#34;ColorSpaceConversionMode&#34;, &#34;None&#34;)
  *             ))
  *             .videoWatermarks(PresetVideoWatermarkArgs.builder()
+ *                 .id(&#34;Test&#34;)
+ *                 .maxWidth(&#34;20%&#34;)
+ *                 .maxHeight(&#34;20%&#34;)
+ *                 .sizingPolicy(&#34;ShrinkToFit&#34;)
  *                 .horizontalAlign(&#34;Right&#34;)
  *                 .horizontalOffset(&#34;10px&#34;)
- *                 .id(&#34;Test&#34;)
- *                 .maxHeight(&#34;20%&#34;)
- *                 .maxWidth(&#34;20%&#34;)
- *                 .opacity(&#34;55.5&#34;)
- *                 .sizingPolicy(&#34;ShrinkToFit&#34;)
- *                 .target(&#34;Content&#34;)
  *                 .verticalAlign(&#34;Bottom&#34;)
  *                 .verticalOffset(&#34;10px&#34;)
+ *                 .opacity(&#34;55.5&#34;)
+ *                 .target(&#34;Content&#34;)
+ *                 .build())
+ *             .thumbnails(PresetThumbnailsArgs.builder()
+ *                 .format(&#34;png&#34;)
+ *                 .interval(120)
+ *                 .maxWidth(&#34;auto&#34;)
+ *                 .maxHeight(&#34;auto&#34;)
+ *                 .paddingPolicy(&#34;Pad&#34;)
+ *                 .sizingPolicy(&#34;Fit&#34;)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Elastic Transcoder presets using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
+ * $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
  * ```
  * 
  */

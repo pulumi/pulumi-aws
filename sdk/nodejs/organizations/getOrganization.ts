@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Get information about the organization that the user's account belongs to
  *
  * ## Example Usage
+ *
  * ### List all account IDs for the organization
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,15 +22,18 @@ import * as utilities from "../utilities";
  * const example = aws.organizations.getOrganization({});
  * export const accountIds = example.then(example => example.accounts.map(__item => __item.id));
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### SNS topic that can be interacted by the organization only
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.organizations.getOrganization({});
- * const snsTopic = new aws.sns.Topic("snsTopic", {});
- * const snsTopicPolicyPolicyDocument = pulumi.all([example, snsTopic.arn]).apply(([example, arn]) => aws.iam.getPolicyDocumentOutput({
+ * const snsTopic = new aws.sns.Topic("sns_topic", {name: "my-sns-topic"});
+ * const snsTopicPolicy = pulumi.all([example, snsTopic.arn]).apply(([example, arn]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         actions: [
@@ -47,11 +52,12 @@ import * as utilities from "../utilities";
  *         resources: [arn],
  *     }],
  * }));
- * const snsTopicPolicyTopicPolicy = new aws.sns.TopicPolicy("snsTopicPolicyTopicPolicy", {
+ * const snsTopicPolicyTopicPolicy = new aws.sns.TopicPolicy("sns_topic_policy", {
  *     arn: snsTopic.arn,
- *     policy: snsTopicPolicyPolicyDocument.apply(snsTopicPolicyPolicyDocument => snsTopicPolicyPolicyDocument.json),
+ *     policy: snsTopicPolicy.apply(snsTopicPolicy => snsTopicPolicy.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOrganization(opts?: pulumi.InvokeOptions): Promise<GetOrganizationResult> {
 
@@ -113,8 +119,10 @@ export interface GetOrganizationResult {
  * Get information about the organization that the user's account belongs to
  *
  * ## Example Usage
+ *
  * ### List all account IDs for the organization
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -122,15 +130,18 @@ export interface GetOrganizationResult {
  * const example = aws.organizations.getOrganization({});
  * export const accountIds = example.then(example => example.accounts.map(__item => __item.id));
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### SNS topic that can be interacted by the organization only
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.organizations.getOrganization({});
- * const snsTopic = new aws.sns.Topic("snsTopic", {});
- * const snsTopicPolicyPolicyDocument = pulumi.all([example, snsTopic.arn]).apply(([example, arn]) => aws.iam.getPolicyDocumentOutput({
+ * const snsTopic = new aws.sns.Topic("sns_topic", {name: "my-sns-topic"});
+ * const snsTopicPolicy = pulumi.all([example, snsTopic.arn]).apply(([example, arn]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         actions: [
@@ -149,11 +160,12 @@ export interface GetOrganizationResult {
  *         resources: [arn],
  *     }],
  * }));
- * const snsTopicPolicyTopicPolicy = new aws.sns.TopicPolicy("snsTopicPolicyTopicPolicy", {
+ * const snsTopicPolicyTopicPolicy = new aws.sns.TopicPolicy("sns_topic_policy", {
  *     arn: snsTopic.arn,
- *     policy: snsTopicPolicyPolicyDocument.apply(snsTopicPolicyPolicyDocument => snsTopicPolicyPolicyDocument.json),
+ *     policy: snsTopicPolicy.apply(snsTopicPolicy => snsTopicPolicy.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOrganizationOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationResult> {
     return pulumi.output(getOrganization(opts))

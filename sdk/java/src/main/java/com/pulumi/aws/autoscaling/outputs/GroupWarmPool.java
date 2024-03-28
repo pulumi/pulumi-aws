@@ -88,31 +88,35 @@ public final class GroupWarmPool {
 
         @CustomType.Setter
         public Builder instanceReusePolicy(@Nullable GroupWarmPoolInstanceReusePolicy instanceReusePolicy) {
+
             this.instanceReusePolicy = instanceReusePolicy;
             return this;
         }
         @CustomType.Setter
         public Builder maxGroupPreparedCapacity(@Nullable Integer maxGroupPreparedCapacity) {
+
             this.maxGroupPreparedCapacity = maxGroupPreparedCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder minSize(@Nullable Integer minSize) {
+
             this.minSize = minSize;
             return this;
         }
         @CustomType.Setter
         public Builder poolState(@Nullable String poolState) {
+
             this.poolState = poolState;
             return this;
         }
         public GroupWarmPool build() {
-            final var o = new GroupWarmPool();
-            o.instanceReusePolicy = instanceReusePolicy;
-            o.maxGroupPreparedCapacity = maxGroupPreparedCapacity;
-            o.minSize = minSize;
-            o.poolState = poolState;
-            return o;
+            final var _resultValue = new GroupWarmPool();
+            _resultValue.instanceReusePolicy = instanceReusePolicy;
+            _resultValue.maxGroupPreparedCapacity = maxGroupPreparedCapacity;
+            _resultValue.minSize = minSize;
+            _resultValue.poolState = poolState;
+            return _resultValue;
         }
     }
 }

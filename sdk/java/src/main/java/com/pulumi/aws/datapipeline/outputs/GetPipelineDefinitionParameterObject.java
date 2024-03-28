@@ -5,6 +5,7 @@ package com.pulumi.aws.datapipeline.outputs;
 
 import com.pulumi.aws.datapipeline.outputs.GetPipelineDefinitionParameterObjectAttribute;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -50,7 +51,10 @@ public final class GetPipelineDefinitionParameterObject {
 
         @CustomType.Setter
         public Builder attributes(List<GetPipelineDefinitionParameterObjectAttribute> attributes) {
-            this.attributes = Objects.requireNonNull(attributes);
+            if (attributes == null) {
+              throw new MissingRequiredPropertyException("GetPipelineDefinitionParameterObject", "attributes");
+            }
+            this.attributes = attributes;
             return this;
         }
         public Builder attributes(GetPipelineDefinitionParameterObjectAttribute... attributes) {
@@ -58,14 +62,17 @@ public final class GetPipelineDefinitionParameterObject {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPipelineDefinitionParameterObject", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetPipelineDefinitionParameterObject build() {
-            final var o = new GetPipelineDefinitionParameterObject();
-            o.attributes = attributes;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetPipelineDefinitionParameterObject();
+            _resultValue.attributes = attributes;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

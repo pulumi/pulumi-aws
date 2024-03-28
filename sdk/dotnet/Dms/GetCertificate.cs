@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Dms
         /// <summary>
         /// Data source for managing an AWS DMS (Database Migration) Certificate.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -29,13 +29,12 @@ namespace Pulumi.Aws.Dms
         /// {
         ///     var example = Aws.Dms.GetCertificate.Invoke(new()
         ///     {
-        ///         CertificateId = aws_dms_certificate.Test.Certificate_id,
+        ///         CertificateId = test.CertificateId,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("aws:dms/getCertificate:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
@@ -43,11 +42,11 @@ namespace Pulumi.Aws.Dms
         /// <summary>
         /// Data source for managing an AWS DMS (Database Migration) Certificate.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,13 +57,12 @@ namespace Pulumi.Aws.Dms
         /// {
         ///     var example = Aws.Dms.GetCertificate.Invoke(new()
         ///     {
-        ///         CertificateId = aws_dms_certificate.Test.Certificate_id,
+        ///         CertificateId = test.CertificateId,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("aws:dms/getCertificate:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());

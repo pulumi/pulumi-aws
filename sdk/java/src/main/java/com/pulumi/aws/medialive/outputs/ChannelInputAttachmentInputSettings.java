@@ -166,6 +166,7 @@ public final class ChannelInputAttachmentInputSettings {
 
         @CustomType.Setter
         public Builder audioSelectors(@Nullable List<ChannelInputAttachmentInputSettingsAudioSelector> audioSelectors) {
+
             this.audioSelectors = audioSelectors;
             return this;
         }
@@ -174,6 +175,7 @@ public final class ChannelInputAttachmentInputSettings {
         }
         @CustomType.Setter
         public Builder captionSelectors(@Nullable List<ChannelInputAttachmentInputSettingsCaptionSelector> captionSelectors) {
+
             this.captionSelectors = captionSelectors;
             return this;
         }
@@ -182,63 +184,72 @@ public final class ChannelInputAttachmentInputSettings {
         }
         @CustomType.Setter
         public Builder deblockFilter(@Nullable String deblockFilter) {
+
             this.deblockFilter = deblockFilter;
             return this;
         }
         @CustomType.Setter
         public Builder denoiseFilter(@Nullable String denoiseFilter) {
+
             this.denoiseFilter = denoiseFilter;
             return this;
         }
         @CustomType.Setter
         public Builder filterStrength(@Nullable Integer filterStrength) {
+
             this.filterStrength = filterStrength;
             return this;
         }
         @CustomType.Setter
         public Builder inputFilter(@Nullable String inputFilter) {
+
             this.inputFilter = inputFilter;
             return this;
         }
         @CustomType.Setter
         public Builder networkInputSettings(@Nullable ChannelInputAttachmentInputSettingsNetworkInputSettings networkInputSettings) {
+
             this.networkInputSettings = networkInputSettings;
             return this;
         }
         @CustomType.Setter
         public Builder scte35Pid(@Nullable Integer scte35Pid) {
+
             this.scte35Pid = scte35Pid;
             return this;
         }
         @CustomType.Setter
         public Builder smpte2038DataPreference(@Nullable String smpte2038DataPreference) {
+
             this.smpte2038DataPreference = smpte2038DataPreference;
             return this;
         }
         @CustomType.Setter
         public Builder sourceEndBehavior(@Nullable String sourceEndBehavior) {
+
             this.sourceEndBehavior = sourceEndBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder videoSelector(@Nullable ChannelInputAttachmentInputSettingsVideoSelector videoSelector) {
+
             this.videoSelector = videoSelector;
             return this;
         }
         public ChannelInputAttachmentInputSettings build() {
-            final var o = new ChannelInputAttachmentInputSettings();
-            o.audioSelectors = audioSelectors;
-            o.captionSelectors = captionSelectors;
-            o.deblockFilter = deblockFilter;
-            o.denoiseFilter = denoiseFilter;
-            o.filterStrength = filterStrength;
-            o.inputFilter = inputFilter;
-            o.networkInputSettings = networkInputSettings;
-            o.scte35Pid = scte35Pid;
-            o.smpte2038DataPreference = smpte2038DataPreference;
-            o.sourceEndBehavior = sourceEndBehavior;
-            o.videoSelector = videoSelector;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettings();
+            _resultValue.audioSelectors = audioSelectors;
+            _resultValue.captionSelectors = captionSelectors;
+            _resultValue.deblockFilter = deblockFilter;
+            _resultValue.denoiseFilter = denoiseFilter;
+            _resultValue.filterStrength = filterStrength;
+            _resultValue.inputFilter = inputFilter;
+            _resultValue.networkInputSettings = networkInputSettings;
+            _resultValue.scte35Pid = scte35Pid;
+            _resultValue.smpte2038DataPreference = smpte2038DataPreference;
+            _resultValue.sourceEndBehavior = sourceEndBehavior;
+            _resultValue.videoSelector = videoSelector;
+            return _resultValue;
         }
     }
 }

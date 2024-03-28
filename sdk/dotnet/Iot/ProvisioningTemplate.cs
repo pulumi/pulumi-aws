@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,19 +49,20 @@ namespace Pulumi.Aws.Iot
     ///         },
     ///     });
     /// 
-    ///     var iotFleetProvisioning = new Aws.Iam.Role("iotFleetProvisioning", new()
+    ///     var iotFleetProvisioning = new Aws.Iam.Role("iot_fleet_provisioning", new()
     ///     {
+    ///         Name = "IoTProvisioningServiceRole",
     ///         Path = "/service-role/",
     ///         AssumeRolePolicy = iotAssumeRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var iotFleetProvisioningRegistration = new Aws.Iam.RolePolicyAttachment("iotFleetProvisioningRegistration", new()
+    ///     var iotFleetProvisioningRegistration = new Aws.Iam.RolePolicyAttachment("iot_fleet_provisioning_registration", new()
     ///     {
     ///         Role = iotFleetProvisioning.Name,
     ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSIoTThingsRegistration",
     ///     });
     /// 
-    ///     var devicePolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var devicePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -78,46 +80,48 @@ namespace Pulumi.Aws.Iot
     ///         },
     ///     });
     /// 
-    ///     var devicePolicyPolicy = new Aws.Iot.Policy("devicePolicyPolicy", new()
+    ///     var devicePolicyPolicy = new Aws.Iot.Policy("device_policy", new()
     ///     {
-    ///         PolicyDocument = devicePolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "DevicePolicy",
+    ///         PolicyDocument = devicePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var fleet = new Aws.Iot.ProvisioningTemplate("fleet", new()
     ///     {
+    ///         Name = "FleetTemplate",
     ///         Description = "My provisioning template",
     ///         ProvisioningRoleArn = iotFleetProvisioning.Arn,
     ///         Enabled = true,
-    ///         TemplateBody = devicePolicyPolicy.Name.Apply(name =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         TemplateBody = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Parameters"] = new Dictionary&lt;string, object?&gt;
+    ///             ["parameters"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["SerialNumber"] = new Dictionary&lt;string, object?&gt;
+    ///                 ["serialNumber"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Type"] = "String",
+    ///                     ["type"] = "String",
     ///                 },
     ///             },
-    ///             ["Resources"] = new Dictionary&lt;string, object?&gt;
+    ///             ["resources"] = new Dictionary&lt;string, object?&gt;
     ///             {
     ///                 ["certificate"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Properties"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["properties"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["CertificateId"] = new Dictionary&lt;string, object?&gt;
+    ///                         ["certificateId"] = new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             ["Ref"] = "AWS::IoT::Certificate::Id",
+    ///                             ["ref"] = "AWS::IoT::Certificate::Id",
     ///                         },
-    ///                         ["Status"] = "Active",
+    ///                         ["status"] = "Active",
     ///                     },
-    ///                     ["Type"] = "AWS::IoT::Certificate",
+    ///                     ["type"] = "AWS::IoT::Certificate",
     ///                 },
     ///                 ["policy"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Properties"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["properties"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["PolicyName"] = name,
+    ///                         ["policyName"] = devicePolicyPolicy.Name,
     ///                     },
-    ///                     ["Type"] = "AWS::IoT::Policy",
+    ///                     ["type"] = "AWS::IoT::Policy",
     ///                 },
     ///             },
     ///         })),
@@ -125,13 +129,14 @@ namespace Pulumi.Aws.Iot
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IoT fleet provisioning templates using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
+    /// $ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/provisioningTemplate:ProvisioningTemplate")]
@@ -226,10 +231,6 @@ namespace Pulumi.Aws.Iot
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -379,11 +380,7 @@ namespace Pulumi.Aws.Iot
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

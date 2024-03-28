@@ -17,8 +17,10 @@ import (
 // > **Note:** AWS requires a special IAM role called `dms-vpc-role` when using this resource. See the example below to create it as part of your configuration.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,6 +33,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new replication subnet group
 //			_, err := dms.NewReplicationSubnetGroup(ctx, "example", &dms.ReplicationSubnetGroupArgs{
 //				ReplicationSubnetGroupDescription: pulumi.String("Example replication subnet group"),
 //				ReplicationSubnetGroupId:          pulumi.String("example-dms-replication-subnet-group-tf"),
@@ -50,10 +53,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Creating special IAM role
 //
 // If your account does not already include the `dms-vpc-role` IAM role, you will need to create it to allow DMS to manage subnets in the VPC.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -70,14 +76,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "dms.amazonaws.com",
+//						"effect": "Allow",
+//						"principal": map[string]interface{}{
+//							"service": "dms.amazonaws.com",
 //						},
-//						"Action": "sts:AssumeRole",
+//						"action": "sts:AssumeRole",
 //					},
 //				},
 //			})
@@ -86,20 +92,21 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = iam.NewRole(ctx, "dms-vpc-role", &iam.RoleArgs{
+//				Name:             pulumi.String("dms-vpc-role"),
 //				Description:      pulumi.String("Allows DMS to manage VPC"),
 //				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleRolePolicyAttachment, err := iam.NewRolePolicyAttachment(ctx, "exampleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
+//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
 //				Role:      dms_vpc_role.Name,
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = dms.NewReplicationSubnetGroup(ctx, "exampleReplicationSubnetGroup", &dms.ReplicationSubnetGroupArgs{
+//			_, err = dms.NewReplicationSubnetGroup(ctx, "example", &dms.ReplicationSubnetGroupArgs{
 //				ReplicationSubnetGroupDescription: pulumi.String("Example"),
 //				ReplicationSubnetGroupId:          pulumi.String("example-id"),
 //				SubnetIds: pulumi.StringArray{
@@ -109,9 +116,7 @@ import (
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example-id"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleRolePolicyAttachment,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -120,15 +125,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import replication subnet groups using the `replication_subnet_group_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
-//
+// $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
 // ```
 type ReplicationSubnetGroup struct {
 	pulumi.CustomResourceState
@@ -166,10 +170,6 @@ func NewReplicationSubnetGroup(ctx *pulumi.Context,
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationSubnetGroup
 	err := ctx.RegisterResource("aws:dms/replicationSubnetGroup:ReplicationSubnetGroup", name, args, &resource, opts...)

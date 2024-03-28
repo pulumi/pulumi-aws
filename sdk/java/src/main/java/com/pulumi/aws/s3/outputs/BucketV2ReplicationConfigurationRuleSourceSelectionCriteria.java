@@ -46,6 +46,7 @@ public final class BucketV2ReplicationConfigurationRuleSourceSelectionCriteria {
 
         @CustomType.Setter
         public Builder sseKmsEncryptedObjects(@Nullable List<BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject> sseKmsEncryptedObjects) {
+
             this.sseKmsEncryptedObjects = sseKmsEncryptedObjects;
             return this;
         }
@@ -53,9 +54,9 @@ public final class BucketV2ReplicationConfigurationRuleSourceSelectionCriteria {
             return sseKmsEncryptedObjects(List.of(sseKmsEncryptedObjects));
         }
         public BucketV2ReplicationConfigurationRuleSourceSelectionCriteria build() {
-            final var o = new BucketV2ReplicationConfigurationRuleSourceSelectionCriteria();
-            o.sseKmsEncryptedObjects = sseKmsEncryptedObjects;
-            return o;
+            final var _resultValue = new BucketV2ReplicationConfigurationRuleSourceSelectionCriteria();
+            _resultValue.sseKmsEncryptedObjects = sseKmsEncryptedObjects;
+            return _resultValue;
         }
     }
 }

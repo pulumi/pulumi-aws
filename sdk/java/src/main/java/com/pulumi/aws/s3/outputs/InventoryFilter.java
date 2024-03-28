@@ -44,13 +44,14 @@ public final class InventoryFilter {
 
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         public InventoryFilter build() {
-            final var o = new InventoryFilter();
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new InventoryFilter();
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

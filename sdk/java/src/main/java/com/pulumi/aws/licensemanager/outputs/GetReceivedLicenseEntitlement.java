@@ -4,6 +4,7 @@
 package com.pulumi.aws.licensemanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -100,37 +101,52 @@ public final class GetReceivedLicenseEntitlement {
 
         @CustomType.Setter
         public Builder allowCheckIn(Boolean allowCheckIn) {
-            this.allowCheckIn = Objects.requireNonNull(allowCheckIn);
+            if (allowCheckIn == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseEntitlement", "allowCheckIn");
+            }
+            this.allowCheckIn = allowCheckIn;
             return this;
         }
         @CustomType.Setter
         public Builder maxCount(Integer maxCount) {
-            this.maxCount = Objects.requireNonNull(maxCount);
+            if (maxCount == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseEntitlement", "maxCount");
+            }
+            this.maxCount = maxCount;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseEntitlement", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder unit(String unit) {
-            this.unit = Objects.requireNonNull(unit);
+            if (unit == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseEntitlement", "unit");
+            }
+            this.unit = unit;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseEntitlement", "value");
+            }
+            this.value = value;
             return this;
         }
         public GetReceivedLicenseEntitlement build() {
-            final var o = new GetReceivedLicenseEntitlement();
-            o.allowCheckIn = allowCheckIn;
-            o.maxCount = maxCount;
-            o.name = name;
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetReceivedLicenseEntitlement();
+            _resultValue.allowCheckIn = allowCheckIn;
+            _resultValue.maxCount = maxCount;
+            _resultValue.name = name;
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

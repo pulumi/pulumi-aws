@@ -4,6 +4,7 @@
 package com.pulumi.aws.mq.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -96,7 +97,10 @@ public final class GetBrokerLdapServerMetadata {
 
         @CustomType.Setter
         public Builder hosts(List<String> hosts) {
-            this.hosts = Objects.requireNonNull(hosts);
+            if (hosts == null) {
+              throw new MissingRequiredPropertyException("GetBrokerLdapServerMetadata", "hosts");
+            }
+            this.hosts = hosts;
             return this;
         }
         public Builder hosts(String... hosts) {
@@ -104,68 +108,98 @@ public final class GetBrokerLdapServerMetadata {
         }
         @CustomType.Setter
         public Builder roleBase(String roleBase) {
-            this.roleBase = Objects.requireNonNull(roleBase);
+            if (roleBase == null) {
+              throw new MissingRequiredPropertyException("GetBrokerLdapServerMetadata", "roleBase");
+            }
+            this.roleBase = roleBase;
             return this;
         }
         @CustomType.Setter
         public Builder roleName(String roleName) {
-            this.roleName = Objects.requireNonNull(roleName);
+            if (roleName == null) {
+              throw new MissingRequiredPropertyException("GetBrokerLdapServerMetadata", "roleName");
+            }
+            this.roleName = roleName;
             return this;
         }
         @CustomType.Setter
         public Builder roleSearchMatching(String roleSearchMatching) {
-            this.roleSearchMatching = Objects.requireNonNull(roleSearchMatching);
+            if (roleSearchMatching == null) {
+              throw new MissingRequiredPropertyException("GetBrokerLdapServerMetadata", "roleSearchMatching");
+            }
+            this.roleSearchMatching = roleSearchMatching;
             return this;
         }
         @CustomType.Setter
         public Builder roleSearchSubtree(Boolean roleSearchSubtree) {
-            this.roleSearchSubtree = Objects.requireNonNull(roleSearchSubtree);
+            if (roleSearchSubtree == null) {
+              throw new MissingRequiredPropertyException("GetBrokerLdapServerMetadata", "roleSearchSubtree");
+            }
+            this.roleSearchSubtree = roleSearchSubtree;
             return this;
         }
         @CustomType.Setter
         public Builder serviceAccountPassword(String serviceAccountPassword) {
-            this.serviceAccountPassword = Objects.requireNonNull(serviceAccountPassword);
+            if (serviceAccountPassword == null) {
+              throw new MissingRequiredPropertyException("GetBrokerLdapServerMetadata", "serviceAccountPassword");
+            }
+            this.serviceAccountPassword = serviceAccountPassword;
             return this;
         }
         @CustomType.Setter
         public Builder serviceAccountUsername(String serviceAccountUsername) {
-            this.serviceAccountUsername = Objects.requireNonNull(serviceAccountUsername);
+            if (serviceAccountUsername == null) {
+              throw new MissingRequiredPropertyException("GetBrokerLdapServerMetadata", "serviceAccountUsername");
+            }
+            this.serviceAccountUsername = serviceAccountUsername;
             return this;
         }
         @CustomType.Setter
         public Builder userBase(String userBase) {
-            this.userBase = Objects.requireNonNull(userBase);
+            if (userBase == null) {
+              throw new MissingRequiredPropertyException("GetBrokerLdapServerMetadata", "userBase");
+            }
+            this.userBase = userBase;
             return this;
         }
         @CustomType.Setter
         public Builder userRoleName(String userRoleName) {
-            this.userRoleName = Objects.requireNonNull(userRoleName);
+            if (userRoleName == null) {
+              throw new MissingRequiredPropertyException("GetBrokerLdapServerMetadata", "userRoleName");
+            }
+            this.userRoleName = userRoleName;
             return this;
         }
         @CustomType.Setter
         public Builder userSearchMatching(String userSearchMatching) {
-            this.userSearchMatching = Objects.requireNonNull(userSearchMatching);
+            if (userSearchMatching == null) {
+              throw new MissingRequiredPropertyException("GetBrokerLdapServerMetadata", "userSearchMatching");
+            }
+            this.userSearchMatching = userSearchMatching;
             return this;
         }
         @CustomType.Setter
         public Builder userSearchSubtree(Boolean userSearchSubtree) {
-            this.userSearchSubtree = Objects.requireNonNull(userSearchSubtree);
+            if (userSearchSubtree == null) {
+              throw new MissingRequiredPropertyException("GetBrokerLdapServerMetadata", "userSearchSubtree");
+            }
+            this.userSearchSubtree = userSearchSubtree;
             return this;
         }
         public GetBrokerLdapServerMetadata build() {
-            final var o = new GetBrokerLdapServerMetadata();
-            o.hosts = hosts;
-            o.roleBase = roleBase;
-            o.roleName = roleName;
-            o.roleSearchMatching = roleSearchMatching;
-            o.roleSearchSubtree = roleSearchSubtree;
-            o.serviceAccountPassword = serviceAccountPassword;
-            o.serviceAccountUsername = serviceAccountUsername;
-            o.userBase = userBase;
-            o.userRoleName = userRoleName;
-            o.userSearchMatching = userSearchMatching;
-            o.userSearchSubtree = userSearchSubtree;
-            return o;
+            final var _resultValue = new GetBrokerLdapServerMetadata();
+            _resultValue.hosts = hosts;
+            _resultValue.roleBase = roleBase;
+            _resultValue.roleName = roleName;
+            _resultValue.roleSearchMatching = roleSearchMatching;
+            _resultValue.roleSearchSubtree = roleSearchSubtree;
+            _resultValue.serviceAccountPassword = serviceAccountPassword;
+            _resultValue.serviceAccountUsername = serviceAccountUsername;
+            _resultValue.userBase = userBase;
+            _resultValue.userRoleName = userRoleName;
+            _resultValue.userSearchMatching = userSearchMatching;
+            _resultValue.userSearchSubtree = userSearchSubtree;
+            return _resultValue;
         }
     }
 }

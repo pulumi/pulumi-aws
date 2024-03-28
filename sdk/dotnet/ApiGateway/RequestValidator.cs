@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,20 +25,22 @@ namespace Pulumi.Aws.ApiGateway
     /// {
     ///     var example = new Aws.ApiGateway.RequestValidator("example", new()
     ///     {
-    ///         RestApi = aws_api_gateway_rest_api.Example.Id,
+    ///         Name = "example",
+    ///         RestApi = exampleAwsApiGatewayRestApi.Id,
     ///         ValidateRequestBody = true,
     ///         ValidateRequestParameters = true,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_api_gateway_request_validator` using `REST-API-ID/REQUEST-VALIDATOR-ID`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
+    /// $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/requestValidator:RequestValidator")]

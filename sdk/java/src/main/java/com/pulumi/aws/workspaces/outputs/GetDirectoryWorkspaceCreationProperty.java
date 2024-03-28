@@ -4,6 +4,7 @@
 package com.pulumi.aws.workspaces.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -99,37 +100,52 @@ public final class GetDirectoryWorkspaceCreationProperty {
 
         @CustomType.Setter
         public Builder customSecurityGroupId(String customSecurityGroupId) {
-            this.customSecurityGroupId = Objects.requireNonNull(customSecurityGroupId);
+            if (customSecurityGroupId == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryWorkspaceCreationProperty", "customSecurityGroupId");
+            }
+            this.customSecurityGroupId = customSecurityGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder defaultOu(String defaultOu) {
-            this.defaultOu = Objects.requireNonNull(defaultOu);
+            if (defaultOu == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryWorkspaceCreationProperty", "defaultOu");
+            }
+            this.defaultOu = defaultOu;
             return this;
         }
         @CustomType.Setter
         public Builder enableInternetAccess(Boolean enableInternetAccess) {
-            this.enableInternetAccess = Objects.requireNonNull(enableInternetAccess);
+            if (enableInternetAccess == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryWorkspaceCreationProperty", "enableInternetAccess");
+            }
+            this.enableInternetAccess = enableInternetAccess;
             return this;
         }
         @CustomType.Setter
         public Builder enableMaintenanceMode(Boolean enableMaintenanceMode) {
-            this.enableMaintenanceMode = Objects.requireNonNull(enableMaintenanceMode);
+            if (enableMaintenanceMode == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryWorkspaceCreationProperty", "enableMaintenanceMode");
+            }
+            this.enableMaintenanceMode = enableMaintenanceMode;
             return this;
         }
         @CustomType.Setter
         public Builder userEnabledAsLocalAdministrator(Boolean userEnabledAsLocalAdministrator) {
-            this.userEnabledAsLocalAdministrator = Objects.requireNonNull(userEnabledAsLocalAdministrator);
+            if (userEnabledAsLocalAdministrator == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryWorkspaceCreationProperty", "userEnabledAsLocalAdministrator");
+            }
+            this.userEnabledAsLocalAdministrator = userEnabledAsLocalAdministrator;
             return this;
         }
         public GetDirectoryWorkspaceCreationProperty build() {
-            final var o = new GetDirectoryWorkspaceCreationProperty();
-            o.customSecurityGroupId = customSecurityGroupId;
-            o.defaultOu = defaultOu;
-            o.enableInternetAccess = enableInternetAccess;
-            o.enableMaintenanceMode = enableMaintenanceMode;
-            o.userEnabledAsLocalAdministrator = userEnabledAsLocalAdministrator;
-            return o;
+            final var _resultValue = new GetDirectoryWorkspaceCreationProperty();
+            _resultValue.customSecurityGroupId = customSecurityGroupId;
+            _resultValue.defaultOu = defaultOu;
+            _resultValue.enableInternetAccess = enableInternetAccess;
+            _resultValue.enableMaintenanceMode = enableMaintenanceMode;
+            _resultValue.userEnabledAsLocalAdministrator = userEnabledAsLocalAdministrator;
+            return _resultValue;
         }
     }
 }

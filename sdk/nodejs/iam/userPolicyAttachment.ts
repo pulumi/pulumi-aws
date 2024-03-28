@@ -14,12 +14,14 @@ import {User} from "./index";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const user = new aws.iam.User("user", {});
+ * const user = new aws.iam.User("user", {name: "test-user"});
  * const policy = new aws.iam.Policy("policy", {
+ *     name: "test-policy",
  *     description: "A test policy",
  *     policy: "{ ... policy JSON ... }",
  * });
@@ -28,13 +30,14 @@ import {User} from "./index";
  *     policyArn: policy.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IAM user policy attachments using the user name and policy arn separated by `/`. For example:
  *
  * ```sh
- *  $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+ * $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
  * ```
  */
 export class UserPolicyAttachment extends pulumi.CustomResource {

@@ -135,12 +135,13 @@ class IdentityPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_domain_identity = aws.ses.DomainIdentity("exampleDomainIdentity", domain="example.com")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_domain_identity = aws.ses.DomainIdentity("example", domain="example.com")
+        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=[
                 "SES:SendEmail",
                 "SES:SendRawEmail",
@@ -151,17 +152,19 @@ class IdentityPolicy(pulumi.CustomResource):
                 type="AWS",
             )],
         )])
-        example_identity_policy = aws.ses.IdentityPolicy("exampleIdentityPolicy",
+        example_identity_policy = aws.ses.IdentityPolicy("example",
             identity=example_domain_identity.arn,
-            policy=example_policy_document.json)
+            name="example",
+            policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SES Identity Policies using the identity and policy name, separated by a pipe character (`|`). For example:
 
         ```sh
-         $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
+        $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
         ```
 
         :param str resource_name: The name of the resource.
@@ -181,12 +184,13 @@ class IdentityPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_domain_identity = aws.ses.DomainIdentity("exampleDomainIdentity", domain="example.com")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_domain_identity = aws.ses.DomainIdentity("example", domain="example.com")
+        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=[
                 "SES:SendEmail",
                 "SES:SendRawEmail",
@@ -197,17 +201,19 @@ class IdentityPolicy(pulumi.CustomResource):
                 type="AWS",
             )],
         )])
-        example_identity_policy = aws.ses.IdentityPolicy("exampleIdentityPolicy",
+        example_identity_policy = aws.ses.IdentityPolicy("example",
             identity=example_domain_identity.arn,
-            policy=example_policy_document.json)
+            name="example",
+            policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SES Identity Policies using the identity and policy name, separated by a pipe character (`|`). For example:
 
         ```sh
-         $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
+        $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
         ```
 
         :param str resource_name: The name of the resource.

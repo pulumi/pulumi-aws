@@ -12,15 +12,16 @@ import * as utilities from "../utilities";
  * > **Note:** Do not use the `replica` configuration block of aws.dynamodb.Table together with this resource as the two configuration options are mutually exclusive.
  *
  * ## Example Usage
+ *
  * ### Basic Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const main = new aws.Provider("main", {region: "us-west-2"});
- * const alt = new aws.Provider("alt", {region: "us-east-2"});
- * const exampleTable = new aws.dynamodb.Table("exampleTable", {
+ * const example = new aws.dynamodb.Table("example", {
+ *     name: "TestTable",
  *     hashKey: "BrodoBaggins",
  *     billingMode: "PAY_PER_REQUEST",
  *     streamEnabled: true,
@@ -29,19 +30,16 @@ import * as utilities from "../utilities";
  *         name: "BrodoBaggins",
  *         type: "S",
  *     }],
- * }, {
- *     provider: aws.main,
  * });
- * const exampleTableReplica = new aws.dynamodb.TableReplica("exampleTableReplica", {
- *     globalTableArn: exampleTable.arn,
+ * const exampleTableReplica = new aws.dynamodb.TableReplica("example", {
+ *     globalTableArn: example.arn,
  *     tags: {
  *         Name: "IZPAWS",
  *         Pozo: "Amargo",
  *     },
- * }, {
- *     provider: aws.alt,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -50,7 +48,7 @@ import * as utilities from "../utilities";
  * ~> __Note:__ When importing, use the region where the initial or _main_ global table resides, _not_ the region of the replica.
  *
  * ```sh
- *  $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
+ * $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
  * ```
  */
 export class TableReplica extends pulumi.CustomResource {
@@ -148,8 +146,6 @@ export class TableReplica extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(TableReplica.__pulumiType, name, resourceInputs, opts);
     }
 }

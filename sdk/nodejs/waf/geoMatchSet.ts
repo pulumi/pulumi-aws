@@ -12,28 +12,33 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const geoMatchSet = new aws.waf.GeoMatchSet("geoMatchSet", {geoMatchConstraints: [
- *     {
- *         type: "Country",
- *         value: "US",
- *     },
- *     {
- *         type: "Country",
- *         value: "CA",
- *     },
- * ]});
+ * const geoMatchSet = new aws.waf.GeoMatchSet("geo_match_set", {
+ *     name: "geo_match_set",
+ *     geoMatchConstraints: [
+ *         {
+ *             type: "Country",
+ *             value: "US",
+ *         },
+ *         {
+ *             type: "Country",
+ *             value: "CA",
+ *         },
+ *     ],
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import WAF Geo Match Set using their ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:waf/geoMatchSet:GeoMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * $ pulumi import aws:waf/geoMatchSet:GeoMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
  * ```
  */
 export class GeoMatchSet extends pulumi.CustomResource {

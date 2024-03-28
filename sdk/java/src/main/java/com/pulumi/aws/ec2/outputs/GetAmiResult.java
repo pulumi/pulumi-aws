@@ -7,6 +7,7 @@ import com.pulumi.aws.ec2.outputs.GetAmiBlockDeviceMapping;
 import com.pulumi.aws.ec2.outputs.GetAmiFilter;
 import com.pulumi.aws.ec2.outputs.GetAmiProductCode;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -560,17 +561,26 @@ public final class GetAmiResult {
 
         @CustomType.Setter
         public Builder architecture(String architecture) {
-            this.architecture = Objects.requireNonNull(architecture);
+            if (architecture == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "architecture");
+            }
+            this.architecture = architecture;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder blockDeviceMappings(List<GetAmiBlockDeviceMapping> blockDeviceMappings) {
-            this.blockDeviceMappings = Objects.requireNonNull(blockDeviceMappings);
+            if (blockDeviceMappings == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "blockDeviceMappings");
+            }
+            this.blockDeviceMappings = blockDeviceMappings;
             return this;
         }
         public Builder blockDeviceMappings(GetAmiBlockDeviceMapping... blockDeviceMappings) {
@@ -578,31 +588,47 @@ public final class GetAmiResult {
         }
         @CustomType.Setter
         public Builder bootMode(String bootMode) {
-            this.bootMode = Objects.requireNonNull(bootMode);
+            if (bootMode == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "bootMode");
+            }
+            this.bootMode = bootMode;
             return this;
         }
         @CustomType.Setter
         public Builder creationDate(String creationDate) {
-            this.creationDate = Objects.requireNonNull(creationDate);
+            if (creationDate == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "creationDate");
+            }
+            this.creationDate = creationDate;
             return this;
         }
         @CustomType.Setter
         public Builder deprecationTime(String deprecationTime) {
-            this.deprecationTime = Objects.requireNonNull(deprecationTime);
+            if (deprecationTime == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "deprecationTime");
+            }
+            this.deprecationTime = deprecationTime;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder enaSupport(Boolean enaSupport) {
-            this.enaSupport = Objects.requireNonNull(enaSupport);
+            if (enaSupport == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "enaSupport");
+            }
+            this.enaSupport = enaSupport;
             return this;
         }
         @CustomType.Setter
         public Builder executableUsers(@Nullable List<String> executableUsers) {
+
             this.executableUsers = executableUsers;
             return this;
         }
@@ -611,6 +637,7 @@ public final class GetAmiResult {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetAmiFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -619,71 +646,105 @@ public final class GetAmiResult {
         }
         @CustomType.Setter
         public Builder hypervisor(String hypervisor) {
-            this.hypervisor = Objects.requireNonNull(hypervisor);
+            if (hypervisor == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "hypervisor");
+            }
+            this.hypervisor = hypervisor;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder imageId(String imageId) {
-            this.imageId = Objects.requireNonNull(imageId);
+            if (imageId == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "imageId");
+            }
+            this.imageId = imageId;
             return this;
         }
         @CustomType.Setter
         public Builder imageLocation(String imageLocation) {
-            this.imageLocation = Objects.requireNonNull(imageLocation);
+            if (imageLocation == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "imageLocation");
+            }
+            this.imageLocation = imageLocation;
             return this;
         }
         @CustomType.Setter
         public Builder imageOwnerAlias(String imageOwnerAlias) {
-            this.imageOwnerAlias = Objects.requireNonNull(imageOwnerAlias);
+            if (imageOwnerAlias == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "imageOwnerAlias");
+            }
+            this.imageOwnerAlias = imageOwnerAlias;
             return this;
         }
         @CustomType.Setter
         public Builder imageType(String imageType) {
-            this.imageType = Objects.requireNonNull(imageType);
+            if (imageType == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "imageType");
+            }
+            this.imageType = imageType;
             return this;
         }
         @CustomType.Setter
         public Builder imdsSupport(String imdsSupport) {
-            this.imdsSupport = Objects.requireNonNull(imdsSupport);
+            if (imdsSupport == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "imdsSupport");
+            }
+            this.imdsSupport = imdsSupport;
             return this;
         }
         @CustomType.Setter
         public Builder includeDeprecated(@Nullable Boolean includeDeprecated) {
+
             this.includeDeprecated = includeDeprecated;
             return this;
         }
         @CustomType.Setter
         public Builder kernelId(String kernelId) {
-            this.kernelId = Objects.requireNonNull(kernelId);
+            if (kernelId == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "kernelId");
+            }
+            this.kernelId = kernelId;
             return this;
         }
         @CustomType.Setter
         public Builder mostRecent(@Nullable Boolean mostRecent) {
+
             this.mostRecent = mostRecent;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nameRegex(@Nullable String nameRegex) {
+
             this.nameRegex = nameRegex;
             return this;
         }
         @CustomType.Setter
         public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+            if (ownerId == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "ownerId");
+            }
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
         public Builder owners(@Nullable List<String> owners) {
+
             this.owners = owners;
             return this;
         }
@@ -692,17 +753,26 @@ public final class GetAmiResult {
         }
         @CustomType.Setter
         public Builder platform(String platform) {
-            this.platform = Objects.requireNonNull(platform);
+            if (platform == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "platform");
+            }
+            this.platform = platform;
             return this;
         }
         @CustomType.Setter
         public Builder platformDetails(String platformDetails) {
-            this.platformDetails = Objects.requireNonNull(platformDetails);
+            if (platformDetails == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "platformDetails");
+            }
+            this.platformDetails = platformDetails;
             return this;
         }
         @CustomType.Setter
         public Builder productCodes(List<GetAmiProductCode> productCodes) {
-            this.productCodes = Objects.requireNonNull(productCodes);
+            if (productCodes == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "productCodes");
+            }
+            this.productCodes = productCodes;
             return this;
         }
         public Builder productCodes(GetAmiProductCode... productCodes) {
@@ -710,106 +780,142 @@ public final class GetAmiResult {
         }
         @CustomType.Setter("public")
         public Builder public_(Boolean public_) {
-            this.public_ = Objects.requireNonNull(public_);
+            if (public_ == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "public_");
+            }
+            this.public_ = public_;
             return this;
         }
         @CustomType.Setter
         public Builder ramdiskId(String ramdiskId) {
-            this.ramdiskId = Objects.requireNonNull(ramdiskId);
+            if (ramdiskId == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "ramdiskId");
+            }
+            this.ramdiskId = ramdiskId;
             return this;
         }
         @CustomType.Setter
         public Builder rootDeviceName(String rootDeviceName) {
-            this.rootDeviceName = Objects.requireNonNull(rootDeviceName);
+            if (rootDeviceName == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "rootDeviceName");
+            }
+            this.rootDeviceName = rootDeviceName;
             return this;
         }
         @CustomType.Setter
         public Builder rootDeviceType(String rootDeviceType) {
-            this.rootDeviceType = Objects.requireNonNull(rootDeviceType);
+            if (rootDeviceType == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "rootDeviceType");
+            }
+            this.rootDeviceType = rootDeviceType;
             return this;
         }
         @CustomType.Setter
         public Builder rootSnapshotId(String rootSnapshotId) {
-            this.rootSnapshotId = Objects.requireNonNull(rootSnapshotId);
+            if (rootSnapshotId == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "rootSnapshotId");
+            }
+            this.rootSnapshotId = rootSnapshotId;
             return this;
         }
         @CustomType.Setter
         public Builder sriovNetSupport(String sriovNetSupport) {
-            this.sriovNetSupport = Objects.requireNonNull(sriovNetSupport);
+            if (sriovNetSupport == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "sriovNetSupport");
+            }
+            this.sriovNetSupport = sriovNetSupport;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder stateReason(Map<String,String> stateReason) {
-            this.stateReason = Objects.requireNonNull(stateReason);
+            if (stateReason == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "stateReason");
+            }
+            this.stateReason = stateReason;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder tpmSupport(String tpmSupport) {
-            this.tpmSupport = Objects.requireNonNull(tpmSupport);
+            if (tpmSupport == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "tpmSupport");
+            }
+            this.tpmSupport = tpmSupport;
             return this;
         }
         @CustomType.Setter
         public Builder usageOperation(String usageOperation) {
-            this.usageOperation = Objects.requireNonNull(usageOperation);
+            if (usageOperation == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "usageOperation");
+            }
+            this.usageOperation = usageOperation;
             return this;
         }
         @CustomType.Setter
         public Builder virtualizationType(String virtualizationType) {
-            this.virtualizationType = Objects.requireNonNull(virtualizationType);
+            if (virtualizationType == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "virtualizationType");
+            }
+            this.virtualizationType = virtualizationType;
             return this;
         }
         public GetAmiResult build() {
-            final var o = new GetAmiResult();
-            o.architecture = architecture;
-            o.arn = arn;
-            o.blockDeviceMappings = blockDeviceMappings;
-            o.bootMode = bootMode;
-            o.creationDate = creationDate;
-            o.deprecationTime = deprecationTime;
-            o.description = description;
-            o.enaSupport = enaSupport;
-            o.executableUsers = executableUsers;
-            o.filters = filters;
-            o.hypervisor = hypervisor;
-            o.id = id;
-            o.imageId = imageId;
-            o.imageLocation = imageLocation;
-            o.imageOwnerAlias = imageOwnerAlias;
-            o.imageType = imageType;
-            o.imdsSupport = imdsSupport;
-            o.includeDeprecated = includeDeprecated;
-            o.kernelId = kernelId;
-            o.mostRecent = mostRecent;
-            o.name = name;
-            o.nameRegex = nameRegex;
-            o.ownerId = ownerId;
-            o.owners = owners;
-            o.platform = platform;
-            o.platformDetails = platformDetails;
-            o.productCodes = productCodes;
-            o.public_ = public_;
-            o.ramdiskId = ramdiskId;
-            o.rootDeviceName = rootDeviceName;
-            o.rootDeviceType = rootDeviceType;
-            o.rootSnapshotId = rootSnapshotId;
-            o.sriovNetSupport = sriovNetSupport;
-            o.state = state;
-            o.stateReason = stateReason;
-            o.tags = tags;
-            o.tpmSupport = tpmSupport;
-            o.usageOperation = usageOperation;
-            o.virtualizationType = virtualizationType;
-            return o;
+            final var _resultValue = new GetAmiResult();
+            _resultValue.architecture = architecture;
+            _resultValue.arn = arn;
+            _resultValue.blockDeviceMappings = blockDeviceMappings;
+            _resultValue.bootMode = bootMode;
+            _resultValue.creationDate = creationDate;
+            _resultValue.deprecationTime = deprecationTime;
+            _resultValue.description = description;
+            _resultValue.enaSupport = enaSupport;
+            _resultValue.executableUsers = executableUsers;
+            _resultValue.filters = filters;
+            _resultValue.hypervisor = hypervisor;
+            _resultValue.id = id;
+            _resultValue.imageId = imageId;
+            _resultValue.imageLocation = imageLocation;
+            _resultValue.imageOwnerAlias = imageOwnerAlias;
+            _resultValue.imageType = imageType;
+            _resultValue.imdsSupport = imdsSupport;
+            _resultValue.includeDeprecated = includeDeprecated;
+            _resultValue.kernelId = kernelId;
+            _resultValue.mostRecent = mostRecent;
+            _resultValue.name = name;
+            _resultValue.nameRegex = nameRegex;
+            _resultValue.ownerId = ownerId;
+            _resultValue.owners = owners;
+            _resultValue.platform = platform;
+            _resultValue.platformDetails = platformDetails;
+            _resultValue.productCodes = productCodes;
+            _resultValue.public_ = public_;
+            _resultValue.ramdiskId = ramdiskId;
+            _resultValue.rootDeviceName = rootDeviceName;
+            _resultValue.rootDeviceType = rootDeviceType;
+            _resultValue.rootSnapshotId = rootSnapshotId;
+            _resultValue.sriovNetSupport = sriovNetSupport;
+            _resultValue.state = state;
+            _resultValue.stateReason = stateReason;
+            _resultValue.tags = tags;
+            _resultValue.tpmSupport = tpmSupport;
+            _resultValue.usageOperation = usageOperation;
+            _resultValue.virtualizationType = virtualizationType;
+            return _resultValue;
         }
     }
 }

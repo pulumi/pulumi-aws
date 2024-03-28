@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,14 +27,15 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePermission = new Aws.Lambda.Permission("examplePermission", new()
+    ///     var example = new Aws.Lambda.Permission("example", new()
     ///     {
     ///         Action = "lambda:InvokeFunction",
-    ///         Function = aws_lambda_function.Example.Arn,
+    ///         Function = exampleAwsLambdaFunction.Arn,
     ///         Principal = "config.amazonaws.com",
+    ///         StatementId = "AllowExecutionFromConfig",
     ///     });
     /// 
-    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
+    ///     var exampleOrganization = new Aws.Organizations.Organization("example", new()
     ///     {
     ///         AwsServiceAccessPrincipals = new[]
     ///         {
@@ -42,31 +44,26 @@ namespace Pulumi.Aws.Cfg
     ///         FeatureSet = "ALL",
     ///     });
     /// 
-    ///     var exampleOrganizationCustomRule = new Aws.Cfg.OrganizationCustomRule("exampleOrganizationCustomRule", new()
+    ///     var exampleOrganizationCustomRule = new Aws.Cfg.OrganizationCustomRule("example", new()
     ///     {
-    ///         LambdaFunctionArn = aws_lambda_function.Example.Arn,
+    ///         LambdaFunctionArn = exampleAwsLambdaFunction.Arn,
+    ///         Name = "example",
     ///         TriggerTypes = new[]
     ///         {
     ///             "ConfigurationItemChangeNotification",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             examplePermission,
-    ///             exampleOrganization,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Config Organization Custom Rules using the name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
+    /// $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/organizationCustomRule:OrganizationCustomRule")]

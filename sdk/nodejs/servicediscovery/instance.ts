@@ -9,20 +9,23 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {
+ * const example = new aws.ec2.Vpc("example", {
  *     cidrBlock: "10.0.0.0/16",
  *     enableDnsSupport: true,
  *     enableDnsHostnames: true,
  * });
- * const examplePrivateDnsNamespace = new aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", {
+ * const examplePrivateDnsNamespace = new aws.servicediscovery.PrivateDnsNamespace("example", {
+ *     name: "example.domain.local",
  *     description: "example",
- *     vpc: exampleVpc.id,
+ *     vpc: example.id,
  * });
- * const exampleService = new aws.servicediscovery.Service("exampleService", {
+ * const exampleService = new aws.servicediscovery.Service("example", {
+ *     name: "example",
  *     dnsConfig: {
  *         namespaceId: examplePrivateDnsNamespace.id,
  *         dnsRecords: [{
@@ -35,7 +38,7 @@ import * as utilities from "../utilities";
  *         failureThreshold: 1,
  *     },
  * });
- * const exampleInstance = new aws.servicediscovery.Instance("exampleInstance", {
+ * const exampleInstance = new aws.servicediscovery.Instance("example", {
  *     instanceId: "example-instance-id",
  *     serviceId: exampleService.id,
  *     attributes: {
@@ -44,14 +47,22 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleHttpNamespace = new aws.servicediscovery.HttpNamespace("exampleHttpNamespace", {description: "example"});
- * const exampleService = new aws.servicediscovery.Service("exampleService", {namespaceId: exampleHttpNamespace.id});
- * const exampleInstance = new aws.servicediscovery.Instance("exampleInstance", {
+ * const example = new aws.servicediscovery.HttpNamespace("example", {
+ *     name: "example.domain.test",
+ *     description: "example",
+ * });
+ * const exampleService = new aws.servicediscovery.Service("example", {
+ *     name: "example",
+ *     namespaceId: example.id,
+ * });
+ * const exampleInstance = new aws.servicediscovery.Instance("example", {
  *     instanceId: "example-instance-id",
  *     serviceId: exampleService.id,
  *     attributes: {
@@ -59,13 +70,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Service Discovery Instance using the service ID and instance ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
+ * $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
  * ```
  */
 export class Instance extends pulumi.CustomResource {

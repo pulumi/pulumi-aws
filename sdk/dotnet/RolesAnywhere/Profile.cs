@@ -14,6 +14,7 @@ namespace Pulumi.Aws.RolesAnywhere
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,50 +24,53 @@ namespace Pulumi.Aws.RolesAnywhere
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testRole = new Aws.Iam.Role("testRole", new()
+    ///     var test = new Aws.Iam.Role("test", new()
     ///     {
+    ///         Name = "test",
     ///         Path = "/",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "sts:AssumeRole",
     ///                         "sts:TagSession",
     ///                         "sts:SetSourceIdentity",
     ///                     },
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "rolesanywhere.amazonaws.com",
+    ///                         ["service"] = "rolesanywhere.amazonaws.com",
     ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Sid"] = "",
+    ///                     ["effect"] = "Allow",
+    ///                     ["sid"] = "",
     ///                 },
     ///             },
     ///         }),
     ///     });
     /// 
-    ///     var testProfile = new Aws.RolesAnywhere.Profile("testProfile", new()
+    ///     var testProfile = new Aws.RolesAnywhere.Profile("test", new()
     ///     {
+    ///         Name = "example",
     ///         RoleArns = new[]
     ///         {
-    ///             testRole.Arn,
+    ///             test.Arn,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_rolesanywhere_profile` using its `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
+    /// $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
     /// ```
     /// </summary>
     [AwsResourceType("aws:rolesanywhere/profile:Profile")]
@@ -155,10 +159,6 @@ namespace Pulumi.Aws.RolesAnywhere
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -338,11 +338,7 @@ namespace Pulumi.Aws.RolesAnywhere
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ProfileState()

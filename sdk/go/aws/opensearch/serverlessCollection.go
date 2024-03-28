@@ -18,8 +18,10 @@ import (
 // > **NOTE:** An `opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,16 +51,17 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			exampleServerlessSecurityPolicy, err := opensearch.NewServerlessSecurityPolicy(ctx, "exampleServerlessSecurityPolicy", &opensearch.ServerlessSecurityPolicyArgs{
+//			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
+//				Name:   pulumi.String("example"),
 //				Type:   pulumi.String("encryption"),
 //				Policy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = opensearch.NewServerlessCollection(ctx, "exampleServerlessCollection", nil, pulumi.DependsOn([]pulumi.Resource{
-//				exampleServerlessSecurityPolicy,
-//			}))
+//			_, err = opensearch.NewServerlessCollection(ctx, "example", &opensearch.ServerlessCollectionArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -67,15 +70,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
-//
+// $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
 // ```
 type ServerlessCollection struct {
 	pulumi.CustomResourceState
@@ -94,6 +96,8 @@ type ServerlessCollection struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+	StandbyReplicas pulumi.StringOutput `pulumi:"standbyReplicas"`
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
@@ -110,10 +114,6 @@ func NewServerlessCollection(ctx *pulumi.Context,
 		args = &ServerlessCollectionArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServerlessCollection
 	err := ctx.RegisterResource("aws:opensearch/serverlessCollection:ServerlessCollection", name, args, &resource, opts...)
@@ -151,6 +151,8 @@ type serverlessCollectionState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+	StandbyReplicas *string `pulumi:"standbyReplicas"`
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
@@ -175,6 +177,8 @@ type ServerlessCollectionState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+	StandbyReplicas pulumi.StringPtrInput
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Deprecated: Please use `tags` instead.
@@ -195,6 +199,8 @@ type serverlessCollectionArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+	StandbyReplicas *string `pulumi:"standbyReplicas"`
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string             `pulumi:"tags"`
 	Timeouts *ServerlessCollectionTimeouts `pulumi:"timeouts"`
@@ -210,6 +216,8 @@ type ServerlessCollectionArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+	StandbyReplicas pulumi.StringPtrInput
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts ServerlessCollectionTimeoutsPtrInput
@@ -334,6 +342,11 @@ func (o ServerlessCollectionOutput) KmsKeyArn() pulumi.StringOutput {
 // The following arguments are optional:
 func (o ServerlessCollectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+func (o ServerlessCollectionOutput) StandbyReplicas() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringOutput { return v.StandbyReplicas }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

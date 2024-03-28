@@ -13,7 +13,19 @@ namespace Pulumi.Aws.Kinesis.Inputs
     public sealed class FirehoseDeliveryStreamSplunkConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
+        /// Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+        /// </summary>
+        [Input("bufferingInterval")]
+        public Input<int>? BufferingInterval { get; set; }
+
+        /// <summary>
+        /// Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+        /// </summary>
+        [Input("bufferingSize")]
+        public Input<int>? BufferingSize { get; set; }
+
+        /// <summary>
+        /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
@@ -43,7 +55,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string> HecToken { get; set; } = null!;
 
         /// <summary>
-        /// The data processing configuration.  More details are given below.
+        /// The data processing configuration.  See `processing_configuration` block below for details.
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationGetArgs>? ProcessingConfiguration { get; set; }
@@ -61,7 +73,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? S3BackupMode { get; set; }
 
         /// <summary>
-        /// The S3 Configuration. See s3_configuration for more details.
+        /// The S3 Configuration. See `s3_configuration` block below for details.
         /// </summary>
         [Input("s3Configuration", required: true)]
         public Input<Inputs.FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationGetArgs> S3Configuration { get; set; } = null!;

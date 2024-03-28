@@ -7,6 +7,7 @@ import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttpRouteActionRewriteH
 import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttpRouteActionRewritePath;
 import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttpRouteActionRewritePrefix;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -49,7 +50,10 @@ public final class GetGatewayRouteSpecHttpRouteActionRewrite {
 
         @CustomType.Setter
         public Builder hostnames(List<GetGatewayRouteSpecHttpRouteActionRewriteHostname> hostnames) {
-            this.hostnames = Objects.requireNonNull(hostnames);
+            if (hostnames == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttpRouteActionRewrite", "hostnames");
+            }
+            this.hostnames = hostnames;
             return this;
         }
         public Builder hostnames(GetGatewayRouteSpecHttpRouteActionRewriteHostname... hostnames) {
@@ -57,7 +61,10 @@ public final class GetGatewayRouteSpecHttpRouteActionRewrite {
         }
         @CustomType.Setter
         public Builder paths(List<GetGatewayRouteSpecHttpRouteActionRewritePath> paths) {
-            this.paths = Objects.requireNonNull(paths);
+            if (paths == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttpRouteActionRewrite", "paths");
+            }
+            this.paths = paths;
             return this;
         }
         public Builder paths(GetGatewayRouteSpecHttpRouteActionRewritePath... paths) {
@@ -65,18 +72,21 @@ public final class GetGatewayRouteSpecHttpRouteActionRewrite {
         }
         @CustomType.Setter
         public Builder prefixes(List<GetGatewayRouteSpecHttpRouteActionRewritePrefix> prefixes) {
-            this.prefixes = Objects.requireNonNull(prefixes);
+            if (prefixes == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttpRouteActionRewrite", "prefixes");
+            }
+            this.prefixes = prefixes;
             return this;
         }
         public Builder prefixes(GetGatewayRouteSpecHttpRouteActionRewritePrefix... prefixes) {
             return prefixes(List.of(prefixes));
         }
         public GetGatewayRouteSpecHttpRouteActionRewrite build() {
-            final var o = new GetGatewayRouteSpecHttpRouteActionRewrite();
-            o.hostnames = hostnames;
-            o.paths = paths;
-            o.prefixes = prefixes;
-            return o;
+            final var _resultValue = new GetGatewayRouteSpecHttpRouteActionRewrite();
+            _resultValue.hostnames = hostnames;
+            _resultValue.paths = paths;
+            _resultValue.prefixes = prefixes;
+            return _resultValue;
         }
     }
 }

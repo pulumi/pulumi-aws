@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -47,16 +48,19 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath {
 
         @CustomType.Setter
         public Builder textTransformations(List<RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation> textTransformations) {
-            this.textTransformations = Objects.requireNonNull(textTransformations);
+            if (textTransformations == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath", "textTransformations");
+            }
+            this.textTransformations = textTransformations;
             return this;
         }
         public Builder textTransformations(RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation... textTransformations) {
             return textTransformations(List.of(textTransformations));
         }
         public RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath();
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath();
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.ses.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,25 +71,34 @@ public final class GetEmailIdentityResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder email(String email) {
-            this.email = Objects.requireNonNull(email);
+            if (email == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityResult", "email");
+            }
+            this.email = email;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetEmailIdentityResult build() {
-            final var o = new GetEmailIdentityResult();
-            o.arn = arn;
-            o.email = email;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetEmailIdentityResult();
+            _resultValue.arn = arn;
+            _resultValue.email = email;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

@@ -9,15 +9,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooVpc = new aws.ec2.Vpc("fooVpc", {cidrBlock: "10.1.0.0/16"});
- * const fooSubnet = new aws.ec2.Subnet("fooSubnet", {
+ * const foo = new aws.ec2.Vpc("foo", {cidrBlock: "10.1.0.0/16"});
+ * const fooSubnet = new aws.ec2.Subnet("foo", {
  *     cidrBlock: "10.1.1.0/24",
  *     availabilityZone: "us-west-2a",
- *     vpcId: fooVpc.id,
+ *     vpcId: foo.id,
  *     tags: {
  *         Name: "tf-dbsubnet-test-1",
  *     },
@@ -25,12 +26,13 @@ import * as utilities from "../utilities";
  * const bar = new aws.ec2.Subnet("bar", {
  *     cidrBlock: "10.1.2.0/24",
  *     availabilityZone: "us-west-2b",
- *     vpcId: fooVpc.id,
+ *     vpcId: foo.id,
  *     tags: {
  *         Name: "tf-dbsubnet-test-2",
  *     },
  * });
- * const fooSubnetGroup = new aws.redshift.SubnetGroup("fooSubnetGroup", {
+ * const fooSubnetGroup = new aws.redshift.SubnetGroup("foo", {
+ *     name: "foo",
  *     subnetIds: [
  *         fooSubnet.id,
  *         bar.id,
@@ -40,13 +42,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift subnet groups using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshift/subnetGroup:SubnetGroup testgroup1 test-cluster-subnet-group
+ * $ pulumi import aws:redshift/subnetGroup:SubnetGroup testgroup1 test-cluster-subnet-group
  * ```
  */
 export class SubnetGroup extends pulumi.CustomResource {
@@ -136,8 +139,6 @@ export class SubnetGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SubnetGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class DataSourceParametersServiceNowArgs extends com.pulumi.resourc
         }
 
         public DataSourceParametersServiceNowArgs build() {
-            $.siteBaseUrl = Objects.requireNonNull($.siteBaseUrl, "expected parameter 'siteBaseUrl' to be non-null");
+            if ($.siteBaseUrl == null) {
+                throw new MissingRequiredPropertyException("DataSourceParametersServiceNowArgs", "siteBaseUrl");
+            }
             return $;
         }
     }

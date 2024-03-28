@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class DataSourceParametersAwsIotAnalytics {
 
         @CustomType.Setter
         public Builder dataSetName(String dataSetName) {
-            this.dataSetName = Objects.requireNonNull(dataSetName);
+            if (dataSetName == null) {
+              throw new MissingRequiredPropertyException("DataSourceParametersAwsIotAnalytics", "dataSetName");
+            }
+            this.dataSetName = dataSetName;
             return this;
         }
         public DataSourceParametersAwsIotAnalytics build() {
-            final var o = new DataSourceParametersAwsIotAnalytics();
-            o.dataSetName = dataSetName;
-            return o;
+            final var _resultValue = new DataSourceParametersAwsIotAnalytics();
+            _resultValue.dataSetName = dataSetName;
+            return _resultValue;
         }
     }
 }

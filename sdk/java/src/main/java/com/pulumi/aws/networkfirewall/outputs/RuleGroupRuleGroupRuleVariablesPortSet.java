@@ -5,6 +5,7 @@ package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.aws.networkfirewall.outputs.RuleGroupRuleGroupRuleVariablesPortSetPortSet;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -57,19 +58,25 @@ public final class RuleGroupRuleGroupRuleVariablesPortSet {
 
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupRuleVariablesPortSet", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder portSet(RuleGroupRuleGroupRuleVariablesPortSetPortSet portSet) {
-            this.portSet = Objects.requireNonNull(portSet);
+            if (portSet == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupRuleVariablesPortSet", "portSet");
+            }
+            this.portSet = portSet;
             return this;
         }
         public RuleGroupRuleGroupRuleVariablesPortSet build() {
-            final var o = new RuleGroupRuleGroupRuleVariablesPortSet();
-            o.key = key;
-            o.portSet = portSet;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupRuleVariablesPortSet();
+            _resultValue.key = key;
+            _resultValue.portSet = portSet;
+            return _resultValue;
         }
     }
 }

@@ -58,19 +58,21 @@ public final class DeviceAwsLocation {
 
         @CustomType.Setter
         public Builder subnetArn(@Nullable String subnetArn) {
+
             this.subnetArn = subnetArn;
             return this;
         }
         @CustomType.Setter
         public Builder zone(@Nullable String zone) {
+
             this.zone = zone;
             return this;
         }
         public DeviceAwsLocation build() {
-            final var o = new DeviceAwsLocation();
-            o.subnetArn = subnetArn;
-            o.zone = zone;
-            return o;
+            final var _resultValue = new DeviceAwsLocation();
+            _resultValue.subnetArn = subnetArn;
+            _resultValue.zone = zone;
+            return _resultValue;
         }
     }
 }

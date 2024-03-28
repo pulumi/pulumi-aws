@@ -9,28 +9,34 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testBucketV2 = new aws.s3.BucketV2("testBucketV2", {forceDestroy: true});
- * const testWorkgroup = new aws.athena.Workgroup("testWorkgroup", {});
- * const testDatabase = new aws.athena.Database("testDatabase", {
- *     name: "example",
- *     bucket: testBucketV2.bucket,
+ * const test = new aws.s3.BucketV2("test", {
+ *     bucket: "tf-test",
+ *     forceDestroy: true,
  * });
- * const testPreparedStatement = new aws.athena.PreparedStatement("testPreparedStatement", {
+ * const testWorkgroup = new aws.athena.Workgroup("test", {name: "tf-test"});
+ * const testDatabase = new aws.athena.Database("test", {
+ *     name: "example",
+ *     bucket: test.bucket,
+ * });
+ * const testPreparedStatement = new aws.athena.PreparedStatement("test", {
+ *     name: "tf_test",
  *     queryStatement: pulumi.interpolate`SELECT * FROM ${testDatabase.name} WHERE x = ?`,
  *     workgroup: testWorkgroup.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Athena Prepared Statement using the `WORKGROUP-NAME/STATEMENT-NAME`. For example:
  *
  * ```sh
- *  $ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
+ * $ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
  * ```
  */
 export class PreparedStatement extends pulumi.CustomResource {

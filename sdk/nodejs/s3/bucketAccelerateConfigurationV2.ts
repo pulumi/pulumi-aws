@@ -7,18 +7,22 @@ import * as utilities from "../utilities";
 /**
  * Provides an S3 bucket accelerate configuration resource. See the [Requirements for using Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration.html#transfer-acceleration-requirements) for more details.
  *
+ * > This resource cannot be used with S3 directory buckets.
+ *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const mybucket = new aws.s3.BucketV2("mybucket", {});
+ * const mybucket = new aws.s3.BucketV2("mybucket", {bucket: "mybucket"});
  * const example = new aws.s3.BucketAccelerateConfigurationV2("example", {
  *     bucket: mybucket.id,
  *     status: "Enabled",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -29,12 +33,12 @@ import * as utilities from "../utilities";
  * If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
  *
  * ```sh
- *  $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name
+ * $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name
  * ```
- *  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+ * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
  *
  * ```sh
- *  $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name,123456789012
+ * $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name,123456789012
  * ```
  */
 export class BucketAccelerateConfigurationV2 extends pulumi.CustomResource {

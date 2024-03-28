@@ -168,26 +168,31 @@ class PreparedStatement(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_bucket_v2 = aws.s3.BucketV2("testBucketV2", force_destroy=True)
-        test_workgroup = aws.athena.Workgroup("testWorkgroup")
-        test_database = aws.athena.Database("testDatabase",
+        test = aws.s3.BucketV2("test",
+            bucket="tf-test",
+            force_destroy=True)
+        test_workgroup = aws.athena.Workgroup("test", name="tf-test")
+        test_database = aws.athena.Database("test",
             name="example",
-            bucket=test_bucket_v2.bucket)
-        test_prepared_statement = aws.athena.PreparedStatement("testPreparedStatement",
+            bucket=test.bucket)
+        test_prepared_statement = aws.athena.PreparedStatement("test",
+            name="tf_test",
             query_statement=test_database.name.apply(lambda name: f"SELECT * FROM {name} WHERE x = ?"),
             workgroup=test_workgroup.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Athena Prepared Statement using the `WORKGROUP-NAME/STATEMENT-NAME`. For example:
 
         ```sh
-         $ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
+        $ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -208,26 +213,31 @@ class PreparedStatement(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_bucket_v2 = aws.s3.BucketV2("testBucketV2", force_destroy=True)
-        test_workgroup = aws.athena.Workgroup("testWorkgroup")
-        test_database = aws.athena.Database("testDatabase",
+        test = aws.s3.BucketV2("test",
+            bucket="tf-test",
+            force_destroy=True)
+        test_workgroup = aws.athena.Workgroup("test", name="tf-test")
+        test_database = aws.athena.Database("test",
             name="example",
-            bucket=test_bucket_v2.bucket)
-        test_prepared_statement = aws.athena.PreparedStatement("testPreparedStatement",
+            bucket=test.bucket)
+        test_prepared_statement = aws.athena.PreparedStatement("test",
+            name="tf_test",
             query_statement=test_database.name.apply(lambda name: f"SELECT * FROM {name} WHERE x = ?"),
             workgroup=test_workgroup.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Athena Prepared Statement using the `WORKGROUP-NAME/STATEMENT-NAME`. For example:
 
         ```sh
-         $ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
+        $ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
         ```
 
         :param str resource_name: The name of the resource.

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,17 +23,18 @@ import * as utilities from "../utilities";
  *     serverHostname: "nfs.example.com",
  *     subdirectory: "/exported/path",
  *     onPremConfig: {
- *         agentArns: [aws_datasync_agent.example.arn],
+ *         agentArns: [exampleAwsDatasyncAgent.arn],
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_datasync_location_nfs` using the DataSync Task Amazon Resource Name (ARN). For example:
  *
  * ```sh
- *  $ pulumi import aws:datasync/nfsLocation:NfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+ * $ pulumi import aws:datasync/nfsLocation:NfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
  * ```
  */
 export class NfsLocation extends pulumi.CustomResource {
@@ -137,8 +139,6 @@ export class NfsLocation extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(NfsLocation.__pulumiType, name, resourceInputs, opts);
     }
 }

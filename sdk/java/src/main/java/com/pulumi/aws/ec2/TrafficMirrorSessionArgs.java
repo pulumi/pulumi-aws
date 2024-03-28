@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -337,10 +338,18 @@ public final class TrafficMirrorSessionArgs extends com.pulumi.resources.Resourc
         }
 
         public TrafficMirrorSessionArgs build() {
-            $.networkInterfaceId = Objects.requireNonNull($.networkInterfaceId, "expected parameter 'networkInterfaceId' to be non-null");
-            $.sessionNumber = Objects.requireNonNull($.sessionNumber, "expected parameter 'sessionNumber' to be non-null");
-            $.trafficMirrorFilterId = Objects.requireNonNull($.trafficMirrorFilterId, "expected parameter 'trafficMirrorFilterId' to be non-null");
-            $.trafficMirrorTargetId = Objects.requireNonNull($.trafficMirrorTargetId, "expected parameter 'trafficMirrorTargetId' to be non-null");
+            if ($.networkInterfaceId == null) {
+                throw new MissingRequiredPropertyException("TrafficMirrorSessionArgs", "networkInterfaceId");
+            }
+            if ($.sessionNumber == null) {
+                throw new MissingRequiredPropertyException("TrafficMirrorSessionArgs", "sessionNumber");
+            }
+            if ($.trafficMirrorFilterId == null) {
+                throw new MissingRequiredPropertyException("TrafficMirrorSessionArgs", "trafficMirrorFilterId");
+            }
+            if ($.trafficMirrorTargetId == null) {
+                throw new MissingRequiredPropertyException("TrafficMirrorSessionArgs", "trafficMirrorTargetId");
+            }
             return $;
         }
     }

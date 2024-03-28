@@ -8,40 +8,50 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS FinSpace Kx User.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {
+ * const example = new aws.kms.Key("example", {
  *     description: "Example KMS Key",
  *     deletionWindowInDays: 7,
  * });
- * const exampleKxEnvironment = new aws.finspace.KxEnvironment("exampleKxEnvironment", {kmsKeyId: exampleKey.arn});
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Action: "sts:AssumeRole",
- *         Effect: "Allow",
- *         Sid: "",
- *         Principal: {
- *             Service: "ec2.amazonaws.com",
- *         },
- *     }],
- * })});
- * const exampleKxUser = new aws.finspace.KxUser("exampleKxUser", {
+ * const exampleKxEnvironment = new aws.finspace.KxEnvironment("example", {
+ *     name: "my-tf-kx-environment",
+ *     kmsKeyId: example.arn,
+ * });
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "example-role",
+ *     assumeRolePolicy: JSON.stringify({
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: "sts:AssumeRole",
+ *             effect: "Allow",
+ *             sid: "",
+ *             principal: {
+ *                 service: "ec2.amazonaws.com",
+ *             },
+ *         }],
+ *     }),
+ * });
+ * const exampleKxUser = new aws.finspace.KxUser("example", {
+ *     name: "my-tf-kx-user",
  *     environmentId: exampleKxEnvironment.id,
  *     iamRole: exampleRole.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import an AWS FinSpace Kx User using the `id` (environment ID and user name, comma-delimited). For example:
  *
  * ```sh
- *  $ pulumi import aws:finspace/kxUser:KxUser example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-user
+ * $ pulumi import aws:finspace/kxUser:KxUser example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-user
  * ```
  */
 export class KxUser extends pulumi.CustomResource {
@@ -136,8 +146,6 @@ export class KxUser extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(KxUser.__pulumiType, name, resourceInputs, opts);
     }
 }

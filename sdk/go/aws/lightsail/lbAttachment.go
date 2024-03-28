@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,7 +44,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testLb, err := lightsail.NewLb(ctx, "testLb", &lightsail.LbArgs{
+//			test, err := lightsail.NewLb(ctx, "test", &lightsail.LbArgs{
+//				Name:            pulumi.String("test-load-balancer"),
 //				HealthCheckPath: pulumi.String("/"),
 //				InstancePort:    pulumi.Int(80),
 //				Tags: pulumi.StringMap{
@@ -53,16 +55,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testInstance, err := lightsail.NewInstance(ctx, "testInstance", &lightsail.InstanceArgs{
-//				AvailabilityZone: *pulumi.String(available.Names[0]),
+//			testInstance, err := lightsail.NewInstance(ctx, "test", &lightsail.InstanceArgs{
+//				Name:             pulumi.String("test-instance"),
+//				AvailabilityZone: pulumi.String(available.Names[0]),
 //				BlueprintId:      pulumi.String("amazon_linux_2"),
 //				BundleId:         pulumi.String("nano_1_0"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lightsail.NewLbAttachment(ctx, "testLbAttachment", &lightsail.LbAttachmentArgs{
-//				LbName:       testLb.Name,
+//			_, err = lightsail.NewLbAttachment(ctx, "test", &lightsail.LbAttachmentArgs{
+//				LbName:       test.Name,
 //				InstanceName: testInstance.Name,
 //			})
 //			if err != nil {
@@ -73,15 +76,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
-//
+// $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
 // ```
 type LbAttachment struct {
 	pulumi.CustomResourceState

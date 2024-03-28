@@ -5,6 +5,7 @@ package com.pulumi.aws.directconnect;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -188,7 +189,9 @@ public final class HostedPrivateVirtualInterfaceAccepterArgs extends com.pulumi.
         }
 
         public HostedPrivateVirtualInterfaceAccepterArgs build() {
-            $.virtualInterfaceId = Objects.requireNonNull($.virtualInterfaceId, "expected parameter 'virtualInterfaceId' to be non-null");
+            if ($.virtualInterfaceId == null) {
+                throw new MissingRequiredPropertyException("HostedPrivateVirtualInterfaceAccepterArgs", "virtualInterfaceId");
+            }
             return $;
         }
     }

@@ -12,25 +12,30 @@ import * as utilities from "../utilities";
  * > **Note:** Do not use `networkInterface` to associate the EIP to `aws.lb.LoadBalancer` or `aws.ec2.NatGateway` resources. Instead use the `allocationId` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
  *
  * ## Example Usage
+ *
  * ### Single EIP associated with an instance
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const lb = new aws.ec2.Eip("lb", {
- *     instance: aws_instance.web.id,
+ *     instance: web.id,
  *     domain: "vpc",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Multiple EIPs associated with a single network interface
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const multi_ip = new aws.ec2.NetworkInterface("multi-ip", {
- *     subnetId: aws_subnet.main.id,
+ *     subnetId: main.id,
  *     privateIps: [
  *         "10.0.0.10",
  *         "10.0.0.11",
@@ -47,8 +52,11 @@ import * as utilities from "../utilities";
  *     associateWithPrivateIp: "10.0.0.11",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -58,16 +66,14 @@ import * as utilities from "../utilities";
  *     enableDnsHostnames: true,
  * });
  * const gw = new aws.ec2.InternetGateway("gw", {vpcId: _default.id});
- * const myTestSubnet = new aws.ec2.Subnet("myTestSubnet", {
+ * const myTestSubnet = new aws.ec2.Subnet("my_test_subnet", {
  *     vpcId: _default.id,
  *     cidrBlock: "10.0.0.0/24",
  *     mapPublicIpOnLaunch: true,
- * }, {
- *     dependsOn: [gw],
  * });
  * const foo = new aws.ec2.Instance("foo", {
  *     ami: "ami-5189a661",
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     privateIp: "10.0.0.12",
  *     subnetId: myTestSubnet.id,
  * });
@@ -75,12 +81,13 @@ import * as utilities from "../utilities";
  *     domain: "vpc",
  *     instance: foo.id,
  *     associateWithPrivateIp: "10.0.0.12",
- * }, {
- *     dependsOn: [gw],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Allocating EIP from the BYOIP pool
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -90,13 +97,14 @@ import * as utilities from "../utilities";
  *     publicIpv4Pool: "ipv4pool-ec2-012345",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
+ * $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
  * ```
  */
 export class Eip extends pulumi.CustomResource {
@@ -270,8 +278,6 @@ export class Eip extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Eip.__pulumiType, name, resourceInputs, opts);
     }
 }

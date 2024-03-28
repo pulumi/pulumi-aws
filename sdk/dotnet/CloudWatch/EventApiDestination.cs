@@ -16,6 +16,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,22 +27,24 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var test = new Aws.CloudWatch.EventApiDestination("test", new()
     ///     {
+    ///         Name = "api-destination",
     ///         Description = "An API Destination",
     ///         InvocationEndpoint = "https://api.destination.com/endpoint",
     ///         HttpMethod = "POST",
     ///         InvocationRateLimitPerSecond = 20,
-    ///         ConnectionArn = aws_cloudwatch_event_connection.Test.Arn,
+    ///         ConnectionArn = testAwsCloudwatchEventConnection.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EventBridge API Destinations using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination
+    /// $ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/eventApiDestination:EventApiDestination")]

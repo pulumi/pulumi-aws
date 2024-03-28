@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,60 +23,54 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var alternate = new Aws.Provider("alternate");
-    /// 
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var example = new Aws.Ec2.Vpc("example", new()
     ///     {
     ///         CidrBlock = "10.6.0.0/16",
     ///         EnableDnsHostnames = true,
     ///         EnableDnsSupport = true,
     ///     });
     /// 
-    ///     var exampleZone = new Aws.Route53.Zone("exampleZone", new()
+    ///     var exampleZone = new Aws.Route53.Zone("example", new()
     ///     {
+    ///         Name = "example.com",
     ///         Vpcs = new[]
     ///         {
     ///             new Aws.Route53.Inputs.ZoneVpcArgs
     ///             {
-    ///                 VpcId = exampleVpc.Id,
+    ///                 VpcId = example.Id,
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var alternateVpc = new Aws.Ec2.Vpc("alternateVpc", new()
+    ///     var alternate = new Aws.Ec2.Vpc("alternate", new()
     ///     {
     ///         CidrBlock = "10.7.0.0/16",
     ///         EnableDnsHostnames = true,
     ///         EnableDnsSupport = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Alternate,
     ///     });
     /// 
-    ///     var exampleVpcAssociationAuthorization = new Aws.Route53.VpcAssociationAuthorization("exampleVpcAssociationAuthorization", new()
+    ///     var exampleVpcAssociationAuthorization = new Aws.Route53.VpcAssociationAuthorization("example", new()
     ///     {
-    ///         VpcId = alternateVpc.Id,
+    ///         VpcId = alternate.Id,
     ///         ZoneId = exampleZone.Id,
     ///     });
     /// 
-    ///     var exampleZoneAssociation = new Aws.Route53.ZoneAssociation("exampleZoneAssociation", new()
+    ///     var exampleZoneAssociation = new Aws.Route53.ZoneAssociation("example", new()
     ///     {
     ///         VpcId = exampleVpcAssociationAuthorization.VpcId,
     ///         ZoneId = exampleVpcAssociationAuthorization.ZoneId,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Alternate,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route 53 VPC Association Authorizations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization example Z123456ABCDEFG:vpc-12345678
+    /// $ pulumi import aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization example Z123456ABCDEFG:vpc-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization")]

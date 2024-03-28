@@ -200,23 +200,25 @@ class StudioSessionMapping(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.emr.StudioSessionMapping("example",
-            studio_id=aws_emr_studio["example"]["id"],
+            studio_id=example_aws_emr_studio["id"],
             identity_type="USER",
             identity_id="example",
-            session_policy_arn=aws_iam_policy["example"]["arn"])
+            session_policy_arn=example_aws_iam_policy["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EMR studio session mappings using `studio-id:identity-type:identity-id`. For example:
 
         ```sh
-         $ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
+        $ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
         ```
 
         :param str resource_name: The name of the resource.
@@ -238,23 +240,25 @@ class StudioSessionMapping(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.emr.StudioSessionMapping("example",
-            studio_id=aws_emr_studio["example"]["id"],
+            studio_id=example_aws_emr_studio["id"],
             identity_type="USER",
             identity_id="example",
-            session_policy_arn=aws_iam_policy["example"]["arn"])
+            session_policy_arn=example_aws_iam_policy["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EMR studio session mappings using `studio-id:identity-type:identity-id`. For example:
 
         ```sh
-         $ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
+        $ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
         ```
 
         :param str resource_name: The name of the resource.

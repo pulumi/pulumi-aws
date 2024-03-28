@@ -14,8 +14,10 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// Consult the [Call analytics developer guide](https://docs.aws.amazon.com/chime-sdk/latest/dg/call-analytics.html) for more detailed information about usage.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,6 +28,7 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// {
     ///     var example = new Aws.Kinesis.Stream("example", new()
     ///     {
+    ///         Name = "example",
     ///         ShardCount = 2,
     ///     });
     /// 
@@ -55,13 +58,15 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     ///         },
     ///     });
     /// 
-    ///     var callAnalyticsRole = new Aws.Iam.Role("callAnalyticsRole", new()
+    ///     var callAnalyticsRole = new Aws.Iam.Role("call_analytics_role", new()
     ///     {
+    ///         Name = "CallAnalyticsRole",
     ///         AssumeRolePolicy = mediaPipelinesAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var myConfiguration = new Aws.ChimeSDKMediaPipelines.MediaInsightsPipelineConfiguration("myConfiguration", new()
+    ///     var myConfiguration = new Aws.ChimeSDKMediaPipelines.MediaInsightsPipelineConfiguration("my_configuration", new()
     ///     {
+    ///         Name = "MyBasicConfiguration",
     ///         ResourceAccessRoleArn = callAnalyticsRole.Arn,
     ///         Elements = new[]
     ///         {
@@ -91,10 +96,13 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// - The required policies on `call_analytics_role` will vary based on the selected processors. See [Call analytics resource access role](https://docs.aws.amazon.com/chime-sdk/latest/dg/ca-resource-access-role.html) for directions on choosing appropriate policies.
+    /// 
     /// ### Transcribe Call Analytics processor usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -129,14 +137,16 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     ///         },
     ///     });
     /// 
-    ///     var postCallRole = new Aws.Iam.Role("postCallRole", new()
+    ///     var postCallRole = new Aws.Iam.Role("post_call_role", new()
     ///     {
+    ///         Name = "PostCallAccessRole",
     ///         AssumeRolePolicy = transcribeAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var myConfiguration = new Aws.ChimeSDKMediaPipelines.MediaInsightsPipelineConfiguration("myConfiguration", new()
+    ///     var myConfiguration = new Aws.ChimeSDKMediaPipelines.MediaInsightsPipelineConfiguration("my_configuration", new()
     ///     {
-    ///         ResourceAccessRoleArn = aws_iam_role.Example.Arn,
+    ///         Name = "MyCallAnalyticsConfiguration",
+    ///         ResourceAccessRoleArn = exampleAwsIamRole.Arn,
     ///         Elements = new[]
     ///         {
     ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
@@ -173,7 +183,7 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     ///                 Type = "KinesisDataStreamSink",
     ///                 KinesisDataStreamSinkConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs
     ///                 {
-    ///                     InsightsTarget = aws_kinesis_stream.Example.Arn,
+    ///                     InsightsTarget = example.Arn,
     ///                 },
     ///             },
     ///         },
@@ -181,8 +191,11 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Real time alerts usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -191,9 +204,10 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myConfiguration = new Aws.ChimeSDKMediaPipelines.MediaInsightsPipelineConfiguration("myConfiguration", new()
+    ///     var myConfiguration = new Aws.ChimeSDKMediaPipelines.MediaInsightsPipelineConfiguration("my_configuration", new()
     ///     {
-    ///         ResourceAccessRoleArn = aws_iam_role.Call_analytics_role.Arn,
+    ///         Name = "MyRealTimeAlertConfiguration",
+    ///         ResourceAccessRoleArn = callAnalyticsRole.Arn,
     ///         Elements = new[]
     ///         {
     ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
@@ -209,7 +223,7 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     ///                 Type = "KinesisDataStreamSink",
     ///                 KinesisDataStreamSinkConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs
     ///                 {
-    ///                     InsightsTarget = aws_kinesis_stream.Example.Arn,
+    ///                     InsightsTarget = example.Arn,
     ///                 },
     ///             },
     ///         },
@@ -256,8 +270,11 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Transcribe processor usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -266,9 +283,10 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myConfiguration = new Aws.ChimeSDKMediaPipelines.MediaInsightsPipelineConfiguration("myConfiguration", new()
+    ///     var myConfiguration = new Aws.ChimeSDKMediaPipelines.MediaInsightsPipelineConfiguration("my_configuration", new()
     ///     {
-    ///         ResourceAccessRoleArn = aws_iam_role.Example.Arn,
+    ///         Name = "MyTranscribeConfiguration",
+    ///         ResourceAccessRoleArn = exampleAwsIamRole.Arn,
     ///         Elements = new[]
     ///         {
     ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
@@ -294,7 +312,7 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     ///                 Type = "KinesisDataStreamSink",
     ///                 KinesisDataStreamSinkConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs
     ///                 {
-    ///                     InsightsTarget = aws_kinesis_stream.Example.Arn,
+    ///                     InsightsTarget = example.Arn,
     ///                 },
     ///             },
     ///         },
@@ -302,8 +320,11 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Voice analytics processor usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -312,9 +333,10 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myConfiguration = new Aws.ChimeSDKMediaPipelines.MediaInsightsPipelineConfiguration("myConfiguration", new()
+    ///     var myConfiguration = new Aws.ChimeSDKMediaPipelines.MediaInsightsPipelineConfiguration("my_configuration", new()
     ///     {
-    ///         ResourceAccessRoleArn = aws_iam_role.Example.Arn,
+    ///         Name = "MyVoiceAnalyticsConfiguration",
+    ///         ResourceAccessRoleArn = example.Arn,
     ///         Elements = new[]
     ///         {
     ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
@@ -355,7 +377,7 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     ///                 Type = "KinesisDataStreamSink",
     ///                 KinesisDataStreamSinkConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs
     ///                 {
-    ///                     InsightsTarget = aws_kinesis_stream.Test.Arn,
+    ///                     InsightsTarget = test.Arn,
     ///                 },
     ///             },
     ///         },
@@ -363,8 +385,11 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### S3 Recording sink usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -373,9 +398,10 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myConfiguration = new Aws.ChimeSDKMediaPipelines.MediaInsightsPipelineConfiguration("myConfiguration", new()
+    ///     var myConfiguration = new Aws.ChimeSDKMediaPipelines.MediaInsightsPipelineConfiguration("my_configuration", new()
     ///     {
-    ///         ResourceAccessRoleArn = aws_iam_role.Example.Arn,
+    ///         Name = "MyS3RecordingConfiguration",
+    ///         ResourceAccessRoleArn = example.Arn,
     ///         Elements = new[]
     ///         {
     ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
@@ -391,13 +417,14 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Chime SDK Media Pipelines Media Insights Pipeline Configuration using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration example abcdef123456
+    /// $ pulumi import aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration example abcdef123456
     /// ```
     /// </summary>
     [AwsResourceType("aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration")]
@@ -465,10 +492,6 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -596,11 +619,7 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public MediaInsightsPipelineConfigurationState()

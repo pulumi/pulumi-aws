@@ -9,15 +9,17 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.VpcNetworkPerformanceMetricSubscription("example", {
- *     destination: "us-west-1",
  *     source: "us-east-1",
+ *     destination: "us-west-1",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class VpcNetworkPerformanceMetricSubscription extends pulumi.CustomResource {
     /**

@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,22 +22,22 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** AWS allows a Direct Connect hosted transit virtual interface to be deleted from either the allocator&#39;s or accepter&#39;s side. However, this provider only allows the Direct Connect hosted transit virtual interface to be deleted from the allocator&#39;s side by removing the corresponding `aws.directconnect.HostedTransitVirtualInterface` resource from your configuration. Removing a `aws.directconnect.HostedTransitVirtualInterfaceAcceptor` resource from your configuration will remove it from your statefile and management, **but will not delete the Direct Connect virtual interface.**
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.directconnect.Gateway;
- * import com.pulumi.aws.directconnect.GatewayArgs;
  * import com.pulumi.aws.directconnect.HostedTransitVirtualInterface;
  * import com.pulumi.aws.directconnect.HostedTransitVirtualInterfaceArgs;
+ * import com.pulumi.aws.directconnect.Gateway;
+ * import com.pulumi.aws.directconnect.GatewayArgs;
  * import com.pulumi.aws.directconnect.HostedTransitVirtualInterfaceAcceptor;
  * import com.pulumi.aws.directconnect.HostedTransitVirtualInterfaceAcceptorArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,44 +51,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var accepter = new Provider(&#34;accepter&#34;);
- * 
- *         final var accepterCallerIdentity = AwsFunctions.getCallerIdentity();
- * 
- *         var example = new Gateway(&#34;example&#34;, GatewayArgs.builder()        
- *             .amazonSideAsn(64512)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.accepter())
- *                 .build());
+ *         final var accepter = AwsFunctions.getCallerIdentity();
  * 
  *         var creator = new HostedTransitVirtualInterface(&#34;creator&#34;, HostedTransitVirtualInterfaceArgs.builder()        
  *             .connectionId(&#34;dxcon-zzzzzzzz&#34;)
- *             .ownerAccountId(accepterCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *             .ownerAccountId(accepter.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *             .name(&#34;tf-transit-vif-example&#34;)
  *             .vlan(4094)
  *             .addressFamily(&#34;ipv4&#34;)
  *             .bgpAsn(65352)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
+ *             .build());
+ * 
+ *         var example = new Gateway(&#34;example&#34;, GatewayArgs.builder()        
+ *             .name(&#34;tf-dxg-example&#34;)
+ *             .amazonSideAsn(64512)
+ *             .build());
  * 
  *         var accepterHostedTransitVirtualInterfaceAcceptor = new HostedTransitVirtualInterfaceAcceptor(&#34;accepterHostedTransitVirtualInterfaceAcceptor&#34;, HostedTransitVirtualInterfaceAcceptorArgs.builder()        
  *             .virtualInterfaceId(creator.id())
  *             .dxGatewayId(example.id())
  *             .tags(Map.of(&#34;Side&#34;, &#34;Accepter&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.accepter())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Direct Connect hosted transit virtual interfaces using the VIF `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor test dxvif-33cc44dd
+ * $ pulumi import aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor test dxvif-33cc44dd
  * ```
  * 
  */
@@ -202,9 +196,6 @@ public class HostedTransitVirtualInterfaceAcceptor extends com.pulumi.resources.
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

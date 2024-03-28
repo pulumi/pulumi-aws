@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQu
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument", "name");
+            }
+            this.name = name;
             return this;
         }
         public RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument build() {
-            final var o = new RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument();
-            o.name = name;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

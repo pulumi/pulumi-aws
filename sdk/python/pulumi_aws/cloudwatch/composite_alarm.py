@@ -375,6 +375,7 @@ class CompositeAlarm(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -382,10 +383,10 @@ class CompositeAlarm(pulumi.CustomResource):
         example = aws.cloudwatch.CompositeAlarm("example",
             alarm_description="This is a composite alarm!",
             alarm_name="example-composite-alarm",
-            alarm_actions=aws_sns_topic["example"]["arn"],
-            ok_actions=aws_sns_topic["example"]["arn"],
-            alarm_rule=f\"\"\"ALARM({aws_cloudwatch_metric_alarm["alpha"]["alarm_name"]}) OR
-        ALARM({aws_cloudwatch_metric_alarm["bravo"]["alarm_name"]})
+            alarm_actions=example_aws_sns_topic["arn"],
+            ok_actions=example_aws_sns_topic["arn"],
+            alarm_rule=f\"\"\"ALARM({alpha["alarmName"]}) OR
+        ALARM({bravo["alarmName"]})
         \"\"\",
             actions_suppressor=aws.cloudwatch.CompositeAlarmActionsSuppressorArgs(
                 alarm="suppressor-alarm",
@@ -393,13 +394,14 @@ class CompositeAlarm(pulumi.CustomResource):
                 wait_period=20,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
+        $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
         ```
 
         :param str resource_name: The name of the resource.
@@ -427,6 +429,7 @@ class CompositeAlarm(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -434,10 +437,10 @@ class CompositeAlarm(pulumi.CustomResource):
         example = aws.cloudwatch.CompositeAlarm("example",
             alarm_description="This is a composite alarm!",
             alarm_name="example-composite-alarm",
-            alarm_actions=aws_sns_topic["example"]["arn"],
-            ok_actions=aws_sns_topic["example"]["arn"],
-            alarm_rule=f\"\"\"ALARM({aws_cloudwatch_metric_alarm["alpha"]["alarm_name"]}) OR
-        ALARM({aws_cloudwatch_metric_alarm["bravo"]["alarm_name"]})
+            alarm_actions=example_aws_sns_topic["arn"],
+            ok_actions=example_aws_sns_topic["arn"],
+            alarm_rule=f\"\"\"ALARM({alpha["alarmName"]}) OR
+        ALARM({bravo["alarmName"]})
         \"\"\",
             actions_suppressor=aws.cloudwatch.CompositeAlarmActionsSuppressorArgs(
                 alarm="suppressor-alarm",
@@ -445,13 +448,14 @@ class CompositeAlarm(pulumi.CustomResource):
                 wait_period=20,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
+        $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
         ```
 
         :param str resource_name: The name of the resource.
@@ -502,8 +506,6 @@ class CompositeAlarm(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(CompositeAlarm, __self__).__init__(
             'aws:cloudwatch/compositeAlarm:CompositeAlarm',
             resource_name,

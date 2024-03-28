@@ -240,33 +240,41 @@ class Mesh(pulumi.CustomResource):
         Provides an AWS App Mesh service mesh resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        simple = aws.appmesh.Mesh("simple")
+        simple = aws.appmesh.Mesh("simple", name="simpleapp")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Egress Filter
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        simple = aws.appmesh.Mesh("simple", spec=aws.appmesh.MeshSpecArgs(
-            egress_filter=aws.appmesh.MeshSpecEgressFilterArgs(
-                type="ALLOW_ALL",
-            ),
-        ))
+        simple = aws.appmesh.Mesh("simple",
+            name="simpleapp",
+            spec=aws.appmesh.MeshSpecArgs(
+                egress_filter=aws.appmesh.MeshSpecEgressFilterArgs(
+                    type="ALLOW_ALL",
+                ),
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Mesh service meshes using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
+        $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
         ```
 
         :param str resource_name: The name of the resource.
@@ -285,33 +293,41 @@ class Mesh(pulumi.CustomResource):
         Provides an AWS App Mesh service mesh resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        simple = aws.appmesh.Mesh("simple")
+        simple = aws.appmesh.Mesh("simple", name="simpleapp")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Egress Filter
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        simple = aws.appmesh.Mesh("simple", spec=aws.appmesh.MeshSpecArgs(
-            egress_filter=aws.appmesh.MeshSpecEgressFilterArgs(
-                type="ALLOW_ALL",
-            ),
-        ))
+        simple = aws.appmesh.Mesh("simple",
+            name="simpleapp",
+            spec=aws.appmesh.MeshSpecArgs(
+                egress_filter=aws.appmesh.MeshSpecEgressFilterArgs(
+                    type="ALLOW_ALL",
+                ),
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Mesh service meshes using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
+        $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
         ```
 
         :param str resource_name: The name of the resource.
@@ -350,8 +366,6 @@ class Mesh(pulumi.CustomResource):
             __props__.__dict__["mesh_owner"] = None
             __props__.__dict__["resource_owner"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Mesh, __self__).__init__(
             'aws:appmesh/mesh:Mesh',
             resource_name,

@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS Redshift Serverless Workgroup.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshiftserverless.LookupWorkgroup(ctx, &redshiftserverless.LookupWorkgroupArgs{
-//				WorkgroupName: aws_redshiftserverless_workgroup.Example.Workgroup_name,
+//				WorkgroupName: exampleAwsRedshiftserverlessWorkgroup.WorkgroupName,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupWorkgroup(ctx *pulumi.Context, args *LookupWorkgroupArgs, opts ...pulumi.InvokeOption) (*LookupWorkgroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWorkgroupResult

@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -87,31 +88,39 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
 
         @CustomType.Setter
         public Builder invalidFallbackBehavior(@Nullable String invalidFallbackBehavior) {
+
             this.invalidFallbackBehavior = invalidFallbackBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder matchPattern(WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern matchPattern) {
-            this.matchPattern = Objects.requireNonNull(matchPattern);
+            if (matchPattern == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody", "matchPattern");
+            }
+            this.matchPattern = matchPattern;
             return this;
         }
         @CustomType.Setter
         public Builder matchScope(String matchScope) {
-            this.matchScope = Objects.requireNonNull(matchScope);
+            if (matchScope == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody", "matchScope");
+            }
+            this.matchScope = matchScope;
             return this;
         }
         @CustomType.Setter
         public Builder oversizeHandling(@Nullable String oversizeHandling) {
+
             this.oversizeHandling = oversizeHandling;
             return this;
         }
         public WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody();
-            o.invalidFallbackBehavior = invalidFallbackBehavior;
-            o.matchPattern = matchPattern;
-            o.matchScope = matchScope;
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody();
+            _resultValue.invalidFallbackBehavior = invalidFallbackBehavior;
+            _resultValue.matchPattern = matchPattern;
+            _resultValue.matchScope = matchScope;
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

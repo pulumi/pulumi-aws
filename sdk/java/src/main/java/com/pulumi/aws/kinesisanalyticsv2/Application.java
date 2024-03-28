@@ -15,7 +15,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -27,7 +26,10 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Kinesis Data Analytics for SQL applications created using this resource cannot currently be viewed in the AWS Console. To manage Kinesis Data Analytics for SQL applications that can also be viewed in the AWS Console, use the `aws.kinesis.AnalyticsApplication` resource.
  * 
  * ## Example Usage
+ * 
  * ### Apache Flink Application
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -35,6 +37,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.aws.kinesisanalyticsv2.Application;
@@ -62,22 +65,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example-flink-application&#34;)
+ *             .build());
  * 
  *         var exampleBucketObjectv2 = new BucketObjectv2(&#34;exampleBucketObjectv2&#34;, BucketObjectv2Args.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .key(&#34;example-flink-application&#34;)
  *             .source(new FileAsset(&#34;flink-app.jar&#34;))
  *             .build());
  * 
  *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;example-flink-application&#34;)
  *             .runtimeEnvironment(&#34;FLINK-1_8&#34;)
- *             .serviceExecutionRole(aws_iam_role.example().arn())
+ *             .serviceExecutionRole(exampleAwsIamRole.arn())
  *             .applicationConfiguration(ApplicationApplicationConfigurationArgs.builder()
  *                 .applicationCodeConfiguration(ApplicationApplicationConfigurationApplicationCodeConfigurationArgs.builder()
  *                     .codeContent(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs.builder()
  *                         .s3ContentLocation(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs.builder()
- *                             .bucketArn(exampleBucketV2.arn())
+ *                             .bucketArn(example.arn())
  *                             .fileKey(exampleBucketObjectv2.key())
  *                             .build())
  *                         .build())
@@ -120,7 +126,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### SQL Application
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -128,6 +138,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
  * import com.pulumi.aws.cloudwatch.LogStream;
  * import com.pulumi.aws.cloudwatch.LogStreamArgs;
  * import com.pulumi.aws.kinesisanalyticsv2.Application;
@@ -163,15 +174,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
+ *         var example = new LogGroup(&#34;example&#34;, LogGroupArgs.builder()        
+ *             .name(&#34;example-sql-application&#34;)
+ *             .build());
  * 
  *         var exampleLogStream = new LogStream(&#34;exampleLogStream&#34;, LogStreamArgs.builder()        
- *             .logGroupName(exampleLogGroup.name())
+ *             .name(&#34;example-sql-application&#34;)
+ *             .logGroupName(example.name())
  *             .build());
  * 
  *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;example-sql-application&#34;)
  *             .runtimeEnvironment(&#34;SQL-1_0&#34;)
- *             .serviceExecutionRole(aws_iam_role.example().arn())
+ *             .serviceExecutionRole(exampleAwsIamRole.arn())
  *             .applicationConfiguration(ApplicationApplicationConfigurationArgs.builder()
  *                 .applicationCodeConfiguration(ApplicationApplicationConfigurationApplicationCodeConfigurationArgs.builder()
  *                     .codeContent(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs.builder()
@@ -212,7 +227,7 @@ import javax.annotation.Nullable;
  *                                 .build())
  *                             .build())
  *                         .kinesisStreamsInput(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs.builder()
- *                             .resourceArn(aws_kinesis_stream.example().arn())
+ *                             .resourceArn(exampleAwsKinesisStream.arn())
  *                             .build())
  *                         .build())
  *                     .outputs(                    
@@ -222,7 +237,7 @@ import javax.annotation.Nullable;
  *                                 .recordFormatType(&#34;JSON&#34;)
  *                                 .build())
  *                             .lambdaOutput(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs.builder()
- *                                 .resourceArn(aws_lambda_function.example().arn())
+ *                                 .resourceArn(exampleAwsLambdaFunction.arn())
  *                                 .build())
  *                             .build(),
  *                         ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs.builder()
@@ -231,7 +246,7 @@ import javax.annotation.Nullable;
  *                                 .recordFormatType(&#34;CSV&#34;)
  *                                 .build())
  *                             .kinesisFirehoseOutput(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs.builder()
- *                                 .resourceArn(aws_kinesis_firehose_delivery_stream.example().arn())
+ *                                 .resourceArn(exampleAwsKinesisFirehoseDeliveryStream.arn())
  *                                 .build())
  *                             .build())
  *                     .referenceDataSource(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs.builder()
@@ -251,7 +266,7 @@ import javax.annotation.Nullable;
  *                                 .build())
  *                             .build())
  *                         .s3ReferenceDataSource(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs.builder()
- *                             .bucketArn(aws_s3_bucket.example().arn())
+ *                             .bucketArn(exampleAwsS3Bucket.arn())
  *                             .fileKey(&#34;KEY-1&#34;)
  *                             .build())
  *                         .build())
@@ -265,7 +280,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### VPC Configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -273,6 +292,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.aws.kinesisanalyticsv2.Application;
@@ -296,22 +316,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example-flink-application&#34;)
+ *             .build());
  * 
  *         var exampleBucketObjectv2 = new BucketObjectv2(&#34;exampleBucketObjectv2&#34;, BucketObjectv2Args.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .key(&#34;example-flink-application&#34;)
  *             .source(new FileAsset(&#34;flink-app.jar&#34;))
  *             .build());
  * 
  *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;example-flink-application&#34;)
  *             .runtimeEnvironment(&#34;FLINK-1_8&#34;)
- *             .serviceExecutionRole(aws_iam_role.example().arn())
+ *             .serviceExecutionRole(exampleAwsIamRole.arn())
  *             .applicationConfiguration(ApplicationApplicationConfigurationArgs.builder()
  *                 .applicationCodeConfiguration(ApplicationApplicationConfigurationApplicationCodeConfigurationArgs.builder()
  *                     .codeContent(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs.builder()
  *                         .s3ContentLocation(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs.builder()
- *                             .bucketArn(exampleBucketV2.arn())
+ *                             .bucketArn(example.arn())
  *                             .fileKey(exampleBucketObjectv2.key())
  *                             .build())
  *                         .build())
@@ -319,9 +342,9 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .vpcConfiguration(ApplicationApplicationConfigurationVpcConfigurationArgs.builder()
  *                     .securityGroupIds(                    
- *                         aws_security_group.example()[0].id(),
- *                         aws_security_group.example()[1].id())
- *                     .subnetIds(aws_subnet.example().id())
+ *                         exampleAwsSecurityGroup[0].id(),
+ *                         exampleAwsSecurityGroup[1].id())
+ *                     .subnetIds(exampleAwsSubnet.id())
  *                     .build())
  *                 .build())
  *             .build());
@@ -329,13 +352,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using the application ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
+ * $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
  * ```
  * 
  */
@@ -588,9 +612,6 @@ public class Application extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

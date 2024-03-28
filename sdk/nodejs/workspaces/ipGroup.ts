@@ -12,35 +12,38 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const contractors = new aws.workspaces.IpGroup("contractors", {
+ *     name: "Contractors",
  *     description: "Contractors IP access control group",
  *     rules: [
  *         {
- *             description: "NY",
  *             source: "150.24.14.0/24",
+ *             description: "NY",
  *         },
  *         {
- *             description: "LA",
  *             source: "125.191.14.85/32",
+ *             description: "LA",
  *         },
  *         {
- *             description: "STL",
  *             source: "44.98.100.0/24",
+ *             description: "STL",
  *         },
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import WorkSpaces IP groups using their GroupID. For example:
  *
  * ```sh
- *  $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
+ * $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
  * ```
  */
 export class IpGroup extends pulumi.CustomResource {
@@ -121,8 +124,6 @@ export class IpGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(IpGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

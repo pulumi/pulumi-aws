@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// Basic usage:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,7 +27,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var current = Aws.GetRegion.Invoke();
     /// 
-    ///     var exampleVpcIpam = new Aws.Ec2.VpcIpam("exampleVpcIpam", new()
+    ///     var exampleVpcIpam = new Aws.Ec2.VpcIpam("example", new()
     ///     {
     ///         OperatingRegions = new[]
     ///         {
@@ -37,36 +38,32 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var exampleVpcIpamPool = new Aws.Ec2.VpcIpamPool("exampleVpcIpamPool", new()
+    ///     var exampleVpcIpamPool = new Aws.Ec2.VpcIpamPool("example", new()
     ///     {
     ///         AddressFamily = "ipv4",
     ///         IpamScopeId = exampleVpcIpam.PrivateDefaultScopeId,
     ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Name),
     ///     });
     /// 
-    ///     var exampleVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr", new()
-    ///     {
-    ///         IpamPoolId = exampleVpcIpamPool.Id,
-    ///         Cidr = "172.20.0.0/16",
-    ///     });
-    /// 
-    ///     var exampleVpcIpamPoolCidrAllocation = new Aws.Ec2.VpcIpamPoolCidrAllocation("exampleVpcIpamPoolCidrAllocation", new()
+    ///     var example = new Aws.Ec2.VpcIpamPoolCidrAllocation("example", new()
     ///     {
     ///         IpamPoolId = exampleVpcIpamPool.Id,
     ///         Cidr = "172.20.0.0/24",
-    ///     }, new CustomResourceOptions
+    ///     });
+    /// 
+    ///     var exampleVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("example", new()
     ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleVpcIpamPoolCidr,
-    ///         },
+    ///         IpamPoolId = exampleVpcIpamPool.Id,
+    ///         Cidr = "172.20.0.0/16",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// With the `disallowed_cidrs` attribute:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -77,7 +74,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var current = Aws.GetRegion.Invoke();
     /// 
-    ///     var exampleVpcIpam = new Aws.Ec2.VpcIpam("exampleVpcIpam", new()
+    ///     var exampleVpcIpam = new Aws.Ec2.VpcIpam("example", new()
     ///     {
     ///         OperatingRegions = new[]
     ///         {
@@ -88,20 +85,14 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var exampleVpcIpamPool = new Aws.Ec2.VpcIpamPool("exampleVpcIpamPool", new()
+    ///     var exampleVpcIpamPool = new Aws.Ec2.VpcIpamPool("example", new()
     ///     {
     ///         AddressFamily = "ipv4",
     ///         IpamScopeId = exampleVpcIpam.PrivateDefaultScopeId,
     ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Name),
     ///     });
     /// 
-    ///     var exampleVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr", new()
-    ///     {
-    ///         IpamPoolId = exampleVpcIpamPool.Id,
-    ///         Cidr = "172.20.0.0/16",
-    ///     });
-    /// 
-    ///     var exampleVpcIpamPoolCidrAllocation = new Aws.Ec2.VpcIpamPoolCidrAllocation("exampleVpcIpamPoolCidrAllocation", new()
+    ///     var example = new Aws.Ec2.VpcIpamPoolCidrAllocation("example", new()
     ///     {
     ///         IpamPoolId = exampleVpcIpamPool.Id,
     ///         NetmaskLength = 28,
@@ -109,23 +100,24 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             "172.20.0.0/28",
     ///         },
-    ///     }, new CustomResourceOptions
+    ///     });
+    /// 
+    ///     var exampleVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("example", new()
     ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleVpcIpamPoolCidr,
-    ///         },
+    ///         IpamPoolId = exampleVpcIpamPool.Id,
+    ///         Cidr = "172.20.0.0/16",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IPAM allocations using the allocation `id` and `pool id`, separated by `_`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation example ipam-pool-alloc-0dc6d196509c049ba8b549ff99f639736_ipam-pool-07cfb559e0921fcbe
+    /// $ pulumi import aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation example ipam-pool-alloc-0dc6d196509c049ba8b549ff99f639736_ipam-pool-07cfb559e0921fcbe
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation")]

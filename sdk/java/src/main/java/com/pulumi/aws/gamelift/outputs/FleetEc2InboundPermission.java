@@ -4,6 +4,7 @@
 package com.pulumi.aws.gamelift.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -85,31 +86,43 @@ public final class FleetEc2InboundPermission {
 
         @CustomType.Setter
         public Builder fromPort(Integer fromPort) {
-            this.fromPort = Objects.requireNonNull(fromPort);
+            if (fromPort == null) {
+              throw new MissingRequiredPropertyException("FleetEc2InboundPermission", "fromPort");
+            }
+            this.fromPort = fromPort;
             return this;
         }
         @CustomType.Setter
         public Builder ipRange(String ipRange) {
-            this.ipRange = Objects.requireNonNull(ipRange);
+            if (ipRange == null) {
+              throw new MissingRequiredPropertyException("FleetEc2InboundPermission", "ipRange");
+            }
+            this.ipRange = ipRange;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("FleetEc2InboundPermission", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder toPort(Integer toPort) {
-            this.toPort = Objects.requireNonNull(toPort);
+            if (toPort == null) {
+              throw new MissingRequiredPropertyException("FleetEc2InboundPermission", "toPort");
+            }
+            this.toPort = toPort;
             return this;
         }
         public FleetEc2InboundPermission build() {
-            final var o = new FleetEc2InboundPermission();
-            o.fromPort = fromPort;
-            o.ipRange = ipRange;
-            o.protocol = protocol;
-            o.toPort = toPort;
-            return o;
+            final var _resultValue = new FleetEc2InboundPermission();
+            _resultValue.fromPort = fromPort;
+            _resultValue.ipRange = ipRange;
+            _resultValue.protocol = protocol;
+            _resultValue.toPort = toPort;
+            return _resultValue;
         }
     }
 }

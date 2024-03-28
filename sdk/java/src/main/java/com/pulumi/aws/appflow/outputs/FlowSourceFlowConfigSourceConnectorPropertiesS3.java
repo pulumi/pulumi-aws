@@ -5,6 +5,7 @@ package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.aws.appflow.outputs.FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,7 +22,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3 {
      * @return Amazon S3 bucket prefix.
      * 
      */
-    private @Nullable String bucketPrefix;
+    private String bucketPrefix;
     /**
      * @return When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
      * 
@@ -40,8 +41,8 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3 {
      * @return Amazon S3 bucket prefix.
      * 
      */
-    public Optional<String> bucketPrefix() {
-        return Optional.ofNullable(this.bucketPrefix);
+    public String bucketPrefix() {
+        return this.bucketPrefix;
     }
     /**
      * @return When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
@@ -61,7 +62,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3 {
     @CustomType.Builder
     public static final class Builder {
         private String bucketName;
-        private @Nullable String bucketPrefix;
+        private String bucketPrefix;
         private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig s3InputFormatConfig;
         public Builder() {}
         public Builder(FlowSourceFlowConfigSourceConnectorPropertiesS3 defaults) {
@@ -73,25 +74,32 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3 {
 
         @CustomType.Setter
         public Builder bucketName(String bucketName) {
-            this.bucketName = Objects.requireNonNull(bucketName);
+            if (bucketName == null) {
+              throw new MissingRequiredPropertyException("FlowSourceFlowConfigSourceConnectorPropertiesS3", "bucketName");
+            }
+            this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
-        public Builder bucketPrefix(@Nullable String bucketPrefix) {
+        public Builder bucketPrefix(String bucketPrefix) {
+            if (bucketPrefix == null) {
+              throw new MissingRequiredPropertyException("FlowSourceFlowConfigSourceConnectorPropertiesS3", "bucketPrefix");
+            }
             this.bucketPrefix = bucketPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder s3InputFormatConfig(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig s3InputFormatConfig) {
+
             this.s3InputFormatConfig = s3InputFormatConfig;
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesS3 build() {
-            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesS3();
-            o.bucketName = bucketName;
-            o.bucketPrefix = bucketPrefix;
-            o.s3InputFormatConfig = s3InputFormatConfig;
-            return o;
+            final var _resultValue = new FlowSourceFlowConfigSourceConnectorPropertiesS3();
+            _resultValue.bucketName = bucketName;
+            _resultValue.bucketPrefix = bucketPrefix;
+            _resultValue.s3InputFormatConfig = s3InputFormatConfig;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.fsx.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -99,7 +100,10 @@ public final class GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelf
 
         @CustomType.Setter
         public Builder dnsIps(List<String> dnsIps) {
-            this.dnsIps = Objects.requireNonNull(dnsIps);
+            if (dnsIps == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration", "dnsIps");
+            }
+            this.dnsIps = dnsIps;
             return this;
         }
         public Builder dnsIps(String... dnsIps) {
@@ -107,32 +111,44 @@ public final class GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelf
         }
         @CustomType.Setter
         public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+            if (domainName == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration", "domainName");
+            }
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder fileSystemAdministratorsGroup(String fileSystemAdministratorsGroup) {
-            this.fileSystemAdministratorsGroup = Objects.requireNonNull(fileSystemAdministratorsGroup);
+            if (fileSystemAdministratorsGroup == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration", "fileSystemAdministratorsGroup");
+            }
+            this.fileSystemAdministratorsGroup = fileSystemAdministratorsGroup;
             return this;
         }
         @CustomType.Setter
         public Builder organizationalUnitDistinguishedName(String organizationalUnitDistinguishedName) {
-            this.organizationalUnitDistinguishedName = Objects.requireNonNull(organizationalUnitDistinguishedName);
+            if (organizationalUnitDistinguishedName == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration", "organizationalUnitDistinguishedName");
+            }
+            this.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration", "username");
+            }
+            this.username = username;
             return this;
         }
         public GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration build() {
-            final var o = new GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration();
-            o.dnsIps = dnsIps;
-            o.domainName = domainName;
-            o.fileSystemAdministratorsGroup = fileSystemAdministratorsGroup;
-            o.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
-            o.username = username;
-            return o;
+            final var _resultValue = new GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration();
+            _resultValue.dnsIps = dnsIps;
+            _resultValue.domainName = domainName;
+            _resultValue.fileSystemAdministratorsGroup = fileSystemAdministratorsGroup;
+            _resultValue.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

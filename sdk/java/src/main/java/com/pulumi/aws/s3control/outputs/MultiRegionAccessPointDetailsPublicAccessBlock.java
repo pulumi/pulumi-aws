@@ -54,31 +54,35 @@ public final class MultiRegionAccessPointDetailsPublicAccessBlock {
 
         @CustomType.Setter
         public Builder blockPublicAcls(@Nullable Boolean blockPublicAcls) {
+
             this.blockPublicAcls = blockPublicAcls;
             return this;
         }
         @CustomType.Setter
         public Builder blockPublicPolicy(@Nullable Boolean blockPublicPolicy) {
+
             this.blockPublicPolicy = blockPublicPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder ignorePublicAcls(@Nullable Boolean ignorePublicAcls) {
+
             this.ignorePublicAcls = ignorePublicAcls;
             return this;
         }
         @CustomType.Setter
         public Builder restrictPublicBuckets(@Nullable Boolean restrictPublicBuckets) {
+
             this.restrictPublicBuckets = restrictPublicBuckets;
             return this;
         }
         public MultiRegionAccessPointDetailsPublicAccessBlock build() {
-            final var o = new MultiRegionAccessPointDetailsPublicAccessBlock();
-            o.blockPublicAcls = blockPublicAcls;
-            o.blockPublicPolicy = blockPublicPolicy;
-            o.ignorePublicAcls = ignorePublicAcls;
-            o.restrictPublicBuckets = restrictPublicBuckets;
-            return o;
+            final var _resultValue = new MultiRegionAccessPointDetailsPublicAccessBlock();
+            _resultValue.blockPublicAcls = blockPublicAcls;
+            _resultValue.blockPublicPolicy = blockPublicPolicy;
+            _resultValue.ignorePublicAcls = ignorePublicAcls;
+            _resultValue.restrictPublicBuckets = restrictPublicBuckets;
+            return _resultValue;
         }
     }
 }

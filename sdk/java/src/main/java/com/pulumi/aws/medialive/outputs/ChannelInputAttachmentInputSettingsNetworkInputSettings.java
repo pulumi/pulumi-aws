@@ -59,19 +59,21 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettings {
 
         @CustomType.Setter
         public Builder hlsInputSettings(@Nullable ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings hlsInputSettings) {
+
             this.hlsInputSettings = hlsInputSettings;
             return this;
         }
         @CustomType.Setter
         public Builder serverValidation(@Nullable String serverValidation) {
+
             this.serverValidation = serverValidation;
             return this;
         }
         public ChannelInputAttachmentInputSettingsNetworkInputSettings build() {
-            final var o = new ChannelInputAttachmentInputSettingsNetworkInputSettings();
-            o.hlsInputSettings = hlsInputSettings;
-            o.serverValidation = serverValidation;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsNetworkInputSettings();
+            _resultValue.hlsInputSettings = hlsInputSettings;
+            _resultValue.serverValidation = serverValidation;
+            return _resultValue;
         }
     }
 }

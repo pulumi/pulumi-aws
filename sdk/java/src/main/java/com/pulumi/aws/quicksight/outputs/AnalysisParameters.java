@@ -89,6 +89,7 @@ public final class AnalysisParameters {
 
         @CustomType.Setter
         public Builder dateTimeParameters(@Nullable List<AnalysisParametersDateTimeParameter> dateTimeParameters) {
+
             this.dateTimeParameters = dateTimeParameters;
             return this;
         }
@@ -97,6 +98,7 @@ public final class AnalysisParameters {
         }
         @CustomType.Setter
         public Builder decimalParameters(@Nullable List<AnalysisParametersDecimalParameter> decimalParameters) {
+
             this.decimalParameters = decimalParameters;
             return this;
         }
@@ -105,6 +107,7 @@ public final class AnalysisParameters {
         }
         @CustomType.Setter
         public Builder integerParameters(@Nullable List<AnalysisParametersIntegerParameter> integerParameters) {
+
             this.integerParameters = integerParameters;
             return this;
         }
@@ -113,6 +116,7 @@ public final class AnalysisParameters {
         }
         @CustomType.Setter
         public Builder stringParameters(@Nullable List<AnalysisParametersStringParameter> stringParameters) {
+
             this.stringParameters = stringParameters;
             return this;
         }
@@ -120,12 +124,12 @@ public final class AnalysisParameters {
             return stringParameters(List.of(stringParameters));
         }
         public AnalysisParameters build() {
-            final var o = new AnalysisParameters();
-            o.dateTimeParameters = dateTimeParameters;
-            o.decimalParameters = decimalParameters;
-            o.integerParameters = integerParameters;
-            o.stringParameters = stringParameters;
-            return o;
+            final var _resultValue = new AnalysisParameters();
+            _resultValue.dateTimeParameters = dateTimeParameters;
+            _resultValue.decimalParameters = decimalParameters;
+            _resultValue.integerParameters = integerParameters;
+            _resultValue.stringParameters = stringParameters;
+            return _resultValue;
         }
     }
 }

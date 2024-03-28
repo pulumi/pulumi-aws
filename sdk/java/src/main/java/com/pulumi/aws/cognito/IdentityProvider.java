@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a Cognito User Identity Provider resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,6 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new UserPool(&#34;example&#34;, UserPoolArgs.builder()        
+ *             .name(&#34;example-pool&#34;)
  *             .autoVerifiedAttributes(&#34;email&#34;)
  *             .build());
  * 
@@ -65,13 +68,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_cognito_identity_provider` resources using their User Pool ID and Provider Name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
+ * $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
  * ```
  * 
  */

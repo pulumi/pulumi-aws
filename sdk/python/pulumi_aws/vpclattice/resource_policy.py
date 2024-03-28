@@ -101,42 +101,45 @@ class ResourcePolicy(pulumi.CustomResource):
         Resource for managing an AWS VPC Lattice Resource Policy.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        current_caller_identity = aws.get_caller_identity()
-        current_partition = aws.get_partition()
-        example_service_network = aws.vpclattice.ServiceNetwork("exampleServiceNetwork")
-        example_resource_policy = aws.vpclattice.ResourcePolicy("exampleResourcePolicy",
-            resource_arn=example_service_network.arn,
-            policy=example_service_network.arn.apply(lambda arn: json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "test-pol-principals-6",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
+        current = aws.get_caller_identity()
+        current_get_partition = aws.get_partition()
+        example = aws.vpclattice.ServiceNetwork("example", name="example-vpclattice-service-network")
+        example_resource_policy = aws.vpclattice.ResourcePolicy("example",
+            resource_arn=example.arn,
+            policy=pulumi.Output.json_dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "sid": "test-pol-principals-6",
+                    "effect": "Allow",
+                    "principal": {
+                        "AWS": f"arn:{current_get_partition.partition}:iam::{current.account_id}:root",
                     },
-                    "Action": [
+                    "action": [
                         "vpc-lattice:CreateServiceNetworkVpcAssociation",
                         "vpc-lattice:CreateServiceNetworkServiceAssociation",
                         "vpc-lattice:GetServiceNetwork",
                     ],
-                    "Resource": arn,
+                    "resource": example.arn,
                 }],
-            })))
+            }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Lattice Resource Policy using the `resource_arn`. For example:
 
         ```sh
-         $ pulumi import aws:vpclattice/resourcePolicy:ResourcePolicy example rft-8012925589
+        $ pulumi import aws:vpclattice/resourcePolicy:ResourcePolicy example rft-8012925589
         ```
 
         :param str resource_name: The name of the resource.
@@ -154,42 +157,45 @@ class ResourcePolicy(pulumi.CustomResource):
         Resource for managing an AWS VPC Lattice Resource Policy.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        current_caller_identity = aws.get_caller_identity()
-        current_partition = aws.get_partition()
-        example_service_network = aws.vpclattice.ServiceNetwork("exampleServiceNetwork")
-        example_resource_policy = aws.vpclattice.ResourcePolicy("exampleResourcePolicy",
-            resource_arn=example_service_network.arn,
-            policy=example_service_network.arn.apply(lambda arn: json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "test-pol-principals-6",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
+        current = aws.get_caller_identity()
+        current_get_partition = aws.get_partition()
+        example = aws.vpclattice.ServiceNetwork("example", name="example-vpclattice-service-network")
+        example_resource_policy = aws.vpclattice.ResourcePolicy("example",
+            resource_arn=example.arn,
+            policy=pulumi.Output.json_dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "sid": "test-pol-principals-6",
+                    "effect": "Allow",
+                    "principal": {
+                        "AWS": f"arn:{current_get_partition.partition}:iam::{current.account_id}:root",
                     },
-                    "Action": [
+                    "action": [
                         "vpc-lattice:CreateServiceNetworkVpcAssociation",
                         "vpc-lattice:CreateServiceNetworkServiceAssociation",
                         "vpc-lattice:GetServiceNetwork",
                     ],
-                    "Resource": arn,
+                    "resource": example.arn,
                 }],
-            })))
+            }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Lattice Resource Policy using the `resource_arn`. For example:
 
         ```sh
-         $ pulumi import aws:vpclattice/resourcePolicy:ResourcePolicy example rft-8012925589
+        $ pulumi import aws:vpclattice/resourcePolicy:ResourcePolicy example rft-8012925589
         ```
 
         :param str resource_name: The name of the resource.

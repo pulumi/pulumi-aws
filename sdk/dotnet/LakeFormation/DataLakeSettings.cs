@@ -15,8 +15,10 @@ namespace Pulumi.Aws.LakeFormation
     /// &gt; **NOTE:** Lake Formation introduces fine-grained access control for data in your data lake. Part of the changes include the `IAMAllowedPrincipals` principal in order to make Lake Formation backwards compatible with existing IAM and Glue permissions. For more information, see [Changing the Default Security Settings for Your Data Lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html) and [Upgrading AWS Glue Data Permissions to the AWS Lake Formation Model](https://docs.aws.amazon.com/lake-formation/latest/dg/upgrade-glue-lake-formation.html).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Data Lake Admins
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,15 +31,18 @@ namespace Pulumi.Aws.LakeFormation
     ///     {
     ///         Admins = new[]
     ///         {
-    ///             aws_iam_user.Test.Arn,
-    ///             aws_iam_role.Test.Arn,
+    ///             test.Arn,
+    ///             testAwsIamRole.Arn,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Create Default Permissions
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,8 +55,8 @@ namespace Pulumi.Aws.LakeFormation
     ///     {
     ///         Admins = new[]
     ///         {
-    ///             aws_iam_user.Test.Arn,
-    ///             aws_iam_role.Test.Arn,
+    ///             test.Arn,
+    ///             testAwsIamRole.Arn,
     ///         },
     ///         CreateDatabaseDefaultPermissions = new[]
     ///         {
@@ -63,7 +68,7 @@ namespace Pulumi.Aws.LakeFormation
     ///                     "ALTER",
     ///                     "DROP",
     ///                 },
-    ///                 Principal = aws_iam_user.Test.Arn,
+    ///                 Principal = test.Arn,
     ///             },
     ///         },
     ///         CreateTableDefaultPermissions = new[]
@@ -74,15 +79,18 @@ namespace Pulumi.Aws.LakeFormation
     ///                 {
     ///                     "ALL",
     ///                 },
-    ///                 Principal = aws_iam_role.Test.Arn,
+    ///                 Principal = testAwsIamRole.Arn,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Enable EMR access to LakeFormation resources
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -95,8 +103,8 @@ namespace Pulumi.Aws.LakeFormation
     ///     {
     ///         Admins = new[]
     ///         {
-    ///             aws_iam_user.Test.Arn,
-    ///             aws_iam_role.Test.Arn,
+    ///             test.Arn,
+    ///             testAwsIamRole.Arn,
     ///         },
     ///         CreateDatabaseDefaultPermissions = new[]
     ///         {
@@ -108,7 +116,7 @@ namespace Pulumi.Aws.LakeFormation
     ///                     "ALTER",
     ///                     "DROP",
     ///                 },
-    ///                 Principal = aws_iam_user.Test.Arn,
+    ///                 Principal = test.Arn,
     ///             },
     ///         },
     ///         CreateTableDefaultPermissions = new[]
@@ -119,14 +127,14 @@ namespace Pulumi.Aws.LakeFormation
     ///                 {
     ///                     "ALL",
     ///                 },
-    ///                 Principal = aws_iam_role.Test.Arn,
+    ///                 Principal = testAwsIamRole.Arn,
     ///             },
     ///         },
     ///         AllowExternalDataFiltering = true,
     ///         ExternalDataFilteringAllowLists = new[]
     ///         {
-    ///             data.Aws_caller_identity.Current.Account_id,
-    ///             data.Aws_caller_identity.Third_party.Account_id,
+    ///             current.AccountId,
+    ///             thirdParty.AccountId,
     ///         },
     ///         AuthorizedSessionTagValueLists = new[]
     ///         {
@@ -136,6 +144,7 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:lakeformation/dataLakeSettings:DataLakeSettings")]
     public partial class DataLakeSettings : global::Pulumi.CustomResource

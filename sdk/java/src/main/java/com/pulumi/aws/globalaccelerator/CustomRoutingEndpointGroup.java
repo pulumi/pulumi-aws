@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides a Global Accelerator custom routing endpoint group.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,27 +47,28 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CustomRoutingEndpointGroup(&#34;example&#34;, CustomRoutingEndpointGroupArgs.builder()        
- *             .listenerArn(aws_globalaccelerator_custom_routing_listener.example().id())
+ *             .listenerArn(exampleAwsGlobalacceleratorCustomRoutingListener.id())
  *             .destinationConfigurations(CustomRoutingEndpointGroupDestinationConfigurationArgs.builder()
  *                 .fromPort(80)
  *                 .toPort(8080)
  *                 .protocols(&#34;TCP&#34;)
  *                 .build())
  *             .endpointConfigurations(CustomRoutingEndpointGroupEndpointConfigurationArgs.builder()
- *                 .endpointId(aws_subnet.example().id())
+ *                 .endpointId(exampleAwsSubnet.id())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Global Accelerator custom routing endpoint groups using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
+ * $ pulumi import aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
  * ```
  * 
  */

@@ -5,6 +5,7 @@ package com.pulumi.aws.emrcontainers.outputs;
 
 import com.pulumi.aws.emrcontainers.outputs.GetVirtualClusterContainerProvider;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -135,12 +136,18 @@ public final class GetVirtualClusterResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetVirtualClusterResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder containerProviders(List<GetVirtualClusterContainerProvider> containerProviders) {
-            this.containerProviders = Objects.requireNonNull(containerProviders);
+            if (containerProviders == null) {
+              throw new MissingRequiredPropertyException("GetVirtualClusterResult", "containerProviders");
+            }
+            this.containerProviders = containerProviders;
             return this;
         }
         public Builder containerProviders(GetVirtualClusterContainerProvider... containerProviders) {
@@ -148,45 +155,63 @@ public final class GetVirtualClusterResult {
         }
         @CustomType.Setter
         public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
+            if (createdAt == null) {
+              throw new MissingRequiredPropertyException("GetVirtualClusterResult", "createdAt");
+            }
+            this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVirtualClusterResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVirtualClusterResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetVirtualClusterResult", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetVirtualClusterResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder virtualClusterId(String virtualClusterId) {
-            this.virtualClusterId = Objects.requireNonNull(virtualClusterId);
+            if (virtualClusterId == null) {
+              throw new MissingRequiredPropertyException("GetVirtualClusterResult", "virtualClusterId");
+            }
+            this.virtualClusterId = virtualClusterId;
             return this;
         }
         public GetVirtualClusterResult build() {
-            final var o = new GetVirtualClusterResult();
-            o.arn = arn;
-            o.containerProviders = containerProviders;
-            o.createdAt = createdAt;
-            o.id = id;
-            o.name = name;
-            o.state = state;
-            o.tags = tags;
-            o.virtualClusterId = virtualClusterId;
-            return o;
+            final var _resultValue = new GetVirtualClusterResult();
+            _resultValue.arn = arn;
+            _resultValue.containerProviders = containerProviders;
+            _resultValue.createdAt = createdAt;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.state = state;
+            _resultValue.tags = tags;
+            _resultValue.virtualClusterId = virtualClusterId;
+            return _resultValue;
         }
     }
 }

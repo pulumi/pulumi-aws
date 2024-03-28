@@ -11,26 +11,24 @@ import * as utilities from "../utilities";
  * Manages an EKS Cluster.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * export = async () => {
  *     const example = new aws.eks.Cluster("example", {
- *         roleArn: aws_iam_role.example.arn,
+ *         name: "example",
+ *         roleArn: exampleAwsIamRole.arn,
  *         vpcConfig: {
  *             subnetIds: [
- *                 aws_subnet.example1.id,
- *                 aws_subnet.example2.id,
+ *                 example1.id,
+ *                 example2.id,
  *             ],
  *         },
- *     }, {
- *         dependsOn: [
- *             aws_iam_role_policy_attachment["example-AmazonEKSClusterPolicy"],
- *             aws_iam_role_policy_attachment["example-AmazonEKSVPCResourceController"],
- *         ],
  *     });
  *     return {
  *         endpoint: example.endpoint,
@@ -38,8 +36,11 @@ import * as utilities from "../utilities";
  *     };
  * }
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example IAM Role for EKS Cluster
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -54,7 +55,10 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const example = new aws.iam.Role("example", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const example = new aws.iam.Role("example", {
+ *     name: "eks-cluster-example",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
  * const example_AmazonEKSClusterPolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSClusterPolicy", {
  *     policyArn: "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
  *     role: example.name,
@@ -66,49 +70,134 @@ import * as utilities from "../utilities";
  *     role: example.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Enabling Control Plane Logging
  *
  * [EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) can be enabled via the `enabledClusterLogTypes` argument. To manage the CloudWatch Log Group retention period, the `aws.cloudwatch.LogGroup` resource can be used.
  *
  * > The below configuration uses [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) to prevent ordering issues with EKS automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
  * const clusterName = config.get("clusterName") || "example";
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {retentionInDays: 7});
- * // ... potentially other configuration ...
- * const exampleCluster = new aws.eks.Cluster("exampleCluster", {enabledClusterLogTypes: [
- *     "api",
- *     "audit",
- * ]}, {
- *     dependsOn: [exampleLogGroup],
+ * const example = new aws.eks.Cluster("example", {
+ *     enabledClusterLogTypes: [
+ *         "api",
+ *         "audit",
+ *     ],
+ *     name: clusterName,
  * });
- * // ... other configuration ...
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {
+ *     name: `/aws/eks/${clusterName}/cluster`,
+ *     retentionInDays: 7,
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Enabling IAM Roles for Service Accounts
+ *
+ * Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ * import * as tls from "@pulumi/tls";
+ *
+ * const exampleCluster = new aws.eks.Cluster("example", {});
+ * const example = exampleCluster.identities.apply(identities => tls.getCertificateOutput({
+ *     url: identities[0].oidcs?.[0]?.issuer,
+ * }));
+ * const exampleOpenIdConnectProvider = new aws.iam.OpenIdConnectProvider("example", {
+ *     clientIdLists: ["sts.amazonaws.com"],
+ *     thumbprintLists: [example.apply(example => example.certificates?.[0]?.sha1Fingerprint)],
+ *     url: example.apply(example => example.url),
+ * });
+ * const exampleAssumeRolePolicy = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         actions: ["sts:AssumeRoleWithWebIdentity"],
+ *         effect: "Allow",
+ *         conditions: [{
+ *             test: "StringEquals",
+ *             variable: std.replaceOutput({
+ *                 text: exampleOpenIdConnectProvider.url,
+ *                 search: "https://",
+ *                 replace: "",
+ *             }).apply(invoke => `${invoke.result}:sub`),
+ *             values: ["system:serviceaccount:kube-system:aws-node"],
+ *         }],
+ *         principals: [{
+ *             identifiers: [exampleOpenIdConnectProvider.arn],
+ *             type: "Federated",
+ *         }],
+ *     }],
+ * });
+ * const exampleRole = new aws.iam.Role("example", {
+ *     assumeRolePolicy: exampleAssumeRolePolicy.apply(exampleAssumeRolePolicy => exampleAssumeRolePolicy.json),
+ *     name: "example",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### EKS Cluster on AWS Outpost
  *
  * [Creating a local Amazon EKS cluster on an AWS Outpost](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: data.aws_iam_policy_document.example_assume_role_policy.json});
- * const exampleCluster = new aws.eks.Cluster("exampleCluster", {
- *     roleArn: exampleRole.arn,
+ * const example = new aws.iam.Role("example", {
+ *     assumeRolePolicy: exampleAssumeRolePolicy.json,
+ *     name: "example",
+ * });
+ * const exampleCluster = new aws.eks.Cluster("example", {
+ *     name: "example-cluster",
+ *     roleArn: example.arn,
  *     vpcConfig: {
  *         endpointPrivateAccess: true,
  *         endpointPublicAccess: false,
  *     },
  *     outpostConfig: {
  *         controlPlaneInstanceType: "m5d.large",
- *         outpostArns: [data.aws_outposts_outpost.example.arn],
+ *         outpostArns: [exampleAwsOutpostsOutpost.arn],
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### EKS Cluster with Access Config
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.iam.Role("example", {
+ *     assumeRolePolicy: exampleAssumeRolePolicy.json,
+ *     name: "example",
+ * });
+ * const exampleCluster = new aws.eks.Cluster("example", {
+ *     name: "example-cluster",
+ *     roleArn: example.arn,
+ *     vpcConfig: {
+ *         endpointPrivateAccess: true,
+ *         endpointPublicAccess: false,
+ *     },
+ *     accessConfig: {
+ *         authenticationMode: "CONFIG_MAP",
+ *         bootstrapClusterCreatorAdminPermissions: true,
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * After adding inline IAM Policies (e.g., `aws.iam.RolePolicy` resource) or attaching IAM Policies (e.g., `aws.iam.Policy` resource and `aws.iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g., `kubernetesServiceAccount` resource) and recreate any pods.
  *
@@ -117,7 +206,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import EKS Clusters using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:eks/cluster:Cluster my_cluster my_cluster
+ * $ pulumi import aws:eks/cluster:Cluster my_cluster my_cluster
  * ```
  */
 export class Cluster extends pulumi.CustomResource {
@@ -148,6 +237,10 @@ export class Cluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === Cluster.__pulumiType;
     }
 
+    /**
+     * Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+     */
+    public readonly accessConfig!: pulumi.Output<outputs.eks.ClusterAccessConfig>;
     /**
      * ARN of the cluster.
      */
@@ -188,7 +281,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly kubernetesNetworkConfig!: pulumi.Output<outputs.eks.ClusterKubernetesNetworkConfig>;
     /**
-     * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -241,6 +334,7 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
+            resourceInputs["accessConfig"] = state ? state.accessConfig : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["certificateAuthorities"] = state ? state.certificateAuthorities : undefined;
             resourceInputs["certificateAuthority"] = state ? state.certificateAuthority : undefined;
@@ -269,6 +363,7 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.vpcConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcConfig'");
             }
+            resourceInputs["accessConfig"] = args ? args.accessConfig : undefined;
             resourceInputs["defaultAddonsToRemoves"] = args ? args.defaultAddonsToRemoves : undefined;
             resourceInputs["enabledClusterLogTypes"] = args ? args.enabledClusterLogTypes : undefined;
             resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
@@ -291,8 +386,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -301,6 +394,10 @@ export class Cluster extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Cluster resources.
  */
 export interface ClusterState {
+    /**
+     * Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+     */
+    accessConfig?: pulumi.Input<inputs.eks.ClusterAccessConfig>;
     /**
      * ARN of the cluster.
      */
@@ -341,7 +438,7 @@ export interface ClusterState {
      */
     kubernetesNetworkConfig?: pulumi.Input<inputs.eks.ClusterKubernetesNetworkConfig>;
     /**
-     * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
      */
     name?: pulumi.Input<string>;
     /**
@@ -386,6 +483,10 @@ export interface ClusterState {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
+    /**
+     * Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+     */
+    accessConfig?: pulumi.Input<inputs.eks.ClusterAccessConfig>;
     defaultAddonsToRemoves?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
@@ -400,7 +501,7 @@ export interface ClusterArgs {
      */
     kubernetesNetworkConfig?: pulumi.Input<inputs.eks.ClusterKubernetesNetworkConfig>;
     /**
-     * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
      */
     name?: pulumi.Input<string>;
     /**

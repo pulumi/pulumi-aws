@@ -11,6 +11,8 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AccessGrantAccessGrantsLocationConfiguration',
+    'AccessGrantGrantee',
     'BucketLifecycleConfigurationRule',
     'BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload',
     'BucketLifecycleConfigurationRuleExpiration',
@@ -49,6 +51,90 @@ __all__ = [
     'GetMultiRegionAccessPointPublicAccessBlockResult',
     'GetMultiRegionAccessPointRegionResult',
 ]
+
+@pulumi.output_type
+class AccessGrantAccessGrantsLocationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3SubPrefix":
+            suggest = "s3_sub_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessGrantAccessGrantsLocationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessGrantAccessGrantsLocationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessGrantAccessGrantsLocationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_sub_prefix: Optional[str] = None):
+        """
+        :param str s3_sub_prefix: Sub-prefix.
+        """
+        if s3_sub_prefix is not None:
+            pulumi.set(__self__, "s3_sub_prefix", s3_sub_prefix)
+
+    @property
+    @pulumi.getter(name="s3SubPrefix")
+    def s3_sub_prefix(self) -> Optional[str]:
+        """
+        Sub-prefix.
+        """
+        return pulumi.get(self, "s3_sub_prefix")
+
+
+@pulumi.output_type
+class AccessGrantGrantee(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "granteeIdentifier":
+            suggest = "grantee_identifier"
+        elif key == "granteeType":
+            suggest = "grantee_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessGrantGrantee. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessGrantGrantee.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessGrantGrantee.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 grantee_identifier: str,
+                 grantee_type: str):
+        """
+        :param str grantee_identifier: Grantee identifier.
+        :param str grantee_type: Grantee types. Valid values: `DIRECTORY_USER`, `DIRECTORY_GROUP`, `IAM`.
+        """
+        pulumi.set(__self__, "grantee_identifier", grantee_identifier)
+        pulumi.set(__self__, "grantee_type", grantee_type)
+
+    @property
+    @pulumi.getter(name="granteeIdentifier")
+    def grantee_identifier(self) -> str:
+        """
+        Grantee identifier.
+        """
+        return pulumi.get(self, "grantee_identifier")
+
+    @property
+    @pulumi.getter(name="granteeType")
+    def grantee_type(self) -> str:
+        """
+        Grantee types. Valid values: `DIRECTORY_USER`, `DIRECTORY_GROUP`, `IAM`.
+        """
+        return pulumi.get(self, "grantee_type")
+
 
 @pulumi.output_type
 class BucketLifecycleConfigurationRule(dict):

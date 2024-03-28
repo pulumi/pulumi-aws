@@ -14,46 +14,55 @@ import * as utilities from "../utilities";
  * > **NOTE:** The User Hierarchy Structure must be created before creating a User Hierarchy Group.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.UserHierarchyGroup("example", {
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "example",
  *     tags: {
  *         Name: "Example User Hierarchy Group",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With a parent group
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const parent = new aws.connect.UserHierarchyGroup("parent", {
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "parent",
  *     tags: {
  *         Name: "Example User Hierarchy Group Parent",
  *     },
  * });
  * const child = new aws.connect.UserHierarchyGroup("child", {
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "child",
  *     parentGroupId: parent.hierarchyGroupId,
  *     tags: {
  *         Name: "Example User Hierarchy Group Child",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Amazon Connect User Hierarchy Groups using the `instance_id` and `hierarchy_group_id` separated by a colon (`:`). For example:
  *
  * ```sh
- *  $ pulumi import aws:connect/userHierarchyGroup:UserHierarchyGroup example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+ * $ pulumi import aws:connect/userHierarchyGroup:UserHierarchyGroup example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
  * ```
  */
 export class UserHierarchyGroup extends pulumi.CustomResource {
@@ -162,8 +171,6 @@ export class UserHierarchyGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(UserHierarchyGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

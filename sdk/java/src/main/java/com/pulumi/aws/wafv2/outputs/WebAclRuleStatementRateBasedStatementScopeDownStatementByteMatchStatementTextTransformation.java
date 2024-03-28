@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -57,19 +58,25 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
 
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation", "type");
+            }
+            this.type = type;
             return this;
         }
         public WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation();
-            o.priority = priority;
-            o.type = type;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation();
+            _resultValue.priority = priority;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

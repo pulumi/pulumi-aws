@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * Provides a Glue ML Transform resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,7 +46,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.glue.inputs.MLTransformInputRecordTableArgs;
  * import com.pulumi.aws.glue.inputs.MLTransformParametersArgs;
  * import com.pulumi.aws.glue.inputs.MLTransformParametersFindMatchesParametersArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -119,8 +120,9 @@ import javax.annotation.Nullable;
  *             .parameters(Map.of(&#34;param1&#34;, &#34;param1_val&#34;))
  *             .build());
  * 
- *         var testMLTransform = new MLTransform(&#34;testMLTransform&#34;, MLTransformArgs.builder()        
- *             .roleArn(aws_iam_role.test().arn())
+ *         var test = new MLTransform(&#34;test&#34;, MLTransformArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .roleArn(testAwsIamRole.arn())
  *             .inputRecordTables(MLTransformInputRecordTableArgs.builder()
  *                 .databaseName(testCatalogTable.databaseName())
  *                 .tableName(testCatalogTable.name())
@@ -131,20 +133,19 @@ import javax.annotation.Nullable;
  *                     .primaryKeyColumnName(&#34;my_column_1&#34;)
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_iam_role_policy_attachment.test())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Glue ML Transforms using `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
+ * $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
  * ```
  * 
  */
@@ -411,9 +412,6 @@ public class MLTransform extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -196,6 +196,7 @@ class Channel(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -204,13 +205,14 @@ class Channel(pulumi.CustomResource):
             channel_id="kitten-channel",
             description="A channel dedicated to amusing videos of kittens.")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Media Package Channels using the channel ID. For example:
 
         ```sh
-         $ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
+        $ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
         ```
 
         :param str resource_name: The name of the resource.
@@ -230,6 +232,7 @@ class Channel(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -238,13 +241,14 @@ class Channel(pulumi.CustomResource):
             channel_id="kitten-channel",
             description="A channel dedicated to amusing videos of kittens.")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Media Package Channels using the channel ID. For example:
 
         ```sh
-         $ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
+        $ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
         ```
 
         :param str resource_name: The name of the resource.
@@ -284,8 +288,6 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["hls_ingests"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Channel, __self__).__init__(
             'aws:mediapackage/channel:Channel',
             resource_name,

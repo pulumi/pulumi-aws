@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,7 +20,10 @@ import javax.annotation.Nullable;
  * Provides an AWS App Mesh virtual service resource.
  * 
  * ## Example Usage
+ * 
  * ### Virtual Node Provider
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,11 +49,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var servicea = new VirtualService(&#34;servicea&#34;, VirtualServiceArgs.builder()        
- *             .meshName(aws_appmesh_mesh.simple().id())
+ *             .name(&#34;servicea.simpleapp.local&#34;)
+ *             .meshName(simple.id())
  *             .spec(VirtualServiceSpecArgs.builder()
  *                 .provider(VirtualServiceSpecProviderArgs.builder()
  *                     .virtualNode(VirtualServiceSpecProviderVirtualNodeArgs.builder()
- *                         .virtualNodeName(aws_appmesh_virtual_node.serviceb1().name())
+ *                         .virtualNodeName(serviceb1.name())
  *                         .build())
  *                     .build())
  *                 .build())
@@ -60,7 +63,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Virtual Router Provider
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -86,11 +93,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var servicea = new VirtualService(&#34;servicea&#34;, VirtualServiceArgs.builder()        
- *             .meshName(aws_appmesh_mesh.simple().id())
+ *             .name(&#34;servicea.simpleapp.local&#34;)
+ *             .meshName(simple.id())
  *             .spec(VirtualServiceSpecArgs.builder()
  *                 .provider(VirtualServiceSpecProviderArgs.builder()
  *                     .virtualRouter(VirtualServiceSpecProviderVirtualRouterArgs.builder()
- *                         .virtualRouterName(aws_appmesh_virtual_router.serviceb().name())
+ *                         .virtualRouterName(serviceb.name())
  *                         .build())
  *                     .build())
  *                 .build())
@@ -99,13 +107,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import App Mesh virtual services using `mesh_name` together with the virtual service&#39;s `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
+ * $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
  * ```
  * 
  */
@@ -288,9 +297,6 @@ public class VirtualService extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

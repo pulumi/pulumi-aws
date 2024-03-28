@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,14 +34,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomainIdentity, err := ses.NewDomainIdentity(ctx, "exampleDomainIdentity", &ses.DomainIdentityArgs{
+//			example, err := ses.NewDomainIdentity(ctx, "example", &ses.DomainIdentityArgs{
 //				Domain: pulumi.String("example.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDomainDkim, err := ses.NewDomainDkim(ctx, "exampleDomainDkim", &ses.DomainDkimArgs{
-//				Domain: exampleDomainIdentity.Domain,
+//			exampleDomainDkim, err := ses.NewDomainDkim(ctx, "example", &ses.DomainDkimArgs{
+//				Domain: example.Domain,
 //			})
 //			if err != nil {
 //				return err
@@ -49,12 +50,12 @@ import (
 //			for index := 0; index < 3; index++ {
 //				key0 := index
 //				val0 := index
-//				__res, err := route53.NewRecord(ctx, fmt.Sprintf("exampleAmazonsesDkimRecord-%v", key0), &route53.RecordArgs{
+//				__res, err := route53.NewRecord(ctx, fmt.Sprintf("example_amazonses_dkim_record-%v", key0), &route53.RecordArgs{
 //					ZoneId: pulumi.String("ABCDEFGHIJ123"),
 //					Name: exampleDomainDkim.DkimTokens.ApplyT(func(dkimTokens []string) (string, error) {
 //						return fmt.Sprintf("%v._domainkey", dkimTokens[val0]), nil
 //					}).(pulumi.StringOutput),
-//					Type: pulumi.String("CNAME"),
+//					Type: pulumi.String(route53.RecordTypeCNAME),
 //					Ttl:  pulumi.Int(600),
 //					Records: pulumi.StringArray{
 //						exampleDomainDkim.DkimTokens.ApplyT(func(dkimTokens []string) (string, error) {
@@ -72,15 +73,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DKIM tokens using the `domain` attribute. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ses/domainDkim:DomainDkim example example.com
-//
+// $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
 // ```
 type DomainDkim struct {
 	pulumi.CustomResourceState

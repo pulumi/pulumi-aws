@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * Creates a new Amazon Redshift Serverless Workgroup.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,13 +55,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
+ * $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
  * ```
  * 
  */
@@ -136,6 +139,20 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enhancedVpcRouting);
     }
     /**
+     * The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+     * 
+     */
+    @Export(name="maxCapacity", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> maxCapacity;
+
+    /**
+     * @return The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+     * 
+     */
+    public Output<Optional<Integer>> maxCapacity() {
+        return Codegen.optional(this.maxCapacity);
+    }
+    /**
      * The name of the namespace.
      * 
      */
@@ -148,6 +165,20 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      */
     public Output<String> namespaceName() {
         return this.namespaceName;
+    }
+    /**
+     * The port number on which the cluster accepts incoming connections.
+     * 
+     */
+    @Export(name="port", refs={Integer.class}, tree="[0]")
+    private Output<Integer> port;
+
+    /**
+     * @return The port number on which the cluster accepts incoming connections.
+     * 
+     */
+    public Output<Integer> port() {
+        return this.port;
     }
     /**
      * A value that specifies whether the workgroup can be accessed from a public network.
@@ -288,9 +319,6 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

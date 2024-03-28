@@ -8,24 +8,29 @@ import * as utilities from "../utilities";
  * Provides an Amazon MSK Connect Worker Configuration Resource.
  *
  * ## Example Usage
+ *
  * ### Basic configuration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.mskconnect.WorkerConfiguration("example", {propertiesFileContent: `key.converter=org.apache.kafka.connect.storage.StringConverter
+ * const example = new aws.mskconnect.WorkerConfiguration("example", {
+ *     name: "example",
+ *     propertiesFileContent: `key.converter=org.apache.kafka.connect.storage.StringConverter
  * value.converter=org.apache.kafka.connect.storage.StringConverter
- *
- * `});
+ * `,
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import MSK Connect Worker Configuration using the plugin's `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'
+ * $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'
  * ```
  */
 export class WorkerConfiguration extends pulumi.CustomResource {

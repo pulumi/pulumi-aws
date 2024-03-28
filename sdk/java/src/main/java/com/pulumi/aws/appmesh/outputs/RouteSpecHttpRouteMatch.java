@@ -133,6 +133,7 @@ public final class RouteSpecHttpRouteMatch {
 
         @CustomType.Setter
         public Builder headers(@Nullable List<RouteSpecHttpRouteMatchHeader> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -141,26 +142,31 @@ public final class RouteSpecHttpRouteMatch {
         }
         @CustomType.Setter
         public Builder method(@Nullable String method) {
+
             this.method = method;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable RouteSpecHttpRouteMatchPath path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder queryParameters(@Nullable List<RouteSpecHttpRouteMatchQueryParameter> queryParameters) {
+
             this.queryParameters = queryParameters;
             return this;
         }
@@ -169,19 +175,20 @@ public final class RouteSpecHttpRouteMatch {
         }
         @CustomType.Setter
         public Builder scheme(@Nullable String scheme) {
+
             this.scheme = scheme;
             return this;
         }
         public RouteSpecHttpRouteMatch build() {
-            final var o = new RouteSpecHttpRouteMatch();
-            o.headers = headers;
-            o.method = method;
-            o.path = path;
-            o.port = port;
-            o.prefix = prefix;
-            o.queryParameters = queryParameters;
-            o.scheme = scheme;
-            return o;
+            final var _resultValue = new RouteSpecHttpRouteMatch();
+            _resultValue.headers = headers;
+            _resultValue.method = method;
+            _resultValue.path = path;
+            _resultValue.port = port;
+            _resultValue.prefix = prefix;
+            _resultValue.queryParameters = queryParameters;
+            _resultValue.scheme = scheme;
+            return _resultValue;
         }
     }
 }

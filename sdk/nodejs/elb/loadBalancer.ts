@@ -21,12 +21,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * // Create a new load balancer
  * const bar = new aws.elb.LoadBalancer("bar", {
+ *     name: "foobar-elb",
  *     availabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",
@@ -59,7 +61,7 @@ import * as utilities from "../utilities";
  *         target: "HTTP:8000/",
  *         interval: 30,
  *     },
- *     instances: [aws_instance.foo.id],
+ *     instances: [foo.id],
  *     crossZoneLoadBalancing: true,
  *     idleTimeout: 400,
  *     connectionDraining: true,
@@ -69,6 +71,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Note on ECDSA Key Algorithm
  *
  * If the ARN of the `sslCertificateId` that is pointed to references a
@@ -82,7 +86,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import ELBs using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
+ * $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
  * ```
  */
 export class LoadBalancer extends pulumi.CustomResource {
@@ -279,8 +283,6 @@ export class LoadBalancer extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/loadBalancer:LoadBalancer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LoadBalancer.__pulumiType, name, resourceInputs, opts);
     }
 }

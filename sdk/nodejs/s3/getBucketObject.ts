@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  * The following example retrieves a text object (which must have a `Content-Type`
  * value starting with `text/`) and uses it as the `userData` for an EC2 instance:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,11 +27,12 @@ import * as utilities from "../utilities";
  *     key: "ec2-bootstrap-script.sh",
  * });
  * const example = new aws.ec2.Instance("example", {
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     ami: "ami-2757f631",
  *     userData: bootstrapScript.then(bootstrapScript => bootstrapScript.body),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * The following, more-complex example retrieves only the metadata for a zip
  * file stored in S3, which is then used to pass the most recent `versionId`
@@ -38,6 +40,7 @@ import * as utilities from "../utilities";
  * Lambda functions is available in the documentation for
  * `aws.lambda.Function`.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -46,14 +49,16 @@ import * as utilities from "../utilities";
  *     bucket: "ourcorp-lambda-functions",
  *     key: "hello-world.zip",
  * });
- * const testLambda = new aws.lambda.Function("testLambda", {
+ * const testLambda = new aws.lambda.Function("test_lambda", {
  *     s3Bucket: lambda.then(lambda => lambda.id),
  *     s3Key: lambda.then(lambda => lambda.key),
  *     s3ObjectVersion: lambda.then(lambda => lambda.versionId),
- *     role: aws_iam_role.iam_for_lambda.arn,
+ *     name: "lambda_function_name",
+ *     role: iamForLambda.arn,
  *     handler: "exports.test",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBucketObject(args: GetBucketObjectArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketObjectResult> {
 
@@ -74,7 +79,7 @@ export interface GetBucketObjectArgs {
     /**
      * Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      *
-     * @deprecated Use the aws_s3_object data source instead
+     * @deprecated Use the aws.s3.BucketObjectv2 data source instead
      */
     bucket: string;
     /**
@@ -96,12 +101,13 @@ export interface GetBucketObjectArgs {
  * A collection of values returned by getBucketObject.
  */
 export interface GetBucketObjectResult {
+    readonly arn: string;
     /**
      * Object data (see **limitations above** to understand cases in which this field is actually available)
      */
     readonly body: string;
     /**
-     * @deprecated Use the aws_s3_object data source instead
+     * @deprecated Use the aws.s3.BucketObjectv2 data source instead
      */
     readonly bucket: string;
     /**
@@ -208,6 +214,7 @@ export interface GetBucketObjectResult {
  * The following example retrieves a text object (which must have a `Content-Type`
  * value starting with `text/`) and uses it as the `userData` for an EC2 instance:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -217,11 +224,12 @@ export interface GetBucketObjectResult {
  *     key: "ec2-bootstrap-script.sh",
  * });
  * const example = new aws.ec2.Instance("example", {
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     ami: "ami-2757f631",
  *     userData: bootstrapScript.then(bootstrapScript => bootstrapScript.body),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * The following, more-complex example retrieves only the metadata for a zip
  * file stored in S3, which is then used to pass the most recent `versionId`
@@ -229,6 +237,7 @@ export interface GetBucketObjectResult {
  * Lambda functions is available in the documentation for
  * `aws.lambda.Function`.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -237,14 +246,16 @@ export interface GetBucketObjectResult {
  *     bucket: "ourcorp-lambda-functions",
  *     key: "hello-world.zip",
  * });
- * const testLambda = new aws.lambda.Function("testLambda", {
+ * const testLambda = new aws.lambda.Function("test_lambda", {
  *     s3Bucket: lambda.then(lambda => lambda.id),
  *     s3Key: lambda.then(lambda => lambda.key),
  *     s3ObjectVersion: lambda.then(lambda => lambda.versionId),
- *     role: aws_iam_role.iam_for_lambda.arn,
+ *     name: "lambda_function_name",
+ *     role: iamForLambda.arn,
  *     handler: "exports.test",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBucketObjectOutput(args: GetBucketObjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketObjectResult> {
     return pulumi.output(args).apply((a: any) => getBucketObject(a, opts))
@@ -257,7 +268,7 @@ export interface GetBucketObjectOutputArgs {
     /**
      * Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      *
-     * @deprecated Use the aws_s3_object data source instead
+     * @deprecated Use the aws.s3.BucketObjectv2 data source instead
      */
     bucket: pulumi.Input<string>;
     /**

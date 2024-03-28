@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Chime
     /// Resource for managing an AWS Chime SDK Voice Profile Domain.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,17 +25,18 @@ namespace Pulumi.Aws.Chime
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var example = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "KMS Key for Voice Profile Domain",
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var exampleSdkvoiceVoiceProfileDomain = new Aws.Chime.SdkvoiceVoiceProfileDomain("exampleSdkvoiceVoiceProfileDomain", new()
+    ///     var exampleSdkvoiceVoiceProfileDomain = new Aws.Chime.SdkvoiceVoiceProfileDomain("example", new()
     ///     {
+    ///         Name = "ExampleVoiceProfileDomain",
     ///         ServerSideEncryptionConfiguration = new Aws.Chime.Inputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs
     ///         {
-    ///             KmsKeyArn = exampleKey.Arn,
+    ///             KmsKeyArn = example.Arn,
     ///         },
     ///         Description = "My Voice Profile Domain",
     ///         Tags = 
@@ -44,13 +47,14 @@ namespace Pulumi.Aws.Chime
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS Chime SDK Voice Profile Domain using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
+    /// $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
     /// ```
     /// </summary>
     [AwsResourceType("aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain")]
@@ -109,10 +113,6 @@ namespace Pulumi.Aws.Chime
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -208,11 +208,7 @@ namespace Pulumi.Aws.Chime
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public SdkvoiceVoiceProfileDomainState()

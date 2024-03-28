@@ -243,23 +243,27 @@ class Script(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.gamelift.Script("example", storage_location=aws.gamelift.ScriptStorageLocationArgs(
-            bucket=aws_s3_bucket["example"]["id"],
-            key=aws_s3_object["example"]["key"],
-            role_arn=aws_iam_role["example"]["arn"],
-        ))
+        example = aws.gamelift.Script("example",
+            name="example-script",
+            storage_location=aws.gamelift.ScriptStorageLocationArgs(
+                bucket=example_aws_s3_bucket["id"],
+                key=example_aws_s3_object["key"],
+                role_arn=example_aws_iam_role["arn"],
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GameLift Scripts using the ID. For example:
 
         ```sh
-         $ pulumi import aws:gamelift/script:Script example <script-id>
+        $ pulumi import aws:gamelift/script:Script example <script-id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -281,23 +285,27 @@ class Script(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.gamelift.Script("example", storage_location=aws.gamelift.ScriptStorageLocationArgs(
-            bucket=aws_s3_bucket["example"]["id"],
-            key=aws_s3_object["example"]["key"],
-            role_arn=aws_iam_role["example"]["arn"],
-        ))
+        example = aws.gamelift.Script("example",
+            name="example-script",
+            storage_location=aws.gamelift.ScriptStorageLocationArgs(
+                bucket=example_aws_s3_bucket["id"],
+                key=example_aws_s3_object["key"],
+                role_arn=example_aws_iam_role["arn"],
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GameLift Scripts using the ID. For example:
 
         ```sh
-         $ pulumi import aws:gamelift/script:Script example <script-id>
+        $ pulumi import aws:gamelift/script:Script example <script-id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -336,8 +344,6 @@ class Script(pulumi.CustomResource):
             __props__.__dict__["zip_file"] = zip_file
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Script, __self__).__init__(
             'aws:gamelift/script:Script',
             resource_name,

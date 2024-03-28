@@ -118,12 +118,13 @@ class VaultPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_vault = aws.backup.Vault("exampleVault")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_vault = aws.backup.Vault("example", name="example")
+        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="AWS",
@@ -141,17 +142,18 @@ class VaultPolicy(pulumi.CustomResource):
             ],
             resources=[example_vault.arn],
         )])
-        example_vault_policy = aws.backup.VaultPolicy("exampleVaultPolicy",
+        example_vault_policy = aws.backup.VaultPolicy("example",
             backup_vault_name=example_vault.name,
-            policy=example_policy_document.json)
+            policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup vault policy using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
+        $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
         ```
 
         :param str resource_name: The name of the resource.
@@ -170,12 +172,13 @@ class VaultPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_vault = aws.backup.Vault("exampleVault")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_vault = aws.backup.Vault("example", name="example")
+        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="AWS",
@@ -193,17 +196,18 @@ class VaultPolicy(pulumi.CustomResource):
             ],
             resources=[example_vault.arn],
         )])
-        example_vault_policy = aws.backup.VaultPolicy("exampleVaultPolicy",
+        example_vault_policy = aws.backup.VaultPolicy("example",
             backup_vault_name=example_vault.name,
-            policy=example_policy_document.json)
+            policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup vault policy using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
+        $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
         ```
 
         :param str resource_name: The name of the resource.

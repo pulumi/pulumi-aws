@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,7 +21,10 @@ import javax.annotation.Nullable;
  * Provides a AWS Transfer AS2 Connector resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,15 +48,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Connector(&#34;example&#34;, ConnectorArgs.builder()        
- *             .accessRole(aws_iam_role.test().arn())
+ *             .accessRole(test.arn())
  *             .as2Config(ConnectorAs2ConfigArgs.builder()
  *                 .compression(&#34;DISABLED&#34;)
  *                 .encryptionAlgorithm(&#34;AWS128_CBC&#34;)
  *                 .messageSubject(&#34;For Connector&#34;)
- *                 .localProfileId(aws_transfer_profile.local().profile_id())
+ *                 .localProfileId(local.profileId())
  *                 .mdnResponse(&#34;NONE&#34;)
  *                 .mdnSigningAlgorithm(&#34;NONE&#34;)
- *                 .partnerProfileId(aws_transfer_profile.partner().profile_id())
+ *                 .partnerProfileId(partner.profileId())
  *                 .signingAlgorithm(&#34;NONE&#34;)
  *                 .build())
  *             .url(&#34;http://www.test.com&#34;)
@@ -63,7 +65,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### SFTP Connector
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -87,10 +93,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Connector(&#34;example&#34;, ConnectorArgs.builder()        
- *             .accessRole(aws_iam_role.test().arn())
+ *             .accessRole(test.arn())
  *             .sftpConfig(ConnectorSftpConfigArgs.builder()
  *                 .trustedHostKeys(&#34;ssh-rsa AAAAB3NYourKeysHere&#34;)
- *                 .userSecretId(aws_secretsmanager_secret.example().id())
+ *                 .userSecretId(exampleAwsSecretsmanagerSecret.id())
  *                 .build())
  *             .url(&#34;sftp://test.com&#34;)
  *             .build());
@@ -98,13 +104,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Transfer AS2 Connector using the `connector_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:transfer/connector:Connector example c-4221a88afd5f4362a
+ * $ pulumi import aws:transfer/connector:Connector example c-4221a88afd5f4362a
  * ```
  * 
  */
@@ -267,9 +274,6 @@ public class Connector extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

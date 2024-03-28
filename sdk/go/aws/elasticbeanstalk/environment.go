@@ -21,6 +21,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,12 +35,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tftest, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
+//				Name:        pulumi.String("tf-test-name"),
 //				Description: pulumi.String("tf-test-desc"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = elasticbeanstalk.NewEnvironment(ctx, "tfenvtest", &elasticbeanstalk.EnvironmentArgs{
+//				Name:              pulumi.String("tf-test-name"),
 //				Application:       tftest.Name,
 //				SolutionStackName: pulumi.String("64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4"),
 //			})
@@ -51,6 +54,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Option Settings
 //
 // Some options can be stack-specific, check [AWS Docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html)
@@ -65,6 +70,7 @@ import (
 //
 // ### Example With Options
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -78,12 +84,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tftest, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
+//				Name:        pulumi.String("tf-test-name"),
 //				Description: pulumi.String("tf-test-desc"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = elasticbeanstalk.NewEnvironment(ctx, "tfenvtest", &elasticbeanstalk.EnvironmentArgs{
+//				Name:              pulumi.String("tf-test-name"),
 //				Application:       tftest.Name,
 //				SolutionStackName: pulumi.String("64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4"),
 //				Settings: elasticbeanstalk.EnvironmentSettingArray{
@@ -107,15 +115,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Elastic Beanstalk Environments using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
-//
+// $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
 // ```
 type Environment struct {
 	pulumi.CustomResourceState
@@ -199,10 +206,6 @@ func NewEnvironment(ctx *pulumi.Context,
 	if args.Application == nil {
 		return nil, errors.New("invalid value for required argument 'Application'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Environment
 	err := ctx.RegisterResource("aws:elasticbeanstalk/environment:Environment", name, args, &resource, opts...)

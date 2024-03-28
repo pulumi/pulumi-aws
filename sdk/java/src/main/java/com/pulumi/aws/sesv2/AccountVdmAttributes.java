@@ -19,7 +19,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS SESv2 (Simple Email V2) Account VDM Attributes.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,25 +47,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AccountVdmAttributes(&#34;example&#34;, AccountVdmAttributesArgs.builder()        
+ *             .vdmEnabled(&#34;ENABLED&#34;)
  *             .dashboardAttributes(AccountVdmAttributesDashboardAttributesArgs.builder()
  *                 .engagementMetrics(&#34;ENABLED&#34;)
  *                 .build())
  *             .guardianAttributes(AccountVdmAttributesGuardianAttributesArgs.builder()
  *                 .optimizedSharedDelivery(&#34;ENABLED&#34;)
  *                 .build())
- *             .vdmEnabled(&#34;ENABLED&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SESv2 (Simple Email V2) Account VDM Attributes using the word `ses-account-vdm-attributes`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sesv2/accountVdmAttributes:AccountVdmAttributes example ses-account-vdm-attributes
+ * $ pulumi import aws:sesv2/accountVdmAttributes:AccountVdmAttributes example ses-account-vdm-attributes
  * ```
  * 
  */

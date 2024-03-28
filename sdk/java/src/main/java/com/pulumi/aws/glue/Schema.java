@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a Glue Schema resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,7 +45,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Schema(&#34;example&#34;, SchemaArgs.builder()        
  *             .schemaName(&#34;example&#34;)
- *             .registryArn(aws_glue_registry.test().arn())
+ *             .registryArn(test.arn())
  *             .dataFormat(&#34;AVRO&#34;)
  *             .compatibility(&#34;NONE&#34;)
  *             .schemaDefinition(&#34;{\&#34;type\&#34;: \&#34;record\&#34;, \&#34;name\&#34;: \&#34;r1\&#34;, \&#34;fields\&#34;: [ {\&#34;name\&#34;: \&#34;f1\&#34;, \&#34;type\&#34;: \&#34;int\&#34;}, {\&#34;name\&#34;: \&#34;f2\&#34;, \&#34;type\&#34;: \&#34;string\&#34;} ]}&#34;)
@@ -53,13 +54,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Glue Registries using `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:glue/schema:Schema example arn:aws:glue:us-west-2:123456789012:schema/example/example
+ * $ pulumi import aws:glue/schema:Schema example arn:aws:glue:us-west-2:123456789012:schema/example/example
  * ```
  * 
  */
@@ -284,9 +286,6 @@ public class Schema extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

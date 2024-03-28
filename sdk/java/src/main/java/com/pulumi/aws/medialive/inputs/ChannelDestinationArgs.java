@@ -8,6 +8,7 @@ import com.pulumi.aws.medialive.inputs.ChannelDestinationMultiplexSettingsArgs;
 import com.pulumi.aws.medialive.inputs.ChannelDestinationSettingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -211,7 +212,9 @@ public final class ChannelDestinationArgs extends com.pulumi.resources.ResourceA
         }
 
         public ChannelDestinationArgs build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("ChannelDestinationArgs", "id");
+            }
             return $;
         }
     }

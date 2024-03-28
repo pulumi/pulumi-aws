@@ -260,6 +260,162 @@ func (o CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput) DataLakeP
 	}).(pulumi.StringPtrOutput)
 }
 
+type CatalogDatabaseFederatedDatabase struct {
+	// Name of the connection to the external metastore.
+	ConnectionName *string `pulumi:"connectionName"`
+	// Unique identifier for the federated database.
+	Identifier *string `pulumi:"identifier"`
+}
+
+// CatalogDatabaseFederatedDatabaseInput is an input type that accepts CatalogDatabaseFederatedDatabaseArgs and CatalogDatabaseFederatedDatabaseOutput values.
+// You can construct a concrete instance of `CatalogDatabaseFederatedDatabaseInput` via:
+//
+//	CatalogDatabaseFederatedDatabaseArgs{...}
+type CatalogDatabaseFederatedDatabaseInput interface {
+	pulumi.Input
+
+	ToCatalogDatabaseFederatedDatabaseOutput() CatalogDatabaseFederatedDatabaseOutput
+	ToCatalogDatabaseFederatedDatabaseOutputWithContext(context.Context) CatalogDatabaseFederatedDatabaseOutput
+}
+
+type CatalogDatabaseFederatedDatabaseArgs struct {
+	// Name of the connection to the external metastore.
+	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
+	// Unique identifier for the federated database.
+	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
+}
+
+func (CatalogDatabaseFederatedDatabaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogDatabaseFederatedDatabase)(nil)).Elem()
+}
+
+func (i CatalogDatabaseFederatedDatabaseArgs) ToCatalogDatabaseFederatedDatabaseOutput() CatalogDatabaseFederatedDatabaseOutput {
+	return i.ToCatalogDatabaseFederatedDatabaseOutputWithContext(context.Background())
+}
+
+func (i CatalogDatabaseFederatedDatabaseArgs) ToCatalogDatabaseFederatedDatabaseOutputWithContext(ctx context.Context) CatalogDatabaseFederatedDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogDatabaseFederatedDatabaseOutput)
+}
+
+func (i CatalogDatabaseFederatedDatabaseArgs) ToCatalogDatabaseFederatedDatabasePtrOutput() CatalogDatabaseFederatedDatabasePtrOutput {
+	return i.ToCatalogDatabaseFederatedDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i CatalogDatabaseFederatedDatabaseArgs) ToCatalogDatabaseFederatedDatabasePtrOutputWithContext(ctx context.Context) CatalogDatabaseFederatedDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogDatabaseFederatedDatabaseOutput).ToCatalogDatabaseFederatedDatabasePtrOutputWithContext(ctx)
+}
+
+// CatalogDatabaseFederatedDatabasePtrInput is an input type that accepts CatalogDatabaseFederatedDatabaseArgs, CatalogDatabaseFederatedDatabasePtr and CatalogDatabaseFederatedDatabasePtrOutput values.
+// You can construct a concrete instance of `CatalogDatabaseFederatedDatabasePtrInput` via:
+//
+//	        CatalogDatabaseFederatedDatabaseArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogDatabaseFederatedDatabasePtrInput interface {
+	pulumi.Input
+
+	ToCatalogDatabaseFederatedDatabasePtrOutput() CatalogDatabaseFederatedDatabasePtrOutput
+	ToCatalogDatabaseFederatedDatabasePtrOutputWithContext(context.Context) CatalogDatabaseFederatedDatabasePtrOutput
+}
+
+type catalogDatabaseFederatedDatabasePtrType CatalogDatabaseFederatedDatabaseArgs
+
+func CatalogDatabaseFederatedDatabasePtr(v *CatalogDatabaseFederatedDatabaseArgs) CatalogDatabaseFederatedDatabasePtrInput {
+	return (*catalogDatabaseFederatedDatabasePtrType)(v)
+}
+
+func (*catalogDatabaseFederatedDatabasePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogDatabaseFederatedDatabase)(nil)).Elem()
+}
+
+func (i *catalogDatabaseFederatedDatabasePtrType) ToCatalogDatabaseFederatedDatabasePtrOutput() CatalogDatabaseFederatedDatabasePtrOutput {
+	return i.ToCatalogDatabaseFederatedDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i *catalogDatabaseFederatedDatabasePtrType) ToCatalogDatabaseFederatedDatabasePtrOutputWithContext(ctx context.Context) CatalogDatabaseFederatedDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogDatabaseFederatedDatabasePtrOutput)
+}
+
+type CatalogDatabaseFederatedDatabaseOutput struct{ *pulumi.OutputState }
+
+func (CatalogDatabaseFederatedDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogDatabaseFederatedDatabase)(nil)).Elem()
+}
+
+func (o CatalogDatabaseFederatedDatabaseOutput) ToCatalogDatabaseFederatedDatabaseOutput() CatalogDatabaseFederatedDatabaseOutput {
+	return o
+}
+
+func (o CatalogDatabaseFederatedDatabaseOutput) ToCatalogDatabaseFederatedDatabaseOutputWithContext(ctx context.Context) CatalogDatabaseFederatedDatabaseOutput {
+	return o
+}
+
+func (o CatalogDatabaseFederatedDatabaseOutput) ToCatalogDatabaseFederatedDatabasePtrOutput() CatalogDatabaseFederatedDatabasePtrOutput {
+	return o.ToCatalogDatabaseFederatedDatabasePtrOutputWithContext(context.Background())
+}
+
+func (o CatalogDatabaseFederatedDatabaseOutput) ToCatalogDatabaseFederatedDatabasePtrOutputWithContext(ctx context.Context) CatalogDatabaseFederatedDatabasePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogDatabaseFederatedDatabase) *CatalogDatabaseFederatedDatabase {
+		return &v
+	}).(CatalogDatabaseFederatedDatabasePtrOutput)
+}
+
+// Name of the connection to the external metastore.
+func (o CatalogDatabaseFederatedDatabaseOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogDatabaseFederatedDatabase) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+// Unique identifier for the federated database.
+func (o CatalogDatabaseFederatedDatabaseOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogDatabaseFederatedDatabase) *string { return v.Identifier }).(pulumi.StringPtrOutput)
+}
+
+type CatalogDatabaseFederatedDatabasePtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogDatabaseFederatedDatabasePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogDatabaseFederatedDatabase)(nil)).Elem()
+}
+
+func (o CatalogDatabaseFederatedDatabasePtrOutput) ToCatalogDatabaseFederatedDatabasePtrOutput() CatalogDatabaseFederatedDatabasePtrOutput {
+	return o
+}
+
+func (o CatalogDatabaseFederatedDatabasePtrOutput) ToCatalogDatabaseFederatedDatabasePtrOutputWithContext(ctx context.Context) CatalogDatabaseFederatedDatabasePtrOutput {
+	return o
+}
+
+func (o CatalogDatabaseFederatedDatabasePtrOutput) Elem() CatalogDatabaseFederatedDatabaseOutput {
+	return o.ApplyT(func(v *CatalogDatabaseFederatedDatabase) CatalogDatabaseFederatedDatabase {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogDatabaseFederatedDatabase
+		return ret
+	}).(CatalogDatabaseFederatedDatabaseOutput)
+}
+
+// Name of the connection to the external metastore.
+func (o CatalogDatabaseFederatedDatabasePtrOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogDatabaseFederatedDatabase) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Unique identifier for the federated database.
+func (o CatalogDatabaseFederatedDatabasePtrOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogDatabaseFederatedDatabase) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Identifier
+	}).(pulumi.StringPtrOutput)
+}
+
 type CatalogDatabaseTargetDatabase struct {
 	// ID of the Data Catalog in which the database resides.
 	CatalogId string `pulumi:"catalogId"`
@@ -2265,6 +2421,8 @@ type CatalogTableTargetTable struct {
 	DatabaseName string `pulumi:"databaseName"`
 	// Name of the target table.
 	Name string `pulumi:"name"`
+	// Region of the target table.
+	Region *string `pulumi:"region"`
 }
 
 // CatalogTableTargetTableInput is an input type that accepts CatalogTableTargetTableArgs and CatalogTableTargetTableOutput values.
@@ -2285,6 +2443,8 @@ type CatalogTableTargetTableArgs struct {
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Name of the target table.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region of the target table.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (CatalogTableTargetTableArgs) ElementType() reflect.Type {
@@ -2379,6 +2539,11 @@ func (o CatalogTableTargetTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogTableTargetTable) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region of the target table.
+func (o CatalogTableTargetTableOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTableTargetTable) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
 type CatalogTableTargetTablePtrOutput struct{ *pulumi.OutputState }
 
 func (CatalogTableTargetTablePtrOutput) ElementType() reflect.Type {
@@ -2433,6 +2598,16 @@ func (o CatalogTableTargetTablePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Region of the target table.
+func (o CatalogTableTargetTablePtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTableTargetTable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
 type ClassifierCsvClassifier struct {
 	// Enables the processing of files that contain only one column.
 	AllowSingleColumn *bool `pulumi:"allowSingleColumn"`
@@ -2450,6 +2625,7 @@ type ClassifierCsvClassifier struct {
 	Headers []string `pulumi:"headers"`
 	// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
 	QuoteSymbol *string `pulumi:"quoteSymbol"`
+	Serde       *string `pulumi:"serde"`
 }
 
 // ClassifierCsvClassifierInput is an input type that accepts ClassifierCsvClassifierArgs and ClassifierCsvClassifierOutput values.
@@ -2480,6 +2656,7 @@ type ClassifierCsvClassifierArgs struct {
 	Headers pulumi.StringArrayInput `pulumi:"headers"`
 	// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
 	QuoteSymbol pulumi.StringPtrInput `pulumi:"quoteSymbol"`
+	Serde       pulumi.StringPtrInput `pulumi:"serde"`
 }
 
 func (ClassifierCsvClassifierArgs) ElementType() reflect.Type {
@@ -2599,6 +2776,10 @@ func (o ClassifierCsvClassifierOutput) QuoteSymbol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.QuoteSymbol }).(pulumi.StringPtrOutput)
 }
 
+func (o ClassifierCsvClassifierOutput) Serde() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.Serde }).(pulumi.StringPtrOutput)
+}
+
 type ClassifierCsvClassifierPtrOutput struct{ *pulumi.OutputState }
 
 func (ClassifierCsvClassifierPtrOutput) ElementType() reflect.Type {
@@ -2700,6 +2881,15 @@ func (o ClassifierCsvClassifierPtrOutput) QuoteSymbol() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.QuoteSymbol
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClassifierCsvClassifierPtrOutput) Serde() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierCsvClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Serde
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -10316,6 +10506,8 @@ type GetCatalogTableTargetTable struct {
 	DatabaseName string `pulumi:"databaseName"`
 	// Name of the table.
 	Name string `pulumi:"name"`
+	// Region of the target table.
+	Region string `pulumi:"region"`
 }
 
 // GetCatalogTableTargetTableInput is an input type that accepts GetCatalogTableTargetTableArgs and GetCatalogTableTargetTableOutput values.
@@ -10336,6 +10528,8 @@ type GetCatalogTableTargetTableArgs struct {
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Name of the table.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region of the target table.
+	Region pulumi.StringInput `pulumi:"region"`
 }
 
 func (GetCatalogTableTargetTableArgs) ElementType() reflect.Type {
@@ -10402,6 +10596,11 @@ func (o GetCatalogTableTargetTableOutput) DatabaseName() pulumi.StringOutput {
 // Name of the table.
 func (o GetCatalogTableTargetTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCatalogTableTargetTable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region of the target table.
+func (o GetCatalogTableTargetTableOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogTableTargetTable) string { return v.Region }).(pulumi.StringOutput)
 }
 
 type GetCatalogTableTargetTableArrayOutput struct{ *pulumi.OutputState }
@@ -11219,6 +11418,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseCreateTableDefaultPermissionArrayInput)(nil)).Elem(), CatalogDatabaseCreateTableDefaultPermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseCreateTableDefaultPermissionPrincipalInput)(nil)).Elem(), CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrInput)(nil)).Elem(), CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseFederatedDatabaseInput)(nil)).Elem(), CatalogDatabaseFederatedDatabaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseFederatedDatabasePtrInput)(nil)).Elem(), CatalogDatabaseFederatedDatabaseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseTargetDatabaseInput)(nil)).Elem(), CatalogDatabaseTargetDatabaseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseTargetDatabasePtrInput)(nil)).Elem(), CatalogDatabaseTargetDatabaseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputInput)(nil)).Elem(), CatalogTableOpenTableFormatInputArgs{})
@@ -11371,6 +11572,8 @@ func init() {
 	pulumi.RegisterOutputType(CatalogDatabaseCreateTableDefaultPermissionArrayOutput{})
 	pulumi.RegisterOutputType(CatalogDatabaseCreateTableDefaultPermissionPrincipalOutput{})
 	pulumi.RegisterOutputType(CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput{})
+	pulumi.RegisterOutputType(CatalogDatabaseFederatedDatabaseOutput{})
+	pulumi.RegisterOutputType(CatalogDatabaseFederatedDatabasePtrOutput{})
 	pulumi.RegisterOutputType(CatalogDatabaseTargetDatabaseOutput{})
 	pulumi.RegisterOutputType(CatalogDatabaseTargetDatabasePtrOutput{})
 	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputOutput{})

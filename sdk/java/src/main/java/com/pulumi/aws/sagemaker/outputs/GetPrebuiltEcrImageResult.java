@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -96,49 +97,64 @@ public final class GetPrebuiltEcrImageResult {
 
         @CustomType.Setter
         public Builder dnsSuffix(@Nullable String dnsSuffix) {
+
             this.dnsSuffix = dnsSuffix;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPrebuiltEcrImageResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder imageTag(@Nullable String imageTag) {
+
             this.imageTag = imageTag;
             return this;
         }
         @CustomType.Setter
         public Builder region(@Nullable String region) {
+
             this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder registryId(String registryId) {
-            this.registryId = Objects.requireNonNull(registryId);
+            if (registryId == null) {
+              throw new MissingRequiredPropertyException("GetPrebuiltEcrImageResult", "registryId");
+            }
+            this.registryId = registryId;
             return this;
         }
         @CustomType.Setter
         public Builder registryPath(String registryPath) {
-            this.registryPath = Objects.requireNonNull(registryPath);
+            if (registryPath == null) {
+              throw new MissingRequiredPropertyException("GetPrebuiltEcrImageResult", "registryPath");
+            }
+            this.registryPath = registryPath;
             return this;
         }
         @CustomType.Setter
         public Builder repositoryName(String repositoryName) {
-            this.repositoryName = Objects.requireNonNull(repositoryName);
+            if (repositoryName == null) {
+              throw new MissingRequiredPropertyException("GetPrebuiltEcrImageResult", "repositoryName");
+            }
+            this.repositoryName = repositoryName;
             return this;
         }
         public GetPrebuiltEcrImageResult build() {
-            final var o = new GetPrebuiltEcrImageResult();
-            o.dnsSuffix = dnsSuffix;
-            o.id = id;
-            o.imageTag = imageTag;
-            o.region = region;
-            o.registryId = registryId;
-            o.registryPath = registryPath;
-            o.repositoryName = repositoryName;
-            return o;
+            final var _resultValue = new GetPrebuiltEcrImageResult();
+            _resultValue.dnsSuffix = dnsSuffix;
+            _resultValue.id = id;
+            _resultValue.imageTag = imageTag;
+            _resultValue.region = region;
+            _resultValue.registryId = registryId;
+            _resultValue.registryPath = registryPath;
+            _resultValue.repositoryName = repositoryName;
+            return _resultValue;
         }
     }
 }

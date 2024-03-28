@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,12 +23,12 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testCatalogDatabase = new Aws.Glue.CatalogDatabase("testCatalogDatabase", new()
+    ///     var testCatalogDatabase = new Aws.Glue.CatalogDatabase("test", new()
     ///     {
     ///         Name = "example",
     ///     });
     /// 
-    ///     var testCatalogTable = new Aws.Glue.CatalogTable("testCatalogTable", new()
+    ///     var testCatalogTable = new Aws.Glue.CatalogTable("test", new()
     ///     {
     ///         Name = "example",
     ///         DatabaseName = testCatalogDatabase.Name,
@@ -121,9 +122,10 @@ namespace Pulumi.Aws.Glue
     ///         },
     ///     });
     /// 
-    ///     var testMLTransform = new Aws.Glue.MLTransform("testMLTransform", new()
+    ///     var test = new Aws.Glue.MLTransform("test", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Test.Arn,
+    ///         Name = "example",
+    ///         RoleArn = testAwsIamRole.Arn,
     ///         InputRecordTables = new[]
     ///         {
     ///             new Aws.Glue.Inputs.MLTransformInputRecordTableArgs
@@ -140,23 +142,18 @@ namespace Pulumi.Aws.Glue
     ///                 PrimaryKeyColumnName = "my_column_1",
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_iam_role_policy_attachment.Test,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue ML Transforms using `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
+    /// $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/mLTransform:MLTransform")]
@@ -281,10 +278,6 @@ namespace Pulumi.Aws.Glue
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -506,11 +499,7 @@ namespace Pulumi.Aws.Glue
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

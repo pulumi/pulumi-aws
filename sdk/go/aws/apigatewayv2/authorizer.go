@@ -16,8 +16,10 @@ import (
 // More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
 //
 // ## Example Usage
+//
 // ### Basic WebSocket API
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,12 +33,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigatewayv2.NewAuthorizer(ctx, "example", &apigatewayv2.AuthorizerArgs{
-//				ApiId:          pulumi.Any(aws_apigatewayv2_api.Example.Id),
+//				ApiId:          pulumi.Any(exampleAwsApigatewayv2Api.Id),
 //				AuthorizerType: pulumi.String("REQUEST"),
-//				AuthorizerUri:  pulumi.Any(aws_lambda_function.Example.Invoke_arn),
+//				AuthorizerUri:  pulumi.Any(exampleAwsLambdaFunction.InvokeArn),
 //				IdentitySources: pulumi.StringArray{
 //					pulumi.String("route.request.header.Auth"),
 //				},
+//				Name: pulumi.String("example-authorizer"),
 //			})
 //			if err != nil {
 //				return err
@@ -46,8 +49,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Basic HTTP API
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,12 +67,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigatewayv2.NewAuthorizer(ctx, "example", &apigatewayv2.AuthorizerArgs{
-//				ApiId:          pulumi.Any(aws_apigatewayv2_api.Example.Id),
+//				ApiId:          pulumi.Any(exampleAwsApigatewayv2Api.Id),
 //				AuthorizerType: pulumi.String("REQUEST"),
-//				AuthorizerUri:  pulumi.Any(aws_lambda_function.Example.Invoke_arn),
+//				AuthorizerUri:  pulumi.Any(exampleAwsLambdaFunction.InvokeArn),
 //				IdentitySources: pulumi.StringArray{
 //					pulumi.String("$request.header.Authorization"),
 //				},
+//				Name:                           pulumi.String("example-authorizer"),
 //				AuthorizerPayloadFormatVersion: pulumi.String("2.0"),
 //			})
 //			if err != nil {
@@ -77,15 +84,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_apigatewayv2_authorizer` using the API identifier and authorizer identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigatewayv2/authorizer:Authorizer example aabbccddee/1122334
-//
+// $ pulumi import aws:apigatewayv2/authorizer:Authorizer example aabbccddee/1122334
 // ```
 type Authorizer struct {
 	pulumi.CustomResourceState

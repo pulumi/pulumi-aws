@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +42,9 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,7 +67,7 @@ import (
 // {
 // Name: "vpc-id",
 // Values: interface{}{
-// _var.Vpc_id,
+// vpcId,
 // },
 // },
 // },
@@ -76,6 +79,7 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 func GetSecurityGroups(ctx *pulumi.Context, args *GetSecurityGroupsArgs, opts ...pulumi.InvokeOption) (*GetSecurityGroupsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSecurityGroupsResult

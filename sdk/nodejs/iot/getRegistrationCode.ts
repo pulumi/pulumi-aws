@@ -9,21 +9,23 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as tls from "@pulumi/tls";
  *
  * const example = aws.iot.getRegistrationCode({});
- * const verificationPrivateKey = new tls.PrivateKey("verificationPrivateKey", {algorithm: "RSA"});
- * const verificationCertRequest = new tls.CertRequest("verificationCertRequest", {
+ * const verification = new tls.PrivateKey("verification", {algorithm: "RSA"});
+ * const verificationCertRequest = new tls.CertRequest("verification", {
  *     keyAlgorithm: "RSA",
- *     privateKeyPem: verificationPrivateKey.privateKeyPem,
+ *     privateKeyPem: verification.privateKeyPem,
  *     subject: {
  *         commonName: example.then(example => example.registrationCode),
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRegistrationCode(opts?: pulumi.InvokeOptions): Promise<GetRegistrationCodeResult> {
 
@@ -50,21 +52,23 @@ export interface GetRegistrationCodeResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as tls from "@pulumi/tls";
  *
  * const example = aws.iot.getRegistrationCode({});
- * const verificationPrivateKey = new tls.PrivateKey("verificationPrivateKey", {algorithm: "RSA"});
- * const verificationCertRequest = new tls.CertRequest("verificationCertRequest", {
+ * const verification = new tls.PrivateKey("verification", {algorithm: "RSA"});
+ * const verificationCertRequest = new tls.CertRequest("verification", {
  *     keyAlgorithm: "RSA",
- *     privateKeyPem: verificationPrivateKey.privateKeyPem,
+ *     privateKeyPem: verification.privateKeyPem,
  *     subject: {
  *         commonName: example.then(example => example.registrationCode),
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRegistrationCodeOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationCodeResult> {
     return pulumi.output(getRegistrationCode(opts))

@@ -15,8 +15,10 @@ import (
 // Provides a resource to accept a pending VPC Endpoint Connection accept request to VPC Endpoint Service.
 //
 // ## Example Usage
+//
 // ### Accept cross-account request
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,29 +31,29 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVpcEndpointService, err := ec2.NewVpcEndpointService(ctx, "exampleVpcEndpointService", &ec2.VpcEndpointServiceArgs{
+//			example, err := ec2.NewVpcEndpointService(ctx, "example", &ec2.VpcEndpointServiceArgs{
 //				AcceptanceRequired: pulumi.Bool(false),
 //				NetworkLoadBalancerArns: pulumi.StringArray{
-//					aws_lb.Example.Arn,
+//					exampleAwsLb.Arn,
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVpcEndpoint, err := ec2.NewVpcEndpoint(ctx, "exampleVpcEndpoint", &ec2.VpcEndpointArgs{
-//				VpcId:             pulumi.Any(aws_vpc.Test_alternate.Id),
-//				ServiceName:       pulumi.Any(aws_vpc_endpoint_service.Test.Service_name),
+//			exampleVpcEndpoint, err := ec2.NewVpcEndpoint(ctx, "example", &ec2.VpcEndpointArgs{
+//				VpcId:             pulumi.Any(testAlternate.Id),
+//				ServiceName:       pulumi.Any(testAwsVpcEndpointService.ServiceName),
 //				VpcEndpointType:   pulumi.String("Interface"),
 //				PrivateDnsEnabled: pulumi.Bool(false),
 //				SecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Test.Id,
+//					test.Id,
 //				},
-//			}, pulumi.Provider(aws.Alternate))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewVpcEndpointConnectionAccepter(ctx, "exampleVpcEndpointConnectionAccepter", &ec2.VpcEndpointConnectionAccepterArgs{
-//				VpcEndpointServiceId: exampleVpcEndpointService.ID(),
+//			_, err = ec2.NewVpcEndpointConnectionAccepter(ctx, "example", &ec2.VpcEndpointConnectionAccepterArgs{
+//				VpcEndpointServiceId: example.ID(),
 //				VpcEndpointId:        exampleVpcEndpoint.ID(),
 //			})
 //			if err != nil {
@@ -62,15 +64,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import VPC Endpoint Services using ID of the connection, which is the `VPC Endpoint Service ID` and `VPC Endpoint ID` separated by underscore (`_`).. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
-//
+// $ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
 // ```
 type VpcEndpointConnectionAccepter struct {
 	pulumi.CustomResourceState

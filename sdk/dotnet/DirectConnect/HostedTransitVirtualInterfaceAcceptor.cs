@@ -17,6 +17,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,37 +26,27 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var accepter = new Aws.Provider("accepter");
-    /// 
-    ///     // Accepter's credentials.
-    ///     var accepterCallerIdentity = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     // Accepter's side of the VIF.
-    ///     var example = new Aws.DirectConnect.Gateway("example", new()
-    ///     {
-    ///         AmazonSideAsn = "64512",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Accepter,
-    ///     });
+    ///     var accepter = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     // Creator's side of the VIF
     ///     var creator = new Aws.DirectConnect.HostedTransitVirtualInterface("creator", new()
     ///     {
     ///         ConnectionId = "dxcon-zzzzzzzz",
-    ///         OwnerAccountId = accepterCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///         OwnerAccountId = accepter.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///         Name = "tf-transit-vif-example",
     ///         Vlan = 4094,
     ///         AddressFamily = "ipv4",
     ///         BgpAsn = 65352,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             example,
-    ///         },
     ///     });
     /// 
-    ///     var accepterHostedTransitVirtualInterfaceAcceptor = new Aws.DirectConnect.HostedTransitVirtualInterfaceAcceptor("accepterHostedTransitVirtualInterfaceAcceptor", new()
+    ///     // Accepter's side of the VIF.
+    ///     var example = new Aws.DirectConnect.Gateway("example", new()
+    ///     {
+    ///         Name = "tf-dxg-example",
+    ///         AmazonSideAsn = "64512",
+    ///     });
+    /// 
+    ///     var accepterHostedTransitVirtualInterfaceAcceptor = new Aws.DirectConnect.HostedTransitVirtualInterfaceAcceptor("accepter", new()
     ///     {
     ///         VirtualInterfaceId = creator.Id,
     ///         DxGatewayId = example.Id,
@@ -63,20 +54,18 @@ namespace Pulumi.Aws.DirectConnect
     ///         {
     ///             { "Side", "Accepter" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Accepter,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Direct Connect hosted transit virtual interfaces using the VIF `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor test dxvif-33cc44dd
+    /// $ pulumi import aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor test dxvif-33cc44dd
     /// ```
     /// </summary>
     [AwsResourceType("aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor")]
@@ -135,10 +124,6 @@ namespace Pulumi.Aws.DirectConnect
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -228,11 +213,7 @@ namespace Pulumi.Aws.DirectConnect
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

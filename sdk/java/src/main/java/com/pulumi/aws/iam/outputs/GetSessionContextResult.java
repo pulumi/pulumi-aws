@@ -4,6 +4,7 @@
 package com.pulumi.aws.iam.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -104,43 +105,61 @@ public final class GetSessionContextResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetSessionContextResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSessionContextResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder issuerArn(String issuerArn) {
-            this.issuerArn = Objects.requireNonNull(issuerArn);
+            if (issuerArn == null) {
+              throw new MissingRequiredPropertyException("GetSessionContextResult", "issuerArn");
+            }
+            this.issuerArn = issuerArn;
             return this;
         }
         @CustomType.Setter
         public Builder issuerId(String issuerId) {
-            this.issuerId = Objects.requireNonNull(issuerId);
+            if (issuerId == null) {
+              throw new MissingRequiredPropertyException("GetSessionContextResult", "issuerId");
+            }
+            this.issuerId = issuerId;
             return this;
         }
         @CustomType.Setter
         public Builder issuerName(String issuerName) {
-            this.issuerName = Objects.requireNonNull(issuerName);
+            if (issuerName == null) {
+              throw new MissingRequiredPropertyException("GetSessionContextResult", "issuerName");
+            }
+            this.issuerName = issuerName;
             return this;
         }
         @CustomType.Setter
         public Builder sessionName(String sessionName) {
-            this.sessionName = Objects.requireNonNull(sessionName);
+            if (sessionName == null) {
+              throw new MissingRequiredPropertyException("GetSessionContextResult", "sessionName");
+            }
+            this.sessionName = sessionName;
             return this;
         }
         public GetSessionContextResult build() {
-            final var o = new GetSessionContextResult();
-            o.arn = arn;
-            o.id = id;
-            o.issuerArn = issuerArn;
-            o.issuerId = issuerId;
-            o.issuerName = issuerName;
-            o.sessionName = sessionName;
-            return o;
+            final var _resultValue = new GetSessionContextResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.issuerArn = issuerArn;
+            _resultValue.issuerId = issuerId;
+            _resultValue.issuerName = issuerName;
+            _resultValue.sessionName = sessionName;
+            return _resultValue;
         }
     }
 }

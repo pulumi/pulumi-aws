@@ -324,11 +324,13 @@ class LicenseConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.licensemanager.LicenseConfiguration("example",
+            name="Example",
             description="Example",
             license_count=10,
             license_count_hard_limit=True,
@@ -338,6 +340,8 @@ class LicenseConfiguration(pulumi.CustomResource):
                 "foo": "barr",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Rules
 
         License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:
@@ -355,7 +359,7 @@ class LicenseConfiguration(pulumi.CustomResource):
         Using `pulumi import`, import license configurations using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+        $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
         ```
 
         :param str resource_name: The name of the resource.
@@ -381,11 +385,13 @@ class LicenseConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.licensemanager.LicenseConfiguration("example",
+            name="Example",
             description="Example",
             license_count=10,
             license_count_hard_limit=True,
@@ -395,6 +401,8 @@ class LicenseConfiguration(pulumi.CustomResource):
                 "foo": "barr",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Rules
 
         License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:
@@ -412,7 +420,7 @@ class LicenseConfiguration(pulumi.CustomResource):
         Using `pulumi import`, import license configurations using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+        $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
         ```
 
         :param str resource_name: The name of the resource.
@@ -458,8 +466,6 @@ class LicenseConfiguration(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["owner_account_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LicenseConfiguration, __self__).__init__(
             'aws:licensemanager/licenseConfiguration:LicenseConfiguration',
             resource_name,

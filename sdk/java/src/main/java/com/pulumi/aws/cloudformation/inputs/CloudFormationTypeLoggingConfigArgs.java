@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudformation.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class CloudFormationTypeLoggingConfigArgs extends com.pulumi.resour
         }
 
         public CloudFormationTypeLoggingConfigArgs build() {
-            $.logGroupName = Objects.requireNonNull($.logGroupName, "expected parameter 'logGroupName' to be non-null");
-            $.logRoleArn = Objects.requireNonNull($.logRoleArn, "expected parameter 'logRoleArn' to be non-null");
+            if ($.logGroupName == null) {
+                throw new MissingRequiredPropertyException("CloudFormationTypeLoggingConfigArgs", "logGroupName");
+            }
+            if ($.logRoleArn == null) {
+                throw new MissingRequiredPropertyException("CloudFormationTypeLoggingConfigArgs", "logRoleArn");
+            }
             return $;
         }
     }

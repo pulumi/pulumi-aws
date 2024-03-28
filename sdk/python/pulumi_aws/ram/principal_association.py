@@ -111,34 +111,40 @@ class PrincipalAssociation(pulumi.CustomResource):
         - For AWS Account ID principals, a resource share invitation is sent and must be accepted before resources become available. See the `ram.ResourceShareAccepter` resource to accept these invitations.
 
         ## Example Usage
+
         ### AWS Account ID
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_resource_share = aws.ram.ResourceShare("exampleResourceShare", allow_external_principals=True)
-        example_principal_association = aws.ram.PrincipalAssociation("examplePrincipalAssociation",
+        example = aws.ram.ResourceShare("example", allow_external_principals=True)
+        example_principal_association = aws.ram.PrincipalAssociation("example",
             principal="111111111111",
-            resource_share_arn=example_resource_share.arn)
+            resource_share_arn=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### AWS Organization
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ram.PrincipalAssociation("example",
-            principal=aws_organizations_organization["example"]["arn"],
-            resource_share_arn=aws_ram_resource_share["example"]["arn"])
+            principal=example_aws_organizations_organization["arn"],
+            resource_share_arn=example_aws_ram_resource_share["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import RAM Principal Associations using their Resource Share ARN and the `principal` separated by a comma. For example:
 
         ```sh
-         $ pulumi import aws:ram/principalAssociation:PrincipalAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012
+        $ pulumi import aws:ram/principalAssociation:PrincipalAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -166,34 +172,40 @@ class PrincipalAssociation(pulumi.CustomResource):
         - For AWS Account ID principals, a resource share invitation is sent and must be accepted before resources become available. See the `ram.ResourceShareAccepter` resource to accept these invitations.
 
         ## Example Usage
+
         ### AWS Account ID
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_resource_share = aws.ram.ResourceShare("exampleResourceShare", allow_external_principals=True)
-        example_principal_association = aws.ram.PrincipalAssociation("examplePrincipalAssociation",
+        example = aws.ram.ResourceShare("example", allow_external_principals=True)
+        example_principal_association = aws.ram.PrincipalAssociation("example",
             principal="111111111111",
-            resource_share_arn=example_resource_share.arn)
+            resource_share_arn=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### AWS Organization
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ram.PrincipalAssociation("example",
-            principal=aws_organizations_organization["example"]["arn"],
-            resource_share_arn=aws_ram_resource_share["example"]["arn"])
+            principal=example_aws_organizations_organization["arn"],
+            resource_share_arn=example_aws_ram_resource_share["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import RAM Principal Associations using their Resource Share ARN and the `principal` separated by a comma. For example:
 
         ```sh
-         $ pulumi import aws:ram/principalAssociation:PrincipalAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012
+        $ pulumi import aws:ram/principalAssociation:PrincipalAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012
         ```
 
         :param str resource_name: The name of the resource.

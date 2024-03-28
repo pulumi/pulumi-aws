@@ -74,25 +74,28 @@ public final class EndpointDeploymentConfig {
 
         @CustomType.Setter
         public Builder autoRollbackConfiguration(@Nullable EndpointDeploymentConfigAutoRollbackConfiguration autoRollbackConfiguration) {
+
             this.autoRollbackConfiguration = autoRollbackConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder blueGreenUpdatePolicy(@Nullable EndpointDeploymentConfigBlueGreenUpdatePolicy blueGreenUpdatePolicy) {
+
             this.blueGreenUpdatePolicy = blueGreenUpdatePolicy;
             return this;
         }
         @CustomType.Setter
         public Builder rollingUpdatePolicy(@Nullable EndpointDeploymentConfigRollingUpdatePolicy rollingUpdatePolicy) {
+
             this.rollingUpdatePolicy = rollingUpdatePolicy;
             return this;
         }
         public EndpointDeploymentConfig build() {
-            final var o = new EndpointDeploymentConfig();
-            o.autoRollbackConfiguration = autoRollbackConfiguration;
-            o.blueGreenUpdatePolicy = blueGreenUpdatePolicy;
-            o.rollingUpdatePolicy = rollingUpdatePolicy;
-            return o;
+            final var _resultValue = new EndpointDeploymentConfig();
+            _resultValue.autoRollbackConfiguration = autoRollbackConfiguration;
+            _resultValue.blueGreenUpdatePolicy = blueGreenUpdatePolicy;
+            _resultValue.rollingUpdatePolicy = rollingUpdatePolicy;
+            return _resultValue;
         }
     }
 }

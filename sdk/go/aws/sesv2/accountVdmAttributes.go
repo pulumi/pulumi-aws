@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS SESv2 (Simple Email V2) Account VDM Attributes.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,13 +32,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sesv2.NewAccountVdmAttributes(ctx, "example", &sesv2.AccountVdmAttributesArgs{
+//				VdmEnabled: pulumi.String("ENABLED"),
 //				DashboardAttributes: &sesv2.AccountVdmAttributesDashboardAttributesArgs{
 //					EngagementMetrics: pulumi.String("ENABLED"),
 //				},
 //				GuardianAttributes: &sesv2.AccountVdmAttributesGuardianAttributesArgs{
 //					OptimizedSharedDelivery: pulumi.String("ENABLED"),
 //				},
-//				VdmEnabled: pulumi.String("ENABLED"),
 //			})
 //			if err != nil {
 //				return err
@@ -46,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SESv2 (Simple Email V2) Account VDM Attributes using the word `ses-account-vdm-attributes`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sesv2/accountVdmAttributes:AccountVdmAttributes example ses-account-vdm-attributes
-//
+// $ pulumi import aws:sesv2/accountVdmAttributes:AccountVdmAttributes example ses-account-vdm-attributes
 // ```
 type AccountVdmAttributes struct {
 	pulumi.CustomResourceState

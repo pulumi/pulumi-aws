@@ -305,33 +305,42 @@ class AnomalySubscription(pulumi.CustomResource):
         Provides a CE Anomaly Subscription.
 
         ## Example Usage
+
         ### Basic Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_anomaly_monitor = aws.costexplorer.AnomalyMonitor("testAnomalyMonitor",
+        test = aws.costexplorer.AnomalyMonitor("test",
+            name="AWSServiceMonitor",
             monitor_type="DIMENSIONAL",
             monitor_dimension="SERVICE")
-        test_anomaly_subscription = aws.costexplorer.AnomalySubscription("testAnomalySubscription",
+        test_anomaly_subscription = aws.costexplorer.AnomalySubscription("test",
+            name="DAILYSUBSCRIPTION",
             frequency="DAILY",
-            monitor_arn_lists=[test_anomaly_monitor.arn],
+            monitor_arn_lists=[test.arn],
             subscribers=[aws.costexplorer.AnomalySubscriptionSubscriberArgs(
                 type="EMAIL",
                 address="abc@example.com",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Threshold Expression Example
+
         ### For a Specific Dimension
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.costexplorer.AnomalySubscription("test",
+            name="AWSServiceMonitor",
             frequency="DAILY",
-            monitor_arn_lists=[aws_ce_anomaly_monitor["test"]["arn"]],
+            monitor_arn_lists=[test_aws_ce_anomaly_monitor["arn"]],
             subscribers=[aws.costexplorer.AnomalySubscriptionSubscriberArgs(
                 type="EMAIL",
                 address="abc@example.com",
@@ -344,15 +353,19 @@ class AnomalySubscription(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using an `and` Expression
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.costexplorer.AnomalySubscription("test",
+            name="AWSServiceMonitor",
             frequency="DAILY",
-            monitor_arn_lists=[aws_ce_anomaly_monitor["test"]["arn"]],
+            monitor_arn_lists=[test_aws_ce_anomaly_monitor["arn"]],
             subscribers=[aws.costexplorer.AnomalySubscriptionSubscriberArgs(
                 type="EMAIL",
                 address="abc@example.com",
@@ -376,13 +389,16 @@ class AnomalySubscription(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### SNS Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        cost_anomaly_updates = aws.sns.Topic("costAnomalyUpdates")
+        cost_anomaly_updates = aws.sns.Topic("cost_anomaly_updates", name="CostAnomalyUpdates")
         sns_topic_policy = pulumi.Output.all(cost_anomaly_updates.arn, cost_anomaly_updates.arn).apply(lambda costAnomalyUpdatesArn, costAnomalyUpdatesArn1: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
             statements=[
                 aws.iam.GetPolicyDocumentStatementArgs(
@@ -411,7 +427,7 @@ class AnomalySubscription(pulumi.CustomResource):
                     conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                         test="StringEquals",
                         variable="AWS:SourceOwner",
-                        values=[var["account-id"]],
+                        values=[account_id],
                     )],
                     effect="Allow",
                     principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -424,25 +440,27 @@ class AnomalySubscription(pulumi.CustomResource):
         default = aws.sns.TopicPolicy("default",
             arn=cost_anomaly_updates.arn,
             policy=sns_topic_policy.json)
-        anomaly_monitor = aws.costexplorer.AnomalyMonitor("anomalyMonitor",
+        anomaly_monitor = aws.costexplorer.AnomalyMonitor("anomaly_monitor",
+            name="AWSServiceMonitor",
             monitor_type="DIMENSIONAL",
             monitor_dimension="SERVICE")
-        realtime_subscription = aws.costexplorer.AnomalySubscription("realtimeSubscription",
+        realtime_subscription = aws.costexplorer.AnomalySubscription("realtime_subscription",
+            name="RealtimeAnomalySubscription",
             frequency="IMMEDIATE",
             monitor_arn_lists=[anomaly_monitor.arn],
             subscribers=[aws.costexplorer.AnomalySubscriptionSubscriberArgs(
                 type="SNS",
                 address=cost_anomaly_updates.arn,
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[default]))
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ce_anomaly_subscription` using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
+        $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
         ```
 
         :param str resource_name: The name of the resource.
@@ -465,33 +483,42 @@ class AnomalySubscription(pulumi.CustomResource):
         Provides a CE Anomaly Subscription.
 
         ## Example Usage
+
         ### Basic Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_anomaly_monitor = aws.costexplorer.AnomalyMonitor("testAnomalyMonitor",
+        test = aws.costexplorer.AnomalyMonitor("test",
+            name="AWSServiceMonitor",
             monitor_type="DIMENSIONAL",
             monitor_dimension="SERVICE")
-        test_anomaly_subscription = aws.costexplorer.AnomalySubscription("testAnomalySubscription",
+        test_anomaly_subscription = aws.costexplorer.AnomalySubscription("test",
+            name="DAILYSUBSCRIPTION",
             frequency="DAILY",
-            monitor_arn_lists=[test_anomaly_monitor.arn],
+            monitor_arn_lists=[test.arn],
             subscribers=[aws.costexplorer.AnomalySubscriptionSubscriberArgs(
                 type="EMAIL",
                 address="abc@example.com",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Threshold Expression Example
+
         ### For a Specific Dimension
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.costexplorer.AnomalySubscription("test",
+            name="AWSServiceMonitor",
             frequency="DAILY",
-            monitor_arn_lists=[aws_ce_anomaly_monitor["test"]["arn"]],
+            monitor_arn_lists=[test_aws_ce_anomaly_monitor["arn"]],
             subscribers=[aws.costexplorer.AnomalySubscriptionSubscriberArgs(
                 type="EMAIL",
                 address="abc@example.com",
@@ -504,15 +531,19 @@ class AnomalySubscription(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using an `and` Expression
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.costexplorer.AnomalySubscription("test",
+            name="AWSServiceMonitor",
             frequency="DAILY",
-            monitor_arn_lists=[aws_ce_anomaly_monitor["test"]["arn"]],
+            monitor_arn_lists=[test_aws_ce_anomaly_monitor["arn"]],
             subscribers=[aws.costexplorer.AnomalySubscriptionSubscriberArgs(
                 type="EMAIL",
                 address="abc@example.com",
@@ -536,13 +567,16 @@ class AnomalySubscription(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### SNS Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        cost_anomaly_updates = aws.sns.Topic("costAnomalyUpdates")
+        cost_anomaly_updates = aws.sns.Topic("cost_anomaly_updates", name="CostAnomalyUpdates")
         sns_topic_policy = pulumi.Output.all(cost_anomaly_updates.arn, cost_anomaly_updates.arn).apply(lambda costAnomalyUpdatesArn, costAnomalyUpdatesArn1: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
             statements=[
                 aws.iam.GetPolicyDocumentStatementArgs(
@@ -571,7 +605,7 @@ class AnomalySubscription(pulumi.CustomResource):
                     conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                         test="StringEquals",
                         variable="AWS:SourceOwner",
-                        values=[var["account-id"]],
+                        values=[account_id],
                     )],
                     effect="Allow",
                     principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -584,25 +618,27 @@ class AnomalySubscription(pulumi.CustomResource):
         default = aws.sns.TopicPolicy("default",
             arn=cost_anomaly_updates.arn,
             policy=sns_topic_policy.json)
-        anomaly_monitor = aws.costexplorer.AnomalyMonitor("anomalyMonitor",
+        anomaly_monitor = aws.costexplorer.AnomalyMonitor("anomaly_monitor",
+            name="AWSServiceMonitor",
             monitor_type="DIMENSIONAL",
             monitor_dimension="SERVICE")
-        realtime_subscription = aws.costexplorer.AnomalySubscription("realtimeSubscription",
+        realtime_subscription = aws.costexplorer.AnomalySubscription("realtime_subscription",
+            name="RealtimeAnomalySubscription",
             frequency="IMMEDIATE",
             monitor_arn_lists=[anomaly_monitor.arn],
             subscribers=[aws.costexplorer.AnomalySubscriptionSubscriberArgs(
                 type="SNS",
                 address=cost_anomaly_updates.arn,
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[default]))
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ce_anomaly_subscription` using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
+        $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
         ```
 
         :param str resource_name: The name of the resource.
@@ -651,8 +687,6 @@ class AnomalySubscription(pulumi.CustomResource):
             __props__.__dict__["threshold_expression"] = threshold_expression
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AnomalySubscription, __self__).__init__(
             'aws:costexplorer/anomalySubscription:AnomalySubscription',
             resource_name,

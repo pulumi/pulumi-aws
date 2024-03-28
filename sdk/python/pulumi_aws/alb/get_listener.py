@@ -22,7 +22,7 @@ class GetListenerResult:
     """
     A collection of values returned by getListener.
     """
-    def __init__(__self__, alpn_policy=None, arn=None, certificate_arn=None, default_actions=None, id=None, load_balancer_arn=None, port=None, protocol=None, ssl_policy=None, tags=None):
+    def __init__(__self__, alpn_policy=None, arn=None, certificate_arn=None, default_actions=None, id=None, load_balancer_arn=None, mutual_authentications=None, port=None, protocol=None, ssl_policy=None, tags=None):
         if alpn_policy and not isinstance(alpn_policy, str):
             raise TypeError("Expected argument 'alpn_policy' to be a str")
         pulumi.set(__self__, "alpn_policy", alpn_policy)
@@ -41,6 +41,9 @@ class GetListenerResult:
         if load_balancer_arn and not isinstance(load_balancer_arn, str):
             raise TypeError("Expected argument 'load_balancer_arn' to be a str")
         pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
+        if mutual_authentications and not isinstance(mutual_authentications, list):
+            raise TypeError("Expected argument 'mutual_authentications' to be a list")
+        pulumi.set(__self__, "mutual_authentications", mutual_authentications)
         if port and not isinstance(port, int):
             raise TypeError("Expected argument 'port' to be a int")
         pulumi.set(__self__, "port", port)
@@ -88,6 +91,11 @@ class GetListenerResult:
         return pulumi.get(self, "load_balancer_arn")
 
     @property
+    @pulumi.getter(name="mutualAuthentications")
+    def mutual_authentications(self) -> Sequence['outputs.GetListenerMutualAuthenticationResult']:
+        return pulumi.get(self, "mutual_authentications")
+
+    @property
     @pulumi.getter
     def port(self) -> int:
         return pulumi.get(self, "port")
@@ -120,6 +128,7 @@ class AwaitableGetListenerResult(GetListenerResult):
             default_actions=self.default_actions,
             id=self.id,
             load_balancer_arn=self.load_balancer_arn,
+            mutual_authentications=self.mutual_authentications,
             port=self.port,
             protocol=self.protocol,
             ssl_policy=self.ssl_policy,
@@ -140,6 +149,7 @@ def get_listener(arn: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -147,10 +157,12 @@ def get_listener(arn: Optional[str] = None,
     config = pulumi.Config()
     listener_arn = config.require("listenerArn")
     listener = aws.lb.get_listener(arn=listener_arn)
+    # get listener from load_balancer_arn and port
     selected = aws.lb.get_load_balancer(name="default-public")
     selected443 = aws.lb.get_listener(load_balancer_arn=selected.arn,
         port=443)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
@@ -172,6 +184,7 @@ def get_listener(arn: Optional[str] = None,
         default_actions=pulumi.get(__ret__, 'default_actions'),
         id=pulumi.get(__ret__, 'id'),
         load_balancer_arn=pulumi.get(__ret__, 'load_balancer_arn'),
+        mutual_authentications=pulumi.get(__ret__, 'mutual_authentications'),
         port=pulumi.get(__ret__, 'port'),
         protocol=pulumi.get(__ret__, 'protocol'),
         ssl_policy=pulumi.get(__ret__, 'ssl_policy'),
@@ -193,6 +206,7 @@ def get_listener_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -200,10 +214,12 @@ def get_listener_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     config = pulumi.Config()
     listener_arn = config.require("listenerArn")
     listener = aws.lb.get_listener(arn=listener_arn)
+    # get listener from load_balancer_arn and port
     selected = aws.lb.get_load_balancer(name="default-public")
     selected443 = aws.lb.get_listener(load_balancer_arn=selected.arn,
         port=443)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the listener. Required if `load_balancer_arn` and `port` is not set.

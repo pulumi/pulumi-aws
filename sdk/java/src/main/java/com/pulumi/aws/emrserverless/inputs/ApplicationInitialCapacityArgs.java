@@ -6,6 +6,7 @@ package com.pulumi.aws.emrserverless.inputs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationInitialCapacityInitialCapacityConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class ApplicationInitialCapacityArgs extends com.pulumi.resources.R
         }
 
         public ApplicationInitialCapacityArgs build() {
-            $.initialCapacityType = Objects.requireNonNull($.initialCapacityType, "expected parameter 'initialCapacityType' to be non-null");
+            if ($.initialCapacityType == null) {
+                throw new MissingRequiredPropertyException("ApplicationInitialCapacityArgs", "initialCapacityType");
+            }
             return $;
         }
     }

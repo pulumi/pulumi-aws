@@ -15,8 +15,10 @@ import (
 // Provides a SageMaker App resource.
 //
 // ## Example Usage
+//
 // ### Basic usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,8 +32,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewApp(ctx, "example", &sagemaker.AppArgs{
-//				DomainId:        pulumi.Any(aws_sagemaker_domain.Example.Id),
-//				UserProfileName: pulumi.Any(aws_sagemaker_user_profile.Example.User_profile_name),
+//				DomainId:        pulumi.Any(exampleAwsSagemakerDomain.Id),
+//				UserProfileName: pulumi.Any(exampleAwsSagemakerUserProfile.UserProfileName),
 //				AppName:         pulumi.String("example"),
 //				AppType:         pulumi.String("JupyterServer"),
 //			})
@@ -43,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SageMaker Apps using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
-//
+// $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
 // ```
 type App struct {
 	pulumi.CustomResourceState
@@ -94,10 +95,6 @@ func NewApp(ctx *pulumi.Context,
 	if args.DomainId == nil {
 		return nil, errors.New("invalid value for required argument 'DomainId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource App
 	err := ctx.RegisterResource("aws:sagemaker/app:App", name, args, &resource, opts...)

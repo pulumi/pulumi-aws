@@ -13,32 +13,42 @@ import * as utilities from "../utilities";
  * > **Note:** Amazon API Gateway Version 2 resources are used for creating and deploying WebSocket and HTTP APIs. To create and deploy REST APIs, use Amazon API Gateway Version 1 resources.
  *
  * ## Example Usage
+ *
  * ### Basic WebSocket API
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigatewayv2.Api("example", {
+ *     name: "example-websocket-api",
  *     protocolType: "WEBSOCKET",
  *     routeSelectionExpression: "$request.body.action",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Basic HTTP API
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.apigatewayv2.Api("example", {protocolType: "HTTP"});
+ * const example = new aws.apigatewayv2.Api("example", {
+ *     name: "example-http-api",
+ *     protocolType: "HTTP",
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_apigatewayv2_api` using the API identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigatewayv2/api:Api example aabbccddee
+ * $ pulumi import aws:apigatewayv2/api:Api example aabbccddee
  * ```
  */
 export class Api extends pulumi.CustomResource {
@@ -209,8 +219,6 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Api.__pulumiType, name, resourceInputs, opts);
     }
 }

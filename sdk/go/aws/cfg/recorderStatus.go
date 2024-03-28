@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,24 +35,6 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			fooDeliveryChannel, err := cfg.NewDeliveryChannel(ctx, "fooDeliveryChannel", &cfg.DeliveryChannelArgs{
-//				S3BucketName: bucketV2.Bucket,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cfg.NewRecorderStatus(ctx, "fooRecorderStatus", &cfg.RecorderStatusArgs{
-//				IsEnabled: pulumi.Bool(true),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				fooDeliveryChannel,
-//			}))
-//			if err != nil {
-//				return err
-//			}
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
@@ -73,26 +56,48 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//			r, err := iam.NewRole(ctx, "r", &iam.RoleArgs{
+//				Name:             pulumi.String("example-awsconfig"),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "rolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-//				Role:      role.Name,
+//			fooRecorder, err := cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
+//				Name:    pulumi.String("example"),
+//				RoleArn: r.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cfg.NewRecorderStatus(ctx, "foo", &cfg.RecorderStatusArgs{
+//				Name:      fooRecorder.Name,
+//				IsEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicyAttachment(ctx, "a", &iam.RolePolicyAttachmentArgs{
+//				Role:      r.Name,
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWS_ConfigRole"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cfg.NewRecorder(ctx, "fooRecorder", &cfg.RecorderArgs{
-//				RoleArn: role.Arn,
+//			b, err := s3.NewBucketV2(ctx, "b", &s3.BucketV2Args{
+//				Bucket: pulumi.String("awsconfig-example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			policyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//			_, err = cfg.NewDeliveryChannel(ctx, "foo", &cfg.DeliveryChannelArgs{
+//				Name:         pulumi.String("example"),
+//				S3BucketName: b.Bucket,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			p := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
 //						Effect: pulumi.String("Allow"),
@@ -100,18 +105,19 @@ import (
 //							pulumi.String("s3:*"),
 //						},
 //						Resources: pulumi.StringArray{
-//							bucketV2.Arn,
-//							bucketV2.Arn.ApplyT(func(arn string) (string, error) {
+//							b.Arn,
+//							b.Arn.ApplyT(func(arn string) (string, error) {
 //								return fmt.Sprintf("%v/*", arn), nil
 //							}).(pulumi.StringOutput),
 //						},
 //					},
 //				},
 //			}, nil)
-//			_, err = iam.NewRolePolicy(ctx, "rolePolicy", &iam.RolePolicyArgs{
-//				Role: role.ID(),
-//				Policy: policyDocument.ApplyT(func(policyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &policyDocument.Json, nil
+//			_, err = iam.NewRolePolicy(ctx, "p", &iam.RolePolicyArgs{
+//				Name: pulumi.String("awsconfig-example"),
+//				Role: r.ID(),
+//				Policy: p.ApplyT(func(p iam.GetPolicyDocumentResult) (*string, error) {
+//					return &p.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
@@ -122,15 +128,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
-//
+// $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
 // ```
 type RecorderStatus struct {
 	pulumi.CustomResourceState

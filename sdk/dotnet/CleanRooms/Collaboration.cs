@@ -14,8 +14,10 @@ namespace Pulumi.Aws.CleanRooms
     /// join the collaboration and can create memberships.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Collaboration with tags
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,14 +26,17 @@ namespace Pulumi.Aws.CleanRooms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testCollaboration = new Aws.CleanRooms.Collaboration("testCollaboration", new()
+    ///     var testCollaboration = new Aws.CleanRooms.Collaboration("test_collaboration", new()
     ///     {
-    ///         CreatorDisplayName = "Creator ",
+    ///         Name = "pulumi-example-collaboration",
     ///         CreatorMemberAbilities = new[]
     ///         {
     ///             "CAN_QUERY",
     ///             "CAN_RECEIVE_RESULTS",
     ///         },
+    ///         CreatorDisplayName = "Creator ",
+    ///         Description = "I made this collaboration with Pulumi!",
+    ///         QueryLogStatus = "DISABLED",
     ///         DataEncryptionMetadata = new Aws.CleanRooms.Inputs.CollaborationDataEncryptionMetadataArgs
     ///         {
     ///             AllowClearText = true,
@@ -39,7 +44,6 @@ namespace Pulumi.Aws.CleanRooms
     ///             AllowJoinsOnColumnsWithDifferentNames = true,
     ///             PreserveNulls = false,
     ///         },
-    ///         Description = "I made this collaboration with Pulumi!",
     ///         Members = new[]
     ///         {
     ///             new Aws.CleanRooms.Inputs.CollaborationMemberArgs
@@ -49,7 +53,6 @@ namespace Pulumi.Aws.CleanRooms
     ///                 MemberAbilities = new() { },
     ///             },
     ///         },
-    ///         QueryLogStatus = "DISABLED",
     ///         Tags = 
     ///         {
     ///             { "Project", "Pulumi" },
@@ -58,13 +61,14 @@ namespace Pulumi.Aws.CleanRooms
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_cleanrooms_collaboration` using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
+    /// $ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
     /// ```
     /// </summary>
     [AwsResourceType("aws:cleanrooms/collaboration:Collaboration")]
@@ -172,10 +176,6 @@ namespace Pulumi.Aws.CleanRooms
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -382,11 +382,7 @@ namespace Pulumi.Aws.CleanRooms
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("updateTime")]

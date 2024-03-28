@@ -152,22 +152,26 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.dax.SubnetGroup("example", subnet_ids=[
-            aws_subnet["example1"]["id"],
-            aws_subnet["example2"]["id"],
-        ])
+        example = aws.dax.SubnetGroup("example",
+            name="example",
+            subnet_ids=[
+                example1["id"],
+                example2["id"],
+            ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DAX Subnet Group using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
+        $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
         ```
 
         :param str resource_name: The name of the resource.
@@ -187,22 +191,26 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.dax.SubnetGroup("example", subnet_ids=[
-            aws_subnet["example1"]["id"],
-            aws_subnet["example2"]["id"],
-        ])
+        example = aws.dax.SubnetGroup("example",
+            name="example",
+            subnet_ids=[
+                example1["id"],
+                example2["id"],
+            ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DAX Subnet Group using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
+        $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
         ```
 
         :param str resource_name: The name of the resource.

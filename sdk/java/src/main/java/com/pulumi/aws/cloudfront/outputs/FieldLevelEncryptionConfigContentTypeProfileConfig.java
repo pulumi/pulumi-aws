@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.aws.cloudfront.outputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -57,19 +58,25 @@ public final class FieldLevelEncryptionConfigContentTypeProfileConfig {
 
         @CustomType.Setter
         public Builder contentTypeProfiles(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles contentTypeProfiles) {
-            this.contentTypeProfiles = Objects.requireNonNull(contentTypeProfiles);
+            if (contentTypeProfiles == null) {
+              throw new MissingRequiredPropertyException("FieldLevelEncryptionConfigContentTypeProfileConfig", "contentTypeProfiles");
+            }
+            this.contentTypeProfiles = contentTypeProfiles;
             return this;
         }
         @CustomType.Setter
         public Builder forwardWhenContentTypeIsUnknown(Boolean forwardWhenContentTypeIsUnknown) {
-            this.forwardWhenContentTypeIsUnknown = Objects.requireNonNull(forwardWhenContentTypeIsUnknown);
+            if (forwardWhenContentTypeIsUnknown == null) {
+              throw new MissingRequiredPropertyException("FieldLevelEncryptionConfigContentTypeProfileConfig", "forwardWhenContentTypeIsUnknown");
+            }
+            this.forwardWhenContentTypeIsUnknown = forwardWhenContentTypeIsUnknown;
             return this;
         }
         public FieldLevelEncryptionConfigContentTypeProfileConfig build() {
-            final var o = new FieldLevelEncryptionConfigContentTypeProfileConfig();
-            o.contentTypeProfiles = contentTypeProfiles;
-            o.forwardWhenContentTypeIsUnknown = forwardWhenContentTypeIsUnknown;
-            return o;
+            final var _resultValue = new FieldLevelEncryptionConfigContentTypeProfileConfig();
+            _resultValue.contentTypeProfiles = contentTypeProfiles;
+            _resultValue.forwardWhenContentTypeIsUnknown = forwardWhenContentTypeIsUnknown;
+            return _resultValue;
         }
     }
 }

@@ -371,23 +371,26 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
         > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         app = aws.pinpoint.App("app")
-        apns_voip_sandbox = aws.pinpoint.ApnsVoipSandboxChannel("apnsVoipSandbox",
+        apns_voip_sandbox = aws.pinpoint.ApnsVoipSandboxChannel("apns_voip_sandbox",
             application_id=app.application_id,
-            certificate=(lambda path: open(path).read())("./certificate.pem"),
-            private_key=(lambda path: open(path).read())("./private_key.key"))
+            certificate=std.file(input="./certificate.pem").result,
+            private_key=std.file(input="./private_key.key").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For example:
 
         ```sh
-         $ pulumi import aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel apns_voip_sandbox application-id
+        $ pulumi import aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel apns_voip_sandbox application-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -423,23 +426,26 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
         > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         app = aws.pinpoint.App("app")
-        apns_voip_sandbox = aws.pinpoint.ApnsVoipSandboxChannel("apnsVoipSandbox",
+        apns_voip_sandbox = aws.pinpoint.ApnsVoipSandboxChannel("apns_voip_sandbox",
             application_id=app.application_id,
-            certificate=(lambda path: open(path).read())("./certificate.pem"),
-            private_key=(lambda path: open(path).read())("./private_key.key"))
+            certificate=std.file(input="./certificate.pem").result,
+            private_key=std.file(input="./private_key.key").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For example:
 
         ```sh
-         $ pulumi import aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel apns_voip_sandbox application-id
+        $ pulumi import aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel apns_voip_sandbox application-id
         ```
 
         :param str resource_name: The name of the resource.

@@ -13,8 +13,10 @@ namespace Pulumi.Aws.MediaLive
     /// Resource for managing an AWS MediaLive Channel.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,8 +27,9 @@ namespace Pulumi.Aws.MediaLive
     /// {
     ///     var example = new Aws.MediaLive.Channel("example", new()
     ///     {
+    ///         Name = "example-channel",
     ///         ChannelClass = "STANDARD",
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         InputSpecification = new Aws.MediaLive.Inputs.ChannelInputSpecificationArgs
     ///         {
     ///             Codec = "AVC",
@@ -38,7 +41,7 @@ namespace Pulumi.Aws.MediaLive
     ///             new Aws.MediaLive.Inputs.ChannelInputAttachmentArgs
     ///             {
     ///                 InputAttachmentName = "example-input",
-    ///                 InputId = aws_medialive_input.Example.Id,
+    ///                 InputId = exampleAwsMedialiveInput.Id,
     ///             },
     ///         },
     ///         Destinations = new[]
@@ -50,11 +53,11 @@ namespace Pulumi.Aws.MediaLive
     ///                 {
     ///                     new Aws.MediaLive.Inputs.ChannelDestinationSettingArgs
     ///                     {
-    ///                         Url = $"s3://{aws_s3_bucket.Main.Id}/test1",
+    ///                         Url = $"s3://{main.Id}/test1",
     ///                     },
     ///                     new Aws.MediaLive.Inputs.ChannelDestinationSettingArgs
     ///                     {
-    ///                         Url = $"s3://{aws_s3_bucket.Main2.Id}/test2",
+    ///                         Url = $"s3://{main2.Id}/test2",
     ///                     },
     ///                 },
     ///             },
@@ -133,13 +136,14 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MediaLive Channel using the `channel_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:medialive/channel:Channel example 1234567
+    /// $ pulumi import aws:medialive/channel:Channel example 1234567
     /// ```
     /// </summary>
     [AwsResourceType("aws:medialive/channel:Channel")]
@@ -263,10 +267,6 @@ namespace Pulumi.Aws.MediaLive
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -506,11 +506,7 @@ namespace Pulumi.Aws.MediaLive
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

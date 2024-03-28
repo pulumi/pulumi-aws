@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,28 +23,29 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var example = new Aws.Ec2.Vpc("example", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///         EnableDnsSupport = true,
     ///         EnableDnsHostnames = true,
     ///     });
     /// 
-    ///     var exampleResolverFirewallConfig = new Aws.Route53.ResolverFirewallConfig("exampleResolverFirewallConfig", new()
+    ///     var exampleResolverFirewallConfig = new Aws.Route53.ResolverFirewallConfig("example", new()
     ///     {
-    ///         ResourceId = exampleVpc.Id,
+    ///         ResourceId = example.Id,
     ///         FirewallFailOpen = "ENABLED",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53/resolverFirewallConfig:ResolverFirewallConfig example rdsc-be1866ecc1683e95
+    /// $ pulumi import aws:route53/resolverFirewallConfig:ResolverFirewallConfig example rdsc-be1866ecc1683e95
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverFirewallConfig:ResolverFirewallConfig")]

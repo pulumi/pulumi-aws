@@ -6,6 +6,7 @@ package com.pulumi.aws.ecs.inputs;
 import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -226,7 +227,9 @@ public final class TaskDefinitionVolumeEfsVolumeConfigurationArgs extends com.pu
         }
 
         public TaskDefinitionVolumeEfsVolumeConfigurationArgs build() {
-            $.fileSystemId = Objects.requireNonNull($.fileSystemId, "expected parameter 'fileSystemId' to be non-null");
+            if ($.fileSystemId == null) {
+                throw new MissingRequiredPropertyException("TaskDefinitionVolumeEfsVolumeConfigurationArgs", "fileSystemId");
+            }
             return $;
         }
     }

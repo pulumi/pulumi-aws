@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,7 +22,10 @@ import javax.annotation.Nullable;
  * &gt; This resource can take a significant amount of time to provision. See Language Model [FAQ](https://aws.amazon.com/transcribe/faqs/) for more details.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -58,7 +60,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(&#34;sts:AssumeRole&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -69,26 +71,29 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .name(&#34;example&#34;)
+ *             .assumeRolePolicy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var testPolicy = new RolePolicy(&#34;testPolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .role(exampleRole.id())
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, jsonArray(
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;action&#34;, jsonArray(
  *                             &#34;s3:GetObject&#34;, 
  *                             &#34;s3:ListBucket&#34;
  *                         )),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Resource&#34;, jsonArray(&#34;*&#34;))
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;resource&#34;, jsonArray(&#34;*&#34;))
  *                     )))
  *                 )))
  *             .build());
  * 
  *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example-transcribe&#34;)
  *             .forceDestroy(true)
  *             .build());
  * 
@@ -112,13 +117,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Transcribe LanguageModel using the `model_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
+ * $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
  * ```
  * 
  */
@@ -253,9 +259,6 @@ public class LanguageModel extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

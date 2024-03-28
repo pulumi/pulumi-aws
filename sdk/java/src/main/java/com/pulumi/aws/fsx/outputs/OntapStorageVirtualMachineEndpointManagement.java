@@ -59,11 +59,13 @@ public final class OntapStorageVirtualMachineEndpointManagement {
 
         @CustomType.Setter
         public Builder dnsName(@Nullable String dnsName) {
+
             this.dnsName = dnsName;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddresses(@Nullable List<String> ipAddresses) {
+
             this.ipAddresses = ipAddresses;
             return this;
         }
@@ -71,10 +73,10 @@ public final class OntapStorageVirtualMachineEndpointManagement {
             return ipAddresses(List.of(ipAddresses));
         }
         public OntapStorageVirtualMachineEndpointManagement build() {
-            final var o = new OntapStorageVirtualMachineEndpointManagement();
-            o.dnsName = dnsName;
-            o.ipAddresses = ipAddresses;
-            return o;
+            final var _resultValue = new OntapStorageVirtualMachineEndpointManagement();
+            _resultValue.dnsName = dnsName;
+            _resultValue.ipAddresses = ipAddresses;
+            return _resultValue;
         }
     }
 }

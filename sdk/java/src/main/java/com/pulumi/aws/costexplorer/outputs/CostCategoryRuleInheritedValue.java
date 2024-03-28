@@ -58,19 +58,21 @@ public final class CostCategoryRuleInheritedValue {
 
         @CustomType.Setter
         public Builder dimensionKey(@Nullable String dimensionKey) {
+
             this.dimensionKey = dimensionKey;
             return this;
         }
         @CustomType.Setter
         public Builder dimensionName(@Nullable String dimensionName) {
+
             this.dimensionName = dimensionName;
             return this;
         }
         public CostCategoryRuleInheritedValue build() {
-            final var o = new CostCategoryRuleInheritedValue();
-            o.dimensionKey = dimensionKey;
-            o.dimensionName = dimensionName;
-            return o;
+            final var _resultValue = new CostCategoryRuleInheritedValue();
+            _resultValue.dimensionKey = dimensionKey;
+            _resultValue.dimensionName = dimensionName;
+            return _resultValue;
         }
     }
 }

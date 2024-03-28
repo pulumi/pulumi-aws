@@ -12,12 +12,30 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
  *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.devicefarm.TestGridProject("example", {
+ *     name: "example",
+ *     vpcConfig: {
+ *         vpcId: exampleAwsVpc.id,
+ *         subnetIds: exampleAwsSubnet.map(__item => __item.id),
+ *         securityGroupIds: exampleAwsSecurityGroup.map(__item => __item.id),
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Import
  *
  * Using `pulumi import`, import DeviceFarm Test Grid Projects using their ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:devicefarm/testGridProject:TestGridProject example arn:aws:devicefarm:us-west-2:123456789012:testgrid-project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+ * $ pulumi import aws:devicefarm/testGridProject:TestGridProject example arn:aws:devicefarm:us-west-2:123456789012:testgrid-project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
  * ```
  */
 export class TestGridProject extends pulumi.CustomResource {
@@ -104,8 +122,6 @@ export class TestGridProject extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(TestGridProject.__pulumiType, name, resourceInputs, opts);
     }
 }

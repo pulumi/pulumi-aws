@@ -393,12 +393,13 @@ class SigningJob(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_sp = aws.signer.SigningProfile("testSp", platform_id="AWSLambda-SHA384-ECDSA")
-        build_signing_job = aws.signer.SigningJob("buildSigningJob",
+        test_sp = aws.signer.SigningProfile("test_sp", platform_id="AWSLambda-SHA384-ECDSA")
+        build_signing_job = aws.signer.SigningJob("build_signing_job",
             profile_name=test_sp.name,
             source=aws.signer.SigningJobSourceArgs(
                 s3=aws.signer.SigningJobSourceS3Args(
@@ -415,13 +416,14 @@ class SigningJob(pulumi.CustomResource):
             ),
             ignore_signing_job_failure=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Signer signing jobs using the `job_id`. For example:
 
         ```sh
-         $ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
+        $ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
         ```
 
         :param str resource_name: The name of the resource.
@@ -442,12 +444,13 @@ class SigningJob(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_sp = aws.signer.SigningProfile("testSp", platform_id="AWSLambda-SHA384-ECDSA")
-        build_signing_job = aws.signer.SigningJob("buildSigningJob",
+        test_sp = aws.signer.SigningProfile("test_sp", platform_id="AWSLambda-SHA384-ECDSA")
+        build_signing_job = aws.signer.SigningJob("build_signing_job",
             profile_name=test_sp.name,
             source=aws.signer.SigningJobSourceArgs(
                 s3=aws.signer.SigningJobSourceS3Args(
@@ -464,13 +467,14 @@ class SigningJob(pulumi.CustomResource):
             ),
             ignore_signing_job_failure=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Signer signing jobs using the `job_id`. For example:
 
         ```sh
-         $ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
+        $ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
         ```
 
         :param str resource_name: The name of the resource.

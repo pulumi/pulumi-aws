@@ -12,24 +12,27 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.ecr.Repository("foo", {
+ *     name: "bar",
+ *     imageTagMutability: "MUTABLE",
  *     imageScanningConfiguration: {
  *         scanOnPush: true,
  *     },
- *     imageTagMutability: "MUTABLE",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ECR Repositories using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ecr/repository:Repository service test-service
+ * $ pulumi import aws:ecr/repository:Repository service test-service
  * ```
  */
 export class Repository extends pulumi.CustomResource {
@@ -141,8 +144,6 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Repository.__pulumiType, name, resourceInputs, opts);
     }
 }

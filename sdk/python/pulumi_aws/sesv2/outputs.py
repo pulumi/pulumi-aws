@@ -786,12 +786,12 @@ class ContactListTopic(dict):
                  topic_name: str,
                  description: Optional[str] = None):
         """
-        :param str default_subscription_status: The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
-        :param str display_name: The name of the topic the contact will see.
-        :param str topic_name: The name of the topic.
+        :param str default_subscription_status: Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+        :param str display_name: Name of the topic the contact will see.
+        :param str topic_name: Name of the topic.
                
                The following arguments are optional:
-        :param str description: A description of what the topic is about, which the contact will see.
+        :param str description: Description of what the topic is about, which the contact will see.
         """
         pulumi.set(__self__, "default_subscription_status", default_subscription_status)
         pulumi.set(__self__, "display_name", display_name)
@@ -803,7 +803,7 @@ class ContactListTopic(dict):
     @pulumi.getter(name="defaultSubscriptionStatus")
     def default_subscription_status(self) -> str:
         """
-        The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+        Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
         """
         return pulumi.get(self, "default_subscription_status")
 
@@ -811,7 +811,7 @@ class ContactListTopic(dict):
     @pulumi.getter(name="displayName")
     def display_name(self) -> str:
         """
-        The name of the topic the contact will see.
+        Name of the topic the contact will see.
         """
         return pulumi.get(self, "display_name")
 
@@ -819,7 +819,7 @@ class ContactListTopic(dict):
     @pulumi.getter(name="topicName")
     def topic_name(self) -> str:
         """
-        The name of the topic.
+        Name of the topic.
 
         The following arguments are optional:
         """
@@ -829,7 +829,7 @@ class ContactListTopic(dict):
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        A description of what the topic is about, which the contact will see.
+        Description of what the topic is about, which the contact will see.
         """
         return pulumi.get(self, "description")
 

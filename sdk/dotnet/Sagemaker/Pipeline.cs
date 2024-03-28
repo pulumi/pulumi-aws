@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Sagemaker
     /// Provides a SageMaker Pipeline resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,19 +30,19 @@ namespace Pulumi.Aws.Sagemaker
     ///     {
     ///         PipelineName = "example",
     ///         PipelineDisplayName = "example",
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         PipelineDefinition = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2020-12-01",
-    ///             ["Steps"] = new[]
+    ///             ["version"] = "2020-12-01",
+    ///             ["steps"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Name"] = "Test",
-    ///                     ["Type"] = "Fail",
-    ///                     ["Arguments"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["name"] = "Test",
+    ///                     ["type"] = "Fail",
+    ///                     ["arguments"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["ErrorMessage"] = "test",
+    ///                         ["errorMessage"] = "test",
     ///                     },
     ///                 },
     ///             },
@@ -49,13 +51,14 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import pipelines using the `pipeline_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
+    /// $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/pipeline:Pipeline")]
@@ -144,10 +147,6 @@ namespace Pulumi.Aws.Sagemaker
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -303,11 +302,7 @@ namespace Pulumi.Aws.Sagemaker
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public PipelineState()

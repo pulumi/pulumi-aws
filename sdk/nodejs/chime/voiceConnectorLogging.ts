@@ -9,24 +9,29 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultVoiceConnector = new aws.chime.VoiceConnector("defaultVoiceConnector", {requireEncryption: true});
- * const defaultVoiceConnectorLogging = new aws.chime.VoiceConnectorLogging("defaultVoiceConnectorLogging", {
+ * const _default = new aws.chime.VoiceConnector("default", {
+ *     name: "vc-name-test",
+ *     requireEncryption: true,
+ * });
+ * const defaultVoiceConnectorLogging = new aws.chime.VoiceConnectorLogging("default", {
  *     enableSipLogs: true,
  *     enableMediaMetricLogs: true,
- *     voiceConnectorId: defaultVoiceConnector.id,
+ *     voiceConnectorId: _default.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Chime Voice Connector Logging using the `voice_connector_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4
+ * $ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4
  * ```
  */
 export class VoiceConnectorLogging extends pulumi.CustomResource {

@@ -17,8 +17,10 @@ namespace Pulumi.Aws.Glacier
     /// !&gt; **WARNING:** Once a Glacier Vault Lock is completed, it is immutable. The deletion of the Glacier Vault Lock is not be possible and attempting to remove it from this provider will return an error. Set the `ignore_deletion_error` argument to `true` and apply this configuration before attempting to delete this resource via this provider or remove this resource from this provider's management.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Testing Glacier Vault Lock Policy
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,9 +29,12 @@ namespace Pulumi.Aws.Glacier
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVault = new Aws.Glacier.Vault("exampleVault");
+    ///     var exampleVault = new Aws.Glacier.Vault("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -60,17 +65,20 @@ namespace Pulumi.Aws.Glacier
     ///         },
     ///     });
     /// 
-    ///     var exampleVaultLock = new Aws.Glacier.VaultLock("exampleVaultLock", new()
+    ///     var exampleVaultLock = new Aws.Glacier.VaultLock("example", new()
     ///     {
     ///         CompleteLock = false,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///         VaultName = exampleVault.Name,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Permanently Applying Glacier Vault Lock Policy
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -82,19 +90,20 @@ namespace Pulumi.Aws.Glacier
     ///     var example = new Aws.Glacier.VaultLock("example", new()
     ///     {
     ///         CompleteLock = true,
-    ///         Policy = data.Aws_iam_policy_document.Example.Json,
-    ///         VaultName = aws_glacier_vault.Example.Name,
+    ///         Policy = exampleAwsIamPolicyDocument.Json,
+    ///         VaultName = exampleAwsGlacierVault.Name,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glacier Vault Locks using the Glacier Vault name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:glacier/vaultLock:VaultLock example example-vault
+    /// $ pulumi import aws:glacier/vaultLock:VaultLock example example-vault
     /// ```
     /// </summary>
     [AwsResourceType("aws:glacier/vaultLock:VaultLock")]

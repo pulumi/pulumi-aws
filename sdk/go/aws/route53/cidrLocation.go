@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,12 +29,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCidrCollection, err := route53.NewCidrCollection(ctx, "exampleCidrCollection", nil)
+//			example, err := route53.NewCidrCollection(ctx, "example", &route53.CidrCollectionArgs{
+//				Name: pulumi.String("collection-1"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = route53.NewCidrLocation(ctx, "exampleCidrLocation", &route53.CidrLocationArgs{
-//				CidrCollectionId: exampleCidrCollection.ID(),
+//			_, err = route53.NewCidrLocation(ctx, "example", &route53.CidrLocationArgs{
+//				CidrCollectionId: example.ID(),
+//				Name:             pulumi.String("office"),
 //				CidrBlocks: pulumi.StringArray{
 //					pulumi.String("200.5.3.0/24"),
 //					pulumi.String("200.6.3.0/24"),
@@ -47,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CIDR locations using their the CIDR collection ID and location name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53/cidrLocation:CidrLocation example 9ac32814-3e67-0932-6048-8d779cc6f511,office
-//
+// $ pulumi import aws:route53/cidrLocation:CidrLocation example 9ac32814-3e67-0932-6048-8d779cc6f511,office
 // ```
 type CidrLocation struct {
 	pulumi.CustomResourceState

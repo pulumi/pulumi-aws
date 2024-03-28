@@ -45,6 +45,10 @@ public final class DomainClusterConfig {
      * 
      */
     private @Nullable String instanceType;
+    /**
+     * @return Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
+     * 
+     */
     private @Nullable Boolean multiAzWithStandbyEnabled;
     /**
      * @return Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
@@ -115,6 +119,10 @@ public final class DomainClusterConfig {
     public Optional<String> instanceType() {
         return Optional.ofNullable(this.instanceType);
     }
+    /**
+     * @return Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
+     * 
+     */
     public Optional<Boolean> multiAzWithStandbyEnabled() {
         return Optional.ofNullable(this.multiAzWithStandbyEnabled);
     }
@@ -194,79 +202,91 @@ public final class DomainClusterConfig {
 
         @CustomType.Setter
         public Builder coldStorageOptions(@Nullable DomainClusterConfigColdStorageOptions coldStorageOptions) {
+
             this.coldStorageOptions = coldStorageOptions;
             return this;
         }
         @CustomType.Setter
         public Builder dedicatedMasterCount(@Nullable Integer dedicatedMasterCount) {
+
             this.dedicatedMasterCount = dedicatedMasterCount;
             return this;
         }
         @CustomType.Setter
         public Builder dedicatedMasterEnabled(@Nullable Boolean dedicatedMasterEnabled) {
+
             this.dedicatedMasterEnabled = dedicatedMasterEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder dedicatedMasterType(@Nullable String dedicatedMasterType) {
+
             this.dedicatedMasterType = dedicatedMasterType;
             return this;
         }
         @CustomType.Setter
         public Builder instanceCount(@Nullable Integer instanceCount) {
+
             this.instanceCount = instanceCount;
             return this;
         }
         @CustomType.Setter
         public Builder instanceType(@Nullable String instanceType) {
+
             this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder multiAzWithStandbyEnabled(@Nullable Boolean multiAzWithStandbyEnabled) {
+
             this.multiAzWithStandbyEnabled = multiAzWithStandbyEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder warmCount(@Nullable Integer warmCount) {
+
             this.warmCount = warmCount;
             return this;
         }
         @CustomType.Setter
         public Builder warmEnabled(@Nullable Boolean warmEnabled) {
+
             this.warmEnabled = warmEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder warmType(@Nullable String warmType) {
+
             this.warmType = warmType;
             return this;
         }
         @CustomType.Setter
         public Builder zoneAwarenessConfig(@Nullable DomainClusterConfigZoneAwarenessConfig zoneAwarenessConfig) {
+
             this.zoneAwarenessConfig = zoneAwarenessConfig;
             return this;
         }
         @CustomType.Setter
         public Builder zoneAwarenessEnabled(@Nullable Boolean zoneAwarenessEnabled) {
+
             this.zoneAwarenessEnabled = zoneAwarenessEnabled;
             return this;
         }
         public DomainClusterConfig build() {
-            final var o = new DomainClusterConfig();
-            o.coldStorageOptions = coldStorageOptions;
-            o.dedicatedMasterCount = dedicatedMasterCount;
-            o.dedicatedMasterEnabled = dedicatedMasterEnabled;
-            o.dedicatedMasterType = dedicatedMasterType;
-            o.instanceCount = instanceCount;
-            o.instanceType = instanceType;
-            o.multiAzWithStandbyEnabled = multiAzWithStandbyEnabled;
-            o.warmCount = warmCount;
-            o.warmEnabled = warmEnabled;
-            o.warmType = warmType;
-            o.zoneAwarenessConfig = zoneAwarenessConfig;
-            o.zoneAwarenessEnabled = zoneAwarenessEnabled;
-            return o;
+            final var _resultValue = new DomainClusterConfig();
+            _resultValue.coldStorageOptions = coldStorageOptions;
+            _resultValue.dedicatedMasterCount = dedicatedMasterCount;
+            _resultValue.dedicatedMasterEnabled = dedicatedMasterEnabled;
+            _resultValue.dedicatedMasterType = dedicatedMasterType;
+            _resultValue.instanceCount = instanceCount;
+            _resultValue.instanceType = instanceType;
+            _resultValue.multiAzWithStandbyEnabled = multiAzWithStandbyEnabled;
+            _resultValue.warmCount = warmCount;
+            _resultValue.warmEnabled = warmEnabled;
+            _resultValue.warmType = warmType;
+            _resultValue.zoneAwarenessConfig = zoneAwarenessConfig;
+            _resultValue.zoneAwarenessEnabled = zoneAwarenessEnabled;
+            return _resultValue;
         }
     }
 }

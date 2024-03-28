@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides an Inspector Classic Assessment Target
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,19 +51,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var foo = new AssessmentTarget(&#34;foo&#34;, AssessmentTargetArgs.builder()        
+ *             .name(&#34;assessment target&#34;)
  *             .resourceGroupArn(bar.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Inspector Classic Assessment Targets using their Amazon Resource Name (ARN). For example:
  * 
  * ```sh
- *  $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
+ * $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
  * ```
  * 
  */

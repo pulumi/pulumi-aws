@@ -268,23 +268,25 @@ class BotAlias(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        order_flowers_prod = aws.lex.BotAlias("orderFlowersProd",
+        order_flowers_prod = aws.lex.BotAlias("order_flowers_prod",
             bot_name="OrderFlowers",
             bot_version="1",
             description="Production Version of the OrderFlowers Bot.",
             name="OrderFlowersProd")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import bot aliases using an ID with the format `bot_name:bot_alias_name`. For example:
 
         ```sh
-         $ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
+        $ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
         ```
 
         :param str resource_name: The name of the resource.
@@ -307,23 +309,25 @@ class BotAlias(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        order_flowers_prod = aws.lex.BotAlias("orderFlowersProd",
+        order_flowers_prod = aws.lex.BotAlias("order_flowers_prod",
             bot_name="OrderFlowers",
             bot_version="1",
             description="Production Version of the OrderFlowers Bot.",
             name="OrderFlowersProd")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import bot aliases using an ID with the format `bot_name:bot_alias_name`. For example:
 
         ```sh
-         $ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
+        $ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
         ```
 
         :param str resource_name: The name of the resource.

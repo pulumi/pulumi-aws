@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * The device and link must be in the same global network and the same site.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -41,21 +43,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LinkAssociation(&#34;example&#34;, LinkAssociationArgs.builder()        
- *             .globalNetworkId(aws_networkmanager_global_network.example().id())
- *             .linkId(aws_networkmanager_link.example().id())
- *             .deviceId(aws_networkmanager_device.example().id())
+ *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
+ *             .linkId(exampleAwsNetworkmanagerLink.id())
+ *             .deviceId(exampleAwsNetworkmanagerDevice.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_networkmanager_link_association` using the global network ID, link ID and device ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:networkmanager/linkAssociation:LinkAssociation example global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123
+ * $ pulumi import aws:networkmanager/linkAssociation:LinkAssociation example global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123
  * ```
  * 
  */

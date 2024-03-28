@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS QuickSight Ingestion.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewIngestion(ctx, "example", &quicksight.IngestionArgs{
-//				DataSetId:     pulumi.Any(aws_quicksight_data_set.Example.Data_set_id),
+//				DataSetId:     pulumi.Any(exampleAwsQuicksightDataSet.DataSetId),
 //				IngestionId:   pulumi.String("example-id"),
 //				IngestionType: pulumi.String("FULL_REFRESH"),
 //			})
@@ -42,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import QuickSight Ingestion using the AWS account ID, data set ID, and ingestion ID separated by commas (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:quicksight/ingestion:Ingestion example 123456789012,example-dataset-id,example-ingestion-id
-//
+// $ pulumi import aws:quicksight/ingestion:Ingestion example 123456789012,example-dataset-id,example-ingestion-id
 // ```
 type Ingestion struct {
 	pulumi.CustomResourceState

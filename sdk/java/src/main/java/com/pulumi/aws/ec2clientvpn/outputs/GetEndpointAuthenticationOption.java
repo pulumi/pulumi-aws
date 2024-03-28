@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2clientvpn.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -58,37 +59,52 @@ public final class GetEndpointAuthenticationOption {
 
         @CustomType.Setter
         public Builder activeDirectoryId(String activeDirectoryId) {
-            this.activeDirectoryId = Objects.requireNonNull(activeDirectoryId);
+            if (activeDirectoryId == null) {
+              throw new MissingRequiredPropertyException("GetEndpointAuthenticationOption", "activeDirectoryId");
+            }
+            this.activeDirectoryId = activeDirectoryId;
             return this;
         }
         @CustomType.Setter
         public Builder rootCertificateChainArn(String rootCertificateChainArn) {
-            this.rootCertificateChainArn = Objects.requireNonNull(rootCertificateChainArn);
+            if (rootCertificateChainArn == null) {
+              throw new MissingRequiredPropertyException("GetEndpointAuthenticationOption", "rootCertificateChainArn");
+            }
+            this.rootCertificateChainArn = rootCertificateChainArn;
             return this;
         }
         @CustomType.Setter
         public Builder samlProviderArn(String samlProviderArn) {
-            this.samlProviderArn = Objects.requireNonNull(samlProviderArn);
+            if (samlProviderArn == null) {
+              throw new MissingRequiredPropertyException("GetEndpointAuthenticationOption", "samlProviderArn");
+            }
+            this.samlProviderArn = samlProviderArn;
             return this;
         }
         @CustomType.Setter
         public Builder selfServiceSamlProviderArn(String selfServiceSamlProviderArn) {
-            this.selfServiceSamlProviderArn = Objects.requireNonNull(selfServiceSamlProviderArn);
+            if (selfServiceSamlProviderArn == null) {
+              throw new MissingRequiredPropertyException("GetEndpointAuthenticationOption", "selfServiceSamlProviderArn");
+            }
+            this.selfServiceSamlProviderArn = selfServiceSamlProviderArn;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetEndpointAuthenticationOption", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetEndpointAuthenticationOption build() {
-            final var o = new GetEndpointAuthenticationOption();
-            o.activeDirectoryId = activeDirectoryId;
-            o.rootCertificateChainArn = rootCertificateChainArn;
-            o.samlProviderArn = samlProviderArn;
-            o.selfServiceSamlProviderArn = selfServiceSamlProviderArn;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetEndpointAuthenticationOption();
+            _resultValue.activeDirectoryId = activeDirectoryId;
+            _resultValue.rootCertificateChainArn = rootCertificateChainArn;
+            _resultValue.samlProviderArn = samlProviderArn;
+            _resultValue.selfServiceSamlProviderArn = selfServiceSamlProviderArn;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

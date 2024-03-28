@@ -414,6 +414,7 @@ class BucketObjectArgs:
 class _BucketObjectState:
     def __init__(__self__, *,
                  acl: Optional[pulumi.Input[str]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
                  bucket_key_enabled: Optional[pulumi.Input[bool]] = None,
                  cache_control: Optional[pulumi.Input[str]] = None,
@@ -442,6 +443,7 @@ class _BucketObjectState:
         """
         Input properties used for looking up and filtering BucketObject resources.
         :param pulumi.Input[str] acl: [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
+        :param pulumi.Input[str] arn: ARN of the object.
         :param pulumi.Input[str] bucket: Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
         :param pulumi.Input[bool] bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         :param pulumi.Input[str] cache_control: Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
@@ -474,6 +476,8 @@ class _BucketObjectState:
         """
         if acl is not None:
             pulumi.set(__self__, "acl", acl)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
         if bucket_key_enabled is not None:
@@ -539,6 +543,18 @@ class _BucketObjectState:
     @acl.setter
     def acl(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "acl", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the object.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter
@@ -882,8 +898,26 @@ class BucketObject(pulumi.CustomResource):
         Provides an S3 object resource.
 
         ## Example Usage
+
+        ### Uploading a file to a bucket
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        object = aws.s3.BucketObject("object",
+            bucket="your_bucket_name",
+            key="new_object_key",
+            source=pulumi.FileAsset("path/to/file"),
+            etag=std.filemd5(input="path/to/file").result)
+        ```
+        <!--End PulumiCodeChooser -->
+
         ### Encrypting with KMS Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -891,73 +925,84 @@ class BucketObject(pulumi.CustomResource):
         examplekms = aws.kms.Key("examplekms",
             description="KMS key 1",
             deletion_window_in_days=7)
-        examplebucket = aws.s3.BucketV2("examplebucket")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        example = aws.s3.BucketAclV2("example",
             bucket=examplebucket.id,
             acl="private")
-        example_bucket_object = aws.s3.BucketObject("exampleBucketObject",
+        example_bucket_object = aws.s3.BucketObject("example",
             key="someobject",
             bucket=examplebucket.id,
             source=pulumi.FileAsset("index.html"),
             kms_key_id=examplekms.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Server Side Encryption with S3 Default Master Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        example = aws.s3.BucketAclV2("example",
             bucket=examplebucket.id,
             acl="private")
-        example_bucket_object = aws.s3.BucketObject("exampleBucketObject",
+        example_bucket_object = aws.s3.BucketObject("example",
             key="someobject",
             bucket=examplebucket.id,
             source=pulumi.FileAsset("index.html"),
             server_side_encryption="aws:kms")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Server Side Encryption with AWS-Managed Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        example = aws.s3.BucketAclV2("example",
             bucket=examplebucket.id,
             acl="private")
-        example_bucket_object = aws.s3.BucketObject("exampleBucketObject",
+        example_bucket_object = aws.s3.BucketObject("example",
             key="someobject",
             bucket=examplebucket.id,
             source=pulumi.FileAsset("index.html"),
             server_side_encryption="AES256")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### S3 Object Lock
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket", object_lock_enabled=True)
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        examplebucket = aws.s3.BucketV2("examplebucket",
+            bucket="examplebuckettftest",
+            object_lock_enabled=True)
+        example = aws.s3.BucketAclV2("example",
             bucket=examplebucket.id,
             acl="private")
-        example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("exampleBucketVersioningV2",
+        example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("example",
             bucket=examplebucket.id,
             versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
                 status="Enabled",
             ))
-        example_bucket_object = aws.s3.BucketObject("exampleBucketObject",
+        example_bucket_object = aws.s3.BucketObject("example",
             key="someobject",
             bucket=examplebucket.id,
             source=pulumi.FileAsset("important.txt"),
             object_lock_legal_hold_status="ON",
             object_lock_mode="GOVERNANCE",
             object_lock_retain_until_date="2021-12-31T23:59:60Z",
-            force_destroy=True,
-            opts=pulumi.ResourceOptions(depends_on=[example_bucket_versioning_v2]))
+            force_destroy=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -968,12 +1013,12 @@ class BucketObject(pulumi.CustomResource):
         Import using the `id`, which is the bucket name and the key together:
 
         ```sh
-         $ pulumi import aws:s3/bucketObject:BucketObject example some-bucket-name/some/key.txt
+        $ pulumi import aws:s3/bucketObject:BucketObject example some-bucket-name/some/key.txt
         ```
-         Import using S3 URL syntax:
+        Import using S3 URL syntax:
 
         ```sh
-         $ pulumi import aws:s3/bucketObject:BucketObject example s3://some-bucket-name/some/key.txt
+        $ pulumi import aws:s3/bucketObject:BucketObject example s3://some-bucket-name/some/key.txt
         ```
 
         :param str resource_name: The name of the resource.
@@ -1017,8 +1062,26 @@ class BucketObject(pulumi.CustomResource):
         Provides an S3 object resource.
 
         ## Example Usage
+
+        ### Uploading a file to a bucket
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        object = aws.s3.BucketObject("object",
+            bucket="your_bucket_name",
+            key="new_object_key",
+            source=pulumi.FileAsset("path/to/file"),
+            etag=std.filemd5(input="path/to/file").result)
+        ```
+        <!--End PulumiCodeChooser -->
+
         ### Encrypting with KMS Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1026,73 +1089,84 @@ class BucketObject(pulumi.CustomResource):
         examplekms = aws.kms.Key("examplekms",
             description="KMS key 1",
             deletion_window_in_days=7)
-        examplebucket = aws.s3.BucketV2("examplebucket")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        example = aws.s3.BucketAclV2("example",
             bucket=examplebucket.id,
             acl="private")
-        example_bucket_object = aws.s3.BucketObject("exampleBucketObject",
+        example_bucket_object = aws.s3.BucketObject("example",
             key="someobject",
             bucket=examplebucket.id,
             source=pulumi.FileAsset("index.html"),
             kms_key_id=examplekms.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Server Side Encryption with S3 Default Master Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        example = aws.s3.BucketAclV2("example",
             bucket=examplebucket.id,
             acl="private")
-        example_bucket_object = aws.s3.BucketObject("exampleBucketObject",
+        example_bucket_object = aws.s3.BucketObject("example",
             key="someobject",
             bucket=examplebucket.id,
             source=pulumi.FileAsset("index.html"),
             server_side_encryption="aws:kms")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Server Side Encryption with AWS-Managed Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        example = aws.s3.BucketAclV2("example",
             bucket=examplebucket.id,
             acl="private")
-        example_bucket_object = aws.s3.BucketObject("exampleBucketObject",
+        example_bucket_object = aws.s3.BucketObject("example",
             key="someobject",
             bucket=examplebucket.id,
             source=pulumi.FileAsset("index.html"),
             server_side_encryption="AES256")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### S3 Object Lock
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket", object_lock_enabled=True)
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        examplebucket = aws.s3.BucketV2("examplebucket",
+            bucket="examplebuckettftest",
+            object_lock_enabled=True)
+        example = aws.s3.BucketAclV2("example",
             bucket=examplebucket.id,
             acl="private")
-        example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("exampleBucketVersioningV2",
+        example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("example",
             bucket=examplebucket.id,
             versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
                 status="Enabled",
             ))
-        example_bucket_object = aws.s3.BucketObject("exampleBucketObject",
+        example_bucket_object = aws.s3.BucketObject("example",
             key="someobject",
             bucket=examplebucket.id,
             source=pulumi.FileAsset("important.txt"),
             object_lock_legal_hold_status="ON",
             object_lock_mode="GOVERNANCE",
             object_lock_retain_until_date="2021-12-31T23:59:60Z",
-            force_destroy=True,
-            opts=pulumi.ResourceOptions(depends_on=[example_bucket_versioning_v2]))
+            force_destroy=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1103,12 +1177,12 @@ class BucketObject(pulumi.CustomResource):
         Import using the `id`, which is the bucket name and the key together:
 
         ```sh
-         $ pulumi import aws:s3/bucketObject:BucketObject example some-bucket-name/some/key.txt
+        $ pulumi import aws:s3/bucketObject:BucketObject example some-bucket-name/some/key.txt
         ```
-         Import using S3 URL syntax:
+        Import using S3 URL syntax:
 
         ```sh
-         $ pulumi import aws:s3/bucketObject:BucketObject example s3://some-bucket-name/some/key.txt
+        $ pulumi import aws:s3/bucketObject:BucketObject example s3://some-bucket-name/some/key.txt
         ```
 
         :param str resource_name: The name of the resource.
@@ -1185,10 +1259,9 @@ class BucketObject(pulumi.CustomResource):
             __props__.__dict__["storage_class"] = storage_class
             __props__.__dict__["tags"] = tags
             __props__.__dict__["website_redirect"] = website_redirect
+            __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["version_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(BucketObject, __self__).__init__(
             'aws:s3/bucketObject:BucketObject',
             resource_name,
@@ -1200,6 +1273,7 @@ class BucketObject(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             acl: Optional[pulumi.Input[str]] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             bucket: Optional[pulumi.Input[str]] = None,
             bucket_key_enabled: Optional[pulumi.Input[bool]] = None,
             cache_control: Optional[pulumi.Input[str]] = None,
@@ -1233,6 +1307,7 @@ class BucketObject(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] acl: [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
+        :param pulumi.Input[str] arn: ARN of the object.
         :param pulumi.Input[str] bucket: Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
         :param pulumi.Input[bool] bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         :param pulumi.Input[str] cache_control: Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
@@ -1268,6 +1343,7 @@ class BucketObject(pulumi.CustomResource):
         __props__ = _BucketObjectState.__new__(_BucketObjectState)
 
         __props__.__dict__["acl"] = acl
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["bucket"] = bucket
         __props__.__dict__["bucket_key_enabled"] = bucket_key_enabled
         __props__.__dict__["cache_control"] = cache_control
@@ -1302,6 +1378,14 @@ class BucketObject(pulumi.CustomResource):
         [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
         """
         return pulumi.get(self, "acl")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the object.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter

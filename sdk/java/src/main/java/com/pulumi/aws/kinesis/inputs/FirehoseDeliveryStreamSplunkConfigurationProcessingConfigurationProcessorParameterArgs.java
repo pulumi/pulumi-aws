@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesis.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -31,7 +32,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurat
     /**
      * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
      * 
-     * &gt; **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+     * &gt; **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
      * 
      */
     @Import(name="parameterValue", required=true)
@@ -40,7 +41,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurat
     /**
      * @return Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
      * 
-     * &gt; **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+     * &gt; **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
      * 
      */
     public Output<String> parameterValue() {
@@ -96,7 +97,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurat
         /**
          * @param parameterValue Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
          * 
-         * &gt; **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+         * &gt; **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
          * 
          * @return builder
          * 
@@ -109,7 +110,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurat
         /**
          * @param parameterValue Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
          * 
-         * &gt; **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+         * &gt; **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
          * 
          * @return builder
          * 
@@ -119,8 +120,12 @@ public final class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurat
         }
 
         public FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArgs build() {
-            $.parameterName = Objects.requireNonNull($.parameterName, "expected parameter 'parameterName' to be non-null");
-            $.parameterValue = Objects.requireNonNull($.parameterValue, "expected parameter 'parameterValue' to be non-null");
+            if ($.parameterName == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArgs", "parameterName");
+            }
+            if ($.parameterValue == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArgs", "parameterValue");
+            }
             return $;
         }
     }

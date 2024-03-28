@@ -12,13 +12,15 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myFilter = new aws.guardduty.Filter("myFilter", {
+ * const myFilter = new aws.guardduty.Filter("MyFilter", {
+ *     name: "MyFilter",
  *     action: "ARCHIVE",
- *     detectorId: aws_guardduty_detector.example.id,
+ *     detectorId: example.id,
  *     rank: 1,
  *     findingCriteria: {
  *         criterions: [
@@ -46,13 +48,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import GuardDuty filters using the detector ID and filter's name separated by a colon. For example:
  *
  * ```sh
- *  $ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
+ * $ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
  * ```
  */
 export class Filter extends pulumi.CustomResource {
@@ -169,8 +172,6 @@ export class Filter extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Filter.__pulumiType, name, resourceInputs, opts);
     }
 }

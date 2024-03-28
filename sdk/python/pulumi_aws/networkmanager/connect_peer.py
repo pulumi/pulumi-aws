@@ -399,16 +399,106 @@ class ConnectPeer(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS NetworkManager Connect Peer.
+        Resource for managing an AWS Network Manager Connect Peer.
 
         ## Example Usage
+
+        ### Basic Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkmanager.VpcAttachment("example",
+            subnet_arns=[__item["arn"] for __item in example_aws_subnet],
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            vpc_arn=example_aws_vpc["arn"])
+        example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            transport_attachment_id=example.id,
+            edge_location=example.edge_location,
+            options=aws.networkmanager.ConnectAttachmentOptionsArgs(
+                protocol="GRE",
+            ))
+        example_connect_peer = aws.networkmanager.ConnectPeer("example",
+            connect_attachment_id=example_connect_attachment.id,
+            peer_address="127.0.0.1",
+            bgp_options=aws.networkmanager.ConnectPeerBgpOptionsArgs(
+                peer_asn=65000,
+            ),
+            inside_cidr_blocks=["172.16.0.0/16"])
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### Usage with attachment accepter
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkmanager.VpcAttachment("example",
+            subnet_arns=[__item["arn"] for __item in example_aws_subnet],
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            vpc_arn=example_aws_vpc["arn"])
+        example_attachment_accepter = aws.networkmanager.AttachmentAccepter("example",
+            attachment_id=example.id,
+            attachment_type=example.attachment_type)
+        example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            transport_attachment_id=example.id,
+            edge_location=example.edge_location,
+            options=aws.networkmanager.ConnectAttachmentOptionsArgs(
+                protocol="GRE",
+            ))
+        example2 = aws.networkmanager.AttachmentAccepter("example2",
+            attachment_id=example_connect_attachment.id,
+            attachment_type=example_connect_attachment.attachment_type)
+        example_connect_peer = aws.networkmanager.ConnectPeer("example",
+            connect_attachment_id=example_connect_attachment.id,
+            peer_address="127.0.0.1",
+            bgp_options=aws.networkmanager.ConnectPeerBgpOptionsArgs(
+                peer_asn=65500,
+            ),
+            inside_cidr_blocks=["172.16.0.0/16"])
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### Usage with a Tunnel-less Connect attachment
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkmanager.VpcAttachment("example",
+            subnet_arns=[__item["arn"] for __item in example_aws_subnet],
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            vpc_arn=example_aws_vpc["arn"])
+        example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            transport_attachment_id=example.id,
+            edge_location=example.edge_location,
+            options=aws.networkmanager.ConnectAttachmentOptionsArgs(
+                protocol="NO_ENCAP",
+            ))
+        example_connect_peer = aws.networkmanager.ConnectPeer("example",
+            connect_attachment_id=example_connect_attachment.id,
+            peer_address="127.0.0.1",
+            bgp_options=aws.networkmanager.ConnectPeerBgpOptionsArgs(
+                peer_asn=65000,
+            ),
+            subnet_arn=test2["arn"])
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_connect_peer` using the connect peer ID. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
+        $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
         ```
 
         :param str resource_name: The name of the resource.
@@ -430,16 +520,106 @@ class ConnectPeer(pulumi.CustomResource):
                  args: ConnectPeerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS NetworkManager Connect Peer.
+        Resource for managing an AWS Network Manager Connect Peer.
 
         ## Example Usage
+
+        ### Basic Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkmanager.VpcAttachment("example",
+            subnet_arns=[__item["arn"] for __item in example_aws_subnet],
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            vpc_arn=example_aws_vpc["arn"])
+        example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            transport_attachment_id=example.id,
+            edge_location=example.edge_location,
+            options=aws.networkmanager.ConnectAttachmentOptionsArgs(
+                protocol="GRE",
+            ))
+        example_connect_peer = aws.networkmanager.ConnectPeer("example",
+            connect_attachment_id=example_connect_attachment.id,
+            peer_address="127.0.0.1",
+            bgp_options=aws.networkmanager.ConnectPeerBgpOptionsArgs(
+                peer_asn=65000,
+            ),
+            inside_cidr_blocks=["172.16.0.0/16"])
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### Usage with attachment accepter
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkmanager.VpcAttachment("example",
+            subnet_arns=[__item["arn"] for __item in example_aws_subnet],
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            vpc_arn=example_aws_vpc["arn"])
+        example_attachment_accepter = aws.networkmanager.AttachmentAccepter("example",
+            attachment_id=example.id,
+            attachment_type=example.attachment_type)
+        example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            transport_attachment_id=example.id,
+            edge_location=example.edge_location,
+            options=aws.networkmanager.ConnectAttachmentOptionsArgs(
+                protocol="GRE",
+            ))
+        example2 = aws.networkmanager.AttachmentAccepter("example2",
+            attachment_id=example_connect_attachment.id,
+            attachment_type=example_connect_attachment.attachment_type)
+        example_connect_peer = aws.networkmanager.ConnectPeer("example",
+            connect_attachment_id=example_connect_attachment.id,
+            peer_address="127.0.0.1",
+            bgp_options=aws.networkmanager.ConnectPeerBgpOptionsArgs(
+                peer_asn=65500,
+            ),
+            inside_cidr_blocks=["172.16.0.0/16"])
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### Usage with a Tunnel-less Connect attachment
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkmanager.VpcAttachment("example",
+            subnet_arns=[__item["arn"] for __item in example_aws_subnet],
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            vpc_arn=example_aws_vpc["arn"])
+        example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            transport_attachment_id=example.id,
+            edge_location=example.edge_location,
+            options=aws.networkmanager.ConnectAttachmentOptionsArgs(
+                protocol="NO_ENCAP",
+            ))
+        example_connect_peer = aws.networkmanager.ConnectPeer("example",
+            connect_attachment_id=example_connect_attachment.id,
+            peer_address="127.0.0.1",
+            bgp_options=aws.networkmanager.ConnectPeerBgpOptionsArgs(
+                peer_asn=65000,
+            ),
+            subnet_arn=test2["arn"])
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_connect_peer` using the connect peer ID. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
+        $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
         ```
 
         :param str resource_name: The name of the resource.
@@ -492,8 +672,6 @@ class ConnectPeer(pulumi.CustomResource):
             __props__.__dict__["edge_location"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ConnectPeer, __self__).__init__(
             'aws:networkmanager/connectPeer:ConnectPeer',
             resource_name,

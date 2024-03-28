@@ -22,6 +22,7 @@ import (
 //
 // Basic usage.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -35,6 +36,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := ec2.NewManagedPrefixList(ctx, "example", &ec2.ManagedPrefixListArgs{
+//				Name:          pulumi.String("All VPC CIDR-s"),
 //				AddressFamily: pulumi.String("IPv4"),
 //				MaxEntries:    pulumi.Int(5),
 //				Tags: pulumi.StringMap{
@@ -44,8 +46,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewManagedPrefixListEntry(ctx, "entry1", &ec2.ManagedPrefixListEntryArgs{
-//				Cidr:         pulumi.Any(aws_vpc.Example.Cidr_block),
+//			_, err = ec2.NewManagedPrefixListEntry(ctx, "entry_1", &ec2.ManagedPrefixListEntryArgs{
+//				Cidr:         pulumi.Any(exampleAwsVpc.CidrBlock),
 //				Description:  pulumi.String("Primary"),
 //				PrefixListId: example.ID(),
 //			})
@@ -57,15 +59,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import prefix list entries using `prefix_list_id` and `cidr` separated by a comma (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
-//
+// $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
 // ```
 type ManagedPrefixListEntry struct {
 	pulumi.CustomResourceState
@@ -74,7 +75,7 @@ type ManagedPrefixListEntry struct {
 	Cidr pulumi.StringOutput `pulumi:"cidr"`
 	// Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// CIDR block of this entry.
+	// The ID of the prefix list.
 	PrefixListId pulumi.StringOutput `pulumi:"prefixListId"`
 }
 
@@ -118,7 +119,7 @@ type managedPrefixListEntryState struct {
 	Cidr *string `pulumi:"cidr"`
 	// Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
 	Description *string `pulumi:"description"`
-	// CIDR block of this entry.
+	// The ID of the prefix list.
 	PrefixListId *string `pulumi:"prefixListId"`
 }
 
@@ -127,7 +128,7 @@ type ManagedPrefixListEntryState struct {
 	Cidr pulumi.StringPtrInput
 	// Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
 	Description pulumi.StringPtrInput
-	// CIDR block of this entry.
+	// The ID of the prefix list.
 	PrefixListId pulumi.StringPtrInput
 }
 
@@ -140,7 +141,7 @@ type managedPrefixListEntryArgs struct {
 	Cidr string `pulumi:"cidr"`
 	// Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
 	Description *string `pulumi:"description"`
-	// CIDR block of this entry.
+	// The ID of the prefix list.
 	PrefixListId string `pulumi:"prefixListId"`
 }
 
@@ -150,7 +151,7 @@ type ManagedPrefixListEntryArgs struct {
 	Cidr pulumi.StringInput
 	// Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
 	Description pulumi.StringPtrInput
-	// CIDR block of this entry.
+	// The ID of the prefix list.
 	PrefixListId pulumi.StringInput
 }
 
@@ -251,7 +252,7 @@ func (o ManagedPrefixListEntryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedPrefixListEntry) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// CIDR block of this entry.
+// The ID of the prefix list.
 func (o ManagedPrefixListEntryOutput) PrefixListId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPrefixListEntry) pulumi.StringOutput { return v.PrefixListId }).(pulumi.StringOutput)
 }

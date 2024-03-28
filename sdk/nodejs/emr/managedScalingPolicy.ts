@@ -12,11 +12,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const sample = new aws.emr.Cluster("sample", {
+ *     name: "emr-sample-cluster",
  *     releaseLabel: "emr-5.30.0",
  *     masterInstanceGroup: {
  *         instanceType: "m4.large",
@@ -25,7 +27,6 @@ import * as utilities from "../utilities";
  *         instanceType: "c4.large",
  *     },
  * });
- * // skip ...
  * const samplepolicy = new aws.emr.ManagedScalingPolicy("samplepolicy", {
  *     clusterId: sample.id,
  *     computeLimits: [{
@@ -37,13 +38,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EMR Managed Scaling Policies using the EMR Cluster identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
+ * $ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
  * ```
  */
 export class ManagedScalingPolicy extends pulumi.CustomResource {

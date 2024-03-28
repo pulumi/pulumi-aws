@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,16 +31,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := directconnect.NewHostedPublicVirtualInterface(ctx, "foo", &directconnect.HostedPublicVirtualInterfaceArgs{
-//				AddressFamily:   pulumi.String("ipv4"),
-//				AmazonAddress:   pulumi.String("175.45.176.2/30"),
-//				BgpAsn:          pulumi.Int(65352),
 //				ConnectionId:    pulumi.String("dxcon-zzzzzzzz"),
+//				Name:            pulumi.String("vif-foo"),
+//				Vlan:            pulumi.Int(4094),
+//				AddressFamily:   pulumi.String("ipv4"),
+//				BgpAsn:          pulumi.Int(65352),
 //				CustomerAddress: pulumi.String("175.45.176.1/30"),
+//				AmazonAddress:   pulumi.String("175.45.176.2/30"),
 //				RouteFilterPrefixes: pulumi.StringArray{
 //					pulumi.String("210.52.109.0/24"),
 //					pulumi.String("175.45.176.0/22"),
 //				},
-//				Vlan: pulumi.Int(4094),
 //			})
 //			if err != nil {
 //				return err
@@ -49,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Direct Connect hosted public virtual interfaces using the VIF `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface test dxvif-33cc44dd
-//
+// $ pulumi import aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface test dxvif-33cc44dd
 // ```
 type HostedPublicVirtualInterface struct {
 	pulumi.CustomResourceState

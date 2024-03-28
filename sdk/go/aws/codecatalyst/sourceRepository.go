@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS CodeCatalyst Source Repository.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codecatalyst.NewSourceRepository(ctx, "example", &codecatalyst.SourceRepositoryArgs{
+//				Name:        pulumi.String("example-repo"),
 //				ProjectName: pulumi.String("example-project"),
 //				SpaceName:   pulumi.String("example-space"),
 //			})
@@ -41,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Using `pulumi import`, import CodeCatalyst Source Repository using the `example_id_arg`. For example:
+// Using `pulumi import`, import CodeCatalyst Source Repository using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example source_repository-id-12345678
-//
+// $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example example-repo
 // ```
 type SourceRepository struct {
 	pulumi.CustomResourceState

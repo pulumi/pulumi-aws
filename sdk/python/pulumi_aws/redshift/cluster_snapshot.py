@@ -241,7 +241,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
+        $ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
         ```
 
         :param str resource_name: The name of the resource.
@@ -265,7 +265,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
+        $ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
         ```
 
         :param str resource_name: The name of the resource.
@@ -308,8 +308,6 @@ class ClusterSnapshot(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = None
             __props__.__dict__["owner_account"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ClusterSnapshot, __self__).__init__(
             'aws:redshift/clusterSnapshot:ClusterSnapshot',
             resource_name,

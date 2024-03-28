@@ -11,47 +11,13 @@ import * as utilities from "../utilities";
  * Provides a resource to manage an S3 Multi-Region Access Point access control policy.
  *
  * ## Example Usage
- * ### Basic Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentPartition = aws.getPartition({});
- * const fooBucket = new aws.s3.BucketV2("fooBucket", {});
- * const exampleMultiRegionAccessPoint = new aws.s3control.MultiRegionAccessPoint("exampleMultiRegionAccessPoint", {details: {
- *     name: "example",
- *     regions: [{
- *         bucket: fooBucket.id,
- *     }],
- * }});
- * const exampleMultiRegionAccessPointPolicy = new aws.s3control.MultiRegionAccessPointPolicy("exampleMultiRegionAccessPointPolicy", {details: {
- *     name: exampleMultiRegionAccessPoint.id.apply(id => id.split(":"))[1],
- *     policy: pulumi.all([currentCallerIdentity, currentPartition, currentCallerIdentity, exampleMultiRegionAccessPoint.alias]).apply(([currentCallerIdentity, currentPartition, currentCallerIdentity1, alias]) => JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Sid: "Example",
- *             Effect: "Allow",
- *             Principal: {
- *                 AWS: currentCallerIdentity.accountId,
- *             },
- *             Action: [
- *                 "s3:GetObject",
- *                 "s3:PutObject",
- *             ],
- *             Resource: `arn:${currentPartition.partition}:s3::${currentCallerIdentity1.accountId}:accesspoint/${alias}/object/*`,
- *         }],
- *     })),
- * }});
- * ```
  *
  * ## Import
  *
  * Using `pulumi import`, import Multi-Region Access Point Policies using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For example:
  *
  * ```sh
- *  $ pulumi import aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy example 123456789012:example
+ * $ pulumi import aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy example 123456789012:example
  * ```
  */
 export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {

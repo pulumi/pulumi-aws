@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesis.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class StreamStreamModeDetails {
 
         @CustomType.Setter
         public Builder streamMode(String streamMode) {
-            this.streamMode = Objects.requireNonNull(streamMode);
+            if (streamMode == null) {
+              throw new MissingRequiredPropertyException("StreamStreamModeDetails", "streamMode");
+            }
+            this.streamMode = streamMode;
             return this;
         }
         public StreamStreamModeDetails build() {
-            final var o = new StreamStreamModeDetails();
-            o.streamMode = streamMode;
-            return o;
+            final var _resultValue = new StreamStreamModeDetails();
+            _resultValue.streamMode = streamMode;
+            return _resultValue;
         }
     }
 }

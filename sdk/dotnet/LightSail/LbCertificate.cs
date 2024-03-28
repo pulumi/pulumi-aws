@@ -14,6 +14,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,8 +23,9 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testLb = new Aws.LightSail.Lb("testLb", new()
+    ///     var test = new Aws.LightSail.Lb("test", new()
     ///     {
+    ///         Name = "test-load-balancer",
     ///         HealthCheckPath = "/",
     ///         InstancePort = 80,
     ///         Tags = 
@@ -32,21 +34,23 @@ namespace Pulumi.Aws.LightSail
     ///         },
     ///     });
     /// 
-    ///     var testLbCertificate = new Aws.LightSail.LbCertificate("testLbCertificate", new()
+    ///     var testLbCertificate = new Aws.LightSail.LbCertificate("test", new()
     ///     {
-    ///         LbName = testLb.Id,
+    ///         Name = "test-load-balancer-certificate",
+    ///         LbName = test.Id,
     ///         DomainName = "test.com",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_lightsail_lb_certificate` using the id attribute. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
+    /// $ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/lbCertificate:LbCertificate")]

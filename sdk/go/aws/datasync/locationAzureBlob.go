@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,10 +33,10 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewLocationAzureBlob(ctx, "example", &datasync.LocationAzureBlobArgs{
 //				AgentArns: pulumi.StringArray{
-//					aws_datasync_agent.Example.Arn,
+//					exampleAwsDatasyncAgent.Arn,
 //				},
 //				AuthenticationType: pulumi.String("SAS"),
-//				ContainerUrl:       pulumi.String("https://example.com/path"),
+//				ContainerUrl:       pulumi.String("https://myaccount.blob.core.windows.net/mycontainer"),
 //				SasConfiguration: &datasync.LocationAzureBlobSasConfigurationArgs{
 //					Token: pulumi.String("sp=r&st=2023-12-20T14:54:52Z&se=2023-12-20T22:54:52Z&spr=https&sv=2021-06-08&sr=c&sig=aBBKDWQvyuVcTPH9EBp%2FXTI9E%2F%2Fmq171%2BZU178wcwqU%3D"),
 //				},
@@ -48,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_datasync_location_azure_blob` using the Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:datasync/locationAzureBlob:LocationAzureBlob example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-//
+// $ pulumi import aws:datasync/locationAzureBlob:LocationAzureBlob example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 // ```
 type LocationAzureBlob struct {
 	pulumi.CustomResourceState
@@ -102,10 +102,6 @@ func NewLocationAzureBlob(ctx *pulumi.Context,
 	if args.ContainerUrl == nil {
 		return nil, errors.New("invalid value for required argument 'ContainerUrl'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocationAzureBlob
 	err := ctx.RegisterResource("aws:datasync/locationAzureBlob:LocationAzureBlob", name, args, &resource, opts...)

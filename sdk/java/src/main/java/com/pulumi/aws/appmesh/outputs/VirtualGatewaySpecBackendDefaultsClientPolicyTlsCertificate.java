@@ -59,19 +59,21 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate {
 
         @CustomType.Setter
         public Builder file(@Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile file) {
+
             this.file = file;
             return this;
         }
         @CustomType.Setter
         public Builder sds(@Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds sds) {
+
             this.sds = sds;
             return this;
         }
         public VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate build() {
-            final var o = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate();
-            o.file = file;
-            o.sds = sds;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate();
+            _resultValue.file = file;
+            _resultValue.sds = sds;
+            return _resultValue;
         }
     }
 }

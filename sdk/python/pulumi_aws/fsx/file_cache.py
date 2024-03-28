@@ -505,6 +505,7 @@ class FileCache(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -535,16 +536,17 @@ class FileCache(pulumi.CustomResource):
                 per_unit_storage_throughput=1000,
                 weekly_maintenance_start_time="2:05:00",
             )],
-            subnet_ids=[aws_subnet["test1"]["id"]],
+            subnet_ids=[test1["id"]],
             storage_capacity=1200)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon File Cache cache using the resource `id`. For example:
 
         ```sh
-         $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
+        $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
         ```
 
         :param str resource_name: The name of the resource.
@@ -575,6 +577,7 @@ class FileCache(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -605,16 +608,17 @@ class FileCache(pulumi.CustomResource):
                 per_unit_storage_throughput=1000,
                 weekly_maintenance_start_time="2:05:00",
             )],
-            subnet_ids=[aws_subnet["test1"]["id"]],
+            subnet_ids=[test1["id"]],
             storage_capacity=1200)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon File Cache cache using the resource `id`. For example:
 
         ```sh
-         $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
+        $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
         ```
 
         :param str resource_name: The name of the resource.
@@ -677,8 +681,6 @@ class FileCache(pulumi.CustomResource):
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(FileCache, __self__).__init__(
             'aws:fsx/fileCache:FileCache',
             resource_name,

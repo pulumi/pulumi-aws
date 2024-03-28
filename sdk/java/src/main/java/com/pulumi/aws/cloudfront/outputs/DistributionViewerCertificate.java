@@ -33,7 +33,7 @@ public final class DistributionViewerCertificate {
      */
     private @Nullable String minimumProtocolVersion;
     /**
-     * @return How you want CloudFront to serve HTTPS requests. One of `vip` or `sni-only`. Required if you specify `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
+     * @return How you want CloudFront to serve HTTPS requests. One of `vip`, `sni-only`, or `static-ip`. Required if you specify `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
      * 
      */
     private @Nullable String sslSupportMethod;
@@ -68,7 +68,7 @@ public final class DistributionViewerCertificate {
         return Optional.ofNullable(this.minimumProtocolVersion);
     }
     /**
-     * @return How you want CloudFront to serve HTTPS requests. One of `vip` or `sni-only`. Required if you specify `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
+     * @return How you want CloudFront to serve HTTPS requests. One of `vip`, `sni-only`, or `static-ip`. Required if you specify `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
      * 
      */
     public Optional<String> sslSupportMethod() {
@@ -101,37 +101,42 @@ public final class DistributionViewerCertificate {
 
         @CustomType.Setter
         public Builder acmCertificateArn(@Nullable String acmCertificateArn) {
+
             this.acmCertificateArn = acmCertificateArn;
             return this;
         }
         @CustomType.Setter
         public Builder cloudfrontDefaultCertificate(@Nullable Boolean cloudfrontDefaultCertificate) {
+
             this.cloudfrontDefaultCertificate = cloudfrontDefaultCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder iamCertificateId(@Nullable String iamCertificateId) {
+
             this.iamCertificateId = iamCertificateId;
             return this;
         }
         @CustomType.Setter
         public Builder minimumProtocolVersion(@Nullable String minimumProtocolVersion) {
+
             this.minimumProtocolVersion = minimumProtocolVersion;
             return this;
         }
         @CustomType.Setter
         public Builder sslSupportMethod(@Nullable String sslSupportMethod) {
+
             this.sslSupportMethod = sslSupportMethod;
             return this;
         }
         public DistributionViewerCertificate build() {
-            final var o = new DistributionViewerCertificate();
-            o.acmCertificateArn = acmCertificateArn;
-            o.cloudfrontDefaultCertificate = cloudfrontDefaultCertificate;
-            o.iamCertificateId = iamCertificateId;
-            o.minimumProtocolVersion = minimumProtocolVersion;
-            o.sslSupportMethod = sslSupportMethod;
-            return o;
+            final var _resultValue = new DistributionViewerCertificate();
+            _resultValue.acmCertificateArn = acmCertificateArn;
+            _resultValue.cloudfrontDefaultCertificate = cloudfrontDefaultCertificate;
+            _resultValue.iamCertificateId = iamCertificateId;
+            _resultValue.minimumProtocolVersion = minimumProtocolVersion;
+            _resultValue.sslSupportMethod = sslSupportMethod;
+            return _resultValue;
         }
     }
 }

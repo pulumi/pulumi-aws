@@ -133,49 +133,56 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
         @CustomType.Setter
         public Builder awsManagedRulesAcfpRuleSet(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet awsManagedRulesAcfpRuleSet) {
+
             this.awsManagedRulesAcfpRuleSet = awsManagedRulesAcfpRuleSet;
             return this;
         }
         @CustomType.Setter
         public Builder awsManagedRulesAtpRuleSet(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet awsManagedRulesAtpRuleSet) {
+
             this.awsManagedRulesAtpRuleSet = awsManagedRulesAtpRuleSet;
             return this;
         }
         @CustomType.Setter
         public Builder awsManagedRulesBotControlRuleSet(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet awsManagedRulesBotControlRuleSet) {
+
             this.awsManagedRulesBotControlRuleSet = awsManagedRulesBotControlRuleSet;
             return this;
         }
         @CustomType.Setter
         public Builder loginPath(@Nullable String loginPath) {
+
             this.loginPath = loginPath;
             return this;
         }
         @CustomType.Setter
         public Builder passwordField(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField passwordField) {
+
             this.passwordField = passwordField;
             return this;
         }
         @CustomType.Setter
         public Builder payloadType(@Nullable String payloadType) {
+
             this.payloadType = payloadType;
             return this;
         }
         @CustomType.Setter
         public Builder usernameField(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField usernameField) {
+
             this.usernameField = usernameField;
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig();
-            o.awsManagedRulesAcfpRuleSet = awsManagedRulesAcfpRuleSet;
-            o.awsManagedRulesAtpRuleSet = awsManagedRulesAtpRuleSet;
-            o.awsManagedRulesBotControlRuleSet = awsManagedRulesBotControlRuleSet;
-            o.loginPath = loginPath;
-            o.passwordField = passwordField;
-            o.payloadType = payloadType;
-            o.usernameField = usernameField;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig();
+            _resultValue.awsManagedRulesAcfpRuleSet = awsManagedRulesAcfpRuleSet;
+            _resultValue.awsManagedRulesAtpRuleSet = awsManagedRulesAtpRuleSet;
+            _resultValue.awsManagedRulesBotControlRuleSet = awsManagedRulesBotControlRuleSet;
+            _resultValue.loginPath = loginPath;
+            _resultValue.passwordField = passwordField;
+            _resultValue.payloadType = payloadType;
+            _resultValue.usernameField = usernameField;
+            return _resultValue;
         }
     }
 }

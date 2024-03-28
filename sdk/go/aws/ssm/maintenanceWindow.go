@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,9 +30,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewMaintenanceWindow(ctx, "production", &ssm.MaintenanceWindowArgs{
-//				Cutoff:   pulumi.Int(1),
-//				Duration: pulumi.Int(3),
+//				Name:     pulumi.String("maintenance-window-application"),
 //				Schedule: pulumi.String("cron(0 16 ? * TUE *)"),
+//				Duration: pulumi.Int(3),
+//				Cutoff:   pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
@@ -41,17 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// # Using `pulumi import`, import SSM
-//
-// Maintenance Windows using the maintenance window `id`. For example:
+// Using `pulumi import`, import SSM  Maintenance Windows using the maintenance window `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
-//
+// $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
 // ```
 type MaintenanceWindow struct {
 	pulumi.CustomResourceState
@@ -102,10 +101,6 @@ func NewMaintenanceWindow(ctx *pulumi.Context,
 	if args.Schedule == nil {
 		return nil, errors.New("invalid value for required argument 'Schedule'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MaintenanceWindow
 	err := ctx.RegisterResource("aws:ssm/maintenanceWindow:MaintenanceWindow", name, args, &resource, opts...)

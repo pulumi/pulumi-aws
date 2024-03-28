@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudfront;
 import com.pulumi.aws.cloudfront.inputs.RealtimeLogConfigEndpointArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -200,9 +201,15 @@ public final class RealtimeLogConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         public RealtimeLogConfigArgs build() {
-            $.endpoint = Objects.requireNonNull($.endpoint, "expected parameter 'endpoint' to be non-null");
-            $.fields = Objects.requireNonNull($.fields, "expected parameter 'fields' to be non-null");
-            $.samplingRate = Objects.requireNonNull($.samplingRate, "expected parameter 'samplingRate' to be non-null");
+            if ($.endpoint == null) {
+                throw new MissingRequiredPropertyException("RealtimeLogConfigArgs", "endpoint");
+            }
+            if ($.fields == null) {
+                throw new MissingRequiredPropertyException("RealtimeLogConfigArgs", "fields");
+            }
+            if ($.samplingRate == null) {
+                throw new MissingRequiredPropertyException("RealtimeLogConfigArgs", "samplingRate");
+            }
             return $;
         }
     }

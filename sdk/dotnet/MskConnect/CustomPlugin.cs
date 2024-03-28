@@ -13,8 +13,10 @@ namespace Pulumi.Aws.MskConnect
     /// Provides an Amazon MSK Connect Custom Plugin Resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,23 +25,27 @@ namespace Pulumi.Aws.MskConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
+    ///     var example = new Aws.S3.BucketV2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = "example",
+    ///     });
+    /// 
+    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("example", new()
+    ///     {
+    ///         Bucket = example.Id,
     ///         Key = "debezium.zip",
     ///         Source = new FileAsset("debezium.zip"),
     ///     });
     /// 
-    ///     var exampleCustomPlugin = new Aws.MskConnect.CustomPlugin("exampleCustomPlugin", new()
+    ///     var exampleCustomPlugin = new Aws.MskConnect.CustomPlugin("example", new()
     ///     {
+    ///         Name = "debezium-example",
     ///         ContentType = "ZIP",
     ///         Location = new Aws.MskConnect.Inputs.CustomPluginLocationArgs
     ///         {
     ///             S3 = new Aws.MskConnect.Inputs.CustomPluginLocationS3Args
     ///             {
-    ///                 BucketArn = exampleBucketV2.Arn,
+    ///                 BucketArn = example.Arn,
     ///                 FileKey = exampleBucketObjectv2.Key,
     ///             },
     ///         },
@@ -47,13 +53,14 @@ namespace Pulumi.Aws.MskConnect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MSK Connect Custom Plugin using the plugin's `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example 'arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4'
+    /// $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example 'arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4'
     /// ```
     /// </summary>
     [AwsResourceType("aws:mskconnect/customPlugin:CustomPlugin")]

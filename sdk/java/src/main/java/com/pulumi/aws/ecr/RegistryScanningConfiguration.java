@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * Provides an Elastic Container Registry Scanning Configuration. Can&#39;t be completely deleted, instead reverts to the default `BASIC` scanning configuration without rules.
  * 
  * ## Example Usage
+ * 
  * ### Basic example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,20 +47,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var configuration = new RegistryScanningConfiguration(&#34;configuration&#34;, RegistryScanningConfigurationArgs.builder()        
+ *             .scanType(&#34;ENHANCED&#34;)
  *             .rules(RegistryScanningConfigurationRuleArgs.builder()
+ *                 .scanFrequency(&#34;CONTINUOUS_SCAN&#34;)
  *                 .repositoryFilters(RegistryScanningConfigurationRuleRepositoryFilterArgs.builder()
  *                     .filter(&#34;example&#34;)
  *                     .filterType(&#34;WILDCARD&#34;)
  *                     .build())
- *                 .scanFrequency(&#34;CONTINUOUS_SCAN&#34;)
  *                 .build())
- *             .scanType(&#34;ENHANCED&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Multiple rules
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -81,34 +88,35 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new RegistryScanningConfiguration(&#34;test&#34;, RegistryScanningConfigurationArgs.builder()        
+ *             .scanType(&#34;ENHANCED&#34;)
  *             .rules(            
  *                 RegistryScanningConfigurationRuleArgs.builder()
+ *                     .scanFrequency(&#34;SCAN_ON_PUSH&#34;)
  *                     .repositoryFilters(RegistryScanningConfigurationRuleRepositoryFilterArgs.builder()
  *                         .filter(&#34;*&#34;)
  *                         .filterType(&#34;WILDCARD&#34;)
  *                         .build())
- *                     .scanFrequency(&#34;SCAN_ON_PUSH&#34;)
  *                     .build(),
  *                 RegistryScanningConfigurationRuleArgs.builder()
+ *                     .scanFrequency(&#34;CONTINUOUS_SCAN&#34;)
  *                     .repositoryFilters(RegistryScanningConfigurationRuleRepositoryFilterArgs.builder()
  *                         .filter(&#34;example&#34;)
  *                         .filterType(&#34;WILDCARD&#34;)
  *                         .build())
- *                     .scanFrequency(&#34;CONTINUOUS_SCAN&#34;)
  *                     .build())
- *             .scanType(&#34;ENHANCED&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import ECR Scanning Configurations using the `registry_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 012345678901
+ * $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 012345678901
  * ```
  * 
  */

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ApplicationInsights
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,22 +24,23 @@ namespace Pulumi.Aws.ApplicationInsights
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGroup = new Aws.ResourceGroups.Group("exampleGroup", new()
+    ///     var exampleGroup = new Aws.ResourceGroups.Group("example", new()
     ///     {
+    ///         Name = "example",
     ///         ResourceQuery = new Aws.ResourceGroups.Inputs.GroupResourceQueryArgs
     ///         {
     ///             Query = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["ResourceTypeFilters"] = new[]
+    ///                 ["resourceTypeFilters"] = new[]
     ///                 {
     ///                     "AWS::EC2::Instance",
     ///                 },
-    ///                 ["TagFilters"] = new[]
+    ///                 ["tagFilters"] = new[]
     ///                 {
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Key"] = "Stage",
-    ///                         ["Values"] = new[]
+    ///                         ["key"] = "Stage",
+    ///                         ["values"] = new[]
     ///                         {
     ///                             "Test",
     ///                         },
@@ -48,20 +50,21 @@ namespace Pulumi.Aws.ApplicationInsights
     ///         },
     ///     });
     /// 
-    ///     var exampleApplication = new Aws.ApplicationInsights.Application("exampleApplication", new()
+    ///     var example = new Aws.ApplicationInsights.Application("example", new()
     ///     {
     ///         ResourceGroupName = exampleGroup.Name,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:applicationinsights/application:Application some some-application
+    /// $ pulumi import aws:applicationinsights/application:Application some some-application
     /// ```
     /// </summary>
     [AwsResourceType("aws:applicationinsights/application:Application")]
@@ -152,10 +155,6 @@ namespace Pulumi.Aws.ApplicationInsights
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -315,11 +314,7 @@ namespace Pulumi.Aws.ApplicationInsights
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ApplicationState()

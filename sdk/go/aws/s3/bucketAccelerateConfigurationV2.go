@@ -14,8 +14,11 @@ import (
 
 // Provides an S3 bucket accelerate configuration resource. See the [Requirements for using Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration.html#transfer-acceleration-requirements) for more details.
 //
+// > This resource cannot be used with S3 directory buckets.
+//
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +31,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			mybucket, err := s3.NewBucketV2(ctx, "mybucket", nil)
+//			mybucket, err := s3.NewBucketV2(ctx, "mybucket", &s3.BucketV2Args{
+//				Bucket: pulumi.String("mybucket"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -44,6 +49,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -54,17 +60,12 @@ import (
 // If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name
-//
+// $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name
 // ```
-//
-//	If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name,123456789012
-//
+// $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name,123456789012
 // ```
 type BucketAccelerateConfigurationV2 struct {
 	pulumi.CustomResourceState

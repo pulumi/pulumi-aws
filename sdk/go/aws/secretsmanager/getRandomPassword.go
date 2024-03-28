@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := secretsmanager.GetRandomPassword(ctx, &secretsmanager.GetRandomPasswordArgs{
-//				ExcludeNumbers: pulumi.BoolRef(true),
 //				PasswordLength: pulumi.IntRef(50),
+//				ExcludeNumbers: pulumi.BoolRef(true),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetRandomPassword(ctx *pulumi.Context, args *GetRandomPasswordArgs, opts ...pulumi.InvokeOption) (*GetRandomPasswordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRandomPasswordResult
@@ -57,7 +59,7 @@ type GetRandomPasswordArgs struct {
 	ExcludeLowercase *bool `pulumi:"excludeLowercase"`
 	// Specifies whether to exclude numbers from the password.
 	ExcludeNumbers *bool `pulumi:"excludeNumbers"`
-	// Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
+	// Specifies whether to exclude the following punctuation characters from the password: ``! " # $ %!&(MISSING) ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
 	ExcludePunctuation *bool `pulumi:"excludePunctuation"`
 	// Specifies whether to exclude uppercase letters from the password.
 	ExcludeUppercase *bool `pulumi:"excludeUppercase"`
@@ -65,8 +67,6 @@ type GetRandomPasswordArgs struct {
 	IncludeSpace *bool `pulumi:"includeSpace"`
 	// Length of the password.
 	PasswordLength *int `pulumi:"passwordLength"`
-	// Random password.
-	RandomPassword *string `pulumi:"randomPassword"`
 	// Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
 	RequireEachIncludedType *bool `pulumi:"requireEachIncludedType"`
 }
@@ -108,7 +108,7 @@ type GetRandomPasswordOutputArgs struct {
 	ExcludeLowercase pulumi.BoolPtrInput `pulumi:"excludeLowercase"`
 	// Specifies whether to exclude numbers from the password.
 	ExcludeNumbers pulumi.BoolPtrInput `pulumi:"excludeNumbers"`
-	// Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
+	// Specifies whether to exclude the following punctuation characters from the password: ``! " # $ %!&(MISSING) ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
 	ExcludePunctuation pulumi.BoolPtrInput `pulumi:"excludePunctuation"`
 	// Specifies whether to exclude uppercase letters from the password.
 	ExcludeUppercase pulumi.BoolPtrInput `pulumi:"excludeUppercase"`
@@ -116,8 +116,6 @@ type GetRandomPasswordOutputArgs struct {
 	IncludeSpace pulumi.BoolPtrInput `pulumi:"includeSpace"`
 	// Length of the password.
 	PasswordLength pulumi.IntPtrInput `pulumi:"passwordLength"`
-	// Random password.
-	RandomPassword pulumi.StringPtrInput `pulumi:"randomPassword"`
 	// Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
 	RequireEachIncludedType pulumi.BoolPtrInput `pulumi:"requireEachIncludedType"`
 }

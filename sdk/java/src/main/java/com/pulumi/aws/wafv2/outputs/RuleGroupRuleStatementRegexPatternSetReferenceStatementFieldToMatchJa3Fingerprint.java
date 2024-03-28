@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
 
         @CustomType.Setter
         public Builder fallbackBehavior(String fallbackBehavior) {
-            this.fallbackBehavior = Objects.requireNonNull(fallbackBehavior);
+            if (fallbackBehavior == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint", "fallbackBehavior");
+            }
+            this.fallbackBehavior = fallbackBehavior;
             return this;
         }
         public RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint build() {
-            final var o = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint();
-            o.fallbackBehavior = fallbackBehavior;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint();
+            _resultValue.fallbackBehavior = fallbackBehavior;
+            return _resultValue;
         }
     }
 }

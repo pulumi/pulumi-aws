@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dax.NewParameterGroup(ctx, "example", &dax.ParameterGroupArgs{
+//				Name: pulumi.String("example"),
 //				Parameters: dax.ParameterGroupParameterArray{
 //					&dax.ParameterGroupParameterArgs{
 //						Name:  pulumi.String("query-ttl-millis"),
@@ -47,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DAX Parameter Group using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
-//
+// $ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
 // ```
 type ParameterGroup struct {
 	pulumi.CustomResourceState

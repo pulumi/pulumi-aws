@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,26 +32,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "exampleGlobalNetwork", &networkmanager.GlobalNetworkArgs{
+//			example, err := networkmanager.NewGlobalNetwork(ctx, "example", &networkmanager.GlobalNetworkArgs{
 //				Description: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSite, err := networkmanager.NewSite(ctx, "exampleSite", &networkmanager.SiteArgs{
-//				GlobalNetworkId: exampleGlobalNetwork.ID(),
+//			exampleSite, err := networkmanager.NewSite(ctx, "example", &networkmanager.SiteArgs{
+//				GlobalNetworkId: example.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDevice, err := networkmanager.NewDevice(ctx, "exampleDevice", &networkmanager.DeviceArgs{
-//				GlobalNetworkId: exampleGlobalNetwork.ID(),
+//			exampleDevice, err := networkmanager.NewDevice(ctx, "example", &networkmanager.DeviceArgs{
+//				GlobalNetworkId: example.ID(),
 //				SiteId:          exampleSite.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "exampleCustomerGateway", &ec2.CustomerGatewayArgs{
+//			exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "example", &ec2.CustomerGatewayArgs{
 //				BgpAsn:    pulumi.String("65000"),
 //				IpAddress: pulumi.String("172.83.124.10"),
 //				Type:      pulumi.String("ipsec.1"),
@@ -58,11 +59,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", nil)
+//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleVpnConnection, err := ec2.NewVpnConnection(ctx, "exampleVpnConnection", &ec2.VpnConnectionArgs{
+//			_, err = ec2.NewVpnConnection(ctx, "example", &ec2.VpnConnectionArgs{
 //				CustomerGatewayId: exampleCustomerGateway.ID(),
 //				TransitGatewayId:  exampleTransitGateway.ID(),
 //				Type:              exampleCustomerGateway.Type,
@@ -71,22 +72,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleTransitGatewayRegistration, err := networkmanager.NewTransitGatewayRegistration(ctx, "exampleTransitGatewayRegistration", &networkmanager.TransitGatewayRegistrationArgs{
-//				GlobalNetworkId:   exampleGlobalNetwork.ID(),
+//			_, err = networkmanager.NewTransitGatewayRegistration(ctx, "example", &networkmanager.TransitGatewayRegistrationArgs{
+//				GlobalNetworkId:   example.ID(),
 //				TransitGatewayArn: exampleTransitGateway.Arn,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleVpnConnection,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = networkmanager.NewCustomerGatewayAssociation(ctx, "exampleCustomerGatewayAssociation", &networkmanager.CustomerGatewayAssociationArgs{
-//				GlobalNetworkId:    exampleGlobalNetwork.ID(),
+//			_, err = networkmanager.NewCustomerGatewayAssociation(ctx, "example", &networkmanager.CustomerGatewayAssociationArgs{
+//				GlobalNetworkId:    example.ID(),
 //				CustomerGatewayArn: exampleCustomerGateway.Arn,
 //				DeviceId:           exampleDevice.ID(),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleTransitGatewayRegistration,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -95,15 +92,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_networkmanager_customer_gateway_association` using the global network ID and customer gateway ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:customer-gateway/cgw-123abc05e04123abc
-//
+// $ pulumi import aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:customer-gateway/cgw-123abc05e04123abc
 // ```
 type CustomerGatewayAssociation struct {
 	pulumi.CustomResourceState

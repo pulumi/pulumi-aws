@@ -4,6 +4,7 @@
 package com.pulumi.aws.kendra.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class GetExperienceEndpoint {
 
         @CustomType.Setter
         public Builder endpoint(String endpoint) {
-            this.endpoint = Objects.requireNonNull(endpoint);
+            if (endpoint == null) {
+              throw new MissingRequiredPropertyException("GetExperienceEndpoint", "endpoint");
+            }
+            this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
         public Builder endpointType(String endpointType) {
-            this.endpointType = Objects.requireNonNull(endpointType);
+            if (endpointType == null) {
+              throw new MissingRequiredPropertyException("GetExperienceEndpoint", "endpointType");
+            }
+            this.endpointType = endpointType;
             return this;
         }
         public GetExperienceEndpoint build() {
-            final var o = new GetExperienceEndpoint();
-            o.endpoint = endpoint;
-            o.endpointType = endpointType;
-            return o;
+            final var _resultValue = new GetExperienceEndpoint();
+            _resultValue.endpoint = endpoint;
+            _resultValue.endpointType = endpointType;
+            return _resultValue;
         }
     }
 }

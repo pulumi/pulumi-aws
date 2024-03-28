@@ -44,13 +44,14 @@ public final class VirtualServiceSpec {
 
         @CustomType.Setter
         public Builder provider(@Nullable VirtualServiceSpecProvider provider) {
+
             this.provider = provider;
             return this;
         }
         public VirtualServiceSpec build() {
-            final var o = new VirtualServiceSpec();
-            o.provider = provider;
-            return o;
+            final var _resultValue = new VirtualServiceSpec();
+            _resultValue.provider = provider;
+            return _resultValue;
         }
     }
 }

@@ -13,10 +13,12 @@ namespace Pulumi.Aws.LightSail
     /// Resource for managing an AWS Lightsail Distribution.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
     /// Below is a basic example with a bucket as an origin.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,18 +27,20 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testBucket = new Aws.LightSail.Bucket("testBucket", new()
+    ///     var test = new Aws.LightSail.Bucket("test", new()
     ///     {
+    ///         Name = "test-bucket",
     ///         BundleId = "small_1_0",
     ///     });
     /// 
-    ///     var testDistribution = new Aws.LightSail.Distribution("testDistribution", new()
+    ///     var testDistribution = new Aws.LightSail.Distribution("test", new()
     ///     {
+    ///         Name = "test-distribution",
     ///         BundleId = "small_1_0",
     ///         Origin = new Aws.LightSail.Inputs.DistributionOriginArgs
     ///         {
-    ///             Name = testBucket.Name,
-    ///             RegionName = testBucket.Region,
+    ///             Name = test.Name,
+    ///             RegionName = test.Region,
     ///         },
     ///         DefaultCacheBehavior = new Aws.LightSail.Inputs.DistributionDefaultCacheBehaviorArgs
     ///         {
@@ -66,10 +70,13 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### instance origin example
     /// 
     /// Below is an example of an instance as the origin.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -94,23 +101,28 @@ namespace Pulumi.Aws.LightSail
     ///         },
     ///     });
     /// 
-    ///     var testStaticIp = new Aws.LightSail.StaticIp("testStaticIp");
-    /// 
-    ///     var testInstance = new Aws.LightSail.Instance("testInstance", new()
+    ///     var testStaticIp = new Aws.LightSail.StaticIp("test", new()
     ///     {
+    ///         Name = "test-static-ip",
+    ///     });
+    /// 
+    ///     var testInstance = new Aws.LightSail.Instance("test", new()
+    ///     {
+    ///         Name = "test-instance",
     ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
     ///         BlueprintId = "amazon_linux_2",
     ///         BundleId = "micro_1_0",
     ///     });
     /// 
-    ///     var testStaticIpAttachment = new Aws.LightSail.StaticIpAttachment("testStaticIpAttachment", new()
+    ///     var test = new Aws.LightSail.StaticIpAttachment("test", new()
     ///     {
     ///         StaticIpName = testStaticIp.Name,
     ///         InstanceName = testInstance.Name,
     ///     });
     /// 
-    ///     var testDistribution = new Aws.LightSail.Distribution("testDistribution", new()
+    ///     var testDistribution = new Aws.LightSail.Distribution("test", new()
     ///     {
+    ///         Name = "test-distribution",
     ///         BundleId = "small_1_0",
     ///         Origin = new Aws.LightSail.Inputs.DistributionOriginArgs
     ///         {
@@ -121,20 +133,17 @@ namespace Pulumi.Aws.LightSail
     ///         {
     ///             Behavior = "cache",
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             testStaticIpAttachment,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### lb origin example
     /// 
     /// Below is an example with a load balancer as an origin
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -159,8 +168,9 @@ namespace Pulumi.Aws.LightSail
     ///         },
     ///     });
     /// 
-    ///     var testLb = new Aws.LightSail.Lb("testLb", new()
+    ///     var test = new Aws.LightSail.Lb("test", new()
     ///     {
+    ///         Name = "test-load-balancer",
     ///         HealthCheckPath = "/",
     ///         InstancePort = 80,
     ///         Tags = 
@@ -169,48 +179,45 @@ namespace Pulumi.Aws.LightSail
     ///         },
     ///     });
     /// 
-    ///     var testInstance = new Aws.LightSail.Instance("testInstance", new()
+    ///     var testInstance = new Aws.LightSail.Instance("test", new()
     ///     {
+    ///         Name = "test-instance",
     ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
     ///         BlueprintId = "amazon_linux_2",
     ///         BundleId = "nano_1_0",
     ///     });
     /// 
-    ///     var testLbAttachment = new Aws.LightSail.LbAttachment("testLbAttachment", new()
+    ///     var testLbAttachment = new Aws.LightSail.LbAttachment("test", new()
     ///     {
-    ///         LbName = testLb.Name,
+    ///         LbName = test.Name,
     ///         InstanceName = testInstance.Name,
     ///     });
     /// 
-    ///     var testDistribution = new Aws.LightSail.Distribution("testDistribution", new()
+    ///     var testDistribution = new Aws.LightSail.Distribution("test", new()
     ///     {
+    ///         Name = "test-distribution",
     ///         BundleId = "small_1_0",
     ///         Origin = new Aws.LightSail.Inputs.DistributionOriginArgs
     ///         {
-    ///             Name = testLb.Name,
+    ///             Name = test.Name,
     ///             RegionName = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Id),
     ///         },
     ///         DefaultCacheBehavior = new Aws.LightSail.Inputs.DistributionDefaultCacheBehaviorArgs
     ///         {
     ///             Behavior = "cache",
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             testLbAttachment,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Lightsail Distribution using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
+    /// $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/distribution:Distribution")]
@@ -364,10 +371,6 @@ namespace Pulumi.Aws.LightSail
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -629,11 +632,7 @@ namespace Pulumi.Aws.LightSail
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public DistributionState()

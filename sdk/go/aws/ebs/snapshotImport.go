@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,6 +50,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type SnapshotImport struct {
 	pulumi.CustomResourceState
 
@@ -100,10 +102,6 @@ func NewSnapshotImport(ctx *pulumi.Context,
 	if args.DiskContainer == nil {
 		return nil, errors.New("invalid value for required argument 'DiskContainer'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SnapshotImport
 	err := ctx.RegisterResource("aws:ebs/snapshotImport:SnapshotImport", name, args, &resource, opts...)

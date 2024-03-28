@@ -4,6 +4,7 @@
 package com.pulumi.aws.budgets.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -42,19 +43,23 @@ public final class BudgetAutoAdjustDataHistoricalOptions {
 
         @CustomType.Setter
         public Builder budgetAdjustmentPeriod(Integer budgetAdjustmentPeriod) {
-            this.budgetAdjustmentPeriod = Objects.requireNonNull(budgetAdjustmentPeriod);
+            if (budgetAdjustmentPeriod == null) {
+              throw new MissingRequiredPropertyException("BudgetAutoAdjustDataHistoricalOptions", "budgetAdjustmentPeriod");
+            }
+            this.budgetAdjustmentPeriod = budgetAdjustmentPeriod;
             return this;
         }
         @CustomType.Setter
         public Builder lookbackAvailablePeriods(@Nullable Integer lookbackAvailablePeriods) {
+
             this.lookbackAvailablePeriods = lookbackAvailablePeriods;
             return this;
         }
         public BudgetAutoAdjustDataHistoricalOptions build() {
-            final var o = new BudgetAutoAdjustDataHistoricalOptions();
-            o.budgetAdjustmentPeriod = budgetAdjustmentPeriod;
-            o.lookbackAvailablePeriods = lookbackAvailablePeriods;
-            return o;
+            final var _resultValue = new BudgetAutoAdjustDataHistoricalOptions();
+            _resultValue.budgetAdjustmentPeriod = budgetAdjustmentPeriod;
+            _resultValue.lookbackAvailablePeriods = lookbackAvailablePeriods;
+            return _resultValue;
         }
     }
 }

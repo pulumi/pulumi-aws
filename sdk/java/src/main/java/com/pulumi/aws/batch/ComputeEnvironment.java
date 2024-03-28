@@ -8,12 +8,12 @@ import com.pulumi.aws.batch.ComputeEnvironmentArgs;
 import com.pulumi.aws.batch.inputs.ComputeEnvironmentState;
 import com.pulumi.aws.batch.outputs.ComputeEnvironmentComputeResources;
 import com.pulumi.aws.batch.outputs.ComputeEnvironmentEksConfiguration;
+import com.pulumi.aws.batch.outputs.ComputeEnvironmentUpdatePolicy;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -28,7 +28,10 @@ import javax.annotation.Nullable;
  * otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch](http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html) .
  * 
  * ## Example Usage
+ * 
  * ### EC2 Type
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -55,7 +58,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.batch.ComputeEnvironment;
  * import com.pulumi.aws.batch.ComputeEnvironmentArgs;
  * import com.pulumi.aws.batch.inputs.ComputeEnvironmentComputeResourcesArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -80,17 +82,19 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var ecsInstanceRoleRole = new Role(&#34;ecsInstanceRoleRole&#34;, RoleArgs.builder()        
+ *         var ecsInstanceRole = new Role(&#34;ecsInstanceRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;ecs_instance_role&#34;)
  *             .assumeRolePolicy(ec2AssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var ecsInstanceRoleRolePolicyAttachment = new RolePolicyAttachment(&#34;ecsInstanceRoleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
- *             .role(ecsInstanceRoleRole.name())
+ *             .role(ecsInstanceRole.name())
  *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role&#34;)
  *             .build());
  * 
  *         var ecsInstanceRoleInstanceProfile = new InstanceProfile(&#34;ecsInstanceRoleInstanceProfile&#34;, InstanceProfileArgs.builder()        
- *             .role(ecsInstanceRoleRole.name())
+ *             .name(&#34;ecs_instance_role&#34;)
+ *             .role(ecsInstanceRole.name())
  *             .build());
  * 
  *         final var batchAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
@@ -104,16 +108,18 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var awsBatchServiceRoleRole = new Role(&#34;awsBatchServiceRoleRole&#34;, RoleArgs.builder()        
+ *         var awsBatchServiceRole = new Role(&#34;awsBatchServiceRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;aws_batch_service_role&#34;)
  *             .assumeRolePolicy(batchAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var awsBatchServiceRoleRolePolicyAttachment = new RolePolicyAttachment(&#34;awsBatchServiceRoleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
- *             .role(awsBatchServiceRoleRole.name())
+ *             .role(awsBatchServiceRole.name())
  *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole&#34;)
  *             .build());
  * 
- *         var sampleSecurityGroup = new SecurityGroup(&#34;sampleSecurityGroup&#34;, SecurityGroupArgs.builder()        
+ *         var sample = new SecurityGroup(&#34;sample&#34;, SecurityGroupArgs.builder()        
+ *             .name(&#34;aws_batch_compute_environment_security_group&#34;)
  *             .egress(SecurityGroupEgressArgs.builder()
  *                 .fromPort(0)
  *                 .toPort(0)
@@ -132,6 +138,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var samplePlacementGroup = new PlacementGroup(&#34;samplePlacementGroup&#34;, PlacementGroupArgs.builder()        
+ *             .name(&#34;sample&#34;)
  *             .strategy(&#34;cluster&#34;)
  *             .build());
  * 
@@ -143,20 +150,22 @@ import javax.annotation.Nullable;
  *                 .maxVcpus(16)
  *                 .minVcpus(0)
  *                 .placementGroup(samplePlacementGroup.name())
- *                 .securityGroupIds(sampleSecurityGroup.id())
+ *                 .securityGroupIds(sample.id())
  *                 .subnets(sampleSubnet.id())
  *                 .type(&#34;EC2&#34;)
  *                 .build())
- *             .serviceRole(awsBatchServiceRoleRole.arn())
+ *             .serviceRole(awsBatchServiceRole.arn())
  *             .type(&#34;MANAGED&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(awsBatchServiceRoleRolePolicyAttachment)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Fargate Type
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -166,7 +175,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.batch.ComputeEnvironment;
  * import com.pulumi.aws.batch.ComputeEnvironmentArgs;
  * import com.pulumi.aws.batch.inputs.ComputeEnvironmentComputeResourcesArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -184,26 +192,75 @@ import javax.annotation.Nullable;
  *             .computeEnvironmentName(&#34;sample&#34;)
  *             .computeResources(ComputeEnvironmentComputeResourcesArgs.builder()
  *                 .maxVcpus(16)
- *                 .securityGroupIds(aws_security_group.sample().id())
- *                 .subnets(aws_subnet.sample().id())
+ *                 .securityGroupIds(sampleAwsSecurityGroup.id())
+ *                 .subnets(sampleAwsSubnet.id())
  *                 .type(&#34;FARGATE&#34;)
  *                 .build())
- *             .serviceRole(aws_iam_role.aws_batch_service_role().arn())
+ *             .serviceRole(awsBatchServiceRole.arn())
  *             .type(&#34;MANAGED&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_iam_role_policy_attachment.aws_batch_service_role())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Setting Update Policy
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.batch.ComputeEnvironment;
+ * import com.pulumi.aws.batch.ComputeEnvironmentArgs;
+ * import com.pulumi.aws.batch.inputs.ComputeEnvironmentComputeResourcesArgs;
+ * import com.pulumi.aws.batch.inputs.ComputeEnvironmentUpdatePolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var sample = new ComputeEnvironment(&#34;sample&#34;, ComputeEnvironmentArgs.builder()        
+ *             .computeEnvironmentName(&#34;sample&#34;)
+ *             .computeResources(ComputeEnvironmentComputeResourcesArgs.builder()
+ *                 .allocationStrategy(&#34;BEST_FIT_PROGRESSIVE&#34;)
+ *                 .instanceRole(ecsInstance.arn())
+ *                 .instanceTypes(&#34;optimal&#34;)
+ *                 .maxVcpus(4)
+ *                 .minVcpus(0)
+ *                 .securityGroupIds(sampleAwsSecurityGroup.id())
+ *                 .subnets(sampleAwsSubnet.id())
+ *                 .type(&#34;EC2&#34;)
+ *                 .build())
+ *             .updatePolicy(ComputeEnvironmentUpdatePolicyArgs.builder()
+ *                 .jobExecutionTimeoutMinutes(30)
+ *                 .terminateJobsOnUpdate(false)
+ *                 .build())
+ *             .type(&#34;MANAGED&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AWS Batch compute using the `compute_environment_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
+ * $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
  * ```
  * 
  */
@@ -395,6 +452,20 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
     public Output<String> type() {
         return this.type;
     }
+    /**
+     * Specifies the infrastructure update policy for the compute environment. See details below.
+     * 
+     */
+    @Export(name="updatePolicy", refs={ComputeEnvironmentUpdatePolicy.class}, tree="[0]")
+    private Output</* @Nullable */ ComputeEnvironmentUpdatePolicy> updatePolicy;
+
+    /**
+     * @return Specifies the infrastructure update policy for the compute environment. See details below.
+     * 
+     */
+    public Output<Optional<ComputeEnvironmentUpdatePolicy>> updatePolicy() {
+        return Codegen.optional(this.updatePolicy);
+    }
 
     /**
      *
@@ -428,9 +499,6 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

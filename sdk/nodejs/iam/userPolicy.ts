@@ -11,31 +11,37 @@ import {PolicyDocument} from "./index";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const lbUser = new aws.iam.User("lbUser", {path: "/system/"});
- * const lbRo = new aws.iam.UserPolicy("lbRo", {
- *     user: lbUser.name,
+ * const lb = new aws.iam.User("lb", {
+ *     name: "loadbalancer",
+ *     path: "/system/",
+ * });
+ * const lbRo = new aws.iam.UserPolicy("lb_ro", {
+ *     name: "test",
+ *     user: lb.name,
  *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: ["ec2:Describe*"],
- *             Effect: "Allow",
- *             Resource: "*",
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: ["ec2:Describe*"],
+ *             effect: "Allow",
+ *             resource: "*",
  *         }],
  *     }),
  * });
- * const lbAccessKey = new aws.iam.AccessKey("lbAccessKey", {user: lbUser.name});
+ * const lbAccessKey = new aws.iam.AccessKey("lb", {user: lb.name});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IAM User Policies using the `user_name:user_policy_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
+ * $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
  * ```
  */
 export class UserPolicy extends pulumi.CustomResource {

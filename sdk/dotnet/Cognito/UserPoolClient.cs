@@ -16,8 +16,10 @@ namespace Pulumi.Aws.Cognito
     /// use the `aws.cognito.ManagedUserPoolClient` resource instead.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Create a basic user pool client
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,17 +28,24 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pool = new Aws.Cognito.UserPool("pool");
+    ///     var pool = new Aws.Cognito.UserPool("pool", new()
+    ///     {
+    ///         Name = "pool",
+    ///     });
     /// 
     ///     var client = new Aws.Cognito.UserPoolClient("client", new()
     ///     {
+    ///         Name = "client",
     ///         UserPoolId = pool.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Create a user pool client with no SRP authentication
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,10 +54,14 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pool = new Aws.Cognito.UserPool("pool");
+    ///     var pool = new Aws.Cognito.UserPool("pool", new()
+    ///     {
+    ///         Name = "pool",
+    ///     });
     /// 
     ///     var client = new Aws.Cognito.UserPoolClient("client", new()
     ///     {
+    ///         Name = "client",
     ///         UserPoolId = pool.Id,
     ///         GenerateSecret = true,
     ///         ExplicitAuthFlows = new[]
@@ -59,8 +72,11 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Create a user pool client with pinpoint analytics
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -69,9 +85,15 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testUserPool = new Aws.Cognito.UserPool("testUserPool");
+    ///     var testUserPool = new Aws.Cognito.UserPool("test", new()
+    ///     {
+    ///         Name = "pool",
+    ///     });
     /// 
-    ///     var testApp = new Aws.Pinpoint.App("testApp");
+    ///     var testApp = new Aws.Pinpoint.App("test", new()
+    ///     {
+    ///         Name = "pinpoint",
+    ///     });
     /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
@@ -99,13 +121,15 @@ namespace Pulumi.Aws.Cognito
     ///         },
     ///     });
     /// 
-    ///     var testRole = new Aws.Iam.Role("testRole", new()
+    ///     var testRole = new Aws.Iam.Role("test", new()
     ///     {
+    ///         Name = "role",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var testUserPoolClient = new Aws.Cognito.UserPoolClient("testUserPoolClient", new()
+    ///     var testUserPoolClient = new Aws.Cognito.UserPoolClient("test", new()
     ///     {
+    ///         Name = "pool_client",
     ///         UserPoolId = testUserPool.Id,
     ///         AnalyticsConfiguration = new Aws.Cognito.Inputs.UserPoolClientAnalyticsConfigurationArgs
     ///         {
@@ -118,7 +142,7 @@ namespace Pulumi.Aws.Cognito
     /// 
     ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var test = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -138,16 +162,20 @@ namespace Pulumi.Aws.Cognito
     ///         },
     ///     });
     /// 
-    ///     var testRolePolicy = new Aws.Iam.RolePolicy("testRolePolicy", new()
+    ///     var testRolePolicy = new Aws.Iam.RolePolicy("test", new()
     ///     {
+    ///         Name = "role_policy",
     ///         Role = testRole.Id,
-    ///         Policy = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = test.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Create a user pool client with Cognito as the identity provider
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -156,10 +184,14 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pool = new Aws.Cognito.UserPool("pool");
-    /// 
-    ///     var userpoolClient = new Aws.Cognito.UserPoolClient("userpoolClient", new()
+    ///     var pool = new Aws.Cognito.UserPool("pool", new()
     ///     {
+    ///         Name = "pool",
+    ///     });
+    /// 
+    ///     var userpoolClient = new Aws.Cognito.UserPoolClient("userpool_client", new()
+    ///     {
+    ///         Name = "client",
     ///         UserPoolId = pool.Id,
     ///         CallbackUrls = new[]
     ///         {
@@ -184,13 +216,14 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cognito User Pool Clients using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cognito/userPoolClient:UserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
+    /// $ pulumi import aws:cognito/userPoolClient:UserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/userPoolClient:UserPoolClient")]

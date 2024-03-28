@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -40,19 +41,25 @@ public final class GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderD
 
         @CustomType.Setter
         public Builder from(Integer from) {
-            this.from = Objects.requireNonNull(from);
+            if (from == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRange", "from");
+            }
+            this.from = from;
             return this;
         }
         @CustomType.Setter
         public Builder to(Integer to) {
-            this.to = Objects.requireNonNull(to);
+            if (to == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRange", "to");
+            }
+            this.to = to;
             return this;
         }
         public GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRange build() {
-            final var o = new GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRange();
-            o.from = from;
-            o.to = to;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRange();
+            _resultValue.from = from;
+            _resultValue.to = to;
+            return _resultValue;
         }
     }
 }

@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * Provides a CodeDeploy CustomActionType
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -64,13 +66,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CodeDeploy CustomActionType using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:pulumi:1
+ * $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:pulumi:1
  * ```
  * 
  */
@@ -267,9 +270,6 @@ public class CustomActionType extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

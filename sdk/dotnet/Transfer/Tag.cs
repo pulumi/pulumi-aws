@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,7 +32,7 @@ namespace Pulumi.Aws.Transfer
     ///         IdentityProviderType = "SERVICE_MANAGED",
     ///     });
     /// 
-    ///     var zoneId = new Aws.Transfer.Tag("zoneId", new()
+    ///     var zoneId = new Aws.Transfer.Tag("zone_id", new()
     ///     {
     ///         ResourceArn = example.Arn,
     ///         Key = "aws:transfer:route53HostedZoneId",
@@ -47,13 +48,14 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_transfer_tag` using the Transfer Family resource identifier and key, separated by a comma (`,`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:transfer/tag:Tag example arn:aws:transfer:us-east-1:123456789012:server/s-1234567890abcdef0,Name
+    /// $ pulumi import aws:transfer/tag:Tag example arn:aws:transfer:us-east-1:123456789012:server/s-1234567890abcdef0,Name
     /// ```
     /// </summary>
     [AwsResourceType("aws:transfer/tag:Tag")]

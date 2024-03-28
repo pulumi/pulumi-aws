@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,20 +28,21 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var example = new Aws.Rds.ClusterRoleAssociation("example", new()
     ///     {
-    ///         DbClusterIdentifier = aws_rds_cluster.Example.Id,
+    ///         DbClusterIdentifier = exampleAwsRdsCluster.Id,
     ///         FeatureName = "S3_INTEGRATION",
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_rds_cluster_role_association` using the DB Cluster Identifier and IAM Role ARN separated by a comma (`,`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rds/clusterRoleAssociation:ClusterRoleAssociation example my-db-cluster,arn:aws:iam::123456789012:role/my-role
+    /// $ pulumi import aws:rds/clusterRoleAssociation:ClusterRoleAssociation example my-db-cluster,arn:aws:iam::123456789012:role/my-role
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/clusterRoleAssociation:ClusterRoleAssociation")]

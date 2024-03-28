@@ -15,8 +15,10 @@ import (
 // Provides an AWS App Mesh virtual gateway resource.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewVirtualGateway(ctx, "example", &appmesh.VirtualGatewayArgs{
+//				Name:     pulumi.String("example-virtual-gateway"),
 //				MeshName: pulumi.String("example-service-mesh"),
 //				Spec: &appmesh.VirtualGatewaySpecArgs{
 //					Listeners: appmesh.VirtualGatewaySpecListenerArray{
@@ -53,8 +56,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Access Logs and TLS
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,6 +74,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewVirtualGateway(ctx, "example", &appmesh.VirtualGatewayArgs{
+//				Name:     pulumi.String("example-virtual-gateway"),
 //				MeshName: pulumi.String("example-service-mesh"),
 //				Spec: &appmesh.VirtualGatewaySpecArgs{
 //					Listeners: appmesh.VirtualGatewaySpecListenerArray{
@@ -79,7 +86,7 @@ import (
 //							Tls: &appmesh.VirtualGatewaySpecListenerTlsArgs{
 //								Certificate: &appmesh.VirtualGatewaySpecListenerTlsCertificateArgs{
 //									Acm: &appmesh.VirtualGatewaySpecListenerTlsCertificateAcmArgs{
-//										CertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
+//										CertificateArn: pulumi.Any(exampleAwsAcmCertificate.Arn),
 //									},
 //								},
 //								Mode: pulumi.String("STRICT"),
@@ -103,15 +110,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import App Mesh virtual gateway using `mesh_name` together with the virtual gateway's `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
-//
+// $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
 // ```
 type VirtualGateway struct {
 	pulumi.CustomResourceState
@@ -153,10 +159,6 @@ func NewVirtualGateway(ctx *pulumi.Context,
 	if args.Spec == nil {
 		return nil, errors.New("invalid value for required argument 'Spec'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualGateway
 	err := ctx.RegisterResource("aws:appmesh/virtualGateway:VirtualGateway", name, args, &resource, opts...)

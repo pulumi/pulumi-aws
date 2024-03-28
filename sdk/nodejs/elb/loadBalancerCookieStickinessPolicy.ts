@@ -9,11 +9,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const lb = new aws.elb.LoadBalancer("lb", {
+ *     name: "test-lb",
  *     availabilityZones: ["us-east-1a"],
  *     listeners: [{
  *         instancePort: 8000,
@@ -23,11 +25,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const foo = new aws.elb.LoadBalancerCookieStickinessPolicy("foo", {
+ *     name: "foo-policy",
  *     loadBalancer: lb.id,
  *     lbPort: 80,
  *     cookieExpirationPeriod: 600,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class LoadBalancerCookieStickinessPolicy extends pulumi.CustomResource {
     /**

@@ -73,25 +73,28 @@ public final class AcceleratorAttributes {
 
         @CustomType.Setter
         public Builder flowLogsEnabled(@Nullable Boolean flowLogsEnabled) {
+
             this.flowLogsEnabled = flowLogsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder flowLogsS3Bucket(@Nullable String flowLogsS3Bucket) {
+
             this.flowLogsS3Bucket = flowLogsS3Bucket;
             return this;
         }
         @CustomType.Setter
         public Builder flowLogsS3Prefix(@Nullable String flowLogsS3Prefix) {
+
             this.flowLogsS3Prefix = flowLogsS3Prefix;
             return this;
         }
         public AcceleratorAttributes build() {
-            final var o = new AcceleratorAttributes();
-            o.flowLogsEnabled = flowLogsEnabled;
-            o.flowLogsS3Bucket = flowLogsS3Bucket;
-            o.flowLogsS3Prefix = flowLogsS3Prefix;
-            return o;
+            final var _resultValue = new AcceleratorAttributes();
+            _resultValue.flowLogsEnabled = flowLogsEnabled;
+            _resultValue.flowLogsS3Bucket = flowLogsS3Bucket;
+            _resultValue.flowLogsS3Prefix = flowLogsS3Prefix;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class MonitoringScheduleMonitoringScheduleConfigScheduleConfig {
 
         @CustomType.Setter
         public Builder scheduleExpression(String scheduleExpression) {
-            this.scheduleExpression = Objects.requireNonNull(scheduleExpression);
+            if (scheduleExpression == null) {
+              throw new MissingRequiredPropertyException("MonitoringScheduleMonitoringScheduleConfigScheduleConfig", "scheduleExpression");
+            }
+            this.scheduleExpression = scheduleExpression;
             return this;
         }
         public MonitoringScheduleMonitoringScheduleConfigScheduleConfig build() {
-            final var o = new MonitoringScheduleMonitoringScheduleConfigScheduleConfig();
-            o.scheduleExpression = scheduleExpression;
-            return o;
+            final var _resultValue = new MonitoringScheduleMonitoringScheduleConfigScheduleConfig();
+            _resultValue.scheduleExpression = scheduleExpression;
+            return _resultValue;
         }
     }
 }

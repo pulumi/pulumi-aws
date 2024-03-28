@@ -8,25 +8,28 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS CodeCatalyst Project.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.codecatalyst.Project("test", {
- *     description: "My CodeCatalyst Project created using Pulumi",
- *     displayName: "MyProject",
  *     spaceName: "myproject",
+ *     displayName: "MyProject",
+ *     description: "My CodeCatalyst Project created using Pulumi",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Using `pulumi import`, import CodeCatalyst Project using the `example_id_arg`. For example:
+ * Using `pulumi import`, import CodeCatalyst Project using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:codecatalyst/project:Project example project-id-12345678
+ * $ pulumi import aws:codecatalyst/project:Project example project-id-12345678
  * ```
  */
 export class Project extends pulumi.CustomResource {

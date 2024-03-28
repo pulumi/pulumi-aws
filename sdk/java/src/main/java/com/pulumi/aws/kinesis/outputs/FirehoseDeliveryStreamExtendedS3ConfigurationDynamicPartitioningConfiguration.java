@@ -63,19 +63,21 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartition
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder retryDuration(@Nullable Integer retryDuration) {
+
             this.retryDuration = retryDuration;
             return this;
         }
         public FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration build() {
-            final var o = new FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration();
-            o.enabled = enabled;
-            o.retryDuration = retryDuration;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.retryDuration = retryDuration;
+            return _resultValue;
         }
     }
 }

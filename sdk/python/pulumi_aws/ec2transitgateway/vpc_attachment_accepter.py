@@ -309,23 +309,25 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.VpcAttachmentAccepter("example",
-            transit_gateway_attachment_id=aws_ec2_transit_gateway_vpc_attachment["example"]["id"],
+            transit_gateway_attachment_id=example_aws_ec2_transit_gateway_vpc_attachment["id"],
             tags={
                 "Name": "Example cross-account attachment",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment_accepter` using the EC2 Transit Gateway Attachment identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter example tgw-attach-12345678
+        $ pulumi import aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter example tgw-attach-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -352,23 +354,25 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.VpcAttachmentAccepter("example",
-            transit_gateway_attachment_id=aws_ec2_transit_gateway_vpc_attachment["example"]["id"],
+            transit_gateway_attachment_id=example_aws_ec2_transit_gateway_vpc_attachment["id"],
             tags={
                 "Name": "Example cross-account attachment",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment_accepter` using the EC2 Transit Gateway Attachment identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter example tgw-attach-12345678
+        $ pulumi import aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter example tgw-attach-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -413,8 +417,6 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
             __props__.__dict__["transit_gateway_id"] = None
             __props__.__dict__["vpc_id"] = None
             __props__.__dict__["vpc_owner_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VpcAttachmentAccepter, __self__).__init__(
             'aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter',
             resource_name,

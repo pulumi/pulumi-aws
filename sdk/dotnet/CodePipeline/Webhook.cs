@@ -12,133 +12,12 @@ namespace Pulumi.Aws.CodePipeline
     /// <summary>
     /// Provides a CodePipeline Webhook.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var barPipeline = new Aws.CodePipeline.Pipeline("barPipeline", new()
-    ///     {
-    ///         RoleArn = aws_iam_role.Bar.Arn,
-    ///         ArtifactStores = new[]
-    ///         {
-    ///             new Aws.CodePipeline.Inputs.PipelineArtifactStoreArgs
-    ///             {
-    ///                 Location = aws_s3_bucket.Bar.Bucket,
-    ///                 Type = "S3",
-    ///                 EncryptionKey = new Aws.CodePipeline.Inputs.PipelineArtifactStoreEncryptionKeyArgs
-    ///                 {
-    ///                     Id = data.Aws_kms_alias.S3kmskey.Arn,
-    ///                     Type = "KMS",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Stages = new[]
-    ///         {
-    ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
-    ///             {
-    ///                 Name = "Source",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     new Aws.CodePipeline.Inputs.PipelineStageActionArgs
-    ///                     {
-    ///                         Name = "Source",
-    ///                         Category = "Source",
-    ///                         Owner = "ThirdParty",
-    ///                         Provider = "GitHub",
-    ///                         Version = "1",
-    ///                         OutputArtifacts = new[]
-    ///                         {
-    ///                             "test",
-    ///                         },
-    ///                         Configuration = 
-    ///                         {
-    ///                             { "Owner", "my-organization" },
-    ///                             { "Repo", "test" },
-    ///                             { "Branch", "master" },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
-    ///             {
-    ///                 Name = "Build",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     new Aws.CodePipeline.Inputs.PipelineStageActionArgs
-    ///                     {
-    ///                         Name = "Build",
-    ///                         Category = "Build",
-    ///                         Owner = "AWS",
-    ///                         Provider = "CodeBuild",
-    ///                         InputArtifacts = new[]
-    ///                         {
-    ///                             "test",
-    ///                         },
-    ///                         Version = "1",
-    ///                         Configuration = 
-    ///                         {
-    ///                             { "ProjectName", "test" },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var webhookSecret = "super-secret";
-    /// 
-    ///     var barWebhook = new Aws.CodePipeline.Webhook("barWebhook", new()
-    ///     {
-    ///         Authentication = "GITHUB_HMAC",
-    ///         TargetAction = "Source",
-    ///         TargetPipeline = barPipeline.Name,
-    ///         AuthenticationConfiguration = new Aws.CodePipeline.Inputs.WebhookAuthenticationConfigurationArgs
-    ///         {
-    ///             SecretToken = webhookSecret,
-    ///         },
-    ///         Filters = new[]
-    ///         {
-    ///             new Aws.CodePipeline.Inputs.WebhookFilterArgs
-    ///             {
-    ///                 JsonPath = "$.ref",
-    ///                 MatchEquals = "refs/heads/{Branch}",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     // Wire the CodePipeline webhook into a GitHub repository.
-    ///     var barRepositoryWebhook = new Github.RepositoryWebhook("barRepositoryWebhook", new()
-    ///     {
-    ///         Repository = github_repository.Repo.Name,
-    ///         Configuration = new Github.Inputs.RepositoryWebhookConfigurationArgs
-    ///         {
-    ///             Url = barWebhook.Url,
-    ///             ContentType = "json",
-    ///             InsecureSsl = true,
-    ///             Secret = webhookSecret,
-    ///         },
-    ///         Events = new[]
-    ///         {
-    ///             "push",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
+    /// $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
     /// ```
     /// </summary>
     [AwsResourceType("aws:codepipeline/webhook:Webhook")]
@@ -227,10 +106,6 @@ namespace Pulumi.Aws.CodePipeline
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -374,11 +249,7 @@ namespace Pulumi.Aws.CodePipeline
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

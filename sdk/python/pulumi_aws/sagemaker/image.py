@@ -238,23 +238,26 @@ class Image(pulumi.CustomResource):
         Provides a SageMaker Image resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sagemaker.Image("example",
             image_name="example",
-            role_arn=aws_iam_role["test"]["arn"])
+            role_arn=test["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Code Images using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/image:Image test_image my-code-repo
+        $ pulumi import aws:sagemaker/image:Image test_image my-code-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -275,23 +278,26 @@ class Image(pulumi.CustomResource):
         Provides a SageMaker Image resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sagemaker.Image("example",
             image_name="example",
-            role_arn=aws_iam_role["test"]["arn"])
+            role_arn=test["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Code Images using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/image:Image test_image my-code-repo
+        $ pulumi import aws:sagemaker/image:Image test_image my-code-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -334,8 +340,6 @@ class Image(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Image, __self__).__init__(
             'aws:sagemaker/image:Image',
             resource_name,

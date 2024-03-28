@@ -12,11 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS NetworkManager VpcAttachment.
+// Resource for managing an AWS Network Manager VPC Attachment.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,10 +33,10 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.NewVpcAttachment(ctx, "example", &networkmanager.VpcAttachmentArgs{
 //				SubnetArns: pulumi.StringArray{
-//					aws_subnet.Example.Arn,
+//					exampleAwsSubnet.Arn,
 //				},
-//				CoreNetworkId: pulumi.Any(awscc_networkmanager_core_network.Example.Id),
-//				VpcArn:        pulumi.Any(aws_vpc.Example.Arn),
+//				CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
+//				VpcArn:        pulumi.Any(exampleAwsVpc.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -44,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_networkmanager_vpc_attachment` using the attachment ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:networkmanager/vpcAttachment:VpcAttachment example attachment-0f8fa60d2238d1bd8
-//
+// $ pulumi import aws:networkmanager/vpcAttachment:VpcAttachment example attachment-0f8fa60d2238d1bd8
 // ```
 type VpcAttachment struct {
 	pulumi.CustomResourceState
@@ -109,10 +110,6 @@ func NewVpcAttachment(ctx *pulumi.Context,
 	if args.VpcArn == nil {
 		return nil, errors.New("invalid value for required argument 'VpcArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcAttachment
 	err := ctx.RegisterResource("aws:networkmanager/vpcAttachment:VpcAttachment", name, args, &resource, opts...)

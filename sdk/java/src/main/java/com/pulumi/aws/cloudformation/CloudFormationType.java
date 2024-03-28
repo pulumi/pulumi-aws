@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Manages a version of a CloudFormation Type.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,25 +45,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CloudFormationType(&#34;example&#34;, CloudFormationTypeArgs.builder()        
- *             .schemaHandlerPackage(String.format(&#34;s3://%s/%s&#34;, aws_s3_object.example().bucket(),aws_s3_object.example().key()))
+ *             .schemaHandlerPackage(String.format(&#34;s3://%s/%s&#34;, exampleAwsS3Object.bucket(),exampleAwsS3Object.key()))
  *             .type(&#34;RESOURCE&#34;)
  *             .typeName(&#34;ExampleCompany::ExampleService::ExampleResource&#34;)
  *             .loggingConfig(CloudFormationTypeLoggingConfigArgs.builder()
- *                 .logGroupName(aws_cloudwatch_log_group.example().name())
- *                 .logRoleArn(aws_iam_role.example().arn())
+ *                 .logGroupName(exampleAwsCloudwatchLogGroup.name())
+ *                 .logRoleArn(exampleAwsIamRole.arn())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_cloudformation_type` using the type version Amazon Resource Name (ARN). For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudformation/cloudFormationType:CloudFormationType example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
+ * $ pulumi import aws:cloudformation/cloudFormationType:CloudFormationType example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
  * ```
  * 
  */

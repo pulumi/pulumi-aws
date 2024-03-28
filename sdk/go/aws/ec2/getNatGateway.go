@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.LookupNatGateway(ctx, &ec2.LookupNatGatewayArgs{
-//				SubnetId: pulumi.StringRef(aws_subnet.Public.Id),
+//				SubnetId: pulumi.StringRef(public.Id),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -38,8 +39,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With tags
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,7 +57,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.LookupNatGateway(ctx, &ec2.LookupNatGatewayArgs{
-//				SubnetId: pulumi.StringRef(aws_subnet.Public.Id),
+//				SubnetId: pulumi.StringRef(public.Id),
 //				Tags: map[string]interface{}{
 //					"Name": "gw NAT",
 //				},
@@ -66,6 +70,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupNatGateway(ctx *pulumi.Context, args *LookupNatGatewayArgs, opts ...pulumi.InvokeOption) (*LookupNatGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNatGatewayResult

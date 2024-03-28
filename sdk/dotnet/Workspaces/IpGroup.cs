@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,36 +25,38 @@ namespace Pulumi.Aws.Workspaces
     /// {
     ///     var contractors = new Aws.Workspaces.IpGroup("contractors", new()
     ///     {
+    ///         Name = "Contractors",
     ///         Description = "Contractors IP access control group",
     ///         Rules = new[]
     ///         {
     ///             new Aws.Workspaces.Inputs.IpGroupRuleArgs
     ///             {
-    ///                 Description = "NY",
     ///                 Source = "150.24.14.0/24",
+    ///                 Description = "NY",
     ///             },
     ///             new Aws.Workspaces.Inputs.IpGroupRuleArgs
     ///             {
-    ///                 Description = "LA",
     ///                 Source = "125.191.14.85/32",
+    ///                 Description = "LA",
     ///             },
     ///             new Aws.Workspaces.Inputs.IpGroupRuleArgs
     ///             {
-    ///                 Description = "STL",
     ///                 Source = "44.98.100.0/24",
+    ///                 Description = "STL",
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WorkSpaces IP groups using their GroupID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
+    /// $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
     /// ```
     /// </summary>
     [AwsResourceType("aws:workspaces/ipGroup:IpGroup")]
@@ -112,10 +115,6 @@ namespace Pulumi.Aws.Workspaces
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -229,11 +228,7 @@ namespace Pulumi.Aws.Workspaces
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public IpGroupState()

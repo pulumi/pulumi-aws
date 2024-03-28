@@ -44,13 +44,14 @@ public final class NotebookInstanceInstanceMetadataServiceConfiguration {
 
         @CustomType.Setter
         public Builder minimumInstanceMetadataServiceVersion(@Nullable String minimumInstanceMetadataServiceVersion) {
+
             this.minimumInstanceMetadataServiceVersion = minimumInstanceMetadataServiceVersion;
             return this;
         }
         public NotebookInstanceInstanceMetadataServiceConfiguration build() {
-            final var o = new NotebookInstanceInstanceMetadataServiceConfiguration();
-            o.minimumInstanceMetadataServiceVersion = minimumInstanceMetadataServiceVersion;
-            return o;
+            final var _resultValue = new NotebookInstanceInstanceMetadataServiceConfiguration();
+            _resultValue.minimumInstanceMetadataServiceVersion = minimumInstanceMetadataServiceVersion;
+            return _resultValue;
         }
     }
 }

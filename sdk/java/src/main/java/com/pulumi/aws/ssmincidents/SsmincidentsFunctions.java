@@ -23,7 +23,10 @@ public final class SsmincidentsFunctions {
      * Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -50,6 +53,7 @@ public final class SsmincidentsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReplicationSetResult> getReplicationSet() {
@@ -61,7 +65,10 @@ public final class SsmincidentsFunctions {
      * Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -88,6 +95,7 @@ public final class SsmincidentsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReplicationSetResult> getReplicationSetPlain() {
@@ -99,7 +107,10 @@ public final class SsmincidentsFunctions {
      * Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -126,6 +137,7 @@ public final class SsmincidentsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReplicationSetResult> getReplicationSet(GetReplicationSetArgs args) {
@@ -137,7 +149,10 @@ public final class SsmincidentsFunctions {
      * Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -164,6 +179,7 @@ public final class SsmincidentsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReplicationSetResult> getReplicationSetPlain(GetReplicationSetPlainArgs args) {
@@ -175,7 +191,10 @@ public final class SsmincidentsFunctions {
      * Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -202,6 +221,7 @@ public final class SsmincidentsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReplicationSetResult> getReplicationSet(GetReplicationSetArgs args, InvokeOptions options) {
@@ -213,7 +233,10 @@ public final class SsmincidentsFunctions {
      * Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -240,6 +263,7 @@ public final class SsmincidentsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReplicationSetResult> getReplicationSetPlain(GetReplicationSetPlainArgs args, InvokeOptions options) {
@@ -249,8 +273,10 @@ public final class SsmincidentsFunctions {
      * Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -279,6 +305,7 @@ public final class SsmincidentsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResponsePlanResult> getResponsePlan(GetResponsePlanArgs args) {
@@ -288,8 +315,10 @@ public final class SsmincidentsFunctions {
      * Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -318,6 +347,7 @@ public final class SsmincidentsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResponsePlanResult> getResponsePlanPlain(GetResponsePlanPlainArgs args) {
@@ -327,8 +357,10 @@ public final class SsmincidentsFunctions {
      * Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -357,6 +389,7 @@ public final class SsmincidentsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResponsePlanResult> getResponsePlan(GetResponsePlanArgs args, InvokeOptions options) {
@@ -366,8 +399,10 @@ public final class SsmincidentsFunctions {
      * Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -396,6 +431,7 @@ public final class SsmincidentsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResponsePlanResult> getResponsePlanPlain(GetResponsePlanPlainArgs args, InvokeOptions options) {

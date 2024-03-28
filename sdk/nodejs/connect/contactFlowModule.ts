@@ -15,51 +15,54 @@ import * as utilities from "../utilities";
  * See example below which uses `jq` to extract the `Content` attribute and saves it to a local file.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.ContactFlowModule("example", {
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Example",
  *     description: "Example Contact Flow Module Description",
  *     content: JSON.stringify({
- *         Version: "2019-10-30",
- *         StartAction: "12345678-1234-1234-1234-123456789012",
- *         Actions: [
+ *         version: "2019-10-30",
+ *         startAction: "12345678-1234-1234-1234-123456789012",
+ *         actions: [
  *             {
- *                 Identifier: "12345678-1234-1234-1234-123456789012",
- *                 Parameters: {
- *                     Text: "Hello contact flow module",
+ *                 identifier: "12345678-1234-1234-1234-123456789012",
+ *                 parameters: {
+ *                     text: "Hello contact flow module",
  *                 },
- *                 Transitions: {
- *                     NextAction: "abcdef-abcd-abcd-abcd-abcdefghijkl",
- *                     Errors: [],
- *                     Conditions: [],
+ *                 transitions: {
+ *                     nextAction: "abcdef-abcd-abcd-abcd-abcdefghijkl",
+ *                     errors: [],
+ *                     conditions: [],
  *                 },
- *                 Type: "MessageParticipant",
+ *                 type: "MessageParticipant",
  *             },
  *             {
- *                 Identifier: "abcdef-abcd-abcd-abcd-abcdefghijkl",
- *                 Type: "DisconnectParticipant",
- *                 Parameters: {},
- *                 Transitions: {},
+ *                 identifier: "abcdef-abcd-abcd-abcd-abcdefghijkl",
+ *                 type: "DisconnectParticipant",
+ *                 parameters: {},
+ *                 transitions: {},
  *             },
  *         ],
- *         Settings: {
- *             InputParameters: [],
- *             OutputParameters: [],
- *             Transitions: [
+ *         settings: {
+ *             inputParameters: [],
+ *             outputParameters: [],
+ *             transitions: [
  *                 {
- *                     DisplayName: "Success",
- *                     ReferenceName: "Success",
- *                     Description: "",
+ *                     displayName: "Success",
+ *                     referenceName: "Success",
+ *                     description: "",
  *                 },
  *                 {
- *                     DisplayName: "Error",
- *                     ReferenceName: "Error",
- *                     Description: "",
+ *                     displayName: "Error",
+ *                     referenceName: "Error",
+ *                     description: "",
  *                 },
  *             ],
  *         },
@@ -71,13 +74,43 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### With External Content
+ *
+ * Use the AWS CLI to extract Contact Flow Content:
+ *
+ * Use the generated file as input:
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new aws.connect.ContactFlowModule("example", {
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Example",
+ *     description: "Example Contact Flow Module Description",
+ *     filename: "contact_flow_module.json",
+ *     contentHash: std.filebase64sha256({
+ *         input: "contact_flow_module.json",
+ *     }).then(invoke => invoke.result),
+ *     tags: {
+ *         Name: "Example Contact Flow Module",
+ *         Application: "Example",
+ *         Method: "Create",
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Amazon Connect Contact Flow Modules using the `instance_id` and `contact_flow_module_id` separated by a colon (`:`). For example:
  *
  * ```sh
- *  $ pulumi import aws:connect/contactFlowModule:ContactFlowModule example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+ * $ pulumi import aws:connect/contactFlowModule:ContactFlowModule example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
  * ```
  */
 export class ContactFlowModule extends pulumi.CustomResource {
@@ -191,8 +224,6 @@ export class ContactFlowModule extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ContactFlowModule.__pulumiType, name, resourceInputs, opts);
     }
 }

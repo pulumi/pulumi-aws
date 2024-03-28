@@ -44,13 +44,14 @@ public final class NfsLocationMountOptions {
 
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }
         public NfsLocationMountOptions build() {
-            final var o = new NfsLocationMountOptions();
-            o.version = version;
-            return o;
+            final var _resultValue = new NfsLocationMountOptions();
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

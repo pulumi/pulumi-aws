@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Resource for managing a Verified Access Instance Trust Provider Attachment.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleInstance = new Instance(&#34;exampleInstance&#34;);
+ *         var example = new Instance(&#34;example&#34;);
  * 
  *         var exampleTrustProvider = new TrustProvider(&#34;exampleTrustProvider&#34;, TrustProviderArgs.builder()        
  *             .deviceTrustProviderType(&#34;jamf&#34;)
@@ -54,20 +56,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleInstanceTrustProviderAttachment = new InstanceTrustProviderAttachment(&#34;exampleInstanceTrustProviderAttachment&#34;, InstanceTrustProviderAttachmentArgs.builder()        
- *             .verifiedaccessInstanceId(exampleInstance.id())
+ *             .verifiedaccessInstanceId(example.id())
  *             .verifiedaccessTrustProviderId(exampleTrustProvider.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Verified Access Instance Trust Provider Attachments using the `verifiedaccess_instance_id` and `verifiedaccess_trust_provider_id` separated by a forward slash (`/`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment example vai-1234567890abcdef0/vatp-8012925589
+ * $ pulumi import aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment example vai-1234567890abcdef0/vatp-8012925589
  * ```
  * 
  */

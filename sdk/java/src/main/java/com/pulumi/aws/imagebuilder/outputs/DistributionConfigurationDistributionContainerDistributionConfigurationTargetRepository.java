@@ -4,6 +4,7 @@
 package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class DistributionConfigurationDistributionContainerDistributionCon
 
         @CustomType.Setter
         public Builder repositoryName(String repositoryName) {
-            this.repositoryName = Objects.requireNonNull(repositoryName);
+            if (repositoryName == null) {
+              throw new MissingRequiredPropertyException("DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository", "repositoryName");
+            }
+            this.repositoryName = repositoryName;
             return this;
         }
         @CustomType.Setter
         public Builder service(String service) {
-            this.service = Objects.requireNonNull(service);
+            if (service == null) {
+              throw new MissingRequiredPropertyException("DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository", "service");
+            }
+            this.service = service;
             return this;
         }
         public DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository build() {
-            final var o = new DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository();
-            o.repositoryName = repositoryName;
-            o.service = service;
-            return o;
+            final var _resultValue = new DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository();
+            _resultValue.repositoryName = repositoryName;
+            _resultValue.service = service;
+            return _resultValue;
         }
     }
 }

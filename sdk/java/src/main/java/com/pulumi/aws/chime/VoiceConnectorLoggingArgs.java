@@ -5,6 +5,7 @@ package com.pulumi.aws.chime;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class VoiceConnectorLoggingArgs extends com.pulumi.resources.Resour
         }
 
         public VoiceConnectorLoggingArgs build() {
-            $.voiceConnectorId = Objects.requireNonNull($.voiceConnectorId, "expected parameter 'voiceConnectorId' to be non-null");
+            if ($.voiceConnectorId == null) {
+                throw new MissingRequiredPropertyException("VoiceConnectorLoggingArgs", "voiceConnectorId");
+            }
             return $;
         }
     }

@@ -10,6 +10,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +21,8 @@ import javax.annotation.Nullable;
  * Creates a new Amazon Redshift Serverless Namespace.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,20 +51,42 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshiftserverless/namespace:Namespace example example
+ * $ pulumi import aws:redshiftserverless/namespace:Namespace example example
  * ```
  * 
  */
 @ResourceType(type="aws:redshiftserverless/namespace:Namespace")
 public class Namespace extends com.pulumi.resources.CustomResource {
+    @Export(name="adminPasswordSecretArn", refs={String.class}, tree="[0]")
+    private Output<String> adminPasswordSecretArn;
+
+    public Output<String> adminPasswordSecretArn() {
+        return this.adminPasswordSecretArn;
+    }
+    /**
+     * ID of the KMS key used to encrypt the namespace&#39;s admin credentials secret.
+     * 
+     */
+    @Export(name="adminPasswordSecretKmsKeyId", refs={String.class}, tree="[0]")
+    private Output<String> adminPasswordSecretKmsKeyId;
+
+    /**
+     * @return ID of the KMS key used to encrypt the namespace&#39;s admin credentials secret.
+     * 
+     */
+    public Output<String> adminPasswordSecretKmsKeyId() {
+        return this.adminPasswordSecretKmsKeyId;
+    }
     /**
      * The password of the administrator for the first database created in the namespace.
+     * Conflicts with `manage_admin_password`.
      * 
      */
     @Export(name="adminUserPassword", refs={String.class}, tree="[0]")
@@ -69,6 +94,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The password of the administrator for the first database created in the namespace.
+     * Conflicts with `manage_admin_password`.
      * 
      */
     public Output<Optional<String>> adminUserPassword() {
@@ -173,6 +199,22 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.logExports);
     }
     /**
+     * Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
+     * Conflicts with `admin_user_password`.
+     * 
+     */
+    @Export(name="manageAdminPassword", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> manageAdminPassword;
+
+    /**
+     * @return Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
+     * Conflicts with `admin_user_password`.
+     * 
+     */
+    public Output<Optional<Boolean>> manageAdminPassword() {
+        return Codegen.optional(this.manageAdminPassword);
+    }
+    /**
      * The Redshift Namespace ID.
      * 
      */
@@ -267,8 +309,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
                 "adminUserPassword",
-                "adminUsername",
-                "tagsAll"
+                "adminUsername"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

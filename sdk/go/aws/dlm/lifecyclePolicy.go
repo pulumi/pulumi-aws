@@ -15,8 +15,237 @@ import (
 // Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
 //
 // ## Example Usage
+//
+// ### Basic
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dlm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"dlm.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			dlmLifecycleRole, err := iam.NewRole(ctx, "dlm_lifecycle_role", &iam.RoleArgs{
+//				Name:             pulumi.String("dlm-lifecycle-role"),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			dlmLifecycle, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: pulumi.Array{
+//					iam.GetPolicyDocumentStatement{
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"ec2:CreateSnapshot",
+//							"ec2:CreateSnapshots",
+//							"ec2:DeleteSnapshot",
+//							"ec2:DescribeInstances",
+//							"ec2:DescribeVolumes",
+//							"ec2:DescribeSnapshots",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//					iam.GetPolicyDocumentStatement{
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"ec2:CreateTags",
+//						},
+//						Resources: []string{
+//							"arn:aws:ec2:*::snapshot/*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicy(ctx, "dlm_lifecycle", &iam.RolePolicyArgs{
+//				Name:   pulumi.String("dlm-lifecycle-policy"),
+//				Role:   dlmLifecycleRole.ID(),
+//				Policy: pulumi.String(dlmLifecycle.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dlm.NewLifecyclePolicy(ctx, "example", &dlm.LifecyclePolicyArgs{
+//				Description:      pulumi.String("example DLM lifecycle policy"),
+//				ExecutionRoleArn: dlmLifecycleRole.Arn,
+//				State:            pulumi.String("ENABLED"),
+//				PolicyDetails: &dlm.LifecyclePolicyPolicyDetailsArgs{
+//					ResourceTypes: pulumi.StringArray("VOLUME"),
+//					Schedules: dlm.LifecyclePolicyPolicyDetailsScheduleArray{
+//						&dlm.LifecyclePolicyPolicyDetailsScheduleArgs{
+//							Name: pulumi.String("2 weeks of daily snapshots"),
+//							CreateRule: &dlm.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs{
+//								Interval:     pulumi.Int(24),
+//								IntervalUnit: pulumi.String("HOURS"),
+//								Times:        pulumi.String("23:45"),
+//							},
+//							RetainRule: &dlm.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs{
+//								Count: pulumi.Int(14),
+//							},
+//							TagsToAdd: pulumi.StringMap{
+//								"SnapshotCreator": pulumi.String("DLM"),
+//							},
+//							CopyTags: pulumi.Bool(false),
+//						},
+//					},
+//					TargetTags: pulumi.StringMap{
+//						"Snapshot": pulumi.String("true"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Example Cross-Region Snapshot Copy Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dlm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// ...other configuration...
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			key, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Sid:    pulumi.StringRef("Enable IAM User Permissions"),
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "AWS",
+//								Identifiers: []string{
+//									fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"kms:*",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			dlmCrossRegionCopyCmk, err := kms.NewKey(ctx, "dlm_cross_region_copy_cmk", &kms.KeyArgs{
+//				Description: pulumi.String("Example Alternate Region KMS Key"),
+//				Policy:      pulumi.String(key.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dlm.NewLifecyclePolicy(ctx, "example", &dlm.LifecyclePolicyArgs{
+//				Description:      pulumi.String("example DLM lifecycle policy"),
+//				ExecutionRoleArn: pulumi.Any(dlmLifecycleRole.Arn),
+//				State:            pulumi.String("ENABLED"),
+//				PolicyDetails: &dlm.LifecyclePolicyPolicyDetailsArgs{
+//					ResourceTypes: pulumi.StringArray("VOLUME"),
+//					Schedules: dlm.LifecyclePolicyPolicyDetailsScheduleArray{
+//						&dlm.LifecyclePolicyPolicyDetailsScheduleArgs{
+//							Name: pulumi.String("2 weeks of daily snapshots"),
+//							CreateRule: &dlm.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs{
+//								Interval:     pulumi.Int(24),
+//								IntervalUnit: pulumi.String("HOURS"),
+//								Times:        pulumi.String("23:45"),
+//							},
+//							RetainRule: &dlm.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs{
+//								Count: pulumi.Int(14),
+//							},
+//							TagsToAdd: pulumi.StringMap{
+//								"SnapshotCreator": pulumi.String("DLM"),
+//							},
+//							CopyTags: pulumi.Bool(false),
+//							CrossRegionCopyRules: dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArray{
+//								&dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs{
+//									Target:    pulumi.String("us-west-2"),
+//									Encrypted: pulumi.Bool(true),
+//									CmkArn:    dlmCrossRegionCopyCmk.Arn,
+//									CopyTags:  pulumi.Bool(true),
+//									RetainRule: &dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs{
+//										Interval:     pulumi.Int(30),
+//										IntervalUnit: pulumi.String("DAYS"),
+//									},
+//								},
+//							},
+//						},
+//					},
+//					TargetTags: pulumi.StringMap{
+//						"Snapshot": pulumi.String("true"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example Event Based Policy Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -35,9 +264,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = dlm.NewLifecyclePolicy(ctx, "exampleLifecyclePolicy", &dlm.LifecyclePolicyArgs{
+//			_, err = dlm.NewLifecyclePolicy(ctx, "example", &dlm.LifecyclePolicyArgs{
 //				Description:      pulumi.String("tf-acc-basic"),
-//				ExecutionRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				PolicyDetails: &dlm.LifecyclePolicyPolicyDetailsArgs{
 //					PolicyType: pulumi.String("EVENT_BASED_POLICY"),
 //					Action: &dlm.LifecyclePolicyPolicyDetailsActionArgs{
@@ -59,7 +288,7 @@ import (
 //							DescriptionRegex: pulumi.String("^.*Created for policy: policy-1234567890abcdef0.*$"),
 //							EventType:        pulumi.String("shareSnapshot"),
 //							SnapshotOwners: pulumi.StringArray{
-//								*pulumi.String(current.AccountId),
+//								pulumi.String(current.AccountId),
 //							},
 //						},
 //					},
@@ -68,15 +297,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicy, err := iam.LookupPolicy(ctx, &iam.LookupPolicyArgs{
+//			example, err := iam.LookupPolicy(ctx, &iam.LookupPolicyArgs{
 //				Name: pulumi.StringRef("AWSDataLifecycleManagerServiceRole"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "exampleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-//				Role:      pulumi.Any(aws_iam_role.Example.Id),
-//				PolicyArn: *pulumi.String(examplePolicy.Arn),
+//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
+//				Role:      pulumi.Any(exampleAwsIamRole.Id),
+//				PolicyArn: pulumi.String(example.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -86,15 +315,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DLM lifecycle policies using their policy ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
-//
+// $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
 // ```
 type LifecyclePolicy struct {
 	pulumi.CustomResourceState
@@ -133,10 +361,6 @@ func NewLifecyclePolicy(ctx *pulumi.Context,
 	if args.PolicyDetails == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyDetails'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LifecyclePolicy
 	err := ctx.RegisterResource("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, args, &resource, opts...)

@@ -44,13 +44,14 @@ public final class BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpl
 
         @CustomType.Setter
         public Builder daysAfterInitiation(@Nullable Integer daysAfterInitiation) {
+
             this.daysAfterInitiation = daysAfterInitiation;
             return this;
         }
         public BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload build() {
-            final var o = new BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload();
-            o.daysAfterInitiation = daysAfterInitiation;
-            return o;
+            final var _resultValue = new BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload();
+            _resultValue.daysAfterInitiation = daysAfterInitiation;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.resourceexplorer.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class ViewFilters {
 
         @CustomType.Setter
         public Builder filterString(String filterString) {
-            this.filterString = Objects.requireNonNull(filterString);
+            if (filterString == null) {
+              throw new MissingRequiredPropertyException("ViewFilters", "filterString");
+            }
+            this.filterString = filterString;
             return this;
         }
         public ViewFilters build() {
-            final var o = new ViewFilters();
-            o.filterString = filterString;
-            return o;
+            final var _resultValue = new ViewFilters();
+            _resultValue.filterString = filterString;
+            return _resultValue;
         }
     }
 }

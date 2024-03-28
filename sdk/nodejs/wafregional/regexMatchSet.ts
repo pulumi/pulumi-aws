@@ -12,30 +12,38 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRegexPatternSet = new aws.wafregional.RegexPatternSet("exampleRegexPatternSet", {regexPatternStrings: [
- *     "one",
- *     "two",
- * ]});
- * const exampleRegexMatchSet = new aws.wafregional.RegexMatchSet("exampleRegexMatchSet", {regexMatchTuples: [{
- *     fieldToMatch: {
- *         data: "User-Agent",
- *         type: "HEADER",
- *     },
- *     regexPatternSetId: exampleRegexPatternSet.id,
- *     textTransformation: "NONE",
- * }]});
+ * const exampleRegexPatternSet = new aws.wafregional.RegexPatternSet("example", {
+ *     name: "example",
+ *     regexPatternStrings: [
+ *         "one",
+ *         "two",
+ *     ],
+ * });
+ * const example = new aws.wafregional.RegexMatchSet("example", {
+ *     name: "example",
+ *     regexMatchTuples: [{
+ *         fieldToMatch: {
+ *             data: "User-Agent",
+ *             type: "HEADER",
+ *         },
+ *         regexPatternSetId: exampleRegexPatternSet.id,
+ *         textTransformation: "NONE",
+ *     }],
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import WAF Regional Regex Match Set using the id. For example:
  *
  * ```sh
- *  $ pulumi import aws:wafregional/regexMatchSet:RegexMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * $ pulumi import aws:wafregional/regexMatchSet:RegexMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
  * ```
  */
 export class RegexMatchSet extends pulumi.CustomResource {

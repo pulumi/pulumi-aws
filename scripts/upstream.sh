@@ -97,7 +97,7 @@ start_rebase() {
     echo "Applying $patch"
     if ! git am --3way "$patch"; then
       echo
-      echo "Failed to apply patch. Please run 'make upstream.rebase FROM=$TAG' where '$TAG' allows the patch set to apply cleanly"
+      echo "Failed to apply ${patch}. Please run 'make upstream.rebase FROM=$TAG' where '$TAG' allows the patch set to apply cleanly"
       echo
       exit 1
     fi
@@ -145,11 +145,11 @@ apply() {
     if ! git apply --3way "$patch"; then
       cat <<EOF
 
-make "$1"' failed to apply a patch. This is because there is a conflict between
+make "$1"' failed to apply ${patch}. This is because there is a conflict between
 the checked out version of upstream and the patch set. To resolve this conflict
 run:
 
-    FROM=\$LAST_KNOWN_GOOD_COMMIT make upstream.rebase
+    FROM=\$LAST_KNOWN_GOOD_COMMIT TO=\$NEW_COMMIT make upstream.rebase
 
 This will walk you through resolving the conflict and producing a patch set that
 cleanly applies to the current upstream.

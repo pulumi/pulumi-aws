@@ -100,37 +100,42 @@ public final class BucketWebsiteConfigurationV2RoutingRuleRedirect {
 
         @CustomType.Setter
         public Builder hostName(@Nullable String hostName) {
+
             this.hostName = hostName;
             return this;
         }
         @CustomType.Setter
         public Builder httpRedirectCode(@Nullable String httpRedirectCode) {
+
             this.httpRedirectCode = httpRedirectCode;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
+
             this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder replaceKeyPrefixWith(@Nullable String replaceKeyPrefixWith) {
+
             this.replaceKeyPrefixWith = replaceKeyPrefixWith;
             return this;
         }
         @CustomType.Setter
         public Builder replaceKeyWith(@Nullable String replaceKeyWith) {
+
             this.replaceKeyWith = replaceKeyWith;
             return this;
         }
         public BucketWebsiteConfigurationV2RoutingRuleRedirect build() {
-            final var o = new BucketWebsiteConfigurationV2RoutingRuleRedirect();
-            o.hostName = hostName;
-            o.httpRedirectCode = httpRedirectCode;
-            o.protocol = protocol;
-            o.replaceKeyPrefixWith = replaceKeyPrefixWith;
-            o.replaceKeyWith = replaceKeyWith;
-            return o;
+            final var _resultValue = new BucketWebsiteConfigurationV2RoutingRuleRedirect();
+            _resultValue.hostName = hostName;
+            _resultValue.httpRedirectCode = httpRedirectCode;
+            _resultValue.protocol = protocol;
+            _resultValue.replaceKeyPrefixWith = replaceKeyPrefixWith;
+            _resultValue.replaceKeyWith = replaceKeyWith;
+            return _resultValue;
         }
     }
 }

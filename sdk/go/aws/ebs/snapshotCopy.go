@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,7 +39,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSnapshot, err := ebs.NewSnapshot(ctx, "exampleSnapshot", &ebs.SnapshotArgs{
+//			exampleSnapshot, err := ebs.NewSnapshot(ctx, "example_snapshot", &ebs.SnapshotArgs{
 //				VolumeId: example.ID(),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("HelloWorld_snap"),
@@ -47,7 +48,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ebs.NewSnapshotCopy(ctx, "exampleCopy", &ebs.SnapshotCopyArgs{
+//			_, err = ebs.NewSnapshotCopy(ctx, "example_copy", &ebs.SnapshotCopyArgs{
 //				SourceSnapshotId: exampleSnapshot.ID(),
 //				SourceRegion:     pulumi.String("us-west-2"),
 //				Tags: pulumi.StringMap{
@@ -62,6 +63,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type SnapshotCopy struct {
 	pulumi.CustomResourceState
 
@@ -114,10 +116,6 @@ func NewSnapshotCopy(ctx *pulumi.Context,
 	if args.SourceSnapshotId == nil {
 		return nil, errors.New("invalid value for required argument 'SourceSnapshotId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SnapshotCopy
 	err := ctx.RegisterResource("aws:ebs/snapshotCopy:SnapshotCopy", name, args, &resource, opts...)

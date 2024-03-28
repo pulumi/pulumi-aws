@@ -44,6 +44,7 @@ public final class DataRepositoryAssociationS3AutoExportPolicy {
 
         @CustomType.Setter
         public Builder events(@Nullable List<String> events) {
+
             this.events = events;
             return this;
         }
@@ -51,9 +52,9 @@ public final class DataRepositoryAssociationS3AutoExportPolicy {
             return events(List.of(events));
         }
         public DataRepositoryAssociationS3AutoExportPolicy build() {
-            final var o = new DataRepositoryAssociationS3AutoExportPolicy();
-            o.events = events;
-            return o;
+            final var _resultValue = new DataRepositoryAssociationS3AutoExportPolicy();
+            _resultValue.events = events;
+            return _resultValue;
         }
     }
 }

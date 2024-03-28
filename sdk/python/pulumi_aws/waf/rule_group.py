@@ -209,28 +209,33 @@ class RuleGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_rule = aws.waf.Rule("exampleRule", metric_name="example")
-        example_rule_group = aws.waf.RuleGroup("exampleRuleGroup",
+        example = aws.waf.Rule("example",
+            name="example",
+            metric_name="example")
+        example_rule_group = aws.waf.RuleGroup("example",
+            name="example",
             metric_name="example",
             activated_rules=[aws.waf.RuleGroupActivatedRuleArgs(
                 action=aws.waf.RuleGroupActivatedRuleActionArgs(
                     type="COUNT",
                 ),
                 priority=50,
-                rule_id=example_rule.id,
+                rule_id=example.id,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WAF Rule Group using the id. For example:
 
         ```sh
-         $ pulumi import aws:waf/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        $ pulumi import aws:waf/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
         :param str resource_name: The name of the resource.
@@ -251,28 +256,33 @@ class RuleGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_rule = aws.waf.Rule("exampleRule", metric_name="example")
-        example_rule_group = aws.waf.RuleGroup("exampleRuleGroup",
+        example = aws.waf.Rule("example",
+            name="example",
+            metric_name="example")
+        example_rule_group = aws.waf.RuleGroup("example",
+            name="example",
             metric_name="example",
             activated_rules=[aws.waf.RuleGroupActivatedRuleArgs(
                 action=aws.waf.RuleGroupActivatedRuleActionArgs(
                     type="COUNT",
                 ),
                 priority=50,
-                rule_id=example_rule.id,
+                rule_id=example.id,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WAF Rule Group using the id. For example:
 
         ```sh
-         $ pulumi import aws:waf/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        $ pulumi import aws:waf/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
         :param str resource_name: The name of the resource.
@@ -311,8 +321,6 @@ class RuleGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(RuleGroup, __self__).__init__(
             'aws:waf/ruleGroup:RuleGroup',
             resource_name,

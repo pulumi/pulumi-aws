@@ -190,8 +190,10 @@ class FrameworkShare(pulumi.CustomResource):
         Resource for managing an AWS Audit Manager Framework Share.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -199,15 +201,16 @@ class FrameworkShare(pulumi.CustomResource):
         example = aws.auditmanager.FrameworkShare("example",
             destination_account="012345678901",
             destination_region="us-east-1",
-            framework_id=aws_auditmanager_framework["example"]["id"])
+            framework_id=example_aws_auditmanager_framework["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Audit Manager Framework Share using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:auditmanager/frameworkShare:FrameworkShare example abcdef-123456
+        $ pulumi import aws:auditmanager/frameworkShare:FrameworkShare example abcdef-123456
         ```
 
         :param str resource_name: The name of the resource.
@@ -229,8 +232,10 @@ class FrameworkShare(pulumi.CustomResource):
         Resource for managing an AWS Audit Manager Framework Share.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -238,15 +243,16 @@ class FrameworkShare(pulumi.CustomResource):
         example = aws.auditmanager.FrameworkShare("example",
             destination_account="012345678901",
             destination_region="us-east-1",
-            framework_id=aws_auditmanager_framework["example"]["id"])
+            framework_id=example_aws_auditmanager_framework["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Audit Manager Framework Share using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:auditmanager/frameworkShare:FrameworkShare example abcdef-123456
+        $ pulumi import aws:auditmanager/frameworkShare:FrameworkShare example abcdef-123456
         ```
 
         :param str resource_name: The name of the resource.

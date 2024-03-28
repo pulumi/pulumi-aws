@@ -4,6 +4,7 @@
 package com.pulumi.aws.dynamodb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -80,17 +81,26 @@ public final class GetTableGlobalSecondaryIndex {
 
         @CustomType.Setter
         public Builder hashKey(String hashKey) {
-            this.hashKey = Objects.requireNonNull(hashKey);
+            if (hashKey == null) {
+              throw new MissingRequiredPropertyException("GetTableGlobalSecondaryIndex", "hashKey");
+            }
+            this.hashKey = hashKey;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetTableGlobalSecondaryIndex", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nonKeyAttributes(List<String> nonKeyAttributes) {
-            this.nonKeyAttributes = Objects.requireNonNull(nonKeyAttributes);
+            if (nonKeyAttributes == null) {
+              throw new MissingRequiredPropertyException("GetTableGlobalSecondaryIndex", "nonKeyAttributes");
+            }
+            this.nonKeyAttributes = nonKeyAttributes;
             return this;
         }
         public Builder nonKeyAttributes(String... nonKeyAttributes) {
@@ -98,34 +108,46 @@ public final class GetTableGlobalSecondaryIndex {
         }
         @CustomType.Setter
         public Builder projectionType(String projectionType) {
-            this.projectionType = Objects.requireNonNull(projectionType);
+            if (projectionType == null) {
+              throw new MissingRequiredPropertyException("GetTableGlobalSecondaryIndex", "projectionType");
+            }
+            this.projectionType = projectionType;
             return this;
         }
         @CustomType.Setter
         public Builder rangeKey(String rangeKey) {
-            this.rangeKey = Objects.requireNonNull(rangeKey);
+            if (rangeKey == null) {
+              throw new MissingRequiredPropertyException("GetTableGlobalSecondaryIndex", "rangeKey");
+            }
+            this.rangeKey = rangeKey;
             return this;
         }
         @CustomType.Setter
         public Builder readCapacity(Integer readCapacity) {
-            this.readCapacity = Objects.requireNonNull(readCapacity);
+            if (readCapacity == null) {
+              throw new MissingRequiredPropertyException("GetTableGlobalSecondaryIndex", "readCapacity");
+            }
+            this.readCapacity = readCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder writeCapacity(Integer writeCapacity) {
-            this.writeCapacity = Objects.requireNonNull(writeCapacity);
+            if (writeCapacity == null) {
+              throw new MissingRequiredPropertyException("GetTableGlobalSecondaryIndex", "writeCapacity");
+            }
+            this.writeCapacity = writeCapacity;
             return this;
         }
         public GetTableGlobalSecondaryIndex build() {
-            final var o = new GetTableGlobalSecondaryIndex();
-            o.hashKey = hashKey;
-            o.name = name;
-            o.nonKeyAttributes = nonKeyAttributes;
-            o.projectionType = projectionType;
-            o.rangeKey = rangeKey;
-            o.readCapacity = readCapacity;
-            o.writeCapacity = writeCapacity;
-            return o;
+            final var _resultValue = new GetTableGlobalSecondaryIndex();
+            _resultValue.hashKey = hashKey;
+            _resultValue.name = name;
+            _resultValue.nonKeyAttributes = nonKeyAttributes;
+            _resultValue.projectionType = projectionType;
+            _resultValue.rangeKey = rangeKey;
+            _resultValue.readCapacity = readCapacity;
+            _resultValue.writeCapacity = writeCapacity;
+            return _resultValue;
         }
     }
 }

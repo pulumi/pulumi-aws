@@ -19,7 +19,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -30,6 +29,8 @@ import javax.annotation.Nullable;
  * More information about Keyspaces tables can be found in the [Keyspaces Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/working-with-tables.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,7 +54,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
- *             .keyspaceName(aws_keyspaces_keyspace.example().name())
+ *             .keyspaceName(exampleAwsKeyspacesKeyspace.name())
  *             .tableName(&#34;my_table&#34;)
  *             .schemaDefinition(TableSchemaDefinitionArgs.builder()
  *                 .columns(TableSchemaDefinitionColumnArgs.builder()
@@ -69,13 +70,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
+ * $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
  * ```
  * 
  */
@@ -304,9 +306,6 @@ public class Table extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

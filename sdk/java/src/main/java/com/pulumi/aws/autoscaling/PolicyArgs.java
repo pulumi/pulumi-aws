@@ -8,6 +8,7 @@ import com.pulumi.aws.autoscaling.inputs.PolicyStepAdjustmentArgs;
 import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -202,6 +203,9 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
      * Set of adjustments that manage
      * group scaling. These have the following structure:
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * The following fields are available in step adjustments:
      * 
      */
@@ -212,6 +216,9 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
      * @return Set of adjustments that manage
      * group scaling. These have the following structure:
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * The following fields are available in step adjustments:
      * 
      */
@@ -221,6 +228,8 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Target tracking policy. These have the following structure:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -256,6 +265,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following fields are available in target tracking configuration:
      * 
@@ -265,6 +275,8 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Target tracking policy. These have the following structure:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -300,6 +312,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following fields are available in target tracking configuration:
      * 
@@ -591,6 +604,9 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
          * @param stepAdjustments Set of adjustments that manage
          * group scaling. These have the following structure:
          * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
+         * &lt;!--End PulumiCodeChooser --&gt;
+         * 
          * The following fields are available in step adjustments:
          * 
          * @return builder
@@ -605,6 +621,9 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
          * @param stepAdjustments Set of adjustments that manage
          * group scaling. These have the following structure:
          * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
+         * &lt;!--End PulumiCodeChooser --&gt;
+         * 
          * The following fields are available in step adjustments:
          * 
          * @return builder
@@ -618,6 +637,9 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
          * @param stepAdjustments Set of adjustments that manage
          * group scaling. These have the following structure:
          * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
+         * &lt;!--End PulumiCodeChooser --&gt;
+         * 
          * The following fields are available in step adjustments:
          * 
          * @return builder
@@ -629,6 +651,8 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param targetTrackingConfiguration Target tracking policy. These have the following structure:
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -664,6 +688,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * The following fields are available in target tracking configuration:
          * 
@@ -677,6 +702,8 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param targetTrackingConfiguration Target tracking policy. These have the following structure:
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -712,6 +739,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * The following fields are available in target tracking configuration:
          * 
@@ -723,7 +751,9 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PolicyArgs build() {
-            $.autoscalingGroupName = Objects.requireNonNull($.autoscalingGroupName, "expected parameter 'autoscalingGroupName' to be non-null");
+            if ($.autoscalingGroupName == null) {
+                throw new MissingRequiredPropertyException("PolicyArgs", "autoscalingGroupName");
+            }
             return $;
         }
     }

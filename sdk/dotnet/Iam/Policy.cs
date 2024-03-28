@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,21 +26,22 @@ namespace Pulumi.Aws.Iam
     /// {
     ///     var policy = new Aws.Iam.Policy("policy", new()
     ///     {
+    ///         Name = "test_policy",
     ///         Path = "/",
     ///         Description = "My test policy",
     ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "ec2:Describe*",
     ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = "*",
+    ///                     ["effect"] = "Allow",
+    ///                     ["resource"] = "*",
     ///                 },
     ///             },
     ///         }),
@@ -47,13 +49,14 @@ namespace Pulumi.Aws.Iam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM Policies using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
+    /// $ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/policy:Policy")]
@@ -137,10 +140,6 @@ namespace Pulumi.Aws.Iam
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -280,11 +279,7 @@ namespace Pulumi.Aws.Iam
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public PolicyState()

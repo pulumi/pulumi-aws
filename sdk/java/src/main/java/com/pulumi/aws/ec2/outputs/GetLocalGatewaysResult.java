@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetLocalGatewaysFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -72,6 +73,7 @@ public final class GetLocalGatewaysResult {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<GetLocalGatewaysFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -80,12 +82,18 @@ public final class GetLocalGatewaysResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewaysResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+            if (ids == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewaysResult", "ids");
+            }
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {
@@ -93,16 +101,19 @@ public final class GetLocalGatewaysResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewaysResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetLocalGatewaysResult build() {
-            final var o = new GetLocalGatewaysResult();
-            o.filters = filters;
-            o.id = id;
-            o.ids = ids;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetLocalGatewaysResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.aws.quicksight.outputs.GetDataSetLogicalTableMapSourceJoinInstruction;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -48,12 +49,18 @@ public final class GetDataSetLogicalTableMapSource {
 
         @CustomType.Setter
         public Builder dataSetArn(String dataSetArn) {
-            this.dataSetArn = Objects.requireNonNull(dataSetArn);
+            if (dataSetArn == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapSource", "dataSetArn");
+            }
+            this.dataSetArn = dataSetArn;
             return this;
         }
         @CustomType.Setter
         public Builder joinInstructions(List<GetDataSetLogicalTableMapSourceJoinInstruction> joinInstructions) {
-            this.joinInstructions = Objects.requireNonNull(joinInstructions);
+            if (joinInstructions == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapSource", "joinInstructions");
+            }
+            this.joinInstructions = joinInstructions;
             return this;
         }
         public Builder joinInstructions(GetDataSetLogicalTableMapSourceJoinInstruction... joinInstructions) {
@@ -61,15 +68,18 @@ public final class GetDataSetLogicalTableMapSource {
         }
         @CustomType.Setter
         public Builder physicalTableId(String physicalTableId) {
-            this.physicalTableId = Objects.requireNonNull(physicalTableId);
+            if (physicalTableId == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapSource", "physicalTableId");
+            }
+            this.physicalTableId = physicalTableId;
             return this;
         }
         public GetDataSetLogicalTableMapSource build() {
-            final var o = new GetDataSetLogicalTableMapSource();
-            o.dataSetArn = dataSetArn;
-            o.joinInstructions = joinInstructions;
-            o.physicalTableId = physicalTableId;
-            return o;
+            final var _resultValue = new GetDataSetLogicalTableMapSource();
+            _resultValue.dataSetArn = dataSetArn;
+            _resultValue.joinInstructions = joinInstructions;
+            _resultValue.physicalTableId = physicalTableId;
+            return _resultValue;
         }
     }
 }

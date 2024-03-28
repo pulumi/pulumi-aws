@@ -13,8 +13,10 @@ namespace Pulumi.Aws.IvsChat
     /// Resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage - Logging to CloudWatch
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,23 +25,26 @@ namespace Pulumi.Aws.IvsChat
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
+    ///     var example = new Aws.CloudWatch.LogGroup("example");
     /// 
-    ///     var exampleLoggingConfiguration = new Aws.IvsChat.LoggingConfiguration("exampleLoggingConfiguration", new()
+    ///     var exampleLoggingConfiguration = new Aws.IvsChat.LoggingConfiguration("example", new()
     ///     {
     ///         DestinationConfiguration = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationArgs
     ///         {
     ///             CloudwatchLogs = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs
     ///             {
-    ///                 LogGroupName = exampleLogGroup.Name,
+    ///                 LogGroupName = example.Name,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Basic Usage - Logging to Kinesis Firehose with Extended S3
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,7 +53,7 @@ namespace Pulumi.Aws.IvsChat
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
     ///     {
     ///         BucketPrefix = "tf-ivschat-logging-bucket",
     ///     });
@@ -79,13 +84,15 @@ namespace Pulumi.Aws.IvsChat
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "firehose_example_role",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleFirehoseDeliveryStream = new Aws.Kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream", new()
+    ///     var example = new Aws.Kinesis.FirehoseDeliveryStream("example", new()
     ///     {
+    ///         Name = "pulumi-kinesis-firehose-extended-s3-example-stream",
     ///         Destination = "extended_s3",
     ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
     ///         {
@@ -98,32 +105,33 @@ namespace Pulumi.Aws.IvsChat
     ///         },
     ///     });
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var exampleLoggingConfiguration = new Aws.IvsChat.LoggingConfiguration("exampleLoggingConfiguration", new()
+    ///     var exampleLoggingConfiguration = new Aws.IvsChat.LoggingConfiguration("example", new()
     ///     {
     ///         DestinationConfiguration = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationArgs
     ///         {
     ///             Firehose = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationFirehoseArgs
     ///             {
-    ///                 DeliveryStreamName = exampleFirehoseDeliveryStream.Name,
+    ///                 DeliveryStreamName = example.Name,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ivschat/loggingConfiguration:LoggingConfiguration example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
+    /// $ pulumi import aws:ivschat/loggingConfiguration:LoggingConfiguration example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
     /// ```
     /// </summary>
     [AwsResourceType("aws:ivschat/loggingConfiguration:LoggingConfiguration")]
@@ -188,10 +196,6 @@ namespace Pulumi.Aws.IvsChat
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -293,11 +297,7 @@ namespace Pulumi.Aws.IvsChat
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public LoggingConfigurationState()

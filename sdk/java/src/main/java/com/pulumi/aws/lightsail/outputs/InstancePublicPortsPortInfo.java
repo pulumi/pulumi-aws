@@ -4,6 +4,7 @@
 package com.pulumi.aws.lightsail.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -111,6 +112,7 @@ public final class InstancePublicPortsPortInfo {
 
         @CustomType.Setter
         public Builder cidrListAliases(@Nullable List<String> cidrListAliases) {
+
             this.cidrListAliases = cidrListAliases;
             return this;
         }
@@ -119,6 +121,7 @@ public final class InstancePublicPortsPortInfo {
         }
         @CustomType.Setter
         public Builder cidrs(@Nullable List<String> cidrs) {
+
             this.cidrs = cidrs;
             return this;
         }
@@ -127,11 +130,15 @@ public final class InstancePublicPortsPortInfo {
         }
         @CustomType.Setter
         public Builder fromPort(Integer fromPort) {
-            this.fromPort = Objects.requireNonNull(fromPort);
+            if (fromPort == null) {
+              throw new MissingRequiredPropertyException("InstancePublicPortsPortInfo", "fromPort");
+            }
+            this.fromPort = fromPort;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6Cidrs(@Nullable List<String> ipv6Cidrs) {
+
             this.ipv6Cidrs = ipv6Cidrs;
             return this;
         }
@@ -140,23 +147,29 @@ public final class InstancePublicPortsPortInfo {
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("InstancePublicPortsPortInfo", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder toPort(Integer toPort) {
-            this.toPort = Objects.requireNonNull(toPort);
+            if (toPort == null) {
+              throw new MissingRequiredPropertyException("InstancePublicPortsPortInfo", "toPort");
+            }
+            this.toPort = toPort;
             return this;
         }
         public InstancePublicPortsPortInfo build() {
-            final var o = new InstancePublicPortsPortInfo();
-            o.cidrListAliases = cidrListAliases;
-            o.cidrs = cidrs;
-            o.fromPort = fromPort;
-            o.ipv6Cidrs = ipv6Cidrs;
-            o.protocol = protocol;
-            o.toPort = toPort;
-            return o;
+            final var _resultValue = new InstancePublicPortsPortInfo();
+            _resultValue.cidrListAliases = cidrListAliases;
+            _resultValue.cidrs = cidrs;
+            _resultValue.fromPort = fromPort;
+            _resultValue.ipv6Cidrs = ipv6Cidrs;
+            _resultValue.protocol = protocol;
+            _resultValue.toPort = toPort;
+            return _resultValue;
         }
     }
 }

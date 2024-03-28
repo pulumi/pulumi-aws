@@ -31,6 +31,7 @@ class FunctionArgs:
                  image_uri: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 logging_config: Optional[pulumi.Input['FunctionLoggingConfigArgs']] = None,
                  memory_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
@@ -67,6 +68,7 @@ class FunctionArgs:
         :param pulumi.Input[str] image_uri: ECR image URI containing the function's deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+        :param pulumi.Input['FunctionLoggingConfigArgs'] logging_config: Configuration block used to specify advanced logging settings. Detailed below.
         :param pulumi.Input[int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         :param pulumi.Input[str] name: Unique name for your Lambda Function.
         :param pulumi.Input[str] package_type: Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
@@ -113,6 +115,8 @@ class FunctionArgs:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if layers is not None:
             pulumi.set(__self__, "layers", layers)
+        if logging_config is not None:
+            pulumi.set(__self__, "logging_config", logging_config)
         if memory_size is not None:
             pulumi.set(__self__, "memory_size", memory_size)
         if name is not None:
@@ -325,6 +329,18 @@ class FunctionArgs:
     @layers.setter
     def layers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "layers", value)
+
+    @property
+    @pulumi.getter(name="loggingConfig")
+    def logging_config(self) -> Optional[pulumi.Input['FunctionLoggingConfigArgs']]:
+        """
+        Configuration block used to specify advanced logging settings. Detailed below.
+        """
+        return pulumi.get(self, "logging_config")
+
+    @logging_config.setter
+    def logging_config(self, value: Optional[pulumi.Input['FunctionLoggingConfigArgs']]):
+        pulumi.set(self, "logging_config", value)
 
     @property
     @pulumi.getter(name="memorySize")
@@ -568,6 +584,7 @@ class _FunctionState:
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  last_modified: Optional[pulumi.Input[str]] = None,
                  layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 logging_config: Optional[pulumi.Input['FunctionLoggingConfigArgs']] = None,
                  memory_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
@@ -612,6 +629,7 @@ class _FunctionState:
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
         :param pulumi.Input[str] last_modified: Date this resource was last modified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+        :param pulumi.Input['FunctionLoggingConfigArgs'] logging_config: Configuration block used to specify advanced logging settings. Detailed below.
         :param pulumi.Input[int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         :param pulumi.Input[str] name: Unique name for your Lambda Function.
         :param pulumi.Input[str] package_type: Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
@@ -675,6 +693,8 @@ class _FunctionState:
             pulumi.set(__self__, "last_modified", last_modified)
         if layers is not None:
             pulumi.set(__self__, "layers", layers)
+        if logging_config is not None:
+            pulumi.set(__self__, "logging_config", logging_config)
         if memory_size is not None:
             pulumi.set(__self__, "memory_size", memory_size)
         if name is not None:
@@ -928,6 +948,18 @@ class _FunctionState:
     @layers.setter
     def layers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "layers", value)
+
+    @property
+    @pulumi.getter(name="loggingConfig")
+    def logging_config(self) -> Optional[pulumi.Input['FunctionLoggingConfigArgs']]:
+        """
+        Configuration block used to specify advanced logging settings. Detailed below.
+        """
+        return pulumi.get(self, "logging_config")
+
+    @logging_config.setter
+    def logging_config(self, value: Optional[pulumi.Input['FunctionLoggingConfigArgs']]):
+        pulumi.set(self, "logging_config", value)
 
     @property
     @pulumi.getter(name="memorySize")
@@ -1273,6 +1305,7 @@ class Function(pulumi.CustomResource):
                  image_uri: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 logging_config: Optional[pulumi.Input[pulumi.InputType['FunctionLoggingConfigArgs']]] = None,
                  memory_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
@@ -1305,8 +1338,10 @@ class Function(pulumi.CustomResource):
         > To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
 
         ## Example Usage
+
         ### Basic Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_archive as archive
@@ -1320,35 +1355,44 @@ class Function(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=assume_role.json)
+        iam_for_lambda = aws.iam.Role("iam_for_lambda",
+            name="iam_for_lambda",
+            assume_role_policy=assume_role.json)
         lambda_ = archive.get_file(type="zip",
             source_file="lambda.js",
             output_path="lambda_function_payload.zip")
-        test_lambda = aws.lambda_.Function("testLambda",
+        test_lambda = aws.lambda_.Function("test_lambda",
             code=pulumi.FileArchive("lambda_function_payload.zip"),
+            name="lambda_function_name",
             role=iam_for_lambda.arn,
             handler="index.test",
-            runtime="nodejs18.x",
+            source_code_hash=lambda_.output_base64sha256,
+            runtime=aws.lambda_.Runtime.NODE_JS18D_X,
             environment=aws.lambda_.FunctionEnvironmentArgs(
                 variables={
                     "foo": "bar",
                 },
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda Layers
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_layer_version = aws.lambda_.LayerVersion("exampleLayerVersion")
-        # ... other configuration ...
-        example_function = aws.lambda_.Function("exampleFunction", layers=[example_layer_version.arn])
+        example = aws.lambda_.LayerVersion("example")
+        example_function = aws.lambda_.Function("example", layers=[example.arn])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda Ephemeral Storage
 
         Lambda Function Ephemeral Storage(`/tmp`) allows you to configure the storage upto `10` GB. The default value set to `512` MB.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1361,35 +1405,36 @@ class Function(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=assume_role.json)
-        test_lambda = aws.lambda_.Function("testLambda",
+        iam_for_lambda = aws.iam.Role("iam_for_lambda",
+            name="iam_for_lambda",
+            assume_role_policy=assume_role.json)
+        test_lambda = aws.lambda_.Function("test_lambda",
             code=pulumi.FileArchive("lambda_function_payload.zip"),
+            name="lambda_function_name",
             role=iam_for_lambda.arn,
             handler="index.test",
-            runtime="nodejs18.x",
+            runtime=aws.lambda_.Runtime.NODE_JS18D_X,
             ephemeral_storage=aws.lambda_.FunctionEphemeralStorageArgs(
                 size=10240,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda File Systems
 
         Lambda File Systems allow you to connect an Amazon Elastic File System (EFS) file system to a Lambda function to share data across function invocations, access existing data including large files, and save function state.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # EFS file system
-        efs_for_lambda = aws.efs.FileSystem("efsForLambda", tags={
+        efs_for_lambda = aws.efs.FileSystem("efs_for_lambda", tags={
             "Name": "efs_for_lambda",
         })
-        # Mount target connects the file system to the subnet
-        alpha = aws.efs.MountTarget("alpha",
-            file_system_id=efs_for_lambda.id,
-            subnet_id=aws_subnet["subnet_for_lambda"]["id"],
-            security_groups=[aws_security_group["sg_for_lambda"]["id"]])
         # EFS access point used by lambda file system
-        access_point_for_lambda = aws.efs.AccessPoint("accessPointForLambda",
+        access_point_for_lambda = aws.efs.AccessPoint("access_point_for_lambda",
             file_system_id=efs_for_lambda.id,
             root_directory=aws.efs.AccessPointRootDirectoryArgs(
                 path="/lambda",
@@ -1404,25 +1449,32 @@ class Function(pulumi.CustomResource):
                 uid=1000,
             ))
         # A lambda function connected to an EFS file system
-        # ... other configuration ...
         example = aws.lambda_.Function("example",
             file_system_config=aws.lambda_.FunctionFileSystemConfigArgs(
                 arn=access_point_for_lambda.arn,
                 local_mount_path="/mnt/efs",
             ),
             vpc_config=aws.lambda_.FunctionVpcConfigArgs(
-                subnet_ids=[aws_subnet["subnet_for_lambda"]["id"]],
-                security_group_ids=[aws_security_group["sg_for_lambda"]["id"]],
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[alpha]))
+                subnet_ids=[subnet_for_lambda["id"]],
+                security_group_ids=[sg_for_lambda["id"]],
+            ))
+        # Mount target connects the file system to the subnet
+        alpha = aws.efs.MountTarget("alpha",
+            file_system_id=efs_for_lambda.id,
+            subnet_id=subnet_for_lambda["id"],
+            security_groups=[sg_for_lambda["id"]])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda retries
 
         Lambda Functions allow you to configure error handling for asynchronous invocation. The settings that it supports are `Maximum age of event` and `Retry attempts` as stated in [Lambda documentation for Configuring error handling for asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-errors). To configure these settings, refer to the lambda.FunctionEventInvokeConfig resource.
+
         ## CloudWatch Logging and Permissions
 
         For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1431,10 +1483,18 @@ class Function(pulumi.CustomResource):
         lambda_function_name = config.get("lambdaFunctionName")
         if lambda_function_name is None:
             lambda_function_name = "lambda_function_name"
+        test_lambda = aws.lambda_.Function("test_lambda",
+            name=lambda_function_name,
+            logging_config=aws.lambda_.FunctionLoggingConfigArgs(
+                log_format="Text",
+            ))
         # This is to optionally manage the CloudWatch Log Group for the Lambda Function.
         # If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
-        example = aws.cloudwatch.LogGroup("example", retention_in_days=14)
-        lambda_logging_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.cloudwatch.LogGroup("example",
+            name=f"/aws/lambda/{lambda_function_name}",
+            retention_in_days=14)
+        # See also the following AWS managed policy: AWSLambdaBasicExecutionRole
+        lambda_logging = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=[
                 "logs:CreateLogGroup",
@@ -1443,18 +1503,16 @@ class Function(pulumi.CustomResource):
             ],
             resources=["arn:aws:logs:*:*:*"],
         )])
-        lambda_logging_policy = aws.iam.Policy("lambdaLoggingPolicy",
+        lambda_logging_policy = aws.iam.Policy("lambda_logging",
+            name="lambda_logging",
             path="/",
             description="IAM policy for logging from a lambda",
-            policy=lambda_logging_policy_document.json)
-        lambda_logs = aws.iam.RolePolicyAttachment("lambdaLogs",
-            role=aws_iam_role["iam_for_lambda"]["name"],
+            policy=lambda_logging.json)
+        lambda_logs = aws.iam.RolePolicyAttachment("lambda_logs",
+            role=iam_for_lambda["name"],
             policy_arn=lambda_logging_policy.arn)
-        test_lambda = aws.lambda_.Function("testLambda", opts=pulumi.ResourceOptions(depends_on=[
-                lambda_logs,
-                example,
-            ]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Specifying the Deployment Package
 
@@ -1469,7 +1527,7 @@ class Function(pulumi.CustomResource):
         Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
 
         ```sh
-         $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
+        $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
         ```
 
         :param str resource_name: The name of the resource.
@@ -1487,6 +1545,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] image_uri: ECR image URI containing the function's deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+        :param pulumi.Input[pulumi.InputType['FunctionLoggingConfigArgs']] logging_config: Configuration block used to specify advanced logging settings. Detailed below.
         :param pulumi.Input[int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         :param pulumi.Input[str] name: Unique name for your Lambda Function.
         :param pulumi.Input[str] package_type: Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
@@ -1527,8 +1586,10 @@ class Function(pulumi.CustomResource):
         > To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
 
         ## Example Usage
+
         ### Basic Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_archive as archive
@@ -1542,35 +1603,44 @@ class Function(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=assume_role.json)
+        iam_for_lambda = aws.iam.Role("iam_for_lambda",
+            name="iam_for_lambda",
+            assume_role_policy=assume_role.json)
         lambda_ = archive.get_file(type="zip",
             source_file="lambda.js",
             output_path="lambda_function_payload.zip")
-        test_lambda = aws.lambda_.Function("testLambda",
+        test_lambda = aws.lambda_.Function("test_lambda",
             code=pulumi.FileArchive("lambda_function_payload.zip"),
+            name="lambda_function_name",
             role=iam_for_lambda.arn,
             handler="index.test",
-            runtime="nodejs18.x",
+            source_code_hash=lambda_.output_base64sha256,
+            runtime=aws.lambda_.Runtime.NODE_JS18D_X,
             environment=aws.lambda_.FunctionEnvironmentArgs(
                 variables={
                     "foo": "bar",
                 },
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda Layers
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_layer_version = aws.lambda_.LayerVersion("exampleLayerVersion")
-        # ... other configuration ...
-        example_function = aws.lambda_.Function("exampleFunction", layers=[example_layer_version.arn])
+        example = aws.lambda_.LayerVersion("example")
+        example_function = aws.lambda_.Function("example", layers=[example.arn])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda Ephemeral Storage
 
         Lambda Function Ephemeral Storage(`/tmp`) allows you to configure the storage upto `10` GB. The default value set to `512` MB.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1583,35 +1653,36 @@ class Function(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=assume_role.json)
-        test_lambda = aws.lambda_.Function("testLambda",
+        iam_for_lambda = aws.iam.Role("iam_for_lambda",
+            name="iam_for_lambda",
+            assume_role_policy=assume_role.json)
+        test_lambda = aws.lambda_.Function("test_lambda",
             code=pulumi.FileArchive("lambda_function_payload.zip"),
+            name="lambda_function_name",
             role=iam_for_lambda.arn,
             handler="index.test",
-            runtime="nodejs18.x",
+            runtime=aws.lambda_.Runtime.NODE_JS18D_X,
             ephemeral_storage=aws.lambda_.FunctionEphemeralStorageArgs(
                 size=10240,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda File Systems
 
         Lambda File Systems allow you to connect an Amazon Elastic File System (EFS) file system to a Lambda function to share data across function invocations, access existing data including large files, and save function state.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # EFS file system
-        efs_for_lambda = aws.efs.FileSystem("efsForLambda", tags={
+        efs_for_lambda = aws.efs.FileSystem("efs_for_lambda", tags={
             "Name": "efs_for_lambda",
         })
-        # Mount target connects the file system to the subnet
-        alpha = aws.efs.MountTarget("alpha",
-            file_system_id=efs_for_lambda.id,
-            subnet_id=aws_subnet["subnet_for_lambda"]["id"],
-            security_groups=[aws_security_group["sg_for_lambda"]["id"]])
         # EFS access point used by lambda file system
-        access_point_for_lambda = aws.efs.AccessPoint("accessPointForLambda",
+        access_point_for_lambda = aws.efs.AccessPoint("access_point_for_lambda",
             file_system_id=efs_for_lambda.id,
             root_directory=aws.efs.AccessPointRootDirectoryArgs(
                 path="/lambda",
@@ -1626,25 +1697,32 @@ class Function(pulumi.CustomResource):
                 uid=1000,
             ))
         # A lambda function connected to an EFS file system
-        # ... other configuration ...
         example = aws.lambda_.Function("example",
             file_system_config=aws.lambda_.FunctionFileSystemConfigArgs(
                 arn=access_point_for_lambda.arn,
                 local_mount_path="/mnt/efs",
             ),
             vpc_config=aws.lambda_.FunctionVpcConfigArgs(
-                subnet_ids=[aws_subnet["subnet_for_lambda"]["id"]],
-                security_group_ids=[aws_security_group["sg_for_lambda"]["id"]],
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[alpha]))
+                subnet_ids=[subnet_for_lambda["id"]],
+                security_group_ids=[sg_for_lambda["id"]],
+            ))
+        # Mount target connects the file system to the subnet
+        alpha = aws.efs.MountTarget("alpha",
+            file_system_id=efs_for_lambda.id,
+            subnet_id=subnet_for_lambda["id"],
+            security_groups=[sg_for_lambda["id"]])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda retries
 
         Lambda Functions allow you to configure error handling for asynchronous invocation. The settings that it supports are `Maximum age of event` and `Retry attempts` as stated in [Lambda documentation for Configuring error handling for asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-errors). To configure these settings, refer to the lambda.FunctionEventInvokeConfig resource.
+
         ## CloudWatch Logging and Permissions
 
         For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1653,10 +1731,18 @@ class Function(pulumi.CustomResource):
         lambda_function_name = config.get("lambdaFunctionName")
         if lambda_function_name is None:
             lambda_function_name = "lambda_function_name"
+        test_lambda = aws.lambda_.Function("test_lambda",
+            name=lambda_function_name,
+            logging_config=aws.lambda_.FunctionLoggingConfigArgs(
+                log_format="Text",
+            ))
         # This is to optionally manage the CloudWatch Log Group for the Lambda Function.
         # If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
-        example = aws.cloudwatch.LogGroup("example", retention_in_days=14)
-        lambda_logging_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.cloudwatch.LogGroup("example",
+            name=f"/aws/lambda/{lambda_function_name}",
+            retention_in_days=14)
+        # See also the following AWS managed policy: AWSLambdaBasicExecutionRole
+        lambda_logging = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=[
                 "logs:CreateLogGroup",
@@ -1665,18 +1751,16 @@ class Function(pulumi.CustomResource):
             ],
             resources=["arn:aws:logs:*:*:*"],
         )])
-        lambda_logging_policy = aws.iam.Policy("lambdaLoggingPolicy",
+        lambda_logging_policy = aws.iam.Policy("lambda_logging",
+            name="lambda_logging",
             path="/",
             description="IAM policy for logging from a lambda",
-            policy=lambda_logging_policy_document.json)
-        lambda_logs = aws.iam.RolePolicyAttachment("lambdaLogs",
-            role=aws_iam_role["iam_for_lambda"]["name"],
+            policy=lambda_logging.json)
+        lambda_logs = aws.iam.RolePolicyAttachment("lambda_logs",
+            role=iam_for_lambda["name"],
             policy_arn=lambda_logging_policy.arn)
-        test_lambda = aws.lambda_.Function("testLambda", opts=pulumi.ResourceOptions(depends_on=[
-                lambda_logs,
-                example,
-            ]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Specifying the Deployment Package
 
@@ -1691,7 +1775,7 @@ class Function(pulumi.CustomResource):
         Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
 
         ```sh
-         $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
+        $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
         ```
 
         :param str resource_name: The name of the resource.
@@ -1722,6 +1806,7 @@ class Function(pulumi.CustomResource):
                  image_uri: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 logging_config: Optional[pulumi.Input[pulumi.InputType['FunctionLoggingConfigArgs']]] = None,
                  memory_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
@@ -1763,6 +1848,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["image_uri"] = image_uri
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["layers"] = layers
+            __props__.__dict__["logging_config"] = logging_config
             __props__.__dict__["memory_size"] = memory_size
             __props__.__dict__["name"] = name
             __props__.__dict__["package_type"] = package_type
@@ -1794,8 +1880,6 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["source_code_size"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["version"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Function, __self__).__init__(
             'aws:lambda/function:Function',
             resource_name,
@@ -1822,6 +1906,7 @@ class Function(pulumi.CustomResource):
             kms_key_arn: Optional[pulumi.Input[str]] = None,
             last_modified: Optional[pulumi.Input[str]] = None,
             layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            logging_config: Optional[pulumi.Input[pulumi.InputType['FunctionLoggingConfigArgs']]] = None,
             memory_size: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             package_type: Optional[pulumi.Input[str]] = None,
@@ -1871,6 +1956,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
         :param pulumi.Input[str] last_modified: Date this resource was last modified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+        :param pulumi.Input[pulumi.InputType['FunctionLoggingConfigArgs']] logging_config: Configuration block used to specify advanced logging settings. Detailed below.
         :param pulumi.Input[int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         :param pulumi.Input[str] name: Unique name for your Lambda Function.
         :param pulumi.Input[str] package_type: Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
@@ -1922,6 +2008,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["kms_key_arn"] = kms_key_arn
         __props__.__dict__["last_modified"] = last_modified
         __props__.__dict__["layers"] = layers
+        __props__.__dict__["logging_config"] = logging_config
         __props__.__dict__["memory_size"] = memory_size
         __props__.__dict__["name"] = name
         __props__.__dict__["package_type"] = package_type
@@ -2077,6 +2164,14 @@ class Function(pulumi.CustomResource):
         List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
         """
         return pulumi.get(self, "layers")
+
+    @property
+    @pulumi.getter(name="loggingConfig")
+    def logging_config(self) -> pulumi.Output['outputs.FunctionLoggingConfig']:
+        """
+        Configuration block used to specify advanced logging settings. Detailed below.
+        """
+        return pulumi.get(self, "logging_config")
 
     @property
     @pulumi.getter(name="memorySize")

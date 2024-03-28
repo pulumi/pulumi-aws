@@ -20,26 +20,21 @@ namespace Pulumi.Aws.ApiGateway
     /// !&gt; **WARNING:** It is recommended to use the `aws.apigateway.Stage` resource instead of managing an API Gateway Stage via the `stage_name` argument of this resource. When this resource is recreated (REST API redeployment) with the `stage_name` configured, the stage is deleted and recreated. This will cause a temporary service interruption, increase provide plan differences, and can require a second apply to recreate any downstream stage configuration such as associated `aws_api_method_settings` resources.
     /// 
     /// ## Example Usage
+    /// 
     /// ### OpenAPI Specification
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
-    /// using System.Security.Cryptography;
-    /// using System.Text;
     /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	private static string ComputeSHA1(string input) {
-    /// 		return BitConverter.ToString(
-    /// 			SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input))
-    /// 		).Replace("-","").ToLowerInvariant());
-    /// 	}
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new()
+    ///     var example = new Aws.ApiGateway.RestApi("example", new()
     ///     {
     ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -66,108 +61,109 @@ namespace Pulumi.Aws.ApiGateway
     ///                 },
     ///             },
     ///         }),
+    ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("example", new()
     ///     {
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         Triggers = 
     ///         {
-    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///             { "redeployment", Std.Sha1.Invoke(new()
+    ///             {
+    ///                 Input = Output.JsonSerialize(Output.Create(example.Body)),
+    ///             }).Apply(invoke =&gt; invoke.Result) },
     ///         },
     ///     });
     /// 
-    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     var exampleStage = new Aws.ApiGateway.Stage("example", new()
     ///     {
     ///         Deployment = exampleDeployment.Id,
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         StageName = "example",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Resources
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
-    /// using System.Security.Cryptography;
-    /// using System.Text;
     /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	private static string ComputeSHA1(string input) {
-    /// 		return BitConverter.ToString(
-    /// 			SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input))
-    /// 		).Replace("-","").ToLowerInvariant());
-    /// 	}
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi");
-    /// 
-    ///     var exampleResource = new Aws.ApiGateway.Resource("exampleResource", new()
+    ///     var example = new Aws.ApiGateway.RestApi("example", new()
     ///     {
-    ///         ParentId = exampleRestApi.RootResourceId,
-    ///         PathPart = "example",
-    ///         RestApi = exampleRestApi.Id,
+    ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleMethod = new Aws.ApiGateway.Method("exampleMethod", new()
+    ///     var exampleResource = new Aws.ApiGateway.Resource("example", new()
+    ///     {
+    ///         ParentId = example.RootResourceId,
+    ///         PathPart = "example",
+    ///         RestApi = example.Id,
+    ///     });
+    /// 
+    ///     var exampleMethod = new Aws.ApiGateway.Method("example", new()
     ///     {
     ///         Authorization = "NONE",
     ///         HttpMethod = "GET",
     ///         ResourceId = exampleResource.Id,
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///     });
     /// 
-    ///     var exampleIntegration = new Aws.ApiGateway.Integration("exampleIntegration", new()
+    ///     var exampleIntegration = new Aws.ApiGateway.Integration("example", new()
     ///     {
     ///         HttpMethod = exampleMethod.HttpMethod,
     ///         ResourceId = exampleResource.Id,
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         Type = "MOCK",
     ///     });
     /// 
-    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("example", new()
     ///     {
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         Triggers = 
     ///         {
-    ///             { "redeployment", Output.Tuple(exampleResource.Id, exampleMethod.Id, exampleIntegration.Id).Apply(values =&gt;
+    ///             { "redeployment", Std.Sha1.Invoke(new()
     ///             {
-    ///                 var exampleResourceId = values.Item1;
-    ///                 var exampleMethodId = values.Item2;
-    ///                 var exampleIntegrationId = values.Item3;
-    ///                 return JsonSerializer.Serialize(new[]
+    ///                 Input = Output.JsonSerialize(Output.Create(new[]
     ///                 {
-    ///                     exampleResourceId,
-    ///                     exampleMethodId,
-    ///                     exampleIntegrationId,
-    ///                 });
-    ///             }).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///                     exampleResource.Id,
+    ///                     exampleMethod.Id,
+    ///                     exampleIntegration.Id,
+    ///                 })),
+    ///             }).Apply(invoke =&gt; invoke.Result) },
     ///         },
     ///     });
     /// 
-    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     var exampleStage = new Aws.ApiGateway.Stage("example", new()
     ///     {
     ///         Deployment = exampleDeployment.Id,
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         StageName = "example",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_api_gateway_deployment` using `REST-API-ID/DEPLOYMENT-ID`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/deployment:Deployment example aabbccddee/1122334
+    /// $ pulumi import aws:apigateway/deployment:Deployment example aabbccddee/1122334
     /// ```
-    ///  The `stage_name`, `stage_description`, and `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages.
+    /// The `stage_name`, `stage_description`, and `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages.
     /// 
     /// The `triggers` argument cannot be imported.
     /// </summary>

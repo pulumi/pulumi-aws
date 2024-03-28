@@ -105,20 +105,24 @@ class EncryptionConfig(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.xray.EncryptionConfig("example", type="NONE")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With KMS Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="Enable IAM User Permissions",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -128,21 +132,22 @@ class EncryptionConfig(pulumi.CustomResource):
             actions=["kms:*"],
             resources=["*"],
         )])
-        example_key = aws.kms.Key("exampleKey",
+        example_key = aws.kms.Key("example",
             description="Some Key",
             deletion_window_in_days=7,
-            policy=example_policy_document.json)
-        example_encryption_config = aws.xray.EncryptionConfig("exampleEncryptionConfig",
+            policy=example.json)
+        example_encryption_config = aws.xray.EncryptionConfig("example",
             type="KMS",
             key_id=example_key.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import XRay Encryption Config using the region name. For example:
 
         ```sh
-         $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
+        $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
         ```
 
         :param str resource_name: The name of the resource.
@@ -163,20 +168,24 @@ class EncryptionConfig(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.xray.EncryptionConfig("example", type="NONE")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With KMS Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="Enable IAM User Permissions",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -186,21 +195,22 @@ class EncryptionConfig(pulumi.CustomResource):
             actions=["kms:*"],
             resources=["*"],
         )])
-        example_key = aws.kms.Key("exampleKey",
+        example_key = aws.kms.Key("example",
             description="Some Key",
             deletion_window_in_days=7,
-            policy=example_policy_document.json)
-        example_encryption_config = aws.xray.EncryptionConfig("exampleEncryptionConfig",
+            policy=example.json)
+        example_encryption_config = aws.xray.EncryptionConfig("example",
             type="KMS",
             key_id=example_key.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import XRay Encryption Config using the region name. For example:
 
         ```sh
-         $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
+        $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
         ```
 
         :param str resource_name: The name of the resource.

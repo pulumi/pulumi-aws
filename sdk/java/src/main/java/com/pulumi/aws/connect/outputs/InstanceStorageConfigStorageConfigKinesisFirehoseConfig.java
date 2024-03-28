@@ -4,6 +4,7 @@
 package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class InstanceStorageConfigStorageConfigKinesisFirehoseConfig {
 
         @CustomType.Setter
         public Builder firehoseArn(String firehoseArn) {
-            this.firehoseArn = Objects.requireNonNull(firehoseArn);
+            if (firehoseArn == null) {
+              throw new MissingRequiredPropertyException("InstanceStorageConfigStorageConfigKinesisFirehoseConfig", "firehoseArn");
+            }
+            this.firehoseArn = firehoseArn;
             return this;
         }
         public InstanceStorageConfigStorageConfigKinesisFirehoseConfig build() {
-            final var o = new InstanceStorageConfigStorageConfigKinesisFirehoseConfig();
-            o.firehoseArn = firehoseArn;
-            return o;
+            final var _resultValue = new InstanceStorageConfigStorageConfigKinesisFirehoseConfig();
+            _resultValue.firehoseArn = firehoseArn;
+            return _resultValue;
         }
     }
 }

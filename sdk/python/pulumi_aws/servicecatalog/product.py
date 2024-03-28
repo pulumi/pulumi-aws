@@ -497,29 +497,33 @@ class Product(pulumi.CustomResource):
         > A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.servicecatalog.Product("example",
+            name="example",
             owner="example-owner",
+            type="CLOUD_FORMATION_TEMPLATE",
             provisioning_artifact_parameters=aws.servicecatalog.ProductProvisioningArtifactParametersArgs(
                 template_url="https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json",
             ),
             tags={
                 "foo": "bar",
-            },
-            type="CLOUD_FORMATION_TEMPLATE")
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_servicecatalog_product` using the product ID. For example:
 
         ```sh
-         $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
+        $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
         ```
 
         :param str resource_name: The name of the resource.
@@ -552,29 +556,33 @@ class Product(pulumi.CustomResource):
         > A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.servicecatalog.Product("example",
+            name="example",
             owner="example-owner",
+            type="CLOUD_FORMATION_TEMPLATE",
             provisioning_artifact_parameters=aws.servicecatalog.ProductProvisioningArtifactParametersArgs(
                 template_url="https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json",
             ),
             tags={
                 "foo": "bar",
-            },
-            type="CLOUD_FORMATION_TEMPLATE")
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_servicecatalog_product` using the product ID. For example:
 
         ```sh
-         $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
+        $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
         ```
 
         :param str resource_name: The name of the resource.
@@ -634,8 +642,6 @@ class Product(pulumi.CustomResource):
             __props__.__dict__["has_default_path"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Product, __self__).__init__(
             'aws:servicecatalog/product:Product',
             resource_name,

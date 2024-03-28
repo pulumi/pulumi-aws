@@ -8,6 +8,7 @@ import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamOpensearchserverless
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -17,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirehoseDeliveryStreamOpensearchserverlessConfiguration {
     /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
     private @Nullable Integer bufferingInterval;
@@ -27,7 +28,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfiguration {
      */
     private @Nullable Integer bufferingSize;
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
@@ -42,7 +43,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfiguration {
      */
     private String indexName;
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration processingConfiguration;
@@ -62,19 +63,19 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfiguration {
      */
     private @Nullable String s3BackupMode;
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     private FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration s3Configuration;
     /**
-     * @return The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. More details are given below
+     * @return The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpc_config` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig vpcConfig;
 
     private FirehoseDeliveryStreamOpensearchserverlessConfiguration() {}
     /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
     public Optional<Integer> bufferingInterval() {
@@ -88,7 +89,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfiguration {
         return Optional.ofNullable(this.bufferingSize);
     }
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
@@ -109,7 +110,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfiguration {
         return this.indexName;
     }
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration> processingConfiguration() {
@@ -137,14 +138,14 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfiguration {
         return Optional.ofNullable(this.s3BackupMode);
     }
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     public FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration s3Configuration() {
         return this.s3Configuration;
     }
     /**
-     * @return The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. More details are given below
+     * @return The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpc_config` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig> vpcConfig() {
@@ -189,73 +190,92 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfiguration {
 
         @CustomType.Setter
         public Builder bufferingInterval(@Nullable Integer bufferingInterval) {
+
             this.bufferingInterval = bufferingInterval;
             return this;
         }
         @CustomType.Setter
         public Builder bufferingSize(@Nullable Integer bufferingSize) {
+
             this.bufferingSize = bufferingSize;
             return this;
         }
         @CustomType.Setter
         public Builder cloudwatchLoggingOptions(@Nullable FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions) {
+
             this.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
             return this;
         }
         @CustomType.Setter
         public Builder collectionEndpoint(String collectionEndpoint) {
-            this.collectionEndpoint = Objects.requireNonNull(collectionEndpoint);
+            if (collectionEndpoint == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamOpensearchserverlessConfiguration", "collectionEndpoint");
+            }
+            this.collectionEndpoint = collectionEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder indexName(String indexName) {
-            this.indexName = Objects.requireNonNull(indexName);
+            if (indexName == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamOpensearchserverlessConfiguration", "indexName");
+            }
+            this.indexName = indexName;
             return this;
         }
         @CustomType.Setter
         public Builder processingConfiguration(@Nullable FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration processingConfiguration) {
+
             this.processingConfiguration = processingConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder retryDuration(@Nullable Integer retryDuration) {
+
             this.retryDuration = retryDuration;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamOpensearchserverlessConfiguration", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder s3BackupMode(@Nullable String s3BackupMode) {
+
             this.s3BackupMode = s3BackupMode;
             return this;
         }
         @CustomType.Setter
         public Builder s3Configuration(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration s3Configuration) {
-            this.s3Configuration = Objects.requireNonNull(s3Configuration);
+            if (s3Configuration == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamOpensearchserverlessConfiguration", "s3Configuration");
+            }
+            this.s3Configuration = s3Configuration;
             return this;
         }
         @CustomType.Setter
         public Builder vpcConfig(@Nullable FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig vpcConfig) {
+
             this.vpcConfig = vpcConfig;
             return this;
         }
         public FirehoseDeliveryStreamOpensearchserverlessConfiguration build() {
-            final var o = new FirehoseDeliveryStreamOpensearchserverlessConfiguration();
-            o.bufferingInterval = bufferingInterval;
-            o.bufferingSize = bufferingSize;
-            o.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
-            o.collectionEndpoint = collectionEndpoint;
-            o.indexName = indexName;
-            o.processingConfiguration = processingConfiguration;
-            o.retryDuration = retryDuration;
-            o.roleArn = roleArn;
-            o.s3BackupMode = s3BackupMode;
-            o.s3Configuration = s3Configuration;
-            o.vpcConfig = vpcConfig;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamOpensearchserverlessConfiguration();
+            _resultValue.bufferingInterval = bufferingInterval;
+            _resultValue.bufferingSize = bufferingSize;
+            _resultValue.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
+            _resultValue.collectionEndpoint = collectionEndpoint;
+            _resultValue.indexName = indexName;
+            _resultValue.processingConfiguration = processingConfiguration;
+            _resultValue.retryDuration = retryDuration;
+            _resultValue.roleArn = roleArn;
+            _resultValue.s3BackupMode = s3BackupMode;
+            _resultValue.s3Configuration = s3Configuration;
+            _resultValue.vpcConfig = vpcConfig;
+            return _resultValue;
         }
     }
 }

@@ -50,7 +50,7 @@ class CrawlerArgs:
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerDynamodbTargetArgs']]] dynamodb_targets: List of nested DynamoDB target arguments. See Dynamodb Target below.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerHudiTargetArgs']]] hudi_targets: List of nested Hudi target arguments. See Iceberg Target below.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]] iceberg_targets: List of nested Iceberg target arguments. See Iceberg Target below.
-        :param pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]] jdbc_targets: List of nested JBDC target arguments. See JDBC Target below.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]] jdbc_targets: List of nested JDBC target arguments. See JDBC Target below.
         :param pulumi.Input['CrawlerLakeFormationConfigurationArgs'] lake_formation_configuration: Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
         :param pulumi.Input['CrawlerLineageConfigurationArgs'] lineage_configuration: Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerMongodbTargetArgs']]] mongodb_targets: List of nested MongoDB target arguments. See MongoDB Target below.
@@ -230,7 +230,7 @@ class CrawlerArgs:
     @pulumi.getter(name="jdbcTargets")
     def jdbc_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]]:
         """
-        List of nested JBDC target arguments. See JDBC Target below.
+        List of nested JDBC target arguments. See JDBC Target below.
         """
         return pulumi.get(self, "jdbc_targets")
 
@@ -410,7 +410,7 @@ class _CrawlerState:
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerDynamodbTargetArgs']]] dynamodb_targets: List of nested DynamoDB target arguments. See Dynamodb Target below.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerHudiTargetArgs']]] hudi_targets: List of nested Hudi target arguments. See Iceberg Target below.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]] iceberg_targets: List of nested Iceberg target arguments. See Iceberg Target below.
-        :param pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]] jdbc_targets: List of nested JBDC target arguments. See JDBC Target below.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]] jdbc_targets: List of nested JDBC target arguments. See JDBC Target below.
         :param pulumi.Input['CrawlerLakeFormationConfigurationArgs'] lake_formation_configuration: Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
         :param pulumi.Input['CrawlerLineageConfigurationArgs'] lineage_configuration: Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerMongodbTargetArgs']]] mongodb_targets: List of nested MongoDB target arguments. See MongoDB Target below.
@@ -601,7 +601,7 @@ class _CrawlerState:
     @pulumi.getter(name="jdbcTargets")
     def jdbc_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]]:
         """
-        List of nested JBDC target arguments. See JDBC Target below.
+        List of nested JDBC target arguments. See JDBC Target below.
         """
         return pulumi.get(self, "jdbc_targets")
 
@@ -801,58 +801,73 @@ class Crawler(pulumi.CustomResource):
         Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
 
         ## Example Usage
+
         ### DynamoDB Target Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            database_name=aws_glue_catalog_database["example"]["name"],
-            role=aws_iam_role["example"]["arn"],
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             dynamodb_targets=[aws.glue.CrawlerDynamodbTargetArgs(
                 path="table-name",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### JDBC Target Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            database_name=aws_glue_catalog_database["example"]["name"],
-            role=aws_iam_role["example"]["arn"],
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             jdbc_targets=[aws.glue.CrawlerJdbcTargetArgs(
-                connection_name=aws_glue_connection["example"]["name"],
+                connection_name=example_aws_glue_connection["name"],
                 path="database-name/%",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### S3 Target Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            database_name=aws_glue_catalog_database["example"]["name"],
-            role=aws_iam_role["example"]["arn"],
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             s3_targets=[aws.glue.CrawlerS3TargetArgs(
-                path=f"s3://{aws_s3_bucket['example']['bucket']}",
+                path=f"s3://{example_aws_s3_bucket['bucket']}",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Catalog Target Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            database_name=aws_glue_catalog_database["example"]["name"],
-            role=aws_iam_role["example"]["arn"],
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             catalog_targets=[aws.glue.CrawlerCatalogTargetArgs(
-                database_name=aws_glue_catalog_database["example"]["name"],
-                tables=[aws_glue_catalog_table["example"]["name"]],
+                database_name=example_aws_glue_catalog_database["name"],
+                tables=[example_aws_glue_catalog_table["name"]],
             )],
             schema_change_policy=aws.glue.CrawlerSchemaChangePolicyArgs(
                 delete_behavior="LOG",
@@ -865,54 +880,63 @@ class Crawler(pulumi.CustomResource):
         }
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### MongoDB Target Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            database_name=aws_glue_catalog_database["example"]["name"],
-            role=aws_iam_role["example"]["arn"],
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             mongodb_targets=[aws.glue.CrawlerMongodbTargetArgs(
-                connection_name=aws_glue_connection["example"]["name"],
+                connection_name=example_aws_glue_connection["name"],
                 path="database-name/%",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Configuration Settings Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        events_crawler = aws.glue.Crawler("eventsCrawler",
-            database_name=aws_glue_catalog_database["glue_database"]["name"],
+        events_crawler = aws.glue.Crawler("events_crawler",
+            database_name=glue_database["name"],
             schedule="cron(0 1 * * ? *)",
-            role=aws_iam_role["glue_role"]["arn"],
-            tags=var["tags"],
+            name=f"events_crawler_{environment_name}",
+            role=glue_role["arn"],
+            tags=tags,
             configuration=json.dumps({
-                "Grouping": {
-                    "TableGroupingPolicy": "CombineCompatibleSchemas",
+                "grouping": {
+                    "tableGroupingPolicy": "CombineCompatibleSchemas",
                 },
-                "CrawlerOutput": {
-                    "Partitions": {
-                        "AddOrUpdateBehavior": "InheritFromTable",
+                "crawlerOutput": {
+                    "partitions": {
+                        "addOrUpdateBehavior": "InheritFromTable",
                     },
                 },
-                "Version": 1,
+                "version": 1,
             }),
             s3_targets=[aws.glue.CrawlerS3TargetArgs(
-                path=f"s3://{aws_s3_bucket['data_lake_bucket']['bucket']}",
+                path=f"s3://{data_lake_bucket['bucket']}",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Crawlers using `name`. For example:
 
         ```sh
-         $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
+        $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
         ```
 
         :param str resource_name: The name of the resource.
@@ -926,7 +950,7 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]] dynamodb_targets: List of nested DynamoDB target arguments. See Dynamodb Target below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerHudiTargetArgs']]]] hudi_targets: List of nested Hudi target arguments. See Iceberg Target below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerIcebergTargetArgs']]]] iceberg_targets: List of nested Iceberg target arguments. See Iceberg Target below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]] jdbc_targets: List of nested JBDC target arguments. See JDBC Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]] jdbc_targets: List of nested JDBC target arguments. See JDBC Target below.
         :param pulumi.Input[pulumi.InputType['CrawlerLakeFormationConfigurationArgs']] lake_formation_configuration: Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
         :param pulumi.Input[pulumi.InputType['CrawlerLineageConfigurationArgs']] lineage_configuration: Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerMongodbTargetArgs']]]] mongodb_targets: List of nested MongoDB target arguments. See MongoDB Target below.
@@ -950,58 +974,73 @@ class Crawler(pulumi.CustomResource):
         Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
 
         ## Example Usage
+
         ### DynamoDB Target Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            database_name=aws_glue_catalog_database["example"]["name"],
-            role=aws_iam_role["example"]["arn"],
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             dynamodb_targets=[aws.glue.CrawlerDynamodbTargetArgs(
                 path="table-name",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### JDBC Target Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            database_name=aws_glue_catalog_database["example"]["name"],
-            role=aws_iam_role["example"]["arn"],
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             jdbc_targets=[aws.glue.CrawlerJdbcTargetArgs(
-                connection_name=aws_glue_connection["example"]["name"],
+                connection_name=example_aws_glue_connection["name"],
                 path="database-name/%",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### S3 Target Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            database_name=aws_glue_catalog_database["example"]["name"],
-            role=aws_iam_role["example"]["arn"],
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             s3_targets=[aws.glue.CrawlerS3TargetArgs(
-                path=f"s3://{aws_s3_bucket['example']['bucket']}",
+                path=f"s3://{example_aws_s3_bucket['bucket']}",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Catalog Target Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            database_name=aws_glue_catalog_database["example"]["name"],
-            role=aws_iam_role["example"]["arn"],
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             catalog_targets=[aws.glue.CrawlerCatalogTargetArgs(
-                database_name=aws_glue_catalog_database["example"]["name"],
-                tables=[aws_glue_catalog_table["example"]["name"]],
+                database_name=example_aws_glue_catalog_database["name"],
+                tables=[example_aws_glue_catalog_table["name"]],
             )],
             schema_change_policy=aws.glue.CrawlerSchemaChangePolicyArgs(
                 delete_behavior="LOG",
@@ -1014,54 +1053,63 @@ class Crawler(pulumi.CustomResource):
         }
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### MongoDB Target Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            database_name=aws_glue_catalog_database["example"]["name"],
-            role=aws_iam_role["example"]["arn"],
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             mongodb_targets=[aws.glue.CrawlerMongodbTargetArgs(
-                connection_name=aws_glue_connection["example"]["name"],
+                connection_name=example_aws_glue_connection["name"],
                 path="database-name/%",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Configuration Settings Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        events_crawler = aws.glue.Crawler("eventsCrawler",
-            database_name=aws_glue_catalog_database["glue_database"]["name"],
+        events_crawler = aws.glue.Crawler("events_crawler",
+            database_name=glue_database["name"],
             schedule="cron(0 1 * * ? *)",
-            role=aws_iam_role["glue_role"]["arn"],
-            tags=var["tags"],
+            name=f"events_crawler_{environment_name}",
+            role=glue_role["arn"],
+            tags=tags,
             configuration=json.dumps({
-                "Grouping": {
-                    "TableGroupingPolicy": "CombineCompatibleSchemas",
+                "grouping": {
+                    "tableGroupingPolicy": "CombineCompatibleSchemas",
                 },
-                "CrawlerOutput": {
-                    "Partitions": {
-                        "AddOrUpdateBehavior": "InheritFromTable",
+                "crawlerOutput": {
+                    "partitions": {
+                        "addOrUpdateBehavior": "InheritFromTable",
                     },
                 },
-                "Version": 1,
+                "version": 1,
             }),
             s3_targets=[aws.glue.CrawlerS3TargetArgs(
-                path=f"s3://{aws_s3_bucket['data_lake_bucket']['bucket']}",
+                path=f"s3://{data_lake_bucket['bucket']}",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Crawlers using `name`. For example:
 
         ```sh
-         $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
+        $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
         ```
 
         :param str resource_name: The name of the resource.
@@ -1138,8 +1186,6 @@ class Crawler(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Crawler, __self__).__init__(
             'aws:glue/crawler:Crawler',
             resource_name,
@@ -1191,7 +1237,7 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]] dynamodb_targets: List of nested DynamoDB target arguments. See Dynamodb Target below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerHudiTargetArgs']]]] hudi_targets: List of nested Hudi target arguments. See Iceberg Target below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerIcebergTargetArgs']]]] iceberg_targets: List of nested Iceberg target arguments. See Iceberg Target below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]] jdbc_targets: List of nested JBDC target arguments. See JDBC Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]] jdbc_targets: List of nested JDBC target arguments. See JDBC Target below.
         :param pulumi.Input[pulumi.InputType['CrawlerLakeFormationConfigurationArgs']] lake_formation_configuration: Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
         :param pulumi.Input[pulumi.InputType['CrawlerLineageConfigurationArgs']] lineage_configuration: Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerMongodbTargetArgs']]]] mongodb_targets: List of nested MongoDB target arguments. See MongoDB Target below.
@@ -1320,7 +1366,7 @@ class Crawler(pulumi.CustomResource):
     @pulumi.getter(name="jdbcTargets")
     def jdbc_targets(self) -> pulumi.Output[Optional[Sequence['outputs.CrawlerJdbcTarget']]]:
         """
-        List of nested JBDC target arguments. See JDBC Target below.
+        List of nested JDBC target arguments. See JDBC Target below.
         """
         return pulumi.get(self, "jdbc_targets")
 

@@ -15,8 +15,10 @@ namespace Pulumi.Aws.RedShift
     /// &gt; **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `default_iam_role_arn` argument and the `aws.redshift.ClusterIamRoles` resource's `default_iam_role_arn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,17 +30,20 @@ namespace Pulumi.Aws.RedShift
     ///     var example = new Aws.RedShift.Cluster("example", new()
     ///     {
     ///         ClusterIdentifier = "tf-redshift-cluster",
-    ///         ClusterType = "single-node",
     ///         DatabaseName = "mydb",
-    ///         MasterPassword = "Mustbe8characters",
     ///         MasterUsername = "exampleuser",
+    ///         MasterPassword = "Mustbe8characters",
     ///         NodeType = "dc1.large",
+    ///         ClusterType = "single-node",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Managed Credentials
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,22 +55,23 @@ namespace Pulumi.Aws.RedShift
     ///     var example = new Aws.RedShift.Cluster("example", new()
     ///     {
     ///         ClusterIdentifier = "tf-redshift-cluster",
-    ///         ClusterType = "single-node",
     ///         DatabaseName = "mydb",
-    ///         ManageMasterPassword = true,
     ///         MasterUsername = "exampleuser",
     ///         NodeType = "dc1.large",
+    ///         ClusterType = "single-node",
+    ///         ManageMasterPassword = true,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Clusters using the `cluster_identifier`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
+    /// $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/cluster:Cluster")]
@@ -286,6 +292,12 @@ namespace Pulumi.Aws.RedShift
         public Output<string?> MasterUsername { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies if the Redshift cluster is multi-AZ.
+        /// </summary>
+        [Output("multiAz")]
+        public Output<bool?> MultiAz { get; private set; } = null!;
+
+        /// <summary>
         /// The node type to be provisioned for the cluster.
         /// </summary>
         [Output("nodeType")]
@@ -399,7 +411,6 @@ namespace Pulumi.Aws.RedShift
                 AdditionalSecretOutputs =
                 {
                     "masterPassword",
-                    "tagsAll",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -623,6 +634,12 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("masterUsername")]
         public Input<string>? MasterUsername { get; set; }
+
+        /// <summary>
+        /// Specifies if the Redshift cluster is multi-AZ.
+        /// </summary>
+        [Input("multiAz")]
+        public Input<bool>? MultiAz { get; set; }
 
         /// <summary>
         /// The node type to be provisioned for the cluster.
@@ -963,6 +980,12 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? MasterUsername { get; set; }
 
         /// <summary>
+        /// Specifies if the Redshift cluster is multi-AZ.
+        /// </summary>
+        [Input("multiAz")]
+        public Input<bool>? MultiAz { get; set; }
+
+        /// <summary>
         /// The node type to be provisioned for the cluster.
         /// </summary>
         [Input("nodeType")]
@@ -1054,11 +1077,7 @@ namespace Pulumi.Aws.RedShift
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("vpcSecurityGroupIds")]

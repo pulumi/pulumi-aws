@@ -117,43 +117,49 @@ public final class TriggerAction {
 
         @CustomType.Setter
         public Builder arguments(@Nullable Map<String,String> arguments) {
+
             this.arguments = arguments;
             return this;
         }
         @CustomType.Setter
         public Builder crawlerName(@Nullable String crawlerName) {
+
             this.crawlerName = crawlerName;
             return this;
         }
         @CustomType.Setter
         public Builder jobName(@Nullable String jobName) {
+
             this.jobName = jobName;
             return this;
         }
         @CustomType.Setter
         public Builder notificationProperty(@Nullable TriggerActionNotificationProperty notificationProperty) {
+
             this.notificationProperty = notificationProperty;
             return this;
         }
         @CustomType.Setter
         public Builder securityConfiguration(@Nullable String securityConfiguration) {
+
             this.securityConfiguration = securityConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder timeout(@Nullable Integer timeout) {
+
             this.timeout = timeout;
             return this;
         }
         public TriggerAction build() {
-            final var o = new TriggerAction();
-            o.arguments = arguments;
-            o.crawlerName = crawlerName;
-            o.jobName = jobName;
-            o.notificationProperty = notificationProperty;
-            o.securityConfiguration = securityConfiguration;
-            o.timeout = timeout;
-            return o;
+            final var _resultValue = new TriggerAction();
+            _resultValue.arguments = arguments;
+            _resultValue.crawlerName = crawlerName;
+            _resultValue.jobName = jobName;
+            _resultValue.notificationProperty = notificationProperty;
+            _resultValue.securityConfiguration = securityConfiguration;
+            _resultValue.timeout = timeout;
+            return _resultValue;
         }
     }
 }

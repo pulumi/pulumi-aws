@@ -9,23 +9,26 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.0.0.0/16"});
- * const examplePrivateDnsNamespace = new aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", {
+ * const example = new aws.ec2.Vpc("example", {cidrBlock: "10.0.0.0/16"});
+ * const examplePrivateDnsNamespace = new aws.servicediscovery.PrivateDnsNamespace("example", {
+ *     name: "hoge.example.local",
  *     description: "example",
- *     vpc: exampleVpc.id,
+ *     vpc: example.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Service Discovery Private DNS Namespace using the namespace ID and VPC ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345
+ * $ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345
  * ```
  */
 export class PrivateDnsNamespace extends pulumi.CustomResource {
@@ -121,8 +124,6 @@ export class PrivateDnsNamespace extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(PrivateDnsNamespace.__pulumiType, name, resourceInputs, opts);
     }
 }

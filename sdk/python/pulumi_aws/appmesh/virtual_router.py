@@ -299,12 +299,14 @@ class VirtualRouter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         serviceb = aws.appmesh.VirtualRouter("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            name="serviceB",
+            mesh_name=simple["id"],
             spec=aws.appmesh.VirtualRouterSpecArgs(
                 listeners=[aws.appmesh.VirtualRouterSpecListenerArgs(
                     port_mapping=aws.appmesh.VirtualRouterSpecListenerPortMappingArgs(
@@ -314,13 +316,14 @@ class VirtualRouter(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Mesh virtual routers using `mesh_name` together with the virtual router's `name`. For example:
 
         ```sh
-         $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
+        $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
         ```
 
         :param str resource_name: The name of the resource.
@@ -352,12 +355,14 @@ class VirtualRouter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         serviceb = aws.appmesh.VirtualRouter("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            name="serviceB",
+            mesh_name=simple["id"],
             spec=aws.appmesh.VirtualRouterSpecArgs(
                 listeners=[aws.appmesh.VirtualRouterSpecListenerArgs(
                     port_mapping=aws.appmesh.VirtualRouterSpecListenerPortMappingArgs(
@@ -367,13 +372,14 @@ class VirtualRouter(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Mesh virtual routers using `mesh_name` together with the virtual router's `name`. For example:
 
         ```sh
-         $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
+        $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
         ```
 
         :param str resource_name: The name of the resource.
@@ -419,8 +425,6 @@ class VirtualRouter(pulumi.CustomResource):
             __props__.__dict__["last_updated_date"] = None
             __props__.__dict__["resource_owner"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VirtualRouter, __self__).__init__(
             'aws:appmesh/virtualRouter:VirtualRouter',
             resource_name,

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  *     typeName: "AWS::Athena::WorkGroup",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCloudFormationType(args?: GetCloudFormationTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudFormationTypeResult> {
     args = args || {};
@@ -119,6 +121,7 @@ export interface GetCloudFormationTypeResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -128,6 +131,7 @@ export interface GetCloudFormationTypeResult {
  *     typeName: "AWS::Athena::WorkGroup",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCloudFormationTypeOutput(args?: GetCloudFormationTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudFormationTypeResult> {
     return pulumi.output(args).apply((a: any) => getCloudFormationType(a, opts))

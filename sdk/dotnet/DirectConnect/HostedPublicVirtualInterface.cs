@@ -15,6 +15,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,28 +26,30 @@ namespace Pulumi.Aws.DirectConnect
     /// {
     ///     var foo = new Aws.DirectConnect.HostedPublicVirtualInterface("foo", new()
     ///     {
-    ///         AddressFamily = "ipv4",
-    ///         AmazonAddress = "175.45.176.2/30",
-    ///         BgpAsn = 65352,
     ///         ConnectionId = "dxcon-zzzzzzzz",
+    ///         Name = "vif-foo",
+    ///         Vlan = 4094,
+    ///         AddressFamily = "ipv4",
+    ///         BgpAsn = 65352,
     ///         CustomerAddress = "175.45.176.1/30",
+    ///         AmazonAddress = "175.45.176.2/30",
     ///         RouteFilterPrefixes = new[]
     ///         {
     ///             "210.52.109.0/24",
     ///             "175.45.176.0/22",
     ///         },
-    ///         Vlan = 4094,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Direct Connect hosted public virtual interfaces using the VIF `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface test dxvif-33cc44dd
+    /// $ pulumi import aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface test dxvif-33cc44dd
     /// ```
     /// </summary>
     [AwsResourceType("aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface")]

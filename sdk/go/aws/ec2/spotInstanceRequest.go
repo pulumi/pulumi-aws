@@ -39,6 +39,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,10 +52,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewSpotInstanceRequest(ctx, "cheapWorker", &ec2.SpotInstanceRequestArgs{
+//			// Request a spot instance at $0.03
+//			_, err := ec2.NewSpotInstanceRequest(ctx, "cheap_worker", &ec2.SpotInstanceRequestArgs{
 //				Ami:          pulumi.String("ami-1234"),
-//				InstanceType: pulumi.String("c4.xlarge"),
 //				SpotPrice:    pulumi.String("0.03"),
+//				InstanceType: pulumi.String("c4.xlarge"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("CheapWorker"),
 //				},
@@ -67,6 +69,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type SpotInstanceRequest struct {
 	pulumi.CustomResourceState
 
@@ -230,10 +233,6 @@ func NewSpotInstanceRequest(ctx *pulumi.Context,
 		args = &SpotInstanceRequestArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SpotInstanceRequest
 	err := ctx.RegisterResource("aws:ec2/spotInstanceRequest:SpotInstanceRequest", name, args, &resource, opts...)

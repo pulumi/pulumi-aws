@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,13 +48,14 @@ namespace Pulumi.Aws.Dms
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
+    /// $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
     /// ```
     /// </summary>
     [AwsResourceType("aws:dms/endpoint:Endpoint")]
@@ -148,6 +150,12 @@ namespace Pulumi.Aws.Dms
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block for Postgres settings. See below.
+        /// </summary>
+        [Output("postgresSettings")]
+        public Output<Outputs.EndpointPostgresSettings?> PostgresSettings { get; private set; } = null!;
+
         [Output("redisSettings")]
         public Output<Outputs.EndpointRedisSettings?> RedisSettings { get; private set; } = null!;
 
@@ -164,13 +172,15 @@ namespace Pulumi.Aws.Dms
         public Output<Outputs.EndpointS3Settings?> S3Settings { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+        /// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
+        /// 
+        /// &gt; **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
         /// </summary>
         [Output("secretsManagerAccessRoleArn")]
         public Output<string?> SecretsManagerAccessRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+        /// Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
         /// </summary>
         [Output("secretsManagerArn")]
         public Output<string?> SecretsManagerArn { get; private set; } = null!;
@@ -237,7 +247,6 @@ namespace Pulumi.Aws.Dms
                 AdditionalSecretOutputs =
                 {
                     "password",
-                    "tagsAll",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -355,6 +364,12 @@ namespace Pulumi.Aws.Dms
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        /// <summary>
+        /// Configuration block for Postgres settings. See below.
+        /// </summary>
+        [Input("postgresSettings")]
+        public Input<Inputs.EndpointPostgresSettingsArgs>? PostgresSettings { get; set; }
+
         [Input("redisSettings")]
         public Input<Inputs.EndpointRedisSettingsArgs>? RedisSettings { get; set; }
 
@@ -371,13 +386,15 @@ namespace Pulumi.Aws.Dms
         public Input<Inputs.EndpointS3SettingsArgs>? S3Settings { get; set; }
 
         /// <summary>
-        /// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+        /// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
+        /// 
+        /// &gt; **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
         /// </summary>
         [Input("secretsManagerAccessRoleArn")]
         public Input<string>? SecretsManagerAccessRoleArn { get; set; }
 
         /// <summary>
-        /// Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+        /// Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
         /// </summary>
         [Input("secretsManagerArn")]
         public Input<string>? SecretsManagerArn { get; set; }
@@ -525,6 +542,12 @@ namespace Pulumi.Aws.Dms
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        /// <summary>
+        /// Configuration block for Postgres settings. See below.
+        /// </summary>
+        [Input("postgresSettings")]
+        public Input<Inputs.EndpointPostgresSettingsGetArgs>? PostgresSettings { get; set; }
+
         [Input("redisSettings")]
         public Input<Inputs.EndpointRedisSettingsGetArgs>? RedisSettings { get; set; }
 
@@ -541,13 +564,15 @@ namespace Pulumi.Aws.Dms
         public Input<Inputs.EndpointS3SettingsGetArgs>? S3Settings { get; set; }
 
         /// <summary>
-        /// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+        /// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
+        /// 
+        /// &gt; **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
         /// </summary>
         [Input("secretsManagerAccessRoleArn")]
         public Input<string>? SecretsManagerAccessRoleArn { get; set; }
 
         /// <summary>
-        /// Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+        /// Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
         /// </summary>
         [Input("secretsManagerArn")]
         public Input<string>? SecretsManagerArn { get; set; }
@@ -592,11 +617,7 @@ namespace Pulumi.Aws.Dms
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

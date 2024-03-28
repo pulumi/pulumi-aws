@@ -9,6 +9,7 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListener;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecLogging;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecServiceDiscovery;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -63,7 +64,10 @@ public final class GetVirtualNodeSpec {
 
         @CustomType.Setter
         public Builder backendDefaults(List<GetVirtualNodeSpecBackendDefault> backendDefaults) {
-            this.backendDefaults = Objects.requireNonNull(backendDefaults);
+            if (backendDefaults == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpec", "backendDefaults");
+            }
+            this.backendDefaults = backendDefaults;
             return this;
         }
         public Builder backendDefaults(GetVirtualNodeSpecBackendDefault... backendDefaults) {
@@ -71,7 +75,10 @@ public final class GetVirtualNodeSpec {
         }
         @CustomType.Setter
         public Builder backends(List<GetVirtualNodeSpecBackend> backends) {
-            this.backends = Objects.requireNonNull(backends);
+            if (backends == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpec", "backends");
+            }
+            this.backends = backends;
             return this;
         }
         public Builder backends(GetVirtualNodeSpecBackend... backends) {
@@ -79,7 +86,10 @@ public final class GetVirtualNodeSpec {
         }
         @CustomType.Setter
         public Builder listeners(List<GetVirtualNodeSpecListener> listeners) {
-            this.listeners = Objects.requireNonNull(listeners);
+            if (listeners == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpec", "listeners");
+            }
+            this.listeners = listeners;
             return this;
         }
         public Builder listeners(GetVirtualNodeSpecListener... listeners) {
@@ -87,7 +97,10 @@ public final class GetVirtualNodeSpec {
         }
         @CustomType.Setter
         public Builder loggings(List<GetVirtualNodeSpecLogging> loggings) {
-            this.loggings = Objects.requireNonNull(loggings);
+            if (loggings == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpec", "loggings");
+            }
+            this.loggings = loggings;
             return this;
         }
         public Builder loggings(GetVirtualNodeSpecLogging... loggings) {
@@ -95,20 +108,23 @@ public final class GetVirtualNodeSpec {
         }
         @CustomType.Setter
         public Builder serviceDiscoveries(List<GetVirtualNodeSpecServiceDiscovery> serviceDiscoveries) {
-            this.serviceDiscoveries = Objects.requireNonNull(serviceDiscoveries);
+            if (serviceDiscoveries == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpec", "serviceDiscoveries");
+            }
+            this.serviceDiscoveries = serviceDiscoveries;
             return this;
         }
         public Builder serviceDiscoveries(GetVirtualNodeSpecServiceDiscovery... serviceDiscoveries) {
             return serviceDiscoveries(List.of(serviceDiscoveries));
         }
         public GetVirtualNodeSpec build() {
-            final var o = new GetVirtualNodeSpec();
-            o.backendDefaults = backendDefaults;
-            o.backends = backends;
-            o.listeners = listeners;
-            o.loggings = loggings;
-            o.serviceDiscoveries = serviceDiscoveries;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpec();
+            _resultValue.backendDefaults = backendDefaults;
+            _resultValue.backends = backends;
+            _resultValue.listeners = listeners;
+            _resultValue.loggings = loggings;
+            _resultValue.serviceDiscoveries = serviceDiscoveries;
+            return _resultValue;
         }
     }
 }

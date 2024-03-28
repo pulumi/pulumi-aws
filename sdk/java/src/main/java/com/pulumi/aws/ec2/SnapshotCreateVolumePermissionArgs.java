@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class SnapshotCreateVolumePermissionArgs extends com.pulumi.resourc
         }
 
         public SnapshotCreateVolumePermissionArgs build() {
-            $.accountId = Objects.requireNonNull($.accountId, "expected parameter 'accountId' to be non-null");
-            $.snapshotId = Objects.requireNonNull($.snapshotId, "expected parameter 'snapshotId' to be non-null");
+            if ($.accountId == null) {
+                throw new MissingRequiredPropertyException("SnapshotCreateVolumePermissionArgs", "accountId");
+            }
+            if ($.snapshotId == null) {
+                throw new MissingRequiredPropertyException("SnapshotCreateVolumePermissionArgs", "snapshotId");
+            }
             return $;
         }
     }

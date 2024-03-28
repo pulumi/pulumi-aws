@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Provides details about a specific VPC NAT Gateway.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,15 +27,16 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var @default = Aws.Ec2.GetNatGateway.Invoke(new()
         ///     {
-        ///         SubnetId = aws_subnet.Public.Id,
+        ///         SubnetId = @public.Id,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### With tags
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var @default = Aws.Ec2.GetNatGateway.Invoke(new()
         ///     {
-        ///         SubnetId = aws_subnet.Public.Id,
+        ///         SubnetId = @public.Id,
         ///         Tags = 
         ///         {
         ///             { "Name", "gw NAT" },
@@ -56,8 +56,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetNatGatewayResult> InvokeAsync(GetNatGatewayArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewayResult>("aws:ec2/getNatGateway:getNatGateway", args ?? new GetNatGatewayArgs(), options.WithDefaults());
@@ -65,10 +64,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Provides details about a specific VPC NAT Gateway.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -79,15 +77,16 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var @default = Aws.Ec2.GetNatGateway.Invoke(new()
         ///     {
-        ///         SubnetId = aws_subnet.Public.Id,
+        ///         SubnetId = @public.Id,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### With tags
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -98,7 +97,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var @default = Aws.Ec2.GetNatGateway.Invoke(new()
         ///     {
-        ///         SubnetId = aws_subnet.Public.Id,
+        ///         SubnetId = @public.Id,
         ///         Tags = 
         ///         {
         ///             { "Name", "gw NAT" },
@@ -107,8 +106,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetNatGatewayResult> Invoke(GetNatGatewayInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNatGatewayResult>("aws:ec2/getNatGateway:getNatGateway", args ?? new GetNatGatewayInvokeArgs(), options.WithDefaults());

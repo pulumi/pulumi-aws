@@ -11,20 +11,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.xray.EncryptionConfig("example", {type: "NONE"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With KMS Key
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getCallerIdentity({});
- * const examplePolicyDocument = current.then(current => aws.iam.getPolicyDocument({
+ * const example = current.then(current => aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "Enable IAM User Permissions",
  *         effect: "Allow",
@@ -36,23 +40,24 @@ import * as utilities from "../utilities";
  *         resources: ["*"],
  *     }],
  * }));
- * const exampleKey = new aws.kms.Key("exampleKey", {
+ * const exampleKey = new aws.kms.Key("example", {
  *     description: "Some Key",
  *     deletionWindowInDays: 7,
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
+ *     policy: example.then(example => example.json),
  * });
- * const exampleEncryptionConfig = new aws.xray.EncryptionConfig("exampleEncryptionConfig", {
+ * const exampleEncryptionConfig = new aws.xray.EncryptionConfig("example", {
  *     type: "KMS",
  *     keyId: exampleKey.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import XRay Encryption Config using the region name. For example:
  *
  * ```sh
- *  $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
+ * $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
  * ```
  */
 export class EncryptionConfig extends pulumi.CustomResource {

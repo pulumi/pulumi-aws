@@ -4,6 +4,7 @@
 package com.pulumi.aws.scheduler.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class ScheduleTargetDeadLetterConfig {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("ScheduleTargetDeadLetterConfig", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         public ScheduleTargetDeadLetterConfig build() {
-            final var o = new ScheduleTargetDeadLetterConfig();
-            o.arn = arn;
-            return o;
+            final var _resultValue = new ScheduleTargetDeadLetterConfig();
+            _resultValue.arn = arn;
+            return _resultValue;
         }
     }
 }

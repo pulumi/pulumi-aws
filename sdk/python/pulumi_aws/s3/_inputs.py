@@ -44,6 +44,9 @@ __all__ = [
     'BucketLoggingArgs',
     'BucketLoggingV2TargetGrantArgs',
     'BucketLoggingV2TargetGrantGranteeArgs',
+    'BucketLoggingV2TargetObjectKeyFormatArgs',
+    'BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs',
+    'BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs',
     'BucketMetricFilterArgs',
     'BucketNotificationLambdaFunctionArgs',
     'BucketNotificationQueueArgs',
@@ -120,6 +123,7 @@ __all__ = [
     'BucketWebsiteConfigurationV2RoutingRuleArgs',
     'BucketWebsiteConfigurationV2RoutingRuleConditionArgs',
     'BucketWebsiteConfigurationV2RoutingRuleRedirectArgs',
+    'DirectoryBucketLocationArgs',
     'InventoryDestinationArgs',
     'InventoryDestinationBucketArgs',
     'InventoryDestinationBucketEncryptionArgs',
@@ -436,7 +440,7 @@ class BucketAclV2AccessControlPolicyArgs:
                  owner: pulumi.Input['BucketAclV2AccessControlPolicyOwnerArgs'],
                  grants: Optional[pulumi.Input[Sequence[pulumi.Input['BucketAclV2AccessControlPolicyGrantArgs']]]] = None):
         """
-        :param pulumi.Input['BucketAclV2AccessControlPolicyOwnerArgs'] owner: Configuration block of the bucket owner's display name and ID. See below.
+        :param pulumi.Input['BucketAclV2AccessControlPolicyOwnerArgs'] owner: Configuration block for the bucket owner's display name and ID. See below.
         :param pulumi.Input[Sequence[pulumi.Input['BucketAclV2AccessControlPolicyGrantArgs']]] grants: Set of `grant` configuration blocks. See below.
         """
         pulumi.set(__self__, "owner", owner)
@@ -447,7 +451,7 @@ class BucketAclV2AccessControlPolicyArgs:
     @pulumi.getter
     def owner(self) -> pulumi.Input['BucketAclV2AccessControlPolicyOwnerArgs']:
         """
-        Configuration block of the bucket owner's display name and ID. See below.
+        Configuration block for the bucket owner's display name and ID. See below.
         """
         return pulumi.get(self, "owner")
 
@@ -474,7 +478,7 @@ class BucketAclV2AccessControlPolicyGrantArgs:
                  permission: pulumi.Input[str],
                  grantee: Optional[pulumi.Input['BucketAclV2AccessControlPolicyGrantGranteeArgs']] = None):
         """
-        :param pulumi.Input[str] permission: Logging permissions assigned to the grantee for the bucket.
+        :param pulumi.Input[str] permission: Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
         :param pulumi.Input['BucketAclV2AccessControlPolicyGrantGranteeArgs'] grantee: Configuration block for the person being granted permissions. See below.
         """
         pulumi.set(__self__, "permission", permission)
@@ -485,7 +489,7 @@ class BucketAclV2AccessControlPolicyGrantArgs:
     @pulumi.getter
     def permission(self) -> pulumi.Input[str]:
         """
-        Logging permissions assigned to the grantee for the bucket.
+        Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
         """
         return pulumi.get(self, "permission")
 
@@ -2018,18 +2022,101 @@ class BucketLoggingV2TargetGrantGranteeArgs:
 
 
 @pulumi.input_type
+class BucketLoggingV2TargetObjectKeyFormatArgs:
+    def __init__(__self__, *,
+                 partitioned_prefix: Optional[pulumi.Input['BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs']] = None,
+                 simple_prefix: Optional[pulumi.Input['BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs']] = None):
+        """
+        :param pulumi.Input['BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs'] partitioned_prefix: Partitioned S3 key for log objects. See below.
+        :param pulumi.Input['BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs'] simple_prefix: Use the simple format for S3 keys for log objects. To use, set `simple_prefix {}`.
+        """
+        if partitioned_prefix is not None:
+            pulumi.set(__self__, "partitioned_prefix", partitioned_prefix)
+        if simple_prefix is not None:
+            pulumi.set(__self__, "simple_prefix", simple_prefix)
+
+    @property
+    @pulumi.getter(name="partitionedPrefix")
+    def partitioned_prefix(self) -> Optional[pulumi.Input['BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs']]:
+        """
+        Partitioned S3 key for log objects. See below.
+        """
+        return pulumi.get(self, "partitioned_prefix")
+
+    @partitioned_prefix.setter
+    def partitioned_prefix(self, value: Optional[pulumi.Input['BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs']]):
+        pulumi.set(self, "partitioned_prefix", value)
+
+    @property
+    @pulumi.getter(name="simplePrefix")
+    def simple_prefix(self) -> Optional[pulumi.Input['BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs']]:
+        """
+        Use the simple format for S3 keys for log objects. To use, set `simple_prefix {}`.
+        """
+        return pulumi.get(self, "simple_prefix")
+
+    @simple_prefix.setter
+    def simple_prefix(self, value: Optional[pulumi.Input['BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs']]):
+        pulumi.set(self, "simple_prefix", value)
+
+
+@pulumi.input_type
+class BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs:
+    def __init__(__self__, *,
+                 partition_date_source: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] partition_date_source: Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
+        """
+        pulumi.set(__self__, "partition_date_source", partition_date_source)
+
+    @property
+    @pulumi.getter(name="partitionDateSource")
+    def partition_date_source(self) -> pulumi.Input[str]:
+        """
+        Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
+        """
+        return pulumi.get(self, "partition_date_source")
+
+    @partition_date_source.setter
+    def partition_date_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "partition_date_source", value)
+
+
+@pulumi.input_type
+class BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
 class BucketMetricFilterArgs:
     def __init__(__self__, *,
+                 access_point: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
+        :param pulumi.Input[str] access_point: S3 Access Point ARN for filtering (singular).
         :param pulumi.Input[str] prefix: Object prefix for filtering (singular).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Object tags for filtering (up to 10).
         """
+        if access_point is not None:
+            pulumi.set(__self__, "access_point", access_point)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="accessPoint")
+    def access_point(self) -> Optional[pulumi.Input[str]]:
+        """
+        S3 Access Point ARN for filtering (singular).
+        """
+        return pulumi.get(self, "access_point")
+
+    @access_point.setter
+    def access_point(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_point", value)
 
     @property
     @pulumi.getter
@@ -4461,8 +4548,8 @@ class BucketV2ObjectLockConfigurationArgs:
         if object_lock_enabled is not None:
             pulumi.set(__self__, "object_lock_enabled", object_lock_enabled)
         if rules is not None:
-            warnings.warn("""Use the aws_s3_bucket_object_lock_configuration resource instead""", DeprecationWarning)
-            pulumi.log.warn("""rules is deprecated: Use the aws_s3_bucket_object_lock_configuration resource instead""")
+            warnings.warn("""Use the s3.BucketObjectLockConfigurationV2 resource instead""", DeprecationWarning)
+            pulumi.log.warn("""rules is deprecated: Use the s3.BucketObjectLockConfigurationV2 resource instead""")
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
 
@@ -4487,8 +4574,8 @@ class BucketV2ObjectLockConfigurationArgs:
         """
         Object Lock rule in place for this bucket (documented below).
         """
-        warnings.warn("""Use the aws_s3_bucket_object_lock_configuration resource instead""", DeprecationWarning)
-        pulumi.log.warn("""rules is deprecated: Use the aws_s3_bucket_object_lock_configuration resource instead""")
+        warnings.warn("""Use the s3.BucketObjectLockConfigurationV2 resource instead""", DeprecationWarning)
+        pulumi.log.warn("""rules is deprecated: Use the s3.BucketObjectLockConfigurationV2 resource instead""")
 
         return pulumi.get(self, "rules")
 
@@ -4755,7 +4842,7 @@ class BucketV2ReplicationConfigurationRuleDestinationArgs:
                  storage_class: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] bucket: ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs']]] access_control_translations: Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs']]] access_control_translations: Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
         :param pulumi.Input[str] account_id: Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2ReplicationConfigurationRuleDestinationMetricArgs']]] metrics: Enables replication metrics (required for S3 RTC) (documented below).
         :param pulumi.Input[str] replica_kms_key_id: Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
@@ -4793,7 +4880,7 @@ class BucketV2ReplicationConfigurationRuleDestinationArgs:
     @pulumi.getter(name="accessControlTranslations")
     def access_control_translations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs']]]]:
         """
-        Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
+        Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
         """
         return pulumi.get(self, "access_control_translations")
 
@@ -4867,11 +4954,17 @@ class BucketV2ReplicationConfigurationRuleDestinationArgs:
 class BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs:
     def __init__(__self__, *,
                  owner: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] owner: Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+        """
         pulumi.set(__self__, "owner", owner)
 
     @property
     @pulumi.getter
     def owner(self) -> pulumi.Input[str]:
+        """
+        Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+        """
         return pulumi.get(self, "owner")
 
     @owner.setter
@@ -5657,6 +5750,44 @@ class BucketWebsiteConfigurationV2RoutingRuleRedirectArgs:
     @replace_key_with.setter
     def replace_key_with(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "replace_key_with", value)
+
+
+@pulumi.input_type
+class DirectoryBucketLocationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
+        :param pulumi.Input[str] type: Location type. Valid values: `AvailabilityZone`.
+        """
+        pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location type. Valid values: `AvailabilityZone`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

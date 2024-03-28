@@ -214,16 +214,19 @@ def get_dev_environment(alias: Optional[str] = None,
     Data source for managing an AWS CodeCatalyst Dev Environment.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.codecatalyst.get_dev_environment(space_name="myspace",
         project_name="myproject",
-        env_id=aws_codecatalyst_dev_environment["example"]["id"])
+        env_id=example_aws_codecatalyst_dev_environment["id"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str alias: The user-specified alias for the Dev Environment.
@@ -275,16 +278,19 @@ def get_dev_environment_output(alias: Optional[pulumi.Input[Optional[str]]] = No
     Data source for managing an AWS CodeCatalyst Dev Environment.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.codecatalyst.get_dev_environment(space_name="myspace",
         project_name="myproject",
-        env_id=aws_codecatalyst_dev_environment["example"]["id"])
+        env_id=example_aws_codecatalyst_dev_environment["id"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str alias: The user-specified alias for the Dev Environment.

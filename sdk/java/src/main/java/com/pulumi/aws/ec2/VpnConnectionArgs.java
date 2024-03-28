@@ -7,6 +7,7 @@ import com.pulumi.aws.ec2.inputs.VpnConnectionTunnel1LogOptionsArgs;
 import com.pulumi.aws.ec2.inputs.VpnConnectionTunnel2LogOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -2183,8 +2184,12 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public VpnConnectionArgs build() {
-            $.customerGatewayId = Objects.requireNonNull($.customerGatewayId, "expected parameter 'customerGatewayId' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.customerGatewayId == null) {
+                throw new MissingRequiredPropertyException("VpnConnectionArgs", "customerGatewayId");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("VpnConnectionArgs", "type");
+            }
             return $;
         }
     }

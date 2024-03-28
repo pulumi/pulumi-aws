@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesis.outputs;
 
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -13,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor {
     /**
-     * @return Array of processor parameters. More details are given below
+     * @return Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
      * 
      */
     private @Nullable List<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter> parameters;
@@ -25,7 +26,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigur
 
     private FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor() {}
     /**
-     * @return Array of processor parameters. More details are given below
+     * @return Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
      * 
      */
     public List<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter> parameters() {
@@ -59,6 +60,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigur
 
         @CustomType.Setter
         public Builder parameters(@Nullable List<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter> parameters) {
+
             this.parameters = parameters;
             return this;
         }
@@ -67,14 +69,17 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigur
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor", "type");
+            }
+            this.type = type;
             return this;
         }
         public FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor build() {
-            final var o = new FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor();
-            o.parameters = parameters;
-            o.type = type;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor();
+            _resultValue.parameters = parameters;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

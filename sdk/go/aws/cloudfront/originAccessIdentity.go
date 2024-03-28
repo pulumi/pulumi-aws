@@ -22,6 +22,7 @@ import (
 //
 // The following example below creates a CloudFront origin access identity.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,6 +46,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Using With CloudFront
 //
 // Normally, when referencing an origin access identity in CloudFront, you need to
@@ -53,6 +56,7 @@ import (
 // The below snippet demonstrates use with the `s3OriginConfig` structure for the
 // `cloudfront.Distribution` resource:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -69,7 +73,7 @@ import (
 //				Origins: cloudfront.DistributionOriginArray{
 //					&cloudfront.DistributionOriginArgs{
 //						S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
-//							OriginAccessIdentity: pulumi.Any(aws_cloudfront_origin_access_identity.Example.Cloudfront_access_identity_path),
+//							OriginAccessIdentity: pulumi.Any(exampleAwsCloudfrontOriginAccessIdentity.CloudfrontAccessIdentityPath),
 //						},
 //					},
 //				},
@@ -82,6 +86,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ### Updating your bucket policy
 //
@@ -90,6 +95,7 @@ import (
 // `s3.BucketV2` bucket policy, causing spurious diffs. If
 // you see this behaviour, use the `iamArn` instead:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -111,13 +117,13 @@ import (
 // "s3:GetObject",
 // },
 // Resources: []string{
-// fmt.Sprintf("%v/*", aws_s3_bucket.Example.Arn),
+// fmt.Sprintf("%v/*", exampleAwsS3Bucket.Arn),
 // },
 // Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // {
 // Type: "AWS",
 // Identifiers: interface{}{
-// aws_cloudfront_origin_access_identity.Example.Iam_arn,
+// exampleAwsCloudfrontOriginAccessIdentity.IamArn,
 // },
 // },
 // },
@@ -128,8 +134,8 @@ import (
 // return err
 // }
 // _, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
-// Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
-// Policy: *pulumi.String(s3Policy.Json),
+// Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
+// Policy: pulumi.String(s3Policy.Json),
 // })
 // if err != nil {
 // return err
@@ -138,15 +144,14 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Cloudfront Origin Access Identities using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
-//
+// $ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
 // ```
 //
 // [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html

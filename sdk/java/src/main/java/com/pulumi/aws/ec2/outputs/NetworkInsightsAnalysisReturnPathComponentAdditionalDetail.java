@@ -44,11 +44,13 @@ public final class NetworkInsightsAnalysisReturnPathComponentAdditionalDetail {
 
         @CustomType.Setter
         public Builder additionalDetailType(@Nullable String additionalDetailType) {
+
             this.additionalDetailType = additionalDetailType;
             return this;
         }
         @CustomType.Setter
         public Builder components(@Nullable List<NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponent> components) {
+
             this.components = components;
             return this;
         }
@@ -56,10 +58,10 @@ public final class NetworkInsightsAnalysisReturnPathComponentAdditionalDetail {
             return components(List.of(components));
         }
         public NetworkInsightsAnalysisReturnPathComponentAdditionalDetail build() {
-            final var o = new NetworkInsightsAnalysisReturnPathComponentAdditionalDetail();
-            o.additionalDetailType = additionalDetailType;
-            o.components = components;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisReturnPathComponentAdditionalDetail();
+            _resultValue.additionalDetailType = additionalDetailType;
+            _resultValue.components = components;
+            return _resultValue;
         }
     }
 }

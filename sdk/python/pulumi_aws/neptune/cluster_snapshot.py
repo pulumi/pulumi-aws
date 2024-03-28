@@ -302,21 +302,23 @@ class ClusterSnapshot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.neptune.ClusterSnapshot("example",
-            db_cluster_identifier=aws_neptune_cluster["example"]["id"],
+            db_cluster_identifier=example_aws_neptune_cluster["id"],
             db_cluster_snapshot_identifier="resourcetestsnapshot1234")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_neptune_cluster_snapshot` using the cluster snapshot identifier. For example:
 
         ```sh
-         $ pulumi import aws:neptune/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+        $ pulumi import aws:neptune/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
         ```
 
         :param str resource_name: The name of the resource.
@@ -335,21 +337,23 @@ class ClusterSnapshot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.neptune.ClusterSnapshot("example",
-            db_cluster_identifier=aws_neptune_cluster["example"]["id"],
+            db_cluster_identifier=example_aws_neptune_cluster["id"],
             db_cluster_snapshot_identifier="resourcetestsnapshot1234")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_neptune_cluster_snapshot` using the cluster snapshot identifier. For example:
 
         ```sh
-         $ pulumi import aws:neptune/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+        $ pulumi import aws:neptune/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
         ```
 
         :param str resource_name: The name of the resource.

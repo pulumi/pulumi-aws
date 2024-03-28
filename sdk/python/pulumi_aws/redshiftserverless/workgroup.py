@@ -21,6 +21,8 @@ class WorkgroupArgs:
                  base_capacity: Optional[pulumi.Input[int]] = None,
                  config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]]] = None,
                  enhanced_vpc_routing: Optional[pulumi.Input[bool]] = None,
+                 max_capacity: Optional[pulumi.Input[int]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -34,6 +36,8 @@ class WorkgroupArgs:
         :param pulumi.Input[int] base_capacity: The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
         :param pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
         :param pulumi.Input[bool] enhanced_vpc_routing: The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+        :param pulumi.Input[int] max_capacity: The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+        :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections.
         :param pulumi.Input[bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
@@ -47,6 +51,10 @@ class WorkgroupArgs:
             pulumi.set(__self__, "config_parameters", config_parameters)
         if enhanced_vpc_routing is not None:
             pulumi.set(__self__, "enhanced_vpc_routing", enhanced_vpc_routing)
+        if max_capacity is not None:
+            pulumi.set(__self__, "max_capacity", max_capacity)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if security_group_ids is not None:
@@ -119,6 +127,30 @@ class WorkgroupArgs:
         pulumi.set(self, "enhanced_vpc_routing", value)
 
     @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+        """
+        return pulumi.get(self, "max_capacity")
+
+    @max_capacity.setter
+    def max_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_capacity", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port number on which the cluster accepts incoming connections.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -175,7 +207,9 @@ class _WorkgroupState:
                  config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]]] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupEndpointArgs']]]] = None,
                  enhanced_vpc_routing: Optional[pulumi.Input[bool]] = None,
+                 max_capacity: Optional[pulumi.Input[int]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -190,7 +224,9 @@ class _WorkgroupState:
         :param pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
         :param pulumi.Input[Sequence[pulumi.Input['WorkgroupEndpointArgs']]] endpoints: The endpoint that is created from the workgroup. See `Endpoint` below.
         :param pulumi.Input[bool] enhanced_vpc_routing: The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+        :param pulumi.Input[int] max_capacity: The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
         :param pulumi.Input[str] namespace_name: The name of the namespace.
+        :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections.
         :param pulumi.Input[bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
@@ -211,8 +247,12 @@ class _WorkgroupState:
             pulumi.set(__self__, "endpoints", endpoints)
         if enhanced_vpc_routing is not None:
             pulumi.set(__self__, "enhanced_vpc_routing", enhanced_vpc_routing)
+        if max_capacity is not None:
+            pulumi.set(__self__, "max_capacity", max_capacity)
         if namespace_name is not None:
             pulumi.set(__self__, "namespace_name", namespace_name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if security_group_ids is not None:
@@ -292,6 +332,18 @@ class _WorkgroupState:
         pulumi.set(self, "enhanced_vpc_routing", value)
 
     @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+        """
+        return pulumi.get(self, "max_capacity")
+
+    @max_capacity.setter
+    def max_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_capacity", value)
+
+    @property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -302,6 +354,18 @@ class _WorkgroupState:
     @namespace_name.setter
     def namespace_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "namespace_name", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port number on which the cluster accepts incoming connections.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter(name="publiclyAccessible")
@@ -401,7 +465,9 @@ class Workgroup(pulumi.CustomResource):
                  base_capacity: Optional[pulumi.Input[int]] = None,
                  config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupConfigParameterArgs']]]]] = None,
                  enhanced_vpc_routing: Optional[pulumi.Input[bool]] = None,
+                 max_capacity: Optional[pulumi.Input[int]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -413,6 +479,7 @@ class Workgroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -421,13 +488,14 @@ class Workgroup(pulumi.CustomResource):
             namespace_name="concurrency-scaling",
             workgroup_name="concurrency-scaling")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:
 
         ```sh
-         $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
+        $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -435,7 +503,9 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.Input[int] base_capacity: The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupConfigParameterArgs']]]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
         :param pulumi.Input[bool] enhanced_vpc_routing: The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+        :param pulumi.Input[int] max_capacity: The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
         :param pulumi.Input[str] namespace_name: The name of the namespace.
+        :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections.
         :param pulumi.Input[bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
@@ -455,6 +525,7 @@ class Workgroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -463,13 +534,14 @@ class Workgroup(pulumi.CustomResource):
             namespace_name="concurrency-scaling",
             workgroup_name="concurrency-scaling")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:
 
         ```sh
-         $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
+        $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -490,7 +562,9 @@ class Workgroup(pulumi.CustomResource):
                  base_capacity: Optional[pulumi.Input[int]] = None,
                  config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupConfigParameterArgs']]]]] = None,
                  enhanced_vpc_routing: Optional[pulumi.Input[bool]] = None,
+                 max_capacity: Optional[pulumi.Input[int]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -508,9 +582,11 @@ class Workgroup(pulumi.CustomResource):
             __props__.__dict__["base_capacity"] = base_capacity
             __props__.__dict__["config_parameters"] = config_parameters
             __props__.__dict__["enhanced_vpc_routing"] = enhanced_vpc_routing
+            __props__.__dict__["max_capacity"] = max_capacity
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__.__dict__["namespace_name"] = namespace_name
+            __props__.__dict__["port"] = port
             __props__.__dict__["publicly_accessible"] = publicly_accessible
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["subnet_ids"] = subnet_ids
@@ -522,8 +598,6 @@ class Workgroup(pulumi.CustomResource):
             __props__.__dict__["endpoints"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["workgroup_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Workgroup, __self__).__init__(
             'aws:redshiftserverless/workgroup:Workgroup',
             resource_name,
@@ -539,7 +613,9 @@ class Workgroup(pulumi.CustomResource):
             config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupConfigParameterArgs']]]]] = None,
             endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupEndpointArgs']]]]] = None,
             enhanced_vpc_routing: Optional[pulumi.Input[bool]] = None,
+            max_capacity: Optional[pulumi.Input[int]] = None,
             namespace_name: Optional[pulumi.Input[str]] = None,
+            port: Optional[pulumi.Input[int]] = None,
             publicly_accessible: Optional[pulumi.Input[bool]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -559,7 +635,9 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupConfigParameterArgs']]]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupEndpointArgs']]]] endpoints: The endpoint that is created from the workgroup. See `Endpoint` below.
         :param pulumi.Input[bool] enhanced_vpc_routing: The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+        :param pulumi.Input[int] max_capacity: The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
         :param pulumi.Input[str] namespace_name: The name of the namespace.
+        :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections.
         :param pulumi.Input[bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
@@ -579,7 +657,9 @@ class Workgroup(pulumi.CustomResource):
         __props__.__dict__["config_parameters"] = config_parameters
         __props__.__dict__["endpoints"] = endpoints
         __props__.__dict__["enhanced_vpc_routing"] = enhanced_vpc_routing
+        __props__.__dict__["max_capacity"] = max_capacity
         __props__.__dict__["namespace_name"] = namespace_name
+        __props__.__dict__["port"] = port
         __props__.__dict__["publicly_accessible"] = publicly_accessible
         __props__.__dict__["security_group_ids"] = security_group_ids
         __props__.__dict__["subnet_ids"] = subnet_ids
@@ -630,12 +710,28 @@ class Workgroup(pulumi.CustomResource):
         return pulumi.get(self, "enhanced_vpc_routing")
 
     @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> pulumi.Output[Optional[int]]:
+        """
+        The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+        """
+        return pulumi.get(self, "max_capacity")
+
+    @property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> pulumi.Output[str]:
         """
         The name of the namespace.
         """
         return pulumi.get(self, "namespace_name")
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Output[int]:
+        """
+        The port number on which the cluster accepts incoming connections.
+        """
+        return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="publiclyAccessible")

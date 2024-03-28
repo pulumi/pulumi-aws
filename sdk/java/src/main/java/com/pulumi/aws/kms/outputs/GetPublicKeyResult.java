@@ -4,6 +4,7 @@
 package com.pulumi.aws.kms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -154,17 +155,26 @@ public final class GetPublicKeyResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetPublicKeyResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder customerMasterKeySpec(String customerMasterKeySpec) {
-            this.customerMasterKeySpec = Objects.requireNonNull(customerMasterKeySpec);
+            if (customerMasterKeySpec == null) {
+              throw new MissingRequiredPropertyException("GetPublicKeyResult", "customerMasterKeySpec");
+            }
+            this.customerMasterKeySpec = customerMasterKeySpec;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionAlgorithms(List<String> encryptionAlgorithms) {
-            this.encryptionAlgorithms = Objects.requireNonNull(encryptionAlgorithms);
+            if (encryptionAlgorithms == null) {
+              throw new MissingRequiredPropertyException("GetPublicKeyResult", "encryptionAlgorithms");
+            }
+            this.encryptionAlgorithms = encryptionAlgorithms;
             return this;
         }
         public Builder encryptionAlgorithms(String... encryptionAlgorithms) {
@@ -172,6 +182,7 @@ public final class GetPublicKeyResult {
         }
         @CustomType.Setter
         public Builder grantTokens(@Nullable List<String> grantTokens) {
+
             this.grantTokens = grantTokens;
             return this;
         }
@@ -180,50 +191,68 @@ public final class GetPublicKeyResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPublicKeyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder keyId(String keyId) {
-            this.keyId = Objects.requireNonNull(keyId);
+            if (keyId == null) {
+              throw new MissingRequiredPropertyException("GetPublicKeyResult", "keyId");
+            }
+            this.keyId = keyId;
             return this;
         }
         @CustomType.Setter
         public Builder keyUsage(String keyUsage) {
-            this.keyUsage = Objects.requireNonNull(keyUsage);
+            if (keyUsage == null) {
+              throw new MissingRequiredPropertyException("GetPublicKeyResult", "keyUsage");
+            }
+            this.keyUsage = keyUsage;
             return this;
         }
         @CustomType.Setter
         public Builder publicKey(String publicKey) {
-            this.publicKey = Objects.requireNonNull(publicKey);
+            if (publicKey == null) {
+              throw new MissingRequiredPropertyException("GetPublicKeyResult", "publicKey");
+            }
+            this.publicKey = publicKey;
             return this;
         }
         @CustomType.Setter
         public Builder publicKeyPem(String publicKeyPem) {
-            this.publicKeyPem = Objects.requireNonNull(publicKeyPem);
+            if (publicKeyPem == null) {
+              throw new MissingRequiredPropertyException("GetPublicKeyResult", "publicKeyPem");
+            }
+            this.publicKeyPem = publicKeyPem;
             return this;
         }
         @CustomType.Setter
         public Builder signingAlgorithms(List<String> signingAlgorithms) {
-            this.signingAlgorithms = Objects.requireNonNull(signingAlgorithms);
+            if (signingAlgorithms == null) {
+              throw new MissingRequiredPropertyException("GetPublicKeyResult", "signingAlgorithms");
+            }
+            this.signingAlgorithms = signingAlgorithms;
             return this;
         }
         public Builder signingAlgorithms(String... signingAlgorithms) {
             return signingAlgorithms(List.of(signingAlgorithms));
         }
         public GetPublicKeyResult build() {
-            final var o = new GetPublicKeyResult();
-            o.arn = arn;
-            o.customerMasterKeySpec = customerMasterKeySpec;
-            o.encryptionAlgorithms = encryptionAlgorithms;
-            o.grantTokens = grantTokens;
-            o.id = id;
-            o.keyId = keyId;
-            o.keyUsage = keyUsage;
-            o.publicKey = publicKey;
-            o.publicKeyPem = publicKeyPem;
-            o.signingAlgorithms = signingAlgorithms;
-            return o;
+            final var _resultValue = new GetPublicKeyResult();
+            _resultValue.arn = arn;
+            _resultValue.customerMasterKeySpec = customerMasterKeySpec;
+            _resultValue.encryptionAlgorithms = encryptionAlgorithms;
+            _resultValue.grantTokens = grantTokens;
+            _resultValue.id = id;
+            _resultValue.keyId = keyId;
+            _resultValue.keyUsage = keyUsage;
+            _resultValue.publicKey = publicKey;
+            _resultValue.publicKeyPem = publicKeyPem;
+            _resultValue.signingAlgorithms = signingAlgorithms;
+            return _resultValue;
         }
     }
 }

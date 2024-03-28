@@ -23,7 +23,10 @@ import javax.annotation.Nullable;
  * Resource for managing a QuickSight Template.
  * 
  * ## Example Usage
+ * 
  * ### From Source Template
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,10 +52,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Template(&#34;example&#34;, TemplateArgs.builder()        
  *             .templateId(&#34;example-id&#34;)
+ *             .name(&#34;example-name&#34;)
  *             .versionDescription(&#34;version&#34;)
  *             .sourceEntity(TemplateSourceEntityArgs.builder()
  *                 .sourceTemplate(TemplateSourceEntitySourceTemplateArgs.builder()
- *                     .arn(aws_quicksight_template.source().arn())
+ *                     .arn(source.arn())
  *                     .build())
  *                 .build())
  *             .build());
@@ -60,8 +64,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With Definition
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -84,21 +91,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Template(&#34;example&#34;, TemplateArgs.builder()        
- *             .definition(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .templateId(&#34;example-id&#34;)
+ *             .name(&#34;example-name&#34;)
  *             .versionDescription(&#34;version&#34;)
+ *             .definition(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
+ * $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
  * ```
  * 
  */
@@ -341,9 +350,6 @@ public class Template extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

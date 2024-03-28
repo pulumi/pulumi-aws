@@ -4,6 +4,7 @@
 package com.pulumi.aws.keyspaces.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class TableClientSideTimestamps {
 
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("TableClientSideTimestamps", "status");
+            }
+            this.status = status;
             return this;
         }
         public TableClientSideTimestamps build() {
-            final var o = new TableClientSideTimestamps();
-            o.status = status;
-            return o;
+            final var _resultValue = new TableClientSideTimestamps();
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

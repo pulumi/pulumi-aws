@@ -9,13 +9,15 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appconfig.DeploymentStrategy("example", {
- *     deploymentDurationInMinutes: 3,
+ *     name: "example-deployment-strategy-tf",
  *     description: "Example Deployment Strategy",
+ *     deploymentDurationInMinutes: 3,
  *     finalBakeTimeInMinutes: 4,
  *     growthFactor: 10,
  *     growthType: "LINEAR",
@@ -25,13 +27,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AppConfig Deployment Strategies using their deployment strategy ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
+ * $ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
  * ```
  */
 export class DeploymentStrategy extends pulumi.CustomResource {
@@ -151,8 +154,6 @@ export class DeploymentStrategy extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(DeploymentStrategy.__pulumiType, name, resourceInputs, opts);
     }
 }

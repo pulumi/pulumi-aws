@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -16,19 +17,20 @@ import * as utilities from "../utilities";
  * const example = new aws.redshift.AuthenticationProfile("example", {
  *     authenticationProfileName: "example",
  *     authenticationProfileContent: JSON.stringify({
- *         AllowDBUserOverride: "1",
- *         Client_ID: "ExampleClientID",
- *         App_ID: "example",
+ *         allowDBUserOverride: "1",
+ *         clientID: "ExampleClientID",
+ *         appID: "example",
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
+ * $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
  * ```
  */
 export class AuthenticationProfile extends pulumi.CustomResource {

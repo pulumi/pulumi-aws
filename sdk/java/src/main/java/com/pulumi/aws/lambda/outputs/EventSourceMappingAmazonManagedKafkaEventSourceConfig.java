@@ -44,13 +44,14 @@ public final class EventSourceMappingAmazonManagedKafkaEventSourceConfig {
 
         @CustomType.Setter
         public Builder consumerGroupId(@Nullable String consumerGroupId) {
+
             this.consumerGroupId = consumerGroupId;
             return this;
         }
         public EventSourceMappingAmazonManagedKafkaEventSourceConfig build() {
-            final var o = new EventSourceMappingAmazonManagedKafkaEventSourceConfig();
-            o.consumerGroupId = consumerGroupId;
-            return o;
+            final var _resultValue = new EventSourceMappingAmazonManagedKafkaEventSourceConfig();
+            _resultValue.consumerGroupId = consumerGroupId;
+            return _resultValue;
         }
     }
 }

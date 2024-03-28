@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides a lightsail certificate.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,6 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Certificate(&#34;test&#34;, CertificateArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .domainName(&#34;testdomain.com&#34;)
  *             .subjectAlternativeNames(&#34;www.testdomain.com&#34;)
  *             .build());
@@ -50,13 +53,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
+ * $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
  * ```
  * 
  */
@@ -211,9 +215,6 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

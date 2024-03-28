@@ -555,35 +555,37 @@ class SnapshotCopy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_instance = aws.rds.Instance("exampleInstance",
+        example = aws.rds.Instance("example",
             allocated_storage=10,
             engine="mysql",
             engine_version="5.6.21",
-            instance_class="db.t2.micro",
+            instance_class=aws.rds.InstanceType.T2_MICRO,
             db_name="baz",
             password="barbarbarbar",
             username="foo",
             maintenance_window="Fri:09:00-Fri:09:30",
             backup_retention_period=0,
             parameter_group_name="default.mysql5.6")
-        example_snapshot = aws.rds.Snapshot("exampleSnapshot",
-            db_instance_identifier=example_instance.identifier,
+        example_snapshot = aws.rds.Snapshot("example",
+            db_instance_identifier=example.identifier,
             db_snapshot_identifier="testsnapshot1234")
-        example_snapshot_copy = aws.rds.SnapshotCopy("exampleSnapshotCopy",
+        example_snapshot_copy = aws.rds.SnapshotCopy("example",
             source_db_snapshot_identifier=example_snapshot.db_snapshot_arn,
             target_db_snapshot_identifier="testsnapshot1234-copy")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_db_snapshot_copy` using the snapshot identifier. For example:
 
         ```sh
-         $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
+        $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
         ```
 
         :param str resource_name: The name of the resource.
@@ -609,35 +611,37 @@ class SnapshotCopy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_instance = aws.rds.Instance("exampleInstance",
+        example = aws.rds.Instance("example",
             allocated_storage=10,
             engine="mysql",
             engine_version="5.6.21",
-            instance_class="db.t2.micro",
+            instance_class=aws.rds.InstanceType.T2_MICRO,
             db_name="baz",
             password="barbarbarbar",
             username="foo",
             maintenance_window="Fri:09:00-Fri:09:30",
             backup_retention_period=0,
             parameter_group_name="default.mysql5.6")
-        example_snapshot = aws.rds.Snapshot("exampleSnapshot",
-            db_instance_identifier=example_instance.identifier,
+        example_snapshot = aws.rds.Snapshot("example",
+            db_instance_identifier=example.identifier,
             db_snapshot_identifier="testsnapshot1234")
-        example_snapshot_copy = aws.rds.SnapshotCopy("exampleSnapshotCopy",
+        example_snapshot_copy = aws.rds.SnapshotCopy("example",
             source_db_snapshot_identifier=example_snapshot.db_snapshot_arn,
             target_db_snapshot_identifier="testsnapshot1234-copy")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_db_snapshot_copy` using the snapshot identifier. For example:
 
         ```sh
-         $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
+        $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
         ```
 
         :param str resource_name: The name of the resource.
@@ -700,8 +704,6 @@ class SnapshotCopy(pulumi.CustomResource):
             __props__.__dict__["storage_type"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SnapshotCopy, __self__).__init__(
             'aws:rds/snapshotCopy:SnapshotCopy',
             resource_name,

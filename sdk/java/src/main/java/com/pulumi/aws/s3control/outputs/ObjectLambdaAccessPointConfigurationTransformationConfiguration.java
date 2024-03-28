@@ -5,6 +5,7 @@ package com.pulumi.aws.s3control.outputs;
 
 import com.pulumi.aws.s3control.outputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
 
         @CustomType.Setter
         public Builder actions(List<String> actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("ObjectLambdaAccessPointConfigurationTransformationConfiguration", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         public Builder actions(String... actions) {
@@ -66,14 +70,17 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
         }
         @CustomType.Setter
         public Builder contentTransformation(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation contentTransformation) {
-            this.contentTransformation = Objects.requireNonNull(contentTransformation);
+            if (contentTransformation == null) {
+              throw new MissingRequiredPropertyException("ObjectLambdaAccessPointConfigurationTransformationConfiguration", "contentTransformation");
+            }
+            this.contentTransformation = contentTransformation;
             return this;
         }
         public ObjectLambdaAccessPointConfigurationTransformationConfiguration build() {
-            final var o = new ObjectLambdaAccessPointConfigurationTransformationConfiguration();
-            o.actions = actions;
-            o.contentTransformation = contentTransformation;
-            return o;
+            final var _resultValue = new ObjectLambdaAccessPointConfigurationTransformationConfiguration();
+            _resultValue.actions = actions;
+            _resultValue.contentTransformation = contentTransformation;
+            return _resultValue;
         }
     }
 }

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2transitgateway.NewInstanceConnectEndpoint(ctx, "example", &ec2transitgateway.InstanceConnectEndpointArgs{
-//				SubnetId: pulumi.Any(aws_subnet.Example.Id),
+//				SubnetId: pulumi.Any(exampleAwsSubnet.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EC2 Instance Connect Endpoints using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint example eice-012345678
-//
+// $ pulumi import aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint example eice-012345678
 // ```
 type InstanceConnectEndpoint struct {
 	pulumi.CustomResourceState
@@ -91,10 +91,6 @@ func NewInstanceConnectEndpoint(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstanceConnectEndpoint
 	err := ctx.RegisterResource("aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint", name, args, &resource, opts...)

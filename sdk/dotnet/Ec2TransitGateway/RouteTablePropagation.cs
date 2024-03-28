@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,19 +25,20 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// {
     ///     var example = new Aws.Ec2TransitGateway.RouteTablePropagation("example", new()
     ///     {
-    ///         TransitGatewayAttachmentId = aws_ec2_transit_gateway_vpc_attachment.Example.Id,
-    ///         TransitGatewayRouteTableId = aws_ec2_transit_gateway_route_table.Example.Id,
+    ///         TransitGatewayAttachmentId = exampleAwsEc2TransitGatewayVpcAttachment.Id,
+    ///         TransitGatewayRouteTableId = exampleAwsEc2TransitGatewayRouteTable.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ec2_transit_gateway_route_table_propagation` using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation example tgw-rtb-12345678_tgw-attach-87654321
+    /// $ pulumi import aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation example tgw-rtb-12345678_tgw-attach-87654321
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation")]

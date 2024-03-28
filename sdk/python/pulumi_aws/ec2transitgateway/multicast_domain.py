@@ -256,6 +256,7 @@ class MulticastDomain(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -289,15 +290,15 @@ class MulticastDomain(pulumi.CustomResource):
             availability_zone=available.names[0])
         instance1 = aws.ec2.Instance("instance1",
             ami=amazon_linux.id,
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             subnet_id=subnet1.id)
         instance2 = aws.ec2.Instance("instance2",
             ami=amazon_linux.id,
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             subnet_id=subnet2.id)
         instance3 = aws.ec2.Instance("instance3",
             ami=amazon_linux.id,
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             subnet_id=subnet3.id)
         tgw = aws.ec2transitgateway.TransitGateway("tgw", multicast_support="enable")
         attachment1 = aws.ec2transitgateway.VpcAttachment("attachment1",
@@ -342,13 +343,14 @@ class MulticastDomain(pulumi.CustomResource):
             network_interface_id=instance2.primary_network_interface_id,
             transit_gateway_multicast_domain_id=association1.transit_gateway_multicast_domain_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_multicast_domain` using the EC2 Transit Gateway Multicast Domain identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/multicastDomain:MulticastDomain example tgw-mcast-domain-12345
+        $ pulumi import aws:ec2transitgateway/multicastDomain:MulticastDomain example tgw-mcast-domain-12345
         ```
 
         :param str resource_name: The name of the resource.
@@ -370,6 +372,7 @@ class MulticastDomain(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -403,15 +406,15 @@ class MulticastDomain(pulumi.CustomResource):
             availability_zone=available.names[0])
         instance1 = aws.ec2.Instance("instance1",
             ami=amazon_linux.id,
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             subnet_id=subnet1.id)
         instance2 = aws.ec2.Instance("instance2",
             ami=amazon_linux.id,
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             subnet_id=subnet2.id)
         instance3 = aws.ec2.Instance("instance3",
             ami=amazon_linux.id,
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             subnet_id=subnet3.id)
         tgw = aws.ec2transitgateway.TransitGateway("tgw", multicast_support="enable")
         attachment1 = aws.ec2transitgateway.VpcAttachment("attachment1",
@@ -456,13 +459,14 @@ class MulticastDomain(pulumi.CustomResource):
             network_interface_id=instance2.primary_network_interface_id,
             transit_gateway_multicast_domain_id=association1.transit_gateway_multicast_domain_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_multicast_domain` using the EC2 Transit Gateway Multicast Domain identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/multicastDomain:MulticastDomain example tgw-mcast-domain-12345
+        $ pulumi import aws:ec2transitgateway/multicastDomain:MulticastDomain example tgw-mcast-domain-12345
         ```
 
         :param str resource_name: The name of the resource.
@@ -504,8 +508,6 @@ class MulticastDomain(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(MulticastDomain, __self__).__init__(
             'aws:ec2transitgateway/multicastDomain:MulticastDomain',
             resource_name,

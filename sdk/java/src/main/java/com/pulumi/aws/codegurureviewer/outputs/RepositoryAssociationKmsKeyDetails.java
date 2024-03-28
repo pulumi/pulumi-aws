@@ -58,19 +58,21 @@ public final class RepositoryAssociationKmsKeyDetails {
 
         @CustomType.Setter
         public Builder encryptionOption(@Nullable String encryptionOption) {
+
             this.encryptionOption = encryptionOption;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         public RepositoryAssociationKmsKeyDetails build() {
-            final var o = new RepositoryAssociationKmsKeyDetails();
-            o.encryptionOption = encryptionOption;
-            o.kmsKeyId = kmsKeyId;
-            return o;
+            final var _resultValue = new RepositoryAssociationKmsKeyDetails();
+            _resultValue.encryptionOption = encryptionOption;
+            _resultValue.kmsKeyId = kmsKeyId;
+            return _resultValue;
         }
     }
 }

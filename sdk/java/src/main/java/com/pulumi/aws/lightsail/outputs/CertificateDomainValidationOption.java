@@ -62,31 +62,35 @@ public final class CertificateDomainValidationOption {
 
         @CustomType.Setter
         public Builder domainName(@Nullable String domainName) {
+
             this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder resourceRecordName(@Nullable String resourceRecordName) {
+
             this.resourceRecordName = resourceRecordName;
             return this;
         }
         @CustomType.Setter
         public Builder resourceRecordType(@Nullable String resourceRecordType) {
+
             this.resourceRecordType = resourceRecordType;
             return this;
         }
         @CustomType.Setter
         public Builder resourceRecordValue(@Nullable String resourceRecordValue) {
+
             this.resourceRecordValue = resourceRecordValue;
             return this;
         }
         public CertificateDomainValidationOption build() {
-            final var o = new CertificateDomainValidationOption();
-            o.domainName = domainName;
-            o.resourceRecordName = resourceRecordName;
-            o.resourceRecordType = resourceRecordType;
-            o.resourceRecordValue = resourceRecordValue;
-            return o;
+            final var _resultValue = new CertificateDomainValidationOption();
+            _resultValue.domainName = domainName;
+            _resultValue.resourceRecordName = resourceRecordName;
+            _resultValue.resourceRecordType = resourceRecordType;
+            _resultValue.resourceRecordValue = resourceRecordValue;
+            return _resultValue;
         }
     }
 }

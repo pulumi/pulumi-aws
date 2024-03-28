@@ -11,23 +11,28 @@ import * as utilities from "../utilities";
  * Provides an Amazon Managed Grafana workspace resource.
  *
  * ## Example Usage
+ *
  * ### Basic configuration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const assume = new aws.iam.Role("assume", {assumeRolePolicy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Action: "sts:AssumeRole",
- *         Effect: "Allow",
- *         Sid: "",
- *         Principal: {
- *             Service: "grafana.amazonaws.com",
- *         },
- *     }],
- * })});
+ * const assume = new aws.iam.Role("assume", {
+ *     name: "grafana-assume",
+ *     assumeRolePolicy: JSON.stringify({
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: "sts:AssumeRole",
+ *             effect: "Allow",
+ *             sid: "",
+ *             principal: {
+ *                 service: "grafana.amazonaws.com",
+ *             },
+ *         }],
+ *     }),
+ * });
  * const example = new aws.grafana.Workspace("example", {
  *     accountAccessType: "CURRENT_ACCOUNT",
  *     authenticationProviders: ["SAML"],
@@ -35,13 +40,14 @@ import * as utilities from "../utilities";
  *     roleArn: assume.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Grafana Workspace using the workspace's `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
+ * $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
  * ```
  */
 export class Workspace extends pulumi.CustomResource {
@@ -220,8 +226,6 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
     }
 }

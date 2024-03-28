@@ -44,13 +44,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
 
         @CustomType.Setter
         public Builder archiveS3Settings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings archiveS3Settings) {
+
             this.archiveS3Settings = archiveS3Settings;
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings();
-            o.archiveS3Settings = archiveS3Settings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings();
+            _resultValue.archiveS3Settings = archiveS3Settings;
+            return _resultValue;
         }
     }
 }

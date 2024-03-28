@@ -15,10 +15,12 @@ import (
 // Manages an AWS Storage Gateway SMB File Share.
 //
 // ## Example Usage
+//
 // ### Active Directory Authentication
 //
 // > **NOTE:** The gateway must have already joined the Active Directory domain prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smbActiveDirectorySettings` in the `storagegateway.Gateway` resource.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,9 +35,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := storagegateway.NewSmbFileShare(ctx, "example", &storagegateway.SmbFileShareArgs{
 //				Authentication: pulumi.String("ActiveDirectory"),
-//				GatewayArn:     pulumi.Any(aws_storagegateway_gateway.Example.Arn),
-//				LocationArn:    pulumi.Any(aws_s3_bucket.Example.Arn),
-//				RoleArn:        pulumi.Any(aws_iam_role.Example.Arn),
+//				GatewayArn:     pulumi.Any(exampleAwsStoragegatewayGateway.Arn),
+//				LocationArn:    pulumi.Any(exampleAwsS3Bucket.Arn),
+//				RoleArn:        pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -45,10 +47,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Guest Authentication
 //
 // > **NOTE:** The gateway must have already had the SMB guest password set prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smbGuestPassword` in the `storagegateway.Gateway` resource.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,9 +68,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := storagegateway.NewSmbFileShare(ctx, "example", &storagegateway.SmbFileShareArgs{
 //				Authentication: pulumi.String("GuestAccess"),
-//				GatewayArn:     pulumi.Any(aws_storagegateway_gateway.Example.Arn),
-//				LocationArn:    pulumi.Any(aws_s3_bucket.Example.Arn),
-//				RoleArn:        pulumi.Any(aws_iam_role.Example.Arn),
+//				GatewayArn:     pulumi.Any(exampleAwsStoragegatewayGateway.Arn),
+//				LocationArn:    pulumi.Any(exampleAwsS3Bucket.Arn),
+//				RoleArn:        pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -75,15 +80,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_storagegateway_smb_file_share` using the SMB File Share Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
-//
+// $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
 // ```
 type SmbFileShare struct {
 	pulumi.CustomResourceState
@@ -166,10 +170,6 @@ func NewSmbFileShare(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SmbFileShare
 	err := ctx.RegisterResource("aws:storagegateway/smbFileShare:SmbFileShare", name, args, &resource, opts...)

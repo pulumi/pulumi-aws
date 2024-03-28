@@ -152,19 +152,21 @@ class Keyspace(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.keyspaces.Keyspace("example")
+        example = aws.keyspaces.Keyspace("example", name="my_keyspace")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a keyspace using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
+        $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
         ```
 
         :param str resource_name: The name of the resource.
@@ -187,19 +189,21 @@ class Keyspace(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.keyspaces.Keyspace("example")
+        example = aws.keyspaces.Keyspace("example", name="my_keyspace")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a keyspace using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
+        $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
         ```
 
         :param str resource_name: The name of the resource.
@@ -232,8 +236,6 @@ class Keyspace(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Keyspace, __self__).__init__(
             'aws:keyspaces/keyspace:Keyspace',
             resource_name,

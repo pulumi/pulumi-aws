@@ -715,13 +715,16 @@ class ProvisionedProduct(pulumi.CustomResource):
         > **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.servicecatalog.ProvisionedProduct("example",
+            name="example",
             product_name="Example product",
             provisioning_artifact_name="Example version",
             provisioning_parameters=[aws.servicecatalog.ProvisionedProductProvisioningParameterArgs(
@@ -732,13 +735,14 @@ class ProvisionedProduct(pulumi.CustomResource):
                 "foo": "bar",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_servicecatalog_provisioned_product` using the provisioned product ID. For example:
 
         ```sh
-         $ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
+        $ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
         ```
 
         :param str resource_name: The name of the resource.
@@ -778,13 +782,16 @@ class ProvisionedProduct(pulumi.CustomResource):
         > **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.servicecatalog.ProvisionedProduct("example",
+            name="example",
             product_name="Example product",
             provisioning_artifact_name="Example version",
             provisioning_parameters=[aws.servicecatalog.ProvisionedProductProvisioningParameterArgs(
@@ -795,13 +802,14 @@ class ProvisionedProduct(pulumi.CustomResource):
                 "foo": "bar",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_servicecatalog_provisioned_product` using the provisioned product ID. For example:
 
         ```sh
-         $ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
+        $ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
         ```
 
         :param str resource_name: The name of the resource.
@@ -868,8 +876,6 @@ class ProvisionedProduct(pulumi.CustomResource):
             __props__.__dict__["status_message"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["type"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ProvisionedProduct, __self__).__init__(
             'aws:servicecatalog/provisionedProduct:ProvisionedProduct',
             resource_name,

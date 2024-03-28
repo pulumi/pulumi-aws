@@ -168,24 +168,25 @@ class Member(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_member = aws.securityhub.Member("exampleMember",
+        example = aws.securityhub.Account("example")
+        example_member = aws.securityhub.Member("example",
             account_id="123456789012",
             email="example@example.com",
-            invite=True,
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
+            invite=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Security Hub members using their account ID. For example:
 
         ```sh
-         $ pulumi import aws:securityhub/member:Member example 123456789012
+        $ pulumi import aws:securityhub/member:Member example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -205,24 +206,25 @@ class Member(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_member = aws.securityhub.Member("exampleMember",
+        example = aws.securityhub.Account("example")
+        example_member = aws.securityhub.Member("example",
             account_id="123456789012",
             email="example@example.com",
-            invite=True,
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
+            invite=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Security Hub members using their account ID. For example:
 
         ```sh
-         $ pulumi import aws:securityhub/member:Member example 123456789012
+        $ pulumi import aws:securityhub/member:Member example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

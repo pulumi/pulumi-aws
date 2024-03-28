@@ -16,6 +16,7 @@ namespace Pulumi.Aws.CodeStarConnections
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,14 +25,14 @@ namespace Pulumi.Aws.CodeStarConnections
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleConnection = new Aws.CodeStarConnections.Connection("exampleConnection", new()
+    ///     var example = new Aws.CodeStarConnections.Connection("example", new()
     ///     {
+    ///         Name = "example-connection",
     ///         ProviderType = "Bitbucket",
     ///     });
     /// 
-    ///     var examplePipeline = new Aws.CodePipeline.Pipeline("examplePipeline", new()
+    ///     var examplePipeline = new Aws.CodePipeline.Pipeline("example", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Codepipeline_role.Arn,
     ///         ArtifactStores = new[]
     ///         {
     ///             null,
@@ -56,7 +57,7 @@ namespace Pulumi.Aws.CodeStarConnections
     ///                         },
     ///                         Configuration = 
     ///                         {
-    ///                             { "ConnectionArn", exampleConnection.Arn },
+    ///                             { "ConnectionArn", example.Arn },
     ///                             { "FullRepositoryId", "my-organization/test" },
     ///                             { "BranchName", "main" },
     ///                         },
@@ -65,32 +66,35 @@ namespace Pulumi.Aws.CodeStarConnections
     ///             },
     ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
     ///             {
-    ///                 Name = "Build",
     ///                 Actions = new[]
     ///                 {
     ///                     null,
     ///                 },
+    ///                 Name = "Build",
     ///             },
     ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
     ///             {
-    ///                 Name = "Deploy",
     ///                 Actions = new[]
     ///                 {
     ///                     null,
     ///                 },
+    ///                 Name = "Deploy",
     ///             },
     ///         },
+    ///         Name = "tf-test-pipeline",
+    ///         RoleArn = codepipelineRole.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeStar connections using the ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:codestarconnections/connection:Connection test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
+    /// $ pulumi import aws:codestarconnections/connection:Connection test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
     /// ```
     /// </summary>
     [AwsResourceType("aws:codestarconnections/connection:Connection")]
@@ -121,7 +125,7 @@ namespace Pulumi.Aws.CodeStarConnections
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
+        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         /// </summary>
         [Output("providerType")]
         public Output<string> ProviderType { get; private set; } = null!;
@@ -161,10 +165,6 @@ namespace Pulumi.Aws.CodeStarConnections
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.CodeStarConnections
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
+        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         /// </summary>
         [Input("providerType")]
         public Input<string>? ProviderType { get; set; }
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.CodeStarConnections
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
+        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         /// </summary>
         [Input("providerType")]
         public Input<string>? ProviderType { get; set; }
@@ -278,11 +278,7 @@ namespace Pulumi.Aws.CodeStarConnections
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ConnectionState()

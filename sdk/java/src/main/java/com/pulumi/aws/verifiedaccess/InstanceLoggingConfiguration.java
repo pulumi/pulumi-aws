@@ -18,7 +18,10 @@ import javax.annotation.Nullable;
  * Resource for managing a Verified Access Logging Configuration.
  * 
  * ## Example Usage
+ * 
  * ### With CloudWatch Logging
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,16 +49,20 @@ import javax.annotation.Nullable;
  *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
  *                 .cloudwatchLogs(InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs.builder()
  *                     .enabled(true)
- *                     .logGroup(aws_cloudwatch_log_group.example().id())
+ *                     .logGroup(exampleAwsCloudwatchLogGroup.id())
  *                     .build())
  *                 .build())
- *             .verifiedaccessInstanceId(aws_verifiedaccess_instance.example().id())
+ *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With Kinesis Data Firehose Logging
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -82,17 +89,21 @@ import javax.annotation.Nullable;
  *         var example = new InstanceLoggingConfiguration(&#34;example&#34;, InstanceLoggingConfigurationArgs.builder()        
  *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
  *                 .kinesisDataFirehose(InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs.builder()
- *                     .deliveryStream(aws_kinesis_firehose_delivery_stream.example().name())
+ *                     .deliveryStream(exampleAwsKinesisFirehoseDeliveryStream.name())
  *                     .enabled(true)
  *                     .build())
  *                 .build())
- *             .verifiedaccessInstanceId(aws_verifiedaccess_instance.example().id())
+ *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With S3 logging
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -119,18 +130,22 @@ import javax.annotation.Nullable;
  *         var example = new InstanceLoggingConfiguration(&#34;example&#34;, InstanceLoggingConfigurationArgs.builder()        
  *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
  *                 .s3(InstanceLoggingConfigurationAccessLogsS3Args.builder()
- *                     .bucketName(aws_s3_bucket.example().id())
+ *                     .bucketName(exampleAwsS3Bucket.id())
  *                     .enabled(true)
  *                     .prefix(&#34;example&#34;)
  *                     .build())
  *                 .build())
- *             .verifiedaccessInstanceId(aws_verifiedaccess_instance.example().id())
+ *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With all three logging options
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -160,24 +175,28 @@ import javax.annotation.Nullable;
  *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
  *                 .cloudwatchLogs(InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs.builder()
  *                     .enabled(true)
- *                     .logGroup(aws_cloudwatch_log_group.example().id())
+ *                     .logGroup(exampleAwsCloudwatchLogGroup.id())
  *                     .build())
  *                 .kinesisDataFirehose(InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs.builder()
- *                     .deliveryStream(aws_kinesis_firehose_delivery_stream.example().name())
+ *                     .deliveryStream(exampleAwsKinesisFirehoseDeliveryStream.name())
  *                     .enabled(true)
  *                     .build())
  *                 .s3(InstanceLoggingConfigurationAccessLogsS3Args.builder()
- *                     .bucketName(aws_s3_bucket.example().id())
+ *                     .bucketName(exampleAwsS3Bucket.id())
  *                     .enabled(true)
  *                     .build())
  *                 .build())
- *             .verifiedaccessInstanceId(aws_verifiedaccess_instance.example().id())
+ *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With `include_trust_context`
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -204,13 +223,17 @@ import javax.annotation.Nullable;
  *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
  *                 .includeTrustContext(true)
  *                 .build())
- *             .verifiedaccessInstanceId(aws_verifiedaccess_instance.example().id())
+ *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With `log_version`
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -237,19 +260,20 @@ import javax.annotation.Nullable;
  *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
  *                 .logVersion(&#34;ocsf-1.0.0-rc.2&#34;)
  *                 .build())
- *             .verifiedaccessInstanceId(aws_verifiedaccess_instance.example().id())
+ *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Verified Access Logging Configuration using the Verified Access Instance `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0
+ * $ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0
  * ```
  * 
  */

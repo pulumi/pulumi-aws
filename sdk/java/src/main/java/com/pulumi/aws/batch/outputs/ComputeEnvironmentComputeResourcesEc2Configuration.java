@@ -58,19 +58,21 @@ public final class ComputeEnvironmentComputeResourcesEc2Configuration {
 
         @CustomType.Setter
         public Builder imageIdOverride(@Nullable String imageIdOverride) {
+
             this.imageIdOverride = imageIdOverride;
             return this;
         }
         @CustomType.Setter
         public Builder imageType(@Nullable String imageType) {
+
             this.imageType = imageType;
             return this;
         }
         public ComputeEnvironmentComputeResourcesEc2Configuration build() {
-            final var o = new ComputeEnvironmentComputeResourcesEc2Configuration();
-            o.imageIdOverride = imageIdOverride;
-            o.imageType = imageType;
-            return o;
+            final var _resultValue = new ComputeEnvironmentComputeResourcesEc2Configuration();
+            _resultValue.imageIdOverride = imageIdOverride;
+            _resultValue.imageType = imageType;
+            return _resultValue;
         }
     }
 }

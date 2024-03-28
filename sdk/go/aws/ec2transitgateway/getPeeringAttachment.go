@@ -14,8 +14,10 @@ import (
 // Get information on an EC2 Transit Gateway Peering Attachment.
 //
 // ## Example Usage
+//
 // ### By Filter
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,8 +48,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### By Identifier
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -71,6 +76,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupPeeringAttachment(ctx *pulumi.Context, args *LookupPeeringAttachmentArgs, opts ...pulumi.InvokeOption) (*LookupPeeringAttachmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPeeringAttachmentResult
@@ -105,6 +111,7 @@ type LookupPeeringAttachmentResult struct {
 	PeerRegion string `pulumi:"peerRegion"`
 	// Identifier of the peer EC2 Transit Gateway
 	PeerTransitGatewayId string            `pulumi:"peerTransitGatewayId"`
+	State                string            `pulumi:"state"`
 	Tags                 map[string]string `pulumi:"tags"`
 	// Identifier of the local EC2 Transit Gateway
 	TransitGatewayId string `pulumi:"transitGatewayId"`
@@ -177,6 +184,10 @@ func (o LookupPeeringAttachmentResultOutput) PeerRegion() pulumi.StringOutput {
 // Identifier of the peer EC2 Transit Gateway
 func (o LookupPeeringAttachmentResultOutput) PeerTransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPeeringAttachmentResult) string { return v.PeerTransitGatewayId }).(pulumi.StringOutput)
+}
+
+func (o LookupPeeringAttachmentResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPeeringAttachmentResult) string { return v.State }).(pulumi.StringOutput)
 }
 
 func (o LookupPeeringAttachmentResultOutput) Tags() pulumi.StringMapOutput {

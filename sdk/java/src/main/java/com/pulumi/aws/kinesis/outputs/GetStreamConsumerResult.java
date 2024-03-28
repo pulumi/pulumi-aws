@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesis.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -88,43 +89,61 @@ public final class GetStreamConsumerResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetStreamConsumerResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder creationTimestamp(String creationTimestamp) {
-            this.creationTimestamp = Objects.requireNonNull(creationTimestamp);
+            if (creationTimestamp == null) {
+              throw new MissingRequiredPropertyException("GetStreamConsumerResult", "creationTimestamp");
+            }
+            this.creationTimestamp = creationTimestamp;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetStreamConsumerResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetStreamConsumerResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetStreamConsumerResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder streamArn(String streamArn) {
-            this.streamArn = Objects.requireNonNull(streamArn);
+            if (streamArn == null) {
+              throw new MissingRequiredPropertyException("GetStreamConsumerResult", "streamArn");
+            }
+            this.streamArn = streamArn;
             return this;
         }
         public GetStreamConsumerResult build() {
-            final var o = new GetStreamConsumerResult();
-            o.arn = arn;
-            o.creationTimestamp = creationTimestamp;
-            o.id = id;
-            o.name = name;
-            o.status = status;
-            o.streamArn = streamArn;
-            return o;
+            final var _resultValue = new GetStreamConsumerResult();
+            _resultValue.arn = arn;
+            _resultValue.creationTimestamp = creationTimestamp;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.status = status;
+            _resultValue.streamArn = streamArn;
+            return _resultValue;
         }
     }
 }

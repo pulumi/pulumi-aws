@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesisanalyticsv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,32 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
         @CustomType.Setter
         public Builder mapping(@Nullable String mapping) {
+
             this.mapping = mapping;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder sqlType(String sqlType) {
-            this.sqlType = Objects.requireNonNull(sqlType);
+            if (sqlType == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn", "sqlType");
+            }
+            this.sqlType = sqlType;
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn();
-            o.mapping = mapping;
-            o.name = name;
-            o.sqlType = sqlType;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn();
+            _resultValue.mapping = mapping;
+            _resultValue.name = name;
+            _resultValue.sqlType = sqlType;
+            return _resultValue;
         }
     }
 }

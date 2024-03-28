@@ -75,6 +75,7 @@ public final class UserProfileUserSettingsKernelGatewayAppSettings {
 
         @CustomType.Setter
         public Builder customImages(@Nullable List<UserProfileUserSettingsKernelGatewayAppSettingsCustomImage> customImages) {
+
             this.customImages = customImages;
             return this;
         }
@@ -83,11 +84,13 @@ public final class UserProfileUserSettingsKernelGatewayAppSettings {
         }
         @CustomType.Setter
         public Builder defaultResourceSpec(@Nullable UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec) {
+
             this.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
         @CustomType.Setter
         public Builder lifecycleConfigArns(@Nullable List<String> lifecycleConfigArns) {
+
             this.lifecycleConfigArns = lifecycleConfigArns;
             return this;
         }
@@ -95,11 +98,11 @@ public final class UserProfileUserSettingsKernelGatewayAppSettings {
             return lifecycleConfigArns(List.of(lifecycleConfigArns));
         }
         public UserProfileUserSettingsKernelGatewayAppSettings build() {
-            final var o = new UserProfileUserSettingsKernelGatewayAppSettings();
-            o.customImages = customImages;
-            o.defaultResourceSpec = defaultResourceSpec;
-            o.lifecycleConfigArns = lifecycleConfigArns;
-            return o;
+            final var _resultValue = new UserProfileUserSettingsKernelGatewayAppSettings();
+            _resultValue.customImages = customImages;
+            _resultValue.defaultResourceSpec = defaultResourceSpec;
+            _resultValue.lifecycleConfigArns = lifecycleConfigArns;
+            return _resultValue;
         }
     }
 }

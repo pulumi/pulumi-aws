@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type RecordType string
@@ -147,10 +146,21 @@ func (o RecordTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// RecordTypeInput is an input type that accepts RecordTypeArgs and RecordTypeOutput values.
-// You can construct a concrete instance of `RecordTypeInput` via:
+// RecordTypeInput is an input type that accepts values of the RecordType enum
+// A concrete instance of `RecordTypeInput` can be one of the following:
 //
-//	RecordTypeArgs{...}
+//	RecordTypeA
+//	RecordTypeAAAA
+//	RecordTypeCNAME
+//	RecordTypeCAA
+//	RecordTypeMX
+//	RecordTypeNAPTR
+//	RecordTypeNS
+//	RecordTypePTR
+//	RecordTypeSOA
+//	RecordTypeSPF
+//	RecordTypeSRV
+//	RecordTypeTXT
 type RecordTypeInput interface {
 	pulumi.Input
 
@@ -183,12 +193,6 @@ func (in *recordTypePtr) ToRecordTypePtrOutput() RecordTypePtrOutput {
 
 func (in *recordTypePtr) ToRecordTypePtrOutputWithContext(ctx context.Context) RecordTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RecordTypePtrOutput)
-}
-
-func (in *recordTypePtr) ToOutput(ctx context.Context) pulumix.Output[*RecordType] {
-	return pulumix.Output[*RecordType]{
-		OutputState: in.ToRecordTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

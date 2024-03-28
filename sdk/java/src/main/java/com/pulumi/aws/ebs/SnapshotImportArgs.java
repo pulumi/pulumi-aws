@@ -7,6 +7,7 @@ import com.pulumi.aws.ebs.inputs.SnapshotImportClientDataArgs;
 import com.pulumi.aws.ebs.inputs.SnapshotImportDiskContainerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -414,7 +415,9 @@ public final class SnapshotImportArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public SnapshotImportArgs build() {
-            $.diskContainer = Objects.requireNonNull($.diskContainer, "expected parameter 'diskContainer' to be non-null");
+            if ($.diskContainer == null) {
+                throw new MissingRequiredPropertyException("SnapshotImportArgs", "diskContainer");
+            }
             return $;
         }
     }

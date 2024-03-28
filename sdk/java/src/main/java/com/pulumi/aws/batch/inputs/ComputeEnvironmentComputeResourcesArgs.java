@@ -7,6 +7,7 @@ import com.pulumi.aws.batch.inputs.ComputeEnvironmentComputeResourcesEc2Configur
 import com.pulumi.aws.batch.inputs.ComputeEnvironmentComputeResourcesLaunchTemplateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -21,14 +22,14 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
     public static final ComputeEnvironmentComputeResourcesArgs Empty = new ComputeEnvironmentComputeResourcesArgs();
 
     /**
-     * The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     @Import(name="allocationStrategy")
     private @Nullable Output<String> allocationStrategy;
 
     /**
-     * @return The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     public Optional<Output<String>> allocationStrategy() {
@@ -36,14 +37,14 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
     }
 
     /**
-     * Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20%!((MISSING)`20`), then the Spot price must be below 20%!o(MISSING)f the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100%!o(MISSING)f the On-Demand price. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     @Import(name="bidPercentage")
     private @Nullable Output<Integer> bidPercentage;
 
     /**
-     * @return Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20%!((MISSING)`20`), then the Spot price must be below 20%!o(MISSING)f the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100%!o(MISSING)f the On-Demand price. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     public Optional<Output<Integer>> bidPercentage() {
@@ -316,7 +317,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param allocationStrategy The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+         * @param allocationStrategy The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
          * 
          * @return builder
          * 
@@ -327,7 +328,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param allocationStrategy The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+         * @param allocationStrategy The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
          * 
          * @return builder
          * 
@@ -337,7 +338,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param bidPercentage Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+         * @param bidPercentage Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20%!((MISSING)`20`), then the Spot price must be below 20%!o(MISSING)f the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100%!o(MISSING)f the On-Demand price. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
          * 
          * @return builder
          * 
@@ -348,7 +349,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param bidPercentage Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+         * @param bidPercentage Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20%!((MISSING)`20`), then the Spot price must be below 20%!o(MISSING)f the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100%!o(MISSING)f the On-Demand price. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
          * 
          * @return builder
          * 
@@ -713,9 +714,15 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         public ComputeEnvironmentComputeResourcesArgs build() {
-            $.maxVcpus = Objects.requireNonNull($.maxVcpus, "expected parameter 'maxVcpus' to be non-null");
-            $.subnets = Objects.requireNonNull($.subnets, "expected parameter 'subnets' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.maxVcpus == null) {
+                throw new MissingRequiredPropertyException("ComputeEnvironmentComputeResourcesArgs", "maxVcpus");
+            }
+            if ($.subnets == null) {
+                throw new MissingRequiredPropertyException("ComputeEnvironmentComputeResourcesArgs", "subnets");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ComputeEnvironmentComputeResourcesArgs", "type");
+            }
             return $;
         }
     }

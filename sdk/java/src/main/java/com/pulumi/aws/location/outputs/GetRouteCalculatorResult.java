@@ -4,6 +4,7 @@
 package com.pulumi.aws.location.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -133,55 +134,79 @@ public final class GetRouteCalculatorResult {
 
         @CustomType.Setter
         public Builder calculatorArn(String calculatorArn) {
-            this.calculatorArn = Objects.requireNonNull(calculatorArn);
+            if (calculatorArn == null) {
+              throw new MissingRequiredPropertyException("GetRouteCalculatorResult", "calculatorArn");
+            }
+            this.calculatorArn = calculatorArn;
             return this;
         }
         @CustomType.Setter
         public Builder calculatorName(String calculatorName) {
-            this.calculatorName = Objects.requireNonNull(calculatorName);
+            if (calculatorName == null) {
+              throw new MissingRequiredPropertyException("GetRouteCalculatorResult", "calculatorName");
+            }
+            this.calculatorName = calculatorName;
             return this;
         }
         @CustomType.Setter
         public Builder createTime(String createTime) {
-            this.createTime = Objects.requireNonNull(createTime);
+            if (createTime == null) {
+              throw new MissingRequiredPropertyException("GetRouteCalculatorResult", "createTime");
+            }
+            this.createTime = createTime;
             return this;
         }
         @CustomType.Setter
         public Builder dataSource(String dataSource) {
-            this.dataSource = Objects.requireNonNull(dataSource);
+            if (dataSource == null) {
+              throw new MissingRequiredPropertyException("GetRouteCalculatorResult", "dataSource");
+            }
+            this.dataSource = dataSource;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetRouteCalculatorResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRouteCalculatorResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetRouteCalculatorResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder updateTime(String updateTime) {
-            this.updateTime = Objects.requireNonNull(updateTime);
+            if (updateTime == null) {
+              throw new MissingRequiredPropertyException("GetRouteCalculatorResult", "updateTime");
+            }
+            this.updateTime = updateTime;
             return this;
         }
         public GetRouteCalculatorResult build() {
-            final var o = new GetRouteCalculatorResult();
-            o.calculatorArn = calculatorArn;
-            o.calculatorName = calculatorName;
-            o.createTime = createTime;
-            o.dataSource = dataSource;
-            o.description = description;
-            o.id = id;
-            o.tags = tags;
-            o.updateTime = updateTime;
-            return o;
+            final var _resultValue = new GetRouteCalculatorResult();
+            _resultValue.calculatorArn = calculatorArn;
+            _resultValue.calculatorName = calculatorName;
+            _resultValue.createTime = createTime;
+            _resultValue.dataSource = dataSource;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.tags = tags;
+            _resultValue.updateTime = updateTime;
+            return _resultValue;
         }
     }
 }

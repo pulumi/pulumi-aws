@@ -18,7 +18,10 @@ import javax.annotation.Nullable;
  * Provides the ability to register a target with an AWS VPC Lattice Target Group.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,9 +45,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TargetGroupAttachment(&#34;example&#34;, TargetGroupAttachmentArgs.builder()        
- *             .targetGroupIdentifier(aws_vpclattice_target_group.example().id())
+ *             .targetGroupIdentifier(exampleAwsVpclatticeTargetGroup.id())
  *             .target(TargetGroupAttachmentTargetArgs.builder()
- *                 .id(aws_lb.example().arn())
+ *                 .id(exampleAwsLb.arn())
  *                 .port(80)
  *                 .build())
  *             .build());
@@ -52,6 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:vpclattice/targetGroupAttachment:TargetGroupAttachment")

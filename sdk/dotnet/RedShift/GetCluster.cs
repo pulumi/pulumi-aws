@@ -203,6 +203,10 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public readonly string MasterUsername;
         /// <summary>
+        /// If the cluster is a Multi-AZ deployment
+        /// </summary>
+        public readonly bool MultiAz;
+        /// <summary>
         /// Cluster node type
         /// </summary>
         public readonly string NodeType;
@@ -303,6 +307,8 @@ namespace Pulumi.Aws.RedShift
 
             string masterUsername,
 
+            bool multiAz,
+
             string nodeType,
 
             int numberOfNodes,
@@ -352,6 +358,7 @@ namespace Pulumi.Aws.RedShift
             MaintenanceTrackName = maintenanceTrackName;
             ManualSnapshotRetentionPeriod = manualSnapshotRetentionPeriod;
             MasterUsername = masterUsername;
+            MultiAz = multiAz;
             NodeType = nodeType;
             NumberOfNodes = numberOfNodes;
             Port = port;

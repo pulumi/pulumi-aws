@@ -44,13 +44,14 @@ public final class EventTargetDeadLetterConfig {
 
         @CustomType.Setter
         public Builder arn(@Nullable String arn) {
+
             this.arn = arn;
             return this;
         }
         public EventTargetDeadLetterConfig build() {
-            final var o = new EventTargetDeadLetterConfig();
-            o.arn = arn;
-            return o;
+            final var _resultValue = new EventTargetDeadLetterConfig();
+            _resultValue.arn = arn;
+            return _resultValue;
         }
     }
 }

@@ -5,6 +5,7 @@ package com.pulumi.aws.codebuild.outputs;
 
 import com.pulumi.aws.codebuild.outputs.ProjectBuildBatchConfigRestrictions;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -89,31 +90,37 @@ public final class ProjectBuildBatchConfig {
 
         @CustomType.Setter
         public Builder combineArtifacts(@Nullable Boolean combineArtifacts) {
+
             this.combineArtifacts = combineArtifacts;
             return this;
         }
         @CustomType.Setter
         public Builder restrictions(@Nullable ProjectBuildBatchConfigRestrictions restrictions) {
+
             this.restrictions = restrictions;
             return this;
         }
         @CustomType.Setter
         public Builder serviceRole(String serviceRole) {
-            this.serviceRole = Objects.requireNonNull(serviceRole);
+            if (serviceRole == null) {
+              throw new MissingRequiredPropertyException("ProjectBuildBatchConfig", "serviceRole");
+            }
+            this.serviceRole = serviceRole;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutInMins(@Nullable Integer timeoutInMins) {
+
             this.timeoutInMins = timeoutInMins;
             return this;
         }
         public ProjectBuildBatchConfig build() {
-            final var o = new ProjectBuildBatchConfig();
-            o.combineArtifacts = combineArtifacts;
-            o.restrictions = restrictions;
-            o.serviceRole = serviceRole;
-            o.timeoutInMins = timeoutInMins;
-            return o;
+            final var _resultValue = new ProjectBuildBatchConfig();
+            _resultValue.combineArtifacts = combineArtifacts;
+            _resultValue.restrictions = restrictions;
+            _resultValue.serviceRole = serviceRole;
+            _resultValue.timeoutInMins = timeoutInMins;
+            return _resultValue;
         }
     }
 }

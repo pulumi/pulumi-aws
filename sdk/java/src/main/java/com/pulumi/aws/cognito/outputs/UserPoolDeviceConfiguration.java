@@ -58,19 +58,21 @@ public final class UserPoolDeviceConfiguration {
 
         @CustomType.Setter
         public Builder challengeRequiredOnNewDevice(@Nullable Boolean challengeRequiredOnNewDevice) {
+
             this.challengeRequiredOnNewDevice = challengeRequiredOnNewDevice;
             return this;
         }
         @CustomType.Setter
         public Builder deviceOnlyRememberedOnUserPrompt(@Nullable Boolean deviceOnlyRememberedOnUserPrompt) {
+
             this.deviceOnlyRememberedOnUserPrompt = deviceOnlyRememberedOnUserPrompt;
             return this;
         }
         public UserPoolDeviceConfiguration build() {
-            final var o = new UserPoolDeviceConfiguration();
-            o.challengeRequiredOnNewDevice = challengeRequiredOnNewDevice;
-            o.deviceOnlyRememberedOnUserPrompt = deviceOnlyRememberedOnUserPrompt;
-            return o;
+            final var _resultValue = new UserPoolDeviceConfiguration();
+            _resultValue.challengeRequiredOnNewDevice = challengeRequiredOnNewDevice;
+            _resultValue.deviceOnlyRememberedOnUserPrompt = deviceOnlyRememberedOnUserPrompt;
+            return _resultValue;
         }
     }
 }

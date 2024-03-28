@@ -102,11 +102,14 @@ class DomainPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.elasticsearch.Domain("example", elasticsearch_version="2.3")
+        example = aws.elasticsearch.Domain("example",
+            domain_name="tf-test",
+            elasticsearch_version="2.3")
         main = aws.elasticsearch.DomainPolicy("main",
             domain_name=example.domain_name,
             access_policies=example.arn.apply(lambda arn: f\"\"\"{{
@@ -125,6 +128,7 @@ class DomainPolicy(pulumi.CustomResource):
         }}
         \"\"\"))
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,11 +146,14 @@ class DomainPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.elasticsearch.Domain("example", elasticsearch_version="2.3")
+        example = aws.elasticsearch.Domain("example",
+            domain_name="tf-test",
+            elasticsearch_version="2.3")
         main = aws.elasticsearch.DomainPolicy("main",
             domain_name=example.domain_name,
             access_policies=example.arn.apply(lambda arn: f\"\"\"{{
@@ -165,6 +172,7 @@ class DomainPolicy(pulumi.CustomResource):
         }}
         \"\"\"))
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param DomainPolicyArgs args: The arguments to use to populate this resource's properties.

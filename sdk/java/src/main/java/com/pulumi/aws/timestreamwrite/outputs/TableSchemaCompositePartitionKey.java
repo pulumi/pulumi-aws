@@ -4,6 +4,7 @@
 package com.pulumi.aws.timestreamwrite.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,30 @@ public final class TableSchemaCompositePartitionKey {
 
         @CustomType.Setter
         public Builder enforcementInRecord(@Nullable String enforcementInRecord) {
+
             this.enforcementInRecord = enforcementInRecord;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("TableSchemaCompositePartitionKey", "type");
+            }
+            this.type = type;
             return this;
         }
         public TableSchemaCompositePartitionKey build() {
-            final var o = new TableSchemaCompositePartitionKey();
-            o.enforcementInRecord = enforcementInRecord;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new TableSchemaCompositePartitionKey();
+            _resultValue.enforcementInRecord = enforcementInRecord;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

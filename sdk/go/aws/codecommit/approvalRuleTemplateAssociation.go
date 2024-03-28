@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codecommit.NewApprovalRuleTemplateAssociation(ctx, "example", &codecommit.ApprovalRuleTemplateAssociationArgs{
-//				ApprovalRuleTemplateName: pulumi.Any(aws_codecommit_approval_rule_template.Example.Name),
-//				RepositoryName:           pulumi.Any(aws_codecommit_repository.Example.Repository_name),
+//				ApprovalRuleTemplateName: pulumi.Any(exampleAwsCodecommitApprovalRuleTemplate.Name),
+//				RepositoryName:           pulumi.Any(exampleAwsCodecommitRepository.RepositoryName),
 //			})
 //			if err != nil {
 //				return err
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CodeCommit approval rule template associations using the `approval_rule_template_name` and `repository_name` separated by a comma (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation example approver-rule-for-example,MyExampleRepo
-//
+// $ pulumi import aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation example approver-rule-for-example,MyExampleRepo
 // ```
 type ApprovalRuleTemplateAssociation struct {
 	pulumi.CustomResourceState

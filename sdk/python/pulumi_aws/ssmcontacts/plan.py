@@ -103,8 +103,10 @@ class Plan(pulumi.CustomResource):
         Resource for managing an AWS SSM Contact Plan.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -115,8 +117,11 @@ class Plan(pulumi.CustomResource):
                 duration_in_minutes=1,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage with SSM Contact
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -130,19 +135,22 @@ class Plan(pulumi.CustomResource):
                 duration_in_minutes=1,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage With All Fields
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        escalation_plan = aws.ssmcontacts.Contact("escalationPlan",
+        escalation_plan = aws.ssmcontacts.Contact("escalation_plan",
             alias="escalation-plan-alias",
             type="ESCALATION")
-        contact_one = aws.ssmcontacts.Contact("contactOne",
+        contact_one = aws.ssmcontacts.Contact("contact_one",
             alias="alias",
             type="PERSONAL")
-        contact_two = aws.ssmcontacts.Contact("contactTwo",
+        contact_two = aws.ssmcontacts.Contact("contact_two",
             alias="alias",
             type="PERSONAL")
         test = aws.ssmcontacts.Plan("test",
@@ -165,19 +173,20 @@ class Plan(pulumi.CustomResource):
                     aws.ssmcontacts.PlanStageTargetArgs(
                         channel_target_info=aws.ssmcontacts.PlanStageTargetChannelTargetInfoArgs(
                             retry_interval_in_minutes=2,
-                            contact_channel_id=aws_ssmcontacts_contact_channel["channel"]["arn"],
+                            contact_channel_id=channel["arn"],
                         ),
                     ),
                 ],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SSM Contact Plan using the Contact ARN. For example:
 
         ```sh
-         $ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
+        $ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
         ```
 
         :param str resource_name: The name of the resource.
@@ -195,8 +204,10 @@ class Plan(pulumi.CustomResource):
         Resource for managing an AWS SSM Contact Plan.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -207,8 +218,11 @@ class Plan(pulumi.CustomResource):
                 duration_in_minutes=1,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage with SSM Contact
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -222,19 +236,22 @@ class Plan(pulumi.CustomResource):
                 duration_in_minutes=1,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage With All Fields
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        escalation_plan = aws.ssmcontacts.Contact("escalationPlan",
+        escalation_plan = aws.ssmcontacts.Contact("escalation_plan",
             alias="escalation-plan-alias",
             type="ESCALATION")
-        contact_one = aws.ssmcontacts.Contact("contactOne",
+        contact_one = aws.ssmcontacts.Contact("contact_one",
             alias="alias",
             type="PERSONAL")
-        contact_two = aws.ssmcontacts.Contact("contactTwo",
+        contact_two = aws.ssmcontacts.Contact("contact_two",
             alias="alias",
             type="PERSONAL")
         test = aws.ssmcontacts.Plan("test",
@@ -257,19 +274,20 @@ class Plan(pulumi.CustomResource):
                     aws.ssmcontacts.PlanStageTargetArgs(
                         channel_target_info=aws.ssmcontacts.PlanStageTargetChannelTargetInfoArgs(
                             retry_interval_in_minutes=2,
-                            contact_channel_id=aws_ssmcontacts_contact_channel["channel"]["arn"],
+                            contact_channel_id=channel["arn"],
                         ),
                     ),
                 ],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SSM Contact Plan using the Contact ARN. For example:
 
         ```sh
-         $ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
+        $ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
         ```
 
         :param str resource_name: The name of the resource.

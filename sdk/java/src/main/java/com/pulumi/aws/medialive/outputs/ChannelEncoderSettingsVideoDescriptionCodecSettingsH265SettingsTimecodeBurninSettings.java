@@ -72,25 +72,28 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
 
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder timecodeBurninFontSize(@Nullable String timecodeBurninFontSize) {
+
             this.timecodeBurninFontSize = timecodeBurninFontSize;
             return this;
         }
         @CustomType.Setter
         public Builder timecodeBurninPosition(@Nullable String timecodeBurninPosition) {
+
             this.timecodeBurninPosition = timecodeBurninPosition;
             return this;
         }
         public ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings build() {
-            final var o = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings();
-            o.prefix = prefix;
-            o.timecodeBurninFontSize = timecodeBurninFontSize;
-            o.timecodeBurninPosition = timecodeBurninPosition;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings();
+            _resultValue.prefix = prefix;
+            _resultValue.timecodeBurninFontSize = timecodeBurninFontSize;
+            _resultValue.timecodeBurninPosition = timecodeBurninPosition;
+            return _resultValue;
         }
     }
 }

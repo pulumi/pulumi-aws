@@ -59,19 +59,21 @@ public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInpu
 
         @CustomType.Setter
         public Builder csv(@Nullable DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsv csv) {
+
             this.csv = csv;
             return this;
         }
         @CustomType.Setter
         public Builder json(@Nullable DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson json) {
+
             this.json = json;
             return this;
         }
         public DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat build() {
-            final var o = new DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat();
-            o.csv = csv;
-            o.json = json;
-            return o;
+            final var _resultValue = new DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat();
+            _resultValue.csv = csv;
+            _resultValue.json = json;
+            return _resultValue;
         }
     }
 }

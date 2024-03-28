@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,20 +25,21 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var test = new Aws.Ec2.NetworkInterfaceAttachment("test", new()
     ///     {
-    ///         InstanceId = aws_instance.Test.Id,
-    ///         NetworkInterfaceId = aws_network_interface.Test.Id,
+    ///         InstanceId = testAwsInstance.Id,
+    ///         NetworkInterfaceId = testAwsNetworkInterface.Id,
     ///         DeviceIndex = 0,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Elastic network interface (ENI) Attachments using its Attachment ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
+    /// $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment")]

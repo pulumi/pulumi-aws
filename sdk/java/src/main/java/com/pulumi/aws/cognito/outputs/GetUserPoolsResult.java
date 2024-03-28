@@ -4,6 +4,7 @@
 package com.pulumi.aws.cognito.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -77,7 +78,10 @@ public final class GetUserPoolsResult {
 
         @CustomType.Setter
         public Builder arns(List<String> arns) {
-            this.arns = Objects.requireNonNull(arns);
+            if (arns == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolsResult", "arns");
+            }
+            this.arns = arns;
             return this;
         }
         public Builder arns(String... arns) {
@@ -85,12 +89,18 @@ public final class GetUserPoolsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+            if (ids == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolsResult", "ids");
+            }
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {
@@ -98,16 +108,19 @@ public final class GetUserPoolsResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolsResult", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetUserPoolsResult build() {
-            final var o = new GetUserPoolsResult();
-            o.arns = arns;
-            o.id = id;
-            o.ids = ids;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetUserPoolsResult();
+            _resultValue.arns = arns;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

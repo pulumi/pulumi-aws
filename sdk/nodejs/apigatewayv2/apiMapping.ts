@@ -9,25 +9,28 @@ import * as utilities from "../utilities";
  * More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigatewayv2.ApiMapping("example", {
- *     apiId: aws_apigatewayv2_api.example.id,
- *     domainName: aws_apigatewayv2_domain_name.example.id,
- *     stage: aws_apigatewayv2_stage.example.id,
+ *     apiId: exampleAwsApigatewayv2Api.id,
+ *     domainName: exampleAwsApigatewayv2DomainName.id,
+ *     stage: exampleAwsApigatewayv2Stage.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_apigatewayv2_api_mapping` using the API mapping identifier and domain name. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
+ * $ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
  * ```
  */
 export class ApiMapping extends pulumi.CustomResource {

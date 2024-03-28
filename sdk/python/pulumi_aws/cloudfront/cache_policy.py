@@ -253,11 +253,13 @@ class CachePolicy(pulumi.CustomResource):
 
         Use the `cloudfront.CachePolicy` resource to create a cache policy for CloudFront.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cloudfront.CachePolicy("example",
+            name="example-policy",
             comment="test comment",
             default_ttl=50,
             max_ttl=100,
@@ -283,13 +285,14 @@ class CachePolicy(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudFront cache policies using the `id` of the cache policy. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/cachePolicy:CachePolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f6
+        $ pulumi import aws:cloudfront/cachePolicy:CachePolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f6
         ```
 
         :param str resource_name: The name of the resource.
@@ -312,11 +315,13 @@ class CachePolicy(pulumi.CustomResource):
 
         Use the `cloudfront.CachePolicy` resource to create a cache policy for CloudFront.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cloudfront.CachePolicy("example",
+            name="example-policy",
             comment="test comment",
             default_ttl=50,
             max_ttl=100,
@@ -342,13 +347,14 @@ class CachePolicy(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudFront cache policies using the `id` of the cache policy. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/cachePolicy:CachePolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f6
+        $ pulumi import aws:cloudfront/cachePolicy:CachePolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f6
         ```
 
         :param str resource_name: The name of the resource.

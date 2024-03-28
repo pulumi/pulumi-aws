@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_location_place_index` resources using the place index name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:location/placeIndex:PlaceIndex example example
-//
+// $ pulumi import aws:location/placeIndex:PlaceIndex example example
 // ```
 type PlaceIndex struct {
 	pulumi.CustomResourceState
@@ -90,10 +90,6 @@ func NewPlaceIndex(ctx *pulumi.Context,
 	if args.IndexName == nil {
 		return nil, errors.New("invalid value for required argument 'IndexName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PlaceIndex
 	err := ctx.RegisterResource("aws:location/placeIndex:PlaceIndex", name, args, &resource, opts...)

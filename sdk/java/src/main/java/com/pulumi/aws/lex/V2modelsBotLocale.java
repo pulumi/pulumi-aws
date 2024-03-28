@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Lex V2 Models Bot Locale.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,7 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new V2modelsBotLocale(&#34;example&#34;, V2modelsBotLocaleArgs.builder()        
- *             .botId(aws_lexv2models_bot.test().id())
+ *             .botId(exampleAwsLexv2modelsBot.id())
  *             .botVersion(&#34;DRAFT&#34;)
  *             .localeId(&#34;en_US&#34;)
  *             .nLuIntentConfidenceThreshold(0.7)
@@ -53,13 +56,55 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Voice Settings
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lex.V2modelsBotLocale;
+ * import com.pulumi.aws.lex.V2modelsBotLocaleArgs;
+ * import com.pulumi.aws.lex.inputs.V2modelsBotLocaleVoiceSettingsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new V2modelsBotLocale(&#34;example&#34;, V2modelsBotLocaleArgs.builder()        
+ *             .botId(exampleAwsLexv2modelsBot.id())
+ *             .botVersion(&#34;DRAFT&#34;)
+ *             .localeId(&#34;en_US&#34;)
+ *             .nLuIntentConfidenceThreshold(0.7)
+ *             .voiceSettings(V2modelsBotLocaleVoiceSettingsArgs.builder()
+ *                 .voiceId(&#34;Kendra&#34;)
+ *                 .engine(&#34;standard&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Lex V2 Models Bot Locale using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lex/v2modelsBotLocale:V2modelsBotLocale example bot_locale-id-12345678
+ * $ pulumi import aws:lex/v2modelsBotLocale:V2modelsBotLocale example en_US,abcd-12345678,1
  * ```
  * 
  */
@@ -160,14 +205,14 @@ public class V2modelsBotLocale extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+     * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
      * 
      */
     @Export(name="voiceSettings", refs={V2modelsBotLocaleVoiceSettings.class}, tree="[0]")
     private Output</* @Nullable */ V2modelsBotLocaleVoiceSettings> voiceSettings;
 
     /**
-     * @return Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+     * @return Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
      * 
      */
     public Output<Optional<V2modelsBotLocaleVoiceSettings>> voiceSettings() {

@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.util.Objects;
 
@@ -40,19 +41,25 @@ public final class GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp {
 
         @CustomType.Setter
         public Builder max(Double max) {
-            this.max = Objects.requireNonNull(max);
+            if (max == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp", "max");
+            }
+            this.max = max;
             return this;
         }
         @CustomType.Setter
         public Builder min(Double min) {
-            this.min = Objects.requireNonNull(min);
+            if (min == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp", "min");
+            }
+            this.min = min;
             return this;
         }
         public GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp build() {
-            final var o = new GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

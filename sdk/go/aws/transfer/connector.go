@@ -15,8 +15,10 @@ import (
 // Provides a AWS Transfer AS2 Connector resource.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,15 +32,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := transfer.NewConnector(ctx, "example", &transfer.ConnectorArgs{
-//				AccessRole: pulumi.Any(aws_iam_role.Test.Arn),
+//				AccessRole: pulumi.Any(test.Arn),
 //				As2Config: &transfer.ConnectorAs2ConfigArgs{
 //					Compression:         pulumi.String("DISABLED"),
 //					EncryptionAlgorithm: pulumi.String("AWS128_CBC"),
 //					MessageSubject:      pulumi.String("For Connector"),
-//					LocalProfileId:      pulumi.Any(aws_transfer_profile.Local.Profile_id),
+//					LocalProfileId:      pulumi.Any(local.ProfileId),
 //					MdnResponse:         pulumi.String("NONE"),
 //					MdnSigningAlgorithm: pulumi.String("NONE"),
-//					PartnerProfileId:    pulumi.Any(aws_transfer_profile.Partner.Profile_id),
+//					PartnerProfileId:    pulumi.Any(partner.ProfileId),
 //					SigningAlgorithm:    pulumi.String("NONE"),
 //				},
 //				Url: pulumi.String("http://www.test.com"),
@@ -51,8 +53,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### SFTP Connector
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,12 +71,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := transfer.NewConnector(ctx, "example", &transfer.ConnectorArgs{
-//				AccessRole: pulumi.Any(aws_iam_role.Test.Arn),
+//				AccessRole: pulumi.Any(test.Arn),
 //				SftpConfig: &transfer.ConnectorSftpConfigArgs{
 //					TrustedHostKeys: pulumi.StringArray{
 //						pulumi.String("ssh-rsa AAAAB3NYourKeysHere"),
 //					},
-//					UserSecretId: pulumi.Any(aws_secretsmanager_secret.Example.Id),
+//					UserSecretId: pulumi.Any(exampleAwsSecretsmanagerSecret.Id),
 //				},
 //				Url: pulumi.String("sftp://test.com"),
 //			})
@@ -83,15 +88,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Transfer AS2 Connector using the `connector_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:transfer/connector:Connector example c-4221a88afd5f4362a
-//
+// $ pulumi import aws:transfer/connector:Connector example c-4221a88afd5f4362a
 // ```
 type Connector struct {
 	pulumi.CustomResourceState
@@ -129,10 +133,6 @@ func NewConnector(ctx *pulumi.Context,
 	if args.Url == nil {
 		return nil, errors.New("invalid value for required argument 'Url'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Connector
 	err := ctx.RegisterResource("aws:transfer/connector:Connector", name, args, &resource, opts...)

@@ -44,13 +44,14 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperationTagColum
 
         @CustomType.Setter
         public Builder text(@Nullable String text) {
+
             this.text = text;
             return this;
         }
         public DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription build() {
-            final var o = new DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription();
-            o.text = text;
-            return o;
+            final var _resultValue = new DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription();
+            _resultValue.text = text;
+            return _resultValue;
         }
     }
 }

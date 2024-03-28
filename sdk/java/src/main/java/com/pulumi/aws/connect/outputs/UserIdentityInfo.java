@@ -72,25 +72,28 @@ public final class UserIdentityInfo {
 
         @CustomType.Setter
         public Builder email(@Nullable String email) {
+
             this.email = email;
             return this;
         }
         @CustomType.Setter
         public Builder firstName(@Nullable String firstName) {
+
             this.firstName = firstName;
             return this;
         }
         @CustomType.Setter
         public Builder lastName(@Nullable String lastName) {
+
             this.lastName = lastName;
             return this;
         }
         public UserIdentityInfo build() {
-            final var o = new UserIdentityInfo();
-            o.email = email;
-            o.firstName = firstName;
-            o.lastName = lastName;
-            return o;
+            final var _resultValue = new UserIdentityInfo();
+            _resultValue.email = email;
+            _resultValue.firstName = firstName;
+            _resultValue.lastName = lastName;
+            return _resultValue;
         }
     }
 }

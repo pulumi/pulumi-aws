@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,30 @@ public final class DeviceDevice {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder deviceName(String deviceName) {
-            this.deviceName = Objects.requireNonNull(deviceName);
+            if (deviceName == null) {
+              throw new MissingRequiredPropertyException("DeviceDevice", "deviceName");
+            }
+            this.deviceName = deviceName;
             return this;
         }
         @CustomType.Setter
         public Builder iotThingName(@Nullable String iotThingName) {
+
             this.iotThingName = iotThingName;
             return this;
         }
         public DeviceDevice build() {
-            final var o = new DeviceDevice();
-            o.description = description;
-            o.deviceName = deviceName;
-            o.iotThingName = iotThingName;
-            return o;
+            final var _resultValue = new DeviceDevice();
+            _resultValue.description = description;
+            _resultValue.deviceName = deviceName;
+            _resultValue.iotThingName = iotThingName;
+            return _resultValue;
         }
     }
 }

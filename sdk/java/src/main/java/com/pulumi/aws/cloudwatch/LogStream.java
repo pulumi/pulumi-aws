@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a CloudWatch Log Stream resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -24,6 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
  * import com.pulumi.aws.cloudwatch.LogStream;
  * import com.pulumi.aws.cloudwatch.LogStreamArgs;
  * import java.util.List;
@@ -39,22 +42,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var yada = new LogGroup(&#34;yada&#34;);
+ *         var yada = new LogGroup(&#34;yada&#34;, LogGroupArgs.builder()        
+ *             .name(&#34;Yada&#34;)
+ *             .build());
  * 
  *         var foo = new LogStream(&#34;foo&#34;, LogStreamArgs.builder()        
+ *             .name(&#34;SampleLogStream1234&#34;)
  *             .logGroupName(yada.name())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Cloudwatch Log Stream using the stream&#39;s `log_group_name` and `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
+ * $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
  * ```
  * 
  */

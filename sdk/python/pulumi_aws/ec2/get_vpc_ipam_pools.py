@@ -78,6 +78,7 @@ def get_vpc_ipam_pools(filters: Optional[Sequence[pulumi.InputType['GetVpcIpamPo
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -93,6 +94,7 @@ def get_vpc_ipam_pools(filters: Optional[Sequence[pulumi.InputType['GetVpcIpamPo
         ),
     ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetVpcIpamPoolsFilterArgs']] filters: Custom filter block as described below.
@@ -120,6 +122,7 @@ def get_vpc_ipam_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[p
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -135,6 +138,7 @@ def get_vpc_ipam_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[p
         ),
     ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetVpcIpamPoolsFilterArgs']] filters: Custom filter block as described below.

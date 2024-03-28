@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,13 +37,14 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import App Runner AutoScaling Configuration Versions using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion example "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
+    /// $ pulumi import aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion example "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
     /// ```
     /// </summary>
     [AwsResourceType("aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion")]
@@ -65,6 +67,12 @@ namespace Pulumi.Aws.AppRunner
         /// </summary>
         [Output("autoScalingConfigurationRevision")]
         public Output<int> AutoScalingConfigurationRevision { get; private set; } = null!;
+
+        [Output("hasAssociatedService")]
+        public Output<bool> HasAssociatedService { get; private set; } = null!;
+
+        [Output("isDefault")]
+        public Output<bool> IsDefault { get; private set; } = null!;
 
         /// <summary>
         /// Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.
@@ -131,10 +139,6 @@ namespace Pulumi.Aws.AppRunner
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -220,6 +224,12 @@ namespace Pulumi.Aws.AppRunner
         [Input("autoScalingConfigurationRevision")]
         public Input<int>? AutoScalingConfigurationRevision { get; set; }
 
+        [Input("hasAssociatedService")]
+        public Input<bool>? HasAssociatedService { get; set; }
+
+        [Input("isDefault")]
+        public Input<bool>? IsDefault { get; set; }
+
         /// <summary>
         /// Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.
         /// </summary>
@@ -272,11 +282,7 @@ namespace Pulumi.Aws.AppRunner
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public AutoScalingConfigurationVersionState()

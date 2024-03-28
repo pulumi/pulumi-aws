@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appstream.NewImageBuilder(ctx, "testFleet", &appstream.ImageBuilderArgs{
+//			_, err := appstream.NewImageBuilder(ctx, "test_fleet", &appstream.ImageBuilderArgs{
+//				Name:                        pulumi.String("Name"),
 //				Description:                 pulumi.String("Description of a ImageBuilder"),
 //				DisplayName:                 pulumi.String("Display name of a ImageBuilder"),
 //				EnableDefaultInternetAccess: pulumi.Bool(false),
@@ -36,7 +38,7 @@ import (
 //				InstanceType:                pulumi.String("stream.standard.large"),
 //				VpcConfig: &appstream.ImageBuilderVpcConfigArgs{
 //					SubnetIds: pulumi.StringArray{
-//						aws_subnet.Example.Id,
+//						example.Id,
 //					},
 //				},
 //				Tags: pulumi.StringMap{
@@ -51,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
-//
+// $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
 // ```
 type ImageBuilder struct {
 	pulumi.CustomResourceState
@@ -92,7 +93,7 @@ type ImageBuilder struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
-	// State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
+	// State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
 	State pulumi.StringOutput `pulumi:"state"`
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -114,10 +115,6 @@ func NewImageBuilder(ctx *pulumi.Context,
 	if args.InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ImageBuilder
 	err := ctx.RegisterResource("aws:appstream/imageBuilder:ImageBuilder", name, args, &resource, opts...)
@@ -169,7 +166,7 @@ type imageBuilderState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
+	// State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
 	State *string `pulumi:"state"`
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -210,7 +207,7 @@ type ImageBuilderState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
+	// State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
 	State pulumi.StringPtrInput
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -443,7 +440,7 @@ func (o ImageBuilderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
+// State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
 func (o ImageBuilderOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }

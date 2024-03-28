@@ -10,54 +10,12 @@ import * as utilities from "../utilities";
 /**
  * Provides a GameLift Alias resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleGameSessionQueue = new aws.gamelift.GameSessionQueue("exampleGameSessionQueue", {
- *     destinations: [],
- *     playerLatencyPolicies: [
- *         {
- *             maximumIndividualPlayerLatencyMilliseconds: 3,
- *             policyDurationSeconds: 7,
- *         },
- *         {
- *             maximumIndividualPlayerLatencyMilliseconds: 10,
- *         },
- *     ],
- *     timeoutInSeconds: 25,
- * });
- * const exampleMatchmakingRuleSet = new aws.gamelift.MatchmakingRuleSet("exampleMatchmakingRuleSet", {ruleSetBody: JSON.stringify({
- *     name: "test",
- *     ruleLanguageVersion: "1.0",
- *     teams: [{
- *         name: "alpha",
- *         minPlayers: 1,
- *         maxPlayers: 5,
- *     }],
- * })});
- * const exampleMatchmakingConfiguration = new aws.gamelift.MatchmakingConfiguration("exampleMatchmakingConfiguration", {
- *     acceptanceRequired: false,
- *     customEventData: "pvp",
- *     gameSessionData: "game_session_data",
- *     backfillMode: "MANUAL",
- *     requestTimeoutSeconds: 30,
- *     ruleSetName: aws_gamelift_matchmaking_rule_set.test.name,
- *     gameSessionQueueArns: [aws_gamelift_game_session_queue.test.arn],
- *     tags: {
- *         key1: "value1",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * GameLift Matchmaking Configurations can be imported using the ID, e.g.,
  *
  * ```sh
- *  $ pulumi import aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration example <matchmakingconfiguration-id>
+ * $ pulumi import aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration example <matchmakingconfiguration-id>
  * ```
  */
 export class MatchmakingConfiguration extends pulumi.CustomResource {
@@ -225,8 +183,6 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(MatchmakingConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -14,6 +14,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultCluster, err := neptune.NewCluster(ctx, "defaultCluster", &neptune.ClusterArgs{
+//			_, err := neptune.NewCluster(ctx, "default", &neptune.ClusterArgs{
 //				ClusterIdentifier:                pulumi.String("neptune-cluster-demo"),
 //				Engine:                           pulumi.String("neptune"),
 //				BackupRetentionPeriod:            pulumi.Int(5),
@@ -40,7 +41,7 @@ import (
 //				return err
 //			}
 //			example, err := neptune.NewClusterInstance(ctx, "example", &neptune.ClusterInstanceArgs{
-//				ClusterIdentifier: defaultCluster.ID(),
+//				ClusterIdentifier: _default.ID(),
 //				Engine:            pulumi.String("neptune"),
 //				InstanceClass:     pulumi.String("db.r4.large"),
 //				ApplyImmediately:  pulumi.Bool(true),
@@ -48,11 +49,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			defaultTopic, err := sns.NewTopic(ctx, "defaultTopic", nil)
+//			defaultTopic, err := sns.NewTopic(ctx, "default", &sns.TopicArgs{
+//				Name: pulumi.String("neptune-events"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = neptune.NewEventSubscription(ctx, "defaultEventSubscription", &neptune.EventSubscriptionArgs{
+//			_, err = neptune.NewEventSubscription(ctx, "default", &neptune.EventSubscriptionArgs{
+//				Name:        pulumi.String("neptune-event-sub"),
 //				SnsTopicArn: defaultTopic.Arn,
 //				SourceType:  pulumi.String("db-instance"),
 //				SourceIds: pulumi.StringArray{
@@ -84,15 +88,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_neptune_event_subscription` using the event subscription name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:neptune/eventSubscription:EventSubscription example my-event-subscription
-//
+// $ pulumi import aws:neptune/eventSubscription:EventSubscription example my-event-subscription
 // ```
 type EventSubscription struct {
 	pulumi.CustomResourceState
@@ -133,10 +136,6 @@ func NewEventSubscription(ctx *pulumi.Context,
 	if args.SnsTopicArn == nil {
 		return nil, errors.New("invalid value for required argument 'SnsTopicArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventSubscription
 	err := ctx.RegisterResource("aws:neptune/eventSubscription:EventSubscription", name, args, &resource, opts...)

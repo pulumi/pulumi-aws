@@ -10,26 +10,32 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGateway = new aws.directconnect.Gateway("exampleGateway", {amazonSideAsn: "64512"});
- * const exampleTransitVirtualInterface = new aws.directconnect.TransitVirtualInterface("exampleTransitVirtualInterface", {
- *     connectionId: aws_dx_connection.example.id,
- *     dxGatewayId: exampleGateway.id,
+ * const example = new aws.directconnect.Gateway("example", {
+ *     name: "tf-dxg-example",
+ *     amazonSideAsn: "64512",
+ * });
+ * const exampleTransitVirtualInterface = new aws.directconnect.TransitVirtualInterface("example", {
+ *     connectionId: exampleAwsDxConnection.id,
+ *     dxGatewayId: example.id,
+ *     name: "tf-transit-vif-example",
  *     vlan: 4094,
  *     addressFamily: "ipv4",
  *     bgpAsn: 65352,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Direct Connect transit virtual interfaces using the VIF `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
+ * $ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
  * ```
  */
 export class TransitVirtualInterface extends pulumi.CustomResource {
@@ -195,8 +201,6 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(TransitVirtualInterface.__pulumiType, name, resourceInputs, opts);
     }
 }

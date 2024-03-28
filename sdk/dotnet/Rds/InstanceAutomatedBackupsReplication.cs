@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,14 +29,17 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var @default = new Aws.Rds.InstanceAutomatedBackupsReplication("default", new()
     ///     {
-    ///         RetentionPeriod = 14,
     ///         SourceDbInstanceArn = "arn:aws:rds:us-west-2:123456789012:db:mydatabase",
+    ///         RetentionPeriod = 14,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Encrypting the automated backup with KMS
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,15 +50,17 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var @default = new Aws.Rds.InstanceAutomatedBackupsReplication("default", new()
     ///     {
-    ///         KmsKeyId = "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
     ///         SourceDbInstanceArn = "arn:aws:rds:us-west-2:123456789012:db:mydatabase",
+    ///         KmsKeyId = "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Example including a RDS DB instance
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,18 +69,13 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var replica = new Aws.Provider("replica", new()
-    ///     {
-    ///         Region = "us-west-2",
-    ///     });
-    /// 
-    ///     var defaultInstance = new Aws.Rds.Instance("defaultInstance", new()
+    ///     var @default = new Aws.Rds.Instance("default", new()
     ///     {
     ///         AllocatedStorage = 10,
     ///         Identifier = "mydb",
     ///         Engine = "postgres",
     ///         EngineVersion = "13.4",
-    ///         InstanceClass = "db.t3.micro",
+    ///         InstanceClass = Aws.Rds.InstanceType.T3_Micro,
     ///         DbName = "mydb",
     ///         Username = "masterusername",
     ///         Password = "mustbeeightcharacters",
@@ -83,32 +84,27 @@ namespace Pulumi.Aws.Rds
     ///         SkipFinalSnapshot = true,
     ///     });
     /// 
-    ///     var defaultKey = new Aws.Kms.Key("defaultKey", new()
+    ///     var defaultKey = new Aws.Kms.Key("default", new()
     ///     {
     ///         Description = "Encryption key for automated backups",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Replica,
     ///     });
     /// 
-    ///     var defaultInstanceAutomatedBackupsReplication = new Aws.Rds.InstanceAutomatedBackupsReplication("defaultInstanceAutomatedBackupsReplication", new()
+    ///     var defaultInstanceAutomatedBackupsReplication = new Aws.Rds.InstanceAutomatedBackupsReplication("default", new()
     ///     {
-    ///         SourceDbInstanceArn = defaultInstance.Arn,
+    ///         SourceDbInstanceArn = @default.Arn,
     ///         KmsKeyId = defaultKey.Arn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Replica,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import RDS instance automated backups replication using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
+    /// $ pulumi import aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication")]

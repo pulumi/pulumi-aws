@@ -211,23 +211,26 @@ class Endpoint(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        endpoint = aws.sagemaker.Endpoint("endpoint",
-            endpoint_config_name=aws_sagemaker_endpoint_configuration["ec"]["name"],
+        e = aws.sagemaker.Endpoint("e",
+            name="my-endpoint",
+            endpoint_config_name=ec["name"],
             tags={
                 "Name": "foo",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import endpoints using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
+        $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
         ```
 
         :param str resource_name: The name of the resource.
@@ -250,23 +253,26 @@ class Endpoint(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        endpoint = aws.sagemaker.Endpoint("endpoint",
-            endpoint_config_name=aws_sagemaker_endpoint_configuration["ec"]["name"],
+        e = aws.sagemaker.Endpoint("e",
+            name="my-endpoint",
+            endpoint_config_name=ec["name"],
             tags={
                 "Name": "foo",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import endpoints using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
+        $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
         ```
 
         :param str resource_name: The name of the resource.
@@ -305,8 +311,6 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Endpoint, __self__).__init__(
             'aws:sagemaker/endpoint:Endpoint',
             resource_name,

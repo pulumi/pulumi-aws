@@ -59,19 +59,21 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisione
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder volumeThroughput(@Nullable Integer volumeThroughput) {
+
             this.volumeThroughput = volumeThroughput;
             return this;
         }
         public ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput build() {
-            final var o = new ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput();
-            o.enabled = enabled;
-            o.volumeThroughput = volumeThroughput;
-            return o;
+            final var _resultValue = new ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput();
+            _resultValue.enabled = enabled;
+            _resultValue.volumeThroughput = volumeThroughput;
+            return _resultValue;
         }
     }
 }

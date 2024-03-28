@@ -501,48 +501,56 @@ class Parameter(pulumi.CustomResource):
         > **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by the provider before. This argument has been deprecated and will be removed in v6.0.0 of the provider. For more information on how this affects the behavior of this resource, see this issue comment.
 
         ## Example Usage
+
         ### Basic example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         foo = aws.ssm.Parameter("foo",
-            type="String",
+            name="foo",
+            type=aws.ssm.ParameterType.STRING,
             value="bar")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Encrypted string using default SSM KMS key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         default = aws.rds.Instance("default",
             allocated_storage=10,
-            storage_type="gp2",
+            storage_type=aws.rds.StorageType.GP2,
             engine="mysql",
             engine_version="5.7.16",
-            instance_class="db.t2.micro",
+            instance_class=aws.rds.InstanceType.T2_MICRO,
             db_name="mydb",
             username="foo",
-            password=var["database_master_password"],
+            password=database_master_password,
             db_subnet_group_name="my_database_subnet_group",
             parameter_group_name="default.mysql5.7")
         secret = aws.ssm.Parameter("secret",
+            name="/production/database/password/master",
             description="The parameter description",
-            type="SecureString",
-            value=var["database_master_password"],
+            type=aws.ssm.ParameterType.SECURE_STRING,
+            value=database_master_password,
             tags={
                 "environment": "production",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
 
         ```sh
-         $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
+        $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
         ```
 
         :param str resource_name: The name of the resource.
@@ -576,48 +584,56 @@ class Parameter(pulumi.CustomResource):
         > **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by the provider before. This argument has been deprecated and will be removed in v6.0.0 of the provider. For more information on how this affects the behavior of this resource, see this issue comment.
 
         ## Example Usage
+
         ### Basic example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         foo = aws.ssm.Parameter("foo",
-            type="String",
+            name="foo",
+            type=aws.ssm.ParameterType.STRING,
             value="bar")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Encrypted string using default SSM KMS key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         default = aws.rds.Instance("default",
             allocated_storage=10,
-            storage_type="gp2",
+            storage_type=aws.rds.StorageType.GP2,
             engine="mysql",
             engine_version="5.7.16",
-            instance_class="db.t2.micro",
+            instance_class=aws.rds.InstanceType.T2_MICRO,
             db_name="mydb",
             username="foo",
-            password=var["database_master_password"],
+            password=database_master_password,
             db_subnet_group_name="my_database_subnet_group",
             parameter_group_name="default.mysql5.7")
         secret = aws.ssm.Parameter("secret",
+            name="/production/database/password/master",
             description="The parameter description",
-            type="SecureString",
-            value=var["database_master_password"],
+            type=aws.ssm.ParameterType.SECURE_STRING,
+            value=database_master_password,
             tags={
                 "environment": "production",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
 
         ```sh
-         $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
+        $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
         ```
 
         :param str resource_name: The name of the resource.
@@ -672,7 +688,7 @@ class Parameter(pulumi.CustomResource):
             __props__.__dict__["value"] = None if value is None else pulumi.Output.secret(value)
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["version"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll", "value"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["value"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Parameter, __self__).__init__(
             'aws:ssm/parameter:Parameter',

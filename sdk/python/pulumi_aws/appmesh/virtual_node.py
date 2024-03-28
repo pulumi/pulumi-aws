@@ -299,14 +299,17 @@ class VirtualNode(pulumi.CustomResource):
         The state associated with existing resources will automatically be migrated.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            name="serviceBv1",
+            mesh_name=simple["id"],
             spec=aws.appmesh.VirtualNodeSpecArgs(
                 backends=[aws.appmesh.VirtualNodeSpecBackendArgs(
                     virtual_service=aws.appmesh.VirtualNodeSpecBackendVirtualServiceArgs(
@@ -326,15 +329,19 @@ class VirtualNode(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### AWS Cloud Map Service Discovery
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicediscovery.HttpNamespace("example")
+        example = aws.servicediscovery.HttpNamespace("example", name="example-ns")
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            name="serviceBv1",
+            mesh_name=simple["id"],
             spec=aws.appmesh.VirtualNodeSpecArgs(
                 backends=[aws.appmesh.VirtualNodeSpecBackendArgs(
                     virtual_service=aws.appmesh.VirtualNodeSpecBackendVirtualServiceArgs(
@@ -358,14 +365,18 @@ class VirtualNode(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Listener Health Check
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            name="serviceBv1",
+            mesh_name=simple["id"],
             spec=aws.appmesh.VirtualNodeSpecArgs(
                 backends=[aws.appmesh.VirtualNodeSpecBackendArgs(
                     virtual_service=aws.appmesh.VirtualNodeSpecBackendVirtualServiceArgs(
@@ -393,14 +404,18 @@ class VirtualNode(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Logging
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            name="serviceBv1",
+            mesh_name=simple["id"],
             spec=aws.appmesh.VirtualNodeSpecArgs(
                 backends=[aws.appmesh.VirtualNodeSpecBackendArgs(
                     virtual_service=aws.appmesh.VirtualNodeSpecBackendVirtualServiceArgs(
@@ -427,13 +442,14 @@ class VirtualNode(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Mesh virtual nodes using `mesh_name` together with the virtual node's `name`. For example:
 
         ```sh
-         $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
+        $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
         ```
 
         :param str resource_name: The name of the resource.
@@ -465,14 +481,17 @@ class VirtualNode(pulumi.CustomResource):
         The state associated with existing resources will automatically be migrated.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            name="serviceBv1",
+            mesh_name=simple["id"],
             spec=aws.appmesh.VirtualNodeSpecArgs(
                 backends=[aws.appmesh.VirtualNodeSpecBackendArgs(
                     virtual_service=aws.appmesh.VirtualNodeSpecBackendVirtualServiceArgs(
@@ -492,15 +511,19 @@ class VirtualNode(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### AWS Cloud Map Service Discovery
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicediscovery.HttpNamespace("example")
+        example = aws.servicediscovery.HttpNamespace("example", name="example-ns")
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            name="serviceBv1",
+            mesh_name=simple["id"],
             spec=aws.appmesh.VirtualNodeSpecArgs(
                 backends=[aws.appmesh.VirtualNodeSpecBackendArgs(
                     virtual_service=aws.appmesh.VirtualNodeSpecBackendVirtualServiceArgs(
@@ -524,14 +547,18 @@ class VirtualNode(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Listener Health Check
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            name="serviceBv1",
+            mesh_name=simple["id"],
             spec=aws.appmesh.VirtualNodeSpecArgs(
                 backends=[aws.appmesh.VirtualNodeSpecBackendArgs(
                     virtual_service=aws.appmesh.VirtualNodeSpecBackendVirtualServiceArgs(
@@ -559,14 +586,18 @@ class VirtualNode(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Logging
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            name="serviceBv1",
+            mesh_name=simple["id"],
             spec=aws.appmesh.VirtualNodeSpecArgs(
                 backends=[aws.appmesh.VirtualNodeSpecBackendArgs(
                     virtual_service=aws.appmesh.VirtualNodeSpecBackendVirtualServiceArgs(
@@ -593,13 +624,14 @@ class VirtualNode(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Mesh virtual nodes using `mesh_name` together with the virtual node's `name`. For example:
 
         ```sh
-         $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
+        $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
         ```
 
         :param str resource_name: The name of the resource.
@@ -645,8 +677,6 @@ class VirtualNode(pulumi.CustomResource):
             __props__.__dict__["last_updated_date"] = None
             __props__.__dict__["resource_owner"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VirtualNode, __self__).__init__(
             'aws:appmesh/virtualNode:VirtualNode',
             resource_name,

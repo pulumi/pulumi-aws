@@ -22,6 +22,8 @@ import com.pulumi.aws.rds.inputs.GetInstancesArgs;
 import com.pulumi.aws.rds.inputs.GetInstancesPlainArgs;
 import com.pulumi.aws.rds.inputs.GetOrderableDbInstanceArgs;
 import com.pulumi.aws.rds.inputs.GetOrderableDbInstancePlainArgs;
+import com.pulumi.aws.rds.inputs.GetParameterGroupArgs;
+import com.pulumi.aws.rds.inputs.GetParameterGroupPlainArgs;
 import com.pulumi.aws.rds.inputs.GetProxyArgs;
 import com.pulumi.aws.rds.inputs.GetProxyPlainArgs;
 import com.pulumi.aws.rds.inputs.GetReservedInstanceOfferingArgs;
@@ -39,6 +41,7 @@ import com.pulumi.aws.rds.outputs.GetEventCategoriesResult;
 import com.pulumi.aws.rds.outputs.GetInstanceResult;
 import com.pulumi.aws.rds.outputs.GetInstancesResult;
 import com.pulumi.aws.rds.outputs.GetOrderableDbInstanceResult;
+import com.pulumi.aws.rds.outputs.GetParameterGroupResult;
 import com.pulumi.aws.rds.outputs.GetProxyResult;
 import com.pulumi.aws.rds.outputs.GetReservedInstanceOfferingResult;
 import com.pulumi.aws.rds.outputs.GetSnapshotResult;
@@ -54,6 +57,8 @@ public final class RdsFunctions {
      * Information about an RDS Certificate.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -82,6 +87,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateResult> getCertificate() {
@@ -91,6 +97,8 @@ public final class RdsFunctions {
      * Information about an RDS Certificate.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -119,6 +127,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain() {
@@ -128,6 +137,8 @@ public final class RdsFunctions {
      * Information about an RDS Certificate.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -156,6 +167,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args) {
@@ -165,6 +177,8 @@ public final class RdsFunctions {
      * Information about an RDS Certificate.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -193,6 +207,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args) {
@@ -202,6 +217,8 @@ public final class RdsFunctions {
      * Information about an RDS Certificate.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -230,6 +247,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args, InvokeOptions options) {
@@ -239,6 +257,8 @@ public final class RdsFunctions {
      * Information about an RDS Certificate.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -267,6 +287,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args, InvokeOptions options) {
@@ -276,6 +297,8 @@ public final class RdsFunctions {
      * Provides information about an RDS cluster.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -304,6 +327,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args) {
@@ -313,6 +337,8 @@ public final class RdsFunctions {
      * Provides information about an RDS cluster.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -341,6 +367,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args) {
@@ -350,6 +377,8 @@ public final class RdsFunctions {
      * Provides information about an RDS cluster.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -378,6 +407,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOptions options) {
@@ -387,6 +417,8 @@ public final class RdsFunctions {
      * Provides information about an RDS cluster.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -415,6 +447,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args, InvokeOptions options) {
@@ -427,6 +460,8 @@ public final class RdsFunctions {
      * See the `aws.rds.Snapshot` data source for DB Instance snapshots.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -457,14 +492,14 @@ public final class RdsFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
-     *         var auroraCluster = new Cluster(&#34;auroraCluster&#34;, ClusterArgs.builder()        
+     *         var aurora = new Cluster(&#34;aurora&#34;, ClusterArgs.builder()        
      *             .clusterIdentifier(&#34;development_cluster&#34;)
      *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance(&#34;auroraClusterInstance&#34;, ClusterInstanceArgs.builder()        
-     *             .clusterIdentifier(auroraCluster.id())
+     *             .clusterIdentifier(aurora.id())
      *             .instanceClass(&#34;db.t2.small&#34;)
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
@@ -472,6 +507,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterSnapshotResult> getClusterSnapshot() {
@@ -484,6 +520,8 @@ public final class RdsFunctions {
      * See the `aws.rds.Snapshot` data source for DB Instance snapshots.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -514,14 +552,14 @@ public final class RdsFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
-     *         var auroraCluster = new Cluster(&#34;auroraCluster&#34;, ClusterArgs.builder()        
+     *         var aurora = new Cluster(&#34;aurora&#34;, ClusterArgs.builder()        
      *             .clusterIdentifier(&#34;development_cluster&#34;)
      *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance(&#34;auroraClusterInstance&#34;, ClusterInstanceArgs.builder()        
-     *             .clusterIdentifier(auroraCluster.id())
+     *             .clusterIdentifier(aurora.id())
      *             .instanceClass(&#34;db.t2.small&#34;)
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
@@ -529,6 +567,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterSnapshotResult> getClusterSnapshotPlain() {
@@ -541,6 +580,8 @@ public final class RdsFunctions {
      * See the `aws.rds.Snapshot` data source for DB Instance snapshots.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -571,14 +612,14 @@ public final class RdsFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
-     *         var auroraCluster = new Cluster(&#34;auroraCluster&#34;, ClusterArgs.builder()        
+     *         var aurora = new Cluster(&#34;aurora&#34;, ClusterArgs.builder()        
      *             .clusterIdentifier(&#34;development_cluster&#34;)
      *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance(&#34;auroraClusterInstance&#34;, ClusterInstanceArgs.builder()        
-     *             .clusterIdentifier(auroraCluster.id())
+     *             .clusterIdentifier(aurora.id())
      *             .instanceClass(&#34;db.t2.small&#34;)
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
@@ -586,6 +627,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterSnapshotResult> getClusterSnapshot(GetClusterSnapshotArgs args) {
@@ -598,6 +640,8 @@ public final class RdsFunctions {
      * See the `aws.rds.Snapshot` data source for DB Instance snapshots.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -628,14 +672,14 @@ public final class RdsFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
-     *         var auroraCluster = new Cluster(&#34;auroraCluster&#34;, ClusterArgs.builder()        
+     *         var aurora = new Cluster(&#34;aurora&#34;, ClusterArgs.builder()        
      *             .clusterIdentifier(&#34;development_cluster&#34;)
      *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance(&#34;auroraClusterInstance&#34;, ClusterInstanceArgs.builder()        
-     *             .clusterIdentifier(auroraCluster.id())
+     *             .clusterIdentifier(aurora.id())
      *             .instanceClass(&#34;db.t2.small&#34;)
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
@@ -643,6 +687,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterSnapshotResult> getClusterSnapshotPlain(GetClusterSnapshotPlainArgs args) {
@@ -655,6 +700,8 @@ public final class RdsFunctions {
      * See the `aws.rds.Snapshot` data source for DB Instance snapshots.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -685,14 +732,14 @@ public final class RdsFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
-     *         var auroraCluster = new Cluster(&#34;auroraCluster&#34;, ClusterArgs.builder()        
+     *         var aurora = new Cluster(&#34;aurora&#34;, ClusterArgs.builder()        
      *             .clusterIdentifier(&#34;development_cluster&#34;)
      *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance(&#34;auroraClusterInstance&#34;, ClusterInstanceArgs.builder()        
-     *             .clusterIdentifier(auroraCluster.id())
+     *             .clusterIdentifier(aurora.id())
      *             .instanceClass(&#34;db.t2.small&#34;)
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
@@ -700,6 +747,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterSnapshotResult> getClusterSnapshot(GetClusterSnapshotArgs args, InvokeOptions options) {
@@ -712,6 +760,8 @@ public final class RdsFunctions {
      * See the `aws.rds.Snapshot` data source for DB Instance snapshots.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -742,14 +792,14 @@ public final class RdsFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
-     *         var auroraCluster = new Cluster(&#34;auroraCluster&#34;, ClusterArgs.builder()        
+     *         var aurora = new Cluster(&#34;aurora&#34;, ClusterArgs.builder()        
      *             .clusterIdentifier(&#34;development_cluster&#34;)
      *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance(&#34;auroraClusterInstance&#34;, ClusterInstanceArgs.builder()        
-     *             .clusterIdentifier(auroraCluster.id())
+     *             .clusterIdentifier(aurora.id())
      *             .instanceClass(&#34;db.t2.small&#34;)
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
@@ -757,6 +807,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterSnapshotResult> getClusterSnapshotPlain(GetClusterSnapshotPlainArgs args, InvokeOptions options) {
@@ -766,7 +817,10 @@ public final class RdsFunctions {
      * Data source for managing an AWS RDS (Relational Database) Clusters.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -798,6 +852,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClustersResult> getClusters() {
@@ -807,7 +862,10 @@ public final class RdsFunctions {
      * Data source for managing an AWS RDS (Relational Database) Clusters.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -839,6 +897,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClustersResult> getClustersPlain() {
@@ -848,7 +907,10 @@ public final class RdsFunctions {
      * Data source for managing an AWS RDS (Relational Database) Clusters.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -880,6 +942,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClustersResult> getClusters(GetClustersArgs args) {
@@ -889,7 +952,10 @@ public final class RdsFunctions {
      * Data source for managing an AWS RDS (Relational Database) Clusters.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -921,6 +987,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClustersResult> getClustersPlain(GetClustersPlainArgs args) {
@@ -930,7 +997,10 @@ public final class RdsFunctions {
      * Data source for managing an AWS RDS (Relational Database) Clusters.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -962,6 +1032,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClustersResult> getClusters(GetClustersArgs args, InvokeOptions options) {
@@ -971,7 +1042,10 @@ public final class RdsFunctions {
      * Data source for managing an AWS RDS (Relational Database) Clusters.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1003,6 +1077,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClustersResult> getClustersPlain(GetClustersPlainArgs args, InvokeOptions options) {
@@ -1012,7 +1087,10 @@ public final class RdsFunctions {
      * Information about an RDS engine version.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1044,7 +1122,11 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With `filter`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1068,17 +1150,18 @@ public final class RdsFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .engine(&#34;aurora-postgresql&#34;)
+     *             .version(&#34;10.14&#34;)
+     *             .includeAll(true)
      *             .filters(GetEngineVersionFilterArgs.builder()
      *                 .name(&#34;engine-mode&#34;)
      *                 .values(&#34;serverless&#34;)
      *                 .build())
-     *             .includeAll(true)
-     *             .version(&#34;10.14&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEngineVersionResult> getEngineVersion(GetEngineVersionArgs args) {
@@ -1088,7 +1171,10 @@ public final class RdsFunctions {
      * Information about an RDS engine version.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1120,7 +1206,11 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With `filter`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1144,17 +1234,18 @@ public final class RdsFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .engine(&#34;aurora-postgresql&#34;)
+     *             .version(&#34;10.14&#34;)
+     *             .includeAll(true)
      *             .filters(GetEngineVersionFilterArgs.builder()
      *                 .name(&#34;engine-mode&#34;)
      *                 .values(&#34;serverless&#34;)
      *                 .build())
-     *             .includeAll(true)
-     *             .version(&#34;10.14&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEngineVersionResult> getEngineVersionPlain(GetEngineVersionPlainArgs args) {
@@ -1164,7 +1255,10 @@ public final class RdsFunctions {
      * Information about an RDS engine version.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1196,7 +1290,11 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With `filter`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1220,17 +1318,18 @@ public final class RdsFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .engine(&#34;aurora-postgresql&#34;)
+     *             .version(&#34;10.14&#34;)
+     *             .includeAll(true)
      *             .filters(GetEngineVersionFilterArgs.builder()
      *                 .name(&#34;engine-mode&#34;)
      *                 .values(&#34;serverless&#34;)
      *                 .build())
-     *             .includeAll(true)
-     *             .version(&#34;10.14&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEngineVersionResult> getEngineVersion(GetEngineVersionArgs args, InvokeOptions options) {
@@ -1240,7 +1339,10 @@ public final class RdsFunctions {
      * Information about an RDS engine version.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1272,7 +1374,11 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With `filter`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1296,17 +1402,18 @@ public final class RdsFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .engine(&#34;aurora-postgresql&#34;)
+     *             .version(&#34;10.14&#34;)
+     *             .includeAll(true)
      *             .filters(GetEngineVersionFilterArgs.builder()
      *                 .name(&#34;engine-mode&#34;)
      *                 .values(&#34;serverless&#34;)
      *                 .build())
-     *             .includeAll(true)
-     *             .version(&#34;10.14&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEngineVersionResult> getEngineVersionPlain(GetEngineVersionPlainArgs args, InvokeOptions options) {
@@ -1316,6 +1423,8 @@ public final class RdsFunctions {
      * ## Example Usage
      * 
      * List the event categories of all the RDS resources.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1337,14 +1446,17 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = RdsFunctions.getEventCategories();
+     *         final var example = RdsFunctions.getEventCategories();
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * List the event categories specific to the RDS resource `db-snapshot`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1366,14 +1478,15 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *         final var example = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
      *             .sourceType(&#34;db-snapshot&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEventCategoriesResult> getEventCategories() {
@@ -1383,6 +1496,8 @@ public final class RdsFunctions {
      * ## Example Usage
      * 
      * List the event categories of all the RDS resources.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1404,14 +1519,17 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = RdsFunctions.getEventCategories();
+     *         final var example = RdsFunctions.getEventCategories();
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * List the event categories specific to the RDS resource `db-snapshot`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1433,14 +1551,15 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *         final var example = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
      *             .sourceType(&#34;db-snapshot&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEventCategoriesResult> getEventCategoriesPlain() {
@@ -1450,6 +1569,8 @@ public final class RdsFunctions {
      * ## Example Usage
      * 
      * List the event categories of all the RDS resources.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1471,14 +1592,17 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = RdsFunctions.getEventCategories();
+     *         final var example = RdsFunctions.getEventCategories();
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * List the event categories specific to the RDS resource `db-snapshot`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1500,14 +1624,15 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *         final var example = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
      *             .sourceType(&#34;db-snapshot&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEventCategoriesResult> getEventCategories(GetEventCategoriesArgs args) {
@@ -1517,6 +1642,8 @@ public final class RdsFunctions {
      * ## Example Usage
      * 
      * List the event categories of all the RDS resources.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1538,14 +1665,17 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = RdsFunctions.getEventCategories();
+     *         final var example = RdsFunctions.getEventCategories();
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * List the event categories specific to the RDS resource `db-snapshot`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1567,14 +1697,15 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *         final var example = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
      *             .sourceType(&#34;db-snapshot&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEventCategoriesResult> getEventCategoriesPlain(GetEventCategoriesPlainArgs args) {
@@ -1584,6 +1715,8 @@ public final class RdsFunctions {
      * ## Example Usage
      * 
      * List the event categories of all the RDS resources.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1605,14 +1738,17 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = RdsFunctions.getEventCategories();
+     *         final var example = RdsFunctions.getEventCategories();
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * List the event categories specific to the RDS resource `db-snapshot`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1634,14 +1770,15 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *         final var example = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
      *             .sourceType(&#34;db-snapshot&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEventCategoriesResult> getEventCategories(GetEventCategoriesArgs args, InvokeOptions options) {
@@ -1651,6 +1788,8 @@ public final class RdsFunctions {
      * ## Example Usage
      * 
      * List the event categories of all the RDS resources.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1672,14 +1811,17 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = RdsFunctions.getEventCategories();
+     *         final var example = RdsFunctions.getEventCategories();
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * List the event categories specific to the RDS resource `db-snapshot`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1701,14 +1843,15 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *         final var example = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
      *             .sourceType(&#34;db-snapshot&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEventCategoriesResult> getEventCategoriesPlain(GetEventCategoriesPlainArgs args, InvokeOptions options) {
@@ -1718,6 +1861,8 @@ public final class RdsFunctions {
      * Use this data source to get information about an RDS instance
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1746,6 +1891,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInstanceResult> getInstance() {
@@ -1755,6 +1901,8 @@ public final class RdsFunctions {
      * Use this data source to get information about an RDS instance
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1783,6 +1931,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInstanceResult> getInstancePlain() {
@@ -1792,6 +1941,8 @@ public final class RdsFunctions {
      * Use this data source to get information about an RDS instance
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1820,6 +1971,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInstanceResult> getInstance(GetInstanceArgs args) {
@@ -1829,6 +1981,8 @@ public final class RdsFunctions {
      * Use this data source to get information about an RDS instance
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1857,6 +2011,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInstanceResult> getInstancePlain(GetInstancePlainArgs args) {
@@ -1866,6 +2021,8 @@ public final class RdsFunctions {
      * Use this data source to get information about an RDS instance
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1894,6 +2051,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInstanceResult> getInstance(GetInstanceArgs args, InvokeOptions options) {
@@ -1903,6 +2061,8 @@ public final class RdsFunctions {
      * Use this data source to get information about an RDS instance
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1931,6 +2091,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInstanceResult> getInstancePlain(GetInstancePlainArgs args, InvokeOptions options) {
@@ -1940,7 +2101,10 @@ public final class RdsFunctions {
      * Data source for listing RDS Database Instances.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1972,7 +2136,11 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Using tags
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2001,6 +2169,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInstancesResult> getInstances() {
@@ -2010,7 +2179,10 @@ public final class RdsFunctions {
      * Data source for listing RDS Database Instances.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2042,7 +2214,11 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Using tags
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2071,6 +2247,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain() {
@@ -2080,7 +2257,10 @@ public final class RdsFunctions {
      * Data source for listing RDS Database Instances.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2112,7 +2292,11 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Using tags
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2141,6 +2325,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInstancesResult> getInstances(GetInstancesArgs args) {
@@ -2150,7 +2335,10 @@ public final class RdsFunctions {
      * Data source for listing RDS Database Instances.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2182,7 +2370,11 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Using tags
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2211,6 +2403,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain(GetInstancesPlainArgs args) {
@@ -2220,7 +2413,10 @@ public final class RdsFunctions {
      * Data source for listing RDS Database Instances.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2252,7 +2448,11 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Using tags
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2281,6 +2481,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInstancesResult> getInstances(GetInstancesArgs args, InvokeOptions options) {
@@ -2290,7 +2491,10 @@ public final class RdsFunctions {
      * Data source for listing RDS Database Instances.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2322,7 +2526,11 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Using tags
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2351,6 +2559,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain(GetInstancesPlainArgs args, InvokeOptions options) {
@@ -2360,6 +2569,8 @@ public final class RdsFunctions {
      * Information about RDS orderable DB instances and valid parameter combinations.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2385,18 +2596,21 @@ public final class RdsFunctions {
      *             .engine(&#34;mysql&#34;)
      *             .engineVersion(&#34;5.7.22&#34;)
      *             .licenseModel(&#34;general-public-license&#34;)
+     *             .storageType(&#34;standard&#34;)
      *             .preferredInstanceClasses(            
      *                 &#34;db.r6.xlarge&#34;,
      *                 &#34;db.m4.large&#34;,
      *                 &#34;db.t3.small&#34;)
-     *             .storageType(&#34;standard&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2434,6 +2648,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrderableDbInstanceResult> getOrderableDbInstance(GetOrderableDbInstanceArgs args) {
@@ -2443,6 +2658,8 @@ public final class RdsFunctions {
      * Information about RDS orderable DB instances and valid parameter combinations.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2468,18 +2685,21 @@ public final class RdsFunctions {
      *             .engine(&#34;mysql&#34;)
      *             .engineVersion(&#34;5.7.22&#34;)
      *             .licenseModel(&#34;general-public-license&#34;)
+     *             .storageType(&#34;standard&#34;)
      *             .preferredInstanceClasses(            
      *                 &#34;db.r6.xlarge&#34;,
      *                 &#34;db.m4.large&#34;,
      *                 &#34;db.t3.small&#34;)
-     *             .storageType(&#34;standard&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2517,6 +2737,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrderableDbInstanceResult> getOrderableDbInstancePlain(GetOrderableDbInstancePlainArgs args) {
@@ -2526,6 +2747,8 @@ public final class RdsFunctions {
      * Information about RDS orderable DB instances and valid parameter combinations.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2551,18 +2774,21 @@ public final class RdsFunctions {
      *             .engine(&#34;mysql&#34;)
      *             .engineVersion(&#34;5.7.22&#34;)
      *             .licenseModel(&#34;general-public-license&#34;)
+     *             .storageType(&#34;standard&#34;)
      *             .preferredInstanceClasses(            
      *                 &#34;db.r6.xlarge&#34;,
      *                 &#34;db.m4.large&#34;,
      *                 &#34;db.t3.small&#34;)
-     *             .storageType(&#34;standard&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2600,6 +2826,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrderableDbInstanceResult> getOrderableDbInstance(GetOrderableDbInstanceArgs args, InvokeOptions options) {
@@ -2609,6 +2836,8 @@ public final class RdsFunctions {
      * Information about RDS orderable DB instances and valid parameter combinations.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2634,18 +2863,21 @@ public final class RdsFunctions {
      *             .engine(&#34;mysql&#34;)
      *             .engineVersion(&#34;5.7.22&#34;)
      *             .licenseModel(&#34;general-public-license&#34;)
+     *             .storageType(&#34;standard&#34;)
      *             .preferredInstanceClasses(            
      *                 &#34;db.r6.xlarge&#34;,
      *                 &#34;db.m4.large&#34;,
      *                 &#34;db.t3.small&#34;)
-     *             .storageType(&#34;standard&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2683,15 +2915,178 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrderableDbInstanceResult> getOrderableDbInstancePlain(GetOrderableDbInstancePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:rds/getOrderableDbInstance:getOrderableDbInstance", TypeShape.of(GetOrderableDbInstanceResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Information about a database parameter group.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetParameterGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RdsFunctions.getParameterGroup(GetParameterGroupArgs.builder()
+     *             .name(&#34;default.postgres15&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetParameterGroupResult> getParameterGroup(GetParameterGroupArgs args) {
+        return getParameterGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Information about a database parameter group.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetParameterGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RdsFunctions.getParameterGroup(GetParameterGroupArgs.builder()
+     *             .name(&#34;default.postgres15&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetParameterGroupResult> getParameterGroupPlain(GetParameterGroupPlainArgs args) {
+        return getParameterGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Information about a database parameter group.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetParameterGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RdsFunctions.getParameterGroup(GetParameterGroupArgs.builder()
+     *             .name(&#34;default.postgres15&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetParameterGroupResult> getParameterGroup(GetParameterGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:rds/getParameterGroup:getParameterGroup", TypeShape.of(GetParameterGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Information about a database parameter group.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetParameterGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RdsFunctions.getParameterGroup(GetParameterGroupArgs.builder()
+     *             .name(&#34;default.postgres15&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetParameterGroupResult> getParameterGroupPlain(GetParameterGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:rds/getParameterGroup:getParameterGroup", TypeShape.of(GetParameterGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to get information about a DB Proxy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2720,6 +3115,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetProxyResult> getProxy(GetProxyArgs args) {
@@ -2729,6 +3125,8 @@ public final class RdsFunctions {
      * Use this data source to get information about a DB Proxy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2757,6 +3155,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetProxyResult> getProxyPlain(GetProxyPlainArgs args) {
@@ -2766,6 +3165,8 @@ public final class RdsFunctions {
      * Use this data source to get information about a DB Proxy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2794,6 +3195,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetProxyResult> getProxy(GetProxyArgs args, InvokeOptions options) {
@@ -2803,6 +3205,8 @@ public final class RdsFunctions {
      * Use this data source to get information about a DB Proxy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2831,6 +3235,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetProxyResult> getProxyPlain(GetProxyPlainArgs args, InvokeOptions options) {
@@ -2840,6 +3245,8 @@ public final class RdsFunctions {
      * Information about a single RDS Reserved Instance Offering.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2872,6 +3279,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReservedInstanceOfferingResult> getReservedInstanceOffering(GetReservedInstanceOfferingArgs args) {
@@ -2881,6 +3289,8 @@ public final class RdsFunctions {
      * Information about a single RDS Reserved Instance Offering.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2913,6 +3323,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReservedInstanceOfferingResult> getReservedInstanceOfferingPlain(GetReservedInstanceOfferingPlainArgs args) {
@@ -2922,6 +3333,8 @@ public final class RdsFunctions {
      * Information about a single RDS Reserved Instance Offering.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2954,6 +3367,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReservedInstanceOfferingResult> getReservedInstanceOffering(GetReservedInstanceOfferingArgs args, InvokeOptions options) {
@@ -2963,6 +3377,8 @@ public final class RdsFunctions {
      * Information about a single RDS Reserved Instance Offering.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2995,6 +3411,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReservedInstanceOfferingResult> getReservedInstanceOfferingPlain(GetReservedInstanceOfferingPlainArgs args, InvokeOptions options) {
@@ -3007,6 +3424,8 @@ public final class RdsFunctions {
      * See the `aws.rds.ClusterSnapshot` data source for DB Cluster snapshots.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3056,6 +3475,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSnapshotResult> getSnapshot() {
@@ -3068,6 +3488,8 @@ public final class RdsFunctions {
      * See the `aws.rds.ClusterSnapshot` data source for DB Cluster snapshots.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3117,6 +3539,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSnapshotResult> getSnapshotPlain() {
@@ -3129,6 +3552,8 @@ public final class RdsFunctions {
      * See the `aws.rds.ClusterSnapshot` data source for DB Cluster snapshots.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3178,6 +3603,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args) {
@@ -3190,6 +3616,8 @@ public final class RdsFunctions {
      * See the `aws.rds.ClusterSnapshot` data source for DB Cluster snapshots.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3239,6 +3667,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSnapshotResult> getSnapshotPlain(GetSnapshotPlainArgs args) {
@@ -3251,6 +3680,8 @@ public final class RdsFunctions {
      * See the `aws.rds.ClusterSnapshot` data source for DB Cluster snapshots.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3300,6 +3731,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args, InvokeOptions options) {
@@ -3312,6 +3744,8 @@ public final class RdsFunctions {
      * See the `aws.rds.ClusterSnapshot` data source for DB Cluster snapshots.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3361,6 +3795,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSnapshotResult> getSnapshotPlain(GetSnapshotPlainArgs args, InvokeOptions options) {
@@ -3370,6 +3805,8 @@ public final class RdsFunctions {
      * Use this data source to get information about an RDS subnet group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3398,6 +3835,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSubnetGroupResult> getSubnetGroup(GetSubnetGroupArgs args) {
@@ -3407,6 +3845,8 @@ public final class RdsFunctions {
      * Use this data source to get information about an RDS subnet group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3435,6 +3875,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSubnetGroupResult> getSubnetGroupPlain(GetSubnetGroupPlainArgs args) {
@@ -3444,6 +3885,8 @@ public final class RdsFunctions {
      * Use this data source to get information about an RDS subnet group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3472,6 +3915,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSubnetGroupResult> getSubnetGroup(GetSubnetGroupArgs args, InvokeOptions options) {
@@ -3481,6 +3925,8 @@ public final class RdsFunctions {
      * Use this data source to get information about an RDS subnet group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3509,6 +3955,7 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSubnetGroupResult> getSubnetGroupPlain(GetSubnetGroupPlainArgs args, InvokeOptions options) {

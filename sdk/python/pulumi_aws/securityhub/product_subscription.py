@@ -238,22 +238,23 @@ class ProductSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
+        example = aws.securityhub.Account("example")
         current = aws.get_region()
-        example_product_subscription = aws.securityhub.ProductSubscription("exampleProductSubscription", product_arn=f"arn:aws:securityhub:{current.name}:733251395267:product/alertlogic/althreatmanagement",
-        opts=pulumi.ResourceOptions(depends_on=[example_account]))
+        example_product_subscription = aws.securityhub.ProductSubscription("example", product_arn=f"arn:aws:securityhub:{current.name}:733251395267:product/alertlogic/althreatmanagement")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Security Hub product subscriptions using `product_arn,arn`. For example:
 
         ```sh
-         $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
+        $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
         ```
 
         :param str resource_name: The name of the resource.
@@ -309,22 +310,23 @@ class ProductSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
+        example = aws.securityhub.Account("example")
         current = aws.get_region()
-        example_product_subscription = aws.securityhub.ProductSubscription("exampleProductSubscription", product_arn=f"arn:aws:securityhub:{current.name}:733251395267:product/alertlogic/althreatmanagement",
-        opts=pulumi.ResourceOptions(depends_on=[example_account]))
+        example_product_subscription = aws.securityhub.ProductSubscription("example", product_arn=f"arn:aws:securityhub:{current.name}:733251395267:product/alertlogic/althreatmanagement")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Security Hub product subscriptions using `product_arn,arn`. For example:
 
         ```sh
-         $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
+        $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
         ```
 
         :param str resource_name: The name of the resource.

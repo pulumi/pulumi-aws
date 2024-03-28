@@ -8,16 +8,19 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS DMS (Database Migration) Certificate.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.dms.getCertificate({
- *     certificateId: aws_dms_certificate.test.certificate_id,
+ *     certificateId: test.certificateId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
 
@@ -90,16 +93,19 @@ export interface GetCertificateResult {
  * Data source for managing an AWS DMS (Database Migration) Certificate.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.dms.getCertificate({
- *     certificateId: aws_dms_certificate.test.certificate_id,
+ *     certificateId: test.certificateId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
     return pulumi.output(args).apply((a: any) => getCertificate(a, opts))

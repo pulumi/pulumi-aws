@@ -13,14 +13,23 @@ import * as utilities from "../utilities";
  * > **Note:** Config Rule requires an existing Configuration Recorder to be present. Use of `dependsOn` is recommended (as shown below) to avoid race conditions.
  *
  * ## Example Usage
+ *
  * ### AWS Managed Rules
  *
  * AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * const r = new aws.cfg.Rule("r", {
+ *     name: "example",
+ *     source: {
+ *         owner: "AWS",
+ *         sourceIdentifier: "S3_BUCKET_VERSIONING_ENABLED",
+ *     },
+ * });
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -31,68 +40,70 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const role = new aws.iam.Role("role", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const foo = new aws.cfg.Recorder("foo", {roleArn: role.arn});
- * const rule = new aws.cfg.Rule("rule", {source: {
- *     owner: "AWS",
- *     sourceIdentifier: "S3_BUCKET_VERSIONING_ENABLED",
- * }}, {
- *     dependsOn: [foo],
+ * const rRole = new aws.iam.Role("r", {
+ *     name: "my-awsconfig-role",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
- * const policyDocument = aws.iam.getPolicyDocument({
+ * const foo = new aws.cfg.Recorder("foo", {
+ *     name: "example",
+ *     roleArn: rRole.arn,
+ * });
+ * const p = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: ["config:Put*"],
  *         resources: ["*"],
  *     }],
  * });
- * const rolePolicy = new aws.iam.RolePolicy("rolePolicy", {
- *     role: role.id,
- *     policy: policyDocument.then(policyDocument => policyDocument.json),
+ * const pRolePolicy = new aws.iam.RolePolicy("p", {
+ *     name: "my-awsconfig-policy",
+ *     role: rRole.id,
+ *     policy: p.then(p => p.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Custom Rules
  *
  * Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g., via the `aws.lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRecorder = new aws.cfg.Recorder("exampleRecorder", {});
- * // ... other configuration ...
- * const exampleFunction = new aws.lambda.Function("exampleFunction", {});
- * // ... other configuration ...
- * const examplePermission = new aws.lambda.Permission("examplePermission", {
+ * const example = new aws.cfg.Recorder("example", {});
+ * const exampleFunction = new aws.lambda.Function("example", {});
+ * const examplePermission = new aws.lambda.Permission("example", {
  *     action: "lambda:InvokeFunction",
  *     "function": exampleFunction.arn,
  *     principal: "config.amazonaws.com",
+ *     statementId: "AllowExecutionFromConfig",
  * });
- * // ... other configuration ...
- * const exampleRule = new aws.cfg.Rule("exampleRule", {source: {
+ * const exampleRule = new aws.cfg.Rule("example", {source: {
  *     owner: "CUSTOM_LAMBDA",
  *     sourceIdentifier: exampleFunction.arn,
- * }}, {
- *     dependsOn: [
- *         exampleRecorder,
- *         examplePermission,
- *     ],
- * });
+ * }});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Custom Policies
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cfg.Rule("example", {source: {
- *     owner: "CUSTOM_POLICY",
- *     sourceDetails: [{
- *         messageType: "ConfigurationItemChangeNotification",
- *     }],
- *     customPolicyDetails: {
- *         policyRuntime: "guard-2.x.x",
- *         policyText: `	  rule tableisactive when
+ * const example = new aws.cfg.Rule("example", {
+ *     name: "example",
+ *     source: {
+ *         owner: "CUSTOM_POLICY",
+ *         sourceDetails: [{
+ *             messageType: "ConfigurationItemChangeNotification",
+ *         }],
+ *         customPolicyDetails: {
+ *             policyRuntime: "guard-2.x.x",
+ *             policyText: `	  rule tableisactive when
  * 		  resourceType == "AWS::DynamoDB::Table" {
  * 		  configuration.tableStatus == ['ACTIVE']
  * 	  }
@@ -103,16 +114,18 @@ import * as utilities from "../utilities";
  * 			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
  * 	  }
  * `,
+ *         },
  *     },
- * }});
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Config Rule using the name. For example:
  *
  * ```sh
- *  $ pulumi import aws:cfg/rule:Rule foo example
+ * $ pulumi import aws:cfg/rule:Rule foo example
  * ```
  */
 export class Rule extends pulumi.CustomResource {
@@ -172,11 +185,11 @@ export class Rule extends pulumi.CustomResource {
      */
     public /*out*/ readonly ruleId!: pulumi.Output<string>;
     /**
-     * Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+     * Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
      */
     public readonly scope!: pulumi.Output<outputs.cfg.RuleScope | undefined>;
     /**
-     * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+     * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
      */
     public readonly source!: pulumi.Output<outputs.cfg.RuleSource>;
     /**
@@ -232,8 +245,6 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Rule.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -271,11 +282,11 @@ export interface RuleState {
      */
     ruleId?: pulumi.Input<string>;
     /**
-     * Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+     * Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
      */
     scope?: pulumi.Input<inputs.cfg.RuleScope>;
     /**
-     * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+     * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
      */
     source?: pulumi.Input<inputs.cfg.RuleSource>;
     /**
@@ -315,11 +326,11 @@ export interface RuleArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+     * Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
      */
     scope?: pulumi.Input<inputs.cfg.RuleScope>;
     /**
-     * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+     * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
      */
     source: pulumi.Input<inputs.cfg.RuleSource>;
     /**

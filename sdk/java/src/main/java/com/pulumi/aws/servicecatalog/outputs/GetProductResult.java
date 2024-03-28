@@ -4,6 +4,7 @@
 package com.pulumi.aws.servicecatalog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -226,97 +227,140 @@ public final class GetProductResult {
 
         @CustomType.Setter
         public Builder acceptLanguage(@Nullable String acceptLanguage) {
+
             this.acceptLanguage = acceptLanguage;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder createdTime(String createdTime) {
-            this.createdTime = Objects.requireNonNull(createdTime);
+            if (createdTime == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "createdTime");
+            }
+            this.createdTime = createdTime;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder distributor(String distributor) {
-            this.distributor = Objects.requireNonNull(distributor);
+            if (distributor == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "distributor");
+            }
+            this.distributor = distributor;
             return this;
         }
         @CustomType.Setter
         public Builder hasDefaultPath(Boolean hasDefaultPath) {
-            this.hasDefaultPath = Objects.requireNonNull(hasDefaultPath);
+            if (hasDefaultPath == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "hasDefaultPath");
+            }
+            this.hasDefaultPath = hasDefaultPath;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+            if (owner == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "owner");
+            }
+            this.owner = owner;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder supportDescription(String supportDescription) {
-            this.supportDescription = Objects.requireNonNull(supportDescription);
+            if (supportDescription == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "supportDescription");
+            }
+            this.supportDescription = supportDescription;
             return this;
         }
         @CustomType.Setter
         public Builder supportEmail(String supportEmail) {
-            this.supportEmail = Objects.requireNonNull(supportEmail);
+            if (supportEmail == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "supportEmail");
+            }
+            this.supportEmail = supportEmail;
             return this;
         }
         @CustomType.Setter
         public Builder supportUrl(String supportUrl) {
-            this.supportUrl = Objects.requireNonNull(supportUrl);
+            if (supportUrl == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "supportUrl");
+            }
+            this.supportUrl = supportUrl;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetProductResult build() {
-            final var o = new GetProductResult();
-            o.acceptLanguage = acceptLanguage;
-            o.arn = arn;
-            o.createdTime = createdTime;
-            o.description = description;
-            o.distributor = distributor;
-            o.hasDefaultPath = hasDefaultPath;
-            o.id = id;
-            o.name = name;
-            o.owner = owner;
-            o.status = status;
-            o.supportDescription = supportDescription;
-            o.supportEmail = supportEmail;
-            o.supportUrl = supportUrl;
-            o.tags = tags;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetProductResult();
+            _resultValue.acceptLanguage = acceptLanguage;
+            _resultValue.arn = arn;
+            _resultValue.createdTime = createdTime;
+            _resultValue.description = description;
+            _resultValue.distributor = distributor;
+            _resultValue.hasDefaultPath = hasDefaultPath;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.owner = owner;
+            _resultValue.status = status;
+            _resultValue.supportDescription = supportDescription;
+            _resultValue.supportEmail = supportEmail;
+            _resultValue.supportUrl = supportUrl;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

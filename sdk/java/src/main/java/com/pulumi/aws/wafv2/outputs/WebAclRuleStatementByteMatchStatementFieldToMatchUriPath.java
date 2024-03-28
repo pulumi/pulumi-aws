@@ -25,8 +25,8 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchUriPath {
         }
 
         public WebAclRuleStatementByteMatchStatementFieldToMatchUriPath build() {
-            final var o = new WebAclRuleStatementByteMatchStatementFieldToMatchUriPath();
-            return o;
+            final var _resultValue = new WebAclRuleStatementByteMatchStatementFieldToMatchUriPath();
+            return _resultValue;
         }
     }
 }

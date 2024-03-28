@@ -11,19 +11,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const developers = new aws.iam.Group("developers", {path: "/users/"});
+ * const developers = new aws.iam.Group("developers", {
+ *     name: "developers",
+ *     path: "/users/",
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IAM Groups using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:iam/group:Group developers developers
+ * $ pulumi import aws:iam/group:Group developers developers
  * ```
  */
 export class Group extends pulumi.CustomResource {

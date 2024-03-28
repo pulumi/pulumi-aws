@@ -260,13 +260,16 @@ class ConformancePack(pulumi.CustomResource):
         `cfg.Recorder` resource.
 
         ## Example Usage
+
         ### Template Body
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cfg.ConformancePack("example",
+            name="example",
             input_parameters=[aws.cfg.ConformancePackInputParameterArgs(
                 parameter_name="AccessKeysRotatedParameterMaxAccessKeyAge",
                 parameter_value="90",
@@ -282,17 +285,19 @@ class ConformancePack(pulumi.CustomResource):
                 Owner: AWS
                 SourceIdentifier: IAM_PASSWORD_POLICY
             Type: AWS::Config::ConfigRule
-        \"\"\",
-            opts=pulumi.ResourceOptions(depends_on=[aws_config_configuration_recorder["example"]]))
+        \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Template S3 URI
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
             bucket=example_bucket_v2.id,
             key="example-key",
             content=\"\"\"Resources:
@@ -304,16 +309,18 @@ class ConformancePack(pulumi.CustomResource):
                 SourceIdentifier: IAM_PASSWORD_POLICY
             Type: AWS::Config::ConfigRule
         \"\"\")
-        example_conformance_pack = aws.cfg.ConformancePack("exampleConformancePack", template_s3_uri=pulumi.Output.all(example_bucket_v2.bucket, example_bucket_objectv2.key).apply(lambda bucket, key: f"s3://{bucket}/{key}"),
-        opts=pulumi.ResourceOptions(depends_on=[aws_config_configuration_recorder["example"]]))
+        example = aws.cfg.ConformancePack("example",
+            name="example",
+            template_s3_uri=pulumi.Output.all(example_bucket_v2.bucket, example_bucket_objectv2.key).apply(lambda bucket, key: f"s3://{bucket}/{key}"))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Config Conformance Packs using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cfg/conformancePack:ConformancePack example example
+        $ pulumi import aws:cfg/conformancePack:ConformancePack example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -342,13 +349,16 @@ class ConformancePack(pulumi.CustomResource):
         `cfg.Recorder` resource.
 
         ## Example Usage
+
         ### Template Body
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cfg.ConformancePack("example",
+            name="example",
             input_parameters=[aws.cfg.ConformancePackInputParameterArgs(
                 parameter_name="AccessKeysRotatedParameterMaxAccessKeyAge",
                 parameter_value="90",
@@ -364,17 +374,19 @@ class ConformancePack(pulumi.CustomResource):
                 Owner: AWS
                 SourceIdentifier: IAM_PASSWORD_POLICY
             Type: AWS::Config::ConfigRule
-        \"\"\",
-            opts=pulumi.ResourceOptions(depends_on=[aws_config_configuration_recorder["example"]]))
+        \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Template S3 URI
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
             bucket=example_bucket_v2.id,
             key="example-key",
             content=\"\"\"Resources:
@@ -386,16 +398,18 @@ class ConformancePack(pulumi.CustomResource):
                 SourceIdentifier: IAM_PASSWORD_POLICY
             Type: AWS::Config::ConfigRule
         \"\"\")
-        example_conformance_pack = aws.cfg.ConformancePack("exampleConformancePack", template_s3_uri=pulumi.Output.all(example_bucket_v2.bucket, example_bucket_objectv2.key).apply(lambda bucket, key: f"s3://{bucket}/{key}"),
-        opts=pulumi.ResourceOptions(depends_on=[aws_config_configuration_recorder["example"]]))
+        example = aws.cfg.ConformancePack("example",
+            name="example",
+            template_s3_uri=pulumi.Output.all(example_bucket_v2.bucket, example_bucket_objectv2.key).apply(lambda bucket, key: f"s3://{bucket}/{key}"))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Config Conformance Packs using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cfg/conformancePack:ConformancePack example example
+        $ pulumi import aws:cfg/conformancePack:ConformancePack example example
         ```
 
         :param str resource_name: The name of the resource.

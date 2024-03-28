@@ -13,6 +13,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -26,8 +27,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigateway.GetSdk(ctx, &apigateway.GetSdkArgs{
-//				RestApiId: aws_api_gateway_stage.Example.Rest_api_id,
-//				StageName: aws_api_gateway_stage.Example.Stage_name,
+//				RestApiId: exampleAwsApiGatewayStage.RestApiId,
+//				StageName: exampleAwsApiGatewayStage.StageName,
 //				SdkType:   "android",
 //				Parameters: map[string]interface{}{
 //					"groupId":         "example",
@@ -44,6 +45,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetSdk(ctx *pulumi.Context, args *GetSdkArgs, opts ...pulumi.InvokeOption) (*GetSdkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSdkResult

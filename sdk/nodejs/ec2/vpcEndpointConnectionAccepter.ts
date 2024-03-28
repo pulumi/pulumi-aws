@@ -8,37 +8,38 @@ import * as utilities from "../utilities";
  * Provides a resource to accept a pending VPC Endpoint Connection accept request to VPC Endpoint Service.
  *
  * ## Example Usage
+ *
  * ### Accept cross-account request
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleVpcEndpointService = new aws.ec2.VpcEndpointService("exampleVpcEndpointService", {
+ * const example = new aws.ec2.VpcEndpointService("example", {
  *     acceptanceRequired: false,
- *     networkLoadBalancerArns: [aws_lb.example.arn],
+ *     networkLoadBalancerArns: [exampleAwsLb.arn],
  * });
- * const exampleVpcEndpoint = new aws.ec2.VpcEndpoint("exampleVpcEndpoint", {
- *     vpcId: aws_vpc.test_alternate.id,
- *     serviceName: aws_vpc_endpoint_service.test.service_name,
+ * const exampleVpcEndpoint = new aws.ec2.VpcEndpoint("example", {
+ *     vpcId: testAlternate.id,
+ *     serviceName: testAwsVpcEndpointService.serviceName,
  *     vpcEndpointType: "Interface",
  *     privateDnsEnabled: false,
- *     securityGroupIds: [aws_security_group.test.id],
- * }, {
- *     provider: aws.alternate,
+ *     securityGroupIds: [test.id],
  * });
- * const exampleVpcEndpointConnectionAccepter = new aws.ec2.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter", {
- *     vpcEndpointServiceId: exampleVpcEndpointService.id,
+ * const exampleVpcEndpointConnectionAccepter = new aws.ec2.VpcEndpointConnectionAccepter("example", {
+ *     vpcEndpointServiceId: example.id,
  *     vpcEndpointId: exampleVpcEndpoint.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import VPC Endpoint Services using ID of the connection, which is the `VPC Endpoint Service ID` and `VPC Endpoint ID` separated by underscore (`_`).. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
+ * $ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
  * ```
  */
 export class VpcEndpointConnectionAccepter extends pulumi.CustomResource {

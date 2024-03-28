@@ -73,25 +73,28 @@ public final class EventConnectionAuthParametersOauthOauthHttpParametersQueryStr
 
         @CustomType.Setter
         public Builder isValueSecret(@Nullable Boolean isValueSecret) {
+
             this.isValueSecret = isValueSecret;
             return this;
         }
         @CustomType.Setter
         public Builder key(@Nullable String key) {
+
             this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }
         public EventConnectionAuthParametersOauthOauthHttpParametersQueryString build() {
-            final var o = new EventConnectionAuthParametersOauthOauthHttpParametersQueryString();
-            o.isValueSecret = isValueSecret;
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new EventConnectionAuthParametersOauthOauthHttpParametersQueryString();
+            _resultValue.isValueSecret = isValueSecret;
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

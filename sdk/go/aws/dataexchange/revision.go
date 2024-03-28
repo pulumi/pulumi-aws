@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dataexchange.NewRevision(ctx, "example", &dataexchange.RevisionArgs{
-//				DataSetId: pulumi.Any(aws_dataexchange_data_set.Example.Id),
+//				DataSetId: pulumi.Any(exampleAwsDataexchangeDataSet.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DataExchange Revisions using their `data-set-id:revision-id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:dataexchange/revision:Revision example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-//
+// $ pulumi import aws:dataexchange/revision:Revision example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
 // ```
 type Revision struct {
 	pulumi.CustomResourceState
@@ -78,10 +78,6 @@ func NewRevision(ctx *pulumi.Context,
 	if args.DataSetId == nil {
 		return nil, errors.New("invalid value for required argument 'DataSetId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Revision
 	err := ctx.RegisterResource("aws:dataexchange/revision:Revision", name, args, &resource, opts...)

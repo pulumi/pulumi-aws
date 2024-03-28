@@ -59,19 +59,21 @@ public final class ApplicationAutoStopConfiguration {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder idleTimeoutMinutes(@Nullable Integer idleTimeoutMinutes) {
+
             this.idleTimeoutMinutes = idleTimeoutMinutes;
             return this;
         }
         public ApplicationAutoStopConfiguration build() {
-            final var o = new ApplicationAutoStopConfiguration();
-            o.enabled = enabled;
-            o.idleTimeoutMinutes = idleTimeoutMinutes;
-            return o;
+            final var _resultValue = new ApplicationAutoStopConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.idleTimeoutMinutes = idleTimeoutMinutes;
+            return _resultValue;
         }
     }
 }

@@ -6,6 +6,7 @@ package com.pulumi.aws.quicksight.inputs;
 import com.pulumi.aws.quicksight.inputs.DataSourceParametersS3ManifestFileLocationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class DataSourceParametersS3Args extends com.pulumi.resources.Resou
         }
 
         public DataSourceParametersS3Args build() {
-            $.manifestFileLocation = Objects.requireNonNull($.manifestFileLocation, "expected parameter 'manifestFileLocation' to be non-null");
+            if ($.manifestFileLocation == null) {
+                throw new MissingRequiredPropertyException("DataSourceParametersS3Args", "manifestFileLocation");
+            }
             return $;
         }
     }

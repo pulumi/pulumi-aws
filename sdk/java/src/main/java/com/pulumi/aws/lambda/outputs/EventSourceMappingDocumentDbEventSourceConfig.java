@@ -4,6 +4,7 @@
 package com.pulumi.aws.lambda.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,30 @@ public final class EventSourceMappingDocumentDbEventSourceConfig {
 
         @CustomType.Setter
         public Builder collectionName(@Nullable String collectionName) {
+
             this.collectionName = collectionName;
             return this;
         }
         @CustomType.Setter
         public Builder databaseName(String databaseName) {
-            this.databaseName = Objects.requireNonNull(databaseName);
+            if (databaseName == null) {
+              throw new MissingRequiredPropertyException("EventSourceMappingDocumentDbEventSourceConfig", "databaseName");
+            }
+            this.databaseName = databaseName;
             return this;
         }
         @CustomType.Setter
         public Builder fullDocument(@Nullable String fullDocument) {
+
             this.fullDocument = fullDocument;
             return this;
         }
         public EventSourceMappingDocumentDbEventSourceConfig build() {
-            final var o = new EventSourceMappingDocumentDbEventSourceConfig();
-            o.collectionName = collectionName;
-            o.databaseName = databaseName;
-            o.fullDocument = fullDocument;
-            return o;
+            final var _resultValue = new EventSourceMappingDocumentDbEventSourceConfig();
+            _resultValue.collectionName = collectionName;
+            _resultValue.databaseName = databaseName;
+            _resultValue.fullDocument = fullDocument;
+            return _resultValue;
         }
     }
 }

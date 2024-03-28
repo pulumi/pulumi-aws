@@ -124,17 +124,19 @@ class QueryLog(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        # Example CloudWatch log group in us-east-1
-        us_east_1 = aws.Provider("us-east-1", region="us-east-1")
-        aws_route53_example_com = aws.cloudwatch.LogGroup("awsRoute53ExampleCom", retention_in_days=30,
-        opts=pulumi.ResourceOptions(provider=aws["us-east-1"]))
+        # Example Route53 zone with query logging
+        example_com = aws.route53.Zone("example_com", name="example.com")
+        aws_route53_example_com = aws.cloudwatch.LogGroup("aws_route53_example_com",
+            name=example_com.name.apply(lambda name: f"/aws/route53/{name}"),
+            retention_in_days=30)
         # Example CloudWatch log resource policy to allow Route53 to write logs
         # to any log group under /aws/route53/*
-        route53_query_logging_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        route53_query_logging_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=[
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
@@ -145,24 +147,21 @@ class QueryLog(pulumi.CustomResource):
                 type="Service",
             )],
         )])
-        route53_query_logging_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("route53-query-logging-policyLogResourcePolicy",
-            policy_document=route53_query_logging_policy_policy_document.json,
-            policy_name="route53-query-logging-policy",
-            opts=pulumi.ResourceOptions(provider=aws["us-east-1"]))
-        # Example Route53 zone with query logging
-        example_com_zone = aws.route53.Zone("exampleComZone")
-        example_com_query_log = aws.route53.QueryLog("exampleComQueryLog",
+        route53_query_logging_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("route53-query-logging-policy",
+            policy_document=route53_query_logging_policy.json,
+            policy_name="route53-query-logging-policy")
+        example_com_query_log = aws.route53.QueryLog("example_com",
             cloudwatch_log_group_arn=aws_route53_example_com.arn,
-            zone_id=example_com_zone.zone_id,
-            opts=pulumi.ResourceOptions(depends_on=[route53_query_logging_policy_log_resource_policy]))
+            zone_id=example_com.zone_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 query logging configurations using their ID. For example:
 
         ```sh
-         $ pulumi import aws:route53/queryLog:QueryLog example_com xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        $ pulumi import aws:route53/queryLog:QueryLog example_com xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         ```
 
         :param str resource_name: The name of the resource.
@@ -187,17 +186,19 @@ class QueryLog(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        # Example CloudWatch log group in us-east-1
-        us_east_1 = aws.Provider("us-east-1", region="us-east-1")
-        aws_route53_example_com = aws.cloudwatch.LogGroup("awsRoute53ExampleCom", retention_in_days=30,
-        opts=pulumi.ResourceOptions(provider=aws["us-east-1"]))
+        # Example Route53 zone with query logging
+        example_com = aws.route53.Zone("example_com", name="example.com")
+        aws_route53_example_com = aws.cloudwatch.LogGroup("aws_route53_example_com",
+            name=example_com.name.apply(lambda name: f"/aws/route53/{name}"),
+            retention_in_days=30)
         # Example CloudWatch log resource policy to allow Route53 to write logs
         # to any log group under /aws/route53/*
-        route53_query_logging_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        route53_query_logging_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=[
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
@@ -208,24 +209,21 @@ class QueryLog(pulumi.CustomResource):
                 type="Service",
             )],
         )])
-        route53_query_logging_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("route53-query-logging-policyLogResourcePolicy",
-            policy_document=route53_query_logging_policy_policy_document.json,
-            policy_name="route53-query-logging-policy",
-            opts=pulumi.ResourceOptions(provider=aws["us-east-1"]))
-        # Example Route53 zone with query logging
-        example_com_zone = aws.route53.Zone("exampleComZone")
-        example_com_query_log = aws.route53.QueryLog("exampleComQueryLog",
+        route53_query_logging_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("route53-query-logging-policy",
+            policy_document=route53_query_logging_policy.json,
+            policy_name="route53-query-logging-policy")
+        example_com_query_log = aws.route53.QueryLog("example_com",
             cloudwatch_log_group_arn=aws_route53_example_com.arn,
-            zone_id=example_com_zone.zone_id,
-            opts=pulumi.ResourceOptions(depends_on=[route53_query_logging_policy_log_resource_policy]))
+            zone_id=example_com.zone_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 query logging configurations using their ID. For example:
 
         ```sh
-         $ pulumi import aws:route53/queryLog:QueryLog example_com xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        $ pulumi import aws:route53/queryLog:QueryLog example_com xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         ```
 
         :param str resource_name: The name of the resource.

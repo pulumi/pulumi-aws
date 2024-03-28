@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
+//				Name:         pulumi.String("emr-test-arn"),
 //				ReleaseLabel: pulumi.String("emr-4.6.0"),
 //				Applications: pulumi.StringArray{
 //					pulumi.String("Spark"),
@@ -47,10 +49,10 @@ import (
 //	TerminationProtection:       pulumi.Bool(false),
 //	KeepJobFlowAliveWhenNoSteps: pulumi.Bool(true),
 //	Ec2Attributes: &emr.ClusterEc2AttributesArgs{
-//		SubnetId:                      pulumi.Any(aws_subnet.Main.Id),
-//		EmrManagedMasterSecurityGroup: pulumi.Any(aws_security_group.Sg.Id),
-//		EmrManagedSlaveSecurityGroup:  pulumi.Any(aws_security_group.Sg.Id),
-//		InstanceProfile:               pulumi.Any(aws_iam_instance_profile.Emr_profile.Arn),
+//		SubnetId:                      pulumi.Any(main.Id),
+//		EmrManagedMasterSecurityGroup: pulumi.Any(sg.Id),
+//		EmrManagedSlaveSecurityGroup:  pulumi.Any(sg.Id),
+//		InstanceProfile:               pulumi.Any(emrProfile.Arn),
 //	},
 //	MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
 //		InstanceType: pulumi.String("m4.large"),
@@ -148,7 +150,7 @@ import (
 //
 // `),
 //
-//				ServiceRole: pulumi.Any(aws_iam_role.Iam_emr_service_role.Arn),
+//				ServiceRole: pulumi.Any(iamEmrServiceRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -158,12 +160,15 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // The `emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster to use as a service role, and another is assigned to every EC2 instance in a cluster and each application process that runs on a cluster assumes this role for permissions to interact with other AWS services. An additional role, the Auto Scaling role, is required if your cluster uses automatic scaling in Amazon EMR.
 //
 // The default AWS managed EMR service role is called `EMR_DefaultRole` with Amazon managed policy `AmazonEMRServicePolicy_v2` attached. The name of default instance profile role is `EMR_EC2_DefaultRole` with default managed policy `AmazonElasticMapReduceforEC2Role` attached, but it is on the path to deprecation and will not be replaced with another default managed policy. You'll need to create and specify an instance profile to replace the deprecated role and default policy. See the [Configure IAM service roles for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-roles.html) guide for more information on these IAM roles. There is also a fully-bootable example Pulumi configuration at the bottom of this page.
+//
 // ### Instance Fleet
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -280,6 +285,7 @@ import (
 //						},
 //					},
 //				},
+//				Name:                   pulumi.String("task fleet"),
 //				TargetOnDemandCapacity: pulumi.Int(1),
 //				TargetSpotCapacity:     pulumi.Int(1),
 //			})
@@ -291,10 +297,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Enable Debug Logging
 //
 // [Debug logging in EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html) is implemented as a step. It is highly recommended that you utilize the resource options configuration with `ignoreChanges` if other steps are being managed outside of this provider.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -329,10 +338,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Multiple Node Master Instance Group
 //
 // Available in EMR version 5.23.0 and later, an EMR Cluster can be launched with three master nodes for high availability. Additional information about this functionality and its requirements can be found in the [EMR Management Guide](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ha.html).
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -346,17 +358,20 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSubnet, err := ec2.NewSubnet(ctx, "exampleSubnet", &ec2.SubnetArgs{
+//			// This configuration is for illustrative purposes and highlights
+//			// only relevant configurations for working with this functionality.
+//			// Map public IP on launch must be enabled for public (Internet accessible) subnets
+//			example, err := ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
 //				MapPublicIpOnLaunch: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = emr.NewCluster(ctx, "exampleCluster", &emr.ClusterArgs{
+//			_, err = emr.NewCluster(ctx, "example", &emr.ClusterArgs{
 //				ReleaseLabel:          pulumi.String("emr-5.24.1"),
 //				TerminationProtection: pulumi.Bool(true),
 //				Ec2Attributes: &emr.ClusterEc2AttributesArgs{
-//					SubnetId: exampleSubnet.ID(),
+//					SubnetId: example.ID(),
 //				},
 //				MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
 //					InstanceCount: pulumi.Int(3),
@@ -371,18 +386,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EMR clusters using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
-//
+// $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
 // ```
-//
-//	Since the API does not return the actual values for Kerberos configurations, environments with those options set will need to use the `lifecycle` configuration block `ignore_changes` argument available to all Pulumi resources to prevent perpetual differences. For example:
+// Since the API does not return the actual values for Kerberos configurations, environments with those options set will need to use the `lifecycle` configuration block `ignore_changes` argument available to all Pulumi resources to prevent perpetual differences. For example:
 type Cluster struct {
 	pulumi.CustomResourceState
 
@@ -405,6 +418,7 @@ type Cluster struct {
 	//
 	// > **NOTE on `configurationsJson`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -430,7 +444,6 @@ type Cluster struct {
 	// "Properties": {}
 	// }
 	// ]
-	//
 	// `),
 	// 		})
 	// 		if err != nil {
@@ -440,6 +453,7 @@ type Cluster struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	ConfigurationsJson pulumi.StringPtrOutput `pulumi:"configurationsJson"`
 	// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
 	CoreInstanceFleet ClusterCoreInstanceFleetOutput `pulumi:"coreInstanceFleet"`
@@ -510,10 +524,6 @@ func NewCluster(ctx *pulumi.Context,
 	if args.ServiceRole == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceRole'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("aws:emr/cluster:Cluster", name, args, &resource, opts...)
@@ -556,6 +566,7 @@ type clusterState struct {
 	//
 	// > **NOTE on `configurationsJson`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -581,7 +592,6 @@ type clusterState struct {
 	// "Properties": {}
 	// }
 	// ]
-	//
 	// `),
 	// 		})
 	// 		if err != nil {
@@ -591,6 +601,7 @@ type clusterState struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	ConfigurationsJson *string `pulumi:"configurationsJson"`
 	// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
 	CoreInstanceFleet *ClusterCoreInstanceFleet `pulumi:"coreInstanceFleet"`
@@ -668,6 +679,7 @@ type ClusterState struct {
 	//
 	// > **NOTE on `configurationsJson`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -693,7 +705,6 @@ type ClusterState struct {
 	// "Properties": {}
 	// }
 	// ]
-	//
 	// `),
 	// 		})
 	// 		if err != nil {
@@ -703,6 +714,7 @@ type ClusterState struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	ConfigurationsJson pulumi.StringPtrInput
 	// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
 	CoreInstanceFleet ClusterCoreInstanceFleetPtrInput
@@ -781,6 +793,7 @@ type clusterArgs struct {
 	//
 	// > **NOTE on `configurationsJson`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -806,7 +819,6 @@ type clusterArgs struct {
 	// "Properties": {}
 	// }
 	// ]
-	//
 	// `),
 	// 		})
 	// 		if err != nil {
@@ -816,6 +828,7 @@ type clusterArgs struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	ConfigurationsJson *string `pulumi:"configurationsJson"`
 	// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
 	CoreInstanceFleet *ClusterCoreInstanceFleet `pulumi:"coreInstanceFleet"`
@@ -885,6 +898,7 @@ type ClusterArgs struct {
 	//
 	// > **NOTE on `configurationsJson`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -910,7 +924,6 @@ type ClusterArgs struct {
 	// "Properties": {}
 	// }
 	// ]
-	//
 	// `),
 	// 		})
 	// 		if err != nil {
@@ -920,6 +933,7 @@ type ClusterArgs struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	ConfigurationsJson pulumi.StringPtrInput
 	// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
 	CoreInstanceFleet ClusterCoreInstanceFleetPtrInput
@@ -1101,6 +1115,7 @@ func (o ClusterOutput) Configurations() pulumi.StringPtrOutput {
 //
 // > **NOTE on `configurationsJson`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -1129,7 +1144,6 @@ func (o ClusterOutput) Configurations() pulumi.StringPtrOutput {
 // "Properties": {}
 // }
 // ]
-//
 // `),
 //
 //			})
@@ -1141,6 +1155,7 @@ func (o ClusterOutput) Configurations() pulumi.StringPtrOutput {
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func (o ClusterOutput) ConfigurationsJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ConfigurationsJson }).(pulumi.StringPtrOutput)
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class WebAclRuleStatementGeoMatchStatementForwardedIpConfig {
 
         @CustomType.Setter
         public Builder fallbackBehavior(String fallbackBehavior) {
-            this.fallbackBehavior = Objects.requireNonNull(fallbackBehavior);
+            if (fallbackBehavior == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementGeoMatchStatementForwardedIpConfig", "fallbackBehavior");
+            }
+            this.fallbackBehavior = fallbackBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder headerName(String headerName) {
-            this.headerName = Objects.requireNonNull(headerName);
+            if (headerName == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementGeoMatchStatementForwardedIpConfig", "headerName");
+            }
+            this.headerName = headerName;
             return this;
         }
         public WebAclRuleStatementGeoMatchStatementForwardedIpConfig build() {
-            final var o = new WebAclRuleStatementGeoMatchStatementForwardedIpConfig();
-            o.fallbackBehavior = fallbackBehavior;
-            o.headerName = headerName;
-            return o;
+            final var _resultValue = new WebAclRuleStatementGeoMatchStatementForwardedIpConfig();
+            _resultValue.fallbackBehavior = fallbackBehavior;
+            _resultValue.headerName = headerName;
+            return _resultValue;
         }
     }
 }

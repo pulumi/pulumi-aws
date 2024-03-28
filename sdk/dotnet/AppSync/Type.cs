@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,14 +23,15 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new()
+    ///     var example = new Aws.AppSync.GraphQLApi("example", new()
     ///     {
     ///         AuthenticationType = "API_KEY",
+    ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleType = new Aws.AppSync.Type("exampleType", new()
+    ///     var exampleType = new Aws.AppSync.Type("example", new()
     ///     {
-    ///         ApiId = exampleGraphQLApi.Id,
+    ///         ApiId = example.Id,
     ///         Format = "SDL",
     ///         Definition = @"type Mutation
     /// 
@@ -42,13 +44,14 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Appsync Types using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appsync/type:Type example api-id:format:name
+    /// $ pulumi import aws:appsync/type:Type example api-id:format:name
     /// ```
     /// </summary>
     [AwsResourceType("aws:appsync/type:Type")]

@@ -13,35 +13,13 @@ namespace Pulumi.Aws.Transfer
     /// Provides a AWS Transfer AS2 Certificate resource.
     /// 
     /// ## Example Usage
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Transfer.Certificate("example", new()
-    ///     {
-    ///         CertificateFile = File.ReadAllText($"{path.Module}/example.com/example.crt"),
-    ///         CertificateChain = File.ReadAllText($"{path.Module}/example.com/ca.crt"),
-    ///         PrivateKey = File.ReadAllText($"{path.Module}/example.com/example.key"),
-    ///         Description = "example",
-    ///         Usage = "SIGNING",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Transfer AS2 Certificate using the `certificate_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:transfer/certificate:Certificate example c-4221a88afd5f4362a
+    /// $ pulumi import aws:transfer/certificate:Certificate example c-4221a88afd5f4362a
     /// ```
     /// </summary>
     [AwsResourceType("aws:transfer/certificate:Certificate")]
@@ -138,7 +116,6 @@ namespace Pulumi.Aws.Transfer
                     "certificate",
                     "certificateChain",
                     "privateKey",
-                    "tagsAll",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -339,11 +316,7 @@ namespace Pulumi.Aws.Transfer
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

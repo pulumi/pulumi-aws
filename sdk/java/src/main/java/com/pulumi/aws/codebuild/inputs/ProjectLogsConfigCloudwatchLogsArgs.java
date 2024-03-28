@@ -46,14 +46,14 @@ public final class ProjectLogsConfigCloudwatchLogsArgs extends com.pulumi.resour
     }
 
     /**
-     * Stream name of the logs in CloudWatch Logs.
+     * Prefix of the log stream name of the logs in CloudWatch Logs.
      * 
      */
     @Import(name="streamName")
     private @Nullable Output<String> streamName;
 
     /**
-     * @return Stream name of the logs in CloudWatch Logs.
+     * @return Prefix of the log stream name of the logs in CloudWatch Logs.
      * 
      */
     public Optional<Output<String>> streamName() {
@@ -129,7 +129,7 @@ public final class ProjectLogsConfigCloudwatchLogsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param streamName Stream name of the logs in CloudWatch Logs.
+         * @param streamName Prefix of the log stream name of the logs in CloudWatch Logs.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ProjectLogsConfigCloudwatchLogsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param streamName Stream name of the logs in CloudWatch Logs.
+         * @param streamName Prefix of the log stream name of the logs in CloudWatch Logs.
          * 
          * @return builder
          * 

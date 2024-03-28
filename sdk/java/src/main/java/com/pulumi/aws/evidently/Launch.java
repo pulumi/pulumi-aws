@@ -24,7 +24,10 @@ import javax.annotation.Nullable;
  * Provides a CloudWatch Evidently Launch resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,9 +52,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
- *             .project(aws_evidently_project.example().name())
+ *             .name(&#34;example&#34;)
+ *             .project(exampleAwsEvidentlyProject.name())
  *             .groups(LaunchGroupArgs.builder()
- *                 .feature(aws_evidently_feature.example().name())
+ *                 .feature(exampleAwsEvidentlyFeature.name())
  *                 .name(&#34;Variation1&#34;)
  *                 .variation(&#34;Variation1&#34;)
  *                 .build())
@@ -66,7 +70,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With description
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -91,10 +99,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
- *             .project(aws_evidently_project.example().name())
+ *             .name(&#34;example&#34;)
+ *             .project(exampleAwsEvidentlyProject.name())
  *             .description(&#34;example description&#34;)
  *             .groups(LaunchGroupArgs.builder()
- *                 .feature(aws_evidently_feature.example().name())
+ *                 .feature(exampleAwsEvidentlyFeature.name())
  *                 .name(&#34;Variation1&#34;)
  *                 .variation(&#34;Variation1&#34;)
  *                 .build())
@@ -109,7 +118,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With multiple groups
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -134,16 +147,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
- *             .project(aws_evidently_project.example().name())
+ *             .name(&#34;example&#34;)
+ *             .project(exampleAwsEvidentlyProject.name())
  *             .groups(            
  *                 LaunchGroupArgs.builder()
- *                     .feature(aws_evidently_feature.example().name())
+ *                     .feature(exampleAwsEvidentlyFeature.name())
  *                     .name(&#34;Variation1&#34;)
  *                     .variation(&#34;Variation1&#34;)
  *                     .description(&#34;first-group&#34;)
  *                     .build(),
  *                 LaunchGroupArgs.builder()
- *                     .feature(aws_evidently_feature.example().name())
+ *                     .feature(exampleAwsEvidentlyFeature.name())
  *                     .name(&#34;Variation2&#34;)
  *                     .variation(&#34;Variation2&#34;)
  *                     .description(&#34;second-group&#34;)
@@ -162,7 +176,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With metric_monitors
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -189,9 +207,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
- *             .project(aws_evidently_project.example().name())
+ *             .name(&#34;example&#34;)
+ *             .project(exampleAwsEvidentlyProject.name())
  *             .groups(LaunchGroupArgs.builder()
- *                 .feature(aws_evidently_feature.example().name())
+ *                 .feature(exampleAwsEvidentlyFeature.name())
  *                 .name(&#34;Variation1&#34;)
  *                 .variation(&#34;Variation1&#34;)
  *                 .build())
@@ -225,7 +244,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With randomization_salt
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -250,10 +273,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
- *             .project(aws_evidently_project.example().name())
+ *             .name(&#34;example&#34;)
+ *             .project(exampleAwsEvidentlyProject.name())
  *             .randomizationSalt(&#34;example randomization salt&#34;)
  *             .groups(LaunchGroupArgs.builder()
- *                 .feature(aws_evidently_feature.example().name())
+ *                 .feature(exampleAwsEvidentlyFeature.name())
  *                 .name(&#34;Variation1&#34;)
  *                 .variation(&#34;Variation1&#34;)
  *                 .build())
@@ -268,7 +292,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With multiple steps
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -293,15 +321,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
- *             .project(aws_evidently_project.example().name())
+ *             .name(&#34;example&#34;)
+ *             .project(exampleAwsEvidentlyProject.name())
  *             .groups(            
  *                 LaunchGroupArgs.builder()
- *                     .feature(aws_evidently_feature.example().name())
+ *                     .feature(exampleAwsEvidentlyFeature.name())
  *                     .name(&#34;Variation1&#34;)
  *                     .variation(&#34;Variation1&#34;)
  *                     .build(),
  *                 LaunchGroupArgs.builder()
- *                     .feature(aws_evidently_feature.example().name())
+ *                     .feature(exampleAwsEvidentlyFeature.name())
  *                     .name(&#34;Variation2&#34;)
  *                     .variation(&#34;Variation2&#34;)
  *                     .build())
@@ -327,7 +356,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With segment overrides
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -352,15 +385,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
- *             .project(aws_evidently_project.example().name())
+ *             .name(&#34;example&#34;)
+ *             .project(exampleAwsEvidentlyProject.name())
  *             .groups(            
  *                 LaunchGroupArgs.builder()
- *                     .feature(aws_evidently_feature.example().name())
+ *                     .feature(exampleAwsEvidentlyFeature.name())
  *                     .name(&#34;Variation1&#34;)
  *                     .variation(&#34;Variation1&#34;)
  *                     .build(),
  *                 LaunchGroupArgs.builder()
- *                     .feature(aws_evidently_feature.example().name())
+ *                     .feature(exampleAwsEvidentlyFeature.name())
  *                     .name(&#34;Variation2&#34;)
  *                     .variation(&#34;Variation2&#34;)
  *                     .build())
@@ -373,12 +407,12 @@ import javax.annotation.Nullable;
  *                     .segmentOverrides(                    
  *                         LaunchScheduledSplitsConfigStepSegmentOverrideArgs.builder()
  *                             .evaluationOrder(1)
- *                             .segment(aws_evidently_segment.example().name())
+ *                             .segment(exampleAwsEvidentlySegment.name())
  *                             .weights(Map.of(&#34;Variation2&#34;, 10000))
  *                             .build(),
  *                         LaunchScheduledSplitsConfigStepSegmentOverrideArgs.builder()
  *                             .evaluationOrder(2)
- *                             .segment(aws_evidently_segment.example().name())
+ *                             .segment(exampleAwsEvidentlySegment.name())
  *                             .weights(Map.ofEntries(
  *                                 Map.entry(&#34;Variation1&#34;, 40000),
  *                                 Map.entry(&#34;Variation2&#34;, 30000)
@@ -392,6 +426,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -402,12 +437,12 @@ import javax.annotation.Nullable;
  * Import using the `name` of the launch and `name` of the project separated by a `:`:
  * 
  * ```sh
- *  $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:exampleProjectName
+ * $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:exampleProjectName
  * ```
- *  Import using the `name` of the launch and `arn` of the project separated by a `:`:
+ * Import using the `name` of the launch and `arn` of the project separated by a `:`:
  * 
  * ```sh
- *  $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
+ * $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
  * ```
  * 
  */
@@ -674,9 +709,6 @@ public class Launch extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

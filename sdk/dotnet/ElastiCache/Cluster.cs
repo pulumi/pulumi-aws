@@ -31,8 +31,10 @@ namespace Pulumi.Aws.ElastiCache
     /// &gt; **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `apply_immediately`.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Memcached Cluster
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,6 +45,7 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var example = new Aws.ElastiCache.Cluster("example", new()
     ///     {
+    ///         ClusterId = "cluster-example",
     ///         Engine = "memcached",
     ///         NodeType = "cache.m4.large",
     ///         NumCacheNodes = 2,
@@ -52,8 +55,11 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Redis Instance
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -64,20 +70,24 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var example = new Aws.ElastiCache.Cluster("example", new()
     ///     {
+    ///         ClusterId = "cluster-example",
     ///         Engine = "redis",
-    ///         EngineVersion = "3.2.10",
     ///         NodeType = "cache.m4.large",
     ///         NumCacheNodes = 1,
     ///         ParameterGroupName = "default.redis3.2",
+    ///         EngineVersion = "3.2.10",
     ///         Port = 6379,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Redis Cluster Mode Disabled Read Replica Instance
     /// 
     /// These inherit their settings from the replication group.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -88,13 +98,17 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var replica = new Aws.ElastiCache.Cluster("replica", new()
     ///     {
-    ///         ReplicationGroupId = aws_elasticache_replication_group.Example.Id,
+    ///         ClusterId = "cluster-example",
+    ///         ReplicationGroupId = example.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Redis Log Delivery configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -105,6 +119,7 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var test = new Aws.ElastiCache.Cluster("test", new()
     ///     {
+    ///         ClusterId = "mycluster",
     ///         Engine = "redis",
     ///         NodeType = "cache.t3.micro",
     ///         NumCacheNodes = 1,
@@ -114,14 +129,14 @@ namespace Pulumi.Aws.ElastiCache
     ///         {
     ///             new Aws.ElastiCache.Inputs.ClusterLogDeliveryConfigurationArgs
     ///             {
-    ///                 Destination = aws_cloudwatch_log_group.Example.Name,
+    ///                 Destination = example.Name,
     ///                 DestinationType = "cloudwatch-logs",
     ///                 LogFormat = "text",
     ///                 LogType = "slow-log",
     ///             },
     ///             new Aws.ElastiCache.Inputs.ClusterLogDeliveryConfigurationArgs
     ///             {
-    ///                 Destination = aws_kinesis_firehose_delivery_stream.Example.Name,
+    ///                 Destination = exampleAwsKinesisFirehoseDeliveryStream.Name,
     ///                 DestinationType = "kinesis-firehose",
     ///                 LogFormat = "json",
     ///                 LogType = "engine-log",
@@ -131,13 +146,14 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
+    /// $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticache/cluster:Cluster")]
@@ -389,10 +405,6 @@ namespace Pulumi.Aws.ElastiCache
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -886,11 +898,7 @@ namespace Pulumi.Aws.ElastiCache
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

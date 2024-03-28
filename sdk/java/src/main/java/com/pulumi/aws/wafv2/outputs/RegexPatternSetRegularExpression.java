@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class RegexPatternSetRegularExpression {
 
         @CustomType.Setter
         public Builder regexString(String regexString) {
-            this.regexString = Objects.requireNonNull(regexString);
+            if (regexString == null) {
+              throw new MissingRequiredPropertyException("RegexPatternSetRegularExpression", "regexString");
+            }
+            this.regexString = regexString;
             return this;
         }
         public RegexPatternSetRegularExpression build() {
-            final var o = new RegexPatternSetRegularExpression();
-            o.regexString = regexString;
-            return o;
+            final var _resultValue = new RegexPatternSetRegularExpression();
+            _resultValue.regexString = regexString;
+            return _resultValue;
         }
     }
 }

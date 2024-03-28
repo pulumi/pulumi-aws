@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * To enable private integration for REST APIs, use the Amazon API Gateway Version 1 VPC Link resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,21 +47,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VpcLink(&#34;example&#34;, VpcLinkArgs.builder()        
- *             .securityGroupIds(data.aws_security_group().example().id())
- *             .subnetIds(data.aws_subnets().example().ids())
+ *             .name(&#34;example&#34;)
+ *             .securityGroupIds(exampleAwsSecurityGroup.id())
+ *             .subnetIds(exampleAwsSubnets.ids())
  *             .tags(Map.of(&#34;Usage&#34;, &#34;example&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
+ * $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
  * ```
  * 
  */
@@ -186,9 +190,6 @@ public class VpcLink extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

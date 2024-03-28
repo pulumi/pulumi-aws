@@ -4,6 +4,7 @@
 package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class ImageRecipeSystemsManagerAgent {
 
         @CustomType.Setter
         public Builder uninstallAfterBuild(Boolean uninstallAfterBuild) {
-            this.uninstallAfterBuild = Objects.requireNonNull(uninstallAfterBuild);
+            if (uninstallAfterBuild == null) {
+              throw new MissingRequiredPropertyException("ImageRecipeSystemsManagerAgent", "uninstallAfterBuild");
+            }
+            this.uninstallAfterBuild = uninstallAfterBuild;
             return this;
         }
         public ImageRecipeSystemsManagerAgent build() {
-            final var o = new ImageRecipeSystemsManagerAgent();
-            o.uninstallAfterBuild = uninstallAfterBuild;
-            return o;
+            final var _resultValue = new ImageRecipeSystemsManagerAgent();
+            _resultValue.uninstallAfterBuild = uninstallAfterBuild;
+            return _resultValue;
         }
     }
 }

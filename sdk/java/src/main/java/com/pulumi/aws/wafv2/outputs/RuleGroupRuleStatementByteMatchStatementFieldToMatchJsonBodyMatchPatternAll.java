@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyM
         }
 
         public RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll build() {
-            final var o = new RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll();
+            return _resultValue;
         }
     }
 }

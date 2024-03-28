@@ -13,6 +13,318 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AccessPolicyAssociationAccessScope struct {
+	// The namespaces to which the access scope applies when type is namespace.
+	Namespaces []string `pulumi:"namespaces"`
+	// Valid values are `namespace` or `cluster`.
+	Type string `pulumi:"type"`
+}
+
+// AccessPolicyAssociationAccessScopeInput is an input type that accepts AccessPolicyAssociationAccessScopeArgs and AccessPolicyAssociationAccessScopeOutput values.
+// You can construct a concrete instance of `AccessPolicyAssociationAccessScopeInput` via:
+//
+//	AccessPolicyAssociationAccessScopeArgs{...}
+type AccessPolicyAssociationAccessScopeInput interface {
+	pulumi.Input
+
+	ToAccessPolicyAssociationAccessScopeOutput() AccessPolicyAssociationAccessScopeOutput
+	ToAccessPolicyAssociationAccessScopeOutputWithContext(context.Context) AccessPolicyAssociationAccessScopeOutput
+}
+
+type AccessPolicyAssociationAccessScopeArgs struct {
+	// The namespaces to which the access scope applies when type is namespace.
+	Namespaces pulumi.StringArrayInput `pulumi:"namespaces"`
+	// Valid values are `namespace` or `cluster`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AccessPolicyAssociationAccessScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPolicyAssociationAccessScope)(nil)).Elem()
+}
+
+func (i AccessPolicyAssociationAccessScopeArgs) ToAccessPolicyAssociationAccessScopeOutput() AccessPolicyAssociationAccessScopeOutput {
+	return i.ToAccessPolicyAssociationAccessScopeOutputWithContext(context.Background())
+}
+
+func (i AccessPolicyAssociationAccessScopeArgs) ToAccessPolicyAssociationAccessScopeOutputWithContext(ctx context.Context) AccessPolicyAssociationAccessScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyAssociationAccessScopeOutput)
+}
+
+func (i AccessPolicyAssociationAccessScopeArgs) ToAccessPolicyAssociationAccessScopePtrOutput() AccessPolicyAssociationAccessScopePtrOutput {
+	return i.ToAccessPolicyAssociationAccessScopePtrOutputWithContext(context.Background())
+}
+
+func (i AccessPolicyAssociationAccessScopeArgs) ToAccessPolicyAssociationAccessScopePtrOutputWithContext(ctx context.Context) AccessPolicyAssociationAccessScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyAssociationAccessScopeOutput).ToAccessPolicyAssociationAccessScopePtrOutputWithContext(ctx)
+}
+
+// AccessPolicyAssociationAccessScopePtrInput is an input type that accepts AccessPolicyAssociationAccessScopeArgs, AccessPolicyAssociationAccessScopePtr and AccessPolicyAssociationAccessScopePtrOutput values.
+// You can construct a concrete instance of `AccessPolicyAssociationAccessScopePtrInput` via:
+//
+//	        AccessPolicyAssociationAccessScopeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccessPolicyAssociationAccessScopePtrInput interface {
+	pulumi.Input
+
+	ToAccessPolicyAssociationAccessScopePtrOutput() AccessPolicyAssociationAccessScopePtrOutput
+	ToAccessPolicyAssociationAccessScopePtrOutputWithContext(context.Context) AccessPolicyAssociationAccessScopePtrOutput
+}
+
+type accessPolicyAssociationAccessScopePtrType AccessPolicyAssociationAccessScopeArgs
+
+func AccessPolicyAssociationAccessScopePtr(v *AccessPolicyAssociationAccessScopeArgs) AccessPolicyAssociationAccessScopePtrInput {
+	return (*accessPolicyAssociationAccessScopePtrType)(v)
+}
+
+func (*accessPolicyAssociationAccessScopePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPolicyAssociationAccessScope)(nil)).Elem()
+}
+
+func (i *accessPolicyAssociationAccessScopePtrType) ToAccessPolicyAssociationAccessScopePtrOutput() AccessPolicyAssociationAccessScopePtrOutput {
+	return i.ToAccessPolicyAssociationAccessScopePtrOutputWithContext(context.Background())
+}
+
+func (i *accessPolicyAssociationAccessScopePtrType) ToAccessPolicyAssociationAccessScopePtrOutputWithContext(ctx context.Context) AccessPolicyAssociationAccessScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyAssociationAccessScopePtrOutput)
+}
+
+type AccessPolicyAssociationAccessScopeOutput struct{ *pulumi.OutputState }
+
+func (AccessPolicyAssociationAccessScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPolicyAssociationAccessScope)(nil)).Elem()
+}
+
+func (o AccessPolicyAssociationAccessScopeOutput) ToAccessPolicyAssociationAccessScopeOutput() AccessPolicyAssociationAccessScopeOutput {
+	return o
+}
+
+func (o AccessPolicyAssociationAccessScopeOutput) ToAccessPolicyAssociationAccessScopeOutputWithContext(ctx context.Context) AccessPolicyAssociationAccessScopeOutput {
+	return o
+}
+
+func (o AccessPolicyAssociationAccessScopeOutput) ToAccessPolicyAssociationAccessScopePtrOutput() AccessPolicyAssociationAccessScopePtrOutput {
+	return o.ToAccessPolicyAssociationAccessScopePtrOutputWithContext(context.Background())
+}
+
+func (o AccessPolicyAssociationAccessScopeOutput) ToAccessPolicyAssociationAccessScopePtrOutputWithContext(ctx context.Context) AccessPolicyAssociationAccessScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPolicyAssociationAccessScope) *AccessPolicyAssociationAccessScope {
+		return &v
+	}).(AccessPolicyAssociationAccessScopePtrOutput)
+}
+
+// The namespaces to which the access scope applies when type is namespace.
+func (o AccessPolicyAssociationAccessScopeOutput) Namespaces() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccessPolicyAssociationAccessScope) []string { return v.Namespaces }).(pulumi.StringArrayOutput)
+}
+
+// Valid values are `namespace` or `cluster`.
+func (o AccessPolicyAssociationAccessScopeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessPolicyAssociationAccessScope) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AccessPolicyAssociationAccessScopePtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPolicyAssociationAccessScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPolicyAssociationAccessScope)(nil)).Elem()
+}
+
+func (o AccessPolicyAssociationAccessScopePtrOutput) ToAccessPolicyAssociationAccessScopePtrOutput() AccessPolicyAssociationAccessScopePtrOutput {
+	return o
+}
+
+func (o AccessPolicyAssociationAccessScopePtrOutput) ToAccessPolicyAssociationAccessScopePtrOutputWithContext(ctx context.Context) AccessPolicyAssociationAccessScopePtrOutput {
+	return o
+}
+
+func (o AccessPolicyAssociationAccessScopePtrOutput) Elem() AccessPolicyAssociationAccessScopeOutput {
+	return o.ApplyT(func(v *AccessPolicyAssociationAccessScope) AccessPolicyAssociationAccessScope {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPolicyAssociationAccessScope
+		return ret
+	}).(AccessPolicyAssociationAccessScopeOutput)
+}
+
+// The namespaces to which the access scope applies when type is namespace.
+func (o AccessPolicyAssociationAccessScopePtrOutput) Namespaces() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccessPolicyAssociationAccessScope) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespaces
+	}).(pulumi.StringArrayOutput)
+}
+
+// Valid values are `namespace` or `cluster`.
+func (o AccessPolicyAssociationAccessScopePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPolicyAssociationAccessScope) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterAccessConfig struct {
+	// The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
+	AuthenticationMode *string `pulumi:"authenticationMode"`
+	// Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+	BootstrapClusterCreatorAdminPermissions *bool `pulumi:"bootstrapClusterCreatorAdminPermissions"`
+}
+
+// ClusterAccessConfigInput is an input type that accepts ClusterAccessConfigArgs and ClusterAccessConfigOutput values.
+// You can construct a concrete instance of `ClusterAccessConfigInput` via:
+//
+//	ClusterAccessConfigArgs{...}
+type ClusterAccessConfigInput interface {
+	pulumi.Input
+
+	ToClusterAccessConfigOutput() ClusterAccessConfigOutput
+	ToClusterAccessConfigOutputWithContext(context.Context) ClusterAccessConfigOutput
+}
+
+type ClusterAccessConfigArgs struct {
+	// The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
+	AuthenticationMode pulumi.StringPtrInput `pulumi:"authenticationMode"`
+	// Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+	BootstrapClusterCreatorAdminPermissions pulumi.BoolPtrInput `pulumi:"bootstrapClusterCreatorAdminPermissions"`
+}
+
+func (ClusterAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAccessConfig)(nil)).Elem()
+}
+
+func (i ClusterAccessConfigArgs) ToClusterAccessConfigOutput() ClusterAccessConfigOutput {
+	return i.ToClusterAccessConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterAccessConfigArgs) ToClusterAccessConfigOutputWithContext(ctx context.Context) ClusterAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAccessConfigOutput)
+}
+
+func (i ClusterAccessConfigArgs) ToClusterAccessConfigPtrOutput() ClusterAccessConfigPtrOutput {
+	return i.ToClusterAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterAccessConfigArgs) ToClusterAccessConfigPtrOutputWithContext(ctx context.Context) ClusterAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAccessConfigOutput).ToClusterAccessConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterAccessConfigPtrInput is an input type that accepts ClusterAccessConfigArgs, ClusterAccessConfigPtr and ClusterAccessConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterAccessConfigPtrInput` via:
+//
+//	        ClusterAccessConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterAccessConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterAccessConfigPtrOutput() ClusterAccessConfigPtrOutput
+	ToClusterAccessConfigPtrOutputWithContext(context.Context) ClusterAccessConfigPtrOutput
+}
+
+type clusterAccessConfigPtrType ClusterAccessConfigArgs
+
+func ClusterAccessConfigPtr(v *ClusterAccessConfigArgs) ClusterAccessConfigPtrInput {
+	return (*clusterAccessConfigPtrType)(v)
+}
+
+func (*clusterAccessConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAccessConfig)(nil)).Elem()
+}
+
+func (i *clusterAccessConfigPtrType) ToClusterAccessConfigPtrOutput() ClusterAccessConfigPtrOutput {
+	return i.ToClusterAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterAccessConfigPtrType) ToClusterAccessConfigPtrOutputWithContext(ctx context.Context) ClusterAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAccessConfigPtrOutput)
+}
+
+type ClusterAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAccessConfig)(nil)).Elem()
+}
+
+func (o ClusterAccessConfigOutput) ToClusterAccessConfigOutput() ClusterAccessConfigOutput {
+	return o
+}
+
+func (o ClusterAccessConfigOutput) ToClusterAccessConfigOutputWithContext(ctx context.Context) ClusterAccessConfigOutput {
+	return o
+}
+
+func (o ClusterAccessConfigOutput) ToClusterAccessConfigPtrOutput() ClusterAccessConfigPtrOutput {
+	return o.ToClusterAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterAccessConfigOutput) ToClusterAccessConfigPtrOutputWithContext(ctx context.Context) ClusterAccessConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterAccessConfig) *ClusterAccessConfig {
+		return &v
+	}).(ClusterAccessConfigPtrOutput)
+}
+
+// The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
+func (o ClusterAccessConfigOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterAccessConfig) *string { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
+}
+
+// Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+func (o ClusterAccessConfigOutput) BootstrapClusterCreatorAdminPermissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterAccessConfig) *bool { return v.BootstrapClusterCreatorAdminPermissions }).(pulumi.BoolPtrOutput)
+}
+
+type ClusterAccessConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterAccessConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAccessConfig)(nil)).Elem()
+}
+
+func (o ClusterAccessConfigPtrOutput) ToClusterAccessConfigPtrOutput() ClusterAccessConfigPtrOutput {
+	return o
+}
+
+func (o ClusterAccessConfigPtrOutput) ToClusterAccessConfigPtrOutputWithContext(ctx context.Context) ClusterAccessConfigPtrOutput {
+	return o
+}
+
+func (o ClusterAccessConfigPtrOutput) Elem() ClusterAccessConfigOutput {
+	return o.ApplyT(func(v *ClusterAccessConfig) ClusterAccessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterAccessConfig
+		return ret
+	}).(ClusterAccessConfigOutput)
+}
+
+// The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
+func (o ClusterAccessConfigPtrOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterAccessConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+func (o ClusterAccessConfigPtrOutput) BootstrapClusterCreatorAdminPermissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterAccessConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BootstrapClusterCreatorAdminPermissions
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ClusterCertificateAuthority struct {
 	// Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
 	Data *string `pulumi:"data"`
@@ -2840,6 +3152,103 @@ func (o NodeGroupUpdateConfigPtrOutput) MaxUnavailablePercentage() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
+type GetClusterAccessConfig struct {
+	// Values returned are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
+	AuthenticationMode string `pulumi:"authenticationMode"`
+}
+
+// GetClusterAccessConfigInput is an input type that accepts GetClusterAccessConfigArgs and GetClusterAccessConfigOutput values.
+// You can construct a concrete instance of `GetClusterAccessConfigInput` via:
+//
+//	GetClusterAccessConfigArgs{...}
+type GetClusterAccessConfigInput interface {
+	pulumi.Input
+
+	ToGetClusterAccessConfigOutput() GetClusterAccessConfigOutput
+	ToGetClusterAccessConfigOutputWithContext(context.Context) GetClusterAccessConfigOutput
+}
+
+type GetClusterAccessConfigArgs struct {
+	// Values returned are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
+	AuthenticationMode pulumi.StringInput `pulumi:"authenticationMode"`
+}
+
+func (GetClusterAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterAccessConfig)(nil)).Elem()
+}
+
+func (i GetClusterAccessConfigArgs) ToGetClusterAccessConfigOutput() GetClusterAccessConfigOutput {
+	return i.ToGetClusterAccessConfigOutputWithContext(context.Background())
+}
+
+func (i GetClusterAccessConfigArgs) ToGetClusterAccessConfigOutputWithContext(ctx context.Context) GetClusterAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterAccessConfigOutput)
+}
+
+// GetClusterAccessConfigArrayInput is an input type that accepts GetClusterAccessConfigArray and GetClusterAccessConfigArrayOutput values.
+// You can construct a concrete instance of `GetClusterAccessConfigArrayInput` via:
+//
+//	GetClusterAccessConfigArray{ GetClusterAccessConfigArgs{...} }
+type GetClusterAccessConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterAccessConfigArrayOutput() GetClusterAccessConfigArrayOutput
+	ToGetClusterAccessConfigArrayOutputWithContext(context.Context) GetClusterAccessConfigArrayOutput
+}
+
+type GetClusterAccessConfigArray []GetClusterAccessConfigInput
+
+func (GetClusterAccessConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterAccessConfig)(nil)).Elem()
+}
+
+func (i GetClusterAccessConfigArray) ToGetClusterAccessConfigArrayOutput() GetClusterAccessConfigArrayOutput {
+	return i.ToGetClusterAccessConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterAccessConfigArray) ToGetClusterAccessConfigArrayOutputWithContext(ctx context.Context) GetClusterAccessConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterAccessConfigArrayOutput)
+}
+
+type GetClusterAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (GetClusterAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterAccessConfig)(nil)).Elem()
+}
+
+func (o GetClusterAccessConfigOutput) ToGetClusterAccessConfigOutput() GetClusterAccessConfigOutput {
+	return o
+}
+
+func (o GetClusterAccessConfigOutput) ToGetClusterAccessConfigOutputWithContext(ctx context.Context) GetClusterAccessConfigOutput {
+	return o
+}
+
+// Values returned are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
+func (o GetClusterAccessConfigOutput) AuthenticationMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterAccessConfig) string { return v.AuthenticationMode }).(pulumi.StringOutput)
+}
+
+type GetClusterAccessConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterAccessConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterAccessConfig)(nil)).Elem()
+}
+
+func (o GetClusterAccessConfigArrayOutput) ToGetClusterAccessConfigArrayOutput() GetClusterAccessConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterAccessConfigArrayOutput) ToGetClusterAccessConfigArrayOutputWithContext(ctx context.Context) GetClusterAccessConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterAccessConfigArrayOutput) Index(i pulumi.IntInput) GetClusterAccessConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterAccessConfig {
+		return vs[0].([]GetClusterAccessConfig)[vs[1].(int)]
+	}).(GetClusterAccessConfigOutput)
+}
+
 type GetClusterCertificateAuthority struct {
 	// The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
 	Data string `pulumi:"data"`
@@ -4221,6 +4630,10 @@ func (o GetNodeGroupTaintArrayOutput) Index(i pulumi.IntInput) GetNodeGroupTaint
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyAssociationAccessScopeInput)(nil)).Elem(), AccessPolicyAssociationAccessScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyAssociationAccessScopePtrInput)(nil)).Elem(), AccessPolicyAssociationAccessScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAccessConfigInput)(nil)).Elem(), ClusterAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAccessConfigPtrInput)(nil)).Elem(), ClusterAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCertificateAuthorityInput)(nil)).Elem(), ClusterCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCertificateAuthorityPtrInput)(nil)).Elem(), ClusterCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCertificateAuthorityArrayInput)(nil)).Elem(), ClusterCertificateAuthorityArray{})
@@ -4258,6 +4671,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupTaintArrayInput)(nil)).Elem(), NodeGroupTaintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupUpdateConfigInput)(nil)).Elem(), NodeGroupUpdateConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupUpdateConfigPtrInput)(nil)).Elem(), NodeGroupUpdateConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterAccessConfigInput)(nil)).Elem(), GetClusterAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterAccessConfigArrayInput)(nil)).Elem(), GetClusterAccessConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterCertificateAuthorityInput)(nil)).Elem(), GetClusterCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterCertificateAuthorityArrayInput)(nil)).Elem(), GetClusterCertificateAuthorityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterIdentityInput)(nil)).Elem(), GetClusterIdentityArgs{})
@@ -4283,6 +4698,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupScalingConfigArrayInput)(nil)).Elem(), GetNodeGroupScalingConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupTaintInput)(nil)).Elem(), GetNodeGroupTaintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupTaintArrayInput)(nil)).Elem(), GetNodeGroupTaintArray{})
+	pulumi.RegisterOutputType(AccessPolicyAssociationAccessScopeOutput{})
+	pulumi.RegisterOutputType(AccessPolicyAssociationAccessScopePtrOutput{})
+	pulumi.RegisterOutputType(ClusterAccessConfigOutput{})
+	pulumi.RegisterOutputType(ClusterAccessConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterCertificateAuthorityOutput{})
 	pulumi.RegisterOutputType(ClusterCertificateAuthorityPtrOutput{})
 	pulumi.RegisterOutputType(ClusterCertificateAuthorityArrayOutput{})
@@ -4320,6 +4739,8 @@ func init() {
 	pulumi.RegisterOutputType(NodeGroupTaintArrayOutput{})
 	pulumi.RegisterOutputType(NodeGroupUpdateConfigOutput{})
 	pulumi.RegisterOutputType(NodeGroupUpdateConfigPtrOutput{})
+	pulumi.RegisterOutputType(GetClusterAccessConfigOutput{})
+	pulumi.RegisterOutputType(GetClusterAccessConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterCertificateAuthorityOutput{})
 	pulumi.RegisterOutputType(GetClusterCertificateAuthorityArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterIdentityOutput{})

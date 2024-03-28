@@ -922,25 +922,28 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.memorydb.Cluster("example",
             acl_name="open-access",
+            name="my-cluster",
             node_type="db.t4g.small",
             num_shards=2,
-            security_group_ids=[aws_security_group["example"]["id"]],
+            security_group_ids=[example_aws_security_group["id"]],
             snapshot_retention_limit=7,
-            subnet_group_name=aws_memorydb_subnet_group["example"]["id"])
+            subnet_group_name=example_aws_memorydb_subnet_group["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a cluster using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
+        $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
         ```
 
         :param str resource_name: The name of the resource.
@@ -985,25 +988,28 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.memorydb.Cluster("example",
             acl_name="open-access",
+            name="my-cluster",
             node_type="db.t4g.small",
             num_shards=2,
-            security_group_ids=[aws_security_group["example"]["id"]],
+            security_group_ids=[example_aws_security_group["id"]],
             snapshot_retention_limit=7,
-            subnet_group_name=aws_memorydb_subnet_group["example"]["id"])
+            subnet_group_name=example_aws_memorydb_subnet_group["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a cluster using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
+        $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
         ```
 
         :param str resource_name: The name of the resource.
@@ -1087,8 +1093,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["engine_patch_version"] = None
             __props__.__dict__["shards"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Cluster, __self__).__init__(
             'aws:memorydb/cluster:Cluster',
             resource_name,

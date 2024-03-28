@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * [1]: https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,7 +56,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRestApi = new RestApi(&#34;exampleRestApi&#34;, RestApiArgs.builder()        
+ *         var example = new RestApi(&#34;example&#34;, RestApiArgs.builder()        
  *             .body(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;openapi&#34;, &#34;3.0.1&#34;),
@@ -75,21 +77,22 @@ import javax.annotation.Nullable;
  *                         ))
  *                     ))
  *                 )))
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
- *             .restApi(exampleRestApi.id())
- *             .triggers(Map.of(&#34;redeployment&#34;, exampleRestApi.body().applyValue(body -&gt; serializeJson(
- *                 body)).applyValue(toJSON -&gt; computeSHA1(toJSON))))
+ *             .restApi(example.id())
+ *             .triggers(Map.of(&#34;redeployment&#34;, StdFunctions.sha1().applyValue(invoke -&gt; invoke.result())))
  *             .build());
  * 
  *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
  *             .deployment(exampleDeployment.id())
- *             .restApi(exampleRestApi.id())
+ *             .restApi(example.id())
  *             .stageName(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleWebAcl = new WebAcl(&#34;exampleWebAcl&#34;, WebAclArgs.builder()        
+ *             .name(&#34;web-acl-association-example&#34;)
  *             .scope(&#34;REGIONAL&#34;)
  *             .defaultAction(WebAclDefaultActionArgs.builder()
  *                 .allow()
@@ -109,27 +112,28 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import WAFv2 Web ACL Association using `WEB_ACL_ARN,RESOURCE_ARN`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:wafv2/webAclAssociation:WebAclAssociation example arn:aws:wafv2:...7ce849ea,arn:aws:apigateway:...ages/name
+ * $ pulumi import aws:wafv2/webAclAssociation:WebAclAssociation example arn:aws:wafv2:...7ce849ea,arn:aws:apigateway:...ages/name
  * ```
  * 
  */
 @ResourceType(type="aws:wafv2/webAclAssociation:WebAclAssociation")
 public class WebAclAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
+     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
+     * @return The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
      * 
      */
     public Output<String> resourceArn() {

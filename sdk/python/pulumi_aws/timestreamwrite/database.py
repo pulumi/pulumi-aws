@@ -189,34 +189,40 @@ class Database(pulumi.CustomResource):
         Provides a Timestream database resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.timestreamwrite.Database("example", database_name="database-example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Full usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.timestreamwrite.Database("example",
             database_name="database-example",
-            kms_key_id=aws_kms_key["example"]["arn"],
+            kms_key_id=example_aws_kms_key["arn"],
             tags={
                 "Name": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Timestream databases using the `database_name`. For example:
 
         ```sh
-         $ pulumi import aws:timestreamwrite/database:Database example example
+        $ pulumi import aws:timestreamwrite/database:Database example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -235,34 +241,40 @@ class Database(pulumi.CustomResource):
         Provides a Timestream database resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.timestreamwrite.Database("example", database_name="database-example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Full usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.timestreamwrite.Database("example",
             database_name="database-example",
-            kms_key_id=aws_kms_key["example"]["arn"],
+            kms_key_id=example_aws_kms_key["arn"],
             tags={
                 "Name": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Timestream databases using the `database_name`. For example:
 
         ```sh
-         $ pulumi import aws:timestreamwrite/database:Database example example
+        $ pulumi import aws:timestreamwrite/database:Database example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -300,8 +312,6 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["table_count"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Database, __self__).__init__(
             'aws:timestreamwrite/database:Database',
             resource_name,

@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -62,19 +63,23 @@ public final class GetTaskExecutionPlacementStrategy {
 
         @CustomType.Setter
         public Builder field(@Nullable String field) {
+
             this.field = field;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetTaskExecutionPlacementStrategy", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetTaskExecutionPlacementStrategy build() {
-            final var o = new GetTaskExecutionPlacementStrategy();
-            o.field = field;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetTaskExecutionPlacementStrategy();
+            _resultValue.field = field;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

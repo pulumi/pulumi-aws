@@ -58,19 +58,21 @@ public final class JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver {
 
         @CustomType.Setter
         public Builder entryPoint(@Nullable String entryPoint) {
+
             this.entryPoint = entryPoint;
             return this;
         }
         @CustomType.Setter
         public Builder sparkSqlParameters(@Nullable String sparkSqlParameters) {
+
             this.sparkSqlParameters = sparkSqlParameters;
             return this;
         }
         public JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver build() {
-            final var o = new JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver();
-            o.entryPoint = entryPoint;
-            o.sparkSqlParameters = sparkSqlParameters;
-            return o;
+            final var _resultValue = new JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver();
+            _resultValue.entryPoint = entryPoint;
+            _resultValue.sparkSqlParameters = sparkSqlParameters;
+            return _resultValue;
         }
     }
 }

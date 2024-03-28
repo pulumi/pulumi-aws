@@ -121,16 +121,19 @@ def get_application(application_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example_application = aws.serverlessrepository.get_application(application_id="arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication")
-    example_cloud_formation_stack = aws.serverlessrepository.CloudFormationStack("exampleCloudFormationStack",
-        application_id=example_application.application_id,
-        semantic_version=example_application.semantic_version,
-        capabilities=example_application.required_capabilities)
+    example = aws.serverlessrepository.get_application(application_id="arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication")
+    example_cloud_formation_stack = aws.serverlessrepository.CloudFormationStack("example",
+        name="Example",
+        application_id=example.application_id,
+        semantic_version=example.semantic_version,
+        capabilities=example.required_capabilities)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str application_id: ARN of the application.
@@ -161,16 +164,19 @@ def get_application_output(application_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example_application = aws.serverlessrepository.get_application(application_id="arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication")
-    example_cloud_formation_stack = aws.serverlessrepository.CloudFormationStack("exampleCloudFormationStack",
-        application_id=example_application.application_id,
-        semantic_version=example_application.semantic_version,
-        capabilities=example_application.required_capabilities)
+    example = aws.serverlessrepository.get_application(application_id="arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication")
+    example_cloud_formation_stack = aws.serverlessrepository.CloudFormationStack("example",
+        name="Example",
+        application_id=example.application_id,
+        semantic_version=example.semantic_version,
+        capabilities=example.required_capabilities)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str application_id: ARN of the application.

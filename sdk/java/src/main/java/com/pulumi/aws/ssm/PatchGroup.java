@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides an SSM Patch Group resource
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -41,6 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var production = new PatchBaseline(&#34;production&#34;, PatchBaselineArgs.builder()        
+ *             .name(&#34;patch-baseline&#34;)
  *             .approvedPatches(&#34;KB123456&#34;)
  *             .build());
  * 
@@ -52,6 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:ssm/patchGroup:PatchGroup")

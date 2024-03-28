@@ -11,60 +11,72 @@ import * as utilities from "../utilities";
  * Manages an EMR Serverless Application.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.emrserverless.Application("example", {
+ *     name: "example",
  *     releaseLabel: "emr-6.6.0",
  *     type: "hive",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Initial Capacity Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.emrserverless.Application("example", {
+ *     name: "example",
+ *     releaseLabel: "emr-6.6.0",
+ *     type: "hive",
  *     initialCapacities: [{
+ *         initialCapacityType: "HiveDriver",
  *         initialCapacityConfig: {
+ *             workerCount: 1,
  *             workerConfiguration: {
  *                 cpu: "2 vCPU",
  *                 memory: "10 GB",
  *             },
- *             workerCount: 1,
  *         },
- *         initialCapacityType: "HiveDriver",
  *     }],
- *     releaseLabel: "emr-6.6.0",
- *     type: "hive",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Maximum Capacity Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.emrserverless.Application("example", {
+ *     name: "example",
+ *     releaseLabel: "emr-6.6.0",
+ *     type: "hive",
  *     maximumCapacity: {
  *         cpu: "2 vCPU",
  *         memory: "10 GB",
  *     },
- *     releaseLabel: "emr-6.6.0",
- *     type: "hive",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EMR Severless applications using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:emrserverless/application:Application example id
+ * $ pulumi import aws:emrserverless/application:Application example id
  * ```
  */
 export class Application extends pulumi.CustomResource {
@@ -199,8 +211,6 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -59,19 +59,21 @@ public final class WorkflowStepCopyStepDetailsDestinationFileLocation {
 
         @CustomType.Setter
         public Builder efsFileLocation(@Nullable WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation efsFileLocation) {
+
             this.efsFileLocation = efsFileLocation;
             return this;
         }
         @CustomType.Setter
         public Builder s3FileLocation(@Nullable WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation s3FileLocation) {
+
             this.s3FileLocation = s3FileLocation;
             return this;
         }
         public WorkflowStepCopyStepDetailsDestinationFileLocation build() {
-            final var o = new WorkflowStepCopyStepDetailsDestinationFileLocation();
-            o.efsFileLocation = efsFileLocation;
-            o.s3FileLocation = s3FileLocation;
-            return o;
+            final var _resultValue = new WorkflowStepCopyStepDetailsDestinationFileLocation();
+            _resultValue.efsFileLocation = efsFileLocation;
+            _resultValue.s3FileLocation = s3FileLocation;
+            return _resultValue;
         }
     }
 }

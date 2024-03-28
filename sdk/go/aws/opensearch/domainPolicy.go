@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,12 +33,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
+//				DomainName:    pulumi.String("tf-test"),
 //				EngineVersion: pulumi.String("OpenSearch_1.1"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			mainPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//			main := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
 //						Effect: pulumi.String("Allow"),
@@ -69,10 +71,10 @@ import (
 //					},
 //				},
 //			}, nil)
-//			_, err = opensearch.NewDomainPolicy(ctx, "mainDomainPolicy", &opensearch.DomainPolicyArgs{
+//			_, err = opensearch.NewDomainPolicy(ctx, "main", &opensearch.DomainPolicyArgs{
 //				DomainName: example.DomainName,
-//				AccessPolicies: mainPolicyDocument.ApplyT(func(mainPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &mainPolicyDocument.Json, nil
+//				AccessPolicies: main.ApplyT(func(main iam.GetPolicyDocumentResult) (*string, error) {
+//					return &main.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
@@ -83,6 +85,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type DomainPolicy struct {
 	pulumi.CustomResourceState
 

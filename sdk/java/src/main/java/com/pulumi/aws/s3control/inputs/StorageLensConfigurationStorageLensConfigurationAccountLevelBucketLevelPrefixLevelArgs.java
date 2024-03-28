@@ -6,6 +6,7 @@ package com.pulumi.aws.s3control.inputs;
 import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
         }
 
         public StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs build() {
-            $.storageMetrics = Objects.requireNonNull($.storageMetrics, "expected parameter 'storageMetrics' to be non-null");
+            if ($.storageMetrics == null) {
+                throw new MissingRequiredPropertyException("StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs", "storageMetrics");
+            }
             return $;
         }
     }

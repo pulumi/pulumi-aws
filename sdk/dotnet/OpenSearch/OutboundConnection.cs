@@ -13,8 +13,10 @@ namespace Pulumi.Aws.OpenSearch
     /// Manages an AWS Opensearch Outbound Connection.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,9 +25,9 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var currentRegion = Aws.GetRegion.Invoke();
+    ///     var currentGetRegion = Aws.GetRegion.Invoke();
     /// 
     ///     var foo = new Aws.OpenSearch.OutboundConnection("foo", new()
     ///     {
@@ -33,27 +35,28 @@ namespace Pulumi.Aws.OpenSearch
     ///         ConnectionMode = "DIRECT",
     ///         LocalDomainInfo = new Aws.OpenSearch.Inputs.OutboundConnectionLocalDomainInfoArgs
     ///         {
-    ///             OwnerId = currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///             Region = currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name),
-    ///             DomainName = aws_opensearch_domain.Local_domain.Domain_name,
+    ///             OwnerId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///             Region = currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             DomainName = localDomain.DomainName,
     ///         },
     ///         RemoteDomainInfo = new Aws.OpenSearch.Inputs.OutboundConnectionRemoteDomainInfoArgs
     ///         {
-    ///             OwnerId = currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///             Region = currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name),
-    ///             DomainName = aws_opensearch_domain.Remote_domain.Domain_name,
+    ///             OwnerId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///             Region = currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             DomainName = remoteDomain.DomainName,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS Opensearch Outbound Connections using the Outbound Connection ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
+    /// $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:opensearch/outboundConnection:OutboundConnection")]

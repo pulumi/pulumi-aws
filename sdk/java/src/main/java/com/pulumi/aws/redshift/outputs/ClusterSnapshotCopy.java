@@ -4,6 +4,7 @@
 package com.pulumi.aws.redshift.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,25 +74,30 @@ public final class ClusterSnapshotCopy {
 
         @CustomType.Setter
         public Builder destinationRegion(String destinationRegion) {
-            this.destinationRegion = Objects.requireNonNull(destinationRegion);
+            if (destinationRegion == null) {
+              throw new MissingRequiredPropertyException("ClusterSnapshotCopy", "destinationRegion");
+            }
+            this.destinationRegion = destinationRegion;
             return this;
         }
         @CustomType.Setter
         public Builder grantName(@Nullable String grantName) {
+
             this.grantName = grantName;
             return this;
         }
         @CustomType.Setter
         public Builder retentionPeriod(@Nullable Integer retentionPeriod) {
+
             this.retentionPeriod = retentionPeriod;
             return this;
         }
         public ClusterSnapshotCopy build() {
-            final var o = new ClusterSnapshotCopy();
-            o.destinationRegion = destinationRegion;
-            o.grantName = grantName;
-            o.retentionPeriod = retentionPeriod;
-            return o;
+            final var _resultValue = new ClusterSnapshotCopy();
+            _resultValue.destinationRegion = destinationRegion;
+            _resultValue.grantName = grantName;
+            _resultValue.retentionPeriod = retentionPeriod;
+            return _resultValue;
         }
     }
 }

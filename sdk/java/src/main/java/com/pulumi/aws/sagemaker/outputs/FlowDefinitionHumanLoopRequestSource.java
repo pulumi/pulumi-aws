@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class FlowDefinitionHumanLoopRequestSource {
 
         @CustomType.Setter
         public Builder awsManagedHumanLoopRequestSource(String awsManagedHumanLoopRequestSource) {
-            this.awsManagedHumanLoopRequestSource = Objects.requireNonNull(awsManagedHumanLoopRequestSource);
+            if (awsManagedHumanLoopRequestSource == null) {
+              throw new MissingRequiredPropertyException("FlowDefinitionHumanLoopRequestSource", "awsManagedHumanLoopRequestSource");
+            }
+            this.awsManagedHumanLoopRequestSource = awsManagedHumanLoopRequestSource;
             return this;
         }
         public FlowDefinitionHumanLoopRequestSource build() {
-            final var o = new FlowDefinitionHumanLoopRequestSource();
-            o.awsManagedHumanLoopRequestSource = awsManagedHumanLoopRequestSource;
-            return o;
+            final var _resultValue = new FlowDefinitionHumanLoopRequestSource();
+            _resultValue.awsManagedHumanLoopRequestSource = awsManagedHumanLoopRequestSource;
+            return _resultValue;
         }
     }
 }

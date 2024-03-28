@@ -17,25 +17,17 @@ import (
 // > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pinpoint"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
@@ -43,10 +35,22 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pinpoint.NewApnsSandboxChannel(ctx, "apnsSandbox", &pinpoint.ApnsSandboxChannelArgs{
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "./certificate.pem",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeFile1, err := std.File(ctx, &std.FileArgs{
+//				Input: "./private_key.key",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pinpoint.NewApnsSandboxChannel(ctx, "apns_sandbox", &pinpoint.ApnsSandboxChannelArgs{
 //				ApplicationId: app.ApplicationId,
-//				Certificate:   readFileOrPanic("./certificate.pem"),
-//				PrivateKey:    readFileOrPanic("./private_key.key"),
+//				Certificate:   invokeFile.Result,
+//				PrivateKey:    invokeFile1.Result,
 //			})
 //			if err != nil {
 //				return err
@@ -56,15 +60,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Pinpoint APNs Sandbox Channel using the `application-id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel apns_sandbox application-id
-//
+// $ pulumi import aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel apns_sandbox application-id
 // ```
 type ApnsSandboxChannel struct {
 	pulumi.CustomResourceState

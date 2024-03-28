@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides an Amplify Webhook resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -25,6 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.amplify.App;
+ * import com.pulumi.aws.amplify.AppArgs;
  * import com.pulumi.aws.amplify.Branch;
  * import com.pulumi.aws.amplify.BranchArgs;
  * import com.pulumi.aws.amplify.Webhook;
@@ -42,29 +45,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App(&#34;example&#34;);
+ *         var example = new App(&#34;example&#34;, AppArgs.builder()        
+ *             .name(&#34;app&#34;)
+ *             .build());
  * 
- *         var masterBranch = new Branch(&#34;masterBranch&#34;, BranchArgs.builder()        
+ *         var master = new Branch(&#34;master&#34;, BranchArgs.builder()        
  *             .appId(example.id())
  *             .branchName(&#34;master&#34;)
  *             .build());
  * 
  *         var masterWebhook = new Webhook(&#34;masterWebhook&#34;, WebhookArgs.builder()        
  *             .appId(example.id())
- *             .branchName(masterBranch.branchName())
+ *             .branchName(master.branchName())
  *             .description(&#34;triggermaster&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Amplify webhook using a webhook ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
+ * $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
  * ```
  * 
  */

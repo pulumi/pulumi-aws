@@ -14,19 +14,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.memorydb.Snapshot("example", {clusterName: aws_memorydb_cluster.example.name});
+ * const example = new aws.memorydb.Snapshot("example", {
+ *     clusterName: exampleAwsMemorydbCluster.name,
+ *     name: "my-snapshot",
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a snapshot using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
+ * $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
  * ```
  */
 export class Snapshot extends pulumi.CustomResource {
@@ -134,8 +139,6 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Snapshot.__pulumiType, name, resourceInputs, opts);
     }
 }

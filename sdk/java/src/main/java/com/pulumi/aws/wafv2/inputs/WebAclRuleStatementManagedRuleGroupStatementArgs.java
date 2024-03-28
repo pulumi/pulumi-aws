@@ -8,6 +8,7 @@ import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementR
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -285,8 +286,12 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
         }
 
         public WebAclRuleStatementManagedRuleGroupStatementArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.vendorName = Objects.requireNonNull($.vendorName, "expected parameter 'vendorName' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementArgs", "name");
+            }
+            if ($.vendorName == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementArgs", "vendorName");
+            }
             return $;
         }
     }

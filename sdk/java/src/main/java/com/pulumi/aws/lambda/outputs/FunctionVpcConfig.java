@@ -4,6 +4,7 @@
 package com.pulumi.aws.lambda.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -80,12 +81,16 @@ public final class FunctionVpcConfig {
 
         @CustomType.Setter
         public Builder ipv6AllowedForDualStack(@Nullable Boolean ipv6AllowedForDualStack) {
+
             this.ipv6AllowedForDualStack = ipv6AllowedForDualStack;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+            if (securityGroupIds == null) {
+              throw new MissingRequiredPropertyException("FunctionVpcConfig", "securityGroupIds");
+            }
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {
@@ -93,7 +98,10 @@ public final class FunctionVpcConfig {
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("FunctionVpcConfig", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
@@ -101,16 +109,17 @@ public final class FunctionVpcConfig {
         }
         @CustomType.Setter
         public Builder vpcId(@Nullable String vpcId) {
+
             this.vpcId = vpcId;
             return this;
         }
         public FunctionVpcConfig build() {
-            final var o = new FunctionVpcConfig();
-            o.ipv6AllowedForDualStack = ipv6AllowedForDualStack;
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new FunctionVpcConfig();
+            _resultValue.ipv6AllowedForDualStack = ipv6AllowedForDualStack;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

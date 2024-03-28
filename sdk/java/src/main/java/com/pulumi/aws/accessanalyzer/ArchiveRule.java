@@ -19,7 +19,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS AccessAnalyzer Archive Rule.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,6 +47,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ArchiveRule(&#34;example&#34;, ArchiveRuleArgs.builder()        
  *             .analyzerName(&#34;example-analyzer&#34;)
+ *             .ruleName(&#34;example-rule&#34;)
  *             .filters(            
  *                 ArchiveRuleFilterArgs.builder()
  *                     .criteria(&#34;condition.aws:UserId&#34;)
@@ -57,19 +61,19 @@ import javax.annotation.Nullable;
  *                     .criteria(&#34;isPublic&#34;)
  *                     .eqs(&#34;false&#34;)
  *                     .build())
- *             .ruleName(&#34;example-rule&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AccessAnalyzer ArchiveRule using the `analyzer_name/rule_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
+ * $ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
  * ```
  * 
  */

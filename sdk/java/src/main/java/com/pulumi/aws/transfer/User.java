@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the `aws.transfer.SshKey` resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -69,10 +71,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var fooRole = new Role(&#34;fooRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;tf-test-transfer-user-iam-role&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         final var fooPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var foo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;AllowFullAccesstoS3&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -82,8 +85,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var fooRolePolicy = new RolePolicy(&#34;fooRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;tf-test-transfer-user-iam-policy&#34;)
  *             .role(fooRole.id())
- *             .policy(fooPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(foo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var fooUser = new User(&#34;fooUser&#34;, UserArgs.builder()        
@@ -100,13 +104,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:transfer/user:User bar s-12345678/test-username
+ * $ pulumi import aws:transfer/user:User bar s-12345678/test-username
  * ```
  * 
  */
@@ -303,9 +308,6 @@ public class User extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

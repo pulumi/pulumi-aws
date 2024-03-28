@@ -321,19 +321,21 @@ class GatewayRoute(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.appmesh.GatewayRoute("example",
+            name="example-gateway-route",
             mesh_name="example-service-mesh",
-            virtual_gateway_name=aws_appmesh_virtual_gateway["example"]["name"],
+            virtual_gateway_name=example_aws_appmesh_virtual_gateway["name"],
             spec=aws.appmesh.GatewayRouteSpecArgs(
                 http_route=aws.appmesh.GatewayRouteSpecHttpRouteArgs(
                     action=aws.appmesh.GatewayRouteSpecHttpRouteActionArgs(
                         target=aws.appmesh.GatewayRouteSpecHttpRouteActionTargetArgs(
                             virtual_service=aws.appmesh.GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs(
-                                virtual_service_name=aws_appmesh_virtual_service["example"]["name"],
+                                virtual_service_name=example_aws_appmesh_virtual_service["name"],
                             ),
                         ),
                     ),
@@ -346,13 +348,14 @@ class GatewayRoute(pulumi.CustomResource):
                 "Environment": "test",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Mesh gateway routes using `mesh_name` and `virtual_gateway_name` together with the gateway route's `name`. For example:
 
         ```sh
-         $ pulumi import aws:appmesh/gatewayRoute:GatewayRoute example mesh/gw1/example-gateway-route
+        $ pulumi import aws:appmesh/gatewayRoute:GatewayRoute example mesh/gw1/example-gateway-route
         ```
 
         :param str resource_name: The name of the resource.
@@ -375,19 +378,21 @@ class GatewayRoute(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.appmesh.GatewayRoute("example",
+            name="example-gateway-route",
             mesh_name="example-service-mesh",
-            virtual_gateway_name=aws_appmesh_virtual_gateway["example"]["name"],
+            virtual_gateway_name=example_aws_appmesh_virtual_gateway["name"],
             spec=aws.appmesh.GatewayRouteSpecArgs(
                 http_route=aws.appmesh.GatewayRouteSpecHttpRouteArgs(
                     action=aws.appmesh.GatewayRouteSpecHttpRouteActionArgs(
                         target=aws.appmesh.GatewayRouteSpecHttpRouteActionTargetArgs(
                             virtual_service=aws.appmesh.GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs(
-                                virtual_service_name=aws_appmesh_virtual_service["example"]["name"],
+                                virtual_service_name=example_aws_appmesh_virtual_service["name"],
                             ),
                         ),
                     ),
@@ -400,13 +405,14 @@ class GatewayRoute(pulumi.CustomResource):
                 "Environment": "test",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Mesh gateway routes using `mesh_name` and `virtual_gateway_name` together with the gateway route's `name`. For example:
 
         ```sh
-         $ pulumi import aws:appmesh/gatewayRoute:GatewayRoute example mesh/gw1/example-gateway-route
+        $ pulumi import aws:appmesh/gatewayRoute:GatewayRoute example mesh/gw1/example-gateway-route
         ```
 
         :param str resource_name: The name of the resource.
@@ -456,8 +462,6 @@ class GatewayRoute(pulumi.CustomResource):
             __props__.__dict__["last_updated_date"] = None
             __props__.__dict__["resource_owner"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(GatewayRoute, __self__).__init__(
             'aws:appmesh/gatewayRoute:GatewayRoute',
             resource_name,

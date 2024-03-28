@@ -4,6 +4,7 @@
 package com.pulumi.aws.autoscaling.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
 
         @CustomType.Setter
         public Builder max(Double max) {
-            this.max = Objects.requireNonNull(max);
+            if (max == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus", "max");
+            }
+            this.max = max;
             return this;
         }
         @CustomType.Setter
         public Builder min(Double min) {
-            this.min = Objects.requireNonNull(min);
+            if (min == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus", "min");
+            }
+            this.min = min;
             return this;
         }
         public GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus build() {
-            final var o = new GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

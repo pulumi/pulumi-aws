@@ -5,6 +5,7 @@ package com.pulumi.aws.fsx.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -13,16 +14,32 @@ public final class OpenZfsVolumeOriginSnapshotArgs extends com.pulumi.resources.
 
     public static final OpenZfsVolumeOriginSnapshotArgs Empty = new OpenZfsVolumeOriginSnapshotArgs();
 
+    /**
+     * Specifies the strategy used when copying data from the snapshot to the new volume. Valid values are `CLONE`, `FULL_COPY`, `INCREMENTAL_COPY`.
+     * 
+     */
     @Import(name="copyStrategy", required=true)
     private Output<String> copyStrategy;
 
+    /**
+     * @return Specifies the strategy used when copying data from the snapshot to the new volume. Valid values are `CLONE`, `FULL_COPY`, `INCREMENTAL_COPY`.
+     * 
+     */
     public Output<String> copyStrategy() {
         return this.copyStrategy;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the origin snapshot.
+     * 
+     */
     @Import(name="snapshotArn", required=true)
     private Output<String> snapshotArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the origin snapshot.
+     * 
+     */
     public Output<String> snapshotArn() {
         return this.snapshotArn;
     }
@@ -52,27 +69,55 @@ public final class OpenZfsVolumeOriginSnapshotArgs extends com.pulumi.resources.
             $ = new OpenZfsVolumeOriginSnapshotArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param copyStrategy Specifies the strategy used when copying data from the snapshot to the new volume. Valid values are `CLONE`, `FULL_COPY`, `INCREMENTAL_COPY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder copyStrategy(Output<String> copyStrategy) {
             $.copyStrategy = copyStrategy;
             return this;
         }
 
+        /**
+         * @param copyStrategy Specifies the strategy used when copying data from the snapshot to the new volume. Valid values are `CLONE`, `FULL_COPY`, `INCREMENTAL_COPY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder copyStrategy(String copyStrategy) {
             return copyStrategy(Output.of(copyStrategy));
         }
 
+        /**
+         * @param snapshotArn The Amazon Resource Name (ARN) of the origin snapshot.
+         * 
+         * @return builder
+         * 
+         */
         public Builder snapshotArn(Output<String> snapshotArn) {
             $.snapshotArn = snapshotArn;
             return this;
         }
 
+        /**
+         * @param snapshotArn The Amazon Resource Name (ARN) of the origin snapshot.
+         * 
+         * @return builder
+         * 
+         */
         public Builder snapshotArn(String snapshotArn) {
             return snapshotArn(Output.of(snapshotArn));
         }
 
         public OpenZfsVolumeOriginSnapshotArgs build() {
-            $.copyStrategy = Objects.requireNonNull($.copyStrategy, "expected parameter 'copyStrategy' to be non-null");
-            $.snapshotArn = Objects.requireNonNull($.snapshotArn, "expected parameter 'snapshotArn' to be non-null");
+            if ($.copyStrategy == null) {
+                throw new MissingRequiredPropertyException("OpenZfsVolumeOriginSnapshotArgs", "copyStrategy");
+            }
+            if ($.snapshotArn == null) {
+                throw new MissingRequiredPropertyException("OpenZfsVolumeOriginSnapshotArgs", "snapshotArn");
+            }
             return $;
         }
     }

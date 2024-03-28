@@ -17,13 +17,12 @@ namespace Pulumi.Aws.S3
         /// 
         /// &gt; **Note:** The content of an object (`body` field) is available only for objects which have a human-readable `Content-Type` (`text/*` and `application/json`). This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favour of metadata.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following example retrieves a text object (which must have a `Content-Type`
         /// value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -40,13 +39,14 @@ namespace Pulumi.Aws.S3
         /// 
         ///     var example = new Aws.Ec2.Instance("example", new()
         ///     {
-        ///         InstanceType = "t2.micro",
+        ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
         ///         Ami = "ami-2757f631",
         ///         UserData = bootstrapScript.Apply(getObjectResult =&gt; getObjectResult.Body),
         ///     });
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// The following, more-complex example retrieves only the metadata for a zip
         /// file stored in S3, which is then used to pass the most recent `version_id`
@@ -54,6 +54,7 @@ namespace Pulumi.Aws.S3
         /// Lambda functions is available in the documentation for
         /// `aws.lambda.Function`.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -68,19 +69,19 @@ namespace Pulumi.Aws.S3
         ///         Key = "hello-world.zip",
         ///     });
         /// 
-        ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
+        ///     var testLambda = new Aws.Lambda.Function("test_lambda", new()
         ///     {
         ///         S3Bucket = lambda.Apply(getObjectResult =&gt; getObjectResult.Bucket),
         ///         S3Key = lambda.Apply(getObjectResult =&gt; getObjectResult.Key),
         ///         S3ObjectVersion = lambda.Apply(getObjectResult =&gt; getObjectResult.VersionId),
-        ///         Role = aws_iam_role.Iam_for_lambda.Arn,
+        ///         Name = "lambda_function_name",
+        ///         Role = iamForLambda.Arn,
         ///         Handler = "exports.test",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetObjectResult> InvokeAsync(GetObjectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetObjectResult>("aws:s3/getObject:getObject", args ?? new GetObjectArgs(), options.WithDefaults());
@@ -91,13 +92,12 @@ namespace Pulumi.Aws.S3
         /// 
         /// &gt; **Note:** The content of an object (`body` field) is available only for objects which have a human-readable `Content-Type` (`text/*` and `application/json`). This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favour of metadata.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following example retrieves a text object (which must have a `Content-Type`
         /// value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -114,13 +114,14 @@ namespace Pulumi.Aws.S3
         /// 
         ///     var example = new Aws.Ec2.Instance("example", new()
         ///     {
-        ///         InstanceType = "t2.micro",
+        ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
         ///         Ami = "ami-2757f631",
         ///         UserData = bootstrapScript.Apply(getObjectResult =&gt; getObjectResult.Body),
         ///     });
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// The following, more-complex example retrieves only the metadata for a zip
         /// file stored in S3, which is then used to pass the most recent `version_id`
@@ -128,6 +129,7 @@ namespace Pulumi.Aws.S3
         /// Lambda functions is available in the documentation for
         /// `aws.lambda.Function`.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -142,19 +144,19 @@ namespace Pulumi.Aws.S3
         ///         Key = "hello-world.zip",
         ///     });
         /// 
-        ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
+        ///     var testLambda = new Aws.Lambda.Function("test_lambda", new()
         ///     {
         ///         S3Bucket = lambda.Apply(getObjectResult =&gt; getObjectResult.Bucket),
         ///         S3Key = lambda.Apply(getObjectResult =&gt; getObjectResult.Key),
         ///         S3ObjectVersion = lambda.Apply(getObjectResult =&gt; getObjectResult.VersionId),
-        ///         Role = aws_iam_role.Iam_for_lambda.Arn,
+        ///         Name = "lambda_function_name",
+        ///         Role = iamForLambda.Arn,
         ///         Handler = "exports.test",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetObjectResult> Invoke(GetObjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetObjectResult>("aws:s3/getObject:getObject", args ?? new GetObjectInvokeArgs(), options.WithDefaults());
@@ -259,6 +261,10 @@ namespace Pulumi.Aws.S3
     [OutputType]
     public sealed class GetObjectResult
     {
+        /// <summary>
+        /// ARN of the object.
+        /// </summary>
+        public readonly string Arn;
         /// <summary>
         /// Object data (see **limitations above** to understand cases in which this field is actually available)
         /// </summary>
@@ -374,6 +380,8 @@ namespace Pulumi.Aws.S3
 
         [OutputConstructor]
         private GetObjectResult(
+            string arn,
+
             string body,
 
             string bucket,
@@ -436,6 +444,7 @@ namespace Pulumi.Aws.S3
 
             string websiteRedirectLocation)
         {
+            Arn = arn;
             Body = body;
             Bucket = bucket;
             BucketKeyEnabled = bucketKeyEnabled;

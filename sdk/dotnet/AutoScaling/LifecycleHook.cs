@@ -26,6 +26,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,12 +36,13 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foobarGroup = new Aws.AutoScaling.Group("foobarGroup", new()
+    ///     var foobar = new Aws.AutoScaling.Group("foobar", new()
     ///     {
     ///         AvailabilityZones = new[]
     ///         {
     ///             "us-west-2a",
     ///         },
+    ///         Name = "test-foobar5",
     ///         HealthCheckType = "EC2",
     ///         TerminationPolicies = new[]
     ///         {
@@ -57,9 +59,10 @@ namespace Pulumi.Aws.AutoScaling
     ///         },
     ///     });
     /// 
-    ///     var foobarLifecycleHook = new Aws.AutoScaling.LifecycleHook("foobarLifecycleHook", new()
+    ///     var foobarLifecycleHook = new Aws.AutoScaling.LifecycleHook("foobar", new()
     ///     {
-    ///         AutoscalingGroupName = foobarGroup.Name,
+    ///         Name = "foobar",
+    ///         AutoscalingGroupName = foobar.Name,
     ///         DefaultResult = "CONTINUE",
     ///         HeartbeatTimeout = 2000,
     ///         LifecycleTransition = "autoscaling:EC2_INSTANCE_LAUNCHING",
@@ -73,13 +76,14 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AutoScaling Lifecycle Hooks using the role autoscaling_group_name and name separated by `/`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook test-lifecycle-hook asg-name/lifecycle-hook-name
+    /// $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook test-lifecycle-hook asg-name/lifecycle-hook-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:autoscaling/lifecycleHook:LifecycleHook")]

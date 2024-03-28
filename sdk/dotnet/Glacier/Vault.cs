@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Glacier
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,9 +25,12 @@ namespace Pulumi.Aws.Glacier
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var awsSnsTopic = new Aws.Sns.Topic("awsSnsTopic");
+    ///     var awsSnsTopic = new Aws.Sns.Topic("aws_sns_topic", new()
+    ///     {
+    ///         Name = "glacier-sns-topic",
+    ///     });
     /// 
-    ///     var myArchivePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var myArchive = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -58,8 +62,9 @@ namespace Pulumi.Aws.Glacier
     ///         },
     ///     });
     /// 
-    ///     var myArchiveVault = new Aws.Glacier.Vault("myArchiveVault", new()
+    ///     var myArchiveVault = new Aws.Glacier.Vault("my_archive", new()
     ///     {
+    ///         Name = "MyArchive",
     ///         Notification = new Aws.Glacier.Inputs.VaultNotificationArgs
     ///         {
     ///             SnsTopic = awsSnsTopic.Arn,
@@ -69,7 +74,7 @@ namespace Pulumi.Aws.Glacier
     ///                 "InventoryRetrievalCompleted",
     ///             },
     ///         },
-    ///         AccessPolicy = myArchivePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         AccessPolicy = myArchive.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///         Tags = 
     ///         {
     ///             { "Test", "MyArchive" },
@@ -78,13 +83,14 @@ namespace Pulumi.Aws.Glacier
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glacier Vaults using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:glacier/vault:Vault archive my_archive
+    /// $ pulumi import aws:glacier/vault:Vault archive my_archive
     /// ```
     /// </summary>
     [AwsResourceType("aws:glacier/vault:Vault")]
@@ -156,10 +162,6 @@ namespace Pulumi.Aws.Glacier
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -275,11 +277,7 @@ namespace Pulumi.Aws.Glacier
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public VaultState()

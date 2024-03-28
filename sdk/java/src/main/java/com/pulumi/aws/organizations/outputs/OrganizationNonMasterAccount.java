@@ -100,37 +100,42 @@ public final class OrganizationNonMasterAccount {
 
         @CustomType.Setter
         public Builder arn(@Nullable String arn) {
+
             this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder email(@Nullable String email) {
+
             this.email = email;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         public OrganizationNonMasterAccount build() {
-            final var o = new OrganizationNonMasterAccount();
-            o.arn = arn;
-            o.email = email;
-            o.id = id;
-            o.name = name;
-            o.status = status;
-            return o;
+            final var _resultValue = new OrganizationNonMasterAccount();
+            _resultValue.arn = arn;
+            _resultValue.email = email;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

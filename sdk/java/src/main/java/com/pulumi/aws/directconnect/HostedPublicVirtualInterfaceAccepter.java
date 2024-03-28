@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,20 +20,20 @@ import javax.annotation.Nullable;
  * This resource accepts ownership of a public virtual interface created by another AWS account.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.directconnect.HostedPublicVirtualInterface;
  * import com.pulumi.aws.directconnect.HostedPublicVirtualInterfaceArgs;
  * import com.pulumi.aws.directconnect.HostedPublicVirtualInterfaceAccepter;
  * import com.pulumi.aws.directconnect.HostedPublicVirtualInterfaceAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,13 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var accepter = new Provider(&#34;accepter&#34;);
- * 
- *         final var accepterCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var accepter = AwsFunctions.getCallerIdentity();
  * 
  *         var creator = new HostedPublicVirtualInterface(&#34;creator&#34;, HostedPublicVirtualInterfaceArgs.builder()        
  *             .connectionId(&#34;dxcon-zzzzzzzz&#34;)
- *             .ownerAccountId(accepterCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *             .ownerAccountId(accepter.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *             .name(&#34;vif-foo&#34;)
  *             .vlan(4094)
  *             .addressFamily(&#34;ipv4&#34;)
  *             .bgpAsn(65352)
@@ -68,20 +66,19 @@ import javax.annotation.Nullable;
  *         var accepterHostedPublicVirtualInterfaceAccepter = new HostedPublicVirtualInterfaceAccepter(&#34;accepterHostedPublicVirtualInterfaceAccepter&#34;, HostedPublicVirtualInterfaceAccepterArgs.builder()        
  *             .virtualInterfaceId(creator.id())
  *             .tags(Map.of(&#34;Side&#34;, &#34;Accepter&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.accepter())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Direct Connect hosted public virtual interfaces using the VIF `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter test dxvif-33cc44dd
+ * $ pulumi import aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter test dxvif-33cc44dd
  * ```
  * 
  */
@@ -180,9 +177,6 @@ public class HostedPublicVirtualInterfaceAccepter extends com.pulumi.resources.C
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

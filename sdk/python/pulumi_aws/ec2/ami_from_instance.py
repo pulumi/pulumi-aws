@@ -681,12 +681,16 @@ class AmiFromInstance(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.AmiFromInstance("example", source_instance_id="i-xxxxxxxx")
+        example = aws.ec2.AmiFromInstance("example",
+            name="example",
+            source_instance_id="i-xxxxxxxx")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -731,12 +735,16 @@ class AmiFromInstance(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.AmiFromInstance("example", source_instance_id="i-xxxxxxxx")
+        example = aws.ec2.AmiFromInstance("example",
+            name="example",
+            source_instance_id="i-xxxxxxxx")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param AmiFromInstanceArgs args: The arguments to use to populate this resource's properties.
@@ -803,8 +811,6 @@ class AmiFromInstance(pulumi.CustomResource):
             __props__.__dict__["tpm_support"] = None
             __props__.__dict__["usage_operation"] = None
             __props__.__dict__["virtualization_type"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AmiFromInstance, __self__).__init__(
             'aws:ec2/amiFromInstance:AmiFromInstance',
             resource_name,

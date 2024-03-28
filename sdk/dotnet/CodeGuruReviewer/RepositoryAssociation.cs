@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CodeGuruReviewer
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,14 +23,14 @@ namespace Pulumi.Aws.CodeGuruReviewer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey");
+    ///     var example = new Aws.Kms.Key("example");
     /// 
-    ///     var exampleRepository = new Aws.CodeCommit.Repository("exampleRepository", new()
+    ///     var exampleRepository = new Aws.CodeCommit.Repository("example", new()
     ///     {
     ///         RepositoryName = "example-repo",
     ///     });
     /// 
-    ///     var exampleRepositoryAssociation = new Aws.CodeGuruReviewer.RepositoryAssociation("exampleRepositoryAssociation", new()
+    ///     var exampleRepositoryAssociation = new Aws.CodeGuruReviewer.RepositoryAssociation("example", new()
     ///     {
     ///         Repository = new Aws.CodeGuruReviewer.Inputs.RepositoryAssociationRepositoryArgs
     ///         {
@@ -41,12 +42,13 @@ namespace Pulumi.Aws.CodeGuruReviewer
     ///         KmsKeyDetails = new Aws.CodeGuruReviewer.Inputs.RepositoryAssociationKmsKeyDetailsArgs
     ///         {
     ///             EncryptionOption = "CUSTOMER_MANAGED_CMK",
-    ///             KmsKeyId = exampleKey.KeyId,
+    ///             KmsKeyId = example.KeyId,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:codegurureviewer/repositoryAssociation:RepositoryAssociation")]
     public partial class RepositoryAssociation : global::Pulumi.CustomResource
@@ -145,10 +147,6 @@ namespace Pulumi.Aws.CodeGuruReviewer
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -286,11 +284,7 @@ namespace Pulumi.Aws.CodeGuruReviewer
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public RepositoryAssociationState()

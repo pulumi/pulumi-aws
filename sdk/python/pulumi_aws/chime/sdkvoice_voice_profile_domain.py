@@ -196,31 +196,35 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
         Resource for managing an AWS Chime SDK Voice Profile Domain.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
+        example = aws.kms.Key("example",
             description="KMS Key for Voice Profile Domain",
             deletion_window_in_days=7)
-        example_sdkvoice_voice_profile_domain = aws.chime.SdkvoiceVoiceProfileDomain("exampleSdkvoiceVoiceProfileDomain",
+        example_sdkvoice_voice_profile_domain = aws.chime.SdkvoiceVoiceProfileDomain("example",
+            name="ExampleVoiceProfileDomain",
             server_side_encryption_configuration=aws.chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs(
-                kms_key_arn=example_key.arn,
+                kms_key_arn=example.arn,
             ),
             description="My Voice Profile Domain",
             tags={
                 "key1": "value1",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS Chime SDK Voice Profile Domain using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
+        $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
         ```
 
         :param str resource_name: The name of the resource.
@@ -239,31 +243,35 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
         Resource for managing an AWS Chime SDK Voice Profile Domain.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
+        example = aws.kms.Key("example",
             description="KMS Key for Voice Profile Domain",
             deletion_window_in_days=7)
-        example_sdkvoice_voice_profile_domain = aws.chime.SdkvoiceVoiceProfileDomain("exampleSdkvoiceVoiceProfileDomain",
+        example_sdkvoice_voice_profile_domain = aws.chime.SdkvoiceVoiceProfileDomain("example",
+            name="ExampleVoiceProfileDomain",
             server_side_encryption_configuration=aws.chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs(
-                kms_key_arn=example_key.arn,
+                kms_key_arn=example.arn,
             ),
             description="My Voice Profile Domain",
             tags={
                 "key1": "value1",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS Chime SDK Voice Profile Domain using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
+        $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
         ```
 
         :param str resource_name: The name of the resource.
@@ -302,8 +310,6 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SdkvoiceVoiceProfileDomain, __self__).__init__(
             'aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain',
             resource_name,

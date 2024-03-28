@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -169,73 +170,106 @@ public final class GetContainerDefinitionResult {
 
         @CustomType.Setter
         public Builder containerName(String containerName) {
-            this.containerName = Objects.requireNonNull(containerName);
+            if (containerName == null) {
+              throw new MissingRequiredPropertyException("GetContainerDefinitionResult", "containerName");
+            }
+            this.containerName = containerName;
             return this;
         }
         @CustomType.Setter
         public Builder cpu(Integer cpu) {
-            this.cpu = Objects.requireNonNull(cpu);
+            if (cpu == null) {
+              throw new MissingRequiredPropertyException("GetContainerDefinitionResult", "cpu");
+            }
+            this.cpu = cpu;
             return this;
         }
         @CustomType.Setter
         public Builder disableNetworking(Boolean disableNetworking) {
-            this.disableNetworking = Objects.requireNonNull(disableNetworking);
+            if (disableNetworking == null) {
+              throw new MissingRequiredPropertyException("GetContainerDefinitionResult", "disableNetworking");
+            }
+            this.disableNetworking = disableNetworking;
             return this;
         }
         @CustomType.Setter
         public Builder dockerLabels(Map<String,String> dockerLabels) {
-            this.dockerLabels = Objects.requireNonNull(dockerLabels);
+            if (dockerLabels == null) {
+              throw new MissingRequiredPropertyException("GetContainerDefinitionResult", "dockerLabels");
+            }
+            this.dockerLabels = dockerLabels;
             return this;
         }
         @CustomType.Setter
         public Builder environment(Map<String,String> environment) {
-            this.environment = Objects.requireNonNull(environment);
+            if (environment == null) {
+              throw new MissingRequiredPropertyException("GetContainerDefinitionResult", "environment");
+            }
+            this.environment = environment;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetContainerDefinitionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder image(String image) {
-            this.image = Objects.requireNonNull(image);
+            if (image == null) {
+              throw new MissingRequiredPropertyException("GetContainerDefinitionResult", "image");
+            }
+            this.image = image;
             return this;
         }
         @CustomType.Setter
         public Builder imageDigest(String imageDigest) {
-            this.imageDigest = Objects.requireNonNull(imageDigest);
+            if (imageDigest == null) {
+              throw new MissingRequiredPropertyException("GetContainerDefinitionResult", "imageDigest");
+            }
+            this.imageDigest = imageDigest;
             return this;
         }
         @CustomType.Setter
         public Builder memory(Integer memory) {
-            this.memory = Objects.requireNonNull(memory);
+            if (memory == null) {
+              throw new MissingRequiredPropertyException("GetContainerDefinitionResult", "memory");
+            }
+            this.memory = memory;
             return this;
         }
         @CustomType.Setter
         public Builder memoryReservation(Integer memoryReservation) {
-            this.memoryReservation = Objects.requireNonNull(memoryReservation);
+            if (memoryReservation == null) {
+              throw new MissingRequiredPropertyException("GetContainerDefinitionResult", "memoryReservation");
+            }
+            this.memoryReservation = memoryReservation;
             return this;
         }
         @CustomType.Setter
         public Builder taskDefinition(String taskDefinition) {
-            this.taskDefinition = Objects.requireNonNull(taskDefinition);
+            if (taskDefinition == null) {
+              throw new MissingRequiredPropertyException("GetContainerDefinitionResult", "taskDefinition");
+            }
+            this.taskDefinition = taskDefinition;
             return this;
         }
         public GetContainerDefinitionResult build() {
-            final var o = new GetContainerDefinitionResult();
-            o.containerName = containerName;
-            o.cpu = cpu;
-            o.disableNetworking = disableNetworking;
-            o.dockerLabels = dockerLabels;
-            o.environment = environment;
-            o.id = id;
-            o.image = image;
-            o.imageDigest = imageDigest;
-            o.memory = memory;
-            o.memoryReservation = memoryReservation;
-            o.taskDefinition = taskDefinition;
-            return o;
+            final var _resultValue = new GetContainerDefinitionResult();
+            _resultValue.containerName = containerName;
+            _resultValue.cpu = cpu;
+            _resultValue.disableNetworking = disableNetworking;
+            _resultValue.dockerLabels = dockerLabels;
+            _resultValue.environment = environment;
+            _resultValue.id = id;
+            _resultValue.image = image;
+            _resultValue.imageDigest = imageDigest;
+            _resultValue.memory = memory;
+            _resultValue.memoryReservation = memoryReservation;
+            _resultValue.taskDefinition = taskDefinition;
+            return _resultValue;
         }
     }
 }

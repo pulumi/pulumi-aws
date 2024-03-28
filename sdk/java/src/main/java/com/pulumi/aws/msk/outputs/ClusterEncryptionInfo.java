@@ -59,19 +59,21 @@ public final class ClusterEncryptionInfo {
 
         @CustomType.Setter
         public Builder encryptionAtRestKmsKeyArn(@Nullable String encryptionAtRestKmsKeyArn) {
+
             this.encryptionAtRestKmsKeyArn = encryptionAtRestKmsKeyArn;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionInTransit(@Nullable ClusterEncryptionInfoEncryptionInTransit encryptionInTransit) {
+
             this.encryptionInTransit = encryptionInTransit;
             return this;
         }
         public ClusterEncryptionInfo build() {
-            final var o = new ClusterEncryptionInfo();
-            o.encryptionAtRestKmsKeyArn = encryptionAtRestKmsKeyArn;
-            o.encryptionInTransit = encryptionInTransit;
-            return o;
+            final var _resultValue = new ClusterEncryptionInfo();
+            _resultValue.encryptionAtRestKmsKeyArn = encryptionAtRestKmsKeyArn;
+            _resultValue.encryptionInTransit = encryptionInTransit;
+            return _resultValue;
         }
     }
 }

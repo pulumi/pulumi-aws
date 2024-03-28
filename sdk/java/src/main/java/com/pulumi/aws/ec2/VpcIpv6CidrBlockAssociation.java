@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * The `aws.ec2.VpcIpv6CidrBlockAssociation` resource allows IPv6 CIDR blocks to be added to the VPC.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,25 +46,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
+ *         var test = new Vpc(&#34;test&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.0.0.0/16&#34;)
  *             .build());
  * 
  *         var testVpcIpv6CidrBlockAssociation = new VpcIpv6CidrBlockAssociation(&#34;testVpcIpv6CidrBlockAssociation&#34;, VpcIpv6CidrBlockAssociationArgs.builder()        
- *             .ipv6IpamPoolId(aws_vpc_ipam_pool.test().id())
- *             .vpcId(testVpc.id())
+ *             .ipv6IpamPoolId(testAwsVpcIpamPool.id())
+ *             .vpcId(test.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_vpc_ipv6_cidr_block_association` using the VPC CIDR Association ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
+ * $ pulumi import aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
  * ```
  * 
  */

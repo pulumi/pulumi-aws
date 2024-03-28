@@ -14,8 +14,10 @@ import (
 // Retrieve information about a firewall policy.
 //
 // ## Example Usage
+//
 // ### Find firewall policy by name
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.LookupFirewallPolicy(ctx, &networkfirewall.LookupFirewallPolicyArgs{
-//				Name: pulumi.StringRef(_var.Firewall_policy_name),
+//				Name: pulumi.StringRef(firewallPolicyName),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -39,8 +41,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Find firewall policy by ARN
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,7 +59,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.LookupFirewallPolicy(ctx, &networkfirewall.LookupFirewallPolicyArgs{
-//				Arn: pulumi.StringRef(_var.Firewall_policy_arn),
+//				Arn: pulumi.StringRef(firewallPolicyArn),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -64,8 +69,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Find firewall policy by name and ARN
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -79,8 +87,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.LookupFirewallPolicy(ctx, &networkfirewall.LookupFirewallPolicyArgs{
-//				Arn:  pulumi.StringRef(_var.Firewall_policy_arn),
-//				Name: pulumi.StringRef(_var.Firewall_policy_name),
+//				Arn:  pulumi.StringRef(firewallPolicyArn),
+//				Name: pulumi.StringRef(firewallPolicyName),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -90,6 +98,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
 //

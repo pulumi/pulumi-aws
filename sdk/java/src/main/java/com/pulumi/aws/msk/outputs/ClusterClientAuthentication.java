@@ -74,25 +74,28 @@ public final class ClusterClientAuthentication {
 
         @CustomType.Setter
         public Builder sasl(@Nullable ClusterClientAuthenticationSasl sasl) {
+
             this.sasl = sasl;
             return this;
         }
         @CustomType.Setter
         public Builder tls(@Nullable ClusterClientAuthenticationTls tls) {
+
             this.tls = tls;
             return this;
         }
         @CustomType.Setter
         public Builder unauthenticated(@Nullable Boolean unauthenticated) {
+
             this.unauthenticated = unauthenticated;
             return this;
         }
         public ClusterClientAuthentication build() {
-            final var o = new ClusterClientAuthentication();
-            o.sasl = sasl;
-            o.tls = tls;
-            o.unauthenticated = unauthenticated;
-            return o;
+            final var _resultValue = new ClusterClientAuthentication();
+            _resultValue.sasl = sasl;
+            _resultValue.tls = tls;
+            _resultValue.unauthenticated = unauthenticated;
+            return _resultValue;
         }
     }
 }

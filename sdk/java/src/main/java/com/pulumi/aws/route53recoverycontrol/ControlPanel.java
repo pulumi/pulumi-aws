@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides an AWS Route 53 Recovery Control Config Control Panel.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -41,19 +43,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ControlPanel(&#34;example&#34;, ControlPanelArgs.builder()        
+ *             .name(&#34;balmorhea&#34;)
  *             .clusterArn(&#34;arn:aws:route53-recovery-control::123456789012:cluster/8d47920e-d789-437d-803a-2dcc4b204393&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Route53 Recovery Control Config Control Panel using the control panel arn. For example:
  * 
  * ```sh
- *  $ pulumi import aws:route53recoverycontrol/controlPanel:ControlPanel mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
+ * $ pulumi import aws:route53recoverycontrol/controlPanel:ControlPanel mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
  * ```
  * 
  */

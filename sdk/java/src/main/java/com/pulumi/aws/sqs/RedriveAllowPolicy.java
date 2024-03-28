@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a SQS Queue Redrive Allow Policy resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -41,10 +43,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleQueue = new Queue(&#34;exampleQueue&#34;);
+ *         var example = new Queue(&#34;example&#34;, QueueArgs.builder()        
+ *             .name(&#34;examplequeue&#34;)
+ *             .build());
  * 
  *         var src = new Queue(&#34;src&#34;, QueueArgs.builder()        
- *             .redrivePolicy(exampleQueue.arn().applyValue(arn -&gt; serializeJson(
+ *             .name(&#34;srcqueue&#34;)
+ *             .redrivePolicy(example.arn().applyValue(arn -&gt; serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;deadLetterTargetArn&#34;, arn),
  *                     jsonProperty(&#34;maxReceiveCount&#34;, 4)
@@ -52,7 +57,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRedriveAllowPolicy = new RedriveAllowPolicy(&#34;exampleRedriveAllowPolicy&#34;, RedriveAllowPolicyArgs.builder()        
- *             .queueUrl(exampleQueue.id())
+ *             .queueUrl(example.id())
  *             .redriveAllowPolicy(src.arn().applyValue(arn -&gt; serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;redrivePermission&#34;, &#34;byQueue&#34;),
@@ -63,13 +68,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SQS Queue Redrive Allow Policies using the queue URL. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sqs/redriveAllowPolicy:RedriveAllowPolicy test https://queue.amazonaws.com/0123456789012/myqueue
+ * $ pulumi import aws:sqs/redriveAllowPolicy:RedriveAllowPolicy test https://queue.amazonaws.com/0123456789012/myqueue
  * ```
  * 
  */

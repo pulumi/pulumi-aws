@@ -4,6 +4,7 @@
 package com.pulumi.aws.neptune.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,32 @@ public final class ParameterGroupParameter {
 
         @CustomType.Setter
         public Builder applyMethod(@Nullable String applyMethod) {
+
             this.applyMethod = applyMethod;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ParameterGroupParameter", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("ParameterGroupParameter", "value");
+            }
+            this.value = value;
             return this;
         }
         public ParameterGroupParameter build() {
-            final var o = new ParameterGroupParameter();
-            o.applyMethod = applyMethod;
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new ParameterGroupParameter();
+            _resultValue.applyMethod = applyMethod;
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

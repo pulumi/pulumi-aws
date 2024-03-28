@@ -13,8 +13,10 @@ namespace Pulumi.Aws.VpcLattice
     /// Resource for managing an AWS VPC Lattice Listener.
     /// 
     /// ## Example Usage
-    /// ### Forward action
     /// 
+    /// ### Fixed response action
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,23 +25,62 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.VpcLattice.Service("test");
-    /// 
-    ///     var exampleTargetGroup = new Aws.VpcLattice.TargetGroup("exampleTargetGroup", new()
+    ///     var example = new Aws.VpcLattice.Service("example", new()
     ///     {
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var exampleListener = new Aws.VpcLattice.Listener("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         Protocol = "HTTPS",
+    ///         ServiceIdentifier = example.Id,
+    ///         DefaultAction = new Aws.VpcLattice.Inputs.ListenerDefaultActionArgs
+    ///         {
+    ///             FixedResponse = new Aws.VpcLattice.Inputs.ListenerDefaultActionFixedResponseArgs
+    ///             {
+    ///                 StatusCode = 404,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Forward action
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.VpcLattice.Service("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var exampleTargetGroup = new Aws.VpcLattice.TargetGroup("example", new()
+    ///     {
+    ///         Name = "example-target-group-1",
     ///         Type = "INSTANCE",
     ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
     ///         {
     ///             Port = 80,
     ///             Protocol = "HTTP",
-    ///             VpcIdentifier = aws_vpc.Test.Id,
+    ///             VpcIdentifier = exampleAwsVpc.Id,
     ///         },
     ///     });
     /// 
-    ///     var exampleListener = new Aws.VpcLattice.Listener("exampleListener", new()
+    ///     var exampleListener = new Aws.VpcLattice.Listener("example", new()
     ///     {
+    ///         Name = "example",
     ///         Protocol = "HTTP",
-    ///         ServiceIdentifier = aws_vpclattice_service.Example.Id,
+    ///         ServiceIdentifier = example.Id,
     ///         DefaultAction = new Aws.VpcLattice.Inputs.ListenerDefaultActionArgs
     ///         {
     ///             Forwards = new[]
@@ -60,8 +101,11 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Forward action with weighted target groups
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -70,34 +114,40 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.VpcLattice.Service("test");
+    ///     var example = new Aws.VpcLattice.Service("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
     ///     var example1 = new Aws.VpcLattice.TargetGroup("example1", new()
     ///     {
+    ///         Name = "example-target-group-1",
     ///         Type = "INSTANCE",
     ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
     ///         {
     ///             Port = 80,
     ///             Protocol = "HTTP",
-    ///             VpcIdentifier = aws_vpc.Test.Id,
+    ///             VpcIdentifier = exampleAwsVpc.Id,
     ///         },
     ///     });
     /// 
     ///     var example2 = new Aws.VpcLattice.TargetGroup("example2", new()
     ///     {
+    ///         Name = "example-target-group-2",
     ///         Type = "INSTANCE",
     ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
     ///         {
     ///             Port = 8080,
     ///             Protocol = "HTTP",
-    ///             VpcIdentifier = aws_vpc.Test.Id,
+    ///             VpcIdentifier = exampleAwsVpc.Id,
     ///         },
     ///     });
     /// 
-    ///     var example = new Aws.VpcLattice.Listener("example", new()
+    ///     var exampleListener = new Aws.VpcLattice.Listener("example", new()
     ///     {
+    ///         Name = "example",
     ///         Protocol = "HTTP",
-    ///         ServiceIdentifier = aws_vpclattice_service.Example.Id,
+    ///         ServiceIdentifier = example.Id,
     ///         DefaultAction = new Aws.VpcLattice.Inputs.ListenerDefaultActionArgs
     ///         {
     ///             Forwards = new[]
@@ -124,13 +174,14 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import VPC Lattice Listener using the `listener_id` of the listener and the `id` of the VPC Lattice service combined with a `/` character. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
+    /// $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
     /// ```
     /// </summary>
     [AwsResourceType("aws:vpclattice/listener:Listener")]
@@ -226,10 +277,6 @@ namespace Pulumi.Aws.VpcLattice
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -386,11 +433,7 @@ namespace Pulumi.Aws.VpcLattice
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ListenerState()

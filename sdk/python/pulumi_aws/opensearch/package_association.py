@@ -113,28 +113,32 @@ class PackageAssociation(pulumi.CustomResource):
         Manages an AWS Opensearch Package Association.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        my_domain = aws.opensearch.Domain("myDomain",
+        my_domain = aws.opensearch.Domain("my_domain",
+            domain_name="my-opensearch-domain",
             engine_version="Elasticsearch_7.10",
             cluster_config=aws.opensearch.DomainClusterConfigArgs(
                 instance_type="r4.large.search",
             ))
-        example_package = aws.opensearch.Package("examplePackage",
+        example = aws.opensearch.Package("example",
             package_name="example-txt",
             package_source=aws.opensearch.PackagePackageSourceArgs(
-                s3_bucket_name=aws_s3_bucket["my_opensearch_packages"]["bucket"],
-                s3_key=aws_s3_object["example"]["key"],
+                s3_bucket_name=my_opensearch_packages["bucket"],
+                s3_key=example_aws_s3_object["key"],
             ),
             package_type="TXT-DICTIONARY")
-        example_package_association = aws.opensearch.PackageAssociation("examplePackageAssociation",
-            package_id=example_package.id,
+        example_package_association = aws.opensearch.PackageAssociation("example",
+            package_id=example.id,
             domain_name=my_domain.domain_name)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,28 +155,32 @@ class PackageAssociation(pulumi.CustomResource):
         Manages an AWS Opensearch Package Association.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        my_domain = aws.opensearch.Domain("myDomain",
+        my_domain = aws.opensearch.Domain("my_domain",
+            domain_name="my-opensearch-domain",
             engine_version="Elasticsearch_7.10",
             cluster_config=aws.opensearch.DomainClusterConfigArgs(
                 instance_type="r4.large.search",
             ))
-        example_package = aws.opensearch.Package("examplePackage",
+        example = aws.opensearch.Package("example",
             package_name="example-txt",
             package_source=aws.opensearch.PackagePackageSourceArgs(
-                s3_bucket_name=aws_s3_bucket["my_opensearch_packages"]["bucket"],
-                s3_key=aws_s3_object["example"]["key"],
+                s3_bucket_name=my_opensearch_packages["bucket"],
+                s3_key=example_aws_s3_object["key"],
             ),
             package_type="TXT-DICTIONARY")
-        example_package_association = aws.opensearch.PackageAssociation("examplePackageAssociation",
-            package_id=example_package.id,
+        example_package_association = aws.opensearch.PackageAssociation("example",
+            package_id=example.id,
             domain_name=my_domain.domain_name)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param PackageAssociationArgs args: The arguments to use to populate this resource's properties.

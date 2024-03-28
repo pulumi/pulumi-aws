@@ -14,11 +14,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.elasticache.ParameterGroup("default", {
+ *     name: "cache-params",
  *     family: "redis2.8",
  *     parameters: [
  *         {
@@ -32,13 +34,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ElastiCache Parameter Groups using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params
+ * $ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params
  * ```
  */
 export class ParameterGroup extends pulumi.CustomResource {
@@ -134,8 +137,6 @@ export class ParameterGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ParameterGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

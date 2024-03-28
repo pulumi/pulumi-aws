@@ -60,6 +60,7 @@ public final class ProjectBuildBatchConfigRestrictions {
 
         @CustomType.Setter
         public Builder computeTypesAlloweds(@Nullable List<String> computeTypesAlloweds) {
+
             this.computeTypesAlloweds = computeTypesAlloweds;
             return this;
         }
@@ -68,14 +69,15 @@ public final class ProjectBuildBatchConfigRestrictions {
         }
         @CustomType.Setter
         public Builder maximumBuildsAllowed(@Nullable Integer maximumBuildsAllowed) {
+
             this.maximumBuildsAllowed = maximumBuildsAllowed;
             return this;
         }
         public ProjectBuildBatchConfigRestrictions build() {
-            final var o = new ProjectBuildBatchConfigRestrictions();
-            o.computeTypesAlloweds = computeTypesAlloweds;
-            o.maximumBuildsAllowed = maximumBuildsAllowed;
-            return o;
+            final var _resultValue = new ProjectBuildBatchConfigRestrictions();
+            _resultValue.computeTypesAlloweds = computeTypesAlloweds;
+            _resultValue.maximumBuildsAllowed = maximumBuildsAllowed;
+            return _resultValue;
         }
     }
 }

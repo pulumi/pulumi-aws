@@ -254,6 +254,7 @@ class NfsLocation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -262,16 +263,17 @@ class NfsLocation(pulumi.CustomResource):
             server_hostname="nfs.example.com",
             subdirectory="/exported/path",
             on_prem_config=aws.datasync.NfsLocationOnPremConfigArgs(
-                agent_arns=[aws_datasync_agent["example"]["arn"]],
+                agent_arns=[example_aws_datasync_agent["arn"]],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_datasync_location_nfs` using the DataSync Task Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:datasync/nfsLocation:NfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+        $ pulumi import aws:datasync/nfsLocation:NfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
         ```
 
         :param str resource_name: The name of the resource.
@@ -295,6 +297,7 @@ class NfsLocation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -303,16 +306,17 @@ class NfsLocation(pulumi.CustomResource):
             server_hostname="nfs.example.com",
             subdirectory="/exported/path",
             on_prem_config=aws.datasync.NfsLocationOnPremConfigArgs(
-                agent_arns=[aws_datasync_agent["example"]["arn"]],
+                agent_arns=[example_aws_datasync_agent["arn"]],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_datasync_location_nfs` using the DataSync Task Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:datasync/nfsLocation:NfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+        $ pulumi import aws:datasync/nfsLocation:NfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
         ```
 
         :param str resource_name: The name of the resource.
@@ -358,8 +362,6 @@ class NfsLocation(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["uri"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(NfsLocation, __self__).__init__(
             'aws:datasync/nfsLocation:NfsLocation',
             resource_name,

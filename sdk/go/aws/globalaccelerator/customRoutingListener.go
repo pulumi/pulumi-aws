@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCustomRoutingAccelerator, err := globalaccelerator.NewCustomRoutingAccelerator(ctx, "exampleCustomRoutingAccelerator", &globalaccelerator.CustomRoutingAcceleratorArgs{
+//			example, err := globalaccelerator.NewCustomRoutingAccelerator(ctx, "example", &globalaccelerator.CustomRoutingAcceleratorArgs{
+//				Name:          pulumi.String("Example"),
 //				IpAddressType: pulumi.String("IPV4"),
 //				Enabled:       pulumi.Bool(true),
 //				Attributes: &globalaccelerator.CustomRoutingAcceleratorAttributesArgs{
@@ -40,8 +42,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = globalaccelerator.NewCustomRoutingListener(ctx, "exampleCustomRoutingListener", &globalaccelerator.CustomRoutingListenerArgs{
-//				AcceleratorArn: exampleCustomRoutingAccelerator.ID(),
+//			_, err = globalaccelerator.NewCustomRoutingListener(ctx, "example", &globalaccelerator.CustomRoutingListenerArgs{
+//				AcceleratorArn: example.ID(),
 //				PortRanges: globalaccelerator.CustomRoutingListenerPortRangeArray{
 //					&globalaccelerator.CustomRoutingListenerPortRangeArgs{
 //						FromPort: pulumi.Int(80),
@@ -57,15 +59,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Global Accelerator custom routing listeners using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:globalaccelerator/customRoutingListener:CustomRoutingListener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
-//
+// $ pulumi import aws:globalaccelerator/customRoutingListener:CustomRoutingListener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
 // ```
 type CustomRoutingListener struct {
 	pulumi.CustomResourceState

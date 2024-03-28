@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +31,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myDemoAPI, err := apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
+//			myDemoAPI, err := apigateway.NewRestApi(ctx, "MyDemoAPI", &apigateway.RestApiArgs{
+//				Name:        pulumi.String("MyDemoAPI"),
 //				Description: pulumi.String("This is my API for demonstration purposes"),
 //			})
 //			if err != nil {
@@ -43,8 +45,9 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = apigateway.NewModel(ctx, "myDemoModel", &apigateway.ModelArgs{
+//			_, err = apigateway.NewModel(ctx, "MyDemoModel", &apigateway.ModelArgs{
 //				RestApi:     myDemoAPI.ID(),
+//				Name:        pulumi.String("user"),
 //				Description: pulumi.String("a JSON schema"),
 //				ContentType: pulumi.String("application/json"),
 //				Schema:      pulumi.String(json0),
@@ -57,15 +60,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_api_gateway_model` using `REST-API-ID/NAME`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/model:Model example 12345abcde/example
-//
+// $ pulumi import aws:apigateway/model:Model example 12345abcde/example
 // ```
 type Model struct {
 	pulumi.CustomResourceState

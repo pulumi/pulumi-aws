@@ -58,19 +58,21 @@ public final class ProjectDataDeliveryS3Destination {
 
         @CustomType.Setter
         public Builder bucket(@Nullable String bucket) {
+
             this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         public ProjectDataDeliveryS3Destination build() {
-            final var o = new ProjectDataDeliveryS3Destination();
-            o.bucket = bucket;
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new ProjectDataDeliveryS3Destination();
+            _resultValue.bucket = bucket;
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

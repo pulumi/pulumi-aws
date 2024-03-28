@@ -17,9 +17,13 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides an HTTP Method Response for an API Gateway Resource.
+ * Provides an HTTP Method Response for an API Gateway Resource. More information about API Gateway method responses can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-settings-method-response.html).
  * 
  * ## Example Usage
+ * 
+ * ### Basic Response
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,6 +54,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myDemoAPI = new RestApi(&#34;myDemoAPI&#34;, RestApiArgs.builder()        
+ *             .name(&#34;MyDemoAPI&#34;)
  *             .description(&#34;This is my API for demonstration purposes&#34;)
  *             .build());
  * 
@@ -83,101 +88,197 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Response with Custom Header and Model
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.RestApiArgs;
+ * import com.pulumi.aws.apigateway.Resource;
+ * import com.pulumi.aws.apigateway.ResourceArgs;
+ * import com.pulumi.aws.apigateway.Method;
+ * import com.pulumi.aws.apigateway.MethodArgs;
+ * import com.pulumi.aws.apigateway.Integration;
+ * import com.pulumi.aws.apigateway.IntegrationArgs;
+ * import com.pulumi.aws.apigateway.Model;
+ * import com.pulumi.aws.apigateway.ModelArgs;
+ * import com.pulumi.aws.apigateway.MethodResponse;
+ * import com.pulumi.aws.apigateway.MethodResponseArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var myDemoAPI = new RestApi(&#34;myDemoAPI&#34;, RestApiArgs.builder()        
+ *             .name(&#34;MyDemoAPI&#34;)
+ *             .description(&#34;This is my API for demonstration purposes&#34;)
+ *             .build());
+ * 
+ *         var myDemoResource = new Resource(&#34;myDemoResource&#34;, ResourceArgs.builder()        
+ *             .restApi(myDemoAPI.id())
+ *             .parentId(myDemoAPI.rootResourceId())
+ *             .pathPart(&#34;mydemoresource&#34;)
+ *             .build());
+ * 
+ *         var myDemoMethod = new Method(&#34;myDemoMethod&#34;, MethodArgs.builder()        
+ *             .restApi(myDemoAPI.id())
+ *             .resourceId(myDemoResource.id())
+ *             .httpMethod(&#34;GET&#34;)
+ *             .authorization(&#34;NONE&#34;)
+ *             .build());
+ * 
+ *         var myDemoIntegration = new Integration(&#34;myDemoIntegration&#34;, IntegrationArgs.builder()        
+ *             .restApi(myDemoAPI.id())
+ *             .resourceId(myDemoResource.id())
+ *             .httpMethod(myDemoMethod.httpMethod())
+ *             .type(&#34;MOCK&#34;)
+ *             .build());
+ * 
+ *         var myDemoResponseModel = new Model(&#34;myDemoResponseModel&#34;, ModelArgs.builder()        
+ *             .restApi(myDemoAPI.id())
+ *             .name(&#34;MyDemoResponseModel&#34;)
+ *             .description(&#34;API response for MyDemoMethod&#34;)
+ *             .contentType(&#34;application/json&#34;)
+ *             .schema(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;$schema&#34;, &#34;http://json-schema.org/draft-04/schema#&#34;),
+ *                     jsonProperty(&#34;title&#34;, &#34;MyDemoResponse&#34;),
+ *                     jsonProperty(&#34;type&#34;, &#34;object&#34;),
+ *                     jsonProperty(&#34;properties&#34;, jsonObject(
+ *                         jsonProperty(&#34;message&#34;, jsonObject(
+ *                             jsonProperty(&#34;type&#34;, &#34;string&#34;)
+ *                         ))
+ *                     ))
+ *                 )))
+ *             .build());
+ * 
+ *         var response200 = new MethodResponse(&#34;response200&#34;, MethodResponseArgs.builder()        
+ *             .restApi(myDemoAPI.id())
+ *             .resourceId(myDemoResource.id())
+ *             .httpMethod(myDemoMethod.httpMethod())
+ *             .statusCode(&#34;200&#34;)
+ *             .responseModels(Map.of(&#34;application-json&#34;, &#34;MyDemoResponseModel&#34;))
+ *             .responseParameters(Map.ofEntries(
+ *                 Map.entry(&#34;method.response.header.Content-Type&#34;, false),
+ *                 Map.entry(&#34;method-response-header.X-My-Demo-Header&#34;, false)
+ *             ))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_api_gateway_method_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigateway/methodResponse:MethodResponse example 12345abcde/67890fghij/GET/200
+ * $ pulumi import aws:apigateway/methodResponse:MethodResponse example 12345abcde/67890fghij/GET/200
  * ```
  * 
  */
 @ResourceType(type="aws:apigateway/methodResponse:MethodResponse")
 public class MethodResponse extends com.pulumi.resources.CustomResource {
     /**
-     * HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+     * The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
      * 
      */
     @Export(name="httpMethod", refs={String.class}, tree="[0]")
     private Output<String> httpMethod;
 
     /**
-     * @return HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+     * @return The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
      * 
      */
     public Output<String> httpMethod() {
         return this.httpMethod;
     }
     /**
-     * API resource ID
+     * The Resource identifier for the method resource.
      * 
      */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
-     * @return API resource ID
+     * @return The Resource identifier for the method resource.
      * 
      */
     public Output<String> resourceId() {
         return this.resourceId;
     }
     /**
-     * Map of the API models used for the response&#39;s content type
+     * A map specifying the model resources used for the response&#39;s content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
      * 
      */
     @Export(name="responseModels", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> responseModels;
 
     /**
-     * @return Map of the API models used for the response&#39;s content type
+     * @return A map specifying the model resources used for the response&#39;s content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
      * 
      */
     public Output<Optional<Map<String,String>>> responseModels() {
         return Codegen.optional(this.responseModels);
     }
     /**
-     * Map of response parameters that can be sent to the caller.
-     * For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = true }`
-     * would define that the header `X-Some-Header` can be provided on the response.
+     * A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
+     * 
+     * The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., &#39;`application/json&#39;`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
      * 
      */
     @Export(name="responseParameters", refs={Map.class,String.class,Boolean.class}, tree="[0,1,2]")
     private Output</* @Nullable */ Map<String,Boolean>> responseParameters;
 
     /**
-     * @return Map of response parameters that can be sent to the caller.
-     * For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = true }`
-     * would define that the header `X-Some-Header` can be provided on the response.
+     * @return A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
+     * 
+     * The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., &#39;`application/json&#39;`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
      * 
      */
     public Output<Optional<Map<String,Boolean>>> responseParameters() {
         return Codegen.optional(this.responseParameters);
     }
     /**
-     * ID of the associated REST API
+     * The string identifier of the associated REST API.
      * 
      */
     @Export(name="restApi", refs={String.class}, tree="[0]")
     private Output<String> restApi;
 
     /**
-     * @return ID of the associated REST API
+     * @return The string identifier of the associated REST API.
      * 
      */
     public Output<String> restApi() {
         return this.restApi;
     }
     /**
-     * HTTP status code
+     * The method response&#39;s status code.
      * 
      */
     @Export(name="statusCode", refs={String.class}, tree="[0]")
     private Output<String> statusCode;
 
     /**
-     * @return HTTP status code
+     * @return The method response&#39;s status code.
      * 
      */
     public Output<String> statusCode() {

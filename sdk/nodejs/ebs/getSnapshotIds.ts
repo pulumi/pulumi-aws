@@ -13,11 +13,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const ebsVolumes = aws.ebs.getSnapshotIds({
+ *     owners: ["self"],
  *     filters: [
  *         {
  *             name: "volume-size",
@@ -28,9 +30,9 @@ import * as utilities from "../utilities";
  *             values: ["Example"],
  *         },
  *     ],
- *     owners: ["self"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSnapshotIds(args?: GetSnapshotIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotIdsResult> {
     args = args || {};
@@ -85,11 +87,13 @@ export interface GetSnapshotIdsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const ebsVolumes = aws.ebs.getSnapshotIds({
+ *     owners: ["self"],
  *     filters: [
  *         {
  *             name: "volume-size",
@@ -100,9 +104,9 @@ export interface GetSnapshotIdsResult {
  *             values: ["Example"],
  *         },
  *     ],
- *     owners: ["self"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSnapshotIdsOutput(args?: GetSnapshotIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotIdsResult> {
     return pulumi.output(args).apply((a: any) => getSnapshotIds(a, opts))

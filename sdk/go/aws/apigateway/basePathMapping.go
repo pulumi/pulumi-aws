@@ -16,63 +16,6 @@ import (
 // with a deployed API so that its methods can be called via the
 // custom domain name.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//	"os"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleStage, err := apigateway.NewStage(ctx, "exampleStage", &apigateway.StageArgs{
-//				Deployment: pulumi.Any(aws_api_gateway_deployment.Example.Id),
-//				RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
-//				StageName:  pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDomainName, err := apigateway.NewDomainName(ctx, "exampleDomainName", &apigateway.DomainNameArgs{
-//				DomainName:            pulumi.String("example.com"),
-//				CertificateName:       pulumi.String("example-api"),
-//				CertificateBody:       readFileOrPanic(fmt.Sprintf("%v/example.com/example.crt", path.Module)),
-//				CertificateChain:      readFileOrPanic(fmt.Sprintf("%v/example.com/ca.crt", path.Module)),
-//				CertificatePrivateKey: readFileOrPanic(fmt.Sprintf("%v/example.com/example.key", path.Module)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apigateway.NewBasePathMapping(ctx, "exampleBasePathMapping", &apigateway.BasePathMappingArgs{
-//				RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
-//				StageName:  exampleStage.StageName,
-//				DomainName: exampleDomainName.DomainName,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // For a non-root `base_path`:
@@ -82,17 +25,12 @@ import (
 // For an empty `base_path` or, in other words, a root path (`/`):
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
-//
+// $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
 // ```
-//
-//	For a non-root `base_path`:
+// For a non-root `base_path`:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
-//
+// $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
 // ```
 type BasePathMapping struct {
 	pulumi.CustomResourceState

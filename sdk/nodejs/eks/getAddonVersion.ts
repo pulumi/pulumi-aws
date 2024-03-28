@@ -9,31 +9,33 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * export = async () => {
- *     const defaultAddonVersion = await aws.eks.getAddonVersion({
+ *     const default = await aws.eks.getAddonVersion({
  *         addonName: "vpc-cni",
- *         kubernetesVersion: aws_eks_cluster.example.version,
+ *         kubernetesVersion: example.version,
  *     });
- *     const latestAddonVersion = await aws.eks.getAddonVersion({
+ *     const latest = await aws.eks.getAddonVersion({
  *         addonName: "vpc-cni",
- *         kubernetesVersion: aws_eks_cluster.example.version,
+ *         kubernetesVersion: example.version,
  *         mostRecent: true,
  *     });
- *     const vpcCni = new aws.eks.Addon("vpcCni", {
- *         clusterName: aws_eks_cluster.example.name,
+ *     const vpcCni = new aws.eks.Addon("vpc_cni", {
+ *         clusterName: example.name,
  *         addonName: "vpc-cni",
- *         addonVersion: latestAddonVersion.version,
+ *         addonVersion: latest.version,
  *     });
  *     return {
- *         "default": defaultAddonVersion.version,
- *         latest: latestAddonVersion.version,
+ *         "default": _default.version,
+ *         latest: latest.version,
  *     };
  * }
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAddonVersion(args: GetAddonVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonVersionResult> {
 
@@ -85,31 +87,33 @@ export interface GetAddonVersionResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * export = async () => {
- *     const defaultAddonVersion = await aws.eks.getAddonVersion({
+ *     const default = await aws.eks.getAddonVersion({
  *         addonName: "vpc-cni",
- *         kubernetesVersion: aws_eks_cluster.example.version,
+ *         kubernetesVersion: example.version,
  *     });
- *     const latestAddonVersion = await aws.eks.getAddonVersion({
+ *     const latest = await aws.eks.getAddonVersion({
  *         addonName: "vpc-cni",
- *         kubernetesVersion: aws_eks_cluster.example.version,
+ *         kubernetesVersion: example.version,
  *         mostRecent: true,
  *     });
- *     const vpcCni = new aws.eks.Addon("vpcCni", {
- *         clusterName: aws_eks_cluster.example.name,
+ *     const vpcCni = new aws.eks.Addon("vpc_cni", {
+ *         clusterName: example.name,
  *         addonName: "vpc-cni",
- *         addonVersion: latestAddonVersion.version,
+ *         addonVersion: latest.version,
  *     });
  *     return {
- *         "default": defaultAddonVersion.version,
- *         latest: latestAddonVersion.version,
+ *         "default": _default.version,
+ *         latest: latest.version,
  *     };
  * }
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAddonVersionOutput(args: GetAddonVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonVersionResult> {
     return pulumi.output(args).apply((a: any) => getAddonVersion(a, opts))

@@ -9,24 +9,26 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.1.0.0/16"});
- * const exampleInternetGateway = new aws.ec2.InternetGateway("exampleInternetGateway", {});
- * const exampleInternetGatewayAttachment = new aws.ec2.InternetGatewayAttachment("exampleInternetGatewayAttachment", {
+ * const exampleVpc = new aws.ec2.Vpc("example", {cidrBlock: "10.1.0.0/16"});
+ * const exampleInternetGateway = new aws.ec2.InternetGateway("example", {});
+ * const example = new aws.ec2.InternetGatewayAttachment("example", {
  *     internetGatewayId: exampleInternetGateway.id,
  *     vpcId: exampleVpc.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Internet Gateway Attachments using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/internetGatewayAttachment:InternetGatewayAttachment example igw-c0a643a9:vpc-123456
+ * $ pulumi import aws:ec2/internetGatewayAttachment:InternetGatewayAttachment example igw-c0a643a9:vpc-123456
  * ```
  */
 export class InternetGatewayAttachment extends pulumi.CustomResource {

@@ -4,6 +4,7 @@
 package com.pulumi.aws.servicequotas.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -52,31 +53,43 @@ public final class GetServiceQuotaUsageMetricMetricDimension {
 
         @CustomType.Setter("class")
         public Builder class_(String class_) {
-            this.class_ = Objects.requireNonNull(class_);
+            if (class_ == null) {
+              throw new MissingRequiredPropertyException("GetServiceQuotaUsageMetricMetricDimension", "class_");
+            }
+            this.class_ = class_;
             return this;
         }
         @CustomType.Setter
         public Builder resource(String resource) {
-            this.resource = Objects.requireNonNull(resource);
+            if (resource == null) {
+              throw new MissingRequiredPropertyException("GetServiceQuotaUsageMetricMetricDimension", "resource");
+            }
+            this.resource = resource;
             return this;
         }
         @CustomType.Setter
         public Builder service(String service) {
-            this.service = Objects.requireNonNull(service);
+            if (service == null) {
+              throw new MissingRequiredPropertyException("GetServiceQuotaUsageMetricMetricDimension", "service");
+            }
+            this.service = service;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetServiceQuotaUsageMetricMetricDimension", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetServiceQuotaUsageMetricMetricDimension build() {
-            final var o = new GetServiceQuotaUsageMetricMetricDimension();
-            o.class_ = class_;
-            o.resource = resource;
-            o.service = service;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetServiceQuotaUsageMetricMetricDimension();
+            _resultValue.class_ = class_;
+            _resultValue.resource = resource;
+            _resultValue.service = service;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -104,25 +104,27 @@ class MonitoringSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cloudfront.MonitoringSubscription("example",
-            distribution_id=aws_cloudfront_distribution["example"]["id"],
+            distribution_id=example_aws_cloudfront_distribution["id"],
             monitoring_subscription=aws.cloudfront.MonitoringSubscriptionMonitoringSubscriptionArgs(
                 realtime_metrics_subscription_config=aws.cloudfront.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs(
                     realtime_metrics_subscription_status="Enabled",
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudFront monitoring subscription using the id. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
+        $ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
         ```
 
         :param str resource_name: The name of the resource.
@@ -141,25 +143,27 @@ class MonitoringSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cloudfront.MonitoringSubscription("example",
-            distribution_id=aws_cloudfront_distribution["example"]["id"],
+            distribution_id=example_aws_cloudfront_distribution["id"],
             monitoring_subscription=aws.cloudfront.MonitoringSubscriptionMonitoringSubscriptionArgs(
                 realtime_metrics_subscription_config=aws.cloudfront.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs(
                     realtime_metrics_subscription_status="Enabled",
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudFront monitoring subscription using the id. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
+        $ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
         ```
 
         :param str resource_name: The name of the resource.

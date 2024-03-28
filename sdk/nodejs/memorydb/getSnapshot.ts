@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  *     name: "my-snapshot",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
 
@@ -86,6 +88,7 @@ export interface GetSnapshotResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -94,6 +97,7 @@ export interface GetSnapshotResult {
  *     name: "my-snapshot",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
     return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))

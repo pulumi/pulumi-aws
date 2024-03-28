@@ -18,14 +18,13 @@ namespace Pulumi.Aws.Ec2
         /// module and you need the pool's id as an input variable. For example, pools
         /// can be shared via RAM and used to create vpcs with CIDRs from that pool.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following example shows an account that has only 1 pool, perhaps shared
         /// via RAM, and using that pool id to create a VPC with a CIDR derived from
         /// AWS IPAM.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var testVpcIpamPool = Aws.Ec2.GetVpcIpamPool.Invoke(new()
+        ///     var test = Aws.Ec2.GetVpcIpamPool.Invoke(new()
         ///     {
         ///         Filters = new[]
         ///         {
@@ -57,16 +56,15 @@ namespace Pulumi.Aws.Ec2
         ///         },
         ///     });
         /// 
-        ///     var testVpc = new Aws.Ec2.Vpc("testVpc", new()
+        ///     var testVpc = new Aws.Ec2.Vpc("test", new()
         ///     {
-        ///         Ipv4IpamPoolId = testVpcIpamPool.Apply(getVpcIpamPoolResult =&gt; getVpcIpamPoolResult.Id),
+        ///         Ipv4IpamPoolId = test.Apply(getVpcIpamPoolResult =&gt; getVpcIpamPoolResult.Id),
         ///         Ipv4NetmaskLength = 28,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVpcIpamPoolResult> InvokeAsync(GetVpcIpamPoolArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcIpamPoolResult>("aws:ec2/getVpcIpamPool:getVpcIpamPool", args ?? new GetVpcIpamPoolArgs(), options.WithDefaults());
@@ -78,14 +76,13 @@ namespace Pulumi.Aws.Ec2
         /// module and you need the pool's id as an input variable. For example, pools
         /// can be shared via RAM and used to create vpcs with CIDRs from that pool.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following example shows an account that has only 1 pool, perhaps shared
         /// via RAM, and using that pool id to create a VPC with a CIDR derived from
         /// AWS IPAM.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -94,7 +91,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var testVpcIpamPool = Aws.Ec2.GetVpcIpamPool.Invoke(new()
+        ///     var test = Aws.Ec2.GetVpcIpamPool.Invoke(new()
         ///     {
         ///         Filters = new[]
         ///         {
@@ -117,16 +114,15 @@ namespace Pulumi.Aws.Ec2
         ///         },
         ///     });
         /// 
-        ///     var testVpc = new Aws.Ec2.Vpc("testVpc", new()
+        ///     var testVpc = new Aws.Ec2.Vpc("test", new()
         ///     {
-        ///         Ipv4IpamPoolId = testVpcIpamPool.Apply(getVpcIpamPoolResult =&gt; getVpcIpamPoolResult.Id),
+        ///         Ipv4IpamPoolId = test.Apply(getVpcIpamPoolResult =&gt; getVpcIpamPoolResult.Id),
         ///         Ipv4NetmaskLength = 28,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVpcIpamPoolResult> Invoke(GetVpcIpamPoolInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcIpamPoolResult>("aws:ec2/getVpcIpamPool:getVpcIpamPool", args ?? new GetVpcIpamPoolInvokeArgs(), options.WithDefaults());

@@ -58,19 +58,21 @@ public final class FirewallPolicyFirewallPolicyStatefulEngineOptions {
 
         @CustomType.Setter
         public Builder ruleOrder(@Nullable String ruleOrder) {
+
             this.ruleOrder = ruleOrder;
             return this;
         }
         @CustomType.Setter
         public Builder streamExceptionPolicy(@Nullable String streamExceptionPolicy) {
+
             this.streamExceptionPolicy = streamExceptionPolicy;
             return this;
         }
         public FirewallPolicyFirewallPolicyStatefulEngineOptions build() {
-            final var o = new FirewallPolicyFirewallPolicyStatefulEngineOptions();
-            o.ruleOrder = ruleOrder;
-            o.streamExceptionPolicy = streamExceptionPolicy;
-            return o;
+            final var _resultValue = new FirewallPolicyFirewallPolicyStatefulEngineOptions();
+            _resultValue.ruleOrder = ruleOrder;
+            _resultValue.streamExceptionPolicy = streamExceptionPolicy;
+            return _resultValue;
         }
     }
 }

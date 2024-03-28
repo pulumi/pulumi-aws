@@ -4,6 +4,7 @@
 package com.pulumi.aws.autoscaling.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -25,7 +26,7 @@ public final class PolicyStepAdjustment {
      * Without a value, AWS will treat this bound as positive infinity. The upper bound
      * must be greater than the lower bound.
      * 
-     * Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%, but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
+     * Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%!,(MISSING) but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
      * 
      * The following arguments are only available to &#34;TargetTrackingScaling&#34; type policies:
      * 
@@ -55,7 +56,7 @@ public final class PolicyStepAdjustment {
      * Without a value, AWS will treat this bound as positive infinity. The upper bound
      * must be greater than the lower bound.
      * 
-     * Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%, but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
+     * Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%!,(MISSING) but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
      * 
      * The following arguments are only available to &#34;TargetTrackingScaling&#34; type policies:
      * 
@@ -95,25 +96,30 @@ public final class PolicyStepAdjustment {
 
         @CustomType.Setter
         public Builder metricIntervalLowerBound(@Nullable String metricIntervalLowerBound) {
+
             this.metricIntervalLowerBound = metricIntervalLowerBound;
             return this;
         }
         @CustomType.Setter
         public Builder metricIntervalUpperBound(@Nullable String metricIntervalUpperBound) {
+
             this.metricIntervalUpperBound = metricIntervalUpperBound;
             return this;
         }
         @CustomType.Setter
         public Builder scalingAdjustment(Integer scalingAdjustment) {
-            this.scalingAdjustment = Objects.requireNonNull(scalingAdjustment);
+            if (scalingAdjustment == null) {
+              throw new MissingRequiredPropertyException("PolicyStepAdjustment", "scalingAdjustment");
+            }
+            this.scalingAdjustment = scalingAdjustment;
             return this;
         }
         public PolicyStepAdjustment build() {
-            final var o = new PolicyStepAdjustment();
-            o.metricIntervalLowerBound = metricIntervalLowerBound;
-            o.metricIntervalUpperBound = metricIntervalUpperBound;
-            o.scalingAdjustment = scalingAdjustment;
-            return o;
+            final var _resultValue = new PolicyStepAdjustment();
+            _resultValue.metricIntervalLowerBound = metricIntervalLowerBound;
+            _resultValue.metricIntervalUpperBound = metricIntervalUpperBound;
+            _resultValue.scalingAdjustment = scalingAdjustment;
+            return _resultValue;
         }
     }
 }

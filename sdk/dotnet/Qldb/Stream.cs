@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Qldb
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,15 +25,15 @@ namespace Pulumi.Aws.Qldb
     /// {
     ///     var example = new Aws.Qldb.Stream("example", new()
     ///     {
+    ///         LedgerName = "existing-ledger-name",
+    ///         StreamName = "sample-ledger-stream",
+    ///         RoleArn = "sample-role-arn",
     ///         InclusiveStartTime = "2021-01-01T00:00:00Z",
     ///         KinesisConfiguration = new Aws.Qldb.Inputs.StreamKinesisConfigurationArgs
     ///         {
     ///             AggregationEnabled = false,
     ///             StreamArn = "arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream",
     ///         },
-    ///         LedgerName = "existing-ledger-name",
-    ///         RoleArn = "sample-role-arn",
-    ///         StreamName = "sample-ledger-stream",
     ///         Tags = 
     ///         {
     ///             { "example", "tag" },
@@ -41,6 +42,7 @@ namespace Pulumi.Aws.Qldb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:qldb/stream:Stream")]
     public partial class Stream : global::Pulumi.CustomResource
@@ -122,10 +124,6 @@ namespace Pulumi.Aws.Qldb
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -269,11 +267,7 @@ namespace Pulumi.Aws.Qldb
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public StreamState()

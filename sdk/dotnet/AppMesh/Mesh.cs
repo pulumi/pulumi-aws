@@ -13,22 +13,10 @@ namespace Pulumi.Aws.AppMesh
     /// Provides an AWS App Mesh service mesh resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var simple = new Aws.AppMesh.Mesh("simple");
-    /// 
-    /// });
-    /// ```
-    /// ### Egress Filter
-    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,6 +27,27 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var simple = new Aws.AppMesh.Mesh("simple", new()
     ///     {
+    ///         Name = "simpleapp",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Egress Filter
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var simple = new Aws.AppMesh.Mesh("simple", new()
+    ///     {
+    ///         Name = "simpleapp",
     ///         Spec = new Aws.AppMesh.Inputs.MeshSpecArgs
     ///         {
     ///             EgressFilter = new Aws.AppMesh.Inputs.MeshSpecEgressFilterArgs
@@ -50,13 +59,14 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import App Mesh service meshes using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
+    /// $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
     /// ```
     /// </summary>
     [AwsResourceType("aws:appmesh/mesh:Mesh")]
@@ -139,10 +149,6 @@ namespace Pulumi.Aws.AppMesh
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -262,11 +268,7 @@ namespace Pulumi.Aws.AppMesh
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public MeshState()

@@ -23,7 +23,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS RBin Rule.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,14 +52,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Rule(&#34;example&#34;, RuleArgs.builder()        
  *             .description(&#34;example_rule&#34;)
+ *             .resourceType(&#34;EBS_SNAPSHOT&#34;)
  *             .resourceTags(RuleResourceTagArgs.builder()
  *                 .resourceTagKey(&#34;tag_key&#34;)
  *                 .resourceTagValue(&#34;tag_value&#34;)
  *                 .build())
- *             .resourceType(&#34;EBS_SNAPSHOT&#34;)
  *             .retentionPeriod(RuleRetentionPeriodArgs.builder()
- *                 .retentionPeriodUnit(&#34;DAYS&#34;)
  *                 .retentionPeriodValue(10)
+ *                 .retentionPeriodUnit(&#34;DAYS&#34;)
  *                 .build())
  *             .tags(Map.of(&#34;test_tag_key&#34;, &#34;test_tag_value&#34;))
  *             .build());
@@ -64,13 +67,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import RBin Rule using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rbin/rule:Rule example examplerule
+ * $ pulumi import aws:rbin/rule:Rule example examplerule
  * ```
  * 
  */
@@ -249,9 +253,6 @@ public class Rule extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

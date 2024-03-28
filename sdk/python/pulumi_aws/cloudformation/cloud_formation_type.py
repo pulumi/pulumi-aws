@@ -395,26 +395,28 @@ class CloudFormationType(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cloudformation.CloudFormationType("example",
-            schema_handler_package=f"s3://{aws_s3_object['example']['bucket']}/{aws_s3_object['example']['key']}",
+            schema_handler_package=f"s3://{example_aws_s3_object['bucket']}/{example_aws_s3_object['key']}",
             type="RESOURCE",
             type_name="ExampleCompany::ExampleService::ExampleResource",
             logging_config=aws.cloudformation.CloudFormationTypeLoggingConfigArgs(
-                log_group_name=aws_cloudwatch_log_group["example"]["name"],
-                log_role_arn=aws_iam_role["example"]["arn"],
+                log_group_name=example_aws_cloudwatch_log_group["name"],
+                log_role_arn=example_aws_iam_role["arn"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_cloudformation_type` using the type version Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:cloudformation/cloudFormationType:CloudFormationType example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
+        $ pulumi import aws:cloudformation/cloudFormationType:CloudFormationType example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
         ```
 
         :param str resource_name: The name of the resource.
@@ -436,26 +438,28 @@ class CloudFormationType(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cloudformation.CloudFormationType("example",
-            schema_handler_package=f"s3://{aws_s3_object['example']['bucket']}/{aws_s3_object['example']['key']}",
+            schema_handler_package=f"s3://{example_aws_s3_object['bucket']}/{example_aws_s3_object['key']}",
             type="RESOURCE",
             type_name="ExampleCompany::ExampleService::ExampleResource",
             logging_config=aws.cloudformation.CloudFormationTypeLoggingConfigArgs(
-                log_group_name=aws_cloudwatch_log_group["example"]["name"],
-                log_role_arn=aws_iam_role["example"]["arn"],
+                log_group_name=example_aws_cloudwatch_log_group["name"],
+                log_role_arn=example_aws_iam_role["arn"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_cloudformation_type` using the type version Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:cloudformation/cloudFormationType:CloudFormationType example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
+        $ pulumi import aws:cloudformation/cloudFormationType:CloudFormationType example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
         ```
 
         :param str resource_name: The name of the resource.

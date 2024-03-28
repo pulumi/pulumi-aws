@@ -5,6 +5,7 @@ package com.pulumi.aws.schemas;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -262,9 +263,15 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SchemaArgs build() {
-            $.content = Objects.requireNonNull($.content, "expected parameter 'content' to be non-null");
-            $.registryName = Objects.requireNonNull($.registryName, "expected parameter 'registryName' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.content == null) {
+                throw new MissingRequiredPropertyException("SchemaArgs", "content");
+            }
+            if ($.registryName == null) {
+                throw new MissingRequiredPropertyException("SchemaArgs", "registryName");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("SchemaArgs", "type");
+            }
             return $;
         }
     }

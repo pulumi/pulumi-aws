@@ -42,6 +42,8 @@ public final class ApigatewayFunctions {
      * Provides details about a specific API Gateway Authorizer.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -64,13 +66,14 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getAuthorizer(GetAuthorizerArgs.builder()
-     *             .restApiId(aws_api_gateway_rest_api.example().id())
-     *             .authorizerId(data.aws_api_gateway_authorizers().example().ids()[0])
+     *             .restApiId(exampleAwsApiGatewayRestApi.id())
+     *             .authorizerId(exampleAwsApiGatewayAuthorizers.ids()[0])
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthorizerResult> getAuthorizer(GetAuthorizerArgs args) {
@@ -80,6 +83,8 @@ public final class ApigatewayFunctions {
      * Provides details about a specific API Gateway Authorizer.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -102,13 +107,14 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getAuthorizer(GetAuthorizerArgs.builder()
-     *             .restApiId(aws_api_gateway_rest_api.example().id())
-     *             .authorizerId(data.aws_api_gateway_authorizers().example().ids()[0])
+     *             .restApiId(exampleAwsApiGatewayRestApi.id())
+     *             .authorizerId(exampleAwsApiGatewayAuthorizers.ids()[0])
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthorizerResult> getAuthorizerPlain(GetAuthorizerPlainArgs args) {
@@ -118,6 +124,8 @@ public final class ApigatewayFunctions {
      * Provides details about a specific API Gateway Authorizer.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -140,13 +148,14 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getAuthorizer(GetAuthorizerArgs.builder()
-     *             .restApiId(aws_api_gateway_rest_api.example().id())
-     *             .authorizerId(data.aws_api_gateway_authorizers().example().ids()[0])
+     *             .restApiId(exampleAwsApiGatewayRestApi.id())
+     *             .authorizerId(exampleAwsApiGatewayAuthorizers.ids()[0])
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthorizerResult> getAuthorizer(GetAuthorizerArgs args, InvokeOptions options) {
@@ -156,6 +165,8 @@ public final class ApigatewayFunctions {
      * Provides details about a specific API Gateway Authorizer.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -178,13 +189,14 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getAuthorizer(GetAuthorizerArgs.builder()
-     *             .restApiId(aws_api_gateway_rest_api.example().id())
-     *             .authorizerId(data.aws_api_gateway_authorizers().example().ids()[0])
+     *             .restApiId(exampleAwsApiGatewayRestApi.id())
+     *             .authorizerId(exampleAwsApiGatewayAuthorizers.ids()[0])
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthorizerResult> getAuthorizerPlain(GetAuthorizerPlainArgs args, InvokeOptions options) {
@@ -194,6 +206,8 @@ public final class ApigatewayFunctions {
      * Provides details about multiple API Gateway Authorizers.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -216,12 +230,13 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getAuthorizers(GetAuthorizersArgs.builder()
-     *             .restApiId(aws_api_gateway_rest_api.example().id())
+     *             .restApiId(exampleAwsApiGatewayRestApi.id())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthorizersResult> getAuthorizers(GetAuthorizersArgs args) {
@@ -231,6 +246,8 @@ public final class ApigatewayFunctions {
      * Provides details about multiple API Gateway Authorizers.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -253,12 +270,13 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getAuthorizers(GetAuthorizersArgs.builder()
-     *             .restApiId(aws_api_gateway_rest_api.example().id())
+     *             .restApiId(exampleAwsApiGatewayRestApi.id())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthorizersResult> getAuthorizersPlain(GetAuthorizersPlainArgs args) {
@@ -268,6 +286,8 @@ public final class ApigatewayFunctions {
      * Provides details about multiple API Gateway Authorizers.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -290,12 +310,13 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getAuthorizers(GetAuthorizersArgs.builder()
-     *             .restApiId(aws_api_gateway_rest_api.example().id())
+     *             .restApiId(exampleAwsApiGatewayRestApi.id())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthorizersResult> getAuthorizers(GetAuthorizersArgs args, InvokeOptions options) {
@@ -305,6 +326,8 @@ public final class ApigatewayFunctions {
      * Provides details about multiple API Gateway Authorizers.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -327,12 +350,13 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getAuthorizers(GetAuthorizersArgs.builder()
-     *             .restApiId(aws_api_gateway_rest_api.example().id())
+     *             .restApiId(exampleAwsApiGatewayRestApi.id())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthorizersResult> getAuthorizersPlain(GetAuthorizersPlainArgs args, InvokeOptions options) {
@@ -342,6 +366,8 @@ public final class ApigatewayFunctions {
      * Use this data source to get the custom domain name for use with AWS API Gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -370,6 +396,7 @@ public final class ApigatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDomainNameResult> getDomainName(GetDomainNameArgs args) {
@@ -379,6 +406,8 @@ public final class ApigatewayFunctions {
      * Use this data source to get the custom domain name for use with AWS API Gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -407,6 +436,7 @@ public final class ApigatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDomainNameResult> getDomainNamePlain(GetDomainNamePlainArgs args) {
@@ -416,6 +446,8 @@ public final class ApigatewayFunctions {
      * Use this data source to get the custom domain name for use with AWS API Gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -444,6 +476,7 @@ public final class ApigatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDomainNameResult> getDomainName(GetDomainNameArgs args, InvokeOptions options) {
@@ -453,6 +486,8 @@ public final class ApigatewayFunctions {
      * Use this data source to get the custom domain name for use with AWS API Gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -481,6 +516,7 @@ public final class ApigatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDomainNameResult> getDomainNamePlain(GetDomainNamePlainArgs args, InvokeOptions options) {
@@ -488,6 +524,8 @@ public final class ApigatewayFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -510,14 +548,15 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getExport(GetExportArgs.builder()
-     *             .restApiId(aws_api_gateway_stage.example().rest_api_id())
-     *             .stageName(aws_api_gateway_stage.example().stage_name())
+     *             .restApiId(exampleAwsApiGatewayStage.restApiId())
+     *             .stageName(exampleAwsApiGatewayStage.stageName())
      *             .exportType(&#34;oas30&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetExportResult> getExport(GetExportArgs args) {
@@ -525,6 +564,8 @@ public final class ApigatewayFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -547,14 +588,15 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getExport(GetExportArgs.builder()
-     *             .restApiId(aws_api_gateway_stage.example().rest_api_id())
-     *             .stageName(aws_api_gateway_stage.example().stage_name())
+     *             .restApiId(exampleAwsApiGatewayStage.restApiId())
+     *             .stageName(exampleAwsApiGatewayStage.stageName())
      *             .exportType(&#34;oas30&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetExportResult> getExportPlain(GetExportPlainArgs args) {
@@ -562,6 +604,8 @@ public final class ApigatewayFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -584,14 +628,15 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getExport(GetExportArgs.builder()
-     *             .restApiId(aws_api_gateway_stage.example().rest_api_id())
-     *             .stageName(aws_api_gateway_stage.example().stage_name())
+     *             .restApiId(exampleAwsApiGatewayStage.restApiId())
+     *             .stageName(exampleAwsApiGatewayStage.stageName())
      *             .exportType(&#34;oas30&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetExportResult> getExport(GetExportArgs args, InvokeOptions options) {
@@ -599,6 +644,8 @@ public final class ApigatewayFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -621,14 +668,15 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getExport(GetExportArgs.builder()
-     *             .restApiId(aws_api_gateway_stage.example().rest_api_id())
-     *             .stageName(aws_api_gateway_stage.example().stage_name())
+     *             .restApiId(exampleAwsApiGatewayStage.restApiId())
+     *             .stageName(exampleAwsApiGatewayStage.stageName())
      *             .exportType(&#34;oas30&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetExportResult> getExportPlain(GetExportPlainArgs args, InvokeOptions options) {
@@ -639,6 +687,8 @@ public final class ApigatewayFunctions {
      * example to supply credentials for a dependency microservice.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -667,6 +717,7 @@ public final class ApigatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetKeyResult> getKey(GetKeyArgs args) {
@@ -677,6 +728,8 @@ public final class ApigatewayFunctions {
      * example to supply credentials for a dependency microservice.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -705,6 +758,7 @@ public final class ApigatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetKeyResult> getKeyPlain(GetKeyPlainArgs args) {
@@ -715,6 +769,8 @@ public final class ApigatewayFunctions {
      * example to supply credentials for a dependency microservice.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -743,6 +799,7 @@ public final class ApigatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetKeyResult> getKey(GetKeyArgs args, InvokeOptions options) {
@@ -753,6 +810,8 @@ public final class ApigatewayFunctions {
      * example to supply credentials for a dependency microservice.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -781,6 +840,7 @@ public final class ApigatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetKeyResult> getKeyPlain(GetKeyPlainArgs args, InvokeOptions options) {
@@ -791,6 +851,8 @@ public final class ApigatewayFunctions {
      * To fetch the Resource, you must provide the REST API id as well as the full path.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -825,6 +887,7 @@ public final class ApigatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResourceResult> getResource(GetResourceArgs args) {
@@ -835,6 +898,8 @@ public final class ApigatewayFunctions {
      * To fetch the Resource, you must provide the REST API id as well as the full path.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -869,6 +934,7 @@ public final class ApigatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResourceResult> getResourcePlain(GetResourcePlainArgs args) {
@@ -879,6 +945,8 @@ public final class ApigatewayFunctions {
      * To fetch the Resource, you must provide the REST API id as well as the full path.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -913,6 +981,7 @@ public final class ApigatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResourceResult> getResource(GetResourceArgs args, InvokeOptions options) {
@@ -923,6 +992,8 @@ public final class ApigatewayFunctions {
      * To fetch the Resource, you must provide the REST API id as well as the full path.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -957,6 +1028,7 @@ public final class ApigatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResourceResult> getResourcePlain(GetResourcePlainArgs args, InvokeOptions options) {
@@ -969,6 +1041,8 @@ public final class ApigatewayFunctions {
      * error if there is more than one match.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -997,6 +1071,7 @@ public final class ApigatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRestApiResult> getRestApi(GetRestApiArgs args) {
@@ -1009,6 +1084,8 @@ public final class ApigatewayFunctions {
      * error if there is more than one match.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1037,6 +1114,7 @@ public final class ApigatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRestApiResult> getRestApiPlain(GetRestApiPlainArgs args) {
@@ -1049,6 +1127,8 @@ public final class ApigatewayFunctions {
      * error if there is more than one match.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1077,6 +1157,7 @@ public final class ApigatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRestApiResult> getRestApi(GetRestApiArgs args, InvokeOptions options) {
@@ -1089,6 +1170,8 @@ public final class ApigatewayFunctions {
      * error if there is more than one match.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1117,6 +1200,7 @@ public final class ApigatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRestApiResult> getRestApiPlain(GetRestApiPlainArgs args, InvokeOptions options) {
@@ -1124,6 +1208,8 @@ public final class ApigatewayFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1146,8 +1232,8 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getSdk(GetSdkArgs.builder()
-     *             .restApiId(aws_api_gateway_stage.example().rest_api_id())
-     *             .stageName(aws_api_gateway_stage.example().stage_name())
+     *             .restApiId(exampleAwsApiGatewayStage.restApiId())
+     *             .stageName(exampleAwsApiGatewayStage.stageName())
      *             .sdkType(&#34;android&#34;)
      *             .parameters(Map.ofEntries(
      *                 Map.entry(&#34;groupId&#34;, &#34;example&#34;),
@@ -1160,6 +1246,7 @@ public final class ApigatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSdkResult> getSdk(GetSdkArgs args) {
@@ -1167,6 +1254,8 @@ public final class ApigatewayFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1189,8 +1278,8 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getSdk(GetSdkArgs.builder()
-     *             .restApiId(aws_api_gateway_stage.example().rest_api_id())
-     *             .stageName(aws_api_gateway_stage.example().stage_name())
+     *             .restApiId(exampleAwsApiGatewayStage.restApiId())
+     *             .stageName(exampleAwsApiGatewayStage.stageName())
      *             .sdkType(&#34;android&#34;)
      *             .parameters(Map.ofEntries(
      *                 Map.entry(&#34;groupId&#34;, &#34;example&#34;),
@@ -1203,6 +1292,7 @@ public final class ApigatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSdkResult> getSdkPlain(GetSdkPlainArgs args) {
@@ -1210,6 +1300,8 @@ public final class ApigatewayFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1232,8 +1324,8 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getSdk(GetSdkArgs.builder()
-     *             .restApiId(aws_api_gateway_stage.example().rest_api_id())
-     *             .stageName(aws_api_gateway_stage.example().stage_name())
+     *             .restApiId(exampleAwsApiGatewayStage.restApiId())
+     *             .stageName(exampleAwsApiGatewayStage.stageName())
      *             .sdkType(&#34;android&#34;)
      *             .parameters(Map.ofEntries(
      *                 Map.entry(&#34;groupId&#34;, &#34;example&#34;),
@@ -1246,6 +1338,7 @@ public final class ApigatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSdkResult> getSdk(GetSdkArgs args, InvokeOptions options) {
@@ -1253,6 +1346,8 @@ public final class ApigatewayFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1275,8 +1370,8 @@ public final class ApigatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ApigatewayFunctions.getSdk(GetSdkArgs.builder()
-     *             .restApiId(aws_api_gateway_stage.example().rest_api_id())
-     *             .stageName(aws_api_gateway_stage.example().stage_name())
+     *             .restApiId(exampleAwsApiGatewayStage.restApiId())
+     *             .stageName(exampleAwsApiGatewayStage.stageName())
      *             .sdkType(&#34;android&#34;)
      *             .parameters(Map.ofEntries(
      *                 Map.entry(&#34;groupId&#34;, &#34;example&#34;),
@@ -1289,6 +1384,7 @@ public final class ApigatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSdkResult> getSdkPlain(GetSdkPlainArgs args, InvokeOptions options) {
@@ -1301,6 +1397,8 @@ public final class ApigatewayFunctions {
      * error if there is more than one match.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1329,6 +1427,7 @@ public final class ApigatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVpcLinkResult> getVpcLink(GetVpcLinkArgs args) {
@@ -1341,6 +1440,8 @@ public final class ApigatewayFunctions {
      * error if there is more than one match.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1369,6 +1470,7 @@ public final class ApigatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpcLinkResult> getVpcLinkPlain(GetVpcLinkPlainArgs args) {
@@ -1381,6 +1483,8 @@ public final class ApigatewayFunctions {
      * error if there is more than one match.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1409,6 +1513,7 @@ public final class ApigatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVpcLinkResult> getVpcLink(GetVpcLinkArgs args, InvokeOptions options) {
@@ -1421,6 +1526,8 @@ public final class ApigatewayFunctions {
      * error if there is more than one match.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1449,6 +1556,7 @@ public final class ApigatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpcLinkResult> getVpcLinkPlain(GetVpcLinkPlainArgs args, InvokeOptions options) {

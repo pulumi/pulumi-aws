@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,8 +25,9 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var lbUser = new Aws.Iam.User("lbUser", new()
+    ///     var lb = new Aws.Iam.User("lb", new()
     ///     {
+    ///         Name = "loadbalancer",
     ///         Path = "/system/",
     ///         Tags = 
     ///         {
@@ -33,12 +35,12 @@ namespace Pulumi.Aws.Iam
     ///         },
     ///     });
     /// 
-    ///     var lbAccessKey = new Aws.Iam.AccessKey("lbAccessKey", new()
+    ///     var lbAccessKey = new Aws.Iam.AccessKey("lb", new()
     ///     {
-    ///         User = lbUser.Name,
+    ///         User = lb.Name,
     ///     });
     /// 
-    ///     var lbRoPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var lbRo = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -57,21 +59,23 @@ namespace Pulumi.Aws.Iam
     ///         },
     ///     });
     /// 
-    ///     var lbRoUserPolicy = new Aws.Iam.UserPolicy("lbRoUserPolicy", new()
+    ///     var lbRoUserPolicy = new Aws.Iam.UserPolicy("lb_ro", new()
     ///     {
-    ///         User = lbUser.Name,
-    ///         Policy = lbRoPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "test",
+    ///         User = lb.Name,
+    ///         Policy = lbRo.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM Users using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iam/user:User lb loadbalancer
+    /// $ pulumi import aws:iam/user:User lb loadbalancer
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/user:User")]
@@ -150,10 +154,6 @@ namespace Pulumi.Aws.Iam
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -277,11 +277,7 @@ namespace Pulumi.Aws.Iam
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

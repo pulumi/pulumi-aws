@@ -4,6 +4,7 @@
 package com.pulumi.aws.cleanrooms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -52,31 +53,43 @@ public final class CollaborationDataEncryptionMetadata {
 
         @CustomType.Setter
         public Builder allowClearText(Boolean allowClearText) {
-            this.allowClearText = Objects.requireNonNull(allowClearText);
+            if (allowClearText == null) {
+              throw new MissingRequiredPropertyException("CollaborationDataEncryptionMetadata", "allowClearText");
+            }
+            this.allowClearText = allowClearText;
             return this;
         }
         @CustomType.Setter
         public Builder allowDuplicates(Boolean allowDuplicates) {
-            this.allowDuplicates = Objects.requireNonNull(allowDuplicates);
+            if (allowDuplicates == null) {
+              throw new MissingRequiredPropertyException("CollaborationDataEncryptionMetadata", "allowDuplicates");
+            }
+            this.allowDuplicates = allowDuplicates;
             return this;
         }
         @CustomType.Setter
         public Builder allowJoinsOnColumnsWithDifferentNames(Boolean allowJoinsOnColumnsWithDifferentNames) {
-            this.allowJoinsOnColumnsWithDifferentNames = Objects.requireNonNull(allowJoinsOnColumnsWithDifferentNames);
+            if (allowJoinsOnColumnsWithDifferentNames == null) {
+              throw new MissingRequiredPropertyException("CollaborationDataEncryptionMetadata", "allowJoinsOnColumnsWithDifferentNames");
+            }
+            this.allowJoinsOnColumnsWithDifferentNames = allowJoinsOnColumnsWithDifferentNames;
             return this;
         }
         @CustomType.Setter
         public Builder preserveNulls(Boolean preserveNulls) {
-            this.preserveNulls = Objects.requireNonNull(preserveNulls);
+            if (preserveNulls == null) {
+              throw new MissingRequiredPropertyException("CollaborationDataEncryptionMetadata", "preserveNulls");
+            }
+            this.preserveNulls = preserveNulls;
             return this;
         }
         public CollaborationDataEncryptionMetadata build() {
-            final var o = new CollaborationDataEncryptionMetadata();
-            o.allowClearText = allowClearText;
-            o.allowDuplicates = allowDuplicates;
-            o.allowJoinsOnColumnsWithDifferentNames = allowJoinsOnColumnsWithDifferentNames;
-            o.preserveNulls = preserveNulls;
-            return o;
+            final var _resultValue = new CollaborationDataEncryptionMetadata();
+            _resultValue.allowClearText = allowClearText;
+            _resultValue.allowDuplicates = allowDuplicates;
+            _resultValue.allowJoinsOnColumnsWithDifferentNames = allowJoinsOnColumnsWithDifferentNames;
+            _resultValue.preserveNulls = preserveNulls;
+            return _resultValue;
         }
     }
 }

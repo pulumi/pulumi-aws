@@ -84,6 +84,53 @@ def get_vpc_ipam_pool_cidrs(filters: Optional[Sequence[pulumi.InputType['GetVpcI
 
     This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
 
+    ## Example Usage
+
+    Basic usage:
+
+    <!--Start PulumiCodeChooser -->
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    p = aws.ec2.get_vpc_ipam_pool(filters=[
+        aws.ec2.GetVpcIpamPoolFilterArgs(
+            name="description",
+            values=["*mypool*"],
+        ),
+        aws.ec2.GetVpcIpamPoolFilterArgs(
+            name="address-family",
+            values=["ipv4"],
+        ),
+    ])
+    c = aws.ec2.get_vpc_ipam_pool_cidrs(ipam_pool_id=p.id)
+    ```
+    <!--End PulumiCodeChooser -->
+
+    Filtering:
+
+    <!--Start PulumiCodeChooser -->
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    c = aws.ec2.get_vpc_ipam_pool_cidrs(ipam_pool_id="ipam-pool-123",
+        filters=[aws.ec2.GetVpcIpamPoolCidrsFilterArgs(
+            name="cidr",
+            values=["10.*"],
+        )])
+    mycidrs = [cidr.cidr for cidr in c.ipam_pool_cidrs if cidr.state == "provisioned"]
+    pls = aws.ec2.ManagedPrefixList("pls",
+        entries=[aws.ec2.ManagedPrefixListEntryArgs(
+            cidr=entry["value"],
+            description=entry["value"],
+        ) for entry in [{"key": k, "value": v} for k, v in mycidrs]],
+        name=f"IPAM Pool ({test['id']}) Cidrs",
+        address_family="IPv4",
+        max_entries=len(mycidrs))
+    ```
+    <!--End PulumiCodeChooser -->
+
 
     :param Sequence[pulumi.InputType['GetVpcIpamPoolCidrsFilterArgs']] filters: Custom filter block as described below.
     :param str ipam_pool_id: ID of the IPAM pool you would like the list of provisioned CIDRs.
@@ -109,6 +156,53 @@ def get_vpc_ipam_pool_cidrs_output(filters: Optional[pulumi.Input[Optional[Seque
     `ec2_get_vpc_ipam_pool_cidrs` provides details about an IPAM pool.
 
     This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
+
+    ## Example Usage
+
+    Basic usage:
+
+    <!--Start PulumiCodeChooser -->
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    p = aws.ec2.get_vpc_ipam_pool(filters=[
+        aws.ec2.GetVpcIpamPoolFilterArgs(
+            name="description",
+            values=["*mypool*"],
+        ),
+        aws.ec2.GetVpcIpamPoolFilterArgs(
+            name="address-family",
+            values=["ipv4"],
+        ),
+    ])
+    c = aws.ec2.get_vpc_ipam_pool_cidrs(ipam_pool_id=p.id)
+    ```
+    <!--End PulumiCodeChooser -->
+
+    Filtering:
+
+    <!--Start PulumiCodeChooser -->
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    c = aws.ec2.get_vpc_ipam_pool_cidrs(ipam_pool_id="ipam-pool-123",
+        filters=[aws.ec2.GetVpcIpamPoolCidrsFilterArgs(
+            name="cidr",
+            values=["10.*"],
+        )])
+    mycidrs = [cidr.cidr for cidr in c.ipam_pool_cidrs if cidr.state == "provisioned"]
+    pls = aws.ec2.ManagedPrefixList("pls",
+        entries=[aws.ec2.ManagedPrefixListEntryArgs(
+            cidr=entry["value"],
+            description=entry["value"],
+        ) for entry in [{"key": k, "value": v} for k, v in mycidrs]],
+        name=f"IPAM Pool ({test['id']}) Cidrs",
+        address_family="IPv4",
+        max_entries=len(mycidrs))
+    ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetVpcIpamPoolCidrsFilterArgs']] filters: Custom filter block as described below.

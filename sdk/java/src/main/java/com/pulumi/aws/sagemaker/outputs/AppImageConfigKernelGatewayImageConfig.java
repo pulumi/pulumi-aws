@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.outputs;
 import com.pulumi.aws.sagemaker.outputs.AppImageConfigKernelGatewayImageConfigFileSystemConfig;
 import com.pulumi.aws.sagemaker.outputs.AppImageConfigKernelGatewayImageConfigKernelSpec;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -59,19 +60,23 @@ public final class AppImageConfigKernelGatewayImageConfig {
 
         @CustomType.Setter
         public Builder fileSystemConfig(@Nullable AppImageConfigKernelGatewayImageConfigFileSystemConfig fileSystemConfig) {
+
             this.fileSystemConfig = fileSystemConfig;
             return this;
         }
         @CustomType.Setter
         public Builder kernelSpec(AppImageConfigKernelGatewayImageConfigKernelSpec kernelSpec) {
-            this.kernelSpec = Objects.requireNonNull(kernelSpec);
+            if (kernelSpec == null) {
+              throw new MissingRequiredPropertyException("AppImageConfigKernelGatewayImageConfig", "kernelSpec");
+            }
+            this.kernelSpec = kernelSpec;
             return this;
         }
         public AppImageConfigKernelGatewayImageConfig build() {
-            final var o = new AppImageConfigKernelGatewayImageConfig();
-            o.fileSystemConfig = fileSystemConfig;
-            o.kernelSpec = kernelSpec;
-            return o;
+            final var _resultValue = new AppImageConfigKernelGatewayImageConfig();
+            _resultValue.fileSystemConfig = fileSystemConfig;
+            _resultValue.kernelSpec = kernelSpec;
+            return _resultValue;
         }
     }
 }

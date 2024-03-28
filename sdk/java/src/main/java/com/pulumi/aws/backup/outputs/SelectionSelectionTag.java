@@ -4,6 +4,7 @@
 package com.pulumi.aws.backup.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,25 +71,34 @@ public final class SelectionSelectionTag {
 
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("SelectionSelectionTag", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("SelectionSelectionTag", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("SelectionSelectionTag", "value");
+            }
+            this.value = value;
             return this;
         }
         public SelectionSelectionTag build() {
-            final var o = new SelectionSelectionTag();
-            o.key = key;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new SelectionSelectionTag();
+            _resultValue.key = key;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Athena
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,17 +25,18 @@ namespace Pulumi.Aws.Athena
     /// {
     ///     var example = new Aws.Athena.Workgroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Configuration = new Aws.Athena.Inputs.WorkgroupConfigurationArgs
     ///         {
     ///             EnforceWorkgroupConfiguration = true,
     ///             PublishCloudwatchMetricsEnabled = true,
     ///             ResultConfiguration = new Aws.Athena.Inputs.WorkgroupConfigurationResultConfigurationArgs
     ///             {
-    ///                 OutputLocation = $"s3://{aws_s3_bucket.Example.Bucket}/output/",
+    ///                 OutputLocation = $"s3://{exampleAwsS3Bucket.Bucket}/output/",
     ///                 EncryptionConfiguration = new Aws.Athena.Inputs.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs
     ///                 {
     ///                     EncryptionOption = "SSE_KMS",
-    ///                     KmsKeyArn = aws_kms_key.Example.Arn,
+    ///                     KmsKeyArn = exampleAwsKmsKey.Arn,
     ///                 },
     ///             },
     ///         },
@@ -42,13 +44,14 @@ namespace Pulumi.Aws.Athena
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Athena Workgroups using their name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:athena/workgroup:Workgroup example example
+    /// $ pulumi import aws:athena/workgroup:Workgroup example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:athena/workgroup:Workgroup")]
@@ -125,10 +128,6 @@ namespace Pulumi.Aws.Athena
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -260,11 +259,7 @@ namespace Pulumi.Aws.Athena
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public WorkgroupState()

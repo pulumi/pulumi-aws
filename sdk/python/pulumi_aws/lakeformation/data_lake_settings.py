@@ -346,27 +346,32 @@ class DataLakeSettings(pulumi.CustomResource):
         > **NOTE:** Lake Formation introduces fine-grained access control for data in your data lake. Part of the changes include the `IAMAllowedPrincipals` principal in order to make Lake Formation backwards compatible with existing IAM and Glue permissions. For more information, see [Changing the Default Security Settings for Your Data Lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html) and [Upgrading AWS Glue Data Permissions to the AWS Lake Formation Model](https://docs.aws.amazon.com/lake-formation/latest/dg/upgrade-glue-lake-formation.html).
 
         ## Example Usage
+
         ### Data Lake Admins
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lakeformation.DataLakeSettings("example", admins=[
-            aws_iam_user["test"]["arn"],
-            aws_iam_role["test"]["arn"],
+            test["arn"],
+            test_aws_iam_role["arn"],
         ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create Default Permissions
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lakeformation.DataLakeSettings("example",
             admins=[
-                aws_iam_user["test"]["arn"],
-                aws_iam_role["test"]["arn"],
+                test["arn"],
+                test_aws_iam_role["arn"],
             ],
             create_database_default_permissions=[aws.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArgs(
                 permissions=[
@@ -374,23 +379,26 @@ class DataLakeSettings(pulumi.CustomResource):
                     "ALTER",
                     "DROP",
                 ],
-                principal=aws_iam_user["test"]["arn"],
+                principal=test["arn"],
             )],
             create_table_default_permissions=[aws.lakeformation.DataLakeSettingsCreateTableDefaultPermissionArgs(
                 permissions=["ALL"],
-                principal=aws_iam_role["test"]["arn"],
+                principal=test_aws_iam_role["arn"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Enable EMR access to LakeFormation resources
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lakeformation.DataLakeSettings("example",
             admins=[
-                aws_iam_user["test"]["arn"],
-                aws_iam_role["test"]["arn"],
+                test["arn"],
+                test_aws_iam_role["arn"],
             ],
             create_database_default_permissions=[aws.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArgs(
                 permissions=[
@@ -398,19 +406,20 @@ class DataLakeSettings(pulumi.CustomResource):
                     "ALTER",
                     "DROP",
                 ],
-                principal=aws_iam_user["test"]["arn"],
+                principal=test["arn"],
             )],
             create_table_default_permissions=[aws.lakeformation.DataLakeSettingsCreateTableDefaultPermissionArgs(
                 permissions=["ALL"],
-                principal=aws_iam_role["test"]["arn"],
+                principal=test_aws_iam_role["arn"],
             )],
             allow_external_data_filtering=True,
             external_data_filtering_allow_lists=[
-                data["aws_caller_identity"]["current"]["account_id"],
-                data["aws_caller_identity"]["third_party"]["account_id"],
+                current["accountId"],
+                third_party["accountId"],
             ],
             authorized_session_tag_value_lists=["Amazon EMR"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -438,27 +447,32 @@ class DataLakeSettings(pulumi.CustomResource):
         > **NOTE:** Lake Formation introduces fine-grained access control for data in your data lake. Part of the changes include the `IAMAllowedPrincipals` principal in order to make Lake Formation backwards compatible with existing IAM and Glue permissions. For more information, see [Changing the Default Security Settings for Your Data Lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html) and [Upgrading AWS Glue Data Permissions to the AWS Lake Formation Model](https://docs.aws.amazon.com/lake-formation/latest/dg/upgrade-glue-lake-formation.html).
 
         ## Example Usage
+
         ### Data Lake Admins
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lakeformation.DataLakeSettings("example", admins=[
-            aws_iam_user["test"]["arn"],
-            aws_iam_role["test"]["arn"],
+            test["arn"],
+            test_aws_iam_role["arn"],
         ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create Default Permissions
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lakeformation.DataLakeSettings("example",
             admins=[
-                aws_iam_user["test"]["arn"],
-                aws_iam_role["test"]["arn"],
+                test["arn"],
+                test_aws_iam_role["arn"],
             ],
             create_database_default_permissions=[aws.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArgs(
                 permissions=[
@@ -466,23 +480,26 @@ class DataLakeSettings(pulumi.CustomResource):
                     "ALTER",
                     "DROP",
                 ],
-                principal=aws_iam_user["test"]["arn"],
+                principal=test["arn"],
             )],
             create_table_default_permissions=[aws.lakeformation.DataLakeSettingsCreateTableDefaultPermissionArgs(
                 permissions=["ALL"],
-                principal=aws_iam_role["test"]["arn"],
+                principal=test_aws_iam_role["arn"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Enable EMR access to LakeFormation resources
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lakeformation.DataLakeSettings("example",
             admins=[
-                aws_iam_user["test"]["arn"],
-                aws_iam_role["test"]["arn"],
+                test["arn"],
+                test_aws_iam_role["arn"],
             ],
             create_database_default_permissions=[aws.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArgs(
                 permissions=[
@@ -490,19 +507,20 @@ class DataLakeSettings(pulumi.CustomResource):
                     "ALTER",
                     "DROP",
                 ],
-                principal=aws_iam_user["test"]["arn"],
+                principal=test["arn"],
             )],
             create_table_default_permissions=[aws.lakeformation.DataLakeSettingsCreateTableDefaultPermissionArgs(
                 permissions=["ALL"],
-                principal=aws_iam_role["test"]["arn"],
+                principal=test_aws_iam_role["arn"],
             )],
             allow_external_data_filtering=True,
             external_data_filtering_allow_lists=[
-                data["aws_caller_identity"]["current"]["account_id"],
-                data["aws_caller_identity"]["third_party"]["account_id"],
+                current["accountId"],
+                third_party["accountId"],
             ],
             authorized_session_tag_value_lists=["Amazon EMR"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param DataLakeSettingsArgs args: The arguments to use to populate this resource's properties.

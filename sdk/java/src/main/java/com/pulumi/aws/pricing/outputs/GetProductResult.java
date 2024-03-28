@@ -5,6 +5,7 @@ package com.pulumi.aws.pricing.outputs;
 
 import com.pulumi.aws.pricing.outputs.GetProductFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -70,7 +71,10 @@ public final class GetProductResult {
 
         @CustomType.Setter
         public Builder filters(List<GetProductFilter> filters) {
-            this.filters = Objects.requireNonNull(filters);
+            if (filters == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "filters");
+            }
+            this.filters = filters;
             return this;
         }
         public Builder filters(GetProductFilter... filters) {
@@ -78,26 +82,35 @@ public final class GetProductResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder result(String result) {
-            this.result = Objects.requireNonNull(result);
+            if (result == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "result");
+            }
+            this.result = result;
             return this;
         }
         @CustomType.Setter
         public Builder serviceCode(String serviceCode) {
-            this.serviceCode = Objects.requireNonNull(serviceCode);
+            if (serviceCode == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "serviceCode");
+            }
+            this.serviceCode = serviceCode;
             return this;
         }
         public GetProductResult build() {
-            final var o = new GetProductResult();
-            o.filters = filters;
-            o.id = id;
-            o.result = result;
-            o.serviceCode = serviceCode;
-            return o;
+            final var _resultValue = new GetProductResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.result = result;
+            _resultValue.serviceCode = serviceCode;
+            return _resultValue;
         }
     }
 }

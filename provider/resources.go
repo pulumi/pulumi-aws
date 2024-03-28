@@ -18,18 +18,20 @@ import (
 	"context"
 	_ "embed"
 	"fmt"
+	"log"
 	"os"
 	"path/filepath"
 	"strconv"
 	"strings"
-	"sync"
+	"sync/atomic"
+	"time"
 	"unicode"
 
 	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
 	tfschema "github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	awsShim "github.com/hashicorp/terraform-provider-aws/shim"
 	"github.com/mitchellh/go-homedir"
+	"github.com/pulumi/pulumi-aws/provider/v6/pkg/rds"
 	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
 
 	pftfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
@@ -73,7 +75,8 @@ const (
 	backupMod                   = "Backup"                   // Backup
 	batchMod                    = "Batch"                    // Batch
 	bedrockFoundationMod        = "BedrockFoundation"        // BedrockFoundation
-	bedrockModelMod             = "BedrockModel"             // BedrockFoundation
+	bedrockModelMod             = "BedrockModel"             // BedrockModel
+	bedrockMod                  = "Bedrock"                  // Bedrock
 	budgetsMod                  = "Budgets"                  // Budgets
 	chimeMod                    = "Chime"                    // Chime
 	chimeSDKMediaPipelinesMod   = "ChimeSDKMediaPipelines"   // Chime SDK Media Pipelines
@@ -105,6 +108,7 @@ const (
 	datapipelineMod             = "DataPipeline"             // Data Pipeline
 	datasyncMod                 = "DataSync"                 // DataSync
 	daxMod                      = "Dax"                      // DynamoDB Accelerator
+	devopsGuruMod               = "DevOpsGuru"               // DevOps Guru
 	dlmMod                      = "Dlm"                      // Data Lifecycle Manager
 	detectiveMod                = "Detective"                // Detective
 	devicefarmMod               = "DeviceFarm"               // Device Farm
@@ -179,6 +183,7 @@ const (
 	opensearchMod               = "OpenSearch"               // OpenSearch
 	opsworksMod                 = "OpsWorks"                 // OpsWorks
 	organizationsMod            = "Organizations"            // Organizations
+	osisMod                     = "OpenSearchIngest"         // Open Search Ingestion Service
 	outpostsMod                 = "Outposts"                 // Outposts
 	pinpointMod                 = "Pinpoint"                 // Pinpoint
 	pipesMod                    = "Pipes"                    // Pipes
@@ -188,6 +193,7 @@ const (
 	ramMod                      = "Ram"                      // Resource Access Manager
 	rbinMod                     = "Rbin"                     // Recycle Bin
 	rdsMod                      = "Rds"                      // Relational Database Service (RDS)
+	rekognitionMod              = "Rekognition"              //Amazon Rekognition"
 	redshiftMod                 = "RedShift"                 // RedShift
 	redshiftDataMod             = "RedshiftData"             // RedshiftData
 	redshiftServerlessMod       = "RedshiftServerless"       // Redshift Serverless
@@ -229,6 +235,7 @@ const (
 	timestreamWriteMod          = "TimestreamWrite"          // Timestream Write
 	transcribeMod               = "Transcribe"               // Transcribe
 	transferMod                 = "Transfer"                 // Transfer Service
+	verifiedpermissionsMod      = "VerifiedPermissions"      // Verified Permissions
 	verifiedaccessMod           = "VerifiedAccess"           // Verified Access
 	vpclatticeMod               = "VpcLattice"               // VPC Lattice
 	wafMod                      = "Waf"                      // Web Application Firewall (WAF)
@@ -254,39 +261,41 @@ var moduleMap = map[string]string{
 
 	// We don't map legacy modules
 
+	"accessanalyzer":                  accessAnalyzerMod,
+	"account":                         accountMod,
 	"acm":                             acmMod,
 	"acmpca":                          acmpcaMod,
-	"account":                         accountMod,
-	"accessanalyzer":                  accessAnalyzerMod,
-	"prometheus":                      ampMod,
+	"alb":                             albMod,
 	"amplify":                         amplifyMod,
-	"appflow":                         appFlowMod,
-	"appconfig":                       appConfigMod,
-	"appintegrations":                 appIntegrationsMod,
-	"applicationinsights":             applicationInsightsMod,
-	"appstream":                       appStreamMod,
-	"appsync":                         appsyncMod,
-	"appmesh":                         appmeshMod,
 	"api_gateway":                     apigatewayMod,
 	"apigatewayv2":                    apigatewayv2Mod,
 	"appautoscaling":                  appautoscalingMod,
+	"appconfig":                       appConfigMod,
+	"appflow":                         appFlowMod,
+	"appintegrations":                 appIntegrationsMod,
+	"applicationinsights":             applicationInsightsMod,
+	"appmesh":                         appmeshMod,
 	"apprunner":                       appRunnerMod,
+	"appstream":                       appStreamMod,
+	"appsync":                         appsyncMod,
 	"athena":                          athenaMod,
 	"autoscaling":                     autoscalingMod,
 	"autoscalingplans":                autoscalingPlansMod,
 	"backup":                          backupMod,
+	"batch":                           batchMod,
 	"bedrock_foundation":              bedrockFoundationMod,
 	"bedrock_model":                   bedrockModelMod,
-	"batch":                           batchMod,
+	"bedrock":                         bedrockMod,
 	"budgets":                         budgetsMod,
+	"ce":                              costExplorerMod,
 	"chime":                           chimeMod,
 	"chimesdkmediapipelines":          chimeSDKMediaPipelinesMod,
 	"cleanrooms":                      "CleanRooms",
 	"cloud9":                          cloud9Mod,
 	"cloudcontrolapi":                 cloudControlMod,
 	"cloudformation":                  cloudformationMod,
-	"cloudhsm_v2":                     cloudhsmv2Mod,
 	"cloudfront":                      cloudfrontMod,
+	"cloudhsm_v2":                     cloudhsmv2Mod,
 	"cloudsearch":                     cloudsearchMod,
 	"cloudtrail":                      cloudtrailMod,
 	"cloudwatch":                      cloudwatchMod,
@@ -295,29 +304,32 @@ var moduleMap = map[string]string{
 	"codecatalyst":                    codecatalystMod,
 	"codecommit":                      codecommitMod,
 	"codedeploy":                      codedeployMod,
+	"codeguruprofiler":                "CodeGuruProfiler",
 	"codegurureviewer":                codeguruReviewerMod,
 	"codepipeline":                    codepipelineMod,
 	"codestarconnections":             codestarConnectionsMod,
 	"codestarnotifications":           codestarNotificationsMod,
 	"cognito":                         cognitoMod,
 	"comprehend":                      comprehendMod,
+	"config":                          cfgMod,
 	"connect":                         connectMod,
 	"controltower":                    controlTowerMod,
-	"ce":                              costExplorerMod,
 	"cur":                             curMod,
-	"config":                          cfgMod,
+	"customerprofiles":                "CustomerProfiles",
 	"dataexchange":                    dataexchangeMod,
 	"datapipeline":                    datapipelineMod,
 	"datasync":                        datasyncMod,
 	"dax":                             daxMod,
-	"dlm":                             dlmMod,
+	"devopsguru":                      devopsGuruMod,
+	"db":                              rdsMod,
 	"detective":                       detectiveMod,
 	"devicefarm":                      devicefarmMod,
 	"directory_service":               directoryserviceMod,
-	"docdb":                           docdbMod,
-	"dynamodb":                        dynamodbMod,
-	"dx":                              dxMod,
+	"dlm":                             dlmMod,
 	"dms":                             dmsMod,
+	"docdb":                           docdbMod,
+	"dx":                              dxMod,
+	"dynamodb":                        dynamodbMod,
 	"ebs":                             ebsMod,
 	"ec2_client_vpn":                  ec2ClientVpnMod,
 	"ec2_transit_gateway":             ec2TransitGatewayMod,
@@ -326,17 +338,15 @@ var moduleMap = map[string]string{
 	"ecs":                             ecsMod,
 	"efs":                             efsMod,
 	"eks":                             eksMod,
-	"elasticache":                     elasticacheMod,
 	"elastic_beanstalk":               elasticbeanstalkMod,
+	"elasticache":                     elasticacheMod,
 	"elasticsearch":                   elasticsearchMod,
 	"elastictranscoder":               elastictranscoderMod,
 	"elb":                             elbMod,
-	"evidently":                       evidentlyMod,
-	"alb":                             albMod,
-	"lb":                              lbMod,
 	"emr":                             emrMod,
 	"emrcontainers":                   emrContainersMod,
 	"emrserverless":                   emrServerlessMod,
+	"evidently":                       evidentlyMod,
 	"finspace":                        "FinSpace",
 	"fis":                             fisMod,
 	"fms":                             fmsMod,
@@ -362,6 +372,7 @@ var moduleMap = map[string]string{
 	"kms":                             kmsMod,
 	"lakeformation":                   lakeFormationMod,
 	"lambda":                          lambdaMod,
+	"lb":                              lbMod,
 	"lex":                             lexMod,
 	"licensemanager":                  licensemanagerMod,
 	"lightsail":                       lightsailMod,
@@ -369,9 +380,9 @@ var moduleMap = map[string]string{
 	"macie":                           macieMod,
 	"macie2":                          macie2Mod,
 	"media_convert":                   mediaconvertMod,
-	"medialive":                       medialiveMod,
 	"media_package":                   mediapackageMod,
 	"media_store":                     mediastoreMod,
+	"medialive":                       medialiveMod,
 	"memorydb":                        memoryDbMod,
 	"mq":                              mqMod,
 	"msk":                             mskMod,
@@ -384,10 +395,13 @@ var moduleMap = map[string]string{
 	"opensearch":                      opensearchMod,
 	"opsworks":                        opsworksMod,
 	"organizations":                   organizationsMod,
+	"osis":                            osisMod,
 	"outposts":                        outpostsMod,
 	"pinpoint":                        pinpointMod,
 	"pipes":                           pipesMod,
+	"polly":                           "Polly",
 	"pricing":                         pricingMod,
+	"prometheus":                      ampMod,
 	"qldb":                            qldbMod,
 	"quicksight":                      quicksightMod,
 	"ram":                             ramMod,
@@ -396,36 +410,38 @@ var moduleMap = map[string]string{
 	"redshift":                        redshiftMod,
 	"redshiftdata":                    redshiftDataMod,
 	"redshiftserverless":              redshiftServerlessMod,
+	"rekognition":                     rekognitionMod,
 	"resourcegroups":                  resourcegroupsMod,
 	"resourcegroupstaggingapi":        resourcegroupsTaggingApiMod,
 	"rolesanywhere":                   rolesAnywhereMod,
 	"route53":                         route53Mod,
+	"route53domains":                  route53DomainsMod,
 	"route53recoverycontrolconfig":    route53RecoveryControlMod,
 	"route53recoveryreadiness":        route53RecoveryReadinessMod,
-	"route53domains":                  route53DomainsMod,
 	"rum":                             rumMod,
-	"sagemaker":                       sagemakerMod,
-	"scheduler":                       schedulerMod,
-	"schemas":                         schemasMod,
-	"securityhub":                     securityhubMod,
-	"serverlessapplicationrepository": serverlessRepositoryMod,
-	"ses":                             sesMod,
-	"sesv2":                           sesV2Mod,
-	"signer":                          signerMod,
 	"s3":                              s3Mod,
 	"s3control":                       s3ControlMod,
 	"s3outposts":                      s3OutpostsMod,
-	"ssm":                             ssmMod,
-	"ssmincidents":                    ssmIncidentsMod,
+	"sagemaker":                       sagemakerMod,
+	"scheduler":                       schedulerMod,
+	"schemas":                         schemasMod,
 	"secretsmanager":                  secretsmanagerMod,
-	"servicecatalog":                  servicecatalogMod,
+	"securityhub":                     securityhubMod,
+	"securitylake":                    "SecurityLake",
+	"serverlessapplicationrepository": serverlessRepositoryMod,
 	"service_discovery":               servicediscoveryMod,
+	"servicecatalog":                  servicecatalogMod,
 	"servicequotas":                   servicequotasMod,
+	"ses":                             sesMod,
+	"sesv2":                           sesV2Mod,
 	"sfn":                             sfnMod,
 	"shield":                          shieldMod,
+	"signer":                          signerMod,
 	"simpledb":                        simpledbMod,
 	"sns":                             snsMod,
 	"sqs":                             sqsMod,
+	"ssm":                             ssmMod,
+	"ssmincidents":                    ssmIncidentsMod,
 	"ssoadmin":                        ssoAdminMod,
 	"storagegateway":                  storagegatewayMod,
 	"swf":                             swfMod,
@@ -434,10 +450,11 @@ var moduleMap = map[string]string{
 	"transcribe":                      transcribeMod,
 	"transfer":                        transferMod,
 	"verifiedaccess":                  verifiedaccessMod,
+	"verifiedpermissions":             verifiedpermissionsMod,
 	"vpclattice":                      vpclatticeMod,
 	"waf":                             wafMod,
-	"wafv2":                           wafV2Mod,
 	"wafregional":                     wafregionalMod,
+	"wafv2":                           wafV2Mod,
 	"worklink":                        worklinkMod,
 	"workspaces":                      workspacesMod,
 	"xray":                            xrayMod,
@@ -536,6 +553,36 @@ func arrayValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []str
 	return vals
 }
 
+// returns a pointer so we can distinguish between a zero value and a missing value
+func durationFromConfig(vars resource.PropertyMap, prop resource.PropertyKey) (*time.Duration, error) {
+	val, ok := vars[prop]
+	if ok && val.IsString() {
+		secondsString := val.StringValue()
+		if !strings.HasSuffix(secondsString, "s") {
+			secondsString += "s"
+		}
+		dur, err := time.ParseDuration(secondsString)
+		if err != nil {
+			return nil, err
+		}
+		return &dur, nil
+	}
+
+	return nil, nil
+}
+
+//go:embed errors/no_credentials.txt
+var noCredentialsError string
+
+//go:embed errors/invalid_credentials.txt
+var invalidCredentialsError string
+
+//go:embed errors/no_region.txt
+var noRegionError string
+
+//go:embed errors/expired_sso.txt
+var expiredSSOError string
+
 func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error {
 	config := &awsbase.Config{
 		AccessKey: stringValue(vars, "accessKey", []string{"AWS_ACCESS_KEY_ID"}),
@@ -549,15 +596,43 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 	}
 
 	if details, ok := vars["assumeRole"]; ok {
-
 		assumeRole := awsbase.AssumeRole{
-			RoleARN:     stringValue(details.ObjectValue(), "roleArn", []string{}),
-			ExternalID:  stringValue(details.ObjectValue(), "externalId", []string{}),
-			Policy:      stringValue(details.ObjectValue(), "policy", []string{}),
-			SessionName: stringValue(details.ObjectValue(), "sessionName", []string{}),
+			RoleARN:           stringValue(details.ObjectValue(), "roleArn", []string{}),
+			ExternalID:        stringValue(details.ObjectValue(), "externalId", []string{}),
+			Policy:            stringValue(details.ObjectValue(), "policy", []string{}),
+			PolicyARNs:        arrayValue(details.ObjectValue(), "policyArns", []string{}),
+			SessionName:       stringValue(details.ObjectValue(), "sessionName", []string{}),
+			SourceIdentity:    stringValue(details.ObjectValue(), "sourceIdentity", []string{}),
+			TransitiveTagKeys: arrayValue(details.ObjectValue(), "transitiveTagKeys", []string{}),
 		}
-		config.AssumeRole = &assumeRole
+		duration, err := durationFromConfig(details.ObjectValue(), "durationSeconds")
+		if err != nil {
+			return err
+		}
+		if duration != nil {
+			assumeRole.Duration = *duration
+		}
 
+		config.AssumeRole = &assumeRole
+	}
+
+	if details, ok := vars["assumeRoleWithWebIdentity"]; ok {
+		assumeRole := awsbase.AssumeRoleWithWebIdentity{
+			RoleARN:              stringValue(details.ObjectValue(), "roleArn", []string{}),
+			Policy:               stringValue(details.ObjectValue(), "policy", []string{}),
+			PolicyARNs:           arrayValue(details.ObjectValue(), "policyArns", []string{}),
+			SessionName:          stringValue(details.ObjectValue(), "sessionName", []string{}),
+			WebIdentityToken:     stringValue(details.ObjectValue(), "webIdentityToken", []string{}),
+			WebIdentityTokenFile: stringValue(details.ObjectValue(), "webIdentityTokenFile", []string{}),
+		}
+		duration, err := durationFromConfig(details.ObjectValue(), "durationSeconds")
+		if err != nil {
+			return err
+		}
+		if duration != nil {
+			assumeRole.Duration = *duration
+		}
+		config.AssumeRoleWithWebIdentity = &assumeRole
 	}
 
 	// By default `skipMetadataApiCheck` is true for Pulumi to speed operations
@@ -608,67 +683,133 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 	config.SharedConfigFiles = []string{configPath}
 
 	if _, _, diag := awsbase.GetAwsConfig(context.Background(), config); diag != nil && diag.HasError() {
-		return fmt.Errorf("unable to validate AWS credentials. \n"+
-			"Details: %s\n"+
-			"Make sure you have set your AWS region, e.g. `pulumi config set aws:region us-west-2`. \n\n"+
-			"NEW: You can use Pulumi ESC to set up dynamic credentials with AWS OIDC to ensure the "+
-			"correct and valid credentials are used.\nLearn more: "+
-			"https://www.pulumi.com/registry/packages/aws/installation-configuration/#dynamically-generate-credentials",
-			formatDiags(diag))
+		formattedDiag := formatDiags(diag)
+		// Normally it'd query sts.REGION.amazonaws.com
+		// but if we query sts..amazonaws.com, then we don't have a region.
+		if strings.Contains(formattedDiag, "endpoint rule error, Invalid Configuration: Missing Region") {
+			return tfbridge.CheckFailureError{
+				Failures: []tfbridge.CheckFailureErrorElement{
+					{
+						Reason:   noRegionError,
+						Property: "",
+					},
+				},
+			}
+		}
+		if strings.Contains(formattedDiag, "no EC2 IMDS role found") {
+			return tfbridge.CheckFailureError{
+				Failures: []tfbridge.CheckFailureErrorElement{
+					{
+						Reason:   noCredentialsError,
+						Property: "",
+					},
+				},
+			}
+		}
+		if strings.Contains(formattedDiag, "The security token included in the request is invalid") {
+			return tfbridge.CheckFailureError{
+				Failures: []tfbridge.CheckFailureErrorElement{
+					{
+						Reason:   invalidCredentialsError,
+						Property: "",
+					},
+				},
+			}
+		}
+		if strings.Contains(formattedDiag, "failed to refresh cached credentials") {
+			return tfbridge.CheckFailureError{
+				Failures: []tfbridge.CheckFailureErrorElement{
+					{
+						Reason:   expiredSSOError,
+						Property: "",
+					},
+				},
+			}
+		}
+
+		return tfbridge.CheckFailureError{
+			Failures: []tfbridge.CheckFailureErrorElement{
+				{
+					Reason:   fmt.Sprintf("unable to validate AWS credentials.\nDetails: %s\n", formattedDiag),
+					Property: "",
+				},
+			},
+		}
 	}
 
 	return nil
 }
 
-// We should only run the validation once to avoid duplicating the reported errors.
-var credentialsValidationOnce sync.Once
-
 // preConfigureCallback validates that AWS credentials can be successfully discovered. This emulates the credentials
 // configuration subset of `github.com/terraform-providers/terraform-provider-aws/aws.providerConfigure`.  We do this
 // before passing control to the TF provider to ensure we can report actionable errors.
-func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) error {
-	skipCredentialsValidation := boolValue(vars, "skipCredentialsValidation",
-		[]string{"AWS_SKIP_CREDENTIALS_VALIDATION"})
+func preConfigureCallback(alreadyRun *atomic.Bool) func(vars resource.PropertyMap, c shim.ResourceConfig) error {
+	return func(vars resource.PropertyMap, c shim.ResourceConfig) error {
+		skipCredentialsValidation := boolValue(vars, "skipCredentialsValidation",
+			[]string{"AWS_SKIP_CREDENTIALS_VALIDATION"})
 
-	// if we skipCredentialsValidation then we don't need to do anything in
-	// preConfigureCallback as this is an explicit operation
-	if skipCredentialsValidation {
-		return nil
+		// if we skipCredentialsValidation then we don't need to do anything in
+		// preConfigureCallback as this is an explicit operation
+		if skipCredentialsValidation {
+			log.Printf("[INFO] pulumi-aws: skip credentials validation")
+			return nil
+		}
+
+		var err error
+		if alreadyRun.CompareAndSwap(false, true) {
+			log.Printf("[INFO] pulumi-aws: starting to validate credentials. " +
+				"Disable this by AWS_SKIP_CREDENTIALS_VALIDATION or " +
+				"skipCredentialsValidation option")
+			err = validateCredentials(vars, c)
+			if err == nil {
+				log.Printf("[INFO] pulumi-aws: credentials are valid")
+			} else {
+				log.Printf("[INFO] pulumi-aws: error validating credentials: %v", err)
+			}
+		}
+		return err
 	}
-
-	var err error
-	credentialsValidationOnce.Do(func() {
-		err = validateCredentials(vars, c)
-	})
-	return err
 }
 
 // managedByPulumi is a default used for some managed resources, in the absence of something more meaningful.
 var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
-
-//go:embed cmd/pulumi-resource-aws/bridge-metadata.json
-var metadata []byte
 
 //go:embed cmd/pulumi-resource-aws/runtime-bridge-metadata.json
 var runtimeMetadata []byte
 
 // Provider returns additional overlaid schema and metadata associated with the aws package.
 func Provider() *tfbridge.ProviderInfo {
-	return ProviderFromMeta(tfbridge.NewProviderMetadata(metadata))
+	return ProviderFromMeta(tfbridge.NewProviderMetadata(runtimeMetadata))
 }
 
-// Provider returns additional overlaid schema and metadata associated with the aws package.
-func RuntimeProvider() *tfbridge.ProviderInfo {
-	return ProviderFromMeta(tfbridge.NewProviderMetadata(runtimeMetadata))
+func deprecateRuntime(value, name string) schema.EnumValueSpec {
+	s := schema.EnumValueSpec{Value: value, Name: name}
+	s.DeprecationMessage = "This runtime is now deprecated"
+	return s
 }
 
 // Provider returns additional overlaid schema and metadata associated with the aws package.
 func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 	ctx := context.Background()
-	upstreamProvider, err := awsShim.NewUpstreamProvider(ctx)
-	contract.AssertNoErrorf(err, "NewUpstreamProvider failed to initialize")
+	upstreamProvider := newUpstreamProvider(ctx)
 
-	p := pftfbridge.MuxShimWithDisjointgPF(ctx, shimv2.NewProvider(upstreamProvider.SDKV2Provider, shimv2.WithDiffStrategy(shimv2.PlanState)), upstreamProvider.PluginFrameworkProvider)
+	v2p := shimv2.NewProvider(upstreamProvider.SDKV2Provider,
+		shimv2.WithDiffStrategy(shimv2.PlanState),
+		shimv2.WithPlanResourceChange(func(s string) bool {
+			switch s {
+			case "aws_ssm_document",
+				"aws_wafv2_web_acl",
+				"aws_launch_template":
+				return true
+			default:
+				return false
+			}
+		}))
+
+	p := pftfbridge.MuxShimWithDisjointgPF(ctx, v2p, upstreamProvider.PluginFrameworkProvider)
+
+	// We should only run the validation once to avoid duplicating the reported errors.
+	var credentialsValidationRun atomic.Bool
 
 	prov := tfbridge.ProviderInfo{
 		P:                p,
@@ -698,10 +839,6 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 					EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
 				},
 			},
-			"skip_get_ec2_platforms": {
-				// We don't want a default here because this setting is deprecated upstream,
-				// so setting it triggers a warning on all provider operations. #2292
-			},
 			"skip_region_validation": {
 				Default: &tfbridge.DefaultInfo{
 					Value: true,
@@ -727,13 +864,8 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				},
 			},
 		},
-		PreConfigureCallback: preConfigureCallback,
+		PreConfigureCallback: preConfigureCallback(&credentialsValidationRun),
 		Resources: map[string]*tfbridge.ResourceInfo{
-			// AWS Certificate Manager
-			"aws_acm_certificate_validation": {
-				Tok:  awsResource(acmMod, "CertificateValidation"),
-				Docs: &tfbridge.DocInfo{ReplaceExamplesSection: true},
-			},
 			// AWS Private Certificate Authority
 			"aws_acmpca_certificate_authority": {Tok: awsResource(acmpcaMod, "CertificateAuthority")},
 			"aws_acmpca_certificate": {
@@ -905,7 +1037,8 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
-				}},
+				},
+			},
 			"aws_api_gateway_method_settings": {
 				Tok: awsResource(apigatewayMod, "MethodSettings"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -914,7 +1047,8 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
-				}},
+				},
+			},
 			"aws_api_gateway_model": {
 				Tok: awsResource(apigatewayMod, "Model"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -923,7 +1057,8 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
-				}},
+				},
+			},
 			"aws_api_gateway_request_validator": {
 				Tok: awsResource(apigatewayMod, "RequestValidator"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1057,12 +1192,6 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 						// Explicitly map tag => tags to avoid confusion with tags => tagsCollection below.
 						Name: "tags",
 					},
-					"tags": {
-						// Conflicts with the pluralized `tag` property, which is the more strongly typed option for
-						// providing tags.  We keep this dynamically typed collection of tags as an option as well, but
-						// give it a different name.
-						Name: "tagsCollection",
-					},
 				},
 			},
 			"aws_autoscaling_lifecycle_hook": {
@@ -1114,16 +1243,6 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
 			"aws_batch_job_queue":           {Tok: awsResource(batchMod, "JobQueue")},
 			"aws_batch_scheduling_policy":   {Tok: awsResource(batchMod, "SchedulingPolicy")},
-			// Budgets
-			"aws_budgets_budget": {
-				Tok: awsResource(budgetsMod, "Budget"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"cost_filters": {
-						Name:               "costFilterLegacy",
-						DeprecationMessage: "The now-deprecated original cost filters. Use CostFilters instead.",
-					},
-				},
-			},
 			// Chime
 			"aws_chime_voice_connector":                         {Tok: awsResource(chimeMod, "VoiceConnector")},
 			"aws_chime_voice_connector_group":                   {Tok: awsResource(chimeMod, "VoiceConnectorGroup")},
@@ -1702,8 +1821,26 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(ec2Mod, "NetworkAcl"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Use "ingress" instead of "ingresses" to match AWS APIs
-					"ingress": {Name: "ingress"},
-					"egress":  {Name: "egress"},
+					"ingress": {
+						Name: "ingress",
+						DeprecationMessage: "Use of inline rules is discouraged as they cannot be used in conjunction " +
+							"with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.",
+					},
+					"egress": {
+						Name: "egress",
+						DeprecationMessage: "Use of inline rules is discouraged as they cannot be used in conjunction " +
+							"with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.",
+					},
+				},
+				PreCheckCallback: func(ctx context.Context, config resource.PropertyMap, meta resource.PropertyMap,
+				) (resource.PropertyMap, error) {
+					_, hasIngress := config["ingress"]
+					_, hasEgress := config["egress"]
+					if hasIngress || hasEgress {
+						tfbridge.GetLogger(ctx).Warn("Use of inline rules is discouraged as they cannot be used in conjunction " +
+							"with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.")
+					}
+					return config, nil
 				},
 			},
 			"aws_default_network_acl": {
@@ -1762,8 +1899,26 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"description": {Default: managedByPulumi},
 					// Use "ingress" instead of "ingresses" to match AWS APIs
-					"ingress": {Name: "ingress"},
-					"egress":  {Name: "egress"},
+					"ingress": {
+						Name: "ingress",
+						DeprecationMessage: "Use of inline rules is discouraged as they cannot be used in conjunction " +
+							"with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.",
+					},
+					"egress": {
+						Name: "egress",
+						DeprecationMessage: "Use of inline rules is discouraged as they cannot be used in conjunction " +
+							"with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.",
+					},
+				},
+				PreCheckCallback: func(ctx context.Context, config resource.PropertyMap, meta resource.PropertyMap,
+				) (resource.PropertyMap, error) {
+					_, hasIngress := config["ingress"]
+					_, hasEgress := config["egress"]
+					if hasIngress || hasEgress {
+						tfbridge.GetLogger(ctx).Warn("Use of inline rules is discouraged as they cannot be used in conjunction " +
+							"with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.")
+					}
+					return config, nil
 				},
 			},
 			"aws_network_interface_sg_attachment": {Tok: awsResource(ec2Mod, "NetworkInterfaceSecurityGroupAttachment")},
@@ -1889,7 +2044,10 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_ec2_transit_gateway_route_table_propagation": {
 				Tok: awsResource(ec2TransitGatewayMod, "RouteTablePropagation"),
 			},
-			"aws_ec2_transit_gateway_vpc_attachment":               {Tok: awsResource(ec2TransitGatewayMod, "VpcAttachment")},
+			"aws_ec2_transit_gateway_vpc_attachment": {
+				Tok:                 awsResource(ec2TransitGatewayMod, "VpcAttachment"),
+				DeleteBeforeReplace: true,
+			},
 			"aws_ec2_transit_gateway_vpc_attachment_accepter":      {Tok: awsResource(ec2TransitGatewayMod, "VpcAttachmentAccepter")},
 			"aws_ec2_transit_gateway_peering_attachment":           {Tok: awsResource(ec2TransitGatewayMod, "PeeringAttachment")},
 			"aws_ec2_transit_gateway_connect":                      {Tok: awsResource(ec2TransitGatewayMod, "Connect")},
@@ -2340,6 +2498,36 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
+					"inline_policy": {
+						// inline_policy is an array of policy objects. The user is allowed to provided an empty list
+						//   inlinePolicies: []
+						// or a list with empty objects
+						//   inlinePolicies: [{}]
+						// In both cases the role will be created _without_ any inline policies attached.
+						// If a policy is provided, then both the `policy` and the `name` fields are required.
+						// If one is provided and the other is not, then no error will be thrown and no inline policy
+						// will be created.
+						Transform: func(pv resource.PropertyValue) (resource.PropertyValue, error) {
+							if pv.IsArray() {
+								inlinePolicy := []resource.PropertyValue{}
+								for _, value := range pv.ArrayValue() {
+									if value.IsObject() {
+										policy := value.ObjectValue()
+										if policy.HasValue("policy") && policy["policy"].IsString() && policy["policy"].StringValue() != "" {
+											inlinePolicy = append(inlinePolicy, value)
+										}
+									}
+								}
+								return resource.NewArrayProperty(inlinePolicy), nil
+							}
+							return pv, nil
+						},
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"name": tfbridge.AutoName("name", 128, "-"),
+							},
+						},
+					},
 				},
 			},
 			"aws_iam_saml_provider":         {Tok: awsResource(iamMod, "SamlProvider")},
@@ -2455,7 +2643,6 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 						Elem: &tfbridge.SchemaInfo{NestedType: "TopicRuleS3"},
 					},
 					"sns": {
-
 						// Singularization converts `sns` to `sn`, which is wrong.
 						Elem: &tfbridge.SchemaInfo{NestedType: "TopicRuleSns"},
 					},
@@ -2944,6 +3131,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 						Default: managedByPulumi,
 					},
 				},
+				Docs: rds.ParameterGroupDocs("upstream"),
 			},
 			"aws_db_instance_role_association": {
 				Tok: awsResource(rdsMod, "RoleAssociation"),
@@ -3173,7 +3361,16 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			},
 			"aws_servicecatalog_provisioned_product": {Tok: awsResource(servicecatalogMod, "ProvisionedProduct")},
 			// Security Hub
-			"aws_securityhub_account":                    {Tok: awsResource(securityhubMod, "Account")},
+			"aws_securityhub_account": {Tok: awsResource(securityhubMod, "Account")},
+			"aws_securityhub_configuration_policy": {
+				Tok: awsResource(securityhubMod, "ConfigurationPolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"configuration_policy": {
+						// Workaround CS0542 that prohibits member names matching class names.
+						CSharpName: "ConfigurationPolicyDetails",
+					},
+				},
+			},
 			"aws_securityhub_product_subscription":       {Tok: awsResource(securityhubMod, "ProductSubscription")},
 			"aws_securityhub_standards_subscription":     {Tok: awsResource(securityhubMod, "StandardsSubscription")},
 			"aws_securityhub_member":                     {Tok: awsResource(securityhubMod, "Member")},
@@ -3181,9 +3378,17 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_securityhub_organization_admin_account": {Tok: awsResource(securityhubMod, "OrganizationAdminAccount")},
 			"aws_securityhub_invite_accepter":            {Tok: awsResource(securityhubMod, "InviteAccepter")},
 			"aws_securityhub_insight":                    {Tok: awsResource(securityhubMod, "Insight")},
-			"aws_securityhub_organization_configuration": {Tok: awsResource(securityhubMod, "OrganizationConfiguration")},
-			"aws_securityhub_standards_control":          {Tok: awsResource(securityhubMod, "StandardsControl")},
-			"aws_securityhub_finding_aggregator":         {Tok: awsResource(securityhubMod, "FindingAggregator")},
+			"aws_securityhub_organization_configuration": {
+				Tok: awsResource(securityhubMod, "OrganizationConfiguration"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"organization_configuration": {
+						// Workaround CS0542 that prohibits member names matching class names.
+						CSharpName: "OrganizationConfigurationDetails",
+					},
+				},
+			},
+			"aws_securityhub_standards_control":  {Tok: awsResource(securityhubMod, "StandardsControl")},
+			"aws_securityhub_finding_aggregator": {Tok: awsResource(securityhubMod, "FindingAggregator")},
 			// Service Discovery
 			"aws_service_discovery_http_namespace":        {Tok: awsResource(servicediscoveryMod, "HttpNamespace")},
 			"aws_service_discovery_private_dns_namespace": {Tok: awsResource(servicediscoveryMod, "PrivateDnsNamespace")},
@@ -3416,7 +3621,8 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 					"bucket": tfbridge.AutoNameTransform("bucket", 63, func(name string) string {
 						return strings.ToLower(name)
 					}),
-					// Website only accepts a single value in the AWS API but is not marked MaxItems==1 in the TF
+					// Website only accepts a single value in the AWS
+					// API but is not marked MaxItems==1 in the TF
 					// provider.
 					"website": {
 						Name: "website",
@@ -3437,6 +3643,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
+				Docs: &tfbridge.DocInfo{Source: "../../../../docs/resource/aws_s3_bucket_legacy.md"},
 			},
 			"aws_s3_bucket_inventory":    {Tok: awsResource(s3Mod, "Inventory")},
 			"aws_s3_bucket_metric":       {Tok: awsResource(s3Mod, "BucketMetric")},
@@ -3492,7 +3699,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(s3Mod, "BucketIntelligentTieringConfiguration"),
 			},
 			"aws_s3_bucket_replication_configuration": {Tok: awsResource(s3Mod, "BucketReplicationConfig")},
-			//S3 Control
+			// S3 Control
 			"aws_s3control_bucket": {
 				Tok: awsResource(s3ControlMod, "Bucket"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -3777,9 +3984,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// HACK: remove this field for now as it breaks dotnet codegen due to our current type naming strategy.
 					// https://github.com/pulumi/pulumi-terraform-bridge/issues/1118
-					"definition": {
-						Omit: true,
-					},
+					"definition": {Omit: true},
 				},
 			},
 			"aws_quicksight_analysis": {
@@ -3787,9 +3992,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// HACK: remove this field for now as it breaks dotnet and java codegen due to our current type naming strategy.
 					// https://github.com/pulumi/pulumi-terraform-bridge/issues/1118
-					"definition": {
-						Omit: true,
-					},
+					"definition": {Omit: true},
 				},
 			},
 			"aws_quicksight_dashboard": {
@@ -3797,9 +4000,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// HACK: remove this field for now as it breaks dotnet and java codegen due to our current type naming strategy.
 					// https://github.com/pulumi/pulumi-terraform-bridge/issues/1118
-					"definition": {
-						Omit: true,
-					},
+					"definition": {Omit: true},
 				},
 			},
 			// Service Quotas
@@ -3952,12 +4153,10 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_networkfirewall_resource_policy": {
 				Tok: awsResource(networkFirewallMod, "ResourcePolicy"),
 				Docs: &tfbridge.DocInfo{
-					ImportDetails: strings.ReplaceAll(`Using ^pulumi import^, import Network Firewall Resource Policies using the ^resource_arn^. For example:
-
-<break>^^^sh<break>
-$ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
-<break>^^^<break>
-`, "^", "`"),
+					ImportDetails: "Using `pulumi import`, import Network Firewall Resource Policies using the `resource arn`. For example: \n" +
+						"```sh\n" +
+						"$ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example\n" +
+						"```\n",
 				},
 			},
 
@@ -4088,6 +4287,7 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 					{Value: "ap-southeast-3", Name: "APSoutheast3"},
 					{Value: "ap-southeast-4", Name: "APSoutheast4"},
 					{Value: "ca-central-1", Name: "CACentral"},
+					{Value: "ca-west-1", Name: "CAWest1"},
 					{Value: "cn-north-1", Name: "CNNorth1"},
 					{Value: "cn-northwest-1", Name: "CNNorthwest1"},
 					{Value: "eu-central-1", Name: "EUCentral1"},
@@ -4137,6 +4337,13 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 					{Value: "GroupTerminatingCapacity"},
 					{Value: "GroupTotalInstances"},
 					{Value: "GroupTotalCapacity"},
+					{Value: "WarmPoolDesiredCapacity"},
+					{Value: "WarmPoolWarmedCapacity"},
+					{Value: "WarmPoolPendingCapacity"},
+					{Value: "WarmPoolTerminatingCapacity"},
+					{Value: "WarmPoolTotalCapacity"},
+					{Value: "GroupAndWarmPoolDesiredCapacity"},
+					{Value: "GroupAndWarmPoolTotalCapacity"},
 				},
 			},
 			"aws:autoscaling/NotificationType:NotificationType": {
@@ -4316,6 +4523,18 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 					{Name: "C6id_24XLarge", Value: "c6id.24xlarge"},
 					{Name: "C6id_32XLarge", Value: "c6id.32xlarge"},
 					{Name: "C6id_Metal", Value: "c6id.metal"},
+					{Name: "C7a_Medium", Value: "c7a.medium"},
+					{Name: "C7a_Large", Value: "c7a.large"},
+					{Name: "C7a_XLarge", Value: "c7a.xlarge"},
+					{Name: "C7a_2XLarge", Value: "c7a.2xlarge"},
+					{Name: "C7a_4XLarge", Value: "c7a.4xlarge"},
+					{Name: "C7a_8XLarge", Value: "c7a.8xlarge"},
+					{Name: "C7a_12XLarge", Value: "c7a.12xlarge"},
+					{Name: "C7a_16XLarge", Value: "c7a.16xlarge"},
+					{Name: "C7a_24XLarge", Value: "c7a.24xlarge"},
+					{Name: "C7a_32XLarge", Value: "c7a.32xlarge"},
+					{Name: "C7a_48XLarge", Value: "c7a.48xlarge"},
+					{Name: "C7a_Metal", Value: "c7a.metal-48xl"},
 					{Name: "Cc2_8XLarge", Value: "cc2.8xlarge"},
 					{Name: "D2_2XLarge", Value: "d2.2xlarge"},
 					{Name: "D2_4XLarge", Value: "d2.4xlarge"},
@@ -4352,6 +4571,14 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 					{Name: "G4dn_8XLarge", Value: "g4dn.8xlarge"},
 					{Name: "G4dn_Metal", Value: "g4dn.metal"},
 					{Name: "G4dn_XLarge", Value: "g4dn.xlarge"},
+					{Name: "G5_XLarge", Value: "g5.xlarge"},
+					{Name: "G5_2XLarge", Value: "g5.2xlarge"},
+					{Name: "G5_4XLarge", Value: "g5.4xlarge"},
+					{Name: "G5_8XLarge", Value: "g5.8xlarge"},
+					{Name: "G5_12XLarge", Value: "g5.12xlarge"},
+					{Name: "G5_16XLarge", Value: "g5.16xlarge"},
+					{Name: "G5_24XLarge", Value: "g5.24xlarge"},
+					{Name: "G5_48XLarge", Value: "g5.48xlarge"},
 					{Name: "H1_16XLarge", Value: "h1.16xlarge"},
 					{Name: "H1_2XLarge", Value: "h1.2xlarge"},
 					{Name: "H1_4XLarge", Value: "h1.4xlarge"},
@@ -4586,6 +4813,7 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 					{Name: "R5dn_8XLarge", Value: "r5dn.8xlarge"},
 					{Name: "R5dn_Large", Value: "r5dn.large"},
 					{Name: "R5dn_XLarge", Value: "r5dn.xlarge"},
+					{Name: "R5dn_Metal", Value: "r5dn.metal"},
 					{Name: "R5n_12XLarge", Value: "r5n.12xlarge"},
 					{Name: "R5n_16XLarge", Value: "r5n.16xlarge"},
 					{Name: "R5n_24XLarge", Value: "r5n.24xlarge"},
@@ -4718,1097 +4946,7 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 				ObjectTypeSpec: schema.ObjectTypeSpec{
 					Type: "string",
 				},
-				Enum: []schema.EnumValueSpec{
-					{Name: "APIGatewayServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/APIGatewayServiceRolePolicy"},
-					{Name: "AWSAccountActivityAccess", Value: "arn:aws:iam::aws:policy/AWSAccountActivityAccess"},
-					{Name: "AWSAccountManagementFullAccess", Value: "arn:aws:iam::aws:policy/AWSAccountManagementFullAccess"},
-					{Name: "AWSAccountManagementReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSAccountManagementReadOnlyAccess"},
-					{Name: "AWSAccountUsageReportAccess", Value: "arn:aws:iam::aws:policy/AWSAccountUsageReportAccess"},
-					{Name: "AWSAgentlessDiscoveryService", Value: "arn:aws:iam::aws:policy/AWSAgentlessDiscoveryService"},
-					{Name: "AWSAppMeshEnvoyAccess", Value: "arn:aws:iam::aws:policy/AWSAppMeshEnvoyAccess"},
-					{Name: "AWSAppMeshFullAccess", Value: "arn:aws:iam::aws:policy/AWSAppMeshFullAccess"},
-					{Name: "AWSAppMeshPreviewEnvoyAccess", Value: "arn:aws:iam::aws:policy/AWSAppMeshPreviewEnvoyAccess"},
-					{Name: "AWSAppMeshPreviewServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSAppMeshPreviewServiceRolePolicy"},
-					{Name: "AWSAppMeshReadOnly", Value: "arn:aws:iam::aws:policy/AWSAppMeshReadOnly"},
-					{Name: "AWSAppMeshServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSAppMeshServiceRolePolicy"},
-					{Name: "AWSAppRunnerFullAccess", Value: "arn:aws:iam::aws:policy/AWSAppRunnerFullAccess"},
-					{Name: "AWSAppRunnerReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSAppRunnerReadOnlyAccess"},
-					{Name: "AWSAppRunnerServicePolicyForECRAccess", Value: "arn:aws:iam::aws:policy/service-role/AWSAppRunnerServicePolicyForECRAccess"},
-					{Name: "AWSAppSyncAdministrator", Value: "arn:aws:iam::aws:policy/AWSAppSyncAdministrator"},
-					{Name: "AWSAppSyncInvokeFullAccess", Value: "arn:aws:iam::aws:policy/AWSAppSyncInvokeFullAccess"},
-					{Name: "AWSAppSyncPushToCloudWatchLogs", Value: "arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs"},
-					{Name: "AWSAppSyncSchemaAuthor", Value: "arn:aws:iam::aws:policy/AWSAppSyncSchemaAuthor"},
-					{Name: "AWSAppSyncServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSAppSyncServiceRolePolicy"},
-					{Name: "AWSApplicationAutoScalingCustomResourcePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSApplicationAutoScalingCustomResourcePolicy"},
-					{Name: "AWSApplicationAutoscalingAppStreamFleetPolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSApplicationAutoscalingAppStreamFleetPolicy"},
-					{Name: "AWSApplicationAutoscalingCassandraTablePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSApplicationAutoscalingCassandraTablePolicy"},
-					{Name: "AWSApplicationAutoscalingComprehendEndpointPolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSApplicationAutoscalingComprehendEndpointPolicy"},
-					{Name: "AWSApplicationAutoscalingDynamoDBTablePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSApplicationAutoscalingDynamoDBTablePolicy"},
-					{Name: "AWSApplicationAutoscalingEC2SpotFleetRequestPolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSApplicationAutoscalingEC2SpotFleetRequestPolicy"},
-					{Name: "AWSApplicationAutoscalingECSServicePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSApplicationAutoscalingECSServicePolicy"},
-					{Name: "AWSApplicationAutoscalingEMRInstanceGroupPolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSApplicationAutoscalingEMRInstanceGroupPolicy"},
-					{Name: "AWSApplicationAutoscalingElastiCacheRGPolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSApplicationAutoscalingElastiCacheRGPolicy"},
-					{Name: "AWSApplicationAutoscalingKafkaClusterPolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSApplicationAutoscalingKafkaClusterPolicy"},
-					{Name: "AWSApplicationAutoscalingLambdaConcurrencyPolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSApplicationAutoscalingLambdaConcurrencyPolicy"},
-					{Name: "AWSApplicationAutoscalingNeptuneClusterPolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSApplicationAutoscalingNeptuneClusterPolicy"},
-					{Name: "AWSApplicationAutoscalingRDSClusterPolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSApplicationAutoscalingRDSClusterPolicy"},
-					{Name: "AWSApplicationAutoscalingSageMakerEndpointPolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSApplicationAutoscalingSageMakerEndpointPolicy"},
-					{Name: "AWSApplicationDiscoveryAgentAccess", Value: "arn:aws:iam::aws:policy/AWSApplicationDiscoveryAgentAccess"},
-					{Name: "AWSApplicationDiscoveryAgentlessCollectorAccess", Value: "arn:aws:iam::aws:policy/AWSApplicationDiscoveryAgentlessCollectorAccess"},
-					{Name: "AWSApplicationDiscoveryServiceFullAccess", Value: "arn:aws:iam::aws:policy/AWSApplicationDiscoveryServiceFullAccess"},
-					{Name: "AWSApplicationMigrationAgentInstallationPolicy", Value: "arn:aws:iam::aws:policy/AWSApplicationMigrationAgentInstallationPolicy"},
-					{Name: "AWSApplicationMigrationAgentPolicy", Value: "arn:aws:iam::aws:policy/AWSApplicationMigrationAgentPolicy"},
-					{Name: "AWSApplicationMigrationAgentPolicy_v2", Value: "arn:aws:iam::aws:policy/service-role/AWSApplicationMigrationAgentPolicy_v2"},
-					{Name: "AWSApplicationMigrationConversionServerPolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSApplicationMigrationConversionServerPolicy"},
-					{Name: "AWSApplicationMigrationEC2Access", Value: "arn:aws:iam::aws:policy/AWSApplicationMigrationEC2Access"},
-					{Name: "AWSApplicationMigrationFullAccess", Value: "arn:aws:iam::aws:policy/AWSApplicationMigrationFullAccess"},
-					{Name: "AWSApplicationMigrationMGHAccess", Value: "arn:aws:iam::aws:policy/service-role/AWSApplicationMigrationMGHAccess"},
-					{Name: "AWSApplicationMigrationReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSApplicationMigrationReadOnlyAccess"},
-					{Name: "AWSApplicationMigrationReplicationServerPolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSApplicationMigrationReplicationServerPolicy"},
-					{Name: "AWSApplicationMigrationSSMAccess", Value: "arn:aws:iam::aws:policy/AWSApplicationMigrationSSMAccess"},
-					{Name: "AWSApplicationMigrationServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSApplicationMigrationServiceRolePolicy"},
-					{Name: "AWSApplicationMigrationVCenterClientPolicy", Value: "arn:aws:iam::aws:policy/AWSApplicationMigrationVCenterClientPolicy"},
-					{Name: "AWSArtifactAccountSync", Value: "arn:aws:iam::aws:policy/service-role/AWSArtifactAccountSync"},
-					{Name: "AWSAuditManagerAdministratorAccess", Value: "arn:aws:iam::aws:policy/AWSAuditManagerAdministratorAccess"},
-					{Name: "AWSAuditManagerServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSAuditManagerServiceRolePolicy"},
-					{Name: "AWSAutoScalingPlansEC2AutoScalingPolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSAutoScalingPlansEC2AutoScalingPolicy"},
-					{Name: "AWSBackupAuditAccess", Value: "arn:aws:iam::aws:policy/AWSBackupAuditAccess"},
-					{Name: "AWSBackupDataTransferAccess", Value: "arn:aws:iam::aws:policy/AWSBackupDataTransferAccess"},
-					{Name: "AWSBackupFullAccess", Value: "arn:aws:iam::aws:policy/AWSBackupFullAccess"},
-					{Name: "AWSBackupGatewayServiceRolePolicyForVirtualMachineMetadataSync", Value: "arn:aws:iam::aws:policy/service-role/AWSBackupGatewayServiceRolePolicyForVirtualMachineMetadataSync"},
-					{Name: "AWSBackupOperatorAccess", Value: "arn:aws:iam::aws:policy/AWSBackupOperatorAccess"},
-					{Name: "AWSBackupOrganizationAdminAccess", Value: "arn:aws:iam::aws:policy/AWSBackupOrganizationAdminAccess"},
-					{Name: "AWSBackupRestoreAccessForSAPHANA", Value: "arn:aws:iam::aws:policy/AWSBackupRestoreAccessForSAPHANA"},
-					{Name: "AWSBackupServiceLinkedRolePolicyForBackup", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSBackupServiceLinkedRolePolicyForBackup"},
-					{Name: "AWSBackupServiceLinkedRolePolicyForBackupTest", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSBackupServiceLinkedRolePolicyForBackupTest"},
-					{Name: "AWSBackupServiceRolePolicyForBackup", Value: "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup"},
-					{Name: "AWSBackupServiceRolePolicyForRestores", Value: "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForRestores"},
-					{Name: "AWSBackupServiceRolePolicyForS3Backup", Value: "arn:aws:iam::aws:policy/AWSBackupServiceRolePolicyForS3Backup"},
-					{Name: "AWSBackupServiceRolePolicyForS3Restore", Value: "arn:aws:iam::aws:policy/AWSBackupServiceRolePolicyForS3Restore"},
-					{Name: "AWSBatchFullAccess", Value: "arn:aws:iam::aws:policy/AWSBatchFullAccess"},
-					{Name: "AWSBatchServiceEventTargetRole", Value: "arn:aws:iam::aws:policy/service-role/AWSBatchServiceEventTargetRole"},
-					{Name: "AWSBatchServiceRole", Value: "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole"},
-					{Name: "AWSBillingConductorFullAccess", Value: "arn:aws:iam::aws:policy/AWSBillingConductorFullAccess"},
-					{Name: "AWSBillingConductorReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSBillingConductorReadOnlyAccess"},
-					{Name: "AWSBillingReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSBillingReadOnlyAccess"},
-					{Name: "AWSBudgetsActionsWithAWSResourceControlAccess", Value: "arn:aws:iam::aws:policy/AWSBudgetsActionsWithAWSResourceControlAccess"},
-					{Name: "AWSBudgetsActions_RolePolicyForResourceAdministrationWithSSM", Value: "arn:aws:iam::aws:policy/AWSBudgetsActions_RolePolicyForResourceAdministrationWithSSM"},
-					{Name: "AWSBudgetsReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSBudgetsReadOnlyAccess"},
-					{Name: "AWSBugBustFullAccess", Value: "arn:aws:iam::aws:policy/AWSBugBustFullAccess"},
-					{Name: "AWSBugBustPlayerAccess", Value: "arn:aws:iam::aws:policy/AWSBugBustPlayerAccess"},
-					{Name: "AWSBugBustServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSBugBustServiceRolePolicy"},
-					{Name: "AWSCertificateManagerFullAccess", Value: "arn:aws:iam::aws:policy/AWSCertificateManagerFullAccess"},
-					{Name: "AWSCertificateManagerPrivateCAAuditor", Value: "arn:aws:iam::aws:policy/AWSCertificateManagerPrivateCAAuditor"},
-					{Name: "AWSCertificateManagerPrivateCAFullAccess", Value: "arn:aws:iam::aws:policy/AWSCertificateManagerPrivateCAFullAccess"},
-					{Name: "AWSCertificateManagerPrivateCAPrivilegedUser", Value: "arn:aws:iam::aws:policy/AWSCertificateManagerPrivateCAPrivilegedUser"},
-					{Name: "AWSCertificateManagerPrivateCAReadOnly", Value: "arn:aws:iam::aws:policy/AWSCertificateManagerPrivateCAReadOnly"},
-					{Name: "AWSCertificateManagerPrivateCAUser", Value: "arn:aws:iam::aws:policy/AWSCertificateManagerPrivateCAUser"},
-					{Name: "AWSCertificateManagerReadOnly", Value: "arn:aws:iam::aws:policy/AWSCertificateManagerReadOnly"},
-					{Name: "AWSChatbotServiceLinkedRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSChatbotServiceLinkedRolePolicy"},
-					{Name: "AWSCleanRoomsFullAccess", Value: "arn:aws:iam::aws:policy/AWSCleanRoomsFullAccess"},
-					{Name: "AWSCleanRoomsFullAccessNoQuerying", Value: "arn:aws:iam::aws:policy/AWSCleanRoomsFullAccessNoQuerying"},
-					{Name: "AWSCleanRoomsReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSCleanRoomsReadOnlyAccess"},
-					{Name: "AWSCloud9Administrator", Value: "arn:aws:iam::aws:policy/AWSCloud9Administrator"},
-					{Name: "AWSCloud9EnvironmentMember", Value: "arn:aws:iam::aws:policy/AWSCloud9EnvironmentMember"},
-					{Name: "AWSCloud9SSMInstanceProfile", Value: "arn:aws:iam::aws:policy/AWSCloud9SSMInstanceProfile"},
-					{Name: "AWSCloud9ServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSCloud9ServiceRolePolicy"},
-					{Name: "AWSCloud9User", Value: "arn:aws:iam::aws:policy/AWSCloud9User"},
-					{Name: "AWSCloudFormationFullAccess", Value: "arn:aws:iam::aws:policy/AWSCloudFormationFullAccess"},
-					{Name: "AWSCloudFormationReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSCloudFormationReadOnlyAccess"},
-					{Name: "AWSCloudFrontLogger", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSCloudFrontLogger"},
-					{Name: "AWSCloudHSMFullAccess", Value: "arn:aws:iam::aws:policy/AWSCloudHSMFullAccess"},
-					{Name: "AWSCloudHSMReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSCloudHSMReadOnlyAccess"},
-					{Name: "AWSCloudHSMRole", Value: "arn:aws:iam::aws:policy/service-role/AWSCloudHSMRole"},
-					{Name: "AWSCloudTrailFullAccess", Value: "arn:aws:iam::aws:policy/AWSCloudTrailFullAccess", DeprecationMessage: "No longer supported. Use CloudTrail_FullAccess instead."},
-					{Name: "AWSCloudTrailReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSCloudTrailReadOnlyAccess", DeprecationMessage: "No longer supported. Use CloudTrail_ReadOnlyAccess instead."},
-					{Name: "AWSCloudWatchLambdaInsightsExecutionRolePolicy", Value: "arn:aws:iam::aws:policy/AWSCloudWatchLambdaInsightsExecutionRolePolicy", DeprecationMessage: "No longer supported. Use CloudWatchLambdaInsightsExecutionRolePolicy instead."},
-					{Name: "AWSCloudMapDiscoverInstanceAccess", Value: "arn:aws:iam::aws:policy/AWSCloudMapDiscoverInstanceAccess"},
-					{Name: "AWSCloudMapFullAccess", Value: "arn:aws:iam::aws:policy/AWSCloudMapFullAccess"},
-					{Name: "AWSCloudMapReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSCloudMapReadOnlyAccess"},
-					{Name: "AWSCloudMapRegisterInstanceAccess", Value: "arn:aws:iam::aws:policy/AWSCloudMapRegisterInstanceAccess"},
-					{Name: "AWSCloudShellFullAccess", Value: "arn:aws:iam::aws:policy/AWSCloudShellFullAccess"},
-					// Renamed to avoid clash with existing policies in Python where underscores are removed.
-					{Name: "CloudTrail_FullAccess", Value: "arn:aws:iam::aws:policy/AWSCloudTrail_FullAccess"},
-					{Name: "CloudTrail_ReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSCloudTrail_ReadOnlyAccess"},
-					{Name: "AWSCloudWatchAlarms_ActionSSMIncidentsServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSCloudWatchAlarms_ActionSSMIncidentsServiceRolePolicy"},
-					{Name: "AWSCodeArtifactAdminAccess", Value: "arn:aws:iam::aws:policy/AWSCodeArtifactAdminAccess"},
-					{Name: "AWSCodeArtifactReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSCodeArtifactReadOnlyAccess"},
-					{Name: "AWSCodeBuildAdminAccess", Value: "arn:aws:iam::aws:policy/AWSCodeBuildAdminAccess"},
-					{Name: "AWSCodeBuildDeveloperAccess", Value: "arn:aws:iam::aws:policy/AWSCodeBuildDeveloperAccess"},
-					{Name: "AWSCodeBuildReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSCodeBuildReadOnlyAccess"},
-					{Name: "AWSCodeCommitFullAccess", Value: "arn:aws:iam::aws:policy/AWSCodeCommitFullAccess"},
-					{Name: "AWSCodeCommitPowerUser", Value: "arn:aws:iam::aws:policy/AWSCodeCommitPowerUser"},
-					{Name: "AWSCodeCommitReadOnly", Value: "arn:aws:iam::aws:policy/AWSCodeCommitReadOnly"},
-					{Name: "AWSCodeDeployDeployerAccess", Value: "arn:aws:iam::aws:policy/AWSCodeDeployDeployerAccess"},
-					{Name: "AWSCodeDeployFullAccess", Value: "arn:aws:iam::aws:policy/AWSCodeDeployFullAccess"},
-					{Name: "AWSCodeDeployReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSCodeDeployReadOnlyAccess"},
-					{Name: "AWSCodeDeployRole", Value: "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole"},
-					{Name: "AWSCodeDeployRoleForCloudFormation", Value: "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRoleForCloudFormation"},
-					{Name: "AWSCodeDeployRoleForECS", Value: "arn:aws:iam::aws:policy/AWSCodeDeployRoleForECS"},
-					{Name: "AWSCodeDeployRoleForECSLimited", Value: "arn:aws:iam::aws:policy/AWSCodeDeployRoleForECSLimited"},
-					{Name: "AWSCodeDeployRoleForLambda", Value: "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRoleForLambda"},
-					{Name: "AWSCodeDeployRoleForLambdaLimited", Value: "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRoleForLambdaLimited"},
-					{Name: "AWSCodePipelineApproverAccess", Value: "arn:aws:iam::aws:policy/AWSCodePipelineApproverAccess"},
-					{Name: "AWSCodePipelineCustomActionAccess", Value: "arn:aws:iam::aws:policy/AWSCodePipelineCustomActionAccess"},
-					{Name: "AWSCodePipelineFullAccess", Value: "arn:aws:iam::aws:policy/AWSCodePipelineFullAccess", DeprecationMessage: "No longer supported. Use CodePipeline_FullAccess instead."},
-					{Name: "AWSCodePipelineReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSCodePipelineReadOnlyAccess", DeprecationMessage: "No longer supported. Use CodePipeline_ReadOnlyAccess instead."},
-					// Renamed to avoid clash with existing policies in Python where underscores are removed.
-					{Name: "CodePipeline_FullAccess", Value: "arn:aws:iam::aws:policy/AWSCodePipeline_FullAccess"},
-					{Name: "CodePipeline_ReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSCodePipeline_ReadOnlyAccess"},
-					{Name: "AWSCodeStarFullAccess", Value: "arn:aws:iam::aws:policy/AWSCodeStarFullAccess"},
-					{Name: "AWSCodeStarNotificationsServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSCodeStarNotificationsServiceRolePolicy"},
-					{Name: "AWSCodeStarServiceRole", Value: "arn:aws:iam::aws:policy/service-role/AWSCodeStarServiceRole"},
-					// Renamed to not clash with AWSConfigRole in Python where underscores are removed.
-					{Name: "AWS_ConfigRole", Value: "arn:aws:iam::aws:policy/service-role/AWS_ConfigRole"},
-					{Name: "AWSConfigRole", Value: "arn:aws:iam::aws:policy/service-role/AWSConfigRole", DeprecationMessage: "This has been deprecated in favour of `AWS_ConfigRole`"},
-					{Name: "AWSCompromisedKeyQuarantine", Value: "arn:aws:iam::aws:policy/AWSCompromisedKeyQuarantine"},
-					{Name: "AWSCompromisedKeyQuarantineV2", Value: "arn:aws:iam::aws:policy/AWSCompromisedKeyQuarantineV2"},
-					{Name: "AWSConfigMultiAccountSetupPolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSConfigMultiAccountSetupPolicy"},
-					{Name: "AWSConfigRemediationServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSConfigRemediationServiceRolePolicy"},
-					{Name: "AWSConfigRoleForOrganizations", Value: "arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations"},
-					{Name: "AWSConfigRulesExecutionRole", Value: "arn:aws:iam::aws:policy/service-role/AWSConfigRulesExecutionRole"},
-					{Name: "AWSConfigServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSConfigServiceRolePolicy"},
-					{Name: "AWSConfigUserAccess", Value: "arn:aws:iam::aws:policy/AWSConfigUserAccess"},
-					{Name: "AWSConnector", Value: "arn:aws:iam::aws:policy/AWSConnector"},
-					{Name: "AWSControlTowerServiceRolePolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSControlTowerServiceRolePolicy"},
-					{Name: "AWSCostAndUsageReportAutomationPolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSCostAndUsageReportAutomationPolicy"},
-					{Name: "AWSDataExchangeFullAccess", Value: "arn:aws:iam::aws:policy/AWSDataExchangeFullAccess"},
-					{Name: "AWSDataExchangeProviderFullAccess", Value: "arn:aws:iam::aws:policy/AWSDataExchangeProviderFullAccess"},
-					{Name: "AWSDataExchangeReadOnly", Value: "arn:aws:iam::aws:policy/AWSDataExchangeReadOnly"},
-					{Name: "AWSDataExchangeSubscriberFullAccess", Value: "arn:aws:iam::aws:policy/AWSDataExchangeSubscriberFullAccess"},
-					{Name: "AWSDataLifecycleManagerServiceRole", Value: "arn:aws:iam::aws:policy/service-role/AWSDataLifecycleManagerServiceRole"},
-					{Name: "AWSDataLifecycleManagerServiceRoleForAMIManagement", Value: "arn:aws:iam::aws:policy/service-role/AWSDataLifecycleManagerServiceRoleForAMIManagement"},
-					{Name: "AWSDataPipelineRole", Value: "arn:aws:iam::aws:policy/service-role/AWSDataPipelineRole"},
-					{Name: "AWSDataPipeline_FullAccess", Value: "arn:aws:iam::aws:policy/AWSDataPipeline_FullAccess"},
-					{Name: "AWSDataPipeline_PowerUser", Value: "arn:aws:iam::aws:policy/AWSDataPipeline_PowerUser"},
-					{Name: "AWSDataSyncFullAccess", Value: "arn:aws:iam::aws:policy/AWSDataSyncFullAccess"},
-					{Name: "AWSDataSyncReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSDataSyncReadOnlyAccess"},
-					{Name: "AWSDeepLensLambdaFunctionAccessPolicy", Value: "arn:aws:iam::aws:policy/AWSDeepLensLambdaFunctionAccessPolicy"},
-					{Name: "AWSDeepLensServiceRolePolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSDeepLensServiceRolePolicy"},
-					{Name: "AWSDeepRacerAccountAdminAccess", Value: "arn:aws:iam::aws:policy/AWSDeepRacerAccountAdminAccess"},
-					{Name: "AWSDeepRacerCloudFormationAccessPolicy", Value: "arn:aws:iam::aws:policy/AWSDeepRacerCloudFormationAccessPolicy"},
-					{Name: "AWSDeepRacerDefaultMultiUserAccess", Value: "arn:aws:iam::aws:policy/AWSDeepRacerDefaultMultiUserAccess"},
-					{Name: "AWSDeepRacerFullAccess", Value: "arn:aws:iam::aws:policy/AWSDeepRacerFullAccess"},
-					{Name: "AWSDeepRacerRoboMakerAccessPolicy", Value: "arn:aws:iam::aws:policy/AWSDeepRacerRoboMakerAccessPolicy"},
-					{Name: "AWSDeepRacerServiceRolePolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSDeepRacerServiceRolePolicy"},
-					{Name: "AWSDenyAll", Value: "arn:aws:iam::aws:policy/AWSDenyAll"},
-					{Name: "AWSDeviceFarmFullAccess", Value: "arn:aws:iam::aws:policy/AWSDeviceFarmFullAccess"},
-					{Name: "AWSDeviceFarmServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSDeviceFarmServiceRolePolicy"},
-					{Name: "AWSDeviceFarmTestGridServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSDeviceFarmTestGridServiceRolePolicy"},
-					{Name: "AWSDirectConnectFullAccess", Value: "arn:aws:iam::aws:policy/AWSDirectConnectFullAccess"},
-					{Name: "AWSDirectConnectReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSDirectConnectReadOnlyAccess"},
-					{Name: "AWSDirectConnectServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSDirectConnectServiceRolePolicy"},
-					{Name: "AWSDirectoryServiceFullAccess", Value: "arn:aws:iam::aws:policy/AWSDirectoryServiceFullAccess"},
-					{Name: "AWSDirectoryServiceReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSDirectoryServiceReadOnlyAccess"},
-					{Name: "AWSDiscoveryContinuousExportFirehosePolicy", Value: "arn:aws:iam::aws:policy/AWSDiscoveryContinuousExportFirehosePolicy"},
-					{Name: "AWSEC2CapacityReservationFleetRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSEC2CapacityReservationFleetRolePolicy"},
-					{Name: "AWSEC2FleetServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSEC2FleetServiceRolePolicy"},
-					{Name: "AWSEC2SpotFleetServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSEC2SpotFleetServiceRolePolicy"},
-					{Name: "AWSEC2SpotServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSEC2SpotServiceRolePolicy"},
-					{Name: "AWSECRPullThroughCache_ServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSECRPullThroughCache_ServiceRolePolicy"},
-					{Name: "AWSElasticBeanstalkCustomPlatformforEC2Role", Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkCustomPlatformforEC2Role"},
-					{Name: "AWSElasticBeanstalkEnhancedHealth", Value: "arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkEnhancedHealth"},
-					{Name: "AWSElasticBeanstalkFullAccess", Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkFullAccess", DeprecationMessage: "This policy is deprecated. Please use the AWS managed policy AdministratorAccess-AWSElasticBeanstalk instead."},
-					{Name: "AWSElasticBeanstalkMaintenance", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSElasticBeanstalkMaintenance"},
-					{Name: "AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy", Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy"},
-					{Name: "AWSElasticBeanstalkManagedUpdatesServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSElasticBeanstalkManagedUpdatesServiceRolePolicy"},
-					{Name: "AWSElasticBeanstalkMulticontainerDocker", Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkMulticontainerDocker"},
-					{Name: "AWSElasticBeanstalkReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkReadOnlyAccess", DeprecationMessage: "This policy is deprecated. Please use the AWS managed policy AWSElasticBeanstalkReadOnly instead."},
-					{Name: "AWSElasticBeanstalkReadOnly", Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkReadOnly"},
-					{Name: "AWSElasticBeanstalkRoleCWL", Value: "arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkRoleCWL"},
-					{Name: "AWSElasticBeanstalkRoleCore", Value: "arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkRoleCore"},
-					{Name: "AWSElasticBeanstalkRoleECS", Value: "arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkRoleECS"},
-					{Name: "AWSElasticBeanstalkRoleRDS", Value: "arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkRoleRDS"},
-					{Name: "AWSElasticBeanstalkRoleSNS", Value: "arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkRoleSNS"},
-					{Name: "AWSElasticBeanstalkRoleWorkerTier", Value: "arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkRoleWorkerTier"},
-					{Name: "AWSElasticBeanstalkService", Value: "arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkService"},
-					{Name: "AWSElasticBeanstalkServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSElasticBeanstalkServiceRolePolicy"},
-					{Name: "AWSElasticBeanstalkWebTier", Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier"},
-					{Name: "AWSElasticBeanstakWorkerTier", Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier", DeprecationMessage: "This has been deprecated in favour of `AWSElasticBeanstalkWorkerTier`"},
-					{Name: "AWSElasticBeanstalkWorkerTier", Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier"},
-					{Name: "AWSElasticDisasterRecoveryAgentInstallationPolicy", Value: "arn:aws:iam::aws:policy/AWSElasticDisasterRecoveryAgentInstallationPolicy"},
-					{Name: "AWSElasticDisasterRecoveryAgentPolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryAgentPolicy"},
-					{Name: "AWSElasticDisasterRecoveryConsoleFullAccess", Value: "arn:aws:iam::aws:policy/AWSElasticDisasterRecoveryConsoleFullAccess"},
-					{Name: "AWSElasticDisasterRecoveryConversionServerPolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryConversionServerPolicy"},
-					{Name: "AWSElasticDisasterRecoveryEc2InstancePolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryEc2InstancePolicy"},
-					{Name: "AWSElasticDisasterRecoveryFailbackInstallationPolicy", Value: "arn:aws:iam::aws:policy/AWSElasticDisasterRecoveryFailbackInstallationPolicy"},
-					{Name: "AWSElasticDisasterRecoveryFailbackPolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryFailbackPolicy"},
-					{Name: "AWSElasticDisasterRecoveryReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSElasticDisasterRecoveryReadOnlyAccess"},
-					{Name: "AWSElasticDisasterRecoveryRecoveryInstancePolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryRecoveryInstancePolicy"},
-					{Name: "AWSElasticDisasterRecoveryReplicationServerPolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryReplicationServerPolicy"},
-					{Name: "AWSElasticDisasterRecoveryServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSElasticDisasterRecoveryServiceRolePolicy"},
-					{Name: "AWSElasticDisasterRecoveryStagingAccountPolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryStagingAccountPolicy"},
-					{Name: "AWSElasticDisasterRecoveryStagingAccountPolicy_v2", Value: "arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryStagingAccountPolicy_v2"},
-					{Name: "AWSElasticLoadBalancingClassicServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSElasticLoadBalancingClassicServiceRolePolicy"},
-					{Name: "AWSElasticLoadBalancingServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSElasticLoadBalancingServiceRolePolicy"},
-					{Name: "AWSElementalMediaConvertFullAccess", Value: "arn:aws:iam::aws:policy/AWSElementalMediaConvertFullAccess"},
-					{Name: "AWSElementalMediaConvertReadOnly", Value: "arn:aws:iam::aws:policy/AWSElementalMediaConvertReadOnly"},
-					{Name: "AWSElementalMediaLiveFullAccess", Value: "arn:aws:iam::aws:policy/AWSElementalMediaLiveFullAccess"},
-					{Name: "AWSElementalMediaLiveReadOnly", Value: "arn:aws:iam::aws:policy/AWSElementalMediaLiveReadOnly"},
-					{Name: "AWSElementalMediaPackageFullAccess", Value: "arn:aws:iam::aws:policy/AWSElementalMediaPackageFullAccess"},
-					{Name: "AWSElementalMediaPackageReadOnly", Value: "arn:aws:iam::aws:policy/AWSElementalMediaPackageReadOnly"},
-					{Name: "AWSElementalMediaStoreFullAccess", Value: "arn:aws:iam::aws:policy/AWSElementalMediaStoreFullAccess"},
-					{Name: "AWSElementalMediaStoreReadOnly", Value: "arn:aws:iam::aws:policy/AWSElementalMediaStoreReadOnly"},
-					{Name: "AWSElementalMediaTailorFullAccess", Value: "arn:aws:iam::aws:policy/AWSElementalMediaTailorFullAccess"},
-					{Name: "AWSElementalMediaTailorReadOnly", Value: "arn:aws:iam::aws:policy/AWSElementalMediaTailorReadOnly"},
-					{Name: "AWSEnhancedClassicNetworkingMangementPolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSEnhancedClassicNetworkingMangementPolicy"},
-					{Name: "AWSFMAdminFullAccess", Value: "arn:aws:iam::aws:policy/AWSFMAdminFullAccess"},
-					{Name: "AWSFMAdminReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSFMAdminReadOnlyAccess"},
-					{Name: "AWSFMMemberReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSFMMemberReadOnlyAccess"},
-					{Name: "AWSFaultInjectionSimulatorEC2Access", Value: "arn:aws:iam::aws:policy/service-role/AWSFaultInjectionSimulatorEC2Access"},
-					{Name: "AWSFaultInjectionSimulatorECSAccess", Value: "arn:aws:iam::aws:policy/service-role/AWSFaultInjectionSimulatorECSAccess"},
-					{Name: "AWSFaultInjectionSimulatorEKSAccess", Value: "arn:aws:iam::aws:policy/service-role/AWSFaultInjectionSimulatorEKSAccess"},
-					{Name: "AWSFaultInjectionSimulatorNetworkAccess", Value: "arn:aws:iam::aws:policy/service-role/AWSFaultInjectionSimulatorNetworkAccess"},
-					{Name: "AWSFaultInjectionSimulatorRDSAccess", Value: "arn:aws:iam::aws:policy/service-role/AWSFaultInjectionSimulatorRDSAccess"},
-					{Name: "AWSFaultInjectionSimulatorSSMAccess", Value: "arn:aws:iam::aws:policy/service-role/AWSFaultInjectionSimulatorSSMAccess"},
-					{Name: "AWSForWordPressPluginPolicy", Value: "arn:aws:iam::aws:policy/AWSForWordPressPluginPolicy"},
-					{Name: "AWSGlobalAcceleratorSLRPolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSGlobalAcceleratorSLRPolicy"},
-					{Name: "AWSGlueConsoleFullAccess", Value: "arn:aws:iam::aws:policy/AWSGlueConsoleFullAccess"},
-					{Name: "AWSGlueConsoleSageMakerNotebookFullAccess", Value: "arn:aws:iam::aws:policy/AWSGlueConsoleSageMakerNotebookFullAccess"},
-					{Name: "AWSGlueDataBrewServiceRole", Value: "arn:aws:iam::aws:policy/service-role/AWSGlueDataBrewServiceRole"},
-					{Name: "AWSGlueSchemaRegistryFullAccess", Value: "arn:aws:iam::aws:policy/AWSGlueSchemaRegistryFullAccess"},
-					{Name: "AWSGlueSchemaRegistryReadonlyAccess", Value: "arn:aws:iam::aws:policy/AWSGlueSchemaRegistryReadonlyAccess"},
-					{Name: "AWSGlueServiceNotebookRole", Value: "arn:aws:iam::aws:policy/service-role/AWSGlueServiceNotebookRole"},
-					{Name: "AWSGlueServiceRole", Value: "arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole"},
-					{Name: "AWSGrafanaAccountAdministrator", Value: "arn:aws:iam::aws:policy/AWSGrafanaAccountAdministrator"},
-					{Name: "AWSGrafanaConsoleReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSGrafanaConsoleReadOnlyAccess"},
-					{Name: "AWSGrafanaWorkspacePermissionManagement", Value: "arn:aws:iam::aws:policy/AWSGrafanaWorkspacePermissionManagement"},
-					{Name: "AWSGreengrassFullAccess", Value: "arn:aws:iam::aws:policy/AWSGreengrassFullAccess"},
-					{Name: "AWSGreengrassFullccess", Value: "arn:aws:iam::aws:policy/AWSGreengrassFullAccess", DeprecationMessage: "Please use AWSGreengrassFullAccess instead"},
-					{Name: "AWSGreengrassReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSGreengrassReadOnlyAccess"},
-					{Name: "AWSGreengrassResourceAccessRolePolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSGreengrassResourceAccessRolePolicy"},
-					{Name: "AWSHealthFullAccess", Value: "arn:aws:iam::aws:policy/AWSHealthFullAccess"},
-					{Name: "AWSHealth_EventProcessorServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSHealth_EventProcessorServiceRolePolicy"},
-					{Name: "AWSIPAMServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSIPAMServiceRolePolicy"},
-					{Name: "AWSIQContractServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSIQContractServiceRolePolicy"},
-					{Name: "AWSIQFullAccess", Value: "arn:aws:iam::aws:policy/AWSIQFullAccess"},
-					{Name: "AWSIQPermissionServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSIQPermissionServiceRolePolicy"},
-					{Name: "AWSIdentitySyncFullAccess", Value: "arn:aws:iam::aws:policy/AWSIdentitySyncFullAccess"},
-					{Name: "AWSIdentitySyncReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSIdentitySyncReadOnlyAccess"},
-					{Name: "AWSImageBuilderFullAccess", Value: "arn:aws:iam::aws:policy/AWSImageBuilderFullAccess"},
-					{Name: "AWSImageBuilderReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSImageBuilderReadOnlyAccess"},
-					{Name: "AWSImportExportFullAccess", Value: "arn:aws:iam::aws:policy/AWSImportExportFullAccess"},
-					{Name: "AWSImportExportReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSImportExportReadOnlyAccess"},
-					{Name: "AWSIncidentManagerResolverAccess", Value: "arn:aws:iam::aws:policy/AWSIncidentManagerResolverAccess"},
-					{Name: "AWSIncidentManagerServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSIncidentManagerServiceRolePolicy"},
-					{Name: "AWSIoT1ClickFullAccess", Value: "arn:aws:iam::aws:policy/AWSIoT1ClickFullAccess"},
-					{Name: "AWSIoT1ClickReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSIoT1ClickReadOnlyAccess"},
-					{Name: "AWSIoTAnalyticsFullAccess", Value: "arn:aws:iam::aws:policy/AWSIoTAnalyticsFullAccess"},
-					{Name: "AWSIoTAnalyticsReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSIoTAnalyticsReadOnlyAccess"},
-					{Name: "AWSIoTConfigAccess", Value: "arn:aws:iam::aws:policy/AWSIoTConfigAccess"},
-					{Name: "AWSIoTConfigReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSIoTConfigReadOnlyAccess"},
-					{Name: "AWSIoTDataAccess", Value: "arn:aws:iam::aws:policy/AWSIoTDataAccess"},
-					{Name: "AWSIoTDeviceDefenderAddThingsToThingGroupMitigationAction", Value: "arn:aws:iam::aws:policy/service-role/AWSIoTDeviceDefenderAddThingsToThingGroupMitigationAction"},
-					{Name: "AWSIoTDeviceDefenderAudit", Value: "arn:aws:iam::aws:policy/service-role/AWSIoTDeviceDefenderAudit"},
-					{Name: "AWSIoTDeviceDefenderEnableIoTLoggingMitigationAction", Value: "arn:aws:iam::aws:policy/service-role/AWSIoTDeviceDefenderEnableIoTLoggingMitigationAction"},
-					{Name: "AWSIoTDeviceDefenderPublishFindingsToSNSMitigationAction", Value: "arn:aws:iam::aws:policy/service-role/AWSIoTDeviceDefenderPublishFindingsToSNSMitigationAction"},
-					{Name: "AWSIoTDeviceDefenderReplaceDefaultPolicyMitigationAction", Value: "arn:aws:iam::aws:policy/service-role/AWSIoTDeviceDefenderReplaceDefaultPolicyMitigationAction"},
-					{Name: "AWSIoTDeviceDefenderUpdateCACertMitigationAction", Value: "arn:aws:iam::aws:policy/service-role/AWSIoTDeviceDefenderUpdateCACertMitigationAction"},
-					{Name: "AWSIoTDeviceDefenderUpdateDeviceCertMitigationAction", Value: "arn:aws:iam::aws:policy/service-role/AWSIoTDeviceDefenderUpdateDeviceCertMitigationAction"},
-					{Name: "AWSIoTDeviceTesterForFreeRTOSFullAccess", Value: "arn:aws:iam::aws:policy/AWSIoTDeviceTesterForFreeRTOSFullAccess"},
-					{Name: "AWSIoTDeviceTesterForGreengrassFullAccess", Value: "arn:aws:iam::aws:policy/AWSIoTDeviceTesterForGreengrassFullAccess"},
-					{Name: "AWSIoTEventsFullAccess", Value: "arn:aws:iam::aws:policy/AWSIoTEventsFullAccess"},
-					{Name: "AWSIoTEventsReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSIoTEventsReadOnlyAccess"},
-					{Name: "AWSIoTFleetHubFederationAccess", Value: "arn:aws:iam::aws:policy/service-role/AWSIoTFleetHubFederationAccess"},
-					{Name: "AWSIoTFleetwiseServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSIoTFleetwiseServiceRolePolicy"},
-					{Name: "AWSIoTFullAccess", Value: "arn:aws:iam::aws:policy/AWSIoTFullAccess"},
-					{Name: "AWSIoTLogging", Value: "arn:aws:iam::aws:policy/service-role/AWSIoTLogging"},
-					{Name: "AWSIoTOTAUpdate", Value: "arn:aws:iam::aws:policy/service-role/AWSIoTOTAUpdate"},
-					{Name: "AWSIoTRuleActions", Value: "arn:aws:iam::aws:policy/service-role/AWSIoTRuleActions"},
-					{Name: "AWSIoTSiteWiseConsoleFullAccess", Value: "arn:aws:iam::aws:policy/AWSIoTSiteWiseConsoleFullAccess"},
-					{Name: "AWSIoTSiteWiseFullAccess", Value: "arn:aws:iam::aws:policy/AWSIoTSiteWiseFullAccess"},
-					{Name: "AWSIoTSiteWiseMonitorPortalAccess", Value: "arn:aws:iam::aws:policy/service-role/AWSIoTSiteWiseMonitorPortalAccess"},
-					{Name: "AWSIoTSiteWiseMonitorServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSIoTSiteWiseMonitorServiceRolePolicy"},
-					{Name: "AWSIoTSiteWiseReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSIoTSiteWiseReadOnlyAccess"},
-					{Name: "AWSIoTThingsRegistration", Value: "arn:aws:iam::aws:policy/service-role/AWSIoTThingsRegistration"},
-					{Name: "AWSIoTWirelessDataAccess", Value: "arn:aws:iam::aws:policy/AWSIoTWirelessDataAccess"},
-					{Name: "AWSIoTWirelessFullAccess", Value: "arn:aws:iam::aws:policy/AWSIoTWirelessFullAccess"},
-					{Name: "AWSIoTWirelessFullPublishAccess", Value: "arn:aws:iam::aws:policy/AWSIoTWirelessFullPublishAccess"},
-					{Name: "AWSIoTWirelessGatewayCertManager", Value: "arn:aws:iam::aws:policy/AWSIoTWirelessGatewayCertManager"},
-					{Name: "AWSIoTWirelessLogging", Value: "arn:aws:iam::aws:policy/AWSIoTWirelessLogging"},
-					{Name: "AWSIoTWirelessReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSIoTWirelessReadOnlyAccess"},
-					{Name: "AWSIotRoboRunnerFullAccess", Value: "arn:aws:iam::aws:policy/AWSIotRoboRunnerFullAccess"},
-					{Name: "AWSIotRoboRunnerReadOnly", Value: "arn:aws:iam::aws:policy/AWSIotRoboRunnerReadOnly"},
-					{Name: "AWSIotRoboRunnerServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSIotRoboRunnerServiceRolePolicy"},
-					{Name: "AWSKeyManagementServiceCustomKeyStoresServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSKeyManagementServiceCustomKeyStoresServiceRolePolicy"},
-					{Name: "AWSKeyManagementServiceMultiRegionKeysServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSKeyManagementServiceMultiRegionKeysServiceRolePolicy"},
-					{Name: "AWSKeyManagementServicePowerUser", Value: "arn:aws:iam::aws:policy/AWSKeyManagementServicePowerUser"},
-					{Name: "AWSLakeFormationCrossAccountManager", Value: "arn:aws:iam::aws:policy/AWSLakeFormationCrossAccountManager"},
-					{Name: "AWSLakeFormationDataAdmin", Value: "arn:aws:iam::aws:policy/AWSLakeFormationDataAdmin"},
-					{Name: "AWSLambdaBasicExecutionRole", Value: "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"},
-					{Name: "AWSLambdaDynamoDBExecutionRole", Value: "arn:aws:iam::aws:policy/service-role/AWSLambdaDynamoDBExecutionRole"},
-					{Name: "AWSLambdaENIManagementAccess", Value: "arn:aws:iam::aws:policy/service-role/AWSLambdaENIManagementAccess"},
-					{Name: "AWSLambdaExecute", Value: "arn:aws:iam::aws:policy/AWSLambdaExecute"},
-					{Name: "AWSLambdaFullAccess", Value: "arn:aws:iam::aws:policy/AWSLambdaFullAccess", DeprecationMessage: "This has been deprecated in favour of `LambdaFullAccess`"},
-					// Name changed to not conflict in Python where underscores are removed
-					{Name: "LambdaFullAccess", Value: "arn:aws:iam::aws:policy/AWSLambda_FullAccess"},
-					{Name: "AWSLambdaInvocationDynamoDB", Value: "arn:aws:iam::aws:policy/AWSLambdaInvocation-DynamoDB"},
-					{Name: "AWSLambdaKinesisExecutionRole", Value: "arn:aws:iam::aws:policy/service-role/AWSLambdaKinesisExecutionRole"},
-					{Name: "AWSLambdaReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSLambdaReadOnlyAccess", DeprecationMessage: "This has been deprecated in favour of `LambdaReadOnlyAccess`"},
-					// Name changed to not conflict in Python where underscores are removed
-					{Name: "LambdaReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSLambda_ReadOnlyAccess"},
-					{Name: "AWSLambdaMSKExecutionRole", Value: "arn:aws:iam::aws:policy/service-role/AWSLambdaMSKExecutionRole"},
-					{Name: "AWSLambdaReplicator", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSLambdaReplicator"},
-					{Name: "AWSLambdaRole", Value: "arn:aws:iam::aws:policy/service-role/AWSLambdaRole"},
-					{Name: "AWSLambdaSQSQueueExecutionRole", Value: "arn:aws:iam::aws:policy/service-role/AWSLambdaSQSQueueExecutionRole"},
-					{Name: "AWSLambdaVPCAccessExecutionRole", Value: "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"},
-					{Name: "AWSLicenseManagerConsumptionPolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSLicenseManagerConsumptionPolicy"},
-					{Name: "AWSLicenseManagerLinuxSubscriptionsServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerLinuxSubscriptionsServiceRolePolicy"},
-					{Name: "AWSLicenseManagerMasterAccountRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerMasterAccountRolePolicy"},
-					{Name: "AWSLicenseManagerMemberAccountRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerMemberAccountRolePolicy"},
-					{Name: "AWSLicenseManagerServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerServiceRolePolicy"},
-					{Name: "AWSLicenseManagerUserSubscriptionsServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerUserSubscriptionsServiceRolePolicy"},
-					{Name: "AWSM2ServicePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSM2ServicePolicy"},
-					{Name: "AWSManagedServicesDeploymentToolkitPolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSManagedServicesDeploymentToolkitPolicy"},
-					{Name: "AWSManagedServices_DetectiveControlsConfig_ServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSManagedServices_DetectiveControlsConfig_ServiceRolePolicy"},
-					{Name: "AWSManagedServices_EventsServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSManagedServices_EventsServiceRolePolicy"},
-					{Name: "AWSMarketplaceAmiIngestion", Value: "arn:aws:iam::aws:policy/AWSMarketplaceAmiIngestion"},
-					{Name: "AWSMarketplaceFullAccess", Value: "arn:aws:iam::aws:policy/AWSMarketplaceFullAccess"},
-					{Name: "AWSMarketplaceGetEntitlements", Value: "arn:aws:iam::aws:policy/AWSMarketplaceGetEntitlements"},
-					{Name: "AWSMarketplaceImageBuildFullAccess", Value: "arn:aws:iam::aws:policy/AWSMarketplaceImageBuildFullAccess"},
-					{Name: "AWSMarketplaceLicenseManagementServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSMarketplaceLicenseManagementServiceRolePolicy"},
-					{Name: "AWSMarketplaceManageSubscriptions", Value: "arn:aws:iam::aws:policy/AWSMarketplaceManageSubscriptions"},
-					{Name: "AWSMarketplaceMeteringFullAccess", Value: "arn:aws:iam::aws:policy/AWSMarketplaceMeteringFullAccess"},
-					{Name: "AWSMarketplaceMeteringRegisterUsage", Value: "arn:aws:iam::aws:policy/AWSMarketplaceMeteringRegisterUsage"},
-					{Name: "AWSMarketplaceProcurementSystemAdminFullAccess", Value: "arn:aws:iam::aws:policy/AWSMarketplaceProcurementSystemAdminFullAccess"},
-					{Name: "AWSMarketplacePurchaseOrdersServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSMarketplacePurchaseOrdersServiceRolePolicy"},
-					{Name: "AWSMarketplaceReadonly", Value: "arn:aws:iam::aws:policy/AWSMarketplaceRead-only"},
-					{Name: "AWSMarketplaceSellerFullAccess", Value: "arn:aws:iam::aws:policy/AWSMarketplaceSellerFullAccess"},
-					{Name: "AWSMarketplaceSellerProductsFullAccess", Value: "arn:aws:iam::aws:policy/AWSMarketplaceSellerProductsFullAccess"},
-					{Name: "AWSMarketplaceSellerProductsReadOnly", Value: "arn:aws:iam::aws:policy/AWSMarketplaceSellerProductsReadOnly"},
-					{Name: "AWSMediaTailorServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSMediaTailorServiceRolePolicy"},
-					{Name: "AWSMigrationHubDMSAccess", Value: "arn:aws:iam::aws:policy/service-role/AWSMigrationHubDMSAccess"},
-					{Name: "AWSMigrationHubDiscoveryAccess", Value: "arn:aws:iam::aws:policy/service-role/AWSMigrationHubDiscoveryAccess"},
-					{Name: "AWSMigrationHubFullAccess", Value: "arn:aws:iam::aws:policy/AWSMigrationHubFullAccess"},
-					{Name: "AWSMigrationHubOrchestratorConsoleFullAccess", Value: "arn:aws:iam::aws:policy/AWSMigrationHubOrchestratorConsoleFullAccess"},
-					{Name: "AWSMigrationHubOrchestratorInstanceRolePolicy", Value: "arn:aws:iam::aws:policy/AWSMigrationHubOrchestratorInstanceRolePolicy"},
-					{Name: "AWSMigrationHubOrchestratorPlugin", Value: "arn:aws:iam::aws:policy/AWSMigrationHubOrchestratorPlugin"},
-					{Name: "AWSMigrationHubOrchestratorServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSMigrationHubOrchestratorServiceRolePolicy"},
-					{Name: "AWSMigrationHubRefactorSpacesFullAccess", Value: "arn:aws:iam::aws:policy/AWSMigrationHubRefactorSpacesFullAccess"},
-					{Name: "AWSMigrationHubRefactorSpacesServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSMigrationHubRefactorSpacesServiceRolePolicy"},
-					{Name: "AWSMigrationHubSMSAccess", Value: "arn:aws:iam::aws:policy/service-role/AWSMigrationHubSMSAccess"},
-					{Name: "AWSMigrationHubStrategyCollector", Value: "arn:aws:iam::aws:policy/AWSMigrationHubStrategyCollector"},
-					{Name: "AWSMigrationHubStrategyConsoleFullAccess", Value: "arn:aws:iam::aws:policy/AWSMigrationHubStrategyConsoleFullAccess"},
-					{Name: "AWSMigrationHubStrategyServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSMigrationHubStrategyServiceRolePolicy"},
-					{Name: "AWSMobileHub_FullAccess", Value: "arn:aws:iam::aws:policy/AWSMobileHub_FullAccess"},
-					{Name: "AWSMobileHub_ReadOnly", Value: "arn:aws:iam::aws:policy/AWSMobileHub_ReadOnly"},
-					{Name: "AWSMobileHub_ServiceUseOnly", Value: "arn:aws:iam::aws:policy/service-role/AWSMobileHub_ServiceUseOnly", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Please use AWSMobileHub_FullAccess or AWSMobileHub_ReadOnly instead."},
-					{Name: "AWSNetworkFirewallServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSNetworkFirewallServiceRolePolicy"},
-					{Name: "AWSNetworkManagerCloudWANServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSNetworkManagerCloudWANServiceRolePolicy"},
-					{Name: "AWSNetworkManagerFullAccess", Value: "arn:aws:iam::aws:policy/AWSNetworkManagerFullAccess"},
-					{Name: "AWSNetworkManagerReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSNetworkManagerReadOnlyAccess"},
-					{Name: "AWSNetworkManagerServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSNetworkManagerServiceRolePolicy"},
-					{Name: "AWSOpsWorksCMInstanceProfileRole", Value: "arn:aws:iam::aws:policy/AWSOpsWorksCMInstanceProfileRole"},
-					{Name: "AWSOpsWorksCMServiceRole", Value: "arn:aws:iam::aws:policy/service-role/AWSOpsWorksCMServiceRole"},
-					{Name: "AWSOpsWorksCloudWatchLogs", Value: "arn:aws:iam::aws:policy/AWSOpsWorksCloudWatchLogs"},
-					{Name: "AWSOpsWorksFullAccess", Value: "arn:aws:iam::aws:policy/AWSOpsWorksFullAccess", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Please use OpsWorks_FullAccess instead."},
-					{Name: "AWSOpsWorksInstanceRegistration", Value: "arn:aws:iam::aws:policy/AWSOpsWorksInstanceRegistration"},
-					{Name: "AWSOpsWorksRegisterCLI", Value: "arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Please use AWSOpsWorksRegisterCLI_EC2 or AWSOpsWorksRegisterCLI_OnPremises instead."},
-					{Name: "AWSOpsWorksRole", Value: "arn:aws:iam::aws:policy/service-role/AWSOpsWorksRole", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Please use AWSOpsWorksCMServiceRole instead."},
-					{Name: "AWSQuickSightDescribeRD", Value: "arn:aws:iam::aws:policy/service-role/AWSQuickSightDescribeRDS", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Please use AWSQuickSightDescribeRDS instead."},
-					{Name: "AWSOpsWorksRegisterCLI_EC2", Value: "arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI_EC2"},
-					{Name: "AWSOpsWorksRegisterCLI_OnPremises", Value: "arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI_OnPremises"},
-					// Renamed to avoid conflict with AWSOpsWorks_FullAccess in Python where underscores are removed
-					{Name: "OpsWorks_FullAccess", Value: "arn:aws:iam::aws:policy/AWSOpsWorks_FullAccess"},
-					{Name: "AWSOrganizationsFullAccess", Value: "arn:aws:iam::aws:policy/AWSOrganizationsFullAccess"},
-					{Name: "AWSOrganizationsReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSOrganizationsReadOnlyAccess"},
-					{Name: "AWSOrganizationsServiceTrustPolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSOrganizationsServiceTrustPolicy"},
-					{Name: "AWSOutpostsAuthorizeServerPolicy", Value: "arn:aws:iam::aws:policy/AWSOutpostsAuthorizeServerPolicy"},
-					{Name: "AWSOutpostsServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSOutpostsServiceRolePolicy"},
-					{Name: "AWSPanoramaApplianceRolePolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSPanoramaApplianceRolePolicy"},
-					{Name: "AWSPanoramaApplianceServiceRolePolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSPanoramaApplianceServiceRolePolicy"},
-					{Name: "AWSPanoramaFullAccess", Value: "arn:aws:iam::aws:policy/AWSPanoramaFullAccess"},
-					{Name: "AWSPanoramaGreengrassGroupRolePolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSPanoramaGreengrassGroupRolePolicy"},
-					{Name: "AWSPanoramaSageMakerRolePolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSPanoramaSageMakerRolePolicy"},
-					{Name: "AWSPanoramaServiceLinkedRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSPanoramaServiceLinkedRolePolicy"},
-					{Name: "AWSPanoramaServiceRolePolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSPanoramaServiceRolePolicy"},
-					{Name: "AWSPriceListServiceFullAccess", Value: "arn:aws:iam::aws:policy/AWSPriceListServiceFullAccess"},
-					{Name: "AWSPrivateCAAuditor", Value: "arn:aws:iam::aws:policy/AWSPrivateCAAuditor"},
-					{Name: "AWSPrivateCAFullAccess", Value: "arn:aws:iam::aws:policy/AWSPrivateCAFullAccess"},
-					{Name: "AWSPrivateCAPrivilegedUser", Value: "arn:aws:iam::aws:policy/AWSPrivateCAPrivilegedUser"},
-					{Name: "AWSPrivateCAReadOnly", Value: "arn:aws:iam::aws:policy/AWSPrivateCAReadOnly"},
-					{Name: "AWSPrivateCAUser", Value: "arn:aws:iam::aws:policy/AWSPrivateCAUser"},
-					{Name: "AWSPrivateMarketplaceAdminFullAccess", Value: "arn:aws:iam::aws:policy/AWSPrivateMarketplaceAdminFullAccess"},
-					{Name: "AWSPrivateMarketplaceRequests", Value: "arn:aws:iam::aws:policy/AWSPrivateMarketplaceRequests"},
-					{Name: "AWSPrivateNetworksServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSPrivateNetworksServiceRolePolicy"},
-					{Name: "AWSProtonCodeBuildProvisioningBasicAccess", Value: "arn:aws:iam::aws:policy/AWSProtonCodeBuildProvisioningBasicAccess"},
-					{Name: "AWSProtonCodeBuildProvisioningServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSProtonCodeBuildProvisioningServiceRolePolicy"},
-					{Name: "AWSProtonDeveloperAccess", Value: "arn:aws:iam::aws:policy/AWSProtonDeveloperAccess"},
-					{Name: "AWSProtonFullAccess", Value: "arn:aws:iam::aws:policy/AWSProtonFullAccess"},
-					{Name: "AWSProtonReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSProtonReadOnlyAccess"},
-					{Name: "AWSProtonSyncServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSProtonSyncServiceRolePolicy"},
-					{Name: "AWSPurchaseOrdersServiceRolePolicy", Value: "arn:aws:iam::aws:policy/AWSPurchaseOrdersServiceRolePolicy"},
-					{Name: "AWSQuickSightDescribeRDS", Value: "arn:aws:iam::aws:policy/service-role/AWSQuickSightDescribeRDS"},
-					{Name: "AWSQuickSightDescribeRedshift", Value: "arn:aws:iam::aws:policy/service-role/AWSQuickSightDescribeRedshift"},
-					{Name: "AWSQuickSightElasticsearchPolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSQuickSightElasticsearchPolicy"},
-					{Name: "AWSQuickSightIoTAnalyticsAccess", Value: "arn:aws:iam::aws:policy/AWSQuickSightIoTAnalyticsAccess"},
-					{Name: "AWSQuickSightListIAM", Value: "arn:aws:iam::aws:policy/service-role/AWSQuickSightListIAM"},
-					{Name: "AWSQuickSightSageMakerPolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSQuickSightSageMakerPolicy"},
-					{Name: "AWSQuickSightTimestreamPolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSQuickSightTimestreamPolicy"},
-					{Name: "AWSQuicksightAthenaAccess", Value: "arn:aws:iam::aws:policy/service-role/AWSQuicksightAthenaAccess"},
-					{Name: "AWSQuicksightOpenSearchPolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSQuicksightOpenSearchPolicy"},
-					{Name: "AWSReachabilityAnalyzerServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSReachabilityAnalyzerServiceRolePolicy"},
-					{Name: "AWSRefactoringToolkitFullAccess", Value: "arn:aws:iam::aws:policy/AWSRefactoringToolkitFullAccess"},
-					{Name: "AWSRefactoringToolkitSidecarPolicy", Value: "arn:aws:iam::aws:policy/AWSRefactoringToolkitSidecarPolicy"},
-					{Name: "AWSResourceAccessManagerFullAccess", Value: "arn:aws:iam::aws:policy/AWSResourceAccessManagerFullAccess"},
-					{Name: "AWSResourceAccessManagerReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSResourceAccessManagerReadOnlyAccess"},
-					{Name: "AWSResourceAccessManagerResourceShareParticipantAccess", Value: "arn:aws:iam::aws:policy/AWSResourceAccessManagerResourceShareParticipantAccess"},
-					{Name: "AWSResourceAccessManagerServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSResourceAccessManagerServiceRolePolicy"},
-					{Name: "AWSResourceExplorerFullAccess", Value: "arn:aws:iam::aws:policy/AWSResourceExplorerFullAccess"},
-					{Name: "AWSResourceExplorerReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSResourceExplorerReadOnlyAccess"},
-					{Name: "AWSResourceExplorerServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSResourceExplorerServiceRolePolicy"},
-					{Name: "AWSResourceGroupsReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSResourceGroupsReadOnlyAccess"},
-					{Name: "AWSRoboMakerReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSRoboMakerReadOnlyAccess"},
-					{Name: "AWSRoboMakerServicePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSRoboMakerServicePolicy"},
-					{Name: "AWSRoboMakerServiceRolePolicy", Value: "arn:aws:iam::aws:policy/AWSRoboMakerServiceRolePolicy"},
-					{Name: "AWSRoboMaker_FullAccess", Value: "arn:aws:iam::aws:policy/AWSRoboMaker_FullAccess"},
-					{Name: "AWSRolesAnywhereServicePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSRolesAnywhereServicePolicy"},
-					{Name: "AWSSSMForSAPServiceLinkedRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSSSMForSAPServiceLinkedRolePolicy"},
-					{Name: "AWSSSMOpsInsightsServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSSSMOpsInsightsServiceRolePolicy"},
-					{Name: "AWSSSODirectoryAdministrator", Value: "arn:aws:iam::aws:policy/AWSSSODirectoryAdministrator"},
-					{Name: "AWSSSODirectoryReadOnly", Value: "arn:aws:iam::aws:policy/AWSSSODirectoryReadOnly"},
-					{Name: "AWSSSOMasterAccountAdministrator", Value: "arn:aws:iam::aws:policy/AWSSSOMasterAccountAdministrator"},
-					{Name: "AWSSSOMemberAccountAdministrator", Value: "arn:aws:iam::aws:policy/AWSSSOMemberAccountAdministrator"},
-					{Name: "AWSSSOReadOnly", Value: "arn:aws:iam::aws:policy/AWSSSOReadOnly"},
-					{Name: "AWSSSOServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSSSOServiceRolePolicy"},
-					{Name: "AWSSavingsPlansFullAccess", Value: "arn:aws:iam::aws:policy/AWSSavingsPlansFullAccess"},
-					{Name: "AWSSavingsPlansReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSSavingsPlansReadOnlyAccess"},
-					{Name: "AWSSecurityHubFullAccess", Value: "arn:aws:iam::aws:policy/AWSSecurityHubFullAccess"},
-					{Name: "AWSSecurityHubOrganizationsAccess", Value: "arn:aws:iam::aws:policy/AWSSecurityHubOrganizationsAccess"},
-					{Name: "AWSSecurityHubReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSSecurityHubReadOnlyAccess"},
-					{Name: "AWSSecurityHubServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSSecurityHubServiceRolePolicy"},
-					{Name: "AWSServiceCatalogAdminFullAccess", Value: "arn:aws:iam::aws:policy/AWSServiceCatalogAdminFullAccess"},
-					{Name: "AWSServiceCatalogAdminReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSServiceCatalogAdminReadOnlyAccess"},
-					{Name: "AWSServiceCatalogAppRegistryFullAccess", Value: "arn:aws:iam::aws:policy/AWSServiceCatalogAppRegistryFullAccess"},
-					{Name: "AWSServiceCatalogAppRegistryReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSServiceCatalogAppRegistryReadOnlyAccess"},
-					{Name: "AWSServiceCatalogAppRegistryServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSServiceCatalogAppRegistryServiceRolePolicy"},
-					{Name: "AWSServiceCatalogEndUserFullAccess", Value: "arn:aws:iam::aws:policy/AWSServiceCatalogEndUserFullAccess"},
-					{Name: "AWSServiceCatalogEndUserReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSServiceCatalogEndUserReadOnlyAccess"},
-					{Name: "AWSServiceCatalogSyncServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSServiceCatalogSyncServiceRolePolicy"},
-					{Name: "AWSServiceRoleForAmazonEKSNodegroup", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForAmazonEKSNodegroup"},
-					{Name: "AWSServiceRoleForCloudWatchAlarmsActionSSMServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForCloudWatchAlarmsActionSSMServiceRolePolicy"},
-					{Name: "AWSServiceRoleForCodeGuruProfiler", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForCodeGuru-Profiler"},
-					{Name: "AWSServiceRoleForEC2ScheduledInstances", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForEC2ScheduledInstances"},
-					{Name: "AWSServiceRoleForGroundStationDataflowEndpointGroupPolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForGroundStationDataflowEndpointGroupPolicy"},
-					{Name: "AWSServiceRoleForImageBuilder", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForImageBuilder"},
-					{Name: "AWSServiceRoleForIoTSiteWise", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForIoTSiteWise"},
-					{Name: "AWSServiceRoleForLogDeliveryPolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForLogDeliveryPolicy"},
-					{Name: "AWSServiceRoleForMonitronPolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForMonitronPolicy"},
-					{Name: "AWSServiceRoleForSMS", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForSMS"},
-					{Name: "AWSServiceRolePolicyForBackupReports", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSServiceRolePolicyForBackupReports"},
-					{Name: "AWSShieldDRTAccessPolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy"},
-					{Name: "AWSShieldServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSShieldServiceRolePolicy"},
-					{Name: "AWSStepFunctionsConsoleFullAccess", Value: "arn:aws:iam::aws:policy/AWSStepFunctionsConsoleFullAccess"},
-					{Name: "AWSStepFunctionsFullAccess", Value: "arn:aws:iam::aws:policy/AWSStepFunctionsFullAccess"},
-					{Name: "AWSStepFunctionsReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSStepFunctionsReadOnlyAccess"},
-					{Name: "AWSStorageGatewayFullAccess", Value: "arn:aws:iam::aws:policy/AWSStorageGatewayFullAccess"},
-					{Name: "AWSStorageGatewayReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSStorageGatewayReadOnlyAccess"},
-					{Name: "AWSStorageGatewayServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSStorageGatewayServiceRolePolicy"},
-					{Name: "AWSSupportAccess", Value: "arn:aws:iam::aws:policy/AWSSupportAccess"},
-					{Name: "AWSSupportAppFullAccess", Value: "arn:aws:iam::aws:policy/AWSSupportAppFullAccess"},
-					{Name: "AWSSupportAppReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSSupportAppReadOnlyAccess"},
-					{Name: "AWSSupportPlansFullAccess", Value: "arn:aws:iam::aws:policy/AWSSupportPlansFullAccess"},
-					{Name: "AWSSupportPlansReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSSupportPlansReadOnlyAccess"},
-					{Name: "AWSSupportServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSSupportServiceRolePolicy"},
-					{Name: "AWSSystemsManagerAccountDiscoveryServicePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSSystemsManagerAccountDiscoveryServicePolicy"},
-					{Name: "AWSSystemsManagerChangeManagementServicePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSSystemsManagerChangeManagementServicePolicy"},
-					{Name: "AWSSystemsManagerForSAPFullAccess", Value: "arn:aws:iam::aws:policy/AWSSystemsManagerForSAPFullAccess"},
-					{Name: "AWSSystemsManagerForSAPReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSSystemsManagerForSAPReadOnlyAccess"},
-					{Name: "AWSSystemsManagerOpsDataSyncServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSSystemsManagerOpsDataSyncServiceRolePolicy"},
-					{Name: "AWSThinkboxAWSPortalAdminPolicy", Value: "arn:aws:iam::aws:policy/AWSThinkboxAWSPortalAdminPolicy"},
-					{Name: "AWSThinkboxAWSPortalGatewayPolicy", Value: "arn:aws:iam::aws:policy/AWSThinkboxAWSPortalGatewayPolicy"},
-					{Name: "AWSThinkboxAWSPortalWorkerPolicy", Value: "arn:aws:iam::aws:policy/AWSThinkboxAWSPortalWorkerPolicy"},
-					{Name: "AWSThinkboxAssetServerPolicy", Value: "arn:aws:iam::aws:policy/AWSThinkboxAssetServerPolicy"},
-					{Name: "AWSThinkboxDeadlineResourceTrackerAccessPolicy", Value: "arn:aws:iam::aws:policy/AWSThinkboxDeadlineResourceTrackerAccessPolicy"},
-					{Name: "AWSThinkboxDeadlineResourceTrackerAdminPolicy", Value: "arn:aws:iam::aws:policy/AWSThinkboxDeadlineResourceTrackerAdminPolicy"},
-					{Name: "AWSThinkboxDeadlineSpotEventPluginAdminPolicy", Value: "arn:aws:iam::aws:policy/AWSThinkboxDeadlineSpotEventPluginAdminPolicy"},
-					{Name: "AWSThinkboxDeadlineSpotEventPluginWorkerPolicy", Value: "arn:aws:iam::aws:policy/AWSThinkboxDeadlineSpotEventPluginWorkerPolicy"},
-					{Name: "AWSTransferConsoleFullAccess", Value: "arn:aws:iam::aws:policy/AWSTransferConsoleFullAccess"},
-					{Name: "AWSTransferFullAccess", Value: "arn:aws:iam::aws:policy/AWSTransferFullAccess"},
-					{Name: "AWSTransferLoggingAccess", Value: "arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess"},
-					{Name: "AWSTransferReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSTransferReadOnlyAccess"},
-					{Name: "AWSTrustedAdvisorPriorityFullAccess", Value: "arn:aws:iam::aws:policy/AWSTrustedAdvisorPriorityFullAccess"},
-					{Name: "AWSTrustedAdvisorPriorityReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSTrustedAdvisorPriorityReadOnlyAccess"},
-					{Name: "AWSTrustedAdvisorReportingServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSTrustedAdvisorReportingServiceRolePolicy"},
-					{Name: "AWSTrustedAdvisorServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSTrustedAdvisorServiceRolePolicy"},
-					{Name: "AWSVPCS2SVpnServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSVPCS2SVpnServiceRolePolicy"},
-					{Name: "AWSVPCTransitGatewayServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSVPCTransitGatewayServiceRolePolicy"},
-					{Name: "AWSVPCVerifiedAccessServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSVPCVerifiedAccessServiceRolePolicy"},
-					{Name: "AWSVendorInsightsAssessorFullAccess", Value: "arn:aws:iam::aws:policy/AWSVendorInsightsAssessorFullAccess"},
-					{Name: "AWSVendorInsightsAssessorReadOnly", Value: "arn:aws:iam::aws:policy/AWSVendorInsightsAssessorReadOnly"},
-					{Name: "AWSVendorInsightsVendorFullAccess", Value: "arn:aws:iam::aws:policy/AWSVendorInsightsVendorFullAccess"},
-					{Name: "AWSVendorInsightsVendorReadOnly", Value: "arn:aws:iam::aws:policy/AWSVendorInsightsVendorReadOnly"},
-					{Name: "AWSVpcLatticeServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSVpcLatticeServiceRolePolicy"},
-					{Name: "AWSWAFConsoleFullAccess", Value: "arn:aws:iam::aws:policy/AWSWAFConsoleFullAccess"},
-					{Name: "AWSWAFConsoleReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSWAFConsoleReadOnlyAccess"},
-					{Name: "AWSWAFFullAccess", Value: "arn:aws:iam::aws:policy/AWSWAFFullAccess"},
-					{Name: "AWSWAFReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSWAFReadOnlyAccess"},
-					{Name: "AWSWellArchitectedOrganizationsServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSWellArchitectedOrganizationsServiceRolePolicy"},
-					{Name: "AWSWickrFullAccess", Value: "arn:aws:iam::aws:policy/AWSWickrFullAccess"},
-					{Name: "AWSXrayCrossAccountSharingConfiguration", Value: "arn:aws:iam::aws:policy/AWSXrayCrossAccountSharingConfiguration"},
-					{Name: "AWSXrayFullAccess", Value: "arn:aws:iam::aws:policy/AWSXrayFullAccess"},
-					{Name: "AWSXrayReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSXrayReadOnlyAccess"},
-					{Name: "AWSXrayWriteOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess"},
-					{Name: "AWSXRayDaemonWriteAccess", Value: "arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess"},
-					{Name: "AccessAnalyzerServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AccessAnalyzerServiceRolePolicy"},
-					{Name: "AdministratorAccess", Value: "arn:aws:iam::aws:policy/AdministratorAccess"},
-					{Name: "AdministratorAccessAWSElasticBeanstalk", Value: "arn:aws:iam::aws:policy/AdministratorAccess-AWSElasticBeanstalk"},
-					{Name: "AdministratorAccessAmplify", Value: "arn:aws:iam::aws:policy/AdministratorAccess-Amplify"},
-					{Name: "AlexaForBusinessDeviceSetup", Value: "arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup"},
-					{Name: "AlexaForBusinessFullAccess", Value: "arn:aws:iam::aws:policy/AlexaForBusinessFullAccess"},
-					{Name: "AlexaForBusinessGatewayExecution", Value: "arn:aws:iam::aws:policy/AlexaForBusinessGatewayExecution"},
-					{Name: "AlexaForBusinessLifesizeDelegatedAccessPolicy", Value: "arn:aws:iam::aws:policy/AlexaForBusinessLifesizeDelegatedAccessPolicy"},
-					{Name: "AlexaForBusinessNetworkProfileServicePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AlexaForBusinessNetworkProfileServicePolicy"},
-					{Name: "AlexaForBusinessPolyDelegatedAccessPolicy", Value: "arn:aws:iam::aws:policy/AlexaForBusinessPolyDelegatedAccessPolicy"},
-					{Name: "AlexaForBusinessReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AlexaForBusinessReadOnlyAccess"},
-					{Name: "AmazonAPIGatewayAdministrator", Value: "arn:aws:iam::aws:policy/AmazonAPIGatewayAdministrator"},
-					{Name: "AmazonAPIGatewayInvokeFullAccess", Value: "arn:aws:iam::aws:policy/AmazonAPIGatewayInvokeFullAccess"},
-					{Name: "AmazonAPIGatewayPushToCloudWatchLogs", Value: "arn:aws:iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"},
-					{Name: "AmazonAppFlowFullAccess", Value: "arn:aws:iam::aws:policy/AmazonAppFlowFullAccess"},
-					{Name: "AmazonAppFlowReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonAppFlowReadOnlyAccess"},
-					{Name: "AmazonAppStreamFullAccess", Value: "arn:aws:iam::aws:policy/AmazonAppStreamFullAccess"},
-					{Name: "AmazonAppStreamPCAAccess", Value: "arn:aws:iam::aws:policy/service-role/AmazonAppStreamPCAAccess"},
-					{Name: "AmazonAppStreamReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonAppStreamReadOnlyAccess"},
-					{Name: "AmazonAppStreamServiceAccess", Value: "arn:aws:iam::aws:policy/service-role/AmazonAppStreamServiceAccess"},
-					{Name: "AmazonAthenaFullAccess", Value: "arn:aws:iam::aws:policy/AmazonAthenaFullAccess"},
-					{Name: "AmazonAugmentedAIFullAccess", Value: "arn:aws:iam::aws:policy/AmazonAugmentedAIFullAccess"},
-					{Name: "AmazonAugmentedAIHumanLoopFullAccess", Value: "arn:aws:iam::aws:policy/AmazonAugmentedAIHumanLoopFullAccess"},
-					{Name: "AmazonAugmentedAIIntegratedAPIAccess", Value: "arn:aws:iam::aws:policy/AmazonAugmentedAIIntegratedAPIAccess"},
-					{Name: "AmazonBraketFullAccess", Value: "arn:aws:iam::aws:policy/AmazonBraketFullAccess"},
-					{Name: "AmazonBraketJobsExecutionPolicy", Value: "arn:aws:iam::aws:policy/AmazonBraketJobsExecutionPolicy"},
-					{Name: "AmazonBraketServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonBraketServiceRolePolicy"},
-					{Name: "AmazonChimeFullAccess", Value: "arn:aws:iam::aws:policy/AmazonChimeFullAccess"},
-					{Name: "AmazonChimeReadOnly", Value: "arn:aws:iam::aws:policy/AmazonChimeReadOnly"},
-					{Name: "AmazonChimeSDK", Value: "arn:aws:iam::aws:policy/AmazonChimeSDK"},
-					{Name: "AmazonChimeSDKMediaPipelinesServiceLinkedRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonChimeSDKMediaPipelinesServiceLinkedRolePolicy"},
-					{Name: "AmazonChimeServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonChimeServiceRolePolicy"},
-					{Name: "AmazonChimeTranscriptionServiceLinkedRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonChimeTranscriptionServiceLinkedRolePolicy"},
-					{Name: "AmazonChimeUserManagement", Value: "arn:aws:iam::aws:policy/AmazonChimeUserManagement"},
-					{Name: "AmazonChimeVoiceConnectorServiceLinkedRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonChimeVoiceConnectorServiceLinkedRolePolicy"},
-					{Name: "AmazonCloudDirectoryFullAccess", Value: "arn:aws:iam::aws:policy/AmazonCloudDirectoryFullAccess"},
-					{Name: "AmazonCloudDirectoryReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonCloudDirectoryReadOnlyAccess"},
-					{Name: "AmazonCloudWatchEvidentlyFullAccess", Value: "arn:aws:iam::aws:policy/AmazonCloudWatchEvidentlyFullAccess"},
-					{Name: "AmazonCloudWatchEvidentlyReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonCloudWatchEvidentlyReadOnlyAccess"},
-					{Name: "AmazonCloudWatchEvidentlyServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonCloudWatchEvidentlyServiceRolePolicy"},
-					{Name: "AmazonCloudWatchRUMFullAccess", Value: "arn:aws:iam::aws:policy/AmazonCloudWatchRUMFullAccess"},
-					{Name: "AmazonCloudWatchRUMReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonCloudWatchRUMReadOnlyAccess"},
-					{Name: "AmazonCloudWatchRUMServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonCloudWatchRUMServiceRolePolicy"},
-					{Name: "AmazonCodeGuruProfilerAgentAccess", Value: "arn:aws:iam::aws:policy/AmazonCodeGuruProfilerAgentAccess"},
-					{Name: "AmazonCodeGuruProfilerFullAccess", Value: "arn:aws:iam::aws:policy/AmazonCodeGuruProfilerFullAccess"},
-					{Name: "AmazonCodeGuruProfilerReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonCodeGuruProfilerReadOnlyAccess"},
-					{Name: "AmazonCodeGuruReviewerFullAccess", Value: "arn:aws:iam::aws:policy/AmazonCodeGuruReviewerFullAccess"},
-					{Name: "AmazonCodeGuruReviewerReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonCodeGuruReviewerReadOnlyAccess"},
-					{Name: "AmazonCodeGuruReviewerServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonCodeGuruReviewerServiceRolePolicy"},
-					{Name: "AmazonCognitoDeveloperAuthenticatedIdentities", Value: "arn:aws:iam::aws:policy/AmazonCognitoDeveloperAuthenticatedIdentities"},
-					{Name: "AmazonCognitoIdpEmailServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonCognitoIdpEmailServiceRolePolicy"},
-					{Name: "AmazonCognitoIdpServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonCognitoIdpServiceRolePolicy"},
-					{Name: "AmazonCognitoPowerUser", Value: "arn:aws:iam::aws:policy/AmazonCognitoPowerUser"},
-					{Name: "AmazonCognitoReadOnly", Value: "arn:aws:iam::aws:policy/AmazonCognitoReadOnly"},
-					{Name: "AmazonCognitoUnauthenticatedIdentities", Value: "arn:aws:iam::aws:policy/AmazonCognitoUnauthenticatedIdentities"},
-					{Name: "AmazonConnectCampaignsServiceLinkedRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonConnectCampaignsServiceLinkedRolePolicy"},
-					{Name: "AmazonConnectReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonConnectReadOnlyAccess"},
-					{Name: "AmazonConnectServiceLinkedRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonConnectServiceLinkedRolePolicy"},
-					{Name: "AmazonConnectVoiceIDFullAccess", Value: "arn:aws:iam::aws:policy/AmazonConnectVoiceIDFullAccess"},
-					{Name: "AmazonConnect_FullAccess", Value: "arn:aws:iam::aws:policy/AmazonConnect_FullAccess"},
-					{Name: "AmazonDMSCloudWatchLogsRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole"},
-					{Name: "AmazonDMSRedshiftS3Role", Value: "arn:aws:iam::aws:policy/service-role/AmazonDMSRedshiftS3Role"},
-					{Name: "AmazonDMSVPCManagementRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole"},
-					{Name: "AmazonDRSVPCManagement", Value: "arn:aws:iam::aws:policy/AmazonDRSVPCManagement"},
-					{Name: "AmazonDetectiveFullAccess", Value: "arn:aws:iam::aws:policy/AmazonDetectiveFullAccess"},
-					{Name: "AmazonDetectiveInvestigatorAccess", Value: "arn:aws:iam::aws:policy/AmazonDetectiveInvestigatorAccess"},
-					{Name: "AmazonDetectiveMemberAccess", Value: "arn:aws:iam::aws:policy/AmazonDetectiveMemberAccess"},
-					{Name: "AmazonDetectiveServiceLinkedRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonDetectiveServiceLinkedRolePolicy"},
-					{Name: "AmazonDevOpsGuruConsoleFullAccess", Value: "arn:aws:iam::aws:policy/AmazonDevOpsGuruConsoleFullAccess"},
-					{Name: "AmazonDevOpsGuruFullAccess", Value: "arn:aws:iam::aws:policy/AmazonDevOpsGuruFullAccess"},
-					{Name: "AmazonDevOpsGuruOrganizationsAccess", Value: "arn:aws:iam::aws:policy/AmazonDevOpsGuruOrganizationsAccess"},
-					{Name: "AmazonDevOpsGuruReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonDevOpsGuruReadOnlyAccess"},
-					{Name: "AmazonDevOpsGuruServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonDevOpsGuruServiceRolePolicy"},
-					{Name: "AmazonDocDBElasticServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonDocDB-ElasticServiceRolePolicy"},
-					{Name: "AmazonDocDBConsoleFullAccess", Value: "arn:aws:iam::aws:policy/AmazonDocDBConsoleFullAccess"},
-					{Name: "AmazonDocDBFullAccess", Value: "arn:aws:iam::aws:policy/AmazonDocDBFullAccess"},
-					{Name: "AmazonDocDBReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonDocDBReadOnlyAccess"},
-					{Name: "AmazonDynamoDBFullAccess", Value: "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"},
-					{Name: "AmazonDynamoDBFullAccesswithDataPipeline", Value: "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccesswithDataPipeline"},
-					{Name: "AmazonDynamoDBReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonDynamoDBReadOnlyAccess"},
-					{Name: "AmazonEBSCSIDriverPolicy", Value: "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"},
-					{Name: "AmazonEC2ContainerRegistryFullAccess", Value: "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess"},
-					{Name: "AmazonEC2ContainerRegistryPowerUser", Value: "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPowerUser"},
-					{Name: "AmazonEC2ContainerRegistryReadOnly", Value: "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"},
-					{Name: "AmazonEC2ContainerServiceAutoscaleRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceAutoscaleRole"},
-					{Name: "AmazonEC2ContainerServiceEventsRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceEventsRole"},
-					{Name: "AmazonEC2ContainerServiceFullAccess", Value: "arn:aws:iam::aws:policy/AmazonEC2ContainerServiceFullAccess", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use AmazonECS_FullAccess instead."},
-					{Name: "AmazonEC2ContainerServiceRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceRole"},
-					{Name: "AmazonEC2ContainerServiceforEC2Role", Value: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"},
-					{Name: "AmazonEC2FullAccess", Value: "arn:aws:iam::aws:policy/AmazonEC2FullAccess"},
-					{Name: "AmazonEC2ReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess"},
-					{Name: "AmazonEC2ReportsAccess", Value: "arn:aws:iam::aws:policy/AmazonEC2ReportsAccess", DeprecationMessage: "This policy is deprecated and will be removed in a future release."},
-					{Name: "AmazonEC2RolePolicyForLaunchWizard", Value: "arn:aws:iam::aws:policy/AmazonEC2RolePolicyForLaunchWizard"},
-					{Name: "AmazonEC2RoleforAWSCodeDeploy", Value: "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforAWSCodeDeploy"},
-					{Name: "AmazonEC2RoleforAWSCodeDeployLimited", Value: "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforAWSCodeDeployLimited"},
-					{Name: "AmazonEC2RoleforDataPipelineRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforDataPipelineRole"},
-					{Name: "AmazonEC2RoleforSSM", Value: "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"},
-					{Name: "AmazonEC2SpotFleetAutoscaleRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetAutoscaleRole"},
-					{Name: "AmazonEC2SpotFleetRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetRole", DeprecationMessage: "This policy is deprecated and will be removed in a future release."},
-					{Name: "AmazonEC2SpotFleetTaggingRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetTaggingRole"},
-					{Name: "AmazonECSFullAccess", Value: "arn:aws:iam::aws:policy/AmazonECS_FullAccess"},
-					{Name: "AmazonECSServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonECSServiceRolePolicy"},
-					{Name: "AmazonECSTaskExecutionRolePolicy", Value: "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"},
-					{Name: "AmazonEKSClusterPolicy", Value: "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"},
-					{Name: "AmazonEKSConnectorServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonEKSConnectorServiceRolePolicy"},
-					{Name: "AmazonEKSFargatePodExecutionRolePolicy", Value: "arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy"},
-					{Name: "AmazonEKSForFargateServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonEKSForFargateServiceRolePolicy"},
-					{Name: "AmazonEKSLocalOutpostClusterPolicy", Value: "arn:aws:iam::aws:policy/AmazonEKSLocalOutpostClusterPolicy"},
-					{Name: "AmazonEKSLocalOutpostServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonEKSLocalOutpostServiceRolePolicy"},
-					{Name: "AmazonEKSServicePolicy", Value: "arn:aws:iam::aws:policy/AmazonEKSServicePolicy"},
-					{Name: "AmazonEKSServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonEKSServiceRolePolicy"},
-					{Name: "AmazonEKSVPCResourceController", Value: "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"},
-					{Name: "AmazonEKSWorkerNodePolicy", Value: "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"},
-					{Name: "AmazonEKS_CNI_Policy", Value: "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"},
-					{Name: "AmazonEMRCleanupPolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonEMRCleanupPolicy"},
-					{Name: "AmazonEMRContainersServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonEMRContainersServiceRolePolicy"},
-					{Name: "AmazonEMRFullAccessPolicy_v2", Value: "arn:aws:iam::aws:policy/AmazonEMRFullAccessPolicy_v2"},
-					{Name: "AmazonEMRReadOnlyAccessPolicy_v2", Value: "arn:aws:iam::aws:policy/AmazonEMRReadOnlyAccessPolicy_v2"},
-					{Name: "AmazonEMRServerlessServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonEMRServerlessServiceRolePolicy"},
-					{Name: "AmazonEMRServicePolicy_v2", Value: "arn:aws:iam::aws:policy/service-role/AmazonEMRServicePolicy_v2"},
-					{Name: "AmazonESCognitoAccess", Value: "arn:aws:iam::aws:policy/AmazonESCognitoAccess"},
-					{Name: "AmazonESFullAccess", Value: "arn:aws:iam::aws:policy/AmazonESFullAccess"},
-					{Name: "AmazonESReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonESReadOnlyAccess"},
-					{Name: "AmazonElastiCacheFullAccess", Value: "arn:aws:iam::aws:policy/AmazonElastiCacheFullAccess"},
-					{Name: "AmazonElastiCacheReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonElastiCacheReadOnlyAccess"},
-					{Name: "AmazonElasticContainerRegistryPublicFullAccess", Value: "arn:aws:iam::aws:policy/AmazonElasticContainerRegistryPublicFullAccess"},
-					{Name: "AmazonElasticContainerRegistryPublicPowerUser", Value: "arn:aws:iam::aws:policy/AmazonElasticContainerRegistryPublicPowerUser"},
-					{Name: "AmazonElasticContainerRegistryPublicReadOnly", Value: "arn:aws:iam::aws:policy/AmazonElasticContainerRegistryPublicReadOnly"},
-					{Name: "AmazonElasticFileSystemClientFullAccess", Value: "arn:aws:iam::aws:policy/AmazonElasticFileSystemClientFullAccess"},
-					{Name: "AmazonElasticFileSystemClientReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonElasticFileSystemClientReadOnlyAccess"},
-					{Name: "AmazonElasticFileSystemClientReadWriteAccess", Value: "arn:aws:iam::aws:policy/AmazonElasticFileSystemClientReadWriteAccess"},
-					{Name: "AmazonElasticFileSystemFullAccess", Value: "arn:aws:iam::aws:policy/AmazonElasticFileSystemFullAccess"},
-					{Name: "AmazonElasticFileSystemReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonElasticFileSystemReadOnlyAccess"},
-					{Name: "AmazonElasticFileSystemServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonElasticFileSystemServiceRolePolicy"},
-					{Name: "AmazonElasticFileSystemsUtils", Value: "arn:aws:iam::aws:policy/AmazonElasticFileSystemsUtils"},
-					{Name: "AmazonElasticMapReduceEditorsRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceEditorsRole"},
-					{Name: "AmazonElasticMapReduceFullAccess", Value: "arn:aws:iam::aws:policy/AmazonElasticMapReduceFullAccess"},
-					{Name: "AmazonElasticMapReducePlacementGroupPolicy", Value: "arn:aws:iam::aws:policy/AmazonElasticMapReducePlacementGroupPolicy"},
-					{Name: "AmazonElasticMapReduceReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonElasticMapReduceReadOnlyAccess"},
-					{Name: "AmazonElasticMapReduceRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceRole"},
-					{Name: "AmazonElasticMapReduceforAutoScalingRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforAutoScalingRole"},
-					{Name: "AmazonElasticMapReduceforEC2Role", Value: "arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforEC2Role"},
-					{Name: "AmazonElasticTranscoderFullAccess", Value: "arn:aws:iam::aws:policy/AmazonElasticTranscoderFullAccess", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use ElasticTranscoder_FullAccess instead."},
-					{Name: "AmazonElasticTranscoderJobsSubmitter", Value: "arn:aws:iam::aws:policy/AmazonElasticTranscoderJobsSubmitter", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use ElasticTranscoder_JobsSubmitter instead."},
-					{Name: "AmazonElasticTranscoderReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonElasticTranscoderReadOnlyAccess", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use ElasticTranscoder_ReadOnlyAccess instead."},
-					{Name: "AmazonElasticTranscoderRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonElasticTranscoderRole"},
-					// Renamed to avoid naming conflicts in Python due to underscores being removed.
-					{Name: "ElasticTranscoder_FullAccess", Value: "arn:aws:iam::aws:policy/AmazonElasticTranscoder_FullAccess"},
-					{Name: "ElasticTranscoder_JobsSubmitter", Value: "arn:aws:iam::aws:policy/AmazonElasticTranscoder_JobsSubmitter"},
-					{Name: "ElasticTranscoder_ReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonElasticTranscoder_ReadOnlyAccess"},
-					{Name: "AmazonElasticsearchServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonElasticsearchServiceRolePolicy"},
-					{Name: "AmazonEventBridgeApiDestinationsServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonEventBridgeApiDestinationsServiceRolePolicy"},
-					{Name: "AmazonEventBridgeFullAccess", Value: "arn:aws:iam::aws:policy/AmazonEventBridgeFullAccess"},
-					{Name: "AmazonEventBridgePipesFullAccess", Value: "arn:aws:iam::aws:policy/AmazonEventBridgePipesFullAccess"},
-					{Name: "AmazonEventBridgePipesOperatorAccess", Value: "arn:aws:iam::aws:policy/AmazonEventBridgePipesOperatorAccess"},
-					{Name: "AmazonEventBridgePipesReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonEventBridgePipesReadOnlyAccess"},
-					{Name: "AmazonEventBridgeReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonEventBridgeReadOnlyAccess"},
-					{Name: "AmazonEventBridgeSchedulerFullAccess", Value: "arn:aws:iam::aws:policy/AmazonEventBridgeSchedulerFullAccess"},
-					{Name: "AmazonEventBridgeSchedulerReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonEventBridgeSchedulerReadOnlyAccess"},
-					{Name: "AmazonEventBridgeSchemasFullAccess", Value: "arn:aws:iam::aws:policy/AmazonEventBridgeSchemasFullAccess"},
-					{Name: "AmazonEventBridgeSchemasReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonEventBridgeSchemasReadOnlyAccess"},
-					{Name: "AmazonEventBridgeSchemasServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonEventBridgeSchemasServiceRolePolicy"},
-					{Name: "AmazonFISServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonFISServiceRolePolicy"},
-					{Name: "AmazonFSxConsoleFullAccess", Value: "arn:aws:iam::aws:policy/AmazonFSxConsoleFullAccess"},
-					{Name: "AmazonFSxConsoleReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonFSxConsoleReadOnlyAccess"},
-					{Name: "AmazonFSxFullAccess", Value: "arn:aws:iam::aws:policy/AmazonFSxFullAccess"},
-					{Name: "AmazonFSxReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonFSxReadOnlyAccess"},
-					{Name: "AmazonFSxServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonFSxServiceRolePolicy"},
-					{Name: "AmazonForecastFullAccess", Value: "arn:aws:iam::aws:policy/AmazonForecastFullAccess"},
-					{Name: "AmazonFraudDetectorFullAccessPolicy", Value: "arn:aws:iam::aws:policy/AmazonFraudDetectorFullAccessPolicy"},
-					{Name: "AmazonFreeRTOSFullAccess", Value: "arn:aws:iam::aws:policy/AmazonFreeRTOSFullAccess"},
-					{Name: "AmazonFreeRTOSOTAUpdate", Value: "arn:aws:iam::aws:policy/service-role/AmazonFreeRTOSOTAUpdate"},
-					{Name: "AmazonGlacierFullAccess", Value: "arn:aws:iam::aws:policy/AmazonGlacierFullAccess"},
-					{Name: "AmazonGlacierReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonGlacierReadOnlyAccess"},
-					{Name: "AmazonGrafanaAthenaAccess", Value: "arn:aws:iam::aws:policy/service-role/AmazonGrafanaAthenaAccess"},
-					{Name: "AmazonGrafanaRedshiftAccess", Value: "arn:aws:iam::aws:policy/service-role/AmazonGrafanaRedshiftAccess"},
-					{Name: "AmazonGrafanaServiceLinkedRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonGrafanaServiceLinkedRolePolicy"},
-					{Name: "AmazonGuardDutyFullAccess", Value: "arn:aws:iam::aws:policy/AmazonGuardDutyFullAccess"},
-					{Name: "AmazonGuardDutyMalwareProtectionServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonGuardDutyMalwareProtectionServiceRolePolicy"},
-					{Name: "AmazonGuardDutyReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonGuardDutyReadOnlyAccess"},
-					{Name: "AmazonGuardDutyServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonGuardDutyServiceRolePolicy"},
-					{Name: "AmazonHealthLakeFullAccess", Value: "arn:aws:iam::aws:policy/AmazonHealthLakeFullAccess"},
-					{Name: "AmazonHealthLakeReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonHealthLakeReadOnlyAccess"},
-					{Name: "AmazonHoneycodeFullAccess", Value: "arn:aws:iam::aws:policy/AmazonHoneycodeFullAccess"},
-					{Name: "AmazonHoneycodeReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonHoneycodeReadOnlyAccess"},
-					{Name: "AmazonHoneycodeServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonHoneycodeServiceRolePolicy"},
-					{Name: "AmazonHoneycodeTeamAssociationFullAccess", Value: "arn:aws:iam::aws:policy/AmazonHoneycodeTeamAssociationFullAccess"},
-					{Name: "AmazonHoneycodeTeamAssociationReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonHoneycodeTeamAssociationReadOnlyAccess"},
-					{Name: "AmazonHoneycodeWorkbookFullAccess", Value: "arn:aws:iam::aws:policy/AmazonHoneycodeWorkbookFullAccess"},
-					{Name: "AmazonHoneycodeWorkbookReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonHoneycodeWorkbookReadOnlyAccess"},
-					{Name: "AmazonInspector2FullAccess", Value: "arn:aws:iam::aws:policy/AmazonInspector2FullAccess"},
-					{Name: "AmazonInspector2ReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonInspector2ReadOnlyAccess"},
-					{Name: "AmazonInspector2ServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonInspector2ServiceRolePolicy"},
-					{Name: "AmazonInspectorFullAccess", Value: "arn:aws:iam::aws:policy/AmazonInspectorFullAccess"},
-					{Name: "AmazonInspectorReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonInspectorReadOnlyAccess"},
-					{Name: "AmazonInspectorServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonInspectorServiceRolePolicy"},
-					{Name: "AmazonKendraFullAccess", Value: "arn:aws:iam::aws:policy/AmazonKendraFullAccess"},
-					{Name: "AmazonKendraReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonKendraReadOnlyAccess"},
-					{Name: "AmazonKeyspacesFullAccess", Value: "arn:aws:iam::aws:policy/AmazonKeyspacesFullAccess"},
-					{Name: "AmazonKeyspacesReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonKeyspacesReadOnlyAccess"},
-					{Name: "AmazonKinesisAnalyticsFullAccess", Value: "arn:aws:iam::aws:policy/AmazonKinesisAnalyticsFullAccess"},
-					{Name: "AmazonKinesisAnalyticsReadOnly", Value: "arn:aws:iam::aws:policy/AmazonKinesisAnalyticsReadOnly"},
-					{Name: "AmazonKinesisFirehoseFullAccess", Value: "arn:aws:iam::aws:policy/AmazonKinesisFirehoseFullAccess"},
-					{Name: "AmazonKinesisFirehoseReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonKinesisFirehoseReadOnlyAccess"},
-					{Name: "AmazonKinesisFullAccess", Value: "arn:aws:iam::aws:policy/AmazonKinesisFullAccess"},
-					{Name: "AmazonKinesisReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonKinesisReadOnlyAccess"},
-					{Name: "AmazonKinesisVideoStreamsFullAccess", Value: "arn:aws:iam::aws:policy/AmazonKinesisVideoStreamsFullAccess"},
-					{Name: "AmazonKinesisVideoStreamsReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonKinesisVideoStreamsReadOnlyAccess"},
-					{Name: "AmazonLaunchWizard_Fullaccess", Value: "arn:aws:iam::aws:policy/AmazonLaunchWizard_Fullaccess"},
-					{Name: "AmazonLexChannelsAccess", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonLexChannelsAccess"},
-					{Name: "AmazonLexFullAccess", Value: "arn:aws:iam::aws:policy/AmazonLexFullAccess"},
-					{Name: "AmazonLexReadOnly", Value: "arn:aws:iam::aws:policy/AmazonLexReadOnly"},
-					{Name: "AmazonLexRunBotsOnly", Value: "arn:aws:iam::aws:policy/AmazonLexRunBotsOnly"},
-					{Name: "AmazonLexV2BotPolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonLexV2BotPolicy"},
-					{Name: "AmazonLookoutEquipmentFullAccess", Value: "arn:aws:iam::aws:policy/AmazonLookoutEquipmentFullAccess"},
-					{Name: "AmazonLookoutEquipmentReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonLookoutEquipmentReadOnlyAccess"},
-					{Name: "AmazonLookoutMetricsFullAccess", Value: "arn:aws:iam::aws:policy/AmazonLookoutMetricsFullAccess"},
-					{Name: "AmazonLookoutMetricsReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonLookoutMetricsReadOnlyAccess"},
-					{Name: "AmazonLookoutVisionConsoleFullAccess", Value: "arn:aws:iam::aws:policy/AmazonLookoutVisionConsoleFullAccess"},
-					{Name: "AmazonLookoutVisionConsoleReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonLookoutVisionConsoleReadOnlyAccess"},
-					{Name: "AmazonLookoutVisionFullAccess", Value: "arn:aws:iam::aws:policy/AmazonLookoutVisionFullAccess"},
-					{Name: "AmazonLookoutVisionReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonLookoutVisionReadOnlyAccess"},
-					{Name: "AmazonMCSFullAccess", Value: "arn:aws:iam::aws:policy/AmazonMCSFullAccess"},
-					{Name: "AmazonMCSReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonMCSReadOnlyAccess"},
-					{Name: "AmazonMQApiFullAccess", Value: "arn:aws:iam::aws:policy/AmazonMQApiFullAccess"},
-					{Name: "AmazonMQApiReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonMQApiReadOnlyAccess"},
-					{Name: "AmazonMQFullAccess", Value: "arn:aws:iam::aws:policy/AmazonMQFullAccess"},
-					{Name: "AmazonMQReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonMQReadOnlyAccess"},
-					{Name: "AmazonMQServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonMQServiceRolePolicy"},
-					{Name: "AmazonMSKConnectReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonMSKConnectReadOnlyAccess"},
-					{Name: "AmazonMSKFullAccess", Value: "arn:aws:iam::aws:policy/AmazonMSKFullAccess"},
-					{Name: "AmazonMSKReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonMSKReadOnlyAccess"},
-					{Name: "AmazonMWAAServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonMWAAServiceRolePolicy"},
-					{Name: "AmazonMachineLearningBatchPredictionsAccess", Value: "arn:aws:iam::aws:policy/AmazonMachineLearningBatchPredictionsAccess"},
-					{Name: "AmazonMachineLearningCreateOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonMachineLearningCreateOnlyAccess"},
-					{Name: "AmazonMachineLearningFullAccess", Value: "arn:aws:iam::aws:policy/AmazonMachineLearningFullAccess"},
-					{Name: "AmazonMachineLearningManageRealTimeEndpointOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonMachineLearningManageRealTimeEndpointOnlyAccess"},
-					{Name: "AmazonMachineLearningReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonMachineLearningReadOnlyAccess"},
-					{Name: "AmazonMachineLearningRealTimePredictionOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonMachineLearningRealTimePredictionOnlyAccess"},
-					{Name: "AmazonMachineLearningRoleforRedshiftDataSource", Value: "arn:aws:iam::aws:policy/service-role/AmazonMachineLearningRoleforRedshiftDataSource", DeprecationMessage: "This policy is deprecated. Use AmazonMachineLearningRoleforRedshiftDataSourceV3 instead."},
-					{Name: "AmazonMachineLearningRoleforRedshiftDataSourceV3", Value: "arn:aws:iam::aws:policy/service-role/AmazonMachineLearningRoleforRedshiftDataSourceV3"},
-					{Name: "AmazonMacieFullAccess", Value: "arn:aws:iam::aws:policy/AmazonMacieFullAccess"},
-					{Name: "AmazonMacieHandshakeRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonMacieHandshakeRole"},
-					{Name: "AmazonMacieServiceRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonMacieServiceRole"},
-					{Name: "AmazonMacieServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonMacieServiceRolePolicy"},
-					{Name: "AmazonManagedBlockchainConsoleFullAccess", Value: "arn:aws:iam::aws:policy/AmazonManagedBlockchainConsoleFullAccess"},
-					{Name: "AmazonManagedBlockchainFullAccess", Value: "arn:aws:iam::aws:policy/AmazonManagedBlockchainFullAccess"},
-					{Name: "AmazonManagedBlockchainReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonManagedBlockchainReadOnlyAccess"},
-					{Name: "AmazonManagedBlockchainServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonManagedBlockchainServiceRolePolicy"},
-					{Name: "AmazonMechanicalTurkFullAccess", Value: "arn:aws:iam::aws:policy/AmazonMechanicalTurkFullAccess"},
-					{Name: "AmazonMechanicalTurkReadOnly", Value: "arn:aws:iam::aws:policy/AmazonMechanicalTurkReadOnly"},
-					{Name: "AmazonMemoryDBFullAccess", Value: "arn:aws:iam::aws:policy/AmazonMemoryDBFullAccess"},
-					{Name: "AmazonMemoryDBReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonMemoryDBReadOnlyAccess"},
-					{Name: "AmazonMobileAnalyticsFinancialReportAccess", Value: "arn:aws:iam::aws:policy/AmazonMobileAnalyticsFinancialReportAccess"},
-					{Name: "AmazonMobileAnalyticsFullAccess", Value: "arn:aws:iam::aws:policy/AmazonMobileAnalyticsFullAccess"},
-					{Name: "AmazonMobileAnalyticsNonfinancialReportAccess", Value: "arn:aws:iam::aws:policy/AmazonMobileAnalyticsNon-financialReportAccess"},
-					{Name: "AmazonMobileAnalyticsWriteOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonMobileAnalyticsWriteOnlyAccess"},
-					{Name: "AmazonMonitronFullAccess", Value: "arn:aws:iam::aws:policy/AmazonMonitronFullAccess"},
-					{Name: "AmazonNimbleStudioLaunchProfileWorker", Value: "arn:aws:iam::aws:policy/AmazonNimbleStudio-LaunchProfileWorker"},
-					{Name: "AmazonNimbleStudioStudioAdmin", Value: "arn:aws:iam::aws:policy/AmazonNimbleStudio-StudioAdmin"},
-					{Name: "AmazonNimbleStudioStudioUser", Value: "arn:aws:iam::aws:policy/AmazonNimbleStudio-StudioUser"},
-					{Name: "AmazonOmicsFullAccess", Value: "arn:aws:iam::aws:policy/AmazonOmicsFullAccess"},
-					{Name: "AmazonOmicsReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonOmicsReadOnlyAccess"},
-					{Name: "AmazonOpenSearchIngestionServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonOpenSearchIngestionServiceRolePolicy"},
-					{Name: "AmazonOpenSearchServerlessServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonOpenSearchServerlessServiceRolePolicy"},
-					{Name: "AmazonOpenSearchServiceCognitoAccess", Value: "arn:aws:iam::aws:policy/AmazonOpenSearchServiceCognitoAccess"},
-					{Name: "AmazonOpenSearchServiceFullAccess", Value: "arn:aws:iam::aws:policy/AmazonOpenSearchServiceFullAccess"},
-					{Name: "AmazonOpenSearchServiceReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonOpenSearchServiceReadOnlyAccess"},
-					{Name: "AmazonOpenSearchServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonOpenSearchServiceRolePolicy"},
-					{Name: "AmazonPersonalizeFullAccess", Value: "arn:aws:iam::aws:policy/service-role/AmazonPersonalizeFullAccess"},
-					{Name: "AmazonPollyFullAccess", Value: "arn:aws:iam::aws:policy/AmazonPollyFullAccess"},
-					{Name: "AmazonPollyReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonPollyReadOnlyAccess"},
-					{Name: "AmazonPrometheusConsoleFullAccess", Value: "arn:aws:iam::aws:policy/AmazonPrometheusConsoleFullAccess"},
-					{Name: "AmazonPrometheusFullAccess", Value: "arn:aws:iam::aws:policy/AmazonPrometheusFullAccess"},
-					{Name: "AmazonPrometheusQueryAccess", Value: "arn:aws:iam::aws:policy/AmazonPrometheusQueryAccess"},
-					{Name: "AmazonPrometheusRemoteWriteAccess", Value: "arn:aws:iam::aws:policy/AmazonPrometheusRemoteWriteAccess"},
-					{Name: "AmazonQLDBConsoleFullAccess", Value: "arn:aws:iam::aws:policy/AmazonQLDBConsoleFullAccess"},
-					{Name: "AmazonQLDBFullAccess", Value: "arn:aws:iam::aws:policy/AmazonQLDBFullAccess"},
-					{Name: "AmazonQLDBReadOnly", Value: "arn:aws:iam::aws:policy/AmazonQLDBReadOnly"},
-					{Name: "AmazonRDSBetaServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonRDSBetaServiceRolePolicy"},
-					{Name: "AmazonRDSCustomPreviewServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonRDSCustomPreviewServiceRolePolicy"},
-					{Name: "AmazonRDSCustomServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonRDSCustomServiceRolePolicy"},
-					{Name: "AmazonRDSDataFullAccess", Value: "arn:aws:iam::aws:policy/AmazonRDSDataFullAccess"},
-					{Name: "AmazonRDSDirectoryServiceAccess", Value: "arn:aws:iam::aws:policy/service-role/AmazonRDSDirectoryServiceAccess"},
-					{Name: "AmazonRDSEnhancedMonitoringRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonRDSEnhancedMonitoringRole"},
-					{Name: "AmazonRDSFullAccess", Value: "arn:aws:iam::aws:policy/AmazonRDSFullAccess"},
-					{Name: "AmazonRDSPerformanceInsightsReadOnly", Value: "arn:aws:iam::aws:policy/AmazonRDSPerformanceInsightsReadOnly"},
-					{Name: "AmazonRDSPreviewServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonRDSPreviewServiceRolePolicy"},
-					{Name: "AmazonRDSReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonRDSReadOnlyAccess"},
-					{Name: "AmazonRDSServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonRDSServiceRolePolicy"},
-					{Name: "AmazonRedshiftAllCommandsFullAccess", Value: "arn:aws:iam::aws:policy/AmazonRedshiftAllCommandsFullAccess"},
-					{Name: "AmazonRedshiftDataFullAccess", Value: "arn:aws:iam::aws:policy/AmazonRedshiftDataFullAccess"},
-					{Name: "AmazonRedshiftFullAccess", Value: "arn:aws:iam::aws:policy/AmazonRedshiftFullAccess"},
-					{Name: "AmazonRedshiftQueryEditor", Value: "arn:aws:iam::aws:policy/AmazonRedshiftQueryEditor"},
-					{Name: "AmazonRedshiftQueryEditorV2FullAccess", Value: "arn:aws:iam::aws:policy/AmazonRedshiftQueryEditorV2FullAccess"},
-					{Name: "AmazonRedshiftQueryEditorV2NoSharing", Value: "arn:aws:iam::aws:policy/AmazonRedshiftQueryEditorV2NoSharing"},
-					{Name: "AmazonRedshiftQueryEditorV2ReadSharing", Value: "arn:aws:iam::aws:policy/AmazonRedshiftQueryEditorV2ReadSharing"},
-					{Name: "AmazonRedshiftQueryEditorV2ReadWriteSharing", Value: "arn:aws:iam::aws:policy/AmazonRedshiftQueryEditorV2ReadWriteSharing"},
-					{Name: "AmazonRedshiftReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonRedshiftReadOnlyAccess"},
-					{Name: "AmazonRedshiftServiceLinkedRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonRedshiftServiceLinkedRolePolicy"},
-					{Name: "AmazonRekognitionCustomLabelsFullAccess", Value: "arn:aws:iam::aws:policy/AmazonRekognitionCustomLabelsFullAccess"},
-					{Name: "AmazonRekognitionFullAccess", Value: "arn:aws:iam::aws:policy/AmazonRekognitionFullAccess"},
-					{Name: "AmazonRekognitionReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonRekognitionReadOnlyAccess"},
-					{Name: "AmazonRekognitionServiceRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonRekognitionServiceRole"},
-					{Name: "AmazonRoute53AutoNamingFullAccess", Value: "arn:aws:iam::aws:policy/AmazonRoute53AutoNamingFullAccess"},
-					{Name: "AmazonRoute53AutoNamingReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonRoute53AutoNamingReadOnlyAccess"},
-					{Name: "AmazonRoute53AutoNamingRegistrantAccess", Value: "arn:aws:iam::aws:policy/AmazonRoute53AutoNamingRegistrantAccess"},
-					{Name: "AmazonRoute53DomainsFullAccess", Value: "arn:aws:iam::aws:policy/AmazonRoute53DomainsFullAccess"},
-					{Name: "AmazonRoute53DomainsReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonRoute53DomainsReadOnlyAccess"},
-					{Name: "AmazonRoute53FullAccess", Value: "arn:aws:iam::aws:policy/AmazonRoute53FullAccess"},
-					{Name: "AmazonRoute53ReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonRoute53ReadOnlyAccess"},
-					{Name: "AmazonRoute53RecoveryClusterFullAccess", Value: "arn:aws:iam::aws:policy/AmazonRoute53RecoveryClusterFullAccess"},
-					{Name: "AmazonRoute53RecoveryClusterReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonRoute53RecoveryClusterReadOnlyAccess"},
-					{Name: "AmazonRoute53RecoveryControlConfigFullAccess", Value: "arn:aws:iam::aws:policy/AmazonRoute53RecoveryControlConfigFullAccess"},
-					{Name: "AmazonRoute53RecoveryControlConfigReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonRoute53RecoveryControlConfigReadOnlyAccess"},
-					{Name: "AmazonRoute53RecoveryReadinessFullAccess", Value: "arn:aws:iam::aws:policy/AmazonRoute53RecoveryReadinessFullAccess"},
-					{Name: "AmazonRoute53RecoveryReadinessReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonRoute53RecoveryReadinessReadOnlyAccess"},
-					{Name: "AmazonRoute53ResolverFullAccess", Value: "arn:aws:iam::aws:policy/AmazonRoute53ResolverFullAccess"},
-					{Name: "AmazonRoute53ResolverReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonRoute53ResolverReadOnlyAccess"},
-					{Name: "AmazonS3FullAccess", Value: "arn:aws:iam::aws:policy/AmazonS3FullAccess"},
-					{Name: "AmazonS3ObjectLambdaExecutionRolePolicy", Value: "arn:aws:iam::aws:policy/service-role/AmazonS3ObjectLambdaExecutionRolePolicy"},
-					{Name: "AmazonS3OutpostsFullAccess", Value: "arn:aws:iam::aws:policy/AmazonS3OutpostsFullAccess"},
-					{Name: "AmazonS3OutpostsReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonS3OutpostsReadOnlyAccess"},
-					{Name: "AmazonS3ReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"},
-					{Name: "AmazonSESFullAccess", Value: "arn:aws:iam::aws:policy/AmazonSESFullAccess"},
-					{Name: "AmazonSESReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonSESReadOnlyAccess"},
-					{Name: "AmazonSNSFullAccess", Value: "arn:aws:iam::aws:policy/AmazonSNSFullAccess"},
-					{Name: "AmazonSNSReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonSNSReadOnlyAccess"},
-					{Name: "AmazonSNSRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonSNSRole"},
-					{Name: "AmazonSQSFullAccess", Value: "arn:aws:iam::aws:policy/AmazonSQSFullAccess"},
-					{Name: "AmazonSQSReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonSQSReadOnlyAccess"},
-					{Name: "AmazonSSMAutomationApproverAccess", Value: "arn:aws:iam::aws:policy/AmazonSSMAutomationApproverAccess"},
-					{Name: "AmazonSSMAutomationRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonSSMAutomationRole"},
-					{Name: "AmazonSSMDirectoryServiceAccess", Value: "arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess"},
-					{Name: "AmazonSSMFullAccess", Value: "arn:aws:iam::aws:policy/AmazonSSMFullAccess"},
-					{Name: "AmazonSSMMaintenanceWindowRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonSSMMaintenanceWindowRole"},
-					{Name: "AmazonSSMManagedEC2InstanceDefaultPolicy", Value: "arn:aws:iam::aws:policy/AmazonSSMManagedEC2InstanceDefaultPolicy"},
-					{Name: "AmazonSSMPatchAssociation", Value: "arn:aws:iam::aws:policy/AmazonSSMPatchAssociation"},
-					{Name: "AmazonSSMReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess"},
-					{Name: "AmazonSSMManagedInstanceCore", Value: "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"},
-					{Name: "AmazonSSMServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonSSMServiceRolePolicy"},
-					{Name: "AmazonSageMakerAdminServiceCatalogProductsServiceRolePolicy", Value: "arn:aws:iam::aws:policy/AmazonSageMakerAdmin-ServiceCatalogProductsServiceRolePolicy"},
-					{Name: "AmazonSageMakerCanvasForecastAccess", Value: "arn:aws:iam::aws:policy/service-role/AmazonSageMakerCanvasForecastAccess"},
-					{Name: "AmazonSageMakerCanvasFullAccess", Value: "arn:aws:iam::aws:policy/AmazonSageMakerCanvasFullAccess"},
-					{Name: "AmazonSageMakerCoreServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonSageMakerCoreServiceRolePolicy"},
-					{Name: "AmazonSageMakerEdgeDeviceFleetPolicy", Value: "arn:aws:iam::aws:policy/service-role/AmazonSageMakerEdgeDeviceFleetPolicy"},
-					{Name: "AmazonSageMakerFeatureStoreAccess", Value: "arn:aws:iam::aws:policy/AmazonSageMakerFeatureStoreAccess"},
-					{Name: "AmazonSageMakerFullAccess", Value: "arn:aws:iam::aws:policy/AmazonSageMakerFullAccess"},
-					{Name: "AmazonSageMakerGeospatialExecutionRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonSageMakerGeospatialExecutionRole"},
-					{Name: "AmazonSageMakerGeospatialFullAccess", Value: "arn:aws:iam::aws:policy/service-role/AmazonSageMakerGeospatialFullAccess"},
-					{Name: "AmazonSageMakerGroundTruthExecution", Value: "arn:aws:iam::aws:policy/AmazonSageMakerGroundTruthExecution"},
-					{Name: "AmazonSageMakerMechanicalTurkAccess", Value: "arn:aws:iam::aws:policy/AmazonSageMakerMechanicalTurkAccess"},
-					{Name: "AmazonSageMakerModelGovernanceUseAccess", Value: "arn:aws:iam::aws:policy/AmazonSageMakerModelGovernanceUseAccess"},
-					{Name: "AmazonSageMakerNotebooksServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonSageMakerNotebooksServiceRolePolicy"},
-					{Name: "AmazonSageMakerPipelinesIntegrations", Value: "arn:aws:iam::aws:policy/AmazonSageMakerPipelinesIntegrations"},
-					{Name: "AmazonSageMakerReadOnly", Value: "arn:aws:iam::aws:policy/AmazonSageMakerReadOnly"},
-					{Name: "AmazonSageMakerServiceCatalogProductsApiGatewayServiceRolePolicy", Value: "arn:aws:iam::aws:policy/service-role/AmazonSageMakerServiceCatalogProductsApiGatewayServiceRolePolicy"},
-					{Name: "AmazonSageMakerServiceCatalogProductsCloudformationServiceRolePolicy", Value: "arn:aws:iam::aws:policy/service-role/AmazonSageMakerServiceCatalogProductsCloudformationServiceRolePolicy"},
-					{Name: "AmazonSageMakerServiceCatalogProductsCodeBuildServiceRolePolicy", Value: "arn:aws:iam::aws:policy/AmazonSageMakerServiceCatalogProductsCodeBuildServiceRolePolicy"},
-					{Name: "AmazonSageMakerServiceCatalogProductsCodePipelineServiceRolePolicy", Value: "arn:aws:iam::aws:policy/service-role/AmazonSageMakerServiceCatalogProductsCodePipelineServiceRolePolicy"},
-					{Name: "AmazonSageMakerServiceCatalogProductsEventsServiceRolePolicy", Value: "arn:aws:iam::aws:policy/service-role/AmazonSageMakerServiceCatalogProductsEventsServiceRolePolicy"},
-					{Name: "AmazonSageMakerServiceCatalogProductsFirehoseServiceRolePolicy", Value: "arn:aws:iam::aws:policy/service-role/AmazonSageMakerServiceCatalogProductsFirehoseServiceRolePolicy"},
-					{Name: "AmazonSageMakerServiceCatalogProductsGlueServiceRolePolicy", Value: "arn:aws:iam::aws:policy/service-role/AmazonSageMakerServiceCatalogProductsGlueServiceRolePolicy"},
-					{Name: "AmazonSageMakerServiceCatalogProductsLambdaServiceRolePolicy", Value: "arn:aws:iam::aws:policy/service-role/AmazonSageMakerServiceCatalogProductsLambdaServiceRolePolicy"},
-					{Name: "AmazonSecurityLakePermissionsBoundary", Value: "arn:aws:iam::aws:policy/AmazonSecurityLakePermissionsBoundary"},
-					{Name: "AmazonSumerianFullAccess", Value: "arn:aws:iam::aws:policy/AmazonSumerianFullAccess"},
-					{Name: "AmazonTextractFullAccess", Value: "arn:aws:iam::aws:policy/AmazonTextractFullAccess"},
-					{Name: "AmazonTextractServiceRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonTextractServiceRole"},
-					{Name: "AmazonTimestreamConsoleFullAccess", Value: "arn:aws:iam::aws:policy/AmazonTimestreamConsoleFullAccess"},
-					{Name: "AmazonTimestreamFullAccess", Value: "arn:aws:iam::aws:policy/AmazonTimestreamFullAccess"},
-					{Name: "AmazonTimestreamReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonTimestreamReadOnlyAccess"},
-					{Name: "AmazonTranscribeFullAccess", Value: "arn:aws:iam::aws:policy/AmazonTranscribeFullAccess"},
-					{Name: "AmazonTranscribeReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonTranscribeReadOnlyAccess"},
-					{Name: "AmazonVPCCrossAccountNetworkInterfaceOperations", Value: "arn:aws:iam::aws:policy/AmazonVPCCrossAccountNetworkInterfaceOperations"},
-					{Name: "AmazonVPCFullAccess", Value: "arn:aws:iam::aws:policy/AmazonVPCFullAccess"},
-					{Name: "AmazonVPCReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonVPCReadOnlyAccess"},
-					{Name: "AmazonWorkDocsFullAccess", Value: "arn:aws:iam::aws:policy/AmazonWorkDocsFullAccess"},
-					{Name: "AmazonWorkDocsReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonWorkDocsReadOnlyAccess"},
-					{Name: "AmazonWorkMailEventsServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonWorkMailEventsServiceRolePolicy"},
-					{Name: "AmazonWorkMailFullAccess", Value: "arn:aws:iam::aws:policy/AmazonWorkMailFullAccess"},
-					{Name: "AmazonWorkMailMessageFlowFullAccess", Value: "arn:aws:iam::aws:policy/AmazonWorkMailMessageFlowFullAccess"},
-					{Name: "AmazonWorkMailMessageFlowReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonWorkMailMessageFlowReadOnlyAccess"},
-					{Name: "AmazonWorkMailReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonWorkMailReadOnlyAccess"},
-					{Name: "AmazonWorkSpacesAdmin", Value: "arn:aws:iam::aws:policy/AmazonWorkSpacesAdmin"},
-					{Name: "AmazonWorkSpacesApplicationManagerAdminAccess", Value: "arn:aws:iam::aws:policy/AmazonWorkSpacesApplicationManagerAdminAccess"},
-					{Name: "AmazonWorkSpacesSelfServiceAccess", Value: "arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess"},
-					{Name: "AmazonWorkSpacesServiceAccess", Value: "arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess"},
-					{Name: "AmazonWorkSpacesWebReadOnly", Value: "arn:aws:iam::aws:policy/AmazonWorkSpacesWebReadOnly"},
-					{Name: "AmazonWorkSpacesWebServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AmazonWorkSpacesWebServiceRolePolicy"},
-					{Name: "AmazonWorkspacesPCAAccess", Value: "arn:aws:iam::aws:policy/AmazonWorkspacesPCAAccess"},
-					{Name: "AmazonZocaloFullAccess", Value: "arn:aws:iam::aws:policy/AmazonZocaloFullAccess"},
-					{Name: "AmazonZocaloReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonZocaloReadOnlyAccess"},
-					{Name: "AppIntegrationsServiceLinkedRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AppIntegrationsServiceLinkedRolePolicy"},
-					{Name: "AppRunnerNetworkingServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AppRunnerNetworkingServiceRolePolicy"},
-					{Name: "AppRunnerServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AppRunnerServiceRolePolicy"},
-					{Name: "ApplicationAutoScalingForAmazonAppStreamAccess", Value: "arn:aws:iam::aws:policy/service-role/ApplicationAutoScalingForAmazonAppStreamAccess"},
-					{Name: "ApplicationDiscoveryServiceContinuousExportServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/ApplicationDiscoveryServiceContinuousExportServiceRolePolicy"},
-					{Name: "AutoScalingConsoleFullAccess", Value: "arn:aws:iam::aws:policy/AutoScalingConsoleFullAccess"},
-					{Name: "AutoScalingConsoleReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AutoScalingConsoleReadOnlyAccess"},
-					{Name: "AutoScalingFullAccess", Value: "arn:aws:iam::aws:policy/AutoScalingFullAccess"},
-					{Name: "AutoScalingNotificationAccessRole", Value: "arn:aws:iam::aws:policy/service-role/AutoScalingNotificationAccessRole"},
-					{Name: "AutoScalingReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AutoScalingReadOnlyAccess"},
-					{Name: "AutoScalingServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AutoScalingServiceRolePolicy"},
-					{Name: "AwsGlueDataBrewFullAccessPolicy", Value: "arn:aws:iam::aws:policy/AwsGlueDataBrewFullAccessPolicy"},
-					{Name: "AwsGlueSessionUserRestrictedNotebookPolicy", Value: "arn:aws:iam::aws:policy/AwsGlueSessionUserRestrictedNotebookPolicy"},
-					{Name: "AwsGlueSessionUserRestrictedNotebookServiceRole", Value: "arn:aws:iam::aws:policy/service-role/AwsGlueSessionUserRestrictedNotebookServiceRole"},
-					{Name: "AwsGlueSessionUserRestrictedPolicy", Value: "arn:aws:iam::aws:policy/AwsGlueSessionUserRestrictedPolicy"},
-					{Name: "AwsGlueSessionUserRestrictedServiceRole", Value: "arn:aws:iam::aws:policy/service-role/AwsGlueSessionUserRestrictedServiceRole"},
-					{Name: "BatchServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/BatchServiceRolePolicy"},
-					{Name: "Billing", Value: "arn:aws:iam::aws:policy/job-function/Billing"},
-					{Name: "CertificateManagerServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/CertificateManagerServiceRolePolicy"},
-					{Name: "ClientVPNServiceConnectionsRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/ClientVPNServiceConnectionsRolePolicy"},
-					{Name: "ClientVPNServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/ClientVPNServiceRolePolicy"},
-					{Name: "CloudFormationStackSetsOrgAdminServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/CloudFormationStackSetsOrgAdminServiceRolePolicy"},
-					{Name: "CloudFormationStackSetsOrgMemberServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/CloudFormationStackSetsOrgMemberServiceRolePolicy"},
-					{Name: "CloudFrontFullAccess", Value: "arn:aws:iam::aws:policy/CloudFrontFullAccess"},
-					{Name: "CloudFrontReadOnlyAccess", Value: "arn:aws:iam::aws:policy/CloudFrontReadOnlyAccess"},
-					{Name: "CloudHSMServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/CloudHSMServiceRolePolicy"},
-					{Name: "CloudSearchFullAccess", Value: "arn:aws:iam::aws:policy/CloudSearchFullAccess"},
-					{Name: "CloudSearchReadOnlyAccess", Value: "arn:aws:iam::aws:policy/CloudSearchReadOnlyAccess"},
-					{Name: "CloudTrailServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/CloudTrailServiceRolePolicy"},
-					{Name: "CloudWatchCrossAccountAccess", Value: "arn:aws:iam::aws:policy/aws-service-role/CloudWatch-CrossAccountAccess"},
-					{Name: "CloudWatchActionsEC2Access", Value: "arn:aws:iam::aws:policy/CloudWatchActionsEC2Access"},
-					{Name: "CloudWatchAgentAdminPolicy", Value: "arn:aws:iam::aws:policy/CloudWatchAgentAdminPolicy"},
-					{Name: "CloudWatchAgentServerPolicy", Value: "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"},
-					{Name: "CloudWatchApplicationInsightsFullAccess", Value: "arn:aws:iam::aws:policy/CloudWatchApplicationInsightsFullAccess"},
-					{Name: "CloudWatchApplicationInsightsReadOnlyAccess", Value: "arn:aws:iam::aws:policy/CloudWatchApplicationInsightsReadOnlyAccess"},
-					{Name: "CloudWatchAutomaticDashboardsAccess", Value: "arn:aws:iam::aws:policy/CloudWatchAutomaticDashboardsAccess"},
-					{Name: "CloudWatchCrossAccountSharingConfiguration", Value: "arn:aws:iam::aws:policy/CloudWatchCrossAccountSharingConfiguration"},
-					{Name: "CloudWatchEventsBuiltInTargetExecutionAccess", Value: "arn:aws:iam::aws:policy/service-role/CloudWatchEventsBuiltInTargetExecutionAccess"},
-					{Name: "CloudWatchEventsFullAccess", Value: "arn:aws:iam::aws:policy/CloudWatchEventsFullAccess"},
-					{Name: "CloudWatchEventsInvocationAccess", Value: "arn:aws:iam::aws:policy/service-role/CloudWatchEventsInvocationAccess"},
-					{Name: "CloudWatchEventsReadOnlyAccess", Value: "arn:aws:iam::aws:policy/CloudWatchEventsReadOnlyAccess"},
-					{Name: "CloudWatchEventsServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/CloudWatchEventsServiceRolePolicy"},
-					{
-						Name:               "CloudWatchFullAccess",
-						Value:              "arn:aws:iam::aws:policy/CloudWatchFullAccess",
-						DeprecationMessage: "This policy is deprecated and will no longer be supported by AWS after December 7, 2023. Use CloudWatchFullAccessV2 instead.",
-					},
-					{Name: "CloudWatchFullAccessV2", Value: "arn:aws:iam::aws:policy/CloudWatchFullAccessV2"},
-					{Name: "CloudWatchInternetMonitorServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/CloudWatchInternetMonitorServiceRolePolicy"},
-					{Name: "CloudWatchLambdaInsightsExecutionRolePolicy", Value: "arn:aws:iam::aws:policy/CloudWatchLambdaInsightsExecutionRolePolicy"},
-					{Name: "CloudWatchLogsCrossAccountSharingConfiguration", Value: "arn:aws:iam::aws:policy/CloudWatchLogsCrossAccountSharingConfiguration"},
-					{Name: "CloudWatchLogsFullAccess", Value: "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess"},
-					{Name: "CloudWatchLogsReadOnlyAccess", Value: "arn:aws:iam::aws:policy/CloudWatchLogsReadOnlyAccess"},
-					{Name: "CloudWatchReadOnlyAccess", Value: "arn:aws:iam::aws:policy/CloudWatchReadOnlyAccess"},
-					{Name: "CloudWatchSyntheticsFullAccess", Value: "arn:aws:iam::aws:policy/CloudWatchSyntheticsFullAccess"},
-					{Name: "CloudWatchSyntheticsReadOnlyAccess", Value: "arn:aws:iam::aws:policy/CloudWatchSyntheticsReadOnlyAccess"},
-					{Name: "CloudwatchApplicationInsightsServiceLinkedRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/CloudwatchApplicationInsightsServiceLinkedRolePolicy"},
-					{Name: "ComprehendDataAccessRolePolicy", Value: "arn:aws:iam::aws:policy/service-role/ComprehendDataAccessRolePolicy"},
-					{Name: "ComprehendFullAccess", Value: "arn:aws:iam::aws:policy/ComprehendFullAccess"},
-					{Name: "ComprehendMedicalFullAccess", Value: "arn:aws:iam::aws:policy/ComprehendMedicalFullAccess"},
-					{Name: "ComprehendReadOnly", Value: "arn:aws:iam::aws:policy/ComprehendReadOnly"},
-					{Name: "ComputeOptimizerReadOnlyAccess", Value: "arn:aws:iam::aws:policy/ComputeOptimizerReadOnlyAccess"},
-					{Name: "ComputeOptimizerServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/ComputeOptimizerServiceRolePolicy"},
-					{Name: "ConfigConformsServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/ConfigConformsServiceRolePolicy"},
-					{Name: "DAXServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/DAXServiceRolePolicy"},
-					{Name: "DataScientist", Value: "arn:aws:iam::aws:policy/job-function/DataScientist"},
-					{Name: "DatabaseAdministrator", Value: "arn:aws:iam::aws:policy/job-function/DatabaseAdministrator"},
-					{Name: "DynamoDBCloudWatchContributorInsightsServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/DynamoDBCloudWatchContributorInsightsServiceRolePolicy"},
-					{Name: "DynamoDBKinesisReplicationServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/DynamoDBKinesisReplicationServiceRolePolicy"},
-					{Name: "DynamoDBReplicationServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/DynamoDBReplicationServiceRolePolicy"},
-					{Name: "EC2FastLaunchServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/EC2FastLaunchServiceRolePolicy"},
-					{Name: "EC2FleetTimeShiftableServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/EC2FleetTimeShiftableServiceRolePolicy"},
-					{Name: "EC2InstanceConnect", Value: "arn:aws:iam::aws:policy/EC2InstanceConnect"},
-					{Name: "EC2InstanceProfileForImageBuilder", Value: "arn:aws:iam::aws:policy/EC2InstanceProfileForImageBuilder"},
-					{Name: "EC2InstanceProfileForImageBuilderECRContainerBuilds", Value: "arn:aws:iam::aws:policy/EC2InstanceProfileForImageBuilderECRContainerBuilds"},
-					{Name: "ECRReplicationServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/ECRReplicationServiceRolePolicy"},
-					{Name: "Ec2ImageBuilderCrossAccountDistributionAccess", Value: "arn:aws:iam::aws:policy/Ec2ImageBuilderCrossAccountDistributionAccess"},
-					{Name: "Ec2InstanceConnectEndpoint", Value: "arn:aws:iam::aws:policy/aws-service-role/Ec2InstanceConnectEndpoint"},
-					{Name: "ElastiCacheServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/ElastiCacheServiceRolePolicy"},
-					{Name: "ElasticLoadBalancingFullAccess", Value: "arn:aws:iam::aws:policy/ElasticLoadBalancingFullAccess"},
-					{Name: "ElasticLoadBalancingReadOnly", Value: "arn:aws:iam::aws:policy/ElasticLoadBalancingReadOnly"},
-					{Name: "ElementalActivationsDownloadSoftwareAccess", Value: "arn:aws:iam::aws:policy/ElementalActivationsDownloadSoftwareAccess"},
-					{Name: "ElementalActivationsFullAccess", Value: "arn:aws:iam::aws:policy/ElementalActivationsFullAccess"},
-					{Name: "ElementalActivationsGenerateLicenses", Value: "arn:aws:iam::aws:policy/ElementalActivationsGenerateLicenses"},
-					{Name: "ElementalActivationsReadOnlyAccess", Value: "arn:aws:iam::aws:policy/ElementalActivationsReadOnlyAccess"},
-					{Name: "ElementalAppliancesSoftwareFullAccess", Value: "arn:aws:iam::aws:policy/ElementalAppliancesSoftwareFullAccess"},
-					{Name: "ElementalAppliancesSoftwareReadOnlyAccess", Value: "arn:aws:iam::aws:policy/ElementalAppliancesSoftwareReadOnlyAccess"},
-					{Name: "ElementalSupportCenterFullAccess", Value: "arn:aws:iam::aws:policy/ElementalSupportCenterFullAccess"},
-					{Name: "FMSServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/FMSServiceRolePolicy"},
-					{Name: "FSxDeleteServiceLinkedRoleAccess", Value: "arn:aws:iam::aws:policy/aws-service-role/FSxDeleteServiceLinkedRoleAccess"},
-					{Name: "FusionDevInternalServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/FusionDevInternalServiceRolePolicy"},
-					{Name: "GameLiftGameServerGroupPolicy", Value: "arn:aws:iam::aws:policy/GameLiftGameServerGroupPolicy"},
-					{Name: "GlobalAcceleratorFullAccess", Value: "arn:aws:iam::aws:policy/GlobalAcceleratorFullAccess"},
-					{Name: "GlobalAcceleratorReadOnlyAccess", Value: "arn:aws:iam::aws:policy/GlobalAcceleratorReadOnlyAccess"},
-					{Name: "GreengrassOTAUpdateArtifactAccess", Value: "arn:aws:iam::aws:policy/service-role/GreengrassOTAUpdateArtifactAccess"},
-					{Name: "GroundTruthSyntheticConsoleFullAccess", Value: "arn:aws:iam::aws:policy/GroundTruthSyntheticConsoleFullAccess"},
-					{Name: "GroundTruthSyntheticConsoleReadOnlyAccess", Value: "arn:aws:iam::aws:policy/GroundTruthSyntheticConsoleReadOnlyAccess"},
-					{Name: "Health_OrganizationsServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/Health_OrganizationsServiceRolePolicy"},
-					{Name: "IAMAccessAdvisorReadOnly", Value: "arn:aws:iam::aws:policy/IAMAccessAdvisorReadOnly"},
-					{Name: "IAMAccessAnalyzerFullAccess", Value: "arn:aws:iam::aws:policy/IAMAccessAnalyzerFullAccess"},
-					{Name: "IAMAccessAnalyzerReadOnlyAccess", Value: "arn:aws:iam::aws:policy/IAMAccessAnalyzerReadOnlyAccess"},
-					{Name: "IAMFullAccess", Value: "arn:aws:iam::aws:policy/IAMFullAccess"},
-					{Name: "IAMReadOnlyAccess", Value: "arn:aws:iam::aws:policy/IAMReadOnlyAccess"},
-					{Name: "IAMSelfManageServiceSpecificCredentials", Value: "arn:aws:iam::aws:policy/IAMSelfManageServiceSpecificCredentials"},
-					{Name: "IAMUserChangePassword", Value: "arn:aws:iam::aws:policy/IAMUserChangePassword"},
-					{Name: "IAMUserSSHKeys", Value: "arn:aws:iam::aws:policy/IAMUserSSHKeys"},
-					{Name: "IVSRecordToS3", Value: "arn:aws:iam::aws:policy/aws-service-role/IVSRecordToS3"},
-					{Name: "KafkaConnectServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/KafkaConnectServiceRolePolicy"},
-					{Name: "KafkaServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/KafkaServiceRolePolicy"},
-					{Name: "LakeFormationDataAccessServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/LakeFormationDataAccessServiceRolePolicy"},
-					{Name: "LexBotPolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/LexBotPolicy"},
-					{Name: "LexChannelPolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/LexChannelPolicy"},
-					{Name: "LightsailExportAccess", Value: "arn:aws:iam::aws:policy/aws-service-role/LightsailExportAccess"},
-					{Name: "MediaPackageServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/MediaPackageServiceRolePolicy"},
-					{Name: "MemoryDBServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/MemoryDBServiceRolePolicy"},
-					{Name: "MigrationHubDMSAccessServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/MigrationHubDMSAccessServiceRolePolicy"},
-					{Name: "MigrationHubSMSAccessServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/MigrationHubSMSAccessServiceRolePolicy"},
-					{Name: "MigrationHubServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/MigrationHubServiceRolePolicy"},
-					{Name: "MonitronServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/MonitronServiceRolePolicy"},
-					{Name: "NeptuneConsoleFullAccess", Value: "arn:aws:iam::aws:policy/NeptuneConsoleFullAccess"},
-					{Name: "NeptuneFullAccess", Value: "arn:aws:iam::aws:policy/NeptuneFullAccess"},
-					{Name: "NeptuneReadOnlyAccess", Value: "arn:aws:iam::aws:policy/NeptuneReadOnlyAccess"},
-					{Name: "NetworkAdministrator", Value: "arn:aws:iam::aws:policy/job-function/NetworkAdministrator"},
-					{Name: "OAMFullAccess", Value: "arn:aws:iam::aws:policy/OAMFullAccess"},
-					{Name: "OAMReadOnlyAccess", Value: "arn:aws:iam::aws:policy/OAMReadOnlyAccess"},
-					{Name: "PowerUserAccess", Value: "arn:aws:iam::aws:policy/PowerUserAccess"},
-					{Name: "QuickSightAccessForS3StorageManagementAnalyticsReadOnly", Value: "arn:aws:iam::aws:policy/service-role/QuickSightAccessForS3StorageManagementAnalyticsReadOnly"},
-					{Name: "RDSCloudHsmAuthorizationRole", Value: "arn:aws:iam::aws:policy/service-role/RDSCloudHsmAuthorizationRole"},
-					{Name: "ROSAManageSubscription", Value: "arn:aws:iam::aws:policy/ROSAManageSubscription"},
-					{Name: "ReadOnlyAccess", Value: "arn:aws:iam::aws:policy/ReadOnlyAccess"},
-					{Name: "ResourceGroupsServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/ResourceGroupsServiceRolePolicy"},
-					{Name: "ResourceGroupsandTagEditorFullAccess", Value: "arn:aws:iam::aws:policy/ResourceGroupsandTagEditorFullAccess"},
-					{Name: "ResourceGroupsandTagEditorReadOnlyAccess", Value: "arn:aws:iam::aws:policy/ResourceGroupsandTagEditorReadOnlyAccess"},
-					{Name: "Route53RecoveryReadinessServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/Route53RecoveryReadinessServiceRolePolicy"},
-					{Name: "Route53ResolverServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/Route53ResolverServiceRolePolicy"},
-					{Name: "S3StorageLensServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/S3StorageLensServiceRolePolicy"},
-					{Name: "SecretsManagerReadWrite", Value: "arn:aws:iam::aws:policy/SecretsManagerReadWrite"},
-					{Name: "SecurityAudit", Value: "arn:aws:iam::aws:policy/SecurityAudit"},
-					{Name: "SecurityLakeServiceLinkedRole", Value: "arn:aws:iam::aws:policy/aws-service-role/SecurityLakeServiceLinkedRole"},
-					{Name: "ServerMigrationConnector", Value: "arn:aws:iam::aws:policy/ServerMigrationConnector"},
-					{Name: "ServerMigrationServiceRole", Value: "arn:aws:iam::aws:policy/service-role/ServerMigrationServiceRole", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use AWSServerMigration_ServiceRole instead."},
-					{Name: "ServiceCatalogAdminFullAccess", Value: "arn:aws:iam::aws:policy/ServiceCatalogAdminFullAccess", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogAdminFullAccess instead."},
-					{Name: "ServiceCatalogAdminReadOnlyAccess", Value: "arn:aws:iam::aws:policy/ServiceCatalogAdminReadOnlyAccess", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogAdminReadOnlyAccess instead."},
-					{Name: "ServiceCatalogEndUserAccess", Value: "arn:aws:iam::aws:policy/ServiceCatalogEndUserAccess", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogEndUserReadOnlyAccess instead."},
-					{Name: "ServiceCatalogEndUserFullAccess", Value: "arn:aws:iam::aws:policy/ServiceCatalogEndUserFullAccess", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogEndUserFullAccess instead."},
-					{Name: "ServerMigrationServiceConsoleFullAccess", Value: "arn:aws:iam::aws:policy/ServerMigrationServiceConsoleFullAccess"},
-					{Name: "ServerMigrationServiceLaunchRole", Value: "arn:aws:iam::aws:policy/service-role/ServerMigrationServiceLaunchRole"},
-					{Name: "ServerMigrationServiceRoleForInstanceValidation", Value: "arn:aws:iam::aws:policy/service-role/ServerMigrationServiceRoleForInstanceValidation"},
-					// Renamed with AWS prefix because it clashes with ServerMigrationServiceRole in Python due to underscore removal
-					{Name: "AWSServerMigration_ServiceRole", Value: "arn:aws:iam::aws:policy/service-role/ServerMigration_ServiceRole"},
-					{Name: "ServiceQuotasFullAccess", Value: "arn:aws:iam::aws:policy/ServiceQuotasFullAccess"},
-					{Name: "ServiceQuotasReadOnlyAccess", Value: "arn:aws:iam::aws:policy/ServiceQuotasReadOnlyAccess"},
-					{Name: "ServiceQuotasServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/ServiceQuotasServiceRolePolicy"},
-					{Name: "SimpleWorkflowFullAccess", Value: "arn:aws:iam::aws:policy/SimpleWorkflowFullAccess"},
-					{Name: "SupportUser", Value: "arn:aws:iam::aws:policy/job-function/SupportUser"},
-					{Name: "SystemAdministrator", Value: "arn:aws:iam::aws:policy/job-function/SystemAdministrator"},
-					{Name: "TranslateFullAccess", Value: "arn:aws:iam::aws:policy/TranslateFullAccess"},
-					{Name: "TranslateReadOnly", Value: "arn:aws:iam::aws:policy/TranslateReadOnly"},
-					{Name: "VMImportExportRoleForAWSConnector", Value: "arn:aws:iam::aws:policy/service-role/VMImportExportRoleForAWSConnector"},
-					{Name: "ViewOnlyAccess", Value: "arn:aws:iam::aws:policy/job-function/ViewOnlyAccess"},
-					{Name: "WAFLoggingServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/WAFLoggingServiceRolePolicy"},
-					{Name: "WAFRegionalLoggingServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/WAFRegionalLoggingServiceRolePolicy"},
-					{Name: "WAFV2LoggingServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/WAFV2LoggingServiceRolePolicy"},
-					{Name: "WellArchitectedConsoleFullAccess", Value: "arn:aws:iam::aws:policy/WellArchitectedConsoleFullAccess"},
-					{Name: "WellArchitectedConsoleReadOnlyAccess", Value: "arn:aws:iam::aws:policy/WellArchitectedConsoleReadOnlyAccess"},
-					{Name: "WorkLinkServiceRolePolicy", Value: "arn:aws:iam::aws:policy/WorkLinkServiceRolePolicy"},
-				},
+				Enum: iamManagedPolicyValues(),
 			},
 			"aws:lambda/Runtime:Runtime": {
 				ObjectTypeSpec: schema.ObjectTypeSpec{
@@ -5816,32 +4954,39 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 					Description: "See https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
 				},
 				Enum: []schema.EnumValueSpec{
-					{Value: "dotnetcore2.1", Name: "DotnetCore2d1", DeprecationMessage: "This runtime is now deprecated"},
-					{Value: "dotnetcore3.1", Name: "DotnetCore3d1"},
-					{Value: "dotnet5.0", Name: "Dotnet5d0"},
 					{Value: "dotnet6", Name: "Dotnet6"},
-					{Value: "go1.x", Name: "Go1dx"},
-					{Value: "java8", Name: "Java8"},
-					{Value: "java8.al2", Name: "Java8AL2"},
+					{Value: "dotnet7", Name: "Dotnet7"},
+					{Value: "dotnet8", Name: "Dotnet8"},
 					{Value: "java11", Name: "Java11"},
 					{Value: "java17", Name: "Java17"},
-					{Value: "ruby2.5", Name: "Ruby2d5", DeprecationMessage: "This runtime is now deprecated"},
-					{Value: "ruby2.7", Name: "Ruby2d7"},
-					{Value: "ruby3.2", Name: "Ruby3d2"},
-					{Value: "nodejs10.x", Name: "NodeJS10dX", DeprecationMessage: "This runtime is now deprecated"},
-					{Value: "nodejs12.x", Name: "NodeJS12dX"},
-					{Value: "nodejs14.x", Name: "NodeJS14dX"},
+					{Value: "java21", Name: "Java21"},
+					{Value: "java8.al2", Name: "Java8AL2"},
 					{Value: "nodejs16.x", Name: "NodeJS16dX"},
 					{Value: "nodejs18.x", Name: "NodeJS18dX"},
-					{Value: "python2.7", Name: "Python2d7", DeprecationMessage: "This runtime is now deprecated"},
-					{Value: "python3.6", Name: "Python3d6", DeprecationMessage: "This runtime is now deprecated"},
-					{Value: "python3.7", Name: "Python3d7"},
-					{Value: "python3.8", Name: "Python3d8"},
-					{Value: "python3.9", Name: "Python3d9"},
+					{Value: "nodejs20.x", Name: "NodeJS20dX"},
+					{Value: "provided.al2", Name: "CustomAL2"},
+					{Value: "provided.al2023", Name: "CustomAL2023"},
 					{Value: "python3.10", Name: "Python3d10"},
 					{Value: "python3.11", Name: "Python3d11"},
-					{Value: "provided", Name: "Custom"},
-					{Value: "provided.al2", Name: "CustomAL2"},
+					{Value: "python3.12", Name: "Python3d12"},
+					{Value: "python3.8", Name: "Python3d8"},
+					{Value: "python3.9", Name: "Python3d9"},
+					{Value: "ruby3.2", Name: "Ruby3d2"},
+
+					deprecateRuntime("dotnet5.0", "Dotnet5d0"),
+					deprecateRuntime("dotnetcore2.1", "DotnetCore2d1"),
+					deprecateRuntime("dotnetcore3.1", "DotnetCore3d1"),
+					deprecateRuntime("go1.x", "Go1dx"),
+					deprecateRuntime("java8", "Java8"),
+					deprecateRuntime("nodejs10.x", "NodeJS10dX"),
+					deprecateRuntime("nodejs12.x", "NodeJS12dX"),
+					deprecateRuntime("nodejs14.x", "NodeJS14dX"),
+					deprecateRuntime("provided", "Custom"),
+					deprecateRuntime("python2.7", "Python2d7"),
+					deprecateRuntime("python3.6", "Python3d6"),
+					deprecateRuntime("python3.7", "Python3d7"),
+					deprecateRuntime("ruby2.5", "Ruby2d5"),
+					deprecateRuntime("ruby2.7", "Ruby2d7"),
 				},
 			},
 			"aws:rds/EngineMode:EngineMode": {
@@ -6009,7 +5154,6 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
-
 			"aws_auditmanager_control": {
 				Tok: awsDataSource(auditmanagerMod, "getControl"),
 			},
@@ -6540,7 +5684,8 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 			// S3
 			"aws_canonical_user_id": {Tok: awsDataSource(s3Mod, "getCanonicalUserId")},
 			"aws_s3_account_public_access_block": {
-				Tok: awsDataSource(s3Mod, "getAccountPublicAccessBlock")},
+				Tok: awsDataSource(s3Mod, "getAccountPublicAccessBlock"),
+			},
 			"aws_s3_bucket":         {Tok: awsDataSource(s3Mod, "getBucket")},
 			"aws_s3_bucket_object":  {Tok: awsDataSource(s3Mod, "getBucketObject")},
 			"aws_s3_bucket_objects": {Tok: awsDataSource(s3Mod, "getBucketObjects")},
@@ -6718,14 +5863,14 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 			"aws_imagebuilder_container_recipes":             {Tok: awsDataSource(imageBuilderMod, "getContainerRecipes")},
 			"aws_imagebuilder_image_pipelines":               {Tok: awsDataSource(imageBuilderMod, "getImagePipelines")},
 
-			//ses
+			// ses
 			"aws_ses_active_receipt_rule_set": {Tok: awsDataSource(sesMod, "getActiveReceiptRuleSet")},
 			"aws_ses_domain_identity":         {Tok: awsDataSource(sesMod, "getDomainIdentity")},
 			"aws_ses_email_identity":          {Tok: awsDataSource(sesMod, "getEmailIdentity")},
-			//signer
+			// signer
 			"aws_signer_signing_job":     {Tok: awsDataSource(signerMod, "getSigningJob")},
 			"aws_signer_signing_profile": {Tok: awsDataSource(signerMod, "getSigningProfile")},
-			//serverless repository
+			// serverless repository
 			"aws_serverlessapplicationrepository_application": {
 				Tok: awsDataSource(serverlessRepositoryMod, "getApplication"),
 			},
@@ -6801,7 +5946,8 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 				},
 			},
 			"aws_lb_listener": {Tok: awsDataSource(lbMod, "getListener")},
-			"aws_lb_target_group": {Tok: awsDataSource(lbMod, "getTargetGroup"),
+			"aws_lb_target_group": {
+				Tok: awsDataSource(lbMod, "getTargetGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"stickiness": {
 						MaxItemsOne: ref(true),
@@ -6833,11 +5979,10 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
-				"@pulumi/pulumi":    "^3.0.0",
-				"mime":              "^2.0.0",
-				"builtin-modules":   "3.0.0",
-				"read-package-tree": "^5.2.1",
-				"resolve":           "^1.7.1",
+				"@pulumi/pulumi":  "^3.0.0",
+				"mime":            "^2.0.0",
+				"builtin-modules": "3.0.0",
+				"resolve":         "^1.7.1",
 			},
 			DevDependencies: map[string]string{
 				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.
@@ -6962,15 +6107,12 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 				},
 			},
 		},
-		Python: (func() *tfbridge.PythonInfo {
-			i := &tfbridge.PythonInfo{
-				Requires: map[string]string{
-					"pulumi": ">=3.0.0,<4.0.0",
-				}}
-			i.PyProject.Enabled = true
-			return i
-		})(),
-
+		Python: &tfbridge.PythonInfo{
+			Requires: map[string]string{
+				"pulumi": ">=3.0.0,<4.0.0",
+			},
+			PyProject: struct{ Enabled bool }{true},
+		},
 		Golang: &tfbridge.GolangInfo{
 			ImportBasePath: filepath.Join(
 				fmt.Sprintf("github.com/pulumi/pulumi-%[1]s/sdk/", awsPkg),
@@ -7193,20 +6335,8 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 			return awsResource(mod, name).String(), nil
 		}))
 
-	prov.P.ResourcesMap().Range(func(key string, value shim.Resource) bool {
-		// Skip resources that don't have tags.
-		tagsF, ok := value.Schema().GetOk("tags")
-		if !ok {
-			return true
-		}
-		// Skip resources that don't have tags_all.
-		_, ok = value.Schema().GetOk("tags_all")
-		if !ok {
-			return true
-		}
-
-		// tags must be non-computed.
-		if tagsF.Computed() {
+	prov.P.ResourcesMap().Range(func(key string, res shim.Resource) bool {
+		if !hasNonComputedTagsAndTagsAllOptimized(key, res) {
 			return true
 		}
 
@@ -7235,17 +6365,11 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 			fields["tags_all"] = &tfbridge.SchemaInfo{}
 		}
 
-		fields["tags_all"].Secret = tfbridge.True()
-		fields["tags_all"].DeprecationMessage = "Please use `tags` instead."
-
 		// Upstream provider is edited to unmark tags_all as computed internally so that
 		// Pulumi provider internals can set it, but the user should not be able to set it.
 		fields["tags_all"].MarkAsComputedOnly = tfbridge.True()
-
+		fields["tags_all"].DeprecationMessage = "Please use `tags` instead."
 		fields["tags_all"].MarkAsOptional = tfbridge.False()
-
-		contract.Assertf(prov.Resources[key].TransformOutputs == nil,
-			"prov.Resources[key].TransformOutputs==nil")
 
 		return true
 	})
@@ -7258,14 +6382,139 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 			args.ExamplePath == "#/resources/aws:appsync/graphQLApi:GraphQLApi"
 	}
 
-	// Fixes a spurious diff on repeat pulumi up for the aws_wafv2_web_acl resource (pulumi/pulumi#1423).
-	shimv2.SetInstanceStateStrategy(prov.P.ResourcesMap().Get("aws_wafv2_web_acl"), shimv2.CtyInstanceState)
-
-	prov.SetAutonaming(255, "-")
+	setAutonaming(&prov)
 
 	prov.MustApplyAutoAliases()
 
 	prov.XSkipDetailedDiffForChanges = true
 
 	return &prov
+}
+
+const nameProperty = "name"
+
+// prov.SetAutonaming is too inefficient for AWS as it forces SchemaFunc calls for large resources
+// that use up RAM. Instead of doing prov.SetAutonaming(255, "-") we call a surgically crafted
+// setAutonaming that avoids these calls.
+func setAutonaming(p *tfbridge.ProviderInfo) {
+	maxLength := 255
+	separator := "-"
+	for resname, res := range p.Resources {
+		// Only apply auto-name to input properties (Optional || Required) named `name`
+		if !hasOptionalOrRequiredNamePropertyOptimized(p.P, resname) {
+			continue
+		}
+		if _, hasfield := res.Fields[nameProperty]; !hasfield {
+			if res.Fields == nil {
+				res.Fields = make(map[string]*tfbridge.SchemaInfo)
+			}
+			res.Fields[nameProperty] = tfbridge.AutoName(nameProperty, maxLength, separator)
+		}
+	}
+}
+
+func hasOptionalOrRequiredNameProperty(p shim.Provider, tfResourceName string) bool {
+	if schema := p.ResourcesMap().Get(tfResourceName); schema != nil {
+		// Only apply auto-name to input properties (Optional || Required) named `name`
+		if sch := schema.Schema().Get(nameProperty); sch != nil && (sch.Optional() || sch.Required()) {
+			return true
+		}
+	}
+	return false
+}
+
+func hasOptionalOrRequiredNamePropertyOptimized(p shim.Provider, tfResourceName string) bool {
+	switch tfResourceName {
+	case
+		"aws_quicksight_account_subscription",
+		"aws_quicksight_group",
+		"aws_quicksight_group_membership",
+		"aws_quicksight_user",
+		"aws_wafv2_web_acl_association",
+		"aws_wafv2_web_acl_logging_configuration":
+		return false
+	case "aws_medialive_channel",
+		"aws_opsworks_custom_layer",
+		"aws_opsworks_ecs_cluster_layer",
+		"aws_opsworks_ganglia_layer",
+		"aws_opsworks_haproxy_layer",
+		"aws_opsworks_java_app_layer",
+		"aws_opsworks_memcached_layer",
+		"aws_opsworks_mysql_layer",
+		"aws_opsworks_nodejs_app_layer",
+		"aws_opsworks_php_app_layer",
+		"aws_opsworks_rails_app_layer",
+		"aws_quicksight_analysis",
+		"aws_quicksight_dashboard",
+		"aws_quicksight_data_set",
+		"aws_quicksight_data_source",
+		"aws_quicksight_template",
+		"aws_quicksight_theme",
+		"aws_wafv2_ip_set",
+		"aws_wafv2_regex_pattern_set",
+		"aws_wafv2_rule_group",
+		"aws_wafv2_web_acl",
+		"aws_kinesis_firehose_delivery_stream",
+		"aws_opsworks_static_web_layer":
+		return true
+	}
+	return hasOptionalOrRequiredNameProperty(p, tfResourceName)
+}
+
+// Like hasNonComputedTagsAndTagsAll but optimized with an ad-hoc cache to avoid calling
+// SchemaFunc() and allocating memory at startup.
+func hasNonComputedTagsAndTagsAllOptimized(tfResourceName string, res shim.Resource) bool {
+	switch tfResourceName {
+	case "aws_kinesis_firehose_delivery_stream",
+		"aws_opsworks_custom_layer",
+		"aws_opsworks_ecs_cluster_layer",
+		"aws_opsworks_ganglia_layer",
+		"aws_opsworks_haproxy_layer",
+		"aws_opsworks_java_app_layer",
+		"aws_opsworks_memcached_layer",
+		"aws_opsworks_mysql_layer",
+		"aws_opsworks_nodejs_app_layer",
+		"aws_opsworks_php_app_layer",
+		"aws_opsworks_rails_app_layer",
+		"aws_opsworks_static_web_layer",
+		"aws_quicksight_analysis",
+		"aws_quicksight_dashboard",
+		"aws_quicksight_data_set",
+		"aws_quicksight_data_source",
+		"aws_quicksight_template",
+		"aws_quicksight_theme",
+		"aws_wafv2_ip_set",
+		"aws_wafv2_regex_pattern_set",
+		"aws_wafv2_rule_group",
+		"aws_wafv2_web_acl",
+		"aws_medialive_channel":
+		return true
+	case "aws_quicksight_user",
+		"aws_wafv2_web_acl_logging_configuration",
+		"aws_quicksight_group_membership",
+		"aws_wafv2_web_acl_association",
+		"aws_quicksight_group",
+		"aws_quicksight_account_subscription":
+		return false
+	}
+
+	return hasNonComputedTagsAndTagsAll(tfResourceName, res)
+}
+
+func hasNonComputedTagsAndTagsAll(tfResourceName string, res shim.Resource) bool {
+	// Skip resources that don't have tags.
+	tagsF, ok := res.Schema().GetOk("tags")
+	if !ok {
+		return false
+	}
+	// Skip resources that don't have tags_all.
+	_, ok = res.Schema().GetOk("tags_all")
+	if !ok {
+		return false
+	}
+	// tags must be non-computed.
+	if tagsF.Computed() {
+		return false
+	}
+	return true
 }

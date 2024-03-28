@@ -207,25 +207,28 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         tftest = aws.elasticbeanstalk.Application("tftest",
+            name="tf-test-name",
             description="tf-test-desc",
             appversion_lifecycle=aws.elasticbeanstalk.ApplicationAppversionLifecycleArgs(
-                service_role=aws_iam_role["beanstalk_service"]["arn"],
+                service_role=beanstalk_service["arn"],
                 max_count=128,
                 delete_source_from_s3=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
+        $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -250,25 +253,28 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         tftest = aws.elasticbeanstalk.Application("tftest",
+            name="tf-test-name",
             description="tf-test-desc",
             appversion_lifecycle=aws.elasticbeanstalk.ApplicationAppversionLifecycleArgs(
-                service_role=aws_iam_role["beanstalk_service"]["arn"],
+                service_role=beanstalk_service["arn"],
                 max_count=128,
                 delete_source_from_s3=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
+        $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -305,8 +311,6 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Application, __self__).__init__(
             'aws:elasticbeanstalk/application:Application',
             resource_name,

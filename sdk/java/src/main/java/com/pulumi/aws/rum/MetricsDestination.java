@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides a CloudWatch RUM Metrics Destination resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -40,20 +42,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new MetricsDestination(&#34;example&#34;, MetricsDestinationArgs.builder()        
- *             .appMonitorName(aws_rum_app_monitor.example().name())
+ *             .appMonitorName(exampleAwsRumAppMonitor.name())
  *             .destination(&#34;CloudWatch&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Cloudwatch RUM Metrics Destination using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rum/metricsDestination:MetricsDestination example example
+ * $ pulumi import aws:rum/metricsDestination:MetricsDestination example example
  * ```
  * 
  */

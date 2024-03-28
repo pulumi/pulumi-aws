@@ -5,6 +5,7 @@ package com.pulumi.aws.auditmanager.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -71,8 +72,12 @@ public final class GetControlControlMappingSourceSourceKeywordArgs extends com.p
         }
 
         public GetControlControlMappingSourceSourceKeywordArgs build() {
-            $.keywordInputType = Objects.requireNonNull($.keywordInputType, "expected parameter 'keywordInputType' to be non-null");
-            $.keywordValue = Objects.requireNonNull($.keywordValue, "expected parameter 'keywordValue' to be non-null");
+            if ($.keywordInputType == null) {
+                throw new MissingRequiredPropertyException("GetControlControlMappingSourceSourceKeywordArgs", "keywordInputType");
+            }
+            if ($.keywordValue == null) {
+                throw new MissingRequiredPropertyException("GetControlControlMappingSourceSourceKeywordArgs", "keywordValue");
+            }
             return $;
         }
     }

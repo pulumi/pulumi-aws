@@ -6,6 +6,7 @@ package com.pulumi.aws.s3control.outputs;
 import com.pulumi.aws.s3control.outputs.MultiRegionAccessPointDetailsPublicAccessBlock;
 import com.pulumi.aws.s3control.outputs.MultiRegionAccessPointDetailsRegion;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -51,28 +52,35 @@ public final class MultiRegionAccessPointDetails {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("MultiRegionAccessPointDetails", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder publicAccessBlock(@Nullable MultiRegionAccessPointDetailsPublicAccessBlock publicAccessBlock) {
+
             this.publicAccessBlock = publicAccessBlock;
             return this;
         }
         @CustomType.Setter
         public Builder regions(List<MultiRegionAccessPointDetailsRegion> regions) {
-            this.regions = Objects.requireNonNull(regions);
+            if (regions == null) {
+              throw new MissingRequiredPropertyException("MultiRegionAccessPointDetails", "regions");
+            }
+            this.regions = regions;
             return this;
         }
         public Builder regions(MultiRegionAccessPointDetailsRegion... regions) {
             return regions(List.of(regions));
         }
         public MultiRegionAccessPointDetails build() {
-            final var o = new MultiRegionAccessPointDetails();
-            o.name = name;
-            o.publicAccessBlock = publicAccessBlock;
-            o.regions = regions;
-            return o;
+            final var _resultValue = new MultiRegionAccessPointDetails();
+            _resultValue.name = name;
+            _resultValue.publicAccessBlock = publicAccessBlock;
+            _resultValue.regions = regions;
+            return _resultValue;
         }
     }
 }

@@ -73,25 +73,28 @@ public final class LaunchConfigurationMetadataOptions {
 
         @CustomType.Setter
         public Builder httpEndpoint(@Nullable String httpEndpoint) {
+
             this.httpEndpoint = httpEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder httpPutResponseHopLimit(@Nullable Integer httpPutResponseHopLimit) {
+
             this.httpPutResponseHopLimit = httpPutResponseHopLimit;
             return this;
         }
         @CustomType.Setter
         public Builder httpTokens(@Nullable String httpTokens) {
+
             this.httpTokens = httpTokens;
             return this;
         }
         public LaunchConfigurationMetadataOptions build() {
-            final var o = new LaunchConfigurationMetadataOptions();
-            o.httpEndpoint = httpEndpoint;
-            o.httpPutResponseHopLimit = httpPutResponseHopLimit;
-            o.httpTokens = httpTokens;
-            return o;
+            final var _resultValue = new LaunchConfigurationMetadataOptions();
+            _resultValue.httpEndpoint = httpEndpoint;
+            _resultValue.httpPutResponseHopLimit = httpPutResponseHopLimit;
+            _resultValue.httpTokens = httpTokens;
+            return _resultValue;
         }
     }
 }

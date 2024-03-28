@@ -14,11 +14,11 @@ namespace Pulumi.Aws.DynamoDB
         /// <summary>
         /// Data source for retrieving a value from an AWS DynamoDB table.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -29,7 +29,7 @@ namespace Pulumi.Aws.DynamoDB
         /// {
         ///     var test = Aws.DynamoDB.GetTableItem.Invoke(new()
         ///     {
-        ///         TableName = aws_dynamodb_table.Example.Name,
+        ///         TableName = example.Name,
         ///         ExpressionAttributeNames = 
         ///         {
         ///             { "#P", "Percentile" },
@@ -43,8 +43,7 @@ namespace Pulumi.Aws.DynamoDB
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTableItemResult> InvokeAsync(GetTableItemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableItemResult>("aws:dynamodb/getTableItem:getTableItem", args ?? new GetTableItemArgs(), options.WithDefaults());
@@ -52,11 +51,11 @@ namespace Pulumi.Aws.DynamoDB
         /// <summary>
         /// Data source for retrieving a value from an AWS DynamoDB table.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -67,7 +66,7 @@ namespace Pulumi.Aws.DynamoDB
         /// {
         ///     var test = Aws.DynamoDB.GetTableItem.Invoke(new()
         ///     {
-        ///         TableName = aws_dynamodb_table.Example.Name,
+        ///         TableName = example.Name,
         ///         ExpressionAttributeNames = 
         ///         {
         ///             { "#P", "Percentile" },
@@ -81,8 +80,7 @@ namespace Pulumi.Aws.DynamoDB
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTableItemResult> Invoke(GetTableItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableItemResult>("aws:dynamodb/getTableItem:getTableItem", args ?? new GetTableItemInvokeArgs(), options.WithDefaults());

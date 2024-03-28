@@ -6,6 +6,7 @@ package com.pulumi.aws.apigatewayv2;
 import com.pulumi.aws.apigatewayv2.inputs.AuthorizerJwtConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -473,8 +474,12 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AuthorizerArgs build() {
-            $.apiId = Objects.requireNonNull($.apiId, "expected parameter 'apiId' to be non-null");
-            $.authorizerType = Objects.requireNonNull($.authorizerType, "expected parameter 'authorizerType' to be non-null");
+            if ($.apiId == null) {
+                throw new MissingRequiredPropertyException("AuthorizerArgs", "apiId");
+            }
+            if ($.authorizerType == null) {
+                throw new MissingRequiredPropertyException("AuthorizerArgs", "authorizerType");
+            }
             return $;
         }
     }

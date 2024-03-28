@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Budgets
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,7 +23,7 @@ namespace Pulumi.Aws.Budgets
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -41,10 +42,11 @@ namespace Pulumi.Aws.Budgets
     ///         },
     ///     });
     /// 
-    ///     var examplePolicy = new Aws.Iam.Policy("examplePolicy", new()
+    ///     var examplePolicy = new Aws.Iam.Policy("example", new()
     ///     {
+    ///         Name = "example",
     ///         Description = "My example policy",
-    ///         PolicyDocument = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         PolicyDocument = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var current = Aws.GetPartition.Invoke();
@@ -75,13 +77,15 @@ namespace Pulumi.Aws.Budgets
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "example",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleBudget = new Aws.Budgets.Budget("exampleBudget", new()
+    ///     var exampleBudget = new Aws.Budgets.Budget("example", new()
     ///     {
+    ///         Name = "example",
     ///         BudgetType = "USAGE",
     ///         LimitAmount = "10.0",
     ///         LimitUnit = "dollars",
@@ -89,7 +93,7 @@ namespace Pulumi.Aws.Budgets
     ///         TimeUnit = "MONTHLY",
     ///     });
     /// 
-    ///     var exampleBudgetAction = new Aws.Budgets.BudgetAction("exampleBudgetAction", new()
+    ///     var exampleBudgetAction = new Aws.Budgets.BudgetAction("example", new()
     ///     {
     ///         BudgetName = exampleBudget.Name,
     ///         ActionType = "APPLY_IAM_POLICY",
@@ -124,13 +128,14 @@ namespace Pulumi.Aws.Budgets
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import budget actions using `AccountID:ActionID:BudgetName`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget
+    /// $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget
     /// ```
     /// </summary>
     [AwsResourceType("aws:budgets/budgetAction:BudgetAction")]

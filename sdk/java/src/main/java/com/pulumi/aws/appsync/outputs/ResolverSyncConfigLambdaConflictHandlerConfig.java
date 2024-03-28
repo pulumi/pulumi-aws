@@ -44,13 +44,14 @@ public final class ResolverSyncConfigLambdaConflictHandlerConfig {
 
         @CustomType.Setter
         public Builder lambdaConflictHandlerArn(@Nullable String lambdaConflictHandlerArn) {
+
             this.lambdaConflictHandlerArn = lambdaConflictHandlerArn;
             return this;
         }
         public ResolverSyncConfigLambdaConflictHandlerConfig build() {
-            final var o = new ResolverSyncConfigLambdaConflictHandlerConfig();
-            o.lambdaConflictHandlerArn = lambdaConflictHandlerArn;
-            return o;
+            final var _resultValue = new ResolverSyncConfigLambdaConflictHandlerConfig();
+            _resultValue.lambdaConflictHandlerArn = lambdaConflictHandlerArn;
+            return _resultValue;
         }
     }
 }

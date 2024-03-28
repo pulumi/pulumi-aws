@@ -9,22 +9,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rum.MetricsDestination("example", {
- *     appMonitorName: aws_rum_app_monitor.example.name,
+ *     appMonitorName: exampleAwsRumAppMonitor.name,
  *     destination: "CloudWatch",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Cloudwatch RUM Metrics Destination using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:rum/metricsDestination:MetricsDestination example example
+ * $ pulumi import aws:rum/metricsDestination:MetricsDestination example example
  * ```
  */
 export class MetricsDestination extends pulumi.CustomResource {

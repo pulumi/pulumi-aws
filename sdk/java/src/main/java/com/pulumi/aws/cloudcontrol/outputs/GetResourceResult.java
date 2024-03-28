@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudcontrol.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -82,43 +83,57 @@ public final class GetResourceResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetResourceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identifier(String identifier) {
-            this.identifier = Objects.requireNonNull(identifier);
+            if (identifier == null) {
+              throw new MissingRequiredPropertyException("GetResourceResult", "identifier");
+            }
+            this.identifier = identifier;
             return this;
         }
         @CustomType.Setter
         public Builder properties(String properties) {
-            this.properties = Objects.requireNonNull(properties);
+            if (properties == null) {
+              throw new MissingRequiredPropertyException("GetResourceResult", "properties");
+            }
+            this.properties = properties;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(@Nullable String roleArn) {
+
             this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder typeName(String typeName) {
-            this.typeName = Objects.requireNonNull(typeName);
+            if (typeName == null) {
+              throw new MissingRequiredPropertyException("GetResourceResult", "typeName");
+            }
+            this.typeName = typeName;
             return this;
         }
         @CustomType.Setter
         public Builder typeVersionId(@Nullable String typeVersionId) {
+
             this.typeVersionId = typeVersionId;
             return this;
         }
         public GetResourceResult build() {
-            final var o = new GetResourceResult();
-            o.id = id;
-            o.identifier = identifier;
-            o.properties = properties;
-            o.roleArn = roleArn;
-            o.typeName = typeName;
-            o.typeVersionId = typeVersionId;
-            return o;
+            final var _resultValue = new GetResourceResult();
+            _resultValue.id = id;
+            _resultValue.identifier = identifier;
+            _resultValue.properties = properties;
+            _resultValue.roleArn = roleArn;
+            _resultValue.typeName = typeName;
+            _resultValue.typeVersionId = typeVersionId;
+            return _resultValue;
         }
     }
 }

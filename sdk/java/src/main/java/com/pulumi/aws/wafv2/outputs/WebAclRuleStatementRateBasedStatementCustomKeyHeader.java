@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,22 +59,28 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyHeader {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementCustomKeyHeader", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder textTransformations(List<WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation> textTransformations) {
-            this.textTransformations = Objects.requireNonNull(textTransformations);
+            if (textTransformations == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementCustomKeyHeader", "textTransformations");
+            }
+            this.textTransformations = textTransformations;
             return this;
         }
         public Builder textTransformations(WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation... textTransformations) {
             return textTransformations(List.of(textTransformations));
         }
         public WebAclRuleStatementRateBasedStatementCustomKeyHeader build() {
-            final var o = new WebAclRuleStatementRateBasedStatementCustomKeyHeader();
-            o.name = name;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementCustomKeyHeader();
+            _resultValue.name = name;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

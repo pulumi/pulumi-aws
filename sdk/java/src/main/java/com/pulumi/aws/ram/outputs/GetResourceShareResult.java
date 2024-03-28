@@ -5,6 +5,7 @@ package com.pulumi.aws.ram.outputs;
 
 import com.pulumi.aws.ram.outputs.GetResourceShareFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -141,11 +142,15 @@ public final class GetResourceShareResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetResourceShareResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetResourceShareFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -154,22 +159,34 @@ public final class GetResourceShareResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetResourceShareResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetResourceShareResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder owningAccountId(String owningAccountId) {
-            this.owningAccountId = Objects.requireNonNull(owningAccountId);
+            if (owningAccountId == null) {
+              throw new MissingRequiredPropertyException("GetResourceShareResult", "owningAccountId");
+            }
+            this.owningAccountId = owningAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder resourceArns(List<String> resourceArns) {
-            this.resourceArns = Objects.requireNonNull(resourceArns);
+            if (resourceArns == null) {
+              throw new MissingRequiredPropertyException("GetResourceShareResult", "resourceArns");
+            }
+            this.resourceArns = resourceArns;
             return this;
         }
         public Builder resourceArns(String... resourceArns) {
@@ -177,37 +194,47 @@ public final class GetResourceShareResult {
         }
         @CustomType.Setter
         public Builder resourceOwner(String resourceOwner) {
-            this.resourceOwner = Objects.requireNonNull(resourceOwner);
+            if (resourceOwner == null) {
+              throw new MissingRequiredPropertyException("GetResourceShareResult", "resourceOwner");
+            }
+            this.resourceOwner = resourceOwner;
             return this;
         }
         @CustomType.Setter
         public Builder resourceShareStatus(@Nullable String resourceShareStatus) {
+
             this.resourceShareStatus = resourceShareStatus;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetResourceShareResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetResourceShareResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetResourceShareResult build() {
-            final var o = new GetResourceShareResult();
-            o.arn = arn;
-            o.filters = filters;
-            o.id = id;
-            o.name = name;
-            o.owningAccountId = owningAccountId;
-            o.resourceArns = resourceArns;
-            o.resourceOwner = resourceOwner;
-            o.resourceShareStatus = resourceShareStatus;
-            o.status = status;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetResourceShareResult();
+            _resultValue.arn = arn;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.owningAccountId = owningAccountId;
+            _resultValue.resourceArns = resourceArns;
+            _resultValue.resourceOwner = resourceOwner;
+            _resultValue.resourceShareStatus = resourceShareStatus;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

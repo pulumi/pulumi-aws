@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,14 +25,16 @@ namespace Pulumi.Aws.DirectConnect
     /// {
     ///     var hosted = new Aws.DirectConnect.HostedConnection("hosted", new()
     ///     {
-    ///         Bandwidth = "100Mbps",
     ///         ConnectionId = "dxcon-ffabc123",
+    ///         Bandwidth = "100Mbps",
+    ///         Name = "tf-dx-hosted-connection",
     ///         OwnerAccountId = "123456789012",
     ///         Vlan = 1,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:directconnect/hostedConnection:HostedConnection")]
     public partial class HostedConnection : global::Pulumi.CustomResource

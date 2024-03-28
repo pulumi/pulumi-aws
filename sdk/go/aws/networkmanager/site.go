@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,12 +29,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "exampleGlobalNetwork", nil)
+//			example, err := networkmanager.NewGlobalNetwork(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = networkmanager.NewSite(ctx, "exampleSite", &networkmanager.SiteArgs{
-//				GlobalNetworkId: exampleGlobalNetwork.ID(),
+//			_, err = networkmanager.NewSite(ctx, "example", &networkmanager.SiteArgs{
+//				GlobalNetworkId: example.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -43,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_networkmanager_site` using the site ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:networkmanager/site:Site example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223
-//
+// $ pulumi import aws:networkmanager/site:Site example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223
 // ```
 type Site struct {
 	pulumi.CustomResourceState
@@ -82,10 +82,6 @@ func NewSite(ctx *pulumi.Context,
 	if args.GlobalNetworkId == nil {
 		return nil, errors.New("invalid value for required argument 'GlobalNetworkId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Site
 	err := ctx.RegisterResource("aws:networkmanager/site:Site", name, args, &resource, opts...)

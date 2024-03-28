@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,25 +74,30 @@ public final class BucketV2LifecycleRuleTransition {
 
         @CustomType.Setter
         public Builder date(@Nullable String date) {
+
             this.date = date;
             return this;
         }
         @CustomType.Setter
         public Builder days(@Nullable Integer days) {
+
             this.days = days;
             return this;
         }
         @CustomType.Setter
         public Builder storageClass(String storageClass) {
-            this.storageClass = Objects.requireNonNull(storageClass);
+            if (storageClass == null) {
+              throw new MissingRequiredPropertyException("BucketV2LifecycleRuleTransition", "storageClass");
+            }
+            this.storageClass = storageClass;
             return this;
         }
         public BucketV2LifecycleRuleTransition build() {
-            final var o = new BucketV2LifecycleRuleTransition();
-            o.date = date;
-            o.days = days;
-            o.storageClass = storageClass;
-            return o;
+            final var _resultValue = new BucketV2LifecycleRuleTransition();
+            _resultValue.date = date;
+            _resultValue.days = days;
+            _resultValue.storageClass = storageClass;
+            return _resultValue;
         }
     }
 }

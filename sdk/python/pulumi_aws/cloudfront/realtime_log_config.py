@@ -185,6 +185,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -197,8 +198,10 @@ class RealtimeLogConfig(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_role = aws.iam.Role("example",
+            name="cloudfront-realtime-log-config-example",
+            assume_role_policy=assume_role.json)
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=[
                 "kinesis:DescribeStreamSummary",
@@ -206,12 +209,14 @@ class RealtimeLogConfig(pulumi.CustomResource):
                 "kinesis:PutRecord",
                 "kinesis:PutRecords",
             ],
-            resources=[aws_kinesis_stream["example"]["arn"]],
+            resources=[example_aws_kinesis_stream["arn"]],
         )])
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
+        example_role_policy = aws.iam.RolePolicy("example",
+            name="cloudfront-realtime-log-config-example",
             role=example_role.id,
-            policy=example_policy_document.json)
-        example_realtime_log_config = aws.cloudfront.RealtimeLogConfig("exampleRealtimeLogConfig",
+            policy=example.json)
+        example_realtime_log_config = aws.cloudfront.RealtimeLogConfig("example",
+            name="example",
             sampling_rate=75,
             fields=[
                 "timestamp",
@@ -221,18 +226,18 @@ class RealtimeLogConfig(pulumi.CustomResource):
                 stream_type="Kinesis",
                 kinesis_stream_config=aws.cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs(
                     role_arn=example_role.arn,
-                    stream_arn=aws_kinesis_stream["example"]["arn"],
+                    stream_arn=example_aws_kinesis_stream["arn"],
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_role_policy]))
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudFront real-time log configurations using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/realtimeLogConfig:RealtimeLogConfig example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
+        $ pulumi import aws:cloudfront/realtimeLogConfig:RealtimeLogConfig example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
         ```
 
         :param str resource_name: The name of the resource.
@@ -253,6 +258,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -265,8 +271,10 @@ class RealtimeLogConfig(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_role = aws.iam.Role("example",
+            name="cloudfront-realtime-log-config-example",
+            assume_role_policy=assume_role.json)
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=[
                 "kinesis:DescribeStreamSummary",
@@ -274,12 +282,14 @@ class RealtimeLogConfig(pulumi.CustomResource):
                 "kinesis:PutRecord",
                 "kinesis:PutRecords",
             ],
-            resources=[aws_kinesis_stream["example"]["arn"]],
+            resources=[example_aws_kinesis_stream["arn"]],
         )])
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
+        example_role_policy = aws.iam.RolePolicy("example",
+            name="cloudfront-realtime-log-config-example",
             role=example_role.id,
-            policy=example_policy_document.json)
-        example_realtime_log_config = aws.cloudfront.RealtimeLogConfig("exampleRealtimeLogConfig",
+            policy=example.json)
+        example_realtime_log_config = aws.cloudfront.RealtimeLogConfig("example",
+            name="example",
             sampling_rate=75,
             fields=[
                 "timestamp",
@@ -289,18 +299,18 @@ class RealtimeLogConfig(pulumi.CustomResource):
                 stream_type="Kinesis",
                 kinesis_stream_config=aws.cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs(
                     role_arn=example_role.arn,
-                    stream_arn=aws_kinesis_stream["example"]["arn"],
+                    stream_arn=example_aws_kinesis_stream["arn"],
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_role_policy]))
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudFront real-time log configurations using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/realtimeLogConfig:RealtimeLogConfig example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
+        $ pulumi import aws:cloudfront/realtimeLogConfig:RealtimeLogConfig example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
         ```
 
         :param str resource_name: The name of the resource.

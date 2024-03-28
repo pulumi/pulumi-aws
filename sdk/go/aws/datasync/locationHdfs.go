@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,13 +33,13 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewLocationHdfs(ctx, "example", &datasync.LocationHdfsArgs{
 //				AgentArns: pulumi.StringArray{
-//					aws_datasync_agent.Example.Arn,
+//					exampleAwsDatasyncAgent.Arn,
 //				},
 //				AuthenticationType: pulumi.String("SIMPLE"),
 //				SimpleUser:         pulumi.String("example"),
 //				NameNodes: datasync.LocationHdfsNameNodeArray{
 //					&datasync.LocationHdfsNameNodeArgs{
-//						Hostname: pulumi.Any(aws_instance.Example.Private_dns),
+//						Hostname: pulumi.Any(exampleAwsInstance.PrivateDns),
 //						Port:     pulumi.Int(80),
 //					},
 //				},
@@ -51,15 +52,67 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Kerberos Authentication
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: "user.keytab",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeFile1, err := std.File(ctx, &std.FileArgs{
+//				Input: "krb5.conf",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datasync.NewLocationHdfs(ctx, "example", &datasync.LocationHdfsArgs{
+//				AgentArns: pulumi.StringArray{
+//					exampleAwsDatasyncAgent.Arn,
+//				},
+//				AuthenticationType: pulumi.String("KERBEROS"),
+//				NameNodes: datasync.LocationHdfsNameNodeArray{
+//					&datasync.LocationHdfsNameNodeArgs{
+//						Hostname: pulumi.Any(exampleAwsInstance.PrivateDns),
+//						Port:     pulumi.Int(80),
+//					},
+//				},
+//				KerberosPrincipal:    pulumi.String("user@example.com"),
+//				KerberosKeytabBase64: invokeFilebase64.Result,
+//				KerberosKrb5Conf:     invokeFile1.Result,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_datasync_location_hdfs` using the Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:datasync/locationHdfs:LocationHdfs example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-//
+// $ pulumi import aws:datasync/locationHdfs:LocationHdfs example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 // ```
 type LocationHdfs struct {
 	pulumi.CustomResourceState
@@ -72,10 +125,14 @@ type LocationHdfs struct {
 	AuthenticationType pulumi.StringPtrOutput `pulumi:"authenticationType"`
 	// The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
 	BlockSize pulumi.IntPtrOutput `pulumi:"blockSize"`
-	// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
+	// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberosKeytabBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytabBase64`) is required.
 	KerberosKeytab pulumi.StringPtrOutput `pulumi:"kerberosKeytab"`
-	// The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
+	// Use instead of `kerberosKeytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytab`) is required.
+	KerberosKeytabBase64 pulumi.StringPtrOutput `pulumi:"kerberosKeytabBase64"`
+	// The krb5.conf file that contains the Kerberos configuration information. Use `kerberosKrb5ConfBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5ConfBase64`) is required.
 	KerberosKrb5Conf pulumi.StringPtrOutput `pulumi:"kerberosKrb5Conf"`
+	// Use instead of `kerberosKrb5Conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5Conf`) is required.
+	KerberosKrb5ConfBase64 pulumi.StringPtrOutput `pulumi:"kerberosKrb5ConfBase64"`
 	// The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
 	KerberosPrincipal pulumi.StringPtrOutput `pulumi:"kerberosPrincipal"`
 	// The URI of the HDFS cluster's Key Management Server (KMS).
@@ -83,7 +140,7 @@ type LocationHdfs struct {
 	// The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
 	NameNodes LocationHdfsNameNodeArrayOutput `pulumi:"nameNodes"`
 	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn't specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
-	QopConfiguration LocationHdfsQopConfigurationPtrOutput `pulumi:"qopConfiguration"`
+	QopConfiguration LocationHdfsQopConfigurationOutput `pulumi:"qopConfiguration"`
 	// The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
 	ReplicationFactor pulumi.IntPtrOutput `pulumi:"replicationFactor"`
 	// The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authenticationType`, this parameter is required.
@@ -112,10 +169,6 @@ func NewLocationHdfs(ctx *pulumi.Context,
 	if args.NameNodes == nil {
 		return nil, errors.New("invalid value for required argument 'NameNodes'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocationHdfs
 	err := ctx.RegisterResource("aws:datasync/locationHdfs:LocationHdfs", name, args, &resource, opts...)
@@ -147,10 +200,14 @@ type locationHdfsState struct {
 	AuthenticationType *string `pulumi:"authenticationType"`
 	// The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
 	BlockSize *int `pulumi:"blockSize"`
-	// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
+	// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberosKeytabBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytabBase64`) is required.
 	KerberosKeytab *string `pulumi:"kerberosKeytab"`
-	// The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
+	// Use instead of `kerberosKeytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytab`) is required.
+	KerberosKeytabBase64 *string `pulumi:"kerberosKeytabBase64"`
+	// The krb5.conf file that contains the Kerberos configuration information. Use `kerberosKrb5ConfBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5ConfBase64`) is required.
 	KerberosKrb5Conf *string `pulumi:"kerberosKrb5Conf"`
+	// Use instead of `kerberosKrb5Conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5Conf`) is required.
+	KerberosKrb5ConfBase64 *string `pulumi:"kerberosKrb5ConfBase64"`
 	// The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
 	KerberosPrincipal *string `pulumi:"kerberosPrincipal"`
 	// The URI of the HDFS cluster's Key Management Server (KMS).
@@ -183,10 +240,14 @@ type LocationHdfsState struct {
 	AuthenticationType pulumi.StringPtrInput
 	// The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
 	BlockSize pulumi.IntPtrInput
-	// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
+	// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberosKeytabBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytabBase64`) is required.
 	KerberosKeytab pulumi.StringPtrInput
-	// The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
+	// Use instead of `kerberosKeytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytab`) is required.
+	KerberosKeytabBase64 pulumi.StringPtrInput
+	// The krb5.conf file that contains the Kerberos configuration information. Use `kerberosKrb5ConfBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5ConfBase64`) is required.
 	KerberosKrb5Conf pulumi.StringPtrInput
+	// Use instead of `kerberosKrb5Conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5Conf`) is required.
+	KerberosKrb5ConfBase64 pulumi.StringPtrInput
 	// The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
 	KerberosPrincipal pulumi.StringPtrInput
 	// The URI of the HDFS cluster's Key Management Server (KMS).
@@ -221,10 +282,14 @@ type locationHdfsArgs struct {
 	AuthenticationType *string `pulumi:"authenticationType"`
 	// The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
 	BlockSize *int `pulumi:"blockSize"`
-	// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
+	// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberosKeytabBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytabBase64`) is required.
 	KerberosKeytab *string `pulumi:"kerberosKeytab"`
-	// The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
+	// Use instead of `kerberosKeytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytab`) is required.
+	KerberosKeytabBase64 *string `pulumi:"kerberosKeytabBase64"`
+	// The krb5.conf file that contains the Kerberos configuration information. Use `kerberosKrb5ConfBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5ConfBase64`) is required.
 	KerberosKrb5Conf *string `pulumi:"kerberosKrb5Conf"`
+	// Use instead of `kerberosKrb5Conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5Conf`) is required.
+	KerberosKrb5ConfBase64 *string `pulumi:"kerberosKrb5ConfBase64"`
 	// The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
 	KerberosPrincipal *string `pulumi:"kerberosPrincipal"`
 	// The URI of the HDFS cluster's Key Management Server (KMS).
@@ -251,10 +316,14 @@ type LocationHdfsArgs struct {
 	AuthenticationType pulumi.StringPtrInput
 	// The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
 	BlockSize pulumi.IntPtrInput
-	// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
+	// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberosKeytabBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytabBase64`) is required.
 	KerberosKeytab pulumi.StringPtrInput
-	// The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
+	// Use instead of `kerberosKeytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytab`) is required.
+	KerberosKeytabBase64 pulumi.StringPtrInput
+	// The krb5.conf file that contains the Kerberos configuration information. Use `kerberosKrb5ConfBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5ConfBase64`) is required.
 	KerberosKrb5Conf pulumi.StringPtrInput
+	// Use instead of `kerberosKrb5Conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5Conf`) is required.
+	KerberosKrb5ConfBase64 pulumi.StringPtrInput
 	// The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
 	KerberosPrincipal pulumi.StringPtrInput
 	// The URI of the HDFS cluster's Key Management Server (KMS).
@@ -380,14 +449,24 @@ func (o LocationHdfsOutput) BlockSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LocationHdfs) pulumi.IntPtrOutput { return v.BlockSize }).(pulumi.IntPtrOutput)
 }
 
-// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
+// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberosKeytabBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytabBase64`) is required.
 func (o LocationHdfsOutput) KerberosKeytab() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationHdfs) pulumi.StringPtrOutput { return v.KerberosKeytab }).(pulumi.StringPtrOutput)
 }
 
-// The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
+// Use instead of `kerberosKeytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytab`) is required.
+func (o LocationHdfsOutput) KerberosKeytabBase64() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationHdfs) pulumi.StringPtrOutput { return v.KerberosKeytabBase64 }).(pulumi.StringPtrOutput)
+}
+
+// The krb5.conf file that contains the Kerberos configuration information. Use `kerberosKrb5ConfBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5ConfBase64`) is required.
 func (o LocationHdfsOutput) KerberosKrb5Conf() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationHdfs) pulumi.StringPtrOutput { return v.KerberosKrb5Conf }).(pulumi.StringPtrOutput)
+}
+
+// Use instead of `kerberosKrb5Conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5Conf`) is required.
+func (o LocationHdfsOutput) KerberosKrb5ConfBase64() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationHdfs) pulumi.StringPtrOutput { return v.KerberosKrb5ConfBase64 }).(pulumi.StringPtrOutput)
 }
 
 // The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
@@ -406,8 +485,8 @@ func (o LocationHdfsOutput) NameNodes() LocationHdfsNameNodeArrayOutput {
 }
 
 // The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn't specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
-func (o LocationHdfsOutput) QopConfiguration() LocationHdfsQopConfigurationPtrOutput {
-	return o.ApplyT(func(v *LocationHdfs) LocationHdfsQopConfigurationPtrOutput { return v.QopConfiguration }).(LocationHdfsQopConfigurationPtrOutput)
+func (o LocationHdfsOutput) QopConfiguration() LocationHdfsQopConfigurationOutput {
+	return o.ApplyT(func(v *LocationHdfs) LocationHdfsQopConfigurationOutput { return v.QopConfiguration }).(LocationHdfsQopConfigurationOutput)
 }
 
 // The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.

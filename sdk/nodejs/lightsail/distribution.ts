@@ -11,20 +11,26 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Lightsail Distribution.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
  * Below is a basic example with a bucket as an origin.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testBucket = new aws.lightsail.Bucket("testBucket", {bundleId: "small_1_0"});
- * const testDistribution = new aws.lightsail.Distribution("testDistribution", {
+ * const test = new aws.lightsail.Bucket("test", {
+ *     name: "test-bucket",
+ *     bundleId: "small_1_0",
+ * });
+ * const testDistribution = new aws.lightsail.Distribution("test", {
+ *     name: "test-distribution",
  *     bundleId: "small_1_0",
  *     origin: {
- *         name: testBucket.name,
- *         regionName: testBucket.region,
+ *         name: test.name,
+ *         regionName: test.region,
  *     },
  *     defaultCacheBehavior: {
  *         behavior: "cache",
@@ -47,10 +53,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### instance origin example
  *
  * Below is an example of an instance as the origin.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -62,17 +71,19 @@ import * as utilities from "../utilities";
  *         values: ["opt-in-not-required"],
  *     }],
  * });
- * const testStaticIp = new aws.lightsail.StaticIp("testStaticIp", {});
- * const testInstance = new aws.lightsail.Instance("testInstance", {
+ * const testStaticIp = new aws.lightsail.StaticIp("test", {name: "test-static-ip"});
+ * const testInstance = new aws.lightsail.Instance("test", {
+ *     name: "test-instance",
  *     availabilityZone: available.then(available => available.names?.[0]),
  *     blueprintId: "amazon_linux_2",
  *     bundleId: "micro_1_0",
  * });
- * const testStaticIpAttachment = new aws.lightsail.StaticIpAttachment("testStaticIpAttachment", {
+ * const test = new aws.lightsail.StaticIpAttachment("test", {
  *     staticIpName: testStaticIp.name,
  *     instanceName: testInstance.name,
  * });
- * const testDistribution = new aws.lightsail.Distribution("testDistribution", {
+ * const testDistribution = new aws.lightsail.Distribution("test", {
+ *     name: "test-distribution",
  *     bundleId: "small_1_0",
  *     origin: {
  *         name: testInstance.name,
@@ -81,14 +92,15 @@ import * as utilities from "../utilities";
  *     defaultCacheBehavior: {
  *         behavior: "cache",
  *     },
- * }, {
- *     dependsOn: [testStaticIpAttachment],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### lb origin example
  *
  * Below is an example with a load balancer as an origin
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -100,42 +112,44 @@ import * as utilities from "../utilities";
  *         values: ["opt-in-not-required"],
  *     }],
  * });
- * const testLb = new aws.lightsail.Lb("testLb", {
+ * const test = new aws.lightsail.Lb("test", {
+ *     name: "test-load-balancer",
  *     healthCheckPath: "/",
  *     instancePort: 80,
  *     tags: {
  *         foo: "bar",
  *     },
  * });
- * const testInstance = new aws.lightsail.Instance("testInstance", {
+ * const testInstance = new aws.lightsail.Instance("test", {
+ *     name: "test-instance",
  *     availabilityZone: available.then(available => available.names?.[0]),
  *     blueprintId: "amazon_linux_2",
  *     bundleId: "nano_1_0",
  * });
- * const testLbAttachment = new aws.lightsail.LbAttachment("testLbAttachment", {
- *     lbName: testLb.name,
+ * const testLbAttachment = new aws.lightsail.LbAttachment("test", {
+ *     lbName: test.name,
  *     instanceName: testInstance.name,
  * });
- * const testDistribution = new aws.lightsail.Distribution("testDistribution", {
+ * const testDistribution = new aws.lightsail.Distribution("test", {
+ *     name: "test-distribution",
  *     bundleId: "small_1_0",
  *     origin: {
- *         name: testLb.name,
+ *         name: test.name,
  *         regionName: available.then(available => available.id),
  *     },
  *     defaultCacheBehavior: {
  *         behavior: "cache",
  *     },
- * }, {
- *     dependsOn: [testLbAttachment],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Lightsail Distribution using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
+ * $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
  * ```
  */
 export class Distribution extends pulumi.CustomResource {
@@ -320,8 +334,6 @@ export class Distribution extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Distribution.__pulumiType, name, resourceInputs, opts);
     }
 }

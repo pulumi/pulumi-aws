@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -59,6 +60,7 @@ public final class ContinuousDeploymentPolicyStagingDistributionDnsNames {
 
         @CustomType.Setter
         public Builder items(@Nullable List<String> items) {
+
             this.items = items;
             return this;
         }
@@ -67,14 +69,17 @@ public final class ContinuousDeploymentPolicyStagingDistributionDnsNames {
         }
         @CustomType.Setter
         public Builder quantity(Integer quantity) {
-            this.quantity = Objects.requireNonNull(quantity);
+            if (quantity == null) {
+              throw new MissingRequiredPropertyException("ContinuousDeploymentPolicyStagingDistributionDnsNames", "quantity");
+            }
+            this.quantity = quantity;
             return this;
         }
         public ContinuousDeploymentPolicyStagingDistributionDnsNames build() {
-            final var o = new ContinuousDeploymentPolicyStagingDistributionDnsNames();
-            o.items = items;
-            o.quantity = quantity;
-            return o;
+            final var _resultValue = new ContinuousDeploymentPolicyStagingDistributionDnsNames();
+            _resultValue.items = items;
+            _resultValue.quantity = quantity;
+            return _resultValue;
         }
     }
 }

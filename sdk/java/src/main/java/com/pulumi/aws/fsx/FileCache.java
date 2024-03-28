@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * See the [Create File Cache](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileCache.html) for more information.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -72,20 +74,21 @@ import javax.annotation.Nullable;
  *                 .perUnitStorageThroughput(1000)
  *                 .weeklyMaintenanceStartTime(&#34;2:05:00&#34;)
  *                 .build())
- *             .subnetIds(aws_subnet.test1().id())
+ *             .subnetIds(test1.id())
  *             .storageCapacity(1200)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Amazon File Cache cache using the resource `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
+ * $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
  * ```
  * 
  */
@@ -372,9 +375,6 @@ public class FileCache extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -72,25 +72,28 @@ public final class UserProfileUserSettingsSharingSettings {
 
         @CustomType.Setter
         public Builder notebookOutputOption(@Nullable String notebookOutputOption) {
+
             this.notebookOutputOption = notebookOutputOption;
             return this;
         }
         @CustomType.Setter
         public Builder s3KmsKeyId(@Nullable String s3KmsKeyId) {
+
             this.s3KmsKeyId = s3KmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder s3OutputPath(@Nullable String s3OutputPath) {
+
             this.s3OutputPath = s3OutputPath;
             return this;
         }
         public UserProfileUserSettingsSharingSettings build() {
-            final var o = new UserProfileUserSettingsSharingSettings();
-            o.notebookOutputOption = notebookOutputOption;
-            o.s3KmsKeyId = s3KmsKeyId;
-            o.s3OutputPath = s3OutputPath;
-            return o;
+            final var _resultValue = new UserProfileUserSettingsSharingSettings();
+            _resultValue.notebookOutputOption = notebookOutputOption;
+            _resultValue.s3KmsKeyId = s3KmsKeyId;
+            _resultValue.s3OutputPath = s3OutputPath;
+            return _resultValue;
         }
     }
 }

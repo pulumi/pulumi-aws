@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Audit Manager Control.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,6 +48,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Control(&#34;example&#34;, ControlArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .controlMappingSources(ControlControlMappingSourceArgs.builder()
  *                 .sourceName(&#34;example&#34;)
  *                 .sourceSetUpOption(&#34;Procedural_Controls_Mapping&#34;)
@@ -55,13 +59,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import an Audit Manager Control using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:auditmanager/control:Control example abc123-de45
+ * $ pulumi import aws:auditmanager/control:Control example abc123-de45
  * ```
  * 
  */
@@ -244,9 +249,6 @@ public class Control extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

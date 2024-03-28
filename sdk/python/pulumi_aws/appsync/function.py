@@ -433,12 +433,14 @@ class Function(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi",
+        example = aws.appsync.GraphQLApi("example",
             authentication_type="API_KEY",
+            name="example",
             schema=\"\"\"type Mutation {
           putPost(id: ID!, title: String!): Post
         }
@@ -457,15 +459,15 @@ class Function(pulumi.CustomResource):
           mutation: Mutation
         }
         \"\"\")
-        example_data_source = aws.appsync.DataSource("exampleDataSource",
-            api_id=example_graph_ql_api.id,
+        example_data_source = aws.appsync.DataSource("example",
+            api_id=example.id,
             name="example",
             type="HTTP",
             http_config=aws.appsync.DataSourceHttpConfigArgs(
                 endpoint="http://example.com",
             ))
-        example_function = aws.appsync.Function("exampleFunction",
-            api_id=example_graph_ql_api.id,
+        example_function = aws.appsync.Function("example",
+            api_id=example.id,
             data_source=example_data_source.name,
             name="example",
             request_mapping_template=\"\"\"{
@@ -484,29 +486,34 @@ class Function(pulumi.CustomResource):
         #end
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Code
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         example = aws.appsync.Function("example",
-            api_id=aws_appsync_graphql_api["example"]["id"],
-            data_source=aws_appsync_datasource["example"]["name"],
+            api_id=example_aws_appsync_graphql_api["id"],
+            data_source=example_aws_appsync_datasource["name"],
             name="example",
-            code=(lambda path: open(path).read())("some-code-dir"),
+            code=std.file(input="some-code-dir").result,
             runtime=aws.appsync.FunctionRuntimeArgs(
                 name="APPSYNC_JS",
                 runtime_version="1.0.0",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appsync_function` using the AppSync API ID and Function ID separated by `-`. For example:
 
         ```sh
-         $ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
+        $ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
         ```
 
         :param str resource_name: The name of the resource.
@@ -534,12 +541,14 @@ class Function(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi",
+        example = aws.appsync.GraphQLApi("example",
             authentication_type="API_KEY",
+            name="example",
             schema=\"\"\"type Mutation {
           putPost(id: ID!, title: String!): Post
         }
@@ -558,15 +567,15 @@ class Function(pulumi.CustomResource):
           mutation: Mutation
         }
         \"\"\")
-        example_data_source = aws.appsync.DataSource("exampleDataSource",
-            api_id=example_graph_ql_api.id,
+        example_data_source = aws.appsync.DataSource("example",
+            api_id=example.id,
             name="example",
             type="HTTP",
             http_config=aws.appsync.DataSourceHttpConfigArgs(
                 endpoint="http://example.com",
             ))
-        example_function = aws.appsync.Function("exampleFunction",
-            api_id=example_graph_ql_api.id,
+        example_function = aws.appsync.Function("example",
+            api_id=example.id,
             data_source=example_data_source.name,
             name="example",
             request_mapping_template=\"\"\"{
@@ -585,29 +594,34 @@ class Function(pulumi.CustomResource):
         #end
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Code
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         example = aws.appsync.Function("example",
-            api_id=aws_appsync_graphql_api["example"]["id"],
-            data_source=aws_appsync_datasource["example"]["name"],
+            api_id=example_aws_appsync_graphql_api["id"],
+            data_source=example_aws_appsync_datasource["name"],
             name="example",
-            code=(lambda path: open(path).read())("some-code-dir"),
+            code=std.file(input="some-code-dir").result,
             runtime=aws.appsync.FunctionRuntimeArgs(
                 name="APPSYNC_JS",
                 runtime_version="1.0.0",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appsync_function` using the AppSync API ID and Function ID separated by `-`. For example:
 
         ```sh
-         $ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
+        $ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
         ```
 
         :param str resource_name: The name of the resource.

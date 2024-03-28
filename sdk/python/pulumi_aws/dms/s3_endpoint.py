@@ -1715,10 +1715,12 @@ class S3Endpoint(pulumi.CustomResource):
         > **Note:** Some of this resource's arguments have default values that come from the AWS Provider. Other default values are provided by AWS and subject to change without notice. When relying on AWS defaults, the provider state will often have a zero value. For example, the AWS Provider does not provide a default for `cdc_max_batch_interval` but the AWS default is `60` (seconds). However, the provider state will show `0` since this is the value return by AWS when no value is present. Below, we aim to flag the defaults that come from AWS (_e.g._, "AWS default...").
 
         ## Example Usage
+
         ### Minimal Configuration
 
         This is the minimal configuration for an `dms.S3Endpoint`. This endpoint will rely on the AWS Provider and AWS defaults.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1727,11 +1729,13 @@ class S3Endpoint(pulumi.CustomResource):
             endpoint_id="donnedtipi",
             endpoint_type="target",
             bucket_name="beckut_name",
-            service_access_role_arn=aws_iam_role["example"]["arn"],
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["example"]]))
+            service_access_role_arn=example_aws_iam_role["arn"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Complete Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1770,7 +1774,7 @@ class S3Endpoint(pulumi.CustomResource):
             enable_statistics=False,
             encoding_type="plain",
             encryption_mode="SSE_S3",
-            expected_bucket_owner=data["aws_caller_identity"]["current"]["account_id"],
+            expected_bucket_owner=current["accountId"],
             external_table_definition="etd",
             ignore_header_rows=1,
             include_op_for_full_load=True,
@@ -1780,21 +1784,21 @@ class S3Endpoint(pulumi.CustomResource):
             preserve_transactions=False,
             rfc4180=False,
             row_group_length=11000,
-            server_side_encryption_kms_key_id=aws_kms_key["example"]["arn"],
-            service_access_role_arn=aws_iam_role["example"]["arn"],
+            server_side_encryption_kms_key_id=example_aws_kms_key["arn"],
+            service_access_role_arn=example_aws_iam_role["arn"],
             timestamp_column_name="tx_commit_time",
             use_csv_no_sup_value=False,
             use_task_start_time_for_full_load_timestamp=True,
-            glue_catalog_generation=True,
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["example"]]))
+            glue_catalog_generation=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
 
         ```sh
-         $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
+        $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
         ```
 
         :param str resource_name: The name of the resource.
@@ -1864,10 +1868,12 @@ class S3Endpoint(pulumi.CustomResource):
         > **Note:** Some of this resource's arguments have default values that come from the AWS Provider. Other default values are provided by AWS and subject to change without notice. When relying on AWS defaults, the provider state will often have a zero value. For example, the AWS Provider does not provide a default for `cdc_max_batch_interval` but the AWS default is `60` (seconds). However, the provider state will show `0` since this is the value return by AWS when no value is present. Below, we aim to flag the defaults that come from AWS (_e.g._, "AWS default...").
 
         ## Example Usage
+
         ### Minimal Configuration
 
         This is the minimal configuration for an `dms.S3Endpoint`. This endpoint will rely on the AWS Provider and AWS defaults.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1876,11 +1882,13 @@ class S3Endpoint(pulumi.CustomResource):
             endpoint_id="donnedtipi",
             endpoint_type="target",
             bucket_name="beckut_name",
-            service_access_role_arn=aws_iam_role["example"]["arn"],
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["example"]]))
+            service_access_role_arn=example_aws_iam_role["arn"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Complete Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1919,7 +1927,7 @@ class S3Endpoint(pulumi.CustomResource):
             enable_statistics=False,
             encoding_type="plain",
             encryption_mode="SSE_S3",
-            expected_bucket_owner=data["aws_caller_identity"]["current"]["account_id"],
+            expected_bucket_owner=current["accountId"],
             external_table_definition="etd",
             ignore_header_rows=1,
             include_op_for_full_load=True,
@@ -1929,21 +1937,21 @@ class S3Endpoint(pulumi.CustomResource):
             preserve_transactions=False,
             rfc4180=False,
             row_group_length=11000,
-            server_side_encryption_kms_key_id=aws_kms_key["example"]["arn"],
-            service_access_role_arn=aws_iam_role["example"]["arn"],
+            server_side_encryption_kms_key_id=example_aws_kms_key["arn"],
+            service_access_role_arn=example_aws_iam_role["arn"],
             timestamp_column_name="tx_commit_time",
             use_csv_no_sup_value=False,
             use_task_start_time_for_full_load_timestamp=True,
-            glue_catalog_generation=True,
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["example"]]))
+            glue_catalog_generation=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
 
         ```sh
-         $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
+        $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
         ```
 
         :param str resource_name: The name of the resource.
@@ -2079,8 +2087,6 @@ class S3Endpoint(pulumi.CustomResource):
             __props__.__dict__["external_id"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(S3Endpoint, __self__).__init__(
             'aws:dms/s3Endpoint:S3Endpoint',
             resource_name,

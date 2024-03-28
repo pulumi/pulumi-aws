@@ -16,8 +16,10 @@ import (
 // join the collaboration and can create memberships.
 //
 // ## Example Usage
+//
 // ### Collaboration with tags
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,19 +32,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cleanrooms.NewCollaboration(ctx, "testCollaboration", &cleanrooms.CollaborationArgs{
-//				CreatorDisplayName: pulumi.String("Creator "),
+//			_, err := cleanrooms.NewCollaboration(ctx, "test_collaboration", &cleanrooms.CollaborationArgs{
+//				Name: pulumi.String("pulumi-example-collaboration"),
 //				CreatorMemberAbilities: pulumi.StringArray{
 //					pulumi.String("CAN_QUERY"),
 //					pulumi.String("CAN_RECEIVE_RESULTS"),
 //				},
+//				CreatorDisplayName: pulumi.String("Creator "),
+//				Description:        pulumi.String("I made this collaboration with Pulumi!"),
+//				QueryLogStatus:     pulumi.String("DISABLED"),
 //				DataEncryptionMetadata: &cleanrooms.CollaborationDataEncryptionMetadataArgs{
 //					AllowClearText:                        pulumi.Bool(true),
 //					AllowDuplicates:                       pulumi.Bool(true),
 //					AllowJoinsOnColumnsWithDifferentNames: pulumi.Bool(true),
 //					PreserveNulls:                         pulumi.Bool(false),
 //				},
-//				Description: pulumi.String("I made this collaboration with Pulumi!"),
 //				Members: cleanrooms.CollaborationMemberArray{
 //					&cleanrooms.CollaborationMemberArgs{
 //						AccountId:       pulumi.String("123456789012"),
@@ -50,7 +54,6 @@ import (
 //						MemberAbilities: pulumi.StringArray{},
 //					},
 //				},
-//				QueryLogStatus: pulumi.String("DISABLED"),
 //				Tags: pulumi.StringMap{
 //					"Project": pulumi.String("Pulumi"),
 //				},
@@ -63,15 +66,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_cleanrooms_collaboration` using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
-//
+// $ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
 // ```
 type Collaboration struct {
 	pulumi.CustomResourceState
@@ -133,10 +135,6 @@ func NewCollaboration(ctx *pulumi.Context,
 	if args.QueryLogStatus == nil {
 		return nil, errors.New("invalid value for required argument 'QueryLogStatus'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Collaboration
 	err := ctx.RegisterResource("aws:cleanrooms/collaboration:Collaboration", name, args, &resource, opts...)

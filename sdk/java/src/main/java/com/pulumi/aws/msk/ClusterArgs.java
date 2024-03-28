@@ -11,6 +11,7 @@ import com.pulumi.aws.msk.inputs.ClusterLoggingInfoArgs;
 import com.pulumi.aws.msk.inputs.ClusterOpenMonitoringArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -491,9 +492,15 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ClusterArgs build() {
-            $.brokerNodeGroupInfo = Objects.requireNonNull($.brokerNodeGroupInfo, "expected parameter 'brokerNodeGroupInfo' to be non-null");
-            $.kafkaVersion = Objects.requireNonNull($.kafkaVersion, "expected parameter 'kafkaVersion' to be non-null");
-            $.numberOfBrokerNodes = Objects.requireNonNull($.numberOfBrokerNodes, "expected parameter 'numberOfBrokerNodes' to be non-null");
+            if ($.brokerNodeGroupInfo == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "brokerNodeGroupInfo");
+            }
+            if ($.kafkaVersion == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "kafkaVersion");
+            }
+            if ($.numberOfBrokerNodes == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "numberOfBrokerNodes");
+            }
             return $;
         }
     }

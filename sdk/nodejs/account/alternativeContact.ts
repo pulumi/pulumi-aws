@@ -9,17 +9,20 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const operations = new aws.account.AlternativeContact("operations", {
  *     alternateContactType: "OPERATIONS",
+ *     name: "Example",
+ *     title: "Example",
  *     emailAddress: "test@example.com",
  *     phoneNumber: "+1234567890",
- *     title: "Example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -30,12 +33,12 @@ import * as utilities from "../utilities";
  * Import the Alternate Contact for the current account:
  *
  * ```sh
- *  $ pulumi import aws:account/alternativeContact:AlternativeContact operations OPERATIONS
+ * $ pulumi import aws:account/alternativeContact:AlternativeContact operations OPERATIONS
  * ```
- *  Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):
+ * Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):
  *
  * ```sh
- *  $ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS
+ * $ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS
  * ```
  */
 export class AlternativeContact extends pulumi.CustomResource {

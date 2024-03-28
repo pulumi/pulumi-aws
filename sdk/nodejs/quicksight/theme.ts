@@ -12,12 +12,48 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.quicksight.Theme("example", {
+ *     themeId: "example",
+ *     name: "example",
+ *     baseThemeId: "MIDNIGHT",
+ *     configuration: {
+ *         dataColorPalette: {
+ *             colors: [
+ *                 "#FFFFFF",
+ *                 "#111111",
+ *                 "#222222",
+ *                 "#333333",
+ *                 "#444444",
+ *                 "#555555",
+ *                 "#666666",
+ *                 "#777777",
+ *                 "#888888",
+ *                 "#999999",
+ *             ],
+ *             emptyFillColor: "#FFFFFF",
+ *             minMaxGradients: [
+ *                 "#FFFFFF",
+ *                 "#111111",
+ *             ],
+ *         },
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Import
  *
  * Using `pulumi import`, import a QuickSight Theme using the AWS account ID and theme ID separated by a comma (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
+ * $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
  * ```
  */
 export class Theme extends pulumi.CustomResource {
@@ -160,8 +196,6 @@ export class Theme extends pulumi.CustomResource {
             resourceInputs["versionNumber"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Theme.__pulumiType, name, resourceInputs, opts);
     }
 }

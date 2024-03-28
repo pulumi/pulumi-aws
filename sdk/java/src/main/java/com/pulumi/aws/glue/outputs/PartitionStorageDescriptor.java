@@ -206,6 +206,7 @@ public final class PartitionStorageDescriptor {
 
         @CustomType.Setter
         public Builder bucketColumns(@Nullable List<String> bucketColumns) {
+
             this.bucketColumns = bucketColumns;
             return this;
         }
@@ -214,6 +215,7 @@ public final class PartitionStorageDescriptor {
         }
         @CustomType.Setter
         public Builder columns(@Nullable List<PartitionStorageDescriptorColumn> columns) {
+
             this.columns = columns;
             return this;
         }
@@ -222,46 +224,55 @@ public final class PartitionStorageDescriptor {
         }
         @CustomType.Setter
         public Builder compressed(@Nullable Boolean compressed) {
+
             this.compressed = compressed;
             return this;
         }
         @CustomType.Setter
         public Builder inputFormat(@Nullable String inputFormat) {
+
             this.inputFormat = inputFormat;
             return this;
         }
         @CustomType.Setter
         public Builder location(@Nullable String location) {
+
             this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder numberOfBuckets(@Nullable Integer numberOfBuckets) {
+
             this.numberOfBuckets = numberOfBuckets;
             return this;
         }
         @CustomType.Setter
         public Builder outputFormat(@Nullable String outputFormat) {
+
             this.outputFormat = outputFormat;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
+
             this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
         public Builder serDeInfo(@Nullable PartitionStorageDescriptorSerDeInfo serDeInfo) {
+
             this.serDeInfo = serDeInfo;
             return this;
         }
         @CustomType.Setter
         public Builder skewedInfo(@Nullable PartitionStorageDescriptorSkewedInfo skewedInfo) {
+
             this.skewedInfo = skewedInfo;
             return this;
         }
         @CustomType.Setter
         public Builder sortColumns(@Nullable List<PartitionStorageDescriptorSortColumn> sortColumns) {
+
             this.sortColumns = sortColumns;
             return this;
         }
@@ -270,24 +281,25 @@ public final class PartitionStorageDescriptor {
         }
         @CustomType.Setter
         public Builder storedAsSubDirectories(@Nullable Boolean storedAsSubDirectories) {
+
             this.storedAsSubDirectories = storedAsSubDirectories;
             return this;
         }
         public PartitionStorageDescriptor build() {
-            final var o = new PartitionStorageDescriptor();
-            o.bucketColumns = bucketColumns;
-            o.columns = columns;
-            o.compressed = compressed;
-            o.inputFormat = inputFormat;
-            o.location = location;
-            o.numberOfBuckets = numberOfBuckets;
-            o.outputFormat = outputFormat;
-            o.parameters = parameters;
-            o.serDeInfo = serDeInfo;
-            o.skewedInfo = skewedInfo;
-            o.sortColumns = sortColumns;
-            o.storedAsSubDirectories = storedAsSubDirectories;
-            return o;
+            final var _resultValue = new PartitionStorageDescriptor();
+            _resultValue.bucketColumns = bucketColumns;
+            _resultValue.columns = columns;
+            _resultValue.compressed = compressed;
+            _resultValue.inputFormat = inputFormat;
+            _resultValue.location = location;
+            _resultValue.numberOfBuckets = numberOfBuckets;
+            _resultValue.outputFormat = outputFormat;
+            _resultValue.parameters = parameters;
+            _resultValue.serDeInfo = serDeInfo;
+            _resultValue.skewedInfo = skewedInfo;
+            _resultValue.sortColumns = sortColumns;
+            _resultValue.storedAsSubDirectories = storedAsSubDirectories;
+            return _resultValue;
         }
     }
 }

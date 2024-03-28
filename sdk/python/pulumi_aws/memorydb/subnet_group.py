@@ -266,24 +266,28 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
-        example_subnet = aws.ec2.Subnet("exampleSubnet",
-            vpc_id=example_vpc.id,
+        example = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
+        example_subnet = aws.ec2.Subnet("example",
+            vpc_id=example.id,
             cidr_block="10.0.0.0/24",
             availability_zone="us-west-2a")
-        example_subnet_group = aws.memorydb.SubnetGroup("exampleSubnetGroup", subnet_ids=[example_subnet.id])
+        example_subnet_group = aws.memorydb.SubnetGroup("example",
+            name="my-subnet-group",
+            subnet_ids=[example_subnet.id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a subnet group using its `name`. For example:
 
         ```sh
-         $ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
+        $ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
         ```
 
         :param str resource_name: The name of the resource.
@@ -309,24 +313,28 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
-        example_subnet = aws.ec2.Subnet("exampleSubnet",
-            vpc_id=example_vpc.id,
+        example = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
+        example_subnet = aws.ec2.Subnet("example",
+            vpc_id=example.id,
             cidr_block="10.0.0.0/24",
             availability_zone="us-west-2a")
-        example_subnet_group = aws.memorydb.SubnetGroup("exampleSubnetGroup", subnet_ids=[example_subnet.id])
+        example_subnet_group = aws.memorydb.SubnetGroup("example",
+            name="my-subnet-group",
+            subnet_ids=[example_subnet.id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a subnet group using its `name`. For example:
 
         ```sh
-         $ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
+        $ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
         ```
 
         :param str resource_name: The name of the resource.
@@ -368,8 +376,6 @@ class SubnetGroup(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SubnetGroup, __self__).__init__(
             'aws:memorydb/subnetGroup:SubnetGroup',
             resource_name,

@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:controltower/controlTowerControl:ControlTowerControl":
 		r = &ControlTowerControl{}
+	case "aws:controltower/landingZone:LandingZone":
+		r = &LandingZone{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"controltower/controlTowerControl",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"controltower/landingZone",
 		&module{version},
 	)
 }

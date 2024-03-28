@@ -5,6 +5,7 @@ package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.aws.appflow.outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -87,31 +88,39 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
 
         @CustomType.Setter
         public Builder bucketPrefix(@Nullable String bucketPrefix) {
+
             this.bucketPrefix = bucketPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder errorHandlingConfig(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig errorHandlingConfig) {
+
             this.errorHandlingConfig = errorHandlingConfig;
             return this;
         }
         @CustomType.Setter
         public Builder intermediateBucketName(String intermediateBucketName) {
-            this.intermediateBucketName = Objects.requireNonNull(intermediateBucketName);
+            if (intermediateBucketName == null) {
+              throw new MissingRequiredPropertyException("FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift", "intermediateBucketName");
+            }
+            this.intermediateBucketName = intermediateBucketName;
             return this;
         }
         @CustomType.Setter
         public Builder object(String object) {
-            this.object = Objects.requireNonNull(object);
+            if (object == null) {
+              throw new MissingRequiredPropertyException("FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift", "object");
+            }
+            this.object = object;
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift();
-            o.bucketPrefix = bucketPrefix;
-            o.errorHandlingConfig = errorHandlingConfig;
-            o.intermediateBucketName = intermediateBucketName;
-            o.object = object;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift();
+            _resultValue.bucketPrefix = bucketPrefix;
+            _resultValue.errorHandlingConfig = errorHandlingConfig;
+            _resultValue.intermediateBucketName = intermediateBucketName;
+            _resultValue.object = object;
+            return _resultValue;
         }
     }
 }

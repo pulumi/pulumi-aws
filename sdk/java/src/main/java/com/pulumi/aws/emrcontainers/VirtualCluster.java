@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,7 +20,10 @@ import javax.annotation.Nullable;
  * Manages an EMR Containers (EMR on EKS) Virtual Cluster.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,7 +50,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new VirtualCluster(&#34;example&#34;, VirtualClusterArgs.builder()        
  *             .containerProvider(VirtualClusterContainerProviderArgs.builder()
- *                 .id(aws_eks_cluster.example().name())
+ *                 .id(exampleAwsEksCluster.name())
  *                 .type(&#34;EKS&#34;)
  *                 .info(VirtualClusterContainerProviderInfoArgs.builder()
  *                     .eksInfo(VirtualClusterContainerProviderInfoEksInfoArgs.builder()
@@ -56,18 +58,20 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import EKS Clusters using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
+ * $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
  * ```
  * 
  */
@@ -180,9 +184,6 @@ public class VirtualCluster extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

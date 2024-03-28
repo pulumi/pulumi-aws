@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS CloudFront Continuous Deployment Policy.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -75,7 +78,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Single Weight Config with Session Stickiness
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -104,7 +111,7 @@ import javax.annotation.Nullable;
  *         var example = new ContinuousDeploymentPolicy(&#34;example&#34;, ContinuousDeploymentPolicyArgs.builder()        
  *             .enabled(true)
  *             .stagingDistributionDnsNames(ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs.builder()
- *                 .items(aws_cloudfront_distribution.staging().domain_name())
+ *                 .items(staging.domainName())
  *                 .quantity(1)
  *                 .build())
  *             .trafficConfig(ContinuousDeploymentPolicyTrafficConfigArgs.builder()
@@ -122,7 +129,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Single Header Config
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -150,7 +161,7 @@ import javax.annotation.Nullable;
  *         var example = new ContinuousDeploymentPolicy(&#34;example&#34;, ContinuousDeploymentPolicyArgs.builder()        
  *             .enabled(true)
  *             .stagingDistributionDnsNames(ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs.builder()
- *                 .items(aws_cloudfront_distribution.staging().domain_name())
+ *                 .items(staging.domainName())
  *                 .quantity(1)
  *                 .build())
  *             .trafficConfig(ContinuousDeploymentPolicyTrafficConfigArgs.builder()
@@ -165,13 +176,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudFront Continuous Deployment Policy using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
+ * $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
  * ```
  * 
  */

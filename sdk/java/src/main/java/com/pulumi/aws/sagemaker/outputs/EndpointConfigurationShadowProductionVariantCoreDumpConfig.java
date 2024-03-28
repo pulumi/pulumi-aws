@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class EndpointConfigurationShadowProductionVariantCoreDumpConfig {
 
         @CustomType.Setter
         public Builder destinationS3Uri(String destinationS3Uri) {
-            this.destinationS3Uri = Objects.requireNonNull(destinationS3Uri);
+            if (destinationS3Uri == null) {
+              throw new MissingRequiredPropertyException("EndpointConfigurationShadowProductionVariantCoreDumpConfig", "destinationS3Uri");
+            }
+            this.destinationS3Uri = destinationS3Uri;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+            if (kmsKeyId == null) {
+              throw new MissingRequiredPropertyException("EndpointConfigurationShadowProductionVariantCoreDumpConfig", "kmsKeyId");
+            }
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         public EndpointConfigurationShadowProductionVariantCoreDumpConfig build() {
-            final var o = new EndpointConfigurationShadowProductionVariantCoreDumpConfig();
-            o.destinationS3Uri = destinationS3Uri;
-            o.kmsKeyId = kmsKeyId;
-            return o;
+            final var _resultValue = new EndpointConfigurationShadowProductionVariantCoreDumpConfig();
+            _resultValue.destinationS3Uri = destinationS3Uri;
+            _resultValue.kmsKeyId = kmsKeyId;
+            return _resultValue;
         }
     }
 }

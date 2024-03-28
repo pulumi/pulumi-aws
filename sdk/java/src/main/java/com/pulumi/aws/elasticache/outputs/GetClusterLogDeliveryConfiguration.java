@@ -4,6 +4,7 @@
 package com.pulumi.aws.elasticache.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -52,31 +53,43 @@ public final class GetClusterLogDeliveryConfiguration {
 
         @CustomType.Setter
         public Builder destination(String destination) {
-            this.destination = Objects.requireNonNull(destination);
+            if (destination == null) {
+              throw new MissingRequiredPropertyException("GetClusterLogDeliveryConfiguration", "destination");
+            }
+            this.destination = destination;
             return this;
         }
         @CustomType.Setter
         public Builder destinationType(String destinationType) {
-            this.destinationType = Objects.requireNonNull(destinationType);
+            if (destinationType == null) {
+              throw new MissingRequiredPropertyException("GetClusterLogDeliveryConfiguration", "destinationType");
+            }
+            this.destinationType = destinationType;
             return this;
         }
         @CustomType.Setter
         public Builder logFormat(String logFormat) {
-            this.logFormat = Objects.requireNonNull(logFormat);
+            if (logFormat == null) {
+              throw new MissingRequiredPropertyException("GetClusterLogDeliveryConfiguration", "logFormat");
+            }
+            this.logFormat = logFormat;
             return this;
         }
         @CustomType.Setter
         public Builder logType(String logType) {
-            this.logType = Objects.requireNonNull(logType);
+            if (logType == null) {
+              throw new MissingRequiredPropertyException("GetClusterLogDeliveryConfiguration", "logType");
+            }
+            this.logType = logType;
             return this;
         }
         public GetClusterLogDeliveryConfiguration build() {
-            final var o = new GetClusterLogDeliveryConfiguration();
-            o.destination = destination;
-            o.destinationType = destinationType;
-            o.logFormat = logFormat;
-            o.logType = logType;
-            return o;
+            final var _resultValue = new GetClusterLogDeliveryConfiguration();
+            _resultValue.destination = destination;
+            _resultValue.destinationType = destinationType;
+            _resultValue.logFormat = logFormat;
+            _resultValue.logType = logType;
+            return _resultValue;
         }
     }
 }

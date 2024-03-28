@@ -19,6 +19,8 @@ public final class PricingFunctions {
      * This data source is only available in a us-east-1 or ap-south-1 provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -41,6 +43,7 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
+     *             .serviceCode(&#34;AmazonEC2&#34;)
      *             .filters(            
      *                 GetProductFilterArgs.builder()
      *                     .field(&#34;instanceType&#34;)
@@ -70,12 +73,14 @@ public final class PricingFunctions {
      *                     .field(&#34;capacitystatus&#34;)
      *                     .value(&#34;Used&#34;)
      *                     .build())
-     *             .serviceCode(&#34;AmazonEC2&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -98,6 +103,7 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
+     *             .serviceCode(&#34;AmazonRedshift&#34;)
      *             .filters(            
      *                 GetProductFilterArgs.builder()
      *                     .field(&#34;instanceType&#34;)
@@ -107,12 +113,12 @@ public final class PricingFunctions {
      *                     .field(&#34;location&#34;)
      *                     .value(&#34;US East (N. Virginia)&#34;)
      *                     .build())
-     *             .serviceCode(&#34;AmazonRedshift&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetProductResult> getProduct(GetProductArgs args) {
@@ -123,6 +129,8 @@ public final class PricingFunctions {
      * This data source is only available in a us-east-1 or ap-south-1 provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -145,6 +153,7 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
+     *             .serviceCode(&#34;AmazonEC2&#34;)
      *             .filters(            
      *                 GetProductFilterArgs.builder()
      *                     .field(&#34;instanceType&#34;)
@@ -174,12 +183,14 @@ public final class PricingFunctions {
      *                     .field(&#34;capacitystatus&#34;)
      *                     .value(&#34;Used&#34;)
      *                     .build())
-     *             .serviceCode(&#34;AmazonEC2&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -202,6 +213,7 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
+     *             .serviceCode(&#34;AmazonRedshift&#34;)
      *             .filters(            
      *                 GetProductFilterArgs.builder()
      *                     .field(&#34;instanceType&#34;)
@@ -211,12 +223,12 @@ public final class PricingFunctions {
      *                     .field(&#34;location&#34;)
      *                     .value(&#34;US East (N. Virginia)&#34;)
      *                     .build())
-     *             .serviceCode(&#34;AmazonRedshift&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetProductResult> getProductPlain(GetProductPlainArgs args) {
@@ -227,6 +239,8 @@ public final class PricingFunctions {
      * This data source is only available in a us-east-1 or ap-south-1 provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -249,6 +263,7 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
+     *             .serviceCode(&#34;AmazonEC2&#34;)
      *             .filters(            
      *                 GetProductFilterArgs.builder()
      *                     .field(&#34;instanceType&#34;)
@@ -278,12 +293,14 @@ public final class PricingFunctions {
      *                     .field(&#34;capacitystatus&#34;)
      *                     .value(&#34;Used&#34;)
      *                     .build())
-     *             .serviceCode(&#34;AmazonEC2&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -306,6 +323,7 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
+     *             .serviceCode(&#34;AmazonRedshift&#34;)
      *             .filters(            
      *                 GetProductFilterArgs.builder()
      *                     .field(&#34;instanceType&#34;)
@@ -315,12 +333,12 @@ public final class PricingFunctions {
      *                     .field(&#34;location&#34;)
      *                     .value(&#34;US East (N. Virginia)&#34;)
      *                     .build())
-     *             .serviceCode(&#34;AmazonRedshift&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetProductResult> getProduct(GetProductArgs args, InvokeOptions options) {
@@ -331,6 +349,8 @@ public final class PricingFunctions {
      * This data source is only available in a us-east-1 or ap-south-1 provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -353,6 +373,7 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
+     *             .serviceCode(&#34;AmazonEC2&#34;)
      *             .filters(            
      *                 GetProductFilterArgs.builder()
      *                     .field(&#34;instanceType&#34;)
@@ -382,12 +403,14 @@ public final class PricingFunctions {
      *                     .field(&#34;capacitystatus&#34;)
      *                     .value(&#34;Used&#34;)
      *                     .build())
-     *             .serviceCode(&#34;AmazonEC2&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -410,6 +433,7 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
+     *             .serviceCode(&#34;AmazonRedshift&#34;)
      *             .filters(            
      *                 GetProductFilterArgs.builder()
      *                     .field(&#34;instanceType&#34;)
@@ -419,12 +443,12 @@ public final class PricingFunctions {
      *                     .field(&#34;location&#34;)
      *                     .value(&#34;US East (N. Virginia)&#34;)
      *                     .build())
-     *             .serviceCode(&#34;AmazonRedshift&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetProductResult> getProductPlain(GetProductPlainArgs args, InvokeOptions options) {

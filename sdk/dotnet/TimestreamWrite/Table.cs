@@ -13,8 +13,10 @@ namespace Pulumi.Aws.TimestreamWrite
     /// Provides a Timestream table resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,14 +27,17 @@ namespace Pulumi.Aws.TimestreamWrite
     /// {
     ///     var example = new Aws.TimestreamWrite.Table("example", new()
     ///     {
-    ///         DatabaseName = aws_timestreamwrite_database.Example.Database_name,
+    ///         DatabaseName = exampleAwsTimestreamwriteDatabase.DatabaseName,
     ///         TableName = "example",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Full usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,7 +48,7 @@ namespace Pulumi.Aws.TimestreamWrite
     /// {
     ///     var example = new Aws.TimestreamWrite.Table("example", new()
     ///     {
-    ///         DatabaseName = aws_timestreamwrite_database.Example.Database_name,
+    ///         DatabaseName = exampleAwsTimestreamwriteDatabase.DatabaseName,
     ///         TableName = "example",
     ///         RetentionProperties = new Aws.TimestreamWrite.Inputs.TableRetentionPropertiesArgs
     ///         {
@@ -58,8 +63,11 @@ namespace Pulumi.Aws.TimestreamWrite
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Customer-defined Partition Key
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -70,7 +78,7 @@ namespace Pulumi.Aws.TimestreamWrite
     /// {
     ///     var example = new Aws.TimestreamWrite.Table("example", new()
     ///     {
-    ///         DatabaseName = aws_timestreamwrite_database.Example.Database_name,
+    ///         DatabaseName = exampleAwsTimestreamwriteDatabase.DatabaseName,
     ///         TableName = "example",
     ///         Schema = new Aws.TimestreamWrite.Inputs.TableSchemaArgs
     ///         {
@@ -85,13 +93,14 @@ namespace Pulumi.Aws.TimestreamWrite
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Timestream tables using the `table_name` and `database_name` separate by a colon (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
+    /// $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
     /// ```
     /// </summary>
     [AwsResourceType("aws:timestreamwrite/table:Table")]
@@ -168,10 +177,6 @@ namespace Pulumi.Aws.TimestreamWrite
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -303,11 +308,7 @@ namespace Pulumi.Aws.TimestreamWrite
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public TableState()

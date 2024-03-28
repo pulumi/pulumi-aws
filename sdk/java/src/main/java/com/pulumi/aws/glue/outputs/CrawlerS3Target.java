@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -124,21 +125,25 @@ public final class CrawlerS3Target {
 
         @CustomType.Setter
         public Builder connectionName(@Nullable String connectionName) {
+
             this.connectionName = connectionName;
             return this;
         }
         @CustomType.Setter
         public Builder dlqEventQueueArn(@Nullable String dlqEventQueueArn) {
+
             this.dlqEventQueueArn = dlqEventQueueArn;
             return this;
         }
         @CustomType.Setter
         public Builder eventQueueArn(@Nullable String eventQueueArn) {
+
             this.eventQueueArn = eventQueueArn;
             return this;
         }
         @CustomType.Setter
         public Builder exclusions(@Nullable List<String> exclusions) {
+
             this.exclusions = exclusions;
             return this;
         }
@@ -147,23 +152,27 @@ public final class CrawlerS3Target {
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("CrawlerS3Target", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder sampleSize(@Nullable Integer sampleSize) {
+
             this.sampleSize = sampleSize;
             return this;
         }
         public CrawlerS3Target build() {
-            final var o = new CrawlerS3Target();
-            o.connectionName = connectionName;
-            o.dlqEventQueueArn = dlqEventQueueArn;
-            o.eventQueueArn = eventQueueArn;
-            o.exclusions = exclusions;
-            o.path = path;
-            o.sampleSize = sampleSize;
-            return o;
+            final var _resultValue = new CrawlerS3Target();
+            _resultValue.connectionName = connectionName;
+            _resultValue.dlqEventQueueArn = dlqEventQueueArn;
+            _resultValue.eventQueueArn = eventQueueArn;
+            _resultValue.exclusions = exclusions;
+            _resultValue.path = path;
+            _resultValue.sampleSize = sampleSize;
+            return _resultValue;
         }
     }
 }

@@ -13,7 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +21,8 @@ import javax.annotation.Nullable;
  * Manages an App Runner AutoScaling Configuration Version.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,13 +55,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import App Runner AutoScaling Configuration Versions using the `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion example &#34;arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
+ * $ pulumi import aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion example &#34;arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
  * ```
  * 
  */
@@ -107,6 +109,18 @@ public class AutoScalingConfigurationVersion extends com.pulumi.resources.Custom
      */
     public Output<Integer> autoScalingConfigurationRevision() {
         return this.autoScalingConfigurationRevision;
+    }
+    @Export(name="hasAssociatedService", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> hasAssociatedService;
+
+    public Output<Boolean> hasAssociatedService() {
+        return this.hasAssociatedService;
+    }
+    @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> isDefault;
+
+    public Output<Boolean> isDefault() {
+        return this.isDefault;
     }
     /**
      * Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.
@@ -243,9 +257,6 @@ public class AutoScalingConfigurationVersion extends com.pulumi.resources.Custom
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -16,6 +16,7 @@ namespace Pulumi.Aws.LB
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,12 +25,10 @@ namespace Pulumi.Aws.LB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var frontEndLoadBalancer = new Aws.LB.LoadBalancer("frontEndLoadBalancer");
+    ///     var frontEnd = new Aws.LB.LoadBalancer("front_end");
     /// 
-    ///     // ...
-    ///     var frontEndListener = new Aws.LB.Listener("frontEndListener");
+    ///     var frontEndListener = new Aws.LB.Listener("front_end");
     /// 
-    ///     // Other parameters
     ///     var @static = new Aws.LB.ListenerRule("static", new()
     ///     {
     ///         ListenerArn = frontEndListener.Arn,
@@ -39,7 +38,7 @@ namespace Pulumi.Aws.LB
     ///             new Aws.LB.Inputs.ListenerRuleActionArgs
     ///             {
     ///                 Type = "forward",
-    ///                 TargetGroupArn = aws_lb_target_group.Static.Arn,
+    ///                 TargetGroupArn = staticAwsLbTargetGroup.Arn,
     ///             },
     ///         },
     ///         Conditions = new[]
@@ -68,7 +67,7 @@ namespace Pulumi.Aws.LB
     ///     });
     /// 
     ///     // Forward action
-    ///     var hostBasedWeightedRouting = new Aws.LB.ListenerRule("hostBasedWeightedRouting", new()
+    ///     var hostBasedWeightedRouting = new Aws.LB.ListenerRule("host_based_weighted_routing", new()
     ///     {
     ///         ListenerArn = frontEndListener.Arn,
     ///         Priority = 99,
@@ -77,7 +76,7 @@ namespace Pulumi.Aws.LB
     ///             new Aws.LB.Inputs.ListenerRuleActionArgs
     ///             {
     ///                 Type = "forward",
-    ///                 TargetGroupArn = aws_lb_target_group.Static.Arn,
+    ///                 TargetGroupArn = staticAwsLbTargetGroup.Arn,
     ///             },
     ///         },
     ///         Conditions = new[]
@@ -96,7 +95,7 @@ namespace Pulumi.Aws.LB
     ///     });
     /// 
     ///     // Weighted Forward action
-    ///     var hostBasedRouting = new Aws.LB.ListenerRule("hostBasedRouting", new()
+    ///     var hostBasedRouting = new Aws.LB.ListenerRule("host_based_routing", new()
     ///     {
     ///         ListenerArn = frontEndListener.Arn,
     ///         Priority = 99,
@@ -111,12 +110,12 @@ namespace Pulumi.Aws.LB
     ///                     {
     ///                         new Aws.LB.Inputs.ListenerRuleActionForwardTargetGroupArgs
     ///                         {
-    ///                             Arn = aws_lb_target_group.Main.Arn,
+    ///                             Arn = main.Arn,
     ///                             Weight = 80,
     ///                         },
     ///                         new Aws.LB.Inputs.ListenerRuleActionForwardTargetGroupArgs
     ///                         {
-    ///                             Arn = aws_lb_target_group.Canary.Arn,
+    ///                             Arn = canary.Arn,
     ///                             Weight = 20,
     ///                         },
     ///                     },
@@ -144,7 +143,7 @@ namespace Pulumi.Aws.LB
     ///     });
     /// 
     ///     // Redirect action
-    ///     var redirectHttpToHttps = new Aws.LB.ListenerRule("redirectHttpToHttps", new()
+    ///     var redirectHttpToHttps = new Aws.LB.ListenerRule("redirect_http_to_https", new()
     ///     {
     ///         ListenerArn = frontEndListener.Arn,
     ///         Actions = new[]
@@ -177,7 +176,7 @@ namespace Pulumi.Aws.LB
     ///     });
     /// 
     ///     // Fixed-response action
-    ///     var healthCheck = new Aws.LB.ListenerRule("healthCheck", new()
+    ///     var healthCheck = new Aws.LB.ListenerRule("health_check", new()
     ///     {
     ///         ListenerArn = frontEndListener.Arn,
     ///         Actions = new[]
@@ -216,13 +215,10 @@ namespace Pulumi.Aws.LB
     ///     // Authenticate-cognito Action
     ///     var pool = new Aws.Cognito.UserPool("pool");
     /// 
-    ///     // ...
     ///     var client = new Aws.Cognito.UserPoolClient("client");
     /// 
-    ///     // ...
     ///     var domain = new Aws.Cognito.UserPoolDomain("domain");
     /// 
-    ///     // ...
     ///     var admin = new Aws.LB.ListenerRule("admin", new()
     ///     {
     ///         ListenerArn = frontEndListener.Arn,
@@ -241,7 +237,7 @@ namespace Pulumi.Aws.LB
     ///             new Aws.LB.Inputs.ListenerRuleActionArgs
     ///             {
     ///                 Type = "forward",
-    ///                 TargetGroupArn = aws_lb_target_group.Static.Arn,
+    ///                 TargetGroupArn = staticAwsLbTargetGroup.Arn,
     ///             },
     ///         },
     ///     });
@@ -268,20 +264,21 @@ namespace Pulumi.Aws.LB
     ///             new Aws.LB.Inputs.ListenerRuleActionArgs
     ///             {
     ///                 Type = "forward",
-    ///                 TargetGroupArn = aws_lb_target_group.Static.Arn,
+    ///                 TargetGroupArn = staticAwsLbTargetGroup.Arn,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import rules using their ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lb/listenerRule:ListenerRule front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener-rule/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b
+    /// $ pulumi import aws:lb/listenerRule:ListenerRule front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener-rule/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b
     /// ```
     /// </summary>
     [AwsResourceType("aws:lb/listenerRule:ListenerRule")]
@@ -354,11 +351,7 @@ namespace Pulumi.Aws.LB
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancingv2/listenerRule:ListenerRule"},
-                },
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
+                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancingv2/listenerRule:ListenerRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -503,11 +496,7 @@ namespace Pulumi.Aws.LB
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ListenerRuleState()

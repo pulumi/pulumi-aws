@@ -549,7 +549,7 @@ class User(pulumi.CustomResource):
         Using `pulumi import`, import an Identity Store User using the combination `identity_store_id/user_id`. For example:
 
         ```sh
-         $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
+        $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
         ```
 
         :param str resource_name: The name of the resource.
@@ -592,7 +592,7 @@ class User(pulumi.CustomResource):
         Using `pulumi import`, import an Identity Store User using the combination `identity_store_id/user_id`. For example:
 
         ```sh
-         $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
+        $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
         ```
 
         :param str resource_name: The name of the resource.

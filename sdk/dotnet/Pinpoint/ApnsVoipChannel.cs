@@ -15,33 +15,41 @@ namespace Pulumi.Aws.Pinpoint
     /// &gt; **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var app = new Aws.Pinpoint.App("app");
     /// 
-    ///     var apnsVoip = new Aws.Pinpoint.ApnsVoipChannel("apnsVoip", new()
+    ///     var apnsVoip = new Aws.Pinpoint.ApnsVoipChannel("apns_voip", new()
     ///     {
     ///         ApplicationId = app.ApplicationId,
-    ///         Certificate = File.ReadAllText("./certificate.pem"),
-    ///         PrivateKey = File.ReadAllText("./private_key.key"),
+    ///         Certificate = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "./certificate.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         PrivateKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "./private_key.key",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Pinpoint APNs VoIP Channel using the `application-id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:pinpoint/apnsVoipChannel:ApnsVoipChannel apns_voip application-id
+    /// $ pulumi import aws:pinpoint/apnsVoipChannel:ApnsVoipChannel apns_voip application-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:pinpoint/apnsVoipChannel:ApnsVoipChannel")]

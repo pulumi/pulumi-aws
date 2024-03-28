@@ -44,13 +44,14 @@ public final class VirtualGatewaySpecLogging {
 
         @CustomType.Setter
         public Builder accessLog(@Nullable VirtualGatewaySpecLoggingAccessLog accessLog) {
+
             this.accessLog = accessLog;
             return this;
         }
         public VirtualGatewaySpecLogging build() {
-            final var o = new VirtualGatewaySpecLogging();
-            o.accessLog = accessLog;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecLogging();
+            _resultValue.accessLog = accessLog;
+            return _resultValue;
         }
     }
 }

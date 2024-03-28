@@ -58,19 +58,21 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings {
 
         @CustomType.Setter
         public Builder s3ArtifactPath(@Nullable String s3ArtifactPath) {
+
             this.s3ArtifactPath = s3ArtifactPath;
             return this;
         }
         @CustomType.Setter
         public Builder s3KmsKeyId(@Nullable String s3KmsKeyId) {
+
             this.s3KmsKeyId = s3KmsKeyId;
             return this;
         }
         public DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings build() {
-            final var o = new DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings();
-            o.s3ArtifactPath = s3ArtifactPath;
-            o.s3KmsKeyId = s3KmsKeyId;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings();
+            _resultValue.s3ArtifactPath = s3ArtifactPath;
+            _resultValue.s3KmsKeyId = s3KmsKeyId;
+            return _resultValue;
         }
     }
 }

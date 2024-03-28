@@ -115,43 +115,49 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
         @CustomType.Setter
         public Builder accessToken(@Nullable String accessToken) {
+
             this.accessToken = accessToken;
             return this;
         }
         @CustomType.Setter
         public Builder clientCredentialsArn(@Nullable String clientCredentialsArn) {
+
             this.clientCredentialsArn = clientCredentialsArn;
             return this;
         }
         @CustomType.Setter
         public Builder jwtToken(@Nullable String jwtToken) {
+
             this.jwtToken = jwtToken;
             return this;
         }
         @CustomType.Setter
         public Builder oauth2GrantType(@Nullable String oauth2GrantType) {
+
             this.oauth2GrantType = oauth2GrantType;
             return this;
         }
         @CustomType.Setter
         public Builder oauthRequest(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest oauthRequest) {
+
             this.oauthRequest = oauthRequest;
             return this;
         }
         @CustomType.Setter
         public Builder refreshToken(@Nullable String refreshToken) {
+
             this.refreshToken = refreshToken;
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce();
-            o.accessToken = accessToken;
-            o.clientCredentialsArn = clientCredentialsArn;
-            o.jwtToken = jwtToken;
-            o.oauth2GrantType = oauth2GrantType;
-            o.oauthRequest = oauthRequest;
-            o.refreshToken = refreshToken;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce();
+            _resultValue.accessToken = accessToken;
+            _resultValue.clientCredentialsArn = clientCredentialsArn;
+            _resultValue.jwtToken = jwtToken;
+            _resultValue.oauth2GrantType = oauth2GrantType;
+            _resultValue.oauthRequest = oauthRequest;
+            _resultValue.refreshToken = refreshToken;
+            return _resultValue;
         }
     }
 }

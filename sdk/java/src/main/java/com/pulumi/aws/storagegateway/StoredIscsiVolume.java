@@ -13,7 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -24,7 +23,10 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** The gateway must have a working storage added (e.g., via the `aws.storagegateway.WorkingStorage` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `WORKING STORAGE NOT CONFIGURED`.
  * 
  * ## Example Usage
+ * 
  * ### Create Empty Stored iSCSI Volume
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,17 +49,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new StoredIscsiVolume(&#34;example&#34;, StoredIscsiVolumeArgs.builder()        
- *             .gatewayArn(aws_storagegateway_cache.example().gateway_arn())
- *             .networkInterfaceId(aws_instance.example().private_ip())
+ *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
+ *             .networkInterfaceId(exampleAwsInstance.privateIp())
  *             .targetName(&#34;example&#34;)
  *             .preserveExistingData(false)
- *             .diskId(data.aws_storagegateway_local_disk().test().id())
+ *             .diskId(test.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Create Stored iSCSI Volume From Snapshot
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -80,24 +86,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new StoredIscsiVolume(&#34;example&#34;, StoredIscsiVolumeArgs.builder()        
- *             .gatewayArn(aws_storagegateway_cache.example().gateway_arn())
- *             .networkInterfaceId(aws_instance.example().private_ip())
- *             .snapshotId(aws_ebs_snapshot.example().id())
+ *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
+ *             .networkInterfaceId(exampleAwsInstance.privateIp())
+ *             .snapshotId(exampleAwsEbsSnapshot.id())
  *             .targetName(&#34;example&#34;)
  *             .preserveExistingData(false)
- *             .diskId(data.aws_storagegateway_local_disk().test().id())
+ *             .diskId(test.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_storagegateway_stored_iscsi_volume` using the volume Amazon Resource Name (ARN). For example:
  * 
  * ```sh
- *  $ pulumi import aws:storagegateway/storedIscsiVolume:StoredIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
+ * $ pulumi import aws:storagegateway/storedIscsiVolume:StoredIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
  * ```
  * 
  */
@@ -420,9 +427,6 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

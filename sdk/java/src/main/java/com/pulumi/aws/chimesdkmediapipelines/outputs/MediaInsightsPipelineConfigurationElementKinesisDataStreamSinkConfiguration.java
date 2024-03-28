@@ -4,6 +4,7 @@
 package com.pulumi.aws.chimesdkmediapipelines.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class MediaInsightsPipelineConfigurationElementKinesisDataStreamSin
 
         @CustomType.Setter
         public Builder insightsTarget(String insightsTarget) {
-            this.insightsTarget = Objects.requireNonNull(insightsTarget);
+            if (insightsTarget == null) {
+              throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration", "insightsTarget");
+            }
+            this.insightsTarget = insightsTarget;
             return this;
         }
         public MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration build() {
-            final var o = new MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration();
-            o.insightsTarget = insightsTarget;
-            return o;
+            final var _resultValue = new MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration();
+            _resultValue.insightsTarget = insightsTarget;
+            return _resultValue;
         }
     }
 }

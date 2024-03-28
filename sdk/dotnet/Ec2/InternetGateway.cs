@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,7 +25,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var gw = new Aws.Ec2.InternetGateway("gw", new()
     ///     {
-    ///         VpcId = aws_vpc.Main.Id,
+    ///         VpcId = main.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "main" },
@@ -33,13 +34,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Internet Gateways using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
+    /// $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/internetGateway:InternetGateway")]
@@ -62,6 +64,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -72,22 +75,14 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var gw = new Aws.Ec2.InternetGateway("gw", new()
         ///     {
-        ///         VpcId = aws_vpc.Main.Id,
+        ///         VpcId = main.Id,
         ///     });
         /// 
-        ///     // ... other arguments ...
-        ///     var foo = new Aws.Ec2.Instance("foo", new()
-        ///     {
-        ///     }, new CustomResourceOptions
-        ///     {
-        ///         DependsOn = new[]
-        ///         {
-        ///             gw,
-        ///         },
-        ///     });
+        ///     var foo = new Aws.Ec2.Instance("foo");
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -127,10 +122,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -162,6 +153,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -172,22 +164,14 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var gw = new Aws.Ec2.InternetGateway("gw", new()
         ///     {
-        ///         VpcId = aws_vpc.Main.Id,
+        ///         VpcId = main.Id,
         ///     });
         /// 
-        ///     // ... other arguments ...
-        ///     var foo = new Aws.Ec2.Instance("foo", new()
-        ///     {
-        ///     }, new CustomResourceOptions
-        ///     {
-        ///         DependsOn = new[]
-        ///         {
-        ///             gw,
-        ///         },
-        ///     });
+        ///     var foo = new Aws.Ec2.Instance("foo");
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public InputMap<string> Tags
         {
@@ -229,6 +213,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -239,22 +224,14 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var gw = new Aws.Ec2.InternetGateway("gw", new()
         ///     {
-        ///         VpcId = aws_vpc.Main.Id,
+        ///         VpcId = main.Id,
         ///     });
         /// 
-        ///     // ... other arguments ...
-        ///     var foo = new Aws.Ec2.Instance("foo", new()
-        ///     {
-        ///     }, new CustomResourceOptions
-        ///     {
-        ///         DependsOn = new[]
-        ///         {
-        ///             gw,
-        ///         },
-        ///     });
+        ///     var foo = new Aws.Ec2.Instance("foo");
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public InputMap<string> Tags
         {
@@ -272,11 +249,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

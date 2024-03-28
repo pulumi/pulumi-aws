@@ -62,6 +62,7 @@ class ClusterArgs:
                
                > **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -80,9 +81,9 @@ class ClusterArgs:
                "Properties": {}
                }
                ]
-               
                \"\"\")
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input['ClusterCoreInstanceFleetArgs'] core_instance_fleet: Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
         :param pulumi.Input['ClusterCoreInstanceGroupArgs'] core_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
         :param pulumi.Input[str] custom_ami_id: Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
@@ -270,6 +271,7 @@ class ClusterArgs:
 
         > **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -288,9 +290,9 @@ class ClusterArgs:
         "Properties": {}
         }
         ]
-
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "configurations_json")
 
@@ -601,6 +603,7 @@ class _ClusterState:
                
                > **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -619,9 +622,9 @@ class _ClusterState:
                "Properties": {}
                }
                ]
-               
                \"\"\")
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input['ClusterCoreInstanceFleetArgs'] core_instance_fleet: Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
         :param pulumi.Input['ClusterCoreInstanceGroupArgs'] core_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
         :param pulumi.Input[str] custom_ami_id: Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
@@ -823,6 +826,7 @@ class _ClusterState:
 
         > **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -841,9 +845,9 @@ class _ClusterState:
         "Properties": {}
         }
         ]
-
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "configurations_json")
 
@@ -1200,11 +1204,13 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         cluster = aws.emr.Cluster("cluster",
+            name="emr-test-arn",
             release_label="emr-4.6.0",
             applications=["Spark"],
             additional_info=\"\"\"{
@@ -1217,10 +1223,10 @@ class Cluster(pulumi.CustomResource):
             termination_protection=False,
             keep_job_flow_alive_when_no_steps=True,
             ec2_attributes=aws.emr.ClusterEc2AttributesArgs(
-                subnet_id=aws_subnet["main"]["id"],
-                emr_managed_master_security_group=aws_security_group["sg"]["id"],
-                emr_managed_slave_security_group=aws_security_group["sg"]["id"],
-                instance_profile=aws_iam_instance_profile["emr_profile"]["arn"],
+                subnet_id=main["id"],
+                emr_managed_master_security_group=sg["id"],
+                emr_managed_slave_security_group=sg["id"],
+                instance_profile=emr_profile["arn"],
             ),
             master_instance_group=aws.emr.ClusterMasterInstanceGroupArgs(
                 instance_type="m4.large",
@@ -1307,14 +1313,17 @@ class Cluster(pulumi.CustomResource):
             }
           ]
         \"\"\",
-            service_role=aws_iam_role["iam_emr_service_role"]["arn"])
+            service_role=iam_emr_service_role["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         The `emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster to use as a service role, and another is assigned to every EC2 instance in a cluster and each application process that runs on a cluster assumes this role for permissions to interact with other AWS services. An additional role, the Auto Scaling role, is required if your cluster uses automatic scaling in Amazon EMR.
 
         The default AWS managed EMR service role is called `EMR_DefaultRole` with Amazon managed policy `AmazonEMRServicePolicy_v2` attached. The name of default instance profile role is `EMR_EC2_DefaultRole` with default managed policy `AmazonElasticMapReduceforEC2Role` attached, but it is on the path to deprecation and will not be replaced with another default managed policy. You'll need to create and specify an instance profile to replace the deprecated role and default policy. See the [Configure IAM service roles for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-roles.html) guide for more information on these IAM roles. There is also a fully-bootable example Pulumi configuration at the bottom of this page.
+
         ### Instance Fleet
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1403,18 +1412,21 @@ class Cluster(pulumi.CustomResource):
                     timeout_duration_minutes=10,
                 )],
             ),
+            name="task fleet",
             target_on_demand_capacity=1,
             target_spot_capacity=1)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Enable Debug Logging
 
         [Debug logging in EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html) is implemented as a step. It is highly recommended that you utilize the resource options configuration with `ignoreChanges` if other steps are being managed outside of this provider.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        # ... other configuration ...
         example = aws.emr.Cluster("example", steps=[aws.emr.ClusterStepArgs(
             action_on_failure="TERMINATE_CLUSTER",
             name="Setup Hadoop Debugging",
@@ -1424,10 +1436,13 @@ class Cluster(pulumi.CustomResource):
             ),
         )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Multiple Node Master Instance Group
 
         Available in EMR version 5.23.0 and later, an EMR Cluster can be launched with three master nodes for high availability. Additional information about this functionality and its requirements can be found in the [EMR Management Guide](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ha.html).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1435,29 +1450,28 @@ class Cluster(pulumi.CustomResource):
         # This configuration is for illustrative purposes and highlights
         # only relevant configurations for working with this functionality.
         # Map public IP on launch must be enabled for public (Internet accessible) subnets
-        # ... other configuration ...
-        example_subnet = aws.ec2.Subnet("exampleSubnet", map_public_ip_on_launch=True)
-        # ... other configuration ...
-        example_cluster = aws.emr.Cluster("exampleCluster",
+        example = aws.ec2.Subnet("example", map_public_ip_on_launch=True)
+        example_cluster = aws.emr.Cluster("example",
             release_label="emr-5.24.1",
             termination_protection=True,
             ec2_attributes=aws.emr.ClusterEc2AttributesArgs(
-                subnet_id=example_subnet.id,
+                subnet_id=example.id,
             ),
             master_instance_group=aws.emr.ClusterMasterInstanceGroupArgs(
                 instance_count=3,
             ),
             core_instance_group=aws.emr.ClusterCoreInstanceGroupArgs())
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EMR clusters using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
+        $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
         ```
-         Since the API does not return the actual values for Kerberos configurations, environments with those options set will need to use the `lifecycle` configuration block `ignore_changes` argument available to all Pulumi resources to prevent perpetual differences. For example:
+        Since the API does not return the actual values for Kerberos configurations, environments with those options set will need to use the `lifecycle` configuration block `ignore_changes` argument available to all Pulumi resources to prevent perpetual differences. For example:
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1471,6 +1485,7 @@ class Cluster(pulumi.CustomResource):
                
                > **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -1489,9 +1504,9 @@ class Cluster(pulumi.CustomResource):
                "Properties": {}
                }
                ]
-               
                \"\"\")
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input[pulumi.InputType['ClusterCoreInstanceFleetArgs']] core_instance_fleet: Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
         :param pulumi.Input[pulumi.InputType['ClusterCoreInstanceGroupArgs']] core_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
         :param pulumi.Input[str] custom_ami_id: Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
@@ -1531,11 +1546,13 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         cluster = aws.emr.Cluster("cluster",
+            name="emr-test-arn",
             release_label="emr-4.6.0",
             applications=["Spark"],
             additional_info=\"\"\"{
@@ -1548,10 +1565,10 @@ class Cluster(pulumi.CustomResource):
             termination_protection=False,
             keep_job_flow_alive_when_no_steps=True,
             ec2_attributes=aws.emr.ClusterEc2AttributesArgs(
-                subnet_id=aws_subnet["main"]["id"],
-                emr_managed_master_security_group=aws_security_group["sg"]["id"],
-                emr_managed_slave_security_group=aws_security_group["sg"]["id"],
-                instance_profile=aws_iam_instance_profile["emr_profile"]["arn"],
+                subnet_id=main["id"],
+                emr_managed_master_security_group=sg["id"],
+                emr_managed_slave_security_group=sg["id"],
+                instance_profile=emr_profile["arn"],
             ),
             master_instance_group=aws.emr.ClusterMasterInstanceGroupArgs(
                 instance_type="m4.large",
@@ -1638,14 +1655,17 @@ class Cluster(pulumi.CustomResource):
             }
           ]
         \"\"\",
-            service_role=aws_iam_role["iam_emr_service_role"]["arn"])
+            service_role=iam_emr_service_role["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         The `emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster to use as a service role, and another is assigned to every EC2 instance in a cluster and each application process that runs on a cluster assumes this role for permissions to interact with other AWS services. An additional role, the Auto Scaling role, is required if your cluster uses automatic scaling in Amazon EMR.
 
         The default AWS managed EMR service role is called `EMR_DefaultRole` with Amazon managed policy `AmazonEMRServicePolicy_v2` attached. The name of default instance profile role is `EMR_EC2_DefaultRole` with default managed policy `AmazonElasticMapReduceforEC2Role` attached, but it is on the path to deprecation and will not be replaced with another default managed policy. You'll need to create and specify an instance profile to replace the deprecated role and default policy. See the [Configure IAM service roles for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-roles.html) guide for more information on these IAM roles. There is also a fully-bootable example Pulumi configuration at the bottom of this page.
+
         ### Instance Fleet
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1734,18 +1754,21 @@ class Cluster(pulumi.CustomResource):
                     timeout_duration_minutes=10,
                 )],
             ),
+            name="task fleet",
             target_on_demand_capacity=1,
             target_spot_capacity=1)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Enable Debug Logging
 
         [Debug logging in EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html) is implemented as a step. It is highly recommended that you utilize the resource options configuration with `ignoreChanges` if other steps are being managed outside of this provider.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        # ... other configuration ...
         example = aws.emr.Cluster("example", steps=[aws.emr.ClusterStepArgs(
             action_on_failure="TERMINATE_CLUSTER",
             name="Setup Hadoop Debugging",
@@ -1755,10 +1778,13 @@ class Cluster(pulumi.CustomResource):
             ),
         )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Multiple Node Master Instance Group
 
         Available in EMR version 5.23.0 and later, an EMR Cluster can be launched with three master nodes for high availability. Additional information about this functionality and its requirements can be found in the [EMR Management Guide](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ha.html).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1766,29 +1792,28 @@ class Cluster(pulumi.CustomResource):
         # This configuration is for illustrative purposes and highlights
         # only relevant configurations for working with this functionality.
         # Map public IP on launch must be enabled for public (Internet accessible) subnets
-        # ... other configuration ...
-        example_subnet = aws.ec2.Subnet("exampleSubnet", map_public_ip_on_launch=True)
-        # ... other configuration ...
-        example_cluster = aws.emr.Cluster("exampleCluster",
+        example = aws.ec2.Subnet("example", map_public_ip_on_launch=True)
+        example_cluster = aws.emr.Cluster("example",
             release_label="emr-5.24.1",
             termination_protection=True,
             ec2_attributes=aws.emr.ClusterEc2AttributesArgs(
-                subnet_id=example_subnet.id,
+                subnet_id=example.id,
             ),
             master_instance_group=aws.emr.ClusterMasterInstanceGroupArgs(
                 instance_count=3,
             ),
             core_instance_group=aws.emr.ClusterCoreInstanceGroupArgs())
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EMR clusters using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
+        $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
         ```
-         Since the API does not return the actual values for Kerberos configurations, environments with those options set will need to use the `lifecycle` configuration block `ignore_changes` argument available to all Pulumi resources to prevent perpetual differences. For example:
+        Since the API does not return the actual values for Kerberos configurations, environments with those options set will need to use the `lifecycle` configuration block `ignore_changes` argument available to all Pulumi resources to prevent perpetual differences. For example:
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -1882,8 +1907,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["cluster_state"] = None
             __props__.__dict__["master_public_dns"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Cluster, __self__).__init__(
             'aws:emr/cluster:Cluster',
             resource_name,
@@ -1946,6 +1969,7 @@ class Cluster(pulumi.CustomResource):
                
                > **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -1964,9 +1988,9 @@ class Cluster(pulumi.CustomResource):
                "Properties": {}
                }
                ]
-               
                \"\"\")
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input[pulumi.InputType['ClusterCoreInstanceFleetArgs']] core_instance_fleet: Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
         :param pulumi.Input[pulumi.InputType['ClusterCoreInstanceGroupArgs']] core_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
         :param pulumi.Input[str] custom_ami_id: Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
@@ -2104,6 +2128,7 @@ class Cluster(pulumi.CustomResource):
 
         > **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2122,9 +2147,9 @@ class Cluster(pulumi.CustomResource):
         "Properties": {}
         }
         ]
-
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "configurations_json")
 

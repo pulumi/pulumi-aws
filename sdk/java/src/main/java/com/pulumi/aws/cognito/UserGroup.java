@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a Cognito User Group resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -26,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cognito.UserPool;
+ * import com.pulumi.aws.cognito.UserPoolArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
@@ -45,9 +48,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mainUserPool = new UserPool(&#34;mainUserPool&#34;);
+ *         var main = new UserPool(&#34;main&#34;, UserPoolArgs.builder()        
+ *             .name(&#34;identity pool&#34;)
+ *             .build());
  * 
- *         final var groupRolePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var groupRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -70,11 +75,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var groupRoleRole = new Role(&#34;groupRoleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(groupRolePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .name(&#34;user-group-role&#34;)
+ *             .assumeRolePolicy(groupRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var mainUserGroup = new UserGroup(&#34;mainUserGroup&#34;, UserGroupArgs.builder()        
- *             .userPoolId(mainUserPool.id())
+ *             .name(&#34;user-group&#34;)
+ *             .userPoolId(main.id())
  *             .description(&#34;Managed by Pulumi&#34;)
  *             .precedence(42)
  *             .roleArn(groupRoleRole.arn())
@@ -83,13 +90,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Cognito User Groups using the `user_pool_id`/`name` attributes concatenated. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
+ * $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
  * ```
  * 
  */

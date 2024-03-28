@@ -378,8 +378,8 @@ class ProjectEnvironmentArgs:
                  privileged_mode: Optional[pulumi.Input[bool]] = None,
                  registry_credential: Optional[pulumi.Input['ProjectEnvironmentRegistryCredentialArgs']] = None):
         """
-        :param pulumi.Input[str] compute_type: Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `compute_type` must be `BUILD_GENERAL1_LARGE`.
-        :param pulumi.Input[str] image: Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+        :param pulumi.Input[str] compute_type: Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`, `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `compute_type` must be `BUILD_GENERAL1_LARGE`. When `type` is set to `LINUX_LAMBDA_CONTAINER` or `ARM_LAMBDA_CONTAINER`, `compute_type` must be `BUILD_LAMBDA_XGB`.`
+        :param pulumi.Input[str] image: Docker image to use for this build project. Valid values include Docker images provided by CodeBuild, and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
         :param pulumi.Input[str] type: Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
         :param pulumi.Input[str] certificate: ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]] environment_variables: Configuration block. Detailed below.
@@ -405,7 +405,7 @@ class ProjectEnvironmentArgs:
     @pulumi.getter(name="computeType")
     def compute_type(self) -> pulumi.Input[str]:
         """
-        Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `compute_type` must be `BUILD_GENERAL1_LARGE`.
+        Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`, `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `compute_type` must be `BUILD_GENERAL1_LARGE`. When `type` is set to `LINUX_LAMBDA_CONTAINER` or `ARM_LAMBDA_CONTAINER`, `compute_type` must be `BUILD_LAMBDA_XGB`.`
         """
         return pulumi.get(self, "compute_type")
 
@@ -417,7 +417,7 @@ class ProjectEnvironmentArgs:
     @pulumi.getter
     def image(self) -> pulumi.Input[str]:
         """
-        Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+        Docker image to use for this build project. Valid values include Docker images provided by CodeBuild, and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
         """
         return pulumi.get(self, "image")
 
@@ -723,7 +723,7 @@ class ProjectLogsConfigCloudwatchLogsArgs:
         """
         :param pulumi.Input[str] group_name: Group name of the logs in CloudWatch Logs.
         :param pulumi.Input[str] status: Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
-        :param pulumi.Input[str] stream_name: Stream name of the logs in CloudWatch Logs.
+        :param pulumi.Input[str] stream_name: Prefix of the log stream name of the logs in CloudWatch Logs.
         """
         if group_name is not None:
             pulumi.set(__self__, "group_name", group_name)
@@ -760,7 +760,7 @@ class ProjectLogsConfigCloudwatchLogsArgs:
     @pulumi.getter(name="streamName")
     def stream_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Stream name of the logs in CloudWatch Logs.
+        Prefix of the log stream name of the logs in CloudWatch Logs.
         """
         return pulumi.get(self, "stream_name")
 
@@ -1266,7 +1266,7 @@ class ProjectSourceArgs:
         """
         :param pulumi.Input[str] type: Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
         :param pulumi.Input['ProjectSourceBuildStatusConfigArgs'] build_status_config: Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
-        :param pulumi.Input[str] buildspec: Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+        :param pulumi.Input[str] buildspec: Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
         :param pulumi.Input[int] git_clone_depth: Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
         :param pulumi.Input['ProjectSourceGitSubmodulesConfigArgs'] git_submodules_config: Configuration block. Detailed below.
         :param pulumi.Input[bool] insecure_ssl: Ignore SSL warnings when connecting to source control.
@@ -1317,7 +1317,7 @@ class ProjectSourceArgs:
     @pulumi.getter
     def buildspec(self) -> Optional[pulumi.Input[str]]:
         """
-        Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+        Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
         """
         return pulumi.get(self, "buildspec")
 

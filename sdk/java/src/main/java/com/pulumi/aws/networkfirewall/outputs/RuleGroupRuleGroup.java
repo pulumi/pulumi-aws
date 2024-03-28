@@ -8,6 +8,7 @@ import com.pulumi.aws.networkfirewall.outputs.RuleGroupRuleGroupRuleVariables;
 import com.pulumi.aws.networkfirewall.outputs.RuleGroupRuleGroupRulesSource;
 import com.pulumi.aws.networkfirewall.outputs.RuleGroupRuleGroupStatefulRuleOptions;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -89,31 +90,37 @@ public final class RuleGroupRuleGroup {
 
         @CustomType.Setter
         public Builder referenceSets(@Nullable RuleGroupRuleGroupReferenceSets referenceSets) {
+
             this.referenceSets = referenceSets;
             return this;
         }
         @CustomType.Setter
         public Builder ruleVariables(@Nullable RuleGroupRuleGroupRuleVariables ruleVariables) {
+
             this.ruleVariables = ruleVariables;
             return this;
         }
         @CustomType.Setter
         public Builder rulesSource(RuleGroupRuleGroupRulesSource rulesSource) {
-            this.rulesSource = Objects.requireNonNull(rulesSource);
+            if (rulesSource == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroup", "rulesSource");
+            }
+            this.rulesSource = rulesSource;
             return this;
         }
         @CustomType.Setter
         public Builder statefulRuleOptions(@Nullable RuleGroupRuleGroupStatefulRuleOptions statefulRuleOptions) {
+
             this.statefulRuleOptions = statefulRuleOptions;
             return this;
         }
         public RuleGroupRuleGroup build() {
-            final var o = new RuleGroupRuleGroup();
-            o.referenceSets = referenceSets;
-            o.ruleVariables = ruleVariables;
-            o.rulesSource = rulesSource;
-            o.statefulRuleOptions = statefulRuleOptions;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroup();
+            _resultValue.referenceSets = referenceSets;
+            _resultValue.ruleVariables = ruleVariables;
+            _resultValue.rulesSource = rulesSource;
+            _resultValue.statefulRuleOptions = statefulRuleOptions;
+            return _resultValue;
         }
     }
 }

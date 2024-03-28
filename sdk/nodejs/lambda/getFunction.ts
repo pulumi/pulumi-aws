@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,6 +23,7 @@ import * as utilities from "../utilities";
  *     functionName: functionName,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {
 
@@ -114,6 +116,10 @@ export interface GetFunctionResult {
      */
     readonly layers: string[];
     /**
+     * Advanced logging settings.
+     */
+    readonly loggingConfigs: outputs.lambda.GetFunctionLoggingConfig[];
+    /**
      * Amount of memory in MB your Lambda Function can use at runtime.
      */
     readonly memorySize: number;
@@ -177,6 +183,7 @@ export interface GetFunctionResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -187,6 +194,7 @@ export interface GetFunctionResult {
  *     functionName: functionName,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionResult> {
     return pulumi.output(args).apply((a: any) => getFunction(a, opts))

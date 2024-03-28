@@ -31,6 +31,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,11 +55,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var docdb = new Cluster(&#34;docdb&#34;, ClusterArgs.builder()        
- *             .backupRetentionPeriod(5)
  *             .clusterIdentifier(&#34;my-docdb-cluster&#34;)
  *             .engine(&#34;docdb&#34;)
- *             .masterPassword(&#34;mustbeeightchars&#34;)
  *             .masterUsername(&#34;foo&#34;)
+ *             .masterPassword(&#34;mustbeeightchars&#34;)
+ *             .backupRetentionPeriod(5)
  *             .preferredBackupWindow(&#34;07:00-09:00&#34;)
  *             .skipFinalSnapshot(true)
  *             .build());
@@ -65,13 +67,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import DocumentDB Clusters using the `cluster_identifier`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
+ * $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
  * ```
  * 
  */
@@ -282,14 +285,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.endpoint;
     }
     /**
-     * The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+     * The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> engine;
 
     /**
-     * @return The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+     * @return The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
      * 
      */
     public Output<Optional<String>> engine() {
@@ -500,6 +503,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.storageEncrypted);
     }
     /**
+     * The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+     * 
+     */
+    @Export(name="storageType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> storageType;
+
+    /**
+     * @return The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+     * 
+     */
+    public Output<Optional<String>> storageType() {
+        return Codegen.optional(this.storageType);
+    }
+    /**
      * A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -581,8 +598,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "masterPassword",
-                "tagsAll"
+                "masterPassword"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

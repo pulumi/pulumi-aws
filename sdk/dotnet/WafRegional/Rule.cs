@@ -14,6 +14,7 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,6 +25,7 @@ namespace Pulumi.Aws.WafRegional
     /// {
     ///     var ipset = new Aws.WafRegional.IpSet("ipset", new()
     ///     {
+    ///         Name = "tfIPSet",
     ///         IpSetDescriptors = new[]
     ///         {
     ///             new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
@@ -36,6 +38,7 @@ namespace Pulumi.Aws.WafRegional
     /// 
     ///     var wafrule = new Aws.WafRegional.Rule("wafrule", new()
     ///     {
+    ///         Name = "tfWAFRule",
     ///         MetricName = "tfWAFRule",
     ///         Predicates = new[]
     ///         {
@@ -50,6 +53,8 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Nested Fields
     /// 
     /// ### `predicate`
@@ -67,7 +72,7 @@ namespace Pulumi.Aws.WafRegional
     /// Using `pulumi import`, import WAF Regional Rule using the id. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:wafregional/rule:Rule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+    /// $ pulumi import aws:wafregional/rule:Rule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
     /// ```
     /// </summary>
     [AwsResourceType("aws:wafregional/rule:Rule")]
@@ -132,10 +137,6 @@ namespace Pulumi.Aws.WafRegional
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -255,11 +256,7 @@ namespace Pulumi.Aws.WafRegional
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public RuleState()

@@ -4,6 +4,7 @@
 package com.pulumi.aws.emr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -13,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class InstanceFleetLaunchSpecificationsSpotSpecification {
     /**
-     * @return Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+     * @return Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
      * 
      */
     private String allocationStrategy;
@@ -35,7 +36,7 @@ public final class InstanceFleetLaunchSpecificationsSpotSpecification {
 
     private InstanceFleetLaunchSpecificationsSpotSpecification() {}
     /**
-     * @return Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+     * @return Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
      * 
      */
     public String allocationStrategy() {
@@ -87,31 +88,41 @@ public final class InstanceFleetLaunchSpecificationsSpotSpecification {
 
         @CustomType.Setter
         public Builder allocationStrategy(String allocationStrategy) {
-            this.allocationStrategy = Objects.requireNonNull(allocationStrategy);
+            if (allocationStrategy == null) {
+              throw new MissingRequiredPropertyException("InstanceFleetLaunchSpecificationsSpotSpecification", "allocationStrategy");
+            }
+            this.allocationStrategy = allocationStrategy;
             return this;
         }
         @CustomType.Setter
         public Builder blockDurationMinutes(@Nullable Integer blockDurationMinutes) {
+
             this.blockDurationMinutes = blockDurationMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutAction(String timeoutAction) {
-            this.timeoutAction = Objects.requireNonNull(timeoutAction);
+            if (timeoutAction == null) {
+              throw new MissingRequiredPropertyException("InstanceFleetLaunchSpecificationsSpotSpecification", "timeoutAction");
+            }
+            this.timeoutAction = timeoutAction;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutDurationMinutes(Integer timeoutDurationMinutes) {
-            this.timeoutDurationMinutes = Objects.requireNonNull(timeoutDurationMinutes);
+            if (timeoutDurationMinutes == null) {
+              throw new MissingRequiredPropertyException("InstanceFleetLaunchSpecificationsSpotSpecification", "timeoutDurationMinutes");
+            }
+            this.timeoutDurationMinutes = timeoutDurationMinutes;
             return this;
         }
         public InstanceFleetLaunchSpecificationsSpotSpecification build() {
-            final var o = new InstanceFleetLaunchSpecificationsSpotSpecification();
-            o.allocationStrategy = allocationStrategy;
-            o.blockDurationMinutes = blockDurationMinutes;
-            o.timeoutAction = timeoutAction;
-            o.timeoutDurationMinutes = timeoutDurationMinutes;
-            return o;
+            final var _resultValue = new InstanceFleetLaunchSpecificationsSpotSpecification();
+            _resultValue.allocationStrategy = allocationStrategy;
+            _resultValue.blockDurationMinutes = blockDurationMinutes;
+            _resultValue.timeoutAction = timeoutAction;
+            _resultValue.timeoutDurationMinutes = timeoutDurationMinutes;
+            return _resultValue;
         }
     }
 }

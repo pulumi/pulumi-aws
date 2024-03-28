@@ -102,6 +102,7 @@ class AuthenticationProfile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -110,18 +111,19 @@ class AuthenticationProfile(pulumi.CustomResource):
         example = aws.redshift.AuthenticationProfile("example",
             authentication_profile_name="example",
             authentication_profile_content=json.dumps({
-                "AllowDBUserOverride": "1",
-                "Client_ID": "ExampleClientID",
-                "App_ID": "example",
+                "allowDBUserOverride": "1",
+                "clientID": "ExampleClientID",
+                "appID": "example",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
+        $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
         ```
 
         :param str resource_name: The name of the resource.
@@ -140,6 +142,7 @@ class AuthenticationProfile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -148,18 +151,19 @@ class AuthenticationProfile(pulumi.CustomResource):
         example = aws.redshift.AuthenticationProfile("example",
             authentication_profile_name="example",
             authentication_profile_content=json.dumps({
-                "AllowDBUserOverride": "1",
-                "Client_ID": "ExampleClientID",
-                "App_ID": "example",
+                "allowDBUserOverride": "1",
+                "clientID": "ExampleClientID",
+                "appID": "example",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
+        $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
         ```
 
         :param str resource_name: The name of the resource.

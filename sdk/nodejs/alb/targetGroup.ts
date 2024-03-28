@@ -13,76 +13,98 @@ import * as utilities from "../utilities";
  * > **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
  *
  * ## Example Usage
+ *
  * ### Instance Target Group
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
  * const test = new aws.lb.TargetGroup("test", {
+ *     name: "tf-example-lb-tg",
  *     port: 80,
  *     protocol: "HTTP",
  *     vpcId: main.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### IP Target Group
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
  * const ip_example = new aws.lb.TargetGroup("ip-example", {
+ *     name: "tf-example-lb-tg",
  *     port: 80,
  *     protocol: "HTTP",
  *     targetType: "ip",
  *     vpcId: main.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Lambda Target Group
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const lambda_example = new aws.lb.TargetGroup("lambda-example", {targetType: "lambda"});
+ * const lambda_example = new aws.lb.TargetGroup("lambda-example", {
+ *     name: "tf-example-lb-tg",
+ *     targetType: "lambda",
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### ALB Target Group
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const alb_example = new aws.lb.TargetGroup("alb-example", {
+ *     name: "tf-example-lb-alb-tg",
  *     targetType: "alb",
  *     port: 80,
  *     protocol: "TCP",
- *     vpcId: aws_vpc.main.id,
+ *     vpcId: main.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Target group with unhealthy connection termination disabled
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const tcp_example = new aws.lb.TargetGroup("tcp-example", {
+ *     name: "tf-example-lb-nlb-tg",
  *     port: 25,
  *     protocol: "TCP",
- *     vpcId: aws_vpc.main.id,
+ *     vpcId: main.id,
  *     targetHealthStates: [{
  *         enableUnhealthyConnectionTermination: false,
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Target Groups using their ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:alb/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
+ * $ pulumi import aws:alb/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
  * ```
  */
 export class TargetGroup extends pulumi.CustomResource {
@@ -142,9 +164,17 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly lambdaMultiValueHeadersEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin` or `leastOutstandingRequests`. The default is `roundRobin`.
+     * ARNs of the Load Balancers associated with the Target Group.
+     */
+    public /*out*/ readonly loadBalancerArns!: pulumi.Output<string[]>;
+    /**
+     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin`, `leastOutstandingRequests`, or `weightedRandom`. The default is `roundRobin`.
      */
     public readonly loadBalancingAlgorithmType!: pulumi.Output<string>;
+    /**
+     * Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weightedRandom` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
+     */
+    public readonly loadBalancingAnomalyMitigation!: pulumi.Output<string>;
     /**
      * Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"useLoadBalancerConfiguration"`. The default is `"useLoadBalancerConfiguration"`.
      */
@@ -166,7 +196,10 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly preserveClientIp!: pulumi.Output<string>;
     /**
-     * Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
+     * Protocol to use for routing traffic to the targets.
+     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+     * Required when `targetType` is `instance`, `ip`, or `alb`.
+     * Does not apply when `targetType` is `lambda`.
      */
     public readonly protocol!: pulumi.Output<string | undefined>;
     /**
@@ -204,7 +237,9 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly targetHealthStates!: pulumi.Output<outputs.alb.TargetGroupTargetHealthState[]>;
     /**
-     * Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+     * Type of target that you must specify when registering targets with this target group.
+     * See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
+     * The default is `instance`.
      *
      * Note that you can't specify targets for a target group using both instance IDs and IP addresses.
      *
@@ -240,7 +275,9 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["healthCheck"] = state ? state.healthCheck : undefined;
             resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
             resourceInputs["lambdaMultiValueHeadersEnabled"] = state ? state.lambdaMultiValueHeadersEnabled : undefined;
+            resourceInputs["loadBalancerArns"] = state ? state.loadBalancerArns : undefined;
             resourceInputs["loadBalancingAlgorithmType"] = state ? state.loadBalancingAlgorithmType : undefined;
+            resourceInputs["loadBalancingAnomalyMitigation"] = state ? state.loadBalancingAnomalyMitigation : undefined;
             resourceInputs["loadBalancingCrossZoneEnabled"] = state ? state.loadBalancingCrossZoneEnabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
@@ -265,6 +302,7 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["lambdaMultiValueHeadersEnabled"] = args ? args.lambdaMultiValueHeadersEnabled : undefined;
             resourceInputs["loadBalancingAlgorithmType"] = args ? args.loadBalancingAlgorithmType : undefined;
+            resourceInputs["loadBalancingAnomalyMitigation"] = args ? args.loadBalancingAnomalyMitigation : undefined;
             resourceInputs["loadBalancingCrossZoneEnabled"] = args ? args.loadBalancingCrossZoneEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
@@ -282,13 +320,12 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["arnSuffix"] = undefined /*out*/;
+            resourceInputs["loadBalancerArns"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:applicationloadbalancing/targetGroup:TargetGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(TargetGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -326,9 +363,17 @@ export interface TargetGroupState {
      */
     lambdaMultiValueHeadersEnabled?: pulumi.Input<boolean>;
     /**
-     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin` or `leastOutstandingRequests`. The default is `roundRobin`.
+     * ARNs of the Load Balancers associated with the Target Group.
+     */
+    loadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin`, `leastOutstandingRequests`, or `weightedRandom`. The default is `roundRobin`.
      */
     loadBalancingAlgorithmType?: pulumi.Input<string>;
+    /**
+     * Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weightedRandom` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
+     */
+    loadBalancingAnomalyMitigation?: pulumi.Input<string>;
     /**
      * Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"useLoadBalancerConfiguration"`. The default is `"useLoadBalancerConfiguration"`.
      */
@@ -350,7 +395,10 @@ export interface TargetGroupState {
      */
     preserveClientIp?: pulumi.Input<string>;
     /**
-     * Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
+     * Protocol to use for routing traffic to the targets.
+     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+     * Required when `targetType` is `instance`, `ip`, or `alb`.
+     * Does not apply when `targetType` is `lambda`.
      */
     protocol?: pulumi.Input<string>;
     /**
@@ -388,7 +436,9 @@ export interface TargetGroupState {
      */
     targetHealthStates?: pulumi.Input<pulumi.Input<inputs.alb.TargetGroupTargetHealthState>[]>;
     /**
-     * Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+     * Type of target that you must specify when registering targets with this target group.
+     * See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
+     * The default is `instance`.
      *
      * Note that you can't specify targets for a target group using both instance IDs and IP addresses.
      *
@@ -430,9 +480,13 @@ export interface TargetGroupArgs {
      */
     lambdaMultiValueHeadersEnabled?: pulumi.Input<boolean>;
     /**
-     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin` or `leastOutstandingRequests`. The default is `roundRobin`.
+     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin`, `leastOutstandingRequests`, or `weightedRandom`. The default is `roundRobin`.
      */
     loadBalancingAlgorithmType?: pulumi.Input<string>;
+    /**
+     * Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weightedRandom` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
+     */
+    loadBalancingAnomalyMitigation?: pulumi.Input<string>;
     /**
      * Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"useLoadBalancerConfiguration"`. The default is `"useLoadBalancerConfiguration"`.
      */
@@ -454,7 +508,10 @@ export interface TargetGroupArgs {
      */
     preserveClientIp?: pulumi.Input<string>;
     /**
-     * Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
+     * Protocol to use for routing traffic to the targets.
+     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+     * Required when `targetType` is `instance`, `ip`, or `alb`.
+     * Does not apply when `targetType` is `lambda`.
      */
     protocol?: pulumi.Input<string>;
     /**
@@ -486,7 +543,9 @@ export interface TargetGroupArgs {
      */
     targetHealthStates?: pulumi.Input<pulumi.Input<inputs.alb.TargetGroupTargetHealthState>[]>;
     /**
-     * Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+     * Type of target that you must specify when registering targets with this target group.
+     * See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
+     * The default is `instance`.
      *
      * Note that you can't specify targets for a target group using both instance IDs and IP addresses.
      *

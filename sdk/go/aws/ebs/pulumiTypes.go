@@ -13,6 +13,162 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type FastSnapshotRestoreTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// FastSnapshotRestoreTimeoutsInput is an input type that accepts FastSnapshotRestoreTimeoutsArgs and FastSnapshotRestoreTimeoutsOutput values.
+// You can construct a concrete instance of `FastSnapshotRestoreTimeoutsInput` via:
+//
+//	FastSnapshotRestoreTimeoutsArgs{...}
+type FastSnapshotRestoreTimeoutsInput interface {
+	pulumi.Input
+
+	ToFastSnapshotRestoreTimeoutsOutput() FastSnapshotRestoreTimeoutsOutput
+	ToFastSnapshotRestoreTimeoutsOutputWithContext(context.Context) FastSnapshotRestoreTimeoutsOutput
+}
+
+type FastSnapshotRestoreTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (FastSnapshotRestoreTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastSnapshotRestoreTimeouts)(nil)).Elem()
+}
+
+func (i FastSnapshotRestoreTimeoutsArgs) ToFastSnapshotRestoreTimeoutsOutput() FastSnapshotRestoreTimeoutsOutput {
+	return i.ToFastSnapshotRestoreTimeoutsOutputWithContext(context.Background())
+}
+
+func (i FastSnapshotRestoreTimeoutsArgs) ToFastSnapshotRestoreTimeoutsOutputWithContext(ctx context.Context) FastSnapshotRestoreTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastSnapshotRestoreTimeoutsOutput)
+}
+
+func (i FastSnapshotRestoreTimeoutsArgs) ToFastSnapshotRestoreTimeoutsPtrOutput() FastSnapshotRestoreTimeoutsPtrOutput {
+	return i.ToFastSnapshotRestoreTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i FastSnapshotRestoreTimeoutsArgs) ToFastSnapshotRestoreTimeoutsPtrOutputWithContext(ctx context.Context) FastSnapshotRestoreTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastSnapshotRestoreTimeoutsOutput).ToFastSnapshotRestoreTimeoutsPtrOutputWithContext(ctx)
+}
+
+// FastSnapshotRestoreTimeoutsPtrInput is an input type that accepts FastSnapshotRestoreTimeoutsArgs, FastSnapshotRestoreTimeoutsPtr and FastSnapshotRestoreTimeoutsPtrOutput values.
+// You can construct a concrete instance of `FastSnapshotRestoreTimeoutsPtrInput` via:
+//
+//	        FastSnapshotRestoreTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FastSnapshotRestoreTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToFastSnapshotRestoreTimeoutsPtrOutput() FastSnapshotRestoreTimeoutsPtrOutput
+	ToFastSnapshotRestoreTimeoutsPtrOutputWithContext(context.Context) FastSnapshotRestoreTimeoutsPtrOutput
+}
+
+type fastSnapshotRestoreTimeoutsPtrType FastSnapshotRestoreTimeoutsArgs
+
+func FastSnapshotRestoreTimeoutsPtr(v *FastSnapshotRestoreTimeoutsArgs) FastSnapshotRestoreTimeoutsPtrInput {
+	return (*fastSnapshotRestoreTimeoutsPtrType)(v)
+}
+
+func (*fastSnapshotRestoreTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FastSnapshotRestoreTimeouts)(nil)).Elem()
+}
+
+func (i *fastSnapshotRestoreTimeoutsPtrType) ToFastSnapshotRestoreTimeoutsPtrOutput() FastSnapshotRestoreTimeoutsPtrOutput {
+	return i.ToFastSnapshotRestoreTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *fastSnapshotRestoreTimeoutsPtrType) ToFastSnapshotRestoreTimeoutsPtrOutputWithContext(ctx context.Context) FastSnapshotRestoreTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastSnapshotRestoreTimeoutsPtrOutput)
+}
+
+type FastSnapshotRestoreTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (FastSnapshotRestoreTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastSnapshotRestoreTimeouts)(nil)).Elem()
+}
+
+func (o FastSnapshotRestoreTimeoutsOutput) ToFastSnapshotRestoreTimeoutsOutput() FastSnapshotRestoreTimeoutsOutput {
+	return o
+}
+
+func (o FastSnapshotRestoreTimeoutsOutput) ToFastSnapshotRestoreTimeoutsOutputWithContext(ctx context.Context) FastSnapshotRestoreTimeoutsOutput {
+	return o
+}
+
+func (o FastSnapshotRestoreTimeoutsOutput) ToFastSnapshotRestoreTimeoutsPtrOutput() FastSnapshotRestoreTimeoutsPtrOutput {
+	return o.ToFastSnapshotRestoreTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o FastSnapshotRestoreTimeoutsOutput) ToFastSnapshotRestoreTimeoutsPtrOutputWithContext(ctx context.Context) FastSnapshotRestoreTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FastSnapshotRestoreTimeouts) *FastSnapshotRestoreTimeouts {
+		return &v
+	}).(FastSnapshotRestoreTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o FastSnapshotRestoreTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastSnapshotRestoreTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o FastSnapshotRestoreTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastSnapshotRestoreTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type FastSnapshotRestoreTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (FastSnapshotRestoreTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FastSnapshotRestoreTimeouts)(nil)).Elem()
+}
+
+func (o FastSnapshotRestoreTimeoutsPtrOutput) ToFastSnapshotRestoreTimeoutsPtrOutput() FastSnapshotRestoreTimeoutsPtrOutput {
+	return o
+}
+
+func (o FastSnapshotRestoreTimeoutsPtrOutput) ToFastSnapshotRestoreTimeoutsPtrOutputWithContext(ctx context.Context) FastSnapshotRestoreTimeoutsPtrOutput {
+	return o
+}
+
+func (o FastSnapshotRestoreTimeoutsPtrOutput) Elem() FastSnapshotRestoreTimeoutsOutput {
+	return o.ApplyT(func(v *FastSnapshotRestoreTimeouts) FastSnapshotRestoreTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret FastSnapshotRestoreTimeouts
+		return ret
+	}).(FastSnapshotRestoreTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o FastSnapshotRestoreTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastSnapshotRestoreTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o FastSnapshotRestoreTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastSnapshotRestoreTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 type SnapshotImportClientData struct {
 	// A user-defined comment about the disk upload.
 	Comment *string `pulumi:"comment"`
@@ -562,6 +718,7 @@ type GetEbsVolumesFilter struct {
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
 	// For example, if matching against the `size` filter, use:
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -590,6 +747,7 @@ type GetEbsVolumesFilter struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	// EBS Volume IDs will be selected if any one of the given values match.
@@ -612,6 +770,7 @@ type GetEbsVolumesFilterArgs struct {
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
 	// For example, if matching against the `size` filter, use:
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -640,6 +799,7 @@ type GetEbsVolumesFilterArgs struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	// EBS Volume IDs will be selected if any one of the given values match.
@@ -701,6 +861,7 @@ func (o GetEbsVolumesFilterOutput) ToGetEbsVolumesFilterOutputWithContext(ctx co
 // [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
 // For example, if matching against the `size` filter, use:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -732,6 +893,7 @@ func (o GetEbsVolumesFilterOutput) ToGetEbsVolumesFilterOutputWithContext(ctx co
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func (o GetEbsVolumesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEbsVolumesFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1063,6 +1225,8 @@ func (o GetVolumeFilterArrayOutput) Index(i pulumi.IntInput) GetVolumeFilterOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FastSnapshotRestoreTimeoutsInput)(nil)).Elem(), FastSnapshotRestoreTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastSnapshotRestoreTimeoutsPtrInput)(nil)).Elem(), FastSnapshotRestoreTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotImportClientDataInput)(nil)).Elem(), SnapshotImportClientDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotImportClientDataPtrInput)(nil)).Elem(), SnapshotImportClientDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotImportDiskContainerInput)(nil)).Elem(), SnapshotImportDiskContainerArgs{})
@@ -1077,6 +1241,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotIdsFilterArrayInput)(nil)).Elem(), GetSnapshotIdsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeFilterInput)(nil)).Elem(), GetVolumeFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeFilterArrayInput)(nil)).Elem(), GetVolumeFilterArray{})
+	pulumi.RegisterOutputType(FastSnapshotRestoreTimeoutsOutput{})
+	pulumi.RegisterOutputType(FastSnapshotRestoreTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotImportClientDataOutput{})
 	pulumi.RegisterOutputType(SnapshotImportClientDataPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotImportDiskContainerOutput{})

@@ -258,31 +258,38 @@ class FirewallPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.networkfirewall.FirewallPolicy("example",
+            name="example",
             firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArgs(
                 stateless_default_actions=["aws:pass"],
                 stateless_fragment_default_actions=["aws:drop"],
                 stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs(
                     priority=1,
-                    resource_arn=aws_networkfirewall_rule_group["example"]["arn"],
+                    resource_arn=example_aws_networkfirewall_rule_group["arn"],
                 )],
+                tls_inspection_configuration_arn="arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
             ),
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Policy with a HOME_NET Override
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.networkfirewall.FirewallPolicy("example",
+            name="example",
             firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArgs(
                 policy_variables=aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesArgs(
                     rule_variables=[aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs(
@@ -299,7 +306,7 @@ class FirewallPolicy(pulumi.CustomResource):
                 stateless_fragment_default_actions=["aws:drop"],
                 stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs(
                     priority=1,
-                    resource_arn=aws_networkfirewall_rule_group["example"]["arn"],
+                    resource_arn=example_aws_networkfirewall_rule_group["arn"],
                 )],
             ),
             tags={
@@ -307,13 +314,43 @@ class FirewallPolicy(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
+        ## Policy with a Custom Action for Stateless Inspection
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.networkfirewall.FirewallPolicy("test",
+            name="example",
+            firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArgs(
+                stateless_default_actions=[
+                    "aws:pass",
+                    "ExampleCustomAction",
+                ],
+                stateless_fragment_default_actions=["aws:drop"],
+                stateless_custom_actions=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionArgs(
+                    action_definition=aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs(
+                        publish_metric_action=aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs(
+                            dimensions=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs(
+                                value="1",
+                            )],
+                        ),
+                    ),
+                    action_name="ExampleCustomAction",
+                )],
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Network Firewall Policies using their `arn`. For example:
 
         ```sh
-         $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
+        $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -335,31 +372,38 @@ class FirewallPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.networkfirewall.FirewallPolicy("example",
+            name="example",
             firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArgs(
                 stateless_default_actions=["aws:pass"],
                 stateless_fragment_default_actions=["aws:drop"],
                 stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs(
                     priority=1,
-                    resource_arn=aws_networkfirewall_rule_group["example"]["arn"],
+                    resource_arn=example_aws_networkfirewall_rule_group["arn"],
                 )],
+                tls_inspection_configuration_arn="arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
             ),
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Policy with a HOME_NET Override
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.networkfirewall.FirewallPolicy("example",
+            name="example",
             firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArgs(
                 policy_variables=aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesArgs(
                     rule_variables=[aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs(
@@ -376,7 +420,7 @@ class FirewallPolicy(pulumi.CustomResource):
                 stateless_fragment_default_actions=["aws:drop"],
                 stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs(
                     priority=1,
-                    resource_arn=aws_networkfirewall_rule_group["example"]["arn"],
+                    resource_arn=example_aws_networkfirewall_rule_group["arn"],
                 )],
             ),
             tags={
@@ -384,13 +428,43 @@ class FirewallPolicy(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
+        ## Policy with a Custom Action for Stateless Inspection
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.networkfirewall.FirewallPolicy("test",
+            name="example",
+            firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArgs(
+                stateless_default_actions=[
+                    "aws:pass",
+                    "ExampleCustomAction",
+                ],
+                stateless_fragment_default_actions=["aws:drop"],
+                stateless_custom_actions=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionArgs(
+                    action_definition=aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs(
+                        publish_metric_action=aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs(
+                            dimensions=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs(
+                                value="1",
+                            )],
+                        ),
+                    ),
+                    action_name="ExampleCustomAction",
+                )],
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Network Firewall Policies using their `arn`. For example:
 
         ```sh
-         $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
+        $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -432,8 +506,6 @@ class FirewallPolicy(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["update_token"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(FirewallPolicy, __self__).__init__(
             'aws:networkfirewall/firewallPolicy:FirewallPolicy',
             resource_name,

@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Provides a DAX Cluster resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,7 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var bar = new Cluster(&#34;bar&#34;, ClusterArgs.builder()        
  *             .clusterName(&#34;cluster-example&#34;)
- *             .iamRoleArn(data.aws_iam_role().example().arn())
+ *             .iamRoleArn(example.arn())
  *             .nodeType(&#34;dax.r4.large&#34;)
  *             .replicationFactor(1)
  *             .build());
@@ -54,13 +56,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import DAX Clusters using the `cluster_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
+ * $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
  * ```
  * 
  */
@@ -423,9 +426,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

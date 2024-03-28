@@ -125,55 +125,63 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettings {
 
         @CustomType.Setter
         public Builder archiveOutputSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings archiveOutputSettings) {
+
             this.archiveOutputSettings = archiveOutputSettings;
             return this;
         }
         @CustomType.Setter
         public Builder frameCaptureOutputSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings frameCaptureOutputSettings) {
+
             this.frameCaptureOutputSettings = frameCaptureOutputSettings;
             return this;
         }
         @CustomType.Setter
         public Builder hlsOutputSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings hlsOutputSettings) {
+
             this.hlsOutputSettings = hlsOutputSettings;
             return this;
         }
         @CustomType.Setter
         public Builder mediaPackageOutputSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettings mediaPackageOutputSettings) {
+
             this.mediaPackageOutputSettings = mediaPackageOutputSettings;
             return this;
         }
         @CustomType.Setter
         public Builder msSmoothOutputSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings msSmoothOutputSettings) {
+
             this.msSmoothOutputSettings = msSmoothOutputSettings;
             return this;
         }
         @CustomType.Setter
         public Builder multiplexOutputSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings multiplexOutputSettings) {
+
             this.multiplexOutputSettings = multiplexOutputSettings;
             return this;
         }
         @CustomType.Setter
         public Builder rtmpOutputSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings rtmpOutputSettings) {
+
             this.rtmpOutputSettings = rtmpOutputSettings;
             return this;
         }
         @CustomType.Setter
         public Builder udpOutputSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings udpOutputSettings) {
+
             this.udpOutputSettings = udpOutputSettings;
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettings();
-            o.archiveOutputSettings = archiveOutputSettings;
-            o.frameCaptureOutputSettings = frameCaptureOutputSettings;
-            o.hlsOutputSettings = hlsOutputSettings;
-            o.mediaPackageOutputSettings = mediaPackageOutputSettings;
-            o.msSmoothOutputSettings = msSmoothOutputSettings;
-            o.multiplexOutputSettings = multiplexOutputSettings;
-            o.rtmpOutputSettings = rtmpOutputSettings;
-            o.udpOutputSettings = udpOutputSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettings();
+            _resultValue.archiveOutputSettings = archiveOutputSettings;
+            _resultValue.frameCaptureOutputSettings = frameCaptureOutputSettings;
+            _resultValue.hlsOutputSettings = hlsOutputSettings;
+            _resultValue.mediaPackageOutputSettings = mediaPackageOutputSettings;
+            _resultValue.msSmoothOutputSettings = msSmoothOutputSettings;
+            _resultValue.multiplexOutputSettings = multiplexOutputSettings;
+            _resultValue.rtmpOutputSettings = rtmpOutputSettings;
+            _resultValue.udpOutputSettings = udpOutputSettings;
+            return _resultValue;
         }
     }
 }

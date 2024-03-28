@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Auditmanager
     /// Resource for managing an AWS Audit Manager Framework.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,6 +27,7 @@ namespace Pulumi.Aws.Auditmanager
     /// {
     ///     var test = new Aws.Auditmanager.Framework("test", new()
     ///     {
+    ///         Name = "example",
     ///         ControlSets = new[]
     ///         {
     ///             new Aws.Auditmanager.Inputs.FrameworkControlSetArgs
@@ -34,7 +37,7 @@ namespace Pulumi.Aws.Auditmanager
     ///                 {
     ///                     new Aws.Auditmanager.Inputs.FrameworkControlSetControlArgs
     ///                     {
-    ///                         Id = aws_auditmanager_control.Test.Id,
+    ///                         Id = testAwsAuditmanagerControl.Id,
     ///                     },
     ///                 },
     ///             },
@@ -43,13 +46,14 @@ namespace Pulumi.Aws.Auditmanager
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Audit Manager Framework using the framework `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:auditmanager/framework:Framework example abc123-de45
+    /// $ pulumi import aws:auditmanager/framework:Framework example abc123-de45
     /// ```
     /// </summary>
     [AwsResourceType("aws:auditmanager/framework:Framework")]
@@ -126,10 +130,6 @@ namespace Pulumi.Aws.Auditmanager
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -268,11 +268,7 @@ namespace Pulumi.Aws.Auditmanager
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public FrameworkState()

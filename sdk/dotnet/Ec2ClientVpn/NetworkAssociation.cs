@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,19 +26,20 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// {
     ///     var example = new Aws.Ec2ClientVpn.NetworkAssociation("example", new()
     ///     {
-    ///         ClientVpnEndpointId = aws_ec2_client_vpn_endpoint.Example.Id,
-    ///         SubnetId = aws_subnet.Example.Id,
+    ///         ClientVpnEndpointId = exampleAwsEc2ClientVpnEndpoint.Id,
+    ///         SubnetId = exampleAwsSubnet.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS Client VPN network associations using the endpoint ID and the association ID. Values are separated by a `,`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,vpn-assoc-0b8db902465d069ad
+    /// $ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,cvpn-assoc-0b8db902465d069ad
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2clientvpn/networkAssociation:NetworkAssociation")]

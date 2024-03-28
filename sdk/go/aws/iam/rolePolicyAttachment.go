@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,12 +55,13 @@ import (
 //				return err
 //			}
 //			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//				Name:             pulumi.String("test-role"),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			policyPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Effect: pulumi.StringRef("Allow"),
@@ -75,9 +77,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			policyPolicy, err := iam.NewPolicy(ctx, "policyPolicy", &iam.PolicyArgs{
+//			policyPolicy, err := iam.NewPolicy(ctx, "policy", &iam.PolicyArgs{
+//				Name:        pulumi.String("test-policy"),
 //				Description: pulumi.String("A test policy"),
-//				Policy:      *pulumi.String(policyPolicyDocument.Json),
+//				Policy:      pulumi.String(policy.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -94,15 +97,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
-//
+// $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
 // ```
 type RolePolicyAttachment struct {
 	pulumi.CustomResourceState

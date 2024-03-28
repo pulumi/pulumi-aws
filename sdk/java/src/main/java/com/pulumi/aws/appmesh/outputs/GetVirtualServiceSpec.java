@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetVirtualServiceSpecProvider;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,16 +36,19 @@ public final class GetVirtualServiceSpec {
 
         @CustomType.Setter
         public Builder providers(List<GetVirtualServiceSpecProvider> providers) {
-            this.providers = Objects.requireNonNull(providers);
+            if (providers == null) {
+              throw new MissingRequiredPropertyException("GetVirtualServiceSpec", "providers");
+            }
+            this.providers = providers;
             return this;
         }
         public Builder providers(GetVirtualServiceSpecProvider... providers) {
             return providers(List.of(providers));
         }
         public GetVirtualServiceSpec build() {
-            final var o = new GetVirtualServiceSpec();
-            o.providers = providers;
-            return o;
+            final var _resultValue = new GetVirtualServiceSpec();
+            _resultValue.providers = providers;
+            return _resultValue;
         }
     }
 }

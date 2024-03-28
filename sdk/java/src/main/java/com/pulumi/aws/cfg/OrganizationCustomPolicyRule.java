@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** This resource must be created in the Organization master account and rules will include the master account unless its ID is added to the `excluded_accounts` argument.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,22 +47,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new OrganizationCustomPolicyRule(&#34;example&#34;, OrganizationCustomPolicyRuleArgs.builder()        
+ *             .name(&#34;example_rule_name&#34;)
  *             .policyRuntime(&#34;guard-2.x.x&#34;)
  *             .policyText(&#34;&#34;&#34;
- *   let status = [&#39;ACTIVE&#39;]
+ * let status = [&#39;ACTIVE&#39;]
  * 
- *   rule tableisactive when
- *       resourceType == &#34;AWS::DynamoDB::Table&#34; {
- *       configuration.tableStatus == %status
- *   }
+ * rule tableisactive when
+ *     resourceType == &#34;AWS::DynamoDB::Table&#34; {
+ *     configuration.tableStatus == %status
+ * }
  * 
- *   rule checkcompliance when
- *       resourceType == &#34;AWS::DynamoDB::Table&#34;
- *       tableisactive {
- *           let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
- *           %pitr == &#34;ENABLED&#34;
- *       }
- * 
+ * rule checkcompliance when
+ *     resourceType == &#34;AWS::DynamoDB::Table&#34;
+ *     tableisactive {
+ *         let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
+ *         %pitr == &#34;ENABLED&#34;
+ *     }
  *             &#34;&#34;&#34;)
  *             .resourceTypesScopes(&#34;AWS::DynamoDB::Table&#34;)
  *             .build());
@@ -67,13 +70,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a Config Organization Custom Policy Rule using the `name` argument. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name
+ * $ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name
  * ```
  * 
  */

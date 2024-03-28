@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewNetworkInterfaceAttachment(ctx, "test", &ec2.NetworkInterfaceAttachmentArgs{
-//				InstanceId:         pulumi.Any(aws_instance.Test.Id),
-//				NetworkInterfaceId: pulumi.Any(aws_network_interface.Test.Id),
+//				InstanceId:         pulumi.Any(testAwsInstance.Id),
+//				NetworkInterfaceId: pulumi.Any(testAwsNetworkInterface.Id),
 //				DeviceIndex:        pulumi.Int(0),
 //			})
 //			if err != nil {
@@ -41,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Elastic network interface (ENI) Attachments using its Attachment ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
-//
+// $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
 // ```
 type NetworkInterfaceAttachment struct {
 	pulumi.CustomResourceState

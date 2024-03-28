@@ -13,8 +13,10 @@ namespace Pulumi.Aws.SesV2
     /// Resource for managing an AWS SESv2 (Simple Email V2) Account VDM Attributes.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,6 +27,7 @@ namespace Pulumi.Aws.SesV2
     /// {
     ///     var example = new Aws.SesV2.AccountVdmAttributes("example", new()
     ///     {
+    ///         VdmEnabled = "ENABLED",
     ///         DashboardAttributes = new Aws.SesV2.Inputs.AccountVdmAttributesDashboardAttributesArgs
     ///         {
     ///             EngagementMetrics = "ENABLED",
@@ -33,18 +36,18 @@ namespace Pulumi.Aws.SesV2
     ///         {
     ///             OptimizedSharedDelivery = "ENABLED",
     ///         },
-    ///         VdmEnabled = "ENABLED",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SESv2 (Simple Email V2) Account VDM Attributes using the word `ses-account-vdm-attributes`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sesv2/accountVdmAttributes:AccountVdmAttributes example ses-account-vdm-attributes
+    /// $ pulumi import aws:sesv2/accountVdmAttributes:AccountVdmAttributes example ses-account-vdm-attributes
     /// ```
     /// </summary>
     [AwsResourceType("aws:sesv2/accountVdmAttributes:AccountVdmAttributes")]

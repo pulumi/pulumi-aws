@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetInstancesFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -120,6 +121,7 @@ public final class GetInstancesResult {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<GetInstancesFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -128,12 +130,18 @@ public final class GetInstancesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetInstancesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+            if (ids == null) {
+              throw new MissingRequiredPropertyException("GetInstancesResult", "ids");
+            }
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {
@@ -141,6 +149,7 @@ public final class GetInstancesResult {
         }
         @CustomType.Setter
         public Builder instanceStateNames(@Nullable List<String> instanceStateNames) {
+
             this.instanceStateNames = instanceStateNames;
             return this;
         }
@@ -149,12 +158,18 @@ public final class GetInstancesResult {
         }
         @CustomType.Setter
         public Builder instanceTags(Map<String,String> instanceTags) {
-            this.instanceTags = Objects.requireNonNull(instanceTags);
+            if (instanceTags == null) {
+              throw new MissingRequiredPropertyException("GetInstancesResult", "instanceTags");
+            }
+            this.instanceTags = instanceTags;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6Addresses(List<String> ipv6Addresses) {
-            this.ipv6Addresses = Objects.requireNonNull(ipv6Addresses);
+            if (ipv6Addresses == null) {
+              throw new MissingRequiredPropertyException("GetInstancesResult", "ipv6Addresses");
+            }
+            this.ipv6Addresses = ipv6Addresses;
             return this;
         }
         public Builder ipv6Addresses(String... ipv6Addresses) {
@@ -162,7 +177,10 @@ public final class GetInstancesResult {
         }
         @CustomType.Setter
         public Builder privateIps(List<String> privateIps) {
-            this.privateIps = Objects.requireNonNull(privateIps);
+            if (privateIps == null) {
+              throw new MissingRequiredPropertyException("GetInstancesResult", "privateIps");
+            }
+            this.privateIps = privateIps;
             return this;
         }
         public Builder privateIps(String... privateIps) {
@@ -170,23 +188,26 @@ public final class GetInstancesResult {
         }
         @CustomType.Setter
         public Builder publicIps(List<String> publicIps) {
-            this.publicIps = Objects.requireNonNull(publicIps);
+            if (publicIps == null) {
+              throw new MissingRequiredPropertyException("GetInstancesResult", "publicIps");
+            }
+            this.publicIps = publicIps;
             return this;
         }
         public Builder publicIps(String... publicIps) {
             return publicIps(List.of(publicIps));
         }
         public GetInstancesResult build() {
-            final var o = new GetInstancesResult();
-            o.filters = filters;
-            o.id = id;
-            o.ids = ids;
-            o.instanceStateNames = instanceStateNames;
-            o.instanceTags = instanceTags;
-            o.ipv6Addresses = ipv6Addresses;
-            o.privateIps = privateIps;
-            o.publicIps = publicIps;
-            return o;
+            final var _resultValue = new GetInstancesResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.instanceStateNames = instanceStateNames;
+            _resultValue.instanceTags = instanceTags;
+            _resultValue.ipv6Addresses = ipv6Addresses;
+            _resultValue.privateIps = privateIps;
+            _resultValue.publicIps = publicIps;
+            return _resultValue;
         }
     }
 }

@@ -255,6 +255,8 @@ type KxClusterCacheStorageConfiguration struct {
 	// * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
 	// * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
 	// * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
+	// * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
+	// * Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
 	Type string `pulumi:"type"`
 }
 
@@ -279,6 +281,8 @@ type KxClusterCacheStorageConfigurationArgs struct {
 	// * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
 	// * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
 	// * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
+	// * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
+	// * Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -345,6 +349,8 @@ func (o KxClusterCacheStorageConfigurationOutput) Size() pulumi.IntOutput {
 // * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
 // * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
 // * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
+// * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
+// * Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
 func (o KxClusterCacheStorageConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v KxClusterCacheStorageConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -743,6 +749,8 @@ type KxClusterDatabase struct {
 	ChangesetId *string `pulumi:"changesetId"`
 	// Name of the KX database.
 	DatabaseName string `pulumi:"databaseName"`
+	// The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
+	DataviewName *string `pulumi:"dataviewName"`
 }
 
 // KxClusterDatabaseInput is an input type that accepts KxClusterDatabaseArgs and KxClusterDatabaseOutput values.
@@ -763,6 +771,8 @@ type KxClusterDatabaseArgs struct {
 	ChangesetId pulumi.StringPtrInput `pulumi:"changesetId"`
 	// Name of the KX database.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
+	DataviewName pulumi.StringPtrInput `pulumi:"dataviewName"`
 }
 
 func (KxClusterDatabaseArgs) ElementType() reflect.Type {
@@ -829,6 +839,11 @@ func (o KxClusterDatabaseOutput) ChangesetId() pulumi.StringPtrOutput {
 // Name of the KX database.
 func (o KxClusterDatabaseOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v KxClusterDatabase) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
+func (o KxClusterDatabaseOutput) DataviewName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KxClusterDatabase) *string { return v.DataviewName }).(pulumi.StringPtrOutput)
 }
 
 type KxClusterDatabaseArrayOutput struct{ *pulumi.OutputState }
@@ -959,10 +974,12 @@ func (o KxClusterDatabaseCacheConfigurationArrayOutput) Index(i pulumi.IntInput)
 
 type KxClusterSavedownStorageConfiguration struct {
 	// Size of temporary storage in gigabytes. Must be between 10 and 16000.
-	Size int `pulumi:"size"`
+	Size *int `pulumi:"size"`
 	// Type of writeable storage space for temporarily storing your savedown data. The valid values are:
 	// * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
+	// The name of the kdb volume that you want to use as writeable save-down storage for clusters.
+	VolumeName *string `pulumi:"volumeName"`
 }
 
 // KxClusterSavedownStorageConfigurationInput is an input type that accepts KxClusterSavedownStorageConfigurationArgs and KxClusterSavedownStorageConfigurationOutput values.
@@ -978,10 +995,12 @@ type KxClusterSavedownStorageConfigurationInput interface {
 
 type KxClusterSavedownStorageConfigurationArgs struct {
 	// Size of temporary storage in gigabytes. Must be between 10 and 16000.
-	Size pulumi.IntInput `pulumi:"size"`
+	Size pulumi.IntPtrInput `pulumi:"size"`
 	// Type of writeable storage space for temporarily storing your savedown data. The valid values are:
 	// * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The name of the kdb volume that you want to use as writeable save-down storage for clusters.
+	VolumeName pulumi.StringPtrInput `pulumi:"volumeName"`
 }
 
 func (KxClusterSavedownStorageConfigurationArgs) ElementType() reflect.Type {
@@ -1062,14 +1081,19 @@ func (o KxClusterSavedownStorageConfigurationOutput) ToKxClusterSavedownStorageC
 }
 
 // Size of temporary storage in gigabytes. Must be between 10 and 16000.
-func (o KxClusterSavedownStorageConfigurationOutput) Size() pulumi.IntOutput {
-	return o.ApplyT(func(v KxClusterSavedownStorageConfiguration) int { return v.Size }).(pulumi.IntOutput)
+func (o KxClusterSavedownStorageConfigurationOutput) Size() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KxClusterSavedownStorageConfiguration) *int { return v.Size }).(pulumi.IntPtrOutput)
 }
 
 // Type of writeable storage space for temporarily storing your savedown data. The valid values are:
 // * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
-func (o KxClusterSavedownStorageConfigurationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v KxClusterSavedownStorageConfiguration) string { return v.Type }).(pulumi.StringOutput)
+func (o KxClusterSavedownStorageConfigurationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KxClusterSavedownStorageConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The name of the kdb volume that you want to use as writeable save-down storage for clusters.
+func (o KxClusterSavedownStorageConfigurationOutput) VolumeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KxClusterSavedownStorageConfiguration) *string { return v.VolumeName }).(pulumi.StringPtrOutput)
 }
 
 type KxClusterSavedownStorageConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -1102,7 +1126,7 @@ func (o KxClusterSavedownStorageConfigurationPtrOutput) Size() pulumi.IntPtrOutp
 		if v == nil {
 			return nil
 		}
-		return &v.Size
+		return v.Size
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -1113,8 +1137,325 @@ func (o KxClusterSavedownStorageConfigurationPtrOutput) Type() pulumi.StringPtrO
 		if v == nil {
 			return nil
 		}
-		return &v.Type
+		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the kdb volume that you want to use as writeable save-down storage for clusters.
+func (o KxClusterSavedownStorageConfigurationPtrOutput) VolumeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KxClusterSavedownStorageConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeName
+	}).(pulumi.StringPtrOutput)
+}
+
+type KxClusterScalingGroupConfiguration struct {
+	// The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
+	Cpu *float64 `pulumi:"cpu"`
+	// An optional hard limit on the amount of memory a kdb cluster can use.
+	MemoryLimit *int `pulumi:"memoryLimit"`
+	// A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
+	MemoryReservation int `pulumi:"memoryReservation"`
+	// The number of kdb cluster nodes.
+	NodeCount int `pulumi:"nodeCount"`
+	// A unique identifier for the kdb scaling group.
+	ScalingGroupName string `pulumi:"scalingGroupName"`
+}
+
+// KxClusterScalingGroupConfigurationInput is an input type that accepts KxClusterScalingGroupConfigurationArgs and KxClusterScalingGroupConfigurationOutput values.
+// You can construct a concrete instance of `KxClusterScalingGroupConfigurationInput` via:
+//
+//	KxClusterScalingGroupConfigurationArgs{...}
+type KxClusterScalingGroupConfigurationInput interface {
+	pulumi.Input
+
+	ToKxClusterScalingGroupConfigurationOutput() KxClusterScalingGroupConfigurationOutput
+	ToKxClusterScalingGroupConfigurationOutputWithContext(context.Context) KxClusterScalingGroupConfigurationOutput
+}
+
+type KxClusterScalingGroupConfigurationArgs struct {
+	// The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
+	Cpu pulumi.Float64PtrInput `pulumi:"cpu"`
+	// An optional hard limit on the amount of memory a kdb cluster can use.
+	MemoryLimit pulumi.IntPtrInput `pulumi:"memoryLimit"`
+	// A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
+	MemoryReservation pulumi.IntInput `pulumi:"memoryReservation"`
+	// The number of kdb cluster nodes.
+	NodeCount pulumi.IntInput `pulumi:"nodeCount"`
+	// A unique identifier for the kdb scaling group.
+	ScalingGroupName pulumi.StringInput `pulumi:"scalingGroupName"`
+}
+
+func (KxClusterScalingGroupConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KxClusterScalingGroupConfiguration)(nil)).Elem()
+}
+
+func (i KxClusterScalingGroupConfigurationArgs) ToKxClusterScalingGroupConfigurationOutput() KxClusterScalingGroupConfigurationOutput {
+	return i.ToKxClusterScalingGroupConfigurationOutputWithContext(context.Background())
+}
+
+func (i KxClusterScalingGroupConfigurationArgs) ToKxClusterScalingGroupConfigurationOutputWithContext(ctx context.Context) KxClusterScalingGroupConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KxClusterScalingGroupConfigurationOutput)
+}
+
+func (i KxClusterScalingGroupConfigurationArgs) ToKxClusterScalingGroupConfigurationPtrOutput() KxClusterScalingGroupConfigurationPtrOutput {
+	return i.ToKxClusterScalingGroupConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i KxClusterScalingGroupConfigurationArgs) ToKxClusterScalingGroupConfigurationPtrOutputWithContext(ctx context.Context) KxClusterScalingGroupConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KxClusterScalingGroupConfigurationOutput).ToKxClusterScalingGroupConfigurationPtrOutputWithContext(ctx)
+}
+
+// KxClusterScalingGroupConfigurationPtrInput is an input type that accepts KxClusterScalingGroupConfigurationArgs, KxClusterScalingGroupConfigurationPtr and KxClusterScalingGroupConfigurationPtrOutput values.
+// You can construct a concrete instance of `KxClusterScalingGroupConfigurationPtrInput` via:
+//
+//	        KxClusterScalingGroupConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KxClusterScalingGroupConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToKxClusterScalingGroupConfigurationPtrOutput() KxClusterScalingGroupConfigurationPtrOutput
+	ToKxClusterScalingGroupConfigurationPtrOutputWithContext(context.Context) KxClusterScalingGroupConfigurationPtrOutput
+}
+
+type kxClusterScalingGroupConfigurationPtrType KxClusterScalingGroupConfigurationArgs
+
+func KxClusterScalingGroupConfigurationPtr(v *KxClusterScalingGroupConfigurationArgs) KxClusterScalingGroupConfigurationPtrInput {
+	return (*kxClusterScalingGroupConfigurationPtrType)(v)
+}
+
+func (*kxClusterScalingGroupConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KxClusterScalingGroupConfiguration)(nil)).Elem()
+}
+
+func (i *kxClusterScalingGroupConfigurationPtrType) ToKxClusterScalingGroupConfigurationPtrOutput() KxClusterScalingGroupConfigurationPtrOutput {
+	return i.ToKxClusterScalingGroupConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *kxClusterScalingGroupConfigurationPtrType) ToKxClusterScalingGroupConfigurationPtrOutputWithContext(ctx context.Context) KxClusterScalingGroupConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KxClusterScalingGroupConfigurationPtrOutput)
+}
+
+type KxClusterScalingGroupConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KxClusterScalingGroupConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KxClusterScalingGroupConfiguration)(nil)).Elem()
+}
+
+func (o KxClusterScalingGroupConfigurationOutput) ToKxClusterScalingGroupConfigurationOutput() KxClusterScalingGroupConfigurationOutput {
+	return o
+}
+
+func (o KxClusterScalingGroupConfigurationOutput) ToKxClusterScalingGroupConfigurationOutputWithContext(ctx context.Context) KxClusterScalingGroupConfigurationOutput {
+	return o
+}
+
+func (o KxClusterScalingGroupConfigurationOutput) ToKxClusterScalingGroupConfigurationPtrOutput() KxClusterScalingGroupConfigurationPtrOutput {
+	return o.ToKxClusterScalingGroupConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o KxClusterScalingGroupConfigurationOutput) ToKxClusterScalingGroupConfigurationPtrOutputWithContext(ctx context.Context) KxClusterScalingGroupConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KxClusterScalingGroupConfiguration) *KxClusterScalingGroupConfiguration {
+		return &v
+	}).(KxClusterScalingGroupConfigurationPtrOutput)
+}
+
+// The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
+func (o KxClusterScalingGroupConfigurationOutput) Cpu() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v KxClusterScalingGroupConfiguration) *float64 { return v.Cpu }).(pulumi.Float64PtrOutput)
+}
+
+// An optional hard limit on the amount of memory a kdb cluster can use.
+func (o KxClusterScalingGroupConfigurationOutput) MemoryLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KxClusterScalingGroupConfiguration) *int { return v.MemoryLimit }).(pulumi.IntPtrOutput)
+}
+
+// A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
+func (o KxClusterScalingGroupConfigurationOutput) MemoryReservation() pulumi.IntOutput {
+	return o.ApplyT(func(v KxClusterScalingGroupConfiguration) int { return v.MemoryReservation }).(pulumi.IntOutput)
+}
+
+// The number of kdb cluster nodes.
+func (o KxClusterScalingGroupConfigurationOutput) NodeCount() pulumi.IntOutput {
+	return o.ApplyT(func(v KxClusterScalingGroupConfiguration) int { return v.NodeCount }).(pulumi.IntOutput)
+}
+
+// A unique identifier for the kdb scaling group.
+func (o KxClusterScalingGroupConfigurationOutput) ScalingGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v KxClusterScalingGroupConfiguration) string { return v.ScalingGroupName }).(pulumi.StringOutput)
+}
+
+type KxClusterScalingGroupConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (KxClusterScalingGroupConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KxClusterScalingGroupConfiguration)(nil)).Elem()
+}
+
+func (o KxClusterScalingGroupConfigurationPtrOutput) ToKxClusterScalingGroupConfigurationPtrOutput() KxClusterScalingGroupConfigurationPtrOutput {
+	return o
+}
+
+func (o KxClusterScalingGroupConfigurationPtrOutput) ToKxClusterScalingGroupConfigurationPtrOutputWithContext(ctx context.Context) KxClusterScalingGroupConfigurationPtrOutput {
+	return o
+}
+
+func (o KxClusterScalingGroupConfigurationPtrOutput) Elem() KxClusterScalingGroupConfigurationOutput {
+	return o.ApplyT(func(v *KxClusterScalingGroupConfiguration) KxClusterScalingGroupConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret KxClusterScalingGroupConfiguration
+		return ret
+	}).(KxClusterScalingGroupConfigurationOutput)
+}
+
+// The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
+func (o KxClusterScalingGroupConfigurationPtrOutput) Cpu() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *KxClusterScalingGroupConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Cpu
+	}).(pulumi.Float64PtrOutput)
+}
+
+// An optional hard limit on the amount of memory a kdb cluster can use.
+func (o KxClusterScalingGroupConfigurationPtrOutput) MemoryLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KxClusterScalingGroupConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
+func (o KxClusterScalingGroupConfigurationPtrOutput) MemoryReservation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KxClusterScalingGroupConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MemoryReservation
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of kdb cluster nodes.
+func (o KxClusterScalingGroupConfigurationPtrOutput) NodeCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KxClusterScalingGroupConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.NodeCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// A unique identifier for the kdb scaling group.
+func (o KxClusterScalingGroupConfigurationPtrOutput) ScalingGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KxClusterScalingGroupConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ScalingGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+type KxClusterTickerplantLogConfiguration struct {
+	TickerplantLogVolumes []string `pulumi:"tickerplantLogVolumes"`
+}
+
+// KxClusterTickerplantLogConfigurationInput is an input type that accepts KxClusterTickerplantLogConfigurationArgs and KxClusterTickerplantLogConfigurationOutput values.
+// You can construct a concrete instance of `KxClusterTickerplantLogConfigurationInput` via:
+//
+//	KxClusterTickerplantLogConfigurationArgs{...}
+type KxClusterTickerplantLogConfigurationInput interface {
+	pulumi.Input
+
+	ToKxClusterTickerplantLogConfigurationOutput() KxClusterTickerplantLogConfigurationOutput
+	ToKxClusterTickerplantLogConfigurationOutputWithContext(context.Context) KxClusterTickerplantLogConfigurationOutput
+}
+
+type KxClusterTickerplantLogConfigurationArgs struct {
+	TickerplantLogVolumes pulumi.StringArrayInput `pulumi:"tickerplantLogVolumes"`
+}
+
+func (KxClusterTickerplantLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KxClusterTickerplantLogConfiguration)(nil)).Elem()
+}
+
+func (i KxClusterTickerplantLogConfigurationArgs) ToKxClusterTickerplantLogConfigurationOutput() KxClusterTickerplantLogConfigurationOutput {
+	return i.ToKxClusterTickerplantLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i KxClusterTickerplantLogConfigurationArgs) ToKxClusterTickerplantLogConfigurationOutputWithContext(ctx context.Context) KxClusterTickerplantLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KxClusterTickerplantLogConfigurationOutput)
+}
+
+// KxClusterTickerplantLogConfigurationArrayInput is an input type that accepts KxClusterTickerplantLogConfigurationArray and KxClusterTickerplantLogConfigurationArrayOutput values.
+// You can construct a concrete instance of `KxClusterTickerplantLogConfigurationArrayInput` via:
+//
+//	KxClusterTickerplantLogConfigurationArray{ KxClusterTickerplantLogConfigurationArgs{...} }
+type KxClusterTickerplantLogConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToKxClusterTickerplantLogConfigurationArrayOutput() KxClusterTickerplantLogConfigurationArrayOutput
+	ToKxClusterTickerplantLogConfigurationArrayOutputWithContext(context.Context) KxClusterTickerplantLogConfigurationArrayOutput
+}
+
+type KxClusterTickerplantLogConfigurationArray []KxClusterTickerplantLogConfigurationInput
+
+func (KxClusterTickerplantLogConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KxClusterTickerplantLogConfiguration)(nil)).Elem()
+}
+
+func (i KxClusterTickerplantLogConfigurationArray) ToKxClusterTickerplantLogConfigurationArrayOutput() KxClusterTickerplantLogConfigurationArrayOutput {
+	return i.ToKxClusterTickerplantLogConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i KxClusterTickerplantLogConfigurationArray) ToKxClusterTickerplantLogConfigurationArrayOutputWithContext(ctx context.Context) KxClusterTickerplantLogConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KxClusterTickerplantLogConfigurationArrayOutput)
+}
+
+type KxClusterTickerplantLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KxClusterTickerplantLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KxClusterTickerplantLogConfiguration)(nil)).Elem()
+}
+
+func (o KxClusterTickerplantLogConfigurationOutput) ToKxClusterTickerplantLogConfigurationOutput() KxClusterTickerplantLogConfigurationOutput {
+	return o
+}
+
+func (o KxClusterTickerplantLogConfigurationOutput) ToKxClusterTickerplantLogConfigurationOutputWithContext(ctx context.Context) KxClusterTickerplantLogConfigurationOutput {
+	return o
+}
+
+func (o KxClusterTickerplantLogConfigurationOutput) TickerplantLogVolumes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KxClusterTickerplantLogConfiguration) []string { return v.TickerplantLogVolumes }).(pulumi.StringArrayOutput)
+}
+
+type KxClusterTickerplantLogConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (KxClusterTickerplantLogConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KxClusterTickerplantLogConfiguration)(nil)).Elem()
+}
+
+func (o KxClusterTickerplantLogConfigurationArrayOutput) ToKxClusterTickerplantLogConfigurationArrayOutput() KxClusterTickerplantLogConfigurationArrayOutput {
+	return o
+}
+
+func (o KxClusterTickerplantLogConfigurationArrayOutput) ToKxClusterTickerplantLogConfigurationArrayOutputWithContext(ctx context.Context) KxClusterTickerplantLogConfigurationArrayOutput {
+	return o
+}
+
+func (o KxClusterTickerplantLogConfigurationArrayOutput) Index(i pulumi.IntInput) KxClusterTickerplantLogConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KxClusterTickerplantLogConfiguration {
+		return vs[0].([]KxClusterTickerplantLogConfiguration)[vs[1].(int)]
+	}).(KxClusterTickerplantLogConfigurationOutput)
 }
 
 type KxClusterVpcConfiguration struct {
@@ -1309,6 +1650,121 @@ func (o KxClusterVpcConfigurationPtrOutput) VpcId() pulumi.StringPtrOutput {
 		}
 		return &v.VpcId
 	}).(pulumi.StringPtrOutput)
+}
+
+type KxDataviewSegmentConfiguration struct {
+	// The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
+	DbPaths []string `pulumi:"dbPaths"`
+	// Enables on-demand caching on the selected database path when a particular file or a column of the database is accessed. When on demand caching is **True**, dataviews perform minimal loading of files on the filesystem as needed. When it is set to **False**, everything is cached. The default value is **False**.
+	OnDemand *bool `pulumi:"onDemand"`
+	// The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
+	VolumeName string `pulumi:"volumeName"`
+}
+
+// KxDataviewSegmentConfigurationInput is an input type that accepts KxDataviewSegmentConfigurationArgs and KxDataviewSegmentConfigurationOutput values.
+// You can construct a concrete instance of `KxDataviewSegmentConfigurationInput` via:
+//
+//	KxDataviewSegmentConfigurationArgs{...}
+type KxDataviewSegmentConfigurationInput interface {
+	pulumi.Input
+
+	ToKxDataviewSegmentConfigurationOutput() KxDataviewSegmentConfigurationOutput
+	ToKxDataviewSegmentConfigurationOutputWithContext(context.Context) KxDataviewSegmentConfigurationOutput
+}
+
+type KxDataviewSegmentConfigurationArgs struct {
+	// The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
+	DbPaths pulumi.StringArrayInput `pulumi:"dbPaths"`
+	// Enables on-demand caching on the selected database path when a particular file or a column of the database is accessed. When on demand caching is **True**, dataviews perform minimal loading of files on the filesystem as needed. When it is set to **False**, everything is cached. The default value is **False**.
+	OnDemand pulumi.BoolPtrInput `pulumi:"onDemand"`
+	// The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
+	VolumeName pulumi.StringInput `pulumi:"volumeName"`
+}
+
+func (KxDataviewSegmentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KxDataviewSegmentConfiguration)(nil)).Elem()
+}
+
+func (i KxDataviewSegmentConfigurationArgs) ToKxDataviewSegmentConfigurationOutput() KxDataviewSegmentConfigurationOutput {
+	return i.ToKxDataviewSegmentConfigurationOutputWithContext(context.Background())
+}
+
+func (i KxDataviewSegmentConfigurationArgs) ToKxDataviewSegmentConfigurationOutputWithContext(ctx context.Context) KxDataviewSegmentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KxDataviewSegmentConfigurationOutput)
+}
+
+// KxDataviewSegmentConfigurationArrayInput is an input type that accepts KxDataviewSegmentConfigurationArray and KxDataviewSegmentConfigurationArrayOutput values.
+// You can construct a concrete instance of `KxDataviewSegmentConfigurationArrayInput` via:
+//
+//	KxDataviewSegmentConfigurationArray{ KxDataviewSegmentConfigurationArgs{...} }
+type KxDataviewSegmentConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToKxDataviewSegmentConfigurationArrayOutput() KxDataviewSegmentConfigurationArrayOutput
+	ToKxDataviewSegmentConfigurationArrayOutputWithContext(context.Context) KxDataviewSegmentConfigurationArrayOutput
+}
+
+type KxDataviewSegmentConfigurationArray []KxDataviewSegmentConfigurationInput
+
+func (KxDataviewSegmentConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KxDataviewSegmentConfiguration)(nil)).Elem()
+}
+
+func (i KxDataviewSegmentConfigurationArray) ToKxDataviewSegmentConfigurationArrayOutput() KxDataviewSegmentConfigurationArrayOutput {
+	return i.ToKxDataviewSegmentConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i KxDataviewSegmentConfigurationArray) ToKxDataviewSegmentConfigurationArrayOutputWithContext(ctx context.Context) KxDataviewSegmentConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KxDataviewSegmentConfigurationArrayOutput)
+}
+
+type KxDataviewSegmentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KxDataviewSegmentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KxDataviewSegmentConfiguration)(nil)).Elem()
+}
+
+func (o KxDataviewSegmentConfigurationOutput) ToKxDataviewSegmentConfigurationOutput() KxDataviewSegmentConfigurationOutput {
+	return o
+}
+
+func (o KxDataviewSegmentConfigurationOutput) ToKxDataviewSegmentConfigurationOutputWithContext(ctx context.Context) KxDataviewSegmentConfigurationOutput {
+	return o
+}
+
+// The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
+func (o KxDataviewSegmentConfigurationOutput) DbPaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KxDataviewSegmentConfiguration) []string { return v.DbPaths }).(pulumi.StringArrayOutput)
+}
+
+// Enables on-demand caching on the selected database path when a particular file or a column of the database is accessed. When on demand caching is **True**, dataviews perform minimal loading of files on the filesystem as needed. When it is set to **False**, everything is cached. The default value is **False**.
+func (o KxDataviewSegmentConfigurationOutput) OnDemand() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KxDataviewSegmentConfiguration) *bool { return v.OnDemand }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
+func (o KxDataviewSegmentConfigurationOutput) VolumeName() pulumi.StringOutput {
+	return o.ApplyT(func(v KxDataviewSegmentConfiguration) string { return v.VolumeName }).(pulumi.StringOutput)
+}
+
+type KxDataviewSegmentConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (KxDataviewSegmentConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KxDataviewSegmentConfiguration)(nil)).Elem()
+}
+
+func (o KxDataviewSegmentConfigurationArrayOutput) ToKxDataviewSegmentConfigurationArrayOutput() KxDataviewSegmentConfigurationArrayOutput {
+	return o
+}
+
+func (o KxDataviewSegmentConfigurationArrayOutput) ToKxDataviewSegmentConfigurationArrayOutputWithContext(ctx context.Context) KxDataviewSegmentConfigurationArrayOutput {
+	return o
+}
+
+func (o KxDataviewSegmentConfigurationArrayOutput) Index(i pulumi.IntInput) KxDataviewSegmentConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KxDataviewSegmentConfiguration {
+		return vs[0].([]KxDataviewSegmentConfiguration)[vs[1].(int)]
+	}).(KxDataviewSegmentConfigurationOutput)
 }
 
 type KxEnvironmentCustomDnsConfiguration struct {
@@ -2068,6 +2524,218 @@ func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguratio
 	}).(pulumi.IntPtrOutput)
 }
 
+type KxVolumeAttachedCluster struct {
+	ClusterName   string `pulumi:"clusterName"`
+	ClusterStatus string `pulumi:"clusterStatus"`
+	ClusterType   string `pulumi:"clusterType"`
+}
+
+// KxVolumeAttachedClusterInput is an input type that accepts KxVolumeAttachedClusterArgs and KxVolumeAttachedClusterOutput values.
+// You can construct a concrete instance of `KxVolumeAttachedClusterInput` via:
+//
+//	KxVolumeAttachedClusterArgs{...}
+type KxVolumeAttachedClusterInput interface {
+	pulumi.Input
+
+	ToKxVolumeAttachedClusterOutput() KxVolumeAttachedClusterOutput
+	ToKxVolumeAttachedClusterOutputWithContext(context.Context) KxVolumeAttachedClusterOutput
+}
+
+type KxVolumeAttachedClusterArgs struct {
+	ClusterName   pulumi.StringInput `pulumi:"clusterName"`
+	ClusterStatus pulumi.StringInput `pulumi:"clusterStatus"`
+	ClusterType   pulumi.StringInput `pulumi:"clusterType"`
+}
+
+func (KxVolumeAttachedClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KxVolumeAttachedCluster)(nil)).Elem()
+}
+
+func (i KxVolumeAttachedClusterArgs) ToKxVolumeAttachedClusterOutput() KxVolumeAttachedClusterOutput {
+	return i.ToKxVolumeAttachedClusterOutputWithContext(context.Background())
+}
+
+func (i KxVolumeAttachedClusterArgs) ToKxVolumeAttachedClusterOutputWithContext(ctx context.Context) KxVolumeAttachedClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KxVolumeAttachedClusterOutput)
+}
+
+// KxVolumeAttachedClusterArrayInput is an input type that accepts KxVolumeAttachedClusterArray and KxVolumeAttachedClusterArrayOutput values.
+// You can construct a concrete instance of `KxVolumeAttachedClusterArrayInput` via:
+//
+//	KxVolumeAttachedClusterArray{ KxVolumeAttachedClusterArgs{...} }
+type KxVolumeAttachedClusterArrayInput interface {
+	pulumi.Input
+
+	ToKxVolumeAttachedClusterArrayOutput() KxVolumeAttachedClusterArrayOutput
+	ToKxVolumeAttachedClusterArrayOutputWithContext(context.Context) KxVolumeAttachedClusterArrayOutput
+}
+
+type KxVolumeAttachedClusterArray []KxVolumeAttachedClusterInput
+
+func (KxVolumeAttachedClusterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KxVolumeAttachedCluster)(nil)).Elem()
+}
+
+func (i KxVolumeAttachedClusterArray) ToKxVolumeAttachedClusterArrayOutput() KxVolumeAttachedClusterArrayOutput {
+	return i.ToKxVolumeAttachedClusterArrayOutputWithContext(context.Background())
+}
+
+func (i KxVolumeAttachedClusterArray) ToKxVolumeAttachedClusterArrayOutputWithContext(ctx context.Context) KxVolumeAttachedClusterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KxVolumeAttachedClusterArrayOutput)
+}
+
+type KxVolumeAttachedClusterOutput struct{ *pulumi.OutputState }
+
+func (KxVolumeAttachedClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KxVolumeAttachedCluster)(nil)).Elem()
+}
+
+func (o KxVolumeAttachedClusterOutput) ToKxVolumeAttachedClusterOutput() KxVolumeAttachedClusterOutput {
+	return o
+}
+
+func (o KxVolumeAttachedClusterOutput) ToKxVolumeAttachedClusterOutputWithContext(ctx context.Context) KxVolumeAttachedClusterOutput {
+	return o
+}
+
+func (o KxVolumeAttachedClusterOutput) ClusterName() pulumi.StringOutput {
+	return o.ApplyT(func(v KxVolumeAttachedCluster) string { return v.ClusterName }).(pulumi.StringOutput)
+}
+
+func (o KxVolumeAttachedClusterOutput) ClusterStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v KxVolumeAttachedCluster) string { return v.ClusterStatus }).(pulumi.StringOutput)
+}
+
+func (o KxVolumeAttachedClusterOutput) ClusterType() pulumi.StringOutput {
+	return o.ApplyT(func(v KxVolumeAttachedCluster) string { return v.ClusterType }).(pulumi.StringOutput)
+}
+
+type KxVolumeAttachedClusterArrayOutput struct{ *pulumi.OutputState }
+
+func (KxVolumeAttachedClusterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KxVolumeAttachedCluster)(nil)).Elem()
+}
+
+func (o KxVolumeAttachedClusterArrayOutput) ToKxVolumeAttachedClusterArrayOutput() KxVolumeAttachedClusterArrayOutput {
+	return o
+}
+
+func (o KxVolumeAttachedClusterArrayOutput) ToKxVolumeAttachedClusterArrayOutputWithContext(ctx context.Context) KxVolumeAttachedClusterArrayOutput {
+	return o
+}
+
+func (o KxVolumeAttachedClusterArrayOutput) Index(i pulumi.IntInput) KxVolumeAttachedClusterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KxVolumeAttachedCluster {
+		return vs[0].([]KxVolumeAttachedCluster)[vs[1].(int)]
+	}).(KxVolumeAttachedClusterOutput)
+}
+
+type KxVolumeNas1Configuration struct {
+	// The size of the network attached storage.
+	Size int `pulumi:"size"`
+	// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
+	Type string `pulumi:"type"`
+}
+
+// KxVolumeNas1ConfigurationInput is an input type that accepts KxVolumeNas1ConfigurationArgs and KxVolumeNas1ConfigurationOutput values.
+// You can construct a concrete instance of `KxVolumeNas1ConfigurationInput` via:
+//
+//	KxVolumeNas1ConfigurationArgs{...}
+type KxVolumeNas1ConfigurationInput interface {
+	pulumi.Input
+
+	ToKxVolumeNas1ConfigurationOutput() KxVolumeNas1ConfigurationOutput
+	ToKxVolumeNas1ConfigurationOutputWithContext(context.Context) KxVolumeNas1ConfigurationOutput
+}
+
+type KxVolumeNas1ConfigurationArgs struct {
+	// The size of the network attached storage.
+	Size pulumi.IntInput `pulumi:"size"`
+	// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (KxVolumeNas1ConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KxVolumeNas1Configuration)(nil)).Elem()
+}
+
+func (i KxVolumeNas1ConfigurationArgs) ToKxVolumeNas1ConfigurationOutput() KxVolumeNas1ConfigurationOutput {
+	return i.ToKxVolumeNas1ConfigurationOutputWithContext(context.Background())
+}
+
+func (i KxVolumeNas1ConfigurationArgs) ToKxVolumeNas1ConfigurationOutputWithContext(ctx context.Context) KxVolumeNas1ConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KxVolumeNas1ConfigurationOutput)
+}
+
+// KxVolumeNas1ConfigurationArrayInput is an input type that accepts KxVolumeNas1ConfigurationArray and KxVolumeNas1ConfigurationArrayOutput values.
+// You can construct a concrete instance of `KxVolumeNas1ConfigurationArrayInput` via:
+//
+//	KxVolumeNas1ConfigurationArray{ KxVolumeNas1ConfigurationArgs{...} }
+type KxVolumeNas1ConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToKxVolumeNas1ConfigurationArrayOutput() KxVolumeNas1ConfigurationArrayOutput
+	ToKxVolumeNas1ConfigurationArrayOutputWithContext(context.Context) KxVolumeNas1ConfigurationArrayOutput
+}
+
+type KxVolumeNas1ConfigurationArray []KxVolumeNas1ConfigurationInput
+
+func (KxVolumeNas1ConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KxVolumeNas1Configuration)(nil)).Elem()
+}
+
+func (i KxVolumeNas1ConfigurationArray) ToKxVolumeNas1ConfigurationArrayOutput() KxVolumeNas1ConfigurationArrayOutput {
+	return i.ToKxVolumeNas1ConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i KxVolumeNas1ConfigurationArray) ToKxVolumeNas1ConfigurationArrayOutputWithContext(ctx context.Context) KxVolumeNas1ConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KxVolumeNas1ConfigurationArrayOutput)
+}
+
+type KxVolumeNas1ConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KxVolumeNas1ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KxVolumeNas1Configuration)(nil)).Elem()
+}
+
+func (o KxVolumeNas1ConfigurationOutput) ToKxVolumeNas1ConfigurationOutput() KxVolumeNas1ConfigurationOutput {
+	return o
+}
+
+func (o KxVolumeNas1ConfigurationOutput) ToKxVolumeNas1ConfigurationOutputWithContext(ctx context.Context) KxVolumeNas1ConfigurationOutput {
+	return o
+}
+
+// The size of the network attached storage.
+func (o KxVolumeNas1ConfigurationOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v KxVolumeNas1Configuration) int { return v.Size }).(pulumi.IntOutput)
+}
+
+// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
+func (o KxVolumeNas1ConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v KxVolumeNas1Configuration) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type KxVolumeNas1ConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (KxVolumeNas1ConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KxVolumeNas1Configuration)(nil)).Elem()
+}
+
+func (o KxVolumeNas1ConfigurationArrayOutput) ToKxVolumeNas1ConfigurationArrayOutput() KxVolumeNas1ConfigurationArrayOutput {
+	return o
+}
+
+func (o KxVolumeNas1ConfigurationArrayOutput) ToKxVolumeNas1ConfigurationArrayOutputWithContext(ctx context.Context) KxVolumeNas1ConfigurationArrayOutput {
+	return o
+}
+
+func (o KxVolumeNas1ConfigurationArrayOutput) Index(i pulumi.IntInput) KxVolumeNas1ConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KxVolumeNas1Configuration {
+		return vs[0].([]KxVolumeNas1Configuration)[vs[1].(int)]
+	}).(KxVolumeNas1ConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KxClusterAutoScalingConfigurationInput)(nil)).Elem(), KxClusterAutoScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KxClusterAutoScalingConfigurationPtrInput)(nil)).Elem(), KxClusterAutoScalingConfigurationArgs{})
@@ -2083,8 +2751,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KxClusterDatabaseCacheConfigurationArrayInput)(nil)).Elem(), KxClusterDatabaseCacheConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KxClusterSavedownStorageConfigurationInput)(nil)).Elem(), KxClusterSavedownStorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KxClusterSavedownStorageConfigurationPtrInput)(nil)).Elem(), KxClusterSavedownStorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KxClusterScalingGroupConfigurationInput)(nil)).Elem(), KxClusterScalingGroupConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KxClusterScalingGroupConfigurationPtrInput)(nil)).Elem(), KxClusterScalingGroupConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KxClusterTickerplantLogConfigurationInput)(nil)).Elem(), KxClusterTickerplantLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KxClusterTickerplantLogConfigurationArrayInput)(nil)).Elem(), KxClusterTickerplantLogConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KxClusterVpcConfigurationInput)(nil)).Elem(), KxClusterVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KxClusterVpcConfigurationPtrInput)(nil)).Elem(), KxClusterVpcConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KxDataviewSegmentConfigurationInput)(nil)).Elem(), KxDataviewSegmentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KxDataviewSegmentConfigurationArrayInput)(nil)).Elem(), KxDataviewSegmentConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KxEnvironmentCustomDnsConfigurationInput)(nil)).Elem(), KxEnvironmentCustomDnsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KxEnvironmentCustomDnsConfigurationArrayInput)(nil)).Elem(), KxEnvironmentCustomDnsConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KxEnvironmentTransitGatewayConfigurationInput)(nil)).Elem(), KxEnvironmentTransitGatewayConfigurationArgs{})
@@ -2095,6 +2769,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrInput)(nil)).Elem(), KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeInput)(nil)).Elem(), KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrInput)(nil)).Elem(), KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KxVolumeAttachedClusterInput)(nil)).Elem(), KxVolumeAttachedClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KxVolumeAttachedClusterArrayInput)(nil)).Elem(), KxVolumeAttachedClusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KxVolumeNas1ConfigurationInput)(nil)).Elem(), KxVolumeNas1ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KxVolumeNas1ConfigurationArrayInput)(nil)).Elem(), KxVolumeNas1ConfigurationArray{})
 	pulumi.RegisterOutputType(KxClusterAutoScalingConfigurationOutput{})
 	pulumi.RegisterOutputType(KxClusterAutoScalingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KxClusterCacheStorageConfigurationOutput{})
@@ -2109,8 +2787,14 @@ func init() {
 	pulumi.RegisterOutputType(KxClusterDatabaseCacheConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(KxClusterSavedownStorageConfigurationOutput{})
 	pulumi.RegisterOutputType(KxClusterSavedownStorageConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(KxClusterScalingGroupConfigurationOutput{})
+	pulumi.RegisterOutputType(KxClusterScalingGroupConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(KxClusterTickerplantLogConfigurationOutput{})
+	pulumi.RegisterOutputType(KxClusterTickerplantLogConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(KxClusterVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(KxClusterVpcConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(KxDataviewSegmentConfigurationOutput{})
+	pulumi.RegisterOutputType(KxDataviewSegmentConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(KxEnvironmentCustomDnsConfigurationOutput{})
 	pulumi.RegisterOutputType(KxEnvironmentCustomDnsConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(KxEnvironmentTransitGatewayConfigurationOutput{})
@@ -2121,4 +2805,8 @@ func init() {
 	pulumi.RegisterOutputType(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput{})
 	pulumi.RegisterOutputType(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput{})
 	pulumi.RegisterOutputType(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput{})
+	pulumi.RegisterOutputType(KxVolumeAttachedClusterOutput{})
+	pulumi.RegisterOutputType(KxVolumeAttachedClusterArrayOutput{})
+	pulumi.RegisterOutputType(KxVolumeNas1ConfigurationOutput{})
+	pulumi.RegisterOutputType(KxVolumeNas1ConfigurationArrayOutput{})
 }

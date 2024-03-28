@@ -11,19 +11,23 @@ import * as utilities from "../utilities";
  * Provides an SSM Maintenance Window Target resource
  *
  * ## Example Usage
+ *
  * ### Instance Target
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const window = new aws.ssm.MaintenanceWindow("window", {
+ *     name: "maintenance-window-webapp",
  *     schedule: "cron(0 16 ? * TUE *)",
  *     duration: 3,
  *     cutoff: 1,
  * });
  * const target1 = new aws.ssm.MaintenanceWindowTarget("target1", {
  *     windowId: window.id,
+ *     name: "maintenance-window-target",
  *     description: "This is a maintenance window target",
  *     resourceType: "INSTANCE",
  *     targets: [{
@@ -32,19 +36,24 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Resource Group Target
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const window = new aws.ssm.MaintenanceWindow("window", {
+ *     name: "maintenance-window-webapp",
  *     schedule: "cron(0 16 ? * TUE *)",
  *     duration: 3,
  *     cutoff: 1,
  * });
  * const target1 = new aws.ssm.MaintenanceWindowTarget("target1", {
  *     windowId: window.id,
+ *     name: "maintenance-window-target",
  *     description: "This is a maintenance window target",
  *     resourceType: "RESOURCE_GROUP",
  *     targets: [{
@@ -53,13 +62,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SSM Maintenance Window targets using `WINDOW_ID/WINDOW_TARGET_ID`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
+ * $ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
  * ```
  */
 export class MaintenanceWindowTarget extends pulumi.CustomResource {

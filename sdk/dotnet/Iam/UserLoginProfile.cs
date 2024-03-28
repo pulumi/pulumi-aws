@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,15 +25,16 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUser = new Aws.Iam.User("exampleUser", new()
+    ///     var example = new Aws.Iam.User("example", new()
     ///     {
+    ///         Name = "example",
     ///         Path = "/",
     ///         ForceDestroy = true,
     ///     });
     /// 
-    ///     var exampleUserLoginProfile = new Aws.Iam.UserLoginProfile("exampleUserLoginProfile", new()
+    ///     var exampleUserLoginProfile = new Aws.Iam.UserLoginProfile("example", new()
     ///     {
-    ///         User = exampleUser.Name,
+    ///         User = example.Name,
     ///         PgpKey = "keybase:some_person_that_exists",
     ///     });
     /// 
@@ -42,15 +44,16 @@ namespace Pulumi.Aws.Iam
     ///     };
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM User Login Profiles without password information via the IAM User name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
+    /// $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
     /// ```
-    ///  Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
+    /// Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
     /// </summary>
     [AwsResourceType("aws:iam/userLoginProfile:UserLoginProfile")]
     public partial class UserLoginProfile : global::Pulumi.CustomResource

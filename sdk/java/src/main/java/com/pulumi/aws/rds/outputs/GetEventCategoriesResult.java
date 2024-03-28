@@ -4,6 +4,7 @@
 package com.pulumi.aws.rds.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -65,7 +66,10 @@ public final class GetEventCategoriesResult {
 
         @CustomType.Setter
         public Builder eventCategories(List<String> eventCategories) {
-            this.eventCategories = Objects.requireNonNull(eventCategories);
+            if (eventCategories == null) {
+              throw new MissingRequiredPropertyException("GetEventCategoriesResult", "eventCategories");
+            }
+            this.eventCategories = eventCategories;
             return this;
         }
         public Builder eventCategories(String... eventCategories) {
@@ -73,20 +77,24 @@ public final class GetEventCategoriesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEventCategoriesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder sourceType(@Nullable String sourceType) {
+
             this.sourceType = sourceType;
             return this;
         }
         public GetEventCategoriesResult build() {
-            final var o = new GetEventCategoriesResult();
-            o.eventCategories = eventCategories;
-            o.id = id;
-            o.sourceType = sourceType;
-            return o;
+            final var _resultValue = new GetEventCategoriesResult();
+            _resultValue.eventCategories = eventCategories;
+            _resultValue.id = id;
+            _resultValue.sourceType = sourceType;
+            return _resultValue;
         }
     }
 }

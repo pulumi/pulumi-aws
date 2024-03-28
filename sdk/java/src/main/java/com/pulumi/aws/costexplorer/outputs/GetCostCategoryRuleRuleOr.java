@@ -7,6 +7,7 @@ import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRuleRuleOrCostCategory
 import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRuleRuleOrDimension;
 import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRuleRuleOrTag;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -73,7 +74,10 @@ public final class GetCostCategoryRuleRuleOr {
 
         @CustomType.Setter
         public Builder costCategories(List<GetCostCategoryRuleRuleOrCostCategory> costCategories) {
-            this.costCategories = Objects.requireNonNull(costCategories);
+            if (costCategories == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryRuleRuleOr", "costCategories");
+            }
+            this.costCategories = costCategories;
             return this;
         }
         public Builder costCategories(GetCostCategoryRuleRuleOrCostCategory... costCategories) {
@@ -81,7 +85,10 @@ public final class GetCostCategoryRuleRuleOr {
         }
         @CustomType.Setter
         public Builder dimensions(List<GetCostCategoryRuleRuleOrDimension> dimensions) {
-            this.dimensions = Objects.requireNonNull(dimensions);
+            if (dimensions == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryRuleRuleOr", "dimensions");
+            }
+            this.dimensions = dimensions;
             return this;
         }
         public Builder dimensions(GetCostCategoryRuleRuleOrDimension... dimensions) {
@@ -89,18 +96,21 @@ public final class GetCostCategoryRuleRuleOr {
         }
         @CustomType.Setter
         public Builder tags(List<GetCostCategoryRuleRuleOrTag> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryRuleRuleOr", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public Builder tags(GetCostCategoryRuleRuleOrTag... tags) {
             return tags(List.of(tags));
         }
         public GetCostCategoryRuleRuleOr build() {
-            final var o = new GetCostCategoryRuleRuleOr();
-            o.costCategories = costCategories;
-            o.dimensions = dimensions;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetCostCategoryRuleRuleOr();
+            _resultValue.costCategories = costCategories;
+            _resultValue.dimensions = dimensions;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

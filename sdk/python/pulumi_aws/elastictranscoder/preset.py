@@ -377,11 +377,15 @@ class Preset(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         bar = aws.elastictranscoder.Preset("bar",
+            container="mp4",
+            description="Sample Preset",
+            name="sample_preset",
             audio=aws.elastictranscoder.PresetAudioArgs(
                 audio_packing_mode="SingleTrack",
                 bit_rate="96",
@@ -392,56 +396,55 @@ class Preset(pulumi.CustomResource):
             audio_codec_options=aws.elastictranscoder.PresetAudioCodecOptionsArgs(
                 profile="AAC-LC",
             ),
-            container="mp4",
-            description="Sample Preset",
-            thumbnails=aws.elastictranscoder.PresetThumbnailsArgs(
-                format="png",
-                interval="120",
-                max_height="auto",
-                max_width="auto",
-                padding_policy="Pad",
-                sizing_policy="Fit",
-            ),
             video=aws.elastictranscoder.PresetVideoArgs(
                 bit_rate="1600",
                 codec="H.264",
                 display_aspect_ratio="16:9",
                 fixed_gop="false",
                 frame_rate="auto",
-                keyframes_max_dist="240",
                 max_frame_rate="60",
+                keyframes_max_dist="240",
                 max_height="auto",
                 max_width="auto",
                 padding_policy="Pad",
                 sizing_policy="Fit",
             ),
             video_codec_options={
-                "ColorSpaceConversionMode": "None",
-                "InterlacedMode": "Progressive",
+                "Profile": "main",
                 "Level": "2.2",
                 "MaxReferenceFrames": "3",
-                "Profile": "main",
+                "InterlacedMode": "Progressive",
+                "ColorSpaceConversionMode": "None",
             },
             video_watermarks=[aws.elastictranscoder.PresetVideoWatermarkArgs(
+                id="Test",
+                max_width="20%",
+                max_height="20%",
+                sizing_policy="ShrinkToFit",
                 horizontal_align="Right",
                 horizontal_offset="10px",
-                id="Test",
-                max_height="20%",
-                max_width="20%",
-                opacity="55.5",
-                sizing_policy="ShrinkToFit",
-                target="Content",
                 vertical_align="Bottom",
                 vertical_offset="10px",
-            )])
+                opacity="55.5",
+                target="Content",
+            )],
+            thumbnails=aws.elastictranscoder.PresetThumbnailsArgs(
+                format="png",
+                interval="120",
+                max_width="auto",
+                max_height="auto",
+                padding_policy="Pad",
+                sizing_policy="Fit",
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Elastic Transcoder presets using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
+        $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
         ```
 
         :param str resource_name: The name of the resource.
@@ -467,11 +470,15 @@ class Preset(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         bar = aws.elastictranscoder.Preset("bar",
+            container="mp4",
+            description="Sample Preset",
+            name="sample_preset",
             audio=aws.elastictranscoder.PresetAudioArgs(
                 audio_packing_mode="SingleTrack",
                 bit_rate="96",
@@ -482,56 +489,55 @@ class Preset(pulumi.CustomResource):
             audio_codec_options=aws.elastictranscoder.PresetAudioCodecOptionsArgs(
                 profile="AAC-LC",
             ),
-            container="mp4",
-            description="Sample Preset",
-            thumbnails=aws.elastictranscoder.PresetThumbnailsArgs(
-                format="png",
-                interval="120",
-                max_height="auto",
-                max_width="auto",
-                padding_policy="Pad",
-                sizing_policy="Fit",
-            ),
             video=aws.elastictranscoder.PresetVideoArgs(
                 bit_rate="1600",
                 codec="H.264",
                 display_aspect_ratio="16:9",
                 fixed_gop="false",
                 frame_rate="auto",
-                keyframes_max_dist="240",
                 max_frame_rate="60",
+                keyframes_max_dist="240",
                 max_height="auto",
                 max_width="auto",
                 padding_policy="Pad",
                 sizing_policy="Fit",
             ),
             video_codec_options={
-                "ColorSpaceConversionMode": "None",
-                "InterlacedMode": "Progressive",
+                "Profile": "main",
                 "Level": "2.2",
                 "MaxReferenceFrames": "3",
-                "Profile": "main",
+                "InterlacedMode": "Progressive",
+                "ColorSpaceConversionMode": "None",
             },
             video_watermarks=[aws.elastictranscoder.PresetVideoWatermarkArgs(
+                id="Test",
+                max_width="20%",
+                max_height="20%",
+                sizing_policy="ShrinkToFit",
                 horizontal_align="Right",
                 horizontal_offset="10px",
-                id="Test",
-                max_height="20%",
-                max_width="20%",
-                opacity="55.5",
-                sizing_policy="ShrinkToFit",
-                target="Content",
                 vertical_align="Bottom",
                 vertical_offset="10px",
-            )])
+                opacity="55.5",
+                target="Content",
+            )],
+            thumbnails=aws.elastictranscoder.PresetThumbnailsArgs(
+                format="png",
+                interval="120",
+                max_width="auto",
+                max_height="auto",
+                padding_policy="Pad",
+                sizing_policy="Fit",
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Elastic Transcoder presets using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
+        $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
         ```
 
         :param str resource_name: The name of the resource.

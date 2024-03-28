@@ -15,8 +15,10 @@ import (
 // Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,14 +35,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Sid":    "",
-//						"Principal": map[string]interface{}{
-//							"Service": "lambda.amazonaws.com",
+//						"action": "sts:AssumeRole",
+//						"effect": "Allow",
+//						"sid":    "",
+//						"principal": map[string]interface{}{
+//							"service": "lambda.amazonaws.com",
 //						},
 //					},
 //				},
@@ -49,22 +51,25 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			iamForLambda, err := iam.NewRole(ctx, "iamForLambda", &iam.RoleArgs{
+//			iamForLambda, err := iam.NewRole(ctx, "iam_for_lambda", &iam.RoleArgs{
+//				Name:             pulumi.String("iam_for_lambda"),
 //				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testLambda, err := lambda.NewFunction(ctx, "testLambda", &lambda.FunctionArgs{
+//			testLambda, err := lambda.NewFunction(ctx, "test_lambda", &lambda.FunctionArgs{
 //				Code:    pulumi.NewFileArchive("lambdatest.zip"),
+//				Name:    pulumi.String("lambda_function_name"),
 //				Role:    iamForLambda.Arn,
 //				Handler: pulumi.String("exports.handler"),
-//				Runtime: pulumi.String("nodejs16.x"),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS16dX),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testAlias, err := lambda.NewAlias(ctx, "testAlias", &lambda.AliasArgs{
+//			testAlias, err := lambda.NewAlias(ctx, "test_alias", &lambda.AliasArgs{
+//				Name:            pulumi.String("testalias"),
 //				Description:     pulumi.String("a sample description"),
 //				FunctionName:    testLambda.Name,
 //				FunctionVersion: pulumi.String("$LATEST"),
@@ -72,12 +77,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lambda.NewPermission(ctx, "allowCloudwatch", &lambda.PermissionArgs{
-//				Action:    pulumi.String("lambda:InvokeFunction"),
-//				Function:  testLambda.Name,
-//				Principal: pulumi.String("events.amazonaws.com"),
-//				SourceArn: pulumi.String("arn:aws:events:eu-west-1:111122223333:rule/RunDaily"),
-//				Qualifier: testAlias.Name,
+//			_, err = lambda.NewPermission(ctx, "allow_cloudwatch", &lambda.PermissionArgs{
+//				StatementId: pulumi.String("AllowExecutionFromCloudWatch"),
+//				Action:      pulumi.String("lambda:InvokeFunction"),
+//				Function:    testLambda.Name,
+//				Principal:   pulumi.String("events.amazonaws.com"),
+//				SourceArn:   pulumi.String("arn:aws:events:eu-west-1:111122223333:rule/RunDaily"),
+//				Qualifier:   testAlias.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -87,8 +93,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With SNS
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -105,19 +114,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultTopic, err := sns.NewTopic(ctx, "defaultTopic", nil)
+//			_, err := sns.NewTopic(ctx, "default", &sns.TopicArgs{
+//				Name: pulumi.String("call-lambda-maybe"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Sid":    "",
-//						"Principal": map[string]interface{}{
-//							"Service": "lambda.amazonaws.com",
+//						"action": "sts:AssumeRole",
+//						"effect": "Allow",
+//						"sid":    "",
+//						"principal": map[string]interface{}{
+//							"service": "lambda.amazonaws.com",
 //						},
 //					},
 //				},
@@ -126,7 +137,8 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			defaultRole, err := iam.NewRole(ctx, "defaultRole", &iam.RoleArgs{
+//			defaultRole, err := iam.NewRole(ctx, "default", &iam.RoleArgs{
+//				Name:             pulumi.String("iam_for_lambda_with_sns"),
 //				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -134,24 +146,26 @@ import (
 //			}
 //			_, err = lambda.NewFunction(ctx, "func", &lambda.FunctionArgs{
 //				Code:    pulumi.NewFileArchive("lambdatest.zip"),
+//				Name:    pulumi.String("lambda_called_from_sns"),
 //				Role:    defaultRole.Arn,
 //				Handler: pulumi.String("exports.handler"),
-//				Runtime: pulumi.String("python3.7"),
+//				Runtime: pulumi.String(lambda.RuntimePython3d7),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lambda.NewPermission(ctx, "withSns", &lambda.PermissionArgs{
-//				Action:    pulumi.String("lambda:InvokeFunction"),
-//				Function:  _func.Name,
-//				Principal: pulumi.String("sns.amazonaws.com"),
-//				SourceArn: defaultTopic.Arn,
+//			_, err = lambda.NewPermission(ctx, "with_sns", &lambda.PermissionArgs{
+//				StatementId: pulumi.String("AllowExecutionFromSNS"),
+//				Action:      pulumi.String("lambda:InvokeFunction"),
+//				Function:    _func.Name,
+//				Principal:   pulumi.String("sns.amazonaws.com"),
+//				SourceArn:   _default.Arn,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = sns.NewTopicSubscription(ctx, "lambda", &sns.TopicSubscriptionArgs{
-//				Topic:    defaultTopic.Arn,
+//				Topic:    _default.Arn,
 //				Protocol: pulumi.String("lambda"),
 //				Endpoint: _func.Arn,
 //			})
@@ -163,8 +177,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With API Gateway REST API
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -180,16 +197,18 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myDemoAPI, err := apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
+//			myDemoAPI, err := apigateway.NewRestApi(ctx, "MyDemoAPI", &apigateway.RestApiArgs{
+//				Name:        pulumi.String("MyDemoAPI"),
 //				Description: pulumi.String("This is my API for demonstration purposes"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lambda.NewPermission(ctx, "lambdaPermission", &lambda.PermissionArgs{
-//				Action:    pulumi.String("lambda:InvokeFunction"),
-//				Function:  pulumi.Any("MyDemoFunction"),
-//				Principal: pulumi.String("apigateway.amazonaws.com"),
+//			_, err = lambda.NewPermission(ctx, "lambda_permission", &lambda.PermissionArgs{
+//				StatementId: pulumi.String("AllowMyDemoAPIInvoke"),
+//				Action:      pulumi.String("lambda:InvokeFunction"),
+//				Function:    pulumi.Any("MyDemoFunction"),
+//				Principal:   pulumi.String("apigateway.amazonaws.com"),
 //				SourceArn: myDemoAPI.ExecutionArn.ApplyT(func(executionArn string) (string, error) {
 //					return fmt.Sprintf("%v/*", executionArn), nil
 //				}).(pulumi.StringOutput),
@@ -202,8 +221,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With CloudWatch Log Group
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -220,7 +242,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultLogGroup, err := cloudwatch.NewLogGroup(ctx, "defaultLogGroup", nil)
+//			_, err := cloudwatch.NewLogGroup(ctx, "default", &cloudwatch.LogGroupArgs{
+//				Name: pulumi.String("/default"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -245,39 +269,40 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			defaultRole, err := iam.NewRole(ctx, "defaultRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//			defaultRole, err := iam.NewRole(ctx, "default", &iam.RoleArgs{
+//				Name:             pulumi.String("iam_for_lambda_called_from_cloudwatch_logs"),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			loggingFunction, err := lambda.NewFunction(ctx, "loggingFunction", &lambda.FunctionArgs{
+//			loggingFunction, err := lambda.NewFunction(ctx, "logging", &lambda.FunctionArgs{
 //				Code:    pulumi.NewFileArchive("lamba_logging.zip"),
+//				Name:    pulumi.String("lambda_called_from_cloudwatch_logs"),
 //				Handler: pulumi.String("exports.handler"),
 //				Role:    defaultRole.Arn,
-//				Runtime: pulumi.String("python3.7"),
+//				Runtime: pulumi.String(lambda.RuntimePython3d7),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			loggingPermission, err := lambda.NewPermission(ctx, "loggingPermission", &lambda.PermissionArgs{
+//			_, err = lambda.NewPermission(ctx, "logging", &lambda.PermissionArgs{
 //				Action:    pulumi.String("lambda:InvokeFunction"),
 //				Function:  loggingFunction.Name,
 //				Principal: pulumi.String("logs.eu-west-1.amazonaws.com"),
-//				SourceArn: defaultLogGroup.Arn.ApplyT(func(arn string) (string, error) {
+//				SourceArn: _default.Arn.ApplyT(func(arn string) (string, error) {
 //					return fmt.Sprintf("%v:*", arn), nil
 //				}).(pulumi.StringOutput),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudwatch.NewLogSubscriptionFilter(ctx, "loggingLogSubscriptionFilter", &cloudwatch.LogSubscriptionFilterArgs{
+//			_, err = cloudwatch.NewLogSubscriptionFilter(ctx, "logging", &cloudwatch.LogSubscriptionFilterArgs{
 //				DestinationArn: loggingFunction.Arn,
 //				FilterPattern:  pulumi.String(""),
-//				LogGroup:       defaultLogGroup.Name,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				loggingPermission,
-//			}))
+//				LogGroup:       _default.Name,
+//				Name:           pulumi.String("logging_default"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -286,8 +311,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Cross-Account Invocation Policy
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -300,16 +328,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewFunctionUrl(ctx, "urlFunctionUrl", &lambda.FunctionUrlArgs{
-//				FunctionName:      pulumi.Any(aws_lambda_function.Example.Function_name),
+//			_, err := lambda.NewFunctionUrl(ctx, "url", &lambda.FunctionUrlArgs{
+//				FunctionName:      pulumi.Any(example.FunctionName),
 //				AuthorizationType: pulumi.String("AWS_IAM"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lambda.NewPermission(ctx, "urlPermission", &lambda.PermissionArgs{
+//			_, err = lambda.NewPermission(ctx, "url", &lambda.PermissionArgs{
 //				Action:              pulumi.String("lambda:InvokeFunctionUrl"),
-//				Function:            pulumi.Any(aws_lambda_function.Example.Function_name),
+//				Function:            pulumi.Any(example.FunctionName),
 //				Principal:           pulumi.String("arn:aws:iam::444455556666:role/example"),
 //				SourceAccount:       pulumi.String("444455556666"),
 //				FunctionUrlAuthType: pulumi.String("AWS_IAM"),
@@ -322,10 +350,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With `replaceTriggeredBy` Lifecycle Configuration
 //
 // If omitting the `qualifier` argument (which forces re-creation each time a function version is published), a `lifecycle` block can be used to ensure permissions are re-applied on any change to the underlying function.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -340,7 +371,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewPermission(ctx, "logging", &lambda.PermissionArgs{
 //				Action:    pulumi.String("lambda:InvokeFunction"),
-//				Function:  pulumi.Any(aws_lambda_function.Example.Function_name),
+//				Function:  pulumi.Any(example.FunctionName),
 //				Principal: pulumi.String("events.amazonaws.com"),
 //				SourceArn: pulumi.String("arn:aws:events:eu-west-1:111122223333:rule/RunDaily"),
 //			})
@@ -352,15 +383,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Lambda permission statements using function_name/statement_id with an optional qualifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch
-//
+// $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch
 // ```
 // ```sh
 // $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch

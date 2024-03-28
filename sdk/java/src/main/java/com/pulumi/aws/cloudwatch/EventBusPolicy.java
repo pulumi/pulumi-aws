@@ -22,7 +22,10 @@ import javax.annotation.Nullable;
  * &gt; **Note:** The EventBridge bus policy resource  (`aws.cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`aws.cloudwatch.EventPermission`) and will overwrite permissions.
  * 
  * ## Example Usage
+ * 
  * ### Account Access
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;DevAccountAccess&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -60,14 +63,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testEventBusPolicy = new EventBusPolicy(&#34;testEventBusPolicy&#34;, EventBusPolicyArgs.builder()        
- *             .policy(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .eventBusName(aws_cloudwatch_event_bus.test().name())
+ *             .policy(test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .eventBusName(testAwsCloudwatchEventBus.name())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Organization Access
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -91,7 +98,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;OrganizationAccess&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -110,20 +117,24 @@ import javax.annotation.Nullable;
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test(&#34;StringEquals&#34;)
  *                     .variable(&#34;aws:PrincipalOrgID&#34;)
- *                     .values(aws_organizations_organization.example().id())
+ *                     .values(example.id())
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *         var testEventBusPolicy = new EventBusPolicy(&#34;testEventBusPolicy&#34;, EventBusPolicyArgs.builder()        
- *             .policy(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .eventBusName(aws_cloudwatch_event_bus.test().name())
+ *             .policy(test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .eventBusName(testAwsCloudwatchEventBus.name())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Multiple Statements
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -147,7 +158,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .sid(&#34;DevAccountAccess&#34;)
@@ -177,26 +188,27 @@ import javax.annotation.Nullable;
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test(&#34;StringEquals&#34;)
  *                         .variable(&#34;aws:PrincipalOrgID&#34;)
- *                         .values(aws_organizations_organization.example().id())
+ *                         .values(example.id())
  *                         .build())
  *                     .build())
  *             .build());
  * 
  *         var testEventBusPolicy = new EventBusPolicy(&#34;testEventBusPolicy&#34;, EventBusPolicyArgs.builder()        
- *             .policy(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .eventBusName(aws_cloudwatch_event_bus.test().name())
+ *             .policy(test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .eventBusName(testAwsCloudwatchEventBus.name())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import an EventBridge policy using the `event_bus_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
+ * $ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
  * ```
  * 
  */

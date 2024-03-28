@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,19 +25,20 @@ namespace Pulumi.Aws.DocDB
     /// {
     ///     var example = new Aws.DocDB.ClusterSnapshot("example", new()
     ///     {
-    ///         DbClusterIdentifier = aws_docdb_cluster.Example.Id,
+    ///         DbClusterIdentifier = exampleAwsDocdbCluster.Id,
     ///         DbClusterSnapshotIdentifier = "resourcetestsnapshot1234",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_docdb_cluster_snapshot` using the cluster snapshot identifier. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+    /// $ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
     /// ```
     /// </summary>
     [AwsResourceType("aws:docdb/clusterSnapshot:ClusterSnapshot")]

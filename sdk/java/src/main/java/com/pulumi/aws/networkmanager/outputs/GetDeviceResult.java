@@ -6,6 +6,7 @@ package com.pulumi.aws.networkmanager.outputs;
 import com.pulumi.aws.networkmanager.outputs.GetDeviceAwsLocation;
 import com.pulumi.aws.networkmanager.outputs.GetDeviceLocation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -198,12 +199,18 @@ public final class GetDeviceResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetDeviceResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder awsLocations(List<GetDeviceAwsLocation> awsLocations) {
-            this.awsLocations = Objects.requireNonNull(awsLocations);
+            if (awsLocations == null) {
+              throw new MissingRequiredPropertyException("GetDeviceResult", "awsLocations");
+            }
+            this.awsLocations = awsLocations;
             return this;
         }
         public Builder awsLocations(GetDeviceAwsLocation... awsLocations) {
@@ -211,27 +218,42 @@ public final class GetDeviceResult {
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetDeviceResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder deviceId(String deviceId) {
-            this.deviceId = Objects.requireNonNull(deviceId);
+            if (deviceId == null) {
+              throw new MissingRequiredPropertyException("GetDeviceResult", "deviceId");
+            }
+            this.deviceId = deviceId;
             return this;
         }
         @CustomType.Setter
         public Builder globalNetworkId(String globalNetworkId) {
-            this.globalNetworkId = Objects.requireNonNull(globalNetworkId);
+            if (globalNetworkId == null) {
+              throw new MissingRequiredPropertyException("GetDeviceResult", "globalNetworkId");
+            }
+            this.globalNetworkId = globalNetworkId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDeviceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder locations(List<GetDeviceLocation> locations) {
-            this.locations = Objects.requireNonNull(locations);
+            if (locations == null) {
+              throw new MissingRequiredPropertyException("GetDeviceResult", "locations");
+            }
+            this.locations = locations;
             return this;
         }
         public Builder locations(GetDeviceLocation... locations) {
@@ -239,50 +261,68 @@ public final class GetDeviceResult {
         }
         @CustomType.Setter
         public Builder model(String model) {
-            this.model = Objects.requireNonNull(model);
+            if (model == null) {
+              throw new MissingRequiredPropertyException("GetDeviceResult", "model");
+            }
+            this.model = model;
             return this;
         }
         @CustomType.Setter
         public Builder serialNumber(String serialNumber) {
-            this.serialNumber = Objects.requireNonNull(serialNumber);
+            if (serialNumber == null) {
+              throw new MissingRequiredPropertyException("GetDeviceResult", "serialNumber");
+            }
+            this.serialNumber = serialNumber;
             return this;
         }
         @CustomType.Setter
         public Builder siteId(String siteId) {
-            this.siteId = Objects.requireNonNull(siteId);
+            if (siteId == null) {
+              throw new MissingRequiredPropertyException("GetDeviceResult", "siteId");
+            }
+            this.siteId = siteId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetDeviceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetDeviceResult", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder vendor(String vendor) {
-            this.vendor = Objects.requireNonNull(vendor);
+            if (vendor == null) {
+              throw new MissingRequiredPropertyException("GetDeviceResult", "vendor");
+            }
+            this.vendor = vendor;
             return this;
         }
         public GetDeviceResult build() {
-            final var o = new GetDeviceResult();
-            o.arn = arn;
-            o.awsLocations = awsLocations;
-            o.description = description;
-            o.deviceId = deviceId;
-            o.globalNetworkId = globalNetworkId;
-            o.id = id;
-            o.locations = locations;
-            o.model = model;
-            o.serialNumber = serialNumber;
-            o.siteId = siteId;
-            o.tags = tags;
-            o.type = type;
-            o.vendor = vendor;
-            return o;
+            final var _resultValue = new GetDeviceResult();
+            _resultValue.arn = arn;
+            _resultValue.awsLocations = awsLocations;
+            _resultValue.description = description;
+            _resultValue.deviceId = deviceId;
+            _resultValue.globalNetworkId = globalNetworkId;
+            _resultValue.id = id;
+            _resultValue.locations = locations;
+            _resultValue.model = model;
+            _resultValue.serialNumber = serialNumber;
+            _resultValue.siteId = siteId;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            _resultValue.vendor = vendor;
+            return _resultValue;
         }
     }
 }

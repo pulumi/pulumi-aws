@@ -4,6 +4,7 @@
 package com.pulumi.aws.identitystore.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetUserAlternateIdentifierExternalId extends com.pulumi.resou
         }
 
         public GetUserAlternateIdentifierExternalId build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
-            $.issuer = Objects.requireNonNull($.issuer, "expected parameter 'issuer' to be non-null");
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("GetUserAlternateIdentifierExternalId", "id");
+            }
+            if ($.issuer == null) {
+                throw new MissingRequiredPropertyException("GetUserAlternateIdentifierExternalId", "issuer");
+            }
             return $;
         }
     }

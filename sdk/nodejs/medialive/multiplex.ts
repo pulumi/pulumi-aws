@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS MediaLive Multiplex.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +23,7 @@ import * as utilities from "../utilities";
  *     state: "available",
  * });
  * const example = new aws.medialive.Multiplex("example", {
+ *     name: "example-multiplex-changed",
  *     availabilityZones: [
  *         available.then(available => available.names?.[0]),
  *         available.then(available => available.names?.[1]),
@@ -37,13 +40,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import MediaLive Multiplex using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
+ * $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
  * ```
  */
 export class Multiplex extends pulumi.CustomResource {
@@ -139,8 +143,6 @@ export class Multiplex extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Multiplex.__pulumiType, name, resourceInputs, opts);
     }
 }

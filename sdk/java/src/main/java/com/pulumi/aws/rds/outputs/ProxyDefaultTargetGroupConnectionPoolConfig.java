@@ -102,26 +102,31 @@ public final class ProxyDefaultTargetGroupConnectionPoolConfig {
 
         @CustomType.Setter
         public Builder connectionBorrowTimeout(@Nullable Integer connectionBorrowTimeout) {
+
             this.connectionBorrowTimeout = connectionBorrowTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder initQuery(@Nullable String initQuery) {
+
             this.initQuery = initQuery;
             return this;
         }
         @CustomType.Setter
         public Builder maxConnectionsPercent(@Nullable Integer maxConnectionsPercent) {
+
             this.maxConnectionsPercent = maxConnectionsPercent;
             return this;
         }
         @CustomType.Setter
         public Builder maxIdleConnectionsPercent(@Nullable Integer maxIdleConnectionsPercent) {
+
             this.maxIdleConnectionsPercent = maxIdleConnectionsPercent;
             return this;
         }
         @CustomType.Setter
         public Builder sessionPinningFilters(@Nullable List<String> sessionPinningFilters) {
+
             this.sessionPinningFilters = sessionPinningFilters;
             return this;
         }
@@ -129,13 +134,13 @@ public final class ProxyDefaultTargetGroupConnectionPoolConfig {
             return sessionPinningFilters(List.of(sessionPinningFilters));
         }
         public ProxyDefaultTargetGroupConnectionPoolConfig build() {
-            final var o = new ProxyDefaultTargetGroupConnectionPoolConfig();
-            o.connectionBorrowTimeout = connectionBorrowTimeout;
-            o.initQuery = initQuery;
-            o.maxConnectionsPercent = maxConnectionsPercent;
-            o.maxIdleConnectionsPercent = maxIdleConnectionsPercent;
-            o.sessionPinningFilters = sessionPinningFilters;
-            return o;
+            final var _resultValue = new ProxyDefaultTargetGroupConnectionPoolConfig();
+            _resultValue.connectionBorrowTimeout = connectionBorrowTimeout;
+            _resultValue.initQuery = initQuery;
+            _resultValue.maxConnectionsPercent = maxConnectionsPercent;
+            _resultValue.maxIdleConnectionsPercent = maxIdleConnectionsPercent;
+            _resultValue.sessionPinningFilters = sessionPinningFilters;
+            return _resultValue;
         }
     }
 }

@@ -25,8 +25,8 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro();
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro();
+            return _resultValue;
         }
     }
 }

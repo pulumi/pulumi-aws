@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,8 +31,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.NewDevice(ctx, "example", &networkmanager.DeviceArgs{
-//				GlobalNetworkId: pulumi.Any(aws_networkmanager_global_network.Example.Id),
-//				SiteId:          pulumi.Any(aws_networkmanager_site.Example.Id),
+//				GlobalNetworkId: pulumi.Any(exampleAwsNetworkmanagerGlobalNetwork.Id),
+//				SiteId:          pulumi.Any(exampleAwsNetworkmanagerSite.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -41,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_networkmanager_device` using the device ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:networkmanager/device:Device example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/device-07f6fd08867abc123
-//
+// $ pulumi import aws:networkmanager/device:Device example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/device-07f6fd08867abc123
 // ```
 type Device struct {
 	pulumi.CustomResourceState
@@ -92,10 +92,6 @@ func NewDevice(ctx *pulumi.Context,
 	if args.GlobalNetworkId == nil {
 		return nil, errors.New("invalid value for required argument 'GlobalNetworkId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Device
 	err := ctx.RegisterResource("aws:networkmanager/device:Device", name, args, &resource, opts...)

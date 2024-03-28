@@ -11,24 +11,29 @@ import * as utilities from "../utilities";
  * Blog post: [AWS Shield Advanced now supports Health Based Detection](https://aws.amazon.com/about-aws/whats-new/2020/02/aws-shield-advanced-now-supports-health-based-detection/)
  *
  * ## Example Usage
+ *
  * ### Create an association between a protected EIP and a Route53 Health Check
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const currentRegion = aws.getRegion({});
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentPartition = aws.getPartition({});
- * const exampleEip = new aws.ec2.Eip("exampleEip", {
+ * const current = aws.getRegion({});
+ * const currentGetCallerIdentity = aws.getCallerIdentity({});
+ * const currentGetPartition = aws.getPartition({});
+ * const example = new aws.ec2.Eip("example", {
  *     domain: "vpc",
  *     tags: {
  *         Name: "example",
  *     },
  * });
- * const exampleProtection = new aws.shield.Protection("exampleProtection", {resourceArn: pulumi.all([currentPartition, currentRegion, currentCallerIdentity, exampleEip.id]).apply(([currentPartition, currentRegion, currentCallerIdentity, id]) => `arn:${currentPartition.partition}:ec2:${currentRegion.name}:${currentCallerIdentity.accountId}:eip-allocation/${id}`)});
- * const exampleHealthCheck = new aws.route53.HealthCheck("exampleHealthCheck", {
- *     ipAddress: exampleEip.publicIp,
+ * const exampleProtection = new aws.shield.Protection("example", {
+ *     name: "example-protection",
+ *     resourceArn: pulumi.all([currentGetPartition, current, currentGetCallerIdentity, example.id]).apply(([currentGetPartition, current, currentGetCallerIdentity, id]) => `arn:${currentGetPartition.partition}:ec2:${current.name}:${currentGetCallerIdentity.accountId}:eip-allocation/${id}`),
+ * });
+ * const exampleHealthCheck = new aws.route53.HealthCheck("example", {
+ *     ipAddress: example.publicIp,
  *     port: 80,
  *     type: "HTTP",
  *     resourcePath: "/ready",
@@ -38,18 +43,19 @@ import * as utilities from "../utilities";
  *         Name: "tf-example-health-check",
  *     },
  * });
- * const exampleProtectionHealthCheckAssociation = new aws.shield.ProtectionHealthCheckAssociation("exampleProtectionHealthCheckAssociation", {
+ * const exampleProtectionHealthCheckAssociation = new aws.shield.ProtectionHealthCheckAssociation("example", {
  *     healthCheckArn: exampleHealthCheck.arn,
  *     shieldProtectionId: exampleProtection.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Shield protection health check association resources using the `shield_protection_id` and `health_check_arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b
+ * $ pulumi import aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b
  * ```
  */
 export class ProtectionHealthCheckAssociation extends pulumi.CustomResource {

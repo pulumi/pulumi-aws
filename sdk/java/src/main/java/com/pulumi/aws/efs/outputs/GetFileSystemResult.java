@@ -4,11 +4,14 @@
 package com.pulumi.aws.efs.outputs;
 
 import com.pulumi.aws.efs.outputs.GetFileSystemLifecyclePolicy;
+import com.pulumi.aws.efs.outputs.GetFileSystemProtection;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -66,6 +69,7 @@ public final class GetFileSystemResult {
      * 
      */
     private String performanceMode;
+    private List<GetFileSystemProtection> protections;
     /**
      * @return The throughput, measured in MiB/s, that you want to provision for the file system.
      * 
@@ -164,6 +168,9 @@ public final class GetFileSystemResult {
     public String performanceMode() {
         return this.performanceMode;
     }
+    public List<GetFileSystemProtection> protections() {
+        return this.protections;
+    }
     /**
      * @return The throughput, measured in MiB/s, that you want to provision for the file system.
      * 
@@ -214,6 +221,7 @@ public final class GetFileSystemResult {
         private GetFileSystemLifecyclePolicy lifecyclePolicy;
         private String name;
         private String performanceMode;
+        private List<GetFileSystemProtection> protections;
         private Double provisionedThroughputInMibps;
         private Integer sizeInBytes;
         private Map<String,String> tags;
@@ -233,6 +241,7 @@ public final class GetFileSystemResult {
     	      this.lifecyclePolicy = defaults.lifecyclePolicy;
     	      this.name = defaults.name;
     	      this.performanceMode = defaults.performanceMode;
+    	      this.protections = defaults.protections;
     	      this.provisionedThroughputInMibps = defaults.provisionedThroughputInMibps;
     	      this.sizeInBytes = defaults.sizeInBytes;
     	      this.tags = defaults.tags;
@@ -241,103 +250,163 @@ public final class GetFileSystemResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder availabilityZoneId(String availabilityZoneId) {
-            this.availabilityZoneId = Objects.requireNonNull(availabilityZoneId);
+            if (availabilityZoneId == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "availabilityZoneId");
+            }
+            this.availabilityZoneId = availabilityZoneId;
             return this;
         }
         @CustomType.Setter
         public Builder availabilityZoneName(String availabilityZoneName) {
-            this.availabilityZoneName = Objects.requireNonNull(availabilityZoneName);
+            if (availabilityZoneName == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "availabilityZoneName");
+            }
+            this.availabilityZoneName = availabilityZoneName;
             return this;
         }
         @CustomType.Setter
         public Builder creationToken(String creationToken) {
-            this.creationToken = Objects.requireNonNull(creationToken);
+            if (creationToken == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "creationToken");
+            }
+            this.creationToken = creationToken;
             return this;
         }
         @CustomType.Setter
         public Builder dnsName(String dnsName) {
-            this.dnsName = Objects.requireNonNull(dnsName);
+            if (dnsName == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "dnsName");
+            }
+            this.dnsName = dnsName;
             return this;
         }
         @CustomType.Setter
         public Builder encrypted(Boolean encrypted) {
-            this.encrypted = Objects.requireNonNull(encrypted);
+            if (encrypted == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "encrypted");
+            }
+            this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
         public Builder fileSystemId(String fileSystemId) {
-            this.fileSystemId = Objects.requireNonNull(fileSystemId);
+            if (fileSystemId == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "fileSystemId");
+            }
+            this.fileSystemId = fileSystemId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+            if (kmsKeyId == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "kmsKeyId");
+            }
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder lifecyclePolicy(GetFileSystemLifecyclePolicy lifecyclePolicy) {
-            this.lifecyclePolicy = Objects.requireNonNull(lifecyclePolicy);
+            if (lifecyclePolicy == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "lifecyclePolicy");
+            }
+            this.lifecyclePolicy = lifecyclePolicy;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder performanceMode(String performanceMode) {
-            this.performanceMode = Objects.requireNonNull(performanceMode);
+            if (performanceMode == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "performanceMode");
+            }
+            this.performanceMode = performanceMode;
             return this;
         }
         @CustomType.Setter
+        public Builder protections(List<GetFileSystemProtection> protections) {
+            if (protections == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "protections");
+            }
+            this.protections = protections;
+            return this;
+        }
+        public Builder protections(GetFileSystemProtection... protections) {
+            return protections(List.of(protections));
+        }
+        @CustomType.Setter
         public Builder provisionedThroughputInMibps(Double provisionedThroughputInMibps) {
-            this.provisionedThroughputInMibps = Objects.requireNonNull(provisionedThroughputInMibps);
+            if (provisionedThroughputInMibps == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "provisionedThroughputInMibps");
+            }
+            this.provisionedThroughputInMibps = provisionedThroughputInMibps;
             return this;
         }
         @CustomType.Setter
         public Builder sizeInBytes(Integer sizeInBytes) {
-            this.sizeInBytes = Objects.requireNonNull(sizeInBytes);
+            if (sizeInBytes == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "sizeInBytes");
+            }
+            this.sizeInBytes = sizeInBytes;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder throughputMode(String throughputMode) {
-            this.throughputMode = Objects.requireNonNull(throughputMode);
+            if (throughputMode == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "throughputMode");
+            }
+            this.throughputMode = throughputMode;
             return this;
         }
         public GetFileSystemResult build() {
-            final var o = new GetFileSystemResult();
-            o.arn = arn;
-            o.availabilityZoneId = availabilityZoneId;
-            o.availabilityZoneName = availabilityZoneName;
-            o.creationToken = creationToken;
-            o.dnsName = dnsName;
-            o.encrypted = encrypted;
-            o.fileSystemId = fileSystemId;
-            o.id = id;
-            o.kmsKeyId = kmsKeyId;
-            o.lifecyclePolicy = lifecyclePolicy;
-            o.name = name;
-            o.performanceMode = performanceMode;
-            o.provisionedThroughputInMibps = provisionedThroughputInMibps;
-            o.sizeInBytes = sizeInBytes;
-            o.tags = tags;
-            o.throughputMode = throughputMode;
-            return o;
+            final var _resultValue = new GetFileSystemResult();
+            _resultValue.arn = arn;
+            _resultValue.availabilityZoneId = availabilityZoneId;
+            _resultValue.availabilityZoneName = availabilityZoneName;
+            _resultValue.creationToken = creationToken;
+            _resultValue.dnsName = dnsName;
+            _resultValue.encrypted = encrypted;
+            _resultValue.fileSystemId = fileSystemId;
+            _resultValue.id = id;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.lifecyclePolicy = lifecyclePolicy;
+            _resultValue.name = name;
+            _resultValue.performanceMode = performanceMode;
+            _resultValue.protections = protections;
+            _resultValue.provisionedThroughputInMibps = provisionedThroughputInMibps;
+            _resultValue.sizeInBytes = sizeInBytes;
+            _resultValue.tags = tags;
+            _resultValue.throughputMode = throughputMode;
+            return _resultValue;
         }
     }
 }

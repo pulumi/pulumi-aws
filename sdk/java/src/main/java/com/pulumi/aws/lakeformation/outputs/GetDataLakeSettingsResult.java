@@ -6,6 +6,7 @@ package com.pulumi.aws.lakeformation.outputs;
 import com.pulumi.aws.lakeformation.outputs.GetDataLakeSettingsCreateDatabaseDefaultPermission;
 import com.pulumi.aws.lakeformation.outputs.GetDataLakeSettingsCreateTableDefaultPermission;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -166,7 +167,10 @@ public final class GetDataLakeSettingsResult {
 
         @CustomType.Setter
         public Builder admins(List<String> admins) {
-            this.admins = Objects.requireNonNull(admins);
+            if (admins == null) {
+              throw new MissingRequiredPropertyException("GetDataLakeSettingsResult", "admins");
+            }
+            this.admins = admins;
             return this;
         }
         public Builder admins(String... admins) {
@@ -174,12 +178,18 @@ public final class GetDataLakeSettingsResult {
         }
         @CustomType.Setter
         public Builder allowExternalDataFiltering(Boolean allowExternalDataFiltering) {
-            this.allowExternalDataFiltering = Objects.requireNonNull(allowExternalDataFiltering);
+            if (allowExternalDataFiltering == null) {
+              throw new MissingRequiredPropertyException("GetDataLakeSettingsResult", "allowExternalDataFiltering");
+            }
+            this.allowExternalDataFiltering = allowExternalDataFiltering;
             return this;
         }
         @CustomType.Setter
         public Builder authorizedSessionTagValueLists(List<String> authorizedSessionTagValueLists) {
-            this.authorizedSessionTagValueLists = Objects.requireNonNull(authorizedSessionTagValueLists);
+            if (authorizedSessionTagValueLists == null) {
+              throw new MissingRequiredPropertyException("GetDataLakeSettingsResult", "authorizedSessionTagValueLists");
+            }
+            this.authorizedSessionTagValueLists = authorizedSessionTagValueLists;
             return this;
         }
         public Builder authorizedSessionTagValueLists(String... authorizedSessionTagValueLists) {
@@ -187,12 +197,16 @@ public final class GetDataLakeSettingsResult {
         }
         @CustomType.Setter
         public Builder catalogId(@Nullable String catalogId) {
+
             this.catalogId = catalogId;
             return this;
         }
         @CustomType.Setter
         public Builder createDatabaseDefaultPermissions(List<GetDataLakeSettingsCreateDatabaseDefaultPermission> createDatabaseDefaultPermissions) {
-            this.createDatabaseDefaultPermissions = Objects.requireNonNull(createDatabaseDefaultPermissions);
+            if (createDatabaseDefaultPermissions == null) {
+              throw new MissingRequiredPropertyException("GetDataLakeSettingsResult", "createDatabaseDefaultPermissions");
+            }
+            this.createDatabaseDefaultPermissions = createDatabaseDefaultPermissions;
             return this;
         }
         public Builder createDatabaseDefaultPermissions(GetDataLakeSettingsCreateDatabaseDefaultPermission... createDatabaseDefaultPermissions) {
@@ -200,7 +214,10 @@ public final class GetDataLakeSettingsResult {
         }
         @CustomType.Setter
         public Builder createTableDefaultPermissions(List<GetDataLakeSettingsCreateTableDefaultPermission> createTableDefaultPermissions) {
-            this.createTableDefaultPermissions = Objects.requireNonNull(createTableDefaultPermissions);
+            if (createTableDefaultPermissions == null) {
+              throw new MissingRequiredPropertyException("GetDataLakeSettingsResult", "createTableDefaultPermissions");
+            }
+            this.createTableDefaultPermissions = createTableDefaultPermissions;
             return this;
         }
         public Builder createTableDefaultPermissions(GetDataLakeSettingsCreateTableDefaultPermission... createTableDefaultPermissions) {
@@ -208,7 +225,10 @@ public final class GetDataLakeSettingsResult {
         }
         @CustomType.Setter
         public Builder externalDataFilteringAllowLists(List<String> externalDataFilteringAllowLists) {
-            this.externalDataFilteringAllowLists = Objects.requireNonNull(externalDataFilteringAllowLists);
+            if (externalDataFilteringAllowLists == null) {
+              throw new MissingRequiredPropertyException("GetDataLakeSettingsResult", "externalDataFilteringAllowLists");
+            }
+            this.externalDataFilteringAllowLists = externalDataFilteringAllowLists;
             return this;
         }
         public Builder externalDataFilteringAllowLists(String... externalDataFilteringAllowLists) {
@@ -216,12 +236,18 @@ public final class GetDataLakeSettingsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDataLakeSettingsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder readOnlyAdmins(List<String> readOnlyAdmins) {
-            this.readOnlyAdmins = Objects.requireNonNull(readOnlyAdmins);
+            if (readOnlyAdmins == null) {
+              throw new MissingRequiredPropertyException("GetDataLakeSettingsResult", "readOnlyAdmins");
+            }
+            this.readOnlyAdmins = readOnlyAdmins;
             return this;
         }
         public Builder readOnlyAdmins(String... readOnlyAdmins) {
@@ -229,25 +255,28 @@ public final class GetDataLakeSettingsResult {
         }
         @CustomType.Setter
         public Builder trustedResourceOwners(List<String> trustedResourceOwners) {
-            this.trustedResourceOwners = Objects.requireNonNull(trustedResourceOwners);
+            if (trustedResourceOwners == null) {
+              throw new MissingRequiredPropertyException("GetDataLakeSettingsResult", "trustedResourceOwners");
+            }
+            this.trustedResourceOwners = trustedResourceOwners;
             return this;
         }
         public Builder trustedResourceOwners(String... trustedResourceOwners) {
             return trustedResourceOwners(List.of(trustedResourceOwners));
         }
         public GetDataLakeSettingsResult build() {
-            final var o = new GetDataLakeSettingsResult();
-            o.admins = admins;
-            o.allowExternalDataFiltering = allowExternalDataFiltering;
-            o.authorizedSessionTagValueLists = authorizedSessionTagValueLists;
-            o.catalogId = catalogId;
-            o.createDatabaseDefaultPermissions = createDatabaseDefaultPermissions;
-            o.createTableDefaultPermissions = createTableDefaultPermissions;
-            o.externalDataFilteringAllowLists = externalDataFilteringAllowLists;
-            o.id = id;
-            o.readOnlyAdmins = readOnlyAdmins;
-            o.trustedResourceOwners = trustedResourceOwners;
-            return o;
+            final var _resultValue = new GetDataLakeSettingsResult();
+            _resultValue.admins = admins;
+            _resultValue.allowExternalDataFiltering = allowExternalDataFiltering;
+            _resultValue.authorizedSessionTagValueLists = authorizedSessionTagValueLists;
+            _resultValue.catalogId = catalogId;
+            _resultValue.createDatabaseDefaultPermissions = createDatabaseDefaultPermissions;
+            _resultValue.createTableDefaultPermissions = createTableDefaultPermissions;
+            _resultValue.externalDataFilteringAllowLists = externalDataFilteringAllowLists;
+            _resultValue.id = id;
+            _resultValue.readOnlyAdmins = readOnlyAdmins;
+            _resultValue.trustedResourceOwners = trustedResourceOwners;
+            return _resultValue;
         }
     }
 }

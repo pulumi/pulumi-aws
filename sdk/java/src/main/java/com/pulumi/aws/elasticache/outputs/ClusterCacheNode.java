@@ -77,37 +77,42 @@ public final class ClusterCacheNode {
 
         @CustomType.Setter
         public Builder address(@Nullable String address) {
+
             this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder availabilityZone(@Nullable String availabilityZone) {
+
             this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder outpostArn(@Nullable String outpostArn) {
+
             this.outpostArn = outpostArn;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         public ClusterCacheNode build() {
-            final var o = new ClusterCacheNode();
-            o.address = address;
-            o.availabilityZone = availabilityZone;
-            o.id = id;
-            o.outpostArn = outpostArn;
-            o.port = port;
-            return o;
+            final var _resultValue = new ClusterCacheNode();
+            _resultValue.address = address;
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.id = id;
+            _resultValue.outpostArn = outpostArn;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

@@ -26,6 +26,7 @@ import java.util.StringJoiner;
         APSoutheast3("ap-southeast-3"),
         APSoutheast4("ap-southeast-4"),
         CACentral("ca-central-1"),
+        CAWest1("ca-west-1"),
         CNNorth1("cn-north-1"),
         CNNorthwest1("cn-northwest-1"),
         EUCentral1("eu-central-1"),

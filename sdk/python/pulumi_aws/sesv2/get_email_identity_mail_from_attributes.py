@@ -83,15 +83,18 @@ def get_email_identity_mail_from_attributes(email_identity: Optional[str] = None
     Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example_email_identity = aws.sesv2.get_email_identity(email_identity="example.com")
-    example_email_identity_mail_from_attributes = aws.sesv2.get_email_identity_mail_from_attributes(email_identity=example_email_identity.email_identity)
+    example = aws.sesv2.get_email_identity(email_identity="example.com")
+    example_get_email_identity_mail_from_attributes = aws.sesv2.get_email_identity_mail_from_attributes(email_identity=example.email_identity)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str email_identity: The name of the email identity.
@@ -115,15 +118,18 @@ def get_email_identity_mail_from_attributes_output(email_identity: Optional[pulu
     Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example_email_identity = aws.sesv2.get_email_identity(email_identity="example.com")
-    example_email_identity_mail_from_attributes = aws.sesv2.get_email_identity_mail_from_attributes(email_identity=example_email_identity.email_identity)
+    example = aws.sesv2.get_email_identity(email_identity="example.com")
+    example_get_email_identity_mail_from_attributes = aws.sesv2.get_email_identity_mail_from_attributes(email_identity=example.email_identity)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str email_identity: The name of the email identity.

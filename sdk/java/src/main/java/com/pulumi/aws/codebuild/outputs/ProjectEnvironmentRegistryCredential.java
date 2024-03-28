@@ -4,6 +4,7 @@
 package com.pulumi.aws.codebuild.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class ProjectEnvironmentRegistryCredential {
 
         @CustomType.Setter
         public Builder credential(String credential) {
-            this.credential = Objects.requireNonNull(credential);
+            if (credential == null) {
+              throw new MissingRequiredPropertyException("ProjectEnvironmentRegistryCredential", "credential");
+            }
+            this.credential = credential;
             return this;
         }
         @CustomType.Setter
         public Builder credentialProvider(String credentialProvider) {
-            this.credentialProvider = Objects.requireNonNull(credentialProvider);
+            if (credentialProvider == null) {
+              throw new MissingRequiredPropertyException("ProjectEnvironmentRegistryCredential", "credentialProvider");
+            }
+            this.credentialProvider = credentialProvider;
             return this;
         }
         public ProjectEnvironmentRegistryCredential build() {
-            final var o = new ProjectEnvironmentRegistryCredential();
-            o.credential = credential;
-            o.credentialProvider = credentialProvider;
-            return o;
+            final var _resultValue = new ProjectEnvironmentRegistryCredential();
+            _resultValue.credential = credential;
+            _resultValue.credentialProvider = credentialProvider;
+            return _resultValue;
         }
     }
 }

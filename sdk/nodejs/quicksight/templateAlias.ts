@@ -8,25 +8,28 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS QuickSight Template Alias.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.TemplateAlias("example", {
  *     aliasName: "example-alias",
- *     templateId: aws_quicksight_template.test.template_id,
- *     templateVersionNumber: aws_quicksight_template.test.version_number,
+ *     templateId: test.templateId,
+ *     templateVersionNumber: test.versionNumber,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import QuickSight Template Alias using the AWS account ID, template ID, and alias name separated by a comma (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:quicksight/templateAlias:TemplateAlias example 123456789012,example-id,example-alias
+ * $ pulumi import aws:quicksight/templateAlias:TemplateAlias example 123456789012,example-id,example-alias
  * ```
  */
 export class TemplateAlias extends pulumi.CustomResource {

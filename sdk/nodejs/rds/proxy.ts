@@ -12,23 +12,25 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rds.Proxy("example", {
+ *     name: "example",
  *     debugLogging: false,
  *     engineFamily: "MYSQL",
  *     idleClientTimeout: 1800,
  *     requireTls: true,
- *     roleArn: aws_iam_role.example.arn,
- *     vpcSecurityGroupIds: [aws_security_group.example.id],
- *     vpcSubnetIds: [aws_subnet.example.id],
+ *     roleArn: exampleAwsIamRole.arn,
+ *     vpcSecurityGroupIds: [exampleAwsSecurityGroup.id],
+ *     vpcSubnetIds: [exampleAwsSubnet.id],
  *     auths: [{
  *         authScheme: "SECRETS",
  *         description: "example",
  *         iamAuth: "DISABLED",
- *         secretArn: aws_secretsmanager_secret.example.arn,
+ *         secretArn: exampleAwsSecretsmanagerSecret.arn,
  *     }],
  *     tags: {
  *         Name: "example",
@@ -36,13 +38,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import DB proxies using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/proxy:Proxy example example
+ * $ pulumi import aws:rds/proxy:Proxy example example
  * ```
  */
 export class Proxy extends pulumi.CustomResource {
@@ -183,8 +186,6 @@ export class Proxy extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Proxy.__pulumiType, name, resourceInputs, opts);
     }
 }

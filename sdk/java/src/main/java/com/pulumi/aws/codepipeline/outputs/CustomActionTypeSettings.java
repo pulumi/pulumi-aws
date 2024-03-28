@@ -86,31 +86,35 @@ public final class CustomActionTypeSettings {
 
         @CustomType.Setter
         public Builder entityUrlTemplate(@Nullable String entityUrlTemplate) {
+
             this.entityUrlTemplate = entityUrlTemplate;
             return this;
         }
         @CustomType.Setter
         public Builder executionUrlTemplate(@Nullable String executionUrlTemplate) {
+
             this.executionUrlTemplate = executionUrlTemplate;
             return this;
         }
         @CustomType.Setter
         public Builder revisionUrlTemplate(@Nullable String revisionUrlTemplate) {
+
             this.revisionUrlTemplate = revisionUrlTemplate;
             return this;
         }
         @CustomType.Setter
         public Builder thirdPartyConfigurationUrl(@Nullable String thirdPartyConfigurationUrl) {
+
             this.thirdPartyConfigurationUrl = thirdPartyConfigurationUrl;
             return this;
         }
         public CustomActionTypeSettings build() {
-            final var o = new CustomActionTypeSettings();
-            o.entityUrlTemplate = entityUrlTemplate;
-            o.executionUrlTemplate = executionUrlTemplate;
-            o.revisionUrlTemplate = revisionUrlTemplate;
-            o.thirdPartyConfigurationUrl = thirdPartyConfigurationUrl;
-            return o;
+            final var _resultValue = new CustomActionTypeSettings();
+            _resultValue.entityUrlTemplate = entityUrlTemplate;
+            _resultValue.executionUrlTemplate = executionUrlTemplate;
+            _resultValue.revisionUrlTemplate = revisionUrlTemplate;
+            _resultValue.thirdPartyConfigurationUrl = thirdPartyConfigurationUrl;
+            return _resultValue;
         }
     }
 }

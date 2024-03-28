@@ -18,6 +18,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,8 +32,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewMonitoringSchedule(ctx, "test", &sagemaker.MonitoringScheduleArgs{
+//				Name: pulumi.String("my-monitoring-schedule"),
 //				MonitoringScheduleConfig: &sagemaker.MonitoringScheduleMonitoringScheduleConfigArgs{
-//					MonitoringJobDefinitionName: pulumi.Any(aws_sagemaker_data_quality_job_definition.Test.Name),
+//					MonitoringJobDefinitionName: pulumi.Any(testAwsSagemakerDataQualityJobDefinition.Name),
 //					MonitoringType:              pulumi.String("DataQuality"),
 //				},
 //			})
@@ -44,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import monitoring schedules using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo
-//
+// $ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo
 // ```
 type MonitoringSchedule struct {
 	pulumi.CustomResourceState
@@ -81,10 +82,6 @@ func NewMonitoringSchedule(ctx *pulumi.Context,
 	if args.MonitoringScheduleConfig == nil {
 		return nil, errors.New("invalid value for required argument 'MonitoringScheduleConfig'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MonitoringSchedule
 	err := ctx.RegisterResource("aws:sagemaker/monitoringSchedule:MonitoringSchedule", name, args, &resource, opts...)

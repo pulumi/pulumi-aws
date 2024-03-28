@@ -6,6 +6,7 @@ package com.pulumi.aws.opensearch.inputs;
 import com.pulumi.aws.opensearch.inputs.DomainAutoTuneOptionsMaintenanceScheduleDurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -149,9 +150,15 @@ public final class DomainAutoTuneOptionsMaintenanceScheduleArgs extends com.pulu
         }
 
         public DomainAutoTuneOptionsMaintenanceScheduleArgs build() {
-            $.cronExpressionForRecurrence = Objects.requireNonNull($.cronExpressionForRecurrence, "expected parameter 'cronExpressionForRecurrence' to be non-null");
-            $.duration = Objects.requireNonNull($.duration, "expected parameter 'duration' to be non-null");
-            $.startAt = Objects.requireNonNull($.startAt, "expected parameter 'startAt' to be non-null");
+            if ($.cronExpressionForRecurrence == null) {
+                throw new MissingRequiredPropertyException("DomainAutoTuneOptionsMaintenanceScheduleArgs", "cronExpressionForRecurrence");
+            }
+            if ($.duration == null) {
+                throw new MissingRequiredPropertyException("DomainAutoTuneOptionsMaintenanceScheduleArgs", "duration");
+            }
+            if ($.startAt == null) {
+                throw new MissingRequiredPropertyException("DomainAutoTuneOptionsMaintenanceScheduleArgs", "startAt");
+            }
             return $;
         }
     }

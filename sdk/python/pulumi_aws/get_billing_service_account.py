@@ -63,16 +63,17 @@ def get_billing_service_account(id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     main = aws.get_billing_service_account()
-    billing_logs = aws.s3.BucketV2("billingLogs")
-    billing_logs_acl = aws.s3.BucketAclV2("billingLogsAcl",
+    billing_logs = aws.s3.BucketV2("billing_logs", bucket="my-billing-tf-test-bucket")
+    billing_logs_acl = aws.s3.BucketAclV2("billing_logs_acl",
         bucket=billing_logs.id,
         acl="private")
-    allow_billing_logging_policy_document = pulumi.Output.all(billing_logs.arn, billing_logs.arn).apply(lambda billingLogsArn, billingLogsArn1: aws.iam.get_policy_document_output(statements=[
+    allow_billing_logging = pulumi.Output.all(billing_logs.arn, billing_logs.arn).apply(lambda billingLogsArn, billingLogsArn1: aws.iam.get_policy_document_output(statements=[
         aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -95,10 +96,11 @@ def get_billing_service_account(id: Optional[str] = None,
             resources=[f"{billing_logs_arn1}/*"],
         ),
     ]))
-    allow_billing_logging_bucket_policy = aws.s3.BucketPolicy("allowBillingLoggingBucketPolicy",
+    allow_billing_logging_bucket_policy = aws.s3.BucketPolicy("allow_billing_logging",
         bucket=billing_logs.id,
-        policy=allow_billing_logging_policy_document.json)
+        policy=allow_billing_logging.json)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: ID of the AWS billing service account.
@@ -121,16 +123,17 @@ def get_billing_service_account_output(id: Optional[pulumi.Input[Optional[str]]]
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     main = aws.get_billing_service_account()
-    billing_logs = aws.s3.BucketV2("billingLogs")
-    billing_logs_acl = aws.s3.BucketAclV2("billingLogsAcl",
+    billing_logs = aws.s3.BucketV2("billing_logs", bucket="my-billing-tf-test-bucket")
+    billing_logs_acl = aws.s3.BucketAclV2("billing_logs_acl",
         bucket=billing_logs.id,
         acl="private")
-    allow_billing_logging_policy_document = pulumi.Output.all(billing_logs.arn, billing_logs.arn).apply(lambda billingLogsArn, billingLogsArn1: aws.iam.get_policy_document_output(statements=[
+    allow_billing_logging = pulumi.Output.all(billing_logs.arn, billing_logs.arn).apply(lambda billingLogsArn, billingLogsArn1: aws.iam.get_policy_document_output(statements=[
         aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -153,10 +156,11 @@ def get_billing_service_account_output(id: Optional[pulumi.Input[Optional[str]]]
             resources=[f"{billing_logs_arn1}/*"],
         ),
     ]))
-    allow_billing_logging_bucket_policy = aws.s3.BucketPolicy("allowBillingLoggingBucketPolicy",
+    allow_billing_logging_bucket_policy = aws.s3.BucketPolicy("allow_billing_logging",
         bucket=billing_logs.id,
-        policy=allow_billing_logging_policy_document.json)
+        policy=allow_billing_logging.json)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: ID of the AWS billing service account.

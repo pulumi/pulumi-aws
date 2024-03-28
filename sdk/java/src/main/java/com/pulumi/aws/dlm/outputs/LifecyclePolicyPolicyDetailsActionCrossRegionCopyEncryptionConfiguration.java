@@ -59,19 +59,21 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionCo
 
         @CustomType.Setter
         public Builder cmkArn(@Nullable String cmkArn) {
+
             this.cmkArn = cmkArn;
             return this;
         }
         @CustomType.Setter
         public Builder encrypted(@Nullable Boolean encrypted) {
+
             this.encrypted = encrypted;
             return this;
         }
         public LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration build() {
-            final var o = new LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration();
-            o.cmkArn = cmkArn;
-            o.encrypted = encrypted;
-            return o;
+            final var _resultValue = new LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration();
+            _resultValue.cmkArn = cmkArn;
+            _resultValue.encrypted = encrypted;
+            return _resultValue;
         }
     }
 }

@@ -267,32 +267,36 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        lb_user = aws.iam.User("lbUser",
+        lb = aws.iam.User("lb",
+            name="loadbalancer",
             path="/system/",
             tags={
                 "tag-key": "tag-value",
             })
-        lb_access_key = aws.iam.AccessKey("lbAccessKey", user=lb_user.name)
-        lb_ro_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        lb_access_key = aws.iam.AccessKey("lb", user=lb.name)
+        lb_ro = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["ec2:Describe*"],
             resources=["*"],
         )])
-        lb_ro_user_policy = aws.iam.UserPolicy("lbRoUserPolicy",
-            user=lb_user.name,
-            policy=lb_ro_policy_document.json)
+        lb_ro_user_policy = aws.iam.UserPolicy("lb_ro",
+            name="test",
+            user=lb.name,
+            policy=lb_ro.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Users using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:iam/user:User lb loadbalancer
+        $ pulumi import aws:iam/user:User lb loadbalancer
         ```
 
         :param str resource_name: The name of the resource.
@@ -318,32 +322,36 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        lb_user = aws.iam.User("lbUser",
+        lb = aws.iam.User("lb",
+            name="loadbalancer",
             path="/system/",
             tags={
                 "tag-key": "tag-value",
             })
-        lb_access_key = aws.iam.AccessKey("lbAccessKey", user=lb_user.name)
-        lb_ro_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        lb_access_key = aws.iam.AccessKey("lb", user=lb.name)
+        lb_ro = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["ec2:Describe*"],
             resources=["*"],
         )])
-        lb_ro_user_policy = aws.iam.UserPolicy("lbRoUserPolicy",
-            user=lb_user.name,
-            policy=lb_ro_policy_document.json)
+        lb_ro_user_policy = aws.iam.UserPolicy("lb_ro",
+            name="test",
+            user=lb.name,
+            policy=lb_ro.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Users using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:iam/user:User lb loadbalancer
+        $ pulumi import aws:iam/user:User lb loadbalancer
         ```
 
         :param str resource_name: The name of the resource.
@@ -383,8 +391,6 @@ class User(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["unique_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(User, __self__).__init__(
             'aws:iam/user:User',
             resource_name,

@@ -5,6 +5,7 @@ package com.pulumi.aws.codebuild.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class WebhookFilterGroupFilterArgs extends com.pulumi.resources.Res
         }
 
         public WebhookFilterGroupFilterArgs build() {
-            $.pattern = Objects.requireNonNull($.pattern, "expected parameter 'pattern' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.pattern == null) {
+                throw new MissingRequiredPropertyException("WebhookFilterGroupFilterArgs", "pattern");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("WebhookFilterGroupFilterArgs", "type");
+            }
             return $;
         }
     }

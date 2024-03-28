@@ -4,6 +4,7 @@
 package com.pulumi.aws.dms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -129,49 +130,62 @@ public final class EndpointRedisSettings {
 
         @CustomType.Setter
         public Builder authPassword(@Nullable String authPassword) {
+
             this.authPassword = authPassword;
             return this;
         }
         @CustomType.Setter
         public Builder authType(String authType) {
-            this.authType = Objects.requireNonNull(authType);
+            if (authType == null) {
+              throw new MissingRequiredPropertyException("EndpointRedisSettings", "authType");
+            }
+            this.authType = authType;
             return this;
         }
         @CustomType.Setter
         public Builder authUserName(@Nullable String authUserName) {
+
             this.authUserName = authUserName;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("EndpointRedisSettings", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder serverName(String serverName) {
-            this.serverName = Objects.requireNonNull(serverName);
+            if (serverName == null) {
+              throw new MissingRequiredPropertyException("EndpointRedisSettings", "serverName");
+            }
+            this.serverName = serverName;
             return this;
         }
         @CustomType.Setter
         public Builder sslCaCertificateArn(@Nullable String sslCaCertificateArn) {
+
             this.sslCaCertificateArn = sslCaCertificateArn;
             return this;
         }
         @CustomType.Setter
         public Builder sslSecurityProtocol(@Nullable String sslSecurityProtocol) {
+
             this.sslSecurityProtocol = sslSecurityProtocol;
             return this;
         }
         public EndpointRedisSettings build() {
-            final var o = new EndpointRedisSettings();
-            o.authPassword = authPassword;
-            o.authType = authType;
-            o.authUserName = authUserName;
-            o.port = port;
-            o.serverName = serverName;
-            o.sslCaCertificateArn = sslCaCertificateArn;
-            o.sslSecurityProtocol = sslSecurityProtocol;
-            return o;
+            final var _resultValue = new EndpointRedisSettings();
+            _resultValue.authPassword = authPassword;
+            _resultValue.authType = authType;
+            _resultValue.authUserName = authUserName;
+            _resultValue.port = port;
+            _resultValue.serverName = serverName;
+            _resultValue.sslCaCertificateArn = sslCaCertificateArn;
+            _resultValue.sslSecurityProtocol = sslSecurityProtocol;
+            return _resultValue;
         }
     }
 }

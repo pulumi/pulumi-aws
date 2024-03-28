@@ -167,14 +167,15 @@ class PartitionIndex(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_catalog_database = aws.glue.CatalogDatabase("exampleCatalogDatabase", name="example")
-        example_catalog_table = aws.glue.CatalogTable("exampleCatalogTable",
+        example = aws.glue.CatalogDatabase("example", name="example")
+        example_catalog_table = aws.glue.CatalogTable("example",
             name="example",
-            database_name=example_catalog_database.name,
+            database_name=example.name,
             owner="my_owner",
             retention=1,
             table_type="VIRTUAL_VIEW",
@@ -237,8 +238,8 @@ class PartitionIndex(pulumi.CustomResource):
             parameters={
                 "param1": "param1_val",
             })
-        example_partition_index = aws.glue.PartitionIndex("examplePartitionIndex",
-            database_name=example_catalog_database.name,
+        example_partition_index = aws.glue.PartitionIndex("example",
+            database_name=example.name,
             table_name=example_catalog_table.name,
             partition_index=aws.glue.PartitionIndexPartitionIndexArgs(
                 index_name="example",
@@ -248,13 +249,14 @@ class PartitionIndex(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Partition Indexes using the catalog ID (usually AWS account ID), database name, table name, and index name. For example:
 
         ```sh
-         $ pulumi import aws:glue/partitionIndex:PartitionIndex example 123456789012:MyDatabase:MyTable:index-name
+        $ pulumi import aws:glue/partitionIndex:PartitionIndex example 123456789012:MyDatabase:MyTable:index-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -273,14 +275,15 @@ class PartitionIndex(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_catalog_database = aws.glue.CatalogDatabase("exampleCatalogDatabase", name="example")
-        example_catalog_table = aws.glue.CatalogTable("exampleCatalogTable",
+        example = aws.glue.CatalogDatabase("example", name="example")
+        example_catalog_table = aws.glue.CatalogTable("example",
             name="example",
-            database_name=example_catalog_database.name,
+            database_name=example.name,
             owner="my_owner",
             retention=1,
             table_type="VIRTUAL_VIEW",
@@ -343,8 +346,8 @@ class PartitionIndex(pulumi.CustomResource):
             parameters={
                 "param1": "param1_val",
             })
-        example_partition_index = aws.glue.PartitionIndex("examplePartitionIndex",
-            database_name=example_catalog_database.name,
+        example_partition_index = aws.glue.PartitionIndex("example",
+            database_name=example.name,
             table_name=example_catalog_table.name,
             partition_index=aws.glue.PartitionIndexPartitionIndexArgs(
                 index_name="example",
@@ -354,13 +357,14 @@ class PartitionIndex(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Partition Indexes using the catalog ID (usually AWS account ID), database name, table name, and index name. For example:
 
         ```sh
-         $ pulumi import aws:glue/partitionIndex:PartitionIndex example 123456789012:MyDatabase:MyTable:index-name
+        $ pulumi import aws:glue/partitionIndex:PartitionIndex example 123456789012:MyDatabase:MyTable:index-name
         ```
 
         :param str resource_name: The name of the resource.

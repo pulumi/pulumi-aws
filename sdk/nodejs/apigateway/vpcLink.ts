@@ -10,12 +10,35 @@ import * as utilities from "../utilities";
  * > **Note:** Amazon API Gateway Version 1 VPC Links enable private integrations that connect REST APIs to private resources in a VPC.
  * To enable private integration for HTTP APIs, use the Amazon API Gateway Version 2 VPC Link resource.
  *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lb.LoadBalancer("example", {
+ *     name: "example",
+ *     internal: true,
+ *     loadBalancerType: "network",
+ *     subnetMappings: [{
+ *         subnetId: "12345",
+ *     }],
+ * });
+ * const exampleVpcLink = new aws.apigateway.VpcLink("example", {
+ *     name: "example",
+ *     description: "example description",
+ *     targetArn: example.arn,
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Import
  *
  * Using `pulumi import`, import API Gateway VPC Link using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
+ * $ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
  * ```
  */
 export class VpcLink extends pulumi.CustomResource {
@@ -102,8 +125,6 @@ export class VpcLink extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VpcLink.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ebs.LookupVolume(ctx, &ebs.LookupVolumeArgs{
+//				MostRecent: pulumi.BoolRef(true),
 //				Filters: []ebs.GetVolumeFilter{
 //					{
 //						Name: "volume-type",
@@ -43,7 +45,6 @@ import (
 //						},
 //					},
 //				},
-//				MostRecent: pulumi.BoolRef(true),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -53,6 +54,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.InvokeOption) (*LookupVolumeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVolumeResult

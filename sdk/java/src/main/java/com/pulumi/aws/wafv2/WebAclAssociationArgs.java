@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -14,14 +15,14 @@ public final class WebAclAssociationArgs extends com.pulumi.resources.ResourceAr
     public static final WebAclAssociationArgs Empty = new WebAclAssociationArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
+     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
      * 
      */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
+     * @return The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
      * 
      */
     public Output<String> resourceArn() {
@@ -69,7 +70,7 @@ public final class WebAclAssociationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
+         * @param resourceArn The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
          * 
          * @return builder
          * 
@@ -80,7 +81,7 @@ public final class WebAclAssociationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
+         * @param resourceArn The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
          * 
          * @return builder
          * 
@@ -111,8 +112,12 @@ public final class WebAclAssociationArgs extends com.pulumi.resources.ResourceAr
         }
 
         public WebAclAssociationArgs build() {
-            $.resourceArn = Objects.requireNonNull($.resourceArn, "expected parameter 'resourceArn' to be non-null");
-            $.webAclArn = Objects.requireNonNull($.webAclArn, "expected parameter 'webAclArn' to be non-null");
+            if ($.resourceArn == null) {
+                throw new MissingRequiredPropertyException("WebAclAssociationArgs", "resourceArn");
+            }
+            if ($.webAclArn == null) {
+                throw new MissingRequiredPropertyException("WebAclAssociationArgs", "webAclArn");
+            }
             return $;
         }
     }

@@ -9,6 +9,7 @@ import com.pulumi.aws.comprehend.outputs.EntityRecognizerInputDataConfigDocument
 import com.pulumi.aws.comprehend.outputs.EntityRecognizerInputDataConfigEntityList;
 import com.pulumi.aws.comprehend.outputs.EntityRecognizerInputDataConfigEntityType;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -142,11 +143,13 @@ public final class EntityRecognizerInputDataConfig {
 
         @CustomType.Setter
         public Builder annotations(@Nullable EntityRecognizerInputDataConfigAnnotations annotations) {
+
             this.annotations = annotations;
             return this;
         }
         @CustomType.Setter
         public Builder augmentedManifests(@Nullable List<EntityRecognizerInputDataConfigAugmentedManifest> augmentedManifests) {
+
             this.augmentedManifests = augmentedManifests;
             return this;
         }
@@ -155,36 +158,42 @@ public final class EntityRecognizerInputDataConfig {
         }
         @CustomType.Setter
         public Builder dataFormat(@Nullable String dataFormat) {
+
             this.dataFormat = dataFormat;
             return this;
         }
         @CustomType.Setter
         public Builder documents(@Nullable EntityRecognizerInputDataConfigDocuments documents) {
+
             this.documents = documents;
             return this;
         }
         @CustomType.Setter
         public Builder entityList(@Nullable EntityRecognizerInputDataConfigEntityList entityList) {
+
             this.entityList = entityList;
             return this;
         }
         @CustomType.Setter
         public Builder entityTypes(List<EntityRecognizerInputDataConfigEntityType> entityTypes) {
-            this.entityTypes = Objects.requireNonNull(entityTypes);
+            if (entityTypes == null) {
+              throw new MissingRequiredPropertyException("EntityRecognizerInputDataConfig", "entityTypes");
+            }
+            this.entityTypes = entityTypes;
             return this;
         }
         public Builder entityTypes(EntityRecognizerInputDataConfigEntityType... entityTypes) {
             return entityTypes(List.of(entityTypes));
         }
         public EntityRecognizerInputDataConfig build() {
-            final var o = new EntityRecognizerInputDataConfig();
-            o.annotations = annotations;
-            o.augmentedManifests = augmentedManifests;
-            o.dataFormat = dataFormat;
-            o.documents = documents;
-            o.entityList = entityList;
-            o.entityTypes = entityTypes;
-            return o;
+            final var _resultValue = new EntityRecognizerInputDataConfig();
+            _resultValue.annotations = annotations;
+            _resultValue.augmentedManifests = augmentedManifests;
+            _resultValue.dataFormat = dataFormat;
+            _resultValue.documents = documents;
+            _resultValue.entityList = entityList;
+            _resultValue.entityTypes = entityTypes;
+            return _resultValue;
         }
     }
 }

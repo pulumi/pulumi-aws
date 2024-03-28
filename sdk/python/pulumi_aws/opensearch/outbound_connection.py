@@ -250,35 +250,38 @@ class OutboundConnection(pulumi.CustomResource):
         Manages an AWS Opensearch Outbound Connection.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        current_caller_identity = aws.get_caller_identity()
-        current_region = aws.get_region()
+        current = aws.get_caller_identity()
+        current_get_region = aws.get_region()
         foo = aws.opensearch.OutboundConnection("foo",
             connection_alias="outbound_connection",
             connection_mode="DIRECT",
             local_domain_info=aws.opensearch.OutboundConnectionLocalDomainInfoArgs(
-                owner_id=current_caller_identity.account_id,
-                region=current_region.name,
-                domain_name=aws_opensearch_domain["local_domain"]["domain_name"],
+                owner_id=current.account_id,
+                region=current_get_region.name,
+                domain_name=local_domain["domainName"],
             ),
             remote_domain_info=aws.opensearch.OutboundConnectionRemoteDomainInfoArgs(
-                owner_id=current_caller_identity.account_id,
-                region=current_region.name,
-                domain_name=aws_opensearch_domain["remote_domain"]["domain_name"],
+                owner_id=current.account_id,
+                region=current_get_region.name,
+                domain_name=remote_domain["domainName"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS Opensearch Outbound Connections using the Outbound Connection ID. For example:
 
         ```sh
-         $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
+        $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -300,35 +303,38 @@ class OutboundConnection(pulumi.CustomResource):
         Manages an AWS Opensearch Outbound Connection.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        current_caller_identity = aws.get_caller_identity()
-        current_region = aws.get_region()
+        current = aws.get_caller_identity()
+        current_get_region = aws.get_region()
         foo = aws.opensearch.OutboundConnection("foo",
             connection_alias="outbound_connection",
             connection_mode="DIRECT",
             local_domain_info=aws.opensearch.OutboundConnectionLocalDomainInfoArgs(
-                owner_id=current_caller_identity.account_id,
-                region=current_region.name,
-                domain_name=aws_opensearch_domain["local_domain"]["domain_name"],
+                owner_id=current.account_id,
+                region=current_get_region.name,
+                domain_name=local_domain["domainName"],
             ),
             remote_domain_info=aws.opensearch.OutboundConnectionRemoteDomainInfoArgs(
-                owner_id=current_caller_identity.account_id,
-                region=current_region.name,
-                domain_name=aws_opensearch_domain["remote_domain"]["domain_name"],
+                owner_id=current.account_id,
+                region=current_get_region.name,
+                domain_name=remote_domain["domainName"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS Opensearch Outbound Connections using the Outbound Connection ID. For example:
 
         ```sh
-         $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
+        $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
         ```
 
         :param str resource_name: The name of the resource.

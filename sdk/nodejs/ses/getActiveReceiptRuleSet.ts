@@ -9,12 +9,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.ses.getActiveReceiptRuleSet({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getActiveReceiptRuleSet(opts?: pulumi.InvokeOptions): Promise<GetActiveReceiptRuleSetResult> {
 
@@ -45,12 +47,14 @@ export interface GetActiveReceiptRuleSetResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.ses.getActiveReceiptRuleSet({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getActiveReceiptRuleSetOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActiveReceiptRuleSetResult> {
     return pulumi.output(getActiveReceiptRuleSet(opts))

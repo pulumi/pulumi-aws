@@ -85,21 +85,24 @@ class OrganizationAdminAccountRegistration(pulumi.CustomResource):
         Resource for managing AWS Audit Manager Organization Admin Account Registration.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.auditmanager.OrganizationAdminAccountRegistration("example", admin_account_id="012345678901")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Audit Manager Organization Admin Account Registration using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 012345678901
+        $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 012345678901
         ```
 
         :param str resource_name: The name of the resource.
@@ -116,21 +119,24 @@ class OrganizationAdminAccountRegistration(pulumi.CustomResource):
         Resource for managing AWS Audit Manager Organization Admin Account Registration.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.auditmanager.OrganizationAdminAccountRegistration("example", admin_account_id="012345678901")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Audit Manager Organization Admin Account Registration using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 012345678901
+        $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 012345678901
         ```
 
         :param str resource_name: The name of the resource.

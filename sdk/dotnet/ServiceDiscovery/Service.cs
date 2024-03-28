@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,21 +23,23 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var example = new Aws.Ec2.Vpc("example", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///         EnableDnsSupport = true,
     ///         EnableDnsHostnames = true,
     ///     });
     /// 
-    ///     var examplePrivateDnsNamespace = new Aws.ServiceDiscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", new()
+    ///     var examplePrivateDnsNamespace = new Aws.ServiceDiscovery.PrivateDnsNamespace("example", new()
     ///     {
+    ///         Name = "example.mydomain.local",
     ///         Description = "example",
-    ///         Vpc = exampleVpc.Id,
+    ///         Vpc = example.Id,
     ///     });
     /// 
-    ///     var exampleService = new Aws.ServiceDiscovery.Service("exampleService", new()
+    ///     var exampleService = new Aws.ServiceDiscovery.Service("example", new()
     ///     {
+    ///         Name = "example",
     ///         DnsConfig = new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigArgs
     ///         {
     ///             NamespaceId = examplePrivateDnsNamespace.Id,
@@ -58,7 +61,9 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -67,16 +72,18 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePublicDnsNamespace = new Aws.ServiceDiscovery.PublicDnsNamespace("examplePublicDnsNamespace", new()
+    ///     var example = new Aws.ServiceDiscovery.PublicDnsNamespace("example", new()
     ///     {
+    ///         Name = "example.mydomain.com",
     ///         Description = "example",
     ///     });
     /// 
-    ///     var exampleService = new Aws.ServiceDiscovery.Service("exampleService", new()
+    ///     var exampleService = new Aws.ServiceDiscovery.Service("example", new()
     ///     {
+    ///         Name = "example",
     ///         DnsConfig = new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigArgs
     ///         {
-    ///             NamespaceId = examplePublicDnsNamespace.Id,
+    ///             NamespaceId = example.Id,
     ///             DnsRecords = new[]
     ///             {
     ///                 new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigDnsRecordArgs
@@ -96,13 +103,14 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Service Discovery Service using the service ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:servicediscovery/service:Service example 0123456789
+    /// $ pulumi import aws:servicediscovery/service:Service example 0123456789
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicediscovery/service:Service")]
@@ -197,10 +205,6 @@ namespace Pulumi.Aws.ServiceDiscovery
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -362,11 +366,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

@@ -4,6 +4,7 @@
 package com.pulumi.aws.ses.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -101,37 +102,46 @@ public final class ReceiptRuleS3Action {
 
         @CustomType.Setter
         public Builder bucketName(String bucketName) {
-            this.bucketName = Objects.requireNonNull(bucketName);
+            if (bucketName == null) {
+              throw new MissingRequiredPropertyException("ReceiptRuleS3Action", "bucketName");
+            }
+            this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
+
             this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         @CustomType.Setter
         public Builder objectKeyPrefix(@Nullable String objectKeyPrefix) {
+
             this.objectKeyPrefix = objectKeyPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder position(Integer position) {
-            this.position = Objects.requireNonNull(position);
+            if (position == null) {
+              throw new MissingRequiredPropertyException("ReceiptRuleS3Action", "position");
+            }
+            this.position = position;
             return this;
         }
         @CustomType.Setter
         public Builder topicArn(@Nullable String topicArn) {
+
             this.topicArn = topicArn;
             return this;
         }
         public ReceiptRuleS3Action build() {
-            final var o = new ReceiptRuleS3Action();
-            o.bucketName = bucketName;
-            o.kmsKeyArn = kmsKeyArn;
-            o.objectKeyPrefix = objectKeyPrefix;
-            o.position = position;
-            o.topicArn = topicArn;
-            return o;
+            final var _resultValue = new ReceiptRuleS3Action();
+            _resultValue.bucketName = bucketName;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.objectKeyPrefix = objectKeyPrefix;
+            _resultValue.position = position;
+            _resultValue.topicArn = topicArn;
+            return _resultValue;
         }
     }
 }

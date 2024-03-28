@@ -74,11 +74,13 @@ public final class WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPa
 
         @CustomType.Setter
         public Builder all(@Nullable WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll all) {
+
             this.all = all;
             return this;
         }
         @CustomType.Setter
         public Builder excludedHeaders(@Nullable List<String> excludedHeaders) {
+
             this.excludedHeaders = excludedHeaders;
             return this;
         }
@@ -87,6 +89,7 @@ public final class WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPa
         }
         @CustomType.Setter
         public Builder includedHeaders(@Nullable List<String> includedHeaders) {
+
             this.includedHeaders = includedHeaders;
             return this;
         }
@@ -94,11 +97,11 @@ public final class WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPa
             return includedHeaders(List.of(includedHeaders));
         }
         public WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern build() {
-            final var o = new WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern();
-            o.all = all;
-            o.excludedHeaders = excludedHeaders;
-            o.includedHeaders = includedHeaders;
-            return o;
+            final var _resultValue = new WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern();
+            _resultValue.all = all;
+            _resultValue.excludedHeaders = excludedHeaders;
+            _resultValue.includedHeaders = includedHeaders;
+            return _resultValue;
         }
     }
 }

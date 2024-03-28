@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,7 +39,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = transfer.NewTag(ctx, "zoneId", &transfer.TagArgs{
+//			_, err = transfer.NewTag(ctx, "zone_id", &transfer.TagArgs{
 //				ResourceArn: example.Arn,
 //				Key:         pulumi.String("aws:transfer:route53HostedZoneId"),
 //				Value:       pulumi.String("/hostedzone/MyHostedZoneId"),
@@ -59,15 +60,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_transfer_tag` using the Transfer Family resource identifier and key, separated by a comma (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:transfer/tag:Tag example arn:aws:transfer:us-east-1:123456789012:server/s-1234567890abcdef0,Name
-//
+// $ pulumi import aws:transfer/tag:Tag example arn:aws:transfer:us-east-1:123456789012:server/s-1234567890abcdef0,Name
 // ```
 type Tag struct {
 	pulumi.CustomResourceState

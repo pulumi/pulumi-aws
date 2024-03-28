@@ -175,7 +175,7 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<bool>? IncludeOpForFullLoad { get; set; }
 
         /// <summary>
-        /// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
+        /// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
         /// </summary>
         [Input("maxFileSize")]
         public Input<int>? MaxFileSize { get; set; }

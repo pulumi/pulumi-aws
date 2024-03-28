@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class DistributionOrderedCacheBehaviorFunctionAssociation {
 
         @CustomType.Setter
         public Builder eventType(String eventType) {
-            this.eventType = Objects.requireNonNull(eventType);
+            if (eventType == null) {
+              throw new MissingRequiredPropertyException("DistributionOrderedCacheBehaviorFunctionAssociation", "eventType");
+            }
+            this.eventType = eventType;
             return this;
         }
         @CustomType.Setter
         public Builder functionArn(String functionArn) {
-            this.functionArn = Objects.requireNonNull(functionArn);
+            if (functionArn == null) {
+              throw new MissingRequiredPropertyException("DistributionOrderedCacheBehaviorFunctionAssociation", "functionArn");
+            }
+            this.functionArn = functionArn;
             return this;
         }
         public DistributionOrderedCacheBehaviorFunctionAssociation build() {
-            final var o = new DistributionOrderedCacheBehaviorFunctionAssociation();
-            o.eventType = eventType;
-            o.functionArn = functionArn;
-            return o;
+            final var _resultValue = new DistributionOrderedCacheBehaviorFunctionAssociation();
+            _resultValue.eventType = eventType;
+            _resultValue.functionArn = functionArn;
+            return _resultValue;
         }
     }
 }

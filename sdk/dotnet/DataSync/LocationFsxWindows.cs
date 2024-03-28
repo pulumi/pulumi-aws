@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,24 +25,25 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var example = new Aws.DataSync.LocationFsxWindows("example", new()
     ///     {
-    ///         FsxFilesystemArn = aws_fsx_windows_file_system.Example.Arn,
+    ///         FsxFilesystemArn = exampleAwsFsxWindowsFileSystem.Arn,
     ///         User = "SomeUser",
     ///         Password = "SuperSecretPassw0rd",
     ///         SecurityGroupArns = new[]
     ///         {
-    ///             aws_security_group.Example.Arn,
+    ///             exampleAwsSecurityGroup.Arn,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_datasync_location_fsx_windows_file_system` using the `DataSync-ARN#FSx-Windows-ARN`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:datasync/locationFsxWindows:LocationFsxWindows example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:476956259333:file-system/fs-08e04cd442c1bb94a
+    /// $ pulumi import aws:datasync/locationFsxWindows:LocationFsxWindows example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:476956259333:file-system/fs-08e04cd442c1bb94a
     /// ```
     /// </summary>
     [AwsResourceType("aws:datasync/locationFsxWindows:LocationFsxWindows")]
@@ -139,7 +141,6 @@ namespace Pulumi.Aws.DataSync
                 AdditionalSecretOutputs =
                 {
                     "password",
-                    "tagsAll",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -316,11 +317,7 @@ namespace Pulumi.Aws.DataSync
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

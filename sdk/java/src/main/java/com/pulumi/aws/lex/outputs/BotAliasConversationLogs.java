@@ -5,6 +5,7 @@ package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.aws.lex.outputs.BotAliasConversationLogsLogSetting;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -59,11 +60,15 @@ public final class BotAliasConversationLogs {
 
         @CustomType.Setter
         public Builder iamRoleArn(String iamRoleArn) {
-            this.iamRoleArn = Objects.requireNonNull(iamRoleArn);
+            if (iamRoleArn == null) {
+              throw new MissingRequiredPropertyException("BotAliasConversationLogs", "iamRoleArn");
+            }
+            this.iamRoleArn = iamRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder logSettings(@Nullable List<BotAliasConversationLogsLogSetting> logSettings) {
+
             this.logSettings = logSettings;
             return this;
         }
@@ -71,10 +76,10 @@ public final class BotAliasConversationLogs {
             return logSettings(List.of(logSettings));
         }
         public BotAliasConversationLogs build() {
-            final var o = new BotAliasConversationLogs();
-            o.iamRoleArn = iamRoleArn;
-            o.logSettings = logSettings;
-            return o;
+            final var _resultValue = new BotAliasConversationLogs();
+            _resultValue.iamRoleArn = iamRoleArn;
+            _resultValue.logSettings = logSettings;
+            return _resultValue;
         }
     }
 }

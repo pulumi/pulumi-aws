@@ -16,21 +16,56 @@ import (
 //
 // ## Example Usage
 //
+// ### Basic usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeBase64encode, err := std.Base64encode(ctx, &std.Base64encodeArgs{
+//				Input: "echo Hello",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sagemaker.NewStudioLifecycleConfig(ctx, "example", &sagemaker.StudioLifecycleConfigArgs{
+//				StudioLifecycleConfigName:    pulumi.String("example"),
+//				StudioLifecycleConfigAppType: pulumi.String("JupyterServer"),
+//				StudioLifecycleConfigContent: invokeBase64encode.Result,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Import
 //
 // Using `pulumi import`, import SageMaker Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
-//
+// $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
 // ```
 type StudioLifecycleConfig struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
 	StudioLifecycleConfigAppType pulumi.StringOutput `pulumi:"studioLifecycleConfigAppType"`
 	// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
 	StudioLifecycleConfigContent pulumi.StringOutput `pulumi:"studioLifecycleConfigContent"`
@@ -60,10 +95,6 @@ func NewStudioLifecycleConfig(ctx *pulumi.Context,
 	if args.StudioLifecycleConfigName == nil {
 		return nil, errors.New("invalid value for required argument 'StudioLifecycleConfigName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StudioLifecycleConfig
 	err := ctx.RegisterResource("aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig", name, args, &resource, opts...)
@@ -89,7 +120,7 @@ func GetStudioLifecycleConfig(ctx *pulumi.Context,
 type studioLifecycleConfigState struct {
 	// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
 	Arn *string `pulumi:"arn"`
-	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
 	StudioLifecycleConfigAppType *string `pulumi:"studioLifecycleConfigAppType"`
 	// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
 	StudioLifecycleConfigContent *string `pulumi:"studioLifecycleConfigContent"`
@@ -106,7 +137,7 @@ type studioLifecycleConfigState struct {
 type StudioLifecycleConfigState struct {
 	// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
 	Arn pulumi.StringPtrInput
-	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
 	StudioLifecycleConfigAppType pulumi.StringPtrInput
 	// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
 	StudioLifecycleConfigContent pulumi.StringPtrInput
@@ -125,7 +156,7 @@ func (StudioLifecycleConfigState) ElementType() reflect.Type {
 }
 
 type studioLifecycleConfigArgs struct {
-	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
 	StudioLifecycleConfigAppType string `pulumi:"studioLifecycleConfigAppType"`
 	// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
 	StudioLifecycleConfigContent string `pulumi:"studioLifecycleConfigContent"`
@@ -137,7 +168,7 @@ type studioLifecycleConfigArgs struct {
 
 // The set of arguments for constructing a StudioLifecycleConfig resource.
 type StudioLifecycleConfigArgs struct {
-	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
 	StudioLifecycleConfigAppType pulumi.StringInput
 	// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
 	StudioLifecycleConfigContent pulumi.StringInput
@@ -239,7 +270,7 @@ func (o StudioLifecycleConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioLifecycleConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
 func (o StudioLifecycleConfigOutput) StudioLifecycleConfigAppType() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioLifecycleConfig) pulumi.StringOutput { return v.StudioLifecycleConfigAppType }).(pulumi.StringOutput)
 }

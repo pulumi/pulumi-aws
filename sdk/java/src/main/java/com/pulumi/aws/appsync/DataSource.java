@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * Provides an AppSync Data Source.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -59,6 +61,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleTable = new Table(&#34;exampleTable&#34;, TableArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .readCapacity(1)
  *             .writeCapacity(1)
  *             .hashKey(&#34;UserId&#34;)
@@ -80,10 +83,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(&#34;dynamodb:*&#34;)
@@ -92,12 +96,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .role(exampleRole.id())
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(examplePolicyDocument -&gt; examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *         var exampleGraphQLApi = new GraphQLApi(&#34;exampleGraphQLApi&#34;, GraphQLApiArgs.builder()        
  *             .authenticationType(&#34;API_KEY&#34;)
+ *             .name(&#34;my_appsync_example&#34;)
  *             .build());
  * 
  *         var exampleDataSource = new DataSource(&#34;exampleDataSource&#34;, DataSourceArgs.builder()        
@@ -113,13 +119,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_appsync_datasource` using the `api_id`, a hyphen, and `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
+ * $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
  * ```
  * 
  */

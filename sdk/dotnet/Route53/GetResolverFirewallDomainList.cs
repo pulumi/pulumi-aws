@@ -16,12 +16,11 @@ namespace Pulumi.Aws.Route53
         /// 
         /// This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall domain list.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following example shows how to get a firewall domain list from its ID.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,8 +36,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetResolverFirewallDomainListResult> InvokeAsync(GetResolverFirewallDomainListArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverFirewallDomainListResult>("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", args ?? new GetResolverFirewallDomainListArgs(), options.WithDefaults());
@@ -48,12 +46,11 @@ namespace Pulumi.Aws.Route53
         /// 
         /// This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall domain list.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following example shows how to get a firewall domain list from its ID.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -69,8 +66,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetResolverFirewallDomainListResult> Invoke(GetResolverFirewallDomainListInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverFirewallDomainListResult>("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", args ?? new GetResolverFirewallDomainListInvokeArgs(), options.WithDefaults());

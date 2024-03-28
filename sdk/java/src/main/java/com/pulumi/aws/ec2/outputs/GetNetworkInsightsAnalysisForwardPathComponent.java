@@ -18,6 +18,7 @@ import com.pulumi.aws.ec2.outputs.GetNetworkInsightsAnalysisForwardPathComponent
 import com.pulumi.aws.ec2.outputs.GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRoute;
 import com.pulumi.aws.ec2.outputs.GetNetworkInsightsAnalysisForwardPathComponentVpc;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -133,7 +134,10 @@ public final class GetNetworkInsightsAnalysisForwardPathComponent {
 
         @CustomType.Setter
         public Builder aclRules(List<GetNetworkInsightsAnalysisForwardPathComponentAclRule> aclRules) {
-            this.aclRules = Objects.requireNonNull(aclRules);
+            if (aclRules == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisForwardPathComponent", "aclRules");
+            }
+            this.aclRules = aclRules;
             return this;
         }
         public Builder aclRules(GetNetworkInsightsAnalysisForwardPathComponentAclRule... aclRules) {
@@ -141,7 +145,10 @@ public final class GetNetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder additionalDetails(List<GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetail> additionalDetails) {
-            this.additionalDetails = Objects.requireNonNull(additionalDetails);
+            if (additionalDetails == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisForwardPathComponent", "additionalDetails");
+            }
+            this.additionalDetails = additionalDetails;
             return this;
         }
         public Builder additionalDetails(GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetail... additionalDetails) {
@@ -149,7 +156,10 @@ public final class GetNetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder attachedTos(List<GetNetworkInsightsAnalysisForwardPathComponentAttachedTo> attachedTos) {
-            this.attachedTos = Objects.requireNonNull(attachedTos);
+            if (attachedTos == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisForwardPathComponent", "attachedTos");
+            }
+            this.attachedTos = attachedTos;
             return this;
         }
         public Builder attachedTos(GetNetworkInsightsAnalysisForwardPathComponentAttachedTo... attachedTos) {
@@ -157,7 +167,10 @@ public final class GetNetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder components(List<GetNetworkInsightsAnalysisForwardPathComponentComponent> components) {
-            this.components = Objects.requireNonNull(components);
+            if (components == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisForwardPathComponent", "components");
+            }
+            this.components = components;
             return this;
         }
         public Builder components(GetNetworkInsightsAnalysisForwardPathComponentComponent... components) {
@@ -165,7 +178,10 @@ public final class GetNetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder destinationVpcs(List<GetNetworkInsightsAnalysisForwardPathComponentDestinationVpc> destinationVpcs) {
-            this.destinationVpcs = Objects.requireNonNull(destinationVpcs);
+            if (destinationVpcs == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisForwardPathComponent", "destinationVpcs");
+            }
+            this.destinationVpcs = destinationVpcs;
             return this;
         }
         public Builder destinationVpcs(GetNetworkInsightsAnalysisForwardPathComponentDestinationVpc... destinationVpcs) {
@@ -173,7 +189,10 @@ public final class GetNetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder inboundHeaders(List<GetNetworkInsightsAnalysisForwardPathComponentInboundHeader> inboundHeaders) {
-            this.inboundHeaders = Objects.requireNonNull(inboundHeaders);
+            if (inboundHeaders == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisForwardPathComponent", "inboundHeaders");
+            }
+            this.inboundHeaders = inboundHeaders;
             return this;
         }
         public Builder inboundHeaders(GetNetworkInsightsAnalysisForwardPathComponentInboundHeader... inboundHeaders) {
@@ -181,7 +200,10 @@ public final class GetNetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder outboundHeaders(List<GetNetworkInsightsAnalysisForwardPathComponentOutboundHeader> outboundHeaders) {
-            this.outboundHeaders = Objects.requireNonNull(outboundHeaders);
+            if (outboundHeaders == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisForwardPathComponent", "outboundHeaders");
+            }
+            this.outboundHeaders = outboundHeaders;
             return this;
         }
         public Builder outboundHeaders(GetNetworkInsightsAnalysisForwardPathComponentOutboundHeader... outboundHeaders) {
@@ -189,7 +211,10 @@ public final class GetNetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder routeTableRoutes(List<GetNetworkInsightsAnalysisForwardPathComponentRouteTableRoute> routeTableRoutes) {
-            this.routeTableRoutes = Objects.requireNonNull(routeTableRoutes);
+            if (routeTableRoutes == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisForwardPathComponent", "routeTableRoutes");
+            }
+            this.routeTableRoutes = routeTableRoutes;
             return this;
         }
         public Builder routeTableRoutes(GetNetworkInsightsAnalysisForwardPathComponentRouteTableRoute... routeTableRoutes) {
@@ -197,7 +222,10 @@ public final class GetNetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder securityGroupRules(List<GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRule> securityGroupRules) {
-            this.securityGroupRules = Objects.requireNonNull(securityGroupRules);
+            if (securityGroupRules == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisForwardPathComponent", "securityGroupRules");
+            }
+            this.securityGroupRules = securityGroupRules;
             return this;
         }
         public Builder securityGroupRules(GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRule... securityGroupRules) {
@@ -205,12 +233,18 @@ public final class GetNetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder sequenceNumber(Integer sequenceNumber) {
-            this.sequenceNumber = Objects.requireNonNull(sequenceNumber);
+            if (sequenceNumber == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisForwardPathComponent", "sequenceNumber");
+            }
+            this.sequenceNumber = sequenceNumber;
             return this;
         }
         @CustomType.Setter
         public Builder sourceVpcs(List<GetNetworkInsightsAnalysisForwardPathComponentSourceVpc> sourceVpcs) {
-            this.sourceVpcs = Objects.requireNonNull(sourceVpcs);
+            if (sourceVpcs == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisForwardPathComponent", "sourceVpcs");
+            }
+            this.sourceVpcs = sourceVpcs;
             return this;
         }
         public Builder sourceVpcs(GetNetworkInsightsAnalysisForwardPathComponentSourceVpc... sourceVpcs) {
@@ -218,7 +252,10 @@ public final class GetNetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder subnets(List<GetNetworkInsightsAnalysisForwardPathComponentSubnet> subnets) {
-            this.subnets = Objects.requireNonNull(subnets);
+            if (subnets == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisForwardPathComponent", "subnets");
+            }
+            this.subnets = subnets;
             return this;
         }
         public Builder subnets(GetNetworkInsightsAnalysisForwardPathComponentSubnet... subnets) {
@@ -226,7 +263,10 @@ public final class GetNetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder transitGatewayRouteTableRoutes(List<GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRoute> transitGatewayRouteTableRoutes) {
-            this.transitGatewayRouteTableRoutes = Objects.requireNonNull(transitGatewayRouteTableRoutes);
+            if (transitGatewayRouteTableRoutes == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisForwardPathComponent", "transitGatewayRouteTableRoutes");
+            }
+            this.transitGatewayRouteTableRoutes = transitGatewayRouteTableRoutes;
             return this;
         }
         public Builder transitGatewayRouteTableRoutes(GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRoute... transitGatewayRouteTableRoutes) {
@@ -234,7 +274,10 @@ public final class GetNetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder transitGateways(List<GetNetworkInsightsAnalysisForwardPathComponentTransitGateway> transitGateways) {
-            this.transitGateways = Objects.requireNonNull(transitGateways);
+            if (transitGateways == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisForwardPathComponent", "transitGateways");
+            }
+            this.transitGateways = transitGateways;
             return this;
         }
         public Builder transitGateways(GetNetworkInsightsAnalysisForwardPathComponentTransitGateway... transitGateways) {
@@ -242,30 +285,33 @@ public final class GetNetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder vpcs(List<GetNetworkInsightsAnalysisForwardPathComponentVpc> vpcs) {
-            this.vpcs = Objects.requireNonNull(vpcs);
+            if (vpcs == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisForwardPathComponent", "vpcs");
+            }
+            this.vpcs = vpcs;
             return this;
         }
         public Builder vpcs(GetNetworkInsightsAnalysisForwardPathComponentVpc... vpcs) {
             return vpcs(List.of(vpcs));
         }
         public GetNetworkInsightsAnalysisForwardPathComponent build() {
-            final var o = new GetNetworkInsightsAnalysisForwardPathComponent();
-            o.aclRules = aclRules;
-            o.additionalDetails = additionalDetails;
-            o.attachedTos = attachedTos;
-            o.components = components;
-            o.destinationVpcs = destinationVpcs;
-            o.inboundHeaders = inboundHeaders;
-            o.outboundHeaders = outboundHeaders;
-            o.routeTableRoutes = routeTableRoutes;
-            o.securityGroupRules = securityGroupRules;
-            o.sequenceNumber = sequenceNumber;
-            o.sourceVpcs = sourceVpcs;
-            o.subnets = subnets;
-            o.transitGatewayRouteTableRoutes = transitGatewayRouteTableRoutes;
-            o.transitGateways = transitGateways;
-            o.vpcs = vpcs;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisForwardPathComponent();
+            _resultValue.aclRules = aclRules;
+            _resultValue.additionalDetails = additionalDetails;
+            _resultValue.attachedTos = attachedTos;
+            _resultValue.components = components;
+            _resultValue.destinationVpcs = destinationVpcs;
+            _resultValue.inboundHeaders = inboundHeaders;
+            _resultValue.outboundHeaders = outboundHeaders;
+            _resultValue.routeTableRoutes = routeTableRoutes;
+            _resultValue.securityGroupRules = securityGroupRules;
+            _resultValue.sequenceNumber = sequenceNumber;
+            _resultValue.sourceVpcs = sourceVpcs;
+            _resultValue.subnets = subnets;
+            _resultValue.transitGatewayRouteTableRoutes = transitGatewayRouteTableRoutes;
+            _resultValue.transitGateways = transitGateways;
+            _resultValue.vpcs = vpcs;
+            return _resultValue;
         }
     }
 }

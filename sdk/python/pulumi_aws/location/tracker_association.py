@@ -102,23 +102,25 @@ class TrackerAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_geofence_collection = aws.location.GeofenceCollection("exampleGeofenceCollection", collection_name="example")
-        example_tracker = aws.location.Tracker("exampleTracker", tracker_name="example")
-        example_tracker_association = aws.location.TrackerAssociation("exampleTrackerAssociation",
-            consumer_arn=example_geofence_collection.collection_arn,
+        example = aws.location.GeofenceCollection("example", collection_name="example")
+        example_tracker = aws.location.Tracker("example", tracker_name="example")
+        example_tracker_association = aws.location.TrackerAssociation("example",
+            consumer_arn=example.collection_arn,
             tracker_name=example_tracker.tracker_name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Location Tracker Association using the `tracker_name|consumer_arn`. For example:
 
         ```sh
-         $ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
+        $ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
         ```
 
         :param str resource_name: The name of the resource.
@@ -137,23 +139,25 @@ class TrackerAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_geofence_collection = aws.location.GeofenceCollection("exampleGeofenceCollection", collection_name="example")
-        example_tracker = aws.location.Tracker("exampleTracker", tracker_name="example")
-        example_tracker_association = aws.location.TrackerAssociation("exampleTrackerAssociation",
-            consumer_arn=example_geofence_collection.collection_arn,
+        example = aws.location.GeofenceCollection("example", collection_name="example")
+        example_tracker = aws.location.Tracker("example", tracker_name="example")
+        example_tracker_association = aws.location.TrackerAssociation("example",
+            consumer_arn=example.collection_arn,
             tracker_name=example_tracker.tracker_name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Location Tracker Association using the `tracker_name|consumer_arn`. For example:
 
         ```sh
-         $ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
+        $ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
         ```
 
         :param str resource_name: The name of the resource.

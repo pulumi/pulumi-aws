@@ -14,24 +14,18 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
-    /// using System.Security.Cryptography;
-    /// using System.Text;
     /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	private static string ComputeSHA1(string input) {
-    /// 		return BitConverter.ToString(
-    /// 			SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input))
-    /// 		).Replace("-","").ToLowerInvariant());
-    /// 	}
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new()
+    ///     var example = new Aws.ApiGateway.RestApi("example", new()
     ///     {
     ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -58,45 +52,50 @@ namespace Pulumi.Aws.ApiGateway
     ///                 },
     ///             },
     ///         }),
+    ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("example", new()
     ///     {
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         Triggers = 
     ///         {
-    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///             { "redeployment", Std.Sha1.Invoke(new()
+    ///             {
+    ///                 Input = Output.JsonSerialize(Output.Create(example.Body)),
+    ///             }).Apply(invoke =&gt; invoke.Result) },
     ///         },
     ///     });
     /// 
     ///     var development = new Aws.ApiGateway.Stage("development", new()
     ///     {
     ///         Deployment = exampleDeployment.Id,
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         StageName = "development",
     ///     });
     /// 
     ///     var production = new Aws.ApiGateway.Stage("production", new()
     ///     {
     ///         Deployment = exampleDeployment.Id,
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         StageName = "production",
     ///     });
     /// 
-    ///     var exampleUsagePlan = new Aws.ApiGateway.UsagePlan("exampleUsagePlan", new()
+    ///     var exampleUsagePlan = new Aws.ApiGateway.UsagePlan("example", new()
     ///     {
+    ///         Name = "my-usage-plan",
     ///         Description = "my description",
     ///         ProductCode = "MYCODE",
     ///         ApiStages = new[]
     ///         {
     ///             new Aws.ApiGateway.Inputs.UsagePlanApiStageArgs
     ///             {
-    ///                 ApiId = exampleRestApi.Id,
+    ///                 ApiId = example.Id,
     ///                 Stage = development.StageName,
     ///             },
     ///             new Aws.ApiGateway.Inputs.UsagePlanApiStageArgs
     ///             {
-    ///                 ApiId = exampleRestApi.Id,
+    ///                 ApiId = example.Id,
     ///                 Stage = production.StageName,
     ///             },
     ///         },
@@ -115,13 +114,14 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS API Gateway Usage Plan using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan &lt;usage_plan_id&gt;
+    /// $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan &lt;usage_plan_id&gt;
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/usagePlan:UsagePlan")]
@@ -204,10 +204,6 @@ namespace Pulumi.Aws.ApiGateway
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -357,11 +353,7 @@ namespace Pulumi.Aws.ApiGateway
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

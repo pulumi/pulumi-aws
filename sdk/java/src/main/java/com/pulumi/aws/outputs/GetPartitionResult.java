@@ -4,6 +4,7 @@
 package com.pulumi.aws.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -84,31 +85,43 @@ public final class GetPartitionResult {
 
         @CustomType.Setter
         public Builder dnsSuffix(String dnsSuffix) {
-            this.dnsSuffix = Objects.requireNonNull(dnsSuffix);
+            if (dnsSuffix == null) {
+              throw new MissingRequiredPropertyException("GetPartitionResult", "dnsSuffix");
+            }
+            this.dnsSuffix = dnsSuffix;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPartitionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder partition(String partition) {
-            this.partition = Objects.requireNonNull(partition);
+            if (partition == null) {
+              throw new MissingRequiredPropertyException("GetPartitionResult", "partition");
+            }
+            this.partition = partition;
             return this;
         }
         @CustomType.Setter
         public Builder reverseDnsPrefix(String reverseDnsPrefix) {
-            this.reverseDnsPrefix = Objects.requireNonNull(reverseDnsPrefix);
+            if (reverseDnsPrefix == null) {
+              throw new MissingRequiredPropertyException("GetPartitionResult", "reverseDnsPrefix");
+            }
+            this.reverseDnsPrefix = reverseDnsPrefix;
             return this;
         }
         public GetPartitionResult build() {
-            final var o = new GetPartitionResult();
-            o.dnsSuffix = dnsSuffix;
-            o.id = id;
-            o.partition = partition;
-            o.reverseDnsPrefix = reverseDnsPrefix;
-            return o;
+            final var _resultValue = new GetPartitionResult();
+            _resultValue.dnsSuffix = dnsSuffix;
+            _resultValue.id = id;
+            _resultValue.partition = partition;
+            _resultValue.reverseDnsPrefix = reverseDnsPrefix;
+            return _resultValue;
         }
     }
 }

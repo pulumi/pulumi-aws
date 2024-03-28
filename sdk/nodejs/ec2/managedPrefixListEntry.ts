@@ -15,30 +15,33 @@ import * as utilities from "../utilities";
  *
  * Basic usage.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.ManagedPrefixList("example", {
+ *     name: "All VPC CIDR-s",
  *     addressFamily: "IPv4",
  *     maxEntries: 5,
  *     tags: {
  *         Env: "live",
  *     },
  * });
- * const entry1 = new aws.ec2.ManagedPrefixListEntry("entry1", {
- *     cidr: aws_vpc.example.cidr_block,
+ * const entry1 = new aws.ec2.ManagedPrefixListEntry("entry_1", {
+ *     cidr: exampleAwsVpc.cidrBlock,
  *     description: "Primary",
  *     prefixListId: example.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import prefix list entries using `prefix_list_id` and `cidr` separated by a comma (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
+ * $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
  * ```
  */
 export class ManagedPrefixListEntry extends pulumi.CustomResource {
@@ -78,7 +81,7 @@ export class ManagedPrefixListEntry extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * CIDR block of this entry.
+     * The ID of the prefix list.
      */
     public readonly prefixListId!: pulumi.Output<string>;
 
@@ -128,7 +131,7 @@ export interface ManagedPrefixListEntryState {
      */
     description?: pulumi.Input<string>;
     /**
-     * CIDR block of this entry.
+     * The ID of the prefix list.
      */
     prefixListId?: pulumi.Input<string>;
 }
@@ -146,7 +149,7 @@ export interface ManagedPrefixListEntryArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * CIDR block of this entry.
+     * The ID of the prefix list.
      */
     prefixListId: pulumi.Input<string>;
 }

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,10 +23,14 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dada = new Aws.CloudWatch.LogGroup("dada");
+    ///     var dada = new Aws.CloudWatch.LogGroup("dada", new()
+    ///     {
+    ///         Name = "MyApp/access.log",
+    ///     });
     /// 
     ///     var yada = new Aws.CloudWatch.LogMetricFilter("yada", new()
     ///     {
+    ///         Name = "MyAppAccessCount",
     ///         Pattern = "",
     ///         LogGroupName = dada.Name,
     ///         MetricTransformation = new Aws.CloudWatch.Inputs.LogMetricFilterMetricTransformationArgs
@@ -38,13 +43,14 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudWatch Log Metric Filter using the `log_group_name:name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
+    /// $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/logMetricFilter:LogMetricFilter")]

@@ -12,11 +12,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccelerator = new aws.globalaccelerator.Accelerator("exampleAccelerator", {
+ * const example = new aws.globalaccelerator.Accelerator("example", {
+ *     name: "Example",
  *     ipAddressType: "IPV4",
  *     enabled: true,
  *     attributes: {
@@ -25,8 +27,8 @@ import * as utilities from "../utilities";
  *         flowLogsS3Prefix: "flow-logs/",
  *     },
  * });
- * const exampleListener = new aws.globalaccelerator.Listener("exampleListener", {
- *     acceleratorArn: exampleAccelerator.id,
+ * const exampleListener = new aws.globalaccelerator.Listener("example", {
+ *     acceleratorArn: example.id,
  *     clientAffinity: "SOURCE_IP",
  *     protocol: "TCP",
  *     portRanges: [{
@@ -35,13 +37,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Global Accelerator listeners using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
+ * $ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
  * ```
  */
 export class Listener extends pulumi.CustomResource {

@@ -4,6 +4,7 @@
 package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class GetDistributionConfigurationDistributionFastLaunchConfigurati
 
         @CustomType.Setter
         public Builder targetResourceCount(Integer targetResourceCount) {
-            this.targetResourceCount = Objects.requireNonNull(targetResourceCount);
+            if (targetResourceCount == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration", "targetResourceCount");
+            }
+            this.targetResourceCount = targetResourceCount;
             return this;
         }
         public GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration build() {
-            final var o = new GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration();
-            o.targetResourceCount = targetResourceCount;
-            return o;
+            final var _resultValue = new GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration();
+            _resultValue.targetResourceCount = targetResourceCount;
+            return _resultValue;
         }
     }
 }

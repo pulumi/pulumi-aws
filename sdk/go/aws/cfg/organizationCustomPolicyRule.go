@@ -17,8 +17,10 @@ import (
 // > **NOTE:** This resource must be created in the Organization master account and rules will include the master account unless its ID is added to the `excludedAccounts` argument.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,20 +34,23 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cfg.NewOrganizationCustomPolicyRule(ctx, "example", &cfg.OrganizationCustomPolicyRuleArgs{
+//				Name:          pulumi.String("example_rule_name"),
 //				PolicyRuntime: pulumi.String("guard-2.x.x"),
-//				PolicyText: pulumi.String(`  let status = ['ACTIVE']
+//				PolicyText: pulumi.String(`let status = ['ACTIVE']
 //
-//	  rule tableisactive when
-//	      resourceType == "AWS::DynamoDB::Table" {
-//	      configuration.tableStatus == %status
-//	  }
+// rule tableisactive when
 //
-//	  rule checkcompliance when
-//	      resourceType == "AWS::DynamoDB::Table"
-//	      tableisactive {
-//	          let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
-//	          %pitr == "ENABLED"
-//	      }
+//	    resourceType == "AWS::DynamoDB::Table" {
+//	    configuration.tableStatus == %status
+//	}
+//
+// rule checkcompliance when
+//
+//	resourceType == "AWS::DynamoDB::Table"
+//	tableisactive {
+//	    let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
+//	    %pitr == "ENABLED"
+//	}
 //
 // `),
 //
@@ -61,15 +66,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a Config Organization Custom Policy Rule using the `name` argument. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name
-//
+// $ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name
 // ```
 type OrganizationCustomPolicyRule struct {
 	pulumi.CustomResourceState

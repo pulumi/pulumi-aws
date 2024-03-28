@@ -20,8 +20,6 @@ public final class FirehoseDeliveryStreamServerSideEncryption {
     /**
      * @return Amazon Resource Name (ARN) of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
      * 
-     * The `extended_s3_configuration` object supports the same fields from s3_configuration as well as the following:
-     * 
      */
     private @Nullable String keyArn;
     /**
@@ -40,8 +38,6 @@ public final class FirehoseDeliveryStreamServerSideEncryption {
     }
     /**
      * @return Amazon Resource Name (ARN) of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
-     * 
-     * The `extended_s3_configuration` object supports the same fields from s3_configuration as well as the following:
      * 
      */
     public Optional<String> keyArn() {
@@ -77,25 +73,28 @@ public final class FirehoseDeliveryStreamServerSideEncryption {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder keyArn(@Nullable String keyArn) {
+
             this.keyArn = keyArn;
             return this;
         }
         @CustomType.Setter
         public Builder keyType(@Nullable String keyType) {
+
             this.keyType = keyType;
             return this;
         }
         public FirehoseDeliveryStreamServerSideEncryption build() {
-            final var o = new FirehoseDeliveryStreamServerSideEncryption();
-            o.enabled = enabled;
-            o.keyArn = keyArn;
-            o.keyType = keyType;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamServerSideEncryption();
+            _resultValue.enabled = enabled;
+            _resultValue.keyArn = keyArn;
+            _resultValue.keyType = keyType;
+            return _resultValue;
         }
     }
 }

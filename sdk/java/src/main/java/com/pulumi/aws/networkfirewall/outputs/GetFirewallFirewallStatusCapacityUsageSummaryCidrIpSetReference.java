@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferen
 
         @CustomType.Setter
         public Builder resolvedCidrCount(Integer resolvedCidrCount) {
-            this.resolvedCidrCount = Objects.requireNonNull(resolvedCidrCount);
+            if (resolvedCidrCount == null) {
+              throw new MissingRequiredPropertyException("GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference", "resolvedCidrCount");
+            }
+            this.resolvedCidrCount = resolvedCidrCount;
             return this;
         }
         public GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference build() {
-            final var o = new GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference();
-            o.resolvedCidrCount = resolvedCidrCount;
-            return o;
+            final var _resultValue = new GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference();
+            _resultValue.resolvedCidrCount = resolvedCidrCount;
+            return _resultValue;
         }
     }
 }

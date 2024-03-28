@@ -44,13 +44,14 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPol
 
         @CustomType.Setter
         public Builder firewallDeploymentModel(@Nullable String firewallDeploymentModel) {
+
             this.firewallDeploymentModel = firewallDeploymentModel;
             return this;
         }
         public PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy build() {
-            final var o = new PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy();
-            o.firewallDeploymentModel = firewallDeploymentModel;
-            return o;
+            final var _resultValue = new PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy();
+            _resultValue.firewallDeploymentModel = firewallDeploymentModel;
+            return _resultValue;
         }
     }
 }

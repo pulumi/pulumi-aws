@@ -8,29 +8,36 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS FinSpace Kx Database.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {
+ * const example = new aws.kms.Key("example", {
  *     description: "Example KMS Key",
  *     deletionWindowInDays: 7,
  * });
- * const exampleKxEnvironment = new aws.finspace.KxEnvironment("exampleKxEnvironment", {kmsKeyId: exampleKey.arn});
- * const exampleKxDatabase = new aws.finspace.KxDatabase("exampleKxDatabase", {
+ * const exampleKxEnvironment = new aws.finspace.KxEnvironment("example", {
+ *     name: "my-tf-kx-environment",
+ *     kmsKeyId: example.arn,
+ * });
+ * const exampleKxDatabase = new aws.finspace.KxDatabase("example", {
  *     environmentId: exampleKxEnvironment.id,
+ *     name: "my-tf-kx-database",
  *     description: "Example database description",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import an AWS FinSpace Kx Database using the `id` (environment ID and database name, comma-delimited). For example:
  *
  * ```sh
- *  $ pulumi import aws:finspace/kxDatabase:KxDatabase example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database
+ * $ pulumi import aws:finspace/kxDatabase:KxDatabase example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database
  * ```
  */
 export class KxDatabase extends pulumi.CustomResource {
@@ -134,8 +141,6 @@ export class KxDatabase extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(KxDatabase.__pulumiType, name, resourceInputs, opts);
     }
 }

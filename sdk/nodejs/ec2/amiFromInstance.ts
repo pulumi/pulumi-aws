@@ -28,12 +28,17 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.AmiFromInstance("example", {sourceInstanceId: "i-xxxxxxxx"});
+ * const example = new aws.ec2.AmiFromInstance("example", {
+ *     name: "example",
+ *     sourceInstanceId: "i-xxxxxxxx",
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class AmiFromInstance extends pulumi.CustomResource {
     /**
@@ -251,8 +256,6 @@ export class AmiFromInstance extends pulumi.CustomResource {
             resourceInputs["virtualizationType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(AmiFromInstance.__pulumiType, name, resourceInputs, opts);
     }
 }

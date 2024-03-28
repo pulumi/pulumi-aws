@@ -35,6 +35,8 @@ public final class LambdaFunctions {
      * Provides information about a Lambda Alias.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -64,6 +66,7 @@ public final class LambdaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAliasResult> getAlias(GetAliasArgs args) {
@@ -73,6 +76,8 @@ public final class LambdaFunctions {
      * Provides information about a Lambda Alias.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -102,6 +107,7 @@ public final class LambdaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAliasResult> getAliasPlain(GetAliasPlainArgs args) {
@@ -111,6 +117,8 @@ public final class LambdaFunctions {
      * Provides information about a Lambda Alias.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -140,6 +148,7 @@ public final class LambdaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAliasResult> getAlias(GetAliasArgs args, InvokeOptions options) {
@@ -149,6 +158,8 @@ public final class LambdaFunctions {
      * Provides information about a Lambda Alias.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -178,6 +189,7 @@ public final class LambdaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAliasResult> getAliasPlain(GetAliasPlainArgs args, InvokeOptions options) {
@@ -189,6 +201,8 @@ public final class LambdaFunctions {
      * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -211,12 +225,13 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existingCsc = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
-     *             .arn(String.format(&#34;arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b&#34;, var_.aws_region(),var_.aws_account()))
+     *             .arn(String.format(&#34;arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b&#34;, awsRegion,awsAccount))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCodeSigningConfigResult> getCodeSigningConfig(GetCodeSigningConfigArgs args) {
@@ -228,6 +243,8 @@ public final class LambdaFunctions {
      * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -250,12 +267,13 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existingCsc = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
-     *             .arn(String.format(&#34;arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b&#34;, var_.aws_region(),var_.aws_account()))
+     *             .arn(String.format(&#34;arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b&#34;, awsRegion,awsAccount))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCodeSigningConfigResult> getCodeSigningConfigPlain(GetCodeSigningConfigPlainArgs args) {
@@ -267,6 +285,8 @@ public final class LambdaFunctions {
      * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -289,12 +309,13 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existingCsc = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
-     *             .arn(String.format(&#34;arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b&#34;, var_.aws_region(),var_.aws_account()))
+     *             .arn(String.format(&#34;arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b&#34;, awsRegion,awsAccount))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCodeSigningConfigResult> getCodeSigningConfig(GetCodeSigningConfigArgs args, InvokeOptions options) {
@@ -306,6 +327,8 @@ public final class LambdaFunctions {
      * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -328,12 +351,13 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existingCsc = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
-     *             .arn(String.format(&#34;arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b&#34;, var_.aws_region(),var_.aws_account()))
+     *             .arn(String.format(&#34;arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b&#34;, awsRegion,awsAccount))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCodeSigningConfigResult> getCodeSigningConfigPlain(GetCodeSigningConfigPlainArgs args, InvokeOptions options) {
@@ -343,6 +367,8 @@ public final class LambdaFunctions {
      * Provides information about a Lambda Function.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -373,6 +399,7 @@ public final class LambdaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFunctionResult> getFunction(GetFunctionArgs args) {
@@ -382,6 +409,8 @@ public final class LambdaFunctions {
      * Provides information about a Lambda Function.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -412,6 +441,7 @@ public final class LambdaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFunctionResult> getFunctionPlain(GetFunctionPlainArgs args) {
@@ -421,6 +451,8 @@ public final class LambdaFunctions {
      * Provides information about a Lambda Function.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -451,6 +483,7 @@ public final class LambdaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFunctionResult> getFunction(GetFunctionArgs args, InvokeOptions options) {
@@ -460,6 +493,8 @@ public final class LambdaFunctions {
      * Provides information about a Lambda Function.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -490,6 +525,7 @@ public final class LambdaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFunctionResult> getFunctionPlain(GetFunctionPlainArgs args, InvokeOptions options) {
@@ -499,6 +535,8 @@ public final class LambdaFunctions {
      * Provides information about a Lambda function URL.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -529,6 +567,7 @@ public final class LambdaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFunctionUrlResult> getFunctionUrl(GetFunctionUrlArgs args) {
@@ -538,6 +577,8 @@ public final class LambdaFunctions {
      * Provides information about a Lambda function URL.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -568,6 +609,7 @@ public final class LambdaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFunctionUrlResult> getFunctionUrlPlain(GetFunctionUrlPlainArgs args) {
@@ -577,6 +619,8 @@ public final class LambdaFunctions {
      * Provides information about a Lambda function URL.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -607,6 +651,7 @@ public final class LambdaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFunctionUrlResult> getFunctionUrl(GetFunctionUrlArgs args, InvokeOptions options) {
@@ -616,6 +661,8 @@ public final class LambdaFunctions {
      * Provides information about a Lambda function URL.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -646,6 +693,7 @@ public final class LambdaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFunctionUrlResult> getFunctionUrlPlain(GetFunctionUrlPlainArgs args, InvokeOptions options) {
@@ -655,6 +703,8 @@ public final class LambdaFunctions {
      * Data resource to get a list of Lambda Functions.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -680,6 +730,7 @@ public final class LambdaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFunctionsResult> getFunctions() {
@@ -689,6 +740,8 @@ public final class LambdaFunctions {
      * Data resource to get a list of Lambda Functions.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -714,6 +767,7 @@ public final class LambdaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFunctionsResult> getFunctionsPlain() {
@@ -723,6 +777,8 @@ public final class LambdaFunctions {
      * Data resource to get a list of Lambda Functions.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -748,6 +804,7 @@ public final class LambdaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFunctionsResult> getFunctions(InvokeArgs args) {
@@ -757,6 +814,8 @@ public final class LambdaFunctions {
      * Data resource to get a list of Lambda Functions.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -782,6 +841,7 @@ public final class LambdaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFunctionsResult> getFunctionsPlain(InvokeArgs args) {
@@ -791,6 +851,8 @@ public final class LambdaFunctions {
      * Data resource to get a list of Lambda Functions.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -816,6 +878,7 @@ public final class LambdaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFunctionsResult> getFunctions(InvokeArgs args, InvokeOptions options) {
@@ -825,6 +888,8 @@ public final class LambdaFunctions {
      * Data resource to get a list of Lambda Functions.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -850,6 +915,7 @@ public final class LambdaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFunctionsResult> getFunctionsPlain(InvokeArgs args, InvokeOptions options) {
@@ -903,6 +969,8 @@ public final class LambdaFunctions {
      * Provides information about a Lambda Layer Version.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -933,6 +1001,7 @@ public final class LambdaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLayerVersionResult> getLayerVersion(GetLayerVersionArgs args) {
@@ -942,6 +1011,8 @@ public final class LambdaFunctions {
      * Provides information about a Lambda Layer Version.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -972,6 +1043,7 @@ public final class LambdaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLayerVersionResult> getLayerVersionPlain(GetLayerVersionPlainArgs args) {
@@ -981,6 +1053,8 @@ public final class LambdaFunctions {
      * Provides information about a Lambda Layer Version.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1011,6 +1085,7 @@ public final class LambdaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLayerVersionResult> getLayerVersion(GetLayerVersionArgs args, InvokeOptions options) {
@@ -1020,6 +1095,8 @@ public final class LambdaFunctions {
      * Provides information about a Lambda Layer Version.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1050,6 +1127,7 @@ public final class LambdaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLayerVersionResult> getLayerVersionPlain(GetLayerVersionPlainArgs args, InvokeOptions options) {

@@ -108,12 +108,14 @@ def get_custom_plugin(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.mskconnect.get_custom_plugin(name="example-debezium-1")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the custom plugin.
@@ -140,12 +142,14 @@ def get_custom_plugin_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.mskconnect.get_custom_plugin(name="example-debezium-1")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the custom plugin.

@@ -4,6 +4,7 @@
 package com.pulumi.aws.ivschat.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class LoggingConfigurationDestinationConfigurationFirehose {
 
         @CustomType.Setter
         public Builder deliveryStreamName(String deliveryStreamName) {
-            this.deliveryStreamName = Objects.requireNonNull(deliveryStreamName);
+            if (deliveryStreamName == null) {
+              throw new MissingRequiredPropertyException("LoggingConfigurationDestinationConfigurationFirehose", "deliveryStreamName");
+            }
+            this.deliveryStreamName = deliveryStreamName;
             return this;
         }
         public LoggingConfigurationDestinationConfigurationFirehose build() {
-            final var o = new LoggingConfigurationDestinationConfigurationFirehose();
-            o.deliveryStreamName = deliveryStreamName;
-            return o;
+            final var _resultValue = new LoggingConfigurationDestinationConfigurationFirehose();
+            _resultValue.deliveryStreamName = deliveryStreamName;
+            return _resultValue;
         }
     }
 }

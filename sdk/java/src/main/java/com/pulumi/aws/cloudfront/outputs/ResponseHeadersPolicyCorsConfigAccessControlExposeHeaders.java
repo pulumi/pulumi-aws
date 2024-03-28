@@ -36,6 +36,7 @@ public final class ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders {
 
         @CustomType.Setter
         public Builder items(@Nullable List<String> items) {
+
             this.items = items;
             return this;
         }
@@ -43,9 +44,9 @@ public final class ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders {
             return items(List.of(items));
         }
         public ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders build() {
-            final var o = new ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders();
-            o.items = items;
-            return o;
+            final var _resultValue = new ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders();
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

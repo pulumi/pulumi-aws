@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath {
         }
 
         public RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath build() {
-            final var o = new RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath();
+            return _resultValue;
         }
     }
 }

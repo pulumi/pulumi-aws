@@ -321,24 +321,26 @@ class EfsLocation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.datasync.EfsLocation("example",
-            efs_file_system_arn=aws_efs_mount_target["example"]["file_system_arn"],
+            efs_file_system_arn=example_aws_efs_mount_target["fileSystemArn"],
             ec2_config=aws.datasync.EfsLocationEc2ConfigArgs(
-                security_group_arns=[aws_security_group["example"]["arn"]],
-                subnet_arn=aws_subnet["example"]["arn"],
+                security_group_arns=[example_aws_security_group["arn"]],
+                subnet_arn=example_aws_subnet["arn"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_datasync_location_efs` using the DataSync Task Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:datasync/efsLocation:EfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+        $ pulumi import aws:datasync/efsLocation:EfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
         ```
 
         :param str resource_name: The name of the resource.
@@ -364,24 +366,26 @@ class EfsLocation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.datasync.EfsLocation("example",
-            efs_file_system_arn=aws_efs_mount_target["example"]["file_system_arn"],
+            efs_file_system_arn=example_aws_efs_mount_target["fileSystemArn"],
             ec2_config=aws.datasync.EfsLocationEc2ConfigArgs(
-                security_group_arns=[aws_security_group["example"]["arn"]],
-                subnet_arn=aws_subnet["example"]["arn"],
+                security_group_arns=[example_aws_security_group["arn"]],
+                subnet_arn=example_aws_subnet["arn"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_datasync_location_efs` using the DataSync Task Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:datasync/efsLocation:EfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+        $ pulumi import aws:datasync/efsLocation:EfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
         ```
 
         :param str resource_name: The name of the resource.
@@ -429,8 +433,6 @@ class EfsLocation(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["uri"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EfsLocation, __self__).__init__(
             'aws:datasync/efsLocation:EfsLocation',
             resource_name,

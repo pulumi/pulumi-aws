@@ -58,19 +58,21 @@ public final class GetReleaseLabelsFilters {
 
         @CustomType.Setter
         public Builder application(@Nullable String application) {
+
             this.application = application;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         public GetReleaseLabelsFilters build() {
-            final var o = new GetReleaseLabelsFilters();
-            o.application = application;
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new GetReleaseLabelsFilters();
+            _resultValue.application = application;
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

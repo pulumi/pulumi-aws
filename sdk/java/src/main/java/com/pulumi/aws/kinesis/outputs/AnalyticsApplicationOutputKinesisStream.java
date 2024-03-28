@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesis.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class AnalyticsApplicationOutputKinesisStream {
 
         @CustomType.Setter
         public Builder resourceArn(String resourceArn) {
-            this.resourceArn = Objects.requireNonNull(resourceArn);
+            if (resourceArn == null) {
+              throw new MissingRequiredPropertyException("AnalyticsApplicationOutputKinesisStream", "resourceArn");
+            }
+            this.resourceArn = resourceArn;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("AnalyticsApplicationOutputKinesisStream", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         public AnalyticsApplicationOutputKinesisStream build() {
-            final var o = new AnalyticsApplicationOutputKinesisStream();
-            o.resourceArn = resourceArn;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new AnalyticsApplicationOutputKinesisStream();
+            _resultValue.resourceArn = resourceArn;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

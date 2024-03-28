@@ -58,19 +58,21 @@ public final class LaunchTemplateInstanceRequirementsMemoryGibPerVcpu {
 
         @CustomType.Setter
         public Builder max(@Nullable Double max) {
+
             this.max = max;
             return this;
         }
         @CustomType.Setter
         public Builder min(@Nullable Double min) {
+
             this.min = min;
             return this;
         }
         public LaunchTemplateInstanceRequirementsMemoryGibPerVcpu build() {
-            final var o = new LaunchTemplateInstanceRequirementsMemoryGibPerVcpu();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new LaunchTemplateInstanceRequirementsMemoryGibPerVcpu();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

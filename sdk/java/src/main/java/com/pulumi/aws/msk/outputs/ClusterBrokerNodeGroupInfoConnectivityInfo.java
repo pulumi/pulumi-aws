@@ -59,19 +59,21 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfo {
 
         @CustomType.Setter
         public Builder publicAccess(@Nullable ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess publicAccess) {
+
             this.publicAccess = publicAccess;
             return this;
         }
         @CustomType.Setter
         public Builder vpcConnectivity(@Nullable ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity vpcConnectivity) {
+
             this.vpcConnectivity = vpcConnectivity;
             return this;
         }
         public ClusterBrokerNodeGroupInfoConnectivityInfo build() {
-            final var o = new ClusterBrokerNodeGroupInfoConnectivityInfo();
-            o.publicAccess = publicAccess;
-            o.vpcConnectivity = vpcConnectivity;
-            return o;
+            final var _resultValue = new ClusterBrokerNodeGroupInfoConnectivityInfo();
+            _resultValue.publicAccess = publicAccess;
+            _resultValue.vpcConnectivity = vpcConnectivity;
+            return _resultValue;
         }
     }
 }

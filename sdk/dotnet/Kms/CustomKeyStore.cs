@@ -13,34 +13,40 @@ namespace Pulumi.Aws.Kms
     /// Resource for managing an AWS KMS (Key Management) Custom Key Store.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var test = new Aws.Kms.CustomKeyStore("test", new()
     ///     {
-    ///         CloudHsmClusterId = @var.Cloud_hsm_cluster_id,
+    ///         CloudHsmClusterId = cloudHsmClusterId,
     ///         CustomKeyStoreName = "kms-custom-key-store-test",
     ///         KeyStorePassword = "noplaintextpasswords1",
-    ///         TrustAnchorCertificate = File.ReadAllText("anchor-certificate.crt"),
+    ///         TrustAnchorCertificate = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "anchor-certificate.crt",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
+    /// $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
     /// ```
     /// </summary>
     [AwsResourceType("aws:kms/customKeyStore:CustomKeyStore")]

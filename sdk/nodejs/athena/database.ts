@@ -12,25 +12,27 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleDatabase = new aws.athena.Database("exampleDatabase", {
+ * const example = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleDatabase = new aws.athena.Database("example", {
  *     name: "database_name",
- *     bucket: exampleBucketV2.id,
+ *     bucket: example.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Athena Databases using their name. For example:
  *
  * ```sh
- *  $ pulumi import aws:athena/database:Database example example
+ * $ pulumi import aws:athena/database:Database example example
  * ```
- *  Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+ * Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
  */
 export class Database extends pulumi.CustomResource {
     /**

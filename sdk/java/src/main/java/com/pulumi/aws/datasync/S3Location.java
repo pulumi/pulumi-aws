@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Manages an S3 Location within AWS DataSync.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,23 +46,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new S3Location(&#34;example&#34;, S3LocationArgs.builder()        
- *             .s3BucketArn(aws_s3_bucket.example().arn())
+ *             .s3BucketArn(exampleAwsS3Bucket.arn())
  *             .subdirectory(&#34;/example/prefix&#34;)
  *             .s3Config(S3LocationS3ConfigArgs.builder()
- *                 .bucketAccessRoleArn(aws_iam_role.example().arn())
+ *                 .bucketAccessRoleArn(exampleAwsIamRole.arn())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_datasync_location_s3` using the DataSync Task Amazon Resource Name (ARN). For example:
  * 
  * ```sh
- *  $ pulumi import aws:datasync/s3Location:S3Location example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+ * $ pulumi import aws:datasync/s3Location:S3Location example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
  * ```
  * 
  */
@@ -221,9 +224,6 @@ public class S3Location extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

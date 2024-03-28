@@ -8,6 +8,7 @@ import com.pulumi.aws.ec2.outputs.GetLaunchConfigurationEphemeralBlockDevice;
 import com.pulumi.aws.ec2.outputs.GetLaunchConfigurationMetadataOption;
 import com.pulumi.aws.ec2.outputs.GetLaunchConfigurationRootBlockDevice;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -286,17 +287,26 @@ public final class GetLaunchConfigurationResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder associatePublicIpAddress(Boolean associatePublicIpAddress) {
-            this.associatePublicIpAddress = Objects.requireNonNull(associatePublicIpAddress);
+            if (associatePublicIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationResult", "associatePublicIpAddress");
+            }
+            this.associatePublicIpAddress = associatePublicIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder ebsBlockDevices(List<GetLaunchConfigurationEbsBlockDevice> ebsBlockDevices) {
-            this.ebsBlockDevices = Objects.requireNonNull(ebsBlockDevices);
+            if (ebsBlockDevices == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationResult", "ebsBlockDevices");
+            }
+            this.ebsBlockDevices = ebsBlockDevices;
             return this;
         }
         public Builder ebsBlockDevices(GetLaunchConfigurationEbsBlockDevice... ebsBlockDevices) {
@@ -304,17 +314,26 @@ public final class GetLaunchConfigurationResult {
         }
         @CustomType.Setter
         public Builder ebsOptimized(Boolean ebsOptimized) {
-            this.ebsOptimized = Objects.requireNonNull(ebsOptimized);
+            if (ebsOptimized == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationResult", "ebsOptimized");
+            }
+            this.ebsOptimized = ebsOptimized;
             return this;
         }
         @CustomType.Setter
         public Builder enableMonitoring(Boolean enableMonitoring) {
-            this.enableMonitoring = Objects.requireNonNull(enableMonitoring);
+            if (enableMonitoring == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationResult", "enableMonitoring");
+            }
+            this.enableMonitoring = enableMonitoring;
             return this;
         }
         @CustomType.Setter
         public Builder ephemeralBlockDevices(List<GetLaunchConfigurationEphemeralBlockDevice> ephemeralBlockDevices) {
-            this.ephemeralBlockDevices = Objects.requireNonNull(ephemeralBlockDevices);
+            if (ephemeralBlockDevices == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationResult", "ephemeralBlockDevices");
+            }
+            this.ephemeralBlockDevices = ephemeralBlockDevices;
             return this;
         }
         public Builder ephemeralBlockDevices(GetLaunchConfigurationEphemeralBlockDevice... ephemeralBlockDevices) {
@@ -322,32 +341,50 @@ public final class GetLaunchConfigurationResult {
         }
         @CustomType.Setter
         public Builder iamInstanceProfile(String iamInstanceProfile) {
-            this.iamInstanceProfile = Objects.requireNonNull(iamInstanceProfile);
+            if (iamInstanceProfile == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationResult", "iamInstanceProfile");
+            }
+            this.iamInstanceProfile = iamInstanceProfile;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder imageId(String imageId) {
-            this.imageId = Objects.requireNonNull(imageId);
+            if (imageId == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationResult", "imageId");
+            }
+            this.imageId = imageId;
             return this;
         }
         @CustomType.Setter
         public Builder instanceType(String instanceType) {
-            this.instanceType = Objects.requireNonNull(instanceType);
+            if (instanceType == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationResult", "instanceType");
+            }
+            this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder keyName(String keyName) {
-            this.keyName = Objects.requireNonNull(keyName);
+            if (keyName == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationResult", "keyName");
+            }
+            this.keyName = keyName;
             return this;
         }
         @CustomType.Setter
         public Builder metadataOptions(List<GetLaunchConfigurationMetadataOption> metadataOptions) {
-            this.metadataOptions = Objects.requireNonNull(metadataOptions);
+            if (metadataOptions == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationResult", "metadataOptions");
+            }
+            this.metadataOptions = metadataOptions;
             return this;
         }
         public Builder metadataOptions(GetLaunchConfigurationMetadataOption... metadataOptions) {
@@ -355,17 +392,26 @@ public final class GetLaunchConfigurationResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder placementTenancy(String placementTenancy) {
-            this.placementTenancy = Objects.requireNonNull(placementTenancy);
+            if (placementTenancy == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationResult", "placementTenancy");
+            }
+            this.placementTenancy = placementTenancy;
             return this;
         }
         @CustomType.Setter
         public Builder rootBlockDevices(List<GetLaunchConfigurationRootBlockDevice> rootBlockDevices) {
-            this.rootBlockDevices = Objects.requireNonNull(rootBlockDevices);
+            if (rootBlockDevices == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationResult", "rootBlockDevices");
+            }
+            this.rootBlockDevices = rootBlockDevices;
             return this;
         }
         public Builder rootBlockDevices(GetLaunchConfigurationRootBlockDevice... rootBlockDevices) {
@@ -373,7 +419,10 @@ public final class GetLaunchConfigurationResult {
         }
         @CustomType.Setter
         public Builder securityGroups(List<String> securityGroups) {
-            this.securityGroups = Objects.requireNonNull(securityGroups);
+            if (securityGroups == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationResult", "securityGroups");
+            }
+            this.securityGroups = securityGroups;
             return this;
         }
         public Builder securityGroups(String... securityGroups) {
@@ -381,35 +430,41 @@ public final class GetLaunchConfigurationResult {
         }
         @CustomType.Setter
         public Builder spotPrice(String spotPrice) {
-            this.spotPrice = Objects.requireNonNull(spotPrice);
+            if (spotPrice == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationResult", "spotPrice");
+            }
+            this.spotPrice = spotPrice;
             return this;
         }
         @CustomType.Setter
         public Builder userData(String userData) {
-            this.userData = Objects.requireNonNull(userData);
+            if (userData == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationResult", "userData");
+            }
+            this.userData = userData;
             return this;
         }
         public GetLaunchConfigurationResult build() {
-            final var o = new GetLaunchConfigurationResult();
-            o.arn = arn;
-            o.associatePublicIpAddress = associatePublicIpAddress;
-            o.ebsBlockDevices = ebsBlockDevices;
-            o.ebsOptimized = ebsOptimized;
-            o.enableMonitoring = enableMonitoring;
-            o.ephemeralBlockDevices = ephemeralBlockDevices;
-            o.iamInstanceProfile = iamInstanceProfile;
-            o.id = id;
-            o.imageId = imageId;
-            o.instanceType = instanceType;
-            o.keyName = keyName;
-            o.metadataOptions = metadataOptions;
-            o.name = name;
-            o.placementTenancy = placementTenancy;
-            o.rootBlockDevices = rootBlockDevices;
-            o.securityGroups = securityGroups;
-            o.spotPrice = spotPrice;
-            o.userData = userData;
-            return o;
+            final var _resultValue = new GetLaunchConfigurationResult();
+            _resultValue.arn = arn;
+            _resultValue.associatePublicIpAddress = associatePublicIpAddress;
+            _resultValue.ebsBlockDevices = ebsBlockDevices;
+            _resultValue.ebsOptimized = ebsOptimized;
+            _resultValue.enableMonitoring = enableMonitoring;
+            _resultValue.ephemeralBlockDevices = ephemeralBlockDevices;
+            _resultValue.iamInstanceProfile = iamInstanceProfile;
+            _resultValue.id = id;
+            _resultValue.imageId = imageId;
+            _resultValue.instanceType = instanceType;
+            _resultValue.keyName = keyName;
+            _resultValue.metadataOptions = metadataOptions;
+            _resultValue.name = name;
+            _resultValue.placementTenancy = placementTenancy;
+            _resultValue.rootBlockDevices = rootBlockDevices;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.spotPrice = spotPrice;
+            _resultValue.userData = userData;
+            return _resultValue;
         }
     }
 }

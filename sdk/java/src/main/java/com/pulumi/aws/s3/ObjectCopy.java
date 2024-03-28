@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Provides a resource for copying an S3 object.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,18 +48,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new ObjectCopy(&#34;test&#34;, ObjectCopyArgs.builder()        
  *             .bucket(&#34;destination_bucket&#34;)
- *             .grants(ObjectCopyGrantArgs.builder()
- *                 .permissions(&#34;READ&#34;)
- *                 .type(&#34;Group&#34;)
- *                 .uri(&#34;http://acs.amazonaws.com/groups/global/AllUsers&#34;)
- *                 .build())
  *             .key(&#34;destination_key&#34;)
  *             .source(&#34;source_bucket/source_key&#34;)
+ *             .grants(ObjectCopyGrantArgs.builder()
+ *                 .uri(&#34;http://acs.amazonaws.com/groups/global/AllUsers&#34;)
+ *                 .type(&#34;Group&#34;)
+ *                 .permissions(&#34;READ&#34;)
+ *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:s3/objectCopy:ObjectCopy")
@@ -75,6 +78,20 @@ public class ObjectCopy extends com.pulumi.resources.CustomResource {
      */
     public Output<String> acl() {
         return this.acl;
+    }
+    /**
+     * ARN of the object.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return ARN of the object.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
     }
     /**
      * Name of the bucket to put the file in.
@@ -799,8 +816,7 @@ public class ObjectCopy extends com.pulumi.resources.CustomResource {
                 "customerKey",
                 "kmsEncryptionContext",
                 "kmsKeyId",
-                "sourceCustomerKey",
-                "tagsAll"
+                "sourceCustomerKey"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

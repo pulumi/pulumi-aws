@@ -503,12 +503,13 @@ class MLTransform(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_catalog_database = aws.glue.CatalogDatabase("testCatalogDatabase", name="example")
-        test_catalog_table = aws.glue.CatalogTable("testCatalogTable",
+        test_catalog_database = aws.glue.CatalogDatabase("test", name="example")
+        test_catalog_table = aws.glue.CatalogTable("test",
             name="example",
             database_name=test_catalog_database.name,
             owner="my_owner",
@@ -573,8 +574,9 @@ class MLTransform(pulumi.CustomResource):
             parameters={
                 "param1": "param1_val",
             })
-        test_ml_transform = aws.glue.MLTransform("testMLTransform",
-            role_arn=aws_iam_role["test"]["arn"],
+        test = aws.glue.MLTransform("test",
+            name="example",
+            role_arn=test_aws_iam_role["arn"],
             input_record_tables=[aws.glue.MLTransformInputRecordTableArgs(
                 database_name=test_catalog_table.database_name,
                 table_name=test_catalog_table.name,
@@ -584,16 +586,16 @@ class MLTransform(pulumi.CustomResource):
                 find_matches_parameters=aws.glue.MLTransformParametersFindMatchesParametersArgs(
                     primary_key_column_name="my_column_1",
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["test"]]))
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue ML Transforms using `id`. For example:
 
         ```sh
-         $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
+        $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
         ```
 
         :param str resource_name: The name of the resource.
@@ -622,12 +624,13 @@ class MLTransform(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_catalog_database = aws.glue.CatalogDatabase("testCatalogDatabase", name="example")
-        test_catalog_table = aws.glue.CatalogTable("testCatalogTable",
+        test_catalog_database = aws.glue.CatalogDatabase("test", name="example")
+        test_catalog_table = aws.glue.CatalogTable("test",
             name="example",
             database_name=test_catalog_database.name,
             owner="my_owner",
@@ -692,8 +695,9 @@ class MLTransform(pulumi.CustomResource):
             parameters={
                 "param1": "param1_val",
             })
-        test_ml_transform = aws.glue.MLTransform("testMLTransform",
-            role_arn=aws_iam_role["test"]["arn"],
+        test = aws.glue.MLTransform("test",
+            name="example",
+            role_arn=test_aws_iam_role["arn"],
             input_record_tables=[aws.glue.MLTransformInputRecordTableArgs(
                 database_name=test_catalog_table.database_name,
                 table_name=test_catalog_table.name,
@@ -703,16 +707,16 @@ class MLTransform(pulumi.CustomResource):
                 find_matches_parameters=aws.glue.MLTransformParametersFindMatchesParametersArgs(
                     primary_key_column_name="my_column_1",
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["test"]]))
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue ML Transforms using `id`. For example:
 
         ```sh
-         $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
+        $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
         ```
 
         :param str resource_name: The name of the resource.
@@ -773,8 +777,6 @@ class MLTransform(pulumi.CustomResource):
             __props__.__dict__["label_count"] = None
             __props__.__dict__["schemas"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(MLTransform, __self__).__init__(
             'aws:glue/mLTransform:MLTransform',
             resource_name,

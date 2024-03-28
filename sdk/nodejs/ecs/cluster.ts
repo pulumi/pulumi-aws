@@ -12,44 +12,55 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foo = new aws.ecs.Cluster("foo", {settings: [{
- *     name: "containerInsights",
- *     value: "enabled",
- * }]});
+ * const foo = new aws.ecs.Cluster("foo", {
+ *     name: "white-hart",
+ *     settings: [{
+ *         name: "containerInsights",
+ *         value: "enabled",
+ *     }],
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example with Log Configuration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {
+ * const example = new aws.kms.Key("example", {
  *     description: "example",
  *     deletionWindowInDays: 7,
  * });
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const test = new aws.ecs.Cluster("test", {configuration: {
- *     executeCommandConfiguration: {
- *         kmsKeyId: exampleKey.arn,
- *         logging: "OVERRIDE",
- *         logConfiguration: {
- *             cloudWatchEncryptionEnabled: true,
- *             cloudWatchLogGroupName: exampleLogGroup.name,
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {name: "example"});
+ * const test = new aws.ecs.Cluster("test", {
+ *     name: "example",
+ *     configuration: {
+ *         executeCommandConfiguration: {
+ *             kmsKeyId: example.arn,
+ *             logging: "OVERRIDE",
+ *             logConfiguration: {
+ *                 cloudWatchEncryptionEnabled: true,
+ *                 cloudWatchLogGroupName: exampleLogGroup.name,
+ *             },
  *         },
  *     },
- * }});
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ECS clusters using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
+ * $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
  * ```
  */
 export class Cluster extends pulumi.CustomResource {
@@ -142,8 +153,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }

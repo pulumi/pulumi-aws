@@ -1,0 +1,76 @@
+name: lb
+runtime: yaml
+resources:
+  exampleVpc:
+    type: aws:ec2:Vpc
+    properties:
+      cidrBlock: "10.0.0.0/16"
+      enableDnsSupport: true
+      enableDnsHostnames: true
+
+  myInternetGateway:
+    type: aws:ec2:InternetGateway
+
+  myVPCGatewayAttachment:
+    type: aws:ec2:InternetGatewayAttachment
+    properties:
+      vpcId: ${exampleVpc.id}
+      internetGatewayId: ${myInternetGateway.id}
+
+  exampleSubnet1:
+    type: aws:ec2:Subnet
+    properties:
+      cidrBlock: "10.0.1.0/24"
+      vpcId: ${exampleVpc.id}
+      availabilityZone: "us-west-2a"
+
+  exampleSubnet2:
+    type: aws:ec2:Subnet
+    properties:
+      cidrBlock: "10.0.2.0/24"
+      vpcId: ${exampleVpc.id}
+      availabilityZone: "us-west-2b"
+
+  exampleSecurityGroup:
+    type: aws:ec2:SecurityGroup
+    properties:
+      name: example-security-group
+      description: "Managed by Pulumi"
+      egress:
+        - fromPort: 0
+          toPort: 0
+          protocol: "-1"  # Allow all traffic.
+          cidrBlocks: ["0.0.0.0/0"]
+      ingress:
+        - fromPort: 80
+          toPort: 80
+          protocol: "tcp"
+          cidrBlocks: ["0.0.0.0/0"]
+      vpcId: ${exampleVpc.id}
+
+  exampleTargetGroup:
+    type: aws:lb:TargetGroup
+    properties:
+      name: example-target-group
+      port: 80
+      protocol: HTTP
+      vpcId: ${exampleVpc}
+  exampleLoadBalancer:
+    type: aws:lb:LoadBalancer
+    properties:
+      internal: false
+      loadBalancerType: application
+      name: example-load-balancer
+      securityGroups: ["${exampleSecurityGroup}"]
+      subnets: ["${exampleSubnet1}", "${exampleSubnet2}"]
+
+  exampleListener:
+    type: aws:lb:Listener
+    properties:
+      defaultActions:
+      - type: forward
+        targetGroupArn: ${exampleTargetGroup.arn}
+      loadBalancerArn: ${exampleLoadBalancer.arn}
+      port: 80
+      protocol: HTTP
+

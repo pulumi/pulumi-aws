@@ -101,13 +101,15 @@ class RegistryPolicy(pulumi.CustomResource):
         Resource for managing an AWS EventBridge Schemas Registry Policy.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="example",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -120,17 +122,18 @@ class RegistryPolicy(pulumi.CustomResource):
                 "arn:aws:schemas:us-east-1:012345678901:schema/example*",
             ],
         )])
-        example_registry_policy = aws.schemas.RegistryPolicy("exampleRegistryPolicy",
+        example_registry_policy = aws.schemas.RegistryPolicy("example",
             registry_name="example",
-            policy=example_policy_document.json)
+            policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge Schema Registry Policy using the `registry_name`. For example:
 
         ```sh
-         $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
+        $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -148,13 +151,15 @@ class RegistryPolicy(pulumi.CustomResource):
         Resource for managing an AWS EventBridge Schemas Registry Policy.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="example",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -167,17 +172,18 @@ class RegistryPolicy(pulumi.CustomResource):
                 "arn:aws:schemas:us-east-1:012345678901:schema/example*",
             ],
         )])
-        example_registry_policy = aws.schemas.RegistryPolicy("exampleRegistryPolicy",
+        example_registry_policy = aws.schemas.RegistryPolicy("example",
             registry_name="example",
-            policy=example_policy_document.json)
+            policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge Schema Registry Policy using the `registry_name`. For example:
 
         ```sh
-         $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
+        $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
         ```
 
         :param str resource_name: The name of the resource.

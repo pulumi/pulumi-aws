@@ -15,8 +15,10 @@ import (
 // Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
 //
 // ## Example Usage
+//
 // ### DynamoDB Target Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,8 +32,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
-//				DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
-//				Role:         pulumi.Any(aws_iam_role.Example.Arn),
+//				DatabaseName: pulumi.Any(exampleAwsGlueCatalogDatabase.Name),
+//				Name:         pulumi.String("example"),
+//				Role:         pulumi.Any(exampleAwsIamRole.Arn),
 //				DynamodbTargets: glue.CrawlerDynamodbTargetArray{
 //					&glue.CrawlerDynamodbTargetArgs{
 //						Path: pulumi.String("table-name"),
@@ -46,8 +49,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### JDBC Target Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,11 +67,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
-//				DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
-//				Role:         pulumi.Any(aws_iam_role.Example.Arn),
+//				DatabaseName: pulumi.Any(exampleAwsGlueCatalogDatabase.Name),
+//				Name:         pulumi.String("example"),
+//				Role:         pulumi.Any(exampleAwsIamRole.Arn),
 //				JdbcTargets: glue.CrawlerJdbcTargetArray{
 //					&glue.CrawlerJdbcTargetArgs{
-//						ConnectionName: pulumi.Any(aws_glue_connection.Example.Name),
+//						ConnectionName: pulumi.Any(exampleAwsGlueConnection.Name),
 //						Path:           pulumi.String("database-name/%"),
 //					},
 //				},
@@ -78,8 +85,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### S3 Target Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -95,11 +105,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
-//				DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
-//				Role:         pulumi.Any(aws_iam_role.Example.Arn),
+//				DatabaseName: pulumi.Any(exampleAwsGlueCatalogDatabase.Name),
+//				Name:         pulumi.String("example"),
+//				Role:         pulumi.Any(exampleAwsIamRole.Arn),
 //				S3Targets: glue.CrawlerS3TargetArray{
 //					&glue.CrawlerS3TargetArgs{
-//						Path: pulumi.String(fmt.Sprintf("s3://%v", aws_s3_bucket.Example.Bucket)),
+//						Path: pulumi.String(fmt.Sprintf("s3://%v", exampleAwsS3Bucket.Bucket)),
 //					},
 //				},
 //			})
@@ -111,8 +122,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Catalog Target Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -126,13 +140,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
-//				DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
-//				Role:         pulumi.Any(aws_iam_role.Example.Arn),
+//				DatabaseName: pulumi.Any(exampleAwsGlueCatalogDatabase.Name),
+//				Name:         pulumi.String("example"),
+//				Role:         pulumi.Any(exampleAwsIamRole.Arn),
 //				CatalogTargets: glue.CrawlerCatalogTargetArray{
 //					&glue.CrawlerCatalogTargetArgs{
-//						DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
+//						DatabaseName: pulumi.Any(exampleAwsGlueCatalogDatabase.Name),
 //						Tables: pulumi.StringArray{
-//							aws_glue_catalog_table.Example.Name,
+//							exampleAwsGlueCatalogTable.Name,
 //						},
 //					},
 //				},
@@ -157,8 +172,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### MongoDB Target Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -172,11 +190,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
-//				DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
-//				Role:         pulumi.Any(aws_iam_role.Example.Arn),
+//				DatabaseName: pulumi.Any(exampleAwsGlueCatalogDatabase.Name),
+//				Name:         pulumi.String("example"),
+//				Role:         pulumi.Any(exampleAwsIamRole.Arn),
 //				MongodbTargets: glue.CrawlerMongodbTargetArray{
 //					&glue.CrawlerMongodbTargetArgs{
-//						ConnectionName: pulumi.Any(aws_glue_connection.Example.Name),
+//						ConnectionName: pulumi.Any(exampleAwsGlueConnection.Name),
 //						Path:           pulumi.String("database-name/%"),
 //					},
 //				},
@@ -189,8 +208,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Configuration Settings Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -207,29 +229,30 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Grouping": map[string]interface{}{
-//					"TableGroupingPolicy": "CombineCompatibleSchemas",
+//				"grouping": map[string]interface{}{
+//					"tableGroupingPolicy": "CombineCompatibleSchemas",
 //				},
-//				"CrawlerOutput": map[string]interface{}{
-//					"Partitions": map[string]interface{}{
-//						"AddOrUpdateBehavior": "InheritFromTable",
+//				"crawlerOutput": map[string]interface{}{
+//					"partitions": map[string]interface{}{
+//						"addOrUpdateBehavior": "InheritFromTable",
 //					},
 //				},
-//				"Version": 1,
+//				"version": 1,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = glue.NewCrawler(ctx, "eventsCrawler", &glue.CrawlerArgs{
-//				DatabaseName:  pulumi.Any(aws_glue_catalog_database.Glue_database.Name),
+//			_, err = glue.NewCrawler(ctx, "events_crawler", &glue.CrawlerArgs{
+//				DatabaseName:  pulumi.Any(glueDatabase.Name),
 //				Schedule:      pulumi.String("cron(0 1 * * ? *)"),
-//				Role:          pulumi.Any(aws_iam_role.Glue_role.Arn),
-//				Tags:          pulumi.Any(_var.Tags),
+//				Name:          pulumi.String(fmt.Sprintf("events_crawler_%v", environmentName)),
+//				Role:          pulumi.Any(glueRole.Arn),
+//				Tags:          pulumi.Any(tags),
 //				Configuration: pulumi.String(json0),
 //				S3Targets: glue.CrawlerS3TargetArray{
 //					&glue.CrawlerS3TargetArgs{
-//						Path: pulumi.String(fmt.Sprintf("s3://%v", aws_s3_bucket.Data_lake_bucket.Bucket)),
+//						Path: pulumi.String(fmt.Sprintf("s3://%v", dataLakeBucket.Bucket)),
 //					},
 //				},
 //			})
@@ -241,15 +264,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glue Crawlers using `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glue/crawler:Crawler MyJob MyJob
-//
+// $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
 // ```
 type Crawler struct {
 	pulumi.CustomResourceState
@@ -274,7 +296,7 @@ type Crawler struct {
 	HudiTargets CrawlerHudiTargetArrayOutput `pulumi:"hudiTargets"`
 	// List of nested Iceberg target arguments. See Iceberg Target below.
 	IcebergTargets CrawlerIcebergTargetArrayOutput `pulumi:"icebergTargets"`
-	// List of nested JBDC target arguments. See JDBC Target below.
+	// List of nested JDBC target arguments. See JDBC Target below.
 	JdbcTargets CrawlerJdbcTargetArrayOutput `pulumi:"jdbcTargets"`
 	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
 	LakeFormationConfiguration CrawlerLakeFormationConfigurationPtrOutput `pulumi:"lakeFormationConfiguration"`
@@ -319,10 +341,6 @@ func NewCrawler(ctx *pulumi.Context,
 	if args.Role == nil {
 		return nil, errors.New("invalid value for required argument 'Role'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Crawler
 	err := ctx.RegisterResource("aws:glue/crawler:Crawler", name, args, &resource, opts...)
@@ -366,7 +384,7 @@ type crawlerState struct {
 	HudiTargets []CrawlerHudiTarget `pulumi:"hudiTargets"`
 	// List of nested Iceberg target arguments. See Iceberg Target below.
 	IcebergTargets []CrawlerIcebergTarget `pulumi:"icebergTargets"`
-	// List of nested JBDC target arguments. See JDBC Target below.
+	// List of nested JDBC target arguments. See JDBC Target below.
 	JdbcTargets []CrawlerJdbcTarget `pulumi:"jdbcTargets"`
 	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
 	LakeFormationConfiguration *CrawlerLakeFormationConfiguration `pulumi:"lakeFormationConfiguration"`
@@ -419,7 +437,7 @@ type CrawlerState struct {
 	HudiTargets CrawlerHudiTargetArrayInput
 	// List of nested Iceberg target arguments. See Iceberg Target below.
 	IcebergTargets CrawlerIcebergTargetArrayInput
-	// List of nested JBDC target arguments. See JDBC Target below.
+	// List of nested JDBC target arguments. See JDBC Target below.
 	JdbcTargets CrawlerJdbcTargetArrayInput
 	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
 	LakeFormationConfiguration CrawlerLakeFormationConfigurationPtrInput
@@ -474,7 +492,7 @@ type crawlerArgs struct {
 	HudiTargets []CrawlerHudiTarget `pulumi:"hudiTargets"`
 	// List of nested Iceberg target arguments. See Iceberg Target below.
 	IcebergTargets []CrawlerIcebergTarget `pulumi:"icebergTargets"`
-	// List of nested JBDC target arguments. See JDBC Target below.
+	// List of nested JDBC target arguments. See JDBC Target below.
 	JdbcTargets []CrawlerJdbcTarget `pulumi:"jdbcTargets"`
 	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
 	LakeFormationConfiguration *CrawlerLakeFormationConfiguration `pulumi:"lakeFormationConfiguration"`
@@ -522,7 +540,7 @@ type CrawlerArgs struct {
 	HudiTargets CrawlerHudiTargetArrayInput
 	// List of nested Iceberg target arguments. See Iceberg Target below.
 	IcebergTargets CrawlerIcebergTargetArrayInput
-	// List of nested JBDC target arguments. See JDBC Target below.
+	// List of nested JDBC target arguments. See JDBC Target below.
 	JdbcTargets CrawlerJdbcTargetArrayInput
 	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
 	LakeFormationConfiguration CrawlerLakeFormationConfigurationPtrInput
@@ -687,7 +705,7 @@ func (o CrawlerOutput) IcebergTargets() CrawlerIcebergTargetArrayOutput {
 	return o.ApplyT(func(v *Crawler) CrawlerIcebergTargetArrayOutput { return v.IcebergTargets }).(CrawlerIcebergTargetArrayOutput)
 }
 
-// List of nested JBDC target arguments. See JDBC Target below.
+// List of nested JDBC target arguments. See JDBC Target below.
 func (o CrawlerOutput) JdbcTargets() CrawlerJdbcTargetArrayOutput {
 	return o.ApplyT(func(v *Crawler) CrawlerJdbcTargetArrayOutput { return v.JdbcTargets }).(CrawlerJdbcTargetArrayOutput)
 }

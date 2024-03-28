@@ -14,8 +14,10 @@ import (
 // Provides a Cognito User Pool resource.
 //
 // ## Example Usage
+//
 // ### Basic configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +30,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cognito.NewUserPool(ctx, "pool", nil)
+//			_, err := cognito.NewUserPool(ctx, "pool", &cognito.UserPoolArgs{
+//				Name: pulumi.String("mypool"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -37,8 +41,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Enabling SMS and Software Token Multi-Factor Authentication
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,7 +63,7 @@ import (
 //				SmsAuthenticationMessage: pulumi.String("Your code is {####}"),
 //				SmsConfiguration: &cognito.UserPoolSmsConfigurationArgs{
 //					ExternalId:   pulumi.String("example"),
-//					SnsCallerArn: pulumi.Any(aws_iam_role.Example.Arn),
+//					SnsCallerArn: pulumi.Any(exampleAwsIamRole.Arn),
 //					SnsRegion:    pulumi.String("us-east-1"),
 //				},
 //				SoftwareTokenMfaConfiguration: &cognito.UserPoolSoftwareTokenMfaConfigurationArgs{
@@ -71,8 +78,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Using Account Recovery Setting
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -86,6 +96,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cognito.NewUserPool(ctx, "test", &cognito.UserPoolArgs{
+//				Name: pulumi.String("mypool"),
 //				AccountRecoverySetting: &cognito.UserPoolAccountRecoverySettingArgs{
 //					RecoveryMechanisms: cognito.UserPoolAccountRecoverySettingRecoveryMechanismArray{
 //						&cognito.UserPoolAccountRecoverySettingRecoveryMechanismArgs{
@@ -107,15 +118,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Cognito User Pools using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
-//
+// $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
 // ```
 type UserPool struct {
 	pulumi.CustomResourceState
@@ -197,10 +207,6 @@ func NewUserPool(ctx *pulumi.Context,
 		args = &UserPoolArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserPool
 	err := ctx.RegisterResource("aws:cognito/userPool:UserPool", name, args, &resource, opts...)

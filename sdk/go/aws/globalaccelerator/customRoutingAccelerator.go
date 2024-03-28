@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,15 +29,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := globalaccelerator.NewCustomRoutingAccelerator(ctx, "example", &globalaccelerator.CustomRoutingAcceleratorArgs{
+//				Name:          pulumi.String("Example"),
+//				IpAddressType: pulumi.String("IPV4"),
+//				IpAddresses: pulumi.StringArray{
+//					pulumi.String("1.2.3.4"),
+//				},
+//				Enabled: pulumi.Bool(true),
 //				Attributes: &globalaccelerator.CustomRoutingAcceleratorAttributesArgs{
 //					FlowLogsEnabled:  pulumi.Bool(true),
 //					FlowLogsS3Bucket: pulumi.String("example-bucket"),
 //					FlowLogsS3Prefix: pulumi.String("flow-logs/"),
-//				},
-//				Enabled:       pulumi.Bool(true),
-//				IpAddressType: pulumi.String("IPV4"),
-//				IpAddresses: pulumi.StringArray{
-//					pulumi.String("1.2.3.4"),
 //				},
 //			})
 //			if err != nil {
@@ -47,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Global Accelerator custom routing accelerators using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-//
+// $ pulumi import aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 // ```
 type CustomRoutingAccelerator struct {
 	pulumi.CustomResourceState
@@ -93,10 +94,6 @@ func NewCustomRoutingAccelerator(ctx *pulumi.Context,
 		args = &CustomRoutingAcceleratorArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomRoutingAccelerator
 	err := ctx.RegisterResource("aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator", name, args, &resource, opts...)

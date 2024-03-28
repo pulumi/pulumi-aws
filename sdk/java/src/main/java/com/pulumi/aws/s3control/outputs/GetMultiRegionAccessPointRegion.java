@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3control.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,25 +71,34 @@ public final class GetMultiRegionAccessPointRegion {
 
         @CustomType.Setter
         public Builder bucket(String bucket) {
-            this.bucket = Objects.requireNonNull(bucket);
+            if (bucket == null) {
+              throw new MissingRequiredPropertyException("GetMultiRegionAccessPointRegion", "bucket");
+            }
+            this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
         public Builder bucketAccountId(String bucketAccountId) {
-            this.bucketAccountId = Objects.requireNonNull(bucketAccountId);
+            if (bucketAccountId == null) {
+              throw new MissingRequiredPropertyException("GetMultiRegionAccessPointRegion", "bucketAccountId");
+            }
+            this.bucketAccountId = bucketAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetMultiRegionAccessPointRegion", "region");
+            }
+            this.region = region;
             return this;
         }
         public GetMultiRegionAccessPointRegion build() {
-            final var o = new GetMultiRegionAccessPointRegion();
-            o.bucket = bucket;
-            o.bucketAccountId = bucketAccountId;
-            o.region = region;
-            return o;
+            final var _resultValue = new GetMultiRegionAccessPointRegion();
+            _resultValue.bucket = bucket;
+            _resultValue.bucketAccountId = bucketAccountId;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

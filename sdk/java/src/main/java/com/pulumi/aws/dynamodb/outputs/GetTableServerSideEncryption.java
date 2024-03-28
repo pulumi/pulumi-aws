@@ -4,6 +4,7 @@
 package com.pulumi.aws.dynamodb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -41,19 +42,25 @@ public final class GetTableServerSideEncryption {
 
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetTableServerSideEncryption", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyArn(String kmsKeyArn) {
-            this.kmsKeyArn = Objects.requireNonNull(kmsKeyArn);
+            if (kmsKeyArn == null) {
+              throw new MissingRequiredPropertyException("GetTableServerSideEncryption", "kmsKeyArn");
+            }
+            this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         public GetTableServerSideEncryption build() {
-            final var o = new GetTableServerSideEncryption();
-            o.enabled = enabled;
-            o.kmsKeyArn = kmsKeyArn;
-            return o;
+            final var _resultValue = new GetTableServerSideEncryption();
+            _resultValue.enabled = enabled;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            return _resultValue;
         }
     }
 }

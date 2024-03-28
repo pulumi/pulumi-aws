@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,50 +23,33 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primaryAccount = new Aws.Macie2.Account("primaryAccount", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = "awsalternate",
-    ///     });
+    ///     var primary = new Aws.Macie2.Account("primary");
     /// 
-    ///     var memberAccount = new Aws.Macie2.Account("memberAccount");
+    ///     var member = new Aws.Macie2.Account("member");
     /// 
-    ///     var primaryMember = new Aws.Macie2.Member("primaryMember", new()
+    ///     var primaryMember = new Aws.Macie2.Member("primary", new()
     ///     {
     ///         AccountId = "ACCOUNT ID",
     ///         Email = "EMAIL",
     ///         Invite = true,
     ///         InvitationMessage = "Message of the invite",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = "awsalternate",
-    ///         DependsOn = new[]
-    ///         {
-    ///             primaryAccount,
-    ///         },
     ///     });
     /// 
-    ///     var memberInvitationAccepter = new Aws.Macie2.InvitationAccepter("memberInvitationAccepter", new()
+    ///     var memberInvitationAccepter = new Aws.Macie2.InvitationAccepter("member", new()
     ///     {
     ///         AdministratorAccountId = "ADMINISTRATOR ACCOUNT ID",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             primaryMember,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_macie2_invitation_accepter` using the admin account ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
+    /// $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:macie2/invitationAccepter:InvitationAccepter")]

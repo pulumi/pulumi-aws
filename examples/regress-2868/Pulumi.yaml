@@ -1,0 +1,3 @@
+name: regress-2868
+runtime: nodejs
+description: Regress pulumi/pulumi-aws#2868

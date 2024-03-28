@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,7 +31,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// {
     ///     var example = new Aws.Ec2TransitGateway.VpcAttachmentAccepter("example", new()
     ///     {
-    ///         TransitGatewayAttachmentId = aws_ec2_transit_gateway_vpc_attachment.Example.Id,
+    ///         TransitGatewayAttachmentId = exampleAwsEc2TransitGatewayVpcAttachment.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "Example cross-account attachment" },
@@ -39,13 +40,14 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment_accepter` using the EC2 Transit Gateway Attachment identifier. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter example tgw-attach-12345678
+    /// $ pulumi import aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter example tgw-attach-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter")]
@@ -146,10 +148,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -263,11 +261,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

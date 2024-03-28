@@ -14,28 +14,30 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.amplify.App("example", {
- *     buildSpec: `  version: 0.1
- *   frontend:
- *     phases:
- *       preBuild:
- *         commands:
- *           - yarn install
- *       build:
- *         commands:
- *           - yarn run build
- *     artifacts:
- *       baseDirectory: build
- *       files:
- *         - '**&#47;*'
- *     cache:
- *       paths:
- *         - node_modules/**&#47;*
- *
+ *     name: "example",
+ *     repository: "https://github.com/example/app",
+ *     buildSpec: `version: 0.1
+ * frontend:
+ *   phases:
+ *     preBuild:
+ *       commands:
+ *         - yarn install
+ *     build:
+ *       commands:
+ *         - yarn run build
+ *   artifacts:
+ *     baseDirectory: build
+ *     files:
+ *       - '**&#47;*'
+ *   cache:
+ *     paths:
+ *       - node_modules/**&#47;*
  * `,
  *     customRules: [{
  *         source: "/<*>",
@@ -45,101 +47,144 @@ import * as utilities from "../utilities";
  *     environmentVariables: {
  *         ENV: "test",
  *     },
- *     repository: "https://github.com/example/app",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Repository with Tokens
  *
  * If you create a new Amplify App with the `repository` argument, you also need to set `oauthToken` or `accessToken` for authentication. For GitHub, get a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) and set `accessToken` as follows:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.amplify.App("example", {
- *     accessToken: "...",
+ *     name: "example",
  *     repository: "https://github.com/example/app",
+ *     accessToken: "...",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * You can omit `accessToken` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
+ *
  * ### Auto Branch Creation
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.amplify.App("example", {
- *     autoBranchCreationConfig: {
- *         enableAutoBuild: true,
- *     },
+ *     name: "example",
+ *     enableAutoBranchCreation: true,
  *     autoBranchCreationPatterns: [
  *         "*",
  *         "*&#47;**",
  *     ],
- *     enableAutoBranchCreation: true,
+ *     autoBranchCreationConfig: {
+ *         enableAutoBuild: true,
+ *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Basic Authorization
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new aws.amplify.App("example", {
+ *     name: "example",
+ *     enableBasicAuth: true,
+ *     basicAuthCredentials: std.base64encode({
+ *         input: "username1:password1",
+ *     }).then(invoke => invoke.result),
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Rewrites and Redirects
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.amplify.App("example", {customRules: [
- *     {
- *         source: "/api/<*>",
- *         status: "200",
- *         target: "https://api.example.com/api/<*>",
- *     },
- *     {
- *         source: "</^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>",
- *         status: "200",
- *         target: "/index.html",
- *     },
- * ]});
+ * const example = new aws.amplify.App("example", {
+ *     name: "example",
+ *     customRules: [
+ *         {
+ *             source: "/api/<*>",
+ *             status: "200",
+ *             target: "https://api.example.com/api/<*>",
+ *         },
+ *         {
+ *             source: "</^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>",
+ *             status: "200",
+ *             target: "/index.html",
+ *         },
+ *     ],
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Custom Image
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.amplify.App("example", {environmentVariables: {
- *     _CUSTOM_IMAGE: "node:16",
- * }});
+ * const example = new aws.amplify.App("example", {
+ *     name: "example",
+ *     environmentVariables: {
+ *         _CUSTOM_IMAGE: "node:16",
+ *     },
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Custom Headers
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.amplify.App("example", {customHeaders: `  customHeaders:
- *     - pattern: '**'
- *       headers:
- *         - key: 'Strict-Transport-Security'
- *           value: 'max-age=31536000; includeSubDomains'
- *         - key: 'X-Frame-Options'
- *           value: 'SAMEORIGIN'
- *         - key: 'X-XSS-Protection'
- *           value: '1; mode=block'
- *         - key: 'X-Content-Type-Options'
- *           value: 'nosniff'
- *         - key: 'Content-Security-Policy'
- *           value: "default-src 'self'"
- *
- * `});
+ * const example = new aws.amplify.App("example", {
+ *     name: "example",
+ *     customHeaders: `customHeaders:
+ *   - pattern: '**'
+ *     headers:
+ *       - key: 'Strict-Transport-Security'
+ *         value: 'max-age=31536000; includeSubDomains'
+ *       - key: 'X-Frame-Options'
+ *         value: 'SAMEORIGIN'
+ *       - key: 'X-XSS-Protection'
+ *         value: '1; mode=block'
+ *       - key: 'X-Content-Type-Options'
+ *         value: 'nosniff'
+ *       - key: 'Content-Security-Policy'
+ *         value: "default-src 'self'"
+ * `,
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Amplify App using Amplify App ID (appId). For example:
  *
  * ```sh
- *  $ pulumi import aws:amplify/app:App example d2ypk4k47z8u6
+ * $ pulumi import aws:amplify/app:App example d2ypk4k47z8u6
  * ```
- *  App ID can be obtained from App ARN (e.g., `arn:aws:amplify:us-east-1:12345678:apps/d2ypk4k47z8u6`).
+ * App ID can be obtained from App ARN (e.g., `arn:aws:amplify:us-east-1:12345678:apps/d2ypk4k47z8u6`).
  */
 export class App extends pulumi.CustomResource {
     /**
@@ -327,7 +372,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["accessToken", "basicAuthCredentials", "oauthToken", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["accessToken", "basicAuthCredentials", "oauthToken"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(App.__pulumiType, name, resourceInputs, opts);
     }

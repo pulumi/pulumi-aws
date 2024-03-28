@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -88,11 +89,13 @@ public final class CrawlerHudiTarget {
 
         @CustomType.Setter
         public Builder connectionName(@Nullable String connectionName) {
+
             this.connectionName = connectionName;
             return this;
         }
         @CustomType.Setter
         public Builder exclusions(@Nullable List<String> exclusions) {
+
             this.exclusions = exclusions;
             return this;
         }
@@ -101,24 +104,30 @@ public final class CrawlerHudiTarget {
         }
         @CustomType.Setter
         public Builder maximumTraversalDepth(Integer maximumTraversalDepth) {
-            this.maximumTraversalDepth = Objects.requireNonNull(maximumTraversalDepth);
+            if (maximumTraversalDepth == null) {
+              throw new MissingRequiredPropertyException("CrawlerHudiTarget", "maximumTraversalDepth");
+            }
+            this.maximumTraversalDepth = maximumTraversalDepth;
             return this;
         }
         @CustomType.Setter
         public Builder paths(List<String> paths) {
-            this.paths = Objects.requireNonNull(paths);
+            if (paths == null) {
+              throw new MissingRequiredPropertyException("CrawlerHudiTarget", "paths");
+            }
+            this.paths = paths;
             return this;
         }
         public Builder paths(String... paths) {
             return paths(List.of(paths));
         }
         public CrawlerHudiTarget build() {
-            final var o = new CrawlerHudiTarget();
-            o.connectionName = connectionName;
-            o.exclusions = exclusions;
-            o.maximumTraversalDepth = maximumTraversalDepth;
-            o.paths = paths;
-            return o;
+            final var _resultValue = new CrawlerHudiTarget();
+            _resultValue.connectionName = connectionName;
+            _resultValue.exclusions = exclusions;
+            _resultValue.maximumTraversalDepth = maximumTraversalDepth;
+            _resultValue.paths = paths;
+            return _resultValue;
         }
     }
 }

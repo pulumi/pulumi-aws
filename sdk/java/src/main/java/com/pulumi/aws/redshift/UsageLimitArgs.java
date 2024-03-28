@@ -5,6 +5,7 @@ package com.pulumi.aws.redshift;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -300,10 +301,18 @@ public final class UsageLimitArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public UsageLimitArgs build() {
-            $.amount = Objects.requireNonNull($.amount, "expected parameter 'amount' to be non-null");
-            $.clusterIdentifier = Objects.requireNonNull($.clusterIdentifier, "expected parameter 'clusterIdentifier' to be non-null");
-            $.featureType = Objects.requireNonNull($.featureType, "expected parameter 'featureType' to be non-null");
-            $.limitType = Objects.requireNonNull($.limitType, "expected parameter 'limitType' to be non-null");
+            if ($.amount == null) {
+                throw new MissingRequiredPropertyException("UsageLimitArgs", "amount");
+            }
+            if ($.clusterIdentifier == null) {
+                throw new MissingRequiredPropertyException("UsageLimitArgs", "clusterIdentifier");
+            }
+            if ($.featureType == null) {
+                throw new MissingRequiredPropertyException("UsageLimitArgs", "featureType");
+            }
+            if ($.limitType == null) {
+                throw new MissingRequiredPropertyException("UsageLimitArgs", "limitType");
+            }
             return $;
         }
     }

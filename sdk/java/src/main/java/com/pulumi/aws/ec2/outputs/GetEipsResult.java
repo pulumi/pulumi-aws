@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetEipsFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -86,7 +87,10 @@ public final class GetEipsResult {
 
         @CustomType.Setter
         public Builder allocationIds(List<String> allocationIds) {
-            this.allocationIds = Objects.requireNonNull(allocationIds);
+            if (allocationIds == null) {
+              throw new MissingRequiredPropertyException("GetEipsResult", "allocationIds");
+            }
+            this.allocationIds = allocationIds;
             return this;
         }
         public Builder allocationIds(String... allocationIds) {
@@ -94,6 +98,7 @@ public final class GetEipsResult {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetEipsFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -102,12 +107,18 @@ public final class GetEipsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEipsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder publicIps(List<String> publicIps) {
-            this.publicIps = Objects.requireNonNull(publicIps);
+            if (publicIps == null) {
+              throw new MissingRequiredPropertyException("GetEipsResult", "publicIps");
+            }
+            this.publicIps = publicIps;
             return this;
         }
         public Builder publicIps(String... publicIps) {
@@ -115,17 +126,20 @@ public final class GetEipsResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetEipsResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetEipsResult build() {
-            final var o = new GetEipsResult();
-            o.allocationIds = allocationIds;
-            o.filters = filters;
-            o.id = id;
-            o.publicIps = publicIps;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetEipsResult();
+            _resultValue.allocationIds = allocationIds;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.publicIps = publicIps;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

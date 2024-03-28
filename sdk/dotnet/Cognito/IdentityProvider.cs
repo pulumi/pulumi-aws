@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,13 +25,14 @@ namespace Pulumi.Aws.Cognito
     /// {
     ///     var example = new Aws.Cognito.UserPool("example", new()
     ///     {
+    ///         Name = "example-pool",
     ///         AutoVerifiedAttributes = new[]
     ///         {
     ///             "email",
     ///         },
     ///     });
     /// 
-    ///     var exampleProvider = new Aws.Cognito.IdentityProvider("exampleProvider", new()
+    ///     var exampleProvider = new Aws.Cognito.IdentityProvider("example_provider", new()
     ///     {
     ///         UserPoolId = example.Id,
     ///         ProviderName = "Google",
@@ -50,13 +52,14 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_cognito_identity_provider` resources using their User Pool ID and Provider Name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
+    /// $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/identityProvider:IdentityProvider")]

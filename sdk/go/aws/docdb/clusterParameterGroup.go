@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := docdb.NewClusterParameterGroup(ctx, "example", &docdb.ClusterParameterGroupArgs{
-//				Description: pulumi.String("docdb cluster parameter group"),
 //				Family:      pulumi.String("docdb3.6"),
+//				Name:        pulumi.String("example"),
+//				Description: pulumi.String("docdb cluster parameter group"),
 //				Parameters: docdb.ClusterParameterGroupParameterArray{
 //					&docdb.ClusterParameterGroupParameterArgs{
 //						Name:  pulumi.String("tls"),
@@ -46,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DocumentDB Cluster Parameter Groups using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:docdb/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
-//
+// $ pulumi import aws:docdb/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
 // ```
 type ClusterParameterGroup struct {
 	pulumi.CustomResourceState
@@ -89,10 +90,6 @@ func NewClusterParameterGroup(ctx *pulumi.Context,
 	if args.Family == nil {
 		return nil, errors.New("invalid value for required argument 'Family'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterParameterGroup
 	err := ctx.RegisterResource("aws:docdb/clusterParameterGroup:ClusterParameterGroup", name, args, &resource, opts...)

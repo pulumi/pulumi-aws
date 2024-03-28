@@ -101,37 +101,42 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatch {
 
         @CustomType.Setter
         public Builder exact(@Nullable String exact) {
+
             this.exact = exact;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder range(@Nullable GatewayRouteSpecHttpRouteMatchHeaderMatchRange range) {
+
             this.range = range;
             return this;
         }
         @CustomType.Setter
         public Builder regex(@Nullable String regex) {
+
             this.regex = regex;
             return this;
         }
         @CustomType.Setter
         public Builder suffix(@Nullable String suffix) {
+
             this.suffix = suffix;
             return this;
         }
         public GatewayRouteSpecHttpRouteMatchHeaderMatch build() {
-            final var o = new GatewayRouteSpecHttpRouteMatchHeaderMatch();
-            o.exact = exact;
-            o.prefix = prefix;
-            o.range = range;
-            o.regex = regex;
-            o.suffix = suffix;
-            return o;
+            final var _resultValue = new GatewayRouteSpecHttpRouteMatchHeaderMatch();
+            _resultValue.exact = exact;
+            _resultValue.prefix = prefix;
+            _resultValue.range = range;
+            _resultValue.regex = regex;
+            _resultValue.suffix = suffix;
+            return _resultValue;
         }
     }
 }

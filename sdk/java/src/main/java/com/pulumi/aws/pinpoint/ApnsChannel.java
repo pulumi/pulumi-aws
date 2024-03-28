@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,20 +49,25 @@ import javax.annotation.Nullable;
  * 
  *         var apns = new ApnsChannel(&#34;apns&#34;, ApnsChannelArgs.builder()        
  *             .applicationId(app.applicationId())
- *             .certificate(Files.readString(Paths.get(&#34;./certificate.pem&#34;)))
- *             .privateKey(Files.readString(Paths.get(&#34;./private_key.key&#34;)))
+ *             .certificate(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;./certificate.pem&#34;)
+ *                 .build()).result())
+ *             .privateKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;./private_key.key&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Pinpoint APNs Channel using the `application-id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:pinpoint/apnsChannel:ApnsChannel apns application-id
+ * $ pulumi import aws:pinpoint/apnsChannel:ApnsChannel apns application-id
  * ```
  * 
  */

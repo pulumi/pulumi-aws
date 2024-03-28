@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -16,19 +17,20 @@ import * as utilities from "../utilities";
  * // Create a new host with instance type of c5.18xlarge with Auto Placement
  * // and Host Recovery enabled.
  * const test = new aws.ec2.DedicatedHost("test", {
- *     autoPlacement: "on",
+ *     instanceType: "c5.18xlarge",
  *     availabilityZone: "us-west-2a",
  *     hostRecovery: "on",
- *     instanceType: "c5.18xlarge",
+ *     autoPlacement: "on",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import hosts using the host `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
+ * $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
  * ```
  */
 export class DedicatedHost extends pulumi.CustomResource {
@@ -148,8 +150,6 @@ export class DedicatedHost extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(DedicatedHost.__pulumiType, name, resourceInputs, opts);
     }
 }

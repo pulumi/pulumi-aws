@@ -45,6 +45,7 @@ class ProviderArgs:
                  skip_requesting_account_id: Optional[pulumi.Input[bool]] = None,
                  sts_region: Optional[pulumi.Input[str]] = None,
                  token: Optional[pulumi.Input[str]] = None,
+                 token_bucket_rate_limiter_capacity: Optional[pulumi.Input[int]] = None,
                  use_dualstack_endpoint: Optional[pulumi.Input[bool]] = None,
                  use_fips_endpoint: Optional[pulumi.Input[bool]] = None):
         """
@@ -87,6 +88,7 @@ class ProviderArgs:
         :param pulumi.Input[bool] skip_requesting_account_id: Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
         :param pulumi.Input[str] sts_region: The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
         :param pulumi.Input[str] token: session token. A session token is only required if you are using temporary security credentials.
+        :param pulumi.Input[int] token_bucket_rate_limiter_capacity: The capacity of the AWS SDK's token bucket rate limiter.
         :param pulumi.Input[bool] use_dualstack_endpoint: Resolve an endpoint with DualStack capability
         :param pulumi.Input[bool] use_fips_endpoint: Resolve an endpoint with FIPS capability
         """
@@ -158,6 +160,8 @@ class ProviderArgs:
             pulumi.set(__self__, "sts_region", sts_region)
         if token is not None:
             pulumi.set(__self__, "token", token)
+        if token_bucket_rate_limiter_capacity is not None:
+            pulumi.set(__self__, "token_bucket_rate_limiter_capacity", token_bucket_rate_limiter_capacity)
         if use_dualstack_endpoint is not None:
             pulumi.set(__self__, "use_dualstack_endpoint", use_dualstack_endpoint)
         if use_fips_endpoint is not None:
@@ -522,6 +526,18 @@ class ProviderArgs:
         pulumi.set(self, "token", value)
 
     @property
+    @pulumi.getter(name="tokenBucketRateLimiterCapacity")
+    def token_bucket_rate_limiter_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The capacity of the AWS SDK's token bucket rate limiter.
+        """
+        return pulumi.get(self, "token_bucket_rate_limiter_capacity")
+
+    @token_bucket_rate_limiter_capacity.setter
+    def token_bucket_rate_limiter_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "token_bucket_rate_limiter_capacity", value)
+
+    @property
     @pulumi.getter(name="useDualstackEndpoint")
     def use_dualstack_endpoint(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -581,6 +597,7 @@ class Provider(pulumi.ProviderResource):
                  skip_requesting_account_id: Optional[pulumi.Input[bool]] = None,
                  sts_region: Optional[pulumi.Input[str]] = None,
                  token: Optional[pulumi.Input[str]] = None,
+                 token_bucket_rate_limiter_capacity: Optional[pulumi.Input[int]] = None,
                  use_dualstack_endpoint: Optional[pulumi.Input[bool]] = None,
                  use_fips_endpoint: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -630,6 +647,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[bool] skip_requesting_account_id: Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
         :param pulumi.Input[str] sts_region: The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
         :param pulumi.Input[str] token: session token. A session token is only required if you are using temporary security credentials.
+        :param pulumi.Input[int] token_bucket_rate_limiter_capacity: The capacity of the AWS SDK's token bucket rate limiter.
         :param pulumi.Input[bool] use_dualstack_endpoint: Resolve an endpoint with DualStack capability
         :param pulumi.Input[bool] use_fips_endpoint: Resolve an endpoint with FIPS capability
         """
@@ -690,6 +708,7 @@ class Provider(pulumi.ProviderResource):
                  skip_requesting_account_id: Optional[pulumi.Input[bool]] = None,
                  sts_region: Optional[pulumi.Input[str]] = None,
                  token: Optional[pulumi.Input[str]] = None,
+                 token_bucket_rate_limiter_capacity: Optional[pulumi.Input[int]] = None,
                  use_dualstack_endpoint: Optional[pulumi.Input[bool]] = None,
                  use_fips_endpoint: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -739,6 +758,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["skip_requesting_account_id"] = pulumi.Output.from_input(skip_requesting_account_id).apply(pulumi.runtime.to_json) if skip_requesting_account_id is not None else None
             __props__.__dict__["sts_region"] = sts_region
             __props__.__dict__["token"] = token
+            __props__.__dict__["token_bucket_rate_limiter_capacity"] = pulumi.Output.from_input(token_bucket_rate_limiter_capacity).apply(pulumi.runtime.to_json) if token_bucket_rate_limiter_capacity is not None else None
             __props__.__dict__["use_dualstack_endpoint"] = pulumi.Output.from_input(use_dualstack_endpoint).apply(pulumi.runtime.to_json) if use_dualstack_endpoint is not None else None
             __props__.__dict__["use_fips_endpoint"] = pulumi.Output.from_input(use_fips_endpoint).apply(pulumi.runtime.to_json) if use_fips_endpoint is not None else None
         super(Provider, __self__).__init__(

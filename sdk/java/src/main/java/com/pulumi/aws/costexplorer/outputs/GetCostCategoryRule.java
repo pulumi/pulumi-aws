@@ -6,6 +6,7 @@ package com.pulumi.aws.costexplorer.outputs;
 import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRuleInheritedValue;
 import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRuleRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -87,7 +88,10 @@ public final class GetCostCategoryRule {
 
         @CustomType.Setter
         public Builder inheritedValues(List<GetCostCategoryRuleInheritedValue> inheritedValues) {
-            this.inheritedValues = Objects.requireNonNull(inheritedValues);
+            if (inheritedValues == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryRule", "inheritedValues");
+            }
+            this.inheritedValues = inheritedValues;
             return this;
         }
         public Builder inheritedValues(GetCostCategoryRuleInheritedValue... inheritedValues) {
@@ -95,7 +99,10 @@ public final class GetCostCategoryRule {
         }
         @CustomType.Setter
         public Builder rules(List<GetCostCategoryRuleRule> rules) {
-            this.rules = Objects.requireNonNull(rules);
+            if (rules == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryRule", "rules");
+            }
+            this.rules = rules;
             return this;
         }
         public Builder rules(GetCostCategoryRuleRule... rules) {
@@ -103,21 +110,27 @@ public final class GetCostCategoryRule {
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryRule", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryRule", "value");
+            }
+            this.value = value;
             return this;
         }
         public GetCostCategoryRule build() {
-            final var o = new GetCostCategoryRule();
-            o.inheritedValues = inheritedValues;
-            o.rules = rules;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetCostCategoryRule();
+            _resultValue.inheritedValues = inheritedValues;
+            _resultValue.rules = rules;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

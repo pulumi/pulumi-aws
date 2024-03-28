@@ -4,6 +4,7 @@
 package com.pulumi.aws.grafana.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class WorkspaceVpcConfiguration {
 
         @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+            if (securityGroupIds == null) {
+              throw new MissingRequiredPropertyException("WorkspaceVpcConfiguration", "securityGroupIds");
+            }
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {
@@ -65,17 +69,20 @@ public final class WorkspaceVpcConfiguration {
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("WorkspaceVpcConfiguration", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
         public WorkspaceVpcConfiguration build() {
-            final var o = new WorkspaceVpcConfiguration();
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            return o;
+            final var _resultValue = new WorkspaceVpcConfiguration();
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            return _resultValue;
         }
     }
 }

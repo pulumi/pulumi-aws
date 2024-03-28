@@ -5,6 +5,7 @@ package com.pulumi.aws.wafregional.outputs;
 
 import com.pulumi.aws.wafregional.outputs.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -65,19 +66,25 @@ public final class SqlInjectionMatchSetSqlInjectionMatchTuple {
 
         @CustomType.Setter
         public Builder fieldToMatch(SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch fieldToMatch) {
-            this.fieldToMatch = Objects.requireNonNull(fieldToMatch);
+            if (fieldToMatch == null) {
+              throw new MissingRequiredPropertyException("SqlInjectionMatchSetSqlInjectionMatchTuple", "fieldToMatch");
+            }
+            this.fieldToMatch = fieldToMatch;
             return this;
         }
         @CustomType.Setter
         public Builder textTransformation(String textTransformation) {
-            this.textTransformation = Objects.requireNonNull(textTransformation);
+            if (textTransformation == null) {
+              throw new MissingRequiredPropertyException("SqlInjectionMatchSetSqlInjectionMatchTuple", "textTransformation");
+            }
+            this.textTransformation = textTransformation;
             return this;
         }
         public SqlInjectionMatchSetSqlInjectionMatchTuple build() {
-            final var o = new SqlInjectionMatchSetSqlInjectionMatchTuple();
-            o.fieldToMatch = fieldToMatch;
-            o.textTransformation = textTransformation;
-            return o;
+            final var _resultValue = new SqlInjectionMatchSetSqlInjectionMatchTuple();
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.textTransformation = textTransformation;
+            return _resultValue;
         }
     }
 }

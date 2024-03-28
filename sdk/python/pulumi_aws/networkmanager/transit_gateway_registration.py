@@ -104,23 +104,25 @@ class TransitGatewayRegistration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_global_network = aws.networkmanager.GlobalNetwork("exampleGlobalNetwork", description="example")
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway")
-        example_transit_gateway_registration = aws.networkmanager.TransitGatewayRegistration("exampleTransitGatewayRegistration",
-            global_network_id=example_global_network.id,
+        example = aws.networkmanager.GlobalNetwork("example", description="example")
+        example_transit_gateway = aws.ec2transitgateway.TransitGateway("example")
+        example_transit_gateway_registration = aws.networkmanager.TransitGatewayRegistration("example",
+            global_network_id=example.id,
             transit_gateway_arn=example_transit_gateway.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_transit_gateway_registration` using the global network ID and transit gateway ARN. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc
+        $ pulumi import aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc
         ```
 
         :param str resource_name: The name of the resource.
@@ -141,23 +143,25 @@ class TransitGatewayRegistration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_global_network = aws.networkmanager.GlobalNetwork("exampleGlobalNetwork", description="example")
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway")
-        example_transit_gateway_registration = aws.networkmanager.TransitGatewayRegistration("exampleTransitGatewayRegistration",
-            global_network_id=example_global_network.id,
+        example = aws.networkmanager.GlobalNetwork("example", description="example")
+        example_transit_gateway = aws.ec2transitgateway.TransitGateway("example")
+        example_transit_gateway_registration = aws.networkmanager.TransitGatewayRegistration("example",
+            global_network_id=example.id,
             transit_gateway_arn=example_transit_gateway.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_transit_gateway_registration` using the global network ID and transit gateway ARN. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc
+        $ pulumi import aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc
         ```
 
         :param str resource_name: The name of the resource.

@@ -5,6 +5,7 @@ package com.pulumi.aws.servicecatalog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -121,7 +122,9 @@ public final class GetProvisioningArtifactsArgs extends com.pulumi.resources.Inv
         }
 
         public GetProvisioningArtifactsArgs build() {
-            $.productId = Objects.requireNonNull($.productId, "expected parameter 'productId' to be non-null");
+            if ($.productId == null) {
+                throw new MissingRequiredPropertyException("GetProvisioningArtifactsArgs", "productId");
+            }
             return $;
         }
     }

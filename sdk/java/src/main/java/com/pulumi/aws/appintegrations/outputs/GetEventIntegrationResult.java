@@ -5,6 +5,7 @@ package com.pulumi.aws.appintegrations.outputs;
 
 import com.pulumi.aws.appintegrations.outputs.GetEventIntegrationEventFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -121,17 +122,26 @@ public final class GetEventIntegrationResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetEventIntegrationResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetEventIntegrationResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder eventFilters(List<GetEventIntegrationEventFilter> eventFilters) {
-            this.eventFilters = Objects.requireNonNull(eventFilters);
+            if (eventFilters == null) {
+              throw new MissingRequiredPropertyException("GetEventIntegrationResult", "eventFilters");
+            }
+            this.eventFilters = eventFilters;
             return this;
         }
         public Builder eventFilters(GetEventIntegrationEventFilter... eventFilters) {
@@ -139,34 +149,46 @@ public final class GetEventIntegrationResult {
         }
         @CustomType.Setter
         public Builder eventbridgeBus(String eventbridgeBus) {
-            this.eventbridgeBus = Objects.requireNonNull(eventbridgeBus);
+            if (eventbridgeBus == null) {
+              throw new MissingRequiredPropertyException("GetEventIntegrationResult", "eventbridgeBus");
+            }
+            this.eventbridgeBus = eventbridgeBus;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEventIntegrationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetEventIntegrationResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetEventIntegrationResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetEventIntegrationResult build() {
-            final var o = new GetEventIntegrationResult();
-            o.arn = arn;
-            o.description = description;
-            o.eventFilters = eventFilters;
-            o.eventbridgeBus = eventbridgeBus;
-            o.id = id;
-            o.name = name;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetEventIntegrationResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.eventFilters = eventFilters;
+            _resultValue.eventbridgeBus = eventbridgeBus;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

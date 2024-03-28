@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//			example, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
 //				CidrBlock:          pulumi.String("10.0.0.0/16"),
 //				EnableDnsSupport:   pulumi.Bool(true),
 //				EnableDnsHostnames: pulumi.Bool(true),
@@ -37,14 +38,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePrivateDnsNamespace, err := servicediscovery.NewPrivateDnsNamespace(ctx, "examplePrivateDnsNamespace", &servicediscovery.PrivateDnsNamespaceArgs{
+//			examplePrivateDnsNamespace, err := servicediscovery.NewPrivateDnsNamespace(ctx, "example", &servicediscovery.PrivateDnsNamespaceArgs{
+//				Name:        pulumi.String("example.domain.local"),
 //				Description: pulumi.String("example"),
-//				Vpc:         exampleVpc.ID(),
+//				Vpc:         example.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleService, err := servicediscovery.NewService(ctx, "exampleService", &servicediscovery.ServiceArgs{
+//			exampleService, err := servicediscovery.NewService(ctx, "example", &servicediscovery.ServiceArgs{
+//				Name: pulumi.String("example"),
 //				DnsConfig: &servicediscovery.ServiceDnsConfigArgs{
 //					NamespaceId: examplePrivateDnsNamespace.ID(),
 //					DnsRecords: servicediscovery.ServiceDnsConfigDnsRecordArray{
@@ -62,7 +65,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = servicediscovery.NewInstance(ctx, "exampleInstance", &servicediscovery.InstanceArgs{
+//			_, err = servicediscovery.NewInstance(ctx, "example", &servicediscovery.InstanceArgs{
 //				InstanceId: pulumi.String("example-instance-id"),
 //				ServiceId:  exampleService.ID(),
 //				Attributes: pulumi.StringMap{
@@ -78,7 +81,9 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -91,19 +96,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleHttpNamespace, err := servicediscovery.NewHttpNamespace(ctx, "exampleHttpNamespace", &servicediscovery.HttpNamespaceArgs{
+//			example, err := servicediscovery.NewHttpNamespace(ctx, "example", &servicediscovery.HttpNamespaceArgs{
+//				Name:        pulumi.String("example.domain.test"),
 //				Description: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleService, err := servicediscovery.NewService(ctx, "exampleService", &servicediscovery.ServiceArgs{
-//				NamespaceId: exampleHttpNamespace.ID(),
+//			exampleService, err := servicediscovery.NewService(ctx, "example", &servicediscovery.ServiceArgs{
+//				Name:        pulumi.String("example"),
+//				NamespaceId: example.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = servicediscovery.NewInstance(ctx, "exampleInstance", &servicediscovery.InstanceArgs{
+//			_, err = servicediscovery.NewInstance(ctx, "example", &servicediscovery.InstanceArgs{
 //				InstanceId: pulumi.String("example-instance-id"),
 //				ServiceId:  exampleService.ID(),
 //				Attributes: pulumi.StringMap{
@@ -118,15 +125,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Service Discovery Instance using the service ID and instance ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
-//
+// $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
 // ```
 type Instance struct {
 	pulumi.CustomResourceState

@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -59,37 +60,52 @@ public final class GetLaunchTemplateInstanceMarketOptionSpotOption {
 
         @CustomType.Setter
         public Builder blockDurationMinutes(Integer blockDurationMinutes) {
-            this.blockDurationMinutes = Objects.requireNonNull(blockDurationMinutes);
+            if (blockDurationMinutes == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceMarketOptionSpotOption", "blockDurationMinutes");
+            }
+            this.blockDurationMinutes = blockDurationMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder instanceInterruptionBehavior(String instanceInterruptionBehavior) {
-            this.instanceInterruptionBehavior = Objects.requireNonNull(instanceInterruptionBehavior);
+            if (instanceInterruptionBehavior == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceMarketOptionSpotOption", "instanceInterruptionBehavior");
+            }
+            this.instanceInterruptionBehavior = instanceInterruptionBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder maxPrice(String maxPrice) {
-            this.maxPrice = Objects.requireNonNull(maxPrice);
+            if (maxPrice == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceMarketOptionSpotOption", "maxPrice");
+            }
+            this.maxPrice = maxPrice;
             return this;
         }
         @CustomType.Setter
         public Builder spotInstanceType(String spotInstanceType) {
-            this.spotInstanceType = Objects.requireNonNull(spotInstanceType);
+            if (spotInstanceType == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceMarketOptionSpotOption", "spotInstanceType");
+            }
+            this.spotInstanceType = spotInstanceType;
             return this;
         }
         @CustomType.Setter
         public Builder validUntil(String validUntil) {
-            this.validUntil = Objects.requireNonNull(validUntil);
+            if (validUntil == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceMarketOptionSpotOption", "validUntil");
+            }
+            this.validUntil = validUntil;
             return this;
         }
         public GetLaunchTemplateInstanceMarketOptionSpotOption build() {
-            final var o = new GetLaunchTemplateInstanceMarketOptionSpotOption();
-            o.blockDurationMinutes = blockDurationMinutes;
-            o.instanceInterruptionBehavior = instanceInterruptionBehavior;
-            o.maxPrice = maxPrice;
-            o.spotInstanceType = spotInstanceType;
-            o.validUntil = validUntil;
-            return o;
+            final var _resultValue = new GetLaunchTemplateInstanceMarketOptionSpotOption();
+            _resultValue.blockDurationMinutes = blockDurationMinutes;
+            _resultValue.instanceInterruptionBehavior = instanceInterruptionBehavior;
+            _resultValue.maxPrice = maxPrice;
+            _resultValue.spotInstanceType = spotInstanceType;
+            _resultValue.validUntil = validUntil;
+            return _resultValue;
         }
     }
 }

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codecommit.NewRepository(ctx, "test", &codecommit.RepositoryArgs{
-//				Description:    pulumi.String("This is the Sample App Repository"),
 //				RepositoryName: pulumi.String("MyTestRepository"),
+//				Description:    pulumi.String("This is the Sample App Repository"),
 //			})
 //			if err != nil {
 //				return err
@@ -40,15 +41,52 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ### AWS KMS Customer Managed Keys (CMK)
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecommit"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testKey, err := kms.NewKey(ctx, "test", &kms.KeyArgs{
+//				Description:          pulumi.String("test"),
+//				DeletionWindowInDays: pulumi.Int(7),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codecommit.NewRepository(ctx, "test", &codecommit.RepositoryArgs{
+//				RepositoryName: pulumi.String("MyTestRepository"),
+//				Description:    pulumi.String("This is the Sample App Repository"),
+//				KmsKeyId:       testKey.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CodeCommit repository using repository name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
-//
+// $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
 // ```
 type Repository struct {
 	pulumi.CustomResourceState
@@ -63,6 +101,8 @@ type Repository struct {
 	DefaultBranch pulumi.StringPtrOutput `pulumi:"defaultBranch"`
 	// The description of the repository. This needs to be less than 1000 characters
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// The ID of the repository
 	RepositoryId pulumi.StringOutput `pulumi:"repositoryId"`
 	// The name for the repository. This needs to be less than 100 characters.
@@ -85,10 +125,6 @@ func NewRepository(ctx *pulumi.Context,
 	if args.RepositoryName == nil {
 		return nil, errors.New("invalid value for required argument 'RepositoryName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Repository
 	err := ctx.RegisterResource("aws:codecommit/repository:Repository", name, args, &resource, opts...)
@@ -122,6 +158,8 @@ type repositoryState struct {
 	DefaultBranch *string `pulumi:"defaultBranch"`
 	// The description of the repository. This needs to be less than 1000 characters
 	Description *string `pulumi:"description"`
+	// The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The ID of the repository
 	RepositoryId *string `pulumi:"repositoryId"`
 	// The name for the repository. This needs to be less than 100 characters.
@@ -145,6 +183,8 @@ type RepositoryState struct {
 	DefaultBranch pulumi.StringPtrInput
 	// The description of the repository. This needs to be less than 1000 characters
 	Description pulumi.StringPtrInput
+	// The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+	KmsKeyId pulumi.StringPtrInput
 	// The ID of the repository
 	RepositoryId pulumi.StringPtrInput
 	// The name for the repository. This needs to be less than 100 characters.
@@ -166,6 +206,8 @@ type repositoryArgs struct {
 	DefaultBranch *string `pulumi:"defaultBranch"`
 	// The description of the repository. This needs to be less than 1000 characters
 	Description *string `pulumi:"description"`
+	// The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName string `pulumi:"repositoryName"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -178,6 +220,8 @@ type RepositoryArgs struct {
 	DefaultBranch pulumi.StringPtrInput
 	// The description of the repository. This needs to be less than 1000 characters
 	Description pulumi.StringPtrInput
+	// The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+	KmsKeyId pulumi.StringPtrInput
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName pulumi.StringInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -294,6 +338,11 @@ func (o RepositoryOutput) DefaultBranch() pulumi.StringPtrOutput {
 // The description of the repository. This needs to be less than 1000 characters
 func (o RepositoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the encryption key. If no key is specified, the default `aws/codecommit“ Amazon Web Services managed key is used.
+func (o RepositoryOutput) KmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
 // The ID of the repository

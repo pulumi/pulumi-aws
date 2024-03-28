@@ -22,7 +22,10 @@ import javax.annotation.Nullable;
  * &gt; **Note:** AWS requires a special IAM role called `dms-vpc-role` when using this resource. See the example below to create it as part of your configuration.
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,9 +59,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Creating special IAM role
  * 
  * If your account does not already include the `dms-vpc-role` IAM role, you will need to create it to allow DMS to manage subnets in the VPC.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -72,7 +79,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.dms.ReplicationSubnetGroup;
  * import com.pulumi.aws.dms.ReplicationSubnetGroupArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -87,21 +93,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var dms_vpc_role = new Role(&#34;dms-vpc-role&#34;, RoleArgs.builder()        
+ *             .name(&#34;dms-vpc-role&#34;)
  *             .description(&#34;Allows DMS to manage VPC&#34;)
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;dms.amazonaws.com&#34;)
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;service&#34;, &#34;dms.amazonaws.com&#34;)
  *                         )),
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;)
+ *                         jsonProperty(&#34;action&#34;, &#34;sts:AssumeRole&#34;)
  *                     )))
  *                 )))
  *             .build());
  * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
+ *         var example = new RolePolicyAttachment(&#34;example&#34;, RolePolicyAttachmentArgs.builder()        
  *             .role(dms_vpc_role.name())
  *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole&#34;)
  *             .build());
@@ -113,20 +120,19 @@ import javax.annotation.Nullable;
  *                 &#34;subnet-12345678&#34;,
  *                 &#34;subnet-12345679&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;example-id&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleRolePolicyAttachment)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import replication subnet groups using the `replication_subnet_group_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
+ * $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
  * ```
  * 
  */
@@ -259,9 +265,6 @@ public class ReplicationSubnetGroup extends com.pulumi.resources.CustomResource 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

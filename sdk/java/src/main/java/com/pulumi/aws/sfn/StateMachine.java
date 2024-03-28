@@ -14,7 +14,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,7 +22,10 @@ import javax.annotation.Nullable;
  * Provides a Step Function State Machine resource
  * 
  * ## Example Usage
+ * 
  * ### Basic (Standard Workflow)
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,7 +48,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sfnStateMachine = new StateMachine(&#34;sfnStateMachine&#34;, StateMachineArgs.builder()        
- *             .roleArn(aws_iam_role.iam_for_sfn().arn())
+ *             .name(&#34;my-state-machine&#34;)
+ *             .roleArn(iamForSfn.arn())
  *             .definition(&#34;&#34;&#34;
  * {
  *   &#34;Comment&#34;: &#34;A Hello World example of the Amazon States Language using an AWS Lambda Function&#34;,
@@ -59,13 +62,17 @@ import javax.annotation.Nullable;
  *     }
  *   }
  * }
- * &#34;, aws_lambda_function.lambda().arn()))
+ * &#34;, lambda.arn()))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Basic (Express Workflow)
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -88,7 +95,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sfnStateMachine = new StateMachine(&#34;sfnStateMachine&#34;, StateMachineArgs.builder()        
- *             .roleArn(aws_iam_role.iam_for_sfn().arn())
+ *             .name(&#34;my-state-machine&#34;)
+ *             .roleArn(iamForSfn.arn())
  *             .type(&#34;EXPRESS&#34;)
  *             .definition(&#34;&#34;&#34;
  * {
@@ -102,13 +110,17 @@ import javax.annotation.Nullable;
  *     }
  *   }
  * }
- * &#34;, aws_lambda_function.lambda().arn()))
+ * &#34;, lambda.arn()))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Publish (Publish SFN version)
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -131,7 +143,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sfnStateMachine = new StateMachine(&#34;sfnStateMachine&#34;, StateMachineArgs.builder()        
- *             .roleArn(aws_iam_role.iam_for_sfn().arn())
+ *             .name(&#34;my-state-machine&#34;)
+ *             .roleArn(iamForSfn.arn())
  *             .publish(true)
  *             .type(&#34;EXPRESS&#34;)
  *             .definition(&#34;&#34;&#34;
@@ -146,15 +159,19 @@ import javax.annotation.Nullable;
  *     }
  *   }
  * }
- * &#34;, aws_lambda_function.lambda().arn()))
+ * &#34;, lambda.arn()))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Logging
  * 
  * &gt; *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -178,7 +195,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sfnStateMachine = new StateMachine(&#34;sfnStateMachine&#34;, StateMachineArgs.builder()        
- *             .roleArn(aws_iam_role.iam_for_sfn().arn())
+ *             .name(&#34;my-state-machine&#34;)
+ *             .roleArn(iamForSfn.arn())
  *             .definition(&#34;&#34;&#34;
  * {
  *   &#34;Comment&#34;: &#34;A Hello World example of the Amazon States Language using an AWS Lambda Function&#34;,
@@ -191,9 +209,9 @@ import javax.annotation.Nullable;
  *     }
  *   }
  * }
- * &#34;, aws_lambda_function.lambda().arn()))
+ * &#34;, lambda.arn()))
  *             .loggingConfiguration(StateMachineLoggingConfigurationArgs.builder()
- *                 .logDestination(String.format(&#34;%s:*&#34;, aws_cloudwatch_log_group.log_group_for_sfn().arn()))
+ *                 .logDestination(String.format(&#34;%s:*&#34;, logGroupForSfn.arn()))
  *                 .includeExecutionData(true)
  *                 .level(&#34;ERROR&#34;)
  *                 .build())
@@ -202,13 +220,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import State Machines using the `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
+ * $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
  * ```
  * 
  */
@@ -338,9 +357,17 @@ public class StateMachine extends com.pulumi.resources.CustomResource {
     public Output<String> roleArn() {
         return this.roleArn;
     }
+    /**
+     * The ARN of the state machine version.
+     * 
+     */
     @Export(name="stateMachineVersionArn", refs={String.class}, tree="[0]")
     private Output<String> stateMachineVersionArn;
 
+    /**
+     * @return The ARN of the state machine version.
+     * 
+     */
     public Output<String> stateMachineVersionArn() {
         return this.stateMachineVersionArn;
     }
@@ -457,9 +484,6 @@ public class StateMachine extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

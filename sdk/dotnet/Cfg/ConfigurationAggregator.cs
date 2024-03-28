@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Cfg
     /// Manages an AWS Config Configuration Aggregator
     /// 
     /// ## Example Usage
+    /// 
     /// ### Account Based Aggregation
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,6 +27,7 @@ namespace Pulumi.Aws.Cfg
     /// {
     ///     var account = new Aws.Cfg.ConfigurationAggregator("account", new()
     ///     {
+    ///         Name = "example",
     ///         AccountAggregationSource = new Aws.Cfg.Inputs.ConfigurationAggregatorAccountAggregationSourceArgs
     ///         {
     ///             AccountIds = new[]
@@ -40,8 +43,11 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Organization Based Aggregation
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -76,41 +82,38 @@ namespace Pulumi.Aws.Cfg
     ///         },
     ///     });
     /// 
-    ///     var organizationRole = new Aws.Iam.Role("organizationRole", new()
+    ///     var organizationRole = new Aws.Iam.Role("organization", new()
     ///     {
+    ///         Name = "example",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var organizationRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("organizationRolePolicyAttachment", new()
+    ///     var organization = new Aws.Cfg.ConfigurationAggregator("organization", new()
     ///     {
-    ///         Role = organizationRole.Name,
-    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
-    ///     });
-    /// 
-    ///     var organizationConfigurationAggregator = new Aws.Cfg.ConfigurationAggregator("organizationConfigurationAggregator", new()
-    ///     {
+    ///         Name = "example",
     ///         OrganizationAggregationSource = new Aws.Cfg.Inputs.ConfigurationAggregatorOrganizationAggregationSourceArgs
     ///         {
     ///             AllRegions = true,
     ///             RoleArn = organizationRole.Arn,
     ///         },
-    ///     }, new CustomResourceOptions
+    ///     });
+    /// 
+    ///     var organizationRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("organization", new()
     ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             organizationRolePolicyAttachment,
-    ///         },
+    ///         Role = organizationRole.Name,
+    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Configuration Aggregators using the name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
+    /// $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/configurationAggregator:ConfigurationAggregator")]
@@ -177,10 +180,6 @@ namespace Pulumi.Aws.Cfg
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -292,11 +291,7 @@ namespace Pulumi.Aws.Cfg
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ConfigurationAggregatorState()

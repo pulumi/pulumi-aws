@@ -4,8 +4,10 @@
 package com.pulumi.aws.cfg;
 
 import com.pulumi.aws.cfg.inputs.RecorderRecordingGroupArgs;
+import com.pulumi.aws.cfg.inputs.RecorderRecordingModeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -47,6 +49,21 @@ public final class RecorderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Recording mode - see below.
+     * 
+     */
+    @Import(name="recordingMode")
+    private @Nullable Output<RecorderRecordingModeArgs> recordingMode;
+
+    /**
+     * @return Recording mode - see below.
+     * 
+     */
+    public Optional<Output<RecorderRecordingModeArgs>> recordingMode() {
+        return Optional.ofNullable(this.recordingMode);
+    }
+
+    /**
      * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      * 
      */
@@ -66,6 +83,7 @@ public final class RecorderArgs extends com.pulumi.resources.ResourceArgs {
     private RecorderArgs(RecorderArgs $) {
         this.name = $.name;
         this.recordingGroup = $.recordingGroup;
+        this.recordingMode = $.recordingMode;
         this.roleArn = $.roleArn;
     }
 
@@ -130,6 +148,27 @@ public final class RecorderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param recordingMode Recording mode - see below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recordingMode(@Nullable Output<RecorderRecordingModeArgs> recordingMode) {
+            $.recordingMode = recordingMode;
+            return this;
+        }
+
+        /**
+         * @param recordingMode Recording mode - see below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recordingMode(RecorderRecordingModeArgs recordingMode) {
+            return recordingMode(Output.of(recordingMode));
+        }
+
+        /**
          * @param roleArn Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
          * 
          * @return builder
@@ -151,7 +190,9 @@ public final class RecorderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RecorderArgs build() {
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("RecorderArgs", "roleArn");
+            }
             return $;
         }
     }

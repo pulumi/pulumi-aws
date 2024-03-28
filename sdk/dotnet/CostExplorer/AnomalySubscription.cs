@@ -13,8 +13,10 @@ namespace Pulumi.Aws.CostExplorer
     /// Provides a CE Anomaly Subscription.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,18 +25,20 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testAnomalyMonitor = new Aws.CostExplorer.AnomalyMonitor("testAnomalyMonitor", new()
+    ///     var test = new Aws.CostExplorer.AnomalyMonitor("test", new()
     ///     {
+    ///         Name = "AWSServiceMonitor",
     ///         MonitorType = "DIMENSIONAL",
     ///         MonitorDimension = "SERVICE",
     ///     });
     /// 
-    ///     var testAnomalySubscription = new Aws.CostExplorer.AnomalySubscription("testAnomalySubscription", new()
+    ///     var testAnomalySubscription = new Aws.CostExplorer.AnomalySubscription("test", new()
     ///     {
+    ///         Name = "DAILYSUBSCRIPTION",
     ///         Frequency = "DAILY",
     ///         MonitorArnLists = new[]
     ///         {
-    ///             testAnomalyMonitor.Arn,
+    ///             test.Arn,
     ///         },
     ///         Subscribers = new[]
     ///         {
@@ -48,9 +52,13 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Threshold Expression Example
+    /// 
     /// ### For a Specific Dimension
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -61,10 +69,11 @@ namespace Pulumi.Aws.CostExplorer
     /// {
     ///     var test = new Aws.CostExplorer.AnomalySubscription("test", new()
     ///     {
+    ///         Name = "AWSServiceMonitor",
     ///         Frequency = "DAILY",
     ///         MonitorArnLists = new[]
     ///         {
-    ///             aws_ce_anomaly_monitor.Test.Arn,
+    ///             testAwsCeAnomalyMonitor.Arn,
     ///         },
     ///         Subscribers = new[]
     ///         {
@@ -93,8 +102,11 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Using an `and` Expression
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -105,10 +117,11 @@ namespace Pulumi.Aws.CostExplorer
     /// {
     ///     var test = new Aws.CostExplorer.AnomalySubscription("test", new()
     ///     {
+    ///         Name = "AWSServiceMonitor",
     ///         Frequency = "DAILY",
     ///         MonitorArnLists = new[]
     ///         {
-    ///             aws_ce_anomaly_monitor.Test.Arn,
+    ///             testAwsCeAnomalyMonitor.Arn,
     ///         },
     ///         Subscribers = new[]
     ///         {
@@ -158,8 +171,11 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### SNS Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -168,7 +184,10 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var costAnomalyUpdates = new Aws.Sns.Topic("costAnomalyUpdates");
+    ///     var costAnomalyUpdates = new Aws.Sns.Topic("cost_anomaly_updates", new()
+    ///     {
+    ///         Name = "CostAnomalyUpdates",
+    ///     });
     /// 
     ///     var snsTopicPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
@@ -222,7 +241,7 @@ namespace Pulumi.Aws.CostExplorer
     ///                         Variable = "AWS:SourceOwner",
     ///                         Values = new[]
     ///                         {
-    ///                             @var.Account_id,
+    ///                             account_id,
     ///                         },
     ///                     },
     ///                 },
@@ -252,14 +271,16 @@ namespace Pulumi.Aws.CostExplorer
     ///         Policy = snsTopicPolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var anomalyMonitor = new Aws.CostExplorer.AnomalyMonitor("anomalyMonitor", new()
+    ///     var anomalyMonitor = new Aws.CostExplorer.AnomalyMonitor("anomaly_monitor", new()
     ///     {
+    ///         Name = "AWSServiceMonitor",
     ///         MonitorType = "DIMENSIONAL",
     ///         MonitorDimension = "SERVICE",
     ///     });
     /// 
-    ///     var realtimeSubscription = new Aws.CostExplorer.AnomalySubscription("realtimeSubscription", new()
+    ///     var realtimeSubscription = new Aws.CostExplorer.AnomalySubscription("realtime_subscription", new()
     ///     {
+    ///         Name = "RealtimeAnomalySubscription",
     ///         Frequency = "IMMEDIATE",
     ///         MonitorArnLists = new[]
     ///         {
@@ -273,23 +294,18 @@ namespace Pulumi.Aws.CostExplorer
     ///                 Address = costAnomalyUpdates.Arn,
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             @default,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ce_anomaly_subscription` using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
+    /// $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
     /// ```
     /// </summary>
     [AwsResourceType("aws:costexplorer/anomalySubscription:AnomalySubscription")]
@@ -372,10 +388,6 @@ namespace Pulumi.Aws.CostExplorer
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -537,11 +549,7 @@ namespace Pulumi.Aws.CostExplorer
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

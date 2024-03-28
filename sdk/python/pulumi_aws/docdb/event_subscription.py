@@ -347,38 +347,41 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_cluster = aws.docdb.Cluster("exampleCluster",
+        example = aws.docdb.Cluster("example",
             cluster_identifier="example",
             availability_zones=[
-                data["aws_availability_zones"]["available"]["names"],
-                data["aws_availability_zones"]["available"]["names"],
-                data["aws_availability_zones"]["available"]["names"],
+                available["names"],
+                available["names"],
+                available["names"],
             ],
             master_username="foo",
             master_password="mustbeeightcharaters",
             skip_final_snapshot=True)
-        example_topic = aws.sns.Topic("exampleTopic")
-        example_event_subscription = aws.docdb.EventSubscription("exampleEventSubscription",
+        example_topic = aws.sns.Topic("example", name="example-events")
+        example_event_subscription = aws.docdb.EventSubscription("example",
+            name="example",
             enabled=True,
             event_categories=[
                 "creation",
                 "failure",
             ],
             source_type="db-cluster",
-            source_ids=[example_cluster.id],
+            source_ids=[example.id],
             sns_topic_arn=example_topic.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DocumentDB Event Subscriptions using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
+        $ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
         ```
 
         :param str resource_name: The name of the resource.
@@ -402,38 +405,41 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_cluster = aws.docdb.Cluster("exampleCluster",
+        example = aws.docdb.Cluster("example",
             cluster_identifier="example",
             availability_zones=[
-                data["aws_availability_zones"]["available"]["names"],
-                data["aws_availability_zones"]["available"]["names"],
-                data["aws_availability_zones"]["available"]["names"],
+                available["names"],
+                available["names"],
+                available["names"],
             ],
             master_username="foo",
             master_password="mustbeeightcharaters",
             skip_final_snapshot=True)
-        example_topic = aws.sns.Topic("exampleTopic")
-        example_event_subscription = aws.docdb.EventSubscription("exampleEventSubscription",
+        example_topic = aws.sns.Topic("example", name="example-events")
+        example_event_subscription = aws.docdb.EventSubscription("example",
+            name="example",
             enabled=True,
             event_categories=[
                 "creation",
                 "failure",
             ],
             source_type="db-cluster",
-            source_ids=[example_cluster.id],
+            source_ids=[example.id],
             sns_topic_arn=example_topic.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DocumentDB Event Subscriptions using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
+        $ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
         ```
 
         :param str resource_name: The name of the resource.
@@ -481,8 +487,6 @@ class EventSubscription(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["customer_aws_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EventSubscription, __self__).__init__(
             'aws:docdb/eventSubscription:EventSubscription',
             resource_name,

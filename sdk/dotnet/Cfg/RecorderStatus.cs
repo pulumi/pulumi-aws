@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,24 +25,6 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucketV2 = new Aws.S3.BucketV2("bucketV2");
-    /// 
-    ///     var fooDeliveryChannel = new Aws.Cfg.DeliveryChannel("fooDeliveryChannel", new()
-    ///     {
-    ///         S3BucketName = bucketV2.Bucket,
-    ///     });
-    /// 
-    ///     var fooRecorderStatus = new Aws.Cfg.RecorderStatus("fooRecorderStatus", new()
-    ///     {
-    ///         IsEnabled = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             fooDeliveryChannel,
-    ///         },
-    ///     });
-    /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
@@ -68,23 +51,42 @@ namespace Pulumi.Aws.Cfg
     ///         },
     ///     });
     /// 
-    ///     var role = new Aws.Iam.Role("role", new()
+    ///     var r = new Aws.Iam.Role("r", new()
     ///     {
+    ///         Name = "example-awsconfig",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var rolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("rolePolicyAttachment", new()
+    ///     var fooRecorder = new Aws.Cfg.Recorder("foo", new()
     ///     {
-    ///         Role = role.Name,
+    ///         Name = "example",
+    ///         RoleArn = r.Arn,
+    ///     });
+    /// 
+    ///     var foo = new Aws.Cfg.RecorderStatus("foo", new()
+    ///     {
+    ///         Name = fooRecorder.Name,
+    ///         IsEnabled = true,
+    ///     });
+    /// 
+    ///     var a = new Aws.Iam.RolePolicyAttachment("a", new()
+    ///     {
+    ///         Role = r.Name,
     ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWS_ConfigRole",
     ///     });
     /// 
-    ///     var fooRecorder = new Aws.Cfg.Recorder("fooRecorder", new()
+    ///     var b = new Aws.S3.BucketV2("b", new()
     ///     {
-    ///         RoleArn = role.Arn,
+    ///         Bucket = "awsconfig-example",
     ///     });
     /// 
-    ///     var policyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var fooDeliveryChannel = new Aws.Cfg.DeliveryChannel("foo", new()
+    ///     {
+    ///         Name = "example",
+    ///         S3BucketName = b.Bucket,
+    ///     });
+    /// 
+    ///     var p = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -97,28 +99,30 @@ namespace Pulumi.Aws.Cfg
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     bucketV2.Arn,
-    ///                     $"{bucketV2.Arn}/*",
+    ///                     b.Arn,
+    ///                     $"{b.Arn}/*",
     ///                 },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var rolePolicy = new Aws.Iam.RolePolicy("rolePolicy", new()
+    ///     var pRolePolicy = new Aws.Iam.RolePolicy("p", new()
     ///     {
-    ///         Role = role.Id,
-    ///         Policy = policyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "awsconfig-example",
+    ///         Role = r.Id,
+    ///         Policy = p.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
+    /// $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/recorderStatus:RecorderStatus")]

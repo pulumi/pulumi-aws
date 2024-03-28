@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glue Registries using `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glue/registry:Registry example arn:aws:glue:us-west-2:123456789012:registry/example
-//
+// $ pulumi import aws:glue/registry:Registry example arn:aws:glue:us-west-2:123456789012:registry/example
 // ```
 type Registry struct {
 	pulumi.CustomResourceState
@@ -76,10 +76,6 @@ func NewRegistry(ctx *pulumi.Context,
 	if args.RegistryName == nil {
 		return nil, errors.New("invalid value for required argument 'RegistryName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Registry
 	err := ctx.RegisterResource("aws:glue/registry:Registry", name, args, &resource, opts...)

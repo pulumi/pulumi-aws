@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,6 +25,7 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.SecurityConfiguration("example", new()
     ///     {
+    ///         Name = "example",
     ///         EncryptionConfiguration = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationArgs
     ///         {
     ///             CloudwatchEncryption = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs
@@ -36,7 +38,7 @@ namespace Pulumi.Aws.Glue
     ///             },
     ///             S3Encryption = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationS3EncryptionArgs
     ///             {
-    ///                 KmsKeyArn = data.Aws_kms_key.Example.Arn,
+    ///                 KmsKeyArn = exampleAwsKmsKey.Arn,
     ///                 S3EncryptionMode = "SSE-KMS",
     ///             },
     ///         },
@@ -44,13 +46,14 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Security Configurations using `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
+    /// $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/securityConfiguration:SecurityConfiguration")]

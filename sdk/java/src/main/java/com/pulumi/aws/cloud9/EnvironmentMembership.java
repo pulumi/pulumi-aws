@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides an environment member to an AWS Cloud9 development environment.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -26,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloud9.EnvironmentEC2;
  * import com.pulumi.aws.cloud9.EnvironmentEC2Args;
  * import com.pulumi.aws.iam.User;
+ * import com.pulumi.aws.iam.UserArgs;
  * import com.pulumi.aws.cloud9.EnvironmentMembership;
  * import com.pulumi.aws.cloud9.EnvironmentMembershipArgs;
  * import java.util.List;
@@ -41,14 +44,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testEnvironmentEC2 = new EnvironmentEC2(&#34;testEnvironmentEC2&#34;, EnvironmentEC2Args.builder()        
+ *         var test = new EnvironmentEC2(&#34;test&#34;, EnvironmentEC2Args.builder()        
  *             .instanceType(&#34;t2.micro&#34;)
+ *             .name(&#34;some-env&#34;)
  *             .build());
  * 
- *         var testUser = new User(&#34;testUser&#34;);
+ *         var testUser = new User(&#34;testUser&#34;, UserArgs.builder()        
+ *             .name(&#34;some-user&#34;)
+ *             .build());
  * 
  *         var testEnvironmentMembership = new EnvironmentMembership(&#34;testEnvironmentMembership&#34;, EnvironmentMembershipArgs.builder()        
- *             .environmentId(testEnvironmentEC2.id())
+ *             .environmentId(test.id())
  *             .permissions(&#34;read-only&#34;)
  *             .userArn(testUser.arn())
  *             .build());
@@ -56,13 +62,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Cloud9 environment membership using the `environment-id#user-arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
+ * $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
  * ```
  * 
  */

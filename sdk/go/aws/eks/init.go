@@ -21,6 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:eks/accessEntry:AccessEntry":
+		r = &AccessEntry{}
+	case "aws:eks/accessPolicyAssociation:AccessPolicyAssociation":
+		r = &AccessPolicyAssociation{}
 	case "aws:eks/addon:Addon":
 		r = &Addon{}
 	case "aws:eks/cluster:Cluster":
@@ -31,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IdentityProviderConfig{}
 	case "aws:eks/nodeGroup:NodeGroup":
 		r = &NodeGroup{}
+	case "aws:eks/podIdentityAssociation:PodIdentityAssociation":
+		r = &PodIdentityAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -44,6 +50,16 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"eks/accessEntry",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"eks/accessPolicyAssociation",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"eks/addon",
@@ -67,6 +83,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"eks/nodeGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"eks/podIdentityAssociation",
 		&module{version},
 	)
 }

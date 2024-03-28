@@ -111,12 +111,14 @@ def get_location(location_code: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.directconnect.get_location(location_code="CS32A-24FL")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str location_code: Code for the location to retrieve.
@@ -146,12 +148,14 @@ def get_location_output(location_code: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.directconnect.get_location(location_code="CS32A-24FL")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str location_code: Code for the location to retrieve.

@@ -27,7 +27,10 @@ public final class WorkspacesFunctions {
      * Retrieve information about an AWS WorkSpaces bundle.
      * 
      * ## Example Usage
+     * 
      * ### By ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -56,7 +59,11 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Owner &amp; Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -79,13 +86,14 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .owner(&#34;AMAZON&#34;)
+     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBundleResult> getBundle() {
@@ -95,7 +103,10 @@ public final class WorkspacesFunctions {
      * Retrieve information about an AWS WorkSpaces bundle.
      * 
      * ## Example Usage
+     * 
      * ### By ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -124,7 +135,11 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Owner &amp; Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -147,13 +162,14 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .owner(&#34;AMAZON&#34;)
+     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBundleResult> getBundlePlain() {
@@ -163,7 +179,10 @@ public final class WorkspacesFunctions {
      * Retrieve information about an AWS WorkSpaces bundle.
      * 
      * ## Example Usage
+     * 
      * ### By ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -192,7 +211,11 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Owner &amp; Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -215,13 +238,14 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .owner(&#34;AMAZON&#34;)
+     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBundleResult> getBundle(GetBundleArgs args) {
@@ -231,7 +255,10 @@ public final class WorkspacesFunctions {
      * Retrieve information about an AWS WorkSpaces bundle.
      * 
      * ## Example Usage
+     * 
      * ### By ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -260,7 +287,11 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Owner &amp; Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -283,13 +314,14 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .owner(&#34;AMAZON&#34;)
+     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBundleResult> getBundlePlain(GetBundlePlainArgs args) {
@@ -299,7 +331,10 @@ public final class WorkspacesFunctions {
      * Retrieve information about an AWS WorkSpaces bundle.
      * 
      * ## Example Usage
+     * 
      * ### By ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -328,7 +363,11 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Owner &amp; Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -351,13 +390,14 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .owner(&#34;AMAZON&#34;)
+     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBundleResult> getBundle(GetBundleArgs args, InvokeOptions options) {
@@ -367,7 +407,10 @@ public final class WorkspacesFunctions {
      * Retrieve information about an AWS WorkSpaces bundle.
      * 
      * ## Example Usage
+     * 
      * ### By ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -396,7 +439,11 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Owner &amp; Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -419,13 +466,14 @@ public final class WorkspacesFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .owner(&#34;AMAZON&#34;)
+     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBundleResult> getBundlePlain(GetBundlePlainArgs args, InvokeOptions options) {
@@ -435,6 +483,8 @@ public final class WorkspacesFunctions {
      * Retrieve information about an AWS WorkSpaces directory.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -463,6 +513,7 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDirectoryResult> getDirectory(GetDirectoryArgs args) {
@@ -472,6 +523,8 @@ public final class WorkspacesFunctions {
      * Retrieve information about an AWS WorkSpaces directory.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -500,6 +553,7 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDirectoryResult> getDirectoryPlain(GetDirectoryPlainArgs args) {
@@ -509,6 +563,8 @@ public final class WorkspacesFunctions {
      * Retrieve information about an AWS WorkSpaces directory.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -537,6 +593,7 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDirectoryResult> getDirectory(GetDirectoryArgs args, InvokeOptions options) {
@@ -546,6 +603,8 @@ public final class WorkspacesFunctions {
      * Retrieve information about an AWS WorkSpaces directory.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -574,6 +633,7 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDirectoryResult> getDirectoryPlain(GetDirectoryPlainArgs args, InvokeOptions options) {
@@ -583,6 +643,8 @@ public final class WorkspacesFunctions {
      * Use this data source to get information about a Workspaces image.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -611,6 +673,7 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImageResult> getImage(GetImageArgs args) {
@@ -620,6 +683,8 @@ public final class WorkspacesFunctions {
      * Use this data source to get information about a Workspaces image.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -648,6 +713,7 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImageResult> getImagePlain(GetImagePlainArgs args) {
@@ -657,6 +723,8 @@ public final class WorkspacesFunctions {
      * Use this data source to get information about a Workspaces image.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -685,6 +753,7 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImageResult> getImage(GetImageArgs args, InvokeOptions options) {
@@ -694,6 +763,8 @@ public final class WorkspacesFunctions {
      * Use this data source to get information about a Workspaces image.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -722,6 +793,7 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImageResult> getImagePlain(GetImagePlainArgs args, InvokeOptions options) {
@@ -731,7 +803,10 @@ public final class WorkspacesFunctions {
      * Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
      * 
      * ## Example Usage
+     * 
      * ### Filter By Workspace ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -760,7 +835,11 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter By Directory ID &amp; User Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -790,6 +869,7 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace() {
@@ -799,7 +879,10 @@ public final class WorkspacesFunctions {
      * Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
      * 
      * ## Example Usage
+     * 
      * ### Filter By Workspace ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -828,7 +911,11 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter By Directory ID &amp; User Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -858,6 +945,7 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain() {
@@ -867,7 +955,10 @@ public final class WorkspacesFunctions {
      * Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
      * 
      * ## Example Usage
+     * 
      * ### Filter By Workspace ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -896,7 +987,11 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter By Directory ID &amp; User Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -926,6 +1021,7 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args) {
@@ -935,7 +1031,10 @@ public final class WorkspacesFunctions {
      * Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
      * 
      * ## Example Usage
+     * 
      * ### Filter By Workspace ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -964,7 +1063,11 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter By Directory ID &amp; User Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -994,6 +1097,7 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args) {
@@ -1003,7 +1107,10 @@ public final class WorkspacesFunctions {
      * Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
      * 
      * ## Example Usage
+     * 
      * ### Filter By Workspace ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1032,7 +1139,11 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter By Directory ID &amp; User Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1062,6 +1173,7 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOptions options) {
@@ -1071,7 +1183,10 @@ public final class WorkspacesFunctions {
      * Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
      * 
      * ## Example Usage
+     * 
      * ### Filter By Workspace ID
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1100,7 +1215,11 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter By Directory ID &amp; User Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1130,6 +1249,7 @@ public final class WorkspacesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args, InvokeOptions options) {

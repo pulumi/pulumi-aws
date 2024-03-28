@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,13 +29,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myDemoAPI, err := apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
+//			myDemoAPI, err := apigateway.NewRestApi(ctx, "MyDemoAPI", &apigateway.RestApiArgs{
+//				Name:        pulumi.String("MyDemoAPI"),
 //				Description: pulumi.String("This is my API for demonstration purposes"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			myDemoResource, err := apigateway.NewResource(ctx, "myDemoResource", &apigateway.ResourceArgs{
+//			myDemoResource, err := apigateway.NewResource(ctx, "MyDemoResource", &apigateway.ResourceArgs{
 //				RestApi:  myDemoAPI.ID(),
 //				ParentId: myDemoAPI.RootResourceId,
 //				PathPart: pulumi.String("mydemoresource"),
@@ -42,7 +44,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigateway.NewMethod(ctx, "myDemoMethod", &apigateway.MethodArgs{
+//			_, err = apigateway.NewMethod(ctx, "MyDemoMethod", &apigateway.MethodArgs{
 //				RestApi:       myDemoAPI.ID(),
 //				ResourceId:    myDemoResource.ID(),
 //				HttpMethod:    pulumi.String("GET"),
@@ -56,8 +58,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Usage with Cognito User Pool Authorizer
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,17 +79,19 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cfg := config.New(ctx, "")
 //			cognitoUserPoolName := cfg.RequireObject("cognitoUserPoolName")
-//			thisUserPools, err := cognito.GetUserPools(ctx, &cognito.GetUserPoolsArgs{
+//			this, err := cognito.GetUserPools(ctx, &cognito.GetUserPoolsArgs{
 //				Name: cognitoUserPoolName,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			thisRestApi, err := apigateway.NewRestApi(ctx, "thisRestApi", nil)
+//			thisRestApi, err := apigateway.NewRestApi(ctx, "this", &apigateway.RestApiArgs{
+//				Name: pulumi.String("with-authorizer"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			thisResource, err := apigateway.NewResource(ctx, "thisResource", &apigateway.ResourceArgs{
+//			thisResource, err := apigateway.NewResource(ctx, "this", &apigateway.ResourceArgs{
 //				RestApi:  thisRestApi.ID(),
 //				ParentId: thisRestApi.RootResourceId,
 //				PathPart: pulumi.String("{proxy+}"),
@@ -92,10 +99,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			thisAuthorizer, err := apigateway.NewAuthorizer(ctx, "thisAuthorizer", &apigateway.AuthorizerArgs{
+//			thisAuthorizer, err := apigateway.NewAuthorizer(ctx, "this", &apigateway.AuthorizerArgs{
+//				Name:         pulumi.String("CognitoUserPoolAuthorizer"),
 //				Type:         pulumi.String("COGNITO_USER_POOLS"),
 //				RestApi:      thisRestApi.ID(),
-//				ProviderArns: interface{}(thisUserPools.Arns),
+//				ProviderArns: interface{}(this.Arns),
 //			})
 //			if err != nil {
 //				return err
@@ -118,15 +126,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_api_gateway_method` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
-//
+// $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
 // ```
 type Method struct {
 	pulumi.CustomResourceState

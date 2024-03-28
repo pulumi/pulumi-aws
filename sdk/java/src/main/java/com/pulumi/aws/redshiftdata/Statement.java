@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Executes a Redshift Data Statement.
  * 
  * ## Example Usage
+ * 
  * ### cluster_identifier
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,16 +47,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Statement(&#34;example&#34;, StatementArgs.builder()        
- *             .clusterIdentifier(aws_redshift_cluster.example().cluster_identifier())
- *             .database(aws_redshift_cluster.example().database_name())
- *             .dbUser(aws_redshift_cluster.example().master_username())
+ *             .clusterIdentifier(exampleAwsRedshiftCluster.clusterIdentifier())
+ *             .database(exampleAwsRedshiftCluster.databaseName())
+ *             .dbUser(exampleAwsRedshiftCluster.masterUsername())
  *             .sql(&#34;CREATE GROUP group_name;&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### workgroup_name
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -76,7 +83,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Statement(&#34;example&#34;, StatementArgs.builder()        
- *             .workgroupName(aws_redshiftserverless_workgroup.example().workgroup_name())
+ *             .workgroupName(exampleAwsRedshiftserverlessWorkgroup.workgroupName())
  *             .database(&#34;dev&#34;)
  *             .sql(&#34;CREATE GROUP group_name;&#34;)
  *             .build());
@@ -84,13 +91,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift Data Statements using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshiftdata/statement:Statement example example
+ * $ pulumi import aws:redshiftdata/statement:Statement example example
  * ```
  * 
  */

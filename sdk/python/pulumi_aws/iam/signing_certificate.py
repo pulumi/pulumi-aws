@@ -154,36 +154,40 @@ class SigningCertificate(pulumi.CustomResource):
 
         **Using certs on file:**
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        test_cert = aws.iam.SigningCertificate("testCert",
+        test_cert = aws.iam.SigningCertificate("test_cert",
             username="some_test_cert",
-            certificate_body=(lambda path: open(path).read())("self-ca-cert.pem"))
+            certificate_body=std.file(input="self-ca-cert.pem").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         **Example with cert in-line:**
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_cert_alt = aws.iam.SigningCertificate("testCertAlt",
+        test_cert_alt = aws.iam.SigningCertificate("test_cert_alt",
+            username="some_test_cert",
             certificate_body=\"\"\"-----BEGIN CERTIFICATE-----
         [......] # cert contents
         -----END CERTIFICATE-----
-
-        \"\"\",
-            username="some_test_cert")
+        \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Signing Certificates using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
+        $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -206,36 +210,40 @@ class SigningCertificate(pulumi.CustomResource):
 
         **Using certs on file:**
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        test_cert = aws.iam.SigningCertificate("testCert",
+        test_cert = aws.iam.SigningCertificate("test_cert",
             username="some_test_cert",
-            certificate_body=(lambda path: open(path).read())("self-ca-cert.pem"))
+            certificate_body=std.file(input="self-ca-cert.pem").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         **Example with cert in-line:**
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_cert_alt = aws.iam.SigningCertificate("testCertAlt",
+        test_cert_alt = aws.iam.SigningCertificate("test_cert_alt",
+            username="some_test_cert",
             certificate_body=\"\"\"-----BEGIN CERTIFICATE-----
         [......] # cert contents
         -----END CERTIFICATE-----
-
-        \"\"\",
-            username="some_test_cert")
+        \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Signing Certificates using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
+        $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
         ```
 
         :param str resource_name: The name of the resource.

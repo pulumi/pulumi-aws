@@ -156,11 +156,14 @@ class SecurityConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.emr.SecurityConfiguration("foo", configuration=\"\"\"{
+        foo = aws.emr.SecurityConfiguration("foo",
+            name="emrsc_other",
+            configuration=\"\"\"{
           "EncryptionConfiguration": {
             "AtRestEncryptionConfiguration": {
               "S3EncryptionConfiguration": {
@@ -175,16 +178,16 @@ class SecurityConfiguration(pulumi.CustomResource):
             "EnableAtRestEncryption": true
           }
         }
-
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EMR Security Configurations using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:emr/securityConfiguration:SecurityConfiguration sc example-sc-name
+        $ pulumi import aws:emr/securityConfiguration:SecurityConfiguration sc example-sc-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -205,11 +208,14 @@ class SecurityConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.emr.SecurityConfiguration("foo", configuration=\"\"\"{
+        foo = aws.emr.SecurityConfiguration("foo",
+            name="emrsc_other",
+            configuration=\"\"\"{
           "EncryptionConfiguration": {
             "AtRestEncryptionConfiguration": {
               "S3EncryptionConfiguration": {
@@ -224,16 +230,16 @@ class SecurityConfiguration(pulumi.CustomResource):
             "EnableAtRestEncryption": true
           }
         }
-
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EMR Security Configurations using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:emr/securityConfiguration:SecurityConfiguration sc example-sc-name
+        $ pulumi import aws:emr/securityConfiguration:SecurityConfiguration sc example-sc-name
         ```
 
         :param str resource_name: The name of the resource.

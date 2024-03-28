@@ -7,6 +7,7 @@ import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2RoutingRuleCondition
 import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2RoutingRuleRedirectArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -114,7 +115,9 @@ public final class BucketWebsiteConfigurationV2RoutingRuleArgs extends com.pulum
         }
 
         public BucketWebsiteConfigurationV2RoutingRuleArgs build() {
-            $.redirect = Objects.requireNonNull($.redirect, "expected parameter 'redirect' to be non-null");
+            if ($.redirect == null) {
+                throw new MissingRequiredPropertyException("BucketWebsiteConfigurationV2RoutingRuleArgs", "redirect");
+            }
             return $;
         }
     }

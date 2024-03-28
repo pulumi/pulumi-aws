@@ -18,35 +18,41 @@ import * as utilities from "../utilities";
  * and will overwrite the association.
  *
  * ## Example Usage
+ *
  * ### Network Load Balancers
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.VpcEndpointService("example", {
  *     acceptanceRequired: false,
- *     networkLoadBalancerArns: [aws_lb.example.arn],
+ *     networkLoadBalancerArns: [exampleAwsLb.arn],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Gateway Load Balancers
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.VpcEndpointService("example", {
  *     acceptanceRequired: false,
- *     gatewayLoadBalancerArns: [aws_lb.example.arn],
+ *     gatewayLoadBalancerArns: [exampleAwsLb.arn],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import VPC Endpoint Services using the VPC endpoint service `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc
+ * $ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc
  * ```
  */
 export class VpcEndpointService extends pulumi.CustomResource {
@@ -196,8 +202,6 @@ export class VpcEndpointService extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VpcEndpointService.__pulumiType, name, resourceInputs, opts);
     }
 }

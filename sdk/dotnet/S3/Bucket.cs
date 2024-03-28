@@ -14,9 +14,13 @@ namespace Pulumi.Aws.S3
     /// 
     /// &gt; This functionality is for managing S3 in an AWS Partition. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), see the `aws.s3control.Bucket` resource.
     /// 
+    /// &gt; **NOTE:** This resource might not work well if using an alternative s3-compatible provider. Please use `aws.s3.BucketV2` instead.
+    /// 
     /// ## Example Usage
+    /// 
     /// ### Private Bucket w/ Tags
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,33 +29,41 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucket = new Aws.S3.Bucket("bucket", new()
+    ///     var b = new Aws.S3.Bucket("b", new()
     ///     {
-    ///         Acl = "private",
+    ///         BucketName = "my-tf-test-bucket",
+    ///         Acl = Aws.S3.CannedAcl.Private,
     ///         Tags = 
     ///         {
-    ///             { "Environment", "Dev" },
     ///             { "Name", "My bucket" },
+    ///             { "Environment", "Dev" },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Static Website Hosting
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucket = new Aws.S3.Bucket("bucket", new()
+    ///     var b = new Aws.S3.Bucket("b", new()
     ///     {
-    ///         Acl = "public-read",
-    ///         Policy = File.ReadAllText("policy.json"),
+    ///         BucketName = "s3-website-test.mydomain.com",
+    ///         Acl = Aws.S3.CannedAcl.PublicRead,
+    ///         Policy = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "policy.json",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Website = new Aws.S3.Inputs.BucketWebsiteArgs
     ///         {
     ///             IndexDocument = "index.html",
@@ -70,8 +82,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Using CORS
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -80,9 +95,10 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucket = new Aws.S3.Bucket("bucket", new()
+    ///     var b = new Aws.S3.Bucket("b", new()
     ///     {
-    ///         Acl = "public-read",
+    ///         BucketName = "s3-website-test.mydomain.com",
+    ///         Acl = Aws.S3.CannedAcl.PublicRead,
     ///         CorsRules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketCorsRuleArgs
@@ -111,8 +127,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Using versioning
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -121,9 +140,10 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucket = new Aws.S3.Bucket("bucket", new()
+    ///     var b = new Aws.S3.Bucket("b", new()
     ///     {
-    ///         Acl = "private",
+    ///         BucketName = "my-tf-test-bucket",
+    ///         Acl = Aws.S3.CannedAcl.Private,
     ///         Versioning = new Aws.S3.Inputs.BucketVersioningArgs
     ///         {
     ///             Enabled = true,
@@ -132,8 +152,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Enable Logging
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -142,14 +165,16 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var logBucket = new Aws.S3.Bucket("logBucket", new()
+    ///     var logBucket = new Aws.S3.Bucket("log_bucket", new()
     ///     {
-    ///         Acl = "log-delivery-write",
+    ///         BucketName = "my-tf-log-bucket",
+    ///         Acl = Aws.S3.CannedAcl.LogDeliveryWrite,
     ///     });
     /// 
-    ///     var bucket = new Aws.S3.Bucket("bucket", new()
+    ///     var b = new Aws.S3.Bucket("b", new()
     ///     {
-    ///         Acl = "private",
+    ///         BucketName = "my-tf-test-bucket",
+    ///         Acl = Aws.S3.CannedAcl.Private,
     ///         Loggings = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLoggingArgs
@@ -162,8 +187,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Using object lifecycle
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -174,22 +202,19 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var bucket = new Aws.S3.Bucket("bucket", new()
     ///     {
-    ///         Acl = "private",
+    ///         BucketName = "my-bucket",
+    ///         Acl = Aws.S3.CannedAcl.Private,
     ///         LifecycleRules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleRuleArgs
     ///             {
-    ///                 Enabled = true,
-    ///                 Expiration = new Aws.S3.Inputs.BucketLifecycleRuleExpirationArgs
-    ///                 {
-    ///                     Days = 90,
-    ///                 },
     ///                 Id = "log",
+    ///                 Enabled = true,
     ///                 Prefix = "log/",
     ///                 Tags = 
     ///                 {
-    ///                     { "autoclean", "true" },
     ///                     { "rule", "log" },
+    ///                     { "autoclean", "true" },
     ///                 },
     ///                 Transitions = new[]
     ///                 {
@@ -204,32 +229,38 @@ namespace Pulumi.Aws.S3
     ///                         StorageClass = "GLACIER",
     ///                     },
     ///                 },
+    ///                 Expiration = new Aws.S3.Inputs.BucketLifecycleRuleExpirationArgs
+    ///                 {
+    ///                     Days = 90,
+    ///                 },
     ///             },
     ///             new Aws.S3.Inputs.BucketLifecycleRuleArgs
     ///             {
+    ///                 Id = "tmp",
+    ///                 Prefix = "tmp/",
     ///                 Enabled = true,
     ///                 Expiration = new Aws.S3.Inputs.BucketLifecycleRuleExpirationArgs
     ///                 {
     ///                     Date = "2016-01-12",
     ///                 },
-    ///                 Id = "tmp",
-    ///                 Prefix = "tmp/",
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var versioningBucket = new Aws.S3.Bucket("versioningBucket", new()
+    ///     var versioningBucket = new Aws.S3.Bucket("versioning_bucket", new()
     ///     {
-    ///         Acl = "private",
+    ///         BucketName = "my-versioning-bucket",
+    ///         Acl = Aws.S3.CannedAcl.Private,
+    ///         Versioning = new Aws.S3.Inputs.BucketVersioningArgs
+    ///         {
+    ///             Enabled = true,
+    ///         },
     ///         LifecycleRules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleRuleArgs
     ///             {
+    ///                 Prefix = "config/",
     ///                 Enabled = true,
-    ///                 NoncurrentVersionExpiration = new Aws.S3.Inputs.BucketLifecycleRuleNoncurrentVersionExpirationArgs
-    ///                 {
-    ///                     Days = 90,
-    ///                 },
     ///                 NoncurrentVersionTransitions = new[]
     ///                 {
     ///                     new Aws.S3.Inputs.BucketLifecycleRuleNoncurrentVersionTransitionArgs
@@ -243,21 +274,23 @@ namespace Pulumi.Aws.S3
     ///                         StorageClass = "GLACIER",
     ///                     },
     ///                 },
-    ///                 Prefix = "config/",
+    ///                 NoncurrentVersionExpiration = new Aws.S3.Inputs.BucketLifecycleRuleNoncurrentVersionExpirationArgs
+    ///                 {
+    ///                     Days = 90,
+    ///                 },
     ///             },
-    ///         },
-    ///         Versioning = new Aws.S3.Inputs.BucketVersioningArgs
-    ///         {
-    ///             Enabled = true,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Using replication configuration
     /// 
     /// &gt; **NOTE:** See the `aws.s3.BucketReplicationConfig` resource to support bi-directional replication configuration and additional features.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -266,13 +299,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var central = new Aws.Provider("central", new()
+    ///     var replication = new Aws.Iam.Role("replication", new()
     ///     {
-    ///         Region = "eu-central-1",
-    ///     });
-    /// 
-    ///     var replicationRole = new Aws.Iam.Role("replicationRole", new()
-    ///     {
+    ///         Name = "tf-iam-role-replication-12345",
     ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
@@ -291,6 +320,7 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var destination = new Aws.S3.Bucket("destination", new()
     ///     {
+    ///         BucketName = "tf-test-bucket-destination-12345",
     ///         Versioning = new Aws.S3.Inputs.BucketVersioningArgs
     ///         {
     ///             Enabled = true,
@@ -299,14 +329,15 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var source = new Aws.S3.Bucket("source", new()
     ///     {
-    ///         Acl = "private",
+    ///         BucketName = "tf-test-bucket-source-12345",
+    ///         Acl = Aws.S3.CannedAcl.Private,
     ///         Versioning = new Aws.S3.Inputs.BucketVersioningArgs
     ///         {
     ///             Enabled = true,
     ///         },
     ///         ReplicationConfiguration = new Aws.S3.Inputs.BucketReplicationConfigurationArgs
     ///         {
-    ///             Role = replicationRole.Arn,
+    ///             Role = replication.Arn,
     ///             Rules = new[]
     ///             {
     ///                 new Aws.S3.Inputs.BucketReplicationConfigurationRuleArgs
@@ -335,13 +366,11 @@ namespace Pulumi.Aws.S3
     ///                 },
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Central,
     ///     });
     /// 
-    ///     var replicationPolicy = new Aws.Iam.Policy("replicationPolicy", new()
+    ///     var replicationPolicy = new Aws.Iam.Policy("replication", new()
     ///     {
+    ///         Name = "tf-iam-role-policy-replication-12345",
     ///         PolicyDocument = Output.Tuple(source.Arn, source.Arn, destination.Arn).Apply(values =&gt;
     ///         {
     ///             var sourceArn = values.Item1;
@@ -386,16 +415,19 @@ namespace Pulumi.Aws.S3
     ///         }),
     ///     });
     /// 
-    ///     var replicationRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("replicationRolePolicyAttachment", new()
+    ///     var replicationRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("replication", new()
     ///     {
-    ///         Role = replicationRole.Name,
+    ///         Role = replication.Name,
     ///         PolicyArn = replicationPolicy.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Enable Default Server Side Encryption
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -412,6 +444,7 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var mybucket = new Aws.S3.Bucket("mybucket", new()
     ///     {
+    ///         BucketName = "mybucket",
     ///         ServerSideEncryptionConfiguration = new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationArgs
     ///         {
     ///             Rule = new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationRuleArgs
@@ -427,8 +460,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Using ACL policy grants
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -441,6 +477,7 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var bucket = new Aws.S3.Bucket("bucket", new()
     ///     {
+    ///         BucketName = "mybucket",
     ///         Grants = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketGrantArgs
@@ -467,15 +504,16 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// S3 bucket can be imported using the `bucket`, e.g.,
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucket:Bucket bucket bucket-name
+    /// $ pulumi import aws:s3/bucket:Bucket bucket bucket-name
     /// ```
-    ///  The `policy` argument is not imported and will be deprecated in a future version of the provider. Use the `aws_s3_bucket_policy` resource to manage the S3 Bucket Policy instead.
+    /// The `policy` argument is not imported and will be deprecated in a future version of the provider. Use the `aws_s3_bucket_policy` resource to manage the S3 Bucket Policy instead.
     /// </summary>
     [AwsResourceType("aws:s3/bucket:Bucket")]
     public partial class Bucket : global::Pulumi.CustomResource
@@ -658,10 +696,6 @@ namespace Pulumi.Aws.S3
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -1019,11 +1053,7 @@ namespace Pulumi.Aws.S3
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

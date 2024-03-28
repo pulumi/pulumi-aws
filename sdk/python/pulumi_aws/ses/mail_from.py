@@ -144,52 +144,57 @@ class MailFrom(pulumi.CustomResource):
         > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the ses.DomainIdentity resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/dg/mail-from.html) for more information.
 
         ## Example Usage
+
         ### Domain Identity MAIL FROM
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # Example SES Domain Identity
-        example_domain_identity = aws.ses.DomainIdentity("exampleDomainIdentity", domain="example.com")
-        example_mail_from = aws.ses.MailFrom("exampleMailFrom",
+        example_domain_identity = aws.ses.DomainIdentity("example", domain="example.com")
+        example = aws.ses.MailFrom("example",
             domain=example_domain_identity.domain,
             mail_from_domain=example_domain_identity.domain.apply(lambda domain: f"bounce.{domain}"))
         # Example Route53 MX record
-        example_ses_domain_mail_from_mx = aws.route53.Record("exampleSesDomainMailFromMx",
-            zone_id=aws_route53_zone["example"]["id"],
-            name=example_mail_from.mail_from_domain,
-            type="MX",
+        example_ses_domain_mail_from_mx = aws.route53.Record("example_ses_domain_mail_from_mx",
+            zone_id=example_aws_route53_zone["id"],
+            name=example.mail_from_domain,
+            type=aws.route53.RecordType.MX,
             ttl=600,
             records=["10 feedback-smtp.us-east-1.amazonses.com"])
-        # Change to the region in which `aws_ses_domain_identity.example` is created
         # Example Route53 TXT record for SPF
-        example_ses_domain_mail_from_txt = aws.route53.Record("exampleSesDomainMailFromTxt",
-            zone_id=aws_route53_zone["example"]["id"],
-            name=example_mail_from.mail_from_domain,
-            type="TXT",
+        example_ses_domain_mail_from_txt = aws.route53.Record("example_ses_domain_mail_from_txt",
+            zone_id=example_aws_route53_zone["id"],
+            name=example.mail_from_domain,
+            type=aws.route53.RecordType.TXT,
             ttl=600,
             records=["v=spf1 include:amazonses.com -all"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Email Identity MAIL FROM
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # Example SES Email Identity
-        example_email_identity = aws.ses.EmailIdentity("exampleEmailIdentity", email="user@example.com")
-        example_mail_from = aws.ses.MailFrom("exampleMailFrom",
-            domain=example_email_identity.email,
+        example = aws.ses.EmailIdentity("example", email="user@example.com")
+        example_mail_from = aws.ses.MailFrom("example",
+            domain=example.email,
             mail_from_domain="mail.example.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MAIL FROM domain using the `domain` attribute. For example:
 
         ```sh
-         $ pulumi import aws:ses/mailFrom:MailFrom example example.com
+        $ pulumi import aws:ses/mailFrom:MailFrom example example.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -212,52 +217,57 @@ class MailFrom(pulumi.CustomResource):
         > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the ses.DomainIdentity resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/dg/mail-from.html) for more information.
 
         ## Example Usage
+
         ### Domain Identity MAIL FROM
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # Example SES Domain Identity
-        example_domain_identity = aws.ses.DomainIdentity("exampleDomainIdentity", domain="example.com")
-        example_mail_from = aws.ses.MailFrom("exampleMailFrom",
+        example_domain_identity = aws.ses.DomainIdentity("example", domain="example.com")
+        example = aws.ses.MailFrom("example",
             domain=example_domain_identity.domain,
             mail_from_domain=example_domain_identity.domain.apply(lambda domain: f"bounce.{domain}"))
         # Example Route53 MX record
-        example_ses_domain_mail_from_mx = aws.route53.Record("exampleSesDomainMailFromMx",
-            zone_id=aws_route53_zone["example"]["id"],
-            name=example_mail_from.mail_from_domain,
-            type="MX",
+        example_ses_domain_mail_from_mx = aws.route53.Record("example_ses_domain_mail_from_mx",
+            zone_id=example_aws_route53_zone["id"],
+            name=example.mail_from_domain,
+            type=aws.route53.RecordType.MX,
             ttl=600,
             records=["10 feedback-smtp.us-east-1.amazonses.com"])
-        # Change to the region in which `aws_ses_domain_identity.example` is created
         # Example Route53 TXT record for SPF
-        example_ses_domain_mail_from_txt = aws.route53.Record("exampleSesDomainMailFromTxt",
-            zone_id=aws_route53_zone["example"]["id"],
-            name=example_mail_from.mail_from_domain,
-            type="TXT",
+        example_ses_domain_mail_from_txt = aws.route53.Record("example_ses_domain_mail_from_txt",
+            zone_id=example_aws_route53_zone["id"],
+            name=example.mail_from_domain,
+            type=aws.route53.RecordType.TXT,
             ttl=600,
             records=["v=spf1 include:amazonses.com -all"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Email Identity MAIL FROM
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # Example SES Email Identity
-        example_email_identity = aws.ses.EmailIdentity("exampleEmailIdentity", email="user@example.com")
-        example_mail_from = aws.ses.MailFrom("exampleMailFrom",
-            domain=example_email_identity.email,
+        example = aws.ses.EmailIdentity("example", email="user@example.com")
+        example_mail_from = aws.ses.MailFrom("example",
+            domain=example.email,
             mail_from_domain="mail.example.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MAIL FROM domain using the `domain` attribute. For example:
 
         ```sh
-         $ pulumi import aws:ses/mailFrom:MailFrom example example.com
+        $ pulumi import aws:ses/mailFrom:MailFrom example example.com
         ```
 
         :param str resource_name: The name of the resource.

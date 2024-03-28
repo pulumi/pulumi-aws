@@ -516,26 +516,30 @@ class Component(pulumi.CustomResource):
         Manages an Image Builder Component.
 
         ## Example Usage
+
         ### URI Document
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.imagebuilder.Component("example",
+            name="example",
             platform="Linux",
-            uri=f"s3://{aws_s3_object['example']['bucket']}/{aws_s3_object['example']['key']}",
+            uri=f"s3://{example_aws_s3_object['bucket']}/{example_aws_s3_object['key']}",
             version="1.0.0")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_imagebuilder_components` resources using the Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
+        $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
         ```
-         Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
+        Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -565,26 +569,30 @@ class Component(pulumi.CustomResource):
         Manages an Image Builder Component.
 
         ## Example Usage
+
         ### URI Document
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.imagebuilder.Component("example",
+            name="example",
             platform="Linux",
-            uri=f"s3://{aws_s3_object['example']['bucket']}/{aws_s3_object['example']['key']}",
+            uri=f"s3://{example_aws_s3_object['bucket']}/{example_aws_s3_object['key']}",
             version="1.0.0")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_imagebuilder_components` resources using the Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
+        $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
         ```
-         Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
+        Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
 
         :param str resource_name: The name of the resource.
         :param ComponentArgs args: The arguments to use to populate this resource's properties.
@@ -642,8 +650,6 @@ class Component(pulumi.CustomResource):
             __props__.__dict__["owner"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["type"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Component, __self__).__init__(
             'aws:imagebuilder/component:Component',
             resource_name,

@@ -6,6 +6,7 @@ package com.pulumi.aws.appconfig;
 import com.pulumi.aws.appconfig.inputs.ConfigurationProfileValidatorArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -46,6 +47,21 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+     * 
+     */
+    @Import(name="kmsKeyIdentifier")
+    private @Nullable Output<String> kmsKeyIdentifier;
+
+    /**
+     * @return The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+     * 
+     */
+    public Optional<Output<String>> kmsKeyIdentifier() {
+        return Optional.ofNullable(this.kmsKeyIdentifier);
     }
 
     /**
@@ -143,6 +159,7 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
     private ConfigurationProfileArgs(ConfigurationProfileArgs $) {
         this.applicationId = $.applicationId;
         this.description = $.description;
+        this.kmsKeyIdentifier = $.kmsKeyIdentifier;
         this.locationUri = $.locationUri;
         this.name = $.name;
         this.retrievalRoleArn = $.retrievalRoleArn;
@@ -209,6 +226,27 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param kmsKeyIdentifier The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyIdentifier(@Nullable Output<String> kmsKeyIdentifier) {
+            $.kmsKeyIdentifier = kmsKeyIdentifier;
+            return this;
+        }
+
+        /**
+         * @param kmsKeyIdentifier The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyIdentifier(String kmsKeyIdentifier) {
+            return kmsKeyIdentifier(Output.of(kmsKeyIdentifier));
         }
 
         /**
@@ -348,8 +386,12 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
         }
 
         public ConfigurationProfileArgs build() {
-            $.applicationId = Objects.requireNonNull($.applicationId, "expected parameter 'applicationId' to be non-null");
-            $.locationUri = Objects.requireNonNull($.locationUri, "expected parameter 'locationUri' to be non-null");
+            if ($.applicationId == null) {
+                throw new MissingRequiredPropertyException("ConfigurationProfileArgs", "applicationId");
+            }
+            if ($.locationUri == null) {
+                throw new MissingRequiredPropertyException("ConfigurationProfileArgs", "locationUri");
+            }
             return $;
         }
     }

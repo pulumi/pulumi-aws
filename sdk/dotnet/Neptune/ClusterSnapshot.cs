@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,19 +25,20 @@ namespace Pulumi.Aws.Neptune
     /// {
     ///     var example = new Aws.Neptune.ClusterSnapshot("example", new()
     ///     {
-    ///         DbClusterIdentifier = aws_neptune_cluster.Example.Id,
+    ///         DbClusterIdentifier = exampleAwsNeptuneCluster.Id,
     ///         DbClusterSnapshotIdentifier = "resourcetestsnapshot1234",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_neptune_cluster_snapshot` using the cluster snapshot identifier. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:neptune/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+    /// $ pulumi import aws:neptune/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
     /// ```
     /// </summary>
     [AwsResourceType("aws:neptune/clusterSnapshot:ClusterSnapshot")]

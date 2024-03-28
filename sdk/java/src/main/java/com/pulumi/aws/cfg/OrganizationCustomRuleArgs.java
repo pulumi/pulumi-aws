@@ -5,6 +5,7 @@ package com.pulumi.aws.cfg;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -477,8 +478,12 @@ public final class OrganizationCustomRuleArgs extends com.pulumi.resources.Resou
         }
 
         public OrganizationCustomRuleArgs build() {
-            $.lambdaFunctionArn = Objects.requireNonNull($.lambdaFunctionArn, "expected parameter 'lambdaFunctionArn' to be non-null");
-            $.triggerTypes = Objects.requireNonNull($.triggerTypes, "expected parameter 'triggerTypes' to be non-null");
+            if ($.lambdaFunctionArn == null) {
+                throw new MissingRequiredPropertyException("OrganizationCustomRuleArgs", "lambdaFunctionArn");
+            }
+            if ($.triggerTypes == null) {
+                throw new MissingRequiredPropertyException("OrganizationCustomRuleArgs", "triggerTypes");
+            }
             return $;
         }
     }

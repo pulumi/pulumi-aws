@@ -14,11 +14,11 @@ namespace Pulumi.Aws.CodeStarConnections
         /// <summary>
         /// Provides details about CodeStar Connection.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### By ARN
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -29,15 +29,16 @@ namespace Pulumi.Aws.CodeStarConnections
         /// {
         ///     var example = Aws.CodeStarConnections.GetConnection.Invoke(new()
         ///     {
-        ///         Arn = aws_codestarconnections_connection.Example.Arn,
+        ///         Arn = exampleAwsCodestarconnectionsConnection.Arn,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### By Name
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -48,13 +49,12 @@ namespace Pulumi.Aws.CodeStarConnections
         /// {
         ///     var example = Aws.CodeStarConnections.GetConnection.Invoke(new()
         ///     {
-        ///         Name = aws_codestarconnections_connection.Example.Name,
+        ///         Name = exampleAwsCodestarconnectionsConnection.Name,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetConnectionResult> InvokeAsync(GetConnectionArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionResult>("aws:codestarconnections/getConnection:getConnection", args ?? new GetConnectionArgs(), options.WithDefaults());
@@ -62,11 +62,11 @@ namespace Pulumi.Aws.CodeStarConnections
         /// <summary>
         /// Provides details about CodeStar Connection.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### By ARN
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -77,15 +77,16 @@ namespace Pulumi.Aws.CodeStarConnections
         /// {
         ///     var example = Aws.CodeStarConnections.GetConnection.Invoke(new()
         ///     {
-        ///         Arn = aws_codestarconnections_connection.Example.Arn,
+        ///         Arn = exampleAwsCodestarconnectionsConnection.Arn,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### By Name
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -96,13 +97,12 @@ namespace Pulumi.Aws.CodeStarConnections
         /// {
         ///     var example = Aws.CodeStarConnections.GetConnection.Invoke(new()
         ///     {
-        ///         Name = aws_codestarconnections_connection.Example.Name,
+        ///         Name = exampleAwsCodestarconnectionsConnection.Name,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("aws:codestarconnections/getConnection:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.CodeStarConnections
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket` and `GitHub`. For connections to a GitHub Enterprise Server instance, you must create an aws.codestarconnections.Host resource and use `host_arn` instead.
+        /// Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket`, `GitHub` and `GitLab`. For connections to GitHub Enterprise Server or GitLab Self-Managed instances, you must create an aws.codestarconnections.Host resource and use `host_arn` instead.
         /// </summary>
         public readonly string ProviderType;
         /// <summary>

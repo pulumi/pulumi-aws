@@ -73,6 +73,7 @@ public final class FrameworkControlScope {
 
         @CustomType.Setter
         public Builder complianceResourceIds(@Nullable List<String> complianceResourceIds) {
+
             this.complianceResourceIds = complianceResourceIds;
             return this;
         }
@@ -81,6 +82,7 @@ public final class FrameworkControlScope {
         }
         @CustomType.Setter
         public Builder complianceResourceTypes(@Nullable List<String> complianceResourceTypes) {
+
             this.complianceResourceTypes = complianceResourceTypes;
             return this;
         }
@@ -89,15 +91,16 @@ public final class FrameworkControlScope {
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         public FrameworkControlScope build() {
-            final var o = new FrameworkControlScope();
-            o.complianceResourceIds = complianceResourceIds;
-            o.complianceResourceTypes = complianceResourceTypes;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new FrameworkControlScope();
+            _resultValue.complianceResourceIds = complianceResourceIds;
+            _resultValue.complianceResourceTypes = complianceResourceTypes;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

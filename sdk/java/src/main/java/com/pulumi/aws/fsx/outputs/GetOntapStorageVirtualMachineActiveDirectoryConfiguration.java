@@ -5,6 +5,7 @@ package com.pulumi.aws.fsx.outputs;
 
 import com.pulumi.aws.fsx.outputs.GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -50,22 +51,28 @@ public final class GetOntapStorageVirtualMachineActiveDirectoryConfiguration {
 
         @CustomType.Setter
         public Builder netbiosName(String netbiosName) {
-            this.netbiosName = Objects.requireNonNull(netbiosName);
+            if (netbiosName == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineActiveDirectoryConfiguration", "netbiosName");
+            }
+            this.netbiosName = netbiosName;
             return this;
         }
         @CustomType.Setter
         public Builder selfManagedActiveDirectoryConfigurations(List<GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration> selfManagedActiveDirectoryConfigurations) {
-            this.selfManagedActiveDirectoryConfigurations = Objects.requireNonNull(selfManagedActiveDirectoryConfigurations);
+            if (selfManagedActiveDirectoryConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineActiveDirectoryConfiguration", "selfManagedActiveDirectoryConfigurations");
+            }
+            this.selfManagedActiveDirectoryConfigurations = selfManagedActiveDirectoryConfigurations;
             return this;
         }
         public Builder selfManagedActiveDirectoryConfigurations(GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration... selfManagedActiveDirectoryConfigurations) {
             return selfManagedActiveDirectoryConfigurations(List.of(selfManagedActiveDirectoryConfigurations));
         }
         public GetOntapStorageVirtualMachineActiveDirectoryConfiguration build() {
-            final var o = new GetOntapStorageVirtualMachineActiveDirectoryConfiguration();
-            o.netbiosName = netbiosName;
-            o.selfManagedActiveDirectoryConfigurations = selfManagedActiveDirectoryConfigurations;
-            return o;
+            final var _resultValue = new GetOntapStorageVirtualMachineActiveDirectoryConfiguration();
+            _resultValue.netbiosName = netbiosName;
+            _resultValue.selfManagedActiveDirectoryConfigurations = selfManagedActiveDirectoryConfigurations;
+            return _resultValue;
         }
     }
 }

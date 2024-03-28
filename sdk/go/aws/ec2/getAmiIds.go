@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,6 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.GetAmiIds(ctx, &ec2.GetAmiIdsArgs{
+//				Owners: []string{
+//					"099720109477",
+//				},
 //				Filters: []ec2.GetAmiIdsFilter{
 //					{
 //						Name: "name",
@@ -35,9 +39,6 @@ import (
 //							"ubuntu/images/ubuntu-*-*-amd64-server-*",
 //						},
 //					},
-//				},
-//				Owners: []string{
-//					"099720109477",
 //				},
 //			}, nil)
 //			if err != nil {
@@ -48,6 +49,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetAmiIds(ctx *pulumi.Context, args *GetAmiIdsArgs, opts ...pulumi.InvokeOption) (*GetAmiIdsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAmiIdsResult

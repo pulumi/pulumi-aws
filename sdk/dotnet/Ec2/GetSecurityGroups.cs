@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,7 +36,9 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,7 +64,7 @@ namespace Pulumi.Aws.Ec2
         ///                 Name = "vpc-id",
         ///                 Values = new[]
         ///                 {
-        ///                     @var.Vpc_id,
+        ///                     vpcId,
         ///                 },
         ///             },
         ///         },
@@ -71,8 +72,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSecurityGroupsResult> InvokeAsync(GetSecurityGroupsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupsResult>("aws:ec2/getSecurityGroups:getSecurityGroups", args ?? new GetSecurityGroupsArgs(), options.WithDefaults());
@@ -80,10 +80,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -103,7 +102,9 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -129,7 +130,7 @@ namespace Pulumi.Aws.Ec2
         ///                 Name = "vpc-id",
         ///                 Values = new[]
         ///                 {
-        ///                     @var.Vpc_id,
+        ///                     vpcId,
         ///                 },
         ///             },
         ///         },
@@ -137,8 +138,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSecurityGroupsResult> Invoke(GetSecurityGroupsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityGroupsResult>("aws:ec2/getSecurityGroups:getSecurityGroups", args ?? new GetSecurityGroupsInvokeArgs(), options.WithDefaults());

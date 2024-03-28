@@ -4,6 +4,7 @@
 package com.pulumi.aws.codeartifact.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -80,43 +81,61 @@ public final class GetRepositoryEndpointResult {
 
         @CustomType.Setter
         public Builder domain(String domain) {
-            this.domain = Objects.requireNonNull(domain);
+            if (domain == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryEndpointResult", "domain");
+            }
+            this.domain = domain;
             return this;
         }
         @CustomType.Setter
         public Builder domainOwner(String domainOwner) {
-            this.domainOwner = Objects.requireNonNull(domainOwner);
+            if (domainOwner == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryEndpointResult", "domainOwner");
+            }
+            this.domainOwner = domainOwner;
             return this;
         }
         @CustomType.Setter
         public Builder format(String format) {
-            this.format = Objects.requireNonNull(format);
+            if (format == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryEndpointResult", "format");
+            }
+            this.format = format;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryEndpointResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder repository(String repository) {
-            this.repository = Objects.requireNonNull(repository);
+            if (repository == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryEndpointResult", "repository");
+            }
+            this.repository = repository;
             return this;
         }
         @CustomType.Setter
         public Builder repositoryEndpoint(String repositoryEndpoint) {
-            this.repositoryEndpoint = Objects.requireNonNull(repositoryEndpoint);
+            if (repositoryEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryEndpointResult", "repositoryEndpoint");
+            }
+            this.repositoryEndpoint = repositoryEndpoint;
             return this;
         }
         public GetRepositoryEndpointResult build() {
-            final var o = new GetRepositoryEndpointResult();
-            o.domain = domain;
-            o.domainOwner = domainOwner;
-            o.format = format;
-            o.id = id;
-            o.repository = repository;
-            o.repositoryEndpoint = repositoryEndpoint;
-            return o;
+            final var _resultValue = new GetRepositoryEndpointResult();
+            _resultValue.domain = domain;
+            _resultValue.domainOwner = domainOwner;
+            _resultValue.format = format;
+            _resultValue.id = id;
+            _resultValue.repository = repository;
+            _resultValue.repositoryEndpoint = repositoryEndpoint;
+            return _resultValue;
         }
     }
 }

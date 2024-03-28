@@ -16,11 +16,11 @@ namespace Pulumi.Aws.LakeFormation
         /// 
         /// &gt; **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Permissions For A Lake Formation S3 Resource
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -31,19 +31,20 @@ namespace Pulumi.Aws.LakeFormation
         /// {
         ///     var test = Aws.LakeFormation.GetPermissions.Invoke(new()
         ///     {
-        ///         Principal = aws_iam_role.Workflow_role.Arn,
+        ///         Principal = workflowRole.Arn,
         ///         DataLocation = new Aws.LakeFormation.Inputs.GetPermissionsDataLocationInputArgs
         ///         {
-        ///             Arn = aws_lakeformation_resource.Test.Arn,
+        ///             Arn = testAwsLakeformationResource.Arn,
         ///         },
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Permissions For A Glue Catalog Database
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -54,20 +55,21 @@ namespace Pulumi.Aws.LakeFormation
         /// {
         ///     var test = Aws.LakeFormation.GetPermissions.Invoke(new()
         ///     {
-        ///         Principal = aws_iam_role.Workflow_role.Arn,
+        ///         Principal = workflowRole.Arn,
         ///         Database = new Aws.LakeFormation.Inputs.GetPermissionsDatabaseInputArgs
         ///         {
-        ///             Name = aws_glue_catalog_database.Test.Name,
+        ///             Name = testAwsGlueCatalogDatabase.Name,
         ///             CatalogId = "110376042874",
         ///         },
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Permissions For Tag-Based Access Control
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -78,7 +80,7 @@ namespace Pulumi.Aws.LakeFormation
         /// {
         ///     var test = Aws.LakeFormation.GetPermissions.Invoke(new()
         ///     {
-        ///         Principal = aws_iam_role.Workflow_role.Arn,
+        ///         Principal = workflowRole.Arn,
         ///         LfTagPolicy = new Aws.LakeFormation.Inputs.GetPermissionsLfTagPolicyInputArgs
         ///         {
         ///             ResourceType = "DATABASE",
@@ -107,8 +109,7 @@ namespace Pulumi.Aws.LakeFormation
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPermissionsResult> InvokeAsync(GetPermissionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPermissionsResult>("aws:lakeformation/getPermissions:getPermissions", args ?? new GetPermissionsArgs(), options.WithDefaults());
@@ -118,11 +119,11 @@ namespace Pulumi.Aws.LakeFormation
         /// 
         /// &gt; **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Permissions For A Lake Formation S3 Resource
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -133,19 +134,20 @@ namespace Pulumi.Aws.LakeFormation
         /// {
         ///     var test = Aws.LakeFormation.GetPermissions.Invoke(new()
         ///     {
-        ///         Principal = aws_iam_role.Workflow_role.Arn,
+        ///         Principal = workflowRole.Arn,
         ///         DataLocation = new Aws.LakeFormation.Inputs.GetPermissionsDataLocationInputArgs
         ///         {
-        ///             Arn = aws_lakeformation_resource.Test.Arn,
+        ///             Arn = testAwsLakeformationResource.Arn,
         ///         },
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Permissions For A Glue Catalog Database
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -156,20 +158,21 @@ namespace Pulumi.Aws.LakeFormation
         /// {
         ///     var test = Aws.LakeFormation.GetPermissions.Invoke(new()
         ///     {
-        ///         Principal = aws_iam_role.Workflow_role.Arn,
+        ///         Principal = workflowRole.Arn,
         ///         Database = new Aws.LakeFormation.Inputs.GetPermissionsDatabaseInputArgs
         ///         {
-        ///             Name = aws_glue_catalog_database.Test.Name,
+        ///             Name = testAwsGlueCatalogDatabase.Name,
         ///             CatalogId = "110376042874",
         ///         },
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Permissions For Tag-Based Access Control
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -180,7 +183,7 @@ namespace Pulumi.Aws.LakeFormation
         /// {
         ///     var test = Aws.LakeFormation.GetPermissions.Invoke(new()
         ///     {
-        ///         Principal = aws_iam_role.Workflow_role.Arn,
+        ///         Principal = workflowRole.Arn,
         ///         LfTagPolicy = new Aws.LakeFormation.Inputs.GetPermissionsLfTagPolicyInputArgs
         ///         {
         ///             ResourceType = "DATABASE",
@@ -209,8 +212,7 @@ namespace Pulumi.Aws.LakeFormation
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPermissionsResult> Invoke(GetPermissionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPermissionsResult>("aws:lakeformation/getPermissions:getPermissions", args ?? new GetPermissionsInvokeArgs(), options.WithDefaults());
@@ -230,6 +232,12 @@ namespace Pulumi.Aws.LakeFormation
         /// </summary>
         [Input("catalogResource")]
         public bool? CatalogResource { get; set; }
+
+        /// <summary>
+        /// Configuration block for a data cells filter resource. Detailed below.
+        /// </summary>
+        [Input("dataCellsFilter")]
+        public Inputs.GetPermissionsDataCellsFilterArgs? DataCellsFilter { get; set; }
 
         /// <summary>
         /// Configuration block for a data location resource. Detailed below.
@@ -298,6 +306,12 @@ namespace Pulumi.Aws.LakeFormation
         public Input<bool>? CatalogResource { get; set; }
 
         /// <summary>
+        /// Configuration block for a data cells filter resource. Detailed below.
+        /// </summary>
+        [Input("dataCellsFilter")]
+        public Input<Inputs.GetPermissionsDataCellsFilterInputArgs>? DataCellsFilter { get; set; }
+
+        /// <summary>
         /// Configuration block for a data location resource. Detailed below.
         /// </summary>
         [Input("dataLocation")]
@@ -355,6 +369,7 @@ namespace Pulumi.Aws.LakeFormation
     {
         public readonly string? CatalogId;
         public readonly bool? CatalogResource;
+        public readonly Outputs.GetPermissionsDataCellsFilterResult DataCellsFilter;
         public readonly Outputs.GetPermissionsDataLocationResult DataLocation;
         public readonly Outputs.GetPermissionsDatabaseResult Database;
         /// <summary>
@@ -381,6 +396,8 @@ namespace Pulumi.Aws.LakeFormation
 
             bool? catalogResource,
 
+            Outputs.GetPermissionsDataCellsFilterResult dataCellsFilter,
+
             Outputs.GetPermissionsDataLocationResult dataLocation,
 
             Outputs.GetPermissionsDatabaseResult database,
@@ -403,6 +420,7 @@ namespace Pulumi.Aws.LakeFormation
         {
             CatalogId = catalogId;
             CatalogResource = catalogResource;
+            DataCellsFilter = dataCellsFilter;
             DataLocation = dataLocation;
             Database = database;
             Id = id;

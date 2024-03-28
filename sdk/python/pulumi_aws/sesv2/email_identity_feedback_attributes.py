@@ -102,24 +102,27 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
         Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_email_identity = aws.sesv2.EmailIdentity("exampleEmailIdentity", email_identity="example.com")
-        example_email_identity_feedback_attributes = aws.sesv2.EmailIdentityFeedbackAttributes("exampleEmailIdentityFeedbackAttributes",
-            email_identity=example_email_identity.email_identity,
+        example = aws.sesv2.EmailIdentity("example", email_identity="example.com")
+        example_email_identity_feedback_attributes = aws.sesv2.EmailIdentityFeedbackAttributes("example",
+            email_identity=example.email_identity,
             email_forwarding_enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Feedback Attributes using the `email_identity`. For example:
 
         ```sh
-         $ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
+        $ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -137,24 +140,27 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
         Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_email_identity = aws.sesv2.EmailIdentity("exampleEmailIdentity", email_identity="example.com")
-        example_email_identity_feedback_attributes = aws.sesv2.EmailIdentityFeedbackAttributes("exampleEmailIdentityFeedbackAttributes",
-            email_identity=example_email_identity.email_identity,
+        example = aws.sesv2.EmailIdentity("example", email_identity="example.com")
+        example_email_identity_feedback_attributes = aws.sesv2.EmailIdentityFeedbackAttributes("example",
+            email_identity=example.email_identity,
             email_forwarding_enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Feedback Attributes using the `email_identity`. For example:
 
         ```sh
-         $ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
+        $ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
         ```
 
         :param str resource_name: The name of the resource.

@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -43,16 +44,19 @@ public final class WorkforceSourceIpConfig {
 
         @CustomType.Setter
         public Builder cidrs(List<String> cidrs) {
-            this.cidrs = Objects.requireNonNull(cidrs);
+            if (cidrs == null) {
+              throw new MissingRequiredPropertyException("WorkforceSourceIpConfig", "cidrs");
+            }
+            this.cidrs = cidrs;
             return this;
         }
         public Builder cidrs(String... cidrs) {
             return cidrs(List.of(cidrs));
         }
         public WorkforceSourceIpConfig build() {
-            final var o = new WorkforceSourceIpConfig();
-            o.cidrs = cidrs;
-            return o;
+            final var _resultValue = new WorkforceSourceIpConfig();
+            _resultValue.cidrs = cidrs;
+            return _resultValue;
         }
     }
 }

@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Keyspaces
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,7 +27,7 @@ namespace Pulumi.Aws.Keyspaces
     /// {
     ///     var example = new Aws.Keyspaces.Table("example", new()
     ///     {
-    ///         KeyspaceName = aws_keyspaces_keyspace.Example.Name,
+    ///         KeyspaceName = exampleAwsKeyspacesKeyspace.Name,
     ///         TableName = "my_table",
     ///         SchemaDefinition = new Aws.Keyspaces.Inputs.TableSchemaDefinitionArgs
     ///         {
@@ -50,13 +51,14 @@ namespace Pulumi.Aws.Keyspaces
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
+    /// $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
     /// ```
     /// </summary>
     [AwsResourceType("aws:keyspaces/table:Table")]
@@ -165,10 +167,6 @@ namespace Pulumi.Aws.Keyspaces
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -358,11 +356,7 @@ namespace Pulumi.Aws.Keyspaces
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

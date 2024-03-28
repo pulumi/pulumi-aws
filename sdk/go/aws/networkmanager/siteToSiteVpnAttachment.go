@@ -12,11 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS NetworkManager SiteToSiteAttachment.
+// Resource for managing an AWS Network Manager SiteToSiteAttachment.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,8 +32,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.NewSiteToSiteVpnAttachment(ctx, "example", &networkmanager.SiteToSiteVpnAttachmentArgs{
-//				CoreNetworkId:    pulumi.Any(awscc_networkmanager_core_network.Example.Id),
-//				VpnConnectionArn: pulumi.Any(aws_vpn_connection.Example.Arn),
+//				CoreNetworkId:    pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
+//				VpnConnectionArn: pulumi.Any(exampleAwsVpnConnection.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -41,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_networkmanager_site_to_site_vpn_attachment` using the attachment ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment example attachment-0f8fa60d2238d1bd8
-//
+// $ pulumi import aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment example attachment-0f8fa60d2238d1bd8
 // ```
 type SiteToSiteVpnAttachment struct {
 	pulumi.CustomResourceState
@@ -99,10 +100,6 @@ func NewSiteToSiteVpnAttachment(ctx *pulumi.Context,
 	if args.VpnConnectionArn == nil {
 		return nil, errors.New("invalid value for required argument 'VpnConnectionArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SiteToSiteVpnAttachment
 	err := ctx.RegisterResource("aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment", name, args, &resource, opts...)

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,7 +28,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewTopic(ctx, "userUpdates", nil)
+//			_, err := sns.NewTopic(ctx, "user_updates", &sns.TopicArgs{
+//				Name: pulumi.String("user-updates-topic"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -36,8 +39,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Example with Delivery Policy
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,7 +56,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewTopic(ctx, "userUpdates", &sns.TopicArgs{
+//			_, err := sns.NewTopic(ctx, "user_updates", &sns.TopicArgs{
+//				Name: pulumi.String("user-updates-topic"),
 //				DeliveryPolicy: pulumi.String(`{
 //	  "http": {
 //	    "defaultHealthyRetryPolicy": {
@@ -80,9 +87,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Example with Server-side encryption (SSE)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -95,7 +104,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewTopic(ctx, "userUpdates", &sns.TopicArgs{
+//			_, err := sns.NewTopic(ctx, "user_updates", &sns.TopicArgs{
+//				Name:           pulumi.String("user-updates-topic"),
 //				KmsMasterKeyId: pulumi.String("alias/aws/sns"),
 //			})
 //			if err != nil {
@@ -106,9 +116,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Example with First-In-First-Out (FIFO)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -121,9 +133,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewTopic(ctx, "userUpdates", &sns.TopicArgs{
-//				ContentBasedDeduplication: pulumi.Bool(true),
+//			_, err := sns.NewTopic(ctx, "user_updates", &sns.TopicArgs{
+//				Name:                      pulumi.String("user-updates-topic.fifo"),
 //				FifoTopic:                 pulumi.Bool(true),
+//				ContentBasedDeduplication: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -133,6 +146,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Message Delivery Status Arguments
 //
@@ -143,9 +157,7 @@ import (
 // Using `pulumi import`, import SNS Topics using the topic `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
-//
+// $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
 // ```
 type Topic struct {
 	pulumi.CustomResourceState
@@ -223,10 +235,6 @@ func NewTopic(ctx *pulumi.Context,
 		args = &TopicArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Topic
 	err := ctx.RegisterResource("aws:sns/topic:Topic", name, args, &resource, opts...)

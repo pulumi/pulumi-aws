@@ -59,19 +59,21 @@ public final class PlanStageTarget {
 
         @CustomType.Setter
         public Builder channelTargetInfo(@Nullable PlanStageTargetChannelTargetInfo channelTargetInfo) {
+
             this.channelTargetInfo = channelTargetInfo;
             return this;
         }
         @CustomType.Setter
         public Builder contactTargetInfo(@Nullable PlanStageTargetContactTargetInfo contactTargetInfo) {
+
             this.contactTargetInfo = contactTargetInfo;
             return this;
         }
         public PlanStageTarget build() {
-            final var o = new PlanStageTarget();
-            o.channelTargetInfo = channelTargetInfo;
-            o.contactTargetInfo = contactTargetInfo;
-            return o;
+            final var _resultValue = new PlanStageTarget();
+            _resultValue.channelTargetInfo = channelTargetInfo;
+            _resultValue.contactTargetInfo = contactTargetInfo;
+            return _resultValue;
         }
     }
 }

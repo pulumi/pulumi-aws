@@ -5,6 +5,7 @@ package com.pulumi.aws.networkmanager.outputs;
 
 import com.pulumi.aws.networkmanager.outputs.GetSiteLocation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -113,27 +114,42 @@ public final class GetSiteResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetSiteResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetSiteResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder globalNetworkId(String globalNetworkId) {
-            this.globalNetworkId = Objects.requireNonNull(globalNetworkId);
+            if (globalNetworkId == null) {
+              throw new MissingRequiredPropertyException("GetSiteResult", "globalNetworkId");
+            }
+            this.globalNetworkId = globalNetworkId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSiteResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder locations(List<GetSiteLocation> locations) {
-            this.locations = Objects.requireNonNull(locations);
+            if (locations == null) {
+              throw new MissingRequiredPropertyException("GetSiteResult", "locations");
+            }
+            this.locations = locations;
             return this;
         }
         public Builder locations(GetSiteLocation... locations) {
@@ -141,24 +157,30 @@ public final class GetSiteResult {
         }
         @CustomType.Setter
         public Builder siteId(String siteId) {
-            this.siteId = Objects.requireNonNull(siteId);
+            if (siteId == null) {
+              throw new MissingRequiredPropertyException("GetSiteResult", "siteId");
+            }
+            this.siteId = siteId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetSiteResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetSiteResult build() {
-            final var o = new GetSiteResult();
-            o.arn = arn;
-            o.description = description;
-            o.globalNetworkId = globalNetworkId;
-            o.id = id;
-            o.locations = locations;
-            o.siteId = siteId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetSiteResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.globalNetworkId = globalNetworkId;
+            _resultValue.id = id;
+            _resultValue.locations = locations;
+            _resultValue.siteId = siteId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

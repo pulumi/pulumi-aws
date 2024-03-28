@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,30 +23,31 @@ import * as utilities from "../utilities";
  *     engine: "REDIS",
  *     passwords: ["password123456789"],
  * });
- * const exampleUserGroup = new aws.elasticache.UserGroup("exampleUserGroup", {
+ * const example = new aws.elasticache.UserGroup("example", {
  *     engine: "REDIS",
  *     userGroupId: "userGroupId",
  *     userIds: [_default.userId],
  * });
- * const exampleUser = new aws.elasticache.User("exampleUser", {
+ * const exampleUser = new aws.elasticache.User("example", {
  *     userId: "exampleUserID",
  *     userName: "exampleuser",
  *     accessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
  *     engine: "REDIS",
  *     passwords: ["password123456789"],
  * });
- * const exampleUserGroupAssociation = new aws.elasticache.UserGroupAssociation("exampleUserGroupAssociation", {
- *     userGroupId: exampleUserGroup.userGroupId,
+ * const exampleUserGroupAssociation = new aws.elasticache.UserGroupAssociation("example", {
+ *     userGroupId: example.userGroupId,
  *     userId: exampleUser.userId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
+ * $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
  * ```
  */
 export class UserGroupAssociation extends pulumi.CustomResource {

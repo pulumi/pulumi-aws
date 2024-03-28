@@ -5,6 +5,7 @@ package com.pulumi.aws.dms;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -18,14 +19,14 @@ public final class ReplicationTaskArgs extends com.pulumi.resources.ResourceArgs
     public static final ReplicationTaskArgs Empty = new ReplicationTaskArgs();
 
     /**
-     * Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+     * Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
      * 
      */
     @Import(name="cdcStartPosition")
     private @Nullable Output<String> cdcStartPosition;
 
     /**
-     * @return Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+     * @return Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
      * 
      */
     public Optional<Output<String>> cdcStartPosition() {
@@ -33,14 +34,14 @@ public final class ReplicationTaskArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
+     * RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
      * 
      */
     @Import(name="cdcStartTime")
     private @Nullable Output<String> cdcStartTime;
 
     /**
-     * @return The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
+     * @return RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
      * 
      */
     public Optional<Output<String>> cdcStartTime() {
@@ -227,7 +228,7 @@ public final class ReplicationTaskArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cdcStartPosition Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+         * @param cdcStartPosition Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
          * 
          * @return builder
          * 
@@ -238,7 +239,7 @@ public final class ReplicationTaskArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cdcStartPosition Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+         * @param cdcStartPosition Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
          * 
          * @return builder
          * 
@@ -248,7 +249,7 @@ public final class ReplicationTaskArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cdcStartTime The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
+         * @param cdcStartTime RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
          * 
          * @return builder
          * 
@@ -259,7 +260,7 @@ public final class ReplicationTaskArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cdcStartTime The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
+         * @param cdcStartTime RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
          * 
          * @return builder
          * 
@@ -468,12 +469,24 @@ public final class ReplicationTaskArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ReplicationTaskArgs build() {
-            $.migrationType = Objects.requireNonNull($.migrationType, "expected parameter 'migrationType' to be non-null");
-            $.replicationInstanceArn = Objects.requireNonNull($.replicationInstanceArn, "expected parameter 'replicationInstanceArn' to be non-null");
-            $.replicationTaskId = Objects.requireNonNull($.replicationTaskId, "expected parameter 'replicationTaskId' to be non-null");
-            $.sourceEndpointArn = Objects.requireNonNull($.sourceEndpointArn, "expected parameter 'sourceEndpointArn' to be non-null");
-            $.tableMappings = Objects.requireNonNull($.tableMappings, "expected parameter 'tableMappings' to be non-null");
-            $.targetEndpointArn = Objects.requireNonNull($.targetEndpointArn, "expected parameter 'targetEndpointArn' to be non-null");
+            if ($.migrationType == null) {
+                throw new MissingRequiredPropertyException("ReplicationTaskArgs", "migrationType");
+            }
+            if ($.replicationInstanceArn == null) {
+                throw new MissingRequiredPropertyException("ReplicationTaskArgs", "replicationInstanceArn");
+            }
+            if ($.replicationTaskId == null) {
+                throw new MissingRequiredPropertyException("ReplicationTaskArgs", "replicationTaskId");
+            }
+            if ($.sourceEndpointArn == null) {
+                throw new MissingRequiredPropertyException("ReplicationTaskArgs", "sourceEndpointArn");
+            }
+            if ($.tableMappings == null) {
+                throw new MissingRequiredPropertyException("ReplicationTaskArgs", "tableMappings");
+            }
+            if ($.targetEndpointArn == null) {
+                throw new MissingRequiredPropertyException("ReplicationTaskArgs", "targetEndpointArn");
+            }
             return $;
         }
     }

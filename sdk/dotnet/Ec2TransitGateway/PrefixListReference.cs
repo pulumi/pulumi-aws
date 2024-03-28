@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// Manages an EC2 Transit Gateway Prefix List Reference.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Attachment Routing
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,15 +27,18 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// {
     ///     var example = new Aws.Ec2TransitGateway.PrefixListReference("example", new()
     ///     {
-    ///         PrefixListId = aws_ec2_managed_prefix_list.Example.Id,
-    ///         TransitGatewayAttachmentId = aws_ec2_transit_gateway_vpc_attachment.Example.Id,
-    ///         TransitGatewayRouteTableId = aws_ec2_transit_gateway.Example.Association_default_route_table_id,
+    ///         PrefixListId = exampleAwsEc2ManagedPrefixList.Id,
+    ///         TransitGatewayAttachmentId = exampleAwsEc2TransitGatewayVpcAttachment.Id,
+    ///         TransitGatewayRouteTableId = exampleAwsEc2TransitGateway.AssociationDefaultRouteTableId,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Blackhole Routing
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,19 +50,20 @@ namespace Pulumi.Aws.Ec2TransitGateway
     ///     var example = new Aws.Ec2TransitGateway.PrefixListReference("example", new()
     ///     {
     ///         Blackhole = true,
-    ///         PrefixListId = aws_ec2_managed_prefix_list.Example.Id,
-    ///         TransitGatewayRouteTableId = aws_ec2_transit_gateway.Example.Association_default_route_table_id,
+    ///         PrefixListId = exampleAwsEc2ManagedPrefixList.Id,
+    ///         TransitGatewayRouteTableId = exampleAwsEc2TransitGateway.AssociationDefaultRouteTableId,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ec2_transit_gateway_prefix_list_reference` using the EC2 Transit Gateway Route Table identifier and EC2 Prefix List identifier, separated by an underscore (`_`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2transitgateway/prefixListReference:PrefixListReference example tgw-rtb-12345678_pl-12345678
+    /// $ pulumi import aws:ec2transitgateway/prefixListReference:PrefixListReference example tgw-rtb-12345678_pl-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/prefixListReference:PrefixListReference")]

@@ -4,6 +4,7 @@
 package com.pulumi.aws.oam.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class GetSinksResult {
 
         @CustomType.Setter
         public Builder arns(List<String> arns) {
-            this.arns = Objects.requireNonNull(arns);
+            if (arns == null) {
+              throw new MissingRequiredPropertyException("GetSinksResult", "arns");
+            }
+            this.arns = arns;
             return this;
         }
         public Builder arns(String... arns) {
@@ -65,14 +69,17 @@ public final class GetSinksResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSinksResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetSinksResult build() {
-            final var o = new GetSinksResult();
-            o.arns = arns;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetSinksResult();
+            _resultValue.arns = arns;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

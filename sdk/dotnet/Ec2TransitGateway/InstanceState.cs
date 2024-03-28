@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,31 +53,32 @@ namespace Pulumi.Aws.Ec2TransitGateway
     ///         },
     ///     });
     /// 
-    ///     var testInstance = new Aws.Ec2.Instance("testInstance", new()
+    ///     var test = new Aws.Ec2.Instance("test", new()
     ///     {
     ///         Ami = ubuntu.Apply(getAmiResult =&gt; getAmiResult.Id),
-    ///         InstanceType = "t3.micro",
+    ///         InstanceType = Aws.Ec2.InstanceType.T3_Micro,
     ///         Tags = 
     ///         {
     ///             { "Name", "HelloWorld" },
     ///         },
     ///     });
     /// 
-    ///     var testInstanceState = new Aws.Ec2TransitGateway.InstanceState("testInstanceState", new()
+    ///     var testInstanceState = new Aws.Ec2TransitGateway.InstanceState("test", new()
     ///     {
-    ///         InstanceId = testInstance.Id,
+    ///         InstanceId = test.Id,
     ///         State = "stopped",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
+    /// $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/instanceState:InstanceState")]

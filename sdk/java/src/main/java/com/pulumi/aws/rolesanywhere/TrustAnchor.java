@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +21,8 @@ import javax.annotation.Nullable;
  * Resource for managing a Roles Anywhere Trust Anchor.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,7 +44,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.rolesanywhere.TrustAnchorArgs;
  * import com.pulumi.aws.rolesanywhere.inputs.TrustAnchorSourceArgs;
  * import com.pulumi.aws.rolesanywhere.inputs.TrustAnchorSourceSourceDataArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCertificateAuthority = new CertificateAuthority(&#34;exampleCertificateAuthority&#34;, CertificateAuthorityArgs.builder()        
+ *         var example = new CertificateAuthority(&#34;example&#34;, CertificateAuthorityArgs.builder()        
  *             .permanentDeletionTimeInDays(7)
  *             .type(&#34;ROOT&#34;)
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
@@ -71,9 +71,9 @@ import javax.annotation.Nullable;
  * 
  *         final var current = AwsFunctions.getPartition();
  * 
- *         var testCertificate = new Certificate(&#34;testCertificate&#34;, CertificateArgs.builder()        
- *             .certificateAuthorityArn(exampleCertificateAuthority.arn())
- *             .certificateSigningRequest(exampleCertificateAuthority.certificateSigningRequest())
+ *         var test = new Certificate(&#34;test&#34;, CertificateArgs.builder()        
+ *             .certificateAuthorityArn(example.arn())
+ *             .certificateSigningRequest(example.certificateSigningRequest())
  *             .signingAlgorithm(&#34;SHA512WITHRSA&#34;)
  *             .templateArn(String.format(&#34;arn:%s:acm-pca:::template/RootCACertificate/V1&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
  *             .validity(CertificateValidityArgs.builder()
@@ -83,32 +83,32 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCertificateAuthorityCertificate = new CertificateAuthorityCertificate(&#34;exampleCertificateAuthorityCertificate&#34;, CertificateAuthorityCertificateArgs.builder()        
- *             .certificateAuthorityArn(exampleCertificateAuthority.arn())
- *             .certificate(aws_acmpca_certificate.example().certificate())
- *             .certificateChain(aws_acmpca_certificate.example().certificate_chain())
+ *             .certificateAuthorityArn(example.arn())
+ *             .certificate(exampleAwsAcmpcaCertificate.certificate())
+ *             .certificateChain(exampleAwsAcmpcaCertificate.certificateChain())
  *             .build());
  * 
  *         var testTrustAnchor = new TrustAnchor(&#34;testTrustAnchor&#34;, TrustAnchorArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .source(TrustAnchorSourceArgs.builder()
  *                 .sourceData(TrustAnchorSourceSourceDataArgs.builder()
- *                     .acmPcaArn(exampleCertificateAuthority.arn())
+ *                     .acmPcaArn(example.arn())
  *                     .build())
  *                 .sourceType(&#34;AWS_ACM_PCA&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleCertificateAuthorityCertificate)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_rolesanywhere_trust_anchor` using its `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rolesanywhere/trustAnchor:TrustAnchor example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1
+ * $ pulumi import aws:rolesanywhere/trustAnchor:TrustAnchor example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1
  * ```
  * 
  */
@@ -235,9 +235,6 @@ public class TrustAnchor extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

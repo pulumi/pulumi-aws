@@ -186,28 +186,30 @@ class CustomRoutingEndpointGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.globalaccelerator.CustomRoutingEndpointGroup("example",
-            listener_arn=aws_globalaccelerator_custom_routing_listener["example"]["id"],
+            listener_arn=example_aws_globalaccelerator_custom_routing_listener["id"],
             destination_configurations=[aws.globalaccelerator.CustomRoutingEndpointGroupDestinationConfigurationArgs(
                 from_port=80,
                 to_port=8080,
                 protocols=["TCP"],
             )],
             endpoint_configurations=[aws.globalaccelerator.CustomRoutingEndpointGroupEndpointConfigurationArgs(
-                endpoint_id=aws_subnet["example"]["id"],
+                endpoint_id=example_aws_subnet["id"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Global Accelerator custom routing endpoint groups using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
+        $ pulumi import aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
         ```
 
         :param str resource_name: The name of the resource.
@@ -228,28 +230,30 @@ class CustomRoutingEndpointGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.globalaccelerator.CustomRoutingEndpointGroup("example",
-            listener_arn=aws_globalaccelerator_custom_routing_listener["example"]["id"],
+            listener_arn=example_aws_globalaccelerator_custom_routing_listener["id"],
             destination_configurations=[aws.globalaccelerator.CustomRoutingEndpointGroupDestinationConfigurationArgs(
                 from_port=80,
                 to_port=8080,
                 protocols=["TCP"],
             )],
             endpoint_configurations=[aws.globalaccelerator.CustomRoutingEndpointGroupEndpointConfigurationArgs(
-                endpoint_id=aws_subnet["example"]["id"],
+                endpoint_id=example_aws_subnet["id"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Global Accelerator custom routing endpoint groups using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
+        $ pulumi import aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
         ```
 
         :param str resource_name: The name of the resource.

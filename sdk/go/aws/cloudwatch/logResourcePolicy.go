@@ -15,8 +15,10 @@ import (
 // Provides a resource to manage a CloudWatch log resource policy.
 //
 // ## Example Usage
+//
 // ### Elasticsearch Log Publishing
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			elasticsearch_log_publishing_policyPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			elasticsearch_log_publishing_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Actions: []string{
@@ -55,8 +57,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudwatch.NewLogResourcePolicy(ctx, "elasticsearch-log-publishing-policyLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
-//				PolicyDocument: *pulumi.String(elasticsearch_log_publishing_policyPolicyDocument.Json),
+//			_, err = cloudwatch.NewLogResourcePolicy(ctx, "elasticsearch-log-publishing-policy", &cloudwatch.LogResourcePolicyArgs{
+//				PolicyDocument: pulumi.String(elasticsearch_log_publishing_policy.Json),
 //				PolicyName:     pulumi.String("elasticsearch-log-publishing-policy"),
 //			})
 //			if err != nil {
@@ -67,8 +69,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Route53 Query Logging
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -82,7 +87,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			route53_query_logging_policyPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			route53_query_logging_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Actions: []string{
@@ -106,8 +111,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudwatch.NewLogResourcePolicy(ctx, "route53-query-logging-policyLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
-//				PolicyDocument: *pulumi.String(route53_query_logging_policyPolicyDocument.Json),
+//			_, err = cloudwatch.NewLogResourcePolicy(ctx, "route53-query-logging-policy", &cloudwatch.LogResourcePolicyArgs{
+//				PolicyDocument: pulumi.String(route53_query_logging_policy.Json),
 //				PolicyName:     pulumi.String("route53-query-logging-policy"),
 //			})
 //			if err != nil {
@@ -118,15 +123,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudWatch log resource policies using the policy name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
-//
+// $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
 // ```
 type LogResourcePolicy struct {
 	pulumi.CustomResourceState

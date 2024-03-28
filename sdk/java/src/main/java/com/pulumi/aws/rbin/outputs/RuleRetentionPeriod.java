@@ -4,6 +4,7 @@
 package com.pulumi.aws.rbin.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -57,19 +58,25 @@ public final class RuleRetentionPeriod {
 
         @CustomType.Setter
         public Builder retentionPeriodUnit(String retentionPeriodUnit) {
-            this.retentionPeriodUnit = Objects.requireNonNull(retentionPeriodUnit);
+            if (retentionPeriodUnit == null) {
+              throw new MissingRequiredPropertyException("RuleRetentionPeriod", "retentionPeriodUnit");
+            }
+            this.retentionPeriodUnit = retentionPeriodUnit;
             return this;
         }
         @CustomType.Setter
         public Builder retentionPeriodValue(Integer retentionPeriodValue) {
-            this.retentionPeriodValue = Objects.requireNonNull(retentionPeriodValue);
+            if (retentionPeriodValue == null) {
+              throw new MissingRequiredPropertyException("RuleRetentionPeriod", "retentionPeriodValue");
+            }
+            this.retentionPeriodValue = retentionPeriodValue;
             return this;
         }
         public RuleRetentionPeriod build() {
-            final var o = new RuleRetentionPeriod();
-            o.retentionPeriodUnit = retentionPeriodUnit;
-            o.retentionPeriodValue = retentionPeriodValue;
-            return o;
+            final var _resultValue = new RuleRetentionPeriod();
+            _resultValue.retentionPeriodUnit = retentionPeriodUnit;
+            _resultValue.retentionPeriodValue = retentionPeriodValue;
+            return _resultValue;
         }
     }
 }

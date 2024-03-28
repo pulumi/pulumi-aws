@@ -7,6 +7,7 @@ import com.pulumi.aws.redshift.inputs.ClusterLoggingArgs;
 import com.pulumi.aws.redshift.inputs.ClusterSnapshotCopyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -485,6 +486,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies if the Redshift cluster is multi-AZ.
+     * 
+     */
+    @Import(name="multiAz")
+    private @Nullable Output<Boolean> multiAz;
+
+    /**
+     * @return Specifies if the Redshift cluster is multi-AZ.
+     * 
+     */
+    public Optional<Output<Boolean>> multiAz() {
+        return Optional.ofNullable(this.multiAz);
+    }
+
+    /**
      * The node type to be provisioned for the cluster.
      * 
      */
@@ -719,6 +735,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.masterPassword = $.masterPassword;
         this.masterPasswordSecretKmsKeyId = $.masterPasswordSecretKmsKeyId;
         this.masterUsername = $.masterUsername;
+        this.multiAz = $.multiAz;
         this.nodeType = $.nodeType;
         this.numberOfNodes = $.numberOfNodes;
         this.ownerAccount = $.ownerAccount;
@@ -1400,6 +1417,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param multiAz Specifies if the Redshift cluster is multi-AZ.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder multiAz(@Nullable Output<Boolean> multiAz) {
+            $.multiAz = multiAz;
+            return this;
+        }
+
+        /**
+         * @param multiAz Specifies if the Redshift cluster is multi-AZ.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder multiAz(Boolean multiAz) {
+            return multiAz(Output.of(multiAz));
+        }
+
+        /**
          * @param nodeType The node type to be provisioned for the cluster.
          * 
          * @return builder
@@ -1691,8 +1729,12 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ClusterArgs build() {
-            $.clusterIdentifier = Objects.requireNonNull($.clusterIdentifier, "expected parameter 'clusterIdentifier' to be non-null");
-            $.nodeType = Objects.requireNonNull($.nodeType, "expected parameter 'nodeType' to be non-null");
+            if ($.clusterIdentifier == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "clusterIdentifier");
+            }
+            if ($.nodeType == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "nodeType");
+            }
             return $;
         }
     }

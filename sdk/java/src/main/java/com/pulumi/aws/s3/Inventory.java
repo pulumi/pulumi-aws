@@ -22,8 +22,13 @@ import javax.annotation.Nullable;
 /**
  * Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
  * 
+ * &gt; This resource cannot be used with S3 directory buckets.
+ * 
  * ## Example Usage
+ * 
  * ### Add inventory configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -31,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.Inventory;
  * import com.pulumi.aws.s3.InventoryArgs;
  * import com.pulumi.aws.s3.inputs.InventoryScheduleArgs;
@@ -49,12 +55,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testBucketV2 = new BucketV2(&#34;testBucketV2&#34;);
+ *         var test = new BucketV2(&#34;test&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-tf-test-bucket&#34;)
+ *             .build());
  * 
- *         var inventory = new BucketV2(&#34;inventory&#34;);
+ *         var inventory = new BucketV2(&#34;inventory&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-tf-inventory-bucket&#34;)
+ *             .build());
  * 
  *         var testInventory = new Inventory(&#34;testInventory&#34;, InventoryArgs.builder()        
- *             .bucket(testBucketV2.id())
+ *             .bucket(test.id())
+ *             .name(&#34;EntireBucketDaily&#34;)
  *             .includedObjectVersions(&#34;All&#34;)
  *             .schedule(InventoryScheduleArgs.builder()
  *                 .frequency(&#34;Daily&#34;)
@@ -70,7 +81,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Add inventory configuration with S3 object prefix
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -78,6 +93,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.Inventory;
  * import com.pulumi.aws.s3.InventoryArgs;
  * import com.pulumi.aws.s3.inputs.InventoryScheduleArgs;
@@ -97,12 +113,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new BucketV2(&#34;test&#34;);
+ *         var test = new BucketV2(&#34;test&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-tf-test-bucket&#34;)
+ *             .build());
  * 
- *         var inventory = new BucketV2(&#34;inventory&#34;);
+ *         var inventory = new BucketV2(&#34;inventory&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-tf-inventory-bucket&#34;)
+ *             .build());
  * 
  *         var test_prefix = new Inventory(&#34;test-prefix&#34;, InventoryArgs.builder()        
  *             .bucket(test.id())
+ *             .name(&#34;DocumentsWeekly&#34;)
  *             .includedObjectVersions(&#34;All&#34;)
  *             .schedule(InventoryScheduleArgs.builder()
  *                 .frequency(&#34;Daily&#34;)
@@ -122,13 +143,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import S3 bucket inventory configurations using `bucket:inventory`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
+ * $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
  * ```
  * 
  */

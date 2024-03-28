@@ -66,6 +66,7 @@ public final class RiskConfigurationRiskExceptionConfiguration {
 
         @CustomType.Setter
         public Builder blockedIpRangeLists(@Nullable List<String> blockedIpRangeLists) {
+
             this.blockedIpRangeLists = blockedIpRangeLists;
             return this;
         }
@@ -74,6 +75,7 @@ public final class RiskConfigurationRiskExceptionConfiguration {
         }
         @CustomType.Setter
         public Builder skippedIpRangeLists(@Nullable List<String> skippedIpRangeLists) {
+
             this.skippedIpRangeLists = skippedIpRangeLists;
             return this;
         }
@@ -81,10 +83,10 @@ public final class RiskConfigurationRiskExceptionConfiguration {
             return skippedIpRangeLists(List.of(skippedIpRangeLists));
         }
         public RiskConfigurationRiskExceptionConfiguration build() {
-            final var o = new RiskConfigurationRiskExceptionConfiguration();
-            o.blockedIpRangeLists = blockedIpRangeLists;
-            o.skippedIpRangeLists = skippedIpRangeLists;
-            return o;
+            final var _resultValue = new RiskConfigurationRiskExceptionConfiguration();
+            _resultValue.blockedIpRangeLists = blockedIpRangeLists;
+            _resultValue.skippedIpRangeLists = skippedIpRangeLists;
+            return _resultValue;
         }
     }
 }

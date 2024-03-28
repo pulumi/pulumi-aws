@@ -5,6 +5,7 @@ package com.pulumi.aws.route53.outputs;
 
 import com.pulumi.aws.route53.outputs.GetResolverFirewallRulesFirewallRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -79,17 +80,24 @@ public final class GetResolverFirewallRulesResult {
 
         @CustomType.Setter
         public Builder action(@Nullable String action) {
+
             this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder firewallRuleGroupId(String firewallRuleGroupId) {
-            this.firewallRuleGroupId = Objects.requireNonNull(firewallRuleGroupId);
+            if (firewallRuleGroupId == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRulesResult", "firewallRuleGroupId");
+            }
+            this.firewallRuleGroupId = firewallRuleGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder firewallRules(List<GetResolverFirewallRulesFirewallRule> firewallRules) {
-            this.firewallRules = Objects.requireNonNull(firewallRules);
+            if (firewallRules == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRulesResult", "firewallRules");
+            }
+            this.firewallRules = firewallRules;
             return this;
         }
         public Builder firewallRules(GetResolverFirewallRulesFirewallRule... firewallRules) {
@@ -97,22 +105,26 @@ public final class GetResolverFirewallRulesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRulesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
+
             this.priority = priority;
             return this;
         }
         public GetResolverFirewallRulesResult build() {
-            final var o = new GetResolverFirewallRulesResult();
-            o.action = action;
-            o.firewallRuleGroupId = firewallRuleGroupId;
-            o.firewallRules = firewallRules;
-            o.id = id;
-            o.priority = priority;
-            return o;
+            final var _resultValue = new GetResolverFirewallRulesResult();
+            _resultValue.action = action;
+            _resultValue.firewallRuleGroupId = firewallRuleGroupId;
+            _resultValue.firewallRules = firewallRules;
+            _resultValue.id = id;
+            _resultValue.priority = priority;
+            return _resultValue;
         }
     }
 }

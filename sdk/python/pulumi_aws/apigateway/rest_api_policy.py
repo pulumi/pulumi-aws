@@ -103,14 +103,16 @@ class RestApiPolicy(pulumi.CustomResource):
         > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 resources.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_rest_api = aws.apigateway.RestApi("testRestApi")
-        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_rest_api = aws.apigateway.RestApi("test", name="example-rest-api")
+        test = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="AWS",
@@ -124,17 +126,18 @@ class RestApiPolicy(pulumi.CustomResource):
                 values=["123.123.123.123/32"],
             )],
         )])
-        test_rest_api_policy = aws.apigateway.RestApiPolicy("testRestApiPolicy",
+        test_rest_api_policy = aws.apigateway.RestApiPolicy("test",
             rest_api_id=test_rest_api.id,
-            policy=test_policy_document.json)
+            policy=test.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_rest_api_policy` using the REST API ID. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
+        $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
         ```
 
         :param str resource_name: The name of the resource.
@@ -154,14 +157,16 @@ class RestApiPolicy(pulumi.CustomResource):
         > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 resources.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_rest_api = aws.apigateway.RestApi("testRestApi")
-        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_rest_api = aws.apigateway.RestApi("test", name="example-rest-api")
+        test = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="AWS",
@@ -175,17 +180,18 @@ class RestApiPolicy(pulumi.CustomResource):
                 values=["123.123.123.123/32"],
             )],
         )])
-        test_rest_api_policy = aws.apigateway.RestApiPolicy("testRestApiPolicy",
+        test_rest_api_policy = aws.apigateway.RestApiPolicy("test",
             rest_api_id=test_rest_api.id,
-            policy=test_policy_document.json)
+            policy=test.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_rest_api_policy` using the REST API ID. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
+        $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
         ```
 
         :param str resource_name: The name of the resource.

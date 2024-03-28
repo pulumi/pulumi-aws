@@ -7,6 +7,7 @@ import com.pulumi.aws.codepipeline.inputs.WebhookAuthenticationConfigurationArgs
 import com.pulumi.aws.codepipeline.inputs.WebhookFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -312,10 +313,18 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WebhookArgs build() {
-            $.authentication = Objects.requireNonNull($.authentication, "expected parameter 'authentication' to be non-null");
-            $.filters = Objects.requireNonNull($.filters, "expected parameter 'filters' to be non-null");
-            $.targetAction = Objects.requireNonNull($.targetAction, "expected parameter 'targetAction' to be non-null");
-            $.targetPipeline = Objects.requireNonNull($.targetPipeline, "expected parameter 'targetPipeline' to be non-null");
+            if ($.authentication == null) {
+                throw new MissingRequiredPropertyException("WebhookArgs", "authentication");
+            }
+            if ($.filters == null) {
+                throw new MissingRequiredPropertyException("WebhookArgs", "filters");
+            }
+            if ($.targetAction == null) {
+                throw new MissingRequiredPropertyException("WebhookArgs", "targetAction");
+            }
+            if ($.targetPipeline == null) {
+                throw new MissingRequiredPropertyException("WebhookArgs", "targetPipeline");
+            }
             return $;
         }
     }

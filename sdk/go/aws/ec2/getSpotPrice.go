@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.GetSpotPrice(ctx, &ec2.GetSpotPriceArgs{
+//				InstanceType:     pulumi.StringRef("t3.medium"),
 //				AvailabilityZone: pulumi.StringRef("us-west-2a"),
 //				Filters: []ec2.GetSpotPriceFilter{
 //					{
@@ -37,7 +39,6 @@ import (
 //						},
 //					},
 //				},
-//				InstanceType: pulumi.StringRef("t3.medium"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -47,6 +48,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetSpotPrice(ctx *pulumi.Context, args *GetSpotPriceArgs, opts ...pulumi.InvokeOption) (*GetSpotPriceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSpotPriceResult

@@ -157,23 +157,25 @@ class CarrierGateway(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2.CarrierGateway("example",
-            vpc_id=aws_vpc["example"]["id"],
+            vpc_id=example_aws_vpc["id"],
             tags={
                 "Name": "example-carrier-gateway",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_carrier_gateway` using the carrier gateway's ID. For example:
 
         ```sh
-         $ pulumi import aws:ec2/carrierGateway:CarrierGateway example cgw-12345
+        $ pulumi import aws:ec2/carrierGateway:CarrierGateway example cgw-12345
         ```
 
         :param str resource_name: The name of the resource.
@@ -192,23 +194,25 @@ class CarrierGateway(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2.CarrierGateway("example",
-            vpc_id=aws_vpc["example"]["id"],
+            vpc_id=example_aws_vpc["id"],
             tags={
                 "Name": "example-carrier-gateway",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_carrier_gateway` using the carrier gateway's ID. For example:
 
         ```sh
-         $ pulumi import aws:ec2/carrierGateway:CarrierGateway example cgw-12345
+        $ pulumi import aws:ec2/carrierGateway:CarrierGateway example cgw-12345
         ```
 
         :param str resource_name: The name of the resource.
@@ -244,8 +248,6 @@ class CarrierGateway(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(CarrierGateway, __self__).__init__(
             'aws:ec2/carrierGateway:CarrierGateway',
             resource_name,

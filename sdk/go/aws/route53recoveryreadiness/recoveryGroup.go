@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Route53 Recovery Readiness recovery groups using the recovery group name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup my-high-availability-app my-high-availability-app
-//
+// $ pulumi import aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup my-high-availability-app my-high-availability-app
 // ```
 type RecoveryGroup struct {
 	pulumi.CustomResourceState
@@ -78,10 +78,6 @@ func NewRecoveryGroup(ctx *pulumi.Context,
 	if args.RecoveryGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'RecoveryGroupName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RecoveryGroup
 	err := ctx.RegisterResource("aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup", name, args, &resource, opts...)

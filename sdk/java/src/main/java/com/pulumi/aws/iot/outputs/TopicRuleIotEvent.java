@@ -4,6 +4,7 @@
 package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -87,31 +88,39 @@ public final class TopicRuleIotEvent {
 
         @CustomType.Setter
         public Builder batchMode(@Nullable Boolean batchMode) {
+
             this.batchMode = batchMode;
             return this;
         }
         @CustomType.Setter
         public Builder inputName(String inputName) {
-            this.inputName = Objects.requireNonNull(inputName);
+            if (inputName == null) {
+              throw new MissingRequiredPropertyException("TopicRuleIotEvent", "inputName");
+            }
+            this.inputName = inputName;
             return this;
         }
         @CustomType.Setter
         public Builder messageId(@Nullable String messageId) {
+
             this.messageId = messageId;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("TopicRuleIotEvent", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         public TopicRuleIotEvent build() {
-            final var o = new TopicRuleIotEvent();
-            o.batchMode = batchMode;
-            o.inputName = inputName;
-            o.messageId = messageId;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new TopicRuleIotEvent();
+            _resultValue.batchMode = batchMode;
+            _resultValue.inputName = inputName;
+            _resultValue.messageId = messageId;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

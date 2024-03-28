@@ -5,6 +5,7 @@ package com.pulumi.aws.elasticache;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -393,8 +394,12 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
         }
 
         public GlobalReplicationGroupArgs build() {
-            $.globalReplicationGroupIdSuffix = Objects.requireNonNull($.globalReplicationGroupIdSuffix, "expected parameter 'globalReplicationGroupIdSuffix' to be non-null");
-            $.primaryReplicationGroupId = Objects.requireNonNull($.primaryReplicationGroupId, "expected parameter 'primaryReplicationGroupId' to be non-null");
+            if ($.globalReplicationGroupIdSuffix == null) {
+                throw new MissingRequiredPropertyException("GlobalReplicationGroupArgs", "globalReplicationGroupIdSuffix");
+            }
+            if ($.primaryReplicationGroupId == null) {
+                throw new MissingRequiredPropertyException("GlobalReplicationGroupArgs", "primaryReplicationGroupId");
+            }
             return $;
         }
     }

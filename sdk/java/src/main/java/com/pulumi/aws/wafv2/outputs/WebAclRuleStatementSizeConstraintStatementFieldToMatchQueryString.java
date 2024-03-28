@@ -25,8 +25,8 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatchQuerySt
         }
 
         public WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryString build() {
-            final var o = new WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryString();
-            return o;
+            final var _resultValue = new WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryString();
+            return _resultValue;
         }
     }
 }

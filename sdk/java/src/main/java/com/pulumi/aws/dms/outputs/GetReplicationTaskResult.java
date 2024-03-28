@@ -4,6 +4,7 @@
 package com.pulumi.aws.dms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -210,91 +211,133 @@ public final class GetReplicationTaskResult {
 
         @CustomType.Setter
         public Builder cdcStartPosition(String cdcStartPosition) {
-            this.cdcStartPosition = Objects.requireNonNull(cdcStartPosition);
+            if (cdcStartPosition == null) {
+              throw new MissingRequiredPropertyException("GetReplicationTaskResult", "cdcStartPosition");
+            }
+            this.cdcStartPosition = cdcStartPosition;
             return this;
         }
         @CustomType.Setter
         public Builder cdcStartTime(String cdcStartTime) {
-            this.cdcStartTime = Objects.requireNonNull(cdcStartTime);
+            if (cdcStartTime == null) {
+              throw new MissingRequiredPropertyException("GetReplicationTaskResult", "cdcStartTime");
+            }
+            this.cdcStartTime = cdcStartTime;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetReplicationTaskResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder migrationType(String migrationType) {
-            this.migrationType = Objects.requireNonNull(migrationType);
+            if (migrationType == null) {
+              throw new MissingRequiredPropertyException("GetReplicationTaskResult", "migrationType");
+            }
+            this.migrationType = migrationType;
             return this;
         }
         @CustomType.Setter
         public Builder replicationInstanceArn(String replicationInstanceArn) {
-            this.replicationInstanceArn = Objects.requireNonNull(replicationInstanceArn);
+            if (replicationInstanceArn == null) {
+              throw new MissingRequiredPropertyException("GetReplicationTaskResult", "replicationInstanceArn");
+            }
+            this.replicationInstanceArn = replicationInstanceArn;
             return this;
         }
         @CustomType.Setter
         public Builder replicationTaskArn(String replicationTaskArn) {
-            this.replicationTaskArn = Objects.requireNonNull(replicationTaskArn);
+            if (replicationTaskArn == null) {
+              throw new MissingRequiredPropertyException("GetReplicationTaskResult", "replicationTaskArn");
+            }
+            this.replicationTaskArn = replicationTaskArn;
             return this;
         }
         @CustomType.Setter
         public Builder replicationTaskId(String replicationTaskId) {
-            this.replicationTaskId = Objects.requireNonNull(replicationTaskId);
+            if (replicationTaskId == null) {
+              throw new MissingRequiredPropertyException("GetReplicationTaskResult", "replicationTaskId");
+            }
+            this.replicationTaskId = replicationTaskId;
             return this;
         }
         @CustomType.Setter
         public Builder replicationTaskSettings(String replicationTaskSettings) {
-            this.replicationTaskSettings = Objects.requireNonNull(replicationTaskSettings);
+            if (replicationTaskSettings == null) {
+              throw new MissingRequiredPropertyException("GetReplicationTaskResult", "replicationTaskSettings");
+            }
+            this.replicationTaskSettings = replicationTaskSettings;
             return this;
         }
         @CustomType.Setter
         public Builder sourceEndpointArn(String sourceEndpointArn) {
-            this.sourceEndpointArn = Objects.requireNonNull(sourceEndpointArn);
+            if (sourceEndpointArn == null) {
+              throw new MissingRequiredPropertyException("GetReplicationTaskResult", "sourceEndpointArn");
+            }
+            this.sourceEndpointArn = sourceEndpointArn;
             return this;
         }
         @CustomType.Setter
         public Builder startReplicationTask(Boolean startReplicationTask) {
-            this.startReplicationTask = Objects.requireNonNull(startReplicationTask);
+            if (startReplicationTask == null) {
+              throw new MissingRequiredPropertyException("GetReplicationTaskResult", "startReplicationTask");
+            }
+            this.startReplicationTask = startReplicationTask;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetReplicationTaskResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tableMappings(String tableMappings) {
-            this.tableMappings = Objects.requireNonNull(tableMappings);
+            if (tableMappings == null) {
+              throw new MissingRequiredPropertyException("GetReplicationTaskResult", "tableMappings");
+            }
+            this.tableMappings = tableMappings;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetReplicationTaskResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder targetEndpointArn(String targetEndpointArn) {
-            this.targetEndpointArn = Objects.requireNonNull(targetEndpointArn);
+            if (targetEndpointArn == null) {
+              throw new MissingRequiredPropertyException("GetReplicationTaskResult", "targetEndpointArn");
+            }
+            this.targetEndpointArn = targetEndpointArn;
             return this;
         }
         public GetReplicationTaskResult build() {
-            final var o = new GetReplicationTaskResult();
-            o.cdcStartPosition = cdcStartPosition;
-            o.cdcStartTime = cdcStartTime;
-            o.id = id;
-            o.migrationType = migrationType;
-            o.replicationInstanceArn = replicationInstanceArn;
-            o.replicationTaskArn = replicationTaskArn;
-            o.replicationTaskId = replicationTaskId;
-            o.replicationTaskSettings = replicationTaskSettings;
-            o.sourceEndpointArn = sourceEndpointArn;
-            o.startReplicationTask = startReplicationTask;
-            o.status = status;
-            o.tableMappings = tableMappings;
-            o.tags = tags;
-            o.targetEndpointArn = targetEndpointArn;
-            return o;
+            final var _resultValue = new GetReplicationTaskResult();
+            _resultValue.cdcStartPosition = cdcStartPosition;
+            _resultValue.cdcStartTime = cdcStartTime;
+            _resultValue.id = id;
+            _resultValue.migrationType = migrationType;
+            _resultValue.replicationInstanceArn = replicationInstanceArn;
+            _resultValue.replicationTaskArn = replicationTaskArn;
+            _resultValue.replicationTaskId = replicationTaskId;
+            _resultValue.replicationTaskSettings = replicationTaskSettings;
+            _resultValue.sourceEndpointArn = sourceEndpointArn;
+            _resultValue.startReplicationTask = startReplicationTask;
+            _resultValue.status = status;
+            _resultValue.tableMappings = tableMappings;
+            _resultValue.tags = tags;
+            _resultValue.targetEndpointArn = targetEndpointArn;
+            return _resultValue;
         }
     }
 }

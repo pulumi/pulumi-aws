@@ -16,6 +16,7 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,9 +30,10 @@ namespace Pulumi.Aws.GuardDuty
     ///         Enable = true,
     ///     });
     /// 
-    ///     var eksRuntimeMonitoring = new Aws.GuardDuty.DetectorFeature("eksRuntimeMonitoring", new()
+    ///     var eksRuntimeMonitoring = new Aws.GuardDuty.DetectorFeature("eks_runtime_monitoring", new()
     ///     {
     ///         DetectorId = example.Id,
+    ///         Name = "EKS_RUNTIME_MONITORING",
     ///         Status = "ENABLED",
     ///         AdditionalConfigurations = new[]
     ///         {
@@ -45,6 +47,7 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:guardduty/detectorFeature:DetectorFeature")]
     public partial class DetectorFeature : global::Pulumi.CustomResource
@@ -62,7 +65,7 @@ namespace Pulumi.Aws.GuardDuty
         public Output<string> DetectorId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+        /// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -138,7 +141,7 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string> DetectorId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+        /// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -176,7 +179,7 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string>? DetectorId { get; set; }
 
         /// <summary>
-        /// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+        /// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

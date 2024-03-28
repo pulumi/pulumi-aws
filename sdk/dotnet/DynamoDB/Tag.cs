@@ -16,12 +16,61 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// &gt; **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
     /// 
+    /// ## Example Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var replica = Aws.GetRegion.Invoke();
+    /// 
+    ///     var current = Aws.GetRegion.Invoke();
+    /// 
+    ///     var example = new Aws.DynamoDB.Table("example", new()
+    ///     {
+    ///         Replicas = new[]
+    ///         {
+    ///             new Aws.DynamoDB.Inputs.TableReplicaArgs
+    ///             {
+    ///                 RegionName = replica.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var test = new Aws.DynamoDB.Tag("test", new()
+    ///     {
+    ///         ResourceArn = Output.Tuple(example.Arn, current, replica).Apply(values =&gt;
+    ///         {
+    ///             var arn = values.Item1;
+    ///             var current = values.Item2;
+    ///             var replica = values.Item3;
+    ///             return Std.Replace.Invoke(new()
+    ///             {
+    ///                 Text = arn,
+    ///                 Search = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///                 Replace = replica.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             });
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         Key = "testkey",
+    ///         Value = "testvalue",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_dynamodb_tag` using the DynamoDB resource identifier and key, separated by a comma (`,`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:dynamodb/tag:Tag example arn:aws:dynamodb:us-east-1:123456789012:table/example,Name
+    /// $ pulumi import aws:dynamodb/tag:Tag example arn:aws:dynamodb:us-east-1:123456789012:table/example,Name
     /// ```
     /// </summary>
     [AwsResourceType("aws:dynamodb/tag:Tag")]

@@ -97,12 +97,14 @@ def get_global_network(global_network_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkmanager.get_global_network(global_network_id=var["global_network_id"])
+    example = aws.networkmanager.get_global_network(global_network_id=global_network_id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str global_network_id: ID of the specific global network to retrieve.
@@ -131,12 +133,14 @@ def get_global_network_output(global_network_id: Optional[pulumi.Input[str]] = N
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkmanager.get_global_network(global_network_id=var["global_network_id"])
+    example = aws.networkmanager.get_global_network(global_network_id=global_network_id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str global_network_id: ID of the specific global network to retrieve.

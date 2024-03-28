@@ -4,6 +4,7 @@
 package com.pulumi.aws.autoscalingplans.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,19 +59,23 @@ public final class ScalingPlanScalingInstructionPredefinedLoadMetricSpecificatio
 
         @CustomType.Setter
         public Builder predefinedLoadMetricType(String predefinedLoadMetricType) {
-            this.predefinedLoadMetricType = Objects.requireNonNull(predefinedLoadMetricType);
+            if (predefinedLoadMetricType == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanScalingInstructionPredefinedLoadMetricSpecification", "predefinedLoadMetricType");
+            }
+            this.predefinedLoadMetricType = predefinedLoadMetricType;
             return this;
         }
         @CustomType.Setter
         public Builder resourceLabel(@Nullable String resourceLabel) {
+
             this.resourceLabel = resourceLabel;
             return this;
         }
         public ScalingPlanScalingInstructionPredefinedLoadMetricSpecification build() {
-            final var o = new ScalingPlanScalingInstructionPredefinedLoadMetricSpecification();
-            o.predefinedLoadMetricType = predefinedLoadMetricType;
-            o.resourceLabel = resourceLabel;
-            return o;
+            final var _resultValue = new ScalingPlanScalingInstructionPredefinedLoadMetricSpecification();
+            _resultValue.predefinedLoadMetricType = predefinedLoadMetricType;
+            _resultValue.resourceLabel = resourceLabel;
+            return _resultValue;
         }
     }
 }

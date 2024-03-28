@@ -5,6 +5,7 @@ package com.pulumi.aws.auditmanager.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class AssessmentRolesAllArgs extends com.pulumi.resources.ResourceA
         }
 
         public AssessmentRolesAllArgs build() {
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.roleType = Objects.requireNonNull($.roleType, "expected parameter 'roleType' to be non-null");
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("AssessmentRolesAllArgs", "roleArn");
+            }
+            if ($.roleType == null) {
+                throw new MissingRequiredPropertyException("AssessmentRolesAllArgs", "roleType");
+            }
             return $;
         }
     }

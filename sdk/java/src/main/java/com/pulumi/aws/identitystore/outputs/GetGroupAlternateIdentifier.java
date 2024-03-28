@@ -63,19 +63,21 @@ public final class GetGroupAlternateIdentifier {
 
         @CustomType.Setter
         public Builder externalId(@Nullable GetGroupAlternateIdentifierExternalId externalId) {
+
             this.externalId = externalId;
             return this;
         }
         @CustomType.Setter
         public Builder uniqueAttribute(@Nullable GetGroupAlternateIdentifierUniqueAttribute uniqueAttribute) {
+
             this.uniqueAttribute = uniqueAttribute;
             return this;
         }
         public GetGroupAlternateIdentifier build() {
-            final var o = new GetGroupAlternateIdentifier();
-            o.externalId = externalId;
-            o.uniqueAttribute = uniqueAttribute;
-            return o;
+            final var _resultValue = new GetGroupAlternateIdentifier();
+            _resultValue.externalId = externalId;
+            _resultValue.uniqueAttribute = uniqueAttribute;
+            return _resultValue;
         }
     }
 }

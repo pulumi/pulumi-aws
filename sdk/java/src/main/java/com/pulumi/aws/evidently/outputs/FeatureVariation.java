@@ -5,6 +5,7 @@ package com.pulumi.aws.evidently.outputs;
 
 import com.pulumi.aws.evidently.outputs.FeatureVariationValue;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -57,19 +58,25 @@ public final class FeatureVariation {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("FeatureVariation", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder value(FeatureVariationValue value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("FeatureVariation", "value");
+            }
+            this.value = value;
             return this;
         }
         public FeatureVariation build() {
-            final var o = new FeatureVariation();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new FeatureVariation();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

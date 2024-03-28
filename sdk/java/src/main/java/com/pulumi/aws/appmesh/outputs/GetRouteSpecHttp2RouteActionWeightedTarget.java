@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -47,25 +48,34 @@ public final class GetRouteSpecHttp2RouteActionWeightedTarget {
 
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttp2RouteActionWeightedTarget", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder virtualNode(String virtualNode) {
-            this.virtualNode = Objects.requireNonNull(virtualNode);
+            if (virtualNode == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttp2RouteActionWeightedTarget", "virtualNode");
+            }
+            this.virtualNode = virtualNode;
             return this;
         }
         @CustomType.Setter
         public Builder weight(Integer weight) {
-            this.weight = Objects.requireNonNull(weight);
+            if (weight == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttp2RouteActionWeightedTarget", "weight");
+            }
+            this.weight = weight;
             return this;
         }
         public GetRouteSpecHttp2RouteActionWeightedTarget build() {
-            final var o = new GetRouteSpecHttp2RouteActionWeightedTarget();
-            o.port = port;
-            o.virtualNode = virtualNode;
-            o.weight = weight;
-            return o;
+            final var _resultValue = new GetRouteSpecHttp2RouteActionWeightedTarget();
+            _resultValue.port = port;
+            _resultValue.virtualNode = virtualNode;
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

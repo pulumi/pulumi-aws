@@ -4,6 +4,7 @@
 package com.pulumi.aws.cognito.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -99,37 +100,52 @@ public final class GetUserPoolClientAnalyticsConfiguration {
 
         @CustomType.Setter
         public Builder applicationArn(String applicationArn) {
-            this.applicationArn = Objects.requireNonNull(applicationArn);
+            if (applicationArn == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientAnalyticsConfiguration", "applicationArn");
+            }
+            this.applicationArn = applicationArn;
             return this;
         }
         @CustomType.Setter
         public Builder applicationId(String applicationId) {
-            this.applicationId = Objects.requireNonNull(applicationId);
+            if (applicationId == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientAnalyticsConfiguration", "applicationId");
+            }
+            this.applicationId = applicationId;
             return this;
         }
         @CustomType.Setter
         public Builder externalId(String externalId) {
-            this.externalId = Objects.requireNonNull(externalId);
+            if (externalId == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientAnalyticsConfiguration", "externalId");
+            }
+            this.externalId = externalId;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientAnalyticsConfiguration", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder userDataShared(Boolean userDataShared) {
-            this.userDataShared = Objects.requireNonNull(userDataShared);
+            if (userDataShared == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientAnalyticsConfiguration", "userDataShared");
+            }
+            this.userDataShared = userDataShared;
             return this;
         }
         public GetUserPoolClientAnalyticsConfiguration build() {
-            final var o = new GetUserPoolClientAnalyticsConfiguration();
-            o.applicationArn = applicationArn;
-            o.applicationId = applicationId;
-            o.externalId = externalId;
-            o.roleArn = roleArn;
-            o.userDataShared = userDataShared;
-            return o;
+            final var _resultValue = new GetUserPoolClientAnalyticsConfiguration();
+            _resultValue.applicationArn = applicationArn;
+            _resultValue.applicationId = applicationId;
+            _resultValue.externalId = externalId;
+            _resultValue.roleArn = roleArn;
+            _resultValue.userDataShared = userDataShared;
+            return _resultValue;
         }
     }
 }

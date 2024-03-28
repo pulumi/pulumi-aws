@@ -269,103 +269,119 @@ public final class FlowSourceFlowConfigSourceConnectorProperties {
 
         @CustomType.Setter
         public Builder amplitude(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesAmplitude amplitude) {
+
             this.amplitude = amplitude;
             return this;
         }
         @CustomType.Setter
         public Builder customConnector(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector customConnector) {
+
             this.customConnector = customConnector;
             return this;
         }
         @CustomType.Setter
         public Builder datadog(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesDatadog datadog) {
+
             this.datadog = datadog;
             return this;
         }
         @CustomType.Setter
         public Builder dynatrace(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesDynatrace dynatrace) {
+
             this.dynatrace = dynatrace;
             return this;
         }
         @CustomType.Setter
         public Builder googleAnalytics(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics googleAnalytics) {
+
             this.googleAnalytics = googleAnalytics;
             return this;
         }
         @CustomType.Setter
         public Builder inforNexus(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesInforNexus inforNexus) {
+
             this.inforNexus = inforNexus;
             return this;
         }
         @CustomType.Setter
         public Builder marketo(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesMarketo marketo) {
+
             this.marketo = marketo;
             return this;
         }
         @CustomType.Setter
         public Builder s3(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesS3 s3) {
+
             this.s3 = s3;
             return this;
         }
         @CustomType.Setter
         public Builder salesforce(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesSalesforce salesforce) {
+
             this.salesforce = salesforce;
             return this;
         }
         @CustomType.Setter
         public Builder sapoData(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesSapoData sapoData) {
+
             this.sapoData = sapoData;
             return this;
         }
         @CustomType.Setter
         public Builder serviceNow(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesServiceNow serviceNow) {
+
             this.serviceNow = serviceNow;
             return this;
         }
         @CustomType.Setter
         public Builder singular(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesSingular singular) {
+
             this.singular = singular;
             return this;
         }
         @CustomType.Setter
         public Builder slack(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesSlack slack) {
+
             this.slack = slack;
             return this;
         }
         @CustomType.Setter
         public Builder trendmicro(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro trendmicro) {
+
             this.trendmicro = trendmicro;
             return this;
         }
         @CustomType.Setter
         public Builder veeva(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesVeeva veeva) {
+
             this.veeva = veeva;
             return this;
         }
         @CustomType.Setter
         public Builder zendesk(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesZendesk zendesk) {
+
             this.zendesk = zendesk;
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorProperties build() {
-            final var o = new FlowSourceFlowConfigSourceConnectorProperties();
-            o.amplitude = amplitude;
-            o.customConnector = customConnector;
-            o.datadog = datadog;
-            o.dynatrace = dynatrace;
-            o.googleAnalytics = googleAnalytics;
-            o.inforNexus = inforNexus;
-            o.marketo = marketo;
-            o.s3 = s3;
-            o.salesforce = salesforce;
-            o.sapoData = sapoData;
-            o.serviceNow = serviceNow;
-            o.singular = singular;
-            o.slack = slack;
-            o.trendmicro = trendmicro;
-            o.veeva = veeva;
-            o.zendesk = zendesk;
-            return o;
+            final var _resultValue = new FlowSourceFlowConfigSourceConnectorProperties();
+            _resultValue.amplitude = amplitude;
+            _resultValue.customConnector = customConnector;
+            _resultValue.datadog = datadog;
+            _resultValue.dynatrace = dynatrace;
+            _resultValue.googleAnalytics = googleAnalytics;
+            _resultValue.inforNexus = inforNexus;
+            _resultValue.marketo = marketo;
+            _resultValue.s3 = s3;
+            _resultValue.salesforce = salesforce;
+            _resultValue.sapoData = sapoData;
+            _resultValue.serviceNow = serviceNow;
+            _resultValue.singular = singular;
+            _resultValue.slack = slack;
+            _resultValue.trendmicro = trendmicro;
+            _resultValue.veeva = veeva;
+            _resultValue.zendesk = zendesk;
+            return _resultValue;
         }
     }
 }

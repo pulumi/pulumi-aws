@@ -13,8 +13,10 @@ namespace Pulumi.Aws.SsmIncidents
     /// Provides a resource to manage response plans in AWS Systems Manager Incident Manager.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,6 +27,7 @@ namespace Pulumi.Aws.SsmIncidents
     /// {
     ///     var example = new Aws.SsmIncidents.ResponsePlan("example", new()
     ///     {
+    ///         Name = "name",
     ///         IncidentTemplate = new Aws.SsmIncidents.Inputs.ResponsePlanIncidentTemplateArgs
     ///         {
     ///             Title = "title",
@@ -34,18 +37,15 @@ namespace Pulumi.Aws.SsmIncidents
     ///         {
     ///             { "key", "value" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_ssmincidents_replication_set.Example,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Usage With All Fields
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -56,6 +56,7 @@ namespace Pulumi.Aws.SsmIncidents
     /// {
     ///     var example = new Aws.SsmIncidents.ResponsePlan("example", new()
     ///     {
+    ///         Name = "name",
     ///         IncidentTemplate = new Aws.SsmIncidents.Inputs.ResponsePlanIncidentTemplateArgs
     ///         {
     ///             Title = "title",
@@ -69,11 +70,11 @@ namespace Pulumi.Aws.SsmIncidents
     ///             {
     ///                 new Aws.SsmIncidents.Inputs.ResponsePlanIncidentTemplateNotificationTargetArgs
     ///                 {
-    ///                     SnsTopicArn = aws_sns_topic.Example1.Arn,
+    ///                     SnsTopicArn = example1.Arn,
     ///                 },
     ///                 new Aws.SsmIncidents.Inputs.ResponsePlanIncidentTemplateNotificationTargetArgs
     ///                 {
-    ///                     SnsTopicArn = aws_sns_topic.Example2.Arn,
+    ///                     SnsTopicArn = example2.Arn,
     ///                 },
     ///             },
     ///             Summary = "summary",
@@ -81,7 +82,7 @@ namespace Pulumi.Aws.SsmIncidents
     ///         DisplayName = "display name",
     ///         ChatChannels = new[]
     ///         {
-    ///             aws_sns_topic.Topic.Arn,
+    ///             topic.Arn,
     ///         },
     ///         Engagements = new[]
     ///         {
@@ -93,8 +94,8 @@ namespace Pulumi.Aws.SsmIncidents
     ///             {
     ///                 new Aws.SsmIncidents.Inputs.ResponsePlanActionSsmAutomationArgs
     ///                 {
-    ///                     DocumentName = aws_ssm_document.Document1.Name,
-    ///                     RoleArn = aws_iam_role.Role1.Arn,
+    ///                     DocumentName = document1.Name,
+    ///                     RoleArn = role1.Arn,
     ///                     DocumentVersion = "version1",
     ///                     TargetAccount = "RESPONSE_PLAN_OWNER_ACCOUNT",
     ///                     Parameters = new[]
@@ -141,23 +142,18 @@ namespace Pulumi.Aws.SsmIncidents
     ///         {
     ///             { "key", "value" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_ssmincidents_replication_set.Example,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import an Incident Manager response plan using the response plan ARN. You can find the response plan ARN in the AWS Management Console. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ssmincidents/responsePlan:ResponsePlan responsePlanName ARNValue
+    /// $ pulumi import aws:ssmincidents/responsePlan:ResponsePlan responsePlanName ARNValue
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssmincidents/responsePlan:ResponsePlan")]
@@ -243,10 +239,6 @@ namespace Pulumi.Aws.SsmIncidents
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -420,11 +412,7 @@ namespace Pulumi.Aws.SsmIncidents
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ResponsePlanState()

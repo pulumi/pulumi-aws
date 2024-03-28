@@ -4,6 +4,7 @@
 package com.pulumi.aws.mskconnect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,19 +59,23 @@ public final class ConnectorCapacityProvisionedCapacity {
 
         @CustomType.Setter
         public Builder mcuCount(@Nullable Integer mcuCount) {
+
             this.mcuCount = mcuCount;
             return this;
         }
         @CustomType.Setter
         public Builder workerCount(Integer workerCount) {
-            this.workerCount = Objects.requireNonNull(workerCount);
+            if (workerCount == null) {
+              throw new MissingRequiredPropertyException("ConnectorCapacityProvisionedCapacity", "workerCount");
+            }
+            this.workerCount = workerCount;
             return this;
         }
         public ConnectorCapacityProvisionedCapacity build() {
-            final var o = new ConnectorCapacityProvisionedCapacity();
-            o.mcuCount = mcuCount;
-            o.workerCount = workerCount;
-            return o;
+            final var _resultValue = new ConnectorCapacityProvisionedCapacity();
+            _resultValue.mcuCount = mcuCount;
+            _resultValue.workerCount = workerCount;
+            return _resultValue;
         }
     }
 }

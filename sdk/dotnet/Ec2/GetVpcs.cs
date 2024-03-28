@@ -15,6 +15,37 @@ namespace Pulumi.Aws.Ec2
         /// This resource can be useful for getting back a list of VPC Ids for a region.
         /// 
         /// The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following shows outputting all VPC Ids.
+        /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = Aws.Ec2.GetVpcs.Invoke(new()
+        ///     {
+        ///         Tags = 
+        ///         {
+        ///             { "service", "production" },
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["foo"] = foo.Apply(getVpcsResult =&gt; getVpcsResult.Ids),
+        ///     };
+        /// });
+        /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
+        /// An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
         /// </summary>
         public static Task<GetVpcsResult> InvokeAsync(GetVpcsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcsResult>("aws:ec2/getVpcs:getVpcs", args ?? new GetVpcsArgs(), options.WithDefaults());
@@ -23,6 +54,37 @@ namespace Pulumi.Aws.Ec2
         /// This resource can be useful for getting back a list of VPC Ids for a region.
         /// 
         /// The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following shows outputting all VPC Ids.
+        /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = Aws.Ec2.GetVpcs.Invoke(new()
+        ///     {
+        ///         Tags = 
+        ///         {
+        ///             { "service", "production" },
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["foo"] = foo.Apply(getVpcsResult =&gt; getVpcsResult.Ids),
+        ///     };
+        /// });
+        /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
+        /// An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
         /// </summary>
         public static Output<GetVpcsResult> Invoke(GetVpcsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcsResult>("aws:ec2/getVpcs:getVpcs", args ?? new GetVpcsInvokeArgs(), options.WithDefaults());

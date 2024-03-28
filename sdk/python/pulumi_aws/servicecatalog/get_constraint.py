@@ -142,8 +142,10 @@ def get_constraint(accept_language: Optional[str] = None,
     Provides information on a Service Catalog Constraint.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -151,6 +153,7 @@ def get_constraint(accept_language: Optional[str] = None,
     example = aws.servicecatalog.get_constraint(accept_language="en",
         id="cons-hrvy0335")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -187,8 +190,10 @@ def get_constraint_output(accept_language: Optional[pulumi.Input[Optional[str]]]
     Provides information on a Service Catalog Constraint.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -196,6 +201,7 @@ def get_constraint_output(accept_language: Optional[pulumi.Input[Optional[str]]]
     example = aws.servicecatalog.get_constraint(accept_language="en",
         id="cons-hrvy0335")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.

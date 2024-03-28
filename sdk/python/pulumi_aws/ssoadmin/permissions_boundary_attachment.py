@@ -137,26 +137,29 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
         > **NOTE:** A permission set can have at most one permissions boundary attached; using more than one `ssoadmin.PermissionsBoundaryAttachment` references the same permission set will show a permanent difference.
 
         ## Example Usage
+
         ### Attaching an AWS-managed policy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ssoadmin.PermissionsBoundaryAttachment("example",
-            instance_arn=aws_ssoadmin_permission_set["example"]["instance_arn"],
-            permission_set_arn=aws_ssoadmin_permission_set["example"]["arn"],
+            instance_arn=example_aws_ssoadmin_permission_set["instanceArn"],
+            permission_set_arn=example_aws_ssoadmin_permission_set["arn"],
             permissions_boundary=aws.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundaryArgs(
                 managed_policy_arn="arn:aws:iam::aws:policy/ReadOnlyAccess",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SSO Admin Permissions Boundary Attachments using the `permission_set_arn` and `instance_arn`, separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
+        $ pulumi import aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
         ```
 
         :param str resource_name: The name of the resource.
@@ -177,26 +180,29 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
         > **NOTE:** A permission set can have at most one permissions boundary attached; using more than one `ssoadmin.PermissionsBoundaryAttachment` references the same permission set will show a permanent difference.
 
         ## Example Usage
+
         ### Attaching an AWS-managed policy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ssoadmin.PermissionsBoundaryAttachment("example",
-            instance_arn=aws_ssoadmin_permission_set["example"]["instance_arn"],
-            permission_set_arn=aws_ssoadmin_permission_set["example"]["arn"],
+            instance_arn=example_aws_ssoadmin_permission_set["instanceArn"],
+            permission_set_arn=example_aws_ssoadmin_permission_set["arn"],
             permissions_boundary=aws.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundaryArgs(
                 managed_policy_arn="arn:aws:iam::aws:policy/ReadOnlyAccess",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SSO Admin Permissions Boundary Attachments using the `permission_set_arn` and `instance_arn`, separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
+        $ pulumi import aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
         ```
 
         :param str resource_name: The name of the resource.

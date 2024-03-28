@@ -516,25 +516,30 @@ class TransitVirtualInterface(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_gateway = aws.directconnect.Gateway("exampleGateway", amazon_side_asn="64512")
-        example_transit_virtual_interface = aws.directconnect.TransitVirtualInterface("exampleTransitVirtualInterface",
-            connection_id=aws_dx_connection["example"]["id"],
-            dx_gateway_id=example_gateway.id,
+        example = aws.directconnect.Gateway("example",
+            name="tf-dxg-example",
+            amazon_side_asn="64512")
+        example_transit_virtual_interface = aws.directconnect.TransitVirtualInterface("example",
+            connection_id=example_aws_dx_connection["id"],
+            dx_gateway_id=example.id,
+            name="tf-transit-vif-example",
             vlan=4094,
             address_family="ipv4",
             bgp_asn=65352)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Direct Connect transit virtual interfaces using the VIF `id`. For example:
 
         ```sh
-         $ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
+        $ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
         ```
 
         :param str resource_name: The name of the resource.
@@ -565,25 +570,30 @@ class TransitVirtualInterface(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_gateway = aws.directconnect.Gateway("exampleGateway", amazon_side_asn="64512")
-        example_transit_virtual_interface = aws.directconnect.TransitVirtualInterface("exampleTransitVirtualInterface",
-            connection_id=aws_dx_connection["example"]["id"],
-            dx_gateway_id=example_gateway.id,
+        example = aws.directconnect.Gateway("example",
+            name="tf-dxg-example",
+            amazon_side_asn="64512")
+        example_transit_virtual_interface = aws.directconnect.TransitVirtualInterface("example",
+            connection_id=example_aws_dx_connection["id"],
+            dx_gateway_id=example.id,
+            name="tf-transit-vif-example",
             vlan=4094,
             address_family="ipv4",
             bgp_asn=65352)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Direct Connect transit virtual interfaces using the VIF `id`. For example:
 
         ```sh
-         $ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
+        $ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
         ```
 
         :param str resource_name: The name of the resource.
@@ -649,8 +659,6 @@ class TransitVirtualInterface(pulumi.CustomResource):
             __props__.__dict__["aws_device"] = None
             __props__.__dict__["jumbo_frame_capable"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(TransitVirtualInterface, __self__).__init__(
             'aws:directconnect/transitVirtualInterface:TransitVirtualInterface',
             resource_name,

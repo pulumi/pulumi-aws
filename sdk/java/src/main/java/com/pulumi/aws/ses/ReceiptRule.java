@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * Provides an SES receipt rule resource
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,31 +53,33 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var store = new ReceiptRule(&#34;store&#34;, ReceiptRuleArgs.builder()        
+ *             .name(&#34;store&#34;)
+ *             .ruleSetName(&#34;default-rule-set&#34;)
+ *             .recipients(&#34;karen@example.com&#34;)
+ *             .enabled(true)
+ *             .scanEnabled(true)
  *             .addHeaderActions(ReceiptRuleAddHeaderActionArgs.builder()
  *                 .headerName(&#34;Custom-Header&#34;)
  *                 .headerValue(&#34;Added by SES&#34;)
  *                 .position(1)
  *                 .build())
- *             .enabled(true)
- *             .recipients(&#34;karen@example.com&#34;)
- *             .ruleSetName(&#34;default-rule-set&#34;)
  *             .s3Actions(ReceiptRuleS3ActionArgs.builder()
  *                 .bucketName(&#34;emails&#34;)
  *                 .position(2)
  *                 .build())
- *             .scanEnabled(true)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SES receipt rules using the ruleset name and rule name separated by `:`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
+ * $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
  * ```
  * 
  */

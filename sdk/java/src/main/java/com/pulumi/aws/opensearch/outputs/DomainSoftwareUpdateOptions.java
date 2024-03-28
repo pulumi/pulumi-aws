@@ -44,13 +44,14 @@ public final class DomainSoftwareUpdateOptions {
 
         @CustomType.Setter
         public Builder autoSoftwareUpdateEnabled(@Nullable Boolean autoSoftwareUpdateEnabled) {
+
             this.autoSoftwareUpdateEnabled = autoSoftwareUpdateEnabled;
             return this;
         }
         public DomainSoftwareUpdateOptions build() {
-            final var o = new DomainSoftwareUpdateOptions();
-            o.autoSoftwareUpdateEnabled = autoSoftwareUpdateEnabled;
-            return o;
+            final var _resultValue = new DomainSoftwareUpdateOptions();
+            _resultValue.autoSoftwareUpdateEnabled = autoSoftwareUpdateEnabled;
+            return _resultValue;
         }
     }
 }

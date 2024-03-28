@@ -11,11 +11,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.licensemanager.LicenseConfiguration("example", {
+ *     name: "Example",
  *     description: "Example",
  *     licenseCount: 10,
  *     licenseCountHardLimit: true,
@@ -26,6 +28,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Rules
  *
  * License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:
@@ -43,7 +47,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import license configurations using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+ * $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
  * ```
  */
 export class LicenseConfiguration extends pulumi.CustomResource {
@@ -157,8 +161,6 @@ export class LicenseConfiguration extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LicenseConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

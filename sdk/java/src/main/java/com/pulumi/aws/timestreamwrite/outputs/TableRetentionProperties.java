@@ -4,6 +4,7 @@
 package com.pulumi.aws.timestreamwrite.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class TableRetentionProperties {
 
         @CustomType.Setter
         public Builder magneticStoreRetentionPeriodInDays(Integer magneticStoreRetentionPeriodInDays) {
-            this.magneticStoreRetentionPeriodInDays = Objects.requireNonNull(magneticStoreRetentionPeriodInDays);
+            if (magneticStoreRetentionPeriodInDays == null) {
+              throw new MissingRequiredPropertyException("TableRetentionProperties", "magneticStoreRetentionPeriodInDays");
+            }
+            this.magneticStoreRetentionPeriodInDays = magneticStoreRetentionPeriodInDays;
             return this;
         }
         @CustomType.Setter
         public Builder memoryStoreRetentionPeriodInHours(Integer memoryStoreRetentionPeriodInHours) {
-            this.memoryStoreRetentionPeriodInHours = Objects.requireNonNull(memoryStoreRetentionPeriodInHours);
+            if (memoryStoreRetentionPeriodInHours == null) {
+              throw new MissingRequiredPropertyException("TableRetentionProperties", "memoryStoreRetentionPeriodInHours");
+            }
+            this.memoryStoreRetentionPeriodInHours = memoryStoreRetentionPeriodInHours;
             return this;
         }
         public TableRetentionProperties build() {
-            final var o = new TableRetentionProperties();
-            o.magneticStoreRetentionPeriodInDays = magneticStoreRetentionPeriodInDays;
-            o.memoryStoreRetentionPeriodInHours = memoryStoreRetentionPeriodInHours;
-            return o;
+            final var _resultValue = new TableRetentionProperties();
+            _resultValue.magneticStoreRetentionPeriodInDays = magneticStoreRetentionPeriodInDays;
+            _resultValue.memoryStoreRetentionPeriodInHours = memoryStoreRetentionPeriodInHours;
+            return _resultValue;
         }
     }
 }

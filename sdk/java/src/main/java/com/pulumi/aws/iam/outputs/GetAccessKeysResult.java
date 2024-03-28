@@ -5,6 +5,7 @@ package com.pulumi.aws.iam.outputs;
 
 import com.pulumi.aws.iam.outputs.GetAccessKeysAccessKey;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -64,7 +65,10 @@ public final class GetAccessKeysResult {
 
         @CustomType.Setter
         public Builder accessKeys(List<GetAccessKeysAccessKey> accessKeys) {
-            this.accessKeys = Objects.requireNonNull(accessKeys);
+            if (accessKeys == null) {
+              throw new MissingRequiredPropertyException("GetAccessKeysResult", "accessKeys");
+            }
+            this.accessKeys = accessKeys;
             return this;
         }
         public Builder accessKeys(GetAccessKeysAccessKey... accessKeys) {
@@ -72,20 +76,26 @@ public final class GetAccessKeysResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAccessKeysResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder user(String user) {
-            this.user = Objects.requireNonNull(user);
+            if (user == null) {
+              throw new MissingRequiredPropertyException("GetAccessKeysResult", "user");
+            }
+            this.user = user;
             return this;
         }
         public GetAccessKeysResult build() {
-            final var o = new GetAccessKeysResult();
-            o.accessKeys = accessKeys;
-            o.id = id;
-            o.user = user;
-            return o;
+            final var _resultValue = new GetAccessKeysResult();
+            _resultValue.accessKeys = accessKeys;
+            _resultValue.id = id;
+            _resultValue.user = user;
+            return _resultValue;
         }
     }
 }

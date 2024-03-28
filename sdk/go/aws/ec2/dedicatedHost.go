@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,11 +29,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new host with instance type of c5.18xlarge with Auto Placement
+//			// and Host Recovery enabled.
 //			_, err := ec2.NewDedicatedHost(ctx, "test", &ec2.DedicatedHostArgs{
-//				AutoPlacement:    pulumi.String("on"),
+//				InstanceType:     pulumi.String("c5.18xlarge"),
 //				AvailabilityZone: pulumi.String("us-west-2a"),
 //				HostRecovery:     pulumi.String("on"),
-//				InstanceType:     pulumi.String("c5.18xlarge"),
+//				AutoPlacement:    pulumi.String("on"),
 //			})
 //			if err != nil {
 //				return err
@@ -42,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import hosts using the host `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
-//
+// $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
 // ```
 type DedicatedHost struct {
 	pulumi.CustomResourceState
@@ -91,10 +93,6 @@ func NewDedicatedHost(ctx *pulumi.Context,
 	if args.AvailabilityZone == nil {
 		return nil, errors.New("invalid value for required argument 'AvailabilityZone'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DedicatedHost
 	err := ctx.RegisterResource("aws:ec2/dedicatedHost:DedicatedHost", name, args, &resource, opts...)

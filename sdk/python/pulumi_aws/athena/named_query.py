@@ -201,37 +201,42 @@ class NamedQuery(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        hoge_bucket_v2 = aws.s3.BucketV2("hogeBucketV2")
-        test_key = aws.kms.Key("testKey",
+        hoge = aws.s3.BucketV2("hoge", bucket="tf-test")
+        test = aws.kms.Key("test",
             deletion_window_in_days=7,
             description="Athena KMS Key")
-        test_workgroup = aws.athena.Workgroup("testWorkgroup", configuration=aws.athena.WorkgroupConfigurationArgs(
-            result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
-                encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
-                    encryption_option="SSE_KMS",
-                    kms_key_arn=test_key.arn,
+        test_workgroup = aws.athena.Workgroup("test",
+            name="example",
+            configuration=aws.athena.WorkgroupConfigurationArgs(
+                result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
+                    encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
+                        encryption_option="SSE_KMS",
+                        kms_key_arn=test.arn,
+                    ),
                 ),
-            ),
-        ))
-        hoge_database = aws.athena.Database("hogeDatabase",
+            ))
+        hoge_database = aws.athena.Database("hoge",
             name="users",
-            bucket=hoge_bucket_v2.id)
+            bucket=hoge.id)
         foo = aws.athena.NamedQuery("foo",
+            name="bar",
             workgroup=test_workgroup.id,
             database=hoge_database.name,
             query=hoge_database.name.apply(lambda name: f"SELECT * FROM {name} limit 10;"))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Athena Named Query using the query ID. For example:
 
         ```sh
-         $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
+        $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
         ```
 
         :param str resource_name: The name of the resource.
@@ -253,37 +258,42 @@ class NamedQuery(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        hoge_bucket_v2 = aws.s3.BucketV2("hogeBucketV2")
-        test_key = aws.kms.Key("testKey",
+        hoge = aws.s3.BucketV2("hoge", bucket="tf-test")
+        test = aws.kms.Key("test",
             deletion_window_in_days=7,
             description="Athena KMS Key")
-        test_workgroup = aws.athena.Workgroup("testWorkgroup", configuration=aws.athena.WorkgroupConfigurationArgs(
-            result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
-                encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
-                    encryption_option="SSE_KMS",
-                    kms_key_arn=test_key.arn,
+        test_workgroup = aws.athena.Workgroup("test",
+            name="example",
+            configuration=aws.athena.WorkgroupConfigurationArgs(
+                result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
+                    encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
+                        encryption_option="SSE_KMS",
+                        kms_key_arn=test.arn,
+                    ),
                 ),
-            ),
-        ))
-        hoge_database = aws.athena.Database("hogeDatabase",
+            ))
+        hoge_database = aws.athena.Database("hoge",
             name="users",
-            bucket=hoge_bucket_v2.id)
+            bucket=hoge.id)
         foo = aws.athena.NamedQuery("foo",
+            name="bar",
             workgroup=test_workgroup.id,
             database=hoge_database.name,
             query=hoge_database.name.apply(lambda name: f"SELECT * FROM {name} limit 10;"))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Athena Named Query using the query ID. For example:
 
         ```sh
-         $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
+        $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
         ```
 
         :param str resource_name: The name of the resource.

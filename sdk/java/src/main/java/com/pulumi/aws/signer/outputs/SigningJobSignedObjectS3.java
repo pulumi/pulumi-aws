@@ -58,19 +58,21 @@ public final class SigningJobSignedObjectS3 {
 
         @CustomType.Setter
         public Builder bucket(@Nullable String bucket) {
+
             this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
         public Builder key(@Nullable String key) {
+
             this.key = key;
             return this;
         }
         public SigningJobSignedObjectS3 build() {
-            final var o = new SigningJobSignedObjectS3();
-            o.bucket = bucket;
-            o.key = key;
-            return o;
+            final var _resultValue = new SigningJobSignedObjectS3();
+            _resultValue.bucket = bucket;
+            _resultValue.key = key;
+            return _resultValue;
         }
     }
 }

@@ -14,21 +14,7 @@ namespace Pulumi.Aws.WorkLink
     /// 
     /// Basic usage:
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.WorkLink.Fleet("example");
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// Network Configuration Usage:
-    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,52 +25,80 @@ namespace Pulumi.Aws.WorkLink
     /// {
     ///     var example = new Aws.WorkLink.Fleet("example", new()
     ///     {
-    ///         Network = new Aws.WorkLink.Inputs.FleetNetworkArgs
-    ///         {
-    ///             VpcId = aws_vpc.Test.Id,
-    ///             SubnetIds = new[]
-    ///             {
-    ///                 aws_subnet.Test.Select(__item =&gt; __item.Id).ToList(),
-    ///             },
-    ///             SecurityGroupIds = new[]
-    ///             {
-    ///                 aws_security_group.Test.Id,
-    ///             },
-    ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
-    /// Identity Provider Configuration Usage:
+    /// Network Configuration Usage:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.WorkLink.Fleet("test", new()
+    ///     var example = new Aws.WorkLink.Fleet("example", new()
     ///     {
-    ///         IdentityProvider = new Aws.WorkLink.Inputs.FleetIdentityProviderArgs
+    ///         Name = "example",
+    ///         Network = new Aws.WorkLink.Inputs.FleetNetworkArgs
     ///         {
-    ///             Type = "SAML",
-    ///             SamlMetadata = File.ReadAllText("saml-metadata.xml"),
+    ///             VpcId = testAwsVpc.Id,
+    ///             SubnetIds = new[]
+    ///             {
+    ///                 testAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
+    ///             },
+    ///             SecurityGroupIds = new[]
+    ///             {
+    ///                 test.Id,
+    ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// Identity Provider Configuration Usage:
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.WorkLink.Fleet("test", new()
+    ///     {
+    ///         Name = "tf-worklink-fleet",
+    ///         IdentityProvider = new Aws.WorkLink.Inputs.FleetIdentityProviderArgs
+    ///         {
+    ///             Type = "SAML",
+    ///             SamlMetadata = Std.File.Invoke(new()
+    ///             {
+    ///                 Input = "saml-metadata.xml",
+    ///             }).Apply(invoke =&gt; invoke.Result),
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WorkLink using the ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
+    /// $ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:worklink/fleet:Fleet")]

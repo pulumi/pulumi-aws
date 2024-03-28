@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,6 +32,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewAgent(ctx, "example", &datasync.AgentArgs{
 //				IpAddress: pulumi.String("1.2.3.4"),
+//				Name:      pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -40,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_datasync_agent` using the DataSync Agent Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
-//
+// $ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
 // ```
 type Agent struct {
 	pulumi.CustomResourceState
@@ -84,10 +85,6 @@ func NewAgent(ctx *pulumi.Context,
 		args = &AgentArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Agent
 	err := ctx.RegisterResource("aws:datasync/agent:Agent", name, args, &resource, opts...)

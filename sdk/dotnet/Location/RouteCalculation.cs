@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Location
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,13 +31,14 @@ namespace Pulumi.Aws.Location
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_location_route_calculator` using the route calculator name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:location/routeCalculation:RouteCalculation example example
+    /// $ pulumi import aws:location/routeCalculation:RouteCalculation example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:location/routeCalculation:RouteCalculation")]
@@ -115,10 +117,6 @@ namespace Pulumi.Aws.Location
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -236,11 +234,7 @@ namespace Pulumi.Aws.Location
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

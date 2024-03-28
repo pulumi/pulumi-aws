@@ -15,8 +15,10 @@ import (
 // Provides a SageMaker Model Package Group resource.
 //
 // ## Example Usage
+//
 // ### Basic usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SageMaker Model Package Groups using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo
-//
+// $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo
 // ```
 type ModelPackageGroup struct {
 	pulumi.CustomResourceState
@@ -77,10 +78,6 @@ func NewModelPackageGroup(ctx *pulumi.Context,
 	if args.ModelPackageGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ModelPackageGroupName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ModelPackageGroup
 	err := ctx.RegisterResource("aws:sagemaker/modelPackageGroup:ModelPackageGroup", name, args, &resource, opts...)

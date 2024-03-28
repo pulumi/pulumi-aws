@@ -12,17 +12,20 @@ import * as utilities from "../utilities";
  * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.User("example", {
- *     instanceId: aws_connect_instance.example.id,
+ *     instanceId: exampleAwsConnectInstance.id,
+ *     name: "example",
  *     password: "Password123",
- *     routingProfileId: aws_connect_routing_profile.example.routing_profile_id,
- *     securityProfileIds: [aws_connect_security_profile.example.security_profile_id],
+ *     routingProfileId: exampleAwsConnectRoutingProfile.routingProfileId,
+ *     securityProfileIds: [exampleAwsConnectSecurityProfile.securityProfileId],
  *     identityInfo: {
  *         firstName: "example",
  *         lastName: "example2",
@@ -33,18 +36,22 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With hierarchyGroupId
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.User("example", {
- *     instanceId: aws_connect_instance.example.id,
+ *     instanceId: exampleAwsConnectInstance.id,
+ *     name: "example",
  *     password: "Password123",
- *     routingProfileId: aws_connect_routing_profile.example.routing_profile_id,
- *     hierarchyGroupId: aws_connect_user_hierarchy_group.example.hierarchy_group_id,
- *     securityProfileIds: [aws_connect_security_profile.example.security_profile_id],
+ *     routingProfileId: exampleAwsConnectRoutingProfile.routingProfileId,
+ *     hierarchyGroupId: exampleAwsConnectUserHierarchyGroup.hierarchyGroupId,
+ *     securityProfileIds: [exampleAwsConnectSecurityProfile.securityProfileId],
  *     identityInfo: {
  *         firstName: "example",
  *         lastName: "example2",
@@ -55,17 +62,21 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With identityInfo filled
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.User("example", {
- *     instanceId: aws_connect_instance.example.id,
+ *     instanceId: exampleAwsConnectInstance.id,
+ *     name: "example",
  *     password: "Password123",
- *     routingProfileId: aws_connect_routing_profile.example.routing_profile_id,
- *     securityProfileIds: [aws_connect_security_profile.example.security_profile_id],
+ *     routingProfileId: exampleAwsConnectRoutingProfile.routingProfileId,
+ *     securityProfileIds: [exampleAwsConnectSecurityProfile.securityProfileId],
  *     identityInfo: {
  *         email: "example@example.com",
  *         firstName: "example",
@@ -77,36 +88,44 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With phoneConfig phone type as desk phone
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.User("example", {
- *     instanceId: aws_connect_instance.example.id,
+ *     instanceId: exampleAwsConnectInstance.id,
+ *     name: "example",
  *     password: "Password123",
- *     routingProfileId: aws_connect_routing_profile.example.routing_profile_id,
- *     securityProfileIds: [aws_connect_security_profile.example.security_profile_id],
+ *     routingProfileId: exampleAwsConnectRoutingProfile.routingProfileId,
+ *     securityProfileIds: [exampleAwsConnectSecurityProfile.securityProfileId],
  *     phoneConfig: {
  *         afterContactWorkTimeLimit: 0,
  *         phoneType: "SOFT_PHONE",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With multiple Security profile ids specified in securityProfileIds
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.User("example", {
- *     instanceId: aws_connect_instance.example.id,
+ *     instanceId: exampleAwsConnectInstance.id,
+ *     name: "example",
  *     password: "Password123",
- *     routingProfileId: aws_connect_routing_profile.example.routing_profile_id,
+ *     routingProfileId: exampleAwsConnectRoutingProfile.routingProfileId,
  *     securityProfileIds: [
- *         aws_connect_security_profile.example.security_profile_id,
- *         aws_connect_security_profile.example2.security_profile_id,
+ *         exampleAwsConnectSecurityProfile.securityProfileId,
+ *         example2.securityProfileId,
  *     ],
  *     phoneConfig: {
  *         afterContactWorkTimeLimit: 0,
@@ -116,13 +135,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Amazon Connect Users using the `instance_id` and `user_id` separated by a colon (`:`). For example:
  *
  * ```sh
- *  $ pulumi import aws:connect/user:User example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+ * $ pulumi import aws:connect/user:User example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
  * ```
  */
 export class User extends pulumi.CustomResource {
@@ -264,7 +284,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["userId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["password", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["password"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(User.__pulumiType, name, resourceInputs, opts);
     }

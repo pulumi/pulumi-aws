@@ -14,6 +14,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,7 +25,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// {
     ///     var example = new Aws.GlobalAccelerator.CustomRoutingEndpointGroup("example", new()
     ///     {
-    ///         ListenerArn = aws_globalaccelerator_custom_routing_listener.Example.Id,
+    ///         ListenerArn = exampleAwsGlobalacceleratorCustomRoutingListener.Id,
     ///         DestinationConfigurations = new[]
     ///         {
     ///             new Aws.GlobalAccelerator.Inputs.CustomRoutingEndpointGroupDestinationConfigurationArgs
@@ -41,20 +42,21 @@ namespace Pulumi.Aws.GlobalAccelerator
     ///         {
     ///             new Aws.GlobalAccelerator.Inputs.CustomRoutingEndpointGroupEndpointConfigurationArgs
     ///             {
-    ///                 EndpointId = aws_subnet.Example.Id,
+    ///                 EndpointId = exampleAwsSubnet.Id,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Global Accelerator custom routing endpoint groups using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
+    /// $ pulumi import aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
     /// ```
     /// </summary>
     [AwsResourceType("aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup")]

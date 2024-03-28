@@ -4,6 +4,7 @@
 package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -145,67 +146,97 @@ public final class GetContactFlowModuleResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetContactFlowModuleResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder contactFlowModuleId(String contactFlowModuleId) {
-            this.contactFlowModuleId = Objects.requireNonNull(contactFlowModuleId);
+            if (contactFlowModuleId == null) {
+              throw new MissingRequiredPropertyException("GetContactFlowModuleResult", "contactFlowModuleId");
+            }
+            this.contactFlowModuleId = contactFlowModuleId;
             return this;
         }
         @CustomType.Setter
         public Builder content(String content) {
-            this.content = Objects.requireNonNull(content);
+            if (content == null) {
+              throw new MissingRequiredPropertyException("GetContactFlowModuleResult", "content");
+            }
+            this.content = content;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetContactFlowModuleResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetContactFlowModuleResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("GetContactFlowModuleResult", "instanceId");
+            }
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetContactFlowModuleResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetContactFlowModuleResult", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetContactFlowModuleResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetContactFlowModuleResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetContactFlowModuleResult build() {
-            final var o = new GetContactFlowModuleResult();
-            o.arn = arn;
-            o.contactFlowModuleId = contactFlowModuleId;
-            o.content = content;
-            o.description = description;
-            o.id = id;
-            o.instanceId = instanceId;
-            o.name = name;
-            o.state = state;
-            o.status = status;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetContactFlowModuleResult();
+            _resultValue.arn = arn;
+            _resultValue.contactFlowModuleId = contactFlowModuleId;
+            _resultValue.content = content;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.instanceId = instanceId;
+            _resultValue.name = name;
+            _resultValue.state = state;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

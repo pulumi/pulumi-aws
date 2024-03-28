@@ -59,6 +59,7 @@ public final class ClusterMasterInstanceFleetLaunchSpecifications {
 
         @CustomType.Setter
         public Builder onDemandSpecifications(@Nullable List<ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification> onDemandSpecifications) {
+
             this.onDemandSpecifications = onDemandSpecifications;
             return this;
         }
@@ -67,6 +68,7 @@ public final class ClusterMasterInstanceFleetLaunchSpecifications {
         }
         @CustomType.Setter
         public Builder spotSpecifications(@Nullable List<ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification> spotSpecifications) {
+
             this.spotSpecifications = spotSpecifications;
             return this;
         }
@@ -74,10 +76,10 @@ public final class ClusterMasterInstanceFleetLaunchSpecifications {
             return spotSpecifications(List.of(spotSpecifications));
         }
         public ClusterMasterInstanceFleetLaunchSpecifications build() {
-            final var o = new ClusterMasterInstanceFleetLaunchSpecifications();
-            o.onDemandSpecifications = onDemandSpecifications;
-            o.spotSpecifications = spotSpecifications;
-            return o;
+            final var _resultValue = new ClusterMasterInstanceFleetLaunchSpecifications();
+            _resultValue.onDemandSpecifications = onDemandSpecifications;
+            _resultValue.spotSpecifications = spotSpecifications;
+            return _resultValue;
         }
     }
 }

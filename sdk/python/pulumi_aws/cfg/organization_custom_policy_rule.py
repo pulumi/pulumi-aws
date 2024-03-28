@@ -489,38 +489,41 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
         > **NOTE:** This resource must be created in the Organization master account and rules will include the master account unless its ID is added to the `excluded_accounts` argument.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cfg.OrganizationCustomPolicyRule("example",
+            name="example_rule_name",
             policy_runtime="guard-2.x.x",
-            policy_text=\"\"\"  let status = ['ACTIVE']
+            policy_text=\"\"\"let status = ['ACTIVE']
 
-          rule tableisactive when
-              resourceType == "AWS::DynamoDB::Table" {
-              configuration.tableStatus == %status
-          }
+        rule tableisactive when
+            resourceType == "AWS::DynamoDB::Table" {
+            configuration.tableStatus == %status
+        }
 
-          rule checkcompliance when
-              resourceType == "AWS::DynamoDB::Table"
-              tableisactive {
-                  let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
-                  %pitr == "ENABLED"
-              }
-
+        rule checkcompliance when
+            resourceType == "AWS::DynamoDB::Table"
+            tableisactive {
+                let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
+                %pitr == "ENABLED"
+            }
         \"\"\",
             resource_types_scopes=["AWS::DynamoDB::Table"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a Config Organization Custom Policy Rule using the `name` argument. For example:
 
         ```sh
-         $ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name
+        $ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name
         ```
 
         :param str resource_name: The name of the resource.
@@ -553,38 +556,41 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
         > **NOTE:** This resource must be created in the Organization master account and rules will include the master account unless its ID is added to the `excluded_accounts` argument.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cfg.OrganizationCustomPolicyRule("example",
+            name="example_rule_name",
             policy_runtime="guard-2.x.x",
-            policy_text=\"\"\"  let status = ['ACTIVE']
+            policy_text=\"\"\"let status = ['ACTIVE']
 
-          rule tableisactive when
-              resourceType == "AWS::DynamoDB::Table" {
-              configuration.tableStatus == %status
-          }
+        rule tableisactive when
+            resourceType == "AWS::DynamoDB::Table" {
+            configuration.tableStatus == %status
+        }
 
-          rule checkcompliance when
-              resourceType == "AWS::DynamoDB::Table"
-              tableisactive {
-                  let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
-                  %pitr == "ENABLED"
-              }
-
+        rule checkcompliance when
+            resourceType == "AWS::DynamoDB::Table"
+            tableisactive {
+                let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
+                %pitr == "ENABLED"
+            }
         \"\"\",
             resource_types_scopes=["AWS::DynamoDB::Table"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a Config Organization Custom Policy Rule using the `name` argument. For example:
 
         ```sh
-         $ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name
+        $ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name
         ```
 
         :param str resource_name: The name of the resource.

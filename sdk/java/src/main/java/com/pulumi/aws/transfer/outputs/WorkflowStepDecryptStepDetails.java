@@ -5,6 +5,7 @@ package com.pulumi.aws.transfer.outputs;
 
 import com.pulumi.aws.transfer.outputs.WorkflowStepDecryptStepDetailsDestinationFileLocation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -101,37 +102,44 @@ public final class WorkflowStepDecryptStepDetails {
 
         @CustomType.Setter
         public Builder destinationFileLocation(@Nullable WorkflowStepDecryptStepDetailsDestinationFileLocation destinationFileLocation) {
+
             this.destinationFileLocation = destinationFileLocation;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder overwriteExisting(@Nullable String overwriteExisting) {
+
             this.overwriteExisting = overwriteExisting;
             return this;
         }
         @CustomType.Setter
         public Builder sourceFileLocation(@Nullable String sourceFileLocation) {
+
             this.sourceFileLocation = sourceFileLocation;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("WorkflowStepDecryptStepDetails", "type");
+            }
+            this.type = type;
             return this;
         }
         public WorkflowStepDecryptStepDetails build() {
-            final var o = new WorkflowStepDecryptStepDetails();
-            o.destinationFileLocation = destinationFileLocation;
-            o.name = name;
-            o.overwriteExisting = overwriteExisting;
-            o.sourceFileLocation = sourceFileLocation;
-            o.type = type;
-            return o;
+            final var _resultValue = new WorkflowStepDecryptStepDetails();
+            _resultValue.destinationFileLocation = destinationFileLocation;
+            _resultValue.name = name;
+            _resultValue.overwriteExisting = overwriteExisting;
+            _resultValue.sourceFileLocation = sourceFileLocation;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

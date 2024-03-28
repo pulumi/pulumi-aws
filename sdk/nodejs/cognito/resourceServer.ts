@@ -11,27 +11,34 @@ import * as utilities from "../utilities";
  * Provides a Cognito Resource Server.
  *
  * ## Example Usage
+ *
  * ### Create a basic resource server
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const pool = new aws.cognito.UserPool("pool", {});
+ * const pool = new aws.cognito.UserPool("pool", {name: "pool"});
  * const resource = new aws.cognito.ResourceServer("resource", {
  *     identifier: "https://example.com",
+ *     name: "example",
  *     userPoolId: pool.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Create a resource server with sample-scope
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const pool = new aws.cognito.UserPool("pool", {});
+ * const pool = new aws.cognito.UserPool("pool", {name: "pool"});
  * const resource = new aws.cognito.ResourceServer("resource", {
  *     identifier: "https://example.com",
+ *     name: "example",
  *     scopes: [{
  *         scopeName: "sample-scope",
  *         scopeDescription: "a Sample Scope Description",
@@ -39,13 +46,14 @@ import * as utilities from "../utilities";
  *     userPoolId: pool.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_cognito_resource_server` using their User Pool ID and Identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"
+ * $ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"
  * ```
  */
 export class ResourceServer extends pulumi.CustomResource {
@@ -92,6 +100,9 @@ export class ResourceServer extends pulumi.CustomResource {
      * A list of Authorization Scope.
      */
     public readonly scopes!: pulumi.Output<outputs.cognito.ResourceServerScope[] | undefined>;
+    /**
+     * User pool the client belongs to.
+     */
     public readonly userPoolId!: pulumi.Output<string>;
 
     /**
@@ -151,6 +162,9 @@ export interface ResourceServerState {
      * A list of Authorization Scope.
      */
     scopes?: pulumi.Input<pulumi.Input<inputs.cognito.ResourceServerScope>[]>;
+    /**
+     * User pool the client belongs to.
+     */
     userPoolId?: pulumi.Input<string>;
 }
 
@@ -170,5 +184,8 @@ export interface ResourceServerArgs {
      * A list of Authorization Scope.
      */
     scopes?: pulumi.Input<pulumi.Input<inputs.cognito.ResourceServerScope>[]>;
+    /**
+     * User pool the client belongs to.
+     */
     userPoolId: pulumi.Input<string>;
 }

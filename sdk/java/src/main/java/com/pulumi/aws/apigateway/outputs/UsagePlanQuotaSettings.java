@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigateway.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,25 +74,32 @@ public final class UsagePlanQuotaSettings {
 
         @CustomType.Setter
         public Builder limit(Integer limit) {
-            this.limit = Objects.requireNonNull(limit);
+            if (limit == null) {
+              throw new MissingRequiredPropertyException("UsagePlanQuotaSettings", "limit");
+            }
+            this.limit = limit;
             return this;
         }
         @CustomType.Setter
         public Builder offset(@Nullable Integer offset) {
+
             this.offset = offset;
             return this;
         }
         @CustomType.Setter
         public Builder period(String period) {
-            this.period = Objects.requireNonNull(period);
+            if (period == null) {
+              throw new MissingRequiredPropertyException("UsagePlanQuotaSettings", "period");
+            }
+            this.period = period;
             return this;
         }
         public UsagePlanQuotaSettings build() {
-            final var o = new UsagePlanQuotaSettings();
-            o.limit = limit;
-            o.offset = offset;
-            o.period = period;
-            return o;
+            final var _resultValue = new UsagePlanQuotaSettings();
+            _resultValue.limit = limit;
+            _resultValue.offset = offset;
+            _resultValue.period = period;
+            return _resultValue;
         }
     }
 }

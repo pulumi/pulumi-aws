@@ -21,6 +21,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,7 +35,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emr.NewInstanceFleet(ctx, "task", &emr.InstanceFleetArgs{
-//				ClusterId: pulumi.Any(aws_emr_cluster.Cluster.Id),
+//				ClusterId: pulumi.Any(cluster.Id),
 //				InstanceTypeConfigs: emr.InstanceFleetInstanceTypeConfigArray{
 //					&emr.InstanceFleetInstanceTypeConfigArgs{
 //						BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
@@ -71,6 +72,7 @@ import (
 //						},
 //					},
 //				},
+//				Name:                   pulumi.String("task fleet"),
 //				TargetOnDemandCapacity: pulumi.Int(1),
 //				TargetSpotCapacity:     pulumi.Int(1),
 //			})
@@ -82,15 +84,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EMR Instance Fleet using the EMR Cluster identifier and Instance Fleet identifier separated by a forward slash (`/`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
-//
+// $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
 // ```
 type InstanceFleet struct {
 	pulumi.CustomResourceState

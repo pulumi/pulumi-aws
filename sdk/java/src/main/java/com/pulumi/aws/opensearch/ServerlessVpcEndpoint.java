@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS OpenSearchServerless VPC Endpoint.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,20 +46,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ServerlessVpcEndpoint(&#34;example&#34;, ServerlessVpcEndpointArgs.builder()        
- *             .subnetIds(aws_subnet.example().id())
- *             .vpcId(aws_vpc.example().id())
+ *             .name(&#34;myendpoint&#34;)
+ *             .subnetIds(exampleAwsSubnet.id())
+ *             .vpcId(exampleAwsVpc.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import OpenSearchServerless Vpc Endpointa using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
+ * $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
  * ```
  * 
  */

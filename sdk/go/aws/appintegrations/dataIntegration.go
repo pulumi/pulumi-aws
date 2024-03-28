@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appintegrations.NewDataIntegration(ctx, "example", &appintegrations.DataIntegrationArgs{
+//				Name:        pulumi.String("example"),
 //				Description: pulumi.String("example"),
-//				KmsKey:      pulumi.Any(aws_kms_key.Test.Arn),
+//				KmsKey:      pulumi.Any(test.Arn),
 //				SourceUri:   pulumi.String("Salesforce://AppFlow/example"),
 //				ScheduleConfig: &appintegrations.DataIntegrationScheduleConfigArgs{
 //					FirstExecutionFrom: pulumi.String("1439788442681"),
@@ -49,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Amazon AppIntegrations Data Integrations using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appintegrations/dataIntegration:DataIntegration example 12345678-1234-1234-1234-123456789123
-//
+// $ pulumi import aws:appintegrations/dataIntegration:DataIntegration example 12345678-1234-1234-1234-123456789123
 // ```
 type DataIntegration struct {
 	pulumi.CustomResourceState
@@ -98,10 +99,6 @@ func NewDataIntegration(ctx *pulumi.Context,
 	if args.SourceUri == nil {
 		return nil, errors.New("invalid value for required argument 'SourceUri'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataIntegration
 	err := ctx.RegisterResource("aws:appintegrations/dataIntegration:DataIntegration", name, args, &resource, opts...)

@@ -4,6 +4,7 @@
 package com.pulumi.aws.msk.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -120,22 +121,34 @@ public final class GetConfigurationResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kafkaVersions(List<String> kafkaVersions) {
-            this.kafkaVersions = Objects.requireNonNull(kafkaVersions);
+            if (kafkaVersions == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationResult", "kafkaVersions");
+            }
+            this.kafkaVersions = kafkaVersions;
             return this;
         }
         public Builder kafkaVersions(String... kafkaVersions) {
@@ -143,29 +156,38 @@ public final class GetConfigurationResult {
         }
         @CustomType.Setter
         public Builder latestRevision(Integer latestRevision) {
-            this.latestRevision = Objects.requireNonNull(latestRevision);
+            if (latestRevision == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationResult", "latestRevision");
+            }
+            this.latestRevision = latestRevision;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder serverProperties(String serverProperties) {
-            this.serverProperties = Objects.requireNonNull(serverProperties);
+            if (serverProperties == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationResult", "serverProperties");
+            }
+            this.serverProperties = serverProperties;
             return this;
         }
         public GetConfigurationResult build() {
-            final var o = new GetConfigurationResult();
-            o.arn = arn;
-            o.description = description;
-            o.id = id;
-            o.kafkaVersions = kafkaVersions;
-            o.latestRevision = latestRevision;
-            o.name = name;
-            o.serverProperties = serverProperties;
-            return o;
+            final var _resultValue = new GetConfigurationResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.kafkaVersions = kafkaVersions;
+            _resultValue.latestRevision = latestRevision;
+            _resultValue.name = name;
+            _resultValue.serverProperties = serverProperties;
+            return _resultValue;
         }
     }
 }

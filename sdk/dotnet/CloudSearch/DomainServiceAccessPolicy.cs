@@ -16,6 +16,7 @@ namespace Pulumi.Aws.CloudSearch
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,9 +25,12 @@ namespace Pulumi.Aws.CloudSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleDomain = new Aws.CloudSearch.Domain("exampleDomain");
+    ///     var exampleDomain = new Aws.CloudSearch.Domain("example", new()
+    ///     {
+    ///         Name = "example-domain",
+    ///     });
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -66,21 +70,22 @@ namespace Pulumi.Aws.CloudSearch
     ///         },
     ///     });
     /// 
-    ///     var exampleDomainServiceAccessPolicy = new Aws.CloudSearch.DomainServiceAccessPolicy("exampleDomainServiceAccessPolicy", new()
+    ///     var exampleDomainServiceAccessPolicy = new Aws.CloudSearch.DomainServiceAccessPolicy("example", new()
     ///     {
     ///         DomainName = exampleDomain.Id,
-    ///         AccessPolicy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         AccessPolicy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudSearch domain service access policies using the domain name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
+    /// $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy")]

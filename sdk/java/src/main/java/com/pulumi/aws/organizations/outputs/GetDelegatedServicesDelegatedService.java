@@ -4,6 +4,7 @@
 package com.pulumi.aws.organizations.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class GetDelegatedServicesDelegatedService {
 
         @CustomType.Setter
         public Builder delegationEnabledDate(String delegationEnabledDate) {
-            this.delegationEnabledDate = Objects.requireNonNull(delegationEnabledDate);
+            if (delegationEnabledDate == null) {
+              throw new MissingRequiredPropertyException("GetDelegatedServicesDelegatedService", "delegationEnabledDate");
+            }
+            this.delegationEnabledDate = delegationEnabledDate;
             return this;
         }
         @CustomType.Setter
         public Builder servicePrincipal(String servicePrincipal) {
-            this.servicePrincipal = Objects.requireNonNull(servicePrincipal);
+            if (servicePrincipal == null) {
+              throw new MissingRequiredPropertyException("GetDelegatedServicesDelegatedService", "servicePrincipal");
+            }
+            this.servicePrincipal = servicePrincipal;
             return this;
         }
         public GetDelegatedServicesDelegatedService build() {
-            final var o = new GetDelegatedServicesDelegatedService();
-            o.delegationEnabledDate = delegationEnabledDate;
-            o.servicePrincipal = servicePrincipal;
-            return o;
+            final var _resultValue = new GetDelegatedServicesDelegatedService();
+            _resultValue.delegationEnabledDate = delegationEnabledDate;
+            _resultValue.servicePrincipal = servicePrincipal;
+            return _resultValue;
         }
     }
 }

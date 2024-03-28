@@ -73,25 +73,28 @@ public final class BucketObjectLockConfigurationV2RuleDefaultRetention {
 
         @CustomType.Setter
         public Builder days(@Nullable Integer days) {
+
             this.days = days;
             return this;
         }
         @CustomType.Setter
         public Builder mode(@Nullable String mode) {
+
             this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder years(@Nullable Integer years) {
+
             this.years = years;
             return this;
         }
         public BucketObjectLockConfigurationV2RuleDefaultRetention build() {
-            final var o = new BucketObjectLockConfigurationV2RuleDefaultRetention();
-            o.days = days;
-            o.mode = mode;
-            o.years = years;
-            return o;
+            final var _resultValue = new BucketObjectLockConfigurationV2RuleDefaultRetention();
+            _resultValue.days = days;
+            _resultValue.mode = mode;
+            _resultValue.years = years;
+            return _resultValue;
         }
     }
 }

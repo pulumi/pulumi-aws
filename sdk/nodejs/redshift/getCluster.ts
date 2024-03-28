@@ -159,6 +159,10 @@ export interface GetClusterResult {
      */
     readonly masterUsername: string;
     /**
+     * If the cluster is a Multi-AZ deployment
+     */
+    readonly multiAz: boolean;
+    /**
      * Cluster node type
      */
     readonly nodeType: string;

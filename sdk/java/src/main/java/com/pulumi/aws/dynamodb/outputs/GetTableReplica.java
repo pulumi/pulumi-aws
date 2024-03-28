@@ -4,6 +4,7 @@
 package com.pulumi.aws.dynamodb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,19 +41,25 @@ public final class GetTableReplica {
 
         @CustomType.Setter
         public Builder kmsKeyArn(String kmsKeyArn) {
-            this.kmsKeyArn = Objects.requireNonNull(kmsKeyArn);
+            if (kmsKeyArn == null) {
+              throw new MissingRequiredPropertyException("GetTableReplica", "kmsKeyArn");
+            }
+            this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         @CustomType.Setter
         public Builder regionName(String regionName) {
-            this.regionName = Objects.requireNonNull(regionName);
+            if (regionName == null) {
+              throw new MissingRequiredPropertyException("GetTableReplica", "regionName");
+            }
+            this.regionName = regionName;
             return this;
         }
         public GetTableReplica build() {
-            final var o = new GetTableReplica();
-            o.kmsKeyArn = kmsKeyArn;
-            o.regionName = regionName;
-            return o;
+            final var _resultValue = new GetTableReplica();
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.regionName = regionName;
+            return _resultValue;
         }
     }
 }

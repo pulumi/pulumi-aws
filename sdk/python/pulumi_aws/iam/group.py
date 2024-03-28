@@ -138,19 +138,23 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        developers = aws.iam.Group("developers", path="/users/")
+        developers = aws.iam.Group("developers",
+            name="developers",
+            path="/users/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:iam/group:Group developers developers
+        $ pulumi import aws:iam/group:Group developers developers
         ```
 
         :param str resource_name: The name of the resource.
@@ -171,19 +175,23 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        developers = aws.iam.Group("developers", path="/users/")
+        developers = aws.iam.Group("developers",
+            name="developers",
+            path="/users/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:iam/group:Group developers developers
+        $ pulumi import aws:iam/group:Group developers developers
         ```
 
         :param str resource_name: The name of the resource.

@@ -16,14 +16,63 @@ import (
 //
 // ## Example Usage
 //
+// ### Basic Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := quicksight.NewTheme(ctx, "example", &quicksight.ThemeArgs{
+//				ThemeId:     pulumi.String("example"),
+//				Name:        pulumi.String("example"),
+//				BaseThemeId: pulumi.String("MIDNIGHT"),
+//				Configuration: &quicksight.ThemeConfigurationArgs{
+//					DataColorPalette: &quicksight.ThemeConfigurationDataColorPaletteArgs{
+//						Colors: pulumi.StringArray{
+//							pulumi.String("#FFFFFF"),
+//							pulumi.String("#111111"),
+//							pulumi.String("#222222"),
+//							pulumi.String("#333333"),
+//							pulumi.String("#444444"),
+//							pulumi.String("#555555"),
+//							pulumi.String("#666666"),
+//							pulumi.String("#777777"),
+//							pulumi.String("#888888"),
+//							pulumi.String("#999999"),
+//						},
+//						EmptyFillColor: pulumi.String("#FFFFFF"),
+//						MinMaxGradients: pulumi.StringArray{
+//							pulumi.String("#FFFFFF"),
+//							pulumi.String("#111111"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Import
 //
 // Using `pulumi import`, import a QuickSight Theme using the AWS account ID and theme ID separated by a comma (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
-//
+// $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
 // ```
 type Theme struct {
 	pulumi.CustomResourceState
@@ -75,10 +124,6 @@ func NewTheme(ctx *pulumi.Context,
 	if args.ThemeId == nil {
 		return nil, errors.New("invalid value for required argument 'ThemeId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Theme
 	err := ctx.RegisterResource("aws:quicksight/theme:Theme", name, args, &resource, opts...)

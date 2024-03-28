@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class DistributionOriginS3OriginConfig {
 
         @CustomType.Setter
         public Builder originAccessIdentity(String originAccessIdentity) {
-            this.originAccessIdentity = Objects.requireNonNull(originAccessIdentity);
+            if (originAccessIdentity == null) {
+              throw new MissingRequiredPropertyException("DistributionOriginS3OriginConfig", "originAccessIdentity");
+            }
+            this.originAccessIdentity = originAccessIdentity;
             return this;
         }
         public DistributionOriginS3OriginConfig build() {
-            final var o = new DistributionOriginS3OriginConfig();
-            o.originAccessIdentity = originAccessIdentity;
-            return o;
+            final var _resultValue = new DistributionOriginS3OriginConfig();
+            _resultValue.originAccessIdentity = originAccessIdentity;
+            return _resultValue;
         }
     }
 }

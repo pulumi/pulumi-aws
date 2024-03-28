@@ -5,6 +5,7 @@ package com.pulumi.aws.appautoscaling.outputs;
 
 import com.pulumi.aws.appautoscaling.outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -73,25 +74,32 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
 
         @CustomType.Setter
         public Builder metric(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric metric) {
-            this.metric = Objects.requireNonNull(metric);
+            if (metric == null) {
+              throw new MissingRequiredPropertyException("PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat", "metric");
+            }
+            this.metric = metric;
             return this;
         }
         @CustomType.Setter
         public Builder stat(String stat) {
-            this.stat = Objects.requireNonNull(stat);
+            if (stat == null) {
+              throw new MissingRequiredPropertyException("PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat", "stat");
+            }
+            this.stat = stat;
             return this;
         }
         @CustomType.Setter
         public Builder unit(@Nullable String unit) {
+
             this.unit = unit;
             return this;
         }
         public PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat build() {
-            final var o = new PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat();
-            o.metric = metric;
-            o.stat = stat;
-            o.unit = unit;
-            return o;
+            final var _resultValue = new PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat();
+            _resultValue.metric = metric;
+            _resultValue.stat = stat;
+            _resultValue.unit = unit;
+            return _resultValue;
         }
     }
 }

@@ -19,6 +19,7 @@ __all__ = [
     'ListenerDefaultActionForwardStickiness',
     'ListenerDefaultActionForwardTargetGroup',
     'ListenerDefaultActionRedirect',
+    'ListenerMutualAuthentication',
     'ListenerRuleAction',
     'ListenerRuleActionAuthenticateCognito',
     'ListenerRuleActionAuthenticateOidc',
@@ -35,6 +36,7 @@ __all__ = [
     'ListenerRuleConditionQueryString',
     'ListenerRuleConditionSourceIp',
     'LoadBalancerAccessLogs',
+    'LoadBalancerConnectionLogs',
     'LoadBalancerSubnetMapping',
     'TargetGroupHealthCheck',
     'TargetGroupStickiness',
@@ -48,7 +50,9 @@ __all__ = [
     'GetListenerDefaultActionForwardStickinessResult',
     'GetListenerDefaultActionForwardTargetGroupResult',
     'GetListenerDefaultActionRedirectResult',
+    'GetListenerMutualAuthenticationResult',
     'GetLoadBalancerAccessLogsResult',
+    'GetLoadBalancerConnectionLogResult',
     'GetLoadBalancerSubnetMappingResult',
     'GetTargetGroupHealthCheckResult',
     'GetTargetGroupStickinessResult',
@@ -769,6 +773,67 @@ class ListenerDefaultActionRedirect(dict):
         Query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
         """
         return pulumi.get(self, "query")
+
+
+@pulumi.output_type
+class ListenerMutualAuthentication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ignoreClientCertificateExpiry":
+            suggest = "ignore_client_certificate_expiry"
+        elif key == "trustStoreArn":
+            suggest = "trust_store_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerMutualAuthentication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerMutualAuthentication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerMutualAuthentication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mode: str,
+                 ignore_client_certificate_expiry: Optional[bool] = None,
+                 trust_store_arn: Optional[str] = None):
+        """
+        :param str mode: Valid values are `off`, `verify` and `passthrough`.
+        :param bool ignore_client_certificate_expiry: Whether client certificate expiry is ignored. Default is `false`.
+        :param str trust_store_arn: ARN of the elbv2 Trust Store.
+        """
+        pulumi.set(__self__, "mode", mode)
+        if ignore_client_certificate_expiry is not None:
+            pulumi.set(__self__, "ignore_client_certificate_expiry", ignore_client_certificate_expiry)
+        if trust_store_arn is not None:
+            pulumi.set(__self__, "trust_store_arn", trust_store_arn)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        Valid values are `off`, `verify` and `passthrough`.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="ignoreClientCertificateExpiry")
+    def ignore_client_certificate_expiry(self) -> Optional[bool]:
+        """
+        Whether client certificate expiry is ignored. Default is `false`.
+        """
+        return pulumi.get(self, "ignore_client_certificate_expiry")
+
+    @property
+    @pulumi.getter(name="trustStoreArn")
+    def trust_store_arn(self) -> Optional[str]:
+        """
+        ARN of the elbv2 Trust Store.
+        """
+        return pulumi.get(self, "trust_store_arn")
 
 
 @pulumi.output_type
@@ -1753,6 +1818,48 @@ class LoadBalancerAccessLogs(dict):
 
 
 @pulumi.output_type
+class LoadBalancerConnectionLogs(dict):
+    def __init__(__self__, *,
+                 bucket: str,
+                 enabled: Optional[bool] = None,
+                 prefix: Optional[str] = None):
+        """
+        :param str bucket: The S3 bucket name to store the logs in.
+        :param bool enabled: Boolean to enable / disable `connection_logs`. Defaults to `false`, even when `bucket` is specified.
+        :param str prefix: The S3 bucket prefix. Logs are stored in the root if not configured.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> str:
+        """
+        The S3 bucket name to store the logs in.
+        """
+        return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Boolean to enable / disable `connection_logs`. Defaults to `false`, even when `bucket` is specified.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        The S3 bucket prefix. Logs are stored in the root if not configured.
+        """
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
 class LoadBalancerSubnetMapping(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1874,10 +1981,24 @@ class TargetGroupHealthCheck(dict):
         :param bool enabled: Whether health checks are enabled. Defaults to `true`.
         :param int healthy_threshold: Number of consecutive health check successes required before considering a target healthy. The range is 2-10. Defaults to 3.
         :param int interval: Approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300. For `lambda` target groups, it needs to be greater than the timeout of the underlying `lambda`. Defaults to 30.
-        :param str matcher: Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+        :param str matcher: The HTTP or gRPC codes to use when checking for a successful response from a target.
+               The `health_check.protocol` must be one of `HTTP` or `HTTPS` or the `target_type` must be `lambda`.
+               Values can be comma-separated individual values (e.g., "200,202") or a range of values (e.g., "200-299").
+               * For gRPC-based target groups (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocol_version` is `GRPC`), values can be between `0` and `99`. The default is `12`.
+               * When used with an Application Load Balancer (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocol_version` is not `GRPC`), values can be between `200` and `499`. The default is `200`.
+               * When used with a Network Load Balancer (i.e., the `protocol` is one of `TCP`, `TCP_UDP`, `UDP`, or `TLS`), values can be between `200` and `599`. The default is `200-399`.
+               * When the `target_type` is `lambda`, values can be between `200` and `499`. The default is `200`.
         :param str path: Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
-        :param str port: The port the load balancer uses when performing health checks on targets. Default is traffic-port.
-        :param str protocol: Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
+               * For HTTP and HTTPS health checks, the default is `/`.
+               * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
+        :param str port: The port the load balancer uses when performing health checks on targets.
+               Valid values are either `traffic-port`, to use the same port as the target group, or a valid port number between `1` and `65536`.
+               Default is `traffic-port`.
+        :param str protocol: Protocol the load balancer uses when performing health checks on targets.
+               Must be one of `TCP`, `HTTP`, or `HTTPS`.
+               The `TCP` protocol is not supported for health checks if the protocol of the target group is `HTTP` or `HTTPS`.
+               Default is `HTTP`.
+               Cannot be specified when the `target_type` is `lambda`.
         :param int timeout: Amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If the target type is lambda, the default is 30 seconds.
         :param int unhealthy_threshold: Number of consecutive health check failures required before considering a target unhealthy. The range is 2-10. Defaults to 3.
         """
@@ -1928,7 +2049,13 @@ class TargetGroupHealthCheck(dict):
     @pulumi.getter
     def matcher(self) -> Optional[str]:
         """
-        Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+        The HTTP or gRPC codes to use when checking for a successful response from a target.
+        The `health_check.protocol` must be one of `HTTP` or `HTTPS` or the `target_type` must be `lambda`.
+        Values can be comma-separated individual values (e.g., "200,202") or a range of values (e.g., "200-299").
+        * For gRPC-based target groups (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocol_version` is `GRPC`), values can be between `0` and `99`. The default is `12`.
+        * When used with an Application Load Balancer (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocol_version` is not `GRPC`), values can be between `200` and `499`. The default is `200`.
+        * When used with a Network Load Balancer (i.e., the `protocol` is one of `TCP`, `TCP_UDP`, `UDP`, or `TLS`), values can be between `200` and `599`. The default is `200-399`.
+        * When the `target_type` is `lambda`, values can be between `200` and `499`. The default is `200`.
         """
         return pulumi.get(self, "matcher")
 
@@ -1937,6 +2064,8 @@ class TargetGroupHealthCheck(dict):
     def path(self) -> Optional[str]:
         """
         Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+        * For HTTP and HTTPS health checks, the default is `/`.
+        * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
         """
         return pulumi.get(self, "path")
 
@@ -1944,7 +2073,9 @@ class TargetGroupHealthCheck(dict):
     @pulumi.getter
     def port(self) -> Optional[str]:
         """
-        The port the load balancer uses when performing health checks on targets. Default is traffic-port.
+        The port the load balancer uses when performing health checks on targets.
+        Valid values are either `traffic-port`, to use the same port as the target group, or a valid port number between `1` and `65536`.
+        Default is `traffic-port`.
         """
         return pulumi.get(self, "port")
 
@@ -1952,7 +2083,11 @@ class TargetGroupHealthCheck(dict):
     @pulumi.getter
     def protocol(self) -> Optional[str]:
         """
-        Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
+        Protocol the load balancer uses when performing health checks on targets.
+        Must be one of `TCP`, `HTTP`, or `HTTPS`.
+        The `TCP` protocol is not supported for health checks if the protocol of the target group is `HTTP` or `HTTPS`.
+        Default is `HTTP`.
+        Cannot be specified when the `target_type` is `lambda`.
         """
         return pulumi.get(self, "protocol")
 
@@ -2476,7 +2611,59 @@ class GetListenerDefaultActionRedirectResult(dict):
 
 
 @pulumi.output_type
+class GetListenerMutualAuthenticationResult(dict):
+    def __init__(__self__, *,
+                 ignore_client_certificate_expiry: bool,
+                 mode: str,
+                 trust_store_arn: str):
+        pulumi.set(__self__, "ignore_client_certificate_expiry", ignore_client_certificate_expiry)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "trust_store_arn", trust_store_arn)
+
+    @property
+    @pulumi.getter(name="ignoreClientCertificateExpiry")
+    def ignore_client_certificate_expiry(self) -> bool:
+        return pulumi.get(self, "ignore_client_certificate_expiry")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="trustStoreArn")
+    def trust_store_arn(self) -> str:
+        return pulumi.get(self, "trust_store_arn")
+
+
+@pulumi.output_type
 class GetLoadBalancerAccessLogsResult(dict):
+    def __init__(__self__, *,
+                 bucket: str,
+                 enabled: bool,
+                 prefix: str):
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> str:
+        return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class GetLoadBalancerConnectionLogResult(dict):
     def __init__(__self__, *,
                  bucket: str,
                  enabled: bool,

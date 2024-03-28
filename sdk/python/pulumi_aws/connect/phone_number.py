@@ -305,51 +305,60 @@ class PhoneNumber(pulumi.CustomResource):
         [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.PhoneNumber("example",
-            target_arn=aws_connect_instance["example"]["arn"],
+            target_arn=example_aws_connect_instance["arn"],
             country_code="US",
             type="DID",
             tags={
                 "hello": "world",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Description
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.PhoneNumber("example",
-            target_arn=aws_connect_instance["example"]["arn"],
+            target_arn=example_aws_connect_instance["arn"],
             country_code="US",
             type="DID",
             description="example description")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Prefix to filter phone numbers
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.PhoneNumber("example",
-            target_arn=aws_connect_instance["example"]["arn"],
+            target_arn=example_aws_connect_instance["arn"],
             country_code="US",
             type="DID",
             prefix="+18005")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Connect Phone Numbers using its `id`. For example:
 
         ```sh
-         $ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab
+        $ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab
         ```
 
         :param str resource_name: The name of the resource.
@@ -372,51 +381,60 @@ class PhoneNumber(pulumi.CustomResource):
         [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.PhoneNumber("example",
-            target_arn=aws_connect_instance["example"]["arn"],
+            target_arn=example_aws_connect_instance["arn"],
             country_code="US",
             type="DID",
             tags={
                 "hello": "world",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Description
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.PhoneNumber("example",
-            target_arn=aws_connect_instance["example"]["arn"],
+            target_arn=example_aws_connect_instance["arn"],
             country_code="US",
             type="DID",
             description="example description")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Prefix to filter phone numbers
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.PhoneNumber("example",
-            target_arn=aws_connect_instance["example"]["arn"],
+            target_arn=example_aws_connect_instance["arn"],
             country_code="US",
             type="DID",
             prefix="+18005")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Connect Phone Numbers using its `id`. For example:
 
         ```sh
-         $ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab
+        $ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab
         ```
 
         :param str resource_name: The name of the resource.
@@ -465,8 +483,6 @@ class PhoneNumber(pulumi.CustomResource):
             __props__.__dict__["phone_number"] = None
             __props__.__dict__["statuses"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(PhoneNumber, __self__).__init__(
             'aws:connect/phoneNumber:PhoneNumber',
             resource_name,

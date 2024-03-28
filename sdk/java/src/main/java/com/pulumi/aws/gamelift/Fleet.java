@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * Provides a GameLift Fleet resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,9 +49,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Fleet(&#34;example&#34;, FleetArgs.builder()        
- *             .buildId(aws_gamelift_build.example().id())
+ *             .buildId(exampleAwsGameliftBuild.id())
  *             .ec2InstanceType(&#34;t2.micro&#34;)
  *             .fleetType(&#34;ON_DEMAND&#34;)
+ *             .name(&#34;example-fleet-name&#34;)
  *             .runtimeConfiguration(FleetRuntimeConfigurationArgs.builder()
  *                 .serverProcesses(FleetRuntimeConfigurationServerProcessArgs.builder()
  *                     .concurrentExecutions(1)
@@ -61,13 +64,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import GameLift Fleets using the ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:gamelift/fleet:Fleet example &lt;fleet-id&gt;
+ * $ pulumi import aws:gamelift/fleet:Fleet example &lt;fleet-id&gt;
  * ```
  * 
  */
@@ -382,9 +386,6 @@ public class Fleet extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

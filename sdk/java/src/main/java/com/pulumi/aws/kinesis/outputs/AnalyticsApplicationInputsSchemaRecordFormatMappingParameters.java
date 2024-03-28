@@ -63,19 +63,21 @@ public final class AnalyticsApplicationInputsSchemaRecordFormatMappingParameters
 
         @CustomType.Setter
         public Builder csv(@Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv csv) {
+
             this.csv = csv;
             return this;
         }
         @CustomType.Setter
         public Builder json(@Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson json) {
+
             this.json = json;
             return this;
         }
         public AnalyticsApplicationInputsSchemaRecordFormatMappingParameters build() {
-            final var o = new AnalyticsApplicationInputsSchemaRecordFormatMappingParameters();
-            o.csv = csv;
-            o.json = json;
-            return o;
+            final var _resultValue = new AnalyticsApplicationInputsSchemaRecordFormatMappingParameters();
+            _resultValue.csv = csv;
+            _resultValue.json = json;
+            return _resultValue;
         }
     }
 }

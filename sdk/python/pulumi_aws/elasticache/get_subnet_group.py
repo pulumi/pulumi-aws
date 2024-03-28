@@ -21,7 +21,7 @@ class GetSubnetGroupResult:
     """
     A collection of values returned by getSubnetGroup.
     """
-    def __init__(__self__, arn=None, description=None, id=None, name=None, subnet_ids=None, tags=None):
+    def __init__(__self__, arn=None, description=None, id=None, name=None, subnet_ids=None, tags=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,6 +40,9 @@ class GetSubnetGroupResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if vpc_id and not isinstance(vpc_id, str):
+            raise TypeError("Expected argument 'vpc_id' to be a str")
+        pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter
@@ -86,6 +89,14 @@ class GetSubnetGroupResult:
         """
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> str:
+        """
+        The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+        """
+        return pulumi.get(self, "vpc_id")
+
 
 class AwaitableGetSubnetGroupResult(GetSubnetGroupResult):
     # pylint: disable=using-constant-test
@@ -98,7 +109,8 @@ class AwaitableGetSubnetGroupResult(GetSubnetGroupResult):
             id=self.id,
             name=self.name,
             subnet_ids=self.subnet_ids,
-            tags=self.tags)
+            tags=self.tags,
+            vpc_id=self.vpc_id)
 
 
 def get_subnet_group(name: Optional[str] = None,
@@ -109,12 +121,14 @@ def get_subnet_group(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.elasticache.get_subnet_group(name="my-subnet-group")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the subnet group.
@@ -132,7 +146,8 @@ def get_subnet_group(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_subnet_group)
@@ -144,12 +159,14 @@ def get_subnet_group_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.elasticache.get_subnet_group(name="my-subnet-group")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the subnet group.

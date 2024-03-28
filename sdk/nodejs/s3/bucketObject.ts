@@ -10,8 +10,29 @@ import {Bucket} from "./index";
  * Provides an S3 object resource.
  *
  * ## Example Usage
+ *
+ * ### Uploading a file to a bucket
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const object = new aws.s3.BucketObject("object", {
+ *     bucket: "your_bucket_name",
+ *     key: "new_object_key",
+ *     source: new pulumi.asset.FileAsset("path/to/file"),
+ *     etag: std.filemd5({
+ *         input: "path/to/file",
+ *     }).then(invoke => invoke.result),
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Encrypting with KMS Key
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,72 +41,84 @@ import {Bucket} from "./index";
  *     description: "KMS key 1",
  *     deletionWindowInDays: 7,
  * });
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ * const examplebucket = new aws.s3.BucketV2("examplebucket", {bucket: "examplebuckettftest"});
+ * const example = new aws.s3.BucketAclV2("example", {
  *     bucket: examplebucket.id,
  *     acl: "private",
  * });
- * const exampleBucketObject = new aws.s3.BucketObject("exampleBucketObject", {
+ * const exampleBucketObject = new aws.s3.BucketObject("example", {
  *     key: "someobject",
  *     bucket: examplebucket.id,
  *     source: new pulumi.asset.FileAsset("index.html"),
  *     kmsKeyId: examplekms.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Server Side Encryption with S3 Default Master Key
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ * const examplebucket = new aws.s3.BucketV2("examplebucket", {bucket: "examplebuckettftest"});
+ * const example = new aws.s3.BucketAclV2("example", {
  *     bucket: examplebucket.id,
  *     acl: "private",
  * });
- * const exampleBucketObject = new aws.s3.BucketObject("exampleBucketObject", {
+ * const exampleBucketObject = new aws.s3.BucketObject("example", {
  *     key: "someobject",
  *     bucket: examplebucket.id,
  *     source: new pulumi.asset.FileAsset("index.html"),
  *     serverSideEncryption: "aws:kms",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Server Side Encryption with AWS-Managed Key
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ * const examplebucket = new aws.s3.BucketV2("examplebucket", {bucket: "examplebuckettftest"});
+ * const example = new aws.s3.BucketAclV2("example", {
  *     bucket: examplebucket.id,
  *     acl: "private",
  * });
- * const exampleBucketObject = new aws.s3.BucketObject("exampleBucketObject", {
+ * const exampleBucketObject = new aws.s3.BucketObject("example", {
  *     key: "someobject",
  *     bucket: examplebucket.id,
  *     source: new pulumi.asset.FileAsset("index.html"),
  *     serverSideEncryption: "AES256",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### S3 Object Lock
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {objectLockEnabled: true});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ * const examplebucket = new aws.s3.BucketV2("examplebucket", {
+ *     bucket: "examplebuckettftest",
+ *     objectLockEnabled: true,
+ * });
+ * const example = new aws.s3.BucketAclV2("example", {
  *     bucket: examplebucket.id,
  *     acl: "private",
  * });
- * const exampleBucketVersioningV2 = new aws.s3.BucketVersioningV2("exampleBucketVersioningV2", {
+ * const exampleBucketVersioningV2 = new aws.s3.BucketVersioningV2("example", {
  *     bucket: examplebucket.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
  * });
- * const exampleBucketObject = new aws.s3.BucketObject("exampleBucketObject", {
+ * const exampleBucketObject = new aws.s3.BucketObject("example", {
  *     key: "someobject",
  *     bucket: examplebucket.id,
  *     source: new pulumi.asset.FileAsset("important.txt"),
@@ -93,10 +126,9 @@ import {Bucket} from "./index";
  *     objectLockMode: "GOVERNANCE",
  *     objectLockRetainUntilDate: "2021-12-31T23:59:60Z",
  *     forceDestroy: true,
- * }, {
- *     dependsOn: [exampleBucketVersioningV2],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -107,12 +139,12 @@ import {Bucket} from "./index";
  * Import using the `id`, which is the bucket name and the key together:
  *
  * ```sh
- *  $ pulumi import aws:s3/bucketObject:BucketObject example some-bucket-name/some/key.txt
+ * $ pulumi import aws:s3/bucketObject:BucketObject example some-bucket-name/some/key.txt
  * ```
- *  Import using S3 URL syntax:
+ * Import using S3 URL syntax:
  *
  * ```sh
- *  $ pulumi import aws:s3/bucketObject:BucketObject example s3://some-bucket-name/some/key.txt
+ * $ pulumi import aws:s3/bucketObject:BucketObject example s3://some-bucket-name/some/key.txt
  * ```
  */
 export class BucketObject extends pulumi.CustomResource {
@@ -147,6 +179,10 @@ export class BucketObject extends pulumi.CustomResource {
      * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
      */
     public readonly acl!: pulumi.Output<string | undefined>;
+    /**
+     * ARN of the object.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
      */
@@ -268,6 +304,7 @@ export class BucketObject extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as BucketObjectState | undefined;
             resourceInputs["acl"] = state ? state.acl : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["bucketKeyEnabled"] = state ? state.bucketKeyEnabled : undefined;
             resourceInputs["cacheControl"] = state ? state.cacheControl : undefined;
@@ -322,12 +359,11 @@ export class BucketObject extends pulumi.CustomResource {
             resourceInputs["storageClass"] = args ? args.storageClass : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["websiteRedirect"] = args ? args.websiteRedirect : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["versionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(BucketObject.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -340,6 +376,10 @@ export interface BucketObjectState {
      * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
      */
     acl?: pulumi.Input<string>;
+    /**
+     * ARN of the object.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
      */

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,17 +22,19 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const test = new aws.lightsail.Disk("test", {
+ *     name: "test",
  *     sizeInGb: 8,
  *     availabilityZone: available.then(available => available.names?.[0]),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_lightsail_disk` using the name attribute. For example:
  *
  * ```sh
- *  $ pulumi import aws:lightsail/disk:Disk test test
+ * $ pulumi import aws:lightsail/disk:Disk test test
  * ```
  */
 export class Disk extends pulumi.CustomResource {
@@ -136,8 +139,6 @@ export class Disk extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Disk.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
         @CustomType.Setter
         public Builder instanceUrl(String instanceUrl) {
-            this.instanceUrl = Objects.requireNonNull(instanceUrl);
+            if (instanceUrl == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk", "instanceUrl");
+            }
+            this.instanceUrl = instanceUrl;
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk();
-            o.instanceUrl = instanceUrl;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk();
+            _resultValue.instanceUrl = instanceUrl;
+            return _resultValue;
         }
     }
 }

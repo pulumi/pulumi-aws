@@ -4,6 +4,7 @@
 package com.pulumi.aws.eks.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -143,55 +144,69 @@ public final class IdentityProviderConfigOidc {
 
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("IdentityProviderConfigOidc", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder groupsClaim(@Nullable String groupsClaim) {
+
             this.groupsClaim = groupsClaim;
             return this;
         }
         @CustomType.Setter
         public Builder groupsPrefix(@Nullable String groupsPrefix) {
+
             this.groupsPrefix = groupsPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder identityProviderConfigName(String identityProviderConfigName) {
-            this.identityProviderConfigName = Objects.requireNonNull(identityProviderConfigName);
+            if (identityProviderConfigName == null) {
+              throw new MissingRequiredPropertyException("IdentityProviderConfigOidc", "identityProviderConfigName");
+            }
+            this.identityProviderConfigName = identityProviderConfigName;
             return this;
         }
         @CustomType.Setter
         public Builder issuerUrl(String issuerUrl) {
-            this.issuerUrl = Objects.requireNonNull(issuerUrl);
+            if (issuerUrl == null) {
+              throw new MissingRequiredPropertyException("IdentityProviderConfigOidc", "issuerUrl");
+            }
+            this.issuerUrl = issuerUrl;
             return this;
         }
         @CustomType.Setter
         public Builder requiredClaims(@Nullable Map<String,String> requiredClaims) {
+
             this.requiredClaims = requiredClaims;
             return this;
         }
         @CustomType.Setter
         public Builder usernameClaim(@Nullable String usernameClaim) {
+
             this.usernameClaim = usernameClaim;
             return this;
         }
         @CustomType.Setter
         public Builder usernamePrefix(@Nullable String usernamePrefix) {
+
             this.usernamePrefix = usernamePrefix;
             return this;
         }
         public IdentityProviderConfigOidc build() {
-            final var o = new IdentityProviderConfigOidc();
-            o.clientId = clientId;
-            o.groupsClaim = groupsClaim;
-            o.groupsPrefix = groupsPrefix;
-            o.identityProviderConfigName = identityProviderConfigName;
-            o.issuerUrl = issuerUrl;
-            o.requiredClaims = requiredClaims;
-            o.usernameClaim = usernameClaim;
-            o.usernamePrefix = usernamePrefix;
-            return o;
+            final var _resultValue = new IdentityProviderConfigOidc();
+            _resultValue.clientId = clientId;
+            _resultValue.groupsClaim = groupsClaim;
+            _resultValue.groupsPrefix = groupsPrefix;
+            _resultValue.identityProviderConfigName = identityProviderConfigName;
+            _resultValue.issuerUrl = issuerUrl;
+            _resultValue.requiredClaims = requiredClaims;
+            _resultValue.usernameClaim = usernameClaim;
+            _resultValue.usernamePrefix = usernamePrefix;
+            return _resultValue;
         }
     }
 }

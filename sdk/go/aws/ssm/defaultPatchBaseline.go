@@ -15,8 +15,10 @@ import (
 // Resource for registering an AWS Systems Manager Default Patch Baseline.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +31,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePatchBaseline, err := ssm.NewPatchBaseline(ctx, "examplePatchBaseline", &ssm.PatchBaselineArgs{
+//			examplePatchBaseline, err := ssm.NewPatchBaseline(ctx, "example", &ssm.PatchBaselineArgs{
+//				Name: pulumi.String("example"),
 //				ApprovedPatches: pulumi.StringArray{
 //					pulumi.String("KB123456"),
 //				},
@@ -37,7 +40,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ssm.NewDefaultPatchBaseline(ctx, "exampleDefaultPatchBaseline", &ssm.DefaultPatchBaselineArgs{
+//			_, err = ssm.NewDefaultPatchBaseline(ctx, "example", &ssm.DefaultPatchBaselineArgs{
 //				BaselineId:      examplePatchBaseline.ID(),
 //				OperatingSystem: examplePatchBaseline.OperatingSystem,
 //			})
@@ -49,6 +52,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -61,25 +65,17 @@ import (
 // Using the patch baseline ID:
 //
 // ```sh
-//
-//	$ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example pb-1234567890abcdef1
-//
+// $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example pb-1234567890abcdef1
 // ```
-//
-//	Using the patch baseline ARN:
+// Using the patch baseline ARN:
 //
 // ```sh
-//
-//	$ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1
-//
+// $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1
 // ```
-//
-//	Using the operating system value:
+// Using the operating system value:
 //
 // ```sh
-//
-//	$ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example CENTOS
-//
+// $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example CENTOS
 // ```
 type DefaultPatchBaseline struct {
 	pulumi.CustomResourceState

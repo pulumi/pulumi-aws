@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.outputs;
 import com.pulumi.aws.sagemaker.outputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize;
 import com.pulumi.aws.sagemaker.outputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -15,12 +16,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration {
     /**
-     * @return Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant&#39;s total instance count. See Canary Size.
+     * @return Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50%!o(MISSING)f the variant&#39;s total instance count. See Canary Size.
      * 
      */
     private @Nullable EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize canarySize;
     /**
-     * @return Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant&#39;s total instance count. See Linear Step Size.
+     * @return Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50%!o(MISSING)f the variant&#39;s total instance count. See Linear Step Size.
      * 
      */
     private @Nullable EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize linearStepSize;
@@ -37,14 +38,14 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingCo
 
     private EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration() {}
     /**
-     * @return Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant&#39;s total instance count. See Canary Size.
+     * @return Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50%!o(MISSING)f the variant&#39;s total instance count. See Canary Size.
      * 
      */
     public Optional<EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize> canarySize() {
         return Optional.ofNullable(this.canarySize);
     }
     /**
-     * @return Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant&#39;s total instance count. See Linear Step Size.
+     * @return Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50%!o(MISSING)f the variant&#39;s total instance count. See Linear Step Size.
      * 
      */
     public Optional<EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize> linearStepSize() {
@@ -89,31 +90,39 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingCo
 
         @CustomType.Setter
         public Builder canarySize(@Nullable EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize canarySize) {
+
             this.canarySize = canarySize;
             return this;
         }
         @CustomType.Setter
         public Builder linearStepSize(@Nullable EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize linearStepSize) {
+
             this.linearStepSize = linearStepSize;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder waitIntervalInSeconds(Integer waitIntervalInSeconds) {
-            this.waitIntervalInSeconds = Objects.requireNonNull(waitIntervalInSeconds);
+            if (waitIntervalInSeconds == null) {
+              throw new MissingRequiredPropertyException("EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration", "waitIntervalInSeconds");
+            }
+            this.waitIntervalInSeconds = waitIntervalInSeconds;
             return this;
         }
         public EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration build() {
-            final var o = new EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration();
-            o.canarySize = canarySize;
-            o.linearStepSize = linearStepSize;
-            o.type = type;
-            o.waitIntervalInSeconds = waitIntervalInSeconds;
-            return o;
+            final var _resultValue = new EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration();
+            _resultValue.canarySize = canarySize;
+            _resultValue.linearStepSize = linearStepSize;
+            _resultValue.type = type;
+            _resultValue.waitIntervalInSeconds = waitIntervalInSeconds;
+            return _resultValue;
         }
     }
 }

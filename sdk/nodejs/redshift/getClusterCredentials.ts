@@ -9,15 +9,17 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.redshift.getClusterCredentials({
- *     clusterIdentifier: aws_redshift_cluster.example.cluster_identifier,
- *     dbUser: aws_redshift_cluster.example.master_username,
+ *     clusterIdentifier: exampleAwsRedshiftCluster.clusterIdentifier,
+ *     dbUser: exampleAwsRedshiftCluster.masterUsername,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getClusterCredentials(args: GetClusterCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterCredentialsResult> {
 
@@ -90,15 +92,17 @@ export interface GetClusterCredentialsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.redshift.getClusterCredentials({
- *     clusterIdentifier: aws_redshift_cluster.example.cluster_identifier,
- *     dbUser: aws_redshift_cluster.example.master_username,
+ *     clusterIdentifier: exampleAwsRedshiftCluster.clusterIdentifier,
+ *     dbUser: exampleAwsRedshiftCluster.masterUsername,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getClusterCredentialsOutput(args: GetClusterCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterCredentialsResult> {
     return pulumi.output(args).apply((a: any) => getClusterCredentials(a, opts))

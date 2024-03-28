@@ -44,13 +44,14 @@ public final class BucketLifecycleRuleNoncurrentVersionExpiration {
 
         @CustomType.Setter
         public Builder days(@Nullable Integer days) {
+
             this.days = days;
             return this;
         }
         public BucketLifecycleRuleNoncurrentVersionExpiration build() {
-            final var o = new BucketLifecycleRuleNoncurrentVersionExpiration();
-            o.days = days;
-            return o;
+            final var _resultValue = new BucketLifecycleRuleNoncurrentVersionExpiration();
+            _resultValue.days = days;
+            return _resultValue;
         }
     }
 }

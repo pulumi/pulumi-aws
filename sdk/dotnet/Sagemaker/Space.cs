@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Sagemaker
     /// Provides a SageMaker Space resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,19 +27,20 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.Space("example", new()
     ///     {
-    ///         DomainId = aws_sagemaker_domain.Test.Id,
+    ///         DomainId = test.Id,
     ///         SpaceName = "example",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SageMaker Spaces using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
+    /// $ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/space:Space")]
@@ -62,6 +65,18 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> HomeEfsFileSystemUid { get; private set; } = null!;
 
         /// <summary>
+        /// A collection of ownership settings. See Ownership Settings below.
+        /// </summary>
+        [Output("ownershipSettings")]
+        public Output<Outputs.SpaceOwnershipSettings?> OwnershipSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the space that appears in the SageMaker Studio UI.
+        /// </summary>
+        [Output("spaceDisplayName")]
+        public Output<string?> SpaceDisplayName { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the space.
         /// </summary>
         [Output("spaceName")]
@@ -74,6 +89,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<Outputs.SpaceSpaceSettings?> SpaceSettings { get; private set; } = null!;
 
         /// <summary>
+        /// A collection of space sharing settings. See Space Sharing Settings below.
+        /// </summary>
+        [Output("spaceSharingSettings")]
+        public Output<Outputs.SpaceSpaceSharingSettings?> SpaceSharingSettings { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -84,6 +105,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+        /// </summary>
+        [Output("url")]
+        public Output<string> Url { get; private set; } = null!;
 
 
         /// <summary>
@@ -108,10 +135,6 @@ namespace Pulumi.Aws.Sagemaker
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -142,6 +165,18 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> DomainId { get; set; } = null!;
 
         /// <summary>
+        /// A collection of ownership settings. See Ownership Settings below.
+        /// </summary>
+        [Input("ownershipSettings")]
+        public Input<Inputs.SpaceOwnershipSettingsArgs>? OwnershipSettings { get; set; }
+
+        /// <summary>
+        /// The name of the space that appears in the SageMaker Studio UI.
+        /// </summary>
+        [Input("spaceDisplayName")]
+        public Input<string>? SpaceDisplayName { get; set; }
+
+        /// <summary>
         /// The name of the space.
         /// </summary>
         [Input("spaceName", required: true)]
@@ -152,6 +187,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("spaceSettings")]
         public Input<Inputs.SpaceSpaceSettingsArgs>? SpaceSettings { get; set; }
+
+        /// <summary>
+        /// A collection of space sharing settings. See Space Sharing Settings below.
+        /// </summary>
+        [Input("spaceSharingSettings")]
+        public Input<Inputs.SpaceSpaceSharingSettingsArgs>? SpaceSharingSettings { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -192,6 +233,18 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? HomeEfsFileSystemUid { get; set; }
 
         /// <summary>
+        /// A collection of ownership settings. See Ownership Settings below.
+        /// </summary>
+        [Input("ownershipSettings")]
+        public Input<Inputs.SpaceOwnershipSettingsGetArgs>? OwnershipSettings { get; set; }
+
+        /// <summary>
+        /// The name of the space that appears in the SageMaker Studio UI.
+        /// </summary>
+        [Input("spaceDisplayName")]
+        public Input<string>? SpaceDisplayName { get; set; }
+
+        /// <summary>
         /// The name of the space.
         /// </summary>
         [Input("spaceName")]
@@ -202,6 +255,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("spaceSettings")]
         public Input<Inputs.SpaceSpaceSettingsGetArgs>? SpaceSettings { get; set; }
+
+        /// <summary>
+        /// A collection of space sharing settings. See Space Sharing Settings below.
+        /// </summary>
+        [Input("spaceSharingSettings")]
+        public Input<Inputs.SpaceSpaceSharingSettingsGetArgs>? SpaceSharingSettings { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -225,12 +284,14 @@ namespace Pulumi.Aws.Sagemaker
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+        /// </summary>
+        [Input("url")]
+        public Input<string>? Url { get; set; }
 
         public SpaceState()
         {

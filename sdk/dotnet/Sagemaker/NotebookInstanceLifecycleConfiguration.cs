@@ -12,12 +12,43 @@ namespace Pulumi.Aws.Sagemaker
     /// <summary>
     /// Provides a lifecycle configuration for SageMaker Notebook Instances.
     /// 
+    /// ## Example Usage
+    /// 
+    /// Usage:
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var lc = new Aws.Sagemaker.NotebookInstanceLifecycleConfiguration("lc", new()
+    ///     {
+    ///         Name = "foo",
+    ///         OnCreate = Std.Base64encode.Invoke(new()
+    ///         {
+    ///             Input = "echo foo",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         OnStart = Std.Base64encode.Invoke(new()
+    ///         {
+    ///             Input = "echo bar",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import models using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
+    /// $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration")]

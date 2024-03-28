@@ -6,6 +6,7 @@ package com.pulumi.aws.batch;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.batch.JobDefinitionArgs;
 import com.pulumi.aws.batch.inputs.JobDefinitionState;
+import com.pulumi.aws.batch.outputs.JobDefinitionEksProperties;
 import com.pulumi.aws.batch.outputs.JobDefinitionRetryStrategy;
 import com.pulumi.aws.batch.outputs.JobDefinitionTimeout;
 import com.pulumi.core.Output;
@@ -24,7 +25,10 @@ import javax.annotation.Nullable;
  * Provides a Batch Job Definition resource.
  * 
  * ## Example Usage
+ * 
  * ### Job definition of type container
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,6 +52,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new JobDefinition(&#34;test&#34;, JobDefinitionArgs.builder()        
+ *             .name(&#34;my_test_batch_job_definition&#34;)
  *             .type(&#34;container&#34;)
  *             .containerProperties(serializeJson(
  *                 jsonObject(
@@ -92,7 +97,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Job definition of type multinode
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -116,6 +125,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new JobDefinition(&#34;test&#34;, JobDefinitionArgs.builder()        
+ *             .name(&#34;tf_test_batch_job_definition_multinode&#34;)
  *             .type(&#34;multinode&#34;)
  *             .nodeProperties(serializeJson(
  *                 jsonObject(
@@ -153,7 +163,70 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Job Definitionn of type EKS
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.batch.JobDefinition;
+ * import com.pulumi.aws.batch.JobDefinitionArgs;
+ * import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesArgs;
+ * import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesArgs;
+ * import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesContainersArgs;
+ * import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs;
+ * import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesMetadataArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new JobDefinition(&#34;test&#34;, JobDefinitionArgs.builder()        
+ *             .name(&#34; tf_test_batch_job_definition_eks&#34;)
+ *             .type(&#34;container&#34;)
+ *             .eksProperties(JobDefinitionEksPropertiesArgs.builder()
+ *                 .podProperties(JobDefinitionEksPropertiesPodPropertiesArgs.builder()
+ *                     .hostNetwork(true)
+ *                     .containers(JobDefinitionEksPropertiesPodPropertiesContainersArgs.builder()
+ *                         .image(&#34;public.ecr.aws/amazonlinux/amazonlinux:1&#34;)
+ *                         .commands(                        
+ *                             &#34;sleep&#34;,
+ *                             &#34;60&#34;)
+ *                         .resources(JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs.builder()
+ *                             .limits(Map.ofEntries(
+ *                                 Map.entry(&#34;cpu&#34;, &#34;1&#34;),
+ *                                 Map.entry(&#34;memory&#34;, &#34;1024Mi&#34;)
+ *                             ))
+ *                             .build())
+ *                         .build())
+ *                     .metadata(JobDefinitionEksPropertiesPodPropertiesMetadataArgs.builder()
+ *                         .labels(Map.of(&#34;environment&#34;, &#34;test&#34;))
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Fargate Platform Capability
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -193,6 +266,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var ecsTaskExecutionRole = new Role(&#34;ecsTaskExecutionRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;my_test_batch_exec_role&#34;)
  *             .assumeRolePolicy(assumeRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
@@ -202,6 +276,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new JobDefinition(&#34;test&#34;, JobDefinitionArgs.builder()        
+ *             .name(&#34;my_test_batch_job_definition&#34;)
  *             .type(&#34;container&#34;)
  *             .platformCapabilities(&#34;FARGATE&#34;)
  *             .containerProperties(ecsTaskExecutionRole.arn().applyValue(arn -&gt; serializeJson(
@@ -232,35 +307,50 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
+ * $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
  * ```
  * 
  */
 @ResourceType(type="aws:batch/jobDefinition:JobDefinition")
 public class JobDefinition extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name of the job definition.
+     * The Amazon Resource Name of the job definition, includes revision (`:#`).
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of the job definition.
+     * @return The Amazon Resource Name of the job definition, includes revision (`:#`).
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
+     * The ARN without the revision number.
+     * 
+     */
+    @Export(name="arnPrefix", refs={String.class}, tree="[0]")
+    private Output<String> arnPrefix;
+
+    /**
+     * @return The ARN without the revision number.
+     * 
+     */
+    public Output<String> arnPrefix() {
+        return this.arnPrefix;
+    }
+    /**
      * A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-     * provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+     * provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
     @Export(name="containerProperties", refs={String.class}, tree="[0]")
@@ -268,11 +358,25 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
 
     /**
      * @return A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-     * provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+     * provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
     public Output<Optional<String>> containerProperties() {
         return Codegen.optional(this.containerProperties);
+    }
+    /**
+     * A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+     * 
+     */
+    @Export(name="eksProperties", refs={JobDefinitionEksProperties.class}, tree="[0]")
+    private Output</* @Nullable */ JobDefinitionEksProperties> eksProperties;
+
+    /**
+     * @return A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+     * 
+     */
+    public Output<Optional<JobDefinitionEksProperties>> eksProperties() {
+        return Codegen.optional(this.eksProperties);
     }
     /**
      * Specifies the name of the job definition.
@@ -377,6 +481,20 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
         return this.revision;
     }
     /**
+     * The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+     * 
+     */
+    @Export(name="schedulingPriority", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> schedulingPriority;
+
+    /**
+     * @return The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+     * 
+     */
+    public Output<Optional<Integer>> schedulingPriority() {
+        return Codegen.optional(this.schedulingPriority);
+    }
+    /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -473,9 +591,6 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

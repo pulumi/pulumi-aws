@@ -4,6 +4,7 @@
 package com.pulumi.aws.lightsail.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,31 +87,39 @@ public final class DistributionOrigin {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("DistributionOrigin", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder protocolPolicy(@Nullable String protocolPolicy) {
+
             this.protocolPolicy = protocolPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder regionName(String regionName) {
-            this.regionName = Objects.requireNonNull(regionName);
+            if (regionName == null) {
+              throw new MissingRequiredPropertyException("DistributionOrigin", "regionName");
+            }
+            this.regionName = regionName;
             return this;
         }
         @CustomType.Setter
         public Builder resourceType(@Nullable String resourceType) {
+
             this.resourceType = resourceType;
             return this;
         }
         public DistributionOrigin build() {
-            final var o = new DistributionOrigin();
-            o.name = name;
-            o.protocolPolicy = protocolPolicy;
-            o.regionName = regionName;
-            o.resourceType = resourceType;
-            return o;
+            final var _resultValue = new DistributionOrigin();
+            _resultValue.name = name;
+            _resultValue.protocolPolicy = protocolPolicy;
+            _resultValue.regionName = regionName;
+            _resultValue.resourceType = resourceType;
+            return _resultValue;
         }
     }
 }

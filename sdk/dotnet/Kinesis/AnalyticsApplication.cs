@@ -18,8 +18,10 @@ namespace Pulumi.Aws.Kinesis
     /// &gt; **Note:** To manage Amazon Kinesis Data Analytics for Apache Flink applications, use the `aws.kinesisanalyticsv2.Application` resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Kinesis Stream Input
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,20 +30,22 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testStream = new Aws.Kinesis.Stream("testStream", new()
+    ///     var testStream = new Aws.Kinesis.Stream("test_stream", new()
     ///     {
+    ///         Name = "kinesis-test",
     ///         ShardCount = 1,
     ///     });
     /// 
-    ///     var testApplication = new Aws.Kinesis.AnalyticsApplication("testApplication", new()
+    ///     var testApplication = new Aws.Kinesis.AnalyticsApplication("test_application", new()
     ///     {
+    ///         Name = "kinesis-analytics-application-test",
     ///         Inputs = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsArgs
     ///         {
     ///             NamePrefix = "test_prefix",
     ///             KinesisStream = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsKinesisStreamArgs
     ///             {
     ///                 ResourceArn = testStream.Arn,
-    ///                 RoleArn = aws_iam_role.Test.Arn,
+    ///                 RoleArn = test.Arn,
     ///             },
     ///             Parallelism = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsParallelismArgs
     ///             {
@@ -75,8 +79,11 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Starting An Application
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -85,34 +92,41 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
-    /// 
-    ///     var exampleLogStream = new Aws.CloudWatch.LogStream("exampleLogStream", new()
+    ///     var example = new Aws.CloudWatch.LogGroup("example", new()
     ///     {
-    ///         LogGroupName = exampleLogGroup.Name,
+    ///         Name = "analytics",
     ///     });
     /// 
-    ///     var exampleStream = new Aws.Kinesis.Stream("exampleStream", new()
+    ///     var exampleLogStream = new Aws.CloudWatch.LogStream("example", new()
     ///     {
+    ///         Name = "example-kinesis-application",
+    ///         LogGroupName = example.Name,
+    ///     });
+    /// 
+    ///     var exampleStream = new Aws.Kinesis.Stream("example", new()
+    ///     {
+    ///         Name = "example-kinesis-stream",
     ///         ShardCount = 1,
     ///     });
     /// 
-    ///     var exampleFirehoseDeliveryStream = new Aws.Kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream", new()
+    ///     var exampleFirehoseDeliveryStream = new Aws.Kinesis.FirehoseDeliveryStream("example", new()
     ///     {
+    ///         Name = "example-kinesis-delivery-stream",
     ///         Destination = "extended_s3",
     ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
     ///         {
-    ///             BucketArn = aws_s3_bucket.Example.Arn,
-    ///             RoleArn = aws_iam_role.Example.Arn,
+    ///             BucketArn = exampleAwsS3Bucket.Arn,
+    ///             RoleArn = exampleAwsIamRole.Arn,
     ///         },
     ///     });
     /// 
     ///     var test = new Aws.Kinesis.AnalyticsApplication("test", new()
     ///     {
+    ///         Name = "example-application",
     ///         CloudwatchLoggingOptions = new Aws.Kinesis.Inputs.AnalyticsApplicationCloudwatchLoggingOptionsArgs
     ///         {
     ///             LogStreamArn = exampleLogStream.Arn,
-    ///             RoleArn = aws_iam_role.Example.Arn,
+    ///             RoleArn = exampleAwsIamRole.Arn,
     ///         },
     ///         Inputs = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsArgs
     ///         {
@@ -142,7 +156,7 @@ namespace Pulumi.Aws.Kinesis
     ///             KinesisStream = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsKinesisStreamArgs
     ///             {
     ///                 ResourceArn = exampleStream.Arn,
-    ///                 RoleArn = aws_iam_role.Example.Arn,
+    ///                 RoleArn = exampleAwsIamRole.Arn,
     ///             },
     ///             StartingPositionConfigurations = new[]
     ///             {
@@ -164,7 +178,7 @@ namespace Pulumi.Aws.Kinesis
     ///                 KinesisFirehose = new Aws.Kinesis.Inputs.AnalyticsApplicationOutputKinesisFirehoseArgs
     ///                 {
     ///                     ResourceArn = exampleFirehoseDeliveryStream.Arn,
-    ///                     RoleArn = aws_iam_role.Example.Arn,
+    ///                     RoleArn = exampleAwsIamRole.Arn,
     ///                 },
     ///             },
     ///         },
@@ -173,13 +187,14 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Kinesis Analytics Application using ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:kinesis/analyticsApplication:AnalyticsApplication example arn:aws:kinesisanalytics:us-west-2:1234567890:application/example
+    /// $ pulumi import aws:kinesis/analyticsApplication:AnalyticsApplication example arn:aws:kinesisanalytics:us-west-2:1234567890:application/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:kinesis/analyticsApplication:AnalyticsApplication")]
@@ -301,10 +316,6 @@ namespace Pulumi.Aws.Kinesis
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -508,11 +519,7 @@ namespace Pulumi.Aws.Kinesis
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

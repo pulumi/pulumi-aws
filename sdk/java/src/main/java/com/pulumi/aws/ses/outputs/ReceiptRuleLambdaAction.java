@@ -4,6 +4,7 @@
 package com.pulumi.aws.ses.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -87,31 +88,39 @@ public final class ReceiptRuleLambdaAction {
 
         @CustomType.Setter
         public Builder functionArn(String functionArn) {
-            this.functionArn = Objects.requireNonNull(functionArn);
+            if (functionArn == null) {
+              throw new MissingRequiredPropertyException("ReceiptRuleLambdaAction", "functionArn");
+            }
+            this.functionArn = functionArn;
             return this;
         }
         @CustomType.Setter
         public Builder invocationType(@Nullable String invocationType) {
+
             this.invocationType = invocationType;
             return this;
         }
         @CustomType.Setter
         public Builder position(Integer position) {
-            this.position = Objects.requireNonNull(position);
+            if (position == null) {
+              throw new MissingRequiredPropertyException("ReceiptRuleLambdaAction", "position");
+            }
+            this.position = position;
             return this;
         }
         @CustomType.Setter
         public Builder topicArn(@Nullable String topicArn) {
+
             this.topicArn = topicArn;
             return this;
         }
         public ReceiptRuleLambdaAction build() {
-            final var o = new ReceiptRuleLambdaAction();
-            o.functionArn = functionArn;
-            o.invocationType = invocationType;
-            o.position = position;
-            o.topicArn = topicArn;
-            return o;
+            final var _resultValue = new ReceiptRuleLambdaAction();
+            _resultValue.functionArn = functionArn;
+            _resultValue.invocationType = invocationType;
+            _resultValue.position = position;
+            _resultValue.topicArn = topicArn;
+            return _resultValue;
         }
     }
 }

@@ -6,6 +6,7 @@ package com.pulumi.aws.datasync.inputs;
 import com.pulumi.aws.datasync.inputs.LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class LocationFsxOntapFileSystemProtocolNfsArgs extends com.pulumi.
         }
 
         public LocationFsxOntapFileSystemProtocolNfsArgs build() {
-            $.mountOptions = Objects.requireNonNull($.mountOptions, "expected parameter 'mountOptions' to be non-null");
+            if ($.mountOptions == null) {
+                throw new MissingRequiredPropertyException("LocationFsxOntapFileSystemProtocolNfsArgs", "mountOptions");
+            }
             return $;
         }
     }

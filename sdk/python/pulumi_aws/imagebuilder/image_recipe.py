@@ -461,6 +461,7 @@ class ImageRecipe(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -475,7 +476,7 @@ class ImageRecipe(pulumi.CustomResource):
                 ),
             )],
             components=[aws.imagebuilder.ImageRecipeComponentArgs(
-                component_arn=aws_imagebuilder_component["example"]["arn"],
+                component_arn=example_aws_imagebuilder_component["arn"],
                 parameters=[
                     aws.imagebuilder.ImageRecipeComponentParameterArgs(
                         name="Parameter1",
@@ -487,16 +488,18 @@ class ImageRecipe(pulumi.CustomResource):
                     ),
                 ],
             )],
-            parent_image=f"arn:{data['aws_partition']['current']['partition']}:imagebuilder:{data['aws_region']['current']['name']}:aws:image/amazon-linux-2-x86/x.x.x",
+            name="example",
+            parent_image=f"arn:{current['partition']}:imagebuilder:{current_aws_region['name']}:aws:image/amazon-linux-2-x86/x.x.x",
             version="1.0.0")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_imagebuilder_image_recipe` resources using the Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
+        $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
         ```
 
         :param str resource_name: The name of the resource.
@@ -525,6 +528,7 @@ class ImageRecipe(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -539,7 +543,7 @@ class ImageRecipe(pulumi.CustomResource):
                 ),
             )],
             components=[aws.imagebuilder.ImageRecipeComponentArgs(
-                component_arn=aws_imagebuilder_component["example"]["arn"],
+                component_arn=example_aws_imagebuilder_component["arn"],
                 parameters=[
                     aws.imagebuilder.ImageRecipeComponentParameterArgs(
                         name="Parameter1",
@@ -551,16 +555,18 @@ class ImageRecipe(pulumi.CustomResource):
                     ),
                 ],
             )],
-            parent_image=f"arn:{data['aws_partition']['current']['partition']}:imagebuilder:{data['aws_region']['current']['name']}:aws:image/amazon-linux-2-x86/x.x.x",
+            name="example",
+            parent_image=f"arn:{current['partition']}:imagebuilder:{current_aws_region['name']}:aws:image/amazon-linux-2-x86/x.x.x",
             version="1.0.0")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_imagebuilder_image_recipe` resources using the Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
+        $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
         ```
 
         :param str resource_name: The name of the resource.
@@ -618,8 +624,6 @@ class ImageRecipe(pulumi.CustomResource):
             __props__.__dict__["owner"] = None
             __props__.__dict__["platform"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ImageRecipe, __self__).__init__(
             'aws:imagebuilder/imageRecipe:ImageRecipe',
             resource_name,

@@ -19,17 +19,21 @@ class EndpointAccessArgs:
                  endpoint_name: pulumi.Input[str],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  workgroup_name: pulumi.Input[str],
+                 owner_account: Optional[pulumi.Input[str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a EndpointAccess resource.
         :param pulumi.Input[str] endpoint_name: The name of the endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs to associate with the endpoint.
         :param pulumi.Input[str] workgroup_name: The name of the workgroup.
+        :param pulumi.Input[str] owner_account: The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: An array of security group IDs to associate with the workgroup.
         """
         pulumi.set(__self__, "endpoint_name", endpoint_name)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         pulumi.set(__self__, "workgroup_name", workgroup_name)
+        if owner_account is not None:
+            pulumi.set(__self__, "owner_account", owner_account)
         if vpc_security_group_ids is not None:
             pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
 
@@ -70,6 +74,18 @@ class EndpointAccessArgs:
         pulumi.set(self, "workgroup_name", value)
 
     @property
+    @pulumi.getter(name="ownerAccount")
+    def owner_account(self) -> Optional[pulumi.Input[str]]:
+        """
+        The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+        """
+        return pulumi.get(self, "owner_account")
+
+    @owner_account.setter
+    def owner_account(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_account", value)
+
+    @property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -88,6 +104,7 @@ class _EndpointAccessState:
                  address: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
+                 owner_account: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointArgs']]]] = None,
@@ -98,6 +115,7 @@ class _EndpointAccessState:
         :param pulumi.Input[str] address: The DNS address of the VPC endpoint.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
         :param pulumi.Input[str] endpoint_name: The name of the endpoint.
+        :param pulumi.Input[str] owner_account: The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
         :param pulumi.Input[int] port: The port that Amazon Redshift Serverless listens on.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs to associate with the endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointArgs']]] vpc_endpoints: The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
@@ -110,6 +128,8 @@ class _EndpointAccessState:
             pulumi.set(__self__, "arn", arn)
         if endpoint_name is not None:
             pulumi.set(__self__, "endpoint_name", endpoint_name)
+        if owner_account is not None:
+            pulumi.set(__self__, "owner_account", owner_account)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if subnet_ids is not None:
@@ -156,6 +176,18 @@ class _EndpointAccessState:
     @endpoint_name.setter
     def endpoint_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "endpoint_name", value)
+
+    @property
+    @pulumi.getter(name="ownerAccount")
+    def owner_account(self) -> Optional[pulumi.Input[str]]:
+        """
+        The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+        """
+        return pulumi.get(self, "owner_account")
+
+    @owner_account.setter
+    def owner_account(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_account", value)
 
     @property
     @pulumi.getter
@@ -224,6 +256,7 @@ class EndpointAccess(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
+                 owner_account: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  workgroup_name: Optional[pulumi.Input[str]] = None,
@@ -233,6 +266,7 @@ class EndpointAccess(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -241,18 +275,20 @@ class EndpointAccess(pulumi.CustomResource):
             endpoint_name="example",
             workgroup_name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Serverless Endpoint Access using the `endpoint_name`. For example:
 
         ```sh
-         $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
+        $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_name: The name of the endpoint.
+        :param pulumi.Input[str] owner_account: The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs to associate with the endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: An array of security group IDs to associate with the workgroup.
         :param pulumi.Input[str] workgroup_name: The name of the workgroup.
@@ -268,6 +304,7 @@ class EndpointAccess(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -276,13 +313,14 @@ class EndpointAccess(pulumi.CustomResource):
             endpoint_name="example",
             workgroup_name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Serverless Endpoint Access using the `endpoint_name`. For example:
 
         ```sh
-         $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
+        $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -301,6 +339,7 @@ class EndpointAccess(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
+                 owner_account: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  workgroup_name: Optional[pulumi.Input[str]] = None,
@@ -316,6 +355,7 @@ class EndpointAccess(pulumi.CustomResource):
             if endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_name'")
             __props__.__dict__["endpoint_name"] = endpoint_name
+            __props__.__dict__["owner_account"] = owner_account
             if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
@@ -340,6 +380,7 @@ class EndpointAccess(pulumi.CustomResource):
             address: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             endpoint_name: Optional[pulumi.Input[str]] = None,
+            owner_account: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             vpc_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointAccessVpcEndpointArgs']]]]] = None,
@@ -355,6 +396,7 @@ class EndpointAccess(pulumi.CustomResource):
         :param pulumi.Input[str] address: The DNS address of the VPC endpoint.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
         :param pulumi.Input[str] endpoint_name: The name of the endpoint.
+        :param pulumi.Input[str] owner_account: The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
         :param pulumi.Input[int] port: The port that Amazon Redshift Serverless listens on.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs to associate with the endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointAccessVpcEndpointArgs']]]] vpc_endpoints: The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
@@ -368,6 +410,7 @@ class EndpointAccess(pulumi.CustomResource):
         __props__.__dict__["address"] = address
         __props__.__dict__["arn"] = arn
         __props__.__dict__["endpoint_name"] = endpoint_name
+        __props__.__dict__["owner_account"] = owner_account
         __props__.__dict__["port"] = port
         __props__.__dict__["subnet_ids"] = subnet_ids
         __props__.__dict__["vpc_endpoints"] = vpc_endpoints
@@ -398,6 +441,14 @@ class EndpointAccess(pulumi.CustomResource):
         The name of the endpoint.
         """
         return pulumi.get(self, "endpoint_name")
+
+    @property
+    @pulumi.getter(name="ownerAccount")
+    def owner_account(self) -> pulumi.Output[Optional[str]]:
+        """
+        The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+        """
+        return pulumi.get(self, "owner_account")
 
     @property
     @pulumi.getter

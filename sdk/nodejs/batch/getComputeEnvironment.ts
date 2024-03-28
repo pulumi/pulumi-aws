@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -10,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,6 +22,7 @@ import * as utilities from "../utilities";
  *     computeEnvironmentName: "batch-mongo-production",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getComputeEnvironment(args: GetComputeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetComputeEnvironmentResult> {
 
@@ -83,6 +88,10 @@ export interface GetComputeEnvironmentResult {
      * Type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
      */
     readonly type: string;
+    /**
+     * Specifies the infrastructure update policy for the compute environment.
+     */
+    readonly updatePolicies: outputs.batch.GetComputeEnvironmentUpdatePolicy[];
 }
 /**
  * The Batch Compute Environment data source allows access to details of a specific
@@ -90,6 +99,7 @@ export interface GetComputeEnvironmentResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -98,6 +108,7 @@ export interface GetComputeEnvironmentResult {
  *     computeEnvironmentName: "batch-mongo-production",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getComputeEnvironmentOutput(args: GetComputeEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputeEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getComputeEnvironment(a, opts))

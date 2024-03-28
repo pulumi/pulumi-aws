@@ -21,6 +21,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,6 +56,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts ...pulumi.InvokeOption) (*LookupLoadBalancerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLoadBalancerResult
@@ -79,19 +81,22 @@ type LookupLoadBalancerArgs struct {
 
 // A collection of values returned by getLoadBalancer.
 type LookupLoadBalancerResult struct {
-	AccessLogs                            GetLoadBalancerAccessLogs `pulumi:"accessLogs"`
-	Arn                                   string                    `pulumi:"arn"`
-	ArnSuffix                             string                    `pulumi:"arnSuffix"`
-	CustomerOwnedIpv4Pool                 string                    `pulumi:"customerOwnedIpv4Pool"`
-	DesyncMitigationMode                  string                    `pulumi:"desyncMitigationMode"`
-	DnsName                               string                    `pulumi:"dnsName"`
-	DropInvalidHeaderFields               bool                      `pulumi:"dropInvalidHeaderFields"`
-	EnableCrossZoneLoadBalancing          bool                      `pulumi:"enableCrossZoneLoadBalancing"`
-	EnableDeletionProtection              bool                      `pulumi:"enableDeletionProtection"`
-	EnableHttp2                           bool                      `pulumi:"enableHttp2"`
-	EnableTlsVersionAndCipherSuiteHeaders bool                      `pulumi:"enableTlsVersionAndCipherSuiteHeaders"`
-	EnableWafFailOpen                     bool                      `pulumi:"enableWafFailOpen"`
-	EnableXffClientPort                   bool                      `pulumi:"enableXffClientPort"`
+	AccessLogs                                           GetLoadBalancerAccessLogs      `pulumi:"accessLogs"`
+	Arn                                                  string                         `pulumi:"arn"`
+	ArnSuffix                                            string                         `pulumi:"arnSuffix"`
+	ConnectionLogs                                       []GetLoadBalancerConnectionLog `pulumi:"connectionLogs"`
+	CustomerOwnedIpv4Pool                                string                         `pulumi:"customerOwnedIpv4Pool"`
+	DesyncMitigationMode                                 string                         `pulumi:"desyncMitigationMode"`
+	DnsName                                              string                         `pulumi:"dnsName"`
+	DnsRecordClientRoutingPolicy                         string                         `pulumi:"dnsRecordClientRoutingPolicy"`
+	DropInvalidHeaderFields                              bool                           `pulumi:"dropInvalidHeaderFields"`
+	EnableCrossZoneLoadBalancing                         bool                           `pulumi:"enableCrossZoneLoadBalancing"`
+	EnableDeletionProtection                             bool                           `pulumi:"enableDeletionProtection"`
+	EnableHttp2                                          bool                           `pulumi:"enableHttp2"`
+	EnableTlsVersionAndCipherSuiteHeaders                bool                           `pulumi:"enableTlsVersionAndCipherSuiteHeaders"`
+	EnableWafFailOpen                                    bool                           `pulumi:"enableWafFailOpen"`
+	EnableXffClientPort                                  bool                           `pulumi:"enableXffClientPort"`
+	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic string                         `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                      string                         `pulumi:"id"`
 	IdleTimeout             int                            `pulumi:"idleTimeout"`
@@ -165,6 +170,10 @@ func (o LookupLoadBalancerResultOutput) ArnSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.ArnSuffix }).(pulumi.StringOutput)
 }
 
+func (o LookupLoadBalancerResultOutput) ConnectionLogs() GetLoadBalancerConnectionLogArrayOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) []GetLoadBalancerConnectionLog { return v.ConnectionLogs }).(GetLoadBalancerConnectionLogArrayOutput)
+}
+
 func (o LookupLoadBalancerResultOutput) CustomerOwnedIpv4Pool() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.CustomerOwnedIpv4Pool }).(pulumi.StringOutput)
 }
@@ -175,6 +184,10 @@ func (o LookupLoadBalancerResultOutput) DesyncMitigationMode() pulumi.StringOutp
 
 func (o LookupLoadBalancerResultOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.DnsName }).(pulumi.StringOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) DnsRecordClientRoutingPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.DnsRecordClientRoutingPolicy }).(pulumi.StringOutput)
 }
 
 func (o LookupLoadBalancerResultOutput) DropInvalidHeaderFields() pulumi.BoolOutput {
@@ -203,6 +216,10 @@ func (o LookupLoadBalancerResultOutput) EnableWafFailOpen() pulumi.BoolOutput {
 
 func (o LookupLoadBalancerResultOutput) EnableXffClientPort() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.EnableXffClientPort }).(pulumi.BoolOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

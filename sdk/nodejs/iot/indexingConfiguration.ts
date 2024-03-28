@@ -12,11 +12,19 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.iot.IndexingConfiguration("example", {thingIndexingConfiguration: {
+ *     thingIndexingMode: "REGISTRY_AND_SHADOW",
+ *     thingConnectivityIndexingMode: "STATUS",
+ *     deviceDefenderIndexingMode: "VIOLATIONS",
+ *     namedShadowIndexingMode: "ON",
+ *     filter: {
+ *         namedShadowNames: ["thing1shadow"],
+ *     },
  *     customFields: [
  *         {
  *             name: "shadow.desired.power",
@@ -35,15 +43,9 @@ import * as utilities from "../utilities";
  *             type: "Number",
  *         },
  *     ],
- *     deviceDefenderIndexingMode: "VIOLATIONS",
- *     filter: {
- *         namedShadowNames: ["thing1shadow"],
- *     },
- *     namedShadowIndexingMode: "ON",
- *     thingConnectivityIndexingMode: "STATUS",
- *     thingIndexingMode: "REGISTRY_AND_SHADOW",
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class IndexingConfiguration extends pulumi.CustomResource {
     /**

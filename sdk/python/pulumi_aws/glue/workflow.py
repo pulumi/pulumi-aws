@@ -243,18 +243,21 @@ class Workflow(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Workflow("example")
+        example = aws.glue.Workflow("example", name="example")
         example_start = aws.glue.Trigger("example-start",
+            name="trigger-start",
             type="ON_DEMAND",
             workflow_name=example.name,
             actions=[aws.glue.TriggerActionArgs(
                 job_name="example-job",
             )])
         example_inner = aws.glue.Trigger("example-inner",
+            name="trigger-inner",
             type="CONDITIONAL",
             workflow_name=example.name,
             predicate=aws.glue.TriggerPredicateArgs(
@@ -267,13 +270,14 @@ class Workflow(pulumi.CustomResource):
                 job_name="another-example-job",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Workflows using `name`. For example:
 
         ```sh
-         $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
+        $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
         ```
 
         :param str resource_name: The name of the resource.
@@ -297,18 +301,21 @@ class Workflow(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Workflow("example")
+        example = aws.glue.Workflow("example", name="example")
         example_start = aws.glue.Trigger("example-start",
+            name="trigger-start",
             type="ON_DEMAND",
             workflow_name=example.name,
             actions=[aws.glue.TriggerActionArgs(
                 job_name="example-job",
             )])
         example_inner = aws.glue.Trigger("example-inner",
+            name="trigger-inner",
             type="CONDITIONAL",
             workflow_name=example.name,
             predicate=aws.glue.TriggerPredicateArgs(
@@ -321,13 +328,14 @@ class Workflow(pulumi.CustomResource):
                 job_name="another-example-job",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Workflows using `name`. For example:
 
         ```sh
-         $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
+        $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
         ```
 
         :param str resource_name: The name of the resource.
@@ -366,8 +374,6 @@ class Workflow(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Workflow, __self__).__init__(
             'aws:glue/workflow:Workflow',
             resource_name,

@@ -329,127 +329,147 @@ public final class DataSourceParameters {
 
         @CustomType.Setter
         public Builder amazonElasticsearch(@Nullable DataSourceParametersAmazonElasticsearch amazonElasticsearch) {
+
             this.amazonElasticsearch = amazonElasticsearch;
             return this;
         }
         @CustomType.Setter
         public Builder athena(@Nullable DataSourceParametersAthena athena) {
+
             this.athena = athena;
             return this;
         }
         @CustomType.Setter
         public Builder aurora(@Nullable DataSourceParametersAurora aurora) {
+
             this.aurora = aurora;
             return this;
         }
         @CustomType.Setter
         public Builder auroraPostgresql(@Nullable DataSourceParametersAuroraPostgresql auroraPostgresql) {
+
             this.auroraPostgresql = auroraPostgresql;
             return this;
         }
         @CustomType.Setter
         public Builder awsIotAnalytics(@Nullable DataSourceParametersAwsIotAnalytics awsIotAnalytics) {
+
             this.awsIotAnalytics = awsIotAnalytics;
             return this;
         }
         @CustomType.Setter
         public Builder jira(@Nullable DataSourceParametersJira jira) {
+
             this.jira = jira;
             return this;
         }
         @CustomType.Setter
         public Builder mariaDb(@Nullable DataSourceParametersMariaDb mariaDb) {
+
             this.mariaDb = mariaDb;
             return this;
         }
         @CustomType.Setter
         public Builder mysql(@Nullable DataSourceParametersMysql mysql) {
+
             this.mysql = mysql;
             return this;
         }
         @CustomType.Setter
         public Builder oracle(@Nullable DataSourceParametersOracle oracle) {
+
             this.oracle = oracle;
             return this;
         }
         @CustomType.Setter
         public Builder postgresql(@Nullable DataSourceParametersPostgresql postgresql) {
+
             this.postgresql = postgresql;
             return this;
         }
         @CustomType.Setter
         public Builder presto(@Nullable DataSourceParametersPresto presto) {
+
             this.presto = presto;
             return this;
         }
         @CustomType.Setter
         public Builder rds(@Nullable DataSourceParametersRds rds) {
+
             this.rds = rds;
             return this;
         }
         @CustomType.Setter
         public Builder redshift(@Nullable DataSourceParametersRedshift redshift) {
+
             this.redshift = redshift;
             return this;
         }
         @CustomType.Setter
         public Builder s3(@Nullable DataSourceParametersS3 s3) {
+
             this.s3 = s3;
             return this;
         }
         @CustomType.Setter
         public Builder serviceNow(@Nullable DataSourceParametersServiceNow serviceNow) {
+
             this.serviceNow = serviceNow;
             return this;
         }
         @CustomType.Setter
         public Builder snowflake(@Nullable DataSourceParametersSnowflake snowflake) {
+
             this.snowflake = snowflake;
             return this;
         }
         @CustomType.Setter
         public Builder spark(@Nullable DataSourceParametersSpark spark) {
+
             this.spark = spark;
             return this;
         }
         @CustomType.Setter
         public Builder sqlServer(@Nullable DataSourceParametersSqlServer sqlServer) {
+
             this.sqlServer = sqlServer;
             return this;
         }
         @CustomType.Setter
         public Builder teradata(@Nullable DataSourceParametersTeradata teradata) {
+
             this.teradata = teradata;
             return this;
         }
         @CustomType.Setter
         public Builder twitter(@Nullable DataSourceParametersTwitter twitter) {
+
             this.twitter = twitter;
             return this;
         }
         public DataSourceParameters build() {
-            final var o = new DataSourceParameters();
-            o.amazonElasticsearch = amazonElasticsearch;
-            o.athena = athena;
-            o.aurora = aurora;
-            o.auroraPostgresql = auroraPostgresql;
-            o.awsIotAnalytics = awsIotAnalytics;
-            o.jira = jira;
-            o.mariaDb = mariaDb;
-            o.mysql = mysql;
-            o.oracle = oracle;
-            o.postgresql = postgresql;
-            o.presto = presto;
-            o.rds = rds;
-            o.redshift = redshift;
-            o.s3 = s3;
-            o.serviceNow = serviceNow;
-            o.snowflake = snowflake;
-            o.spark = spark;
-            o.sqlServer = sqlServer;
-            o.teradata = teradata;
-            o.twitter = twitter;
-            return o;
+            final var _resultValue = new DataSourceParameters();
+            _resultValue.amazonElasticsearch = amazonElasticsearch;
+            _resultValue.athena = athena;
+            _resultValue.aurora = aurora;
+            _resultValue.auroraPostgresql = auroraPostgresql;
+            _resultValue.awsIotAnalytics = awsIotAnalytics;
+            _resultValue.jira = jira;
+            _resultValue.mariaDb = mariaDb;
+            _resultValue.mysql = mysql;
+            _resultValue.oracle = oracle;
+            _resultValue.postgresql = postgresql;
+            _resultValue.presto = presto;
+            _resultValue.rds = rds;
+            _resultValue.redshift = redshift;
+            _resultValue.s3 = s3;
+            _resultValue.serviceNow = serviceNow;
+            _resultValue.snowflake = snowflake;
+            _resultValue.spark = spark;
+            _resultValue.sqlServer = sqlServer;
+            _resultValue.teradata = teradata;
+            _resultValue.twitter = twitter;
+            return _resultValue;
         }
     }
 }

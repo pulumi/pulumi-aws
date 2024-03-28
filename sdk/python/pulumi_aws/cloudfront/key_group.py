@@ -152,24 +152,29 @@ class KeyGroup(pulumi.CustomResource):
 
         The following example below creates a CloudFront key group.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        example_public_key = aws.cloudfront.PublicKey("examplePublicKey",
+        example = aws.cloudfront.PublicKey("example",
             comment="example public key",
-            encoded_key=(lambda path: open(path).read())("public_key.pem"))
-        example_key_group = aws.cloudfront.KeyGroup("exampleKeyGroup",
+            encoded_key=std.file(input="public_key.pem").result,
+            name="example-key")
+        example_key_group = aws.cloudfront.KeyGroup("example",
             comment="example key group",
-            items=[example_public_key.id])
+            items=[example.id],
+            name="example-key-group")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudFront Key Group using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
+        $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
         ```
 
         :param str resource_name: The name of the resource.
@@ -189,24 +194,29 @@ class KeyGroup(pulumi.CustomResource):
 
         The following example below creates a CloudFront key group.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        example_public_key = aws.cloudfront.PublicKey("examplePublicKey",
+        example = aws.cloudfront.PublicKey("example",
             comment="example public key",
-            encoded_key=(lambda path: open(path).read())("public_key.pem"))
-        example_key_group = aws.cloudfront.KeyGroup("exampleKeyGroup",
+            encoded_key=std.file(input="public_key.pem").result,
+            name="example-key")
+        example_key_group = aws.cloudfront.KeyGroup("example",
             comment="example key group",
-            items=[example_public_key.id])
+            items=[example.id],
+            name="example-key-group")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudFront Key Group using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
+        $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
         ```
 
         :param str resource_name: The name of the resource.

@@ -484,75 +484,107 @@ class Pipe(pulumi.CustomResource):
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         main = aws.get_caller_identity()
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": {
-                "Effect": "Allow",
-                "Action": "sts:AssumeRole",
-                "Principal": {
-                    "Service": "pipes.amazonaws.com",
+        example = aws.iam.Role("example", assume_role_policy=json.dumps({
+            "version": "2012-10-17",
+            "statement": {
+                "effect": "Allow",
+                "action": "sts:AssumeRole",
+                "principal": {
+                    "service": "pipes.amazonaws.com",
                 },
-                "Condition": {
-                    "StringEquals": {
+                "condition": {
+                    "stringEquals": {
                         "aws:SourceAccount": main.account_id,
                     },
                 },
             },
         }))
-        source_queue = aws.sqs.Queue("sourceQueue")
-        source_role_policy = aws.iam.RolePolicy("sourceRolePolicy",
-            role=example_role.id,
-            policy=source_queue.arn.apply(lambda arn: json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": [
+        source_queue = aws.sqs.Queue("source")
+        source = aws.iam.RolePolicy("source",
+            role=example.id,
+            policy=pulumi.Output.json_dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "action": [
                         "sqs:DeleteMessage",
                         "sqs:GetQueueAttributes",
                         "sqs:ReceiveMessage",
                     ],
-                    "Resource": [arn],
+                    "resource": [source_queue.arn],
                 }],
-            })))
-        target_queue = aws.sqs.Queue("targetQueue")
-        target_role_policy = aws.iam.RolePolicy("targetRolePolicy",
-            role=example_role.id,
-            policy=target_queue.arn.apply(lambda arn: json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": ["sqs:SendMessage"],
-                    "Resource": [arn],
+            }))
+        target_queue = aws.sqs.Queue("target")
+        target = aws.iam.RolePolicy("target",
+            role=example.id,
+            policy=pulumi.Output.json_dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "action": ["sqs:SendMessage"],
+                    "resource": [target_queue.arn],
                 }],
-            })))
-        example_pipe = aws.pipes.Pipe("examplePipe",
-            role_arn=example_role.arn,
+            }))
+        example_pipe = aws.pipes.Pipe("example",
+            name="example-pipe",
+            role_arn=example.arn,
             source=source_queue.arn,
-            target=target_queue.arn,
-            opts=pulumi.ResourceOptions(depends_on=[
-                    source_role_policy,
-                    target_role_policy,
-                ]))
+            target=target_queue.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
+        ### Enrichment Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.pipes.Pipe("example",
+            name="example-pipe",
+            role_arn=example_aws_iam_role["arn"],
+            source=source["arn"],
+            target=target["arn"],
+            enrichment=example_aws_cloudwatch_event_api_destination["arn"],
+            enrichment_parameters=aws.pipes.PipeEnrichmentParametersArgs(
+                http_parameters=aws.pipes.PipeEnrichmentParametersHttpParametersArgs(
+                    path_parameter_values="example-path-param",
+                    header_parameters={
+                        "example-header": "example-value",
+                        "second-example-header": "second-example-value",
+                    },
+                    query_string_parameters={
+                        "example-query-string": "example-value",
+                        "second-example-query-string": "second-example-value",
+                    },
+                ),
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
         ### Filter Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         example = aws.pipes.Pipe("example",
-            role_arn=aws_iam_role["example"]["arn"],
-            source=aws_sqs_queue["source"]["arn"],
-            target=aws_sqs_queue["target"]["arn"],
+            name="example-pipe",
+            role_arn=example_aws_iam_role["arn"],
+            source=source["arn"],
+            target=target["arn"],
             source_parameters=aws.pipes.PipeSourceParametersArgs(
                 filter_criteria=aws.pipes.PipeSourceParametersFilterCriteriaArgs(
                     filters=[aws.pipes.PipeSourceParametersFilterCriteriaFilterArgs(
@@ -563,13 +595,14 @@ class Pipe(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import pipes using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:pipes/pipe:Pipe example my-pipe
+        $ pulumi import aws:pipes/pipe:Pipe example my-pipe
         ```
 
         :param str resource_name: The name of the resource.
@@ -605,75 +638,107 @@ class Pipe(pulumi.CustomResource):
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         main = aws.get_caller_identity()
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": {
-                "Effect": "Allow",
-                "Action": "sts:AssumeRole",
-                "Principal": {
-                    "Service": "pipes.amazonaws.com",
+        example = aws.iam.Role("example", assume_role_policy=json.dumps({
+            "version": "2012-10-17",
+            "statement": {
+                "effect": "Allow",
+                "action": "sts:AssumeRole",
+                "principal": {
+                    "service": "pipes.amazonaws.com",
                 },
-                "Condition": {
-                    "StringEquals": {
+                "condition": {
+                    "stringEquals": {
                         "aws:SourceAccount": main.account_id,
                     },
                 },
             },
         }))
-        source_queue = aws.sqs.Queue("sourceQueue")
-        source_role_policy = aws.iam.RolePolicy("sourceRolePolicy",
-            role=example_role.id,
-            policy=source_queue.arn.apply(lambda arn: json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": [
+        source_queue = aws.sqs.Queue("source")
+        source = aws.iam.RolePolicy("source",
+            role=example.id,
+            policy=pulumi.Output.json_dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "action": [
                         "sqs:DeleteMessage",
                         "sqs:GetQueueAttributes",
                         "sqs:ReceiveMessage",
                     ],
-                    "Resource": [arn],
+                    "resource": [source_queue.arn],
                 }],
-            })))
-        target_queue = aws.sqs.Queue("targetQueue")
-        target_role_policy = aws.iam.RolePolicy("targetRolePolicy",
-            role=example_role.id,
-            policy=target_queue.arn.apply(lambda arn: json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": ["sqs:SendMessage"],
-                    "Resource": [arn],
+            }))
+        target_queue = aws.sqs.Queue("target")
+        target = aws.iam.RolePolicy("target",
+            role=example.id,
+            policy=pulumi.Output.json_dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "action": ["sqs:SendMessage"],
+                    "resource": [target_queue.arn],
                 }],
-            })))
-        example_pipe = aws.pipes.Pipe("examplePipe",
-            role_arn=example_role.arn,
+            }))
+        example_pipe = aws.pipes.Pipe("example",
+            name="example-pipe",
+            role_arn=example.arn,
             source=source_queue.arn,
-            target=target_queue.arn,
-            opts=pulumi.ResourceOptions(depends_on=[
-                    source_role_policy,
-                    target_role_policy,
-                ]))
+            target=target_queue.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
+        ### Enrichment Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.pipes.Pipe("example",
+            name="example-pipe",
+            role_arn=example_aws_iam_role["arn"],
+            source=source["arn"],
+            target=target["arn"],
+            enrichment=example_aws_cloudwatch_event_api_destination["arn"],
+            enrichment_parameters=aws.pipes.PipeEnrichmentParametersArgs(
+                http_parameters=aws.pipes.PipeEnrichmentParametersHttpParametersArgs(
+                    path_parameter_values="example-path-param",
+                    header_parameters={
+                        "example-header": "example-value",
+                        "second-example-header": "second-example-value",
+                    },
+                    query_string_parameters={
+                        "example-query-string": "example-value",
+                        "second-example-query-string": "second-example-value",
+                    },
+                ),
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
         ### Filter Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         example = aws.pipes.Pipe("example",
-            role_arn=aws_iam_role["example"]["arn"],
-            source=aws_sqs_queue["source"]["arn"],
-            target=aws_sqs_queue["target"]["arn"],
+            name="example-pipe",
+            role_arn=example_aws_iam_role["arn"],
+            source=source["arn"],
+            target=target["arn"],
             source_parameters=aws.pipes.PipeSourceParametersArgs(
                 filter_criteria=aws.pipes.PipeSourceParametersFilterCriteriaArgs(
                     filters=[aws.pipes.PipeSourceParametersFilterCriteriaFilterArgs(
@@ -684,13 +749,14 @@ class Pipe(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import pipes using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:pipes/pipe:Pipe example my-pipe
+        $ pulumi import aws:pipes/pipe:Pipe example my-pipe
         ```
 
         :param str resource_name: The name of the resource.
@@ -749,8 +815,6 @@ class Pipe(pulumi.CustomResource):
             __props__.__dict__["target_parameters"] = target_parameters
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Pipe, __self__).__init__(
             'aws:pipes/pipe:Pipe',
             resource_name,

@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class WorkforceCognitoConfigArgs extends com.pulumi.resources.Resou
         }
 
         public WorkforceCognitoConfigArgs build() {
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.userPool = Objects.requireNonNull($.userPool, "expected parameter 'userPool' to be non-null");
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("WorkforceCognitoConfigArgs", "clientId");
+            }
+            if ($.userPool == null) {
+                throw new MissingRequiredPropertyException("WorkforceCognitoConfigArgs", "userPool");
+            }
             return $;
         }
     }

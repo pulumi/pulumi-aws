@@ -6,6 +6,7 @@ package com.pulumi.aws.vpclattice.outputs;
 import com.pulumi.aws.vpclattice.outputs.GetListenerDefaultActionFixedResponse;
 import com.pulumi.aws.vpclattice.outputs.GetListenerDefaultActionForward;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetListenerDefaultAction {
 
         @CustomType.Setter
         public Builder fixedResponses(List<GetListenerDefaultActionFixedResponse> fixedResponses) {
-            this.fixedResponses = Objects.requireNonNull(fixedResponses);
+            if (fixedResponses == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultAction", "fixedResponses");
+            }
+            this.fixedResponses = fixedResponses;
             return this;
         }
         public Builder fixedResponses(GetListenerDefaultActionFixedResponse... fixedResponses) {
@@ -50,17 +54,20 @@ public final class GetListenerDefaultAction {
         }
         @CustomType.Setter
         public Builder forwards(List<GetListenerDefaultActionForward> forwards) {
-            this.forwards = Objects.requireNonNull(forwards);
+            if (forwards == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultAction", "forwards");
+            }
+            this.forwards = forwards;
             return this;
         }
         public Builder forwards(GetListenerDefaultActionForward... forwards) {
             return forwards(List.of(forwards));
         }
         public GetListenerDefaultAction build() {
-            final var o = new GetListenerDefaultAction();
-            o.fixedResponses = fixedResponses;
-            o.forwards = forwards;
-            return o;
+            final var _resultValue = new GetListenerDefaultAction();
+            _resultValue.fixedResponses = fixedResponses;
+            _resultValue.forwards = forwards;
+            return _resultValue;
         }
     }
 }

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,17 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// # Using `pulumi import`, import Transfer Workflows using the
-//
-// `id`. For example:
+// Using `pulumi import`, import Transfer Workflows using the  `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:verifiedaccess/trustProvider:TrustProvider example vatp-8012925589
-//
+// $ pulumi import aws:verifiedaccess/trustProvider:TrustProvider example vatp-8012925589
 // ```
 type TrustProvider struct {
 	pulumi.CustomResourceState
@@ -91,10 +89,6 @@ func NewTrustProvider(ctx *pulumi.Context,
 	if args.TrustProviderType == nil {
 		return nil, errors.New("invalid value for required argument 'TrustProviderType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrustProvider
 	err := ctx.RegisterResource("aws:verifiedaccess/trustProvider:TrustProvider", name, args, &resource, opts...)

@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -71,25 +72,34 @@ public final class GetInstancePrivateDnsNameOption {
 
         @CustomType.Setter
         public Builder enableResourceNameDnsARecord(Boolean enableResourceNameDnsARecord) {
-            this.enableResourceNameDnsARecord = Objects.requireNonNull(enableResourceNameDnsARecord);
+            if (enableResourceNameDnsARecord == null) {
+              throw new MissingRequiredPropertyException("GetInstancePrivateDnsNameOption", "enableResourceNameDnsARecord");
+            }
+            this.enableResourceNameDnsARecord = enableResourceNameDnsARecord;
             return this;
         }
         @CustomType.Setter
         public Builder enableResourceNameDnsAaaaRecord(Boolean enableResourceNameDnsAaaaRecord) {
-            this.enableResourceNameDnsAaaaRecord = Objects.requireNonNull(enableResourceNameDnsAaaaRecord);
+            if (enableResourceNameDnsAaaaRecord == null) {
+              throw new MissingRequiredPropertyException("GetInstancePrivateDnsNameOption", "enableResourceNameDnsAaaaRecord");
+            }
+            this.enableResourceNameDnsAaaaRecord = enableResourceNameDnsAaaaRecord;
             return this;
         }
         @CustomType.Setter
         public Builder hostnameType(String hostnameType) {
-            this.hostnameType = Objects.requireNonNull(hostnameType);
+            if (hostnameType == null) {
+              throw new MissingRequiredPropertyException("GetInstancePrivateDnsNameOption", "hostnameType");
+            }
+            this.hostnameType = hostnameType;
             return this;
         }
         public GetInstancePrivateDnsNameOption build() {
-            final var o = new GetInstancePrivateDnsNameOption();
-            o.enableResourceNameDnsARecord = enableResourceNameDnsARecord;
-            o.enableResourceNameDnsAaaaRecord = enableResourceNameDnsAaaaRecord;
-            o.hostnameType = hostnameType;
-            return o;
+            final var _resultValue = new GetInstancePrivateDnsNameOption();
+            _resultValue.enableResourceNameDnsARecord = enableResourceNameDnsARecord;
+            _resultValue.enableResourceNameDnsAaaaRecord = enableResourceNameDnsAaaaRecord;
+            _resultValue.hostnameType = hostnameType;
+            return _resultValue;
         }
     }
 }

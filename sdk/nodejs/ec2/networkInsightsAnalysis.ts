@@ -12,24 +12,26 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const path = new aws.ec2.NetworkInsightsPath("path", {
- *     source: aws_network_interface.source.id,
- *     destination: aws_network_interface.destination.id,
+ *     source: source.id,
+ *     destination: destination.id,
  *     protocol: "tcp",
  * });
  * const analysis = new aws.ec2.NetworkInsightsAnalysis("analysis", {networkInsightsPathId: path.id});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Network Insights Analyses using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis test nia-0462085c957f11a55
+ * $ pulumi import aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis test nia-0462085c957f11a55
  * ```
  */
 export class NetworkInsightsAnalysis extends pulumi.CustomResource {
@@ -175,8 +177,6 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
             resourceInputs["warningMessage"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(NetworkInsightsAnalysis.__pulumiType, name, resourceInputs, opts);
     }
 }

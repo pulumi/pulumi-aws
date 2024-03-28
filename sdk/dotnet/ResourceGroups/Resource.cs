@@ -13,8 +13,10 @@ namespace Pulumi.Aws.ResourceGroups
     /// Resource for managing an AWS Resource Groups Resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,7 +25,7 @@ namespace Pulumi.Aws.ResourceGroups
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleDedicatedHost = new Aws.Ec2.DedicatedHost("exampleDedicatedHost", new()
+    ///     var example = new Aws.Ec2.DedicatedHost("example", new()
     ///     {
     ///         InstanceFamily = "t3",
     ///         AvailabilityZone = "us-east-1a",
@@ -31,16 +33,20 @@ namespace Pulumi.Aws.ResourceGroups
     ///         AutoPlacement = "on",
     ///     });
     /// 
-    ///     var exampleGroup = new Aws.ResourceGroups.Group("exampleGroup");
+    ///     var exampleGroup = new Aws.ResourceGroups.Group("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
-    ///     var exampleResource = new Aws.ResourceGroups.Resource("exampleResource", new()
+    ///     var exampleResource = new Aws.ResourceGroups.Resource("example", new()
     ///     {
     ///         GroupArn = exampleGroup.Arn,
-    ///         ResourceArn = exampleDedicatedHost.Arn,
+    ///         ResourceArn = example.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:resourcegroups/resource:Resource")]
     public partial class Resource : global::Pulumi.CustomResource

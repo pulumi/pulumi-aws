@@ -84,25 +84,28 @@ public final class DetectorDatasources {
 
         @CustomType.Setter
         public Builder kubernetes(@Nullable DetectorDatasourcesKubernetes kubernetes) {
+
             this.kubernetes = kubernetes;
             return this;
         }
         @CustomType.Setter
         public Builder malwareProtection(@Nullable DetectorDatasourcesMalwareProtection malwareProtection) {
+
             this.malwareProtection = malwareProtection;
             return this;
         }
         @CustomType.Setter
         public Builder s3Logs(@Nullable DetectorDatasourcesS3Logs s3Logs) {
+
             this.s3Logs = s3Logs;
             return this;
         }
         public DetectorDatasources build() {
-            final var o = new DetectorDatasources();
-            o.kubernetes = kubernetes;
-            o.malwareProtection = malwareProtection;
-            o.s3Logs = s3Logs;
-            return o;
+            final var _resultValue = new DetectorDatasources();
+            _resultValue.kubernetes = kubernetes;
+            _resultValue.malwareProtection = malwareProtection;
+            _resultValue.s3Logs = s3Logs;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -87,31 +88,37 @@ public final class DistributionCustomErrorResponse {
 
         @CustomType.Setter
         public Builder errorCachingMinTtl(@Nullable Integer errorCachingMinTtl) {
+
             this.errorCachingMinTtl = errorCachingMinTtl;
             return this;
         }
         @CustomType.Setter
         public Builder errorCode(Integer errorCode) {
-            this.errorCode = Objects.requireNonNull(errorCode);
+            if (errorCode == null) {
+              throw new MissingRequiredPropertyException("DistributionCustomErrorResponse", "errorCode");
+            }
+            this.errorCode = errorCode;
             return this;
         }
         @CustomType.Setter
         public Builder responseCode(@Nullable Integer responseCode) {
+
             this.responseCode = responseCode;
             return this;
         }
         @CustomType.Setter
         public Builder responsePagePath(@Nullable String responsePagePath) {
+
             this.responsePagePath = responsePagePath;
             return this;
         }
         public DistributionCustomErrorResponse build() {
-            final var o = new DistributionCustomErrorResponse();
-            o.errorCachingMinTtl = errorCachingMinTtl;
-            o.errorCode = errorCode;
-            o.responseCode = responseCode;
-            o.responsePagePath = responsePagePath;
-            return o;
+            final var _resultValue = new DistributionCustomErrorResponse();
+            _resultValue.errorCachingMinTtl = errorCachingMinTtl;
+            _resultValue.errorCode = errorCode;
+            _resultValue.responseCode = responseCode;
+            _resultValue.responsePagePath = responsePagePath;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.neptune.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -168,17 +169,24 @@ public final class GetEngineVersionResult {
 
         @CustomType.Setter
         public Builder engine(@Nullable String engine) {
+
             this.engine = engine;
             return this;
         }
         @CustomType.Setter
         public Builder engineDescription(String engineDescription) {
-            this.engineDescription = Objects.requireNonNull(engineDescription);
+            if (engineDescription == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "engineDescription");
+            }
+            this.engineDescription = engineDescription;
             return this;
         }
         @CustomType.Setter
         public Builder exportableLogTypes(List<String> exportableLogTypes) {
-            this.exportableLogTypes = Objects.requireNonNull(exportableLogTypes);
+            if (exportableLogTypes == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "exportableLogTypes");
+            }
+            this.exportableLogTypes = exportableLogTypes;
             return this;
         }
         public Builder exportableLogTypes(String... exportableLogTypes) {
@@ -186,16 +194,23 @@ public final class GetEngineVersionResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder parameterGroupFamily(String parameterGroupFamily) {
-            this.parameterGroupFamily = Objects.requireNonNull(parameterGroupFamily);
+            if (parameterGroupFamily == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "parameterGroupFamily");
+            }
+            this.parameterGroupFamily = parameterGroupFamily;
             return this;
         }
         @CustomType.Setter
         public Builder preferredVersions(@Nullable List<String> preferredVersions) {
+
             this.preferredVersions = preferredVersions;
             return this;
         }
@@ -204,7 +219,10 @@ public final class GetEngineVersionResult {
         }
         @CustomType.Setter
         public Builder supportedTimezones(List<String> supportedTimezones) {
-            this.supportedTimezones = Objects.requireNonNull(supportedTimezones);
+            if (supportedTimezones == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "supportedTimezones");
+            }
+            this.supportedTimezones = supportedTimezones;
             return this;
         }
         public Builder supportedTimezones(String... supportedTimezones) {
@@ -212,17 +230,26 @@ public final class GetEngineVersionResult {
         }
         @CustomType.Setter
         public Builder supportsLogExportsToCloudwatch(Boolean supportsLogExportsToCloudwatch) {
-            this.supportsLogExportsToCloudwatch = Objects.requireNonNull(supportsLogExportsToCloudwatch);
+            if (supportsLogExportsToCloudwatch == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "supportsLogExportsToCloudwatch");
+            }
+            this.supportsLogExportsToCloudwatch = supportsLogExportsToCloudwatch;
             return this;
         }
         @CustomType.Setter
         public Builder supportsReadReplica(Boolean supportsReadReplica) {
-            this.supportsReadReplica = Objects.requireNonNull(supportsReadReplica);
+            if (supportsReadReplica == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "supportsReadReplica");
+            }
+            this.supportsReadReplica = supportsReadReplica;
             return this;
         }
         @CustomType.Setter
         public Builder validUpgradeTargets(List<String> validUpgradeTargets) {
-            this.validUpgradeTargets = Objects.requireNonNull(validUpgradeTargets);
+            if (validUpgradeTargets == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "validUpgradeTargets");
+            }
+            this.validUpgradeTargets = validUpgradeTargets;
             return this;
         }
         public Builder validUpgradeTargets(String... validUpgradeTargets) {
@@ -230,29 +257,35 @@ public final class GetEngineVersionResult {
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "version");
+            }
+            this.version = version;
             return this;
         }
         @CustomType.Setter
         public Builder versionDescription(String versionDescription) {
-            this.versionDescription = Objects.requireNonNull(versionDescription);
+            if (versionDescription == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "versionDescription");
+            }
+            this.versionDescription = versionDescription;
             return this;
         }
         public GetEngineVersionResult build() {
-            final var o = new GetEngineVersionResult();
-            o.engine = engine;
-            o.engineDescription = engineDescription;
-            o.exportableLogTypes = exportableLogTypes;
-            o.id = id;
-            o.parameterGroupFamily = parameterGroupFamily;
-            o.preferredVersions = preferredVersions;
-            o.supportedTimezones = supportedTimezones;
-            o.supportsLogExportsToCloudwatch = supportsLogExportsToCloudwatch;
-            o.supportsReadReplica = supportsReadReplica;
-            o.validUpgradeTargets = validUpgradeTargets;
-            o.version = version;
-            o.versionDescription = versionDescription;
-            return o;
+            final var _resultValue = new GetEngineVersionResult();
+            _resultValue.engine = engine;
+            _resultValue.engineDescription = engineDescription;
+            _resultValue.exportableLogTypes = exportableLogTypes;
+            _resultValue.id = id;
+            _resultValue.parameterGroupFamily = parameterGroupFamily;
+            _resultValue.preferredVersions = preferredVersions;
+            _resultValue.supportedTimezones = supportedTimezones;
+            _resultValue.supportsLogExportsToCloudwatch = supportsLogExportsToCloudwatch;
+            _resultValue.supportsReadReplica = supportsReadReplica;
+            _resultValue.validUpgradeTargets = validUpgradeTargets;
+            _resultValue.version = version;
+            _resultValue.versionDescription = versionDescription;
+            return _resultValue;
         }
     }
 }

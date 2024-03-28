@@ -58,19 +58,21 @@ public final class VpcEndpointDnsEntry {
 
         @CustomType.Setter
         public Builder dnsName(@Nullable String dnsName) {
+
             this.dnsName = dnsName;
             return this;
         }
         @CustomType.Setter
         public Builder hostedZoneId(@Nullable String hostedZoneId) {
+
             this.hostedZoneId = hostedZoneId;
             return this;
         }
         public VpcEndpointDnsEntry build() {
-            final var o = new VpcEndpointDnsEntry();
-            o.dnsName = dnsName;
-            o.hostedZoneId = hostedZoneId;
-            return o;
+            final var _resultValue = new VpcEndpointDnsEntry();
+            _resultValue.dnsName = dnsName;
+            _resultValue.hostedZoneId = hostedZoneId;
+            return _resultValue;
         }
     }
 }

@@ -9,26 +9,28 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultInstance = new aws.rds.Instance("defaultInstance", {
+ * const _default = new aws.rds.Instance("default", {
  *     allocatedStorage: 10,
  *     engine: "mysql",
  *     engineVersion: "5.6.17",
- *     instanceClass: "db.t2.micro",
+ *     instanceClass: aws.rds.InstanceType.T2_Micro,
  *     dbName: "mydb",
  *     username: "foo",
  *     password: "bar",
  *     dbSubnetGroupName: "my_database_subnet_group",
  *     parameterGroupName: "default.mysql5.6",
  * });
- * const defaultTopic = new aws.sns.Topic("defaultTopic", {});
- * const defaultEventSubscription = new aws.rds.EventSubscription("defaultEventSubscription", {
+ * const defaultTopic = new aws.sns.Topic("default", {name: "rds-events"});
+ * const defaultEventSubscription = new aws.rds.EventSubscription("default", {
+ *     name: "rds-event-sub",
  *     snsTopic: defaultTopic.arn,
  *     sourceType: "db-instance",
- *     sourceIds: [defaultInstance.identifier],
+ *     sourceIds: [_default.identifier],
  *     eventCategories: [
  *         "availability",
  *         "deletion",
@@ -43,13 +45,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import DB Event Subscriptions using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
+ * $ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
  * ```
  */
 export class EventSubscription extends pulumi.CustomResource {
@@ -169,8 +172,6 @@ export class EventSubscription extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(EventSubscription.__pulumiType, name, resourceInputs, opts);
     }
 }

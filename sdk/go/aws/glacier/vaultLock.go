@@ -19,8 +19,10 @@ import (
 // !> **WARNING:** Once a Glacier Vault Lock is completed, it is immutable. The deletion of the Glacier Vault Lock is not be possible and attempting to remove it from this provider will return an error. Set the `ignoreDeletionError` argument to `true` and apply this configuration before attempting to delete this resource via this provider or remove this resource from this provider's management.
 //
 // ## Example Usage
+//
 // ### Testing Glacier Vault Lock Policy
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,11 +36,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVault, err := glacier.NewVault(ctx, "exampleVault", nil)
+//			exampleVault, err := glacier.NewVault(ctx, "example", &glacier.VaultArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
 //						Actions: pulumi.StringArray{
@@ -60,10 +64,10 @@ import (
 //					},
 //				},
 //			}, nil)
-//			_, err = glacier.NewVaultLock(ctx, "exampleVaultLock", &glacier.VaultLockArgs{
+//			_, err = glacier.NewVaultLock(ctx, "example", &glacier.VaultLockArgs{
 //				CompleteLock: pulumi.Bool(false),
-//				Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &examplePolicyDocument.Json, nil
+//				Policy: example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
+//					return &example.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //				VaultName: exampleVault.Name,
 //			})
@@ -75,8 +79,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Permanently Applying Glacier Vault Lock Policy
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -91,8 +98,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glacier.NewVaultLock(ctx, "example", &glacier.VaultLockArgs{
 //				CompleteLock: pulumi.Bool(true),
-//				Policy:       pulumi.Any(data.Aws_iam_policy_document.Example.Json),
-//				VaultName:    pulumi.Any(aws_glacier_vault.Example.Name),
+//				Policy:       pulumi.Any(exampleAwsIamPolicyDocument.Json),
+//				VaultName:    pulumi.Any(exampleAwsGlacierVault.Name),
 //			})
 //			if err != nil {
 //				return err
@@ -102,15 +109,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glacier Vault Locks using the Glacier Vault name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glacier/vaultLock:VaultLock example example-vault
-//
+// $ pulumi import aws:glacier/vaultLock:VaultLock example example-vault
 // ```
 type VaultLock struct {
 	pulumi.CustomResourceState

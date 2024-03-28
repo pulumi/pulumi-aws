@@ -6,6 +6,7 @@ package com.pulumi.aws.resourcegroupstaggingapi.outputs;
 import com.pulumi.aws.resourcegroupstaggingapi.outputs.GetResourcesResourceTagMappingList;
 import com.pulumi.aws.resourcegroupstaggingapi.outputs.GetResourcesTagFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -92,21 +93,27 @@ public final class GetResourcesResult {
 
         @CustomType.Setter
         public Builder excludeCompliantResources(@Nullable Boolean excludeCompliantResources) {
+
             this.excludeCompliantResources = excludeCompliantResources;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetResourcesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includeComplianceDetails(@Nullable Boolean includeComplianceDetails) {
+
             this.includeComplianceDetails = includeComplianceDetails;
             return this;
         }
         @CustomType.Setter
         public Builder resourceArnLists(@Nullable List<String> resourceArnLists) {
+
             this.resourceArnLists = resourceArnLists;
             return this;
         }
@@ -115,7 +122,10 @@ public final class GetResourcesResult {
         }
         @CustomType.Setter
         public Builder resourceTagMappingLists(List<GetResourcesResourceTagMappingList> resourceTagMappingLists) {
-            this.resourceTagMappingLists = Objects.requireNonNull(resourceTagMappingLists);
+            if (resourceTagMappingLists == null) {
+              throw new MissingRequiredPropertyException("GetResourcesResult", "resourceTagMappingLists");
+            }
+            this.resourceTagMappingLists = resourceTagMappingLists;
             return this;
         }
         public Builder resourceTagMappingLists(GetResourcesResourceTagMappingList... resourceTagMappingLists) {
@@ -123,6 +133,7 @@ public final class GetResourcesResult {
         }
         @CustomType.Setter
         public Builder resourceTypeFilters(@Nullable List<String> resourceTypeFilters) {
+
             this.resourceTypeFilters = resourceTypeFilters;
             return this;
         }
@@ -131,6 +142,7 @@ public final class GetResourcesResult {
         }
         @CustomType.Setter
         public Builder tagFilters(@Nullable List<GetResourcesTagFilter> tagFilters) {
+
             this.tagFilters = tagFilters;
             return this;
         }
@@ -138,15 +150,15 @@ public final class GetResourcesResult {
             return tagFilters(List.of(tagFilters));
         }
         public GetResourcesResult build() {
-            final var o = new GetResourcesResult();
-            o.excludeCompliantResources = excludeCompliantResources;
-            o.id = id;
-            o.includeComplianceDetails = includeComplianceDetails;
-            o.resourceArnLists = resourceArnLists;
-            o.resourceTagMappingLists = resourceTagMappingLists;
-            o.resourceTypeFilters = resourceTypeFilters;
-            o.tagFilters = tagFilters;
-            return o;
+            final var _resultValue = new GetResourcesResult();
+            _resultValue.excludeCompliantResources = excludeCompliantResources;
+            _resultValue.id = id;
+            _resultValue.includeComplianceDetails = includeComplianceDetails;
+            _resultValue.resourceArnLists = resourceArnLists;
+            _resultValue.resourceTagMappingLists = resourceTagMappingLists;
+            _resultValue.resourceTypeFilters = resourceTypeFilters;
+            _resultValue.tagFilters = tagFilters;
+            return _resultValue;
         }
     }
 }

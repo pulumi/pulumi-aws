@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,9 +34,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
+//				Name:        pulumi.String("tf-test-name"),
 //				Description: pulumi.String("tf-test-desc"),
 //				AppversionLifecycle: &elasticbeanstalk.ApplicationAppversionLifecycleArgs{
-//					ServiceRole:        pulumi.Any(aws_iam_role.Beanstalk_service.Arn),
+//					ServiceRole:        pulumi.Any(beanstalkService.Arn),
 //					MaxCount:           pulumi.Int(128),
 //					DeleteSourceFromS3: pulumi.Bool(true),
 //				},
@@ -48,15 +50,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
-//
+// $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
 // ```
 type Application struct {
 	pulumi.CustomResourceState
@@ -83,10 +84,6 @@ func NewApplication(ctx *pulumi.Context,
 		args = &ApplicationArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Application
 	err := ctx.RegisterResource("aws:elasticbeanstalk/application:Application", name, args, &resource, opts...)

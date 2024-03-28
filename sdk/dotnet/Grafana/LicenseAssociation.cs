@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Grafana
     /// Provides an Amazon Managed Grafana workspace license association resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,26 +28,27 @@ namespace Pulumi.Aws.Grafana
     /// {
     ///     var assume = new Aws.Iam.Role("assume", new()
     ///     {
+    ///         Name = "grafana-assume",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Sid"] = "",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["action"] = "sts:AssumeRole",
+    ///                     ["effect"] = "Allow",
+    ///                     ["sid"] = "",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "grafana.amazonaws.com",
+    ///                         ["service"] = "grafana.amazonaws.com",
     ///                     },
     ///                 },
     ///             },
     ///         }),
     ///     });
     /// 
-    ///     var exampleWorkspace = new Aws.Grafana.Workspace("exampleWorkspace", new()
+    ///     var exampleWorkspace = new Aws.Grafana.Workspace("example", new()
     ///     {
     ///         AccountAccessType = "CURRENT_ACCOUNT",
     ///         AuthenticationProviders = new[]
@@ -56,7 +59,7 @@ namespace Pulumi.Aws.Grafana
     ///         RoleArn = assume.Arn,
     ///     });
     /// 
-    ///     var exampleLicenseAssociation = new Aws.Grafana.LicenseAssociation("exampleLicenseAssociation", new()
+    ///     var example = new Aws.Grafana.LicenseAssociation("example", new()
     ///     {
     ///         LicenseType = "ENTERPRISE_FREE_TRIAL",
     ///         WorkspaceId = exampleWorkspace.Id,
@@ -64,13 +67,14 @@ namespace Pulumi.Aws.Grafana
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Grafana workspace license association using the workspace's `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
+    /// $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
     /// ```
     /// </summary>
     [AwsResourceType("aws:grafana/licenseAssociation:LicenseAssociation")]

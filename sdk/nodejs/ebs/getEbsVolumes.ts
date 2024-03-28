@@ -16,23 +16,25 @@ import * as utilities from "../utilities";
  *
  * The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleEbsVolumes = aws.ebs.getEbsVolumes({
+ * const example = aws.ebs.getEbsVolumes({
  *     tags: {
  *         VolumeSet: "TestVolumeSet",
  *     },
  * });
- * const exampleVolume = exampleEbsVolumes.then(exampleEbsVolumes => .map(([, ]) => (aws.ebs.getVolume({
+ * const exampleGetVolume = example.then(example => .reduce((__obj, [, ]) => ({ ...__obj, [__key]: aws.ebs.getVolume({
  *     filters: [{
  *         name: "volume-id",
- *         values: [each.value],
+ *         values: [__value],
  *     }],
- * }))));
- * export const availabilityZoneToVolumeId = exampleVolume.reduce((__obj, s) => ({ ...__obj, [s.id]: s.availabilityZone }));
+ * }) })));
+ * export const availabilityZoneToVolumeId = exampleGetVolume.apply(exampleGetVolume => Object.values(exampleGetVolume).reduce((__obj, s) => ({ ...__obj, [s.id]: s.availabilityZone })));
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEbsVolumes(args?: GetEbsVolumesArgs, opts?: pulumi.InvokeOptions): Promise<GetEbsVolumesResult> {
     args = args || {};
@@ -87,23 +89,25 @@ export interface GetEbsVolumesResult {
  *
  * The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleEbsVolumes = aws.ebs.getEbsVolumes({
+ * const example = aws.ebs.getEbsVolumes({
  *     tags: {
  *         VolumeSet: "TestVolumeSet",
  *     },
  * });
- * const exampleVolume = exampleEbsVolumes.then(exampleEbsVolumes => .map(([, ]) => (aws.ebs.getVolume({
+ * const exampleGetVolume = example.then(example => .reduce((__obj, [, ]) => ({ ...__obj, [__key]: aws.ebs.getVolume({
  *     filters: [{
  *         name: "volume-id",
- *         values: [each.value],
+ *         values: [__value],
  *     }],
- * }))));
- * export const availabilityZoneToVolumeId = exampleVolume.reduce((__obj, s) => ({ ...__obj, [s.id]: s.availabilityZone }));
+ * }) })));
+ * export const availabilityZoneToVolumeId = exampleGetVolume.apply(exampleGetVolume => Object.values(exampleGetVolume).reduce((__obj, s) => ({ ...__obj, [s.id]: s.availabilityZone })));
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEbsVolumesOutput(args?: GetEbsVolumesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEbsVolumesResult> {
     return pulumi.output(args).apply((a: any) => getEbsVolumes(a, opts))

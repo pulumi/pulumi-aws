@@ -44,6 +44,7 @@ public final class WebAclAssociationConfigRequestBody {
 
         @CustomType.Setter
         public Builder cloudfronts(@Nullable List<WebAclAssociationConfigRequestBodyCloudfront> cloudfronts) {
+
             this.cloudfronts = cloudfronts;
             return this;
         }
@@ -51,9 +52,9 @@ public final class WebAclAssociationConfigRequestBody {
             return cloudfronts(List.of(cloudfronts));
         }
         public WebAclAssociationConfigRequestBody build() {
-            final var o = new WebAclAssociationConfigRequestBody();
-            o.cloudfronts = cloudfronts;
-            return o;
+            final var _resultValue = new WebAclAssociationConfigRequestBody();
+            _resultValue.cloudfronts = cloudfronts;
+            return _resultValue;
         }
     }
 }

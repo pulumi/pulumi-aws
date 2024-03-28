@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -24,6 +23,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,7 +48,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLoadBalancer = new LoadBalancer(&#34;exampleLoadBalancer&#34;, LoadBalancerArgs.builder()        
+ *         var example = new LoadBalancer(&#34;example&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .internal(true)
  *             .loadBalancerType(&#34;network&#34;)
  *             .subnetMappings(LoadBalancerSubnetMappingArgs.builder()
@@ -57,20 +58,22 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVpcLink = new VpcLink(&#34;exampleVpcLink&#34;, VpcLinkArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .description(&#34;example description&#34;)
- *             .targetArn(exampleLoadBalancer.arn())
+ *             .targetArn(example.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import API Gateway VPC Link using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
+ * $ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
  * ```
  * 
  */
@@ -189,9 +192,6 @@ public class VpcLink extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

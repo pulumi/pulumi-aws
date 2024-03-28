@@ -5,6 +5,7 @@ package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.aws.connect.outputs.GetBotAssociationLexBot;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -55,25 +56,34 @@ public final class GetBotAssociationResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetBotAssociationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("GetBotAssociationResult", "instanceId");
+            }
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
         public Builder lexBot(GetBotAssociationLexBot lexBot) {
-            this.lexBot = Objects.requireNonNull(lexBot);
+            if (lexBot == null) {
+              throw new MissingRequiredPropertyException("GetBotAssociationResult", "lexBot");
+            }
+            this.lexBot = lexBot;
             return this;
         }
         public GetBotAssociationResult build() {
-            final var o = new GetBotAssociationResult();
-            o.id = id;
-            o.instanceId = instanceId;
-            o.lexBot = lexBot;
-            return o;
+            final var _resultValue = new GetBotAssociationResult();
+            _resultValue.id = id;
+            _resultValue.instanceId = instanceId;
+            _resultValue.lexBot = lexBot;
+            return _resultValue;
         }
     }
 }

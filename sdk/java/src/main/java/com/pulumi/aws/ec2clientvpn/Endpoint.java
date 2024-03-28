@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * [AWS Client VPN Administrator&#39;s Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,29 +54,30 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Endpoint(&#34;example&#34;, EndpointArgs.builder()        
  *             .description(&#34;clientvpn-example&#34;)
- *             .serverCertificateArn(aws_acm_certificate.cert().arn())
+ *             .serverCertificateArn(cert.arn())
  *             .clientCidrBlock(&#34;10.0.0.0/16&#34;)
  *             .authenticationOptions(EndpointAuthenticationOptionArgs.builder()
  *                 .type(&#34;certificate-authentication&#34;)
- *                 .rootCertificateChainArn(aws_acm_certificate.root_cert().arn())
+ *                 .rootCertificateChainArn(rootCert.arn())
  *                 .build())
  *             .connectionLogOptions(EndpointConnectionLogOptionsArgs.builder()
  *                 .enabled(true)
- *                 .cloudwatchLogGroup(aws_cloudwatch_log_group.lg().name())
- *                 .cloudwatchLogStream(aws_cloudwatch_log_stream.ls().name())
+ *                 .cloudwatchLogGroup(lg.name())
+ *                 .cloudwatchLogStream(ls.name())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AWS Client VPN endpoints using the `id` value found via `aws ec2 describe-client-vpn-endpoints`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
+ * $ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
  * ```
  * 
  */
@@ -397,9 +400,6 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

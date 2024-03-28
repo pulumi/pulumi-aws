@@ -4,6 +4,7 @@
 package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -98,37 +99,52 @@ public final class V2modelsBotMember {
 
         @CustomType.Setter
         public Builder aliasId(String aliasId) {
-            this.aliasId = Objects.requireNonNull(aliasId);
+            if (aliasId == null) {
+              throw new MissingRequiredPropertyException("V2modelsBotMember", "aliasId");
+            }
+            this.aliasId = aliasId;
             return this;
         }
         @CustomType.Setter
         public Builder aliasName(String aliasName) {
-            this.aliasName = Objects.requireNonNull(aliasName);
+            if (aliasName == null) {
+              throw new MissingRequiredPropertyException("V2modelsBotMember", "aliasName");
+            }
+            this.aliasName = aliasName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("V2modelsBotMember", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("V2modelsBotMember", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("V2modelsBotMember", "version");
+            }
+            this.version = version;
             return this;
         }
         public V2modelsBotMember build() {
-            final var o = new V2modelsBotMember();
-            o.aliasId = aliasId;
-            o.aliasName = aliasName;
-            o.id = id;
-            o.name = name;
-            o.version = version;
-            return o;
+            final var _resultValue = new V2modelsBotMember();
+            _resultValue.aliasId = aliasId;
+            _resultValue.aliasName = aliasName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

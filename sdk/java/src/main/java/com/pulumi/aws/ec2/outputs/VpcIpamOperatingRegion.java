@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class VpcIpamOperatingRegion {
 
         @CustomType.Setter
         public Builder regionName(String regionName) {
-            this.regionName = Objects.requireNonNull(regionName);
+            if (regionName == null) {
+              throw new MissingRequiredPropertyException("VpcIpamOperatingRegion", "regionName");
+            }
+            this.regionName = regionName;
             return this;
         }
         public VpcIpamOperatingRegion build() {
-            final var o = new VpcIpamOperatingRegion();
-            o.regionName = regionName;
-            return o;
+            final var _resultValue = new VpcIpamOperatingRegion();
+            _resultValue.regionName = regionName;
+            return _resultValue;
         }
     }
 }

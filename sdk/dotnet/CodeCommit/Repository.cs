@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CodeCommit
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,19 +25,48 @@ namespace Pulumi.Aws.CodeCommit
     /// {
     ///     var test = new Aws.CodeCommit.Repository("test", new()
     ///     {
-    ///         Description = "This is the Sample App Repository",
     ///         RepositoryName = "MyTestRepository",
+    ///         Description = "This is the Sample App Repository",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### AWS KMS Customer Managed Keys (CMK)
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testKey = new Aws.Kms.Key("test", new()
+    ///     {
+    ///         Description = "test",
+    ///         DeletionWindowInDays = 7,
+    ///     });
+    /// 
+    ///     var test = new Aws.CodeCommit.Repository("test", new()
+    ///     {
+    ///         RepositoryName = "MyTestRepository",
+    ///         Description = "This is the Sample App Repository",
+    ///         KmsKeyId = testKey.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeCommit repository using repository name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
+    /// $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
     /// ```
     /// </summary>
     [AwsResourceType("aws:codecommit/repository:Repository")]
@@ -71,6 +101,12 @@ namespace Pulumi.Aws.CodeCommit
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+        /// </summary>
+        [Output("kmsKeyId")]
+        public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the repository
@@ -119,10 +155,6 @@ namespace Pulumi.Aws.CodeCommit
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -157,6 +189,12 @@ namespace Pulumi.Aws.CodeCommit
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+        /// </summary>
+        [Input("kmsKeyId")]
+        public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
         /// The name for the repository. This needs to be less than 100 characters.
@@ -215,6 +253,12 @@ namespace Pulumi.Aws.CodeCommit
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+        /// </summary>
+        [Input("kmsKeyId")]
+        public Input<string>? KmsKeyId { get; set; }
+
+        /// <summary>
         /// The ID of the repository
         /// </summary>
         [Input("repositoryId")]
@@ -248,11 +292,7 @@ namespace Pulumi.Aws.CodeCommit
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public RepositoryState()

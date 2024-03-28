@@ -4,6 +4,7 @@
 package com.pulumi.aws.workspaces.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -99,37 +100,52 @@ public final class GetWorkspaceWorkspaceProperty {
 
         @CustomType.Setter
         public Builder computeTypeName(String computeTypeName) {
-            this.computeTypeName = Objects.requireNonNull(computeTypeName);
+            if (computeTypeName == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceWorkspaceProperty", "computeTypeName");
+            }
+            this.computeTypeName = computeTypeName;
             return this;
         }
         @CustomType.Setter
         public Builder rootVolumeSizeGib(Integer rootVolumeSizeGib) {
-            this.rootVolumeSizeGib = Objects.requireNonNull(rootVolumeSizeGib);
+            if (rootVolumeSizeGib == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceWorkspaceProperty", "rootVolumeSizeGib");
+            }
+            this.rootVolumeSizeGib = rootVolumeSizeGib;
             return this;
         }
         @CustomType.Setter
         public Builder runningMode(String runningMode) {
-            this.runningMode = Objects.requireNonNull(runningMode);
+            if (runningMode == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceWorkspaceProperty", "runningMode");
+            }
+            this.runningMode = runningMode;
             return this;
         }
         @CustomType.Setter
         public Builder runningModeAutoStopTimeoutInMinutes(Integer runningModeAutoStopTimeoutInMinutes) {
-            this.runningModeAutoStopTimeoutInMinutes = Objects.requireNonNull(runningModeAutoStopTimeoutInMinutes);
+            if (runningModeAutoStopTimeoutInMinutes == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceWorkspaceProperty", "runningModeAutoStopTimeoutInMinutes");
+            }
+            this.runningModeAutoStopTimeoutInMinutes = runningModeAutoStopTimeoutInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder userVolumeSizeGib(Integer userVolumeSizeGib) {
-            this.userVolumeSizeGib = Objects.requireNonNull(userVolumeSizeGib);
+            if (userVolumeSizeGib == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceWorkspaceProperty", "userVolumeSizeGib");
+            }
+            this.userVolumeSizeGib = userVolumeSizeGib;
             return this;
         }
         public GetWorkspaceWorkspaceProperty build() {
-            final var o = new GetWorkspaceWorkspaceProperty();
-            o.computeTypeName = computeTypeName;
-            o.rootVolumeSizeGib = rootVolumeSizeGib;
-            o.runningMode = runningMode;
-            o.runningModeAutoStopTimeoutInMinutes = runningModeAutoStopTimeoutInMinutes;
-            o.userVolumeSizeGib = userVolumeSizeGib;
-            return o;
+            final var _resultValue = new GetWorkspaceWorkspaceProperty();
+            _resultValue.computeTypeName = computeTypeName;
+            _resultValue.rootVolumeSizeGib = rootVolumeSizeGib;
+            _resultValue.runningMode = runningMode;
+            _resultValue.runningModeAutoStopTimeoutInMinutes = runningModeAutoStopTimeoutInMinutes;
+            _resultValue.userVolumeSizeGib = userVolumeSizeGib;
+            return _resultValue;
         }
     }
 }

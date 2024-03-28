@@ -75,6 +75,18 @@ def get_cluster_auth(name: Optional[str] = None,
     This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
     server configured.
 
+    ## Example Usage
+
+    <!--Start PulumiCodeChooser -->
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.eks.get_cluster(name="example")
+    example_get_cluster_auth = aws.eks.get_cluster_auth(name="example")
+    ```
+    <!--End PulumiCodeChooser -->
+
 
     :param str name: Name of the cluster
     """
@@ -99,6 +111,18 @@ def get_cluster_auth_output(name: Optional[pulumi.Input[str]] = None,
     [AWS IAM Authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator) authentication.
     This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
     server configured.
+
+    ## Example Usage
+
+    <!--Start PulumiCodeChooser -->
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.eks.get_cluster(name="example")
+    example_get_cluster_auth = aws.eks.get_cluster_auth(name="example")
+    ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the cluster

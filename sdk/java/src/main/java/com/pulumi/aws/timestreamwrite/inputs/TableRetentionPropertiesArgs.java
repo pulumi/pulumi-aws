@@ -5,6 +5,7 @@ package com.pulumi.aws.timestreamwrite.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class TableRetentionPropertiesArgs extends com.pulumi.resources.Res
         }
 
         public TableRetentionPropertiesArgs build() {
-            $.magneticStoreRetentionPeriodInDays = Objects.requireNonNull($.magneticStoreRetentionPeriodInDays, "expected parameter 'magneticStoreRetentionPeriodInDays' to be non-null");
-            $.memoryStoreRetentionPeriodInHours = Objects.requireNonNull($.memoryStoreRetentionPeriodInHours, "expected parameter 'memoryStoreRetentionPeriodInHours' to be non-null");
+            if ($.magneticStoreRetentionPeriodInDays == null) {
+                throw new MissingRequiredPropertyException("TableRetentionPropertiesArgs", "magneticStoreRetentionPeriodInDays");
+            }
+            if ($.memoryStoreRetentionPeriodInHours == null) {
+                throw new MissingRequiredPropertyException("TableRetentionPropertiesArgs", "memoryStoreRetentionPeriodInHours");
+            }
             return $;
         }
     }

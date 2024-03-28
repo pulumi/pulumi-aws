@@ -74,25 +74,28 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
 
         @CustomType.Setter
         public Builder acm(@Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm acm) {
+
             this.acm = acm;
             return this;
         }
         @CustomType.Setter
         public Builder file(@Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile file) {
+
             this.file = file;
             return this;
         }
         @CustomType.Setter
         public Builder sds(@Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds sds) {
+
             this.sds = sds;
             return this;
         }
         public VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust build() {
-            final var o = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust();
-            o.acm = acm;
-            o.file = file;
-            o.sds = sds;
-            return o;
+            final var _resultValue = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust();
+            _resultValue.acm = acm;
+            _resultValue.file = file;
+            _resultValue.sds = sds;
+            return _resultValue;
         }
     }
 }

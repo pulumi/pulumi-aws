@@ -93,37 +93,42 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInp
 
         @CustomType.Setter
         public Builder bandwidth(@Nullable Integer bandwidth) {
+
             this.bandwidth = bandwidth;
             return this;
         }
         @CustomType.Setter
         public Builder bufferSegments(@Nullable Integer bufferSegments) {
+
             this.bufferSegments = bufferSegments;
             return this;
         }
         @CustomType.Setter
         public Builder retries(@Nullable Integer retries) {
+
             this.retries = retries;
             return this;
         }
         @CustomType.Setter
         public Builder retryInterval(@Nullable Integer retryInterval) {
+
             this.retryInterval = retryInterval;
             return this;
         }
         @CustomType.Setter
         public Builder scte35Source(@Nullable String scte35Source) {
+
             this.scte35Source = scte35Source;
             return this;
         }
         public ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings build() {
-            final var o = new ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings();
-            o.bandwidth = bandwidth;
-            o.bufferSegments = bufferSegments;
-            o.retries = retries;
-            o.retryInterval = retryInterval;
-            o.scte35Source = scte35Source;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings();
+            _resultValue.bandwidth = bandwidth;
+            _resultValue.bufferSegments = bufferSegments;
+            _resultValue.retries = retries;
+            _resultValue.retryInterval = retryInterval;
+            _resultValue.scte35Source = scte35Source;
+            return _resultValue;
         }
     }
 }

@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,14 +30,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleEmailIdentity, err := sesv2.LookupEmailIdentity(ctx, &sesv2.LookupEmailIdentityArgs{
+//			example, err := sesv2.LookupEmailIdentity(ctx, &sesv2.LookupEmailIdentityArgs{
 //				EmailIdentity: "example.com",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = sesv2.LookupEmailIdentityMailFromAttributes(ctx, &sesv2.LookupEmailIdentityMailFromAttributesArgs{
-//				EmailIdentity: exampleEmailIdentity.EmailIdentity,
+//				EmailIdentity: example.EmailIdentity,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -45,6 +47,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupEmailIdentityMailFromAttributes(ctx *pulumi.Context, args *LookupEmailIdentityMailFromAttributesArgs, opts ...pulumi.InvokeOption) (*LookupEmailIdentityMailFromAttributesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEmailIdentityMailFromAttributesResult

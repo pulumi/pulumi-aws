@@ -21,6 +21,7 @@ namespace Pulumi.Aws.Vpc
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,7 +32,7 @@ namespace Pulumi.Aws.Vpc
     /// {
     ///     var example = new Aws.Vpc.SecurityGroupEgressRule("example", new()
     ///     {
-    ///         SecurityGroupId = aws_security_group.Example.Id,
+    ///         SecurityGroupId = exampleAwsSecurityGroup.Id,
     ///         CidrIpv4 = "10.0.0.0/8",
     ///         FromPort = 80,
     ///         IpProtocol = "tcp",
@@ -40,13 +41,14 @@ namespace Pulumi.Aws.Vpc
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import security group egress rules using the `security_group_rule_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule example sgr-02108b27edd666983
+    /// $ pulumi import aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule example sgr-02108b27edd666983
     /// ```
     /// </summary>
     [AwsResourceType("aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule")]
@@ -153,10 +155,6 @@ namespace Pulumi.Aws.Vpc
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -336,11 +334,7 @@ namespace Pulumi.Aws.Vpc
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

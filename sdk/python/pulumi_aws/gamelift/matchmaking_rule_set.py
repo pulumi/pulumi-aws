@@ -166,12 +166,10 @@ class MatchmakingRuleSet(pulumi.CustomResource):
 
         ## Import
 
-        GameLift Matchmaking Rule Sets
-
-        can be imported using the ID, e.g.,
+        GameLift Matchmaking Rule Sets  can be imported using the ID, e.g.,
 
         ```sh
-         $ pulumi import aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet example <ruleset-id>
+        $ pulumi import aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet example <ruleset-id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -190,12 +188,10 @@ class MatchmakingRuleSet(pulumi.CustomResource):
 
         ## Import
 
-        GameLift Matchmaking Rule Sets
-
-        can be imported using the ID, e.g.,
+        GameLift Matchmaking Rule Sets  can be imported using the ID, e.g.,
 
         ```sh
-         $ pulumi import aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet example <ruleset-id>
+        $ pulumi import aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet example <ruleset-id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -232,8 +228,6 @@ class MatchmakingRuleSet(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(MatchmakingRuleSet, __self__).__init__(
             'aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet',
             resource_name,

@@ -12,6 +12,7 @@ namespace Pulumi.Aws.Neptune
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -20,7 +21,7 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var defaultCluster = new Aws.Neptune.Cluster("defaultCluster", new()
+    ///     var @default = new Aws.Neptune.Cluster("default", new()
     ///     {
     ///         ClusterIdentifier = "neptune-cluster-demo",
     ///         Engine = "neptune",
@@ -33,16 +34,20 @@ namespace Pulumi.Aws.Neptune
     /// 
     ///     var example = new Aws.Neptune.ClusterInstance("example", new()
     ///     {
-    ///         ClusterIdentifier = defaultCluster.Id,
+    ///         ClusterIdentifier = @default.Id,
     ///         Engine = "neptune",
     ///         InstanceClass = "db.r4.large",
     ///         ApplyImmediately = true,
     ///     });
     /// 
-    ///     var defaultTopic = new Aws.Sns.Topic("defaultTopic");
-    /// 
-    ///     var defaultEventSubscription = new Aws.Neptune.EventSubscription("defaultEventSubscription", new()
+    ///     var defaultTopic = new Aws.Sns.Topic("default", new()
     ///     {
+    ///         Name = "neptune-events",
+    ///     });
+    /// 
+    ///     var defaultEventSubscription = new Aws.Neptune.EventSubscription("default", new()
+    ///     {
+    ///         Name = "neptune-event-sub",
     ///         SnsTopicArn = defaultTopic.Arn,
     ///         SourceType = "db-instance",
     ///         SourceIds = new[]
@@ -72,13 +77,14 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_neptune_event_subscription` using the event subscription name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:neptune/eventSubscription:EventSubscription example my-event-subscription
+    /// $ pulumi import aws:neptune/eventSubscription:EventSubscription example my-event-subscription
     /// ```
     /// </summary>
     [AwsResourceType("aws:neptune/eventSubscription:EventSubscription")]
@@ -173,10 +179,6 @@ namespace Pulumi.Aws.Neptune
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -362,11 +364,7 @@ namespace Pulumi.Aws.Neptune
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public EventSubscriptionState()

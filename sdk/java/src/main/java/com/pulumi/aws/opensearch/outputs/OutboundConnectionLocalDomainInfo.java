@@ -4,6 +4,7 @@
 package com.pulumi.aws.opensearch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,25 +71,34 @@ public final class OutboundConnectionLocalDomainInfo {
 
         @CustomType.Setter
         public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+            if (domainName == null) {
+              throw new MissingRequiredPropertyException("OutboundConnectionLocalDomainInfo", "domainName");
+            }
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+            if (ownerId == null) {
+              throw new MissingRequiredPropertyException("OutboundConnectionLocalDomainInfo", "ownerId");
+            }
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("OutboundConnectionLocalDomainInfo", "region");
+            }
+            this.region = region;
             return this;
         }
         public OutboundConnectionLocalDomainInfo build() {
-            final var o = new OutboundConnectionLocalDomainInfo();
-            o.domainName = domainName;
-            o.ownerId = ownerId;
-            o.region = region;
-            return o;
+            final var _resultValue = new OutboundConnectionLocalDomainInfo();
+            _resultValue.domainName = domainName;
+            _resultValue.ownerId = ownerId;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

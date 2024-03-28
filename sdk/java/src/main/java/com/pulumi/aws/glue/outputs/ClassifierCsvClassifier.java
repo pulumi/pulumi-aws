@@ -53,6 +53,7 @@ public final class ClassifierCsvClassifier {
      * 
      */
     private @Nullable String quoteSymbol;
+    private @Nullable String serde;
 
     private ClassifierCsvClassifier() {}
     /**
@@ -111,6 +112,9 @@ public final class ClassifierCsvClassifier {
     public Optional<String> quoteSymbol() {
         return Optional.ofNullable(this.quoteSymbol);
     }
+    public Optional<String> serde() {
+        return Optional.ofNullable(this.serde);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -129,6 +133,7 @@ public final class ClassifierCsvClassifier {
         private @Nullable Boolean disableValueTrimming;
         private @Nullable List<String> headers;
         private @Nullable String quoteSymbol;
+        private @Nullable String serde;
         public Builder() {}
         public Builder(ClassifierCsvClassifier defaults) {
     	      Objects.requireNonNull(defaults);
@@ -140,25 +145,30 @@ public final class ClassifierCsvClassifier {
     	      this.disableValueTrimming = defaults.disableValueTrimming;
     	      this.headers = defaults.headers;
     	      this.quoteSymbol = defaults.quoteSymbol;
+    	      this.serde = defaults.serde;
         }
 
         @CustomType.Setter
         public Builder allowSingleColumn(@Nullable Boolean allowSingleColumn) {
+
             this.allowSingleColumn = allowSingleColumn;
             return this;
         }
         @CustomType.Setter
         public Builder containsHeader(@Nullable String containsHeader) {
+
             this.containsHeader = containsHeader;
             return this;
         }
         @CustomType.Setter
         public Builder customDatatypeConfigured(@Nullable Boolean customDatatypeConfigured) {
+
             this.customDatatypeConfigured = customDatatypeConfigured;
             return this;
         }
         @CustomType.Setter
         public Builder customDatatypes(@Nullable List<String> customDatatypes) {
+
             this.customDatatypes = customDatatypes;
             return this;
         }
@@ -167,16 +177,19 @@ public final class ClassifierCsvClassifier {
         }
         @CustomType.Setter
         public Builder delimiter(@Nullable String delimiter) {
+
             this.delimiter = delimiter;
             return this;
         }
         @CustomType.Setter
         public Builder disableValueTrimming(@Nullable Boolean disableValueTrimming) {
+
             this.disableValueTrimming = disableValueTrimming;
             return this;
         }
         @CustomType.Setter
         public Builder headers(@Nullable List<String> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -185,20 +198,28 @@ public final class ClassifierCsvClassifier {
         }
         @CustomType.Setter
         public Builder quoteSymbol(@Nullable String quoteSymbol) {
+
             this.quoteSymbol = quoteSymbol;
             return this;
         }
+        @CustomType.Setter
+        public Builder serde(@Nullable String serde) {
+
+            this.serde = serde;
+            return this;
+        }
         public ClassifierCsvClassifier build() {
-            final var o = new ClassifierCsvClassifier();
-            o.allowSingleColumn = allowSingleColumn;
-            o.containsHeader = containsHeader;
-            o.customDatatypeConfigured = customDatatypeConfigured;
-            o.customDatatypes = customDatatypes;
-            o.delimiter = delimiter;
-            o.disableValueTrimming = disableValueTrimming;
-            o.headers = headers;
-            o.quoteSymbol = quoteSymbol;
-            return o;
+            final var _resultValue = new ClassifierCsvClassifier();
+            _resultValue.allowSingleColumn = allowSingleColumn;
+            _resultValue.containsHeader = containsHeader;
+            _resultValue.customDatatypeConfigured = customDatatypeConfigured;
+            _resultValue.customDatatypes = customDatatypes;
+            _resultValue.delimiter = delimiter;
+            _resultValue.disableValueTrimming = disableValueTrimming;
+            _resultValue.headers = headers;
+            _resultValue.quoteSymbol = quoteSymbol;
+            _resultValue.serde = serde;
+            return _resultValue;
         }
     }
 }

@@ -14,10 +14,9 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// <summary>
         /// Use this data source to get the name of a elastic beanstalk solution stack.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSolutionStackResult> InvokeAsync(GetSolutionStackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSolutionStackResult>("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", args ?? new GetSolutionStackArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// <summary>
         /// Use this data source to get the name of a elastic beanstalk solution stack.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSolutionStackResult> Invoke(GetSolutionStackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSolutionStackResult>("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", args ?? new GetSolutionStackInvokeArgs(), options.WithDefaults());

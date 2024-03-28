@@ -301,41 +301,47 @@ class Access(pulumi.CustomResource):
         Provides a AWS Transfer Access resource.
 
         ## Example Usage
+
         ### Basic S3
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.transfer.Access("example",
             external_id="S-1-1-12-1234567890-123456789-1234567890-1234",
-            server_id=aws_transfer_server["example"]["id"],
-            role=aws_iam_role["example"]["arn"],
-            home_directory=f"/{aws_s3_bucket['example']['id']}/")
+            server_id=example_aws_transfer_server["id"],
+            role=example_aws_iam_role["arn"],
+            home_directory=f"/{example_aws_s3_bucket['id']}/")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Basic EFS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.transfer.Access("test",
             external_id="S-1-1-12-1234567890-123456789-1234567890-1234",
-            server_id=aws_transfer_server["test"]["id"],
-            role=aws_iam_role["test"]["arn"],
-            home_directory=f"/{aws_efs_file_system['test']['id']}/",
+            server_id=test_aws_transfer_server["id"],
+            role=test_aws_iam_role["arn"],
+            home_directory=f"/{test_aws_efs_file_system['id']}/",
             posix_profile=aws.transfer.AccessPosixProfileArgs(
                 gid=1000,
                 uid=1000,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transfer Accesses using the `server_id` and `external_id`. For example:
 
         ```sh
-         $ pulumi import aws:transfer/access:Access example s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234
+        $ pulumi import aws:transfer/access:Access example s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234
         ```
 
         :param str resource_name: The name of the resource.
@@ -359,41 +365,47 @@ class Access(pulumi.CustomResource):
         Provides a AWS Transfer Access resource.
 
         ## Example Usage
+
         ### Basic S3
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.transfer.Access("example",
             external_id="S-1-1-12-1234567890-123456789-1234567890-1234",
-            server_id=aws_transfer_server["example"]["id"],
-            role=aws_iam_role["example"]["arn"],
-            home_directory=f"/{aws_s3_bucket['example']['id']}/")
+            server_id=example_aws_transfer_server["id"],
+            role=example_aws_iam_role["arn"],
+            home_directory=f"/{example_aws_s3_bucket['id']}/")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Basic EFS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.transfer.Access("test",
             external_id="S-1-1-12-1234567890-123456789-1234567890-1234",
-            server_id=aws_transfer_server["test"]["id"],
-            role=aws_iam_role["test"]["arn"],
-            home_directory=f"/{aws_efs_file_system['test']['id']}/",
+            server_id=test_aws_transfer_server["id"],
+            role=test_aws_iam_role["arn"],
+            home_directory=f"/{test_aws_efs_file_system['id']}/",
             posix_profile=aws.transfer.AccessPosixProfileArgs(
                 gid=1000,
                 uid=1000,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transfer Accesses using the `server_id` and `external_id`. For example:
 
         ```sh
-         $ pulumi import aws:transfer/access:Access example s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234
+        $ pulumi import aws:transfer/access:Access example s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234
         ```
 
         :param str resource_name: The name of the resource.

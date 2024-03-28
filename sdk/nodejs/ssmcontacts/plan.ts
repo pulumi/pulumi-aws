@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS SSM Contact Plan.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,8 +26,11 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Usage with SSM Contact
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -41,21 +46,24 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Usage With All Fields
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const escalationPlan = new aws.ssmcontacts.Contact("escalationPlan", {
+ * const escalationPlan = new aws.ssmcontacts.Contact("escalation_plan", {
  *     alias: "escalation-plan-alias",
  *     type: "ESCALATION",
  * });
- * const contactOne = new aws.ssmcontacts.Contact("contactOne", {
+ * const contactOne = new aws.ssmcontacts.Contact("contact_one", {
  *     alias: "alias",
  *     type: "PERSONAL",
  * });
- * const contactTwo = new aws.ssmcontacts.Contact("contactTwo", {
+ * const contactTwo = new aws.ssmcontacts.Contact("contact_two", {
  *     alias: "alias",
  *     type: "PERSONAL",
  * });
@@ -79,20 +87,21 @@ import * as utilities from "../utilities";
  *             {
  *                 channelTargetInfo: {
  *                     retryIntervalInMinutes: 2,
- *                     contactChannelId: aws_ssmcontacts_contact_channel.channel.arn,
+ *                     contactChannelId: channel.arn,
  *                 },
  *             },
  *         ],
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SSM Contact Plan using the Contact ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
+ * $ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
  * ```
  */
 export class Plan extends pulumi.CustomResource {

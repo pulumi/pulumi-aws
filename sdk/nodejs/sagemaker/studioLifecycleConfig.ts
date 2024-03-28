@@ -9,12 +9,30 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new aws.sagemaker.StudioLifecycleConfig("example", {
+ *     studioLifecycleConfigName: "example",
+ *     studioLifecycleConfigAppType: "JupyterServer",
+ *     studioLifecycleConfigContent: std.base64encode({
+ *         input: "echo Hello",
+ *     }).then(invoke => invoke.result),
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Import
  *
  * Using `pulumi import`, import SageMaker Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
+ * $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
  * ```
  */
 export class StudioLifecycleConfig extends pulumi.CustomResource {
@@ -50,7 +68,7 @@ export class StudioLifecycleConfig extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+     * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
      */
     public readonly studioLifecycleConfigAppType!: pulumi.Output<string>;
     /**
@@ -110,8 +128,6 @@ export class StudioLifecycleConfig extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(StudioLifecycleConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -125,7 +141,7 @@ export interface StudioLifecycleConfigState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+     * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
      */
     studioLifecycleConfigAppType?: pulumi.Input<string>;
     /**
@@ -153,7 +169,7 @@ export interface StudioLifecycleConfigState {
  */
 export interface StudioLifecycleConfigArgs {
     /**
-     * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+     * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
      */
     studioLifecycleConfigAppType: pulumi.Input<string>;
     /**

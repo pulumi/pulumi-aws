@@ -27,13 +27,14 @@ class DomainConfigurationArgs:
                  validation_certificate_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DomainConfiguration resource.
-        :param pulumi.Input['DomainConfigurationAuthorizerConfigArgs'] authorizer_config: An object that specifies the authorization service for a domain. See below.
+        :param pulumi.Input['DomainConfigurationAuthorizerConfigArgs'] authorizer_config: An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
         :param pulumi.Input[str] domain_name: Fully-qualified domain name.
         :param pulumi.Input[str] name: The name of the domain configuration. This value must be unique to a region.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] server_certificate_arns: The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domain_name`, the cert must include it.
         :param pulumi.Input[str] service_type: The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
+        :param pulumi.Input[str] status: The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['DomainConfigurationTlsConfigArgs'] tls_config: An object that specifies the TLS configuration for a domain. See below.
+        :param pulumi.Input['DomainConfigurationTlsConfigArgs'] tls_config: An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
         :param pulumi.Input[str] validation_certificate_arn: The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
         """
         if authorizer_config is not None:
@@ -59,7 +60,7 @@ class DomainConfigurationArgs:
     @pulumi.getter(name="authorizerConfig")
     def authorizer_config(self) -> Optional[pulumi.Input['DomainConfigurationAuthorizerConfigArgs']]:
         """
-        An object that specifies the authorization service for a domain. See below.
+        An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
         """
         return pulumi.get(self, "authorizer_config")
 
@@ -118,6 +119,9 @@ class DomainConfigurationArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -140,7 +144,7 @@ class DomainConfigurationArgs:
     @pulumi.getter(name="tlsConfig")
     def tls_config(self) -> Optional[pulumi.Input['DomainConfigurationTlsConfigArgs']]:
         """
-        An object that specifies the TLS configuration for a domain. See below.
+        An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
         """
         return pulumi.get(self, "tls_config")
 
@@ -179,15 +183,16 @@ class _DomainConfigurationState:
         """
         Input properties used for looking up and filtering DomainConfiguration resources.
         :param pulumi.Input[str] arn: The ARN of the domain configuration.
-        :param pulumi.Input['DomainConfigurationAuthorizerConfigArgs'] authorizer_config: An object that specifies the authorization service for a domain. See below.
+        :param pulumi.Input['DomainConfigurationAuthorizerConfigArgs'] authorizer_config: An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
         :param pulumi.Input[str] domain_name: Fully-qualified domain name.
         :param pulumi.Input[str] domain_type: The type of the domain.
         :param pulumi.Input[str] name: The name of the domain configuration. This value must be unique to a region.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] server_certificate_arns: The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domain_name`, the cert must include it.
         :param pulumi.Input[str] service_type: The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
+        :param pulumi.Input[str] status: The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['DomainConfigurationTlsConfigArgs'] tls_config: An object that specifies the TLS configuration for a domain. See below.
+        :param pulumi.Input['DomainConfigurationTlsConfigArgs'] tls_config: An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
         :param pulumi.Input[str] validation_certificate_arn: The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
         """
         if arn is not None:
@@ -234,7 +239,7 @@ class _DomainConfigurationState:
     @pulumi.getter(name="authorizerConfig")
     def authorizer_config(self) -> Optional[pulumi.Input['DomainConfigurationAuthorizerConfigArgs']]:
         """
-        An object that specifies the authorization service for a domain. See below.
+        An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
         """
         return pulumi.get(self, "authorizer_config")
 
@@ -305,6 +310,9 @@ class _DomainConfigurationState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -342,7 +350,7 @@ class _DomainConfigurationState:
     @pulumi.getter(name="tlsConfig")
     def tls_config(self) -> Optional[pulumi.Input['DomainConfigurationTlsConfigArgs']]:
         """
-        An object that specifies the TLS configuration for a domain. See below.
+        An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
         """
         return pulumi.get(self, "tls_config")
 
@@ -383,33 +391,37 @@ class DomainConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         iot = aws.iot.DomainConfiguration("iot",
+            name="iot-",
             domain_name="iot.example.com",
             service_type="DATA",
-            server_certificate_arns=[aws_acm_certificate["cert"]["arn"]])
+            server_certificate_arns=[cert["arn"]])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import domain configurations using the name. For example:
 
         ```sh
-         $ pulumi import aws:iot/domainConfiguration:DomainConfiguration example example
+        $ pulumi import aws:iot/domainConfiguration:DomainConfiguration example example
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DomainConfigurationAuthorizerConfigArgs']] authorizer_config: An object that specifies the authorization service for a domain. See below.
+        :param pulumi.Input[pulumi.InputType['DomainConfigurationAuthorizerConfigArgs']] authorizer_config: An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
         :param pulumi.Input[str] domain_name: Fully-qualified domain name.
         :param pulumi.Input[str] name: The name of the domain configuration. This value must be unique to a region.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] server_certificate_arns: The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domain_name`, the cert must include it.
         :param pulumi.Input[str] service_type: The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
+        :param pulumi.Input[str] status: The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['DomainConfigurationTlsConfigArgs']] tls_config: An object that specifies the TLS configuration for a domain. See below.
+        :param pulumi.Input[pulumi.InputType['DomainConfigurationTlsConfigArgs']] tls_config: An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
         :param pulumi.Input[str] validation_certificate_arn: The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
         """
         ...
@@ -423,22 +435,25 @@ class DomainConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         iot = aws.iot.DomainConfiguration("iot",
+            name="iot-",
             domain_name="iot.example.com",
             service_type="DATA",
-            server_certificate_arns=[aws_acm_certificate["cert"]["arn"]])
+            server_certificate_arns=[cert["arn"]])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import domain configurations using the name. For example:
 
         ```sh
-         $ pulumi import aws:iot/domainConfiguration:DomainConfiguration example example
+        $ pulumi import aws:iot/domainConfiguration:DomainConfiguration example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -486,8 +501,6 @@ class DomainConfiguration(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["domain_type"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(DomainConfiguration, __self__).__init__(
             'aws:iot/domainConfiguration:DomainConfiguration',
             resource_name,
@@ -518,15 +531,16 @@ class DomainConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the domain configuration.
-        :param pulumi.Input[pulumi.InputType['DomainConfigurationAuthorizerConfigArgs']] authorizer_config: An object that specifies the authorization service for a domain. See below.
+        :param pulumi.Input[pulumi.InputType['DomainConfigurationAuthorizerConfigArgs']] authorizer_config: An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
         :param pulumi.Input[str] domain_name: Fully-qualified domain name.
         :param pulumi.Input[str] domain_type: The type of the domain.
         :param pulumi.Input[str] name: The name of the domain configuration. This value must be unique to a region.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] server_certificate_arns: The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domain_name`, the cert must include it.
         :param pulumi.Input[str] service_type: The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
+        :param pulumi.Input[str] status: The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[pulumi.InputType['DomainConfigurationTlsConfigArgs']] tls_config: An object that specifies the TLS configuration for a domain. See below.
+        :param pulumi.Input[pulumi.InputType['DomainConfigurationTlsConfigArgs']] tls_config: An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
         :param pulumi.Input[str] validation_certificate_arn: The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -559,7 +573,7 @@ class DomainConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="authorizerConfig")
     def authorizer_config(self) -> pulumi.Output[Optional['outputs.DomainConfigurationAuthorizerConfig']]:
         """
-        An object that specifies the authorization service for a domain. See below.
+        An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
         """
         return pulumi.get(self, "authorizer_config")
 
@@ -606,6 +620,9 @@ class DomainConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
+        """
+        The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
+        """
         return pulumi.get(self, "status")
 
     @property
@@ -631,7 +648,7 @@ class DomainConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="tlsConfig")
     def tls_config(self) -> pulumi.Output['outputs.DomainConfigurationTlsConfig']:
         """
-        An object that specifies the TLS configuration for a domain. See below.
+        An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
         """
         return pulumi.get(self, "tls_config")
 

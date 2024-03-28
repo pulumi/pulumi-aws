@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,25 +72,34 @@ public final class CompositeAlarmActionsSuppressor {
 
         @CustomType.Setter
         public Builder alarm(String alarm) {
-            this.alarm = Objects.requireNonNull(alarm);
+            if (alarm == null) {
+              throw new MissingRequiredPropertyException("CompositeAlarmActionsSuppressor", "alarm");
+            }
+            this.alarm = alarm;
             return this;
         }
         @CustomType.Setter
         public Builder extensionPeriod(Integer extensionPeriod) {
-            this.extensionPeriod = Objects.requireNonNull(extensionPeriod);
+            if (extensionPeriod == null) {
+              throw new MissingRequiredPropertyException("CompositeAlarmActionsSuppressor", "extensionPeriod");
+            }
+            this.extensionPeriod = extensionPeriod;
             return this;
         }
         @CustomType.Setter
         public Builder waitPeriod(Integer waitPeriod) {
-            this.waitPeriod = Objects.requireNonNull(waitPeriod);
+            if (waitPeriod == null) {
+              throw new MissingRequiredPropertyException("CompositeAlarmActionsSuppressor", "waitPeriod");
+            }
+            this.waitPeriod = waitPeriod;
             return this;
         }
         public CompositeAlarmActionsSuppressor build() {
-            final var o = new CompositeAlarmActionsSuppressor();
-            o.alarm = alarm;
-            o.extensionPeriod = extensionPeriod;
-            o.waitPeriod = waitPeriod;
-            return o;
+            final var _resultValue = new CompositeAlarmActionsSuppressor();
+            _resultValue.alarm = alarm;
+            _resultValue.extensionPeriod = extensionPeriod;
+            _resultValue.waitPeriod = waitPeriod;
+            return _resultValue;
         }
     }
 }

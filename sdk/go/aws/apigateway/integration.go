@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,13 +29,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myDemoAPI, err := apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
+//			myDemoAPI, err := apigateway.NewRestApi(ctx, "MyDemoAPI", &apigateway.RestApiArgs{
+//				Name:        pulumi.String("MyDemoAPI"),
 //				Description: pulumi.String("This is my API for demonstration purposes"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			myDemoResource, err := apigateway.NewResource(ctx, "myDemoResource", &apigateway.ResourceArgs{
+//			myDemoResource, err := apigateway.NewResource(ctx, "MyDemoResource", &apigateway.ResourceArgs{
 //				RestApi:  myDemoAPI.ID(),
 //				ParentId: myDemoAPI.RootResourceId,
 //				PathPart: pulumi.String("mydemoresource"),
@@ -42,7 +44,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			myDemoMethod, err := apigateway.NewMethod(ctx, "myDemoMethod", &apigateway.MethodArgs{
+//			myDemoMethod, err := apigateway.NewMethod(ctx, "MyDemoMethod", &apigateway.MethodArgs{
 //				RestApi:       myDemoAPI.ID(),
 //				ResourceId:    myDemoResource.ID(),
 //				HttpMethod:    pulumi.String("GET"),
@@ -51,7 +53,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigateway.NewIntegration(ctx, "myDemoIntegration", &apigateway.IntegrationArgs{
+//			_, err = apigateway.NewIntegration(ctx, "MyDemoIntegration", &apigateway.IntegrationArgs{
 //				RestApi:    myDemoAPI.ID(),
 //				ResourceId: myDemoResource.ID(),
 //				HttpMethod: myDemoMethod.HttpMethod,
@@ -76,8 +78,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Lambda integration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -88,6 +93,7 @@ import (
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -98,7 +104,10 @@ import (
 //			cfg := config.New(ctx, "")
 //			myregion := cfg.RequireObject("myregion")
 //			accountId := cfg.RequireObject("accountId")
-//			api, err := apigateway.NewRestApi(ctx, "api", nil)
+//			// API Gateway
+//			api, err := apigateway.NewRestApi(ctx, "api", &apigateway.RestApiArgs{
+//				Name: pulumi.String("myapi"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -119,6 +128,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// IAM
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
@@ -141,16 +151,25 @@ import (
 //				return err
 //			}
 //			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//				Name:             pulumi.String("myrole"),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
+//			invokeFilebase64sha256, err := std.Filebase64sha256(ctx, &std.Filebase64sha256Args{
+//				Input: "lambda.zip",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			lambda, err := lambda.NewFunction(ctx, "lambda", &lambda.FunctionArgs{
-//				Code:    pulumi.NewFileArchive("lambda.zip"),
-//				Role:    role.Arn,
-//				Handler: pulumi.String("lambda.lambda_handler"),
-//				Runtime: pulumi.String("python3.7"),
+//				Code:           pulumi.NewFileArchive("lambda.zip"),
+//				Name:           pulumi.String("mylambda"),
+//				Role:           role.Arn,
+//				Handler:        pulumi.String("lambda.lambda_handler"),
+//				Runtime:        pulumi.String(lambda.RuntimePython3d7),
+//				SourceCodeHash: invokeFilebase64sha256.Result,
 //			})
 //			if err != nil {
 //				return err
@@ -166,10 +185,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lambda.NewPermission(ctx, "apigwLambda", &lambda.PermissionArgs{
-//				Action:    pulumi.String("lambda:InvokeFunction"),
-//				Function:  lambda.Name,
-//				Principal: pulumi.String("apigateway.amazonaws.com"),
+//			// Lambda
+//			_, err = lambda.NewPermission(ctx, "apigw_lambda", &lambda.PermissionArgs{
+//				StatementId: pulumi.String("AllowExecutionFromAPIGateway"),
+//				Action:      pulumi.String("lambda:InvokeFunction"),
+//				Function:    lambda.Name,
+//				Principal:   pulumi.String("apigateway.amazonaws.com"),
 //				SourceArn: pulumi.All(api.ID(), method.HttpMethod, resource.Path).ApplyT(func(_args []interface{}) (string, error) {
 //					id := _args[0].(string)
 //					httpMethod := _args[1].(string)
@@ -185,15 +206,108 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ## VPC Link
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			name := cfg.RequireObject("name")
+//			subnetId := cfg.RequireObject("subnetId")
+//			test, err := lb.NewLoadBalancer(ctx, "test", &lb.LoadBalancerArgs{
+//				Name:             pulumi.Any(name),
+//				Internal:         pulumi.Bool(true),
+//				LoadBalancerType: pulumi.String("network"),
+//				Subnets: pulumi.StringArray{
+//					subnetId,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testVpcLink, err := apigateway.NewVpcLink(ctx, "test", &apigateway.VpcLinkArgs{
+//				Name:      pulumi.Any(name),
+//				TargetArn: test.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testRestApi, err := apigateway.NewRestApi(ctx, "test", &apigateway.RestApiArgs{
+//				Name: pulumi.Any(name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testResource, err := apigateway.NewResource(ctx, "test", &apigateway.ResourceArgs{
+//				RestApi:  testRestApi.ID(),
+//				ParentId: testRestApi.RootResourceId,
+//				PathPart: pulumi.String("test"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testMethod, err := apigateway.NewMethod(ctx, "test", &apigateway.MethodArgs{
+//				RestApi:       testRestApi.ID(),
+//				ResourceId:    testResource.ID(),
+//				HttpMethod:    pulumi.String("GET"),
+//				Authorization: pulumi.String("NONE"),
+//				RequestModels: pulumi.StringMap{
+//					"application/json": pulumi.String("Error"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewIntegration(ctx, "test", &apigateway.IntegrationArgs{
+//				RestApi:    testRestApi.ID(),
+//				ResourceId: testResource.ID(),
+//				HttpMethod: testMethod.HttpMethod,
+//				RequestTemplates: pulumi.StringMap{
+//					"application/json": pulumi.String(""),
+//					"application/xml":  pulumi.String("#set($inputRoot = $input.path('$'))\n{ }"),
+//				},
+//				RequestParameters: pulumi.StringMap{
+//					"integration.request.header.X-Authorization": pulumi.String("'static'"),
+//					"integration.request.header.X-Foo":           pulumi.String("'Bar'"),
+//				},
+//				Type:                  pulumi.String("HTTP"),
+//				Uri:                   pulumi.String("https://www.google.de"),
+//				IntegrationHttpMethod: pulumi.String("GET"),
+//				PassthroughBehavior:   pulumi.String("WHEN_NO_MATCH"),
+//				ContentHandling:       pulumi.String("CONVERT_TO_TEXT"),
+//				ConnectionType:        pulumi.String("VPC_LINK"),
+//				ConnectionId:          testVpcLink.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_api_gateway_integration` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/integration:Integration example 12345abcde/67890fghij/GET
-//
+// $ pulumi import aws:apigateway/integration:Integration example 12345abcde/67890fghij/GET
 // ```
 type Integration struct {
 	pulumi.CustomResourceState

@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * Basic usage:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,13 +51,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sgEc2 = new SecurityGroupAssociation(&#34;sgEc2&#34;, SecurityGroupAssociationArgs.builder()        
- *             .vpcEndpointId(aws_vpc_endpoint.ec2().id())
- *             .securityGroupId(aws_security_group.sg().id())
+ *             .vpcEndpointId(ec2.id())
+ *             .securityGroupId(sg.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:ec2/securityGroupAssociation:SecurityGroupAssociation")

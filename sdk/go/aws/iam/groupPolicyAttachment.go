@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,11 +31,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			group, err := iam.NewGroup(ctx, "group", nil)
+//			group, err := iam.NewGroup(ctx, "group", &iam.GroupArgs{
+//				Name: pulumi.String("test-group"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			policy, err := iam.NewPolicy(ctx, "policy", &iam.PolicyArgs{
+//				Name:        pulumi.String("test-policy"),
 //				Description: pulumi.String("A test policy"),
 //				Policy:      pulumi.Any("{ ... policy JSON ... }"),
 //			})
@@ -53,15 +57,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IAM group policy attachments using the group name and policy arn separated by `/`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
-//
+// $ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
 // ```
 type GroupPolicyAttachment struct {
 	pulumi.CustomResourceState

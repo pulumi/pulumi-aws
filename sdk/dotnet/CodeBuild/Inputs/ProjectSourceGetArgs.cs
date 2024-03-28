@@ -19,7 +19,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<Inputs.ProjectSourceBuildStatusConfigGetArgs>? BuildStatusConfig { get; set; }
 
         /// <summary>
-        /// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+        /// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
         /// </summary>
         [Input("buildspec")]
         public Input<string>? Buildspec { get; set; }

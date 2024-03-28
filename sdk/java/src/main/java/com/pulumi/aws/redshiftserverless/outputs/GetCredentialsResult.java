@@ -4,6 +4,7 @@
 package com.pulumi.aws.redshiftserverless.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -105,49 +106,66 @@ public final class GetCredentialsResult {
 
         @CustomType.Setter
         public Builder dbName(@Nullable String dbName) {
+
             this.dbName = dbName;
             return this;
         }
         @CustomType.Setter
         public Builder dbPassword(String dbPassword) {
-            this.dbPassword = Objects.requireNonNull(dbPassword);
+            if (dbPassword == null) {
+              throw new MissingRequiredPropertyException("GetCredentialsResult", "dbPassword");
+            }
+            this.dbPassword = dbPassword;
             return this;
         }
         @CustomType.Setter
         public Builder dbUser(String dbUser) {
-            this.dbUser = Objects.requireNonNull(dbUser);
+            if (dbUser == null) {
+              throw new MissingRequiredPropertyException("GetCredentialsResult", "dbUser");
+            }
+            this.dbUser = dbUser;
             return this;
         }
         @CustomType.Setter
         public Builder durationSeconds(@Nullable Integer durationSeconds) {
+
             this.durationSeconds = durationSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder expiration(String expiration) {
-            this.expiration = Objects.requireNonNull(expiration);
+            if (expiration == null) {
+              throw new MissingRequiredPropertyException("GetCredentialsResult", "expiration");
+            }
+            this.expiration = expiration;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCredentialsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder workgroupName(String workgroupName) {
-            this.workgroupName = Objects.requireNonNull(workgroupName);
+            if (workgroupName == null) {
+              throw new MissingRequiredPropertyException("GetCredentialsResult", "workgroupName");
+            }
+            this.workgroupName = workgroupName;
             return this;
         }
         public GetCredentialsResult build() {
-            final var o = new GetCredentialsResult();
-            o.dbName = dbName;
-            o.dbPassword = dbPassword;
-            o.dbUser = dbUser;
-            o.durationSeconds = durationSeconds;
-            o.expiration = expiration;
-            o.id = id;
-            o.workgroupName = workgroupName;
-            return o;
+            final var _resultValue = new GetCredentialsResult();
+            _resultValue.dbName = dbName;
+            _resultValue.dbPassword = dbPassword;
+            _resultValue.dbUser = dbUser;
+            _resultValue.durationSeconds = durationSeconds;
+            _resultValue.expiration = expiration;
+            _resultValue.id = id;
+            _resultValue.workgroupName = workgroupName;
+            return _resultValue;
         }
     }
 }

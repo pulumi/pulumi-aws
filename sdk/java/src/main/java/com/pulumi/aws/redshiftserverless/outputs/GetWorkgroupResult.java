@@ -5,6 +5,7 @@ package com.pulumi.aws.redshiftserverless.outputs;
 
 import com.pulumi.aws.redshiftserverless.outputs.GetWorkgroupEndpoint;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -155,12 +156,18 @@ public final class GetWorkgroupResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetWorkgroupResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder endpoints(List<GetWorkgroupEndpoint> endpoints) {
-            this.endpoints = Objects.requireNonNull(endpoints);
+            if (endpoints == null) {
+              throw new MissingRequiredPropertyException("GetWorkgroupResult", "endpoints");
+            }
+            this.endpoints = endpoints;
             return this;
         }
         public Builder endpoints(GetWorkgroupEndpoint... endpoints) {
@@ -168,27 +175,42 @@ public final class GetWorkgroupResult {
         }
         @CustomType.Setter
         public Builder enhancedVpcRouting(Boolean enhancedVpcRouting) {
-            this.enhancedVpcRouting = Objects.requireNonNull(enhancedVpcRouting);
+            if (enhancedVpcRouting == null) {
+              throw new MissingRequiredPropertyException("GetWorkgroupResult", "enhancedVpcRouting");
+            }
+            this.enhancedVpcRouting = enhancedVpcRouting;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetWorkgroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder namespaceName(String namespaceName) {
-            this.namespaceName = Objects.requireNonNull(namespaceName);
+            if (namespaceName == null) {
+              throw new MissingRequiredPropertyException("GetWorkgroupResult", "namespaceName");
+            }
+            this.namespaceName = namespaceName;
             return this;
         }
         @CustomType.Setter
         public Builder publiclyAccessible(Boolean publiclyAccessible) {
-            this.publiclyAccessible = Objects.requireNonNull(publiclyAccessible);
+            if (publiclyAccessible == null) {
+              throw new MissingRequiredPropertyException("GetWorkgroupResult", "publiclyAccessible");
+            }
+            this.publiclyAccessible = publiclyAccessible;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+            if (securityGroupIds == null) {
+              throw new MissingRequiredPropertyException("GetWorkgroupResult", "securityGroupIds");
+            }
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {
@@ -196,7 +218,10 @@ public final class GetWorkgroupResult {
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("GetWorkgroupResult", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
@@ -204,27 +229,33 @@ public final class GetWorkgroupResult {
         }
         @CustomType.Setter
         public Builder workgroupId(String workgroupId) {
-            this.workgroupId = Objects.requireNonNull(workgroupId);
+            if (workgroupId == null) {
+              throw new MissingRequiredPropertyException("GetWorkgroupResult", "workgroupId");
+            }
+            this.workgroupId = workgroupId;
             return this;
         }
         @CustomType.Setter
         public Builder workgroupName(String workgroupName) {
-            this.workgroupName = Objects.requireNonNull(workgroupName);
+            if (workgroupName == null) {
+              throw new MissingRequiredPropertyException("GetWorkgroupResult", "workgroupName");
+            }
+            this.workgroupName = workgroupName;
             return this;
         }
         public GetWorkgroupResult build() {
-            final var o = new GetWorkgroupResult();
-            o.arn = arn;
-            o.endpoints = endpoints;
-            o.enhancedVpcRouting = enhancedVpcRouting;
-            o.id = id;
-            o.namespaceName = namespaceName;
-            o.publiclyAccessible = publiclyAccessible;
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            o.workgroupId = workgroupId;
-            o.workgroupName = workgroupName;
-            return o;
+            final var _resultValue = new GetWorkgroupResult();
+            _resultValue.arn = arn;
+            _resultValue.endpoints = endpoints;
+            _resultValue.enhancedVpcRouting = enhancedVpcRouting;
+            _resultValue.id = id;
+            _resultValue.namespaceName = namespaceName;
+            _resultValue.publiclyAccessible = publiclyAccessible;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.workgroupId = workgroupId;
+            _resultValue.workgroupName = workgroupName;
+            return _resultValue;
         }
     }
 }

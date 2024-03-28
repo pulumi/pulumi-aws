@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides an IAM instance profile.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -57,24 +58,27 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
+ *             .name(&#34;test_role&#34;)
  *             .path(&#34;/&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var testProfile = new InstanceProfile(&#34;testProfile&#34;, InstanceProfileArgs.builder()        
+ *             .name(&#34;test_profile&#34;)
  *             .role(role.name())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Instance Profiles using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
+ * $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
  * ```
  * 
  */
@@ -243,9 +247,6 @@ public class InstanceProfile extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

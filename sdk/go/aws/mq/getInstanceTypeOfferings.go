@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,9 +51,9 @@ import (
 //				return err
 //			}
 //			_, err = mq.GetInstanceTypeOfferings(ctx, &mq.GetInstanceTypeOfferingsArgs{
-//				EngineType:       pulumi.StringRef("ACTIVEMQ"),
 //				HostInstanceType: pulumi.StringRef("mq.m5.large"),
 //				StorageType:      pulumi.StringRef("EBS"),
+//				EngineType:       pulumi.StringRef("ACTIVEMQ"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -62,6 +63,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetInstanceTypeOfferings(ctx *pulumi.Context, args *GetInstanceTypeOfferingsArgs, opts ...pulumi.InvokeOption) (*GetInstanceTypeOfferingsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetInstanceTypeOfferingsResult

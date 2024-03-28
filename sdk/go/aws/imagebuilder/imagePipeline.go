@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := imagebuilder.NewImagePipeline(ctx, "example", &imagebuilder.ImagePipelineArgs{
-//				ImageRecipeArn:                 pulumi.Any(aws_imagebuilder_image_recipe.Example.Arn),
-//				InfrastructureConfigurationArn: pulumi.Any(aws_imagebuilder_infrastructure_configuration.Example.Arn),
+//				ImageRecipeArn:                 pulumi.Any(exampleAwsImagebuilderImageRecipe.Arn),
+//				InfrastructureConfigurationArn: pulumi.Any(exampleAwsImagebuilderInfrastructureConfiguration.Arn),
+//				Name:                           pulumi.String("example"),
 //				Schedule: &imagebuilder.ImagePipelineScheduleArgs{
 //					ScheduleExpression: pulumi.String("cron(0 0 * * ? *)"),
 //				},
@@ -43,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_imagebuilder_image_pipeline` resources using the Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
-//
+// $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
 // ```
 type ImagePipeline struct {
 	pulumi.CustomResourceState
@@ -110,10 +111,6 @@ func NewImagePipeline(ctx *pulumi.Context,
 	if args.InfrastructureConfigurationArn == nil {
 		return nil, errors.New("invalid value for required argument 'InfrastructureConfigurationArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ImagePipeline
 	err := ctx.RegisterResource("aws:imagebuilder/imagePipeline:ImagePipeline", name, args, &resource, opts...)

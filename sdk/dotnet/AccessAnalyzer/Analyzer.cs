@@ -13,8 +13,10 @@ namespace Pulumi.Aws.AccessAnalyzer
     /// Manages an Access Analyzer Analyzer. More information can be found in the [Access Analyzer User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Account Analyzer
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,8 +32,11 @@ namespace Pulumi.Aws.AccessAnalyzer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Organization Analyzer
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,7 +45,7 @@ namespace Pulumi.Aws.AccessAnalyzer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
+    ///     var example = new Aws.Organizations.Organization("example", new()
     ///     {
     ///         AwsServiceAccessPrincipals = new[]
     ///         {
@@ -48,27 +53,22 @@ namespace Pulumi.Aws.AccessAnalyzer
     ///         },
     ///     });
     /// 
-    ///     var exampleAnalyzer = new Aws.AccessAnalyzer.Analyzer("exampleAnalyzer", new()
+    ///     var exampleAnalyzer = new Aws.AccessAnalyzer.Analyzer("example", new()
     ///     {
     ///         AnalyzerName = "example",
     ///         Type = "ORGANIZATION",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleOrganization,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
+    /// $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:accessanalyzer/analyzer:Analyzer")]
@@ -89,6 +89,12 @@ namespace Pulumi.Aws.AccessAnalyzer
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// A block that specifies the configuration of the analyzer. Documented below
+        /// </summary>
+        [Output("configuration")]
+        public Output<Outputs.AnalyzerConfiguration?> Configuration { get; private set; } = null!;
+
+        /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -101,7 +107,7 @@ namespace Pulumi.Aws.AccessAnalyzer
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
+        /// Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, `ACCOUNT_UNUSED_ACCESS `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -129,10 +135,6 @@ namespace Pulumi.Aws.AccessAnalyzer
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -164,6 +166,12 @@ namespace Pulumi.Aws.AccessAnalyzer
         [Input("analyzerName", required: true)]
         public Input<string> AnalyzerName { get; set; } = null!;
 
+        /// <summary>
+        /// A block that specifies the configuration of the analyzer. Documented below
+        /// </summary>
+        [Input("configuration")]
+        public Input<Inputs.AnalyzerConfigurationArgs>? Configuration { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -177,7 +185,7 @@ namespace Pulumi.Aws.AccessAnalyzer
         }
 
         /// <summary>
-        /// Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
+        /// Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, `ACCOUNT_UNUSED_ACCESS `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -204,6 +212,12 @@ namespace Pulumi.Aws.AccessAnalyzer
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// A block that specifies the configuration of the analyzer. Documented below
+        /// </summary>
+        [Input("configuration")]
+        public Input<Inputs.AnalyzerConfigurationGetArgs>? Configuration { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -226,15 +240,11 @@ namespace Pulumi.Aws.AccessAnalyzer
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>
-        /// Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
+        /// Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, `ACCOUNT_UNUSED_ACCESS `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

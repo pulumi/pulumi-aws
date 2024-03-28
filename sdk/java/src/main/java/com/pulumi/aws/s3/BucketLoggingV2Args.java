@@ -4,8 +4,10 @@
 package com.pulumi.aws.s3;
 
 import com.pulumi.aws.s3.inputs.BucketLoggingV2TargetGrantArgs;
+import com.pulumi.aws.s3.inputs.BucketLoggingV2TargetObjectKeyFormatArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -78,6 +80,21 @@ public final class BucketLoggingV2Args extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Amazon S3 key format for log objects. See below.
+     * 
+     */
+    @Import(name="targetObjectKeyFormat")
+    private @Nullable Output<BucketLoggingV2TargetObjectKeyFormatArgs> targetObjectKeyFormat;
+
+    /**
+     * @return Amazon S3 key format for log objects. See below.
+     * 
+     */
+    public Optional<Output<BucketLoggingV2TargetObjectKeyFormatArgs>> targetObjectKeyFormat() {
+        return Optional.ofNullable(this.targetObjectKeyFormat);
+    }
+
+    /**
      * Prefix for all log object keys.
      * 
      */
@@ -99,6 +116,7 @@ public final class BucketLoggingV2Args extends com.pulumi.resources.ResourceArgs
         this.expectedBucketOwner = $.expectedBucketOwner;
         this.targetBucket = $.targetBucket;
         this.targetGrants = $.targetGrants;
+        this.targetObjectKeyFormat = $.targetObjectKeyFormat;
         this.targetPrefix = $.targetPrefix;
     }
 
@@ -215,6 +233,27 @@ public final class BucketLoggingV2Args extends com.pulumi.resources.ResourceArgs
         }
 
         /**
+         * @param targetObjectKeyFormat Amazon S3 key format for log objects. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetObjectKeyFormat(@Nullable Output<BucketLoggingV2TargetObjectKeyFormatArgs> targetObjectKeyFormat) {
+            $.targetObjectKeyFormat = targetObjectKeyFormat;
+            return this;
+        }
+
+        /**
+         * @param targetObjectKeyFormat Amazon S3 key format for log objects. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetObjectKeyFormat(BucketLoggingV2TargetObjectKeyFormatArgs targetObjectKeyFormat) {
+            return targetObjectKeyFormat(Output.of(targetObjectKeyFormat));
+        }
+
+        /**
          * @param targetPrefix Prefix for all log object keys.
          * 
          * @return builder
@@ -236,9 +275,15 @@ public final class BucketLoggingV2Args extends com.pulumi.resources.ResourceArgs
         }
 
         public BucketLoggingV2Args build() {
-            $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
-            $.targetBucket = Objects.requireNonNull($.targetBucket, "expected parameter 'targetBucket' to be non-null");
-            $.targetPrefix = Objects.requireNonNull($.targetPrefix, "expected parameter 'targetPrefix' to be non-null");
+            if ($.bucket == null) {
+                throw new MissingRequiredPropertyException("BucketLoggingV2Args", "bucket");
+            }
+            if ($.targetBucket == null) {
+                throw new MissingRequiredPropertyException("BucketLoggingV2Args", "targetBucket");
+            }
+            if ($.targetPrefix == null) {
+                throw new MissingRequiredPropertyException("BucketLoggingV2Args", "targetPrefix");
+            }
             return $;
         }
     }

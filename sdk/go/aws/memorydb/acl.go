@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := memorydb.NewAcl(ctx, "example", &memorydb.AclArgs{
+//				Name: pulumi.String("my-acl"),
 //				UserNames: pulumi.StringArray{
 //					pulumi.String("my-user-1"),
 //					pulumi.String("my-user-2"),
@@ -43,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import an ACL using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:memorydb/acl:Acl example my-acl
-//
+// $ pulumi import aws:memorydb/acl:Acl example my-acl
 // ```
 type Acl struct {
 	pulumi.CustomResourceState
@@ -81,10 +82,6 @@ func NewAcl(ctx *pulumi.Context,
 		args = &AclArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Acl
 	err := ctx.RegisterResource("aws:memorydb/acl:Acl", name, args, &resource, opts...)

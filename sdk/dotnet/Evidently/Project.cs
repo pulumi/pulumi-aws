@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Evidently
     /// Provides a CloudWatch Evidently Project resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,6 +27,7 @@ namespace Pulumi.Aws.Evidently
     /// {
     ///     var example = new Aws.Evidently.Project("example", new()
     ///     {
+    ///         Name = "Example",
     ///         Description = "Example Description",
     ///         Tags = 
     ///         {
@@ -34,8 +37,11 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Store evaluation events in a CloudWatch Log Group
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,6 +52,8 @@ namespace Pulumi.Aws.Evidently
     /// {
     ///     var example = new Aws.Evidently.Project("example", new()
     ///     {
+    ///         Name = "Example",
+    ///         Description = "Example Description",
     ///         DataDelivery = new Aws.Evidently.Inputs.ProjectDataDeliveryArgs
     ///         {
     ///             CloudwatchLogs = new Aws.Evidently.Inputs.ProjectDataDeliveryCloudwatchLogsArgs
@@ -53,7 +61,6 @@ namespace Pulumi.Aws.Evidently
     ///                 LogGroup = "example-log-group-name",
     ///             },
     ///         },
-    ///         Description = "Example Description",
     ///         Tags = 
     ///         {
     ///             { "Key1", "example Project" },
@@ -62,8 +69,11 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Store evaluation events in an S3 bucket
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -74,6 +84,8 @@ namespace Pulumi.Aws.Evidently
     /// {
     ///     var example = new Aws.Evidently.Project("example", new()
     ///     {
+    ///         Name = "Example",
+    ///         Description = "Example Description",
     ///         DataDelivery = new Aws.Evidently.Inputs.ProjectDataDeliveryArgs
     ///         {
     ///             S3Destination = new Aws.Evidently.Inputs.ProjectDataDeliveryS3DestinationArgs
@@ -82,7 +94,6 @@ namespace Pulumi.Aws.Evidently
     ///                 Prefix = "example",
     ///             },
     ///         },
-    ///         Description = "Example Description",
     ///         Tags = 
     ///         {
     ///             { "Key1", "example Project" },
@@ -91,13 +102,14 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudWatch Evidently Project using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:evidently/project:Project example arn:aws:evidently:us-east-1:123456789012:segment/example
+    /// $ pulumi import aws:evidently/project:Project example arn:aws:evidently:us-east-1:123456789012:segment/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:evidently/project:Project")]
@@ -210,10 +222,6 @@ namespace Pulumi.Aws.Evidently
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -369,11 +377,7 @@ namespace Pulumi.Aws.Evidently
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ProjectState()

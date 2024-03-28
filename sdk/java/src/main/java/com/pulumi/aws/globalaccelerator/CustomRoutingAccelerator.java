@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Creates a Global Accelerator custom routing accelerator.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,26 +48,28 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CustomRoutingAccelerator(&#34;example&#34;, CustomRoutingAcceleratorArgs.builder()        
+ *             .name(&#34;Example&#34;)
+ *             .ipAddressType(&#34;IPV4&#34;)
+ *             .ipAddresses(&#34;1.2.3.4&#34;)
+ *             .enabled(true)
  *             .attributes(CustomRoutingAcceleratorAttributesArgs.builder()
  *                 .flowLogsEnabled(true)
  *                 .flowLogsS3Bucket(&#34;example-bucket&#34;)
  *                 .flowLogsS3Prefix(&#34;flow-logs/&#34;)
  *                 .build())
- *             .enabled(true)
- *             .ipAddressType(&#34;IPV4&#34;)
- *             .ipAddresses(&#34;1.2.3.4&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Global Accelerator custom routing accelerators using the `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+ * $ pulumi import aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
  * ```
  * 
  */
@@ -252,9 +256,6 @@ public class CustomRoutingAccelerator extends com.pulumi.resources.CustomResourc
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -21,6 +21,7 @@ namespace Pulumi.Aws.Vpc
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,19 +30,20 @@ namespace Pulumi.Aws.Vpc
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleSecurityGroup = new Aws.Ec2.SecurityGroup("exampleSecurityGroup", new()
+    ///     var example = new Aws.Ec2.SecurityGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Description = "example",
-    ///         VpcId = aws_vpc.Main.Id,
+    ///         VpcId = main.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "example" },
     ///         },
     ///     });
     /// 
-    ///     var exampleSecurityGroupIngressRule = new Aws.Vpc.SecurityGroupIngressRule("exampleSecurityGroupIngressRule", new()
+    ///     var exampleSecurityGroupIngressRule = new Aws.Vpc.SecurityGroupIngressRule("example", new()
     ///     {
-    ///         SecurityGroupId = exampleSecurityGroup.Id,
+    ///         SecurityGroupId = example.Id,
     ///         CidrIpv4 = "10.0.0.0/8",
     ///         FromPort = 80,
     ///         IpProtocol = "tcp",
@@ -50,13 +52,14 @@ namespace Pulumi.Aws.Vpc
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import security group ingress rules using the `security_group_rule_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule example sgr-02108b27edd666983
+    /// $ pulumi import aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule example sgr-02108b27edd666983
     /// ```
     /// </summary>
     [AwsResourceType("aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule")]
@@ -163,10 +166,6 @@ namespace Pulumi.Aws.Vpc
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -346,11 +345,7 @@ namespace Pulumi.Aws.Vpc
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

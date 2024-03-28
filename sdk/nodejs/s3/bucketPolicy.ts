@@ -9,15 +9,19 @@ import {PolicyDocument} from "../iam";
 /**
  * Attaches a policy to an S3 bucket resource.
  *
+ * > Policies can be attached to both S3 general purpose buckets and S3 directory buckets.
+ *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {});
- * const allowAccessFromAnotherAccountPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const example = new aws.s3.BucketV2("example", {bucket: "my-tf-test-bucket"});
+ * const allowAccessFromAnotherAccount = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         principals: [{
  *             type: "AWS",
@@ -33,18 +37,19 @@ import {PolicyDocument} from "../iam";
  *         ],
  *     }],
  * });
- * const allowAccessFromAnotherAccountBucketPolicy = new aws.s3.BucketPolicy("allowAccessFromAnotherAccountBucketPolicy", {
+ * const allowAccessFromAnotherAccountBucketPolicy = new aws.s3.BucketPolicy("allow_access_from_another_account", {
  *     bucket: example.id,
- *     policy: allowAccessFromAnotherAccountPolicyDocument.apply(allowAccessFromAnotherAccountPolicyDocument => allowAccessFromAnotherAccountPolicyDocument.json),
+ *     policy: allowAccessFromAnotherAccount.apply(allowAccessFromAnotherAccount => allowAccessFromAnotherAccount.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import S3 bucket policies using the bucket name. For example:
  *
  * ```sh
- *  $ pulumi import aws:s3/bucketPolicy:BucketPolicy allow_access_from_another_account my-tf-test-bucket
+ * $ pulumi import aws:s3/bucketPolicy:BucketPolicy allow_access_from_another_account my-tf-test-bucket
  * ```
  */
 export class BucketPolicy extends pulumi.CustomResource {

@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Resource for managing SES Identity Notification Topics
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -41,22 +43,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new IdentityNotificationTopic(&#34;test&#34;, IdentityNotificationTopicArgs.builder()        
- *             .topicArn(aws_sns_topic.example().arn())
+ *             .topicArn(exampleAwsSnsTopic.arn())
  *             .notificationType(&#34;Bounce&#34;)
- *             .identity(aws_ses_domain_identity.example().domain())
+ *             .identity(example.domain())
  *             .includeOriginalHeaders(true)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Identity Notification Topics using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test &#39;example.com|Bounce&#39;
+ * $ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test &#39;example.com|Bounce&#39;
  * ```
  * 
  */

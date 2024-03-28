@@ -15,10 +15,12 @@ namespace Pulumi.Aws.Cfg
     /// &gt; **Note:** Config Rule requires an existing Configuration Recorder to be present. Use of `depends_on` is recommended (as shown below) to avoid race conditions.
     /// 
     /// ## Example Usage
+    /// 
     /// ### AWS Managed Rules
     /// 
     /// AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,6 +29,16 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var r = new Aws.Cfg.Rule("r", new()
+    ///     {
+    ///         Name = "example",
+    ///         Source = new Aws.Cfg.Inputs.RuleSourceArgs
+    ///         {
+    ///             Owner = "AWS",
+    ///             SourceIdentifier = "S3_BUCKET_VERSIONING_ENABLED",
+    ///         },
+    ///     });
+    /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
@@ -53,32 +65,19 @@ namespace Pulumi.Aws.Cfg
     ///         },
     ///     });
     /// 
-    ///     var role = new Aws.Iam.Role("role", new()
+    ///     var rRole = new Aws.Iam.Role("r", new()
     ///     {
+    ///         Name = "my-awsconfig-role",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var foo = new Aws.Cfg.Recorder("foo", new()
     ///     {
-    ///         RoleArn = role.Arn,
+    ///         Name = "example",
+    ///         RoleArn = rRole.Arn,
     ///     });
     /// 
-    ///     var rule = new Aws.Cfg.Rule("rule", new()
-    ///     {
-    ///         Source = new Aws.Cfg.Inputs.RuleSourceArgs
-    ///         {
-    ///             Owner = "AWS",
-    ///             SourceIdentifier = "S3_BUCKET_VERSIONING_ENABLED",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             foo,
-    ///         },
-    ///     });
-    /// 
-    ///     var policyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var p = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -97,18 +96,22 @@ namespace Pulumi.Aws.Cfg
     ///         },
     ///     });
     /// 
-    ///     var rolePolicy = new Aws.Iam.RolePolicy("rolePolicy", new()
+    ///     var pRolePolicy = new Aws.Iam.RolePolicy("p", new()
     ///     {
-    ///         Role = role.Id,
-    ///         Policy = policyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "my-awsconfig-policy",
+    ///         Role = rRole.Id,
+    ///         Policy = p.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Custom Rules
     /// 
     /// Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g., via the `aws.lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -117,40 +120,34 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRecorder = new Aws.Cfg.Recorder("exampleRecorder");
+    ///     var example = new Aws.Cfg.Recorder("example");
     /// 
-    ///     // ... other configuration ...
-    ///     var exampleFunction = new Aws.Lambda.Function("exampleFunction");
+    ///     var exampleFunction = new Aws.Lambda.Function("example");
     /// 
-    ///     // ... other configuration ...
-    ///     var examplePermission = new Aws.Lambda.Permission("examplePermission", new()
+    ///     var examplePermission = new Aws.Lambda.Permission("example", new()
     ///     {
     ///         Action = "lambda:InvokeFunction",
     ///         Function = exampleFunction.Arn,
     ///         Principal = "config.amazonaws.com",
+    ///         StatementId = "AllowExecutionFromConfig",
     ///     });
     /// 
-    ///     // ... other configuration ...
-    ///     var exampleRule = new Aws.Cfg.Rule("exampleRule", new()
+    ///     var exampleRule = new Aws.Cfg.Rule("example", new()
     ///     {
     ///         Source = new Aws.Cfg.Inputs.RuleSourceArgs
     ///         {
     ///             Owner = "CUSTOM_LAMBDA",
     ///             SourceIdentifier = exampleFunction.Arn,
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleRecorder,
-    ///             examplePermission,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Custom Policies
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -161,6 +158,7 @@ namespace Pulumi.Aws.Cfg
     /// {
     ///     var example = new Aws.Cfg.Rule("example", new()
     ///     {
+    ///         Name = "example",
     ///         Source = new Aws.Cfg.Inputs.RuleSourceArgs
     ///         {
     ///             Owner = "CUSTOM_POLICY",
@@ -191,13 +189,14 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Config Rule using the name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cfg/rule:Rule foo example
+    /// $ pulumi import aws:cfg/rule:Rule foo example
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/rule:Rule")]
@@ -246,13 +245,13 @@ namespace Pulumi.Aws.Cfg
         public Output<string> RuleId { get; private set; } = null!;
 
         /// <summary>
-        /// Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+        /// Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
         /// </summary>
         [Output("scope")]
         public Output<Outputs.RuleScope?> Scope { get; private set; } = null!;
 
         /// <summary>
-        /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+        /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
         /// </summary>
         [Output("source")]
         public Output<Outputs.RuleSource> Source { get; private set; } = null!;
@@ -292,10 +291,6 @@ namespace Pulumi.Aws.Cfg
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -356,13 +351,13 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+        /// Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
         /// </summary>
         [Input("scope")]
         public Input<Inputs.RuleScopeArgs>? Scope { get; set; }
 
         /// <summary>
-        /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+        /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
         /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.RuleSourceArgs> Source { get; set; } = null!;
@@ -436,13 +431,13 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? RuleId { get; set; }
 
         /// <summary>
-        /// Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+        /// Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
         /// </summary>
         [Input("scope")]
         public Input<Inputs.RuleScopeGetArgs>? Scope { get; set; }
 
         /// <summary>
-        /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+        /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
         /// </summary>
         [Input("source")]
         public Input<Inputs.RuleSourceGetArgs>? Source { get; set; }
@@ -469,11 +464,7 @@ namespace Pulumi.Aws.Cfg
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public RuleState()

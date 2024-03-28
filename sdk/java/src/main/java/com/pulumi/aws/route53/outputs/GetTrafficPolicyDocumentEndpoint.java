@@ -4,6 +4,7 @@
 package com.pulumi.aws.route53.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,31 +87,37 @@ public final class GetTrafficPolicyDocumentEndpoint {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTrafficPolicyDocumentEndpoint", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder region(@Nullable String region) {
+
             this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }
         public GetTrafficPolicyDocumentEndpoint build() {
-            final var o = new GetTrafficPolicyDocumentEndpoint();
-            o.id = id;
-            o.region = region;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetTrafficPolicyDocumentEndpoint();
+            _resultValue.id = id;
+            _resultValue.region = region;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

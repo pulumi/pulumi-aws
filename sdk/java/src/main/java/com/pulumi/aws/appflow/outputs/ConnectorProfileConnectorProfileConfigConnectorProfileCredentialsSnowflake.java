@@ -4,6 +4,7 @@
 package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
         @CustomType.Setter
         public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+            if (password == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake", "password");
+            }
+            this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake", "username");
+            }
+            this.username = username;
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

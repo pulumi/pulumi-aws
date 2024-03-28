@@ -5,6 +5,7 @@ package com.pulumi.aws.mskconnect.outputs;
 
 import com.pulumi.aws.mskconnect.outputs.CustomPluginLocationS3;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,13 +43,16 @@ public final class CustomPluginLocation {
 
         @CustomType.Setter
         public Builder s3(CustomPluginLocationS3 s3) {
-            this.s3 = Objects.requireNonNull(s3);
+            if (s3 == null) {
+              throw new MissingRequiredPropertyException("CustomPluginLocation", "s3");
+            }
+            this.s3 = s3;
             return this;
         }
         public CustomPluginLocation build() {
-            final var o = new CustomPluginLocation();
-            o.s3 = s3;
-            return o;
+            final var _resultValue = new CustomPluginLocation();
+            _resultValue.s3 = s3;
+            return _resultValue;
         }
     }
 }

@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,23 +27,24 @@ namespace Pulumi.Aws.Amplify
     /// {
     ///     var example = new Aws.Amplify.App("example", new()
     ///     {
-    ///         BuildSpec = @"  version: 0.1
-    ///   frontend:
-    ///     phases:
-    ///       preBuild:
-    ///         commands:
-    ///           - yarn install
-    ///       build:
-    ///         commands:
-    ///           - yarn run build
-    ///     artifacts:
-    ///       baseDirectory: build
-    ///       files:
-    ///         - '**/*'
-    ///     cache:
-    ///       paths:
-    ///         - node_modules/**/*
-    /// 
+    ///         Name = "example",
+    ///         Repository = "https://github.com/example/app",
+    ///         BuildSpec = @"version: 0.1
+    /// frontend:
+    ///   phases:
+    ///     preBuild:
+    ///       commands:
+    ///         - yarn install
+    ///     build:
+    ///       commands:
+    ///         - yarn run build
+    ///   artifacts:
+    ///     baseDirectory: build
+    ///     files:
+    ///       - '**/*'
+    ///   cache:
+    ///     paths:
+    ///       - node_modules/**/*
     /// ",
     ///         CustomRules = new[]
     ///         {
@@ -57,15 +59,17 @@ namespace Pulumi.Aws.Amplify
     ///         {
     ///             { "ENV", "test" },
     ///         },
-    ///         Repository = "https://github.com/example/app",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Repository with Tokens
     /// 
     /// If you create a new Amplify App with the `repository` argument, you also need to set `oauth_token` or `access_token` for authentication. For GitHub, get a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) and set `access_token` as follows:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -76,16 +80,20 @@ namespace Pulumi.Aws.Amplify
     /// {
     ///     var example = new Aws.Amplify.App("example", new()
     ///     {
-    ///         AccessToken = "...",
+    ///         Name = "example",
     ///         Repository = "https://github.com/example/app",
+    ///         AccessToken = "...",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// You can omit `access_token` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
+    /// 
     /// ### Auto Branch Creation
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -96,22 +104,52 @@ namespace Pulumi.Aws.Amplify
     /// {
     ///     var example = new Aws.Amplify.App("example", new()
     ///     {
-    ///         AutoBranchCreationConfig = new Aws.Amplify.Inputs.AppAutoBranchCreationConfigArgs
-    ///         {
-    ///             EnableAutoBuild = true,
-    ///         },
+    ///         Name = "example",
+    ///         EnableAutoBranchCreation = true,
     ///         AutoBranchCreationPatterns = new[]
     ///         {
     ///             "*",
     ///             "*/**",
     ///         },
-    ///         EnableAutoBranchCreation = true,
+    ///         AutoBranchCreationConfig = new Aws.Amplify.Inputs.AppAutoBranchCreationConfigArgs
+    ///         {
+    ///             EnableAutoBuild = true,
+    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Basic Authorization
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Amplify.App("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         EnableBasicAuth = true,
+    ///         BasicAuthCredentials = Std.Base64encode.Invoke(new()
+    ///         {
+    ///             Input = "username1:password1",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Rewrites and Redirects
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -122,6 +160,7 @@ namespace Pulumi.Aws.Amplify
     /// {
     ///     var example = new Aws.Amplify.App("example", new()
     ///     {
+    ///         Name = "example",
     ///         CustomRules = new[]
     ///         {
     ///             new Aws.Amplify.Inputs.AppCustomRuleArgs
@@ -141,8 +180,11 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Custom Image
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -153,6 +195,7 @@ namespace Pulumi.Aws.Amplify
     /// {
     ///     var example = new Aws.Amplify.App("example", new()
     ///     {
+    ///         Name = "example",
     ///         EnvironmentVariables = 
     ///         {
     ///             { "_CUSTOM_IMAGE", "node:16" },
@@ -161,8 +204,11 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Custom Headers
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -173,34 +219,35 @@ namespace Pulumi.Aws.Amplify
     /// {
     ///     var example = new Aws.Amplify.App("example", new()
     ///     {
-    ///         CustomHeaders = @"  customHeaders:
-    ///     - pattern: '**'
-    ///       headers:
-    ///         - key: 'Strict-Transport-Security'
-    ///           value: 'max-age=31536000; includeSubDomains'
-    ///         - key: 'X-Frame-Options'
-    ///           value: 'SAMEORIGIN'
-    ///         - key: 'X-XSS-Protection'
-    ///           value: '1; mode=block'
-    ///         - key: 'X-Content-Type-Options'
-    ///           value: 'nosniff'
-    ///         - key: 'Content-Security-Policy'
-    ///           value: ""default-src 'self'""
-    /// 
+    ///         Name = "example",
+    ///         CustomHeaders = @"customHeaders:
+    ///   - pattern: '**'
+    ///     headers:
+    ///       - key: 'Strict-Transport-Security'
+    ///         value: 'max-age=31536000; includeSubDomains'
+    ///       - key: 'X-Frame-Options'
+    ///         value: 'SAMEORIGIN'
+    ///       - key: 'X-XSS-Protection'
+    ///         value: '1; mode=block'
+    ///       - key: 'X-Content-Type-Options'
+    ///         value: 'nosniff'
+    ///       - key: 'Content-Security-Policy'
+    ///         value: ""default-src 'self'""
     /// ",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amplify App using Amplify App ID (appId). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:amplify/app:App example d2ypk4k47z8u6
+    /// $ pulumi import aws:amplify/app:App example d2ypk4k47z8u6
     /// ```
-    ///  App ID can be obtained from App ARN (e.g., `arn:aws:amplify:us-east-1:12345678:apps/d2ypk4k47z8u6`).
+    /// App ID can be obtained from App ARN (e.g., `arn:aws:amplify:us-east-1:12345678:apps/d2ypk4k47z8u6`).
     /// </summary>
     [AwsResourceType("aws:amplify/app:App")]
     public partial class App : global::Pulumi.CustomResource
@@ -371,7 +418,6 @@ namespace Pulumi.Aws.Amplify
                     "accessToken",
                     "basicAuthCredentials",
                     "oauthToken",
-                    "tagsAll",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -774,11 +820,7 @@ namespace Pulumi.Aws.Amplify
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public AppState()

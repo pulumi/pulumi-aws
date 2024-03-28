@@ -5,6 +5,7 @@ package com.pulumi.aws.cleanrooms.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -105,10 +106,18 @@ public final class CollaborationDataEncryptionMetadataArgs extends com.pulumi.re
         }
 
         public CollaborationDataEncryptionMetadataArgs build() {
-            $.allowClearText = Objects.requireNonNull($.allowClearText, "expected parameter 'allowClearText' to be non-null");
-            $.allowDuplicates = Objects.requireNonNull($.allowDuplicates, "expected parameter 'allowDuplicates' to be non-null");
-            $.allowJoinsOnColumnsWithDifferentNames = Objects.requireNonNull($.allowJoinsOnColumnsWithDifferentNames, "expected parameter 'allowJoinsOnColumnsWithDifferentNames' to be non-null");
-            $.preserveNulls = Objects.requireNonNull($.preserveNulls, "expected parameter 'preserveNulls' to be non-null");
+            if ($.allowClearText == null) {
+                throw new MissingRequiredPropertyException("CollaborationDataEncryptionMetadataArgs", "allowClearText");
+            }
+            if ($.allowDuplicates == null) {
+                throw new MissingRequiredPropertyException("CollaborationDataEncryptionMetadataArgs", "allowDuplicates");
+            }
+            if ($.allowJoinsOnColumnsWithDifferentNames == null) {
+                throw new MissingRequiredPropertyException("CollaborationDataEncryptionMetadataArgs", "allowJoinsOnColumnsWithDifferentNames");
+            }
+            if ($.preserveNulls == null) {
+                throw new MissingRequiredPropertyException("CollaborationDataEncryptionMetadataArgs", "preserveNulls");
+            }
             return $;
         }
     }

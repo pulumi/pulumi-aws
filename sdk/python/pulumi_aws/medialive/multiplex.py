@@ -245,14 +245,17 @@ class Multiplex(pulumi.CustomResource):
         Resource for managing an AWS MediaLive Multiplex.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available")
         example = aws.medialive.Multiplex("example",
+            name="example-multiplex-changed",
             availability_zones=[
                 available.names[0],
                 available.names[1],
@@ -268,13 +271,14 @@ class Multiplex(pulumi.CustomResource):
                 "tag1": "value1",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MediaLive Multiplex using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
+        $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -297,14 +301,17 @@ class Multiplex(pulumi.CustomResource):
         Resource for managing an AWS MediaLive Multiplex.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available")
         example = aws.medialive.Multiplex("example",
+            name="example-multiplex-changed",
             availability_zones=[
                 available.names[0],
                 available.names[1],
@@ -320,13 +327,14 @@ class Multiplex(pulumi.CustomResource):
                 "tag1": "value1",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MediaLive Multiplex using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
+        $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -367,8 +375,6 @@ class Multiplex(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Multiplex, __self__).__init__(
             'aws:medialive/multiplex:Multiplex',
             resource_name,

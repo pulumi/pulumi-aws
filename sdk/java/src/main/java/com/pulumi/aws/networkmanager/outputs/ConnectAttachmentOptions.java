@@ -44,13 +44,14 @@ public final class ConnectAttachmentOptions {
 
         @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
+
             this.protocol = protocol;
             return this;
         }
         public ConnectAttachmentOptions build() {
-            final var o = new ConnectAttachmentOptions();
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new ConnectAttachmentOptions();
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

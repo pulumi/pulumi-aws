@@ -10,37 +10,43 @@ import * as utilities from "../utilities";
  * > **NOTE:** Setting `skipDestroy` to `true` means that the AWS Provider will _not_ destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is _not_ managed by Pulumi and may incur extra expense in your AWS account.
  *
  * ## Example Usage
+ *
  * ### Alias Name
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.ProvisionedConcurrencyConfig("example", {
- *     functionName: aws_lambda_alias.example.function_name,
+ *     functionName: exampleAwsLambdaAlias.functionName,
  *     provisionedConcurrentExecutions: 1,
- *     qualifier: aws_lambda_alias.example.name,
+ *     qualifier: exampleAwsLambdaAlias.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Function Version
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.ProvisionedConcurrencyConfig("example", {
- *     functionName: aws_lambda_function.example.function_name,
+ *     functionName: exampleAwsLambdaFunction.functionName,
  *     provisionedConcurrentExecutions: 1,
- *     qualifier: aws_lambda_function.example.version,
+ *     qualifier: exampleAwsLambdaFunction.version,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `function_name` and `qualifier` separated by a comma (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function,production
+ * $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function,production
  * ```
  */
 export class ProvisionedConcurrencyConfig extends pulumi.CustomResource {

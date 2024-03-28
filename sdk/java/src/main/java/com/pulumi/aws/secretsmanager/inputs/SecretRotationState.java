@@ -18,6 +18,21 @@ public final class SecretRotationState extends com.pulumi.resources.ResourceArgs
     public static final SecretRotationState Empty = new SecretRotationState();
 
     /**
+     * Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotation_rules`. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
+     * 
+     */
+    @Import(name="rotateImmediately")
+    private @Nullable Output<Boolean> rotateImmediately;
+
+    /**
+     * @return Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotation_rules`. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> rotateImmediately() {
+        return Optional.ofNullable(this.rotateImmediately);
+    }
+
+    /**
      * Specifies whether automatic rotation is enabled for this secret.
      * 
      */
@@ -80,6 +95,7 @@ public final class SecretRotationState extends com.pulumi.resources.ResourceArgs
     private SecretRotationState() {}
 
     private SecretRotationState(SecretRotationState $) {
+        this.rotateImmediately = $.rotateImmediately;
         this.rotationEnabled = $.rotationEnabled;
         this.rotationLambdaArn = $.rotationLambdaArn;
         this.rotationRules = $.rotationRules;
@@ -102,6 +118,27 @@ public final class SecretRotationState extends com.pulumi.resources.ResourceArgs
 
         public Builder(SecretRotationState defaults) {
             $ = new SecretRotationState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param rotateImmediately Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotation_rules`. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rotateImmediately(@Nullable Output<Boolean> rotateImmediately) {
+            $.rotateImmediately = rotateImmediately;
+            return this;
+        }
+
+        /**
+         * @param rotateImmediately Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotation_rules`. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rotateImmediately(Boolean rotateImmediately) {
+            return rotateImmediately(Output.of(rotateImmediately));
         }
 
         /**

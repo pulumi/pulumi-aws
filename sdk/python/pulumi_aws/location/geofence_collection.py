@@ -243,19 +243,21 @@ class GeofenceCollection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.location.GeofenceCollection("example", collection_name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Location Geofence Collection using the `collection_name`. For example:
 
         ```sh
-         $ pulumi import aws:location/geofenceCollection:GeofenceCollection example example
+        $ pulumi import aws:location/geofenceCollection:GeofenceCollection example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -278,19 +280,21 @@ class GeofenceCollection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.location.GeofenceCollection("example", collection_name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Location Geofence Collection using the `collection_name`. For example:
 
         ```sh
-         $ pulumi import aws:location/geofenceCollection:GeofenceCollection example example
+        $ pulumi import aws:location/geofenceCollection:GeofenceCollection example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -331,8 +335,6 @@ class GeofenceCollection(pulumi.CustomResource):
             __props__.__dict__["create_time"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["update_time"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(GeofenceCollection, __self__).__init__(
             'aws:location/geofenceCollection:GeofenceCollection',
             resource_name,

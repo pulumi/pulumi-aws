@@ -106,24 +106,28 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        sql_injection_match_set = aws.waf.SqlInjectionMatchSet("sqlInjectionMatchSet", sql_injection_match_tuples=[aws.waf.SqlInjectionMatchSetSqlInjectionMatchTupleArgs(
-            field_to_match=aws.waf.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs(
-                type="QUERY_STRING",
-            ),
-            text_transformation="URL_DECODE",
-        )])
+        sql_injection_match_set = aws.waf.SqlInjectionMatchSet("sql_injection_match_set",
+            name="tf-sql_injection_match_set",
+            sql_injection_match_tuples=[aws.waf.SqlInjectionMatchSetSqlInjectionMatchTupleArgs(
+                text_transformation="URL_DECODE",
+                field_to_match=aws.waf.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs(
+                    type="QUERY_STRING",
+                ),
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS WAF SQL Injection Match Set using their ID. For example:
 
         ```sh
-         $ pulumi import aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        $ pulumi import aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
         :param str resource_name: The name of the resource.
@@ -142,24 +146,28 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        sql_injection_match_set = aws.waf.SqlInjectionMatchSet("sqlInjectionMatchSet", sql_injection_match_tuples=[aws.waf.SqlInjectionMatchSetSqlInjectionMatchTupleArgs(
-            field_to_match=aws.waf.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs(
-                type="QUERY_STRING",
-            ),
-            text_transformation="URL_DECODE",
-        )])
+        sql_injection_match_set = aws.waf.SqlInjectionMatchSet("sql_injection_match_set",
+            name="tf-sql_injection_match_set",
+            sql_injection_match_tuples=[aws.waf.SqlInjectionMatchSetSqlInjectionMatchTupleArgs(
+                text_transformation="URL_DECODE",
+                field_to_match=aws.waf.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs(
+                    type="QUERY_STRING",
+                ),
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS WAF SQL Injection Match Set using their ID. For example:
 
         ```sh
-         $ pulumi import aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        $ pulumi import aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
         :param str resource_name: The name of the resource.

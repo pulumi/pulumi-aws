@@ -8,16 +8,70 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS NetworkManager ConnectAttachment.
+ * Resource for managing an AWS Network Manager ConnectAttachment.
  *
  * ## Example Usage
+ *
+ * ### Basic Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.networkmanager.VpcAttachment("example", {
+ *     subnetArns: exampleAwsSubnet.map(__item => __item.arn),
+ *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
+ *     vpcArn: exampleAwsVpc.arn,
+ * });
+ * const exampleConnectAttachment = new aws.networkmanager.ConnectAttachment("example", {
+ *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
+ *     transportAttachmentId: example.id,
+ *     edgeLocation: example.edgeLocation,
+ *     options: {
+ *         protocol: "GRE",
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Usage with attachment accepter
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.networkmanager.VpcAttachment("example", {
+ *     subnetArns: exampleAwsSubnet.map(__item => __item.arn),
+ *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
+ *     vpcArn: exampleAwsVpc.arn,
+ * });
+ * const exampleAttachmentAccepter = new aws.networkmanager.AttachmentAccepter("example", {
+ *     attachmentId: example.id,
+ *     attachmentType: example.attachmentType,
+ * });
+ * const exampleConnectAttachment = new aws.networkmanager.ConnectAttachment("example", {
+ *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
+ *     transportAttachmentId: example.id,
+ *     edgeLocation: example.edgeLocation,
+ *     options: {
+ *         protocol: "GRE",
+ *     },
+ * });
+ * const example2 = new aws.networkmanager.AttachmentAccepter("example2", {
+ *     attachmentId: exampleConnectAttachment.id,
+ *     attachmentType: exampleConnectAttachment.attachmentType,
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_networkmanager_connect_attachment` using the attachment ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
+ * $ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
  * ```
  */
 export class ConnectAttachment extends pulumi.CustomResource {
@@ -169,8 +223,6 @@ export class ConnectAttachment extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ConnectAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }

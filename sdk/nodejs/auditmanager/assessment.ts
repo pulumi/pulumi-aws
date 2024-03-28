@@ -11,25 +11,28 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Audit Manager Assessment.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.auditmanager.Assessment("test", {
+ *     name: "example",
  *     assessmentReportsDestination: {
- *         destination: `s3://${aws_s3_bucket.test.id}`,
+ *         destination: `s3://${testAwsS3Bucket.id}`,
  *         destinationType: "S3",
  *     },
- *     frameworkId: aws_auditmanager_framework.test.id,
+ *     frameworkId: testAwsAuditmanagerFramework.id,
  *     roles: [{
- *         roleArn: aws_iam_role.test.arn,
+ *         roleArn: testAwsIamRole.arn,
  *         roleType: "PROCESS_OWNER",
  *     }],
  *     scope: {
  *         awsAccounts: [{
- *             id: data.aws_caller_identity.current.account_id,
+ *             id: current.accountId,
  *         }],
  *         awsServices: [{
  *             serviceName: "S3",
@@ -37,13 +40,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Audit Manager Assessments using the assessment `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:auditmanager/assessment:Assessment example abc123-de45
+ * $ pulumi import aws:auditmanager/assessment:Assessment example abc123-de45
  * ```
  */
 export class Assessment extends pulumi.CustomResource {
@@ -166,8 +170,6 @@ export class Assessment extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Assessment.__pulumiType, name, resourceInputs, opts);
     }
 }

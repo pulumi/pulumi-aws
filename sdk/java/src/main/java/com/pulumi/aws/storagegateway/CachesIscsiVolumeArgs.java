@@ -5,6 +5,7 @@ package com.pulumi.aws.storagegateway;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -375,10 +376,18 @@ public final class CachesIscsiVolumeArgs extends com.pulumi.resources.ResourceAr
         }
 
         public CachesIscsiVolumeArgs build() {
-            $.gatewayArn = Objects.requireNonNull($.gatewayArn, "expected parameter 'gatewayArn' to be non-null");
-            $.networkInterfaceId = Objects.requireNonNull($.networkInterfaceId, "expected parameter 'networkInterfaceId' to be non-null");
-            $.targetName = Objects.requireNonNull($.targetName, "expected parameter 'targetName' to be non-null");
-            $.volumeSizeInBytes = Objects.requireNonNull($.volumeSizeInBytes, "expected parameter 'volumeSizeInBytes' to be non-null");
+            if ($.gatewayArn == null) {
+                throw new MissingRequiredPropertyException("CachesIscsiVolumeArgs", "gatewayArn");
+            }
+            if ($.networkInterfaceId == null) {
+                throw new MissingRequiredPropertyException("CachesIscsiVolumeArgs", "networkInterfaceId");
+            }
+            if ($.targetName == null) {
+                throw new MissingRequiredPropertyException("CachesIscsiVolumeArgs", "targetName");
+            }
+            if ($.volumeSizeInBytes == null) {
+                throw new MissingRequiredPropertyException("CachesIscsiVolumeArgs", "volumeSizeInBytes");
+            }
             return $;
         }
     }

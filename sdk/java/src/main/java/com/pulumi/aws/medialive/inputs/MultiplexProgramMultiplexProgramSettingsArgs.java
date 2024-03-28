@@ -7,6 +7,7 @@ import com.pulumi.aws.medialive.inputs.MultiplexProgramMultiplexProgramSettingsS
 import com.pulumi.aws.medialive.inputs.MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -190,8 +191,12 @@ public final class MultiplexProgramMultiplexProgramSettingsArgs extends com.pulu
         }
 
         public MultiplexProgramMultiplexProgramSettingsArgs build() {
-            $.preferredChannelPipeline = Objects.requireNonNull($.preferredChannelPipeline, "expected parameter 'preferredChannelPipeline' to be non-null");
-            $.programNumber = Objects.requireNonNull($.programNumber, "expected parameter 'programNumber' to be non-null");
+            if ($.preferredChannelPipeline == null) {
+                throw new MissingRequiredPropertyException("MultiplexProgramMultiplexProgramSettingsArgs", "preferredChannelPipeline");
+            }
+            if ($.programNumber == null) {
+                throw new MissingRequiredPropertyException("MultiplexProgramMultiplexProgramSettingsArgs", "programNumber");
+            }
             return $;
         }
     }

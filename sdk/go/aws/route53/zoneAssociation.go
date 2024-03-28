@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +42,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			secondaryVpc, err := ec2.NewVpc(ctx, "secondaryVpc", &ec2.VpcArgs{
+//			secondary, err := ec2.NewVpc(ctx, "secondary", &ec2.VpcArgs{
 //				CidrBlock:          pulumi.String("10.7.0.0/16"),
 //				EnableDnsHostnames: pulumi.Bool(true),
 //				EnableDnsSupport:   pulumi.Bool(true),
@@ -50,6 +51,7 @@ import (
 //				return err
 //			}
 //			example, err := route53.NewZone(ctx, "example", &route53.ZoneArgs{
+//				Name: pulumi.String("example.com"),
 //				Vpcs: route53.ZoneVpcArray{
 //					&route53.ZoneVpcArgs{
 //						VpcId: primary.ID(),
@@ -59,9 +61,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = route53.NewZoneAssociation(ctx, "secondaryZoneAssociation", &route53.ZoneAssociationArgs{
+//			_, err = route53.NewZoneAssociation(ctx, "secondary", &route53.ZoneAssociationArgs{
 //				ZoneId: example.ZoneId,
-//				VpcId:  secondaryVpc.ID(),
+//				VpcId:  secondary.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -71,6 +73,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -81,17 +84,12 @@ import (
 // The VPC is in the same region where you have configured the AWS Provider:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
-//
+// $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
 // ```
-//
-//	The VPC is _not_ in the same region where you have configured the AWS Provider:
+// The VPC is _not_ in the same region where you have configured the AWS Provider:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
-//
+// $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
 // ```
 type ZoneAssociation struct {
 	pulumi.CustomResourceState

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,13 +22,14 @@ import * as utilities from "../utilities";
  *     description: "A channel dedicated to amusing videos of kittens.",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Media Package Channels using the channel ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
+ * $ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
  * ```
  */
 export class Channel extends pulumi.CustomResource {
@@ -117,8 +119,6 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Channel.__pulumiType, name, resourceInputs, opts);
     }
 }

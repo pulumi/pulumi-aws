@@ -10,6 +10,7 @@ import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3Configurati
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -37,14 +38,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
     }
 
     /**
-     * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+     * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
     @Import(name="bufferingInterval")
     private @Nullable Output<Integer> bufferingInterval;
 
     /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
     public Optional<Output<Integer>> bufferingInterval() {
@@ -67,14 +68,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
     }
 
     /**
-     * The CloudWatch Logging Options for the delivery stream. More details are given below
+     * The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -97,14 +98,29 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
     }
 
     /**
-     * Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
+     * The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
+     * 
+     */
+    @Import(name="customTimeZone")
+    private @Nullable Output<String> customTimeZone;
+
+    /**
+     * @return The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
+     * 
+     */
+    public Optional<Output<String>> customTimeZone() {
+        return Optional.ofNullable(this.customTimeZone);
+    }
+
+    /**
+     * Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `data_format_conversion_configuration` block below for details.
      * 
      */
     @Import(name="dataFormatConversionConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs> dataFormatConversionConfiguration;
 
     /**
-     * @return Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
+     * @return Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `data_format_conversion_configuration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs>> dataFormatConversionConfiguration() {
@@ -112,14 +128,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
     }
 
     /**
-     * The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details. Required when using dynamic partitioning.
+     * The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamic_partitioning_configuration` block below for details.
      * 
      */
     @Import(name="dynamicPartitioningConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs> dynamicPartitioningConfiguration;
 
     /**
-     * @return The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details. Required when using dynamic partitioning.
+     * @return The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamic_partitioning_configuration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs>> dynamicPartitioningConfiguration() {
@@ -139,6 +155,21 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
      */
     public Optional<Output<String>> errorOutputPrefix() {
         return Optional.ofNullable(this.errorOutputPrefix);
+    }
+
+    /**
+     * The file extension to override the default file extension (for example, `.json`).
+     * 
+     */
+    @Import(name="fileExtension")
+    private @Nullable Output<String> fileExtension;
+
+    /**
+     * @return The file extension to override the default file extension (for example, `.json`).
+     * 
+     */
+    public Optional<Output<String>> fileExtension() {
+        return Optional.ofNullable(this.fileExtension);
     }
 
     /**
@@ -174,14 +205,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
     }
 
     /**
-     * The data processing configuration.  More details are given below.
+     * The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     @Import(name="processingConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs> processingConfiguration;
 
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs>> processingConfiguration() {
@@ -241,9 +272,11 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         this.bufferingSize = $.bufferingSize;
         this.cloudwatchLoggingOptions = $.cloudwatchLoggingOptions;
         this.compressionFormat = $.compressionFormat;
+        this.customTimeZone = $.customTimeZone;
         this.dataFormatConversionConfiguration = $.dataFormatConversionConfiguration;
         this.dynamicPartitioningConfiguration = $.dynamicPartitioningConfiguration;
         this.errorOutputPrefix = $.errorOutputPrefix;
+        this.fileExtension = $.fileExtension;
         this.kmsKeyArn = $.kmsKeyArn;
         this.prefix = $.prefix;
         this.processingConfiguration = $.processingConfiguration;
@@ -292,7 +325,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          * 
          * @return builder
          * 
@@ -303,7 +336,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          * 
          * @return builder
          * 
@@ -334,7 +367,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
          * 
          * @return builder
          * 
@@ -345,7 +378,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
          * 
          * @return builder
          * 
@@ -376,7 +409,28 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param dataFormatConversionConfiguration Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
+         * @param customTimeZone The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customTimeZone(@Nullable Output<String> customTimeZone) {
+            $.customTimeZone = customTimeZone;
+            return this;
+        }
+
+        /**
+         * @param customTimeZone The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customTimeZone(String customTimeZone) {
+            return customTimeZone(Output.of(customTimeZone));
+        }
+
+        /**
+         * @param dataFormatConversionConfiguration Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `data_format_conversion_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -387,7 +441,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param dataFormatConversionConfiguration Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
+         * @param dataFormatConversionConfiguration Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `data_format_conversion_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -397,7 +451,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param dynamicPartitioningConfiguration The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details. Required when using dynamic partitioning.
+         * @param dynamicPartitioningConfiguration The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamic_partitioning_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -408,7 +462,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param dynamicPartitioningConfiguration The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details. Required when using dynamic partitioning.
+         * @param dynamicPartitioningConfiguration The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamic_partitioning_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -436,6 +490,27 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
          */
         public Builder errorOutputPrefix(String errorOutputPrefix) {
             return errorOutputPrefix(Output.of(errorOutputPrefix));
+        }
+
+        /**
+         * @param fileExtension The file extension to override the default file extension (for example, `.json`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fileExtension(@Nullable Output<String> fileExtension) {
+            $.fileExtension = fileExtension;
+            return this;
+        }
+
+        /**
+         * @param fileExtension The file extension to override the default file extension (for example, `.json`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fileExtension(String fileExtension) {
+            return fileExtension(Output.of(fileExtension));
         }
 
         /**
@@ -483,7 +558,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  More details are given below.
+         * @param processingConfiguration The data processing configuration.  See `processing_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -494,7 +569,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  More details are given below.
+         * @param processingConfiguration The data processing configuration.  See `processing_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -567,8 +642,12 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         public FirehoseDeliveryStreamExtendedS3ConfigurationArgs build() {
-            $.bucketArn = Objects.requireNonNull($.bucketArn, "expected parameter 'bucketArn' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.bucketArn == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamExtendedS3ConfigurationArgs", "bucketArn");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamExtendedS3ConfigurationArgs", "roleArn");
+            }
             return $;
         }
     }

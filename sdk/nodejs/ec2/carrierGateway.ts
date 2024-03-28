@@ -9,24 +9,26 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.CarrierGateway("example", {
- *     vpcId: aws_vpc.example.id,
+ *     vpcId: exampleAwsVpc.id,
  *     tags: {
  *         Name: "example-carrier-gateway",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ec2_carrier_gateway` using the carrier gateway's ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/carrierGateway:CarrierGateway example cgw-12345
+ * $ pulumi import aws:ec2/carrierGateway:CarrierGateway example cgw-12345
  * ```
  */
 export class CarrierGateway extends pulumi.CustomResource {
@@ -110,8 +112,6 @@ export class CarrierGateway extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(CarrierGateway.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,12 +29,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			demoWorkspace, err := amp.NewWorkspace(ctx, "demoWorkspace", nil)
+//			demo, err := amp.NewWorkspace(ctx, "demo", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = amp.NewAlertManagerDefinition(ctx, "demoAlertManagerDefinition", &amp.AlertManagerDefinitionArgs{
-//				WorkspaceId: demoWorkspace.ID(),
+//			_, err = amp.NewAlertManagerDefinition(ctx, "demo", &amp.AlertManagerDefinitionArgs{
+//				WorkspaceId: demo.ID(),
 //				Definition: pulumi.String(`alertmanager_config: |
 //	  route:
 //	    receiver: 'default'
@@ -51,15 +52,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import the prometheus alert manager definition using the workspace identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:amp/alertManagerDefinition:AlertManagerDefinition demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
-//
+// $ pulumi import aws:amp/alertManagerDefinition:AlertManagerDefinition demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
 // ```
 type AlertManagerDefinition struct {
 	pulumi.CustomResourceState

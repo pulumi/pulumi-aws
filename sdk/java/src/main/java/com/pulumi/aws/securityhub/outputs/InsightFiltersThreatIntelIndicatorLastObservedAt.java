@@ -73,25 +73,28 @@ public final class InsightFiltersThreatIntelIndicatorLastObservedAt {
 
         @CustomType.Setter
         public Builder dateRange(@Nullable InsightFiltersThreatIntelIndicatorLastObservedAtDateRange dateRange) {
+
             this.dateRange = dateRange;
             return this;
         }
         @CustomType.Setter
         public Builder end(@Nullable String end) {
+
             this.end = end;
             return this;
         }
         @CustomType.Setter
         public Builder start(@Nullable String start) {
+
             this.start = start;
             return this;
         }
         public InsightFiltersThreatIntelIndicatorLastObservedAt build() {
-            final var o = new InsightFiltersThreatIntelIndicatorLastObservedAt();
-            o.dateRange = dateRange;
-            o.end = end;
-            o.start = start;
-            return o;
+            final var _resultValue = new InsightFiltersThreatIntelIndicatorLastObservedAt();
+            _resultValue.dateRange = dateRange;
+            _resultValue.end = end;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

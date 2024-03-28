@@ -71,6 +71,7 @@ public final class DomainVpcOptions {
 
         @CustomType.Setter
         public Builder availabilityZones(@Nullable List<String> availabilityZones) {
+
             this.availabilityZones = availabilityZones;
             return this;
         }
@@ -79,6 +80,7 @@ public final class DomainVpcOptions {
         }
         @CustomType.Setter
         public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
+
             this.securityGroupIds = securityGroupIds;
             return this;
         }
@@ -87,6 +89,7 @@ public final class DomainVpcOptions {
         }
         @CustomType.Setter
         public Builder subnetIds(@Nullable List<String> subnetIds) {
+
             this.subnetIds = subnetIds;
             return this;
         }
@@ -95,16 +98,17 @@ public final class DomainVpcOptions {
         }
         @CustomType.Setter
         public Builder vpcId(@Nullable String vpcId) {
+
             this.vpcId = vpcId;
             return this;
         }
         public DomainVpcOptions build() {
-            final var o = new DomainVpcOptions();
-            o.availabilityZones = availabilityZones;
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new DomainVpcOptions();
+            _resultValue.availabilityZones = availabilityZones;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

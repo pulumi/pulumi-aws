@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS MediaLive Channel.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,8 +34,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := medialive.NewChannel(ctx, "example", &medialive.ChannelArgs{
+//				Name:         pulumi.String("example-channel"),
 //				ChannelClass: pulumi.String("STANDARD"),
-//				RoleArn:      pulumi.Any(aws_iam_role.Example.Arn),
+//				RoleArn:      pulumi.Any(exampleAwsIamRole.Arn),
 //				InputSpecification: &medialive.ChannelInputSpecificationArgs{
 //					Codec:           pulumi.String("AVC"),
 //					InputResolution: pulumi.String("HD"),
@@ -42,7 +45,7 @@ import (
 //				InputAttachments: medialive.ChannelInputAttachmentArray{
 //					&medialive.ChannelInputAttachmentArgs{
 //						InputAttachmentName: pulumi.String("example-input"),
-//						InputId:             pulumi.Any(aws_medialive_input.Example.Id),
+//						InputId:             pulumi.Any(exampleAwsMedialiveInput.Id),
 //					},
 //				},
 //				Destinations: medialive.ChannelDestinationArray{
@@ -50,10 +53,10 @@ import (
 //						Id: pulumi.String("destination"),
 //						Settings: medialive.ChannelDestinationSettingArray{
 //							&medialive.ChannelDestinationSettingArgs{
-//								Url: pulumi.String(fmt.Sprintf("s3://%v/test1", aws_s3_bucket.Main.Id)),
+//								Url: pulumi.String(fmt.Sprintf("s3://%v/test1", main.Id)),
 //							},
 //							&medialive.ChannelDestinationSettingArgs{
-//								Url: pulumi.String(fmt.Sprintf("s3://%v/test2", aws_s3_bucket.Main2.Id)),
+//								Url: pulumi.String(fmt.Sprintf("s3://%v/test2", main2.Id)),
 //							},
 //						},
 //					},
@@ -118,15 +121,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import MediaLive Channel using the `channel_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:medialive/channel:Channel example 1234567
-//
+// $ pulumi import aws:medialive/channel:Channel example 1234567
 // ```
 type Channel struct {
 	pulumi.CustomResourceState
@@ -189,10 +191,6 @@ func NewChannel(ctx *pulumi.Context,
 	if args.InputSpecification == nil {
 		return nil, errors.New("invalid value for required argument 'InputSpecification'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Channel
 	err := ctx.RegisterResource("aws:medialive/channel:Channel", name, args, &resource, opts...)

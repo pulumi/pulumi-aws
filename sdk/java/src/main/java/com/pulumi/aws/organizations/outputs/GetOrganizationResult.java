@@ -7,6 +7,7 @@ import com.pulumi.aws.organizations.outputs.GetOrganizationAccount;
 import com.pulumi.aws.organizations.outputs.GetOrganizationNonMasterAccount;
 import com.pulumi.aws.organizations.outputs.GetOrganizationRoot;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -186,7 +187,10 @@ public final class GetOrganizationResult {
 
         @CustomType.Setter
         public Builder accounts(List<GetOrganizationAccount> accounts) {
-            this.accounts = Objects.requireNonNull(accounts);
+            if (accounts == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "accounts");
+            }
+            this.accounts = accounts;
             return this;
         }
         public Builder accounts(GetOrganizationAccount... accounts) {
@@ -194,12 +198,18 @@ public final class GetOrganizationResult {
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder awsServiceAccessPrincipals(List<String> awsServiceAccessPrincipals) {
-            this.awsServiceAccessPrincipals = Objects.requireNonNull(awsServiceAccessPrincipals);
+            if (awsServiceAccessPrincipals == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "awsServiceAccessPrincipals");
+            }
+            this.awsServiceAccessPrincipals = awsServiceAccessPrincipals;
             return this;
         }
         public Builder awsServiceAccessPrincipals(String... awsServiceAccessPrincipals) {
@@ -207,7 +217,10 @@ public final class GetOrganizationResult {
         }
         @CustomType.Setter
         public Builder enabledPolicyTypes(List<String> enabledPolicyTypes) {
-            this.enabledPolicyTypes = Objects.requireNonNull(enabledPolicyTypes);
+            if (enabledPolicyTypes == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "enabledPolicyTypes");
+            }
+            this.enabledPolicyTypes = enabledPolicyTypes;
             return this;
         }
         public Builder enabledPolicyTypes(String... enabledPolicyTypes) {
@@ -215,32 +228,50 @@ public final class GetOrganizationResult {
         }
         @CustomType.Setter
         public Builder featureSet(String featureSet) {
-            this.featureSet = Objects.requireNonNull(featureSet);
+            if (featureSet == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "featureSet");
+            }
+            this.featureSet = featureSet;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder masterAccountArn(String masterAccountArn) {
-            this.masterAccountArn = Objects.requireNonNull(masterAccountArn);
+            if (masterAccountArn == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "masterAccountArn");
+            }
+            this.masterAccountArn = masterAccountArn;
             return this;
         }
         @CustomType.Setter
         public Builder masterAccountEmail(String masterAccountEmail) {
-            this.masterAccountEmail = Objects.requireNonNull(masterAccountEmail);
+            if (masterAccountEmail == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "masterAccountEmail");
+            }
+            this.masterAccountEmail = masterAccountEmail;
             return this;
         }
         @CustomType.Setter
         public Builder masterAccountId(String masterAccountId) {
-            this.masterAccountId = Objects.requireNonNull(masterAccountId);
+            if (masterAccountId == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "masterAccountId");
+            }
+            this.masterAccountId = masterAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder nonMasterAccounts(List<GetOrganizationNonMasterAccount> nonMasterAccounts) {
-            this.nonMasterAccounts = Objects.requireNonNull(nonMasterAccounts);
+            if (nonMasterAccounts == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "nonMasterAccounts");
+            }
+            this.nonMasterAccounts = nonMasterAccounts;
             return this;
         }
         public Builder nonMasterAccounts(GetOrganizationNonMasterAccount... nonMasterAccounts) {
@@ -248,26 +279,29 @@ public final class GetOrganizationResult {
         }
         @CustomType.Setter
         public Builder roots(List<GetOrganizationRoot> roots) {
-            this.roots = Objects.requireNonNull(roots);
+            if (roots == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "roots");
+            }
+            this.roots = roots;
             return this;
         }
         public Builder roots(GetOrganizationRoot... roots) {
             return roots(List.of(roots));
         }
         public GetOrganizationResult build() {
-            final var o = new GetOrganizationResult();
-            o.accounts = accounts;
-            o.arn = arn;
-            o.awsServiceAccessPrincipals = awsServiceAccessPrincipals;
-            o.enabledPolicyTypes = enabledPolicyTypes;
-            o.featureSet = featureSet;
-            o.id = id;
-            o.masterAccountArn = masterAccountArn;
-            o.masterAccountEmail = masterAccountEmail;
-            o.masterAccountId = masterAccountId;
-            o.nonMasterAccounts = nonMasterAccounts;
-            o.roots = roots;
-            return o;
+            final var _resultValue = new GetOrganizationResult();
+            _resultValue.accounts = accounts;
+            _resultValue.arn = arn;
+            _resultValue.awsServiceAccessPrincipals = awsServiceAccessPrincipals;
+            _resultValue.enabledPolicyTypes = enabledPolicyTypes;
+            _resultValue.featureSet = featureSet;
+            _resultValue.id = id;
+            _resultValue.masterAccountArn = masterAccountArn;
+            _resultValue.masterAccountEmail = masterAccountEmail;
+            _resultValue.masterAccountId = masterAccountId;
+            _resultValue.nonMasterAccounts = nonMasterAccounts;
+            _resultValue.roots = roots;
+            return _resultValue;
         }
     }
 }

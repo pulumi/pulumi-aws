@@ -136,11 +136,12 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test_instances = aws.ec2.get_instances(instance_tags={
+    test = aws.ec2.get_instances(instance_tags={
             "Role": "HardWorker",
         },
         filters=[aws.ec2.GetInstancesFilterArgs(
@@ -152,9 +153,10 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
             "stopped",
         ])
     test_eip = []
-    for range in [{"value": i} for i in range(0, len(test_instances.ids))]:
-        test_eip.append(aws.ec2.Eip(f"testEip-{range['value']}", instance=test_instances.ids[range["value"]]))
+    for range in [{"value": i} for i in range(0, len(test.ids))]:
+        test_eip.append(aws.ec2.Eip(f"test-{range['value']}", instance=test.ids[range["value"]]))
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: One or more name/value pairs to use as filters. There are
@@ -198,11 +200,12 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test_instances = aws.ec2.get_instances(instance_tags={
+    test = aws.ec2.get_instances(instance_tags={
             "Role": "HardWorker",
         },
         filters=[aws.ec2.GetInstancesFilterArgs(
@@ -214,9 +217,10 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi
             "stopped",
         ])
     test_eip = []
-    for range in [{"value": i} for i in range(0, len(test_instances.ids))]:
-        test_eip.append(aws.ec2.Eip(f"testEip-{range['value']}", instance=test_instances.ids[range["value"]]))
+    for range in [{"value": i} for i in range(0, len(test.ids))]:
+        test_eip.append(aws.ec2.Eip(f"test-{range['value']}", instance=test.ids[range["value"]]))
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: One or more name/value pairs to use as filters. There are

@@ -32,6 +32,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE on blue/green deployments:** When using `green_fleet_provisioning_option` with the `COPY_AUTO_SCALING_GROUP` action, CodeDeploy will create a new ASG with a different name. This ASG is _not_ managed by this provider and will conflict with existing configuration and state. You may want to use a different approach to managing deployments that involve multiple ASG, such as `DISCOVER_EXISTING` with separate blue and green ASG.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,7 +47,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RolePolicyAttachment;
  * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
  * import com.pulumi.aws.codedeploy.Application;
+ * import com.pulumi.aws.codedeploy.ApplicationArgs;
  * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.codedeploy.DeploymentGroup;
  * import com.pulumi.aws.codedeploy.DeploymentGroupArgs;
  * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupEc2TagSetArgs;
@@ -76,23 +80,28 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
+ *             .name(&#34;example-role&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var aWSCodeDeployRole = new RolePolicyAttachment(&#34;aWSCodeDeployRole&#34;, RolePolicyAttachmentArgs.builder()        
  *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole&#34;)
- *             .role(exampleRole.name())
+ *             .role(example.name())
  *             .build());
  * 
- *         var exampleApplication = new Application(&#34;exampleApplication&#34;);
+ *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;example-app&#34;)
+ *             .build());
  * 
- *         var exampleTopic = new Topic(&#34;exampleTopic&#34;);
+ *         var exampleTopic = new Topic(&#34;exampleTopic&#34;, TopicArgs.builder()        
+ *             .name(&#34;example-topic&#34;)
+ *             .build());
  * 
  *         var exampleDeploymentGroup = new DeploymentGroup(&#34;exampleDeploymentGroup&#34;, DeploymentGroupArgs.builder()        
  *             .appName(exampleApplication.name())
  *             .deploymentGroupName(&#34;example-group&#34;)
- *             .serviceRoleArn(exampleRole.arn())
+ *             .serviceRoleArn(example.arn())
  *             .ec2TagSets(DeploymentGroupEc2TagSetArgs.builder()
  *                 .ec2TagFilters(                
  *                     DeploymentGroupEc2TagSetEc2TagFilterArgs.builder()
@@ -125,7 +134,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Blue Green Deployments with ECS
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -158,15 +171,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
+ *         var example = new Application(&#34;example&#34;, ApplicationArgs.builder()        
  *             .computePlatform(&#34;ECS&#34;)
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleDeploymentGroup = new DeploymentGroup(&#34;exampleDeploymentGroup&#34;, DeploymentGroupArgs.builder()        
- *             .appName(exampleApplication.name())
+ *             .appName(example.name())
  *             .deploymentConfigName(&#34;CodeDeployDefault.ECSAllAtOnce&#34;)
  *             .deploymentGroupName(&#34;example&#34;)
- *             .serviceRoleArn(aws_iam_role.example().arn())
+ *             .serviceRoleArn(exampleAwsIamRole.arn())
  *             .autoRollbackConfiguration(DeploymentGroupAutoRollbackConfigurationArgs.builder()
  *                 .enabled(true)
  *                 .events(&#34;DEPLOYMENT_FAILURE&#34;)
@@ -185,20 +199,20 @@ import javax.annotation.Nullable;
  *                 .deploymentType(&#34;BLUE_GREEN&#34;)
  *                 .build())
  *             .ecsService(DeploymentGroupEcsServiceArgs.builder()
- *                 .clusterName(aws_ecs_cluster.example().name())
- *                 .serviceName(aws_ecs_service.example().name())
+ *                 .clusterName(exampleAwsEcsCluster.name())
+ *                 .serviceName(exampleAwsEcsService.name())
  *                 .build())
  *             .loadBalancerInfo(DeploymentGroupLoadBalancerInfoArgs.builder()
  *                 .targetGroupPairInfo(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs.builder()
  *                     .prodTrafficRoute(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs.builder()
- *                         .listenerArns(aws_lb_listener.example().arn())
+ *                         .listenerArns(exampleAwsLbListener.arn())
  *                         .build())
  *                     .targetGroups(                    
  *                         DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs.builder()
- *                             .name(aws_lb_target_group.blue().name())
+ *                             .name(blue.name())
  *                             .build(),
  *                         DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs.builder()
- *                             .name(aws_lb_target_group.green().name())
+ *                             .name(green.name())
  *                             .build())
  *                     .build())
  *                 .build())
@@ -207,7 +221,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Blue Green Deployments with Servers and Classic ELB
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -215,6 +233,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.codedeploy.Application;
+ * import com.pulumi.aws.codedeploy.ApplicationArgs;
  * import com.pulumi.aws.codedeploy.DeploymentGroup;
  * import com.pulumi.aws.codedeploy.DeploymentGroupArgs;
  * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupDeploymentStyleArgs;
@@ -236,19 +255,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleApplication = new Application(&#34;exampleApplication&#34;);
+ *         var example = new Application(&#34;example&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;example-app&#34;)
+ *             .build());
  * 
  *         var exampleDeploymentGroup = new DeploymentGroup(&#34;exampleDeploymentGroup&#34;, DeploymentGroupArgs.builder()        
- *             .appName(exampleApplication.name())
+ *             .appName(example.name())
  *             .deploymentGroupName(&#34;example-group&#34;)
- *             .serviceRoleArn(aws_iam_role.example().arn())
+ *             .serviceRoleArn(exampleAwsIamRole.arn())
  *             .deploymentStyle(DeploymentGroupDeploymentStyleArgs.builder()
  *                 .deploymentOption(&#34;WITH_TRAFFIC_CONTROL&#34;)
  *                 .deploymentType(&#34;BLUE_GREEN&#34;)
  *                 .build())
  *             .loadBalancerInfo(DeploymentGroupLoadBalancerInfoArgs.builder()
  *                 .elbInfos(DeploymentGroupLoadBalancerInfoElbInfoArgs.builder()
- *                     .name(aws_elb.example().name())
+ *                     .name(exampleAwsElb.name())
  *                     .build())
  *                 .build())
  *             .blueGreenDeploymentConfig(DeploymentGroupBlueGreenDeploymentConfigArgs.builder()
@@ -268,13 +289,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CodeDeploy Deployment Groups using `app_name`, a colon, and `deployment_group_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
+ * $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
  * ```
  * 
  */
@@ -611,9 +633,6 @@ public class DeploymentGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS MediaLive Multiplex.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,9 +39,10 @@ import (
 //				return err
 //			}
 //			_, err = medialive.NewMultiplex(ctx, "example", &medialive.MultiplexArgs{
+//				Name: pulumi.String("example-multiplex-changed"),
 //				AvailabilityZones: pulumi.StringArray{
-//					*pulumi.String(available.Names[0]),
-//					*pulumi.String(available.Names[1]),
+//					pulumi.String(available.Names[0]),
+//					pulumi.String(available.Names[1]),
 //				},
 //				MultiplexSettings: &medialive.MultiplexMultiplexSettingsArgs{
 //					TransportStreamBitrate:              pulumi.Int(1000000),
@@ -60,15 +63,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import MediaLive Multiplex using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:medialive/multiplex:Multiplex example 12345678
-//
+// $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
 // ```
 type Multiplex struct {
 	pulumi.CustomResourceState
@@ -101,10 +103,6 @@ func NewMultiplex(ctx *pulumi.Context,
 	if args.AvailabilityZones == nil {
 		return nil, errors.New("invalid value for required argument 'AvailabilityZones'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Multiplex
 	err := ctx.RegisterResource("aws:medialive/multiplex:Multiplex", name, args, &resource, opts...)

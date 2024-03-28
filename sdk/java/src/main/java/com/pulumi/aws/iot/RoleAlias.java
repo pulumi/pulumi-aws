@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -20,6 +21,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,6 +54,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
+ *             .name(&#34;dynamodb-access-role&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
@@ -63,13 +66,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IOT Role Alias using the alias. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
+ * $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
  * ```
  * 
  */
@@ -130,6 +134,38 @@ public class RoleAlias extends com.pulumi.resources.CustomResource {
      */
     public Output<String> roleArn() {
         return this.roleArn;
+    }
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> tags;
+
+    /**
+     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
+    }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     * @deprecated
+     * Please use `tags` instead.
+     * 
+     */
+    @Deprecated /* Please use `tags` instead. */
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Output<Map<String,String>> tagsAll() {
+        return this.tagsAll;
     }
 
     /**

@@ -333,289 +333,336 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
 
         @CustomType.Setter
         public Builder absentInputAudioBehavior(@Nullable String absentInputAudioBehavior) {
+
             this.absentInputAudioBehavior = absentInputAudioBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder arib(@Nullable String arib) {
+
             this.arib = arib;
             return this;
         }
         @CustomType.Setter
         public Builder aribCaptionsPid(@Nullable String aribCaptionsPid) {
+
             this.aribCaptionsPid = aribCaptionsPid;
             return this;
         }
         @CustomType.Setter
         public Builder aribCaptionsPidControl(@Nullable String aribCaptionsPidControl) {
+
             this.aribCaptionsPidControl = aribCaptionsPidControl;
             return this;
         }
         @CustomType.Setter
         public Builder audioBufferModel(@Nullable String audioBufferModel) {
+
             this.audioBufferModel = audioBufferModel;
             return this;
         }
         @CustomType.Setter
         public Builder audioFramesPerPes(@Nullable Integer audioFramesPerPes) {
+
             this.audioFramesPerPes = audioFramesPerPes;
             return this;
         }
         @CustomType.Setter
         public Builder audioPids(@Nullable String audioPids) {
+
             this.audioPids = audioPids;
             return this;
         }
         @CustomType.Setter
         public Builder audioStreamType(@Nullable String audioStreamType) {
+
             this.audioStreamType = audioStreamType;
             return this;
         }
         @CustomType.Setter
         public Builder bitrate(@Nullable Integer bitrate) {
+
             this.bitrate = bitrate;
             return this;
         }
         @CustomType.Setter
         public Builder bufferModel(@Nullable String bufferModel) {
+
             this.bufferModel = bufferModel;
             return this;
         }
         @CustomType.Setter
         public Builder ccDescriptor(@Nullable String ccDescriptor) {
+
             this.ccDescriptor = ccDescriptor;
             return this;
         }
         @CustomType.Setter
         public Builder dvbNitSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings dvbNitSettings) {
+
             this.dvbNitSettings = dvbNitSettings;
             return this;
         }
         @CustomType.Setter
         public Builder dvbSdtSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings dvbSdtSettings) {
+
             this.dvbSdtSettings = dvbSdtSettings;
             return this;
         }
         @CustomType.Setter
         public Builder dvbSubPids(@Nullable String dvbSubPids) {
+
             this.dvbSubPids = dvbSubPids;
             return this;
         }
         @CustomType.Setter
         public Builder dvbTdtSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings dvbTdtSettings) {
+
             this.dvbTdtSettings = dvbTdtSettings;
             return this;
         }
         @CustomType.Setter
         public Builder dvbTeletextPid(@Nullable String dvbTeletextPid) {
+
             this.dvbTeletextPid = dvbTeletextPid;
             return this;
         }
         @CustomType.Setter
         public Builder ebif(@Nullable String ebif) {
+
             this.ebif = ebif;
             return this;
         }
         @CustomType.Setter
         public Builder ebpAudioInterval(@Nullable String ebpAudioInterval) {
+
             this.ebpAudioInterval = ebpAudioInterval;
             return this;
         }
         @CustomType.Setter
         public Builder ebpLookaheadMs(@Nullable Integer ebpLookaheadMs) {
+
             this.ebpLookaheadMs = ebpLookaheadMs;
             return this;
         }
         @CustomType.Setter
         public Builder ebpPlacement(@Nullable String ebpPlacement) {
+
             this.ebpPlacement = ebpPlacement;
             return this;
         }
         @CustomType.Setter
         public Builder ecmPid(@Nullable String ecmPid) {
+
             this.ecmPid = ecmPid;
             return this;
         }
         @CustomType.Setter
         public Builder esRateInPes(@Nullable String esRateInPes) {
+
             this.esRateInPes = esRateInPes;
             return this;
         }
         @CustomType.Setter
         public Builder etvPlatformPid(@Nullable String etvPlatformPid) {
+
             this.etvPlatformPid = etvPlatformPid;
             return this;
         }
         @CustomType.Setter
         public Builder etvSignalPid(@Nullable String etvSignalPid) {
+
             this.etvSignalPid = etvSignalPid;
             return this;
         }
         @CustomType.Setter
         public Builder fragmentTime(@Nullable Double fragmentTime) {
+
             this.fragmentTime = fragmentTime;
             return this;
         }
         @CustomType.Setter
         public Builder klv(@Nullable String klv) {
+
             this.klv = klv;
             return this;
         }
         @CustomType.Setter
         public Builder klvDataPids(@Nullable String klvDataPids) {
+
             this.klvDataPids = klvDataPids;
             return this;
         }
         @CustomType.Setter
         public Builder nielsenId3Behavior(@Nullable String nielsenId3Behavior) {
+
             this.nielsenId3Behavior = nielsenId3Behavior;
             return this;
         }
         @CustomType.Setter
         public Builder nullPacketBitrate(@Nullable Double nullPacketBitrate) {
+
             this.nullPacketBitrate = nullPacketBitrate;
             return this;
         }
         @CustomType.Setter
         public Builder patInterval(@Nullable Integer patInterval) {
+
             this.patInterval = patInterval;
             return this;
         }
         @CustomType.Setter
         public Builder pcrControl(@Nullable String pcrControl) {
+
             this.pcrControl = pcrControl;
             return this;
         }
         @CustomType.Setter
         public Builder pcrPeriod(@Nullable Integer pcrPeriod) {
+
             this.pcrPeriod = pcrPeriod;
             return this;
         }
         @CustomType.Setter
         public Builder pcrPid(@Nullable String pcrPid) {
+
             this.pcrPid = pcrPid;
             return this;
         }
         @CustomType.Setter
         public Builder pmtInterval(@Nullable Integer pmtInterval) {
+
             this.pmtInterval = pmtInterval;
             return this;
         }
         @CustomType.Setter
         public Builder pmtPid(@Nullable String pmtPid) {
+
             this.pmtPid = pmtPid;
             return this;
         }
         @CustomType.Setter
         public Builder programNum(@Nullable Integer programNum) {
+
             this.programNum = programNum;
             return this;
         }
         @CustomType.Setter
         public Builder rateMode(@Nullable String rateMode) {
+
             this.rateMode = rateMode;
             return this;
         }
         @CustomType.Setter
         public Builder scte27Pids(@Nullable String scte27Pids) {
+
             this.scte27Pids = scte27Pids;
             return this;
         }
         @CustomType.Setter
         public Builder scte35Control(@Nullable String scte35Control) {
+
             this.scte35Control = scte35Control;
             return this;
         }
         @CustomType.Setter
         public Builder scte35Pid(@Nullable String scte35Pid) {
+
             this.scte35Pid = scte35Pid;
             return this;
         }
         @CustomType.Setter
         public Builder segmentationMarkers(@Nullable String segmentationMarkers) {
+
             this.segmentationMarkers = segmentationMarkers;
             return this;
         }
         @CustomType.Setter
         public Builder segmentationStyle(@Nullable String segmentationStyle) {
+
             this.segmentationStyle = segmentationStyle;
             return this;
         }
         @CustomType.Setter
         public Builder segmentationTime(@Nullable Double segmentationTime) {
+
             this.segmentationTime = segmentationTime;
             return this;
         }
         @CustomType.Setter
         public Builder timedMetadataBehavior(@Nullable String timedMetadataBehavior) {
+
             this.timedMetadataBehavior = timedMetadataBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder timedMetadataPid(@Nullable String timedMetadataPid) {
+
             this.timedMetadataPid = timedMetadataPid;
             return this;
         }
         @CustomType.Setter
         public Builder transportStreamId(@Nullable Integer transportStreamId) {
+
             this.transportStreamId = transportStreamId;
             return this;
         }
         @CustomType.Setter
         public Builder videoPid(@Nullable String videoPid) {
+
             this.videoPid = videoPid;
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings();
-            o.absentInputAudioBehavior = absentInputAudioBehavior;
-            o.arib = arib;
-            o.aribCaptionsPid = aribCaptionsPid;
-            o.aribCaptionsPidControl = aribCaptionsPidControl;
-            o.audioBufferModel = audioBufferModel;
-            o.audioFramesPerPes = audioFramesPerPes;
-            o.audioPids = audioPids;
-            o.audioStreamType = audioStreamType;
-            o.bitrate = bitrate;
-            o.bufferModel = bufferModel;
-            o.ccDescriptor = ccDescriptor;
-            o.dvbNitSettings = dvbNitSettings;
-            o.dvbSdtSettings = dvbSdtSettings;
-            o.dvbSubPids = dvbSubPids;
-            o.dvbTdtSettings = dvbTdtSettings;
-            o.dvbTeletextPid = dvbTeletextPid;
-            o.ebif = ebif;
-            o.ebpAudioInterval = ebpAudioInterval;
-            o.ebpLookaheadMs = ebpLookaheadMs;
-            o.ebpPlacement = ebpPlacement;
-            o.ecmPid = ecmPid;
-            o.esRateInPes = esRateInPes;
-            o.etvPlatformPid = etvPlatformPid;
-            o.etvSignalPid = etvSignalPid;
-            o.fragmentTime = fragmentTime;
-            o.klv = klv;
-            o.klvDataPids = klvDataPids;
-            o.nielsenId3Behavior = nielsenId3Behavior;
-            o.nullPacketBitrate = nullPacketBitrate;
-            o.patInterval = patInterval;
-            o.pcrControl = pcrControl;
-            o.pcrPeriod = pcrPeriod;
-            o.pcrPid = pcrPid;
-            o.pmtInterval = pmtInterval;
-            o.pmtPid = pmtPid;
-            o.programNum = programNum;
-            o.rateMode = rateMode;
-            o.scte27Pids = scte27Pids;
-            o.scte35Control = scte35Control;
-            o.scte35Pid = scte35Pid;
-            o.segmentationMarkers = segmentationMarkers;
-            o.segmentationStyle = segmentationStyle;
-            o.segmentationTime = segmentationTime;
-            o.timedMetadataBehavior = timedMetadataBehavior;
-            o.timedMetadataPid = timedMetadataPid;
-            o.transportStreamId = transportStreamId;
-            o.videoPid = videoPid;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings();
+            _resultValue.absentInputAudioBehavior = absentInputAudioBehavior;
+            _resultValue.arib = arib;
+            _resultValue.aribCaptionsPid = aribCaptionsPid;
+            _resultValue.aribCaptionsPidControl = aribCaptionsPidControl;
+            _resultValue.audioBufferModel = audioBufferModel;
+            _resultValue.audioFramesPerPes = audioFramesPerPes;
+            _resultValue.audioPids = audioPids;
+            _resultValue.audioStreamType = audioStreamType;
+            _resultValue.bitrate = bitrate;
+            _resultValue.bufferModel = bufferModel;
+            _resultValue.ccDescriptor = ccDescriptor;
+            _resultValue.dvbNitSettings = dvbNitSettings;
+            _resultValue.dvbSdtSettings = dvbSdtSettings;
+            _resultValue.dvbSubPids = dvbSubPids;
+            _resultValue.dvbTdtSettings = dvbTdtSettings;
+            _resultValue.dvbTeletextPid = dvbTeletextPid;
+            _resultValue.ebif = ebif;
+            _resultValue.ebpAudioInterval = ebpAudioInterval;
+            _resultValue.ebpLookaheadMs = ebpLookaheadMs;
+            _resultValue.ebpPlacement = ebpPlacement;
+            _resultValue.ecmPid = ecmPid;
+            _resultValue.esRateInPes = esRateInPes;
+            _resultValue.etvPlatformPid = etvPlatformPid;
+            _resultValue.etvSignalPid = etvSignalPid;
+            _resultValue.fragmentTime = fragmentTime;
+            _resultValue.klv = klv;
+            _resultValue.klvDataPids = klvDataPids;
+            _resultValue.nielsenId3Behavior = nielsenId3Behavior;
+            _resultValue.nullPacketBitrate = nullPacketBitrate;
+            _resultValue.patInterval = patInterval;
+            _resultValue.pcrControl = pcrControl;
+            _resultValue.pcrPeriod = pcrPeriod;
+            _resultValue.pcrPid = pcrPid;
+            _resultValue.pmtInterval = pmtInterval;
+            _resultValue.pmtPid = pmtPid;
+            _resultValue.programNum = programNum;
+            _resultValue.rateMode = rateMode;
+            _resultValue.scte27Pids = scte27Pids;
+            _resultValue.scte35Control = scte35Control;
+            _resultValue.scte35Pid = scte35Pid;
+            _resultValue.segmentationMarkers = segmentationMarkers;
+            _resultValue.segmentationStyle = segmentationStyle;
+            _resultValue.segmentationTime = segmentationTime;
+            _resultValue.timedMetadataBehavior = timedMetadataBehavior;
+            _resultValue.timedMetadataPid = timedMetadataPid;
+            _resultValue.transportStreamId = transportStreamId;
+            _resultValue.videoPid = videoPid;
+            return _resultValue;
         }
     }
 }

@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS Comprehend Document Classifier.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,16 +39,15 @@ import (
 //				return err
 //			}
 //			_, err = comprehend.NewDocumentClassifier(ctx, "example", &comprehend.DocumentClassifierArgs{
-//				DataAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				Name:              pulumi.String("example"),
+//				DataAccessRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				LanguageCode:      pulumi.String("en"),
 //				InputDataConfig: &comprehend.DocumentClassifierInputDataConfigArgs{
 //					S3Uri: documents.ID().ApplyT(func(id string) (string, error) {
-//						return fmt.Sprintf("s3://%v/%v", aws_s3_bucket.Test.Bucket, id), nil
+//						return fmt.Sprintf("s3://%v/%v", test.Bucket, id), nil
 //					}).(pulumi.StringOutput),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_role_policy.Example,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -59,15 +60,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Comprehend Document Classifier using the ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
-//
+// $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
 // ```
 type DocumentClassifier struct {
 	pulumi.CustomResourceState
@@ -141,10 +141,6 @@ func NewDocumentClassifier(ctx *pulumi.Context,
 	if args.LanguageCode == nil {
 		return nil, errors.New("invalid value for required argument 'LanguageCode'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DocumentClassifier
 	err := ctx.RegisterResource("aws:comprehend/documentClassifier:DocumentClassifier", name, args, &resource, opts...)

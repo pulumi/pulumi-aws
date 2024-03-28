@@ -5,6 +5,7 @@ package com.pulumi.aws.datasync.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class TaskScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TaskScheduleArgs build() {
-            $.scheduleExpression = Objects.requireNonNull($.scheduleExpression, "expected parameter 'scheduleExpression' to be non-null");
+            if ($.scheduleExpression == null) {
+                throw new MissingRequiredPropertyException("TaskScheduleArgs", "scheduleExpression");
+            }
             return $;
         }
     }

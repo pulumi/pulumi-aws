@@ -14,12 +14,10 @@ public final class InvocationLoggingConfigurationLoggingConfigS3Config {
     /**
      * @return S3 bucket name.
      * 
-     * The following arguments are optional:
-     * 
      */
     private @Nullable String bucketName;
     /**
-     * @return S3 object key prefix.
+     * @return S3 prefix.
      * 
      */
     private @Nullable String keyPrefix;
@@ -28,14 +26,12 @@ public final class InvocationLoggingConfigurationLoggingConfigS3Config {
     /**
      * @return S3 bucket name.
      * 
-     * The following arguments are optional:
-     * 
      */
     public Optional<String> bucketName() {
         return Optional.ofNullable(this.bucketName);
     }
     /**
-     * @return S3 object key prefix.
+     * @return S3 prefix.
      * 
      */
     public Optional<String> keyPrefix() {
@@ -62,19 +58,21 @@ public final class InvocationLoggingConfigurationLoggingConfigS3Config {
 
         @CustomType.Setter
         public Builder bucketName(@Nullable String bucketName) {
+
             this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder keyPrefix(@Nullable String keyPrefix) {
+
             this.keyPrefix = keyPrefix;
             return this;
         }
         public InvocationLoggingConfigurationLoggingConfigS3Config build() {
-            final var o = new InvocationLoggingConfigurationLoggingConfigS3Config();
-            o.bucketName = bucketName;
-            o.keyPrefix = keyPrefix;
-            return o;
+            final var _resultValue = new InvocationLoggingConfigurationLoggingConfigS3Config();
+            _resultValue.bucketName = bucketName;
+            _resultValue.keyPrefix = keyPrefix;
+            return _resultValue;
         }
     }
 }

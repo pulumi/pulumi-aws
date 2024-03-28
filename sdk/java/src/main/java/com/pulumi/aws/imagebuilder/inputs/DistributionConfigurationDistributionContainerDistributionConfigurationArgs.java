@@ -6,6 +6,7 @@ package com.pulumi.aws.imagebuilder.inputs;
 import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -162,7 +163,9 @@ public final class DistributionConfigurationDistributionContainerDistributionCon
         }
 
         public DistributionConfigurationDistributionContainerDistributionConfigurationArgs build() {
-            $.targetRepository = Objects.requireNonNull($.targetRepository, "expected parameter 'targetRepository' to be non-null");
+            if ($.targetRepository == null) {
+                throw new MissingRequiredPropertyException("DistributionConfigurationDistributionContainerDistributionConfigurationArgs", "targetRepository");
+            }
             return $;
         }
     }

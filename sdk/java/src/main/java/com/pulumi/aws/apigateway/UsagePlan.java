@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Provides an API Gateway Usage Plan.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,7 +56,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRestApi = new RestApi(&#34;exampleRestApi&#34;, RestApiArgs.builder()        
+ *         var example = new RestApi(&#34;example&#34;, RestApiArgs.builder()        
  *             .body(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;openapi&#34;, &#34;3.0.1&#34;),
@@ -75,36 +77,37 @@ import javax.annotation.Nullable;
  *                         ))
  *                     ))
  *                 )))
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
- *             .restApi(exampleRestApi.id())
- *             .triggers(Map.of(&#34;redeployment&#34;, exampleRestApi.body().applyValue(body -&gt; serializeJson(
- *                 body)).applyValue(toJSON -&gt; computeSHA1(toJSON))))
+ *             .restApi(example.id())
+ *             .triggers(Map.of(&#34;redeployment&#34;, StdFunctions.sha1().applyValue(invoke -&gt; invoke.result())))
  *             .build());
  * 
  *         var development = new Stage(&#34;development&#34;, StageArgs.builder()        
  *             .deployment(exampleDeployment.id())
- *             .restApi(exampleRestApi.id())
+ *             .restApi(example.id())
  *             .stageName(&#34;development&#34;)
  *             .build());
  * 
  *         var production = new Stage(&#34;production&#34;, StageArgs.builder()        
  *             .deployment(exampleDeployment.id())
- *             .restApi(exampleRestApi.id())
+ *             .restApi(example.id())
  *             .stageName(&#34;production&#34;)
  *             .build());
  * 
  *         var exampleUsagePlan = new UsagePlan(&#34;exampleUsagePlan&#34;, UsagePlanArgs.builder()        
+ *             .name(&#34;my-usage-plan&#34;)
  *             .description(&#34;my description&#34;)
  *             .productCode(&#34;MYCODE&#34;)
  *             .apiStages(            
  *                 UsagePlanApiStageArgs.builder()
- *                     .apiId(exampleRestApi.id())
+ *                     .apiId(example.id())
  *                     .stage(development.stageName())
  *                     .build(),
  *                 UsagePlanApiStageArgs.builder()
- *                     .apiId(exampleRestApi.id())
+ *                     .apiId(example.id())
  *                     .stage(production.stageName())
  *                     .build())
  *             .quotaSettings(UsagePlanQuotaSettingsArgs.builder()
@@ -121,13 +124,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AWS API Gateway Usage Plan using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan &lt;usage_plan_id&gt;
+ * $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan &lt;usage_plan_id&gt;
  * ```
  * 
  */
@@ -296,9 +300,6 @@ public class UsagePlan extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

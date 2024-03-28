@@ -15,30 +15,34 @@ import * as utilities from "../utilities";
  * > A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.servicecatalog.Product("example", {
+ *     name: "example",
  *     owner: "example-owner",
+ *     type: "CLOUD_FORMATION_TEMPLATE",
  *     provisioningArtifactParameters: {
  *         templateUrl: "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json",
  *     },
  *     tags: {
  *         foo: "bar",
  *     },
- *     type: "CLOUD_FORMATION_TEMPLATE",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_servicecatalog_product` using the product ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
+ * $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
  * ```
  */
 export class Product extends pulumi.CustomResource {
@@ -196,8 +200,6 @@ export class Product extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Product.__pulumiType, name, resourceInputs, opts);
     }
 }

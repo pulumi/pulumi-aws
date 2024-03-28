@@ -15,8 +15,10 @@ import (
 // Provides a Simple or Managed Microsoft directory in AWS Directory Service.
 //
 // ## Example Usage
+//
 // ### SimpleAD
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,7 +46,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			barSubnet, err := ec2.NewSubnet(ctx, "barSubnet", &ec2.SubnetArgs{
+//			barSubnet, err := ec2.NewSubnet(ctx, "bar", &ec2.SubnetArgs{
 //				VpcId:            main.ID(),
 //				AvailabilityZone: pulumi.String("us-west-2b"),
 //				CidrBlock:        pulumi.String("10.0.2.0/24"),
@@ -52,7 +54,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = directoryservice.NewDirectory(ctx, "barDirectory", &directoryservice.DirectoryArgs{
+//			_, err = directoryservice.NewDirectory(ctx, "bar", &directoryservice.DirectoryArgs{
 //				Name:     pulumi.String("corp.notexample.com"),
 //				Password: pulumi.String("SuperSecretPassw0rd"),
 //				Size:     pulumi.String("Small"),
@@ -75,8 +77,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Microsoft Active Directory (MicrosoftAD)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -104,7 +109,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			barSubnet, err := ec2.NewSubnet(ctx, "barSubnet", &ec2.SubnetArgs{
+//			barSubnet, err := ec2.NewSubnet(ctx, "bar", &ec2.SubnetArgs{
 //				VpcId:            main.ID(),
 //				AvailabilityZone: pulumi.String("us-west-2b"),
 //				CidrBlock:        pulumi.String("10.0.2.0/24"),
@@ -112,7 +117,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = directoryservice.NewDirectory(ctx, "barDirectory", &directoryservice.DirectoryArgs{
+//			_, err = directoryservice.NewDirectory(ctx, "bar", &directoryservice.DirectoryArgs{
 //				Name:     pulumi.String("corp.notexample.com"),
 //				Password: pulumi.String("SuperSecretPassw0rd"),
 //				Edition:  pulumi.String("Standard"),
@@ -136,8 +141,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Microsoft Active Directory Connector (ADConnector)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -198,15 +206,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DirectoryService directories using the directory `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
-//
+// $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
 // ```
 type Directory struct {
 	pulumi.CustomResourceState
@@ -267,7 +274,6 @@ func NewDirectory(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"password",
-		"tagsAll",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)

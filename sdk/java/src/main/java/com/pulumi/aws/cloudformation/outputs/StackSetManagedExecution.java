@@ -44,13 +44,14 @@ public final class StackSetManagedExecution {
 
         @CustomType.Setter
         public Builder active(@Nullable Boolean active) {
+
             this.active = active;
             return this;
         }
         public StackSetManagedExecution build() {
-            final var o = new StackSetManagedExecution();
-            o.active = active;
-            return o;
+            final var _resultValue = new StackSetManagedExecution();
+            _resultValue.active = active;
+            return _resultValue;
         }
     }
 }

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,11 +28,12 @@ import * as utilities from "../utilities";
  *     hostInstanceType: "mq.m5.large",
  * });
  * const all = aws.mq.getInstanceTypeOfferings({
- *     engineType: "ACTIVEMQ",
  *     hostInstanceType: "mq.m5.large",
  *     storageType: "EBS",
+ *     engineType: "ACTIVEMQ",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getInstanceTypeOfferings(args?: GetInstanceTypeOfferingsArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeOfferingsResult> {
     args = args || {};
@@ -92,6 +94,7 @@ export interface GetInstanceTypeOfferingsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -107,11 +110,12 @@ export interface GetInstanceTypeOfferingsResult {
  *     hostInstanceType: "mq.m5.large",
  * });
  * const all = aws.mq.getInstanceTypeOfferings({
- *     engineType: "ACTIVEMQ",
  *     hostInstanceType: "mq.m5.large",
  *     storageType: "EBS",
+ *     engineType: "ACTIVEMQ",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getInstanceTypeOfferingsOutput(args?: GetInstanceTypeOfferingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceTypeOfferingsResult> {
     return pulumi.output(args).apply((a: any) => getInstanceTypeOfferings(a, opts))

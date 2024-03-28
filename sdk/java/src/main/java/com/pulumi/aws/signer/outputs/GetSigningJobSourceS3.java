@@ -4,6 +4,7 @@
 package com.pulumi.aws.signer.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -46,25 +47,34 @@ public final class GetSigningJobSourceS3 {
 
         @CustomType.Setter
         public Builder bucket(String bucket) {
-            this.bucket = Objects.requireNonNull(bucket);
+            if (bucket == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobSourceS3", "bucket");
+            }
+            this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobSourceS3", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobSourceS3", "version");
+            }
+            this.version = version;
             return this;
         }
         public GetSigningJobSourceS3 build() {
-            final var o = new GetSigningJobSourceS3();
-            o.bucket = bucket;
-            o.key = key;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetSigningJobSourceS3();
+            _resultValue.bucket = bucket;
+            _resultValue.key = key;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

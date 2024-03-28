@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames;
 import com.pulumi.aws.appmesh.outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -59,19 +60,23 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation {
 
         @CustomType.Setter
         public Builder subjectAlternativeNames(@Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames subjectAlternativeNames) {
+
             this.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
         @CustomType.Setter
         public Builder trust(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust trust) {
-            this.trust = Objects.requireNonNull(trust);
+            if (trust == null) {
+              throw new MissingRequiredPropertyException("VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation", "trust");
+            }
+            this.trust = trust;
             return this;
         }
         public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation build() {
-            final var o = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation();
-            o.subjectAlternativeNames = subjectAlternativeNames;
-            o.trust = trust;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation();
+            _resultValue.subjectAlternativeNames = subjectAlternativeNames;
+            _resultValue.trust = trust;
+            return _resultValue;
         }
     }
 }

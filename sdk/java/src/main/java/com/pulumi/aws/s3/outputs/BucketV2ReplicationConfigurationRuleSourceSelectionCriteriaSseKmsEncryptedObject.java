@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSs
 
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         public BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject build() {
-            final var o = new BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

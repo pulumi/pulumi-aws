@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,8 +42,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### CloudWatch Logging
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,13 +62,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
+//			example, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = amp.NewWorkspace(ctx, "exampleWorkspace", &amp.WorkspaceArgs{
+//			_, err = amp.NewWorkspace(ctx, "example", &amp.WorkspaceArgs{
 //				LoggingConfiguration: &amp.WorkspaceLoggingConfigurationArgs{
-//					LogGroupArn: exampleLogGroup.Arn.ApplyT(func(arn string) (string, error) {
+//					LogGroupArn: example.Arn.ApplyT(func(arn string) (string, error) {
 //						return fmt.Sprintf("%v:*", arn), nil
 //					}).(pulumi.StringOutput),
 //				},
@@ -77,15 +83,51 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ### AWS KMS Customer Managed Keys (CMK)
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amp"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleKey, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
+//				Description:          pulumi.String("example"),
+//				DeletionWindowInDays: pulumi.Int(7),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = amp.NewWorkspace(ctx, "example", &amp.WorkspaceArgs{
+//				Alias:     pulumi.String("example"),
+//				KmsKeyArn: exampleKey.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AMP Workspaces using the identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
-//
+// $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
 // ```
 type Workspace struct {
 	pulumi.CustomResourceState
@@ -94,6 +136,8 @@ type Workspace struct {
 	Alias pulumi.StringPtrOutput `pulumi:"alias"`
 	// Amazon Resource Name (ARN) of the workspace.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// Logging configuration for the workspace. See Logging Configuration below for details.
 	LoggingConfiguration WorkspaceLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
 	// Prometheus endpoint available for this workspace.
@@ -113,10 +157,6 @@ func NewWorkspace(ctx *pulumi.Context,
 		args = &WorkspaceArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workspace
 	err := ctx.RegisterResource("aws:amp/workspace:Workspace", name, args, &resource, opts...)
@@ -144,6 +184,8 @@ type workspaceState struct {
 	Alias *string `pulumi:"alias"`
 	// Amazon Resource Name (ARN) of the workspace.
 	Arn *string `pulumi:"arn"`
+	// The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Logging configuration for the workspace. See Logging Configuration below for details.
 	LoggingConfiguration *WorkspaceLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// Prometheus endpoint available for this workspace.
@@ -161,6 +203,8 @@ type WorkspaceState struct {
 	Alias pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the workspace.
 	Arn pulumi.StringPtrInput
+	// The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+	KmsKeyArn pulumi.StringPtrInput
 	// Logging configuration for the workspace. See Logging Configuration below for details.
 	LoggingConfiguration WorkspaceLoggingConfigurationPtrInput
 	// Prometheus endpoint available for this workspace.
@@ -180,6 +224,8 @@ func (WorkspaceState) ElementType() reflect.Type {
 type workspaceArgs struct {
 	// The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
 	Alias *string `pulumi:"alias"`
+	// The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Logging configuration for the workspace. See Logging Configuration below for details.
 	LoggingConfiguration *WorkspaceLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -190,6 +236,8 @@ type workspaceArgs struct {
 type WorkspaceArgs struct {
 	// The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
 	Alias pulumi.StringPtrInput
+	// The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+	KmsKeyArn pulumi.StringPtrInput
 	// Logging configuration for the workspace. See Logging Configuration below for details.
 	LoggingConfiguration WorkspaceLoggingConfigurationPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -291,6 +339,11 @@ func (o WorkspaceOutput) Alias() pulumi.StringPtrOutput {
 // Amazon Resource Name (ARN) of the workspace.
 func (o WorkspaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+func (o WorkspaceOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // Logging configuration for the workspace. See Logging Configuration below for details.

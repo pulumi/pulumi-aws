@@ -249,33 +249,37 @@ class DistributionConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.imagebuilder.DistributionConfiguration("example", distributions=[aws.imagebuilder.DistributionConfigurationDistributionArgs(
-            ami_distribution_configuration=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationArgs(
-                ami_tags={
-                    "CostCenter": "IT",
-                },
-                launch_permission=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs(
-                    user_ids=["123456789012"],
+        example = aws.imagebuilder.DistributionConfiguration("example",
+            name="example",
+            distributions=[aws.imagebuilder.DistributionConfigurationDistributionArgs(
+                ami_distribution_configuration=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationArgs(
+                    ami_tags={
+                        "CostCenter": "IT",
+                    },
+                    name="example-{{ imagebuilder:buildDate }}",
+                    launch_permission=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs(
+                        user_ids=["123456789012"],
+                    ),
                 ),
-                name="example-{{ imagebuilder:buildDate }}",
-            ),
-            launch_template_configurations=[aws.imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs(
-                launch_template_id="lt-0aaa1bcde2ff3456",
-            )],
-            region="us-east-1",
-        )])
+                launch_template_configurations=[aws.imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs(
+                    launch_template_id="lt-0aaa1bcde2ff3456",
+                )],
+                region="us-east-1",
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_imagebuilder_distribution_configurations` resources using the Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
+        $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -298,33 +302,37 @@ class DistributionConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.imagebuilder.DistributionConfiguration("example", distributions=[aws.imagebuilder.DistributionConfigurationDistributionArgs(
-            ami_distribution_configuration=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationArgs(
-                ami_tags={
-                    "CostCenter": "IT",
-                },
-                launch_permission=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs(
-                    user_ids=["123456789012"],
+        example = aws.imagebuilder.DistributionConfiguration("example",
+            name="example",
+            distributions=[aws.imagebuilder.DistributionConfigurationDistributionArgs(
+                ami_distribution_configuration=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationArgs(
+                    ami_tags={
+                        "CostCenter": "IT",
+                    },
+                    name="example-{{ imagebuilder:buildDate }}",
+                    launch_permission=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs(
+                        user_ids=["123456789012"],
+                    ),
                 ),
-                name="example-{{ imagebuilder:buildDate }}",
-            ),
-            launch_template_configurations=[aws.imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs(
-                launch_template_id="lt-0aaa1bcde2ff3456",
-            )],
-            region="us-east-1",
-        )])
+                launch_template_configurations=[aws.imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs(
+                    launch_template_id="lt-0aaa1bcde2ff3456",
+                )],
+                region="us-east-1",
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_imagebuilder_distribution_configurations` resources using the Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
+        $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -365,8 +373,6 @@ class DistributionConfiguration(pulumi.CustomResource):
             __props__.__dict__["date_created"] = None
             __props__.__dict__["date_updated"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(DistributionConfiguration, __self__).__init__(
             'aws:imagebuilder/distributionConfiguration:DistributionConfiguration',
             resource_name,

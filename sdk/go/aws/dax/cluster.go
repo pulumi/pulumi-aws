@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +31,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dax.NewCluster(ctx, "bar", &dax.ClusterArgs{
 //				ClusterName:       pulumi.String("cluster-example"),
-//				IamRoleArn:        pulumi.Any(data.Aws_iam_role.Example.Arn),
+//				IamRoleArn:        pulumi.Any(example.Arn),
 //				NodeType:          pulumi.String("dax.r4.large"),
 //				ReplicationFactor: pulumi.Int(1),
 //			})
@@ -42,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DAX Clusters using the `cluster_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
-//
+// $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
 // ```
 type Cluster struct {
 	pulumi.CustomResourceState
@@ -138,10 +138,6 @@ func NewCluster(ctx *pulumi.Context,
 	if args.ReplicationFactor == nil {
 		return nil, errors.New("invalid value for required argument 'ReplicationFactor'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("aws:dax/cluster:Cluster", name, args, &resource, opts...)

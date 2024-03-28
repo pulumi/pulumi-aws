@@ -44,13 +44,14 @@ public final class TableComment {
 
         @CustomType.Setter
         public Builder message(@Nullable String message) {
+
             this.message = message;
             return this;
         }
         public TableComment build() {
-            final var o = new TableComment();
-            o.message = message;
-            return o;
+            final var _resultValue = new TableComment();
+            _resultValue.message = message;
+            return _resultValue;
         }
     }
 }

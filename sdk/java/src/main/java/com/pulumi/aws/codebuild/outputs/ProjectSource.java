@@ -6,6 +6,7 @@ package com.pulumi.aws.codebuild.outputs;
 import com.pulumi.aws.codebuild.outputs.ProjectSourceBuildStatusConfig;
 import com.pulumi.aws.codebuild.outputs.ProjectSourceGitSubmodulesConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -21,7 +22,7 @@ public final class ProjectSource {
      */
     private @Nullable ProjectSourceBuildStatusConfig buildStatusConfig;
     /**
-     * @return Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`.
+     * @return Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
      * 
      */
     private @Nullable String buildspec;
@@ -65,7 +66,7 @@ public final class ProjectSource {
         return Optional.ofNullable(this.buildStatusConfig);
     }
     /**
-     * @return Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`.
+     * @return Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
      * 
      */
     public Optional<String> buildspec() {
@@ -146,55 +147,65 @@ public final class ProjectSource {
 
         @CustomType.Setter
         public Builder buildStatusConfig(@Nullable ProjectSourceBuildStatusConfig buildStatusConfig) {
+
             this.buildStatusConfig = buildStatusConfig;
             return this;
         }
         @CustomType.Setter
         public Builder buildspec(@Nullable String buildspec) {
+
             this.buildspec = buildspec;
             return this;
         }
         @CustomType.Setter
         public Builder gitCloneDepth(@Nullable Integer gitCloneDepth) {
+
             this.gitCloneDepth = gitCloneDepth;
             return this;
         }
         @CustomType.Setter
         public Builder gitSubmodulesConfig(@Nullable ProjectSourceGitSubmodulesConfig gitSubmodulesConfig) {
+
             this.gitSubmodulesConfig = gitSubmodulesConfig;
             return this;
         }
         @CustomType.Setter
         public Builder insecureSsl(@Nullable Boolean insecureSsl) {
+
             this.insecureSsl = insecureSsl;
             return this;
         }
         @CustomType.Setter
         public Builder location(@Nullable String location) {
+
             this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder reportBuildStatus(@Nullable Boolean reportBuildStatus) {
+
             this.reportBuildStatus = reportBuildStatus;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("ProjectSource", "type");
+            }
+            this.type = type;
             return this;
         }
         public ProjectSource build() {
-            final var o = new ProjectSource();
-            o.buildStatusConfig = buildStatusConfig;
-            o.buildspec = buildspec;
-            o.gitCloneDepth = gitCloneDepth;
-            o.gitSubmodulesConfig = gitSubmodulesConfig;
-            o.insecureSsl = insecureSsl;
-            o.location = location;
-            o.reportBuildStatus = reportBuildStatus;
-            o.type = type;
-            return o;
+            final var _resultValue = new ProjectSource();
+            _resultValue.buildStatusConfig = buildStatusConfig;
+            _resultValue.buildspec = buildspec;
+            _resultValue.gitCloneDepth = gitCloneDepth;
+            _resultValue.gitSubmodulesConfig = gitSubmodulesConfig;
+            _resultValue.insecureSsl = insecureSsl;
+            _resultValue.location = location;
+            _resultValue.reportBuildStatus = reportBuildStatus;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

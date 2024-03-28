@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS Managed Streaming for Kafka Cluster Policy.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,30 +35,30 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentPartition, err := aws.GetPartition(ctx, nil, nil)
+//			currentGetPartition, err := aws.GetPartition(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Sid":    "ExampleMskClusterPolicy",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentPartition.Partition, currentCallerIdentity.AccountId),
+//						"sid":    "ExampleMskClusterPolicy",
+//						"effect": "Allow",
+//						"principal": map[string]interface{}{
+//							"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentGetPartition.Partition, current.AccountId),
 //						},
-//						"Action": []string{
+//						"action": []string{
 //							"kafka:Describe*",
 //							"kafka:Get*",
 //							"kafka:CreateVpcConnection",
 //							"kafka:GetBootstrapBrokers",
 //						},
-//						"Resource": aws_msk_cluster.Example.Arn,
+//						"resource": exampleAwsMskCluster.Arn,
 //					},
 //				},
 //			})
@@ -65,7 +67,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = msk.NewClusterPolicy(ctx, "example", &msk.ClusterPolicyArgs{
-//				ClusterArn: pulumi.Any(aws_msk_cluster.Example.Arn),
+//				ClusterArn: pulumi.Any(exampleAwsMskCluster.Arn),
 //				Policy:     pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -76,15 +78,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Managed Streaming for Kafka Cluster Policy using the `cluster_arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:msk/clusterPolicy:ClusterPolicy example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
-//
+// $ pulumi import aws:msk/clusterPolicy:ClusterPolicy example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
 // ```
 type ClusterPolicy struct {
 	pulumi.CustomResourceState

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,10 +25,10 @@ namespace Pulumi.Aws.OpsWorks
     /// {
     ///     var my_instance = new Aws.OpsWorks.Instance("my-instance", new()
     ///     {
-    ///         StackId = aws_opsworks_stack.Main.Id,
+    ///         StackId = main.Id,
     ///         LayerIds = new[]
     ///         {
-    ///             aws_opsworks_custom_layer.My_layer.Id,
+    ///             my_layer.Id,
     ///         },
     ///         InstanceType = "t2.micro",
     ///         Os = "Amazon Linux 2015.09",
@@ -36,6 +37,8 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Block devices
     /// 
     /// Each of the `*_block_device` attributes controls a portion of the AWS
@@ -85,7 +88,7 @@ namespace Pulumi.Aws.OpsWorks
     /// Using `pulumi import`, import Opsworks Instances using the instance `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
+    /// $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
     /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/instance:Instance")]

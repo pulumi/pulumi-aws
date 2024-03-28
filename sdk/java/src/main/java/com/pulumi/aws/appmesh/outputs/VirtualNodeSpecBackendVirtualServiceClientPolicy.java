@@ -44,13 +44,14 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicy {
 
         @CustomType.Setter
         public Builder tls(@Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTls tls) {
+
             this.tls = tls;
             return this;
         }
         public VirtualNodeSpecBackendVirtualServiceClientPolicy build() {
-            final var o = new VirtualNodeSpecBackendVirtualServiceClientPolicy();
-            o.tls = tls;
-            return o;
+            final var _resultValue = new VirtualNodeSpecBackendVirtualServiceClientPolicy();
+            _resultValue.tls = tls;
+            return _resultValue;
         }
     }
 }

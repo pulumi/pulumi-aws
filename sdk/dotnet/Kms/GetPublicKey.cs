@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Kms
         /// <summary>
         /// Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -48,8 +47,7 @@ namespace Pulumi.Aws.Kms
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPublicKeyResult> InvokeAsync(GetPublicKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicKeyResult>("aws:kms/getPublicKey:getPublicKey", args ?? new GetPublicKeyArgs(), options.WithDefaults());
@@ -57,10 +55,9 @@ namespace Pulumi.Aws.Kms
         /// <summary>
         /// Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -91,8 +88,7 @@ namespace Pulumi.Aws.Kms
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPublicKeyResult> Invoke(GetPublicKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicKeyResult>("aws:kms/getPublicKey:getPublicKey", args ?? new GetPublicKeyInvokeArgs(), options.WithDefaults());

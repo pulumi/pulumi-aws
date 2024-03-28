@@ -5,6 +5,7 @@ package com.pulumi.aws.redshift;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -299,12 +300,24 @@ public final class HsmConfigurationArgs extends com.pulumi.resources.ResourceArg
         }
 
         public HsmConfigurationArgs build() {
-            $.description = Objects.requireNonNull($.description, "expected parameter 'description' to be non-null");
-            $.hsmConfigurationIdentifier = Objects.requireNonNull($.hsmConfigurationIdentifier, "expected parameter 'hsmConfigurationIdentifier' to be non-null");
-            $.hsmIpAddress = Objects.requireNonNull($.hsmIpAddress, "expected parameter 'hsmIpAddress' to be non-null");
-            $.hsmPartitionName = Objects.requireNonNull($.hsmPartitionName, "expected parameter 'hsmPartitionName' to be non-null");
-            $.hsmPartitionPassword = Objects.requireNonNull($.hsmPartitionPassword, "expected parameter 'hsmPartitionPassword' to be non-null");
-            $.hsmServerPublicCertificate = Objects.requireNonNull($.hsmServerPublicCertificate, "expected parameter 'hsmServerPublicCertificate' to be non-null");
+            if ($.description == null) {
+                throw new MissingRequiredPropertyException("HsmConfigurationArgs", "description");
+            }
+            if ($.hsmConfigurationIdentifier == null) {
+                throw new MissingRequiredPropertyException("HsmConfigurationArgs", "hsmConfigurationIdentifier");
+            }
+            if ($.hsmIpAddress == null) {
+                throw new MissingRequiredPropertyException("HsmConfigurationArgs", "hsmIpAddress");
+            }
+            if ($.hsmPartitionName == null) {
+                throw new MissingRequiredPropertyException("HsmConfigurationArgs", "hsmPartitionName");
+            }
+            if ($.hsmPartitionPassword == null) {
+                throw new MissingRequiredPropertyException("HsmConfigurationArgs", "hsmPartitionPassword");
+            }
+            if ($.hsmServerPublicCertificate == null) {
+                throw new MissingRequiredPropertyException("HsmConfigurationArgs", "hsmServerPublicCertificate");
+            }
             return $;
         }
     }

@@ -15,8 +15,10 @@ import (
 // Associates a certificate with an AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority). An ACM PCA Certificate Authority is unable to issue certificates until it has a certificate associated with it. A root level ACM PCA Certificate Authority is able to self-sign its own root certificate.
 //
 // ## Example Usage
+//
 // ### Self-Signed Root Certificate Authority Certificate
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,7 +34,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "exampleCertificateAuthority", &acmpca.CertificateAuthorityArgs{
+//			exampleCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "example", &acmpca.CertificateAuthorityArgs{
 //				Type: pulumi.String("ROOT"),
 //				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
 //					KeyAlgorithm:     pulumi.String("RSA_4096"),
@@ -49,7 +51,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleCertificate, err := acmpca.NewCertificate(ctx, "exampleCertificate", &acmpca.CertificateArgs{
+//			exampleCertificate, err := acmpca.NewCertificate(ctx, "example", &acmpca.CertificateArgs{
 //				CertificateAuthorityArn:   exampleCertificateAuthority.Arn,
 //				CertificateSigningRequest: exampleCertificateAuthority.CertificateSigningRequest,
 //				SigningAlgorithm:          pulumi.String("SHA512WITHRSA"),
@@ -62,7 +64,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = acmpca.NewCertificateAuthorityCertificate(ctx, "exampleCertificateAuthorityCertificate", &acmpca.CertificateAuthorityCertificateArgs{
+//			_, err = acmpca.NewCertificateAuthorityCertificate(ctx, "example", &acmpca.CertificateAuthorityCertificateArgs{
 //				CertificateAuthorityArn: exampleCertificateAuthority.Arn,
 //				Certificate:             exampleCertificate.Certificate,
 //				CertificateChain:        exampleCertificate.CertificateChain,
@@ -75,10 +77,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Certificate for Subordinate Certificate Authority
 //
 // Note that the certificate for the subordinate certificate authority must be issued by the root certificate authority using a signing request from the subordinate certificate authority.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -94,7 +99,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			subordinateCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "subordinateCertificateAuthority", &acmpca.CertificateAuthorityArgs{
+//			subordinateCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "subordinate", &acmpca.CertificateAuthorityArgs{
 //				Type: pulumi.String("SUBORDINATE"),
 //				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
 //					KeyAlgorithm:     pulumi.String("RSA_2048"),
@@ -107,7 +112,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			rootCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "rootCertificateAuthority", nil)
+//			root, err := acmpca.NewCertificateAuthority(ctx, "root", nil)
 //			if err != nil {
 //				return err
 //			}
@@ -115,8 +120,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			subordinateCertificate, err := acmpca.NewCertificate(ctx, "subordinateCertificate", &acmpca.CertificateArgs{
-//				CertificateAuthorityArn:   rootCertificateAuthority.Arn,
+//			subordinateCertificate, err := acmpca.NewCertificate(ctx, "subordinate", &acmpca.CertificateArgs{
+//				CertificateAuthorityArn:   root.Arn,
 //				CertificateSigningRequest: subordinateCertificateAuthority.CertificateSigningRequest,
 //				SigningAlgorithm:          pulumi.String("SHA512WITHRSA"),
 //				TemplateArn:               pulumi.String(fmt.Sprintf("arn:%v:acm-pca:::template/SubordinateCACertificate_PathLen0/V1", current.Partition)),
@@ -128,7 +133,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = acmpca.NewCertificateAuthorityCertificate(ctx, "subordinateCertificateAuthorityCertificate", &acmpca.CertificateAuthorityCertificateArgs{
+//			_, err = acmpca.NewCertificateAuthorityCertificate(ctx, "subordinate", &acmpca.CertificateAuthorityCertificateArgs{
 //				CertificateAuthorityArn: subordinateCertificateAuthority.Arn,
 //				Certificate:             subordinateCertificate.Certificate,
 //				CertificateChain:        subordinateCertificate.CertificateChain,
@@ -136,11 +141,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = acmpca.NewCertificateAuthorityCertificate(ctx, "rootCertificateAuthorityCertificate", nil)
+//			_, err = acmpca.NewCertificateAuthorityCertificate(ctx, "root", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = acmpca.NewCertificate(ctx, "rootCertificate", nil)
+//			_, err = acmpca.NewCertificate(ctx, "root", nil)
 //			if err != nil {
 //				return err
 //			}
@@ -149,6 +154,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type CertificateAuthorityCertificate struct {
 	pulumi.CustomResourceState
 

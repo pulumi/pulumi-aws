@@ -5,6 +5,7 @@ package com.pulumi.aws.vpclattice.outputs;
 
 import com.pulumi.aws.vpclattice.outputs.GetListenerDefaultActionForwardTargetGroup;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,16 +36,19 @@ public final class GetListenerDefaultActionForward {
 
         @CustomType.Setter
         public Builder targetGroups(List<GetListenerDefaultActionForwardTargetGroup> targetGroups) {
-            this.targetGroups = Objects.requireNonNull(targetGroups);
+            if (targetGroups == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultActionForward", "targetGroups");
+            }
+            this.targetGroups = targetGroups;
             return this;
         }
         public Builder targetGroups(GetListenerDefaultActionForwardTargetGroup... targetGroups) {
             return targetGroups(List.of(targetGroups));
         }
         public GetListenerDefaultActionForward build() {
-            final var o = new GetListenerDefaultActionForward();
-            o.targetGroups = targetGroups;
-            return o;
+            final var _resultValue = new GetListenerDefaultActionForward();
+            _resultValue.targetGroups = targetGroups;
+            return _resultValue;
         }
     }
 }

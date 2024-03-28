@@ -15,35 +15,34 @@ import (
 // Resource for managing an AWS KMS (Key Management) Custom Key Store.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kms.NewCustomKeyStore(ctx, "test", &kms.CustomKeyStoreArgs{
-//				CloudHsmClusterId:      pulumi.Any(_var.Cloud_hsm_cluster_id),
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "anchor-certificate.crt",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kms.NewCustomKeyStore(ctx, "test", &kms.CustomKeyStoreArgs{
+//				CloudHsmClusterId:      pulumi.Any(cloudHsmClusterId),
 //				CustomKeyStoreName:     pulumi.String("kms-custom-key-store-test"),
 //				KeyStorePassword:       pulumi.String("noplaintextpasswords1"),
-//				TrustAnchorCertificate: readFileOrPanic("anchor-certificate.crt"),
+//				TrustAnchorCertificate: invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err
@@ -53,15 +52,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
-//
+// $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
 // ```
 type CustomKeyStore struct {
 	pulumi.CustomResourceState

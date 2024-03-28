@@ -4,6 +4,7 @@
 package com.pulumi.aws.autoscaling.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -71,25 +72,34 @@ public final class TagTag {
 
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("TagTag", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder propagateAtLaunch(Boolean propagateAtLaunch) {
-            this.propagateAtLaunch = Objects.requireNonNull(propagateAtLaunch);
+            if (propagateAtLaunch == null) {
+              throw new MissingRequiredPropertyException("TagTag", "propagateAtLaunch");
+            }
+            this.propagateAtLaunch = propagateAtLaunch;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("TagTag", "value");
+            }
+            this.value = value;
             return this;
         }
         public TagTag build() {
-            final var o = new TagTag();
-            o.key = key;
-            o.propagateAtLaunch = propagateAtLaunch;
-            o.value = value;
-            return o;
+            final var _resultValue = new TagTag();
+            _resultValue.key = key;
+            _resultValue.propagateAtLaunch = propagateAtLaunch;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

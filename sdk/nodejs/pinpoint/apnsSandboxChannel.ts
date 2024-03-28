@@ -10,25 +10,31 @@ import * as utilities from "../utilities";
  * > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const app = new aws.pinpoint.App("app", {});
- * const apnsSandbox = new aws.pinpoint.ApnsSandboxChannel("apnsSandbox", {
+ * const apnsSandbox = new aws.pinpoint.ApnsSandboxChannel("apns_sandbox", {
  *     applicationId: app.applicationId,
- *     certificate: fs.readFileSync("./certificate.pem"),
- *     privateKey: fs.readFileSync("./private_key.key"),
+ *     certificate: std.file({
+ *         input: "./certificate.pem",
+ *     }).then(invoke => invoke.result),
+ *     privateKey: std.file({
+ *         input: "./private_key.key",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Pinpoint APNs Sandbox Channel using the `application-id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel apns_sandbox application-id
+ * $ pulumi import aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel apns_sandbox application-id
  * ```
  */
 export class ApnsSandboxChannel extends pulumi.CustomResource {

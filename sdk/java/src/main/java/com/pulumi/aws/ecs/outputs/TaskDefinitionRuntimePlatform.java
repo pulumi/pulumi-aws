@@ -58,19 +58,21 @@ public final class TaskDefinitionRuntimePlatform {
 
         @CustomType.Setter
         public Builder cpuArchitecture(@Nullable String cpuArchitecture) {
+
             this.cpuArchitecture = cpuArchitecture;
             return this;
         }
         @CustomType.Setter
         public Builder operatingSystemFamily(@Nullable String operatingSystemFamily) {
+
             this.operatingSystemFamily = operatingSystemFamily;
             return this;
         }
         public TaskDefinitionRuntimePlatform build() {
-            final var o = new TaskDefinitionRuntimePlatform();
-            o.cpuArchitecture = cpuArchitecture;
-            o.operatingSystemFamily = operatingSystemFamily;
-            return o;
+            final var _resultValue = new TaskDefinitionRuntimePlatform();
+            _resultValue.cpuArchitecture = cpuArchitecture;
+            _resultValue.operatingSystemFamily = operatingSystemFamily;
+            return _resultValue;
         }
     }
 }

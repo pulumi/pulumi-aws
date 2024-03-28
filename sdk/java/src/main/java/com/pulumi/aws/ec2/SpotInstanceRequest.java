@@ -58,6 +58,8 @@ import javax.annotation.Nullable;
  * We recommend using the EC2 Instance resource with `instance_market_options` instead.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -81,14 +83,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var cheapWorker = new SpotInstanceRequest(&#34;cheapWorker&#34;, SpotInstanceRequestArgs.builder()        
  *             .ami(&#34;ami-1234&#34;)
- *             .instanceType(&#34;c4.xlarge&#34;)
  *             .spotPrice(&#34;0.03&#34;)
+ *             .instanceType(&#34;c4.xlarge&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;CheapWorker&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:ec2/spotInstanceRequest:SpotInstanceRequest")
@@ -1048,9 +1051,6 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

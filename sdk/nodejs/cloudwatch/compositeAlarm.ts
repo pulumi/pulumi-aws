@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,10 +22,10 @@ import * as utilities from "../utilities";
  * const example = new aws.cloudwatch.CompositeAlarm("example", {
  *     alarmDescription: "This is a composite alarm!",
  *     alarmName: "example-composite-alarm",
- *     alarmActions: aws_sns_topic.example.arn,
- *     okActions: aws_sns_topic.example.arn,
- *     alarmRule: `ALARM(${aws_cloudwatch_metric_alarm.alpha.alarm_name}) OR
- * ALARM(${aws_cloudwatch_metric_alarm.bravo.alarm_name})
+ *     alarmActions: exampleAwsSnsTopic.arn,
+ *     okActions: exampleAwsSnsTopic.arn,
+ *     alarmRule: `ALARM(${alpha.alarmName}) OR
+ * ALARM(${bravo.alarmName})
  * `,
  *     actionsSuppressor: {
  *         alarm: "suppressor-alarm",
@@ -33,13 +34,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
+ * $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
  * ```
  */
 export class CompositeAlarm extends pulumi.CustomResource {
@@ -162,8 +164,6 @@ export class CompositeAlarm extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(CompositeAlarm.__pulumiType, name, resourceInputs, opts);
     }
 }

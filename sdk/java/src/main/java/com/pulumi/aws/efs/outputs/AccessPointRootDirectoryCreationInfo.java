@@ -4,6 +4,7 @@
 package com.pulumi.aws.efs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,25 +72,34 @@ public final class AccessPointRootDirectoryCreationInfo {
 
         @CustomType.Setter
         public Builder ownerGid(Integer ownerGid) {
-            this.ownerGid = Objects.requireNonNull(ownerGid);
+            if (ownerGid == null) {
+              throw new MissingRequiredPropertyException("AccessPointRootDirectoryCreationInfo", "ownerGid");
+            }
+            this.ownerGid = ownerGid;
             return this;
         }
         @CustomType.Setter
         public Builder ownerUid(Integer ownerUid) {
-            this.ownerUid = Objects.requireNonNull(ownerUid);
+            if (ownerUid == null) {
+              throw new MissingRequiredPropertyException("AccessPointRootDirectoryCreationInfo", "ownerUid");
+            }
+            this.ownerUid = ownerUid;
             return this;
         }
         @CustomType.Setter
         public Builder permissions(String permissions) {
-            this.permissions = Objects.requireNonNull(permissions);
+            if (permissions == null) {
+              throw new MissingRequiredPropertyException("AccessPointRootDirectoryCreationInfo", "permissions");
+            }
+            this.permissions = permissions;
             return this;
         }
         public AccessPointRootDirectoryCreationInfo build() {
-            final var o = new AccessPointRootDirectoryCreationInfo();
-            o.ownerGid = ownerGid;
-            o.ownerUid = ownerUid;
-            o.permissions = permissions;
-            return o;
+            final var _resultValue = new AccessPointRootDirectoryCreationInfo();
+            _resultValue.ownerGid = ownerGid;
+            _resultValue.ownerUid = ownerUid;
+            _resultValue.permissions = permissions;
+            return _resultValue;
         }
     }
 }

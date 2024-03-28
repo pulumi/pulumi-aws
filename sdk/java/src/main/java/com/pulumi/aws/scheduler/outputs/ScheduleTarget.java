@@ -11,6 +11,7 @@ import com.pulumi.aws.scheduler.outputs.ScheduleTargetRetryPolicy;
 import com.pulumi.aws.scheduler.outputs.ScheduleTargetSagemakerPipelineParameters;
 import com.pulumi.aws.scheduler.outputs.ScheduleTargetSqsParameters;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -181,67 +182,81 @@ public final class ScheduleTarget {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("ScheduleTarget", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder deadLetterConfig(@Nullable ScheduleTargetDeadLetterConfig deadLetterConfig) {
+
             this.deadLetterConfig = deadLetterConfig;
             return this;
         }
         @CustomType.Setter
         public Builder ecsParameters(@Nullable ScheduleTargetEcsParameters ecsParameters) {
+
             this.ecsParameters = ecsParameters;
             return this;
         }
         @CustomType.Setter
         public Builder eventbridgeParameters(@Nullable ScheduleTargetEventbridgeParameters eventbridgeParameters) {
+
             this.eventbridgeParameters = eventbridgeParameters;
             return this;
         }
         @CustomType.Setter
         public Builder input(@Nullable String input) {
+
             this.input = input;
             return this;
         }
         @CustomType.Setter
         public Builder kinesisParameters(@Nullable ScheduleTargetKinesisParameters kinesisParameters) {
+
             this.kinesisParameters = kinesisParameters;
             return this;
         }
         @CustomType.Setter
         public Builder retryPolicy(@Nullable ScheduleTargetRetryPolicy retryPolicy) {
+
             this.retryPolicy = retryPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("ScheduleTarget", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder sagemakerPipelineParameters(@Nullable ScheduleTargetSagemakerPipelineParameters sagemakerPipelineParameters) {
+
             this.sagemakerPipelineParameters = sagemakerPipelineParameters;
             return this;
         }
         @CustomType.Setter
         public Builder sqsParameters(@Nullable ScheduleTargetSqsParameters sqsParameters) {
+
             this.sqsParameters = sqsParameters;
             return this;
         }
         public ScheduleTarget build() {
-            final var o = new ScheduleTarget();
-            o.arn = arn;
-            o.deadLetterConfig = deadLetterConfig;
-            o.ecsParameters = ecsParameters;
-            o.eventbridgeParameters = eventbridgeParameters;
-            o.input = input;
-            o.kinesisParameters = kinesisParameters;
-            o.retryPolicy = retryPolicy;
-            o.roleArn = roleArn;
-            o.sagemakerPipelineParameters = sagemakerPipelineParameters;
-            o.sqsParameters = sqsParameters;
-            return o;
+            final var _resultValue = new ScheduleTarget();
+            _resultValue.arn = arn;
+            _resultValue.deadLetterConfig = deadLetterConfig;
+            _resultValue.ecsParameters = ecsParameters;
+            _resultValue.eventbridgeParameters = eventbridgeParameters;
+            _resultValue.input = input;
+            _resultValue.kinesisParameters = kinesisParameters;
+            _resultValue.retryPolicy = retryPolicy;
+            _resultValue.roleArn = roleArn;
+            _resultValue.sagemakerPipelineParameters = sagemakerPipelineParameters;
+            _resultValue.sqsParameters = sqsParameters;
+            return _resultValue;
         }
     }
 }

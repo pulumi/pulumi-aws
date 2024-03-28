@@ -11,32 +11,34 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * // Create a new replication task
  * const test = new aws.dms.ReplicationTask("test", {
- *     cdcStartTime: "1484346880",
+ *     cdcStartTime: "1993-05-21T05:50:00Z",
  *     migrationType: "full-load",
- *     replicationInstanceArn: aws_dms_replication_instance["test-dms-replication-instance-tf"].replication_instance_arn,
+ *     replicationInstanceArn: test_dms_replication_instance_tf.replicationInstanceArn,
  *     replicationTaskId: "test-dms-replication-task-tf",
  *     replicationTaskSettings: "...",
- *     sourceEndpointArn: aws_dms_endpoint["test-dms-source-endpoint-tf"].endpoint_arn,
+ *     sourceEndpointArn: test_dms_source_endpoint_tf.endpointArn,
  *     tableMappings: "{\"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"object-locator\":{\"schema-name\":\"%\",\"table-name\":\"%\"},\"rule-action\":\"include\"}]}",
  *     tags: {
  *         Name: "test",
  *     },
- *     targetEndpointArn: aws_dms_endpoint["test-dms-target-endpoint-tf"].endpoint_arn,
+ *     targetEndpointArn: test_dms_target_endpoint_tf.endpointArn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import replication tasks using the `replication_task_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
+ * $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
  * ```
  */
 export class ReplicationTask extends pulumi.CustomResource {
@@ -68,11 +70,11 @@ export class ReplicationTask extends pulumi.CustomResource {
     }
 
     /**
-     * Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+     * Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
      */
     public readonly cdcStartPosition!: pulumi.Output<string>;
     /**
-     * The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
+     * RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
      */
     public readonly cdcStartTime!: pulumi.Output<string | undefined>;
     /**
@@ -194,8 +196,6 @@ export class ReplicationTask extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ReplicationTask.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -205,11 +205,11 @@ export class ReplicationTask extends pulumi.CustomResource {
  */
 export interface ReplicationTaskState {
     /**
-     * Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+     * Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
      */
     cdcStartPosition?: pulumi.Input<string>;
     /**
-     * The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
+     * RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
      */
     cdcStartTime?: pulumi.Input<string>;
     /**
@@ -274,11 +274,11 @@ export interface ReplicationTaskState {
  */
 export interface ReplicationTaskArgs {
     /**
-     * Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+     * Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
      */
     cdcStartPosition?: pulumi.Input<string>;
     /**
-     * The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
+     * RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
      */
     cdcStartTime?: pulumi.Input<string>;
     /**

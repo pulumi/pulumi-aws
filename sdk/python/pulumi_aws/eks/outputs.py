@@ -11,6 +11,8 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AccessPolicyAssociationAccessScope',
+    'ClusterAccessConfig',
     'ClusterCertificateAuthority',
     'ClusterEncryptionConfig',
     'ClusterEncryptionConfigProvider',
@@ -29,6 +31,7 @@ __all__ = [
     'NodeGroupScalingConfig',
     'NodeGroupTaint',
     'NodeGroupUpdateConfig',
+    'GetClusterAccessConfigResult',
     'GetClusterCertificateAuthorityResult',
     'GetClusterIdentityResult',
     'GetClusterIdentityOidcResult',
@@ -43,6 +46,86 @@ __all__ = [
     'GetNodeGroupScalingConfigResult',
     'GetNodeGroupTaintResult',
 ]
+
+@pulumi.output_type
+class AccessPolicyAssociationAccessScope(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 namespaces: Optional[Sequence[str]] = None):
+        """
+        :param str type: Valid values are `namespace` or `cluster`.
+        :param Sequence[str] namespaces: The namespaces to which the access scope applies when type is namespace.
+        """
+        pulumi.set(__self__, "type", type)
+        if namespaces is not None:
+            pulumi.set(__self__, "namespaces", namespaces)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Valid values are `namespace` or `cluster`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def namespaces(self) -> Optional[Sequence[str]]:
+        """
+        The namespaces to which the access scope applies when type is namespace.
+        """
+        return pulumi.get(self, "namespaces")
+
+
+@pulumi.output_type
+class ClusterAccessConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationMode":
+            suggest = "authentication_mode"
+        elif key == "bootstrapClusterCreatorAdminPermissions":
+            suggest = "bootstrap_cluster_creator_admin_permissions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterAccessConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterAccessConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterAccessConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_mode: Optional[str] = None,
+                 bootstrap_cluster_creator_admin_permissions: Optional[bool] = None):
+        """
+        :param str authentication_mode: The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
+        :param bool bootstrap_cluster_creator_admin_permissions: Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+        """
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
+        if bootstrap_cluster_creator_admin_permissions is not None:
+            pulumi.set(__self__, "bootstrap_cluster_creator_admin_permissions", bootstrap_cluster_creator_admin_permissions)
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[str]:
+        """
+        The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @property
+    @pulumi.getter(name="bootstrapClusterCreatorAdminPermissions")
+    def bootstrap_cluster_creator_admin_permissions(self) -> Optional[bool]:
+        """
+        Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+        """
+        return pulumi.get(self, "bootstrap_cluster_creator_admin_permissions")
+
 
 @pulumi.output_type
 class ClusterCertificateAuthority(dict):
@@ -947,6 +1030,24 @@ class NodeGroupUpdateConfig(dict):
         Desired max percentage of unavailable worker nodes during node group update.
         """
         return pulumi.get(self, "max_unavailable_percentage")
+
+
+@pulumi.output_type
+class GetClusterAccessConfigResult(dict):
+    def __init__(__self__, *,
+                 authentication_mode: str):
+        """
+        :param str authentication_mode: Values returned are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
+        """
+        pulumi.set(__self__, "authentication_mode", authentication_mode)
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> str:
+        """
+        Values returned are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
+        """
+        return pulumi.get(self, "authentication_mode")
 
 
 @pulumi.output_type

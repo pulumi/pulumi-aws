@@ -6,6 +6,7 @@ package com.pulumi.aws.ecs.outputs;
 import com.pulumi.aws.ecs.outputs.GetTaskExecutionOverridesContainerOverrideEnvironment;
 import com.pulumi.aws.ecs.outputs.GetTaskExecutionOverridesContainerOverrideResourceRequirement;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -132,6 +133,7 @@ public final class GetTaskExecutionOverridesContainerOverride {
 
         @CustomType.Setter
         public Builder commands(@Nullable List<String> commands) {
+
             this.commands = commands;
             return this;
         }
@@ -140,11 +142,13 @@ public final class GetTaskExecutionOverridesContainerOverride {
         }
         @CustomType.Setter
         public Builder cpu(@Nullable Integer cpu) {
+
             this.cpu = cpu;
             return this;
         }
         @CustomType.Setter
         public Builder environments(@Nullable List<GetTaskExecutionOverridesContainerOverrideEnvironment> environments) {
+
             this.environments = environments;
             return this;
         }
@@ -153,21 +157,27 @@ public final class GetTaskExecutionOverridesContainerOverride {
         }
         @CustomType.Setter
         public Builder memory(@Nullable Integer memory) {
+
             this.memory = memory;
             return this;
         }
         @CustomType.Setter
         public Builder memoryReservation(@Nullable Integer memoryReservation) {
+
             this.memoryReservation = memoryReservation;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetTaskExecutionOverridesContainerOverride", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceRequirements(@Nullable List<GetTaskExecutionOverridesContainerOverrideResourceRequirement> resourceRequirements) {
+
             this.resourceRequirements = resourceRequirements;
             return this;
         }
@@ -175,15 +185,15 @@ public final class GetTaskExecutionOverridesContainerOverride {
             return resourceRequirements(List.of(resourceRequirements));
         }
         public GetTaskExecutionOverridesContainerOverride build() {
-            final var o = new GetTaskExecutionOverridesContainerOverride();
-            o.commands = commands;
-            o.cpu = cpu;
-            o.environments = environments;
-            o.memory = memory;
-            o.memoryReservation = memoryReservation;
-            o.name = name;
-            o.resourceRequirements = resourceRequirements;
-            return o;
+            final var _resultValue = new GetTaskExecutionOverridesContainerOverride();
+            _resultValue.commands = commands;
+            _resultValue.cpu = cpu;
+            _resultValue.environments = environments;
+            _resultValue.memory = memory;
+            _resultValue.memoryReservation = memoryReservation;
+            _resultValue.name = name;
+            _resultValue.resourceRequirements = resourceRequirements;
+            return _resultValue;
         }
     }
 }

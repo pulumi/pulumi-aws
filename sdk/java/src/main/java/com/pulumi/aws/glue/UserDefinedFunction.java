@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a Glue User Defined Function Resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,13 +46,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCatalogDatabase = new CatalogDatabase(&#34;exampleCatalogDatabase&#34;, CatalogDatabaseArgs.builder()        
+ *         var example = new CatalogDatabase(&#34;example&#34;, CatalogDatabaseArgs.builder()        
  *             .name(&#34;my_database&#34;)
  *             .build());
  * 
  *         var exampleUserDefinedFunction = new UserDefinedFunction(&#34;exampleUserDefinedFunction&#34;, UserDefinedFunctionArgs.builder()        
- *             .catalogId(exampleCatalogDatabase.catalogId())
- *             .databaseName(exampleCatalogDatabase.name())
+ *             .name(&#34;my_func&#34;)
+ *             .catalogId(example.catalogId())
+ *             .databaseName(example.name())
  *             .className(&#34;class&#34;)
  *             .ownerName(&#34;owner&#34;)
  *             .ownerType(&#34;GROUP&#34;)
@@ -63,13 +66,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Glue User Defined Functions using the `catalog_id:database_name:function_name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
  * 
  * ```sh
- *  $ pulumi import aws:glue/userDefinedFunction:UserDefinedFunction func 123456789012:my_database:my_func
+ * $ pulumi import aws:glue/userDefinedFunction:UserDefinedFunction func 123456789012:my_database:my_func
  * ```
  * 
  */

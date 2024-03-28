@@ -182,6 +182,7 @@ def get_stack(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -189,12 +190,13 @@ def get_stack(name: Optional[str] = None,
     network = aws.cloudformation.get_stack(name="my-network-stack")
     web = aws.ec2.Instance("web",
         ami="ami-abb07bcb",
-        instance_type="t2.micro",
+        instance_type=aws.ec2.InstanceType.T2_MICRO,
         subnet_id=network.outputs["SubnetId"],
         tags={
             "Name": "HelloWorld",
         })
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the stack
@@ -231,6 +233,7 @@ def get_stack_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -238,12 +241,13 @@ def get_stack_output(name: Optional[pulumi.Input[str]] = None,
     network = aws.cloudformation.get_stack(name="my-network-stack")
     web = aws.ec2.Instance("web",
         ami="ami-abb07bcb",
-        instance_type="t2.micro",
+        instance_type=aws.ec2.InstanceType.T2_MICRO,
         subnet_id=network.outputs["SubnetId"],
         tags={
             "Name": "HelloWorld",
         })
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the stack

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,24 +23,28 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCluster = new Aws.DocDB.Cluster("exampleCluster", new()
+    ///     var example = new Aws.DocDB.Cluster("example", new()
     ///     {
     ///         ClusterIdentifier = "example",
     ///         AvailabilityZones = new[]
     ///         {
-    ///             data.Aws_availability_zones.Available.Names[0],
-    ///             data.Aws_availability_zones.Available.Names[1],
-    ///             data.Aws_availability_zones.Available.Names[2],
+    ///             available.Names[0],
+    ///             available.Names[1],
+    ///             available.Names[2],
     ///         },
     ///         MasterUsername = "foo",
     ///         MasterPassword = "mustbeeightcharaters",
     ///         SkipFinalSnapshot = true,
     ///     });
     /// 
-    ///     var exampleTopic = new Aws.Sns.Topic("exampleTopic");
-    /// 
-    ///     var exampleEventSubscription = new Aws.DocDB.EventSubscription("exampleEventSubscription", new()
+    ///     var exampleTopic = new Aws.Sns.Topic("example", new()
     ///     {
+    ///         Name = "example-events",
+    ///     });
+    /// 
+    ///     var exampleEventSubscription = new Aws.DocDB.EventSubscription("example", new()
+    ///     {
+    ///         Name = "example",
     ///         Enabled = true,
     ///         EventCategories = new[]
     ///         {
@@ -49,20 +54,21 @@ namespace Pulumi.Aws.DocDB
     ///         SourceType = "db-cluster",
     ///         SourceIds = new[]
     ///         {
-    ///             exampleCluster.Id,
+    ///             example.Id,
     ///         },
     ///         SnsTopicArn = exampleTopic.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DocumentDB Event Subscriptions using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
+    /// $ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
     /// ```
     /// </summary>
     [AwsResourceType("aws:docdb/eventSubscription:EventSubscription")]
@@ -154,10 +160,6 @@ namespace Pulumi.Aws.DocDB
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -337,11 +339,7 @@ namespace Pulumi.Aws.DocDB
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public EventSubscriptionState()

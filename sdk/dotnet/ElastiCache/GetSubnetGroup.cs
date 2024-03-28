@@ -14,10 +14,9 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// Provides information about a ElastiCache Subnet Group.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Aws.ElastiCache
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSubnetGroupResult> InvokeAsync(GetSubnetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubnetGroupResult>("aws:elasticache/getSubnetGroup:getSubnetGroup", args ?? new GetSubnetGroupArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// Provides information about a ElastiCache Subnet Group.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Aws.ElastiCache
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSubnetGroupResult> Invoke(GetSubnetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetGroupResult>("aws:elasticache/getSubnetGroup:getSubnetGroup", args ?? new GetSubnetGroupInvokeArgs(), options.WithDefaults());
@@ -146,6 +142,10 @@ namespace Pulumi.Aws.ElastiCache
         /// Map of tags assigned to the subnet group.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+        /// </summary>
+        public readonly string VpcId;
 
         [OutputConstructor]
         private GetSubnetGroupResult(
@@ -159,7 +159,9 @@ namespace Pulumi.Aws.ElastiCache
 
             ImmutableArray<string> subnetIds,
 
-            ImmutableDictionary<string, string>? tags)
+            ImmutableDictionary<string, string>? tags,
+
+            string vpcId)
         {
             Arn = arn;
             Description = description;
@@ -167,6 +169,7 @@ namespace Pulumi.Aws.ElastiCache
             Name = name;
             SubnetIds = subnetIds;
             Tags = tags;
+            VpcId = vpcId;
         }
     }
 }

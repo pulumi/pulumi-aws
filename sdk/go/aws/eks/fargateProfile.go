@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,12 +29,13 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // var splat0 []interface{}
-// for _, val0 := range aws_subnet.Example {
+// for _, val0 := range exampleAwsSubnet {
 // splat0 = append(splat0, val0.Id)
 // }
 // _, err := eks.NewFargateProfile(ctx, "example", &eks.FargateProfileArgs{
-// ClusterName: pulumi.Any(aws_eks_cluster.Example.Name),
-// PodExecutionRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+// ClusterName: pulumi.Any(exampleAwsEksCluster.Name),
+// FargateProfileName: pulumi.String("example"),
+// PodExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 // SubnetIds: toPulumiArray(splat0),
 // Selectors: eks.FargateProfileSelectorArray{
 // &eks.FargateProfileSelectorArgs{
@@ -55,8 +57,11 @@ import (
 // return pulumiArr
 // }
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example IAM Role for EKS Fargate Profile
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -72,22 +77,23 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Statement": []map[string]interface{}{
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "eks-fargate-pods.amazonaws.com",
+//						"action": "sts:AssumeRole",
+//						"effect": "Allow",
+//						"principal": map[string]interface{}{
+//							"service": "eks-fargate-pods.amazonaws.com",
 //						},
 //					},
 //				},
-//				"Version": "2012-10-17",
+//				"version": "2012-10-17",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
 //			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("eks-fargate-profile-example"),
 //				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -105,22 +111,21 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EKS Fargate Profiles using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
-//
+// $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
 // ```
 type FargateProfile struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the EKS Fargate Profile.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// Name of the EKS Fargate Profile.
 	FargateProfileName pulumi.StringOutput `pulumi:"fargateProfileName"`
@@ -158,10 +163,6 @@ func NewFargateProfile(ctx *pulumi.Context,
 	if args.Selectors == nil {
 		return nil, errors.New("invalid value for required argument 'Selectors'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FargateProfile
 	err := ctx.RegisterResource("aws:eks/fargateProfile:FargateProfile", name, args, &resource, opts...)
@@ -187,7 +188,7 @@ func GetFargateProfile(ctx *pulumi.Context,
 type fargateProfileState struct {
 	// Amazon Resource Name (ARN) of the EKS Fargate Profile.
 	Arn *string `pulumi:"arn"`
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName *string `pulumi:"clusterName"`
 	// Name of the EKS Fargate Profile.
 	FargateProfileName *string `pulumi:"fargateProfileName"`
@@ -212,7 +213,7 @@ type fargateProfileState struct {
 type FargateProfileState struct {
 	// Amazon Resource Name (ARN) of the EKS Fargate Profile.
 	Arn pulumi.StringPtrInput
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName pulumi.StringPtrInput
 	// Name of the EKS Fargate Profile.
 	FargateProfileName pulumi.StringPtrInput
@@ -239,7 +240,7 @@ func (FargateProfileState) ElementType() reflect.Type {
 }
 
 type fargateProfileArgs struct {
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// Name of the EKS Fargate Profile.
 	FargateProfileName *string `pulumi:"fargateProfileName"`
@@ -257,7 +258,7 @@ type fargateProfileArgs struct {
 
 // The set of arguments for constructing a FargateProfile resource.
 type FargateProfileArgs struct {
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName pulumi.StringInput
 	// Name of the EKS Fargate Profile.
 	FargateProfileName pulumi.StringPtrInput
@@ -365,7 +366,7 @@ func (o FargateProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FargateProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+// Name of the EKS Cluster.
 func (o FargateProfileOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FargateProfile) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
 }

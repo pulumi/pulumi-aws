@@ -16,25 +16,28 @@ import * as utilities from "../utilities";
  * > **NOTE:** You can't share a shared resource, including portfolios that contain a shared product.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.servicecatalog.PortfolioShare("example", {
  *     principalId: "012128675309",
- *     portfolioId: aws_servicecatalog_portfolio.example.id,
+ *     portfolioId: exampleAwsServicecatalogPortfolio.id,
  *     type: "ACCOUNT",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_servicecatalog_portfolio_share` using the portfolio share ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012
+ * $ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012
  * ```
  */
 export class PortfolioShare extends pulumi.CustomResource {

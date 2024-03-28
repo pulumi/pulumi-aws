@@ -22,6 +22,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// Basic usage:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,21 +31,22 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var snEc2 = new Aws.Ec2.VpcEndpointSubnetAssociation("snEc2", new()
+    ///     var snEc2 = new Aws.Ec2.VpcEndpointSubnetAssociation("sn_ec2", new()
     ///     {
-    ///         VpcEndpointId = aws_vpc_endpoint.Ec2.Id,
-    ///         SubnetId = aws_subnet.Sn.Id,
+    ///         VpcEndpointId = ec2.Id,
+    ///         SubnetId = sn.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import VPC Endpoint Subnet Associations using `vpc_endpoint_id` together with `subnet_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb
+    /// $ pulumi import aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation")]

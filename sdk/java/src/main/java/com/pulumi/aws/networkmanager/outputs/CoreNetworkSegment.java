@@ -73,6 +73,7 @@ public final class CoreNetworkSegment {
 
         @CustomType.Setter
         public Builder edgeLocations(@Nullable List<String> edgeLocations) {
+
             this.edgeLocations = edgeLocations;
             return this;
         }
@@ -81,11 +82,13 @@ public final class CoreNetworkSegment {
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder sharedSegments(@Nullable List<String> sharedSegments) {
+
             this.sharedSegments = sharedSegments;
             return this;
         }
@@ -93,11 +96,11 @@ public final class CoreNetworkSegment {
             return sharedSegments(List.of(sharedSegments));
         }
         public CoreNetworkSegment build() {
-            final var o = new CoreNetworkSegment();
-            o.edgeLocations = edgeLocations;
-            o.name = name;
-            o.sharedSegments = sharedSegments;
-            return o;
+            final var _resultValue = new CoreNetworkSegment();
+            _resultValue.edgeLocations = edgeLocations;
+            _resultValue.name = name;
+            _resultValue.sharedSegments = sharedSegments;
+            return _resultValue;
         }
     }
 }

@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.aws.cloudwatch.outputs.GetLogDataProtectionPolicyDocumentStatement;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -84,27 +85,40 @@ public final class GetLogDataProtectionPolicyDocumentResult {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLogDataProtectionPolicyDocumentResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder json(String json) {
-            this.json = Objects.requireNonNull(json);
+            if (json == null) {
+              throw new MissingRequiredPropertyException("GetLogDataProtectionPolicyDocumentResult", "json");
+            }
+            this.json = json;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetLogDataProtectionPolicyDocumentResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder statements(List<GetLogDataProtectionPolicyDocumentStatement> statements) {
-            this.statements = Objects.requireNonNull(statements);
+            if (statements == null) {
+              throw new MissingRequiredPropertyException("GetLogDataProtectionPolicyDocumentResult", "statements");
+            }
+            this.statements = statements;
             return this;
         }
         public Builder statements(GetLogDataProtectionPolicyDocumentStatement... statements) {
@@ -112,18 +126,19 @@ public final class GetLogDataProtectionPolicyDocumentResult {
         }
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }
         public GetLogDataProtectionPolicyDocumentResult build() {
-            final var o = new GetLogDataProtectionPolicyDocumentResult();
-            o.description = description;
-            o.id = id;
-            o.json = json;
-            o.name = name;
-            o.statements = statements;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetLogDataProtectionPolicyDocumentResult();
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.json = json;
+            _resultValue.name = name;
+            _resultValue.statements = statements;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

@@ -44,13 +44,14 @@ public final class IntegrationTlsConfig {
 
         @CustomType.Setter
         public Builder serverNameToVerify(@Nullable String serverNameToVerify) {
+
             this.serverNameToVerify = serverNameToVerify;
             return this;
         }
         public IntegrationTlsConfig build() {
-            final var o = new IntegrationTlsConfig();
-            o.serverNameToVerify = serverNameToVerify;
-            return o;
+            final var _resultValue = new IntegrationTlsConfig();
+            _resultValue.serverNameToVerify = serverNameToVerify;
+            return _resultValue;
         }
     }
 }

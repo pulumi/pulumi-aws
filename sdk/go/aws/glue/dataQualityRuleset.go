@@ -15,8 +15,10 @@ import (
 // Provides a Glue Data Quality Ruleset Resource. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/glue-data-quality.html) for a full explanation of the Glue Data Quality Ruleset functionality
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewDataQualityRuleset(ctx, "example", &glue.DataQualityRulesetArgs{
+//				Name:    pulumi.String("example"),
 //				Ruleset: pulumi.String("Rules = [Completeness \"colA\" between 0.4 and 0.8]"),
 //			})
 //			if err != nil {
@@ -40,8 +43,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With description
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,6 +61,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewDataQualityRuleset(ctx, "example", &glue.DataQualityRulesetArgs{
+//				Name:        pulumi.String("example"),
 //				Description: pulumi.String("example"),
 //				Ruleset:     pulumi.String("Rules = [Completeness \"colA\" between 0.4 and 0.8]"),
 //			})
@@ -66,8 +73,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With tags
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,6 +91,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewDataQualityRuleset(ctx, "example", &glue.DataQualityRulesetArgs{
+//				Name:    pulumi.String("example"),
 //				Ruleset: pulumi.String("Rules = [Completeness \"colA\" between 0.4 and 0.8]"),
 //				Tags: pulumi.StringMap{
 //					"hello": pulumi.String("world"),
@@ -94,8 +105,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With targetTable
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -109,10 +123,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewDataQualityRuleset(ctx, "example", &glue.DataQualityRulesetArgs{
+//				Name:    pulumi.String("example"),
 //				Ruleset: pulumi.String("Rules = [Completeness \"colA\" between 0.4 and 0.8]"),
 //				TargetTable: &glue.DataQualityRulesetTargetTableArgs{
-//					DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
-//					TableName:    pulumi.Any(aws_glue_catalog_table.Example.Name),
+//					DatabaseName: pulumi.Any(exampleAwsGlueCatalogDatabase.Name),
+//					TableName:    pulumi.Any(exampleAwsGlueCatalogTable.Name),
 //				},
 //			})
 //			if err != nil {
@@ -123,15 +138,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glue Data Quality Ruleset using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName
-//
+// $ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName
 // ```
 type DataQualityRuleset struct {
 	pulumi.CustomResourceState
@@ -170,10 +184,6 @@ func NewDataQualityRuleset(ctx *pulumi.Context,
 	if args.Ruleset == nil {
 		return nil, errors.New("invalid value for required argument 'Ruleset'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataQualityRuleset
 	err := ctx.RegisterResource("aws:glue/dataQualityRuleset:DataQualityRuleset", name, args, &resource, opts...)

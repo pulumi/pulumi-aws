@@ -8,6 +8,7 @@ providerVersion: github.com/hashicorp/terraform-provider-aws/version.ProviderVer
 env:
   PULUMI_MISSING_DOCS_ERROR: true
   AWS_REGION: "us-west-2"
+  OIDC_ROLE_ARN: ${{ secrets.OIDC_ROLE_ARN }}
 makeTemplate: bridged
 checkoutSubmodules: true
 # TODO: remove XrunUpstreamTools flag after work to add docs replacement strategies to resources.go is completed
@@ -26,21 +27,28 @@ plugins:
     version: "4.8.2"
   - name: github
     version: "5.14.0"
-team: ecosystem
+  - name: std
+    version: "1.6.2"
+  - name: terraform
+    version: "1.0.15"
+    kind: converter
+# Use `pulumi convert` for translating examples from TF to Pulumi.
+pulumiConvert: 1
 goBuildParallelism: 2
-javaGenVersion: "v0.9.5"
-runner:
-  publish: pulumi-ubuntu-8core
-  buildSdk: pulumi-ubuntu-8core
 actions:
-  setupPulumi:
-    - name: Install Pulumi CLI
-      uses: pulumi/actions@v4
-      with:
-        pulumi-version: v3.77.1
   preTest:
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@main
+      with:
+        tool-cache: false
+        swap-storage: false
+    - name: Setup DotNet
+      if: ${{ matrix.language == 'dotnet' }}
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ env.DOTNETVERSION }}
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v1
+      uses: aws-actions/configure-aws-credentials@v4
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-region: ${{ env.AWS_REGION }}
@@ -50,24 +58,14 @@ actions:
         role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
     - name: Make upstream
       run: make upstream
-    - name: Run provider tests
-      run: |
-        cd provider && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
   preBuild:
-    - name: Clear GitHub Actions Ubuntu runner disk space
+    - name: Free Disk Space (Ubuntu)
       uses: jlumbroso/free-disk-space@main
       with:
         tool-cache: false
-        dotnet: false
-        android: true
-        haskell: true
-        swap-storage: true
-        # TODO: enable once transient error with azure is resolved
-        #
-        # E: Failed to fetch
-        # http://azure.archive.ubuntu.com/ubuntu/pool/universe/d/dotnet7/aspnetcore-targeting-pack-7.0_7.0.105-0ubuntu1%7e22.04.1_amd64.deb
-        # 404 Not Found [IP: 40.81.13.82 80]
-        large-packages: false
+        swap-storage: false
+        dotnet: ${{ matrix.language != 'dotnet' }}
+
 extraTests:
   go_test_shim:
     name: Run test of provider shim
@@ -75,13 +73,19 @@ extraTests:
     timeout-minutes: 60
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         ref: ${{ env.PR_COMMIT_SHA }}
         submodules: true
+    - name: Unshallow clone for tags
+      run: git fetch --prune --unshallow --tags
+    - name: Install pulumictl
+      uses: jaxxstorm/action-install-gh-release@v1.11.0
+      with:
+        repo: pulumi/pulumictl
     - name: Make upstream
       run: make upstream
-    - uses: actions/setup-go@v4
+    - uses: actions/setup-go@v5
       with:
        go-version-file: 'provider/go.mod'
        cache-dependency-path: 'provider/go.sum'
@@ -92,6 +96,241 @@ extraTests:
         cd shim
         go test -v -coverprofile="coverage.txt" .
     - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@v3
+      uses: codecov/codecov-action@v4
       env:
        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+  test_oidc:
+    name: test_oidc
+    needs: build_sdk
+    permissions:
+      contents: read
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@main
+      with:
+        tool-cache: false
+        swap-storage: false
+        dotnet: ${{ matrix.language != 'dotnet' }}
+    - name: Checkout Repo
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ env.PR_COMMIT_SHA }}
+        submodules: true
+    - name: Checkout Scripts Repo
+      uses: actions/checkout@v4
+      with:
+        path: ci-scripts
+        repository: pulumi/scripts
+    - name: Unshallow clone for tags
+      run: git fetch --prune --unshallow --tags
+    - name: Install Go
+      uses: actions/setup-go@v5
+      with:
+        cache-dependency-path: |
+            sdk/go.sum
+        go-version: 1.21.x
+    - name: Install pulumictl
+      uses: jaxxstorm/action-install-gh-release@v1.11.0
+      with:
+        repo: pulumi/pulumictl
+    - name: Install Pulumi CLI
+      uses: pulumi/actions@v5
+      with:
+        pulumi-version: v3.77.1
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODEVERSION }}
+        registry-url: https://registry.npmjs.org
+    - name: Download provider + tfgen binaries
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ env.PROVIDER }}-provider.tar.gz
+        path: ${{ github.workspace }}/bin
+    - name: Untar provider binaries
+      run: >-
+        tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
+        github.workspace}}/bin
+
+        find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print -exec chmod +x {} \;
+    - name: Download SDK
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ matrix.language }}-sdk.tar.gz
+        path: ${{ github.workspace}}/sdk/
+    - name: Uncompress SDK folder
+      run: tar -zxf ${{ github.workspace }}/sdk/${{ matrix.language }}.tar.gz -C ${{
+        github.workspace }}/sdk/${{ matrix.language }}
+    - name: Update path
+      run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
+    - name: Install dependencies
+      run: make install_${{ matrix.language}}_sdk
+    - name: Install gotestfmt
+      uses: GoTestTools/gotestfmt-action@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        version: v2.4.0
+    - name: Make upstream
+      run: make upstream
+    - name: Run selected tests with manual web identity/OIDC auth
+      run: cd examples && go test -v -json -count=1 -run TestAccCloudWatchOidcManual -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+    - name: Configure AWS Credentials for OIDC
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        unset-current-credentials: true
+        aws-region: ${{ env.AWS_REGION }}
+        role-duration-seconds: 3600
+        role-session-name: ${{ env.PROVIDER }}@githubActions
+        role-to-assume: ${{ secrets.OIDC_ROLE_ARN }}
+    - name: Run selected tests with configure-aws-credentials web identity/OIDC auth
+      run: cd examples && go test -v -json -count=1 -run TestAccCloudWatch -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+    - if: failure() && github.event_name == 'push'
+      name: Notify Slack
+      uses: 8398a7/action-slack@v3
+      with:
+        author_name: Failure in running ${{ matrix.language }} tests
+        fields: repo,commit,author,action
+        status: ${{ job.status }}
+    strategy:
+      fail-fast: false
+      matrix:
+        language:
+        - nodejs
+
+  provider_test:
+    if: github.event_name == 'repository_dispatch' ||
+      github.event.pull_request.head.repo.full_name == github.repository
+    name: provider_test
+    needs: build_sdk
+    permissions:
+      contents: read
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.PR_COMMIT_SHA }}
+          submodules: true
+      - name: Checkout Scripts Repo
+        uses: actions/checkout@v4
+        with:
+          path: ci-scripts
+          repository: pulumi/scripts
+          ref: deca2c5c6015ad7aaea6f572a1c2b198ca323592
+      - name: Unshallow clone for tags
+        run: git fetch --prune --unshallow --tags
+      - name: Install Go
+        uses: actions/setup-go@v5
+        with:
+          cache-dependency-path: |
+            sdk/go.sum
+          go-version: 1.21.x
+      - name: Install pulumictl
+        uses: jaxxstorm/action-install-gh-release@v1.11.0
+        with:
+          tag: v0.0.46
+          repo: pulumi/pulumictl
+      - name: Install Pulumi CLI
+        uses: pulumi/actions@v5
+        with:
+          pulumi-version: ^3
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODEVERSION }}
+          registry-url: https://registry.npmjs.org
+      - name: Setup DotNet
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNETVERSION }}
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHONVERSION }}
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          cache: gradle
+          distribution: temurin
+          java-version: ${{ env.JAVAVERSION }}
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v3
+        with:
+          gradle-version: ${{ env.GRADLEVERSION }}
+      - name: Download provider + tfgen binaries
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.PROVIDER }}-provider.tar.gz
+          path: ${{ github.workspace }}/bin
+      - name: Untar provider binaries
+        run: >-
+          tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
+          github.workspace}}/bin
+          
+          find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print -exec chmod +x {} \;
+      - run: dotnet nuget add source ${{ github.workspace }}/nuget
+      - name: Download SDK
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ matrix.language }}-sdk.tar.gz
+          path: ${{ github.workspace}}/sdk/
+      - name: Uncompress SDK folder
+        run: tar -zxf ${{ github.workspace }}/sdk/${{ matrix.language }}.tar.gz -C ${{
+          github.workspace }}/sdk/${{ matrix.language }}
+      - name: Update path
+        run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
+      - name: Install Python deps
+        run: |-
+          pip3 install virtualenv==20.0.23
+          pip3 install pipenv
+      - name: Install dependencies
+        run: make install_${{ matrix.language}}_sdk
+      - name: Install gotestfmt
+        uses: GoTestTools/gotestfmt-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: v2.5.0
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          swap-storage: false
+          tool-cache: false
+      - if: ${{ matrix.language == 'dotnet' }}
+        name: Setup DotNet
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNETVERSION }}
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-region: ${{ env.AWS_REGION }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          role-duration-seconds: 3600
+          role-session-name: ${{ env.PROVIDER }}@githubActions
+          role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
+      - name: Make upstream
+        run: make upstream
+      - name: Run provider tests
+        run: |
+          cd provider && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+      - if: failure() && github.event_name == 'push'
+        name: Notify Slack
+        uses: 8398a7/action-slack@v3
+        with:
+          author_name: Failure in running ${{ matrix.language }} provider tests
+          fields: repo,commit,author,action
+          status: ${{ job.status }}
+    strategy:
+      fail-fast: false
+      matrix:
+        language:
+          - nodejs
+          - python
+          - dotnet
+          - go
+          - java

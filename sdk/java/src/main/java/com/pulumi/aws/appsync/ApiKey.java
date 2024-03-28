@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides an AppSync API Key.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,25 +44,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGraphQLApi = new GraphQLApi(&#34;exampleGraphQLApi&#34;, GraphQLApiArgs.builder()        
+ *         var example = new GraphQLApi(&#34;example&#34;, GraphQLApiArgs.builder()        
  *             .authenticationType(&#34;API_KEY&#34;)
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleApiKey = new ApiKey(&#34;exampleApiKey&#34;, ApiKeyArgs.builder()        
- *             .apiId(exampleGraphQLApi.id())
+ *             .apiId(example.id())
  *             .expires(&#34;2018-05-03T04:00:00Z&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_appsync_api_key` using the AppSync API ID and key separated by `:`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
+ * $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
  * ```
  * 
  */

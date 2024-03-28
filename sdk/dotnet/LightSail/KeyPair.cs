@@ -17,8 +17,10 @@ namespace Pulumi.Aws.LightSail
     /// &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
     /// 
     /// ## Example Usage
+    /// 
     /// ### Create New Key Pair
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,12 +30,18 @@ namespace Pulumi.Aws.LightSail
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new Lightsail Key Pair
-    ///     var lgKeyPair = new Aws.LightSail.KeyPair("lgKeyPair");
+    ///     var lgKeyPair = new Aws.LightSail.KeyPair("lg_key_pair", new()
+    ///     {
+    ///         Name = "lg_key_pair",
+    ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Create New Key Pair with PGP Encrypted Private Key
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,31 +50,40 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var lgKeyPair = new Aws.LightSail.KeyPair("lgKeyPair", new()
+    ///     var lgKeyPair = new Aws.LightSail.KeyPair("lg_key_pair", new()
     ///     {
+    ///         Name = "lg_key_pair",
     ///         PgpKey = "keybase:keybaseusername",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Existing Public Key Import
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var lgKeyPair = new Aws.LightSail.KeyPair("lgKeyPair", new()
+    ///     var lgKeyPair = new Aws.LightSail.KeyPair("lg_key_pair", new()
     ///     {
-    ///         PublicKey = File.ReadAllText("~/.ssh/id_rsa.pub"),
+    ///         Name = "importing",
+    ///         PublicKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "~/.ssh/id_rsa.pub",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -160,10 +177,6 @@ namespace Pulumi.Aws.LightSail
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -301,11 +314,7 @@ namespace Pulumi.Aws.LightSail
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public KeyPairState()

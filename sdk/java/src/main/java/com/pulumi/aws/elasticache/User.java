@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,16 +47,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new User(&#34;test&#34;, UserArgs.builder()        
+ *             .userId(&#34;testUserId&#34;)
+ *             .userName(&#34;testUserName&#34;)
  *             .accessString(&#34;on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember&#34;)
  *             .engine(&#34;REDIS&#34;)
  *             .passwords(&#34;password123456789&#34;)
- *             .userId(&#34;testUserId&#34;)
- *             .userName(&#34;testUserName&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -78,18 +83,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new User(&#34;test&#34;, UserArgs.builder()        
+ *             .userId(&#34;testUserId&#34;)
+ *             .userName(&#34;testUserName&#34;)
  *             .accessString(&#34;on ~* +@all&#34;)
+ *             .engine(&#34;REDIS&#34;)
  *             .authenticationMode(UserAuthenticationModeArgs.builder()
  *                 .type(&#34;iam&#34;)
  *                 .build())
- *             .engine(&#34;REDIS&#34;)
- *             .userId(&#34;testUserId&#34;)
- *             .userName(&#34;testUserName&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -113,28 +121,29 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new User(&#34;test&#34;, UserArgs.builder()        
+ *             .userId(&#34;testUserId&#34;)
+ *             .userName(&#34;testUserName&#34;)
  *             .accessString(&#34;on ~* +@all&#34;)
+ *             .engine(&#34;REDIS&#34;)
  *             .authenticationMode(UserAuthenticationModeArgs.builder()
+ *                 .type(&#34;password&#34;)
  *                 .passwords(                
  *                     &#34;password1&#34;,
  *                     &#34;password2&#34;)
- *                 .type(&#34;password&#34;)
  *                 .build())
- *             .engine(&#34;REDIS&#34;)
- *             .userId(&#34;testUserId&#34;)
- *             .userName(&#34;testUserName&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import ElastiCache users using the `user_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:elasticache/user:User my_user userId1
+ * $ pulumi import aws:elasticache/user:User my_user userId1
  * ```
  * 
  */
@@ -316,8 +325,7 @@ public class User extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "passwords",
-                "tagsAll"
+                "passwords"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

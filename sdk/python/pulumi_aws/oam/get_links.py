@@ -61,14 +61,17 @@ def get_links(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinksR
     Data source for managing an AWS CloudWatch Observability Access Manager Links.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.oam.get_links()
     ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -85,13 +88,16 @@ def get_links_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Outp
     Data source for managing an AWS CloudWatch Observability Access Manager Links.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.oam.get_links()
     ```
+    <!--End PulumiCodeChooser -->
     """
     ...

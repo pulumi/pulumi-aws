@@ -6,6 +6,7 @@ package com.pulumi.aws.codestarconnections;
 import com.pulumi.aws.codestarconnections.inputs.HostVpcConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,8 +189,12 @@ public final class HostArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public HostArgs build() {
-            $.providerEndpoint = Objects.requireNonNull($.providerEndpoint, "expected parameter 'providerEndpoint' to be non-null");
-            $.providerType = Objects.requireNonNull($.providerType, "expected parameter 'providerType' to be non-null");
+            if ($.providerEndpoint == null) {
+                throw new MissingRequiredPropertyException("HostArgs", "providerEndpoint");
+            }
+            if ($.providerType == null) {
+                throw new MissingRequiredPropertyException("HostArgs", "providerType");
+            }
             return $;
         }
     }

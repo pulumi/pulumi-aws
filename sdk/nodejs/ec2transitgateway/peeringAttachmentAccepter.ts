@@ -9,24 +9,26 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2transitgateway.PeeringAttachmentAccepter("example", {
- *     transitGatewayAttachmentId: aws_ec2_transit_gateway_peering_attachment.example.id,
+ *     transitGatewayAttachmentId: exampleAwsEc2TransitGatewayPeeringAttachment.id,
  *     tags: {
  *         Name: "Example cross-account attachment",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment_accepter` using the EC2 Transit Gateway Attachment identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter example tgw-attach-12345678
+ * $ pulumi import aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter example tgw-attach-12345678
  * ```
  */
 export class PeeringAttachmentAccepter extends pulumi.CustomResource {
@@ -121,8 +123,6 @@ export class PeeringAttachmentAccepter extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(PeeringAttachmentAccepter.__pulumiType, name, resourceInputs, opts);
     }
 }

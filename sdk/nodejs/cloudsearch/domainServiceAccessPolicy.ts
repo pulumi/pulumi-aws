@@ -11,12 +11,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleDomain = new aws.cloudsearch.Domain("exampleDomain", {});
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ * const exampleDomain = new aws.cloudsearch.Domain("example", {name: "example-domain"});
+ * const example = aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "search_only",
  *         effect: "Allow",
@@ -35,18 +36,19 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const exampleDomainServiceAccessPolicy = new aws.cloudsearch.DomainServiceAccessPolicy("exampleDomainServiceAccessPolicy", {
+ * const exampleDomainServiceAccessPolicy = new aws.cloudsearch.DomainServiceAccessPolicy("example", {
  *     domainName: exampleDomain.id,
- *     accessPolicy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
+ *     accessPolicy: example.then(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CloudSearch domain service access policies using the domain name. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
+ * $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
  * ```
  */
 export class DomainServiceAccessPolicy extends pulumi.CustomResource {

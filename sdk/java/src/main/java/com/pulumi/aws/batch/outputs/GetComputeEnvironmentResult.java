@@ -3,8 +3,11 @@
 
 package com.pulumi.aws.batch.outputs;
 
+import com.pulumi.aws.batch.outputs.GetComputeEnvironmentUpdatePolicy;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -56,6 +59,11 @@ public final class GetComputeEnvironmentResult {
      * 
      */
     private String type;
+    /**
+     * @return Specifies the infrastructure update policy for the compute environment.
+     * 
+     */
+    private List<GetComputeEnvironmentUpdatePolicy> updatePolicies;
 
     private GetComputeEnvironmentResult() {}
     /**
@@ -124,6 +132,13 @@ public final class GetComputeEnvironmentResult {
     public String type() {
         return this.type;
     }
+    /**
+     * @return Specifies the infrastructure update policy for the compute environment.
+     * 
+     */
+    public List<GetComputeEnvironmentUpdatePolicy> updatePolicies() {
+        return this.updatePolicies;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -144,6 +159,7 @@ public final class GetComputeEnvironmentResult {
         private String statusReason;
         private Map<String,String> tags;
         private String type;
+        private List<GetComputeEnvironmentUpdatePolicy> updatePolicies;
         public Builder() {}
         public Builder(GetComputeEnvironmentResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -157,71 +173,114 @@ public final class GetComputeEnvironmentResult {
     	      this.statusReason = defaults.statusReason;
     	      this.tags = defaults.tags;
     	      this.type = defaults.type;
+    	      this.updatePolicies = defaults.updatePolicies;
         }
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder computeEnvironmentName(String computeEnvironmentName) {
-            this.computeEnvironmentName = Objects.requireNonNull(computeEnvironmentName);
+            if (computeEnvironmentName == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "computeEnvironmentName");
+            }
+            this.computeEnvironmentName = computeEnvironmentName;
             return this;
         }
         @CustomType.Setter
         public Builder ecsClusterArn(String ecsClusterArn) {
-            this.ecsClusterArn = Objects.requireNonNull(ecsClusterArn);
+            if (ecsClusterArn == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "ecsClusterArn");
+            }
+            this.ecsClusterArn = ecsClusterArn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder serviceRole(String serviceRole) {
-            this.serviceRole = Objects.requireNonNull(serviceRole);
+            if (serviceRole == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "serviceRole");
+            }
+            this.serviceRole = serviceRole;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder statusReason(String statusReason) {
-            this.statusReason = Objects.requireNonNull(statusReason);
+            if (statusReason == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "statusReason");
+            }
+            this.statusReason = statusReason;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "type");
+            }
+            this.type = type;
             return this;
         }
+        @CustomType.Setter
+        public Builder updatePolicies(List<GetComputeEnvironmentUpdatePolicy> updatePolicies) {
+            if (updatePolicies == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "updatePolicies");
+            }
+            this.updatePolicies = updatePolicies;
+            return this;
+        }
+        public Builder updatePolicies(GetComputeEnvironmentUpdatePolicy... updatePolicies) {
+            return updatePolicies(List.of(updatePolicies));
+        }
         public GetComputeEnvironmentResult build() {
-            final var o = new GetComputeEnvironmentResult();
-            o.arn = arn;
-            o.computeEnvironmentName = computeEnvironmentName;
-            o.ecsClusterArn = ecsClusterArn;
-            o.id = id;
-            o.serviceRole = serviceRole;
-            o.state = state;
-            o.status = status;
-            o.statusReason = statusReason;
-            o.tags = tags;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetComputeEnvironmentResult();
+            _resultValue.arn = arn;
+            _resultValue.computeEnvironmentName = computeEnvironmentName;
+            _resultValue.ecsClusterArn = ecsClusterArn;
+            _resultValue.id = id;
+            _resultValue.serviceRole = serviceRole;
+            _resultValue.state = state;
+            _resultValue.status = status;
+            _resultValue.statusReason = statusReason;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            _resultValue.updatePolicies = updatePolicies;
+            return _resultValue;
         }
     }
 }

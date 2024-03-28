@@ -14,14 +14,57 @@ import (
 
 // Provides an IPAM resource.
 //
+// ## Example Usage
+//
+// Basic usage:
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpcIpam(ctx, "main", &ec2.VpcIpamArgs{
+//				Description: pulumi.String("My IPAM"),
+//				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
+//					&ec2.VpcIpamOperatingRegionArgs{
+//						RegionName: pulumi.String(current.Name),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Test": pulumi.String("Main"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// Shared with multiple operating_regions:
+//
 // ## Import
 //
 // Using `pulumi import`, import IPAMs using the IPAM `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/vpcIpam:VpcIpam example ipam-0178368ad2146a492
-//
+// $ pulumi import aws:ec2/vpcIpam:VpcIpam example ipam-0178368ad2146a492
 // ```
 type VpcIpam struct {
 	pulumi.CustomResourceState
@@ -63,10 +106,6 @@ func NewVpcIpam(ctx *pulumi.Context,
 	if args.OperatingRegions == nil {
 		return nil, errors.New("invalid value for required argument 'OperatingRegions'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcIpam
 	err := ctx.RegisterResource("aws:ec2/vpcIpam:VpcIpam", name, args, &resource, opts...)

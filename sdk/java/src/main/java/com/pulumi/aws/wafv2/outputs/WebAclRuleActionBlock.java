@@ -44,13 +44,14 @@ public final class WebAclRuleActionBlock {
 
         @CustomType.Setter
         public Builder customResponse(@Nullable WebAclRuleActionBlockCustomResponse customResponse) {
+
             this.customResponse = customResponse;
             return this;
         }
         public WebAclRuleActionBlock build() {
-            final var o = new WebAclRuleActionBlock();
-            o.customResponse = customResponse;
-            return o;
+            final var _resultValue = new WebAclRuleActionBlock();
+            _resultValue.customResponse = customResponse;
+            return _resultValue;
         }
     }
 }

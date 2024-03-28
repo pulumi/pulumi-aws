@@ -28,6 +28,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// Basic usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,18 +39,19 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.ManagedPrefixList("example", new()
     ///     {
+    ///         Name = "All VPC CIDR-s",
     ///         AddressFamily = "IPv4",
     ///         MaxEntries = 5,
     ///         Entries = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.ManagedPrefixListEntryArgs
     ///             {
-    ///                 Cidr = aws_vpc.Example.Cidr_block,
+    ///                 Cidr = exampleAwsVpc.CidrBlock,
     ///                 Description = "Primary",
     ///             },
     ///             new Aws.Ec2.Inputs.ManagedPrefixListEntryArgs
     ///             {
-    ///                 Cidr = aws_vpc_ipv4_cidr_block_association.Example.Cidr_block,
+    ///                 Cidr = exampleAwsVpcIpv4CidrBlockAssociation.CidrBlock,
     ///                 Description = "Secondary",
     ///             },
     ///         },
@@ -61,13 +63,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Prefix Lists using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
+    /// $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/managedPrefixList:ManagedPrefixList")]
@@ -150,10 +153,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -291,11 +290,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

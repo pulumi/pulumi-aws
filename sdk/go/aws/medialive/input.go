@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS MediaLive Input.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleInputSecurityGroup, err := medialive.NewInputSecurityGroup(ctx, "exampleInputSecurityGroup", &medialive.InputSecurityGroupArgs{
+//			example, err := medialive.NewInputSecurityGroup(ctx, "example", &medialive.InputSecurityGroupArgs{
 //				WhitelistRules: medialive.InputSecurityGroupWhitelistRuleArray{
 //					&medialive.InputSecurityGroupWhitelistRuleArgs{
 //						Cidr: pulumi.String("10.0.0.8/32"),
@@ -42,9 +44,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = medialive.NewInput(ctx, "exampleInput", &medialive.InputArgs{
+//			_, err = medialive.NewInput(ctx, "example", &medialive.InputArgs{
+//				Name: pulumi.String("example-input"),
 //				InputSecurityGroups: pulumi.StringArray{
-//					exampleInputSecurityGroup.ID(),
+//					example.ID(),
 //				},
 //				Type: pulumi.String("UDP_PUSH"),
 //				Tags: pulumi.StringMap{
@@ -59,15 +62,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import MediaLive Input using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:medialive/input:Input example 12345678
-//
+// $ pulumi import aws:medialive/input:Input example 12345678
 // ```
 type Input struct {
 	pulumi.CustomResourceState
@@ -118,10 +120,6 @@ func NewInput(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Input
 	err := ctx.RegisterResource("aws:medialive/input:Input", name, args, &resource, opts...)

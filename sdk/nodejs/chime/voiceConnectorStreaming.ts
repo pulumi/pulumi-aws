@@ -13,25 +13,35 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultVoiceConnector = new aws.chime.VoiceConnector("defaultVoiceConnector", {requireEncryption: true});
- * const defaultVoiceConnectorStreaming = new aws.chime.VoiceConnectorStreaming("defaultVoiceConnectorStreaming", {
+ * const _default = new aws.chime.VoiceConnector("default", {
+ *     name: "vc-name-test",
+ *     requireEncryption: true,
+ * });
+ * const defaultVoiceConnectorStreaming = new aws.chime.VoiceConnectorStreaming("default", {
  *     disabled: false,
- *     voiceConnectorId: defaultVoiceConnector.id,
+ *     voiceConnectorId: _default.id,
  *     dataRetention: 7,
  *     streamingNotificationTargets: ["SQS"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example Usage With Media Insights
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultVoiceConnector = new aws.chime.VoiceConnector("defaultVoiceConnector", {requireEncryption: true});
+ * const _default = new aws.chime.VoiceConnector("default", {
+ *     name: "vc-name-test",
+ *     requireEncryption: true,
+ * });
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -42,9 +52,16 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const exampleStream = new aws.kinesis.Stream("exampleStream", {shardCount: 2});
- * const exampleMediaInsightsPipelineConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("exampleMediaInsightsPipelineConfiguration", {
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "ExampleResourceAccessRole",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const exampleStream = new aws.kinesis.Stream("example", {
+ *     name: "ExampleStream",
+ *     shardCount: 2,
+ * });
+ * const example = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("example", {
+ *     name: "ExampleConfig",
  *     resourceAccessRoleArn: exampleRole.arn,
  *     elements: [
  *         {
@@ -61,24 +78,25 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const defaultVoiceConnectorStreaming = new aws.chime.VoiceConnectorStreaming("defaultVoiceConnectorStreaming", {
+ * const defaultVoiceConnectorStreaming = new aws.chime.VoiceConnectorStreaming("default", {
  *     disabled: false,
- *     voiceConnectorId: defaultVoiceConnector.id,
+ *     voiceConnectorId: _default.id,
  *     dataRetention: 7,
  *     streamingNotificationTargets: ["SQS"],
  *     mediaInsightsConfiguration: {
  *         disabled: false,
- *         configurationArn: exampleMediaInsightsPipelineConfiguration.arn,
+ *         configurationArn: example.arn,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Chime Voice Connector Streaming using the `voice_connector_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming default abcdef1ghij2klmno3pqr4
+ * $ pulumi import aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming default abcdef1ghij2klmno3pqr4
  * ```
  */
 export class VoiceConnectorStreaming extends pulumi.CustomResource {

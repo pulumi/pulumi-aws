@@ -50,8 +50,10 @@ import (
 // To renew the certificate earlier than 60 days before expiration, configure `earlyRenewalDuration`.
 //
 // ## Example Usage
+//
 // ### Create Certificate
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -65,11 +67,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := acm.NewCertificate(ctx, "cert", &acm.CertificateArgs{
-//				DomainName: pulumi.String("example.com"),
+//				DomainName:       pulumi.String("example.com"),
+//				ValidationMethod: pulumi.String("DNS"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("test"),
 //				},
-//				ValidationMethod: pulumi.String("DNS"),
 //			})
 //			if err != nil {
 //				return err
@@ -79,8 +81,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Custom Domain Validation Options
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -111,8 +116,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Existing Certificate Body Import
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -126,15 +134,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePrivateKey, err := tls.NewPrivateKey(ctx, "examplePrivateKey", &tls.PrivateKeyArgs{
+//			example, err := tls.NewPrivateKey(ctx, "example", &tls.PrivateKeyArgs{
 //				Algorithm: pulumi.String("RSA"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSelfSignedCert, err := tls.NewSelfSignedCert(ctx, "exampleSelfSignedCert", &tls.SelfSignedCertArgs{
+//			exampleSelfSignedCert, err := tls.NewSelfSignedCert(ctx, "example", &tls.SelfSignedCertArgs{
 //				KeyAlgorithm:  pulumi.String("RSA"),
-//				PrivateKeyPem: examplePrivateKey.PrivateKeyPem,
+//				PrivateKeyPem: example.PrivateKeyPem,
 //				Subject: &tls.SelfSignedCertSubjectArgs{
 //					CommonName:   pulumi.String("example.com"),
 //					Organization: pulumi.String("ACME Examples, Inc"),
@@ -150,7 +158,7 @@ import (
 //				return err
 //			}
 //			_, err = acm.NewCertificate(ctx, "cert", &acm.CertificateArgs{
-//				PrivateKey:      examplePrivateKey.PrivateKeyPem,
+//				PrivateKey:      example.PrivateKeyPem,
 //				CertificateBody: exampleSelfSignedCert.CertPem,
 //			})
 //			if err != nil {
@@ -161,53 +169,14 @@ import (
 //	}
 //
 // ```
-// ### Referencing domainValidationOptions With forEach Based Resources
-//
-// See the `acm.CertificateValidation` resource for a full example of performing DNS validation.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			var example []*route53.Record
-//			for key0, val0 := range "TODO: For expression" {
-//				__res, err := route53.NewRecord(ctx, fmt.Sprintf("example-%v", key0), &route53.RecordArgs{
-//					AllowOverwrite: pulumi.Bool(true),
-//					Name:           pulumi.Any(val0),
-//					Records: pulumi.StringArray{
-//						val0,
-//					},
-//					Ttl:    pulumi.Int(60),
-//					Type:   route53.RecordType(val0),
-//					ZoneId: pulumi.Any(aws_route53_zone.Example.Zone_id),
-//				})
-//				if err != nil {
-//					return err
-//				}
-//				example = append(example, __res)
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import certificates using their ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
-//
+// $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
 // ```
 type Certificate struct {
 	pulumi.CustomResourceState
@@ -283,7 +252,6 @@ func NewCertificate(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"privateKey",
-		"tagsAll",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)

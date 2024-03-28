@@ -561,6 +561,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies if the Redshift cluster is multi-AZ.
+     * 
+     */
+    @Import(name="multiAz")
+    private @Nullable Output<Boolean> multiAz;
+
+    /**
+     * @return Specifies if the Redshift cluster is multi-AZ.
+     * 
+     */
+    public Optional<Output<Boolean>> multiAz() {
+        return Optional.ofNullable(this.multiAz);
+    }
+
+    /**
      * The node type to be provisioned for the cluster.
      * 
      */
@@ -823,6 +838,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.masterPasswordSecretArn = $.masterPasswordSecretArn;
         this.masterPasswordSecretKmsKeyId = $.masterPasswordSecretKmsKeyId;
         this.masterUsername = $.masterUsername;
+        this.multiAz = $.multiAz;
         this.nodeType = $.nodeType;
         this.numberOfNodes = $.numberOfNodes;
         this.ownerAccount = $.ownerAccount;
@@ -1617,6 +1633,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder masterUsername(String masterUsername) {
             return masterUsername(Output.of(masterUsername));
+        }
+
+        /**
+         * @param multiAz Specifies if the Redshift cluster is multi-AZ.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder multiAz(@Nullable Output<Boolean> multiAz) {
+            $.multiAz = multiAz;
+            return this;
+        }
+
+        /**
+         * @param multiAz Specifies if the Redshift cluster is multi-AZ.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder multiAz(Boolean multiAz) {
+            return multiAz(Output.of(multiAz));
         }
 
         /**

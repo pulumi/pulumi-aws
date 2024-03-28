@@ -216,25 +216,27 @@ class UsageLimit(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_workgroup = aws.redshiftserverless.Workgroup("exampleWorkgroup",
-            namespace_name=aws_redshiftserverless_namespace["example"]["namespace_name"],
+        example = aws.redshiftserverless.Workgroup("example",
+            namespace_name=example_aws_redshiftserverless_namespace["namespaceName"],
             workgroup_name="example")
-        example_usage_limit = aws.redshiftserverless.UsageLimit("exampleUsageLimit",
-            resource_arn=example_workgroup.arn,
+        example_usage_limit = aws.redshiftserverless.UsageLimit("example",
+            resource_arn=example.arn,
             usage_type="serverless-compute",
             amount=60)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Serverless Usage Limits using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:redshiftserverless/usageLimit:UsageLimit example example-id
+        $ pulumi import aws:redshiftserverless/usageLimit:UsageLimit example example-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -256,25 +258,27 @@ class UsageLimit(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_workgroup = aws.redshiftserverless.Workgroup("exampleWorkgroup",
-            namespace_name=aws_redshiftserverless_namespace["example"]["namespace_name"],
+        example = aws.redshiftserverless.Workgroup("example",
+            namespace_name=example_aws_redshiftserverless_namespace["namespaceName"],
             workgroup_name="example")
-        example_usage_limit = aws.redshiftserverless.UsageLimit("exampleUsageLimit",
-            resource_arn=example_workgroup.arn,
+        example_usage_limit = aws.redshiftserverless.UsageLimit("example",
+            resource_arn=example.arn,
             usage_type="serverless-compute",
             amount=60)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Serverless Usage Limits using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:redshiftserverless/usageLimit:UsageLimit example example-id
+        $ pulumi import aws:redshiftserverless/usageLimit:UsageLimit example example-id
         ```
 
         :param str resource_name: The name of the resource.

@@ -4,6 +4,7 @@
 package com.pulumi.aws.guardduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -129,6 +130,7 @@ public final class FilterFindingCriteriaCriterion {
 
         @CustomType.Setter("equals")
         public Builder equals_(@Nullable List<String> equals) {
+
             this.equals = equals;
             return this;
         }
@@ -137,31 +139,39 @@ public final class FilterFindingCriteriaCriterion {
         }
         @CustomType.Setter
         public Builder field(String field) {
-            this.field = Objects.requireNonNull(field);
+            if (field == null) {
+              throw new MissingRequiredPropertyException("FilterFindingCriteriaCriterion", "field");
+            }
+            this.field = field;
             return this;
         }
         @CustomType.Setter
         public Builder greaterThan(@Nullable String greaterThan) {
+
             this.greaterThan = greaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder greaterThanOrEqual(@Nullable String greaterThanOrEqual) {
+
             this.greaterThanOrEqual = greaterThanOrEqual;
             return this;
         }
         @CustomType.Setter
         public Builder lessThan(@Nullable String lessThan) {
+
             this.lessThan = lessThan;
             return this;
         }
         @CustomType.Setter
         public Builder lessThanOrEqual(@Nullable String lessThanOrEqual) {
+
             this.lessThanOrEqual = lessThanOrEqual;
             return this;
         }
         @CustomType.Setter
         public Builder notEquals(@Nullable List<String> notEquals) {
+
             this.notEquals = notEquals;
             return this;
         }
@@ -169,15 +179,15 @@ public final class FilterFindingCriteriaCriterion {
             return notEquals(List.of(notEquals));
         }
         public FilterFindingCriteriaCriterion build() {
-            final var o = new FilterFindingCriteriaCriterion();
-            o.equals = equals;
-            o.field = field;
-            o.greaterThan = greaterThan;
-            o.greaterThanOrEqual = greaterThanOrEqual;
-            o.lessThan = lessThan;
-            o.lessThanOrEqual = lessThanOrEqual;
-            o.notEquals = notEquals;
-            return o;
+            final var _resultValue = new FilterFindingCriteriaCriterion();
+            _resultValue.equals = equals;
+            _resultValue.field = field;
+            _resultValue.greaterThan = greaterThan;
+            _resultValue.greaterThanOrEqual = greaterThanOrEqual;
+            _resultValue.lessThan = lessThan;
+            _resultValue.lessThanOrEqual = lessThanOrEqual;
+            _resultValue.notEquals = notEquals;
+            return _resultValue;
         }
     }
 }

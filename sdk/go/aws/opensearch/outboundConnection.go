@@ -15,8 +15,10 @@ import (
 // Manages an AWS Opensearch Outbound Connection.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,11 +32,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			currentGetRegion, err := aws.GetRegion(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -42,14 +44,14 @@ import (
 //				ConnectionAlias: pulumi.String("outbound_connection"),
 //				ConnectionMode:  pulumi.String("DIRECT"),
 //				LocalDomainInfo: &opensearch.OutboundConnectionLocalDomainInfoArgs{
-//					OwnerId:    *pulumi.String(currentCallerIdentity.AccountId),
-//					Region:     *pulumi.String(currentRegion.Name),
-//					DomainName: pulumi.Any(aws_opensearch_domain.Local_domain.Domain_name),
+//					OwnerId:    pulumi.String(current.AccountId),
+//					Region:     pulumi.String(currentGetRegion.Name),
+//					DomainName: pulumi.Any(localDomain.DomainName),
 //				},
 //				RemoteDomainInfo: &opensearch.OutboundConnectionRemoteDomainInfoArgs{
-//					OwnerId:    *pulumi.String(currentCallerIdentity.AccountId),
-//					Region:     *pulumi.String(currentRegion.Name),
-//					DomainName: pulumi.Any(aws_opensearch_domain.Remote_domain.Domain_name),
+//					OwnerId:    pulumi.String(current.AccountId),
+//					Region:     pulumi.String(currentGetRegion.Name),
+//					DomainName: pulumi.Any(remoteDomain.DomainName),
 //				},
 //			})
 //			if err != nil {
@@ -60,15 +62,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AWS Opensearch Outbound Connections using the Outbound Connection ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
-//
+// $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
 // ```
 type OutboundConnection struct {
 	pulumi.CustomResourceState

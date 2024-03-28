@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,6 +31,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
 //				ExecutableUsers: []string{
+//					"self",
+//				},
+//				MostRecent: pulumi.BoolRef(true),
+//				NameRegex:  pulumi.StringRef("^myami-\\d{3}"),
+//				Owners: []string{
 //					"self",
 //				},
 //				Filters: []ec2.GetAmiFilter{
@@ -52,11 +58,6 @@ import (
 //						},
 //					},
 //				},
-//				MostRecent: pulumi.BoolRef(true),
-//				NameRegex:  pulumi.StringRef("^myami-\\d{3}"),
-//				Owners: []string{
-//					"self",
-//				},
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -66,6 +67,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupAmi(ctx *pulumi.Context, args *LookupAmiArgs, opts ...pulumi.InvokeOption) (*LookupAmiResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAmiResult

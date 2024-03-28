@@ -16,9 +16,13 @@ namespace Pulumi.Aws.S3
     /// 
     /// &gt; Advanced usage: To use a custom API endpoint for this resource, use the `s3control` endpoint provider configuration), not the `s3` endpoint provider configuration.
     /// 
-    /// ## Example Usage
-    /// ### AWS Partition Bucket
+    /// &gt; This resource cannot be used with S3 directory buckets.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ### AWS Partition General Purpose Bucket
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,17 +31,24 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new()
+    ///     var example = new Aws.S3.BucketV2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = "example",
+    ///     });
+    /// 
+    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("example", new()
+    ///     {
+    ///         Bucket = example.Id,
+    ///         Name = "example",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### S3 on Outposts Bucket
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,19 +57,20 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucket = new Aws.S3Control.Bucket("exampleBucket", new()
+    ///     var example = new Aws.S3Control.Bucket("example", new()
     ///     {
     ///         BucketName = "example",
     ///     });
     /// 
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var exampleVpc = new Aws.Ec2.Vpc("example", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new()
+    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("example", new()
     ///     {
-    ///         Bucket = exampleBucket.Arn,
+    ///         Bucket = example.Arn,
+    ///         Name = "example",
     ///         VpcConfiguration = new Aws.S3.Inputs.AccessPointVpcConfigurationArgs
     ///         {
     ///             VpcId = exampleVpc.Id,
@@ -67,6 +79,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -77,12 +90,12 @@ namespace Pulumi.Aws.S3
     /// Import using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucket:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
+    /// $ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
     /// ```
-    ///  Import using the ARN for Access Points associated with an S3 on Outposts Bucket:
+    /// Import using the ARN for Access Points associated with an S3 on Outposts Bucket:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
+    /// $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/accessPoint:AccessPoint")]
@@ -107,7 +120,7 @@ namespace Pulumi.Aws.S3
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+        /// Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
@@ -222,7 +235,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+        /// Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -286,7 +299,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+        /// Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }

@@ -7,6 +7,7 @@ import com.pulumi.aws.glue.outputs.SecurityConfigurationEncryptionConfigurationC
 import com.pulumi.aws.glue.outputs.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption;
 import com.pulumi.aws.glue.outputs.SecurityConfigurationEncryptionConfigurationS3Encryption;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -56,25 +57,34 @@ public final class SecurityConfigurationEncryptionConfiguration {
 
         @CustomType.Setter
         public Builder cloudwatchEncryption(SecurityConfigurationEncryptionConfigurationCloudwatchEncryption cloudwatchEncryption) {
-            this.cloudwatchEncryption = Objects.requireNonNull(cloudwatchEncryption);
+            if (cloudwatchEncryption == null) {
+              throw new MissingRequiredPropertyException("SecurityConfigurationEncryptionConfiguration", "cloudwatchEncryption");
+            }
+            this.cloudwatchEncryption = cloudwatchEncryption;
             return this;
         }
         @CustomType.Setter
         public Builder jobBookmarksEncryption(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption jobBookmarksEncryption) {
-            this.jobBookmarksEncryption = Objects.requireNonNull(jobBookmarksEncryption);
+            if (jobBookmarksEncryption == null) {
+              throw new MissingRequiredPropertyException("SecurityConfigurationEncryptionConfiguration", "jobBookmarksEncryption");
+            }
+            this.jobBookmarksEncryption = jobBookmarksEncryption;
             return this;
         }
         @CustomType.Setter
         public Builder s3Encryption(SecurityConfigurationEncryptionConfigurationS3Encryption s3Encryption) {
-            this.s3Encryption = Objects.requireNonNull(s3Encryption);
+            if (s3Encryption == null) {
+              throw new MissingRequiredPropertyException("SecurityConfigurationEncryptionConfiguration", "s3Encryption");
+            }
+            this.s3Encryption = s3Encryption;
             return this;
         }
         public SecurityConfigurationEncryptionConfiguration build() {
-            final var o = new SecurityConfigurationEncryptionConfiguration();
-            o.cloudwatchEncryption = cloudwatchEncryption;
-            o.jobBookmarksEncryption = jobBookmarksEncryption;
-            o.s3Encryption = s3Encryption;
-            return o;
+            final var _resultValue = new SecurityConfigurationEncryptionConfiguration();
+            _resultValue.cloudwatchEncryption = cloudwatchEncryption;
+            _resultValue.jobBookmarksEncryption = jobBookmarksEncryption;
+            _resultValue.s3Encryption = s3Encryption;
+            return _resultValue;
         }
     }
 }

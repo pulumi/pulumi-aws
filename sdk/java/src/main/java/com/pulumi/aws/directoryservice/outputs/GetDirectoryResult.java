@@ -7,6 +7,7 @@ import com.pulumi.aws.directoryservice.outputs.GetDirectoryConnectSetting;
 import com.pulumi.aws.directoryservice.outputs.GetDirectoryRadiusSetting;
 import com.pulumi.aws.directoryservice.outputs.GetDirectoryVpcSetting;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -240,17 +241,26 @@ public final class GetDirectoryResult {
 
         @CustomType.Setter
         public Builder accessUrl(String accessUrl) {
-            this.accessUrl = Objects.requireNonNull(accessUrl);
+            if (accessUrl == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "accessUrl");
+            }
+            this.accessUrl = accessUrl;
             return this;
         }
         @CustomType.Setter
         public Builder alias(String alias) {
-            this.alias = Objects.requireNonNull(alias);
+            if (alias == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "alias");
+            }
+            this.alias = alias;
             return this;
         }
         @CustomType.Setter
         public Builder connectSettings(List<GetDirectoryConnectSetting> connectSettings) {
-            this.connectSettings = Objects.requireNonNull(connectSettings);
+            if (connectSettings == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "connectSettings");
+            }
+            this.connectSettings = connectSettings;
             return this;
         }
         public Builder connectSettings(GetDirectoryConnectSetting... connectSettings) {
@@ -258,17 +268,26 @@ public final class GetDirectoryResult {
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder directoryId(String directoryId) {
-            this.directoryId = Objects.requireNonNull(directoryId);
+            if (directoryId == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "directoryId");
+            }
+            this.directoryId = directoryId;
             return this;
         }
         @CustomType.Setter
         public Builder dnsIpAddresses(List<String> dnsIpAddresses) {
-            this.dnsIpAddresses = Objects.requireNonNull(dnsIpAddresses);
+            if (dnsIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "dnsIpAddresses");
+            }
+            this.dnsIpAddresses = dnsIpAddresses;
             return this;
         }
         public Builder dnsIpAddresses(String... dnsIpAddresses) {
@@ -276,27 +295,42 @@ public final class GetDirectoryResult {
         }
         @CustomType.Setter
         public Builder edition(String edition) {
-            this.edition = Objects.requireNonNull(edition);
+            if (edition == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "edition");
+            }
+            this.edition = edition;
             return this;
         }
         @CustomType.Setter
         public Builder enableSso(Boolean enableSso) {
-            this.enableSso = Objects.requireNonNull(enableSso);
+            if (enableSso == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "enableSso");
+            }
+            this.enableSso = enableSso;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder radiusSettings(List<GetDirectoryRadiusSetting> radiusSettings) {
-            this.radiusSettings = Objects.requireNonNull(radiusSettings);
+            if (radiusSettings == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "radiusSettings");
+            }
+            this.radiusSettings = radiusSettings;
             return this;
         }
         public Builder radiusSettings(GetDirectoryRadiusSetting... radiusSettings) {
@@ -304,57 +338,75 @@ public final class GetDirectoryResult {
         }
         @CustomType.Setter
         public Builder securityGroupId(String securityGroupId) {
-            this.securityGroupId = Objects.requireNonNull(securityGroupId);
+            if (securityGroupId == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "securityGroupId");
+            }
+            this.securityGroupId = securityGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder shortName(String shortName) {
-            this.shortName = Objects.requireNonNull(shortName);
+            if (shortName == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "shortName");
+            }
+            this.shortName = shortName;
             return this;
         }
         @CustomType.Setter
         public Builder size(String size) {
-            this.size = Objects.requireNonNull(size);
+            if (size == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "size");
+            }
+            this.size = size;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder vpcSettings(List<GetDirectoryVpcSetting> vpcSettings) {
-            this.vpcSettings = Objects.requireNonNull(vpcSettings);
+            if (vpcSettings == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "vpcSettings");
+            }
+            this.vpcSettings = vpcSettings;
             return this;
         }
         public Builder vpcSettings(GetDirectoryVpcSetting... vpcSettings) {
             return vpcSettings(List.of(vpcSettings));
         }
         public GetDirectoryResult build() {
-            final var o = new GetDirectoryResult();
-            o.accessUrl = accessUrl;
-            o.alias = alias;
-            o.connectSettings = connectSettings;
-            o.description = description;
-            o.directoryId = directoryId;
-            o.dnsIpAddresses = dnsIpAddresses;
-            o.edition = edition;
-            o.enableSso = enableSso;
-            o.id = id;
-            o.name = name;
-            o.radiusSettings = radiusSettings;
-            o.securityGroupId = securityGroupId;
-            o.shortName = shortName;
-            o.size = size;
-            o.tags = tags;
-            o.type = type;
-            o.vpcSettings = vpcSettings;
-            return o;
+            final var _resultValue = new GetDirectoryResult();
+            _resultValue.accessUrl = accessUrl;
+            _resultValue.alias = alias;
+            _resultValue.connectSettings = connectSettings;
+            _resultValue.description = description;
+            _resultValue.directoryId = directoryId;
+            _resultValue.dnsIpAddresses = dnsIpAddresses;
+            _resultValue.edition = edition;
+            _resultValue.enableSso = enableSso;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.radiusSettings = radiusSettings;
+            _resultValue.securityGroupId = securityGroupId;
+            _resultValue.shortName = shortName;
+            _resultValue.size = size;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            _resultValue.vpcSettings = vpcSettings;
+            return _resultValue;
         }
     }
 }

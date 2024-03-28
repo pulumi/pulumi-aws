@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupThesaurus(ctx *pulumi.Context, args *LookupThesaurusArgs, opts ...pulumi.InvokeOption) (*LookupThesaurusResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupThesaurusResult

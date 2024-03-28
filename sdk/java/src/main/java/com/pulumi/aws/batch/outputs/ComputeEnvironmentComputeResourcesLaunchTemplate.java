@@ -72,25 +72,28 @@ public final class ComputeEnvironmentComputeResourcesLaunchTemplate {
 
         @CustomType.Setter
         public Builder launchTemplateId(@Nullable String launchTemplateId) {
+
             this.launchTemplateId = launchTemplateId;
             return this;
         }
         @CustomType.Setter
         public Builder launchTemplateName(@Nullable String launchTemplateName) {
+
             this.launchTemplateName = launchTemplateName;
             return this;
         }
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }
         public ComputeEnvironmentComputeResourcesLaunchTemplate build() {
-            final var o = new ComputeEnvironmentComputeResourcesLaunchTemplate();
-            o.launchTemplateId = launchTemplateId;
-            o.launchTemplateName = launchTemplateName;
-            o.version = version;
-            return o;
+            final var _resultValue = new ComputeEnvironmentComputeResourcesLaunchTemplate();
+            _resultValue.launchTemplateId = launchTemplateId;
+            _resultValue.launchTemplateName = launchTemplateName;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

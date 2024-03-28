@@ -24,6 +24,8 @@ public final class LakeformationFunctions {
      * Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -52,6 +54,7 @@ public final class LakeformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDataLakeSettingsResult> getDataLakeSettings() {
@@ -61,6 +64,8 @@ public final class LakeformationFunctions {
      * Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -89,6 +94,7 @@ public final class LakeformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDataLakeSettingsResult> getDataLakeSettingsPlain() {
@@ -98,6 +104,8 @@ public final class LakeformationFunctions {
      * Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -126,6 +134,7 @@ public final class LakeformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDataLakeSettingsResult> getDataLakeSettings(GetDataLakeSettingsArgs args) {
@@ -135,6 +144,8 @@ public final class LakeformationFunctions {
      * Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -163,6 +174,7 @@ public final class LakeformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDataLakeSettingsResult> getDataLakeSettingsPlain(GetDataLakeSettingsPlainArgs args) {
@@ -172,6 +184,8 @@ public final class LakeformationFunctions {
      * Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -200,6 +214,7 @@ public final class LakeformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDataLakeSettingsResult> getDataLakeSettings(GetDataLakeSettingsArgs args, InvokeOptions options) {
@@ -209,6 +224,8 @@ public final class LakeformationFunctions {
      * Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -237,6 +254,7 @@ public final class LakeformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDataLakeSettingsResult> getDataLakeSettingsPlain(GetDataLakeSettingsPlainArgs args, InvokeOptions options) {
@@ -248,7 +266,10 @@ public final class LakeformationFunctions {
      * &gt; **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
      * 
      * ## Example Usage
+     * 
      * ### Permissions For A Lake Formation S3 Resource
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -272,16 +293,20 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
-     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .principal(workflowRole.arn())
      *             .dataLocation(GetPermissionsDataLocationArgs.builder()
-     *                 .arn(aws_lakeformation_resource.test().arn())
+     *                 .arn(testAwsLakeformationResource.arn())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Permissions For A Glue Catalog Database
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -305,9 +330,9 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
-     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .principal(workflowRole.arn())
      *             .database(GetPermissionsDatabaseArgs.builder()
-     *                 .name(aws_glue_catalog_database.test().name())
+     *                 .name(testAwsGlueCatalogDatabase.name())
      *                 .catalogId(&#34;110376042874&#34;)
      *                 .build())
      *             .build());
@@ -315,7 +340,11 @@ public final class LakeformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Permissions For Tag-Based Access Control
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -339,7 +368,7 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
-     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .principal(workflowRole.arn())
      *             .lfTagPolicy(GetPermissionsLfTagPolicyArgs.builder()
      *                 .resourceType(&#34;DATABASE&#34;)
      *                 .expressions(                
@@ -359,6 +388,7 @@ public final class LakeformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPermissionsResult> getPermissions(GetPermissionsArgs args) {
@@ -370,7 +400,10 @@ public final class LakeformationFunctions {
      * &gt; **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
      * 
      * ## Example Usage
+     * 
      * ### Permissions For A Lake Formation S3 Resource
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -394,16 +427,20 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
-     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .principal(workflowRole.arn())
      *             .dataLocation(GetPermissionsDataLocationArgs.builder()
-     *                 .arn(aws_lakeformation_resource.test().arn())
+     *                 .arn(testAwsLakeformationResource.arn())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Permissions For A Glue Catalog Database
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -427,9 +464,9 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
-     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .principal(workflowRole.arn())
      *             .database(GetPermissionsDatabaseArgs.builder()
-     *                 .name(aws_glue_catalog_database.test().name())
+     *                 .name(testAwsGlueCatalogDatabase.name())
      *                 .catalogId(&#34;110376042874&#34;)
      *                 .build())
      *             .build());
@@ -437,7 +474,11 @@ public final class LakeformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Permissions For Tag-Based Access Control
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -461,7 +502,7 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
-     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .principal(workflowRole.arn())
      *             .lfTagPolicy(GetPermissionsLfTagPolicyArgs.builder()
      *                 .resourceType(&#34;DATABASE&#34;)
      *                 .expressions(                
@@ -481,6 +522,7 @@ public final class LakeformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPermissionsResult> getPermissionsPlain(GetPermissionsPlainArgs args) {
@@ -492,7 +534,10 @@ public final class LakeformationFunctions {
      * &gt; **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
      * 
      * ## Example Usage
+     * 
      * ### Permissions For A Lake Formation S3 Resource
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -516,16 +561,20 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
-     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .principal(workflowRole.arn())
      *             .dataLocation(GetPermissionsDataLocationArgs.builder()
-     *                 .arn(aws_lakeformation_resource.test().arn())
+     *                 .arn(testAwsLakeformationResource.arn())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Permissions For A Glue Catalog Database
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -549,9 +598,9 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
-     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .principal(workflowRole.arn())
      *             .database(GetPermissionsDatabaseArgs.builder()
-     *                 .name(aws_glue_catalog_database.test().name())
+     *                 .name(testAwsGlueCatalogDatabase.name())
      *                 .catalogId(&#34;110376042874&#34;)
      *                 .build())
      *             .build());
@@ -559,7 +608,11 @@ public final class LakeformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Permissions For Tag-Based Access Control
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -583,7 +636,7 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
-     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .principal(workflowRole.arn())
      *             .lfTagPolicy(GetPermissionsLfTagPolicyArgs.builder()
      *                 .resourceType(&#34;DATABASE&#34;)
      *                 .expressions(                
@@ -603,6 +656,7 @@ public final class LakeformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPermissionsResult> getPermissions(GetPermissionsArgs args, InvokeOptions options) {
@@ -614,7 +668,10 @@ public final class LakeformationFunctions {
      * &gt; **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
      * 
      * ## Example Usage
+     * 
      * ### Permissions For A Lake Formation S3 Resource
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -638,16 +695,20 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
-     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .principal(workflowRole.arn())
      *             .dataLocation(GetPermissionsDataLocationArgs.builder()
-     *                 .arn(aws_lakeformation_resource.test().arn())
+     *                 .arn(testAwsLakeformationResource.arn())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Permissions For A Glue Catalog Database
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -671,9 +732,9 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
-     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .principal(workflowRole.arn())
      *             .database(GetPermissionsDatabaseArgs.builder()
-     *                 .name(aws_glue_catalog_database.test().name())
+     *                 .name(testAwsGlueCatalogDatabase.name())
      *                 .catalogId(&#34;110376042874&#34;)
      *                 .build())
      *             .build());
@@ -681,7 +742,11 @@ public final class LakeformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Permissions For Tag-Based Access Control
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -705,7 +770,7 @@ public final class LakeformationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
-     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .principal(workflowRole.arn())
      *             .lfTagPolicy(GetPermissionsLfTagPolicyArgs.builder()
      *                 .resourceType(&#34;DATABASE&#34;)
      *                 .expressions(                
@@ -725,6 +790,7 @@ public final class LakeformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPermissionsResult> getPermissionsPlain(GetPermissionsPlainArgs args, InvokeOptions options) {
@@ -734,6 +800,8 @@ public final class LakeformationFunctions {
      * Provides details about a Lake Formation resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -762,6 +830,7 @@ public final class LakeformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResourceResult> getResource(GetResourceArgs args) {
@@ -771,6 +840,8 @@ public final class LakeformationFunctions {
      * Provides details about a Lake Formation resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -799,6 +870,7 @@ public final class LakeformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResourceResult> getResourcePlain(GetResourcePlainArgs args) {
@@ -808,6 +880,8 @@ public final class LakeformationFunctions {
      * Provides details about a Lake Formation resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -836,6 +910,7 @@ public final class LakeformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResourceResult> getResource(GetResourceArgs args, InvokeOptions options) {
@@ -845,6 +920,8 @@ public final class LakeformationFunctions {
      * Provides details about a Lake Formation resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -873,6 +950,7 @@ public final class LakeformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResourceResult> getResourcePlain(GetResourcePlainArgs args, InvokeOptions options) {

@@ -22,14 +22,14 @@ class MethodResponseArgs:
                  response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None):
         """
         The set of arguments for constructing a MethodResponse resource.
-        :param pulumi.Input[str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
-        :param pulumi.Input[str] resource_id: API resource ID
-        :param pulumi.Input[str] rest_api: ID of the associated REST API
-        :param pulumi.Input[str] status_code: HTTP status code
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_models: Map of the API models used for the response's content type
-        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] response_parameters: Map of response parameters that can be sent to the caller.
-               For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
-               would define that the header `X-Some-Header` can be provided on the response.
+        :param pulumi.Input[str] http_method: The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
+        :param pulumi.Input[str] resource_id: The Resource identifier for the method resource.
+        :param pulumi.Input[str] rest_api: The string identifier of the associated REST API.
+        :param pulumi.Input[str] status_code: The method response's status code.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_models: A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
+        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] response_parameters: A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
+               
+               The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
         """
         pulumi.set(__self__, "http_method", http_method)
         pulumi.set(__self__, "resource_id", resource_id)
@@ -44,7 +44,7 @@ class MethodResponseArgs:
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> pulumi.Input[str]:
         """
-        HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
         """
         return pulumi.get(self, "http_method")
 
@@ -56,7 +56,7 @@ class MethodResponseArgs:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[str]:
         """
-        API resource ID
+        The Resource identifier for the method resource.
         """
         return pulumi.get(self, "resource_id")
 
@@ -68,7 +68,7 @@ class MethodResponseArgs:
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Input[str]:
         """
-        ID of the associated REST API
+        The string identifier of the associated REST API.
         """
         return pulumi.get(self, "rest_api")
 
@@ -80,7 +80,7 @@ class MethodResponseArgs:
     @pulumi.getter(name="statusCode")
     def status_code(self) -> pulumi.Input[str]:
         """
-        HTTP status code
+        The method response's status code.
         """
         return pulumi.get(self, "status_code")
 
@@ -92,7 +92,7 @@ class MethodResponseArgs:
     @pulumi.getter(name="responseModels")
     def response_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of the API models used for the response's content type
+        A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
         """
         return pulumi.get(self, "response_models")
 
@@ -104,9 +104,9 @@ class MethodResponseArgs:
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]]:
         """
-        Map of response parameters that can be sent to the caller.
-        For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
-        would define that the header `X-Some-Header` can be provided on the response.
+        A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
+
+        The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
         """
         return pulumi.get(self, "response_parameters")
 
@@ -126,14 +126,14 @@ class _MethodResponseState:
                  status_code: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering MethodResponse resources.
-        :param pulumi.Input[str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
-        :param pulumi.Input[str] resource_id: API resource ID
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_models: Map of the API models used for the response's content type
-        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] response_parameters: Map of response parameters that can be sent to the caller.
-               For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
-               would define that the header `X-Some-Header` can be provided on the response.
-        :param pulumi.Input[str] rest_api: ID of the associated REST API
-        :param pulumi.Input[str] status_code: HTTP status code
+        :param pulumi.Input[str] http_method: The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
+        :param pulumi.Input[str] resource_id: The Resource identifier for the method resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_models: A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
+        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] response_parameters: A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
+               
+               The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
+        :param pulumi.Input[str] rest_api: The string identifier of the associated REST API.
+        :param pulumi.Input[str] status_code: The method response's status code.
         """
         if http_method is not None:
             pulumi.set(__self__, "http_method", http_method)
@@ -152,7 +152,7 @@ class _MethodResponseState:
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> Optional[pulumi.Input[str]]:
         """
-        HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
         """
         return pulumi.get(self, "http_method")
 
@@ -164,7 +164,7 @@ class _MethodResponseState:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        API resource ID
+        The Resource identifier for the method resource.
         """
         return pulumi.get(self, "resource_id")
 
@@ -176,7 +176,7 @@ class _MethodResponseState:
     @pulumi.getter(name="responseModels")
     def response_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of the API models used for the response's content type
+        A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
         """
         return pulumi.get(self, "response_models")
 
@@ -188,9 +188,9 @@ class _MethodResponseState:
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]]:
         """
-        Map of response parameters that can be sent to the caller.
-        For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
-        would define that the header `X-Some-Header` can be provided on the response.
+        A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
+
+        The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
         """
         return pulumi.get(self, "response_parameters")
 
@@ -202,7 +202,7 @@ class _MethodResponseState:
     @pulumi.getter(name="restApi")
     def rest_api(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the associated REST API
+        The string identifier of the associated REST API.
         """
         return pulumi.get(self, "rest_api")
 
@@ -214,7 +214,7 @@ class _MethodResponseState:
     @pulumi.getter(name="statusCode")
     def status_code(self) -> Optional[pulumi.Input[str]]:
         """
-        HTTP status code
+        The method response's status code.
         """
         return pulumi.get(self, "status_code")
 
@@ -236,54 +236,115 @@ class MethodResponse(pulumi.CustomResource):
                  status_code: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an HTTP Method Response for an API Gateway Resource.
+        Provides an HTTP Method Response for an API Gateway Resource. More information about API Gateway method responses can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-settings-method-response.html).
 
         ## Example Usage
 
+        ### Basic Response
+
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        my_demo_resource = aws.apigateway.Resource("myDemoResource",
+        my_demo_api = aws.apigateway.RestApi("MyDemoAPI",
+            name="MyDemoAPI",
+            description="This is my API for demonstration purposes")
+        my_demo_resource = aws.apigateway.Resource("MyDemoResource",
             rest_api=my_demo_api.id,
             parent_id=my_demo_api.root_resource_id,
             path_part="mydemoresource")
-        my_demo_method = aws.apigateway.Method("myDemoMethod",
+        my_demo_method = aws.apigateway.Method("MyDemoMethod",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method="GET",
             authorization="NONE")
-        my_demo_integration = aws.apigateway.Integration("myDemoIntegration",
+        my_demo_integration = aws.apigateway.Integration("MyDemoIntegration",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method=my_demo_method.http_method,
             type="MOCK")
-        response200 = aws.apigateway.MethodResponse("response200",
+        response200 = aws.apigateway.MethodResponse("response_200",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method=my_demo_method.http_method,
             status_code="200")
         ```
+        <!--End PulumiCodeChooser -->
+
+        ### Response with Custom Header and Model
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        my_demo_api = aws.apigateway.RestApi("MyDemoAPI",
+            name="MyDemoAPI",
+            description="This is my API for demonstration purposes")
+        my_demo_resource = aws.apigateway.Resource("MyDemoResource",
+            rest_api=my_demo_api.id,
+            parent_id=my_demo_api.root_resource_id,
+            path_part="mydemoresource")
+        my_demo_method = aws.apigateway.Method("MyDemoMethod",
+            rest_api=my_demo_api.id,
+            resource_id=my_demo_resource.id,
+            http_method="GET",
+            authorization="NONE")
+        my_demo_integration = aws.apigateway.Integration("MyDemoIntegration",
+            rest_api=my_demo_api.id,
+            resource_id=my_demo_resource.id,
+            http_method=my_demo_method.http_method,
+            type="MOCK")
+        my_demo_response_model = aws.apigateway.Model("MyDemoResponseModel",
+            rest_api=my_demo_api.id,
+            name="MyDemoResponseModel",
+            description="API response for MyDemoMethod",
+            content_type="application/json",
+            schema=json.dumps({
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "title": "MyDemoResponse",
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                    },
+                },
+            }))
+        response200 = aws.apigateway.MethodResponse("response_200",
+            rest_api=my_demo_api.id,
+            resource_id=my_demo_resource.id,
+            http_method=my_demo_method.http_method,
+            status_code="200",
+            response_models={
+                "application-json": "MyDemoResponseModel",
+            },
+            response_parameters={
+                "method.response.header.Content-Type": False,
+                "method-response-header.X-My-Demo-Header": False,
+            })
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_method_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/methodResponse:MethodResponse example 12345abcde/67890fghij/GET/200
+        $ pulumi import aws:apigateway/methodResponse:MethodResponse example 12345abcde/67890fghij/GET/200
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
-        :param pulumi.Input[str] resource_id: API resource ID
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_models: Map of the API models used for the response's content type
-        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] response_parameters: Map of response parameters that can be sent to the caller.
-               For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
-               would define that the header `X-Some-Header` can be provided on the response.
-        :param pulumi.Input[str] rest_api: ID of the associated REST API
-        :param pulumi.Input[str] status_code: HTTP status code
+        :param pulumi.Input[str] http_method: The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
+        :param pulumi.Input[str] resource_id: The Resource identifier for the method resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_models: A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
+        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] response_parameters: A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
+               
+               The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
+        :param pulumi.Input[str] rest_api: The string identifier of the associated REST API.
+        :param pulumi.Input[str] status_code: The method response's status code.
         """
         ...
     @overload
@@ -292,42 +353,103 @@ class MethodResponse(pulumi.CustomResource):
                  args: MethodResponseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an HTTP Method Response for an API Gateway Resource.
+        Provides an HTTP Method Response for an API Gateway Resource. More information about API Gateway method responses can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-settings-method-response.html).
 
         ## Example Usage
 
+        ### Basic Response
+
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        my_demo_resource = aws.apigateway.Resource("myDemoResource",
+        my_demo_api = aws.apigateway.RestApi("MyDemoAPI",
+            name="MyDemoAPI",
+            description="This is my API for demonstration purposes")
+        my_demo_resource = aws.apigateway.Resource("MyDemoResource",
             rest_api=my_demo_api.id,
             parent_id=my_demo_api.root_resource_id,
             path_part="mydemoresource")
-        my_demo_method = aws.apigateway.Method("myDemoMethod",
+        my_demo_method = aws.apigateway.Method("MyDemoMethod",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method="GET",
             authorization="NONE")
-        my_demo_integration = aws.apigateway.Integration("myDemoIntegration",
+        my_demo_integration = aws.apigateway.Integration("MyDemoIntegration",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method=my_demo_method.http_method,
             type="MOCK")
-        response200 = aws.apigateway.MethodResponse("response200",
+        response200 = aws.apigateway.MethodResponse("response_200",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method=my_demo_method.http_method,
             status_code="200")
         ```
+        <!--End PulumiCodeChooser -->
+
+        ### Response with Custom Header and Model
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        my_demo_api = aws.apigateway.RestApi("MyDemoAPI",
+            name="MyDemoAPI",
+            description="This is my API for demonstration purposes")
+        my_demo_resource = aws.apigateway.Resource("MyDemoResource",
+            rest_api=my_demo_api.id,
+            parent_id=my_demo_api.root_resource_id,
+            path_part="mydemoresource")
+        my_demo_method = aws.apigateway.Method("MyDemoMethod",
+            rest_api=my_demo_api.id,
+            resource_id=my_demo_resource.id,
+            http_method="GET",
+            authorization="NONE")
+        my_demo_integration = aws.apigateway.Integration("MyDemoIntegration",
+            rest_api=my_demo_api.id,
+            resource_id=my_demo_resource.id,
+            http_method=my_demo_method.http_method,
+            type="MOCK")
+        my_demo_response_model = aws.apigateway.Model("MyDemoResponseModel",
+            rest_api=my_demo_api.id,
+            name="MyDemoResponseModel",
+            description="API response for MyDemoMethod",
+            content_type="application/json",
+            schema=json.dumps({
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "title": "MyDemoResponse",
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                    },
+                },
+            }))
+        response200 = aws.apigateway.MethodResponse("response_200",
+            rest_api=my_demo_api.id,
+            resource_id=my_demo_resource.id,
+            http_method=my_demo_method.http_method,
+            status_code="200",
+            response_models={
+                "application-json": "MyDemoResponseModel",
+            },
+            response_parameters={
+                "method.response.header.Content-Type": False,
+                "method-response-header.X-My-Demo-Header": False,
+            })
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_method_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/methodResponse:MethodResponse example 12345abcde/67890fghij/GET/200
+        $ pulumi import aws:apigateway/methodResponse:MethodResponse example 12345abcde/67890fghij/GET/200
         ```
 
         :param str resource_name: The name of the resource.
@@ -397,14 +519,14 @@ class MethodResponse(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
-        :param pulumi.Input[str] resource_id: API resource ID
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_models: Map of the API models used for the response's content type
-        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] response_parameters: Map of response parameters that can be sent to the caller.
-               For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
-               would define that the header `X-Some-Header` can be provided on the response.
-        :param pulumi.Input[str] rest_api: ID of the associated REST API
-        :param pulumi.Input[str] status_code: HTTP status code
+        :param pulumi.Input[str] http_method: The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
+        :param pulumi.Input[str] resource_id: The Resource identifier for the method resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_models: A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
+        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] response_parameters: A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
+               
+               The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
+        :param pulumi.Input[str] rest_api: The string identifier of the associated REST API.
+        :param pulumi.Input[str] status_code: The method response's status code.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -422,7 +544,7 @@ class MethodResponse(pulumi.CustomResource):
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> pulumi.Output[str]:
         """
-        HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
         """
         return pulumi.get(self, "http_method")
 
@@ -430,7 +552,7 @@ class MethodResponse(pulumi.CustomResource):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
         """
-        API resource ID
+        The Resource identifier for the method resource.
         """
         return pulumi.get(self, "resource_id")
 
@@ -438,7 +560,7 @@ class MethodResponse(pulumi.CustomResource):
     @pulumi.getter(name="responseModels")
     def response_models(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Map of the API models used for the response's content type
+        A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
         """
         return pulumi.get(self, "response_models")
 
@@ -446,9 +568,9 @@ class MethodResponse(pulumi.CustomResource):
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> pulumi.Output[Optional[Mapping[str, bool]]]:
         """
-        Map of response parameters that can be sent to the caller.
-        For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
-        would define that the header `X-Some-Header` can be provided on the response.
+        A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
+
+        The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
         """
         return pulumi.get(self, "response_parameters")
 
@@ -456,7 +578,7 @@ class MethodResponse(pulumi.CustomResource):
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Output[str]:
         """
-        ID of the associated REST API
+        The string identifier of the associated REST API.
         """
         return pulumi.get(self, "rest_api")
 
@@ -464,7 +586,7 @@ class MethodResponse(pulumi.CustomResource):
     @pulumi.getter(name="statusCode")
     def status_code(self) -> pulumi.Output[str]:
         """
-        HTTP status code
+        The method response's status code.
         """
         return pulumi.get(self, "status_code")
 

@@ -15,8 +15,10 @@ import (
 // Use the `awsKendraIndexBlockList` resource to manage an AWS Kendra block list used for query suggestions for an index.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,10 +32,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewQuerySuggestionsBlockList(ctx, "example", &kendra.QuerySuggestionsBlockListArgs{
-//				IndexId: pulumi.Any(aws_kendra_index.Example.Id),
-//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
+//				Name:    pulumi.String("Example"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				SourceS3Path: &kendra.QuerySuggestionsBlockListSourceS3PathArgs{
-//					Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
+//					Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
 //					Key:    pulumi.String("example/suggestions.txt"),
 //				},
 //				Tags: pulumi.StringMap{
@@ -48,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import the `aws_kendra_query_suggestions_block_list` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
-//
+// $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
 // ```
 type QuerySuggestionsBlockList struct {
 	pulumi.CustomResourceState
@@ -102,10 +104,6 @@ func NewQuerySuggestionsBlockList(ctx *pulumi.Context,
 	if args.SourceS3Path == nil {
 		return nil, errors.New("invalid value for required argument 'SourceS3Path'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource QuerySuggestionsBlockList
 	err := ctx.RegisterResource("aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList", name, args, &resource, opts...)

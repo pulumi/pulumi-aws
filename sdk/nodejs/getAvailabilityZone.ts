@@ -19,6 +19,56 @@ import * as utilities from "./utilities";
  *
  * This is different from the `aws.getAvailabilityZones` (plural) data source,
  * which provides a list of the available zones.
+ *
+ * ## Example Usage
+ *
+ * The following example shows how this data source might be used to derive
+ * VPC and subnet CIDR prefixes systematically for an availability zone.
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const config = new pulumi.Config();
+ * const regionNumber = config.getObject("regionNumber") || {
+ *     "ap-northeast-1": 5,
+ *     "eu-central-1": 4,
+ *     "us-east-1": 1,
+ *     "us-west-1": 2,
+ *     "us-west-2": 3,
+ * };
+ * const azNumber = config.getObject("azNumber") || {
+ *     a: 1,
+ *     b: 2,
+ *     c: 3,
+ *     d: 4,
+ *     e: 5,
+ *     f: 6,
+ * };
+ * // Retrieve the AZ where we want to create network resources
+ * // This must be in the region selected on the AWS provider.
+ * const example = aws.getAvailabilityZone({
+ *     name: "eu-central-1a",
+ * });
+ * // Create a VPC for the region associated with the AZ
+ * const exampleVpc = new aws.ec2.Vpc("example", {cidrBlock: example.then(example => std.cidrsubnet({
+ *     input: "10.0.0.0/8",
+ *     newbits: 4,
+ *     netnum: regionNumber[example.region],
+ * })).then(invoke => invoke.result)});
+ * // Create a subnet for the AZ within the regional VPC
+ * const exampleSubnet = new aws.ec2.Subnet("example", {
+ *     vpcId: exampleVpc.id,
+ *     cidrBlock: pulumi.all([exampleVpc.cidrBlock, example]).apply(([cidrBlock, example]) => std.cidrsubnetOutput({
+ *         input: cidrBlock,
+ *         newbits: 4,
+ *         netnum: azNumber[example.nameSuffix],
+ *     })).apply(invoke => invoke.result),
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAvailabilityZone(args?: GetAvailabilityZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilityZoneResult> {
     args = args || {};
@@ -119,6 +169,56 @@ export interface GetAvailabilityZoneResult {
  *
  * This is different from the `aws.getAvailabilityZones` (plural) data source,
  * which provides a list of the available zones.
+ *
+ * ## Example Usage
+ *
+ * The following example shows how this data source might be used to derive
+ * VPC and subnet CIDR prefixes systematically for an availability zone.
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const config = new pulumi.Config();
+ * const regionNumber = config.getObject("regionNumber") || {
+ *     "ap-northeast-1": 5,
+ *     "eu-central-1": 4,
+ *     "us-east-1": 1,
+ *     "us-west-1": 2,
+ *     "us-west-2": 3,
+ * };
+ * const azNumber = config.getObject("azNumber") || {
+ *     a: 1,
+ *     b: 2,
+ *     c: 3,
+ *     d: 4,
+ *     e: 5,
+ *     f: 6,
+ * };
+ * // Retrieve the AZ where we want to create network resources
+ * // This must be in the region selected on the AWS provider.
+ * const example = aws.getAvailabilityZone({
+ *     name: "eu-central-1a",
+ * });
+ * // Create a VPC for the region associated with the AZ
+ * const exampleVpc = new aws.ec2.Vpc("example", {cidrBlock: example.then(example => std.cidrsubnet({
+ *     input: "10.0.0.0/8",
+ *     newbits: 4,
+ *     netnum: regionNumber[example.region],
+ * })).then(invoke => invoke.result)});
+ * // Create a subnet for the AZ within the regional VPC
+ * const exampleSubnet = new aws.ec2.Subnet("example", {
+ *     vpcId: exampleVpc.id,
+ *     cidrBlock: pulumi.all([exampleVpc.cidrBlock, example]).apply(([cidrBlock, example]) => std.cidrsubnetOutput({
+ *         input: cidrBlock,
+ *         newbits: 4,
+ *         netnum: azNumber[example.nameSuffix],
+ *     })).apply(invoke => invoke.result),
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAvailabilityZoneOutput(args?: GetAvailabilityZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilityZoneResult> {
     return pulumi.output(args).apply((a: any) => getAvailabilityZone(a, opts))

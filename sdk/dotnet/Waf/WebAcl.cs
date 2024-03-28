@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Waf
     /// 
     /// This example blocks requests coming from `192.0.7.0/24` and allows everything else.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,6 +27,7 @@ namespace Pulumi.Aws.Waf
     /// {
     ///     var ipset = new Aws.Waf.IpSet("ipset", new()
     ///     {
+    ///         Name = "tfIPSet",
     ///         IpSetDescriptors = new[]
     ///         {
     ///             new Aws.Waf.Inputs.IpSetIpSetDescriptorArgs
@@ -38,6 +40,7 @@ namespace Pulumi.Aws.Waf
     /// 
     ///     var wafrule = new Aws.Waf.Rule("wafrule", new()
     ///     {
+    ///         Name = "tfWAFRule",
     ///         MetricName = "tfWAFRule",
     ///         Predicates = new[]
     ///         {
@@ -48,16 +51,11 @@ namespace Pulumi.Aws.Waf
     ///                 Type = "IPMatch",
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             ipset,
-    ///         },
     ///     });
     /// 
-    ///     var wafAcl = new Aws.Waf.WebAcl("wafAcl", new()
+    ///     var wafAcl = new Aws.Waf.WebAcl("waf_acl", new()
     ///     {
+    ///         Name = "tfWebACL",
     ///         MetricName = "tfWebACL",
     ///         DefaultAction = new Aws.Waf.Inputs.WebAclDefaultActionArgs
     ///         {
@@ -76,21 +74,17 @@ namespace Pulumi.Aws.Waf
     ///                 Type = "REGULAR",
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             ipset,
-    ///             wafrule,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Logging
     /// 
     /// &gt; *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-` and be located in `us-east-1` region. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -103,7 +97,7 @@ namespace Pulumi.Aws.Waf
     ///     {
     ///         LoggingConfiguration = new Aws.Waf.Inputs.WebAclLoggingConfigurationArgs
     ///         {
-    ///             LogDestination = aws_kinesis_firehose_delivery_stream.Example.Arn,
+    ///             LogDestination = exampleAwsKinesisFirehoseDeliveryStream.Arn,
     ///             RedactedFields = new Aws.Waf.Inputs.WebAclLoggingConfigurationRedactedFieldsArgs
     ///             {
     ///                 FieldToMatches = new[]
@@ -124,13 +118,14 @@ namespace Pulumi.Aws.Waf
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WAF Web ACL using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
+    /// $ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
     /// ```
     /// </summary>
     [AwsResourceType("aws:waf/webAcl:WebAcl")]
@@ -207,10 +202,6 @@ namespace Pulumi.Aws.Waf
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -354,11 +345,7 @@ namespace Pulumi.Aws.Waf
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public WebAclState()

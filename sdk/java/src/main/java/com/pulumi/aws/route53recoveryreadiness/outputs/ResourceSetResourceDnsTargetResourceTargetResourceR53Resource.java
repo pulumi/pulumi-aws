@@ -58,19 +58,21 @@ public final class ResourceSetResourceDnsTargetResourceTargetResourceR53Resource
 
         @CustomType.Setter
         public Builder domainName(@Nullable String domainName) {
+
             this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder recordSetId(@Nullable String recordSetId) {
+
             this.recordSetId = recordSetId;
             return this;
         }
         public ResourceSetResourceDnsTargetResourceTargetResourceR53Resource build() {
-            final var o = new ResourceSetResourceDnsTargetResourceTargetResourceR53Resource();
-            o.domainName = domainName;
-            o.recordSetId = recordSetId;
-            return o;
+            final var _resultValue = new ResourceSetResourceDnsTargetResourceTargetResourceR53Resource();
+            _resultValue.domainName = domainName;
+            _resultValue.recordSetId = recordSetId;
+            return _resultValue;
         }
     }
 }

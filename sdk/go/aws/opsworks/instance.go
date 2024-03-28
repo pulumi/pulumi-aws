@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,9 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsworks.NewInstance(ctx, "my-instance", &opsworks.InstanceArgs{
-//				StackId: pulumi.Any(aws_opsworks_stack.Main.Id),
+//				StackId: pulumi.Any(main.Id),
 //				LayerIds: pulumi.StringArray{
-//					aws_opsworks_custom_layer.MyLayer.Id,
+//					my_layer.Id,
 //				},
 //				InstanceType: pulumi.String("t2.micro"),
 //				Os:           pulumi.String("Amazon Linux 2015.09"),
@@ -45,6 +46,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Block devices
 //
 // Each of the `*_block_device` attributes controls a portion of the AWS
@@ -94,9 +97,7 @@ import (
 // Using `pulumi import`, import Opsworks Instances using the instance `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
-//
+// $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
 // ```
 type Instance struct {
 	pulumi.CustomResourceState

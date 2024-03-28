@@ -173,21 +173,24 @@ class ModelPackageGroup(pulumi.CustomResource):
         Provides a SageMaker Model Package Group resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sagemaker.ModelPackageGroup("example", model_package_group_name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Model Package Groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo
+        $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -206,21 +209,24 @@ class ModelPackageGroup(pulumi.CustomResource):
         Provides a SageMaker Model Package Group resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sagemaker.ModelPackageGroup("example", model_package_group_name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Model Package Groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo
+        $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -257,8 +263,6 @@ class ModelPackageGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ModelPackageGroup, __self__).__init__(
             'aws:sagemaker/modelPackageGroup:ModelPackageGroup',
             resource_name,

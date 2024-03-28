@@ -174,29 +174,33 @@ class Protection(pulumi.CustomResource):
         The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.
 
         ## Example Usage
+
         ### Create protection
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         available = aws.get_availability_zones()
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        example_eip = aws.ec2.Eip("exampleEip", domain="vpc")
-        example_protection = aws.shield.Protection("exampleProtection",
-            resource_arn=example_eip.id.apply(lambda id: f"arn:aws:ec2:{current_region.name}:{current_caller_identity.account_id}:eip-allocation/{id}"),
+        current = aws.get_region()
+        current_get_caller_identity = aws.get_caller_identity()
+        example = aws.ec2.Eip("example", domain="vpc")
+        example_protection = aws.shield.Protection("example",
+            name="example",
+            resource_arn=example.id.apply(lambda id: f"arn:aws:ec2:{current.name}:{current_get_caller_identity.account_id}:eip-allocation/{id}"),
             tags={
                 "Environment": "Dev",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Shield protection resources using specifying their ID. For example:
 
         ```sh
-         $ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
+        $ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
         ```
 
         :param str resource_name: The name of the resource.
@@ -216,29 +220,33 @@ class Protection(pulumi.CustomResource):
         The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.
 
         ## Example Usage
+
         ### Create protection
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         available = aws.get_availability_zones()
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        example_eip = aws.ec2.Eip("exampleEip", domain="vpc")
-        example_protection = aws.shield.Protection("exampleProtection",
-            resource_arn=example_eip.id.apply(lambda id: f"arn:aws:ec2:{current_region.name}:{current_caller_identity.account_id}:eip-allocation/{id}"),
+        current = aws.get_region()
+        current_get_caller_identity = aws.get_caller_identity()
+        example = aws.ec2.Eip("example", domain="vpc")
+        example_protection = aws.shield.Protection("example",
+            name="example",
+            resource_arn=example.id.apply(lambda id: f"arn:aws:ec2:{current.name}:{current_get_caller_identity.account_id}:eip-allocation/{id}"),
             tags={
                 "Environment": "Dev",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Shield protection resources using specifying their ID. For example:
 
         ```sh
-         $ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
+        $ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
         ```
 
         :param str resource_name: The name of the resource.
@@ -275,8 +283,6 @@ class Protection(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Protection, __self__).__init__(
             'aws:shield/protection:Protection',
             resource_name,

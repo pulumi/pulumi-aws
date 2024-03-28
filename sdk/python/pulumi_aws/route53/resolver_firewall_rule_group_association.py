@@ -271,23 +271,26 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_resolver_firewall_rule_group = aws.route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup")
-        example_resolver_firewall_rule_group_association = aws.route53.ResolverFirewallRuleGroupAssociation("exampleResolverFirewallRuleGroupAssociation",
-            firewall_rule_group_id=example_resolver_firewall_rule_group.id,
+        example = aws.route53.ResolverFirewallRuleGroup("example", name="example")
+        example_resolver_firewall_rule_group_association = aws.route53.ResolverFirewallRuleGroupAssociation("example",
+            name="example",
+            firewall_rule_group_id=example.id,
             priority=100,
-            vpc_id=aws_vpc["example"]["id"])
+            vpc_id=example_aws_vpc["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For example:
 
         ```sh
-         $ pulumi import aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation example rslvr-frgassoc-0123456789abcdef
+        $ pulumi import aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation example rslvr-frgassoc-0123456789abcdef
         ```
 
         :param str resource_name: The name of the resource.
@@ -310,23 +313,26 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_resolver_firewall_rule_group = aws.route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup")
-        example_resolver_firewall_rule_group_association = aws.route53.ResolverFirewallRuleGroupAssociation("exampleResolverFirewallRuleGroupAssociation",
-            firewall_rule_group_id=example_resolver_firewall_rule_group.id,
+        example = aws.route53.ResolverFirewallRuleGroup("example", name="example")
+        example_resolver_firewall_rule_group_association = aws.route53.ResolverFirewallRuleGroupAssociation("example",
+            name="example",
+            firewall_rule_group_id=example.id,
             priority=100,
-            vpc_id=aws_vpc["example"]["id"])
+            vpc_id=example_aws_vpc["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For example:
 
         ```sh
-         $ pulumi import aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation example rslvr-frgassoc-0123456789abcdef
+        $ pulumi import aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation example rslvr-frgassoc-0123456789abcdef
         ```
 
         :param str resource_name: The name of the resource.
@@ -373,8 +379,6 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ResolverFirewallRuleGroupAssociation, __self__).__init__(
             'aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation',
             resource_name,

@@ -178,25 +178,29 @@ class ServiceAction(pulumi.CustomResource):
         Manages a Service Catalog self-service action.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.servicecatalog.ServiceAction("example",
+            description="Motor generator unit",
+            name="MGU",
             definition=aws.servicecatalog.ServiceActionDefinitionArgs(
                 name="AWS-RestartEC2Instance",
-            ),
-            description="Motor generator unit")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_servicecatalog_service_action` using the service action ID. For example:
 
         ```sh
-         $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
+        $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
         ```
 
         :param str resource_name: The name of the resource.
@@ -218,25 +222,29 @@ class ServiceAction(pulumi.CustomResource):
         Manages a Service Catalog self-service action.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.servicecatalog.ServiceAction("example",
+            description="Motor generator unit",
+            name="MGU",
             definition=aws.servicecatalog.ServiceActionDefinitionArgs(
                 name="AWS-RestartEC2Instance",
-            ),
-            description="Motor generator unit")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_servicecatalog_service_action` using the service action ID. For example:
 
         ```sh
-         $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
+        $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
         ```
 
         :param str resource_name: The name of the resource.

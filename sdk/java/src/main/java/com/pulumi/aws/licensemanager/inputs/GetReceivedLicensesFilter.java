@@ -4,6 +4,7 @@
 package com.pulumi.aws.licensemanager.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -17,6 +18,8 @@ public final class GetReceivedLicensesFilter extends com.pulumi.resources.Invoke
      * Name of the field to filter by, as defined by
      * [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
      * For example, if filtering using `ProductSKU`, use:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -48,6 +51,7 @@ public final class GetReceivedLicensesFilter extends com.pulumi.resources.Invoke
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Import(name="name", required=true)
@@ -57,6 +61,8 @@ public final class GetReceivedLicensesFilter extends com.pulumi.resources.Invoke
      * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
      * For example, if filtering using `ProductSKU`, use:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -88,6 +94,7 @@ public final class GetReceivedLicensesFilter extends com.pulumi.resources.Invoke
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public String name() {
@@ -138,6 +145,8 @@ public final class GetReceivedLicensesFilter extends com.pulumi.resources.Invoke
          * @param name Name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
          * For example, if filtering using `ProductSKU`, use:
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -169,6 +178,7 @@ public final class GetReceivedLicensesFilter extends com.pulumi.resources.Invoke
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -200,8 +210,12 @@ public final class GetReceivedLicensesFilter extends com.pulumi.resources.Invoke
         }
 
         public GetReceivedLicensesFilter build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.values = Objects.requireNonNull($.values, "expected parameter 'values' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetReceivedLicensesFilter", "name");
+            }
+            if ($.values == null) {
+                throw new MissingRequiredPropertyException("GetReceivedLicensesFilter", "values");
+            }
             return $;
         }
     }

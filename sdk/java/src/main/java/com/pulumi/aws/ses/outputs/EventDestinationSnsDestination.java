@@ -4,6 +4,7 @@
 package com.pulumi.aws.ses.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class EventDestinationSnsDestination {
 
         @CustomType.Setter
         public Builder topicArn(String topicArn) {
-            this.topicArn = Objects.requireNonNull(topicArn);
+            if (topicArn == null) {
+              throw new MissingRequiredPropertyException("EventDestinationSnsDestination", "topicArn");
+            }
+            this.topicArn = topicArn;
             return this;
         }
         public EventDestinationSnsDestination build() {
-            final var o = new EventDestinationSnsDestination();
-            o.topicArn = topicArn;
-            return o;
+            final var _resultValue = new EventDestinationSnsDestination();
+            _resultValue.topicArn = topicArn;
+            return _resultValue;
         }
     }
 }

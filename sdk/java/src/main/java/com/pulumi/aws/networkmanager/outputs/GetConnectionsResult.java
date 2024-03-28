@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkmanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -78,22 +79,32 @@ public final class GetConnectionsResult {
 
         @CustomType.Setter
         public Builder deviceId(@Nullable String deviceId) {
+
             this.deviceId = deviceId;
             return this;
         }
         @CustomType.Setter
         public Builder globalNetworkId(String globalNetworkId) {
-            this.globalNetworkId = Objects.requireNonNull(globalNetworkId);
+            if (globalNetworkId == null) {
+              throw new MissingRequiredPropertyException("GetConnectionsResult", "globalNetworkId");
+            }
+            this.globalNetworkId = globalNetworkId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetConnectionsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+            if (ids == null) {
+              throw new MissingRequiredPropertyException("GetConnectionsResult", "ids");
+            }
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {
@@ -101,17 +112,18 @@ public final class GetConnectionsResult {
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         public GetConnectionsResult build() {
-            final var o = new GetConnectionsResult();
-            o.deviceId = deviceId;
-            o.globalNetworkId = globalNetworkId;
-            o.id = id;
-            o.ids = ids;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetConnectionsResult();
+            _resultValue.deviceId = deviceId;
+            _resultValue.globalNetworkId = globalNetworkId;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Amp
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,8 +34,11 @@ namespace Pulumi.Aws.Amp
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### CloudWatch Logging
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,25 +47,56 @@ namespace Pulumi.Aws.Amp
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
+    ///     var example = new Aws.CloudWatch.LogGroup("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
-    ///     var exampleWorkspace = new Aws.Amp.Workspace("exampleWorkspace", new()
+    ///     var exampleWorkspace = new Aws.Amp.Workspace("example", new()
     ///     {
     ///         LoggingConfiguration = new Aws.Amp.Inputs.WorkspaceLoggingConfigurationArgs
     ///         {
-    ///             LogGroupArn = exampleLogGroup.Arn.Apply(arn =&gt; $"{arn}:*"),
+    ///             LogGroupArn = example.Arn.Apply(arn =&gt; $"{arn}:*"),
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### AWS KMS Customer Managed Keys (CMK)
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleKey = new Aws.Kms.Key("example", new()
+    ///     {
+    ///         Description = "example",
+    ///         DeletionWindowInDays = 7,
+    ///     });
+    /// 
+    ///     var example = new Aws.Amp.Workspace("example", new()
+    ///     {
+    ///         Alias = "example",
+    ///         KmsKeyArn = exampleKey.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AMP Workspaces using the identifier. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
+    /// $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
     /// ```
     /// </summary>
     [AwsResourceType("aws:amp/workspace:Workspace")]
@@ -78,6 +113,12 @@ namespace Pulumi.Aws.Amp
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+        /// </summary>
+        [Output("kmsKeyArn")]
+        public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
         /// Logging configuration for the workspace. See Logging Configuration below for details.
@@ -126,10 +167,6 @@ namespace Pulumi.Aws.Amp
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -158,6 +195,12 @@ namespace Pulumi.Aws.Amp
         /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
+
+        /// <summary>
+        /// The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+        /// </summary>
+        [Input("kmsKeyArn")]
+        public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
         /// Logging configuration for the workspace. See Logging Configuration below for details.
@@ -198,6 +241,12 @@ namespace Pulumi.Aws.Amp
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+        /// </summary>
+        [Input("kmsKeyArn")]
+        public Input<string>? KmsKeyArn { get; set; }
+
+        /// <summary>
         /// Logging configuration for the workspace. See Logging Configuration below for details.
         /// </summary>
         [Input("loggingConfiguration")]
@@ -231,11 +280,7 @@ namespace Pulumi.Aws.Amp
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public WorkspaceState()

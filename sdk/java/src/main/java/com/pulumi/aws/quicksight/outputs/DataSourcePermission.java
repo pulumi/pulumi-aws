@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class DataSourcePermission {
 
         @CustomType.Setter
         public Builder actions(List<String> actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("DataSourcePermission", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         public Builder actions(String... actions) {
@@ -65,14 +69,17 @@ public final class DataSourcePermission {
         }
         @CustomType.Setter
         public Builder principal(String principal) {
-            this.principal = Objects.requireNonNull(principal);
+            if (principal == null) {
+              throw new MissingRequiredPropertyException("DataSourcePermission", "principal");
+            }
+            this.principal = principal;
             return this;
         }
         public DataSourcePermission build() {
-            final var o = new DataSourcePermission();
-            o.actions = actions;
-            o.principal = principal;
-            return o;
+            final var _resultValue = new DataSourcePermission();
+            _resultValue.actions = actions;
+            _resultValue.principal = principal;
+            return _resultValue;
         }
     }
 }

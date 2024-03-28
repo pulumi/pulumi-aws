@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,7 +20,10 @@ import javax.annotation.Nullable;
  * Provides an AWS App Mesh service mesh resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -29,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.appmesh.Mesh;
+ * import com.pulumi.aws.appmesh.MeshArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -42,12 +45,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var simple = new Mesh(&#34;simple&#34;);
+ *         var simple = new Mesh(&#34;simple&#34;, MeshArgs.builder()        
+ *             .name(&#34;simpleapp&#34;)
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Egress Filter
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -72,6 +81,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var simple = new Mesh(&#34;simple&#34;, MeshArgs.builder()        
+ *             .name(&#34;simpleapp&#34;)
  *             .spec(MeshSpecArgs.builder()
  *                 .egressFilter(MeshSpecEgressFilterArgs.builder()
  *                     .type(&#34;ALLOW_ALL&#34;)
@@ -82,13 +92,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import App Mesh service meshes using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
+ * $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
  * ```
  * 
  */
@@ -257,9 +268,6 @@ public class Mesh extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

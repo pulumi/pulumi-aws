@@ -14,7 +14,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,6 +22,8 @@ import javax.annotation.Nullable;
  * Manages an App Runner Observability Configuration.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,22 +48,23 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ObservabilityConfiguration(&#34;example&#34;, ObservabilityConfigurationArgs.builder()        
  *             .observabilityConfigurationName(&#34;example&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;example-apprunner-observability-configuration&#34;))
  *             .traceConfiguration(ObservabilityConfigurationTraceConfigurationArgs.builder()
  *                 .vendor(&#34;AWSXRAY&#34;)
  *                 .build())
+ *             .tags(Map.of(&#34;Name&#34;, &#34;example-apprunner-observability-configuration&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import App Runner Observability Configuration using the `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apprunner/observabilityConfiguration:ObservabilityConfiguration example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
+ * $ pulumi import aws:apprunner/observabilityConfiguration:ObservabilityConfiguration example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
  * ```
  * 
  */
@@ -217,9 +219,6 @@ public class ObservabilityConfiguration extends com.pulumi.resources.CustomResou
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

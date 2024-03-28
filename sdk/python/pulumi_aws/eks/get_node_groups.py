@@ -72,14 +72,16 @@ def get_node_groups(cluster_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example_node_groups = aws.eks.get_node_groups(cluster_name="example")
-    example_node_group = [aws.eks.get_node_group(cluster_name="example",
-        node_group_name=__value) for __key, __value in example_node_groups.names]
+    example = aws.eks.get_node_groups(cluster_name="example")
+    example_get_node_group = {__key: aws.eks.get_node_group(cluster_name="example",
+        node_group_name=__value) for __key, __value in example.names}
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_name: Name of the cluster.
@@ -103,14 +105,16 @@ def get_node_groups_output(cluster_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example_node_groups = aws.eks.get_node_groups(cluster_name="example")
-    example_node_group = [aws.eks.get_node_group(cluster_name="example",
-        node_group_name=__value) for __key, __value in example_node_groups.names]
+    example = aws.eks.get_node_groups(cluster_name="example")
+    example_get_node_group = {__key: aws.eks.get_node_group(cluster_name="example",
+        node_group_name=__value) for __key, __value in example.names}
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_name: Name of the cluster.

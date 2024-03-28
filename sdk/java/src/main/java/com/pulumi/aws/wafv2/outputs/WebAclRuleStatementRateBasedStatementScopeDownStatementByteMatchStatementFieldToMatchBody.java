@@ -44,13 +44,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
 
         @CustomType.Setter
         public Builder oversizeHandling(@Nullable String oversizeHandling) {
+
             this.oversizeHandling = oversizeHandling;
             return this;
         }
         public WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody();
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody();
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

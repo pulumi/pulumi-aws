@@ -829,12 +829,14 @@ class MemcachedLayer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        cache = aws.opsworks.MemcachedLayer("cache", stack_id=aws_opsworks_stack["main"]["id"])
+        cache = aws.opsworks.MemcachedLayer("cache", stack_id=main["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -871,12 +873,14 @@ class MemcachedLayer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        cache = aws.opsworks.MemcachedLayer("cache", stack_id=aws_opsworks_stack["main"]["id"])
+        cache = aws.opsworks.MemcachedLayer("cache", stack_id=main["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param MemcachedLayerArgs args: The arguments to use to populate this resource's properties.
@@ -954,8 +958,6 @@ class MemcachedLayer(pulumi.CustomResource):
             __props__.__dict__["use_ebs_optimized_instances"] = use_ebs_optimized_instances
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(MemcachedLayer, __self__).__init__(
             'aws:opsworks/memcachedLayer:MemcachedLayer',
             resource_name,

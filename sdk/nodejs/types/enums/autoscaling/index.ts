@@ -16,6 +16,13 @@ export const Metric = {
     GroupTerminatingCapacity: "GroupTerminatingCapacity",
     GroupTotalInstances: "GroupTotalInstances",
     GroupTotalCapacity: "GroupTotalCapacity",
+    WarmPoolDesiredCapacity: "WarmPoolDesiredCapacity",
+    WarmPoolWarmedCapacity: "WarmPoolWarmedCapacity",
+    WarmPoolPendingCapacity: "WarmPoolPendingCapacity",
+    WarmPoolTerminatingCapacity: "WarmPoolTerminatingCapacity",
+    WarmPoolTotalCapacity: "WarmPoolTotalCapacity",
+    GroupAndWarmPoolDesiredCapacity: "GroupAndWarmPoolDesiredCapacity",
+    GroupAndWarmPoolTotalCapacity: "GroupAndWarmPoolTotalCapacity",
 } as const;
 
 /**

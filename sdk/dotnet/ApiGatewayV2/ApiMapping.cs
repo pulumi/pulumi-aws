@@ -14,8 +14,10 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,20 +28,21 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// {
     ///     var example = new Aws.ApiGatewayV2.ApiMapping("example", new()
     ///     {
-    ///         ApiId = aws_apigatewayv2_api.Example.Id,
-    ///         DomainName = aws_apigatewayv2_domain_name.Example.Id,
-    ///         Stage = aws_apigatewayv2_stage.Example.Id,
+    ///         ApiId = exampleAwsApigatewayv2Api.Id,
+    ///         DomainName = exampleAwsApigatewayv2DomainName.Id,
+    ///         Stage = exampleAwsApigatewayv2Stage.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_apigatewayv2_api_mapping` using the API mapping identifier and domain name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
+    /// $ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/apiMapping:ApiMapping")]

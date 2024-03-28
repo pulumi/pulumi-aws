@@ -45,6 +45,11 @@ public final class InstanceRootBlockDevice {
      */
     private @Nullable Map<String,String> tags;
     /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    private @Nullable Map<String,String> tagsAll;
+    /**
      * @return Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
      * 
      */
@@ -111,6 +116,13 @@ public final class InstanceRootBlockDevice {
         return this.tags == null ? Map.of() : this.tags;
     }
     /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Map<String,String> tagsAll() {
+        return this.tagsAll == null ? Map.of() : this.tagsAll;
+    }
+    /**
      * @return Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
      * 
      */
@@ -156,6 +168,7 @@ public final class InstanceRootBlockDevice {
         private @Nullable Integer iops;
         private @Nullable String kmsKeyId;
         private @Nullable Map<String,String> tags;
+        private @Nullable Map<String,String> tagsAll;
         private @Nullable Integer throughput;
         private @Nullable String volumeId;
         private @Nullable Integer volumeSize;
@@ -169,6 +182,7 @@ public final class InstanceRootBlockDevice {
     	      this.iops = defaults.iops;
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.tags = defaults.tags;
+    	      this.tagsAll = defaults.tagsAll;
     	      this.throughput = defaults.throughput;
     	      this.volumeId = defaults.volumeId;
     	      this.volumeSize = defaults.volumeSize;
@@ -177,67 +191,84 @@ public final class InstanceRootBlockDevice {
 
         @CustomType.Setter
         public Builder deleteOnTermination(@Nullable Boolean deleteOnTermination) {
+
             this.deleteOnTermination = deleteOnTermination;
             return this;
         }
         @CustomType.Setter
         public Builder deviceName(@Nullable String deviceName) {
+
             this.deviceName = deviceName;
             return this;
         }
         @CustomType.Setter
         public Builder encrypted(@Nullable Boolean encrypted) {
+
             this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
         public Builder iops(@Nullable Integer iops) {
+
             this.iops = iops;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
+        public Builder tagsAll(@Nullable Map<String,String> tagsAll) {
+
+            this.tagsAll = tagsAll;
+            return this;
+        }
+        @CustomType.Setter
         public Builder throughput(@Nullable Integer throughput) {
+
             this.throughput = throughput;
             return this;
         }
         @CustomType.Setter
         public Builder volumeId(@Nullable String volumeId) {
+
             this.volumeId = volumeId;
             return this;
         }
         @CustomType.Setter
         public Builder volumeSize(@Nullable Integer volumeSize) {
+
             this.volumeSize = volumeSize;
             return this;
         }
         @CustomType.Setter
         public Builder volumeType(@Nullable String volumeType) {
+
             this.volumeType = volumeType;
             return this;
         }
         public InstanceRootBlockDevice build() {
-            final var o = new InstanceRootBlockDevice();
-            o.deleteOnTermination = deleteOnTermination;
-            o.deviceName = deviceName;
-            o.encrypted = encrypted;
-            o.iops = iops;
-            o.kmsKeyId = kmsKeyId;
-            o.tags = tags;
-            o.throughput = throughput;
-            o.volumeId = volumeId;
-            o.volumeSize = volumeSize;
-            o.volumeType = volumeType;
-            return o;
+            final var _resultValue = new InstanceRootBlockDevice();
+            _resultValue.deleteOnTermination = deleteOnTermination;
+            _resultValue.deviceName = deviceName;
+            _resultValue.encrypted = encrypted;
+            _resultValue.iops = iops;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.tags = tags;
+            _resultValue.tagsAll = tagsAll;
+            _resultValue.throughput = throughput;
+            _resultValue.volumeId = volumeId;
+            _resultValue.volumeSize = volumeSize;
+            _resultValue.volumeType = volumeType;
+            return _resultValue;
         }
     }
 }

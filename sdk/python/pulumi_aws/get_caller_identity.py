@@ -88,6 +88,7 @@ def get_caller_identity(id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -97,6 +98,7 @@ def get_caller_identity(id: Optional[str] = None,
     pulumi.export("callerArn", current.arn)
     pulumi.export("callerUser", current.user_id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: Account ID number of the account that owns or contains the calling entity.
@@ -122,6 +124,7 @@ def get_caller_identity_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -131,6 +134,7 @@ def get_caller_identity_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     pulumi.export("callerArn", current.arn)
     pulumi.export("callerUser", current.user_id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: Account ID number of the account that owns or contains the calling entity.

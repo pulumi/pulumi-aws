@@ -15,10 +15,12 @@ namespace Pulumi.Aws.Fsx
     /// &gt; **NOTE:** Either the `active_directory_id` argument or `self_managed_active_directory` configuration block must be specified.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Using AWS Directory Service
     /// 
     /// Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/fsx-aws-managed-ad.html).
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,22 +31,25 @@ namespace Pulumi.Aws.Fsx
     /// {
     ///     var example = new Aws.Fsx.WindowsFileSystem("example", new()
     ///     {
-    ///         ActiveDirectoryId = aws_directory_service_directory.Example.Id,
-    ///         KmsKeyId = aws_kms_key.Example.Arn,
+    ///         ActiveDirectoryId = exampleAwsDirectoryServiceDirectory.Id,
+    ///         KmsKeyId = exampleAwsKmsKey.Arn,
     ///         StorageCapacity = 300,
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Example.Id,
+    ///             exampleAwsSubnet.Id,
     ///         },
     ///         ThroughputCapacity = 1024,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Using a Self-Managed Microsoft Active Directory
     /// 
     /// Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html).
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -55,11 +60,11 @@ namespace Pulumi.Aws.Fsx
     /// {
     ///     var example = new Aws.Fsx.WindowsFileSystem("example", new()
     ///     {
-    ///         KmsKeyId = aws_kms_key.Example.Arn,
+    ///         KmsKeyId = exampleAwsKmsKey.Arn,
     ///         StorageCapacity = 300,
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Example.Id,
+    ///             exampleAwsSubnet.Id,
     ///         },
     ///         ThroughputCapacity = 1024,
     ///         SelfManagedActiveDirectory = new Aws.Fsx.Inputs.WindowsFileSystemSelfManagedActiveDirectoryArgs
@@ -77,15 +82,16 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import FSx File Systems using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:fsx/windowsFileSystem:WindowsFileSystem example fs-543ab12b1ca672f33
+    /// $ pulumi import aws:fsx/windowsFileSystem:WindowsFileSystem example fs-543ab12b1ca672f33
     /// ```
-    ///  Certain resource arguments, like `security_group_ids` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+    /// Certain resource arguments, like `security_group_ids` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
     /// </summary>
     [AwsResourceType("aws:fsx/windowsFileSystem:WindowsFileSystem")]
     public partial class WindowsFileSystem : global::Pulumi.CustomResource
@@ -283,10 +289,6 @@ namespace Pulumi.Aws.Fsx
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -648,11 +650,7 @@ namespace Pulumi.Aws.Fsx
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

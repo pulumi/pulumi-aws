@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -57,19 +58,25 @@ public final class ResponseHeadersPolicySecurityHeadersConfigContentSecurityPoli
 
         @CustomType.Setter
         public Builder contentSecurityPolicy(String contentSecurityPolicy) {
-            this.contentSecurityPolicy = Objects.requireNonNull(contentSecurityPolicy);
+            if (contentSecurityPolicy == null) {
+              throw new MissingRequiredPropertyException("ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy", "contentSecurityPolicy");
+            }
+            this.contentSecurityPolicy = contentSecurityPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder override(Boolean override) {
-            this.override = Objects.requireNonNull(override);
+            if (override == null) {
+              throw new MissingRequiredPropertyException("ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy", "override");
+            }
+            this.override = override;
             return this;
         }
         public ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy build() {
-            final var o = new ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy();
-            o.contentSecurityPolicy = contentSecurityPolicy;
-            o.override = override;
-            return o;
+            final var _resultValue = new ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy();
+            _resultValue.contentSecurityPolicy = contentSecurityPolicy;
+            _resultValue.override = override;
+            return _resultValue;
         }
     }
 }

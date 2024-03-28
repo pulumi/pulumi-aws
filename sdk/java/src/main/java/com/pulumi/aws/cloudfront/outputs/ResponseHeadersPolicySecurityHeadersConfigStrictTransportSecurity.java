@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
@@ -87,31 +88,39 @@ public final class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecu
 
         @CustomType.Setter
         public Builder accessControlMaxAgeSec(Integer accessControlMaxAgeSec) {
-            this.accessControlMaxAgeSec = Objects.requireNonNull(accessControlMaxAgeSec);
+            if (accessControlMaxAgeSec == null) {
+              throw new MissingRequiredPropertyException("ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity", "accessControlMaxAgeSec");
+            }
+            this.accessControlMaxAgeSec = accessControlMaxAgeSec;
             return this;
         }
         @CustomType.Setter
         public Builder includeSubdomains(@Nullable Boolean includeSubdomains) {
+
             this.includeSubdomains = includeSubdomains;
             return this;
         }
         @CustomType.Setter
         public Builder override(Boolean override) {
-            this.override = Objects.requireNonNull(override);
+            if (override == null) {
+              throw new MissingRequiredPropertyException("ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity", "override");
+            }
+            this.override = override;
             return this;
         }
         @CustomType.Setter
         public Builder preload(@Nullable Boolean preload) {
+
             this.preload = preload;
             return this;
         }
         public ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity build() {
-            final var o = new ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity();
-            o.accessControlMaxAgeSec = accessControlMaxAgeSec;
-            o.includeSubdomains = includeSubdomains;
-            o.override = override;
-            o.preload = preload;
-            return o;
+            final var _resultValue = new ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity();
+            _resultValue.accessControlMaxAgeSec = accessControlMaxAgeSec;
+            _resultValue.includeSubdomains = includeSubdomains;
+            _resultValue.override = override;
+            _resultValue.preload = preload;
+            return _resultValue;
         }
     }
 }

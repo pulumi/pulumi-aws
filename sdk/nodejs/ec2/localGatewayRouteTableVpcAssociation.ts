@@ -9,26 +9,28 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLocalGatewayRouteTable = aws.ec2.getLocalGatewayRouteTable({
+ * const example = aws.ec2.getLocalGatewayRouteTable({
  *     outpostArn: "arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef",
  * });
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.0.0.0/16"});
- * const exampleLocalGatewayRouteTableVpcAssociation = new aws.ec2.LocalGatewayRouteTableVpcAssociation("exampleLocalGatewayRouteTableVpcAssociation", {
- *     localGatewayRouteTableId: exampleLocalGatewayRouteTable.then(exampleLocalGatewayRouteTable => exampleLocalGatewayRouteTable.id),
+ * const exampleVpc = new aws.ec2.Vpc("example", {cidrBlock: "10.0.0.0/16"});
+ * const exampleLocalGatewayRouteTableVpcAssociation = new aws.ec2.LocalGatewayRouteTableVpcAssociation("example", {
+ *     localGatewayRouteTableId: example.then(example => example.id),
  *     vpcId: exampleVpc.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ec2_local_gateway_route_table_vpc_association` using the Local Gateway Route Table VPC Association identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation example lgw-vpc-assoc-1234567890abcdef
+ * $ pulumi import aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation example lgw-vpc-assoc-1234567890abcdef
  * ```
  */
 export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource {
@@ -114,8 +116,6 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LocalGatewayRouteTableVpcAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

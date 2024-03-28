@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Provides a Route53 Resolver rule.
  * 
  * ## Example Usage
+ * 
  * ### System rule
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,7 +54,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Forward rule
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -76,8 +83,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var fwd = new ResolverRule(&#34;fwd&#34;, ResolverRuleArgs.builder()        
  *             .domainName(&#34;example.com&#34;)
+ *             .name(&#34;example&#34;)
  *             .ruleType(&#34;FORWARD&#34;)
- *             .resolverEndpointId(aws_route53_resolver_endpoint.foo().id())
+ *             .resolverEndpointId(foo.id())
  *             .targetIps(ResolverRuleTargetIpArgs.builder()
  *                 .ip(&#34;123.45.67.89&#34;)
  *                 .build())
@@ -87,13 +95,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Route53 Resolver rules using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
+ * $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
  * ```
  * 
  */
@@ -282,9 +291,6 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

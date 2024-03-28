@@ -6,6 +6,7 @@ package com.pulumi.aws.backup.outputs;
 import com.pulumi.aws.backup.outputs.FrameworkControlInputParameter;
 import com.pulumi.aws.backup.outputs.FrameworkControlScope;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -75,6 +76,7 @@ public final class FrameworkControl {
 
         @CustomType.Setter
         public Builder inputParameters(@Nullable List<FrameworkControlInputParameter> inputParameters) {
+
             this.inputParameters = inputParameters;
             return this;
         }
@@ -83,20 +85,24 @@ public final class FrameworkControl {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("FrameworkControl", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder scope(@Nullable FrameworkControlScope scope) {
+
             this.scope = scope;
             return this;
         }
         public FrameworkControl build() {
-            final var o = new FrameworkControl();
-            o.inputParameters = inputParameters;
-            o.name = name;
-            o.scope = scope;
-            return o;
+            final var _resultValue = new FrameworkControl();
+            _resultValue.inputParameters = inputParameters;
+            _resultValue.name = name;
+            _resultValue.scope = scope;
+            return _resultValue;
         }
     }
 }

@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** License configurations can also be associated with launch templates by specifying the `license_specifications` block for an `aws.ec2.LaunchTemplate`.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleAmi = Ec2Functions.getAmi(GetAmiArgs.builder()
+ *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
  *             .mostRecent(true)
  *             .owners(&#34;amazon&#34;)
  *             .filters(GetAmiFilterArgs.builder()
@@ -56,11 +58,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
- *             .ami(exampleAmi.applyValue(getAmiResult -&gt; getAmiResult.id()))
+ *             .ami(example.applyValue(getAmiResult -&gt; getAmiResult.id()))
  *             .instanceType(&#34;t2.micro&#34;)
  *             .build());
  * 
  *         var exampleLicenseConfiguration = new LicenseConfiguration(&#34;exampleLicenseConfiguration&#34;, LicenseConfigurationArgs.builder()        
+ *             .name(&#34;Example&#34;)
  *             .licenseCountingType(&#34;Instance&#34;)
  *             .build());
  * 
@@ -72,13 +75,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import license configurations using `resource_arn,license_configuration_arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:licensemanager/association:Association example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+ * $ pulumi import aws:licensemanager/association:Association example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
  * ```
  * 
  */

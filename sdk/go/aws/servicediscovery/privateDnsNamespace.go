@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,15 +30,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//			example, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("10.0.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = servicediscovery.NewPrivateDnsNamespace(ctx, "examplePrivateDnsNamespace", &servicediscovery.PrivateDnsNamespaceArgs{
+//			_, err = servicediscovery.NewPrivateDnsNamespace(ctx, "example", &servicediscovery.PrivateDnsNamespaceArgs{
+//				Name:        pulumi.String("hoge.example.local"),
 //				Description: pulumi.String("example"),
-//				Vpc:         exampleVpc.ID(),
+//				Vpc:         example.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -47,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Service Discovery Private DNS Namespace using the namespace ID and VPC ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345
-//
+// $ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345
 // ```
 type PrivateDnsNamespace struct {
 	pulumi.CustomResourceState
@@ -88,10 +89,6 @@ func NewPrivateDnsNamespace(ctx *pulumi.Context,
 	if args.Vpc == nil {
 		return nil, errors.New("invalid value for required argument 'Vpc'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PrivateDnsNamespace
 	err := ctx.RegisterResource("aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace", name, args, &resource, opts...)

@@ -52,11 +52,13 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMa
 
         @CustomType.Setter
         public Builder all(@Nullable WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll all) {
+
             this.all = all;
             return this;
         }
         @CustomType.Setter
         public Builder includedPaths(@Nullable List<String> includedPaths) {
+
             this.includedPaths = includedPaths;
             return this;
         }
@@ -64,10 +66,10 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMa
             return includedPaths(List.of(includedPaths));
         }
         public WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern build() {
-            final var o = new WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern();
-            o.all = all;
-            o.includedPaths = includedPaths;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern();
+            _resultValue.all = all;
+            _resultValue.includedPaths = includedPaths;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.chimesdkmediapipelines.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -74,7 +75,10 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
 
         @CustomType.Setter
         public Builder keywords(List<String> keywords) {
-            this.keywords = Objects.requireNonNull(keywords);
+            if (keywords == null) {
+              throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration", "keywords");
+            }
+            this.keywords = keywords;
             return this;
         }
         public Builder keywords(String... keywords) {
@@ -82,20 +86,24 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
         }
         @CustomType.Setter
         public Builder negate(@Nullable Boolean negate) {
+
             this.negate = negate;
             return this;
         }
         @CustomType.Setter
         public Builder ruleName(String ruleName) {
-            this.ruleName = Objects.requireNonNull(ruleName);
+            if (ruleName == null) {
+              throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration", "ruleName");
+            }
+            this.ruleName = ruleName;
             return this;
         }
         public MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration build() {
-            final var o = new MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration();
-            o.keywords = keywords;
-            o.negate = negate;
-            o.ruleName = ruleName;
-            return o;
+            final var _resultValue = new MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration();
+            _resultValue.keywords = keywords;
+            _resultValue.negate = negate;
+            _resultValue.ruleName = ruleName;
+            return _resultValue;
         }
     }
 }

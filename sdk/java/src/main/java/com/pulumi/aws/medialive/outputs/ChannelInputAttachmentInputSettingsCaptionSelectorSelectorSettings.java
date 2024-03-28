@@ -134,49 +134,56 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
 
         @CustomType.Setter
         public Builder ancillarySourceSettings(@Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings ancillarySourceSettings) {
+
             this.ancillarySourceSettings = ancillarySourceSettings;
             return this;
         }
         @CustomType.Setter
         public Builder aribSourceSettings(@Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings aribSourceSettings) {
+
             this.aribSourceSettings = aribSourceSettings;
             return this;
         }
         @CustomType.Setter
         public Builder dvbSubSourceSettings(@Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings dvbSubSourceSettings) {
+
             this.dvbSubSourceSettings = dvbSubSourceSettings;
             return this;
         }
         @CustomType.Setter
         public Builder embeddedSourceSettings(@Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings embeddedSourceSettings) {
+
             this.embeddedSourceSettings = embeddedSourceSettings;
             return this;
         }
         @CustomType.Setter
         public Builder scte20SourceSettings(@Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings scte20SourceSettings) {
+
             this.scte20SourceSettings = scte20SourceSettings;
             return this;
         }
         @CustomType.Setter
         public Builder scte27SourceSettings(@Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings scte27SourceSettings) {
+
             this.scte27SourceSettings = scte27SourceSettings;
             return this;
         }
         @CustomType.Setter
         public Builder teletextSourceSettings(@Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings teletextSourceSettings) {
+
             this.teletextSourceSettings = teletextSourceSettings;
             return this;
         }
         public ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings build() {
-            final var o = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings();
-            o.ancillarySourceSettings = ancillarySourceSettings;
-            o.aribSourceSettings = aribSourceSettings;
-            o.dvbSubSourceSettings = dvbSubSourceSettings;
-            o.embeddedSourceSettings = embeddedSourceSettings;
-            o.scte20SourceSettings = scte20SourceSettings;
-            o.scte27SourceSettings = scte27SourceSettings;
-            o.teletextSourceSettings = teletextSourceSettings;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings();
+            _resultValue.ancillarySourceSettings = ancillarySourceSettings;
+            _resultValue.aribSourceSettings = aribSourceSettings;
+            _resultValue.dvbSubSourceSettings = dvbSubSourceSettings;
+            _resultValue.embeddedSourceSettings = embeddedSourceSettings;
+            _resultValue.scte20SourceSettings = scte20SourceSettings;
+            _resultValue.scte27SourceSettings = scte27SourceSettings;
+            _resultValue.teletextSourceSettings = teletextSourceSettings;
+            return _resultValue;
         }
     }
 }

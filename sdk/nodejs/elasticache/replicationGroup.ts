@@ -30,33 +30,38 @@ import * as utilities from "../utilities";
  * > **Note:** Be aware of the terminology collision around "cluster" for `aws.elasticache.ReplicationGroup`. For example, it is possible to create a ["Cluster Mode Disabled [Redis] Cluster"](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Create.CON.Redis.html). With "Cluster Mode Enabled", the data will be stored in shards (called "node groups"). See [Redis Cluster Configuration](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/cluster-create-determine-requirements.html#redis-cluster-configuration) for a diagram of the differences. To enable cluster mode, use a parameter group that has cluster mode enabled. The default parameter groups provided by AWS end with ".cluster.on", for example `default.redis6.x.cluster.on`.
  *
  * ## Example Usage
+ *
  * ### Redis Cluster Mode Disabled
  *
  * To create a single shard primary with single read replica:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.elasticache.ReplicationGroup("example", {
  *     automaticFailoverEnabled: true,
+ *     preferredCacheClusterAzs: [
+ *         "us-west-2a",
+ *         "us-west-2b",
+ *     ],
+ *     replicationGroupId: "tf-rep-group-1",
  *     description: "example description",
  *     nodeType: "cache.m4.large",
  *     numCacheClusters: 2,
  *     parameterGroupName: "default.redis3.2",
  *     port: 6379,
- *     preferredCacheClusterAzs: [
- *         "us-west-2a",
- *         "us-west-2b",
- *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * You have two options for adjusting the number of replicas:
  *
  * * Adjusting `numCacheClusters` directly. This will attempt to automatically add or remove replicas, but provides no granular control (e.g., preferred availability zone, cache cluster ID) for the added or removed replicas. This also currently expects cache cluster IDs in the form of `replication_group_id-00#`.
  * * Otherwise for fine grained control of the underlying cache clusters, they can be added or removed with the `aws.elasticache.Cluster` resource and its `replicationGroupId` attribute. In this situation, you will need to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to prevent perpetual differences with the `numberCacheCluster` attribute.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -67,42 +72,54 @@ import * as utilities from "../utilities";
  *         "us-west-2a",
  *         "us-west-2b",
  *     ],
+ *     replicationGroupId: "tf-rep-group-1",
  *     description: "example description",
  *     nodeType: "cache.m4.large",
  *     numCacheClusters: 2,
  *     parameterGroupName: "default.redis3.2",
  *     port: 6379,
  * });
- * let replica: aws.elasticache.Cluster | undefined;
- * if (1 == true) {
- *     replica = new aws.elasticache.Cluster("replica", {replicationGroupId: example.id});
+ * const replica: aws.elasticache.Cluster[] = [];
+ * for (const range = {value: 0}; range.value < 1; range.value++) {
+ *     replica.push(new aws.elasticache.Cluster(`replica-${range.value}`, {
+ *         clusterId: `tf-rep-group-1-${range.value}`,
+ *         replicationGroupId: example.id,
+ *     }));
  * }
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Redis Cluster Mode Enabled
  *
  * To create two shards with a primary and a single read replica each:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const baz = new aws.elasticache.ReplicationGroup("baz", {
- *     automaticFailoverEnabled: true,
+ *     replicationGroupId: "tf-redis-cluster",
  *     description: "example description",
  *     nodeType: "cache.t2.small",
- *     numNodeGroups: 2,
- *     parameterGroupName: "default.redis3.2.cluster.on",
  *     port: 6379,
+ *     parameterGroupName: "default.redis3.2.cluster.on",
+ *     automaticFailoverEnabled: true,
+ *     numNodeGroups: 2,
  *     replicasPerNodeGroup: 1,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Redis Log Delivery configuration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.elasticache.ReplicationGroup("test", {
+ *     replicationGroupId: "myreplicaciongroup",
  *     description: "test description",
  *     nodeType: "cache.t3.small",
  *     port: 6379,
@@ -112,13 +129,13 @@ import * as utilities from "../utilities";
  *     snapshotWindow: "01:00-02:00",
  *     logDeliveryConfigurations: [
  *         {
- *             destination: aws_cloudwatch_log_group.example.name,
+ *             destination: example.name,
  *             destinationType: "cloudwatch-logs",
  *             logFormat: "text",
  *             logType: "slow-log",
  *         },
  *         {
- *             destination: aws_kinesis_firehose_delivery_stream.example.name,
+ *             destination: exampleAwsKinesisFirehoseDeliveryStream.name,
  *             destinationType: "kinesis-firehose",
  *             logFormat: "json",
  *             logType: "engine-log",
@@ -126,48 +143,76 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * > **Note:** We currently do not support passing a `primaryClusterId` in order to create the Replication Group.
  *
  * > **Note:** Automatic Failover is unavailable for Redis versions earlier than 2.8.6,
  * and unavailable on T1 node types. For T2 node types, it is only available on Redis version 3.2.4 or later with cluster mode enabled. See the [High Availability Using Replication Groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Replication.html) guide
  * for full details on using Replication Groups.
+ *
  * ### Creating a secondary replication group for a global replication group
  *
  * A Global Replication Group can have one one two secondary Replication Groups in different regions. These are added to an existing Global Replication Group.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const primary = new aws.elasticache.ReplicationGroup("primary", {
+ *     replicationGroupId: "example-primary",
  *     description: "primary replication group",
  *     engine: "redis",
  *     engineVersion: "5.0.6",
  *     nodeType: "cache.m5.large",
  *     numCacheClusters: 1,
- * }, {
- *     provider: aws.other_region,
  * });
  * const example = new aws.elasticache.GlobalReplicationGroup("example", {
  *     globalReplicationGroupIdSuffix: "example",
  *     primaryReplicationGroupId: primary.id,
- * }, {
- *     provider: aws.other_region,
  * });
  * const secondary = new aws.elasticache.ReplicationGroup("secondary", {
+ *     replicationGroupId: "example-secondary",
  *     description: "secondary replication group",
  *     globalReplicationGroupId: example.globalReplicationGroupId,
  *     numCacheClusters: 1,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Redis AUTH and In-Transit Encryption Enabled
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.elasticache.ReplicationGroup("example", {
+ *     replicationGroupId: "example",
+ *     description: "example with authentication",
+ *     nodeType: "cache.t2.micro",
+ *     numCacheClusters: 1,
+ *     port: 6379,
+ *     subnetGroupName: exampleAwsElasticacheSubnetGroup.name,
+ *     securityGroupIds: [exampleAwsSecurityGroup.id],
+ *     parameterGroupName: "default.redis5.0",
+ *     engineVersion: "5.0.6",
+ *     transitEncryptionEnabled: true,
+ *     authToken: "abcdefgh1234567890",
+ *     authTokenUpdateStrategy: "ROTATE",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * > When adding a new `authToken` to a previously passwordless replication group, using the `ROTATE` update strategy will result in support for **both** the new token and passwordless authentication. To immediately require authorization when adding the initial token, use the `SET` strategy instead. See the [Authenticating with the Redis AUTH command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html) guide for additional details.
  *
  * ## Import
  *
  * Using `pulumi import`, import ElastiCache Replication Groups using the `replication_group_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
+ * $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
  * ```
  */
 export class ReplicationGroup extends pulumi.CustomResource {
@@ -214,6 +259,10 @@ export class ReplicationGroup extends pulumi.CustomResource {
      * Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
      */
     public readonly authToken!: pulumi.Output<string | undefined>;
+    /**
+     * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     */
+    public readonly authTokenUpdateStrategy!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
      * Only supported for engine type `"redis"` and if the engine version is 6 or higher.
@@ -406,6 +455,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["atRestEncryptionEnabled"] = state ? state.atRestEncryptionEnabled : undefined;
             resourceInputs["authToken"] = state ? state.authToken : undefined;
+            resourceInputs["authTokenUpdateStrategy"] = state ? state.authTokenUpdateStrategy : undefined;
             resourceInputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
             resourceInputs["automaticFailoverEnabled"] = state ? state.automaticFailoverEnabled : undefined;
             resourceInputs["clusterEnabled"] = state ? state.clusterEnabled : undefined;
@@ -451,6 +501,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["applyImmediately"] = args ? args.applyImmediately : undefined;
             resourceInputs["atRestEncryptionEnabled"] = args ? args.atRestEncryptionEnabled : undefined;
             resourceInputs["authToken"] = args?.authToken ? pulumi.secret(args.authToken) : undefined;
+            resourceInputs["authTokenUpdateStrategy"] = args ? args.authTokenUpdateStrategy : undefined;
             resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
             resourceInputs["automaticFailoverEnabled"] = args ? args.automaticFailoverEnabled : undefined;
             resourceInputs["dataTieringEnabled"] = args ? args.dataTieringEnabled : undefined;
@@ -494,7 +545,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["authToken", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["authToken"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(ReplicationGroup.__pulumiType, name, resourceInputs, opts);
     }
@@ -520,6 +571,10 @@ export interface ReplicationGroupState {
      * Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
      */
     authToken?: pulumi.Input<string>;
+    /**
+     * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     */
+    authTokenUpdateStrategy?: pulumi.Input<string>;
     /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
      * Only supported for engine type `"redis"` and if the engine version is 6 or higher.
@@ -712,6 +767,10 @@ export interface ReplicationGroupArgs {
      * Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
      */
     authToken?: pulumi.Input<string>;
+    /**
+     * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     */
+    authTokenUpdateStrategy?: pulumi.Input<string>;
     /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
      * Only supported for engine type `"redis"` and if the engine version is 6 or higher.

@@ -15,8 +15,10 @@ namespace Pulumi.Aws.WafRegional
     /// &gt; **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Application Load Balancer Association
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,6 +29,7 @@ namespace Pulumi.Aws.WafRegional
     /// {
     ///     var ipset = new Aws.WafRegional.IpSet("ipset", new()
     ///     {
+    ///         Name = "tfIPSet",
     ///         IpSetDescriptors = new[]
     ///         {
     ///             new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
@@ -37,8 +40,9 @@ namespace Pulumi.Aws.WafRegional
     ///         },
     ///     });
     /// 
-    ///     var fooRule = new Aws.WafRegional.Rule("fooRule", new()
+    ///     var foo = new Aws.WafRegional.Rule("foo", new()
     ///     {
+    ///         Name = "tfWAFRule",
     ///         MetricName = "tfWAFRule",
     ///         Predicates = new[]
     ///         {
@@ -51,8 +55,9 @@ namespace Pulumi.Aws.WafRegional
     ///         },
     ///     });
     /// 
-    ///     var fooWebAcl = new Aws.WafRegional.WebAcl("fooWebAcl", new()
+    ///     var fooWebAcl = new Aws.WafRegional.WebAcl("foo", new()
     ///     {
+    ///         Name = "foo",
     ///         MetricName = "foo",
     ///         DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
     ///         {
@@ -67,19 +72,19 @@ namespace Pulumi.Aws.WafRegional
     ///                     Type = "BLOCK",
     ///                 },
     ///                 Priority = 1,
-    ///                 RuleId = fooRule.Id,
+    ///                 RuleId = foo.Id,
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var fooVpc = new Aws.Ec2.Vpc("fooVpc", new()
+    ///     var fooVpc = new Aws.Ec2.Vpc("foo", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
     ///     });
     /// 
     ///     var available = Aws.GetAvailabilityZones.Invoke();
     /// 
-    ///     var fooSubnet = new Aws.Ec2.Subnet("fooSubnet", new()
+    ///     var fooSubnet = new Aws.Ec2.Subnet("foo", new()
     ///     {
     ///         VpcId = fooVpc.Id,
     ///         CidrBlock = "10.1.1.0/24",
@@ -93,7 +98,7 @@ namespace Pulumi.Aws.WafRegional
     ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[1]),
     ///     });
     /// 
-    ///     var fooLoadBalancer = new Aws.Alb.LoadBalancer("fooLoadBalancer", new()
+    ///     var fooLoadBalancer = new Aws.Alb.LoadBalancer("foo", new()
     ///     {
     ///         Internal = true,
     ///         Subnets = new[]
@@ -103,7 +108,7 @@ namespace Pulumi.Aws.WafRegional
     ///         },
     ///     });
     /// 
-    ///     var fooWebAclAssociation = new Aws.WafRegional.WebAclAssociation("fooWebAclAssociation", new()
+    ///     var fooWebAclAssociation = new Aws.WafRegional.WebAclAssociation("foo", new()
     ///     {
     ///         ResourceArn = fooLoadBalancer.Arn,
     ///         WebAclId = fooWebAcl.Id,
@@ -111,27 +116,24 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### API Gateway Association
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
-    /// using System.Security.Cryptography;
-    /// using System.Text;
     /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	private static string ComputeSHA1(string input) {
-    /// 		return BitConverter.ToString(
-    /// 			SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input))
-    /// 		).Replace("-","").ToLowerInvariant());
-    /// 	}
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var ipset = new Aws.WafRegional.IpSet("ipset", new()
     ///     {
+    ///         Name = "tfIPSet",
     ///         IpSetDescriptors = new[]
     ///         {
     ///             new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
@@ -142,8 +144,9 @@ namespace Pulumi.Aws.WafRegional
     ///         },
     ///     });
     /// 
-    ///     var fooRule = new Aws.WafRegional.Rule("fooRule", new()
+    ///     var foo = new Aws.WafRegional.Rule("foo", new()
     ///     {
+    ///         Name = "tfWAFRule",
     ///         MetricName = "tfWAFRule",
     ///         Predicates = new[]
     ///         {
@@ -156,8 +159,9 @@ namespace Pulumi.Aws.WafRegional
     ///         },
     ///     });
     /// 
-    ///     var fooWebAcl = new Aws.WafRegional.WebAcl("fooWebAcl", new()
+    ///     var fooWebAcl = new Aws.WafRegional.WebAcl("foo", new()
     ///     {
+    ///         Name = "foo",
     ///         MetricName = "foo",
     ///         DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
     ///         {
@@ -172,12 +176,12 @@ namespace Pulumi.Aws.WafRegional
     ///                     Type = "BLOCK",
     ///                 },
     ///                 Priority = 1,
-    ///                 RuleId = fooRule.Id,
+    ///                 RuleId = foo.Id,
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new()
+    ///     var example = new Aws.ApiGateway.RestApi("example", new()
     ///     {
     ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -204,21 +208,25 @@ namespace Pulumi.Aws.WafRegional
     ///                 },
     ///             },
     ///         }),
+    ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("example", new()
     ///     {
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         Triggers = 
     ///         {
-    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///             { "redeployment", Std.Sha1.Invoke(new()
+    ///             {
+    ///                 Input = Output.JsonSerialize(Output.Create(example.Body)),
+    ///             }).Apply(invoke =&gt; invoke.Result) },
     ///         },
     ///     });
     /// 
-    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     var exampleStage = new Aws.ApiGateway.Stage("example", new()
     ///     {
     ///         Deployment = exampleDeployment.Id,
-    ///         RestApi = exampleRestApi.Id,
+    ///         RestApi = example.Id,
     ///         StageName = "example",
     ///     });
     /// 
@@ -230,13 +238,14 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WAF Regional Web ACL Association using their `web_acl_id:resource_arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
+    /// $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
     /// ```
     /// </summary>
     [AwsResourceType("aws:wafregional/webAclAssociation:WebAclAssociation")]

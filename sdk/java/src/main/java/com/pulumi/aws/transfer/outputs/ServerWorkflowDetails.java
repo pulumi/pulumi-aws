@@ -59,19 +59,21 @@ public final class ServerWorkflowDetails {
 
         @CustomType.Setter
         public Builder onPartialUpload(@Nullable ServerWorkflowDetailsOnPartialUpload onPartialUpload) {
+
             this.onPartialUpload = onPartialUpload;
             return this;
         }
         @CustomType.Setter
         public Builder onUpload(@Nullable ServerWorkflowDetailsOnUpload onUpload) {
+
             this.onUpload = onUpload;
             return this;
         }
         public ServerWorkflowDetails build() {
-            final var o = new ServerWorkflowDetails();
-            o.onPartialUpload = onPartialUpload;
-            o.onUpload = onUpload;
-            return o;
+            final var _resultValue = new ServerWorkflowDetails();
+            _resultValue.onPartialUpload = onPartialUpload;
+            _resultValue.onUpload = onUpload;
+            return _resultValue;
         }
     }
 }

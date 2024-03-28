@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
     public sealed class FirehoseDeliveryStreamOpensearchConfiguration
     {
         /// <summary>
-        /// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        /// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         /// </summary>
         public readonly int? BufferingInterval;
         /// <summary>
@@ -22,13 +22,17 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly int? BufferingSize;
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
+        /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions;
         /// <summary>
         /// The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
         /// </summary>
         public readonly string? ClusterEndpoint;
+        /// <summary>
+        /// The method for setting up document ID. See [`document_id_options` block] below for details.
+        /// </summary>
+        public readonly Outputs.FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions? DocumentIdOptions;
         /// <summary>
         /// The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `cluster_endpoint`.
         /// </summary>
@@ -42,7 +46,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? IndexRotationPeriod;
         /// <summary>
-        /// The data processing configuration.  More details are given below.
+        /// The data processing configuration. See `processing_configuration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration? ProcessingConfiguration;
         /// <summary>
@@ -58,7 +62,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? S3BackupMode;
         /// <summary>
-        /// The S3 Configuration. See s3_configuration for more details.
+        /// The S3 Configuration. See `s3_configuration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamOpensearchConfigurationS3Configuration S3Configuration;
         /// <summary>
@@ -66,7 +70,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? TypeName;
         /// <summary>
-        /// The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below
+        /// The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpc_config` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamOpensearchConfigurationVpcConfig? VpcConfig;
 
@@ -79,6 +83,8 @@ namespace Pulumi.Aws.Kinesis.Outputs
             Outputs.FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions? cloudwatchLoggingOptions,
 
             string? clusterEndpoint,
+
+            Outputs.FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions? documentIdOptions,
 
             string? domainArn,
 
@@ -104,6 +110,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
             BufferingSize = bufferingSize;
             CloudwatchLoggingOptions = cloudwatchLoggingOptions;
             ClusterEndpoint = clusterEndpoint;
+            DocumentIdOptions = documentIdOptions;
             DomainArn = domainArn;
             IndexName = indexName;
             IndexRotationPeriod = indexRotationPeriod;

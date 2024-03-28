@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,23 +28,25 @@ import * as utilities from "../utilities";
  * // an EBS volume populated from a snapshot. We assume that such a snapshot
  * // already exists with the id "snap-xxxxxxxx".
  * const example = new aws.ec2.Ami("example", {
+ *     name: "example",
+ *     virtualizationType: "hvm",
+ *     rootDeviceName: "/dev/xvda",
+ *     imdsSupport: "v2.0",
  *     ebsBlockDevices: [{
  *         deviceName: "/dev/xvda",
  *         snapshotId: "snap-xxxxxxxx",
  *         volumeSize: 8,
  *     }],
- *     imdsSupport: "v2.0",
- *     rootDeviceName: "/dev/xvda",
- *     virtualizationType: "hvm",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ami` using the ID of the AMI. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/ami:Ami example ami-12345678
+ * $ pulumi import aws:ec2/ami:Ami example ami-12345678
  * ```
  */
 export class Ami extends pulumi.CustomResource {
@@ -273,8 +276,6 @@ export class Ami extends pulumi.CustomResource {
             resourceInputs["usageOperation"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Ami.__pulumiType, name, resourceInputs, opts);
     }
 }

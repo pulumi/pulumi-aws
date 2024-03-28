@@ -16,8 +16,10 @@ import (
 // > **NOTE:** This resource must be created in the Organization master account or a delegated administrator account, and the Organization must have all features enabled. Every Organization account except those configured in the `excludedAccounts` argument must have a Configuration Recorder with proper IAM permissions before the Organization Conformance Pack will successfully create or update. See also the `cfg.Recorder` resource.
 //
 // ## Example Usage
+//
 // ### Using Template Body
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,16 +33,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
-//				AwsServiceAccessPrincipals: pulumi.StringArray{
-//					pulumi.String("config-multiaccountsetup.amazonaws.com"),
-//				},
-//				FeatureSet: pulumi.String("ALL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cfg.NewOrganizationConformancePack(ctx, "exampleOrganizationConformancePack", &cfg.OrganizationConformancePackArgs{
+//			_, err := cfg.NewOrganizationConformancePack(ctx, "example", &cfg.OrganizationConformancePackArgs{
+//				Name: pulumi.String("example"),
 //				InputParameters: cfg.OrganizationConformancePackInputParameterArray{
 //					&cfg.OrganizationConformancePackInputParameterArgs{
 //						ParameterName:  pulumi.String("AccessKeysRotatedParameterMaxAccessKeyAge"),
@@ -63,10 +57,16 @@ import (
 //
 // `),
 //
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_config_configuration_recorder.Example,
-//				exampleOrganization,
-//			}))
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = organizations.NewOrganization(ctx, "example", &organizations.OrganizationArgs{
+//				AwsServiceAccessPrincipals: pulumi.StringArray{
+//					pulumi.String("config-multiaccountsetup.amazonaws.com"),
+//				},
+//				FeatureSet: pulumi.String("ALL"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -75,8 +75,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Using Template S3 URI
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -93,20 +96,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
-//				AwsServiceAccessPrincipals: pulumi.StringArray{
-//					pulumi.String("config-multiaccountsetup.amazonaws.com"),
-//				},
-//				FeatureSet: pulumi.String("ALL"),
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
+//			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
 //				Bucket: exampleBucketV2.ID(),
 //				Key:    pulumi.String("example-key"),
 //				Content: pulumi.String(`Resources:
@@ -124,16 +120,23 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cfg.NewOrganizationConformancePack(ctx, "exampleOrganizationConformancePack", &cfg.OrganizationConformancePackArgs{
+//			_, err = cfg.NewOrganizationConformancePack(ctx, "example", &cfg.OrganizationConformancePackArgs{
+//				Name: pulumi.String("example"),
 //				TemplateS3Uri: pulumi.All(exampleBucketV2.Bucket, exampleBucketObjectv2.Key).ApplyT(func(_args []interface{}) (string, error) {
 //					bucket := _args[0].(string)
 //					key := _args[1].(string)
 //					return fmt.Sprintf("s3://%v/%v", bucket, key), nil
 //				}).(pulumi.StringOutput),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_config_configuration_recorder.Example,
-//				exampleOrganization,
-//			}))
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = organizations.NewOrganization(ctx, "example", &organizations.OrganizationArgs{
+//				AwsServiceAccessPrincipals: pulumi.StringArray{
+//					pulumi.String("config-multiaccountsetup.amazonaws.com"),
+//				},
+//				FeatureSet: pulumi.String("ALL"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -142,15 +145,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Config Organization Conformance Packs using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
-//
+// $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
 // ```
 type OrganizationConformancePack struct {
 	pulumi.CustomResourceState

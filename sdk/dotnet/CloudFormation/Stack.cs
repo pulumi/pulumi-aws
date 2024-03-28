@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CloudFormation
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,38 +26,39 @@ namespace Pulumi.Aws.CloudFormation
     /// {
     ///     var network = new Aws.CloudFormation.Stack("network", new()
     ///     {
+    ///         Name = "networking-stack",
     ///         Parameters = 
     ///         {
     ///             { "VPCCidr", "10.0.0.0/16" },
     ///         },
     ///         TemplateBody = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Parameters"] = new Dictionary&lt;string, object?&gt;
+    ///             ["parameters"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["VPCCidr"] = new Dictionary&lt;string, object?&gt;
+    ///                 ["vPCCidr"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Type"] = "String",
-    ///                     ["Default"] = "10.0.0.0/16",
-    ///                     ["Description"] = "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
+    ///                     ["type"] = "String",
+    ///                     ["default"] = "10.0.0.0/16",
+    ///                     ["description"] = "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
     ///                 },
     ///             },
-    ///             ["Resources"] = new Dictionary&lt;string, object?&gt;
+    ///             ["resources"] = new Dictionary&lt;string, object?&gt;
     ///             {
     ///                 ["myVpc"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Type"] = "AWS::EC2::VPC",
-    ///                     ["Properties"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["type"] = "AWS::EC2::VPC",
+    ///                     ["properties"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["CidrBlock"] = new Dictionary&lt;string, object?&gt;
+    ///                         ["cidrBlock"] = new Dictionary&lt;string, object?&gt;
     ///                         {
     ///                             ["Ref"] = "VPCCidr",
     ///                         },
-    ///                         ["Tags"] = new[]
+    ///                         ["tags"] = new[]
     ///                         {
     ///                             new Dictionary&lt;string, object?&gt;
     ///                             {
-    ///                                 ["Key"] = "Name",
-    ///                                 ["Value"] = "Primary_CF_VPC",
+    ///                                 ["key"] = "Name",
+    ///                                 ["value"] = "Primary_CF_VPC",
     ///                             },
     ///                         },
     ///                     },
@@ -67,13 +69,14 @@ namespace Pulumi.Aws.CloudFormation
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cloudformation Stacks using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
+    /// $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudformation/stack:Stack")]
@@ -197,10 +200,6 @@ namespace Pulumi.Aws.CloudFormation
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -450,11 +449,7 @@ namespace Pulumi.Aws.CloudFormation
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

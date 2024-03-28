@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticache.NewParameterGroup(ctx, "default", &elasticache.ParameterGroupArgs{
+//				Name:   pulumi.String("cache-params"),
 //				Family: pulumi.String("redis2.8"),
 //				Parameters: elasticache.ParameterGroupParameterArray{
 //					&elasticache.ParameterGroupParameterArgs{
@@ -51,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ElastiCache Parameter Groups using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params
-//
+// $ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params
 // ```
 type ParameterGroup struct {
 	pulumi.CustomResourceState
@@ -95,10 +96,6 @@ func NewParameterGroup(ctx *pulumi.Context,
 	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ParameterGroup
 	err := ctx.RegisterResource("aws:elasticache/parameterGroup:ParameterGroup", name, args, &resource, opts...)

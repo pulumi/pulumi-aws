@@ -23,6 +23,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,9 +37,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSecurityGroup, err := ec2.NewSecurityGroup(ctx, "exampleSecurityGroup", &ec2.SecurityGroupArgs{
+//			example, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
+//				Name:        pulumi.String("example"),
 //				Description: pulumi.String("example"),
-//				VpcId:       pulumi.Any(aws_vpc.Main.Id),
+//				VpcId:       pulumi.Any(main.Id),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example"),
 //				},
@@ -46,8 +48,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = vpc.NewSecurityGroupIngressRule(ctx, "exampleSecurityGroupIngressRule", &vpc.SecurityGroupIngressRuleArgs{
-//				SecurityGroupId: exampleSecurityGroup.ID(),
+//			_, err = vpc.NewSecurityGroupIngressRule(ctx, "example", &vpc.SecurityGroupIngressRuleArgs{
+//				SecurityGroupId: example.ID(),
 //				CidrIpv4:        pulumi.String("10.0.0.0/8"),
 //				FromPort:        pulumi.Int(80),
 //				IpProtocol:      pulumi.String("tcp"),
@@ -61,15 +63,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import security group ingress rules using the `security_group_rule_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule example sgr-02108b27edd666983
-//
+// $ pulumi import aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule example sgr-02108b27edd666983
 // ```
 type SecurityGroupIngressRule struct {
 	pulumi.CustomResourceState
@@ -117,10 +118,6 @@ func NewSecurityGroupIngressRule(ctx *pulumi.Context,
 	if args.SecurityGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'SecurityGroupId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityGroupIngressRule
 	err := ctx.RegisterResource("aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule", name, args, &resource, opts...)

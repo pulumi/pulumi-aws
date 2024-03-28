@@ -13,40 +13,45 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.rds.InstanceAutomatedBackupsReplication("default", {
- *     retentionPeriod: 14,
  *     sourceDbInstanceArn: "arn:aws:rds:us-west-2:123456789012:db:mydatabase",
+ *     retentionPeriod: 14,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Encrypting the automated backup with KMS
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.rds.InstanceAutomatedBackupsReplication("default", {
- *     kmsKeyId: "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
  *     sourceDbInstanceArn: "arn:aws:rds:us-west-2:123456789012:db:mydatabase",
+ *     kmsKeyId: "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Example including a RDS DB instance
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const replica = new aws.Provider("replica", {region: "us-west-2"});
- * const defaultInstance = new aws.rds.Instance("defaultInstance", {
+ * const _default = new aws.rds.Instance("default", {
  *     allocatedStorage: 10,
  *     identifier: "mydb",
  *     engine: "postgres",
  *     engineVersion: "13.4",
- *     instanceClass: "db.t3.micro",
+ *     instanceClass: aws.rds.InstanceType.T3_Micro,
  *     dbName: "mydb",
  *     username: "masterusername",
  *     password: "mustbeeightcharacters",
@@ -54,23 +59,20 @@ import * as utilities from "../utilities";
  *     storageEncrypted: true,
  *     skipFinalSnapshot: true,
  * });
- * const defaultKey = new aws.kms.Key("defaultKey", {description: "Encryption key for automated backups"}, {
- *     provider: aws.replica,
- * });
- * const defaultInstanceAutomatedBackupsReplication = new aws.rds.InstanceAutomatedBackupsReplication("defaultInstanceAutomatedBackupsReplication", {
- *     sourceDbInstanceArn: defaultInstance.arn,
+ * const defaultKey = new aws.kms.Key("default", {description: "Encryption key for automated backups"});
+ * const defaultInstanceAutomatedBackupsReplication = new aws.rds.InstanceAutomatedBackupsReplication("default", {
+ *     sourceDbInstanceArn: _default.arn,
  *     kmsKeyId: defaultKey.arn,
- * }, {
- *     provider: aws.replica,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import RDS instance automated backups replication using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
+ * $ pulumi import aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
  * ```
  */
 export class InstanceAutomatedBackupsReplication extends pulumi.CustomResource {

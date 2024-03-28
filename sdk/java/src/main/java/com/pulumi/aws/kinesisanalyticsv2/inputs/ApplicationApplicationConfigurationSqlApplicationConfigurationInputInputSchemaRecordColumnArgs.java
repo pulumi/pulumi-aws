@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesisanalyticsv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.sqlType = Objects.requireNonNull($.sqlType, "expected parameter 'sqlType' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs", "name");
+            }
+            if ($.sqlType == null) {
+                throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs", "sqlType");
+            }
             return $;
         }
     }

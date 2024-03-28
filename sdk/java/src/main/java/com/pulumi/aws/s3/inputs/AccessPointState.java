@@ -65,14 +65,14 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+     * Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
      * 
      */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
     /**
-     * @return Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+     * @return Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
      * 
      */
     public Optional<Output<String>> bucket() {
@@ -320,7 +320,7 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+         * @param bucket Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+         * @param bucket Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
          * 
          * @return builder
          * 

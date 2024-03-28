@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS OpenSearch Serverless Collection.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,6 +20,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServerlessCollection(args?: GetServerlessCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessCollectionResult> {
     args = args || {};
@@ -78,6 +81,10 @@ export interface GetServerlessCollectionResult {
     readonly lastModifiedDate: string;
     readonly name: string;
     /**
+     * Indicates whether standby replicas should be used for a collection.
+     */
+    readonly standbyReplicas: string;
+    /**
      * A map of tags to assign to the collection.
      */
     readonly tags: {[key: string]: string};
@@ -90,8 +97,10 @@ export interface GetServerlessCollectionResult {
  * Data source for managing an AWS OpenSearch Serverless Collection.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -100,6 +109,7 @@ export interface GetServerlessCollectionResult {
  *     name: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServerlessCollectionOutput(args?: GetServerlessCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessCollectionResult> {
     return pulumi.output(args).apply((a: any) => getServerlessCollection(a, opts))

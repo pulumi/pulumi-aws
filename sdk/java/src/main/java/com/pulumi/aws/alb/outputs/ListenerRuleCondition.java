@@ -124,26 +124,31 @@ public final class ListenerRuleCondition {
 
         @CustomType.Setter
         public Builder hostHeader(@Nullable ListenerRuleConditionHostHeader hostHeader) {
+
             this.hostHeader = hostHeader;
             return this;
         }
         @CustomType.Setter
         public Builder httpHeader(@Nullable ListenerRuleConditionHttpHeader httpHeader) {
+
             this.httpHeader = httpHeader;
             return this;
         }
         @CustomType.Setter
         public Builder httpRequestMethod(@Nullable ListenerRuleConditionHttpRequestMethod httpRequestMethod) {
+
             this.httpRequestMethod = httpRequestMethod;
             return this;
         }
         @CustomType.Setter
         public Builder pathPattern(@Nullable ListenerRuleConditionPathPattern pathPattern) {
+
             this.pathPattern = pathPattern;
             return this;
         }
         @CustomType.Setter
         public Builder queryStrings(@Nullable List<ListenerRuleConditionQueryString> queryStrings) {
+
             this.queryStrings = queryStrings;
             return this;
         }
@@ -152,18 +157,19 @@ public final class ListenerRuleCondition {
         }
         @CustomType.Setter
         public Builder sourceIp(@Nullable ListenerRuleConditionSourceIp sourceIp) {
+
             this.sourceIp = sourceIp;
             return this;
         }
         public ListenerRuleCondition build() {
-            final var o = new ListenerRuleCondition();
-            o.hostHeader = hostHeader;
-            o.httpHeader = httpHeader;
-            o.httpRequestMethod = httpRequestMethod;
-            o.pathPattern = pathPattern;
-            o.queryStrings = queryStrings;
-            o.sourceIp = sourceIp;
-            return o;
+            final var _resultValue = new ListenerRuleCondition();
+            _resultValue.hostHeader = hostHeader;
+            _resultValue.httpHeader = httpHeader;
+            _resultValue.httpRequestMethod = httpRequestMethod;
+            _resultValue.pathPattern = pathPattern;
+            _resultValue.queryStrings = queryStrings;
+            _resultValue.sourceIp = sourceIp;
+            return _resultValue;
         }
     }
 }

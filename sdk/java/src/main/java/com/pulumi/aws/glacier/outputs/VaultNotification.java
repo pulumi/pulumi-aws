@@ -4,6 +4,7 @@
 package com.pulumi.aws.glacier.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class VaultNotification {
 
         @CustomType.Setter
         public Builder events(List<String> events) {
-            this.events = Objects.requireNonNull(events);
+            if (events == null) {
+              throw new MissingRequiredPropertyException("VaultNotification", "events");
+            }
+            this.events = events;
             return this;
         }
         public Builder events(String... events) {
@@ -65,14 +69,17 @@ public final class VaultNotification {
         }
         @CustomType.Setter
         public Builder snsTopic(String snsTopic) {
-            this.snsTopic = Objects.requireNonNull(snsTopic);
+            if (snsTopic == null) {
+              throw new MissingRequiredPropertyException("VaultNotification", "snsTopic");
+            }
+            this.snsTopic = snsTopic;
             return this;
         }
         public VaultNotification build() {
-            final var o = new VaultNotification();
-            o.events = events;
-            o.snsTopic = snsTopic;
-            return o;
+            final var _resultValue = new VaultNotification();
+            _resultValue.events = events;
+            _resultValue.snsTopic = snsTopic;
+            return _resultValue;
         }
     }
 }

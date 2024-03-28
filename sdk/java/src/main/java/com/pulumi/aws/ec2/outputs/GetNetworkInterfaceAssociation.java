@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -126,49 +127,70 @@ public final class GetNetworkInterfaceAssociation {
 
         @CustomType.Setter
         public Builder allocationId(String allocationId) {
-            this.allocationId = Objects.requireNonNull(allocationId);
+            if (allocationId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceAssociation", "allocationId");
+            }
+            this.allocationId = allocationId;
             return this;
         }
         @CustomType.Setter
         public Builder associationId(String associationId) {
-            this.associationId = Objects.requireNonNull(associationId);
+            if (associationId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceAssociation", "associationId");
+            }
+            this.associationId = associationId;
             return this;
         }
         @CustomType.Setter
         public Builder carrierIp(String carrierIp) {
-            this.carrierIp = Objects.requireNonNull(carrierIp);
+            if (carrierIp == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceAssociation", "carrierIp");
+            }
+            this.carrierIp = carrierIp;
             return this;
         }
         @CustomType.Setter
         public Builder customerOwnedIp(String customerOwnedIp) {
-            this.customerOwnedIp = Objects.requireNonNull(customerOwnedIp);
+            if (customerOwnedIp == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceAssociation", "customerOwnedIp");
+            }
+            this.customerOwnedIp = customerOwnedIp;
             return this;
         }
         @CustomType.Setter
         public Builder ipOwnerId(String ipOwnerId) {
-            this.ipOwnerId = Objects.requireNonNull(ipOwnerId);
+            if (ipOwnerId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceAssociation", "ipOwnerId");
+            }
+            this.ipOwnerId = ipOwnerId;
             return this;
         }
         @CustomType.Setter
         public Builder publicDnsName(String publicDnsName) {
-            this.publicDnsName = Objects.requireNonNull(publicDnsName);
+            if (publicDnsName == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceAssociation", "publicDnsName");
+            }
+            this.publicDnsName = publicDnsName;
             return this;
         }
         @CustomType.Setter
         public Builder publicIp(String publicIp) {
-            this.publicIp = Objects.requireNonNull(publicIp);
+            if (publicIp == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceAssociation", "publicIp");
+            }
+            this.publicIp = publicIp;
             return this;
         }
         public GetNetworkInterfaceAssociation build() {
-            final var o = new GetNetworkInterfaceAssociation();
-            o.allocationId = allocationId;
-            o.associationId = associationId;
-            o.carrierIp = carrierIp;
-            o.customerOwnedIp = customerOwnedIp;
-            o.ipOwnerId = ipOwnerId;
-            o.publicDnsName = publicDnsName;
-            o.publicIp = publicIp;
-            return o;
+            final var _resultValue = new GetNetworkInterfaceAssociation();
+            _resultValue.allocationId = allocationId;
+            _resultValue.associationId = associationId;
+            _resultValue.carrierIp = carrierIp;
+            _resultValue.customerOwnedIp = customerOwnedIp;
+            _resultValue.ipOwnerId = ipOwnerId;
+            _resultValue.publicDnsName = publicDnsName;
+            _resultValue.publicIp = publicIp;
+            return _resultValue;
         }
     }
 }

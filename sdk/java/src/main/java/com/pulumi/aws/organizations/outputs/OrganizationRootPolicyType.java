@@ -50,19 +50,21 @@ public final class OrganizationRootPolicyType {
 
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         public OrganizationRootPolicyType build() {
-            final var o = new OrganizationRootPolicyType();
-            o.status = status;
-            o.type = type;
-            return o;
+            final var _resultValue = new OrganizationRootPolicyType();
+            _resultValue.status = status;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

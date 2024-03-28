@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,7 +72,10 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
         @CustomType.Setter
         public Builder failureValues(List<String> failureValues) {
-            this.failureValues = Objects.requireNonNull(failureValues);
+            if (failureValues == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeader", "failureValues");
+            }
+            this.failureValues = failureValues;
             return this;
         }
         public Builder failureValues(String... failureValues) {
@@ -79,23 +83,29 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeader", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder successValues(List<String> successValues) {
-            this.successValues = Objects.requireNonNull(successValues);
+            if (successValues == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeader", "successValues");
+            }
+            this.successValues = successValues;
             return this;
         }
         public Builder successValues(String... successValues) {
             return successValues(List.of(successValues));
         }
         public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeader build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeader();
-            o.failureValues = failureValues;
-            o.name = name;
-            o.successValues = successValues;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeader();
+            _resultValue.failureValues = failureValues;
+            _resultValue.name = name;
+            _resultValue.successValues = successValues;
+            return _resultValue;
         }
     }
 }

@@ -19,31 +19,36 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleCluster = new aws.msk.Cluster("exampleCluster", {clientAuthentication: {
- *     sasl: {
- *         scram: true,
+ * const exampleCluster = new aws.msk.Cluster("example", {
+ *     clusterName: "example",
+ *     clientAuthentication: {
+ *         sasl: {
+ *             scram: true,
+ *         },
  *     },
- * }});
- * const exampleKey = new aws.kms.Key("exampleKey", {description: "Example Key for MSK Cluster Scram Secret Association"});
- * const exampleSecret = new aws.secretsmanager.Secret("exampleSecret", {kmsKeyId: exampleKey.keyId});
- * const exampleSecretVersion = new aws.secretsmanager.SecretVersion("exampleSecretVersion", {
+ * });
+ * const exampleKey = new aws.kms.Key("example", {description: "Example Key for MSK Cluster Scram Secret Association"});
+ * const exampleSecret = new aws.secretsmanager.Secret("example", {
+ *     name: "AmazonMSK_example",
+ *     kmsKeyId: exampleKey.keyId,
+ * });
+ * const exampleScramSecretAssociation = new aws.msk.ScramSecretAssociation("example", {
+ *     clusterArn: exampleCluster.arn,
+ *     secretArnLists: [exampleSecret.arn],
+ * });
+ * const exampleSecretVersion = new aws.secretsmanager.SecretVersion("example", {
  *     secretId: exampleSecret.id,
  *     secretString: JSON.stringify({
  *         username: "user",
  *         password: "pass",
  *     }),
  * });
- * const exampleScramSecretAssociation = new aws.msk.ScramSecretAssociation("exampleScramSecretAssociation", {
- *     clusterArn: exampleCluster.arn,
- *     secretArnLists: [exampleSecret.arn],
- * }, {
- *     dependsOn: [exampleSecretVersion],
- * });
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         sid: "AWSKafkaResourcePolicy",
  *         effect: "Allow",
@@ -55,18 +60,19 @@ import * as utilities from "../utilities";
  *         resources: [exampleSecret.arn],
  *     }],
  * });
- * const exampleSecretPolicy = new aws.secretsmanager.SecretPolicy("exampleSecretPolicy", {
+ * const exampleSecretPolicy = new aws.secretsmanager.SecretPolicy("example", {
  *     secretArn: exampleSecret.arn,
- *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
+ *     policy: example.apply(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import MSK SCRAM Secret Associations using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+ * $ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
  * ```
  */
 export class ScramSecretAssociation extends pulumi.CustomResource {

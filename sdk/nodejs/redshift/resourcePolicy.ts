@@ -9,33 +9,35 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.redshift.ResourcePolicy("example", {
- *     resourceArn: aws_redshift_cluster.example.cluster_namespace_arn,
+ *     resourceArn: exampleAwsRedshiftCluster.clusterNamespaceArn,
  *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Principal: {
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             effect: "Allow",
+ *             principal: {
  *                 AWS: "arn:aws:iam::12345678901:root",
  *             },
- *             Action: "redshift:CreateInboundIntegration",
- *             Resource: aws_redshift_cluster.example.cluster_namespace_arn,
- *             Sid: "",
+ *             action: "redshift:CreateInboundIntegration",
+ *             resource: exampleAwsRedshiftCluster.clusterNamespaceArn,
+ *             sid: "",
  *         }],
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Resource Policies using the `resource_arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshift/resourcePolicy:ResourcePolicy example example
+ * $ pulumi import aws:redshift/resourcePolicy:ResourcePolicy example example
  * ```
  */
 export class ResourcePolicy extends pulumi.CustomResource {

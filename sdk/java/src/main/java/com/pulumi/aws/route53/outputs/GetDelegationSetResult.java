@@ -4,6 +4,7 @@
 package com.pulumi.aws.route53.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -53,34 +54,46 @@ public final class GetDelegationSetResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetDelegationSetResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder callerReference(String callerReference) {
-            this.callerReference = Objects.requireNonNull(callerReference);
+            if (callerReference == null) {
+              throw new MissingRequiredPropertyException("GetDelegationSetResult", "callerReference");
+            }
+            this.callerReference = callerReference;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDelegationSetResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder nameServers(List<String> nameServers) {
-            this.nameServers = Objects.requireNonNull(nameServers);
+            if (nameServers == null) {
+              throw new MissingRequiredPropertyException("GetDelegationSetResult", "nameServers");
+            }
+            this.nameServers = nameServers;
             return this;
         }
         public Builder nameServers(String... nameServers) {
             return nameServers(List.of(nameServers));
         }
         public GetDelegationSetResult build() {
-            final var o = new GetDelegationSetResult();
-            o.arn = arn;
-            o.callerReference = callerReference;
-            o.id = id;
-            o.nameServers = nameServers;
-            return o;
+            final var _resultValue = new GetDelegationSetResult();
+            _resultValue.arn = arn;
+            _resultValue.callerReference = callerReference;
+            _resultValue.id = id;
+            _resultValue.nameServers = nameServers;
+            return _resultValue;
         }
     }
 }

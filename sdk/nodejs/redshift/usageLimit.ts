@@ -9,24 +9,26 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.redshift.UsageLimit("example", {
- *     clusterIdentifier: aws_redshift_cluster.example.id,
+ *     clusterIdentifier: exampleAwsRedshiftCluster.id,
  *     featureType: "concurrency-scaling",
  *     limitType: "time",
  *     amount: 60,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift usage limits using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshift/usageLimit:UsageLimit example example-id
+ * $ pulumi import aws:redshift/usageLimit:UsageLimit example example-id
  * ```
  */
 export class UsageLimit extends pulumi.CustomResource {
@@ -143,8 +145,6 @@ export class UsageLimit extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(UsageLimit.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetVirtualRouterSpecListenerPortMapping;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,16 +36,19 @@ public final class GetVirtualRouterSpecListener {
 
         @CustomType.Setter
         public Builder portMappings(List<GetVirtualRouterSpecListenerPortMapping> portMappings) {
-            this.portMappings = Objects.requireNonNull(portMappings);
+            if (portMappings == null) {
+              throw new MissingRequiredPropertyException("GetVirtualRouterSpecListener", "portMappings");
+            }
+            this.portMappings = portMappings;
             return this;
         }
         public Builder portMappings(GetVirtualRouterSpecListenerPortMapping... portMappings) {
             return portMappings(List.of(portMappings));
         }
         public GetVirtualRouterSpecListener build() {
-            final var o = new GetVirtualRouterSpecListener();
-            o.portMappings = portMappings;
-            return o;
+            final var _resultValue = new GetVirtualRouterSpecListener();
+            _resultValue.portMappings = portMappings;
+            return _resultValue;
         }
     }
 }

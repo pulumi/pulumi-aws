@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -43,16 +44,19 @@ public final class DistributionOriginGroupFailoverCriteria {
 
         @CustomType.Setter
         public Builder statusCodes(List<Integer> statusCodes) {
-            this.statusCodes = Objects.requireNonNull(statusCodes);
+            if (statusCodes == null) {
+              throw new MissingRequiredPropertyException("DistributionOriginGroupFailoverCriteria", "statusCodes");
+            }
+            this.statusCodes = statusCodes;
             return this;
         }
         public Builder statusCodes(Integer... statusCodes) {
             return statusCodes(List.of(statusCodes));
         }
         public DistributionOriginGroupFailoverCriteria build() {
-            final var o = new DistributionOriginGroupFailoverCriteria();
-            o.statusCodes = statusCodes;
-            return o;
+            final var _resultValue = new DistributionOriginGroupFailoverCriteria();
+            _resultValue.statusCodes = statusCodes;
+            return _resultValue;
         }
     }
 }

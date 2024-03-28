@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,15 +20,17 @@ import * as utilities from "../utilities";
  * const example = new aws.ecr.PullThroughCacheRule("example", {
  *     ecrRepositoryPrefix: "ecr-public",
  *     upstreamRegistryUrl: "public.ecr.aws",
+ *     credentialArn: "arn:aws:secretsmanager:us-east-1:123456789:secret:ecr-pullthroughcache/ecrpublic",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a pull-through cache rule using the `ecr_repository_prefix`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
+ * $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
  * ```
  */
 export class PullThroughCacheRule extends pulumi.CustomResource {
@@ -59,6 +62,10 @@ export class PullThroughCacheRule extends pulumi.CustomResource {
     }
 
     /**
+     * ARN of the Secret which will be used to authenticate against the registry.
+     */
+    public readonly credentialArn!: pulumi.Output<string | undefined>;
+    /**
      * The repository name prefix to use when caching images from the source registry.
      */
     public readonly ecrRepositoryPrefix!: pulumi.Output<string>;
@@ -84,6 +91,7 @@ export class PullThroughCacheRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PullThroughCacheRuleState | undefined;
+            resourceInputs["credentialArn"] = state ? state.credentialArn : undefined;
             resourceInputs["ecrRepositoryPrefix"] = state ? state.ecrRepositoryPrefix : undefined;
             resourceInputs["registryId"] = state ? state.registryId : undefined;
             resourceInputs["upstreamRegistryUrl"] = state ? state.upstreamRegistryUrl : undefined;
@@ -95,6 +103,7 @@ export class PullThroughCacheRule extends pulumi.CustomResource {
             if ((!args || args.upstreamRegistryUrl === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'upstreamRegistryUrl'");
             }
+            resourceInputs["credentialArn"] = args ? args.credentialArn : undefined;
             resourceInputs["ecrRepositoryPrefix"] = args ? args.ecrRepositoryPrefix : undefined;
             resourceInputs["upstreamRegistryUrl"] = args ? args.upstreamRegistryUrl : undefined;
             resourceInputs["registryId"] = undefined /*out*/;
@@ -108,6 +117,10 @@ export class PullThroughCacheRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PullThroughCacheRule resources.
  */
 export interface PullThroughCacheRuleState {
+    /**
+     * ARN of the Secret which will be used to authenticate against the registry.
+     */
+    credentialArn?: pulumi.Input<string>;
     /**
      * The repository name prefix to use when caching images from the source registry.
      */
@@ -126,6 +139,10 @@ export interface PullThroughCacheRuleState {
  * The set of arguments for constructing a PullThroughCacheRule resource.
  */
 export interface PullThroughCacheRuleArgs {
+    /**
+     * ARN of the Secret which will be used to authenticate against the registry.
+     */
+    credentialArn?: pulumi.Input<string>;
     /**
      * The repository name prefix to use when caching images from the source registry.
      */

@@ -4,6 +4,7 @@
 package com.pulumi.aws.licensemanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -14,6 +15,8 @@ public final class GetReceivedLicensesFilter {
      * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
      * For example, if filtering using `ProductSKU`, use:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -45,6 +48,7 @@ public final class GetReceivedLicensesFilter {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     private String name;
@@ -59,6 +63,8 @@ public final class GetReceivedLicensesFilter {
      * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
      * For example, if filtering using `ProductSKU`, use:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -90,6 +96,7 @@ public final class GetReceivedLicensesFilter {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public String name() {
@@ -123,22 +130,28 @@ public final class GetReceivedLicensesFilter {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicensesFilter", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder values(List<String> values) {
-            this.values = Objects.requireNonNull(values);
+            if (values == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicensesFilter", "values");
+            }
+            this.values = values;
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
         }
         public GetReceivedLicensesFilter build() {
-            final var o = new GetReceivedLicensesFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetReceivedLicensesFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

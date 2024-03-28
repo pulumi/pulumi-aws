@@ -5,6 +5,7 @@ package com.pulumi.aws.ses.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class ReceiptRuleStopActionArgs extends com.pulumi.resources.Resour
         }
 
         public ReceiptRuleStopActionArgs build() {
-            $.position = Objects.requireNonNull($.position, "expected parameter 'position' to be non-null");
-            $.scope = Objects.requireNonNull($.scope, "expected parameter 'scope' to be non-null");
+            if ($.position == null) {
+                throw new MissingRequiredPropertyException("ReceiptRuleStopActionArgs", "position");
+            }
+            if ($.scope == null) {
+                throw new MissingRequiredPropertyException("ReceiptRuleStopActionArgs", "scope");
+            }
             return $;
         }
     }

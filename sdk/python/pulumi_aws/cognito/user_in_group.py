@@ -134,26 +134,32 @@ class UserInGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool", password_policy=aws.cognito.UserPoolPasswordPolicyArgs(
-            temporary_password_validity_days=7,
-            minimum_length=6,
-            require_uppercase=False,
-            require_symbols=False,
-            require_numbers=False,
-        ))
-        example_user = aws.cognito.User("exampleUser",
-            user_pool_id=example_user_pool.id,
+        example = aws.cognito.UserPool("example",
+            name="example",
+            password_policy=aws.cognito.UserPoolPasswordPolicyArgs(
+                temporary_password_validity_days=7,
+                minimum_length=6,
+                require_uppercase=False,
+                require_symbols=False,
+                require_numbers=False,
+            ))
+        example_user = aws.cognito.User("example",
+            user_pool_id=example.id,
             username="example")
-        example_user_group = aws.cognito.UserGroup("exampleUserGroup", user_pool_id=example_user_pool.id)
-        example_user_in_group = aws.cognito.UserInGroup("exampleUserInGroup",
-            user_pool_id=example_user_pool.id,
+        example_user_group = aws.cognito.UserGroup("example",
+            user_pool_id=example.id,
+            name="example")
+        example_user_in_group = aws.cognito.UserInGroup("example",
+            user_pool_id=example.id,
             group_name=example_user_group.name,
             username=example_user.username)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,26 +178,32 @@ class UserInGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool", password_policy=aws.cognito.UserPoolPasswordPolicyArgs(
-            temporary_password_validity_days=7,
-            minimum_length=6,
-            require_uppercase=False,
-            require_symbols=False,
-            require_numbers=False,
-        ))
-        example_user = aws.cognito.User("exampleUser",
-            user_pool_id=example_user_pool.id,
+        example = aws.cognito.UserPool("example",
+            name="example",
+            password_policy=aws.cognito.UserPoolPasswordPolicyArgs(
+                temporary_password_validity_days=7,
+                minimum_length=6,
+                require_uppercase=False,
+                require_symbols=False,
+                require_numbers=False,
+            ))
+        example_user = aws.cognito.User("example",
+            user_pool_id=example.id,
             username="example")
-        example_user_group = aws.cognito.UserGroup("exampleUserGroup", user_pool_id=example_user_pool.id)
-        example_user_in_group = aws.cognito.UserInGroup("exampleUserInGroup",
-            user_pool_id=example_user_pool.id,
+        example_user_group = aws.cognito.UserGroup("example",
+            user_pool_id=example.id,
+            name="example")
+        example_user_in_group = aws.cognito.UserInGroup("example",
+            user_pool_id=example.id,
             group_name=example_user_group.name,
             username=example_user.username)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param UserInGroupArgs args: The arguments to use to populate this resource's properties.

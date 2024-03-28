@@ -276,29 +276,33 @@ class Workgroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.athena.Workgroup("example", configuration=aws.athena.WorkgroupConfigurationArgs(
-            enforce_workgroup_configuration=True,
-            publish_cloudwatch_metrics_enabled=True,
-            result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
-                output_location=f"s3://{aws_s3_bucket['example']['bucket']}/output/",
-                encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
-                    encryption_option="SSE_KMS",
-                    kms_key_arn=aws_kms_key["example"]["arn"],
+        example = aws.athena.Workgroup("example",
+            name="example",
+            configuration=aws.athena.WorkgroupConfigurationArgs(
+                enforce_workgroup_configuration=True,
+                publish_cloudwatch_metrics_enabled=True,
+                result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
+                    output_location=f"s3://{example_aws_s3_bucket['bucket']}/output/",
+                    encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
+                        encryption_option="SSE_KMS",
+                        kms_key_arn=example_aws_kms_key["arn"],
+                    ),
                 ),
-            ),
-        ))
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Athena Workgroups using their name. For example:
 
         ```sh
-         $ pulumi import aws:athena/workgroup:Workgroup example example
+        $ pulumi import aws:athena/workgroup:Workgroup example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -321,29 +325,33 @@ class Workgroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.athena.Workgroup("example", configuration=aws.athena.WorkgroupConfigurationArgs(
-            enforce_workgroup_configuration=True,
-            publish_cloudwatch_metrics_enabled=True,
-            result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
-                output_location=f"s3://{aws_s3_bucket['example']['bucket']}/output/",
-                encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
-                    encryption_option="SSE_KMS",
-                    kms_key_arn=aws_kms_key["example"]["arn"],
+        example = aws.athena.Workgroup("example",
+            name="example",
+            configuration=aws.athena.WorkgroupConfigurationArgs(
+                enforce_workgroup_configuration=True,
+                publish_cloudwatch_metrics_enabled=True,
+                result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
+                    output_location=f"s3://{example_aws_s3_bucket['bucket']}/output/",
+                    encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
+                        encryption_option="SSE_KMS",
+                        kms_key_arn=example_aws_kms_key["arn"],
+                    ),
                 ),
-            ),
-        ))
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Athena Workgroups using their name. For example:
 
         ```sh
-         $ pulumi import aws:athena/workgroup:Workgroup example example
+        $ pulumi import aws:athena/workgroup:Workgroup example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -384,8 +392,6 @@ class Workgroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Workgroup, __self__).__init__(
             'aws:athena/workgroup:Workgroup',
             resource_name,

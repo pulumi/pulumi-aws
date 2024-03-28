@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate {
 
         @CustomType.Setter
         public Builder files(List<GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile> files) {
-            this.files = Objects.requireNonNull(files);
+            if (files == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate", "files");
+            }
+            this.files = files;
             return this;
         }
         public Builder files(GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile... files) {
@@ -50,17 +54,20 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate {
         }
         @CustomType.Setter
         public Builder sds(List<GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd> sds) {
-            this.sds = Objects.requireNonNull(sds);
+            if (sds == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate", "sds");
+            }
+            this.sds = sds;
             return this;
         }
         public Builder sds(GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd... sds) {
             return sds(List.of(sds));
         }
         public GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate build() {
-            final var o = new GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate();
-            o.files = files;
-            o.sds = sds;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate();
+            _resultValue.files = files;
+            _resultValue.sds = sds;
+            return _resultValue;
         }
     }
 }

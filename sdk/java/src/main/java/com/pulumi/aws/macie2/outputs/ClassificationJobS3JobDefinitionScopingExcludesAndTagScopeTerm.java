@@ -88,16 +88,19 @@ public final class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTer
 
         @CustomType.Setter
         public Builder comparator(@Nullable String comparator) {
+
             this.comparator = comparator;
             return this;
         }
         @CustomType.Setter
         public Builder key(@Nullable String key) {
+
             this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder tagValues(@Nullable List<ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue> tagValues) {
+
             this.tagValues = tagValues;
             return this;
         }
@@ -106,16 +109,17 @@ public final class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTer
         }
         @CustomType.Setter
         public Builder target(@Nullable String target) {
+
             this.target = target;
             return this;
         }
         public ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm build() {
-            final var o = new ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm();
-            o.comparator = comparator;
-            o.key = key;
-            o.tagValues = tagValues;
-            o.target = target;
-            return o;
+            final var _resultValue = new ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm();
+            _resultValue.comparator = comparator;
+            _resultValue.key = key;
+            _resultValue.tagValues = tagValues;
+            _resultValue.target = target;
+            return _resultValue;
         }
     }
 }

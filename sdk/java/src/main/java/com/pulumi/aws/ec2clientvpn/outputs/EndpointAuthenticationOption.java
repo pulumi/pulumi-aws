@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2clientvpn.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -100,37 +101,44 @@ public final class EndpointAuthenticationOption {
 
         @CustomType.Setter
         public Builder activeDirectoryId(@Nullable String activeDirectoryId) {
+
             this.activeDirectoryId = activeDirectoryId;
             return this;
         }
         @CustomType.Setter
         public Builder rootCertificateChainArn(@Nullable String rootCertificateChainArn) {
+
             this.rootCertificateChainArn = rootCertificateChainArn;
             return this;
         }
         @CustomType.Setter
         public Builder samlProviderArn(@Nullable String samlProviderArn) {
+
             this.samlProviderArn = samlProviderArn;
             return this;
         }
         @CustomType.Setter
         public Builder selfServiceSamlProviderArn(@Nullable String selfServiceSamlProviderArn) {
+
             this.selfServiceSamlProviderArn = selfServiceSamlProviderArn;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("EndpointAuthenticationOption", "type");
+            }
+            this.type = type;
             return this;
         }
         public EndpointAuthenticationOption build() {
-            final var o = new EndpointAuthenticationOption();
-            o.activeDirectoryId = activeDirectoryId;
-            o.rootCertificateChainArn = rootCertificateChainArn;
-            o.samlProviderArn = samlProviderArn;
-            o.selfServiceSamlProviderArn = selfServiceSamlProviderArn;
-            o.type = type;
-            return o;
+            final var _resultValue = new EndpointAuthenticationOption();
+            _resultValue.activeDirectoryId = activeDirectoryId;
+            _resultValue.rootCertificateChainArn = rootCertificateChainArn;
+            _resultValue.samlProviderArn = samlProviderArn;
+            _resultValue.selfServiceSamlProviderArn = selfServiceSamlProviderArn;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementCust
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementForwardedIpConfig;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatement;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -26,6 +27,13 @@ public final class RuleGroupRuleStatementRateBasedStatement {
      * 
      */
     private @Nullable List<RuleGroupRuleStatementRateBasedStatementCustomKey> customKeys;
+    /**
+     * @return The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
+     * 
+     * **NOTE:** This setting doesn&#39;t determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
+     * 
+     */
+    private @Nullable Integer evaluationWindowSec;
     /**
      * @return The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
      * 
@@ -56,6 +64,15 @@ public final class RuleGroupRuleStatementRateBasedStatement {
      */
     public List<RuleGroupRuleStatementRateBasedStatementCustomKey> customKeys() {
         return this.customKeys == null ? List.of() : this.customKeys;
+    }
+    /**
+     * @return The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
+     * 
+     * **NOTE:** This setting doesn&#39;t determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
+     * 
+     */
+    public Optional<Integer> evaluationWindowSec() {
+        return Optional.ofNullable(this.evaluationWindowSec);
     }
     /**
      * @return The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
@@ -90,6 +107,7 @@ public final class RuleGroupRuleStatementRateBasedStatement {
     public static final class Builder {
         private @Nullable String aggregateKeyType;
         private @Nullable List<RuleGroupRuleStatementRateBasedStatementCustomKey> customKeys;
+        private @Nullable Integer evaluationWindowSec;
         private @Nullable RuleGroupRuleStatementRateBasedStatementForwardedIpConfig forwardedIpConfig;
         private Integer limit;
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatement scopeDownStatement;
@@ -98,6 +116,7 @@ public final class RuleGroupRuleStatementRateBasedStatement {
     	      Objects.requireNonNull(defaults);
     	      this.aggregateKeyType = defaults.aggregateKeyType;
     	      this.customKeys = defaults.customKeys;
+    	      this.evaluationWindowSec = defaults.evaluationWindowSec;
     	      this.forwardedIpConfig = defaults.forwardedIpConfig;
     	      this.limit = defaults.limit;
     	      this.scopeDownStatement = defaults.scopeDownStatement;
@@ -105,11 +124,13 @@ public final class RuleGroupRuleStatementRateBasedStatement {
 
         @CustomType.Setter
         public Builder aggregateKeyType(@Nullable String aggregateKeyType) {
+
             this.aggregateKeyType = aggregateKeyType;
             return this;
         }
         @CustomType.Setter
         public Builder customKeys(@Nullable List<RuleGroupRuleStatementRateBasedStatementCustomKey> customKeys) {
+
             this.customKeys = customKeys;
             return this;
         }
@@ -117,28 +138,40 @@ public final class RuleGroupRuleStatementRateBasedStatement {
             return customKeys(List.of(customKeys));
         }
         @CustomType.Setter
+        public Builder evaluationWindowSec(@Nullable Integer evaluationWindowSec) {
+
+            this.evaluationWindowSec = evaluationWindowSec;
+            return this;
+        }
+        @CustomType.Setter
         public Builder forwardedIpConfig(@Nullable RuleGroupRuleStatementRateBasedStatementForwardedIpConfig forwardedIpConfig) {
+
             this.forwardedIpConfig = forwardedIpConfig;
             return this;
         }
         @CustomType.Setter
         public Builder limit(Integer limit) {
-            this.limit = Objects.requireNonNull(limit);
+            if (limit == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleStatementRateBasedStatement", "limit");
+            }
+            this.limit = limit;
             return this;
         }
         @CustomType.Setter
         public Builder scopeDownStatement(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatement scopeDownStatement) {
+
             this.scopeDownStatement = scopeDownStatement;
             return this;
         }
         public RuleGroupRuleStatementRateBasedStatement build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatement();
-            o.aggregateKeyType = aggregateKeyType;
-            o.customKeys = customKeys;
-            o.forwardedIpConfig = forwardedIpConfig;
-            o.limit = limit;
-            o.scopeDownStatement = scopeDownStatement;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatement();
+            _resultValue.aggregateKeyType = aggregateKeyType;
+            _resultValue.customKeys = customKeys;
+            _resultValue.evaluationWindowSec = evaluationWindowSec;
+            _resultValue.forwardedIpConfig = forwardedIpConfig;
+            _resultValue.limit = limit;
+            _resultValue.scopeDownStatement = scopeDownStatement;
+            return _resultValue;
         }
     }
 }

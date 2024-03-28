@@ -14,6 +14,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,29 +25,31 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// {
     ///     var example = new Aws.GlobalAccelerator.Accelerator("example", new()
     ///     {
+    ///         Name = "Example",
+    ///         IpAddressType = "IPV4",
+    ///         IpAddresses = new[]
+    ///         {
+    ///             "1.2.3.4",
+    ///         },
+    ///         Enabled = true,
     ///         Attributes = new Aws.GlobalAccelerator.Inputs.AcceleratorAttributesArgs
     ///         {
     ///             FlowLogsEnabled = true,
     ///             FlowLogsS3Bucket = "example-bucket",
     ///             FlowLogsS3Prefix = "flow-logs/",
     ///         },
-    ///         Enabled = true,
-    ///         IpAddressType = "IPV4",
-    ///         IpAddresses = new[]
-    ///         {
-    ///             "1.2.3.4",
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Global Accelerator accelerators using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    /// $ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     /// ```
     /// </summary>
     [AwsResourceType("aws:globalaccelerator/accelerator:Accelerator")]
@@ -143,10 +146,6 @@ namespace Pulumi.Aws.GlobalAccelerator
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -316,11 +315,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public AcceleratorState()

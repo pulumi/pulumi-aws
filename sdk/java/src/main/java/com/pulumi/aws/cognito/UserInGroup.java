@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Adds the specified user to the specified group.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,7 +47,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleUserPool = new UserPool(&#34;exampleUserPool&#34;, UserPoolArgs.builder()        
+ *         var example = new UserPool(&#34;example&#34;, UserPoolArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .passwordPolicy(UserPoolPasswordPolicyArgs.builder()
  *                 .temporaryPasswordValidityDays(7)
  *                 .minimumLength(6)
@@ -56,16 +59,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
- *             .userPoolId(exampleUserPool.id())
+ *             .userPoolId(example.id())
  *             .username(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleUserGroup = new UserGroup(&#34;exampleUserGroup&#34;, UserGroupArgs.builder()        
- *             .userPoolId(exampleUserPool.id())
+ *             .userPoolId(example.id())
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleUserInGroup = new UserInGroup(&#34;exampleUserInGroup&#34;, UserInGroupArgs.builder()        
- *             .userPoolId(exampleUserPool.id())
+ *             .userPoolId(example.id())
  *             .groupName(exampleUserGroup.name())
  *             .username(exampleUser.username())
  *             .build());
@@ -73,6 +77,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:cognito/userInGroup:UserInGroup")

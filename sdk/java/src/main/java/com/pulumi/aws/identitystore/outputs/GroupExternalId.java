@@ -58,19 +58,21 @@ public final class GroupExternalId {
 
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder issuer(@Nullable String issuer) {
+
             this.issuer = issuer;
             return this;
         }
         public GroupExternalId build() {
-            final var o = new GroupExternalId();
-            o.id = id;
-            o.issuer = issuer;
-            return o;
+            final var _resultValue = new GroupExternalId();
+            _resultValue.id = id;
+            _resultValue.issuer = issuer;
+            return _resultValue;
         }
     }
 }

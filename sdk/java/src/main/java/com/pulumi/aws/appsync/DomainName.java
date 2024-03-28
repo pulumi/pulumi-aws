@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides an AppSync Domain Name.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -41,19 +43,20 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DomainName(&#34;example&#34;, DomainNameArgs.builder()        
  *             .domainName(&#34;api.example.com&#34;)
- *             .certificateArn(aws_acm_certificate.example().arn())
+ *             .certificateArn(exampleAwsAcmCertificate.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_appsync_domain_name` using the AppSync domain name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appsync/domainName:DomainName example example.com
+ * $ pulumi import aws:appsync/domainName:DomainName example example.com
  * ```
  * 
  */

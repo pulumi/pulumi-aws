@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.List;
@@ -56,7 +57,10 @@ public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl {
 
         @CustomType.Setter
         public Builder certificates(List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate> certificates) {
-            this.certificates = Objects.requireNonNull(certificates);
+            if (certificates == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl", "certificates");
+            }
+            this.certificates = certificates;
             return this;
         }
         public Builder certificates(GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate... certificates) {
@@ -64,12 +68,18 @@ public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl {
         }
         @CustomType.Setter
         public Builder enforce(Boolean enforce) {
-            this.enforce = Objects.requireNonNull(enforce);
+            if (enforce == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl", "enforce");
+            }
+            this.enforce = enforce;
             return this;
         }
         @CustomType.Setter
         public Builder ports(List<Integer> ports) {
-            this.ports = Objects.requireNonNull(ports);
+            if (ports == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl", "ports");
+            }
+            this.ports = ports;
             return this;
         }
         public Builder ports(Integer... ports) {
@@ -77,19 +87,22 @@ public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl {
         }
         @CustomType.Setter
         public Builder validations(List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation> validations) {
-            this.validations = Objects.requireNonNull(validations);
+            if (validations == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl", "validations");
+            }
+            this.validations = validations;
             return this;
         }
         public Builder validations(GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation... validations) {
             return validations(List.of(validations));
         }
         public GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl build() {
-            final var o = new GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl();
-            o.certificates = certificates;
-            o.enforce = enforce;
-            o.ports = ports;
-            o.validations = validations;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl();
+            _resultValue.certificates = certificates;
+            _resultValue.enforce = enforce;
+            _resultValue.ports = ports;
+            _resultValue.validations = validations;
+            return _resultValue;
         }
     }
 }

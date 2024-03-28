@@ -435,16 +435,19 @@ class Launch(pulumi.CustomResource):
         Provides a CloudWatch Evidently Launch resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             groups=[aws.evidently.LaunchGroupArgs(
-                feature=aws_evidently_feature["example"]["name"],
+                feature=example_aws_evidently_feature["name"],
                 name="Variation1",
                 variation="Variation1",
             )],
@@ -457,17 +460,21 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With description
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             description="example description",
             groups=[aws.evidently.LaunchGroupArgs(
-                feature=aws_evidently_feature["example"]["name"],
+                feature=example_aws_evidently_feature["name"],
                 name="Variation1",
                 variation="Variation1",
             )],
@@ -480,23 +487,27 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With multiple groups
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             groups=[
                 aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
+                    feature=example_aws_evidently_feature["name"],
                     name="Variation1",
                     variation="Variation1",
                     description="first-group",
                 ),
                 aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
+                    feature=example_aws_evidently_feature["name"],
                     name="Variation2",
                     variation="Variation2",
                     description="second-group",
@@ -512,16 +523,20 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With metric_monitors
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             groups=[aws.evidently.LaunchGroupArgs(
-                feature=aws_evidently_feature["example"]["name"],
+                feature=example_aws_evidently_feature["name"],
                 name="Variation1",
                 variation="Variation1",
             )],
@@ -554,17 +569,21 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With randomization_salt
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             randomization_salt="example randomization salt",
             groups=[aws.evidently.LaunchGroupArgs(
-                feature=aws_evidently_feature["example"]["name"],
+                feature=example_aws_evidently_feature["name"],
                 name="Variation1",
                 variation="Variation1",
             )],
@@ -577,22 +596,26 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With multiple steps
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             groups=[
                 aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
+                    feature=example_aws_evidently_feature["name"],
                     name="Variation1",
                     variation="Variation1",
                 ),
                 aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
+                    feature=example_aws_evidently_feature["name"],
                     name="Variation2",
                     variation="Variation2",
                 ),
@@ -616,22 +639,26 @@ class Launch(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With segment overrides
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             groups=[
                 aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
+                    feature=example_aws_evidently_feature["name"],
                     name="Variation1",
                     variation="Variation1",
                 ),
                 aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
+                    feature=example_aws_evidently_feature["name"],
                     name="Variation2",
                     variation="Variation2",
                 ),
@@ -645,14 +672,14 @@ class Launch(pulumi.CustomResource):
                     segment_overrides=[
                         aws.evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArgs(
                             evaluation_order=1,
-                            segment=aws_evidently_segment["example"]["name"],
+                            segment=example_aws_evidently_segment["name"],
                             weights={
                                 "Variation2": 10000,
                             },
                         ),
                         aws.evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArgs(
                             evaluation_order=2,
-                            segment=aws_evidently_segment["example"]["name"],
+                            segment=example_aws_evidently_segment["name"],
                             weights={
                                 "Variation1": 40000,
                                 "Variation2": 30000,
@@ -663,6 +690,7 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -673,12 +701,12 @@ class Launch(pulumi.CustomResource):
         Import using the `name` of the launch and `name` of the project separated by a `:`:
 
         ```sh
-         $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:exampleProjectName
+        $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:exampleProjectName
         ```
-         Import using the `name` of the launch and `arn` of the project separated by a `:`:
+        Import using the `name` of the launch and `arn` of the project separated by a `:`:
 
         ```sh
-         $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
+        $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
         ```
 
         :param str resource_name: The name of the resource.
@@ -702,16 +730,19 @@ class Launch(pulumi.CustomResource):
         Provides a CloudWatch Evidently Launch resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             groups=[aws.evidently.LaunchGroupArgs(
-                feature=aws_evidently_feature["example"]["name"],
+                feature=example_aws_evidently_feature["name"],
                 name="Variation1",
                 variation="Variation1",
             )],
@@ -724,17 +755,21 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With description
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             description="example description",
             groups=[aws.evidently.LaunchGroupArgs(
-                feature=aws_evidently_feature["example"]["name"],
+                feature=example_aws_evidently_feature["name"],
                 name="Variation1",
                 variation="Variation1",
             )],
@@ -747,23 +782,27 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With multiple groups
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             groups=[
                 aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
+                    feature=example_aws_evidently_feature["name"],
                     name="Variation1",
                     variation="Variation1",
                     description="first-group",
                 ),
                 aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
+                    feature=example_aws_evidently_feature["name"],
                     name="Variation2",
                     variation="Variation2",
                     description="second-group",
@@ -779,16 +818,20 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With metric_monitors
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             groups=[aws.evidently.LaunchGroupArgs(
-                feature=aws_evidently_feature["example"]["name"],
+                feature=example_aws_evidently_feature["name"],
                 name="Variation1",
                 variation="Variation1",
             )],
@@ -821,17 +864,21 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With randomization_salt
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             randomization_salt="example randomization salt",
             groups=[aws.evidently.LaunchGroupArgs(
-                feature=aws_evidently_feature["example"]["name"],
+                feature=example_aws_evidently_feature["name"],
                 name="Variation1",
                 variation="Variation1",
             )],
@@ -844,22 +891,26 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With multiple steps
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             groups=[
                 aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
+                    feature=example_aws_evidently_feature["name"],
                     name="Variation1",
                     variation="Variation1",
                 ),
                 aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
+                    feature=example_aws_evidently_feature["name"],
                     name="Variation2",
                     variation="Variation2",
                 ),
@@ -883,22 +934,26 @@ class Launch(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With segment overrides
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             groups=[
                 aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
+                    feature=example_aws_evidently_feature["name"],
                     name="Variation1",
                     variation="Variation1",
                 ),
                 aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
+                    feature=example_aws_evidently_feature["name"],
                     name="Variation2",
                     variation="Variation2",
                 ),
@@ -912,14 +967,14 @@ class Launch(pulumi.CustomResource):
                     segment_overrides=[
                         aws.evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArgs(
                             evaluation_order=1,
-                            segment=aws_evidently_segment["example"]["name"],
+                            segment=example_aws_evidently_segment["name"],
                             weights={
                                 "Variation2": 10000,
                             },
                         ),
                         aws.evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArgs(
                             evaluation_order=2,
-                            segment=aws_evidently_segment["example"]["name"],
+                            segment=example_aws_evidently_segment["name"],
                             weights={
                                 "Variation1": 40000,
                                 "Variation2": 30000,
@@ -930,6 +985,7 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -940,12 +996,12 @@ class Launch(pulumi.CustomResource):
         Import using the `name` of the launch and `name` of the project separated by a `:`:
 
         ```sh
-         $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:exampleProjectName
+        $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:exampleProjectName
         ```
-         Import using the `name` of the launch and `arn` of the project separated by a `:`:
+        Import using the `name` of the launch and `arn` of the project separated by a `:`:
 
         ```sh
-         $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
+        $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
         ```
 
         :param str resource_name: The name of the resource.
@@ -1000,8 +1056,6 @@ class Launch(pulumi.CustomResource):
             __props__.__dict__["status_reason"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["type"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Launch, __self__).__init__(
             'aws:evidently/launch:Launch',
             resource_name,

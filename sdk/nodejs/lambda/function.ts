@@ -21,8 +21,10 @@ import {ARN} from "..";
  * > To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `aws.lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
  *
  * ## Example Usage
+ *
  * ### Basic Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as archive from "@pulumi/archive";
@@ -38,17 +40,22 @@ import {ARN} from "..";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const iamForLambda = new aws.iam.Role("iamForLambda", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const iamForLambda = new aws.iam.Role("iam_for_lambda", {
+ *     name: "iam_for_lambda",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
  * const lambda = archive.getFile({
  *     type: "zip",
  *     sourceFile: "lambda.js",
  *     outputPath: "lambda_function_payload.zip",
  * });
- * const testLambda = new aws.lambda.Function("testLambda", {
+ * const testLambda = new aws.lambda.Function("test_lambda", {
  *     code: new pulumi.asset.FileArchive("lambda_function_payload.zip"),
+ *     name: "lambda_function_name",
  *     role: iamForLambda.arn,
  *     handler: "index.test",
- *     runtime: "nodejs18.x",
+ *     sourceCodeHash: lambda.then(lambda => lambda.outputBase64sha256),
+ *     runtime: aws.lambda.Runtime.NodeJS18dX,
  *     environment: {
  *         variables: {
  *             foo: "bar",
@@ -56,20 +63,25 @@ import {ARN} from "..";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Lambda Layers
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLayerVersion = new aws.lambda.LayerVersion("exampleLayerVersion", {});
- * // ... other configuration ...
- * const exampleFunction = new aws.lambda.Function("exampleFunction", {layers: [exampleLayerVersion.arn]});
+ * const example = new aws.lambda.LayerVersion("example", {});
+ * const exampleFunction = new aws.lambda.Function("example", {layers: [example.arn]});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Lambda Ephemeral Storage
  *
  * Lambda Function Ephemeral Storage(`/tmp`) allows you to configure the storage upto `10` GB. The default value set to `512` MB.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -84,37 +96,38 @@ import {ARN} from "..";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const iamForLambda = new aws.iam.Role("iamForLambda", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const testLambda = new aws.lambda.Function("testLambda", {
+ * const iamForLambda = new aws.iam.Role("iam_for_lambda", {
+ *     name: "iam_for_lambda",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const testLambda = new aws.lambda.Function("test_lambda", {
  *     code: new pulumi.asset.FileArchive("lambda_function_payload.zip"),
+ *     name: "lambda_function_name",
  *     role: iamForLambda.arn,
  *     handler: "index.test",
- *     runtime: "nodejs18.x",
+ *     runtime: aws.lambda.Runtime.NodeJS18dX,
  *     ephemeralStorage: {
  *         size: 10240,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Lambda File Systems
  *
  * Lambda File Systems allow you to connect an Amazon Elastic File System (EFS) file system to a Lambda function to share data across function invocations, access existing data including large files, and save function state.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * // EFS file system
- * const efsForLambda = new aws.efs.FileSystem("efsForLambda", {tags: {
+ * const efsForLambda = new aws.efs.FileSystem("efs_for_lambda", {tags: {
  *     Name: "efs_for_lambda",
  * }});
- * // Mount target connects the file system to the subnet
- * const alpha = new aws.efs.MountTarget("alpha", {
- *     fileSystemId: efsForLambda.id,
- *     subnetId: aws_subnet.subnet_for_lambda.id,
- *     securityGroups: [aws_security_group.sg_for_lambda.id],
- * });
  * // EFS access point used by lambda file system
- * const accessPointForLambda = new aws.efs.AccessPoint("accessPointForLambda", {
+ * const accessPointForLambda = new aws.efs.AccessPoint("access_point_for_lambda", {
  *     fileSystemId: efsForLambda.id,
  *     rootDirectory: {
  *         path: "/lambda",
@@ -130,37 +143,54 @@ import {ARN} from "..";
  *     },
  * });
  * // A lambda function connected to an EFS file system
- * // ... other configuration ...
  * const example = new aws.lambda.Function("example", {
  *     fileSystemConfig: {
  *         arn: accessPointForLambda.arn,
  *         localMountPath: "/mnt/efs",
  *     },
  *     vpcConfig: {
- *         subnetIds: [aws_subnet.subnet_for_lambda.id],
- *         securityGroupIds: [aws_security_group.sg_for_lambda.id],
+ *         subnetIds: [subnetForLambda.id],
+ *         securityGroupIds: [sgForLambda.id],
  *     },
- * }, {
- *     dependsOn: [alpha],
+ * });
+ * // Mount target connects the file system to the subnet
+ * const alpha = new aws.efs.MountTarget("alpha", {
+ *     fileSystemId: efsForLambda.id,
+ *     subnetId: subnetForLambda.id,
+ *     securityGroups: [sgForLambda.id],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Lambda retries
  *
  * Lambda Functions allow you to configure error handling for asynchronous invocation. The settings that it supports are `Maximum age of event` and `Retry attempts` as stated in [Lambda documentation for Configuring error handling for asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-errors). To configure these settings, refer to the aws.lambda.FunctionEventInvokeConfig resource.
+ *
  * ## CloudWatch Logging and Permissions
  *
  * For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
  * const lambdaFunctionName = config.get("lambdaFunctionName") || "lambda_function_name";
+ * const testLambda = new aws.lambda.Function("test_lambda", {
+ *     name: lambdaFunctionName,
+ *     loggingConfig: {
+ *         logFormat: "Text",
+ *     },
+ * });
  * // This is to optionally manage the CloudWatch Log Group for the Lambda Function.
  * // If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
- * const example = new aws.cloudwatch.LogGroup("example", {retentionInDays: 14});
- * const lambdaLoggingPolicyDocument = aws.iam.getPolicyDocument({
+ * const example = new aws.cloudwatch.LogGroup("example", {
+ *     name: `/aws/lambda/${lambdaFunctionName}`,
+ *     retentionInDays: 14,
+ * });
+ * // See also the following AWS managed policy: AWSLambdaBasicExecutionRole
+ * const lambdaLogging = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: [
@@ -171,22 +201,18 @@ import {ARN} from "..";
  *         resources: ["arn:aws:logs:*:*:*"],
  *     }],
  * });
- * const lambdaLoggingPolicy = new aws.iam.Policy("lambdaLoggingPolicy", {
+ * const lambdaLoggingPolicy = new aws.iam.Policy("lambda_logging", {
+ *     name: "lambda_logging",
  *     path: "/",
  *     description: "IAM policy for logging from a lambda",
- *     policy: lambdaLoggingPolicyDocument.then(lambdaLoggingPolicyDocument => lambdaLoggingPolicyDocument.json),
+ *     policy: lambdaLogging.then(lambdaLogging => lambdaLogging.json),
  * });
- * const lambdaLogs = new aws.iam.RolePolicyAttachment("lambdaLogs", {
- *     role: aws_iam_role.iam_for_lambda.name,
+ * const lambdaLogs = new aws.iam.RolePolicyAttachment("lambda_logs", {
+ *     role: iamForLambda.name,
  *     policyArn: lambdaLoggingPolicy.arn,
  * });
- * const testLambda = new aws.lambda.Function("testLambda", {}, {
- *     dependsOn: [
- *         lambdaLogs,
- *         example,
- *     ],
- * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Specifying the Deployment Package
  *
@@ -201,7 +227,7 @@ import {ARN} from "..";
  * Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
+ * $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
  * ```
  */
 export class Function extends pulumi.CustomResource {
@@ -296,6 +322,10 @@ export class Function extends pulumi.CustomResource {
      * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
      */
     public readonly layers!: pulumi.Output<string[] | undefined>;
+    /**
+     * Configuration block used to specify advanced logging settings. Detailed below.
+     */
+    public readonly loggingConfig!: pulumi.Output<outputs.lambda.FunctionLoggingConfig>;
     /**
      * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
      */
@@ -440,6 +470,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             resourceInputs["lastModified"] = state ? state.lastModified : undefined;
             resourceInputs["layers"] = state ? state.layers : undefined;
+            resourceInputs["loggingConfig"] = state ? state.loggingConfig : undefined;
             resourceInputs["memorySize"] = state ? state.memorySize : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["packageType"] = state ? state.packageType : undefined;
@@ -484,6 +515,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["imageUri"] = args ? args.imageUri : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["layers"] = args ? args.layers : undefined;
+            resourceInputs["loggingConfig"] = args ? args.loggingConfig : undefined;
             resourceInputs["memorySize"] = args ? args.memorySize : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["packageType"] = args ? args.packageType : undefined;
@@ -515,8 +547,6 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Function.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -589,6 +619,10 @@ export interface FunctionState {
      * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
      */
     layers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Configuration block used to specify advanced logging settings. Detailed below.
+     */
+    loggingConfig?: pulumi.Input<inputs.lambda.FunctionLoggingConfig>;
     /**
      * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
      */
@@ -761,6 +795,10 @@ export interface FunctionArgs {
      * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
      */
     layers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Configuration block used to specify advanced logging settings. Detailed below.
+     */
+    loggingConfig?: pulumi.Input<inputs.lambda.FunctionLoggingConfig>;
     /**
      * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
      */

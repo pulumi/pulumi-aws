@@ -168,21 +168,23 @@ class MetricsDestination(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.rum.MetricsDestination("example",
-            app_monitor_name=aws_rum_app_monitor["example"]["name"],
+            app_monitor_name=example_aws_rum_app_monitor["name"],
             destination="CloudWatch")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cloudwatch RUM Metrics Destination using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:rum/metricsDestination:MetricsDestination example example
+        $ pulumi import aws:rum/metricsDestination:MetricsDestination example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -203,21 +205,23 @@ class MetricsDestination(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.rum.MetricsDestination("example",
-            app_monitor_name=aws_rum_app_monitor["example"]["name"],
+            app_monitor_name=example_aws_rum_app_monitor["name"],
             destination="CloudWatch")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cloudwatch RUM Metrics Destination using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:rum/metricsDestination:MetricsDestination example example
+        $ pulumi import aws:rum/metricsDestination:MetricsDestination example example
         ```
 
         :param str resource_name: The name of the resource.

@@ -50,25 +50,28 @@ public final class GangliaLayerLoadBasedAutoScaling {
 
         @CustomType.Setter
         public Builder downscaling(@Nullable GangliaLayerLoadBasedAutoScalingDownscaling downscaling) {
+
             this.downscaling = downscaling;
             return this;
         }
         @CustomType.Setter
         public Builder enable(@Nullable Boolean enable) {
+
             this.enable = enable;
             return this;
         }
         @CustomType.Setter
         public Builder upscaling(@Nullable GangliaLayerLoadBasedAutoScalingUpscaling upscaling) {
+
             this.upscaling = upscaling;
             return this;
         }
         public GangliaLayerLoadBasedAutoScaling build() {
-            final var o = new GangliaLayerLoadBasedAutoScaling();
-            o.downscaling = downscaling;
-            o.enable = enable;
-            o.upscaling = upscaling;
-            return o;
+            final var _resultValue = new GangliaLayerLoadBasedAutoScaling();
+            _resultValue.downscaling = downscaling;
+            _resultValue.enable = enable;
+            _resultValue.upscaling = upscaling;
+            return _resultValue;
         }
     }
 }

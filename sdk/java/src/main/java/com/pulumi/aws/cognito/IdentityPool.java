@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Provides an AWS Cognito Identity Pool.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,7 +49,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new SamlProvider(&#34;default&#34;, SamlProviderArgs.builder()        
- *             .samlMetadataDocument(Files.readString(Paths.get(&#34;saml-metadata.xml&#34;)))
+ *             .name(&#34;my-saml-provider&#34;)
+ *             .samlMetadataDocument(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;saml-metadata.xml&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *         var main = new IdentityPool(&#34;main&#34;, IdentityPoolArgs.builder()        
@@ -76,13 +81,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Cognito Identity Pool using its ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3
+ * $ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3
  * ```
  * 
  */
@@ -281,9 +287,6 @@ public class IdentityPool extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

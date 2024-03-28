@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Retrieve information on FSx ONTAP File System.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +34,7 @@ namespace Pulumi.Aws.Fsx
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetOntapFileSystemResult> InvokeAsync(GetOntapFileSystemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOntapFileSystemResult>("aws:fsx/getOntapFileSystem:getOntapFileSystem", args ?? new GetOntapFileSystemArgs(), options.WithDefaults());
@@ -43,11 +42,11 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Retrieve information on FSx ONTAP File System.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +62,7 @@ namespace Pulumi.Aws.Fsx
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetOntapFileSystemResult> Invoke(GetOntapFileSystemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOntapFileSystemResult>("aws:fsx/getOntapFileSystem:getOntapFileSystem", args ?? new GetOntapFileSystemInvokeArgs(), options.WithDefaults());
@@ -160,6 +158,10 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOntapFileSystemEndpointResult> Endpoints;
         /// <summary>
+        /// The number of HA pairs for the file system.
+        /// </summary>
+        public readonly int HaPairs;
+        /// <summary>
         /// Identifier of the file system (e.g. `fs-12345678`).
         /// </summary>
         public readonly string Id;
@@ -200,9 +202,13 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps).
+        /// The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps). If the file system uses multiple HA pairs this will equal throuthput_capacity_per_ha_pair x ha_pairs
         /// </summary>
         public readonly int ThroughputCapacity;
+        /// <summary>
+        /// The sustained throughput of each HA pair for an Amazon FSx file system in Megabytes per second (MBps).
+        /// </summary>
+        public readonly int ThroughputCapacityPerHaPair;
         /// <summary>
         /// The ID of the primary virtual private cloud (VPC) for the file system.
         /// </summary>
@@ -230,6 +236,8 @@ namespace Pulumi.Aws.Fsx
 
             ImmutableArray<Outputs.GetOntapFileSystemEndpointResult> endpoints,
 
+            int haPairs,
+
             string id,
 
             string kmsKeyId,
@@ -252,6 +260,8 @@ namespace Pulumi.Aws.Fsx
 
             int throughputCapacity,
 
+            int throughputCapacityPerHaPair,
+
             string vpcId,
 
             string weeklyMaintenanceStartTime)
@@ -264,6 +274,7 @@ namespace Pulumi.Aws.Fsx
             DnsName = dnsName;
             EndpointIpAddressRange = endpointIpAddressRange;
             Endpoints = endpoints;
+            HaPairs = haPairs;
             Id = id;
             KmsKeyId = kmsKeyId;
             NetworkInterfaceIds = networkInterfaceIds;
@@ -275,6 +286,7 @@ namespace Pulumi.Aws.Fsx
             SubnetIds = subnetIds;
             Tags = tags;
             ThroughputCapacity = throughputCapacity;
+            ThroughputCapacityPerHaPair = throughputCapacityPerHaPair;
             VpcId = vpcId;
             WeeklyMaintenanceStartTime = weeklyMaintenanceStartTime;
         }

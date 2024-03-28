@@ -23,8 +23,10 @@ import (
 // Doing so will cause a conflict of associations and will overwrite the association.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,7 +40,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewVpcEndpoint(ctx, "s3", &ec2.VpcEndpointArgs{
-//				VpcId:       pulumi.Any(aws_vpc.Main.Id),
+//				VpcId:       pulumi.Any(main.Id),
 //				ServiceName: pulumi.String("com.amazonaws.us-west-2.s3"),
 //			})
 //			if err != nil {
@@ -49,8 +51,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Basic w/ Tags
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,7 +69,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewVpcEndpoint(ctx, "s3", &ec2.VpcEndpointArgs{
-//				VpcId:       pulumi.Any(aws_vpc.Main.Id),
+//				VpcId:       pulumi.Any(main.Id),
 //				ServiceName: pulumi.String("com.amazonaws.us-west-2.s3"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("test"),
@@ -78,8 +83,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Interface Endpoint Type
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -93,11 +101,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewVpcEndpoint(ctx, "ec2", &ec2.VpcEndpointArgs{
-//				VpcId:           pulumi.Any(aws_vpc.Main.Id),
+//				VpcId:           pulumi.Any(main.Id),
 //				ServiceName:     pulumi.String("com.amazonaws.us-west-2.ec2"),
 //				VpcEndpointType: pulumi.String("Interface"),
 //				SecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Sg1.Id,
+//					sg1.Id,
 //				},
 //				PrivateDnsEnabled: pulumi.Bool(true),
 //			})
@@ -109,8 +117,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Gateway Load Balancer Endpoint Type
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -128,25 +139,25 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleVpcEndpointService, err := ec2.NewVpcEndpointService(ctx, "exampleVpcEndpointService", &ec2.VpcEndpointServiceArgs{
+//			example, err := ec2.NewVpcEndpointService(ctx, "example", &ec2.VpcEndpointServiceArgs{
 //				AcceptanceRequired: pulumi.Bool(false),
 //				AllowedPrincipals: pulumi.StringArray{
-//					*pulumi.String(current.Arn),
+//					pulumi.String(current.Arn),
 //				},
 //				GatewayLoadBalancerArns: pulumi.StringArray{
-//					aws_lb.Example.Arn,
+//					exampleAwsLb.Arn,
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewVpcEndpoint(ctx, "exampleVpcEndpoint", &ec2.VpcEndpointArgs{
-//				ServiceName: exampleVpcEndpointService.ServiceName,
+//			_, err = ec2.NewVpcEndpoint(ctx, "example", &ec2.VpcEndpointArgs{
+//				ServiceName: example.ServiceName,
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Example.Id,
+//					exampleAwsSubnet.Id,
 //				},
-//				VpcEndpointType: exampleVpcEndpointService.ServiceType,
-//				VpcId:           pulumi.Any(aws_vpc.Example.Id),
+//				VpcEndpointType: example.ServiceType,
+//				VpcId:           pulumi.Any(exampleAwsVpc.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -156,15 +167,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint endpoint1 vpce-3ecf2a57
-//
+// $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint endpoint1 vpce-3ecf2a57
 // ```
 type VpcEndpoint struct {
 	pulumi.CustomResourceState
@@ -230,10 +240,6 @@ func NewVpcEndpoint(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcEndpoint
 	err := ctx.RegisterResource("aws:ec2/vpcEndpoint:VpcEndpoint", name, args, &resource, opts...)

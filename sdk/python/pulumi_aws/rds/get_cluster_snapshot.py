@@ -282,6 +282,7 @@ def get_cluster_snapshot(db_cluster_identifier: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -290,15 +291,16 @@ def get_cluster_snapshot(db_cluster_identifier: Optional[str] = None,
         most_recent=True)
     # Use the last snapshot of the dev database before it was destroyed to create
     # a new dev database.
-    aurora_cluster = aws.rds.Cluster("auroraCluster",
+    aurora = aws.rds.Cluster("aurora",
         cluster_identifier="development_cluster",
         snapshot_identifier=development_final_snapshot.id,
         db_subnet_group_name="my_db_subnet_group")
-    aurora_cluster_instance = aws.rds.ClusterInstance("auroraClusterInstance",
-        cluster_identifier=aurora_cluster.id,
-        instance_class="db.t2.small",
+    aurora_cluster_instance = aws.rds.ClusterInstance("aurora",
+        cluster_identifier=aurora.id,
+        instance_class=aws.rds.InstanceType.T2_SMALL,
         db_subnet_group_name="my_db_subnet_group")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str db_cluster_identifier: Returns the list of snapshots created by the specific db_cluster
@@ -367,6 +369,7 @@ def get_cluster_snapshot_output(db_cluster_identifier: Optional[pulumi.Input[Opt
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -375,15 +378,16 @@ def get_cluster_snapshot_output(db_cluster_identifier: Optional[pulumi.Input[Opt
         most_recent=True)
     # Use the last snapshot of the dev database before it was destroyed to create
     # a new dev database.
-    aurora_cluster = aws.rds.Cluster("auroraCluster",
+    aurora = aws.rds.Cluster("aurora",
         cluster_identifier="development_cluster",
         snapshot_identifier=development_final_snapshot.id,
         db_subnet_group_name="my_db_subnet_group")
-    aurora_cluster_instance = aws.rds.ClusterInstance("auroraClusterInstance",
-        cluster_identifier=aurora_cluster.id,
-        instance_class="db.t2.small",
+    aurora_cluster_instance = aws.rds.ClusterInstance("aurora",
+        cluster_identifier=aurora.id,
+        instance_class=aws.rds.InstanceType.T2_SMALL,
         db_subnet_group_name="my_db_subnet_group")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str db_cluster_identifier: Returns the list of snapshots created by the specific db_cluster

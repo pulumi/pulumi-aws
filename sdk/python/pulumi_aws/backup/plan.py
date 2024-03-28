@@ -225,14 +225,16 @@ class Plan(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.backup.Plan("example",
+            name="my_example_backup_plan",
             rules=[aws.backup.PlanRuleArgs(
                 rule_name="my_example_backup_rule",
-                target_vault_name=aws_backup_vault["test"]["name"],
+                target_vault_name=test["name"],
                 schedule="cron(0 12 * * ? *)",
                 lifecycle=aws.backup.PlanRuleLifecycleArgs(
                     delete_after=14,
@@ -245,13 +247,14 @@ class Plan(pulumi.CustomResource):
                 resource_type="EC2",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup Plan using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:backup/plan:Plan test <id>
+        $ pulumi import aws:backup/plan:Plan test <id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -272,14 +275,16 @@ class Plan(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.backup.Plan("example",
+            name="my_example_backup_plan",
             rules=[aws.backup.PlanRuleArgs(
                 rule_name="my_example_backup_rule",
-                target_vault_name=aws_backup_vault["test"]["name"],
+                target_vault_name=test["name"],
                 schedule="cron(0 12 * * ? *)",
                 lifecycle=aws.backup.PlanRuleLifecycleArgs(
                     delete_after=14,
@@ -292,13 +297,14 @@ class Plan(pulumi.CustomResource):
                 resource_type="EC2",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup Plan using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:backup/plan:Plan test <id>
+        $ pulumi import aws:backup/plan:Plan test <id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -338,8 +344,6 @@ class Plan(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["version"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Plan, __self__).__init__(
             'aws:backup/plan:Plan',
             resource_name,

@@ -22,7 +22,7 @@ public final class ProjectLogsConfigCloudwatchLogs {
      */
     private @Nullable String status;
     /**
-     * @return Stream name of the logs in CloudWatch Logs.
+     * @return Prefix of the log stream name of the logs in CloudWatch Logs.
      * 
      */
     private @Nullable String streamName;
@@ -43,7 +43,7 @@ public final class ProjectLogsConfigCloudwatchLogs {
         return Optional.ofNullable(this.status);
     }
     /**
-     * @return Stream name of the logs in CloudWatch Logs.
+     * @return Prefix of the log stream name of the logs in CloudWatch Logs.
      * 
      */
     public Optional<String> streamName() {
@@ -72,25 +72,28 @@ public final class ProjectLogsConfigCloudwatchLogs {
 
         @CustomType.Setter
         public Builder groupName(@Nullable String groupName) {
+
             this.groupName = groupName;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder streamName(@Nullable String streamName) {
+
             this.streamName = streamName;
             return this;
         }
         public ProjectLogsConfigCloudwatchLogs build() {
-            final var o = new ProjectLogsConfigCloudwatchLogs();
-            o.groupName = groupName;
-            o.status = status;
-            o.streamName = streamName;
-            return o;
+            final var _resultValue = new ProjectLogsConfigCloudwatchLogs();
+            _resultValue.groupName = groupName;
+            _resultValue.status = status;
+            _resultValue.streamName = streamName;
+            return _resultValue;
         }
     }
 }

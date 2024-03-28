@@ -4,11 +4,17 @@
 package com.pulumi.aws.ecr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class GetPullThroughCacheRuleResult {
+    /**
+     * @return ARN of the Secret which will be used to authenticate against the registry.
+     * 
+     */
+    private String credentialArn;
     private String ecrRepositoryPrefix;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -27,6 +33,13 @@ public final class GetPullThroughCacheRuleResult {
     private String upstreamRegistryUrl;
 
     private GetPullThroughCacheRuleResult() {}
+    /**
+     * @return ARN of the Secret which will be used to authenticate against the registry.
+     * 
+     */
+    public String credentialArn() {
+        return this.credentialArn;
+    }
     public String ecrRepositoryPrefix() {
         return this.ecrRepositoryPrefix;
     }
@@ -61,6 +74,7 @@ public final class GetPullThroughCacheRuleResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String credentialArn;
         private String ecrRepositoryPrefix;
         private String id;
         private String registryId;
@@ -68,6 +82,7 @@ public final class GetPullThroughCacheRuleResult {
         public Builder() {}
         public Builder(GetPullThroughCacheRuleResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.credentialArn = defaults.credentialArn;
     	      this.ecrRepositoryPrefix = defaults.ecrRepositoryPrefix;
     	      this.id = defaults.id;
     	      this.registryId = defaults.registryId;
@@ -75,32 +90,53 @@ public final class GetPullThroughCacheRuleResult {
         }
 
         @CustomType.Setter
+        public Builder credentialArn(String credentialArn) {
+            if (credentialArn == null) {
+              throw new MissingRequiredPropertyException("GetPullThroughCacheRuleResult", "credentialArn");
+            }
+            this.credentialArn = credentialArn;
+            return this;
+        }
+        @CustomType.Setter
         public Builder ecrRepositoryPrefix(String ecrRepositoryPrefix) {
-            this.ecrRepositoryPrefix = Objects.requireNonNull(ecrRepositoryPrefix);
+            if (ecrRepositoryPrefix == null) {
+              throw new MissingRequiredPropertyException("GetPullThroughCacheRuleResult", "ecrRepositoryPrefix");
+            }
+            this.ecrRepositoryPrefix = ecrRepositoryPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPullThroughCacheRuleResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder registryId(String registryId) {
-            this.registryId = Objects.requireNonNull(registryId);
+            if (registryId == null) {
+              throw new MissingRequiredPropertyException("GetPullThroughCacheRuleResult", "registryId");
+            }
+            this.registryId = registryId;
             return this;
         }
         @CustomType.Setter
         public Builder upstreamRegistryUrl(String upstreamRegistryUrl) {
-            this.upstreamRegistryUrl = Objects.requireNonNull(upstreamRegistryUrl);
+            if (upstreamRegistryUrl == null) {
+              throw new MissingRequiredPropertyException("GetPullThroughCacheRuleResult", "upstreamRegistryUrl");
+            }
+            this.upstreamRegistryUrl = upstreamRegistryUrl;
             return this;
         }
         public GetPullThroughCacheRuleResult build() {
-            final var o = new GetPullThroughCacheRuleResult();
-            o.ecrRepositoryPrefix = ecrRepositoryPrefix;
-            o.id = id;
-            o.registryId = registryId;
-            o.upstreamRegistryUrl = upstreamRegistryUrl;
-            return o;
+            final var _resultValue = new GetPullThroughCacheRuleResult();
+            _resultValue.credentialArn = credentialArn;
+            _resultValue.ecrRepositoryPrefix = ecrRepositoryPrefix;
+            _resultValue.id = id;
+            _resultValue.registryId = registryId;
+            _resultValue.upstreamRegistryUrl = upstreamRegistryUrl;
+            return _resultValue;
         }
     }
 }

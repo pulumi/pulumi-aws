@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,43 +31,31 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "local", &aws.ProviderArgs{
-//				Region: pulumi.String("us-east-1"),
-//			})
+//			peer, err := aws.GetRegion(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = aws.NewProvider(ctx, "peer", &aws.ProviderArgs{
-//				Region: pulumi.String("us-west-2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			peerRegion, err := aws.GetRegion(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			localTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "localTransitGateway", &ec2transitgateway.TransitGatewayArgs{
+//			local, err := ec2transitgateway.NewTransitGateway(ctx, "local", &ec2transitgateway.TransitGatewayArgs{
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Local TGW"),
 //				},
-//			}, pulumi.Provider(aws.Local))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			peerTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "peerTransitGateway", &ec2transitgateway.TransitGatewayArgs{
+//			peerTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "peer", &ec2transitgateway.TransitGatewayArgs{
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Peer TGW"),
 //				},
-//			}, pulumi.Provider(aws.Peer))
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2transitgateway.NewPeeringAttachment(ctx, "example", &ec2transitgateway.PeeringAttachmentArgs{
 //				PeerAccountId:        peerTransitGateway.OwnerId,
-//				PeerRegion:           *pulumi.String(peerRegion.Name),
+//				PeerRegion:           pulumi.String(peer.Name),
 //				PeerTransitGatewayId: peerTransitGateway.ID(),
-//				TransitGatewayId:     localTransitGateway.ID(),
+//				TransitGatewayId:     local.ID(),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("TGW Peering Requestor"),
 //				},
@@ -79,15 +68,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment` using the EC2 Transit Gateway Attachment identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2transitgateway/peeringAttachment:PeeringAttachment example tgw-attach-12345678
-//
+// $ pulumi import aws:ec2transitgateway/peeringAttachment:PeeringAttachment example tgw-attach-12345678
 // ```
 type PeeringAttachment struct {
 	pulumi.CustomResourceState
@@ -98,6 +86,7 @@ type PeeringAttachment struct {
 	PeerRegion pulumi.StringOutput `pulumi:"peerRegion"`
 	// Identifier of EC2 Transit Gateway to peer with.
 	PeerTransitGatewayId pulumi.StringOutput `pulumi:"peerTransitGatewayId"`
+	State                pulumi.StringOutput `pulumi:"state"`
 	// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -124,10 +113,6 @@ func NewPeeringAttachment(ctx *pulumi.Context,
 	if args.TransitGatewayId == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PeeringAttachment
 	err := ctx.RegisterResource("aws:ec2transitgateway/peeringAttachment:PeeringAttachment", name, args, &resource, opts...)
@@ -157,6 +142,7 @@ type peeringAttachmentState struct {
 	PeerRegion *string `pulumi:"peerRegion"`
 	// Identifier of EC2 Transit Gateway to peer with.
 	PeerTransitGatewayId *string `pulumi:"peerTransitGatewayId"`
+	State                *string `pulumi:"state"`
 	// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -174,6 +160,7 @@ type PeeringAttachmentState struct {
 	PeerRegion pulumi.StringPtrInput
 	// Identifier of EC2 Transit Gateway to peer with.
 	PeerTransitGatewayId pulumi.StringPtrInput
+	State                pulumi.StringPtrInput
 	// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -315,6 +302,10 @@ func (o PeeringAttachmentOutput) PeerRegion() pulumi.StringOutput {
 // Identifier of EC2 Transit Gateway to peer with.
 func (o PeeringAttachmentOutput) PeerTransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PeeringAttachment) pulumi.StringOutput { return v.PeerTransitGatewayId }).(pulumi.StringOutput)
+}
+
+func (o PeeringAttachmentOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *PeeringAttachment) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
 // Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

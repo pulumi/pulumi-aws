@@ -17,52 +17,53 @@ import (
 // > **Note:** To use this resource, the user pool must have a domain associated with it. For more information, see the Amazon Cognito Developer Guide on [Customizing the Built-in Sign-In and Sign-up Webpages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-ui-customization.html).
 //
 // ## Example Usage
+//
 // ### UI customization settings for a single client
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"encoding/base64"
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func filebase64OrPanic(path string) pulumi.StringPtrInput {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
-//		} else {
-//			panic(err.Error())
-//		}
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", nil)
+//			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleUserPoolDomain, err := cognito.NewUserPoolDomain(ctx, "exampleUserPoolDomain", &cognito.UserPoolDomainArgs{
+//			exampleUserPoolDomain, err := cognito.NewUserPoolDomain(ctx, "example", &cognito.UserPoolDomainArgs{
 //				Domain:     pulumi.String("example"),
-//				UserPoolId: exampleUserPool.ID(),
+//				UserPoolId: example.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleUserPoolClient, err := cognito.NewUserPoolClient(ctx, "exampleUserPoolClient", &cognito.UserPoolClientArgs{
-//				UserPoolId: exampleUserPool.ID(),
+//			exampleUserPoolClient, err := cognito.NewUserPoolClient(ctx, "example", &cognito.UserPoolClientArgs{
+//				Name:       pulumi.String("example"),
+//				UserPoolId: example.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cognito.NewUserPoolUICustomization(ctx, "exampleUserPoolUICustomization", &cognito.UserPoolUICustomizationArgs{
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: "logo.png",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewUserPoolUICustomization(ctx, "example", &cognito.UserPoolUICustomizationArgs{
 //				ClientId:   exampleUserPoolClient.ID(),
 //				Css:        pulumi.String(".label-customizable {font-weight: 400;}"),
-//				ImageFile:  filebase64OrPanic("logo.png"),
+//				ImageFile:  invokeFilebase64.Result,
 //				UserPoolId: exampleUserPoolDomain.UserPoolId,
 //			})
 //			if err != nil {
@@ -73,45 +74,46 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### UI customization settings for all clients
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"encoding/base64"
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func filebase64OrPanic(path string) pulumi.StringPtrInput {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
-//		} else {
-//			panic(err.Error())
-//		}
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserPoolDomain, err := cognito.NewUserPoolDomain(ctx, "exampleUserPoolDomain", &cognito.UserPoolDomainArgs{
-//				Domain:     pulumi.String("example"),
-//				UserPoolId: exampleUserPool.ID(),
+//			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cognito.NewUserPoolUICustomization(ctx, "exampleUserPoolUICustomization", &cognito.UserPoolUICustomizationArgs{
+//			exampleUserPoolDomain, err := cognito.NewUserPoolDomain(ctx, "example", &cognito.UserPoolDomainArgs{
+//				Domain:     pulumi.String("example"),
+//				UserPoolId: example.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: "logo.png",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewUserPoolUICustomization(ctx, "example", &cognito.UserPoolUICustomizationArgs{
 //				Css:        pulumi.String(".label-customizable {font-weight: 400;}"),
-//				ImageFile:  filebase64OrPanic("logo.png"),
+//				ImageFile:  invokeFilebase64.Result,
 //				UserPoolId: exampleUserPoolDomain.UserPoolId,
 //			})
 //			if err != nil {
@@ -122,15 +124,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Cognito User Pool UI Customizations using the `user_pool_id` and `client_id` separated by `,`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cognito/userPoolUICustomization:UserPoolUICustomization example us-west-2_ZCTarbt5C,12bu4fuk3mlgqa2rtrujgp6egq
-//
+// $ pulumi import aws:cognito/userPoolUICustomization:UserPoolUICustomization example us-west-2_ZCTarbt5C,12bu4fuk3mlgqa2rtrujgp6egq
 // ```
 type UserPoolUICustomization struct {
 	pulumi.CustomResourceState

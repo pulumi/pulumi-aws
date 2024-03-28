@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkmanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -65,12 +66,18 @@ public final class GetGlobalNetworksResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetGlobalNetworksResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+            if (ids == null) {
+              throw new MissingRequiredPropertyException("GetGlobalNetworksResult", "ids");
+            }
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {
@@ -78,15 +85,16 @@ public final class GetGlobalNetworksResult {
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         public GetGlobalNetworksResult build() {
-            final var o = new GetGlobalNetworksResult();
-            o.id = id;
-            o.ids = ids;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetGlobalNetworksResult();
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

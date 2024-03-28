@@ -307,19 +307,23 @@ class AppMonitor(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rum.AppMonitor("example", domain="localhost")
+        example = aws.rum.AppMonitor("example",
+            name="example",
+            domain="localhost")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cloudwatch RUM App Monitor using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:rum/appMonitor:AppMonitor example example
+        $ pulumi import aws:rum/appMonitor:AppMonitor example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -342,19 +346,23 @@ class AppMonitor(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rum.AppMonitor("example", domain="localhost")
+        example = aws.rum.AppMonitor("example",
+            name="example",
+            domain="localhost")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cloudwatch RUM App Monitor using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:rum/appMonitor:AppMonitor example example
+        $ pulumi import aws:rum/appMonitor:AppMonitor example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -399,8 +407,6 @@ class AppMonitor(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["cw_log_group"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AppMonitor, __self__).__init__(
             'aws:rum/appMonitor:AppMonitor',
             resource_name,

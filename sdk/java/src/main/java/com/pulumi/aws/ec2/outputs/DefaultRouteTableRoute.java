@@ -206,79 +206,91 @@ public final class DefaultRouteTableRoute {
 
         @CustomType.Setter
         public Builder cidrBlock(@Nullable String cidrBlock) {
+
             this.cidrBlock = cidrBlock;
             return this;
         }
         @CustomType.Setter
         public Builder coreNetworkArn(@Nullable String coreNetworkArn) {
+
             this.coreNetworkArn = coreNetworkArn;
             return this;
         }
         @CustomType.Setter
         public Builder destinationPrefixListId(@Nullable String destinationPrefixListId) {
+
             this.destinationPrefixListId = destinationPrefixListId;
             return this;
         }
         @CustomType.Setter
         public Builder egressOnlyGatewayId(@Nullable String egressOnlyGatewayId) {
+
             this.egressOnlyGatewayId = egressOnlyGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder gatewayId(@Nullable String gatewayId) {
+
             this.gatewayId = gatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder instanceId(@Nullable String instanceId) {
+
             this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6CidrBlock(@Nullable String ipv6CidrBlock) {
+
             this.ipv6CidrBlock = ipv6CidrBlock;
             return this;
         }
         @CustomType.Setter
         public Builder natGatewayId(@Nullable String natGatewayId) {
+
             this.natGatewayId = natGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaceId(@Nullable String networkInterfaceId) {
+
             this.networkInterfaceId = networkInterfaceId;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayId(@Nullable String transitGatewayId) {
+
             this.transitGatewayId = transitGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder vpcEndpointId(@Nullable String vpcEndpointId) {
+
             this.vpcEndpointId = vpcEndpointId;
             return this;
         }
         @CustomType.Setter
         public Builder vpcPeeringConnectionId(@Nullable String vpcPeeringConnectionId) {
+
             this.vpcPeeringConnectionId = vpcPeeringConnectionId;
             return this;
         }
         public DefaultRouteTableRoute build() {
-            final var o = new DefaultRouteTableRoute();
-            o.cidrBlock = cidrBlock;
-            o.coreNetworkArn = coreNetworkArn;
-            o.destinationPrefixListId = destinationPrefixListId;
-            o.egressOnlyGatewayId = egressOnlyGatewayId;
-            o.gatewayId = gatewayId;
-            o.instanceId = instanceId;
-            o.ipv6CidrBlock = ipv6CidrBlock;
-            o.natGatewayId = natGatewayId;
-            o.networkInterfaceId = networkInterfaceId;
-            o.transitGatewayId = transitGatewayId;
-            o.vpcEndpointId = vpcEndpointId;
-            o.vpcPeeringConnectionId = vpcPeeringConnectionId;
-            return o;
+            final var _resultValue = new DefaultRouteTableRoute();
+            _resultValue.cidrBlock = cidrBlock;
+            _resultValue.coreNetworkArn = coreNetworkArn;
+            _resultValue.destinationPrefixListId = destinationPrefixListId;
+            _resultValue.egressOnlyGatewayId = egressOnlyGatewayId;
+            _resultValue.gatewayId = gatewayId;
+            _resultValue.instanceId = instanceId;
+            _resultValue.ipv6CidrBlock = ipv6CidrBlock;
+            _resultValue.natGatewayId = natGatewayId;
+            _resultValue.networkInterfaceId = networkInterfaceId;
+            _resultValue.transitGatewayId = transitGatewayId;
+            _resultValue.vpcEndpointId = vpcEndpointId;
+            _resultValue.vpcPeeringConnectionId = vpcPeeringConnectionId;
+            return _resultValue;
         }
     }
 }

@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * Provides a Step Function State Machine Alias.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,13 +47,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sfnAlias = new Alias(&#34;sfnAlias&#34;, AliasArgs.builder()        
+ *             .name(&#34;my_sfn_alias&#34;)
  *             .routingConfigurations(AliasRoutingConfigurationArgs.builder()
- *                 .stateMachineVersionArn(aws_sfn_state_machine.sfn_test().state_machine_version_arn())
+ *                 .stateMachineVersionArn(sfnTest.stateMachineVersionArn())
  *                 .weight(100)
  *                 .build())
  *             .build());
  * 
  *         var mySfnAlias = new Alias(&#34;mySfnAlias&#34;, AliasArgs.builder()        
+ *             .name(&#34;my_sfn_alias&#34;)
  *             .routingConfigurations(            
  *                 AliasRoutingConfigurationArgs.builder()
  *                     .stateMachineVersionArn(&#34;arn:aws:states:us-east-1:12345:stateMachine:demo:3&#34;)
@@ -65,13 +70,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
+ * $ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
  * ```
  * 
  */

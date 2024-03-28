@@ -441,31 +441,35 @@ class Analysis(pulumi.CustomResource):
         Resource for managing a QuickSight Analysis.
 
         ## Example Usage
+
         ### From Source Template
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.Analysis("example",
             analysis_id="example-id",
+            name="example-name",
             source_entity=aws.quicksight.AnalysisSourceEntityArgs(
                 source_template=aws.quicksight.AnalysisSourceEntitySourceTemplateArgs(
-                    arn=aws_quicksight_template["source"]["arn"],
+                    arn=source["arn"],
                     data_set_references=[aws.quicksight.AnalysisSourceEntitySourceTemplateDataSetReferenceArgs(
-                        data_set_arn=aws_quicksight_data_set["dataset"]["arn"],
+                        data_set_arn=dataset["arn"],
                         data_set_placeholder="1",
                     )],
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
+        $ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -492,31 +496,35 @@ class Analysis(pulumi.CustomResource):
         Resource for managing a QuickSight Analysis.
 
         ## Example Usage
+
         ### From Source Template
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.Analysis("example",
             analysis_id="example-id",
+            name="example-name",
             source_entity=aws.quicksight.AnalysisSourceEntityArgs(
                 source_template=aws.quicksight.AnalysisSourceEntitySourceTemplateArgs(
-                    arn=aws_quicksight_template["source"]["arn"],
+                    arn=source["arn"],
                     data_set_references=[aws.quicksight.AnalysisSourceEntitySourceTemplateDataSetReferenceArgs(
-                        data_set_arn=aws_quicksight_data_set["dataset"]["arn"],
+                        data_set_arn=dataset["arn"],
                         data_set_placeholder="1",
                     )],
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
+        $ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -569,8 +577,6 @@ class Analysis(pulumi.CustomResource):
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Analysis, __self__).__init__(
             'aws:quicksight/analysis:Analysis',
             resource_name,

@@ -208,38 +208,37 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        accepter = aws.Provider("accepter")
-        # Accepter's credentials.
-        accepter_caller_identity = aws.get_caller_identity()
-        # Accepter's side of the VIF.
-        vpn_gw = aws.ec2.VpnGateway("vpnGw", opts=pulumi.ResourceOptions(provider=aws["accepter"]))
+        accepter = aws.get_caller_identity()
         # Creator's side of the VIF
         creator = aws.directconnect.HostedPrivateVirtualInterface("creator",
             connection_id="dxcon-zzzzzzzz",
-            owner_account_id=accepter_caller_identity.account_id,
+            owner_account_id=accepter.account_id,
+            name="vif-foo",
             vlan=4094,
             address_family="ipv4",
-            bgp_asn=65352,
-            opts=pulumi.ResourceOptions(depends_on=[vpn_gw]))
-        accepter_hosted_private_virtual_interface_accepter = aws.directconnect.HostedPrivateVirtualInterfaceAccepter("accepterHostedPrivateVirtualInterfaceAccepter",
+            bgp_asn=65352)
+        # Accepter's side of the VIF.
+        vpn_gw = aws.ec2.VpnGateway("vpn_gw")
+        accepter_hosted_private_virtual_interface_accepter = aws.directconnect.HostedPrivateVirtualInterfaceAccepter("accepter",
             virtual_interface_id=creator.id,
             vpn_gateway_id=vpn_gw.id,
             tags={
                 "Side": "Accepter",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Direct Connect hosted private virtual interfaces using the VIF `id`. For example:
 
         ```sh
-         $ pulumi import aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter test dxvif-33cc44dd
+        $ pulumi import aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter test dxvif-33cc44dd
         ```
 
         :param str resource_name: The name of the resource.
@@ -261,38 +260,37 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        accepter = aws.Provider("accepter")
-        # Accepter's credentials.
-        accepter_caller_identity = aws.get_caller_identity()
-        # Accepter's side of the VIF.
-        vpn_gw = aws.ec2.VpnGateway("vpnGw", opts=pulumi.ResourceOptions(provider=aws["accepter"]))
+        accepter = aws.get_caller_identity()
         # Creator's side of the VIF
         creator = aws.directconnect.HostedPrivateVirtualInterface("creator",
             connection_id="dxcon-zzzzzzzz",
-            owner_account_id=accepter_caller_identity.account_id,
+            owner_account_id=accepter.account_id,
+            name="vif-foo",
             vlan=4094,
             address_family="ipv4",
-            bgp_asn=65352,
-            opts=pulumi.ResourceOptions(depends_on=[vpn_gw]))
-        accepter_hosted_private_virtual_interface_accepter = aws.directconnect.HostedPrivateVirtualInterfaceAccepter("accepterHostedPrivateVirtualInterfaceAccepter",
+            bgp_asn=65352)
+        # Accepter's side of the VIF.
+        vpn_gw = aws.ec2.VpnGateway("vpn_gw")
+        accepter_hosted_private_virtual_interface_accepter = aws.directconnect.HostedPrivateVirtualInterfaceAccepter("accepter",
             virtual_interface_id=creator.id,
             vpn_gateway_id=vpn_gw.id,
             tags={
                 "Side": "Accepter",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Direct Connect hosted private virtual interfaces using the VIF `id`. For example:
 
         ```sh
-         $ pulumi import aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter test dxvif-33cc44dd
+        $ pulumi import aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter test dxvif-33cc44dd
         ```
 
         :param str resource_name: The name of the resource.
@@ -331,8 +329,6 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
             __props__.__dict__["vpn_gateway_id"] = vpn_gateway_id
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(HostedPrivateVirtualInterfaceAccepter, __self__).__init__(
             'aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter',
             resource_name,

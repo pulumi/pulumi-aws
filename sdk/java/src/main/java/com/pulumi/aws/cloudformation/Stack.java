@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Provides a CloudFormation Stack resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,26 +47,27 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var network = new Stack(&#34;network&#34;, StackArgs.builder()        
+ *             .name(&#34;networking-stack&#34;)
  *             .parameters(Map.of(&#34;VPCCidr&#34;, &#34;10.0.0.0/16&#34;))
  *             .templateBody(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Parameters&#34;, jsonObject(
- *                         jsonProperty(&#34;VPCCidr&#34;, jsonObject(
- *                             jsonProperty(&#34;Type&#34;, &#34;String&#34;),
- *                             jsonProperty(&#34;Default&#34;, &#34;10.0.0.0/16&#34;),
- *                             jsonProperty(&#34;Description&#34;, &#34;Enter the CIDR block for the VPC. Default is 10.0.0.0/16.&#34;)
+ *                     jsonProperty(&#34;parameters&#34;, jsonObject(
+ *                         jsonProperty(&#34;vPCCidr&#34;, jsonObject(
+ *                             jsonProperty(&#34;type&#34;, &#34;String&#34;),
+ *                             jsonProperty(&#34;default&#34;, &#34;10.0.0.0/16&#34;),
+ *                             jsonProperty(&#34;description&#34;, &#34;Enter the CIDR block for the VPC. Default is 10.0.0.0/16.&#34;)
  *                         ))
  *                     )),
- *                     jsonProperty(&#34;Resources&#34;, jsonObject(
+ *                     jsonProperty(&#34;resources&#34;, jsonObject(
  *                         jsonProperty(&#34;myVpc&#34;, jsonObject(
- *                             jsonProperty(&#34;Type&#34;, &#34;AWS::EC2::VPC&#34;),
- *                             jsonProperty(&#34;Properties&#34;, jsonObject(
- *                                 jsonProperty(&#34;CidrBlock&#34;, jsonObject(
+ *                             jsonProperty(&#34;type&#34;, &#34;AWS::EC2::VPC&#34;),
+ *                             jsonProperty(&#34;properties&#34;, jsonObject(
+ *                                 jsonProperty(&#34;cidrBlock&#34;, jsonObject(
  *                                     jsonProperty(&#34;Ref&#34;, &#34;VPCCidr&#34;)
  *                                 )),
- *                                 jsonProperty(&#34;Tags&#34;, jsonArray(jsonObject(
- *                                     jsonProperty(&#34;Key&#34;, &#34;Name&#34;),
- *                                     jsonProperty(&#34;Value&#34;, &#34;Primary_CF_VPC&#34;)
+ *                                 jsonProperty(&#34;tags&#34;, jsonArray(jsonObject(
+ *                                     jsonProperty(&#34;key&#34;, &#34;Name&#34;),
+ *                                     jsonProperty(&#34;value&#34;, &#34;Primary_CF_VPC&#34;)
  *                                 )))
  *                             ))
  *                         ))
@@ -75,13 +78,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Cloudformation Stacks using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
+ * $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
  * ```
  * 
  */
@@ -344,9 +348,6 @@ public class Stack extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

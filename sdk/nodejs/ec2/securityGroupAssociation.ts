@@ -17,15 +17,17 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const sgEc2 = new aws.ec2.SecurityGroupAssociation("sgEc2", {
- *     vpcEndpointId: aws_vpc_endpoint.ec2.id,
- *     securityGroupId: aws_security_group.sg.id,
+ * const sgEc2 = new aws.ec2.SecurityGroupAssociation("sg_ec2", {
+ *     vpcEndpointId: ec2.id,
+ *     securityGroupId: sg.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class SecurityGroupAssociation extends pulumi.CustomResource {
     /**

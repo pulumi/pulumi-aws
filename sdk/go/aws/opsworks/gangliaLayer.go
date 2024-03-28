@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsworks.NewGangliaLayer(ctx, "monitor", &opsworks.GangliaLayerArgs{
-//				StackId:  pulumi.Any(aws_opsworks_stack.Main.Id),
+//				StackId:  pulumi.Any(main.Id),
 //				Password: pulumi.String("foobarbaz"),
 //			})
 //			if err != nil {
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type GangliaLayer struct {
 	pulumi.CustomResourceState
 
@@ -113,10 +115,6 @@ func NewGangliaLayer(ctx *pulumi.Context,
 	if args.StackId == nil {
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GangliaLayer
 	err := ctx.RegisterResource("aws:opsworks/gangliaLayer:GangliaLayer", name, args, &resource, opts...)

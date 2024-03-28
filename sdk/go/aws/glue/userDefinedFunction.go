@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,15 +29,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCatalogDatabase, err := glue.NewCatalogDatabase(ctx, "exampleCatalogDatabase", &glue.CatalogDatabaseArgs{
+//			example, err := glue.NewCatalogDatabase(ctx, "example", &glue.CatalogDatabaseArgs{
 //				Name: pulumi.String("my_database"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = glue.NewUserDefinedFunction(ctx, "exampleUserDefinedFunction", &glue.UserDefinedFunctionArgs{
-//				CatalogId:    exampleCatalogDatabase.CatalogId,
-//				DatabaseName: exampleCatalogDatabase.Name,
+//			_, err = glue.NewUserDefinedFunction(ctx, "example", &glue.UserDefinedFunctionArgs{
+//				Name:         pulumi.String("my_func"),
+//				CatalogId:    example.CatalogId,
+//				DatabaseName: example.Name,
 //				ClassName:    pulumi.String("class"),
 //				OwnerName:    pulumi.String("owner"),
 //				OwnerType:    pulumi.String("GROUP"),
@@ -55,15 +57,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glue User Defined Functions using the `catalog_id:database_name:function_name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glue/userDefinedFunction:UserDefinedFunction func 123456789012:my_database:my_func
-//
+// $ pulumi import aws:glue/userDefinedFunction:UserDefinedFunction func 123456789012:my_database:my_func
 // ```
 type UserDefinedFunction struct {
 	pulumi.CustomResourceState

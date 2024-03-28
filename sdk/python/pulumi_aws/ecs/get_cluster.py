@@ -159,12 +159,14 @@ def get_cluster(cluster_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     ecs_mongo = aws.ecs.get_cluster(cluster_name="ecs-mongo-production")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_name: Name of the ECS Cluster
@@ -199,12 +201,14 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     ecs_mongo = aws.ecs.get_cluster(cluster_name="ecs-mongo-production")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_name: Name of the ECS Cluster

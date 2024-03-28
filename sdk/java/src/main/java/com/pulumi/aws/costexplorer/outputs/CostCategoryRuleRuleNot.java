@@ -74,25 +74,28 @@ public final class CostCategoryRuleRuleNot {
 
         @CustomType.Setter
         public Builder costCategory(@Nullable CostCategoryRuleRuleNotCostCategory costCategory) {
+
             this.costCategory = costCategory;
             return this;
         }
         @CustomType.Setter
         public Builder dimension(@Nullable CostCategoryRuleRuleNotDimension dimension) {
+
             this.dimension = dimension;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable CostCategoryRuleRuleNotTags tags) {
+
             this.tags = tags;
             return this;
         }
         public CostCategoryRuleRuleNot build() {
-            final var o = new CostCategoryRuleRuleNot();
-            o.costCategory = costCategory;
-            o.dimension = dimension;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new CostCategoryRuleRuleNot();
+            _resultValue.costCategory = costCategory;
+            _resultValue.dimension = dimension;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

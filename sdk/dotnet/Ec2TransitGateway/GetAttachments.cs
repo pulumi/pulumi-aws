@@ -14,9 +14,47 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Get information on EC2 Transit Gateway Attachments.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% /examples %}}
+        /// 
+        /// ### By Filter
+        /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var filtered = Aws.Ec2TransitGateway.GetAttachments.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentsFilterInputArgs
+        ///             {
+        ///                 Name = "state",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "pendingAcceptance",
+        ///                 },
+        ///             },
+        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentsFilterInputArgs
+        ///             {
+        ///                 Name = "resource-type",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "vpc",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var unit = ;
+        /// 
+        /// });
+        /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAttachmentsResult> InvokeAsync(GetAttachmentsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttachmentsResult>("aws:ec2transitgateway/getAttachments:getAttachments", args ?? new GetAttachmentsArgs(), options.WithDefaults());
@@ -24,9 +62,47 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Get information on EC2 Transit Gateway Attachments.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% /examples %}}
+        /// 
+        /// ### By Filter
+        /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var filtered = Aws.Ec2TransitGateway.GetAttachments.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentsFilterInputArgs
+        ///             {
+        ///                 Name = "state",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "pendingAcceptance",
+        ///                 },
+        ///             },
+        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentsFilterInputArgs
+        ///             {
+        ///                 Name = "resource-type",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "vpc",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var unit = ;
+        /// 
+        /// });
+        /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAttachmentsResult> Invoke(GetAttachmentsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttachmentsResult>("aws:ec2transitgateway/getAttachments:getAttachments", args ?? new GetAttachmentsInvokeArgs(), options.WithDefaults());

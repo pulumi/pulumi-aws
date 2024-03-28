@@ -19,7 +19,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,25 +46,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleEmailIdentity = new EmailIdentity(&#34;exampleEmailIdentity&#34;, EmailIdentityArgs.builder()        
+ *         var example = new EmailIdentity(&#34;example&#34;, EmailIdentityArgs.builder()        
  *             .emailIdentity(&#34;example.com&#34;)
  *             .build());
  * 
  *         var exampleEmailIdentityFeedbackAttributes = new EmailIdentityFeedbackAttributes(&#34;exampleEmailIdentityFeedbackAttributes&#34;, EmailIdentityFeedbackAttributesArgs.builder()        
- *             .emailIdentity(exampleEmailIdentity.emailIdentity())
+ *             .emailIdentity(example.emailIdentity())
  *             .emailForwardingEnabled(true)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Feedback Attributes using the `email_identity`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
+ * $ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
  * ```
  * 
  */

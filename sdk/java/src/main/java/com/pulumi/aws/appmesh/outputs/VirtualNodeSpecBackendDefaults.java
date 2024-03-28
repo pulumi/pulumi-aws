@@ -44,13 +44,14 @@ public final class VirtualNodeSpecBackendDefaults {
 
         @CustomType.Setter
         public Builder clientPolicy(@Nullable VirtualNodeSpecBackendDefaultsClientPolicy clientPolicy) {
+
             this.clientPolicy = clientPolicy;
             return this;
         }
         public VirtualNodeSpecBackendDefaults build() {
-            final var o = new VirtualNodeSpecBackendDefaults();
-            o.clientPolicy = clientPolicy;
-            return o;
+            final var _resultValue = new VirtualNodeSpecBackendDefaults();
+            _resultValue.clientPolicy = clientPolicy;
+            return _resultValue;
         }
     }
 }

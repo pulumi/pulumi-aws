@@ -91,8 +91,10 @@ class OrganizationConfiguration(pulumi.CustomResource):
         > **NOTE:** When this resource is deleted, EC2, ECR, Lambda, and Lambda code scans will no longer be automatically enabled for new members of your Amazon Inspector organization.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -104,6 +106,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
             lambda_code=True,
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,8 +126,10 @@ class OrganizationConfiguration(pulumi.CustomResource):
         > **NOTE:** When this resource is deleted, EC2, ECR, Lambda, and Lambda code scans will no longer be automatically enabled for new members of your Amazon Inspector organization.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -136,6 +141,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
             lambda_code=True,
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param OrganizationConfigurationArgs args: The arguments to use to populate this resource's properties.

@@ -59,19 +59,21 @@ public final class ConnectorCapacity {
 
         @CustomType.Setter
         public Builder autoscaling(@Nullable ConnectorCapacityAutoscaling autoscaling) {
+
             this.autoscaling = autoscaling;
             return this;
         }
         @CustomType.Setter
         public Builder provisionedCapacity(@Nullable ConnectorCapacityProvisionedCapacity provisionedCapacity) {
+
             this.provisionedCapacity = provisionedCapacity;
             return this;
         }
         public ConnectorCapacity build() {
-            final var o = new ConnectorCapacity();
-            o.autoscaling = autoscaling;
-            o.provisionedCapacity = provisionedCapacity;
-            return o;
+            final var _resultValue = new ConnectorCapacity();
+            _resultValue.autoscaling = autoscaling;
+            _resultValue.provisionedCapacity = provisionedCapacity;
+            return _resultValue;
         }
     }
 }

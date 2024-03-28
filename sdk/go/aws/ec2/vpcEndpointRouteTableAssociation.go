@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewVpcEndpointRouteTableAssociation(ctx, "example", &ec2.VpcEndpointRouteTableAssociationArgs{
-//				RouteTableId:  pulumi.Any(aws_route_table.Example.Id),
-//				VpcEndpointId: pulumi.Any(aws_vpc_endpoint.Example.Id),
+//				RouteTableId:  pulumi.Any(exampleAwsRouteTable.Id),
+//				VpcEndpointId: pulumi.Any(exampleAwsVpcEndpoint.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import VPC Endpoint Route Table Associations using `vpc_endpoint_id` together with `route_table_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation example vpce-aaaaaaaa/rtb-bbbbbbbb
-//
+// $ pulumi import aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation example vpce-aaaaaaaa/rtb-bbbbbbbb
 // ```
 type VpcEndpointRouteTableAssociation struct {
 	pulumi.CustomResourceState

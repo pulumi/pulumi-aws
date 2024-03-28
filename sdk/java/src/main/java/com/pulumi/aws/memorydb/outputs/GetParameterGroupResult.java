@@ -5,6 +5,7 @@ package com.pulumi.aws.memorydb.outputs;
 
 import com.pulumi.aws.memorydb.outputs.GetParameterGroupParameter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -129,32 +130,50 @@ public final class GetParameterGroupResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetParameterGroupResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetParameterGroupResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder family(String family) {
-            this.family = Objects.requireNonNull(family);
+            if (family == null) {
+              throw new MissingRequiredPropertyException("GetParameterGroupResult", "family");
+            }
+            this.family = family;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetParameterGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetParameterGroupResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(List<GetParameterGroupParameter> parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+            if (parameters == null) {
+              throw new MissingRequiredPropertyException("GetParameterGroupResult", "parameters");
+            }
+            this.parameters = parameters;
             return this;
         }
         public Builder parameters(GetParameterGroupParameter... parameters) {
@@ -162,19 +181,22 @@ public final class GetParameterGroupResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetParameterGroupResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetParameterGroupResult build() {
-            final var o = new GetParameterGroupResult();
-            o.arn = arn;
-            o.description = description;
-            o.family = family;
-            o.id = id;
-            o.name = name;
-            o.parameters = parameters;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetParameterGroupResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.family = family;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

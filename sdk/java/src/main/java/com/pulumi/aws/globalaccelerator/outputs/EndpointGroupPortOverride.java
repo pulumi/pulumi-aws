@@ -4,6 +4,7 @@
 package com.pulumi.aws.globalaccelerator.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class EndpointGroupPortOverride {
 
         @CustomType.Setter
         public Builder endpointPort(Integer endpointPort) {
-            this.endpointPort = Objects.requireNonNull(endpointPort);
+            if (endpointPort == null) {
+              throw new MissingRequiredPropertyException("EndpointGroupPortOverride", "endpointPort");
+            }
+            this.endpointPort = endpointPort;
             return this;
         }
         @CustomType.Setter
         public Builder listenerPort(Integer listenerPort) {
-            this.listenerPort = Objects.requireNonNull(listenerPort);
+            if (listenerPort == null) {
+              throw new MissingRequiredPropertyException("EndpointGroupPortOverride", "listenerPort");
+            }
+            this.listenerPort = listenerPort;
             return this;
         }
         public EndpointGroupPortOverride build() {
-            final var o = new EndpointGroupPortOverride();
-            o.endpointPort = endpointPort;
-            o.listenerPort = listenerPort;
-            return o;
+            final var _resultValue = new EndpointGroupPortOverride();
+            _resultValue.endpointPort = endpointPort;
+            _resultValue.listenerPort = listenerPort;
+            return _resultValue;
         }
     }
 }

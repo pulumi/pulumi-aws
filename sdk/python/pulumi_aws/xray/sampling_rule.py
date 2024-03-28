@@ -495,33 +495,35 @@ class SamplingRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.xray.SamplingRule("example",
-            attributes={
-                "Hello": "Tris",
-            },
+            rule_name="example",
+            priority=9999,
+            version=1,
+            reservoir_size=1,
             fixed_rate=0.05,
+            url_path="*",
             host="*",
             http_method="*",
-            priority=9999,
-            reservoir_size=1,
-            resource_arn="*",
-            rule_name="example",
-            service_name="*",
             service_type="*",
-            url_path="*",
-            version=1)
+            service_name="*",
+            resource_arn="*",
+            attributes={
+                "Hello": "Tris",
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import XRay Sampling Rules using the name. For example:
 
         ```sh
-         $ pulumi import aws:xray/samplingRule:SamplingRule example example
+        $ pulumi import aws:xray/samplingRule:SamplingRule example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -551,33 +553,35 @@ class SamplingRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.xray.SamplingRule("example",
-            attributes={
-                "Hello": "Tris",
-            },
+            rule_name="example",
+            priority=9999,
+            version=1,
+            reservoir_size=1,
             fixed_rate=0.05,
+            url_path="*",
             host="*",
             http_method="*",
-            priority=9999,
-            reservoir_size=1,
-            resource_arn="*",
-            rule_name="example",
-            service_name="*",
             service_type="*",
-            url_path="*",
-            version=1)
+            service_name="*",
+            resource_arn="*",
+            attributes={
+                "Hello": "Tris",
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import XRay Sampling Rules using the name. For example:
 
         ```sh
-         $ pulumi import aws:xray/samplingRule:SamplingRule example example
+        $ pulumi import aws:xray/samplingRule:SamplingRule example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -652,8 +656,6 @@ class SamplingRule(pulumi.CustomResource):
             __props__.__dict__["version"] = version
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SamplingRule, __self__).__init__(
             'aws:xray/samplingRule:SamplingRule',
             resource_name,

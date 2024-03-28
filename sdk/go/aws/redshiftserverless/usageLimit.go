@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,15 +29,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleWorkgroup, err := redshiftserverless.NewWorkgroup(ctx, "exampleWorkgroup", &redshiftserverless.WorkgroupArgs{
-//				NamespaceName: pulumi.Any(aws_redshiftserverless_namespace.Example.Namespace_name),
+//			example, err := redshiftserverless.NewWorkgroup(ctx, "example", &redshiftserverless.WorkgroupArgs{
+//				NamespaceName: pulumi.Any(exampleAwsRedshiftserverlessNamespace.NamespaceName),
 //				WorkgroupName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = redshiftserverless.NewUsageLimit(ctx, "exampleUsageLimit", &redshiftserverless.UsageLimitArgs{
-//				ResourceArn: exampleWorkgroup.Arn,
+//			_, err = redshiftserverless.NewUsageLimit(ctx, "example", &redshiftserverless.UsageLimitArgs{
+//				ResourceArn: example.Arn,
 //				UsageType:   pulumi.String("serverless-compute"),
 //				Amount:      pulumi.Int(60),
 //			})
@@ -48,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift Serverless Usage Limits using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshiftserverless/usageLimit:UsageLimit example example-id
-//
+// $ pulumi import aws:redshiftserverless/usageLimit:UsageLimit example example-id
 // ```
 type UsageLimit struct {
 	pulumi.CustomResourceState

@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -72,7 +73,10 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
 
         @CustomType.Setter
         public Builder matchPatterns(List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern> matchPatterns) {
-            this.matchPatterns = Objects.requireNonNull(matchPatterns);
+            if (matchPatterns == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies", "matchPatterns");
+            }
+            this.matchPatterns = matchPatterns;
             return this;
         }
         public Builder matchPatterns(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern... matchPatterns) {
@@ -80,20 +84,26 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
         @CustomType.Setter
         public Builder matchScope(String matchScope) {
-            this.matchScope = Objects.requireNonNull(matchScope);
+            if (matchScope == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies", "matchScope");
+            }
+            this.matchScope = matchScope;
             return this;
         }
         @CustomType.Setter
         public Builder oversizeHandling(String oversizeHandling) {
-            this.oversizeHandling = Objects.requireNonNull(oversizeHandling);
+            if (oversizeHandling == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies", "oversizeHandling");
+            }
+            this.oversizeHandling = oversizeHandling;
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies();
-            o.matchPatterns = matchPatterns;
-            o.matchScope = matchScope;
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies();
+            _resultValue.matchPatterns = matchPatterns;
+            _resultValue.matchScope = matchScope;
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

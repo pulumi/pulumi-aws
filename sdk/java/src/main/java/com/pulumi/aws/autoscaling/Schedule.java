@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides an AutoScaling Schedule resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -41,8 +43,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foobarGroup = new Group(&#34;foobarGroup&#34;, GroupArgs.builder()        
+ *         var foobar = new Group(&#34;foobar&#34;, GroupArgs.builder()        
  *             .availabilityZones(&#34;us-west-2a&#34;)
+ *             .name(&#34;test-foobar5&#34;)
  *             .maxSize(1)
  *             .minSize(1)
  *             .healthCheckGracePeriod(300)
@@ -58,19 +61,20 @@ import javax.annotation.Nullable;
  *             .desiredCapacity(0)
  *             .startTime(&#34;2016-12-11T18:00:00Z&#34;)
  *             .endTime(&#34;2016-12-12T06:00:00Z&#34;)
- *             .autoscalingGroupName(foobarGroup.name())
+ *             .autoscalingGroupName(foobar.name())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AutoScaling ScheduledAction using the `auto-scaling-group-name` and `scheduled-action-name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
+ * $ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
  * ```
  * 
  */

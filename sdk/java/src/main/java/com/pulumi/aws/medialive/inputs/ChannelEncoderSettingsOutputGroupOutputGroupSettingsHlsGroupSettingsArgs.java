@@ -9,6 +9,7 @@ import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputGr
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -857,7 +858,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         }
 
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs build() {
-            $.destination = Objects.requireNonNull($.destination, "expected parameter 'destination' to be non-null");
+            if ($.destination == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs", "destination");
+            }
             return $;
         }
     }

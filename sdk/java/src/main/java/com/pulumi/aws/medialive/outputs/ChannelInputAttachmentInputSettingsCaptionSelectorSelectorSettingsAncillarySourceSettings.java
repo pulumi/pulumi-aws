@@ -44,13 +44,14 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
 
         @CustomType.Setter
         public Builder sourceAncillaryChannelNumber(@Nullable Integer sourceAncillaryChannelNumber) {
+
             this.sourceAncillaryChannelNumber = sourceAncillaryChannelNumber;
             return this;
         }
         public ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings build() {
-            final var o = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings();
-            o.sourceAncillaryChannelNumber = sourceAncillaryChannelNumber;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings();
+            _resultValue.sourceAncillaryChannelNumber = sourceAncillaryChannelNumber;
+            return _resultValue;
         }
     }
 }

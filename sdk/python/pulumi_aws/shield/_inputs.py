@@ -13,6 +13,7 @@ __all__ = [
     'ApplicationLayerAutomaticResponseTimeoutsArgs',
     'DrtAccessLogBucketAssociationTimeoutsArgs',
     'DrtAccessRoleArnAssociationTimeoutsArgs',
+    'ProactiveEngagementEmergencyContactArgs',
 ]
 
 @pulumi.input_type
@@ -21,6 +22,11 @@ class ApplicationLayerAutomaticResponseTimeoutsArgs:
                  create: Optional[pulumi.Input[str]] = None,
                  delete: Optional[pulumi.Input[str]] = None,
                  update: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
         if create is not None:
             pulumi.set(__self__, "create", create)
         if delete is not None:
@@ -31,6 +37,9 @@ class ApplicationLayerAutomaticResponseTimeoutsArgs:
     @property
     @pulumi.getter
     def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
         return pulumi.get(self, "create")
 
     @create.setter
@@ -40,6 +49,9 @@ class ApplicationLayerAutomaticResponseTimeoutsArgs:
     @property
     @pulumi.getter
     def delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
         return pulumi.get(self, "delete")
 
     @delete.setter
@@ -49,6 +61,9 @@ class ApplicationLayerAutomaticResponseTimeoutsArgs:
     @property
     @pulumi.getter
     def update(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
         return pulumi.get(self, "update")
 
     @update.setter
@@ -60,18 +75,22 @@ class ApplicationLayerAutomaticResponseTimeoutsArgs:
 class DrtAccessLogBucketAssociationTimeoutsArgs:
     def __init__(__self__, *,
                  create: Optional[pulumi.Input[str]] = None,
-                 delete: Optional[pulumi.Input[str]] = None,
-                 read: Optional[pulumi.Input[str]] = None):
+                 delete: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
         if create is not None:
             pulumi.set(__self__, "create", create)
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
-        if read is not None:
-            pulumi.set(__self__, "read", read)
 
     @property
     @pulumi.getter
     def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
         return pulumi.get(self, "create")
 
     @create.setter
@@ -81,20 +100,14 @@ class DrtAccessLogBucketAssociationTimeoutsArgs:
     @property
     @pulumi.getter
     def delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
         return pulumi.get(self, "delete")
 
     @delete.setter
     def delete(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "delete", value)
-
-    @property
-    @pulumi.getter
-    def read(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "read")
-
-    @read.setter
-    def read(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "read", value)
 
 
 @pulumi.input_type
@@ -102,17 +115,25 @@ class DrtAccessRoleArnAssociationTimeoutsArgs:
     def __init__(__self__, *,
                  create: Optional[pulumi.Input[str]] = None,
                  delete: Optional[pulumi.Input[str]] = None,
-                 read: Optional[pulumi.Input[str]] = None):
+                 update: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
         if create is not None:
             pulumi.set(__self__, "create", create)
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
-        if read is not None:
-            pulumi.set(__self__, "read", read)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
 
     @property
     @pulumi.getter
     def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
         return pulumi.get(self, "create")
 
     @create.setter
@@ -122,6 +143,9 @@ class DrtAccessRoleArnAssociationTimeoutsArgs:
     @property
     @pulumi.getter
     def delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
         return pulumi.get(self, "delete")
 
     @delete.setter
@@ -130,11 +154,68 @@ class DrtAccessRoleArnAssociationTimeoutsArgs:
 
     @property
     @pulumi.getter
-    def read(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "read")
+    def update(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
 
-    @read.setter
-    def read(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "read", value)
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update", value)
+
+
+@pulumi.input_type
+class ProactiveEngagementEmergencyContactArgs:
+    def __init__(__self__, *,
+                 email_address: pulumi.Input[str],
+                 contact_notes: Optional[pulumi.Input[str]] = None,
+                 phone_number: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] email_address: A valid email address that will be used for this contact.
+        :param pulumi.Input[str] contact_notes: Additional notes regarding the contact.
+        :param pulumi.Input[str] phone_number: A phone number, starting with `+` and up to 15 digits that will be used for this contact.
+        """
+        pulumi.set(__self__, "email_address", email_address)
+        if contact_notes is not None:
+            pulumi.set(__self__, "contact_notes", contact_notes)
+        if phone_number is not None:
+            pulumi.set(__self__, "phone_number", phone_number)
+
+    @property
+    @pulumi.getter(name="emailAddress")
+    def email_address(self) -> pulumi.Input[str]:
+        """
+        A valid email address that will be used for this contact.
+        """
+        return pulumi.get(self, "email_address")
+
+    @email_address.setter
+    def email_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "email_address", value)
+
+    @property
+    @pulumi.getter(name="contactNotes")
+    def contact_notes(self) -> Optional[pulumi.Input[str]]:
+        """
+        Additional notes regarding the contact.
+        """
+        return pulumi.get(self, "contact_notes")
+
+    @contact_notes.setter
+    def contact_notes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "contact_notes", value)
+
+    @property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> Optional[pulumi.Input[str]]:
+        """
+        A phone number, starting with `+` and up to 15 digits that will be used for this contact.
+        """
+        return pulumi.get(self, "phone_number")
+
+    @phone_number.setter
+    def phone_number(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "phone_number", value)
 
 

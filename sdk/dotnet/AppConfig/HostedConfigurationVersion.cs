@@ -13,8 +13,10 @@ namespace Pulumi.Aws.AppConfig
     /// Provides an AppConfig Hosted Configuration Version resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Freeform
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,8 +28,8 @@ namespace Pulumi.Aws.AppConfig
     /// {
     ///     var example = new Aws.AppConfig.HostedConfigurationVersion("example", new()
     ///     {
-    ///         ApplicationId = aws_appconfig_application.Example.Id,
-    ///         ConfigurationProfileId = aws_appconfig_configuration_profile.Example.Configuration_profile_id,
+    ///         ApplicationId = exampleAwsAppconfigApplication.Id,
+    ///         ConfigurationProfileId = exampleAwsAppconfigConfigurationProfile.ConfigurationProfileId,
     ///         Description = "Example Freeform Hosted Configuration Version",
     ///         ContentType = "application/json",
     ///         Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -45,8 +47,11 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Feature Flags
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,8 +63,8 @@ namespace Pulumi.Aws.AppConfig
     /// {
     ///     var example = new Aws.AppConfig.HostedConfigurationVersion("example", new()
     ///     {
-    ///         ApplicationId = aws_appconfig_application.Example.Id,
-    ///         ConfigurationProfileId = aws_appconfig_configuration_profile.Example.Configuration_profile_id,
+    ///         ApplicationId = exampleAwsAppconfigApplication.Id,
+    ///         ConfigurationProfileId = exampleAwsAppconfigConfigurationProfile.ConfigurationProfileId,
     ///         Description = "Example Feature Flag Configuration Version",
     ///         ContentType = "application/json",
     ///         Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -117,13 +122,14 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AppConfig Hosted Configuration Versions using the application ID, configuration profile ID, and version number separated by a slash (`/`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion example 71abcde/11xxxxx/2
+    /// $ pulumi import aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion example 71abcde/11xxxxx/2
     /// ```
     /// </summary>
     [AwsResourceType("aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion")]

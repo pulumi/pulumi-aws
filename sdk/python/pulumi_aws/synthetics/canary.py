@@ -741,27 +741,30 @@ class Canary(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         some = aws.synthetics.Canary("some",
+            name="some-canary",
             artifact_s3_location="s3://some-bucket/",
             execution_role_arn="some-role",
             handler="exports.handler",
+            zip_file="test-fixtures/lambdatest.zip",
             runtime_version="syn-1.0",
             schedule=aws.synthetics.CanaryScheduleArgs(
                 expression="rate(0 minute)",
-            ),
-            zip_file="test-fixtures/lambdatest.zip")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Synthetics Canaries using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:synthetics/canary:Canary some some-canary
+        $ pulumi import aws:synthetics/canary:Canary some some-canary
         ```
 
         :param str resource_name: The name of the resource.
@@ -800,27 +803,30 @@ class Canary(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         some = aws.synthetics.Canary("some",
+            name="some-canary",
             artifact_s3_location="s3://some-bucket/",
             execution_role_arn="some-role",
             handler="exports.handler",
+            zip_file="test-fixtures/lambdatest.zip",
             runtime_version="syn-1.0",
             schedule=aws.synthetics.CanaryScheduleArgs(
                 expression="rate(0 minute)",
-            ),
-            zip_file="test-fixtures/lambdatest.zip")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Synthetics Canaries using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:synthetics/canary:Canary some some-canary
+        $ pulumi import aws:synthetics/canary:Canary some some-canary
         ```
 
         :param str resource_name: The name of the resource.
@@ -899,8 +905,6 @@ class Canary(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["timelines"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Canary, __self__).__init__(
             'aws:synthetics/canary:Canary',
             resource_name,

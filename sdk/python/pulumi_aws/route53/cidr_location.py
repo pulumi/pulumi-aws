@@ -135,25 +135,28 @@ class CidrLocation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_cidr_collection = aws.route53.CidrCollection("exampleCidrCollection")
-        example_cidr_location = aws.route53.CidrLocation("exampleCidrLocation",
-            cidr_collection_id=example_cidr_collection.id,
+        example = aws.route53.CidrCollection("example", name="collection-1")
+        example_cidr_location = aws.route53.CidrLocation("example",
+            cidr_collection_id=example.id,
+            name="office",
             cidr_blocks=[
                 "200.5.3.0/24",
                 "200.6.3.0/24",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CIDR locations using their the CIDR collection ID and location name. For example:
 
         ```sh
-         $ pulumi import aws:route53/cidrLocation:CidrLocation example 9ac32814-3e67-0932-6048-8d779cc6f511,office
+        $ pulumi import aws:route53/cidrLocation:CidrLocation example 9ac32814-3e67-0932-6048-8d779cc6f511,office
         ```
 
         :param str resource_name: The name of the resource.
@@ -173,25 +176,28 @@ class CidrLocation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_cidr_collection = aws.route53.CidrCollection("exampleCidrCollection")
-        example_cidr_location = aws.route53.CidrLocation("exampleCidrLocation",
-            cidr_collection_id=example_cidr_collection.id,
+        example = aws.route53.CidrCollection("example", name="collection-1")
+        example_cidr_location = aws.route53.CidrLocation("example",
+            cidr_collection_id=example.id,
+            name="office",
             cidr_blocks=[
                 "200.5.3.0/24",
                 "200.6.3.0/24",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CIDR locations using their the CIDR collection ID and location name. For example:
 
         ```sh
-         $ pulumi import aws:route53/cidrLocation:CidrLocation example 9ac32814-3e67-0932-6048-8d779cc6f511,office
+        $ pulumi import aws:route53/cidrLocation:CidrLocation example 9ac32814-3e67-0932-6048-8d779cc6f511,office
         ```
 
         :param str resource_name: The name of the resource.

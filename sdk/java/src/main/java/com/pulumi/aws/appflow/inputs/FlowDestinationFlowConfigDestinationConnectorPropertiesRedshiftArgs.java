@@ -6,6 +6,7 @@ package com.pulumi.aws.appflow.inputs;
 import com.pulumi.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,8 +189,12 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
         }
 
         public FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs build() {
-            $.intermediateBucketName = Objects.requireNonNull($.intermediateBucketName, "expected parameter 'intermediateBucketName' to be non-null");
-            $.object = Objects.requireNonNull($.object, "expected parameter 'object' to be non-null");
+            if ($.intermediateBucketName == null) {
+                throw new MissingRequiredPropertyException("FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs", "intermediateBucketName");
+            }
+            if ($.object == null) {
+                throw new MissingRequiredPropertyException("FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs", "object");
+            }
             return $;
         }
     }

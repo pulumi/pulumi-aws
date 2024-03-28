@@ -4,6 +4,7 @@
 package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class TopicRuleErrorActionCloudwatchLogs {
 
         @CustomType.Setter
         public Builder logGroupName(String logGroupName) {
-            this.logGroupName = Objects.requireNonNull(logGroupName);
+            if (logGroupName == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionCloudwatchLogs", "logGroupName");
+            }
+            this.logGroupName = logGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionCloudwatchLogs", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         public TopicRuleErrorActionCloudwatchLogs build() {
-            final var o = new TopicRuleErrorActionCloudwatchLogs();
-            o.logGroupName = logGroupName;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionCloudwatchLogs();
+            _resultValue.logGroupName = logGroupName;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

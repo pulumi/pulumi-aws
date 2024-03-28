@@ -14,8 +14,10 @@ import (
 // Resource for managing an AWS IVS (Interactive Video) Chat Room.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +30,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ivschat.NewRoom(ctx, "example", nil)
+//			_, err := ivschat.NewRoom(ctx, "example", &ivschat.RoomArgs{
+//				Name: pulumi.String("tf-room"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -37,8 +41,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Usage with Logging Configuration to S3 Bucket
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,24 +59,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
 //				BucketPrefix: pulumi.String("tf-ivschat-logging-bucket-"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLoggingConfiguration, err := ivschat.NewLoggingConfiguration(ctx, "exampleLoggingConfiguration", &ivschat.LoggingConfigurationArgs{
+//			exampleLoggingConfiguration, err := ivschat.NewLoggingConfiguration(ctx, "example", &ivschat.LoggingConfigurationArgs{
+//				Name: pulumi.String("tf-ivschat-loggingconfiguration"),
 //				DestinationConfiguration: &ivschat.LoggingConfigurationDestinationConfigurationArgs{
 //					S3: &ivschat.LoggingConfigurationDestinationConfigurationS3Args{
-//						BucketName: exampleBucketV2.ID(),
+//						BucketName: example.ID(),
 //					},
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ivschat.NewRoom(ctx, "exampleRoom", &ivschat.RoomArgs{
+//			_, err = ivschat.NewRoom(ctx, "example", &ivschat.RoomArgs{
+//				Name: pulumi.String("tf-ivschat-room"),
 //				LoggingConfigurationIdentifiers: pulumi.StringArray{
 //					exampleLoggingConfiguration.Arn,
 //				},
@@ -82,15 +91,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IVS (Interactive Video) Chat Room using the ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
-//
+// $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
 // ```
 type Room struct {
 	pulumi.CustomResourceState
@@ -127,10 +135,6 @@ func NewRoom(ctx *pulumi.Context,
 		args = &RoomArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Room
 	err := ctx.RegisterResource("aws:ivschat/room:Room", name, args, &resource, opts...)

@@ -4,6 +4,7 @@
 package com.pulumi.aws.emr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -87,31 +88,39 @@ public final class InstanceGroupEbsConfig {
 
         @CustomType.Setter
         public Builder iops(@Nullable Integer iops) {
+
             this.iops = iops;
             return this;
         }
         @CustomType.Setter
         public Builder size(Integer size) {
-            this.size = Objects.requireNonNull(size);
+            if (size == null) {
+              throw new MissingRequiredPropertyException("InstanceGroupEbsConfig", "size");
+            }
+            this.size = size;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("InstanceGroupEbsConfig", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder volumesPerInstance(@Nullable Integer volumesPerInstance) {
+
             this.volumesPerInstance = volumesPerInstance;
             return this;
         }
         public InstanceGroupEbsConfig build() {
-            final var o = new InstanceGroupEbsConfig();
-            o.iops = iops;
-            o.size = size;
-            o.type = type;
-            o.volumesPerInstance = volumesPerInstance;
-            return o;
+            final var _resultValue = new InstanceGroupEbsConfig();
+            _resultValue.iops = iops;
+            _resultValue.size = size;
+            _resultValue.type = type;
+            _resultValue.volumesPerInstance = volumesPerInstance;
+            return _resultValue;
         }
     }
 }

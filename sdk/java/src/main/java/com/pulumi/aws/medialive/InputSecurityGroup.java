@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS MediaLive InputSecurityGroup.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,22 +48,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new InputSecurityGroup(&#34;example&#34;, InputSecurityGroupArgs.builder()        
- *             .tags(Map.of(&#34;ENVIRONMENT&#34;, &#34;prod&#34;))
  *             .whitelistRules(InputSecurityGroupWhitelistRuleArgs.builder()
  *                 .cidr(&#34;10.0.0.8/32&#34;)
  *                 .build())
+ *             .tags(Map.of(&#34;ENVIRONMENT&#34;, &#34;prod&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
+ * $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
  * ```
  * 
  */
@@ -171,9 +175,6 @@ public class InputSecurityGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

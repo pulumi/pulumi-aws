@@ -22,6 +22,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,12 +44,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAmazonsesVerificationRecord, err := route53.NewRecord(ctx, "exampleAmazonsesVerificationRecord", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(aws_route53_zone.Example.Zone_id),
+//			_, err = route53.NewRecord(ctx, "example_amazonses_verification_record", &route53.RecordArgs{
+//				ZoneId: pulumi.Any(exampleAwsRoute53Zone.ZoneId),
 //				Name: example.ID().ApplyT(func(id string) (string, error) {
 //					return fmt.Sprintf("_amazonses.%v", id), nil
 //				}).(pulumi.StringOutput),
-//				Type: pulumi.String("TXT"),
+//				Type: pulumi.String(route53.RecordTypeTXT),
 //				Ttl:  pulumi.Int(600),
 //				Records: pulumi.StringArray{
 //					example.VerificationToken,
@@ -57,11 +58,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ses.NewDomainIdentityVerification(ctx, "exampleVerification", &ses.DomainIdentityVerificationArgs{
+//			_, err = ses.NewDomainIdentityVerification(ctx, "example_verification", &ses.DomainIdentityVerificationArgs{
 //				Domain: example.ID(),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAmazonsesVerificationRecord,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -70,6 +69,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type DomainIdentityVerification struct {
 	pulumi.CustomResourceState
 

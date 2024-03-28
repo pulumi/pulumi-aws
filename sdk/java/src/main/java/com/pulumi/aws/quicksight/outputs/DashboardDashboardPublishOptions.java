@@ -179,67 +179,77 @@ public final class DashboardDashboardPublishOptions {
 
         @CustomType.Setter
         public Builder adHocFilteringOption(@Nullable DashboardDashboardPublishOptionsAdHocFilteringOption adHocFilteringOption) {
+
             this.adHocFilteringOption = adHocFilteringOption;
             return this;
         }
         @CustomType.Setter
         public Builder dataPointDrillUpDownOption(@Nullable DashboardDashboardPublishOptionsDataPointDrillUpDownOption dataPointDrillUpDownOption) {
+
             this.dataPointDrillUpDownOption = dataPointDrillUpDownOption;
             return this;
         }
         @CustomType.Setter
         public Builder dataPointMenuLabelOption(@Nullable DashboardDashboardPublishOptionsDataPointMenuLabelOption dataPointMenuLabelOption) {
+
             this.dataPointMenuLabelOption = dataPointMenuLabelOption;
             return this;
         }
         @CustomType.Setter
         public Builder dataPointTooltipOption(@Nullable DashboardDashboardPublishOptionsDataPointTooltipOption dataPointTooltipOption) {
+
             this.dataPointTooltipOption = dataPointTooltipOption;
             return this;
         }
         @CustomType.Setter
         public Builder exportToCsvOption(@Nullable DashboardDashboardPublishOptionsExportToCsvOption exportToCsvOption) {
+
             this.exportToCsvOption = exportToCsvOption;
             return this;
         }
         @CustomType.Setter
         public Builder exportWithHiddenFieldsOption(@Nullable DashboardDashboardPublishOptionsExportWithHiddenFieldsOption exportWithHiddenFieldsOption) {
+
             this.exportWithHiddenFieldsOption = exportWithHiddenFieldsOption;
             return this;
         }
         @CustomType.Setter
         public Builder sheetControlsOption(@Nullable DashboardDashboardPublishOptionsSheetControlsOption sheetControlsOption) {
+
             this.sheetControlsOption = sheetControlsOption;
             return this;
         }
         @CustomType.Setter
         public Builder sheetLayoutElementMaximizationOption(@Nullable DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption sheetLayoutElementMaximizationOption) {
+
             this.sheetLayoutElementMaximizationOption = sheetLayoutElementMaximizationOption;
             return this;
         }
         @CustomType.Setter
         public Builder visualAxisSortOption(@Nullable DashboardDashboardPublishOptionsVisualAxisSortOption visualAxisSortOption) {
+
             this.visualAxisSortOption = visualAxisSortOption;
             return this;
         }
         @CustomType.Setter
         public Builder visualMenuOption(@Nullable DashboardDashboardPublishOptionsVisualMenuOption visualMenuOption) {
+
             this.visualMenuOption = visualMenuOption;
             return this;
         }
         public DashboardDashboardPublishOptions build() {
-            final var o = new DashboardDashboardPublishOptions();
-            o.adHocFilteringOption = adHocFilteringOption;
-            o.dataPointDrillUpDownOption = dataPointDrillUpDownOption;
-            o.dataPointMenuLabelOption = dataPointMenuLabelOption;
-            o.dataPointTooltipOption = dataPointTooltipOption;
-            o.exportToCsvOption = exportToCsvOption;
-            o.exportWithHiddenFieldsOption = exportWithHiddenFieldsOption;
-            o.sheetControlsOption = sheetControlsOption;
-            o.sheetLayoutElementMaximizationOption = sheetLayoutElementMaximizationOption;
-            o.visualAxisSortOption = visualAxisSortOption;
-            o.visualMenuOption = visualMenuOption;
-            return o;
+            final var _resultValue = new DashboardDashboardPublishOptions();
+            _resultValue.adHocFilteringOption = adHocFilteringOption;
+            _resultValue.dataPointDrillUpDownOption = dataPointDrillUpDownOption;
+            _resultValue.dataPointMenuLabelOption = dataPointMenuLabelOption;
+            _resultValue.dataPointTooltipOption = dataPointTooltipOption;
+            _resultValue.exportToCsvOption = exportToCsvOption;
+            _resultValue.exportWithHiddenFieldsOption = exportWithHiddenFieldsOption;
+            _resultValue.sheetControlsOption = sheetControlsOption;
+            _resultValue.sheetLayoutElementMaximizationOption = sheetLayoutElementMaximizationOption;
+            _resultValue.visualAxisSortOption = visualAxisSortOption;
+            _resultValue.visualMenuOption = visualMenuOption;
+            return _resultValue;
         }
     }
 }

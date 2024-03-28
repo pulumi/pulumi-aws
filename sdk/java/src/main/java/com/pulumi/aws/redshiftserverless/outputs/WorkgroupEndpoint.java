@@ -20,7 +20,7 @@ public final class WorkgroupEndpoint {
      */
     private @Nullable String address;
     /**
-     * @return The port that Amazon Redshift Serverless listens on.
+     * @return The port number on which the cluster accepts incoming connections.
      * 
      */
     private @Nullable Integer port;
@@ -39,7 +39,7 @@ public final class WorkgroupEndpoint {
         return Optional.ofNullable(this.address);
     }
     /**
-     * @return The port that Amazon Redshift Serverless listens on.
+     * @return The port number on which the cluster accepts incoming connections.
      * 
      */
     public Optional<Integer> port() {
@@ -75,16 +75,19 @@ public final class WorkgroupEndpoint {
 
         @CustomType.Setter
         public Builder address(@Nullable String address) {
+
             this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder vpcEndpoints(@Nullable List<WorkgroupEndpointVpcEndpoint> vpcEndpoints) {
+
             this.vpcEndpoints = vpcEndpoints;
             return this;
         }
@@ -92,11 +95,11 @@ public final class WorkgroupEndpoint {
             return vpcEndpoints(List.of(vpcEndpoints));
         }
         public WorkgroupEndpoint build() {
-            final var o = new WorkgroupEndpoint();
-            o.address = address;
-            o.port = port;
-            o.vpcEndpoints = vpcEndpoints;
-            return o;
+            final var _resultValue = new WorkgroupEndpoint();
+            _resultValue.address = address;
+            _resultValue.port = port;
+            _resultValue.vpcEndpoints = vpcEndpoints;
+            return _resultValue;
         }
     }
 }

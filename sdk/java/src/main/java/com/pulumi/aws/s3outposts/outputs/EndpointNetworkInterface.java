@@ -44,13 +44,14 @@ public final class EndpointNetworkInterface {
 
         @CustomType.Setter
         public Builder networkInterfaceId(@Nullable String networkInterfaceId) {
+
             this.networkInterfaceId = networkInterfaceId;
             return this;
         }
         public EndpointNetworkInterface build() {
-            final var o = new EndpointNetworkInterface();
-            o.networkInterfaceId = networkInterfaceId;
-            return o;
+            final var _resultValue = new EndpointNetworkInterface();
+            _resultValue.networkInterfaceId = networkInterfaceId;
+            return _resultValue;
         }
     }
 }

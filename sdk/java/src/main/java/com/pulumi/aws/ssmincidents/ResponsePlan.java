@@ -23,7 +23,10 @@ import javax.annotation.Nullable;
  * Provides a resource to manage response plans in AWS Systems Manager Incident Manager.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -33,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ssmincidents.ResponsePlan;
  * import com.pulumi.aws.ssmincidents.ResponsePlanArgs;
  * import com.pulumi.aws.ssmincidents.inputs.ResponsePlanIncidentTemplateArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,19 +50,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResponsePlan(&#34;example&#34;, ResponsePlanArgs.builder()        
+ *             .name(&#34;name&#34;)
  *             .incidentTemplate(ResponsePlanIncidentTemplateArgs.builder()
  *                 .title(&#34;title&#34;)
  *                 .impact(&#34;3&#34;)
  *                 .build())
  *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_ssmincidents_replication_set.example())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Usage With All Fields
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -72,7 +77,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ssmincidents.inputs.ResponsePlanIncidentTemplateArgs;
  * import com.pulumi.aws.ssmincidents.inputs.ResponsePlanActionArgs;
  * import com.pulumi.aws.ssmincidents.inputs.ResponsePlanIntegrationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -87,6 +91,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResponsePlan(&#34;example&#34;, ResponsePlanArgs.builder()        
+ *             .name(&#34;name&#34;)
  *             .incidentTemplate(ResponsePlanIncidentTemplateArgs.builder()
  *                 .title(&#34;title&#34;)
  *                 .impact(&#34;3&#34;)
@@ -94,20 +99,20 @@ import javax.annotation.Nullable;
  *                 .incidentTags(Map.of(&#34;key&#34;, &#34;value&#34;))
  *                 .notificationTargets(                
  *                     ResponsePlanIncidentTemplateNotificationTargetArgs.builder()
- *                         .snsTopicArn(aws_sns_topic.example1().arn())
+ *                         .snsTopicArn(example1.arn())
  *                         .build(),
  *                     ResponsePlanIncidentTemplateNotificationTargetArgs.builder()
- *                         .snsTopicArn(aws_sns_topic.example2().arn())
+ *                         .snsTopicArn(example2.arn())
  *                         .build())
  *                 .summary(&#34;summary&#34;)
  *                 .build())
  *             .displayName(&#34;display name&#34;)
- *             .chatChannels(aws_sns_topic.topic().arn())
+ *             .chatChannels(topic.arn())
  *             .engagements(&#34;arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1&#34;)
  *             .action(ResponsePlanActionArgs.builder()
  *                 .ssmAutomations(ResponsePlanActionSsmAutomationArgs.builder()
- *                     .documentName(aws_ssm_document.document1().name())
- *                     .roleArn(aws_iam_role.role1().arn())
+ *                     .documentName(document1.name())
+ *                     .roleArn(role1.arn())
  *                     .documentVersion(&#34;version1&#34;)
  *                     .targetAccount(&#34;RESPONSE_PLAN_OWNER_ACCOUNT&#34;)
  *                     .parameters(                    
@@ -135,20 +140,19 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_ssmincidents_replication_set.example())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import an Incident Manager response plan using the response plan ARN. You can find the response plan ARN in the AWS Management Console. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ssmincidents/responsePlan:ResponsePlan responsePlanName ARNValue
+ * $ pulumi import aws:ssmincidents/responsePlan:ResponsePlan responsePlanName ARNValue
  * ```
  * 
  */
@@ -323,9 +327,6 @@ public class ResponsePlan extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

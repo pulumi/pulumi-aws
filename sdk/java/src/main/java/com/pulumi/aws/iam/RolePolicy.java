@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** For a given role, this resource is incompatible with using the `aws.iam.Role` resource `inline_policy` argument. When using that argument and this resource, both will attempt to manage the role&#39;s inline policies and the provider will show a permanent difference.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,29 +46,31 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testRole = new Role(&#34;testRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;test_role&#34;)
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Sid&#34;, &#34;&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;ec2.amazonaws.com&#34;)
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;action&#34;, &#34;sts:AssumeRole&#34;),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;sid&#34;, &#34;&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;service&#34;, &#34;ec2.amazonaws.com&#34;)
  *                         ))
  *                     )))
  *                 )))
  *             .build());
  * 
  *         var testPolicy = new RolePolicy(&#34;testPolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;test_policy&#34;)
  *             .role(testRole.id())
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, jsonArray(&#34;ec2:Describe*&#34;)),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Resource&#34;, &#34;*&#34;)
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;action&#34;, jsonArray(&#34;ec2:Describe*&#34;)),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;resource&#34;, &#34;*&#34;)
  *                     )))
  *                 )))
  *             .build());
@@ -74,13 +78,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IAM Role Policies using the `role_name:role_policy_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iam/rolePolicy:RolePolicy mypolicy role_of_mypolicy_name:mypolicy_name
+ * $ pulumi import aws:iam/rolePolicy:RolePolicy mypolicy role_of_mypolicy_name:mypolicy_name
  * ```
  * 
  */

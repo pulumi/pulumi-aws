@@ -4,6 +4,7 @@
 package com.pulumi.aws.emr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -87,31 +88,41 @@ public final class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificati
 
         @CustomType.Setter
         public Builder allocationStrategy(String allocationStrategy) {
-            this.allocationStrategy = Objects.requireNonNull(allocationStrategy);
+            if (allocationStrategy == null) {
+              throw new MissingRequiredPropertyException("ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification", "allocationStrategy");
+            }
+            this.allocationStrategy = allocationStrategy;
             return this;
         }
         @CustomType.Setter
         public Builder blockDurationMinutes(@Nullable Integer blockDurationMinutes) {
+
             this.blockDurationMinutes = blockDurationMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutAction(String timeoutAction) {
-            this.timeoutAction = Objects.requireNonNull(timeoutAction);
+            if (timeoutAction == null) {
+              throw new MissingRequiredPropertyException("ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification", "timeoutAction");
+            }
+            this.timeoutAction = timeoutAction;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutDurationMinutes(Integer timeoutDurationMinutes) {
-            this.timeoutDurationMinutes = Objects.requireNonNull(timeoutDurationMinutes);
+            if (timeoutDurationMinutes == null) {
+              throw new MissingRequiredPropertyException("ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification", "timeoutDurationMinutes");
+            }
+            this.timeoutDurationMinutes = timeoutDurationMinutes;
             return this;
         }
         public ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification build() {
-            final var o = new ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification();
-            o.allocationStrategy = allocationStrategy;
-            o.blockDurationMinutes = blockDurationMinutes;
-            o.timeoutAction = timeoutAction;
-            o.timeoutDurationMinutes = timeoutDurationMinutes;
-            return o;
+            final var _resultValue = new ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification();
+            _resultValue.allocationStrategy = allocationStrategy;
+            _resultValue.blockDurationMinutes = blockDurationMinutes;
+            _resultValue.timeoutAction = timeoutAction;
+            _resultValue.timeoutDurationMinutes = timeoutDurationMinutes;
+            return _resultValue;
         }
     }
 }

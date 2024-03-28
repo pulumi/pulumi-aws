@@ -5,8 +5,10 @@ package com.pulumi.aws.iot;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -61,12 +63,28 @@ public final class RoleAliasArgs extends com.pulumi.resources.ResourceArgs {
         return this.roleArn;
     }
 
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<Map<String,String>> tags;
+
+    /**
+     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     private RoleAliasArgs() {}
 
     private RoleAliasArgs(RoleAliasArgs $) {
         this.alias = $.alias;
         this.credentialDuration = $.credentialDuration;
         this.roleArn = $.roleArn;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -150,9 +168,34 @@ public final class RoleAliasArgs extends com.pulumi.resources.ResourceArgs {
             return roleArn(Output.of(roleArn));
         }
 
+        /**
+         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<Map<String,String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
+        }
+
         public RoleAliasArgs build() {
-            $.alias = Objects.requireNonNull($.alias, "expected parameter 'alias' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.alias == null) {
+                throw new MissingRequiredPropertyException("RoleAliasArgs", "alias");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("RoleAliasArgs", "roleArn");
+            }
             return $;
         }
     }

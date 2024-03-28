@@ -9,30 +9,33 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleFleet = new aws.appstream.Fleet("exampleFleet", {
+ * const example = new aws.appstream.Fleet("example", {
+ *     name: "NAME",
  *     imageName: "Amazon-AppStream2-Sample-Image-03-11-2023",
  *     instanceType: "stream.standard.small",
  *     computeCapacity: {
  *         desiredInstances: 1,
  *     },
  * });
- * const exampleStack = new aws.appstream.Stack("exampleStack", {});
- * const exampleFleetStackAssociation = new aws.appstream.FleetStackAssociation("exampleFleetStackAssociation", {
- *     fleetName: exampleFleet.name,
+ * const exampleStack = new aws.appstream.Stack("example", {name: "STACK NAME"});
+ * const exampleFleetStackAssociation = new aws.appstream.FleetStackAssociation("example", {
+ *     fleetName: example.name,
  *     stackName: exampleStack.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For example:
  *
  * ```sh
- *  $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
+ * $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
  * ```
  */
 export class FleetStackAssociation extends pulumi.CustomResource {

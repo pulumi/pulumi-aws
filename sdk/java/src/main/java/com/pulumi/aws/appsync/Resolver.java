@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Provides an AppSync Resolver.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,8 +53,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testGraphQLApi = new GraphQLApi(&#34;testGraphQLApi&#34;, GraphQLApiArgs.builder()        
+ *         var test = new GraphQLApi(&#34;test&#34;, GraphQLApiArgs.builder()        
  *             .authenticationType(&#34;API_KEY&#34;)
+ *             .name(&#34;tf-example&#34;)
  *             .schema(&#34;&#34;&#34;
  * type Mutation {
  * 	putPost(id: ID!, title: String!): Post
@@ -75,7 +78,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testDataSource = new DataSource(&#34;testDataSource&#34;, DataSourceArgs.builder()        
- *             .apiId(testGraphQLApi.id())
+ *             .apiId(test.id())
  *             .name(&#34;my_example&#34;)
  *             .type(&#34;HTTP&#34;)
  *             .httpConfig(DataSourceHttpConfigArgs.builder()
@@ -84,7 +87,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testResolver = new Resolver(&#34;testResolver&#34;, ResolverArgs.builder()        
- *             .apiId(testGraphQLApi.id())
+ *             .apiId(test.id())
  *             .field(&#34;singlePost&#34;)
  *             .type(&#34;Query&#34;)
  *             .dataSource(testDataSource.name())
@@ -115,23 +118,27 @@ import javax.annotation.Nullable;
  * 
  *         var mutationPipelineTest = new Resolver(&#34;mutationPipelineTest&#34;, ResolverArgs.builder()        
  *             .type(&#34;Mutation&#34;)
- *             .apiId(testGraphQLApi.id())
+ *             .apiId(test.id())
  *             .field(&#34;pipelineTest&#34;)
  *             .requestTemplate(&#34;{}&#34;)
  *             .responseTemplate(&#34;$util.toJson($ctx.result)&#34;)
  *             .kind(&#34;PIPELINE&#34;)
  *             .pipelineConfig(ResolverPipelineConfigArgs.builder()
  *                 .functions(                
- *                     aws_appsync_function.test1().function_id(),
- *                     aws_appsync_function.test2().function_id(),
- *                     aws_appsync_function.test3().function_id())
+ *                     test1.functionId(),
+ *                     test2.functionId(),
+ *                     test3.functionId())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### JS
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -157,29 +164,32 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Resolver(&#34;example&#34;, ResolverArgs.builder()        
  *             .type(&#34;Query&#34;)
- *             .apiId(aws_appsync_graphql_api.test().id())
+ *             .apiId(testAwsAppsyncGraphqlApi.id())
  *             .field(&#34;pipelineTest&#34;)
  *             .kind(&#34;PIPELINE&#34;)
- *             .code(Files.readString(Paths.get(&#34;some-code-dir&#34;)))
+ *             .code(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;some-code-dir&#34;)
+ *                 .build()).result())
  *             .runtime(ResolverRuntimeArgs.builder()
  *                 .name(&#34;APPSYNC_JS&#34;)
  *                 .runtimeVersion(&#34;1.0.0&#34;)
  *                 .build())
  *             .pipelineConfig(ResolverPipelineConfigArgs.builder()
- *                 .functions(aws_appsync_function.test().function_id())
+ *                 .functions(test.functionId())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
+ * $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
  * ```
  * 
  */

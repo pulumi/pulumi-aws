@@ -24,8 +24,10 @@ namespace Pulumi.Aws.AppMesh
     /// The state associated with existing resources will automatically be migrated.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,7 +38,8 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var serviceb1 = new Aws.AppMesh.VirtualNode("serviceb1", new()
     ///     {
-    ///         MeshName = aws_appmesh_mesh.Simple.Id,
+    ///         Name = "serviceBv1",
+    ///         MeshName = simple.Id,
     ///         Spec = new Aws.AppMesh.Inputs.VirtualNodeSpecArgs
     ///         {
     ///             Backends = new[]
@@ -72,8 +75,11 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### AWS Cloud Map Service Discovery
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -82,11 +88,15 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ServiceDiscovery.HttpNamespace("example");
+    ///     var example = new Aws.ServiceDiscovery.HttpNamespace("example", new()
+    ///     {
+    ///         Name = "example-ns",
+    ///     });
     /// 
     ///     var serviceb1 = new Aws.AppMesh.VirtualNode("serviceb1", new()
     ///     {
-    ///         MeshName = aws_appmesh_mesh.Simple.Id,
+    ///         Name = "serviceBv1",
+    ///         MeshName = simple.Id,
     ///         Spec = new Aws.AppMesh.Inputs.VirtualNodeSpecArgs
     ///         {
     ///             Backends = new[]
@@ -127,8 +137,11 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Listener Health Check
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -139,7 +152,8 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var serviceb1 = new Aws.AppMesh.VirtualNode("serviceb1", new()
     ///     {
-    ///         MeshName = aws_appmesh_mesh.Simple.Id,
+    ///         Name = "serviceBv1",
+    ///         MeshName = simple.Id,
     ///         Spec = new Aws.AppMesh.Inputs.VirtualNodeSpecArgs
     ///         {
     ///             Backends = new[]
@@ -184,8 +198,11 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Logging
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -196,7 +213,8 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var serviceb1 = new Aws.AppMesh.VirtualNode("serviceb1", new()
     ///     {
-    ///         MeshName = aws_appmesh_mesh.Simple.Id,
+    ///         Name = "serviceBv1",
+    ///         MeshName = simple.Id,
     ///         Spec = new Aws.AppMesh.Inputs.VirtualNodeSpecArgs
     ///         {
     ///             Backends = new[]
@@ -242,13 +260,14 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import App Mesh virtual nodes using `mesh_name` together with the virtual node's `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
+    /// $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
     /// ```
     /// </summary>
     [AwsResourceType("aws:appmesh/virtualNode:VirtualNode")]
@@ -337,10 +356,6 @@ namespace Pulumi.Aws.AppMesh
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -478,11 +493,7 @@ namespace Pulumi.Aws.AppMesh
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public VirtualNodeState()

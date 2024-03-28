@@ -15,8 +15,10 @@ import (
 // Manages a revision of an ECS task definition to be used in `ecs.Service`.
 //
 // ## Example Usage
+//
 // ### Basic Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -87,33 +89,33 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With AppMesh Proxy
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "task-definitions/service.json",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
 //				Family:               pulumi.String("service"),
-//				ContainerDefinitions: readFileOrPanic("task-definitions/service.json"),
+//				ContainerDefinitions: invokeFile.Result,
 //				ProxyConfiguration: &ecs.TaskDefinitionProxyConfigurationArgs{
 //					Type:          pulumi.String("APPMESH"),
 //					ContainerName: pulumi.String("applicationContainerName"),
@@ -134,34 +136,35 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example Using `dockerVolumeConfiguration`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
 //	"fmt"
-//	"os"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "task-definitions/service.json",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
 //				Family:               pulumi.String("service"),
-//				ContainerDefinitions: readFileOrPanic("task-definitions/service.json"),
+//				ContainerDefinitions: invokeFile.Result,
 //				Volumes: ecs.TaskDefinitionVolumeArray{
 //					&ecs.TaskDefinitionVolumeArgs{
 //						Name: pulumi.String("service-storage"),
@@ -171,8 +174,8 @@ import (
 //							Driver:        pulumi.String("local"),
 //							DriverOpts: pulumi.StringMap{
 //								"type":   pulumi.String("nfs"),
-//								"device": pulumi.String(fmt.Sprintf("%v:/", aws_efs_file_system.Fs.Dns_name)),
-//								"o":      pulumi.String(fmt.Sprintf("addr=%v,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport", aws_efs_file_system.Fs.Dns_name)),
+//								"device": pulumi.String(fmt.Sprintf("%v:/", fs.DnsName)),
+//								"o":      pulumi.String(fmt.Sprintf("addr=%v,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport", fs.DnsName)),
 //							},
 //						},
 //					},
@@ -186,43 +189,43 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example Using `efsVolumeConfiguration`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "task-definitions/service.json",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
 //				Family:               pulumi.String("service"),
-//				ContainerDefinitions: readFileOrPanic("task-definitions/service.json"),
+//				ContainerDefinitions: invokeFile.Result,
 //				Volumes: ecs.TaskDefinitionVolumeArray{
 //					&ecs.TaskDefinitionVolumeArgs{
 //						Name: pulumi.String("service-storage"),
 //						EfsVolumeConfiguration: &ecs.TaskDefinitionVolumeEfsVolumeConfigurationArgs{
-//							FileSystemId:          pulumi.Any(aws_efs_file_system.Fs.Id),
+//							FileSystemId:          pulumi.Any(fs.Id),
 //							RootDirectory:         pulumi.String("/opt/data"),
 //							TransitEncryption:     pulumi.String("ENABLED"),
 //							TransitEncryptionPort: pulumi.Int(2999),
 //							AuthorizationConfig: &ecs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs{
-//								AccessPointId: pulumi.Any(aws_efs_access_point.Test.Id),
+//								AccessPointId: pulumi.Any(test.Id),
 //								Iam:           pulumi.String("ENABLED"),
 //							},
 //						},
@@ -237,59 +240,60 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example Using `fsxWindowsFileServerVolumeConfiguration`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
 //	"encoding/json"
-//	"os"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
 //				"username": "admin",
-//				"password": aws_directory_service_directory.Test.Password,
+//				"password": testAwsDirectoryServiceDirectory.Password,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
 //			test, err := secretsmanager.NewSecretVersion(ctx, "test", &secretsmanager.SecretVersionArgs{
-//				SecretId:     pulumi.Any(aws_secretsmanager_secret.Test.Id),
+//				SecretId:     pulumi.Any(testAwsSecretsmanagerSecret.Id),
 //				SecretString: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "task-definitions/service.json",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			_, err = ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
 //				Family:               pulumi.String("service"),
-//				ContainerDefinitions: readFileOrPanic("task-definitions/service.json"),
+//				ContainerDefinitions: invokeFile.Result,
 //				Volumes: ecs.TaskDefinitionVolumeArray{
 //					&ecs.TaskDefinitionVolumeArgs{
 //						Name: pulumi.String("service-storage"),
 //						FsxWindowsFileServerVolumeConfiguration: &ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs{
-//							FileSystemId:  pulumi.Any(aws_fsx_windows_file_system.Test.Id),
+//							FileSystemId:  pulumi.Any(testAwsFsxWindowsFileSystem.Id),
 //							RootDirectory: pulumi.String("\\data"),
 //							AuthorizationConfig: &ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs{
 //								CredentialsParameter: test.Arn,
-//								Domain:               pulumi.Any(aws_directory_service_directory.Test.Name),
+//								Domain:               pulumi.Any(testAwsDirectoryServiceDirectory.Name),
 //							},
 //						},
 //					},
@@ -303,8 +307,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example Using `containerDefinitions` and `inferenceAccelerator`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -318,6 +325,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewTaskDefinition(ctx, "test", &ecs.TaskDefinitionArgs{
+//				Family: pulumi.String("test"),
 //				ContainerDefinitions: pulumi.String(`[
 //	  {
 //	    "cpu": 10,
@@ -345,10 +353,8 @@ import (
 //	  }
 //
 // ]
-//
 // `),
 //
-//				Family: pulumi.String("test"),
 //				InferenceAccelerators: ecs.TaskDefinitionInferenceAcceleratorArray{
 //					&ecs.TaskDefinitionInferenceAcceleratorArgs{
 //						DeviceName: pulumi.String("device_1"),
@@ -364,8 +370,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example Using `runtimePlatform` and `fargate`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -379,6 +388,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewTaskDefinition(ctx, "test", &ecs.TaskDefinitionArgs{
+//				Family: pulumi.String("test"),
+//				RequiresCompatibilities: pulumi.StringArray{
+//					pulumi.String("FARGATE"),
+//				},
+//				NetworkMode: pulumi.String("awsvpc"),
+//				Cpu:         pulumi.String("1024"),
+//				Memory:      pulumi.String("2048"),
 //				ContainerDefinitions: pulumi.String(`[
 //	  {
 //	    "name": "iis",
@@ -389,19 +405,11 @@ import (
 //	  }
 //
 // ]
-//
 // `),
 //
-//				Cpu:         pulumi.String("1024"),
-//				Family:      pulumi.String("test"),
-//				Memory:      pulumi.String("2048"),
-//				NetworkMode: pulumi.String("awsvpc"),
-//				RequiresCompatibilities: pulumi.StringArray{
-//					pulumi.String("FARGATE"),
-//				},
 //				RuntimePlatform: &ecs.TaskDefinitionRuntimePlatformArgs{
-//					CpuArchitecture:       pulumi.String("X86_64"),
 //					OperatingSystemFamily: pulumi.String("WINDOWS_SERVER_2019_CORE"),
+//					CpuArchitecture:       pulumi.String("X86_64"),
 //				},
 //			})
 //			if err != nil {
@@ -412,15 +420,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ECS Task Definitions using their ARNs. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
-//
+// $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
 // ```
 type TaskDefinition struct {
 	pulumi.CustomResourceState
@@ -471,6 +478,8 @@ type TaskDefinition struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn pulumi.StringPtrOutput `pulumi:"taskRoleArn"`
+	// Whether should track latest task definition or the one created with the resource. Default is `false`.
+	TrackLatest pulumi.BoolPtrOutput `pulumi:"trackLatest"`
 	// Configuration block for volumes that containers in your task may use. Detailed below.
 	Volumes TaskDefinitionVolumeArrayOutput `pulumi:"volumes"`
 }
@@ -488,10 +497,6 @@ func NewTaskDefinition(ctx *pulumi.Context,
 	if args.Family == nil {
 		return nil, errors.New("invalid value for required argument 'Family'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TaskDefinition
 	err := ctx.RegisterResource("aws:ecs/taskDefinition:TaskDefinition", name, args, &resource, opts...)
@@ -561,6 +566,8 @@ type taskDefinitionState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn *string `pulumi:"taskRoleArn"`
+	// Whether should track latest task definition or the one created with the resource. Default is `false`.
+	TrackLatest *bool `pulumi:"trackLatest"`
 	// Configuration block for volumes that containers in your task may use. Detailed below.
 	Volumes []TaskDefinitionVolume `pulumi:"volumes"`
 }
@@ -612,6 +619,8 @@ type TaskDefinitionState struct {
 	TagsAll pulumi.StringMapInput
 	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn pulumi.StringPtrInput
+	// Whether should track latest task definition or the one created with the resource. Default is `false`.
+	TrackLatest pulumi.BoolPtrInput
 	// Configuration block for volumes that containers in your task may use. Detailed below.
 	Volumes TaskDefinitionVolumeArrayInput
 }
@@ -657,6 +666,8 @@ type taskDefinitionArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn *string `pulumi:"taskRoleArn"`
+	// Whether should track latest task definition or the one created with the resource. Default is `false`.
+	TrackLatest *bool `pulumi:"trackLatest"`
 	// Configuration block for volumes that containers in your task may use. Detailed below.
 	Volumes []TaskDefinitionVolume `pulumi:"volumes"`
 }
@@ -699,6 +710,8 @@ type TaskDefinitionArgs struct {
 	Tags pulumi.StringMapInput
 	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn pulumi.StringPtrInput
+	// Whether should track latest task definition or the one created with the resource. Default is `false`.
+	TrackLatest pulumi.BoolPtrInput
 	// Configuration block for volumes that containers in your task may use. Detailed below.
 	Volumes TaskDefinitionVolumeArrayInput
 }
@@ -897,6 +910,11 @@ func (o TaskDefinitionOutput) TagsAll() pulumi.StringMapOutput {
 // ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 func (o TaskDefinitionOutput) TaskRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.TaskRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// Whether should track latest task definition or the one created with the resource. Default is `false`.
+func (o TaskDefinitionOutput) TrackLatest() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TaskDefinition) pulumi.BoolPtrOutput { return v.TrackLatest }).(pulumi.BoolPtrOutput)
 }
 
 // Configuration block for volumes that containers in your task may use. Detailed below.

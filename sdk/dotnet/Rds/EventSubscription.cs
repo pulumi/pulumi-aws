@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,12 +23,12 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var defaultInstance = new Aws.Rds.Instance("defaultInstance", new()
+    ///     var @default = new Aws.Rds.Instance("default", new()
     ///     {
     ///         AllocatedStorage = 10,
     ///         Engine = "mysql",
     ///         EngineVersion = "5.6.17",
-    ///         InstanceClass = "db.t2.micro",
+    ///         InstanceClass = Aws.Rds.InstanceType.T2_Micro,
     ///         DbName = "mydb",
     ///         Username = "foo",
     ///         Password = "bar",
@@ -35,15 +36,19 @@ namespace Pulumi.Aws.Rds
     ///         ParameterGroupName = "default.mysql5.6",
     ///     });
     /// 
-    ///     var defaultTopic = new Aws.Sns.Topic("defaultTopic");
-    /// 
-    ///     var defaultEventSubscription = new Aws.Rds.EventSubscription("defaultEventSubscription", new()
+    ///     var defaultTopic = new Aws.Sns.Topic("default", new()
     ///     {
+    ///         Name = "rds-events",
+    ///     });
+    /// 
+    ///     var defaultEventSubscription = new Aws.Rds.EventSubscription("default", new()
+    ///     {
+    ///         Name = "rds-event-sub",
     ///         SnsTopic = defaultTopic.Arn,
     ///         SourceType = "db-instance",
     ///         SourceIds = new[]
     ///         {
-    ///             defaultInstance.Identifier,
+    ///             @default.Identifier,
     ///         },
     ///         EventCategories = new[]
     ///         {
@@ -62,13 +67,14 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DB Event Subscriptions using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
+    /// $ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/eventSubscription:EventSubscription")]
@@ -163,10 +169,6 @@ namespace Pulumi.Aws.Rds
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -352,11 +354,7 @@ namespace Pulumi.Aws.Rds
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public EventSubscriptionState()

@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** A Redshift cluster&#39;s default IAM role can be managed both by this resource&#39;s `default_iam_role_arn` argument and the `aws.redshift.Cluster` resource&#39;s `default_iam_role_arn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,20 +44,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ClusterIamRoles(&#34;example&#34;, ClusterIamRolesArgs.builder()        
- *             .clusterIdentifier(aws_redshift_cluster.example().cluster_identifier())
- *             .iamRoleArns(aws_iam_role.example().arn())
+ *             .clusterIdentifier(exampleAwsRedshiftCluster.clusterIdentifier())
+ *             .iamRoleArns(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift Cluster IAM Roless using the `cluster_identifier`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
+ * $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
  * ```
  * 
  */

@@ -11,24 +11,28 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS OpenSearchServerless VPC Endpoint.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearch.ServerlessVpcEndpoint("example", {
- *     subnetIds: [aws_subnet.example.id],
- *     vpcId: aws_vpc.example.id,
+ *     name: "myendpoint",
+ *     subnetIds: [exampleAwsSubnet.id],
+ *     vpcId: exampleAwsVpc.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import OpenSearchServerless Vpc Endpointa using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
+ * $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
  * ```
  */
 export class ServerlessVpcEndpoint extends pulumi.CustomResource {

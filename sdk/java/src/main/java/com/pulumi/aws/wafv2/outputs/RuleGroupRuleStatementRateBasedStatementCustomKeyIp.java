@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyIp {
         }
 
         public RuleGroupRuleStatementRateBasedStatementCustomKeyIp build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementCustomKeyIp();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementCustomKeyIp();
+            return _resultValue;
         }
     }
 }

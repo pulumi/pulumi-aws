@@ -22,6 +22,7 @@ class EventRuleArgs:
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a EventRule resource.
@@ -29,11 +30,21 @@ class EventRuleArgs:
         :param pulumi.Input[str] event_bus_name: The name or ARN of the event bus to associate with this rule.
                If you omit this, the `default` event bus is used.
         :param pulumi.Input[str] event_pattern: The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
-        :param pulumi.Input[bool] is_enabled: Whether the rule should be enabled (defaults to `true`).
+        :param pulumi.Input[bool] is_enabled: Whether the rule should be enabled.
+               Defaults to `true`.
+               Conflicts with `state`.
         :param pulumi.Input[str] name: The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
         :param pulumi.Input[str] schedule_expression: The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
+        :param pulumi.Input[str] state: State of the rule.
+               Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+               When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+               To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+               Defaults to `ENABLED`.
+               Conflicts with `is_enabled`.
+               
+               **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if description is not None:
@@ -42,6 +53,9 @@ class EventRuleArgs:
             pulumi.set(__self__, "event_bus_name", event_bus_name)
         if event_pattern is not None:
             pulumi.set(__self__, "event_pattern", event_pattern)
+        if is_enabled is not None:
+            warnings.warn("""Use \"state\" instead""", DeprecationWarning)
+            pulumi.log.warn("""is_enabled is deprecated: Use \"state\" instead""")
         if is_enabled is not None:
             pulumi.set(__self__, "is_enabled", is_enabled)
         if name is not None:
@@ -52,6 +66,8 @@ class EventRuleArgs:
             pulumi.set(__self__, "role_arn", role_arn)
         if schedule_expression is not None:
             pulumi.set(__self__, "schedule_expression", schedule_expression)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -96,8 +112,13 @@ class EventRuleArgs:
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the rule should be enabled (defaults to `true`).
+        Whether the rule should be enabled.
+        Defaults to `true`.
+        Conflicts with `state`.
         """
+        warnings.warn("""Use \"state\" instead""", DeprecationWarning)
+        pulumi.log.warn("""is_enabled is deprecated: Use \"state\" instead""")
+
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
@@ -154,6 +175,25 @@ class EventRuleArgs:
 
     @property
     @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        State of the rule.
+        Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+        When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+        To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+        Defaults to `ENABLED`.
+        Conflicts with `is_enabled`.
+
+        **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -177,6 +217,7 @@ class _EventRuleState:
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -186,11 +227,21 @@ class _EventRuleState:
         :param pulumi.Input[str] event_bus_name: The name or ARN of the event bus to associate with this rule.
                If you omit this, the `default` event bus is used.
         :param pulumi.Input[str] event_pattern: The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
-        :param pulumi.Input[bool] is_enabled: Whether the rule should be enabled (defaults to `true`).
+        :param pulumi.Input[bool] is_enabled: Whether the rule should be enabled.
+               Defaults to `true`.
+               Conflicts with `state`.
         :param pulumi.Input[str] name: The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
         :param pulumi.Input[str] schedule_expression: The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
+        :param pulumi.Input[str] state: State of the rule.
+               Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+               When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+               To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+               Defaults to `ENABLED`.
+               Conflicts with `is_enabled`.
+               
+               **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -203,6 +254,9 @@ class _EventRuleState:
         if event_pattern is not None:
             pulumi.set(__self__, "event_pattern", event_pattern)
         if is_enabled is not None:
+            warnings.warn("""Use \"state\" instead""", DeprecationWarning)
+            pulumi.log.warn("""is_enabled is deprecated: Use \"state\" instead""")
+        if is_enabled is not None:
             pulumi.set(__self__, "is_enabled", is_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -212,6 +266,8 @@ class _EventRuleState:
             pulumi.set(__self__, "role_arn", role_arn)
         if schedule_expression is not None:
             pulumi.set(__self__, "schedule_expression", schedule_expression)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -273,8 +329,13 @@ class _EventRuleState:
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the rule should be enabled (defaults to `true`).
+        Whether the rule should be enabled.
+        Defaults to `true`.
+        Conflicts with `state`.
         """
+        warnings.warn("""Use \"state\" instead""", DeprecationWarning)
+        pulumi.log.warn("""is_enabled is deprecated: Use \"state\" instead""")
+
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
@@ -331,6 +392,25 @@ class _EventRuleState:
 
     @property
     @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        State of the rule.
+        Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+        When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+        To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+        Defaults to `ENABLED`.
+        Conflicts with `is_enabled`.
+
+        **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -370,6 +450,7 @@ class EventRule(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -379,19 +460,22 @@ class EventRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         console = aws.cloudwatch.EventRule("console",
+            name="capture-aws-sign-in",
             description="Capture each AWS Console Sign In",
             event_pattern=json.dumps({
                 "detail-type": ["AWS Console Sign In via CloudTrail"],
             }))
-        aws_logins = aws.sns.Topic("awsLogins")
+        aws_logins = aws.sns.Topic("aws_logins", name="aws-console-logins")
         sns = aws.cloudwatch.EventTarget("sns",
             rule=console.name,
+            target_id="SendToSNS",
             arn=aws_logins.arn)
         sns_topic_policy = aws_logins.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
@@ -406,13 +490,14 @@ class EventRule(pulumi.CustomResource):
             arn=aws_logins.arn,
             policy=sns_topic_policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
+        $ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
         ```
 
         :param str resource_name: The name of the resource.
@@ -421,11 +506,21 @@ class EventRule(pulumi.CustomResource):
         :param pulumi.Input[str] event_bus_name: The name or ARN of the event bus to associate with this rule.
                If you omit this, the `default` event bus is used.
         :param pulumi.Input[str] event_pattern: The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
-        :param pulumi.Input[bool] is_enabled: Whether the rule should be enabled (defaults to `true`).
+        :param pulumi.Input[bool] is_enabled: Whether the rule should be enabled.
+               Defaults to `true`.
+               Conflicts with `state`.
         :param pulumi.Input[str] name: The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
         :param pulumi.Input[str] schedule_expression: The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
+        :param pulumi.Input[str] state: State of the rule.
+               Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+               When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+               To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+               Defaults to `ENABLED`.
+               Conflicts with `is_enabled`.
+               
+               **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -441,19 +536,22 @@ class EventRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         console = aws.cloudwatch.EventRule("console",
+            name="capture-aws-sign-in",
             description="Capture each AWS Console Sign In",
             event_pattern=json.dumps({
                 "detail-type": ["AWS Console Sign In via CloudTrail"],
             }))
-        aws_logins = aws.sns.Topic("awsLogins")
+        aws_logins = aws.sns.Topic("aws_logins", name="aws-console-logins")
         sns = aws.cloudwatch.EventTarget("sns",
             rule=console.name,
+            target_id="SendToSNS",
             arn=aws_logins.arn)
         sns_topic_policy = aws_logins.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
@@ -468,13 +566,14 @@ class EventRule(pulumi.CustomResource):
             arn=aws_logins.arn,
             policy=sns_topic_policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
+        $ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
         ```
 
         :param str resource_name: The name of the resource.
@@ -500,6 +599,7 @@ class EventRule(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -518,11 +618,10 @@ class EventRule(pulumi.CustomResource):
             __props__.__dict__["name_prefix"] = name_prefix
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["schedule_expression"] = schedule_expression
+            __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EventRule, __self__).__init__(
             'aws:cloudwatch/eventRule:EventRule',
             resource_name,
@@ -542,6 +641,7 @@ class EventRule(pulumi.CustomResource):
             name_prefix: Optional[pulumi.Input[str]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
             schedule_expression: Optional[pulumi.Input[str]] = None,
+            state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'EventRule':
         """
@@ -556,11 +656,21 @@ class EventRule(pulumi.CustomResource):
         :param pulumi.Input[str] event_bus_name: The name or ARN of the event bus to associate with this rule.
                If you omit this, the `default` event bus is used.
         :param pulumi.Input[str] event_pattern: The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
-        :param pulumi.Input[bool] is_enabled: Whether the rule should be enabled (defaults to `true`).
+        :param pulumi.Input[bool] is_enabled: Whether the rule should be enabled.
+               Defaults to `true`.
+               Conflicts with `state`.
         :param pulumi.Input[str] name: The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
         :param pulumi.Input[str] schedule_expression: The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
+        :param pulumi.Input[str] state: State of the rule.
+               Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+               When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+               To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+               Defaults to `ENABLED`.
+               Conflicts with `is_enabled`.
+               
+               **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -577,6 +687,7 @@ class EventRule(pulumi.CustomResource):
         __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["schedule_expression"] = schedule_expression
+        __props__.__dict__["state"] = state
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return EventRule(resource_name, opts=opts, __props__=__props__)
@@ -618,8 +729,13 @@ class EventRule(pulumi.CustomResource):
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether the rule should be enabled (defaults to `true`).
+        Whether the rule should be enabled.
+        Defaults to `true`.
+        Conflicts with `state`.
         """
+        warnings.warn("""Use \"state\" instead""", DeprecationWarning)
+        pulumi.log.warn("""is_enabled is deprecated: Use \"state\" instead""")
+
         return pulumi.get(self, "is_enabled")
 
     @property
@@ -653,6 +769,21 @@ class EventRule(pulumi.CustomResource):
         The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
         """
         return pulumi.get(self, "schedule_expression")
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Output[Optional[str]]:
+        """
+        State of the rule.
+        Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+        When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+        To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+        Defaults to `ENABLED`.
+        Conflicts with `is_enabled`.
+
+        **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter

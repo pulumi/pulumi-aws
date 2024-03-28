@@ -4,6 +4,7 @@
 package com.pulumi.aws.sesv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,22 +13,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ContactListTopic {
     /**
-     * @return The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+     * @return Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
      * 
      */
     private String defaultSubscriptionStatus;
     /**
-     * @return A description of what the topic is about, which the contact will see.
+     * @return Description of what the topic is about, which the contact will see.
      * 
      */
     private @Nullable String description;
     /**
-     * @return The name of the topic the contact will see.
+     * @return Name of the topic the contact will see.
      * 
      */
     private String displayName;
     /**
-     * @return The name of the topic.
+     * @return Name of the topic.
      * 
      * The following arguments are optional:
      * 
@@ -36,28 +37,28 @@ public final class ContactListTopic {
 
     private ContactListTopic() {}
     /**
-     * @return The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+     * @return Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
      * 
      */
     public String defaultSubscriptionStatus() {
         return this.defaultSubscriptionStatus;
     }
     /**
-     * @return A description of what the topic is about, which the contact will see.
+     * @return Description of what the topic is about, which the contact will see.
      * 
      */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return The name of the topic the contact will see.
+     * @return Name of the topic the contact will see.
      * 
      */
     public String displayName() {
         return this.displayName;
     }
     /**
-     * @return The name of the topic.
+     * @return Name of the topic.
      * 
      * The following arguments are optional:
      * 
@@ -90,31 +91,41 @@ public final class ContactListTopic {
 
         @CustomType.Setter
         public Builder defaultSubscriptionStatus(String defaultSubscriptionStatus) {
-            this.defaultSubscriptionStatus = Objects.requireNonNull(defaultSubscriptionStatus);
+            if (defaultSubscriptionStatus == null) {
+              throw new MissingRequiredPropertyException("ContactListTopic", "defaultSubscriptionStatus");
+            }
+            this.defaultSubscriptionStatus = defaultSubscriptionStatus;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("ContactListTopic", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder topicName(String topicName) {
-            this.topicName = Objects.requireNonNull(topicName);
+            if (topicName == null) {
+              throw new MissingRequiredPropertyException("ContactListTopic", "topicName");
+            }
+            this.topicName = topicName;
             return this;
         }
         public ContactListTopic build() {
-            final var o = new ContactListTopic();
-            o.defaultSubscriptionStatus = defaultSubscriptionStatus;
-            o.description = description;
-            o.displayName = displayName;
-            o.topicName = topicName;
-            return o;
+            final var _resultValue = new ContactListTopic();
+            _resultValue.defaultSubscriptionStatus = defaultSubscriptionStatus;
+            _resultValue.description = description;
+            _resultValue.displayName = displayName;
+            _resultValue.topicName = topicName;
+            return _resultValue;
         }
     }
 }

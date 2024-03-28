@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.lakeformation.outputs;
 
+import com.pulumi.aws.lakeformation.outputs.GetPermissionsDataCellsFilter;
 import com.pulumi.aws.lakeformation.outputs.GetPermissionsDataLocation;
 import com.pulumi.aws.lakeformation.outputs.GetPermissionsDatabase;
 import com.pulumi.aws.lakeformation.outputs.GetPermissionsLfTag;
@@ -10,6 +11,7 @@ import com.pulumi.aws.lakeformation.outputs.GetPermissionsLfTagPolicy;
 import com.pulumi.aws.lakeformation.outputs.GetPermissionsTable;
 import com.pulumi.aws.lakeformation.outputs.GetPermissionsTableWithColumns;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -21,6 +23,7 @@ import javax.annotation.Nullable;
 public final class GetPermissionsResult {
     private @Nullable String catalogId;
     private @Nullable Boolean catalogResource;
+    private GetPermissionsDataCellsFilter dataCellsFilter;
     private GetPermissionsDataLocation dataLocation;
     private GetPermissionsDatabase database;
     /**
@@ -50,6 +53,9 @@ public final class GetPermissionsResult {
     }
     public Optional<Boolean> catalogResource() {
         return Optional.ofNullable(this.catalogResource);
+    }
+    public GetPermissionsDataCellsFilter dataCellsFilter() {
+        return this.dataCellsFilter;
     }
     public GetPermissionsDataLocation dataLocation() {
         return this.dataLocation;
@@ -105,6 +111,7 @@ public final class GetPermissionsResult {
     public static final class Builder {
         private @Nullable String catalogId;
         private @Nullable Boolean catalogResource;
+        private GetPermissionsDataCellsFilter dataCellsFilter;
         private GetPermissionsDataLocation dataLocation;
         private GetPermissionsDatabase database;
         private String id;
@@ -120,6 +127,7 @@ public final class GetPermissionsResult {
     	      Objects.requireNonNull(defaults);
     	      this.catalogId = defaults.catalogId;
     	      this.catalogResource = defaults.catalogResource;
+    	      this.dataCellsFilter = defaults.dataCellsFilter;
     	      this.dataLocation = defaults.dataLocation;
     	      this.database = defaults.database;
     	      this.id = defaults.id;
@@ -134,42 +142,70 @@ public final class GetPermissionsResult {
 
         @CustomType.Setter
         public Builder catalogId(@Nullable String catalogId) {
+
             this.catalogId = catalogId;
             return this;
         }
         @CustomType.Setter
         public Builder catalogResource(@Nullable Boolean catalogResource) {
+
             this.catalogResource = catalogResource;
             return this;
         }
         @CustomType.Setter
+        public Builder dataCellsFilter(GetPermissionsDataCellsFilter dataCellsFilter) {
+            if (dataCellsFilter == null) {
+              throw new MissingRequiredPropertyException("GetPermissionsResult", "dataCellsFilter");
+            }
+            this.dataCellsFilter = dataCellsFilter;
+            return this;
+        }
+        @CustomType.Setter
         public Builder dataLocation(GetPermissionsDataLocation dataLocation) {
-            this.dataLocation = Objects.requireNonNull(dataLocation);
+            if (dataLocation == null) {
+              throw new MissingRequiredPropertyException("GetPermissionsResult", "dataLocation");
+            }
+            this.dataLocation = dataLocation;
             return this;
         }
         @CustomType.Setter
         public Builder database(GetPermissionsDatabase database) {
-            this.database = Objects.requireNonNull(database);
+            if (database == null) {
+              throw new MissingRequiredPropertyException("GetPermissionsResult", "database");
+            }
+            this.database = database;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPermissionsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder lfTag(GetPermissionsLfTag lfTag) {
-            this.lfTag = Objects.requireNonNull(lfTag);
+            if (lfTag == null) {
+              throw new MissingRequiredPropertyException("GetPermissionsResult", "lfTag");
+            }
+            this.lfTag = lfTag;
             return this;
         }
         @CustomType.Setter
         public Builder lfTagPolicy(GetPermissionsLfTagPolicy lfTagPolicy) {
-            this.lfTagPolicy = Objects.requireNonNull(lfTagPolicy);
+            if (lfTagPolicy == null) {
+              throw new MissingRequiredPropertyException("GetPermissionsResult", "lfTagPolicy");
+            }
+            this.lfTagPolicy = lfTagPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder permissions(List<String> permissions) {
-            this.permissions = Objects.requireNonNull(permissions);
+            if (permissions == null) {
+              throw new MissingRequiredPropertyException("GetPermissionsResult", "permissions");
+            }
+            this.permissions = permissions;
             return this;
         }
         public Builder permissions(String... permissions) {
@@ -177,7 +213,10 @@ public final class GetPermissionsResult {
         }
         @CustomType.Setter
         public Builder permissionsWithGrantOptions(List<String> permissionsWithGrantOptions) {
-            this.permissionsWithGrantOptions = Objects.requireNonNull(permissionsWithGrantOptions);
+            if (permissionsWithGrantOptions == null) {
+              throw new MissingRequiredPropertyException("GetPermissionsResult", "permissionsWithGrantOptions");
+            }
+            this.permissionsWithGrantOptions = permissionsWithGrantOptions;
             return this;
         }
         public Builder permissionsWithGrantOptions(String... permissionsWithGrantOptions) {
@@ -185,34 +224,44 @@ public final class GetPermissionsResult {
         }
         @CustomType.Setter
         public Builder principal(String principal) {
-            this.principal = Objects.requireNonNull(principal);
+            if (principal == null) {
+              throw new MissingRequiredPropertyException("GetPermissionsResult", "principal");
+            }
+            this.principal = principal;
             return this;
         }
         @CustomType.Setter
         public Builder table(GetPermissionsTable table) {
-            this.table = Objects.requireNonNull(table);
+            if (table == null) {
+              throw new MissingRequiredPropertyException("GetPermissionsResult", "table");
+            }
+            this.table = table;
             return this;
         }
         @CustomType.Setter
         public Builder tableWithColumns(GetPermissionsTableWithColumns tableWithColumns) {
-            this.tableWithColumns = Objects.requireNonNull(tableWithColumns);
+            if (tableWithColumns == null) {
+              throw new MissingRequiredPropertyException("GetPermissionsResult", "tableWithColumns");
+            }
+            this.tableWithColumns = tableWithColumns;
             return this;
         }
         public GetPermissionsResult build() {
-            final var o = new GetPermissionsResult();
-            o.catalogId = catalogId;
-            o.catalogResource = catalogResource;
-            o.dataLocation = dataLocation;
-            o.database = database;
-            o.id = id;
-            o.lfTag = lfTag;
-            o.lfTagPolicy = lfTagPolicy;
-            o.permissions = permissions;
-            o.permissionsWithGrantOptions = permissionsWithGrantOptions;
-            o.principal = principal;
-            o.table = table;
-            o.tableWithColumns = tableWithColumns;
-            return o;
+            final var _resultValue = new GetPermissionsResult();
+            _resultValue.catalogId = catalogId;
+            _resultValue.catalogResource = catalogResource;
+            _resultValue.dataCellsFilter = dataCellsFilter;
+            _resultValue.dataLocation = dataLocation;
+            _resultValue.database = database;
+            _resultValue.id = id;
+            _resultValue.lfTag = lfTag;
+            _resultValue.lfTagPolicy = lfTagPolicy;
+            _resultValue.permissions = permissions;
+            _resultValue.permissionsWithGrantOptions = permissionsWithGrantOptions;
+            _resultValue.principal = principal;
+            _resultValue.table = table;
+            _resultValue.tableWithColumns = tableWithColumns;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.ssm.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -76,25 +77,30 @@ public final class AssociationOutputLocation {
 
         @CustomType.Setter
         public Builder s3BucketName(String s3BucketName) {
-            this.s3BucketName = Objects.requireNonNull(s3BucketName);
+            if (s3BucketName == null) {
+              throw new MissingRequiredPropertyException("AssociationOutputLocation", "s3BucketName");
+            }
+            this.s3BucketName = s3BucketName;
             return this;
         }
         @CustomType.Setter
         public Builder s3KeyPrefix(@Nullable String s3KeyPrefix) {
+
             this.s3KeyPrefix = s3KeyPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder s3Region(@Nullable String s3Region) {
+
             this.s3Region = s3Region;
             return this;
         }
         public AssociationOutputLocation build() {
-            final var o = new AssociationOutputLocation();
-            o.s3BucketName = s3BucketName;
-            o.s3KeyPrefix = s3KeyPrefix;
-            o.s3Region = s3Region;
-            return o;
+            final var _resultValue = new AssociationOutputLocation();
+            _resultValue.s3BucketName = s3BucketName;
+            _resultValue.s3KeyPrefix = s3KeyPrefix;
+            _resultValue.s3Region = s3Region;
+            return _resultValue;
         }
     }
 }

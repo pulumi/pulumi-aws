@@ -4,6 +4,7 @@
 package com.pulumi.aws.emr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -88,6 +89,7 @@ public final class ClusterStepHadoopJarStep {
 
         @CustomType.Setter
         public Builder args(@Nullable List<String> args) {
+
             this.args = args;
             return this;
         }
@@ -96,26 +98,31 @@ public final class ClusterStepHadoopJarStep {
         }
         @CustomType.Setter
         public Builder jar(String jar) {
-            this.jar = Objects.requireNonNull(jar);
+            if (jar == null) {
+              throw new MissingRequiredPropertyException("ClusterStepHadoopJarStep", "jar");
+            }
+            this.jar = jar;
             return this;
         }
         @CustomType.Setter
         public Builder mainClass(@Nullable String mainClass) {
+
             this.mainClass = mainClass;
             return this;
         }
         @CustomType.Setter
         public Builder properties(@Nullable Map<String,String> properties) {
+
             this.properties = properties;
             return this;
         }
         public ClusterStepHadoopJarStep build() {
-            final var o = new ClusterStepHadoopJarStep();
-            o.args = args;
-            o.jar = jar;
-            o.mainClass = mainClass;
-            o.properties = properties;
-            return o;
+            final var _resultValue = new ClusterStepHadoopJarStep();
+            _resultValue.args = args;
+            _resultValue.jar = jar;
+            _resultValue.mainClass = mainClass;
+            _resultValue.properties = properties;
+            return _resultValue;
         }
     }
 }

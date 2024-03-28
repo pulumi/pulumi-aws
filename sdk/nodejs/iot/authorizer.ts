@@ -9,28 +9,33 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const example = new aws.iot.Authorizer("example", {
- *     authorizerFunctionArn: aws_lambda_function.example.arn,
+ *     name: "example",
+ *     authorizerFunctionArn: exampleAwsLambdaFunction.arn,
  *     signingDisabled: false,
  *     status: "ACTIVE",
  *     tokenKeyName: "Token-Header",
  *     tokenSigningPublicKeys: {
- *         Key1: fs.readFileSync("test-fixtures/iot-authorizer-signing-key.pem"),
+ *         Key1: std.file({
+ *             input: "test-fixtures/iot-authorizer-signing-key.pem",
+ *         }).then(invoke => invoke.result),
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IOT Authorizers using the name. For example:
  *
  * ```sh
- *  $ pulumi import aws:iot/authorizer:Authorizer example example
+ * $ pulumi import aws:iot/authorizer:Authorizer example example
  * ```
  */
 export class Authorizer extends pulumi.CustomResource {

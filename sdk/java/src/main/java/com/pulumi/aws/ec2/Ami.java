@@ -30,6 +30,8 @@ import javax.annotation.Nullable;
  * it&#39;s better to use `aws.ec2.AmiLaunchPermission` instead.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,26 +55,28 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Ami(&#34;example&#34;, AmiArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .virtualizationType(&#34;hvm&#34;)
+ *             .rootDeviceName(&#34;/dev/xvda&#34;)
+ *             .imdsSupport(&#34;v2.0&#34;)
  *             .ebsBlockDevices(AmiEbsBlockDeviceArgs.builder()
  *                 .deviceName(&#34;/dev/xvda&#34;)
  *                 .snapshotId(&#34;snap-xxxxxxxx&#34;)
  *                 .volumeSize(8)
  *                 .build())
- *             .imdsSupport(&#34;v2.0&#34;)
- *             .rootDeviceName(&#34;/dev/xvda&#34;)
- *             .virtualizationType(&#34;hvm&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_ami` using the ID of the AMI. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/ami:Ami example ami-12345678
+ * $ pulumi import aws:ec2/ami:Ami example ami-12345678
  * ```
  * 
  */
@@ -529,9 +533,6 @@ public class Ami extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,6 +25,7 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var foo = new Aws.Ecs.Cluster("foo", new()
     ///     {
+    ///         Name = "white-hart",
     ///         Settings = new[]
     ///         {
     ///             new Aws.Ecs.Inputs.ClusterSettingArgs
@@ -36,8 +38,11 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example with Log Configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,21 +51,25 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var example = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "example",
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
+    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
     ///     var test = new Aws.Ecs.Cluster("test", new()
     ///     {
+    ///         Name = "example",
     ///         Configuration = new Aws.Ecs.Inputs.ClusterConfigurationArgs
     ///         {
     ///             ExecuteCommandConfiguration = new Aws.Ecs.Inputs.ClusterConfigurationExecuteCommandConfigurationArgs
     ///             {
-    ///                 KmsKeyId = exampleKey.Arn,
+    ///                 KmsKeyId = example.Arn,
     ///                 Logging = "OVERRIDE",
     ///                 LogConfiguration = new Aws.Ecs.Inputs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs
     ///                 {
@@ -73,13 +82,14 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ECS clusters using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
+    /// $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecs/cluster:Cluster")]
@@ -150,10 +160,6 @@ namespace Pulumi.Aws.Ecs
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -285,11 +291,7 @@ namespace Pulumi.Aws.Ecs
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ClusterState()

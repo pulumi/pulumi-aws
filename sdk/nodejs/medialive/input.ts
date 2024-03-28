@@ -11,13 +11,15 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS MediaLive Input.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleInputSecurityGroup = new aws.medialive.InputSecurityGroup("exampleInputSecurityGroup", {
+ * const example = new aws.medialive.InputSecurityGroup("example", {
  *     whitelistRules: [{
  *         cidr: "10.0.0.8/32",
  *     }],
@@ -25,21 +27,23 @@ import * as utilities from "../utilities";
  *         ENVIRONMENT: "prod",
  *     },
  * });
- * const exampleInput = new aws.medialive.Input("exampleInput", {
- *     inputSecurityGroups: [exampleInputSecurityGroup.id],
+ * const exampleInput = new aws.medialive.Input("example", {
+ *     name: "example-input",
+ *     inputSecurityGroups: [example.id],
  *     type: "UDP_PUSH",
  *     tags: {
  *         ENVIRONMENT: "prod",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import MediaLive Input using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:medialive/input:Input example 12345678
+ * $ pulumi import aws:medialive/input:Input example 12345678
  * ```
  */
 export class Input extends pulumi.CustomResource {
@@ -189,8 +193,6 @@ export class Input extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Input.__pulumiType, name, resourceInputs, opts);
     }
 }

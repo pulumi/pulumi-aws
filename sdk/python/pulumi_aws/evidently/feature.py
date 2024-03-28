@@ -419,14 +419,17 @@ class Feature(pulumi.CustomResource):
         Provides a CloudWatch Evidently Feature resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Feature("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             description="example description",
             variations=[aws.evidently.FeatureVariationArgs(
                 name="Variation1",
@@ -438,14 +441,18 @@ class Feature(pulumi.CustomResource):
                 "Key1": "example Feature",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With default variation
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Feature("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             default_variation="Variation2",
             variations=[
                 aws.evidently.FeatureVariationArgs(
@@ -462,14 +469,18 @@ class Feature(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With entity overrides
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Feature("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             entity_overrides={
                 "test1": "Variation1",
             },
@@ -488,14 +499,18 @@ class Feature(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With evaluation strategy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Feature("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             evaluation_strategy="ALL_RULES",
             entity_overrides={
                 "test1": "Variation1",
@@ -507,13 +522,14 @@ class Feature(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Evidently Feature using the feature `name` and `name` or `arn` of the hosting CloudWatch Evidently Project separated by a `:`. For example:
 
         ```sh
-         $ pulumi import aws:evidently/feature:Feature example exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example
+        $ pulumi import aws:evidently/feature:Feature example exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -537,14 +553,17 @@ class Feature(pulumi.CustomResource):
         Provides a CloudWatch Evidently Feature resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Feature("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             description="example description",
             variations=[aws.evidently.FeatureVariationArgs(
                 name="Variation1",
@@ -556,14 +575,18 @@ class Feature(pulumi.CustomResource):
                 "Key1": "example Feature",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With default variation
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Feature("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             default_variation="Variation2",
             variations=[
                 aws.evidently.FeatureVariationArgs(
@@ -580,14 +603,18 @@ class Feature(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With entity overrides
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Feature("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             entity_overrides={
                 "test1": "Variation1",
             },
@@ -606,14 +633,18 @@ class Feature(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With evaluation strategy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.evidently.Feature("example",
-            project=aws_evidently_project["example"]["name"],
+            name="example",
+            project=example_aws_evidently_project["name"],
             evaluation_strategy="ALL_RULES",
             entity_overrides={
                 "test1": "Variation1",
@@ -625,13 +656,14 @@ class Feature(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Evidently Feature using the feature `name` and `name` or `arn` of the hosting CloudWatch Evidently Project separated by a `:`. For example:
 
         ```sh
-         $ pulumi import aws:evidently/feature:Feature example exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example
+        $ pulumi import aws:evidently/feature:Feature example exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -685,8 +717,6 @@ class Feature(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["value_type"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Feature, __self__).__init__(
             'aws:evidently/feature:Feature',
             resource_name,

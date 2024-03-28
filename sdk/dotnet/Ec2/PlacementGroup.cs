@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,18 +26,20 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var web = new Aws.Ec2.PlacementGroup("web", new()
     ///     {
-    ///         Strategy = "cluster",
+    ///         Name = "hunky-dory-pg",
+    ///         Strategy = Aws.Ec2.PlacementStrategy.Cluster,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import placement groups using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
+    /// $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/placementGroup:PlacementGroup")]
@@ -116,10 +119,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -251,11 +250,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public PlacementGroupState()

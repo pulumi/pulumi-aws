@@ -59,19 +59,21 @@ public final class DataRepositoryAssociationS3 {
 
         @CustomType.Setter
         public Builder autoExportPolicy(@Nullable DataRepositoryAssociationS3AutoExportPolicy autoExportPolicy) {
+
             this.autoExportPolicy = autoExportPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder autoImportPolicy(@Nullable DataRepositoryAssociationS3AutoImportPolicy autoImportPolicy) {
+
             this.autoImportPolicy = autoImportPolicy;
             return this;
         }
         public DataRepositoryAssociationS3 build() {
-            final var o = new DataRepositoryAssociationS3();
-            o.autoExportPolicy = autoExportPolicy;
-            o.autoImportPolicy = autoImportPolicy;
-            return o;
+            final var _resultValue = new DataRepositoryAssociationS3();
+            _resultValue.autoExportPolicy = autoExportPolicy;
+            _resultValue.autoImportPolicy = autoImportPolicy;
+            return _resultValue;
         }
     }
 }

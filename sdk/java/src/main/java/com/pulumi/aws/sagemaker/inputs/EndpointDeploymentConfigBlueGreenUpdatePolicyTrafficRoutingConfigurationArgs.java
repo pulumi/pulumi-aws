@@ -7,6 +7,7 @@ import com.pulumi.aws.sagemaker.inputs.EndpointDeploymentConfigBlueGreenUpdatePo
 import com.pulumi.aws.sagemaker.inputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -19,14 +20,14 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingCo
     public static final EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs Empty = new EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs();
 
     /**
-     * Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant&#39;s total instance count. See Canary Size.
+     * Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50%!o(MISSING)f the variant&#39;s total instance count. See Canary Size.
      * 
      */
     @Import(name="canarySize")
     private @Nullable Output<EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs> canarySize;
 
     /**
-     * @return Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant&#39;s total instance count. See Canary Size.
+     * @return Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50%!o(MISSING)f the variant&#39;s total instance count. See Canary Size.
      * 
      */
     public Optional<Output<EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs>> canarySize() {
@@ -34,14 +35,14 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingCo
     }
 
     /**
-     * Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant&#39;s total instance count. See Linear Step Size.
+     * Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50%!o(MISSING)f the variant&#39;s total instance count. See Linear Step Size.
      * 
      */
     @Import(name="linearStepSize")
     private @Nullable Output<EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs> linearStepSize;
 
     /**
-     * @return Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant&#39;s total instance count. See Linear Step Size.
+     * @return Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50%!o(MISSING)f the variant&#39;s total instance count. See Linear Step Size.
      * 
      */
     public Optional<Output<EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs>> linearStepSize() {
@@ -106,7 +107,7 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingCo
         }
 
         /**
-         * @param canarySize Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant&#39;s total instance count. See Canary Size.
+         * @param canarySize Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50%!o(MISSING)f the variant&#39;s total instance count. See Canary Size.
          * 
          * @return builder
          * 
@@ -117,7 +118,7 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingCo
         }
 
         /**
-         * @param canarySize Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant&#39;s total instance count. See Canary Size.
+         * @param canarySize Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50%!o(MISSING)f the variant&#39;s total instance count. See Canary Size.
          * 
          * @return builder
          * 
@@ -127,7 +128,7 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingCo
         }
 
         /**
-         * @param linearStepSize Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant&#39;s total instance count. See Linear Step Size.
+         * @param linearStepSize Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50%!o(MISSING)f the variant&#39;s total instance count. See Linear Step Size.
          * 
          * @return builder
          * 
@@ -138,7 +139,7 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingCo
         }
 
         /**
-         * @param linearStepSize Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant&#39;s total instance count. See Linear Step Size.
+         * @param linearStepSize Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50%!o(MISSING)f the variant&#39;s total instance count. See Linear Step Size.
          * 
          * @return builder
          * 
@@ -190,8 +191,12 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingCo
         }
 
         public EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
-            $.waitIntervalInSeconds = Objects.requireNonNull($.waitIntervalInSeconds, "expected parameter 'waitIntervalInSeconds' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs", "type");
+            }
+            if ($.waitIntervalInSeconds == null) {
+                throw new MissingRequiredPropertyException("EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs", "waitIntervalInSeconds");
+            }
             return $;
         }
     }

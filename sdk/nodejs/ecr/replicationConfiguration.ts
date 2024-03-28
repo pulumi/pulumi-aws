@@ -12,57 +12,63 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getCallerIdentity({});
- * const exampleRegions = aws.getRegions({});
- * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", {replicationConfiguration: {
+ * const example = aws.getRegions({});
+ * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("example", {replicationConfiguration: {
  *     rules: [{
  *         destinations: [{
- *             region: exampleRegions.then(exampleRegions => exampleRegions.names?.[0]),
+ *             region: example.then(example => example.names?.[0]),
  *             registryId: current.then(current => current.accountId),
  *         }],
  *     }],
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Multiple Region Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getCallerIdentity({});
- * const exampleRegions = aws.getRegions({});
- * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", {replicationConfiguration: {
+ * const example = aws.getRegions({});
+ * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("example", {replicationConfiguration: {
  *     rules: [{
  *         destinations: [
  *             {
- *                 region: exampleRegions.then(exampleRegions => exampleRegions.names?.[0]),
+ *                 region: example.then(example => example.names?.[0]),
  *                 registryId: current.then(current => current.accountId),
  *             },
  *             {
- *                 region: exampleRegions.then(exampleRegions => exampleRegions.names?.[1]),
+ *                 region: example.then(example => example.names?.[1]),
  *                 registryId: current.then(current => current.accountId),
  *             },
  *         ],
  *     }],
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Repository Filter Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getCallerIdentity({});
- * const exampleRegions = aws.getRegions({});
- * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", {replicationConfiguration: {
+ * const example = aws.getRegions({});
+ * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("example", {replicationConfiguration: {
  *     rules: [{
  *         destinations: [{
- *             region: exampleRegions.then(exampleRegions => exampleRegions.names?.[0]),
+ *             region: example.then(example => example.names?.[0]),
  *             registryId: current.then(current => current.accountId),
  *         }],
  *         repositoryFilters: [{
@@ -72,13 +78,14 @@ import * as utilities from "../utilities";
  *     }],
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ECR Replication Configuration using the `registry_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
+ * $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
  * ```
  */
 export class ReplicationConfiguration extends pulumi.CustomResource {

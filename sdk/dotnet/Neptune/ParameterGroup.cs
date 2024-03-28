@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,6 +26,7 @@ namespace Pulumi.Aws.Neptune
     ///     var example = new Aws.Neptune.ParameterGroup("example", new()
     ///     {
     ///         Family = "neptune1",
+    ///         Name = "example",
     ///         Parameters = new[]
     ///         {
     ///             new Aws.Neptune.Inputs.ParameterGroupParameterArgs
@@ -37,13 +39,14 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Neptune Parameter Groups using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
+    /// $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
     /// ```
     /// </summary>
     [AwsResourceType("aws:neptune/parameterGroup:ParameterGroup")]
@@ -72,6 +75,12 @@ namespace Pulumi.Aws.Neptune
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Output("namePrefix")]
+        public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// A list of Neptune parameters to apply.
@@ -114,10 +123,6 @@ namespace Pulumi.Aws.Neptune
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -158,6 +163,12 @@ namespace Pulumi.Aws.Neptune
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Input("namePrefix")]
+        public Input<string>? NamePrefix { get; set; }
 
         [Input("parameters")]
         private InputList<Inputs.ParameterGroupParameterArgs>? _parameters;
@@ -215,6 +226,12 @@ namespace Pulumi.Aws.Neptune
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Input("namePrefix")]
+        public Input<string>? NamePrefix { get; set; }
+
         [Input("parameters")]
         private InputList<Inputs.ParameterGroupParameterGetArgs>? _parameters;
 
@@ -249,11 +266,7 @@ namespace Pulumi.Aws.Neptune
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ParameterGroupState()

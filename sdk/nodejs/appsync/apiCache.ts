@@ -9,25 +9,30 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGraphQLApi = new aws.appsync.GraphQLApi("exampleGraphQLApi", {authenticationType: "API_KEY"});
- * const exampleApiCache = new aws.appsync.ApiCache("exampleApiCache", {
- *     apiId: exampleGraphQLApi.id,
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "API_KEY",
+ *     name: "example",
+ * });
+ * const exampleApiCache = new aws.appsync.ApiCache("example", {
+ *     apiId: example.id,
  *     apiCachingBehavior: "FULL_REQUEST_CACHING",
  *     type: "LARGE",
  *     ttl: 900,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_appsync_api_cache` using the AppSync API ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
+ * $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
  * ```
  */
 export class ApiCache extends pulumi.CustomResource {

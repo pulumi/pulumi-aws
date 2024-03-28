@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing a Verified Access Instance.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,23 +26,25 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With `fipsEnabled`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.verifiedaccess.Instance("example", {fipsEnabled: true});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Using `pulumi import`, import Verified Access Instances using the
- *
- * `id`. For example:
+ * Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:verifiedaccess/instance:Instance example vai-1234567890abcdef0
+ * $ pulumi import aws:verifiedaccess/instance:Instance example vai-1234567890abcdef0
  * ```
  */
 export class Instance extends pulumi.CustomResource {
@@ -131,8 +135,6 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["verifiedAccessTrustProviders"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Instance.__pulumiType, name, resourceInputs, opts);
     }
 }

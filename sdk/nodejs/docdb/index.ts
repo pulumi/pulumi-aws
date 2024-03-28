@@ -25,6 +25,11 @@ export type ClusterSnapshot = import("./clusterSnapshot").ClusterSnapshot;
 export const ClusterSnapshot: typeof import("./clusterSnapshot").ClusterSnapshot = null as any;
 utilities.lazyLoad(exports, ["ClusterSnapshot"], () => require("./clusterSnapshot"));
 
+export { ElasticClusterArgs, ElasticClusterState } from "./elasticCluster";
+export type ElasticCluster = import("./elasticCluster").ElasticCluster;
+export const ElasticCluster: typeof import("./elasticCluster").ElasticCluster = null as any;
+utilities.lazyLoad(exports, ["ElasticCluster"], () => require("./elasticCluster"));
+
 export { EventSubscriptionArgs, EventSubscriptionState } from "./eventSubscription";
 export type EventSubscription = import("./eventSubscription").EventSubscription;
 export const EventSubscription: typeof import("./eventSubscription").EventSubscription = null as any;
@@ -63,6 +68,8 @@ const _module = {
                 return new ClusterParameterGroup(name, <any>undefined, { urn })
             case "aws:docdb/clusterSnapshot:ClusterSnapshot":
                 return new ClusterSnapshot(name, <any>undefined, { urn })
+            case "aws:docdb/elasticCluster:ElasticCluster":
+                return new ElasticCluster(name, <any>undefined, { urn })
             case "aws:docdb/eventSubscription:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
             case "aws:docdb/globalCluster:GlobalCluster":
@@ -78,6 +85,7 @@ pulumi.runtime.registerResourceModule("aws", "docdb/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "docdb/clusterInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "docdb/clusterParameterGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "docdb/clusterSnapshot", _module)
+pulumi.runtime.registerResourceModule("aws", "docdb/elasticCluster", _module)
 pulumi.runtime.registerResourceModule("aws", "docdb/eventSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "docdb/globalCluster", _module)
 pulumi.runtime.registerResourceModule("aws", "docdb/subnetGroup", _module)

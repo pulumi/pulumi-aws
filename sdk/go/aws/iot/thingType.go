@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,7 +28,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iot.NewThingType(ctx, "foo", nil)
+//			_, err := iot.NewThingType(ctx, "foo", &iot.ThingTypeArgs{
+//				Name: pulumi.String("my_iot_thing"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -36,15 +39,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IOT Thing Types using the name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iot/thingType:ThingType example example
-//
+// $ pulumi import aws:iot/thingType:ThingType example example
 // ```
 type ThingType struct {
 	pulumi.CustomResourceState
@@ -72,10 +74,6 @@ func NewThingType(ctx *pulumi.Context,
 		args = &ThingTypeArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ThingType
 	err := ctx.RegisterResource("aws:iot/thingType:ThingType", name, args, &resource, opts...)

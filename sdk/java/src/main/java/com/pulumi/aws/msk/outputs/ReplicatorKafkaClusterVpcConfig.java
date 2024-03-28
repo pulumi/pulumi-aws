@@ -4,6 +4,7 @@
 package com.pulumi.aws.msk.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,6 +59,7 @@ public final class ReplicatorKafkaClusterVpcConfig {
 
         @CustomType.Setter
         public Builder securityGroupsIds(@Nullable List<String> securityGroupsIds) {
+
             this.securityGroupsIds = securityGroupsIds;
             return this;
         }
@@ -66,17 +68,20 @@ public final class ReplicatorKafkaClusterVpcConfig {
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("ReplicatorKafkaClusterVpcConfig", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
         public ReplicatorKafkaClusterVpcConfig build() {
-            final var o = new ReplicatorKafkaClusterVpcConfig();
-            o.securityGroupsIds = securityGroupsIds;
-            o.subnetIds = subnetIds;
-            return o;
+            final var _resultValue = new ReplicatorKafkaClusterVpcConfig();
+            _resultValue.securityGroupsIds = securityGroupsIds;
+            _resultValue.subnetIds = subnetIds;
+            return _resultValue;
         }
     }
 }

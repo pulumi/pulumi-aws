@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,32 +23,27 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = new Aws.Macie2.Account("exampleAccount");
+    ///     var example = new Aws.Macie2.Account("example");
     /// 
-    ///     var exampleMember = new Aws.Macie2.Member("exampleMember", new()
+    ///     var exampleMember = new Aws.Macie2.Member("example", new()
     ///     {
     ///         AccountId = "AWS ACCOUNT ID",
     ///         Email = "EMAIL",
     ///         Invite = true,
     ///         InvitationMessage = "Message of the invitation",
     ///         InvitationDisableEmailNotification = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccount,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_macie2_member` using the account ID of the member account. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:macie2/member:Member example 123456789012
+    /// $ pulumi import aws:macie2/member:Member example 123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:macie2/member:Member")]
@@ -154,10 +150,6 @@ namespace Pulumi.Aws.Macie2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -318,11 +310,7 @@ namespace Pulumi.Aws.Macie2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

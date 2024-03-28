@@ -14,36 +14,42 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Aws.Iot.Authorizer("example", new()
     ///     {
-    ///         AuthorizerFunctionArn = aws_lambda_function.Example.Arn,
+    ///         Name = "example",
+    ///         AuthorizerFunctionArn = exampleAwsLambdaFunction.Arn,
     ///         SigningDisabled = false,
     ///         Status = "ACTIVE",
     ///         TokenKeyName = "Token-Header",
     ///         TokenSigningPublicKeys = 
     ///         {
-    ///             { "Key1", File.ReadAllText("test-fixtures/iot-authorizer-signing-key.pem") },
+    ///             { "Key1", Std.File.Invoke(new()
+    ///             {
+    ///                 Input = "test-fixtures/iot-authorizer-signing-key.pem",
+    ///             }).Apply(invoke =&gt; invoke.Result) },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IOT Authorizers using the name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iot/authorizer:Authorizer example example
+    /// $ pulumi import aws:iot/authorizer:Authorizer example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/authorizer:Authorizer")]

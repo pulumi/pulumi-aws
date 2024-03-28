@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,32 @@ public final class DataQualityRulesetTargetTable {
 
         @CustomType.Setter
         public Builder catalogId(@Nullable String catalogId) {
+
             this.catalogId = catalogId;
             return this;
         }
         @CustomType.Setter
         public Builder databaseName(String databaseName) {
-            this.databaseName = Objects.requireNonNull(databaseName);
+            if (databaseName == null) {
+              throw new MissingRequiredPropertyException("DataQualityRulesetTargetTable", "databaseName");
+            }
+            this.databaseName = databaseName;
             return this;
         }
         @CustomType.Setter
         public Builder tableName(String tableName) {
-            this.tableName = Objects.requireNonNull(tableName);
+            if (tableName == null) {
+              throw new MissingRequiredPropertyException("DataQualityRulesetTargetTable", "tableName");
+            }
+            this.tableName = tableName;
             return this;
         }
         public DataQualityRulesetTargetTable build() {
-            final var o = new DataQualityRulesetTargetTable();
-            o.catalogId = catalogId;
-            o.databaseName = databaseName;
-            o.tableName = tableName;
-            return o;
+            final var _resultValue = new DataQualityRulesetTargetTable();
+            _resultValue.catalogId = catalogId;
+            _resultValue.databaseName = databaseName;
+            _resultValue.tableName = tableName;
+            return _resultValue;
         }
     }
 }

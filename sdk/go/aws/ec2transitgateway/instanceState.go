@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,9 +55,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testInstance, err := ec2.NewInstance(ctx, "testInstance", &ec2.InstanceArgs{
-//				Ami:          *pulumi.String(ubuntu.Id),
-//				InstanceType: pulumi.String("t3.micro"),
+//			test, err := ec2.NewInstance(ctx, "test", &ec2.InstanceArgs{
+//				Ami:          pulumi.String(ubuntu.Id),
+//				InstanceType: pulumi.String(ec2.InstanceType_T3_Micro),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("HelloWorld"),
 //				},
@@ -64,8 +65,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2transitgateway.NewInstanceState(ctx, "testInstanceState", &ec2transitgateway.InstanceStateArgs{
-//				InstanceId: testInstance.ID(),
+//			_, err = ec2transitgateway.NewInstanceState(ctx, "test", &ec2transitgateway.InstanceStateArgs{
+//				InstanceId: test.ID(),
 //				State:      pulumi.String("stopped"),
 //			})
 //			if err != nil {
@@ -76,15 +77,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
-//
+// $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
 // ```
 type InstanceState struct {
 	pulumi.CustomResourceState

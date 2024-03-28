@@ -17,6 +17,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpcDhcpOptions(ctx, "dnsResolver", &ec2.VpcDhcpOptionsArgs{
+//			_, err := ec2.NewVpcDhcpOptions(ctx, "dns_resolver", &ec2.VpcDhcpOptionsArgs{
 //				DomainNameServers: pulumi.StringArray{
 //					pulumi.String("8.8.8.8"),
 //					pulumi.String("8.8.4.4"),
@@ -43,9 +44,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Full usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,13 +67,13 @@ import (
 //					pulumi.String("127.0.0.1"),
 //					pulumi.String("10.0.0.2"),
 //				},
+//				NtpServers: pulumi.StringArray{
+//					pulumi.String("127.0.0.1"),
+//				},
 //				NetbiosNameServers: pulumi.StringArray{
 //					pulumi.String("127.0.0.1"),
 //				},
 //				NetbiosNodeType: pulumi.String("2"),
-//				NtpServers: pulumi.StringArray{
-//					pulumi.String("127.0.0.1"),
-//				},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("foo-name"),
 //				},
@@ -83,6 +86,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Remarks
 //
 // * Notice that all arguments are optional but you have to specify at least one argument.
@@ -96,9 +101,7 @@ import (
 // Using `pulumi import`, import VPC DHCP Options using the DHCP Options `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/vpcDhcpOptions:VpcDhcpOptions my_options dopt-d9070ebb
-//
+// $ pulumi import aws:ec2/vpcDhcpOptions:VpcDhcpOptions my_options dopt-d9070ebb
 // ```
 type VpcDhcpOptions struct {
 	pulumi.CustomResourceState
@@ -132,10 +135,6 @@ func NewVpcDhcpOptions(ctx *pulumi.Context,
 		args = &VpcDhcpOptionsArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcDhcpOptions
 	err := ctx.RegisterResource("aws:ec2/vpcDhcpOptions:VpcDhcpOptions", name, args, &resource, opts...)

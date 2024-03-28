@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration {
     /**
-     * @return Describes the metadata sent to the HTTP endpoint destination. More details are given below
+     * @return Describes the metadata sent to the HTTP endpoint destination. See `common_attributes` block below for details.
      * 
      */
     private @Nullable List<FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute> commonAttributes;
@@ -26,7 +26,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigu
 
     private FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration() {}
     /**
-     * @return Describes the metadata sent to the HTTP endpoint destination. More details are given below
+     * @return Describes the metadata sent to the HTTP endpoint destination. See `common_attributes` block below for details.
      * 
      */
     public List<FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute> commonAttributes() {
@@ -60,6 +60,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigu
 
         @CustomType.Setter
         public Builder commonAttributes(@Nullable List<FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute> commonAttributes) {
+
             this.commonAttributes = commonAttributes;
             return this;
         }
@@ -68,14 +69,15 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigu
         }
         @CustomType.Setter
         public Builder contentEncoding(@Nullable String contentEncoding) {
+
             this.contentEncoding = contentEncoding;
             return this;
         }
         public FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration build() {
-            final var o = new FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration();
-            o.commonAttributes = commonAttributes;
-            o.contentEncoding = contentEncoding;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration();
+            _resultValue.commonAttributes = commonAttributes;
+            _resultValue.contentEncoding = contentEncoding;
+            return _resultValue;
         }
     }
 }

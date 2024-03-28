@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Creates a new Amazon Redshift Partner Integration.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -39,22 +41,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Partner(&#34;example&#34;, PartnerArgs.builder()        
- *             .clusterIdentifier(aws_redshift_cluster.example().id())
+ *             .clusterIdentifier(exampleAwsRedshiftCluster.id())
  *             .accountId(1234567910)
- *             .databaseName(aws_redshift_cluster.example().database_name())
+ *             .databaseName(exampleAwsRedshiftCluster.databaseName())
  *             .partnerName(&#34;example&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift usage limits using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshift/partner:Partner example 01234567910:cluster-example-id:example:example
+ * $ pulumi import aws:redshift/partner:Partner example 01234567910:cluster-example-id:example:example
  * ```
  * 
  */

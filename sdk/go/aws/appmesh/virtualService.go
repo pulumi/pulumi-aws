@@ -15,8 +15,10 @@ import (
 // Provides an AWS App Mesh virtual service resource.
 //
 // ## Example Usage
+//
 // ### Virtual Node Provider
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,11 +32,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewVirtualService(ctx, "servicea", &appmesh.VirtualServiceArgs{
-//				MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
+//				Name:     pulumi.String("servicea.simpleapp.local"),
+//				MeshName: pulumi.Any(simple.Id),
 //				Spec: &appmesh.VirtualServiceSpecArgs{
 //					Provider: &appmesh.VirtualServiceSpecProviderArgs{
 //						VirtualNode: &appmesh.VirtualServiceSpecProviderVirtualNodeArgs{
-//							VirtualNodeName: pulumi.Any(aws_appmesh_virtual_node.Serviceb1.Name),
+//							VirtualNodeName: pulumi.Any(serviceb1.Name),
 //						},
 //					},
 //				},
@@ -47,8 +50,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Virtual Router Provider
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,11 +68,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewVirtualService(ctx, "servicea", &appmesh.VirtualServiceArgs{
-//				MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
+//				Name:     pulumi.String("servicea.simpleapp.local"),
+//				MeshName: pulumi.Any(simple.Id),
 //				Spec: &appmesh.VirtualServiceSpecArgs{
 //					Provider: &appmesh.VirtualServiceSpecProviderArgs{
 //						VirtualRouter: &appmesh.VirtualServiceSpecProviderVirtualRouterArgs{
-//							VirtualRouterName: pulumi.Any(aws_appmesh_virtual_router.Serviceb.Name),
+//							VirtualRouterName: pulumi.Any(serviceb.Name),
 //						},
 //					},
 //				},
@@ -79,15 +86,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import App Mesh virtual services using `mesh_name` together with the virtual service's `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
-//
+// $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
 // ```
 type VirtualService struct {
 	pulumi.CustomResourceState
@@ -129,10 +135,6 @@ func NewVirtualService(ctx *pulumi.Context,
 	if args.Spec == nil {
 		return nil, errors.New("invalid value for required argument 'Spec'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualService
 	err := ctx.RegisterResource("aws:appmesh/virtualService:VirtualService", name, args, &resource, opts...)

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := neptune.NewClusterEndpoint(ctx, "example", &neptune.ClusterEndpointArgs{
-//				ClusterIdentifier:         pulumi.Any(aws_neptune_cluster.Test.Cluster_identifier),
+//				ClusterIdentifier:         pulumi.Any(test.ClusterIdentifier),
 //				ClusterEndpointIdentifier: pulumi.String("example"),
 //				EndpointType:              pulumi.String("READER"),
 //			})
@@ -41,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_neptune_cluster_endpoint` using the `cluster-identifier:endpoint-identfier`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
-//
+// $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
 // ```
 type ClusterEndpoint struct {
 	pulumi.CustomResourceState
@@ -92,10 +92,6 @@ func NewClusterEndpoint(ctx *pulumi.Context,
 	if args.EndpointType == nil {
 		return nil, errors.New("invalid value for required argument 'EndpointType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterEndpoint
 	err := ctx.RegisterResource("aws:neptune/clusterEndpoint:ClusterEndpoint", name, args, &resource, opts...)

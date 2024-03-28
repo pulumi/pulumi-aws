@@ -47,22 +47,27 @@ import * as utilities from "../utilities";
  * To renew the certificate earlier than 60 days before expiration, configure `earlyRenewalDuration`.
  *
  * ## Example Usage
+ *
  * ### Create Certificate
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const cert = new aws.acm.Certificate("cert", {
  *     domainName: "example.com",
+ *     validationMethod: "DNS",
  *     tags: {
  *         Environment: "test",
  *     },
- *     validationMethod: "DNS",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Custom Domain Validation Options
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -76,17 +81,20 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Existing Certificate Body Import
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as tls from "@pulumi/tls";
  *
- * const examplePrivateKey = new tls.PrivateKey("examplePrivateKey", {algorithm: "RSA"});
- * const exampleSelfSignedCert = new tls.SelfSignedCert("exampleSelfSignedCert", {
+ * const example = new tls.PrivateKey("example", {algorithm: "RSA"});
+ * const exampleSelfSignedCert = new tls.SelfSignedCert("example", {
  *     keyAlgorithm: "RSA",
- *     privateKeyPem: examplePrivateKey.privateKeyPem,
+ *     privateKeyPem: example.privateKeyPem,
  *     subject: {
  *         commonName: "example.com",
  *         organization: "ACME Examples, Inc",
@@ -99,14 +107,17 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const cert = new aws.acm.Certificate("cert", {
- *     privateKey: examplePrivateKey.privateKeyPem,
+ *     privateKey: example.privateKeyPem,
  *     certificateBody: exampleSelfSignedCert.certPem,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Referencing domainValidationOptions With forEach Based Resources
  *
  * See the `aws.acm.CertificateValidation` resource for a full example of performing DNS validation.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -122,18 +133,19 @@ import * as utilities from "../utilities";
  *         name: range.value.name,
  *         records: [range.value.record],
  *         ttl: 60,
- *         type: aws.route53.recordtype.RecordType[range.value.type],
- *         zoneId: aws_route53_zone.example.zone_id,
+ *         type: aws.route53.RecordType[range.value.type],
+ *         zoneId: exampleAwsRoute53Zone.zoneId,
  *     }));
  * }
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import certificates using their ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
+ * $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
  * ```
  */
 export class Certificate extends pulumi.CustomResource {
@@ -331,7 +343,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["validationEmails"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["privateKey", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["privateKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }

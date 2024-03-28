@@ -9,13 +9,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as kubernetes from "@pulumi/kubernetes";
  *
  * const example = aws.iot.getEndpoint({});
- * const agent = new kubernetes.index.Kubernetes_pod("agent", {
+ * const agent = new kubernetes.index.Pod("agent", {
  *     metadata: [{
  *         name: "my-device",
  *     }],
@@ -31,6 +32,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEndpoint(args?: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
     args = args || {};
@@ -75,13 +77,14 @@ export interface GetEndpointResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as kubernetes from "@pulumi/kubernetes";
  *
  * const example = aws.iot.getEndpoint({});
- * const agent = new kubernetes.index.Kubernetes_pod("agent", {
+ * const agent = new kubernetes.index.Pod("agent", {
  *     metadata: [{
  *         name: "my-device",
  *     }],
@@ -97,6 +100,7 @@ export interface GetEndpointResult {
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEndpointOutput(args?: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
     return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))

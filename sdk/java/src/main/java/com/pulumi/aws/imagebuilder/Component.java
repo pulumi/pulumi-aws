@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Manages an Image Builder Component.
  * 
  * ## Example Usage
+ * 
  * ### URI Document
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,23 +47,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Component(&#34;example&#34;, ComponentArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .platform(&#34;Linux&#34;)
- *             .uri(String.format(&#34;s3://%s/%s&#34;, aws_s3_object.example().bucket(),aws_s3_object.example().key()))
+ *             .uri(String.format(&#34;s3://%s/%s&#34;, exampleAwsS3Object.bucket(),exampleAwsS3Object.key()))
  *             .version(&#34;1.0.0&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_imagebuilder_components` resources using the Amazon Resource Name (ARN). For example:
  * 
  * ```sh
- *  $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
+ * $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
  * ```
- *  Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
+ * Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
  * 
  */
 @ResourceType(type="aws:imagebuilder/component:Component")
@@ -348,9 +353,6 @@ public class Component extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

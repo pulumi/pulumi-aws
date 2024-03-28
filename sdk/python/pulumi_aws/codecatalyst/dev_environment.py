@@ -299,28 +299,30 @@ class DevEnvironment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.codecatalyst.DevEnvironment("test",
             alias="devenv",
+            space_name="myspace",
+            project_name="myproject",
+            instance_type="dev.standard1.small",
+            persistent_storage=aws.codecatalyst.DevEnvironmentPersistentStorageArgs(
+                size=16,
+            ),
             ides=aws.codecatalyst.DevEnvironmentIdesArgs(
                 name="PyCharm",
                 runtime="public.ecr.aws/jetbrains/py",
             ),
             inactivity_timeout_minutes=40,
-            instance_type="dev.standard1.small",
-            persistent_storage=aws.codecatalyst.DevEnvironmentPersistentStorageArgs(
-                size=16,
-            ),
-            project_name="myproject",
             repositories=[aws.codecatalyst.DevEnvironmentRepositoryArgs(
-                branch_name="main",
                 repository_name="pulumi-provider-aws",
-            )],
-            space_name="myspace")
+                branch_name="main",
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -345,28 +347,30 @@ class DevEnvironment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.codecatalyst.DevEnvironment("test",
             alias="devenv",
+            space_name="myspace",
+            project_name="myproject",
+            instance_type="dev.standard1.small",
+            persistent_storage=aws.codecatalyst.DevEnvironmentPersistentStorageArgs(
+                size=16,
+            ),
             ides=aws.codecatalyst.DevEnvironmentIdesArgs(
                 name="PyCharm",
                 runtime="public.ecr.aws/jetbrains/py",
             ),
             inactivity_timeout_minutes=40,
-            instance_type="dev.standard1.small",
-            persistent_storage=aws.codecatalyst.DevEnvironmentPersistentStorageArgs(
-                size=16,
-            ),
-            project_name="myproject",
             repositories=[aws.codecatalyst.DevEnvironmentRepositoryArgs(
-                branch_name="main",
                 repository_name="pulumi-provider-aws",
-            )],
-            space_name="myspace")
+                branch_name="main",
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param DevEnvironmentArgs args: The arguments to use to populate this resource's properties.

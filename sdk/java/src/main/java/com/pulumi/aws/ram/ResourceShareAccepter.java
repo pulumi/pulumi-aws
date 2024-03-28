@@ -22,14 +22,14 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * This configuration provides an example of using multiple AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `aws.ram.ResourceShare` and uses a data source in the _receiver_ account to create a `aws.ram.PrincipalAssociation` resource with the _receiver&#39;s_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `aws.ram.ResourceShareAccepter`.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
  * import com.pulumi.aws.ram.ResourceShare;
  * import com.pulumi.aws.ram.ResourceShareArgs;
  * import com.pulumi.aws.AwsFunctions;
@@ -38,7 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ram.PrincipalAssociationArgs;
  * import com.pulumi.aws.ram.ResourceShareAccepter;
  * import com.pulumi.aws.ram.ResourceShareAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,25 +51,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var alternate = new Provider(&#34;alternate&#34;, ProviderArgs.builder()        
- *             .profile(&#34;profile1&#34;)
- *             .build());
- * 
  *         var senderShare = new ResourceShare(&#34;senderShare&#34;, ResourceShareArgs.builder()        
+ *             .name(&#34;tf-test-resource-share&#34;)
  *             .allowExternalPrincipals(true)
  *             .tags(Map.of(&#34;Name&#34;, &#34;tf-test-resource-share&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.alternate())
- *                 .build());
+ *             .build());
  * 
  *         final var receiver = AwsFunctions.getCallerIdentity();
  * 
  *         var senderInvite = new PrincipalAssociation(&#34;senderInvite&#34;, PrincipalAssociationArgs.builder()        
  *             .principal(receiver.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
  *             .resourceShareArn(senderShare.arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.alternate())
- *                 .build());
+ *             .build());
  * 
  *         var receiverAccept = new ResourceShareAccepter(&#34;receiverAccept&#34;, ResourceShareAccepterArgs.builder()        
  *             .shareArn(senderInvite.resourceShareArn())
@@ -79,13 +71,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import resource share accepters using the resource share ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
+ * $ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
  * ```
  * 
  */

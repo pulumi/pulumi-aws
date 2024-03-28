@@ -27,7 +27,10 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see [&#34;Regions and Availability Zones&#34;](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for more details
  * 
  * ## Example Usage
+ * 
  * ### Basic mysql blueprint
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,19 +53,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Database(&#34;test&#34;, DatabaseArgs.builder()        
+ *             .relationalDatabaseName(&#34;test&#34;)
  *             .availabilityZone(&#34;us-east-1a&#34;)
+ *             .masterDatabaseName(&#34;testdatabasename&#34;)
+ *             .masterPassword(&#34;testdatabasepassword&#34;)
+ *             .masterUsername(&#34;test&#34;)
  *             .blueprintId(&#34;mysql_8_0&#34;)
  *             .bundleId(&#34;micro_1_0&#34;)
- *             .masterDatabaseName(&#34;testdatabasename&#34;)
- *             .masterPassword(&#34;testdatabasepassword&#34;)
- *             .masterUsername(&#34;test&#34;)
- *             .relationalDatabaseName(&#34;test&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Basic postrgres blueprint
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -85,21 +92,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Database(&#34;test&#34;, DatabaseArgs.builder()        
+ *             .relationalDatabaseName(&#34;test&#34;)
  *             .availabilityZone(&#34;us-east-1a&#34;)
- *             .blueprintId(&#34;postgres_12&#34;)
- *             .bundleId(&#34;micro_1_0&#34;)
  *             .masterDatabaseName(&#34;testdatabasename&#34;)
  *             .masterPassword(&#34;testdatabasepassword&#34;)
  *             .masterUsername(&#34;test&#34;)
- *             .relationalDatabaseName(&#34;test&#34;)
+ *             .blueprintId(&#34;postgres_12&#34;)
+ *             .bundleId(&#34;micro_1_0&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Custom backup and maintenance windows
  * 
  * Below is an example that sets a custom backup and maintenance window. Times are specified in UTC. This example will allow daily backups to take place between 16:00 and 16:30 each day. This example also requires any maintiance tasks (anything that would cause an outage, including changing some attributes) to take place on Tuesdays between 17:00 and 17:30. An action taken against this database that would cause an outage will wait until this time window to make the requested changes.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -122,23 +133,27 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Database(&#34;test&#34;, DatabaseArgs.builder()        
+ *             .relationalDatabaseName(&#34;test&#34;)
  *             .availabilityZone(&#34;us-east-1a&#34;)
- *             .blueprintId(&#34;postgres_12&#34;)
- *             .bundleId(&#34;micro_1_0&#34;)
  *             .masterDatabaseName(&#34;testdatabasename&#34;)
  *             .masterPassword(&#34;testdatabasepassword&#34;)
  *             .masterUsername(&#34;test&#34;)
+ *             .blueprintId(&#34;postgres_12&#34;)
+ *             .bundleId(&#34;micro_1_0&#34;)
  *             .preferredBackupWindow(&#34;16:00-16:30&#34;)
  *             .preferredMaintenanceWindow(&#34;Tue:17:00-Tue:17:30&#34;)
- *             .relationalDatabaseName(&#34;test&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Final Snapshots
  * 
  * To enable creating a final snapshot of your database on deletion, use the `final_snapshot_name` argument to provide a name to be used for the snapshot.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -161,24 +176,28 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Database(&#34;test&#34;, DatabaseArgs.builder()        
+ *             .relationalDatabaseName(&#34;test&#34;)
  *             .availabilityZone(&#34;us-east-1a&#34;)
- *             .blueprintId(&#34;postgres_12&#34;)
- *             .bundleId(&#34;micro_1_0&#34;)
- *             .finalSnapshotName(&#34;MyFinalSnapshot&#34;)
  *             .masterDatabaseName(&#34;testdatabasename&#34;)
  *             .masterPassword(&#34;testdatabasepassword&#34;)
  *             .masterUsername(&#34;test&#34;)
+ *             .blueprintId(&#34;postgres_12&#34;)
+ *             .bundleId(&#34;micro_1_0&#34;)
  *             .preferredBackupWindow(&#34;16:00-16:30&#34;)
  *             .preferredMaintenanceWindow(&#34;Tue:17:00-Tue:17:30&#34;)
- *             .relationalDatabaseName(&#34;test&#34;)
+ *             .finalSnapshotName(&#34;MyFinalSnapshot&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Apply Immediately
  * 
  * To enable applying changes immediately instead of waiting for a maintiance window, use the `apply_immediately` argument.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -201,19 +220,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Database(&#34;test&#34;, DatabaseArgs.builder()        
- *             .applyImmediately(true)
+ *             .relationalDatabaseName(&#34;test&#34;)
  *             .availabilityZone(&#34;us-east-1a&#34;)
- *             .blueprintId(&#34;postgres_12&#34;)
- *             .bundleId(&#34;micro_1_0&#34;)
  *             .masterDatabaseName(&#34;testdatabasename&#34;)
  *             .masterPassword(&#34;testdatabasepassword&#34;)
  *             .masterUsername(&#34;test&#34;)
- *             .relationalDatabaseName(&#34;test&#34;)
+ *             .blueprintId(&#34;postgres_12&#34;)
+ *             .bundleId(&#34;micro_1_0&#34;)
+ *             .applyImmediately(true)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Blueprint Ids
  * 
  * A list of all available Lightsail Blueprints for Relational Databases the [aws lightsail get-relational-database-blueprints](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-relational-database-blueprints.html) aws cli command.
@@ -266,7 +287,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import Lightsail Databases using their name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lightsail/database:Database foo &#39;bar&#39;
+ * $ pulumi import aws:lightsail/database:Database foo &#39;bar&#39;
  * ```
  * 
  */
@@ -702,8 +723,7 @@ public class Database extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "masterPassword",
-                "tagsAll"
+                "masterPassword"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

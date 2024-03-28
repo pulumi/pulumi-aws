@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Retrieve information about an EKS Cluster.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,8 +38,7 @@ namespace Pulumi.Aws.Eks
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:eks/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
@@ -48,10 +46,9 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Retrieve information about an EKS Cluster.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -73,8 +70,7 @@ namespace Pulumi.Aws.Eks
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws:eks/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -84,7 +80,7 @@ namespace Pulumi.Aws.Eks
     public sealed class GetClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// Name of the cluster.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -110,7 +106,7 @@ namespace Pulumi.Aws.Eks
     public sealed class GetClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// Name of the cluster.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -137,6 +133,10 @@ namespace Pulumi.Aws.Eks
     [OutputType]
     public sealed class GetClusterResult
     {
+        /// <summary>
+        /// Configuration block for access config.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterAccessConfigResult> AccessConfigs;
         /// <summary>
         /// ARN of the cluster.
         /// </summary>
@@ -205,6 +205,8 @@ namespace Pulumi.Aws.Eks
 
         [OutputConstructor]
         private GetClusterResult(
+            ImmutableArray<Outputs.GetClusterAccessConfigResult> accessConfigs,
+
             string arn,
 
             ImmutableArray<Outputs.GetClusterCertificateAuthorityResult> certificateAuthorities,
@@ -239,6 +241,7 @@ namespace Pulumi.Aws.Eks
 
             Outputs.GetClusterVpcConfigResult vpcConfig)
         {
+            AccessConfigs = accessConfigs;
             Arn = arn;
             CertificateAuthorities = certificateAuthorities;
             ClusterId = clusterId;

@@ -9,6 +9,7 @@ import com.pulumi.aws.connect.outputs.GetUserHierarchyStructureHierarchyStructur
 import com.pulumi.aws.connect.outputs.GetUserHierarchyStructureHierarchyStructureLevelThree;
 import com.pulumi.aws.connect.outputs.GetUserHierarchyStructureHierarchyStructureLevelTwo;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -103,7 +104,10 @@ public final class GetUserHierarchyStructureHierarchyStructure {
 
         @CustomType.Setter
         public Builder levelFives(List<GetUserHierarchyStructureHierarchyStructureLevelFife> levelFives) {
-            this.levelFives = Objects.requireNonNull(levelFives);
+            if (levelFives == null) {
+              throw new MissingRequiredPropertyException("GetUserHierarchyStructureHierarchyStructure", "levelFives");
+            }
+            this.levelFives = levelFives;
             return this;
         }
         public Builder levelFives(GetUserHierarchyStructureHierarchyStructureLevelFife... levelFives) {
@@ -111,7 +115,10 @@ public final class GetUserHierarchyStructureHierarchyStructure {
         }
         @CustomType.Setter
         public Builder levelFours(List<GetUserHierarchyStructureHierarchyStructureLevelFour> levelFours) {
-            this.levelFours = Objects.requireNonNull(levelFours);
+            if (levelFours == null) {
+              throw new MissingRequiredPropertyException("GetUserHierarchyStructureHierarchyStructure", "levelFours");
+            }
+            this.levelFours = levelFours;
             return this;
         }
         public Builder levelFours(GetUserHierarchyStructureHierarchyStructureLevelFour... levelFours) {
@@ -119,7 +126,10 @@ public final class GetUserHierarchyStructureHierarchyStructure {
         }
         @CustomType.Setter
         public Builder levelOnes(List<GetUserHierarchyStructureHierarchyStructureLevelOne> levelOnes) {
-            this.levelOnes = Objects.requireNonNull(levelOnes);
+            if (levelOnes == null) {
+              throw new MissingRequiredPropertyException("GetUserHierarchyStructureHierarchyStructure", "levelOnes");
+            }
+            this.levelOnes = levelOnes;
             return this;
         }
         public Builder levelOnes(GetUserHierarchyStructureHierarchyStructureLevelOne... levelOnes) {
@@ -127,7 +137,10 @@ public final class GetUserHierarchyStructureHierarchyStructure {
         }
         @CustomType.Setter
         public Builder levelThrees(List<GetUserHierarchyStructureHierarchyStructureLevelThree> levelThrees) {
-            this.levelThrees = Objects.requireNonNull(levelThrees);
+            if (levelThrees == null) {
+              throw new MissingRequiredPropertyException("GetUserHierarchyStructureHierarchyStructure", "levelThrees");
+            }
+            this.levelThrees = levelThrees;
             return this;
         }
         public Builder levelThrees(GetUserHierarchyStructureHierarchyStructureLevelThree... levelThrees) {
@@ -135,20 +148,23 @@ public final class GetUserHierarchyStructureHierarchyStructure {
         }
         @CustomType.Setter
         public Builder levelTwos(List<GetUserHierarchyStructureHierarchyStructureLevelTwo> levelTwos) {
-            this.levelTwos = Objects.requireNonNull(levelTwos);
+            if (levelTwos == null) {
+              throw new MissingRequiredPropertyException("GetUserHierarchyStructureHierarchyStructure", "levelTwos");
+            }
+            this.levelTwos = levelTwos;
             return this;
         }
         public Builder levelTwos(GetUserHierarchyStructureHierarchyStructureLevelTwo... levelTwos) {
             return levelTwos(List.of(levelTwos));
         }
         public GetUserHierarchyStructureHierarchyStructure build() {
-            final var o = new GetUserHierarchyStructureHierarchyStructure();
-            o.levelFives = levelFives;
-            o.levelFours = levelFours;
-            o.levelOnes = levelOnes;
-            o.levelThrees = levelThrees;
-            o.levelTwos = levelTwos;
-            return o;
+            final var _resultValue = new GetUserHierarchyStructureHierarchyStructure();
+            _resultValue.levelFives = levelFives;
+            _resultValue.levelFours = levelFours;
+            _resultValue.levelOnes = levelOnes;
+            _resultValue.levelThrees = levelThrees;
+            _resultValue.levelTwos = levelTwos;
+            return _resultValue;
         }
     }
 }

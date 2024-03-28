@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS EventBridge Schemas Registry Policy.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Sid:    pulumi.StringRef("example"),
@@ -56,9 +58,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = schemas.NewRegistryPolicy(ctx, "exampleRegistryPolicy", &schemas.RegistryPolicyArgs{
+//			_, err = schemas.NewRegistryPolicy(ctx, "example", &schemas.RegistryPolicyArgs{
 //				RegistryName: pulumi.String("example"),
-//				Policy:       *pulumi.String(examplePolicyDocument.Json),
+//				Policy:       pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -68,15 +70,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EventBridge Schema Registry Policy using the `registry_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
-//
+// $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
 // ```
 type RegistryPolicy struct {
 	pulumi.CustomResourceState

@@ -5,13 +5,31 @@ package com.pulumi.aws.ecr;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class PullThroughCacheRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final PullThroughCacheRuleArgs Empty = new PullThroughCacheRuleArgs();
+
+    /**
+     * ARN of the Secret which will be used to authenticate against the registry.
+     * 
+     */
+    @Import(name="credentialArn")
+    private @Nullable Output<String> credentialArn;
+
+    /**
+     * @return ARN of the Secret which will be used to authenticate against the registry.
+     * 
+     */
+    public Optional<Output<String>> credentialArn() {
+        return Optional.ofNullable(this.credentialArn);
+    }
 
     /**
      * The repository name prefix to use when caching images from the source registry.
@@ -46,6 +64,7 @@ public final class PullThroughCacheRuleArgs extends com.pulumi.resources.Resourc
     private PullThroughCacheRuleArgs() {}
 
     private PullThroughCacheRuleArgs(PullThroughCacheRuleArgs $) {
+        this.credentialArn = $.credentialArn;
         this.ecrRepositoryPrefix = $.ecrRepositoryPrefix;
         this.upstreamRegistryUrl = $.upstreamRegistryUrl;
     }
@@ -66,6 +85,27 @@ public final class PullThroughCacheRuleArgs extends com.pulumi.resources.Resourc
 
         public Builder(PullThroughCacheRuleArgs defaults) {
             $ = new PullThroughCacheRuleArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param credentialArn ARN of the Secret which will be used to authenticate against the registry.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder credentialArn(@Nullable Output<String> credentialArn) {
+            $.credentialArn = credentialArn;
+            return this;
+        }
+
+        /**
+         * @param credentialArn ARN of the Secret which will be used to authenticate against the registry.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder credentialArn(String credentialArn) {
+            return credentialArn(Output.of(credentialArn));
         }
 
         /**
@@ -111,8 +151,12 @@ public final class PullThroughCacheRuleArgs extends com.pulumi.resources.Resourc
         }
 
         public PullThroughCacheRuleArgs build() {
-            $.ecrRepositoryPrefix = Objects.requireNonNull($.ecrRepositoryPrefix, "expected parameter 'ecrRepositoryPrefix' to be non-null");
-            $.upstreamRegistryUrl = Objects.requireNonNull($.upstreamRegistryUrl, "expected parameter 'upstreamRegistryUrl' to be non-null");
+            if ($.ecrRepositoryPrefix == null) {
+                throw new MissingRequiredPropertyException("PullThroughCacheRuleArgs", "ecrRepositoryPrefix");
+            }
+            if ($.upstreamRegistryUrl == null) {
+                throw new MissingRequiredPropertyException("PullThroughCacheRuleArgs", "upstreamRegistryUrl");
+            }
             return $;
         }
     }

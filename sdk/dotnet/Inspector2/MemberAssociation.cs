@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Inspector2
     /// Resource for associating accounts to existing Inspector instances.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,13 +32,14 @@ namespace Pulumi.Aws.Inspector2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon Inspector Member Association using the `account_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
+    /// $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:inspector2/memberAssociation:MemberAssociation")]

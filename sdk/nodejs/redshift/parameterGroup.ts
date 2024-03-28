@@ -12,11 +12,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const bar = new aws.redshift.ParameterGroup("bar", {
+ *     name: "parameter-group-test",
  *     family: "redshift-1.0",
  *     parameters: [
  *         {
@@ -34,13 +36,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Parameter Groups using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test-pulumi
+ * $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test-pulumi
  * ```
  */
 export class ParameterGroup extends pulumi.CustomResource {
@@ -138,8 +141,6 @@ export class ParameterGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ParameterGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

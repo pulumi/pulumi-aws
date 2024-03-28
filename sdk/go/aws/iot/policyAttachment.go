@@ -16,30 +16,22 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			pubsubPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			pubsub, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Effect: pulumi.StringRef("Allow"),
@@ -55,14 +47,21 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			pubsubPolicy, err := iot.NewPolicy(ctx, "pubsubPolicy", &iot.PolicyArgs{
-//				Policy: *pulumi.String(pubsubPolicyDocument.Json),
+//			pubsubPolicy, err := iot.NewPolicy(ctx, "pubsub", &iot.PolicyArgs{
+//				Name:   pulumi.String("PubSubToAnyTopic"),
+//				Policy: pulumi.String(pubsub.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "csr.pem",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			cert, err := iot.NewCertificate(ctx, "cert", &iot.CertificateArgs{
-//				Csr:    readFileOrPanic("csr.pem"),
+//				Csr:    invokeFile.Result,
 //				Active: pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -80,6 +79,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type PolicyAttachment struct {
 	pulumi.CustomResourceState
 

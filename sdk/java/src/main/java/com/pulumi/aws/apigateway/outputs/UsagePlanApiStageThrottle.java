@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigateway.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -74,25 +75,30 @@ public final class UsagePlanApiStageThrottle {
 
         @CustomType.Setter
         public Builder burstLimit(@Nullable Integer burstLimit) {
+
             this.burstLimit = burstLimit;
             return this;
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("UsagePlanApiStageThrottle", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder rateLimit(@Nullable Double rateLimit) {
+
             this.rateLimit = rateLimit;
             return this;
         }
         public UsagePlanApiStageThrottle build() {
-            final var o = new UsagePlanApiStageThrottle();
-            o.burstLimit = burstLimit;
-            o.path = path;
-            o.rateLimit = rateLimit;
-            return o;
+            final var _resultValue = new UsagePlanApiStageThrottle();
+            _resultValue.burstLimit = burstLimit;
+            _resultValue.path = path;
+            _resultValue.rateLimit = rateLimit;
+            return _resultValue;
         }
     }
 }

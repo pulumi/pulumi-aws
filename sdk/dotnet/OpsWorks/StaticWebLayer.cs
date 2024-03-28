@@ -14,6 +14,7 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,18 +25,19 @@ namespace Pulumi.Aws.OpsWorks
     /// {
     ///     var web = new Aws.OpsWorks.StaticWebLayer("web", new()
     ///     {
-    ///         StackId = aws_opsworks_stack.Main.Id,
+    ///         StackId = main.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import OpsWorks static web server Layers using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:opsworks/staticWebLayer:StaticWebLayer bar 00000000-0000-0000-0000-000000000000
+    /// $ pulumi import aws:opsworks/staticWebLayer:StaticWebLayer bar 00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/staticWebLayer:StaticWebLayer")]
@@ -194,10 +196,6 @@ namespace Pulumi.Aws.OpsWorks
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -573,11 +571,7 @@ namespace Pulumi.Aws.OpsWorks
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

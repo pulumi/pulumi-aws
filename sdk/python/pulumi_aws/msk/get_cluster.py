@@ -231,12 +231,14 @@ def get_cluster(cluster_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.msk.get_cluster(cluster_name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_name: Name of the cluster.
@@ -278,12 +280,14 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.msk.get_cluster(cluster_name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_name: Name of the cluster.

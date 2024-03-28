@@ -103,6 +103,7 @@ public final class RouteSpecGrpcRouteMatch {
 
         @CustomType.Setter
         public Builder metadatas(@Nullable List<RouteSpecGrpcRouteMatchMetadata> metadatas) {
+
             this.metadatas = metadatas;
             return this;
         }
@@ -111,32 +112,36 @@ public final class RouteSpecGrpcRouteMatch {
         }
         @CustomType.Setter
         public Builder methodName(@Nullable String methodName) {
+
             this.methodName = methodName;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder serviceName(@Nullable String serviceName) {
+
             this.serviceName = serviceName;
             return this;
         }
         public RouteSpecGrpcRouteMatch build() {
-            final var o = new RouteSpecGrpcRouteMatch();
-            o.metadatas = metadatas;
-            o.methodName = methodName;
-            o.port = port;
-            o.prefix = prefix;
-            o.serviceName = serviceName;
-            return o;
+            final var _resultValue = new RouteSpecGrpcRouteMatch();
+            _resultValue.metadatas = metadatas;
+            _resultValue.methodName = methodName;
+            _resultValue.port = port;
+            _resultValue.prefix = prefix;
+            _resultValue.serviceName = serviceName;
+            return _resultValue;
         }
     }
 }

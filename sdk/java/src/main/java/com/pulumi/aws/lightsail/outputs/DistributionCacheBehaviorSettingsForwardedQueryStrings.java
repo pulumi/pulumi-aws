@@ -60,11 +60,13 @@ public final class DistributionCacheBehaviorSettingsForwardedQueryStrings {
 
         @CustomType.Setter
         public Builder option(@Nullable Boolean option) {
+
             this.option = option;
             return this;
         }
         @CustomType.Setter
         public Builder queryStringsAllowedLists(@Nullable List<String> queryStringsAllowedLists) {
+
             this.queryStringsAllowedLists = queryStringsAllowedLists;
             return this;
         }
@@ -72,10 +74,10 @@ public final class DistributionCacheBehaviorSettingsForwardedQueryStrings {
             return queryStringsAllowedLists(List.of(queryStringsAllowedLists));
         }
         public DistributionCacheBehaviorSettingsForwardedQueryStrings build() {
-            final var o = new DistributionCacheBehaviorSettingsForwardedQueryStrings();
-            o.option = option;
-            o.queryStringsAllowedLists = queryStringsAllowedLists;
-            return o;
+            final var _resultValue = new DistributionCacheBehaviorSettingsForwardedQueryStrings();
+            _resultValue.option = option;
+            _resultValue.queryStringsAllowedLists = queryStringsAllowedLists;
+            return _resultValue;
         }
     }
 }

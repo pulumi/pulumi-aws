@@ -189,19 +189,23 @@ class HttpNamespace(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicediscovery.HttpNamespace("example", description="example")
+        example = aws.servicediscovery.HttpNamespace("example",
+            name="development",
+            description="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Service Discovery HTTP Namespace using the namespace ID. For example:
 
         ```sh
-         $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
+        $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
         ```
 
         :param str resource_name: The name of the resource.
@@ -219,19 +223,23 @@ class HttpNamespace(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicediscovery.HttpNamespace("example", description="example")
+        example = aws.servicediscovery.HttpNamespace("example",
+            name="development",
+            description="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Service Discovery HTTP Namespace using the namespace ID. For example:
 
         ```sh
-         $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
+        $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
         ```
 
         :param str resource_name: The name of the resource.
@@ -267,8 +275,6 @@ class HttpNamespace(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["http_name"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(HttpNamespace, __self__).__init__(
             'aws:servicediscovery/httpNamespace:HttpNamespace',
             resource_name,

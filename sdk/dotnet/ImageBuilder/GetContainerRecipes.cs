@@ -14,10 +14,9 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Use this data source to get the ARNs and names of Image Builder Container Recipes matching the specified criteria.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,6 +27,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// {
         ///     var example = Aws.ImageBuilder.GetContainerRecipes.Invoke(new()
         ///     {
+        ///         Owner = "Self",
         ///         Filters = new[]
         ///         {
         ///             new Aws.ImageBuilder.Inputs.GetContainerRecipesFilterInputArgs
@@ -39,13 +39,11 @@ namespace Pulumi.Aws.ImageBuilder
         ///                 },
         ///             },
         ///         },
-        ///         Owner = "Self",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetContainerRecipesResult> InvokeAsync(GetContainerRecipesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerRecipesResult>("aws:imagebuilder/getContainerRecipes:getContainerRecipes", args ?? new GetContainerRecipesArgs(), options.WithDefaults());
@@ -53,10 +51,9 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Use this data source to get the ARNs and names of Image Builder Container Recipes matching the specified criteria.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -67,6 +64,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// {
         ///     var example = Aws.ImageBuilder.GetContainerRecipes.Invoke(new()
         ///     {
+        ///         Owner = "Self",
         ///         Filters = new[]
         ///         {
         ///             new Aws.ImageBuilder.Inputs.GetContainerRecipesFilterInputArgs
@@ -78,13 +76,11 @@ namespace Pulumi.Aws.ImageBuilder
         ///                 },
         ///             },
         ///         },
-        ///         Owner = "Self",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetContainerRecipesResult> Invoke(GetContainerRecipesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerRecipesResult>("aws:imagebuilder/getContainerRecipes:getContainerRecipes", args ?? new GetContainerRecipesInvokeArgs(), options.WithDefaults());
@@ -106,7 +102,7 @@ namespace Pulumi.Aws.ImageBuilder
         }
 
         /// <summary>
-        /// Owner of the container recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+        /// Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
         /// </summary>
         [Input("owner")]
         public string? Owner { get; set; }
@@ -132,7 +128,7 @@ namespace Pulumi.Aws.ImageBuilder
         }
 
         /// <summary>
-        /// Owner of the container recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+        /// Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
         /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }

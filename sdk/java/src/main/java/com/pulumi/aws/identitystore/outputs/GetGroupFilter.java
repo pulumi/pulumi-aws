@@ -4,6 +4,7 @@
 package com.pulumi.aws.identitystore.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class GetGroupFilter {
 
         @CustomType.Setter
         public Builder attributePath(String attributePath) {
-            this.attributePath = Objects.requireNonNull(attributePath);
+            if (attributePath == null) {
+              throw new MissingRequiredPropertyException("GetGroupFilter", "attributePath");
+            }
+            this.attributePath = attributePath;
             return this;
         }
         @CustomType.Setter
         public Builder attributeValue(String attributeValue) {
-            this.attributeValue = Objects.requireNonNull(attributeValue);
+            if (attributeValue == null) {
+              throw new MissingRequiredPropertyException("GetGroupFilter", "attributeValue");
+            }
+            this.attributeValue = attributeValue;
             return this;
         }
         public GetGroupFilter build() {
-            final var o = new GetGroupFilter();
-            o.attributePath = attributePath;
-            o.attributeValue = attributeValue;
-            return o;
+            final var _resultValue = new GetGroupFilter();
+            _resultValue.attributePath = attributePath;
+            _resultValue.attributeValue = attributeValue;
+            return _resultValue;
         }
     }
 }

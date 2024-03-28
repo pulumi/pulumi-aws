@@ -9,22 +9,25 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const filter = new aws.ses.ReceiptFilter("filter", {
+ *     name: "block-spammer",
  *     cidr: "10.10.10.10",
  *     policy: "Block",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SES Receipt Filter using their `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
+ * $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
  * ```
  */
 export class ReceiptFilter extends pulumi.CustomResource {

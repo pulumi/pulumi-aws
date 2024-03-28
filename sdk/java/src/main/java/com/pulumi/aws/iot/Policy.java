@@ -11,6 +11,8 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Map;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -19,6 +21,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE on policy versions:** Updating this resource creates a new, default policy version. If updating the resource would exceed the maximum number of versions (5), the oldest non-default version of the policy is deleted before the new policy version is created.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,13 +46,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var pubsub = new Policy(&#34;pubsub&#34;, PolicyArgs.builder()        
+ *             .name(&#34;PubSubToAnyTopic&#34;)
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, jsonArray(&#34;iot:*&#34;)),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Resource&#34;, &#34;*&#34;)
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;action&#34;, jsonArray(&#34;iot:*&#34;)),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;resource&#34;, &#34;*&#34;)
  *                     )))
  *                 )))
  *             .build());
@@ -56,13 +61,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IoT policies using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
+ * $ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
  * ```
  * 
  */
@@ -123,6 +129,38 @@ public class Policy extends com.pulumi.resources.CustomResource {
      */
     public Output<String> policy() {
         return this.policy;
+    }
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> tags;
+
+    /**
+     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
+    }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     * @deprecated
+     * Please use `tags` instead.
+     * 
+     */
+    @Deprecated /* Please use `tags` instead. */
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Output<Map<String,String>> tagsAll() {
+        return this.tagsAll;
     }
 
     /**

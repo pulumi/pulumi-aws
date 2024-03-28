@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS VPC Lattice Service.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,6 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .authType(&#34;AWS_IAM&#34;)
  *             .customDomainName(&#34;example.com&#34;)
  *             .build());
@@ -51,27 +55,28 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import VPC Lattice Service using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
+ * $ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
  * ```
  * 
  */
 @ResourceType(type="aws:vpclattice/service:Service")
 public class Service extends com.pulumi.resources.CustomResource {
     /**
-     * ARN of the service. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+     * ARN of the service.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of the service. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+     * @return ARN of the service.
      * 
      */
     public Output<String> arn() {
@@ -120,14 +125,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customDomainName);
     }
     /**
-     * Concise description. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+     * DNS name of the service.
      * 
      */
     @Export(name="dnsEntries", refs={List.class,ServiceDnsEntry.class}, tree="[0,1]")
     private Output<List<ServiceDnsEntry>> dnsEntries;
 
     /**
-     * @return Concise description. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+     * @return DNS name of the service.
      * 
      */
     public Output<List<ServiceDnsEntry>> dnsEntries() {
@@ -230,9 +235,6 @@ public class Service extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

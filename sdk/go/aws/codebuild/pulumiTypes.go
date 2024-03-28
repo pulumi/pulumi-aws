@@ -849,11 +849,11 @@ func (o ProjectCachePtrOutput) Type() pulumi.StringPtrOutput {
 type ProjectEnvironment struct {
 	// ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
 	Certificate *string `pulumi:"certificate"`
-	// Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be `BUILD_GENERAL1_LARGE`.
+	// Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`, `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be `BUILD_GENERAL1_LARGE`. When `type` is set to `LINUX_LAMBDA_CONTAINER` or `ARM_LAMBDA_CONTAINER`, `computeType` must be `BUILD_LAMBDA_XGB`.`
 	ComputeType string `pulumi:"computeType"`
 	// Configuration block. Detailed below.
 	EnvironmentVariables []ProjectEnvironmentEnvironmentVariable `pulumi:"environmentVariables"`
-	// Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+	// Docker image to use for this build project. Valid values include Docker images provided by CodeBuild, and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
 	Image string `pulumi:"image"`
 	// Type of credentials AWS CodeBuild uses to pull images in your build. Valid values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
 	ImagePullCredentialsType *string `pulumi:"imagePullCredentialsType"`
@@ -879,11 +879,11 @@ type ProjectEnvironmentInput interface {
 type ProjectEnvironmentArgs struct {
 	// ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
-	// Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be `BUILD_GENERAL1_LARGE`.
+	// Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`, `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be `BUILD_GENERAL1_LARGE`. When `type` is set to `LINUX_LAMBDA_CONTAINER` or `ARM_LAMBDA_CONTAINER`, `computeType` must be `BUILD_LAMBDA_XGB`.`
 	ComputeType pulumi.StringInput `pulumi:"computeType"`
 	// Configuration block. Detailed below.
 	EnvironmentVariables ProjectEnvironmentEnvironmentVariableArrayInput `pulumi:"environmentVariables"`
-	// Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+	// Docker image to use for this build project. Valid values include Docker images provided by CodeBuild, and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
 	Image pulumi.StringInput `pulumi:"image"`
 	// Type of credentials AWS CodeBuild uses to pull images in your build. Valid values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
 	ImagePullCredentialsType pulumi.StringPtrInput `pulumi:"imagePullCredentialsType"`
@@ -977,7 +977,7 @@ func (o ProjectEnvironmentOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectEnvironment) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
-// Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be `BUILD_GENERAL1_LARGE`.
+// Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`, `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be `BUILD_GENERAL1_LARGE`. When `type` is set to `LINUX_LAMBDA_CONTAINER` or `ARM_LAMBDA_CONTAINER`, `computeType` must be `BUILD_LAMBDA_XGB`.`
 func (o ProjectEnvironmentOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectEnvironment) string { return v.ComputeType }).(pulumi.StringOutput)
 }
@@ -987,7 +987,7 @@ func (o ProjectEnvironmentOutput) EnvironmentVariables() ProjectEnvironmentEnvir
 	return o.ApplyT(func(v ProjectEnvironment) []ProjectEnvironmentEnvironmentVariable { return v.EnvironmentVariables }).(ProjectEnvironmentEnvironmentVariableArrayOutput)
 }
 
-// Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+// Docker image to use for this build project. Valid values include Docker images provided by CodeBuild, and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
 func (o ProjectEnvironmentOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectEnvironment) string { return v.Image }).(pulumi.StringOutput)
 }
@@ -1046,7 +1046,7 @@ func (o ProjectEnvironmentPtrOutput) Certificate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be `BUILD_GENERAL1_LARGE`.
+// Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`, `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be `BUILD_GENERAL1_LARGE`. When `type` is set to `LINUX_LAMBDA_CONTAINER` or `ARM_LAMBDA_CONTAINER`, `computeType` must be `BUILD_LAMBDA_XGB`.`
 func (o ProjectEnvironmentPtrOutput) ComputeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectEnvironment) *string {
 		if v == nil {
@@ -1066,7 +1066,7 @@ func (o ProjectEnvironmentPtrOutput) EnvironmentVariables() ProjectEnvironmentEn
 	}).(ProjectEnvironmentEnvironmentVariableArrayOutput)
 }
 
-// Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+// Docker image to use for this build project. Valid values include Docker images provided by CodeBuild, and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
 func (o ProjectEnvironmentPtrOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectEnvironment) *string {
 		if v == nil {
@@ -1681,7 +1681,7 @@ type ProjectLogsConfigCloudwatchLogs struct {
 	GroupName *string `pulumi:"groupName"`
 	// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
 	Status *string `pulumi:"status"`
-	// Stream name of the logs in CloudWatch Logs.
+	// Prefix of the log stream name of the logs in CloudWatch Logs.
 	StreamName *string `pulumi:"streamName"`
 }
 
@@ -1701,7 +1701,7 @@ type ProjectLogsConfigCloudwatchLogsArgs struct {
 	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
 	// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Stream name of the logs in CloudWatch Logs.
+	// Prefix of the log stream name of the logs in CloudWatch Logs.
 	StreamName pulumi.StringPtrInput `pulumi:"streamName"`
 }
 
@@ -1792,7 +1792,7 @@ func (o ProjectLogsConfigCloudwatchLogsOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectLogsConfigCloudwatchLogs) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Stream name of the logs in CloudWatch Logs.
+// Prefix of the log stream name of the logs in CloudWatch Logs.
 func (o ProjectLogsConfigCloudwatchLogsOutput) StreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectLogsConfigCloudwatchLogs) *string { return v.StreamName }).(pulumi.StringPtrOutput)
 }
@@ -1841,7 +1841,7 @@ func (o ProjectLogsConfigCloudwatchLogsPtrOutput) Status() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Stream name of the logs in CloudWatch Logs.
+// Prefix of the log stream name of the logs in CloudWatch Logs.
 func (o ProjectLogsConfigCloudwatchLogsPtrOutput) StreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectLogsConfigCloudwatchLogs) *string {
 		if v == nil {
@@ -2796,7 +2796,7 @@ func (o ProjectSecondarySourceVersionArrayOutput) Index(i pulumi.IntInput) Proje
 type ProjectSource struct {
 	// Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `buildStatusConfig` blocks are documented below.
 	BuildStatusConfig *ProjectSourceBuildStatusConfig `pulumi:"buildStatusConfig"`
-	// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+	// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
 	Buildspec *string `pulumi:"buildspec"`
 	// Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
 	GitCloneDepth *int `pulumi:"gitCloneDepth"`
@@ -2826,7 +2826,7 @@ type ProjectSourceInput interface {
 type ProjectSourceArgs struct {
 	// Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `buildStatusConfig` blocks are documented below.
 	BuildStatusConfig ProjectSourceBuildStatusConfigPtrInput `pulumi:"buildStatusConfig"`
-	// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+	// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
 	Buildspec pulumi.StringPtrInput `pulumi:"buildspec"`
 	// Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
 	GitCloneDepth pulumi.IntPtrInput `pulumi:"gitCloneDepth"`
@@ -2924,7 +2924,7 @@ func (o ProjectSourceOutput) BuildStatusConfig() ProjectSourceBuildStatusConfigP
 	return o.ApplyT(func(v ProjectSource) *ProjectSourceBuildStatusConfig { return v.BuildStatusConfig }).(ProjectSourceBuildStatusConfigPtrOutput)
 }
 
-// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
 func (o ProjectSourceOutput) Buildspec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSource) *string { return v.Buildspec }).(pulumi.StringPtrOutput)
 }
@@ -2993,7 +2993,7 @@ func (o ProjectSourcePtrOutput) BuildStatusConfig() ProjectSourceBuildStatusConf
 	}).(ProjectSourceBuildStatusConfigPtrOutput)
 }
 
-// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
 func (o ProjectSourcePtrOutput) Buildspec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectSource) *string {
 		if v == nil {

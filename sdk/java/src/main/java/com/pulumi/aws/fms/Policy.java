@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Due to limitations with testing, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,9 +55,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleRuleGroup = new RuleGroup(&#34;exampleRuleGroup&#34;, RuleGroupArgs.builder()        
  *             .metricName(&#34;WAFRuleGroupExample&#34;)
+ *             .name(&#34;WAF-Rule-Group-Example&#34;)
  *             .build());
  * 
- *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
+ *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
+ *             .name(&#34;FMS-Policy-Example&#34;)
  *             .excludeResourceTags(false)
  *             .remediationEnabled(false)
  *             .resourceType(&#34;AWS::ElasticLoadBalancingV2::LoadBalancer&#34;)
@@ -82,13 +86,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Firewall Manager policies using the policy ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
+ * $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
  * ```
  * 
  */
@@ -347,9 +352,6 @@ public class Policy extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

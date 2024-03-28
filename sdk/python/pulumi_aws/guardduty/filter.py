@@ -305,13 +305,15 @@ class Filter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        my_filter = aws.guardduty.Filter("myFilter",
+        my_filter = aws.guardduty.Filter("MyFilter",
+            name="MyFilter",
             action="ARCHIVE",
-            detector_id=aws_guardduty_detector["example"]["id"],
+            detector_id=example["id"],
             rank=1,
             finding_criteria=aws.guardduty.FilterFindingCriteriaArgs(
                 criterions=[
@@ -338,13 +340,14 @@ class Filter(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GuardDuty filters using the detector ID and filter's name separated by a colon. For example:
 
         ```sh
-         $ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
+        $ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
         ```
 
         :param str resource_name: The name of the resource.
@@ -368,13 +371,15 @@ class Filter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        my_filter = aws.guardduty.Filter("myFilter",
+        my_filter = aws.guardduty.Filter("MyFilter",
+            name="MyFilter",
             action="ARCHIVE",
-            detector_id=aws_guardduty_detector["example"]["id"],
+            detector_id=example["id"],
             rank=1,
             finding_criteria=aws.guardduty.FilterFindingCriteriaArgs(
                 criterions=[
@@ -401,13 +406,14 @@ class Filter(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GuardDuty filters using the detector ID and filter's name separated by a colon. For example:
 
         ```sh
-         $ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
+        $ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
         ```
 
         :param str resource_name: The name of the resource.
@@ -458,8 +464,6 @@ class Filter(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Filter, __self__).__init__(
             'aws:guardduty/filter:Filter',
             resource_name,

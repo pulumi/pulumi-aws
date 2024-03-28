@@ -105,8 +105,10 @@ def get_script(dag_edges: Optional[Sequence[pulumi.InputType['GetScriptDagEdgeAr
     Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
 
     ## Example Usage
+
     ### Generate Python Script
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -137,11 +139,11 @@ def get_script(dag_edges: Optional[Sequence[pulumi.InputType['GetScriptDagEdgeAr
                 args=[
                     aws.glue.GetScriptDagNodeArgArgs(
                         name="database",
-                        value=f"\\"{aws_glue_catalog_database['source']['name']}\\"",
+                        value=f"\\"{source['name']}\\"",
                     ),
                     aws.glue.GetScriptDagNodeArgArgs(
                         name="table_name",
-                        value=f"\\"{aws_glue_catalog_table['source']['name']}\\"",
+                        value=f"\\"{source_aws_glue_catalog_table['name']}\\"",
                     ),
                 ],
             ),
@@ -171,11 +173,11 @@ def get_script(dag_edges: Optional[Sequence[pulumi.InputType['GetScriptDagEdgeAr
                     ),
                     aws.glue.GetScriptDagNodeArgArgs(
                         name="database",
-                        value=f"\\"{aws_glue_catalog_database['destination']['name']}\\"",
+                        value=f"\\"{destination['name']}\\"",
                     ),
                     aws.glue.GetScriptDagNodeArgArgs(
                         name="table_name",
-                        value=f"\\"{aws_glue_catalog_table['destination']['name']}\\"",
+                        value=f"\\"{destination_aws_glue_catalog_table['name']}\\"",
                     ),
                 ],
             ),
@@ -185,19 +187,22 @@ def get_script(dag_edges: Optional[Sequence[pulumi.InputType['GetScriptDagEdgeAr
                 args=[
                     aws.glue.GetScriptDagNodeArgArgs(
                         name="database",
-                        value=f"\\"{aws_glue_catalog_database['destination']['name']}\\"",
+                        value=f"\\"{destination['name']}\\"",
                     ),
                     aws.glue.GetScriptDagNodeArgArgs(
                         name="table_name",
-                        value=f"\\"{aws_glue_catalog_table['destination']['name']}\\"",
+                        value=f"\\"{destination_aws_glue_catalog_table['name']}\\"",
                     ),
                 ],
             ),
         ])
     pulumi.export("pythonScript", example.python_script)
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Generate Scala Code
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -228,11 +233,11 @@ def get_script(dag_edges: Optional[Sequence[pulumi.InputType['GetScriptDagEdgeAr
                 args=[
                     aws.glue.GetScriptDagNodeArgArgs(
                         name="database",
-                        value=f"\\"{aws_glue_catalog_database['source']['name']}\\"",
+                        value=f"\\"{source['name']}\\"",
                     ),
                     aws.glue.GetScriptDagNodeArgArgs(
                         name="table_name",
-                        value=f"\\"{aws_glue_catalog_table['source']['name']}\\"",
+                        value=f"\\"{source_aws_glue_catalog_table['name']}\\"",
                     ),
                 ],
             ),
@@ -262,11 +267,11 @@ def get_script(dag_edges: Optional[Sequence[pulumi.InputType['GetScriptDagEdgeAr
                     ),
                     aws.glue.GetScriptDagNodeArgArgs(
                         name="database",
-                        value=f"\\"{aws_glue_catalog_database['destination']['name']}\\"",
+                        value=f"\\"{destination['name']}\\"",
                     ),
                     aws.glue.GetScriptDagNodeArgArgs(
                         name="table_name",
-                        value=f"\\"{aws_glue_catalog_table['destination']['name']}\\"",
+                        value=f"\\"{destination_aws_glue_catalog_table['name']}\\"",
                     ),
                 ],
             ),
@@ -276,17 +281,18 @@ def get_script(dag_edges: Optional[Sequence[pulumi.InputType['GetScriptDagEdgeAr
                 args=[
                     aws.glue.GetScriptDagNodeArgArgs(
                         name="database",
-                        value=f"\\"{aws_glue_catalog_database['destination']['name']}\\"",
+                        value=f"\\"{destination['name']}\\"",
                     ),
                     aws.glue.GetScriptDagNodeArgArgs(
                         name="table_name",
-                        value=f"\\"{aws_glue_catalog_table['destination']['name']}\\"",
+                        value=f"\\"{destination_aws_glue_catalog_table['name']}\\"",
                     ),
                 ],
             ),
         ])
     pulumi.export("scalaCode", example.scala_code)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetScriptDagEdgeArgs']] dag_edges: List of the edges in the DAG. Defined below.
@@ -318,8 +324,10 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[pulumi.InputType
     Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
 
     ## Example Usage
+
     ### Generate Python Script
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -350,11 +358,11 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[pulumi.InputType
                 args=[
                     aws.glue.GetScriptDagNodeArgArgs(
                         name="database",
-                        value=f"\\"{aws_glue_catalog_database['source']['name']}\\"",
+                        value=f"\\"{source['name']}\\"",
                     ),
                     aws.glue.GetScriptDagNodeArgArgs(
                         name="table_name",
-                        value=f"\\"{aws_glue_catalog_table['source']['name']}\\"",
+                        value=f"\\"{source_aws_glue_catalog_table['name']}\\"",
                     ),
                 ],
             ),
@@ -384,11 +392,11 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[pulumi.InputType
                     ),
                     aws.glue.GetScriptDagNodeArgArgs(
                         name="database",
-                        value=f"\\"{aws_glue_catalog_database['destination']['name']}\\"",
+                        value=f"\\"{destination['name']}\\"",
                     ),
                     aws.glue.GetScriptDagNodeArgArgs(
                         name="table_name",
-                        value=f"\\"{aws_glue_catalog_table['destination']['name']}\\"",
+                        value=f"\\"{destination_aws_glue_catalog_table['name']}\\"",
                     ),
                 ],
             ),
@@ -398,19 +406,22 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[pulumi.InputType
                 args=[
                     aws.glue.GetScriptDagNodeArgArgs(
                         name="database",
-                        value=f"\\"{aws_glue_catalog_database['destination']['name']}\\"",
+                        value=f"\\"{destination['name']}\\"",
                     ),
                     aws.glue.GetScriptDagNodeArgArgs(
                         name="table_name",
-                        value=f"\\"{aws_glue_catalog_table['destination']['name']}\\"",
+                        value=f"\\"{destination_aws_glue_catalog_table['name']}\\"",
                     ),
                 ],
             ),
         ])
     pulumi.export("pythonScript", example.python_script)
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Generate Scala Code
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -441,11 +452,11 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[pulumi.InputType
                 args=[
                     aws.glue.GetScriptDagNodeArgArgs(
                         name="database",
-                        value=f"\\"{aws_glue_catalog_database['source']['name']}\\"",
+                        value=f"\\"{source['name']}\\"",
                     ),
                     aws.glue.GetScriptDagNodeArgArgs(
                         name="table_name",
-                        value=f"\\"{aws_glue_catalog_table['source']['name']}\\"",
+                        value=f"\\"{source_aws_glue_catalog_table['name']}\\"",
                     ),
                 ],
             ),
@@ -475,11 +486,11 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[pulumi.InputType
                     ),
                     aws.glue.GetScriptDagNodeArgArgs(
                         name="database",
-                        value=f"\\"{aws_glue_catalog_database['destination']['name']}\\"",
+                        value=f"\\"{destination['name']}\\"",
                     ),
                     aws.glue.GetScriptDagNodeArgArgs(
                         name="table_name",
-                        value=f"\\"{aws_glue_catalog_table['destination']['name']}\\"",
+                        value=f"\\"{destination_aws_glue_catalog_table['name']}\\"",
                     ),
                 ],
             ),
@@ -489,17 +500,18 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[pulumi.InputType
                 args=[
                     aws.glue.GetScriptDagNodeArgArgs(
                         name="database",
-                        value=f"\\"{aws_glue_catalog_database['destination']['name']}\\"",
+                        value=f"\\"{destination['name']}\\"",
                     ),
                     aws.glue.GetScriptDagNodeArgArgs(
                         name="table_name",
-                        value=f"\\"{aws_glue_catalog_table['destination']['name']}\\"",
+                        value=f"\\"{destination_aws_glue_catalog_table['name']}\\"",
                     ),
                 ],
             ),
         ])
     pulumi.export("scalaCode", example.scala_code)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetScriptDagEdgeArgs']] dag_edges: List of the edges in the DAG. Defined below.

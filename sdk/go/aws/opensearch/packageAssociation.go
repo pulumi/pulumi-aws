@@ -15,8 +15,10 @@ import (
 // Manages an AWS Opensearch Package Association.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +31,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myDomain, err := opensearch.NewDomain(ctx, "myDomain", &opensearch.DomainArgs{
+//			myDomain, err := opensearch.NewDomain(ctx, "my_domain", &opensearch.DomainArgs{
+//				DomainName:    pulumi.String("my-opensearch-domain"),
 //				EngineVersion: pulumi.String("Elasticsearch_7.10"),
 //				ClusterConfig: &opensearch.DomainClusterConfigArgs{
 //					InstanceType: pulumi.String("r4.large.search"),
@@ -38,19 +41,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePackage, err := opensearch.NewPackage(ctx, "examplePackage", &opensearch.PackageArgs{
+//			example, err := opensearch.NewPackage(ctx, "example", &opensearch.PackageArgs{
 //				PackageName: pulumi.String("example-txt"),
 //				PackageSource: &opensearch.PackagePackageSourceArgs{
-//					S3BucketName: pulumi.Any(aws_s3_bucket.My_opensearch_packages.Bucket),
-//					S3Key:        pulumi.Any(aws_s3_object.Example.Key),
+//					S3BucketName: pulumi.Any(myOpensearchPackages.Bucket),
+//					S3Key:        pulumi.Any(exampleAwsS3Object.Key),
 //				},
 //				PackageType: pulumi.String("TXT-DICTIONARY"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = opensearch.NewPackageAssociation(ctx, "examplePackageAssociation", &opensearch.PackageAssociationArgs{
-//				PackageId:  examplePackage.ID(),
+//			_, err = opensearch.NewPackageAssociation(ctx, "example", &opensearch.PackageAssociationArgs{
+//				PackageId:  example.ID(),
 //				DomainName: myDomain.DomainName,
 //			})
 //			if err != nil {
@@ -61,6 +64,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type PackageAssociation struct {
 	pulumi.CustomResourceState
 

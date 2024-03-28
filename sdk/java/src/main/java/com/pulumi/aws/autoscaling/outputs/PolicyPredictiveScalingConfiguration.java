@@ -5,6 +5,7 @@ package com.pulumi.aws.autoscaling.outputs;
 
 import com.pulumi.aws.autoscaling.outputs.PolicyPredictiveScalingConfigurationMetricSpecification;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -101,37 +102,44 @@ public final class PolicyPredictiveScalingConfiguration {
 
         @CustomType.Setter
         public Builder maxCapacityBreachBehavior(@Nullable String maxCapacityBreachBehavior) {
+
             this.maxCapacityBreachBehavior = maxCapacityBreachBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder maxCapacityBuffer(@Nullable String maxCapacityBuffer) {
+
             this.maxCapacityBuffer = maxCapacityBuffer;
             return this;
         }
         @CustomType.Setter
         public Builder metricSpecification(PolicyPredictiveScalingConfigurationMetricSpecification metricSpecification) {
-            this.metricSpecification = Objects.requireNonNull(metricSpecification);
+            if (metricSpecification == null) {
+              throw new MissingRequiredPropertyException("PolicyPredictiveScalingConfiguration", "metricSpecification");
+            }
+            this.metricSpecification = metricSpecification;
             return this;
         }
         @CustomType.Setter
         public Builder mode(@Nullable String mode) {
+
             this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder schedulingBufferTime(@Nullable String schedulingBufferTime) {
+
             this.schedulingBufferTime = schedulingBufferTime;
             return this;
         }
         public PolicyPredictiveScalingConfiguration build() {
-            final var o = new PolicyPredictiveScalingConfiguration();
-            o.maxCapacityBreachBehavior = maxCapacityBreachBehavior;
-            o.maxCapacityBuffer = maxCapacityBuffer;
-            o.metricSpecification = metricSpecification;
-            o.mode = mode;
-            o.schedulingBufferTime = schedulingBufferTime;
-            return o;
+            final var _resultValue = new PolicyPredictiveScalingConfiguration();
+            _resultValue.maxCapacityBreachBehavior = maxCapacityBreachBehavior;
+            _resultValue.maxCapacityBuffer = maxCapacityBuffer;
+            _resultValue.metricSpecification = metricSpecification;
+            _resultValue.mode = mode;
+            _resultValue.schedulingBufferTime = schedulingBufferTime;
+            return _resultValue;
         }
     }
 }

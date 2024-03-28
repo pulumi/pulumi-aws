@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class GatewayRouteSpecGrpcRouteActionTargetVirtualService {
 
         @CustomType.Setter
         public Builder virtualServiceName(String virtualServiceName) {
-            this.virtualServiceName = Objects.requireNonNull(virtualServiceName);
+            if (virtualServiceName == null) {
+              throw new MissingRequiredPropertyException("GatewayRouteSpecGrpcRouteActionTargetVirtualService", "virtualServiceName");
+            }
+            this.virtualServiceName = virtualServiceName;
             return this;
         }
         public GatewayRouteSpecGrpcRouteActionTargetVirtualService build() {
-            final var o = new GatewayRouteSpecGrpcRouteActionTargetVirtualService();
-            o.virtualServiceName = virtualServiceName;
-            return o;
+            final var _resultValue = new GatewayRouteSpecGrpcRouteActionTargetVirtualService();
+            _resultValue.virtualServiceName = virtualServiceName;
+            return _resultValue;
         }
     }
 }

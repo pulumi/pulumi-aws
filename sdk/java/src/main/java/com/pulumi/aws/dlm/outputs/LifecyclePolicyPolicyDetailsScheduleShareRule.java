@@ -4,6 +4,7 @@
 package com.pulumi.aws.dlm.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -58,7 +59,10 @@ public final class LifecyclePolicyPolicyDetailsScheduleShareRule {
 
         @CustomType.Setter
         public Builder targetAccounts(List<String> targetAccounts) {
-            this.targetAccounts = Objects.requireNonNull(targetAccounts);
+            if (targetAccounts == null) {
+              throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailsScheduleShareRule", "targetAccounts");
+            }
+            this.targetAccounts = targetAccounts;
             return this;
         }
         public Builder targetAccounts(String... targetAccounts) {
@@ -66,20 +70,22 @@ public final class LifecyclePolicyPolicyDetailsScheduleShareRule {
         }
         @CustomType.Setter
         public Builder unshareInterval(@Nullable Integer unshareInterval) {
+
             this.unshareInterval = unshareInterval;
             return this;
         }
         @CustomType.Setter
         public Builder unshareIntervalUnit(@Nullable String unshareIntervalUnit) {
+
             this.unshareIntervalUnit = unshareIntervalUnit;
             return this;
         }
         public LifecyclePolicyPolicyDetailsScheduleShareRule build() {
-            final var o = new LifecyclePolicyPolicyDetailsScheduleShareRule();
-            o.targetAccounts = targetAccounts;
-            o.unshareInterval = unshareInterval;
-            o.unshareIntervalUnit = unshareIntervalUnit;
-            return o;
+            final var _resultValue = new LifecyclePolicyPolicyDetailsScheduleShareRule();
+            _resultValue.targetAccounts = targetAccounts;
+            _resultValue.unshareInterval = unshareInterval;
+            _resultValue.unshareIntervalUnit = unshareIntervalUnit;
+            return _resultValue;
         }
     }
 }

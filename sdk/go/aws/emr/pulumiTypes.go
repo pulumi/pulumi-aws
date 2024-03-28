@@ -638,9 +638,11 @@ func (o ClusterCoreInstanceFleetPtrOutput) TargetSpotCapacity() pulumi.IntPtrOut
 }
 
 type ClusterCoreInstanceFleetInstanceTypeConfig struct {
-	// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
+	// (MISSING)
 	BidPrice *string `pulumi:"bidPrice"`
-	// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
+	// (MISSING)
 	BidPriceAsPercentageOfOnDemandPrice *float64 `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
 	// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
 	Configurations []ClusterCoreInstanceFleetInstanceTypeConfigConfiguration `pulumi:"configurations"`
@@ -664,9 +666,11 @@ type ClusterCoreInstanceFleetInstanceTypeConfigInput interface {
 }
 
 type ClusterCoreInstanceFleetInstanceTypeConfigArgs struct {
-	// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
+	// (MISSING)
 	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
-	// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
+	// (MISSING)
 	BidPriceAsPercentageOfOnDemandPrice pulumi.Float64PtrInput `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
 	// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
 	Configurations ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayInput `pulumi:"configurations"`
@@ -729,12 +733,14 @@ func (o ClusterCoreInstanceFleetInstanceTypeConfigOutput) ToClusterCoreInstanceF
 	return o
 }
 
-// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
+// (MISSING)
 func (o ClusterCoreInstanceFleetInstanceTypeConfigOutput) BidPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfig) *string { return v.BidPrice }).(pulumi.StringPtrOutput)
 }
 
-// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
+// (MISSING)
 func (o ClusterCoreInstanceFleetInstanceTypeConfigOutput) BidPriceAsPercentageOfOnDemandPrice() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfig) *float64 {
 		return v.BidPriceAsPercentageOfOnDemandPrice
@@ -2565,9 +2571,11 @@ func (o ClusterMasterInstanceFleetPtrOutput) TargetSpotCapacity() pulumi.IntPtrO
 }
 
 type ClusterMasterInstanceFleetInstanceTypeConfig struct {
-	// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
+	// (MISSING)
 	BidPrice *string `pulumi:"bidPrice"`
-	// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
+	// (MISSING)
 	BidPriceAsPercentageOfOnDemandPrice *float64 `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
 	// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
 	Configurations []ClusterMasterInstanceFleetInstanceTypeConfigConfiguration `pulumi:"configurations"`
@@ -2591,9 +2599,11 @@ type ClusterMasterInstanceFleetInstanceTypeConfigInput interface {
 }
 
 type ClusterMasterInstanceFleetInstanceTypeConfigArgs struct {
-	// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
+	// (MISSING)
 	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
-	// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
+	// (MISSING)
 	BidPriceAsPercentageOfOnDemandPrice pulumi.Float64PtrInput `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
 	// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
 	Configurations ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayInput `pulumi:"configurations"`
@@ -2656,12 +2666,14 @@ func (o ClusterMasterInstanceFleetInstanceTypeConfigOutput) ToClusterMasterInsta
 	return o
 }
 
-// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
+// (MISSING)
 func (o ClusterMasterInstanceFleetInstanceTypeConfigOutput) BidPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfig) *string { return v.BidPrice }).(pulumi.StringPtrOutput)
 }
 
-// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
+// (MISSING)
 func (o ClusterMasterInstanceFleetInstanceTypeConfigOutput) BidPriceAsPercentageOfOnDemandPrice() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfig) *float64 {
 		return v.BidPriceAsPercentageOfOnDemandPrice
@@ -3999,9 +4011,11 @@ func (o ClusterStepHadoopJarStepOutput) Properties() pulumi.StringMapOutput {
 }
 
 type InstanceFleetInstanceTypeConfig struct {
-	// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
+	// (MISSING)
 	BidPrice *string `pulumi:"bidPrice"`
-	// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
+	// (MISSING)
 	BidPriceAsPercentageOfOnDemandPrice *float64 `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
 	// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
 	Configurations []InstanceFleetInstanceTypeConfigConfiguration `pulumi:"configurations"`
@@ -4025,9 +4039,11 @@ type InstanceFleetInstanceTypeConfigInput interface {
 }
 
 type InstanceFleetInstanceTypeConfigArgs struct {
-	// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
+	// (MISSING)
 	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
-	// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
+	// (MISSING)
 	BidPriceAsPercentageOfOnDemandPrice pulumi.Float64PtrInput `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
 	// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
 	Configurations InstanceFleetInstanceTypeConfigConfigurationArrayInput `pulumi:"configurations"`
@@ -4090,12 +4106,14 @@ func (o InstanceFleetInstanceTypeConfigOutput) ToInstanceFleetInstanceTypeConfig
 	return o
 }
 
-// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
+// (MISSING)
 func (o InstanceFleetInstanceTypeConfigOutput) BidPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceFleetInstanceTypeConfig) *string { return v.BidPrice }).(pulumi.StringPtrOutput)
 }
 
-// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
+// (MISSING)
 func (o InstanceFleetInstanceTypeConfigOutput) BidPriceAsPercentageOfOnDemandPrice() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v InstanceFleetInstanceTypeConfig) *float64 { return v.BidPriceAsPercentageOfOnDemandPrice }).(pulumi.Float64PtrOutput)
 }
@@ -4535,7 +4553,7 @@ func (o InstanceFleetLaunchSpecificationsPtrOutput) SpotSpecifications() Instanc
 }
 
 type InstanceFleetLaunchSpecificationsOnDemandSpecification struct {
-	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	// Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
 	AllocationStrategy string `pulumi:"allocationStrategy"`
 }
 
@@ -4551,7 +4569,7 @@ type InstanceFleetLaunchSpecificationsOnDemandSpecificationInput interface {
 }
 
 type InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs struct {
-	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	// Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
 	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
 }
 
@@ -4606,7 +4624,7 @@ func (o InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) ToInstance
 	return o
 }
 
-// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+// Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
 func (o InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) AllocationStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceFleetLaunchSpecificationsOnDemandSpecification) string { return v.AllocationStrategy }).(pulumi.StringOutput)
 }
@@ -4632,7 +4650,7 @@ func (o InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) Index
 }
 
 type InstanceFleetLaunchSpecificationsSpotSpecification struct {
-	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	// Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
 	AllocationStrategy string `pulumi:"allocationStrategy"`
 	// The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
 	BlockDurationMinutes *int `pulumi:"blockDurationMinutes"`
@@ -4654,7 +4672,7 @@ type InstanceFleetLaunchSpecificationsSpotSpecificationInput interface {
 }
 
 type InstanceFleetLaunchSpecificationsSpotSpecificationArgs struct {
-	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	// Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
 	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
 	// The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
 	BlockDurationMinutes pulumi.IntPtrInput `pulumi:"blockDurationMinutes"`
@@ -4715,7 +4733,7 @@ func (o InstanceFleetLaunchSpecificationsSpotSpecificationOutput) ToInstanceFlee
 	return o
 }
 
-// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+// Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
 func (o InstanceFleetLaunchSpecificationsSpotSpecificationOutput) AllocationStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceFleetLaunchSpecificationsSpotSpecification) string { return v.AllocationStrategy }).(pulumi.StringOutput)
 }
@@ -5168,6 +5186,193 @@ func (o GetReleaseLabelsFiltersPtrOutput) Prefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetSupportedInstanceTypesSupportedInstanceType struct {
+	// CPU architecture.
+	Architecture string `pulumi:"architecture"`
+	// Indicates whether the instance type supports Amazon EBS optimization.
+	EbsOptimizedAvailable bool `pulumi:"ebsOptimizedAvailable"`
+	// Indicates whether the instance type uses Amazon EBS optimization by default.
+	EbsOptimizedByDefault bool `pulumi:"ebsOptimizedByDefault"`
+	// Indicates whether the instance type only supports Amazon EBS.
+	EbsStorageOnly bool `pulumi:"ebsStorageOnly"`
+	// The Amazon EC2 family and generation for the instance type.
+	InstanceFamilyId string `pulumi:"instanceFamilyId"`
+	// Indicates whether the instance type only supports 64-bit architecture.
+	Is64BitsOnly bool `pulumi:"is64BitsOnly"`
+	// Memory that is available to Amazon EMR from the instance type.
+	MemoryGb float64 `pulumi:"memoryGb"`
+	// Number of disks for the instance type.
+	NumberOfDisks int `pulumi:"numberOfDisks"`
+	// Storage capacity of the instance type.
+	StorageGb int `pulumi:"storageGb"`
+	// Amazon EC2 instance type. For example, `m5.xlarge`.
+	Type string `pulumi:"type"`
+	// The number of vCPUs available for the instance type.
+	Vcpu int `pulumi:"vcpu"`
+}
+
+// GetSupportedInstanceTypesSupportedInstanceTypeInput is an input type that accepts GetSupportedInstanceTypesSupportedInstanceTypeArgs and GetSupportedInstanceTypesSupportedInstanceTypeOutput values.
+// You can construct a concrete instance of `GetSupportedInstanceTypesSupportedInstanceTypeInput` via:
+//
+//	GetSupportedInstanceTypesSupportedInstanceTypeArgs{...}
+type GetSupportedInstanceTypesSupportedInstanceTypeInput interface {
+	pulumi.Input
+
+	ToGetSupportedInstanceTypesSupportedInstanceTypeOutput() GetSupportedInstanceTypesSupportedInstanceTypeOutput
+	ToGetSupportedInstanceTypesSupportedInstanceTypeOutputWithContext(context.Context) GetSupportedInstanceTypesSupportedInstanceTypeOutput
+}
+
+type GetSupportedInstanceTypesSupportedInstanceTypeArgs struct {
+	// CPU architecture.
+	Architecture pulumi.StringInput `pulumi:"architecture"`
+	// Indicates whether the instance type supports Amazon EBS optimization.
+	EbsOptimizedAvailable pulumi.BoolInput `pulumi:"ebsOptimizedAvailable"`
+	// Indicates whether the instance type uses Amazon EBS optimization by default.
+	EbsOptimizedByDefault pulumi.BoolInput `pulumi:"ebsOptimizedByDefault"`
+	// Indicates whether the instance type only supports Amazon EBS.
+	EbsStorageOnly pulumi.BoolInput `pulumi:"ebsStorageOnly"`
+	// The Amazon EC2 family and generation for the instance type.
+	InstanceFamilyId pulumi.StringInput `pulumi:"instanceFamilyId"`
+	// Indicates whether the instance type only supports 64-bit architecture.
+	Is64BitsOnly pulumi.BoolInput `pulumi:"is64BitsOnly"`
+	// Memory that is available to Amazon EMR from the instance type.
+	MemoryGb pulumi.Float64Input `pulumi:"memoryGb"`
+	// Number of disks for the instance type.
+	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
+	// Storage capacity of the instance type.
+	StorageGb pulumi.IntInput `pulumi:"storageGb"`
+	// Amazon EC2 instance type. For example, `m5.xlarge`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The number of vCPUs available for the instance type.
+	Vcpu pulumi.IntInput `pulumi:"vcpu"`
+}
+
+func (GetSupportedInstanceTypesSupportedInstanceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSupportedInstanceTypesSupportedInstanceType)(nil)).Elem()
+}
+
+func (i GetSupportedInstanceTypesSupportedInstanceTypeArgs) ToGetSupportedInstanceTypesSupportedInstanceTypeOutput() GetSupportedInstanceTypesSupportedInstanceTypeOutput {
+	return i.ToGetSupportedInstanceTypesSupportedInstanceTypeOutputWithContext(context.Background())
+}
+
+func (i GetSupportedInstanceTypesSupportedInstanceTypeArgs) ToGetSupportedInstanceTypesSupportedInstanceTypeOutputWithContext(ctx context.Context) GetSupportedInstanceTypesSupportedInstanceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSupportedInstanceTypesSupportedInstanceTypeOutput)
+}
+
+// GetSupportedInstanceTypesSupportedInstanceTypeArrayInput is an input type that accepts GetSupportedInstanceTypesSupportedInstanceTypeArray and GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput values.
+// You can construct a concrete instance of `GetSupportedInstanceTypesSupportedInstanceTypeArrayInput` via:
+//
+//	GetSupportedInstanceTypesSupportedInstanceTypeArray{ GetSupportedInstanceTypesSupportedInstanceTypeArgs{...} }
+type GetSupportedInstanceTypesSupportedInstanceTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetSupportedInstanceTypesSupportedInstanceTypeArrayOutput() GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput
+	ToGetSupportedInstanceTypesSupportedInstanceTypeArrayOutputWithContext(context.Context) GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput
+}
+
+type GetSupportedInstanceTypesSupportedInstanceTypeArray []GetSupportedInstanceTypesSupportedInstanceTypeInput
+
+func (GetSupportedInstanceTypesSupportedInstanceTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSupportedInstanceTypesSupportedInstanceType)(nil)).Elem()
+}
+
+func (i GetSupportedInstanceTypesSupportedInstanceTypeArray) ToGetSupportedInstanceTypesSupportedInstanceTypeArrayOutput() GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput {
+	return i.ToGetSupportedInstanceTypesSupportedInstanceTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetSupportedInstanceTypesSupportedInstanceTypeArray) ToGetSupportedInstanceTypesSupportedInstanceTypeArrayOutputWithContext(ctx context.Context) GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput)
+}
+
+type GetSupportedInstanceTypesSupportedInstanceTypeOutput struct{ *pulumi.OutputState }
+
+func (GetSupportedInstanceTypesSupportedInstanceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSupportedInstanceTypesSupportedInstanceType)(nil)).Elem()
+}
+
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) ToGetSupportedInstanceTypesSupportedInstanceTypeOutput() GetSupportedInstanceTypesSupportedInstanceTypeOutput {
+	return o
+}
+
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) ToGetSupportedInstanceTypesSupportedInstanceTypeOutputWithContext(ctx context.Context) GetSupportedInstanceTypesSupportedInstanceTypeOutput {
+	return o
+}
+
+// CPU architecture.
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) Architecture() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSupportedInstanceTypesSupportedInstanceType) string { return v.Architecture }).(pulumi.StringOutput)
+}
+
+// Indicates whether the instance type supports Amazon EBS optimization.
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) EbsOptimizedAvailable() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSupportedInstanceTypesSupportedInstanceType) bool { return v.EbsOptimizedAvailable }).(pulumi.BoolOutput)
+}
+
+// Indicates whether the instance type uses Amazon EBS optimization by default.
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) EbsOptimizedByDefault() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSupportedInstanceTypesSupportedInstanceType) bool { return v.EbsOptimizedByDefault }).(pulumi.BoolOutput)
+}
+
+// Indicates whether the instance type only supports Amazon EBS.
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) EbsStorageOnly() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSupportedInstanceTypesSupportedInstanceType) bool { return v.EbsStorageOnly }).(pulumi.BoolOutput)
+}
+
+// The Amazon EC2 family and generation for the instance type.
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) InstanceFamilyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSupportedInstanceTypesSupportedInstanceType) string { return v.InstanceFamilyId }).(pulumi.StringOutput)
+}
+
+// Indicates whether the instance type only supports 64-bit architecture.
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) Is64BitsOnly() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSupportedInstanceTypesSupportedInstanceType) bool { return v.Is64BitsOnly }).(pulumi.BoolOutput)
+}
+
+// Memory that is available to Amazon EMR from the instance type.
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) MemoryGb() pulumi.Float64Output {
+	return o.ApplyT(func(v GetSupportedInstanceTypesSupportedInstanceType) float64 { return v.MemoryGb }).(pulumi.Float64Output)
+}
+
+// Number of disks for the instance type.
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) NumberOfDisks() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSupportedInstanceTypesSupportedInstanceType) int { return v.NumberOfDisks }).(pulumi.IntOutput)
+}
+
+// Storage capacity of the instance type.
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) StorageGb() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSupportedInstanceTypesSupportedInstanceType) int { return v.StorageGb }).(pulumi.IntOutput)
+}
+
+// Amazon EC2 instance type. For example, `m5.xlarge`.
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSupportedInstanceTypesSupportedInstanceType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The number of vCPUs available for the instance type.
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) Vcpu() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSupportedInstanceTypesSupportedInstanceType) int { return v.Vcpu }).(pulumi.IntOutput)
+}
+
+type GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSupportedInstanceTypesSupportedInstanceType)(nil)).Elem()
+}
+
+func (o GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput) ToGetSupportedInstanceTypesSupportedInstanceTypeArrayOutput() GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput {
+	return o
+}
+
+func (o GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput) ToGetSupportedInstanceTypesSupportedInstanceTypeArrayOutputWithContext(ctx context.Context) GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput {
+	return o
+}
+
+func (o GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput) Index(i pulumi.IntInput) GetSupportedInstanceTypesSupportedInstanceTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSupportedInstanceTypesSupportedInstanceType {
+		return vs[0].([]GetSupportedInstanceTypesSupportedInstanceType)[vs[1].(int)]
+	}).(GetSupportedInstanceTypesSupportedInstanceTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeInput)(nil)).Elem(), BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayInput)(nil)).Elem(), BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArray{})
@@ -5238,6 +5443,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedScalingPolicyComputeLimitArrayInput)(nil)).Elem(), ManagedScalingPolicyComputeLimitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReleaseLabelsFiltersInput)(nil)).Elem(), GetReleaseLabelsFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReleaseLabelsFiltersPtrInput)(nil)).Elem(), GetReleaseLabelsFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSupportedInstanceTypesSupportedInstanceTypeInput)(nil)).Elem(), GetSupportedInstanceTypesSupportedInstanceTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSupportedInstanceTypesSupportedInstanceTypeArrayInput)(nil)).Elem(), GetSupportedInstanceTypesSupportedInstanceTypeArray{})
 	pulumi.RegisterOutputType(BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput{})
 	pulumi.RegisterOutputType(BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput{})
 	pulumi.RegisterOutputType(ClusterAutoTerminationPolicyOutput{})
@@ -5307,4 +5514,6 @@ func init() {
 	pulumi.RegisterOutputType(ManagedScalingPolicyComputeLimitArrayOutput{})
 	pulumi.RegisterOutputType(GetReleaseLabelsFiltersOutput{})
 	pulumi.RegisterOutputType(GetReleaseLabelsFiltersPtrOutput{})
+	pulumi.RegisterOutputType(GetSupportedInstanceTypesSupportedInstanceTypeOutput{})
+	pulumi.RegisterOutputType(GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput{})
 }

@@ -7,6 +7,7 @@ import com.pulumi.aws.mwaa.inputs.EnvironmentLoggingConfigurationArgs;
 import com.pulumi.aws.mwaa.inputs.EnvironmentNetworkConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -62,6 +63,13 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<String> dagS3Path() {
         return this.dagS3Path;
+    }
+
+    @Import(name="endpointManagement")
+    private @Nullable Output<String> endpointManagement;
+
+    public Optional<Output<String>> endpointManagement() {
+        return Optional.ofNullable(this.endpointManagement);
     }
 
     /**
@@ -355,6 +363,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         this.airflowConfigurationOptions = $.airflowConfigurationOptions;
         this.airflowVersion = $.airflowVersion;
         this.dagS3Path = $.dagS3Path;
+        this.endpointManagement = $.endpointManagement;
         this.environmentClass = $.environmentClass;
         this.executionRoleArn = $.executionRoleArn;
         this.kmsKey = $.kmsKey;
@@ -455,6 +464,15 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dagS3Path(String dagS3Path) {
             return dagS3Path(Output.of(dagS3Path));
+        }
+
+        public Builder endpointManagement(@Nullable Output<String> endpointManagement) {
+            $.endpointManagement = endpointManagement;
+            return this;
+        }
+
+        public Builder endpointManagement(String endpointManagement) {
+            return endpointManagement(Output.of(endpointManagement));
         }
 
         /**
@@ -857,10 +875,18 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EnvironmentArgs build() {
-            $.dagS3Path = Objects.requireNonNull($.dagS3Path, "expected parameter 'dagS3Path' to be non-null");
-            $.executionRoleArn = Objects.requireNonNull($.executionRoleArn, "expected parameter 'executionRoleArn' to be non-null");
-            $.networkConfiguration = Objects.requireNonNull($.networkConfiguration, "expected parameter 'networkConfiguration' to be non-null");
-            $.sourceBucketArn = Objects.requireNonNull($.sourceBucketArn, "expected parameter 'sourceBucketArn' to be non-null");
+            if ($.dagS3Path == null) {
+                throw new MissingRequiredPropertyException("EnvironmentArgs", "dagS3Path");
+            }
+            if ($.executionRoleArn == null) {
+                throw new MissingRequiredPropertyException("EnvironmentArgs", "executionRoleArn");
+            }
+            if ($.networkConfiguration == null) {
+                throw new MissingRequiredPropertyException("EnvironmentArgs", "networkConfiguration");
+            }
+            if ($.sourceBucketArn == null) {
+                throw new MissingRequiredPropertyException("EnvironmentArgs", "sourceBucketArn");
+            }
             return $;
         }
     }

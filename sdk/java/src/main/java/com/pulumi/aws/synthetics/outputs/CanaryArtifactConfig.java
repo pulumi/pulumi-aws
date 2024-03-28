@@ -44,13 +44,14 @@ public final class CanaryArtifactConfig {
 
         @CustomType.Setter
         public Builder s3Encryption(@Nullable CanaryArtifactConfigS3Encryption s3Encryption) {
+
             this.s3Encryption = s3Encryption;
             return this;
         }
         public CanaryArtifactConfig build() {
-            final var o = new CanaryArtifactConfig();
-            o.s3Encryption = s3Encryption;
-            return o;
+            final var _resultValue = new CanaryArtifactConfig();
+            _resultValue.s3Encryption = s3Encryption;
+            return _resultValue;
         }
     }
 }

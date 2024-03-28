@@ -73,25 +73,28 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesf
 
         @CustomType.Setter
         public Builder bucketName(@Nullable String bucketName) {
+
             this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder bucketPrefix(@Nullable String bucketPrefix) {
+
             this.bucketPrefix = bucketPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder failOnFirstDestinationError(@Nullable Boolean failOnFirstDestinationError) {
+
             this.failOnFirstDestinationError = failOnFirstDestinationError;
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig();
-            o.bucketName = bucketName;
-            o.bucketPrefix = bucketPrefix;
-            o.failOnFirstDestinationError = failOnFirstDestinationError;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig();
+            _resultValue.bucketName = bucketName;
+            _resultValue.bucketPrefix = bucketPrefix;
+            _resultValue.failOnFirstDestinationError = failOnFirstDestinationError;
+            return _resultValue;
         }
     }
 }

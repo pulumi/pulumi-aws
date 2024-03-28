@@ -13,7 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,19 +21,18 @@ import javax.annotation.Nullable;
  * Manages a KMS multi-Region replica key.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
  * import com.pulumi.aws.kms.Key;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.kms.ReplicaKey;
  * import com.pulumi.aws.kms.ReplicaKeyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,34 +46,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new Provider(&#34;primary&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-east-1&#34;)
- *             .build());
- * 
- *         var primaryKey = new Key(&#34;primaryKey&#34;, KeyArgs.builder()        
+ *         var primary = new Key(&#34;primary&#34;, KeyArgs.builder()        
  *             .description(&#34;Multi-Region primary key&#34;)
  *             .deletionWindowInDays(30)
  *             .multiRegion(true)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.primary())
- *                 .build());
+ *             .build());
  * 
  *         var replica = new ReplicaKey(&#34;replica&#34;, ReplicaKeyArgs.builder()        
  *             .description(&#34;Multi-Region replica key&#34;)
  *             .deletionWindowInDays(7)
- *             .primaryKeyArn(primaryKey.arn())
+ *             .primaryKeyArn(primary.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import KMS multi-Region replica keys using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:kms/replicaKey:ReplicaKey example 1234abcd-12ab-34cd-56ef-1234567890ab
+ * $ pulumi import aws:kms/replicaKey:ReplicaKey example 1234abcd-12ab-34cd-56ef-1234567890ab
  * ```
  * 
  */
@@ -308,9 +301,6 @@ public class ReplicaKey extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

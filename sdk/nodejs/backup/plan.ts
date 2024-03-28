@@ -12,14 +12,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.backup.Plan("example", {
+ *     name: "my_example_backup_plan",
  *     rules: [{
  *         ruleName: "my_example_backup_rule",
- *         targetVaultName: aws_backup_vault.test.name,
+ *         targetVaultName: test.name,
  *         schedule: "cron(0 12 * * ? *)",
  *         lifecycle: {
  *             deleteAfter: 14,
@@ -33,13 +35,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Backup Plan using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:backup/plan:Plan test <id>
+ * $ pulumi import aws:backup/plan:Plan test <id>
  * ```
  */
 export class Plan extends pulumi.CustomResource {
@@ -135,8 +138,6 @@ export class Plan extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Plan.__pulumiType, name, resourceInputs, opts);
     }
 }

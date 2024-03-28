@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,7 +19,10 @@ import javax.annotation.Nullable;
  * Provides a AWS Transfer AS2 Agreement resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,24 +45,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Agreement(&#34;example&#34;, AgreementArgs.builder()        
- *             .accessRole(aws_iam_role.test().arn())
+ *             .accessRole(test.arn())
  *             .baseDirectory(&#34;/DOC-EXAMPLE-BUCKET/home/mydirectory&#34;)
  *             .description(&#34;example&#34;)
- *             .localProfileId(aws_transfer_profile.local().profile_id())
- *             .partnerProfileId(aws_transfer_profile.partner().profile_id())
- *             .serverId(aws_transfer_server.test().id())
+ *             .localProfileId(local.profileId())
+ *             .partnerProfileId(partner.profileId())
+ *             .serverId(testAwsTransferServer.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Transfer AS2 Agreement using the `server_id/agreement_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:transfer/agreement:Agreement example s-4221a88afd5f4362a/a-4221a88afd5f4362a
+ * $ pulumi import aws:transfer/agreement:Agreement example s-4221a88afd5f4362a/a-4221a88afd5f4362a
  * ```
  * 
  */
@@ -243,9 +246,6 @@ public class Agreement extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

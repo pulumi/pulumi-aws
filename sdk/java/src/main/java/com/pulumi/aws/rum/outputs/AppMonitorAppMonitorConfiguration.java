@@ -159,16 +159,19 @@ public final class AppMonitorAppMonitorConfiguration {
 
         @CustomType.Setter
         public Builder allowCookies(@Nullable Boolean allowCookies) {
+
             this.allowCookies = allowCookies;
             return this;
         }
         @CustomType.Setter
         public Builder enableXray(@Nullable Boolean enableXray) {
+
             this.enableXray = enableXray;
             return this;
         }
         @CustomType.Setter
         public Builder excludedPages(@Nullable List<String> excludedPages) {
+
             this.excludedPages = excludedPages;
             return this;
         }
@@ -177,6 +180,7 @@ public final class AppMonitorAppMonitorConfiguration {
         }
         @CustomType.Setter
         public Builder favoritePages(@Nullable List<String> favoritePages) {
+
             this.favoritePages = favoritePages;
             return this;
         }
@@ -185,16 +189,19 @@ public final class AppMonitorAppMonitorConfiguration {
         }
         @CustomType.Setter
         public Builder guestRoleArn(@Nullable String guestRoleArn) {
+
             this.guestRoleArn = guestRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder identityPoolId(@Nullable String identityPoolId) {
+
             this.identityPoolId = identityPoolId;
             return this;
         }
         @CustomType.Setter
         public Builder includedPages(@Nullable List<String> includedPages) {
+
             this.includedPages = includedPages;
             return this;
         }
@@ -203,11 +210,13 @@ public final class AppMonitorAppMonitorConfiguration {
         }
         @CustomType.Setter
         public Builder sessionSampleRate(@Nullable Double sessionSampleRate) {
+
             this.sessionSampleRate = sessionSampleRate;
             return this;
         }
         @CustomType.Setter
         public Builder telemetries(@Nullable List<String> telemetries) {
+
             this.telemetries = telemetries;
             return this;
         }
@@ -215,17 +224,17 @@ public final class AppMonitorAppMonitorConfiguration {
             return telemetries(List.of(telemetries));
         }
         public AppMonitorAppMonitorConfiguration build() {
-            final var o = new AppMonitorAppMonitorConfiguration();
-            o.allowCookies = allowCookies;
-            o.enableXray = enableXray;
-            o.excludedPages = excludedPages;
-            o.favoritePages = favoritePages;
-            o.guestRoleArn = guestRoleArn;
-            o.identityPoolId = identityPoolId;
-            o.includedPages = includedPages;
-            o.sessionSampleRate = sessionSampleRate;
-            o.telemetries = telemetries;
-            return o;
+            final var _resultValue = new AppMonitorAppMonitorConfiguration();
+            _resultValue.allowCookies = allowCookies;
+            _resultValue.enableXray = enableXray;
+            _resultValue.excludedPages = excludedPages;
+            _resultValue.favoritePages = favoritePages;
+            _resultValue.guestRoleArn = guestRoleArn;
+            _resultValue.identityPoolId = identityPoolId;
+            _resultValue.includedPages = includedPages;
+            _resultValue.sessionSampleRate = sessionSampleRate;
+            _resultValue.telemetries = telemetries;
+            return _resultValue;
         }
     }
 }

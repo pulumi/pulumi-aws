@@ -11,6 +11,68 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AutomationRuleAction',
+    'AutomationRuleActionFindingFieldsUpdate',
+    'AutomationRuleActionFindingFieldsUpdateNote',
+    'AutomationRuleActionFindingFieldsUpdateRelatedFinding',
+    'AutomationRuleActionFindingFieldsUpdateSeverity',
+    'AutomationRuleActionFindingFieldsUpdateWorkflow',
+    'AutomationRuleCriteria',
+    'AutomationRuleCriteriaAwsAccountId',
+    'AutomationRuleCriteriaAwsAccountName',
+    'AutomationRuleCriteriaCompanyName',
+    'AutomationRuleCriteriaComplianceAssociatedStandardsId',
+    'AutomationRuleCriteriaComplianceSecurityControlId',
+    'AutomationRuleCriteriaComplianceStatus',
+    'AutomationRuleCriteriaConfidence',
+    'AutomationRuleCriteriaCreatedAt',
+    'AutomationRuleCriteriaCreatedAtDateRange',
+    'AutomationRuleCriteriaCriticality',
+    'AutomationRuleCriteriaDescription',
+    'AutomationRuleCriteriaFirstObservedAt',
+    'AutomationRuleCriteriaFirstObservedAtDateRange',
+    'AutomationRuleCriteriaGeneratorId',
+    'AutomationRuleCriteriaId',
+    'AutomationRuleCriteriaLastObservedAt',
+    'AutomationRuleCriteriaLastObservedAtDateRange',
+    'AutomationRuleCriteriaNoteText',
+    'AutomationRuleCriteriaNoteUpdatedAt',
+    'AutomationRuleCriteriaNoteUpdatedAtDateRange',
+    'AutomationRuleCriteriaNoteUpdatedBy',
+    'AutomationRuleCriteriaProductArn',
+    'AutomationRuleCriteriaProductName',
+    'AutomationRuleCriteriaRecordState',
+    'AutomationRuleCriteriaRelatedFindingsId',
+    'AutomationRuleCriteriaRelatedFindingsProductArn',
+    'AutomationRuleCriteriaResourceApplicationArn',
+    'AutomationRuleCriteriaResourceApplicationName',
+    'AutomationRuleCriteriaResourceDetailsOther',
+    'AutomationRuleCriteriaResourceId',
+    'AutomationRuleCriteriaResourcePartition',
+    'AutomationRuleCriteriaResourceRegion',
+    'AutomationRuleCriteriaResourceTag',
+    'AutomationRuleCriteriaResourceType',
+    'AutomationRuleCriteriaSeverityLabel',
+    'AutomationRuleCriteriaSourceUrl',
+    'AutomationRuleCriteriaTitle',
+    'AutomationRuleCriteriaType',
+    'AutomationRuleCriteriaUpdatedAt',
+    'AutomationRuleCriteriaUpdatedAtDateRange',
+    'AutomationRuleCriteriaUserDefinedField',
+    'AutomationRuleCriteriaVerificationState',
+    'AutomationRuleCriteriaWorkflowStatus',
+    'ConfigurationPolicyConfigurationPolicy',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList',
     'InsightFilters',
     'InsightFiltersAwsAccountId',
     'InsightFiltersCompanyName',
@@ -111,7 +173,2787 @@ __all__ = [
     'InsightFiltersUserDefinedValue',
     'InsightFiltersVerificationState',
     'InsightFiltersWorkflowStatus',
+    'OrganizationConfigurationOrganizationConfiguration',
 ]
+
+@pulumi.output_type
+class AutomationRuleAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "findingFieldsUpdate":
+            suggest = "finding_fields_update"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 finding_fields_update: Optional['outputs.AutomationRuleActionFindingFieldsUpdate'] = None,
+                 type: Optional[str] = None):
+        """
+        :param 'AutomationRuleActionFindingFieldsUpdateArgs' finding_fields_update: A block that specifies that the automation rule action is an update to a finding field.  Documented below.
+        :param str type: Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier.
+        """
+        if finding_fields_update is not None:
+            pulumi.set(__self__, "finding_fields_update", finding_fields_update)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="findingFieldsUpdate")
+    def finding_fields_update(self) -> Optional['outputs.AutomationRuleActionFindingFieldsUpdate']:
+        """
+        A block that specifies that the automation rule action is an update to a finding field.  Documented below.
+        """
+        return pulumi.get(self, "finding_fields_update")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AutomationRuleActionFindingFieldsUpdate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "relatedFindings":
+            suggest = "related_findings"
+        elif key == "userDefinedFields":
+            suggest = "user_defined_fields"
+        elif key == "verificationState":
+            suggest = "verification_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleActionFindingFieldsUpdate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleActionFindingFieldsUpdate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleActionFindingFieldsUpdate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 confidence: Optional[int] = None,
+                 criticality: Optional[int] = None,
+                 note: Optional['outputs.AutomationRuleActionFindingFieldsUpdateNote'] = None,
+                 related_findings: Optional[Sequence['outputs.AutomationRuleActionFindingFieldsUpdateRelatedFinding']] = None,
+                 severity: Optional['outputs.AutomationRuleActionFindingFieldsUpdateSeverity'] = None,
+                 types: Optional[Sequence[str]] = None,
+                 user_defined_fields: Optional[Mapping[str, str]] = None,
+                 verification_state: Optional[str] = None,
+                 workflow: Optional['outputs.AutomationRuleActionFindingFieldsUpdateWorkflow'] = None):
+        """
+        :param int confidence: The rule action updates the `Confidence` field of a finding.
+        :param int criticality: The rule action updates the `Criticality` field of a finding.
+        :param 'AutomationRuleActionFindingFieldsUpdateNoteArgs' note: A resource block that updates the note. Documented below.
+        :param Sequence['AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs'] related_findings: A resource block that the rule action updates the `RelatedFindings` field of a finding. Documented below.
+        :param 'AutomationRuleActionFindingFieldsUpdateSeverityArgs' severity: A resource block that updates to the severity information for a finding. Documented below.
+        :param Sequence[str] types: The rule action updates the `Types` field of a finding.
+        :param Mapping[str, str] user_defined_fields: The rule action updates the `UserDefinedFields` field of a finding.
+        :param str verification_state: The rule action updates the `VerificationState` field of a finding. The allowed values are the following `UNKNOWN`, `TRUE_POSITIVE`, `FALSE_POSITIVE` and `BENIGN_POSITIVE`.
+        :param 'AutomationRuleActionFindingFieldsUpdateWorkflowArgs' workflow: A resource block that is used to update information about the investigation into the finding. Documented below.
+        """
+        if confidence is not None:
+            pulumi.set(__self__, "confidence", confidence)
+        if criticality is not None:
+            pulumi.set(__self__, "criticality", criticality)
+        if note is not None:
+            pulumi.set(__self__, "note", note)
+        if related_findings is not None:
+            pulumi.set(__self__, "related_findings", related_findings)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+        if user_defined_fields is not None:
+            pulumi.set(__self__, "user_defined_fields", user_defined_fields)
+        if verification_state is not None:
+            pulumi.set(__self__, "verification_state", verification_state)
+        if workflow is not None:
+            pulumi.set(__self__, "workflow", workflow)
+
+    @property
+    @pulumi.getter
+    def confidence(self) -> Optional[int]:
+        """
+        The rule action updates the `Confidence` field of a finding.
+        """
+        return pulumi.get(self, "confidence")
+
+    @property
+    @pulumi.getter
+    def criticality(self) -> Optional[int]:
+        """
+        The rule action updates the `Criticality` field of a finding.
+        """
+        return pulumi.get(self, "criticality")
+
+    @property
+    @pulumi.getter
+    def note(self) -> Optional['outputs.AutomationRuleActionFindingFieldsUpdateNote']:
+        """
+        A resource block that updates the note. Documented below.
+        """
+        return pulumi.get(self, "note")
+
+    @property
+    @pulumi.getter(name="relatedFindings")
+    def related_findings(self) -> Optional[Sequence['outputs.AutomationRuleActionFindingFieldsUpdateRelatedFinding']]:
+        """
+        A resource block that the rule action updates the `RelatedFindings` field of a finding. Documented below.
+        """
+        return pulumi.get(self, "related_findings")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional['outputs.AutomationRuleActionFindingFieldsUpdateSeverity']:
+        """
+        A resource block that updates to the severity information for a finding. Documented below.
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[Sequence[str]]:
+        """
+        The rule action updates the `Types` field of a finding.
+        """
+        return pulumi.get(self, "types")
+
+    @property
+    @pulumi.getter(name="userDefinedFields")
+    def user_defined_fields(self) -> Optional[Mapping[str, str]]:
+        """
+        The rule action updates the `UserDefinedFields` field of a finding.
+        """
+        return pulumi.get(self, "user_defined_fields")
+
+    @property
+    @pulumi.getter(name="verificationState")
+    def verification_state(self) -> Optional[str]:
+        """
+        The rule action updates the `VerificationState` field of a finding. The allowed values are the following `UNKNOWN`, `TRUE_POSITIVE`, `FALSE_POSITIVE` and `BENIGN_POSITIVE`.
+        """
+        return pulumi.get(self, "verification_state")
+
+    @property
+    @pulumi.getter
+    def workflow(self) -> Optional['outputs.AutomationRuleActionFindingFieldsUpdateWorkflow']:
+        """
+        A resource block that is used to update information about the investigation into the finding. Documented below.
+        """
+        return pulumi.get(self, "workflow")
+
+
+@pulumi.output_type
+class AutomationRuleActionFindingFieldsUpdateNote(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "updatedBy":
+            suggest = "updated_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleActionFindingFieldsUpdateNote. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleActionFindingFieldsUpdateNote.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleActionFindingFieldsUpdateNote.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 text: str,
+                 updated_by: str):
+        """
+        :param str text: The updated note text.
+        :param str updated_by: The principal that updated the note.
+        """
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "updated_by", updated_by)
+
+    @property
+    @pulumi.getter
+    def text(self) -> str:
+        """
+        The updated note text.
+        """
+        return pulumi.get(self, "text")
+
+    @property
+    @pulumi.getter(name="updatedBy")
+    def updated_by(self) -> str:
+        """
+        The principal that updated the note.
+        """
+        return pulumi.get(self, "updated_by")
+
+
+@pulumi.output_type
+class AutomationRuleActionFindingFieldsUpdateRelatedFinding(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "productArn":
+            suggest = "product_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleActionFindingFieldsUpdateRelatedFinding. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleActionFindingFieldsUpdateRelatedFinding.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleActionFindingFieldsUpdateRelatedFinding.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 product_arn: str):
+        """
+        :param str id: The product-generated identifier for a related finding.
+        :param str product_arn: The ARN of the product that generated a related finding.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "product_arn", product_arn)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The product-generated identifier for a related finding.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="productArn")
+    def product_arn(self) -> str:
+        """
+        The ARN of the product that generated a related finding.
+        """
+        return pulumi.get(self, "product_arn")
+
+
+@pulumi.output_type
+class AutomationRuleActionFindingFieldsUpdateSeverity(dict):
+    def __init__(__self__, *,
+                 label: Optional[str] = None,
+                 product: Optional[float] = None):
+        """
+        :param str label: The severity value of the finding. The allowed values are the following `INFORMATIONAL`, `LOW`, `MEDIUM`, `HIGH` and `CRITICAL`.
+        :param float product: The native severity as defined by the AWS service or integrated partner product that generated the finding.
+        """
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if product is not None:
+            pulumi.set(__self__, "product", product)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        The severity value of the finding. The allowed values are the following `INFORMATIONAL`, `LOW`, `MEDIUM`, `HIGH` and `CRITICAL`.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def product(self) -> Optional[float]:
+        """
+        The native severity as defined by the AWS service or integrated partner product that generated the finding.
+        """
+        return pulumi.get(self, "product")
+
+
+@pulumi.output_type
+class AutomationRuleActionFindingFieldsUpdateWorkflow(dict):
+    def __init__(__self__, *,
+                 status: Optional[str] = None):
+        """
+        :param str status: The status of the investigation into the finding. The allowed values are the following `NEW`, `NOTIFIED`, `RESOLVED` and `SUPPRESSED`.
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The status of the investigation into the finding. The allowed values are the following `NEW`, `NOTIFIED`, `RESOLVED` and `SUPPRESSED`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class AutomationRuleCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsAccountIds":
+            suggest = "aws_account_ids"
+        elif key == "awsAccountNames":
+            suggest = "aws_account_names"
+        elif key == "companyNames":
+            suggest = "company_names"
+        elif key == "complianceAssociatedStandardsIds":
+            suggest = "compliance_associated_standards_ids"
+        elif key == "complianceSecurityControlIds":
+            suggest = "compliance_security_control_ids"
+        elif key == "complianceStatuses":
+            suggest = "compliance_statuses"
+        elif key == "createdAts":
+            suggest = "created_ats"
+        elif key == "firstObservedAts":
+            suggest = "first_observed_ats"
+        elif key == "generatorIds":
+            suggest = "generator_ids"
+        elif key == "lastObservedAts":
+            suggest = "last_observed_ats"
+        elif key == "noteTexts":
+            suggest = "note_texts"
+        elif key == "noteUpdatedAts":
+            suggest = "note_updated_ats"
+        elif key == "noteUpdatedBies":
+            suggest = "note_updated_bies"
+        elif key == "productArns":
+            suggest = "product_arns"
+        elif key == "productNames":
+            suggest = "product_names"
+        elif key == "recordStates":
+            suggest = "record_states"
+        elif key == "relatedFindingsIds":
+            suggest = "related_findings_ids"
+        elif key == "relatedFindingsProductArns":
+            suggest = "related_findings_product_arns"
+        elif key == "resourceApplicationArns":
+            suggest = "resource_application_arns"
+        elif key == "resourceApplicationNames":
+            suggest = "resource_application_names"
+        elif key == "resourceDetailsOthers":
+            suggest = "resource_details_others"
+        elif key == "resourceIds":
+            suggest = "resource_ids"
+        elif key == "resourcePartitions":
+            suggest = "resource_partitions"
+        elif key == "resourceRegions":
+            suggest = "resource_regions"
+        elif key == "resourceTags":
+            suggest = "resource_tags"
+        elif key == "resourceTypes":
+            suggest = "resource_types"
+        elif key == "severityLabels":
+            suggest = "severity_labels"
+        elif key == "sourceUrls":
+            suggest = "source_urls"
+        elif key == "updatedAts":
+            suggest = "updated_ats"
+        elif key == "userDefinedFields":
+            suggest = "user_defined_fields"
+        elif key == "verificationStates":
+            suggest = "verification_states"
+        elif key == "workflowStatuses":
+            suggest = "workflow_statuses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_account_ids: Optional[Sequence['outputs.AutomationRuleCriteriaAwsAccountId']] = None,
+                 aws_account_names: Optional[Sequence['outputs.AutomationRuleCriteriaAwsAccountName']] = None,
+                 company_names: Optional[Sequence['outputs.AutomationRuleCriteriaCompanyName']] = None,
+                 compliance_associated_standards_ids: Optional[Sequence['outputs.AutomationRuleCriteriaComplianceAssociatedStandardsId']] = None,
+                 compliance_security_control_ids: Optional[Sequence['outputs.AutomationRuleCriteriaComplianceSecurityControlId']] = None,
+                 compliance_statuses: Optional[Sequence['outputs.AutomationRuleCriteriaComplianceStatus']] = None,
+                 confidences: Optional[Sequence['outputs.AutomationRuleCriteriaConfidence']] = None,
+                 created_ats: Optional[Sequence['outputs.AutomationRuleCriteriaCreatedAt']] = None,
+                 criticalities: Optional[Sequence['outputs.AutomationRuleCriteriaCriticality']] = None,
+                 descriptions: Optional[Sequence['outputs.AutomationRuleCriteriaDescription']] = None,
+                 first_observed_ats: Optional[Sequence['outputs.AutomationRuleCriteriaFirstObservedAt']] = None,
+                 generator_ids: Optional[Sequence['outputs.AutomationRuleCriteriaGeneratorId']] = None,
+                 ids: Optional[Sequence['outputs.AutomationRuleCriteriaId']] = None,
+                 last_observed_ats: Optional[Sequence['outputs.AutomationRuleCriteriaLastObservedAt']] = None,
+                 note_texts: Optional[Sequence['outputs.AutomationRuleCriteriaNoteText']] = None,
+                 note_updated_ats: Optional[Sequence['outputs.AutomationRuleCriteriaNoteUpdatedAt']] = None,
+                 note_updated_bies: Optional[Sequence['outputs.AutomationRuleCriteriaNoteUpdatedBy']] = None,
+                 product_arns: Optional[Sequence['outputs.AutomationRuleCriteriaProductArn']] = None,
+                 product_names: Optional[Sequence['outputs.AutomationRuleCriteriaProductName']] = None,
+                 record_states: Optional[Sequence['outputs.AutomationRuleCriteriaRecordState']] = None,
+                 related_findings_ids: Optional[Sequence['outputs.AutomationRuleCriteriaRelatedFindingsId']] = None,
+                 related_findings_product_arns: Optional[Sequence['outputs.AutomationRuleCriteriaRelatedFindingsProductArn']] = None,
+                 resource_application_arns: Optional[Sequence['outputs.AutomationRuleCriteriaResourceApplicationArn']] = None,
+                 resource_application_names: Optional[Sequence['outputs.AutomationRuleCriteriaResourceApplicationName']] = None,
+                 resource_details_others: Optional[Sequence['outputs.AutomationRuleCriteriaResourceDetailsOther']] = None,
+                 resource_ids: Optional[Sequence['outputs.AutomationRuleCriteriaResourceId']] = None,
+                 resource_partitions: Optional[Sequence['outputs.AutomationRuleCriteriaResourcePartition']] = None,
+                 resource_regions: Optional[Sequence['outputs.AutomationRuleCriteriaResourceRegion']] = None,
+                 resource_tags: Optional[Sequence['outputs.AutomationRuleCriteriaResourceTag']] = None,
+                 resource_types: Optional[Sequence['outputs.AutomationRuleCriteriaResourceType']] = None,
+                 severity_labels: Optional[Sequence['outputs.AutomationRuleCriteriaSeverityLabel']] = None,
+                 source_urls: Optional[Sequence['outputs.AutomationRuleCriteriaSourceUrl']] = None,
+                 titles: Optional[Sequence['outputs.AutomationRuleCriteriaTitle']] = None,
+                 types: Optional[Sequence['outputs.AutomationRuleCriteriaType']] = None,
+                 updated_ats: Optional[Sequence['outputs.AutomationRuleCriteriaUpdatedAt']] = None,
+                 user_defined_fields: Optional[Sequence['outputs.AutomationRuleCriteriaUserDefinedField']] = None,
+                 verification_states: Optional[Sequence['outputs.AutomationRuleCriteriaVerificationState']] = None,
+                 workflow_statuses: Optional[Sequence['outputs.AutomationRuleCriteriaWorkflowStatus']] = None):
+        """
+        :param Sequence['AutomationRuleCriteriaAwsAccountIdArgs'] aws_account_ids: The AWS account ID in which a finding was generated. Documented below.
+        :param Sequence['AutomationRuleCriteriaAwsAccountNameArgs'] aws_account_names: The name of the AWS account in which a finding was generated. Documented below.
+        :param Sequence['AutomationRuleCriteriaCompanyNameArgs'] company_names: The name of the company for the product that generated the finding. For control-based findings, the company is AWS. Documented below.
+        :param Sequence['AutomationRuleCriteriaComplianceAssociatedStandardsIdArgs'] compliance_associated_standards_ids: The unique identifier of a standard in which a control is enabled. Documented below.
+        :param Sequence['AutomationRuleCriteriaComplianceSecurityControlIdArgs'] compliance_security_control_ids: The security control ID for which a finding was generated. Security control IDs are the same across standards. Documented below.
+        :param Sequence['AutomationRuleCriteriaComplianceStatusArgs'] compliance_statuses: The result of a security check. This field is only used for findings generated from controls. Documented below.
+        :param Sequence['AutomationRuleCriteriaConfidenceArgs'] confidences: The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. Documented below.
+        :param Sequence['AutomationRuleCriteriaCreatedAtArgs'] created_ats: A timestamp that indicates when this finding record was created. Documented below.
+        :param Sequence['AutomationRuleCriteriaCriticalityArgs'] criticalities: The level of importance that is assigned to the resources that are associated with a finding. Documented below.
+        :param Sequence['AutomationRuleCriteriaDescriptionArgs'] descriptions: A finding's description. Documented below.
+        :param Sequence['AutomationRuleCriteriaFirstObservedAtArgs'] first_observed_ats: A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product. Documented below.
+        :param Sequence['AutomationRuleCriteriaGeneratorIdArgs'] generator_ids: The identifier for the solution-specific component that generated a finding. Documented below.
+        :param Sequence['AutomationRuleCriteriaIdArgs'] ids: The product-specific identifier for a finding. Documented below.
+        :param Sequence['AutomationRuleCriteriaLastObservedAtArgs'] last_observed_ats: A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product. Documented below.
+        :param Sequence['AutomationRuleCriteriaNoteTextArgs'] note_texts: The text of a user-defined note that's added to a finding. Documented below.
+        :param Sequence['AutomationRuleCriteriaNoteUpdatedAtArgs'] note_updated_ats: The timestamp of when the note was updated. Documented below.
+        :param Sequence['AutomationRuleCriteriaNoteUpdatedByArgs'] note_updated_bies: The principal that created a note. Documented below.
+        :param Sequence['AutomationRuleCriteriaProductArnArgs'] product_arns: The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+        :param Sequence['AutomationRuleCriteriaProductNameArgs'] product_names: Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. Documented below.
+        :param Sequence['AutomationRuleCriteriaRecordStateArgs'] record_states: Provides the current state of a finding. Documented below.
+        :param Sequence['AutomationRuleCriteriaRelatedFindingsIdArgs'] related_findings_ids: The product-generated identifier for a related finding.  Documented below.
+        :param Sequence['AutomationRuleCriteriaRelatedFindingsProductArnArgs'] related_findings_product_arns: The ARN for the product that generated a related finding. Documented below.
+        :param Sequence['AutomationRuleCriteriaResourceApplicationArnArgs'] resource_application_arns: The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+        :param Sequence['AutomationRuleCriteriaResourceApplicationNameArgs'] resource_application_names: The name of the application that is related to a finding. Documented below.
+        :param Sequence['AutomationRuleCriteriaResourceDetailsOtherArgs'] resource_details_others: Custom fields and values about the resource that a finding pertains to. Documented below.
+        :param Sequence['AutomationRuleCriteriaResourceIdArgs'] resource_ids: The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+        :param Sequence['AutomationRuleCriteriaResourcePartitionArgs'] resource_partitions: The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions. Each AWS account is scoped to one partition. Documented below.
+        :param Sequence['AutomationRuleCriteriaResourceRegionArgs'] resource_regions: The AWS Region where the resource that a finding pertains to is located. Documented below.
+        :param Sequence['AutomationRuleCriteriaResourceTagArgs'] resource_tags: A list of AWS tags associated with a resource at the time the finding was processed. Documented below.
+        :param Sequence['AutomationRuleCriteriaResourceTypeArgs'] resource_types: The type of resource that the finding pertains to. Documented below.
+        :param Sequence['AutomationRuleCriteriaSeverityLabelArgs'] severity_labels: The severity value of the finding. Documented below.
+        :param Sequence['AutomationRuleCriteriaSourceUrlArgs'] source_urls: Provides a URL that links to a page about the current finding in the finding product. Documented below.
+        :param Sequence['AutomationRuleCriteriaTitleArgs'] titles: A finding's title. Documented below.
+        :param Sequence['AutomationRuleCriteriaTypeArgs'] types: One or more finding types in the format of namespace/category/classifier that classify a finding. Documented below.
+        :param Sequence['AutomationRuleCriteriaUpdatedAtArgs'] updated_ats: A timestamp that indicates when the finding record was most recently updated. Documented below.
+        :param Sequence['AutomationRuleCriteriaUserDefinedFieldArgs'] user_defined_fields: A list of user-defined name and value string pairs added to a finding. Documented below.
+        :param Sequence['AutomationRuleCriteriaVerificationStateArgs'] verification_states: Provides the veracity of a finding. Documented below.
+        :param Sequence['AutomationRuleCriteriaWorkflowStatusArgs'] workflow_statuses: Provides information about the status of the investigation into a finding. Documented below.
+        """
+        if aws_account_ids is not None:
+            pulumi.set(__self__, "aws_account_ids", aws_account_ids)
+        if aws_account_names is not None:
+            pulumi.set(__self__, "aws_account_names", aws_account_names)
+        if company_names is not None:
+            pulumi.set(__self__, "company_names", company_names)
+        if compliance_associated_standards_ids is not None:
+            pulumi.set(__self__, "compliance_associated_standards_ids", compliance_associated_standards_ids)
+        if compliance_security_control_ids is not None:
+            pulumi.set(__self__, "compliance_security_control_ids", compliance_security_control_ids)
+        if compliance_statuses is not None:
+            pulumi.set(__self__, "compliance_statuses", compliance_statuses)
+        if confidences is not None:
+            pulumi.set(__self__, "confidences", confidences)
+        if created_ats is not None:
+            pulumi.set(__self__, "created_ats", created_ats)
+        if criticalities is not None:
+            pulumi.set(__self__, "criticalities", criticalities)
+        if descriptions is not None:
+            pulumi.set(__self__, "descriptions", descriptions)
+        if first_observed_ats is not None:
+            pulumi.set(__self__, "first_observed_ats", first_observed_ats)
+        if generator_ids is not None:
+            pulumi.set(__self__, "generator_ids", generator_ids)
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+        if last_observed_ats is not None:
+            pulumi.set(__self__, "last_observed_ats", last_observed_ats)
+        if note_texts is not None:
+            pulumi.set(__self__, "note_texts", note_texts)
+        if note_updated_ats is not None:
+            pulumi.set(__self__, "note_updated_ats", note_updated_ats)
+        if note_updated_bies is not None:
+            pulumi.set(__self__, "note_updated_bies", note_updated_bies)
+        if product_arns is not None:
+            pulumi.set(__self__, "product_arns", product_arns)
+        if product_names is not None:
+            pulumi.set(__self__, "product_names", product_names)
+        if record_states is not None:
+            pulumi.set(__self__, "record_states", record_states)
+        if related_findings_ids is not None:
+            pulumi.set(__self__, "related_findings_ids", related_findings_ids)
+        if related_findings_product_arns is not None:
+            pulumi.set(__self__, "related_findings_product_arns", related_findings_product_arns)
+        if resource_application_arns is not None:
+            pulumi.set(__self__, "resource_application_arns", resource_application_arns)
+        if resource_application_names is not None:
+            pulumi.set(__self__, "resource_application_names", resource_application_names)
+        if resource_details_others is not None:
+            pulumi.set(__self__, "resource_details_others", resource_details_others)
+        if resource_ids is not None:
+            pulumi.set(__self__, "resource_ids", resource_ids)
+        if resource_partitions is not None:
+            pulumi.set(__self__, "resource_partitions", resource_partitions)
+        if resource_regions is not None:
+            pulumi.set(__self__, "resource_regions", resource_regions)
+        if resource_tags is not None:
+            pulumi.set(__self__, "resource_tags", resource_tags)
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+        if severity_labels is not None:
+            pulumi.set(__self__, "severity_labels", severity_labels)
+        if source_urls is not None:
+            pulumi.set(__self__, "source_urls", source_urls)
+        if titles is not None:
+            pulumi.set(__self__, "titles", titles)
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+        if updated_ats is not None:
+            pulumi.set(__self__, "updated_ats", updated_ats)
+        if user_defined_fields is not None:
+            pulumi.set(__self__, "user_defined_fields", user_defined_fields)
+        if verification_states is not None:
+            pulumi.set(__self__, "verification_states", verification_states)
+        if workflow_statuses is not None:
+            pulumi.set(__self__, "workflow_statuses", workflow_statuses)
+
+    @property
+    @pulumi.getter(name="awsAccountIds")
+    def aws_account_ids(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaAwsAccountId']]:
+        """
+        The AWS account ID in which a finding was generated. Documented below.
+        """
+        return pulumi.get(self, "aws_account_ids")
+
+    @property
+    @pulumi.getter(name="awsAccountNames")
+    def aws_account_names(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaAwsAccountName']]:
+        """
+        The name of the AWS account in which a finding was generated. Documented below.
+        """
+        return pulumi.get(self, "aws_account_names")
+
+    @property
+    @pulumi.getter(name="companyNames")
+    def company_names(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaCompanyName']]:
+        """
+        The name of the company for the product that generated the finding. For control-based findings, the company is AWS. Documented below.
+        """
+        return pulumi.get(self, "company_names")
+
+    @property
+    @pulumi.getter(name="complianceAssociatedStandardsIds")
+    def compliance_associated_standards_ids(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaComplianceAssociatedStandardsId']]:
+        """
+        The unique identifier of a standard in which a control is enabled. Documented below.
+        """
+        return pulumi.get(self, "compliance_associated_standards_ids")
+
+    @property
+    @pulumi.getter(name="complianceSecurityControlIds")
+    def compliance_security_control_ids(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaComplianceSecurityControlId']]:
+        """
+        The security control ID for which a finding was generated. Security control IDs are the same across standards. Documented below.
+        """
+        return pulumi.get(self, "compliance_security_control_ids")
+
+    @property
+    @pulumi.getter(name="complianceStatuses")
+    def compliance_statuses(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaComplianceStatus']]:
+        """
+        The result of a security check. This field is only used for findings generated from controls. Documented below.
+        """
+        return pulumi.get(self, "compliance_statuses")
+
+    @property
+    @pulumi.getter
+    def confidences(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaConfidence']]:
+        """
+        The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. Documented below.
+        """
+        return pulumi.get(self, "confidences")
+
+    @property
+    @pulumi.getter(name="createdAts")
+    def created_ats(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaCreatedAt']]:
+        """
+        A timestamp that indicates when this finding record was created. Documented below.
+        """
+        return pulumi.get(self, "created_ats")
+
+    @property
+    @pulumi.getter
+    def criticalities(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaCriticality']]:
+        """
+        The level of importance that is assigned to the resources that are associated with a finding. Documented below.
+        """
+        return pulumi.get(self, "criticalities")
+
+    @property
+    @pulumi.getter
+    def descriptions(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaDescription']]:
+        """
+        A finding's description. Documented below.
+        """
+        return pulumi.get(self, "descriptions")
+
+    @property
+    @pulumi.getter(name="firstObservedAts")
+    def first_observed_ats(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaFirstObservedAt']]:
+        """
+        A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product. Documented below.
+        """
+        return pulumi.get(self, "first_observed_ats")
+
+    @property
+    @pulumi.getter(name="generatorIds")
+    def generator_ids(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaGeneratorId']]:
+        """
+        The identifier for the solution-specific component that generated a finding. Documented below.
+        """
+        return pulumi.get(self, "generator_ids")
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaId']]:
+        """
+        The product-specific identifier for a finding. Documented below.
+        """
+        return pulumi.get(self, "ids")
+
+    @property
+    @pulumi.getter(name="lastObservedAts")
+    def last_observed_ats(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaLastObservedAt']]:
+        """
+        A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product. Documented below.
+        """
+        return pulumi.get(self, "last_observed_ats")
+
+    @property
+    @pulumi.getter(name="noteTexts")
+    def note_texts(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaNoteText']]:
+        """
+        The text of a user-defined note that's added to a finding. Documented below.
+        """
+        return pulumi.get(self, "note_texts")
+
+    @property
+    @pulumi.getter(name="noteUpdatedAts")
+    def note_updated_ats(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaNoteUpdatedAt']]:
+        """
+        The timestamp of when the note was updated. Documented below.
+        """
+        return pulumi.get(self, "note_updated_ats")
+
+    @property
+    @pulumi.getter(name="noteUpdatedBies")
+    def note_updated_bies(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaNoteUpdatedBy']]:
+        """
+        The principal that created a note. Documented below.
+        """
+        return pulumi.get(self, "note_updated_bies")
+
+    @property
+    @pulumi.getter(name="productArns")
+    def product_arns(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaProductArn']]:
+        """
+        The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+        """
+        return pulumi.get(self, "product_arns")
+
+    @property
+    @pulumi.getter(name="productNames")
+    def product_names(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaProductName']]:
+        """
+        Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. Documented below.
+        """
+        return pulumi.get(self, "product_names")
+
+    @property
+    @pulumi.getter(name="recordStates")
+    def record_states(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaRecordState']]:
+        """
+        Provides the current state of a finding. Documented below.
+        """
+        return pulumi.get(self, "record_states")
+
+    @property
+    @pulumi.getter(name="relatedFindingsIds")
+    def related_findings_ids(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaRelatedFindingsId']]:
+        """
+        The product-generated identifier for a related finding.  Documented below.
+        """
+        return pulumi.get(self, "related_findings_ids")
+
+    @property
+    @pulumi.getter(name="relatedFindingsProductArns")
+    def related_findings_product_arns(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaRelatedFindingsProductArn']]:
+        """
+        The ARN for the product that generated a related finding. Documented below.
+        """
+        return pulumi.get(self, "related_findings_product_arns")
+
+    @property
+    @pulumi.getter(name="resourceApplicationArns")
+    def resource_application_arns(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaResourceApplicationArn']]:
+        """
+        The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+        """
+        return pulumi.get(self, "resource_application_arns")
+
+    @property
+    @pulumi.getter(name="resourceApplicationNames")
+    def resource_application_names(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaResourceApplicationName']]:
+        """
+        The name of the application that is related to a finding. Documented below.
+        """
+        return pulumi.get(self, "resource_application_names")
+
+    @property
+    @pulumi.getter(name="resourceDetailsOthers")
+    def resource_details_others(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaResourceDetailsOther']]:
+        """
+        Custom fields and values about the resource that a finding pertains to. Documented below.
+        """
+        return pulumi.get(self, "resource_details_others")
+
+    @property
+    @pulumi.getter(name="resourceIds")
+    def resource_ids(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaResourceId']]:
+        """
+        The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+        """
+        return pulumi.get(self, "resource_ids")
+
+    @property
+    @pulumi.getter(name="resourcePartitions")
+    def resource_partitions(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaResourcePartition']]:
+        """
+        The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions. Each AWS account is scoped to one partition. Documented below.
+        """
+        return pulumi.get(self, "resource_partitions")
+
+    @property
+    @pulumi.getter(name="resourceRegions")
+    def resource_regions(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaResourceRegion']]:
+        """
+        The AWS Region where the resource that a finding pertains to is located. Documented below.
+        """
+        return pulumi.get(self, "resource_regions")
+
+    @property
+    @pulumi.getter(name="resourceTags")
+    def resource_tags(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaResourceTag']]:
+        """
+        A list of AWS tags associated with a resource at the time the finding was processed. Documented below.
+        """
+        return pulumi.get(self, "resource_tags")
+
+    @property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaResourceType']]:
+        """
+        The type of resource that the finding pertains to. Documented below.
+        """
+        return pulumi.get(self, "resource_types")
+
+    @property
+    @pulumi.getter(name="severityLabels")
+    def severity_labels(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaSeverityLabel']]:
+        """
+        The severity value of the finding. Documented below.
+        """
+        return pulumi.get(self, "severity_labels")
+
+    @property
+    @pulumi.getter(name="sourceUrls")
+    def source_urls(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaSourceUrl']]:
+        """
+        Provides a URL that links to a page about the current finding in the finding product. Documented below.
+        """
+        return pulumi.get(self, "source_urls")
+
+    @property
+    @pulumi.getter
+    def titles(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaTitle']]:
+        """
+        A finding's title. Documented below.
+        """
+        return pulumi.get(self, "titles")
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaType']]:
+        """
+        One or more finding types in the format of namespace/category/classifier that classify a finding. Documented below.
+        """
+        return pulumi.get(self, "types")
+
+    @property
+    @pulumi.getter(name="updatedAts")
+    def updated_ats(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaUpdatedAt']]:
+        """
+        A timestamp that indicates when the finding record was most recently updated. Documented below.
+        """
+        return pulumi.get(self, "updated_ats")
+
+    @property
+    @pulumi.getter(name="userDefinedFields")
+    def user_defined_fields(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaUserDefinedField']]:
+        """
+        A list of user-defined name and value string pairs added to a finding. Documented below.
+        """
+        return pulumi.get(self, "user_defined_fields")
+
+    @property
+    @pulumi.getter(name="verificationStates")
+    def verification_states(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaVerificationState']]:
+        """
+        Provides the veracity of a finding. Documented below.
+        """
+        return pulumi.get(self, "verification_states")
+
+    @property
+    @pulumi.getter(name="workflowStatuses")
+    def workflow_statuses(self) -> Optional[Sequence['outputs.AutomationRuleCriteriaWorkflowStatus']]:
+        """
+        Provides information about the status of the investigation into a finding. Documented below.
+        """
+        return pulumi.get(self, "workflow_statuses")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaAwsAccountId(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaAwsAccountName(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaCompanyName(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaComplianceAssociatedStandardsId(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaComplianceSecurityControlId(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaComplianceStatus(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaConfidence(dict):
+    def __init__(__self__, *,
+                 eq: Optional[float] = None,
+                 gt: Optional[float] = None,
+                 gte: Optional[float] = None,
+                 lt: Optional[float] = None,
+                 lte: Optional[float] = None):
+        """
+        :param float eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        :param float gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        :param float lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
+        if eq is not None:
+            pulumi.set(__self__, "eq", eq)
+        if gt is not None:
+            pulumi.set(__self__, "gt", gt)
+        if gte is not None:
+            pulumi.set(__self__, "gte", gte)
+        if lt is not None:
+            pulumi.set(__self__, "lt", lt)
+        if lte is not None:
+            pulumi.set(__self__, "lte", lte)
+
+    @property
+    @pulumi.getter
+    def eq(self) -> Optional[float]:
+        """
+        The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        """
+        return pulumi.get(self, "eq")
+
+    @property
+    @pulumi.getter
+    def gt(self) -> Optional[float]:
+        return pulumi.get(self, "gt")
+
+    @property
+    @pulumi.getter
+    def gte(self) -> Optional[float]:
+        """
+        The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
+        return pulumi.get(self, "gte")
+
+    @property
+    @pulumi.getter
+    def lt(self) -> Optional[float]:
+        return pulumi.get(self, "lt")
+
+    @property
+    @pulumi.getter
+    def lte(self) -> Optional[float]:
+        """
+        The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
+        return pulumi.get(self, "lte")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaCreatedAt(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dateRange":
+            suggest = "date_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleCriteriaCreatedAt. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleCriteriaCreatedAt.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleCriteriaCreatedAt.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 date_range: Optional['outputs.AutomationRuleCriteriaCreatedAtDateRange'] = None,
+                 end: Optional[str] = None,
+                 start: Optional[str] = None):
+        """
+        :param 'AutomationRuleCriteriaCreatedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
+        if date_range is not None:
+            pulumi.set(__self__, "date_range", date_range)
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter(name="dateRange")
+    def date_range(self) -> Optional['outputs.AutomationRuleCriteriaCreatedAtDateRange']:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
+        return pulumi.get(self, "date_range")
+
+    @property
+    @pulumi.getter
+    def end(self) -> Optional[str]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[str]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
+        return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaCreatedAtDateRange(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: A date range unit for the date filter. Valid values: `DAYS`.
+        :param int value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaCriticality(dict):
+    def __init__(__self__, *,
+                 eq: Optional[float] = None,
+                 gt: Optional[float] = None,
+                 gte: Optional[float] = None,
+                 lt: Optional[float] = None,
+                 lte: Optional[float] = None):
+        """
+        :param float eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        :param float gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        :param float lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
+        if eq is not None:
+            pulumi.set(__self__, "eq", eq)
+        if gt is not None:
+            pulumi.set(__self__, "gt", gt)
+        if gte is not None:
+            pulumi.set(__self__, "gte", gte)
+        if lt is not None:
+            pulumi.set(__self__, "lt", lt)
+        if lte is not None:
+            pulumi.set(__self__, "lte", lte)
+
+    @property
+    @pulumi.getter
+    def eq(self) -> Optional[float]:
+        """
+        The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        """
+        return pulumi.get(self, "eq")
+
+    @property
+    @pulumi.getter
+    def gt(self) -> Optional[float]:
+        return pulumi.get(self, "gt")
+
+    @property
+    @pulumi.getter
+    def gte(self) -> Optional[float]:
+        """
+        The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
+        return pulumi.get(self, "gte")
+
+    @property
+    @pulumi.getter
+    def lt(self) -> Optional[float]:
+        return pulumi.get(self, "lt")
+
+    @property
+    @pulumi.getter
+    def lte(self) -> Optional[float]:
+        """
+        The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
+        return pulumi.get(self, "lte")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaDescription(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaFirstObservedAt(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dateRange":
+            suggest = "date_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleCriteriaFirstObservedAt. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleCriteriaFirstObservedAt.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleCriteriaFirstObservedAt.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 date_range: Optional['outputs.AutomationRuleCriteriaFirstObservedAtDateRange'] = None,
+                 end: Optional[str] = None,
+                 start: Optional[str] = None):
+        """
+        :param 'AutomationRuleCriteriaFirstObservedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
+        if date_range is not None:
+            pulumi.set(__self__, "date_range", date_range)
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter(name="dateRange")
+    def date_range(self) -> Optional['outputs.AutomationRuleCriteriaFirstObservedAtDateRange']:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
+        return pulumi.get(self, "date_range")
+
+    @property
+    @pulumi.getter
+    def end(self) -> Optional[str]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[str]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
+        return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaFirstObservedAtDateRange(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: A date range unit for the date filter. Valid values: `DAYS`.
+        :param int value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaGeneratorId(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaId(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaLastObservedAt(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dateRange":
+            suggest = "date_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleCriteriaLastObservedAt. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleCriteriaLastObservedAt.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleCriteriaLastObservedAt.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 date_range: Optional['outputs.AutomationRuleCriteriaLastObservedAtDateRange'] = None,
+                 end: Optional[str] = None,
+                 start: Optional[str] = None):
+        """
+        :param 'AutomationRuleCriteriaLastObservedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
+        if date_range is not None:
+            pulumi.set(__self__, "date_range", date_range)
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter(name="dateRange")
+    def date_range(self) -> Optional['outputs.AutomationRuleCriteriaLastObservedAtDateRange']:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
+        return pulumi.get(self, "date_range")
+
+    @property
+    @pulumi.getter
+    def end(self) -> Optional[str]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[str]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
+        return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaLastObservedAtDateRange(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: A date range unit for the date filter. Valid values: `DAYS`.
+        :param int value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaNoteText(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaNoteUpdatedAt(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dateRange":
+            suggest = "date_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleCriteriaNoteUpdatedAt. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleCriteriaNoteUpdatedAt.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleCriteriaNoteUpdatedAt.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 date_range: Optional['outputs.AutomationRuleCriteriaNoteUpdatedAtDateRange'] = None,
+                 end: Optional[str] = None,
+                 start: Optional[str] = None):
+        """
+        :param 'AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
+        if date_range is not None:
+            pulumi.set(__self__, "date_range", date_range)
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter(name="dateRange")
+    def date_range(self) -> Optional['outputs.AutomationRuleCriteriaNoteUpdatedAtDateRange']:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
+        return pulumi.get(self, "date_range")
+
+    @property
+    @pulumi.getter
+    def end(self) -> Optional[str]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[str]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
+        return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaNoteUpdatedAtDateRange(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: A date range unit for the date filter. Valid values: `DAYS`.
+        :param int value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaNoteUpdatedBy(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaProductArn(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaProductName(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaRecordState(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaRelatedFindingsId(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaRelatedFindingsProductArn(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaResourceApplicationArn(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaResourceApplicationName(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaResourceDetailsOther(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 key: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str key: The key of the map filter.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key of the map filter.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaResourceId(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaResourcePartition(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaResourceRegion(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaResourceTag(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 key: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str key: The key of the map filter.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key of the map filter.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaResourceType(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaSeverityLabel(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaSourceUrl(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaTitle(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaType(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaUpdatedAt(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dateRange":
+            suggest = "date_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleCriteriaUpdatedAt. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleCriteriaUpdatedAt.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleCriteriaUpdatedAt.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 date_range: Optional['outputs.AutomationRuleCriteriaUpdatedAtDateRange'] = None,
+                 end: Optional[str] = None,
+                 start: Optional[str] = None):
+        """
+        :param 'AutomationRuleCriteriaUpdatedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
+        if date_range is not None:
+            pulumi.set(__self__, "date_range", date_range)
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter(name="dateRange")
+    def date_range(self) -> Optional['outputs.AutomationRuleCriteriaUpdatedAtDateRange']:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
+        return pulumi.get(self, "date_range")
+
+    @property
+    @pulumi.getter
+    def end(self) -> Optional[str]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[str]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
+        return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaUpdatedAtDateRange(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: A date range unit for the date filter. Valid values: `DAYS`.
+        :param int value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaUserDefinedField(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 key: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str key: The key of the map filter.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key of the map filter.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaVerificationState(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleCriteriaWorkflowStatus(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ConfigurationPolicyConfigurationPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enabledStandardArns":
+            suggest = "enabled_standard_arns"
+        elif key == "serviceEnabled":
+            suggest = "service_enabled"
+        elif key == "securityControlsConfiguration":
+            suggest = "security_controls_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationPolicyConfigurationPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationPolicyConfigurationPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationPolicyConfigurationPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled_standard_arns: Sequence[str],
+                 service_enabled: bool,
+                 security_controls_configuration: Optional['outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration'] = None):
+        """
+        :param Sequence[str] enabled_standard_arns: A list that defines which security standards are enabled in the configuration policy.
+        :param bool service_enabled: Indicates whether Security Hub is enabled in the policy.
+        :param 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs' security_controls_configuration: Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+        """
+        pulumi.set(__self__, "enabled_standard_arns", enabled_standard_arns)
+        pulumi.set(__self__, "service_enabled", service_enabled)
+        if security_controls_configuration is not None:
+            pulumi.set(__self__, "security_controls_configuration", security_controls_configuration)
+
+    @property
+    @pulumi.getter(name="enabledStandardArns")
+    def enabled_standard_arns(self) -> Sequence[str]:
+        """
+        A list that defines which security standards are enabled in the configuration policy.
+        """
+        return pulumi.get(self, "enabled_standard_arns")
+
+    @property
+    @pulumi.getter(name="serviceEnabled")
+    def service_enabled(self) -> bool:
+        """
+        Indicates whether Security Hub is enabled in the policy.
+        """
+        return pulumi.get(self, "service_enabled")
+
+    @property
+    @pulumi.getter(name="securityControlsConfiguration")
+    def security_controls_configuration(self) -> Optional['outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration']:
+        """
+        Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+        """
+        return pulumi.get(self, "security_controls_configuration")
+
+
+@pulumi.output_type
+class ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disabledControlIdentifiers":
+            suggest = "disabled_control_identifiers"
+        elif key == "enabledControlIdentifiers":
+            suggest = "enabled_control_identifiers"
+        elif key == "securityControlCustomParameters":
+            suggest = "security_control_custom_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disabled_control_identifiers: Optional[Sequence[str]] = None,
+                 enabled_control_identifiers: Optional[Sequence[str]] = None,
+                 security_control_custom_parameters: Optional[Sequence['outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter']] = None):
+        """
+        :param Sequence[str] disabled_control_identifiers: A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabled_control_identifiers`.
+        :param Sequence[str] enabled_control_identifiers: A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabled_control_identifiers`.
+        :param Sequence['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs'] security_control_custom_parameters: A list of control parameter customizations that are included in a configuration policy. Include multiple blocks to define multiple control custom parameters. See below.
+        """
+        if disabled_control_identifiers is not None:
+            pulumi.set(__self__, "disabled_control_identifiers", disabled_control_identifiers)
+        if enabled_control_identifiers is not None:
+            pulumi.set(__self__, "enabled_control_identifiers", enabled_control_identifiers)
+        if security_control_custom_parameters is not None:
+            pulumi.set(__self__, "security_control_custom_parameters", security_control_custom_parameters)
+
+    @property
+    @pulumi.getter(name="disabledControlIdentifiers")
+    def disabled_control_identifiers(self) -> Optional[Sequence[str]]:
+        """
+        A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabled_control_identifiers`.
+        """
+        return pulumi.get(self, "disabled_control_identifiers")
+
+    @property
+    @pulumi.getter(name="enabledControlIdentifiers")
+    def enabled_control_identifiers(self) -> Optional[Sequence[str]]:
+        """
+        A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabled_control_identifiers`.
+        """
+        return pulumi.get(self, "enabled_control_identifiers")
+
+    @property
+    @pulumi.getter(name="securityControlCustomParameters")
+    def security_control_custom_parameters(self) -> Optional[Sequence['outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter']]:
+        """
+        A list of control parameter customizations that are included in a configuration policy. Include multiple blocks to define multiple control custom parameters. See below.
+        """
+        return pulumi.get(self, "security_control_custom_parameters")
+
+
+@pulumi.output_type
+class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityControlId":
+            suggest = "security_control_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 parameters: Sequence['outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter'],
+                 security_control_id: str):
+        """
+        :param Sequence['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs'] parameters: An object that specifies parameter values for a control in a configuration policy. See below.
+        :param str security_control_id: The ID of the security control. For more information see the [Security Hub controls reference] documentation.
+        """
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "security_control_id", security_control_id)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Sequence['outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter']:
+        """
+        An object that specifies parameter values for a control in a configuration policy. See below.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="securityControlId")
+    def security_control_id(self) -> str:
+        """
+        The ID of the security control. For more information see the [Security Hub controls reference] documentation.
+        """
+        return pulumi.get(self, "security_control_id")
+
+
+@pulumi.output_type
+class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "valueType":
+            suggest = "value_type"
+        elif key == "enumList":
+            suggest = "enum_list"
+        elif key == "intList":
+            suggest = "int_list"
+        elif key == "stringList":
+            suggest = "string_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 value_type: str,
+                 bool: Optional['outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool'] = None,
+                 double: Optional['outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble'] = None,
+                 enum: Optional['outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum'] = None,
+                 enum_list: Optional['outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList'] = None,
+                 int: Optional['outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt'] = None,
+                 int_list: Optional['outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList'] = None,
+                 string: Optional['outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString'] = None,
+                 string_list: Optional['outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList'] = None):
+        """
+        :param str name: The name of the control parameter. For more information see the [Security Hub controls reference] documentation.
+        :param str value_type: Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior. Valid values: `DEFAULT`, `CUSTOM`.
+        :param 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs' bool: The bool `value` for a Boolean-typed Security Hub Control Parameter.
+        :param 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs' double: The float `value` for a Double-typed Security Hub Control Parameter.
+        :param 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs' enum: The string `value` for a Enum-typed Security Hub Control Parameter.
+        :param 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs' enum_list: The string list `value` for a EnumList-typed Security Hub Control Parameter.
+        :param 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs' int: The int `value` for a Int-typed Security Hub Control Parameter.
+        :param 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs' int_list: The int list `value` for a IntList-typed Security Hub Control Parameter.
+        :param 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs' string: The string `value` for a String-typed Security Hub Control Parameter.
+        :param 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs' string_list: The string list `value` for a StringList-typed Security Hub Control Parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value_type", value_type)
+        if bool is not None:
+            pulumi.set(__self__, "bool", bool)
+        if double is not None:
+            pulumi.set(__self__, "double", double)
+        if enum is not None:
+            pulumi.set(__self__, "enum", enum)
+        if enum_list is not None:
+            pulumi.set(__self__, "enum_list", enum_list)
+        if int is not None:
+            pulumi.set(__self__, "int", int)
+        if int_list is not None:
+            pulumi.set(__self__, "int_list", int_list)
+        if string is not None:
+            pulumi.set(__self__, "string", string)
+        if string_list is not None:
+            pulumi.set(__self__, "string_list", string_list)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the control parameter. For more information see the [Security Hub controls reference] documentation.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> str:
+        """
+        Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior. Valid values: `DEFAULT`, `CUSTOM`.
+        """
+        return pulumi.get(self, "value_type")
+
+    @property
+    @pulumi.getter
+    def bool(self) -> Optional['outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool']:
+        """
+        The bool `value` for a Boolean-typed Security Hub Control Parameter.
+        """
+        return pulumi.get(self, "bool")
+
+    @property
+    @pulumi.getter
+    def double(self) -> Optional['outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble']:
+        """
+        The float `value` for a Double-typed Security Hub Control Parameter.
+        """
+        return pulumi.get(self, "double")
+
+    @property
+    @pulumi.getter
+    def enum(self) -> Optional['outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum']:
+        """
+        The string `value` for a Enum-typed Security Hub Control Parameter.
+        """
+        return pulumi.get(self, "enum")
+
+    @property
+    @pulumi.getter(name="enumList")
+    def enum_list(self) -> Optional['outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList']:
+        """
+        The string list `value` for a EnumList-typed Security Hub Control Parameter.
+        """
+        return pulumi.get(self, "enum_list")
+
+    @property
+    @pulumi.getter
+    def int(self) -> Optional['outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt']:
+        """
+        The int `value` for a Int-typed Security Hub Control Parameter.
+        """
+        return pulumi.get(self, "int")
+
+    @property
+    @pulumi.getter(name="intList")
+    def int_list(self) -> Optional['outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList']:
+        """
+        The int list `value` for a IntList-typed Security Hub Control Parameter.
+        """
+        return pulumi.get(self, "int_list")
+
+    @property
+    @pulumi.getter
+    def string(self) -> Optional['outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString']:
+        """
+        The string `value` for a String-typed Security Hub Control Parameter.
+        """
+        return pulumi.get(self, "string")
+
+    @property
+    @pulumi.getter(name="stringList")
+    def string_list(self) -> Optional['outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList']:
+        """
+        The string list `value` for a StringList-typed Security Hub Control Parameter.
+        """
+        return pulumi.get(self, "string_list")
+
+
+@pulumi.output_type
+class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool(dict):
+    def __init__(__self__, *,
+                 value: bool):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> bool:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble(dict):
+    def __init__(__self__, *,
+                 value: float):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> float:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum(dict):
+    def __init__(__self__, *,
+                 value: str):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList(dict):
+    def __init__(__self__, *,
+                 values: Sequence[str]):
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt(dict):
+    def __init__(__self__, *,
+                 value: int):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList(dict):
+    def __init__(__self__, *,
+                 values: Sequence[int]):
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[int]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString(dict):
+    def __init__(__self__, *,
+                 value: str):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList(dict):
+    def __init__(__self__, *,
+                 values: Sequence[str]):
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
 
 @pulumi.output_type
 class InsightFilters(dict):
@@ -4642,5 +7484,40 @@ class InsightFiltersWorkflowStatus(dict):
         A date range value for the date filter, provided as an Integer.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OrganizationConfigurationOrganizationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationType":
+            suggest = "configuration_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationConfigurationOrganizationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationConfigurationOrganizationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationConfigurationOrganizationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 configuration_type: str):
+        """
+        :param str configuration_type: Indicates whether the organization uses local or central configuration. If using central configuration, `auto_enable` must be set to `false` and `auto_enable_standards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
+        """
+        pulumi.set(__self__, "configuration_type", configuration_type)
+
+    @property
+    @pulumi.getter(name="configurationType")
+    def configuration_type(self) -> str:
+        """
+        Indicates whether the organization uses local or central configuration. If using central configuration, `auto_enable` must be set to `false` and `auto_enable_standards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
+        """
+        return pulumi.get(self, "configuration_type")
 
 

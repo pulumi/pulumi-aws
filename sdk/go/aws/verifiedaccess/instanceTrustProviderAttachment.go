@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,11 +29,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleInstance, err := verifiedaccess.NewInstance(ctx, "exampleInstance", nil)
+//			example, err := verifiedaccess.NewInstance(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleTrustProvider, err := verifiedaccess.NewTrustProvider(ctx, "exampleTrustProvider", &verifiedaccess.TrustProviderArgs{
+//			exampleTrustProvider, err := verifiedaccess.NewTrustProvider(ctx, "example", &verifiedaccess.TrustProviderArgs{
 //				DeviceTrustProviderType: pulumi.String("jamf"),
 //				PolicyReferenceName:     pulumi.String("example"),
 //				TrustProviderType:       pulumi.String("device"),
@@ -43,8 +44,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = verifiedaccess.NewInstanceTrustProviderAttachment(ctx, "exampleInstanceTrustProviderAttachment", &verifiedaccess.InstanceTrustProviderAttachmentArgs{
-//				VerifiedaccessInstanceId:      exampleInstance.ID(),
+//			_, err = verifiedaccess.NewInstanceTrustProviderAttachment(ctx, "example", &verifiedaccess.InstanceTrustProviderAttachmentArgs{
+//				VerifiedaccessInstanceId:      example.ID(),
 //				VerifiedaccessTrustProviderId: exampleTrustProvider.ID(),
 //			})
 //			if err != nil {
@@ -55,15 +56,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Verified Access Instance Trust Provider Attachments using the `verifiedaccess_instance_id` and `verifiedaccess_trust_provider_id` separated by a forward slash (`/`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment example vai-1234567890abcdef0/vatp-8012925589
-//
+// $ pulumi import aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment example vai-1234567890abcdef0/vatp-8012925589
 // ```
 type InstanceTrustProviderAttachment struct {
 	pulumi.CustomResourceState

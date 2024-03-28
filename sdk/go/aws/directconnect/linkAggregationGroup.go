@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,9 +32,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := directconnect.NewLinkAggregationGroup(ctx, "hoge", &directconnect.LinkAggregationGroupArgs{
+//				Name:                 pulumi.String("tf-dx-lag"),
 //				ConnectionsBandwidth: pulumi.String("1Gbps"),
-//				ForceDestroy:         pulumi.Bool(true),
 //				Location:             pulumi.String("EqDC2"),
+//				ForceDestroy:         pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -43,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Direct Connect LAGs using the LAG `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
-//
+// $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
 // ```
 type LinkAggregationGroup struct {
 	pulumi.CustomResourceState
@@ -97,10 +98,6 @@ func NewLinkAggregationGroup(ctx *pulumi.Context,
 	if args.Location == nil {
 		return nil, errors.New("invalid value for required argument 'Location'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LinkAggregationGroup
 	err := ctx.RegisterResource("aws:directconnect/linkAggregationGroup:LinkAggregationGroup", name, args, &resource, opts...)

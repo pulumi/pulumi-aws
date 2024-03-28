@@ -15,8 +15,10 @@ import (
 // Provides a AWS Transfer AS2 Agreement resource.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,12 +32,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := transfer.NewAgreement(ctx, "example", &transfer.AgreementArgs{
-//				AccessRole:       pulumi.Any(aws_iam_role.Test.Arn),
+//				AccessRole:       pulumi.Any(test.Arn),
 //				BaseDirectory:    pulumi.String("/DOC-EXAMPLE-BUCKET/home/mydirectory"),
 //				Description:      pulumi.String("example"),
-//				LocalProfileId:   pulumi.Any(aws_transfer_profile.Local.Profile_id),
-//				PartnerProfileId: pulumi.Any(aws_transfer_profile.Partner.Profile_id),
-//				ServerId:         pulumi.Any(aws_transfer_server.Test.Id),
+//				LocalProfileId:   pulumi.Any(local.ProfileId),
+//				PartnerProfileId: pulumi.Any(partner.ProfileId),
+//				ServerId:         pulumi.Any(testAwsTransferServer.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -45,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Transfer AS2 Agreement using the `server_id/agreement_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:transfer/agreement:Agreement example s-4221a88afd5f4362a/a-4221a88afd5f4362a
-//
+// $ pulumi import aws:transfer/agreement:Agreement example s-4221a88afd5f4362a/a-4221a88afd5f4362a
 // ```
 type Agreement struct {
 	pulumi.CustomResourceState
@@ -103,10 +104,6 @@ func NewAgreement(ctx *pulumi.Context,
 	if args.ServerId == nil {
 		return nil, errors.New("invalid value for required argument 'ServerId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Agreement
 	err := ctx.RegisterResource("aws:transfer/agreement:Agreement", name, args, &resource, opts...)

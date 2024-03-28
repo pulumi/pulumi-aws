@@ -59,19 +59,21 @@ public final class ConfigurationSetReputationOptions {
 
         @CustomType.Setter
         public Builder lastFreshStart(@Nullable String lastFreshStart) {
+
             this.lastFreshStart = lastFreshStart;
             return this;
         }
         @CustomType.Setter
         public Builder reputationMetricsEnabled(@Nullable Boolean reputationMetricsEnabled) {
+
             this.reputationMetricsEnabled = reputationMetricsEnabled;
             return this;
         }
         public ConfigurationSetReputationOptions build() {
-            final var o = new ConfigurationSetReputationOptions();
-            o.lastFreshStart = lastFreshStart;
-            o.reputationMetricsEnabled = reputationMetricsEnabled;
-            return o;
+            final var _resultValue = new ConfigurationSetReputationOptions();
+            _resultValue.lastFreshStart = lastFreshStart;
+            _resultValue.reputationMetricsEnabled = reputationMetricsEnabled;
+            return _resultValue;
         }
     }
 }

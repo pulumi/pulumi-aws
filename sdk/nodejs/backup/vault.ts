@@ -9,19 +9,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.backup.Vault("example", {kmsKeyArn: aws_kms_key.example.arn});
+ * const example = new aws.backup.Vault("example", {
+ *     name: "example_backup_vault",
+ *     kmsKeyArn: exampleAwsKmsKey.arn,
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Backup vault using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:backup/vault:Vault test-vault TestVault
+ * $ pulumi import aws:backup/vault:Vault test-vault TestVault
  * ```
  */
 export class Vault extends pulumi.CustomResource {
@@ -114,8 +119,6 @@ export class Vault extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Vault.__pulumiType, name, resourceInputs, opts);
     }
 }

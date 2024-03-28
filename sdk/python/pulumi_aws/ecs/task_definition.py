@@ -33,6 +33,7 @@ class TaskDefinitionArgs:
                  skip_destroy: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_role_arn: Optional[pulumi.Input[str]] = None,
+                 track_latest: Optional[pulumi.Input[bool]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionVolumeArgs']]]] = None):
         """
         The set of arguments for constructing a TaskDefinition resource.
@@ -55,6 +56,7 @@ class TaskDefinitionArgs:
         :param pulumi.Input[bool] skip_destroy: Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] task_role_arn: ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
+        :param pulumi.Input[bool] track_latest: Whether should track latest task definition or the one created with the resource. Default is `false`.
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionVolumeArgs']]] volumes: Configuration block for volumes that containers in your task may use. Detailed below.
         """
         pulumi.set(__self__, "container_definitions", container_definitions)
@@ -89,6 +91,8 @@ class TaskDefinitionArgs:
             pulumi.set(__self__, "tags", tags)
         if task_role_arn is not None:
             pulumi.set(__self__, "task_role_arn", task_role_arn)
+        if track_latest is not None:
+            pulumi.set(__self__, "track_latest", track_latest)
         if volumes is not None:
             pulumi.set(__self__, "volumes", volumes)
 
@@ -299,6 +303,18 @@ class TaskDefinitionArgs:
         pulumi.set(self, "task_role_arn", value)
 
     @property
+    @pulumi.getter(name="trackLatest")
+    def track_latest(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether should track latest task definition or the one created with the resource. Default is `false`.
+        """
+        return pulumi.get(self, "track_latest")
+
+    @track_latest.setter
+    def track_latest(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "track_latest", value)
+
+    @property
     @pulumi.getter
     def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionVolumeArgs']]]]:
         """
@@ -335,6 +351,7 @@ class _TaskDefinitionState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_role_arn: Optional[pulumi.Input[str]] = None,
+                 track_latest: Optional[pulumi.Input[bool]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionVolumeArgs']]]] = None):
         """
         Input properties used for looking up and filtering TaskDefinition resources.
@@ -361,6 +378,7 @@ class _TaskDefinitionState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] task_role_arn: ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
+        :param pulumi.Input[bool] track_latest: Whether should track latest task definition or the one created with the resource. Default is `false`.
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionVolumeArgs']]] volumes: Configuration block for volumes that containers in your task may use. Detailed below.
         """
         if arn is not None:
@@ -408,6 +426,8 @@ class _TaskDefinitionState:
             pulumi.set(__self__, "tags_all", tags_all)
         if task_role_arn is not None:
             pulumi.set(__self__, "task_role_arn", task_role_arn)
+        if track_latest is not None:
+            pulumi.set(__self__, "track_latest", track_latest)
         if volumes is not None:
             pulumi.set(__self__, "volumes", volumes)
 
@@ -669,6 +689,18 @@ class _TaskDefinitionState:
         pulumi.set(self, "task_role_arn", value)
 
     @property
+    @pulumi.getter(name="trackLatest")
+    def track_latest(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether should track latest task definition or the one created with the resource. Default is `false`.
+        """
+        return pulumi.get(self, "track_latest")
+
+    @track_latest.setter
+    def track_latest(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "track_latest", value)
+
+    @property
     @pulumi.getter
     def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionVolumeArgs']]]]:
         """
@@ -703,14 +735,17 @@ class TaskDefinition(pulumi.CustomResource):
                  skip_destroy: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_role_arn: Optional[pulumi.Input[str]] = None,
+                 track_latest: Optional[pulumi.Input[bool]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionVolumeArgs']]]]] = None,
                  __props__=None):
         """
         Manages a revision of an ECS task definition to be used in `ecs.Service`.
 
         ## Example Usage
+
         ### Basic Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -751,15 +786,19 @@ class TaskDefinition(pulumi.CustomResource):
                 expression="attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With AppMesh Proxy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         service = aws.ecs.TaskDefinition("service",
             family="service",
-            container_definitions=(lambda path: open(path).read())("task-definitions/service.json"),
+            container_definitions=std.file(input="task-definitions/service.json").result,
             proxy_configuration=aws.ecs.TaskDefinitionProxyConfigurationArgs(
                 type="APPMESH",
                 container_name="applicationContainerName",
@@ -772,15 +811,19 @@ class TaskDefinition(pulumi.CustomResource):
                 },
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Using `docker_volume_configuration`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         service = aws.ecs.TaskDefinition("service",
             family="service",
-            container_definitions=(lambda path: open(path).read())("task-definitions/service.json"),
+            container_definitions=std.file(input="task-definitions/service.json").result,
             volumes=[aws.ecs.TaskDefinitionVolumeArgs(
                 name="service-storage",
                 docker_volume_configuration=aws.ecs.TaskDefinitionVolumeDockerVolumeConfigurationArgs(
@@ -789,70 +832,82 @@ class TaskDefinition(pulumi.CustomResource):
                     driver="local",
                     driver_opts={
                         "type": "nfs",
-                        "device": f"{aws_efs_file_system['fs']['dns_name']}:/",
-                        "o": f"addr={aws_efs_file_system['fs']['dns_name']},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport",
+                        "device": f"{fs['dnsName']}:/",
+                        "o": f"addr={fs['dnsName']},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport",
                     },
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Using `efs_volume_configuration`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         service = aws.ecs.TaskDefinition("service",
             family="service",
-            container_definitions=(lambda path: open(path).read())("task-definitions/service.json"),
+            container_definitions=std.file(input="task-definitions/service.json").result,
             volumes=[aws.ecs.TaskDefinitionVolumeArgs(
                 name="service-storage",
                 efs_volume_configuration=aws.ecs.TaskDefinitionVolumeEfsVolumeConfigurationArgs(
-                    file_system_id=aws_efs_file_system["fs"]["id"],
+                    file_system_id=fs["id"],
                     root_directory="/opt/data",
                     transit_encryption="ENABLED",
                     transit_encryption_port=2999,
                     authorization_config=aws.ecs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs(
-                        access_point_id=aws_efs_access_point["test"]["id"],
+                        access_point_id=test["id"],
                         iam="ENABLED",
                     ),
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Using `fsx_windows_file_server_volume_configuration`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
+        import pulumi_std as std
 
         test = aws.secretsmanager.SecretVersion("test",
-            secret_id=aws_secretsmanager_secret["test"]["id"],
+            secret_id=test_aws_secretsmanager_secret["id"],
             secret_string=json.dumps({
                 "username": "admin",
-                "password": aws_directory_service_directory["test"]["password"],
+                "password": test_aws_directory_service_directory["password"],
             }))
         service = aws.ecs.TaskDefinition("service",
             family="service",
-            container_definitions=(lambda path: open(path).read())("task-definitions/service.json"),
+            container_definitions=std.file(input="task-definitions/service.json").result,
             volumes=[aws.ecs.TaskDefinitionVolumeArgs(
                 name="service-storage",
                 fsx_windows_file_server_volume_configuration=aws.ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs(
-                    file_system_id=aws_fsx_windows_file_system["test"]["id"],
+                    file_system_id=test_aws_fsx_windows_file_system["id"],
                     root_directory="\\\\data",
                     authorization_config=aws.ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs(
                         credentials_parameter=test.arn,
-                        domain=aws_directory_service_directory["test"]["name"],
+                        domain=test_aws_directory_service_directory["name"],
                     ),
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Using `container_definitions` and `inference_accelerator`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.ecs.TaskDefinition("test",
+            family="test",
             container_definitions=\"\"\"[
           {
             "cpu": 10,
@@ -879,21 +934,27 @@ class TaskDefinition(pulumi.CustomResource):
                 ]
           }
         ]
-
         \"\"\",
-            family="test",
             inference_accelerators=[aws.ecs.TaskDefinitionInferenceAcceleratorArgs(
                 device_name="device_1",
                 device_type="eia1.medium",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Using `runtime_platform` and `fargate`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.ecs.TaskDefinition("test",
+            family="test",
+            requires_compatibilities=["FARGATE"],
+            network_mode="awsvpc",
+            cpu="1024",
+            memory="2048",
             container_definitions=\"\"\"[
           {
             "name": "iis",
@@ -903,25 +964,20 @@ class TaskDefinition(pulumi.CustomResource):
             "essential": true
           }
         ]
-
         \"\"\",
-            cpu="1024",
-            family="test",
-            memory="2048",
-            network_mode="awsvpc",
-            requires_compatibilities=["FARGATE"],
             runtime_platform=aws.ecs.TaskDefinitionRuntimePlatformArgs(
-                cpu_architecture="X86_64",
                 operating_system_family="WINDOWS_SERVER_2019_CORE",
+                cpu_architecture="X86_64",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECS Task Definitions using their ARNs. For example:
 
         ```sh
-         $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
+        $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
         ```
 
         :param str resource_name: The name of the resource.
@@ -945,6 +1001,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_destroy: Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] task_role_arn: ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
+        :param pulumi.Input[bool] track_latest: Whether should track latest task definition or the one created with the resource. Default is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionVolumeArgs']]]] volumes: Configuration block for volumes that containers in your task may use. Detailed below.
         """
         ...
@@ -957,8 +1014,10 @@ class TaskDefinition(pulumi.CustomResource):
         Manages a revision of an ECS task definition to be used in `ecs.Service`.
 
         ## Example Usage
+
         ### Basic Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -999,15 +1058,19 @@ class TaskDefinition(pulumi.CustomResource):
                 expression="attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With AppMesh Proxy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         service = aws.ecs.TaskDefinition("service",
             family="service",
-            container_definitions=(lambda path: open(path).read())("task-definitions/service.json"),
+            container_definitions=std.file(input="task-definitions/service.json").result,
             proxy_configuration=aws.ecs.TaskDefinitionProxyConfigurationArgs(
                 type="APPMESH",
                 container_name="applicationContainerName",
@@ -1020,15 +1083,19 @@ class TaskDefinition(pulumi.CustomResource):
                 },
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Using `docker_volume_configuration`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         service = aws.ecs.TaskDefinition("service",
             family="service",
-            container_definitions=(lambda path: open(path).read())("task-definitions/service.json"),
+            container_definitions=std.file(input="task-definitions/service.json").result,
             volumes=[aws.ecs.TaskDefinitionVolumeArgs(
                 name="service-storage",
                 docker_volume_configuration=aws.ecs.TaskDefinitionVolumeDockerVolumeConfigurationArgs(
@@ -1037,70 +1104,82 @@ class TaskDefinition(pulumi.CustomResource):
                     driver="local",
                     driver_opts={
                         "type": "nfs",
-                        "device": f"{aws_efs_file_system['fs']['dns_name']}:/",
-                        "o": f"addr={aws_efs_file_system['fs']['dns_name']},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport",
+                        "device": f"{fs['dnsName']}:/",
+                        "o": f"addr={fs['dnsName']},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport",
                     },
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Using `efs_volume_configuration`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         service = aws.ecs.TaskDefinition("service",
             family="service",
-            container_definitions=(lambda path: open(path).read())("task-definitions/service.json"),
+            container_definitions=std.file(input="task-definitions/service.json").result,
             volumes=[aws.ecs.TaskDefinitionVolumeArgs(
                 name="service-storage",
                 efs_volume_configuration=aws.ecs.TaskDefinitionVolumeEfsVolumeConfigurationArgs(
-                    file_system_id=aws_efs_file_system["fs"]["id"],
+                    file_system_id=fs["id"],
                     root_directory="/opt/data",
                     transit_encryption="ENABLED",
                     transit_encryption_port=2999,
                     authorization_config=aws.ecs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs(
-                        access_point_id=aws_efs_access_point["test"]["id"],
+                        access_point_id=test["id"],
                         iam="ENABLED",
                     ),
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Using `fsx_windows_file_server_volume_configuration`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
+        import pulumi_std as std
 
         test = aws.secretsmanager.SecretVersion("test",
-            secret_id=aws_secretsmanager_secret["test"]["id"],
+            secret_id=test_aws_secretsmanager_secret["id"],
             secret_string=json.dumps({
                 "username": "admin",
-                "password": aws_directory_service_directory["test"]["password"],
+                "password": test_aws_directory_service_directory["password"],
             }))
         service = aws.ecs.TaskDefinition("service",
             family="service",
-            container_definitions=(lambda path: open(path).read())("task-definitions/service.json"),
+            container_definitions=std.file(input="task-definitions/service.json").result,
             volumes=[aws.ecs.TaskDefinitionVolumeArgs(
                 name="service-storage",
                 fsx_windows_file_server_volume_configuration=aws.ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs(
-                    file_system_id=aws_fsx_windows_file_system["test"]["id"],
+                    file_system_id=test_aws_fsx_windows_file_system["id"],
                     root_directory="\\\\data",
                     authorization_config=aws.ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs(
                         credentials_parameter=test.arn,
-                        domain=aws_directory_service_directory["test"]["name"],
+                        domain=test_aws_directory_service_directory["name"],
                     ),
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Using `container_definitions` and `inference_accelerator`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.ecs.TaskDefinition("test",
+            family="test",
             container_definitions=\"\"\"[
           {
             "cpu": 10,
@@ -1127,21 +1206,27 @@ class TaskDefinition(pulumi.CustomResource):
                 ]
           }
         ]
-
         \"\"\",
-            family="test",
             inference_accelerators=[aws.ecs.TaskDefinitionInferenceAcceleratorArgs(
                 device_name="device_1",
                 device_type="eia1.medium",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Using `runtime_platform` and `fargate`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.ecs.TaskDefinition("test",
+            family="test",
+            requires_compatibilities=["FARGATE"],
+            network_mode="awsvpc",
+            cpu="1024",
+            memory="2048",
             container_definitions=\"\"\"[
           {
             "name": "iis",
@@ -1151,25 +1236,20 @@ class TaskDefinition(pulumi.CustomResource):
             "essential": true
           }
         ]
-
         \"\"\",
-            cpu="1024",
-            family="test",
-            memory="2048",
-            network_mode="awsvpc",
-            requires_compatibilities=["FARGATE"],
             runtime_platform=aws.ecs.TaskDefinitionRuntimePlatformArgs(
-                cpu_architecture="X86_64",
                 operating_system_family="WINDOWS_SERVER_2019_CORE",
+                cpu_architecture="X86_64",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECS Task Definitions using their ARNs. For example:
 
         ```sh
-         $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
+        $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
         ```
 
         :param str resource_name: The name of the resource.
@@ -1204,6 +1284,7 @@ class TaskDefinition(pulumi.CustomResource):
                  skip_destroy: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_role_arn: Optional[pulumi.Input[str]] = None,
+                 track_latest: Optional[pulumi.Input[bool]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionVolumeArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1235,13 +1316,12 @@ class TaskDefinition(pulumi.CustomResource):
             __props__.__dict__["skip_destroy"] = skip_destroy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["task_role_arn"] = task_role_arn
+            __props__.__dict__["track_latest"] = track_latest
             __props__.__dict__["volumes"] = volumes
             __props__.__dict__["arn"] = None
             __props__.__dict__["arn_without_revision"] = None
             __props__.__dict__["revision"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(TaskDefinition, __self__).__init__(
             'aws:ecs/taskDefinition:TaskDefinition',
             resource_name,
@@ -1273,6 +1353,7 @@ class TaskDefinition(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             task_role_arn: Optional[pulumi.Input[str]] = None,
+            track_latest: Optional[pulumi.Input[bool]] = None,
             volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionVolumeArgs']]]]] = None) -> 'TaskDefinition':
         """
         Get an existing TaskDefinition resource's state with the given name, id, and optional extra
@@ -1304,6 +1385,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] task_role_arn: ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
+        :param pulumi.Input[bool] track_latest: Whether should track latest task definition or the one created with the resource. Default is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionVolumeArgs']]]] volumes: Configuration block for volumes that containers in your task may use. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1331,6 +1413,7 @@ class TaskDefinition(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["task_role_arn"] = task_role_arn
+        __props__.__dict__["track_latest"] = track_latest
         __props__.__dict__["volumes"] = volumes
         return TaskDefinition(resource_name, opts=opts, __props__=__props__)
 
@@ -1506,6 +1589,14 @@ class TaskDefinition(pulumi.CustomResource):
         ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
         """
         return pulumi.get(self, "task_role_arn")
+
+    @property
+    @pulumi.getter(name="trackLatest")
+    def track_latest(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether should track latest task definition or the one created with the resource. Default is `false`.
+        """
+        return pulumi.get(self, "track_latest")
 
     @property
     @pulumi.getter

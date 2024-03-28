@@ -175,26 +175,28 @@ class UserStackAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_stack = aws.appstream.Stack("testStack")
-        test_user = aws.appstream.User("testUser",
+        test = aws.appstream.Stack("test", name="STACK NAME")
+        test_user = aws.appstream.User("test",
             authentication_type="USERPOOL",
             user_name="EMAIL")
-        test_user_stack_association = aws.appstream.UserStackAssociation("testUserStackAssociation",
+        test_user_stack_association = aws.appstream.UserStackAssociation("test",
             authentication_type=test_user.authentication_type,
-            stack_name=test_stack.name,
+            stack_name=test.name,
             user_name=test_user.user_name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AppStream User Stack Association using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
+        $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
         ```
 
         :param str resource_name: The name of the resource.
@@ -217,26 +219,28 @@ class UserStackAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_stack = aws.appstream.Stack("testStack")
-        test_user = aws.appstream.User("testUser",
+        test = aws.appstream.Stack("test", name="STACK NAME")
+        test_user = aws.appstream.User("test",
             authentication_type="USERPOOL",
             user_name="EMAIL")
-        test_user_stack_association = aws.appstream.UserStackAssociation("testUserStackAssociation",
+        test_user_stack_association = aws.appstream.UserStackAssociation("test",
             authentication_type=test_user.authentication_type,
-            stack_name=test_stack.name,
+            stack_name=test.name,
             user_name=test_user.user_name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AppStream User Stack Association using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
+        $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
         ```
 
         :param str resource_name: The name of the resource.

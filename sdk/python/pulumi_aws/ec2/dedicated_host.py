@@ -355,6 +355,7 @@ class DedicatedHost(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -362,18 +363,19 @@ class DedicatedHost(pulumi.CustomResource):
         # Create a new host with instance type of c5.18xlarge with Auto Placement
         # and Host Recovery enabled.
         test = aws.ec2.DedicatedHost("test",
-            auto_placement="on",
+            instance_type="c5.18xlarge",
             availability_zone="us-west-2a",
             host_recovery="on",
-            instance_type="c5.18xlarge")
+            auto_placement="on")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import hosts using the host `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
+        $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
         ```
 
         :param str resource_name: The name of the resource.
@@ -398,6 +400,7 @@ class DedicatedHost(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -405,18 +408,19 @@ class DedicatedHost(pulumi.CustomResource):
         # Create a new host with instance type of c5.18xlarge with Auto Placement
         # and Host Recovery enabled.
         test = aws.ec2.DedicatedHost("test",
-            auto_placement="on",
+            instance_type="c5.18xlarge",
             availability_zone="us-west-2a",
             host_recovery="on",
-            instance_type="c5.18xlarge")
+            auto_placement="on")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import hosts using the host `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
+        $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
         ```
 
         :param str resource_name: The name of the resource.
@@ -464,8 +468,6 @@ class DedicatedHost(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(DedicatedHost, __self__).__init__(
             'aws:ec2/dedicatedHost:DedicatedHost',
             resource_name,

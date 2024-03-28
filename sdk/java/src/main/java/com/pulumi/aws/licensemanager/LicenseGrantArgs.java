@@ -5,6 +5,7 @@ package com.pulumi.aws.licensemanager;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -198,9 +199,15 @@ public final class LicenseGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LicenseGrantArgs build() {
-            $.allowedOperations = Objects.requireNonNull($.allowedOperations, "expected parameter 'allowedOperations' to be non-null");
-            $.licenseArn = Objects.requireNonNull($.licenseArn, "expected parameter 'licenseArn' to be non-null");
-            $.principal = Objects.requireNonNull($.principal, "expected parameter 'principal' to be non-null");
+            if ($.allowedOperations == null) {
+                throw new MissingRequiredPropertyException("LicenseGrantArgs", "allowedOperations");
+            }
+            if ($.licenseArn == null) {
+                throw new MissingRequiredPropertyException("LicenseGrantArgs", "licenseArn");
+            }
+            if ($.principal == null) {
+                throw new MissingRequiredPropertyException("LicenseGrantArgs", "principal");
+            }
             return $;
         }
     }

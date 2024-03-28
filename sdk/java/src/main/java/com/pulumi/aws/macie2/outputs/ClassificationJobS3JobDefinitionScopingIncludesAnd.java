@@ -59,19 +59,21 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAnd {
 
         @CustomType.Setter
         public Builder simpleScopeTerm(@Nullable ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm simpleScopeTerm) {
+
             this.simpleScopeTerm = simpleScopeTerm;
             return this;
         }
         @CustomType.Setter
         public Builder tagScopeTerm(@Nullable ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm tagScopeTerm) {
+
             this.tagScopeTerm = tagScopeTerm;
             return this;
         }
         public ClassificationJobS3JobDefinitionScopingIncludesAnd build() {
-            final var o = new ClassificationJobS3JobDefinitionScopingIncludesAnd();
-            o.simpleScopeTerm = simpleScopeTerm;
-            o.tagScopeTerm = tagScopeTerm;
-            return o;
+            final var _resultValue = new ClassificationJobS3JobDefinitionScopingIncludesAnd();
+            _resultValue.simpleScopeTerm = simpleScopeTerm;
+            _resultValue.tagScopeTerm = tagScopeTerm;
+            return _resultValue;
         }
     }
 }

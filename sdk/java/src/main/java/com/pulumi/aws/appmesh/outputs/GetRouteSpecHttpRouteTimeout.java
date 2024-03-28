@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GetRouteSpecHttpRouteTimeoutIdle;
 import com.pulumi.aws.appmesh.outputs.GetRouteSpecHttpRouteTimeoutPerRequest;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetRouteSpecHttpRouteTimeout {
 
         @CustomType.Setter
         public Builder idles(List<GetRouteSpecHttpRouteTimeoutIdle> idles) {
-            this.idles = Objects.requireNonNull(idles);
+            if (idles == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttpRouteTimeout", "idles");
+            }
+            this.idles = idles;
             return this;
         }
         public Builder idles(GetRouteSpecHttpRouteTimeoutIdle... idles) {
@@ -50,17 +54,20 @@ public final class GetRouteSpecHttpRouteTimeout {
         }
         @CustomType.Setter
         public Builder perRequests(List<GetRouteSpecHttpRouteTimeoutPerRequest> perRequests) {
-            this.perRequests = Objects.requireNonNull(perRequests);
+            if (perRequests == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttpRouteTimeout", "perRequests");
+            }
+            this.perRequests = perRequests;
             return this;
         }
         public Builder perRequests(GetRouteSpecHttpRouteTimeoutPerRequest... perRequests) {
             return perRequests(List.of(perRequests));
         }
         public GetRouteSpecHttpRouteTimeout build() {
-            final var o = new GetRouteSpecHttpRouteTimeout();
-            o.idles = idles;
-            o.perRequests = perRequests;
-            return o;
+            final var _resultValue = new GetRouteSpecHttpRouteTimeout();
+            _resultValue.idles = idles;
+            _resultValue.perRequests = perRequests;
+            return _resultValue;
         }
     }
 }

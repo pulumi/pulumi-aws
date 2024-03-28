@@ -17,8 +17,10 @@ import (
 // > **NOTE:** The gateway must have a working storage added (e.g., via the `storagegateway.WorkingStorage` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `WORKING STORAGE NOT CONFIGURED`.
 //
 // ## Example Usage
+//
 // ### Create Empty Stored iSCSI Volume
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,11 +34,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := storagegateway.NewStoredIscsiVolume(ctx, "example", &storagegateway.StoredIscsiVolumeArgs{
-//				GatewayArn:           pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
-//				NetworkInterfaceId:   pulumi.Any(aws_instance.Example.Private_ip),
+//				GatewayArn:           pulumi.Any(exampleAwsStoragegatewayCache.GatewayArn),
+//				NetworkInterfaceId:   pulumi.Any(exampleAwsInstance.PrivateIp),
 //				TargetName:           pulumi.String("example"),
 //				PreserveExistingData: pulumi.Bool(false),
-//				DiskId:               pulumi.Any(data.Aws_storagegateway_local_disk.Test.Id),
+//				DiskId:               pulumi.Any(test.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -46,8 +48,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Create Stored iSCSI Volume From Snapshot
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,12 +66,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := storagegateway.NewStoredIscsiVolume(ctx, "example", &storagegateway.StoredIscsiVolumeArgs{
-//				GatewayArn:           pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
-//				NetworkInterfaceId:   pulumi.Any(aws_instance.Example.Private_ip),
-//				SnapshotId:           pulumi.Any(aws_ebs_snapshot.Example.Id),
+//				GatewayArn:           pulumi.Any(exampleAwsStoragegatewayCache.GatewayArn),
+//				NetworkInterfaceId:   pulumi.Any(exampleAwsInstance.PrivateIp),
+//				SnapshotId:           pulumi.Any(exampleAwsEbsSnapshot.Id),
 //				TargetName:           pulumi.String("example"),
 //				PreserveExistingData: pulumi.Bool(false),
-//				DiskId:               pulumi.Any(data.Aws_storagegateway_local_disk.Test.Id),
+//				DiskId:               pulumi.Any(test.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -76,15 +81,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_storagegateway_stored_iscsi_volume` using the volume Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:storagegateway/storedIscsiVolume:StoredIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
-//
+// $ pulumi import aws:storagegateway/storedIscsiVolume:StoredIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
 // ```
 type StoredIscsiVolume struct {
 	pulumi.CustomResourceState
@@ -155,10 +159,6 @@ func NewStoredIscsiVolume(ctx *pulumi.Context,
 	if args.TargetName == nil {
 		return nil, errors.New("invalid value for required argument 'TargetName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StoredIscsiVolume
 	err := ctx.RegisterResource("aws:storagegateway/storedIscsiVolume:StoredIscsiVolume", name, args, &resource, opts...)

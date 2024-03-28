@@ -305,6 +305,7 @@ class Activation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -317,25 +318,28 @@ class Activation(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        test_role = aws.iam.Role("testRole", assume_role_policy=assume_role.json)
-        test_attach = aws.iam.RolePolicyAttachment("testAttach",
+        test_role = aws.iam.Role("test_role",
+            name="test_role",
+            assume_role_policy=assume_role.json)
+        test_attach = aws.iam.RolePolicyAttachment("test_attach",
             role=test_role.name,
             policy_arn="arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore")
         foo = aws.ssm.Activation("foo",
+            name="test_ssm_activation",
             description="Test",
             iam_role=test_role.id,
-            registration_limit=5,
-            opts=pulumi.ResourceOptions(depends_on=[test_attach]))
+            registration_limit=5)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS SSM Activation using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
+        $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
         ```
-         -> __Note:__ The `activation_code` attribute cannot be imported.
+        -> __Note:__ The `activation_code` attribute cannot be imported.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -357,6 +361,7 @@ class Activation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -369,25 +374,28 @@ class Activation(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        test_role = aws.iam.Role("testRole", assume_role_policy=assume_role.json)
-        test_attach = aws.iam.RolePolicyAttachment("testAttach",
+        test_role = aws.iam.Role("test_role",
+            name="test_role",
+            assume_role_policy=assume_role.json)
+        test_attach = aws.iam.RolePolicyAttachment("test_attach",
             role=test_role.name,
             policy_arn="arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore")
         foo = aws.ssm.Activation("foo",
+            name="test_ssm_activation",
             description="Test",
             iam_role=test_role.id,
-            registration_limit=5,
-            opts=pulumi.ResourceOptions(depends_on=[test_attach]))
+            registration_limit=5)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS SSM Activation using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
+        $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
         ```
-         -> __Note:__ The `activation_code` attribute cannot be imported.
+        -> __Note:__ The `activation_code` attribute cannot be imported.
 
         :param str resource_name: The name of the resource.
         :param ActivationArgs args: The arguments to use to populate this resource's properties.
@@ -431,8 +439,6 @@ class Activation(pulumi.CustomResource):
             __props__.__dict__["expired"] = None
             __props__.__dict__["registration_count"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Activation, __self__).__init__(
             'aws:ssm/activation:Activation',
             resource_name,

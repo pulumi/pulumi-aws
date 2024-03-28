@@ -58,19 +58,21 @@ public final class LaunchTemplateIamInstanceProfile {
 
         @CustomType.Setter
         public Builder arn(@Nullable String arn) {
+
             this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         public LaunchTemplateIamInstanceProfile build() {
-            final var o = new LaunchTemplateIamInstanceProfile();
-            o.arn = arn;
-            o.name = name;
-            return o;
+            final var _resultValue = new LaunchTemplateIamInstanceProfile();
+            _resultValue.arn = arn;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

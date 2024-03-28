@@ -142,20 +142,23 @@ class GroupMembership(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        group = aws.iam.Group("group")
-        user_one = aws.iam.User("userOne")
-        user_two = aws.iam.User("userTwo")
+        group = aws.iam.Group("group", name="test-group")
+        user_one = aws.iam.User("user_one", name="test-user")
+        user_two = aws.iam.User("user_two", name="test-user-two")
         team = aws.iam.GroupMembership("team",
+            name="tf-testing-group-membership",
             users=[
                 user_one.name,
                 user_two.name,
             ],
             group=group.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,20 +184,23 @@ class GroupMembership(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        group = aws.iam.Group("group")
-        user_one = aws.iam.User("userOne")
-        user_two = aws.iam.User("userTwo")
+        group = aws.iam.Group("group", name="test-group")
+        user_one = aws.iam.User("user_one", name="test-user")
+        user_two = aws.iam.User("user_two", name="test-user-two")
         team = aws.iam.GroupMembership("team",
+            name="tf-testing-group-membership",
             users=[
                 user_one.name,
                 user_two.name,
             ],
             group=group.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param GroupMembershipArgs args: The arguments to use to populate this resource's properties.

@@ -23,7 +23,10 @@ import javax.annotation.Nullable;
  * join the collaboration and can create memberships.
  * 
  * ## Example Usage
+ * 
  * ### Collaboration with tags
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,36 +51,38 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testCollaboration = new Collaboration(&#34;testCollaboration&#34;, CollaborationArgs.builder()        
- *             .creatorDisplayName(&#34;Creator &#34;)
+ *             .name(&#34;pulumi-example-collaboration&#34;)
  *             .creatorMemberAbilities(            
  *                 &#34;CAN_QUERY&#34;,
  *                 &#34;CAN_RECEIVE_RESULTS&#34;)
+ *             .creatorDisplayName(&#34;Creator &#34;)
+ *             .description(&#34;I made this collaboration with Pulumi!&#34;)
+ *             .queryLogStatus(&#34;DISABLED&#34;)
  *             .dataEncryptionMetadata(CollaborationDataEncryptionMetadataArgs.builder()
  *                 .allowClearText(true)
  *                 .allowDuplicates(true)
  *                 .allowJoinsOnColumnsWithDifferentNames(true)
  *                 .preserveNulls(false)
  *                 .build())
- *             .description(&#34;I made this collaboration with Pulumi!&#34;)
  *             .members(CollaborationMemberArgs.builder()
  *                 .accountId(123456789012)
  *                 .displayName(&#34;Other member&#34;)
  *                 .memberAbilities()
  *                 .build())
- *             .queryLogStatus(&#34;DISABLED&#34;)
  *             .tags(Map.of(&#34;Project&#34;, &#34;Pulumi&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_cleanrooms_collaboration` using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
+ * $ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
  * ```
  * 
  */
@@ -300,9 +305,6 @@ public class Collaboration extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

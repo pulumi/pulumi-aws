@@ -26,7 +26,10 @@ namespace Pulumi.Aws.S3
     /// Running Pulumi operations shortly after creating a lifecycle configuration may result in changes that affect configuration idempotence.
     /// See the Amazon S3 User Guide on [setting lifecycle configuration on a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.html).
     /// 
+    /// &gt; This resource cannot be used with S3 directory buckets.
+    /// 
     /// ## Example Usage
+    /// 
     /// ### With neither a filter nor prefix specified
     /// 
     /// The Lifecycle rule applies to a subset of objects based on the key name prefix (`""`).
@@ -34,6 +37,7 @@ namespace Pulumi.Aws.S3
     /// This configuration is intended to replicate the default behavior of the `lifecycle_rule`
     /// parameter in the AWS Provider `aws.s3.BucketV2` resource prior to `v4.0`.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,7 +48,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketLifecycleConfigurationV2("example", new()
     ///     {
-    ///         Bucket = aws_s3_bucket.Bucket.Id,
+    ///         Bucket = bucket.Id,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
@@ -57,10 +61,13 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Specifying an empty filter
     /// 
     /// The Lifecycle rule applies to all objects in the bucket.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -71,7 +78,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketLifecycleConfigurationV2("example", new()
     ///     {
-    ///         Bucket = aws_s3_bucket.Bucket.Id,
+    ///         Bucket = bucket.Id,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
@@ -85,10 +92,13 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Specifying a filter using key prefixes
     /// 
     /// The Lifecycle rule applies to a subset of objects based on the key name prefix (`logs/`).
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -99,7 +109,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketLifecycleConfigurationV2("example", new()
     ///     {
-    ///         Bucket = aws_s3_bucket.Bucket.Id,
+    ///         Bucket = bucket.Id,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
@@ -116,9 +126,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// If you want to apply a Lifecycle action to a subset of objects based on different key name prefixes, specify separate rules.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -129,7 +141,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketLifecycleConfigurationV2("example", new()
     ///     {
-    ///         Bucket = aws_s3_bucket.Bucket.Id,
+    ///         Bucket = bucket.Id,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
@@ -155,10 +167,13 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Specifying a filter based on an object tag
     /// 
     /// The Lifecycle rule specifies a filter based on a tag key and value. The rule then applies only to a subset of objects with the specific tag.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -169,7 +184,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketLifecycleConfigurationV2("example", new()
     ///     {
-    ///         Bucket = aws_s3_bucket.Bucket.Id,
+    ///         Bucket = bucket.Id,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
@@ -190,10 +205,13 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Specifying a filter based on multiple tags
     /// 
     /// The Lifecycle rule directs Amazon S3 to perform lifecycle actions on objects with two tags (with the specific tag keys and values). Notice `tags` is wrapped in the `and` configuration block.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -204,7 +222,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketLifecycleConfigurationV2("example", new()
     ///     {
-    ///         Bucket = aws_s3_bucket.Bucket.Id,
+    ///         Bucket = bucket.Id,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
@@ -228,10 +246,13 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Specifying a filter based on both prefix and one or more tags
     /// 
     /// The Lifecycle rule directs Amazon S3 to perform lifecycle actions on objects with the specified prefix and two tags (with the specific tag keys and values). Notice both `prefix` and `tags` are wrapped in the `and` configuration block.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -242,7 +263,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketLifecycleConfigurationV2("example", new()
     ///     {
-    ///         Bucket = aws_s3_bucket.Bucket.Id,
+    ///         Bucket = bucket.Id,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
@@ -267,10 +288,13 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Specifying a filter based on object size
     /// 
     /// Object size values are in bytes. Maximum filter size is 5TB. Some storage classes have minimum object size limitations, for more information, see [Comparing the Amazon S3 storage classes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html#sc-compare).
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -281,7 +305,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketLifecycleConfigurationV2("example", new()
     ///     {
-    ///         Bucket = aws_s3_bucket.Bucket.Id,
+    ///         Bucket = bucket.Id,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
@@ -298,10 +322,13 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Specifying a filter based on object size range and prefix
     /// 
     /// The `object_size_greater_than` must be less than the `object_size_less_than`. Notice both the object size range and prefix are wrapped in the `and` configuration block.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -312,7 +339,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketLifecycleConfigurationV2("example", new()
     ///     {
-    ///         Bucket = aws_s3_bucket.Bucket.Id,
+    ///         Bucket = bucket.Id,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
@@ -334,8 +361,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Creating a Lifecycle Configuration for a bucket with versioning
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -344,9 +374,12 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucket = new Aws.S3.BucketV2("bucket");
+    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+    ///     {
+    ///         Bucket = "my-bucket",
+    ///     });
     /// 
-    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new()
+    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucket_acl", new()
     ///     {
     ///         Bucket = bucket.Id,
     ///         Acl = "private",
@@ -407,9 +440,12 @@ namespace Pulumi.Aws.S3
     ///         },
     ///     });
     /// 
-    ///     var versioningBucket = new Aws.S3.BucketV2("versioningBucket");
+    ///     var versioningBucket = new Aws.S3.BucketV2("versioning_bucket", new()
+    ///     {
+    ///         Bucket = "my-versioning-bucket",
+    ///     });
     /// 
-    ///     var versioningBucketAcl = new Aws.S3.BucketAclV2("versioningBucketAcl", new()
+    ///     var versioningBucketAcl = new Aws.S3.BucketAclV2("versioning_bucket_acl", new()
     ///     {
     ///         Bucket = versioningBucket.Id,
     ///         Acl = "private",
@@ -456,16 +492,11 @@ namespace Pulumi.Aws.S3
     ///                 Status = "Enabled",
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             versioning,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -476,12 +507,12 @@ namespace Pulumi.Aws.S3
     /// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name
+    /// $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name
     /// ```
-    ///  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+    /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name,123456789012
+    /// $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name,123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2")]

@@ -22,7 +22,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS FinSpace Kx Environment.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,19 +49,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
  *             .description(&#34;Sample KMS Key&#34;)
  *             .deletionWindowInDays(7)
  *             .build());
  * 
  *         var exampleKxEnvironment = new KxEnvironment(&#34;exampleKxEnvironment&#34;, KxEnvironmentArgs.builder()        
- *             .kmsKeyId(exampleKey.arn())
+ *             .name(&#34;my-tf-kx-environment&#34;)
+ *             .kmsKeyId(example.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With Transit Gateway Configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -86,7 +94,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
  *             .description(&#34;Sample KMS Key&#34;)
  *             .deletionWindowInDays(7)
  *             .build());
@@ -96,8 +104,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEnv = new KxEnvironment(&#34;exampleEnv&#34;, KxEnvironmentArgs.builder()        
+ *             .name(&#34;my-tf-kx-environment&#34;)
  *             .description(&#34;Environment description&#34;)
- *             .kmsKeyId(exampleKey.arn())
+ *             .kmsKeyId(example.arn())
  *             .transitGatewayConfiguration(KxEnvironmentTransitGatewayConfigurationArgs.builder()
  *                 .transitGatewayId(exampleTransitGateway.id())
  *                 .routableCidrSpace(&#34;100.64.0.0/26&#34;)
@@ -111,13 +120,19 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### With Transit Gateway Attachment Network ACL Configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import an AWS FinSpace Kx Environment using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:finspace/kxEnvironment:KxEnvironment example n3ceo7wqxoxcti5tujqwzs
+ * $ pulumi import aws:finspace/kxEnvironment:KxEnvironment example n3ceo7wqxoxcti5tujqwzs
  * ```
  * 
  */
@@ -346,9 +361,6 @@ public class KxEnvironment extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

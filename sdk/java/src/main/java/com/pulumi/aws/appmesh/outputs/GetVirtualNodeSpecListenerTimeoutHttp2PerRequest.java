@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -41,19 +42,25 @@ public final class GetVirtualNodeSpecListenerTimeoutHttp2PerRequest {
 
         @CustomType.Setter
         public Builder unit(String unit) {
-            this.unit = Objects.requireNonNull(unit);
+            if (unit == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerTimeoutHttp2PerRequest", "unit");
+            }
+            this.unit = unit;
             return this;
         }
         @CustomType.Setter
         public Builder value(Integer value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerTimeoutHttp2PerRequest", "value");
+            }
+            this.value = value;
             return this;
         }
         public GetVirtualNodeSpecListenerTimeoutHttp2PerRequest build() {
-            final var o = new GetVirtualNodeSpecListenerTimeoutHttp2PerRequest();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListenerTimeoutHttp2PerRequest();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

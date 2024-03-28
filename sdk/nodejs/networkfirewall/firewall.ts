@@ -12,15 +12,17 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.Firewall("example", {
- *     firewallPolicyArn: aws_networkfirewall_firewall_policy.example.arn,
- *     vpcId: aws_vpc.example.id,
+ *     name: "example",
+ *     firewallPolicyArn: exampleAwsNetworkfirewallFirewallPolicy.arn,
+ *     vpcId: exampleAwsVpc.id,
  *     subnetMappings: [{
- *         subnetId: aws_subnet.example.id,
+ *         subnetId: exampleAwsSubnet.id,
  *     }],
  *     tags: {
  *         Tag1: "Value1",
@@ -28,13 +30,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Network Firewall Firewalls using their `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:networkfirewall/firewall:Firewall example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
+ * $ pulumi import aws:networkfirewall/firewall:Firewall example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
  * ```
  */
 export class Firewall extends pulumi.CustomResource {
@@ -70,7 +73,7 @@ export class Firewall extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+     * A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
      */
     public readonly deleteProtection!: pulumi.Output<boolean | undefined>;
     /**
@@ -86,7 +89,7 @@ export class Firewall extends pulumi.CustomResource {
      */
     public readonly firewallPolicyArn!: pulumi.Output<string>;
     /**
-     * A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+     * A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
      */
     public readonly firewallPolicyChangeProtection!: pulumi.Output<boolean | undefined>;
     /**
@@ -98,7 +101,7 @@ export class Firewall extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+     * A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
      */
     public readonly subnetChangeProtection!: pulumi.Output<boolean | undefined>;
     /**
@@ -178,8 +181,6 @@ export class Firewall extends pulumi.CustomResource {
             resourceInputs["updateToken"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Firewall.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -193,7 +194,7 @@ export interface FirewallState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+     * A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
      */
     deleteProtection?: pulumi.Input<boolean>;
     /**
@@ -209,7 +210,7 @@ export interface FirewallState {
      */
     firewallPolicyArn?: pulumi.Input<string>;
     /**
-     * A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+     * A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
      */
     firewallPolicyChangeProtection?: pulumi.Input<boolean>;
     /**
@@ -221,7 +222,7 @@ export interface FirewallState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+     * A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
      */
     subnetChangeProtection?: pulumi.Input<boolean>;
     /**
@@ -253,7 +254,7 @@ export interface FirewallState {
  */
 export interface FirewallArgs {
     /**
-     * A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+     * A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
      */
     deleteProtection?: pulumi.Input<boolean>;
     /**
@@ -269,7 +270,7 @@ export interface FirewallArgs {
      */
     firewallPolicyArn: pulumi.Input<string>;
     /**
-     * A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+     * A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
      */
     firewallPolicyChangeProtection?: pulumi.Input<boolean>;
     /**
@@ -277,7 +278,7 @@ export interface FirewallArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+     * A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
      */
     subnetChangeProtection?: pulumi.Input<boolean>;
     /**

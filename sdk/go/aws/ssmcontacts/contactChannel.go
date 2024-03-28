@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS SSM Contacts Contact Channel.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,6 +36,7 @@ import (
 //				DeliveryAddress: &ssmcontacts.ContactChannelDeliveryAddressArgs{
 //					SimpleAddress: pulumi.String("email@example.com"),
 //				},
+//				Name: pulumi.String("Example contact channel"),
 //				Type: pulumi.String("EMAIL"),
 //			})
 //			if err != nil {
@@ -44,8 +47,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Usage with SSM Contact
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,7 +64,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleContact, err := ssmcontacts.NewContact(ctx, "exampleContact", &ssmcontacts.ContactArgs{
+//			exampleContact, err := ssmcontacts.NewContact(ctx, "example_contact", &ssmcontacts.ContactArgs{
 //				Alias: pulumi.String("example_contact"),
 //				Type:  pulumi.String("PERSONAL"),
 //			})
@@ -70,6 +76,7 @@ import (
 //				DeliveryAddress: &ssmcontacts.ContactChannelDeliveryAddressArgs{
 //					SimpleAddress: pulumi.String("email@example.com"),
 //				},
+//				Name: pulumi.String("Example contact channel"),
 //				Type: pulumi.String("EMAIL"),
 //			})
 //			if err != nil {
@@ -80,15 +87,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SSM Contact Channel using the `ARN`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ssmcontacts/contactChannel:ContactChannel example arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example
-//
+// $ pulumi import aws:ssmcontacts/contactChannel:ContactChannel example arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example
 // ```
 type ContactChannel struct {
 	pulumi.CustomResourceState

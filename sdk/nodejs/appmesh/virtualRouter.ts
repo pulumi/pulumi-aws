@@ -22,12 +22,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const serviceb = new aws.appmesh.VirtualRouter("serviceb", {
- *     meshName: aws_appmesh_mesh.simple.id,
+ *     name: "serviceB",
+ *     meshName: simple.id,
  *     spec: {
  *         listeners: [{
  *             portMapping: {
@@ -38,13 +40,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import App Mesh virtual routers using `mesh_name` together with the virtual router's `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
+ * $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
  * ```
  */
 export class VirtualRouter extends pulumi.CustomResource {
@@ -161,8 +164,6 @@ export class VirtualRouter extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VirtualRouter.__pulumiType, name, resourceInputs, opts);
     }
 }

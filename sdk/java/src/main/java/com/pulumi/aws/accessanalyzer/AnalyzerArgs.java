@@ -3,8 +3,10 @@
 
 package com.pulumi.aws.accessanalyzer;
 
+import com.pulumi.aws.accessanalyzer.inputs.AnalyzerConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -36,6 +38,21 @@ public final class AnalyzerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A block that specifies the configuration of the analyzer. Documented below
+     * 
+     */
+    @Import(name="configuration")
+    private @Nullable Output<AnalyzerConfigurationArgs> configuration;
+
+    /**
+     * @return A block that specifies the configuration of the analyzer. Documented below
+     * 
+     */
+    public Optional<Output<AnalyzerConfigurationArgs>> configuration() {
+        return Optional.ofNullable(this.configuration);
+    }
+
+    /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -51,14 +68,14 @@ public final class AnalyzerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
+     * Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, ` ACCOUNT_UNUSED_ACCESS  `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
+     * @return Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, ` ACCOUNT_UNUSED_ACCESS  `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -69,6 +86,7 @@ public final class AnalyzerArgs extends com.pulumi.resources.ResourceArgs {
 
     private AnalyzerArgs(AnalyzerArgs $) {
         this.analyzerName = $.analyzerName;
+        this.configuration = $.configuration;
         this.tags = $.tags;
         this.type = $.type;
     }
@@ -117,6 +135,27 @@ public final class AnalyzerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param configuration A block that specifies the configuration of the analyzer. Documented below
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configuration(@Nullable Output<AnalyzerConfigurationArgs> configuration) {
+            $.configuration = configuration;
+            return this;
+        }
+
+        /**
+         * @param configuration A block that specifies the configuration of the analyzer. Documented below
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configuration(AnalyzerConfigurationArgs configuration) {
+            return configuration(Output.of(configuration));
+        }
+
+        /**
          * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
@@ -138,7 +177,7 @@ public final class AnalyzerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
+         * @param type Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, ` ACCOUNT_UNUSED_ACCESS  `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
          * 
          * @return builder
          * 
@@ -149,7 +188,7 @@ public final class AnalyzerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
+         * @param type Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, ` ACCOUNT_UNUSED_ACCESS  `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
          * 
          * @return builder
          * 
@@ -159,7 +198,9 @@ public final class AnalyzerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AnalyzerArgs build() {
-            $.analyzerName = Objects.requireNonNull($.analyzerName, "expected parameter 'analyzerName' to be non-null");
+            if ($.analyzerName == null) {
+                throw new MissingRequiredPropertyException("AnalyzerArgs", "analyzerName");
+            }
             return $;
         }
     }

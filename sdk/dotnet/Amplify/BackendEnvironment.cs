@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,11 +23,14 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleApp = new Aws.Amplify.App("exampleApp");
-    /// 
-    ///     var exampleBackendEnvironment = new Aws.Amplify.BackendEnvironment("exampleBackendEnvironment", new()
+    ///     var example = new Aws.Amplify.App("example", new()
     ///     {
-    ///         AppId = exampleApp.Id,
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var exampleBackendEnvironment = new Aws.Amplify.BackendEnvironment("example", new()
+    ///     {
+    ///         AppId = example.Id,
     ///         EnvironmentName = "example",
     ///         DeploymentArtifacts = "app-example-deployment",
     ///         StackName = "amplify-app-example",
@@ -34,13 +38,14 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amplify backend environment using `app_id` and `environment_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example
+    /// $ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:amplify/backendEnvironment:BackendEnvironment")]

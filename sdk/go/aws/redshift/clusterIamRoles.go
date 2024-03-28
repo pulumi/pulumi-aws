@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,9 +32,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshift.NewClusterIamRoles(ctx, "example", &redshift.ClusterIamRolesArgs{
-//				ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Cluster_identifier),
+//				ClusterIdentifier: pulumi.Any(exampleAwsRedshiftCluster.ClusterIdentifier),
 //				IamRoleArns: pulumi.StringArray{
-//					aws_iam_role.Example.Arn,
+//					exampleAwsIamRole.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -44,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift Cluster IAM Roless using the `cluster_identifier`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
-//
+// $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
 // ```
 type ClusterIamRoles struct {
 	pulumi.CustomResourceState

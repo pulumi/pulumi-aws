@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides a resource to manage an API Gateway Documentation Version.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -25,12 +27,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.RestApiArgs;
+ * import com.pulumi.aws.apigateway.DocumentationVersion;
+ * import com.pulumi.aws.apigateway.DocumentationVersionArgs;
  * import com.pulumi.aws.apigateway.DocumentationPart;
  * import com.pulumi.aws.apigateway.DocumentationPartArgs;
  * import com.pulumi.aws.apigateway.inputs.DocumentationPartLocationArgs;
- * import com.pulumi.aws.apigateway.DocumentationVersion;
- * import com.pulumi.aws.apigateway.DocumentationVersionArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,7 +46,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRestApi = new RestApi(&#34;exampleRestApi&#34;);
+ *         var exampleRestApi = new RestApi(&#34;exampleRestApi&#34;, RestApiArgs.builder()        
+ *             .name(&#34;example_api&#34;)
+ *             .build());
+ * 
+ *         var example = new DocumentationVersion(&#34;example&#34;, DocumentationVersionArgs.builder()        
+ *             .version(&#34;example_version&#34;)
+ *             .restApiId(exampleRestApi.id())
+ *             .description(&#34;Example description&#34;)
+ *             .build());
  * 
  *         var exampleDocumentationPart = new DocumentationPart(&#34;exampleDocumentationPart&#34;, DocumentationPartArgs.builder()        
  *             .location(DocumentationPartLocationArgs.builder()
@@ -54,24 +64,17 @@ import javax.annotation.Nullable;
  *             .restApiId(exampleRestApi.id())
  *             .build());
  * 
- *         var exampleDocumentationVersion = new DocumentationVersion(&#34;exampleDocumentationVersion&#34;, DocumentationVersionArgs.builder()        
- *             .version(&#34;example_version&#34;)
- *             .restApiId(exampleRestApi.id())
- *             .description(&#34;Example description&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleDocumentationPart)
- *                 .build());
- * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import API Gateway documentation versions using `REST-API-ID/VERSION`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
+ * $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
  * ```
  * 
  */

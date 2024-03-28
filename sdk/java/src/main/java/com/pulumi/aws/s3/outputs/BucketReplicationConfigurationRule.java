@@ -7,6 +7,7 @@ import com.pulumi.aws.s3.outputs.BucketReplicationConfigurationRuleDestination;
 import com.pulumi.aws.s3.outputs.BucketReplicationConfigurationRuleFilter;
 import com.pulumi.aws.s3.outputs.BucketReplicationConfigurationRuleSourceSelectionCriteria;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -150,55 +151,67 @@ public final class BucketReplicationConfigurationRule {
 
         @CustomType.Setter
         public Builder deleteMarkerReplicationStatus(@Nullable String deleteMarkerReplicationStatus) {
+
             this.deleteMarkerReplicationStatus = deleteMarkerReplicationStatus;
             return this;
         }
         @CustomType.Setter
         public Builder destination(BucketReplicationConfigurationRuleDestination destination) {
-            this.destination = Objects.requireNonNull(destination);
+            if (destination == null) {
+              throw new MissingRequiredPropertyException("BucketReplicationConfigurationRule", "destination");
+            }
+            this.destination = destination;
             return this;
         }
         @CustomType.Setter
         public Builder filter(@Nullable BucketReplicationConfigurationRuleFilter filter) {
+
             this.filter = filter;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
+
             this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder sourceSelectionCriteria(@Nullable BucketReplicationConfigurationRuleSourceSelectionCriteria sourceSelectionCriteria) {
+
             this.sourceSelectionCriteria = sourceSelectionCriteria;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("BucketReplicationConfigurationRule", "status");
+            }
+            this.status = status;
             return this;
         }
         public BucketReplicationConfigurationRule build() {
-            final var o = new BucketReplicationConfigurationRule();
-            o.deleteMarkerReplicationStatus = deleteMarkerReplicationStatus;
-            o.destination = destination;
-            o.filter = filter;
-            o.id = id;
-            o.prefix = prefix;
-            o.priority = priority;
-            o.sourceSelectionCriteria = sourceSelectionCriteria;
-            o.status = status;
-            return o;
+            final var _resultValue = new BucketReplicationConfigurationRule();
+            _resultValue.deleteMarkerReplicationStatus = deleteMarkerReplicationStatus;
+            _resultValue.destination = destination;
+            _resultValue.filter = filter;
+            _resultValue.id = id;
+            _resultValue.prefix = prefix;
+            _resultValue.priority = priority;
+            _resultValue.sourceSelectionCriteria = sourceSelectionCriteria;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

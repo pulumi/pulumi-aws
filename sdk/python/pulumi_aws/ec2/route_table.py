@@ -247,79 +247,89 @@ class RouteTable(pulumi.CustomResource):
         the separate resource.
 
         ## Example Usage
+
         ### Basic example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2.RouteTable("example",
-            vpc_id=aws_vpc["example"]["id"],
+            vpc_id=example_aws_vpc["id"],
             routes=[
                 aws.ec2.RouteTableRouteArgs(
                     cidr_block="10.0.1.0/24",
-                    gateway_id=aws_internet_gateway["example"]["id"],
+                    gateway_id=example_aws_internet_gateway["id"],
                 ),
                 aws.ec2.RouteTableRouteArgs(
                     ipv6_cidr_block="::/0",
-                    egress_only_gateway_id=aws_egress_only_internet_gateway["example"]["id"],
+                    egress_only_gateway_id=example_aws_egress_only_internet_gateway["id"],
                 ),
             ],
             tags={
                 "Name": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         To subsequently remove all managed routes:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2.RouteTable("example",
-            vpc_id=aws_vpc["example"]["id"],
+            vpc_id=example_aws_vpc["id"],
             routes=[],
             tags={
                 "Name": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Adopting an existing local route
 
         AWS creates certain routes that the AWS provider mostly ignores. You can manage them by importing or adopting them. See Import below for information on importing. This example shows adopting a route and then updating its target.
 
         First, adopt an existing AWS-created route:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_vpc = aws.ec2.Vpc("testVpc", cidr_block="10.1.0.0/16")
-        test_route_table = aws.ec2.RouteTable("testRouteTable",
-            vpc_id=test_vpc.id,
+        test = aws.ec2.Vpc("test", cidr_block="10.1.0.0/16")
+        test_route_table = aws.ec2.RouteTable("test",
+            vpc_id=test.id,
             routes=[aws.ec2.RouteTableRouteArgs(
                 cidr_block="10.1.0.0/16",
                 gateway_id="local",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         Next, update the target of the route:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_vpc = aws.ec2.Vpc("testVpc", cidr_block="10.1.0.0/16")
-        test_subnet = aws.ec2.Subnet("testSubnet",
+        test = aws.ec2.Vpc("test", cidr_block="10.1.0.0/16")
+        test_subnet = aws.ec2.Subnet("test",
             cidr_block="10.1.1.0/24",
-            vpc_id=test_vpc.id)
-        test_network_interface = aws.ec2.NetworkInterface("testNetworkInterface", subnet_id=test_subnet.id)
-        test_route_table = aws.ec2.RouteTable("testRouteTable",
-            vpc_id=test_vpc.id,
+            vpc_id=test.id)
+        test_network_interface = aws.ec2.NetworkInterface("test", subnet_id=test_subnet.id)
+        test_route_table = aws.ec2.RouteTable("test",
+            vpc_id=test.id,
             routes=[aws.ec2.RouteTableRouteArgs(
-                cidr_block=test_vpc.cidr_block,
+                cidr_block=test.cidr_block,
                 network_interface_id=test_network_interface.id,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         The target could then be updated again back to `local`.
 
@@ -328,7 +338,7 @@ class RouteTable(pulumi.CustomResource):
         Using `pulumi import`, import Route Tables using the route table `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
+        $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
         ```
 
         :param str resource_name: The name of the resource.
@@ -368,79 +378,89 @@ class RouteTable(pulumi.CustomResource):
         the separate resource.
 
         ## Example Usage
+
         ### Basic example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2.RouteTable("example",
-            vpc_id=aws_vpc["example"]["id"],
+            vpc_id=example_aws_vpc["id"],
             routes=[
                 aws.ec2.RouteTableRouteArgs(
                     cidr_block="10.0.1.0/24",
-                    gateway_id=aws_internet_gateway["example"]["id"],
+                    gateway_id=example_aws_internet_gateway["id"],
                 ),
                 aws.ec2.RouteTableRouteArgs(
                     ipv6_cidr_block="::/0",
-                    egress_only_gateway_id=aws_egress_only_internet_gateway["example"]["id"],
+                    egress_only_gateway_id=example_aws_egress_only_internet_gateway["id"],
                 ),
             ],
             tags={
                 "Name": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         To subsequently remove all managed routes:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2.RouteTable("example",
-            vpc_id=aws_vpc["example"]["id"],
+            vpc_id=example_aws_vpc["id"],
             routes=[],
             tags={
                 "Name": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Adopting an existing local route
 
         AWS creates certain routes that the AWS provider mostly ignores. You can manage them by importing or adopting them. See Import below for information on importing. This example shows adopting a route and then updating its target.
 
         First, adopt an existing AWS-created route:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_vpc = aws.ec2.Vpc("testVpc", cidr_block="10.1.0.0/16")
-        test_route_table = aws.ec2.RouteTable("testRouteTable",
-            vpc_id=test_vpc.id,
+        test = aws.ec2.Vpc("test", cidr_block="10.1.0.0/16")
+        test_route_table = aws.ec2.RouteTable("test",
+            vpc_id=test.id,
             routes=[aws.ec2.RouteTableRouteArgs(
                 cidr_block="10.1.0.0/16",
                 gateway_id="local",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         Next, update the target of the route:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_vpc = aws.ec2.Vpc("testVpc", cidr_block="10.1.0.0/16")
-        test_subnet = aws.ec2.Subnet("testSubnet",
+        test = aws.ec2.Vpc("test", cidr_block="10.1.0.0/16")
+        test_subnet = aws.ec2.Subnet("test",
             cidr_block="10.1.1.0/24",
-            vpc_id=test_vpc.id)
-        test_network_interface = aws.ec2.NetworkInterface("testNetworkInterface", subnet_id=test_subnet.id)
-        test_route_table = aws.ec2.RouteTable("testRouteTable",
-            vpc_id=test_vpc.id,
+            vpc_id=test.id)
+        test_network_interface = aws.ec2.NetworkInterface("test", subnet_id=test_subnet.id)
+        test_route_table = aws.ec2.RouteTable("test",
+            vpc_id=test.id,
             routes=[aws.ec2.RouteTableRouteArgs(
-                cidr_block=test_vpc.cidr_block,
+                cidr_block=test.cidr_block,
                 network_interface_id=test_network_interface.id,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         The target could then be updated again back to `local`.
 
@@ -449,7 +469,7 @@ class RouteTable(pulumi.CustomResource):
         Using `pulumi import`, import Route Tables using the route table `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
+        $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
         ```
 
         :param str resource_name: The name of the resource.
@@ -489,8 +509,6 @@ class RouteTable(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(RouteTable, __self__).__init__(
             'aws:ec2/routeTable:RouteTable',
             resource_name,

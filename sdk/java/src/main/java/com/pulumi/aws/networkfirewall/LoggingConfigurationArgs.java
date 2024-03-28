@@ -6,6 +6,7 @@ package com.pulumi.aws.networkfirewall;
 import com.pulumi.aws.networkfirewall.inputs.LoggingConfigurationLoggingConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class LoggingConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         public LoggingConfigurationArgs build() {
-            $.firewallArn = Objects.requireNonNull($.firewallArn, "expected parameter 'firewallArn' to be non-null");
-            $.loggingConfiguration = Objects.requireNonNull($.loggingConfiguration, "expected parameter 'loggingConfiguration' to be non-null");
+            if ($.firewallArn == null) {
+                throw new MissingRequiredPropertyException("LoggingConfigurationArgs", "firewallArn");
+            }
+            if ($.loggingConfiguration == null) {
+                throw new MissingRequiredPropertyException("LoggingConfigurationArgs", "loggingConfiguration");
+            }
             return $;
         }
     }

@@ -181,8 +181,10 @@ class WorkspaceApiKey(pulumi.CustomResource):
         Provides an Amazon Managed Grafana workspace API Key resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -191,8 +193,9 @@ class WorkspaceApiKey(pulumi.CustomResource):
             key_name="test-key",
             key_role="VIEWER",
             seconds_to_live=3600,
-            workspace_id=aws_grafana_workspace["test"]["id"])
+            workspace_id=test["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,8 +214,10 @@ class WorkspaceApiKey(pulumi.CustomResource):
         Provides an Amazon Managed Grafana workspace API Key resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -221,8 +226,9 @@ class WorkspaceApiKey(pulumi.CustomResource):
             key_name="test-key",
             key_role="VIEWER",
             seconds_to_live=3600,
-            workspace_id=aws_grafana_workspace["test"]["id"])
+            workspace_id=test["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param WorkspaceApiKeyArgs args: The arguments to use to populate this resource's properties.

@@ -5,6 +5,7 @@ package com.pulumi.aws.appsync.outputs;
 
 import com.pulumi.aws.appsync.outputs.DataSourceHttpConfigAuthorizationConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,19 +60,23 @@ public final class DataSourceHttpConfig {
 
         @CustomType.Setter
         public Builder authorizationConfig(@Nullable DataSourceHttpConfigAuthorizationConfig authorizationConfig) {
+
             this.authorizationConfig = authorizationConfig;
             return this;
         }
         @CustomType.Setter
         public Builder endpoint(String endpoint) {
-            this.endpoint = Objects.requireNonNull(endpoint);
+            if (endpoint == null) {
+              throw new MissingRequiredPropertyException("DataSourceHttpConfig", "endpoint");
+            }
+            this.endpoint = endpoint;
             return this;
         }
         public DataSourceHttpConfig build() {
-            final var o = new DataSourceHttpConfig();
-            o.authorizationConfig = authorizationConfig;
-            o.endpoint = endpoint;
-            return o;
+            final var _resultValue = new DataSourceHttpConfig();
+            _resultValue.authorizationConfig = authorizationConfig;
+            _resultValue.endpoint = endpoint;
+            return _resultValue;
         }
     }
 }

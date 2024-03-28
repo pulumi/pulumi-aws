@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  *     querySuggestionsBlockListId: "87654321-1234-4321-4321-321987654321",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getQuerySuggestionsBlockList(args: GetQuerySuggestionsBlockListArgs, opts?: pulumi.InvokeOptions): Promise<GetQuerySuggestionsBlockListResult> {
 
@@ -114,6 +116,7 @@ export interface GetQuerySuggestionsBlockListResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -123,6 +126,7 @@ export interface GetQuerySuggestionsBlockListResult {
  *     querySuggestionsBlockListId: "87654321-1234-4321-4321-321987654321",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getQuerySuggestionsBlockListOutput(args: GetQuerySuggestionsBlockListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQuerySuggestionsBlockListResult> {
     return pulumi.output(args).apply((a: any) => getQuerySuggestionsBlockList(a, opts))

@@ -23,7 +23,10 @@ import javax.annotation.Nullable;
  * &gt; **Note:** `aws.alb.TargetGroupAttachment` is known as `aws.lb.TargetGroupAttachment`. The functionality is identical.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,7 +54,7 @@ import javax.annotation.Nullable;
  * 
  *         var testInstance = new Instance(&#34;testInstance&#34;);
  * 
- *         var testTargetGroupAttachment = new TargetGroupAttachment(&#34;testTargetGroupAttachment&#34;, TargetGroupAttachmentArgs.builder()        
+ *         var test = new TargetGroupAttachment(&#34;test&#34;, TargetGroupAttachmentArgs.builder()        
  *             .targetGroupArn(testTargetGroup.arn())
  *             .targetId(testInstance.id())
  *             .port(80)
@@ -60,7 +63,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Lambda Target
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -74,7 +81,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lambda.PermissionArgs;
  * import com.pulumi.aws.lb.TargetGroupAttachment;
  * import com.pulumi.aws.lb.TargetGroupAttachmentArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -88,29 +94,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testTargetGroup = new TargetGroup(&#34;testTargetGroup&#34;, TargetGroupArgs.builder()        
+ *         var test = new TargetGroup(&#34;test&#34;, TargetGroupArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .targetType(&#34;lambda&#34;)
  *             .build());
  * 
  *         var testFunction = new Function(&#34;testFunction&#34;);
  * 
  *         var withLb = new Permission(&#34;withLb&#34;, PermissionArgs.builder()        
+ *             .statementId(&#34;AllowExecutionFromlb&#34;)
  *             .action(&#34;lambda:InvokeFunction&#34;)
  *             .function(testFunction.name())
  *             .principal(&#34;elasticloadbalancing.amazonaws.com&#34;)
- *             .sourceArn(testTargetGroup.arn())
+ *             .sourceArn(test.arn())
  *             .build());
  * 
  *         var testTargetGroupAttachment = new TargetGroupAttachment(&#34;testTargetGroupAttachment&#34;, TargetGroupAttachmentArgs.builder()        
- *             .targetGroupArn(testTargetGroup.arn())
+ *             .targetGroupArn(test.arn())
  *             .targetId(testFunction.arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(withLb)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Registering Multiple Targets
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

@@ -475,28 +475,30 @@ class ClassificationJob(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_account = aws.macie2.Account("testAccount")
-        test_classification_job = aws.macie2.ClassificationJob("testClassificationJob",
+        test = aws.macie2.Account("test")
+        test_classification_job = aws.macie2.ClassificationJob("test",
             job_type="ONE_TIME",
+            name="NAME OF THE CLASSIFICATION JOB",
             s3_job_definition=aws.macie2.ClassificationJobS3JobDefinitionArgs(
                 bucket_definitions=[aws.macie2.ClassificationJobS3JobDefinitionBucketDefinitionArgs(
                     account_id="ACCOUNT ID",
                     buckets=["S3 BUCKET NAME"],
                 )],
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test_account]))
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_macie2_classification_job` using the id. For example:
 
         ```sh
-         $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
+        $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
         ```
 
         :param str resource_name: The name of the resource.
@@ -524,28 +526,30 @@ class ClassificationJob(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_account = aws.macie2.Account("testAccount")
-        test_classification_job = aws.macie2.ClassificationJob("testClassificationJob",
+        test = aws.macie2.Account("test")
+        test_classification_job = aws.macie2.ClassificationJob("test",
             job_type="ONE_TIME",
+            name="NAME OF THE CLASSIFICATION JOB",
             s3_job_definition=aws.macie2.ClassificationJobS3JobDefinitionArgs(
                 bucket_definitions=[aws.macie2.ClassificationJobS3JobDefinitionBucketDefinitionArgs(
                     account_id="ACCOUNT ID",
                     buckets=["S3 BUCKET NAME"],
                 )],
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test_account]))
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_macie2_classification_job` using the id. For example:
 
         ```sh
-         $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
+        $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
         ```
 
         :param str resource_name: The name of the resource.
@@ -603,8 +607,6 @@ class ClassificationJob(pulumi.CustomResource):
             __props__.__dict__["job_id"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["user_paused_details"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ClassificationJob, __self__).__init__(
             'aws:macie2/classificationJob:ClassificationJob',
             resource_name,

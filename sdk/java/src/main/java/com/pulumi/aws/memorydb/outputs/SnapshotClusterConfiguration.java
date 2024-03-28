@@ -213,85 +213,98 @@ public final class SnapshotClusterConfiguration {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder engineVersion(@Nullable String engineVersion) {
+
             this.engineVersion = engineVersion;
             return this;
         }
         @CustomType.Setter
         public Builder maintenanceWindow(@Nullable String maintenanceWindow) {
+
             this.maintenanceWindow = maintenanceWindow;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nodeType(@Nullable String nodeType) {
+
             this.nodeType = nodeType;
             return this;
         }
         @CustomType.Setter
         public Builder numShards(@Nullable Integer numShards) {
+
             this.numShards = numShards;
             return this;
         }
         @CustomType.Setter
         public Builder parameterGroupName(@Nullable String parameterGroupName) {
+
             this.parameterGroupName = parameterGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotRetentionLimit(@Nullable Integer snapshotRetentionLimit) {
+
             this.snapshotRetentionLimit = snapshotRetentionLimit;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotWindow(@Nullable String snapshotWindow) {
+
             this.snapshotWindow = snapshotWindow;
             return this;
         }
         @CustomType.Setter
         public Builder subnetGroupName(@Nullable String subnetGroupName) {
+
             this.subnetGroupName = subnetGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder topicArn(@Nullable String topicArn) {
+
             this.topicArn = topicArn;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(@Nullable String vpcId) {
+
             this.vpcId = vpcId;
             return this;
         }
         public SnapshotClusterConfiguration build() {
-            final var o = new SnapshotClusterConfiguration();
-            o.description = description;
-            o.engineVersion = engineVersion;
-            o.maintenanceWindow = maintenanceWindow;
-            o.name = name;
-            o.nodeType = nodeType;
-            o.numShards = numShards;
-            o.parameterGroupName = parameterGroupName;
-            o.port = port;
-            o.snapshotRetentionLimit = snapshotRetentionLimit;
-            o.snapshotWindow = snapshotWindow;
-            o.subnetGroupName = subnetGroupName;
-            o.topicArn = topicArn;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new SnapshotClusterConfiguration();
+            _resultValue.description = description;
+            _resultValue.engineVersion = engineVersion;
+            _resultValue.maintenanceWindow = maintenanceWindow;
+            _resultValue.name = name;
+            _resultValue.nodeType = nodeType;
+            _resultValue.numShards = numShards;
+            _resultValue.parameterGroupName = parameterGroupName;
+            _resultValue.port = port;
+            _resultValue.snapshotRetentionLimit = snapshotRetentionLimit;
+            _resultValue.snapshotWindow = snapshotWindow;
+            _resultValue.subnetGroupName = subnetGroupName;
+            _resultValue.topicArn = topicArn;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -106,43 +107,59 @@ public final class GetEventSourceResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetEventSourceResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder createdBy(String createdBy) {
-            this.createdBy = Objects.requireNonNull(createdBy);
+            if (createdBy == null) {
+              throw new MissingRequiredPropertyException("GetEventSourceResult", "createdBy");
+            }
+            this.createdBy = createdBy;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEventSourceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetEventSourceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder namePrefix(@Nullable String namePrefix) {
+
             this.namePrefix = namePrefix;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetEventSourceResult", "state");
+            }
+            this.state = state;
             return this;
         }
         public GetEventSourceResult build() {
-            final var o = new GetEventSourceResult();
-            o.arn = arn;
-            o.createdBy = createdBy;
-            o.id = id;
-            o.name = name;
-            o.namePrefix = namePrefix;
-            o.state = state;
-            return o;
+            final var _resultValue = new GetEventSourceResult();
+            _resultValue.arn = arn;
+            _resultValue.createdBy = createdBy;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.namePrefix = namePrefix;
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

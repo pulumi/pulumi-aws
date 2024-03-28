@@ -71,19 +71,21 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        users = aws.simpledb.Domain("users")
+        users = aws.simpledb.Domain("users", name="users")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SimpleDB Domains using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:simpledb/domain:Domain users users
+        $ pulumi import aws:simpledb/domain:Domain users users
         ```
 
         :param str resource_name: The name of the resource.
@@ -101,19 +103,21 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        users = aws.simpledb.Domain("users")
+        users = aws.simpledb.Domain("users", name="users")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SimpleDB Domains using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:simpledb/domain:Domain users users
+        $ pulumi import aws:simpledb/domain:Domain users users
         ```
 
         :param str resource_name: The name of the resource.

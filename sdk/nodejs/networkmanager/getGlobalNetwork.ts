@@ -9,14 +9,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkmanager.getGlobalNetwork({
- *     globalNetworkId: _var.global_network_id,
+ *     globalNetworkId: globalNetworkId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getGlobalNetwork(args: GetGlobalNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalNetworkResult> {
 
@@ -68,14 +70,16 @@ export interface GetGlobalNetworkResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.networkmanager.getGlobalNetwork({
- *     globalNetworkId: _var.global_network_id,
+ *     globalNetworkId: globalNetworkId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getGlobalNetworkOutput(args: GetGlobalNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalNetworkResult> {
     return pulumi.output(args).apply((a: any) => getGlobalNetwork(a, opts))

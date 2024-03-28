@@ -65,25 +65,28 @@ public final class EnvironmentLoggingConfigurationTaskLogs {
 
         @CustomType.Setter
         public Builder cloudWatchLogGroupArn(@Nullable String cloudWatchLogGroupArn) {
+
             this.cloudWatchLogGroupArn = cloudWatchLogGroupArn;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder logLevel(@Nullable String logLevel) {
+
             this.logLevel = logLevel;
             return this;
         }
         public EnvironmentLoggingConfigurationTaskLogs build() {
-            final var o = new EnvironmentLoggingConfigurationTaskLogs();
-            o.cloudWatchLogGroupArn = cloudWatchLogGroupArn;
-            o.enabled = enabled;
-            o.logLevel = logLevel;
-            return o;
+            final var _resultValue = new EnvironmentLoggingConfigurationTaskLogs();
+            _resultValue.cloudWatchLogGroupArn = cloudWatchLogGroupArn;
+            _resultValue.enabled = enabled;
+            _resultValue.logLevel = logLevel;
+            return _resultValue;
         }
     }
 }

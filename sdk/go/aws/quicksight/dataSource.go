@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,6 +31,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewDataSource(ctx, "default", &quicksight.DataSourceArgs{
 //				DataSourceId: pulumi.String("example-id"),
+//				Name:         pulumi.String("My Cool Data in S3"),
 //				Parameters: &quicksight.DataSourceParametersArgs{
 //					S3: &quicksight.DataSourceParametersS3Args{
 //						ManifestFileLocation: &quicksight.DataSourceParametersS3ManifestFileLocationArgs{
@@ -48,15 +50,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a QuickSight data source using the AWS account ID, and data source ID separated by a slash (`/`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
-//
+// $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
 // ```
 type DataSource struct {
 	pulumi.CustomResourceState
@@ -107,10 +108,6 @@ func NewDataSource(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataSource
 	err := ctx.RegisterResource("aws:quicksight/dataSource:DataSource", name, args, &resource, opts...)

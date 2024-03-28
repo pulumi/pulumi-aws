@@ -4,6 +4,7 @@
 package com.pulumi.aws.ses.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -84,31 +85,43 @@ public final class GetDomainIdentityResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetDomainIdentityResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder domain(String domain) {
-            this.domain = Objects.requireNonNull(domain);
+            if (domain == null) {
+              throw new MissingRequiredPropertyException("GetDomainIdentityResult", "domain");
+            }
+            this.domain = domain;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDomainIdentityResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder verificationToken(String verificationToken) {
-            this.verificationToken = Objects.requireNonNull(verificationToken);
+            if (verificationToken == null) {
+              throw new MissingRequiredPropertyException("GetDomainIdentityResult", "verificationToken");
+            }
+            this.verificationToken = verificationToken;
             return this;
         }
         public GetDomainIdentityResult build() {
-            final var o = new GetDomainIdentityResult();
-            o.arn = arn;
-            o.domain = domain;
-            o.id = id;
-            o.verificationToken = verificationToken;
-            return o;
+            final var _resultValue = new GetDomainIdentityResult();
+            _resultValue.arn = arn;
+            _resultValue.domain = domain;
+            _resultValue.id = id;
+            _resultValue.verificationToken = verificationToken;
+            return _resultValue;
         }
     }
 }

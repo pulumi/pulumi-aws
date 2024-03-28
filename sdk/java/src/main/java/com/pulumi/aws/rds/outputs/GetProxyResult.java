@@ -5,6 +5,7 @@ package com.pulumi.aws.rds.outputs;
 
 import com.pulumi.aws.rds.outputs.GetProxyAuth;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -206,12 +207,18 @@ public final class GetProxyResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetProxyResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder auths(List<GetProxyAuth> auths) {
-            this.auths = Objects.requireNonNull(auths);
+            if (auths == null) {
+              throw new MissingRequiredPropertyException("GetProxyResult", "auths");
+            }
+            this.auths = auths;
             return this;
         }
         public Builder auths(GetProxyAuth... auths) {
@@ -219,52 +226,82 @@ public final class GetProxyResult {
         }
         @CustomType.Setter
         public Builder debugLogging(Boolean debugLogging) {
-            this.debugLogging = Objects.requireNonNull(debugLogging);
+            if (debugLogging == null) {
+              throw new MissingRequiredPropertyException("GetProxyResult", "debugLogging");
+            }
+            this.debugLogging = debugLogging;
             return this;
         }
         @CustomType.Setter
         public Builder endpoint(String endpoint) {
-            this.endpoint = Objects.requireNonNull(endpoint);
+            if (endpoint == null) {
+              throw new MissingRequiredPropertyException("GetProxyResult", "endpoint");
+            }
+            this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
         public Builder engineFamily(String engineFamily) {
-            this.engineFamily = Objects.requireNonNull(engineFamily);
+            if (engineFamily == null) {
+              throw new MissingRequiredPropertyException("GetProxyResult", "engineFamily");
+            }
+            this.engineFamily = engineFamily;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetProxyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder idleClientTimeout(Integer idleClientTimeout) {
-            this.idleClientTimeout = Objects.requireNonNull(idleClientTimeout);
+            if (idleClientTimeout == null) {
+              throw new MissingRequiredPropertyException("GetProxyResult", "idleClientTimeout");
+            }
+            this.idleClientTimeout = idleClientTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetProxyResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder requireTls(Boolean requireTls) {
-            this.requireTls = Objects.requireNonNull(requireTls);
+            if (requireTls == null) {
+              throw new MissingRequiredPropertyException("GetProxyResult", "requireTls");
+            }
+            this.requireTls = requireTls;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("GetProxyResult", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetProxyResult", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         @CustomType.Setter
         public Builder vpcSecurityGroupIds(List<String> vpcSecurityGroupIds) {
-            this.vpcSecurityGroupIds = Objects.requireNonNull(vpcSecurityGroupIds);
+            if (vpcSecurityGroupIds == null) {
+              throw new MissingRequiredPropertyException("GetProxyResult", "vpcSecurityGroupIds");
+            }
+            this.vpcSecurityGroupIds = vpcSecurityGroupIds;
             return this;
         }
         public Builder vpcSecurityGroupIds(String... vpcSecurityGroupIds) {
@@ -272,28 +309,31 @@ public final class GetProxyResult {
         }
         @CustomType.Setter
         public Builder vpcSubnetIds(List<String> vpcSubnetIds) {
-            this.vpcSubnetIds = Objects.requireNonNull(vpcSubnetIds);
+            if (vpcSubnetIds == null) {
+              throw new MissingRequiredPropertyException("GetProxyResult", "vpcSubnetIds");
+            }
+            this.vpcSubnetIds = vpcSubnetIds;
             return this;
         }
         public Builder vpcSubnetIds(String... vpcSubnetIds) {
             return vpcSubnetIds(List.of(vpcSubnetIds));
         }
         public GetProxyResult build() {
-            final var o = new GetProxyResult();
-            o.arn = arn;
-            o.auths = auths;
-            o.debugLogging = debugLogging;
-            o.endpoint = endpoint;
-            o.engineFamily = engineFamily;
-            o.id = id;
-            o.idleClientTimeout = idleClientTimeout;
-            o.name = name;
-            o.requireTls = requireTls;
-            o.roleArn = roleArn;
-            o.vpcId = vpcId;
-            o.vpcSecurityGroupIds = vpcSecurityGroupIds;
-            o.vpcSubnetIds = vpcSubnetIds;
-            return o;
+            final var _resultValue = new GetProxyResult();
+            _resultValue.arn = arn;
+            _resultValue.auths = auths;
+            _resultValue.debugLogging = debugLogging;
+            _resultValue.endpoint = endpoint;
+            _resultValue.engineFamily = engineFamily;
+            _resultValue.id = id;
+            _resultValue.idleClientTimeout = idleClientTimeout;
+            _resultValue.name = name;
+            _resultValue.requireTls = requireTls;
+            _resultValue.roleArn = roleArn;
+            _resultValue.vpcId = vpcId;
+            _resultValue.vpcSecurityGroupIds = vpcSecurityGroupIds;
+            _resultValue.vpcSubnetIds = vpcSubnetIds;
+            return _resultValue;
         }
     }
 }

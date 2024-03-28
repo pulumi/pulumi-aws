@@ -10,40 +10,36 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const local = new aws.Provider("local", {region: "us-east-1"});
- * const peer = new aws.Provider("peer", {region: "us-west-2"});
- * const peerRegion = aws.getRegion({});
- * const localTransitGateway = new aws.ec2transitgateway.TransitGateway("localTransitGateway", {tags: {
+ * const peer = aws.getRegion({});
+ * const local = new aws.ec2transitgateway.TransitGateway("local", {tags: {
  *     Name: "Local TGW",
- * }}, {
- *     provider: aws.local,
- * });
- * const peerTransitGateway = new aws.ec2transitgateway.TransitGateway("peerTransitGateway", {tags: {
+ * }});
+ * const peerTransitGateway = new aws.ec2transitgateway.TransitGateway("peer", {tags: {
  *     Name: "Peer TGW",
- * }}, {
- *     provider: aws.peer,
- * });
+ * }});
  * const example = new aws.ec2transitgateway.PeeringAttachment("example", {
  *     peerAccountId: peerTransitGateway.ownerId,
- *     peerRegion: peerRegion.then(peerRegion => peerRegion.name),
+ *     peerRegion: peer.then(peer => peer.name),
  *     peerTransitGatewayId: peerTransitGateway.id,
- *     transitGatewayId: localTransitGateway.id,
+ *     transitGatewayId: local.id,
  *     tags: {
  *         Name: "TGW Peering Requestor",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment` using the EC2 Transit Gateway Attachment identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2transitgateway/peeringAttachment:PeeringAttachment example tgw-attach-12345678
+ * $ pulumi import aws:ec2transitgateway/peeringAttachment:PeeringAttachment example tgw-attach-12345678
  * ```
  */
 export class PeeringAttachment extends pulumi.CustomResource {
@@ -86,6 +82,7 @@ export class PeeringAttachment extends pulumi.CustomResource {
      * Identifier of EC2 Transit Gateway to peer with.
      */
     public readonly peerTransitGatewayId!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -117,6 +114,7 @@ export class PeeringAttachment extends pulumi.CustomResource {
             resourceInputs["peerAccountId"] = state ? state.peerAccountId : undefined;
             resourceInputs["peerRegion"] = state ? state.peerRegion : undefined;
             resourceInputs["peerTransitGatewayId"] = state ? state.peerTransitGatewayId : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
@@ -136,11 +134,10 @@ export class PeeringAttachment extends pulumi.CustomResource {
             resourceInputs["peerTransitGatewayId"] = args ? args.peerTransitGatewayId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(PeeringAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -161,6 +158,7 @@ export interface PeeringAttachmentState {
      * Identifier of EC2 Transit Gateway to peer with.
      */
     peerTransitGatewayId?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
     /**
      * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

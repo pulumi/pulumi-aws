@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,17 +30,18 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := eks.LookupAddon(ctx, &eks.LookupAddonArgs{
 //				AddonName:   "vpc-cni",
-//				ClusterName: aws_eks_cluster.Example.Name,
+//				ClusterName: exampleAwsEksCluster.Name,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("eksAddonOutputs", aws_eks_addon.Example)
+//			ctx.Export("eksAddonOutputs", exampleAwsEksAddon)
 //			return nil
 //		})
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupAddon(ctx *pulumi.Context, args *LookupAddonArgs, opts ...pulumi.InvokeOption) (*LookupAddonResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAddonResult
@@ -55,7 +57,7 @@ type LookupAddonArgs struct {
 	// Name of the EKS add-on. The name must match one of
 	// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
 	AddonName string `pulumi:"addonName"`
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName string            `pulumi:"clusterName"`
 	Tags        map[string]string `pulumi:"tags"`
 }
@@ -100,7 +102,7 @@ type LookupAddonOutputArgs struct {
 	// Name of the EKS add-on. The name must match one of
 	// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
 	AddonName pulumi.StringInput `pulumi:"addonName"`
-	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the EKS Cluster.
 	ClusterName pulumi.StringInput    `pulumi:"clusterName"`
 	Tags        pulumi.StringMapInput `pulumi:"tags"`
 }

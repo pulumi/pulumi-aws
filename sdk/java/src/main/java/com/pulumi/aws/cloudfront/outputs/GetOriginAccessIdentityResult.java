@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -132,49 +133,70 @@ public final class GetOriginAccessIdentityResult {
 
         @CustomType.Setter
         public Builder callerReference(String callerReference) {
-            this.callerReference = Objects.requireNonNull(callerReference);
+            if (callerReference == null) {
+              throw new MissingRequiredPropertyException("GetOriginAccessIdentityResult", "callerReference");
+            }
+            this.callerReference = callerReference;
             return this;
         }
         @CustomType.Setter
         public Builder cloudfrontAccessIdentityPath(String cloudfrontAccessIdentityPath) {
-            this.cloudfrontAccessIdentityPath = Objects.requireNonNull(cloudfrontAccessIdentityPath);
+            if (cloudfrontAccessIdentityPath == null) {
+              throw new MissingRequiredPropertyException("GetOriginAccessIdentityResult", "cloudfrontAccessIdentityPath");
+            }
+            this.cloudfrontAccessIdentityPath = cloudfrontAccessIdentityPath;
             return this;
         }
         @CustomType.Setter
         public Builder comment(String comment) {
-            this.comment = Objects.requireNonNull(comment);
+            if (comment == null) {
+              throw new MissingRequiredPropertyException("GetOriginAccessIdentityResult", "comment");
+            }
+            this.comment = comment;
             return this;
         }
         @CustomType.Setter
         public Builder etag(String etag) {
-            this.etag = Objects.requireNonNull(etag);
+            if (etag == null) {
+              throw new MissingRequiredPropertyException("GetOriginAccessIdentityResult", "etag");
+            }
+            this.etag = etag;
             return this;
         }
         @CustomType.Setter
         public Builder iamArn(String iamArn) {
-            this.iamArn = Objects.requireNonNull(iamArn);
+            if (iamArn == null) {
+              throw new MissingRequiredPropertyException("GetOriginAccessIdentityResult", "iamArn");
+            }
+            this.iamArn = iamArn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetOriginAccessIdentityResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder s3CanonicalUserId(String s3CanonicalUserId) {
-            this.s3CanonicalUserId = Objects.requireNonNull(s3CanonicalUserId);
+            if (s3CanonicalUserId == null) {
+              throw new MissingRequiredPropertyException("GetOriginAccessIdentityResult", "s3CanonicalUserId");
+            }
+            this.s3CanonicalUserId = s3CanonicalUserId;
             return this;
         }
         public GetOriginAccessIdentityResult build() {
-            final var o = new GetOriginAccessIdentityResult();
-            o.callerReference = callerReference;
-            o.cloudfrontAccessIdentityPath = cloudfrontAccessIdentityPath;
-            o.comment = comment;
-            o.etag = etag;
-            o.iamArn = iamArn;
-            o.id = id;
-            o.s3CanonicalUserId = s3CanonicalUserId;
-            return o;
+            final var _resultValue = new GetOriginAccessIdentityResult();
+            _resultValue.callerReference = callerReference;
+            _resultValue.cloudfrontAccessIdentityPath = cloudfrontAccessIdentityPath;
+            _resultValue.comment = comment;
+            _resultValue.etag = etag;
+            _resultValue.iamArn = iamArn;
+            _resultValue.id = id;
+            _resultValue.s3CanonicalUserId = s3CanonicalUserId;
+            return _resultValue;
         }
     }
 }

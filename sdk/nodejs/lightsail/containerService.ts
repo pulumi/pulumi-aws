@@ -16,48 +16,56 @@ import * as utilities from "../utilities";
  * see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail).
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myContainerService = new aws.lightsail.ContainerService("myContainerService", {
- *     isDisabled: false,
+ * const myContainerService = new aws.lightsail.ContainerService("my_container_service", {
+ *     name: "container-service-1",
  *     power: "nano",
  *     scale: 1,
+ *     isDisabled: false,
  *     tags: {
  *         foo1: "bar1",
  *         foo2: "",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Public Domain Names
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myContainerService = new aws.lightsail.ContainerService("myContainerService", {publicDomainNames: {
+ * const myContainerService = new aws.lightsail.ContainerService("my_container_service", {publicDomainNames: {
  *     certificates: [{
  *         certificateName: "example-certificate",
  *         domainNames: ["www.example.com"],
  *     }],
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Private Registry Access
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // ... other configuration ...
- * const defaultContainerService = new aws.lightsail.ContainerService("defaultContainerService", {privateRegistryAccess: {
+ * const defaultContainerService = new aws.lightsail.ContainerService("default", {privateRegistryAccess: {
  *     ecrImagePullerRole: {
  *         isActive: true,
  *     },
  * }});
- * const defaultPolicyDocument = defaultContainerService.privateRegistryAccess.apply(privateRegistryAccess => aws.iam.getPolicyDocumentOutput({
+ * const default = defaultContainerService.privateRegistryAccess.apply(privateRegistryAccess => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -70,18 +78,19 @@ import * as utilities from "../utilities";
  *         ],
  *     }],
  * }));
- * const defaultRepositoryPolicy = new aws.ecr.RepositoryPolicy("defaultRepositoryPolicy", {
- *     repository: aws_ecr_repository["default"].name,
- *     policy: defaultPolicyDocument.apply(defaultPolicyDocument => defaultPolicyDocument.json),
+ * const defaultRepositoryPolicy = new aws.ecr.RepositoryPolicy("default", {
+ *     repository: defaultAwsEcrRepository.name,
+ *     policy: _default.apply(_default => _default.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Lightsail Container Service using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:lightsail/containerService:ContainerService my_container_service container-service-1
+ * $ pulumi import aws:lightsail/containerService:ContainerService my_container_service container-service-1
  * ```
  */
 export class ContainerService extends pulumi.CustomResource {
@@ -253,8 +262,6 @@ export class ContainerService extends pulumi.CustomResource {
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ContainerService.__pulumiType, name, resourceInputs, opts);
     }
 }

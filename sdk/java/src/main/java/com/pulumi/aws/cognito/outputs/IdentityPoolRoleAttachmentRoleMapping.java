@@ -5,6 +5,7 @@ package com.pulumi.aws.cognito.outputs;
 
 import com.pulumi.aws.cognito.outputs.IdentityPoolRoleAttachmentRoleMappingMappingRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -88,16 +89,21 @@ public final class IdentityPoolRoleAttachmentRoleMapping {
 
         @CustomType.Setter
         public Builder ambiguousRoleResolution(@Nullable String ambiguousRoleResolution) {
+
             this.ambiguousRoleResolution = ambiguousRoleResolution;
             return this;
         }
         @CustomType.Setter
         public Builder identityProvider(String identityProvider) {
-            this.identityProvider = Objects.requireNonNull(identityProvider);
+            if (identityProvider == null) {
+              throw new MissingRequiredPropertyException("IdentityPoolRoleAttachmentRoleMapping", "identityProvider");
+            }
+            this.identityProvider = identityProvider;
             return this;
         }
         @CustomType.Setter
         public Builder mappingRules(@Nullable List<IdentityPoolRoleAttachmentRoleMappingMappingRule> mappingRules) {
+
             this.mappingRules = mappingRules;
             return this;
         }
@@ -106,16 +112,19 @@ public final class IdentityPoolRoleAttachmentRoleMapping {
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("IdentityPoolRoleAttachmentRoleMapping", "type");
+            }
+            this.type = type;
             return this;
         }
         public IdentityPoolRoleAttachmentRoleMapping build() {
-            final var o = new IdentityPoolRoleAttachmentRoleMapping();
-            o.ambiguousRoleResolution = ambiguousRoleResolution;
-            o.identityProvider = identityProvider;
-            o.mappingRules = mappingRules;
-            o.type = type;
-            return o;
+            final var _resultValue = new IdentityPoolRoleAttachmentRoleMapping();
+            _resultValue.ambiguousRoleResolution = ambiguousRoleResolution;
+            _resultValue.identityProvider = identityProvider;
+            _resultValue.mappingRules = mappingRules;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

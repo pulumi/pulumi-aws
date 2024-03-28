@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,7 +21,10 @@ import javax.annotation.Nullable;
  * Provides a SageMaker Pipeline resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,15 +50,15 @@ import javax.annotation.Nullable;
  *         var example = new Pipeline(&#34;example&#34;, PipelineArgs.builder()        
  *             .pipelineName(&#34;example&#34;)
  *             .pipelineDisplayName(&#34;example&#34;)
- *             .roleArn(aws_iam_role.example().arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .pipelineDefinition(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2020-12-01&#34;),
- *                     jsonProperty(&#34;Steps&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Name&#34;, &#34;Test&#34;),
- *                         jsonProperty(&#34;Type&#34;, &#34;Fail&#34;),
- *                         jsonProperty(&#34;Arguments&#34;, jsonObject(
- *                             jsonProperty(&#34;ErrorMessage&#34;, &#34;test&#34;)
+ *                     jsonProperty(&#34;version&#34;, &#34;2020-12-01&#34;),
+ *                     jsonProperty(&#34;steps&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;name&#34;, &#34;Test&#34;),
+ *                         jsonProperty(&#34;type&#34;, &#34;Fail&#34;),
+ *                         jsonProperty(&#34;arguments&#34;, jsonObject(
+ *                             jsonProperty(&#34;errorMessage&#34;, &#34;test&#34;)
  *                         ))
  *                     )))
  *                 )))
@@ -65,13 +67,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import pipelines using the `pipeline_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
+ * $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
  * ```
  * 
  */
@@ -254,9 +257,6 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

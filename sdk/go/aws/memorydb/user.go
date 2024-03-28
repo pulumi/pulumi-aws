@@ -19,6 +19,7 @@ import (
 // > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,19 +33,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRandomPassword, err := random.NewRandomPassword(ctx, "exampleRandomPassword", &random.RandomPasswordArgs{
-//				Length: pulumi.Int(16),
+//			example, err := random.NewPassword(ctx, "example", &random.PasswordArgs{
+//				Length: 16,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = memorydb.NewUser(ctx, "exampleUser", &memorydb.UserArgs{
+//			_, err = memorydb.NewUser(ctx, "example", &memorydb.UserArgs{
 //				UserName:     pulumi.String("my-user"),
 //				AccessString: pulumi.String("on ~* &* +@all"),
 //				AuthenticationMode: &memorydb.UserAuthenticationModeArgs{
 //					Type: pulumi.String("password"),
 //					Passwords: pulumi.StringArray{
-//						exampleRandomPassword.Result,
+//						example.Result,
 //					},
 //				},
 //			})
@@ -56,18 +57,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a user using the `user_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:memorydb/user:User example my-user
-//
+// $ pulumi import aws:memorydb/user:User example my-user
 // ```
-//
-//	The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
+// The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
 type User struct {
 	pulumi.CustomResourceState
 
@@ -107,10 +106,6 @@ func NewUser(ctx *pulumi.Context,
 	if args.UserName == nil {
 		return nil, errors.New("invalid value for required argument 'UserName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource User
 	err := ctx.RegisterResource("aws:memorydb/user:User", name, args, &resource, opts...)

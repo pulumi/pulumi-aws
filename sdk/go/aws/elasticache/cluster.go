@@ -32,8 +32,10 @@ import (
 // > **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `applyImmediately`.
 //
 // ## Example Usage
+//
 // ### Memcached Cluster
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,6 +49,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticache.NewCluster(ctx, "example", &elasticache.ClusterArgs{
+//				ClusterId:          pulumi.String("cluster-example"),
 //				Engine:             pulumi.String("memcached"),
 //				NodeType:           pulumi.String("cache.m4.large"),
 //				NumCacheNodes:      pulumi.Int(2),
@@ -61,8 +64,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Redis Instance
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -76,11 +82,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticache.NewCluster(ctx, "example", &elasticache.ClusterArgs{
+//				ClusterId:          pulumi.String("cluster-example"),
 //				Engine:             pulumi.String("redis"),
-//				EngineVersion:      pulumi.String("3.2.10"),
 //				NodeType:           pulumi.String("cache.m4.large"),
 //				NumCacheNodes:      pulumi.Int(1),
 //				ParameterGroupName: pulumi.String("default.redis3.2"),
+//				EngineVersion:      pulumi.String("3.2.10"),
 //				Port:               pulumi.Int(6379),
 //			})
 //			if err != nil {
@@ -91,10 +98,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Redis Cluster Mode Disabled Read Replica Instance
 //
 // These inherit their settings from the replication group.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -108,7 +118,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticache.NewCluster(ctx, "replica", &elasticache.ClusterArgs{
-//				ReplicationGroupId: pulumi.Any(aws_elasticache_replication_group.Example.Id),
+//				ClusterId:          pulumi.String("cluster-example"),
+//				ReplicationGroupId: pulumi.Any(example.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -118,8 +129,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Redis Log Delivery configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -133,6 +147,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticache.NewCluster(ctx, "test", &elasticache.ClusterArgs{
+//				ClusterId:        pulumi.String("mycluster"),
 //				Engine:           pulumi.String("redis"),
 //				NodeType:         pulumi.String("cache.t3.micro"),
 //				NumCacheNodes:    pulumi.Int(1),
@@ -140,13 +155,13 @@ import (
 //				ApplyImmediately: pulumi.Bool(true),
 //				LogDeliveryConfigurations: elasticache.ClusterLogDeliveryConfigurationArray{
 //					&elasticache.ClusterLogDeliveryConfigurationArgs{
-//						Destination:     pulumi.Any(aws_cloudwatch_log_group.Example.Name),
+//						Destination:     pulumi.Any(example.Name),
 //						DestinationType: pulumi.String("cloudwatch-logs"),
 //						LogFormat:       pulumi.String("text"),
 //						LogType:         pulumi.String("slow-log"),
 //					},
 //					&elasticache.ClusterLogDeliveryConfigurationArgs{
-//						Destination:     pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Name),
+//						Destination:     pulumi.Any(exampleAwsKinesisFirehoseDeliveryStream.Name),
 //						DestinationType: pulumi.String("kinesis-firehose"),
 //						LogFormat:       pulumi.String("json"),
 //						LogType:         pulumi.String("engine-log"),
@@ -161,15 +176,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
-//
+// $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
 // ```
 type Cluster struct {
 	pulumi.CustomResourceState
@@ -268,10 +282,6 @@ func NewCluster(ctx *pulumi.Context,
 		args = &ClusterArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("aws:elasticache/cluster:Cluster", name, args, &resource, opts...)

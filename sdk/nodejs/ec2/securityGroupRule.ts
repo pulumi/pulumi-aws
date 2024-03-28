@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  *
  * Basic usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,12 +33,14 @@ import * as utilities from "../utilities";
  *     type: "ingress",
  *     fromPort: 0,
  *     toPort: 65535,
- *     protocol: "tcp",
- *     cidrBlocks: [aws_vpc.example.cidr_block],
- *     ipv6CidrBlocks: [aws_vpc.example.ipv6_cidr_block],
+ *     protocol: aws.ec2.ProtocolType.TCP,
+ *     cidrBlocks: [exampleAwsVpc.cidrBlock],
+ *     ipv6CidrBlocks: [exampleAwsVpc.ipv6CidrBlock],
  *     securityGroupId: "sg-123456",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Usage With Prefix List IDs
  *
  * Prefix Lists are either managed by AWS internally, or created by the customer using a
@@ -46,14 +49,14 @@ import * as utilities from "../utilities";
  *
  * Prefix list IDs are exported on VPC Endpoints, so you can use this format:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * // ...
- * const myEndpoint = new aws.ec2.VpcEndpoint("myEndpoint", {});
- * // ...
- * const allowAll = new aws.ec2.SecurityGroupRule("allowAll", {
+ * const myEndpoint = new aws.ec2.VpcEndpoint("my_endpoint", {});
+ * const allowAll = new aws.ec2.SecurityGroupRule("allow_all", {
  *     type: "egress",
  *     toPort: 0,
  *     protocol: "-1",
@@ -62,10 +65,12 @@ import * as utilities from "../utilities";
  *     securityGroupId: "sg-123456",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * You can also find a specific Prefix List using the `aws.ec2.getPrefixList`
  * or `ec2ManagedPrefixList` data sources:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -74,22 +79,23 @@ import * as utilities from "../utilities";
  * const s3 = current.then(current => aws.ec2.getPrefixList({
  *     name: `com.amazonaws.${current.name}.s3`,
  * }));
- * const s3GatewayEgress = new aws.ec2.SecurityGroupRule("s3GatewayEgress", {
+ * const s3GatewayEgress = new aws.ec2.SecurityGroupRule("s3_gateway_egress", {
  *     description: "S3 Gateway Egress",
  *     type: "egress",
  *     securityGroupId: "sg-123456",
  *     fromPort: 443,
  *     toPort: 443,
- *     protocol: "tcp",
+ *     protocol: aws.ec2.ProtocolType.TCP,
  *     prefixListIds: [s3.then(s3 => s3.id)],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Import a rule with various IPv4 and IPv6 source CIDR blocks:
  *
- * Import a rule, applicable to all ports, with a protocol other than TCP/UDP/ICMP/ICMPV6/ALL, e.g., Multicast Transport Protocol (MTP), using the IANA protocol number. For example92.
+ * Import a rule, applicable to all ports, with a protocol other than TCP/UDP/ICMP/ICMPV6/ALL, e.g., Multicast Transport Protocol (MTP), using the IANA protocol number. For example: 92.
  *
  * Import a default any/any egress rule to 0.0.0.0/0:
  *
@@ -106,37 +112,37 @@ import * as utilities from "../utilities";
  * Import an ingress rule in security group `sg-6e616f6d69` for TCP port 8000 with an IPv4 destination CIDR of `10.0.3.0/24`:
  *
  * ```sh
- *  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-6e616f6d69_ingress_tcp_8000_8000_10.0.3.0/24
+ * $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-6e616f6d69_ingress_tcp_8000_8000_10.0.3.0/24
  * ```
- *  Import a rule with various IPv4 and IPv6 source CIDR blocks:
+ * Import a rule with various IPv4 and IPv6 source CIDR blocks:
  *
  * ```sh
- *  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-4973616163_ingress_tcp_100_121_10.1.0.0/16_2001:db8::/48_10.2.0.0/16_2002:db8::/48
+ * $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-4973616163_ingress_tcp_100_121_10.1.0.0/16_2001:db8::/48_10.2.0.0/16_2002:db8::/48
  * ```
- *  Import a rule, applicable to all ports, with a protocol other than TCP/UDP/ICMP/ICMPV6/ALL, e.g., Multicast Transport Protocol (MTP), using the IANA protocol number. For example92.
+ * Import a rule, applicable to all ports, with a protocol other than TCP/UDP/ICMP/ICMPV6/ALL, e.g., Multicast Transport Protocol (MTP), using the IANA protocol number. For example: 92.
  *
  * ```sh
- *  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-6777656e646f6c796e_ingress_92_0_65536_10.0.3.0/24_10.0.4.0/24
+ * $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-6777656e646f6c796e_ingress_92_0_65536_10.0.3.0/24_10.0.4.0/24
  * ```
- *  Import a default any/any egress rule to 0.0.0.0/0:
+ * Import a default any/any egress rule to 0.0.0.0/0:
  *
  * ```sh
- *  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule default_egress sg-6777656e646f6c796e_egress_all_0_0_0.0.0.0/0
+ * $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule default_egress sg-6777656e646f6c796e_egress_all_0_0_0.0.0.0/0
  * ```
- *  Import an egress rule with a prefix list ID destination:
+ * Import an egress rule with a prefix list ID destination:
  *
  * ```sh
- *  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule egress sg-62726f6479_egress_tcp_8000_8000_pl-6469726b
+ * $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule egress sg-62726f6479_egress_tcp_8000_8000_pl-6469726b
  * ```
- *  Import a rule applicable to all protocols and ports with a security group source:
+ * Import a rule applicable to all protocols and ports with a security group source:
  *
  * ```sh
- *  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress_rule sg-7472697374616e_ingress_all_0_65536_sg-6176657279
+ * $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress_rule sg-7472697374616e_ingress_all_0_65536_sg-6176657279
  * ```
- *  Import a rule that has itself and an IPv6 CIDR block as sources:
+ * Import a rule that has itself and an IPv6 CIDR block as sources:
  *
  * ```sh
- *  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule rule_name sg-656c65616e6f72_ingress_tcp_80_80_self_2001:db8::/48
+ * $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule rule_name sg-656c65616e6f72_ingress_tcp_80_80_self_2001:db8::/48
  * ```
  */
 export class SecurityGroupRule extends pulumi.CustomResource {

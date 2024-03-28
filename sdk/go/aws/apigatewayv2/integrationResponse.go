@@ -16,8 +16,10 @@ import (
 // More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,8 +33,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigatewayv2.NewIntegrationResponse(ctx, "example", &apigatewayv2.IntegrationResponseArgs{
-//				ApiId:                  pulumi.Any(aws_apigatewayv2_api.Example.Id),
-//				IntegrationId:          pulumi.Any(aws_apigatewayv2_integration.Example.Id),
+//				ApiId:                  pulumi.Any(exampleAwsApigatewayv2Api.Id),
+//				IntegrationId:          pulumi.Any(exampleAwsApigatewayv2Integration.Id),
 //				IntegrationResponseKey: pulumi.String("/200/"),
 //			})
 //			if err != nil {
@@ -43,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_apigatewayv2_integration_response` using the API identifier, integration identifier and integration response identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigatewayv2/integrationResponse:IntegrationResponse example aabbccddee/1122334/998877
-//
+// $ pulumi import aws:apigatewayv2/integrationResponse:IntegrationResponse example aabbccddee/1122334/998877
 // ```
 type IntegrationResponse struct {
 	pulumi.CustomResourceState

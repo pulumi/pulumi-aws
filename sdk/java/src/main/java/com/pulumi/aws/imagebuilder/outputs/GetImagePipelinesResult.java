@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.aws.imagebuilder.outputs.GetImagePipelinesFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -79,7 +80,10 @@ public final class GetImagePipelinesResult {
 
         @CustomType.Setter
         public Builder arns(List<String> arns) {
-            this.arns = Objects.requireNonNull(arns);
+            if (arns == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelinesResult", "arns");
+            }
+            this.arns = arns;
             return this;
         }
         public Builder arns(String... arns) {
@@ -87,6 +91,7 @@ public final class GetImagePipelinesResult {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetImagePipelinesFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -95,24 +100,30 @@ public final class GetImagePipelinesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelinesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder names(List<String> names) {
-            this.names = Objects.requireNonNull(names);
+            if (names == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelinesResult", "names");
+            }
+            this.names = names;
             return this;
         }
         public Builder names(String... names) {
             return names(List.of(names));
         }
         public GetImagePipelinesResult build() {
-            final var o = new GetImagePipelinesResult();
-            o.arns = arns;
-            o.filters = filters;
-            o.id = id;
-            o.names = names;
-            return o;
+            final var _resultValue = new GetImagePipelinesResult();
+            _resultValue.arns = arns;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.names = names;
+            return _resultValue;
         }
     }
 }

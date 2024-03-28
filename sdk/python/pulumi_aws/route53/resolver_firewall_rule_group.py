@@ -174,21 +174,21 @@ class ResolverFirewallRuleGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53.ResolverFirewallRuleGroup("example")
+        example = aws.route53.ResolverFirewallRuleGroup("example", name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import
-
-        Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For example:
+        Using `pulumi import`, import  Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For example:
 
         ```sh
-         $ pulumi import aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup example rslvr-frg-0123456789abcdef
+        $ pulumi import aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup example rslvr-frg-0123456789abcdef
         ```
 
         :param str resource_name: The name of the resource.
@@ -207,21 +207,21 @@ class ResolverFirewallRuleGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53.ResolverFirewallRuleGroup("example")
+        example = aws.route53.ResolverFirewallRuleGroup("example", name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import
-
-        Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For example:
+        Using `pulumi import`, import  Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For example:
 
         ```sh
-         $ pulumi import aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup example rslvr-frg-0123456789abcdef
+        $ pulumi import aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup example rslvr-frg-0123456789abcdef
         ```
 
         :param str resource_name: The name of the resource.
@@ -256,8 +256,6 @@ class ResolverFirewallRuleGroup(pulumi.CustomResource):
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["share_status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ResolverFirewallRuleGroup, __self__).__init__(
             'aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup',
             resource_name,

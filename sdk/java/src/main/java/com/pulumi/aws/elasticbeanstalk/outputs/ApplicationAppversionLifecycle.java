@@ -4,6 +4,7 @@
 package com.pulumi.aws.elasticbeanstalk.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -88,31 +89,37 @@ public final class ApplicationAppversionLifecycle {
 
         @CustomType.Setter
         public Builder deleteSourceFromS3(@Nullable Boolean deleteSourceFromS3) {
+
             this.deleteSourceFromS3 = deleteSourceFromS3;
             return this;
         }
         @CustomType.Setter
         public Builder maxAgeInDays(@Nullable Integer maxAgeInDays) {
+
             this.maxAgeInDays = maxAgeInDays;
             return this;
         }
         @CustomType.Setter
         public Builder maxCount(@Nullable Integer maxCount) {
+
             this.maxCount = maxCount;
             return this;
         }
         @CustomType.Setter
         public Builder serviceRole(String serviceRole) {
-            this.serviceRole = Objects.requireNonNull(serviceRole);
+            if (serviceRole == null) {
+              throw new MissingRequiredPropertyException("ApplicationAppversionLifecycle", "serviceRole");
+            }
+            this.serviceRole = serviceRole;
             return this;
         }
         public ApplicationAppversionLifecycle build() {
-            final var o = new ApplicationAppversionLifecycle();
-            o.deleteSourceFromS3 = deleteSourceFromS3;
-            o.maxAgeInDays = maxAgeInDays;
-            o.maxCount = maxCount;
-            o.serviceRole = serviceRole;
-            return o;
+            final var _resultValue = new ApplicationAppversionLifecycle();
+            _resultValue.deleteSourceFromS3 = deleteSourceFromS3;
+            _resultValue.maxAgeInDays = maxAgeInDays;
+            _resultValue.maxCount = maxCount;
+            _resultValue.serviceRole = serviceRole;
+            return _resultValue;
         }
     }
 }

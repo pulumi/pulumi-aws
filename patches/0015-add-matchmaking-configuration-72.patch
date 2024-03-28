@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Lee Briggs <jaxxstorm@users.noreply.github.com>
 Date: Wed, 21 Dec 2022 12:23:59 -0800
-Subject: [PATCH 15/29] add matchmaking configuration (#72)
+Subject: [PATCH 15/46] add matchmaking configuration (#72)
 
 * add matchmaking configuration
 * add matchmaking rule set
@@ -10,7 +10,7 @@ Subject: [PATCH 15/29] add matchmaking configuration (#72)
 * add resource docs
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 29feaebfbd..8d16810a17 100644
+index 4966db7b24..80baa2e10f 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -15,6 +15,7 @@ import (
@@ -21,7 +21,7 @@ index 29feaebfbd..8d16810a17 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/service/s3legacy"
  
  	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
-@@ -246,6 +247,9 @@ func New(ctx context.Context) (*schema.Provider, error) {
+@@ -264,6 +265,9 @@ func New(ctx context.Context) (*schema.Provider, error) {
  
  		ResourcesMap: map[string]*schema.Resource{
  			"aws_s3_bucket_legacy": s3legacy.ResourceBucketLegacy(),

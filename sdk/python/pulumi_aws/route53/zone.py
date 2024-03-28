@@ -329,56 +329,69 @@ class Zone(pulumi.CustomResource):
         Manages a Route53 Hosted Zone. For managing Domain Name System Security Extensions (DNSSEC), see the `route53.KeySigningKey` and `route53.HostedZoneDnsSec` resources.
 
         ## Example Usage
+
         ### Public Zone
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.route53.Zone("primary")
+        primary = aws.route53.Zone("primary", name="example.com")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Public Subdomain Zone
 
         For use in subdomains, note that you need to create a
         `route53.Record` of type `NS` as well as the subdomain
         zone.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.route53.Zone("main")
-        dev = aws.route53.Zone("dev", tags={
-            "Environment": "dev",
-        })
+        main = aws.route53.Zone("main", name="example.com")
+        dev = aws.route53.Zone("dev",
+            name="dev.example.com",
+            tags={
+                "Environment": "dev",
+            })
         dev_ns = aws.route53.Record("dev-ns",
             zone_id=main.zone_id,
             name="dev.example.com",
-            type="NS",
+            type=aws.route53.RecordType.NS,
             ttl=30,
             records=dev.name_servers)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Private Zone
 
         > **NOTE:** This provider provides both exclusive VPC associations defined in-line in this resource via `vpc` configuration blocks and a separate ` Zone VPC Association resource. At this time, you cannot use in-line VPC associations in conjunction with any  `route53.ZoneAssociation`  resources with the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use [ `ignoreChanges` ](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to manage additional associations via the  `route53.ZoneAssociation` resource.
 
         > **NOTE:** Private zones require at least one VPC association at all times.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        private = aws.route53.Zone("private", vpcs=[aws.route53.ZoneVpcArgs(
-            vpc_id=aws_vpc["example"]["id"],
-        )])
+        private = aws.route53.Zone("private",
+            name="example.com",
+            vpcs=[aws.route53.ZoneVpcArgs(
+                vpc_id=example["id"],
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 Zones using the zone `id`. For example:
 
         ```sh
-         $ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9
+        $ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9
         ```
 
         :param str resource_name: The name of the resource.
@@ -400,56 +413,69 @@ class Zone(pulumi.CustomResource):
         Manages a Route53 Hosted Zone. For managing Domain Name System Security Extensions (DNSSEC), see the `route53.KeySigningKey` and `route53.HostedZoneDnsSec` resources.
 
         ## Example Usage
+
         ### Public Zone
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.route53.Zone("primary")
+        primary = aws.route53.Zone("primary", name="example.com")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Public Subdomain Zone
 
         For use in subdomains, note that you need to create a
         `route53.Record` of type `NS` as well as the subdomain
         zone.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.route53.Zone("main")
-        dev = aws.route53.Zone("dev", tags={
-            "Environment": "dev",
-        })
+        main = aws.route53.Zone("main", name="example.com")
+        dev = aws.route53.Zone("dev",
+            name="dev.example.com",
+            tags={
+                "Environment": "dev",
+            })
         dev_ns = aws.route53.Record("dev-ns",
             zone_id=main.zone_id,
             name="dev.example.com",
-            type="NS",
+            type=aws.route53.RecordType.NS,
             ttl=30,
             records=dev.name_servers)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Private Zone
 
         > **NOTE:** This provider provides both exclusive VPC associations defined in-line in this resource via `vpc` configuration blocks and a separate ` Zone VPC Association resource. At this time, you cannot use in-line VPC associations in conjunction with any  `route53.ZoneAssociation`  resources with the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use [ `ignoreChanges` ](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to manage additional associations via the  `route53.ZoneAssociation` resource.
 
         > **NOTE:** Private zones require at least one VPC association at all times.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        private = aws.route53.Zone("private", vpcs=[aws.route53.ZoneVpcArgs(
-            vpc_id=aws_vpc["example"]["id"],
-        )])
+        private = aws.route53.Zone("private",
+            name="example.com",
+            vpcs=[aws.route53.ZoneVpcArgs(
+                vpc_id=example["id"],
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 Zones using the zone `id`. For example:
 
         ```sh
-         $ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9
+        $ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9
         ```
 
         :param str resource_name: The name of the resource.
@@ -495,8 +521,6 @@ class Zone(pulumi.CustomResource):
             __props__.__dict__["primary_name_server"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["zone_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Zone, __self__).__init__(
             'aws:route53/zone:Zone',
             resource_name,

@@ -151,6 +151,7 @@ class _FlowState:
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  destination_flow_configs: Optional[pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]]] = None,
+                 flow_status: Optional[pulumi.Input[str]] = None,
                  kms_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  source_flow_config: Optional[pulumi.Input['FlowSourceFlowConfigArgs']] = None,
@@ -163,6 +164,7 @@ class _FlowState:
         :param pulumi.Input[str] arn: Flow's ARN.
         :param pulumi.Input[str] description: Description of the flow you want to create.
         :param pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]] destination_flow_configs: A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
+        :param pulumi.Input[str] flow_status: The current status of the flow.
         :param pulumi.Input[str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         :param pulumi.Input[str] name: Name of the flow.
         :param pulumi.Input['FlowSourceFlowConfigArgs'] source_flow_config: The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
@@ -177,6 +179,8 @@ class _FlowState:
             pulumi.set(__self__, "description", description)
         if destination_flow_configs is not None:
             pulumi.set(__self__, "destination_flow_configs", destination_flow_configs)
+        if flow_status is not None:
+            pulumi.set(__self__, "flow_status", flow_status)
         if kms_arn is not None:
             pulumi.set(__self__, "kms_arn", kms_arn)
         if name is not None:
@@ -230,6 +234,18 @@ class _FlowState:
     @destination_flow_configs.setter
     def destination_flow_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]]]):
         pulumi.set(self, "destination_flow_configs", value)
+
+    @property
+    @pulumi.getter(name="flowStatus")
+    def flow_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current status of the flow.
+        """
+        return pulumi.get(self, "flow_status")
+
+    @flow_status.setter
+    def flow_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "flow_status", value)
 
     @property
     @pulumi.getter(name="kmsArn")
@@ -338,12 +354,13 @@ class Flow(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_source_bucket_v2 = aws.s3.BucketV2("exampleSourceBucketV2")
-        example_source_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_source_bucket_v2 = aws.s3.BucketV2("example_source", bucket="example-source")
+        example_source = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="AllowAppFlowSourceActions",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -359,15 +376,15 @@ class Flow(pulumi.CustomResource):
                 "arn:aws:s3:::example-source/*",
             ],
         )])
-        example_source_bucket_policy = aws.s3.BucketPolicy("exampleSourceBucketPolicy",
+        example_source_bucket_policy = aws.s3.BucketPolicy("example_source",
             bucket=example_source_bucket_v2.id,
-            policy=example_source_policy_document.json)
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+            policy=example_source.json)
+        example = aws.s3.BucketObjectv2("example",
             bucket=example_source_bucket_v2.id,
             key="example_source.csv",
             source=pulumi.FileAsset("example_source.csv"))
-        example_destination_bucket_v2 = aws.s3.BucketV2("exampleDestinationBucketV2")
-        example_destination_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_destination_bucket_v2 = aws.s3.BucketV2("example_destination", bucket="example-destination")
+        example_destination = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="AllowAppFlowDestinationActions",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -387,10 +404,11 @@ class Flow(pulumi.CustomResource):
                 "arn:aws:s3:::example-destination/*",
             ],
         )])
-        example_destination_bucket_policy = aws.s3.BucketPolicy("exampleDestinationBucketPolicy",
+        example_destination_bucket_policy = aws.s3.BucketPolicy("example_destination",
             bucket=example_destination_bucket_v2.id,
-            policy=example_destination_policy_document.json)
-        example_flow = aws.appflow.Flow("exampleFlow",
+            policy=example_destination.json)
+        example_flow = aws.appflow.Flow("example",
+            name="example",
             source_flow_config=aws.appflow.FlowSourceFlowConfigArgs(
                 connector_type="S3",
                 source_connector_properties=aws.appflow.FlowSourceFlowConfigSourceConnectorPropertiesArgs(
@@ -425,13 +443,14 @@ class Flow(pulumi.CustomResource):
                 trigger_type="OnDemand",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AppFlow flows using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:appflow/flow:Flow example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
+        $ pulumi import aws:appflow/flow:Flow example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
         ```
 
         :param str resource_name: The name of the resource.
@@ -456,12 +475,13 @@ class Flow(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_source_bucket_v2 = aws.s3.BucketV2("exampleSourceBucketV2")
-        example_source_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_source_bucket_v2 = aws.s3.BucketV2("example_source", bucket="example-source")
+        example_source = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="AllowAppFlowSourceActions",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -477,15 +497,15 @@ class Flow(pulumi.CustomResource):
                 "arn:aws:s3:::example-source/*",
             ],
         )])
-        example_source_bucket_policy = aws.s3.BucketPolicy("exampleSourceBucketPolicy",
+        example_source_bucket_policy = aws.s3.BucketPolicy("example_source",
             bucket=example_source_bucket_v2.id,
-            policy=example_source_policy_document.json)
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+            policy=example_source.json)
+        example = aws.s3.BucketObjectv2("example",
             bucket=example_source_bucket_v2.id,
             key="example_source.csv",
             source=pulumi.FileAsset("example_source.csv"))
-        example_destination_bucket_v2 = aws.s3.BucketV2("exampleDestinationBucketV2")
-        example_destination_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_destination_bucket_v2 = aws.s3.BucketV2("example_destination", bucket="example-destination")
+        example_destination = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="AllowAppFlowDestinationActions",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -505,10 +525,11 @@ class Flow(pulumi.CustomResource):
                 "arn:aws:s3:::example-destination/*",
             ],
         )])
-        example_destination_bucket_policy = aws.s3.BucketPolicy("exampleDestinationBucketPolicy",
+        example_destination_bucket_policy = aws.s3.BucketPolicy("example_destination",
             bucket=example_destination_bucket_v2.id,
-            policy=example_destination_policy_document.json)
-        example_flow = aws.appflow.Flow("exampleFlow",
+            policy=example_destination.json)
+        example_flow = aws.appflow.Flow("example",
+            name="example",
             source_flow_config=aws.appflow.FlowSourceFlowConfigArgs(
                 connector_type="S3",
                 source_connector_properties=aws.appflow.FlowSourceFlowConfigSourceConnectorPropertiesArgs(
@@ -543,13 +564,14 @@ class Flow(pulumi.CustomResource):
                 trigger_type="OnDemand",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AppFlow flows using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:appflow/flow:Flow example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
+        $ pulumi import aws:appflow/flow:Flow example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
         ```
 
         :param str resource_name: The name of the resource.
@@ -601,9 +623,8 @@ class Flow(pulumi.CustomResource):
                 raise TypeError("Missing required property 'trigger_config'")
             __props__.__dict__["trigger_config"] = trigger_config
             __props__.__dict__["arn"] = None
+            __props__.__dict__["flow_status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Flow, __self__).__init__(
             'aws:appflow/flow:Flow',
             resource_name,
@@ -617,6 +638,7 @@ class Flow(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             destination_flow_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowDestinationFlowConfigArgs']]]]] = None,
+            flow_status: Optional[pulumi.Input[str]] = None,
             kms_arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             source_flow_config: Optional[pulumi.Input[pulumi.InputType['FlowSourceFlowConfigArgs']]] = None,
@@ -634,6 +656,7 @@ class Flow(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Flow's ARN.
         :param pulumi.Input[str] description: Description of the flow you want to create.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowDestinationFlowConfigArgs']]]] destination_flow_configs: A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
+        :param pulumi.Input[str] flow_status: The current status of the flow.
         :param pulumi.Input[str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         :param pulumi.Input[str] name: Name of the flow.
         :param pulumi.Input[pulumi.InputType['FlowSourceFlowConfigArgs']] source_flow_config: The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
@@ -649,6 +672,7 @@ class Flow(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["description"] = description
         __props__.__dict__["destination_flow_configs"] = destination_flow_configs
+        __props__.__dict__["flow_status"] = flow_status
         __props__.__dict__["kms_arn"] = kms_arn
         __props__.__dict__["name"] = name
         __props__.__dict__["source_flow_config"] = source_flow_config
@@ -681,6 +705,14 @@ class Flow(pulumi.CustomResource):
         A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
         """
         return pulumi.get(self, "destination_flow_configs")
+
+    @property
+    @pulumi.getter(name="flowStatus")
+    def flow_status(self) -> pulumi.Output[str]:
+        """
+        The current status of the flow.
+        """
+        return pulumi.get(self, "flow_status")
 
     @property
     @pulumi.getter(name="kmsArn")

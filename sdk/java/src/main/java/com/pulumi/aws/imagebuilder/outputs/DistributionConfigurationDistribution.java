@@ -8,6 +8,7 @@ import com.pulumi.aws.imagebuilder.outputs.DistributionConfigurationDistribution
 import com.pulumi.aws.imagebuilder.outputs.DistributionConfigurationDistributionFastLaunchConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.DistributionConfigurationDistributionLaunchTemplateConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -123,16 +124,19 @@ public final class DistributionConfigurationDistribution {
 
         @CustomType.Setter
         public Builder amiDistributionConfiguration(@Nullable DistributionConfigurationDistributionAmiDistributionConfiguration amiDistributionConfiguration) {
+
             this.amiDistributionConfiguration = amiDistributionConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder containerDistributionConfiguration(@Nullable DistributionConfigurationDistributionContainerDistributionConfiguration containerDistributionConfiguration) {
+
             this.containerDistributionConfiguration = containerDistributionConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder fastLaunchConfigurations(@Nullable List<DistributionConfigurationDistributionFastLaunchConfiguration> fastLaunchConfigurations) {
+
             this.fastLaunchConfigurations = fastLaunchConfigurations;
             return this;
         }
@@ -141,6 +145,7 @@ public final class DistributionConfigurationDistribution {
         }
         @CustomType.Setter
         public Builder launchTemplateConfigurations(@Nullable List<DistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations) {
+
             this.launchTemplateConfigurations = launchTemplateConfigurations;
             return this;
         }
@@ -149,6 +154,7 @@ public final class DistributionConfigurationDistribution {
         }
         @CustomType.Setter
         public Builder licenseConfigurationArns(@Nullable List<String> licenseConfigurationArns) {
+
             this.licenseConfigurationArns = licenseConfigurationArns;
             return this;
         }
@@ -157,18 +163,21 @@ public final class DistributionConfigurationDistribution {
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("DistributionConfigurationDistribution", "region");
+            }
+            this.region = region;
             return this;
         }
         public DistributionConfigurationDistribution build() {
-            final var o = new DistributionConfigurationDistribution();
-            o.amiDistributionConfiguration = amiDistributionConfiguration;
-            o.containerDistributionConfiguration = containerDistributionConfiguration;
-            o.fastLaunchConfigurations = fastLaunchConfigurations;
-            o.launchTemplateConfigurations = launchTemplateConfigurations;
-            o.licenseConfigurationArns = licenseConfigurationArns;
-            o.region = region;
-            return o;
+            final var _resultValue = new DistributionConfigurationDistribution();
+            _resultValue.amiDistributionConfiguration = amiDistributionConfiguration;
+            _resultValue.containerDistributionConfiguration = containerDistributionConfiguration;
+            _resultValue.fastLaunchConfigurations = fastLaunchConfigurations;
+            _resultValue.launchTemplateConfigurations = launchTemplateConfigurations;
+            _resultValue.licenseConfigurationArns = licenseConfigurationArns;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

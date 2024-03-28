@@ -44,13 +44,14 @@ public final class ResourceSetResourceDnsTargetResourceTargetResourceNlbResource
 
         @CustomType.Setter
         public Builder arn(@Nullable String arn) {
+
             this.arn = arn;
             return this;
         }
         public ResourceSetResourceDnsTargetResourceTargetResourceNlbResource build() {
-            final var o = new ResourceSetResourceDnsTargetResourceTargetResourceNlbResource();
-            o.arn = arn;
-            return o;
+            final var _resultValue = new ResourceSetResourceDnsTargetResourceTargetResourceNlbResource();
+            _resultValue.arn = arn;
+            return _resultValue;
         }
     }
 }

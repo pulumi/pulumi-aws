@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs exte
         }
 
         public ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs build() {
-            $.repositoryCredentialsProviderArn = Objects.requireNonNull($.repositoryCredentialsProviderArn, "expected parameter 'repositoryCredentialsProviderArn' to be non-null");
+            if ($.repositoryCredentialsProviderArn == null) {
+                throw new MissingRequiredPropertyException("ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs", "repositoryCredentialsProviderArn");
+            }
             return $;
         }
     }

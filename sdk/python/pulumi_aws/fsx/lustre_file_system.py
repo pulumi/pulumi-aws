@@ -885,24 +885,26 @@ class LustreFileSystem(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.fsx.LustreFileSystem("example",
-            import_path=f"s3://{aws_s3_bucket['example']['bucket']}",
+            import_path=f"s3://{example_aws_s3_bucket['bucket']}",
             storage_capacity=1200,
-            subnet_ids=[aws_subnet["example"]["id"]])
+            subnet_ids=example_aws_subnet["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import FSx File Systems using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:fsx/lustreFileSystem:LustreFileSystem example fs-543ab12b1ca672f33
+        $ pulumi import aws:fsx/lustreFileSystem:LustreFileSystem example fs-543ab12b1ca672f33
         ```
-         Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+        Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -942,24 +944,26 @@ class LustreFileSystem(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.fsx.LustreFileSystem("example",
-            import_path=f"s3://{aws_s3_bucket['example']['bucket']}",
+            import_path=f"s3://{example_aws_s3_bucket['bucket']}",
             storage_capacity=1200,
-            subnet_ids=[aws_subnet["example"]["id"]])
+            subnet_ids=example_aws_subnet["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import FSx File Systems using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:fsx/lustreFileSystem:LustreFileSystem example fs-543ab12b1ca672f33
+        $ pulumi import aws:fsx/lustreFileSystem:LustreFileSystem example fs-543ab12b1ca672f33
         ```
-         Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+        Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
         :param LustreFileSystemArgs args: The arguments to use to populate this resource's properties.
@@ -1038,8 +1042,6 @@ class LustreFileSystem(pulumi.CustomResource):
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LustreFileSystem, __self__).__init__(
             'aws:fsx/lustreFileSystem:LustreFileSystem',
             resource_name,

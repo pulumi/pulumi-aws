@@ -102,37 +102,42 @@ public final class BucketLifecycleConfigurationV2RuleFilter {
 
         @CustomType.Setter
         public Builder and(@Nullable BucketLifecycleConfigurationV2RuleFilterAnd and) {
+
             this.and = and;
             return this;
         }
         @CustomType.Setter
         public Builder objectSizeGreaterThan(@Nullable String objectSizeGreaterThan) {
+
             this.objectSizeGreaterThan = objectSizeGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder objectSizeLessThan(@Nullable String objectSizeLessThan) {
+
             this.objectSizeLessThan = objectSizeLessThan;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder tag(@Nullable BucketLifecycleConfigurationV2RuleFilterTag tag) {
+
             this.tag = tag;
             return this;
         }
         public BucketLifecycleConfigurationV2RuleFilter build() {
-            final var o = new BucketLifecycleConfigurationV2RuleFilter();
-            o.and = and;
-            o.objectSizeGreaterThan = objectSizeGreaterThan;
-            o.objectSizeLessThan = objectSizeLessThan;
-            o.prefix = prefix;
-            o.tag = tag;
-            return o;
+            final var _resultValue = new BucketLifecycleConfigurationV2RuleFilter();
+            _resultValue.and = and;
+            _resultValue.objectSizeGreaterThan = objectSizeGreaterThan;
+            _resultValue.objectSizeLessThan = objectSizeLessThan;
+            _resultValue.prefix = prefix;
+            _resultValue.tag = tag;
+            return _resultValue;
         }
     }
 }

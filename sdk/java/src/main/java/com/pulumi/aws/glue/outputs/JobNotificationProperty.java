@@ -44,13 +44,14 @@ public final class JobNotificationProperty {
 
         @CustomType.Setter
         public Builder notifyDelayAfter(@Nullable Integer notifyDelayAfter) {
+
             this.notifyDelayAfter = notifyDelayAfter;
             return this;
         }
         public JobNotificationProperty build() {
-            final var o = new JobNotificationProperty();
-            o.notifyDelayAfter = notifyDelayAfter;
-            return o;
+            final var _resultValue = new JobNotificationProperty();
+            _resultValue.notifyDelayAfter = notifyDelayAfter;
+            return _resultValue;
         }
     }
 }

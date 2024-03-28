@@ -72,31 +72,33 @@ class EventConfigurations(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.iot.EventConfigurations("example", event_configurations={
-            "CA_CERTIFICATE": False,
-            "CERTIFICATE": True,
+            "THING": True,
+            "THING_GROUP": False,
+            "THING_TYPE": False,
+            "THING_GROUP_MEMBERSHIP": False,
+            "THING_GROUP_HIERARCHY": False,
+            "THING_TYPE_ASSOCIATION": False,
             "JOB": False,
             "JOB_EXECUTION": False,
             "POLICY": False,
-            "THING": True,
-            "THING_GROUP": False,
-            "THING_GROUP_HIERARCHY": False,
-            "THING_GROUP_MEMBERSHIP": False,
-            "THING_TYPE": False,
-            "THING_TYPE_ASSOCIATION": False,
+            "CERTIFICATE": True,
+            "CA_CERTIFICATE": False,
         })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IoT Event Configurations using the AWS Region. For example:
 
         ```sh
-         $ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
+        $ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
         ```
 
         :param str resource_name: The name of the resource.
@@ -116,31 +118,33 @@ class EventConfigurations(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.iot.EventConfigurations("example", event_configurations={
-            "CA_CERTIFICATE": False,
-            "CERTIFICATE": True,
+            "THING": True,
+            "THING_GROUP": False,
+            "THING_TYPE": False,
+            "THING_GROUP_MEMBERSHIP": False,
+            "THING_GROUP_HIERARCHY": False,
+            "THING_TYPE_ASSOCIATION": False,
             "JOB": False,
             "JOB_EXECUTION": False,
             "POLICY": False,
-            "THING": True,
-            "THING_GROUP": False,
-            "THING_GROUP_HIERARCHY": False,
-            "THING_GROUP_MEMBERSHIP": False,
-            "THING_TYPE": False,
-            "THING_TYPE_ASSOCIATION": False,
+            "CERTIFICATE": True,
+            "CA_CERTIFICATE": False,
         })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IoT Event Configurations using the AWS Region. For example:
 
         ```sh
-         $ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
+        $ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
         ```
 
         :param str resource_name: The name of the resource.

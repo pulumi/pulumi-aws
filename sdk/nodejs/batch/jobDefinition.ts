@@ -11,13 +11,16 @@ import * as utilities from "../utilities";
  * Provides a Batch Job Definition resource.
  *
  * ## Example Usage
+ *
  * ### Job definition of type container
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.batch.JobDefinition("test", {
+ *     name: "my_test_batch_job_definition",
  *     type: "container",
  *     containerProperties: JSON.stringify({
  *         command: [
@@ -58,13 +61,17 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Job definition of type multinode
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.batch.JobDefinition("test", {
+ *     name: "tf_test_batch_job_definition_multinode",
  *     type: "multinode",
  *     nodeProperties: JSON.stringify({
  *         mainNode: 0,
@@ -98,8 +105,48 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Job Definitionn of type EKS
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.batch.JobDefinition("test", {
+ *     name: " tf_test_batch_job_definition_eks",
+ *     type: "container",
+ *     eksProperties: {
+ *         podProperties: {
+ *             hostNetwork: true,
+ *             containers: {
+ *                 image: "public.ecr.aws/amazonlinux/amazonlinux:1",
+ *                 commands: [
+ *                     "sleep",
+ *                     "60",
+ *                 ],
+ *                 resources: {
+ *                     limits: {
+ *                         cpu: "1",
+ *                         memory: "1024Mi",
+ *                     },
+ *                 },
+ *             },
+ *             metadata: {
+ *                 labels: {
+ *                     environment: "test",
+ *                 },
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Fargate Platform Capability
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -113,15 +160,19 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const ecsTaskExecutionRole = new aws.iam.Role("ecsTaskExecutionRole", {assumeRolePolicy: assumeRolePolicy.then(assumeRolePolicy => assumeRolePolicy.json)});
- * const ecsTaskExecutionRolePolicy = new aws.iam.RolePolicyAttachment("ecsTaskExecutionRolePolicy", {
+ * const ecsTaskExecutionRole = new aws.iam.Role("ecs_task_execution_role", {
+ *     name: "my_test_batch_exec_role",
+ *     assumeRolePolicy: assumeRolePolicy.then(assumeRolePolicy => assumeRolePolicy.json),
+ * });
+ * const ecsTaskExecutionRolePolicy = new aws.iam.RolePolicyAttachment("ecs_task_execution_role_policy", {
  *     role: ecsTaskExecutionRole.name,
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",
  * });
  * const test = new aws.batch.JobDefinition("test", {
+ *     name: "my_test_batch_job_definition",
  *     type: "container",
  *     platformCapabilities: ["FARGATE"],
- *     containerProperties: ecsTaskExecutionRole.arn.apply(arn => JSON.stringify({
+ *     containerProperties: pulumi.jsonStringify({
  *         command: [
  *             "echo",
  *             "test",
@@ -141,17 +192,18 @@ import * as utilities from "../utilities";
  *                 value: "512",
  *             },
  *         ],
- *         executionRoleArn: arn,
- *     })),
+ *         executionRoleArn: ecsTaskExecutionRole.arn,
+ *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
+ * $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
  * ```
  */
 export class JobDefinition extends pulumi.CustomResource {
@@ -183,14 +235,22 @@ export class JobDefinition extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name of the job definition.
+     * The Amazon Resource Name of the job definition, includes revision (`:#`).
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The ARN without the revision number.
+     */
+    public /*out*/ readonly arnPrefix!: pulumi.Output<string>;
+    /**
      * A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-     * provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+     * provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
      */
     public readonly containerProperties!: pulumi.Output<string | undefined>;
+    /**
+     * A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+     */
+    public readonly eksProperties!: pulumi.Output<outputs.batch.JobDefinitionEksProperties | undefined>;
     /**
      * Specifies the name of the job definition.
      */
@@ -221,6 +281,10 @@ export class JobDefinition extends pulumi.CustomResource {
      * The revision of the job definition.
      */
     public /*out*/ readonly revision!: pulumi.Output<number>;
+    /**
+     * The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+     */
+    public readonly schedulingPriority!: pulumi.Output<number | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -256,7 +320,9 @@ export class JobDefinition extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as JobDefinitionState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["arnPrefix"] = state ? state.arnPrefix : undefined;
             resourceInputs["containerProperties"] = state ? state.containerProperties : undefined;
+            resourceInputs["eksProperties"] = state ? state.eksProperties : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nodeProperties"] = state ? state.nodeProperties : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
@@ -264,6 +330,7 @@ export class JobDefinition extends pulumi.CustomResource {
             resourceInputs["propagateTags"] = state ? state.propagateTags : undefined;
             resourceInputs["retryStrategy"] = state ? state.retryStrategy : undefined;
             resourceInputs["revision"] = state ? state.revision : undefined;
+            resourceInputs["schedulingPriority"] = state ? state.schedulingPriority : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["timeout"] = state ? state.timeout : undefined;
@@ -274,22 +341,23 @@ export class JobDefinition extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             resourceInputs["containerProperties"] = args ? args.containerProperties : undefined;
+            resourceInputs["eksProperties"] = args ? args.eksProperties : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nodeProperties"] = args ? args.nodeProperties : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["platformCapabilities"] = args ? args.platformCapabilities : undefined;
             resourceInputs["propagateTags"] = args ? args.propagateTags : undefined;
             resourceInputs["retryStrategy"] = args ? args.retryStrategy : undefined;
+            resourceInputs["schedulingPriority"] = args ? args.schedulingPriority : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeout"] = args ? args.timeout : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["arnPrefix"] = undefined /*out*/;
             resourceInputs["revision"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(JobDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -299,14 +367,22 @@ export class JobDefinition extends pulumi.CustomResource {
  */
 export interface JobDefinitionState {
     /**
-     * The Amazon Resource Name of the job definition.
+     * The Amazon Resource Name of the job definition, includes revision (`:#`).
      */
     arn?: pulumi.Input<string>;
     /**
+     * The ARN without the revision number.
+     */
+    arnPrefix?: pulumi.Input<string>;
+    /**
      * A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-     * provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+     * provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
      */
     containerProperties?: pulumi.Input<string>;
+    /**
+     * A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+     */
+    eksProperties?: pulumi.Input<inputs.batch.JobDefinitionEksProperties>;
     /**
      * Specifies the name of the job definition.
      */
@@ -338,6 +414,10 @@ export interface JobDefinitionState {
      */
     revision?: pulumi.Input<number>;
     /**
+     * The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+     */
+    schedulingPriority?: pulumi.Input<number>;
+    /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -365,9 +445,13 @@ export interface JobDefinitionState {
 export interface JobDefinitionArgs {
     /**
      * A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-     * provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+     * provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
      */
     containerProperties?: pulumi.Input<string>;
+    /**
+     * A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+     */
+    eksProperties?: pulumi.Input<inputs.batch.JobDefinitionEksProperties>;
     /**
      * Specifies the name of the job definition.
      */
@@ -394,6 +478,10 @@ export interface JobDefinitionArgs {
      * Maximum number of `retryStrategy` is `1`.  Defined below.
      */
     retryStrategy?: pulumi.Input<inputs.batch.JobDefinitionRetryStrategy>;
+    /**
+     * The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+     */
+    schedulingPriority?: pulumi.Input<number>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,6 +25,7 @@ namespace Pulumi.Aws.LightSail
     /// {
     ///     var test = new Aws.LightSail.Certificate("test", new()
     ///     {
+    ///         Name = "test",
     ///         DomainName = "testdomain.com",
     ///         SubjectAlternativeNames = new[]
     ///         {
@@ -33,13 +35,14 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
+    /// $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/certificate:Certificate")]
@@ -116,10 +119,6 @@ namespace Pulumi.Aws.LightSail
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -257,11 +256,7 @@ namespace Pulumi.Aws.LightSail
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public CertificateState()

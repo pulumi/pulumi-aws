@@ -11,35 +11,38 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS RBin Rule.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rbin.Rule("example", {
  *     description: "example_rule",
+ *     resourceType: "EBS_SNAPSHOT",
  *     resourceTags: [{
  *         resourceTagKey: "tag_key",
  *         resourceTagValue: "tag_value",
  *     }],
- *     resourceType: "EBS_SNAPSHOT",
  *     retentionPeriod: {
- *         retentionPeriodUnit: "DAYS",
  *         retentionPeriodValue: 10,
+ *         retentionPeriodUnit: "DAYS",
  *     },
  *     tags: {
  *         test_tag_key: "test_tag_value",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import RBin Rule using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:rbin/rule:Rule example examplerule
+ * $ pulumi import aws:rbin/rule:Rule example examplerule
  * ```
  */
 export class Rule extends pulumi.CustomResource {
@@ -156,8 +159,6 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Rule.__pulumiType, name, resourceInputs, opts);
     }
 }

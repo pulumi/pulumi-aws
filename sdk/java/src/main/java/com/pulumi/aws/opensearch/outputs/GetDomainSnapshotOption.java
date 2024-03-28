@@ -4,6 +4,7 @@
 package com.pulumi.aws.opensearch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class GetDomainSnapshotOption {
 
         @CustomType.Setter
         public Builder automatedSnapshotStartHour(Integer automatedSnapshotStartHour) {
-            this.automatedSnapshotStartHour = Objects.requireNonNull(automatedSnapshotStartHour);
+            if (automatedSnapshotStartHour == null) {
+              throw new MissingRequiredPropertyException("GetDomainSnapshotOption", "automatedSnapshotStartHour");
+            }
+            this.automatedSnapshotStartHour = automatedSnapshotStartHour;
             return this;
         }
         public GetDomainSnapshotOption build() {
-            final var o = new GetDomainSnapshotOption();
-            o.automatedSnapshotStartHour = automatedSnapshotStartHour;
-            return o;
+            final var _resultValue = new GetDomainSnapshotOption();
+            _resultValue.automatedSnapshotStartHour = automatedSnapshotStartHour;
+            return _resultValue;
         }
     }
 }

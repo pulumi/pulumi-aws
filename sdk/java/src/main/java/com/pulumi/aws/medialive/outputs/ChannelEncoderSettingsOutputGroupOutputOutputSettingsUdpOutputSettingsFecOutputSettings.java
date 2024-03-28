@@ -73,25 +73,28 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
 
         @CustomType.Setter
         public Builder columnDepth(@Nullable Integer columnDepth) {
+
             this.columnDepth = columnDepth;
             return this;
         }
         @CustomType.Setter
         public Builder includeFec(@Nullable String includeFec) {
+
             this.includeFec = includeFec;
             return this;
         }
         @CustomType.Setter
         public Builder rowLength(@Nullable Integer rowLength) {
+
             this.rowLength = rowLength;
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings();
-            o.columnDepth = columnDepth;
-            o.includeFec = includeFec;
-            o.rowLength = rowLength;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings();
+            _resultValue.columnDepth = columnDepth;
+            _resultValue.includeFec = includeFec;
+            _resultValue.rowLength = rowLength;
+            return _resultValue;
         }
     }
 }

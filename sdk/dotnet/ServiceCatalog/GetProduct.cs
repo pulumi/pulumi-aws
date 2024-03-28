@@ -16,11 +16,11 @@ namespace Pulumi.Aws.ServiceCatalog
         /// 
         /// &gt; **NOTE:** A "provisioning artifact" is also known as a "version," and a "distributor" is also known as a "vendor."
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,8 +36,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetProductResult> InvokeAsync(GetProductArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("aws:servicecatalog/getProduct:getProduct", args ?? new GetProductArgs(), options.WithDefaults());
@@ -47,11 +46,11 @@ namespace Pulumi.Aws.ServiceCatalog
         /// 
         /// &gt; **NOTE:** A "provisioning artifact" is also known as a "version," and a "distributor" is also known as a "vendor."
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -67,8 +66,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductResult>("aws:servicecatalog/getProduct:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());

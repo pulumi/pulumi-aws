@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesis.inputs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -33,14 +34,14 @@ public final class FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs 
     }
 
     /**
-     * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+     * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
     @Import(name="bufferingInterval")
     private @Nullable Output<Integer> bufferingInterval;
 
     /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
     public Optional<Output<Integer>> bufferingInterval() {
@@ -63,14 +64,14 @@ public final class FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs 
     }
 
     /**
-     * The CloudWatch Logging Options for the delivery stream. More details are given below
+     * The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -208,7 +209,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs 
         }
 
         /**
-         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          * 
          * @return builder
          * 
@@ -219,7 +220,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs 
         }
 
         /**
-         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          * 
          * @return builder
          * 
@@ -250,7 +251,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs 
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
          * 
          * @return builder
          * 
@@ -261,7 +262,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs 
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
          * 
          * @return builder
          * 
@@ -378,8 +379,12 @@ public final class FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs 
         }
 
         public FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs build() {
-            $.bucketArn = Objects.requireNonNull($.bucketArn, "expected parameter 'bucketArn' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.bucketArn == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs", "bucketArn");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs", "roleArn");
+            }
             return $;
         }
     }

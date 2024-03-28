@@ -60,6 +60,7 @@ public final class VirtualGatewaySpecLoggingAccessLogFileFormat {
 
         @CustomType.Setter
         public Builder jsons(@Nullable List<VirtualGatewaySpecLoggingAccessLogFileFormatJson> jsons) {
+
             this.jsons = jsons;
             return this;
         }
@@ -68,14 +69,15 @@ public final class VirtualGatewaySpecLoggingAccessLogFileFormat {
         }
         @CustomType.Setter
         public Builder text(@Nullable String text) {
+
             this.text = text;
             return this;
         }
         public VirtualGatewaySpecLoggingAccessLogFileFormat build() {
-            final var o = new VirtualGatewaySpecLoggingAccessLogFileFormat();
-            o.jsons = jsons;
-            o.text = text;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecLoggingAccessLogFileFormat();
+            _resultValue.jsons = jsons;
+            _resultValue.text = text;
+            return _resultValue;
         }
     }
 }

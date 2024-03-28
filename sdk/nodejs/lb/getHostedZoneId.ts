@@ -9,22 +9,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.lb.getHostedZoneId({});
  * const www = new aws.route53.Record("www", {
- *     zoneId: aws_route53_zone.primary.zone_id,
+ *     zoneId: primary.zoneId,
  *     name: "example.com",
- *     type: "A",
+ *     type: aws.route53.RecordType.A,
  *     aliases: [{
- *         name: aws_lb.main.dns_name,
+ *         name: mainAwsLb.dnsName,
  *         zoneId: main.then(main => main.id),
  *         evaluateTargetHealth: true,
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getHostedZoneId(args?: GetHostedZoneIdArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneIdResult> {
     args = args || {};
@@ -67,22 +69,24 @@ export interface GetHostedZoneIdResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.lb.getHostedZoneId({});
  * const www = new aws.route53.Record("www", {
- *     zoneId: aws_route53_zone.primary.zone_id,
+ *     zoneId: primary.zoneId,
  *     name: "example.com",
- *     type: "A",
+ *     type: aws.route53.RecordType.A,
  *     aliases: [{
- *         name: aws_lb.main.dns_name,
+ *         name: mainAwsLb.dnsName,
  *         zoneId: main.then(main => main.id),
  *         evaluateTargetHealth: true,
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getHostedZoneIdOutput(args?: GetHostedZoneIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostedZoneIdResult> {
     return pulumi.output(args).apply((a: any) => getHostedZoneId(a, opts))

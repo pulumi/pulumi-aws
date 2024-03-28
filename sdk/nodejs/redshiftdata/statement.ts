@@ -11,38 +11,44 @@ import * as utilities from "../utilities";
  * Executes a Redshift Data Statement.
  *
  * ## Example Usage
+ *
  * ### clusterIdentifier
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.redshiftdata.Statement("example", {
- *     clusterIdentifier: aws_redshift_cluster.example.cluster_identifier,
- *     database: aws_redshift_cluster.example.database_name,
- *     dbUser: aws_redshift_cluster.example.master_username,
+ *     clusterIdentifier: exampleAwsRedshiftCluster.clusterIdentifier,
+ *     database: exampleAwsRedshiftCluster.databaseName,
+ *     dbUser: exampleAwsRedshiftCluster.masterUsername,
  *     sql: "CREATE GROUP group_name;",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### workgroupName
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.redshiftdata.Statement("example", {
- *     workgroupName: aws_redshiftserverless_workgroup.example.workgroup_name,
+ *     workgroupName: exampleAwsRedshiftserverlessWorkgroup.workgroupName,
  *     database: "dev",
  *     sql: "CREATE GROUP group_name;",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Data Statements using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshiftdata/statement:Statement example example
+ * $ pulumi import aws:redshiftdata/statement:Statement example example
  * ```
  */
 export class Statement extends pulumi.CustomResource {

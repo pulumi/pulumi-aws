@@ -7,6 +7,7 @@ import com.pulumi.aws.cloudfront.outputs.DistributionDefaultCacheBehaviorForward
 import com.pulumi.aws.cloudfront.outputs.DistributionDefaultCacheBehaviorFunctionAssociation;
 import com.pulumi.aws.cloudfront.outputs.DistributionDefaultCacheBehaviorLambdaFunctionAssociation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -302,7 +303,10 @@ public final class DistributionDefaultCacheBehavior {
 
         @CustomType.Setter
         public Builder allowedMethods(List<String> allowedMethods) {
-            this.allowedMethods = Objects.requireNonNull(allowedMethods);
+            if (allowedMethods == null) {
+              throw new MissingRequiredPropertyException("DistributionDefaultCacheBehavior", "allowedMethods");
+            }
+            this.allowedMethods = allowedMethods;
             return this;
         }
         public Builder allowedMethods(String... allowedMethods) {
@@ -310,12 +314,16 @@ public final class DistributionDefaultCacheBehavior {
         }
         @CustomType.Setter
         public Builder cachePolicyId(@Nullable String cachePolicyId) {
+
             this.cachePolicyId = cachePolicyId;
             return this;
         }
         @CustomType.Setter
         public Builder cachedMethods(List<String> cachedMethods) {
-            this.cachedMethods = Objects.requireNonNull(cachedMethods);
+            if (cachedMethods == null) {
+              throw new MissingRequiredPropertyException("DistributionDefaultCacheBehavior", "cachedMethods");
+            }
+            this.cachedMethods = cachedMethods;
             return this;
         }
         public Builder cachedMethods(String... cachedMethods) {
@@ -323,26 +331,31 @@ public final class DistributionDefaultCacheBehavior {
         }
         @CustomType.Setter
         public Builder compress(@Nullable Boolean compress) {
+
             this.compress = compress;
             return this;
         }
         @CustomType.Setter
         public Builder defaultTtl(@Nullable Integer defaultTtl) {
+
             this.defaultTtl = defaultTtl;
             return this;
         }
         @CustomType.Setter
         public Builder fieldLevelEncryptionId(@Nullable String fieldLevelEncryptionId) {
+
             this.fieldLevelEncryptionId = fieldLevelEncryptionId;
             return this;
         }
         @CustomType.Setter
         public Builder forwardedValues(@Nullable DistributionDefaultCacheBehaviorForwardedValues forwardedValues) {
+
             this.forwardedValues = forwardedValues;
             return this;
         }
         @CustomType.Setter
         public Builder functionAssociations(@Nullable List<DistributionDefaultCacheBehaviorFunctionAssociation> functionAssociations) {
+
             this.functionAssociations = functionAssociations;
             return this;
         }
@@ -351,6 +364,7 @@ public final class DistributionDefaultCacheBehavior {
         }
         @CustomType.Setter
         public Builder lambdaFunctionAssociations(@Nullable List<DistributionDefaultCacheBehaviorLambdaFunctionAssociation> lambdaFunctionAssociations) {
+
             this.lambdaFunctionAssociations = lambdaFunctionAssociations;
             return this;
         }
@@ -359,41 +373,51 @@ public final class DistributionDefaultCacheBehavior {
         }
         @CustomType.Setter
         public Builder maxTtl(@Nullable Integer maxTtl) {
+
             this.maxTtl = maxTtl;
             return this;
         }
         @CustomType.Setter
         public Builder minTtl(@Nullable Integer minTtl) {
+
             this.minTtl = minTtl;
             return this;
         }
         @CustomType.Setter
         public Builder originRequestPolicyId(@Nullable String originRequestPolicyId) {
+
             this.originRequestPolicyId = originRequestPolicyId;
             return this;
         }
         @CustomType.Setter
         public Builder realtimeLogConfigArn(@Nullable String realtimeLogConfigArn) {
+
             this.realtimeLogConfigArn = realtimeLogConfigArn;
             return this;
         }
         @CustomType.Setter
         public Builder responseHeadersPolicyId(@Nullable String responseHeadersPolicyId) {
+
             this.responseHeadersPolicyId = responseHeadersPolicyId;
             return this;
         }
         @CustomType.Setter
         public Builder smoothStreaming(@Nullable Boolean smoothStreaming) {
+
             this.smoothStreaming = smoothStreaming;
             return this;
         }
         @CustomType.Setter
         public Builder targetOriginId(String targetOriginId) {
-            this.targetOriginId = Objects.requireNonNull(targetOriginId);
+            if (targetOriginId == null) {
+              throw new MissingRequiredPropertyException("DistributionDefaultCacheBehavior", "targetOriginId");
+            }
+            this.targetOriginId = targetOriginId;
             return this;
         }
         @CustomType.Setter
         public Builder trustedKeyGroups(@Nullable List<String> trustedKeyGroups) {
+
             this.trustedKeyGroups = trustedKeyGroups;
             return this;
         }
@@ -402,6 +426,7 @@ public final class DistributionDefaultCacheBehavior {
         }
         @CustomType.Setter
         public Builder trustedSigners(@Nullable List<String> trustedSigners) {
+
             this.trustedSigners = trustedSigners;
             return this;
         }
@@ -410,31 +435,34 @@ public final class DistributionDefaultCacheBehavior {
         }
         @CustomType.Setter
         public Builder viewerProtocolPolicy(String viewerProtocolPolicy) {
-            this.viewerProtocolPolicy = Objects.requireNonNull(viewerProtocolPolicy);
+            if (viewerProtocolPolicy == null) {
+              throw new MissingRequiredPropertyException("DistributionDefaultCacheBehavior", "viewerProtocolPolicy");
+            }
+            this.viewerProtocolPolicy = viewerProtocolPolicy;
             return this;
         }
         public DistributionDefaultCacheBehavior build() {
-            final var o = new DistributionDefaultCacheBehavior();
-            o.allowedMethods = allowedMethods;
-            o.cachePolicyId = cachePolicyId;
-            o.cachedMethods = cachedMethods;
-            o.compress = compress;
-            o.defaultTtl = defaultTtl;
-            o.fieldLevelEncryptionId = fieldLevelEncryptionId;
-            o.forwardedValues = forwardedValues;
-            o.functionAssociations = functionAssociations;
-            o.lambdaFunctionAssociations = lambdaFunctionAssociations;
-            o.maxTtl = maxTtl;
-            o.minTtl = minTtl;
-            o.originRequestPolicyId = originRequestPolicyId;
-            o.realtimeLogConfigArn = realtimeLogConfigArn;
-            o.responseHeadersPolicyId = responseHeadersPolicyId;
-            o.smoothStreaming = smoothStreaming;
-            o.targetOriginId = targetOriginId;
-            o.trustedKeyGroups = trustedKeyGroups;
-            o.trustedSigners = trustedSigners;
-            o.viewerProtocolPolicy = viewerProtocolPolicy;
-            return o;
+            final var _resultValue = new DistributionDefaultCacheBehavior();
+            _resultValue.allowedMethods = allowedMethods;
+            _resultValue.cachePolicyId = cachePolicyId;
+            _resultValue.cachedMethods = cachedMethods;
+            _resultValue.compress = compress;
+            _resultValue.defaultTtl = defaultTtl;
+            _resultValue.fieldLevelEncryptionId = fieldLevelEncryptionId;
+            _resultValue.forwardedValues = forwardedValues;
+            _resultValue.functionAssociations = functionAssociations;
+            _resultValue.lambdaFunctionAssociations = lambdaFunctionAssociations;
+            _resultValue.maxTtl = maxTtl;
+            _resultValue.minTtl = minTtl;
+            _resultValue.originRequestPolicyId = originRequestPolicyId;
+            _resultValue.realtimeLogConfigArn = realtimeLogConfigArn;
+            _resultValue.responseHeadersPolicyId = responseHeadersPolicyId;
+            _resultValue.smoothStreaming = smoothStreaming;
+            _resultValue.targetOriginId = targetOriginId;
+            _resultValue.trustedKeyGroups = trustedKeyGroups;
+            _resultValue.trustedSigners = trustedSigners;
+            _resultValue.viewerProtocolPolicy = viewerProtocolPolicy;
+            return _resultValue;
         }
     }
 }

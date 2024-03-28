@@ -9,6 +9,7 @@ import com.pulumi.aws.lb.outputs.ListenerRuleActionFixedResponse;
 import com.pulumi.aws.lb.outputs.ListenerRuleActionForward;
 import com.pulumi.aws.lb.outputs.ListenerRuleActionRedirect;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -140,55 +141,65 @@ public final class ListenerRuleAction {
 
         @CustomType.Setter
         public Builder authenticateCognito(@Nullable ListenerRuleActionAuthenticateCognito authenticateCognito) {
+
             this.authenticateCognito = authenticateCognito;
             return this;
         }
         @CustomType.Setter
         public Builder authenticateOidc(@Nullable ListenerRuleActionAuthenticateOidc authenticateOidc) {
+
             this.authenticateOidc = authenticateOidc;
             return this;
         }
         @CustomType.Setter
         public Builder fixedResponse(@Nullable ListenerRuleActionFixedResponse fixedResponse) {
+
             this.fixedResponse = fixedResponse;
             return this;
         }
         @CustomType.Setter
         public Builder forward(@Nullable ListenerRuleActionForward forward) {
+
             this.forward = forward;
             return this;
         }
         @CustomType.Setter
         public Builder order(@Nullable Integer order) {
+
             this.order = order;
             return this;
         }
         @CustomType.Setter
         public Builder redirect(@Nullable ListenerRuleActionRedirect redirect) {
+
             this.redirect = redirect;
             return this;
         }
         @CustomType.Setter
         public Builder targetGroupArn(@Nullable String targetGroupArn) {
+
             this.targetGroupArn = targetGroupArn;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("ListenerRuleAction", "type");
+            }
+            this.type = type;
             return this;
         }
         public ListenerRuleAction build() {
-            final var o = new ListenerRuleAction();
-            o.authenticateCognito = authenticateCognito;
-            o.authenticateOidc = authenticateOidc;
-            o.fixedResponse = fixedResponse;
-            o.forward = forward;
-            o.order = order;
-            o.redirect = redirect;
-            o.targetGroupArn = targetGroupArn;
-            o.type = type;
-            return o;
+            final var _resultValue = new ListenerRuleAction();
+            _resultValue.authenticateCognito = authenticateCognito;
+            _resultValue.authenticateOidc = authenticateOidc;
+            _resultValue.fixedResponse = fixedResponse;
+            _resultValue.forward = forward;
+            _resultValue.order = order;
+            _resultValue.redirect = redirect;
+            _resultValue.targetGroupArn = targetGroupArn;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

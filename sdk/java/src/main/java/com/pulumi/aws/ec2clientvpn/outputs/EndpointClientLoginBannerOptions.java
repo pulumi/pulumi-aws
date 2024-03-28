@@ -59,19 +59,21 @@ public final class EndpointClientLoginBannerOptions {
 
         @CustomType.Setter
         public Builder bannerText(@Nullable String bannerText) {
+
             this.bannerText = bannerText;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         public EndpointClientLoginBannerOptions build() {
-            final var o = new EndpointClientLoginBannerOptions();
-            o.bannerText = bannerText;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new EndpointClientLoginBannerOptions();
+            _resultValue.bannerText = bannerText;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

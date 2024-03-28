@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,23 +24,23 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVpcEndpointService = Aws.Ec2.GetVpcEndpointService.Invoke(new()
+    ///     var example = Aws.Ec2.GetVpcEndpointService.Invoke(new()
     ///     {
     ///         Service = "dynamodb",
     ///     });
     /// 
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var exampleVpc = new Aws.Ec2.Vpc("example", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("exampleVpcEndpoint", new()
+    ///     var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("example", new()
     ///     {
-    ///         ServiceName = exampleVpcEndpointService.Apply(getVpcEndpointServiceResult =&gt; getVpcEndpointServiceResult.ServiceName),
+    ///         ServiceName = example.Apply(getVpcEndpointServiceResult =&gt; getVpcEndpointServiceResult.ServiceName),
     ///         VpcId = exampleVpc.Id,
     ///     });
     /// 
-    ///     var exampleVpcEndpointPolicy = new Aws.Ec2.VpcEndpointPolicy("exampleVpcEndpointPolicy", new()
+    ///     var exampleVpcEndpointPolicy = new Aws.Ec2.VpcEndpointPolicy("example", new()
     ///     {
     ///         VpcEndpointId = exampleVpcEndpoint.Id,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -67,13 +68,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import VPC Endpoint Policies using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy example vpce-3ecf2a57
+    /// $ pulumi import aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy example vpce-3ecf2a57
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy")]

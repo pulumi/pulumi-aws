@@ -241,24 +241,27 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
         Resource for managing an AWS VPC Lattice Service Network VPC Association.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.vpclattice.ServiceNetworkVpcAssociation("example",
-            vpc_identifier=aws_vpc["example"]["id"],
-            service_network_identifier=aws_vpclattice_service_network["example"]["id"],
-            security_group_ids=[aws_security_group["example"]["id"]])
+            vpc_identifier=example_aws_vpc["id"],
+            service_network_identifier=example_aws_vpclattice_service_network["id"],
+            security_group_ids=[example_aws_security_group["id"]])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Lattice Service Network VPC Association using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation example snsa-05e2474658a88f6ba
+        $ pulumi import aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation example snsa-05e2474658a88f6ba
         ```
 
         :param str resource_name: The name of the resource.
@@ -279,24 +282,27 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
         Resource for managing an AWS VPC Lattice Service Network VPC Association.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.vpclattice.ServiceNetworkVpcAssociation("example",
-            vpc_identifier=aws_vpc["example"]["id"],
-            service_network_identifier=aws_vpclattice_service_network["example"]["id"],
-            security_group_ids=[aws_security_group["example"]["id"]])
+            vpc_identifier=example_aws_vpc["id"],
+            service_network_identifier=example_aws_vpclattice_service_network["id"],
+            security_group_ids=[example_aws_security_group["id"]])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Lattice Service Network VPC Association using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation example snsa-05e2474658a88f6ba
+        $ pulumi import aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation example snsa-05e2474658a88f6ba
         ```
 
         :param str resource_name: The name of the resource.
@@ -339,8 +345,6 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
             __props__.__dict__["created_by"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceNetworkVpcAssociation, __self__).__init__(
             'aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation',
             resource_name,

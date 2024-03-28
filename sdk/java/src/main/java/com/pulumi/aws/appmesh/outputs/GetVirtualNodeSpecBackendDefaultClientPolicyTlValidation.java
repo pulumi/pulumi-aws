@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation {
 
         @CustomType.Setter
         public Builder subjectAlternativeNames(List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName> subjectAlternativeNames) {
-            this.subjectAlternativeNames = Objects.requireNonNull(subjectAlternativeNames);
+            if (subjectAlternativeNames == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation", "subjectAlternativeNames");
+            }
+            this.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
         public Builder subjectAlternativeNames(GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName... subjectAlternativeNames) {
@@ -50,17 +54,20 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation {
         }
         @CustomType.Setter
         public Builder trusts(List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust> trusts) {
-            this.trusts = Objects.requireNonNull(trusts);
+            if (trusts == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation", "trusts");
+            }
+            this.trusts = trusts;
             return this;
         }
         public Builder trusts(GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust... trusts) {
             return trusts(List.of(trusts));
         }
         public GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation build() {
-            final var o = new GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation();
-            o.subjectAlternativeNames = subjectAlternativeNames;
-            o.trusts = trusts;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation();
+            _resultValue.subjectAlternativeNames = subjectAlternativeNames;
+            _resultValue.trusts = trusts;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.dms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -64,43 +65,61 @@ public final class GetEndpointMongodbSetting {
 
         @CustomType.Setter
         public Builder authMechanism(String authMechanism) {
-            this.authMechanism = Objects.requireNonNull(authMechanism);
+            if (authMechanism == null) {
+              throw new MissingRequiredPropertyException("GetEndpointMongodbSetting", "authMechanism");
+            }
+            this.authMechanism = authMechanism;
             return this;
         }
         @CustomType.Setter
         public Builder authSource(String authSource) {
-            this.authSource = Objects.requireNonNull(authSource);
+            if (authSource == null) {
+              throw new MissingRequiredPropertyException("GetEndpointMongodbSetting", "authSource");
+            }
+            this.authSource = authSource;
             return this;
         }
         @CustomType.Setter
         public Builder authType(String authType) {
-            this.authType = Objects.requireNonNull(authType);
+            if (authType == null) {
+              throw new MissingRequiredPropertyException("GetEndpointMongodbSetting", "authType");
+            }
+            this.authType = authType;
             return this;
         }
         @CustomType.Setter
         public Builder docsToInvestigate(String docsToInvestigate) {
-            this.docsToInvestigate = Objects.requireNonNull(docsToInvestigate);
+            if (docsToInvestigate == null) {
+              throw new MissingRequiredPropertyException("GetEndpointMongodbSetting", "docsToInvestigate");
+            }
+            this.docsToInvestigate = docsToInvestigate;
             return this;
         }
         @CustomType.Setter
         public Builder extractDocId(String extractDocId) {
-            this.extractDocId = Objects.requireNonNull(extractDocId);
+            if (extractDocId == null) {
+              throw new MissingRequiredPropertyException("GetEndpointMongodbSetting", "extractDocId");
+            }
+            this.extractDocId = extractDocId;
             return this;
         }
         @CustomType.Setter
         public Builder nestingLevel(String nestingLevel) {
-            this.nestingLevel = Objects.requireNonNull(nestingLevel);
+            if (nestingLevel == null) {
+              throw new MissingRequiredPropertyException("GetEndpointMongodbSetting", "nestingLevel");
+            }
+            this.nestingLevel = nestingLevel;
             return this;
         }
         public GetEndpointMongodbSetting build() {
-            final var o = new GetEndpointMongodbSetting();
-            o.authMechanism = authMechanism;
-            o.authSource = authSource;
-            o.authType = authType;
-            o.docsToInvestigate = docsToInvestigate;
-            o.extractDocId = extractDocId;
-            o.nestingLevel = nestingLevel;
-            return o;
+            final var _resultValue = new GetEndpointMongodbSetting();
+            _resultValue.authMechanism = authMechanism;
+            _resultValue.authSource = authSource;
+            _resultValue.authType = authType;
+            _resultValue.docsToInvestigate = docsToInvestigate;
+            _resultValue.extractDocId = extractDocId;
+            _resultValue.nestingLevel = nestingLevel;
+            return _resultValue;
         }
     }
 }

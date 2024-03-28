@@ -351,44 +351,55 @@ class Fleet(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.worklink.Fleet("example")
+        example = aws.worklink.Fleet("example", name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         Network Configuration Usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.worklink.Fleet("example", network=aws.worklink.FleetNetworkArgs(
-            vpc_id=aws_vpc["test"]["id"],
-            subnet_ids=[[__item["id"] for __item in aws_subnet["test"]]],
-            security_group_ids=[aws_security_group["test"]["id"]],
-        ))
+        example = aws.worklink.Fleet("example",
+            name="example",
+            network=aws.worklink.FleetNetworkArgs(
+                vpc_id=test_aws_vpc["id"],
+                subnet_ids=[[__item["id"] for __item in test_aws_subnet]],
+                security_group_ids=[test["id"]],
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         Identity Provider Configuration Usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        test = aws.worklink.Fleet("test", identity_provider=aws.worklink.FleetIdentityProviderArgs(
-            type="SAML",
-            saml_metadata=(lambda path: open(path).read())("saml-metadata.xml"),
-        ))
+        test = aws.worklink.Fleet("test",
+            name="tf-worklink-fleet",
+            identity_provider=aws.worklink.FleetIdentityProviderArgs(
+                type="SAML",
+                saml_metadata=std.file(input="saml-metadata.xml").result,
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WorkLink using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
+        $ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -416,44 +427,55 @@ class Fleet(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.worklink.Fleet("example")
+        example = aws.worklink.Fleet("example", name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         Network Configuration Usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.worklink.Fleet("example", network=aws.worklink.FleetNetworkArgs(
-            vpc_id=aws_vpc["test"]["id"],
-            subnet_ids=[[__item["id"] for __item in aws_subnet["test"]]],
-            security_group_ids=[aws_security_group["test"]["id"]],
-        ))
+        example = aws.worklink.Fleet("example",
+            name="example",
+            network=aws.worklink.FleetNetworkArgs(
+                vpc_id=test_aws_vpc["id"],
+                subnet_ids=[[__item["id"] for __item in test_aws_subnet]],
+                security_group_ids=[test["id"]],
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         Identity Provider Configuration Usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        test = aws.worklink.Fleet("test", identity_provider=aws.worklink.FleetIdentityProviderArgs(
-            type="SAML",
-            saml_metadata=(lambda path: open(path).read())("saml-metadata.xml"),
-        ))
+        test = aws.worklink.Fleet("test",
+            name="tf-worklink-fleet",
+            identity_provider=aws.worklink.FleetIdentityProviderArgs(
+                type="SAML",
+                saml_metadata=std.file(input="saml-metadata.xml").result,
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WorkLink using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
+        $ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
         ```
 
         :param str resource_name: The name of the resource.

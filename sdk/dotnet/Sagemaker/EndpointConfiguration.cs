@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// Basic usage:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,12 +27,13 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var ec = new Aws.Sagemaker.EndpointConfiguration("ec", new()
     ///     {
+    ///         Name = "my-endpoint-config",
     ///         ProductionVariants = new[]
     ///         {
     ///             new Aws.Sagemaker.Inputs.EndpointConfigurationProductionVariantArgs
     ///             {
     ///                 VariantName = "variant-1",
-    ///                 ModelName = aws_sagemaker_model.M.Name,
+    ///                 ModelName = m.Name,
     ///                 InitialInstanceCount = 1,
     ///                 InstanceType = "ml.t2.medium",
     ///             },
@@ -44,13 +46,14 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import endpoint configurations using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
+    /// $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/endpointConfiguration:EndpointConfiguration")]
@@ -99,7 +102,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<ImmutableArray<Outputs.EndpointConfigurationProductionVariant>> ProductionVariants { get; private set; } = null!;
 
         /// <summary>
-        /// Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+        /// Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
         /// </summary>
         [Output("shadowProductionVariants")]
         public Output<ImmutableArray<Outputs.EndpointConfigurationShadowProductionVariant>> ShadowProductionVariants { get; private set; } = null!;
@@ -139,10 +142,6 @@ namespace Pulumi.Aws.Sagemaker
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -212,7 +211,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputList<Inputs.EndpointConfigurationShadowProductionVariantArgs>? _shadowProductionVariants;
 
         /// <summary>
-        /// Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+        /// Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
         /// </summary>
         public InputList<Inputs.EndpointConfigurationShadowProductionVariantArgs> ShadowProductionVariants
         {
@@ -292,7 +291,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputList<Inputs.EndpointConfigurationShadowProductionVariantGetArgs>? _shadowProductionVariants;
 
         /// <summary>
-        /// Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+        /// Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
         /// </summary>
         public InputList<Inputs.EndpointConfigurationShadowProductionVariantGetArgs> ShadowProductionVariants
         {
@@ -322,11 +321,7 @@ namespace Pulumi.Aws.Sagemaker
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public EndpointConfigurationState()

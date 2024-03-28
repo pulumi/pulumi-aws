@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,17 +23,18 @@ import * as utilities from "../utilities";
  * });
  * // Use the last snapshot of the dev database before it was destroyed to create
  * // a new dev database.
- * const auroraCluster = new aws.rds.Cluster("auroraCluster", {
+ * const aurora = new aws.rds.Cluster("aurora", {
  *     clusterIdentifier: "development_cluster",
  *     snapshotIdentifier: developmentFinalSnapshot.then(developmentFinalSnapshot => developmentFinalSnapshot.id),
  *     dbSubnetGroupName: "my_db_subnet_group",
  * });
- * const auroraClusterInstance = new aws.rds.ClusterInstance("auroraClusterInstance", {
- *     clusterIdentifier: auroraCluster.id,
- *     instanceClass: "db.t2.small",
+ * const auroraClusterInstance = new aws.rds.ClusterInstance("aurora", {
+ *     clusterIdentifier: aurora.id,
+ *     instanceClass: aws.rds.InstanceType.T2_Small,
  *     dbSubnetGroupName: "my_db_subnet_group",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getClusterSnapshot(args?: GetClusterSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterSnapshotResult> {
     args = args || {};
@@ -168,6 +170,7 @@ export interface GetClusterSnapshotResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -178,17 +181,18 @@ export interface GetClusterSnapshotResult {
  * });
  * // Use the last snapshot of the dev database before it was destroyed to create
  * // a new dev database.
- * const auroraCluster = new aws.rds.Cluster("auroraCluster", {
+ * const aurora = new aws.rds.Cluster("aurora", {
  *     clusterIdentifier: "development_cluster",
  *     snapshotIdentifier: developmentFinalSnapshot.then(developmentFinalSnapshot => developmentFinalSnapshot.id),
  *     dbSubnetGroupName: "my_db_subnet_group",
  * });
- * const auroraClusterInstance = new aws.rds.ClusterInstance("auroraClusterInstance", {
- *     clusterIdentifier: auroraCluster.id,
- *     instanceClass: "db.t2.small",
+ * const auroraClusterInstance = new aws.rds.ClusterInstance("aurora", {
+ *     clusterIdentifier: aurora.id,
+ *     instanceClass: aws.rds.InstanceType.T2_Small,
  *     dbSubnetGroupName: "my_db_subnet_group",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getClusterSnapshotOutput(args?: GetClusterSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterSnapshotResult> {
     return pulumi.output(args).apply((a: any) => getClusterSnapshot(a, opts))

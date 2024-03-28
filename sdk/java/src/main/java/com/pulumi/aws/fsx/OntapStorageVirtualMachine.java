@@ -23,7 +23,10 @@ import javax.annotation.Nullable;
  * See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html) for more information.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,15 +49,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new OntapStorageVirtualMachine(&#34;test&#34;, OntapStorageVirtualMachineArgs.builder()        
- *             .fileSystemId(aws_fsx_ontap_file_system.test().id())
+ *             .fileSystemId(testAwsFsxOntapFileSystem.id())
+ *             .name(&#34;test&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Using a Self-Managed Microsoft Active Directory
  * 
  * Additional information for using AWS Directory Service with ONTAP File Systems can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/self-managed-AD.html).
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -79,7 +87,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new OntapStorageVirtualMachine(&#34;test&#34;, OntapStorageVirtualMachineArgs.builder()        
- *             .fileSystemId(aws_fsx_ontap_file_system.test().id())
+ *             .fileSystemId(testAwsFsxOntapFileSystem.id())
+ *             .name(&#34;mysvm&#34;)
  *             .activeDirectoryConfiguration(OntapStorageVirtualMachineActiveDirectoryConfigurationArgs.builder()
  *                 .netbiosName(&#34;mysvm&#34;)
  *                 .selfManagedActiveDirectoryConfiguration(OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs.builder()
@@ -96,15 +105,16 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import FSx Storage Virtual Machine using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine example svm-12345678abcdef123
+ * $ pulumi import aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine example svm-12345678abcdef123
  * ```
- *  Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+ * Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
  * 
  */
 @ResourceType(type="aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine")
@@ -293,8 +303,7 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "svmAdminPassword",
-                "tagsAll"
+                "svmAdminPassword"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

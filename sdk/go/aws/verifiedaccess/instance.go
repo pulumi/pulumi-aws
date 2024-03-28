@@ -14,8 +14,10 @@ import (
 // Resource for managing a Verified Access Instance.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,8 +44,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With `fipsEnabled`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,17 +72,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// # Using `pulumi import`, import Verified Access Instances using the
-//
-// `id`. For example:
+// Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:verifiedaccess/instance:Instance example vai-1234567890abcdef0
-//
+// $ pulumi import aws:verifiedaccess/instance:Instance example vai-1234567890abcdef0
 // ```
 type Instance struct {
 	pulumi.CustomResourceState
@@ -105,10 +107,6 @@ func NewInstance(ctx *pulumi.Context,
 		args = &InstanceArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Instance
 	err := ctx.RegisterResource("aws:verifiedaccess/instance:Instance", name, args, &resource, opts...)

@@ -172,19 +172,22 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.guardduty.Detector("example", enable=True)
-        eks_runtime_monitoring = aws.guardduty.OrganizationConfigurationFeature("eksRuntimeMonitoring",
+        eks_runtime_monitoring = aws.guardduty.OrganizationConfigurationFeature("eks_runtime_monitoring",
             detector_id=example.id,
+            name="EKS_RUNTIME_MONITORING",
             auto_enable="ALL",
             additional_configurations=[aws.guardduty.OrganizationConfigurationFeatureAdditionalConfigurationArgs(
                 name="EKS_ADDON_MANAGEMENT",
                 auto_enable="NEW",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -206,19 +209,22 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.guardduty.Detector("example", enable=True)
-        eks_runtime_monitoring = aws.guardduty.OrganizationConfigurationFeature("eksRuntimeMonitoring",
+        eks_runtime_monitoring = aws.guardduty.OrganizationConfigurationFeature("eks_runtime_monitoring",
             detector_id=example.id,
+            name="EKS_RUNTIME_MONITORING",
             auto_enable="ALL",
             additional_configurations=[aws.guardduty.OrganizationConfigurationFeatureAdditionalConfigurationArgs(
                 name="EKS_ADDON_MANAGEMENT",
                 auto_enable="NEW",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param OrganizationConfigurationFeatureArgs args: The arguments to use to populate this resource's properties.

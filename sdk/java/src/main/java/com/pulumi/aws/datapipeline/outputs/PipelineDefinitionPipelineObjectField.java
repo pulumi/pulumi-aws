@@ -4,6 +4,7 @@
 package com.pulumi.aws.datapipeline.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,30 @@ public final class PipelineDefinitionPipelineObjectField {
 
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("PipelineDefinitionPipelineObjectField", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder refValue(@Nullable String refValue) {
+
             this.refValue = refValue;
             return this;
         }
         @CustomType.Setter
         public Builder stringValue(@Nullable String stringValue) {
+
             this.stringValue = stringValue;
             return this;
         }
         public PipelineDefinitionPipelineObjectField build() {
-            final var o = new PipelineDefinitionPipelineObjectField();
-            o.key = key;
-            o.refValue = refValue;
-            o.stringValue = stringValue;
-            return o;
+            final var _resultValue = new PipelineDefinitionPipelineObjectField();
+            _resultValue.key = key;
+            _resultValue.refValue = refValue;
+            _resultValue.stringValue = stringValue;
+            return _resultValue;
         }
     }
 }

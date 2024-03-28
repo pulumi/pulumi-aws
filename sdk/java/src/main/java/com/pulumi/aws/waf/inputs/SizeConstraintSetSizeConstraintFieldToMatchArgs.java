@@ -5,6 +5,7 @@ package com.pulumi.aws.waf.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,16 +17,14 @@ public final class SizeConstraintSetSizeConstraintFieldToMatchArgs extends com.p
     public static final SizeConstraintSetSizeConstraintFieldToMatchArgs Empty = new SizeConstraintSetSizeConstraintFieldToMatchArgs();
 
     /**
-     * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
-     * If `type` is any other value, omit this field.
+     * When the `type` is `HEADER`, specify the name of the header that you want to search using the `data` field, for example, `User-Agent` or `Referer`. If the `type` is any other value, you can omit this field.
      * 
      */
     @Import(name="data")
     private @Nullable Output<String> data;
 
     /**
-     * @return When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
-     * If `type` is any other value, omit this field.
+     * @return When the `type` is `HEADER`, specify the name of the header that you want to search using the `data` field, for example, `User-Agent` or `Referer`. If the `type` is any other value, you can omit this field.
      * 
      */
     public Optional<Output<String>> data() {
@@ -33,20 +32,14 @@ public final class SizeConstraintSetSizeConstraintFieldToMatchArgs extends com.p
     }
 
     /**
-     * The part of the web request that you want AWS WAF to search for a specified string.
-     * e.g., `HEADER`, `METHOD` or `BODY`.
-     * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
-     * for all supported values.
+     * Part of the web request that you want AWS WAF to search for a specified string. For example, `HEADER`, `METHOD`, or `BODY`. See the [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html) for all supported values.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The part of the web request that you want AWS WAF to search for a specified string.
-     * e.g., `HEADER`, `METHOD` or `BODY`.
-     * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
-     * for all supported values.
+     * @return Part of the web request that you want AWS WAF to search for a specified string. For example, `HEADER`, `METHOD`, or `BODY`. See the [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html) for all supported values.
      * 
      */
     public Output<String> type() {
@@ -79,8 +72,7 @@ public final class SizeConstraintSetSizeConstraintFieldToMatchArgs extends com.p
         }
 
         /**
-         * @param data When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
-         * If `type` is any other value, omit this field.
+         * @param data When the `type` is `HEADER`, specify the name of the header that you want to search using the `data` field, for example, `User-Agent` or `Referer`. If the `type` is any other value, you can omit this field.
          * 
          * @return builder
          * 
@@ -91,8 +83,7 @@ public final class SizeConstraintSetSizeConstraintFieldToMatchArgs extends com.p
         }
 
         /**
-         * @param data When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
-         * If `type` is any other value, omit this field.
+         * @param data When the `type` is `HEADER`, specify the name of the header that you want to search using the `data` field, for example, `User-Agent` or `Referer`. If the `type` is any other value, you can omit this field.
          * 
          * @return builder
          * 
@@ -102,10 +93,7 @@ public final class SizeConstraintSetSizeConstraintFieldToMatchArgs extends com.p
         }
 
         /**
-         * @param type The part of the web request that you want AWS WAF to search for a specified string.
-         * e.g., `HEADER`, `METHOD` or `BODY`.
-         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
-         * for all supported values.
+         * @param type Part of the web request that you want AWS WAF to search for a specified string. For example, `HEADER`, `METHOD`, or `BODY`. See the [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html) for all supported values.
          * 
          * @return builder
          * 
@@ -116,10 +104,7 @@ public final class SizeConstraintSetSizeConstraintFieldToMatchArgs extends com.p
         }
 
         /**
-         * @param type The part of the web request that you want AWS WAF to search for a specified string.
-         * e.g., `HEADER`, `METHOD` or `BODY`.
-         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
-         * for all supported values.
+         * @param type Part of the web request that you want AWS WAF to search for a specified string. For example, `HEADER`, `METHOD`, or `BODY`. See the [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html) for all supported values.
          * 
          * @return builder
          * 
@@ -129,7 +114,9 @@ public final class SizeConstraintSetSizeConstraintFieldToMatchArgs extends com.p
         }
 
         public SizeConstraintSetSizeConstraintFieldToMatchArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("SizeConstraintSetSizeConstraintFieldToMatchArgs", "type");
+            }
             return $;
         }
     }

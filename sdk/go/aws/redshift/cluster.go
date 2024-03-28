@@ -17,8 +17,10 @@ import (
 // > **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `defaultIamRoleArn` argument and the `redshift.ClusterIamRoles` resource's `defaultIamRoleArn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,11 +35,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshift.NewCluster(ctx, "example", &redshift.ClusterArgs{
 //				ClusterIdentifier: pulumi.String("tf-redshift-cluster"),
-//				ClusterType:       pulumi.String("single-node"),
 //				DatabaseName:      pulumi.String("mydb"),
-//				MasterPassword:    pulumi.String("Mustbe8characters"),
 //				MasterUsername:    pulumi.String("exampleuser"),
+//				MasterPassword:    pulumi.String("Mustbe8characters"),
 //				NodeType:          pulumi.String("dc1.large"),
+//				ClusterType:       pulumi.String("single-node"),
 //			})
 //			if err != nil {
 //				return err
@@ -47,8 +49,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Managed Credentials
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,11 +68,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshift.NewCluster(ctx, "example", &redshift.ClusterArgs{
 //				ClusterIdentifier:    pulumi.String("tf-redshift-cluster"),
-//				ClusterType:          pulumi.String("single-node"),
 //				DatabaseName:         pulumi.String("mydb"),
-//				ManageMasterPassword: pulumi.Bool(true),
 //				MasterUsername:       pulumi.String("exampleuser"),
 //				NodeType:             pulumi.String("dc1.large"),
+//				ClusterType:          pulumi.String("single-node"),
+//				ManageMasterPassword: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -77,15 +82,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift Clusters using the `cluster_identifier`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
-//
+// $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
 // ```
 type Cluster struct {
 	pulumi.CustomResourceState
@@ -170,6 +174,8 @@ type Cluster struct {
 	MasterPasswordSecretKmsKeyId pulumi.StringOutput `pulumi:"masterPasswordSecretKmsKeyId"`
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrOutput `pulumi:"masterUsername"`
+	// Specifies if the Redshift cluster is multi-AZ.
+	MultiAz pulumi.BoolPtrOutput `pulumi:"multiAz"`
 	// The node type to be provisioned for the cluster.
 	NodeType pulumi.StringOutput `pulumi:"nodeType"`
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
@@ -224,7 +230,6 @@ func NewCluster(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"masterPassword",
-		"tagsAll",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -330,6 +335,8 @@ type clusterState struct {
 	MasterPasswordSecretKmsKeyId *string `pulumi:"masterPasswordSecretKmsKeyId"`
 	// Username for the master DB user.
 	MasterUsername *string `pulumi:"masterUsername"`
+	// Specifies if the Redshift cluster is multi-AZ.
+	MultiAz *bool `pulumi:"multiAz"`
 	// The node type to be provisioned for the cluster.
 	NodeType *string `pulumi:"nodeType"`
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
@@ -447,6 +454,8 @@ type ClusterState struct {
 	MasterPasswordSecretKmsKeyId pulumi.StringPtrInput
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrInput
+	// Specifies if the Redshift cluster is multi-AZ.
+	MultiAz pulumi.BoolPtrInput
 	// The node type to be provisioned for the cluster.
 	NodeType pulumi.StringPtrInput
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
@@ -558,6 +567,8 @@ type clusterArgs struct {
 	MasterPasswordSecretKmsKeyId *string `pulumi:"masterPasswordSecretKmsKeyId"`
 	// Username for the master DB user.
 	MasterUsername *string `pulumi:"masterUsername"`
+	// Specifies if the Redshift cluster is multi-AZ.
+	MultiAz *bool `pulumi:"multiAz"`
 	// The node type to be provisioned for the cluster.
 	NodeType string `pulumi:"nodeType"`
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
@@ -662,6 +673,8 @@ type ClusterArgs struct {
 	MasterPasswordSecretKmsKeyId pulumi.StringPtrInput
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrInput
+	// Specifies if the Redshift cluster is multi-AZ.
+	MultiAz pulumi.BoolPtrInput
 	// The node type to be provisioned for the cluster.
 	NodeType pulumi.StringInput
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
@@ -961,6 +974,11 @@ func (o ClusterOutput) MasterPasswordSecretKmsKeyId() pulumi.StringOutput {
 // Username for the master DB user.
 func (o ClusterOutput) MasterUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MasterUsername }).(pulumi.StringPtrOutput)
+}
+
+// Specifies if the Redshift cluster is multi-AZ.
+func (o ClusterOutput) MultiAz() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.MultiAz }).(pulumi.BoolPtrOutput)
 }
 
 // The node type to be provisioned for the cluster.

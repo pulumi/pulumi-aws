@@ -9,12 +9,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleInstance = new aws.verifiedaccess.Instance("exampleInstance", {});
- * const exampleTrustProvider = new aws.verifiedaccess.TrustProvider("exampleTrustProvider", {
+ * const example = new aws.verifiedaccess.Instance("example", {});
+ * const exampleTrustProvider = new aws.verifiedaccess.TrustProvider("example", {
  *     deviceTrustProviderType: "jamf",
  *     policyReferenceName: "example",
  *     trustProviderType: "device",
@@ -22,18 +23,19 @@ import * as utilities from "../utilities";
  *         tenantId: "example",
  *     },
  * });
- * const exampleInstanceTrustProviderAttachment = new aws.verifiedaccess.InstanceTrustProviderAttachment("exampleInstanceTrustProviderAttachment", {
- *     verifiedaccessInstanceId: exampleInstance.id,
+ * const exampleInstanceTrustProviderAttachment = new aws.verifiedaccess.InstanceTrustProviderAttachment("example", {
+ *     verifiedaccessInstanceId: example.id,
  *     verifiedaccessTrustProviderId: exampleTrustProvider.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Verified Access Instance Trust Provider Attachments using the `verifiedaccess_instance_id` and `verifiedaccess_trust_provider_id` separated by a forward slash (`/`). For example:
  *
  * ```sh
- *  $ pulumi import aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment example vai-1234567890abcdef0/vatp-8012925589
+ * $ pulumi import aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment example vai-1234567890abcdef0/vatp-8012925589
  * ```
  */
 export class InstanceTrustProviderAttachment extends pulumi.CustomResource {

@@ -49,25 +49,28 @@ public final class EndpointNetworkInterfaceOptions {
 
         @CustomType.Setter
         public Builder networkInterfaceId(@Nullable String networkInterfaceId) {
+
             this.networkInterfaceId = networkInterfaceId;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
+
             this.protocol = protocol;
             return this;
         }
         public EndpointNetworkInterfaceOptions build() {
-            final var o = new EndpointNetworkInterfaceOptions();
-            o.networkInterfaceId = networkInterfaceId;
-            o.port = port;
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new EndpointNetworkInterfaceOptions();
+            _resultValue.networkInterfaceId = networkInterfaceId;
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

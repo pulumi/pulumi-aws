@@ -52,11 +52,13 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatc
 
         @CustomType.Setter
         public Builder all(@Nullable WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll all) {
+
             this.all = all;
             return this;
         }
         @CustomType.Setter
         public Builder includedPaths(@Nullable List<String> includedPaths) {
+
             this.includedPaths = includedPaths;
             return this;
         }
@@ -64,10 +66,10 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatc
             return includedPaths(List.of(includedPaths));
         }
         public WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern build() {
-            final var o = new WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern();
-            o.all = all;
-            o.includedPaths = includedPaths;
-            return o;
+            final var _resultValue = new WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern();
+            _resultValue.all = all;
+            _resultValue.includedPaths = includedPaths;
+            return _resultValue;
         }
     }
 }

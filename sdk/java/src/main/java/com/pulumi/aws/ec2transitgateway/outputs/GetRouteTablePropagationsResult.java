@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2transitgateway.outputs;
 
 import com.pulumi.aws.ec2transitgateway.outputs.GetRouteTablePropagationsFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,6 +72,7 @@ public final class GetRouteTablePropagationsResult {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<GetRouteTablePropagationsFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -79,12 +81,18 @@ public final class GetRouteTablePropagationsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRouteTablePropagationsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+            if (ids == null) {
+              throw new MissingRequiredPropertyException("GetRouteTablePropagationsResult", "ids");
+            }
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {
@@ -92,16 +100,19 @@ public final class GetRouteTablePropagationsResult {
         }
         @CustomType.Setter
         public Builder transitGatewayRouteTableId(String transitGatewayRouteTableId) {
-            this.transitGatewayRouteTableId = Objects.requireNonNull(transitGatewayRouteTableId);
+            if (transitGatewayRouteTableId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTablePropagationsResult", "transitGatewayRouteTableId");
+            }
+            this.transitGatewayRouteTableId = transitGatewayRouteTableId;
             return this;
         }
         public GetRouteTablePropagationsResult build() {
-            final var o = new GetRouteTablePropagationsResult();
-            o.filters = filters;
-            o.id = id;
-            o.ids = ids;
-            o.transitGatewayRouteTableId = transitGatewayRouteTableId;
-            return o;
+            final var _resultValue = new GetRouteTablePropagationsResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.transitGatewayRouteTableId = transitGatewayRouteTableId;
+            return _resultValue;
         }
     }
 }

@@ -6,6 +6,7 @@ package com.pulumi.aws.ssmincidents;
 import com.pulumi.aws.ssmincidents.inputs.ReplicationSetRegionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -108,7 +109,9 @@ public final class ReplicationSetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ReplicationSetArgs build() {
-            $.regions = Objects.requireNonNull($.regions, "expected parameter 'regions' to be non-null");
+            if ($.regions == null) {
+                throw new MissingRequiredPropertyException("ReplicationSetArgs", "regions");
+            }
             return $;
         }
     }

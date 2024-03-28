@@ -12,26 +12,30 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RemediationConfigurationExecutionControlsSsmControls {
     /**
-     * @return Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
+     * @return Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%!
+     * (MISSING)
      * 
      */
     private @Nullable Integer concurrentExecutionRatePercentage;
     /**
-     * @return Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
+     * @return Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%!
+     * (MISSING)
      * 
      */
     private @Nullable Integer errorPercentage;
 
     private RemediationConfigurationExecutionControlsSsmControls() {}
     /**
-     * @return Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
+     * @return Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%!
+     * (MISSING)
      * 
      */
     public Optional<Integer> concurrentExecutionRatePercentage() {
         return Optional.ofNullable(this.concurrentExecutionRatePercentage);
     }
     /**
-     * @return Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
+     * @return Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%!
+     * (MISSING)
      * 
      */
     public Optional<Integer> errorPercentage() {
@@ -58,19 +62,21 @@ public final class RemediationConfigurationExecutionControlsSsmControls {
 
         @CustomType.Setter
         public Builder concurrentExecutionRatePercentage(@Nullable Integer concurrentExecutionRatePercentage) {
+
             this.concurrentExecutionRatePercentage = concurrentExecutionRatePercentage;
             return this;
         }
         @CustomType.Setter
         public Builder errorPercentage(@Nullable Integer errorPercentage) {
+
             this.errorPercentage = errorPercentage;
             return this;
         }
         public RemediationConfigurationExecutionControlsSsmControls build() {
-            final var o = new RemediationConfigurationExecutionControlsSsmControls();
-            o.concurrentExecutionRatePercentage = concurrentExecutionRatePercentage;
-            o.errorPercentage = errorPercentage;
-            return o;
+            final var _resultValue = new RemediationConfigurationExecutionControlsSsmControls();
+            _resultValue.concurrentExecutionRatePercentage = concurrentExecutionRatePercentage;
+            _resultValue.errorPercentage = errorPercentage;
+            return _resultValue;
         }
     }
 }

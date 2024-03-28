@@ -7,16 +7,18 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.apigateway.getExport({
- *     restApiId: aws_api_gateway_stage.example.rest_api_id,
- *     stageName: aws_api_gateway_stage.example.stage_name,
+ *     restApiId: exampleAwsApiGatewayStage.restApiId,
+ *     stageName: exampleAwsApiGatewayStage.stageName,
  *     exportType: "oas30",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Promise<GetExportResult> {
 
@@ -85,16 +87,18 @@ export interface GetExportResult {
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.apigateway.getExport({
- *     restApiId: aws_api_gateway_stage.example.rest_api_id,
- *     stageName: aws_api_gateway_stage.example.stage_name,
+ *     restApiId: exampleAwsApiGatewayStage.restApiId,
+ *     stageName: exampleAwsApiGatewayStage.stageName,
  *     exportType: "oas30",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportResult> {
     return pulumi.output(args).apply((a: any) => getExport(a, opts))

@@ -15,10 +15,9 @@ namespace Pulumi.Aws.Ebs
         /// Use this data source to get information about an EBS volume for use in other
         /// resources.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -29,6 +28,7 @@ namespace Pulumi.Aws.Ebs
         /// {
         ///     var ebsVolume = Aws.Ebs.GetVolume.Invoke(new()
         ///     {
+        ///         MostRecent = true,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ebs.Inputs.GetVolumeFilterInputArgs
@@ -48,13 +48,11 @@ namespace Pulumi.Aws.Ebs
         ///                 },
         ///             },
         ///         },
-        ///         MostRecent = true,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("aws:ebs/getVolume:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
@@ -63,10 +61,9 @@ namespace Pulumi.Aws.Ebs
         /// Use this data source to get information about an EBS volume for use in other
         /// resources.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -77,6 +74,7 @@ namespace Pulumi.Aws.Ebs
         /// {
         ///     var ebsVolume = Aws.Ebs.GetVolume.Invoke(new()
         ///     {
+        ///         MostRecent = true,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ebs.Inputs.GetVolumeFilterInputArgs
@@ -96,13 +94,11 @@ namespace Pulumi.Aws.Ebs
         ///                 },
         ///             },
         ///         },
-        ///         MostRecent = true,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("aws:ebs/getVolume:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());

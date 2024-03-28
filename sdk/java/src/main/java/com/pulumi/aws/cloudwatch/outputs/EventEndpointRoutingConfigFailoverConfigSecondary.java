@@ -44,13 +44,14 @@ public final class EventEndpointRoutingConfigFailoverConfigSecondary {
 
         @CustomType.Setter
         public Builder route(@Nullable String route) {
+
             this.route = route;
             return this;
         }
         public EventEndpointRoutingConfigFailoverConfigSecondary build() {
-            final var o = new EventEndpointRoutingConfigFailoverConfigSecondary();
-            o.route = route;
-            return o;
+            final var _resultValue = new EventEndpointRoutingConfigFailoverConfigSecondary();
+            _resultValue.route = route;
+            return _resultValue;
         }
     }
 }

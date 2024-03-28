@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,10 +30,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := globalaccelerator.NewEndpointGroup(ctx, "example", &globalaccelerator.EndpointGroupArgs{
-//				ListenerArn: pulumi.Any(aws_globalaccelerator_listener.Example.Id),
+//				ListenerArn: pulumi.Any(exampleAwsGlobalacceleratorListener.Id),
 //				EndpointConfigurations: globalaccelerator.EndpointGroupEndpointConfigurationArray{
 //					&globalaccelerator.EndpointGroupEndpointConfigurationArgs{
-//						EndpointId: pulumi.Any(aws_lb.Example.Arn),
+//						EndpointId: pulumi.Any(exampleAwsLb.Arn),
 //						Weight:     pulumi.Int(100),
 //					},
 //				},
@@ -45,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Global Accelerator endpoint groups using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:globalaccelerator/endpointGroup:EndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
-//
+// $ pulumi import aws:globalaccelerator/endpointGroup:EndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
 // ```
 type EndpointGroup struct {
 	pulumi.CustomResourceState

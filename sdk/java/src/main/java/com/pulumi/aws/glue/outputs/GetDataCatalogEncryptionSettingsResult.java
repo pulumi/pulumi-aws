@@ -5,6 +5,7 @@ package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.aws.glue.outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -64,12 +65,18 @@ public final class GetDataCatalogEncryptionSettingsResult {
 
         @CustomType.Setter
         public Builder catalogId(String catalogId) {
-            this.catalogId = Objects.requireNonNull(catalogId);
+            if (catalogId == null) {
+              throw new MissingRequiredPropertyException("GetDataCatalogEncryptionSettingsResult", "catalogId");
+            }
+            this.catalogId = catalogId;
             return this;
         }
         @CustomType.Setter
         public Builder dataCatalogEncryptionSettings(List<GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting> dataCatalogEncryptionSettings) {
-            this.dataCatalogEncryptionSettings = Objects.requireNonNull(dataCatalogEncryptionSettings);
+            if (dataCatalogEncryptionSettings == null) {
+              throw new MissingRequiredPropertyException("GetDataCatalogEncryptionSettingsResult", "dataCatalogEncryptionSettings");
+            }
+            this.dataCatalogEncryptionSettings = dataCatalogEncryptionSettings;
             return this;
         }
         public Builder dataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting... dataCatalogEncryptionSettings) {
@@ -77,15 +84,18 @@ public final class GetDataCatalogEncryptionSettingsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDataCatalogEncryptionSettingsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetDataCatalogEncryptionSettingsResult build() {
-            final var o = new GetDataCatalogEncryptionSettingsResult();
-            o.catalogId = catalogId;
-            o.dataCatalogEncryptionSettings = dataCatalogEncryptionSettings;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetDataCatalogEncryptionSettingsResult();
+            _resultValue.catalogId = catalogId;
+            _resultValue.dataCatalogEncryptionSettings = dataCatalogEncryptionSettings;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

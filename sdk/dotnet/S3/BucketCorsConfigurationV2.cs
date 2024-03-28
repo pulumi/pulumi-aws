@@ -14,8 +14,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// &gt; **NOTE:** S3 Buckets only support a single CORS configuration. Declaring multiple `aws.s3.BucketCorsConfigurationV2` resources to the same S3 Bucket will cause a perpetual difference in configuration.
     /// 
+    /// &gt; This resource cannot be used with S3 directory buckets.
+    /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,11 +27,14 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketCorsConfigurationV2 = new Aws.S3.BucketCorsConfigurationV2("exampleBucketCorsConfigurationV2", new()
+    ///     var example = new Aws.S3.BucketV2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = "mybucket",
+    ///     });
+    /// 
+    ///     var exampleBucketCorsConfigurationV2 = new Aws.S3.BucketCorsConfigurationV2("example", new()
+    ///     {
+    ///         Bucket = example.Id,
     ///         CorsRules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketCorsConfigurationV2CorsRuleArgs
@@ -68,6 +74,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -78,12 +85,12 @@ namespace Pulumi.Aws.S3
     /// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name
+    /// $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name
     /// ```
-    ///  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+    /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name,123456789012
+    /// $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name,123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2")]

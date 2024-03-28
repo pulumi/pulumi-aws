@@ -4,6 +4,7 @@
 package com.pulumi.aws.alb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -49,19 +50,25 @@ public final class GetListenerDefaultActionForwardTargetGroup {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultActionForwardTargetGroup", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder weight(Integer weight) {
-            this.weight = Objects.requireNonNull(weight);
+            if (weight == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultActionForwardTargetGroup", "weight");
+            }
+            this.weight = weight;
             return this;
         }
         public GetListenerDefaultActionForwardTargetGroup build() {
-            final var o = new GetListenerDefaultActionForwardTargetGroup();
-            o.arn = arn;
-            o.weight = weight;
-            return o;
+            final var _resultValue = new GetListenerDefaultActionForwardTargetGroup();
+            _resultValue.arn = arn;
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

@@ -25,8 +25,8 @@ public final class WebAclRuleOverrideActionNone {
         }
 
         public WebAclRuleOverrideActionNone build() {
-            final var o = new WebAclRuleOverrideActionNone();
-            return o;
+            final var _resultValue = new WebAclRuleOverrideActionNone();
+            return _resultValue;
         }
     }
 }

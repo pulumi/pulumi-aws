@@ -31,7 +31,10 @@ import javax.annotation.Nullable;
  * Manages an AWS Elasticsearch Domain.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -55,19 +58,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
+ *             .domainName(&#34;example&#34;)
+ *             .elasticsearchVersion(&#34;7.10&#34;)
  *             .clusterConfig(DomainClusterConfigArgs.builder()
  *                 .instanceType(&#34;r4.large.elasticsearch&#34;)
  *                 .build())
- *             .elasticsearchVersion(&#34;7.10&#34;)
  *             .tags(Map.of(&#34;Domain&#34;, &#34;TestDomain&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Access Policy
  * 
  * &gt; See also: `aws.elasticsearch.DomainPolicy` resource
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -94,11 +102,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
  *         final var domain = config.get(&#34;domain&#34;).orElse(&#34;tf-test&#34;);
- *         final var currentRegion = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion();
  * 
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
  * 
  *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
+ *             .domainName(domain)
  *             .accessPolicies(&#34;&#34;&#34;
  * {
  *   &#34;Version&#34;: &#34;2012-10-17&#34;,
@@ -114,13 +123,17 @@ import javax.annotation.Nullable;
  *     }
  *   ]
  * }
- * &#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),domain))
+ * &#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),domain))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Log Publishing to CloudWatch Logs
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -128,6 +141,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.cloudwatch.LogResourcePolicy;
@@ -148,9 +162,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
+ *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;, LogGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -167,7 +183,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleLogResourcePolicy = new LogResourcePolicy(&#34;exampleLogResourcePolicy&#34;, LogResourcePolicyArgs.builder()        
  *             .policyName(&#34;example&#34;)
- *             .policyDocument(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policyDocument(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
@@ -180,7 +196,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### VPC based ES
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -202,7 +222,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.elasticsearch.DomainArgs;
  * import com.pulumi.aws.elasticsearch.inputs.DomainClusterConfigArgs;
  * import com.pulumi.aws.elasticsearch.inputs.DomainVpcOptionsArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -219,30 +238,31 @@ import javax.annotation.Nullable;
  *         final var config = ctx.config();
  *         final var vpc = config.get(&#34;vpc&#34;);
  *         final var domain = config.get(&#34;domain&#34;).orElse(&#34;tf-test&#34;);
- *         final var selectedVpc = Ec2Functions.getVpc(GetVpcArgs.builder()
+ *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
  *             .tags(Map.of(&#34;Name&#34;, vpc))
  *             .build());
  * 
- *         final var selectedSubnets = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
+ *         final var selectedGetSubnets = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
  *             .filters(GetSubnetsFilterArgs.builder()
  *                 .name(&#34;vpc-id&#34;)
- *                 .values(selectedVpc.applyValue(getVpcResult -&gt; getVpcResult.id()))
+ *                 .values(selected.applyValue(getVpcResult -&gt; getVpcResult.id()))
  *                 .build())
  *             .tags(Map.of(&#34;Tier&#34;, &#34;private&#34;))
  *             .build());
  * 
- *         final var currentRegion = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion();
  * 
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
  * 
- *         var esSecurityGroup = new SecurityGroup(&#34;esSecurityGroup&#34;, SecurityGroupArgs.builder()        
+ *         var es = new SecurityGroup(&#34;es&#34;, SecurityGroupArgs.builder()        
+ *             .name(String.format(&#34;%s-elasticsearch-%s&#34;, vpc,domain))
  *             .description(&#34;Managed by Pulumi&#34;)
- *             .vpcId(selectedVpc.applyValue(getVpcResult -&gt; getVpcResult.id()))
+ *             .vpcId(selected.applyValue(getVpcResult -&gt; getVpcResult.id()))
  *             .ingress(SecurityGroupIngressArgs.builder()
  *                 .fromPort(443)
  *                 .toPort(443)
  *                 .protocol(&#34;tcp&#34;)
- *                 .cidrBlocks(selectedVpc.applyValue(getVpcResult -&gt; getVpcResult.cidrBlock()))
+ *                 .cidrBlocks(selected.applyValue(getVpcResult -&gt; getVpcResult.cidrBlock()))
  *                 .build())
  *             .build());
  * 
@@ -251,6 +271,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var esDomain = new Domain(&#34;esDomain&#34;, DomainArgs.builder()        
+ *             .domainName(domain)
  *             .elasticsearchVersion(&#34;6.3&#34;)
  *             .clusterConfig(DomainClusterConfigArgs.builder()
  *                 .instanceType(&#34;m4.large.elasticsearch&#34;)
@@ -258,9 +279,9 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .vpcOptions(DomainVpcOptionsArgs.builder()
  *                 .subnetIds(                
- *                     selectedSubnets.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[0]),
- *                     selectedSubnets.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[1]))
- *                 .securityGroupIds(esSecurityGroup.id())
+ *                     selectedGetSubnets.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[0]),
+ *                     selectedGetSubnets.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[1]))
+ *                 .securityGroupIds(es.id())
  *                 .build())
  *             .advancedOptions(Map.of(&#34;rest.action.multi.allow_explicit_index&#34;, &#34;true&#34;))
  *             .accessPolicies(&#34;&#34;&#34;
@@ -275,22 +296,21 @@ import javax.annotation.Nullable;
  * 		}
  * 	]
  * }
- * &#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),domain))
+ * &#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),domain))
  *             .tags(Map.of(&#34;Domain&#34;, &#34;TestDomain&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(esServiceLinkedRole)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:elasticsearch/domain:Domain example domain_name
+ * $ pulumi import aws:elasticsearch/domain:Domain example domain_name
  * ```
  * 
  */
@@ -635,9 +655,6 @@ public class Domain extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

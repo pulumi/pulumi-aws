@@ -5,6 +5,8 @@ package com.pulumi.aws.dms.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -76,6 +78,21 @@ public final class EndpointElasticsearchSettingsArgs extends com.pulumi.resource
         return this.serviceAccessRoleArn;
     }
 
+    /**
+     * Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
+     * 
+     */
+    @Import(name="useNewMappingType")
+    private @Nullable Output<Boolean> useNewMappingType;
+
+    /**
+     * @return Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> useNewMappingType() {
+        return Optional.ofNullable(this.useNewMappingType);
+    }
+
     private EndpointElasticsearchSettingsArgs() {}
 
     private EndpointElasticsearchSettingsArgs(EndpointElasticsearchSettingsArgs $) {
@@ -83,6 +100,7 @@ public final class EndpointElasticsearchSettingsArgs extends com.pulumi.resource
         this.errorRetryDuration = $.errorRetryDuration;
         this.fullLoadErrorPercentage = $.fullLoadErrorPercentage;
         this.serviceAccessRoleArn = $.serviceAccessRoleArn;
+        this.useNewMappingType = $.useNewMappingType;
     }
 
     public static Builder builder() {
@@ -187,9 +205,34 @@ public final class EndpointElasticsearchSettingsArgs extends com.pulumi.resource
             return serviceAccessRoleArn(Output.of(serviceAccessRoleArn));
         }
 
+        /**
+         * @param useNewMappingType Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useNewMappingType(@Nullable Output<Boolean> useNewMappingType) {
+            $.useNewMappingType = useNewMappingType;
+            return this;
+        }
+
+        /**
+         * @param useNewMappingType Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useNewMappingType(Boolean useNewMappingType) {
+            return useNewMappingType(Output.of(useNewMappingType));
+        }
+
         public EndpointElasticsearchSettingsArgs build() {
-            $.endpointUri = Objects.requireNonNull($.endpointUri, "expected parameter 'endpointUri' to be non-null");
-            $.serviceAccessRoleArn = Objects.requireNonNull($.serviceAccessRoleArn, "expected parameter 'serviceAccessRoleArn' to be non-null");
+            if ($.endpointUri == null) {
+                throw new MissingRequiredPropertyException("EndpointElasticsearchSettingsArgs", "endpointUri");
+            }
+            if ($.serviceAccessRoleArn == null) {
+                throw new MissingRequiredPropertyException("EndpointElasticsearchSettingsArgs", "serviceAccessRoleArn");
+            }
             return $;
         }
     }

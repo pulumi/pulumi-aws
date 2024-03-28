@@ -9,19 +9,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.codeartifact.Domain("example", {domain: "example"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CodeArtifact Domain using the CodeArtifact Domain arn. For example:
  *
  * ```sh
- *  $ pulumi import aws:codeartifact/domain:Domain example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
+ * $ pulumi import aws:codeartifact/domain:Domain example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
  * ```
  */
 export class Domain extends pulumi.CustomResource {
@@ -81,6 +83,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly repositoryCount!: pulumi.Output<number>;
     /**
+     * The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
+     */
+    public /*out*/ readonly s3BucketArn!: pulumi.Output<string>;
+    /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -111,6 +117,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["encryptionKey"] = state ? state.encryptionKey : undefined;
             resourceInputs["owner"] = state ? state.owner : undefined;
             resourceInputs["repositoryCount"] = state ? state.repositoryCount : undefined;
+            resourceInputs["s3BucketArn"] = state ? state.s3BucketArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -126,11 +133,10 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
             resourceInputs["repositoryCount"] = undefined /*out*/;
+            resourceInputs["s3BucketArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Domain.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -167,6 +173,10 @@ export interface DomainState {
      * The number of repositories in the domain.
      */
     repositoryCount?: pulumi.Input<number>;
+    /**
+     * The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
+     */
+    s3BucketArn?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

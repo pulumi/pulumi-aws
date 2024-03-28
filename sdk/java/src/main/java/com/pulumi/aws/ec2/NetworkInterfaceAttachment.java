@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Attach an Elastic network interface (ENI) resource with EC2 instance.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -40,21 +42,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new NetworkInterfaceAttachment(&#34;test&#34;, NetworkInterfaceAttachmentArgs.builder()        
- *             .instanceId(aws_instance.test().id())
- *             .networkInterfaceId(aws_network_interface.test().id())
+ *             .instanceId(testAwsInstance.id())
+ *             .networkInterfaceId(testAwsNetworkInterface.id())
  *             .deviceIndex(0)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Elastic network interface (ENI) Attachments using its Attachment ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
+ * $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
  * ```
  * 
  */

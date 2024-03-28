@@ -9,12 +9,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.directoryservice.RadiusSettings("example", {
- *     directoryId: aws_directory_service_directory.example.id,
+ *     directoryId: exampleAwsDirectoryServiceDirectory.id,
  *     authenticationProtocol: "PAP",
  *     displayLabel: "example",
  *     radiusPort: 1812,
@@ -24,13 +25,14 @@ import * as utilities from "../utilities";
  *     sharedSecret: "12345678",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import RADIUS settings using the directory ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
+ * $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
  * ```
  */
 export class RadiusSettings extends pulumi.CustomResource {

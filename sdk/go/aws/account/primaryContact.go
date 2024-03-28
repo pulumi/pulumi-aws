@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import the Primary Contact using the `account_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
-//
+// $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
 // ```
 type PrimaryContact struct {
 	pulumi.CustomResourceState

@@ -219,27 +219,30 @@ class UserLoginProfile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_user = aws.iam.User("exampleUser",
+        example = aws.iam.User("example",
+            name="example",
             path="/",
             force_destroy=True)
-        example_user_login_profile = aws.iam.UserLoginProfile("exampleUserLoginProfile",
-            user=example_user.name,
+        example_user_login_profile = aws.iam.UserLoginProfile("example",
+            user=example.name,
             pgp_key="keybase:some_person_that_exists")
         pulumi.export("password", example_user_login_profile.encrypted_password)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM User Login Profiles without password information via the IAM User name. For example:
 
         ```sh
-         $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
+        $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
         ```
-         Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
+        Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -261,27 +264,30 @@ class UserLoginProfile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_user = aws.iam.User("exampleUser",
+        example = aws.iam.User("example",
+            name="example",
             path="/",
             force_destroy=True)
-        example_user_login_profile = aws.iam.UserLoginProfile("exampleUserLoginProfile",
-            user=example_user.name,
+        example_user_login_profile = aws.iam.UserLoginProfile("example",
+            user=example.name,
             pgp_key="keybase:some_person_that_exists")
         pulumi.export("password", example_user_login_profile.encrypted_password)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM User Login Profiles without password information via the IAM User name. For example:
 
         ```sh
-         $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
+        $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
         ```
-         Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
+        Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
 
         :param str resource_name: The name of the resource.
         :param UserLoginProfileArgs args: The arguments to use to populate this resource's properties.

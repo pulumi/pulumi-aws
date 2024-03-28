@@ -17,8 +17,10 @@ import (
 // > **Note:** _Starting_ the Configuration Recorder requires a delivery channel (while delivery channel creation requires Configuration Recorder). This is why `cfg.RecorderStatus` is a separate resource.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,14 +55,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//			r, err := iam.NewRole(ctx, "r", &iam.RoleArgs{
+//				Name:             pulumi.String("awsconfig-example"),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
-//				RoleArn: role.Arn,
+//				Name:    pulumi.String("example"),
+//				RoleArn: r.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -70,8 +74,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Exclude Resources Types Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -85,7 +92,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.R.Arn),
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(r.Arn),
 //				RecordingGroup: &cfg.RecorderRecordingGroupArgs{
 //					AllSupported: pulumi.Bool(false),
 //					ExclusionByResourceTypes: cfg.RecorderRecordingGroupExclusionByResourceTypeArray{
@@ -110,15 +118,61 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Periodic Recording
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(r.Arn),
+//				RecordingGroup: &cfg.RecorderRecordingGroupArgs{
+//					AllSupported:               pulumi.Bool(false),
+//					IncludeGlobalResourceTypes: pulumi.Bool(false),
+//					ResourceTypes: pulumi.StringArray{
+//						pulumi.String("AWS::EC2::Instance"),
+//						pulumi.String("AWS::EC2::NetworkInterface"),
+//					},
+//				},
+//				RecordingMode: &cfg.RecorderRecordingModeArgs{
+//					RecordingFrequency: pulumi.String("CONTINUOUS"),
+//					RecordingModeOverride: &cfg.RecorderRecordingModeRecordingModeOverrideArgs{
+//						Description: pulumi.String("Only record EC2 network interfaces daily"),
+//						ResourceTypes: pulumi.StringArray{
+//							pulumi.String("AWS::EC2::NetworkInterface"),
+//						},
+//						RecordingFrequency: pulumi.String("DAILY"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Configuration Recorder using the name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cfg/recorder:Recorder foo example
-//
+// $ pulumi import aws:cfg/recorder:Recorder foo example
 // ```
 type Recorder struct {
 	pulumi.CustomResourceState
@@ -127,6 +181,8 @@ type Recorder struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Recording group - see below.
 	RecordingGroup RecorderRecordingGroupOutput `pulumi:"recordingGroup"`
+	// Recording mode - see below.
+	RecordingMode RecorderRecordingModeOutput `pulumi:"recordingMode"`
 	// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 }
@@ -168,6 +224,8 @@ type recorderState struct {
 	Name *string `pulumi:"name"`
 	// Recording group - see below.
 	RecordingGroup *RecorderRecordingGroup `pulumi:"recordingGroup"`
+	// Recording mode - see below.
+	RecordingMode *RecorderRecordingMode `pulumi:"recordingMode"`
 	// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
 	RoleArn *string `pulumi:"roleArn"`
 }
@@ -177,6 +235,8 @@ type RecorderState struct {
 	Name pulumi.StringPtrInput
 	// Recording group - see below.
 	RecordingGroup RecorderRecordingGroupPtrInput
+	// Recording mode - see below.
+	RecordingMode RecorderRecordingModePtrInput
 	// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
 	RoleArn pulumi.StringPtrInput
 }
@@ -190,6 +250,8 @@ type recorderArgs struct {
 	Name *string `pulumi:"name"`
 	// Recording group - see below.
 	RecordingGroup *RecorderRecordingGroup `pulumi:"recordingGroup"`
+	// Recording mode - see below.
+	RecordingMode *RecorderRecordingMode `pulumi:"recordingMode"`
 	// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
 	RoleArn string `pulumi:"roleArn"`
 }
@@ -200,6 +262,8 @@ type RecorderArgs struct {
 	Name pulumi.StringPtrInput
 	// Recording group - see below.
 	RecordingGroup RecorderRecordingGroupPtrInput
+	// Recording mode - see below.
+	RecordingMode RecorderRecordingModePtrInput
 	// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
 	RoleArn pulumi.StringInput
 }
@@ -299,6 +363,11 @@ func (o RecorderOutput) Name() pulumi.StringOutput {
 // Recording group - see below.
 func (o RecorderOutput) RecordingGroup() RecorderRecordingGroupOutput {
 	return o.ApplyT(func(v *Recorder) RecorderRecordingGroupOutput { return v.RecordingGroup }).(RecorderRecordingGroupOutput)
+}
+
+// Recording mode - see below.
+func (o RecorderOutput) RecordingMode() RecorderRecordingModeOutput {
+	return o.ApplyT(func(v *Recorder) RecorderRecordingModeOutput { return v.RecordingMode }).(RecorderRecordingModeOutput)
 }
 
 // Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.

@@ -9,46 +9,57 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const lbUser = new aws.iam.User("lbUser", {path: "/system/"});
- * const lbAccessKey = new aws.iam.AccessKey("lbAccessKey", {
+ * const lbUser = new aws.iam.User("lb", {
+ *     name: "loadbalancer",
+ *     path: "/system/",
+ * });
+ * const lb = new aws.iam.AccessKey("lb", {
  *     user: lbUser.name,
  *     pgpKey: "keybase:some_person_that_exists",
  * });
- * const lbRoPolicyDocument = aws.iam.getPolicyDocument({
+ * const lbRo = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: ["ec2:Describe*"],
  *         resources: ["*"],
  *     }],
  * });
- * const lbRoUserPolicy = new aws.iam.UserPolicy("lbRoUserPolicy", {
+ * const lbRoUserPolicy = new aws.iam.UserPolicy("lb_ro", {
+ *     name: "test",
  *     user: lbUser.name,
- *     policy: lbRoPolicyDocument.then(lbRoPolicyDocument => lbRoPolicyDocument.json),
+ *     policy: lbRo.then(lbRo => lbRo.json),
  * });
- * export const secret = lbAccessKey.encryptedSecret;
+ * export const secret = lb.encryptedSecret;
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testUser = new aws.iam.User("testUser", {path: "/test/"});
- * const testAccessKey = new aws.iam.AccessKey("testAccessKey", {user: testUser.name});
+ * const test = new aws.iam.User("test", {
+ *     name: "test",
+ *     path: "/test/",
+ * });
+ * const testAccessKey = new aws.iam.AccessKey("test", {user: test.name});
  * export const awsIamSmtpPasswordV4 = testAccessKey.sesSmtpPasswordV4;
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IAM Access Keys using the identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:iam/accessKey:AccessKey example AKIA1234567890
+ * $ pulumi import aws:iam/accessKey:AccessKey example AKIA1234567890
  * ```
- *  Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, `ses_smtp_password_v4`, and `encrypted_ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
+ * Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, `ses_smtp_password_v4`, and `encrypted_ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
  */
 export class AccessKey extends pulumi.CustomResource {
     /**

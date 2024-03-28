@@ -5,6 +5,7 @@ package com.pulumi.aws.appstream;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class FleetStackAssociationArgs extends com.pulumi.resources.Resour
         }
 
         public FleetStackAssociationArgs build() {
-            $.fleetName = Objects.requireNonNull($.fleetName, "expected parameter 'fleetName' to be non-null");
-            $.stackName = Objects.requireNonNull($.stackName, "expected parameter 'stackName' to be non-null");
+            if ($.fleetName == null) {
+                throw new MissingRequiredPropertyException("FleetStackAssociationArgs", "fleetName");
+            }
+            if ($.stackName == null) {
+                throw new MissingRequiredPropertyException("FleetStackAssociationArgs", "stackName");
+            }
             return $;
         }
     }

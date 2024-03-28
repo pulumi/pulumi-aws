@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class UserDefinedFunctionResourceUri {
 
         @CustomType.Setter
         public Builder resourceType(String resourceType) {
-            this.resourceType = Objects.requireNonNull(resourceType);
+            if (resourceType == null) {
+              throw new MissingRequiredPropertyException("UserDefinedFunctionResourceUri", "resourceType");
+            }
+            this.resourceType = resourceType;
             return this;
         }
         @CustomType.Setter
         public Builder uri(String uri) {
-            this.uri = Objects.requireNonNull(uri);
+            if (uri == null) {
+              throw new MissingRequiredPropertyException("UserDefinedFunctionResourceUri", "uri");
+            }
+            this.uri = uri;
             return this;
         }
         public UserDefinedFunctionResourceUri build() {
-            final var o = new UserDefinedFunctionResourceUri();
-            o.resourceType = resourceType;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new UserDefinedFunctionResourceUri();
+            _resultValue.resourceType = resourceType;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

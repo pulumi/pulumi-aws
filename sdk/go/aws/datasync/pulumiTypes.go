@@ -3367,6 +3367,8 @@ type TaskTaskReportConfigReportOverrides struct {
 	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
 	TransferredOverride *string `pulumi:"transferredOverride"`
 	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+	//
+	// > **NOTE:** If any `reportOverrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
 	VerifiedOverride *string `pulumi:"verifiedOverride"`
 }
 
@@ -3389,6 +3391,8 @@ type TaskTaskReportConfigReportOverridesArgs struct {
 	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
 	TransferredOverride pulumi.StringPtrInput `pulumi:"transferredOverride"`
 	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+	//
+	// > **NOTE:** If any `reportOverrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
 	VerifiedOverride pulumi.StringPtrInput `pulumi:"verifiedOverride"`
 }
 
@@ -3485,6 +3489,8 @@ func (o TaskTaskReportConfigReportOverridesOutput) TransferredOverride() pulumi.
 }
 
 // Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+//
+// > **NOTE:** If any `reportOverrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
 func (o TaskTaskReportConfigReportOverridesOutput) VerifiedOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskTaskReportConfigReportOverrides) *string { return v.VerifiedOverride }).(pulumi.StringPtrOutput)
 }
@@ -3544,6 +3550,8 @@ func (o TaskTaskReportConfigReportOverridesPtrOutput) TransferredOverride() pulu
 }
 
 // Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+//
+// > **NOTE:** If any `reportOverrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
 func (o TaskTaskReportConfigReportOverridesPtrOutput) VerifiedOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskTaskReportConfigReportOverrides) *string {
 		if v == nil {

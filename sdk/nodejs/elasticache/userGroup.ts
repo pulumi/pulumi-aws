@@ -9,30 +9,32 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testUser = new aws.elasticache.User("testUser", {
+ * const test = new aws.elasticache.User("test", {
  *     userId: "testUserId",
  *     userName: "default",
  *     accessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
  *     engine: "REDIS",
  *     passwords: ["password123456789"],
  * });
- * const testUserGroup = new aws.elasticache.UserGroup("testUserGroup", {
+ * const testUserGroup = new aws.elasticache.UserGroup("test", {
  *     engine: "REDIS",
  *     userGroupId: "userGroupId",
- *     userIds: [testUser.userId],
+ *     userIds: [test.userId],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ElastiCache user groups using the `user_group_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
+ * $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
  * ```
  */
 export class UserGroup extends pulumi.CustomResource {
@@ -127,8 +129,6 @@ export class UserGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(UserGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

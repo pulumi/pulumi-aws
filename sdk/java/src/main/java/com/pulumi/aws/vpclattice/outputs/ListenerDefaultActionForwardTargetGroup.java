@@ -61,19 +61,21 @@ public final class ListenerDefaultActionForwardTargetGroup {
 
         @CustomType.Setter
         public Builder targetGroupIdentifier(@Nullable String targetGroupIdentifier) {
+
             this.targetGroupIdentifier = targetGroupIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder weight(@Nullable Integer weight) {
+
             this.weight = weight;
             return this;
         }
         public ListenerDefaultActionForwardTargetGroup build() {
-            final var o = new ListenerDefaultActionForwardTargetGroup();
-            o.targetGroupIdentifier = targetGroupIdentifier;
-            o.weight = weight;
-            return o;
+            final var _resultValue = new ListenerDefaultActionForwardTargetGroup();
+            _resultValue.targetGroupIdentifier = targetGroupIdentifier;
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

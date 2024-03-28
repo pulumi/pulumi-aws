@@ -5,6 +5,7 @@ package com.pulumi.aws.servicecatalog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -158,7 +159,9 @@ public final class GetPortfolioConstraintsArgs extends com.pulumi.resources.Invo
         }
 
         public GetPortfolioConstraintsArgs build() {
-            $.portfolioId = Objects.requireNonNull($.portfolioId, "expected parameter 'portfolioId' to be non-null");
+            if ($.portfolioId == null) {
+                throw new MissingRequiredPropertyException("GetPortfolioConstraintsArgs", "portfolioId");
+            }
             return $;
         }
     }

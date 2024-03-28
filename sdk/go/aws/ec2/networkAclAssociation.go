@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,8 +34,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewNetworkAclAssociation(ctx, "main", &ec2.NetworkAclAssociationArgs{
-//				NetworkAclId: pulumi.Any(aws_network_acl.Main.Id),
-//				SubnetId:     pulumi.Any(aws_subnet.Main.Id),
+//				NetworkAclId: pulumi.Any(mainAwsNetworkAcl.Id),
+//				SubnetId:     pulumi.Any(mainAwsSubnet.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -43,6 +44,15 @@ import (
 //		})
 //	}
 //
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ## Import
+//
+// Using `pulumi import`, import Network ACL associations using the `id`. For example:
+//
+// ```sh
+// $ pulumi import aws:ec2/networkAclAssociation:NetworkAclAssociation main aclassoc-02baf37f20966b3e6
 // ```
 type NetworkAclAssociation struct {
 	pulumi.CustomResourceState

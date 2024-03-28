@@ -9,30 +9,36 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleTable = new aws.dynamodb.Table("exampleTable", {
+ * const example = new aws.dynamodb.Table("example", {
+ *     name: "orders",
  *     hashKey: "id",
  *     attributes: [{
  *         name: "id",
  *         type: "S",
  *     }],
  * });
- * const exampleStream = new aws.kinesis.Stream("exampleStream", {shardCount: 1});
- * const exampleKinesisStreamingDestination = new aws.dynamodb.KinesisStreamingDestination("exampleKinesisStreamingDestination", {
+ * const exampleStream = new aws.kinesis.Stream("example", {
+ *     name: "order_item_changes",
+ *     shardCount: 1,
+ * });
+ * const exampleKinesisStreamingDestination = new aws.dynamodb.KinesisStreamingDestination("example", {
  *     streamArn: exampleStream.arn,
- *     tableName: exampleTable.name,
+ *     tableName: example.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import DynamoDB Kinesis Streaming Destinations using the `table_name` and `stream_arn` separated by `,`. For example:
  *
  * ```sh
- *  $ pulumi import aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination example example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName
+ * $ pulumi import aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination example example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName
  * ```
  */
 export class KinesisStreamingDestination extends pulumi.CustomResource {

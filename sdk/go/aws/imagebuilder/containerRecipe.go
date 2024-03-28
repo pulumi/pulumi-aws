@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,16 +30,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := imagebuilder.NewContainerRecipe(ctx, "example", &imagebuilder.ContainerRecipeArgs{
+//				Name:          pulumi.String("example"),
 //				Version:       pulumi.String("1.0.0"),
 //				ContainerType: pulumi.String("DOCKER"),
 //				ParentImage:   pulumi.String("arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x"),
 //				TargetRepository: &imagebuilder.ContainerRecipeTargetRepositoryArgs{
-//					RepositoryName: pulumi.Any(aws_ecr_repository.Example.Name),
+//					RepositoryName: pulumi.Any(exampleAwsEcrRepository.Name),
 //					Service:        pulumi.String("ECR"),
 //				},
 //				Components: imagebuilder.ContainerRecipeComponentArray{
 //					&imagebuilder.ContainerRecipeComponentArgs{
-//						ComponentArn: pulumi.Any(aws_imagebuilder_component.Example.Arn),
+//						ComponentArn: pulumi.Any(exampleAwsImagebuilderComponent.Arn),
 //						Parameters: imagebuilder.ContainerRecipeComponentParameterArray{
 //							&imagebuilder.ContainerRecipeComponentParameterArgs{
 //								Name:  pulumi.String("Parameter1"),
@@ -61,15 +63,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_imagebuilder_container_recipe` resources using the Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:imagebuilder/containerRecipe:ContainerRecipe example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
-//
+// $ pulumi import aws:imagebuilder/containerRecipe:ContainerRecipe example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
 // ```
 type ContainerRecipe struct {
 	pulumi.CustomResourceState
@@ -142,10 +143,6 @@ func NewContainerRecipe(ctx *pulumi.Context,
 	if args.Version == nil {
 		return nil, errors.New("invalid value for required argument 'Version'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContainerRecipe
 	err := ctx.RegisterResource("aws:imagebuilder/containerRecipe:ContainerRecipe", name, args, &resource, opts...)

@@ -20,9 +20,13 @@ import (
 //
 // > **NOTE:** If you are enabling versioning on the bucket for the first time, AWS recommends that you wait for 15 minutes after enabling versioning before issuing write operations (PUT or DELETE) on objects in the bucket.
 //
+// > This resource cannot be used with S3 directory buckets.
+//
 // ## Example Usage
+//
 // ### With Versioning Enabled
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -35,19 +39,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example-bucket"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//				Bucket: example.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketVersioningV2(ctx, "versioningExample", &s3.BucketVersioningV2Args{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewBucketVersioningV2(ctx, "versioning_example", &s3.BucketVersioningV2Args{
+//				Bucket: example.ID(),
 //				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
@@ -60,8 +66,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Versioning Disabled
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,19 +83,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example-bucket"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//				Bucket: example.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketVersioningV2(ctx, "versioningExample", &s3.BucketVersioningV2Args{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewBucketVersioningV2(ctx, "versioning_example", &s3.BucketVersioningV2Args{
+//				Bucket: example.ID(),
 //				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
 //					Status: pulumi.String("Disabled"),
 //				},
@@ -99,6 +110,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Object Dependency On Versioning
 //
 // When you create an object whose `versionId` you need and an `s3.BucketVersioningV2` resource in the same configuration, you are more likely to have success by ensuring the `s3Object` depends either implicitly (see below) or explicitly (i.e., using `dependsOn = [aws_s3_bucket_versioning.example]`) on the `s3.BucketVersioningV2` resource.
@@ -107,6 +120,7 @@ import (
 //
 // This example shows the `aws_s3_object.example` depending implicitly on the versioning resource through the reference to `aws_s3_bucket_versioning.example.bucket` to define `bucket`:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -119,12 +133,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("yotto"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "exampleBucketVersioningV2", &s3.BucketVersioningV2Args{
-//				Bucket: exampleBucketV2.ID(),
+//			exampleBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "example", &s3.BucketVersioningV2Args{
+//				Bucket: example.ID(),
 //				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
@@ -132,7 +148,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
+//			_, err = s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
 //				Bucket: exampleBucketVersioningV2.ID(),
 //				Key:    pulumi.String("droeloe"),
 //				Source: pulumi.NewFileAsset("example.txt"),
@@ -145,6 +161,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -155,17 +172,12 @@ import (
 // If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name
-//
+// $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name
 // ```
-//
-//	If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name,123456789012
-//
+// $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name,123456789012
 // ```
 type BucketVersioningV2 struct {
 	pulumi.CustomResourceState

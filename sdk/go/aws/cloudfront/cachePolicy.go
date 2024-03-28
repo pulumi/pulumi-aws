@@ -16,6 +16,7 @@ import (
 //
 // Use the `cloudfront.CachePolicy` resource to create a cache policy for CloudFront.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewCachePolicy(ctx, "example", &cloudfront.CachePolicyArgs{
+//				Name:       pulumi.String("example-policy"),
 //				Comment:    pulumi.String("test comment"),
 //				DefaultTtl: pulumi.Int(50),
 //				MaxTtl:     pulumi.Int(100),
@@ -68,15 +70,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudFront cache policies using the `id` of the cache policy. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudfront/cachePolicy:CachePolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f6
-//
+// $ pulumi import aws:cloudfront/cachePolicy:CachePolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f6
 // ```
 type CachePolicy struct {
 	pulumi.CustomResourceState

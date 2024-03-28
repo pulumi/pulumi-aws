@@ -29,6 +29,7 @@ import {EngineType} from "./index";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -46,22 +47,23 @@ import {EngineType} from "./index";
  * });
  * const clusterInstances: aws.rds.ClusterInstance[] = [];
  * for (const range = {value: 0}; range.value < 2; range.value++) {
- *     clusterInstances.push(new aws.rds.ClusterInstance(`clusterInstances-${range.value}`, {
+ *     clusterInstances.push(new aws.rds.ClusterInstance(`cluster_instances-${range.value}`, {
  *         identifier: `aurora-cluster-demo-${range.value}`,
  *         clusterIdentifier: _default.id,
- *         instanceClass: "db.r4.large",
+ *         instanceClass: aws.rds.InstanceType.R4_Large,
  *         engine: _default.engine,
  *         engineVersion: _default.engineVersion,
  *     }));
  * }
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import RDS Cluster Instances using the `identifier`. For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
+ * $ pulumi import aws:rds/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
  * ```
  */
 export class ClusterInstance extends pulumi.CustomResource {
@@ -141,7 +143,8 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
-     * Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+     * Name of the database engine to be used for the RDS cluster instance.
+     * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      */
     public readonly engine!: pulumi.Output<EngineType>;
     /**
@@ -211,7 +214,7 @@ export class ClusterInstance extends pulumi.CustomResource {
     /**
      * Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
      */
-    public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
+    public readonly publiclyAccessible!: pulumi.Output<boolean>;
     /**
      * Specifies whether the DB cluster is encrypted.
      */
@@ -325,8 +328,6 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["writer"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ClusterInstance.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -384,7 +385,8 @@ export interface ClusterInstanceState {
      */
     endpoint?: pulumi.Input<string>;
     /**
-     * Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+     * Name of the database engine to be used for the RDS cluster instance.
+     * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      */
     engine?: pulumi.Input<EngineType>;
     /**
@@ -516,7 +518,8 @@ export interface ClusterInstanceArgs {
      */
     dbSubnetGroupName?: pulumi.Input<string>;
     /**
-     * Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+     * Name of the database engine to be used for the RDS cluster instance.
+     * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      */
     engine: pulumi.Input<EngineType>;
     /**

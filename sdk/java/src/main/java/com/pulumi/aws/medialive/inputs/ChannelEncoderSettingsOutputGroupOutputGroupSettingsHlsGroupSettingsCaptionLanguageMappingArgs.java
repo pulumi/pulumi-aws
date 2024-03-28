@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -129,9 +130,15 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         }
 
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs build() {
-            $.captionChannel = Objects.requireNonNull($.captionChannel, "expected parameter 'captionChannel' to be non-null");
-            $.languageCode = Objects.requireNonNull($.languageCode, "expected parameter 'languageCode' to be non-null");
-            $.languageDescription = Objects.requireNonNull($.languageDescription, "expected parameter 'languageDescription' to be non-null");
+            if ($.captionChannel == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs", "captionChannel");
+            }
+            if ($.languageCode == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs", "languageCode");
+            }
+            if ($.languageDescription == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs", "languageDescription");
+            }
             return $;
         }
     }

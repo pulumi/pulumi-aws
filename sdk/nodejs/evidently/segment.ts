@@ -8,26 +8,33 @@ import * as utilities from "../utilities";
  * Provides a CloudWatch Evidently Segment resource.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Segment("example", {
+ *     name: "example",
  *     pattern: "{\"Price\":[{\"numeric\":[\">\",10,\"<=\",20]}]}",
  *     tags: {
  *         Key1: "example Segment",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With JSON object in pattern
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Segment("example", {
+ *     name: "example",
  *     pattern: `  {
  *     "Price": [
  *       {
@@ -35,31 +42,35 @@ import * as utilities from "../utilities";
  *       }
  *     ]
  *   }
- *   
  * `,
  *     tags: {
  *         Key1: "example Segment",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Description
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Segment("example", {
- *     description: "example",
+ *     name: "example",
  *     pattern: "{\"Price\":[{\"numeric\":[\">\",10,\"<=\",20]}]}",
+ *     description: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CloudWatch Evidently Segment using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
+ * $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
  * ```
  */
 export class Segment extends pulumi.CustomResource {
@@ -173,8 +184,6 @@ export class Segment extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Segment.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -6,6 +6,7 @@ package com.pulumi.aws.efs.outputs;
 import com.pulumi.aws.efs.outputs.GetAccessPointPosixUser;
 import com.pulumi.aws.efs.outputs.GetAccessPointRootDirectory;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -143,37 +144,58 @@ public final class GetAccessPointResult {
 
         @CustomType.Setter
         public Builder accessPointId(String accessPointId) {
-            this.accessPointId = Objects.requireNonNull(accessPointId);
+            if (accessPointId == null) {
+              throw new MissingRequiredPropertyException("GetAccessPointResult", "accessPointId");
+            }
+            this.accessPointId = accessPointId;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetAccessPointResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder fileSystemArn(String fileSystemArn) {
-            this.fileSystemArn = Objects.requireNonNull(fileSystemArn);
+            if (fileSystemArn == null) {
+              throw new MissingRequiredPropertyException("GetAccessPointResult", "fileSystemArn");
+            }
+            this.fileSystemArn = fileSystemArn;
             return this;
         }
         @CustomType.Setter
         public Builder fileSystemId(String fileSystemId) {
-            this.fileSystemId = Objects.requireNonNull(fileSystemId);
+            if (fileSystemId == null) {
+              throw new MissingRequiredPropertyException("GetAccessPointResult", "fileSystemId");
+            }
+            this.fileSystemId = fileSystemId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAccessPointResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+            if (ownerId == null) {
+              throw new MissingRequiredPropertyException("GetAccessPointResult", "ownerId");
+            }
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
         public Builder posixUsers(List<GetAccessPointPosixUser> posixUsers) {
-            this.posixUsers = Objects.requireNonNull(posixUsers);
+            if (posixUsers == null) {
+              throw new MissingRequiredPropertyException("GetAccessPointResult", "posixUsers");
+            }
+            this.posixUsers = posixUsers;
             return this;
         }
         public Builder posixUsers(GetAccessPointPosixUser... posixUsers) {
@@ -181,7 +203,10 @@ public final class GetAccessPointResult {
         }
         @CustomType.Setter
         public Builder rootDirectories(List<GetAccessPointRootDirectory> rootDirectories) {
-            this.rootDirectories = Objects.requireNonNull(rootDirectories);
+            if (rootDirectories == null) {
+              throw new MissingRequiredPropertyException("GetAccessPointResult", "rootDirectories");
+            }
+            this.rootDirectories = rootDirectories;
             return this;
         }
         public Builder rootDirectories(GetAccessPointRootDirectory... rootDirectories) {
@@ -189,21 +214,22 @@ public final class GetAccessPointResult {
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         public GetAccessPointResult build() {
-            final var o = new GetAccessPointResult();
-            o.accessPointId = accessPointId;
-            o.arn = arn;
-            o.fileSystemArn = fileSystemArn;
-            o.fileSystemId = fileSystemId;
-            o.id = id;
-            o.ownerId = ownerId;
-            o.posixUsers = posixUsers;
-            o.rootDirectories = rootDirectories;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetAccessPointResult();
+            _resultValue.accessPointId = accessPointId;
+            _resultValue.arn = arn;
+            _resultValue.fileSystemArn = fileSystemArn;
+            _resultValue.fileSystemId = fileSystemId;
+            _resultValue.id = id;
+            _resultValue.ownerId = ownerId;
+            _resultValue.posixUsers = posixUsers;
+            _resultValue.rootDirectories = rootDirectories;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

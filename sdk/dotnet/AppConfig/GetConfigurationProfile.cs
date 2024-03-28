@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppConfig
         /// <summary>
         /// Provides access to an AppConfig Configuration Profile.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,8 +35,7 @@ namespace Pulumi.Aws.AppConfig
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetConfigurationProfileResult> InvokeAsync(GetConfigurationProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileResult>("aws:appconfig/getConfigurationProfile:getConfigurationProfile", args ?? new GetConfigurationProfileArgs(), options.WithDefaults());
@@ -44,11 +43,11 @@ namespace Pulumi.Aws.AppConfig
         /// <summary>
         /// Provides access to an AppConfig Configuration Profile.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,8 +64,7 @@ namespace Pulumi.Aws.AppConfig
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetConfigurationProfileResult> Invoke(GetConfigurationProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileResult>("aws:appconfig/getConfigurationProfile:getConfigurationProfile", args ?? new GetConfigurationProfileInvokeArgs(), options.WithDefaults());
@@ -155,6 +153,7 @@ namespace Pulumi.Aws.AppConfig
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string KmsKeyIdentifier;
         /// <summary>
         /// Location URI of the Configuration Profile.
         /// </summary>
@@ -192,6 +191,8 @@ namespace Pulumi.Aws.AppConfig
 
             string id,
 
+            string kmsKeyIdentifier,
+
             string locationUri,
 
             string name,
@@ -209,6 +210,7 @@ namespace Pulumi.Aws.AppConfig
             ConfigurationProfileId = configurationProfileId;
             Description = description;
             Id = id;
+            KmsKeyIdentifier = kmsKeyIdentifier;
             LocationUri = locationUri;
             Name = name;
             RetrievalRoleArn = retrievalRoleArn;

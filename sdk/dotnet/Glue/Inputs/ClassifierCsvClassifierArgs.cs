@@ -72,6 +72,9 @@ namespace Pulumi.Aws.Glue.Inputs
         [Input("quoteSymbol")]
         public Input<string>? QuoteSymbol { get; set; }
 
+        [Input("serde")]
+        public Input<string>? Serde { get; set; }
+
         public ClassifierCsvClassifierArgs()
         {
         }

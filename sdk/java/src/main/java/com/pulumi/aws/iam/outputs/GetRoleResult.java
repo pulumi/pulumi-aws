@@ -5,6 +5,7 @@ package com.pulumi.aws.iam.outputs;
 
 import com.pulumi.aws.iam.outputs.GetRoleRoleLastUsed;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -192,52 +193,82 @@ public final class GetRoleResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetRoleResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder assumeRolePolicy(String assumeRolePolicy) {
-            this.assumeRolePolicy = Objects.requireNonNull(assumeRolePolicy);
+            if (assumeRolePolicy == null) {
+              throw new MissingRequiredPropertyException("GetRoleResult", "assumeRolePolicy");
+            }
+            this.assumeRolePolicy = assumeRolePolicy;
             return this;
         }
         @CustomType.Setter
         public Builder createDate(String createDate) {
-            this.createDate = Objects.requireNonNull(createDate);
+            if (createDate == null) {
+              throw new MissingRequiredPropertyException("GetRoleResult", "createDate");
+            }
+            this.createDate = createDate;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetRoleResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRoleResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder maxSessionDuration(Integer maxSessionDuration) {
-            this.maxSessionDuration = Objects.requireNonNull(maxSessionDuration);
+            if (maxSessionDuration == null) {
+              throw new MissingRequiredPropertyException("GetRoleResult", "maxSessionDuration");
+            }
+            this.maxSessionDuration = maxSessionDuration;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetRoleResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("GetRoleResult", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder permissionsBoundary(String permissionsBoundary) {
-            this.permissionsBoundary = Objects.requireNonNull(permissionsBoundary);
+            if (permissionsBoundary == null) {
+              throw new MissingRequiredPropertyException("GetRoleResult", "permissionsBoundary");
+            }
+            this.permissionsBoundary = permissionsBoundary;
             return this;
         }
         @CustomType.Setter
         public Builder roleLastUseds(List<GetRoleRoleLastUsed> roleLastUseds) {
-            this.roleLastUseds = Objects.requireNonNull(roleLastUseds);
+            if (roleLastUseds == null) {
+              throw new MissingRequiredPropertyException("GetRoleResult", "roleLastUseds");
+            }
+            this.roleLastUseds = roleLastUseds;
             return this;
         }
         public Builder roleLastUseds(GetRoleRoleLastUsed... roleLastUseds) {
@@ -245,29 +276,35 @@ public final class GetRoleResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetRoleResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder uniqueId(String uniqueId) {
-            this.uniqueId = Objects.requireNonNull(uniqueId);
+            if (uniqueId == null) {
+              throw new MissingRequiredPropertyException("GetRoleResult", "uniqueId");
+            }
+            this.uniqueId = uniqueId;
             return this;
         }
         public GetRoleResult build() {
-            final var o = new GetRoleResult();
-            o.arn = arn;
-            o.assumeRolePolicy = assumeRolePolicy;
-            o.createDate = createDate;
-            o.description = description;
-            o.id = id;
-            o.maxSessionDuration = maxSessionDuration;
-            o.name = name;
-            o.path = path;
-            o.permissionsBoundary = permissionsBoundary;
-            o.roleLastUseds = roleLastUseds;
-            o.tags = tags;
-            o.uniqueId = uniqueId;
-            return o;
+            final var _resultValue = new GetRoleResult();
+            _resultValue.arn = arn;
+            _resultValue.assumeRolePolicy = assumeRolePolicy;
+            _resultValue.createDate = createDate;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.maxSessionDuration = maxSessionDuration;
+            _resultValue.name = name;
+            _resultValue.path = path;
+            _resultValue.permissionsBoundary = permissionsBoundary;
+            _resultValue.roleLastUseds = roleLastUseds;
+            _resultValue.tags = tags;
+            _resultValue.uniqueId = uniqueId;
+            return _resultValue;
         }
     }
 }

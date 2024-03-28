@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ses.NewReceiptFilter(ctx, "filter", &ses.ReceiptFilterArgs{
+//				Name:   pulumi.String("block-spammer"),
 //				Cidr:   pulumi.String("10.10.10.10"),
 //				Policy: pulumi.String("Block"),
 //			})
@@ -40,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SES Receipt Filter using their `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
-//
+// $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
 // ```
 type ReceiptFilter struct {
 	pulumi.CustomResourceState

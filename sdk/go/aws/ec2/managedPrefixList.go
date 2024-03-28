@@ -30,6 +30,7 @@ import (
 //
 // # Basic usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,15 +44,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewManagedPrefixList(ctx, "example", &ec2.ManagedPrefixListArgs{
+//				Name:          pulumi.String("All VPC CIDR-s"),
 //				AddressFamily: pulumi.String("IPv4"),
 //				MaxEntries:    pulumi.Int(5),
 //				Entries: ec2.ManagedPrefixListEntryTypeArray{
 //					&ec2.ManagedPrefixListEntryTypeArgs{
-//						Cidr:        pulumi.Any(aws_vpc.Example.Cidr_block),
+//						Cidr:        pulumi.Any(exampleAwsVpc.CidrBlock),
 //						Description: pulumi.String("Primary"),
 //					},
 //					&ec2.ManagedPrefixListEntryTypeArgs{
-//						Cidr:        pulumi.Any(aws_vpc_ipv4_cidr_block_association.Example.Cidr_block),
+//						Cidr:        pulumi.Any(exampleAwsVpcIpv4CidrBlockAssociation.CidrBlock),
 //						Description: pulumi.String("Secondary"),
 //					},
 //				},
@@ -67,15 +69,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Prefix Lists using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
-//
+// $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
 // ```
 type ManagedPrefixList struct {
 	pulumi.CustomResourceState
@@ -115,10 +116,6 @@ func NewManagedPrefixList(ctx *pulumi.Context,
 	if args.MaxEntries == nil {
 		return nil, errors.New("invalid value for required argument 'MaxEntries'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ManagedPrefixList
 	err := ctx.RegisterResource("aws:ec2/managedPrefixList:ManagedPrefixList", name, args, &resource, opts...)

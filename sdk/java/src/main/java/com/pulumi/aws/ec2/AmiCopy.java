@@ -33,6 +33,8 @@ import javax.annotation.Nullable;
  * block until the new AMI is available for use on new instances.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -55,6 +57,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AmiCopy(&#34;example&#34;, AmiCopyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .description(&#34;A copy of ami-xxxxxxxx&#34;)
  *             .sourceAmiId(&#34;ami-xxxxxxxx&#34;)
  *             .sourceAmiRegion(&#34;us-west-1&#34;)
@@ -64,6 +67,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:ec2/amiCopy:AmiCopy")
@@ -517,9 +521,6 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

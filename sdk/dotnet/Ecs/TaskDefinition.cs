@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Ecs
     /// Manages a revision of an ECS task definition to be used in `aws.ecs.Service`.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -82,21 +84,27 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With AppMesh Proxy
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var service = new Aws.Ecs.TaskDefinition("service", new()
     ///     {
     ///         Family = "service",
-    ///         ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
+    ///         ContainerDefinitions = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "task-definitions/service.json",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         ProxyConfiguration = new Aws.Ecs.Inputs.TaskDefinitionProxyConfigurationArgs
     ///         {
     ///             Type = "APPMESH",
@@ -114,21 +122,27 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example Using `docker_volume_configuration`
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var service = new Aws.Ecs.TaskDefinition("service", new()
     ///     {
     ///         Family = "service",
-    ///         ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
+    ///         ContainerDefinitions = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "task-definitions/service.json",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Volumes = new[]
     ///         {
     ///             new Aws.Ecs.Inputs.TaskDefinitionVolumeArgs
@@ -142,8 +156,8 @@ namespace Pulumi.Aws.Ecs
     ///                     DriverOpts = 
     ///                     {
     ///                         { "type", "nfs" },
-    ///                         { "device", $"{aws_efs_file_system.Fs.Dns_name}:/" },
-    ///                         { "o", $"addr={aws_efs_file_system.Fs.Dns_name},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport" },
+    ///                         { "device", $"{fs.DnsName}:/" },
+    ///                         { "o", $"addr={fs.DnsName},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport" },
     ///                     },
     ///                 },
     ///             },
@@ -152,21 +166,27 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example Using `efs_volume_configuration`
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var service = new Aws.Ecs.TaskDefinition("service", new()
     ///     {
     ///         Family = "service",
-    ///         ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
+    ///         ContainerDefinitions = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "task-definitions/service.json",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Volumes = new[]
     ///         {
     ///             new Aws.Ecs.Inputs.TaskDefinitionVolumeArgs
@@ -174,13 +194,13 @@ namespace Pulumi.Aws.Ecs
     ///                 Name = "service-storage",
     ///                 EfsVolumeConfiguration = new Aws.Ecs.Inputs.TaskDefinitionVolumeEfsVolumeConfigurationArgs
     ///                 {
-    ///                     FileSystemId = aws_efs_file_system.Fs.Id,
+    ///                     FileSystemId = fs.Id,
     ///                     RootDirectory = "/opt/data",
     ///                     TransitEncryption = "ENABLED",
     ///                     TransitEncryptionPort = 2999,
     ///                     AuthorizationConfig = new Aws.Ecs.Inputs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs
     ///                     {
-    ///                         AccessPointId = aws_efs_access_point.Test.Id,
+    ///                         AccessPointId = test.Id,
     ///                         Iam = "ENABLED",
     ///                     },
     ///                 },
@@ -190,32 +210,38 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example Using `fsx_windows_file_server_volume_configuration`
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var test = new Aws.SecretsManager.SecretVersion("test", new()
     ///     {
-    ///         SecretId = aws_secretsmanager_secret.Test.Id,
+    ///         SecretId = testAwsSecretsmanagerSecret.Id,
     ///         SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["username"] = "admin",
-    ///             ["password"] = aws_directory_service_directory.Test.Password,
+    ///             ["password"] = testAwsDirectoryServiceDirectory.Password,
     ///         }),
     ///     });
     /// 
     ///     var service = new Aws.Ecs.TaskDefinition("service", new()
     ///     {
     ///         Family = "service",
-    ///         ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
+    ///         ContainerDefinitions = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "task-definitions/service.json",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Volumes = new[]
     ///         {
     ///             new Aws.Ecs.Inputs.TaskDefinitionVolumeArgs
@@ -223,12 +249,12 @@ namespace Pulumi.Aws.Ecs
     ///                 Name = "service-storage",
     ///                 FsxWindowsFileServerVolumeConfiguration = new Aws.Ecs.Inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs
     ///                 {
-    ///                     FileSystemId = aws_fsx_windows_file_system.Test.Id,
+    ///                     FileSystemId = testAwsFsxWindowsFileSystem.Id,
     ///                     RootDirectory = "\\data",
     ///                     AuthorizationConfig = new Aws.Ecs.Inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs
     ///                     {
     ///                         CredentialsParameter = test.Arn,
-    ///                         Domain = aws_directory_service_directory.Test.Name,
+    ///                         Domain = testAwsDirectoryServiceDirectory.Name,
     ///                     },
     ///                 },
     ///             },
@@ -237,8 +263,11 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example Using `container_definitions` and `inference_accelerator`
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -249,6 +278,7 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var test = new Aws.Ecs.TaskDefinition("test", new()
     ///     {
+    ///         Family = "test",
     ///         ContainerDefinitions = @"[
     ///   {
     ///     ""cpu"": 10,
@@ -275,9 +305,7 @@ namespace Pulumi.Aws.Ecs
     ///         ]
     ///   }
     /// ]
-    /// 
     /// ",
-    ///         Family = "test",
     ///         InferenceAccelerators = new[]
     ///         {
     ///             new Aws.Ecs.Inputs.TaskDefinitionInferenceAcceleratorArgs
@@ -290,8 +318,11 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example Using `runtime_platform` and `fargate`
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -302,6 +333,14 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var test = new Aws.Ecs.TaskDefinition("test", new()
     ///     {
+    ///         Family = "test",
+    ///         RequiresCompatibilities = new[]
+    ///         {
+    ///             "FARGATE",
+    ///         },
+    ///         NetworkMode = "awsvpc",
+    ///         Cpu = "1024",
+    ///         Memory = "2048",
     ///         ContainerDefinitions = @"[
     ///   {
     ///     ""name"": ""iis"",
@@ -311,32 +350,24 @@ namespace Pulumi.Aws.Ecs
     ///     ""essential"": true
     ///   }
     /// ]
-    /// 
     /// ",
-    ///         Cpu = "1024",
-    ///         Family = "test",
-    ///         Memory = "2048",
-    ///         NetworkMode = "awsvpc",
-    ///         RequiresCompatibilities = new[]
-    ///         {
-    ///             "FARGATE",
-    ///         },
     ///         RuntimePlatform = new Aws.Ecs.Inputs.TaskDefinitionRuntimePlatformArgs
     ///         {
-    ///             CpuArchitecture = "X86_64",
     ///             OperatingSystemFamily = "WINDOWS_SERVER_2019_CORE",
+    ///             CpuArchitecture = "X86_64",
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ECS Task Definitions using their ARNs. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
+    /// $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecs/taskDefinition:TaskDefinition")]
@@ -471,6 +502,12 @@ namespace Pulumi.Aws.Ecs
         public Output<string?> TaskRoleArn { get; private set; } = null!;
 
         /// <summary>
+        /// Whether should track latest task definition or the one created with the resource. Default is `false`.
+        /// </summary>
+        [Output("trackLatest")]
+        public Output<bool?> TrackLatest { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for volumes that containers in your task may use. Detailed below.
         /// </summary>
         [Output("volumes")]
@@ -499,10 +536,6 @@ namespace Pulumi.Aws.Ecs
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -653,6 +686,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("taskRoleArn")]
         public Input<string>? TaskRoleArn { get; set; }
+
+        /// <summary>
+        /// Whether should track latest task definition or the one created with the resource. Default is `false`.
+        /// </summary>
+        [Input("trackLatest")]
+        public Input<bool>? TrackLatest { get; set; }
 
         [Input("volumes")]
         private InputList<Inputs.TaskDefinitionVolumeArgs>? _volumes;
@@ -824,11 +863,7 @@ namespace Pulumi.Aws.Ecs
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>
@@ -836,6 +871,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("taskRoleArn")]
         public Input<string>? TaskRoleArn { get; set; }
+
+        /// <summary>
+        /// Whether should track latest task definition or the one created with the resource. Default is `false`.
+        /// </summary>
+        [Input("trackLatest")]
+        public Input<bool>? TrackLatest { get; set; }
 
         [Input("volumes")]
         private InputList<Inputs.TaskDefinitionVolumeGetArgs>? _volumes;

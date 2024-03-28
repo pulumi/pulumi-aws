@@ -22,7 +22,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEb
      */
     private @Nullable String fillLineGap;
     /**
-     * @return Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
+     * @return Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100%!t(MISSING)o allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
      * 
      */
     private @Nullable String fontFamily;
@@ -48,7 +48,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEb
         return Optional.ofNullable(this.fillLineGap);
     }
     /**
-     * @return Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
+     * @return Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100%!t(MISSING)o allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
      * 
      */
     public Optional<String> fontFamily() {
@@ -86,31 +86,35 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEb
 
         @CustomType.Setter
         public Builder copyrightHolder(@Nullable String copyrightHolder) {
+
             this.copyrightHolder = copyrightHolder;
             return this;
         }
         @CustomType.Setter
         public Builder fillLineGap(@Nullable String fillLineGap) {
+
             this.fillLineGap = fillLineGap;
             return this;
         }
         @CustomType.Setter
         public Builder fontFamily(@Nullable String fontFamily) {
+
             this.fontFamily = fontFamily;
             return this;
         }
         @CustomType.Setter
         public Builder styleControl(@Nullable String styleControl) {
+
             this.styleControl = styleControl;
             return this;
         }
         public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings build() {
-            final var o = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings();
-            o.copyrightHolder = copyrightHolder;
-            o.fillLineGap = fillLineGap;
-            o.fontFamily = fontFamily;
-            o.styleControl = styleControl;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings();
+            _resultValue.copyrightHolder = copyrightHolder;
+            _resultValue.fillLineGap = fillLineGap;
+            _resultValue.fontFamily = fontFamily;
+            _resultValue.styleControl = styleControl;
+            return _resultValue;
         }
     }
 }

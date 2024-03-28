@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** This resource has to be created in the destination region.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,14 +47,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new InstanceAutomatedBackupsReplication(&#34;default&#34;, InstanceAutomatedBackupsReplicationArgs.builder()        
+ *             .sourceDbInstanceArn(&#34;arn:aws:rds:us-west-2:123456789012:db:mydatabase&#34;)
  *             .retentionPeriod(14)
- *             .sourceDbInstanceArn(&#34;arn:aws:rds:us-west-2:123456789012:db:mydatabase&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Encrypting the automated backup with KMS
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -75,30 +81,30 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new InstanceAutomatedBackupsReplication(&#34;default&#34;, InstanceAutomatedBackupsReplicationArgs.builder()        
- *             .kmsKeyId(&#34;arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012&#34;)
  *             .sourceDbInstanceArn(&#34;arn:aws:rds:us-west-2:123456789012:db:mydatabase&#34;)
+ *             .kmsKeyId(&#34;arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example including a RDS DB instance
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
  * import com.pulumi.aws.rds.Instance;
  * import com.pulumi.aws.rds.InstanceArgs;
  * import com.pulumi.aws.kms.Key;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.rds.InstanceAutomatedBackupsReplication;
  * import com.pulumi.aws.rds.InstanceAutomatedBackupsReplicationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -112,11 +118,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var replica = new Provider(&#34;replica&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-west-2&#34;)
- *             .build());
- * 
- *         var defaultInstance = new Instance(&#34;defaultInstance&#34;, InstanceArgs.builder()        
+ *         var default_ = new Instance(&#34;default&#34;, InstanceArgs.builder()        
  *             .allocatedStorage(10)
  *             .identifier(&#34;mydb&#34;)
  *             .engine(&#34;postgres&#34;)
@@ -132,27 +134,24 @@ import javax.annotation.Nullable;
  * 
  *         var defaultKey = new Key(&#34;defaultKey&#34;, KeyArgs.builder()        
  *             .description(&#34;Encryption key for automated backups&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.replica())
- *                 .build());
+ *             .build());
  * 
  *         var defaultInstanceAutomatedBackupsReplication = new InstanceAutomatedBackupsReplication(&#34;defaultInstanceAutomatedBackupsReplication&#34;, InstanceAutomatedBackupsReplicationArgs.builder()        
- *             .sourceDbInstanceArn(defaultInstance.arn())
+ *             .sourceDbInstanceArn(default_.arn())
  *             .kmsKeyId(defaultKey.arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.replica())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import RDS instance automated backups replication using the `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
+ * $ pulumi import aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
  * ```
  * 
  */

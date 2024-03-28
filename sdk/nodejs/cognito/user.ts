@@ -8,59 +8,68 @@ import * as utilities from "../utilities";
  * Provides a Cognito User Resource.
  *
  * ## Example Usage
+ *
  * ### Basic configuration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {});
- * const exampleUser = new aws.cognito.User("exampleUser", {
- *     userPoolId: exampleUserPool.id,
+ * const example = new aws.cognito.UserPool("example", {name: "MyExamplePool"});
+ * const exampleUser = new aws.cognito.User("example", {
+ *     userPoolId: example.id,
  *     username: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Setting user attributes
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {schemas: [
- *     {
- *         name: "example",
- *         attributeDataType: "Boolean",
- *         mutable: false,
- *         required: false,
- *         developerOnlyAttribute: false,
- *     },
- *     {
- *         name: "foo",
- *         attributeDataType: "String",
- *         mutable: false,
- *         required: false,
- *         developerOnlyAttribute: false,
- *         stringAttributeConstraints: {},
- *     },
- * ]});
- * const exampleUser = new aws.cognito.User("exampleUser", {
- *     userPoolId: exampleUserPool.id,
+ * const example = new aws.cognito.UserPool("example", {
+ *     name: "mypool",
+ *     schemas: [
+ *         {
+ *             name: "example",
+ *             attributeDataType: "Boolean",
+ *             mutable: false,
+ *             required: false,
+ *             developerOnlyAttribute: false,
+ *         },
+ *         {
+ *             name: "foo",
+ *             attributeDataType: "String",
+ *             mutable: false,
+ *             required: false,
+ *             developerOnlyAttribute: false,
+ *             stringAttributeConstraints: {},
+ *         },
+ *     ],
+ * });
+ * const exampleUser = new aws.cognito.User("example", {
+ *     userPoolId: example.id,
  *     username: "example",
  *     attributes: {
  *         example: "true",
  *         foo: "bar",
- *         email: "no-reply@domain.example",
+ *         email: "no-reply@example.com",
  *         email_verified: "true",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Cognito User using the `user_pool_id`/`name` attributes concatenated. For example:
  *
  * ```sh
- *  $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
+ * $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
  * ```
  */
 export class User extends pulumi.CustomResource {

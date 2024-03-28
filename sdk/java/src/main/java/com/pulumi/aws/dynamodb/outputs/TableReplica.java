@@ -4,6 +4,7 @@
 package com.pulumi.aws.dynamodb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -129,49 +130,58 @@ public final class TableReplica {
 
         @CustomType.Setter
         public Builder arn(@Nullable String arn) {
+
             this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
+
             this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         @CustomType.Setter
         public Builder pointInTimeRecovery(@Nullable Boolean pointInTimeRecovery) {
+
             this.pointInTimeRecovery = pointInTimeRecovery;
             return this;
         }
         @CustomType.Setter
         public Builder propagateTags(@Nullable Boolean propagateTags) {
+
             this.propagateTags = propagateTags;
             return this;
         }
         @CustomType.Setter
         public Builder regionName(String regionName) {
-            this.regionName = Objects.requireNonNull(regionName);
+            if (regionName == null) {
+              throw new MissingRequiredPropertyException("TableReplica", "regionName");
+            }
+            this.regionName = regionName;
             return this;
         }
         @CustomType.Setter
         public Builder streamArn(@Nullable String streamArn) {
+
             this.streamArn = streamArn;
             return this;
         }
         @CustomType.Setter
         public Builder streamLabel(@Nullable String streamLabel) {
+
             this.streamLabel = streamLabel;
             return this;
         }
         public TableReplica build() {
-            final var o = new TableReplica();
-            o.arn = arn;
-            o.kmsKeyArn = kmsKeyArn;
-            o.pointInTimeRecovery = pointInTimeRecovery;
-            o.propagateTags = propagateTags;
-            o.regionName = regionName;
-            o.streamArn = streamArn;
-            o.streamLabel = streamLabel;
-            return o;
+            final var _resultValue = new TableReplica();
+            _resultValue.arn = arn;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.pointInTimeRecovery = pointInTimeRecovery;
+            _resultValue.propagateTags = propagateTags;
+            _resultValue.regionName = regionName;
+            _resultValue.streamArn = streamArn;
+            _resultValue.streamLabel = streamLabel;
+            return _resultValue;
         }
     }
 }

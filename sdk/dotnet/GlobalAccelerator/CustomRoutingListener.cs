@@ -14,6 +14,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,8 +23,9 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCustomRoutingAccelerator = new Aws.GlobalAccelerator.CustomRoutingAccelerator("exampleCustomRoutingAccelerator", new()
+    ///     var example = new Aws.GlobalAccelerator.CustomRoutingAccelerator("example", new()
     ///     {
+    ///         Name = "Example",
     ///         IpAddressType = "IPV4",
     ///         Enabled = true,
     ///         Attributes = new Aws.GlobalAccelerator.Inputs.CustomRoutingAcceleratorAttributesArgs
@@ -34,9 +36,9 @@ namespace Pulumi.Aws.GlobalAccelerator
     ///         },
     ///     });
     /// 
-    ///     var exampleCustomRoutingListener = new Aws.GlobalAccelerator.CustomRoutingListener("exampleCustomRoutingListener", new()
+    ///     var exampleCustomRoutingListener = new Aws.GlobalAccelerator.CustomRoutingListener("example", new()
     ///     {
-    ///         AcceleratorArn = exampleCustomRoutingAccelerator.Id,
+    ///         AcceleratorArn = example.Id,
     ///         PortRanges = new[]
     ///         {
     ///             new Aws.GlobalAccelerator.Inputs.CustomRoutingListenerPortRangeArgs
@@ -49,13 +51,14 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Global Accelerator custom routing listeners using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:globalaccelerator/customRoutingListener:CustomRoutingListener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
+    /// $ pulumi import aws:globalaccelerator/customRoutingListener:CustomRoutingListener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
     /// ```
     /// </summary>
     [AwsResourceType("aws:globalaccelerator/customRoutingListener:CustomRoutingListener")]

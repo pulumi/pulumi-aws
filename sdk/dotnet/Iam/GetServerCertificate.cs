@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// Use this data source to lookup information about IAM Server Certificates.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,6 +33,7 @@ namespace Pulumi.Aws.Iam
         /// 
         ///     var elb = new Aws.Elb.LoadBalancer("elb", new()
         ///     {
+        ///         Name = "my-domain-elb",
         ///         Listeners = new[]
         ///         {
         ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
@@ -49,8 +49,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServerCertificateResult> InvokeAsync(GetServerCertificateArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerCertificateResult>("aws:iam/getServerCertificate:getServerCertificate", args ?? new GetServerCertificateArgs(), options.WithDefaults());
@@ -58,10 +57,9 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// Use this data source to lookup information about IAM Server Certificates.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -78,6 +76,7 @@ namespace Pulumi.Aws.Iam
         /// 
         ///     var elb = new Aws.Elb.LoadBalancer("elb", new()
         ///     {
+        ///         Name = "my-domain-elb",
         ///         Listeners = new[]
         ///         {
         ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
@@ -93,8 +92,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServerCertificateResult> Invoke(GetServerCertificateInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerCertificateResult>("aws:iam/getServerCertificate:getServerCertificate", args ?? new GetServerCertificateInvokeArgs(), options.WithDefaults());

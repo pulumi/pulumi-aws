@@ -120,6 +120,7 @@ public final class AnomalySubscriptionThresholdExpression {
 
         @CustomType.Setter
         public Builder ands(@Nullable List<AnomalySubscriptionThresholdExpressionAnd> ands) {
+
             this.ands = ands;
             return this;
         }
@@ -128,21 +129,25 @@ public final class AnomalySubscriptionThresholdExpression {
         }
         @CustomType.Setter
         public Builder costCategory(@Nullable AnomalySubscriptionThresholdExpressionCostCategory costCategory) {
+
             this.costCategory = costCategory;
             return this;
         }
         @CustomType.Setter
         public Builder dimension(@Nullable AnomalySubscriptionThresholdExpressionDimension dimension) {
+
             this.dimension = dimension;
             return this;
         }
         @CustomType.Setter
         public Builder not(@Nullable AnomalySubscriptionThresholdExpressionNot not) {
+
             this.not = not;
             return this;
         }
         @CustomType.Setter
         public Builder ors(@Nullable List<AnomalySubscriptionThresholdExpressionOr> ors) {
+
             this.ors = ors;
             return this;
         }
@@ -151,18 +156,19 @@ public final class AnomalySubscriptionThresholdExpression {
         }
         @CustomType.Setter
         public Builder tags(@Nullable AnomalySubscriptionThresholdExpressionTags tags) {
+
             this.tags = tags;
             return this;
         }
         public AnomalySubscriptionThresholdExpression build() {
-            final var o = new AnomalySubscriptionThresholdExpression();
-            o.ands = ands;
-            o.costCategory = costCategory;
-            o.dimension = dimension;
-            o.not = not;
-            o.ors = ors;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new AnomalySubscriptionThresholdExpression();
+            _resultValue.ands = ands;
+            _resultValue.costCategory = costCategory;
+            _resultValue.dimension = dimension;
+            _resultValue.not = not;
+            _resultValue.ors = ors;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

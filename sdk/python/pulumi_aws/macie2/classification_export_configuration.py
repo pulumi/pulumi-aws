@@ -73,25 +73,26 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.macie2.Account("exampleAccount")
-        example_classification_export_configuration = aws.macie2.ClassificationExportConfiguration("exampleClassificationExportConfiguration", s3_destination=aws.macie2.ClassificationExportConfigurationS3DestinationArgs(
-            bucket_name=aws_s3_bucket["example"]["bucket"],
+        example = aws.macie2.Account("example")
+        example_classification_export_configuration = aws.macie2.ClassificationExportConfiguration("example", s3_destination=aws.macie2.ClassificationExportConfigurationS3DestinationArgs(
+            bucket_name=example_aws_s3_bucket["bucket"],
             key_prefix="exampleprefix/",
-            kms_key_arn=aws_kms_key["example"]["arn"],
-        ),
-        opts=pulumi.ResourceOptions(depends_on=[example_account]))
+            kms_key_arn=example_aws_kms_key["arn"],
+        ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_macie2_classification_export_configuration` using the account ID and region. For example:
 
         ```sh
-         $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
+        $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
         ```
 
         :param str resource_name: The name of the resource.
@@ -109,25 +110,26 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.macie2.Account("exampleAccount")
-        example_classification_export_configuration = aws.macie2.ClassificationExportConfiguration("exampleClassificationExportConfiguration", s3_destination=aws.macie2.ClassificationExportConfigurationS3DestinationArgs(
-            bucket_name=aws_s3_bucket["example"]["bucket"],
+        example = aws.macie2.Account("example")
+        example_classification_export_configuration = aws.macie2.ClassificationExportConfiguration("example", s3_destination=aws.macie2.ClassificationExportConfigurationS3DestinationArgs(
+            bucket_name=example_aws_s3_bucket["bucket"],
             key_prefix="exampleprefix/",
-            kms_key_arn=aws_kms_key["example"]["arn"],
-        ),
-        opts=pulumi.ResourceOptions(depends_on=[example_account]))
+            kms_key_arn=example_aws_kms_key["arn"],
+        ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_macie2_classification_export_configuration` using the account ID and region. For example:
 
         ```sh
-         $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
+        $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
         ```
 
         :param str resource_name: The name of the resource.

@@ -58,19 +58,21 @@ public final class FeatureGroupFeatureDefinition {
 
         @CustomType.Setter
         public Builder featureName(@Nullable String featureName) {
+
             this.featureName = featureName;
             return this;
         }
         @CustomType.Setter
         public Builder featureType(@Nullable String featureType) {
+
             this.featureType = featureType;
             return this;
         }
         public FeatureGroupFeatureDefinition build() {
-            final var o = new FeatureGroupFeatureDefinition();
-            o.featureName = featureName;
-            o.featureType = featureType;
-            return o;
+            final var _resultValue = new FeatureGroupFeatureDefinition();
+            _resultValue.featureName = featureName;
+            _resultValue.featureType = featureType;
+            return _resultValue;
         }
     }
 }

@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Deleting this resource does not disable the organization configuration feature, the resource in simply removed from state instead.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,6 +54,7 @@ import javax.annotation.Nullable;
  * 
  *         var eksRuntimeMonitoring = new OrganizationConfigurationFeature(&#34;eksRuntimeMonitoring&#34;, OrganizationConfigurationFeatureArgs.builder()        
  *             .detectorId(example.id())
+ *             .name(&#34;EKS_RUNTIME_MONITORING&#34;)
  *             .autoEnable(&#34;ALL&#34;)
  *             .additionalConfigurations(OrganizationConfigurationFeatureAdditionalConfigurationArgs.builder()
  *                 .name(&#34;EKS_ADDON_MANAGEMENT&#34;)
@@ -62,6 +65,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature")

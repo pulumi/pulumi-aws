@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -16,13 +17,14 @@ import * as utilities from "../utilities";
  * const app = new aws.pinpoint.App("app", {});
  * const sms = new aws.pinpoint.SmsChannel("sms", {applicationId: app.applicationId});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
+ * $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
  * ```
  */
 export class SmsChannel extends pulumi.CustomResource {

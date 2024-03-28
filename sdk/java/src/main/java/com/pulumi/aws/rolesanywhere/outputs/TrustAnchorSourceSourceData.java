@@ -50,19 +50,21 @@ public final class TrustAnchorSourceSourceData {
 
         @CustomType.Setter
         public Builder acmPcaArn(@Nullable String acmPcaArn) {
+
             this.acmPcaArn = acmPcaArn;
             return this;
         }
         @CustomType.Setter
         public Builder x509CertificateData(@Nullable String x509CertificateData) {
+
             this.x509CertificateData = x509CertificateData;
             return this;
         }
         public TrustAnchorSourceSourceData build() {
-            final var o = new TrustAnchorSourceSourceData();
-            o.acmPcaArn = acmPcaArn;
-            o.x509CertificateData = x509CertificateData;
-            return o;
+            final var _resultValue = new TrustAnchorSourceSourceData();
+            _resultValue.acmPcaArn = acmPcaArn;
+            _resultValue.x509CertificateData = x509CertificateData;
+            return _resultValue;
         }
     }
 }

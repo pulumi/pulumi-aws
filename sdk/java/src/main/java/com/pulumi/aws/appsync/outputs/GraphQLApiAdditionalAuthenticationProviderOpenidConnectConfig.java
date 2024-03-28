@@ -4,6 +4,7 @@
 package com.pulumi.aws.appsync.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -87,31 +88,37 @@ public final class GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig
 
         @CustomType.Setter
         public Builder authTtl(@Nullable Integer authTtl) {
+
             this.authTtl = authTtl;
             return this;
         }
         @CustomType.Setter
         public Builder clientId(@Nullable String clientId) {
+
             this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder iatTtl(@Nullable Integer iatTtl) {
+
             this.iatTtl = iatTtl;
             return this;
         }
         @CustomType.Setter
         public Builder issuer(String issuer) {
-            this.issuer = Objects.requireNonNull(issuer);
+            if (issuer == null) {
+              throw new MissingRequiredPropertyException("GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig", "issuer");
+            }
+            this.issuer = issuer;
             return this;
         }
         public GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig build() {
-            final var o = new GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig();
-            o.authTtl = authTtl;
-            o.clientId = clientId;
-            o.iatTtl = iatTtl;
-            o.issuer = issuer;
-            return o;
+            final var _resultValue = new GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig();
+            _resultValue.authTtl = authTtl;
+            _resultValue.clientId = clientId;
+            _resultValue.iatTtl = iatTtl;
+            _resultValue.issuer = issuer;
+            return _resultValue;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,16 +23,16 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooVpc = new Aws.Ec2.Vpc("fooVpc", new()
+    ///     var foo = new Aws.Ec2.Vpc("foo", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
     ///     });
     /// 
-    ///     var fooSubnet = new Aws.Ec2.Subnet("fooSubnet", new()
+    ///     var fooSubnet = new Aws.Ec2.Subnet("foo", new()
     ///     {
     ///         CidrBlock = "10.1.1.0/24",
     ///         AvailabilityZone = "us-west-2a",
-    ///         VpcId = fooVpc.Id,
+    ///         VpcId = foo.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "tf-dbsubnet-test-1" },
@@ -42,15 +43,16 @@ namespace Pulumi.Aws.RedShift
     ///     {
     ///         CidrBlock = "10.1.2.0/24",
     ///         AvailabilityZone = "us-west-2b",
-    ///         VpcId = fooVpc.Id,
+    ///         VpcId = foo.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "tf-dbsubnet-test-2" },
     ///         },
     ///     });
     /// 
-    ///     var fooSubnetGroup = new Aws.RedShift.SubnetGroup("fooSubnetGroup", new()
+    ///     var fooSubnetGroup = new Aws.RedShift.SubnetGroup("foo", new()
     ///     {
+    ///         Name = "foo",
     ///         SubnetIds = new[]
     ///         {
     ///             fooSubnet.Id,
@@ -64,13 +66,14 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift subnet groups using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:redshift/subnetGroup:SubnetGroup testgroup1 test-cluster-subnet-group
+    /// $ pulumi import aws:redshift/subnetGroup:SubnetGroup testgroup1 test-cluster-subnet-group
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/subnetGroup:SubnetGroup")]
@@ -135,10 +138,6 @@ namespace Pulumi.Aws.RedShift
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -259,11 +258,7 @@ namespace Pulumi.Aws.RedShift
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public SubnetGroupState()

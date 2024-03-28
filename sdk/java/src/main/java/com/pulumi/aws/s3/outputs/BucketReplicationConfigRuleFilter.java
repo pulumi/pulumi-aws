@@ -74,25 +74,28 @@ public final class BucketReplicationConfigRuleFilter {
 
         @CustomType.Setter
         public Builder and(@Nullable BucketReplicationConfigRuleFilterAnd and) {
+
             this.and = and;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder tag(@Nullable BucketReplicationConfigRuleFilterTag tag) {
+
             this.tag = tag;
             return this;
         }
         public BucketReplicationConfigRuleFilter build() {
-            final var o = new BucketReplicationConfigRuleFilter();
-            o.and = and;
-            o.prefix = prefix;
-            o.tag = tag;
-            return o;
+            final var _resultValue = new BucketReplicationConfigRuleFilter();
+            _resultValue.and = and;
+            _resultValue.prefix = prefix;
+            _resultValue.tag = tag;
+            return _resultValue;
         }
     }
 }

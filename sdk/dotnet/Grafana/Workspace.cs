@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Grafana
     /// Provides an Amazon Managed Grafana workspace resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,19 +28,20 @@ namespace Pulumi.Aws.Grafana
     /// {
     ///     var assume = new Aws.Iam.Role("assume", new()
     ///     {
+    ///         Name = "grafana-assume",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Sid"] = "",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["action"] = "sts:AssumeRole",
+    ///                     ["effect"] = "Allow",
+    ///                     ["sid"] = "",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "grafana.amazonaws.com",
+    ///                         ["service"] = "grafana.amazonaws.com",
     ///                     },
     ///                 },
     ///             },
@@ -58,13 +61,14 @@ namespace Pulumi.Aws.Grafana
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Grafana Workspace using the workspace's `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
+    /// $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
     /// ```
     /// </summary>
     [AwsResourceType("aws:grafana/workspace:Workspace")]
@@ -212,10 +216,6 @@ namespace Pulumi.Aws.Grafana
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -522,11 +522,7 @@ namespace Pulumi.Aws.Grafana
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

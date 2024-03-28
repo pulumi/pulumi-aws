@@ -4,6 +4,7 @@
 package com.pulumi.aws.appconfig.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class GetConfigurationProfileValidator {
 
         @CustomType.Setter
         public Builder content(String content) {
-            this.content = Objects.requireNonNull(content);
+            if (content == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationProfileValidator", "content");
+            }
+            this.content = content;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationProfileValidator", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetConfigurationProfileValidator build() {
-            final var o = new GetConfigurationProfileValidator();
-            o.content = content;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetConfigurationProfileValidator();
+            _resultValue.content = content;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

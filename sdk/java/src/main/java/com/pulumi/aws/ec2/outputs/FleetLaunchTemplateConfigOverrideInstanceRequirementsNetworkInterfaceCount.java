@@ -58,19 +58,21 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkI
 
         @CustomType.Setter
         public Builder max(@Nullable Integer max) {
+
             this.max = max;
             return this;
         }
         @CustomType.Setter
         public Builder min(@Nullable Integer min) {
+
             this.min = min;
             return this;
         }
         public FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount build() {
-            final var o = new FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

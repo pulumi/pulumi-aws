@@ -4,6 +4,7 @@
 package com.pulumi.aws.directconnect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -105,7 +106,10 @@ public final class GetLocationResult {
 
         @CustomType.Setter
         public Builder availableMacsecPortSpeeds(List<String> availableMacsecPortSpeeds) {
-            this.availableMacsecPortSpeeds = Objects.requireNonNull(availableMacsecPortSpeeds);
+            if (availableMacsecPortSpeeds == null) {
+              throw new MissingRequiredPropertyException("GetLocationResult", "availableMacsecPortSpeeds");
+            }
+            this.availableMacsecPortSpeeds = availableMacsecPortSpeeds;
             return this;
         }
         public Builder availableMacsecPortSpeeds(String... availableMacsecPortSpeeds) {
@@ -113,7 +117,10 @@ public final class GetLocationResult {
         }
         @CustomType.Setter
         public Builder availablePortSpeeds(List<String> availablePortSpeeds) {
-            this.availablePortSpeeds = Objects.requireNonNull(availablePortSpeeds);
+            if (availablePortSpeeds == null) {
+              throw new MissingRequiredPropertyException("GetLocationResult", "availablePortSpeeds");
+            }
+            this.availablePortSpeeds = availablePortSpeeds;
             return this;
         }
         public Builder availablePortSpeeds(String... availablePortSpeeds) {
@@ -121,7 +128,10 @@ public final class GetLocationResult {
         }
         @CustomType.Setter
         public Builder availableProviders(List<String> availableProviders) {
-            this.availableProviders = Objects.requireNonNull(availableProviders);
+            if (availableProviders == null) {
+              throw new MissingRequiredPropertyException("GetLocationResult", "availableProviders");
+            }
+            this.availableProviders = availableProviders;
             return this;
         }
         public Builder availableProviders(String... availableProviders) {
@@ -129,28 +139,37 @@ public final class GetLocationResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLocationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder locationCode(String locationCode) {
-            this.locationCode = Objects.requireNonNull(locationCode);
+            if (locationCode == null) {
+              throw new MissingRequiredPropertyException("GetLocationResult", "locationCode");
+            }
+            this.locationCode = locationCode;
             return this;
         }
         @CustomType.Setter
         public Builder locationName(String locationName) {
-            this.locationName = Objects.requireNonNull(locationName);
+            if (locationName == null) {
+              throw new MissingRequiredPropertyException("GetLocationResult", "locationName");
+            }
+            this.locationName = locationName;
             return this;
         }
         public GetLocationResult build() {
-            final var o = new GetLocationResult();
-            o.availableMacsecPortSpeeds = availableMacsecPortSpeeds;
-            o.availablePortSpeeds = availablePortSpeeds;
-            o.availableProviders = availableProviders;
-            o.id = id;
-            o.locationCode = locationCode;
-            o.locationName = locationName;
-            return o;
+            final var _resultValue = new GetLocationResult();
+            _resultValue.availableMacsecPortSpeeds = availableMacsecPortSpeeds;
+            _resultValue.availablePortSpeeds = availablePortSpeeds;
+            _resultValue.availableProviders = availableProviders;
+            _resultValue.id = id;
+            _resultValue.locationCode = locationCode;
+            _resultValue.locationName = locationName;
+            return _resultValue;
         }
     }
 }

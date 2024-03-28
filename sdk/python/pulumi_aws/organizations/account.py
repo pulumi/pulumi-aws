@@ -403,21 +403,25 @@ class Account(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        account = aws.organizations.Account("account", email="john@doe.org")
+        account = aws.organizations.Account("account",
+            name="my_new_account",
+            email="john@doe.org")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the AWS member account using the `account_id`. For example:
 
         ```sh
-         $ pulumi import aws:organizations/account:Account my_account 111111111111
+        $ pulumi import aws:organizations/account:Account my_account 111111111111
         ```
-         Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+        Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -447,21 +451,25 @@ class Account(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        account = aws.organizations.Account("account", email="john@doe.org")
+        account = aws.organizations.Account("account",
+            name="my_new_account",
+            email="john@doe.org")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the AWS member account using the `account_id`. For example:
 
         ```sh
-         $ pulumi import aws:organizations/account:Account my_account 111111111111
+        $ pulumi import aws:organizations/account:Account my_account 111111111111
         ```
-         Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+        Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
@@ -511,8 +519,6 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["joined_timestamp"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Account, __self__).__init__(
             'aws:organizations/account:Account',
             resource_name,

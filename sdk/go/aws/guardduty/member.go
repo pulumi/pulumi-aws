@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,14 +35,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			memberDetector, err := guardduty.NewDetector(ctx, "memberDetector", &guardduty.DetectorArgs{
+//			member, err := guardduty.NewDetector(ctx, "member", &guardduty.DetectorArgs{
 //				Enable: pulumi.Bool(true),
-//			}, pulumi.Provider(aws.Dev))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = guardduty.NewMember(ctx, "memberMember", &guardduty.MemberArgs{
-//				AccountId:         memberDetector.AccountId,
+//			_, err = guardduty.NewMember(ctx, "member", &guardduty.MemberArgs{
+//				AccountId:         member.AccountId,
 //				DetectorId:        primary.ID(),
 //				Email:             pulumi.String("required@example.com"),
 //				Invite:            pulumi.Bool(true),
@@ -55,15 +56,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import GuardDuty members using the primary GuardDuty detector ID and member AWS account ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:guardduty/member:Member MyMember 00b00fd5aecc0ab60a708659477e9617:123456789012
-//
+// $ pulumi import aws:guardduty/member:Member MyMember 00b00fd5aecc0ab60a708659477e9617:123456789012
 // ```
 type Member struct {
 	pulumi.CustomResourceState

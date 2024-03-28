@@ -4,6 +4,7 @@
 package com.pulumi.aws.autoscaling.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -66,19 +67,23 @@ public final class GroupTrafficSource {
 
         @CustomType.Setter
         public Builder identifier(String identifier) {
-            this.identifier = Objects.requireNonNull(identifier);
+            if (identifier == null) {
+              throw new MissingRequiredPropertyException("GroupTrafficSource", "identifier");
+            }
+            this.identifier = identifier;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         public GroupTrafficSource build() {
-            final var o = new GroupTrafficSource();
-            o.identifier = identifier;
-            o.type = type;
-            return o;
+            final var _resultValue = new GroupTrafficSource();
+            _resultValue.identifier = identifier;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

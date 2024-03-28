@@ -7,28 +7,32 @@ import * as utilities from "../utilities";
 /**
  * Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
  *
+ * > This resource cannot be used with S3 directory buckets.
+ *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketPublicAccessBlock = new aws.s3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock", {
- *     bucket: exampleBucketV2.id,
+ * const example = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleBucketPublicAccessBlock = new aws.s3.BucketPublicAccessBlock("example", {
+ *     bucket: example.id,
  *     blockPublicAcls: true,
  *     blockPublicPolicy: true,
  *     ignorePublicAcls: true,
  *     restrictPublicBuckets: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_s3_bucket_public_access_block` using the bucket name. For example:
  *
  * ```sh
- *  $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
+ * $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
  * ```
  */
 export class BucketPublicAccessBlock extends pulumi.CustomResource {

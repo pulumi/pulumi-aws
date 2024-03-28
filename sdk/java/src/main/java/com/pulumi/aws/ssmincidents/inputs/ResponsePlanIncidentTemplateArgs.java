@@ -6,6 +6,7 @@ package com.pulumi.aws.ssmincidents.inputs;
 import com.pulumi.aws.ssmincidents.inputs.ResponsePlanIncidentTemplateNotificationTargetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -275,8 +276,12 @@ public final class ResponsePlanIncidentTemplateArgs extends com.pulumi.resources
         }
 
         public ResponsePlanIncidentTemplateArgs build() {
-            $.impact = Objects.requireNonNull($.impact, "expected parameter 'impact' to be non-null");
-            $.title = Objects.requireNonNull($.title, "expected parameter 'title' to be non-null");
+            if ($.impact == null) {
+                throw new MissingRequiredPropertyException("ResponsePlanIncidentTemplateArgs", "impact");
+            }
+            if ($.title == null) {
+                throw new MissingRequiredPropertyException("ResponsePlanIncidentTemplateArgs", "title");
+            }
             return $;
         }
     }

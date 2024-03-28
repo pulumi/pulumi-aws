@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a WAF Regional Regex Match Set Resource
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,12 +48,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleRegexPatternSet = new RegexPatternSet(&#34;exampleRegexPatternSet&#34;, RegexPatternSetArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .regexPatternStrings(            
  *                 &#34;one&#34;,
  *                 &#34;two&#34;)
  *             .build());
  * 
- *         var exampleRegexMatchSet = new RegexMatchSet(&#34;exampleRegexMatchSet&#34;, RegexMatchSetArgs.builder()        
+ *         var example = new RegexMatchSet(&#34;example&#34;, RegexMatchSetArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .regexMatchTuples(RegexMatchSetRegexMatchTupleArgs.builder()
  *                 .fieldToMatch(RegexMatchSetRegexMatchTupleFieldToMatchArgs.builder()
  *                     .data(&#34;User-Agent&#34;)
@@ -65,13 +69,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import WAF Regional Regex Match Set using the id. For example:
  * 
  * ```sh
- *  $ pulumi import aws:wafregional/regexMatchSet:RegexMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * $ pulumi import aws:wafregional/regexMatchSet:RegexMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
  * ```
  * 
  */

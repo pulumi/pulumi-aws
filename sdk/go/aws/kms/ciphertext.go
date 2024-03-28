@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,7 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			oauthConfig, err := kms.NewKey(ctx, "oauthConfig", &kms.KeyArgs{
+//			oauthConfig, err := kms.NewKey(ctx, "oauth_config", &kms.KeyArgs{
 //				Description: pulumi.String("oauth config"),
 //				IsEnabled:   pulumi.Bool(true),
 //			})
@@ -50,6 +51,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type Ciphertext struct {
 	pulumi.CustomResourceState
 

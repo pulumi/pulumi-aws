@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupQuerySuggestionsBlockList(ctx *pulumi.Context, args *LookupQuerySuggestionsBlockListArgs, opts ...pulumi.InvokeOption) (*LookupQuerySuggestionsBlockListResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupQuerySuggestionsBlockListResult

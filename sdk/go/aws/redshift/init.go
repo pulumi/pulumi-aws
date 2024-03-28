@@ -29,6 +29,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ClusterIamRoles{}
 	case "aws:redshift/clusterSnapshot:ClusterSnapshot":
 		r = &ClusterSnapshot{}
+	case "aws:redshift/dataShareAuthorization:DataShareAuthorization":
+		r = &DataShareAuthorization{}
+	case "aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation":
+		r = &DataShareConsumerAssociation{}
 	case "aws:redshift/endpointAccess:EndpointAccess":
 		r = &EndpointAccess{}
 	case "aws:redshift/endpointAuthorization:EndpointAuthorization":
@@ -88,6 +92,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"redshift/clusterSnapshot",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"redshift/dataShareAuthorization",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"redshift/dataShareConsumerAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

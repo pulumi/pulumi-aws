@@ -15,12 +15,14 @@ import (
 // Manages selection conditions for AWS Backup plan resources.
 //
 // ## Example Usage
+//
 // ### IAM Role
 //
 // > For more information about creating and managing IAM Roles for backups and restores, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/iam-service-roles.html).
 //
 // The below example creates an IAM role with the default managed IAM Policy for allowing AWS Backup to create backups.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,21 +57,22 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("example"),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "exampleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
+//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup"),
-//				Role:      exampleRole.Name,
+//				Role:      example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = backup.NewSelection(ctx, "exampleSelection", &backup.SelectionArgs{
-//				IamRoleArn: exampleRole.Arn,
+//			_, err = backup.NewSelection(ctx, "example", &backup.SelectionArgs{
+//				IamRoleArn: example.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -79,8 +82,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Selecting Backups By Tag
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -94,8 +100,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.NewSelection(ctx, "example", &backup.SelectionArgs{
-//				IamRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				PlanId:     pulumi.Any(aws_backup_plan.Example.Id),
+//				IamRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				Name:       pulumi.String("my_example_backup_selection"),
+//				PlanId:     pulumi.Any(exampleAwsBackupPlan.Id),
 //				SelectionTags: backup.SelectionSelectionTagArray{
 //					&backup.SelectionSelectionTagArgs{
 //						Type:  pulumi.String("STRINGEQUALS"),
@@ -112,8 +119,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Selecting Backups By Conditions
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -127,8 +137,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.NewSelection(ctx, "example", &backup.SelectionArgs{
-//				IamRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				PlanId:     pulumi.Any(aws_backup_plan.Example.Id),
+//				IamRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				Name:       pulumi.String("my_example_backup_selection"),
+//				PlanId:     pulumi.Any(exampleAwsBackupPlan.Id),
 //				Resources: pulumi.StringArray{
 //					pulumi.String("*"),
 //				},
@@ -169,8 +180,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Selecting Backups By Resource
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -184,12 +198,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.NewSelection(ctx, "example", &backup.SelectionArgs{
-//				IamRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				PlanId:     pulumi.Any(aws_backup_plan.Example.Id),
+//				IamRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				Name:       pulumi.String("my_example_backup_selection"),
+//				PlanId:     pulumi.Any(exampleAwsBackupPlan.Id),
 //				Resources: pulumi.StringArray{
-//					aws_db_instance.Example.Arn,
-//					aws_ebs_volume.Example.Arn,
-//					aws_efs_file_system.Example.Arn,
+//					exampleAwsDbInstance.Arn,
+//					exampleAwsEbsVolume.Arn,
+//					exampleAwsEfsFileSystem.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -200,8 +215,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Selecting Backups By Not Resource
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -215,12 +233,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.NewSelection(ctx, "example", &backup.SelectionArgs{
-//				IamRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				PlanId:     pulumi.Any(aws_backup_plan.Example.Id),
+//				IamRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				Name:       pulumi.String("my_example_backup_selection"),
+//				PlanId:     pulumi.Any(exampleAwsBackupPlan.Id),
 //				NotResources: pulumi.StringArray{
-//					aws_db_instance.Example.Arn,
-//					aws_ebs_volume.Example.Arn,
-//					aws_efs_file_system.Example.Arn,
+//					exampleAwsDbInstance.Arn,
+//					exampleAwsEbsVolume.Arn,
+//					exampleAwsEfsFileSystem.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -231,15 +250,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Backup selection using the role plan_id and id separated by `|`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:backup/selection:Selection example plan-id|selection-id
-//
+// $ pulumi import aws:backup/selection:Selection example plan-id|selection-id
 // ```
 type Selection struct {
 	pulumi.CustomResourceState

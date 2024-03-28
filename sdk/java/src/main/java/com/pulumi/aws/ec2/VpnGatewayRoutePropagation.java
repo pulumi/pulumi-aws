@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * propagation not explicitly listed in its value will be removed.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,13 +45,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VpnGatewayRoutePropagation(&#34;example&#34;, VpnGatewayRoutePropagationArgs.builder()        
- *             .vpnGatewayId(aws_vpn_gateway.example().id())
- *             .routeTableId(aws_route_table.example().id())
+ *             .vpnGatewayId(exampleAwsVpnGateway.id())
+ *             .routeTableId(exampleAwsRouteTable.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation")

@@ -114,43 +114,49 @@ public final class ProxyAuth {
 
         @CustomType.Setter
         public Builder authScheme(@Nullable String authScheme) {
+
             this.authScheme = authScheme;
             return this;
         }
         @CustomType.Setter
         public Builder clientPasswordAuthType(@Nullable String clientPasswordAuthType) {
+
             this.clientPasswordAuthType = clientPasswordAuthType;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder iamAuth(@Nullable String iamAuth) {
+
             this.iamAuth = iamAuth;
             return this;
         }
         @CustomType.Setter
         public Builder secretArn(@Nullable String secretArn) {
+
             this.secretArn = secretArn;
             return this;
         }
         @CustomType.Setter
         public Builder username(@Nullable String username) {
+
             this.username = username;
             return this;
         }
         public ProxyAuth build() {
-            final var o = new ProxyAuth();
-            o.authScheme = authScheme;
-            o.clientPasswordAuthType = clientPasswordAuthType;
-            o.description = description;
-            o.iamAuth = iamAuth;
-            o.secretArn = secretArn;
-            o.username = username;
-            return o;
+            final var _resultValue = new ProxyAuth();
+            _resultValue.authScheme = authScheme;
+            _resultValue.clientPasswordAuthType = clientPasswordAuthType;
+            _resultValue.description = description;
+            _resultValue.iamAuth = iamAuth;
+            _resultValue.secretArn = secretArn;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

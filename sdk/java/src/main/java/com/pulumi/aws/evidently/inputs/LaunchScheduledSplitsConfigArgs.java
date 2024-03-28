@@ -6,6 +6,7 @@ package com.pulumi.aws.evidently.inputs;
 import com.pulumi.aws.evidently.inputs.LaunchScheduledSplitsConfigStepArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -85,7 +86,9 @@ public final class LaunchScheduledSplitsConfigArgs extends com.pulumi.resources.
         }
 
         public LaunchScheduledSplitsConfigArgs build() {
-            $.steps = Objects.requireNonNull($.steps, "expected parameter 'steps' to be non-null");
+            if ($.steps == null) {
+                throw new MissingRequiredPropertyException("LaunchScheduledSplitsConfigArgs", "steps");
+            }
             return $;
         }
     }

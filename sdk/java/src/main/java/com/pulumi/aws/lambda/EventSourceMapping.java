@@ -32,7 +32,10 @@ import javax.annotation.Nullable;
  * For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
  * 
  * ## Example Usage
+ * 
  * ### DynamoDB
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -55,15 +58,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
- *             .eventSourceArn(aws_dynamodb_table.example().stream_arn())
- *             .functionName(aws_lambda_function.example().arn())
+ *             .eventSourceArn(exampleAwsDynamodbTable.streamArn())
+ *             .functionName(exampleAwsLambdaFunction.arn())
  *             .startingPosition(&#34;LATEST&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Kinesis
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -86,15 +93,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
- *             .eventSourceArn(aws_kinesis_stream.example().arn())
- *             .functionName(aws_lambda_function.example().arn())
+ *             .eventSourceArn(exampleAwsKinesisStream.arn())
+ *             .functionName(exampleAwsLambdaFunction.arn())
  *             .startingPosition(&#34;LATEST&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Managed Streaming for Apache Kafka (MSK)
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -117,8 +128,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
- *             .eventSourceArn(aws_msk_cluster.example().arn())
- *             .functionName(aws_lambda_function.example().arn())
+ *             .eventSourceArn(exampleAwsMskCluster.arn())
+ *             .functionName(exampleAwsLambdaFunction.arn())
  *             .topics(&#34;Example&#34;)
  *             .startingPosition(&#34;TRIM_HORIZON&#34;)
  *             .build());
@@ -126,7 +137,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Self Managed Apache Kafka
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -151,7 +166,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
- *             .functionName(aws_lambda_function.example().arn())
+ *             .functionName(exampleAwsLambdaFunction.arn())
  *             .topics(&#34;Example&#34;)
  *             .startingPosition(&#34;TRIM_HORIZON&#34;)
  *             .selfManagedEventSource(EventSourceMappingSelfManagedEventSourceArgs.builder()
@@ -175,7 +190,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### SQS
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -198,14 +217,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
- *             .eventSourceArn(aws_sqs_queue.sqs_queue_test().arn())
- *             .functionName(aws_lambda_function.example().arn())
+ *             .eventSourceArn(sqsQueueTest.arn())
+ *             .functionName(exampleAwsLambdaFunction.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### SQS with event filter
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -230,14 +253,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
- *             .eventSourceArn(aws_sqs_queue.sqs_queue_test().arn())
- *             .functionName(aws_lambda_function.example().arn())
+ *             .eventSourceArn(sqsQueueTest.arn())
+ *             .functionName(exampleAwsLambdaFunction.arn())
  *             .filterCriteria(EventSourceMappingFilterCriteriaArgs.builder()
  *                 .filters(EventSourceMappingFilterCriteriaFilterArgs.builder()
  *                     .pattern(serializeJson(
  *                         jsonObject(
  *                             jsonProperty(&#34;body&#34;, jsonObject(
- *                                 jsonProperty(&#34;Temperature&#34;, jsonArray(jsonObject(
+ *                                 jsonProperty(&#34;temperature&#34;, jsonArray(jsonObject(
  *                                     jsonProperty(&#34;numeric&#34;, jsonArray(
  *                                         &#34;&gt;&#34;, 
  *                                         0, 
@@ -245,7 +268,7 @@ import javax.annotation.Nullable;
  *                                         100
  *                                     ))
  *                                 ))),
- *                                 jsonProperty(&#34;Location&#34;, jsonArray(&#34;New York&#34;))
+ *                                 jsonProperty(&#34;location&#34;, jsonArray(&#34;New York&#34;))
  *                             ))
  *                         )))
  *                     .build())
@@ -255,8 +278,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Amazon MQ (ActiveMQ)
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -281,21 +307,24 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
  *             .batchSize(10)
- *             .eventSourceArn(aws_mq_broker.example().arn())
+ *             .eventSourceArn(exampleAwsMqBroker.arn())
  *             .enabled(true)
- *             .functionName(aws_lambda_function.example().arn())
+ *             .functionName(exampleAwsLambdaFunction.arn())
  *             .queues(&#34;example&#34;)
  *             .sourceAccessConfigurations(EventSourceMappingSourceAccessConfigurationArgs.builder()
  *                 .type(&#34;BASIC_AUTH&#34;)
- *                 .uri(aws_secretsmanager_secret_version.example().arn())
+ *                 .uri(exampleAwsSecretsmanagerSecretVersion.arn())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Amazon MQ (RabbitMQ)
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -320,9 +349,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
  *             .batchSize(1)
- *             .eventSourceArn(aws_mq_broker.example().arn())
+ *             .eventSourceArn(exampleAwsMqBroker.arn())
  *             .enabled(true)
- *             .functionName(aws_lambda_function.example().arn())
+ *             .functionName(exampleAwsLambdaFunction.arn())
  *             .queues(&#34;example&#34;)
  *             .sourceAccessConfigurations(            
  *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
@@ -331,20 +360,21 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
  *                     .type(&#34;BASIC_AUTH&#34;)
- *                     .uri(aws_secretsmanager_secret_version.example().arn())
+ *                     .uri(exampleAwsSecretsmanagerSecretVersion.arn())
  *                     .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Lambda event source mappings using the `UUID` (event source mapping identifier). For example:
  * 
  * ```sh
- *  $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
+ * $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
  * ```
  * 
  */
@@ -393,14 +423,14 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.bisectBatchOnFunctionError);
     }
     /**
-     * - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     * - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
      * 
      */
     @Export(name="destinationConfig", refs={EventSourceMappingDestinationConfig.class}, tree="[0]")
     private Output</* @Nullable */ EventSourceMappingDestinationConfig> destinationConfig;
 
     /**
-     * @return - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     * @return - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
      * 
      */
     public Output<Optional<EventSourceMappingDestinationConfig>> destinationConfig() {

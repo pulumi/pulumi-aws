@@ -44,13 +44,14 @@ public final class VirtualGatewaySpecBackendDefaults {
 
         @CustomType.Setter
         public Builder clientPolicy(@Nullable VirtualGatewaySpecBackendDefaultsClientPolicy clientPolicy) {
+
             this.clientPolicy = clientPolicy;
             return this;
         }
         public VirtualGatewaySpecBackendDefaults build() {
-            final var o = new VirtualGatewaySpecBackendDefaults();
-            o.clientPolicy = clientPolicy;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecBackendDefaults();
+            _resultValue.clientPolicy = clientPolicy;
+            return _resultValue;
         }
     }
 }

@@ -834,6 +834,7 @@ class Ami(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -842,22 +843,24 @@ class Ami(pulumi.CustomResource):
         # an EBS volume populated from a snapshot. We assume that such a snapshot
         # already exists with the id "snap-xxxxxxxx".
         example = aws.ec2.Ami("example",
+            name="example",
+            virtualization_type="hvm",
+            root_device_name="/dev/xvda",
+            imds_support="v2.0",
             ebs_block_devices=[aws.ec2.AmiEbsBlockDeviceArgs(
                 device_name="/dev/xvda",
                 snapshot_id="snap-xxxxxxxx",
                 volume_size=8,
-            )],
-            imds_support="v2.0",
-            root_device_name="/dev/xvda",
-            virtualization_type="hvm")
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ami` using the ID of the AMI. For example:
 
         ```sh
-         $ pulumi import aws:ec2/ami:Ami example ami-12345678
+        $ pulumi import aws:ec2/ami:Ami example ami-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -906,6 +909,7 @@ class Ami(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -914,22 +918,24 @@ class Ami(pulumi.CustomResource):
         # an EBS volume populated from a snapshot. We assume that such a snapshot
         # already exists with the id "snap-xxxxxxxx".
         example = aws.ec2.Ami("example",
+            name="example",
+            virtualization_type="hvm",
+            root_device_name="/dev/xvda",
+            imds_support="v2.0",
             ebs_block_devices=[aws.ec2.AmiEbsBlockDeviceArgs(
                 device_name="/dev/xvda",
                 snapshot_id="snap-xxxxxxxx",
                 volume_size=8,
-            )],
-            imds_support="v2.0",
-            root_device_name="/dev/xvda",
-            virtualization_type="hvm")
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ami` using the ID of the AMI. For example:
 
         ```sh
-         $ pulumi import aws:ec2/ami:Ami example ami-12345678
+        $ pulumi import aws:ec2/ami:Ami example ami-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -1002,8 +1008,6 @@ class Ami(pulumi.CustomResource):
             __props__.__dict__["root_snapshot_id"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["usage_operation"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Ami, __self__).__init__(
             'aws:ec2/ami:Ami',
             resource_name,

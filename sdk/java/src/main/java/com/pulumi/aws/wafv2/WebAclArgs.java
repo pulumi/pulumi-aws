@@ -5,12 +5,14 @@ package com.pulumi.aws.wafv2;
 
 import com.pulumi.aws.wafv2.inputs.WebAclAssociationConfigArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclCaptchaConfigArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclChallengeConfigArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclCustomResponseBodyArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -39,18 +41,33 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+     * Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
      * 
      */
     @Import(name="captchaConfig")
     private @Nullable Output<WebAclCaptchaConfigArgs> captchaConfig;
 
     /**
-     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+     * @return Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
      * 
      */
     public Optional<Output<WebAclCaptchaConfigArgs>> captchaConfig() {
         return Optional.ofNullable(this.captchaConfig);
+    }
+
+    /**
+     * Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
+     * 
+     */
+    @Import(name="challengeConfig")
+    private @Nullable Output<WebAclChallengeConfigArgs> challengeConfig;
+
+    /**
+     * @return Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
+     * 
+     */
+    public Optional<Output<WebAclChallengeConfigArgs>> challengeConfig() {
+        return Optional.ofNullable(this.challengeConfig);
     }
 
     /**
@@ -193,6 +210,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
     private WebAclArgs(WebAclArgs $) {
         this.associationConfig = $.associationConfig;
         this.captchaConfig = $.captchaConfig;
+        this.challengeConfig = $.challengeConfig;
         this.customResponseBodies = $.customResponseBodies;
         this.defaultAction = $.defaultAction;
         this.description = $.description;
@@ -244,7 +262,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
          * 
          * @return builder
          * 
@@ -255,13 +273,34 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
          * 
          * @return builder
          * 
          */
         public Builder captchaConfig(WebAclCaptchaConfigArgs captchaConfig) {
             return captchaConfig(Output.of(captchaConfig));
+        }
+
+        /**
+         * @param challengeConfig Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder challengeConfig(@Nullable Output<WebAclChallengeConfigArgs> challengeConfig) {
+            $.challengeConfig = challengeConfig;
+            return this;
+        }
+
+        /**
+         * @param challengeConfig Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder challengeConfig(WebAclChallengeConfigArgs challengeConfig) {
+            return challengeConfig(Output.of(challengeConfig));
         }
 
         /**
@@ -484,9 +523,15 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WebAclArgs build() {
-            $.defaultAction = Objects.requireNonNull($.defaultAction, "expected parameter 'defaultAction' to be non-null");
-            $.scope = Objects.requireNonNull($.scope, "expected parameter 'scope' to be non-null");
-            $.visibilityConfig = Objects.requireNonNull($.visibilityConfig, "expected parameter 'visibilityConfig' to be non-null");
+            if ($.defaultAction == null) {
+                throw new MissingRequiredPropertyException("WebAclArgs", "defaultAction");
+            }
+            if ($.scope == null) {
+                throw new MissingRequiredPropertyException("WebAclArgs", "scope");
+            }
+            if ($.visibilityConfig == null) {
+                throw new MissingRequiredPropertyException("WebAclArgs", "visibilityConfig");
+            }
             return $;
         }
     }

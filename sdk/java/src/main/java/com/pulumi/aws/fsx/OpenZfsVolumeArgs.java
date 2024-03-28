@@ -8,6 +8,7 @@ import com.pulumi.aws.fsx.inputs.OpenZfsVolumeOriginSnapshotArgs;
 import com.pulumi.aws.fsx.inputs.OpenZfsVolumeUserAndGroupQuotaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -83,14 +84,14 @@ public final class OpenZfsVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+     * NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block Below for details.
      * 
      */
     @Import(name="nfsExports")
     private @Nullable Output<OpenZfsVolumeNfsExportsArgs> nfsExports;
 
     /**
-     * @return NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+     * @return NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block Below for details.
      * 
      */
     public Optional<Output<OpenZfsVolumeNfsExportsArgs>> nfsExports() {
@@ -98,14 +99,14 @@ public final class OpenZfsVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the source snapshot to create the volume from.
+     * Specifies the configuration to use when creating the OpenZFS volume. See `origin_snapshot` Block below for details.
      * 
      */
     @Import(name="originSnapshot")
     private @Nullable Output<OpenZfsVolumeOriginSnapshotArgs> originSnapshot;
 
     /**
-     * @return The ARN of the source snapshot to create the volume from.
+     * @return Specifies the configuration to use when creating the OpenZFS volume. See `origin_snapshot` Block below for details.
      * 
      */
     public Optional<Output<OpenZfsVolumeOriginSnapshotArgs>> originSnapshot() {
@@ -203,14 +204,14 @@ public final class OpenZfsVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+     * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
      * 
      */
     @Import(name="userAndGroupQuotas")
     private @Nullable Output<List<OpenZfsVolumeUserAndGroupQuotaArgs>> userAndGroupQuotas;
 
     /**
-     * @return Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+     * @return Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
      * 
      */
     public Optional<Output<List<OpenZfsVolumeUserAndGroupQuotaArgs>>> userAndGroupQuotas() {
@@ -346,7 +347,7 @@ public final class OpenZfsVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nfsExports NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+         * @param nfsExports NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block Below for details.
          * 
          * @return builder
          * 
@@ -357,7 +358,7 @@ public final class OpenZfsVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nfsExports NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+         * @param nfsExports NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block Below for details.
          * 
          * @return builder
          * 
@@ -367,7 +368,7 @@ public final class OpenZfsVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param originSnapshot The ARN of the source snapshot to create the volume from.
+         * @param originSnapshot Specifies the configuration to use when creating the OpenZFS volume. See `origin_snapshot` Block below for details.
          * 
          * @return builder
          * 
@@ -378,7 +379,7 @@ public final class OpenZfsVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param originSnapshot The ARN of the source snapshot to create the volume from.
+         * @param originSnapshot Specifies the configuration to use when creating the OpenZFS volume. See `origin_snapshot` Block below for details.
          * 
          * @return builder
          * 
@@ -514,7 +515,7 @@ public final class OpenZfsVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userAndGroupQuotas Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+         * @param userAndGroupQuotas Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
          * 
          * @return builder
          * 
@@ -525,7 +526,7 @@ public final class OpenZfsVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userAndGroupQuotas Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+         * @param userAndGroupQuotas Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
          * 
          * @return builder
          * 
@@ -535,7 +536,7 @@ public final class OpenZfsVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userAndGroupQuotas Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+         * @param userAndGroupQuotas Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
          * 
          * @return builder
          * 
@@ -554,7 +555,9 @@ public final class OpenZfsVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public OpenZfsVolumeArgs build() {
-            $.parentVolumeId = Objects.requireNonNull($.parentVolumeId, "expected parameter 'parentVolumeId' to be non-null");
+            if ($.parentVolumeId == null) {
+                throw new MissingRequiredPropertyException("OpenZfsVolumeArgs", "parentVolumeId");
+            }
             return $;
         }
     }

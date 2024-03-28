@@ -8,6 +8,7 @@ import com.pulumi.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConn
 import com.pulumi.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom;
 import com.pulumi.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -104,37 +105,44 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
         @CustomType.Setter
         public Builder apiKey(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey apiKey) {
+
             this.apiKey = apiKey;
             return this;
         }
         @CustomType.Setter
         public Builder authenticationType(String authenticationType) {
-            this.authenticationType = Objects.requireNonNull(authenticationType);
+            if (authenticationType == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector", "authenticationType");
+            }
+            this.authenticationType = authenticationType;
             return this;
         }
         @CustomType.Setter
         public Builder basic(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic basic) {
+
             this.basic = basic;
             return this;
         }
         @CustomType.Setter
         public Builder custom(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom custom) {
+
             this.custom = custom;
             return this;
         }
         @CustomType.Setter
         public Builder oauth2(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 oauth2) {
+
             this.oauth2 = oauth2;
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector();
-            o.apiKey = apiKey;
-            o.authenticationType = authenticationType;
-            o.basic = basic;
-            o.custom = custom;
-            o.oauth2 = oauth2;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector();
+            _resultValue.apiKey = apiKey;
+            _resultValue.authenticationType = authenticationType;
+            _resultValue.basic = basic;
+            _resultValue.custom = custom;
+            _resultValue.oauth2 = oauth2;
+            return _resultValue;
         }
     }
 }

@@ -21,6 +21,8 @@ public final class CostexplorerFunctions {
      * Provides details about a specific CostExplorer Cost Category.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -49,6 +51,7 @@ public final class CostexplorerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCostCategoryResult> getCostCategory(GetCostCategoryArgs args) {
@@ -58,6 +61,8 @@ public final class CostexplorerFunctions {
      * Provides details about a specific CostExplorer Cost Category.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -86,6 +91,7 @@ public final class CostexplorerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCostCategoryResult> getCostCategoryPlain(GetCostCategoryPlainArgs args) {
@@ -95,6 +101,8 @@ public final class CostexplorerFunctions {
      * Provides details about a specific CostExplorer Cost Category.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -123,6 +131,7 @@ public final class CostexplorerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCostCategoryResult> getCostCategory(GetCostCategoryArgs args, InvokeOptions options) {
@@ -132,6 +141,8 @@ public final class CostexplorerFunctions {
      * Provides details about a specific CostExplorer Cost Category.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -160,6 +171,7 @@ public final class CostexplorerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCostCategoryResult> getCostCategoryPlain(GetCostCategoryPlainArgs args, InvokeOptions options) {
@@ -169,6 +181,8 @@ public final class CostexplorerFunctions {
      * Provides details about a specific CE Tags.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -193,14 +207,15 @@ public final class CostexplorerFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = CostexplorerFunctions.getTags(GetTagsArgs.builder()
      *             .timePeriod(GetTagsTimePeriodArgs.builder()
-     *                 .end(&#34;2022-12-01&#34;)
      *                 .start(&#34;2021-01-01&#34;)
+     *                 .end(&#34;2022-12-01&#34;)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTagsResult> getTags(GetTagsArgs args) {
@@ -210,6 +225,8 @@ public final class CostexplorerFunctions {
      * Provides details about a specific CE Tags.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -234,14 +251,15 @@ public final class CostexplorerFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = CostexplorerFunctions.getTags(GetTagsArgs.builder()
      *             .timePeriod(GetTagsTimePeriodArgs.builder()
-     *                 .end(&#34;2022-12-01&#34;)
      *                 .start(&#34;2021-01-01&#34;)
+     *                 .end(&#34;2022-12-01&#34;)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTagsResult> getTagsPlain(GetTagsPlainArgs args) {
@@ -251,6 +269,8 @@ public final class CostexplorerFunctions {
      * Provides details about a specific CE Tags.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -275,14 +295,15 @@ public final class CostexplorerFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = CostexplorerFunctions.getTags(GetTagsArgs.builder()
      *             .timePeriod(GetTagsTimePeriodArgs.builder()
-     *                 .end(&#34;2022-12-01&#34;)
      *                 .start(&#34;2021-01-01&#34;)
+     *                 .end(&#34;2022-12-01&#34;)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTagsResult> getTags(GetTagsArgs args, InvokeOptions options) {
@@ -292,6 +313,8 @@ public final class CostexplorerFunctions {
      * Provides details about a specific CE Tags.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -316,14 +339,15 @@ public final class CostexplorerFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = CostexplorerFunctions.getTags(GetTagsArgs.builder()
      *             .timePeriod(GetTagsTimePeriodArgs.builder()
-     *                 .end(&#34;2022-12-01&#34;)
      *                 .start(&#34;2021-01-01&#34;)
+     *                 .end(&#34;2022-12-01&#34;)
      *                 .build())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTagsResult> getTagsPlain(GetTagsPlainArgs args, InvokeOptions options) {

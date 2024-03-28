@@ -108,6 +108,7 @@ def get_security_groups(filters: Optional[Sequence[pulumi.InputType['GetSecurity
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -117,7 +118,9 @@ def get_security_groups(filters: Optional[Sequence[pulumi.InputType['GetSecurity
         "Environment": "dev",
     })
     ```
+    <!--End PulumiCodeChooser -->
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -129,10 +132,11 @@ def get_security_groups(filters: Optional[Sequence[pulumi.InputType['GetSecurity
         ),
         aws.ec2.GetSecurityGroupsFilterArgs(
             name="vpc-id",
-            values=[var["vpc_id"]],
+            values=[vpc_id],
         ),
     ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetSecurityGroupsFilterArgs']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
@@ -162,6 +166,7 @@ def get_security_groups_output(filters: Optional[pulumi.Input[Optional[Sequence[
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -171,7 +176,9 @@ def get_security_groups_output(filters: Optional[pulumi.Input[Optional[Sequence[
         "Environment": "dev",
     })
     ```
+    <!--End PulumiCodeChooser -->
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -183,10 +190,11 @@ def get_security_groups_output(filters: Optional[pulumi.Input[Optional[Sequence[
         ),
         aws.ec2.GetSecurityGroupsFilterArgs(
             name="vpc-id",
-            values=[var["vpc_id"]],
+            values=[vpc_id],
         ),
     ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetSecurityGroupsFilterArgs']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].

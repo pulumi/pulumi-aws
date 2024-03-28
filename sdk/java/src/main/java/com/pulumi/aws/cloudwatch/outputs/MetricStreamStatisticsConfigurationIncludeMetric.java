@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class MetricStreamStatisticsConfigurationIncludeMetric {
 
         @CustomType.Setter
         public Builder metricName(String metricName) {
-            this.metricName = Objects.requireNonNull(metricName);
+            if (metricName == null) {
+              throw new MissingRequiredPropertyException("MetricStreamStatisticsConfigurationIncludeMetric", "metricName");
+            }
+            this.metricName = metricName;
             return this;
         }
         @CustomType.Setter
         public Builder namespace(String namespace) {
-            this.namespace = Objects.requireNonNull(namespace);
+            if (namespace == null) {
+              throw new MissingRequiredPropertyException("MetricStreamStatisticsConfigurationIncludeMetric", "namespace");
+            }
+            this.namespace = namespace;
             return this;
         }
         public MetricStreamStatisticsConfigurationIncludeMetric build() {
-            final var o = new MetricStreamStatisticsConfigurationIncludeMetric();
-            o.metricName = metricName;
-            o.namespace = namespace;
-            return o;
+            final var _resultValue = new MetricStreamStatisticsConfigurationIncludeMetric();
+            _resultValue.metricName = metricName;
+            _resultValue.namespace = namespace;
+            return _resultValue;
         }
     }
 }

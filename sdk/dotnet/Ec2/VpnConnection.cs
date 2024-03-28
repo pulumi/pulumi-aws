@@ -17,8 +17,10 @@ namespace Pulumi.Aws.Ec2
     /// [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
     /// 
     /// ## Example Usage
+    /// 
     /// ### EC2 Transit Gateway
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,26 +29,29 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway");
+    ///     var example = new Aws.Ec2TransitGateway.TransitGateway("example");
     /// 
-    ///     var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("exampleCustomerGateway", new()
+    ///     var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("example", new()
     ///     {
     ///         BgpAsn = "65000",
     ///         IpAddress = "172.0.0.1",
     ///         Type = "ipsec.1",
     ///     });
     /// 
-    ///     var exampleVpnConnection = new Aws.Ec2.VpnConnection("exampleVpnConnection", new()
+    ///     var exampleVpnConnection = new Aws.Ec2.VpnConnection("example", new()
     ///     {
     ///         CustomerGatewayId = exampleCustomerGateway.Id,
-    ///         TransitGatewayId = exampleTransitGateway.Id,
+    ///         TransitGatewayId = example.Id,
     ///         Type = exampleCustomerGateway.Type,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Virtual Private Gateway
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -60,12 +65,12 @@ namespace Pulumi.Aws.Ec2
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var vpnGateway = new Aws.Ec2.VpnGateway("vpnGateway", new()
+    ///     var vpnGateway = new Aws.Ec2.VpnGateway("vpn_gateway", new()
     ///     {
     ///         VpcId = vpc.Id,
     ///     });
     /// 
-    ///     var customerGateway = new Aws.Ec2.CustomerGateway("customerGateway", new()
+    ///     var customerGateway = new Aws.Ec2.CustomerGateway("customer_gateway", new()
     ///     {
     ///         BgpAsn = "65000",
     ///         IpAddress = "172.0.0.1",
@@ -82,8 +87,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### AWS Site to Site Private VPN
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -92,12 +100,13 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGateway = new Aws.DirectConnect.Gateway("exampleGateway", new()
+    ///     var exampleGateway = new Aws.DirectConnect.Gateway("example", new()
     ///     {
+    ///         Name = "example_ipsec_vpn_example",
     ///         AmazonSideAsn = "64512",
     ///     });
     /// 
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new()
+    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("example", new()
     ///     {
     ///         AmazonSideAsn = 64513,
     ///         Description = "example_ipsec_vpn_example",
@@ -107,7 +116,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("exampleCustomerGateway", new()
+    ///     var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("example", new()
     ///     {
     ///         BgpAsn = "64514",
     ///         IpAddress = "10.0.0.1",
@@ -118,7 +127,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("exampleGatewayAssociation", new()
+    ///     var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("example", new()
     ///     {
     ///         DxGatewayId = exampleGateway.Id,
     ///         AssociatedGatewayId = exampleTransitGateway.Id,
@@ -128,18 +137,18 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var exampleDirectConnectGatewayAttachment = Aws.Ec2TransitGateway.GetDirectConnectGatewayAttachment.Invoke(new()
+    ///     var example = Aws.Ec2TransitGateway.GetDirectConnectGatewayAttachment.Invoke(new()
     ///     {
     ///         TransitGatewayId = exampleTransitGateway.Id,
     ///         DxGatewayId = exampleGateway.Id,
     ///     });
     /// 
-    ///     var exampleVpnConnection = new Aws.Ec2.VpnConnection("exampleVpnConnection", new()
+    ///     var exampleVpnConnection = new Aws.Ec2.VpnConnection("example", new()
     ///     {
     ///         CustomerGatewayId = exampleCustomerGateway.Id,
     ///         OutsideIpAddressType = "PrivateIpv4",
     ///         TransitGatewayId = exampleTransitGateway.Id,
-    ///         TransportTransitGatewayAttachmentId = exampleDirectConnectGatewayAttachment.Apply(getDirectConnectGatewayAttachmentResult =&gt; getDirectConnectGatewayAttachmentResult.Id),
+    ///         TransportTransitGatewayAttachmentId = example.Apply(getDirectConnectGatewayAttachmentResult =&gt; getDirectConnectGatewayAttachmentResult.Id),
     ///         Type = "ipsec.1",
     ///         Tags = 
     ///         {
@@ -149,13 +158,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import VPN Connections using the VPN connection `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
+    /// $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpnConnection:VpnConnection")]
@@ -619,7 +629,6 @@ namespace Pulumi.Aws.Ec2
                 AdditionalSecretOutputs =
                 {
                     "customerGatewayConfiguration",
-                    "tagsAll",
                     "tunnel1PresharedKey",
                     "tunnel2PresharedKey",
                 },
@@ -1204,11 +1213,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

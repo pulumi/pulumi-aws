@@ -224,26 +224,28 @@ class ObservabilityConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.apprunner.ObservabilityConfiguration("example",
             observability_configuration_name="example",
-            tags={
-                "Name": "example-apprunner-observability-configuration",
-            },
             trace_configuration=aws.apprunner.ObservabilityConfigurationTraceConfigurationArgs(
                 vendor="AWSXRAY",
-            ))
+            ),
+            tags={
+                "Name": "example-apprunner-observability-configuration",
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Runner Observability Configuration using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:apprunner/observabilityConfiguration:ObservabilityConfiguration example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
+        $ pulumi import aws:apprunner/observabilityConfiguration:ObservabilityConfiguration example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
         ```
 
         :param str resource_name: The name of the resource.
@@ -263,26 +265,28 @@ class ObservabilityConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.apprunner.ObservabilityConfiguration("example",
             observability_configuration_name="example",
-            tags={
-                "Name": "example-apprunner-observability-configuration",
-            },
             trace_configuration=aws.apprunner.ObservabilityConfigurationTraceConfigurationArgs(
                 vendor="AWSXRAY",
-            ))
+            ),
+            tags={
+                "Name": "example-apprunner-observability-configuration",
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Runner Observability Configuration using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:apprunner/observabilityConfiguration:ObservabilityConfiguration example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
+        $ pulumi import aws:apprunner/observabilityConfiguration:ObservabilityConfiguration example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
         ```
 
         :param str resource_name: The name of the resource.
@@ -322,8 +326,6 @@ class ObservabilityConfiguration(pulumi.CustomResource):
             __props__.__dict__["observability_configuration_revision"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ObservabilityConfiguration, __self__).__init__(
             'aws:apprunner/observabilityConfiguration:ObservabilityConfiguration',
             resource_name,

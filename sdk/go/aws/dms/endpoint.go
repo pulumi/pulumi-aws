@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,6 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new endpoint
 //			_, err := dms.NewEndpoint(ctx, "test", &dms.EndpointArgs{
 //				CertificateArn:            pulumi.String("arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012"),
 //				DatabaseName:              pulumi.String("test"),
@@ -55,15 +57,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
-//
+// $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
 // ```
 type Endpoint struct {
 	pulumi.CustomResourceState
@@ -98,15 +99,19 @@ type Endpoint struct {
 	Password              pulumi.StringPtrOutput `pulumi:"password"`
 	PauseReplicationTasks pulumi.BoolPtrOutput   `pulumi:"pauseReplicationTasks"`
 	// Port used by the endpoint database.
-	Port          pulumi.IntPtrOutput            `pulumi:"port"`
-	RedisSettings EndpointRedisSettingsPtrOutput `pulumi:"redisSettings"`
+	Port pulumi.IntPtrOutput `pulumi:"port"`
+	// Configuration block for Postgres settings. See below.
+	PostgresSettings EndpointPostgresSettingsPtrOutput `pulumi:"postgresSettings"`
+	RedisSettings    EndpointRedisSettingsPtrOutput    `pulumi:"redisSettings"`
 	// Configuration block for Redshift settings. See below.
 	RedshiftSettings EndpointRedshiftSettingsOutput `pulumi:"redshiftSettings"`
 	// (**Deprecated**, use the `dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
 	S3Settings EndpointS3SettingsPtrOutput `pulumi:"s3Settings"`
-	// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+	// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
+	//
+	// > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secretsManagerArn`. Or you can specify clear-text values for `username`, `password` , `serverName`, and `port`. You can't specify both.
 	SecretsManagerAccessRoleArn pulumi.StringPtrOutput `pulumi:"secretsManagerAccessRoleArn"`
-	// Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engineName` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+	// Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engineName` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
 	SecretsManagerArn pulumi.StringPtrOutput `pulumi:"secretsManagerArn"`
 	// Host name of the server.
 	ServerName pulumi.StringPtrOutput `pulumi:"serverName"`
@@ -145,7 +150,6 @@ func NewEndpoint(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"password",
-		"tagsAll",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -201,15 +205,19 @@ type endpointState struct {
 	Password              *string `pulumi:"password"`
 	PauseReplicationTasks *bool   `pulumi:"pauseReplicationTasks"`
 	// Port used by the endpoint database.
-	Port          *int                   `pulumi:"port"`
-	RedisSettings *EndpointRedisSettings `pulumi:"redisSettings"`
+	Port *int `pulumi:"port"`
+	// Configuration block for Postgres settings. See below.
+	PostgresSettings *EndpointPostgresSettings `pulumi:"postgresSettings"`
+	RedisSettings    *EndpointRedisSettings    `pulumi:"redisSettings"`
 	// Configuration block for Redshift settings. See below.
 	RedshiftSettings *EndpointRedshiftSettings `pulumi:"redshiftSettings"`
 	// (**Deprecated**, use the `dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
 	S3Settings *EndpointS3Settings `pulumi:"s3Settings"`
-	// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+	// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
+	//
+	// > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secretsManagerArn`. Or you can specify clear-text values for `username`, `password` , `serverName`, and `port`. You can't specify both.
 	SecretsManagerAccessRoleArn *string `pulumi:"secretsManagerAccessRoleArn"`
-	// Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engineName` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+	// Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engineName` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
 	SecretsManagerArn *string `pulumi:"secretsManagerArn"`
 	// Host name of the server.
 	ServerName *string `pulumi:"serverName"`
@@ -258,15 +266,19 @@ type EndpointState struct {
 	Password              pulumi.StringPtrInput
 	PauseReplicationTasks pulumi.BoolPtrInput
 	// Port used by the endpoint database.
-	Port          pulumi.IntPtrInput
-	RedisSettings EndpointRedisSettingsPtrInput
+	Port pulumi.IntPtrInput
+	// Configuration block for Postgres settings. See below.
+	PostgresSettings EndpointPostgresSettingsPtrInput
+	RedisSettings    EndpointRedisSettingsPtrInput
 	// Configuration block for Redshift settings. See below.
 	RedshiftSettings EndpointRedshiftSettingsPtrInput
 	// (**Deprecated**, use the `dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
 	S3Settings EndpointS3SettingsPtrInput
-	// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+	// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
+	//
+	// > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secretsManagerArn`. Or you can specify clear-text values for `username`, `password` , `serverName`, and `port`. You can't specify both.
 	SecretsManagerAccessRoleArn pulumi.StringPtrInput
-	// Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engineName` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+	// Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engineName` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
 	SecretsManagerArn pulumi.StringPtrInput
 	// Host name of the server.
 	ServerName pulumi.StringPtrInput
@@ -317,15 +329,19 @@ type endpointArgs struct {
 	Password              *string `pulumi:"password"`
 	PauseReplicationTasks *bool   `pulumi:"pauseReplicationTasks"`
 	// Port used by the endpoint database.
-	Port          *int                   `pulumi:"port"`
-	RedisSettings *EndpointRedisSettings `pulumi:"redisSettings"`
+	Port *int `pulumi:"port"`
+	// Configuration block for Postgres settings. See below.
+	PostgresSettings *EndpointPostgresSettings `pulumi:"postgresSettings"`
+	RedisSettings    *EndpointRedisSettings    `pulumi:"redisSettings"`
 	// Configuration block for Redshift settings. See below.
 	RedshiftSettings *EndpointRedshiftSettings `pulumi:"redshiftSettings"`
 	// (**Deprecated**, use the `dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
 	S3Settings *EndpointS3Settings `pulumi:"s3Settings"`
-	// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+	// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
+	//
+	// > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secretsManagerArn`. Or you can specify clear-text values for `username`, `password` , `serverName`, and `port`. You can't specify both.
 	SecretsManagerAccessRoleArn *string `pulumi:"secretsManagerAccessRoleArn"`
-	// Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engineName` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+	// Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engineName` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
 	SecretsManagerArn *string `pulumi:"secretsManagerArn"`
 	// Host name of the server.
 	ServerName *string `pulumi:"serverName"`
@@ -369,15 +385,19 @@ type EndpointArgs struct {
 	Password              pulumi.StringPtrInput
 	PauseReplicationTasks pulumi.BoolPtrInput
 	// Port used by the endpoint database.
-	Port          pulumi.IntPtrInput
-	RedisSettings EndpointRedisSettingsPtrInput
+	Port pulumi.IntPtrInput
+	// Configuration block for Postgres settings. See below.
+	PostgresSettings EndpointPostgresSettingsPtrInput
+	RedisSettings    EndpointRedisSettingsPtrInput
 	// Configuration block for Redshift settings. See below.
 	RedshiftSettings EndpointRedshiftSettingsPtrInput
 	// (**Deprecated**, use the `dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
 	S3Settings EndpointS3SettingsPtrInput
-	// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+	// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
+	//
+	// > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secretsManagerArn`. Or you can specify clear-text values for `username`, `password` , `serverName`, and `port`. You can't specify both.
 	SecretsManagerAccessRoleArn pulumi.StringPtrInput
-	// Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engineName` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+	// Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engineName` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
 	SecretsManagerArn pulumi.StringPtrInput
 	// Host name of the server.
 	ServerName pulumi.StringPtrInput
@@ -554,6 +574,11 @@ func (o EndpointOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// Configuration block for Postgres settings. See below.
+func (o EndpointOutput) PostgresSettings() EndpointPostgresSettingsPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointPostgresSettingsPtrOutput { return v.PostgresSettings }).(EndpointPostgresSettingsPtrOutput)
+}
+
 func (o EndpointOutput) RedisSettings() EndpointRedisSettingsPtrOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointRedisSettingsPtrOutput { return v.RedisSettings }).(EndpointRedisSettingsPtrOutput)
 }
@@ -568,12 +593,14 @@ func (o EndpointOutput) S3Settings() EndpointS3SettingsPtrOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointS3SettingsPtrOutput { return v.S3Settings }).(EndpointS3SettingsPtrOutput)
 }
 
-// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
+//
+// > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secretsManagerArn`. Or you can specify clear-text values for `username`, `password` , `serverName`, and `port`. You can't specify both.
 func (o EndpointOutput) SecretsManagerAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.SecretsManagerAccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engineName` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+// Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engineName` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
 func (o EndpointOutput) SecretsManagerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.SecretsManagerArn }).(pulumi.StringPtrOutput)
 }

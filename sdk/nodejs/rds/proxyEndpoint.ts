@@ -9,24 +9,26 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rds.ProxyEndpoint("example", {
- *     dbProxyName: aws_db_proxy.test.name,
+ *     dbProxyName: test.name,
  *     dbProxyEndpointName: "example",
- *     vpcSubnetIds: aws_subnet.test.map(__item => __item.id),
+ *     vpcSubnetIds: testAwsSubnet.map(__item => __item.id),
  *     targetRole: "READ_ONLY",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import DB proxy endpoints using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`. For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
+ * $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
  * ```
  */
 export class ProxyEndpoint extends pulumi.CustomResource {
@@ -150,8 +152,6 @@ export class ProxyEndpoint extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ProxyEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }

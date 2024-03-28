@@ -12,28 +12,31 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apprunner.VpcIngressConnection("example", {
- *     serviceArn: aws_apprunner_service.example.arn,
+ *     name: "example",
+ *     serviceArn: exampleAwsApprunnerService.arn,
  *     ingressVpcConfiguration: {
- *         vpcId: aws_default_vpc["default"].id,
- *         vpcEndpointId: aws_vpc_endpoint.apprunner.id,
+ *         vpcId: _default.id,
+ *         vpcEndpointId: apprunner.id,
  *     },
  *     tags: {
  *         foo: "bar",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import App Runner VPC Ingress Connection using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:apprunner/vpcIngressConnection:VpcIngressConnection example "arn:aws:apprunner:us-west-2:837424938642:vpcingressconnection/example/b379f86381d74825832c2e82080342fa"
+ * $ pulumi import aws:apprunner/vpcIngressConnection:VpcIngressConnection example "arn:aws:apprunner:us-west-2:837424938642:vpcingressconnection/example/b379f86381d74825832c2e82080342fa"
  * ```
  */
 export class VpcIngressConnection extends pulumi.CustomResource {
@@ -138,8 +141,6 @@ export class VpcIngressConnection extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VpcIngressConnection.__pulumiType, name, resourceInputs, opts);
     }
 }

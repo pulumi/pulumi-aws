@@ -4,6 +4,7 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -49,25 +50,32 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
 
         @CustomType.Setter
         public Builder networkId(Integer networkId) {
-            this.networkId = Objects.requireNonNull(networkId);
+            if (networkId == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings", "networkId");
+            }
+            this.networkId = networkId;
             return this;
         }
         @CustomType.Setter
         public Builder networkName(String networkName) {
-            this.networkName = Objects.requireNonNull(networkName);
+            if (networkName == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings", "networkName");
+            }
+            this.networkName = networkName;
             return this;
         }
         @CustomType.Setter
         public Builder repInterval(@Nullable Integer repInterval) {
+
             this.repInterval = repInterval;
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings();
-            o.networkId = networkId;
-            o.networkName = networkName;
-            o.repInterval = repInterval;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings();
+            _resultValue.networkId = networkId;
+            _resultValue.networkName = networkName;
+            _resultValue.repInterval = repInterval;
+            return _resultValue;
         }
     }
 }

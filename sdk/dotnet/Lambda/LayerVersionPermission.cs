@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,24 +27,25 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var lambdaLayerPermission = new Aws.Lambda.LayerVersionPermission("lambdaLayerPermission", new()
+    ///     var lambdaLayerPermission = new Aws.Lambda.LayerVersionPermission("lambda_layer_permission", new()
     ///     {
-    ///         Action = "lambda:GetLayerVersion",
     ///         LayerName = "arn:aws:lambda:us-west-2:123456654321:layer:test_layer1",
-    ///         Principal = "111111111111",
-    ///         StatementId = "dev-account",
     ///         VersionNumber = 1,
+    ///         Principal = "111111111111",
+    ///         Action = "lambda:GetLayerVersion",
+    ///         StatementId = "dev-account",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Lambda Layer Permissions using `layer_name` and `version_number`, separated by a comma (`,`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1
+    /// $ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1
     /// ```
     /// </summary>
     [AwsResourceType("aws:lambda/layerVersionPermission:LayerVersionPermission")]

@@ -8,11 +8,13 @@ import com.pulumi.aws.route53.inputs.RecordAliasArgs;
 import com.pulumi.aws.route53.inputs.RecordCidrRoutingPolicyArgs;
 import com.pulumi.aws.route53.inputs.RecordFailoverRoutingPolicyArgs;
 import com.pulumi.aws.route53.inputs.RecordGeolocationRoutingPolicyArgs;
+import com.pulumi.aws.route53.inputs.RecordGeoproximityRoutingPolicyArgs;
 import com.pulumi.aws.route53.inputs.RecordLatencyRoutingPolicyArgs;
 import com.pulumi.aws.route53.inputs.RecordWeightedRoutingPolicyArgs;
 import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -108,6 +110,21 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
+     * 
+     */
+    @Import(name="geoproximityRoutingPolicy")
+    private @Nullable Output<RecordGeoproximityRoutingPolicyArgs> geoproximityRoutingPolicy;
+
+    /**
+     * @return A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
+     * 
+     */
+    public Optional<Output<RecordGeoproximityRoutingPolicyArgs>> geoproximityRoutingPolicy() {
+        return Optional.ofNullable(this.geoproximityRoutingPolicy);
+    }
+
+    /**
      * The health check the record should be associated with.
      * 
      */
@@ -183,14 +200,14 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
+     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
      * 
      */
     @Import(name="setIdentifier")
     private @Nullable Output<String> setIdentifier;
 
     /**
-     * @return Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
+     * @return Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
      * 
      */
     public Optional<Output<String>> setIdentifier() {
@@ -265,6 +282,7 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
         this.cidrRoutingPolicy = $.cidrRoutingPolicy;
         this.failoverRoutingPolicies = $.failoverRoutingPolicies;
         this.geolocationRoutingPolicies = $.geolocationRoutingPolicies;
+        this.geoproximityRoutingPolicy = $.geoproximityRoutingPolicy;
         this.healthCheckId = $.healthCheckId;
         this.latencyRoutingPolicies = $.latencyRoutingPolicies;
         this.multivalueAnswerRoutingPolicy = $.multivalueAnswerRoutingPolicy;
@@ -438,6 +456,27 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param geoproximityRoutingPolicy A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder geoproximityRoutingPolicy(@Nullable Output<RecordGeoproximityRoutingPolicyArgs> geoproximityRoutingPolicy) {
+            $.geoproximityRoutingPolicy = geoproximityRoutingPolicy;
+            return this;
+        }
+
+        /**
+         * @param geoproximityRoutingPolicy A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder geoproximityRoutingPolicy(RecordGeoproximityRoutingPolicyArgs geoproximityRoutingPolicy) {
+            return geoproximityRoutingPolicy(Output.of(geoproximityRoutingPolicy));
+        }
+
+        /**
          * @param healthCheckId The health check the record should be associated with.
          * 
          * @return builder
@@ -563,7 +602,7 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param setIdentifier Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
+         * @param setIdentifier Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
          * 
          * @return builder
          * 
@@ -574,7 +613,7 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param setIdentifier Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
+         * @param setIdentifier Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
          * 
          * @return builder
          * 
@@ -698,9 +737,15 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RecordArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
-            $.zoneId = Objects.requireNonNull($.zoneId, "expected parameter 'zoneId' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("RecordArgs", "name");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("RecordArgs", "type");
+            }
+            if ($.zoneId == null) {
+                throw new MissingRequiredPropertyException("RecordArgs", "zoneId");
+            }
             return $;
         }
     }

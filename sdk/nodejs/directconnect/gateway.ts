@@ -9,19 +9,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.directconnect.Gateway("example", {amazonSideAsn: "64512"});
+ * const example = new aws.directconnect.Gateway("example", {
+ *     name: "tf-dxg-example",
+ *     amazonSideAsn: "64512",
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Direct Connect Gateways using the gateway `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:directconnect/gateway:Gateway test abcd1234-dcba-5678-be23-cdef9876ab45
+ * $ pulumi import aws:directconnect/gateway:Gateway test abcd1234-dcba-5678-be23-cdef9876ab45
  * ```
  */
 export class Gateway extends pulumi.CustomResource {

@@ -77,25 +77,28 @@ public final class InstanceCpuOptions {
 
         @CustomType.Setter
         public Builder amdSevSnp(@Nullable String amdSevSnp) {
+
             this.amdSevSnp = amdSevSnp;
             return this;
         }
         @CustomType.Setter
         public Builder coreCount(@Nullable Integer coreCount) {
+
             this.coreCount = coreCount;
             return this;
         }
         @CustomType.Setter
         public Builder threadsPerCore(@Nullable Integer threadsPerCore) {
+
             this.threadsPerCore = threadsPerCore;
             return this;
         }
         public InstanceCpuOptions build() {
-            final var o = new InstanceCpuOptions();
-            o.amdSevSnp = amdSevSnp;
-            o.coreCount = coreCount;
-            o.threadsPerCore = threadsPerCore;
-            return o;
+            final var _resultValue = new InstanceCpuOptions();
+            _resultValue.amdSevSnp = amdSevSnp;
+            _resultValue.coreCount = coreCount;
+            _resultValue.threadsPerCore = threadsPerCore;
+            return _resultValue;
         }
     }
 }

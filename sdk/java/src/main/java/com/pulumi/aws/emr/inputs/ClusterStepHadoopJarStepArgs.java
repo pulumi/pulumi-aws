@@ -5,6 +5,7 @@ package com.pulumi.aws.emr.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -199,7 +200,9 @@ public final class ClusterStepHadoopJarStepArgs extends com.pulumi.resources.Res
         }
 
         public ClusterStepHadoopJarStepArgs build() {
-            $.jar = Objects.requireNonNull($.jar, "expected parameter 'jar' to be non-null");
+            if ($.jar == null) {
+                throw new MissingRequiredPropertyException("ClusterStepHadoopJarStepArgs", "jar");
+            }
             return $;
         }
     }

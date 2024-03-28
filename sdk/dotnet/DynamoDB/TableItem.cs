@@ -17,6 +17,7 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,8 +26,9 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleTable = new Aws.DynamoDB.Table("exampleTable", new()
+    ///     var exampleTable = new Aws.DynamoDB.Table("example", new()
     ///     {
+    ///         Name = "example-name",
     ///         ReadCapacity = 10,
     ///         WriteCapacity = 10,
     ///         HashKey = "exampleHashKey",
@@ -40,7 +42,7 @@ namespace Pulumi.Aws.DynamoDB
     ///         },
     ///     });
     /// 
-    ///     var exampleTableItem = new Aws.DynamoDB.TableItem("exampleTableItem", new()
+    ///     var example = new Aws.DynamoDB.TableItem("example", new()
     ///     {
     ///         TableName = exampleTable.Name,
     ///         HashKey = exampleTable.HashKey,
@@ -56,6 +58,7 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -26,8 +26,10 @@ import (
 // The state associated with existing resources will automatically be migrated.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +43,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewVirtualNode(ctx, "serviceb1", &appmesh.VirtualNodeArgs{
-//				MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
+//				Name:     pulumi.String("serviceBv1"),
+//				MeshName: pulumi.Any(simple.Id),
 //				Spec: &appmesh.VirtualNodeSpecArgs{
 //					Backends: appmesh.VirtualNodeSpecBackendArray{
 //						&appmesh.VirtualNodeSpecBackendArgs{
@@ -73,8 +76,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### AWS Cloud Map Service Discovery
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -88,12 +94,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := servicediscovery.NewHttpNamespace(ctx, "example", nil)
+//			example, err := servicediscovery.NewHttpNamespace(ctx, "example", &servicediscovery.HttpNamespaceArgs{
+//				Name: pulumi.String("example-ns"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appmesh.NewVirtualNode(ctx, "serviceb1", &appmesh.VirtualNodeArgs{
-//				MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
+//				Name:     pulumi.String("serviceBv1"),
+//				MeshName: pulumi.Any(simple.Id),
 //				Spec: &appmesh.VirtualNodeSpecArgs{
 //					Backends: appmesh.VirtualNodeSpecBackendArray{
 //						&appmesh.VirtualNodeSpecBackendArgs{
@@ -129,8 +138,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Listener Health Check
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -144,7 +156,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewVirtualNode(ctx, "serviceb1", &appmesh.VirtualNodeArgs{
-//				MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
+//				Name:     pulumi.String("serviceBv1"),
+//				MeshName: pulumi.Any(simple.Id),
 //				Spec: &appmesh.VirtualNodeSpecArgs{
 //					Backends: appmesh.VirtualNodeSpecBackendArray{
 //						&appmesh.VirtualNodeSpecBackendArgs{
@@ -184,8 +197,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Logging
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -199,7 +215,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewVirtualNode(ctx, "serviceb1", &appmesh.VirtualNodeArgs{
-//				MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
+//				Name:     pulumi.String("serviceBv1"),
+//				MeshName: pulumi.Any(simple.Id),
 //				Spec: &appmesh.VirtualNodeSpecArgs{
 //					Backends: appmesh.VirtualNodeSpecBackendArray{
 //						&appmesh.VirtualNodeSpecBackendArgs{
@@ -238,15 +255,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import App Mesh virtual nodes using `mesh_name` together with the virtual node's `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
-//
+// $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
 // ```
 type VirtualNode struct {
 	pulumi.CustomResourceState
@@ -288,10 +304,6 @@ func NewVirtualNode(ctx *pulumi.Context,
 	if args.Spec == nil {
 		return nil, errors.New("invalid value for required argument 'Spec'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualNode
 	err := ctx.RegisterResource("aws:appmesh/virtualNode:VirtualNode", name, args, &resource, opts...)

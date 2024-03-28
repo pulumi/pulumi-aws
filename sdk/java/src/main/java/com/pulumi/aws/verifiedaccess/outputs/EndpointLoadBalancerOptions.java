@@ -56,21 +56,25 @@ public final class EndpointLoadBalancerOptions {
 
         @CustomType.Setter
         public Builder loadBalancerArn(@Nullable String loadBalancerArn) {
+
             this.loadBalancerArn = loadBalancerArn;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
+
             this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder subnetIds(@Nullable List<String> subnetIds) {
+
             this.subnetIds = subnetIds;
             return this;
         }
@@ -78,12 +82,12 @@ public final class EndpointLoadBalancerOptions {
             return subnetIds(List.of(subnetIds));
         }
         public EndpointLoadBalancerOptions build() {
-            final var o = new EndpointLoadBalancerOptions();
-            o.loadBalancerArn = loadBalancerArn;
-            o.port = port;
-            o.protocol = protocol;
-            o.subnetIds = subnetIds;
-            return o;
+            final var _resultValue = new EndpointLoadBalancerOptions();
+            _resultValue.loadBalancerArn = loadBalancerArn;
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            _resultValue.subnetIds = subnetIds;
+            return _resultValue;
         }
     }
 }

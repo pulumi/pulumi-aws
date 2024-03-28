@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import App Runner Connections using the `connection_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apprunner/connection:Connection example example
-//
+// $ pulumi import aws:apprunner/connection:Connection example example
 // ```
 type Connection struct {
 	pulumi.CustomResourceState
@@ -87,10 +87,6 @@ func NewConnection(ctx *pulumi.Context,
 	if args.ProviderType == nil {
 		return nil, errors.New("invalid value for required argument 'ProviderType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Connection
 	err := ctx.RegisterResource("aws:apprunner/connection:Connection", name, args, &resource, opts...)

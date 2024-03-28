@@ -9,22 +9,27 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const yada = new aws.cloudwatch.LogGroup("yada", {tags: {
- *     Application: "serviceA",
- *     Environment: "production",
- * }});
+ * const yada = new aws.cloudwatch.LogGroup("yada", {
+ *     name: "Yada",
+ *     tags: {
+ *         Environment: "production",
+ *         Application: "serviceA",
+ *     },
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada
+ * $ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada
  * ```
  */
 export class LogGroup extends pulumi.CustomResource {
@@ -65,6 +70,10 @@ export class LogGroup extends pulumi.CustomResource {
      * permissions for the CMK whenever the encrypted data is requested.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    /**
+     * Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+     */
+    public readonly logGroupClass!: pulumi.Output<string>;
     /**
      * The name of the log group. If omitted, this provider will assign a random, unique name.
      */
@@ -109,6 +118,7 @@ export class LogGroup extends pulumi.CustomResource {
             const state = argsOrState as LogGroupState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["logGroupClass"] = state ? state.logGroupClass : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["retentionInDays"] = state ? state.retentionInDays : undefined;
@@ -118,6 +128,7 @@ export class LogGroup extends pulumi.CustomResource {
         } else {
             const args = argsOrState as LogGroupArgs | undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["logGroupClass"] = args ? args.logGroupClass : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
@@ -127,8 +138,6 @@ export class LogGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LogGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -147,6 +156,10 @@ export interface LogGroupState {
      * permissions for the CMK whenever the encrypted data is requested.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+     */
+    logGroupClass?: pulumi.Input<string>;
     /**
      * The name of the log group. If omitted, this provider will assign a random, unique name.
      */
@@ -187,6 +200,10 @@ export interface LogGroupArgs {
      * permissions for the CMK whenever the encrypted data is requested.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+     */
+    logGroupClass?: pulumi.Input<string>;
     /**
      * The name of the log group. If omitted, this provider will assign a random, unique name.
      */

@@ -11,26 +11,31 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration.
  *
  * ## Example Usage
+ *
  * ### Basic Usage - Logging to CloudWatch
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const exampleLoggingConfiguration = new aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", {destinationConfiguration: {
+ * const example = new aws.cloudwatch.LogGroup("example", {});
+ * const exampleLoggingConfiguration = new aws.ivschat.LoggingConfiguration("example", {destinationConfiguration: {
  *     cloudwatchLogs: {
- *         logGroupName: exampleLogGroup.name,
+ *         logGroupName: example.name,
  *     },
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Basic Usage - Logging to Kinesis Firehose with Extended S3
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {bucketPrefix: "tf-ivschat-logging-bucket"});
+ * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucketPrefix: "tf-ivschat-logging-bucket"});
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -41,8 +46,12 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const exampleFirehoseDeliveryStream = new aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream", {
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "firehose_example_role",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const example = new aws.kinesis.FirehoseDeliveryStream("example", {
+ *     name: "pulumi-kinesis-firehose-extended-s3-example-stream",
  *     destination: "extended_s3",
  *     extendedS3Configuration: {
  *         roleArn: exampleRole.arn,
@@ -52,23 +61,24 @@ import * as utilities from "../utilities";
  *         LogDeliveryEnabled: "true",
  *     },
  * });
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
  *     bucket: exampleBucketV2.id,
  *     acl: "private",
  * });
- * const exampleLoggingConfiguration = new aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", {destinationConfiguration: {
+ * const exampleLoggingConfiguration = new aws.ivschat.LoggingConfiguration("example", {destinationConfiguration: {
  *     firehose: {
- *         deliveryStreamName: exampleFirehoseDeliveryStream.name,
+ *         deliveryStreamName: example.name,
  *     },
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:ivschat/loggingConfiguration:LoggingConfiguration example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
+ * $ pulumi import aws:ivschat/loggingConfiguration:LoggingConfiguration example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
  * ```
  */
 export class LoggingConfiguration extends pulumi.CustomResource {
@@ -155,8 +165,6 @@ export class LoggingConfiguration extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LoggingConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

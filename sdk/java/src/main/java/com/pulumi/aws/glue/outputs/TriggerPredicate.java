@@ -5,6 +5,7 @@ package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.aws.glue.outputs.TriggerPredicateCondition;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -60,7 +61,10 @@ public final class TriggerPredicate {
 
         @CustomType.Setter
         public Builder conditions(List<TriggerPredicateCondition> conditions) {
-            this.conditions = Objects.requireNonNull(conditions);
+            if (conditions == null) {
+              throw new MissingRequiredPropertyException("TriggerPredicate", "conditions");
+            }
+            this.conditions = conditions;
             return this;
         }
         public Builder conditions(TriggerPredicateCondition... conditions) {
@@ -68,14 +72,15 @@ public final class TriggerPredicate {
         }
         @CustomType.Setter
         public Builder logical(@Nullable String logical) {
+
             this.logical = logical;
             return this;
         }
         public TriggerPredicate build() {
-            final var o = new TriggerPredicate();
-            o.conditions = conditions;
-            o.logical = logical;
-            return o;
+            final var _resultValue = new TriggerPredicate();
+            _resultValue.conditions = conditions;
+            _resultValue.logical = logical;
+            return _resultValue;
         }
     }
 }

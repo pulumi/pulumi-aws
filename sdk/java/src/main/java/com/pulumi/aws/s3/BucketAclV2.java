@@ -20,8 +20,13 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** destroy does not delete the S3 Bucket ACL but does remove the resource from state.
  * 
+ * &gt; This resource cannot be used with S3 directory buckets.
+ * 
  * ## Example Usage
+ * 
  * ### With `private` ACL
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -29,12 +34,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketOwnershipControls;
  * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
  * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,29 +53,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-tf-example-bucket&#34;)
+ *             .build());
  * 
  *         var exampleBucketOwnershipControls = new BucketOwnershipControls(&#34;exampleBucketOwnershipControls&#34;, BucketOwnershipControlsArgs.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .rule(BucketOwnershipControlsRuleArgs.builder()
  *                 .objectOwnership(&#34;BucketOwnerPreferred&#34;)
  *                 .build())
  *             .build());
  * 
  *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .acl(&#34;private&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleBucketOwnershipControls)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With `public-read` ACL
  * 
  * &gt; This example explicitly disables the default S3 bucket security settings. This
  * should be done with caution, as all bucket objects become publicly exposed.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -78,6 +87,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketOwnershipControls;
  * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
  * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
@@ -85,7 +95,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketPublicAccessBlockArgs;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -99,17 +108,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-tf-example-bucket&#34;)
+ *             .build());
  * 
  *         var exampleBucketOwnershipControls = new BucketOwnershipControls(&#34;exampleBucketOwnershipControls&#34;, BucketOwnershipControlsArgs.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .rule(BucketOwnershipControlsRuleArgs.builder()
  *                 .objectOwnership(&#34;BucketOwnerPreferred&#34;)
  *                 .build())
  *             .build());
  * 
  *         var exampleBucketPublicAccessBlock = new BucketPublicAccessBlock(&#34;exampleBucketPublicAccessBlock&#34;, BucketPublicAccessBlockArgs.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .blockPublicAcls(false)
  *             .blockPublicPolicy(false)
  *             .ignorePublicAcls(false)
@@ -117,18 +128,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .acl(&#34;public-read&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleBucketOwnershipControls,
- *                     exampleBucketPublicAccessBlock)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With Grants
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -137,6 +148,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.S3Functions;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketOwnershipControls;
  * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
  * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
@@ -144,7 +156,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
  * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyOwnerArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -160,17 +171,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = S3Functions.getCanonicalUserId();
  * 
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;my-tf-example-bucket&#34;)
+ *             .build());
  * 
  *         var exampleBucketOwnershipControls = new BucketOwnershipControls(&#34;exampleBucketOwnershipControls&#34;, BucketOwnershipControlsArgs.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .rule(BucketOwnershipControlsRuleArgs.builder()
  *                 .objectOwnership(&#34;BucketOwnerPreferred&#34;)
  *                 .build())
  *             .build());
  * 
  *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
  *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
  *                 .grants(                
  *                     BucketAclV2AccessControlPolicyGrantArgs.builder()
@@ -191,43 +204,45 @@ import javax.annotation.Nullable;
  *                     .id(current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()))
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleBucketOwnershipControls)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
- * If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is __configured__ with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), import using the `bucket` and `acl` separated by a comma (`,`):
+ * If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is __configured__ with a
+ * [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), import using the `bucket` and `acl` separated by a comma (`,`):
  * 
  * If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is __not configured__ with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
  * 
- * If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is __configured__ with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), imported using the `bucket`, `expected_bucket_owner`, and `acl` separated by commas (`,`):
+ * If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is __configured__ with a
+ * [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), imported using the `bucket`, `expected_bucket_owner`, and `acl` separated by commas (`,`):
  * 
  * __Using `pulumi import` to import__ using `bucket`, `expected_bucket_owner`, and/or `acl`, depending on your situation. For example:
  * 
- * If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is __not configured__ with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), import using the `bucket`:
+ * If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is __not configured__ with a
+ * [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), import using the `bucket`:
  * 
  * ```sh
- *  $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name
+ * $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name
  * ```
- *  If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is __configured__ with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), import using the `bucket` and `acl` separated by a comma (`,`):
+ * If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is __configured__ with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), import using the `bucket` and `acl` separated by a comma (`,`):
  * 
  * ```sh
- *  $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,private
+ * $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,private
  * ```
- *  If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is __not configured__ with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+ * If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is __not configured__ with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
  * 
  * ```sh
- *  $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,123456789012
+ * $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,123456789012
  * ```
- *  If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is __configured__ with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), imported using the `bucket`, `expected_bucket_owner`, and `acl` separated by commas (`,`):
+ * If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is __configured__ with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), imported using the `bucket`, `expected_bucket_owner`, and `acl` separated by commas (`,`):
  * 
  * ```sh
- *  $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,123456789012,private
+ * $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,123456789012,private
  * ```
  * 
  */
@@ -262,14 +277,14 @@ public class BucketAclV2 extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.acl);
     }
     /**
-     * Name of the bucket.
+     * Bucket to which to apply the ACL.
      * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
-     * @return Name of the bucket.
+     * @return Bucket to which to apply the ACL.
      * 
      */
     public Output<String> bucket() {

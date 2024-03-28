@@ -59,6 +59,7 @@ public final class ConnectorSftpConfig {
 
         @CustomType.Setter
         public Builder trustedHostKeys(@Nullable List<String> trustedHostKeys) {
+
             this.trustedHostKeys = trustedHostKeys;
             return this;
         }
@@ -67,14 +68,15 @@ public final class ConnectorSftpConfig {
         }
         @CustomType.Setter
         public Builder userSecretId(@Nullable String userSecretId) {
+
             this.userSecretId = userSecretId;
             return this;
         }
         public ConnectorSftpConfig build() {
-            final var o = new ConnectorSftpConfig();
-            o.trustedHostKeys = trustedHostKeys;
-            o.userSecretId = userSecretId;
-            return o;
+            final var _resultValue = new ConnectorSftpConfig();
+            _resultValue.trustedHostKeys = trustedHostKeys;
+            _resultValue.userSecretId = userSecretId;
+            return _resultValue;
         }
     }
 }

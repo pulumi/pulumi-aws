@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +30,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := costexplorer.GetTags(ctx, &costexplorer.GetTagsArgs{
 //				TimePeriod: costexplorer.GetTagsTimePeriod{
-//					End:   "2022-12-01",
 //					Start: "2021-01-01",
+//					End:   "2022-12-01",
 //				},
 //			}, nil)
 //			if err != nil {
@@ -41,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetTags(ctx *pulumi.Context, args *GetTagsArgs, opts ...pulumi.InvokeOption) (*GetTagsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTagsResult

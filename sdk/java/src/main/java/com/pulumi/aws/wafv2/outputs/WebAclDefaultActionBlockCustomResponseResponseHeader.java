@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class WebAclDefaultActionBlockCustomResponseResponseHeader {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("WebAclDefaultActionBlockCustomResponseResponseHeader", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("WebAclDefaultActionBlockCustomResponseResponseHeader", "value");
+            }
+            this.value = value;
             return this;
         }
         public WebAclDefaultActionBlockCustomResponseResponseHeader build() {
-            final var o = new WebAclDefaultActionBlockCustomResponseResponseHeader();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new WebAclDefaultActionBlockCustomResponseResponseHeader();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

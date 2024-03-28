@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a resource to associate/disassociate an AWS Firewall Manager administrator account. This operation must be performed in the `us-east-1` region.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,13 +44,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Firewall Manager administrator account association using the account ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
+ * $ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
  * ```
  * 
  */

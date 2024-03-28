@@ -339,37 +339,42 @@ class Profile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        test_role = aws.iam.Role("testRole",
+        test = aws.iam.Role("test",
+            name="test",
             path="/",
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": [
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": [
                         "sts:AssumeRole",
                         "sts:TagSession",
                         "sts:SetSourceIdentity",
                     ],
-                    "Principal": {
-                        "Service": "rolesanywhere.amazonaws.com",
+                    "principal": {
+                        "service": "rolesanywhere.amazonaws.com",
                     },
-                    "Effect": "Allow",
-                    "Sid": "",
+                    "effect": "Allow",
+                    "sid": "",
                 }],
             }))
-        test_profile = aws.rolesanywhere.Profile("testProfile", role_arns=[test_role.arn])
+        test_profile = aws.rolesanywhere.Profile("test",
+            name="example",
+            role_arns=[test.arn])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_rolesanywhere_profile` using its `id`. For example:
 
         ```sh
-         $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
+        $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
         ```
 
         :param str resource_name: The name of the resource.
@@ -394,37 +399,42 @@ class Profile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        test_role = aws.iam.Role("testRole",
+        test = aws.iam.Role("test",
+            name="test",
             path="/",
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": [
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": [
                         "sts:AssumeRole",
                         "sts:TagSession",
                         "sts:SetSourceIdentity",
                     ],
-                    "Principal": {
-                        "Service": "rolesanywhere.amazonaws.com",
+                    "principal": {
+                        "service": "rolesanywhere.amazonaws.com",
                     },
-                    "Effect": "Allow",
-                    "Sid": "",
+                    "effect": "Allow",
+                    "sid": "",
                 }],
             }))
-        test_profile = aws.rolesanywhere.Profile("testProfile", role_arns=[test_role.arn])
+        test_profile = aws.rolesanywhere.Profile("test",
+            name="example",
+            role_arns=[test.arn])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_rolesanywhere_profile` using its `id`. For example:
 
         ```sh
-         $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
+        $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
         ```
 
         :param str resource_name: The name of the resource.
@@ -471,8 +481,6 @@ class Profile(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Profile, __self__).__init__(
             'aws:rolesanywhere/profile:Profile',
             resource_name,

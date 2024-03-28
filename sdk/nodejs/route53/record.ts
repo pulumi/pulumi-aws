@@ -11,32 +11,37 @@ import * as utilities from "../utilities";
  * Provides a Route53 record resource.
  *
  * ## Example Usage
+ *
  * ### Simple routing policy
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const www = new aws.route53.Record("www", {
- *     zoneId: aws_route53_zone.primary.zone_id,
+ *     zoneId: primary.zoneId,
  *     name: "www.example.com",
- *     type: "A",
+ *     type: aws.route53.RecordType.A,
  *     ttl: 300,
- *     records: [aws_eip.lb.public_ip],
+ *     records: [lb.publicIp],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Weighted routing policy
  *
  * Other routing policies are configured similarly. See [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const www_dev = new aws.route53.Record("www-dev", {
- *     zoneId: aws_route53_zone.primary.zone_id,
+ *     zoneId: primary.zoneId,
  *     name: "www",
- *     type: "CNAME",
+ *     type: aws.route53.RecordType.CNAME,
  *     ttl: 5,
  *     weightedRoutingPolicies: [{
  *         weight: 10,
@@ -45,9 +50,9 @@ import * as utilities from "../utilities";
  *     records: ["dev.example.com"],
  * });
  * const www_live = new aws.route53.Record("www-live", {
- *     zoneId: aws_route53_zone.primary.zone_id,
+ *     zoneId: primary.zoneId,
  *     name: "www",
- *     type: "CNAME",
+ *     type: aws.route53.RecordType.CNAME,
  *     ttl: 5,
  *     weightedRoutingPolicies: [{
  *         weight: 90,
@@ -56,6 +61,32 @@ import * as utilities from "../utilities";
  *     records: ["live.example.com"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Geoproximity routing policy
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const www = new aws.route53.Record("www", {
+ *     zoneId: primary.zoneId,
+ *     name: "www.example.com",
+ *     type: aws.route53.RecordType.CNAME,
+ *     ttl: 300,
+ *     geoproximityRoutingPolicy: {
+ *         coordinates: [{
+ *             latitude: "49.22",
+ *             longitude: "-74.01",
+ *         }],
+ *     },
+ *     setIdentifier: "dev",
+ *     records: ["dev.example.com"],
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Alias record
  *
  * See [related part of Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
@@ -64,11 +95,13 @@ import * as utilities from "../utilities";
  * TTL for all alias records is [60 seconds](https://aws.amazon.com/route53/faqs/#dns_failover_do_i_need_to_adjust),
  * you cannot change this, therefore `ttl` has to be omitted in alias records.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const main = new aws.elb.LoadBalancer("main", {
+ *     name: "foobar-elb",
  *     availabilityZones: ["us-east-1c"],
  *     listeners: [{
  *         instancePort: 80,
@@ -78,9 +111,9 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const www = new aws.route53.Record("www", {
- *     zoneId: aws_route53_zone.primary.zone_id,
+ *     zoneId: primary.zoneId,
  *     name: "example.com",
- *     type: "A",
+ *     type: aws.route53.RecordType.A,
  *     aliases: [{
  *         name: main.dnsName,
  *         zoneId: main.zoneId,
@@ -88,29 +121,33 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### NS and SOA Record Management
  *
  * When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allowOverwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleZone = new aws.route53.Zone("exampleZone", {});
- * const exampleRecord = new aws.route53.Record("exampleRecord", {
+ * const example = new aws.route53.Zone("example", {name: "test.example.com"});
+ * const exampleRecord = new aws.route53.Record("example", {
  *     allowOverwrite: true,
  *     name: "test.example.com",
  *     ttl: 172800,
- *     type: "NS",
- *     zoneId: exampleZone.zoneId,
+ *     type: aws.route53.RecordType.NS,
+ *     zoneId: example.zoneId,
  *     records: [
- *         exampleZone.nameServers[0],
- *         exampleZone.nameServers[1],
- *         exampleZone.nameServers[2],
- *         exampleZone.nameServers[3],
+ *         example.nameServers[0],
+ *         example.nameServers[1],
+ *         example.nameServers[2],
+ *         example.nameServers[3],
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -123,12 +160,12 @@ import * as utilities from "../utilities";
  * Using the ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`):
  *
  * ```sh
- *  $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS
+ * $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS
  * ```
- *  If the record also contains a set identifier, append it:
+ * If the record also contains a set identifier, append it:
  *
  * ```sh
- *  $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS_dev
+ * $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS_dev
  * ```
  */
 export class Record extends pulumi.CustomResource {
@@ -187,6 +224,10 @@ export class Record extends pulumi.CustomResource {
      */
     public readonly geolocationRoutingPolicies!: pulumi.Output<outputs.route53.RecordGeolocationRoutingPolicy[] | undefined>;
     /**
+     * A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
+     */
+    public readonly geoproximityRoutingPolicy!: pulumi.Output<outputs.route53.RecordGeoproximityRoutingPolicy | undefined>;
+    /**
      * The health check the record should be associated with.
      */
     public readonly healthCheckId!: pulumi.Output<string | undefined>;
@@ -207,7 +248,7 @@ export class Record extends pulumi.CustomResource {
      */
     public readonly records!: pulumi.Output<string[] | undefined>;
     /**
-     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
+     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`,`geoproximityRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
      */
     public readonly setIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -246,6 +287,7 @@ export class Record extends pulumi.CustomResource {
             resourceInputs["failoverRoutingPolicies"] = state ? state.failoverRoutingPolicies : undefined;
             resourceInputs["fqdn"] = state ? state.fqdn : undefined;
             resourceInputs["geolocationRoutingPolicies"] = state ? state.geolocationRoutingPolicies : undefined;
+            resourceInputs["geoproximityRoutingPolicy"] = state ? state.geoproximityRoutingPolicy : undefined;
             resourceInputs["healthCheckId"] = state ? state.healthCheckId : undefined;
             resourceInputs["latencyRoutingPolicies"] = state ? state.latencyRoutingPolicies : undefined;
             resourceInputs["multivalueAnswerRoutingPolicy"] = state ? state.multivalueAnswerRoutingPolicy : undefined;
@@ -272,6 +314,7 @@ export class Record extends pulumi.CustomResource {
             resourceInputs["cidrRoutingPolicy"] = args ? args.cidrRoutingPolicy : undefined;
             resourceInputs["failoverRoutingPolicies"] = args ? args.failoverRoutingPolicies : undefined;
             resourceInputs["geolocationRoutingPolicies"] = args ? args.geolocationRoutingPolicies : undefined;
+            resourceInputs["geoproximityRoutingPolicy"] = args ? args.geoproximityRoutingPolicy : undefined;
             resourceInputs["healthCheckId"] = args ? args.healthCheckId : undefined;
             resourceInputs["latencyRoutingPolicies"] = args ? args.latencyRoutingPolicies : undefined;
             resourceInputs["multivalueAnswerRoutingPolicy"] = args ? args.multivalueAnswerRoutingPolicy : undefined;
@@ -321,6 +364,10 @@ export interface RecordState {
      */
     geolocationRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordGeolocationRoutingPolicy>[]>;
     /**
+     * A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
+     */
+    geoproximityRoutingPolicy?: pulumi.Input<inputs.route53.RecordGeoproximityRoutingPolicy>;
+    /**
      * The health check the record should be associated with.
      */
     healthCheckId?: pulumi.Input<string>;
@@ -341,7 +388,7 @@ export interface RecordState {
      */
     records?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
+     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`,`geoproximityRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
      */
     setIdentifier?: pulumi.Input<string>;
     /**
@@ -390,6 +437,10 @@ export interface RecordArgs {
      */
     geolocationRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordGeolocationRoutingPolicy>[]>;
     /**
+     * A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
+     */
+    geoproximityRoutingPolicy?: pulumi.Input<inputs.route53.RecordGeoproximityRoutingPolicy>;
+    /**
      * The health check the record should be associated with.
      */
     healthCheckId?: pulumi.Input<string>;
@@ -410,7 +461,7 @@ export interface RecordArgs {
      */
     records?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
+     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`,`geoproximityRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
      */
     setIdentifier?: pulumi.Input<string>;
     /**

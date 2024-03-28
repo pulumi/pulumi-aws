@@ -44,13 +44,14 @@ public final class WebAclDefaultActionAllow {
 
         @CustomType.Setter
         public Builder customRequestHandling(@Nullable WebAclDefaultActionAllowCustomRequestHandling customRequestHandling) {
+
             this.customRequestHandling = customRequestHandling;
             return this;
         }
         public WebAclDefaultActionAllow build() {
-            final var o = new WebAclDefaultActionAllow();
-            o.customRequestHandling = customRequestHandling;
-            return o;
+            final var _resultValue = new WebAclDefaultActionAllow();
+            _resultValue.customRequestHandling = customRequestHandling;
+            return _resultValue;
         }
     }
 }

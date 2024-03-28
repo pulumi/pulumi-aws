@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,9 +23,12 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi");
+    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("example", new()
+    ///     {
+    ///         Name = "example_api",
+    ///     });
     /// 
-    ///     var exampleDocumentationPart = new Aws.ApiGateway.DocumentationPart("exampleDocumentationPart", new()
+    ///     var example = new Aws.ApiGateway.DocumentationPart("example", new()
     ///     {
     ///         Location = new Aws.ApiGateway.Inputs.DocumentationPartLocationArgs
     ///         {
@@ -38,13 +42,14 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import API Gateway documentation_parts using `REST-API-ID/DOC-PART-ID`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/documentationPart:DocumentationPart example 5i4e1ko720/3oyy3t
+    /// $ pulumi import aws:apigateway/documentationPart:DocumentationPart example 5i4e1ko720/3oyy3t
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/documentationPart:DocumentationPart")]

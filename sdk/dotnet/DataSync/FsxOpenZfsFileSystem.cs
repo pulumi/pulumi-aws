@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,10 +25,10 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var example = new Aws.DataSync.FsxOpenZfsFileSystem("example", new()
     ///     {
-    ///         FsxFilesystemArn = aws_fsx_openzfs_file_system.Example.Arn,
+    ///         FsxFilesystemArn = exampleAwsFsxOpenzfsFileSystem.Arn,
     ///         SecurityGroupArns = new[]
     ///         {
-    ///             aws_security_group.Example.Arn,
+    ///             exampleAwsSecurityGroup.Arn,
     ///         },
     ///         Protocol = new Aws.DataSync.Inputs.FsxOpenZfsFileSystemProtocolArgs
     ///         {
@@ -43,13 +44,14 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_datasync_location_fsx_openzfs_file_system` using the `DataSync-ARN#FSx-openzfs-ARN`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:file-system/fs-08e04cd442c1bb94a
+    /// $ pulumi import aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:file-system/fs-08e04cd442c1bb94a
     /// ```
     /// </summary>
     [AwsResourceType("aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem")]
@@ -132,10 +134,6 @@ namespace Pulumi.Aws.DataSync
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -273,11 +271,7 @@ namespace Pulumi.Aws.DataSync
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

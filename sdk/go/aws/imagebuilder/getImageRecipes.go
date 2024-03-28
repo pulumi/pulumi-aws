@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := imagebuilder.GetImageRecipes(ctx, &imagebuilder.GetImageRecipesArgs{
+//				Owner: pulumi.StringRef("Self"),
 //				Filters: []imagebuilder.GetImageRecipesFilter{
 //					{
 //						Name: "platform",
@@ -36,7 +38,6 @@ import (
 //						},
 //					},
 //				},
-//				Owner: pulumi.StringRef("Self"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -46,6 +47,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetImageRecipes(ctx *pulumi.Context, args *GetImageRecipesArgs, opts ...pulumi.InvokeOption) (*GetImageRecipesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetImageRecipesResult
@@ -60,7 +62,7 @@ func GetImageRecipes(ctx *pulumi.Context, args *GetImageRecipesArgs, opts ...pul
 type GetImageRecipesArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetImageRecipesFilter `pulumi:"filters"`
-	// Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+	// Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
 	Owner *string `pulumi:"owner"`
 }
 
@@ -93,7 +95,7 @@ func GetImageRecipesOutput(ctx *pulumi.Context, args GetImageRecipesOutputArgs, 
 type GetImageRecipesOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetImageRecipesFilterArrayInput `pulumi:"filters"`
-	// Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+	// Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
 	Owner pulumi.StringPtrInput `pulumi:"owner"`
 }
 

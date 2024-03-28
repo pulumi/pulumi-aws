@@ -6,6 +6,7 @@ package com.pulumi.aws.directoryservice;
 import com.pulumi.aws.directoryservice.inputs.SharedDirectoryTargetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -196,8 +197,12 @@ public final class SharedDirectoryArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public SharedDirectoryArgs build() {
-            $.directoryId = Objects.requireNonNull($.directoryId, "expected parameter 'directoryId' to be non-null");
-            $.target = Objects.requireNonNull($.target, "expected parameter 'target' to be non-null");
+            if ($.directoryId == null) {
+                throw new MissingRequiredPropertyException("SharedDirectoryArgs", "directoryId");
+            }
+            if ($.target == null) {
+                throw new MissingRequiredPropertyException("SharedDirectoryArgs", "target");
+            }
             return $;
         }
     }

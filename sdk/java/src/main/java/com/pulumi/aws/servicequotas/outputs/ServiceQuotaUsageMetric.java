@@ -88,6 +88,7 @@ public final class ServiceQuotaUsageMetric {
 
         @CustomType.Setter
         public Builder metricDimensions(@Nullable List<ServiceQuotaUsageMetricMetricDimension> metricDimensions) {
+
             this.metricDimensions = metricDimensions;
             return this;
         }
@@ -96,26 +97,29 @@ public final class ServiceQuotaUsageMetric {
         }
         @CustomType.Setter
         public Builder metricName(@Nullable String metricName) {
+
             this.metricName = metricName;
             return this;
         }
         @CustomType.Setter
         public Builder metricNamespace(@Nullable String metricNamespace) {
+
             this.metricNamespace = metricNamespace;
             return this;
         }
         @CustomType.Setter
         public Builder metricStatisticRecommendation(@Nullable String metricStatisticRecommendation) {
+
             this.metricStatisticRecommendation = metricStatisticRecommendation;
             return this;
         }
         public ServiceQuotaUsageMetric build() {
-            final var o = new ServiceQuotaUsageMetric();
-            o.metricDimensions = metricDimensions;
-            o.metricName = metricName;
-            o.metricNamespace = metricNamespace;
-            o.metricStatisticRecommendation = metricStatisticRecommendation;
-            return o;
+            final var _resultValue = new ServiceQuotaUsageMetric();
+            _resultValue.metricDimensions = metricDimensions;
+            _resultValue.metricName = metricName;
+            _resultValue.metricNamespace = metricNamespace;
+            _resultValue.metricStatisticRecommendation = metricStatisticRecommendation;
+            return _resultValue;
         }
     }
 }

@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.aws.s3.outputs.BucketV2ObjectLockConfigurationRuleDefaultRetention;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,16 +44,19 @@ public final class BucketV2ObjectLockConfigurationRule {
 
         @CustomType.Setter
         public Builder defaultRetentions(List<BucketV2ObjectLockConfigurationRuleDefaultRetention> defaultRetentions) {
-            this.defaultRetentions = Objects.requireNonNull(defaultRetentions);
+            if (defaultRetentions == null) {
+              throw new MissingRequiredPropertyException("BucketV2ObjectLockConfigurationRule", "defaultRetentions");
+            }
+            this.defaultRetentions = defaultRetentions;
             return this;
         }
         public Builder defaultRetentions(BucketV2ObjectLockConfigurationRuleDefaultRetention... defaultRetentions) {
             return defaultRetentions(List.of(defaultRetentions));
         }
         public BucketV2ObjectLockConfigurationRule build() {
-            final var o = new BucketV2ObjectLockConfigurationRule();
-            o.defaultRetentions = defaultRetentions;
-            return o;
+            final var _resultValue = new BucketV2ObjectLockConfigurationRule();
+            _resultValue.defaultRetentions = defaultRetentions;
+            return _resultValue;
         }
     }
 }

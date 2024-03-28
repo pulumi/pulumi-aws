@@ -44,13 +44,14 @@ public final class AppMonitorCustomEvents {
 
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         public AppMonitorCustomEvents build() {
-            final var o = new AppMonitorCustomEvents();
-            o.status = status;
-            return o;
+            final var _resultValue = new AppMonitorCustomEvents();
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

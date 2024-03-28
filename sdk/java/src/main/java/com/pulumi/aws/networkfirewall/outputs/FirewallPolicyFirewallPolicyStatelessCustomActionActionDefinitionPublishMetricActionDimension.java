@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefini
 
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension", "value");
+            }
+            this.value = value;
             return this;
         }
         public FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension build() {
-            final var o = new FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension();
-            o.value = value;
-            return o;
+            final var _resultValue = new FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension();
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

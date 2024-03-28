@@ -276,19 +276,23 @@ class Snapshot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.memorydb.Snapshot("example", cluster_name=aws_memorydb_cluster["example"]["name"])
+        example = aws.memorydb.Snapshot("example",
+            cluster_name=example_aws_memorydb_cluster["name"],
+            name="my-snapshot")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a snapshot using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
+        $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
         ```
 
         :param str resource_name: The name of the resource.
@@ -312,19 +316,23 @@ class Snapshot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.memorydb.Snapshot("example", cluster_name=aws_memorydb_cluster["example"]["name"])
+        example = aws.memorydb.Snapshot("example",
+            cluster_name=example_aws_memorydb_cluster["name"],
+            name="my-snapshot")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a snapshot using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
+        $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
         ```
 
         :param str resource_name: The name of the resource.
@@ -367,8 +375,6 @@ class Snapshot(pulumi.CustomResource):
             __props__.__dict__["cluster_configurations"] = None
             __props__.__dict__["source"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Snapshot, __self__).__init__(
             'aws:memorydb/snapshot:Snapshot',
             resource_name,

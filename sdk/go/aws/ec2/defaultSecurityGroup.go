@@ -25,6 +25,7 @@ import (
 //
 // The following config gives the default security group the same rules that AWS provides by default but under management by this provider. This means that any ingress or egress rules added or changed will be detected as drift.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -72,10 +73,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example Config To Deny All Egress Traffic, Allowing Ingress
 //
 // The following denies all Egress traffic by omitting any `egress` rules, while including the default `ingress` rule to allow all traffic.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -113,6 +117,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Removing `ec2.DefaultSecurityGroup` From Your Configuration
 //
 // Removing this resource from your configuration will remove it from your statefile and management, but will not destroy the Security Group. All ingress or egress rules will be left as they are at the time of removal. You can resume managing them via the AWS Console.
@@ -122,9 +128,7 @@ import (
 // Using `pulumi import`, import Security Groups using the security group `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/defaultSecurityGroup:DefaultSecurityGroup default_sg sg-903004f8
-//
+// $ pulumi import aws:ec2/defaultSecurityGroup:DefaultSecurityGroup default_sg sg-903004f8
 // ```
 type DefaultSecurityGroup struct {
 	pulumi.CustomResourceState
@@ -160,10 +164,6 @@ func NewDefaultSecurityGroup(ctx *pulumi.Context,
 		args = &DefaultSecurityGroupArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DefaultSecurityGroup
 	err := ctx.RegisterResource("aws:ec2/defaultSecurityGroup:DefaultSecurityGroup", name, args, &resource, opts...)

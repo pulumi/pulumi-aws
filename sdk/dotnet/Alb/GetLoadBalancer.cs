@@ -20,10 +20,9 @@ namespace Pulumi.Aws.Alb
         /// variable and needs to, for example, determine the security groups associated
         /// with it, etc.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -43,8 +42,7 @@ namespace Pulumi.Aws.Alb
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("aws:alb/getLoadBalancer:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithDefaults());
@@ -58,10 +56,9 @@ namespace Pulumi.Aws.Alb
         /// variable and needs to, for example, determine the security groups associated
         /// with it, etc.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -81,8 +78,7 @@ namespace Pulumi.Aws.Alb
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("aws:alb/getLoadBalancer:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());
@@ -164,9 +160,11 @@ namespace Pulumi.Aws.Alb
         public readonly Outputs.GetLoadBalancerAccessLogsResult AccessLogs;
         public readonly string Arn;
         public readonly string ArnSuffix;
+        public readonly ImmutableArray<Outputs.GetLoadBalancerConnectionLogResult> ConnectionLogs;
         public readonly string CustomerOwnedIpv4Pool;
         public readonly string DesyncMitigationMode;
         public readonly string DnsName;
+        public readonly string DnsRecordClientRoutingPolicy;
         public readonly bool DropInvalidHeaderFields;
         public readonly bool EnableCrossZoneLoadBalancing;
         public readonly bool EnableDeletionProtection;
@@ -174,6 +172,7 @@ namespace Pulumi.Aws.Alb
         public readonly bool EnableTlsVersionAndCipherSuiteHeaders;
         public readonly bool EnableWafFailOpen;
         public readonly bool EnableXffClientPort;
+        public readonly string EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -200,11 +199,15 @@ namespace Pulumi.Aws.Alb
 
             string arnSuffix,
 
+            ImmutableArray<Outputs.GetLoadBalancerConnectionLogResult> connectionLogs,
+
             string customerOwnedIpv4Pool,
 
             string desyncMitigationMode,
 
             string dnsName,
+
+            string dnsRecordClientRoutingPolicy,
 
             bool dropInvalidHeaderFields,
 
@@ -219,6 +222,8 @@ namespace Pulumi.Aws.Alb
             bool enableWafFailOpen,
 
             bool enableXffClientPort,
+
+            string enforceSecurityGroupInboundRulesOnPrivateLinkTraffic,
 
             string id,
 
@@ -251,9 +256,11 @@ namespace Pulumi.Aws.Alb
             AccessLogs = accessLogs;
             Arn = arn;
             ArnSuffix = arnSuffix;
+            ConnectionLogs = connectionLogs;
             CustomerOwnedIpv4Pool = customerOwnedIpv4Pool;
             DesyncMitigationMode = desyncMitigationMode;
             DnsName = dnsName;
+            DnsRecordClientRoutingPolicy = dnsRecordClientRoutingPolicy;
             DropInvalidHeaderFields = dropInvalidHeaderFields;
             EnableCrossZoneLoadBalancing = enableCrossZoneLoadBalancing;
             EnableDeletionProtection = enableDeletionProtection;
@@ -261,6 +268,7 @@ namespace Pulumi.Aws.Alb
             EnableTlsVersionAndCipherSuiteHeaders = enableTlsVersionAndCipherSuiteHeaders;
             EnableWafFailOpen = enableWafFailOpen;
             EnableXffClientPort = enableXffClientPort;
+            EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic = enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
             Id = id;
             IdleTimeout = idleTimeout;
             Internal = @internal;

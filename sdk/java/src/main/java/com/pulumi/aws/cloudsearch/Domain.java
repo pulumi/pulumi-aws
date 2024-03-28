@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * The provider waits for the domain to become `Active` when applying a configuration.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -33,8 +35,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudsearch.Domain;
  * import com.pulumi.aws.cloudsearch.DomainArgs;
- * import com.pulumi.aws.cloudsearch.inputs.DomainIndexFieldArgs;
  * import com.pulumi.aws.cloudsearch.inputs.DomainScalingParametersArgs;
+ * import com.pulumi.aws.cloudsearch.inputs.DomainIndexFieldArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,40 +51,42 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
- *             .indexFields(            
- *                 DomainIndexFieldArgs.builder()
- *                     .analysisScheme(&#34;_en_default_&#34;)
- *                     .highlight(false)
- *                     .name(&#34;headline&#34;)
- *                     .return_(true)
- *                     .search(true)
- *                     .sort(true)
- *                     .type(&#34;text&#34;)
- *                     .build(),
- *                 DomainIndexFieldArgs.builder()
- *                     .facet(true)
- *                     .name(&#34;price&#34;)
- *                     .return_(true)
- *                     .search(true)
- *                     .sort(true)
- *                     .sourceFields(&#34;headline&#34;)
- *                     .type(&#34;double&#34;)
- *                     .build())
+ *             .name(&#34;example-domain&#34;)
  *             .scalingParameters(DomainScalingParametersArgs.builder()
  *                 .desiredInstanceType(&#34;search.medium&#34;)
  *                 .build())
+ *             .indexFields(            
+ *                 DomainIndexFieldArgs.builder()
+ *                     .name(&#34;headline&#34;)
+ *                     .type(&#34;text&#34;)
+ *                     .search(true)
+ *                     .return_(true)
+ *                     .sort(true)
+ *                     .highlight(false)
+ *                     .analysisScheme(&#34;_en_default_&#34;)
+ *                     .build(),
+ *                 DomainIndexFieldArgs.builder()
+ *                     .name(&#34;price&#34;)
+ *                     .type(&#34;double&#34;)
+ *                     .search(true)
+ *                     .facet(true)
+ *                     .return_(true)
+ *                     .sort(true)
+ *                     .sourceFields(&#34;headline&#34;)
+ *                     .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudSearch Domains using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudsearch/domain:Domain example example-domain
+ * $ pulumi import aws:cloudsearch/domain:Domain example example-domain
  * ```
  * 
  */

@@ -4,6 +4,7 @@
 package com.pulumi.aws.location.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -34,13 +35,16 @@ public final class GetPlaceIndexDataSourceConfiguration {
 
         @CustomType.Setter
         public Builder intendedUse(String intendedUse) {
-            this.intendedUse = Objects.requireNonNull(intendedUse);
+            if (intendedUse == null) {
+              throw new MissingRequiredPropertyException("GetPlaceIndexDataSourceConfiguration", "intendedUse");
+            }
+            this.intendedUse = intendedUse;
             return this;
         }
         public GetPlaceIndexDataSourceConfiguration build() {
-            final var o = new GetPlaceIndexDataSourceConfiguration();
-            o.intendedUse = intendedUse;
-            return o;
+            final var _resultValue = new GetPlaceIndexDataSourceConfiguration();
+            _resultValue.intendedUse = intendedUse;
+            return _resultValue;
         }
     }
 }

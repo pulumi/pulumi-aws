@@ -36,6 +36,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * Basic usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -59,15 +61,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ManagedPrefixList(&#34;example&#34;, ManagedPrefixListArgs.builder()        
+ *             .name(&#34;All VPC CIDR-s&#34;)
  *             .addressFamily(&#34;IPv4&#34;)
  *             .maxEntries(5)
  *             .entries(            
  *                 ManagedPrefixListEntryArgs.builder()
- *                     .cidr(aws_vpc.example().cidr_block())
+ *                     .cidr(exampleAwsVpc.cidrBlock())
  *                     .description(&#34;Primary&#34;)
  *                     .build(),
  *                 ManagedPrefixListEntryArgs.builder()
- *                     .cidr(aws_vpc_ipv4_cidr_block_association.example().cidr_block())
+ *                     .cidr(exampleAwsVpcIpv4CidrBlockAssociation.cidrBlock())
  *                     .description(&#34;Secondary&#34;)
  *                     .build())
  *             .tags(Map.of(&#34;Env&#34;, &#34;live&#34;))
@@ -76,13 +79,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Prefix Lists using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
+ * $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
  * ```
  * 
  */
@@ -251,9 +255,6 @@ public class ManagedPrefixList extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

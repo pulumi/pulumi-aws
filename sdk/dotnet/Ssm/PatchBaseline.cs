@@ -17,10 +17,12 @@ namespace Pulumi.Aws.Ssm
     /// of them is specified.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
     /// Using `approved_patches` only.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,6 +33,7 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var production = new Aws.Ssm.PatchBaseline("production", new()
     ///     {
+    ///         Name = "patch-baseline",
     ///         ApprovedPatches = new[]
     ///         {
     ///             "KB123456",
@@ -39,8 +42,11 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Advanced Usage, specifying patch filters
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,6 +57,44 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var production = new Aws.Ssm.PatchBaseline("production", new()
     ///     {
+    ///         Name = "patch-baseline",
+    ///         Description = "Patch Baseline Description",
+    ///         ApprovedPatches = new[]
+    ///         {
+    ///             "KB123456",
+    ///             "KB456789",
+    ///         },
+    ///         RejectedPatches = new[]
+    ///         {
+    ///             "KB987654",
+    ///         },
+    ///         GlobalFilters = new[]
+    ///         {
+    ///             new Aws.Ssm.Inputs.PatchBaselineGlobalFilterArgs
+    ///             {
+    ///                 Key = "PRODUCT",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "WindowsServer2008",
+    ///                 },
+    ///             },
+    ///             new Aws.Ssm.Inputs.PatchBaselineGlobalFilterArgs
+    ///             {
+    ///                 Key = "CLASSIFICATION",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "ServicePacks",
+    ///                 },
+    ///             },
+    ///             new Aws.Ssm.Inputs.PatchBaselineGlobalFilterArgs
+    ///             {
+    ///                 Key = "MSRC_SEVERITY",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "Low",
+    ///                 },
+    ///             },
+    ///         },
     ///         ApprovalRules = new[]
     ///         {
     ///             new Aws.Ssm.Inputs.PatchBaselineApprovalRuleArgs
@@ -105,49 +149,15 @@ namespace Pulumi.Aws.Ssm
     ///                 },
     ///             },
     ///         },
-    ///         ApprovedPatches = new[]
-    ///         {
-    ///             "KB123456",
-    ///             "KB456789",
-    ///         },
-    ///         Description = "Patch Baseline Description",
-    ///         GlobalFilters = new[]
-    ///         {
-    ///             new Aws.Ssm.Inputs.PatchBaselineGlobalFilterArgs
-    ///             {
-    ///                 Key = "PRODUCT",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "WindowsServer2008",
-    ///                 },
-    ///             },
-    ///             new Aws.Ssm.Inputs.PatchBaselineGlobalFilterArgs
-    ///             {
-    ///                 Key = "CLASSIFICATION",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "ServicePacks",
-    ///                 },
-    ///             },
-    ///             new Aws.Ssm.Inputs.PatchBaselineGlobalFilterArgs
-    ///             {
-    ///                 Key = "MSRC_SEVERITY",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "Low",
-    ///                 },
-    ///             },
-    ///         },
-    ///         RejectedPatches = new[]
-    ///         {
-    ///             "KB987654",
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Advanced usage, specifying Microsoft application and Windows patch rules
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -156,8 +166,11 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var windowsOsApps = new Aws.Ssm.PatchBaseline("windowsOsApps", new()
+    ///     var windowsOsApps = new Aws.Ssm.PatchBaseline("windows_os_apps", new()
     ///     {
+    ///         Name = "WindowsOSAndMicrosoftApps",
+    ///         Description = "Patch both Windows and Microsoft apps",
+    ///         OperatingSystem = "WINDOWS",
     ///         ApprovalRules = new[]
     ///         {
     ///             new Aws.Ssm.Inputs.PatchBaselineApprovalRuleArgs
@@ -210,14 +223,15 @@ namespace Pulumi.Aws.Ssm
     ///                 },
     ///             },
     ///         },
-    ///         Description = "Patch both Windows and Microsoft apps",
-    ///         OperatingSystem = "WINDOWS",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Advanced usage, specifying alternate patch source repository
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -226,18 +240,24 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var al201709 = new Aws.Ssm.PatchBaseline("al201709", new()
+    ///     var al201709 = new Aws.Ssm.PatchBaseline("al_2017_09", new()
     ///     {
     ///         ApprovalRules = new[]
     ///         {
     ///             null,
     ///         },
+    ///         Name = "Amazon-Linux-2017.09",
     ///         Description = "My patch repository for Amazon Linux 2017.09",
     ///         OperatingSystem = "AMAZON_LINUX",
     ///         Sources = new[]
     ///         {
     ///             new Aws.Ssm.Inputs.PatchBaselineSourceArgs
     ///             {
+    ///                 Name = "My-AL2017.09",
+    ///                 Products = new[]
+    ///                 {
+    ///                     "AmazonLinux2017.09",
+    ///                 },
     ///                 Configuration = @"[amzn-main]
     /// name=amzn-main-Base
     /// mirrorlist=http://repo./$awsregion./$awsdomain//$releasever/main/mirror.list
@@ -252,140 +272,114 @@ namespace Pulumi.Aws.Ssm
     /// retries=3
     /// timeout=5
     /// report_instanceid=yes
-    /// 
     /// ",
-    ///                 Name = "My-AL2017.09",
-    ///                 Products = new[]
-    ///                 {
-    ///                     "AmazonLinux2017.09",
-    ///                 },
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SSM Patch Baselines using their baseline ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
+    /// $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssm/patchBaseline:PatchBaseline")]
     public partial class PatchBaseline : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A set of rules used to include patches in the baseline.
-        /// Up to 10 approval rules can be specified.
-        /// See `approval_rule` below.
+        /// Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
         /// </summary>
         [Output("approvalRules")]
         public Output<ImmutableArray<Outputs.PatchBaselineApprovalRule>> ApprovalRules { get; private set; } = null!;
 
         /// <summary>
-        /// A list of explicitly approved patches for the baseline.
-        /// Cannot be specified with `approval_rule`.
+        /// List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
         /// </summary>
         [Output("approvedPatches")]
         public Output<ImmutableArray<string>> ApprovedPatches { get; private set; } = null!;
 
         /// <summary>
-        /// The compliance level for approved patches.
-        /// This means that if an approved patch is reported as missing, this is the severity of the compliance violation.
-        /// Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`.
-        /// The default value is `UNSPECIFIED`.
+        /// Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
         /// </summary>
         [Output("approvedPatchesComplianceLevel")]
         public Output<string?> ApprovedPatchesComplianceLevel { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
-        /// Applies to Linux instances only.
+        /// Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
         /// </summary>
         [Output("approvedPatchesEnableNonSecurity")]
         public Output<bool?> ApprovedPatchesEnableNonSecurity { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the patch baseline.
+        /// ARN of the baseline.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the patch baseline.
+        /// Description of the patch baseline.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A set of global filters used to exclude patches from the baseline.
-        /// Up to 4 global filters can be specified using Key/Value pairs.
-        /// Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
+        /// Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
         /// </summary>
         [Output("globalFilters")]
         public Output<ImmutableArray<Outputs.PatchBaselineGlobalFilter>> GlobalFilters { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the patch baseline.
+        /// JSON definition of the baseline.
+        /// </summary>
+        [Output("json")]
+        public Output<string> Json { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the patch baseline.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The operating system the patch baseline applies to.
-        /// Valid values are
-        /// `ALMA_LINUX`,
-        /// `AMAZON_LINUX`,
-        /// `AMAZON_LINUX_2`,
-        /// `AMAZON_LINUX_2022`,
-        /// `AMAZON_LINUX_2023`,
-        /// `CENTOS`,
-        /// `DEBIAN`,
-        /// `MACOS`,
-        /// `ORACLE_LINUX`,
-        /// `RASPBIAN`,
-        /// `REDHAT_ENTERPRISE_LINUX`,
-        /// `ROCKY_LINUX`,
-        /// `SUSE`,
-        /// `UBUNTU`, and
-        /// `WINDOWS`.
-        /// The default value is `WINDOWS`.
+        /// Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
         /// </summary>
         [Output("operatingSystem")]
         public Output<string?> OperatingSystem { get; private set; } = null!;
 
         /// <summary>
-        /// A list of rejected patches.
+        /// List of rejected patches.
         /// </summary>
         [Output("rejectedPatches")]
         public Output<ImmutableArray<string>> RejectedPatches { get; private set; } = null!;
 
         /// <summary>
-        /// The action for Patch Manager to take on patches included in the `rejected_patches` list.
-        /// Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+        /// Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
         /// </summary>
         [Output("rejectedPatchesAction")]
         public Output<string> RejectedPatchesAction { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with alternate sources for patches.
-        /// Applies to Linux instances only.
-        /// See `source` below.
+        /// Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
         /// </summary>
         [Output("sources")]
         public Output<ImmutableArray<Outputs.PatchBaselineSource>> Sources { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -413,10 +407,6 @@ namespace Pulumi.Aws.Ssm
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -444,9 +434,7 @@ namespace Pulumi.Aws.Ssm
         private InputList<Inputs.PatchBaselineApprovalRuleArgs>? _approvalRules;
 
         /// <summary>
-        /// A set of rules used to include patches in the baseline.
-        /// Up to 10 approval rules can be specified.
-        /// See `approval_rule` below.
+        /// Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
         /// </summary>
         public InputList<Inputs.PatchBaselineApprovalRuleArgs> ApprovalRules
         {
@@ -458,8 +446,7 @@ namespace Pulumi.Aws.Ssm
         private InputList<string>? _approvedPatches;
 
         /// <summary>
-        /// A list of explicitly approved patches for the baseline.
-        /// Cannot be specified with `approval_rule`.
+        /// List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
         /// </summary>
         public InputList<string> ApprovedPatches
         {
@@ -468,23 +455,19 @@ namespace Pulumi.Aws.Ssm
         }
 
         /// <summary>
-        /// The compliance level for approved patches.
-        /// This means that if an approved patch is reported as missing, this is the severity of the compliance violation.
-        /// Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`.
-        /// The default value is `UNSPECIFIED`.
+        /// Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
         /// </summary>
         [Input("approvedPatchesComplianceLevel")]
         public Input<string>? ApprovedPatchesComplianceLevel { get; set; }
 
         /// <summary>
-        /// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
-        /// Applies to Linux instances only.
+        /// Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
         /// </summary>
         [Input("approvedPatchesEnableNonSecurity")]
         public Input<bool>? ApprovedPatchesEnableNonSecurity { get; set; }
 
         /// <summary>
-        /// The description of the patch baseline.
+        /// Description of the patch baseline.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -493,9 +476,7 @@ namespace Pulumi.Aws.Ssm
         private InputList<Inputs.PatchBaselineGlobalFilterArgs>? _globalFilters;
 
         /// <summary>
-        /// A set of global filters used to exclude patches from the baseline.
-        /// Up to 4 global filters can be specified using Key/Value pairs.
-        /// Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
+        /// Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
         /// </summary>
         public InputList<Inputs.PatchBaselineGlobalFilterArgs> GlobalFilters
         {
@@ -504,30 +485,15 @@ namespace Pulumi.Aws.Ssm
         }
 
         /// <summary>
-        /// The name of the patch baseline.
+        /// Name of the patch baseline.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The operating system the patch baseline applies to.
-        /// Valid values are
-        /// `ALMA_LINUX`,
-        /// `AMAZON_LINUX`,
-        /// `AMAZON_LINUX_2`,
-        /// `AMAZON_LINUX_2022`,
-        /// `AMAZON_LINUX_2023`,
-        /// `CENTOS`,
-        /// `DEBIAN`,
-        /// `MACOS`,
-        /// `ORACLE_LINUX`,
-        /// `RASPBIAN`,
-        /// `REDHAT_ENTERPRISE_LINUX`,
-        /// `ROCKY_LINUX`,
-        /// `SUSE`,
-        /// `UBUNTU`, and
-        /// `WINDOWS`.
-        /// The default value is `WINDOWS`.
+        /// Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
         /// </summary>
         [Input("operatingSystem")]
         public Input<string>? OperatingSystem { get; set; }
@@ -536,7 +502,7 @@ namespace Pulumi.Aws.Ssm
         private InputList<string>? _rejectedPatches;
 
         /// <summary>
-        /// A list of rejected patches.
+        /// List of rejected patches.
         /// </summary>
         public InputList<string> RejectedPatches
         {
@@ -545,8 +511,7 @@ namespace Pulumi.Aws.Ssm
         }
 
         /// <summary>
-        /// The action for Patch Manager to take on patches included in the `rejected_patches` list.
-        /// Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+        /// Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
         /// </summary>
         [Input("rejectedPatchesAction")]
         public Input<string>? RejectedPatchesAction { get; set; }
@@ -555,9 +520,7 @@ namespace Pulumi.Aws.Ssm
         private InputList<Inputs.PatchBaselineSourceArgs>? _sources;
 
         /// <summary>
-        /// Configuration block with alternate sources for patches.
-        /// Applies to Linux instances only.
-        /// See `source` below.
+        /// Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
         /// </summary>
         public InputList<Inputs.PatchBaselineSourceArgs> Sources
         {
@@ -569,7 +532,7 @@ namespace Pulumi.Aws.Ssm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -589,9 +552,7 @@ namespace Pulumi.Aws.Ssm
         private InputList<Inputs.PatchBaselineApprovalRuleGetArgs>? _approvalRules;
 
         /// <summary>
-        /// A set of rules used to include patches in the baseline.
-        /// Up to 10 approval rules can be specified.
-        /// See `approval_rule` below.
+        /// Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
         /// </summary>
         public InputList<Inputs.PatchBaselineApprovalRuleGetArgs> ApprovalRules
         {
@@ -603,8 +564,7 @@ namespace Pulumi.Aws.Ssm
         private InputList<string>? _approvedPatches;
 
         /// <summary>
-        /// A list of explicitly approved patches for the baseline.
-        /// Cannot be specified with `approval_rule`.
+        /// List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
         /// </summary>
         public InputList<string> ApprovedPatches
         {
@@ -613,29 +573,25 @@ namespace Pulumi.Aws.Ssm
         }
 
         /// <summary>
-        /// The compliance level for approved patches.
-        /// This means that if an approved patch is reported as missing, this is the severity of the compliance violation.
-        /// Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`.
-        /// The default value is `UNSPECIFIED`.
+        /// Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
         /// </summary>
         [Input("approvedPatchesComplianceLevel")]
         public Input<string>? ApprovedPatchesComplianceLevel { get; set; }
 
         /// <summary>
-        /// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
-        /// Applies to Linux instances only.
+        /// Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
         /// </summary>
         [Input("approvedPatchesEnableNonSecurity")]
         public Input<bool>? ApprovedPatchesEnableNonSecurity { get; set; }
 
         /// <summary>
-        /// The ARN of the patch baseline.
+        /// ARN of the baseline.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The description of the patch baseline.
+        /// Description of the patch baseline.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -644,9 +600,7 @@ namespace Pulumi.Aws.Ssm
         private InputList<Inputs.PatchBaselineGlobalFilterGetArgs>? _globalFilters;
 
         /// <summary>
-        /// A set of global filters used to exclude patches from the baseline.
-        /// Up to 4 global filters can be specified using Key/Value pairs.
-        /// Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
+        /// Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
         /// </summary>
         public InputList<Inputs.PatchBaselineGlobalFilterGetArgs> GlobalFilters
         {
@@ -655,30 +609,21 @@ namespace Pulumi.Aws.Ssm
         }
 
         /// <summary>
-        /// The name of the patch baseline.
+        /// JSON definition of the baseline.
+        /// </summary>
+        [Input("json")]
+        public Input<string>? Json { get; set; }
+
+        /// <summary>
+        /// Name of the patch baseline.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The operating system the patch baseline applies to.
-        /// Valid values are
-        /// `ALMA_LINUX`,
-        /// `AMAZON_LINUX`,
-        /// `AMAZON_LINUX_2`,
-        /// `AMAZON_LINUX_2022`,
-        /// `AMAZON_LINUX_2023`,
-        /// `CENTOS`,
-        /// `DEBIAN`,
-        /// `MACOS`,
-        /// `ORACLE_LINUX`,
-        /// `RASPBIAN`,
-        /// `REDHAT_ENTERPRISE_LINUX`,
-        /// `ROCKY_LINUX`,
-        /// `SUSE`,
-        /// `UBUNTU`, and
-        /// `WINDOWS`.
-        /// The default value is `WINDOWS`.
+        /// Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
         /// </summary>
         [Input("operatingSystem")]
         public Input<string>? OperatingSystem { get; set; }
@@ -687,7 +632,7 @@ namespace Pulumi.Aws.Ssm
         private InputList<string>? _rejectedPatches;
 
         /// <summary>
-        /// A list of rejected patches.
+        /// List of rejected patches.
         /// </summary>
         public InputList<string> RejectedPatches
         {
@@ -696,8 +641,7 @@ namespace Pulumi.Aws.Ssm
         }
 
         /// <summary>
-        /// The action for Patch Manager to take on patches included in the `rejected_patches` list.
-        /// Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+        /// Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
         /// </summary>
         [Input("rejectedPatchesAction")]
         public Input<string>? RejectedPatchesAction { get; set; }
@@ -706,9 +650,7 @@ namespace Pulumi.Aws.Ssm
         private InputList<Inputs.PatchBaselineSourceGetArgs>? _sources;
 
         /// <summary>
-        /// Configuration block with alternate sources for patches.
-        /// Applies to Linux instances only.
-        /// See `source` below.
+        /// Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
         /// </summary>
         public InputList<Inputs.PatchBaselineSourceGetArgs> Sources
         {
@@ -720,7 +662,7 @@ namespace Pulumi.Aws.Ssm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -732,17 +674,13 @@ namespace Pulumi.Aws.Ssm
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public PatchBaselineState()

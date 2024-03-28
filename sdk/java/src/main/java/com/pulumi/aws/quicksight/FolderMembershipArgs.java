@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -195,9 +196,15 @@ public final class FolderMembershipArgs extends com.pulumi.resources.ResourceArg
         }
 
         public FolderMembershipArgs build() {
-            $.folderId = Objects.requireNonNull($.folderId, "expected parameter 'folderId' to be non-null");
-            $.memberId = Objects.requireNonNull($.memberId, "expected parameter 'memberId' to be non-null");
-            $.memberType = Objects.requireNonNull($.memberType, "expected parameter 'memberType' to be non-null");
+            if ($.folderId == null) {
+                throw new MissingRequiredPropertyException("FolderMembershipArgs", "folderId");
+            }
+            if ($.memberId == null) {
+                throw new MissingRequiredPropertyException("FolderMembershipArgs", "memberId");
+            }
+            if ($.memberType == null) {
+                throw new MissingRequiredPropertyException("FolderMembershipArgs", "memberType");
+            }
             return $;
         }
     }

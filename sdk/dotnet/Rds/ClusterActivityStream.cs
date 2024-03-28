@@ -22,6 +22,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,7 +31,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var defaultCluster = new Aws.Rds.Cluster("defaultCluster", new()
+    ///     var @default = new Aws.Rds.Cluster("default", new()
     ///     {
     ///         ClusterIdentifier = "aurora-cluster-demo",
     ///         AvailabilityZones = new[]
@@ -42,45 +43,40 @@ namespace Pulumi.Aws.Rds
     ///         DatabaseName = "mydb",
     ///         MasterUsername = "foo",
     ///         MasterPassword = "mustbeeightcharaters",
-    ///         Engine = "aurora-postgresql",
+    ///         Engine = Aws.Rds.EngineType.AuroraPostgresql,
     ///         EngineVersion = "13.4",
     ///     });
     /// 
-    ///     var defaultClusterInstance = new Aws.Rds.ClusterInstance("defaultClusterInstance", new()
+    ///     var defaultClusterInstance = new Aws.Rds.ClusterInstance("default", new()
     ///     {
     ///         Identifier = "aurora-instance-demo",
-    ///         ClusterIdentifier = defaultCluster.ClusterIdentifier,
-    ///         Engine = defaultCluster.Engine,
-    ///         InstanceClass = "db.r6g.large",
+    ///         ClusterIdentifier = @default.ClusterIdentifier,
+    ///         Engine = @default.Engine,
+    ///         InstanceClass = Aws.Rds.InstanceType.R6G_Large,
     ///     });
     /// 
-    ///     var defaultKey = new Aws.Kms.Key("defaultKey", new()
+    ///     var defaultKey = new Aws.Kms.Key("default", new()
     ///     {
     ///         Description = "AWS KMS Key to encrypt Database Activity Stream",
     ///     });
     /// 
-    ///     var defaultClusterActivityStream = new Aws.Rds.ClusterActivityStream("defaultClusterActivityStream", new()
+    ///     var defaultClusterActivityStream = new Aws.Rds.ClusterActivityStream("default", new()
     ///     {
-    ///         ResourceArn = defaultCluster.Arn,
+    ///         ResourceArn = @default.Arn,
     ///         Mode = "async",
     ///         KmsKeyId = defaultKey.KeyId,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             defaultClusterInstance,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import RDS Aurora Cluster Database Activity Streams using the `resource_arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rds/clusterActivityStream:ClusterActivityStream default arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo
+    /// $ pulumi import aws:rds/clusterActivityStream:ClusterActivityStream default arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/clusterActivityStream:ClusterActivityStream")]

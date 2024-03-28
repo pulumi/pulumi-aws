@@ -309,16 +309,18 @@ class GameSessionQueue(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.gamelift.GameSessionQueue("test",
+            name="example-session-queue",
             destinations=[
-                aws_gamelift_fleet["us_west_2_fleet"]["arn"],
-                aws_gamelift_fleet["eu_central_1_fleet"]["arn"],
+                us_west2_fleet["arn"],
+                eu_central1_fleet["arn"],
             ],
-            notification_target=aws_sns_topic["game_session_queue_notifications"]["arn"],
+            notification_target=game_session_queue_notifications["arn"],
             player_latency_policies=[
                 aws.gamelift.GameSessionQueuePlayerLatencyPolicyArgs(
                     maximum_individual_player_latency_milliseconds=100,
@@ -330,13 +332,14 @@ class GameSessionQueue(pulumi.CustomResource):
             ],
             timeout_in_seconds=60)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GameLift Game Session Queues using their `name`. For example:
 
         ```sh
-         $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
+        $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -360,16 +363,18 @@ class GameSessionQueue(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.gamelift.GameSessionQueue("test",
+            name="example-session-queue",
             destinations=[
-                aws_gamelift_fleet["us_west_2_fleet"]["arn"],
-                aws_gamelift_fleet["eu_central_1_fleet"]["arn"],
+                us_west2_fleet["arn"],
+                eu_central1_fleet["arn"],
             ],
-            notification_target=aws_sns_topic["game_session_queue_notifications"]["arn"],
+            notification_target=game_session_queue_notifications["arn"],
             player_latency_policies=[
                 aws.gamelift.GameSessionQueuePlayerLatencyPolicyArgs(
                     maximum_individual_player_latency_milliseconds=100,
@@ -381,13 +386,14 @@ class GameSessionQueue(pulumi.CustomResource):
             ],
             timeout_in_seconds=60)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GameLift Game Session Queues using their `name`. For example:
 
         ```sh
-         $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
+        $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -430,8 +436,6 @@ class GameSessionQueue(pulumi.CustomResource):
             __props__.__dict__["timeout_in_seconds"] = timeout_in_seconds
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(GameSessionQueue, __self__).__init__(
             'aws:gamelift/gameSessionQueue:GameSessionQueue',
             resource_name,

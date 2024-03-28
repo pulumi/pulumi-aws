@@ -14,8 +14,10 @@ import (
 // Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `route53.TrafficPolicy`.
 //
 // ## Example Usage
+//
 // ### Basic Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -35,7 +37,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleTrafficPolicyDocument, err := route53.GetTrafficPolicyDocument(ctx, &route53.GetTrafficPolicyDocumentArgs{
+//			example, err := route53.GetTrafficPolicyDocument(ctx, &route53.GetTrafficPolicyDocumentArgs{
 //				RecordType: pulumi.StringRef("A"),
 //				StartRule:  pulumi.StringRef("site_switch"),
 //				Endpoints: []route53.GetTrafficPolicyDocumentEndpoint{
@@ -67,9 +69,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = route53.NewTrafficPolicy(ctx, "exampleTrafficPolicy", &route53.TrafficPolicyArgs{
+//			_, err = route53.NewTrafficPolicy(ctx, "example", &route53.TrafficPolicyArgs{
+//				Name:     pulumi.String("example"),
 //				Comment:  pulumi.String("example comment"),
-//				Document: *pulumi.String(exampleTrafficPolicyDocument.Json),
+//				Document: pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -79,10 +82,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Complex Example
 //
 // The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -95,7 +101,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTrafficPolicyDocument, err := route53.GetTrafficPolicyDocument(ctx, &route53.GetTrafficPolicyDocumentArgs{
+//			example, err := route53.GetTrafficPolicyDocument(ctx, &route53.GetTrafficPolicyDocumentArgs{
 //				RecordType: pulumi.StringRef("A"),
 //				StartRule:  pulumi.StringRef("geoproximity_rule"),
 //				Endpoints: []route53.GetTrafficPolicyDocumentEndpoint{
@@ -160,9 +166,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = route53.NewTrafficPolicy(ctx, "exampleTrafficPolicy", &route53.TrafficPolicyArgs{
+//			_, err = route53.NewTrafficPolicy(ctx, "example", &route53.TrafficPolicyArgs{
+//				Name:     pulumi.String("example"),
 //				Comment:  pulumi.String("example comment"),
-//				Document: *pulumi.String(exampleTrafficPolicyDocument.Json),
+//				Document: pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -172,6 +179,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetTrafficPolicyDocument(ctx *pulumi.Context, args *GetTrafficPolicyDocumentArgs, opts ...pulumi.InvokeOption) (*GetTrafficPolicyDocumentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTrafficPolicyDocumentResult

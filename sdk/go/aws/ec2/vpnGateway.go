@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,8 +28,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpnGateway(ctx, "vpnGw", &ec2.VpnGatewayArgs{
-//				VpcId: pulumi.Any(aws_vpc.Main.Id),
+//			_, err := ec2.NewVpnGateway(ctx, "vpn_gw", &ec2.VpnGatewayArgs{
+//				VpcId: pulumi.Any(main.Id),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("main"),
 //				},
@@ -41,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import VPN Gateways using the VPN gateway `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/vpnGateway:VpnGateway testvpngateway vgw-9a4cacf3
-//
+// $ pulumi import aws:ec2/vpnGateway:VpnGateway testvpngateway vgw-9a4cacf3
 // ```
 type VpnGateway struct {
 	pulumi.CustomResourceState
@@ -77,10 +77,6 @@ func NewVpnGateway(ctx *pulumi.Context,
 		args = &VpnGatewayArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpnGateway
 	err := ctx.RegisterResource("aws:ec2/vpnGateway:VpnGateway", name, args, &resource, opts...)

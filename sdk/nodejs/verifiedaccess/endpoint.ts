@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS EC2 (Elastic Compute Cloud) Verified Access Endpoint.
  *
  * ## Example Usage
+ *
  * ### ALB Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,21 +23,24 @@ import * as utilities from "../utilities";
  *     applicationDomain: "example.com",
  *     attachmentType: "vpc",
  *     description: "example",
- *     domainCertificateArn: aws_acm_certificate.example.arn,
+ *     domainCertificateArn: exampleAwsAcmCertificate.arn,
  *     endpointDomainPrefix: "example",
  *     endpointType: "load-balancer",
  *     loadBalancerOptions: {
- *         loadBalancerArn: aws_lb.example.arn,
+ *         loadBalancerArn: exampleAwsLb.arn,
  *         port: 443,
  *         protocol: "https",
  *         subnetIds: .map(subnet => (subnet.id)),
  *     },
- *     securityGroupIds: [aws_security_group.example.id],
- *     verifiedAccessGroupId: aws_verifiedaccess_group.example.id,
+ *     securityGroupIds: [exampleAwsSecurityGroup.id],
+ *     verifiedAccessGroupId: exampleAwsVerifiedaccessGroup.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Network Interface Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -44,27 +49,26 @@ import * as utilities from "../utilities";
  *     applicationDomain: "example.com",
  *     attachmentType: "vpc",
  *     description: "example",
- *     domainCertificateArn: aws_acm_certificate.example.arn,
+ *     domainCertificateArn: exampleAwsAcmCertificate.arn,
  *     endpointDomainPrefix: "example",
  *     endpointType: "network-interface",
  *     networkInterfaceOptions: {
- *         networkInterfaceId: aws_network_interface.example.id,
+ *         networkInterfaceId: exampleAwsNetworkInterface.id,
  *         port: 443,
  *         protocol: "https",
  *     },
- *     securityGroupIds: [aws_security_group.example.id],
- *     verifiedAccessGroupId: aws_verifiedaccess_group.example.id,
+ *     securityGroupIds: [exampleAwsSecurityGroup.id],
+ *     verifiedAccessGroupId: exampleAwsVerifiedaccessGroup.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Using `pulumi import`, import Verified Access Instances using the
- *
- * `id`. For example:
+ * Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:verifiedaccess/endpoint:Endpoint example vae-8012925589
+ * $ pulumi import aws:verifiedaccess/endpoint:Endpoint example vae-8012925589
  * ```
  */
 export class Endpoint extends pulumi.CustomResource {
@@ -136,6 +140,10 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly networkInterfaceOptions!: pulumi.Output<outputs.verifiedaccess.EndpointNetworkInterfaceOptions | undefined>;
     /**
+     * The policy document that is associated with this resource.
+     */
+    public readonly policyDocument!: pulumi.Output<string | undefined>;
+    /**
      * List of the the security groups IDs to associate with the Verified Access endpoint.
      */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
@@ -182,6 +190,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["endpointType"] = state ? state.endpointType : undefined;
             resourceInputs["loadBalancerOptions"] = state ? state.loadBalancerOptions : undefined;
             resourceInputs["networkInterfaceOptions"] = state ? state.networkInterfaceOptions : undefined;
+            resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["sseSpecification"] = state ? state.sseSpecification : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -216,6 +225,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["endpointType"] = args ? args.endpointType : undefined;
             resourceInputs["loadBalancerOptions"] = args ? args.loadBalancerOptions : undefined;
             resourceInputs["networkInterfaceOptions"] = args ? args.networkInterfaceOptions : undefined;
+            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -226,8 +236,6 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["verifiedAccessInstanceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -276,6 +284,10 @@ export interface EndpointState {
      * The network interface details. This parameter is required if the endpoint type is `network-interface`.
      */
     networkInterfaceOptions?: pulumi.Input<inputs.verifiedaccess.EndpointNetworkInterfaceOptions>;
+    /**
+     * The policy document that is associated with this resource.
+     */
+    policyDocument?: pulumi.Input<string>;
     /**
      * List of the the security groups IDs to associate with the Verified Access endpoint.
      */
@@ -337,6 +349,10 @@ export interface EndpointArgs {
      * The network interface details. This parameter is required if the endpoint type is `network-interface`.
      */
     networkInterfaceOptions?: pulumi.Input<inputs.verifiedaccess.EndpointNetworkInterfaceOptions>;
+    /**
+     * The policy document that is associated with this resource.
+     */
+    policyDocument?: pulumi.Input<string>;
     /**
      * List of the the security groups IDs to associate with the Verified Access endpoint.
      */

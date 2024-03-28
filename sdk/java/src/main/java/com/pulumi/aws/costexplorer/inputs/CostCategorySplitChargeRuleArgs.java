@@ -6,6 +6,7 @@ package com.pulumi.aws.costexplorer.inputs;
 import com.pulumi.aws.costexplorer.inputs.CostCategorySplitChargeRuleParameterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -209,9 +210,15 @@ public final class CostCategorySplitChargeRuleArgs extends com.pulumi.resources.
         }
 
         public CostCategorySplitChargeRuleArgs build() {
-            $.method = Objects.requireNonNull($.method, "expected parameter 'method' to be non-null");
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
-            $.targets = Objects.requireNonNull($.targets, "expected parameter 'targets' to be non-null");
+            if ($.method == null) {
+                throw new MissingRequiredPropertyException("CostCategorySplitChargeRuleArgs", "method");
+            }
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("CostCategorySplitChargeRuleArgs", "source");
+            }
+            if ($.targets == null) {
+                throw new MissingRequiredPropertyException("CostCategorySplitChargeRuleArgs", "targets");
+            }
             return $;
         }
     }

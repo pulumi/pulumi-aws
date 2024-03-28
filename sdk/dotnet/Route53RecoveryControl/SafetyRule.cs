@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,9 +27,10 @@ namespace Pulumi.Aws.Route53RecoveryControl
     ///     {
     ///         AssertedControls = new[]
     ///         {
-    ///             aws_route53recoverycontrolconfig_routing_control.Example.Arn,
+    ///             exampleAwsRoute53recoverycontrolconfigRoutingControl.Arn,
     ///         },
     ///         ControlPanelArn = "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
+    ///         Name = "daisyguttridge",
     ///         WaitPeriodMs = 5000,
     ///         RuleConfig = new Aws.Route53RecoveryControl.Inputs.SafetyRuleRuleConfigArgs
     ///         {
@@ -40,7 +42,9 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,15 +55,16 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// {
     ///     var example = new Aws.Route53RecoveryControl.SafetyRule("example", new()
     ///     {
+    ///         Name = "i_o",
     ///         ControlPanelArn = "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
     ///         WaitPeriodMs = 5000,
     ///         GatingControls = new[]
     ///         {
-    ///             aws_route53recoverycontrolconfig_routing_control.Example.Arn,
+    ///             exampleAwsRoute53recoverycontrolconfigRoutingControl.Arn,
     ///         },
     ///         TargetControls = new[]
     ///         {
-    ///             aws_route53recoverycontrolconfig_routing_control.Example.Arn,
+    ///             exampleAwsRoute53recoverycontrolconfigRoutingControl.Arn,
     ///         },
     ///         RuleConfig = new Aws.Route53RecoveryControl.Inputs.SafetyRuleRuleConfigArgs
     ///         {
@@ -71,13 +76,14 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route53 Recovery Control Config Safety Rule using the safety rule ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53recoverycontrol/safetyRule:SafetyRule myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
+    /// $ pulumi import aws:route53recoverycontrol/safetyRule:SafetyRule myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53recoverycontrol/safetyRule:SafetyRule")]

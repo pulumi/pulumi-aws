@@ -5,6 +5,7 @@ package com.pulumi.aws.mskconnect.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs extends com
         }
 
         public ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs", "enabled");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsVideoDescriptionCodecSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -130,49 +131,58 @@ public final class ChannelEncoderSettingsVideoDescription {
 
         @CustomType.Setter
         public Builder codecSettings(@Nullable ChannelEncoderSettingsVideoDescriptionCodecSettings codecSettings) {
+
             this.codecSettings = codecSettings;
             return this;
         }
         @CustomType.Setter
         public Builder height(@Nullable Integer height) {
+
             this.height = height;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsVideoDescription", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder respondToAfd(@Nullable String respondToAfd) {
+
             this.respondToAfd = respondToAfd;
             return this;
         }
         @CustomType.Setter
         public Builder scalingBehavior(@Nullable String scalingBehavior) {
+
             this.scalingBehavior = scalingBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder sharpness(@Nullable Integer sharpness) {
+
             this.sharpness = sharpness;
             return this;
         }
         @CustomType.Setter
         public Builder width(@Nullable Integer width) {
+
             this.width = width;
             return this;
         }
         public ChannelEncoderSettingsVideoDescription build() {
-            final var o = new ChannelEncoderSettingsVideoDescription();
-            o.codecSettings = codecSettings;
-            o.height = height;
-            o.name = name;
-            o.respondToAfd = respondToAfd;
-            o.scalingBehavior = scalingBehavior;
-            o.sharpness = sharpness;
-            o.width = width;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsVideoDescription();
+            _resultValue.codecSettings = codecSettings;
+            _resultValue.height = height;
+            _resultValue.name = name;
+            _resultValue.respondToAfd = respondToAfd;
+            _resultValue.scalingBehavior = scalingBehavior;
+            _resultValue.sharpness = sharpness;
+            _resultValue.width = width;
+            return _resultValue;
         }
     }
 }

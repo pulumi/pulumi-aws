@@ -9,8 +9,10 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
+ *
  * ### Pause Cluster Action
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,8 +27,11 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "redshift_scheduled_action",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const example = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: [
@@ -37,12 +42,16 @@ import * as utilities from "../utilities";
  *         resources: ["*"],
  *     }],
  * });
- * const examplePolicy = new aws.iam.Policy("examplePolicy", {policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json)});
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
+ * const examplePolicy = new aws.iam.Policy("example", {
+ *     name: "redshift_scheduled_action",
+ *     policy: example.then(example => example.json),
+ * });
+ * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
  *     policyArn: examplePolicy.arn,
  *     role: exampleRole.name,
  * });
- * const exampleScheduledAction = new aws.redshift.ScheduledAction("exampleScheduledAction", {
+ * const exampleScheduledAction = new aws.redshift.ScheduledAction("example", {
+ *     name: "tf-redshift-scheduled-action",
  *     schedule: "cron(00 23 * * ? *)",
  *     iamRole: exampleRole.arn,
  *     targetAction: {
@@ -52,15 +61,19 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Resize Cluster Action
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.redshift.ScheduledAction("example", {
+ *     name: "tf-redshift-scheduled-action",
  *     schedule: "cron(00 23 * * ? *)",
- *     iamRole: aws_iam_role.example.arn,
+ *     iamRole: exampleAwsIamRole.arn,
  *     targetAction: {
  *         resizeCluster: {
  *             clusterIdentifier: "tf-redshift001",
@@ -71,13 +84,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Scheduled Action using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
+ * $ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
  * ```
  */
 export class ScheduledAction extends pulumi.CustomResource {

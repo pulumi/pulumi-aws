@@ -15,22 +15,22 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ses.DomainIdentity("example", {domain: "example.com"});
- * const exampleAmazonsesVerificationRecord = new aws.route53.Record("exampleAmazonsesVerificationRecord", {
- *     zoneId: aws_route53_zone.example.zone_id,
+ * const exampleAmazonsesVerificationRecord = new aws.route53.Record("example_amazonses_verification_record", {
+ *     zoneId: exampleAwsRoute53Zone.zoneId,
  *     name: pulumi.interpolate`_amazonses.${example.id}`,
- *     type: "TXT",
+ *     type: aws.route53.RecordType.TXT,
  *     ttl: 600,
  *     records: [example.verificationToken],
  * });
- * const exampleVerification = new aws.ses.DomainIdentityVerification("exampleVerification", {domain: example.id}, {
- *     dependsOn: [exampleAmazonsesVerificationRecord],
- * });
+ * const exampleVerification = new aws.ses.DomainIdentityVerification("example_verification", {domain: example.id});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class DomainIdentityVerification extends pulumi.CustomResource {
     /**

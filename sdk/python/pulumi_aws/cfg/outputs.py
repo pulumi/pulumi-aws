@@ -19,6 +19,8 @@ __all__ = [
     'RecorderRecordingGroup',
     'RecorderRecordingGroupExclusionByResourceType',
     'RecorderRecordingGroupRecordingStrategy',
+    'RecorderRecordingMode',
+    'RecorderRecordingModeRecordingModeOverride',
     'RemediationConfigurationExecutionControls',
     'RemediationConfigurationExecutionControlsSsmControls',
     'RemediationConfigurationParameter',
@@ -450,6 +452,116 @@ class RecorderRecordingGroupRecordingStrategy(dict):
 
 
 @pulumi.output_type
+class RecorderRecordingMode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordingFrequency":
+            suggest = "recording_frequency"
+        elif key == "recordingModeOverride":
+            suggest = "recording_mode_override"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecorderRecordingMode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecorderRecordingMode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecorderRecordingMode.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 recording_frequency: Optional[str] = None,
+                 recording_mode_override: Optional['outputs.RecorderRecordingModeRecordingModeOverride'] = None):
+        """
+        :param str recording_frequency: Default reecording frequency. `CONTINUOUS` or `DAILY`.
+        :param 'RecorderRecordingModeRecordingModeOverrideArgs' recording_mode_override: Recording mode overrides. Detailed below.
+        """
+        if recording_frequency is not None:
+            pulumi.set(__self__, "recording_frequency", recording_frequency)
+        if recording_mode_override is not None:
+            pulumi.set(__self__, "recording_mode_override", recording_mode_override)
+
+    @property
+    @pulumi.getter(name="recordingFrequency")
+    def recording_frequency(self) -> Optional[str]:
+        """
+        Default reecording frequency. `CONTINUOUS` or `DAILY`.
+        """
+        return pulumi.get(self, "recording_frequency")
+
+    @property
+    @pulumi.getter(name="recordingModeOverride")
+    def recording_mode_override(self) -> Optional['outputs.RecorderRecordingModeRecordingModeOverride']:
+        """
+        Recording mode overrides. Detailed below.
+        """
+        return pulumi.get(self, "recording_mode_override")
+
+
+@pulumi.output_type
+class RecorderRecordingModeRecordingModeOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordingFrequency":
+            suggest = "recording_frequency"
+        elif key == "resourceTypes":
+            suggest = "resource_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecorderRecordingModeRecordingModeOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecorderRecordingModeRecordingModeOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecorderRecordingModeRecordingModeOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 recording_frequency: str,
+                 resource_types: Sequence[str],
+                 description: Optional[str] = None):
+        """
+        :param str recording_frequency: The recording frequency for the resources in the override block. `CONTINUOUS` or `DAILY`.
+        :param Sequence[str] resource_types: A list that specifies the types of AWS resources for which the override applies to.  See [restrictions in the AWS Docs](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingModeOverride.html)
+        :param str description: A description you provide of the override.
+        """
+        pulumi.set(__self__, "recording_frequency", recording_frequency)
+        pulumi.set(__self__, "resource_types", resource_types)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="recordingFrequency")
+    def recording_frequency(self) -> str:
+        """
+        The recording frequency for the resources in the override block. `CONTINUOUS` or `DAILY`.
+        """
+        return pulumi.get(self, "recording_frequency")
+
+    @property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Sequence[str]:
+        """
+        A list that specifies the types of AWS resources for which the override applies to.  See [restrictions in the AWS Docs](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingModeOverride.html)
+        """
+        return pulumi.get(self, "resource_types")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description you provide of the override.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
 class RemediationConfigurationExecutionControls(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -510,8 +622,10 @@ class RemediationConfigurationExecutionControlsSsmControls(dict):
                  concurrent_execution_rate_percentage: Optional[int] = None,
                  error_percentage: Optional[int] = None):
         """
-        :param int concurrent_execution_rate_percentage: Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
-        :param int error_percentage: Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
+        :param int concurrent_execution_rate_percentage: Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%!
+               (MISSING)
+        :param int error_percentage: Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%!
+               (MISSING)
         """
         if concurrent_execution_rate_percentage is not None:
             pulumi.set(__self__, "concurrent_execution_rate_percentage", concurrent_execution_rate_percentage)
@@ -522,7 +636,8 @@ class RemediationConfigurationExecutionControlsSsmControls(dict):
     @pulumi.getter(name="concurrentExecutionRatePercentage")
     def concurrent_execution_rate_percentage(self) -> Optional[int]:
         """
-        Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
+        Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%!
+        (MISSING)
         """
         return pulumi.get(self, "concurrent_execution_rate_percentage")
 
@@ -530,7 +645,8 @@ class RemediationConfigurationExecutionControlsSsmControls(dict):
     @pulumi.getter(name="errorPercentage")
     def error_percentage(self) -> Optional[int]:
         """
-        Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
+        Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%!
+        (MISSING)
         """
         return pulumi.get(self, "error_percentage")
 

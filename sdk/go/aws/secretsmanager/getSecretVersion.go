@@ -14,10 +14,12 @@ import (
 // Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `secretsmanager.Secret` data source.
 //
 // ## Example Usage
+//
 // ### Retrieve Current Secret Version
 //
 // By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,7 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := secretsmanager.LookupSecretVersion(ctx, &secretsmanager.LookupSecretVersionArgs{
-//				SecretId: data.Aws_secretsmanager_secret.Example.Id,
+//				SecretId: example.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -41,8 +43,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Retrieve Specific Secret Version
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,7 +61,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := secretsmanager.LookupSecretVersion(ctx, &secretsmanager.LookupSecretVersionArgs{
-//				SecretId:     data.Aws_secretsmanager_secret.Example.Id,
+//				SecretId:     example.Id,
 //				VersionStage: pulumi.StringRef("example"),
 //			}, nil)
 //			if err != nil {
@@ -67,6 +72,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupSecretVersion(ctx *pulumi.Context, args *LookupSecretVersionArgs, opts ...pulumi.InvokeOption) (*LookupSecretVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecretVersionResult
@@ -91,6 +97,8 @@ type LookupSecretVersionArgs struct {
 type LookupSecretVersionResult struct {
 	// ARN of the secret.
 	Arn string `pulumi:"arn"`
+	// Created date of the secret in UTC.
+	CreatedDate string `pulumi:"createdDate"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Decrypted part of the protected secret information that was originally provided as a binary.
@@ -149,6 +157,11 @@ func (o LookupSecretVersionResultOutput) ToLookupSecretVersionResultOutputWithCo
 // ARN of the secret.
 func (o LookupSecretVersionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Created date of the secret in UTC.
+func (o LookupSecretVersionResultOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

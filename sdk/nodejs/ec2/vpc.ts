@@ -11,15 +11,18 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Basic usage with tags:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,40 +35,41 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * VPC with CIDR from AWS IPAM:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegion({});
- * const testVpcIpam = new aws.ec2.VpcIpam("testVpcIpam", {operatingRegions: [{
+ * const test = new aws.ec2.VpcIpam("test", {operatingRegions: [{
  *     regionName: current.then(current => current.name),
  * }]});
- * const testVpcIpamPool = new aws.ec2.VpcIpamPool("testVpcIpamPool", {
+ * const testVpcIpamPool = new aws.ec2.VpcIpamPool("test", {
  *     addressFamily: "ipv4",
- *     ipamScopeId: testVpcIpam.privateDefaultScopeId,
+ *     ipamScopeId: test.privateDefaultScopeId,
  *     locale: current.then(current => current.name),
  * });
- * const testVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("testVpcIpamPoolCidr", {
+ * const testVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("test", {
  *     ipamPoolId: testVpcIpamPool.id,
  *     cidr: "172.20.0.0/16",
  * });
- * const testVpc = new aws.ec2.Vpc("testVpc", {
+ * const testVpc = new aws.ec2.Vpc("test", {
  *     ipv4IpamPoolId: testVpcIpamPool.id,
  *     ipv4NetmaskLength: 28,
- * }, {
- *     dependsOn: [testVpcIpamPoolCidr],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import VPCs using the VPC `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2
+ * $ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2
  * ```
  */
 export class Vpc extends pulumi.CustomResource {
@@ -247,8 +251,6 @@ export class Vpc extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Vpc.__pulumiType, name, resourceInputs, opts);
     }
 }

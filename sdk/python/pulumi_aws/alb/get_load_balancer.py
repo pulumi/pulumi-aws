@@ -22,7 +22,7 @@ class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
     """
-    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, customer_owned_ipv4_pool=None, desync_mitigation_mode=None, dns_name=None, drop_invalid_header_fields=None, enable_cross_zone_load_balancing=None, enable_deletion_protection=None, enable_http2=None, enable_tls_version_and_cipher_suite_headers=None, enable_waf_fail_open=None, enable_xff_client_port=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, preserve_host_header=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, xff_header_processing_mode=None, zone_id=None):
+    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, connection_logs=None, customer_owned_ipv4_pool=None, desync_mitigation_mode=None, dns_name=None, dns_record_client_routing_policy=None, drop_invalid_header_fields=None, enable_cross_zone_load_balancing=None, enable_deletion_protection=None, enable_http2=None, enable_tls_version_and_cipher_suite_headers=None, enable_waf_fail_open=None, enable_xff_client_port=None, enforce_security_group_inbound_rules_on_private_link_traffic=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, preserve_host_header=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, xff_header_processing_mode=None, zone_id=None):
         if access_logs and not isinstance(access_logs, dict):
             raise TypeError("Expected argument 'access_logs' to be a dict")
         pulumi.set(__self__, "access_logs", access_logs)
@@ -32,6 +32,9 @@ class GetLoadBalancerResult:
         if arn_suffix and not isinstance(arn_suffix, str):
             raise TypeError("Expected argument 'arn_suffix' to be a str")
         pulumi.set(__self__, "arn_suffix", arn_suffix)
+        if connection_logs and not isinstance(connection_logs, list):
+            raise TypeError("Expected argument 'connection_logs' to be a list")
+        pulumi.set(__self__, "connection_logs", connection_logs)
         if customer_owned_ipv4_pool and not isinstance(customer_owned_ipv4_pool, str):
             raise TypeError("Expected argument 'customer_owned_ipv4_pool' to be a str")
         pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
@@ -41,6 +44,9 @@ class GetLoadBalancerResult:
         if dns_name and not isinstance(dns_name, str):
             raise TypeError("Expected argument 'dns_name' to be a str")
         pulumi.set(__self__, "dns_name", dns_name)
+        if dns_record_client_routing_policy and not isinstance(dns_record_client_routing_policy, str):
+            raise TypeError("Expected argument 'dns_record_client_routing_policy' to be a str")
+        pulumi.set(__self__, "dns_record_client_routing_policy", dns_record_client_routing_policy)
         if drop_invalid_header_fields and not isinstance(drop_invalid_header_fields, bool):
             raise TypeError("Expected argument 'drop_invalid_header_fields' to be a bool")
         pulumi.set(__self__, "drop_invalid_header_fields", drop_invalid_header_fields)
@@ -62,6 +68,9 @@ class GetLoadBalancerResult:
         if enable_xff_client_port and not isinstance(enable_xff_client_port, bool):
             raise TypeError("Expected argument 'enable_xff_client_port' to be a bool")
         pulumi.set(__self__, "enable_xff_client_port", enable_xff_client_port)
+        if enforce_security_group_inbound_rules_on_private_link_traffic and not isinstance(enforce_security_group_inbound_rules_on_private_link_traffic, str):
+            raise TypeError("Expected argument 'enforce_security_group_inbound_rules_on_private_link_traffic' to be a str")
+        pulumi.set(__self__, "enforce_security_group_inbound_rules_on_private_link_traffic", enforce_security_group_inbound_rules_on_private_link_traffic)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -121,6 +130,11 @@ class GetLoadBalancerResult:
         return pulumi.get(self, "arn_suffix")
 
     @property
+    @pulumi.getter(name="connectionLogs")
+    def connection_logs(self) -> Sequence['outputs.GetLoadBalancerConnectionLogResult']:
+        return pulumi.get(self, "connection_logs")
+
+    @property
     @pulumi.getter(name="customerOwnedIpv4Pool")
     def customer_owned_ipv4_pool(self) -> str:
         return pulumi.get(self, "customer_owned_ipv4_pool")
@@ -134,6 +148,11 @@ class GetLoadBalancerResult:
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> str:
         return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="dnsRecordClientRoutingPolicy")
+    def dns_record_client_routing_policy(self) -> str:
+        return pulumi.get(self, "dns_record_client_routing_policy")
 
     @property
     @pulumi.getter(name="dropInvalidHeaderFields")
@@ -169,6 +188,11 @@ class GetLoadBalancerResult:
     @pulumi.getter(name="enableXffClientPort")
     def enable_xff_client_port(self) -> bool:
         return pulumi.get(self, "enable_xff_client_port")
+
+    @property
+    @pulumi.getter(name="enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")
+    def enforce_security_group_inbound_rules_on_private_link_traffic(self) -> str:
+        return pulumi.get(self, "enforce_security_group_inbound_rules_on_private_link_traffic")
 
     @property
     @pulumi.getter
@@ -253,9 +277,11 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             access_logs=self.access_logs,
             arn=self.arn,
             arn_suffix=self.arn_suffix,
+            connection_logs=self.connection_logs,
             customer_owned_ipv4_pool=self.customer_owned_ipv4_pool,
             desync_mitigation_mode=self.desync_mitigation_mode,
             dns_name=self.dns_name,
+            dns_record_client_routing_policy=self.dns_record_client_routing_policy,
             drop_invalid_header_fields=self.drop_invalid_header_fields,
             enable_cross_zone_load_balancing=self.enable_cross_zone_load_balancing,
             enable_deletion_protection=self.enable_deletion_protection,
@@ -263,6 +289,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             enable_tls_version_and_cipher_suite_headers=self.enable_tls_version_and_cipher_suite_headers,
             enable_waf_fail_open=self.enable_waf_fail_open,
             enable_xff_client_port=self.enable_xff_client_port,
+            enforce_security_group_inbound_rules_on_private_link_traffic=self.enforce_security_group_inbound_rules_on_private_link_traffic,
             id=self.id,
             idle_timeout=self.idle_timeout,
             internal=self.internal,
@@ -294,6 +321,7 @@ def get_load_balancer(arn: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -308,6 +336,7 @@ def get_load_balancer(arn: Optional[str] = None,
     test = aws.lb.get_load_balancer(arn=lb_arn,
         name=lb_name)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: Full ARN of the load balancer.
@@ -327,9 +356,11 @@ def get_load_balancer(arn: Optional[str] = None,
         access_logs=pulumi.get(__ret__, 'access_logs'),
         arn=pulumi.get(__ret__, 'arn'),
         arn_suffix=pulumi.get(__ret__, 'arn_suffix'),
+        connection_logs=pulumi.get(__ret__, 'connection_logs'),
         customer_owned_ipv4_pool=pulumi.get(__ret__, 'customer_owned_ipv4_pool'),
         desync_mitigation_mode=pulumi.get(__ret__, 'desync_mitigation_mode'),
         dns_name=pulumi.get(__ret__, 'dns_name'),
+        dns_record_client_routing_policy=pulumi.get(__ret__, 'dns_record_client_routing_policy'),
         drop_invalid_header_fields=pulumi.get(__ret__, 'drop_invalid_header_fields'),
         enable_cross_zone_load_balancing=pulumi.get(__ret__, 'enable_cross_zone_load_balancing'),
         enable_deletion_protection=pulumi.get(__ret__, 'enable_deletion_protection'),
@@ -337,6 +368,7 @@ def get_load_balancer(arn: Optional[str] = None,
         enable_tls_version_and_cipher_suite_headers=pulumi.get(__ret__, 'enable_tls_version_and_cipher_suite_headers'),
         enable_waf_fail_open=pulumi.get(__ret__, 'enable_waf_fail_open'),
         enable_xff_client_port=pulumi.get(__ret__, 'enable_xff_client_port'),
+        enforce_security_group_inbound_rules_on_private_link_traffic=pulumi.get(__ret__, 'enforce_security_group_inbound_rules_on_private_link_traffic'),
         id=pulumi.get(__ret__, 'id'),
         idle_timeout=pulumi.get(__ret__, 'idle_timeout'),
         internal=pulumi.get(__ret__, 'internal'),
@@ -369,6 +401,7 @@ def get_load_balancer_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -383,6 +416,7 @@ def get_load_balancer_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     test = aws.lb.get_load_balancer(arn=lb_arn,
         name=lb_name)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: Full ARN of the load balancer.

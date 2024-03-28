@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,7 +33,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Effect: pulumi.StringRef("Allow"),
@@ -48,9 +49,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicy, err := iam.NewPolicy(ctx, "examplePolicy", &iam.PolicyArgs{
+//			examplePolicy, err := iam.NewPolicy(ctx, "example", &iam.PolicyArgs{
+//				Name:        pulumi.String("example"),
 //				Description: pulumi.String("My example policy"),
-//				Policy:      *pulumi.String(examplePolicyDocument.Json),
+//				Policy:      pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -80,13 +82,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("example"),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleBudget, err := budgets.NewBudget(ctx, "exampleBudget", &budgets.BudgetArgs{
+//			exampleBudget, err := budgets.NewBudget(ctx, "example", &budgets.BudgetArgs{
+//				Name:            pulumi.String("example"),
 //				BudgetType:      pulumi.String("USAGE"),
 //				LimitAmount:     pulumi.String("10.0"),
 //				LimitUnit:       pulumi.String("dollars"),
@@ -96,7 +100,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = budgets.NewBudgetAction(ctx, "exampleBudgetAction", &budgets.BudgetActionArgs{
+//			_, err = budgets.NewBudgetAction(ctx, "example", &budgets.BudgetActionArgs{
 //				BudgetName:       exampleBudget.Name,
 //				ActionType:       pulumi.String("APPLY_IAM_POLICY"),
 //				ApprovalModel:    pulumi.String("AUTOMATIC"),
@@ -129,15 +133,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import budget actions using `AccountID:ActionID:BudgetName`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget
-//
+// $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget
 // ```
 type BudgetAction struct {
 	pulumi.CustomResourceState

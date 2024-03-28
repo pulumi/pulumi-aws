@@ -9,27 +9,29 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {
+ * const example = new aws.ec2.Vpc("example", {
  *     cidrBlock: "10.0.0.0/16",
  *     enableDnsSupport: true,
  *     enableDnsHostnames: true,
  * });
- * const exampleResolverConfig = new aws.route53.ResolverConfig("exampleResolverConfig", {
- *     resourceId: exampleVpc.id,
+ * const exampleResolverConfig = new aws.route53.ResolverConfig("example", {
+ *     resourceId: example.id,
  *     autodefinedReverseFlag: "DISABLE",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Route 53 Resolver configs using the Route 53 Resolver config ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:route53/resolverConfig:ResolverConfig example rslvr-rc-715aa20c73a23da7
+ * $ pulumi import aws:route53/resolverConfig:ResolverConfig example rslvr-rc-715aa20c73a23da7
  * ```
  */
 export class ResolverConfig extends pulumi.CustomResource {

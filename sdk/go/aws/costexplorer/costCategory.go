@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,51 +30,52 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := costexplorer.NewCostCategory(ctx, "test", &costexplorer.CostCategoryArgs{
+//				Name:        pulumi.String("NAME"),
+//				RuleVersion: pulumi.String("CostCategoryExpression.v1"),
 //				Rules: costexplorer.CostCategoryRuleArray{
 //					&costexplorer.CostCategoryRuleArgs{
+//						Value: pulumi.String("production"),
 //						Rule: &costexplorer.CostCategoryRuleRuleArgs{
 //							Dimension: &costexplorer.CostCategoryRuleRuleDimensionArgs{
 //								Key: pulumi.String("LINKED_ACCOUNT_NAME"),
-//								MatchOptions: pulumi.StringArray{
-//									pulumi.String("ENDS_WITH"),
-//								},
 //								Values: pulumi.StringArray{
 //									pulumi.String("-prod"),
 //								},
-//							},
-//						},
-//						Value: pulumi.String("production"),
-//					},
-//					&costexplorer.CostCategoryRuleArgs{
-//						Rule: &costexplorer.CostCategoryRuleRuleArgs{
-//							Dimension: &costexplorer.CostCategoryRuleRuleDimensionArgs{
-//								Key: pulumi.String("LINKED_ACCOUNT_NAME"),
 //								MatchOptions: pulumi.StringArray{
 //									pulumi.String("ENDS_WITH"),
 //								},
+//							},
+//						},
+//					},
+//					&costexplorer.CostCategoryRuleArgs{
+//						Value: pulumi.String("staging"),
+//						Rule: &costexplorer.CostCategoryRuleRuleArgs{
+//							Dimension: &costexplorer.CostCategoryRuleRuleDimensionArgs{
+//								Key: pulumi.String("LINKED_ACCOUNT_NAME"),
 //								Values: pulumi.StringArray{
 //									pulumi.String("-stg"),
 //								},
-//							},
-//						},
-//						Value: pulumi.String("staging"),
-//					},
-//					&costexplorer.CostCategoryRuleArgs{
-//						Rule: &costexplorer.CostCategoryRuleRuleArgs{
-//							Dimension: &costexplorer.CostCategoryRuleRuleDimensionArgs{
-//								Key: pulumi.String("LINKED_ACCOUNT_NAME"),
 //								MatchOptions: pulumi.StringArray{
 //									pulumi.String("ENDS_WITH"),
 //								},
+//							},
+//						},
+//					},
+//					&costexplorer.CostCategoryRuleArgs{
+//						Value: pulumi.String("testing"),
+//						Rule: &costexplorer.CostCategoryRuleRuleArgs{
+//							Dimension: &costexplorer.CostCategoryRuleRuleDimensionArgs{
+//								Key: pulumi.String("LINKED_ACCOUNT_NAME"),
 //								Values: pulumi.StringArray{
 //									pulumi.String("-dev"),
 //								},
+//								MatchOptions: pulumi.StringArray{
+//									pulumi.String("ENDS_WITH"),
+//								},
 //							},
 //						},
-//						Value: pulumi.String("testing"),
 //					},
 //				},
-//				RuleVersion: pulumi.String("CostCategoryExpression.v1"),
 //			})
 //			if err != nil {
 //				return err
@@ -83,15 +85,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
-//
+// $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
 // ```
 type CostCategory struct {
 	pulumi.CustomResourceState
@@ -135,10 +136,6 @@ func NewCostCategory(ctx *pulumi.Context,
 	if args.Rules == nil {
 		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CostCategory
 	err := ctx.RegisterResource("aws:costexplorer/costCategory:CostCategory", name, args, &resource, opts...)

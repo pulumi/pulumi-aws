@@ -5,6 +5,7 @@ package com.pulumi.aws.rolesanywhere.outputs;
 
 import com.pulumi.aws.rolesanywhere.outputs.TrustAnchorSourceSourceData;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -57,19 +58,25 @@ public final class TrustAnchorSource {
 
         @CustomType.Setter
         public Builder sourceData(TrustAnchorSourceSourceData sourceData) {
-            this.sourceData = Objects.requireNonNull(sourceData);
+            if (sourceData == null) {
+              throw new MissingRequiredPropertyException("TrustAnchorSource", "sourceData");
+            }
+            this.sourceData = sourceData;
             return this;
         }
         @CustomType.Setter
         public Builder sourceType(String sourceType) {
-            this.sourceType = Objects.requireNonNull(sourceType);
+            if (sourceType == null) {
+              throw new MissingRequiredPropertyException("TrustAnchorSource", "sourceType");
+            }
+            this.sourceType = sourceType;
             return this;
         }
         public TrustAnchorSource build() {
-            final var o = new TrustAnchorSource();
-            o.sourceData = sourceData;
-            o.sourceType = sourceType;
-            return o;
+            final var _resultValue = new TrustAnchorSource();
+            _resultValue.sourceData = sourceData;
+            _resultValue.sourceType = sourceType;
+            return _resultValue;
         }
     }
 }

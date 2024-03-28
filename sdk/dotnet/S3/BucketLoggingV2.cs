@@ -16,8 +16,11 @@ namespace Pulumi.Aws.S3
     /// &gt; **Note:** Amazon S3 supports server access logging, AWS CloudTrail, or a combination of both. Refer to the [Logging options for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/logging-with-S3.html)
     /// to decide which method meets your requirements.
     /// 
+    /// &gt; This resource cannot be used with S3 directory buckets.
+    /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,31 +29,38 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     var example = new Aws.S3.BucketV2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = "my-tf-example-bucket",
+    ///     });
+    /// 
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
+    ///     {
+    ///         Bucket = example.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var logBucket = new Aws.S3.BucketV2("logBucket");
+    ///     var logBucket = new Aws.S3.BucketV2("log_bucket", new()
+    ///     {
+    ///         Bucket = "my-tf-log-bucket",
+    ///     });
     /// 
-    ///     var logBucketAcl = new Aws.S3.BucketAclV2("logBucketAcl", new()
+    ///     var logBucketAcl = new Aws.S3.BucketAclV2("log_bucket_acl", new()
     ///     {
     ///         Bucket = logBucket.Id,
     ///         Acl = "log-delivery-write",
     ///     });
     /// 
-    ///     var exampleBucketLoggingV2 = new Aws.S3.BucketLoggingV2("exampleBucketLoggingV2", new()
+    ///     var exampleBucketLoggingV2 = new Aws.S3.BucketLoggingV2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = example.Id,
     ///         TargetBucket = logBucket.Id,
     ///         TargetPrefix = "log/",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -61,12 +71,12 @@ namespace Pulumi.Aws.S3
     /// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name
+    /// $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name
     /// ```
-    ///  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+    /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name,123456789012
+    /// $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name,123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketLoggingV2:BucketLoggingV2")]
@@ -95,6 +105,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Output("targetGrants")]
         public Output<ImmutableArray<Outputs.BucketLoggingV2TargetGrant>> TargetGrants { get; private set; } = null!;
+
+        /// <summary>
+        /// Amazon S3 key format for log objects. See below.
+        /// </summary>
+        [Output("targetObjectKeyFormat")]
+        public Output<Outputs.BucketLoggingV2TargetObjectKeyFormat?> TargetObjectKeyFormat { get; private set; } = null!;
 
         /// <summary>
         /// Prefix for all log object keys.
@@ -179,6 +195,12 @@ namespace Pulumi.Aws.S3
         }
 
         /// <summary>
+        /// Amazon S3 key format for log objects. See below.
+        /// </summary>
+        [Input("targetObjectKeyFormat")]
+        public Input<Inputs.BucketLoggingV2TargetObjectKeyFormatArgs>? TargetObjectKeyFormat { get; set; }
+
+        /// <summary>
         /// Prefix for all log object keys.
         /// </summary>
         [Input("targetPrefix", required: true)]
@@ -221,6 +243,12 @@ namespace Pulumi.Aws.S3
             get => _targetGrants ?? (_targetGrants = new InputList<Inputs.BucketLoggingV2TargetGrantGetArgs>());
             set => _targetGrants = value;
         }
+
+        /// <summary>
+        /// Amazon S3 key format for log objects. See below.
+        /// </summary>
+        [Input("targetObjectKeyFormat")]
+        public Input<Inputs.BucketLoggingV2TargetObjectKeyFormatGetArgs>? TargetObjectKeyFormat { get; set; }
 
         /// <summary>
         /// Prefix for all log object keys.

@@ -6,6 +6,7 @@ package com.pulumi.aws.codebuild.inputs;
 import com.pulumi.aws.codebuild.inputs.ProjectBuildBatchConfigRestrictionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -190,7 +191,9 @@ public final class ProjectBuildBatchConfigArgs extends com.pulumi.resources.Reso
         }
 
         public ProjectBuildBatchConfigArgs build() {
-            $.serviceRole = Objects.requireNonNull($.serviceRole, "expected parameter 'serviceRole' to be non-null");
+            if ($.serviceRole == null) {
+                throw new MissingRequiredPropertyException("ProjectBuildBatchConfigArgs", "serviceRole");
+            }
             return $;
         }
     }

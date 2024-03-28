@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class GetInstanceEnclaveOption {
 
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetInstanceEnclaveOption", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         public GetInstanceEnclaveOption build() {
-            final var o = new GetInstanceEnclaveOption();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new GetInstanceEnclaveOption();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

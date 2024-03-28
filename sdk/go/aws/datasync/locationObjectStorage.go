@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,7 +33,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewLocationObjectStorage(ctx, "example", &datasync.LocationObjectStorageArgs{
 //				AgentArns: pulumi.StringArray{
-//					aws_datasync_agent.Example.Arn,
+//					exampleAwsDatasyncAgent.Arn,
 //				},
 //				ServerHostname: pulumi.String("example"),
 //				BucketName:     pulumi.String("example"),
@@ -45,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_datasync_location_object_storage` using the Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:datasync/locationObjectStorage:LocationObjectStorage example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-//
+// $ pulumi import aws:datasync/locationObjectStorage:LocationObjectStorage example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 // ```
 type LocationObjectStorage struct {
 	pulumi.CustomResourceState
@@ -109,7 +109,6 @@ func NewLocationObjectStorage(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"secretKey",
-		"tagsAll",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)

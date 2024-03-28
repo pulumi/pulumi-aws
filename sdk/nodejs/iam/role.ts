@@ -17,21 +17,24 @@ import {PolicyDocument} from "./index";
  * > **NOTE:** If you use this resource's `managedPolicyArns` argument or `inlinePolicy` configuration blocks, this resource will take over exclusive management of the role's respective policy types (e.g., both policy types if both arguments are used). These arguments are incompatible with other ways of managing a role's policies, such as `aws.iam.PolicyAttachment`, `aws.iam.RolePolicyAttachment`, and `aws.iam.RolePolicy`. If you attempt to manage a role's policies by multiple means, you will get resource cycling and/or errors.
  *
  * ## Example Usage
+ *
  * ### Basic Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testRole = new aws.iam.Role("testRole", {
+ * const testRole = new aws.iam.Role("test_role", {
+ *     name: "test_role",
  *     assumeRolePolicy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: "sts:AssumeRole",
- *             Effect: "Allow",
- *             Sid: "",
- *             Principal: {
- *                 Service: "ec2.amazonaws.com",
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: "sts:AssumeRole",
+ *             effect: "Allow",
+ *             sid: "",
+ *             principal: {
+ *                 service: "ec2.amazonaws.com",
  *             },
  *         }],
  *     }),
@@ -40,8 +43,11 @@ import {PolicyDocument} from "./index";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example of Using Data Source for Assume Role Policy
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -56,14 +62,18 @@ import {PolicyDocument} from "./index";
  *     }],
  * });
  * const instance = new aws.iam.Role("instance", {
+ *     name: "instance_role",
  *     path: "/system/",
  *     assumeRolePolicy: instanceAssumeRolePolicy.then(instanceAssumeRolePolicy => instanceAssumeRolePolicy.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example of Exclusive Inline Policies
  *
  * This example creates an IAM role with two inline IAM policies. If someone adds another inline policy out-of-band, on the next apply, this provider will remove that policy. If someone deletes these policies out-of-band, this provider will recreate them.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -75,16 +85,17 @@ import {PolicyDocument} from "./index";
  *     }],
  * });
  * const example = new aws.iam.Role("example", {
- *     assumeRolePolicy: data.aws_iam_policy_document.instance_assume_role_policy.json,
+ *     name: "yak_role",
+ *     assumeRolePolicy: instanceAssumeRolePolicy.json,
  *     inlinePolicies: [
  *         {
  *             name: "my_inline_policy",
  *             policy: JSON.stringify({
- *                 Version: "2012-10-17",
- *                 Statement: [{
- *                     Action: ["ec2:Describe*"],
- *                     Effect: "Allow",
- *                     Resource: "*",
+ *                 version: "2012-10-17",
+ *                 statement: [{
+ *                     action: ["ec2:Describe*"],
+ *                     effect: "Allow",
+ *                     resource: "*",
  *                 }],
  *             }),
  *         },
@@ -95,75 +106,94 @@ import {PolicyDocument} from "./index";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example of Removing Inline Policies
  *
  * This example creates an IAM role with what appears to be empty IAM `inlinePolicy` argument instead of using `inlinePolicy` as a configuration block. The result is that if someone were to add an inline policy out-of-band, on the next apply, this provider will remove that policy.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.iam.Role("example", {
- *     assumeRolePolicy: data.aws_iam_policy_document.instance_assume_role_policy.json,
  *     inlinePolicies: [{}],
+ *     name: "yak_role",
+ *     assumeRolePolicy: instanceAssumeRolePolicy.json,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example of Exclusive Managed Policies
  *
  * This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, this provider will detach that policy. If someone detaches these policies out-of-band, this provider will attach them again.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const policyOne = new aws.iam.Policy("policyOne", {policy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Action: ["ec2:Describe*"],
- *         Effect: "Allow",
- *         Resource: "*",
- *     }],
- * })});
- * const policyTwo = new aws.iam.Policy("policyTwo", {policy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Action: [
- *             "s3:ListAllMyBuckets",
- *             "s3:ListBucket",
- *             "s3:HeadBucket",
- *         ],
- *         Effect: "Allow",
- *         Resource: "*",
- *     }],
- * })});
+ * const policyOne = new aws.iam.Policy("policy_one", {
+ *     name: "policy-618033",
+ *     policy: JSON.stringify({
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: ["ec2:Describe*"],
+ *             effect: "Allow",
+ *             resource: "*",
+ *         }],
+ *     }),
+ * });
+ * const policyTwo = new aws.iam.Policy("policy_two", {
+ *     name: "policy-381966",
+ *     policy: JSON.stringify({
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: [
+ *                 "s3:ListAllMyBuckets",
+ *                 "s3:ListBucket",
+ *                 "s3:HeadBucket",
+ *             ],
+ *             effect: "Allow",
+ *             resource: "*",
+ *         }],
+ *     }),
+ * });
  * const example = new aws.iam.Role("example", {
- *     assumeRolePolicy: data.aws_iam_policy_document.instance_assume_role_policy.json,
+ *     name: "yak_role",
+ *     assumeRolePolicy: instanceAssumeRolePolicy.json,
  *     managedPolicyArns: [
  *         policyOne.arn,
  *         policyTwo.arn,
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example of Removing Managed Policies
  *
  * This example creates an IAM role with an empty `managedPolicyArns` argument. If someone attaches a policy out-of-band, on the next apply, this provider will detach that policy.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.iam.Role("example", {
- *     assumeRolePolicy: data.aws_iam_policy_document.instance_assume_role_policy.json,
+ *     name: "yak_role",
+ *     assumeRolePolicy: instanceAssumeRolePolicy.json,
  *     managedPolicyArns: [],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IAM Roles using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:iam/role:Role developer developer_name
+ * $ pulumi import aws:iam/role:Role developer developer_name
  * ```
  */
 export class Role extends pulumi.CustomResource {
@@ -308,8 +338,6 @@ export class Role extends pulumi.CustomResource {
             resourceInputs["uniqueId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Role.__pulumiType, name, resourceInputs, opts);
     }
 }

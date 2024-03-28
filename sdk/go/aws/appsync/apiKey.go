@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,14 +29,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGraphQLApi, err := appsync.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync.GraphQLApiArgs{
+//			example, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
 //				AuthenticationType: pulumi.String("API_KEY"),
+//				Name:               pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appsync.NewApiKey(ctx, "exampleApiKey", &appsync.ApiKeyArgs{
-//				ApiId:   exampleGraphQLApi.ID(),
+//			_, err = appsync.NewApiKey(ctx, "example", &appsync.ApiKeyArgs{
+//				ApiId:   example.ID(),
 //				Expires: pulumi.String("2018-05-03T04:00:00Z"),
 //			})
 //			if err != nil {
@@ -46,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_appsync_api_key` using the AppSync API ID and key separated by `:`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
-//
+// $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
 // ```
 type ApiKey struct {
 	pulumi.CustomResourceState

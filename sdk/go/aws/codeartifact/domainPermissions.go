@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,20 +31,20 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				Description: pulumi.String("domain key"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDomain, err := codeartifact.NewDomain(ctx, "exampleDomain", &codeartifact.DomainArgs{
+//			exampleDomain, err := codeartifact.NewDomain(ctx, "example", &codeartifact.DomainArgs{
 //				Domain:        pulumi.String("example"),
-//				EncryptionKey: exampleKey.Arn,
+//				EncryptionKey: example.Arn,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//			test := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
 //						Effect: pulumi.String("Allow"),
@@ -64,10 +65,10 @@ import (
 //					},
 //				},
 //			}, nil)
-//			_, err = codeartifact.NewDomainPermissions(ctx, "testDomainPermissions", &codeartifact.DomainPermissionsArgs{
+//			_, err = codeartifact.NewDomainPermissions(ctx, "test", &codeartifact.DomainPermissionsArgs{
 //				Domain: exampleDomain.Domain,
-//				PolicyDocument: testPolicyDocument.ApplyT(func(testPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &testPolicyDocument.Json, nil
+//				PolicyDocument: test.ApplyT(func(test iam.GetPolicyDocumentResult) (*string, error) {
+//					return &test.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
@@ -78,15 +79,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CodeArtifact Domain Permissions Policies using the CodeArtifact Domain ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
-//
+// $ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
 // ```
 type DomainPermissions struct {
 	pulumi.CustomResourceState

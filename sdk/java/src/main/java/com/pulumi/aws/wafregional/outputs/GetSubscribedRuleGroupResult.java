@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafregional.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -56,25 +57,30 @@ public final class GetSubscribedRuleGroupResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSubscribedRuleGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder metricName(@Nullable String metricName) {
+
             this.metricName = metricName;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         public GetSubscribedRuleGroupResult build() {
-            final var o = new GetSubscribedRuleGroupResult();
-            o.id = id;
-            o.metricName = metricName;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetSubscribedRuleGroupResult();
+            _resultValue.id = id;
+            _resultValue.metricName = metricName;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

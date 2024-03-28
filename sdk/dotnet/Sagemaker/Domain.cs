@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Sagemaker
     /// Provides a SageMaker Domain resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,7 +25,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -48,20 +50,21 @@ namespace Pulumi.Aws.Sagemaker
     ///         },
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "example",
     ///         Path = "/",
-    ///         AssumeRolePolicy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         AssumeRolePolicy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleDomain = new Aws.Sagemaker.Domain("exampleDomain", new()
+    ///     var exampleDomain = new Aws.Sagemaker.Domain("example", new()
     ///     {
     ///         DomainName = "example",
     ///         AuthMode = "IAM",
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         VpcId = exampleAwsVpc.Id,
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Example.Id,
+    ///             exampleAwsSubnet.Id,
     ///         },
     ///         DefaultUserSettings = new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsArgs
     ///         {
@@ -71,8 +74,11 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Using Custom Images
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -81,13 +87,13 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleImage = new Aws.Sagemaker.Image("exampleImage", new()
+    ///     var example = new Aws.Sagemaker.Image("example", new()
     ///     {
     ///         ImageName = "example",
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
-    ///     var exampleAppImageConfig = new Aws.Sagemaker.AppImageConfig("exampleAppImageConfig", new()
+    ///     var exampleAppImageConfig = new Aws.Sagemaker.AppImageConfig("example", new()
     ///     {
     ///         AppImageConfigName = "example",
     ///         KernelGatewayImageConfig = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigArgs
@@ -99,24 +105,24 @@ namespace Pulumi.Aws.Sagemaker
     ///         },
     ///     });
     /// 
-    ///     var exampleImageVersion = new Aws.Sagemaker.ImageVersion("exampleImageVersion", new()
+    ///     var exampleImageVersion = new Aws.Sagemaker.ImageVersion("example", new()
     ///     {
-    ///         ImageName = exampleImage.Id,
+    ///         ImageName = example.Id,
     ///         BaseImage = "base-image",
     ///     });
     /// 
-    ///     var exampleDomain = new Aws.Sagemaker.Domain("exampleDomain", new()
+    ///     var exampleDomain = new Aws.Sagemaker.Domain("example", new()
     ///     {
     ///         DomainName = "example",
     ///         AuthMode = "IAM",
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         VpcId = exampleAwsVpc.Id,
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Example.Id,
+    ///             exampleAwsSubnet.Id,
     ///         },
     ///         DefaultUserSettings = new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsArgs
     ///         {
-    ///             ExecutionRole = aws_iam_role.Example.Arn,
+    ///             ExecutionRole = exampleAwsIamRole.Arn,
     ///             KernelGatewayAppSettings = new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs
     ///             {
     ///                 CustomImages = new[]
@@ -133,13 +139,14 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SageMaker Domains using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
+    /// $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/domain:Domain")]
@@ -170,22 +177,25 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> AuthMode { get; private set; } = null!;
 
         /// <summary>
-        /// The default space settings. See Default Space Settings below.
+        /// The default space settings. See `default_space_settings` Block below.
         /// </summary>
         [Output("defaultSpaceSettings")]
         public Output<Outputs.DomainDefaultSpaceSettings?> DefaultSpaceSettings { get; private set; } = null!;
 
         /// <summary>
-        /// The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+        /// The default user settings. See `default_user_settings` Block below.
         /// </summary>
         [Output("defaultUserSettings")]
         public Output<Outputs.DomainDefaultUserSettings> DefaultUserSettings { get; private set; } = null!;
 
+        /// <summary>
+        /// The domain name.
+        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// The domain's settings.
+        /// The domain settings. See `domain_settings` Block below.
         /// </summary>
         [Output("domainSettings")]
         public Output<Outputs.DomainDomainSettings?> DomainSettings { get; private set; } = null!;
@@ -203,7 +213,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+        /// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
         /// </summary>
         [Output("retentionPolicy")]
         public Output<Outputs.DomainRetentionPolicy?> RetentionPolicy { get; private set; } = null!;
@@ -213,6 +223,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Output("securityGroupIdForDomainBoundary")]
         public Output<string> SecurityGroupIdForDomainBoundary { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+        /// </summary>
+        [Output("singleSignOnApplicationArn")]
+        public Output<string> SingleSignOnApplicationArn { get; private set; } = null!;
 
         /// <summary>
         /// The SSO managed application instance ID.
@@ -275,10 +291,6 @@ namespace Pulumi.Aws.Sagemaker
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -321,22 +333,25 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> AuthMode { get; set; } = null!;
 
         /// <summary>
-        /// The default space settings. See Default Space Settings below.
+        /// The default space settings. See `default_space_settings` Block below.
         /// </summary>
         [Input("defaultSpaceSettings")]
         public Input<Inputs.DomainDefaultSpaceSettingsArgs>? DefaultSpaceSettings { get; set; }
 
         /// <summary>
-        /// The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+        /// The default user settings. See `default_user_settings` Block below.
         /// </summary>
         [Input("defaultUserSettings", required: true)]
         public Input<Inputs.DomainDefaultUserSettingsArgs> DefaultUserSettings { get; set; } = null!;
 
+        /// <summary>
+        /// The domain name.
+        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// The domain's settings.
+        /// The domain settings. See `domain_settings` Block below.
         /// </summary>
         [Input("domainSettings")]
         public Input<Inputs.DomainDomainSettingsArgs>? DomainSettings { get; set; }
@@ -348,7 +363,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+        /// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
         /// </summary>
         [Input("retentionPolicy")]
         public Input<Inputs.DomainRetentionPolicyArgs>? RetentionPolicy { get; set; }
@@ -418,22 +433,25 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? AuthMode { get; set; }
 
         /// <summary>
-        /// The default space settings. See Default Space Settings below.
+        /// The default space settings. See `default_space_settings` Block below.
         /// </summary>
         [Input("defaultSpaceSettings")]
         public Input<Inputs.DomainDefaultSpaceSettingsGetArgs>? DefaultSpaceSettings { get; set; }
 
         /// <summary>
-        /// The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+        /// The default user settings. See `default_user_settings` Block below.
         /// </summary>
         [Input("defaultUserSettings")]
         public Input<Inputs.DomainDefaultUserSettingsGetArgs>? DefaultUserSettings { get; set; }
 
+        /// <summary>
+        /// The domain name.
+        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// The domain's settings.
+        /// The domain settings. See `domain_settings` Block below.
         /// </summary>
         [Input("domainSettings")]
         public Input<Inputs.DomainDomainSettingsGetArgs>? DomainSettings { get; set; }
@@ -451,7 +469,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+        /// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
         /// </summary>
         [Input("retentionPolicy")]
         public Input<Inputs.DomainRetentionPolicyGetArgs>? RetentionPolicy { get; set; }
@@ -461,6 +479,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("securityGroupIdForDomainBoundary")]
         public Input<string>? SecurityGroupIdForDomainBoundary { get; set; }
+
+        /// <summary>
+        /// The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+        /// </summary>
+        [Input("singleSignOnApplicationArn")]
+        public Input<string>? SingleSignOnApplicationArn { get; set; }
 
         /// <summary>
         /// The SSO managed application instance ID.
@@ -502,11 +526,7 @@ namespace Pulumi.Aws.Sagemaker
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

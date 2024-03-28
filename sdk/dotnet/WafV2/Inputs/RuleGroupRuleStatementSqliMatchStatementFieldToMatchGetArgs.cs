@@ -30,6 +30,18 @@ namespace Pulumi.Aws.WafV2.Inputs
         [Input("cookies")]
         public Input<Inputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesGetArgs>? Cookies { get; set; }
 
+        [Input("headerOrders")]
+        private InputList<Inputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrderGetArgs>? _headerOrders;
+
+        /// <summary>
+        /// Inspect the request headers. See Header Order below for details.
+        /// </summary>
+        public InputList<Inputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrderGetArgs> HeaderOrders
+        {
+            get => _headerOrders ?? (_headerOrders = new InputList<Inputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrderGetArgs>());
+            set => _headerOrders = value;
+        }
+
         [Input("headers")]
         private InputList<Inputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderGetArgs>? _headers;
 

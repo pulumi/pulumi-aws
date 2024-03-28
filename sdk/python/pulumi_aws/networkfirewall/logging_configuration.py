@@ -103,18 +103,20 @@ class LoggingConfiguration(pulumi.CustomResource):
         Provides an AWS Network Firewall Logging Configuration Resource
 
         ## Example Usage
+
         ### Logging to S3
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.networkfirewall.LoggingConfiguration("example",
-            firewall_arn=aws_networkfirewall_firewall["example"]["arn"],
+            firewall_arn=example_aws_networkfirewall_firewall["arn"],
             logging_configuration=aws.networkfirewall.LoggingConfigurationLoggingConfigurationArgs(
                 log_destination_configs=[aws.networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs(
                     log_destination={
-                        "bucketName": aws_s3_bucket["example"]["bucket"],
+                        "bucketName": example_aws_s3_bucket["bucket"],
                         "prefix": "/example",
                     },
                     log_destination_type="S3",
@@ -122,49 +124,56 @@ class LoggingConfiguration(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Logging to CloudWatch
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.networkfirewall.LoggingConfiguration("example",
-            firewall_arn=aws_networkfirewall_firewall["example"]["arn"],
+            firewall_arn=example_aws_networkfirewall_firewall["arn"],
             logging_configuration=aws.networkfirewall.LoggingConfigurationLoggingConfigurationArgs(
                 log_destination_configs=[aws.networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs(
                     log_destination={
-                        "logGroup": aws_cloudwatch_log_group["example"]["name"],
+                        "logGroup": example_aws_cloudwatch_log_group["name"],
                     },
                     log_destination_type="CloudWatchLogs",
                     log_type="ALERT",
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Logging to Kinesis Data Firehose
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.networkfirewall.LoggingConfiguration("example",
-            firewall_arn=aws_networkfirewall_firewall["example"]["arn"],
+            firewall_arn=example_aws_networkfirewall_firewall["arn"],
             logging_configuration=aws.networkfirewall.LoggingConfigurationLoggingConfigurationArgs(
                 log_destination_configs=[aws.networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs(
                     log_destination={
-                        "deliveryStream": aws_kinesis_firehose_delivery_stream["example"]["name"],
+                        "deliveryStream": example_aws_kinesis_firehose_delivery_stream["name"],
                     },
                     log_destination_type="KinesisDataFirehose",
                     log_type="ALERT",
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Network Firewall Logging Configurations using the `firewall_arn`. For example:
 
         ```sh
-         $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
+        $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -182,18 +191,20 @@ class LoggingConfiguration(pulumi.CustomResource):
         Provides an AWS Network Firewall Logging Configuration Resource
 
         ## Example Usage
+
         ### Logging to S3
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.networkfirewall.LoggingConfiguration("example",
-            firewall_arn=aws_networkfirewall_firewall["example"]["arn"],
+            firewall_arn=example_aws_networkfirewall_firewall["arn"],
             logging_configuration=aws.networkfirewall.LoggingConfigurationLoggingConfigurationArgs(
                 log_destination_configs=[aws.networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs(
                     log_destination={
-                        "bucketName": aws_s3_bucket["example"]["bucket"],
+                        "bucketName": example_aws_s3_bucket["bucket"],
                         "prefix": "/example",
                     },
                     log_destination_type="S3",
@@ -201,49 +212,56 @@ class LoggingConfiguration(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Logging to CloudWatch
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.networkfirewall.LoggingConfiguration("example",
-            firewall_arn=aws_networkfirewall_firewall["example"]["arn"],
+            firewall_arn=example_aws_networkfirewall_firewall["arn"],
             logging_configuration=aws.networkfirewall.LoggingConfigurationLoggingConfigurationArgs(
                 log_destination_configs=[aws.networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs(
                     log_destination={
-                        "logGroup": aws_cloudwatch_log_group["example"]["name"],
+                        "logGroup": example_aws_cloudwatch_log_group["name"],
                     },
                     log_destination_type="CloudWatchLogs",
                     log_type="ALERT",
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Logging to Kinesis Data Firehose
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.networkfirewall.LoggingConfiguration("example",
-            firewall_arn=aws_networkfirewall_firewall["example"]["arn"],
+            firewall_arn=example_aws_networkfirewall_firewall["arn"],
             logging_configuration=aws.networkfirewall.LoggingConfigurationLoggingConfigurationArgs(
                 log_destination_configs=[aws.networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs(
                     log_destination={
-                        "deliveryStream": aws_kinesis_firehose_delivery_stream["example"]["name"],
+                        "deliveryStream": example_aws_kinesis_firehose_delivery_stream["name"],
                     },
                     log_destination_type="KinesisDataFirehose",
                     log_type="ALERT",
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Network Firewall Logging Configurations using the `firewall_arn`. For example:
 
         ```sh
-         $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
+        $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
         ```
 
         :param str resource_name: The name of the resource.

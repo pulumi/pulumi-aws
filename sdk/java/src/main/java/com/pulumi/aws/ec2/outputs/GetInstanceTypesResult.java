@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetInstanceTypesFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -65,6 +66,7 @@ public final class GetInstanceTypesResult {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<GetInstanceTypesFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -73,23 +75,29 @@ public final class GetInstanceTypesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceTypes(List<String> instanceTypes) {
-            this.instanceTypes = Objects.requireNonNull(instanceTypes);
+            if (instanceTypes == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypesResult", "instanceTypes");
+            }
+            this.instanceTypes = instanceTypes;
             return this;
         }
         public Builder instanceTypes(String... instanceTypes) {
             return instanceTypes(List.of(instanceTypes));
         }
         public GetInstanceTypesResult build() {
-            final var o = new GetInstanceTypesResult();
-            o.filters = filters;
-            o.id = id;
-            o.instanceTypes = instanceTypes;
-            return o;
+            final var _resultValue = new GetInstanceTypesResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.instanceTypes = instanceTypes;
+            return _resultValue;
         }
     }
 }

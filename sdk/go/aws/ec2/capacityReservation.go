@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,10 +30,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewCapacityReservation(ctx, "default", &ec2.CapacityReservationArgs{
+//				InstanceType:     pulumi.String(ec2.InstanceType_T2_Micro),
+//				InstancePlatform: pulumi.String(ec2.InstancePlatformLinuxUnix),
 //				AvailabilityZone: pulumi.String("eu-west-1a"),
 //				InstanceCount:    pulumi.Int(1),
-//				InstancePlatform: pulumi.String("Linux/UNIX"),
-//				InstanceType:     pulumi.String("t2.micro"),
 //			})
 //			if err != nil {
 //				return err
@@ -42,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Capacity Reservations using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
-//
+// $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
 // ```
 type CapacityReservation struct {
 	pulumi.CustomResourceState
@@ -110,10 +110,6 @@ func NewCapacityReservation(ctx *pulumi.Context,
 	if args.InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CapacityReservation
 	err := ctx.RegisterResource("aws:ec2/capacityReservation:CapacityReservation", name, args, &resource, opts...)

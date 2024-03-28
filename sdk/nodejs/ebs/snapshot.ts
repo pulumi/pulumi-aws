@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,20 +21,21 @@ import * as utilities from "../utilities";
  *         Name: "HelloWorld",
  *     },
  * });
- * const exampleSnapshot = new aws.ebs.Snapshot("exampleSnapshot", {
+ * const exampleSnapshot = new aws.ebs.Snapshot("example_snapshot", {
  *     volumeId: example.id,
  *     tags: {
  *         Name: "HelloWorld_snap",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EBS Snapshot using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
+ * $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
  * ```
  */
 export class Snapshot extends pulumi.CustomResource {
@@ -177,8 +179,6 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["volumeSize"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Snapshot.__pulumiType, name, resourceInputs, opts);
     }
 }

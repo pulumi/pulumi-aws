@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			ipset, err := waf.NewIpSet(ctx, "ipset", &waf.IpSetArgs{
+//				Name: pulumi.String("tfIPSet"),
 //				IpSetDescriptors: waf.IpSetIpSetDescriptorArray{
 //					&waf.IpSetIpSetDescriptorArgs{
 //						Type:  pulumi.String("IPV4"),
@@ -40,6 +42,7 @@ import (
 //				return err
 //			}
 //			_, err = waf.NewRateBasedRule(ctx, "wafrule", &waf.RateBasedRuleArgs{
+//				Name:       pulumi.String("tfWAFRule"),
 //				MetricName: pulumi.String("tfWAFRule"),
 //				RateKey:    pulumi.String("IP"),
 //				RateLimit:  pulumi.Int(100),
@@ -50,9 +53,7 @@ import (
 //						Type:    pulumi.String("IPMatch"),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				ipset,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -61,15 +62,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import WAF Rated Based Rule using the id. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:waf/rateBasedRule:RateBasedRule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-//
+// $ pulumi import aws:waf/rateBasedRule:RateBasedRule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 // ```
 type RateBasedRule struct {
 	pulumi.CustomResourceState
@@ -110,10 +110,6 @@ func NewRateBasedRule(ctx *pulumi.Context,
 	if args.RateLimit == nil {
 		return nil, errors.New("invalid value for required argument 'RateLimit'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RateBasedRule
 	err := ctx.RegisterResource("aws:waf/rateBasedRule:RateBasedRule", name, args, &resource, opts...)

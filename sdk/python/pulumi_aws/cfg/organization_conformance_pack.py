@@ -288,16 +288,16 @@ class OrganizationConformancePack(pulumi.CustomResource):
         > **NOTE:** This resource must be created in the Organization master account or a delegated administrator account, and the Organization must have all features enabled. Every Organization account except those configured in the `excluded_accounts` argument must have a Configuration Recorder with proper IAM permissions before the Organization Conformance Pack will successfully create or update. See also the `cfg.Recorder` resource.
 
         ## Example Usage
+
         ### Using Template Body
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_organization = aws.organizations.Organization("exampleOrganization",
-            aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
-            feature_set="ALL")
-        example_organization_conformance_pack = aws.cfg.OrganizationConformancePack("exampleOrganizationConformancePack",
+        example = aws.cfg.OrganizationConformancePack("example",
+            name="example",
             input_parameters=[aws.cfg.OrganizationConformancePackInputParameterArgs(
                 parameter_name="AccessKeysRotatedParameterMaxAccessKeyAge",
                 parameter_value="90",
@@ -313,23 +313,22 @@ class OrganizationConformancePack(pulumi.CustomResource):
                 Owner: AWS
                 SourceIdentifier: IAM_PASSWORD_POLICY
             Type: AWS::Config::ConfigRule
-        \"\"\",
-            opts=pulumi.ResourceOptions(depends_on=[
-                    aws_config_configuration_recorder["example"],
-                    example_organization,
-                ]))
+        \"\"\")
+        example_organization = aws.organizations.Organization("example",
+            aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
+            feature_set="ALL")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using Template S3 URI
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_organization = aws.organizations.Organization("exampleOrganization",
-            aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
-            feature_set="ALL")
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
             bucket=example_bucket_v2.id,
             key="example-key",
             content=\"\"\"Resources:
@@ -341,19 +340,21 @@ class OrganizationConformancePack(pulumi.CustomResource):
                 SourceIdentifier: IAM_PASSWORD_POLICY
             Type: AWS::Config::ConfigRule
         \"\"\")
-        example_organization_conformance_pack = aws.cfg.OrganizationConformancePack("exampleOrganizationConformancePack", template_s3_uri=pulumi.Output.all(example_bucket_v2.bucket, example_bucket_objectv2.key).apply(lambda bucket, key: f"s3://{bucket}/{key}"),
-        opts=pulumi.ResourceOptions(depends_on=[
-                aws_config_configuration_recorder["example"],
-                example_organization,
-            ]))
+        example = aws.cfg.OrganizationConformancePack("example",
+            name="example",
+            template_s3_uri=pulumi.Output.all(example_bucket_v2.bucket, example_bucket_objectv2.key).apply(lambda bucket, key: f"s3://{bucket}/{key}"))
+        example_organization = aws.organizations.Organization("example",
+            aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
+            feature_set="ALL")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Config Organization Conformance Packs using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
+        $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -378,16 +379,16 @@ class OrganizationConformancePack(pulumi.CustomResource):
         > **NOTE:** This resource must be created in the Organization master account or a delegated administrator account, and the Organization must have all features enabled. Every Organization account except those configured in the `excluded_accounts` argument must have a Configuration Recorder with proper IAM permissions before the Organization Conformance Pack will successfully create or update. See also the `cfg.Recorder` resource.
 
         ## Example Usage
+
         ### Using Template Body
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_organization = aws.organizations.Organization("exampleOrganization",
-            aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
-            feature_set="ALL")
-        example_organization_conformance_pack = aws.cfg.OrganizationConformancePack("exampleOrganizationConformancePack",
+        example = aws.cfg.OrganizationConformancePack("example",
+            name="example",
             input_parameters=[aws.cfg.OrganizationConformancePackInputParameterArgs(
                 parameter_name="AccessKeysRotatedParameterMaxAccessKeyAge",
                 parameter_value="90",
@@ -403,23 +404,22 @@ class OrganizationConformancePack(pulumi.CustomResource):
                 Owner: AWS
                 SourceIdentifier: IAM_PASSWORD_POLICY
             Type: AWS::Config::ConfigRule
-        \"\"\",
-            opts=pulumi.ResourceOptions(depends_on=[
-                    aws_config_configuration_recorder["example"],
-                    example_organization,
-                ]))
+        \"\"\")
+        example_organization = aws.organizations.Organization("example",
+            aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
+            feature_set="ALL")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using Template S3 URI
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_organization = aws.organizations.Organization("exampleOrganization",
-            aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
-            feature_set="ALL")
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
             bucket=example_bucket_v2.id,
             key="example-key",
             content=\"\"\"Resources:
@@ -431,19 +431,21 @@ class OrganizationConformancePack(pulumi.CustomResource):
                 SourceIdentifier: IAM_PASSWORD_POLICY
             Type: AWS::Config::ConfigRule
         \"\"\")
-        example_organization_conformance_pack = aws.cfg.OrganizationConformancePack("exampleOrganizationConformancePack", template_s3_uri=pulumi.Output.all(example_bucket_v2.bucket, example_bucket_objectv2.key).apply(lambda bucket, key: f"s3://{bucket}/{key}"),
-        opts=pulumi.ResourceOptions(depends_on=[
-                aws_config_configuration_recorder["example"],
-                example_organization,
-            ]))
+        example = aws.cfg.OrganizationConformancePack("example",
+            name="example",
+            template_s3_uri=pulumi.Output.all(example_bucket_v2.bucket, example_bucket_objectv2.key).apply(lambda bucket, key: f"s3://{bucket}/{key}"))
+        example_organization = aws.organizations.Organization("example",
+            aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
+            feature_set="ALL")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Config Organization Conformance Packs using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
+        $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
         ```
 
         :param str resource_name: The name of the resource.

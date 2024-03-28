@@ -58,19 +58,21 @@ public final class ServiceNetworkServiceAssociationDnsEntry {
 
         @CustomType.Setter
         public Builder domainName(@Nullable String domainName) {
+
             this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder hostedZoneId(@Nullable String hostedZoneId) {
+
             this.hostedZoneId = hostedZoneId;
             return this;
         }
         public ServiceNetworkServiceAssociationDnsEntry build() {
-            final var o = new ServiceNetworkServiceAssociationDnsEntry();
-            o.domainName = domainName;
-            o.hostedZoneId = hostedZoneId;
-            return o;
+            final var _resultValue = new ServiceNetworkServiceAssociationDnsEntry();
+            _resultValue.domainName = domainName;
+            _resultValue.hostedZoneId = hostedZoneId;
+            return _resultValue;
         }
     }
 }

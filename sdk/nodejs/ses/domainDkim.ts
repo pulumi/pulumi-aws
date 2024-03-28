@@ -11,30 +11,32 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleDomainIdentity = new aws.ses.DomainIdentity("exampleDomainIdentity", {domain: "example.com"});
- * const exampleDomainDkim = new aws.ses.DomainDkim("exampleDomainDkim", {domain: exampleDomainIdentity.domain});
+ * const example = new aws.ses.DomainIdentity("example", {domain: "example.com"});
+ * const exampleDomainDkim = new aws.ses.DomainDkim("example", {domain: example.domain});
  * const exampleAmazonsesDkimRecord: aws.route53.Record[] = [];
  * for (const range = {value: 0}; range.value < 3; range.value++) {
- *     exampleAmazonsesDkimRecord.push(new aws.route53.Record(`exampleAmazonsesDkimRecord-${range.value}`, {
+ *     exampleAmazonsesDkimRecord.push(new aws.route53.Record(`example_amazonses_dkim_record-${range.value}`, {
  *         zoneId: "ABCDEFGHIJ123",
  *         name: exampleDomainDkim.dkimTokens.apply(dkimTokens => `${dkimTokens[range.value]}._domainkey`),
- *         type: "CNAME",
+ *         type: aws.route53.RecordType.CNAME,
  *         ttl: 600,
  *         records: [exampleDomainDkim.dkimTokens.apply(dkimTokens => `${dkimTokens[range.value]}.dkim.amazonses.com`)],
  *     }));
  * }
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import DKIM tokens using the `domain` attribute. For example:
  *
  * ```sh
- *  $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
+ * $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
  * ```
  */
 export class DomainDkim extends pulumi.CustomResource {

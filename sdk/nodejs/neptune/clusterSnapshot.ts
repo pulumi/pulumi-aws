@@ -9,22 +9,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.neptune.ClusterSnapshot("example", {
- *     dbClusterIdentifier: aws_neptune_cluster.example.id,
+ *     dbClusterIdentifier: exampleAwsNeptuneCluster.id,
  *     dbClusterSnapshotIdentifier: "resourcetestsnapshot1234",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_neptune_cluster_snapshot` using the cluster snapshot identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:neptune/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+ * $ pulumi import aws:neptune/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
  * ```
  */
 export class ClusterSnapshot extends pulumi.CustomResource {

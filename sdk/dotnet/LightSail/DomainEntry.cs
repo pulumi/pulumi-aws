@@ -16,6 +16,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,27 +25,29 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testDomain = new Aws.LightSail.Domain("testDomain", new()
+    ///     var test = new Aws.LightSail.Domain("test", new()
     ///     {
     ///         DomainName = "mydomain.com",
     ///     });
     /// 
-    ///     var testDomainEntry = new Aws.LightSail.DomainEntry("testDomainEntry", new()
+    ///     var testDomainEntry = new Aws.LightSail.DomainEntry("test", new()
     ///     {
-    ///         DomainName = aws_lightsail_domain.Domain_test.Domain_name,
+    ///         DomainName = domainTest.DomainName,
+    ///         Name = "www",
     ///         Type = "A",
     ///         Target = "127.0.0.1",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_lightsail_domain_entry` using the id attribute. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
+    /// $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/domainEntry:DomainEntry")]

@@ -30,7 +30,10 @@ public final class DmsFunctions {
      * Data source for managing an AWS DMS (Database Migration) Certificate.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -53,12 +56,13 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DmsFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .certificateId(aws_dms_certificate.test().certificate_id())
+     *             .certificateId(test.certificateId())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args) {
@@ -68,7 +72,10 @@ public final class DmsFunctions {
      * Data source for managing an AWS DMS (Database Migration) Certificate.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -91,12 +98,13 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DmsFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .certificateId(aws_dms_certificate.test().certificate_id())
+     *             .certificateId(test.certificateId())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args) {
@@ -106,7 +114,10 @@ public final class DmsFunctions {
      * Data source for managing an AWS DMS (Database Migration) Certificate.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -129,12 +140,13 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DmsFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .certificateId(aws_dms_certificate.test().certificate_id())
+     *             .certificateId(test.certificateId())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args, InvokeOptions options) {
@@ -144,7 +156,10 @@ public final class DmsFunctions {
      * Data source for managing an AWS DMS (Database Migration) Certificate.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -167,12 +182,13 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DmsFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .certificateId(aws_dms_certificate.test().certificate_id())
+     *             .certificateId(test.certificateId())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args, InvokeOptions options) {
@@ -182,7 +198,10 @@ public final class DmsFunctions {
      * Data source for managing an AWS DMS (Database Migration) Endpoint.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -211,6 +230,7 @@ public final class DmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEndpointResult> getEndpoint(GetEndpointArgs args) {
@@ -220,7 +240,10 @@ public final class DmsFunctions {
      * Data source for managing an AWS DMS (Database Migration) Endpoint.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -249,6 +272,7 @@ public final class DmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEndpointResult> getEndpointPlain(GetEndpointPlainArgs args) {
@@ -258,7 +282,10 @@ public final class DmsFunctions {
      * Data source for managing an AWS DMS (Database Migration) Endpoint.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -287,6 +314,7 @@ public final class DmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEndpointResult> getEndpoint(GetEndpointArgs args, InvokeOptions options) {
@@ -296,7 +324,10 @@ public final class DmsFunctions {
      * Data source for managing an AWS DMS (Database Migration) Endpoint.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -325,6 +356,7 @@ public final class DmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEndpointResult> getEndpointPlain(GetEndpointPlainArgs args, InvokeOptions options) {
@@ -334,6 +366,8 @@ public final class DmsFunctions {
      * Data source for managing an AWS DMS (Database Migration) Replication Instance.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -356,12 +390,13 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DmsFunctions.getReplicationInstance(GetReplicationInstanceArgs.builder()
-     *             .replicationInstanceId(aws_dms_replication_instance.test().replication_instance_id())
+     *             .replicationInstanceId(testAwsDmsReplicationInstance.replicationInstanceId())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReplicationInstanceResult> getReplicationInstance(GetReplicationInstanceArgs args) {
@@ -371,6 +406,8 @@ public final class DmsFunctions {
      * Data source for managing an AWS DMS (Database Migration) Replication Instance.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -393,12 +430,13 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DmsFunctions.getReplicationInstance(GetReplicationInstanceArgs.builder()
-     *             .replicationInstanceId(aws_dms_replication_instance.test().replication_instance_id())
+     *             .replicationInstanceId(testAwsDmsReplicationInstance.replicationInstanceId())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReplicationInstanceResult> getReplicationInstancePlain(GetReplicationInstancePlainArgs args) {
@@ -408,6 +446,8 @@ public final class DmsFunctions {
      * Data source for managing an AWS DMS (Database Migration) Replication Instance.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -430,12 +470,13 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DmsFunctions.getReplicationInstance(GetReplicationInstanceArgs.builder()
-     *             .replicationInstanceId(aws_dms_replication_instance.test().replication_instance_id())
+     *             .replicationInstanceId(testAwsDmsReplicationInstance.replicationInstanceId())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReplicationInstanceResult> getReplicationInstance(GetReplicationInstanceArgs args, InvokeOptions options) {
@@ -445,6 +486,8 @@ public final class DmsFunctions {
      * Data source for managing an AWS DMS (Database Migration) Replication Instance.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -467,12 +510,13 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DmsFunctions.getReplicationInstance(GetReplicationInstanceArgs.builder()
-     *             .replicationInstanceId(aws_dms_replication_instance.test().replication_instance_id())
+     *             .replicationInstanceId(testAwsDmsReplicationInstance.replicationInstanceId())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReplicationInstanceResult> getReplicationInstancePlain(GetReplicationInstancePlainArgs args, InvokeOptions options) {
@@ -482,7 +526,10 @@ public final class DmsFunctions {
      * Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -505,12 +552,13 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DmsFunctions.getReplicationSubnetGroup(GetReplicationSubnetGroupArgs.builder()
-     *             .replicationSubnetGroupId(aws_dms_replication_subnet_group.test().replication_subnet_group_id())
+     *             .replicationSubnetGroupId(testAwsDmsReplicationSubnetGroup.replicationSubnetGroupId())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReplicationSubnetGroupResult> getReplicationSubnetGroup(GetReplicationSubnetGroupArgs args) {
@@ -520,7 +568,10 @@ public final class DmsFunctions {
      * Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -543,12 +594,13 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DmsFunctions.getReplicationSubnetGroup(GetReplicationSubnetGroupArgs.builder()
-     *             .replicationSubnetGroupId(aws_dms_replication_subnet_group.test().replication_subnet_group_id())
+     *             .replicationSubnetGroupId(testAwsDmsReplicationSubnetGroup.replicationSubnetGroupId())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReplicationSubnetGroupResult> getReplicationSubnetGroupPlain(GetReplicationSubnetGroupPlainArgs args) {
@@ -558,7 +610,10 @@ public final class DmsFunctions {
      * Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -581,12 +636,13 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DmsFunctions.getReplicationSubnetGroup(GetReplicationSubnetGroupArgs.builder()
-     *             .replicationSubnetGroupId(aws_dms_replication_subnet_group.test().replication_subnet_group_id())
+     *             .replicationSubnetGroupId(testAwsDmsReplicationSubnetGroup.replicationSubnetGroupId())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReplicationSubnetGroupResult> getReplicationSubnetGroup(GetReplicationSubnetGroupArgs args, InvokeOptions options) {
@@ -596,7 +652,10 @@ public final class DmsFunctions {
      * Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -619,12 +678,13 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DmsFunctions.getReplicationSubnetGroup(GetReplicationSubnetGroupArgs.builder()
-     *             .replicationSubnetGroupId(aws_dms_replication_subnet_group.test().replication_subnet_group_id())
+     *             .replicationSubnetGroupId(testAwsDmsReplicationSubnetGroup.replicationSubnetGroupId())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReplicationSubnetGroupResult> getReplicationSubnetGroupPlain(GetReplicationSubnetGroupPlainArgs args, InvokeOptions options) {
@@ -634,7 +694,10 @@ public final class DmsFunctions {
      * Data source for managing an AWS DMS (Database Migration) Replication Task.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -657,12 +720,13 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DmsFunctions.getReplicationTask(GetReplicationTaskArgs.builder()
-     *             .replicationTaskId(aws_dms_replication_task.test().replication_task_id())
+     *             .replicationTaskId(testAwsDmsReplicationTask.replicationTaskId())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReplicationTaskResult> getReplicationTask(GetReplicationTaskArgs args) {
@@ -672,7 +736,10 @@ public final class DmsFunctions {
      * Data source for managing an AWS DMS (Database Migration) Replication Task.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -695,12 +762,13 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DmsFunctions.getReplicationTask(GetReplicationTaskArgs.builder()
-     *             .replicationTaskId(aws_dms_replication_task.test().replication_task_id())
+     *             .replicationTaskId(testAwsDmsReplicationTask.replicationTaskId())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReplicationTaskResult> getReplicationTaskPlain(GetReplicationTaskPlainArgs args) {
@@ -710,7 +778,10 @@ public final class DmsFunctions {
      * Data source for managing an AWS DMS (Database Migration) Replication Task.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -733,12 +804,13 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DmsFunctions.getReplicationTask(GetReplicationTaskArgs.builder()
-     *             .replicationTaskId(aws_dms_replication_task.test().replication_task_id())
+     *             .replicationTaskId(testAwsDmsReplicationTask.replicationTaskId())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReplicationTaskResult> getReplicationTask(GetReplicationTaskArgs args, InvokeOptions options) {
@@ -748,7 +820,10 @@ public final class DmsFunctions {
      * Data source for managing an AWS DMS (Database Migration) Replication Task.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -771,12 +846,13 @@ public final class DmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DmsFunctions.getReplicationTask(GetReplicationTaskArgs.builder()
-     *             .replicationTaskId(aws_dms_replication_task.test().replication_task_id())
+     *             .replicationTaskId(testAwsDmsReplicationTask.replicationTaskId())
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReplicationTaskResult> getReplicationTaskPlain(GetReplicationTaskPlainArgs args, InvokeOptions options) {

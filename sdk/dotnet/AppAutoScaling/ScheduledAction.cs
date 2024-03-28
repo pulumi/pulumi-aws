@@ -13,8 +13,10 @@ namespace Pulumi.Aws.AppAutoScaling
     /// Provides an Application AutoScaling ScheduledAction resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### DynamoDB Table Autoscaling
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,7 +25,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dynamodbTarget = new Aws.AppAutoScaling.Target("dynamodbTarget", new()
+    ///     var dynamodb = new Aws.AppAutoScaling.Target("dynamodb", new()
     ///     {
     ///         MaxCapacity = 100,
     ///         MinCapacity = 5,
@@ -32,11 +34,12 @@ namespace Pulumi.Aws.AppAutoScaling
     ///         ServiceNamespace = "dynamodb",
     ///     });
     /// 
-    ///     var dynamodbScheduledAction = new Aws.AppAutoScaling.ScheduledAction("dynamodbScheduledAction", new()
+    ///     var dynamodbScheduledAction = new Aws.AppAutoScaling.ScheduledAction("dynamodb", new()
     ///     {
-    ///         ServiceNamespace = dynamodbTarget.ServiceNamespace,
-    ///         ResourceId = dynamodbTarget.ResourceId,
-    ///         ScalableDimension = dynamodbTarget.ScalableDimension,
+    ///         Name = "dynamodb",
+    ///         ServiceNamespace = dynamodb.ServiceNamespace,
+    ///         ResourceId = dynamodb.ResourceId,
+    ///         ScalableDimension = dynamodb.ScalableDimension,
     ///         Schedule = "at(2006-01-02T15:04:05)",
     ///         ScalableTargetAction = new Aws.AppAutoScaling.Inputs.ScheduledActionScalableTargetActionArgs
     ///         {
@@ -47,8 +50,11 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### ECS Service Autoscaling
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -57,7 +63,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ecsTarget = new Aws.AppAutoScaling.Target("ecsTarget", new()
+    ///     var ecs = new Aws.AppAutoScaling.Target("ecs", new()
     ///     {
     ///         MaxCapacity = 4,
     ///         MinCapacity = 1,
@@ -66,11 +72,12 @@ namespace Pulumi.Aws.AppAutoScaling
     ///         ServiceNamespace = "ecs",
     ///     });
     /// 
-    ///     var ecsScheduledAction = new Aws.AppAutoScaling.ScheduledAction("ecsScheduledAction", new()
+    ///     var ecsScheduledAction = new Aws.AppAutoScaling.ScheduledAction("ecs", new()
     ///     {
-    ///         ServiceNamespace = ecsTarget.ServiceNamespace,
-    ///         ResourceId = ecsTarget.ResourceId,
-    ///         ScalableDimension = ecsTarget.ScalableDimension,
+    ///         Name = "ecs",
+    ///         ServiceNamespace = ecs.ServiceNamespace,
+    ///         ResourceId = ecs.ResourceId,
+    ///         ScalableDimension = ecs.ScalableDimension,
     ///         Schedule = "at(2006-01-02T15:04:05)",
     ///         ScalableTargetAction = new Aws.AppAutoScaling.Inputs.ScheduledActionScalableTargetActionArgs
     ///         {
@@ -81,6 +88,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:appautoscaling/scheduledAction:ScheduledAction")]
     public partial class ScheduledAction : global::Pulumi.CustomResource

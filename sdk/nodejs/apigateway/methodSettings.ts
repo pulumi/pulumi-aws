@@ -17,45 +17,52 @@ import {RestApi} from "./index";
  * ## Example Usage
  *
  * ### End-to-end
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as crypto from "crypto";
+ * import * as std from "@pulumi/std";
  *
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {body: JSON.stringify({
- *     openapi: "3.0.1",
- *     info: {
- *         title: "example",
- *         version: "1.0",
- *     },
- *     paths: {
- *         "/path1": {
- *             get: {
- *                 "x-amazon-apigateway-integration": {
- *                     httpMethod: "GET",
- *                     payloadFormatVersion: "1.0",
- *                     type: "HTTP_PROXY",
- *                     uri: "https://ip-ranges.amazonaws.com/ip-ranges.json",
+ * const example = new aws.apigateway.RestApi("example", {
+ *     body: JSON.stringify({
+ *         openapi: "3.0.1",
+ *         info: {
+ *             title: "example",
+ *             version: "1.0",
+ *         },
+ *         paths: {
+ *             "/path1": {
+ *                 get: {
+ *                     "x-amazon-apigateway-integration": {
+ *                         httpMethod: "GET",
+ *                         payloadFormatVersion: "1.0",
+ *                         type: "HTTP_PROXY",
+ *                         uri: "https://ip-ranges.amazonaws.com/ip-ranges.json",
+ *                     },
  *                 },
  *             },
  *         },
- *     },
- * })});
- * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
- *     restApi: exampleRestApi.id,
+ *     }),
+ *     name: "example",
+ * });
+ * const exampleDeployment = new aws.apigateway.Deployment("example", {
+ *     restApi: example.id,
  *     triggers: {
- *         redeployment: exampleRestApi.body.apply(body => JSON.stringify(body)).apply(toJSON => crypto.createHash('sha1').update(toJSON).digest('hex')),
+ *         redeployment: std.sha1Output({
+ *             input: pulumi.jsonStringify(example.body),
+ *         }).apply(invoke => invoke.result),
  *     },
  * });
- * const exampleStage = new aws.apigateway.Stage("exampleStage", {
+ * const exampleStage = new aws.apigateway.Stage("example", {
  *     deployment: exampleDeployment.id,
- *     restApi: exampleRestApi.id,
+ *     restApi: example.id,
  *     stageName: "example",
  * });
  * const all = new aws.apigateway.MethodSettings("all", {
- *     restApi: exampleRestApi.id,
+ *     restApi: example.id,
  *     stageName: exampleStage.stageName,
  *     methodPath: "*&#47;*",
  *     settings: {
@@ -63,8 +70,8 @@ import {RestApi} from "./index";
  *         loggingLevel: "ERROR",
  *     },
  * });
- * const pathSpecific = new aws.apigateway.MethodSettings("pathSpecific", {
- *     restApi: exampleRestApi.id,
+ * const pathSpecific = new aws.apigateway.MethodSettings("path_specific", {
+ *     restApi: example.id,
  *     stageName: exampleStage.stageName,
  *     methodPath: "path1/GET",
  *     settings: {
@@ -73,33 +80,40 @@ import {RestApi} from "./index";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### CloudWatch Logging and Tracing
  *
  * The AWS Console API Gateway Editor displays multiple options for CloudWatch Logs that don't directly map to the options in the AWS API and Pulumi. These examples show the `settings` blocks that are equivalent to the options the AWS Console gives for CloudWatch Logs.
+ *
  * ### Off
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const pathSpecific = new aws.apigateway.MethodSettings("pathSpecific", {
- *     restApi: aws_api_gateway_rest_api.example.id,
- *     stageName: aws_api_gateway_stage.example.stage_name,
+ * const pathSpecific = new aws.apigateway.MethodSettings("path_specific", {
+ *     restApi: example.id,
+ *     stageName: exampleAwsApiGatewayStage.stageName,
  *     methodPath: "path1/GET",
  *     settings: {
  *         loggingLevel: "OFF",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Errors Only
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const pathSpecific = new aws.apigateway.MethodSettings("pathSpecific", {
- *     restApi: aws_api_gateway_rest_api.example.id,
- *     stageName: aws_api_gateway_stage.example.stage_name,
+ * const pathSpecific = new aws.apigateway.MethodSettings("path_specific", {
+ *     restApi: example.id,
+ *     stageName: exampleAwsApiGatewayStage.stageName,
  *     methodPath: "path1/GET",
  *     settings: {
  *         loggingLevel: "ERROR",
@@ -108,15 +122,18 @@ import {RestApi} from "./index";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Errors and Info Logs
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const pathSpecific = new aws.apigateway.MethodSettings("pathSpecific", {
- *     restApi: aws_api_gateway_rest_api.example.id,
- *     stageName: aws_api_gateway_stage.example.stage_name,
+ * const pathSpecific = new aws.apigateway.MethodSettings("path_specific", {
+ *     restApi: example.id,
+ *     stageName: exampleAwsApiGatewayStage.stageName,
  *     methodPath: "path1/GET",
  *     settings: {
  *         loggingLevel: "INFO",
@@ -125,15 +142,18 @@ import {RestApi} from "./index";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Full Request and Response Logs
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const pathSpecific = new aws.apigateway.MethodSettings("pathSpecific", {
- *     restApi: aws_api_gateway_rest_api.example.id,
- *     stageName: aws_api_gateway_stage.example.stage_name,
+ * const pathSpecific = new aws.apigateway.MethodSettings("path_specific", {
+ *     restApi: example.id,
+ *     stageName: exampleAwsApiGatewayStage.stageName,
  *     methodPath: "path1/GET",
  *     settings: {
  *         loggingLevel: "INFO",
@@ -142,13 +162,14 @@ import {RestApi} from "./index";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_api_gateway_method_settings` using `REST-API-ID/STAGE-NAME/METHOD-PATH`. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
+ * $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
  * ```
  */
 export class MethodSettings extends pulumi.CustomResource {

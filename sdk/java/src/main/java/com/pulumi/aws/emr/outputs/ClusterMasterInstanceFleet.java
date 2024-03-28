@@ -130,11 +130,13 @@ public final class ClusterMasterInstanceFleet {
 
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceTypeConfigs(@Nullable List<ClusterMasterInstanceFleetInstanceTypeConfig> instanceTypeConfigs) {
+
             this.instanceTypeConfigs = instanceTypeConfigs;
             return this;
         }
@@ -143,45 +145,51 @@ public final class ClusterMasterInstanceFleet {
         }
         @CustomType.Setter
         public Builder launchSpecifications(@Nullable ClusterMasterInstanceFleetLaunchSpecifications launchSpecifications) {
+
             this.launchSpecifications = launchSpecifications;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder provisionedOnDemandCapacity(@Nullable Integer provisionedOnDemandCapacity) {
+
             this.provisionedOnDemandCapacity = provisionedOnDemandCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder provisionedSpotCapacity(@Nullable Integer provisionedSpotCapacity) {
+
             this.provisionedSpotCapacity = provisionedSpotCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder targetOnDemandCapacity(@Nullable Integer targetOnDemandCapacity) {
+
             this.targetOnDemandCapacity = targetOnDemandCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder targetSpotCapacity(@Nullable Integer targetSpotCapacity) {
+
             this.targetSpotCapacity = targetSpotCapacity;
             return this;
         }
         public ClusterMasterInstanceFleet build() {
-            final var o = new ClusterMasterInstanceFleet();
-            o.id = id;
-            o.instanceTypeConfigs = instanceTypeConfigs;
-            o.launchSpecifications = launchSpecifications;
-            o.name = name;
-            o.provisionedOnDemandCapacity = provisionedOnDemandCapacity;
-            o.provisionedSpotCapacity = provisionedSpotCapacity;
-            o.targetOnDemandCapacity = targetOnDemandCapacity;
-            o.targetSpotCapacity = targetSpotCapacity;
-            return o;
+            final var _resultValue = new ClusterMasterInstanceFleet();
+            _resultValue.id = id;
+            _resultValue.instanceTypeConfigs = instanceTypeConfigs;
+            _resultValue.launchSpecifications = launchSpecifications;
+            _resultValue.name = name;
+            _resultValue.provisionedOnDemandCapacity = provisionedOnDemandCapacity;
+            _resultValue.provisionedSpotCapacity = provisionedSpotCapacity;
+            _resultValue.targetOnDemandCapacity = targetOnDemandCapacity;
+            _resultValue.targetSpotCapacity = targetSpotCapacity;
+            return _resultValue;
         }
     }
 }

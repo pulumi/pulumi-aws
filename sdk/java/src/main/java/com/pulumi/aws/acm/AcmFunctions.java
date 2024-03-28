@@ -20,6 +20,8 @@ public final class AcmFunctions {
      * it by domain without having to hard code the ARNs as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -48,8 +50,8 @@ public final class AcmFunctions {
      * 
      *         final var amazonIssued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
      *             .domain(&#34;tf.example.com&#34;)
-     *             .mostRecent(true)
      *             .types(&#34;AMAZON_ISSUED&#34;)
+     *             .mostRecent(true)
      *             .build());
      * 
      *         final var rsa4096 = AcmFunctions.getCertificate(GetCertificateArgs.builder()
@@ -60,6 +62,7 @@ public final class AcmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args) {
@@ -71,6 +74,8 @@ public final class AcmFunctions {
      * it by domain without having to hard code the ARNs as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -99,8 +104,8 @@ public final class AcmFunctions {
      * 
      *         final var amazonIssued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
      *             .domain(&#34;tf.example.com&#34;)
-     *             .mostRecent(true)
      *             .types(&#34;AMAZON_ISSUED&#34;)
+     *             .mostRecent(true)
      *             .build());
      * 
      *         final var rsa4096 = AcmFunctions.getCertificate(GetCertificateArgs.builder()
@@ -111,6 +116,7 @@ public final class AcmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args) {
@@ -122,6 +128,8 @@ public final class AcmFunctions {
      * it by domain without having to hard code the ARNs as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -150,8 +158,8 @@ public final class AcmFunctions {
      * 
      *         final var amazonIssued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
      *             .domain(&#34;tf.example.com&#34;)
-     *             .mostRecent(true)
      *             .types(&#34;AMAZON_ISSUED&#34;)
+     *             .mostRecent(true)
      *             .build());
      * 
      *         final var rsa4096 = AcmFunctions.getCertificate(GetCertificateArgs.builder()
@@ -162,6 +170,7 @@ public final class AcmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args, InvokeOptions options) {
@@ -173,6 +182,8 @@ public final class AcmFunctions {
      * it by domain without having to hard code the ARNs as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -201,8 +212,8 @@ public final class AcmFunctions {
      * 
      *         final var amazonIssued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
      *             .domain(&#34;tf.example.com&#34;)
-     *             .mostRecent(true)
      *             .types(&#34;AMAZON_ISSUED&#34;)
+     *             .mostRecent(true)
      *             .build());
      * 
      *         final var rsa4096 = AcmFunctions.getCertificate(GetCertificateArgs.builder()
@@ -213,6 +224,7 @@ public final class AcmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args, InvokeOptions options) {

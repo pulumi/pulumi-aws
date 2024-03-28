@@ -5,6 +5,7 @@ package com.pulumi.aws.emr.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class BlockPublicAccessConfigurationPermittedPublicSecurityGroupRul
         }
 
         public BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs build() {
-            $.maxRange = Objects.requireNonNull($.maxRange, "expected parameter 'maxRange' to be non-null");
-            $.minRange = Objects.requireNonNull($.minRange, "expected parameter 'minRange' to be non-null");
+            if ($.maxRange == null) {
+                throw new MissingRequiredPropertyException("BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs", "maxRange");
+            }
+            if ($.minRange == null) {
+                throw new MissingRequiredPropertyException("BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs", "minRange");
+            }
             return $;
         }
     }

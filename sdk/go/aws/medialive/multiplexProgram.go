@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS MediaLive MultiplexProgram.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,10 +38,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleMultiplex, err := medialive.NewMultiplex(ctx, "exampleMultiplex", &medialive.MultiplexArgs{
+//			example, err := medialive.NewMultiplex(ctx, "example", &medialive.MultiplexArgs{
+//				Name: pulumi.String("example-multiplex-changed"),
 //				AvailabilityZones: pulumi.StringArray{
-//					*pulumi.String(available.Names[0]),
-//					*pulumi.String(available.Names[1]),
+//					pulumi.String(available.Names[0]),
+//					pulumi.String(available.Names[1]),
 //				},
 //				MultiplexSettings: &medialive.MultiplexMultiplexSettingsArgs{
 //					TransportStreamBitrate:              pulumi.Int(1000000),
@@ -55,9 +58,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = medialive.NewMultiplexProgram(ctx, "exampleMultiplexProgram", &medialive.MultiplexProgramArgs{
+//			_, err = medialive.NewMultiplexProgram(ctx, "example", &medialive.MultiplexProgramArgs{
 //				ProgramName: pulumi.String("example_program"),
-//				MultiplexId: exampleMultiplex.ID(),
+//				MultiplexId: example.ID(),
 //				MultiplexProgramSettings: &medialive.MultiplexProgramMultiplexProgramSettingsArgs{
 //					ProgramNumber:            pulumi.Int(1),
 //					PreferredChannelPipeline: pulumi.String("CURRENTLY_ACTIVE"),
@@ -74,15 +77,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of "`program_name`/`multiplex_id`". For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
-//
+// $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
 // ```
 type MultiplexProgram struct {
 	pulumi.CustomResourceState

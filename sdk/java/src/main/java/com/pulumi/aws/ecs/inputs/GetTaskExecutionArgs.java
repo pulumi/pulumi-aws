@@ -10,6 +10,7 @@ import com.pulumi.aws.ecs.inputs.GetTaskExecutionPlacementConstraintArgs;
 import com.pulumi.aws.ecs.inputs.GetTaskExecutionPlacementStrategyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -37,6 +38,21 @@ public final class GetTaskExecutionArgs extends com.pulumi.resources.InvokeArgs 
      */
     public Optional<Output<List<GetTaskExecutionCapacityProviderStrategyArgs>>> capacityProviderStrategies() {
         return Optional.ofNullable(this.capacityProviderStrategies);
+    }
+
+    /**
+     * An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+     * 
+     */
+    @Import(name="clientToken")
+    private @Nullable Output<String> clientToken;
+
+    /**
+     * @return An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+     * 
+     */
+    public Optional<Output<String>> clientToken() {
+        return Optional.ofNullable(this.clientToken);
     }
 
     /**
@@ -287,6 +303,7 @@ public final class GetTaskExecutionArgs extends com.pulumi.resources.InvokeArgs 
 
     private GetTaskExecutionArgs(GetTaskExecutionArgs $) {
         this.capacityProviderStrategies = $.capacityProviderStrategies;
+        this.clientToken = $.clientToken;
         this.cluster = $.cluster;
         this.desiredCount = $.desiredCount;
         this.enableEcsManagedTags = $.enableEcsManagedTags;
@@ -352,6 +369,27 @@ public final class GetTaskExecutionArgs extends com.pulumi.resources.InvokeArgs 
          */
         public Builder capacityProviderStrategies(GetTaskExecutionCapacityProviderStrategyArgs... capacityProviderStrategies) {
             return capacityProviderStrategies(List.of(capacityProviderStrategies));
+        }
+
+        /**
+         * @param clientToken An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientToken(@Nullable Output<String> clientToken) {
+            $.clientToken = clientToken;
+            return this;
+        }
+
+        /**
+         * @param clientToken An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientToken(String clientToken) {
+            return clientToken(Output.of(clientToken));
         }
 
         /**
@@ -715,8 +753,12 @@ public final class GetTaskExecutionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         public GetTaskExecutionArgs build() {
-            $.cluster = Objects.requireNonNull($.cluster, "expected parameter 'cluster' to be non-null");
-            $.taskDefinition = Objects.requireNonNull($.taskDefinition, "expected parameter 'taskDefinition' to be non-null");
+            if ($.cluster == null) {
+                throw new MissingRequiredPropertyException("GetTaskExecutionArgs", "cluster");
+            }
+            if ($.taskDefinition == null) {
+                throw new MissingRequiredPropertyException("GetTaskExecutionArgs", "taskDefinition");
+            }
             return $;
         }
     }

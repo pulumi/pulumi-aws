@@ -5,6 +5,7 @@ package com.pulumi.aws.comprehend.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -280,8 +281,12 @@ public final class DocumentClassifierInputDataConfigAugmentedManifestArgs extend
         }
 
         public DocumentClassifierInputDataConfigAugmentedManifestArgs build() {
-            $.attributeNames = Objects.requireNonNull($.attributeNames, "expected parameter 'attributeNames' to be non-null");
-            $.s3Uri = Objects.requireNonNull($.s3Uri, "expected parameter 's3Uri' to be non-null");
+            if ($.attributeNames == null) {
+                throw new MissingRequiredPropertyException("DocumentClassifierInputDataConfigAugmentedManifestArgs", "attributeNames");
+            }
+            if ($.s3Uri == null) {
+                throw new MissingRequiredPropertyException("DocumentClassifierInputDataConfigAugmentedManifestArgs", "s3Uri");
+            }
             return $;
         }
     }

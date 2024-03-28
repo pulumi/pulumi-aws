@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Provides a Global Accelerator endpoint group.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,9 +48,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EndpointGroup(&#34;example&#34;, EndpointGroupArgs.builder()        
- *             .listenerArn(aws_globalaccelerator_listener.example().id())
+ *             .listenerArn(exampleAwsGlobalacceleratorListener.id())
  *             .endpointConfigurations(EndpointGroupEndpointConfigurationArgs.builder()
- *                 .endpointId(aws_lb.example().arn())
+ *                 .endpointId(exampleAwsLb.arn())
  *                 .weight(100)
  *                 .build())
  *             .build());
@@ -56,13 +58,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Global Accelerator endpoint groups using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:globalaccelerator/endpointGroup:EndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
+ * $ pulumi import aws:globalaccelerator/endpointGroup:EndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
  * ```
  * 
  */

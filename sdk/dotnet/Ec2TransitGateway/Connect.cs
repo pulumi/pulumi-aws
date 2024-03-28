@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,27 +27,28 @@ namespace Pulumi.Aws.Ec2TransitGateway
     ///     {
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Example.Id,
+    ///             exampleAwsSubnet.Id,
     ///         },
-    ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         TransitGatewayId = exampleAwsEc2TransitGateway.Id,
+    ///         VpcId = exampleAwsVpc.Id,
     ///     });
     /// 
     ///     var attachment = new Aws.Ec2TransitGateway.Connect("attachment", new()
     ///     {
     ///         TransportAttachmentId = example.Id,
-    ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
+    ///         TransitGatewayId = exampleAwsEc2TransitGateway.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ec2_transit_gateway_connect` using the EC2 Transit Gateway Connect identifier. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
+    /// $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/connect:Connect")]
@@ -117,10 +119,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -222,11 +220,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

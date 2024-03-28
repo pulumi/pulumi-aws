@@ -15,8 +15,10 @@ namespace Pulumi.Aws.Mq
     /// For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
     /// 
     /// ## Example Usage
+    /// 
     /// ### ActiveMQ
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,6 +29,10 @@ namespace Pulumi.Aws.Mq
     /// {
     ///     var example = new Aws.Mq.Configuration("example", new()
     ///     {
+    ///         Description = "Example Configuration",
+    ///         Name = "example",
+    ///         EngineType = "ActiveMQ",
+    ///         EngineVersion = "5.17.6",
     ///         Data = @"&lt;?xml version=""1.0"" encoding=""UTF-8"" standalone=""yes""?&gt;
     /// &lt;broker xmlns=""http://activemq.apache.org/schema/core""&gt;
     ///   &lt;plugins&gt;
@@ -35,17 +41,16 @@ namespace Pulumi.Aws.Mq
     ///     &lt;timeStampingBrokerPlugin ttlCeiling=""86400000"" zeroExpirationOverride=""86400000""/&gt;
     ///   &lt;/plugins&gt;
     /// &lt;/broker&gt;
-    /// 
     /// ",
-    ///         Description = "Example Configuration",
-    ///         EngineType = "ActiveMQ",
-    ///         EngineVersion = "5.17.6",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### RabbitMQ
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -56,24 +61,25 @@ namespace Pulumi.Aws.Mq
     /// {
     ///     var example = new Aws.Mq.Configuration("example", new()
     ///     {
-    ///         Data = @"# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
-    /// consumer_timeout = 1800000
-    /// 
-    /// ",
     ///         Description = "Example Configuration",
+    ///         Name = "example",
     ///         EngineType = "RabbitMQ",
     ///         EngineVersion = "3.11.20",
+    ///         Data = @"# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
+    /// consumer_timeout = 1800000
+    /// ",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MQ Configurations using the configuration ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
+    /// $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
     /// ```
     /// </summary>
     [AwsResourceType("aws:mq/configuration:Configuration")]
@@ -164,10 +170,6 @@ namespace Pulumi.Aws.Mq
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -321,11 +323,7 @@ namespace Pulumi.Aws.Mq
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ConfigurationState()

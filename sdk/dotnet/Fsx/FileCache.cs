@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -70,20 +71,21 @@ namespace Pulumi.Aws.Fsx
     ///         },
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Test1.Id,
+    ///             test1.Id,
     ///         },
     ///         StorageCapacity = 1200,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon File Cache cache using the resource `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
+    /// $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
     /// ```
     /// </summary>
     [AwsResourceType("aws:fsx/fileCache:FileCache")]
@@ -217,10 +219,6 @@ namespace Pulumi.Aws.Fsx
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -489,11 +487,7 @@ namespace Pulumi.Aws.Fsx
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides an AppConfig Environment resource for an `aws.appconfig.Application` resource. One or more environments can be defined for an application.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,16 +48,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;example-application-tf&#34;)
  *             .description(&#34;Example AppConfig Application&#34;)
  *             .tags(Map.of(&#34;Type&#34;, &#34;AppConfig Application&#34;))
  *             .build());
  * 
- *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
+ *         var example = new Environment(&#34;example&#34;, EnvironmentArgs.builder()        
+ *             .name(&#34;example-environment-tf&#34;)
  *             .description(&#34;Example AppConfig Environment&#34;)
  *             .applicationId(exampleApplication.id())
  *             .monitors(EnvironmentMonitorArgs.builder()
- *                 .alarmArn(aws_cloudwatch_metric_alarm.example().arn())
- *                 .alarmRoleArn(aws_iam_role.example().arn())
+ *                 .alarmArn(exampleAwsCloudwatchMetricAlarm.arn())
+ *                 .alarmRoleArn(exampleAwsIamRole.arn())
  *                 .build())
  *             .tags(Map.of(&#34;Type&#34;, &#34;AppConfig Environment&#34;))
  *             .build());
@@ -63,13 +67,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AppConfig Environments using the environment ID and application ID separated by a colon (`:`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
+ * $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
  * ```
  * 
  */
@@ -240,9 +245,6 @@ public class Environment extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -124,6 +125,21 @@ public final class SpotInstanceRequestEbsBlockDeviceArgs extends com.pulumi.reso
     }
 
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
+    /**
      * Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
      * 
      */
@@ -189,6 +205,7 @@ public final class SpotInstanceRequestEbsBlockDeviceArgs extends com.pulumi.reso
         this.kmsKeyId = $.kmsKeyId;
         this.snapshotId = $.snapshotId;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.throughput = $.throughput;
         this.volumeId = $.volumeId;
         this.volumeSize = $.volumeSize;
@@ -361,6 +378,27 @@ public final class SpotInstanceRequestEbsBlockDeviceArgs extends com.pulumi.reso
         }
 
         /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
          * @param throughput Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
          * 
          * @return builder
@@ -437,7 +475,9 @@ public final class SpotInstanceRequestEbsBlockDeviceArgs extends com.pulumi.reso
         }
 
         public SpotInstanceRequestEbsBlockDeviceArgs build() {
-            $.deviceName = Objects.requireNonNull($.deviceName, "expected parameter 'deviceName' to be non-null");
+            if ($.deviceName == null) {
+                throw new MissingRequiredPropertyException("SpotInstanceRequestEbsBlockDeviceArgs", "deviceName");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.rbin.outputs;
 
 import com.pulumi.aws.rbin.outputs.RuleLockConfigurationUnlockDelay;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,13 +43,16 @@ public final class RuleLockConfiguration {
 
         @CustomType.Setter
         public Builder unlockDelay(RuleLockConfigurationUnlockDelay unlockDelay) {
-            this.unlockDelay = Objects.requireNonNull(unlockDelay);
+            if (unlockDelay == null) {
+              throw new MissingRequiredPropertyException("RuleLockConfiguration", "unlockDelay");
+            }
+            this.unlockDelay = unlockDelay;
             return this;
         }
         public RuleLockConfiguration build() {
-            final var o = new RuleLockConfiguration();
-            o.unlockDelay = unlockDelay;
-            return o;
+            final var _resultValue = new RuleLockConfiguration();
+            _resultValue.unlockDelay = unlockDelay;
+            return _resultValue;
         }
     }
 }

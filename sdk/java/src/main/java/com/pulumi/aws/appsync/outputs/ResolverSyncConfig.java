@@ -73,25 +73,28 @@ public final class ResolverSyncConfig {
 
         @CustomType.Setter
         public Builder conflictDetection(@Nullable String conflictDetection) {
+
             this.conflictDetection = conflictDetection;
             return this;
         }
         @CustomType.Setter
         public Builder conflictHandler(@Nullable String conflictHandler) {
+
             this.conflictHandler = conflictHandler;
             return this;
         }
         @CustomType.Setter
         public Builder lambdaConflictHandlerConfig(@Nullable ResolverSyncConfigLambdaConflictHandlerConfig lambdaConflictHandlerConfig) {
+
             this.lambdaConflictHandlerConfig = lambdaConflictHandlerConfig;
             return this;
         }
         public ResolverSyncConfig build() {
-            final var o = new ResolverSyncConfig();
-            o.conflictDetection = conflictDetection;
-            o.conflictHandler = conflictHandler;
-            o.lambdaConflictHandlerConfig = lambdaConflictHandlerConfig;
-            return o;
+            final var _resultValue = new ResolverSyncConfig();
+            _resultValue.conflictDetection = conflictDetection;
+            _resultValue.conflictHandler = conflictHandler;
+            _resultValue.lambdaConflictHandlerConfig = lambdaConflictHandlerConfig;
+            return _resultValue;
         }
     }
 }

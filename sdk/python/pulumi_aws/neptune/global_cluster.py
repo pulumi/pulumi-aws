@@ -302,71 +302,69 @@ class GlobalCluster(pulumi.CustomResource):
         More information about Neptune Global Clusters can be found in the [Neptune User Guide](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-global-database.html).
 
         ## Example Usage
+
         ### New Neptune Global Cluster
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.Provider("primary", region="us-east-2")
-        secondary = aws.Provider("secondary", region="us-east-1")
         example = aws.neptune.GlobalCluster("example",
             global_cluster_identifier="global-test",
             engine="neptune",
             engine_version="1.2.0.0")
-        primary_cluster = aws.neptune.Cluster("primaryCluster",
+        primary = aws.neptune.Cluster("primary",
             engine=example.engine,
             engine_version=example.engine_version,
             cluster_identifier="test-primary-cluster",
             global_cluster_identifier=example.id,
-            neptune_subnet_group_name="default",
-            opts=pulumi.ResourceOptions(provider=aws["primary"]))
-        primary_cluster_instance = aws.neptune.ClusterInstance("primaryClusterInstance",
+            neptune_subnet_group_name="default")
+        primary_cluster_instance = aws.neptune.ClusterInstance("primary",
             engine=example.engine,
             engine_version=example.engine_version,
             identifier="test-primary-cluster-instance",
-            cluster_identifier=primary_cluster.id,
+            cluster_identifier=primary.id,
             instance_class="db.r5.large",
-            neptune_subnet_group_name="default",
-            opts=pulumi.ResourceOptions(provider=aws["primary"]))
-        secondary_cluster = aws.neptune.Cluster("secondaryCluster",
+            neptune_subnet_group_name="default")
+        secondary = aws.neptune.Cluster("secondary",
             engine=example.engine,
             engine_version=example.engine_version,
             cluster_identifier="test-secondary-cluster",
             global_cluster_identifier=example.id,
-            neptune_subnet_group_name="default",
-            opts=pulumi.ResourceOptions(provider=aws["secondary"]))
-        secondary_cluster_instance = aws.neptune.ClusterInstance("secondaryClusterInstance",
+            neptune_subnet_group_name="default")
+        secondary_cluster_instance = aws.neptune.ClusterInstance("secondary",
             engine=example.engine,
             engine_version=example.engine_version,
             identifier="test-secondary-cluster-instance",
-            cluster_identifier=secondary_cluster.id,
+            cluster_identifier=secondary.id,
             instance_class="db.r5.large",
-            neptune_subnet_group_name="default",
-            opts=pulumi.ResourceOptions(provider=aws["secondary"],
-                depends_on=[primary_cluster_instance]))
+            neptune_subnet_group_name="default")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### New Global Cluster From Existing DB Cluster
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        # ... other configuration ...
-        example_cluster = aws.neptune.Cluster("exampleCluster")
-        example_global_cluster = aws.neptune.GlobalCluster("exampleGlobalCluster",
+        example = aws.neptune.Cluster("example")
+        example_global_cluster = aws.neptune.GlobalCluster("example",
             global_cluster_identifier="example",
-            source_db_cluster_identifier=example_cluster.arn)
+            source_db_cluster_identifier=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_neptune_global_cluster` using the Global Cluster identifier. For example:
 
         ```sh
-         $ pulumi import aws:neptune/globalCluster:GlobalCluster example example
+        $ pulumi import aws:neptune/globalCluster:GlobalCluster example example
         ```
-         Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+        Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -390,71 +388,69 @@ class GlobalCluster(pulumi.CustomResource):
         More information about Neptune Global Clusters can be found in the [Neptune User Guide](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-global-database.html).
 
         ## Example Usage
+
         ### New Neptune Global Cluster
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.Provider("primary", region="us-east-2")
-        secondary = aws.Provider("secondary", region="us-east-1")
         example = aws.neptune.GlobalCluster("example",
             global_cluster_identifier="global-test",
             engine="neptune",
             engine_version="1.2.0.0")
-        primary_cluster = aws.neptune.Cluster("primaryCluster",
+        primary = aws.neptune.Cluster("primary",
             engine=example.engine,
             engine_version=example.engine_version,
             cluster_identifier="test-primary-cluster",
             global_cluster_identifier=example.id,
-            neptune_subnet_group_name="default",
-            opts=pulumi.ResourceOptions(provider=aws["primary"]))
-        primary_cluster_instance = aws.neptune.ClusterInstance("primaryClusterInstance",
+            neptune_subnet_group_name="default")
+        primary_cluster_instance = aws.neptune.ClusterInstance("primary",
             engine=example.engine,
             engine_version=example.engine_version,
             identifier="test-primary-cluster-instance",
-            cluster_identifier=primary_cluster.id,
+            cluster_identifier=primary.id,
             instance_class="db.r5.large",
-            neptune_subnet_group_name="default",
-            opts=pulumi.ResourceOptions(provider=aws["primary"]))
-        secondary_cluster = aws.neptune.Cluster("secondaryCluster",
+            neptune_subnet_group_name="default")
+        secondary = aws.neptune.Cluster("secondary",
             engine=example.engine,
             engine_version=example.engine_version,
             cluster_identifier="test-secondary-cluster",
             global_cluster_identifier=example.id,
-            neptune_subnet_group_name="default",
-            opts=pulumi.ResourceOptions(provider=aws["secondary"]))
-        secondary_cluster_instance = aws.neptune.ClusterInstance("secondaryClusterInstance",
+            neptune_subnet_group_name="default")
+        secondary_cluster_instance = aws.neptune.ClusterInstance("secondary",
             engine=example.engine,
             engine_version=example.engine_version,
             identifier="test-secondary-cluster-instance",
-            cluster_identifier=secondary_cluster.id,
+            cluster_identifier=secondary.id,
             instance_class="db.r5.large",
-            neptune_subnet_group_name="default",
-            opts=pulumi.ResourceOptions(provider=aws["secondary"],
-                depends_on=[primary_cluster_instance]))
+            neptune_subnet_group_name="default")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### New Global Cluster From Existing DB Cluster
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        # ... other configuration ...
-        example_cluster = aws.neptune.Cluster("exampleCluster")
-        example_global_cluster = aws.neptune.GlobalCluster("exampleGlobalCluster",
+        example = aws.neptune.Cluster("example")
+        example_global_cluster = aws.neptune.GlobalCluster("example",
             global_cluster_identifier="example",
-            source_db_cluster_identifier=example_cluster.arn)
+            source_db_cluster_identifier=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_neptune_global_cluster` using the Global Cluster identifier. For example:
 
         ```sh
-         $ pulumi import aws:neptune/globalCluster:GlobalCluster example example
+        $ pulumi import aws:neptune/globalCluster:GlobalCluster example example
         ```
-         Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+        Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
         :param GlobalClusterArgs args: The arguments to use to populate this resource's properties.

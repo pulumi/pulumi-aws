@@ -13,8 +13,10 @@ namespace Pulumi.Aws.VerifiedAccess
     /// Resource for managing a Verified Access Group.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,11 +27,12 @@ namespace Pulumi.Aws.VerifiedAccess
     /// {
     ///     var example = new Aws.VerifiedAccess.Group("example", new()
     ///     {
-    ///         VerifiedaccessInstanceId = aws_verifiedaccess_instance.Example.Id,
+    ///         VerifiedaccessInstanceId = exampleAwsVerifiedaccessInstance.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:verifiedaccess/group:Group")]
     public partial class Group : global::Pulumi.CustomResource
@@ -64,8 +67,17 @@ namespace Pulumi.Aws.VerifiedAccess
         [Output("owner")]
         public Output<string> Owner { get; private set; } = null!;
 
+        /// <summary>
+        /// The policy document that is associated with this resource.
+        /// </summary>
         [Output("policyDocument")]
         public Output<string?> PolicyDocument { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block to use KMS keys for server-side encryption.
+        /// </summary>
+        [Output("sseConfiguration")]
+        public Output<Outputs.GroupSseConfiguration> SseConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -119,10 +131,6 @@ namespace Pulumi.Aws.VerifiedAccess
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -152,8 +160,17 @@ namespace Pulumi.Aws.VerifiedAccess
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The policy document that is associated with this resource.
+        /// </summary>
         [Input("policyDocument")]
         public Input<string>? PolicyDocument { get; set; }
+
+        /// <summary>
+        /// Configuration block to use KMS keys for server-side encryption.
+        /// </summary>
+        [Input("sseConfiguration")]
+        public Input<Inputs.GroupSseConfigurationArgs>? SseConfiguration { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -213,8 +230,17 @@ namespace Pulumi.Aws.VerifiedAccess
         [Input("owner")]
         public Input<string>? Owner { get; set; }
 
+        /// <summary>
+        /// The policy document that is associated with this resource.
+        /// </summary>
         [Input("policyDocument")]
         public Input<string>? PolicyDocument { get; set; }
+
+        /// <summary>
+        /// Configuration block to use KMS keys for server-side encryption.
+        /// </summary>
+        [Input("sseConfiguration")]
+        public Input<Inputs.GroupSseConfigurationGetArgs>? SseConfiguration { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -234,11 +260,7 @@ namespace Pulumi.Aws.VerifiedAccess
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

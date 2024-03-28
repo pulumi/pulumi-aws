@@ -12,13 +12,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as tls from "@pulumi/tls";
  *
- * const caPrivateKey = new tls.PrivateKey("caPrivateKey", {algorithm: "RSA"});
- * const caSelfSignedCert = new tls.SelfSignedCert("caSelfSignedCert", {
+ * const caPrivateKey = new tls.PrivateKey("ca", {algorithm: "RSA"});
+ * const ca = new tls.SelfSignedCert("ca", {
  *     privateKeyPem: caPrivateKey.privateKeyPem,
  *     subject: {
  *         commonName: "example.com",
@@ -32,18 +33,18 @@ import * as utilities from "../utilities";
  *     ],
  *     isCaCertificate: true,
  * });
- * const verificationPrivateKey = new tls.PrivateKey("verificationPrivateKey", {algorithm: "RSA"});
- * const exampleRegistrationCode = aws.iot.getRegistrationCode({});
- * const verificationCertRequest = new tls.CertRequest("verificationCertRequest", {
+ * const verificationPrivateKey = new tls.PrivateKey("verification", {algorithm: "RSA"});
+ * const example = aws.iot.getRegistrationCode({});
+ * const verification = new tls.CertRequest("verification", {
  *     privateKeyPem: verificationPrivateKey.privateKeyPem,
  *     subject: {
- *         commonName: exampleRegistrationCode.then(exampleRegistrationCode => exampleRegistrationCode.registrationCode),
+ *         commonName: example.then(example => example.registrationCode),
  *     },
  * });
- * const verificationLocallySignedCert = new tls.LocallySignedCert("verificationLocallySignedCert", {
- *     certRequestPem: verificationCertRequest.certRequestPem,
+ * const verificationLocallySignedCert = new tls.LocallySignedCert("verification", {
+ *     certRequestPem: verification.certRequestPem,
  *     caPrivateKeyPem: caPrivateKey.privateKeyPem,
- *     caCertPem: caSelfSignedCert.certPem,
+ *     caCertPem: ca.certPem,
  *     validityPeriodHours: 12,
  *     allowedUses: [
  *         "key_encipherment",
@@ -51,13 +52,14 @@ import * as utilities from "../utilities";
  *         "server_auth",
  *     ],
  * });
- * const exampleCaCertificate = new aws.iot.CaCertificate("exampleCaCertificate", {
+ * const exampleCaCertificate = new aws.iot.CaCertificate("example", {
  *     active: true,
- *     caCertificatePem: caSelfSignedCert.certPem,
+ *     caCertificatePem: ca.certPem,
  *     verificationCertificatePem: verificationLocallySignedCert.certPem,
  *     allowAutoRegistration: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class CaCertificate extends pulumi.CustomResource {
     /**
@@ -189,7 +191,7 @@ export class CaCertificate extends pulumi.CustomResource {
             resourceInputs["validities"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["caCertificatePem", "tagsAll", "verificationCertificatePem"] };
+        const secretOpts = { additionalSecretOutputs: ["caCertificatePem", "verificationCertificatePem"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(CaCertificate.__pulumiType, name, resourceInputs, opts);
     }

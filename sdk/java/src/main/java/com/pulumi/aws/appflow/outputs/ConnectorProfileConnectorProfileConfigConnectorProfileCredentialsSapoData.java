@@ -59,19 +59,21 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
         @CustomType.Setter
         public Builder basicAuthCredentials(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials basicAuthCredentials) {
+
             this.basicAuthCredentials = basicAuthCredentials;
             return this;
         }
         @CustomType.Setter
         public Builder oauthCredentials(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials oauthCredentials) {
+
             this.oauthCredentials = oauthCredentials;
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData();
-            o.basicAuthCredentials = basicAuthCredentials;
-            o.oauthCredentials = oauthCredentials;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData();
+            _resultValue.basicAuthCredentials = basicAuthCredentials;
+            _resultValue.oauthCredentials = oauthCredentials;
+            return _resultValue;
         }
     }
 }

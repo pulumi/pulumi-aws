@@ -9,6 +9,7 @@ import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfiguration
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -21,14 +22,14 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
     public static final FirehoseDeliveryStreamRedshiftConfigurationArgs Empty = new FirehoseDeliveryStreamRedshiftConfigurationArgs();
 
     /**
-     * The CloudWatch Logging Options for the delivery stream. More details are given below
+     * The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -111,14 +112,14 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
     }
 
     /**
-     * The data processing configuration.  More details are given below.
+     * The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     @Import(name="processingConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs> processingConfiguration;
 
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs>> processingConfiguration() {
@@ -186,14 +187,14 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
     }
 
     /**
-     * The S3 Configuration. See s3_configuration for more details.
+     * The S3 Configuration. See s3_configuration below for details.
      * 
      */
     @Import(name="s3Configuration", required=true)
     private Output<FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs> s3Configuration;
 
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See s3_configuration below for details.
      * 
      */
     public Output<FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs> s3Configuration() {
@@ -252,7 +253,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
          * 
          * @return builder
          * 
@@ -263,7 +264,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
          * 
          * @return builder
          * 
@@ -378,7 +379,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  More details are given below.
+         * @param processingConfiguration The data processing configuration.  See `processing_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -389,7 +390,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  More details are given below.
+         * @param processingConfiguration The data processing configuration.  See `processing_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -483,7 +484,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See s3_configuration for more details.
+         * @param s3Configuration The S3 Configuration. See s3_configuration below for details.
          * 
          * @return builder
          * 
@@ -494,7 +495,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See s3_configuration for more details.
+         * @param s3Configuration The S3 Configuration. See s3_configuration below for details.
          * 
          * @return builder
          * 
@@ -525,12 +526,24 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         public FirehoseDeliveryStreamRedshiftConfigurationArgs build() {
-            $.clusterJdbcurl = Objects.requireNonNull($.clusterJdbcurl, "expected parameter 'clusterJdbcurl' to be non-null");
-            $.dataTableName = Objects.requireNonNull($.dataTableName, "expected parameter 'dataTableName' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.s3Configuration = Objects.requireNonNull($.s3Configuration, "expected parameter 's3Configuration' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.clusterJdbcurl == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfigurationArgs", "clusterJdbcurl");
+            }
+            if ($.dataTableName == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfigurationArgs", "dataTableName");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfigurationArgs", "password");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfigurationArgs", "roleArn");
+            }
+            if ($.s3Configuration == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfigurationArgs", "s3Configuration");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfigurationArgs", "username");
+            }
             return $;
         }
     }

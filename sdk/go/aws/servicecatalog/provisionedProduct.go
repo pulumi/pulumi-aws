@@ -22,8 +22,10 @@ import (
 // > **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,6 +39,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := servicecatalog.NewProvisionedProduct(ctx, "example", &servicecatalog.ProvisionedProductArgs{
+//				Name:                     pulumi.String("example"),
 //				ProductName:              pulumi.String("Example product"),
 //				ProvisioningArtifactName: pulumi.String("Example version"),
 //				ProvisioningParameters: servicecatalog.ProvisionedProductProvisioningParameterArray{
@@ -57,15 +60,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_servicecatalog_provisioned_product` using the provisioned product ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
-//
+// $ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
 // ```
 type ProvisionedProduct struct {
 	pulumi.CustomResourceState
@@ -135,10 +137,6 @@ func NewProvisionedProduct(ctx *pulumi.Context,
 		args = &ProvisionedProductArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProvisionedProduct
 	err := ctx.RegisterResource("aws:servicecatalog/provisionedProduct:ProvisionedProduct", name, args, &resource, opts...)

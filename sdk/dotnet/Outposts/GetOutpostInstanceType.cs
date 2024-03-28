@@ -13,12 +13,72 @@ namespace Pulumi.Aws.Outposts
     {
         /// <summary>
         /// Information about single Outpost Instance Type.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Outposts.GetOutpostInstanceType.Invoke(new()
+        ///     {
+        ///         Arn = exampleAwsOutpostsOutpost.Arn,
+        ///         PreferredInstanceTypes = new[]
+        ///         {
+        ///             "m5.large",
+        ///             "m5.4xlarge",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleEc2Instance = new Aws.Index.Ec2Instance("example", new()
+        ///     {
+        ///         InstanceType = example.Apply(getOutpostInstanceTypeResult =&gt; getOutpostInstanceTypeResult.InstanceType),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetOutpostInstanceTypeResult> InvokeAsync(GetOutpostInstanceTypeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOutpostInstanceTypeResult>("aws:outposts/getOutpostInstanceType:getOutpostInstanceType", args ?? new GetOutpostInstanceTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Information about single Outpost Instance Type.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Outposts.GetOutpostInstanceType.Invoke(new()
+        ///     {
+        ///         Arn = exampleAwsOutpostsOutpost.Arn,
+        ///         PreferredInstanceTypes = new[]
+        ///         {
+        ///             "m5.large",
+        ///             "m5.4xlarge",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleEc2Instance = new Aws.Index.Ec2Instance("example", new()
+        ///     {
+        ///         InstanceType = example.Apply(getOutpostInstanceTypeResult =&gt; getOutpostInstanceTypeResult.InstanceType),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetOutpostInstanceTypeResult> Invoke(GetOutpostInstanceTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOutpostInstanceTypeResult>("aws:outposts/getOutpostInstanceType:getOutpostInstanceType", args ?? new GetOutpostInstanceTypeInvokeArgs(), options.WithDefaults());

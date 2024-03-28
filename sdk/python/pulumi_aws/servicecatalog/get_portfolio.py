@@ -131,12 +131,14 @@ def get_portfolio(accept_language: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     portfolio = aws.servicecatalog.get_portfolio(id="port-07052002")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -173,12 +175,14 @@ def get_portfolio_output(accept_language: Optional[pulumi.Input[Optional[str]]] 
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     portfolio = aws.servicecatalog.get_portfolio(id="port-07052002")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.

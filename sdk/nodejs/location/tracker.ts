@@ -9,19 +9,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.location.Tracker("example", {trackerName: "example"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_location_tracker` resources using the tracker name. For example:
  *
  * ```sh
- *  $ pulumi import aws:location/tracker:Tracker example example
+ * $ pulumi import aws:location/tracker:Tracker example example
  * ```
  */
 export class Tracker extends pulumi.CustomResource {
@@ -131,8 +133,6 @@ export class Tracker extends pulumi.CustomResource {
             resourceInputs["updateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Tracker.__pulumiType, name, resourceInputs, opts);
     }
 }

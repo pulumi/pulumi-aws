@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesis.outputs;
 
 import com.pulumi.aws.kinesis.outputs.AnalyticsApplicationInputsProcessingConfigurationLambda;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,13 +43,16 @@ public final class AnalyticsApplicationInputsProcessingConfiguration {
 
         @CustomType.Setter
         public Builder lambda(AnalyticsApplicationInputsProcessingConfigurationLambda lambda) {
-            this.lambda = Objects.requireNonNull(lambda);
+            if (lambda == null) {
+              throw new MissingRequiredPropertyException("AnalyticsApplicationInputsProcessingConfiguration", "lambda");
+            }
+            this.lambda = lambda;
             return this;
         }
         public AnalyticsApplicationInputsProcessingConfiguration build() {
-            final var o = new AnalyticsApplicationInputsProcessingConfiguration();
-            o.lambda = lambda;
-            return o;
+            final var _resultValue = new AnalyticsApplicationInputsProcessingConfiguration();
+            _resultValue.lambda = lambda;
+            return _resultValue;
         }
     }
 }

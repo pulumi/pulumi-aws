@@ -3,9 +3,12 @@
 
 package com.pulumi.aws.sagemaker;
 
+import com.pulumi.aws.sagemaker.inputs.SpaceOwnershipSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.SpaceSpaceSettingsArgs;
+import com.pulumi.aws.sagemaker.inputs.SpaceSpaceSharingSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -30,6 +33,36 @@ public final class SpaceArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<String> domainId() {
         return this.domainId;
+    }
+
+    /**
+     * A collection of ownership settings. See Ownership Settings below.
+     * 
+     */
+    @Import(name="ownershipSettings")
+    private @Nullable Output<SpaceOwnershipSettingsArgs> ownershipSettings;
+
+    /**
+     * @return A collection of ownership settings. See Ownership Settings below.
+     * 
+     */
+    public Optional<Output<SpaceOwnershipSettingsArgs>> ownershipSettings() {
+        return Optional.ofNullable(this.ownershipSettings);
+    }
+
+    /**
+     * The name of the space that appears in the SageMaker Studio UI.
+     * 
+     */
+    @Import(name="spaceDisplayName")
+    private @Nullable Output<String> spaceDisplayName;
+
+    /**
+     * @return The name of the space that appears in the SageMaker Studio UI.
+     * 
+     */
+    public Optional<Output<String>> spaceDisplayName() {
+        return Optional.ofNullable(this.spaceDisplayName);
     }
 
     /**
@@ -63,6 +96,21 @@ public final class SpaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A collection of space sharing settings. See Space Sharing Settings below.
+     * 
+     */
+    @Import(name="spaceSharingSettings")
+    private @Nullable Output<SpaceSpaceSharingSettingsArgs> spaceSharingSettings;
+
+    /**
+     * @return A collection of space sharing settings. See Space Sharing Settings below.
+     * 
+     */
+    public Optional<Output<SpaceSpaceSharingSettingsArgs>> spaceSharingSettings() {
+        return Optional.ofNullable(this.spaceSharingSettings);
+    }
+
+    /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -81,8 +129,11 @@ public final class SpaceArgs extends com.pulumi.resources.ResourceArgs {
 
     private SpaceArgs(SpaceArgs $) {
         this.domainId = $.domainId;
+        this.ownershipSettings = $.ownershipSettings;
+        this.spaceDisplayName = $.spaceDisplayName;
         this.spaceName = $.spaceName;
         this.spaceSettings = $.spaceSettings;
+        this.spaceSharingSettings = $.spaceSharingSettings;
         this.tags = $.tags;
     }
 
@@ -123,6 +174,48 @@ public final class SpaceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder domainId(String domainId) {
             return domainId(Output.of(domainId));
+        }
+
+        /**
+         * @param ownershipSettings A collection of ownership settings. See Ownership Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ownershipSettings(@Nullable Output<SpaceOwnershipSettingsArgs> ownershipSettings) {
+            $.ownershipSettings = ownershipSettings;
+            return this;
+        }
+
+        /**
+         * @param ownershipSettings A collection of ownership settings. See Ownership Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ownershipSettings(SpaceOwnershipSettingsArgs ownershipSettings) {
+            return ownershipSettings(Output.of(ownershipSettings));
+        }
+
+        /**
+         * @param spaceDisplayName The name of the space that appears in the SageMaker Studio UI.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spaceDisplayName(@Nullable Output<String> spaceDisplayName) {
+            $.spaceDisplayName = spaceDisplayName;
+            return this;
+        }
+
+        /**
+         * @param spaceDisplayName The name of the space that appears in the SageMaker Studio UI.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spaceDisplayName(String spaceDisplayName) {
+            return spaceDisplayName(Output.of(spaceDisplayName));
         }
 
         /**
@@ -168,6 +261,27 @@ public final class SpaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param spaceSharingSettings A collection of space sharing settings. See Space Sharing Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spaceSharingSettings(@Nullable Output<SpaceSpaceSharingSettingsArgs> spaceSharingSettings) {
+            $.spaceSharingSettings = spaceSharingSettings;
+            return this;
+        }
+
+        /**
+         * @param spaceSharingSettings A collection of space sharing settings. See Space Sharing Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spaceSharingSettings(SpaceSpaceSharingSettingsArgs spaceSharingSettings) {
+            return spaceSharingSettings(Output.of(spaceSharingSettings));
+        }
+
+        /**
          * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
@@ -189,8 +303,12 @@ public final class SpaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SpaceArgs build() {
-            $.domainId = Objects.requireNonNull($.domainId, "expected parameter 'domainId' to be non-null");
-            $.spaceName = Objects.requireNonNull($.spaceName, "expected parameter 'spaceName' to be non-null");
+            if ($.domainId == null) {
+                throw new MissingRequiredPropertyException("SpaceArgs", "domainId");
+            }
+            if ($.spaceName == null) {
+                throw new MissingRequiredPropertyException("SpaceArgs", "spaceName");
+            }
             return $;
         }
     }

@@ -164,61 +164,70 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKey {
 
         @CustomType.Setter
         public Builder cookie(@Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyCookie cookie) {
+
             this.cookie = cookie;
             return this;
         }
         @CustomType.Setter
         public Builder forwardedIp(@Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp forwardedIp) {
+
             this.forwardedIp = forwardedIp;
             return this;
         }
         @CustomType.Setter
         public Builder header(@Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyHeader header) {
+
             this.header = header;
             return this;
         }
         @CustomType.Setter
         public Builder httpMethod(@Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod httpMethod) {
+
             this.httpMethod = httpMethod;
             return this;
         }
         @CustomType.Setter
         public Builder ip(@Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyIp ip) {
+
             this.ip = ip;
             return this;
         }
         @CustomType.Setter
         public Builder labelNamespace(@Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace labelNamespace) {
+
             this.labelNamespace = labelNamespace;
             return this;
         }
         @CustomType.Setter
         public Builder queryArgument(@Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument queryArgument) {
+
             this.queryArgument = queryArgument;
             return this;
         }
         @CustomType.Setter
         public Builder queryString(@Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString queryString) {
+
             this.queryString = queryString;
             return this;
         }
         @CustomType.Setter
         public Builder uriPath(@Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath uriPath) {
+
             this.uriPath = uriPath;
             return this;
         }
         public RuleGroupRuleStatementRateBasedStatementCustomKey build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementCustomKey();
-            o.cookie = cookie;
-            o.forwardedIp = forwardedIp;
-            o.header = header;
-            o.httpMethod = httpMethod;
-            o.ip = ip;
-            o.labelNamespace = labelNamespace;
-            o.queryArgument = queryArgument;
-            o.queryString = queryString;
-            o.uriPath = uriPath;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementCustomKey();
+            _resultValue.cookie = cookie;
+            _resultValue.forwardedIp = forwardedIp;
+            _resultValue.header = header;
+            _resultValue.httpMethod = httpMethod;
+            _resultValue.ip = ip;
+            _resultValue.labelNamespace = labelNamespace;
+            _resultValue.queryArgument = queryArgument;
+            _resultValue.queryString = queryString;
+            _resultValue.uriPath = uriPath;
+            return _resultValue;
         }
     }
 }

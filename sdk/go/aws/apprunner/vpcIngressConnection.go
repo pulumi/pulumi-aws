@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,10 +30,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apprunner.NewVpcIngressConnection(ctx, "example", &apprunner.VpcIngressConnectionArgs{
-//				ServiceArn: pulumi.Any(aws_apprunner_service.Example.Arn),
+//				Name:       pulumi.String("example"),
+//				ServiceArn: pulumi.Any(exampleAwsApprunnerService.Arn),
 //				IngressVpcConfiguration: &apprunner.VpcIngressConnectionIngressVpcConfigurationArgs{
-//					VpcId:         pulumi.Any(aws_default_vpc.Default.Id),
-//					VpcEndpointId: pulumi.Any(aws_vpc_endpoint.Apprunner.Id),
+//					VpcId:         pulumi.Any(_default.Id),
+//					VpcEndpointId: pulumi.Any(apprunner.Id),
 //				},
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),
@@ -46,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import App Runner VPC Ingress Connection using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apprunner/vpcIngressConnection:VpcIngressConnection example "arn:aws:apprunner:us-west-2:837424938642:vpcingressconnection/example/b379f86381d74825832c2e82080342fa"
-//
+// $ pulumi import aws:apprunner/vpcIngressConnection:VpcIngressConnection example "arn:aws:apprunner:us-west-2:837424938642:vpcingressconnection/example/b379f86381d74825832c2e82080342fa"
 // ```
 type VpcIngressConnection struct {
 	pulumi.CustomResourceState
@@ -92,10 +93,6 @@ func NewVpcIngressConnection(ctx *pulumi.Context,
 	if args.ServiceArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcIngressConnection
 	err := ctx.RegisterResource("aws:apprunner/vpcIngressConnection:VpcIngressConnection", name, args, &resource, opts...)

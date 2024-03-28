@@ -26,6 +26,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +40,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewVirtualRouter(ctx, "serviceb", &appmesh.VirtualRouterArgs{
-//				MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
+//				Name:     pulumi.String("serviceB"),
+//				MeshName: pulumi.Any(simple.Id),
 //				Spec: &appmesh.VirtualRouterSpecArgs{
 //					Listeners: appmesh.VirtualRouterSpecListenerArray{
 //						&appmesh.VirtualRouterSpecListenerArgs{
@@ -59,15 +61,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import App Mesh virtual routers using `mesh_name` together with the virtual router's `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
-//
+// $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
 // ```
 type VirtualRouter struct {
 	pulumi.CustomResourceState
@@ -109,10 +110,6 @@ func NewVirtualRouter(ctx *pulumi.Context,
 	if args.Spec == nil {
 		return nil, errors.New("invalid value for required argument 'Spec'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualRouter
 	err := ctx.RegisterResource("aws:appmesh/virtualRouter:VirtualRouter", name, args, &resource, opts...)

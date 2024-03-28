@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Ses
     /// Provides an SES event destination
     /// 
     /// ## Example Usage
+    /// 
     /// ### CloudWatch Destination
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,7 +27,8 @@ namespace Pulumi.Aws.Ses
     /// {
     ///     var cloudwatch = new Aws.Ses.EventDestination("cloudwatch", new()
     ///     {
-    ///         ConfigurationSetName = aws_ses_configuration_set.Example.Name,
+    ///         Name = "event-destination-cloudwatch",
+    ///         ConfigurationSetName = example.Name,
     ///         Enabled = true,
     ///         MatchingTypes = new[]
     ///         {
@@ -45,8 +48,11 @@ namespace Pulumi.Aws.Ses
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Kinesis Destination
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -57,7 +63,8 @@ namespace Pulumi.Aws.Ses
     /// {
     ///     var kinesis = new Aws.Ses.EventDestination("kinesis", new()
     ///     {
-    ///         ConfigurationSetName = aws_ses_configuration_set.Example.Name,
+    ///         Name = "event-destination-kinesis",
+    ///         ConfigurationSetName = exampleAwsSesConfigurationSet.Name,
     ///         Enabled = true,
     ///         MatchingTypes = new[]
     ///         {
@@ -66,15 +73,18 @@ namespace Pulumi.Aws.Ses
     ///         },
     ///         KinesisDestination = new Aws.Ses.Inputs.EventDestinationKinesisDestinationArgs
     ///         {
-    ///             StreamArn = aws_kinesis_firehose_delivery_stream.Example.Arn,
-    ///             RoleArn = aws_iam_role.Example.Arn,
+    ///             StreamArn = exampleAwsKinesisFirehoseDeliveryStream.Arn,
+    ///             RoleArn = example.Arn,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### SNS Destination
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -85,7 +95,8 @@ namespace Pulumi.Aws.Ses
     /// {
     ///     var sns = new Aws.Ses.EventDestination("sns", new()
     ///     {
-    ///         ConfigurationSetName = aws_ses_configuration_set.Example.Name,
+    ///         Name = "event-destination-sns",
+    ///         ConfigurationSetName = exampleAwsSesConfigurationSet.Name,
     ///         Enabled = true,
     ///         MatchingTypes = new[]
     ///         {
@@ -94,19 +105,20 @@ namespace Pulumi.Aws.Ses
     ///         },
     ///         SnsDestination = new Aws.Ses.Inputs.EventDestinationSnsDestinationArgs
     ///         {
-    ///             TopicArn = aws_sns_topic.Example.Arn,
+    ///             TopicArn = example.Arn,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SES event destinations using `configuration_set_name` together with the event destination's `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
+    /// $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
     /// ```
     /// </summary>
     [AwsResourceType("aws:ses/eventDestination:EventDestination")]

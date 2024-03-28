@@ -219,13 +219,15 @@ class ResourceLfTags(pulumi.CustomResource):
         Manages an attachment between one or more existing LF-tags and an existing Lake Formation resource.
 
         ## Example Usage
+
         ### Database Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_lf_tag = aws.lakeformation.LfTag("exampleLfTag",
+        example = aws.lakeformation.LfTag("example",
             key="right",
             values=[
                 "abbey",
@@ -237,22 +239,25 @@ class ResourceLfTags(pulumi.CustomResource):
                 "stowe",
                 "club",
             ])
-        example_resource_lf_tags = aws.lakeformation.ResourceLfTags("exampleResourceLfTags",
+        example_resource_lf_tags = aws.lakeformation.ResourceLfTags("example",
             database=aws.lakeformation.ResourceLfTagsDatabaseArgs(
-                name=aws_glue_catalog_database["example"]["name"],
+                name=example_aws_glue_catalog_database["name"],
             ),
             lf_tags=[aws.lakeformation.ResourceLfTagsLfTagArgs(
-                key=example_lf_tag.key,
+                key=example.key,
                 value="stowe",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Multiple Tags Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_lf_tag = aws.lakeformation.LfTag("exampleLfTag",
+        example = aws.lakeformation.LfTag("example",
             key="right",
             values=[
                 "abbey",
@@ -275,9 +280,9 @@ class ResourceLfTags(pulumi.CustomResource):
                 "becketts",
                 "vale",
             ])
-        example_resource_lf_tags = aws.lakeformation.ResourceLfTags("exampleResourceLfTags",
+        example_resource_lf_tags = aws.lakeformation.ResourceLfTags("example",
             database=aws.lakeformation.ResourceLfTagsDatabaseArgs(
-                name=aws_glue_catalog_database["example"]["name"],
+                name=example_aws_glue_catalog_database["name"],
             ),
             lf_tags=[
                 aws.lakeformation.ResourceLfTagsLfTagArgs(
@@ -290,6 +295,7 @@ class ResourceLfTags(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -313,13 +319,15 @@ class ResourceLfTags(pulumi.CustomResource):
         Manages an attachment between one or more existing LF-tags and an existing Lake Formation resource.
 
         ## Example Usage
+
         ### Database Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_lf_tag = aws.lakeformation.LfTag("exampleLfTag",
+        example = aws.lakeformation.LfTag("example",
             key="right",
             values=[
                 "abbey",
@@ -331,22 +339,25 @@ class ResourceLfTags(pulumi.CustomResource):
                 "stowe",
                 "club",
             ])
-        example_resource_lf_tags = aws.lakeformation.ResourceLfTags("exampleResourceLfTags",
+        example_resource_lf_tags = aws.lakeformation.ResourceLfTags("example",
             database=aws.lakeformation.ResourceLfTagsDatabaseArgs(
-                name=aws_glue_catalog_database["example"]["name"],
+                name=example_aws_glue_catalog_database["name"],
             ),
             lf_tags=[aws.lakeformation.ResourceLfTagsLfTagArgs(
-                key=example_lf_tag.key,
+                key=example.key,
                 value="stowe",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Multiple Tags Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_lf_tag = aws.lakeformation.LfTag("exampleLfTag",
+        example = aws.lakeformation.LfTag("example",
             key="right",
             values=[
                 "abbey",
@@ -369,9 +380,9 @@ class ResourceLfTags(pulumi.CustomResource):
                 "becketts",
                 "vale",
             ])
-        example_resource_lf_tags = aws.lakeformation.ResourceLfTags("exampleResourceLfTags",
+        example_resource_lf_tags = aws.lakeformation.ResourceLfTags("example",
             database=aws.lakeformation.ResourceLfTagsDatabaseArgs(
-                name=aws_glue_catalog_database["example"]["name"],
+                name=example_aws_glue_catalog_database["name"],
             ),
             lf_tags=[
                 aws.lakeformation.ResourceLfTagsLfTagArgs(
@@ -384,6 +395,7 @@ class ResourceLfTags(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param ResourceLfTagsArgs args: The arguments to use to populate this resource's properties.

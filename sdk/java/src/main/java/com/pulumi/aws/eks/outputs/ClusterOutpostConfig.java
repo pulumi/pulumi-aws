@@ -5,6 +5,7 @@ package com.pulumi.aws.eks.outputs;
 
 import com.pulumi.aws.eks.outputs.ClusterOutpostConfigControlPlanePlacement;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -92,28 +93,35 @@ public final class ClusterOutpostConfig {
 
         @CustomType.Setter
         public Builder controlPlaneInstanceType(String controlPlaneInstanceType) {
-            this.controlPlaneInstanceType = Objects.requireNonNull(controlPlaneInstanceType);
+            if (controlPlaneInstanceType == null) {
+              throw new MissingRequiredPropertyException("ClusterOutpostConfig", "controlPlaneInstanceType");
+            }
+            this.controlPlaneInstanceType = controlPlaneInstanceType;
             return this;
         }
         @CustomType.Setter
         public Builder controlPlanePlacement(@Nullable ClusterOutpostConfigControlPlanePlacement controlPlanePlacement) {
+
             this.controlPlanePlacement = controlPlanePlacement;
             return this;
         }
         @CustomType.Setter
         public Builder outpostArns(List<String> outpostArns) {
-            this.outpostArns = Objects.requireNonNull(outpostArns);
+            if (outpostArns == null) {
+              throw new MissingRequiredPropertyException("ClusterOutpostConfig", "outpostArns");
+            }
+            this.outpostArns = outpostArns;
             return this;
         }
         public Builder outpostArns(String... outpostArns) {
             return outpostArns(List.of(outpostArns));
         }
         public ClusterOutpostConfig build() {
-            final var o = new ClusterOutpostConfig();
-            o.controlPlaneInstanceType = controlPlaneInstanceType;
-            o.controlPlanePlacement = controlPlanePlacement;
-            o.outpostArns = outpostArns;
-            return o;
+            final var _resultValue = new ClusterOutpostConfig();
+            _resultValue.controlPlaneInstanceType = controlPlaneInstanceType;
+            _resultValue.controlPlanePlacement = controlPlanePlacement;
+            _resultValue.outpostArns = outpostArns;
+            return _resultValue;
         }
     }
 }

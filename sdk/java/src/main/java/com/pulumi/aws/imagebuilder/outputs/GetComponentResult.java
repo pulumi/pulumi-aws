@@ -4,6 +4,7 @@
 package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -233,62 +234,98 @@ public final class GetComponentResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetComponentResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder changeDescription(String changeDescription) {
-            this.changeDescription = Objects.requireNonNull(changeDescription);
+            if (changeDescription == null) {
+              throw new MissingRequiredPropertyException("GetComponentResult", "changeDescription");
+            }
+            this.changeDescription = changeDescription;
             return this;
         }
         @CustomType.Setter
         public Builder data(String data) {
-            this.data = Objects.requireNonNull(data);
+            if (data == null) {
+              throw new MissingRequiredPropertyException("GetComponentResult", "data");
+            }
+            this.data = data;
             return this;
         }
         @CustomType.Setter
         public Builder dateCreated(String dateCreated) {
-            this.dateCreated = Objects.requireNonNull(dateCreated);
+            if (dateCreated == null) {
+              throw new MissingRequiredPropertyException("GetComponentResult", "dateCreated");
+            }
+            this.dateCreated = dateCreated;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetComponentResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder encrypted(Boolean encrypted) {
-            this.encrypted = Objects.requireNonNull(encrypted);
+            if (encrypted == null) {
+              throw new MissingRequiredPropertyException("GetComponentResult", "encrypted");
+            }
+            this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetComponentResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+            if (kmsKeyId == null) {
+              throw new MissingRequiredPropertyException("GetComponentResult", "kmsKeyId");
+            }
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetComponentResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+            if (owner == null) {
+              throw new MissingRequiredPropertyException("GetComponentResult", "owner");
+            }
+            this.owner = owner;
             return this;
         }
         @CustomType.Setter
         public Builder platform(String platform) {
-            this.platform = Objects.requireNonNull(platform);
+            if (platform == null) {
+              throw new MissingRequiredPropertyException("GetComponentResult", "platform");
+            }
+            this.platform = platform;
             return this;
         }
         @CustomType.Setter
         public Builder supportedOsVersions(List<String> supportedOsVersions) {
-            this.supportedOsVersions = Objects.requireNonNull(supportedOsVersions);
+            if (supportedOsVersions == null) {
+              throw new MissingRequiredPropertyException("GetComponentResult", "supportedOsVersions");
+            }
+            this.supportedOsVersions = supportedOsVersions;
             return this;
         }
         public Builder supportedOsVersions(String... supportedOsVersions) {
@@ -296,37 +333,46 @@ public final class GetComponentResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetComponentResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetComponentResult", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetComponentResult", "version");
+            }
+            this.version = version;
             return this;
         }
         public GetComponentResult build() {
-            final var o = new GetComponentResult();
-            o.arn = arn;
-            o.changeDescription = changeDescription;
-            o.data = data;
-            o.dateCreated = dateCreated;
-            o.description = description;
-            o.encrypted = encrypted;
-            o.id = id;
-            o.kmsKeyId = kmsKeyId;
-            o.name = name;
-            o.owner = owner;
-            o.platform = platform;
-            o.supportedOsVersions = supportedOsVersions;
-            o.tags = tags;
-            o.type = type;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetComponentResult();
+            _resultValue.arn = arn;
+            _resultValue.changeDescription = changeDescription;
+            _resultValue.data = data;
+            _resultValue.dateCreated = dateCreated;
+            _resultValue.description = description;
+            _resultValue.encrypted = encrypted;
+            _resultValue.id = id;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.name = name;
+            _resultValue.owner = owner;
+            _resultValue.platform = platform;
+            _resultValue.supportedOsVersions = supportedOsVersions;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

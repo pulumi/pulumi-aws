@@ -23,6 +23,7 @@ import (
 // via RAM, and using that pool id to create a VPC with a CIDR derived from
 // AWS IPAM.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -35,7 +36,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testVpcIpamPool, err := ec2.LookupVpcIpamPool(ctx, &ec2.LookupVpcIpamPoolArgs{
+//			test, err := ec2.LookupVpcIpamPool(ctx, &ec2.LookupVpcIpamPoolArgs{
 //				Filters: []ec2.GetVpcIpamPoolFilter{
 //					{
 //						Name: "description",
@@ -54,8 +55,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewVpc(ctx, "testVpc", &ec2.VpcArgs{
-//				Ipv4IpamPoolId:    *pulumi.String(testVpcIpamPool.Id),
+//			_, err = ec2.NewVpc(ctx, "test", &ec2.VpcArgs{
+//				Ipv4IpamPoolId:    pulumi.String(test.Id),
 //				Ipv4NetmaskLength: pulumi.Int(28),
 //			})
 //			if err != nil {
@@ -66,6 +67,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Deprecated: aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool
 func GetVpcIamPool(ctx *pulumi.Context, args *GetVpcIamPoolArgs, opts ...pulumi.InvokeOption) (*GetVpcIamPoolResult, error) {

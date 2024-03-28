@@ -23,6 +23,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,7 +37,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ebs.NewDefaultKmsKey(ctx, "example", &ebs.DefaultKmsKeyArgs{
-//				KeyArn: pulumi.Any(aws_kms_key.Example.Arn),
+//				KeyArn: pulumi.Any(exampleAwsKmsKey.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -46,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import the EBS default KMS CMK using the KMS key ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ebs/defaultKmsKey:DefaultKmsKey example arn:aws:kms:us-east-1:123456789012:key/abcd-1234
-//
+// $ pulumi import aws:ebs/defaultKmsKey:DefaultKmsKey example arn:aws:kms:us-east-1:123456789012:key/abcd-1234
 // ```
 type DefaultKmsKey struct {
 	pulumi.CustomResourceState

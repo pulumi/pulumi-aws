@@ -4,6 +4,7 @@
 package com.pulumi.aws.scheduler.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,25 +74,30 @@ public final class ScheduleTargetEcsParametersCapacityProviderStrategy {
 
         @CustomType.Setter
         public Builder base(@Nullable Integer base) {
+
             this.base = base;
             return this;
         }
         @CustomType.Setter
         public Builder capacityProvider(String capacityProvider) {
-            this.capacityProvider = Objects.requireNonNull(capacityProvider);
+            if (capacityProvider == null) {
+              throw new MissingRequiredPropertyException("ScheduleTargetEcsParametersCapacityProviderStrategy", "capacityProvider");
+            }
+            this.capacityProvider = capacityProvider;
             return this;
         }
         @CustomType.Setter
         public Builder weight(@Nullable Integer weight) {
+
             this.weight = weight;
             return this;
         }
         public ScheduleTargetEcsParametersCapacityProviderStrategy build() {
-            final var o = new ScheduleTargetEcsParametersCapacityProviderStrategy();
-            o.base = base;
-            o.capacityProvider = capacityProvider;
-            o.weight = weight;
-            return o;
+            final var _resultValue = new ScheduleTargetEcsParametersCapacityProviderStrategy();
+            _resultValue.base = base;
+            _resultValue.capacityProvider = capacityProvider;
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

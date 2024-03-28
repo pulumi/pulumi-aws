@@ -15,10 +15,9 @@ namespace Pulumi.Aws.Batch
         /// The Batch Job Queue data source allows access to details of a specific
         /// job queue within AWS Batch.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Aws.Batch
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetJobQueueResult> InvokeAsync(GetJobQueueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobQueueResult>("aws:batch/getJobQueue:getJobQueue", args ?? new GetJobQueueArgs(), options.WithDefaults());
@@ -44,10 +42,9 @@ namespace Pulumi.Aws.Batch
         /// The Batch Job Queue data source allows access to details of a specific
         /// job queue within AWS Batch.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Aws.Batch
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetJobQueueResult> Invoke(GetJobQueueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobQueueResult>("aws:batch/getJobQueue:getJobQueue", args ?? new GetJobQueueInvokeArgs(), options.WithDefaults());

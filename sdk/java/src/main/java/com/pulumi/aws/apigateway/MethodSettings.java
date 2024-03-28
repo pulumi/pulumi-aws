@@ -22,7 +22,10 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * ### End-to-end
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRestApi = new RestApi(&#34;exampleRestApi&#34;, RestApiArgs.builder()        
+ *         var example = new RestApi(&#34;example&#34;, RestApiArgs.builder()        
  *             .body(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;openapi&#34;, &#34;3.0.1&#34;),
@@ -73,22 +76,22 @@ import javax.annotation.Nullable;
  *                         ))
  *                     ))
  *                 )))
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
- *             .restApi(exampleRestApi.id())
- *             .triggers(Map.of(&#34;redeployment&#34;, exampleRestApi.body().applyValue(body -&gt; serializeJson(
- *                 body)).applyValue(toJSON -&gt; computeSHA1(toJSON))))
+ *             .restApi(example.id())
+ *             .triggers(Map.of(&#34;redeployment&#34;, StdFunctions.sha1().applyValue(invoke -&gt; invoke.result())))
  *             .build());
  * 
  *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
  *             .deployment(exampleDeployment.id())
- *             .restApi(exampleRestApi.id())
+ *             .restApi(example.id())
  *             .stageName(&#34;example&#34;)
  *             .build());
  * 
  *         var all = new MethodSettings(&#34;all&#34;, MethodSettingsArgs.builder()        
- *             .restApi(exampleRestApi.id())
+ *             .restApi(example.id())
  *             .stageName(exampleStage.stageName())
  *             .methodPath(&#34;*{@literal /}*&#34;)
  *             .settings(MethodSettingsSettingsArgs.builder()
@@ -98,7 +101,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var pathSpecific = new MethodSettings(&#34;pathSpecific&#34;, MethodSettingsArgs.builder()        
- *             .restApi(exampleRestApi.id())
+ *             .restApi(example.id())
  *             .stageName(exampleStage.stageName())
  *             .methodPath(&#34;path1/GET&#34;)
  *             .settings(MethodSettingsSettingsArgs.builder()
@@ -110,10 +113,15 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### CloudWatch Logging and Tracing
  * 
  * The AWS Console API Gateway Editor displays multiple options for CloudWatch Logs that don&#39;t directly map to the options in the AWS API and Pulumi. These examples show the `settings` blocks that are equivalent to the options the AWS Console gives for CloudWatch Logs.
+ * 
  * ### Off
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -137,8 +145,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var pathSpecific = new MethodSettings(&#34;pathSpecific&#34;, MethodSettingsArgs.builder()        
- *             .restApi(aws_api_gateway_rest_api.example().id())
- *             .stageName(aws_api_gateway_stage.example().stage_name())
+ *             .restApi(example.id())
+ *             .stageName(exampleAwsApiGatewayStage.stageName())
  *             .methodPath(&#34;path1/GET&#34;)
  *             .settings(MethodSettingsSettingsArgs.builder()
  *                 .loggingLevel(&#34;OFF&#34;)
@@ -148,7 +156,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Errors Only
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -172,8 +184,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var pathSpecific = new MethodSettings(&#34;pathSpecific&#34;, MethodSettingsArgs.builder()        
- *             .restApi(aws_api_gateway_rest_api.example().id())
- *             .stageName(aws_api_gateway_stage.example().stage_name())
+ *             .restApi(example.id())
+ *             .stageName(exampleAwsApiGatewayStage.stageName())
  *             .methodPath(&#34;path1/GET&#34;)
  *             .settings(MethodSettingsSettingsArgs.builder()
  *                 .loggingLevel(&#34;ERROR&#34;)
@@ -185,7 +197,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Errors and Info Logs
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -209,8 +225,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var pathSpecific = new MethodSettings(&#34;pathSpecific&#34;, MethodSettingsArgs.builder()        
- *             .restApi(aws_api_gateway_rest_api.example().id())
- *             .stageName(aws_api_gateway_stage.example().stage_name())
+ *             .restApi(example.id())
+ *             .stageName(exampleAwsApiGatewayStage.stageName())
  *             .methodPath(&#34;path1/GET&#34;)
  *             .settings(MethodSettingsSettingsArgs.builder()
  *                 .loggingLevel(&#34;INFO&#34;)
@@ -222,7 +238,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Full Request and Response Logs
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -246,8 +266,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var pathSpecific = new MethodSettings(&#34;pathSpecific&#34;, MethodSettingsArgs.builder()        
- *             .restApi(aws_api_gateway_rest_api.example().id())
- *             .stageName(aws_api_gateway_stage.example().stage_name())
+ *             .restApi(example.id())
+ *             .stageName(exampleAwsApiGatewayStage.stageName())
  *             .methodPath(&#34;path1/GET&#34;)
  *             .settings(MethodSettingsSettingsArgs.builder()
  *                 .loggingLevel(&#34;INFO&#34;)
@@ -259,13 +279,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_api_gateway_method_settings` using `REST-API-ID/STAGE-NAME/METHOD-PATH`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
+ * $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
  * ```
  * 
  */

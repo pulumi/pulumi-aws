@@ -11,13 +11,16 @@ import * as utilities from "../utilities";
  * Provides a resource to manage response plans in AWS Systems Manager Incident Manager.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssmincidents.ResponsePlan("example", {
+ *     name: "name",
  *     incidentTemplate: {
  *         title: "title",
  *         impact: 3,
@@ -25,17 +28,19 @@ import * as utilities from "../utilities";
  *     tags: {
  *         key: "value",
  *     },
- * }, {
- *     dependsOn: [aws_ssmincidents_replication_set.example],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Usage With All Fields
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssmincidents.ResponsePlan("example", {
+ *     name: "name",
  *     incidentTemplate: {
  *         title: "title",
  *         impact: 3,
@@ -45,21 +50,21 @@ import * as utilities from "../utilities";
  *         },
  *         notificationTargets: [
  *             {
- *                 snsTopicArn: aws_sns_topic.example1.arn,
+ *                 snsTopicArn: example1.arn,
  *             },
  *             {
- *                 snsTopicArn: aws_sns_topic.example2.arn,
+ *                 snsTopicArn: example2.arn,
  *             },
  *         ],
  *         summary: "summary",
  *     },
  *     displayName: "display name",
- *     chatChannels: [aws_sns_topic.topic.arn],
+ *     chatChannels: [topic.arn],
  *     engagements: ["arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1"],
  *     action: {
  *         ssmAutomations: [{
- *             documentName: aws_ssm_document.document1.name,
- *             roleArn: aws_iam_role.role1.arn,
+ *             documentName: document1.name,
+ *             roleArn: role1.arn,
  *             documentVersion: "version1",
  *             targetAccount: "RESPONSE_PLAN_OWNER_ACCOUNT",
  *             parameters: [
@@ -91,17 +96,16 @@ import * as utilities from "../utilities";
  *     tags: {
  *         key: "value",
  *     },
- * }, {
- *     dependsOn: [aws_ssmincidents_replication_set.example],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import an Incident Manager response plan using the response plan ARN. You can find the response plan ARN in the AWS Management Console. For example:
  *
  * ```sh
- *  $ pulumi import aws:ssmincidents/responsePlan:ResponsePlan responsePlanName ARNValue
+ * $ pulumi import aws:ssmincidents/responsePlan:ResponsePlan responsePlanName ARNValue
  * ```
  */
 export class ResponsePlan extends pulumi.CustomResource {
@@ -212,8 +216,6 @@ export class ResponsePlan extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ResponsePlan.__pulumiType, name, resourceInputs, opts);
     }
 }

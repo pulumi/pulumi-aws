@@ -42,9 +42,12 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Be aware of the terminology collision around &#34;cluster&#34; for `aws.elasticache.ReplicationGroup`. For example, it is possible to create a [&#34;Cluster Mode Disabled [Redis] Cluster&#34;](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Create.CON.Redis.html). With &#34;Cluster Mode Enabled&#34;, the data will be stored in shards (called &#34;node groups&#34;). See [Redis Cluster Configuration](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/cluster-create-determine-requirements.html#redis-cluster-configuration) for a diagram of the differences. To enable cluster mode, use a parameter group that has cluster mode enabled. The default parameter groups provided by AWS end with &#34;.cluster.on&#34;, for example `default.redis6.x.cluster.on`.
  * 
  * ## Example Usage
+ * 
  * ### Redis Cluster Mode Disabled
  * 
  * To create a single shard primary with single read replica:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -68,24 +71,28 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ReplicationGroup(&#34;example&#34;, ReplicationGroupArgs.builder()        
  *             .automaticFailoverEnabled(true)
+ *             .preferredCacheClusterAzs(            
+ *                 &#34;us-west-2a&#34;,
+ *                 &#34;us-west-2b&#34;)
+ *             .replicationGroupId(&#34;tf-rep-group-1&#34;)
  *             .description(&#34;example description&#34;)
  *             .nodeType(&#34;cache.m4.large&#34;)
  *             .numCacheClusters(2)
  *             .parameterGroupName(&#34;default.redis3.2&#34;)
  *             .port(6379)
- *             .preferredCacheClusterAzs(            
- *                 &#34;us-west-2a&#34;,
- *                 &#34;us-west-2b&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * You have two options for adjusting the number of replicas:
  * 
  * * Adjusting `num_cache_clusters` directly. This will attempt to automatically add or remove replicas, but provides no granular control (e.g., preferred availability zone, cache cluster ID) for the added or removed replicas. This also currently expects cache cluster IDs in the form of `replication_group_id-00#`.
  * * Otherwise for fine grained control of the underlying cache clusters, they can be added or removed with the `aws.elasticache.Cluster` resource and its `replication_group_id` attribute. In this situation, you will need to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to prevent perpetual differences with the `number_cache_cluster` attribute.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -115,6 +122,7 @@ import javax.annotation.Nullable;
  *             .preferredCacheClusterAzs(            
  *                 &#34;us-west-2a&#34;,
  *                 &#34;us-west-2b&#34;)
+ *             .replicationGroupId(&#34;tf-rep-group-1&#34;)
  *             .description(&#34;example description&#34;)
  *             .nodeType(&#34;cache.m4.large&#34;)
  *             .numCacheClusters(2)
@@ -122,8 +130,9 @@ import javax.annotation.Nullable;
  *             .port(6379)
  *             .build());
  * 
- *         for (var i = 0; i &lt; (1 == true); i++) {
+ *         for (var i = 0; i &lt; 1; i++) {
  *             new Cluster(&#34;replica-&#34; + i, ClusterArgs.builder()            
+ *                 .clusterId(String.format(&#34;tf-rep-group-1-%s&#34;, range.value()))
  *                 .replicationGroupId(example.id())
  *                 .build());
  * 
@@ -132,9 +141,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Redis Cluster Mode Enabled
  * 
  * To create two shards with a primary and a single read replica each:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -157,19 +170,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var baz = new ReplicationGroup(&#34;baz&#34;, ReplicationGroupArgs.builder()        
- *             .automaticFailoverEnabled(true)
+ *             .replicationGroupId(&#34;tf-redis-cluster&#34;)
  *             .description(&#34;example description&#34;)
  *             .nodeType(&#34;cache.t2.small&#34;)
- *             .numNodeGroups(2)
- *             .parameterGroupName(&#34;default.redis3.2.cluster.on&#34;)
  *             .port(6379)
+ *             .parameterGroupName(&#34;default.redis3.2.cluster.on&#34;)
+ *             .automaticFailoverEnabled(true)
+ *             .numNodeGroups(2)
  *             .replicasPerNodeGroup(1)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Redis Log Delivery configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -193,6 +211,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ReplicationGroup(&#34;test&#34;, ReplicationGroupArgs.builder()        
+ *             .replicationGroupId(&#34;myreplicaciongroup&#34;)
  *             .description(&#34;test description&#34;)
  *             .nodeType(&#34;cache.t3.small&#34;)
  *             .port(6379)
@@ -202,13 +221,13 @@ import javax.annotation.Nullable;
  *             .snapshotWindow(&#34;01:00-02:00&#34;)
  *             .logDeliveryConfigurations(            
  *                 ReplicationGroupLogDeliveryConfigurationArgs.builder()
- *                     .destination(aws_cloudwatch_log_group.example().name())
+ *                     .destination(example.name())
  *                     .destinationType(&#34;cloudwatch-logs&#34;)
  *                     .logFormat(&#34;text&#34;)
  *                     .logType(&#34;slow-log&#34;)
  *                     .build(),
  *                 ReplicationGroupLogDeliveryConfigurationArgs.builder()
- *                     .destination(aws_kinesis_firehose_delivery_stream.example().name())
+ *                     .destination(exampleAwsKinesisFirehoseDeliveryStream.name())
  *                     .destinationType(&#34;kinesis-firehose&#34;)
  *                     .logFormat(&#34;json&#34;)
  *                     .logType(&#34;engine-log&#34;)
@@ -218,15 +237,19 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **Note:** We currently do not support passing a `primary_cluster_id` in order to create the Replication Group.
  * 
  * &gt; **Note:** Automatic Failover is unavailable for Redis versions earlier than 2.8.6,
  * and unavailable on T1 node types. For T2 node types, it is only available on Redis version 3.2.4 or later with cluster mode enabled. See the [High Availability Using Replication Groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Replication.html) guide
  * for full details on using Replication Groups.
+ * 
  * ### Creating a secondary replication group for a global replication group
  * 
  * A Global Replication Group can have one one two secondary Replication Groups in different regions. These are added to an existing Global Replication Group.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -237,7 +260,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.elasticache.ReplicationGroupArgs;
  * import com.pulumi.aws.elasticache.GlobalReplicationGroup;
  * import com.pulumi.aws.elasticache.GlobalReplicationGroupArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -252,23 +274,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var primary = new ReplicationGroup(&#34;primary&#34;, ReplicationGroupArgs.builder()        
+ *             .replicationGroupId(&#34;example-primary&#34;)
  *             .description(&#34;primary replication group&#34;)
  *             .engine(&#34;redis&#34;)
  *             .engineVersion(&#34;5.0.6&#34;)
  *             .nodeType(&#34;cache.m5.large&#34;)
  *             .numCacheClusters(1)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.other_region())
- *                 .build());
+ *             .build());
  * 
  *         var example = new GlobalReplicationGroup(&#34;example&#34;, GlobalReplicationGroupArgs.builder()        
  *             .globalReplicationGroupIdSuffix(&#34;example&#34;)
  *             .primaryReplicationGroupId(primary.id())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.other_region())
- *                 .build());
+ *             .build());
  * 
  *         var secondary = new ReplicationGroup(&#34;secondary&#34;, ReplicationGroupArgs.builder()        
+ *             .replicationGroupId(&#34;example-secondary&#34;)
  *             .description(&#34;secondary replication group&#34;)
  *             .globalReplicationGroupId(example.globalReplicationGroupId())
  *             .numCacheClusters(1)
@@ -277,13 +297,60 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Redis AUTH and In-Transit Encryption Enabled
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elasticache.ReplicationGroup;
+ * import com.pulumi.aws.elasticache.ReplicationGroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ReplicationGroup(&#34;example&#34;, ReplicationGroupArgs.builder()        
+ *             .replicationGroupId(&#34;example&#34;)
+ *             .description(&#34;example with authentication&#34;)
+ *             .nodeType(&#34;cache.t2.micro&#34;)
+ *             .numCacheClusters(1)
+ *             .port(6379)
+ *             .subnetGroupName(exampleAwsElasticacheSubnetGroup.name())
+ *             .securityGroupIds(exampleAwsSecurityGroup.id())
+ *             .parameterGroupName(&#34;default.redis5.0&#34;)
+ *             .engineVersion(&#34;5.0.6&#34;)
+ *             .transitEncryptionEnabled(true)
+ *             .authToken(&#34;abcdefgh1234567890&#34;)
+ *             .authTokenUpdateStrategy(&#34;ROTATE&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * &gt; When adding a new `auth_token` to a previously passwordless replication group, using the `ROTATE` update strategy will result in support for **both** the new token and passwordless authentication. To immediately require authorization when adding the initial token, use the `SET` strategy instead. See the [Authenticating with the Redis AUTH command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html) guide for additional details.
  * 
  * ## Import
  * 
  * Using `pulumi import`, import ElastiCache Replication Groups using the `replication_group_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
+ * $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
  * ```
  * 
  */
@@ -344,6 +411,20 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> authToken() {
         return Codegen.optional(this.authToken);
+    }
+    /**
+     * Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     * 
+     */
+    @Export(name="authTokenUpdateStrategy", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> authTokenUpdateStrategy;
+
+    /**
+     * @return Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     * 
+     */
+    public Output<Optional<String>> authTokenUpdateStrategy() {
+        return Codegen.optional(this.authTokenUpdateStrategy);
     }
     /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
@@ -967,8 +1048,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "authToken",
-                "tagsAll"
+                "authToken"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -59,19 +60,23 @@ public final class GatewayRouteSpecGrpcRouteMatch {
 
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder serviceName(String serviceName) {
-            this.serviceName = Objects.requireNonNull(serviceName);
+            if (serviceName == null) {
+              throw new MissingRequiredPropertyException("GatewayRouteSpecGrpcRouteMatch", "serviceName");
+            }
+            this.serviceName = serviceName;
             return this;
         }
         public GatewayRouteSpecGrpcRouteMatch build() {
-            final var o = new GatewayRouteSpecGrpcRouteMatch();
-            o.port = port;
-            o.serviceName = serviceName;
-            return o;
+            final var _resultValue = new GatewayRouteSpecGrpcRouteMatch();
+            _resultValue.port = port;
+            _resultValue.serviceName = serviceName;
+            return _resultValue;
         }
     }
 }

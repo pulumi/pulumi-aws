@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -57,19 +58,25 @@ public final class EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize {
 
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder value(Integer value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize", "value");
+            }
+            this.value = value;
             return this;
         }
         public EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize build() {
-            final var o = new EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize();
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize();
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

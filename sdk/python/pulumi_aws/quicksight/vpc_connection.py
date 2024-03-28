@@ -386,43 +386,46 @@ class VpcConnection(pulumi.CustomResource):
         Resource for managing an AWS QuickSight VPC Connection.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        vpc_connection_role = aws.iam.Role("vpcConnectionRole",
+        vpc_connection_role = aws.iam.Role("vpc_connection_role",
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": "sts:AssumeRole",
-                    "Principal": {
-                        "Service": "quicksight.amazonaws.com",
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "action": "sts:AssumeRole",
+                    "principal": {
+                        "service": "quicksight.amazonaws.com",
                     },
                 }],
             }),
             inline_policies=[aws.iam.RoleInlinePolicyArgs(
                 name="QuickSightVPCConnectionRolePolicy",
                 policy=json.dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [{
-                        "Effect": "Allow",
-                        "Action": [
+                    "version": "2012-10-17",
+                    "statement": [{
+                        "effect": "Allow",
+                        "action": [
                             "ec2:CreateNetworkInterface",
                             "ec2:ModifyNetworkInterfaceAttribute",
                             "ec2:DeleteNetworkInterface",
                             "ec2:DescribeSubnets",
                             "ec2:DescribeSecurityGroups",
                         ],
-                        "Resource": ["*"],
+                        "resource": ["*"],
                     }],
                 }),
             )])
         example = aws.quicksight.VpcConnection("example",
             vpc_connection_id="example-connection-id",
+            name="Example Connection",
             role_arn=vpc_connection_role.arn,
             security_group_ids=["sg-00000000000000000"],
             subnet_ids=[
@@ -430,13 +433,14 @@ class VpcConnection(pulumi.CustomResource):
                 "subnet-00000000000000001",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import QuickSight VPC connection using the AWS account ID and VPC connection ID separated by commas (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
+        $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
         ```
 
         :param str resource_name: The name of the resource.
@@ -462,43 +466,46 @@ class VpcConnection(pulumi.CustomResource):
         Resource for managing an AWS QuickSight VPC Connection.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        vpc_connection_role = aws.iam.Role("vpcConnectionRole",
+        vpc_connection_role = aws.iam.Role("vpc_connection_role",
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": "sts:AssumeRole",
-                    "Principal": {
-                        "Service": "quicksight.amazonaws.com",
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "action": "sts:AssumeRole",
+                    "principal": {
+                        "service": "quicksight.amazonaws.com",
                     },
                 }],
             }),
             inline_policies=[aws.iam.RoleInlinePolicyArgs(
                 name="QuickSightVPCConnectionRolePolicy",
                 policy=json.dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [{
-                        "Effect": "Allow",
-                        "Action": [
+                    "version": "2012-10-17",
+                    "statement": [{
+                        "effect": "Allow",
+                        "action": [
                             "ec2:CreateNetworkInterface",
                             "ec2:ModifyNetworkInterfaceAttribute",
                             "ec2:DeleteNetworkInterface",
                             "ec2:DescribeSubnets",
                             "ec2:DescribeSecurityGroups",
                         ],
-                        "Resource": ["*"],
+                        "resource": ["*"],
                     }],
                 }),
             )])
         example = aws.quicksight.VpcConnection("example",
             vpc_connection_id="example-connection-id",
+            name="Example Connection",
             role_arn=vpc_connection_role.arn,
             security_group_ids=["sg-00000000000000000"],
             subnet_ids=[
@@ -506,13 +513,14 @@ class VpcConnection(pulumi.CustomResource):
                 "subnet-00000000000000001",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import QuickSight VPC connection using the AWS account ID and VPC connection ID separated by commas (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
+        $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
         ```
 
         :param str resource_name: The name of the resource.
@@ -568,8 +576,6 @@ class VpcConnection(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["availability_status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VpcConnection, __self__).__init__(
             'aws:quicksight/vpcConnection:VpcConnection',
             resource_name,

@@ -24,6 +24,7 @@ import com.pulumi.aws.ec2.outputs.GetLaunchTemplatePlacement;
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplatePrivateDnsNameOption;
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplateTagSpecification;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -295,12 +296,18 @@ public final class GetLaunchTemplateResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder blockDeviceMappings(List<GetLaunchTemplateBlockDeviceMapping> blockDeviceMappings) {
-            this.blockDeviceMappings = Objects.requireNonNull(blockDeviceMappings);
+            if (blockDeviceMappings == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "blockDeviceMappings");
+            }
+            this.blockDeviceMappings = blockDeviceMappings;
             return this;
         }
         public Builder blockDeviceMappings(GetLaunchTemplateBlockDeviceMapping... blockDeviceMappings) {
@@ -308,7 +315,10 @@ public final class GetLaunchTemplateResult {
         }
         @CustomType.Setter
         public Builder capacityReservationSpecifications(List<GetLaunchTemplateCapacityReservationSpecification> capacityReservationSpecifications) {
-            this.capacityReservationSpecifications = Objects.requireNonNull(capacityReservationSpecifications);
+            if (capacityReservationSpecifications == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "capacityReservationSpecifications");
+            }
+            this.capacityReservationSpecifications = capacityReservationSpecifications;
             return this;
         }
         public Builder capacityReservationSpecifications(GetLaunchTemplateCapacityReservationSpecification... capacityReservationSpecifications) {
@@ -316,7 +326,10 @@ public final class GetLaunchTemplateResult {
         }
         @CustomType.Setter
         public Builder cpuOptions(List<GetLaunchTemplateCpuOption> cpuOptions) {
-            this.cpuOptions = Objects.requireNonNull(cpuOptions);
+            if (cpuOptions == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "cpuOptions");
+            }
+            this.cpuOptions = cpuOptions;
             return this;
         }
         public Builder cpuOptions(GetLaunchTemplateCpuOption... cpuOptions) {
@@ -324,7 +337,10 @@ public final class GetLaunchTemplateResult {
         }
         @CustomType.Setter
         public Builder creditSpecifications(List<GetLaunchTemplateCreditSpecification> creditSpecifications) {
-            this.creditSpecifications = Objects.requireNonNull(creditSpecifications);
+            if (creditSpecifications == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "creditSpecifications");
+            }
+            this.creditSpecifications = creditSpecifications;
             return this;
         }
         public Builder creditSpecifications(GetLaunchTemplateCreditSpecification... creditSpecifications) {
@@ -332,32 +348,50 @@ public final class GetLaunchTemplateResult {
         }
         @CustomType.Setter
         public Builder defaultVersion(Integer defaultVersion) {
-            this.defaultVersion = Objects.requireNonNull(defaultVersion);
+            if (defaultVersion == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "defaultVersion");
+            }
+            this.defaultVersion = defaultVersion;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder disableApiStop(Boolean disableApiStop) {
-            this.disableApiStop = Objects.requireNonNull(disableApiStop);
+            if (disableApiStop == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "disableApiStop");
+            }
+            this.disableApiStop = disableApiStop;
             return this;
         }
         @CustomType.Setter
         public Builder disableApiTermination(Boolean disableApiTermination) {
-            this.disableApiTermination = Objects.requireNonNull(disableApiTermination);
+            if (disableApiTermination == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "disableApiTermination");
+            }
+            this.disableApiTermination = disableApiTermination;
             return this;
         }
         @CustomType.Setter
         public Builder ebsOptimized(String ebsOptimized) {
-            this.ebsOptimized = Objects.requireNonNull(ebsOptimized);
+            if (ebsOptimized == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "ebsOptimized");
+            }
+            this.ebsOptimized = ebsOptimized;
             return this;
         }
         @CustomType.Setter
         public Builder elasticGpuSpecifications(List<GetLaunchTemplateElasticGpuSpecification> elasticGpuSpecifications) {
-            this.elasticGpuSpecifications = Objects.requireNonNull(elasticGpuSpecifications);
+            if (elasticGpuSpecifications == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "elasticGpuSpecifications");
+            }
+            this.elasticGpuSpecifications = elasticGpuSpecifications;
             return this;
         }
         public Builder elasticGpuSpecifications(GetLaunchTemplateElasticGpuSpecification... elasticGpuSpecifications) {
@@ -365,7 +399,10 @@ public final class GetLaunchTemplateResult {
         }
         @CustomType.Setter
         public Builder elasticInferenceAccelerators(List<GetLaunchTemplateElasticInferenceAccelerator> elasticInferenceAccelerators) {
-            this.elasticInferenceAccelerators = Objects.requireNonNull(elasticInferenceAccelerators);
+            if (elasticInferenceAccelerators == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "elasticInferenceAccelerators");
+            }
+            this.elasticInferenceAccelerators = elasticInferenceAccelerators;
             return this;
         }
         public Builder elasticInferenceAccelerators(GetLaunchTemplateElasticInferenceAccelerator... elasticInferenceAccelerators) {
@@ -373,7 +410,10 @@ public final class GetLaunchTemplateResult {
         }
         @CustomType.Setter
         public Builder enclaveOptions(List<GetLaunchTemplateEnclaveOption> enclaveOptions) {
-            this.enclaveOptions = Objects.requireNonNull(enclaveOptions);
+            if (enclaveOptions == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "enclaveOptions");
+            }
+            this.enclaveOptions = enclaveOptions;
             return this;
         }
         public Builder enclaveOptions(GetLaunchTemplateEnclaveOption... enclaveOptions) {
@@ -381,6 +421,7 @@ public final class GetLaunchTemplateResult {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetLaunchTemplateFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -389,7 +430,10 @@ public final class GetLaunchTemplateResult {
         }
         @CustomType.Setter
         public Builder hibernationOptions(List<GetLaunchTemplateHibernationOption> hibernationOptions) {
-            this.hibernationOptions = Objects.requireNonNull(hibernationOptions);
+            if (hibernationOptions == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "hibernationOptions");
+            }
+            this.hibernationOptions = hibernationOptions;
             return this;
         }
         public Builder hibernationOptions(GetLaunchTemplateHibernationOption... hibernationOptions) {
@@ -397,7 +441,10 @@ public final class GetLaunchTemplateResult {
         }
         @CustomType.Setter
         public Builder iamInstanceProfiles(List<GetLaunchTemplateIamInstanceProfile> iamInstanceProfiles) {
-            this.iamInstanceProfiles = Objects.requireNonNull(iamInstanceProfiles);
+            if (iamInstanceProfiles == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "iamInstanceProfiles");
+            }
+            this.iamInstanceProfiles = iamInstanceProfiles;
             return this;
         }
         public Builder iamInstanceProfiles(GetLaunchTemplateIamInstanceProfile... iamInstanceProfiles) {
@@ -405,22 +452,34 @@ public final class GetLaunchTemplateResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder imageId(String imageId) {
-            this.imageId = Objects.requireNonNull(imageId);
+            if (imageId == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "imageId");
+            }
+            this.imageId = imageId;
             return this;
         }
         @CustomType.Setter
         public Builder instanceInitiatedShutdownBehavior(String instanceInitiatedShutdownBehavior) {
-            this.instanceInitiatedShutdownBehavior = Objects.requireNonNull(instanceInitiatedShutdownBehavior);
+            if (instanceInitiatedShutdownBehavior == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "instanceInitiatedShutdownBehavior");
+            }
+            this.instanceInitiatedShutdownBehavior = instanceInitiatedShutdownBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder instanceMarketOptions(List<GetLaunchTemplateInstanceMarketOption> instanceMarketOptions) {
-            this.instanceMarketOptions = Objects.requireNonNull(instanceMarketOptions);
+            if (instanceMarketOptions == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "instanceMarketOptions");
+            }
+            this.instanceMarketOptions = instanceMarketOptions;
             return this;
         }
         public Builder instanceMarketOptions(GetLaunchTemplateInstanceMarketOption... instanceMarketOptions) {
@@ -428,7 +487,10 @@ public final class GetLaunchTemplateResult {
         }
         @CustomType.Setter
         public Builder instanceRequirements(List<GetLaunchTemplateInstanceRequirement> instanceRequirements) {
-            this.instanceRequirements = Objects.requireNonNull(instanceRequirements);
+            if (instanceRequirements == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "instanceRequirements");
+            }
+            this.instanceRequirements = instanceRequirements;
             return this;
         }
         public Builder instanceRequirements(GetLaunchTemplateInstanceRequirement... instanceRequirements) {
@@ -436,27 +498,42 @@ public final class GetLaunchTemplateResult {
         }
         @CustomType.Setter
         public Builder instanceType(String instanceType) {
-            this.instanceType = Objects.requireNonNull(instanceType);
+            if (instanceType == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "instanceType");
+            }
+            this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder kernelId(String kernelId) {
-            this.kernelId = Objects.requireNonNull(kernelId);
+            if (kernelId == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "kernelId");
+            }
+            this.kernelId = kernelId;
             return this;
         }
         @CustomType.Setter
         public Builder keyName(String keyName) {
-            this.keyName = Objects.requireNonNull(keyName);
+            if (keyName == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "keyName");
+            }
+            this.keyName = keyName;
             return this;
         }
         @CustomType.Setter
         public Builder latestVersion(Integer latestVersion) {
-            this.latestVersion = Objects.requireNonNull(latestVersion);
+            if (latestVersion == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "latestVersion");
+            }
+            this.latestVersion = latestVersion;
             return this;
         }
         @CustomType.Setter
         public Builder licenseSpecifications(List<GetLaunchTemplateLicenseSpecification> licenseSpecifications) {
-            this.licenseSpecifications = Objects.requireNonNull(licenseSpecifications);
+            if (licenseSpecifications == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "licenseSpecifications");
+            }
+            this.licenseSpecifications = licenseSpecifications;
             return this;
         }
         public Builder licenseSpecifications(GetLaunchTemplateLicenseSpecification... licenseSpecifications) {
@@ -464,7 +541,10 @@ public final class GetLaunchTemplateResult {
         }
         @CustomType.Setter
         public Builder maintenanceOptions(List<GetLaunchTemplateMaintenanceOption> maintenanceOptions) {
-            this.maintenanceOptions = Objects.requireNonNull(maintenanceOptions);
+            if (maintenanceOptions == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "maintenanceOptions");
+            }
+            this.maintenanceOptions = maintenanceOptions;
             return this;
         }
         public Builder maintenanceOptions(GetLaunchTemplateMaintenanceOption... maintenanceOptions) {
@@ -472,7 +552,10 @@ public final class GetLaunchTemplateResult {
         }
         @CustomType.Setter
         public Builder metadataOptions(List<GetLaunchTemplateMetadataOption> metadataOptions) {
-            this.metadataOptions = Objects.requireNonNull(metadataOptions);
+            if (metadataOptions == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "metadataOptions");
+            }
+            this.metadataOptions = metadataOptions;
             return this;
         }
         public Builder metadataOptions(GetLaunchTemplateMetadataOption... metadataOptions) {
@@ -480,7 +563,10 @@ public final class GetLaunchTemplateResult {
         }
         @CustomType.Setter
         public Builder monitorings(List<GetLaunchTemplateMonitoring> monitorings) {
-            this.monitorings = Objects.requireNonNull(monitorings);
+            if (monitorings == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "monitorings");
+            }
+            this.monitorings = monitorings;
             return this;
         }
         public Builder monitorings(GetLaunchTemplateMonitoring... monitorings) {
@@ -488,12 +574,18 @@ public final class GetLaunchTemplateResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaces(List<GetLaunchTemplateNetworkInterface> networkInterfaces) {
-            this.networkInterfaces = Objects.requireNonNull(networkInterfaces);
+            if (networkInterfaces == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "networkInterfaces");
+            }
+            this.networkInterfaces = networkInterfaces;
             return this;
         }
         public Builder networkInterfaces(GetLaunchTemplateNetworkInterface... networkInterfaces) {
@@ -501,7 +593,10 @@ public final class GetLaunchTemplateResult {
         }
         @CustomType.Setter
         public Builder placements(List<GetLaunchTemplatePlacement> placements) {
-            this.placements = Objects.requireNonNull(placements);
+            if (placements == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "placements");
+            }
+            this.placements = placements;
             return this;
         }
         public Builder placements(GetLaunchTemplatePlacement... placements) {
@@ -509,7 +604,10 @@ public final class GetLaunchTemplateResult {
         }
         @CustomType.Setter
         public Builder privateDnsNameOptions(List<GetLaunchTemplatePrivateDnsNameOption> privateDnsNameOptions) {
-            this.privateDnsNameOptions = Objects.requireNonNull(privateDnsNameOptions);
+            if (privateDnsNameOptions == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "privateDnsNameOptions");
+            }
+            this.privateDnsNameOptions = privateDnsNameOptions;
             return this;
         }
         public Builder privateDnsNameOptions(GetLaunchTemplatePrivateDnsNameOption... privateDnsNameOptions) {
@@ -517,12 +615,18 @@ public final class GetLaunchTemplateResult {
         }
         @CustomType.Setter
         public Builder ramDiskId(String ramDiskId) {
-            this.ramDiskId = Objects.requireNonNull(ramDiskId);
+            if (ramDiskId == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "ramDiskId");
+            }
+            this.ramDiskId = ramDiskId;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroupNames(List<String> securityGroupNames) {
-            this.securityGroupNames = Objects.requireNonNull(securityGroupNames);
+            if (securityGroupNames == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "securityGroupNames");
+            }
+            this.securityGroupNames = securityGroupNames;
             return this;
         }
         public Builder securityGroupNames(String... securityGroupNames) {
@@ -530,7 +634,10 @@ public final class GetLaunchTemplateResult {
         }
         @CustomType.Setter
         public Builder tagSpecifications(List<GetLaunchTemplateTagSpecification> tagSpecifications) {
-            this.tagSpecifications = Objects.requireNonNull(tagSpecifications);
+            if (tagSpecifications == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "tagSpecifications");
+            }
+            this.tagSpecifications = tagSpecifications;
             return this;
         }
         public Builder tagSpecifications(GetLaunchTemplateTagSpecification... tagSpecifications) {
@@ -538,64 +645,73 @@ public final class GetLaunchTemplateResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder userData(String userData) {
-            this.userData = Objects.requireNonNull(userData);
+            if (userData == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "userData");
+            }
+            this.userData = userData;
             return this;
         }
         @CustomType.Setter
         public Builder vpcSecurityGroupIds(List<String> vpcSecurityGroupIds) {
-            this.vpcSecurityGroupIds = Objects.requireNonNull(vpcSecurityGroupIds);
+            if (vpcSecurityGroupIds == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "vpcSecurityGroupIds");
+            }
+            this.vpcSecurityGroupIds = vpcSecurityGroupIds;
             return this;
         }
         public Builder vpcSecurityGroupIds(String... vpcSecurityGroupIds) {
             return vpcSecurityGroupIds(List.of(vpcSecurityGroupIds));
         }
         public GetLaunchTemplateResult build() {
-            final var o = new GetLaunchTemplateResult();
-            o.arn = arn;
-            o.blockDeviceMappings = blockDeviceMappings;
-            o.capacityReservationSpecifications = capacityReservationSpecifications;
-            o.cpuOptions = cpuOptions;
-            o.creditSpecifications = creditSpecifications;
-            o.defaultVersion = defaultVersion;
-            o.description = description;
-            o.disableApiStop = disableApiStop;
-            o.disableApiTermination = disableApiTermination;
-            o.ebsOptimized = ebsOptimized;
-            o.elasticGpuSpecifications = elasticGpuSpecifications;
-            o.elasticInferenceAccelerators = elasticInferenceAccelerators;
-            o.enclaveOptions = enclaveOptions;
-            o.filters = filters;
-            o.hibernationOptions = hibernationOptions;
-            o.iamInstanceProfiles = iamInstanceProfiles;
-            o.id = id;
-            o.imageId = imageId;
-            o.instanceInitiatedShutdownBehavior = instanceInitiatedShutdownBehavior;
-            o.instanceMarketOptions = instanceMarketOptions;
-            o.instanceRequirements = instanceRequirements;
-            o.instanceType = instanceType;
-            o.kernelId = kernelId;
-            o.keyName = keyName;
-            o.latestVersion = latestVersion;
-            o.licenseSpecifications = licenseSpecifications;
-            o.maintenanceOptions = maintenanceOptions;
-            o.metadataOptions = metadataOptions;
-            o.monitorings = monitorings;
-            o.name = name;
-            o.networkInterfaces = networkInterfaces;
-            o.placements = placements;
-            o.privateDnsNameOptions = privateDnsNameOptions;
-            o.ramDiskId = ramDiskId;
-            o.securityGroupNames = securityGroupNames;
-            o.tagSpecifications = tagSpecifications;
-            o.tags = tags;
-            o.userData = userData;
-            o.vpcSecurityGroupIds = vpcSecurityGroupIds;
-            return o;
+            final var _resultValue = new GetLaunchTemplateResult();
+            _resultValue.arn = arn;
+            _resultValue.blockDeviceMappings = blockDeviceMappings;
+            _resultValue.capacityReservationSpecifications = capacityReservationSpecifications;
+            _resultValue.cpuOptions = cpuOptions;
+            _resultValue.creditSpecifications = creditSpecifications;
+            _resultValue.defaultVersion = defaultVersion;
+            _resultValue.description = description;
+            _resultValue.disableApiStop = disableApiStop;
+            _resultValue.disableApiTermination = disableApiTermination;
+            _resultValue.ebsOptimized = ebsOptimized;
+            _resultValue.elasticGpuSpecifications = elasticGpuSpecifications;
+            _resultValue.elasticInferenceAccelerators = elasticInferenceAccelerators;
+            _resultValue.enclaveOptions = enclaveOptions;
+            _resultValue.filters = filters;
+            _resultValue.hibernationOptions = hibernationOptions;
+            _resultValue.iamInstanceProfiles = iamInstanceProfiles;
+            _resultValue.id = id;
+            _resultValue.imageId = imageId;
+            _resultValue.instanceInitiatedShutdownBehavior = instanceInitiatedShutdownBehavior;
+            _resultValue.instanceMarketOptions = instanceMarketOptions;
+            _resultValue.instanceRequirements = instanceRequirements;
+            _resultValue.instanceType = instanceType;
+            _resultValue.kernelId = kernelId;
+            _resultValue.keyName = keyName;
+            _resultValue.latestVersion = latestVersion;
+            _resultValue.licenseSpecifications = licenseSpecifications;
+            _resultValue.maintenanceOptions = maintenanceOptions;
+            _resultValue.metadataOptions = metadataOptions;
+            _resultValue.monitorings = monitorings;
+            _resultValue.name = name;
+            _resultValue.networkInterfaces = networkInterfaces;
+            _resultValue.placements = placements;
+            _resultValue.privateDnsNameOptions = privateDnsNameOptions;
+            _resultValue.ramDiskId = ramDiskId;
+            _resultValue.securityGroupNames = securityGroupNames;
+            _resultValue.tagSpecifications = tagSpecifications;
+            _resultValue.tags = tags;
+            _resultValue.userData = userData;
+            _resultValue.vpcSecurityGroupIds = vpcSecurityGroupIds;
+            return _resultValue;
         }
     }
 }

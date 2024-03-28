@@ -36,6 +36,7 @@ public final class OriginRequestPolicyCookiesConfigCookies {
 
         @CustomType.Setter
         public Builder items(@Nullable List<String> items) {
+
             this.items = items;
             return this;
         }
@@ -43,9 +44,9 @@ public final class OriginRequestPolicyCookiesConfigCookies {
             return items(List.of(items));
         }
         public OriginRequestPolicyCookiesConfigCookies build() {
-            final var o = new OriginRequestPolicyCookiesConfigCookies();
-            o.items = items;
-            return o;
+            final var _resultValue = new OriginRequestPolicyCookiesConfigCookies();
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.ssm.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -11,26 +12,26 @@ import java.util.Objects;
 @CustomType
 public final class GetPatchBaselineGlobalFilter {
     /**
-     * @return The key for the filter.
+     * @return Key for the filter.
      * 
      */
     private String key;
     /**
-     * @return The value for the filter.
+     * @return Value for the filter.
      * 
      */
     private List<String> values;
 
     private GetPatchBaselineGlobalFilter() {}
     /**
-     * @return The key for the filter.
+     * @return Key for the filter.
      * 
      */
     public String key() {
         return this.key;
     }
     /**
-     * @return The value for the filter.
+     * @return Value for the filter.
      * 
      */
     public List<String> values() {
@@ -57,22 +58,28 @@ public final class GetPatchBaselineGlobalFilter {
 
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineGlobalFilter", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder values(List<String> values) {
-            this.values = Objects.requireNonNull(values);
+            if (values == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineGlobalFilter", "values");
+            }
+            this.values = values;
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
         }
         public GetPatchBaselineGlobalFilter build() {
-            final var o = new GetPatchBaselineGlobalFilter();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetPatchBaselineGlobalFilter();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

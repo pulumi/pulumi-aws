@@ -13,13 +13,14 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,13 +44,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var queue = new Queue(&#34;queue&#34;, QueueArgs.builder()        
+ *             .name(&#34;example-queue&#34;)
  *             .delaySeconds(90)
  *             .maxMessageSize(2048)
  *             .messageRetentionSeconds(86400)
  *             .receiveWaitTimeSeconds(10)
  *             .redrivePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;deadLetterTargetArn&#34;, aws_sqs_queue.queue_deadletter().arn()),
+ *                     jsonProperty(&#34;deadLetterTargetArn&#34;, queueDeadletter.arn()),
  *                     jsonProperty(&#34;maxReceiveCount&#34;, 4)
  *                 )))
  *             .tags(Map.of(&#34;Environment&#34;, &#34;production&#34;))
@@ -58,7 +60,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## FIFO queue
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -81,15 +87,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var queue = new Queue(&#34;queue&#34;, QueueArgs.builder()        
- *             .contentBasedDeduplication(true)
+ *             .name(&#34;example-queue.fifo&#34;)
  *             .fifoQueue(true)
+ *             .contentBasedDeduplication(true)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## High-throughput FIFO queue
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -112,16 +122,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var queue = new Queue(&#34;queue&#34;, QueueArgs.builder()        
- *             .deduplicationScope(&#34;messageGroup&#34;)
+ *             .name(&#34;pulumi-example-queue.fifo&#34;)
  *             .fifoQueue(true)
+ *             .deduplicationScope(&#34;messageGroup&#34;)
  *             .fifoThroughputLimit(&#34;perMessageGroupId&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Dead-letter queue
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -130,6 +144,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sqs.Queue;
  * import com.pulumi.aws.sqs.QueueArgs;
+ * import com.pulumi.aws.sqs.RedriveAllowPolicy;
+ * import com.pulumi.aws.sqs.RedriveAllowPolicyArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -144,21 +160,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         var queue = new Queue(&#34;queue&#34;, QueueArgs.builder()        
+ *             .name(&#34;pulumi-example-queue&#34;)
+ *             .redrivePolicy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;deadLetterTargetArn&#34;, queueDeadletter.arn()),
+ *                     jsonProperty(&#34;maxReceiveCount&#34;, 4)
+ *                 )))
+ *             .build());
+ * 
  *         var exampleQueueDeadletter = new Queue(&#34;exampleQueueDeadletter&#34;, QueueArgs.builder()        
+ *             .name(&#34;pulumi-example-deadletter-queue&#34;)
+ *             .build());
+ * 
+ *         var exampleQueueRedriveAllowPolicy = new RedriveAllowPolicy(&#34;exampleQueueRedriveAllowPolicy&#34;, RedriveAllowPolicyArgs.builder()        
+ *             .queueUrl(exampleQueueDeadletter.id())
  *             .redriveAllowPolicy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;redrivePermission&#34;, &#34;byQueue&#34;),
- *                     jsonProperty(&#34;sourceQueueArns&#34;, jsonArray(aws_sqs_queue.example_queue().arn()))
+ *                     jsonProperty(&#34;sourceQueueArns&#34;, jsonArray(exampleQueue.arn()))
  *                 )))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Server-side encryption (SSE)
  * 
  * Using [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html):
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -181,14 +214,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var queue = new Queue(&#34;queue&#34;, QueueArgs.builder()        
+ *             .name(&#34;pulumi-example-queue&#34;)
  *             .sqsManagedSseEnabled(true)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -211,20 +248,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var queue = new Queue(&#34;queue&#34;, QueueArgs.builder()        
- *             .kmsDataKeyReusePeriodSeconds(300)
+ *             .name(&#34;example-queue&#34;)
  *             .kmsMasterKeyId(&#34;alias/aws/sqs&#34;)
+ *             .kmsDataKeyReusePeriodSeconds(300)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SQS Queues using the queue `url`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
+ * $ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
  * ```
  * 
  */
@@ -561,9 +600,6 @@ public class Queue extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

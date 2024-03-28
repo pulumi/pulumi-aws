@@ -12,12 +12,36 @@ import * as utilities from "../utilities";
  *
  * > **Note:** To manage a _provisioned_ Amazon MSK cluster, use the `aws.msk.Cluster` resource.
  *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.msk.ServerlessCluster("example", {
+ *     clusterName: "Example",
+ *     vpcConfigs: [{
+ *         subnetIds: exampleAwsSubnet.map(__item => __item.id),
+ *         securityGroupIds: [exampleAwsSecurityGroup.id],
+ *     }],
+ *     clientAuthentication: {
+ *         sasl: {
+ *             iam: {
+ *                 enabled: true,
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Import
  *
  * Using `pulumi import`, import MSK serverless clusters using the cluster `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:msk/serverlessCluster:ServerlessCluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+ * $ pulumi import aws:msk/serverlessCluster:ServerlessCluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
  * ```
  */
 export class ServerlessCluster extends pulumi.CustomResource {
@@ -116,8 +140,6 @@ export class ServerlessCluster extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServerlessCluster.__pulumiType, name, resourceInputs, opts);
     }
 }

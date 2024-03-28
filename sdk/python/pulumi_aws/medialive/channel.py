@@ -521,15 +521,18 @@ class Channel(pulumi.CustomResource):
         Resource for managing an AWS MediaLive Channel.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.medialive.Channel("example",
+            name="example-channel",
             channel_class="STANDARD",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             input_specification=aws.medialive.ChannelInputSpecificationArgs(
                 codec="AVC",
                 input_resolution="HD",
@@ -537,16 +540,16 @@ class Channel(pulumi.CustomResource):
             ),
             input_attachments=[aws.medialive.ChannelInputAttachmentArgs(
                 input_attachment_name="example-input",
-                input_id=aws_medialive_input["example"]["id"],
+                input_id=example_aws_medialive_input["id"],
             )],
             destinations=[aws.medialive.ChannelDestinationArgs(
                 id="destination",
                 settings=[
                     aws.medialive.ChannelDestinationSettingArgs(
-                        url=f"s3://{aws_s3_bucket['main']['id']}/test1",
+                        url=f"s3://{main['id']}/test1",
                     ),
                     aws.medialive.ChannelDestinationSettingArgs(
-                        url=f"s3://{aws_s3_bucket['main2']['id']}/test2",
+                        url=f"s3://{main2['id']}/test2",
                     ),
                 ],
             )],
@@ -590,13 +593,14 @@ class Channel(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MediaLive Channel using the `channel_id`. For example:
 
         ```sh
-         $ pulumi import aws:medialive/channel:Channel example 1234567
+        $ pulumi import aws:medialive/channel:Channel example 1234567
         ```
 
         :param str resource_name: The name of the resource.
@@ -627,15 +631,18 @@ class Channel(pulumi.CustomResource):
         Resource for managing an AWS MediaLive Channel.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.medialive.Channel("example",
+            name="example-channel",
             channel_class="STANDARD",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             input_specification=aws.medialive.ChannelInputSpecificationArgs(
                 codec="AVC",
                 input_resolution="HD",
@@ -643,16 +650,16 @@ class Channel(pulumi.CustomResource):
             ),
             input_attachments=[aws.medialive.ChannelInputAttachmentArgs(
                 input_attachment_name="example-input",
-                input_id=aws_medialive_input["example"]["id"],
+                input_id=example_aws_medialive_input["id"],
             )],
             destinations=[aws.medialive.ChannelDestinationArgs(
                 id="destination",
                 settings=[
                     aws.medialive.ChannelDestinationSettingArgs(
-                        url=f"s3://{aws_s3_bucket['main']['id']}/test1",
+                        url=f"s3://{main['id']}/test1",
                     ),
                     aws.medialive.ChannelDestinationSettingArgs(
-                        url=f"s3://{aws_s3_bucket['main2']['id']}/test2",
+                        url=f"s3://{main2['id']}/test2",
                     ),
                 ],
             )],
@@ -696,13 +703,14 @@ class Channel(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MediaLive Channel using the `channel_id`. For example:
 
         ```sh
-         $ pulumi import aws:medialive/channel:Channel example 1234567
+        $ pulumi import aws:medialive/channel:Channel example 1234567
         ```
 
         :param str resource_name: The name of the resource.
@@ -768,8 +776,6 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["channel_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Channel, __self__).__init__(
             'aws:medialive/channel:Channel',
             resource_name,

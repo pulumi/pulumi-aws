@@ -21,6 +21,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,6 +56,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupTargetGroup(ctx *pulumi.Context, args *LookupTargetGroupArgs, opts ...pulumi.InvokeOption) (*LookupTargetGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTargetGroupResult
@@ -68,7 +70,8 @@ func LookupTargetGroup(ctx *pulumi.Context, args *LookupTargetGroupArgs, opts ..
 // A collection of arguments for invoking getTargetGroup.
 type LookupTargetGroupArgs struct {
 	// Full ARN of the target group.
-	Arn *string `pulumi:"arn"`
+	Arn                            *string `pulumi:"arn"`
+	LoadBalancingAnomalyMitigation *string `pulumi:"loadBalancingAnomalyMitigation"`
 	// Unique name of the target group.
 	Name *string `pulumi:"name"`
 	// Mapping of tags, each pair of which must exactly match a pair on the desired target group.
@@ -82,12 +85,14 @@ type LookupTargetGroupResult struct {
 	Arn                   string                    `pulumi:"arn"`
 	ArnSuffix             string                    `pulumi:"arnSuffix"`
 	ConnectionTermination bool                      `pulumi:"connectionTermination"`
-	DeregistrationDelay   int                       `pulumi:"deregistrationDelay"`
+	DeregistrationDelay   string                    `pulumi:"deregistrationDelay"`
 	HealthCheck           GetTargetGroupHealthCheck `pulumi:"healthCheck"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                             string                   `pulumi:"id"`
 	LambdaMultiValueHeadersEnabled bool                     `pulumi:"lambdaMultiValueHeadersEnabled"`
+	LoadBalancerArns               []string                 `pulumi:"loadBalancerArns"`
 	LoadBalancingAlgorithmType     string                   `pulumi:"loadBalancingAlgorithmType"`
+	LoadBalancingAnomalyMitigation string                   `pulumi:"loadBalancingAnomalyMitigation"`
 	LoadBalancingCrossZoneEnabled  string                   `pulumi:"loadBalancingCrossZoneEnabled"`
 	Name                           string                   `pulumi:"name"`
 	Port                           int                      `pulumi:"port"`
@@ -118,7 +123,8 @@ func LookupTargetGroupOutput(ctx *pulumi.Context, args LookupTargetGroupOutputAr
 // A collection of arguments for invoking getTargetGroup.
 type LookupTargetGroupOutputArgs struct {
 	// Full ARN of the target group.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn                            pulumi.StringPtrInput `pulumi:"arn"`
+	LoadBalancingAnomalyMitigation pulumi.StringPtrInput `pulumi:"loadBalancingAnomalyMitigation"`
 	// Unique name of the target group.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Mapping of tags, each pair of which must exactly match a pair on the desired target group.
@@ -158,8 +164,8 @@ func (o LookupTargetGroupResultOutput) ConnectionTermination() pulumi.BoolOutput
 	return o.ApplyT(func(v LookupTargetGroupResult) bool { return v.ConnectionTermination }).(pulumi.BoolOutput)
 }
 
-func (o LookupTargetGroupResultOutput) DeregistrationDelay() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupTargetGroupResult) int { return v.DeregistrationDelay }).(pulumi.IntOutput)
+func (o LookupTargetGroupResultOutput) DeregistrationDelay() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) string { return v.DeregistrationDelay }).(pulumi.StringOutput)
 }
 
 func (o LookupTargetGroupResultOutput) HealthCheck() GetTargetGroupHealthCheckOutput {
@@ -175,8 +181,16 @@ func (o LookupTargetGroupResultOutput) LambdaMultiValueHeadersEnabled() pulumi.B
 	return o.ApplyT(func(v LookupTargetGroupResult) bool { return v.LambdaMultiValueHeadersEnabled }).(pulumi.BoolOutput)
 }
 
+func (o LookupTargetGroupResultOutput) LoadBalancerArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) []string { return v.LoadBalancerArns }).(pulumi.StringArrayOutput)
+}
+
 func (o LookupTargetGroupResultOutput) LoadBalancingAlgorithmType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTargetGroupResult) string { return v.LoadBalancingAlgorithmType }).(pulumi.StringOutput)
+}
+
+func (o LookupTargetGroupResultOutput) LoadBalancingAnomalyMitigation() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) string { return v.LoadBalancingAnomalyMitigation }).(pulumi.StringOutput)
 }
 
 func (o LookupTargetGroupResultOutput) LoadBalancingCrossZoneEnabled() pulumi.StringOutput {

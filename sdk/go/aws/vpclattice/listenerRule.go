@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.NewListenerRule(ctx, "test", &vpclattice.ListenerRuleArgs{
-//				ListenerIdentifier: pulumi.Any(aws_vpclattice_listener.Example.Listener_id),
-//				ServiceIdentifier:  pulumi.Any(aws_vpclattice_service.Example.Id),
+//				Name:               pulumi.String("example"),
+//				ListenerIdentifier: pulumi.Any(exampleAwsVpclatticeListener.ListenerId),
+//				ServiceIdentifier:  pulumi.Any(exampleAwsVpclatticeService.Id),
 //				Priority:           pulumi.Int(20),
 //				Match: &vpclattice.ListenerRuleMatchArgs{
 //					HttpMatch: &vpclattice.ListenerRuleMatchHttpMatchArgs{
@@ -55,11 +57,11 @@ import (
 //					Forward: &vpclattice.ListenerRuleActionForwardArgs{
 //						TargetGroups: vpclattice.ListenerRuleActionForwardTargetGroupArray{
 //							&vpclattice.ListenerRuleActionForwardTargetGroupArgs{
-//								TargetGroupIdentifier: pulumi.Any(aws_vpclattice_target_group.Example.Id),
+//								TargetGroupIdentifier: pulumi.Any(example.Id),
 //								Weight:                pulumi.Int(1),
 //							},
 //							&vpclattice.ListenerRuleActionForwardTargetGroupArgs{
-//								TargetGroupIdentifier: pulumi.Any(aws_vpclattice_target_group.Example2.Id),
+//								TargetGroupIdentifier: pulumi.Any(example2.Id),
 //								Weight:                pulumi.Int(2),
 //							},
 //						},
@@ -74,8 +76,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -89,8 +94,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.NewListenerRule(ctx, "test", &vpclattice.ListenerRuleArgs{
-//				ListenerIdentifier: pulumi.Any(aws_vpclattice_listener.Example.Listener_id),
-//				ServiceIdentifier:  pulumi.Any(aws_vpclattice_service.Example.Id),
+//				Name:               pulumi.String("example"),
+//				ListenerIdentifier: pulumi.Any(example.ListenerId),
+//				ServiceIdentifier:  pulumi.Any(exampleAwsVpclatticeService.Id),
 //				Priority:           pulumi.Int(10),
 //				Match: &vpclattice.ListenerRuleMatchArgs{
 //					HttpMatch: &vpclattice.ListenerRuleMatchHttpMatchArgs{
@@ -116,15 +122,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Using `pulumi import`, import VPC Lattice Listener Rule using the `example_id_arg`. For example:
+// Using `pulumi import`, import VPC Lattice Listener Rule using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:vpclattice/listenerRule:ListenerRule example rft-8012925589
-//
+// $ pulumi import aws:vpclattice/listenerRule:ListenerRule example service123/listener456/rule789
 // ```
 type ListenerRule struct {
 	pulumi.CustomResourceState
@@ -177,10 +182,6 @@ func NewListenerRule(ctx *pulumi.Context,
 	if args.ServiceIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceIdentifier'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ListenerRule
 	err := ctx.RegisterResource("aws:vpclattice/listenerRule:ListenerRule", name, args, &resource, opts...)

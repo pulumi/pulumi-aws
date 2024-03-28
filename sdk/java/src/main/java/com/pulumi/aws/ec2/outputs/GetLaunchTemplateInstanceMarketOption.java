@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplateInstanceMarketOptionSpotOption;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -42,22 +43,28 @@ public final class GetLaunchTemplateInstanceMarketOption {
 
         @CustomType.Setter
         public Builder marketType(String marketType) {
-            this.marketType = Objects.requireNonNull(marketType);
+            if (marketType == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceMarketOption", "marketType");
+            }
+            this.marketType = marketType;
             return this;
         }
         @CustomType.Setter
         public Builder spotOptions(List<GetLaunchTemplateInstanceMarketOptionSpotOption> spotOptions) {
-            this.spotOptions = Objects.requireNonNull(spotOptions);
+            if (spotOptions == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceMarketOption", "spotOptions");
+            }
+            this.spotOptions = spotOptions;
             return this;
         }
         public Builder spotOptions(GetLaunchTemplateInstanceMarketOptionSpotOption... spotOptions) {
             return spotOptions(List.of(spotOptions));
         }
         public GetLaunchTemplateInstanceMarketOption build() {
-            final var o = new GetLaunchTemplateInstanceMarketOption();
-            o.marketType = marketType;
-            o.spotOptions = spotOptions;
-            return o;
+            final var _resultValue = new GetLaunchTemplateInstanceMarketOption();
+            _resultValue.marketType = marketType;
+            _resultValue.spotOptions = spotOptions;
+            return _resultValue;
         }
     }
 }

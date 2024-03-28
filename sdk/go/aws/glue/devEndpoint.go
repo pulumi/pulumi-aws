@@ -18,6 +18,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,7 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Actions: []string{
@@ -51,13 +52,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(examplePolicyDocument.Json),
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("AWSGlueServiceRole-foo"),
+//				AssumeRolePolicy: pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = glue.NewDevEndpoint(ctx, "exampleDevEndpoint", &glue.DevEndpointArgs{
+//			_, err = glue.NewDevEndpoint(ctx, "example", &glue.DevEndpointArgs{
+//				Name:    pulumi.String("foo"),
 //				RoleArn: exampleRole.Arn,
 //			})
 //			if err != nil {
@@ -75,15 +78,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a Glue Development Endpoint using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
-//
+// $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
 // ```
 type DevEndpoint struct {
 	pulumi.CustomResourceState
@@ -152,10 +154,6 @@ func NewDevEndpoint(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DevEndpoint
 	err := ctx.RegisterResource("aws:glue/devEndpoint:DevEndpoint", name, args, &resource, opts...)

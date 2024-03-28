@@ -4,6 +4,7 @@
 package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -73,25 +74,32 @@ public final class TopicRuleErrorActionIotAnalytics {
 
         @CustomType.Setter
         public Builder batchMode(@Nullable Boolean batchMode) {
+
             this.batchMode = batchMode;
             return this;
         }
         @CustomType.Setter
         public Builder channelName(String channelName) {
-            this.channelName = Objects.requireNonNull(channelName);
+            if (channelName == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionIotAnalytics", "channelName");
+            }
+            this.channelName = channelName;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionIotAnalytics", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         public TopicRuleErrorActionIotAnalytics build() {
-            final var o = new TopicRuleErrorActionIotAnalytics();
-            o.batchMode = batchMode;
-            o.channelName = channelName;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionIotAnalytics();
+            _resultValue.batchMode = batchMode;
+            _resultValue.channelName = channelName;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

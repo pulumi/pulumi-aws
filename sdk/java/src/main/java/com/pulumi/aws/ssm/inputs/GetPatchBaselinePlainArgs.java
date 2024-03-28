@@ -4,6 +4,7 @@
 package com.pulumi.aws.ssm.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -63,12 +64,16 @@ public final class GetPatchBaselinePlainArgs extends com.pulumi.resources.Invoke
     /**
      * Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="owner", required=true)
     private String owner;
 
     /**
      * @return Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+     * 
+     * The following arguments are optional:
      * 
      */
     public String owner() {
@@ -138,6 +143,8 @@ public final class GetPatchBaselinePlainArgs extends com.pulumi.resources.Invoke
         /**
          * @param owner Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -147,7 +154,9 @@ public final class GetPatchBaselinePlainArgs extends com.pulumi.resources.Invoke
         }
 
         public GetPatchBaselinePlainArgs build() {
-            $.owner = Objects.requireNonNull($.owner, "expected parameter 'owner' to be non-null");
+            if ($.owner == null) {
+                throw new MissingRequiredPropertyException("GetPatchBaselinePlainArgs", "owner");
+            }
             return $;
         }
     }

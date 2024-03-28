@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.aws.ec2.outputs.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRange;
 import com.pulumi.aws.ec2.outputs.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRange;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -61,7 +62,10 @@ public final class GetNetworkInsightsAnalysisForwardPathComponentOutboundHeader 
 
         @CustomType.Setter
         public Builder destinationAddresses(List<String> destinationAddresses) {
-            this.destinationAddresses = Objects.requireNonNull(destinationAddresses);
+            if (destinationAddresses == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisForwardPathComponentOutboundHeader", "destinationAddresses");
+            }
+            this.destinationAddresses = destinationAddresses;
             return this;
         }
         public Builder destinationAddresses(String... destinationAddresses) {
@@ -69,7 +73,10 @@ public final class GetNetworkInsightsAnalysisForwardPathComponentOutboundHeader 
         }
         @CustomType.Setter
         public Builder destinationPortRanges(List<GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRange> destinationPortRanges) {
-            this.destinationPortRanges = Objects.requireNonNull(destinationPortRanges);
+            if (destinationPortRanges == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisForwardPathComponentOutboundHeader", "destinationPortRanges");
+            }
+            this.destinationPortRanges = destinationPortRanges;
             return this;
         }
         public Builder destinationPortRanges(GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRange... destinationPortRanges) {
@@ -77,12 +84,18 @@ public final class GetNetworkInsightsAnalysisForwardPathComponentOutboundHeader 
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisForwardPathComponentOutboundHeader", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder sourceAddresses(List<String> sourceAddresses) {
-            this.sourceAddresses = Objects.requireNonNull(sourceAddresses);
+            if (sourceAddresses == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisForwardPathComponentOutboundHeader", "sourceAddresses");
+            }
+            this.sourceAddresses = sourceAddresses;
             return this;
         }
         public Builder sourceAddresses(String... sourceAddresses) {
@@ -90,20 +103,23 @@ public final class GetNetworkInsightsAnalysisForwardPathComponentOutboundHeader 
         }
         @CustomType.Setter
         public Builder sourcePortRanges(List<GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRange> sourcePortRanges) {
-            this.sourcePortRanges = Objects.requireNonNull(sourcePortRanges);
+            if (sourcePortRanges == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisForwardPathComponentOutboundHeader", "sourcePortRanges");
+            }
+            this.sourcePortRanges = sourcePortRanges;
             return this;
         }
         public Builder sourcePortRanges(GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRange... sourcePortRanges) {
             return sourcePortRanges(List.of(sourcePortRanges));
         }
         public GetNetworkInsightsAnalysisForwardPathComponentOutboundHeader build() {
-            final var o = new GetNetworkInsightsAnalysisForwardPathComponentOutboundHeader();
-            o.destinationAddresses = destinationAddresses;
-            o.destinationPortRanges = destinationPortRanges;
-            o.protocol = protocol;
-            o.sourceAddresses = sourceAddresses;
-            o.sourcePortRanges = sourcePortRanges;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisForwardPathComponentOutboundHeader();
+            _resultValue.destinationAddresses = destinationAddresses;
+            _resultValue.destinationPortRanges = destinationPortRanges;
+            _resultValue.protocol = protocol;
+            _resultValue.sourceAddresses = sourceAddresses;
+            _resultValue.sourcePortRanges = sourcePortRanges;
+            return _resultValue;
         }
     }
 }

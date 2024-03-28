@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * `aws.iam.UserGroupMembership` resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -32,7 +34,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.Group;
+ * import com.pulumi.aws.iam.GroupArgs;
  * import com.pulumi.aws.iam.User;
+ * import com.pulumi.aws.iam.UserArgs;
  * import com.pulumi.aws.iam.GroupMembership;
  * import com.pulumi.aws.iam.GroupMembershipArgs;
  * import java.util.List;
@@ -48,13 +52,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var group = new Group(&#34;group&#34;);
+ *         var group = new Group(&#34;group&#34;, GroupArgs.builder()        
+ *             .name(&#34;test-group&#34;)
+ *             .build());
  * 
- *         var userOne = new User(&#34;userOne&#34;);
+ *         var userOne = new User(&#34;userOne&#34;, UserArgs.builder()        
+ *             .name(&#34;test-user&#34;)
+ *             .build());
  * 
- *         var userTwo = new User(&#34;userTwo&#34;);
+ *         var userTwo = new User(&#34;userTwo&#34;, UserArgs.builder()        
+ *             .name(&#34;test-user-two&#34;)
+ *             .build());
  * 
  *         var team = new GroupMembership(&#34;team&#34;, GroupMembershipArgs.builder()        
+ *             .name(&#34;tf-testing-group-membership&#34;)
  *             .users(            
  *                 userOne.name(),
  *                 userTwo.name())
@@ -64,6 +75,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:iam/groupMembership:GroupMembership")

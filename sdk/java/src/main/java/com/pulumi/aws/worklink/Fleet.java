@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * Basic usage:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -28,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.worklink.Fleet;
+ * import com.pulumi.aws.worklink.FleetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -41,13 +44,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Fleet(&#34;example&#34;);
+ *         var example = new Fleet(&#34;example&#34;, FleetArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Network Configuration Usage:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -71,18 +79,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Fleet(&#34;example&#34;, FleetArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .network(FleetNetworkArgs.builder()
- *                 .vpcId(aws_vpc.test().id())
- *                 .subnetIds(aws_subnet.test().stream().map(element -&gt; element.id()).collect(toList()))
- *                 .securityGroupIds(aws_security_group.test().id())
+ *                 .vpcId(testAwsVpc.id())
+ *                 .subnetIds(testAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+ *                 .securityGroupIds(test.id())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Identity Provider Configuration Usage:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -106,22 +118,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Fleet(&#34;test&#34;, FleetArgs.builder()        
+ *             .name(&#34;tf-worklink-fleet&#34;)
  *             .identityProvider(FleetIdentityProviderArgs.builder()
  *                 .type(&#34;SAML&#34;)
- *                 .samlMetadata(Files.readString(Paths.get(&#34;saml-metadata.xml&#34;)))
+ *                 .samlMetadata(StdFunctions.file(FileArgs.builder()
+ *                     .input(&#34;saml-metadata.xml&#34;)
+ *                     .build()).result())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import WorkLink using the ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
+ * $ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
  * ```
  * 
  */

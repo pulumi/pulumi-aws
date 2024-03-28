@@ -13,42 +13,49 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as crypto from "crypto";
+ * import * as std from "@pulumi/std";
  *
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {body: JSON.stringify({
- *     openapi: "3.0.1",
- *     info: {
- *         title: "example",
- *         version: "1.0",
- *     },
- *     paths: {
- *         "/path1": {
- *             get: {
- *                 "x-amazon-apigateway-integration": {
- *                     httpMethod: "GET",
- *                     payloadFormatVersion: "1.0",
- *                     type: "HTTP_PROXY",
- *                     uri: "https://ip-ranges.amazonaws.com/ip-ranges.json",
+ * const example = new aws.apigateway.RestApi("example", {
+ *     body: JSON.stringify({
+ *         openapi: "3.0.1",
+ *         info: {
+ *             title: "example",
+ *             version: "1.0",
+ *         },
+ *         paths: {
+ *             "/path1": {
+ *                 get: {
+ *                     "x-amazon-apigateway-integration": {
+ *                         httpMethod: "GET",
+ *                         payloadFormatVersion: "1.0",
+ *                         type: "HTTP_PROXY",
+ *                         uri: "https://ip-ranges.amazonaws.com/ip-ranges.json",
+ *                     },
  *                 },
  *             },
  *         },
- *     },
- * })});
- * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
- *     restApi: exampleRestApi.id,
+ *     }),
+ *     name: "example",
+ * });
+ * const exampleDeployment = new aws.apigateway.Deployment("example", {
+ *     restApi: example.id,
  *     triggers: {
- *         redeployment: exampleRestApi.body.apply(body => JSON.stringify(body)).apply(toJSON => crypto.createHash('sha1').update(toJSON).digest('hex')),
+ *         redeployment: std.sha1Output({
+ *             input: pulumi.jsonStringify(example.body),
+ *         }).apply(invoke => invoke.result),
  *     },
  * });
- * const exampleStage = new aws.apigateway.Stage("exampleStage", {
+ * const exampleStage = new aws.apigateway.Stage("example", {
  *     deployment: exampleDeployment.id,
- *     restApi: exampleRestApi.id,
+ *     restApi: example.id,
  *     stageName: "example",
  * });
- * const exampleWebAcl = new aws.wafv2.WebAcl("exampleWebAcl", {
+ * const exampleWebAcl = new aws.wafv2.WebAcl("example", {
+ *     name: "web-acl-association-example",
  *     scope: "REGIONAL",
  *     defaultAction: {
  *         allow: {},
@@ -59,18 +66,19 @@ import * as utilities from "../utilities";
  *         sampledRequestsEnabled: false,
  *     },
  * });
- * const exampleWebAclAssociation = new aws.wafv2.WebAclAssociation("exampleWebAclAssociation", {
+ * const exampleWebAclAssociation = new aws.wafv2.WebAclAssociation("example", {
  *     resourceArn: exampleStage.arn,
  *     webAclArn: exampleWebAcl.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import WAFv2 Web ACL Association using `WEB_ACL_ARN,RESOURCE_ARN`. For example:
  *
  * ```sh
- *  $ pulumi import aws:wafv2/webAclAssociation:WebAclAssociation example arn:aws:wafv2:...7ce849ea,arn:aws:apigateway:...ages/name
+ * $ pulumi import aws:wafv2/webAclAssociation:WebAclAssociation example arn:aws:wafv2:...7ce849ea,arn:aws:apigateway:...ages/name
  * ```
  */
 export class WebAclAssociation extends pulumi.CustomResource {
@@ -102,7 +110,7 @@ export class WebAclAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
+     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
      */
     public readonly resourceArn!: pulumi.Output<string>;
     /**
@@ -146,7 +154,7 @@ export class WebAclAssociation extends pulumi.CustomResource {
  */
 export interface WebAclAssociationState {
     /**
-     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
+     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
      */
     resourceArn?: pulumi.Input<string>;
     /**
@@ -160,7 +168,7 @@ export interface WebAclAssociationState {
  */
 export interface WebAclAssociationArgs {
     /**
-     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
+     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
      */
     resourceArn: pulumi.Input<string>;
     /**

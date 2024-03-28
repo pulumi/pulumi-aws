@@ -4,6 +4,7 @@
 package com.pulumi.aws.memorydb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -57,19 +58,25 @@ public final class GetUserAuthenticationMode {
 
         @CustomType.Setter
         public Builder passwordCount(Integer passwordCount) {
-            this.passwordCount = Objects.requireNonNull(passwordCount);
+            if (passwordCount == null) {
+              throw new MissingRequiredPropertyException("GetUserAuthenticationMode", "passwordCount");
+            }
+            this.passwordCount = passwordCount;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetUserAuthenticationMode", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetUserAuthenticationMode build() {
-            final var o = new GetUserAuthenticationMode();
-            o.passwordCount = passwordCount;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetUserAuthenticationMode();
+            _resultValue.passwordCount = passwordCount;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

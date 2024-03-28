@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,10 +29,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := gamelift.NewScript(ctx, "example", &gamelift.ScriptArgs{
+//				Name: pulumi.String("example-script"),
 //				StorageLocation: &gamelift.ScriptStorageLocationArgs{
-//					Bucket:  pulumi.Any(aws_s3_bucket.Example.Id),
-//					Key:     pulumi.Any(aws_s3_object.Example.Key),
-//					RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//					Bucket:  pulumi.Any(exampleAwsS3Bucket.Id),
+//					Key:     pulumi.Any(exampleAwsS3Object.Key),
+//					RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				},
 //			})
 //			if err != nil {
@@ -42,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import GameLift Scripts using the ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:gamelift/script:Script example <script-id>
-//
+// $ pulumi import aws:gamelift/script:Script example <script-id>
 // ```
 type Script struct {
 	pulumi.CustomResourceState
@@ -80,10 +81,6 @@ func NewScript(ctx *pulumi.Context,
 		args = &ScriptArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Script
 	err := ctx.RegisterResource("aws:gamelift/script:Script", name, args, &resource, opts...)

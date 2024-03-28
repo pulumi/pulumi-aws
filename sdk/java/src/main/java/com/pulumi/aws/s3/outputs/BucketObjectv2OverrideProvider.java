@@ -44,13 +44,14 @@ public final class BucketObjectv2OverrideProvider {
 
         @CustomType.Setter
         public Builder defaultTags(@Nullable BucketObjectv2OverrideProviderDefaultTags defaultTags) {
+
             this.defaultTags = defaultTags;
             return this;
         }
         public BucketObjectv2OverrideProvider build() {
-            final var o = new BucketObjectv2OverrideProvider();
-            o.defaultTags = defaultTags;
-            return o;
+            final var _resultValue = new BucketObjectv2OverrideProvider();
+            _resultValue.defaultTags = defaultTags;
+            return _resultValue;
         }
     }
 }

@@ -355,6 +355,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
 
         To create a basic traffic mirror session
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -362,21 +363,22 @@ class TrafficMirrorSession(pulumi.CustomResource):
         filter = aws.ec2.TrafficMirrorFilter("filter",
             description="traffic mirror filter - example",
             network_services=["amazon-dns"])
-        target = aws.ec2.TrafficMirrorTarget("target", network_load_balancer_arn=aws_lb["lb"]["arn"])
+        target = aws.ec2.TrafficMirrorTarget("target", network_load_balancer_arn=lb["arn"])
         session = aws.ec2.TrafficMirrorSession("session",
             description="traffic mirror session - example",
-            network_interface_id=aws_instance["test"]["primary_network_interface_id"],
+            network_interface_id=test["primaryNetworkInterfaceId"],
             session_number=1,
             traffic_mirror_filter_id=filter.id,
             traffic_mirror_target_id=target.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import traffic mirror sessions using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
+        $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
         ```
 
         :param str resource_name: The name of the resource.
@@ -404,6 +406,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
 
         To create a basic traffic mirror session
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -411,21 +414,22 @@ class TrafficMirrorSession(pulumi.CustomResource):
         filter = aws.ec2.TrafficMirrorFilter("filter",
             description="traffic mirror filter - example",
             network_services=["amazon-dns"])
-        target = aws.ec2.TrafficMirrorTarget("target", network_load_balancer_arn=aws_lb["lb"]["arn"])
+        target = aws.ec2.TrafficMirrorTarget("target", network_load_balancer_arn=lb["arn"])
         session = aws.ec2.TrafficMirrorSession("session",
             description="traffic mirror session - example",
-            network_interface_id=aws_instance["test"]["primary_network_interface_id"],
+            network_interface_id=test["primaryNetworkInterfaceId"],
             session_number=1,
             traffic_mirror_filter_id=filter.id,
             traffic_mirror_target_id=target.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import traffic mirror sessions using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
+        $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
         ```
 
         :param str resource_name: The name of the resource.
@@ -479,8 +483,6 @@ class TrafficMirrorSession(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(TrafficMirrorSession, __self__).__init__(
             'aws:ec2/trafficMirrorSession:TrafficMirrorSession',
             resource_name,

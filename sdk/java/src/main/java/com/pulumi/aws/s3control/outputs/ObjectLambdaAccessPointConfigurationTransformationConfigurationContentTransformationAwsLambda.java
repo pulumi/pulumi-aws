@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3control.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,19 +59,23 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
 
         @CustomType.Setter
         public Builder functionArn(String functionArn) {
-            this.functionArn = Objects.requireNonNull(functionArn);
+            if (functionArn == null) {
+              throw new MissingRequiredPropertyException("ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda", "functionArn");
+            }
+            this.functionArn = functionArn;
             return this;
         }
         @CustomType.Setter
         public Builder functionPayload(@Nullable String functionPayload) {
+
             this.functionPayload = functionPayload;
             return this;
         }
         public ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda build() {
-            final var o = new ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda();
-            o.functionArn = functionArn;
-            o.functionPayload = functionPayload;
-            return o;
+            final var _resultValue = new ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda();
+            _resultValue.functionArn = functionArn;
+            _resultValue.functionPayload = functionPayload;
+            return _resultValue;
         }
     }
 }

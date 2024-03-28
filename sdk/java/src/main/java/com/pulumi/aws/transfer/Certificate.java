@@ -20,46 +20,13 @@ import javax.annotation.Nullable;
  * Provides a AWS Transfer AS2 Certificate resource.
  * 
  * ## Example Usage
- * ### Basic
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.transfer.Certificate;
- * import com.pulumi.aws.transfer.CertificateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Certificate(&#34;example&#34;, CertificateArgs.builder()        
- *             .certificate(Files.readString(Paths.get(String.format(&#34;%s/example.com/example.crt&#34;, path.module()))))
- *             .certificateChain(Files.readString(Paths.get(String.format(&#34;%s/example.com/ca.crt&#34;, path.module()))))
- *             .privateKey(Files.readString(Paths.get(String.format(&#34;%s/example.com/example.key&#34;, path.module()))))
- *             .description(&#34;example&#34;)
- *             .usage(&#34;SIGNING&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Transfer AS2 Certificate using the `certificate_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:transfer/certificate:Certificate example c-4221a88afd5f4362a
+ * $ pulumi import aws:transfer/certificate:Certificate example c-4221a88afd5f4362a
  * ```
  * 
  */
@@ -253,8 +220,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
             .additionalSecretOutputs(List.of(
                 "certificate",
                 "certificateChain",
-                "privateKey",
-                "tagsAll"
+                "privateKey"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

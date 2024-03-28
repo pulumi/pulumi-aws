@@ -4,6 +4,7 @@
 package com.pulumi.aws.emrserverless.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,32 @@ public final class ApplicationMaximumCapacity {
 
         @CustomType.Setter
         public Builder cpu(String cpu) {
-            this.cpu = Objects.requireNonNull(cpu);
+            if (cpu == null) {
+              throw new MissingRequiredPropertyException("ApplicationMaximumCapacity", "cpu");
+            }
+            this.cpu = cpu;
             return this;
         }
         @CustomType.Setter
         public Builder disk(@Nullable String disk) {
+
             this.disk = disk;
             return this;
         }
         @CustomType.Setter
         public Builder memory(String memory) {
-            this.memory = Objects.requireNonNull(memory);
+            if (memory == null) {
+              throw new MissingRequiredPropertyException("ApplicationMaximumCapacity", "memory");
+            }
+            this.memory = memory;
             return this;
         }
         public ApplicationMaximumCapacity build() {
-            final var o = new ApplicationMaximumCapacity();
-            o.cpu = cpu;
-            o.disk = disk;
-            o.memory = memory;
-            return o;
+            final var _resultValue = new ApplicationMaximumCapacity();
+            _resultValue.cpu = cpu;
+            _resultValue.disk = disk;
+            _resultValue.memory = memory;
+            return _resultValue;
         }
     }
 }

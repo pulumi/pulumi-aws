@@ -7,35 +7,39 @@ import * as utilities from "../utilities";
 /**
  * Provides an Elastic Container Registry Policy.
  *
+ * > **NOTE on ECR Registry Policies:** While the AWS Management Console interface may suggest the ability to define multiple policies by creating multiple statements, ECR registry policies are effectively managed as singular entities at the regional level by the AWS APIs. Therefore, the `aws.ecr.RegistryPolicy` resource should be configured only once per region with all necessary statements defined in the same policy. Attempting to define multiple `aws.ecr.RegistryPolicy` resources may result in perpetual differences, with one policy overriding another.
+ *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentRegion = aws.getRegion({});
- * const currentPartition = aws.getPartition({});
- * const example = new aws.ecr.RegistryPolicy("example", {policy: Promise.all([currentPartition, currentCallerIdentity, currentPartition, currentRegion, currentCallerIdentity]).then(([currentPartition, currentCallerIdentity, currentPartition1, currentRegion, currentCallerIdentity1]) => JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Sid: "testpolicy",
- *         Effect: "Allow",
- *         Principal: {
- *             AWS: `arn:${currentPartition.partition}:iam::${currentCallerIdentity.accountId}:root`,
+ * const current = aws.getCallerIdentity({});
+ * const currentGetRegion = aws.getRegion({});
+ * const currentGetPartition = aws.getPartition({});
+ * const example = new aws.ecr.RegistryPolicy("example", {policy: JSON.stringify({
+ *     version: "2012-10-17",
+ *     statement: [{
+ *         sid: "testpolicy",
+ *         effect: "Allow",
+ *         principal: {
+ *             AWS: Promise.all([currentGetPartition, current]).then(([currentGetPartition, current]) => `arn:${currentGetPartition.partition}:iam::${current.accountId}:root`),
  *         },
- *         Action: ["ecr:ReplicateImage"],
- *         Resource: [`arn:${currentPartition1.partition}:ecr:${currentRegion.name}:${currentCallerIdentity1.accountId}:repository/*`],
+ *         action: ["ecr:ReplicateImage"],
+ *         resource: [Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:ecr:${currentGetRegion.name}:${current.accountId}:repository/*`)],
  *     }],
- * }))});
+ * })});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ECR Registry Policy using the registry id. For example:
  *
  * ```sh
- *  $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
+ * $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
  * ```
  */
 export class RegistryPolicy extends pulumi.CustomResource {

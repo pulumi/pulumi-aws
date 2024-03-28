@@ -15,8 +15,10 @@ import (
 // Resource for managing a QuickSight Dashboard.
 //
 // ## Example Usage
+//
 // ### From Source Template
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,13 +33,14 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewDashboard(ctx, "example", &quicksight.DashboardArgs{
 //				DashboardId:        pulumi.String("example-id"),
+//				Name:               pulumi.String("example-name"),
 //				VersionDescription: pulumi.String("version"),
 //				SourceEntity: &quicksight.DashboardSourceEntityArgs{
 //					SourceTemplate: &quicksight.DashboardSourceEntitySourceTemplateArgs{
-//						Arn: pulumi.Any(aws_quicksight_template.Source.Arn),
+//						Arn: pulumi.Any(source.Arn),
 //						DataSetReferences: quicksight.DashboardSourceEntitySourceTemplateDataSetReferenceArray{
 //							&quicksight.DashboardSourceEntitySourceTemplateDataSetReferenceArgs{
-//								DataSetArn:         pulumi.Any(aws_quicksight_data_set.Dataset.Arn),
+//								DataSetArn:         pulumi.Any(dataset.Arn),
 //								DataSetPlaceholder: pulumi.String("1"),
 //							},
 //						},
@@ -52,15 +55,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a QuickSight Dashboard using the AWS account ID and dashboard ID separated by a comma (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:quicksight/dashboard:Dashboard example 123456789012,example-id
-//
+// $ pulumi import aws:quicksight/dashboard:Dashboard example 123456789012,example-id
 // ```
 type Dashboard struct {
 	pulumi.CustomResourceState
@@ -119,10 +121,6 @@ func NewDashboard(ctx *pulumi.Context,
 	if args.VersionDescription == nil {
 		return nil, errors.New("invalid value for required argument 'VersionDescription'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Dashboard
 	err := ctx.RegisterResource("aws:quicksight/dashboard:Dashboard", name, args, &resource, opts...)

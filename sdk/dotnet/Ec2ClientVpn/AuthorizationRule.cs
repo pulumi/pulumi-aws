@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,13 +26,14 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// {
     ///     var example = new Aws.Ec2ClientVpn.AuthorizationRule("example", new()
     ///     {
-    ///         ClientVpnEndpointId = aws_ec2_client_vpn_endpoint.Example.Id,
-    ///         TargetNetworkCidr = aws_subnet.Example.Cidr_block,
+    ///         ClientVpnEndpointId = exampleAwsEc2ClientVpnEndpoint.Id,
+    ///         TargetNetworkCidr = exampleAwsSubnet.CidrBlock,
     ///         AuthorizeAllGroups = true,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -42,12 +44,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// Using the endpoint ID and target network CIDR:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24
+    /// $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24
     /// ```
-    ///  Using the endpoint ID, target network CIDR, and group name:
+    /// Using the endpoint ID, target network CIDR, and group name:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
+    /// $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2clientvpn/authorizationRule:AuthorizationRule")]

@@ -12,8 +12,11 @@ namespace Pulumi.Aws.S3
     /// <summary>
     /// Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
     /// 
+    /// &gt; This resource cannot be used with S3 directory buckets.
+    /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,11 +25,14 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketPublicAccessBlock = new Aws.S3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock", new()
+    ///     var example = new Aws.S3.BucketV2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = "example",
+    ///     });
+    /// 
+    ///     var exampleBucketPublicAccessBlock = new Aws.S3.BucketPublicAccessBlock("example", new()
+    ///     {
+    ///         Bucket = example.Id,
     ///         BlockPublicAcls = true,
     ///         BlockPublicPolicy = true,
     ///         IgnorePublicAcls = true,
@@ -35,13 +41,14 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_s3_bucket_public_access_block` using the bucket name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
+    /// $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock")]

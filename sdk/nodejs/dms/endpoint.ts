@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,13 +38,14 @@ import * as utilities from "../utilities";
  *     username: "test",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
+ * $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
  * ```
  */
 export class Endpoint extends pulumi.CustomResource {
@@ -133,6 +135,10 @@ export class Endpoint extends pulumi.CustomResource {
      * Port used by the endpoint database.
      */
     public readonly port!: pulumi.Output<number | undefined>;
+    /**
+     * Configuration block for Postgres settings. See below.
+     */
+    public readonly postgresSettings!: pulumi.Output<outputs.dms.EndpointPostgresSettings | undefined>;
     public readonly redisSettings!: pulumi.Output<outputs.dms.EndpointRedisSettings | undefined>;
     /**
      * Configuration block for Redshift settings. See below.
@@ -143,11 +149,13 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly s3Settings!: pulumi.Output<outputs.dms.EndpointS3Settings | undefined>;
     /**
-     * ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+     * ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
+     *
+     * > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secretsManagerArn`. Or you can specify clear-text values for `username`, `password` , `serverName`, and `port`. You can't specify both.
      */
     public readonly secretsManagerAccessRoleArn!: pulumi.Output<string | undefined>;
     /**
-     * Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engineName` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+     * Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engineName` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
      */
     public readonly secretsManagerArn!: pulumi.Output<string | undefined>;
     /**
@@ -205,6 +213,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["password"] = state ? state.password : undefined;
             resourceInputs["pauseReplicationTasks"] = state ? state.pauseReplicationTasks : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["postgresSettings"] = state ? state.postgresSettings : undefined;
             resourceInputs["redisSettings"] = state ? state.redisSettings : undefined;
             resourceInputs["redshiftSettings"] = state ? state.redshiftSettings : undefined;
             resourceInputs["s3Settings"] = state ? state.s3Settings : undefined;
@@ -241,6 +250,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["pauseReplicationTasks"] = args ? args.pauseReplicationTasks : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["postgresSettings"] = args ? args.postgresSettings : undefined;
             resourceInputs["redisSettings"] = args ? args.redisSettings : undefined;
             resourceInputs["redshiftSettings"] = args ? args.redshiftSettings : undefined;
             resourceInputs["s3Settings"] = args ? args.s3Settings : undefined;
@@ -255,7 +265,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["password", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["password"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }
@@ -324,6 +334,10 @@ export interface EndpointState {
      * Port used by the endpoint database.
      */
     port?: pulumi.Input<number>;
+    /**
+     * Configuration block for Postgres settings. See below.
+     */
+    postgresSettings?: pulumi.Input<inputs.dms.EndpointPostgresSettings>;
     redisSettings?: pulumi.Input<inputs.dms.EndpointRedisSettings>;
     /**
      * Configuration block for Redshift settings. See below.
@@ -334,11 +348,13 @@ export interface EndpointState {
      */
     s3Settings?: pulumi.Input<inputs.dms.EndpointS3Settings>;
     /**
-     * ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+     * ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
+     *
+     * > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secretsManagerArn`. Or you can specify clear-text values for `username`, `password` , `serverName`, and `port`. You can't specify both.
      */
     secretsManagerAccessRoleArn?: pulumi.Input<string>;
     /**
-     * Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engineName` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+     * Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engineName` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
      */
     secretsManagerArn?: pulumi.Input<string>;
     /**
@@ -428,6 +444,10 @@ export interface EndpointArgs {
      * Port used by the endpoint database.
      */
     port?: pulumi.Input<number>;
+    /**
+     * Configuration block for Postgres settings. See below.
+     */
+    postgresSettings?: pulumi.Input<inputs.dms.EndpointPostgresSettings>;
     redisSettings?: pulumi.Input<inputs.dms.EndpointRedisSettings>;
     /**
      * Configuration block for Redshift settings. See below.
@@ -438,11 +458,13 @@ export interface EndpointArgs {
      */
     s3Settings?: pulumi.Input<inputs.dms.EndpointS3Settings>;
     /**
-     * ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+     * ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
+     *
+     * > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secretsManagerArn`. Or you can specify clear-text values for `username`, `password` , `serverName`, and `port`. You can't specify both.
      */
     secretsManagerAccessRoleArn?: pulumi.Input<string>;
     /**
-     * Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engineName` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+     * Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engineName` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
      */
     secretsManagerArn?: pulumi.Input<string>;
     /**

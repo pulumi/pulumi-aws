@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsworks.NewJavaAppLayer(ctx, "app", &opsworks.JavaAppLayerArgs{
-//				StackId: pulumi.Any(aws_opsworks_stack.Main.Id),
+//				StackId: pulumi.Any(main.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type JavaAppLayer struct {
 	pulumi.CustomResourceState
 
@@ -113,10 +115,6 @@ func NewJavaAppLayer(ctx *pulumi.Context,
 	if args.StackId == nil {
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource JavaAppLayer
 	err := ctx.RegisterResource("aws:opsworks/javaAppLayer:JavaAppLayer", name, args, &resource, opts...)

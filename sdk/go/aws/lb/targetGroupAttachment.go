@@ -17,8 +17,10 @@ import (
 // > **Note:** `alb.TargetGroupAttachment` is known as `lb.TargetGroupAttachment`. The functionality is identical.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,15 +34,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testTargetGroup, err := lb.NewTargetGroup(ctx, "testTargetGroup", nil)
+//			testTargetGroup, err := lb.NewTargetGroup(ctx, "test", nil)
 //			if err != nil {
 //				return err
 //			}
-//			testInstance, err := ec2.NewInstance(ctx, "testInstance", nil)
+//			testInstance, err := ec2.NewInstance(ctx, "test", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lb.NewTargetGroupAttachment(ctx, "testTargetGroupAttachment", &lb.TargetGroupAttachmentArgs{
+//			_, err = lb.NewTargetGroupAttachment(ctx, "test", &lb.TargetGroupAttachmentArgs{
 //				TargetGroupArn: testTargetGroup.Arn,
 //				TargetId:       testInstance.ID(),
 //				Port:           pulumi.Int(80),
@@ -53,8 +55,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Lambda Target
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,31 +73,31 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testTargetGroup, err := lb.NewTargetGroup(ctx, "testTargetGroup", &lb.TargetGroupArgs{
+//			test, err := lb.NewTargetGroup(ctx, "test", &lb.TargetGroupArgs{
+//				Name:       pulumi.String("test"),
 //				TargetType: pulumi.String("lambda"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testFunction, err := lambda.NewFunction(ctx, "testFunction", nil)
+//			testFunction, err := lambda.NewFunction(ctx, "test", nil)
 //			if err != nil {
 //				return err
 //			}
-//			withLb, err := lambda.NewPermission(ctx, "withLb", &lambda.PermissionArgs{
-//				Action:    pulumi.String("lambda:InvokeFunction"),
-//				Function:  testFunction.Name,
-//				Principal: pulumi.String("elasticloadbalancing.amazonaws.com"),
-//				SourceArn: testTargetGroup.Arn,
+//			_, err = lambda.NewPermission(ctx, "with_lb", &lambda.PermissionArgs{
+//				StatementId: pulumi.String("AllowExecutionFromlb"),
+//				Action:      pulumi.String("lambda:InvokeFunction"),
+//				Function:    testFunction.Name,
+//				Principal:   pulumi.String("elasticloadbalancing.amazonaws.com"),
+//				SourceArn:   test.Arn,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lb.NewTargetGroupAttachment(ctx, "testTargetGroupAttachment", &lb.TargetGroupAttachmentArgs{
-//				TargetGroupArn: testTargetGroup.Arn,
+//			_, err = lb.NewTargetGroupAttachment(ctx, "test", &lb.TargetGroupAttachmentArgs{
+//				TargetGroupArn: test.Arn,
 //				TargetId:       testFunction.Arn,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				withLb,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -101,56 +106,7 @@ import (
 //	}
 //
 // ```
-// ### Registering Multiple Targets
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			var exampleInstance []*ec2.Instance
-//			for index := 0; index < 3; index++ {
-//				key0 := index
-//				_ := index
-//				__res, err := ec2.NewInstance(ctx, fmt.Sprintf("exampleInstance-%v", key0), nil)
-//				if err != nil {
-//					return err
-//				}
-//				exampleInstance = append(exampleInstance, __res)
-//			}
-//			exampleTargetGroup, err := lb.NewTargetGroup(ctx, "exampleTargetGroup", nil)
-//			if err != nil {
-//				return err
-//			}
-//			var exampleTargetGroupAttachment []*lb.TargetGroupAttachment
-//			for key0, val0 := range "TODO: For expression" {
-//				__res, err := lb.NewTargetGroupAttachment(ctx, fmt.Sprintf("exampleTargetGroupAttachment-%v", key0), &lb.TargetGroupAttachmentArgs{
-//					TargetGroupArn: exampleTargetGroup.Arn,
-//					TargetId:       pulumi.String(val0),
-//					Port:           pulumi.Int(80),
-//				})
-//				if err != nil {
-//					return err
-//				}
-//				exampleTargetGroupAttachment = append(exampleTargetGroupAttachment, __res)
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// You cannot import Target Group Attachments.
+// <!--End PulumiCodeChooser -->
 type TargetGroupAttachment struct {
 	pulumi.CustomResourceState
 

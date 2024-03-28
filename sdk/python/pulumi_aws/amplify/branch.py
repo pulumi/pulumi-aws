@@ -699,11 +699,12 @@ class Branch(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.amplify.App("example")
+        example = aws.amplify.App("example", name="app")
         master = aws.amplify.Branch("master",
             app_id=example.id,
             branch_name="master",
@@ -713,27 +714,48 @@ class Branch(pulumi.CustomResource):
                 "REACT_APP_API_SERVER": "https://api.example.com",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
+        ### Basic Authentication
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.amplify.App("example", name="app")
+        master = aws.amplify.Branch("master",
+            app_id=example.id,
+            branch_name="master",
+            enable_basic_auth=True,
+            basic_auth_credentials=std.base64encode(input="username:password").result)
+        ```
+        <!--End PulumiCodeChooser -->
+
         ### Notifications
 
         Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enable_notification` in a `amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        example = aws.amplify.App("example")
+        example = aws.amplify.App("example", name="app")
         master = aws.amplify.Branch("master",
             app_id=example.id,
             branch_name="master",
             enable_notification=True)
         # EventBridge Rule for Amplify notifications
-        amplify_app_master_event_rule = aws.cloudwatch.EventRule("amplifyAppMasterEventRule",
-            description=master.branch_name.apply(lambda branch_name: f"AWS Amplify build notifications for :  App: {aws_amplify_app['app']['id']} Branch: {branch_name}"),
-            event_pattern=pulumi.Output.all(example.id, master.branch_name).apply(lambda id, branch_name: json.dumps({
+        amplify_app_master_event_rule = aws.cloudwatch.EventRule("amplify_app_master",
+            name=master.branch_name.apply(lambda branch_name: f"amplify-{app['id']}-{branch_name}-branch-notification"),
+            description=master.branch_name.apply(lambda branch_name: f"AWS Amplify build notifications for :  App: {app['id']} Branch: {branch_name}"),
+            event_pattern=pulumi.Output.json_dumps({
                 "detail": {
-                    "appId": [id],
-                    "branchName": [branch_name],
+                    "appId": [example.id],
+                    "branchName": [master.branch_name],
                     "jobStatus": [
                         "SUCCEED",
                         "FAILED",
@@ -742,10 +764,12 @@ class Branch(pulumi.CustomResource):
                 },
                 "detail-type": ["Amplify Deployment Status Change"],
                 "source": ["aws.amplify"],
-            })))
-        amplify_app_master_topic = aws.sns.Topic("amplifyAppMasterTopic")
-        amplify_app_master_event_target = aws.cloudwatch.EventTarget("amplifyAppMasterEventTarget",
+            }))
+        # SNS Topic for Amplify notifications
+        amplify_app_master_topic = aws.sns.Topic("amplify_app_master", name=master.branch_name.apply(lambda branch_name: f"amplify-{app['id']}_{branch_name}"))
+        amplify_app_master_event_target = aws.cloudwatch.EventTarget("amplify_app_master",
             rule=amplify_app_master_event_rule.name,
+            target_id=master.branch_name,
             arn=amplify_app_master_topic.arn,
             input_transformer=aws.cloudwatch.EventTargetInputTransformerArgs(
                 input_paths={
@@ -757,8 +781,7 @@ class Branch(pulumi.CustomResource):
                 },
                 input_template="\\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \\"",
             ))
-        # SNS Topic for Amplify notifications
-        amplify_app_master_policy_document = pulumi.Output.all(master.arn, amplify_app_master_topic.arn).apply(lambda masterArn, amplifyAppMasterTopicArn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        amplify_app_master = pulumi.Output.all(master.arn, amplify_app_master_topic.arn).apply(lambda masterArn, amplifyAppMasterTopicArn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid=f"Allow_Publish_Events {master_arn}",
             effect="Allow",
             actions=["SNS:Publish"],
@@ -768,21 +791,22 @@ class Branch(pulumi.CustomResource):
             )],
             resources=[amplify_app_master_topic_arn],
         )]))
-        amplify_app_master_topic_policy = aws.sns.TopicPolicy("amplifyAppMasterTopicPolicy",
+        amplify_app_master_topic_policy = aws.sns.TopicPolicy("amplify_app_master",
             arn=amplify_app_master_topic.arn,
-            policy=amplify_app_master_policy_document.json)
+            policy=amplify_app_master.json)
         this = aws.sns.TopicSubscription("this",
             topic=amplify_app_master_topic.arn,
             protocol="email",
             endpoint="user@acme.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amplify branch using `app_id` and `branch_name`. For example:
 
         ```sh
-         $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
+        $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
         ```
 
         :param str resource_name: The name of the resource.
@@ -816,11 +840,12 @@ class Branch(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.amplify.App("example")
+        example = aws.amplify.App("example", name="app")
         master = aws.amplify.Branch("master",
             app_id=example.id,
             branch_name="master",
@@ -830,27 +855,48 @@ class Branch(pulumi.CustomResource):
                 "REACT_APP_API_SERVER": "https://api.example.com",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
+        ### Basic Authentication
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.amplify.App("example", name="app")
+        master = aws.amplify.Branch("master",
+            app_id=example.id,
+            branch_name="master",
+            enable_basic_auth=True,
+            basic_auth_credentials=std.base64encode(input="username:password").result)
+        ```
+        <!--End PulumiCodeChooser -->
+
         ### Notifications
 
         Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enable_notification` in a `amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        example = aws.amplify.App("example")
+        example = aws.amplify.App("example", name="app")
         master = aws.amplify.Branch("master",
             app_id=example.id,
             branch_name="master",
             enable_notification=True)
         # EventBridge Rule for Amplify notifications
-        amplify_app_master_event_rule = aws.cloudwatch.EventRule("amplifyAppMasterEventRule",
-            description=master.branch_name.apply(lambda branch_name: f"AWS Amplify build notifications for :  App: {aws_amplify_app['app']['id']} Branch: {branch_name}"),
-            event_pattern=pulumi.Output.all(example.id, master.branch_name).apply(lambda id, branch_name: json.dumps({
+        amplify_app_master_event_rule = aws.cloudwatch.EventRule("amplify_app_master",
+            name=master.branch_name.apply(lambda branch_name: f"amplify-{app['id']}-{branch_name}-branch-notification"),
+            description=master.branch_name.apply(lambda branch_name: f"AWS Amplify build notifications for :  App: {app['id']} Branch: {branch_name}"),
+            event_pattern=pulumi.Output.json_dumps({
                 "detail": {
-                    "appId": [id],
-                    "branchName": [branch_name],
+                    "appId": [example.id],
+                    "branchName": [master.branch_name],
                     "jobStatus": [
                         "SUCCEED",
                         "FAILED",
@@ -859,10 +905,12 @@ class Branch(pulumi.CustomResource):
                 },
                 "detail-type": ["Amplify Deployment Status Change"],
                 "source": ["aws.amplify"],
-            })))
-        amplify_app_master_topic = aws.sns.Topic("amplifyAppMasterTopic")
-        amplify_app_master_event_target = aws.cloudwatch.EventTarget("amplifyAppMasterEventTarget",
+            }))
+        # SNS Topic for Amplify notifications
+        amplify_app_master_topic = aws.sns.Topic("amplify_app_master", name=master.branch_name.apply(lambda branch_name: f"amplify-{app['id']}_{branch_name}"))
+        amplify_app_master_event_target = aws.cloudwatch.EventTarget("amplify_app_master",
             rule=amplify_app_master_event_rule.name,
+            target_id=master.branch_name,
             arn=amplify_app_master_topic.arn,
             input_transformer=aws.cloudwatch.EventTargetInputTransformerArgs(
                 input_paths={
@@ -874,8 +922,7 @@ class Branch(pulumi.CustomResource):
                 },
                 input_template="\\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \\"",
             ))
-        # SNS Topic for Amplify notifications
-        amplify_app_master_policy_document = pulumi.Output.all(master.arn, amplify_app_master_topic.arn).apply(lambda masterArn, amplifyAppMasterTopicArn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        amplify_app_master = pulumi.Output.all(master.arn, amplify_app_master_topic.arn).apply(lambda masterArn, amplifyAppMasterTopicArn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid=f"Allow_Publish_Events {master_arn}",
             effect="Allow",
             actions=["SNS:Publish"],
@@ -885,21 +932,22 @@ class Branch(pulumi.CustomResource):
             )],
             resources=[amplify_app_master_topic_arn],
         )]))
-        amplify_app_master_topic_policy = aws.sns.TopicPolicy("amplifyAppMasterTopicPolicy",
+        amplify_app_master_topic_policy = aws.sns.TopicPolicy("amplify_app_master",
             arn=amplify_app_master_topic.arn,
-            policy=amplify_app_master_policy_document.json)
+            policy=amplify_app_master.json)
         this = aws.sns.TopicSubscription("this",
             topic=amplify_app_master_topic.arn,
             protocol="email",
             endpoint="user@acme.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amplify branch using `app_id` and `branch_name`. For example:
 
         ```sh
-         $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
+        $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
         ```
 
         :param str resource_name: The name of the resource.
@@ -970,7 +1018,7 @@ class Branch(pulumi.CustomResource):
             __props__.__dict__["destination_branch"] = None
             __props__.__dict__["source_branch"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["basicAuthCredentials", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["basicAuthCredentials"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Branch, __self__).__init__(
             'aws:amplify/branch:Branch',

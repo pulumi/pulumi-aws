@@ -17,16 +17,20 @@ __all__ = ['WorkspaceArgs', 'Workspace']
 class WorkspaceArgs:
     def __init__(__self__, *,
                  alias: Optional[pulumi.Input[str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None,
                  logging_configuration: Optional[pulumi.Input['WorkspaceLoggingConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Workspace resource.
         :param pulumi.Input[str] alias: The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
+        :param pulumi.Input[str] kms_key_arn: The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
         :param pulumi.Input['WorkspaceLoggingConfigurationArgs'] logging_configuration: Logging configuration for the workspace. See Logging Configuration below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if logging_configuration is not None:
             pulumi.set(__self__, "logging_configuration", logging_configuration)
         if tags is not None:
@@ -43,6 +47,18 @@ class WorkspaceArgs:
     @alias.setter
     def alias(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "alias", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
 
     @property
     @pulumi.getter(name="loggingConfiguration")
@@ -74,6 +90,7 @@ class _WorkspaceState:
     def __init__(__self__, *,
                  alias: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None,
                  logging_configuration: Optional[pulumi.Input['WorkspaceLoggingConfigurationArgs']] = None,
                  prometheus_endpoint: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -82,6 +99,7 @@ class _WorkspaceState:
         Input properties used for looking up and filtering Workspace resources.
         :param pulumi.Input[str] alias: The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the workspace.
+        :param pulumi.Input[str] kms_key_arn: The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
         :param pulumi.Input['WorkspaceLoggingConfigurationArgs'] logging_configuration: Logging configuration for the workspace. See Logging Configuration below for details.
         :param pulumi.Input[str] prometheus_endpoint: Prometheus endpoint available for this workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -91,6 +109,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "alias", alias)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if logging_configuration is not None:
             pulumi.set(__self__, "logging_configuration", logging_configuration)
         if prometheus_endpoint is not None:
@@ -126,6 +146,18 @@ class _WorkspaceState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
 
     @property
     @pulumi.getter(name="loggingConfiguration")
@@ -185,6 +217,7 @@ class Workspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: Optional[pulumi.Input[str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None,
                  logging_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceLoggingConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -193,6 +226,7 @@ class Workspace(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -203,29 +237,50 @@ class Workspace(pulumi.CustomResource):
                 "Environment": "production",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### CloudWatch Logging
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_workspace = aws.amp.Workspace("exampleWorkspace", logging_configuration=aws.amp.WorkspaceLoggingConfigurationArgs(
-            log_group_arn=example_log_group.arn.apply(lambda arn: f"{arn}:*"),
+        example = aws.cloudwatch.LogGroup("example", name="example")
+        example_workspace = aws.amp.Workspace("example", logging_configuration=aws.amp.WorkspaceLoggingConfigurationArgs(
+            log_group_arn=example.arn.apply(lambda arn: f"{arn}:*"),
         ))
         ```
+        <!--End PulumiCodeChooser -->
+
+        ### AWS KMS Customer Managed Keys (CMK)
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_key = aws.kms.Key("example",
+            description="example",
+            deletion_window_in_days=7)
+        example = aws.amp.Workspace("example",
+            alias="example",
+            kms_key_arn=example_key.arn)
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AMP Workspaces using the identifier. For example:
 
         ```sh
-         $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
+        $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
+        :param pulumi.Input[str] kms_key_arn: The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
         :param pulumi.Input[pulumi.InputType['WorkspaceLoggingConfigurationArgs']] logging_configuration: Logging configuration for the workspace. See Logging Configuration below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -240,6 +295,7 @@ class Workspace(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -250,24 +306,44 @@ class Workspace(pulumi.CustomResource):
                 "Environment": "production",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### CloudWatch Logging
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_workspace = aws.amp.Workspace("exampleWorkspace", logging_configuration=aws.amp.WorkspaceLoggingConfigurationArgs(
-            log_group_arn=example_log_group.arn.apply(lambda arn: f"{arn}:*"),
+        example = aws.cloudwatch.LogGroup("example", name="example")
+        example_workspace = aws.amp.Workspace("example", logging_configuration=aws.amp.WorkspaceLoggingConfigurationArgs(
+            log_group_arn=example.arn.apply(lambda arn: f"{arn}:*"),
         ))
         ```
+        <!--End PulumiCodeChooser -->
+
+        ### AWS KMS Customer Managed Keys (CMK)
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_key = aws.kms.Key("example",
+            description="example",
+            deletion_window_in_days=7)
+        example = aws.amp.Workspace("example",
+            alias="example",
+            kms_key_arn=example_key.arn)
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AMP Workspaces using the identifier. For example:
 
         ```sh
-         $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
+        $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
         ```
 
         :param str resource_name: The name of the resource.
@@ -286,6 +362,7 @@ class Workspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: Optional[pulumi.Input[str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None,
                  logging_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceLoggingConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -298,13 +375,12 @@ class Workspace(pulumi.CustomResource):
             __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
             __props__.__dict__["alias"] = alias
+            __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["logging_configuration"] = logging_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["prometheus_endpoint"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Workspace, __self__).__init__(
             'aws:amp/workspace:Workspace',
             resource_name,
@@ -317,6 +393,7 @@ class Workspace(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             alias: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            kms_key_arn: Optional[pulumi.Input[str]] = None,
             logging_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceLoggingConfigurationArgs']]] = None,
             prometheus_endpoint: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -330,6 +407,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the workspace.
+        :param pulumi.Input[str] kms_key_arn: The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
         :param pulumi.Input[pulumi.InputType['WorkspaceLoggingConfigurationArgs']] logging_configuration: Logging configuration for the workspace. See Logging Configuration below for details.
         :param pulumi.Input[str] prometheus_endpoint: Prometheus endpoint available for this workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -341,6 +419,7 @@ class Workspace(pulumi.CustomResource):
 
         __props__.__dict__["alias"] = alias
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["kms_key_arn"] = kms_key_arn
         __props__.__dict__["logging_configuration"] = logging_configuration
         __props__.__dict__["prometheus_endpoint"] = prometheus_endpoint
         __props__.__dict__["tags"] = tags
@@ -362,6 +441,14 @@ class Workspace(pulumi.CustomResource):
         Amazon Resource Name (ARN) of the workspace.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+        """
+        return pulumi.get(self, "kms_key_arn")
 
     @property
     @pulumi.getter(name="loggingConfiguration")

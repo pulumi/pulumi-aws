@@ -4,6 +4,7 @@
 package com.pulumi.aws.efs;
 
 import com.pulumi.aws.efs.inputs.FileSystemLifecyclePolicyArgs;
+import com.pulumi.aws.efs.inputs.FileSystemProtectionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -21,14 +22,14 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
     public static final FileSystemArgs Empty = new FileSystemArgs();
 
     /**
-     * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+     * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
      * 
      */
     @Import(name="availabilityZoneName")
     private @Nullable Output<String> availabilityZoneName;
 
     /**
-     * @return the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+     * @return the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
      * 
      */
     public Optional<Output<String>> availabilityZoneName() {
@@ -87,14 +88,14 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+     * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
      * 
      */
     @Import(name="lifecyclePolicies")
     private @Nullable Output<List<FileSystemLifecyclePolicyArgs>> lifecyclePolicies;
 
     /**
-     * @return A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+     * @return A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
      * 
      */
     public Optional<Output<List<FileSystemLifecyclePolicyArgs>>> lifecyclePolicies() {
@@ -114,6 +115,21 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> performanceMode() {
         return Optional.ofNullable(this.performanceMode);
+    }
+
+    /**
+     * A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
+     * 
+     */
+    @Import(name="protection")
+    private @Nullable Output<FileSystemProtectionArgs> protection;
+
+    /**
+     * @return A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
+     * 
+     */
+    public Optional<Output<FileSystemProtectionArgs>> protection() {
+        return Optional.ofNullable(this.protection);
     }
 
     /**
@@ -170,6 +186,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         this.kmsKeyId = $.kmsKeyId;
         this.lifecyclePolicies = $.lifecyclePolicies;
         this.performanceMode = $.performanceMode;
+        this.protection = $.protection;
         this.provisionedThroughputInMibps = $.provisionedThroughputInMibps;
         this.tags = $.tags;
         this.throughputMode = $.throughputMode;
@@ -194,7 +211,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZoneName the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+         * @param availabilityZoneName the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
          * 
          * @return builder
          * 
@@ -205,7 +222,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZoneName the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+         * @param availabilityZoneName the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
          * 
          * @return builder
          * 
@@ -284,7 +301,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lifecyclePolicies A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+         * @param lifecyclePolicies A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
          * 
          * @return builder
          * 
@@ -295,7 +312,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lifecyclePolicies A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+         * @param lifecyclePolicies A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
          * 
          * @return builder
          * 
@@ -305,7 +322,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lifecyclePolicies A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+         * @param lifecyclePolicies A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
          * 
          * @return builder
          * 
@@ -333,6 +350,27 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder performanceMode(String performanceMode) {
             return performanceMode(Output.of(performanceMode));
+        }
+
+        /**
+         * @param protection A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protection(@Nullable Output<FileSystemProtectionArgs> protection) {
+            $.protection = protection;
+            return this;
+        }
+
+        /**
+         * @param protection A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protection(FileSystemProtectionArgs protection) {
+            return protection(Output.of(protection));
         }
 
         /**

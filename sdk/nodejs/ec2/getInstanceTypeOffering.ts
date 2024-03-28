@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,6 +31,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getInstanceTypeOffering(args?: GetInstanceTypeOfferingArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeOfferingResult> {
     args = args || {};
@@ -81,6 +83,7 @@ export interface GetInstanceTypeOfferingResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -99,6 +102,7 @@ export interface GetInstanceTypeOfferingResult {
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getInstanceTypeOfferingOutput(args?: GetInstanceTypeOfferingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceTypeOfferingResult> {
     return pulumi.output(args).apply((a: any) => getInstanceTypeOffering(a, opts))

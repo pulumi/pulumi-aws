@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,21 +46,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RouteResponse(&#34;example&#34;, RouteResponseArgs.builder()        
- *             .apiId(aws_apigatewayv2_api.example().id())
- *             .routeId(aws_apigatewayv2_route.example().id())
+ *             .apiId(exampleAwsApigatewayv2Api.id())
+ *             .routeId(exampleAwsApigatewayv2Route.id())
  *             .routeResponseKey(&#34;$default&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_apigatewayv2_route_response` using the API identifier, route identifier and route response identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigatewayv2/routeResponse:RouteResponse example aabbccddee/1122334/998877
+ * $ pulumi import aws:apigatewayv2/routeResponse:RouteResponse example aabbccddee/1122334/998877
  * ```
  * 
  */

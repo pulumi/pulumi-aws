@@ -13,8 +13,10 @@ namespace Pulumi.Aws.MskConnect
     /// Provides an Amazon MSK Connect Connector resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,6 +27,7 @@ namespace Pulumi.Aws.MskConnect
     /// {
     ///     var example = new Aws.MskConnect.Connector("example", new()
     ///     {
+    ///         Name = "example",
     ///         KafkaconnectVersion = "2.7.1",
     ///         Capacity = new Aws.MskConnect.Inputs.ConnectorCapacityArgs
     ///         {
@@ -53,18 +56,18 @@ namespace Pulumi.Aws.MskConnect
     ///         {
     ///             ApacheKafkaCluster = new Aws.MskConnect.Inputs.ConnectorKafkaClusterApacheKafkaClusterArgs
     ///             {
-    ///                 BootstrapServers = aws_msk_cluster.Example.Bootstrap_brokers_tls,
+    ///                 BootstrapServers = exampleAwsMskCluster.BootstrapBrokersTls,
     ///                 Vpc = new Aws.MskConnect.Inputs.ConnectorKafkaClusterApacheKafkaClusterVpcArgs
     ///                 {
     ///                     SecurityGroups = new[]
     ///                     {
-    ///                         aws_security_group.Example.Id,
+    ///                         exampleAwsSecurityGroup.Id,
     ///                     },
     ///                     Subnets = new[]
     ///                     {
-    ///                         aws_subnet.Example1.Id,
-    ///                         aws_subnet.Example2.Id,
-    ///                         aws_subnet.Example3.Id,
+    ///                         example1.Id,
+    ///                         example2.Id,
+    ///                         example3.Id,
     ///                     },
     ///                 },
     ///             },
@@ -83,23 +86,24 @@ namespace Pulumi.Aws.MskConnect
     ///             {
     ///                 CustomPlugin = new Aws.MskConnect.Inputs.ConnectorPluginCustomPluginArgs
     ///                 {
-    ///                     Arn = aws_mskconnect_custom_plugin.Example.Arn,
-    ///                     Revision = aws_mskconnect_custom_plugin.Example.Latest_revision,
+    ///                     Arn = exampleAwsMskconnectCustomPlugin.Arn,
+    ///                     Revision = exampleAwsMskconnectCustomPlugin.LatestRevision,
     ///                 },
     ///             },
     ///         },
-    ///         ServiceExecutionRoleArn = aws_iam_role.Example.Arn,
+    ///         ServiceExecutionRoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MSK Connect Connector using the connector's `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
+    /// $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
     /// ```
     /// </summary>
     [AwsResourceType("aws:mskconnect/connector:Connector")]

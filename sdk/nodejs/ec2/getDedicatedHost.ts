@@ -11,8 +11,25 @@ import * as utilities from "../utilities";
  * Use this data source to get information about an EC2 Dedicated Host.
  *
  * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testDedicatedHost = new aws.ec2.DedicatedHost("test", {
+ *     instanceType: "c5.18xlarge",
+ *     availabilityZone: "us-west-2a",
+ * });
+ * const test = aws.ec2.getDedicatedHostOutput({
+ *     hostId: testDedicatedHost.id,
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Filter Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,6 +41,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDedicatedHost(args?: GetDedicatedHostArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostResult> {
     args = args || {};
@@ -115,8 +133,25 @@ export interface GetDedicatedHostResult {
  * Use this data source to get information about an EC2 Dedicated Host.
  *
  * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testDedicatedHost = new aws.ec2.DedicatedHost("test", {
+ *     instanceType: "c5.18xlarge",
+ *     availabilityZone: "us-west-2a",
+ * });
+ * const test = aws.ec2.getDedicatedHostOutput({
+ *     hostId: testDedicatedHost.id,
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Filter Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -128,6 +163,7 @@ export interface GetDedicatedHostResult {
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDedicatedHostOutput(args?: GetDedicatedHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHostResult> {
     return pulumi.output(args).apply((a: any) => getDedicatedHost(a, opts))

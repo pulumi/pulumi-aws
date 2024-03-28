@@ -619,43 +619,51 @@ class OntapVolume(pulumi.CustomResource):
         See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html) for more information.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.fsx.OntapVolume("test",
+            name="test",
             junction_path="/test",
             size_in_megabytes=1024,
             storage_efficiency_enabled=True,
-            storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine["test"]["id"])
+            storage_virtual_machine_id=test_aws_fsx_ontap_storage_virtual_machine["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using Tiering Policy
 
         Additional information on tiering policy with ONTAP Volumes can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.fsx.OntapVolume("test",
+            name="test",
             junction_path="/test",
             size_in_megabytes=1024,
             storage_efficiency_enabled=True,
-            storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine["test"]["id"],
+            storage_virtual_machine_id=test_aws_fsx_ontap_storage_virtual_machine["id"],
             tiering_policy=aws.fsx.OntapVolumeTieringPolicyArgs(
                 name="AUTO",
                 cooling_period=31,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import FSx ONTAP volume using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
+        $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
         ```
 
         :param str resource_name: The name of the resource.
@@ -687,43 +695,51 @@ class OntapVolume(pulumi.CustomResource):
         See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html) for more information.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.fsx.OntapVolume("test",
+            name="test",
             junction_path="/test",
             size_in_megabytes=1024,
             storage_efficiency_enabled=True,
-            storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine["test"]["id"])
+            storage_virtual_machine_id=test_aws_fsx_ontap_storage_virtual_machine["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using Tiering Policy
 
         Additional information on tiering policy with ONTAP Volumes can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.fsx.OntapVolume("test",
+            name="test",
             junction_path="/test",
             size_in_megabytes=1024,
             storage_efficiency_enabled=True,
-            storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine["test"]["id"],
+            storage_virtual_machine_id=test_aws_fsx_ontap_storage_virtual_machine["id"],
             tiering_policy=aws.fsx.OntapVolumeTieringPolicyArgs(
                 name="AUTO",
                 cooling_period=31,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import FSx ONTAP volume using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
+        $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
         ```
 
         :param str resource_name: The name of the resource.
@@ -789,8 +805,6 @@ class OntapVolume(pulumi.CustomResource):
             __props__.__dict__["flexcache_endpoint_type"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["uuid"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(OntapVolume, __self__).__init__(
             'aws:fsx/ontapVolume:OntapVolume',
             resource_name,

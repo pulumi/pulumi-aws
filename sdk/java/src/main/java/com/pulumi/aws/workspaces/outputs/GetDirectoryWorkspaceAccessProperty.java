@@ -4,6 +4,7 @@
 package com.pulumi.aws.workspaces.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -140,55 +141,79 @@ public final class GetDirectoryWorkspaceAccessProperty {
 
         @CustomType.Setter
         public Builder deviceTypeAndroid(String deviceTypeAndroid) {
-            this.deviceTypeAndroid = Objects.requireNonNull(deviceTypeAndroid);
+            if (deviceTypeAndroid == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryWorkspaceAccessProperty", "deviceTypeAndroid");
+            }
+            this.deviceTypeAndroid = deviceTypeAndroid;
             return this;
         }
         @CustomType.Setter
         public Builder deviceTypeChromeos(String deviceTypeChromeos) {
-            this.deviceTypeChromeos = Objects.requireNonNull(deviceTypeChromeos);
+            if (deviceTypeChromeos == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryWorkspaceAccessProperty", "deviceTypeChromeos");
+            }
+            this.deviceTypeChromeos = deviceTypeChromeos;
             return this;
         }
         @CustomType.Setter
         public Builder deviceTypeIos(String deviceTypeIos) {
-            this.deviceTypeIos = Objects.requireNonNull(deviceTypeIos);
+            if (deviceTypeIos == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryWorkspaceAccessProperty", "deviceTypeIos");
+            }
+            this.deviceTypeIos = deviceTypeIos;
             return this;
         }
         @CustomType.Setter
         public Builder deviceTypeLinux(String deviceTypeLinux) {
-            this.deviceTypeLinux = Objects.requireNonNull(deviceTypeLinux);
+            if (deviceTypeLinux == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryWorkspaceAccessProperty", "deviceTypeLinux");
+            }
+            this.deviceTypeLinux = deviceTypeLinux;
             return this;
         }
         @CustomType.Setter
         public Builder deviceTypeOsx(String deviceTypeOsx) {
-            this.deviceTypeOsx = Objects.requireNonNull(deviceTypeOsx);
+            if (deviceTypeOsx == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryWorkspaceAccessProperty", "deviceTypeOsx");
+            }
+            this.deviceTypeOsx = deviceTypeOsx;
             return this;
         }
         @CustomType.Setter
         public Builder deviceTypeWeb(String deviceTypeWeb) {
-            this.deviceTypeWeb = Objects.requireNonNull(deviceTypeWeb);
+            if (deviceTypeWeb == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryWorkspaceAccessProperty", "deviceTypeWeb");
+            }
+            this.deviceTypeWeb = deviceTypeWeb;
             return this;
         }
         @CustomType.Setter
         public Builder deviceTypeWindows(String deviceTypeWindows) {
-            this.deviceTypeWindows = Objects.requireNonNull(deviceTypeWindows);
+            if (deviceTypeWindows == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryWorkspaceAccessProperty", "deviceTypeWindows");
+            }
+            this.deviceTypeWindows = deviceTypeWindows;
             return this;
         }
         @CustomType.Setter
         public Builder deviceTypeZeroclient(String deviceTypeZeroclient) {
-            this.deviceTypeZeroclient = Objects.requireNonNull(deviceTypeZeroclient);
+            if (deviceTypeZeroclient == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryWorkspaceAccessProperty", "deviceTypeZeroclient");
+            }
+            this.deviceTypeZeroclient = deviceTypeZeroclient;
             return this;
         }
         public GetDirectoryWorkspaceAccessProperty build() {
-            final var o = new GetDirectoryWorkspaceAccessProperty();
-            o.deviceTypeAndroid = deviceTypeAndroid;
-            o.deviceTypeChromeos = deviceTypeChromeos;
-            o.deviceTypeIos = deviceTypeIos;
-            o.deviceTypeLinux = deviceTypeLinux;
-            o.deviceTypeOsx = deviceTypeOsx;
-            o.deviceTypeWeb = deviceTypeWeb;
-            o.deviceTypeWindows = deviceTypeWindows;
-            o.deviceTypeZeroclient = deviceTypeZeroclient;
-            return o;
+            final var _resultValue = new GetDirectoryWorkspaceAccessProperty();
+            _resultValue.deviceTypeAndroid = deviceTypeAndroid;
+            _resultValue.deviceTypeChromeos = deviceTypeChromeos;
+            _resultValue.deviceTypeIos = deviceTypeIos;
+            _resultValue.deviceTypeLinux = deviceTypeLinux;
+            _resultValue.deviceTypeOsx = deviceTypeOsx;
+            _resultValue.deviceTypeWeb = deviceTypeWeb;
+            _resultValue.deviceTypeWindows = deviceTypeWindows;
+            _resultValue.deviceTypeZeroclient = deviceTypeZeroclient;
+            return _resultValue;
         }
     }
 }

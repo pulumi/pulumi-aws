@@ -20,6 +20,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,13 +29,14 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var domainTest = new Aws.LightSail.Domain("domainTest", new()
+    ///     var domainTest = new Aws.LightSail.Domain("domain_test", new()
     ///     {
     ///         DomainName = "mydomain.com",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:lightsail/domain:Domain")]
     public partial class Domain : global::Pulumi.CustomResource

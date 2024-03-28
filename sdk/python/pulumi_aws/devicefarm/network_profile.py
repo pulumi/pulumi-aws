@@ -506,20 +506,24 @@ class NetworkProfile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_project = aws.devicefarm.Project("exampleProject")
-        example_network_profile = aws.devicefarm.NetworkProfile("exampleNetworkProfile", project_arn=example_project.arn)
+        example = aws.devicefarm.Project("example", name="example")
+        example_network_profile = aws.devicefarm.NetworkProfile("example",
+            name="example",
+            project_arn=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DeviceFarm Network Profiles using their ARN. For example:
 
         ```sh
-         $ pulumi import aws:devicefarm/networkProfile:NetworkProfile example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+        $ pulumi import aws:devicefarm/networkProfile:NetworkProfile example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
         ```
 
         :param str resource_name: The name of the resource.
@@ -551,20 +555,24 @@ class NetworkProfile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_project = aws.devicefarm.Project("exampleProject")
-        example_network_profile = aws.devicefarm.NetworkProfile("exampleNetworkProfile", project_arn=example_project.arn)
+        example = aws.devicefarm.Project("example", name="example")
+        example_network_profile = aws.devicefarm.NetworkProfile("example",
+            name="example",
+            project_arn=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DeviceFarm Network Profiles using their ARN. For example:
 
         ```sh
-         $ pulumi import aws:devicefarm/networkProfile:NetworkProfile example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+        $ pulumi import aws:devicefarm/networkProfile:NetworkProfile example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
         ```
 
         :param str resource_name: The name of the resource.
@@ -621,8 +629,6 @@ class NetworkProfile(pulumi.CustomResource):
             __props__.__dict__["uplink_loss_percent"] = uplink_loss_percent
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(NetworkProfile, __self__).__init__(
             'aws:devicefarm/networkProfile:NetworkProfile',
             resource_name,

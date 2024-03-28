@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,12 +31,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := devicefarm.NewProject(ctx, "exampleProject", nil)
+//			example, err := devicefarm.NewProject(ctx, "example", &devicefarm.ProjectArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = devicefarm.NewNetworkProfile(ctx, "exampleNetworkProfile", &devicefarm.NetworkProfileArgs{
-//				ProjectArn: exampleProject.Arn,
+//			_, err = devicefarm.NewNetworkProfile(ctx, "example", &devicefarm.NetworkProfileArgs{
+//				Name:       pulumi.String("example"),
+//				ProjectArn: example.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -45,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DeviceFarm Network Profiles using their ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:devicefarm/networkProfile:NetworkProfile example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-//
+// $ pulumi import aws:devicefarm/networkProfile:NetworkProfile example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
 // ```
 type NetworkProfile struct {
 	pulumi.CustomResourceState
@@ -102,10 +105,6 @@ func NewNetworkProfile(ctx *pulumi.Context,
 	if args.ProjectArn == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkProfile
 	err := ctx.RegisterResource("aws:devicefarm/networkProfile:NetworkProfile", name, args, &resource, opts...)

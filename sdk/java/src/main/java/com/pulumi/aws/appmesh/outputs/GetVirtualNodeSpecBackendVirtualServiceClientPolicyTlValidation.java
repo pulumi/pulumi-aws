@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeName;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidati
 
         @CustomType.Setter
         public Builder subjectAlternativeNames(List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeName> subjectAlternativeNames) {
-            this.subjectAlternativeNames = Objects.requireNonNull(subjectAlternativeNames);
+            if (subjectAlternativeNames == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation", "subjectAlternativeNames");
+            }
+            this.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
         public Builder subjectAlternativeNames(GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeName... subjectAlternativeNames) {
@@ -50,17 +54,20 @@ public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidati
         }
         @CustomType.Setter
         public Builder trusts(List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust> trusts) {
-            this.trusts = Objects.requireNonNull(trusts);
+            if (trusts == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation", "trusts");
+            }
+            this.trusts = trusts;
             return this;
         }
         public Builder trusts(GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust... trusts) {
             return trusts(List.of(trusts));
         }
         public GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation build() {
-            final var o = new GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation();
-            o.subjectAlternativeNames = subjectAlternativeNames;
-            o.trusts = trusts;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation();
+            _resultValue.subjectAlternativeNames = subjectAlternativeNames;
+            _resultValue.trusts = trusts;
+            return _resultValue;
         }
     }
 }

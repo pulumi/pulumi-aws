@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -35,16 +36,19 @@ public final class GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameM
 
         @CustomType.Setter
         public Builder exacts(List<String> exacts) {
-            this.exacts = Objects.requireNonNull(exacts);
+            if (exacts == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatch", "exacts");
+            }
+            this.exacts = exacts;
             return this;
         }
         public Builder exacts(String... exacts) {
             return exacts(List.of(exacts));
         }
         public GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatch build() {
-            final var o = new GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatch();
-            o.exacts = exacts;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatch();
+            _resultValue.exacts = exacts;
+            return _resultValue;
         }
     }
 }

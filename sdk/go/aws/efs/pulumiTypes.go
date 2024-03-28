@@ -657,7 +657,9 @@ func (o BackupPolicyBackupPolicyPtrOutput) Status() pulumi.StringPtrOutput {
 }
 
 type FileSystemLifecyclePolicy struct {
-	// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+	// Indicates how long it takes to transition files to the archive storage class. Requires transition_to_ia, Elastic Throughput and General Purpose performance mode. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
+	TransitionToArchive *string `pulumi:"transitionToArchive"`
+	// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
 	TransitionToIa *string `pulumi:"transitionToIa"`
 	// Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
 	TransitionToPrimaryStorageClass *string `pulumi:"transitionToPrimaryStorageClass"`
@@ -675,7 +677,9 @@ type FileSystemLifecyclePolicyInput interface {
 }
 
 type FileSystemLifecyclePolicyArgs struct {
-	// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+	// Indicates how long it takes to transition files to the archive storage class. Requires transition_to_ia, Elastic Throughput and General Purpose performance mode. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
+	TransitionToArchive pulumi.StringPtrInput `pulumi:"transitionToArchive"`
+	// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
 	TransitionToIa pulumi.StringPtrInput `pulumi:"transitionToIa"`
 	// Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
 	TransitionToPrimaryStorageClass pulumi.StringPtrInput `pulumi:"transitionToPrimaryStorageClass"`
@@ -732,7 +736,12 @@ func (o FileSystemLifecyclePolicyOutput) ToFileSystemLifecyclePolicyOutputWithCo
 	return o
 }
 
-// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+// Indicates how long it takes to transition files to the archive storage class. Requires transition_to_ia, Elastic Throughput and General Purpose performance mode. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
+func (o FileSystemLifecyclePolicyOutput) TransitionToArchive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemLifecyclePolicy) *string { return v.TransitionToArchive }).(pulumi.StringPtrOutput)
+}
+
+// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
 func (o FileSystemLifecyclePolicyOutput) TransitionToIa() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemLifecyclePolicy) *string { return v.TransitionToIa }).(pulumi.StringPtrOutput)
 }
@@ -760,6 +769,143 @@ func (o FileSystemLifecyclePolicyArrayOutput) Index(i pulumi.IntInput) FileSyste
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileSystemLifecyclePolicy {
 		return vs[0].([]FileSystemLifecyclePolicy)[vs[1].(int)]
 	}).(FileSystemLifecyclePolicyOutput)
+}
+
+type FileSystemProtection struct {
+	// Indicates whether replication overwrite protection is enabled. Valid values: `ENABLED` or `DISABLED`.
+	ReplicationOverwrite *string `pulumi:"replicationOverwrite"`
+}
+
+// FileSystemProtectionInput is an input type that accepts FileSystemProtectionArgs and FileSystemProtectionOutput values.
+// You can construct a concrete instance of `FileSystemProtectionInput` via:
+//
+//	FileSystemProtectionArgs{...}
+type FileSystemProtectionInput interface {
+	pulumi.Input
+
+	ToFileSystemProtectionOutput() FileSystemProtectionOutput
+	ToFileSystemProtectionOutputWithContext(context.Context) FileSystemProtectionOutput
+}
+
+type FileSystemProtectionArgs struct {
+	// Indicates whether replication overwrite protection is enabled. Valid values: `ENABLED` or `DISABLED`.
+	ReplicationOverwrite pulumi.StringPtrInput `pulumi:"replicationOverwrite"`
+}
+
+func (FileSystemProtectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemProtection)(nil)).Elem()
+}
+
+func (i FileSystemProtectionArgs) ToFileSystemProtectionOutput() FileSystemProtectionOutput {
+	return i.ToFileSystemProtectionOutputWithContext(context.Background())
+}
+
+func (i FileSystemProtectionArgs) ToFileSystemProtectionOutputWithContext(ctx context.Context) FileSystemProtectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemProtectionOutput)
+}
+
+func (i FileSystemProtectionArgs) ToFileSystemProtectionPtrOutput() FileSystemProtectionPtrOutput {
+	return i.ToFileSystemProtectionPtrOutputWithContext(context.Background())
+}
+
+func (i FileSystemProtectionArgs) ToFileSystemProtectionPtrOutputWithContext(ctx context.Context) FileSystemProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemProtectionOutput).ToFileSystemProtectionPtrOutputWithContext(ctx)
+}
+
+// FileSystemProtectionPtrInput is an input type that accepts FileSystemProtectionArgs, FileSystemProtectionPtr and FileSystemProtectionPtrOutput values.
+// You can construct a concrete instance of `FileSystemProtectionPtrInput` via:
+//
+//	        FileSystemProtectionArgs{...}
+//
+//	or:
+//
+//	        nil
+type FileSystemProtectionPtrInput interface {
+	pulumi.Input
+
+	ToFileSystemProtectionPtrOutput() FileSystemProtectionPtrOutput
+	ToFileSystemProtectionPtrOutputWithContext(context.Context) FileSystemProtectionPtrOutput
+}
+
+type fileSystemProtectionPtrType FileSystemProtectionArgs
+
+func FileSystemProtectionPtr(v *FileSystemProtectionArgs) FileSystemProtectionPtrInput {
+	return (*fileSystemProtectionPtrType)(v)
+}
+
+func (*fileSystemProtectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemProtection)(nil)).Elem()
+}
+
+func (i *fileSystemProtectionPtrType) ToFileSystemProtectionPtrOutput() FileSystemProtectionPtrOutput {
+	return i.ToFileSystemProtectionPtrOutputWithContext(context.Background())
+}
+
+func (i *fileSystemProtectionPtrType) ToFileSystemProtectionPtrOutputWithContext(ctx context.Context) FileSystemProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemProtectionPtrOutput)
+}
+
+type FileSystemProtectionOutput struct{ *pulumi.OutputState }
+
+func (FileSystemProtectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemProtection)(nil)).Elem()
+}
+
+func (o FileSystemProtectionOutput) ToFileSystemProtectionOutput() FileSystemProtectionOutput {
+	return o
+}
+
+func (o FileSystemProtectionOutput) ToFileSystemProtectionOutputWithContext(ctx context.Context) FileSystemProtectionOutput {
+	return o
+}
+
+func (o FileSystemProtectionOutput) ToFileSystemProtectionPtrOutput() FileSystemProtectionPtrOutput {
+	return o.ToFileSystemProtectionPtrOutputWithContext(context.Background())
+}
+
+func (o FileSystemProtectionOutput) ToFileSystemProtectionPtrOutputWithContext(ctx context.Context) FileSystemProtectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemProtection) *FileSystemProtection {
+		return &v
+	}).(FileSystemProtectionPtrOutput)
+}
+
+// Indicates whether replication overwrite protection is enabled. Valid values: `ENABLED` or `DISABLED`.
+func (o FileSystemProtectionOutput) ReplicationOverwrite() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemProtection) *string { return v.ReplicationOverwrite }).(pulumi.StringPtrOutput)
+}
+
+type FileSystemProtectionPtrOutput struct{ *pulumi.OutputState }
+
+func (FileSystemProtectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemProtection)(nil)).Elem()
+}
+
+func (o FileSystemProtectionPtrOutput) ToFileSystemProtectionPtrOutput() FileSystemProtectionPtrOutput {
+	return o
+}
+
+func (o FileSystemProtectionPtrOutput) ToFileSystemProtectionPtrOutputWithContext(ctx context.Context) FileSystemProtectionPtrOutput {
+	return o
+}
+
+func (o FileSystemProtectionPtrOutput) Elem() FileSystemProtectionOutput {
+	return o.ApplyT(func(v *FileSystemProtection) FileSystemProtection {
+		if v != nil {
+			return *v
+		}
+		var ret FileSystemProtection
+		return ret
+	}).(FileSystemProtectionOutput)
+}
+
+// Indicates whether replication overwrite protection is enabled. Valid values: `ENABLED` or `DISABLED`.
+func (o FileSystemProtectionPtrOutput) ReplicationOverwrite() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemProtection) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplicationOverwrite
+	}).(pulumi.StringPtrOutput)
 }
 
 type FileSystemSizeInByte struct {
@@ -880,7 +1026,8 @@ func (o FileSystemSizeInByteArrayOutput) Index(i pulumi.IntInput) FileSystemSize
 type ReplicationConfigurationDestination struct {
 	// The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
 	AvailabilityZoneName *string `pulumi:"availabilityZoneName"`
-	FileSystemId         *string `pulumi:"fileSystemId"`
+	// The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
+	FileSystemId *string `pulumi:"fileSystemId"`
 	// The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The region in which the replica should be created.
@@ -902,7 +1049,8 @@ type ReplicationConfigurationDestinationInput interface {
 type ReplicationConfigurationDestinationArgs struct {
 	// The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
 	AvailabilityZoneName pulumi.StringPtrInput `pulumi:"availabilityZoneName"`
-	FileSystemId         pulumi.StringPtrInput `pulumi:"fileSystemId"`
+	// The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
+	FileSystemId pulumi.StringPtrInput `pulumi:"fileSystemId"`
 	// The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// The region in which the replica should be created.
@@ -992,6 +1140,7 @@ func (o ReplicationConfigurationDestinationOutput) AvailabilityZoneName() pulumi
 	return o.ApplyT(func(v ReplicationConfigurationDestination) *string { return v.AvailabilityZoneName }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
 func (o ReplicationConfigurationDestinationOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationConfigurationDestination) *string { return v.FileSystemId }).(pulumi.StringPtrOutput)
 }
@@ -1044,6 +1193,7 @@ func (o ReplicationConfigurationDestinationPtrOutput) AvailabilityZoneName() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
 func (o ReplicationConfigurationDestinationPtrOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationConfigurationDestination) *string {
 		if v == nil {
@@ -1419,6 +1569,7 @@ func (o GetAccessPointRootDirectoryCreationInfoArrayOutput) Index(i pulumi.IntIn
 }
 
 type GetFileSystemLifecyclePolicy struct {
+	TransitionToArchive             string `pulumi:"transitionToArchive"`
 	TransitionToIa                  string `pulumi:"transitionToIa"`
 	TransitionToPrimaryStorageClass string `pulumi:"transitionToPrimaryStorageClass"`
 }
@@ -1435,6 +1586,7 @@ type GetFileSystemLifecyclePolicyInput interface {
 }
 
 type GetFileSystemLifecyclePolicyArgs struct {
+	TransitionToArchive             pulumi.StringInput `pulumi:"transitionToArchive"`
 	TransitionToIa                  pulumi.StringInput `pulumi:"transitionToIa"`
 	TransitionToPrimaryStorageClass pulumi.StringInput `pulumi:"transitionToPrimaryStorageClass"`
 }
@@ -1465,12 +1617,110 @@ func (o GetFileSystemLifecyclePolicyOutput) ToGetFileSystemLifecyclePolicyOutput
 	return o
 }
 
+func (o GetFileSystemLifecyclePolicyOutput) TransitionToArchive() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFileSystemLifecyclePolicy) string { return v.TransitionToArchive }).(pulumi.StringOutput)
+}
+
 func (o GetFileSystemLifecyclePolicyOutput) TransitionToIa() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileSystemLifecyclePolicy) string { return v.TransitionToIa }).(pulumi.StringOutput)
 }
 
 func (o GetFileSystemLifecyclePolicyOutput) TransitionToPrimaryStorageClass() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileSystemLifecyclePolicy) string { return v.TransitionToPrimaryStorageClass }).(pulumi.StringOutput)
+}
+
+type GetFileSystemProtection struct {
+	ReplicationOverwrite string `pulumi:"replicationOverwrite"`
+}
+
+// GetFileSystemProtectionInput is an input type that accepts GetFileSystemProtectionArgs and GetFileSystemProtectionOutput values.
+// You can construct a concrete instance of `GetFileSystemProtectionInput` via:
+//
+//	GetFileSystemProtectionArgs{...}
+type GetFileSystemProtectionInput interface {
+	pulumi.Input
+
+	ToGetFileSystemProtectionOutput() GetFileSystemProtectionOutput
+	ToGetFileSystemProtectionOutputWithContext(context.Context) GetFileSystemProtectionOutput
+}
+
+type GetFileSystemProtectionArgs struct {
+	ReplicationOverwrite pulumi.StringInput `pulumi:"replicationOverwrite"`
+}
+
+func (GetFileSystemProtectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFileSystemProtection)(nil)).Elem()
+}
+
+func (i GetFileSystemProtectionArgs) ToGetFileSystemProtectionOutput() GetFileSystemProtectionOutput {
+	return i.ToGetFileSystemProtectionOutputWithContext(context.Background())
+}
+
+func (i GetFileSystemProtectionArgs) ToGetFileSystemProtectionOutputWithContext(ctx context.Context) GetFileSystemProtectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFileSystemProtectionOutput)
+}
+
+// GetFileSystemProtectionArrayInput is an input type that accepts GetFileSystemProtectionArray and GetFileSystemProtectionArrayOutput values.
+// You can construct a concrete instance of `GetFileSystemProtectionArrayInput` via:
+//
+//	GetFileSystemProtectionArray{ GetFileSystemProtectionArgs{...} }
+type GetFileSystemProtectionArrayInput interface {
+	pulumi.Input
+
+	ToGetFileSystemProtectionArrayOutput() GetFileSystemProtectionArrayOutput
+	ToGetFileSystemProtectionArrayOutputWithContext(context.Context) GetFileSystemProtectionArrayOutput
+}
+
+type GetFileSystemProtectionArray []GetFileSystemProtectionInput
+
+func (GetFileSystemProtectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFileSystemProtection)(nil)).Elem()
+}
+
+func (i GetFileSystemProtectionArray) ToGetFileSystemProtectionArrayOutput() GetFileSystemProtectionArrayOutput {
+	return i.ToGetFileSystemProtectionArrayOutputWithContext(context.Background())
+}
+
+func (i GetFileSystemProtectionArray) ToGetFileSystemProtectionArrayOutputWithContext(ctx context.Context) GetFileSystemProtectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFileSystemProtectionArrayOutput)
+}
+
+type GetFileSystemProtectionOutput struct{ *pulumi.OutputState }
+
+func (GetFileSystemProtectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFileSystemProtection)(nil)).Elem()
+}
+
+func (o GetFileSystemProtectionOutput) ToGetFileSystemProtectionOutput() GetFileSystemProtectionOutput {
+	return o
+}
+
+func (o GetFileSystemProtectionOutput) ToGetFileSystemProtectionOutputWithContext(ctx context.Context) GetFileSystemProtectionOutput {
+	return o
+}
+
+func (o GetFileSystemProtectionOutput) ReplicationOverwrite() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFileSystemProtection) string { return v.ReplicationOverwrite }).(pulumi.StringOutput)
+}
+
+type GetFileSystemProtectionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFileSystemProtectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFileSystemProtection)(nil)).Elem()
+}
+
+func (o GetFileSystemProtectionArrayOutput) ToGetFileSystemProtectionArrayOutput() GetFileSystemProtectionArrayOutput {
+	return o
+}
+
+func (o GetFileSystemProtectionArrayOutput) ToGetFileSystemProtectionArrayOutputWithContext(ctx context.Context) GetFileSystemProtectionArrayOutput {
+	return o
+}
+
+func (o GetFileSystemProtectionArrayOutput) Index(i pulumi.IntInput) GetFileSystemProtectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFileSystemProtection {
+		return vs[0].([]GetFileSystemProtection)[vs[1].(int)]
+	}).(GetFileSystemProtectionOutput)
 }
 
 func init() {
@@ -1484,6 +1734,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyBackupPolicyPtrInput)(nil)).Elem(), BackupPolicyBackupPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemLifecyclePolicyInput)(nil)).Elem(), FileSystemLifecyclePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemLifecyclePolicyArrayInput)(nil)).Elem(), FileSystemLifecyclePolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemProtectionInput)(nil)).Elem(), FileSystemProtectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemProtectionPtrInput)(nil)).Elem(), FileSystemProtectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemSizeInByteInput)(nil)).Elem(), FileSystemSizeInByteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemSizeInByteArrayInput)(nil)).Elem(), FileSystemSizeInByteArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationDestinationInput)(nil)).Elem(), ReplicationConfigurationDestinationArgs{})
@@ -1495,6 +1747,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointRootDirectoryCreationInfoInput)(nil)).Elem(), GetAccessPointRootDirectoryCreationInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointRootDirectoryCreationInfoArrayInput)(nil)).Elem(), GetAccessPointRootDirectoryCreationInfoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFileSystemLifecyclePolicyInput)(nil)).Elem(), GetFileSystemLifecyclePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFileSystemProtectionInput)(nil)).Elem(), GetFileSystemProtectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFileSystemProtectionArrayInput)(nil)).Elem(), GetFileSystemProtectionArray{})
 	pulumi.RegisterOutputType(AccessPointPosixUserOutput{})
 	pulumi.RegisterOutputType(AccessPointPosixUserPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointRootDirectoryOutput{})
@@ -1505,6 +1759,8 @@ func init() {
 	pulumi.RegisterOutputType(BackupPolicyBackupPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemLifecyclePolicyOutput{})
 	pulumi.RegisterOutputType(FileSystemLifecyclePolicyArrayOutput{})
+	pulumi.RegisterOutputType(FileSystemProtectionOutput{})
+	pulumi.RegisterOutputType(FileSystemProtectionPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemSizeInByteOutput{})
 	pulumi.RegisterOutputType(FileSystemSizeInByteArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationDestinationOutput{})
@@ -1516,4 +1772,6 @@ func init() {
 	pulumi.RegisterOutputType(GetAccessPointRootDirectoryCreationInfoOutput{})
 	pulumi.RegisterOutputType(GetAccessPointRootDirectoryCreationInfoArrayOutput{})
 	pulumi.RegisterOutputType(GetFileSystemLifecyclePolicyOutput{})
+	pulumi.RegisterOutputType(GetFileSystemProtectionOutput{})
+	pulumi.RegisterOutputType(GetFileSystemProtectionArrayOutput{})
 }

@@ -13,8 +13,10 @@ namespace Pulumi.Aws.NetworkFirewall
     /// Provides an AWS Network Firewall Rule Group Resource
     /// 
     /// ## Example Usage
+    /// 
     /// ### Stateful Inspection for denying access to a domain
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,6 +28,8 @@ namespace Pulumi.Aws.NetworkFirewall
     ///     var example = new Aws.NetworkFirewall.RuleGroup("example", new()
     ///     {
     ///         Capacity = 100,
+    ///         Name = "example",
+    ///         Type = "STATEFUL",
     ///         RuleGroupConfiguration = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupArgs
     ///         {
     ///             RulesSource = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceArgs
@@ -49,16 +53,83 @@ namespace Pulumi.Aws.NetworkFirewall
     ///             { "Tag1", "Value1" },
     ///             { "Tag2", "Value2" },
     ///         },
-    ///         Type = "STATEFUL",
     ///     });
     /// 
     /// });
     /// ```
-    /// ### Stateful Inspection from rules specifications defined in Suricata flat format
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
+    /// ### Stateful Inspection for permitting packets from a source IP address
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ips = new[]
+    ///     {
+    ///         "1.1.1.1/32",
+    ///         "1.0.0.1/32",
+    ///     };
+    /// 
+    ///     var example = new Aws.NetworkFirewall.RuleGroup("example", new()
+    ///     {
+    ///         Capacity = 50,
+    ///         Description = "Permits http traffic from source",
+    ///         Name = "example",
+    ///         Type = "STATEFUL",
+    ///         RuleGroupConfiguration = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupArgs
+    ///         {
+    ///             RulesSource = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceArgs
+    ///             {
+    ///                 StatefulRules = ips.Select((v, k) =&gt; new { Key = k, Value = v }).Select(entry =&gt; 
+    ///                 {
+    ///                     return new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceStatefulRuleArgs
+    ///                     {
+    ///                         Action = "PASS",
+    ///                         Header = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs
+    ///                         {
+    ///                             Destination = "ANY",
+    ///                             DestinationPort = "ANY",
+    ///                             Protocol = "HTTP",
+    ///                             Direction = "ANY",
+    ///                             SourcePort = "ANY",
+    ///                             Source = entry.Value,
+    ///                         },
+    ///                         RuleOptions = new[]
+    ///                         {
+    ///                             new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs
+    ///                             {
+    ///                                 Keyword = "sid",
+    ///                                 Settings = new[]
+    ///                                 {
+    ///                                     "1",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     };
+    ///                 }).ToList(),
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "permit HTTP from source" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Stateful Inspection for blocking packets from going to an intended destination
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -68,8 +139,41 @@ namespace Pulumi.Aws.NetworkFirewall
     ///     var example = new Aws.NetworkFirewall.RuleGroup("example", new()
     ///     {
     ///         Capacity = 100,
+    ///         Name = "example",
     ///         Type = "STATEFUL",
-    ///         Rules = File.ReadAllText("example.rules"),
+    ///         RuleGroupConfiguration = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupArgs
+    ///         {
+    ///             RulesSource = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceArgs
+    ///             {
+    ///                 StatefulRules = new[]
+    ///                 {
+    ///                     new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceStatefulRuleArgs
+    ///                     {
+    ///                         Action = "DROP",
+    ///                         Header = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs
+    ///                         {
+    ///                             Destination = "124.1.1.24/32",
+    ///                             DestinationPort = "53",
+    ///                             Direction = "ANY",
+    ///                             Protocol = "TCP",
+    ///                             Source = "1.2.3.4/32",
+    ///                             SourcePort = "53",
+    ///                         },
+    ///                         RuleOptions = new[]
+    ///                         {
+    ///                             new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs
+    ///                             {
+    ///                                 Keyword = "sid",
+    ///                                 Settings = new[]
+    ///                                 {
+    ///                                     "1",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
     ///         Tags = 
     ///         {
     ///             { "Tag1", "Value1" },
@@ -79,20 +183,56 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// });
     /// ```
-    /// ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
+    /// ### Stateful Inspection from rules specifications defined in Suricata flat format
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Aws.NetworkFirewall.RuleGroup("example", new()
     ///     {
     ///         Capacity = 100,
+    ///         Name = "example",
+    ///         Type = "STATEFUL",
+    ///         Rules = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "example.rules",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         Tags = 
+    ///         {
+    ///             { "Tag1", "Value1" },
+    ///             { "Tag2", "Value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.NetworkFirewall.RuleGroup("example", new()
+    ///     {
+    ///         Capacity = 100,
+    ///         Name = "example",
     ///         Type = "STATEFUL",
     ///         RuleGroupConfiguration = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupArgs
     ///         {
@@ -143,7 +283,10 @@ namespace Pulumi.Aws.NetworkFirewall
     ///             },
     ///             RulesSource = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceArgs
     ///             {
-    ///                 RulesString = File.ReadAllText("suricata_rules_file"),
+    ///                 RulesString = Std.File.Invoke(new()
+    ///                 {
+    ///                     Input = "suricata_rules_file",
+    ///                 }).Apply(invoke =&gt; invoke.Result),
     ///             },
     ///         },
     ///         Tags = 
@@ -155,8 +298,135 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Stateless Inspection with a Custom Action
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.NetworkFirewall.RuleGroup("example", new()
+    ///     {
+    ///         Description = "Stateless Rate Limiting Rule",
+    ///         Capacity = 100,
+    ///         Name = "example",
+    ///         Type = "STATELESS",
+    ///         RuleGroupConfiguration = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupArgs
+    ///         {
+    ///             RulesSource = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceArgs
+    ///             {
+    ///                 StatelessRulesAndCustomActions = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs
+    ///                 {
+    ///                     CustomActions = new[]
+    ///                     {
+    ///                         new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs
+    ///                         {
+    ///                             ActionDefinition = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs
+    ///                             {
+    ///                                 PublishMetricAction = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionArgs
+    ///                                 {
+    ///                                     Dimensions = new[]
+    ///                                     {
+    ///                                         new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArgs
+    ///                                         {
+    ///                                             Value = "2",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                             ActionName = "ExampleMetricsAction",
+    ///                         },
+    ///                     },
+    ///                     StatelessRules = new[]
+    ///                     {
+    ///                         new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs
+    ///                         {
+    ///                             Priority = 1,
+    ///                             RuleDefinition = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgs
+    ///                             {
+    ///                                 Actions = new[]
+    ///                                 {
+    ///                                     "aws:pass",
+    ///                                     "ExampleMetricsAction",
+    ///                                 },
+    ///                                 MatchAttributes = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs
+    ///                                 {
+    ///                                     Sources = new[]
+    ///                                     {
+    ///                                         new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs
+    ///                                         {
+    ///                                             AddressDefinition = "1.2.3.4/32",
+    ///                                         },
+    ///                                     },
+    ///                                     SourcePorts = new[]
+    ///                                     {
+    ///                                         new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs
+    ///                                         {
+    ///                                             FromPort = 443,
+    ///                                             ToPort = 443,
+    ///                                         },
+    ///                                     },
+    ///                                     Destinations = new[]
+    ///                                     {
+    ///                                         new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs
+    ///                                         {
+    ///                                             AddressDefinition = "124.1.1.5/32",
+    ///                                         },
+    ///                                     },
+    ///                                     DestinationPorts = new[]
+    ///                                     {
+    ///                                         new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs
+    ///                                         {
+    ///                                             FromPort = 443,
+    ///                                             ToPort = 443,
+    ///                                         },
+    ///                                     },
+    ///                                     Protocols = new[]
+    ///                                     {
+    ///                                         6,
+    ///                                     },
+    ///                                     TcpFlags = new[]
+    ///                                     {
+    ///                                         new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs
+    ///                                         {
+    ///                                             Flags = new[]
+    ///                                             {
+    ///                                                 "SYN",
+    ///                                             },
+    ///                                             Masks = new[]
+    ///                                             {
+    ///                                                 "SYN",
+    ///                                                 "ACK",
+    ///                                             },
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Tag1", "Value1" },
+    ///             { "Tag2", "Value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### IP Set References to the Rule Group
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -168,6 +438,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///     var example = new Aws.NetworkFirewall.RuleGroup("example", new()
     ///     {
     ///         Capacity = 100,
+    ///         Name = "example",
     ///         Type = "STATEFUL",
     ///         RuleGroupConfiguration = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupArgs
     ///         {
@@ -197,7 +468,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                         {
     ///                             new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs
     ///                             {
-    ///                                 ReferenceArn = aws_ec2_managed_prefix_list.This.Arn,
+    ///                                 ReferenceArn = @this.Arn,
     ///                             },
     ///                         },
     ///                     },
@@ -213,13 +484,14 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Network Firewall Rule Groups using their `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+    /// $ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkfirewall/ruleGroup:RuleGroup")]
@@ -314,10 +586,6 @@ namespace Pulumi.Aws.NetworkFirewall
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -467,11 +735,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

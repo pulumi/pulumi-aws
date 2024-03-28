@@ -1168,50 +1168,66 @@ class Cluster(pulumi.CustomResource):
         > **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `apply_immediately`.
 
         ## Example Usage
+
         ### Memcached Cluster
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.elasticache.Cluster("example",
+            cluster_id="cluster-example",
             engine="memcached",
             node_type="cache.m4.large",
             num_cache_nodes=2,
             parameter_group_name="default.memcached1.4",
             port=11211)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Redis Instance
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.elasticache.Cluster("example",
+            cluster_id="cluster-example",
             engine="redis",
-            engine_version="3.2.10",
             node_type="cache.m4.large",
             num_cache_nodes=1,
             parameter_group_name="default.redis3.2",
+            engine_version="3.2.10",
             port=6379)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Redis Cluster Mode Disabled Read Replica Instance
 
         These inherit their settings from the replication group.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        replica = aws.elasticache.Cluster("replica", replication_group_id=aws_elasticache_replication_group["example"]["id"])
+        replica = aws.elasticache.Cluster("replica",
+            cluster_id="cluster-example",
+            replication_group_id=example["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Redis Log Delivery configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.elasticache.Cluster("test",
+            cluster_id="mycluster",
             engine="redis",
             node_type="cache.t3.micro",
             num_cache_nodes=1,
@@ -1219,26 +1235,27 @@ class Cluster(pulumi.CustomResource):
             apply_immediately=True,
             log_delivery_configurations=[
                 aws.elasticache.ClusterLogDeliveryConfigurationArgs(
-                    destination=aws_cloudwatch_log_group["example"]["name"],
+                    destination=example["name"],
                     destination_type="cloudwatch-logs",
                     log_format="text",
                     log_type="slow-log",
                 ),
                 aws.elasticache.ClusterLogDeliveryConfigurationArgs(
-                    destination=aws_kinesis_firehose_delivery_stream["example"]["name"],
+                    destination=example_aws_kinesis_firehose_delivery_stream["name"],
                     destination_type="kinesis-firehose",
                     log_format="json",
                     log_type="engine-log",
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For example:
 
         ```sh
-         $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
+        $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
         ```
 
         :param str resource_name: The name of the resource.
@@ -1314,50 +1331,66 @@ class Cluster(pulumi.CustomResource):
         > **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `apply_immediately`.
 
         ## Example Usage
+
         ### Memcached Cluster
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.elasticache.Cluster("example",
+            cluster_id="cluster-example",
             engine="memcached",
             node_type="cache.m4.large",
             num_cache_nodes=2,
             parameter_group_name="default.memcached1.4",
             port=11211)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Redis Instance
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.elasticache.Cluster("example",
+            cluster_id="cluster-example",
             engine="redis",
-            engine_version="3.2.10",
             node_type="cache.m4.large",
             num_cache_nodes=1,
             parameter_group_name="default.redis3.2",
+            engine_version="3.2.10",
             port=6379)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Redis Cluster Mode Disabled Read Replica Instance
 
         These inherit their settings from the replication group.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        replica = aws.elasticache.Cluster("replica", replication_group_id=aws_elasticache_replication_group["example"]["id"])
+        replica = aws.elasticache.Cluster("replica",
+            cluster_id="cluster-example",
+            replication_group_id=example["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Redis Log Delivery configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.elasticache.Cluster("test",
+            cluster_id="mycluster",
             engine="redis",
             node_type="cache.t3.micro",
             num_cache_nodes=1,
@@ -1365,26 +1398,27 @@ class Cluster(pulumi.CustomResource):
             apply_immediately=True,
             log_delivery_configurations=[
                 aws.elasticache.ClusterLogDeliveryConfigurationArgs(
-                    destination=aws_cloudwatch_log_group["example"]["name"],
+                    destination=example["name"],
                     destination_type="cloudwatch-logs",
                     log_format="text",
                     log_type="slow-log",
                 ),
                 aws.elasticache.ClusterLogDeliveryConfigurationArgs(
-                    destination=aws_kinesis_firehose_delivery_stream["example"]["name"],
+                    destination=example_aws_kinesis_firehose_delivery_stream["name"],
                     destination_type="kinesis-firehose",
                     log_format="json",
                     log_type="engine-log",
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For example:
 
         ```sh
-         $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
+        $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
         ```
 
         :param str resource_name: The name of the resource.
@@ -1475,8 +1509,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["configuration_endpoint"] = None
             __props__.__dict__["engine_version_actual"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Cluster, __self__).__init__(
             'aws:elasticache/cluster:Cluster',
             resource_name,

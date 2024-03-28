@@ -12,11 +12,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooServer = new aws.transfer.Server("fooServer", {
+ * const fooServer = new aws.transfer.Server("foo", {
  *     identityProviderType: "SERVICE_MANAGED",
  *     tags: {
  *         NAME: "tf-acc-test-transfer-server",
@@ -32,8 +33,11 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const fooRole = new aws.iam.Role("fooRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const fooPolicyDocument = aws.iam.getPolicyDocument({
+ * const fooRole = new aws.iam.Role("foo", {
+ *     name: "tf-test-transfer-user-iam-role",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const foo = aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "AllowFullAccesstoS3",
  *         effect: "Allow",
@@ -41,11 +45,12 @@ import * as utilities from "../utilities";
  *         resources: ["*"],
  *     }],
  * });
- * const fooRolePolicy = new aws.iam.RolePolicy("fooRolePolicy", {
+ * const fooRolePolicy = new aws.iam.RolePolicy("foo", {
+ *     name: "tf-test-transfer-user-iam-policy",
  *     role: fooRole.id,
- *     policy: fooPolicyDocument.then(fooPolicyDocument => fooPolicyDocument.json),
+ *     policy: foo.then(foo => foo.json),
  * });
- * const fooUser = new aws.transfer.User("fooUser", {
+ * const fooUser = new aws.transfer.User("foo", {
  *     serverId: fooServer.id,
  *     userName: "tftestuser",
  *     role: fooRole.arn,
@@ -56,13 +61,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For example:
  *
  * ```sh
- *  $ pulumi import aws:transfer/user:User bar s-12345678/test-username
+ * $ pulumi import aws:transfer/user:User bar s-12345678/test-username
  * ```
  */
 export class User extends pulumi.CustomResource {
@@ -188,8 +194,6 @@ export class User extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(User.__pulumiType, name, resourceInputs, opts);
     }
 }

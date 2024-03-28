@@ -100,37 +100,42 @@ public final class TriggerPredicateCondition {
 
         @CustomType.Setter
         public Builder crawlState(@Nullable String crawlState) {
+
             this.crawlState = crawlState;
             return this;
         }
         @CustomType.Setter
         public Builder crawlerName(@Nullable String crawlerName) {
+
             this.crawlerName = crawlerName;
             return this;
         }
         @CustomType.Setter
         public Builder jobName(@Nullable String jobName) {
+
             this.jobName = jobName;
             return this;
         }
         @CustomType.Setter
         public Builder logicalOperator(@Nullable String logicalOperator) {
+
             this.logicalOperator = logicalOperator;
             return this;
         }
         @CustomType.Setter
         public Builder state(@Nullable String state) {
+
             this.state = state;
             return this;
         }
         public TriggerPredicateCondition build() {
-            final var o = new TriggerPredicateCondition();
-            o.crawlState = crawlState;
-            o.crawlerName = crawlerName;
-            o.jobName = jobName;
-            o.logicalOperator = logicalOperator;
-            o.state = state;
-            return o;
+            final var _resultValue = new TriggerPredicateCondition();
+            _resultValue.crawlState = crawlState;
+            _resultValue.crawlerName = crawlerName;
+            _resultValue.jobName = jobName;
+            _resultValue.logicalOperator = logicalOperator;
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

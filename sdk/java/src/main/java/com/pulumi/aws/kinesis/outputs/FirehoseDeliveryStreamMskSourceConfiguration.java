@@ -5,13 +5,14 @@ package com.pulumi.aws.kinesis.outputs;
 
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class FirehoseDeliveryStreamMskSourceConfiguration {
     /**
-     * @return The authentication configuration of the Amazon MSK cluster. More details are given below.
+     * @return The authentication configuration of the Amazon MSK cluster. See `authentication_configuration` block below for details.
      * 
      */
     private FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration authenticationConfiguration;
@@ -28,7 +29,7 @@ public final class FirehoseDeliveryStreamMskSourceConfiguration {
 
     private FirehoseDeliveryStreamMskSourceConfiguration() {}
     /**
-     * @return The authentication configuration of the Amazon MSK cluster. More details are given below.
+     * @return The authentication configuration of the Amazon MSK cluster. See `authentication_configuration` block below for details.
      * 
      */
     public FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration authenticationConfiguration() {
@@ -71,25 +72,34 @@ public final class FirehoseDeliveryStreamMskSourceConfiguration {
 
         @CustomType.Setter
         public Builder authenticationConfiguration(FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration authenticationConfiguration) {
-            this.authenticationConfiguration = Objects.requireNonNull(authenticationConfiguration);
+            if (authenticationConfiguration == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamMskSourceConfiguration", "authenticationConfiguration");
+            }
+            this.authenticationConfiguration = authenticationConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder mskClusterArn(String mskClusterArn) {
-            this.mskClusterArn = Objects.requireNonNull(mskClusterArn);
+            if (mskClusterArn == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamMskSourceConfiguration", "mskClusterArn");
+            }
+            this.mskClusterArn = mskClusterArn;
             return this;
         }
         @CustomType.Setter
         public Builder topicName(String topicName) {
-            this.topicName = Objects.requireNonNull(topicName);
+            if (topicName == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamMskSourceConfiguration", "topicName");
+            }
+            this.topicName = topicName;
             return this;
         }
         public FirehoseDeliveryStreamMskSourceConfiguration build() {
-            final var o = new FirehoseDeliveryStreamMskSourceConfiguration();
-            o.authenticationConfiguration = authenticationConfiguration;
-            o.mskClusterArn = mskClusterArn;
-            o.topicName = topicName;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamMskSourceConfiguration();
+            _resultValue.authenticationConfiguration = authenticationConfiguration;
+            _resultValue.mskClusterArn = mskClusterArn;
+            _resultValue.topicName = topicName;
+            return _resultValue;
         }
     }
 }

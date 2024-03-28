@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.NewVault(ctx, "example", &backup.VaultArgs{
-//				KmsKeyArn: pulumi.Any(aws_kms_key.Example.Arn),
+//				Name:      pulumi.String("example_backup_vault"),
+//				KmsKeyArn: pulumi.Any(exampleAwsKmsKey.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -38,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Backup vault using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:backup/vault:Vault test-vault TestVault
-//
+// $ pulumi import aws:backup/vault:Vault test-vault TestVault
 // ```
 type Vault struct {
 	pulumi.CustomResourceState
@@ -76,10 +77,6 @@ func NewVault(ctx *pulumi.Context,
 		args = &VaultArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Vault
 	err := ctx.RegisterResource("aws:backup/vault:Vault", name, args, &resource, opts...)

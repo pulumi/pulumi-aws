@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.aws.quicksight.outputs.GetDataSetPhysicalTableMapCustomSqlColumn;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -54,7 +55,10 @@ public final class GetDataSetPhysicalTableMapCustomSql {
 
         @CustomType.Setter
         public Builder columns(List<GetDataSetPhysicalTableMapCustomSqlColumn> columns) {
-            this.columns = Objects.requireNonNull(columns);
+            if (columns == null) {
+              throw new MissingRequiredPropertyException("GetDataSetPhysicalTableMapCustomSql", "columns");
+            }
+            this.columns = columns;
             return this;
         }
         public Builder columns(GetDataSetPhysicalTableMapCustomSqlColumn... columns) {
@@ -62,26 +66,35 @@ public final class GetDataSetPhysicalTableMapCustomSql {
         }
         @CustomType.Setter
         public Builder dataSourceArn(String dataSourceArn) {
-            this.dataSourceArn = Objects.requireNonNull(dataSourceArn);
+            if (dataSourceArn == null) {
+              throw new MissingRequiredPropertyException("GetDataSetPhysicalTableMapCustomSql", "dataSourceArn");
+            }
+            this.dataSourceArn = dataSourceArn;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDataSetPhysicalTableMapCustomSql", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder sqlQuery(String sqlQuery) {
-            this.sqlQuery = Objects.requireNonNull(sqlQuery);
+            if (sqlQuery == null) {
+              throw new MissingRequiredPropertyException("GetDataSetPhysicalTableMapCustomSql", "sqlQuery");
+            }
+            this.sqlQuery = sqlQuery;
             return this;
         }
         public GetDataSetPhysicalTableMapCustomSql build() {
-            final var o = new GetDataSetPhysicalTableMapCustomSql();
-            o.columns = columns;
-            o.dataSourceArn = dataSourceArn;
-            o.name = name;
-            o.sqlQuery = sqlQuery;
-            return o;
+            final var _resultValue = new GetDataSetPhysicalTableMapCustomSql();
+            _resultValue.columns = columns;
+            _resultValue.dataSourceArn = dataSourceArn;
+            _resultValue.name = name;
+            _resultValue.sqlQuery = sqlQuery;
+            return _resultValue;
         }
     }
 }

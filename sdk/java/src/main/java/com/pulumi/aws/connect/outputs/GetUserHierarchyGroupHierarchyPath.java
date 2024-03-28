@@ -9,6 +9,7 @@ import com.pulumi.aws.connect.outputs.GetUserHierarchyGroupHierarchyPathLevelOne
 import com.pulumi.aws.connect.outputs.GetUserHierarchyGroupHierarchyPathLevelThree;
 import com.pulumi.aws.connect.outputs.GetUserHierarchyGroupHierarchyPathLevelTwo;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -103,7 +104,10 @@ public final class GetUserHierarchyGroupHierarchyPath {
 
         @CustomType.Setter
         public Builder levelFives(List<GetUserHierarchyGroupHierarchyPathLevelFife> levelFives) {
-            this.levelFives = Objects.requireNonNull(levelFives);
+            if (levelFives == null) {
+              throw new MissingRequiredPropertyException("GetUserHierarchyGroupHierarchyPath", "levelFives");
+            }
+            this.levelFives = levelFives;
             return this;
         }
         public Builder levelFives(GetUserHierarchyGroupHierarchyPathLevelFife... levelFives) {
@@ -111,7 +115,10 @@ public final class GetUserHierarchyGroupHierarchyPath {
         }
         @CustomType.Setter
         public Builder levelFours(List<GetUserHierarchyGroupHierarchyPathLevelFour> levelFours) {
-            this.levelFours = Objects.requireNonNull(levelFours);
+            if (levelFours == null) {
+              throw new MissingRequiredPropertyException("GetUserHierarchyGroupHierarchyPath", "levelFours");
+            }
+            this.levelFours = levelFours;
             return this;
         }
         public Builder levelFours(GetUserHierarchyGroupHierarchyPathLevelFour... levelFours) {
@@ -119,7 +126,10 @@ public final class GetUserHierarchyGroupHierarchyPath {
         }
         @CustomType.Setter
         public Builder levelOnes(List<GetUserHierarchyGroupHierarchyPathLevelOne> levelOnes) {
-            this.levelOnes = Objects.requireNonNull(levelOnes);
+            if (levelOnes == null) {
+              throw new MissingRequiredPropertyException("GetUserHierarchyGroupHierarchyPath", "levelOnes");
+            }
+            this.levelOnes = levelOnes;
             return this;
         }
         public Builder levelOnes(GetUserHierarchyGroupHierarchyPathLevelOne... levelOnes) {
@@ -127,7 +137,10 @@ public final class GetUserHierarchyGroupHierarchyPath {
         }
         @CustomType.Setter
         public Builder levelThrees(List<GetUserHierarchyGroupHierarchyPathLevelThree> levelThrees) {
-            this.levelThrees = Objects.requireNonNull(levelThrees);
+            if (levelThrees == null) {
+              throw new MissingRequiredPropertyException("GetUserHierarchyGroupHierarchyPath", "levelThrees");
+            }
+            this.levelThrees = levelThrees;
             return this;
         }
         public Builder levelThrees(GetUserHierarchyGroupHierarchyPathLevelThree... levelThrees) {
@@ -135,20 +148,23 @@ public final class GetUserHierarchyGroupHierarchyPath {
         }
         @CustomType.Setter
         public Builder levelTwos(List<GetUserHierarchyGroupHierarchyPathLevelTwo> levelTwos) {
-            this.levelTwos = Objects.requireNonNull(levelTwos);
+            if (levelTwos == null) {
+              throw new MissingRequiredPropertyException("GetUserHierarchyGroupHierarchyPath", "levelTwos");
+            }
+            this.levelTwos = levelTwos;
             return this;
         }
         public Builder levelTwos(GetUserHierarchyGroupHierarchyPathLevelTwo... levelTwos) {
             return levelTwos(List.of(levelTwos));
         }
         public GetUserHierarchyGroupHierarchyPath build() {
-            final var o = new GetUserHierarchyGroupHierarchyPath();
-            o.levelFives = levelFives;
-            o.levelFours = levelFours;
-            o.levelOnes = levelOnes;
-            o.levelThrees = levelThrees;
-            o.levelTwos = levelTwos;
-            return o;
+            final var _resultValue = new GetUserHierarchyGroupHierarchyPath();
+            _resultValue.levelFives = levelFives;
+            _resultValue.levelFours = levelFours;
+            _resultValue.levelOnes = levelOnes;
+            _resultValue.levelThrees = levelThrees;
+            _resultValue.levelTwos = levelTwos;
+            return _resultValue;
         }
     }
 }

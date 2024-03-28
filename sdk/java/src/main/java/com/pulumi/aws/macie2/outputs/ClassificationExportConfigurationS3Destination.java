@@ -4,6 +4,7 @@
 package com.pulumi.aws.macie2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -76,25 +77,32 @@ public final class ClassificationExportConfigurationS3Destination {
 
         @CustomType.Setter
         public Builder bucketName(String bucketName) {
-            this.bucketName = Objects.requireNonNull(bucketName);
+            if (bucketName == null) {
+              throw new MissingRequiredPropertyException("ClassificationExportConfigurationS3Destination", "bucketName");
+            }
+            this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder keyPrefix(@Nullable String keyPrefix) {
+
             this.keyPrefix = keyPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyArn(String kmsKeyArn) {
-            this.kmsKeyArn = Objects.requireNonNull(kmsKeyArn);
+            if (kmsKeyArn == null) {
+              throw new MissingRequiredPropertyException("ClassificationExportConfigurationS3Destination", "kmsKeyArn");
+            }
+            this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         public ClassificationExportConfigurationS3Destination build() {
-            final var o = new ClassificationExportConfigurationS3Destination();
-            o.bucketName = bucketName;
-            o.keyPrefix = keyPrefix;
-            o.kmsKeyArn = kmsKeyArn;
-            return o;
+            final var _resultValue = new ClassificationExportConfigurationS3Destination();
+            _resultValue.bucketName = bucketName;
+            _resultValue.keyPrefix = keyPrefix;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            return _resultValue;
         }
     }
 }

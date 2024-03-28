@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerpri
 
         @CustomType.Setter
         public Builder fallbackBehavior(String fallbackBehavior) {
-            this.fallbackBehavior = Objects.requireNonNull(fallbackBehavior);
+            if (fallbackBehavior == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint", "fallbackBehavior");
+            }
+            this.fallbackBehavior = fallbackBehavior;
             return this;
         }
         public WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint build() {
-            final var o = new WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint();
-            o.fallbackBehavior = fallbackBehavior;
-            return o;
+            final var _resultValue = new WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint();
+            _resultValue.fallbackBehavior = fallbackBehavior;
+            return _resultValue;
         }
     }
 }

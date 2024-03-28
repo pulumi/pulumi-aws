@@ -118,6 +118,7 @@ def get_document(document_format: Optional[str] = None,
 
     To get the contents of the document owned by AWS.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -126,16 +127,19 @@ def get_document(document_format: Optional[str] = None,
         document_format="YAML")
     pulumi.export("content", foo.content)
     ```
+    <!--End PulumiCodeChooser -->
 
     To get the contents of the custom document.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.ssm.get_document(name=aws_ssm_document["test"]["name"],
+    test = aws.ssm.get_document(name=test_aws_ssm_document["name"],
         document_format="JSON")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str document_format: Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
@@ -171,6 +175,7 @@ def get_document_output(document_format: Optional[pulumi.Input[Optional[str]]] =
 
     To get the contents of the document owned by AWS.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -179,16 +184,19 @@ def get_document_output(document_format: Optional[pulumi.Input[Optional[str]]] =
         document_format="YAML")
     pulumi.export("content", foo.content)
     ```
+    <!--End PulumiCodeChooser -->
 
     To get the contents of the custom document.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.ssm.get_document(name=aws_ssm_document["test"]["name"],
+    test = aws.ssm.get_document(name=test_aws_ssm_document["name"],
         document_format="JSON")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str document_format: Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.

@@ -459,6 +459,7 @@ class SnapshotCopy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -469,18 +470,19 @@ class SnapshotCopy(pulumi.CustomResource):
             tags={
                 "Name": "HelloWorld",
             })
-        example_snapshot = aws.ebs.Snapshot("exampleSnapshot",
+        example_snapshot = aws.ebs.Snapshot("example_snapshot",
             volume_id=example.id,
             tags={
                 "Name": "HelloWorld_snap",
             })
-        example_copy = aws.ebs.SnapshotCopy("exampleCopy",
+        example_copy = aws.ebs.SnapshotCopy("example_copy",
             source_snapshot_id=example_snapshot.id,
             source_region="us-west-2",
             tags={
                 "Name": "HelloWorld_copy_snap",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -505,6 +507,7 @@ class SnapshotCopy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -515,18 +518,19 @@ class SnapshotCopy(pulumi.CustomResource):
             tags={
                 "Name": "HelloWorld",
             })
-        example_snapshot = aws.ebs.Snapshot("exampleSnapshot",
+        example_snapshot = aws.ebs.Snapshot("example_snapshot",
             volume_id=example.id,
             tags={
                 "Name": "HelloWorld_snap",
             })
-        example_copy = aws.ebs.SnapshotCopy("exampleCopy",
+        example_copy = aws.ebs.SnapshotCopy("example_copy",
             source_snapshot_id=example_snapshot.id,
             source_region="us-west-2",
             tags={
                 "Name": "HelloWorld_copy_snap",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param SnapshotCopyArgs args: The arguments to use to populate this resource's properties.
@@ -582,8 +586,6 @@ class SnapshotCopy(pulumi.CustomResource):
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["volume_id"] = None
             __props__.__dict__["volume_size"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SnapshotCopy, __self__).__init__(
             'aws:ebs/snapshotCopy:SnapshotCopy',
             resource_name,

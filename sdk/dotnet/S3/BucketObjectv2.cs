@@ -13,8 +13,37 @@ namespace Pulumi.Aws.S3
     /// Provides an S3 object resource.
     /// 
     /// ## Example Usage
+    /// 
+    /// ### Uploading a file to a bucket
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @object = new Aws.S3.BucketObjectv2("object", new()
+    ///     {
+    ///         Bucket = "your_bucket_name",
+    ///         Key = "new_object_key",
+    ///         Source = new FileAsset("path/to/file"),
+    ///         Etag = Std.Filemd5.Invoke(new()
+    ///         {
+    ///             Input = "path/to/file",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Encrypting with KMS Key
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,15 +58,18 @@ namespace Pulumi.Aws.S3
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket");
+    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket", new()
+    ///     {
+    ///         Bucket = "examplebuckettftest",
+    ///     });
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     var example = new Aws.S3.BucketAclV2("example", new()
     ///     {
     ///         Bucket = examplebucket.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
+    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("example", new()
     ///     {
     ///         Key = "someobject",
     ///         Bucket = examplebucket.Id,
@@ -47,64 +79,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Server Side Encryption with S3 Default Master Key
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket");
-    /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
-    ///     {
-    ///         Bucket = examplebucket.Id,
-    ///         Acl = "private",
-    ///     });
-    /// 
-    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
-    ///     {
-    ///         Key = "someobject",
-    ///         Bucket = examplebucket.Id,
-    ///         Source = new FileAsset("index.html"),
-    ///         ServerSideEncryption = "aws:kms",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Server Side Encryption with AWS-Managed Key
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket");
-    /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
-    ///     {
-    ///         Bucket = examplebucket.Id,
-    ///         Acl = "private",
-    ///     });
-    /// 
-    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
-    ///     {
-    ///         Key = "someobject",
-    ///         Bucket = examplebucket.Id,
-    ///         Source = new FileAsset("index.html"),
-    ///         ServerSideEncryption = "AES256",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### S3 Object Lock
-    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -115,48 +94,30 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var examplebucket = new Aws.S3.BucketV2("examplebucket", new()
     ///     {
-    ///         ObjectLockEnabled = true,
+    ///         Bucket = "examplebuckettftest",
     ///     });
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     var example = new Aws.S3.BucketAclV2("example", new()
     ///     {
     ///         Bucket = examplebucket.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("exampleBucketVersioningV2", new()
-    ///     {
-    ///         Bucket = examplebucket.Id,
-    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
-    ///         {
-    ///             Status = "Enabled",
-    ///         },
-    ///     });
-    /// 
-    ///     var examplebucketObject = new Aws.S3.BucketObjectv2("examplebucketObject", new()
+    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("example", new()
     ///     {
     ///         Key = "someobject",
     ///         Bucket = examplebucket.Id,
-    ///         Source = new FileAsset("important.txt"),
-    ///         ObjectLockLegalHoldStatus = "ON",
-    ///         ObjectLockMode = "GOVERNANCE",
-    ///         ObjectLockRetainUntilDate = "2021-12-31T23:59:60Z",
-    ///         ForceDestroy = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleBucketVersioningV2,
-    ///         },
+    ///         Source = new FileAsset("index.html"),
+    ///         ServerSideEncryption = "aws:kms",
     ///     });
     /// 
     /// });
     /// ```
-    /// ### Ignoring Provider `default_tags`
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
-    /// S3 objects support a [maximum of 10 tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
-    /// If the resource's own `tags` and the provider-level `default_tags` would together lead to more than 10 tags on an S3 object, use the `override_provider` configuration block to suppress any provider-level `default_tags`.
+    /// ### Server Side Encryption with AWS-Managed Key
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -165,9 +126,98 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket");
+    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket", new()
+    ///     {
+    ///         Bucket = "examplebuckettftest",
+    ///     });
     /// 
-    ///     var examplebucketObject = new Aws.S3.BucketObjectv2("examplebucketObject", new()
+    ///     var example = new Aws.S3.BucketAclV2("example", new()
+    ///     {
+    ///         Bucket = examplebucket.Id,
+    ///         Acl = "private",
+    ///     });
+    /// 
+    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("example", new()
+    ///     {
+    ///         Key = "someobject",
+    ///         Bucket = examplebucket.Id,
+    ///         Source = new FileAsset("index.html"),
+    ///         ServerSideEncryption = "AES256",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### S3 Object Lock
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket", new()
+    ///     {
+    ///         Bucket = "examplebuckettftest",
+    ///         ObjectLockEnabled = true,
+    ///     });
+    /// 
+    ///     var example = new Aws.S3.BucketAclV2("example", new()
+    ///     {
+    ///         Bucket = examplebucket.Id,
+    ///         Acl = "private",
+    ///     });
+    /// 
+    ///     var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("example", new()
+    ///     {
+    ///         Bucket = examplebucket.Id,
+    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
+    ///         {
+    ///             Status = "Enabled",
+    ///         },
+    ///     });
+    /// 
+    ///     var examplebucketObject = new Aws.S3.BucketObjectv2("examplebucket_object", new()
+    ///     {
+    ///         Key = "someobject",
+    ///         Bucket = examplebucket.Id,
+    ///         Source = new FileAsset("important.txt"),
+    ///         ObjectLockLegalHoldStatus = "ON",
+    ///         ObjectLockMode = "GOVERNANCE",
+    ///         ObjectLockRetainUntilDate = "2021-12-31T23:59:60Z",
+    ///         ForceDestroy = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Ignoring Provider `default_tags`
+    /// 
+    /// S3 objects support a [maximum of 10 tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
+    /// If the resource's own `tags` and the provider-level `default_tags` would together lead to more than 10 tags on an S3 object, use the `override_provider` configuration block to suppress any provider-level `default_tags`.
+    /// 
+    /// &gt; S3 objects stored in Amazon S3 Express directory buckets do not support tags, so any provider-level `default_tags` must be suppressed.
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket", new()
+    ///     {
+    ///         Bucket = "examplebuckettftest",
+    ///     });
+    /// 
+    ///     var examplebucketObject = new Aws.S3.BucketObjectv2("examplebucket_object", new()
     ///     {
     ///         Key = "someobject",
     ///         Bucket = examplebucket.Id,
@@ -187,6 +237,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -197,12 +248,12 @@ namespace Pulumi.Aws.S3
     /// Import using the `id`, which is the bucket name and the key together:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example some-bucket-name/some/key.txt
+    /// $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example some-bucket-name/some/key.txt
     /// ```
-    ///  Import using S3 URL syntax:
+    /// Import using S3 URL syntax:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example s3://some-bucket-name/some/key.txt
+    /// $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example s3://some-bucket-name/some/key.txt
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketObjectv2:BucketObjectv2")]
@@ -213,6 +264,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Output("acl")]
         public Output<string> Acl { get; private set; } = null!;
+
+        /// <summary>
+        /// ARN of the object.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
@@ -431,11 +488,7 @@ namespace Pulumi.Aws.S3
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:s3/BucketObject:BucketObject"},
-                },
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
+                    new global::Pulumi.Alias { Type = "aws:s3/BucketObject:BucketObject" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -649,6 +702,12 @@ namespace Pulumi.Aws.S3
         public Input<string>? Acl { get; set; }
 
         /// <summary>
+        /// ARN of the object.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
         /// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
         /// </summary>
         [Input("bucket")]
@@ -840,11 +899,7 @@ namespace Pulumi.Aws.S3
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

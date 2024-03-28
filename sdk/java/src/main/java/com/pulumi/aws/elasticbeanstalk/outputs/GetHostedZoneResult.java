@@ -4,6 +4,7 @@
 package com.pulumi.aws.elasticbeanstalk.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,19 +59,23 @@ public final class GetHostedZoneResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetHostedZoneResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder region(@Nullable String region) {
+
             this.region = region;
             return this;
         }
         public GetHostedZoneResult build() {
-            final var o = new GetHostedZoneResult();
-            o.id = id;
-            o.region = region;
-            return o;
+            final var _resultValue = new GetHostedZoneResult();
+            _resultValue.id = id;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

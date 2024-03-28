@@ -15,8 +15,10 @@ import (
 // Provides a SageMaker Notebook Instance resource.
 //
 // ## Example Usage
+//
 // ### Basic usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +32,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewNotebookInstance(ctx, "ni", &sagemaker.NotebookInstanceArgs{
-//				RoleArn:      pulumi.Any(aws_iam_role.Role.Arn),
+//				Name:         pulumi.String("my-notebook-instance"),
+//				RoleArn:      pulumi.Any(role.Arn),
 //				InstanceType: pulumi.String("ml.t2.medium"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("foo"),
@@ -44,8 +47,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Code repository usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,7 +74,8 @@ import (
 //				return err
 //			}
 //			_, err = sagemaker.NewNotebookInstance(ctx, "ni", &sagemaker.NotebookInstanceArgs{
-//				RoleArn:               pulumi.Any(aws_iam_role.Role.Arn),
+//				Name:                  pulumi.String("my-notebook-instance"),
+//				RoleArn:               pulumi.Any(role.Arn),
 //				InstanceType:          pulumi.String("ml.t2.medium"),
 //				DefaultCodeRepository: example.CodeRepositoryName,
 //				Tags: pulumi.StringMap{
@@ -83,15 +90,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SageMaker Notebook Instances using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
-//
+// $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
 // ```
 type NotebookInstance struct {
 	pulumi.CustomResourceState
@@ -154,10 +160,6 @@ func NewNotebookInstance(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NotebookInstance
 	err := ctx.RegisterResource("aws:sagemaker/notebookInstance:NotebookInstance", name, args, &resource, opts...)

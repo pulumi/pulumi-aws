@@ -13,22 +13,127 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS NetworkManager ConnectAttachment.
+ * Resource for managing an AWS Network Manager ConnectAttachment.
  * 
  * ## Example Usage
+ * 
+ * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.networkmanager.VpcAttachment;
+ * import com.pulumi.aws.networkmanager.VpcAttachmentArgs;
+ * import com.pulumi.aws.networkmanager.ConnectAttachment;
+ * import com.pulumi.aws.networkmanager.ConnectAttachmentArgs;
+ * import com.pulumi.aws.networkmanager.inputs.ConnectAttachmentOptionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new VpcAttachment(&#34;example&#34;, VpcAttachmentArgs.builder()        
+ *             .subnetArns(exampleAwsSubnet.stream().map(element -&gt; element.arn()).collect(toList()))
+ *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
+ *             .vpcArn(exampleAwsVpc.arn())
+ *             .build());
+ * 
+ *         var exampleConnectAttachment = new ConnectAttachment(&#34;exampleConnectAttachment&#34;, ConnectAttachmentArgs.builder()        
+ *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
+ *             .transportAttachmentId(example.id())
+ *             .edgeLocation(example.edgeLocation())
+ *             .options(ConnectAttachmentOptionsArgs.builder()
+ *                 .protocol(&#34;GRE&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Usage with attachment accepter
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.networkmanager.VpcAttachment;
+ * import com.pulumi.aws.networkmanager.VpcAttachmentArgs;
+ * import com.pulumi.aws.networkmanager.AttachmentAccepter;
+ * import com.pulumi.aws.networkmanager.AttachmentAccepterArgs;
+ * import com.pulumi.aws.networkmanager.ConnectAttachment;
+ * import com.pulumi.aws.networkmanager.ConnectAttachmentArgs;
+ * import com.pulumi.aws.networkmanager.inputs.ConnectAttachmentOptionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new VpcAttachment(&#34;example&#34;, VpcAttachmentArgs.builder()        
+ *             .subnetArns(exampleAwsSubnet.stream().map(element -&gt; element.arn()).collect(toList()))
+ *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
+ *             .vpcArn(exampleAwsVpc.arn())
+ *             .build());
+ * 
+ *         var exampleAttachmentAccepter = new AttachmentAccepter(&#34;exampleAttachmentAccepter&#34;, AttachmentAccepterArgs.builder()        
+ *             .attachmentId(example.id())
+ *             .attachmentType(example.attachmentType())
+ *             .build());
+ * 
+ *         var exampleConnectAttachment = new ConnectAttachment(&#34;exampleConnectAttachment&#34;, ConnectAttachmentArgs.builder()        
+ *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
+ *             .transportAttachmentId(example.id())
+ *             .edgeLocation(example.edgeLocation())
+ *             .options(ConnectAttachmentOptionsArgs.builder()
+ *                 .protocol(&#34;GRE&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var example2 = new AttachmentAccepter(&#34;example2&#34;, AttachmentAccepterArgs.builder()        
+ *             .attachmentId(exampleConnectAttachment.id())
+ *             .attachmentType(exampleConnectAttachment.attachmentType())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_networkmanager_connect_attachment` using the attachment ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
+ * $ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
  * ```
  * 
  */
@@ -277,9 +382,6 @@ public class ConnectAttachment extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

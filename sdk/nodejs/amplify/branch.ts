@@ -9,11 +9,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.amplify.App("example", {});
+ * const example = new aws.amplify.App("example", {name: "app"});
  * const master = new aws.amplify.Branch("master", {
  *     appId: example.id,
  *     branchName: "master",
@@ -24,27 +25,51 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Basic Authentication
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new aws.amplify.App("example", {name: "app"});
+ * const master = new aws.amplify.Branch("master", {
+ *     appId: example.id,
+ *     branchName: "master",
+ *     enableBasicAuth: true,
+ *     basicAuthCredentials: std.base64encode({
+ *         input: "username:password",
+ *     }).then(invoke => invoke.result),
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Notifications
  *
  * Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enableNotification` in a `aws.amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.amplify.App("example", {});
+ * const example = new aws.amplify.App("example", {name: "app"});
  * const master = new aws.amplify.Branch("master", {
  *     appId: example.id,
  *     branchName: "master",
  *     enableNotification: true,
  * });
  * // EventBridge Rule for Amplify notifications
- * const amplifyAppMasterEventRule = new aws.cloudwatch.EventRule("amplifyAppMasterEventRule", {
- *     description: pulumi.interpolate`AWS Amplify build notifications for :  App: ${aws_amplify_app.app.id} Branch: ${master.branchName}`,
- *     eventPattern: pulumi.all([example.id, master.branchName]).apply(([id, branchName]) => JSON.stringify({
+ * const amplifyAppMasterEventRule = new aws.cloudwatch.EventRule("amplify_app_master", {
+ *     name: pulumi.interpolate`amplify-${app.id}-${master.branchName}-branch-notification`,
+ *     description: pulumi.interpolate`AWS Amplify build notifications for :  App: ${app.id} Branch: ${master.branchName}`,
+ *     eventPattern: pulumi.jsonStringify({
  *         detail: {
- *             appId: [id],
- *             branchName: [branchName],
+ *             appId: [example.id],
+ *             branchName: [master.branchName],
  *             jobStatus: [
  *                 "SUCCEED",
  *                 "FAILED",
@@ -53,11 +78,13 @@ import * as utilities from "../utilities";
  *         },
  *         "detail-type": ["Amplify Deployment Status Change"],
  *         source: ["aws.amplify"],
- *     })),
+ *     }),
  * });
- * const amplifyAppMasterTopic = new aws.sns.Topic("amplifyAppMasterTopic", {});
- * const amplifyAppMasterEventTarget = new aws.cloudwatch.EventTarget("amplifyAppMasterEventTarget", {
+ * // SNS Topic for Amplify notifications
+ * const amplifyAppMasterTopic = new aws.sns.Topic("amplify_app_master", {name: pulumi.interpolate`amplify-${app.id}_${master.branchName}`});
+ * const amplifyAppMasterEventTarget = new aws.cloudwatch.EventTarget("amplify_app_master", {
  *     rule: amplifyAppMasterEventRule.name,
+ *     targetId: master.branchName,
  *     arn: amplifyAppMasterTopic.arn,
  *     inputTransformer: {
  *         inputPaths: {
@@ -70,8 +97,7 @@ import * as utilities from "../utilities";
  *         inputTemplate: "\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \"",
  *     },
  * });
- * // SNS Topic for Amplify notifications
- * const amplifyAppMasterPolicyDocument = pulumi.all([master.arn, amplifyAppMasterTopic.arn]).apply(([masterArn, amplifyAppMasterTopicArn]) => aws.iam.getPolicyDocumentOutput({
+ * const amplifyAppMaster = pulumi.all([master.arn, amplifyAppMasterTopic.arn]).apply(([masterArn, amplifyAppMasterTopicArn]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         sid: `Allow_Publish_Events ${masterArn}`,
  *         effect: "Allow",
@@ -83,9 +109,9 @@ import * as utilities from "../utilities";
  *         resources: [amplifyAppMasterTopicArn],
  *     }],
  * }));
- * const amplifyAppMasterTopicPolicy = new aws.sns.TopicPolicy("amplifyAppMasterTopicPolicy", {
+ * const amplifyAppMasterTopicPolicy = new aws.sns.TopicPolicy("amplify_app_master", {
  *     arn: amplifyAppMasterTopic.arn,
- *     policy: amplifyAppMasterPolicyDocument.apply(amplifyAppMasterPolicyDocument => amplifyAppMasterPolicyDocument.json),
+ *     policy: amplifyAppMaster.apply(amplifyAppMaster => amplifyAppMaster.json),
  * });
  * const _this = new aws.sns.TopicSubscription("this", {
  *     topic: amplifyAppMasterTopic.arn,
@@ -93,13 +119,14 @@ import * as utilities from "../utilities";
  *     endpoint: "user@acme.com",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Amplify branch using `app_id` and `branch_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
+ * $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
  * ```
  */
 export class Branch extends pulumi.CustomResource {
@@ -294,7 +321,7 @@ export class Branch extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["basicAuthCredentials", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["basicAuthCredentials"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Branch.__pulumiType, name, resourceInputs, opts);
     }

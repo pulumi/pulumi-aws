@@ -6,6 +6,7 @@ package com.pulumi.aws.fsx.outputs;
 import com.pulumi.aws.fsx.outputs.FileCacheLustreConfigurationLogConfiguration;
 import com.pulumi.aws.fsx.outputs.FileCacheLustreConfigurationMetadataConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -102,11 +103,15 @@ public final class FileCacheLustreConfiguration {
 
         @CustomType.Setter
         public Builder deploymentType(String deploymentType) {
-            this.deploymentType = Objects.requireNonNull(deploymentType);
+            if (deploymentType == null) {
+              throw new MissingRequiredPropertyException("FileCacheLustreConfiguration", "deploymentType");
+            }
+            this.deploymentType = deploymentType;
             return this;
         }
         @CustomType.Setter
         public Builder logConfigurations(@Nullable List<FileCacheLustreConfigurationLogConfiguration> logConfigurations) {
+
             this.logConfigurations = logConfigurations;
             return this;
         }
@@ -115,7 +120,10 @@ public final class FileCacheLustreConfiguration {
         }
         @CustomType.Setter
         public Builder metadataConfigurations(List<FileCacheLustreConfigurationMetadataConfiguration> metadataConfigurations) {
-            this.metadataConfigurations = Objects.requireNonNull(metadataConfigurations);
+            if (metadataConfigurations == null) {
+              throw new MissingRequiredPropertyException("FileCacheLustreConfiguration", "metadataConfigurations");
+            }
+            this.metadataConfigurations = metadataConfigurations;
             return this;
         }
         public Builder metadataConfigurations(FileCacheLustreConfigurationMetadataConfiguration... metadataConfigurations) {
@@ -123,28 +131,33 @@ public final class FileCacheLustreConfiguration {
         }
         @CustomType.Setter
         public Builder mountName(@Nullable String mountName) {
+
             this.mountName = mountName;
             return this;
         }
         @CustomType.Setter
         public Builder perUnitStorageThroughput(Integer perUnitStorageThroughput) {
-            this.perUnitStorageThroughput = Objects.requireNonNull(perUnitStorageThroughput);
+            if (perUnitStorageThroughput == null) {
+              throw new MissingRequiredPropertyException("FileCacheLustreConfiguration", "perUnitStorageThroughput");
+            }
+            this.perUnitStorageThroughput = perUnitStorageThroughput;
             return this;
         }
         @CustomType.Setter
         public Builder weeklyMaintenanceStartTime(@Nullable String weeklyMaintenanceStartTime) {
+
             this.weeklyMaintenanceStartTime = weeklyMaintenanceStartTime;
             return this;
         }
         public FileCacheLustreConfiguration build() {
-            final var o = new FileCacheLustreConfiguration();
-            o.deploymentType = deploymentType;
-            o.logConfigurations = logConfigurations;
-            o.metadataConfigurations = metadataConfigurations;
-            o.mountName = mountName;
-            o.perUnitStorageThroughput = perUnitStorageThroughput;
-            o.weeklyMaintenanceStartTime = weeklyMaintenanceStartTime;
-            return o;
+            final var _resultValue = new FileCacheLustreConfiguration();
+            _resultValue.deploymentType = deploymentType;
+            _resultValue.logConfigurations = logConfigurations;
+            _resultValue.metadataConfigurations = metadataConfigurations;
+            _resultValue.mountName = mountName;
+            _resultValue.perUnitStorageThroughput = perUnitStorageThroughput;
+            _resultValue.weeklyMaintenanceStartTime = weeklyMaintenanceStartTime;
+            return _resultValue;
         }
     }
 }

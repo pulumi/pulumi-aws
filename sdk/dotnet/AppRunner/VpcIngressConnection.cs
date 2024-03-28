@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,11 +25,12 @@ namespace Pulumi.Aws.AppRunner
     /// {
     ///     var example = new Aws.AppRunner.VpcIngressConnection("example", new()
     ///     {
-    ///         ServiceArn = aws_apprunner_service.Example.Arn,
+    ///         Name = "example",
+    ///         ServiceArn = exampleAwsApprunnerService.Arn,
     ///         IngressVpcConfiguration = new Aws.AppRunner.Inputs.VpcIngressConnectionIngressVpcConfigurationArgs
     ///         {
-    ///             VpcId = aws_default_vpc.Default.Id,
-    ///             VpcEndpointId = aws_vpc_endpoint.Apprunner.Id,
+    ///             VpcId = @default.Id,
+    ///             VpcEndpointId = apprunner.Id,
     ///         },
     ///         Tags = 
     ///         {
@@ -38,13 +40,14 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import App Runner VPC Ingress Connection using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apprunner/vpcIngressConnection:VpcIngressConnection example "arn:aws:apprunner:us-west-2:837424938642:vpcingressconnection/example/b379f86381d74825832c2e82080342fa"
+    /// $ pulumi import aws:apprunner/vpcIngressConnection:VpcIngressConnection example "arn:aws:apprunner:us-west-2:837424938642:vpcingressconnection/example/b379f86381d74825832c2e82080342fa"
     /// ```
     /// </summary>
     [AwsResourceType("aws:apprunner/vpcIngressConnection:VpcIngressConnection")]
@@ -121,10 +124,6 @@ namespace Pulumi.Aws.AppRunner
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -244,11 +243,7 @@ namespace Pulumi.Aws.AppRunner
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public VpcIngressConnectionState()

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,9 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3outposts.NewEndpoint(ctx, "example", &s3outposts.EndpointArgs{
-//				OutpostId:       pulumi.Any(data.Aws_outposts_outpost.Example.Id),
-//				SecurityGroupId: pulumi.Any(aws_security_group.Example.Id),
-//				SubnetId:        pulumi.Any(aws_subnet.Example.Id),
+//				OutpostId:       pulumi.Any(exampleAwsOutpostsOutpost.Id),
+//				SecurityGroupId: pulumi.Any(exampleAwsSecurityGroup.Id),
+//				SubnetId:        pulumi.Any(exampleAwsSubnet.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -41,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import S3 Outposts Endpoints using Amazon Resource Name (ARN), EC2 Security Group identifier, and EC2 Subnet identifier, separated by commas (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
-//
+// $ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
 // ```
 type Endpoint struct {
 	pulumi.CustomResourceState

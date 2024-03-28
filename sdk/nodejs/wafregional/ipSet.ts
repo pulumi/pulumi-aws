@@ -12,28 +12,33 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ipset = new aws.wafregional.IpSet("ipset", {ipSetDescriptors: [
- *     {
- *         type: "IPV4",
- *         value: "192.0.7.0/24",
- *     },
- *     {
- *         type: "IPV4",
- *         value: "10.16.16.0/16",
- *     },
- * ]});
+ * const ipset = new aws.wafregional.IpSet("ipset", {
+ *     name: "tfIPSet",
+ *     ipSetDescriptors: [
+ *         {
+ *             type: "IPV4",
+ *             value: "192.0.7.0/24",
+ *         },
+ *         {
+ *             type: "IPV4",
+ *             value: "10.16.16.0/16",
+ *         },
+ *     ],
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import WAF Regional IPSets using their ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:wafregional/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * $ pulumi import aws:wafregional/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
  * ```
  */
 export class IpSet extends pulumi.CustomResource {

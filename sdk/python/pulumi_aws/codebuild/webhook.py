@@ -218,6 +218,7 @@ class Webhook(pulumi.CustomResource):
         Manages a CodeBuild webhook, which is an endpoint accepted by the CodeBuild service to trigger builds from source code repositories. Depending on the source type of the CodeBuild project, the CodeBuild service may also automatically create and delete the actual repository webhook as well.
 
         ## Example Usage
+
         ### Bitbucket and GitHub
 
         When working with [Bitbucket](https://bitbucket.org) and [GitHub](https://github.com) source CodeBuild webhooks, the CodeBuild service will automatically create (on `codebuild.Webhook` resource creation) and delete (on `codebuild.Webhook` resource deletion) the Bitbucket/GitHub repository webhook using its granted OAuth permissions. This behavior cannot be controlled by this provider.
@@ -226,12 +227,13 @@ class Webhook(pulumi.CustomResource):
 
         > **Note:** Further managing the automatically created Bitbucket/GitHub webhook with the `bitbucket_hook`/`github_repository_webhook` resource is only possible with importing that resource after creation of the `codebuild.Webhook` resource. The CodeBuild API does not ever provide the `secret` attribute for the `codebuild.Webhook` resource in this scenario.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.codebuild.Webhook("example",
-            project_name=aws_codebuild_project["example"]["name"],
+            project_name=example_aws_codebuild_project["name"],
             build_type="BUILD",
             filter_groups=[aws.codebuild.WebhookFilterGroupArgs(
                 filters=[
@@ -246,36 +248,14 @@ class Webhook(pulumi.CustomResource):
                 ],
             )])
         ```
-        ### GitHub Enterprise
-
-        When working with [GitHub Enterprise](https://enterprise.github.com/) source CodeBuild webhooks, the GHE repository webhook must be separately managed (e.g., manually or with the `github_repository_webhook` resource).
-
-        More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_github as github
-
-        example_webhook = aws.codebuild.Webhook("exampleWebhook", project_name=aws_codebuild_project["example"]["name"])
-        example_repository_webhook = github.RepositoryWebhook("exampleRepositoryWebhook",
-            active=True,
-            events=["push"],
-            repository=github_repository["example"]["name"],
-            configuration=github.RepositoryWebhookConfigurationArgs(
-                url=example_webhook.payload_url,
-                secret=example_webhook.secret,
-                content_type="json",
-                insecure_ssl=False,
-            ))
-        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeBuild Webhooks using the CodeBuild Project name. For example:
 
         ```sh
-         $ pulumi import aws:codebuild/webhook:Webhook example MyProjectName
+        $ pulumi import aws:codebuild/webhook:Webhook example MyProjectName
         ```
 
         :param str resource_name: The name of the resource.
@@ -295,6 +275,7 @@ class Webhook(pulumi.CustomResource):
         Manages a CodeBuild webhook, which is an endpoint accepted by the CodeBuild service to trigger builds from source code repositories. Depending on the source type of the CodeBuild project, the CodeBuild service may also automatically create and delete the actual repository webhook as well.
 
         ## Example Usage
+
         ### Bitbucket and GitHub
 
         When working with [Bitbucket](https://bitbucket.org) and [GitHub](https://github.com) source CodeBuild webhooks, the CodeBuild service will automatically create (on `codebuild.Webhook` resource creation) and delete (on `codebuild.Webhook` resource deletion) the Bitbucket/GitHub repository webhook using its granted OAuth permissions. This behavior cannot be controlled by this provider.
@@ -303,12 +284,13 @@ class Webhook(pulumi.CustomResource):
 
         > **Note:** Further managing the automatically created Bitbucket/GitHub webhook with the `bitbucket_hook`/`github_repository_webhook` resource is only possible with importing that resource after creation of the `codebuild.Webhook` resource. The CodeBuild API does not ever provide the `secret` attribute for the `codebuild.Webhook` resource in this scenario.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.codebuild.Webhook("example",
-            project_name=aws_codebuild_project["example"]["name"],
+            project_name=example_aws_codebuild_project["name"],
             build_type="BUILD",
             filter_groups=[aws.codebuild.WebhookFilterGroupArgs(
                 filters=[
@@ -323,36 +305,14 @@ class Webhook(pulumi.CustomResource):
                 ],
             )])
         ```
-        ### GitHub Enterprise
-
-        When working with [GitHub Enterprise](https://enterprise.github.com/) source CodeBuild webhooks, the GHE repository webhook must be separately managed (e.g., manually or with the `github_repository_webhook` resource).
-
-        More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_github as github
-
-        example_webhook = aws.codebuild.Webhook("exampleWebhook", project_name=aws_codebuild_project["example"]["name"])
-        example_repository_webhook = github.RepositoryWebhook("exampleRepositoryWebhook",
-            active=True,
-            events=["push"],
-            repository=github_repository["example"]["name"],
-            configuration=github.RepositoryWebhookConfigurationArgs(
-                url=example_webhook.payload_url,
-                secret=example_webhook.secret,
-                content_type="json",
-                insecure_ssl=False,
-            ))
-        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeBuild Webhooks using the CodeBuild Project name. For example:
 
         ```sh
-         $ pulumi import aws:codebuild/webhook:Webhook example MyProjectName
+        $ pulumi import aws:codebuild/webhook:Webhook example MyProjectName
         ```
 
         :param str resource_name: The name of the resource.

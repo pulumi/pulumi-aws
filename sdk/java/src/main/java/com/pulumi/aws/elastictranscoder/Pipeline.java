@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * Provides an Elastic Transcoder pipeline resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,14 +50,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var bar = new Pipeline(&#34;bar&#34;, PipelineArgs.builder()        
- *             .inputBucket(aws_s3_bucket.input_bucket().id())
- *             .role(aws_iam_role.test_role().arn())
+ *             .inputBucket(inputBucket.id())
+ *             .name(&#34;aws_elastictranscoder_pipeline_my_test_&#34;)
+ *             .role(testRole.arn())
  *             .contentConfig(PipelineContentConfigArgs.builder()
- *                 .bucket(aws_s3_bucket.content_bucket().id())
+ *                 .bucket(contentBucket.id())
  *                 .storageClass(&#34;Standard&#34;)
  *                 .build())
  *             .thumbnailConfig(PipelineThumbnailConfigArgs.builder()
- *                 .bucket(aws_s3_bucket.thumb_bucket().id())
+ *                 .bucket(thumbBucket.id())
  *                 .storageClass(&#34;Standard&#34;)
  *                 .build())
  *             .build());
@@ -63,13 +66,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
+ * $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
  * ```
  * 
  */

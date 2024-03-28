@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Transfer
     /// Provides a AWS Transfer AS2 Agreement resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,23 +27,24 @@ namespace Pulumi.Aws.Transfer
     /// {
     ///     var example = new Aws.Transfer.Agreement("example", new()
     ///     {
-    ///         AccessRole = aws_iam_role.Test.Arn,
+    ///         AccessRole = test.Arn,
     ///         BaseDirectory = "/DOC-EXAMPLE-BUCKET/home/mydirectory",
     ///         Description = "example",
-    ///         LocalProfileId = aws_transfer_profile.Local.Profile_id,
-    ///         PartnerProfileId = aws_transfer_profile.Partner.Profile_id,
-    ///         ServerId = aws_transfer_server.Test.Id,
+    ///         LocalProfileId = local.ProfileId,
+    ///         PartnerProfileId = partner.ProfileId,
+    ///         ServerId = testAwsTransferServer.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Transfer AS2 Agreement using the `server_id/agreement_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:transfer/agreement:Agreement example s-4221a88afd5f4362a/a-4221a88afd5f4362a
+    /// $ pulumi import aws:transfer/agreement:Agreement example s-4221a88afd5f4362a/a-4221a88afd5f4362a
     /// ```
     /// </summary>
     [AwsResourceType("aws:transfer/agreement:Agreement")]
@@ -130,10 +133,6 @@ namespace Pulumi.Aws.Transfer
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -282,11 +281,7 @@ namespace Pulumi.Aws.Transfer
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public AgreementState()

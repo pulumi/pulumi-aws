@@ -11,14 +11,17 @@ import * as utilities from "../utilities";
  * Manages SAML authentication options for an AWS OpenSearch Domain.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleDomain = new aws.opensearch.Domain("exampleDomain", {
+ * const example = new aws.opensearch.Domain("example", {
+ *     domainName: "example",
  *     engineVersion: "OpenSearch_1.1",
  *     clusterConfig: {
  *         instanceType: "r4.large.search",
@@ -30,24 +33,27 @@ import * as utilities from "../utilities";
  *         Domain: "TestDomain",
  *     },
  * });
- * const exampleDomainSamlOptions = new aws.opensearch.DomainSamlOptions("exampleDomainSamlOptions", {
- *     domainName: exampleDomain.domainName,
+ * const exampleDomainSamlOptions = new aws.opensearch.DomainSamlOptions("example", {
+ *     domainName: example.domainName,
  *     samlOptions: {
  *         enabled: true,
  *         idp: {
  *             entityId: "https://example.com",
- *             metadataContent: fs.readFileSync("./saml-metadata.xml"),
+ *             metadataContent: std.file({
+ *                 input: "./saml-metadata.xml",
+ *             }).then(invoke => invoke.result),
  *         },
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import OpenSearch domains using the `domain_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name
+ * $ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name
  * ```
  */
 export class DomainSamlOptions extends pulumi.CustomResource {

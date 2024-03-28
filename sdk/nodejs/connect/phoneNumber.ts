@@ -12,14 +12,16 @@ import * as utilities from "../utilities";
  * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.PhoneNumber("example", {
- *     targetArn: aws_connect_instance.example.arn,
+ *     targetArn: exampleAwsConnectInstance.arn,
  *     countryCode: "US",
  *     type: "DID",
  *     tags: {
@@ -27,39 +29,46 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Description
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.PhoneNumber("example", {
- *     targetArn: aws_connect_instance.example.arn,
+ *     targetArn: exampleAwsConnectInstance.arn,
  *     countryCode: "US",
  *     type: "DID",
  *     description: "example description",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Prefix to filter phone numbers
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.PhoneNumber("example", {
- *     targetArn: aws_connect_instance.example.arn,
+ *     targetArn: exampleAwsConnectInstance.arn,
  *     countryCode: "US",
  *     type: "DID",
  *     prefix: "+18005",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Amazon Connect Phone Numbers using its `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab
+ * $ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab
  * ```
  */
 export class PhoneNumber extends pulumi.CustomResource {
@@ -179,8 +188,6 @@ export class PhoneNumber extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(PhoneNumber.__pulumiType, name, resourceInputs, opts);
     }
 }

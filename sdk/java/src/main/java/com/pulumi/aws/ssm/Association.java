@@ -24,7 +24,10 @@ import javax.annotation.Nullable;
  * Associates an SSM Document to an instance or EC2 tag.
  * 
  * ## Example Usage
+ * 
  * ### Create an association for a specific instance
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,18 +51,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Association(&#34;example&#34;, AssociationArgs.builder()        
+ *             .name(exampleAwsSsmDocument.name())
  *             .targets(AssociationTargetArgs.builder()
  *                 .key(&#34;InstanceIds&#34;)
- *                 .values(aws_instance.example().id())
+ *                 .values(exampleAwsInstance.id())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Create an association for all managed instances in an AWS account
  * 
  * To target all managed instances in an AWS account, set the `key` as `&#34;InstanceIds&#34;` with `values` set as `[&#34;*&#34;]`. This example also illustrates how to use an Amazon owned SSM document named `AmazonCloudWatch-ManageAgent`.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -83,6 +91,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Association(&#34;example&#34;, AssociationArgs.builder()        
+ *             .name(&#34;AmazonCloudWatch-ManageAgent&#34;)
  *             .targets(AssociationTargetArgs.builder()
  *                 .key(&#34;InstanceIds&#34;)
  *                 .values(&#34;*&#34;)
@@ -92,9 +101,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Create an association for a specific tag
  * 
  * This example shows how to target all managed instances that are assigned a tag key of `Environment` and value of `Development`.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -118,6 +131,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Association(&#34;example&#34;, AssociationArgs.builder()        
+ *             .name(&#34;AmazonCloudWatch-ManageAgent&#34;)
  *             .targets(AssociationTargetArgs.builder()
  *                 .key(&#34;tag:Environment&#34;)
  *                 .values(&#34;Development&#34;)
@@ -127,9 +141,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Create an association with a specific schedule
  * 
  * This example shows how to schedule an association in various ways.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -153,23 +171,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Association(&#34;example&#34;, AssociationArgs.builder()        
+ *             .name(exampleAwsSsmDocument.name())
  *             .scheduleExpression(&#34;cron(0 2 ? * SUN *)&#34;)
  *             .targets(AssociationTargetArgs.builder()
  *                 .key(&#34;InstanceIds&#34;)
- *                 .values(aws_instance.example().id())
+ *                 .values(exampleAwsInstance.id())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SSM associations using the `association_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ssm/association:Association test-association 10abcdef-0abc-1234-5678-90abcdef123456
+ * $ pulumi import aws:ssm/association:Association test-association 10abcdef-0abc-1234-5678-90abcdef123456
  * ```
  * 
  */
@@ -292,28 +312,30 @@ public class Association extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.instanceId);
     }
     /**
-     * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+     * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%!
+     * (MISSING)
      * 
      */
     @Export(name="maxConcurrency", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> maxConcurrency;
 
     /**
-     * @return The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+     * @return The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%!
+     * (MISSING)
      * 
      */
     public Output<Optional<String>> maxConcurrency() {
         return Codegen.optional(this.maxConcurrency);
     }
     /**
-     * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
+     * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%! (MISSING)If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10%!f(MISSING)or 50 associations, the stop command is sent when the sixth error is returned.
      * 
      */
     @Export(name="maxErrors", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> maxErrors;
 
     /**
-     * @return The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
+     * @return The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%! (MISSING)If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10%!f(MISSING)or 50 associations, the stop command is sent when the sixth error is returned.
      * 
      */
     public Output<Optional<String>> maxErrors() {

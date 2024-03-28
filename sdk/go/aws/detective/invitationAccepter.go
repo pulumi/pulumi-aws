@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,24 +29,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			primaryGraph, err := detective.NewGraph(ctx, "primaryGraph", nil)
+//			primary, err := detective.NewGraph(ctx, "primary", nil)
 //			if err != nil {
 //				return err
 //			}
-//			primaryMember, err := detective.NewMember(ctx, "primaryMember", &detective.MemberArgs{
+//			_, err = detective.NewMember(ctx, "primary", &detective.MemberArgs{
 //				AccountId:    pulumi.String("ACCOUNT ID"),
 //				EmailAddress: pulumi.String("EMAIL"),
-//				GraphArn:     primaryGraph.ID(),
+//				GraphArn:     primary.ID(),
 //				Message:      pulumi.String("Message of the invite"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = detective.NewInvitationAccepter(ctx, "member", &detective.InvitationAccepterArgs{
-//				GraphArn: primaryGraph.GraphArn,
-//			}, pulumi.Provider("awsalternate"), pulumi.DependsOn([]pulumi.Resource{
-//				primaryMember,
-//			}))
+//				GraphArn: primary.GraphArn,
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -54,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_detective_invitation_accepter` using the graph ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
-//
+// $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
 // ```
 type InvitationAccepter struct {
 	pulumi.CustomResourceState

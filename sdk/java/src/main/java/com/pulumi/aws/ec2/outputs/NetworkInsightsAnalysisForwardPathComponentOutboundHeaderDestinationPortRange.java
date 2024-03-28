@@ -42,19 +42,21 @@ public final class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDest
 
         @CustomType.Setter
         public Builder from(@Nullable Integer from) {
+
             this.from = from;
             return this;
         }
         @CustomType.Setter
         public Builder to(@Nullable Integer to) {
+
             this.to = to;
             return this;
         }
         public NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRange build() {
-            final var o = new NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRange();
-            o.from = from;
-            o.to = to;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRange();
+            _resultValue.from = from;
+            _resultValue.to = to;
+            return _resultValue;
         }
     }
 }

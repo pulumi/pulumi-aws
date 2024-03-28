@@ -12,17 +12,18 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testSp = new aws.signer.SigningProfile("testSp", {platformId: "AWSLambda-SHA384-ECDSA"});
- * const prodSp = new aws.signer.SigningProfile("prodSp", {
- *     namePrefix: "prod_sp_",
+ * const testSp = new aws.signer.SigningProfile("test_sp", {platformId: "AWSLambda-SHA384-ECDSA"});
+ * const prodSp = new aws.signer.SigningProfile("prod_sp", {
  *     platformId: "AWSLambda-SHA384-ECDSA",
+ *     namePrefix: "prod_sp_",
  *     signatureValidityPeriod: {
- *         type: "YEARS",
  *         value: 5,
+ *         type: "YEARS",
  *     },
  *     tags: {
  *         tag1: "value1",
@@ -30,13 +31,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Signer signing profiles using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
+ * $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
  * ```
  */
 export class SigningProfile extends pulumi.CustomResource {
@@ -165,8 +167,6 @@ export class SigningProfile extends pulumi.CustomResource {
             resourceInputs["versionArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SigningProfile.__pulumiType, name, resourceInputs, opts);
     }
 }

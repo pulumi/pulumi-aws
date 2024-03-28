@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigateway.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -100,37 +101,44 @@ public final class DocumentationPartLocation {
 
         @CustomType.Setter
         public Builder method(@Nullable String method) {
+
             this.method = method;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder statusCode(@Nullable String statusCode) {
+
             this.statusCode = statusCode;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("DocumentationPartLocation", "type");
+            }
+            this.type = type;
             return this;
         }
         public DocumentationPartLocation build() {
-            final var o = new DocumentationPartLocation();
-            o.method = method;
-            o.name = name;
-            o.path = path;
-            o.statusCode = statusCode;
-            o.type = type;
-            return o;
+            final var _resultValue = new DocumentationPartLocation();
+            _resultValue.method = method;
+            _resultValue.name = name;
+            _resultValue.path = path;
+            _resultValue.statusCode = statusCode;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

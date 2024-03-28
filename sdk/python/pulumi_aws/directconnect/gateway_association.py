@@ -302,59 +302,74 @@ class GatewayAssociation(pulumi.CustomResource):
         by creating an `directconnect.GatewayAssociation` resource with the `proposal_id` and `associated_gateway_owner_account_id` attributes set.
 
         ## Example Usage
+
         ### VPN Gateway Association
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_gateway = aws.directconnect.Gateway("exampleGateway", amazon_side_asn="64512")
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.255.255.0/28")
-        example_vpn_gateway = aws.ec2.VpnGateway("exampleVpnGateway", vpc_id=example_vpc.id)
-        example_gateway_association = aws.directconnect.GatewayAssociation("exampleGatewayAssociation",
-            dx_gateway_id=example_gateway.id,
+        example = aws.directconnect.Gateway("example",
+            name="example",
+            amazon_side_asn="64512")
+        example_vpc = aws.ec2.Vpc("example", cidr_block="10.255.255.0/28")
+        example_vpn_gateway = aws.ec2.VpnGateway("example", vpc_id=example_vpc.id)
+        example_gateway_association = aws.directconnect.GatewayAssociation("example",
+            dx_gateway_id=example.id,
             associated_gateway_id=example_vpn_gateway.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Transit Gateway Association
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_gateway = aws.directconnect.Gateway("exampleGateway", amazon_side_asn="64512")
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway")
-        example_gateway_association = aws.directconnect.GatewayAssociation("exampleGatewayAssociation",
-            dx_gateway_id=example_gateway.id,
+        example = aws.directconnect.Gateway("example",
+            name="example",
+            amazon_side_asn="64512")
+        example_transit_gateway = aws.ec2transitgateway.TransitGateway("example")
+        example_gateway_association = aws.directconnect.GatewayAssociation("example",
+            dx_gateway_id=example.id,
             associated_gateway_id=example_transit_gateway.id,
             allowed_prefixes=[
                 "10.255.255.0/30",
                 "10.255.255.8/30",
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Allowed Prefixes
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_gateway = aws.directconnect.Gateway("exampleGateway", amazon_side_asn="64512")
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.255.255.0/28")
-        example_vpn_gateway = aws.ec2.VpnGateway("exampleVpnGateway", vpc_id=example_vpc.id)
-        example_gateway_association = aws.directconnect.GatewayAssociation("exampleGatewayAssociation",
-            dx_gateway_id=example_gateway.id,
+        example = aws.directconnect.Gateway("example",
+            name="example",
+            amazon_side_asn="64512")
+        example_vpc = aws.ec2.Vpc("example", cidr_block="10.255.255.0/28")
+        example_vpn_gateway = aws.ec2.VpnGateway("example", vpc_id=example_vpc.id)
+        example_gateway_association = aws.directconnect.GatewayAssociation("example",
+            dx_gateway_id=example.id,
             associated_gateway_id=example_vpn_gateway.id,
             allowed_prefixes=[
                 "210.52.109.0/24",
                 "175.45.176.0/22",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Direct Connect gateway associations using `dx_gateway_id` together with `associated_gateway_id`. For example:
 
         ```sh
-         $ pulumi import aws:directconnect/gatewayAssociation:GatewayAssociation example 345508c3-7215-4aef-9832-07c125d5bd0f/vgw-98765432
+        $ pulumi import aws:directconnect/gatewayAssociation:GatewayAssociation example 345508c3-7215-4aef-9832-07c125d5bd0f/vgw-98765432
         ```
 
         :param str resource_name: The name of the resource.
@@ -382,59 +397,74 @@ class GatewayAssociation(pulumi.CustomResource):
         by creating an `directconnect.GatewayAssociation` resource with the `proposal_id` and `associated_gateway_owner_account_id` attributes set.
 
         ## Example Usage
+
         ### VPN Gateway Association
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_gateway = aws.directconnect.Gateway("exampleGateway", amazon_side_asn="64512")
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.255.255.0/28")
-        example_vpn_gateway = aws.ec2.VpnGateway("exampleVpnGateway", vpc_id=example_vpc.id)
-        example_gateway_association = aws.directconnect.GatewayAssociation("exampleGatewayAssociation",
-            dx_gateway_id=example_gateway.id,
+        example = aws.directconnect.Gateway("example",
+            name="example",
+            amazon_side_asn="64512")
+        example_vpc = aws.ec2.Vpc("example", cidr_block="10.255.255.0/28")
+        example_vpn_gateway = aws.ec2.VpnGateway("example", vpc_id=example_vpc.id)
+        example_gateway_association = aws.directconnect.GatewayAssociation("example",
+            dx_gateway_id=example.id,
             associated_gateway_id=example_vpn_gateway.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Transit Gateway Association
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_gateway = aws.directconnect.Gateway("exampleGateway", amazon_side_asn="64512")
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway")
-        example_gateway_association = aws.directconnect.GatewayAssociation("exampleGatewayAssociation",
-            dx_gateway_id=example_gateway.id,
+        example = aws.directconnect.Gateway("example",
+            name="example",
+            amazon_side_asn="64512")
+        example_transit_gateway = aws.ec2transitgateway.TransitGateway("example")
+        example_gateway_association = aws.directconnect.GatewayAssociation("example",
+            dx_gateway_id=example.id,
             associated_gateway_id=example_transit_gateway.id,
             allowed_prefixes=[
                 "10.255.255.0/30",
                 "10.255.255.8/30",
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Allowed Prefixes
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_gateway = aws.directconnect.Gateway("exampleGateway", amazon_side_asn="64512")
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.255.255.0/28")
-        example_vpn_gateway = aws.ec2.VpnGateway("exampleVpnGateway", vpc_id=example_vpc.id)
-        example_gateway_association = aws.directconnect.GatewayAssociation("exampleGatewayAssociation",
-            dx_gateway_id=example_gateway.id,
+        example = aws.directconnect.Gateway("example",
+            name="example",
+            amazon_side_asn="64512")
+        example_vpc = aws.ec2.Vpc("example", cidr_block="10.255.255.0/28")
+        example_vpn_gateway = aws.ec2.VpnGateway("example", vpc_id=example_vpc.id)
+        example_gateway_association = aws.directconnect.GatewayAssociation("example",
+            dx_gateway_id=example.id,
             associated_gateway_id=example_vpn_gateway.id,
             allowed_prefixes=[
                 "210.52.109.0/24",
                 "175.45.176.0/22",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Direct Connect gateway associations using `dx_gateway_id` together with `associated_gateway_id`. For example:
 
         ```sh
-         $ pulumi import aws:directconnect/gatewayAssociation:GatewayAssociation example 345508c3-7215-4aef-9832-07c125d5bd0f/vgw-98765432
+        $ pulumi import aws:directconnect/gatewayAssociation:GatewayAssociation example 345508c3-7215-4aef-9832-07c125d5bd0f/vgw-98765432
         ```
 
         :param str resource_name: The name of the resource.

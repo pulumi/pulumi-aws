@@ -17,9 +17,11 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a WAF Size Constraint Set Resource
+ * Use the `aws.waf.SizeConstraintSet` resource to manage WAF size constraint sets.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,68 +46,70 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sizeConstraintSet = new SizeConstraintSet(&#34;sizeConstraintSet&#34;, SizeConstraintSetArgs.builder()        
+ *             .name(&#34;tfsize_constraints&#34;)
  *             .sizeConstraints(SizeConstraintSetSizeConstraintArgs.builder()
+ *                 .textTransformation(&#34;NONE&#34;)
  *                 .comparisonOperator(&#34;EQ&#34;)
+ *                 .size(&#34;4096&#34;)
  *                 .fieldToMatch(SizeConstraintSetSizeConstraintFieldToMatchArgs.builder()
  *                     .type(&#34;BODY&#34;)
  *                     .build())
- *                 .size(&#34;4096&#34;)
- *                 .textTransformation(&#34;NONE&#34;)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AWS WAF Size Constraint Set using their ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:waf/sizeConstraintSet:SizeConstraintSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * $ pulumi import aws:waf/sizeConstraintSet:SizeConstraintSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
  * ```
  * 
  */
 @ResourceType(type="aws:waf/sizeConstraintSet:SizeConstraintSet")
 public class SizeConstraintSet extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN)
+     * Amazon Resource Name (ARN).
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN)
+     * @return Amazon Resource Name (ARN).
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The name or description of the Size Constraint Set.
+     * Name or description of the Size Constraint Set.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name or description of the Size Constraint Set.
+     * @return Name or description of the Size Constraint Set.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Specifies the parts of web requests that you want to inspect the size of.
+     * Parts of web requests that you want to inspect the size of.
      * 
      */
     @Export(name="sizeConstraints", refs={List.class,SizeConstraintSetSizeConstraint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SizeConstraintSetSizeConstraint>> sizeConstraints;
 
     /**
-     * @return Specifies the parts of web requests that you want to inspect the size of.
+     * @return Parts of web requests that you want to inspect the size of.
      * 
      */
     public Output<Optional<List<SizeConstraintSetSizeConstraint>>> sizeConstraints() {

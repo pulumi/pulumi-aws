@@ -86,31 +86,35 @@ public final class ChannelDestinationSetting {
 
         @CustomType.Setter
         public Builder passwordParam(@Nullable String passwordParam) {
+
             this.passwordParam = passwordParam;
             return this;
         }
         @CustomType.Setter
         public Builder streamName(@Nullable String streamName) {
+
             this.streamName = streamName;
             return this;
         }
         @CustomType.Setter
         public Builder url(@Nullable String url) {
+
             this.url = url;
             return this;
         }
         @CustomType.Setter
         public Builder username(@Nullable String username) {
+
             this.username = username;
             return this;
         }
         public ChannelDestinationSetting build() {
-            final var o = new ChannelDestinationSetting();
-            o.passwordParam = passwordParam;
-            o.streamName = streamName;
-            o.url = url;
-            o.username = username;
-            return o;
+            final var _resultValue = new ChannelDestinationSetting();
+            _resultValue.passwordParam = passwordParam;
+            _resultValue.streamName = streamName;
+            _resultValue.url = url;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

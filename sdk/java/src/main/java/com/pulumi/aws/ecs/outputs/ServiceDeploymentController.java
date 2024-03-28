@@ -44,13 +44,14 @@ public final class ServiceDeploymentController {
 
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         public ServiceDeploymentController build() {
-            final var o = new ServiceDeploymentController();
-            o.type = type;
-            return o;
+            final var _resultValue = new ServiceDeploymentController();
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -36,6 +36,8 @@ import javax.annotation.Nullable;
  * See [ECS Services section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,7 +49,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ecs.inputs.ServiceOrderedPlacementStrategyArgs;
  * import com.pulumi.aws.ecs.inputs.ServiceLoadBalancerArgs;
  * import com.pulumi.aws.ecs.inputs.ServicePlacementConstraintArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -62,16 +63,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var mongo = new Service(&#34;mongo&#34;, ServiceArgs.builder()        
- *             .cluster(aws_ecs_cluster.foo().id())
- *             .taskDefinition(aws_ecs_task_definition.mongo().arn())
+ *             .name(&#34;mongodb&#34;)
+ *             .cluster(fooAwsEcsCluster.id())
+ *             .taskDefinition(mongoAwsEcsTaskDefinition.arn())
  *             .desiredCount(3)
- *             .iamRole(aws_iam_role.foo().arn())
+ *             .iamRole(fooAwsIamRole.arn())
  *             .orderedPlacementStrategies(ServiceOrderedPlacementStrategyArgs.builder()
  *                 .type(&#34;binpack&#34;)
  *                 .field(&#34;cpu&#34;)
  *                 .build())
  *             .loadBalancers(ServiceLoadBalancerArgs.builder()
- *                 .targetGroupArn(aws_lb_target_group.foo().arn())
+ *                 .targetGroupArn(foo.arn())
  *                 .containerName(&#34;mongo&#34;)
  *                 .containerPort(8080)
  *                 .build())
@@ -79,16 +81,18 @@ import javax.annotation.Nullable;
  *                 .type(&#34;memberOf&#34;)
  *                 .expression(&#34;attribute:ecs.availability-zone in [us-west-2a, us-west-2b]&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_iam_role_policy.foo())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Ignoring Changes to Desired Count
  * 
  * You can use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -117,7 +121,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Daemon Scheduling Strategy
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -140,15 +148,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var bar = new Service(&#34;bar&#34;, ServiceArgs.builder()        
- *             .cluster(aws_ecs_cluster.foo().id())
- *             .taskDefinition(aws_ecs_task_definition.bar().arn())
+ *             .name(&#34;bar&#34;)
+ *             .cluster(foo.id())
+ *             .taskDefinition(barAwsEcsTaskDefinition.arn())
  *             .schedulingStrategy(&#34;DAEMON&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### CloudWatch Deployment Alarms
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -172,18 +185,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
- *             .cluster(aws_ecs_cluster.example().id())
+ *             .name(&#34;example&#34;)
+ *             .cluster(exampleAwsEcsCluster.id())
  *             .alarms(ServiceAlarmsArgs.builder()
  *                 .enable(true)
  *                 .rollback(true)
- *                 .alarmNames(aws_cloudwatch_metric_alarm.example().alarm_name())
+ *                 .alarmNames(exampleAwsCloudwatchMetricAlarm.alarmName())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### External Deployment Controller
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -207,7 +225,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
- *             .cluster(aws_ecs_cluster.example().id())
+ *             .name(&#34;example&#34;)
+ *             .cluster(exampleAwsEcsCluster.id())
  *             .deploymentController(ServiceDeploymentControllerArgs.builder()
  *                 .type(&#34;EXTERNAL&#34;)
  *                 .build())
@@ -216,13 +235,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
+ * $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
  * ```
  * 
  */
@@ -243,14 +263,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.alarms);
     }
     /**
-     * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
+     * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
      * 
      */
     @Export(name="capacityProviderStrategies", refs={List.class,ServiceCapacityProviderStrategy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceCapacityProviderStrategy>> capacityProviderStrategies;
 
     /**
-     * @return Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
+     * @return Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
      * 
      */
     public Output<Optional<List<ServiceCapacityProviderStrategy>>> capacityProviderStrategies() {
@@ -411,14 +431,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.iamRole;
     }
     /**
-     * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+     * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
      * 
      */
     @Export(name="launchType", refs={String.class}, tree="[0]")
     private Output<String> launchType;
 
     /**
-     * @return Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+     * @return Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
      * 
      */
     public Output<String> launchType() {
@@ -615,14 +635,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.taskDefinition);
     }
     /**
-     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
      * 
      */
     @Export(name="triggers", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> triggers;
 
     /**
-     * @return Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+     * @return Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
      * 
      */
     public Output<Map<String,String>> triggers() {
@@ -675,9 +695,6 @@ public class Service extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -10,6 +10,7 @@ import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfig
 import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -228,7 +229,9 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelA
         }
 
         public StorageLensConfigurationStorageLensConfigurationAccountLevelArgs build() {
-            $.bucketLevel = Objects.requireNonNull($.bucketLevel, "expected parameter 'bucketLevel' to be non-null");
+            if ($.bucketLevel == null) {
+                throw new MissingRequiredPropertyException("StorageLensConfigurationStorageLensConfigurationAccountLevelArgs", "bucketLevel");
+            }
             return $;
         }
     }

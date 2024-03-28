@@ -26,7 +26,10 @@ import javax.annotation.Nullable;
  * Provides an Amazon Kendra Index resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,16 +52,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .description(&#34;example&#34;)
  *             .edition(&#34;DEVELOPER_EDITION&#34;)
- *             .roleArn(aws_iam_role.this().arn())
+ *             .roleArn(this_.arn())
  *             .tags(Map.of(&#34;Key1&#34;, &#34;Value1&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With capacity units
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -82,8 +90,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .edition(&#34;DEVELOPER_EDITION&#34;)
- *             .roleArn(aws_iam_role.this().arn())
+ *             .roleArn(this_.arn())
  *             .capacityUnits(IndexCapacityUnitsArgs.builder()
  *                 .queryCapacityUnits(2)
  *                 .storageCapacityUnits(2)
@@ -93,7 +102,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With server side encryption configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -117,16 +130,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
- *             .roleArn(aws_iam_role.this().arn())
+ *             .name(&#34;example&#34;)
+ *             .roleArn(thisAwsIamRole.arn())
  *             .serverSideEncryptionConfiguration(IndexServerSideEncryptionConfigurationArgs.builder()
- *                 .kmsKeyId(data.aws_kms_key().this().arn())
+ *                 .kmsKeyId(this_.arn())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With user group resolution configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -150,7 +168,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
- *             .roleArn(aws_iam_role.this().arn())
+ *             .name(&#34;example&#34;)
+ *             .roleArn(this_.arn())
  *             .userGroupResolutionConfiguration(IndexUserGroupResolutionConfigurationArgs.builder()
  *                 .userGroupResolutionMode(&#34;AWS_SSO&#34;)
  *                 .build())
@@ -159,10 +178,15 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With Document Metadata Configuration Updates
+ * 
  * ### Specifying the predefined elements
  * 
  * Refer to [Amazon Kendra documentation on built-in document fields](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html#index-reserved-fields) for more information.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -188,7 +212,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
- *             .roleArn(aws_iam_role.this().arn())
+ *             .name(&#34;example&#34;)
+ *             .roleArn(this_.arn())
  *             .documentMetadataConfigurationUpdates(            
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .name(&#34;_authors&#34;)
@@ -394,9 +419,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Appending additional elements
  * 
  * The example below shows additional elements with names, `example-string-value`, `example-long-value`, `example-string-list-value`, `example-date-value` representing the 4 types of `STRING_VALUE`, `LONG_VALUE`, `STRING_LIST_VALUE`, `DATE_VALUE` respectively.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -422,7 +451,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
- *             .roleArn(aws_iam_role.this().arn())
+ *             .name(&#34;example&#34;)
+ *             .roleArn(this_.arn())
  *             .documentMetadataConfigurationUpdates(            
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .name(&#34;_authors&#34;)
@@ -685,7 +715,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With JSON token type configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -710,7 +744,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
- *             .roleArn(aws_iam_role.this().arn())
+ *             .name(&#34;example&#34;)
+ *             .roleArn(this_.arn())
  *             .userTokenConfigurations(IndexUserTokenConfigurationsArgs.builder()
  *                 .jsonTokenTypeConfiguration(IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs.builder()
  *                     .groupAttributeField(&#34;groups&#34;)
@@ -722,13 +757,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Amazon Kendra Indexes using its `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123
+ * $ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123
  * ```
  * 
  */
@@ -1025,9 +1061,6 @@ public class Index extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy any layer version, even when running destroy. Layer versions are thus intentional dangling resources that are _not_ managed by the provider and may incur extra expense in your AWS account.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,14 +51,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var lambdaLayer = new LayerVersion(&#34;lambdaLayer&#34;, LayerVersionArgs.builder()        
- *             .compatibleRuntimes(&#34;nodejs16.x&#34;)
  *             .code(new FileArchive(&#34;lambda_layer_payload.zip&#34;))
  *             .layerName(&#34;lambda_layer_name&#34;)
+ *             .compatibleRuntimes(&#34;nodejs16.x&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Specifying the Deployment Package
  * 
  * AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies.
@@ -73,7 +77,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import Lambda Layers using `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lambda/layerVersion:LayerVersion test_layer arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
+ * $ pulumi import aws:lambda/layerVersion:LayerVersion test_layer arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
  * ```
  * 
  */

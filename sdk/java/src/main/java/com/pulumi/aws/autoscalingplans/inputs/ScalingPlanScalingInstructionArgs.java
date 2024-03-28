@@ -8,6 +8,7 @@ import com.pulumi.aws.autoscalingplans.inputs.ScalingPlanScalingInstructionPrede
 import com.pulumi.aws.autoscalingplans.inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -590,12 +591,24 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
         }
 
         public ScalingPlanScalingInstructionArgs build() {
-            $.maxCapacity = Objects.requireNonNull($.maxCapacity, "expected parameter 'maxCapacity' to be non-null");
-            $.minCapacity = Objects.requireNonNull($.minCapacity, "expected parameter 'minCapacity' to be non-null");
-            $.resourceId = Objects.requireNonNull($.resourceId, "expected parameter 'resourceId' to be non-null");
-            $.scalableDimension = Objects.requireNonNull($.scalableDimension, "expected parameter 'scalableDimension' to be non-null");
-            $.serviceNamespace = Objects.requireNonNull($.serviceNamespace, "expected parameter 'serviceNamespace' to be non-null");
-            $.targetTrackingConfigurations = Objects.requireNonNull($.targetTrackingConfigurations, "expected parameter 'targetTrackingConfigurations' to be non-null");
+            if ($.maxCapacity == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanScalingInstructionArgs", "maxCapacity");
+            }
+            if ($.minCapacity == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanScalingInstructionArgs", "minCapacity");
+            }
+            if ($.resourceId == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanScalingInstructionArgs", "resourceId");
+            }
+            if ($.scalableDimension == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanScalingInstructionArgs", "scalableDimension");
+            }
+            if ($.serviceNamespace == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanScalingInstructionArgs", "serviceNamespace");
+            }
+            if ($.targetTrackingConfigurations == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanScalingInstructionArgs", "targetTrackingConfigurations");
+            }
             return $;
         }
     }

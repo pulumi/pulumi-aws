@@ -210,12 +210,29 @@ class TestGridProject(pulumi.CustomResource):
 
         > **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.devicefarm.TestGridProject("example",
+            name="example",
+            vpc_config=aws.devicefarm.TestGridProjectVpcConfigArgs(
+                vpc_id=example_aws_vpc["id"],
+                subnet_ids=[__item["id"] for __item in example_aws_subnet],
+                security_group_ids=[__item["id"] for __item in example_aws_security_group],
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Using `pulumi import`, import DeviceFarm Test Grid Projects using their ARN. For example:
 
         ```sh
-         $ pulumi import aws:devicefarm/testGridProject:TestGridProject example arn:aws:devicefarm:us-west-2:123456789012:testgrid-project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+        $ pulumi import aws:devicefarm/testGridProject:TestGridProject example arn:aws:devicefarm:us-west-2:123456789012:testgrid-project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
         ```
 
         :param str resource_name: The name of the resource.
@@ -236,12 +253,29 @@ class TestGridProject(pulumi.CustomResource):
 
         > **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.devicefarm.TestGridProject("example",
+            name="example",
+            vpc_config=aws.devicefarm.TestGridProjectVpcConfigArgs(
+                vpc_id=example_aws_vpc["id"],
+                subnet_ids=[__item["id"] for __item in example_aws_subnet],
+                security_group_ids=[__item["id"] for __item in example_aws_security_group],
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Using `pulumi import`, import DeviceFarm Test Grid Projects using their ARN. For example:
 
         ```sh
-         $ pulumi import aws:devicefarm/testGridProject:TestGridProject example arn:aws:devicefarm:us-west-2:123456789012:testgrid-project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+        $ pulumi import aws:devicefarm/testGridProject:TestGridProject example arn:aws:devicefarm:us-west-2:123456789012:testgrid-project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
         ```
 
         :param str resource_name: The name of the resource.
@@ -278,8 +312,6 @@ class TestGridProject(pulumi.CustomResource):
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(TestGridProject, __self__).__init__(
             'aws:devicefarm/testGridProject:TestGridProject',
             resource_name,

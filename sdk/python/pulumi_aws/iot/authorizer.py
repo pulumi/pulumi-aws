@@ -284,26 +284,30 @@ class Authorizer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         example = aws.iot.Authorizer("example",
-            authorizer_function_arn=aws_lambda_function["example"]["arn"],
+            name="example",
+            authorizer_function_arn=example_aws_lambda_function["arn"],
             signing_disabled=False,
             status="ACTIVE",
             token_key_name="Token-Header",
             token_signing_public_keys={
-                "Key1": (lambda path: open(path).read())("test-fixtures/iot-authorizer-signing-key.pem"),
+                "Key1": std.file(input="test-fixtures/iot-authorizer-signing-key.pem").result,
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IOT Authorizers using the name. For example:
 
         ```sh
-         $ pulumi import aws:iot/authorizer:Authorizer example example
+        $ pulumi import aws:iot/authorizer:Authorizer example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -327,26 +331,30 @@ class Authorizer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         example = aws.iot.Authorizer("example",
-            authorizer_function_arn=aws_lambda_function["example"]["arn"],
+            name="example",
+            authorizer_function_arn=example_aws_lambda_function["arn"],
             signing_disabled=False,
             status="ACTIVE",
             token_key_name="Token-Header",
             token_signing_public_keys={
-                "Key1": (lambda path: open(path).read())("test-fixtures/iot-authorizer-signing-key.pem"),
+                "Key1": std.file(input="test-fixtures/iot-authorizer-signing-key.pem").result,
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IOT Authorizers using the name. For example:
 
         ```sh
-         $ pulumi import aws:iot/authorizer:Authorizer example example
+        $ pulumi import aws:iot/authorizer:Authorizer example example
         ```
 
         :param str resource_name: The name of the resource.

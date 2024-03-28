@@ -5,6 +5,7 @@ package com.pulumi.aws.rds.outputs;
 
 import com.pulumi.aws.rds.outputs.GetInstancesFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -86,6 +87,7 @@ public final class GetInstancesResult {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<GetInstancesFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -94,12 +96,18 @@ public final class GetInstancesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetInstancesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceArns(List<String> instanceArns) {
-            this.instanceArns = Objects.requireNonNull(instanceArns);
+            if (instanceArns == null) {
+              throw new MissingRequiredPropertyException("GetInstancesResult", "instanceArns");
+            }
+            this.instanceArns = instanceArns;
             return this;
         }
         public Builder instanceArns(String... instanceArns) {
@@ -107,7 +115,10 @@ public final class GetInstancesResult {
         }
         @CustomType.Setter
         public Builder instanceIdentifiers(List<String> instanceIdentifiers) {
-            this.instanceIdentifiers = Objects.requireNonNull(instanceIdentifiers);
+            if (instanceIdentifiers == null) {
+              throw new MissingRequiredPropertyException("GetInstancesResult", "instanceIdentifiers");
+            }
+            this.instanceIdentifiers = instanceIdentifiers;
             return this;
         }
         public Builder instanceIdentifiers(String... instanceIdentifiers) {
@@ -115,17 +126,20 @@ public final class GetInstancesResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetInstancesResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetInstancesResult build() {
-            final var o = new GetInstancesResult();
-            o.filters = filters;
-            o.id = id;
-            o.instanceArns = instanceArns;
-            o.instanceIdentifiers = instanceIdentifiers;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetInstancesResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.instanceArns = instanceArns;
+            _resultValue.instanceIdentifiers = instanceIdentifiers;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

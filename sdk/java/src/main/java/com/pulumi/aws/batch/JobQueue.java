@@ -6,6 +6,7 @@ package com.pulumi.aws.batch;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.batch.JobQueueArgs;
 import com.pulumi.aws.batch.inputs.JobQueueState;
+import com.pulumi.aws.batch.outputs.JobQueueComputeEnvironmentOrder;
 import com.pulumi.aws.batch.outputs.JobQueueTimeouts;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -22,7 +23,10 @@ import javax.annotation.Nullable;
  * Provides a Batch Job Queue resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic Job Queue
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -31,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.batch.JobQueue;
  * import com.pulumi.aws.batch.JobQueueArgs;
+ * import com.pulumi.aws.batch.inputs.JobQueueComputeEnvironmentOrderArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,17 +50,28 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testQueue = new JobQueue(&#34;testQueue&#34;, JobQueueArgs.builder()        
+ *             .name(&#34;tf-test-batch-job-queue&#34;)
  *             .state(&#34;ENABLED&#34;)
  *             .priority(1)
- *             .computeEnvironments(            
- *                 aws_batch_compute_environment.test_environment_1().arn(),
- *                 aws_batch_compute_environment.test_environment_2().arn())
+ *             .computeEnvironmentOrders(            
+ *                 JobQueueComputeEnvironmentOrderArgs.builder()
+ *                     .order(1)
+ *                     .computeEnvironment(testEnvironment1.arn())
+ *                     .build(),
+ *                 JobQueueComputeEnvironmentOrderArgs.builder()
+ *                     .order(2)
+ *                     .computeEnvironment(testEnvironment2.arn())
+ *                     .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Job Queue with a fair share scheduling policy
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -67,6 +83,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.batch.inputs.SchedulingPolicyFairSharePolicyArgs;
  * import com.pulumi.aws.batch.JobQueue;
  * import com.pulumi.aws.batch.JobQueueArgs;
+ * import com.pulumi.aws.batch.inputs.JobQueueComputeEnvironmentOrderArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -80,7 +97,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleSchedulingPolicy = new SchedulingPolicy(&#34;exampleSchedulingPolicy&#34;, SchedulingPolicyArgs.builder()        
+ *         var example = new SchedulingPolicy(&#34;example&#34;, SchedulingPolicyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .fairSharePolicy(SchedulingPolicyFairSharePolicyArgs.builder()
  *                 .computeReservation(1)
  *                 .shareDecaySeconds(3600)
@@ -92,24 +110,32 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleJobQueue = new JobQueue(&#34;exampleJobQueue&#34;, JobQueueArgs.builder()        
- *             .schedulingPolicyArn(exampleSchedulingPolicy.arn())
+ *             .name(&#34;tf-test-batch-job-queue&#34;)
+ *             .schedulingPolicyArn(example.arn())
  *             .state(&#34;ENABLED&#34;)
  *             .priority(1)
- *             .computeEnvironments(            
- *                 aws_batch_compute_environment.test_environment_1().arn(),
- *                 aws_batch_compute_environment.test_environment_2().arn())
+ *             .computeEnvironmentOrders(            
+ *                 JobQueueComputeEnvironmentOrderArgs.builder()
+ *                     .order(1)
+ *                     .computeEnvironment(testEnvironment1.arn())
+ *                     .build(),
+ *                 JobQueueComputeEnvironmentOrderArgs.builder()
+ *                     .order(2)
+ *                     .computeEnvironment(testEnvironment2.arn())
+ *                     .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Batch Job Queue using the `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
+ * $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
  * ```
  * 
  */
@@ -130,20 +156,36 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * List of compute environment ARNs mapped to a job queue.
-     * The position of the compute environments in the list will dictate the order.
+     * The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
      * 
      */
-    @Export(name="computeEnvironments", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> computeEnvironments;
+    @Export(name="computeEnvironmentOrders", refs={List.class,JobQueueComputeEnvironmentOrder.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<JobQueueComputeEnvironmentOrder>> computeEnvironmentOrders;
 
     /**
-     * @return List of compute environment ARNs mapped to a job queue.
-     * The position of the compute environments in the list will dictate the order.
+     * @return The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
      * 
      */
-    public Output<List<String>> computeEnvironments() {
-        return this.computeEnvironments;
+    public Output<Optional<List<JobQueueComputeEnvironmentOrder>>> computeEnvironmentOrders() {
+        return Codegen.optional(this.computeEnvironmentOrders);
+    }
+    /**
+     * (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
+     * 
+     * @deprecated
+     * This parameter will be replaced by `compute_environments_order`.
+     * 
+     */
+    @Deprecated /* This parameter will be replaced by `compute_environments_order`. */
+    @Export(name="computeEnvironments", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> computeEnvironments;
+
+    /**
+     * @return (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
+     * 
+     */
+    public Output<Optional<List<String>>> computeEnvironments() {
+        return Codegen.optional(this.computeEnvironments);
     }
     /**
      * Specifies the name of the job queue.
@@ -274,9 +316,6 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

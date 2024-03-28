@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshiftserverless.NewSnapshot(ctx, "example", &redshiftserverless.SnapshotArgs{
-//				NamespaceName: pulumi.Any(aws_redshiftserverless_workgroup.Example.Namespace_name),
+//				NamespaceName: pulumi.Any(exampleAwsRedshiftserverlessWorkgroup.NamespaceName),
 //				SnapshotName:  pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift Serverless Snapshots using the `snapshot_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
-//
+// $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
 // ```
 type Snapshot struct {
 	pulumi.CustomResourceState

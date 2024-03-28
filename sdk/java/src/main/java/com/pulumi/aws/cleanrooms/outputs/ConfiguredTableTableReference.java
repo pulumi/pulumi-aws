@@ -4,6 +4,7 @@
 package com.pulumi.aws.cleanrooms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,19 +41,25 @@ public final class ConfiguredTableTableReference {
 
         @CustomType.Setter
         public Builder databaseName(String databaseName) {
-            this.databaseName = Objects.requireNonNull(databaseName);
+            if (databaseName == null) {
+              throw new MissingRequiredPropertyException("ConfiguredTableTableReference", "databaseName");
+            }
+            this.databaseName = databaseName;
             return this;
         }
         @CustomType.Setter
         public Builder tableName(String tableName) {
-            this.tableName = Objects.requireNonNull(tableName);
+            if (tableName == null) {
+              throw new MissingRequiredPropertyException("ConfiguredTableTableReference", "tableName");
+            }
+            this.tableName = tableName;
             return this;
         }
         public ConfiguredTableTableReference build() {
-            final var o = new ConfiguredTableTableReference();
-            o.databaseName = databaseName;
-            o.tableName = tableName;
-            return o;
+            final var _resultValue = new ConfiguredTableTableReference();
+            _resultValue.databaseName = databaseName;
+            _resultValue.tableName = tableName;
+            return _resultValue;
         }
     }
 }

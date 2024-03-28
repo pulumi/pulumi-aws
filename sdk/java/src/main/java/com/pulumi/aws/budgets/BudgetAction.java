@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides a budget action resource. Budget actions are cost savings controls that run either automatically on your behalf or by using a workflow approval process.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,7 +58,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(&#34;ec2:Describe*&#34;)
@@ -65,8 +67,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .description(&#34;My example policy&#34;)
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         final var current = AwsFunctions.getPartition();
@@ -83,10 +86,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var exampleBudget = new Budget(&#34;exampleBudget&#34;, BudgetArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .budgetType(&#34;USAGE&#34;)
  *             .limitAmount(&#34;10.0&#34;)
  *             .limitUnit(&#34;dollars&#34;)
@@ -119,13 +124,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import budget actions using `AccountID:ActionID:BudgetName`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget
+ * $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget
  * ```
  * 
  */

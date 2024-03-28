@@ -102,20 +102,24 @@ class ConnectionAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_connection = aws.directconnect.Connection("exampleConnection",
+        example = aws.directconnect.Connection("example",
+            name="example",
             bandwidth="1Gbps",
             location="EqSe2-EQ")
-        example_link_aggregation_group = aws.directconnect.LinkAggregationGroup("exampleLinkAggregationGroup",
+        example_link_aggregation_group = aws.directconnect.LinkAggregationGroup("example",
+            name="example",
             connections_bandwidth="1Gbps",
             location="EqSe2-EQ")
-        example_connection_association = aws.directconnect.ConnectionAssociation("exampleConnectionAssociation",
-            connection_id=example_connection.id,
+        example_connection_association = aws.directconnect.ConnectionAssociation("example",
+            connection_id=example.id,
             lag_id=example_link_aggregation_group.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -133,20 +137,24 @@ class ConnectionAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_connection = aws.directconnect.Connection("exampleConnection",
+        example = aws.directconnect.Connection("example",
+            name="example",
             bandwidth="1Gbps",
             location="EqSe2-EQ")
-        example_link_aggregation_group = aws.directconnect.LinkAggregationGroup("exampleLinkAggregationGroup",
+        example_link_aggregation_group = aws.directconnect.LinkAggregationGroup("example",
+            name="example",
             connections_bandwidth="1Gbps",
             location="EqSe2-EQ")
-        example_connection_association = aws.directconnect.ConnectionAssociation("exampleConnectionAssociation",
-            connection_id=example_connection.id,
+        example_connection_association = aws.directconnect.ConnectionAssociation("example",
+            connection_id=example.id,
             lag_id=example_link_aggregation_group.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param ConnectionAssociationArgs args: The arguments to use to populate this resource's properties.

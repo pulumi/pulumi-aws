@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Detective
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,37 +23,31 @@ namespace Pulumi.Aws.Detective
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primaryGraph = new Aws.Detective.Graph("primaryGraph");
+    ///     var primary = new Aws.Detective.Graph("primary");
     /// 
-    ///     var primaryMember = new Aws.Detective.Member("primaryMember", new()
+    ///     var primaryMember = new Aws.Detective.Member("primary", new()
     ///     {
     ///         AccountId = "ACCOUNT ID",
     ///         EmailAddress = "EMAIL",
-    ///         GraphArn = primaryGraph.Id,
+    ///         GraphArn = primary.Id,
     ///         Message = "Message of the invite",
     ///     });
     /// 
     ///     var member = new Aws.Detective.InvitationAccepter("member", new()
     ///     {
-    ///         GraphArn = primaryGraph.GraphArn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = "awsalternate",
-    ///         DependsOn = new[]
-    ///         {
-    ///             primaryMember,
-    ///         },
+    ///         GraphArn = primary.GraphArn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_detective_invitation_accepter` using the graph ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
+    /// $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
     /// ```
     /// </summary>
     [AwsResourceType("aws:detective/invitationAccepter:InvitationAccepter")]

@@ -228,12 +228,17 @@ class Detector(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        my_detector = aws.guardduty.Detector("myDetector",
+        my_detector = aws.guardduty.Detector("MyDetector",
+            enable=True,
             datasources=aws.guardduty.DetectorDatasourcesArgs(
+                s3_logs=aws.guardduty.DetectorDatasourcesS3LogsArgs(
+                    enable=True,
+                ),
                 kubernetes=aws.guardduty.DetectorDatasourcesKubernetesArgs(
                     audit_logs=aws.guardduty.DetectorDatasourcesKubernetesAuditLogsArgs(
                         enable=False,
@@ -246,21 +251,18 @@ class Detector(pulumi.CustomResource):
                         ),
                     ),
                 ),
-                s3_logs=aws.guardduty.DetectorDatasourcesS3LogsArgs(
-                    enable=True,
-                ),
-            ),
-            enable=True)
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GuardDuty detectors using the detector ID. For example:
 
         ```sh
-         $ pulumi import aws:guardduty/detector:Detector MyDetector 00b00fd5aecc0ab60a708659477e9617
+        $ pulumi import aws:guardduty/detector:Detector MyDetector 00b00fd5aecc0ab60a708659477e9617
         ```
-         The ID of the detector can be retrieved via the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/list-detectors.html) using `aws guardduty list-detectors`.
+        The ID of the detector can be retrieved via the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/list-detectors.html) using `aws guardduty list-detectors`.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -282,12 +284,17 @@ class Detector(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        my_detector = aws.guardduty.Detector("myDetector",
+        my_detector = aws.guardduty.Detector("MyDetector",
+            enable=True,
             datasources=aws.guardduty.DetectorDatasourcesArgs(
+                s3_logs=aws.guardduty.DetectorDatasourcesS3LogsArgs(
+                    enable=True,
+                ),
                 kubernetes=aws.guardduty.DetectorDatasourcesKubernetesArgs(
                     audit_logs=aws.guardduty.DetectorDatasourcesKubernetesAuditLogsArgs(
                         enable=False,
@@ -300,21 +307,18 @@ class Detector(pulumi.CustomResource):
                         ),
                     ),
                 ),
-                s3_logs=aws.guardduty.DetectorDatasourcesS3LogsArgs(
-                    enable=True,
-                ),
-            ),
-            enable=True)
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GuardDuty detectors using the detector ID. For example:
 
         ```sh
-         $ pulumi import aws:guardduty/detector:Detector MyDetector 00b00fd5aecc0ab60a708659477e9617
+        $ pulumi import aws:guardduty/detector:Detector MyDetector 00b00fd5aecc0ab60a708659477e9617
         ```
-         The ID of the detector can be retrieved via the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/list-detectors.html) using `aws guardduty list-detectors`.
+        The ID of the detector can be retrieved via the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/list-detectors.html) using `aws guardduty list-detectors`.
 
         :param str resource_name: The name of the resource.
         :param DetectorArgs args: The arguments to use to populate this resource's properties.
@@ -351,8 +355,6 @@ class Detector(pulumi.CustomResource):
             __props__.__dict__["account_id"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Detector, __self__).__init__(
             'aws:guardduty/detector:Detector',
             resource_name,

@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -47,25 +48,34 @@ public final class GetInstanceTypeInferenceAccelerator {
 
         @CustomType.Setter
         public Builder count(Integer count) {
-            this.count = Objects.requireNonNull(count);
+            if (count == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeInferenceAccelerator", "count");
+            }
+            this.count = count;
             return this;
         }
         @CustomType.Setter
         public Builder manufacturer(String manufacturer) {
-            this.manufacturer = Objects.requireNonNull(manufacturer);
+            if (manufacturer == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeInferenceAccelerator", "manufacturer");
+            }
+            this.manufacturer = manufacturer;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeInferenceAccelerator", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetInstanceTypeInferenceAccelerator build() {
-            final var o = new GetInstanceTypeInferenceAccelerator();
-            o.count = count;
-            o.manufacturer = manufacturer;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetInstanceTypeInferenceAccelerator();
+            _resultValue.count = count;
+            _resultValue.manufacturer = manufacturer;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

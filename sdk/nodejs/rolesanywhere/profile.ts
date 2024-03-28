@@ -9,37 +9,43 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testRole = new aws.iam.Role("testRole", {
+ * const test = new aws.iam.Role("test", {
+ *     name: "test",
  *     path: "/",
  *     assumeRolePolicy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: [
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: [
  *                 "sts:AssumeRole",
  *                 "sts:TagSession",
  *                 "sts:SetSourceIdentity",
  *             ],
- *             Principal: {
- *                 Service: "rolesanywhere.amazonaws.com",
+ *             principal: {
+ *                 service: "rolesanywhere.amazonaws.com",
  *             },
- *             Effect: "Allow",
- *             Sid: "",
+ *             effect: "Allow",
+ *             sid: "",
  *         }],
  *     }),
  * });
- * const testProfile = new aws.rolesanywhere.Profile("testProfile", {roleArns: [testRole.arn]});
+ * const testProfile = new aws.rolesanywhere.Profile("test", {
+ *     name: "example",
+ *     roleArns: [test.arn],
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_rolesanywhere_profile` using its `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
+ * $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
  * ```
  */
 export class Profile extends pulumi.CustomResource {
@@ -153,8 +159,6 @@ export class Profile extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Profile.__pulumiType, name, resourceInputs, opts);
     }
 }

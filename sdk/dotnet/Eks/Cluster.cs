@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Eks
     /// Manages an EKS Cluster.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,21 +27,15 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Eks.Cluster("example", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         Name = "example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
     ///         {
     ///             SubnetIds = new[]
     ///             {
-    ///                 aws_subnet.Example1.Id,
-    ///                 aws_subnet.Example2.Id,
+    ///                 example1.Id,
+    ///                 example2.Id,
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_iam_role_policy_attachment.Example_AmazonEKSClusterPolicy,
-    ///             aws_iam_role_policy_attachment.Example_AmazonEKSVPCResourceController,
     ///         },
     ///     });
     /// 
@@ -50,8 +46,11 @@ namespace Pulumi.Aws.Eks
     ///     };
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example IAM Role for EKS Cluster
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -88,6 +87,7 @@ namespace Pulumi.Aws.Eks
     /// 
     ///     var example = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "eks-cluster-example",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
@@ -107,12 +107,15 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Enabling Control Plane Logging
     /// 
     /// [EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) can be enabled via the `enabled_cluster_log_types` argument. To manage the CloudWatch Log Group retention period, the `aws.cloudwatch.LogGroup` resource can be used.
     /// 
     /// &gt; The below configuration uses [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) to prevent ordering issues with EKS automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -123,34 +126,119 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var config = new Config();
     ///     var clusterName = config.Get("clusterName") ?? "example";
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new()
-    ///     {
-    ///         RetentionInDays = 7,
-    ///     });
-    /// 
-    ///     // ... potentially other configuration ...
-    ///     var exampleCluster = new Aws.Eks.Cluster("exampleCluster", new()
+    ///     var example = new Aws.Eks.Cluster("example", new()
     ///     {
     ///         EnabledClusterLogTypes = new[]
     ///         {
     ///             "api",
     ///             "audit",
     ///         },
-    ///     }, new CustomResourceOptions
+    ///         Name = clusterName,
+    ///     });
+    /// 
+    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("example", new()
     ///     {
-    ///         DependsOn = new[]
+    ///         Name = $"/aws/eks/{clusterName}/cluster",
+    ///         RetentionInDays = 7,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Enabling IAM Roles for Service Accounts
+    /// 
+    /// Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// using Tls = Pulumi.Tls;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleCluster = new Aws.Eks.Cluster("example");
+    /// 
+    ///     var example = Tls.GetCertificate.Invoke(new()
+    ///     {
+    ///         Url = exampleCluster.Identities[0].Oidcs[0]?.Issuer,
+    ///     });
+    /// 
+    ///     var exampleOpenIdConnectProvider = new Aws.Iam.OpenIdConnectProvider("example", new()
+    ///     {
+    ///         ClientIdLists = new[]
     ///         {
-    ///             exampleLogGroup,
+    ///             "sts.amazonaws.com",
+    ///         },
+    ///         ThumbprintLists = new[]
+    ///         {
+    ///             example.Apply(getCertificateResult =&gt; getCertificateResult.Certificates[0]?.Sha1Fingerprint),
+    ///         },
+    ///         Url = example.Apply(getCertificateResult =&gt; getCertificateResult.Url),
+    ///     });
+    /// 
+    ///     var exampleAssumeRolePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRoleWithWebIdentity",
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = $"{Std.Replace.Invoke(new()
+    ///                         {
+    ///                             Text = exampleOpenIdConnectProvider.Url,
+    ///                             Search = "https://",
+    ///                             Replace = "",
+    ///                         }).Result}:sub",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "system:serviceaccount:kube-system:aws-node",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             exampleOpenIdConnectProvider.Arn,
+    ///                         },
+    ///                         Type = "Federated",
+    ///                     },
+    ///                 },
+    ///             },
     ///         },
     ///     });
     /// 
-    ///     // ... other configuration ...
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
+    ///     {
+    ///         AssumeRolePolicy = exampleAssumeRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "example",
+    ///     });
+    /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### EKS Cluster on AWS Outpost
     /// 
     /// [Creating a local Amazon EKS cluster on an AWS Outpost](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -159,14 +247,16 @@ namespace Pulumi.Aws.Eks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var example = new Aws.Iam.Role("example", new()
     ///     {
-    ///         AssumeRolePolicy = data.Aws_iam_policy_document.Example_assume_role_policy.Json,
+    ///         AssumeRolePolicy = exampleAssumeRolePolicy.Json,
+    ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleCluster = new Aws.Eks.Cluster("exampleCluster", new()
+    ///     var exampleCluster = new Aws.Eks.Cluster("example", new()
     ///     {
-    ///         RoleArn = exampleRole.Arn,
+    ///         Name = "example-cluster",
+    ///         RoleArn = example.Arn,
     ///         VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
     ///         {
     ///             EndpointPrivateAccess = true,
@@ -177,13 +267,51 @@ namespace Pulumi.Aws.Eks
     ///             ControlPlaneInstanceType = "m5d.large",
     ///             OutpostArns = new[]
     ///             {
-    ///                 data.Aws_outposts_outpost.Example.Arn,
+    ///                 exampleAwsOutpostsOutpost.Arn,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### EKS Cluster with Access Config
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Iam.Role("example", new()
+    ///     {
+    ///         AssumeRolePolicy = exampleAssumeRolePolicy.Json,
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var exampleCluster = new Aws.Eks.Cluster("example", new()
+    ///     {
+    ///         Name = "example-cluster",
+    ///         RoleArn = example.Arn,
+    ///         VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
+    ///         {
+    ///             EndpointPrivateAccess = true,
+    ///             EndpointPublicAccess = false,
+    ///         },
+    ///         AccessConfig = new Aws.Eks.Inputs.ClusterAccessConfigArgs
+    ///         {
+    ///             AuthenticationMode = "CONFIG_MAP",
+    ///             BootstrapClusterCreatorAdminPermissions = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// After adding inline IAM Policies (e.g., `aws.iam.RolePolicy` resource) or attaching IAM Policies (e.g., `aws.iam.Policy` resource and `aws.iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g., `kubernetes_service_account` resource) and recreate any pods.
     /// 
@@ -192,12 +320,18 @@ namespace Pulumi.Aws.Eks
     /// Using `pulumi import`, import EKS Clusters using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:eks/cluster:Cluster my_cluster my_cluster
+    /// $ pulumi import aws:eks/cluster:Cluster my_cluster my_cluster
     /// ```
     /// </summary>
     [AwsResourceType("aws:eks/cluster:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+        /// </summary>
+        [Output("accessConfig")]
+        public Output<Outputs.ClusterAccessConfig> AccessConfig { get; private set; } = null!;
+
         /// <summary>
         /// ARN of the cluster.
         /// </summary>
@@ -260,7 +394,7 @@ namespace Pulumi.Aws.Eks
         public Output<Outputs.ClusterKubernetesNetworkConfig> KubernetesNetworkConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -338,10 +472,6 @@ namespace Pulumi.Aws.Eks
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -365,6 +495,12 @@ namespace Pulumi.Aws.Eks
 
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+        /// </summary>
+        [Input("accessConfig")]
+        public Input<Inputs.ClusterAccessConfigArgs>? AccessConfig { get; set; }
+
         [Input("defaultAddonsToRemoves")]
         private InputList<string>? _defaultAddonsToRemoves;
         public InputList<string> DefaultAddonsToRemoves
@@ -398,7 +534,7 @@ namespace Pulumi.Aws.Eks
         public Input<Inputs.ClusterKubernetesNetworkConfigArgs>? KubernetesNetworkConfig { get; set; }
 
         /// <summary>
-        /// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -449,6 +585,12 @@ namespace Pulumi.Aws.Eks
 
     public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+        /// </summary>
+        [Input("accessConfig")]
+        public Input<Inputs.ClusterAccessConfigGetArgs>? AccessConfig { get; set; }
+
         /// <summary>
         /// ARN of the cluster.
         /// </summary>
@@ -533,7 +675,7 @@ namespace Pulumi.Aws.Eks
         public Input<Inputs.ClusterKubernetesNetworkConfigGetArgs>? KubernetesNetworkConfig { get; set; }
 
         /// <summary>
-        /// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -584,11 +726,7 @@ namespace Pulumi.Aws.Eks
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

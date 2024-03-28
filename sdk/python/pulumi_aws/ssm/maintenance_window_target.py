@@ -238,18 +238,22 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         Provides an SSM Maintenance Window Target resource
 
         ## Example Usage
+
         ### Instance Target
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         window = aws.ssm.MaintenanceWindow("window",
+            name="maintenance-window-webapp",
             schedule="cron(0 16 ? * TUE *)",
             duration=3,
             cutoff=1)
         target1 = aws.ssm.MaintenanceWindowTarget("target1",
             window_id=window.id,
+            name="maintenance-window-target",
             description="This is a maintenance window target",
             resource_type="INSTANCE",
             targets=[aws.ssm.MaintenanceWindowTargetTargetArgs(
@@ -257,18 +261,23 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
                 values=["acceptance_test"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Resource Group Target
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         window = aws.ssm.MaintenanceWindow("window",
+            name="maintenance-window-webapp",
             schedule="cron(0 16 ? * TUE *)",
             duration=3,
             cutoff=1)
         target1 = aws.ssm.MaintenanceWindowTarget("target1",
             window_id=window.id,
+            name="maintenance-window-target",
             description="This is a maintenance window target",
             resource_type="RESOURCE_GROUP",
             targets=[aws.ssm.MaintenanceWindowTargetTargetArgs(
@@ -276,13 +285,14 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
                 values=["AWS::EC2::Instance"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SSM Maintenance Window targets using `WINDOW_ID/WINDOW_TARGET_ID`. For example:
 
         ```sh
-         $ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
+        $ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
         ```
 
         :param str resource_name: The name of the resource.
@@ -305,18 +315,22 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         Provides an SSM Maintenance Window Target resource
 
         ## Example Usage
+
         ### Instance Target
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         window = aws.ssm.MaintenanceWindow("window",
+            name="maintenance-window-webapp",
             schedule="cron(0 16 ? * TUE *)",
             duration=3,
             cutoff=1)
         target1 = aws.ssm.MaintenanceWindowTarget("target1",
             window_id=window.id,
+            name="maintenance-window-target",
             description="This is a maintenance window target",
             resource_type="INSTANCE",
             targets=[aws.ssm.MaintenanceWindowTargetTargetArgs(
@@ -324,18 +338,23 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
                 values=["acceptance_test"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Resource Group Target
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         window = aws.ssm.MaintenanceWindow("window",
+            name="maintenance-window-webapp",
             schedule="cron(0 16 ? * TUE *)",
             duration=3,
             cutoff=1)
         target1 = aws.ssm.MaintenanceWindowTarget("target1",
             window_id=window.id,
+            name="maintenance-window-target",
             description="This is a maintenance window target",
             resource_type="RESOURCE_GROUP",
             targets=[aws.ssm.MaintenanceWindowTargetTargetArgs(
@@ -343,13 +362,14 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
                 values=["AWS::EC2::Instance"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SSM Maintenance Window targets using `WINDOW_ID/WINDOW_TARGET_ID`. For example:
 
         ```sh
-         $ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
+        $ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
         ```
 
         :param str resource_name: The name of the resource.

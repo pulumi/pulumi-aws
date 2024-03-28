@@ -106,11 +106,12 @@ def get_log_data_protection_policy_document(description: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example_log_data_protection_policy_document = aws.cloudwatch.get_log_data_protection_policy_document(name="Example",
+    example = aws.cloudwatch.get_log_data_protection_policy_document(name="Example",
         statements=[
             aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementArgs(
                 sid="Audit",
@@ -122,13 +123,13 @@ def get_log_data_protection_policy_document(description: Optional[str] = None,
                     audit=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs(
                         findings_destination=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs(
                             cloudwatch_logs=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs(
-                                log_group=aws_cloudwatch_log_group["audit"]["name"],
+                                log_group=audit["name"],
                             ),
                             firehose=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs(
-                                delivery_stream=aws_kinesis_firehose_delivery_stream["audit"]["name"],
+                                delivery_stream=audit_aws_kinesis_firehose_delivery_stream["name"],
                             ),
                             s3=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args(
-                                bucket=aws_s3_bucket["audit"]["bucket"],
+                                bucket=audit_aws_s3_bucket["bucket"],
                             ),
                         ),
                     ),
@@ -147,10 +148,11 @@ def get_log_data_protection_policy_document(description: Optional[str] = None,
                 ),
             ),
         ])
-    example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy",
-        log_group_name=aws_cloudwatch_log_group["example"]["name"],
-        policy_document=example_log_data_protection_policy_document.json)
+    example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("example",
+        log_group_name=example_aws_cloudwatch_log_group["name"],
+        policy_document=example.json)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the data protection policy document.
@@ -190,11 +192,12 @@ def get_log_data_protection_policy_document_output(description: Optional[pulumi.
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example_log_data_protection_policy_document = aws.cloudwatch.get_log_data_protection_policy_document(name="Example",
+    example = aws.cloudwatch.get_log_data_protection_policy_document(name="Example",
         statements=[
             aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementArgs(
                 sid="Audit",
@@ -206,13 +209,13 @@ def get_log_data_protection_policy_document_output(description: Optional[pulumi.
                     audit=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs(
                         findings_destination=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs(
                             cloudwatch_logs=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs(
-                                log_group=aws_cloudwatch_log_group["audit"]["name"],
+                                log_group=audit["name"],
                             ),
                             firehose=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs(
-                                delivery_stream=aws_kinesis_firehose_delivery_stream["audit"]["name"],
+                                delivery_stream=audit_aws_kinesis_firehose_delivery_stream["name"],
                             ),
                             s3=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args(
-                                bucket=aws_s3_bucket["audit"]["bucket"],
+                                bucket=audit_aws_s3_bucket["bucket"],
                             ),
                         ),
                     ),
@@ -231,10 +234,11 @@ def get_log_data_protection_policy_document_output(description: Optional[pulumi.
                 ),
             ),
         ])
-    example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy",
-        log_group_name=aws_cloudwatch_log_group["example"]["name"],
-        policy_document=example_log_data_protection_policy_document.json)
+    example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("example",
+        log_group_name=example_aws_cloudwatch_log_group["name"],
+        policy_document=example.json)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the data protection policy document.

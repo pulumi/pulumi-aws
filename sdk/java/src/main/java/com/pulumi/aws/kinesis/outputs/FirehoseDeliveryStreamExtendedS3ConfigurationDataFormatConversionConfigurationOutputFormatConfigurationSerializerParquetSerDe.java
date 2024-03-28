@@ -116,43 +116,49 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
 
         @CustomType.Setter
         public Builder blockSizeBytes(@Nullable Integer blockSizeBytes) {
+
             this.blockSizeBytes = blockSizeBytes;
             return this;
         }
         @CustomType.Setter
         public Builder compression(@Nullable String compression) {
+
             this.compression = compression;
             return this;
         }
         @CustomType.Setter
         public Builder enableDictionaryCompression(@Nullable Boolean enableDictionaryCompression) {
+
             this.enableDictionaryCompression = enableDictionaryCompression;
             return this;
         }
         @CustomType.Setter
         public Builder maxPaddingBytes(@Nullable Integer maxPaddingBytes) {
+
             this.maxPaddingBytes = maxPaddingBytes;
             return this;
         }
         @CustomType.Setter
         public Builder pageSizeBytes(@Nullable Integer pageSizeBytes) {
+
             this.pageSizeBytes = pageSizeBytes;
             return this;
         }
         @CustomType.Setter
         public Builder writerVersion(@Nullable String writerVersion) {
+
             this.writerVersion = writerVersion;
             return this;
         }
         public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe build() {
-            final var o = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe();
-            o.blockSizeBytes = blockSizeBytes;
-            o.compression = compression;
-            o.enableDictionaryCompression = enableDictionaryCompression;
-            o.maxPaddingBytes = maxPaddingBytes;
-            o.pageSizeBytes = pageSizeBytes;
-            o.writerVersion = writerVersion;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe();
+            _resultValue.blockSizeBytes = blockSizeBytes;
+            _resultValue.compression = compression;
+            _resultValue.enableDictionaryCompression = enableDictionaryCompression;
+            _resultValue.maxPaddingBytes = maxPaddingBytes;
+            _resultValue.pageSizeBytes = pageSizeBytes;
+            _resultValue.writerVersion = writerVersion;
+            return _resultValue;
         }
     }
 }

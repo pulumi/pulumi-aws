@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,10 +20,11 @@ import * as utilities from "../utilities";
  * const example = aws.vpc.getSecurityGroupRules({
  *     filters: [{
  *         name: "group-id",
- *         values: [_var.security_group_id],
+ *         values: [securityGroupId],
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSecurityGroupRules(args?: GetSecurityGroupRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupRulesResult> {
     args = args || {};
@@ -69,6 +71,7 @@ export interface GetSecurityGroupRulesResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -76,10 +79,11 @@ export interface GetSecurityGroupRulesResult {
  * const example = aws.vpc.getSecurityGroupRules({
  *     filters: [{
  *         name: "group-id",
- *         values: [_var.security_group_id],
+ *         values: [securityGroupId],
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSecurityGroupRulesOutput(args?: GetSecurityGroupRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupRulesResult> {
     return pulumi.output(args).apply((a: any) => getSecurityGroupRules(a, opts))

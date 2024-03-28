@@ -18,6 +18,7 @@ import (
 //
 // This example blocks requests coming from `192.0.7.0/24` and allows everything else.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			ipset, err := waf.NewIpSet(ctx, "ipset", &waf.IpSetArgs{
+//				Name: pulumi.String("tfIPSet"),
 //				IpSetDescriptors: waf.IpSetIpSetDescriptorArray{
 //					&waf.IpSetIpSetDescriptorArgs{
 //						Type:  pulumi.String("IPV4"),
@@ -42,6 +44,7 @@ import (
 //				return err
 //			}
 //			wafrule, err := waf.NewRule(ctx, "wafrule", &waf.RuleArgs{
+//				Name:       pulumi.String("tfWAFRule"),
 //				MetricName: pulumi.String("tfWAFRule"),
 //				Predicates: waf.RulePredicateArray{
 //					&waf.RulePredicateArgs{
@@ -50,13 +53,12 @@ import (
 //						Type:    pulumi.String("IPMatch"),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				ipset,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = waf.NewWebAcl(ctx, "wafAcl", &waf.WebAclArgs{
+//			_, err = waf.NewWebAcl(ctx, "waf_acl", &waf.WebAclArgs{
+//				Name:       pulumi.String("tfWebACL"),
 //				MetricName: pulumi.String("tfWebACL"),
 //				DefaultAction: &waf.WebAclDefaultActionArgs{
 //					Type: pulumi.String("ALLOW"),
@@ -71,10 +73,7 @@ import (
 //						Type:     pulumi.String("REGULAR"),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				ipset,
-//				wafrule,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -83,10 +82,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Logging
 //
 // > *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-` and be located in `us-east-1` region. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -101,7 +103,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := waf.NewWebAcl(ctx, "example", &waf.WebAclArgs{
 //				LoggingConfiguration: &waf.WebAclLoggingConfigurationArgs{
-//					LogDestination: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
+//					LogDestination: pulumi.Any(exampleAwsKinesisFirehoseDeliveryStream.Arn),
 //					RedactedFields: &waf.WebAclLoggingConfigurationRedactedFieldsArgs{
 //						FieldToMatches: waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArray{
 //							&waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{
@@ -123,15 +125,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import WAF Web ACL using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
-//
+// $ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
 // ```
 type WebAcl struct {
 	pulumi.CustomResourceState
@@ -169,10 +170,6 @@ func NewWebAcl(ctx *pulumi.Context,
 	if args.MetricName == nil {
 		return nil, errors.New("invalid value for required argument 'MetricName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WebAcl
 	err := ctx.RegisterResource("aws:waf/webAcl:WebAcl", name, args, &resource, opts...)

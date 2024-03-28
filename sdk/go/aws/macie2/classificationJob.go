@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,12 +29,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testAccount, err := macie2.NewAccount(ctx, "testAccount", nil)
+//			_, err := macie2.NewAccount(ctx, "test", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = macie2.NewClassificationJob(ctx, "testClassificationJob", &macie2.ClassificationJobArgs{
+//			_, err = macie2.NewClassificationJob(ctx, "test", &macie2.ClassificationJobArgs{
 //				JobType: pulumi.String("ONE_TIME"),
+//				Name:    pulumi.String("NAME OF THE CLASSIFICATION JOB"),
 //				S3JobDefinition: &macie2.ClassificationJobS3JobDefinitionArgs{
 //					BucketDefinitions: macie2.ClassificationJobS3JobDefinitionBucketDefinitionArray{
 //						&macie2.ClassificationJobS3JobDefinitionBucketDefinitionArgs{
@@ -44,9 +46,7 @@ import (
 //						},
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				testAccount,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -55,15 +55,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_macie2_classification_job` using the id. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
-//
+// $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
 // ```
 type ClassificationJob struct {
 	pulumi.CustomResourceState
@@ -113,10 +112,6 @@ func NewClassificationJob(ctx *pulumi.Context,
 	if args.S3JobDefinition == nil {
 		return nil, errors.New("invalid value for required argument 'S3JobDefinition'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClassificationJob
 	err := ctx.RegisterResource("aws:macie2/classificationJob:ClassificationJob", name, args, &resource, opts...)

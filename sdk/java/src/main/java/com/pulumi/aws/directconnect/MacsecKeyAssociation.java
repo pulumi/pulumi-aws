@@ -23,7 +23,10 @@ import javax.annotation.Nullable;
  * **Note:** The `secret_arn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `aws.directconnect.MacsecKeyAssociation` resource.
  * 
  * ## Example Usage
+ * 
  * ### Create MACSec key with CKN and CAK
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -60,7 +63,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Create MACSec key with existing Secrets Manager secret
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -86,22 +93,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleConnection = DirectconnectFunctions.getConnection(GetConnectionArgs.builder()
+ *         final var example = DirectconnectFunctions.getConnection(GetConnectionArgs.builder()
  *             .name(&#34;tf-dx-connection&#34;)
  *             .build());
  * 
- *         final var exampleSecret = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
+ *         final var exampleGetSecret = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
  *             .name(&#34;directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef&#34;)
  *             .build());
  * 
  *         var test = new MacsecKeyAssociation(&#34;test&#34;, MacsecKeyAssociationArgs.builder()        
- *             .connectionId(exampleConnection.applyValue(getConnectionResult -&gt; getConnectionResult.id()))
- *             .secretArn(exampleSecret.applyValue(getSecretResult -&gt; getSecretResult.arn()))
+ *             .connectionId(example.applyValue(getConnectionResult -&gt; getConnectionResult.id()))
+ *             .secretArn(exampleGetSecret.applyValue(getSecretResult -&gt; getSecretResult.arn()))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:directconnect/macsecKeyAssociation:MacsecKeyAssociation")

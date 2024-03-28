@@ -9,14 +9,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.dms.getReplicationInstance({
- *     replicationInstanceId: aws_dms_replication_instance.test.replication_instance_id,
+ *     replicationInstanceId: testAwsDmsReplicationInstance.replicationInstanceId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getReplicationInstance(args: GetReplicationInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationInstanceResult> {
 
@@ -114,14 +116,16 @@ export interface GetReplicationInstanceResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.dms.getReplicationInstance({
- *     replicationInstanceId: aws_dms_replication_instance.test.replication_instance_id,
+ *     replicationInstanceId: testAwsDmsReplicationInstance.replicationInstanceId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getReplicationInstanceOutput(args: GetReplicationInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationInstanceResult> {
     return pulumi.output(args).apply((a: any) => getReplicationInstance(a, opts))

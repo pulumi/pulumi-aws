@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,6 +25,7 @@ namespace Pulumi.Aws.Iot
     /// {
     ///     var example = new Aws.Iot.BillingGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Properties = new Aws.Iot.Inputs.BillingGroupPropertiesArgs
     ///         {
     ///             Description = "This is my billing group",
@@ -36,13 +38,14 @@ namespace Pulumi.Aws.Iot
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IoT Billing Groups using the name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iot/billingGroup:BillingGroup example example
+    /// $ pulumi import aws:iot/billingGroup:BillingGroup example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/billingGroup:BillingGroup")]
@@ -107,10 +110,6 @@ namespace Pulumi.Aws.Iot
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -210,11 +209,7 @@ namespace Pulumi.Aws.Iot
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

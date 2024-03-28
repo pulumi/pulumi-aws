@@ -15,8 +15,10 @@ import (
 // Provides a SageMaker Image Version resource.
 //
 // ## Example Usage
+//
 // ### Basic usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewImageVersion(ctx, "test", &sagemaker.ImageVersionArgs{
-//				ImageName: pulumi.Any(aws_sagemaker_image.Test.Id),
+//				ImageName: pulumi.Any(testAwsSagemakerImage.Id),
 //				BaseImage: pulumi.String("012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest"),
 //			})
 //			if err != nil {
@@ -41,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SageMaker Image Versions using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
-//
+// $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
 // ```
 type ImageVersion struct {
 	pulumi.CustomResourceState

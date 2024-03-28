@@ -63,19 +63,21 @@ public final class GetUserAlternateIdentifier {
 
         @CustomType.Setter
         public Builder externalId(@Nullable GetUserAlternateIdentifierExternalId externalId) {
+
             this.externalId = externalId;
             return this;
         }
         @CustomType.Setter
         public Builder uniqueAttribute(@Nullable GetUserAlternateIdentifierUniqueAttribute uniqueAttribute) {
+
             this.uniqueAttribute = uniqueAttribute;
             return this;
         }
         public GetUserAlternateIdentifier build() {
-            final var o = new GetUserAlternateIdentifier();
-            o.externalId = externalId;
-            o.uniqueAttribute = uniqueAttribute;
-            return o;
+            final var _resultValue = new GetUserAlternateIdentifier();
+            _resultValue.externalId = externalId;
+            _resultValue.uniqueAttribute = uniqueAttribute;
+            return _resultValue;
         }
     }
 }

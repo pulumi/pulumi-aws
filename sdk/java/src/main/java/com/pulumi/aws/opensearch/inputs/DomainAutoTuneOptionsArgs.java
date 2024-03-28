@@ -6,6 +6,8 @@ package com.pulumi.aws.opensearch.inputs;
 import com.pulumi.aws.opensearch.inputs.DomainAutoTuneOptionsMaintenanceScheduleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -35,12 +37,16 @@ public final class DomainAutoTuneOptionsArgs extends com.pulumi.resources.Resour
     /**
      * Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
      * 
+     * **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenance_schedule` configuration blocks cannot be specified when `use_off_peak_window` is set to `true`.
+     * 
      */
     @Import(name="maintenanceSchedules")
     private @Nullable Output<List<DomainAutoTuneOptionsMaintenanceScheduleArgs>> maintenanceSchedules;
 
     /**
      * @return Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+     * 
+     * **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenance_schedule` configuration blocks cannot be specified when `use_off_peak_window` is set to `true`.
      * 
      */
     public Optional<Output<List<DomainAutoTuneOptionsMaintenanceScheduleArgs>>> maintenanceSchedules() {
@@ -62,12 +68,28 @@ public final class DomainAutoTuneOptionsArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.rollbackOnDisable);
     }
 
+    /**
+     * Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain&#39;s configured daily off-peak window. Defaults to `false`.
+     * 
+     */
+    @Import(name="useOffPeakWindow")
+    private @Nullable Output<Boolean> useOffPeakWindow;
+
+    /**
+     * @return Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain&#39;s configured daily off-peak window. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> useOffPeakWindow() {
+        return Optional.ofNullable(this.useOffPeakWindow);
+    }
+
     private DomainAutoTuneOptionsArgs() {}
 
     private DomainAutoTuneOptionsArgs(DomainAutoTuneOptionsArgs $) {
         this.desiredState = $.desiredState;
         this.maintenanceSchedules = $.maintenanceSchedules;
         this.rollbackOnDisable = $.rollbackOnDisable;
+        this.useOffPeakWindow = $.useOffPeakWindow;
     }
 
     public static Builder builder() {
@@ -112,6 +134,8 @@ public final class DomainAutoTuneOptionsArgs extends com.pulumi.resources.Resour
         /**
          * @param maintenanceSchedules Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
          * 
+         * **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenance_schedule` configuration blocks cannot be specified when `use_off_peak_window` is set to `true`.
+         * 
          * @return builder
          * 
          */
@@ -123,6 +147,8 @@ public final class DomainAutoTuneOptionsArgs extends com.pulumi.resources.Resour
         /**
          * @param maintenanceSchedules Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
          * 
+         * **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenance_schedule` configuration blocks cannot be specified when `use_off_peak_window` is set to `true`.
+         * 
          * @return builder
          * 
          */
@@ -132,6 +158,8 @@ public final class DomainAutoTuneOptionsArgs extends com.pulumi.resources.Resour
 
         /**
          * @param maintenanceSchedules Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+         * 
+         * **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenance_schedule` configuration blocks cannot be specified when `use_off_peak_window` is set to `true`.
          * 
          * @return builder
          * 
@@ -161,8 +189,31 @@ public final class DomainAutoTuneOptionsArgs extends com.pulumi.resources.Resour
             return rollbackOnDisable(Output.of(rollbackOnDisable));
         }
 
+        /**
+         * @param useOffPeakWindow Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain&#39;s configured daily off-peak window. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useOffPeakWindow(@Nullable Output<Boolean> useOffPeakWindow) {
+            $.useOffPeakWindow = useOffPeakWindow;
+            return this;
+        }
+
+        /**
+         * @param useOffPeakWindow Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain&#39;s configured daily off-peak window. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useOffPeakWindow(Boolean useOffPeakWindow) {
+            return useOffPeakWindow(Output.of(useOffPeakWindow));
+        }
+
         public DomainAutoTuneOptionsArgs build() {
-            $.desiredState = Objects.requireNonNull($.desiredState, "expected parameter 'desiredState' to be non-null");
+            if ($.desiredState == null) {
+                throw new MissingRequiredPropertyException("DomainAutoTuneOptionsArgs", "desiredState");
+            }
             return $;
         }
     }

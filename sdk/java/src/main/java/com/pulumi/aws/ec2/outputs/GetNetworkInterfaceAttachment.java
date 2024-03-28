@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -53,31 +54,43 @@ public final class GetNetworkInterfaceAttachment {
 
         @CustomType.Setter
         public Builder attachmentId(String attachmentId) {
-            this.attachmentId = Objects.requireNonNull(attachmentId);
+            if (attachmentId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceAttachment", "attachmentId");
+            }
+            this.attachmentId = attachmentId;
             return this;
         }
         @CustomType.Setter
         public Builder deviceIndex(Integer deviceIndex) {
-            this.deviceIndex = Objects.requireNonNull(deviceIndex);
+            if (deviceIndex == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceAttachment", "deviceIndex");
+            }
+            this.deviceIndex = deviceIndex;
             return this;
         }
         @CustomType.Setter
         public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceAttachment", "instanceId");
+            }
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
         public Builder instanceOwnerId(String instanceOwnerId) {
-            this.instanceOwnerId = Objects.requireNonNull(instanceOwnerId);
+            if (instanceOwnerId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceAttachment", "instanceOwnerId");
+            }
+            this.instanceOwnerId = instanceOwnerId;
             return this;
         }
         public GetNetworkInterfaceAttachment build() {
-            final var o = new GetNetworkInterfaceAttachment();
-            o.attachmentId = attachmentId;
-            o.deviceIndex = deviceIndex;
-            o.instanceId = instanceId;
-            o.instanceOwnerId = instanceOwnerId;
-            return o;
+            final var _resultValue = new GetNetworkInterfaceAttachment();
+            _resultValue.attachmentId = attachmentId;
+            _resultValue.deviceIndex = deviceIndex;
+            _resultValue.instanceId = instanceId;
+            _resultValue.instanceOwnerId = instanceOwnerId;
+            return _resultValue;
         }
     }
 }

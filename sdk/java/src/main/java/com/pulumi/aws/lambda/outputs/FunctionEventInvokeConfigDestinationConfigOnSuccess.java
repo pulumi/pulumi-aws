@@ -4,6 +4,7 @@
 package com.pulumi.aws.lambda.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class FunctionEventInvokeConfigDestinationConfigOnSuccess {
 
         @CustomType.Setter
         public Builder destination(String destination) {
-            this.destination = Objects.requireNonNull(destination);
+            if (destination == null) {
+              throw new MissingRequiredPropertyException("FunctionEventInvokeConfigDestinationConfigOnSuccess", "destination");
+            }
+            this.destination = destination;
             return this;
         }
         public FunctionEventInvokeConfigDestinationConfigOnSuccess build() {
-            final var o = new FunctionEventInvokeConfigDestinationConfigOnSuccess();
-            o.destination = destination;
-            return o;
+            final var _resultValue = new FunctionEventInvokeConfigDestinationConfigOnSuccess();
+            _resultValue.destination = destination;
+            return _resultValue;
         }
     }
 }

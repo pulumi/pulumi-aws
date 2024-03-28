@@ -11,18 +11,21 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const dnsResolver = new aws.ec2.VpcDhcpOptions("dnsResolver", {domainNameServers: [
+ * const dnsResolver = new aws.ec2.VpcDhcpOptions("dns_resolver", {domainNameServers: [
  *     "8.8.8.8",
  *     "8.8.4.4",
  * ]});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Full usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,14 +36,16 @@ import * as utilities from "../utilities";
  *         "127.0.0.1",
  *         "10.0.0.2",
  *     ],
+ *     ntpServers: ["127.0.0.1"],
  *     netbiosNameServers: ["127.0.0.1"],
  *     netbiosNodeType: "2",
- *     ntpServers: ["127.0.0.1"],
  *     tags: {
  *         Name: "foo-name",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Remarks
  *
  * * Notice that all arguments are optional but you have to specify at least one argument.
@@ -54,7 +59,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import VPC DHCP Options using the DHCP Options `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/vpcDhcpOptions:VpcDhcpOptions my_options dopt-d9070ebb
+ * $ pulumi import aws:ec2/vpcDhcpOptions:VpcDhcpOptions my_options dopt-d9070ebb
  * ```
  */
 export class VpcDhcpOptions extends pulumi.CustomResource {
@@ -159,8 +164,6 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VpcDhcpOptions.__pulumiType, name, resourceInputs, opts);
     }
 }

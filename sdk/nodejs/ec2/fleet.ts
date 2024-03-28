@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,8 +20,8 @@ import * as utilities from "../utilities";
  * const example = new aws.ec2.Fleet("example", {
  *     launchTemplateConfigs: [{
  *         launchTemplateSpecification: {
- *             launchTemplateId: aws_launch_template.example.id,
- *             version: aws_launch_template.example.latest_version,
+ *             launchTemplateId: exampleAwsLaunchTemplate.id,
+ *             version: exampleAwsLaunchTemplate.latestVersion,
  *         },
  *     }],
  *     targetCapacitySpecification: {
@@ -29,13 +30,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ec2_fleet` using the Fleet identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
+ * $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
  * ```
  */
 export class Fleet extends pulumi.CustomResource {
@@ -206,8 +208,6 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Fleet.__pulumiType, name, resourceInputs, opts);
     }
 }

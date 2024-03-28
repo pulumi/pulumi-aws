@@ -13,8 +13,10 @@ namespace Pulumi.Aws.FinSpace
     /// Resource for managing an AWS FinSpace Kx Environment.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,21 +25,25 @@ namespace Pulumi.Aws.FinSpace
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var example = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "Sample KMS Key",
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var exampleKxEnvironment = new Aws.FinSpace.KxEnvironment("exampleKxEnvironment", new()
+    ///     var exampleKxEnvironment = new Aws.FinSpace.KxEnvironment("example", new()
     ///     {
-    ///         KmsKeyId = exampleKey.Arn,
+    ///         Name = "my-tf-kx-environment",
+    ///         KmsKeyId = example.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Transit Gateway Configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,21 +52,22 @@ namespace Pulumi.Aws.FinSpace
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var example = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "Sample KMS Key",
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new()
+    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("example", new()
     ///     {
     ///         Description = "example",
     ///     });
     /// 
-    ///     var exampleEnv = new Aws.FinSpace.KxEnvironment("exampleEnv", new()
+    ///     var exampleEnv = new Aws.FinSpace.KxEnvironment("example_env", new()
     ///     {
+    ///         Name = "my-tf-kx-environment",
     ///         Description = "Environment description",
-    ///         KmsKeyId = exampleKey.Arn,
+    ///         KmsKeyId = example.Arn,
     ///         TransitGatewayConfiguration = new Aws.FinSpace.Inputs.KxEnvironmentTransitGatewayConfigurationArgs
     ///         {
     ///             TransitGatewayId = exampleTransitGateway.Id,
@@ -78,8 +85,11 @@ namespace Pulumi.Aws.FinSpace
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Transit Gateway Attachment Network ACL Configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -88,21 +98,22 @@ namespace Pulumi.Aws.FinSpace
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var example = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "Sample KMS Key",
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new()
+    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("example", new()
     ///     {
     ///         Description = "example",
     ///     });
     /// 
-    ///     var exampleEnv = new Aws.FinSpace.KxEnvironment("exampleEnv", new()
+    ///     var exampleEnv = new Aws.FinSpace.KxEnvironment("example_env", new()
     ///     {
+    ///         Name = "my-tf-kx-environment",
     ///         Description = "Environment description",
-    ///         KmsKeyId = exampleKey.Arn,
+    ///         KmsKeyId = example.Arn,
     ///         TransitGatewayConfiguration = new Aws.FinSpace.Inputs.KxEnvironmentTransitGatewayConfigurationArgs
     ///         {
     ///             TransitGatewayId = exampleTransitGateway.Id,
@@ -140,13 +151,14 @@ namespace Pulumi.Aws.FinSpace
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import an AWS FinSpace Kx Environment using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:finspace/kxEnvironment:KxEnvironment example n3ceo7wqxoxcti5tujqwzs
+    /// $ pulumi import aws:finspace/kxEnvironment:KxEnvironment example n3ceo7wqxoxcti5tujqwzs
     /// ```
     /// </summary>
     [AwsResourceType("aws:finspace/kxEnvironment:KxEnvironment")]
@@ -255,10 +267,6 @@ namespace Pulumi.Aws.FinSpace
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -436,11 +444,7 @@ namespace Pulumi.Aws.FinSpace
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

@@ -14,12 +14,11 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// Use this data source to retrieve information for an Amazon CloudFront origin access identity.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following example below creates a CloudFront origin access identity.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -30,13 +29,12 @@ namespace Pulumi.Aws.CloudFront
         /// {
         ///     var example = Aws.CloudFront.GetOriginAccessIdentity.Invoke(new()
         ///     {
-        ///         Id = "EDFDVBD632BHDS5",
+        ///         Id = "E1ZAKK699EOLAL",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetOriginAccessIdentityResult> InvokeAsync(GetOriginAccessIdentityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOriginAccessIdentityResult>("aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity", args ?? new GetOriginAccessIdentityArgs(), options.WithDefaults());
@@ -44,12 +42,11 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// Use this data source to retrieve information for an Amazon CloudFront origin access identity.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following example below creates a CloudFront origin access identity.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,13 +57,12 @@ namespace Pulumi.Aws.CloudFront
         /// {
         ///     var example = Aws.CloudFront.GetOriginAccessIdentity.Invoke(new()
         ///     {
-        ///         Id = "EDFDVBD632BHDS5",
+        ///         Id = "E1ZAKK699EOLAL",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetOriginAccessIdentityResult> Invoke(GetOriginAccessIdentityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOriginAccessIdentityResult>("aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity", args ?? new GetOriginAccessIdentityInvokeArgs(), options.WithDefaults());
@@ -76,7 +72,7 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetOriginAccessIdentityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+        /// The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -90,7 +86,7 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetOriginAccessIdentityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+        /// The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

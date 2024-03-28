@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,20 +47,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new EventConnection(&#34;test&#34;, EventConnectionArgs.builder()        
+ *             .name(&#34;ngrok-connection&#34;)
+ *             .description(&#34;A connection description&#34;)
+ *             .authorizationType(&#34;API_KEY&#34;)
  *             .authParameters(EventConnectionAuthParametersArgs.builder()
  *                 .apiKey(EventConnectionAuthParametersApiKeyArgs.builder()
  *                     .key(&#34;x-signature&#34;)
  *                     .value(&#34;1234&#34;)
  *                     .build())
  *                 .build())
- *             .authorizationType(&#34;API_KEY&#34;)
- *             .description(&#34;A connection description&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Basic Authorization
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -83,21 +90,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new EventConnection(&#34;test&#34;, EventConnectionArgs.builder()        
+ *             .name(&#34;ngrok-connection&#34;)
+ *             .description(&#34;A connection description&#34;)
+ *             .authorizationType(&#34;BASIC&#34;)
  *             .authParameters(EventConnectionAuthParametersArgs.builder()
  *                 .basic(EventConnectionAuthParametersBasicArgs.builder()
- *                     .password(&#34;Pass1234!&#34;)
  *                     .username(&#34;user&#34;)
+ *                     .password(&#34;Pass1234!&#34;)
  *                     .build())
  *                 .build())
- *             .authorizationType(&#34;BASIC&#34;)
- *             .description(&#34;A connection description&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### OAuth Authorization
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -124,30 +135,46 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new EventConnection(&#34;test&#34;, EventConnectionArgs.builder()        
+ *             .name(&#34;ngrok-connection&#34;)
+ *             .description(&#34;A connection description&#34;)
+ *             .authorizationType(&#34;OAUTH_CLIENT_CREDENTIALS&#34;)
  *             .authParameters(EventConnectionAuthParametersArgs.builder()
  *                 .oauth(EventConnectionAuthParametersOauthArgs.builder()
  *                     .authorizationEndpoint(&#34;https://auth.url.com/endpoint&#34;)
+ *                     .httpMethod(&#34;GET&#34;)
  *                     .clientParameters(EventConnectionAuthParametersOauthClientParametersArgs.builder()
  *                         .clientId(&#34;1234567890&#34;)
  *                         .clientSecret(&#34;Pass1234!&#34;)
  *                         .build())
- *                     .httpMethod(&#34;GET&#34;)
  *                     .oauthHttpParameters(EventConnectionAuthParametersOauthOauthHttpParametersArgs.builder()
- *                         .body(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                         .header(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                         .queryString(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                         .bodies(EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs.builder()
+ *                             .key(&#34;body-parameter-key&#34;)
+ *                             .value(&#34;body-parameter-value&#34;)
+ *                             .isValueSecret(false)
+ *                             .build())
+ *                         .headers(EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs.builder()
+ *                             .key(&#34;header-parameter-key&#34;)
+ *                             .value(&#34;header-parameter-value&#34;)
+ *                             .isValueSecret(false)
+ *                             .build())
+ *                         .queryStrings(EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs.builder()
+ *                             .key(&#34;query-string-parameter-key&#34;)
+ *                             .value(&#34;query-string-parameter-value&#34;)
+ *                             .isValueSecret(false)
+ *                             .build())
  *                         .build())
  *                     .build())
  *                 .build())
- *             .authorizationType(&#34;OAUTH_CLIENT_CREDENTIALS&#34;)
- *             .description(&#34;A connection description&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Invocation Http Parameters
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -173,33 +200,51 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new EventConnection(&#34;test&#34;, EventConnectionArgs.builder()        
+ *             .name(&#34;ngrok-connection&#34;)
+ *             .description(&#34;A connection description&#34;)
+ *             .authorizationType(&#34;BASIC&#34;)
  *             .authParameters(EventConnectionAuthParametersArgs.builder()
  *                 .basic(EventConnectionAuthParametersBasicArgs.builder()
- *                     .password(&#34;Pass1234!&#34;)
  *                     .username(&#34;user&#34;)
+ *                     .password(&#34;Pass1234!&#34;)
  *                     .build())
  *                 .invocationHttpParameters(EventConnectionAuthParametersInvocationHttpParametersArgs.builder()
- *                     .body(                    
- *                         %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
- *                         %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                     .header(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                     .queryString(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                     .bodies(                    
+ *                         EventConnectionAuthParametersInvocationHttpParametersBodyArgs.builder()
+ *                             .key(&#34;body-parameter-key&#34;)
+ *                             .value(&#34;body-parameter-value&#34;)
+ *                             .isValueSecret(false)
+ *                             .build(),
+ *                         EventConnectionAuthParametersInvocationHttpParametersBodyArgs.builder()
+ *                             .key(&#34;body-parameter-key2&#34;)
+ *                             .value(&#34;body-parameter-value2&#34;)
+ *                             .isValueSecret(true)
+ *                             .build())
+ *                     .headers(EventConnectionAuthParametersInvocationHttpParametersHeaderArgs.builder()
+ *                         .key(&#34;header-parameter-key&#34;)
+ *                         .value(&#34;header-parameter-value&#34;)
+ *                         .isValueSecret(false)
+ *                         .build())
+ *                     .queryStrings(EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs.builder()
+ *                         .key(&#34;query-string-parameter-key&#34;)
+ *                         .value(&#34;query-string-parameter-value&#34;)
+ *                         .isValueSecret(false)
+ *                         .build())
  *                     .build())
  *                 .build())
- *             .authorizationType(&#34;BASIC&#34;)
- *             .description(&#34;A connection description&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import EventBridge EventBridge connection using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
+ * $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
  * ```
  * 
  */

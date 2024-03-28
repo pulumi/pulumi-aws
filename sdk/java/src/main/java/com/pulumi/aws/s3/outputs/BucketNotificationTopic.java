@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -101,7 +102,10 @@ public final class BucketNotificationTopic {
 
         @CustomType.Setter
         public Builder events(List<String> events) {
-            this.events = Objects.requireNonNull(events);
+            if (events == null) {
+              throw new MissingRequiredPropertyException("BucketNotificationTopic", "events");
+            }
+            this.events = events;
             return this;
         }
         public Builder events(String... events) {
@@ -109,32 +113,38 @@ public final class BucketNotificationTopic {
         }
         @CustomType.Setter
         public Builder filterPrefix(@Nullable String filterPrefix) {
+
             this.filterPrefix = filterPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder filterSuffix(@Nullable String filterSuffix) {
+
             this.filterSuffix = filterSuffix;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder topicArn(String topicArn) {
-            this.topicArn = Objects.requireNonNull(topicArn);
+            if (topicArn == null) {
+              throw new MissingRequiredPropertyException("BucketNotificationTopic", "topicArn");
+            }
+            this.topicArn = topicArn;
             return this;
         }
         public BucketNotificationTopic build() {
-            final var o = new BucketNotificationTopic();
-            o.events = events;
-            o.filterPrefix = filterPrefix;
-            o.filterSuffix = filterSuffix;
-            o.id = id;
-            o.topicArn = topicArn;
-            return o;
+            final var _resultValue = new BucketNotificationTopic();
+            _resultValue.events = events;
+            _resultValue.filterPrefix = filterPrefix;
+            _resultValue.filterSuffix = filterSuffix;
+            _resultValue.id = id;
+            _resultValue.topicArn = topicArn;
+            return _resultValue;
         }
     }
 }

@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.aws.s3.outputs.InventoryDestinationBucketEncryption;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -101,37 +102,46 @@ public final class InventoryDestinationBucket {
 
         @CustomType.Setter
         public Builder accountId(@Nullable String accountId) {
+
             this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder bucketArn(String bucketArn) {
-            this.bucketArn = Objects.requireNonNull(bucketArn);
+            if (bucketArn == null) {
+              throw new MissingRequiredPropertyException("InventoryDestinationBucket", "bucketArn");
+            }
+            this.bucketArn = bucketArn;
             return this;
         }
         @CustomType.Setter
         public Builder encryption(@Nullable InventoryDestinationBucketEncryption encryption) {
+
             this.encryption = encryption;
             return this;
         }
         @CustomType.Setter
         public Builder format(String format) {
-            this.format = Objects.requireNonNull(format);
+            if (format == null) {
+              throw new MissingRequiredPropertyException("InventoryDestinationBucket", "format");
+            }
+            this.format = format;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         public InventoryDestinationBucket build() {
-            final var o = new InventoryDestinationBucket();
-            o.accountId = accountId;
-            o.bucketArn = bucketArn;
-            o.encryption = encryption;
-            o.format = format;
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new InventoryDestinationBucket();
+            _resultValue.accountId = accountId;
+            _resultValue.bucketArn = bucketArn;
+            _resultValue.encryption = encryption;
+            _resultValue.format = format;
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

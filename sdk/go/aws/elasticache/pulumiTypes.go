@@ -597,6 +597,806 @@ func (o ReplicationGroupLogDeliveryConfigurationArrayOutput) Index(i pulumi.IntI
 	}).(ReplicationGroupLogDeliveryConfigurationOutput)
 }
 
+type ServerlessCacheCacheUsageLimits struct {
+	// The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+	DataStorage *ServerlessCacheCacheUsageLimitsDataStorage `pulumi:"dataStorage"`
+	// The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+	EcpuPerSeconds []ServerlessCacheCacheUsageLimitsEcpuPerSecond `pulumi:"ecpuPerSeconds"`
+}
+
+// ServerlessCacheCacheUsageLimitsInput is an input type that accepts ServerlessCacheCacheUsageLimitsArgs and ServerlessCacheCacheUsageLimitsOutput values.
+// You can construct a concrete instance of `ServerlessCacheCacheUsageLimitsInput` via:
+//
+//	ServerlessCacheCacheUsageLimitsArgs{...}
+type ServerlessCacheCacheUsageLimitsInput interface {
+	pulumi.Input
+
+	ToServerlessCacheCacheUsageLimitsOutput() ServerlessCacheCacheUsageLimitsOutput
+	ToServerlessCacheCacheUsageLimitsOutputWithContext(context.Context) ServerlessCacheCacheUsageLimitsOutput
+}
+
+type ServerlessCacheCacheUsageLimitsArgs struct {
+	// The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+	DataStorage ServerlessCacheCacheUsageLimitsDataStoragePtrInput `pulumi:"dataStorage"`
+	// The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+	EcpuPerSeconds ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayInput `pulumi:"ecpuPerSeconds"`
+}
+
+func (ServerlessCacheCacheUsageLimitsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCacheCacheUsageLimits)(nil)).Elem()
+}
+
+func (i ServerlessCacheCacheUsageLimitsArgs) ToServerlessCacheCacheUsageLimitsOutput() ServerlessCacheCacheUsageLimitsOutput {
+	return i.ToServerlessCacheCacheUsageLimitsOutputWithContext(context.Background())
+}
+
+func (i ServerlessCacheCacheUsageLimitsArgs) ToServerlessCacheCacheUsageLimitsOutputWithContext(ctx context.Context) ServerlessCacheCacheUsageLimitsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheCacheUsageLimitsOutput)
+}
+
+func (i ServerlessCacheCacheUsageLimitsArgs) ToServerlessCacheCacheUsageLimitsPtrOutput() ServerlessCacheCacheUsageLimitsPtrOutput {
+	return i.ToServerlessCacheCacheUsageLimitsPtrOutputWithContext(context.Background())
+}
+
+func (i ServerlessCacheCacheUsageLimitsArgs) ToServerlessCacheCacheUsageLimitsPtrOutputWithContext(ctx context.Context) ServerlessCacheCacheUsageLimitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheCacheUsageLimitsOutput).ToServerlessCacheCacheUsageLimitsPtrOutputWithContext(ctx)
+}
+
+// ServerlessCacheCacheUsageLimitsPtrInput is an input type that accepts ServerlessCacheCacheUsageLimitsArgs, ServerlessCacheCacheUsageLimitsPtr and ServerlessCacheCacheUsageLimitsPtrOutput values.
+// You can construct a concrete instance of `ServerlessCacheCacheUsageLimitsPtrInput` via:
+//
+//	        ServerlessCacheCacheUsageLimitsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerlessCacheCacheUsageLimitsPtrInput interface {
+	pulumi.Input
+
+	ToServerlessCacheCacheUsageLimitsPtrOutput() ServerlessCacheCacheUsageLimitsPtrOutput
+	ToServerlessCacheCacheUsageLimitsPtrOutputWithContext(context.Context) ServerlessCacheCacheUsageLimitsPtrOutput
+}
+
+type serverlessCacheCacheUsageLimitsPtrType ServerlessCacheCacheUsageLimitsArgs
+
+func ServerlessCacheCacheUsageLimitsPtr(v *ServerlessCacheCacheUsageLimitsArgs) ServerlessCacheCacheUsageLimitsPtrInput {
+	return (*serverlessCacheCacheUsageLimitsPtrType)(v)
+}
+
+func (*serverlessCacheCacheUsageLimitsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessCacheCacheUsageLimits)(nil)).Elem()
+}
+
+func (i *serverlessCacheCacheUsageLimitsPtrType) ToServerlessCacheCacheUsageLimitsPtrOutput() ServerlessCacheCacheUsageLimitsPtrOutput {
+	return i.ToServerlessCacheCacheUsageLimitsPtrOutputWithContext(context.Background())
+}
+
+func (i *serverlessCacheCacheUsageLimitsPtrType) ToServerlessCacheCacheUsageLimitsPtrOutputWithContext(ctx context.Context) ServerlessCacheCacheUsageLimitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheCacheUsageLimitsPtrOutput)
+}
+
+type ServerlessCacheCacheUsageLimitsOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCacheCacheUsageLimitsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCacheCacheUsageLimits)(nil)).Elem()
+}
+
+func (o ServerlessCacheCacheUsageLimitsOutput) ToServerlessCacheCacheUsageLimitsOutput() ServerlessCacheCacheUsageLimitsOutput {
+	return o
+}
+
+func (o ServerlessCacheCacheUsageLimitsOutput) ToServerlessCacheCacheUsageLimitsOutputWithContext(ctx context.Context) ServerlessCacheCacheUsageLimitsOutput {
+	return o
+}
+
+func (o ServerlessCacheCacheUsageLimitsOutput) ToServerlessCacheCacheUsageLimitsPtrOutput() ServerlessCacheCacheUsageLimitsPtrOutput {
+	return o.ToServerlessCacheCacheUsageLimitsPtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessCacheCacheUsageLimitsOutput) ToServerlessCacheCacheUsageLimitsPtrOutputWithContext(ctx context.Context) ServerlessCacheCacheUsageLimitsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerlessCacheCacheUsageLimits) *ServerlessCacheCacheUsageLimits {
+		return &v
+	}).(ServerlessCacheCacheUsageLimitsPtrOutput)
+}
+
+// The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+func (o ServerlessCacheCacheUsageLimitsOutput) DataStorage() ServerlessCacheCacheUsageLimitsDataStoragePtrOutput {
+	return o.ApplyT(func(v ServerlessCacheCacheUsageLimits) *ServerlessCacheCacheUsageLimitsDataStorage {
+		return v.DataStorage
+	}).(ServerlessCacheCacheUsageLimitsDataStoragePtrOutput)
+}
+
+// The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+func (o ServerlessCacheCacheUsageLimitsOutput) EcpuPerSeconds() ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput {
+	return o.ApplyT(func(v ServerlessCacheCacheUsageLimits) []ServerlessCacheCacheUsageLimitsEcpuPerSecond {
+		return v.EcpuPerSeconds
+	}).(ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput)
+}
+
+type ServerlessCacheCacheUsageLimitsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCacheCacheUsageLimitsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessCacheCacheUsageLimits)(nil)).Elem()
+}
+
+func (o ServerlessCacheCacheUsageLimitsPtrOutput) ToServerlessCacheCacheUsageLimitsPtrOutput() ServerlessCacheCacheUsageLimitsPtrOutput {
+	return o
+}
+
+func (o ServerlessCacheCacheUsageLimitsPtrOutput) ToServerlessCacheCacheUsageLimitsPtrOutputWithContext(ctx context.Context) ServerlessCacheCacheUsageLimitsPtrOutput {
+	return o
+}
+
+func (o ServerlessCacheCacheUsageLimitsPtrOutput) Elem() ServerlessCacheCacheUsageLimitsOutput {
+	return o.ApplyT(func(v *ServerlessCacheCacheUsageLimits) ServerlessCacheCacheUsageLimits {
+		if v != nil {
+			return *v
+		}
+		var ret ServerlessCacheCacheUsageLimits
+		return ret
+	}).(ServerlessCacheCacheUsageLimitsOutput)
+}
+
+// The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+func (o ServerlessCacheCacheUsageLimitsPtrOutput) DataStorage() ServerlessCacheCacheUsageLimitsDataStoragePtrOutput {
+	return o.ApplyT(func(v *ServerlessCacheCacheUsageLimits) *ServerlessCacheCacheUsageLimitsDataStorage {
+		if v == nil {
+			return nil
+		}
+		return v.DataStorage
+	}).(ServerlessCacheCacheUsageLimitsDataStoragePtrOutput)
+}
+
+// The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+func (o ServerlessCacheCacheUsageLimitsPtrOutput) EcpuPerSeconds() ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput {
+	return o.ApplyT(func(v *ServerlessCacheCacheUsageLimits) []ServerlessCacheCacheUsageLimitsEcpuPerSecond {
+		if v == nil {
+			return nil
+		}
+		return v.EcpuPerSeconds
+	}).(ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput)
+}
+
+type ServerlessCacheCacheUsageLimitsDataStorage struct {
+	// The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
+	Maximum int `pulumi:"maximum"`
+	// The unit that the storage is measured in, in GB.
+	Unit string `pulumi:"unit"`
+}
+
+// ServerlessCacheCacheUsageLimitsDataStorageInput is an input type that accepts ServerlessCacheCacheUsageLimitsDataStorageArgs and ServerlessCacheCacheUsageLimitsDataStorageOutput values.
+// You can construct a concrete instance of `ServerlessCacheCacheUsageLimitsDataStorageInput` via:
+//
+//	ServerlessCacheCacheUsageLimitsDataStorageArgs{...}
+type ServerlessCacheCacheUsageLimitsDataStorageInput interface {
+	pulumi.Input
+
+	ToServerlessCacheCacheUsageLimitsDataStorageOutput() ServerlessCacheCacheUsageLimitsDataStorageOutput
+	ToServerlessCacheCacheUsageLimitsDataStorageOutputWithContext(context.Context) ServerlessCacheCacheUsageLimitsDataStorageOutput
+}
+
+type ServerlessCacheCacheUsageLimitsDataStorageArgs struct {
+	// The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
+	Maximum pulumi.IntInput `pulumi:"maximum"`
+	// The unit that the storage is measured in, in GB.
+	Unit pulumi.StringInput `pulumi:"unit"`
+}
+
+func (ServerlessCacheCacheUsageLimitsDataStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCacheCacheUsageLimitsDataStorage)(nil)).Elem()
+}
+
+func (i ServerlessCacheCacheUsageLimitsDataStorageArgs) ToServerlessCacheCacheUsageLimitsDataStorageOutput() ServerlessCacheCacheUsageLimitsDataStorageOutput {
+	return i.ToServerlessCacheCacheUsageLimitsDataStorageOutputWithContext(context.Background())
+}
+
+func (i ServerlessCacheCacheUsageLimitsDataStorageArgs) ToServerlessCacheCacheUsageLimitsDataStorageOutputWithContext(ctx context.Context) ServerlessCacheCacheUsageLimitsDataStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheCacheUsageLimitsDataStorageOutput)
+}
+
+func (i ServerlessCacheCacheUsageLimitsDataStorageArgs) ToServerlessCacheCacheUsageLimitsDataStoragePtrOutput() ServerlessCacheCacheUsageLimitsDataStoragePtrOutput {
+	return i.ToServerlessCacheCacheUsageLimitsDataStoragePtrOutputWithContext(context.Background())
+}
+
+func (i ServerlessCacheCacheUsageLimitsDataStorageArgs) ToServerlessCacheCacheUsageLimitsDataStoragePtrOutputWithContext(ctx context.Context) ServerlessCacheCacheUsageLimitsDataStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheCacheUsageLimitsDataStorageOutput).ToServerlessCacheCacheUsageLimitsDataStoragePtrOutputWithContext(ctx)
+}
+
+// ServerlessCacheCacheUsageLimitsDataStoragePtrInput is an input type that accepts ServerlessCacheCacheUsageLimitsDataStorageArgs, ServerlessCacheCacheUsageLimitsDataStoragePtr and ServerlessCacheCacheUsageLimitsDataStoragePtrOutput values.
+// You can construct a concrete instance of `ServerlessCacheCacheUsageLimitsDataStoragePtrInput` via:
+//
+//	        ServerlessCacheCacheUsageLimitsDataStorageArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerlessCacheCacheUsageLimitsDataStoragePtrInput interface {
+	pulumi.Input
+
+	ToServerlessCacheCacheUsageLimitsDataStoragePtrOutput() ServerlessCacheCacheUsageLimitsDataStoragePtrOutput
+	ToServerlessCacheCacheUsageLimitsDataStoragePtrOutputWithContext(context.Context) ServerlessCacheCacheUsageLimitsDataStoragePtrOutput
+}
+
+type serverlessCacheCacheUsageLimitsDataStoragePtrType ServerlessCacheCacheUsageLimitsDataStorageArgs
+
+func ServerlessCacheCacheUsageLimitsDataStoragePtr(v *ServerlessCacheCacheUsageLimitsDataStorageArgs) ServerlessCacheCacheUsageLimitsDataStoragePtrInput {
+	return (*serverlessCacheCacheUsageLimitsDataStoragePtrType)(v)
+}
+
+func (*serverlessCacheCacheUsageLimitsDataStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessCacheCacheUsageLimitsDataStorage)(nil)).Elem()
+}
+
+func (i *serverlessCacheCacheUsageLimitsDataStoragePtrType) ToServerlessCacheCacheUsageLimitsDataStoragePtrOutput() ServerlessCacheCacheUsageLimitsDataStoragePtrOutput {
+	return i.ToServerlessCacheCacheUsageLimitsDataStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *serverlessCacheCacheUsageLimitsDataStoragePtrType) ToServerlessCacheCacheUsageLimitsDataStoragePtrOutputWithContext(ctx context.Context) ServerlessCacheCacheUsageLimitsDataStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheCacheUsageLimitsDataStoragePtrOutput)
+}
+
+type ServerlessCacheCacheUsageLimitsDataStorageOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCacheCacheUsageLimitsDataStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCacheCacheUsageLimitsDataStorage)(nil)).Elem()
+}
+
+func (o ServerlessCacheCacheUsageLimitsDataStorageOutput) ToServerlessCacheCacheUsageLimitsDataStorageOutput() ServerlessCacheCacheUsageLimitsDataStorageOutput {
+	return o
+}
+
+func (o ServerlessCacheCacheUsageLimitsDataStorageOutput) ToServerlessCacheCacheUsageLimitsDataStorageOutputWithContext(ctx context.Context) ServerlessCacheCacheUsageLimitsDataStorageOutput {
+	return o
+}
+
+func (o ServerlessCacheCacheUsageLimitsDataStorageOutput) ToServerlessCacheCacheUsageLimitsDataStoragePtrOutput() ServerlessCacheCacheUsageLimitsDataStoragePtrOutput {
+	return o.ToServerlessCacheCacheUsageLimitsDataStoragePtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessCacheCacheUsageLimitsDataStorageOutput) ToServerlessCacheCacheUsageLimitsDataStoragePtrOutputWithContext(ctx context.Context) ServerlessCacheCacheUsageLimitsDataStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerlessCacheCacheUsageLimitsDataStorage) *ServerlessCacheCacheUsageLimitsDataStorage {
+		return &v
+	}).(ServerlessCacheCacheUsageLimitsDataStoragePtrOutput)
+}
+
+// The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
+func (o ServerlessCacheCacheUsageLimitsDataStorageOutput) Maximum() pulumi.IntOutput {
+	return o.ApplyT(func(v ServerlessCacheCacheUsageLimitsDataStorage) int { return v.Maximum }).(pulumi.IntOutput)
+}
+
+// The unit that the storage is measured in, in GB.
+func (o ServerlessCacheCacheUsageLimitsDataStorageOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerlessCacheCacheUsageLimitsDataStorage) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+type ServerlessCacheCacheUsageLimitsDataStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCacheCacheUsageLimitsDataStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessCacheCacheUsageLimitsDataStorage)(nil)).Elem()
+}
+
+func (o ServerlessCacheCacheUsageLimitsDataStoragePtrOutput) ToServerlessCacheCacheUsageLimitsDataStoragePtrOutput() ServerlessCacheCacheUsageLimitsDataStoragePtrOutput {
+	return o
+}
+
+func (o ServerlessCacheCacheUsageLimitsDataStoragePtrOutput) ToServerlessCacheCacheUsageLimitsDataStoragePtrOutputWithContext(ctx context.Context) ServerlessCacheCacheUsageLimitsDataStoragePtrOutput {
+	return o
+}
+
+func (o ServerlessCacheCacheUsageLimitsDataStoragePtrOutput) Elem() ServerlessCacheCacheUsageLimitsDataStorageOutput {
+	return o.ApplyT(func(v *ServerlessCacheCacheUsageLimitsDataStorage) ServerlessCacheCacheUsageLimitsDataStorage {
+		if v != nil {
+			return *v
+		}
+		var ret ServerlessCacheCacheUsageLimitsDataStorage
+		return ret
+	}).(ServerlessCacheCacheUsageLimitsDataStorageOutput)
+}
+
+// The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
+func (o ServerlessCacheCacheUsageLimitsDataStoragePtrOutput) Maximum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerlessCacheCacheUsageLimitsDataStorage) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Maximum
+	}).(pulumi.IntPtrOutput)
+}
+
+// The unit that the storage is measured in, in GB.
+func (o ServerlessCacheCacheUsageLimitsDataStoragePtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessCacheCacheUsageLimitsDataStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerlessCacheCacheUsageLimitsEcpuPerSecond struct {
+	// The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
+	Maximum int `pulumi:"maximum"`
+}
+
+// ServerlessCacheCacheUsageLimitsEcpuPerSecondInput is an input type that accepts ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs and ServerlessCacheCacheUsageLimitsEcpuPerSecondOutput values.
+// You can construct a concrete instance of `ServerlessCacheCacheUsageLimitsEcpuPerSecondInput` via:
+//
+//	ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs{...}
+type ServerlessCacheCacheUsageLimitsEcpuPerSecondInput interface {
+	pulumi.Input
+
+	ToServerlessCacheCacheUsageLimitsEcpuPerSecondOutput() ServerlessCacheCacheUsageLimitsEcpuPerSecondOutput
+	ToServerlessCacheCacheUsageLimitsEcpuPerSecondOutputWithContext(context.Context) ServerlessCacheCacheUsageLimitsEcpuPerSecondOutput
+}
+
+type ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs struct {
+	// The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
+	Maximum pulumi.IntInput `pulumi:"maximum"`
+}
+
+func (ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCacheCacheUsageLimitsEcpuPerSecond)(nil)).Elem()
+}
+
+func (i ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs) ToServerlessCacheCacheUsageLimitsEcpuPerSecondOutput() ServerlessCacheCacheUsageLimitsEcpuPerSecondOutput {
+	return i.ToServerlessCacheCacheUsageLimitsEcpuPerSecondOutputWithContext(context.Background())
+}
+
+func (i ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs) ToServerlessCacheCacheUsageLimitsEcpuPerSecondOutputWithContext(ctx context.Context) ServerlessCacheCacheUsageLimitsEcpuPerSecondOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheCacheUsageLimitsEcpuPerSecondOutput)
+}
+
+// ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayInput is an input type that accepts ServerlessCacheCacheUsageLimitsEcpuPerSecondArray and ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput values.
+// You can construct a concrete instance of `ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayInput` via:
+//
+//	ServerlessCacheCacheUsageLimitsEcpuPerSecondArray{ ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs{...} }
+type ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayInput interface {
+	pulumi.Input
+
+	ToServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput() ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput
+	ToServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutputWithContext(context.Context) ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput
+}
+
+type ServerlessCacheCacheUsageLimitsEcpuPerSecondArray []ServerlessCacheCacheUsageLimitsEcpuPerSecondInput
+
+func (ServerlessCacheCacheUsageLimitsEcpuPerSecondArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerlessCacheCacheUsageLimitsEcpuPerSecond)(nil)).Elem()
+}
+
+func (i ServerlessCacheCacheUsageLimitsEcpuPerSecondArray) ToServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput() ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput {
+	return i.ToServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutputWithContext(context.Background())
+}
+
+func (i ServerlessCacheCacheUsageLimitsEcpuPerSecondArray) ToServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutputWithContext(ctx context.Context) ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput)
+}
+
+type ServerlessCacheCacheUsageLimitsEcpuPerSecondOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCacheCacheUsageLimitsEcpuPerSecondOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCacheCacheUsageLimitsEcpuPerSecond)(nil)).Elem()
+}
+
+func (o ServerlessCacheCacheUsageLimitsEcpuPerSecondOutput) ToServerlessCacheCacheUsageLimitsEcpuPerSecondOutput() ServerlessCacheCacheUsageLimitsEcpuPerSecondOutput {
+	return o
+}
+
+func (o ServerlessCacheCacheUsageLimitsEcpuPerSecondOutput) ToServerlessCacheCacheUsageLimitsEcpuPerSecondOutputWithContext(ctx context.Context) ServerlessCacheCacheUsageLimitsEcpuPerSecondOutput {
+	return o
+}
+
+// The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
+func (o ServerlessCacheCacheUsageLimitsEcpuPerSecondOutput) Maximum() pulumi.IntOutput {
+	return o.ApplyT(func(v ServerlessCacheCacheUsageLimitsEcpuPerSecond) int { return v.Maximum }).(pulumi.IntOutput)
+}
+
+type ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerlessCacheCacheUsageLimitsEcpuPerSecond)(nil)).Elem()
+}
+
+func (o ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput) ToServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput() ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput {
+	return o
+}
+
+func (o ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput) ToServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutputWithContext(ctx context.Context) ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput {
+	return o
+}
+
+func (o ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput) Index(i pulumi.IntInput) ServerlessCacheCacheUsageLimitsEcpuPerSecondOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerlessCacheCacheUsageLimitsEcpuPerSecond {
+		return vs[0].([]ServerlessCacheCacheUsageLimitsEcpuPerSecond)[vs[1].(int)]
+	}).(ServerlessCacheCacheUsageLimitsEcpuPerSecondOutput)
+}
+
+type ServerlessCacheEndpoint struct {
+	// The DNS hostname of the cache node.
+	Address string `pulumi:"address"`
+	// The port number that the cache engine is listening on. Set as integer.
+	Port int `pulumi:"port"`
+}
+
+// ServerlessCacheEndpointInput is an input type that accepts ServerlessCacheEndpointArgs and ServerlessCacheEndpointOutput values.
+// You can construct a concrete instance of `ServerlessCacheEndpointInput` via:
+//
+//	ServerlessCacheEndpointArgs{...}
+type ServerlessCacheEndpointInput interface {
+	pulumi.Input
+
+	ToServerlessCacheEndpointOutput() ServerlessCacheEndpointOutput
+	ToServerlessCacheEndpointOutputWithContext(context.Context) ServerlessCacheEndpointOutput
+}
+
+type ServerlessCacheEndpointArgs struct {
+	// The DNS hostname of the cache node.
+	Address pulumi.StringInput `pulumi:"address"`
+	// The port number that the cache engine is listening on. Set as integer.
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (ServerlessCacheEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCacheEndpoint)(nil)).Elem()
+}
+
+func (i ServerlessCacheEndpointArgs) ToServerlessCacheEndpointOutput() ServerlessCacheEndpointOutput {
+	return i.ToServerlessCacheEndpointOutputWithContext(context.Background())
+}
+
+func (i ServerlessCacheEndpointArgs) ToServerlessCacheEndpointOutputWithContext(ctx context.Context) ServerlessCacheEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheEndpointOutput)
+}
+
+// ServerlessCacheEndpointArrayInput is an input type that accepts ServerlessCacheEndpointArray and ServerlessCacheEndpointArrayOutput values.
+// You can construct a concrete instance of `ServerlessCacheEndpointArrayInput` via:
+//
+//	ServerlessCacheEndpointArray{ ServerlessCacheEndpointArgs{...} }
+type ServerlessCacheEndpointArrayInput interface {
+	pulumi.Input
+
+	ToServerlessCacheEndpointArrayOutput() ServerlessCacheEndpointArrayOutput
+	ToServerlessCacheEndpointArrayOutputWithContext(context.Context) ServerlessCacheEndpointArrayOutput
+}
+
+type ServerlessCacheEndpointArray []ServerlessCacheEndpointInput
+
+func (ServerlessCacheEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerlessCacheEndpoint)(nil)).Elem()
+}
+
+func (i ServerlessCacheEndpointArray) ToServerlessCacheEndpointArrayOutput() ServerlessCacheEndpointArrayOutput {
+	return i.ToServerlessCacheEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i ServerlessCacheEndpointArray) ToServerlessCacheEndpointArrayOutputWithContext(ctx context.Context) ServerlessCacheEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheEndpointArrayOutput)
+}
+
+type ServerlessCacheEndpointOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCacheEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCacheEndpoint)(nil)).Elem()
+}
+
+func (o ServerlessCacheEndpointOutput) ToServerlessCacheEndpointOutput() ServerlessCacheEndpointOutput {
+	return o
+}
+
+func (o ServerlessCacheEndpointOutput) ToServerlessCacheEndpointOutputWithContext(ctx context.Context) ServerlessCacheEndpointOutput {
+	return o
+}
+
+// The DNS hostname of the cache node.
+func (o ServerlessCacheEndpointOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerlessCacheEndpoint) string { return v.Address }).(pulumi.StringOutput)
+}
+
+// The port number that the cache engine is listening on. Set as integer.
+func (o ServerlessCacheEndpointOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v ServerlessCacheEndpoint) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type ServerlessCacheEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCacheEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerlessCacheEndpoint)(nil)).Elem()
+}
+
+func (o ServerlessCacheEndpointArrayOutput) ToServerlessCacheEndpointArrayOutput() ServerlessCacheEndpointArrayOutput {
+	return o
+}
+
+func (o ServerlessCacheEndpointArrayOutput) ToServerlessCacheEndpointArrayOutputWithContext(ctx context.Context) ServerlessCacheEndpointArrayOutput {
+	return o
+}
+
+func (o ServerlessCacheEndpointArrayOutput) Index(i pulumi.IntInput) ServerlessCacheEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerlessCacheEndpoint {
+		return vs[0].([]ServerlessCacheEndpoint)[vs[1].(int)]
+	}).(ServerlessCacheEndpointOutput)
+}
+
+type ServerlessCacheReaderEndpoint struct {
+	// The DNS hostname of the cache node.
+	Address string `pulumi:"address"`
+	// The port number that the cache engine is listening on. Set as integer.
+	Port int `pulumi:"port"`
+}
+
+// ServerlessCacheReaderEndpointInput is an input type that accepts ServerlessCacheReaderEndpointArgs and ServerlessCacheReaderEndpointOutput values.
+// You can construct a concrete instance of `ServerlessCacheReaderEndpointInput` via:
+//
+//	ServerlessCacheReaderEndpointArgs{...}
+type ServerlessCacheReaderEndpointInput interface {
+	pulumi.Input
+
+	ToServerlessCacheReaderEndpointOutput() ServerlessCacheReaderEndpointOutput
+	ToServerlessCacheReaderEndpointOutputWithContext(context.Context) ServerlessCacheReaderEndpointOutput
+}
+
+type ServerlessCacheReaderEndpointArgs struct {
+	// The DNS hostname of the cache node.
+	Address pulumi.StringInput `pulumi:"address"`
+	// The port number that the cache engine is listening on. Set as integer.
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (ServerlessCacheReaderEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCacheReaderEndpoint)(nil)).Elem()
+}
+
+func (i ServerlessCacheReaderEndpointArgs) ToServerlessCacheReaderEndpointOutput() ServerlessCacheReaderEndpointOutput {
+	return i.ToServerlessCacheReaderEndpointOutputWithContext(context.Background())
+}
+
+func (i ServerlessCacheReaderEndpointArgs) ToServerlessCacheReaderEndpointOutputWithContext(ctx context.Context) ServerlessCacheReaderEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheReaderEndpointOutput)
+}
+
+// ServerlessCacheReaderEndpointArrayInput is an input type that accepts ServerlessCacheReaderEndpointArray and ServerlessCacheReaderEndpointArrayOutput values.
+// You can construct a concrete instance of `ServerlessCacheReaderEndpointArrayInput` via:
+//
+//	ServerlessCacheReaderEndpointArray{ ServerlessCacheReaderEndpointArgs{...} }
+type ServerlessCacheReaderEndpointArrayInput interface {
+	pulumi.Input
+
+	ToServerlessCacheReaderEndpointArrayOutput() ServerlessCacheReaderEndpointArrayOutput
+	ToServerlessCacheReaderEndpointArrayOutputWithContext(context.Context) ServerlessCacheReaderEndpointArrayOutput
+}
+
+type ServerlessCacheReaderEndpointArray []ServerlessCacheReaderEndpointInput
+
+func (ServerlessCacheReaderEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerlessCacheReaderEndpoint)(nil)).Elem()
+}
+
+func (i ServerlessCacheReaderEndpointArray) ToServerlessCacheReaderEndpointArrayOutput() ServerlessCacheReaderEndpointArrayOutput {
+	return i.ToServerlessCacheReaderEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i ServerlessCacheReaderEndpointArray) ToServerlessCacheReaderEndpointArrayOutputWithContext(ctx context.Context) ServerlessCacheReaderEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheReaderEndpointArrayOutput)
+}
+
+type ServerlessCacheReaderEndpointOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCacheReaderEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCacheReaderEndpoint)(nil)).Elem()
+}
+
+func (o ServerlessCacheReaderEndpointOutput) ToServerlessCacheReaderEndpointOutput() ServerlessCacheReaderEndpointOutput {
+	return o
+}
+
+func (o ServerlessCacheReaderEndpointOutput) ToServerlessCacheReaderEndpointOutputWithContext(ctx context.Context) ServerlessCacheReaderEndpointOutput {
+	return o
+}
+
+// The DNS hostname of the cache node.
+func (o ServerlessCacheReaderEndpointOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerlessCacheReaderEndpoint) string { return v.Address }).(pulumi.StringOutput)
+}
+
+// The port number that the cache engine is listening on. Set as integer.
+func (o ServerlessCacheReaderEndpointOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v ServerlessCacheReaderEndpoint) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type ServerlessCacheReaderEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCacheReaderEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerlessCacheReaderEndpoint)(nil)).Elem()
+}
+
+func (o ServerlessCacheReaderEndpointArrayOutput) ToServerlessCacheReaderEndpointArrayOutput() ServerlessCacheReaderEndpointArrayOutput {
+	return o
+}
+
+func (o ServerlessCacheReaderEndpointArrayOutput) ToServerlessCacheReaderEndpointArrayOutputWithContext(ctx context.Context) ServerlessCacheReaderEndpointArrayOutput {
+	return o
+}
+
+func (o ServerlessCacheReaderEndpointArrayOutput) Index(i pulumi.IntInput) ServerlessCacheReaderEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerlessCacheReaderEndpoint {
+		return vs[0].([]ServerlessCacheReaderEndpoint)[vs[1].(int)]
+	}).(ServerlessCacheReaderEndpointOutput)
+}
+
+type ServerlessCacheTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// ServerlessCacheTimeoutsInput is an input type that accepts ServerlessCacheTimeoutsArgs and ServerlessCacheTimeoutsOutput values.
+// You can construct a concrete instance of `ServerlessCacheTimeoutsInput` via:
+//
+//	ServerlessCacheTimeoutsArgs{...}
+type ServerlessCacheTimeoutsInput interface {
+	pulumi.Input
+
+	ToServerlessCacheTimeoutsOutput() ServerlessCacheTimeoutsOutput
+	ToServerlessCacheTimeoutsOutputWithContext(context.Context) ServerlessCacheTimeoutsOutput
+}
+
+type ServerlessCacheTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (ServerlessCacheTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCacheTimeouts)(nil)).Elem()
+}
+
+func (i ServerlessCacheTimeoutsArgs) ToServerlessCacheTimeoutsOutput() ServerlessCacheTimeoutsOutput {
+	return i.ToServerlessCacheTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ServerlessCacheTimeoutsArgs) ToServerlessCacheTimeoutsOutputWithContext(ctx context.Context) ServerlessCacheTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheTimeoutsOutput)
+}
+
+func (i ServerlessCacheTimeoutsArgs) ToServerlessCacheTimeoutsPtrOutput() ServerlessCacheTimeoutsPtrOutput {
+	return i.ToServerlessCacheTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ServerlessCacheTimeoutsArgs) ToServerlessCacheTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessCacheTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheTimeoutsOutput).ToServerlessCacheTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ServerlessCacheTimeoutsPtrInput is an input type that accepts ServerlessCacheTimeoutsArgs, ServerlessCacheTimeoutsPtr and ServerlessCacheTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ServerlessCacheTimeoutsPtrInput` via:
+//
+//	        ServerlessCacheTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerlessCacheTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToServerlessCacheTimeoutsPtrOutput() ServerlessCacheTimeoutsPtrOutput
+	ToServerlessCacheTimeoutsPtrOutputWithContext(context.Context) ServerlessCacheTimeoutsPtrOutput
+}
+
+type serverlessCacheTimeoutsPtrType ServerlessCacheTimeoutsArgs
+
+func ServerlessCacheTimeoutsPtr(v *ServerlessCacheTimeoutsArgs) ServerlessCacheTimeoutsPtrInput {
+	return (*serverlessCacheTimeoutsPtrType)(v)
+}
+
+func (*serverlessCacheTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessCacheTimeouts)(nil)).Elem()
+}
+
+func (i *serverlessCacheTimeoutsPtrType) ToServerlessCacheTimeoutsPtrOutput() ServerlessCacheTimeoutsPtrOutput {
+	return i.ToServerlessCacheTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *serverlessCacheTimeoutsPtrType) ToServerlessCacheTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessCacheTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheTimeoutsPtrOutput)
+}
+
+type ServerlessCacheTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCacheTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCacheTimeouts)(nil)).Elem()
+}
+
+func (o ServerlessCacheTimeoutsOutput) ToServerlessCacheTimeoutsOutput() ServerlessCacheTimeoutsOutput {
+	return o
+}
+
+func (o ServerlessCacheTimeoutsOutput) ToServerlessCacheTimeoutsOutputWithContext(ctx context.Context) ServerlessCacheTimeoutsOutput {
+	return o
+}
+
+func (o ServerlessCacheTimeoutsOutput) ToServerlessCacheTimeoutsPtrOutput() ServerlessCacheTimeoutsPtrOutput {
+	return o.ToServerlessCacheTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessCacheTimeoutsOutput) ToServerlessCacheTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessCacheTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerlessCacheTimeouts) *ServerlessCacheTimeouts {
+		return &v
+	}).(ServerlessCacheTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ServerlessCacheTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessCacheTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ServerlessCacheTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessCacheTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ServerlessCacheTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessCacheTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type ServerlessCacheTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCacheTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessCacheTimeouts)(nil)).Elem()
+}
+
+func (o ServerlessCacheTimeoutsPtrOutput) ToServerlessCacheTimeoutsPtrOutput() ServerlessCacheTimeoutsPtrOutput {
+	return o
+}
+
+func (o ServerlessCacheTimeoutsPtrOutput) ToServerlessCacheTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessCacheTimeoutsPtrOutput {
+	return o
+}
+
+func (o ServerlessCacheTimeoutsPtrOutput) Elem() ServerlessCacheTimeoutsOutput {
+	return o.ApplyT(func(v *ServerlessCacheTimeouts) ServerlessCacheTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ServerlessCacheTimeouts
+		return ret
+	}).(ServerlessCacheTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ServerlessCacheTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessCacheTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ServerlessCacheTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessCacheTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ServerlessCacheTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessCacheTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type UserAuthenticationMode struct {
 	PasswordCount *int `pulumi:"passwordCount"`
 	// Specifies the passwords to use for authentication if `type` is set to `password`.
@@ -1230,6 +2030,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterArrayInput)(nil)).Elem(), ParameterGroupParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupLogDeliveryConfigurationInput)(nil)).Elem(), ReplicationGroupLogDeliveryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupLogDeliveryConfigurationArrayInput)(nil)).Elem(), ReplicationGroupLogDeliveryConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheCacheUsageLimitsInput)(nil)).Elem(), ServerlessCacheCacheUsageLimitsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheCacheUsageLimitsPtrInput)(nil)).Elem(), ServerlessCacheCacheUsageLimitsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheCacheUsageLimitsDataStorageInput)(nil)).Elem(), ServerlessCacheCacheUsageLimitsDataStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheCacheUsageLimitsDataStoragePtrInput)(nil)).Elem(), ServerlessCacheCacheUsageLimitsDataStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheCacheUsageLimitsEcpuPerSecondInput)(nil)).Elem(), ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayInput)(nil)).Elem(), ServerlessCacheCacheUsageLimitsEcpuPerSecondArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheEndpointInput)(nil)).Elem(), ServerlessCacheEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheEndpointArrayInput)(nil)).Elem(), ServerlessCacheEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheReaderEndpointInput)(nil)).Elem(), ServerlessCacheReaderEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheReaderEndpointArrayInput)(nil)).Elem(), ServerlessCacheReaderEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheTimeoutsInput)(nil)).Elem(), ServerlessCacheTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheTimeoutsPtrInput)(nil)).Elem(), ServerlessCacheTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAuthenticationModeInput)(nil)).Elem(), UserAuthenticationModeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAuthenticationModePtrInput)(nil)).Elem(), UserAuthenticationModeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterCacheNodeInput)(nil)).Elem(), GetClusterCacheNodeArgs{})
@@ -1250,6 +2062,18 @@ func init() {
 	pulumi.RegisterOutputType(ParameterGroupParameterArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationGroupLogDeliveryConfigurationOutput{})
 	pulumi.RegisterOutputType(ReplicationGroupLogDeliveryConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ServerlessCacheCacheUsageLimitsOutput{})
+	pulumi.RegisterOutputType(ServerlessCacheCacheUsageLimitsPtrOutput{})
+	pulumi.RegisterOutputType(ServerlessCacheCacheUsageLimitsDataStorageOutput{})
+	pulumi.RegisterOutputType(ServerlessCacheCacheUsageLimitsDataStoragePtrOutput{})
+	pulumi.RegisterOutputType(ServerlessCacheCacheUsageLimitsEcpuPerSecondOutput{})
+	pulumi.RegisterOutputType(ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput{})
+	pulumi.RegisterOutputType(ServerlessCacheEndpointOutput{})
+	pulumi.RegisterOutputType(ServerlessCacheEndpointArrayOutput{})
+	pulumi.RegisterOutputType(ServerlessCacheReaderEndpointOutput{})
+	pulumi.RegisterOutputType(ServerlessCacheReaderEndpointArrayOutput{})
+	pulumi.RegisterOutputType(ServerlessCacheTimeoutsOutput{})
+	pulumi.RegisterOutputType(ServerlessCacheTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(UserAuthenticationModeOutput{})
 	pulumi.RegisterOutputType(UserAuthenticationModePtrOutput{})
 	pulumi.RegisterOutputType(GetClusterCacheNodeOutput{})

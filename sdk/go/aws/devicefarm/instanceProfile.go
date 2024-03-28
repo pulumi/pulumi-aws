@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := devicefarm.NewInstanceProfile(ctx, "example", nil)
+//			_, err := devicefarm.NewInstanceProfile(ctx, "example", &devicefarm.InstanceProfileArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -38,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DeviceFarm Instance Profiles using their ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:devicefarm/instanceProfile:InstanceProfile example arn:aws:devicefarm:us-west-2:123456789012:instanceprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-//
+// $ pulumi import aws:devicefarm/instanceProfile:InstanceProfile example arn:aws:devicefarm:us-west-2:123456789012:instanceprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
 // ```
 type InstanceProfile struct {
 	pulumi.CustomResourceState
@@ -78,10 +80,6 @@ func NewInstanceProfile(ctx *pulumi.Context,
 		args = &InstanceProfileArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstanceProfile
 	err := ctx.RegisterResource("aws:devicefarm/instanceProfile:InstanceProfile", name, args, &resource, opts...)

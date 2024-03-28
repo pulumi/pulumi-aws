@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Provides an AWS Backup plan resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,9 +49,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Plan(&#34;example&#34;, PlanArgs.builder()        
+ *             .name(&#34;my_example_backup_plan&#34;)
  *             .rules(PlanRuleArgs.builder()
  *                 .ruleName(&#34;my_example_backup_rule&#34;)
- *                 .targetVaultName(aws_backup_vault.test().name())
+ *                 .targetVaultName(test.name())
  *                 .schedule(&#34;cron(0 12 * * ? *)&#34;)
  *                 .lifecycle(PlanRuleLifecycleArgs.builder()
  *                     .deleteAfter(14)
@@ -64,13 +67,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Backup Plan using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:backup/plan:Plan test &lt;id&gt;
+ * $ pulumi import aws:backup/plan:Plan test &lt;id&gt;
  * ```
  * 
  */
@@ -211,9 +215,6 @@ public class Plan extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

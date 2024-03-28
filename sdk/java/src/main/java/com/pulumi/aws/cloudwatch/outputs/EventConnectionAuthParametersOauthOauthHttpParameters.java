@@ -74,6 +74,7 @@ public final class EventConnectionAuthParametersOauthOauthHttpParameters {
 
         @CustomType.Setter
         public Builder bodies(@Nullable List<EventConnectionAuthParametersOauthOauthHttpParametersBody> bodies) {
+
             this.bodies = bodies;
             return this;
         }
@@ -82,6 +83,7 @@ public final class EventConnectionAuthParametersOauthOauthHttpParameters {
         }
         @CustomType.Setter
         public Builder headers(@Nullable List<EventConnectionAuthParametersOauthOauthHttpParametersHeader> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -90,6 +92,7 @@ public final class EventConnectionAuthParametersOauthOauthHttpParameters {
         }
         @CustomType.Setter
         public Builder queryStrings(@Nullable List<EventConnectionAuthParametersOauthOauthHttpParametersQueryString> queryStrings) {
+
             this.queryStrings = queryStrings;
             return this;
         }
@@ -97,11 +100,11 @@ public final class EventConnectionAuthParametersOauthOauthHttpParameters {
             return queryStrings(List.of(queryStrings));
         }
         public EventConnectionAuthParametersOauthOauthHttpParameters build() {
-            final var o = new EventConnectionAuthParametersOauthOauthHttpParameters();
-            o.bodies = bodies;
-            o.headers = headers;
-            o.queryStrings = queryStrings;
-            return o;
+            final var _resultValue = new EventConnectionAuthParametersOauthOauthHttpParameters();
+            _resultValue.bodies = bodies;
+            _resultValue.headers = headers;
+            _resultValue.queryStrings = queryStrings;
+            return _resultValue;
         }
     }
 }

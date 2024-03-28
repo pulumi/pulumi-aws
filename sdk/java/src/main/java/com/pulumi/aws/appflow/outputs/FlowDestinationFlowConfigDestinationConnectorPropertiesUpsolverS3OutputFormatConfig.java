@@ -6,6 +6,7 @@ package com.pulumi.aws.appflow.outputs;
 import com.pulumi.aws.appflow.outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig;
 import com.pulumi.aws.appflow.outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -74,25 +75,30 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
 
         @CustomType.Setter
         public Builder aggregationConfig(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig aggregationConfig) {
+
             this.aggregationConfig = aggregationConfig;
             return this;
         }
         @CustomType.Setter
         public Builder fileType(@Nullable String fileType) {
+
             this.fileType = fileType;
             return this;
         }
         @CustomType.Setter
         public Builder prefixConfig(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig prefixConfig) {
-            this.prefixConfig = Objects.requireNonNull(prefixConfig);
+            if (prefixConfig == null) {
+              throw new MissingRequiredPropertyException("FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig", "prefixConfig");
+            }
+            this.prefixConfig = prefixConfig;
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig();
-            o.aggregationConfig = aggregationConfig;
-            o.fileType = fileType;
-            o.prefixConfig = prefixConfig;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig();
+            _resultValue.aggregationConfig = aggregationConfig;
+            _resultValue.fileType = fileType;
+            _resultValue.prefixConfig = prefixConfig;
+            return _resultValue;
         }
     }
 }

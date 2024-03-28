@@ -13,8 +13,10 @@ namespace Pulumi.Aws.CloudFront
     /// Resource for managing an AWS CloudFront Continuous Deployment Policy.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,7 +31,6 @@ namespace Pulumi.Aws.CloudFront
     ///         Staging = true,
     ///     });
     /// 
-    ///     // ... other configuration ...
     ///     var example = new Aws.CloudFront.ContinuousDeploymentPolicy("example", new()
     ///     {
     ///         Enabled = true,
@@ -57,11 +58,13 @@ namespace Pulumi.Aws.CloudFront
     ///         ContinuousDeploymentPolicyId = example.Id,
     ///     });
     /// 
-    ///     // ... other configuration ...
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Single Weight Config with Session Stickiness
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -77,7 +80,7 @@ namespace Pulumi.Aws.CloudFront
     ///         {
     ///             Items = new[]
     ///             {
-    ///                 aws_cloudfront_distribution.Staging.Domain_name,
+    ///                 staging.DomainName,
     ///             },
     ///             Quantity = 1,
     ///         },
@@ -98,8 +101,11 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Single Header Config
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -115,7 +121,7 @@ namespace Pulumi.Aws.CloudFront
     ///         {
     ///             Items = new[]
     ///             {
-    ///                 aws_cloudfront_distribution.Staging.Domain_name,
+    ///                 staging.DomainName,
     ///             },
     ///             Quantity = 1,
     ///         },
@@ -132,13 +138,14 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudFront Continuous Deployment Policy using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
+    /// $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy")]

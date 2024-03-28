@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,7 +31,7 @@ namespace Pulumi.Aws.Ec2
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var secondaryCidr = new Aws.Ec2.VpcIpv4CidrBlockAssociation("secondaryCidr", new()
+    ///     var secondaryCidr = new Aws.Ec2.VpcIpv4CidrBlockAssociation("secondary_cidr", new()
     ///     {
     ///         VpcId = main.Id,
     ///         CidrBlock = "172.20.0.0/16",
@@ -38,13 +39,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_vpc_ipv4_cidr_block_association` using the VPC CIDR Association ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
+    /// $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation")]

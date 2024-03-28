@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a resource to manage AWS EMR Security Configurations
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -39,6 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new SecurityConfiguration(&#34;foo&#34;, SecurityConfigurationArgs.builder()        
+ *             .name(&#34;emrsc_other&#34;)
  *             .configuration(&#34;&#34;&#34;
  * {
  *   &#34;EncryptionConfiguration&#34;: {
@@ -55,20 +58,20 @@ import javax.annotation.Nullable;
  *     &#34;EnableAtRestEncryption&#34;: true
  *   }
  * }
- * 
  *             &#34;&#34;&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import EMR Security Configurations using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:emr/securityConfiguration:SecurityConfiguration sc example-sc-name
+ * $ pulumi import aws:emr/securityConfiguration:SecurityConfiguration sc example-sc-name
  * ```
  * 
  */

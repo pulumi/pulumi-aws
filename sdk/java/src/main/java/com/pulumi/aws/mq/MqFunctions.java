@@ -5,9 +5,12 @@ package com.pulumi.aws.mq;
 
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.mq.inputs.GetBrokerArgs;
+import com.pulumi.aws.mq.inputs.GetBrokerEngineTypesArgs;
+import com.pulumi.aws.mq.inputs.GetBrokerEngineTypesPlainArgs;
 import com.pulumi.aws.mq.inputs.GetBrokerPlainArgs;
 import com.pulumi.aws.mq.inputs.GetInstanceTypeOfferingsArgs;
 import com.pulumi.aws.mq.inputs.GetInstanceTypeOfferingsPlainArgs;
+import com.pulumi.aws.mq.outputs.GetBrokerEngineTypesResult;
 import com.pulumi.aws.mq.outputs.GetBrokerResult;
 import com.pulumi.aws.mq.outputs.GetInstanceTypeOfferingsResult;
 import com.pulumi.core.Output;
@@ -21,6 +24,8 @@ public final class MqFunctions {
      * Provides information about a MQ Broker.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -56,6 +61,7 @@ public final class MqFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBrokerResult> getBroker() {
@@ -65,6 +71,8 @@ public final class MqFunctions {
      * Provides information about a MQ Broker.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -100,6 +108,7 @@ public final class MqFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBrokerResult> getBrokerPlain() {
@@ -109,6 +118,8 @@ public final class MqFunctions {
      * Provides information about a MQ Broker.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -144,6 +155,7 @@ public final class MqFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBrokerResult> getBroker(GetBrokerArgs args) {
@@ -153,6 +165,8 @@ public final class MqFunctions {
      * Provides information about a MQ Broker.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -188,6 +202,7 @@ public final class MqFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBrokerResult> getBrokerPlain(GetBrokerPlainArgs args) {
@@ -197,6 +212,8 @@ public final class MqFunctions {
      * Provides information about a MQ Broker.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -232,6 +249,7 @@ public final class MqFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBrokerResult> getBroker(GetBrokerArgs args, InvokeOptions options) {
@@ -241,6 +259,8 @@ public final class MqFunctions {
      * Provides information about a MQ Broker.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -276,15 +296,270 @@ public final class MqFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBrokerResult> getBrokerPlain(GetBrokerPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:mq/getBroker:getBroker", TypeShape.of(GetBrokerResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieve information about available broker engines.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.mq.MqFunctions;
+     * import com.pulumi.aws.mq.inputs.GetBrokerEngineTypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MqFunctions.getBrokerEngineTypes(GetBrokerEngineTypesArgs.builder()
+     *             .engineType(&#34;ACTIVEMQ&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetBrokerEngineTypesResult> getBrokerEngineTypes() {
+        return getBrokerEngineTypes(GetBrokerEngineTypesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieve information about available broker engines.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.mq.MqFunctions;
+     * import com.pulumi.aws.mq.inputs.GetBrokerEngineTypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MqFunctions.getBrokerEngineTypes(GetBrokerEngineTypesArgs.builder()
+     *             .engineType(&#34;ACTIVEMQ&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetBrokerEngineTypesResult> getBrokerEngineTypesPlain() {
+        return getBrokerEngineTypesPlain(GetBrokerEngineTypesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieve information about available broker engines.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.mq.MqFunctions;
+     * import com.pulumi.aws.mq.inputs.GetBrokerEngineTypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MqFunctions.getBrokerEngineTypes(GetBrokerEngineTypesArgs.builder()
+     *             .engineType(&#34;ACTIVEMQ&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetBrokerEngineTypesResult> getBrokerEngineTypes(GetBrokerEngineTypesArgs args) {
+        return getBrokerEngineTypes(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieve information about available broker engines.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.mq.MqFunctions;
+     * import com.pulumi.aws.mq.inputs.GetBrokerEngineTypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MqFunctions.getBrokerEngineTypes(GetBrokerEngineTypesArgs.builder()
+     *             .engineType(&#34;ACTIVEMQ&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetBrokerEngineTypesResult> getBrokerEngineTypesPlain(GetBrokerEngineTypesPlainArgs args) {
+        return getBrokerEngineTypesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieve information about available broker engines.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.mq.MqFunctions;
+     * import com.pulumi.aws.mq.inputs.GetBrokerEngineTypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MqFunctions.getBrokerEngineTypes(GetBrokerEngineTypesArgs.builder()
+     *             .engineType(&#34;ACTIVEMQ&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetBrokerEngineTypesResult> getBrokerEngineTypes(GetBrokerEngineTypesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:mq/getBrokerEngineTypes:getBrokerEngineTypes", TypeShape.of(GetBrokerEngineTypesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieve information about available broker engines.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.mq.MqFunctions;
+     * import com.pulumi.aws.mq.inputs.GetBrokerEngineTypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MqFunctions.getBrokerEngineTypes(GetBrokerEngineTypesArgs.builder()
+     *             .engineType(&#34;ACTIVEMQ&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetBrokerEngineTypesResult> getBrokerEngineTypesPlain(GetBrokerEngineTypesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:mq/getBrokerEngineTypes:getBrokerEngineTypes", TypeShape.of(GetBrokerEngineTypesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Provides information about a MQ Broker Instance Offerings.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -321,14 +596,15 @@ public final class MqFunctions {
      *             .build());
      * 
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .hostInstanceType(&#34;mq.m5.large&#34;)
      *             .storageType(&#34;EBS&#34;)
+     *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInstanceTypeOfferingsResult> getInstanceTypeOfferings() {
@@ -338,6 +614,8 @@ public final class MqFunctions {
      * Provides information about a MQ Broker Instance Offerings.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -374,14 +652,15 @@ public final class MqFunctions {
      *             .build());
      * 
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .hostInstanceType(&#34;mq.m5.large&#34;)
      *             .storageType(&#34;EBS&#34;)
+     *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInstanceTypeOfferingsResult> getInstanceTypeOfferingsPlain() {
@@ -391,6 +670,8 @@ public final class MqFunctions {
      * Provides information about a MQ Broker Instance Offerings.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -427,14 +708,15 @@ public final class MqFunctions {
      *             .build());
      * 
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .hostInstanceType(&#34;mq.m5.large&#34;)
      *             .storageType(&#34;EBS&#34;)
+     *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInstanceTypeOfferingsResult> getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs args) {
@@ -444,6 +726,8 @@ public final class MqFunctions {
      * Provides information about a MQ Broker Instance Offerings.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -480,14 +764,15 @@ public final class MqFunctions {
      *             .build());
      * 
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .hostInstanceType(&#34;mq.m5.large&#34;)
      *             .storageType(&#34;EBS&#34;)
+     *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInstanceTypeOfferingsResult> getInstanceTypeOfferingsPlain(GetInstanceTypeOfferingsPlainArgs args) {
@@ -497,6 +782,8 @@ public final class MqFunctions {
      * Provides information about a MQ Broker Instance Offerings.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -533,14 +820,15 @@ public final class MqFunctions {
      *             .build());
      * 
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .hostInstanceType(&#34;mq.m5.large&#34;)
      *             .storageType(&#34;EBS&#34;)
+     *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInstanceTypeOfferingsResult> getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs args, InvokeOptions options) {
@@ -550,6 +838,8 @@ public final class MqFunctions {
      * Provides information about a MQ Broker Instance Offerings.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -586,14 +876,15 @@ public final class MqFunctions {
      *             .build());
      * 
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .hostInstanceType(&#34;mq.m5.large&#34;)
      *             .storageType(&#34;EBS&#34;)
+     *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInstanceTypeOfferingsResult> getInstanceTypeOfferingsPlain(GetInstanceTypeOfferingsPlainArgs args, InvokeOptions options) {

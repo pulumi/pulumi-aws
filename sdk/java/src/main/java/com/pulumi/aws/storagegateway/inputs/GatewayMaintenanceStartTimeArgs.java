@@ -5,6 +5,7 @@ package com.pulumi.aws.storagegateway.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -188,7 +189,9 @@ public final class GatewayMaintenanceStartTimeArgs extends com.pulumi.resources.
         }
 
         public GatewayMaintenanceStartTimeArgs build() {
-            $.hourOfDay = Objects.requireNonNull($.hourOfDay, "expected parameter 'hourOfDay' to be non-null");
+            if ($.hourOfDay == null) {
+                throw new MissingRequiredPropertyException("GatewayMaintenanceStartTimeArgs", "hourOfDay");
+            }
             return $;
         }
     }

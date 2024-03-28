@@ -59,19 +59,21 @@ public final class VpcEndpointDnsOptions {
 
         @CustomType.Setter
         public Builder dnsRecordIpType(@Nullable String dnsRecordIpType) {
+
             this.dnsRecordIpType = dnsRecordIpType;
             return this;
         }
         @CustomType.Setter
         public Builder privateDnsOnlyForInboundResolverEndpoint(@Nullable Boolean privateDnsOnlyForInboundResolverEndpoint) {
+
             this.privateDnsOnlyForInboundResolverEndpoint = privateDnsOnlyForInboundResolverEndpoint;
             return this;
         }
         public VpcEndpointDnsOptions build() {
-            final var o = new VpcEndpointDnsOptions();
-            o.dnsRecordIpType = dnsRecordIpType;
-            o.privateDnsOnlyForInboundResolverEndpoint = privateDnsOnlyForInboundResolverEndpoint;
-            return o;
+            final var _resultValue = new VpcEndpointDnsOptions();
+            _resultValue.dnsRecordIpType = dnsRecordIpType;
+            _resultValue.privateDnsOnlyForInboundResolverEndpoint = privateDnsOnlyForInboundResolverEndpoint;
+            return _resultValue;
         }
     }
 }

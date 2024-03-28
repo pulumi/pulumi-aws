@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kinesis.NewVideoStream(ctx, "default", &kinesis.VideoStreamArgs{
+//				Name:                 pulumi.String("kinesis-video-stream"),
 //				DataRetentionInHours: pulumi.Int(1),
 //				DeviceName:           pulumi.String("kinesis-video-device-name"),
 //				MediaType:            pulumi.String("video/h264"),
@@ -45,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Kinesis Streams using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:kinesis/videoStream:VideoStream test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/pulumi-kinesis-test/1554978910975
-//
+// $ pulumi import aws:kinesis/videoStream:VideoStream test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/pulumi-kinesis-test/1554978910975
 // ```
 type VideoStream struct {
 	pulumi.CustomResourceState
@@ -90,10 +91,6 @@ func NewVideoStream(ctx *pulumi.Context,
 		args = &VideoStreamArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VideoStream
 	err := ctx.RegisterResource("aws:kinesis/videoStream:VideoStream", name, args, &resource, opts...)

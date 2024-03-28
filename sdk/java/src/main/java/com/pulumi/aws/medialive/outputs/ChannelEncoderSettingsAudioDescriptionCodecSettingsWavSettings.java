@@ -65,25 +65,28 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSetting
 
         @CustomType.Setter
         public Builder bitDepth(@Nullable Double bitDepth) {
+
             this.bitDepth = bitDepth;
             return this;
         }
         @CustomType.Setter
         public Builder codingMode(@Nullable String codingMode) {
+
             this.codingMode = codingMode;
             return this;
         }
         @CustomType.Setter
         public Builder sampleRate(@Nullable Double sampleRate) {
+
             this.sampleRate = sampleRate;
             return this;
         }
         public ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings build() {
-            final var o = new ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings();
-            o.bitDepth = bitDepth;
-            o.codingMode = codingMode;
-            o.sampleRate = sampleRate;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings();
+            _resultValue.bitDepth = bitDepth;
+            _resultValue.codingMode = codingMode;
+            _resultValue.sampleRate = sampleRate;
+            return _resultValue;
         }
     }
 }

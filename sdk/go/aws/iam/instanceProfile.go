@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,13 +50,15 @@ import (
 //				return err
 //			}
 //			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
+//				Name:             pulumi.String("test_role"),
 //				Path:             pulumi.String("/"),
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewInstanceProfile(ctx, "testProfile", &iam.InstanceProfileArgs{
+//			_, err = iam.NewInstanceProfile(ctx, "test_profile", &iam.InstanceProfileArgs{
+//				Name: pulumi.String("test_profile"),
 //				Role: role.Name,
 //			})
 //			if err != nil {
@@ -66,15 +69,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Instance Profiles using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
-//
+// $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
 // ```
 type InstanceProfile struct {
 	pulumi.CustomResourceState
@@ -108,10 +110,6 @@ func NewInstanceProfile(ctx *pulumi.Context,
 		args = &InstanceProfileArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstanceProfile
 	err := ctx.RegisterResource("aws:iam/instanceProfile:InstanceProfile", name, args, &resource, opts...)

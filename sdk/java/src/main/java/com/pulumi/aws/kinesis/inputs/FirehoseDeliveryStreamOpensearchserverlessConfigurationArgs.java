@@ -9,6 +9,7 @@ import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchserverlessC
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -21,14 +22,14 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
     public static final FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs Empty = new FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs();
 
     /**
-     * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+     * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
     @Import(name="bufferingInterval")
     private @Nullable Output<Integer> bufferingInterval;
 
     /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
     public Optional<Output<Integer>> bufferingInterval() {
@@ -51,14 +52,14 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
     }
 
     /**
-     * The CloudWatch Logging Options for the delivery stream. More details are given below
+     * The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -96,14 +97,14 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
     }
 
     /**
-     * The data processing configuration.  More details are given below.
+     * The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     @Import(name="processingConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs> processingConfiguration;
 
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs>> processingConfiguration() {
@@ -156,14 +157,14 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
     }
 
     /**
-     * The S3 Configuration. See s3_configuration for more details.
+     * The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     @Import(name="s3Configuration", required=true)
     private Output<FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs> s3Configuration;
 
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     public Output<FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs> s3Configuration() {
@@ -171,14 +172,14 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
     }
 
     /**
-     * The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. More details are given below
+     * The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpc_config` block below for details.
      * 
      */
     @Import(name="vpcConfig")
     private @Nullable Output<FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs> vpcConfig;
 
     /**
-     * @return The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. More details are given below
+     * @return The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpc_config` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs>> vpcConfig() {
@@ -220,7 +221,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          * 
          * @return builder
          * 
@@ -231,7 +232,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          * 
          * @return builder
          * 
@@ -262,7 +263,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
          * 
          * @return builder
          * 
@@ -273,7 +274,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
          * 
          * @return builder
          * 
@@ -325,7 +326,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  More details are given below.
+         * @param processingConfiguration The data processing configuration.  See `processing_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -336,7 +337,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  More details are given below.
+         * @param processingConfiguration The data processing configuration.  See `processing_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -409,7 +410,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See s3_configuration for more details.
+         * @param s3Configuration The S3 Configuration. See `s3_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -420,7 +421,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See s3_configuration for more details.
+         * @param s3Configuration The S3 Configuration. See `s3_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -430,7 +431,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param vpcConfig The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. More details are given below
+         * @param vpcConfig The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpc_config` block below for details.
          * 
          * @return builder
          * 
@@ -441,7 +442,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param vpcConfig The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. More details are given below
+         * @param vpcConfig The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpc_config` block below for details.
          * 
          * @return builder
          * 
@@ -451,10 +452,18 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         public FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs build() {
-            $.collectionEndpoint = Objects.requireNonNull($.collectionEndpoint, "expected parameter 'collectionEndpoint' to be non-null");
-            $.indexName = Objects.requireNonNull($.indexName, "expected parameter 'indexName' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.s3Configuration = Objects.requireNonNull($.s3Configuration, "expected parameter 's3Configuration' to be non-null");
+            if ($.collectionEndpoint == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs", "collectionEndpoint");
+            }
+            if ($.indexName == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs", "indexName");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs", "roleArn");
+            }
+            if ($.s3Configuration == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs", "s3Configuration");
+            }
             return $;
         }
     }

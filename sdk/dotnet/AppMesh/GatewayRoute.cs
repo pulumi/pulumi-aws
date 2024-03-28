@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,8 +25,9 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var example = new Aws.AppMesh.GatewayRoute("example", new()
     ///     {
+    ///         Name = "example-gateway-route",
     ///         MeshName = "example-service-mesh",
-    ///         VirtualGatewayName = aws_appmesh_virtual_gateway.Example.Name,
+    ///         VirtualGatewayName = exampleAwsAppmeshVirtualGateway.Name,
     ///         Spec = new Aws.AppMesh.Inputs.GatewayRouteSpecArgs
     ///         {
     ///             HttpRoute = new Aws.AppMesh.Inputs.GatewayRouteSpecHttpRouteArgs
@@ -36,7 +38,7 @@ namespace Pulumi.Aws.AppMesh
     ///                     {
     ///                         VirtualService = new Aws.AppMesh.Inputs.GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs
     ///                         {
-    ///                             VirtualServiceName = aws_appmesh_virtual_service.Example.Name,
+    ///                             VirtualServiceName = exampleAwsAppmeshVirtualService.Name,
     ///                         },
     ///                     },
     ///                 },
@@ -54,13 +56,14 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import App Mesh gateway routes using `mesh_name` and `virtual_gateway_name` together with the gateway route's `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appmesh/gatewayRoute:GatewayRoute example mesh/gw1/example-gateway-route
+    /// $ pulumi import aws:appmesh/gatewayRoute:GatewayRoute example mesh/gw1/example-gateway-route
     /// ```
     /// </summary>
     [AwsResourceType("aws:appmesh/gatewayRoute:GatewayRoute")]
@@ -155,10 +158,6 @@ namespace Pulumi.Aws.AppMesh
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -302,11 +301,7 @@ namespace Pulumi.Aws.AppMesh
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

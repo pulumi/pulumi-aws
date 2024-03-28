@@ -5,6 +5,7 @@ package com.pulumi.aws.lambda.outputs;
 
 import com.pulumi.aws.lambda.outputs.GetFunctionUrlCor;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -35,7 +36,7 @@ public final class GetFunctionUrlResult {
     private String functionArn;
     private String functionName;
     /**
-     * @return HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
+     * @return HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
      * 
      */
     private String functionUrl;
@@ -94,7 +95,7 @@ public final class GetFunctionUrlResult {
         return this.functionName;
     }
     /**
-     * @return HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
+     * @return HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
      * 
      */
     public String functionUrl() {
@@ -170,12 +171,18 @@ public final class GetFunctionUrlResult {
 
         @CustomType.Setter
         public Builder authorizationType(String authorizationType) {
-            this.authorizationType = Objects.requireNonNull(authorizationType);
+            if (authorizationType == null) {
+              throw new MissingRequiredPropertyException("GetFunctionUrlResult", "authorizationType");
+            }
+            this.authorizationType = authorizationType;
             return this;
         }
         @CustomType.Setter
         public Builder cors(List<GetFunctionUrlCor> cors) {
-            this.cors = Objects.requireNonNull(cors);
+            if (cors == null) {
+              throw new MissingRequiredPropertyException("GetFunctionUrlResult", "cors");
+            }
+            this.cors = cors;
             return this;
         }
         public Builder cors(GetFunctionUrlCor... cors) {
@@ -183,63 +190,88 @@ public final class GetFunctionUrlResult {
         }
         @CustomType.Setter
         public Builder creationTime(String creationTime) {
-            this.creationTime = Objects.requireNonNull(creationTime);
+            if (creationTime == null) {
+              throw new MissingRequiredPropertyException("GetFunctionUrlResult", "creationTime");
+            }
+            this.creationTime = creationTime;
             return this;
         }
         @CustomType.Setter
         public Builder functionArn(String functionArn) {
-            this.functionArn = Objects.requireNonNull(functionArn);
+            if (functionArn == null) {
+              throw new MissingRequiredPropertyException("GetFunctionUrlResult", "functionArn");
+            }
+            this.functionArn = functionArn;
             return this;
         }
         @CustomType.Setter
         public Builder functionName(String functionName) {
-            this.functionName = Objects.requireNonNull(functionName);
+            if (functionName == null) {
+              throw new MissingRequiredPropertyException("GetFunctionUrlResult", "functionName");
+            }
+            this.functionName = functionName;
             return this;
         }
         @CustomType.Setter
         public Builder functionUrl(String functionUrl) {
-            this.functionUrl = Objects.requireNonNull(functionUrl);
+            if (functionUrl == null) {
+              throw new MissingRequiredPropertyException("GetFunctionUrlResult", "functionUrl");
+            }
+            this.functionUrl = functionUrl;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFunctionUrlResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder invokeMode(String invokeMode) {
-            this.invokeMode = Objects.requireNonNull(invokeMode);
+            if (invokeMode == null) {
+              throw new MissingRequiredPropertyException("GetFunctionUrlResult", "invokeMode");
+            }
+            this.invokeMode = invokeMode;
             return this;
         }
         @CustomType.Setter
         public Builder lastModifiedTime(String lastModifiedTime) {
-            this.lastModifiedTime = Objects.requireNonNull(lastModifiedTime);
+            if (lastModifiedTime == null) {
+              throw new MissingRequiredPropertyException("GetFunctionUrlResult", "lastModifiedTime");
+            }
+            this.lastModifiedTime = lastModifiedTime;
             return this;
         }
         @CustomType.Setter
         public Builder qualifier(@Nullable String qualifier) {
+
             this.qualifier = qualifier;
             return this;
         }
         @CustomType.Setter
         public Builder urlId(String urlId) {
-            this.urlId = Objects.requireNonNull(urlId);
+            if (urlId == null) {
+              throw new MissingRequiredPropertyException("GetFunctionUrlResult", "urlId");
+            }
+            this.urlId = urlId;
             return this;
         }
         public GetFunctionUrlResult build() {
-            final var o = new GetFunctionUrlResult();
-            o.authorizationType = authorizationType;
-            o.cors = cors;
-            o.creationTime = creationTime;
-            o.functionArn = functionArn;
-            o.functionName = functionName;
-            o.functionUrl = functionUrl;
-            o.id = id;
-            o.invokeMode = invokeMode;
-            o.lastModifiedTime = lastModifiedTime;
-            o.qualifier = qualifier;
-            o.urlId = urlId;
-            return o;
+            final var _resultValue = new GetFunctionUrlResult();
+            _resultValue.authorizationType = authorizationType;
+            _resultValue.cors = cors;
+            _resultValue.creationTime = creationTime;
+            _resultValue.functionArn = functionArn;
+            _resultValue.functionName = functionName;
+            _resultValue.functionUrl = functionUrl;
+            _resultValue.id = id;
+            _resultValue.invokeMode = invokeMode;
+            _resultValue.lastModifiedTime = lastModifiedTime;
+            _resultValue.qualifier = qualifier;
+            _resultValue.urlId = urlId;
+            return _resultValue;
         }
     }
 }

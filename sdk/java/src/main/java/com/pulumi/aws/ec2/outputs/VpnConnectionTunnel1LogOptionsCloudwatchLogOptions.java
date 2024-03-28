@@ -73,25 +73,28 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptions {
 
         @CustomType.Setter
         public Builder logEnabled(@Nullable Boolean logEnabled) {
+
             this.logEnabled = logEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder logGroupArn(@Nullable String logGroupArn) {
+
             this.logGroupArn = logGroupArn;
             return this;
         }
         @CustomType.Setter
         public Builder logOutputFormat(@Nullable String logOutputFormat) {
+
             this.logOutputFormat = logOutputFormat;
             return this;
         }
         public VpnConnectionTunnel1LogOptionsCloudwatchLogOptions build() {
-            final var o = new VpnConnectionTunnel1LogOptionsCloudwatchLogOptions();
-            o.logEnabled = logEnabled;
-            o.logGroupArn = logGroupArn;
-            o.logOutputFormat = logOutputFormat;
-            return o;
+            final var _resultValue = new VpnConnectionTunnel1LogOptionsCloudwatchLogOptions();
+            _resultValue.logEnabled = logEnabled;
+            _resultValue.logGroupArn = logGroupArn;
+            _resultValue.logOutputFormat = logOutputFormat;
+            return _resultValue;
         }
     }
 }

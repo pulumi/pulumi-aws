@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.eks.inputs;
 
+import com.pulumi.aws.eks.inputs.ClusterAccessConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterCertificateAuthorityArgs;
 import com.pulumi.aws.eks.inputs.ClusterEncryptionConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterIdentityArgs;
@@ -22,6 +23,21 @@ import javax.annotation.Nullable;
 public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
     public static final ClusterState Empty = new ClusterState();
+
+    /**
+     * Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+     * 
+     */
+    @Import(name="accessConfig")
+    private @Nullable Output<ClusterAccessConfigArgs> accessConfig;
+
+    /**
+     * @return Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+     * 
+     */
+    public Optional<Output<ClusterAccessConfigArgs>> accessConfig() {
+        return Optional.ofNullable(this.accessConfig);
+    }
 
     /**
      * ARN of the cluster.
@@ -175,14 +191,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * @return Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
      * 
      */
     public Optional<Output<String>> name() {
@@ -324,6 +340,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     private ClusterState() {}
 
     private ClusterState(ClusterState $) {
+        this.accessConfig = $.accessConfig;
         this.arn = $.arn;
         this.certificateAuthorities = $.certificateAuthorities;
         this.certificateAuthority = $.certificateAuthority;
@@ -362,6 +379,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ClusterState defaults) {
             $ = new ClusterState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param accessConfig Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessConfig(@Nullable Output<ClusterAccessConfigArgs> accessConfig) {
+            $.accessConfig = accessConfig;
+            return this;
+        }
+
+        /**
+         * @param accessConfig Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessConfig(ClusterAccessConfigArgs accessConfig) {
+            return accessConfig(Output.of(accessConfig));
         }
 
         /**
@@ -603,7 +641,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+         * @param name Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
          * 
          * @return builder
          * 
@@ -614,7 +652,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+         * @param name Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
          * 
          * @return builder
          * 

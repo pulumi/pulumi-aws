@@ -17,8 +17,10 @@ namespace Pulumi.Aws.CloudWatch
     /// &gt; **Note:** The EventBridge bus policy resource  (`aws.cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`aws.cloudwatch.EventPermission`) and will overwrite permissions.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Account Access
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,7 +29,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var test = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -58,16 +60,19 @@ namespace Pulumi.Aws.CloudWatch
     ///         },
     ///     });
     /// 
-    ///     var testEventBusPolicy = new Aws.CloudWatch.EventBusPolicy("testEventBusPolicy", new()
+    ///     var testEventBusPolicy = new Aws.CloudWatch.EventBusPolicy("test", new()
     ///     {
-    ///         Policy = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///         EventBusName = aws_cloudwatch_event_bus.Test.Name,
+    ///         Policy = test.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         EventBusName = testAwsCloudwatchEventBus.Name,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Organization Access
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -76,7 +81,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var test = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -115,7 +120,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                         Variable = "aws:PrincipalOrgID",
     ///                         Values = new[]
     ///                         {
-    ///                             aws_organizations_organization.Example.Id,
+    ///                             example.Id,
     ///                         },
     ///                     },
     ///                 },
@@ -123,16 +128,19 @@ namespace Pulumi.Aws.CloudWatch
     ///         },
     ///     });
     /// 
-    ///     var testEventBusPolicy = new Aws.CloudWatch.EventBusPolicy("testEventBusPolicy", new()
+    ///     var testEventBusPolicy = new Aws.CloudWatch.EventBusPolicy("test", new()
     ///     {
-    ///         Policy = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///         EventBusName = aws_cloudwatch_event_bus.Test.Name,
+    ///         Policy = test.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         EventBusName = testAwsCloudwatchEventBus.Name,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Multiple Statements
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -141,7 +149,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var test = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -204,7 +212,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                         Variable = "aws:PrincipalOrgID",
     ///                         Values = new[]
     ///                         {
-    ///                             aws_organizations_organization.Example.Id,
+    ///                             example.Id,
     ///                         },
     ///                     },
     ///                 },
@@ -212,21 +220,22 @@ namespace Pulumi.Aws.CloudWatch
     ///         },
     ///     });
     /// 
-    ///     var testEventBusPolicy = new Aws.CloudWatch.EventBusPolicy("testEventBusPolicy", new()
+    ///     var testEventBusPolicy = new Aws.CloudWatch.EventBusPolicy("test", new()
     ///     {
-    ///         Policy = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///         EventBusName = aws_cloudwatch_event_bus.Test.Name,
+    ///         Policy = test.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         EventBusName = testAwsCloudwatchEventBus.Name,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import an EventBridge policy using the `event_bus_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
+    /// $ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/eventBusPolicy:EventBusPolicy")]

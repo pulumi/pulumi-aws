@@ -59,19 +59,21 @@ public final class ProjectLogsConfig {
 
         @CustomType.Setter
         public Builder cloudwatchLogs(@Nullable ProjectLogsConfigCloudwatchLogs cloudwatchLogs) {
+
             this.cloudwatchLogs = cloudwatchLogs;
             return this;
         }
         @CustomType.Setter
         public Builder s3Logs(@Nullable ProjectLogsConfigS3Logs s3Logs) {
+
             this.s3Logs = s3Logs;
             return this;
         }
         public ProjectLogsConfig build() {
-            final var o = new ProjectLogsConfig();
-            o.cloudwatchLogs = cloudwatchLogs;
-            o.s3Logs = s3Logs;
-            return o;
+            final var _resultValue = new ProjectLogsConfig();
+            _resultValue.cloudwatchLogs = cloudwatchLogs;
+            _resultValue.s3Logs = s3Logs;
+            return _resultValue;
         }
     }
 }

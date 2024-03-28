@@ -12,32 +12,37 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const xssMatchSet = new aws.waf.XssMatchSet("xssMatchSet", {xssMatchTuples: [
- *     {
- *         fieldToMatch: {
- *             type: "URI",
+ * const xssMatchSet = new aws.waf.XssMatchSet("xss_match_set", {
+ *     name: "xss_match_set",
+ *     xssMatchTuples: [
+ *         {
+ *             textTransformation: "NONE",
+ *             fieldToMatch: {
+ *                 type: "URI",
+ *             },
  *         },
- *         textTransformation: "NONE",
- *     },
- *     {
- *         fieldToMatch: {
- *             type: "QUERY_STRING",
+ *         {
+ *             textTransformation: "NONE",
+ *             fieldToMatch: {
+ *                 type: "QUERY_STRING",
+ *             },
  *         },
- *         textTransformation: "NONE",
- *     },
- * ]});
+ *     ],
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import WAF XSS Match Set using their ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:waf/xssMatchSet:XssMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * $ pulumi import aws:waf/xssMatchSet:XssMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
  * ```
  */
 export class XssMatchSet extends pulumi.CustomResource {

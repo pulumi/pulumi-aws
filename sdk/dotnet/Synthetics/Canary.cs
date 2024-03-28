@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Synthetics
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,26 +27,28 @@ namespace Pulumi.Aws.Synthetics
     /// {
     ///     var some = new Aws.Synthetics.Canary("some", new()
     ///     {
+    ///         Name = "some-canary",
     ///         ArtifactS3Location = "s3://some-bucket/",
     ///         ExecutionRoleArn = "some-role",
     ///         Handler = "exports.handler",
+    ///         ZipFile = "test-fixtures/lambdatest.zip",
     ///         RuntimeVersion = "syn-1.0",
     ///         Schedule = new Aws.Synthetics.Inputs.CanaryScheduleArgs
     ///         {
     ///             Expression = "rate(0 minute)",
     ///         },
-    ///         ZipFile = "test-fixtures/lambdatest.zip",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Synthetics Canaries using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:synthetics/canary:Canary some some-canary
+    /// $ pulumi import aws:synthetics/canary:Canary some some-canary
     /// ```
     /// </summary>
     [AwsResourceType("aws:synthetics/canary:Canary")]
@@ -220,10 +223,6 @@ namespace Pulumi.Aws.Synthetics
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -509,11 +508,7 @@ namespace Pulumi.Aws.Synthetics
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("timelines")]

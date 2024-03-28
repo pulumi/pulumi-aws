@@ -17,12 +17,11 @@ namespace Pulumi.Aws.Ec2
         /// This data source can prove useful when a module accepts a local gateway route table id as
         /// an input variable and needs to, for example, find the associated Outpost or Local Gateway.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following example returns a specific local gateway route table ID
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -40,8 +39,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLocalGatewayRouteTableResult> InvokeAsync(GetLocalGatewayRouteTableArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalGatewayRouteTableResult>("aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable", args ?? new GetLocalGatewayRouteTableArgs(), options.WithDefaults());
@@ -52,12 +50,11 @@ namespace Pulumi.Aws.Ec2
         /// This data source can prove useful when a module accepts a local gateway route table id as
         /// an input variable and needs to, for example, find the associated Outpost or Local Gateway.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following example returns a specific local gateway route table ID
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -75,8 +72,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLocalGatewayRouteTableResult> Invoke(GetLocalGatewayRouteTableInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayRouteTableResult>("aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable", args ?? new GetLocalGatewayRouteTableInvokeArgs(), options.WithDefaults());

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := devicefarm.NewDevicePool(ctx, "example", &devicefarm.DevicePoolArgs{
-//				ProjectArn: pulumi.Any(aws_devicefarm_project.Example.Arn),
+//				Name:       pulumi.String("example"),
+//				ProjectArn: pulumi.Any(exampleAwsDevicefarmProject.Arn),
 //				Rules: devicefarm.DevicePoolRuleArray{
 //					&devicefarm.DevicePoolRuleArgs{
 //						Attribute: pulumi.String("OS_VERSION"),
@@ -46,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DeviceFarm Device Pools using their ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:devicefarm/devicePool:DevicePool example arn:aws:devicefarm:us-west-2:123456789012:devicepool:4fa784c7-ccb4-4dbf-ba4f-02198320daa1/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-//
+// $ pulumi import aws:devicefarm/devicePool:DevicePool example arn:aws:devicefarm:us-west-2:123456789012:devicepool:4fa784c7-ccb4-4dbf-ba4f-02198320daa1/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
 // ```
 type DevicePool struct {
 	pulumi.CustomResourceState
@@ -93,10 +94,6 @@ func NewDevicePool(ctx *pulumi.Context,
 	if args.Rules == nil {
 		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DevicePool
 	err := ctx.RegisterResource("aws:devicefarm/devicePool:DevicePool", name, args, &resource, opts...)

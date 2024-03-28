@@ -6,6 +6,7 @@ package com.pulumi.aws.quicksight.outputs;
 import com.pulumi.aws.quicksight.outputs.GetThemeConfiguration;
 import com.pulumi.aws.quicksight.outputs.GetThemePermission;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -213,22 +214,34 @@ public final class GetThemeResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetThemeResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder awsAccountId(String awsAccountId) {
-            this.awsAccountId = Objects.requireNonNull(awsAccountId);
+            if (awsAccountId == null) {
+              throw new MissingRequiredPropertyException("GetThemeResult", "awsAccountId");
+            }
+            this.awsAccountId = awsAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder baseThemeId(String baseThemeId) {
-            this.baseThemeId = Objects.requireNonNull(baseThemeId);
+            if (baseThemeId == null) {
+              throw new MissingRequiredPropertyException("GetThemeResult", "baseThemeId");
+            }
+            this.baseThemeId = baseThemeId;
             return this;
         }
         @CustomType.Setter
         public Builder configurations(List<GetThemeConfiguration> configurations) {
-            this.configurations = Objects.requireNonNull(configurations);
+            if (configurations == null) {
+              throw new MissingRequiredPropertyException("GetThemeResult", "configurations");
+            }
+            this.configurations = configurations;
             return this;
         }
         public Builder configurations(GetThemeConfiguration... configurations) {
@@ -236,27 +249,42 @@ public final class GetThemeResult {
         }
         @CustomType.Setter
         public Builder createdTime(String createdTime) {
-            this.createdTime = Objects.requireNonNull(createdTime);
+            if (createdTime == null) {
+              throw new MissingRequiredPropertyException("GetThemeResult", "createdTime");
+            }
+            this.createdTime = createdTime;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetThemeResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder lastUpdatedTime(String lastUpdatedTime) {
-            this.lastUpdatedTime = Objects.requireNonNull(lastUpdatedTime);
+            if (lastUpdatedTime == null) {
+              throw new MissingRequiredPropertyException("GetThemeResult", "lastUpdatedTime");
+            }
+            this.lastUpdatedTime = lastUpdatedTime;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetThemeResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder permissions(List<GetThemePermission> permissions) {
-            this.permissions = Objects.requireNonNull(permissions);
+            if (permissions == null) {
+              throw new MissingRequiredPropertyException("GetThemeResult", "permissions");
+            }
+            this.permissions = permissions;
             return this;
         }
         public Builder permissions(GetThemePermission... permissions) {
@@ -264,46 +292,61 @@ public final class GetThemeResult {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetThemeResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetThemeResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder themeId(String themeId) {
-            this.themeId = Objects.requireNonNull(themeId);
+            if (themeId == null) {
+              throw new MissingRequiredPropertyException("GetThemeResult", "themeId");
+            }
+            this.themeId = themeId;
             return this;
         }
         @CustomType.Setter
         public Builder versionDescription(String versionDescription) {
-            this.versionDescription = Objects.requireNonNull(versionDescription);
+            if (versionDescription == null) {
+              throw new MissingRequiredPropertyException("GetThemeResult", "versionDescription");
+            }
+            this.versionDescription = versionDescription;
             return this;
         }
         @CustomType.Setter
         public Builder versionNumber(Integer versionNumber) {
-            this.versionNumber = Objects.requireNonNull(versionNumber);
+            if (versionNumber == null) {
+              throw new MissingRequiredPropertyException("GetThemeResult", "versionNumber");
+            }
+            this.versionNumber = versionNumber;
             return this;
         }
         public GetThemeResult build() {
-            final var o = new GetThemeResult();
-            o.arn = arn;
-            o.awsAccountId = awsAccountId;
-            o.baseThemeId = baseThemeId;
-            o.configurations = configurations;
-            o.createdTime = createdTime;
-            o.id = id;
-            o.lastUpdatedTime = lastUpdatedTime;
-            o.name = name;
-            o.permissions = permissions;
-            o.status = status;
-            o.tags = tags;
-            o.themeId = themeId;
-            o.versionDescription = versionDescription;
-            o.versionNumber = versionNumber;
-            return o;
+            final var _resultValue = new GetThemeResult();
+            _resultValue.arn = arn;
+            _resultValue.awsAccountId = awsAccountId;
+            _resultValue.baseThemeId = baseThemeId;
+            _resultValue.configurations = configurations;
+            _resultValue.createdTime = createdTime;
+            _resultValue.id = id;
+            _resultValue.lastUpdatedTime = lastUpdatedTime;
+            _resultValue.name = name;
+            _resultValue.permissions = permissions;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            _resultValue.themeId = themeId;
+            _resultValue.versionDescription = versionDescription;
+            _resultValue.versionNumber = versionNumber;
+            return _resultValue;
         }
     }
 }

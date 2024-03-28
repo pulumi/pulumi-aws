@@ -11,18 +11,19 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Comprehend Entity Recognizer.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const documents = new aws.s3.BucketObjectv2("documents", {});
- * // ...
  * const entities = new aws.s3.BucketObjectv2("entities", {});
- * // ...
  * const example = new aws.comprehend.EntityRecognizer("example", {
- *     dataAccessRoleArn: aws_iam_role.example.arn,
+ *     name: "example",
+ *     dataAccessRoleArn: exampleAwsIamRole.arn,
  *     languageCode: "en",
  *     inputDataConfig: {
  *         entityTypes: [
@@ -34,23 +35,22 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *         documents: {
- *             s3Uri: pulumi.interpolate`s3://${aws_s3_bucket.documents.bucket}/${documents.id}`,
+ *             s3Uri: pulumi.interpolate`s3://${documentsAwsS3Bucket.bucket}/${documents.id}`,
  *         },
  *         entityList: {
- *             s3Uri: pulumi.interpolate`s3://${aws_s3_bucket.entities.bucket}/${entities.id}`,
+ *             s3Uri: pulumi.interpolate`s3://${entitiesAwsS3Bucket.bucket}/${entities.id}`,
  *         },
  *     },
- * }, {
- *     dependsOn: [aws_iam_role_policy.example],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
+ * $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
  * ```
  */
 export class EntityRecognizer extends pulumi.CustomResource {
@@ -198,8 +198,6 @@ export class EntityRecognizer extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(EntityRecognizer.__pulumiType, name, resourceInputs, opts);
     }
 }

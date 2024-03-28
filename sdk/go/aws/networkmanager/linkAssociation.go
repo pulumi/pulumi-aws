@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,9 +32,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.NewLinkAssociation(ctx, "example", &networkmanager.LinkAssociationArgs{
-//				GlobalNetworkId: pulumi.Any(aws_networkmanager_global_network.Example.Id),
-//				LinkId:          pulumi.Any(aws_networkmanager_link.Example.Id),
-//				DeviceId:        pulumi.Any(aws_networkmanager_device.Example.Id),
+//				GlobalNetworkId: pulumi.Any(exampleAwsNetworkmanagerGlobalNetwork.Id),
+//				LinkId:          pulumi.Any(exampleAwsNetworkmanagerLink.Id),
+//				DeviceId:        pulumi.Any(exampleAwsNetworkmanagerDevice.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -43,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_networkmanager_link_association` using the global network ID, link ID and device ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:networkmanager/linkAssociation:LinkAssociation example global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123
-//
+// $ pulumi import aws:networkmanager/linkAssociation:LinkAssociation example global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123
 // ```
 type LinkAssociation struct {
 	pulumi.CustomResourceState

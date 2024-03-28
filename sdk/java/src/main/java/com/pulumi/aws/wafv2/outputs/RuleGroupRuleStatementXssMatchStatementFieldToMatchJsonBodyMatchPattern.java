@@ -52,11 +52,13 @@ public final class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMa
 
         @CustomType.Setter
         public Builder all(@Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll all) {
+
             this.all = all;
             return this;
         }
         @CustomType.Setter
         public Builder includedPaths(@Nullable List<String> includedPaths) {
+
             this.includedPaths = includedPaths;
             return this;
         }
@@ -64,10 +66,10 @@ public final class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMa
             return includedPaths(List.of(includedPaths));
         }
         public RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern build() {
-            final var o = new RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern();
-            o.all = all;
-            o.includedPaths = includedPaths;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern();
+            _resultValue.all = all;
+            _resultValue.includedPaths = includedPaths;
+            return _resultValue;
         }
     }
 }

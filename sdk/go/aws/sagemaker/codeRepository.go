@@ -15,8 +15,10 @@ import (
 // Provides a SageMaker Code Repository resource.
 //
 // ## Example Usage
+//
 // ### Basic usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,8 +45,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example with Secret
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,7 +65,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSecret, err := secretsmanager.NewSecret(ctx, "exampleSecret", nil)
+//			example, err := secretsmanager.NewSecret(ctx, "example", &secretsmanager.SecretArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -72,22 +79,20 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			exampleSecretVersion, err := secretsmanager.NewSecretVersion(ctx, "exampleSecretVersion", &secretsmanager.SecretVersionArgs{
-//				SecretId:     exampleSecret.ID(),
+//			_, err = secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
+//				SecretId:     example.ID(),
 //				SecretString: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sagemaker.NewCodeRepository(ctx, "exampleCodeRepository", &sagemaker.CodeRepositoryArgs{
+//			_, err = sagemaker.NewCodeRepository(ctx, "example", &sagemaker.CodeRepositoryArgs{
 //				CodeRepositoryName: pulumi.String("example"),
 //				GitConfig: &sagemaker.CodeRepositoryGitConfigArgs{
 //					RepositoryUrl: pulumi.String("https://github.com/github/docs.git"),
-//					SecretArn:     exampleSecret.Arn,
+//					SecretArn:     example.Arn,
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleSecretVersion,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -96,15 +101,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SageMaker Code Repositories using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
-//
+// $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
 // ```
 type CodeRepository struct {
 	pulumi.CustomResourceState
@@ -136,10 +140,6 @@ func NewCodeRepository(ctx *pulumi.Context,
 	if args.GitConfig == nil {
 		return nil, errors.New("invalid value for required argument 'GitConfig'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CodeRepository
 	err := ctx.RegisterResource("aws:sagemaker/codeRepository:CodeRepository", name, args, &resource, opts...)

@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,19 +41,25 @@ public final class GetFirewallPolicyFirewallPolicyStatefulEngineOption {
 
         @CustomType.Setter
         public Builder ruleOrder(String ruleOrder) {
-            this.ruleOrder = Objects.requireNonNull(ruleOrder);
+            if (ruleOrder == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyFirewallPolicyStatefulEngineOption", "ruleOrder");
+            }
+            this.ruleOrder = ruleOrder;
             return this;
         }
         @CustomType.Setter
         public Builder streamExceptionPolicy(String streamExceptionPolicy) {
-            this.streamExceptionPolicy = Objects.requireNonNull(streamExceptionPolicy);
+            if (streamExceptionPolicy == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyFirewallPolicyStatefulEngineOption", "streamExceptionPolicy");
+            }
+            this.streamExceptionPolicy = streamExceptionPolicy;
             return this;
         }
         public GetFirewallPolicyFirewallPolicyStatefulEngineOption build() {
-            final var o = new GetFirewallPolicyFirewallPolicyStatefulEngineOption();
-            o.ruleOrder = ruleOrder;
-            o.streamExceptionPolicy = streamExceptionPolicy;
-            return o;
+            final var _resultValue = new GetFirewallPolicyFirewallPolicyStatefulEngineOption();
+            _resultValue.ruleOrder = ruleOrder;
+            _resultValue.streamExceptionPolicy = streamExceptionPolicy;
+            return _resultValue;
         }
     }
 }

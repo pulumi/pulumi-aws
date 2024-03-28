@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,12 +23,13 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new()
+    ///     var example = new Aws.CloudWatch.LogGroup("example", new()
     ///     {
+    ///         Name = $"/aws/directoryservice/{exampleAwsDirectoryServiceDirectory.Id}",
     ///         RetentionInDays = 14,
     ///     });
     /// 
-    ///     var ad_log_policyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var ad_log_policy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -51,34 +53,35 @@ namespace Pulumi.Aws.DirectoryService
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"{exampleLogGroup.Arn}:*",
+    ///                     $"{example.Arn}:*",
     ///                 },
     ///                 Effect = "Allow",
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var ad_log_policyLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("ad-log-policyLogResourcePolicy", new()
+    ///     var ad_log_policyLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("ad-log-policy", new()
     ///     {
-    ///         PolicyDocument = ad_log_policyPolicyDocument.Apply(ad_log_policyPolicyDocument =&gt; ad_log_policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
+    ///         PolicyDocument = ad_log_policy.Apply(ad_log_policy =&gt; ad_log_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
     ///         PolicyName = "ad-log-policy",
     ///     });
     /// 
-    ///     var exampleLogService = new Aws.DirectoryService.LogService("exampleLogService", new()
+    ///     var exampleLogService = new Aws.DirectoryService.LogService("example", new()
     ///     {
-    ///         DirectoryId = aws_directory_service_directory.Example.Id,
-    ///         LogGroupName = exampleLogGroup.Name,
+    ///         DirectoryId = exampleAwsDirectoryServiceDirectory.Id,
+    ///         LogGroupName = example.Name,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Directory Service Log Subscriptions using the directory id. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
+    /// $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
     /// ```
     /// </summary>
     [AwsResourceType("aws:directoryservice/logService:LogService")]

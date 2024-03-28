@@ -9,6 +9,7 @@ import com.pulumi.aws.ecs.inputs.GetTaskExecutionOverrides;
 import com.pulumi.aws.ecs.inputs.GetTaskExecutionPlacementConstraint;
 import com.pulumi.aws.ecs.inputs.GetTaskExecutionPlacementStrategy;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -36,6 +37,21 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
      */
     public Optional<List<GetTaskExecutionCapacityProviderStrategy>> capacityProviderStrategies() {
         return Optional.ofNullable(this.capacityProviderStrategies);
+    }
+
+    /**
+     * An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+     * 
+     */
+    @Import(name="clientToken")
+    private @Nullable String clientToken;
+
+    /**
+     * @return An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+     * 
+     */
+    public Optional<String> clientToken() {
+        return Optional.ofNullable(this.clientToken);
     }
 
     /**
@@ -286,6 +302,7 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
 
     private GetTaskExecutionPlainArgs(GetTaskExecutionPlainArgs $) {
         this.capacityProviderStrategies = $.capacityProviderStrategies;
+        this.clientToken = $.clientToken;
         this.cluster = $.cluster;
         this.desiredCount = $.desiredCount;
         this.enableEcsManagedTags = $.enableEcsManagedTags;
@@ -341,6 +358,17 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
          */
         public Builder capacityProviderStrategies(GetTaskExecutionCapacityProviderStrategy... capacityProviderStrategies) {
             return capacityProviderStrategies(List.of(capacityProviderStrategies));
+        }
+
+        /**
+         * @param clientToken An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientToken(@Nullable String clientToken) {
+            $.clientToken = clientToken;
+            return this;
         }
 
         /**
@@ -542,8 +570,12 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
         }
 
         public GetTaskExecutionPlainArgs build() {
-            $.cluster = Objects.requireNonNull($.cluster, "expected parameter 'cluster' to be non-null");
-            $.taskDefinition = Objects.requireNonNull($.taskDefinition, "expected parameter 'taskDefinition' to be non-null");
+            if ($.cluster == null) {
+                throw new MissingRequiredPropertyException("GetTaskExecutionPlainArgs", "cluster");
+            }
+            if ($.taskDefinition == null) {
+                throw new MissingRequiredPropertyException("GetTaskExecutionPlainArgs", "taskDefinition");
+            }
             return $;
         }
     }

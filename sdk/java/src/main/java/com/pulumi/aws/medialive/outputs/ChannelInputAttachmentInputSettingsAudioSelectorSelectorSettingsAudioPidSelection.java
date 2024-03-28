@@ -4,6 +4,7 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
 
         @CustomType.Setter
         public Builder pid(Integer pid) {
-            this.pid = Objects.requireNonNull(pid);
+            if (pid == null) {
+              throw new MissingRequiredPropertyException("ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection", "pid");
+            }
+            this.pid = pid;
             return this;
         }
         public ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection build() {
-            final var o = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection();
-            o.pid = pid;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection();
+            _resultValue.pid = pid;
+            return _resultValue;
         }
     }
 }

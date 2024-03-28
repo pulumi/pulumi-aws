@@ -5,6 +5,7 @@ package com.pulumi.aws.ebs.outputs;
 
 import com.pulumi.aws.ebs.outputs.GetSnapshotIdsFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -77,6 +78,7 @@ public final class GetSnapshotIdsResult {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<GetSnapshotIdsFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -85,12 +87,18 @@ public final class GetSnapshotIdsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotIdsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+            if (ids == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotIdsResult", "ids");
+            }
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {
@@ -98,6 +106,7 @@ public final class GetSnapshotIdsResult {
         }
         @CustomType.Setter
         public Builder owners(@Nullable List<String> owners) {
+
             this.owners = owners;
             return this;
         }
@@ -106,6 +115,7 @@ public final class GetSnapshotIdsResult {
         }
         @CustomType.Setter
         public Builder restorableByUserIds(@Nullable List<String> restorableByUserIds) {
+
             this.restorableByUserIds = restorableByUserIds;
             return this;
         }
@@ -113,13 +123,13 @@ public final class GetSnapshotIdsResult {
             return restorableByUserIds(List.of(restorableByUserIds));
         }
         public GetSnapshotIdsResult build() {
-            final var o = new GetSnapshotIdsResult();
-            o.filters = filters;
-            o.id = id;
-            o.ids = ids;
-            o.owners = owners;
-            o.restorableByUserIds = restorableByUserIds;
-            return o;
+            final var _resultValue = new GetSnapshotIdsResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.owners = owners;
+            _resultValue.restorableByUserIds = restorableByUserIds;
+            return _resultValue;
         }
     }
 }

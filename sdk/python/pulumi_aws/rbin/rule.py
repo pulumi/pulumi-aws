@@ -313,34 +313,37 @@ class Rule(pulumi.CustomResource):
         Resource for managing an AWS RBin Rule.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.rbin.Rule("example",
             description="example_rule",
+            resource_type="EBS_SNAPSHOT",
             resource_tags=[aws.rbin.RuleResourceTagArgs(
                 resource_tag_key="tag_key",
                 resource_tag_value="tag_value",
             )],
-            resource_type="EBS_SNAPSHOT",
             retention_period=aws.rbin.RuleRetentionPeriodArgs(
-                retention_period_unit="DAYS",
                 retention_period_value=10,
+                retention_period_unit="DAYS",
             ),
             tags={
                 "test_tag_key": "test_tag_value",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import RBin Rule using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:rbin/rule:Rule example examplerule
+        $ pulumi import aws:rbin/rule:Rule example examplerule
         ```
 
         :param str resource_name: The name of the resource.
@@ -363,34 +366,37 @@ class Rule(pulumi.CustomResource):
         Resource for managing an AWS RBin Rule.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.rbin.Rule("example",
             description="example_rule",
+            resource_type="EBS_SNAPSHOT",
             resource_tags=[aws.rbin.RuleResourceTagArgs(
                 resource_tag_key="tag_key",
                 resource_tag_value="tag_value",
             )],
-            resource_type="EBS_SNAPSHOT",
             retention_period=aws.rbin.RuleRetentionPeriodArgs(
-                retention_period_unit="DAYS",
                 retention_period_value=10,
+                retention_period_unit="DAYS",
             ),
             tags={
                 "test_tag_key": "test_tag_value",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import RBin Rule using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:rbin/rule:Rule example examplerule
+        $ pulumi import aws:rbin/rule:Rule example examplerule
         ```
 
         :param str resource_name: The name of the resource.
@@ -438,8 +444,6 @@ class Rule(pulumi.CustomResource):
             __props__.__dict__["lock_state"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Rule, __self__).__init__(
             'aws:rbin/rule:Rule',
             resource_name,

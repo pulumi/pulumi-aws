@@ -17,8 +17,10 @@ namespace Pulumi.Aws.Scheduler
     /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,6 +31,7 @@ namespace Pulumi.Aws.Scheduler
     /// {
     ///     var example = new Aws.Scheduler.Schedule("example", new()
     ///     {
+    ///         Name = "my-schedule",
     ///         GroupName = "default",
     ///         FlexibleTimeWindow = new Aws.Scheduler.Inputs.ScheduleFlexibleTimeWindowArgs
     ///         {
@@ -37,15 +40,18 @@ namespace Pulumi.Aws.Scheduler
     ///         ScheduleExpression = "rate(1 hours)",
     ///         Target = new Aws.Scheduler.Inputs.ScheduleTargetArgs
     ///         {
-    ///             Arn = aws_sqs_queue.Example.Arn,
-    ///             RoleArn = aws_iam_role.Example.Arn,
+    ///             Arn = exampleAwsSqsQueue.Arn,
+    ///             RoleArn = exampleAwsIamRole.Arn,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Universal Target
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -55,10 +61,11 @@ namespace Pulumi.Aws.Scheduler
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleQueue = new Aws.Sqs.Queue("exampleQueue");
+    ///     var example = new Aws.Sqs.Queue("example");
     /// 
-    ///     var exampleSchedule = new Aws.Scheduler.Schedule("exampleSchedule", new()
+    ///     var exampleSchedule = new Aws.Scheduler.Schedule("example", new()
     ///     {
+    ///         Name = "my-schedule",
     ///         FlexibleTimeWindow = new Aws.Scheduler.Inputs.ScheduleFlexibleTimeWindowArgs
     ///         {
     ///             Mode = "OFF",
@@ -67,24 +74,25 @@ namespace Pulumi.Aws.Scheduler
     ///         Target = new Aws.Scheduler.Inputs.ScheduleTargetArgs
     ///         {
     ///             Arn = "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///             Input = exampleQueue.Url.Apply(url =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             RoleArn = exampleAwsIamRole.Arn,
+    ///             Input = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["MessageBody"] = "Greetings, programs!",
-    ///                 ["QueueUrl"] = url,
+    ///                 ["messageBody"] = "Greetings, programs!",
+    ///                 ["queueUrl"] = example.Url,
     ///             })),
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
+    /// $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
     /// ```
     /// </summary>
     [AwsResourceType("aws:scheduler/schedule:Schedule")]

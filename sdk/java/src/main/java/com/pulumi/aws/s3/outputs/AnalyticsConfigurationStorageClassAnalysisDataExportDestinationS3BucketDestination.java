@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,31 +87,37 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
 
         @CustomType.Setter
         public Builder bucketAccountId(@Nullable String bucketAccountId) {
+
             this.bucketAccountId = bucketAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder bucketArn(String bucketArn) {
-            this.bucketArn = Objects.requireNonNull(bucketArn);
+            if (bucketArn == null) {
+              throw new MissingRequiredPropertyException("AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination", "bucketArn");
+            }
+            this.bucketArn = bucketArn;
             return this;
         }
         @CustomType.Setter
         public Builder format(@Nullable String format) {
+
             this.format = format;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         public AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination build() {
-            final var o = new AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination();
-            o.bucketAccountId = bucketAccountId;
-            o.bucketArn = bucketArn;
-            o.format = format;
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination();
+            _resultValue.bucketAccountId = bucketAccountId;
+            _resultValue.bucketArn = bucketArn;
+            _resultValue.format = format;
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

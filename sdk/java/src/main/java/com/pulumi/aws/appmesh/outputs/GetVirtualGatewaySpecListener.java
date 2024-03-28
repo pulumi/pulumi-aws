@@ -8,6 +8,7 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListenerHealthCheck;
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListenerPortMapping;
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListenerTl;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -56,7 +57,10 @@ public final class GetVirtualGatewaySpecListener {
 
         @CustomType.Setter
         public Builder connectionPools(List<GetVirtualGatewaySpecListenerConnectionPool> connectionPools) {
-            this.connectionPools = Objects.requireNonNull(connectionPools);
+            if (connectionPools == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListener", "connectionPools");
+            }
+            this.connectionPools = connectionPools;
             return this;
         }
         public Builder connectionPools(GetVirtualGatewaySpecListenerConnectionPool... connectionPools) {
@@ -64,7 +68,10 @@ public final class GetVirtualGatewaySpecListener {
         }
         @CustomType.Setter
         public Builder healthChecks(List<GetVirtualGatewaySpecListenerHealthCheck> healthChecks) {
-            this.healthChecks = Objects.requireNonNull(healthChecks);
+            if (healthChecks == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListener", "healthChecks");
+            }
+            this.healthChecks = healthChecks;
             return this;
         }
         public Builder healthChecks(GetVirtualGatewaySpecListenerHealthCheck... healthChecks) {
@@ -72,7 +79,10 @@ public final class GetVirtualGatewaySpecListener {
         }
         @CustomType.Setter
         public Builder portMappings(List<GetVirtualGatewaySpecListenerPortMapping> portMappings) {
-            this.portMappings = Objects.requireNonNull(portMappings);
+            if (portMappings == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListener", "portMappings");
+            }
+            this.portMappings = portMappings;
             return this;
         }
         public Builder portMappings(GetVirtualGatewaySpecListenerPortMapping... portMappings) {
@@ -80,19 +90,22 @@ public final class GetVirtualGatewaySpecListener {
         }
         @CustomType.Setter
         public Builder tls(List<GetVirtualGatewaySpecListenerTl> tls) {
-            this.tls = Objects.requireNonNull(tls);
+            if (tls == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListener", "tls");
+            }
+            this.tls = tls;
             return this;
         }
         public Builder tls(GetVirtualGatewaySpecListenerTl... tls) {
             return tls(List.of(tls));
         }
         public GetVirtualGatewaySpecListener build() {
-            final var o = new GetVirtualGatewaySpecListener();
-            o.connectionPools = connectionPools;
-            o.healthChecks = healthChecks;
-            o.portMappings = portMappings;
-            o.tls = tls;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecListener();
+            _resultValue.connectionPools = connectionPools;
+            _resultValue.healthChecks = healthChecks;
+            _resultValue.portMappings = portMappings;
+            _resultValue.tls = tls;
+            return _resultValue;
         }
     }
 }

@@ -128,26 +128,28 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
+        example = aws.ec2.Vpc("example",
             cidr_block="10.1.0.0/16",
             assign_generated_ipv6_cidr_block=True)
-        example_egress_only_internet_gateway = aws.ec2.EgressOnlyInternetGateway("exampleEgressOnlyInternetGateway",
-            vpc_id=example_vpc.id,
+        example_egress_only_internet_gateway = aws.ec2.EgressOnlyInternetGateway("example",
+            vpc_id=example.id,
             tags={
                 "Name": "main",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Egress-only Internet gateways using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
+        $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
         ```
 
         :param str resource_name: The name of the resource.
@@ -169,26 +171,28 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
+        example = aws.ec2.Vpc("example",
             cidr_block="10.1.0.0/16",
             assign_generated_ipv6_cidr_block=True)
-        example_egress_only_internet_gateway = aws.ec2.EgressOnlyInternetGateway("exampleEgressOnlyInternetGateway",
-            vpc_id=example_vpc.id,
+        example_egress_only_internet_gateway = aws.ec2.EgressOnlyInternetGateway("example",
+            vpc_id=example.id,
             tags={
                 "Name": "main",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Egress-only Internet gateways using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
+        $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
         ```
 
         :param str resource_name: The name of the resource.
@@ -222,8 +226,6 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EgressOnlyInternetGateway, __self__).__init__(
             'aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway',
             resource_name,

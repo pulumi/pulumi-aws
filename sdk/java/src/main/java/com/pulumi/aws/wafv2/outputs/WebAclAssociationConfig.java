@@ -44,6 +44,7 @@ public final class WebAclAssociationConfig {
 
         @CustomType.Setter
         public Builder requestBodies(@Nullable List<WebAclAssociationConfigRequestBody> requestBodies) {
+
             this.requestBodies = requestBodies;
             return this;
         }
@@ -51,9 +52,9 @@ public final class WebAclAssociationConfig {
             return requestBodies(List.of(requestBodies));
         }
         public WebAclAssociationConfig build() {
-            final var o = new WebAclAssociationConfig();
-            o.requestBodies = requestBodies;
-            return o;
+            final var _resultValue = new WebAclAssociationConfig();
+            _resultValue.requestBodies = requestBodies;
+            return _resultValue;
         }
     }
 }

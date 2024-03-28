@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,13 +22,14 @@ import * as utilities from "../utilities";
  *     workgroupName: "concurrency-scaling",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
+ * $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
  * ```
  */
 export class Workgroup extends pulumi.CustomResource {
@@ -79,9 +81,17 @@ export class Workgroup extends pulumi.CustomResource {
      */
     public readonly enhancedVpcRouting!: pulumi.Output<boolean | undefined>;
     /**
+     * The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+     */
+    public readonly maxCapacity!: pulumi.Output<number | undefined>;
+    /**
      * The name of the namespace.
      */
     public readonly namespaceName!: pulumi.Output<string>;
+    /**
+     * The port number on which the cluster accepts incoming connections.
+     */
+    public readonly port!: pulumi.Output<number>;
     /**
      * A value that specifies whether the workgroup can be accessed from a public network.
      */
@@ -133,7 +143,9 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["configParameters"] = state ? state.configParameters : undefined;
             resourceInputs["endpoints"] = state ? state.endpoints : undefined;
             resourceInputs["enhancedVpcRouting"] = state ? state.enhancedVpcRouting : undefined;
+            resourceInputs["maxCapacity"] = state ? state.maxCapacity : undefined;
             resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -152,7 +164,9 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["baseCapacity"] = args ? args.baseCapacity : undefined;
             resourceInputs["configParameters"] = args ? args.configParameters : undefined;
             resourceInputs["enhancedVpcRouting"] = args ? args.enhancedVpcRouting : undefined;
+            resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
@@ -164,8 +178,6 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["workgroupId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Workgroup.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -195,9 +207,17 @@ export interface WorkgroupState {
      */
     enhancedVpcRouting?: pulumi.Input<boolean>;
     /**
+     * The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+     */
+    maxCapacity?: pulumi.Input<number>;
+    /**
      * The name of the namespace.
      */
     namespaceName?: pulumi.Input<string>;
+    /**
+     * The port number on which the cluster accepts incoming connections.
+     */
+    port?: pulumi.Input<number>;
     /**
      * A value that specifies whether the workgroup can be accessed from a public network.
      */
@@ -249,9 +269,17 @@ export interface WorkgroupArgs {
      */
     enhancedVpcRouting?: pulumi.Input<boolean>;
     /**
+     * The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+     */
+    maxCapacity?: pulumi.Input<number>;
+    /**
      * The name of the namespace.
      */
     namespaceName: pulumi.Input<string>;
+    /**
+     * The port number on which the cluster accepts incoming connections.
+     */
+    port?: pulumi.Input<number>;
     /**
      * A value that specifies whether the workgroup can be accessed from a public network.
      */

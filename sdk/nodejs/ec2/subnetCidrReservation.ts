@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -16,16 +17,17 @@ import * as utilities from "../utilities";
  * const example = new aws.ec2.SubnetCidrReservation("example", {
  *     cidrBlock: "10.0.0.16/28",
  *     reservationType: "prefix",
- *     subnetId: aws_subnet.example.id,
+ *     subnetId: exampleAwsSubnet.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Existing CIDR reservations using `SUBNET_ID:RESERVATION_ID`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
+ * $ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
  * ```
  */
 export class SubnetCidrReservation extends pulumi.CustomResource {

@@ -23,7 +23,10 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Creating a deployment for an API requires at least one `aws.apigatewayv2.Route` resource associated with that API. To avoid race conditions when all resources are being created together, you need to add implicit resource references via the `triggers` argument or explicit resource references using the [resource `dependsOn` meta-argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson).
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,22 +49,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Deployment(&#34;example&#34;, DeploymentArgs.builder()        
- *             .apiId(aws_apigatewayv2_api.example().id())
+ *             .apiId(exampleAwsApigatewayv2Api.id())
  *             .description(&#34;Example deployment&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_apigatewayv2_deployment` using the API identifier and deployment identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigatewayv2/deployment:Deployment example aabbccddee/1122334
+ * $ pulumi import aws:apigatewayv2/deployment:Deployment example aabbccddee/1122334
  * ```
- *  The `triggers` argument cannot be imported.
+ * The `triggers` argument cannot be imported.
  * 
  */
 @ResourceType(type="aws:apigatewayv2/deployment:Deployment")

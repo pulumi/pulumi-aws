@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Rds
     /// Resource for managing an AWS RDS (Relational Database) Export Task.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,16 +28,19 @@ namespace Pulumi.Aws.Rds
     ///     var example = new Aws.Rds.ExportTask("example", new()
     ///     {
     ///         ExportTaskIdentifier = "example",
-    ///         SourceArn = aws_db_snapshot.Example.Db_snapshot_arn,
-    ///         S3BucketName = aws_s3_bucket.Example.Id,
-    ///         IamRoleArn = aws_iam_role.Example.Arn,
-    ///         KmsKeyId = aws_kms_key.Example.Arn,
+    ///         SourceArn = exampleAwsDbSnapshot.DbSnapshotArn,
+    ///         S3BucketName = exampleAwsS3Bucket.Id,
+    ///         IamRoleArn = exampleAwsIamRole.Arn,
+    ///         KmsKeyId = exampleAwsKmsKey.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Complete Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,39 +50,41 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
     ///     {
+    ///         Bucket = "example",
     ///         ForceDestroy = true,
     ///     });
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
+    ///         Name = "example",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Sid"] = "",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["action"] = "sts:AssumeRole",
+    ///                     ["effect"] = "Allow",
+    ///                     ["sid"] = "",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "export.rds.amazonaws.com",
+    ///                         ["service"] = "export.rds.amazonaws.com",
     ///                     },
     ///                 },
     ///             },
     ///         }),
     ///     });
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -120,43 +127,44 @@ namespace Pulumi.Aws.Rds
     ///         },
     ///     });
     /// 
-    ///     var examplePolicy = new Aws.Iam.Policy("examplePolicy", new()
+    ///     var examplePolicy = new Aws.Iam.Policy("example", new()
     ///     {
-    ///         PolicyDocument = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "example",
+    ///         PolicyDocument = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new()
+    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("example", new()
     ///     {
     ///         Role = exampleRole.Name,
     ///         PolicyArn = examplePolicy.Arn,
     ///     });
     /// 
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var exampleKey = new Aws.Kms.Key("example", new()
     ///     {
     ///         DeletionWindowInDays = 10,
     ///     });
     /// 
-    ///     var exampleInstance = new Aws.Rds.Instance("exampleInstance", new()
+    ///     var exampleInstance = new Aws.Rds.Instance("example", new()
     ///     {
     ///         Identifier = "example",
     ///         AllocatedStorage = 10,
     ///         DbName = "test",
     ///         Engine = "mysql",
     ///         EngineVersion = "5.7",
-    ///         InstanceClass = "db.t3.micro",
+    ///         InstanceClass = Aws.Rds.InstanceType.T3_Micro,
     ///         Username = "foo",
     ///         Password = "foobarbaz",
     ///         ParameterGroupName = "default.mysql5.7",
     ///         SkipFinalSnapshot = true,
     ///     });
     /// 
-    ///     var exampleSnapshot = new Aws.Rds.Snapshot("exampleSnapshot", new()
+    ///     var exampleSnapshot = new Aws.Rds.Snapshot("example", new()
     ///     {
     ///         DbInstanceIdentifier = exampleInstance.Identifier,
     ///         DbSnapshotIdentifier = "example",
     ///     });
     /// 
-    ///     var exampleExportTask = new Aws.Rds.ExportTask("exampleExportTask", new()
+    ///     var exampleExportTask = new Aws.Rds.ExportTask("example", new()
     ///     {
     ///         ExportTaskIdentifier = "example",
     ///         SourceArn = exampleSnapshot.DbSnapshotArn,
@@ -172,13 +180,14 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a RDS (Relational Database) Export Task using the `export_task_identifier`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rds/exportTask:ExportTask example example
+    /// $ pulumi import aws:rds/exportTask:ExportTask example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/exportTask:ExportTask")]

@@ -44,13 +44,14 @@ public final class UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings 
 
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         public UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings build() {
-            final var o = new UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings();
-            o.status = status;
-            return o;
+            final var _resultValue = new UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings();
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

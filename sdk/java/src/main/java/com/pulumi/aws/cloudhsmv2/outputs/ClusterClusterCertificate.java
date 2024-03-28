@@ -60,37 +60,42 @@ public final class ClusterClusterCertificate {
 
         @CustomType.Setter
         public Builder awsHardwareCertificate(@Nullable String awsHardwareCertificate) {
+
             this.awsHardwareCertificate = awsHardwareCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder clusterCertificate(@Nullable String clusterCertificate) {
+
             this.clusterCertificate = clusterCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder clusterCsr(@Nullable String clusterCsr) {
+
             this.clusterCsr = clusterCsr;
             return this;
         }
         @CustomType.Setter
         public Builder hsmCertificate(@Nullable String hsmCertificate) {
+
             this.hsmCertificate = hsmCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder manufacturerHardwareCertificate(@Nullable String manufacturerHardwareCertificate) {
+
             this.manufacturerHardwareCertificate = manufacturerHardwareCertificate;
             return this;
         }
         public ClusterClusterCertificate build() {
-            final var o = new ClusterClusterCertificate();
-            o.awsHardwareCertificate = awsHardwareCertificate;
-            o.clusterCertificate = clusterCertificate;
-            o.clusterCsr = clusterCsr;
-            o.hsmCertificate = hsmCertificate;
-            o.manufacturerHardwareCertificate = manufacturerHardwareCertificate;
-            return o;
+            final var _resultValue = new ClusterClusterCertificate();
+            _resultValue.awsHardwareCertificate = awsHardwareCertificate;
+            _resultValue.clusterCertificate = clusterCertificate;
+            _resultValue.clusterCsr = clusterCsr;
+            _resultValue.hsmCertificate = hsmCertificate;
+            _resultValue.manufacturerHardwareCertificate = manufacturerHardwareCertificate;
+            return _resultValue;
         }
     }
 }

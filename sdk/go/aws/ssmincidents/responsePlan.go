@@ -15,8 +15,10 @@ import (
 // Provides a resource to manage response plans in AWS Systems Manager Incident Manager.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssmincidents.NewResponsePlan(ctx, "example", &ssmincidents.ResponsePlanArgs{
+//				Name: pulumi.String("name"),
 //				IncidentTemplate: &ssmincidents.ResponsePlanIncidentTemplateArgs{
 //					Title:  pulumi.String("title"),
 //					Impact: pulumi.Int(3),
@@ -37,9 +40,7 @@ import (
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_ssmincidents_replication_set.Example,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -48,8 +49,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Usage With All Fields
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,6 +67,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssmincidents.NewResponsePlan(ctx, "example", &ssmincidents.ResponsePlanArgs{
+//				Name: pulumi.String("name"),
 //				IncidentTemplate: &ssmincidents.ResponsePlanIncidentTemplateArgs{
 //					Title:        pulumi.String("title"),
 //					Impact:       pulumi.Int(3),
@@ -72,17 +77,17 @@ import (
 //					},
 //					NotificationTargets: ssmincidents.ResponsePlanIncidentTemplateNotificationTargetArray{
 //						&ssmincidents.ResponsePlanIncidentTemplateNotificationTargetArgs{
-//							SnsTopicArn: pulumi.Any(aws_sns_topic.Example1.Arn),
+//							SnsTopicArn: pulumi.Any(example1.Arn),
 //						},
 //						&ssmincidents.ResponsePlanIncidentTemplateNotificationTargetArgs{
-//							SnsTopicArn: pulumi.Any(aws_sns_topic.Example2.Arn),
+//							SnsTopicArn: pulumi.Any(example2.Arn),
 //						},
 //					},
 //					Summary: pulumi.String("summary"),
 //				},
 //				DisplayName: pulumi.String("display name"),
 //				ChatChannels: pulumi.StringArray{
-//					aws_sns_topic.Topic.Arn,
+//					topic.Arn,
 //				},
 //				Engagements: pulumi.StringArray{
 //					pulumi.String("arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1"),
@@ -90,8 +95,8 @@ import (
 //				Action: &ssmincidents.ResponsePlanActionArgs{
 //					SsmAutomations: ssmincidents.ResponsePlanActionSsmAutomationArray{
 //						&ssmincidents.ResponsePlanActionSsmAutomationArgs{
-//							DocumentName:    pulumi.Any(aws_ssm_document.Document1.Name),
-//							RoleArn:         pulumi.Any(aws_iam_role.Role1.Arn),
+//							DocumentName:    pulumi.Any(document1.Name),
+//							RoleArn:         pulumi.Any(role1.Arn),
 //							DocumentVersion: pulumi.String("version1"),
 //							TargetAccount:   pulumi.String("RESPONSE_PLAN_OWNER_ACCOUNT"),
 //							Parameters: ssmincidents.ResponsePlanActionSsmAutomationParameterArray{
@@ -128,9 +133,7 @@ import (
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_ssmincidents_replication_set.Example,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -139,15 +142,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import an Incident Manager response plan using the response plan ARN. You can find the response plan ARN in the AWS Management Console. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ssmincidents/responsePlan:ResponsePlan responsePlanName ARNValue
-//
+// $ pulumi import aws:ssmincidents/responsePlan:ResponsePlan responsePlanName ARNValue
 // ```
 type ResponsePlan struct {
 	pulumi.CustomResourceState
@@ -185,10 +187,6 @@ func NewResponsePlan(ctx *pulumi.Context,
 	if args.IncidentTemplate == nil {
 		return nil, errors.New("invalid value for required argument 'IncidentTemplate'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResponsePlan
 	err := ctx.RegisterResource("aws:ssmincidents/responsePlan:ResponsePlan", name, args, &resource, opts...)

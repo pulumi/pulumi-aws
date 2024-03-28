@@ -8,6 +8,7 @@ import com.pulumi.aws.opsworks.inputs.JavaAppLayerEbsVolumeArgs;
 import com.pulumi.aws.opsworks.inputs.JavaAppLayerLoadBasedAutoScalingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -1008,7 +1009,9 @@ public final class JavaAppLayerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public JavaAppLayerArgs build() {
-            $.stackId = Objects.requireNonNull($.stackId, "expected parameter 'stackId' to be non-null");
+            if ($.stackId == null) {
+                throw new MissingRequiredPropertyException("JavaAppLayerArgs", "stackId");
+            }
             return $;
         }
     }

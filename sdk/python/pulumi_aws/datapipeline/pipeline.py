@@ -159,19 +159,21 @@ class Pipeline(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.datapipeline.Pipeline("default")
+        default = aws.datapipeline.Pipeline("default", name="tf-pipeline-default")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_datapipeline_pipeline` using the id (Pipeline ID). For example:
 
         ```sh
-         $ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
+        $ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
         ```
 
         :param str resource_name: The name of the resource.
@@ -191,19 +193,21 @@ class Pipeline(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.datapipeline.Pipeline("default")
+        default = aws.datapipeline.Pipeline("default", name="tf-pipeline-default")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_datapipeline_pipeline` using the id (Pipeline ID). For example:
 
         ```sh
-         $ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
+        $ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
         ```
 
         :param str resource_name: The name of the resource.
@@ -237,8 +241,6 @@ class Pipeline(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Pipeline, __self__).__init__(
             'aws:datapipeline/pipeline:Pipeline',
             resource_name,

@@ -243,12 +243,15 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.resourcegroups.Group("test", resource_query=aws.resourcegroups.GroupResourceQueryArgs(
-            query=\"\"\"{
+        test = aws.resourcegroups.Group("test",
+            name="test-group",
+            resource_query=aws.resourcegroups.GroupResourceQueryArgs(
+                query=\"\"\"{
           "ResourceTypeFilters": [
             "AWS::EC2::Instance"
           ],
@@ -259,17 +262,17 @@ class Group(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\",
-        ))
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import resource groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
+        $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -291,12 +294,15 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.resourcegroups.Group("test", resource_query=aws.resourcegroups.GroupResourceQueryArgs(
-            query=\"\"\"{
+        test = aws.resourcegroups.Group("test",
+            name="test-group",
+            resource_query=aws.resourcegroups.GroupResourceQueryArgs(
+                query=\"\"\"{
           "ResourceTypeFilters": [
             "AWS::EC2::Instance"
           ],
@@ -307,17 +313,17 @@ class Group(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\",
-        ))
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import resource groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
+        $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -356,8 +362,6 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Group, __self__).__init__(
             'aws:resourcegroups/group:Group',
             resource_name,

@@ -9,34 +9,29 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const primaryAccount = new aws.macie2.Account("primaryAccount", {}, {
- *     provider: "awsalternate",
- * });
- * const memberAccount = new aws.macie2.Account("memberAccount", {});
- * const primaryMember = new aws.macie2.Member("primaryMember", {
+ * const primary = new aws.macie2.Account("primary", {});
+ * const member = new aws.macie2.Account("member", {});
+ * const primaryMember = new aws.macie2.Member("primary", {
  *     accountId: "ACCOUNT ID",
  *     email: "EMAIL",
  *     invite: true,
  *     invitationMessage: "Message of the invite",
- * }, {
- *     provider: "awsalternate",
- *     dependsOn: [primaryAccount],
  * });
- * const memberInvitationAccepter = new aws.macie2.InvitationAccepter("memberInvitationAccepter", {administratorAccountId: "ADMINISTRATOR ACCOUNT ID"}, {
- *     dependsOn: [primaryMember],
- * });
+ * const memberInvitationAccepter = new aws.macie2.InvitationAccepter("member", {administratorAccountId: "ADMINISTRATOR ACCOUNT ID"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_macie2_invitation_accepter` using the admin account ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
+ * $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
  * ```
  */
 export class InvitationAccepter extends pulumi.CustomResource {

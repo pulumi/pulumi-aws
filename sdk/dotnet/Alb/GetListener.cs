@@ -18,10 +18,9 @@ namespace Pulumi.Aws.Alb
         /// 
         /// This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,6 +36,7 @@ namespace Pulumi.Aws.Alb
         ///         Arn = listenerArn,
         ///     });
         /// 
+        ///     // get listener from load_balancer_arn and port
         ///     var selected = Aws.LB.GetLoadBalancer.Invoke(new()
         ///     {
         ///         Name = "default-public",
@@ -50,8 +50,7 @@ namespace Pulumi.Aws.Alb
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetListenerResult> InvokeAsync(GetListenerArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetListenerResult>("aws:alb/getListener:getListener", args ?? new GetListenerArgs(), options.WithDefaults());
@@ -63,10 +62,9 @@ namespace Pulumi.Aws.Alb
         /// 
         /// This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -82,6 +80,7 @@ namespace Pulumi.Aws.Alb
         ///         Arn = listenerArn,
         ///     });
         /// 
+        ///     // get listener from load_balancer_arn and port
         ///     var selected = Aws.LB.GetLoadBalancer.Invoke(new()
         ///     {
         ///         Name = "default-public",
@@ -95,8 +94,7 @@ namespace Pulumi.Aws.Alb
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetListenerResult> Invoke(GetListenerInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetListenerResult>("aws:alb/getListener:getListener", args ?? new GetListenerInvokeArgs(), options.WithDefaults());
@@ -184,6 +182,7 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         public readonly string Id;
         public readonly string LoadBalancerArn;
+        public readonly ImmutableArray<Outputs.GetListenerMutualAuthenticationResult> MutualAuthentications;
         public readonly int Port;
         public readonly string Protocol;
         public readonly string SslPolicy;
@@ -203,6 +202,8 @@ namespace Pulumi.Aws.Alb
 
             string loadBalancerArn,
 
+            ImmutableArray<Outputs.GetListenerMutualAuthenticationResult> mutualAuthentications,
+
             int port,
 
             string protocol,
@@ -217,6 +218,7 @@ namespace Pulumi.Aws.Alb
             DefaultActions = defaultActions;
             Id = id;
             LoadBalancerArn = loadBalancerArn;
+            MutualAuthentications = mutualAuthentications;
             Port = port;
             Protocol = protocol;
             SslPolicy = sslPolicy;

@@ -299,19 +299,22 @@ class Policy(pulumi.CustomResource):
         Provides an Application AutoScaling Policy resource.
 
         ## Example Usage
+
         ### DynamoDB Table Autoscaling
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        dynamodb_table_read_target = aws.appautoscaling.Target("dynamodbTableReadTarget",
+        dynamodb_table_read_target = aws.appautoscaling.Target("dynamodb_table_read_target",
             max_capacity=100,
             min_capacity=5,
             resource_id="table/tableName",
             scalable_dimension="dynamodb:table:ReadCapacityUnits",
             service_namespace="dynamodb")
-        dynamodb_table_read_policy = aws.appautoscaling.Policy("dynamodbTableReadPolicy",
+        dynamodb_table_read_policy = aws.appautoscaling.Policy("dynamodb_table_read_policy",
+            name=dynamodb_table_read_target.resource_id.apply(lambda resource_id: f"DynamoDBReadCapacityUtilization:{resource_id}"),
             policy_type="TargetTrackingScaling",
             resource_id=dynamodb_table_read_target.resource_id,
             scalable_dimension=dynamodb_table_read_target.scalable_dimension,
@@ -323,19 +326,23 @@ class Policy(pulumi.CustomResource):
                 target_value=70,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### ECS Service Autoscaling
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        ecs_target = aws.appautoscaling.Target("ecsTarget",
+        ecs_target = aws.appautoscaling.Target("ecs_target",
             max_capacity=4,
             min_capacity=1,
             resource_id="service/clusterName/serviceName",
             scalable_dimension="ecs:service:DesiredCount",
             service_namespace="ecs")
-        ecs_policy = aws.appautoscaling.Policy("ecsPolicy",
+        ecs_policy = aws.appautoscaling.Policy("ecs_policy",
+            name="scale-down",
             policy_type="StepScaling",
             resource_id=ecs_target.resource_id,
             scalable_dimension=ecs_target.scalable_dimension,
@@ -350,33 +357,41 @@ class Policy(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Preserve desired count when updating an autoscaled ECS Service
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        ecs_service = aws.ecs.Service("ecsService",
+        ecs_service = aws.ecs.Service("ecs_service",
+            name="serviceName",
             cluster="clusterName",
             task_definition="taskDefinitionFamily:1",
             desired_count=2)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Aurora Read Replica Autoscaling
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        replicas_target = aws.appautoscaling.Target("replicasTarget",
+        replicas = aws.appautoscaling.Target("replicas",
             service_namespace="rds",
             scalable_dimension="rds:cluster:ReadReplicaCount",
-            resource_id=f"cluster:{aws_rds_cluster['example']['id']}",
+            resource_id=f"cluster:{example['id']}",
             min_capacity=1,
             max_capacity=15)
-        replicas_policy = aws.appautoscaling.Policy("replicasPolicy",
-            service_namespace=replicas_target.service_namespace,
-            scalable_dimension=replicas_target.scalable_dimension,
-            resource_id=replicas_target.resource_id,
+        replicas_policy = aws.appautoscaling.Policy("replicas",
+            name="cpu-auto-scaling",
+            service_namespace=replicas.service_namespace,
+            scalable_dimension=replicas.scalable_dimension,
+            resource_id=replicas.resource_id,
             policy_type="TargetTrackingScaling",
             target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArgs(
                 predefined_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs(
@@ -387,19 +402,23 @@ class Policy(pulumi.CustomResource):
                 scale_out_cooldown=300,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create target tracking scaling policy using metric math
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        ecs_target = aws.appautoscaling.Target("ecsTarget",
+        ecs_target = aws.appautoscaling.Target("ecs_target",
             max_capacity=4,
             min_capacity=1,
             resource_id="service/clusterName/serviceName",
             scalable_dimension="ecs:service:DesiredCount",
             service_namespace="ecs")
         example = aws.appautoscaling.Policy("example",
+            name="foo",
             policy_type="TargetTrackingScaling",
             resource_id=ecs_target.resource_id,
             scalable_dimension=ecs_target.scalable_dimension,
@@ -456,19 +475,23 @@ class Policy(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### MSK / Kafka Autoscaling
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        msk_target = aws.appautoscaling.Target("mskTarget",
+        msk_target = aws.appautoscaling.Target("msk_target",
             service_namespace="kafka",
             scalable_dimension="kafka:broker-storage:VolumeSize",
-            resource_id=aws_msk_cluster["example"]["arn"],
+            resource_id=example["arn"],
             min_capacity=1,
             max_capacity=8)
         targets = aws.appautoscaling.Policy("targets",
+            name="storage-size-auto-scaling",
             service_namespace=msk_target.service_namespace,
             scalable_dimension=msk_target.scalable_dimension,
             resource_id=msk_target.resource_id,
@@ -480,13 +503,14 @@ class Policy(pulumi.CustomResource):
                 target_value=55,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Application AutoScaling Policy using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name
+        $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -509,19 +533,22 @@ class Policy(pulumi.CustomResource):
         Provides an Application AutoScaling Policy resource.
 
         ## Example Usage
+
         ### DynamoDB Table Autoscaling
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        dynamodb_table_read_target = aws.appautoscaling.Target("dynamodbTableReadTarget",
+        dynamodb_table_read_target = aws.appautoscaling.Target("dynamodb_table_read_target",
             max_capacity=100,
             min_capacity=5,
             resource_id="table/tableName",
             scalable_dimension="dynamodb:table:ReadCapacityUnits",
             service_namespace="dynamodb")
-        dynamodb_table_read_policy = aws.appautoscaling.Policy("dynamodbTableReadPolicy",
+        dynamodb_table_read_policy = aws.appautoscaling.Policy("dynamodb_table_read_policy",
+            name=dynamodb_table_read_target.resource_id.apply(lambda resource_id: f"DynamoDBReadCapacityUtilization:{resource_id}"),
             policy_type="TargetTrackingScaling",
             resource_id=dynamodb_table_read_target.resource_id,
             scalable_dimension=dynamodb_table_read_target.scalable_dimension,
@@ -533,19 +560,23 @@ class Policy(pulumi.CustomResource):
                 target_value=70,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### ECS Service Autoscaling
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        ecs_target = aws.appautoscaling.Target("ecsTarget",
+        ecs_target = aws.appautoscaling.Target("ecs_target",
             max_capacity=4,
             min_capacity=1,
             resource_id="service/clusterName/serviceName",
             scalable_dimension="ecs:service:DesiredCount",
             service_namespace="ecs")
-        ecs_policy = aws.appautoscaling.Policy("ecsPolicy",
+        ecs_policy = aws.appautoscaling.Policy("ecs_policy",
+            name="scale-down",
             policy_type="StepScaling",
             resource_id=ecs_target.resource_id,
             scalable_dimension=ecs_target.scalable_dimension,
@@ -560,33 +591,41 @@ class Policy(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Preserve desired count when updating an autoscaled ECS Service
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        ecs_service = aws.ecs.Service("ecsService",
+        ecs_service = aws.ecs.Service("ecs_service",
+            name="serviceName",
             cluster="clusterName",
             task_definition="taskDefinitionFamily:1",
             desired_count=2)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Aurora Read Replica Autoscaling
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        replicas_target = aws.appautoscaling.Target("replicasTarget",
+        replicas = aws.appautoscaling.Target("replicas",
             service_namespace="rds",
             scalable_dimension="rds:cluster:ReadReplicaCount",
-            resource_id=f"cluster:{aws_rds_cluster['example']['id']}",
+            resource_id=f"cluster:{example['id']}",
             min_capacity=1,
             max_capacity=15)
-        replicas_policy = aws.appautoscaling.Policy("replicasPolicy",
-            service_namespace=replicas_target.service_namespace,
-            scalable_dimension=replicas_target.scalable_dimension,
-            resource_id=replicas_target.resource_id,
+        replicas_policy = aws.appautoscaling.Policy("replicas",
+            name="cpu-auto-scaling",
+            service_namespace=replicas.service_namespace,
+            scalable_dimension=replicas.scalable_dimension,
+            resource_id=replicas.resource_id,
             policy_type="TargetTrackingScaling",
             target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArgs(
                 predefined_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs(
@@ -597,19 +636,23 @@ class Policy(pulumi.CustomResource):
                 scale_out_cooldown=300,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create target tracking scaling policy using metric math
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        ecs_target = aws.appautoscaling.Target("ecsTarget",
+        ecs_target = aws.appautoscaling.Target("ecs_target",
             max_capacity=4,
             min_capacity=1,
             resource_id="service/clusterName/serviceName",
             scalable_dimension="ecs:service:DesiredCount",
             service_namespace="ecs")
         example = aws.appautoscaling.Policy("example",
+            name="foo",
             policy_type="TargetTrackingScaling",
             resource_id=ecs_target.resource_id,
             scalable_dimension=ecs_target.scalable_dimension,
@@ -666,19 +709,23 @@ class Policy(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### MSK / Kafka Autoscaling
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        msk_target = aws.appautoscaling.Target("mskTarget",
+        msk_target = aws.appautoscaling.Target("msk_target",
             service_namespace="kafka",
             scalable_dimension="kafka:broker-storage:VolumeSize",
-            resource_id=aws_msk_cluster["example"]["arn"],
+            resource_id=example["arn"],
             min_capacity=1,
             max_capacity=8)
         targets = aws.appautoscaling.Policy("targets",
+            name="storage-size-auto-scaling",
             service_namespace=msk_target.service_namespace,
             scalable_dimension=msk_target.scalable_dimension,
             resource_id=msk_target.resource_id,
@@ -690,13 +737,14 @@ class Policy(pulumi.CustomResource):
                 target_value=55,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Application AutoScaling Policy using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name
+        $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name
         ```
 
         :param str resource_name: The name of the resource.

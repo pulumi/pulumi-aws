@@ -744,93 +744,109 @@ class Database(pulumi.CustomResource):
         > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones"](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for more details
 
         ## Example Usage
+
         ### Basic mysql blueprint
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.lightsail.Database("test",
+            relational_database_name="test",
             availability_zone="us-east-1a",
-            blueprint_id="mysql_8_0",
-            bundle_id="micro_1_0",
             master_database_name="testdatabasename",
             master_password="testdatabasepassword",
             master_username="test",
-            relational_database_name="test")
+            blueprint_id="mysql_8_0",
+            bundle_id="micro_1_0")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Basic postrgres blueprint
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.lightsail.Database("test",
+            relational_database_name="test",
             availability_zone="us-east-1a",
-            blueprint_id="postgres_12",
-            bundle_id="micro_1_0",
             master_database_name="testdatabasename",
             master_password="testdatabasepassword",
             master_username="test",
-            relational_database_name="test")
+            blueprint_id="postgres_12",
+            bundle_id="micro_1_0")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Custom backup and maintenance windows
 
         Below is an example that sets a custom backup and maintenance window. Times are specified in UTC. This example will allow daily backups to take place between 16:00 and 16:30 each day. This example also requires any maintiance tasks (anything that would cause an outage, including changing some attributes) to take place on Tuesdays between 17:00 and 17:30. An action taken against this database that would cause an outage will wait until this time window to make the requested changes.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.lightsail.Database("test",
+            relational_database_name="test",
             availability_zone="us-east-1a",
-            blueprint_id="postgres_12",
-            bundle_id="micro_1_0",
             master_database_name="testdatabasename",
             master_password="testdatabasepassword",
             master_username="test",
+            blueprint_id="postgres_12",
+            bundle_id="micro_1_0",
             preferred_backup_window="16:00-16:30",
-            preferred_maintenance_window="Tue:17:00-Tue:17:30",
-            relational_database_name="test")
+            preferred_maintenance_window="Tue:17:00-Tue:17:30")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Final Snapshots
 
         To enable creating a final snapshot of your database on deletion, use the `final_snapshot_name` argument to provide a name to be used for the snapshot.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.lightsail.Database("test",
+            relational_database_name="test",
             availability_zone="us-east-1a",
-            blueprint_id="postgres_12",
-            bundle_id="micro_1_0",
-            final_snapshot_name="MyFinalSnapshot",
             master_database_name="testdatabasename",
             master_password="testdatabasepassword",
             master_username="test",
+            blueprint_id="postgres_12",
+            bundle_id="micro_1_0",
             preferred_backup_window="16:00-16:30",
             preferred_maintenance_window="Tue:17:00-Tue:17:30",
-            relational_database_name="test")
+            final_snapshot_name="MyFinalSnapshot")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Apply Immediately
 
         To enable applying changes immediately instead of waiting for a maintiance window, use the `apply_immediately` argument.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.lightsail.Database("test",
-            apply_immediately=True,
+            relational_database_name="test",
             availability_zone="us-east-1a",
-            blueprint_id="postgres_12",
-            bundle_id="micro_1_0",
             master_database_name="testdatabasename",
             master_password="testdatabasepassword",
             master_username="test",
-            relational_database_name="test")
+            blueprint_id="postgres_12",
+            bundle_id="micro_1_0",
+            apply_immediately=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Blueprint Ids
 
         A list of all available Lightsail Blueprints for Relational Databases the [aws lightsail get-relational-database-blueprints](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-relational-database-blueprints.html) aws cli command.
@@ -883,7 +899,7 @@ class Database(pulumi.CustomResource):
         Using `pulumi import`, import Lightsail Databases using their name. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/database:Database foo 'bar'
+        $ pulumi import aws:lightsail/database:Database foo 'bar'
         ```
 
         :param str resource_name: The name of the resource.
@@ -918,93 +934,109 @@ class Database(pulumi.CustomResource):
         > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones"](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for more details
 
         ## Example Usage
+
         ### Basic mysql blueprint
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.lightsail.Database("test",
+            relational_database_name="test",
             availability_zone="us-east-1a",
-            blueprint_id="mysql_8_0",
-            bundle_id="micro_1_0",
             master_database_name="testdatabasename",
             master_password="testdatabasepassword",
             master_username="test",
-            relational_database_name="test")
+            blueprint_id="mysql_8_0",
+            bundle_id="micro_1_0")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Basic postrgres blueprint
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.lightsail.Database("test",
+            relational_database_name="test",
             availability_zone="us-east-1a",
-            blueprint_id="postgres_12",
-            bundle_id="micro_1_0",
             master_database_name="testdatabasename",
             master_password="testdatabasepassword",
             master_username="test",
-            relational_database_name="test")
+            blueprint_id="postgres_12",
+            bundle_id="micro_1_0")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Custom backup and maintenance windows
 
         Below is an example that sets a custom backup and maintenance window. Times are specified in UTC. This example will allow daily backups to take place between 16:00 and 16:30 each day. This example also requires any maintiance tasks (anything that would cause an outage, including changing some attributes) to take place on Tuesdays between 17:00 and 17:30. An action taken against this database that would cause an outage will wait until this time window to make the requested changes.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.lightsail.Database("test",
+            relational_database_name="test",
             availability_zone="us-east-1a",
-            blueprint_id="postgres_12",
-            bundle_id="micro_1_0",
             master_database_name="testdatabasename",
             master_password="testdatabasepassword",
             master_username="test",
+            blueprint_id="postgres_12",
+            bundle_id="micro_1_0",
             preferred_backup_window="16:00-16:30",
-            preferred_maintenance_window="Tue:17:00-Tue:17:30",
-            relational_database_name="test")
+            preferred_maintenance_window="Tue:17:00-Tue:17:30")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Final Snapshots
 
         To enable creating a final snapshot of your database on deletion, use the `final_snapshot_name` argument to provide a name to be used for the snapshot.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.lightsail.Database("test",
+            relational_database_name="test",
             availability_zone="us-east-1a",
-            blueprint_id="postgres_12",
-            bundle_id="micro_1_0",
-            final_snapshot_name="MyFinalSnapshot",
             master_database_name="testdatabasename",
             master_password="testdatabasepassword",
             master_username="test",
+            blueprint_id="postgres_12",
+            bundle_id="micro_1_0",
             preferred_backup_window="16:00-16:30",
             preferred_maintenance_window="Tue:17:00-Tue:17:30",
-            relational_database_name="test")
+            final_snapshot_name="MyFinalSnapshot")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Apply Immediately
 
         To enable applying changes immediately instead of waiting for a maintiance window, use the `apply_immediately` argument.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.lightsail.Database("test",
-            apply_immediately=True,
+            relational_database_name="test",
             availability_zone="us-east-1a",
-            blueprint_id="postgres_12",
-            bundle_id="micro_1_0",
             master_database_name="testdatabasename",
             master_password="testdatabasepassword",
             master_username="test",
-            relational_database_name="test")
+            blueprint_id="postgres_12",
+            bundle_id="micro_1_0",
+            apply_immediately=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Blueprint Ids
 
         A list of all available Lightsail Blueprints for Relational Databases the [aws lightsail get-relational-database-blueprints](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-relational-database-blueprints.html) aws cli command.
@@ -1057,7 +1089,7 @@ class Database(pulumi.CustomResource):
         Using `pulumi import`, import Lightsail Databases using their name. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/database:Database foo 'bar'
+        $ pulumi import aws:lightsail/database:Database foo 'bar'
         ```
 
         :param str resource_name: The name of the resource.
@@ -1139,7 +1171,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["secondary_availability_zone"] = None
             __props__.__dict__["support_code"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["masterPassword", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["masterPassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Database, __self__).__init__(
             'aws:lightsail/database:Database',

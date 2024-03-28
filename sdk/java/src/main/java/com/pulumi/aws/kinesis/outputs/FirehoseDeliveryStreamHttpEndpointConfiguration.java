@@ -8,6 +8,7 @@ import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamHttpEndpointConfigur
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -32,7 +33,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
      */
     private @Nullable Integer bufferingSize;
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
@@ -42,12 +43,12 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
      */
     private @Nullable String name;
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration processingConfiguration;
     /**
-     * @return The request configuration.  More details are given below.
+     * @return The request configuration.  See `request_configuration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration requestConfiguration;
@@ -67,7 +68,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
      */
     private @Nullable String s3BackupMode;
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     private FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration s3Configuration;
@@ -100,7 +101,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
         return Optional.ofNullable(this.bufferingSize);
     }
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
@@ -114,14 +115,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration> processingConfiguration() {
         return Optional.ofNullable(this.processingConfiguration);
     }
     /**
-     * @return The request configuration.  More details are given below.
+     * @return The request configuration.  See `request_configuration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration> requestConfiguration() {
@@ -149,7 +150,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
         return Optional.ofNullable(this.s3BackupMode);
     }
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     public FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration s3Configuration() {
@@ -203,79 +204,95 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
 
         @CustomType.Setter
         public Builder accessKey(@Nullable String accessKey) {
+
             this.accessKey = accessKey;
             return this;
         }
         @CustomType.Setter
         public Builder bufferingInterval(@Nullable Integer bufferingInterval) {
+
             this.bufferingInterval = bufferingInterval;
             return this;
         }
         @CustomType.Setter
         public Builder bufferingSize(@Nullable Integer bufferingSize) {
+
             this.bufferingSize = bufferingSize;
             return this;
         }
         @CustomType.Setter
         public Builder cloudwatchLoggingOptions(@Nullable FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions) {
+
             this.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder processingConfiguration(@Nullable FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration processingConfiguration) {
+
             this.processingConfiguration = processingConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder requestConfiguration(@Nullable FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration requestConfiguration) {
+
             this.requestConfiguration = requestConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder retryDuration(@Nullable Integer retryDuration) {
+
             this.retryDuration = retryDuration;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(@Nullable String roleArn) {
+
             this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder s3BackupMode(@Nullable String s3BackupMode) {
+
             this.s3BackupMode = s3BackupMode;
             return this;
         }
         @CustomType.Setter
         public Builder s3Configuration(FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration s3Configuration) {
-            this.s3Configuration = Objects.requireNonNull(s3Configuration);
+            if (s3Configuration == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamHttpEndpointConfiguration", "s3Configuration");
+            }
+            this.s3Configuration = s3Configuration;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamHttpEndpointConfiguration", "url");
+            }
+            this.url = url;
             return this;
         }
         public FirehoseDeliveryStreamHttpEndpointConfiguration build() {
-            final var o = new FirehoseDeliveryStreamHttpEndpointConfiguration();
-            o.accessKey = accessKey;
-            o.bufferingInterval = bufferingInterval;
-            o.bufferingSize = bufferingSize;
-            o.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
-            o.name = name;
-            o.processingConfiguration = processingConfiguration;
-            o.requestConfiguration = requestConfiguration;
-            o.retryDuration = retryDuration;
-            o.roleArn = roleArn;
-            o.s3BackupMode = s3BackupMode;
-            o.s3Configuration = s3Configuration;
-            o.url = url;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamHttpEndpointConfiguration();
+            _resultValue.accessKey = accessKey;
+            _resultValue.bufferingInterval = bufferingInterval;
+            _resultValue.bufferingSize = bufferingSize;
+            _resultValue.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
+            _resultValue.name = name;
+            _resultValue.processingConfiguration = processingConfiguration;
+            _resultValue.requestConfiguration = requestConfiguration;
+            _resultValue.retryDuration = retryDuration;
+            _resultValue.roleArn = roleArn;
+            _resultValue.s3BackupMode = s3BackupMode;
+            _resultValue.s3Configuration = s3Configuration;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

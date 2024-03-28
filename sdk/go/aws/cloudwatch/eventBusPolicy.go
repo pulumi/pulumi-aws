@@ -19,8 +19,10 @@ import (
 // > **Note:** The EventBridge bus policy resource  (`cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`cloudwatch.EventPermission`) and will overwrite permissions.
 //
 // ## Example Usage
+//
 // ### Account Access
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,7 +36,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			test, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Sid:    pulumi.StringRef("DevAccountAccess"),
@@ -59,9 +61,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudwatch.NewEventBusPolicy(ctx, "testEventBusPolicy", &cloudwatch.EventBusPolicyArgs{
-//				Policy:       *pulumi.String(testPolicyDocument.Json),
-//				EventBusName: pulumi.Any(aws_cloudwatch_event_bus.Test.Name),
+//			_, err = cloudwatch.NewEventBusPolicy(ctx, "test", &cloudwatch.EventBusPolicyArgs{
+//				Policy:       pulumi.String(test.Json),
+//				EventBusName: pulumi.Any(testAwsCloudwatchEventBus.Name),
 //			})
 //			if err != nil {
 //				return err
@@ -71,8 +73,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Organization Access
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -85,7 +90,7 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// testPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// test, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
 // Sid: pulumi.StringRef("OrganizationAccess"),
@@ -113,7 +118,7 @@ import (
 // Test: "StringEquals",
 // Variable: "aws:PrincipalOrgID",
 // Values: interface{}{
-// aws_organizations_organization.Example.Id,
+// example.Id,
 // },
 // },
 // },
@@ -123,9 +128,9 @@ import (
 // if err != nil {
 // return err
 // }
-// _, err = cloudwatch.NewEventBusPolicy(ctx, "testEventBusPolicy", &cloudwatch.EventBusPolicyArgs{
-// Policy: *pulumi.String(testPolicyDocument.Json),
-// EventBusName: pulumi.Any(aws_cloudwatch_event_bus.Test.Name),
+// _, err = cloudwatch.NewEventBusPolicy(ctx, "test", &cloudwatch.EventBusPolicyArgs{
+// Policy: pulumi.String(test.Json),
+// EventBusName: pulumi.Any(testAwsCloudwatchEventBus.Name),
 // })
 // if err != nil {
 // return err
@@ -134,8 +139,11 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Multiple Statements
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -148,7 +156,7 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// testPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// test, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
 // Sid: pulumi.StringRef("DevAccountAccess"),
@@ -194,7 +202,7 @@ import (
 // Test: "StringEquals",
 // Variable: "aws:PrincipalOrgID",
 // Values: interface{}{
-// aws_organizations_organization.Example.Id,
+// example.Id,
 // },
 // },
 // },
@@ -204,9 +212,9 @@ import (
 // if err != nil {
 // return err
 // }
-// _, err = cloudwatch.NewEventBusPolicy(ctx, "testEventBusPolicy", &cloudwatch.EventBusPolicyArgs{
-// Policy: *pulumi.String(testPolicyDocument.Json),
-// EventBusName: pulumi.Any(aws_cloudwatch_event_bus.Test.Name),
+// _, err = cloudwatch.NewEventBusPolicy(ctx, "test", &cloudwatch.EventBusPolicyArgs{
+// Policy: pulumi.String(test.Json),
+// EventBusName: pulumi.Any(testAwsCloudwatchEventBus.Name),
 // })
 // if err != nil {
 // return err
@@ -215,15 +223,14 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import an EventBridge policy using the `event_bus_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
-//
+// $ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
 // ```
 type EventBusPolicy struct {
 	pulumi.CustomResourceState

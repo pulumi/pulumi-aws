@@ -226,22 +226,26 @@ class Acl(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.memorydb.Acl("example", user_names=[
-            "my-user-1",
-            "my-user-2",
-        ])
+        example = aws.memorydb.Acl("example",
+            name="my-acl",
+            user_names=[
+                "my-user-1",
+                "my-user-2",
+            ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an ACL using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:memorydb/acl:Acl example my-acl
+        $ pulumi import aws:memorydb/acl:Acl example my-acl
         ```
 
         :param str resource_name: The name of the resource.
@@ -264,22 +268,26 @@ class Acl(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.memorydb.Acl("example", user_names=[
-            "my-user-1",
-            "my-user-2",
-        ])
+        example = aws.memorydb.Acl("example",
+            name="my-acl",
+            user_names=[
+                "my-user-1",
+                "my-user-2",
+            ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an ACL using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:memorydb/acl:Acl example my-acl
+        $ pulumi import aws:memorydb/acl:Acl example my-acl
         ```
 
         :param str resource_name: The name of the resource.
@@ -317,8 +325,6 @@ class Acl(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["minimum_engine_version"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Acl, __self__).__init__(
             'aws:memorydb/acl:Acl',
             resource_name,

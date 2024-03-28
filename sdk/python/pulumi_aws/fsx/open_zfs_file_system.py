@@ -31,6 +31,7 @@ class OpenZfsFileSystemArgs:
                  root_volume_configuration: Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArgs']] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 skip_final_backup: Optional[pulumi.Input[bool]] = None,
                  storage_capacity: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -52,6 +53,7 @@ class OpenZfsFileSystemArgs:
         :param pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArgs'] root_volume_configuration: The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        :param pulumi.Input[bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
         :param pulumi.Input[str] storage_type: The filesystem storage type. Only `SSD` is supported.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -84,6 +86,8 @@ class OpenZfsFileSystemArgs:
             pulumi.set(__self__, "route_table_ids", route_table_ids)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if skip_final_backup is not None:
+            pulumi.set(__self__, "skip_final_backup", skip_final_backup)
         if storage_capacity is not None:
             pulumi.set(__self__, "storage_capacity", storage_capacity)
         if storage_type is not None:
@@ -274,6 +278,18 @@ class OpenZfsFileSystemArgs:
         pulumi.set(self, "security_group_ids", value)
 
     @property
+    @pulumi.getter(name="skipFinalBackup")
+    def skip_final_backup(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+        """
+        return pulumi.get(self, "skip_final_backup")
+
+    @skip_final_backup.setter
+    def skip_final_backup(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_final_backup", value)
+
+    @property
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> Optional[pulumi.Input[int]]:
         """
@@ -343,6 +359,7 @@ class _OpenZfsFileSystemState:
                  root_volume_id: Optional[pulumi.Input[str]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 skip_final_backup: Optional[pulumi.Input[bool]] = None,
                  storage_capacity: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[str]] = None,
@@ -371,6 +388,7 @@ class _OpenZfsFileSystemState:
         :param pulumi.Input[str] root_volume_id: Identifier of the root volume, e.g., `fsvol-12345678`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        :param pulumi.Input[bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
         :param pulumi.Input[str] storage_type: The filesystem storage type. Only `SSD` is supported.
         :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from.
@@ -416,6 +434,8 @@ class _OpenZfsFileSystemState:
             pulumi.set(__self__, "route_table_ids", route_table_ids)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if skip_final_backup is not None:
+            pulumi.set(__self__, "skip_final_backup", skip_final_backup)
         if storage_capacity is not None:
             pulumi.set(__self__, "storage_capacity", storage_capacity)
         if storage_type is not None:
@@ -653,6 +673,18 @@ class _OpenZfsFileSystemState:
         pulumi.set(self, "security_group_ids", value)
 
     @property
+    @pulumi.getter(name="skipFinalBackup")
+    def skip_final_backup(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+        """
+        return pulumi.get(self, "skip_final_backup")
+
+    @skip_final_backup.setter
+    def skip_final_backup(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_final_backup", value)
+
+    @property
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> Optional[pulumi.Input[int]]:
         """
@@ -770,6 +802,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
                  root_volume_configuration: Optional[pulumi.Input[pulumi.InputType['OpenZfsFileSystemRootVolumeConfigurationArgs']]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 skip_final_backup: Optional[pulumi.Input[bool]] = None,
                  storage_capacity: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[str]] = None,
@@ -783,25 +816,27 @@ class OpenZfsFileSystem(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.fsx.OpenZfsFileSystem("test",
             storage_capacity=64,
-            subnet_ids=[aws_subnet["test1"]["id"]],
+            subnet_ids=test1["id"],
             deployment_type="SINGLE_AZ_1",
             throughput_capacity=64)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import FSx File Systems using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:fsx/openZfsFileSystem:OpenZfsFileSystem example fs-543ab12b1ca672f33
+        $ pulumi import aws:fsx/openZfsFileSystem:OpenZfsFileSystem example fs-543ab12b1ca672f33
         ```
-         Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+        Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -818,6 +853,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['OpenZfsFileSystemRootVolumeConfigurationArgs']] root_volume_configuration: The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        :param pulumi.Input[bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
         :param pulumi.Input[str] storage_type: The filesystem storage type. Only `SSD` is supported.
         :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from.
@@ -837,25 +873,27 @@ class OpenZfsFileSystem(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.fsx.OpenZfsFileSystem("test",
             storage_capacity=64,
-            subnet_ids=[aws_subnet["test1"]["id"]],
+            subnet_ids=test1["id"],
             deployment_type="SINGLE_AZ_1",
             throughput_capacity=64)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import FSx File Systems using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:fsx/openZfsFileSystem:OpenZfsFileSystem example fs-543ab12b1ca672f33
+        $ pulumi import aws:fsx/openZfsFileSystem:OpenZfsFileSystem example fs-543ab12b1ca672f33
         ```
-         Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+        Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
         :param OpenZfsFileSystemArgs args: The arguments to use to populate this resource's properties.
@@ -885,6 +923,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
                  root_volume_configuration: Optional[pulumi.Input[pulumi.InputType['OpenZfsFileSystemRootVolumeConfigurationArgs']]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 skip_final_backup: Optional[pulumi.Input[bool]] = None,
                  storage_capacity: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[str]] = None,
@@ -915,6 +954,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
             __props__.__dict__["root_volume_configuration"] = root_volume_configuration
             __props__.__dict__["route_table_ids"] = route_table_ids
             __props__.__dict__["security_group_ids"] = security_group_ids
+            __props__.__dict__["skip_final_backup"] = skip_final_backup
             __props__.__dict__["storage_capacity"] = storage_capacity
             __props__.__dict__["storage_type"] = storage_type
             if subnet_ids is None and not opts.urn:
@@ -932,8 +972,6 @@ class OpenZfsFileSystem(pulumi.CustomResource):
             __props__.__dict__["root_volume_id"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(OpenZfsFileSystem, __self__).__init__(
             'aws:fsx/openZfsFileSystem:OpenZfsFileSystem',
             resource_name,
@@ -962,6 +1000,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
             root_volume_id: Optional[pulumi.Input[str]] = None,
             route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            skip_final_backup: Optional[pulumi.Input[bool]] = None,
             storage_capacity: Optional[pulumi.Input[int]] = None,
             storage_type: Optional[pulumi.Input[str]] = None,
             subnet_ids: Optional[pulumi.Input[str]] = None,
@@ -995,6 +1034,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] root_volume_id: Identifier of the root volume, e.g., `fsvol-12345678`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        :param pulumi.Input[bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
         :param pulumi.Input[str] storage_type: The filesystem storage type. Only `SSD` is supported.
         :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from.
@@ -1026,6 +1066,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         __props__.__dict__["root_volume_id"] = root_volume_id
         __props__.__dict__["route_table_ids"] = route_table_ids
         __props__.__dict__["security_group_ids"] = security_group_ids
+        __props__.__dict__["skip_final_backup"] = skip_final_backup
         __props__.__dict__["storage_capacity"] = storage_capacity
         __props__.__dict__["storage_type"] = storage_type
         __props__.__dict__["subnet_ids"] = subnet_ids
@@ -1179,6 +1220,14 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         """
         return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter(name="skipFinalBackup")
+    def skip_final_backup(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+        """
+        return pulumi.get(self, "skip_final_backup")
 
     @property
     @pulumi.getter(name="storageCapacity")

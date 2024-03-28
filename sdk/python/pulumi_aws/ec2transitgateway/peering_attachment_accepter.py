@@ -185,23 +185,25 @@ class PeeringAttachmentAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.PeeringAttachmentAccepter("example",
-            transit_gateway_attachment_id=aws_ec2_transit_gateway_peering_attachment["example"]["id"],
+            transit_gateway_attachment_id=example_aws_ec2_transit_gateway_peering_attachment["id"],
             tags={
                 "Name": "Example cross-account attachment",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment_accepter` using the EC2 Transit Gateway Attachment identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter example tgw-attach-12345678
+        $ pulumi import aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter example tgw-attach-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -220,23 +222,25 @@ class PeeringAttachmentAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.PeeringAttachmentAccepter("example",
-            transit_gateway_attachment_id=aws_ec2_transit_gateway_peering_attachment["example"]["id"],
+            transit_gateway_attachment_id=example_aws_ec2_transit_gateway_peering_attachment["id"],
             tags={
                 "Name": "Example cross-account attachment",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment_accepter` using the EC2 Transit Gateway Attachment identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter example tgw-attach-12345678
+        $ pulumi import aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter example tgw-attach-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -276,8 +280,6 @@ class PeeringAttachmentAccepter(pulumi.CustomResource):
             __props__.__dict__["transit_gateway_id"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(PeeringAttachmentAccepter, __self__).__init__(
             'aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter',
             resource_name,

@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a CloudFront Field-level Encryption Config resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -60,7 +62,7 @@ import javax.annotation.Nullable;
  *                 .forwardWhenQueryArgProfileIsUnknown(true)
  *                 .queryArgProfiles(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs.builder()
  *                     .items(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs.builder()
- *                         .profileId(aws_cloudfront_field_level_encryption_profile.test().id())
+ *                         .profileId(testAwsCloudfrontFieldLevelEncryptionProfile.id())
  *                         .queryArg(&#34;Arg1&#34;)
  *                         .build())
  *                     .build())
@@ -70,13 +72,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Cloudfront Field Level Encryption Config using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
+ * $ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
  * ```
  * 
  */

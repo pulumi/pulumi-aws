@@ -12,26 +12,29 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.gamelift.Build("test", {
+ *     name: "example-build",
  *     operatingSystem: "WINDOWS_2012",
  *     storageLocation: {
- *         bucket: aws_s3_bucket.test.id,
- *         key: aws_s3_object.test.key,
- *         roleArn: aws_iam_role.test.arn,
+ *         bucket: testAwsS3Bucket.id,
+ *         key: testAwsS3Object.key,
+ *         roleArn: testAwsIamRole.arn,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import GameLift Builds using the ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:gamelift/build:Build example <build-id>
+ * $ pulumi import aws:gamelift/build:Build example <build-id>
  * ```
  */
 export class Build extends pulumi.CustomResource {
@@ -130,8 +133,6 @@ export class Build extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Build.__pulumiType, name, resourceInputs, opts);
     }
 }

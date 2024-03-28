@@ -5,6 +5,7 @@ package com.pulumi.aws.resourcegroupstaggingapi.outputs;
 
 import com.pulumi.aws.resourcegroupstaggingapi.outputs.GetResourcesResourceTagMappingListComplianceDetail;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -73,7 +74,10 @@ public final class GetResourcesResourceTagMappingList {
 
         @CustomType.Setter
         public Builder complianceDetails(List<GetResourcesResourceTagMappingListComplianceDetail> complianceDetails) {
-            this.complianceDetails = Objects.requireNonNull(complianceDetails);
+            if (complianceDetails == null) {
+              throw new MissingRequiredPropertyException("GetResourcesResourceTagMappingList", "complianceDetails");
+            }
+            this.complianceDetails = complianceDetails;
             return this;
         }
         public Builder complianceDetails(GetResourcesResourceTagMappingListComplianceDetail... complianceDetails) {
@@ -81,20 +85,26 @@ public final class GetResourcesResourceTagMappingList {
         }
         @CustomType.Setter
         public Builder resourceArn(String resourceArn) {
-            this.resourceArn = Objects.requireNonNull(resourceArn);
+            if (resourceArn == null) {
+              throw new MissingRequiredPropertyException("GetResourcesResourceTagMappingList", "resourceArn");
+            }
+            this.resourceArn = resourceArn;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetResourcesResourceTagMappingList", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetResourcesResourceTagMappingList build() {
-            final var o = new GetResourcesResourceTagMappingList();
-            o.complianceDetails = complianceDetails;
-            o.resourceArn = resourceArn;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetResourcesResourceTagMappingList();
+            _resultValue.complianceDetails = complianceDetails;
+            _resultValue.resourceArn = resourceArn;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

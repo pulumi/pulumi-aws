@@ -17,7 +17,7 @@ namespace Pulumi.Aws.RedShift
     /// Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
+    /// $ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/clusterSnapshot:ClusterSnapshot")]
@@ -94,10 +94,6 @@ namespace Pulumi.Aws.RedShift
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -217,11 +213,7 @@ namespace Pulumi.Aws.RedShift
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ClusterSnapshotState()

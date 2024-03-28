@@ -208,23 +208,26 @@ class ResourceShare(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ram.ResourceShare("example",
+            name="example",
             allow_external_principals=True,
             tags={
                 "Environment": "Production",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import resource shares using the `arn` of the resource share. For example:
 
         ```sh
-         $ pulumi import aws:ram/resourceShare:ResourceShare example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12
+        $ pulumi import aws:ram/resourceShare:ResourceShare example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12
         ```
 
         :param str resource_name: The name of the resource.
@@ -245,23 +248,26 @@ class ResourceShare(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ram.ResourceShare("example",
+            name="example",
             allow_external_principals=True,
             tags={
                 "Environment": "Production",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import resource shares using the `arn` of the resource share. For example:
 
         ```sh
-         $ pulumi import aws:ram/resourceShare:ResourceShare example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12
+        $ pulumi import aws:ram/resourceShare:ResourceShare example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12
         ```
 
         :param str resource_name: The name of the resource.
@@ -298,8 +304,6 @@ class ResourceShare(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ResourceShare, __self__).__init__(
             'aws:ram/resourceShare:ResourceShare',
             resource_name,

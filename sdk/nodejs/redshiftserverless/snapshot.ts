@@ -9,22 +9,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.redshiftserverless.Snapshot("example", {
- *     namespaceName: aws_redshiftserverless_workgroup.example.namespace_name,
+ *     namespaceName: exampleAwsRedshiftserverlessWorkgroup.namespaceName,
  *     snapshotName: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Serverless Snapshots using the `snapshot_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
+ * $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
  * ```
  */
 export class Snapshot extends pulumi.CustomResource {

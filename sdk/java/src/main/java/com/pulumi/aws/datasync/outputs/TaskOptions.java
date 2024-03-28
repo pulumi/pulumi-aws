@@ -241,97 +241,112 @@ public final class TaskOptions {
 
         @CustomType.Setter
         public Builder atime(@Nullable String atime) {
+
             this.atime = atime;
             return this;
         }
         @CustomType.Setter
         public Builder bytesPerSecond(@Nullable Integer bytesPerSecond) {
+
             this.bytesPerSecond = bytesPerSecond;
             return this;
         }
         @CustomType.Setter
         public Builder gid(@Nullable String gid) {
+
             this.gid = gid;
             return this;
         }
         @CustomType.Setter
         public Builder logLevel(@Nullable String logLevel) {
+
             this.logLevel = logLevel;
             return this;
         }
         @CustomType.Setter
         public Builder mtime(@Nullable String mtime) {
+
             this.mtime = mtime;
             return this;
         }
         @CustomType.Setter
         public Builder objectTags(@Nullable String objectTags) {
+
             this.objectTags = objectTags;
             return this;
         }
         @CustomType.Setter
         public Builder overwriteMode(@Nullable String overwriteMode) {
+
             this.overwriteMode = overwriteMode;
             return this;
         }
         @CustomType.Setter
         public Builder posixPermissions(@Nullable String posixPermissions) {
+
             this.posixPermissions = posixPermissions;
             return this;
         }
         @CustomType.Setter
         public Builder preserveDeletedFiles(@Nullable String preserveDeletedFiles) {
+
             this.preserveDeletedFiles = preserveDeletedFiles;
             return this;
         }
         @CustomType.Setter
         public Builder preserveDevices(@Nullable String preserveDevices) {
+
             this.preserveDevices = preserveDevices;
             return this;
         }
         @CustomType.Setter
         public Builder securityDescriptorCopyFlags(@Nullable String securityDescriptorCopyFlags) {
+
             this.securityDescriptorCopyFlags = securityDescriptorCopyFlags;
             return this;
         }
         @CustomType.Setter
         public Builder taskQueueing(@Nullable String taskQueueing) {
+
             this.taskQueueing = taskQueueing;
             return this;
         }
         @CustomType.Setter
         public Builder transferMode(@Nullable String transferMode) {
+
             this.transferMode = transferMode;
             return this;
         }
         @CustomType.Setter
         public Builder uid(@Nullable String uid) {
+
             this.uid = uid;
             return this;
         }
         @CustomType.Setter
         public Builder verifyMode(@Nullable String verifyMode) {
+
             this.verifyMode = verifyMode;
             return this;
         }
         public TaskOptions build() {
-            final var o = new TaskOptions();
-            o.atime = atime;
-            o.bytesPerSecond = bytesPerSecond;
-            o.gid = gid;
-            o.logLevel = logLevel;
-            o.mtime = mtime;
-            o.objectTags = objectTags;
-            o.overwriteMode = overwriteMode;
-            o.posixPermissions = posixPermissions;
-            o.preserveDeletedFiles = preserveDeletedFiles;
-            o.preserveDevices = preserveDevices;
-            o.securityDescriptorCopyFlags = securityDescriptorCopyFlags;
-            o.taskQueueing = taskQueueing;
-            o.transferMode = transferMode;
-            o.uid = uid;
-            o.verifyMode = verifyMode;
-            return o;
+            final var _resultValue = new TaskOptions();
+            _resultValue.atime = atime;
+            _resultValue.bytesPerSecond = bytesPerSecond;
+            _resultValue.gid = gid;
+            _resultValue.logLevel = logLevel;
+            _resultValue.mtime = mtime;
+            _resultValue.objectTags = objectTags;
+            _resultValue.overwriteMode = overwriteMode;
+            _resultValue.posixPermissions = posixPermissions;
+            _resultValue.preserveDeletedFiles = preserveDeletedFiles;
+            _resultValue.preserveDevices = preserveDevices;
+            _resultValue.securityDescriptorCopyFlags = securityDescriptorCopyFlags;
+            _resultValue.taskQueueing = taskQueueing;
+            _resultValue.transferMode = transferMode;
+            _resultValue.uid = uid;
+            _resultValue.verifyMode = verifyMode;
+            return _resultValue;
         }
     }
 }

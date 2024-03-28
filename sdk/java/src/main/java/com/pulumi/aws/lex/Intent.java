@@ -29,6 +29,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -64,11 +65,11 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .createVersion(false)
+ *             .name(&#34;OrderFlowers&#34;)
  *             .description(&#34;Intent to order a bouquet of flowers for pick up&#34;)
  *             .fulfillmentActivity(IntentFulfillmentActivityArgs.builder()
  *                 .type(&#34;ReturnIntent&#34;)
  *                 .build())
- *             .name(&#34;OrderFlowers&#34;)
  *             .rejectionStatement(IntentRejectionStatementArgs.builder()
  *                 .messages(IntentRejectionStatementMessageArgs.builder()
  *                     .content(&#34;Okay, I will not place your order.&#34;)
@@ -86,10 +87,13 @@ import javax.annotation.Nullable;
  *                     .sampleUtterances(&#34;I would like to order {FlowerType}&#34;)
  *                     .slotConstraint(&#34;Required&#34;)
  *                     .slotType(&#34;FlowerTypes&#34;)
- *                     .slotTypeVersion(&#34;$LATEST&#34;)
+ *                     .slotTypeVersion(&#34;$$LATEST&#34;)
  *                     .valueElicitationPrompt(IntentSlotValueElicitationPromptArgs.builder()
  *                         .maxAttempts(2)
- *                         .message(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                         .messages(IntentSlotValueElicitationPromptMessageArgs.builder()
+ *                             .content(&#34;What type of flowers would you like to order?&#34;)
+ *                             .contentType(&#34;PlainText&#34;)
+ *                             .build())
  *                         .build())
  *                     .build(),
  *                 IntentSlotArgs.builder()
@@ -99,10 +103,13 @@ import javax.annotation.Nullable;
  *                     .sampleUtterances(&#34;I would like to order {FlowerType}&#34;)
  *                     .slotConstraint(&#34;Required&#34;)
  *                     .slotType(&#34;AMAZON.DATE&#34;)
- *                     .slotTypeVersion(&#34;$LATEST&#34;)
+ *                     .slotTypeVersion(&#34;$$LATEST&#34;)
  *                     .valueElicitationPrompt(IntentSlotValueElicitationPromptArgs.builder()
  *                         .maxAttempts(2)
- *                         .message(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                         .messages(IntentSlotValueElicitationPromptMessageArgs.builder()
+ *                             .content(&#34;What day do you want the {FlowerType} to be picked up?&#34;)
+ *                             .contentType(&#34;PlainText&#34;)
+ *                             .build())
  *                         .build())
  *                     .build(),
  *                 IntentSlotArgs.builder()
@@ -112,10 +119,13 @@ import javax.annotation.Nullable;
  *                     .sampleUtterances(&#34;I would like to order {FlowerType}&#34;)
  *                     .slotConstraint(&#34;Required&#34;)
  *                     .slotType(&#34;AMAZON.TIME&#34;)
- *                     .slotTypeVersion(&#34;$LATEST&#34;)
+ *                     .slotTypeVersion(&#34;$$LATEST&#34;)
  *                     .valueElicitationPrompt(IntentSlotValueElicitationPromptArgs.builder()
  *                         .maxAttempts(2)
- *                         .message(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                         .messages(IntentSlotValueElicitationPromptMessageArgs.builder()
+ *                             .content(&#34;Pick up the {FlowerType} at what time on {PickupDate}?&#34;)
+ *                             .contentType(&#34;PlainText&#34;)
+ *                             .build())
  *                         .build())
  *                     .build())
  *             .build());
@@ -123,13 +133,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import intents using their name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
+ * $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
  * ```
  * 
  */

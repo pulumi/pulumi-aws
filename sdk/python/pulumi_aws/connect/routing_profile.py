@@ -326,14 +326,16 @@ class RoutingProfile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.RoutingProfile("example",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="example",
             default_outbound_queue_id="12345678-1234-1234-1234-123456789012",
             description="example description",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             media_concurrencies=[aws.connect.RoutingProfileMediaConcurrencyArgs(
                 channel="VOICE",
                 concurrency=1,
@@ -348,13 +350,14 @@ class RoutingProfile(pulumi.CustomResource):
                 "Name": "Example Routing Profile",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Connect Routing Profiles using the `instance_id` and `routing_profile_id` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+        $ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
         ```
 
         :param str resource_name: The name of the resource.
@@ -380,14 +383,16 @@ class RoutingProfile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.RoutingProfile("example",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="example",
             default_outbound_queue_id="12345678-1234-1234-1234-123456789012",
             description="example description",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             media_concurrencies=[aws.connect.RoutingProfileMediaConcurrencyArgs(
                 channel="VOICE",
                 concurrency=1,
@@ -402,13 +407,14 @@ class RoutingProfile(pulumi.CustomResource):
                 "Name": "Example Routing Profile",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Connect Routing Profiles using the `instance_id` and `routing_profile_id` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+        $ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
         ```
 
         :param str resource_name: The name of the resource.
@@ -460,8 +466,6 @@ class RoutingProfile(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["routing_profile_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(RoutingProfile, __self__).__init__(
             'aws:connect/routingProfile:RoutingProfile',
             resource_name,

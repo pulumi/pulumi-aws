@@ -9,6 +9,7 @@ import com.pulumi.aws.transfer.outputs.WorkflowStepDecryptStepDetails;
 import com.pulumi.aws.transfer.outputs.WorkflowStepDeleteStepDetails;
 import com.pulumi.aws.transfer.outputs.WorkflowStepTagStepDetails;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -119,43 +120,51 @@ public final class WorkflowStep {
 
         @CustomType.Setter
         public Builder copyStepDetails(@Nullable WorkflowStepCopyStepDetails copyStepDetails) {
+
             this.copyStepDetails = copyStepDetails;
             return this;
         }
         @CustomType.Setter
         public Builder customStepDetails(@Nullable WorkflowStepCustomStepDetails customStepDetails) {
+
             this.customStepDetails = customStepDetails;
             return this;
         }
         @CustomType.Setter
         public Builder decryptStepDetails(@Nullable WorkflowStepDecryptStepDetails decryptStepDetails) {
+
             this.decryptStepDetails = decryptStepDetails;
             return this;
         }
         @CustomType.Setter
         public Builder deleteStepDetails(@Nullable WorkflowStepDeleteStepDetails deleteStepDetails) {
+
             this.deleteStepDetails = deleteStepDetails;
             return this;
         }
         @CustomType.Setter
         public Builder tagStepDetails(@Nullable WorkflowStepTagStepDetails tagStepDetails) {
+
             this.tagStepDetails = tagStepDetails;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("WorkflowStep", "type");
+            }
+            this.type = type;
             return this;
         }
         public WorkflowStep build() {
-            final var o = new WorkflowStep();
-            o.copyStepDetails = copyStepDetails;
-            o.customStepDetails = customStepDetails;
-            o.decryptStepDetails = decryptStepDetails;
-            o.deleteStepDetails = deleteStepDetails;
-            o.tagStepDetails = tagStepDetails;
-            o.type = type;
-            return o;
+            final var _resultValue = new WorkflowStep();
+            _resultValue.copyStepDetails = copyStepDetails;
+            _resultValue.customStepDetails = customStepDetails;
+            _resultValue.decryptStepDetails = decryptStepDetails;
+            _resultValue.deleteStepDetails = deleteStepDetails;
+            _resultValue.tagStepDetails = tagStepDetails;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

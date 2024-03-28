@@ -367,24 +367,26 @@ class Schema(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Schema("example",
             schema_name="example",
-            registry_arn=aws_glue_registry["test"]["arn"],
+            registry_arn=test["arn"],
             data_format="AVRO",
             compatibility="NONE",
             schema_definition="{\\"type\\": \\"record\\", \\"name\\": \\"r1\\", \\"fields\\": [ {\\"name\\": \\"f1\\", \\"type\\": \\"int\\"}, {\\"name\\": \\"f2\\", \\"type\\": \\"string\\"} ]}")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Registries using `arn`. For example:
 
         ```sh
-         $ pulumi import aws:glue/schema:Schema example arn:aws:glue:us-west-2:123456789012:schema/example/example
+        $ pulumi import aws:glue/schema:Schema example arn:aws:glue:us-west-2:123456789012:schema/example/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -408,24 +410,26 @@ class Schema(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Schema("example",
             schema_name="example",
-            registry_arn=aws_glue_registry["test"]["arn"],
+            registry_arn=test["arn"],
             data_format="AVRO",
             compatibility="NONE",
             schema_definition="{\\"type\\": \\"record\\", \\"name\\": \\"r1\\", \\"fields\\": [ {\\"name\\": \\"f1\\", \\"type\\": \\"int\\"}, {\\"name\\": \\"f2\\", \\"type\\": \\"string\\"} ]}")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Registries using `arn`. For example:
 
         ```sh
-         $ pulumi import aws:glue/schema:Schema example arn:aws:glue:us-west-2:123456789012:schema/example/example
+        $ pulumi import aws:glue/schema:Schema example arn:aws:glue:us-west-2:123456789012:schema/example/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -480,8 +484,6 @@ class Schema(pulumi.CustomResource):
             __props__.__dict__["registry_name"] = None
             __props__.__dict__["schema_checkpoint"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Schema, __self__).__init__(
             'aws:glue/schema:Schema',
             resource_name,

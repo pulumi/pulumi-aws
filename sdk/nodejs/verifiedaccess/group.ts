@@ -2,20 +2,26 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Resource for managing a Verified Access Group.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.verifiedaccess.Group("example", {verifiedaccessInstanceId: aws_verifiedaccess_instance.example.id});
+ * const example = new aws.verifiedaccess.Group("example", {verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class Group extends pulumi.CustomResource {
     /**
@@ -65,7 +71,14 @@ export class Group extends pulumi.CustomResource {
      * AWS account number owning this resource.
      */
     public /*out*/ readonly owner!: pulumi.Output<string>;
+    /**
+     * The policy document that is associated with this resource.
+     */
     public readonly policyDocument!: pulumi.Output<string | undefined>;
+    /**
+     * Configuration block to use KMS keys for server-side encryption.
+     */
+    public readonly sseConfiguration!: pulumi.Output<outputs.verifiedaccess.GroupSseConfiguration>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -108,6 +121,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
             resourceInputs["owner"] = state ? state.owner : undefined;
             resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
+            resourceInputs["sseConfiguration"] = state ? state.sseConfiguration : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["verifiedaccessGroupArn"] = state ? state.verifiedaccessGroupArn : undefined;
@@ -120,6 +134,7 @@ export class Group extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
+            resourceInputs["sseConfiguration"] = args ? args.sseConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["verifiedaccessInstanceId"] = args ? args.verifiedaccessInstanceId : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
@@ -131,8 +146,6 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["verifiedaccessGroupId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Group.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -161,7 +174,14 @@ export interface GroupState {
      * AWS account number owning this resource.
      */
     owner?: pulumi.Input<string>;
+    /**
+     * The policy document that is associated with this resource.
+     */
     policyDocument?: pulumi.Input<string>;
+    /**
+     * Configuration block to use KMS keys for server-side encryption.
+     */
+    sseConfiguration?: pulumi.Input<inputs.verifiedaccess.GroupSseConfiguration>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -194,7 +214,14 @@ export interface GroupArgs {
      * Description of the verified access group.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The policy document that is associated with this resource.
+     */
     policyDocument?: pulumi.Input<string>;
+    /**
+     * Configuration block to use KMS keys for server-side encryption.
+     */
+    sseConfiguration?: pulumi.Input<inputs.verifiedaccess.GroupSseConfiguration>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

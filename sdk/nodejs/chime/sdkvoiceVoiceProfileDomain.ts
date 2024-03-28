@@ -11,19 +11,22 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Chime SDK Voice Profile Domain.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {
+ * const example = new aws.kms.Key("example", {
  *     description: "KMS Key for Voice Profile Domain",
  *     deletionWindowInDays: 7,
  * });
- * const exampleSdkvoiceVoiceProfileDomain = new aws.chime.SdkvoiceVoiceProfileDomain("exampleSdkvoiceVoiceProfileDomain", {
+ * const exampleSdkvoiceVoiceProfileDomain = new aws.chime.SdkvoiceVoiceProfileDomain("example", {
+ *     name: "ExampleVoiceProfileDomain",
  *     serverSideEncryptionConfiguration: {
- *         kmsKeyArn: exampleKey.arn,
+ *         kmsKeyArn: example.arn,
  *     },
  *     description: "My Voice Profile Domain",
  *     tags: {
@@ -31,13 +34,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AWS Chime SDK Voice Profile Domain using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
+ * $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
  * ```
  */
 export class SdkvoiceVoiceProfileDomain extends pulumi.CustomResource {
@@ -122,8 +126,6 @@ export class SdkvoiceVoiceProfileDomain extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SdkvoiceVoiceProfileDomain.__pulumiType, name, resourceInputs, opts);
     }
 }

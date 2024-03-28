@@ -4,6 +4,7 @@
 package com.pulumi.aws.macie.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -143,6 +144,7 @@ public final class FindingsFilterFindingCriteriaCriterion {
 
         @CustomType.Setter
         public Builder eqExactMatches(@Nullable List<String> eqExactMatches) {
+
             this.eqExactMatches = eqExactMatches;
             return this;
         }
@@ -151,6 +153,7 @@ public final class FindingsFilterFindingCriteriaCriterion {
         }
         @CustomType.Setter
         public Builder eqs(@Nullable List<String> eqs) {
+
             this.eqs = eqs;
             return this;
         }
@@ -159,31 +162,39 @@ public final class FindingsFilterFindingCriteriaCriterion {
         }
         @CustomType.Setter
         public Builder field(String field) {
-            this.field = Objects.requireNonNull(field);
+            if (field == null) {
+              throw new MissingRequiredPropertyException("FindingsFilterFindingCriteriaCriterion", "field");
+            }
+            this.field = field;
             return this;
         }
         @CustomType.Setter
         public Builder gt(@Nullable String gt) {
+
             this.gt = gt;
             return this;
         }
         @CustomType.Setter
         public Builder gte(@Nullable String gte) {
+
             this.gte = gte;
             return this;
         }
         @CustomType.Setter
         public Builder lt(@Nullable String lt) {
+
             this.lt = lt;
             return this;
         }
         @CustomType.Setter
         public Builder lte(@Nullable String lte) {
+
             this.lte = lte;
             return this;
         }
         @CustomType.Setter
         public Builder neqs(@Nullable List<String> neqs) {
+
             this.neqs = neqs;
             return this;
         }
@@ -191,16 +202,16 @@ public final class FindingsFilterFindingCriteriaCriterion {
             return neqs(List.of(neqs));
         }
         public FindingsFilterFindingCriteriaCriterion build() {
-            final var o = new FindingsFilterFindingCriteriaCriterion();
-            o.eqExactMatches = eqExactMatches;
-            o.eqs = eqs;
-            o.field = field;
-            o.gt = gt;
-            o.gte = gte;
-            o.lt = lt;
-            o.lte = lte;
-            o.neqs = neqs;
-            return o;
+            final var _resultValue = new FindingsFilterFindingCriteriaCriterion();
+            _resultValue.eqExactMatches = eqExactMatches;
+            _resultValue.eqs = eqs;
+            _resultValue.field = field;
+            _resultValue.gt = gt;
+            _resultValue.gte = gte;
+            _resultValue.lt = lt;
+            _resultValue.lte = lte;
+            _resultValue.neqs = neqs;
+            return _resultValue;
         }
     }
 }

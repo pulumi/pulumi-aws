@@ -19,7 +19,10 @@ import javax.annotation.Nullable;
  * Manages SAML authentication options for an AWS Elasticsearch Domain.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,7 +50,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
+ *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
+ *             .domainName(&#34;example&#34;)
  *             .elasticsearchVersion(&#34;1.5&#34;)
  *             .clusterConfig(DomainClusterConfigArgs.builder()
  *                 .instanceType(&#34;r4.large.elasticsearch&#34;)
@@ -59,12 +63,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDomainSamlOptions = new DomainSamlOptions(&#34;exampleDomainSamlOptions&#34;, DomainSamlOptionsArgs.builder()        
- *             .domainName(exampleDomain.domainName())
+ *             .domainName(example.domainName())
  *             .samlOptions(DomainSamlOptionsSamlOptionsArgs.builder()
  *                 .enabled(true)
  *                 .idp(DomainSamlOptionsSamlOptionsIdpArgs.builder()
  *                     .entityId(&#34;https://example.com&#34;)
- *                     .metadataContent(Files.readString(Paths.get(&#34;./saml-metadata.xml&#34;)))
+ *                     .metadataContent(StdFunctions.file(FileArgs.builder()
+ *                         .input(&#34;./saml-metadata.xml&#34;)
+ *                         .build()).result())
  *                     .build())
  *                 .build())
  *             .build());
@@ -72,13 +78,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:elasticsearch/domainSamlOptions:DomainSamlOptions example domain_name
+ * $ pulumi import aws:elasticsearch/domainSamlOptions:DomainSamlOptions example domain_name
  * ```
  * 
  */

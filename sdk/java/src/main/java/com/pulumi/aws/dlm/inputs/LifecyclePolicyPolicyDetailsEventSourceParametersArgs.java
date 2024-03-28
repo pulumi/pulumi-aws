@@ -5,6 +5,7 @@ package com.pulumi.aws.dlm.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -159,9 +160,15 @@ public final class LifecyclePolicyPolicyDetailsEventSourceParametersArgs extends
         }
 
         public LifecyclePolicyPolicyDetailsEventSourceParametersArgs build() {
-            $.descriptionRegex = Objects.requireNonNull($.descriptionRegex, "expected parameter 'descriptionRegex' to be non-null");
-            $.eventType = Objects.requireNonNull($.eventType, "expected parameter 'eventType' to be non-null");
-            $.snapshotOwners = Objects.requireNonNull($.snapshotOwners, "expected parameter 'snapshotOwners' to be non-null");
+            if ($.descriptionRegex == null) {
+                throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailsEventSourceParametersArgs", "descriptionRegex");
+            }
+            if ($.eventType == null) {
+                throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailsEventSourceParametersArgs", "eventType");
+            }
+            if ($.snapshotOwners == null) {
+                throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailsEventSourceParametersArgs", "snapshotOwners");
+            }
             return $;
         }
     }

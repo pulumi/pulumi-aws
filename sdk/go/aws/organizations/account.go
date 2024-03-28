@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,6 +34,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := organizations.NewAccount(ctx, "account", &organizations.AccountArgs{
+//				Name:  pulumi.String("my_new_account"),
 //				Email: pulumi.String("john@doe.org"),
 //			})
 //			if err != nil {
@@ -43,18 +45,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import the AWS member account using the `account_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:organizations/account:Account my_account 111111111111
-//
+// $ pulumi import aws:organizations/account:Account my_account 111111111111
 // ```
-//
-//	Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+// Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 type Account struct {
 	pulumi.CustomResourceState
 
@@ -99,10 +99,6 @@ func NewAccount(ctx *pulumi.Context,
 	if args.Email == nil {
 		return nil, errors.New("invalid value for required argument 'Email'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Account
 	err := ctx.RegisterResource("aws:organizations/account:Account", name, args, &resource, opts...)

@@ -18,7 +18,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS SSM Contacts Contact Channel.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,13 +49,18 @@ import javax.annotation.Nullable;
  *             .deliveryAddress(ContactChannelDeliveryAddressArgs.builder()
  *                 .simpleAddress(&#34;email@example.com&#34;)
  *                 .build())
+ *             .name(&#34;Example contact channel&#34;)
  *             .type(&#34;EMAIL&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Usage with SSM Contact
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -87,19 +95,21 @@ import javax.annotation.Nullable;
  *             .deliveryAddress(ContactChannelDeliveryAddressArgs.builder()
  *                 .simpleAddress(&#34;email@example.com&#34;)
  *                 .build())
+ *             .name(&#34;Example contact channel&#34;)
  *             .type(&#34;EMAIL&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SSM Contact Channel using the `ARN`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ssmcontacts/contactChannel:ContactChannel example arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example
+ * $ pulumi import aws:ssmcontacts/contactChannel:ContactChannel example arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example
  * ```
  * 
  */

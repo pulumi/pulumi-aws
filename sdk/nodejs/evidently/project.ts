@@ -11,63 +11,75 @@ import * as utilities from "../utilities";
  * Provides a CloudWatch Evidently Project resource.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Project("example", {
+ *     name: "Example",
  *     description: "Example Description",
  *     tags: {
  *         Key1: "example Project",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Store evaluation events in a CloudWatch Log Group
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Project("example", {
+ *     name: "Example",
+ *     description: "Example Description",
  *     dataDelivery: {
  *         cloudwatchLogs: {
  *             logGroup: "example-log-group-name",
  *         },
  *     },
- *     description: "Example Description",
  *     tags: {
  *         Key1: "example Project",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Store evaluation events in an S3 bucket
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Project("example", {
+ *     name: "Example",
+ *     description: "Example Description",
  *     dataDelivery: {
  *         s3Destination: {
  *             bucket: "example-bucket-name",
  *             prefix: "example",
  *         },
  *     },
- *     description: "Example Description",
  *     tags: {
  *         Key1: "example Project",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CloudWatch Evidently Project using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:evidently/project:Project example arn:aws:evidently:us-east-1:123456789012:segment/example
+ * $ pulumi import aws:evidently/project:Project example arn:aws:evidently:us-east-1:123456789012:segment/example
  * ```
  */
 export class Project extends pulumi.CustomResource {
@@ -202,8 +214,6 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Project.__pulumiType, name, resourceInputs, opts);
     }
 }

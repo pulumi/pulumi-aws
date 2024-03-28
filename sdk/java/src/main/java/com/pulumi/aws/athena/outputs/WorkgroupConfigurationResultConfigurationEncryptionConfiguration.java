@@ -58,19 +58,21 @@ public final class WorkgroupConfigurationResultConfigurationEncryptionConfigurat
 
         @CustomType.Setter
         public Builder encryptionOption(@Nullable String encryptionOption) {
+
             this.encryptionOption = encryptionOption;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
+
             this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         public WorkgroupConfigurationResultConfigurationEncryptionConfiguration build() {
-            final var o = new WorkgroupConfigurationResultConfigurationEncryptionConfiguration();
-            o.encryptionOption = encryptionOption;
-            o.kmsKeyArn = kmsKeyArn;
-            return o;
+            final var _resultValue = new WorkgroupConfigurationResultConfigurationEncryptionConfiguration();
+            _resultValue.encryptionOption = encryptionOption;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            return _resultValue;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,9 +23,10 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testGraphQLApi = new Aws.AppSync.GraphQLApi("testGraphQLApi", new()
+    ///     var test = new Aws.AppSync.GraphQLApi("test", new()
     ///     {
     ///         AuthenticationType = "API_KEY",
+    ///         Name = "tf-example",
     ///         Schema = @"type Mutation {
     /// 	putPost(id: ID!, title: String!): Post
     /// }
@@ -45,9 +47,9 @@ namespace Pulumi.Aws.AppSync
     /// ",
     ///     });
     /// 
-    ///     var testDataSource = new Aws.AppSync.DataSource("testDataSource", new()
+    ///     var testDataSource = new Aws.AppSync.DataSource("test", new()
     ///     {
-    ///         ApiId = testGraphQLApi.Id,
+    ///         ApiId = test.Id,
     ///         Name = "my_example",
     ///         Type = "HTTP",
     ///         HttpConfig = new Aws.AppSync.Inputs.DataSourceHttpConfigArgs
@@ -57,9 +59,9 @@ namespace Pulumi.Aws.AppSync
     ///     });
     /// 
     ///     // UNIT type resolver (default)
-    ///     var testResolver = new Aws.AppSync.Resolver("testResolver", new()
+    ///     var testResolver = new Aws.AppSync.Resolver("test", new()
     ///     {
-    ///         ApiId = testGraphQLApi.Id,
+    ///         ApiId = test.Id,
     ///         Field = "singlePost",
     ///         Type = "Query",
     ///         DataSource = testDataSource.Name,
@@ -90,10 +92,10 @@ namespace Pulumi.Aws.AppSync
     ///     });
     /// 
     ///     // PIPELINE type resolver
-    ///     var mutationPipelineTest = new Aws.AppSync.Resolver("mutationPipelineTest", new()
+    ///     var mutationPipelineTest = new Aws.AppSync.Resolver("Mutation_pipelineTest", new()
     ///     {
     ///         Type = "Mutation",
-    ///         ApiId = testGraphQLApi.Id,
+    ///         ApiId = test.Id,
     ///         Field = "pipelineTest",
     ///         RequestTemplate = "{}",
     ///         ResponseTemplate = "$util.toJson($ctx.result)",
@@ -102,33 +104,39 @@ namespace Pulumi.Aws.AppSync
     ///         {
     ///             Functions = new[]
     ///             {
-    ///                 aws_appsync_function.Test1.Function_id,
-    ///                 aws_appsync_function.Test2.Function_id,
-    ///                 aws_appsync_function.Test3.Function_id,
+    ///                 test1.FunctionId,
+    ///                 test2.FunctionId,
+    ///                 test3.FunctionId,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### JS
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Aws.AppSync.Resolver("example", new()
     ///     {
     ///         Type = "Query",
-    ///         ApiId = aws_appsync_graphql_api.Test.Id,
+    ///         ApiId = testAwsAppsyncGraphqlApi.Id,
     ///         Field = "pipelineTest",
     ///         Kind = "PIPELINE",
-    ///         Code = File.ReadAllText("some-code-dir"),
+    ///         Code = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "some-code-dir",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Runtime = new Aws.AppSync.Inputs.ResolverRuntimeArgs
     ///         {
     ///             Name = "APPSYNC_JS",
@@ -138,20 +146,21 @@ namespace Pulumi.Aws.AppSync
     ///         {
     ///             Functions = new[]
     ///             {
-    ///                 aws_appsync_function.Test.Function_id,
+    ///                 test.FunctionId,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
+    /// $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
     /// ```
     /// </summary>
     [AwsResourceType("aws:appsync/resolver:Resolver")]

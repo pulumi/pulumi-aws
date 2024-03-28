@@ -7,6 +7,7 @@ import com.pulumi.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnect
 import com.pulumi.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -152,7 +153,9 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
         }
 
         public FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs build() {
-            $.prefixConfig = Objects.requireNonNull($.prefixConfig, "expected parameter 'prefixConfig' to be non-null");
+            if ($.prefixConfig == null) {
+                throw new MissingRequiredPropertyException("FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs", "prefixConfig");
+            }
             return $;
         }
     }

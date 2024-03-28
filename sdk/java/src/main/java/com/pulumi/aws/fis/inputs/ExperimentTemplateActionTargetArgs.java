@@ -5,6 +5,7 @@ package com.pulumi.aws.fis.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -14,14 +15,14 @@ public final class ExperimentTemplateActionTargetArgs extends com.pulumi.resourc
     public static final ExperimentTemplateActionTargetArgs Empty = new ExperimentTemplateActionTargetArgs();
 
     /**
-     * Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Volumes` (EBS Volumes) , `Pods` (EKS Pods), `Tasks` (ECS Tasks). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
+     * Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Volumes` (EBS Volumes) , `Pods` (EKS Pods), `Tasks` (ECS Tasks). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
+     * @return Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
      * 
      */
     public Output<String> key() {
@@ -69,7 +70,7 @@ public final class ExperimentTemplateActionTargetArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param key Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Volumes` (EBS Volumes) , `Pods` (EKS Pods), `Tasks` (ECS Tasks). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
+         * @param key Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
          * 
          * @return builder
          * 
@@ -80,7 +81,7 @@ public final class ExperimentTemplateActionTargetArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param key Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Volumes` (EBS Volumes) , `Pods` (EKS Pods), `Tasks` (ECS Tasks). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
+         * @param key Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
          * 
          * @return builder
          * 
@@ -111,8 +112,12 @@ public final class ExperimentTemplateActionTargetArgs extends com.pulumi.resourc
         }
 
         public ExperimentTemplateActionTargetArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("ExperimentTemplateActionTargetArgs", "key");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("ExperimentTemplateActionTargetArgs", "value");
+            }
             return $;
         }
     }

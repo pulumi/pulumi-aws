@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS VPC Lattice Service Network or Service Access log subscription.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,8 +32,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.NewAccessLogSubscription(ctx, "example", &vpclattice.AccessLogSubscriptionArgs{
-//				ResourceIdentifier: pulumi.Any(aws_vpclattice_service_network.Example.Id),
-//				DestinationArn:     pulumi.Any(aws_s3.Bucket.Arn),
+//				ResourceIdentifier: pulumi.Any(exampleAwsVpclatticeServiceNetwork.Id),
+//				DestinationArn:     pulumi.Any(bucket.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -41,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import VPC Lattice Access Log Subscription using the access log subscription ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
-//
+// $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
 // ```
 type AccessLogSubscription struct {
 	pulumi.CustomResourceState
@@ -80,10 +81,6 @@ func NewAccessLogSubscription(ctx *pulumi.Context,
 	if args.ResourceIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceIdentifier'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccessLogSubscription
 	err := ctx.RegisterResource("aws:vpclattice/accessLogSubscription:AccessLogSubscription", name, args, &resource, opts...)

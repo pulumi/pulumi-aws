@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testLb, err := lightsail.NewLb(ctx, "testLb", &lightsail.LbArgs{
+//			test, err := lightsail.NewLb(ctx, "test", &lightsail.LbArgs{
+//				Name:            pulumi.String("test-load-balancer"),
 //				HealthCheckPath: pulumi.String("/"),
 //				InstancePort:    pulumi.Int(80),
 //				Tags: pulumi.StringMap{
@@ -38,22 +40,23 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testLbCertificate, err := lightsail.NewLbCertificate(ctx, "testLbCertificate", &lightsail.LbCertificateArgs{
-//				LbName:     testLb.ID(),
+//			testLbCertificate, err := lightsail.NewLbCertificate(ctx, "test", &lightsail.LbCertificateArgs{
+//				Name:       pulumi.String("test-load-balancer-certificate"),
+//				LbName:     test.ID(),
 //				DomainName: pulumi.String("test.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lightsail.NewLbCertificateAttachment(ctx, "testLbCertificateAttachment", &lightsail.LbCertificateAttachmentArgs{
-//				LbName:          testLb.Name,
+//			_, err = lightsail.NewLbCertificateAttachment(ctx, "test", &lightsail.LbCertificateAttachmentArgs{
+//				LbName:          test.Name,
 //				CertificateName: testLbCertificate.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lightsail.NewLbHttpsRedirectionPolicy(ctx, "testLbHttpsRedirectionPolicy", &lightsail.LbHttpsRedirectionPolicyArgs{
-//				LbName:  testLb.Name,
+//			_, err = lightsail.NewLbHttpsRedirectionPolicy(ctx, "test", &lightsail.LbHttpsRedirectionPolicyArgs{
+//				LbName:  test.Name,
 //				Enabled: pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -64,15 +67,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_lightsail_lb_https_redirection_policy` using the `lb_name` attribute. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy test example-load-balancer
-//
+// $ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy test example-load-balancer
 // ```
 type LbHttpsRedirectionPolicy struct {
 	pulumi.CustomResourceState
